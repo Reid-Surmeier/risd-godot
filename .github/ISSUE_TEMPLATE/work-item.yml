@@ -1,0 +1,48 @@
+name: Work item
+description: A feature, module change, investigation, or chore
+title: "[Work]: "
+labels:
+  - needs-triage
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Problem or desired outcome
+    validations:
+      required: true
+  - type: textarea
+    id: modules
+    attributes:
+      label: Modules involved
+      description: Name the modules. Does this change a frozen file (interface, errors, acceptance tests) or a seam? Say which.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: |
+        - [ ] ...
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope (in / out)
+      placeholder: |
+        In scope:
+        Out of scope:
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: Commands, images, or human checks that prove completion.
+    validations:
+      required: true
+  - type: textarea
+    id: approvals
+    attributes:
+      label: Dependencies and human approvals
+      description: Secrets, paid actions, external side effects.

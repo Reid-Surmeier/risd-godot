@@ -1,0 +1,44 @@
+name: Bug report
+description: Reproducible incorrect behavior
+title: "[Bug]: "
+labels:
+  - needs-triage
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and evidence
+      description: Logs, images, hashes. Never a secret.
+    validations:
+      required: true
+  - type: textarea
+    id: module
+    attributes:
+      label: Module
+      description: Which module's interface or implementation is wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
