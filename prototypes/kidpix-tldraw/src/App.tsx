@@ -62,7 +62,7 @@ const SIZE_OPTIONS: Array<{ value: TLDefaultSizeStyle; label: string }> = [
 
 function readVariant(): VariantKey {
   const candidate = new URLSearchParams(window.location.search).get('variant')?.toUpperCase()
-  return candidate === 'A' || candidate === 'B' || candidate === 'C' ? candidate : 'C'
+  return candidate === 'A' || candidate === 'B' || candidate === 'C' ? candidate : 'A'
 }
 
 function usePrototypeState() {
@@ -183,14 +183,6 @@ function DrawingCanvas({ variant, onEditorReady, onPointer, tool, pencilSize, cl
           style={{ left: pointer.x, top: pointer.y, height: pencilSize }}
         />
       )}
-      {pointer.visible && pointer.down && (
-        <span
-          className="pencil-spark"
-          data-testid="pencil-spark"
-          aria-hidden="true"
-          style={{ left: pointer.x, top: pointer.y }}
-        />
-      )}
     </div>
   )
 }
@@ -264,7 +256,7 @@ function DrawingControls({ state, chooseTool, chooseColor, chooseSize, choosePen
   )
 }
 
-function StateReadout({ variant, state }: { variant: VariantKey; state: PrototypeState }) {
+function StateReadout({ variant, state, spread }: { variant: VariantKey; state: PrototypeState; spread?: number }) {
   return (
     <output className="state-readout" data-testid="state-readout">
       <strong>Prototype state</strong>
@@ -274,6 +266,7 @@ function StateReadout({ variant, state }: { variant: VariantKey; state: Prototyp
       <span>size: {state.size}</span>
       <span>pencil: {state.pencilSize}px</span>
       <span>strokes: {state.strokes}</span>
+      {spread !== undefined && <span>spread: {String(spread).padStart(2, '0')}</span>}
       <span>pointer: {state.pointer.visible ? state.pointer.pointerType : 'outside'}</span>
       <span>down: {String(state.pointer.down)}</span>
       <span>pressure: {state.pointer.pressure.toFixed(2)}</span>
@@ -283,6 +276,20 @@ function StateReadout({ variant, state }: { variant: VariantKey; state: Prototyp
 
 function VariantA() {
   const prototype = usePrototypeState()
+  const [spread, setSpread] = useState(1)
+  const [turnDirection, setTurnDirection] = useState<'forward' | 'backward' | null>(null)
+
+  const turnPage = (direction: 'forward' | 'backward') => {
+    if (turnDirection || (direction === 'backward' && spread === 1)) return
+    setTurnDirection(direction)
+    const duration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 400
+    window.setTimeout(() => {
+      prototype.clear()
+      setSpread((current) => Math.max(1, current + (direction === 'forward' ? 1 : -1)))
+      setTurnDirection(null)
+    }, duration)
+  }
+
   return (
     <main className="variant-layout kidpix-layout" data-variant="A" data-testid="variant-A">
       <header className="kidpix-menubar">
@@ -294,16 +301,57 @@ function VariantA() {
         <aside className="kidpix-tray">
           <h1>Sketchbook</h1>
           <DrawingControls {...prototype} />
-          <StateReadout variant="A" state={prototype.state} />
+          <StateReadout variant="A" state={prototype.state} spread={spread} />
         </aside>
-        <section className="kidpix-paper-frame">
-          <DrawingCanvas
-            variant="A"
-            tool={prototype.state.tool}
-            pencilSize={prototype.state.pencilSize}
-            onEditorReady={prototype.onEditorReady}
-            onPointer={(pointer) => prototype.patch({ pointer })}
-          />
+        <section className="kidpix-paper-frame" data-testid="book-drawing-stage">
+          <div className={`book-page-stage ${turnDirection ? 'is-turning' : ''}`}>
+            <img
+              className="book-page-image"
+              data-testid="sketchbook-page-image"
+              src={`${import.meta.env.BASE_URL}sketchbook-page-v004.png`}
+              alt="Blank top-down open cream Sketchbook with visible paper edges and center seam"
+            />
+            <div className="book-page-hitbox" data-testid="book-page-hitbox">
+              <DrawingCanvas
+                variant="A"
+                tool={prototype.state.tool}
+                pencilSize={prototype.state.pencilSize}
+                onEditorReady={prototype.onEditorReady}
+                onPointer={(pointer) => prototype.patch({ pointer })}
+              />
+            </div>
+            {turnDirection && (
+              <div
+                className={`book-page-flip is-${turnDirection}`}
+                data-testid="book-page-flip"
+                aria-hidden="true"
+              >
+                <div className="book-page-face book-page-front" />
+                <div className="book-page-face book-page-back" />
+              </div>
+            )}
+            <button
+              className="page-turn page-turn-previous"
+              data-testid="previous-page"
+              disabled={spread === 1 || turnDirection !== null}
+              onClick={() => turnPage('backward')}
+              aria-label="Previous spread"
+            >
+              ‹
+            </button>
+            <button
+              className="page-turn page-turn-next"
+              data-testid="next-page"
+              disabled={turnDirection !== null}
+              onClick={() => turnPage('forward')}
+              aria-label="Next spread"
+            >
+              ›
+            </button>
+            <span className="spread-label" data-testid="spread-label" role="status" aria-live="polite">
+              SPREAD {String(spread).padStart(2, '0')}
+            </span>
+          </div>
         </section>
       </div>
     </main>

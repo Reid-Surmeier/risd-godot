@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test'
-import { mkdir } from 'node:fs/promises'
+import { createHash } from 'node:crypto'
+import { mkdir, readFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 
 const evidenceDirectory = fileURLToPath(new URL('../../../artifacts/prototypes/kidpix-tldraw/screenshots/', import.meta.url))
@@ -36,11 +37,69 @@ test.beforeAll(async () => {
   await mkdir(evidenceDirectory, { recursive: true })
 })
 
-test('defaults invalid or absent variants to hybrid C', async ({ page }) => {
+test('defaults invalid or absent variants to selected Sketchbook A', async ({ page }) => {
   await page.goto('./')
-  await expect(page.getByTestId('variant-C')).toBeVisible()
+  await expect(page.getByTestId('variant-A')).toBeVisible()
   await page.goto('./?variant=invalid')
-  await expect(page.getByTestId('variant-C')).toBeVisible()
+  await expect(page.getByTestId('variant-A')).toBeVisible()
+})
+
+test('uses the unmodified Qwen v004 candidate as the bounded drawing surface', async ({ page }) => {
+  const sourcePath = fileURLToPath(new URL('../public/sketchbook-page-v004.png', import.meta.url))
+  const provenancePath = fileURLToPath(new URL('../public/sketchbook-page-v004.provenance.json', import.meta.url))
+  const source = await readFile(sourcePath)
+  const provenance = JSON.parse(await readFile(provenancePath, 'utf8'))
+  const digest = createHash('sha256').update(source).digest('hex')
+  expect(digest).toBe('b96aa692d9c54da69a8c5f4ef7c70530b6607b66c70a94353b2e5dc0f13a9a5a')
+  expect(provenance.sha256).toBe(digest)
+  expect(provenance.pixel_treatment_after_import).toBe('none')
+  expect(provenance.owner_visual_approval).toBe('pending')
+
+  await page.goto('./?variant=A')
+  const book = page.getByTestId('sketchbook-page-image')
+  await expect(book).toBeVisible()
+  await expect(book).toHaveAttribute('src', /sketchbook-page-v004\.png$/)
+  const dimensions = await book.evaluate((image: HTMLImageElement) => ({
+    width: image.naturalWidth,
+    height: image.naturalHeight,
+  }))
+  expect(dimensions).toEqual({ width: 1024, height: 1024 })
+})
+
+test('draws only inside the cream page interior and has no sparkle effect', async ({ page }) => {
+  await page.goto('./?variant=A')
+  const stage = page.getByTestId('book-drawing-stage')
+  const box = await stage.boundingBox()
+  if (!box) throw new Error('book stage has no box')
+
+  await page.mouse.move(box.x + box.width * 0.5, box.y + box.height * 0.04)
+  await page.mouse.down()
+  await page.mouse.move(box.x + box.width * 0.62, box.y + box.height * 0.07, { steps: 5 })
+  await page.mouse.up()
+  await expect(page.getByTestId('state-readout')).toContainText('strokes: 0')
+  await expect(page.getByTestId('pencil-cursor')).toHaveCount(0)
+
+  await drawStroke(page)
+  await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
+  await expect(page.getByTestId('pencil-spark')).toHaveCount(0)
+  await page.screenshot({ path: `${evidenceDirectory}/variant-A-drawn.png`, fullPage: true })
+})
+
+test('turns forward and backward between fresh blank spreads', async ({ page }) => {
+  await page.goto('./?variant=A')
+  await drawStroke(page)
+  await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
+
+  await page.getByTestId('next-page').click()
+  await expect(page.getByTestId('book-page-flip')).toBeVisible()
+  await page.waitForTimeout(160)
+  await page.screenshot({ path: `${evidenceDirectory}/variant-A-page-flip.png`, fullPage: true })
+  await expect(page.getByTestId('spread-label')).toHaveText('SPREAD 02', { timeout: 2_000 })
+  await expect(page.getByTestId('state-readout')).toContainText('strokes: 0')
+
+  await page.getByTestId('previous-page').click()
+  await expect(page.getByTestId('spread-label')).toHaveText('SPREAD 01', { timeout: 2_000 })
+  await expect(page.getByTestId('previous-page')).toBeDisabled()
 })
 
 test('uses the complete Qwen Sketchbook final as a replayable opening state', async ({ page }) => {

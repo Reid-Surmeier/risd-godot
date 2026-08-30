@@ -4,9 +4,9 @@ Throwaway primary-source prototype for [Prototype: choose the RISD Sketchbook dr
 
 Question: which of three drawing surfaces should define the later native Godot interaction contract?
 
-- `A` — faithful Kid Pix fixed canvas
+- `A` — generated open-Sketchbook drawing surface, the selected default
 - `B` — modern tldraw studio
-- `C` — hybrid RISD floating Sketchbook window, the default
+- `C` — hybrid RISD floating Sketchbook window
 
 Run from the repository root:
 
@@ -22,7 +22,15 @@ Verify the interaction contract through Chromium:
 npm run prototype:kidpix:test
 ```
 
-The browser suite covers mouse and synthesized touch drawing, cursor hotspot alignment, real Draw-shape commits, functional eraser/undo/clear/color/thickness controls, window dragging, variant routing, in-memory reset, a 12-second dwell regression, and a 50-stroke endurance run.
+The browser suite covers the v004 image hash and dimensions, drawing clipped to the cream page interior, page turns, absence of the removed sparkle, mouse and synthesized touch drawing, cursor hotspot alignment, real Draw-shape commits, functional eraser/undo/clear/color/thickness controls, window dragging, variant routing, in-memory reset, a 12-second dwell regression, and a 50-stroke endurance run.
+
+## Selected Sketchbook surface and page turn
+
+Variant A places a transparent tldraw surface over the two cream page interiors in the raw Qwen v004 candidate. The exterior white field, stacked paper edge, and center seam remain visible generated pixels. Pointer input is structurally limited to the page hitbox, so dragging on the surrounding field or outer paper edge cannot create a shape.
+
+The **Previous spread** and **Next spread** controls run an independently authored 400 ms CSS hinge study. A completed turn clears the in-memory drawing and reveals a fresh numbered spread; page content is not persisted in this prototype. Reduced-motion mode swaps the spread immediately. The behavior research and source/license constraints are recorded in [`docs/research/internet-archive-page-flip.md`](../../docs/research/internet-archive-page-flip.md).
+
+`public/sketchbook-page-v004.png` is byte-identical to the Qwen run artifact. Its SHA-256, OpenRouter model, output count, cost estimate, and pending owner-approval state are recorded in `public/sketchbook-page-v004.provenance.json`. It is a prototype candidate, not an approved final asset.
 
 ## Qwen opening and pencil scale
 
@@ -30,7 +38,7 @@ Variant C begins with the complete Qwen Sketchbook v003 final, then crossfades i
 
 The Pencil slider changes only the cursor artwork from 96–240 px. The default is 160 px. Brush thickness remains a separate Stroke control, and resizing the cursor does not move its fixed graphite-tip hotspot.
 
-To change the allowed scale in code, edit the `min`, `max`, `step`, and initial `pencilSize` values in `src/App.tsx`. The CSS animations live in `src/styles.css`: `pencil-hover`, `pencil-press`, `spark-spin`, `window-arrive`, and `opening-sequence`. Every nonessential animation is disabled by `prefers-reduced-motion`.
+To change the allowed scale in code, edit the `min`, `max`, `step`, and initial `pencilSize` values in `src/App.tsx`. The CSS animations live in `src/styles.css`: `pencil-hover`, `pencil-press`, `page-turn-forward`, `page-turn-backward`, `window-arrive`, and `opening-sequence`. Every nonessential animation is disabled by `prefers-reduced-motion`.
 
 ## Tailnet development share
 

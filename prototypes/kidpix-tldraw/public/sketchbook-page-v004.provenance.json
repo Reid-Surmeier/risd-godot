@@ -1,0 +1,22 @@
+{
+  "classification": "prototype-candidate-pending-owner-review",
+  "source_repository": "Reid-Surmeier/figma-ui-ux-qwen-pipeline",
+  "source_issue": 139,
+  "source_path": "artifacts/runs/kidpix-sketchbook-v004/image-01.png",
+  "imported_path": "prototypes/kidpix-tldraw/public/sketchbook-page-v004.png",
+  "sha256": "b96aa692d9c54da69a8c5f4ef7c70530b6607b66c70a94353b2e5dc0f13a9a5a",
+  "dimensions": {
+    "width": 1024,
+    "height": 1024
+  },
+  "provider": "OpenRouter",
+  "model": "qwen/qwen-image-3-pro",
+  "prompt_id": "28a88ec1-2924-4c4d-8a20-0162b9620f66",
+  "client_id": "e06f4cee-fb94-4e3a-abb6-1006f5a23f83",
+  "requested_outputs": 1,
+  "completed_outputs": 1,
+  "estimated_cost_usd": 0.05,
+  "actual_cost_usd": null,
+  "pixel_treatment_after_import": "none",
+  "owner_visual_approval": "pending"
+}
