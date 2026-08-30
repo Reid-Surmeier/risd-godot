@@ -36,3 +36,13 @@ The still is approved by a person looking at it at magnification beside the five
 **Use the model as a sketch engine and draw the final pixels by hand.** Honest and highest quality, but fifty icons is weeks of work, which is the problem this exists to solve.
 
 **Draw the icons procedurally.** Ruled out by the owner. It would also produce a set that looks like code wrote it, which is the one thing the hand-drawn five prove matters.
+
+## Amendment, 2026-08-30: framing and references
+
+Two rules from the owner, both after seeing the first takes.
+
+**The key colour locks the square; it is not the ground.** A generated icon fills its tile, and `#00FF00` marks the tile's edge — a thin border, never a field the icon floats in. The reason is behavioural rather than aesthetic: given empty key-coloured space, the video model treats it as somewhere to go. Asked for a two-pixel shift it moved roughly fifteen, in two takes under two very different briefs. An icon that fills its tile has nowhere to travel.
+
+This costs the silhouette metric, which is the price of the rule: a filled tile has the same outline in every frame whatever is drawn inside it, so fidelity becomes per-pixel identity against the Anchor instead. The reduction step therefore takes a frame mode, and the framing decides which metric can see anything at all.
+
+**Every Motion Pass carries a video reference** — the actual animation as an HTTPS URL, not a citation in the brief, so the model sees the cadence rather than reading about it. Each icon's motion is paired with a real game animation that behaves the same way. It is also cheaper: a video input moves the call to a different price band, $0.1361 against $0.2268 estimated for the same twelve seconds.
