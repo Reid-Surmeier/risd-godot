@@ -25,6 +25,7 @@ type PrototypeState = {
   tool: ToolKey
   color: TLDefaultColorStyle
   size: TLDefaultSizeStyle
+  pencilSize: number
   strokes: number
   pointer: PointerSnapshot
 }
@@ -70,6 +71,7 @@ function usePrototypeState() {
     tool: 'draw',
     color: 'blue',
     size: 'm',
+    pencilSize: 160,
     strokes: 0,
     pointer: EMPTY_POINTER,
   })
@@ -112,10 +114,12 @@ function usePrototypeState() {
     state.editor?.setCurrentTool('draw')
   }
 
+  const choosePencilSize = (pencilSize: number) => patch({ pencilSize })
+
   const undo = () => state.editor?.undo()
   const clear = () => state.editor?.deleteShapes(state.editor.getCurrentPageShapes())
 
-  return { state, patch, onEditorReady, chooseTool, chooseColor, chooseSize, undo, clear }
+  return { state, patch, onEditorReady, chooseTool, chooseColor, chooseSize, choosePencilSize, undo, clear }
 }
 
 type DrawingCanvasProps = {
@@ -123,10 +127,11 @@ type DrawingCanvasProps = {
   onEditorReady: (editor: Editor) => void
   onPointer: (pointer: PointerSnapshot) => void
   tool: ToolKey
+  pencilSize: number
   className?: string
 }
 
-function DrawingCanvas({ variant, onEditorReady, onPointer, tool, className = '' }: DrawingCanvasProps) {
+function DrawingCanvas({ variant, onEditorReady, onPointer, tool, pencilSize, className = '' }: DrawingCanvasProps) {
   const [pointer, setPointer] = useState<PointerSnapshot>(EMPTY_POINTER)
 
   const updatePointer = (event: ReactPointerEvent, next: Partial<PointerSnapshot> = {}) => {
@@ -175,6 +180,14 @@ function DrawingCanvas({ variant, onEditorReady, onPointer, tool, className = ''
           src={`${import.meta.env.BASE_URL}pencil-prototype.png`}
           alt=""
           aria-hidden="true"
+          style={{ left: pointer.x, top: pointer.y, height: pencilSize }}
+        />
+      )}
+      {pointer.visible && pointer.down && (
+        <span
+          className="pencil-spark"
+          data-testid="pencil-spark"
+          aria-hidden="true"
           style={{ left: pointer.x, top: pointer.y }}
         />
       )}
@@ -184,7 +197,7 @@ function DrawingCanvas({ variant, onEditorReady, onPointer, tool, className = ''
 
 type ControlsProps = ReturnType<typeof usePrototypeState> & { compact?: boolean }
 
-function DrawingControls({ state, chooseTool, chooseColor, chooseSize, undo, clear, compact }: ControlsProps) {
+function DrawingControls({ state, chooseTool, chooseColor, chooseSize, choosePencilSize, undo, clear, compact }: ControlsProps) {
   return (
     <div className={`drawing-controls ${compact ? 'is-compact' : ''}`} data-testid="drawing-controls">
       <div className="control-group tools" aria-label="Tools">
@@ -231,6 +244,18 @@ function DrawingControls({ state, chooseTool, chooseColor, chooseSize, undo, cle
           ))}
         </select>
       </label>
+      <label className="size-control pencil-size-control">
+        <span>Pencil <output>{state.pencilSize}px</output></span>
+        <input
+          data-testid="pencil-size"
+          type="range"
+          min="96"
+          max="240"
+          step="8"
+          value={state.pencilSize}
+          onChange={(event) => choosePencilSize(Number(event.target.value))}
+        />
+      </label>
       <div className="control-group history" aria-label="History">
         <button data-testid="undo" onClick={undo}>↶ <span>Undo</span></button>
         <button data-testid="clear" onClick={clear}>× <span>Clear</span></button>
@@ -247,6 +272,7 @@ function StateReadout({ variant, state }: { variant: VariantKey; state: Prototyp
       <span>tool: {state.tool}</span>
       <span>color: {state.color}</span>
       <span>size: {state.size}</span>
+      <span>pencil: {state.pencilSize}px</span>
       <span>strokes: {state.strokes}</span>
       <span>pointer: {state.pointer.visible ? state.pointer.pointerType : 'outside'}</span>
       <span>down: {String(state.pointer.down)}</span>
@@ -274,6 +300,7 @@ function VariantA() {
           <DrawingCanvas
             variant="A"
             tool={prototype.state.tool}
+            pencilSize={prototype.state.pencilSize}
             onEditorReady={prototype.onEditorReady}
             onPointer={(pointer) => prototype.patch({ pointer })}
           />
@@ -298,6 +325,7 @@ function VariantB() {
         variant="B"
         className="modern-canvas"
         tool={prototype.state.tool}
+        pencilSize={prototype.state.pencilSize}
         onEditorReady={prototype.onEditorReady}
         onPointer={(pointer) => prototype.patch({ pointer })}
       />
@@ -336,6 +364,14 @@ function useDraggableWindow() {
 function VariantC() {
   const prototype = usePrototypeState()
   const windowDrag = useDraggableWindow()
+  const [showOpening, setShowOpening] = useState(true)
+
+  useEffect(() => {
+    if (!showOpening) return
+    const timeout = window.setTimeout(() => setShowOpening(false), 1800)
+    return () => window.clearTimeout(timeout)
+  }, [showOpening])
+
   return (
     <main className="variant-layout hybrid-layout" data-variant="C" data-testid="variant-C">
       <div className="museum-desktop-copy">
@@ -354,7 +390,14 @@ function VariantC() {
             <strong>Sketchbook</strong>
             <span>Blank page 01</span>
           </div>
-          <div className="window-buttons" aria-hidden="true"><i /><i /></div>
+          <button
+            className="replay-opening"
+            data-testid="replay-opening"
+            onPointerDown={(event) => event.stopPropagation()}
+            onClick={() => setShowOpening(true)}
+          >
+            Replay opening
+          </button>
         </header>
         <div className="window-body">
           <aside className="hybrid-toolbar">
@@ -366,9 +409,20 @@ function VariantC() {
             <DrawingCanvas
               variant="C"
               tool={prototype.state.tool}
+              pencilSize={prototype.state.pencilSize}
               onEditorReady={prototype.onEditorReady}
               onPointer={(pointer) => prototype.patch({ pointer })}
             />
+            {showOpening && (
+              <div className="sketchbook-opening" data-testid="sketchbook-opening" aria-label="Qwen Sketchbook opening image">
+                <img
+                  data-testid="sketchbook-final"
+                  src={`${import.meta.env.BASE_URL}sketchbook-final.png`}
+                  alt="Flat orthographic cream Sketchbook with a cobalt pencil"
+                />
+                <span>OPENING SKETCHBOOK</span>
+              </div>
+            )}
           </div>
         </div>
       </section>

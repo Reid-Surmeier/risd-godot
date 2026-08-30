@@ -22,3 +22,15 @@ Use tldraw 5.3.2 only as the throwaway browser interaction laboratory. Keep the 
 - No source is copied from JSKidPix or KiddoPaint.
 - The current Qwen pencil is prototype-only and is not a certified RISD Icon.
 - No state persists after reload.
+
+## Five-second failure diagnosis
+
+The former static HTTPS share was reproduced deterministically: one stroke committed, the editor disappeared after five seconds, and a second stroke was rejected. The cause is tldraw's production-license enforcement, not network loss, pointer interception, or a stroke-state leak. In tldraw 5.3.2, `LicenseProvider` schedules the unlicensed production editor to hide after `LICENSE_TIMEOUT = 5000`.
+
+The compliant prototype fix is to serve the Vite development build over the tailnet. It remains a development environment even when the audited share supplies HTTPS. No license check is removed, patched, or spoofed. A production deployment requires a valid trial, hobby, or commercial key under tldraw's [current licensing terms](https://tldraw.dev/community/license).
+
+Regression coverage now proves that the full generated opening loads, a second stroke commits after a 12-second dwell, and 50 strokes commit without the editor disappearing. The same three checks can run against a remote share by setting `PLAYWRIGHT_BASE_URL`.
+
+## Generated-source continuation
+
+The complete Qwen Sketchbook v003 final is imported byte-identically as `prototypes/kidpix-tldraw/public/sketchbook-final.png`, SHA-256 `95828700b6b679c70cc1fefee01d1670d6a96e650f5ee22836bb649e44905ace`. It is shown as the opening state and only positioned, scaled, and faded through CSS. This continuation made zero model requests and incurred zero new generation cost.
