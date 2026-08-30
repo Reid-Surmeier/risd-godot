@@ -172,7 +172,7 @@ function DrawingCanvas({ variant, onEditorReady, onPointer, tool, className = ''
         <img
           className={`pencil-cursor ${pointer.down ? 'is-down' : ''} ${tool === 'eraser' ? 'is-eraser' : ''}`}
           data-testid="pencil-cursor"
-          src="/pencil-prototype.png"
+          src={`${import.meta.env.BASE_URL}pencil-prototype.png`}
           alt=""
           aria-hidden="true"
           style={{ left: pointer.x, top: pointer.y }}
