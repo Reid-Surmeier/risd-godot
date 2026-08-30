@@ -1,0 +1,11 @@
+{
+  "status": "prototype-only-not-a-certified-risd-icon",
+  "source_repository": "Reid-Surmeier/Qwen-3-pro-Pipeline",
+  "source_commit": "a75ca1c852425f3aec7905e54af5a386d8a20dd4",
+  "source_path": "artifacts/runs/kidpix-sketchbook-v003/final-01.png",
+  "source_sha256": "95828700b6b679c70cc1fefee01d1670d6a96e650f5ee22836bb649e44905ace",
+  "output_path": "prototypes/kidpix-tldraw/public/pencil-prototype.png",
+  "output_sha256": "12f346529cd418bf1977ce14421c400bf2f136ea74195f3ecb64af18ef04e8b1",
+  "derivation": "Alpha-only prototype extraction from the Qwen v003 pencil region. Source RGB pixels are retained; non-pencil pixels are hidden with a hard row-envelope mask. This is interaction evidence, not permitted production Icon processing.",
+  "rights_note": "Original Qwen output from Issue 139. No Kid Pix, JSKidPix, or KiddoPaint image asset is included."
+}

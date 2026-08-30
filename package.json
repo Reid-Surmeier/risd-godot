@@ -1,0 +1,10 @@
+{
+  "name": "risd-godot-prototypes",
+  "private": true,
+  "scripts": {
+    "prototype:kidpix": "npm --prefix prototypes/kidpix-tldraw run dev",
+    "prototype:kidpix:build": "npm --prefix prototypes/kidpix-tldraw run build",
+    "prototype:kidpix:check": "npm --prefix prototypes/kidpix-tldraw run check",
+    "prototype:kidpix:test": "npm --prefix prototypes/kidpix-tldraw run test:browser"
+  }
+}

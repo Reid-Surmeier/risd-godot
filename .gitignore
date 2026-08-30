@@ -1,8 +1,12 @@
 node_modules/
 dist/
+*.tsbuildinfo
 .env
 *.env
 !env.example
+
+# Browser test scratch (review screenshots are kept separately)
+artifacts/prototypes/**/playwright/
 
 # Godot
 .godot/
