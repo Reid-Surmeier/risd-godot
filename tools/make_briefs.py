@@ -8,29 +8,35 @@ Tell survive generation rather than being a sentence nobody acted on.
 import json, os, re, sys
 
 INVARIANTS = [
-    "Use only the palette present in the reference: the four-step cobalt ramp from pale sky highlight through mid blue to deep navy, the four-step warm white marble ramp from near-white through cream to grey-beige shadow, and the dark navy outline. No colour outside these ramps.",
     "Reproduce the reference's raster character exactly: hard stair-stepped edges, visible square pixels at the diagonals, no anti-aliasing on the silhouette, no smooth vector curve anywhere.",
     "One light source, high and to the upper left, exactly as in all five references: the top-left facets carry a one-to-two pixel bright specular, the lower-right facets carry the darkest step of their ramp.",
     "Keep the same figure-to-tile proportion as the references: the drawn object fills most of the square with a small even margin, and sits on a small soft grey contact shadow at its base.",
     "Keep the reference's three-quarter, slightly-above viewpoint. Objects are seen at an angle, not flat-on.",
-    "At most one gold element in the whole icon. Gold marks attention or reward and never colours an object.",
+    "Keep the reference's outline treatment: a hard dark outline around every form, one to two pixels, never a soft edge.",
+    "Shade every material in a small number of flat steps, four or so, the way the references do — not with smooth gradients. Few colours per material, hard edges between them.",
+    "The interface furniture follows the reference's blue: plinths, badges, arrows, tool bodies and controls are the same cobalt as the funnel and the arrows. The object being depicted is not interface furniture and keeps its own true colours.",
 ]
 
 NEGATIVES = [
     "No anti-aliased or feathered edges, no soft airbrushed shading, no smooth vector illustration, no modern flat-design treatment, no gradient meshes.",
     "No text, letters, numbers, or lettering of any kind anywhere in the image.",
     "No second icon, no grid of variations, no colour swatches, no background scene, no desk, no hands.",
-    "No colour outside the cobalt, marble, gold and navy-outline ramps.",
+    "No photographic realism and no continuous tone: every material is a handful of flat steps with hard edges between them.",
     "No border, frame, tile, panel, badge, caption or watermark around the icon.",
 ]
 
 REFERENCE_ROLE = (
     "The reference image is a strip of five finished icons — a blue funnel, a blue flashlight throwing a gold star, "
     "a marble bust on a blue plinth, a framed picture with a check badge, and a marble bust wrapped in blue arrows. "
-    "It is the authoritative STYLE source and the only style source: palette, bevel, outline weight, raster character, "
-    "lighting direction, three-quarter projection, figure scale within the tile, and the small soft contact shadow. "
-    "Where this icon reuses a form the references already contain — the marble bust, the cobalt plinth, the funnel — "
-    "the reference is also the authority for that form. Nothing else is taken from it."
+    "It is a STYLE GUIDE and nothing more. Take from it how things are drawn: the bevel, the outline weight, the hard "
+    "stair-stepped raster character, the lighting direction, the three-quarter projection, the figure's scale within "
+    "the tile, the small soft contact shadow, and the habit of shading each material in a few flat steps. "
+    "Do NOT treat it as a colour chart. It is a set of five icons that happen to be mostly blue and marble because of "
+    "what those five depict; it does not mean every icon in the set is blue and marble. The object this icon depicts "
+    "takes its own true colours — a painting has a painting in it, terracotta is terracotta, fabric is dyed, glaze is "
+    "glazed. Only the interface furniture — plinths, badges, arrows, tool bodies — follows the reference's blue. "
+    "Where this icon reuses a form the references already contain, such as the marble bust or the cobalt plinth, the "
+    "reference is also the authority for that form."
 )
 
 # The grammar's composition families, so the canvas line matches what the icon is.

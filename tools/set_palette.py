@@ -1,16 +1,12 @@
-"""The set's palette, declared rather than sampled.
+"""SUPERSEDED 2026-08-30 by icon_palette.py — kept for the record.
 
-Ticket #4 answered "per-Icon, extracted from the Anchor" and that answer is wrong for
-this set, for a reason the grammar itself guarantees. The grammar says *at most one gold
-element per icon* — so gold is always a small minority of the pixels, and median-cut
-quantisation always drops it. Measured 2026-08-30: the favourite icon came back with
-16,850 gold pixels and the painting with 19,518, and both reduced to grey because the
-palette had been taken from a bust that contains no gold at all. Even the five-anchor
-strip, which holds 28,934 gold pixels, yields zero gold entries at 16 colours.
-
-A palette sampled from an image cannot protect a colour the grammar defines as rare. So
-the ramps are written down instead, taken from the hand-drawn originals.
+Reid: the five hand-drawn icons are a style guide, not a colour chart. Locking every
+icon to a palette derived from them turned a style guide into a colour law, and it is
+why the painting icon came back with a solid blue canvas: there was no other colour
+available to paint with. Use icon_palette.icon_palette() instead, which takes the
+icon's own colours and forces in only the accents the grammar makes rare.
 """
+
 from PIL import Image
 
 COBALT = [(0x0E, 0x24, 0x5E), (0x12, 0x30, 0x7E), (0x20, 0x59, 0xD8), (0x58, 0xA3, 0xF5)]
