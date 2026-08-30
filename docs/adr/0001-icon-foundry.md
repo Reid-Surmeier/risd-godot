@@ -46,3 +46,13 @@ Two rules from the owner, both after seeing the first takes.
 This costs the silhouette metric, which is the price of the rule: a filled tile has the same outline in every frame whatever is drawn inside it, so fidelity becomes per-pixel identity against the Anchor instead. The reduction step therefore takes a frame mode, and the framing decides which metric can see anything at all.
 
 **Every Motion Pass carries a video reference** — the actual animation as an HTTPS URL, not a citation in the brief, so the model sees the cadence rather than reading about it. Each icon's motion is paired with a real game animation that behaves the same way. It is also cheaper: a video input moves the call to a different price band, $0.1361 against $0.2268 estimated for the same twelve seconds.
+
+## Amendment, 2026-08-30: the palette is declared, not sampled
+
+The original decision said reduction locks each icon to a palette extracted from its own Anchor. The first generated icons show that cannot work here, and the reason is in the grammar rather than in the tooling.
+
+The set allows at most one gold element per icon. Gold is therefore always a small minority of any icon's pixels, and median-cut quantisation always discards it: a gold star of 16,850 pixels reduced to grey, and gilt frame corners of 19,518 pixels did the same. No choice of source image fixes it — the five-anchor strip contains 28,934 gold pixels and still yields no gold entry at sixteen colours, because gold is a minority there too.
+
+So the set's ramps are written down instead: four cobalt steps, four marble, three gold, one outline, one ground, one matte. A palette sampled from an image cannot protect a colour the grammar defines as rare.
+
+One icon is a known exception. MED-10 Colour palette is specified as the one icon carrying hues outside the grammar, and the declared palette will clip it; it needs its own palette, extended with its own chips.
