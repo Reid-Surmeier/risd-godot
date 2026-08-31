@@ -134,7 +134,9 @@ button { color: inherit; }
 .kidpix-tray .state-readout { margin-top: 18px; border-radius: 0; background: #d9d9d9; }
 .kidpix-paper-frame {
   display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
   place-items: center;
+  gap: 8px;
   margin: 20px 24px 82px;
   padding: 13px;
   border: 4px inset #dedede;
@@ -148,7 +150,6 @@ button { color: inherit; }
   height: 100%;
   max-width: 100%;
   aspect-ratio: 1;
-  perspective: 1800px;
   isolation: isolate;
 }
 .book-page-image {
@@ -174,35 +175,29 @@ button { color: inherit; }
 .book-page-hitbox .drawing-canvas { width: 100%; height: 100%; background: transparent; }
 .book-page-hitbox .tl-container,
 .book-page-hitbox .tl-canvas,
-.book-page-hitbox .tl-html-container { background: transparent !important; }
+.book-page-hitbox .tl-html-container,
+.book-page-hitbox .tl-background { background: transparent !important; }
 .book-page-stage.is-turning .book-page-hitbox { pointer-events: none; }
-.page-turn {
-  position: absolute;
-  z-index: 7;
-  top: 50%;
+.page-turn-dock {
   display: grid;
-  place-items: center;
-  width: 38px;
-  height: 54px;
-  padding: 0 0 4px;
-  border: 2px solid #172121;
-  border-radius: 6px;
-  color: white;
-  background: var(--cobalt);
-  box-shadow: 3px 4px 0 rgb(23 33 33 / 18%);
-  font: 700 32px/1 Georgia, serif;
-  cursor: pointer;
-  transform: translateY(-50%);
+  grid-template-columns: minmax(88px, auto) minmax(92px, auto) minmax(88px, auto);
+  gap: 8px;
+  align-items: center;
+  min-height: 38px;
 }
-.page-turn:hover:not(:disabled) { background: var(--cobalt-dark); }
-.page-turn:disabled { opacity: .34; cursor: default; }
-.page-turn-previous { left: 1.1%; }
-.page-turn-next { right: 1.1%; }
+.page-turn-dock button {
+  min-height: 31px;
+  padding: 4px 12px;
+  border: 2px outset #dedede;
+  border-radius: 0;
+  color: #222;
+  background: #dedede;
+  font: 700 11px/1 "Courier New", monospace;
+  cursor: pointer;
+}
+.page-turn-dock button:active:not(:disabled) { border-style: inset; }
+.page-turn-dock button:disabled { opacity: .42; cursor: default; }
 .spread-label {
-  position: absolute;
-  z-index: 6;
-  left: 50%;
-  bottom: 9.8%;
   padding: 4px 7px;
   color: #715e39;
   background: rgb(255 250 236 / 86%);
@@ -210,7 +205,7 @@ button { color: inherit; }
   font: 700 9px/1 ui-monospace, monospace;
   letter-spacing: .12em;
   pointer-events: none;
-  transform: translateX(-50%);
+  text-align: center;
 }
 .book-page-flip {
   position: absolute;
@@ -248,13 +243,196 @@ button { color: inherit; }
     #fcf2d8;
 }
 @keyframes page-turn-forward {
-  from { transform: rotateY(0); }
-  to { transform: rotateY(-180deg); }
+  from { transform: perspective(1800px) rotateY(0); }
+  to { transform: perspective(1800px) rotateY(-180deg); }
 }
 @keyframes page-turn-backward {
-  from { transform: rotateY(0); }
-  to { transform: rotateY(180deg); }
+  from { transform: perspective(1800px) rotateY(0); }
+  to { transform: perspective(1800px) rotateY(180deg); }
 }
+
+/* Variant D: a clean Japanese game-style utility window with only the book. */
+.japanese-window-layout {
+  background:
+    linear-gradient(rgb(255 255 255 / 68%), rgb(255 255 255 / 68%)),
+    repeating-linear-gradient(0deg, #dfe5e9 0 1px, #eef2f4 1px 4px);
+}
+.japanese-utility-window {
+  position: absolute;
+  z-index: 5;
+  width: min(1120px, calc(100vw - 64px));
+  height: min(850px, calc(100vh - 110px));
+  min-width: 720px;
+  min-height: 560px;
+  display: grid;
+  grid-template-rows: 58px minmax(0, 1fr) 66px;
+  overflow: hidden;
+  border: 2px solid #383838;
+  border-radius: 9px;
+  outline: 2px solid #ec2ec9;
+  outline-offset: -5px;
+  background: #fdfdfd;
+  box-shadow: 0 18px 50px rgb(34 47 59 / 24%), inset 0 0 0 5px #eef2f4;
+}
+.japanese-titlebar {
+  display: grid;
+  grid-template-columns: 28px 1fr auto auto 32px;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 9px 6px 12px;
+  border-bottom: 2px solid #73818b;
+  background: linear-gradient(180deg, #e8f7ff 0%, #b9dcee 56%, #d9eef8 100%);
+  color: #182126;
+  box-shadow: inset 0 1px white, inset 0 -1px rgb(255 255 255 / 70%);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.japanese-titlebar:active { cursor: grabbing; }
+.japanese-titlebar strong {
+  font: 500 25px/1.1 "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+  letter-spacing: .01em;
+}
+.japanese-window-icon {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #657b96;
+  border-radius: 50%;
+  color: #d8ecff;
+  background: radial-gradient(circle at 35% 32%, #72a8e6, #245ca7 68%);
+  font-size: 10px;
+}
+.japanese-title-option {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font: 500 17px/1 "Yu Gothic", sans-serif;
+  cursor: default;
+}
+.japanese-title-option input { width: 19px; height: 19px; accent-color: #8b9fa9; }
+.japanese-titlebar button,
+.japanese-window-footer button {
+  border: 1px solid #69747a;
+  border-radius: 3px;
+  color: #202326;
+  background: linear-gradient(#fff, #e7e7e7);
+  box-shadow: inset 1px 1px white, 1px 1px 1px rgb(0 0 0 / 20%);
+  cursor: pointer;
+}
+.japanese-titlebar button { min-width: 92px; min-height: 34px; font-size: 17px; }
+.japanese-titlebar .japanese-close {
+  min-width: 28px;
+  width: 28px;
+  min-height: 28px;
+  padding: 0;
+  border-color: #783d40;
+  color: white;
+  background: linear-gradient(#e59c9e, #a74f53);
+  font-size: 21px;
+  line-height: 1;
+}
+.japanese-book-content {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  padding: 14px 22px 8px;
+  overflow: hidden;
+  background: white;
+}
+.japanese-book-stage {
+  position: relative;
+  height: 100%;
+  max-width: 100%;
+  aspect-ratio: 1;
+  isolation: isolate;
+}
+.japanese-book-image {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: auto;
+  pointer-events: none;
+  user-select: none;
+}
+.japanese-book-hitbox {
+  position: absolute;
+  z-index: 2;
+  left: 5.4%;
+  right: 5.4%;
+  top: 7.1%;
+  bottom: 7.8%;
+  overflow: hidden;
+}
+.japanese-book-hitbox .drawing-canvas { width: 100%; height: 100%; background: transparent; }
+.japanese-book-hitbox .tl-container,
+.japanese-book-hitbox .tl-canvas,
+.japanese-book-hitbox .tl-html-container,
+.japanese-book-hitbox .tl-background { background: transparent !important; }
+.japanese-book-stage.is-turning .japanese-book-hitbox { pointer-events: none; }
+.japanese-center-gutter {
+  position: absolute;
+  z-index: 4;
+  top: 6.8%;
+  bottom: 7.2%;
+  left: calc(50% - 7px);
+  width: 14px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgb(112 84 53 / 18%) 42%, rgb(76 55 34 / 26%) 50%, rgb(255 255 255 / 15%) 58%, transparent);
+  mix-blend-mode: multiply;
+}
+.japanese-page-flip {
+  position: absolute;
+  z-index: 5;
+  top: 7.1%;
+  bottom: 7.8%;
+  width: 44.6%;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+.japanese-page-flip.is-forward {
+  right: 5.4%;
+  transform-origin: left center;
+  animation: page-turn-forward 400ms ease-in both;
+}
+.japanese-page-flip.is-backward {
+  left: 5.4%;
+  transform-origin: right center;
+  animation: page-turn-backward 400ms ease-in both;
+}
+.japanese-page-flip .book-page-face {
+  border-color: rgb(126 103 62 / 10%);
+  background: linear-gradient(90deg, rgb(118 91 47 / 9%), transparent 10%), #fcf5e4;
+  box-shadow: 8px 0 24px rgb(62 48 26 / 13%);
+}
+.japanese-page-flip .book-page-back {
+  background: linear-gradient(270deg, rgb(118 91 47 / 9%), transparent 10%), #fcf4e1;
+}
+.japanese-window-footer {
+  display: grid;
+  grid-template-columns: 130px minmax(120px, 1fr) 130px;
+  align-items: center;
+  gap: 18px;
+  padding: 9px 24px 13px;
+  border-top: 1px solid #c4c8ca;
+  background: linear-gradient(#fafafa, #ebebeb);
+}
+.japanese-window-footer button { min-height: 39px; padding: 6px 18px; font-size: 15px; }
+.japanese-window-footer button:disabled { opacity: .4; cursor: default; }
+.japanese-window-footer output { text-align: center; color: #5f686d; font: 500 13px/1 ui-monospace, monospace; letter-spacing: .08em; }
+.japanese-debug-state {
+  position: fixed;
+  z-index: 4;
+  left: 16px;
+  bottom: 16px;
+  width: 178px;
+}
+.japanese-window-layout .pencil-cursor { image-rendering: auto; }
 
 /* Variant B: spatial, minimal and canvas-first. */
 .modern-layout { background: #f1f4f7; }
@@ -374,12 +552,29 @@ button { color: inherit; }
   .hybrid-toolbar .state-readout { display: none; }
   .cream-page-wrap { margin: 9px 9px 70px; }
   .pencil-size-control { display: none; }
+  .japanese-utility-window {
+    left: 8px !important;
+    top: 18px !important;
+    width: calc(100vw - 16px);
+    height: calc(100vh - 86px);
+    min-width: 0;
+    min-height: 0;
+    grid-template-rows: 48px minmax(0, 1fr) 56px;
+  }
+  .japanese-titlebar { grid-template-columns: 24px 1fr auto 28px; gap: 6px; }
+  .japanese-titlebar strong { font-size: 17px; }
+  .japanese-title-option { display: none; }
+  .japanese-titlebar button { min-width: 60px; min-height: 30px; font-size: 13px; }
+  .japanese-window-footer { grid-template-columns: 92px 1fr 92px; gap: 7px; padding: 7px 10px 10px; }
+  .japanese-window-footer button { min-height: 34px; padding: 4px 8px; font-size: 12px; }
+  .japanese-debug-state { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .pencil-cursor,
   .pencil-cursor.is-down,
   .book-page-flip,
+  .japanese-page-flip,
   .sketchbook-window,
   .sketchbook-opening { animation: none; transition: none; }
 }

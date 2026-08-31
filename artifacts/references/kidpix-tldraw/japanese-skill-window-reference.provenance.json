@@ -1,0 +1,11 @@
+{
+  "classification": "owner-supplied-source-reference",
+  "path": "artifacts/references/kidpix-tldraw/japanese-skill-window-reference.png",
+  "sha256": "432bd90e47ea0321db11e0e226efa2ce901dd82dd6de52f9f9bc71783b9db0f3",
+  "dimensions": {
+    "width": 4679,
+    "height": 4563
+  },
+  "role": "visual reference for pale-blue Japanese game utility-window chrome only",
+  "reuse_constraints": "Do not reuse icons, text grid, statistics, arrows, buttons, or game assets. Build an original CSS window containing the Sketchbook."
+}

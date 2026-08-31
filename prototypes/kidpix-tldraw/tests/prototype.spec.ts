@@ -66,6 +66,48 @@ test('uses the unmodified Qwen v004 candidate as the bounded drawing surface', a
   expect(dimensions).toEqual({ width: 1024, height: 1024 })
 })
 
+test('variant D uses the smooth Qwen v005 Moleskine candidate without editing controls', async ({ page }) => {
+  const sourcePath = fileURLToPath(new URL('../public/sketchbook-page-v005.png', import.meta.url))
+  const provenancePath = fileURLToPath(new URL('../public/sketchbook-page-v005.provenance.json', import.meta.url))
+  const source = await readFile(sourcePath)
+  const provenance = JSON.parse(await readFile(provenancePath, 'utf8'))
+  const digest = createHash('sha256').update(source).digest('hex')
+  expect(digest).toBe('d438ae66575c64721c0e6508000bfcaa44a59a2cfec0d9f01d0c3bb118a52c48')
+  expect(provenance.sha256).toBe(digest)
+  expect(provenance.owner_visual_approval).toBe('pending')
+
+  await page.goto('./?variant=D')
+  await expect(page.getByTestId('variant-D')).toBeVisible()
+  await expect(page.getByTestId('japanese-utility-window')).toBeVisible()
+  await expect(page.getByTestId('sketchbook-page-image')).toHaveAttribute('src', /sketchbook-page-v005\.png$/)
+  await expect(page.getByTestId('drawing-controls')).toHaveCount(0)
+  await expect(page.getByTestId('book-page-hitbox')).toBeVisible()
+  await expect(page.locator('.japanese-center-gutter')).toBeVisible()
+  await expect(page.locator('.japanese-book-hitbox .tl-background')).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
+})
+
+test('variant D keeps neutral page controls outside the book and retains the pencil cursor', async ({ page }) => {
+  await page.goto('./?variant=D')
+  const stage = await page.getByTestId('japanese-book-stage').boundingBox()
+  const dock = await page.getByTestId('page-turn-dock').boundingBox()
+  if (!stage || !dock) throw new Error('Japanese window geometry unavailable')
+  expect(dock.y).toBeGreaterThanOrEqual(stage.y + stage.height)
+
+  const next = page.getByTestId('next-page')
+  await expect(next).not.toHaveCSS('background-color', 'rgb(21, 87, 232)')
+  await next.click()
+  await expect(page.getByTestId('book-page-flip')).toBeVisible()
+  await expect(page.getByTestId('spread-label')).toHaveText('Spread 02', { timeout: 2_000 })
+
+  const hitbox = await page.getByTestId('book-page-hitbox').boundingBox()
+  if (!hitbox) throw new Error('book hitbox unavailable')
+  await page.mouse.move(hitbox.x + hitbox.width * 0.66, hitbox.y + hitbox.height * 0.38)
+  await expect(page.getByTestId('pencil-cursor')).toBeVisible()
+  await drawStroke(page)
+  await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
+  await page.screenshot({ path: `${evidenceDirectory}/variant-D-japanese-window.png`, fullPage: true })
+})
+
 test('draws only inside the cream page interior and has no sparkle effect', async ({ page }) => {
   await page.goto('./?variant=A')
   const stage = page.getByTestId('book-drawing-stage')
@@ -119,7 +161,7 @@ test('uses the complete Qwen Sketchbook final as a replayable opening state', as
   await expect(opening).toBeVisible()
 })
 
-for (const variant of ['A', 'B', 'C'] as const) {
+for (const variant of ['A', 'B', 'C', 'D'] as const) {
   test(`renders and captures structurally distinct variant ${variant}`, async ({ page }) => {
     await page.goto(`./?variant=${variant}`)
     await expect(page.getByTestId(`variant-${variant}`)).toBeVisible()
@@ -170,6 +212,26 @@ test('pencil defaults to 160px and resizes without moving its graphite hotspot',
   }))
   expect(Math.abs(hotspot.left - point.x)).toBeLessThan(1)
   expect(Math.abs(hotspot.top - point.y)).toBeLessThan(1)
+})
+
+test('visible graphite tip stays on the pointer inside the perspective book stage', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await page.goto('./?variant=A')
+  const surface = page.getByTestId('drawing-surface')
+  const box = await surface.boundingBox()
+  if (!box) throw new Error('drawing surface has no box')
+  const point = { x: box.x + box.width * 0.68, y: box.y + box.height * 0.42 }
+  await page.mouse.move(point.x, point.y)
+
+  const visibleTip = await page.getByTestId('pencil-cursor').evaluate((element) => {
+    const rect = element.getBoundingClientRect()
+    return {
+      x: rect.left + rect.width * (110 / 150),
+      y: rect.top,
+    }
+  })
+  expect(Math.abs(visibleTip.x - point.x)).toBeLessThanOrEqual(6)
+  expect(Math.abs(visibleTip.y - point.y)).toBeLessThanOrEqual(6)
 })
 
 test('drawing remains operational after the former production-license timeout', async ({ page }) => {
@@ -278,8 +340,8 @@ test('switcher updates the shareable URL and keyboard navigation wraps', async (
   await page.goto('./?variant=C')
   await expect(page.getByTestId('prototype-switcher')).toBeVisible()
   await page.keyboard.press('ArrowRight')
-  await expect(page).toHaveURL(/variant=A/)
-  await expect(page.getByTestId('variant-A')).toBeVisible()
+  await expect(page).toHaveURL(/variant=D/)
+  await expect(page.getByTestId('variant-D')).toBeVisible()
   await page.keyboard.press('ArrowLeft')
   await expect(page).toHaveURL(/variant=C/)
 })

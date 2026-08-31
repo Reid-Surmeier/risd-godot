@@ -8,7 +8,7 @@ import {
 } from 'tldraw'
 import { PointerEvent as ReactPointerEvent, useEffect, useMemo, useRef, useState } from 'react'
 
-type VariantKey = 'A' | 'B' | 'C'
+type VariantKey = 'A' | 'B' | 'C' | 'D'
 type ToolKey = 'draw' | 'eraser'
 
 type PointerSnapshot = {
@@ -34,6 +34,7 @@ const VARIANTS: Array<{ key: VariantKey; name: string }> = [
   { key: 'A', name: 'Kid Pix fixed canvas' },
   { key: 'B', name: 'Modern tldraw studio' },
   { key: 'C', name: 'RISD hybrid sketchbook' },
+  { key: 'D', name: 'Japanese utility window' },
 ]
 
 const EMPTY_POINTER: PointerSnapshot = {
@@ -62,7 +63,7 @@ const SIZE_OPTIONS: Array<{ value: TLDefaultSizeStyle; label: string }> = [
 
 function readVariant(): VariantKey {
   const candidate = new URLSearchParams(window.location.search).get('variant')?.toUpperCase()
-  return candidate === 'A' || candidate === 'B' || candidate === 'C' ? candidate : 'A'
+  return candidate === 'A' || candidate === 'B' || candidate === 'C' || candidate === 'D' ? candidate : 'A'
 }
 
 function usePrototypeState() {
@@ -330,27 +331,27 @@ function VariantA() {
                 <div className="book-page-face book-page-back" />
               </div>
             )}
+          </div>
+          <div className="page-turn-dock" data-testid="page-turn-dock">
             <button
-              className="page-turn page-turn-previous"
               data-testid="previous-page"
               disabled={spread === 1 || turnDirection !== null}
               onClick={() => turnPage('backward')}
               aria-label="Previous spread"
             >
-              ‹
+              ‹ Previous
             </button>
+            <span className="spread-label" data-testid="spread-label" role="status" aria-live="polite">
+              SPREAD {String(spread).padStart(2, '0')}
+            </span>
             <button
-              className="page-turn page-turn-next"
               data-testid="next-page"
               disabled={turnDirection !== null}
               onClick={() => turnPage('forward')}
               aria-label="Next spread"
             >
-              ›
+              Next ›
             </button>
-            <span className="spread-label" data-testid="spread-label" role="status" aria-live="polite">
-              SPREAD {String(spread).padStart(2, '0')}
-            </span>
           </div>
         </section>
       </div>
@@ -480,6 +481,96 @@ function VariantC() {
   )
 }
 
+function VariantD() {
+  const prototype = usePrototypeState()
+  const windowDrag = useDraggableWindow()
+  const [spread, setSpread] = useState(1)
+  const [turnDirection, setTurnDirection] = useState<'forward' | 'backward' | null>(null)
+
+  const turnPage = (direction: 'forward' | 'backward') => {
+    if (turnDirection || (direction === 'backward' && spread === 1)) return
+    setTurnDirection(direction)
+    const duration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 400
+    window.setTimeout(() => {
+      prototype.clear()
+      setSpread((current) => Math.max(1, current + (direction === 'forward' ? 1 : -1)))
+      setTurnDirection(null)
+    }, duration)
+  }
+
+  return (
+    <main className="variant-layout japanese-window-layout" data-variant="D" data-testid="variant-D">
+      <section
+        className="japanese-utility-window"
+        data-testid="japanese-utility-window"
+        style={{ left: windowDrag.position.x, top: windowDrag.position.y }}
+      >
+        <header className="japanese-titlebar" data-testid="japanese-titlebar" {...windowDrag.titleBarProps}>
+          <span className="japanese-window-icon" aria-hidden="true">●</span>
+          <strong>スケッチブック</strong>
+          <label className="japanese-title-option" onPointerDown={(event) => event.stopPropagation()}>
+            <input type="checkbox" /> ページ表示
+          </label>
+          <button onPointerDown={(event) => event.stopPropagation()}>View</button>
+          <button className="japanese-close" aria-label="Close prototype" onPointerDown={(event) => event.stopPropagation()}>×</button>
+        </header>
+        <div className="japanese-book-content">
+          <div className={`japanese-book-stage ${turnDirection ? 'is-turning' : ''}`} data-testid="japanese-book-stage">
+            <img
+              className="japanese-book-image"
+              data-testid="sketchbook-page-image"
+              src={`${import.meta.env.BASE_URL}sketchbook-page-v005.png`}
+              alt="Smooth blank open cream sketchbook with layered paper edges and a recessed center gutter"
+            />
+            <div className="japanese-book-hitbox" data-testid="book-page-hitbox">
+              <DrawingCanvas
+                variant="D"
+                tool="draw"
+                pencilSize={prototype.state.pencilSize}
+                onEditorReady={prototype.onEditorReady}
+                onPointer={(pointer) => prototype.patch({ pointer })}
+              />
+            </div>
+            <span className="japanese-center-gutter" aria-hidden="true" />
+            {turnDirection && (
+              <div
+                className={`japanese-page-flip is-${turnDirection}`}
+                data-testid="book-page-flip"
+                aria-hidden="true"
+              >
+                <div className="book-page-face book-page-front" />
+                <div className="book-page-face book-page-back" />
+              </div>
+            )}
+          </div>
+        </div>
+        <footer className="japanese-window-footer" data-testid="page-turn-dock">
+          <button
+            data-testid="previous-page"
+            disabled={spread === 1 || turnDirection !== null}
+            onClick={() => turnPage('backward')}
+          >
+            ‹ Previous
+          </button>
+          <output data-testid="spread-label" role="status" aria-live="polite">
+            Spread {String(spread).padStart(2, '0')}
+          </output>
+          <button
+            data-testid="next-page"
+            disabled={turnDirection !== null}
+            onClick={() => turnPage('forward')}
+          >
+            Next ›
+          </button>
+        </footer>
+      </section>
+      <div className="japanese-debug-state">
+        <StateReadout variant="D" state={prototype.state} spread={spread} />
+      </div>
+    </main>
+  )
+}
+
 function PrototypeSwitcher({ variant, onVariant }: { variant: VariantKey; onVariant: (key: VariantKey) => void }) {
   const index = VARIANTS.findIndex((candidate) => candidate.key === variant)
   const cycle = (delta: number) => onVariant(VARIANTS[(index + delta + VARIANTS.length) % VARIANTS.length].key)
@@ -528,7 +619,8 @@ export function App() {
   const screen = useMemo(() => {
     if (variant === 'A') return <VariantA key="A" />
     if (variant === 'B') return <VariantB key="B" />
-    return <VariantC key="C" />
+    if (variant === 'C') return <VariantC key="C" />
+    return <VariantD key="D" />
   }, [variant])
 
   return (
