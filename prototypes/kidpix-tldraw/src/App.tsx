@@ -7,7 +7,7 @@ import {
   Tldraw,
 } from 'tldraw'
 import * as TldrawRuntime from 'tldraw'
-import { CSSProperties, PointerEvent as ReactPointerEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { CSSProperties, PointerEvent as ReactPointerEvent, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 type VariantKey = 'A' | 'B' | 'C' | 'D' | 'E'
 type ToolKey = 'draw' | 'eraser'
@@ -227,6 +227,7 @@ function PaperTurn({
 }
 
 const BOOK_ZOOM_LEVELS = [1, 1.25, 1.5] as const
+const BOOK_SPREAD_ASPECT_RATIO = 4 / 3
 
 function useBookZoom() {
   const [zoomIndex, setZoomIndex] = useState(0)
@@ -238,6 +239,37 @@ function useBookZoom() {
     resetZoom: () => setZoomIndex(0),
     canZoomIn: zoomIndex < BOOK_ZOOM_LEVELS.length - 1,
     canZoomOut: zoomIndex > 0,
+  }
+}
+
+function useFittedBookStage(zoom: number) {
+  const contentRef = useRef<HTMLDivElement>(null)
+  const [fittedSize, setFittedSize] = useState({ width: 0, height: 0 })
+
+  useLayoutEffect(() => {
+    const content = contentRef.current
+    if (!content) return
+
+    const fit = (width: number, height: number) => {
+      const fittedWidth = Math.min(width, height * BOOK_SPREAD_ASPECT_RATIO)
+      const fittedHeight = fittedWidth / BOOK_SPREAD_ASPECT_RATIO
+      setFittedSize((current) => (
+        Math.abs(current.width - fittedWidth) < 0.5 && Math.abs(current.height - fittedHeight) < 0.5
+          ? current
+          : { width: fittedWidth, height: fittedHeight }
+      ))
+    }
+
+    const observer = new ResizeObserver(([entry]) => fit(entry.contentRect.width, entry.contentRect.height))
+    observer.observe(content)
+    return () => observer.disconnect()
+  }, [])
+
+  return {
+    contentRef,
+    stageStyle: fittedSize.width > 0
+      ? { width: fittedSize.width * zoom, height: fittedSize.height * zoom }
+      : undefined,
   }
 }
 
@@ -524,6 +556,40 @@ function useDraggableWindow() {
   return { position, titleBarProps: { onPointerDown, onPointerMove, onPointerUp, onPointerCancel: onPointerUp } }
 }
 
+function useResizablePanel(initialWidth: number, initialHeight: number) {
+  const [size, setSize] = useState(() => ({
+    width: Math.min(initialWidth, window.innerWidth - 48),
+    height: Math.min(initialHeight, window.innerHeight - 54),
+  }))
+  const resize = useRef<{ pointerId: number; x: number; y: number; width: number; height: number } | null>(null)
+
+  const onPointerDown = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    event.stopPropagation()
+    resize.current = {
+      pointerId: event.pointerId,
+      x: event.clientX,
+      y: event.clientY,
+      width: size.width,
+      height: size.height,
+    }
+    event.currentTarget.setPointerCapture(event.pointerId)
+  }
+  const onPointerMove = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    const active = resize.current
+    if (!active || active.pointerId !== event.pointerId) return
+    setSize({
+      width: Math.max(720, Math.min(window.innerWidth - 48, active.width + event.clientX - active.x)),
+      height: Math.max(620, Math.min(window.innerHeight - 16, active.height + event.clientY - active.y)),
+    })
+  }
+  const onPointerUp = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    if (resize.current?.pointerId === event.pointerId) resize.current = null
+  }
+
+  return { size, handleProps: { onPointerDown, onPointerMove, onPointerUp, onPointerCancel: onPointerUp } }
+}
+
 function VariantC() {
   const prototype = usePrototypeState()
   const windowDrag = useDraggableWindow()
@@ -598,15 +664,17 @@ function VariantC() {
 function VariantD() {
   const prototype = usePrototypeState()
   const windowDrag = useDraggableWindow()
+  const windowResize = useResizablePanel(980, 900)
   const { spread, turnDirection, turnPage } = usePersistentBookSpreads(prototype)
   const zoom = useBookZoom()
+  const fittedBook = useFittedBookStage(zoom.zoom)
 
   return (
     <main className="variant-layout japanese-window-layout" data-variant="D" data-testid="variant-D">
       <section
         className="japanese-utility-window"
         data-testid="japanese-utility-window"
-        style={{ left: windowDrag.position.x, top: windowDrag.position.y }}
+        style={{ left: windowDrag.position.x, top: windowDrag.position.y, ...windowResize.size }}
       >
         <header className="japanese-titlebar" data-testid="japanese-titlebar" {...windowDrag.titleBarProps}>
           <span className="japanese-window-icon" aria-hidden="true">●</span>
@@ -617,11 +685,11 @@ function VariantD() {
           <button onPointerDown={(event) => event.stopPropagation()}>View</button>
           <button className="japanese-close" aria-label="Close prototype" onPointerDown={(event) => event.stopPropagation()}>×</button>
         </header>
-        <div className="japanese-book-content">
+        <div className="japanese-book-content" ref={fittedBook.contentRef}>
           <div
             className={`japanese-book-stage ${turnDirection ? 'is-turning' : ''}`}
             data-testid="japanese-book-stage"
-            style={{ height: `${zoom.zoom * 100}%` }}
+            style={fittedBook.stageStyle}
           >
             <img
               className="japanese-book-image"
@@ -666,6 +734,12 @@ function VariantD() {
             Next ›
           </button>
         </footer>
+        <button
+          className="window-resize-handle"
+          data-testid="window-resize-handle"
+          aria-label="Resize Sketchbook window"
+          {...windowResize.handleProps}
+        />
       </section>
       <div className="japanese-debug-state">
         <StateReadout variant="D" state={prototype.state} spread={spread} />
@@ -678,6 +752,7 @@ function VariantE() {
   const prototype = usePrototypeState()
   const { spread, turnDirection, turnPage } = usePersistentBookSpreads(prototype)
   const zoom = useBookZoom()
+  const fittedBook = useFittedBookStage(zoom.zoom)
 
   return (
     <main className="variant-layout reference-drawing-layout" data-variant="E" data-testid="variant-E">
@@ -700,11 +775,11 @@ function VariantE() {
             <button>View</button>
             <button className="japanese-close" aria-label="Close prototype">×</button>
           </header>
-          <div className="reference-book-content">
+          <div className="reference-book-content" ref={fittedBook.contentRef}>
             <div
               className={`reference-book-stage ${turnDirection ? 'is-turning' : ''}`}
               data-testid="reference-book-stage"
-              style={{ height: `${zoom.zoom * 100}%` }}
+              style={fittedBook.stageStyle}
             >
               <img
                 className="japanese-book-image"

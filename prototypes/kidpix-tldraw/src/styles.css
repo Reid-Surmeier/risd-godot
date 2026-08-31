@@ -75,6 +75,8 @@ button { color: inherit; }
 .prototype-switcher small { font-size: 9px; letter-spacing: .14em; opacity: .62; }
 .prototype-switcher strong { margin-top: 3px; font-size: 13px; }
 .prototype-switcher[data-variant="D"] {
+  top: 18px;
+  bottom: auto;
   right: 24px;
   left: auto;
   transform: none;
@@ -329,13 +331,16 @@ button { color: inherit; }
 .japanese-utility-window {
   position: absolute;
   z-index: 5;
-  width: min(812px, calc(100vw - 48px));
+  width: min(980px, calc(100vw - 48px));
   height: min(900px, calc(100vh - 54px));
-  min-width: 680px;
+  min-width: 720px;
   min-height: 620px;
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 16px);
   display: grid;
   grid-template-rows: 58px minmax(0, 1fr) 66px;
   overflow: hidden;
+  resize: both;
   border: 2px solid #383838;
   border-radius: 9px;
   outline: 2px solid #ec2ec9;
@@ -413,11 +418,11 @@ button { color: inherit; }
 }
 .japanese-book-stage {
   position: relative;
-  height: 100%;
+  width: 100%;
+  height: auto;
   max-width: none;
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 3;
   isolation: isolate;
-  transition: height 180ms ease-out;
 }
 .japanese-book-image {
   position: absolute;
@@ -425,7 +430,7 @@ button { color: inherit; }
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: fill;
   image-rendering: auto;
   pointer-events: none;
   user-select: none;
@@ -509,6 +514,22 @@ button { color: inherit; }
   font: inherit;
   letter-spacing: 0;
 }
+.window-resize-handle {
+  position: absolute;
+  z-index: 8;
+  right: 3px;
+  bottom: 3px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background:
+    linear-gradient(135deg, transparent 0 44%, #8b9498 45% 51%, transparent 52% 62%, #687378 63% 69%, transparent 70%);
+  cursor: nwse-resize;
+  touch-action: none;
+}
+.window-resize-handle:focus-visible { outline: 2px solid #1557e8; outline-offset: 1px; }
 .japanese-debug-state {
   position: fixed;
   z-index: 4;
@@ -561,11 +582,16 @@ button { color: inherit; }
   pointer-events: none;
 }
 .reference-sketchbook-window {
-  height: 954px;
+  width: 100%;
+  height: 780px;
+  min-width: 720px;
   min-height: 560px;
+  max-width: calc(100vw - 24px);
+  max-height: calc(100vh - 16px);
   display: grid;
   grid-template-rows: 48px minmax(0, 1fr) 52px;
   overflow: hidden;
+  resize: both;
   border: 2px solid #383838;
   border-radius: 7px;
   outline: 2px solid #ec2ec9;
@@ -588,11 +614,11 @@ button { color: inherit; }
 }
 .reference-book-stage {
   position: relative;
-  height: 100%;
+  width: 100%;
+  height: auto;
   max-width: none;
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 3;
   isolation: isolate;
-  transition: height 180ms ease-out;
 }
 .reference-book-hitbox {
   position: absolute;
