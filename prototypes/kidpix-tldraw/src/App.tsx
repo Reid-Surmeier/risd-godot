@@ -213,7 +213,7 @@ function PaperTurn({
       data-testid="book-page-flip"
       aria-hidden="true"
       style={{
-        '--paper-turn-image': `url("${import.meta.env.BASE_URL}${source === 'v004' ? 'sketchbook-page-v004.png' : 'sketchbook-page-v005-soft-640.png'}")`,
+        '--paper-turn-image': `url("${import.meta.env.BASE_URL}${source === 'v004' ? 'sketchbook-page-v004.png' : 'sketchbook-page-v005-soft-384.png'}")`,
       } as CSSProperties}
     >
       <div className="paper-turn-underlay" />
@@ -222,6 +222,33 @@ function PaperTurn({
         <div className="book-page-face book-page-back" />
         <span className="paper-turn-edge" />
       </div>
+    </div>
+  )
+}
+
+const BOOK_ZOOM_LEVELS = [1, 1.25, 1.5] as const
+
+function useBookZoom() {
+  const [zoomIndex, setZoomIndex] = useState(0)
+  const zoom = BOOK_ZOOM_LEVELS[zoomIndex]
+  return {
+    zoom,
+    zoomIn: () => setZoomIndex((index) => Math.min(index + 1, BOOK_ZOOM_LEVELS.length - 1)),
+    zoomOut: () => setZoomIndex((index) => Math.max(index - 1, 0)),
+    resetZoom: () => setZoomIndex(0),
+    canZoomIn: zoomIndex < BOOK_ZOOM_LEVELS.length - 1,
+    canZoomOut: zoomIndex > 0,
+  }
+}
+
+function BookZoomControls({ zoom }: { zoom: ReturnType<typeof useBookZoom> }) {
+  return (
+    <div className="book-zoom-controls" aria-label="Sketchbook zoom controls">
+      <button data-testid="zoom-out" aria-label="Zoom out" disabled={!zoom.canZoomOut} onClick={zoom.zoomOut}>−</button>
+      <button data-testid="zoom-reset" aria-label="Reset zoom" onClick={zoom.resetZoom}>
+        <output data-testid="zoom-label">{Math.round(zoom.zoom * 100)}%</output>
+      </button>
+      <button data-testid="zoom-in" aria-label="Zoom in" disabled={!zoom.canZoomIn} onClick={zoom.zoomIn}>+</button>
     </div>
   )
 }
@@ -572,6 +599,7 @@ function VariantD() {
   const prototype = usePrototypeState()
   const windowDrag = useDraggableWindow()
   const { spread, turnDirection, turnPage } = usePersistentBookSpreads(prototype)
+  const zoom = useBookZoom()
 
   return (
     <main className="variant-layout japanese-window-layout" data-variant="D" data-testid="variant-D">
@@ -590,11 +618,15 @@ function VariantD() {
           <button className="japanese-close" aria-label="Close prototype" onPointerDown={(event) => event.stopPropagation()}>×</button>
         </header>
         <div className="japanese-book-content">
-          <div className={`japanese-book-stage ${turnDirection ? 'is-turning' : ''}`} data-testid="japanese-book-stage">
+          <div
+            className={`japanese-book-stage ${turnDirection ? 'is-turning' : ''}`}
+            data-testid="japanese-book-stage"
+            style={{ height: `${zoom.zoom * 100}%` }}
+          >
             <img
               className="japanese-book-image"
               data-testid="sketchbook-page-image"
-              src={`${import.meta.env.BASE_URL}sketchbook-page-v005-soft-640.png`}
+              src={`${import.meta.env.BASE_URL}sketchbook-page-v005-soft-384.png`}
               alt="Smooth blank open cream sketchbook with layered paper edges and a recessed center gutter"
             />
             <div className="japanese-book-hitbox" data-testid="book-page-hitbox">
@@ -620,9 +652,12 @@ function VariantD() {
           >
             ‹ Previous
           </button>
-          <output data-testid="spread-label" role="status" aria-live="polite">
-            Spread {String(spread).padStart(2, '0')}
-          </output>
+          <div className="japanese-footer-center">
+            <output data-testid="spread-label" role="status" aria-live="polite">
+              Spread {String(spread).padStart(2, '0')}
+            </output>
+            <BookZoomControls zoom={zoom} />
+          </div>
           <button
             data-testid="next-page"
             disabled={turnDirection !== null}
@@ -642,6 +677,7 @@ function VariantD() {
 function VariantE() {
   const prototype = usePrototypeState()
   const { spread, turnDirection, turnPage } = usePersistentBookSpreads(prototype)
+  const zoom = useBookZoom()
 
   return (
     <main className="variant-layout reference-drawing-layout" data-variant="E" data-testid="variant-E">
@@ -665,11 +701,15 @@ function VariantE() {
             <button className="japanese-close" aria-label="Close prototype">×</button>
           </header>
           <div className="reference-book-content">
-            <div className={`reference-book-stage ${turnDirection ? 'is-turning' : ''}`} data-testid="reference-book-stage">
+            <div
+              className={`reference-book-stage ${turnDirection ? 'is-turning' : ''}`}
+              data-testid="reference-book-stage"
+              style={{ height: `${zoom.zoom * 100}%` }}
+            >
               <img
                 className="japanese-book-image"
                 data-testid="sketchbook-page-image"
-                src={`${import.meta.env.BASE_URL}sketchbook-page-v005-soft-640.png`}
+                src={`${import.meta.env.BASE_URL}sketchbook-page-v005-soft-384.png`}
                 alt="Blank cream sketchbook below the selected museum object reference"
               />
               <div className="reference-book-hitbox" data-testid="book-page-hitbox">
@@ -695,9 +735,12 @@ function VariantE() {
             >
               ‹ Previous
             </button>
-            <output data-testid="spread-label" role="status" aria-live="polite">
-              Spread {String(spread).padStart(2, '0')}
-            </output>
+            <div className="japanese-footer-center">
+              <output data-testid="spread-label" role="status" aria-live="polite">
+                Spread {String(spread).padStart(2, '0')}
+              </output>
+              <BookZoomControls zoom={zoom} />
+            </div>
             <button
               data-testid="next-page"
               disabled={turnDirection !== null}
@@ -733,7 +776,7 @@ function PrototypeSwitcher({ variant, onVariant }: { variant: VariantKey; onVari
   if (import.meta.env.PROD) return null
 
   return (
-    <nav className="prototype-switcher" aria-label="Prototype variants" data-testid="prototype-switcher">
+    <nav className="prototype-switcher" data-variant={variant} aria-label="Prototype variants" data-testid="prototype-switcher">
       <button onClick={() => cycle(-1)} aria-label="Previous variant">←</button>
       <div>
         <small>THROWAWAY UI PROTOTYPE</small>

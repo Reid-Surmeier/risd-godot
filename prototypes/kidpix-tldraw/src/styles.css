@@ -74,6 +74,20 @@ button { color: inherit; }
 .prototype-switcher div { display: flex; flex-direction: column; align-items: center; padding: 0 14px; line-height: 1.15; }
 .prototype-switcher small { font-size: 9px; letter-spacing: .14em; opacity: .62; }
 .prototype-switcher strong { margin-top: 3px; font-size: 13px; }
+.prototype-switcher[data-variant="D"] {
+  right: 24px;
+  left: auto;
+  transform: none;
+}
+.prototype-switcher[data-variant="E"] {
+  top: 18px;
+  bottom: auto;
+  left: 18px;
+  transform: none;
+  grid-template-columns: 38px 160px 38px;
+}
+.prototype-switcher[data-variant="E"] div { padding-inline: 7px; }
+.prototype-switcher[data-variant="E"] strong { max-width: 150px; text-align: center; }
 
 .drawing-controls { display: flex; flex-direction: column; gap: 14px; }
 .control-group { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -315,7 +329,7 @@ button { color: inherit; }
 .japanese-utility-window {
   position: absolute;
   z-index: 5;
-  width: min(900px, calc(100vw - 48px));
+  width: min(812px, calc(100vw - 48px));
   height: min(900px, calc(100vh - 54px));
   min-width: 680px;
   min-height: 620px;
@@ -400,9 +414,10 @@ button { color: inherit; }
 .japanese-book-stage {
   position: relative;
   height: 100%;
-  max-width: 100%;
+  max-width: none;
   aspect-ratio: 1;
   isolation: isolate;
+  transition: height 180ms ease-out;
 }
 .japanese-book-image {
   position: absolute;
@@ -471,6 +486,29 @@ button { color: inherit; }
 .japanese-window-footer button { min-height: 39px; padding: 6px 18px; font-size: 15px; }
 .japanese-window-footer button:disabled { opacity: .4; cursor: default; }
 .japanese-window-footer output { text-align: center; color: #5f686d; font: 500 13px/1 ui-monospace, monospace; letter-spacing: .08em; }
+.japanese-footer-center {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+}
+.book-zoom-controls {
+  display: inline-grid;
+  grid-template-columns: 26px 54px 26px;
+  gap: 3px;
+}
+.japanese-window-footer .book-zoom-controls button {
+  min-width: 0;
+  min-height: 27px;
+  padding: 1px 5px;
+  font: 600 13px/1 ui-monospace, monospace;
+}
+.japanese-window-footer .book-zoom-controls output {
+  color: inherit;
+  font: inherit;
+  letter-spacing: 0;
+}
 .japanese-debug-state {
   position: fixed;
   z-index: 4;
@@ -523,7 +561,7 @@ button { color: inherit; }
   pointer-events: none;
 }
 .reference-sketchbook-window {
-  height: 620px;
+  height: 954px;
   min-height: 560px;
   display: grid;
   grid-template-rows: 48px minmax(0, 1fr) 52px;
@@ -551,9 +589,10 @@ button { color: inherit; }
 .reference-book-stage {
   position: relative;
   height: 100%;
-  max-width: 100%;
+  max-width: none;
   aspect-ratio: 1;
   isolation: isolate;
+  transition: height 180ms ease-out;
 }
 .reference-book-hitbox {
   position: absolute;

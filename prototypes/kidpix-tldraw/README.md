@@ -32,7 +32,7 @@ Variant E asks a different layout question: whether keeping the selected museum-
 
 The v005 base image has no baked-in pencil because the live pencil cursor supplies the tool. Its layered paper perimeter and recessed center gutter remain visible below and above the transparent tldraw surface. The raw v005 image is pending owner approval.
 
-Variant D displays `sketchbook-page-v005-soft-640.png`, a versioned 640×640 Lanczos derivative of the untouched 1024×1024 candidate. Only 32 px of empty exterior margin is removed from each source edge before downsampling; every page edge and corner remains visible. This makes the book fill the narrower utility window and gives it a slightly softer, lower-resolution character without nearest-neighbor blockiness. Exact crop, resize, and hash provenance is recorded beside the derivative.
+Variants D and E display `sketchbook-page-v005-soft-384.png`, a versioned 384×384 Lanczos derivative of the untouched 1024×1024 candidate. Only 32 px of empty exterior margin is removed from each source edge before downsampling; every page edge and corner remains visible. The utility windows are sized around the square book so it leaves only a narrow white ridge at the fitted 100% view. Compact footer controls zoom the complete book, drawing surface, gutter, and page-turn geometry together to 125% or 150%. Exact crop, resize, and hash provenance is recorded beside the derivative.
 
 ## Selected Sketchbook surface and page turn
 

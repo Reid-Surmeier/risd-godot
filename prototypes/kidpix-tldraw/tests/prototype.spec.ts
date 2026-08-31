@@ -69,8 +69,8 @@ test('uses the unmodified Qwen v004 candidate as the bounded drawing surface', a
 test('variant D uses the smooth Qwen v005 Moleskine candidate without editing controls', async ({ page }) => {
   const sourcePath = fileURLToPath(new URL('../public/sketchbook-page-v005.png', import.meta.url))
   const provenancePath = fileURLToPath(new URL('../public/sketchbook-page-v005.provenance.json', import.meta.url))
-  const derivativePath = fileURLToPath(new URL('../public/sketchbook-page-v005-soft-640.png', import.meta.url))
-  const derivativeProvenancePath = fileURLToPath(new URL('../public/sketchbook-page-v005-soft-640.provenance.json', import.meta.url))
+  const derivativePath = fileURLToPath(new URL('../public/sketchbook-page-v005-soft-384.png', import.meta.url))
+  const derivativeProvenancePath = fileURLToPath(new URL('../public/sketchbook-page-v005-soft-384.provenance.json', import.meta.url))
   const source = await readFile(sourcePath)
   const provenance = JSON.parse(await readFile(provenancePath, 'utf8'))
   const derivative = await readFile(derivativePath)
@@ -80,7 +80,7 @@ test('variant D uses the smooth Qwen v005 Moleskine candidate without editing co
   expect(digest).toBe('d438ae66575c64721c0e6508000bfcaa44a59a2cfec0d9f01d0c3bb118a52c48')
   expect(provenance.sha256).toBe(digest)
   expect(provenance.owner_visual_approval).toBe('pending')
-  expect(derivativeDigest).toBe('1fa69650b2b1fb67d0aa2a0e8b9a894fa5aa3fc22a9efd29eadb157822b550ec')
+  expect(derivativeDigest).toBe('dfbedb206a11d4233632be95f6568253327db10b5942c9b3f0ce819dd8af9aa6')
   expect(derivativeProvenance.source_sha256).toBe(digest)
   expect(derivativeProvenance.output_sha256).toBe(derivativeDigest)
 
@@ -88,12 +88,12 @@ test('variant D uses the smooth Qwen v005 Moleskine candidate without editing co
   await expect(page.getByTestId('variant-D')).toBeVisible()
   await expect(page.getByTestId('japanese-utility-window')).toBeVisible()
   const bookImage = page.getByTestId('sketchbook-page-image')
-  await expect(bookImage).toHaveAttribute('src', /sketchbook-page-v005-soft-640\.png$/)
+  await expect(bookImage).toHaveAttribute('src', /sketchbook-page-v005-soft-384\.png$/)
   const dimensions = await bookImage.evaluate((image: HTMLImageElement) => ({
     width: image.naturalWidth,
     height: image.naturalHeight,
   }))
-  expect(dimensions).toEqual({ width: 640, height: 640 })
+  expect(dimensions).toEqual({ width: 384, height: 384 })
   await expect(page.getByTestId('drawing-controls')).toHaveCount(0)
   await expect(page.getByTestId('book-page-hitbox')).toBeVisible()
   await expect(page.locator('.japanese-center-gutter')).toBeVisible()
@@ -106,8 +106,8 @@ test('variant D keeps neutral page controls outside the book and retains the pen
   const content = await page.locator('.japanese-book-content').boundingBox()
   const dock = await page.getByTestId('page-turn-dock').boundingBox()
   if (!stage || !content || !dock) throw new Error('Japanese window geometry unavailable')
-  expect(stage.width / content.width).toBeGreaterThanOrEqual(0.82)
-  expect(stage.height / content.height).toBeGreaterThanOrEqual(0.9)
+  expect(stage.width / content.width).toBeGreaterThanOrEqual(0.94)
+  expect(stage.height / content.height).toBeGreaterThanOrEqual(0.94)
   expect(dock.y).toBeGreaterThanOrEqual(stage.y + stage.height)
 
   const next = page.getByTestId('next-page')
@@ -125,6 +125,31 @@ test('variant D keeps neutral page controls outside the book and retains the pen
   await page.screenshot({ path: `${evidenceDirectory}/variant-D-japanese-window.png`, fullPage: true })
 })
 
+test('variant D zooms the whole fitted book and resets to its narrow ridge', async ({ page }) => {
+  await page.goto('./?variant=D')
+  const stage = page.getByTestId('japanese-book-stage')
+  const fitted = await stage.boundingBox()
+  if (!fitted) throw new Error('fitted Japanese book geometry unavailable')
+
+  await expect(page.getByTestId('zoom-label')).toHaveText('100%')
+  await page.getByTestId('zoom-in').click()
+  await expect(page.getByTestId('zoom-label')).toHaveText('125%')
+  await expect.poll(async () => (await stage.boundingBox())?.width ?? 0).toBeGreaterThan(fitted.width * 1.2)
+  const end = await drawStroke(page)
+  await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
+  const hotspot = await page.getByTestId('pencil-cursor').evaluate((element) => ({
+    left: Number.parseFloat(getComputedStyle(element).left),
+    top: Number.parseFloat(getComputedStyle(element).top),
+  }))
+  expect(Math.abs(hotspot.left - end.x)).toBeLessThan(1)
+  expect(Math.abs(hotspot.top - end.y)).toBeLessThan(1)
+  await page.screenshot({ path: `${evidenceDirectory}/variant-D-zoom-125.png`, fullPage: true })
+
+  await page.getByTestId('zoom-reset').click()
+  await expect(page.getByTestId('zoom-label')).toHaveText('100%')
+  await expect.poll(async () => Math.abs(((await stage.boundingBox())?.width ?? 0) - fitted.width)).toBeLessThan(1)
+})
+
 test('variant E keeps the museum reference above the live Sketchbook', async ({ page }) => {
   const sourcePath = fileURLToPath(new URL('../../../artifacts/references/kidpix-tldraw/reference-above-layout-source.png', import.meta.url))
   const panelPath = fileURLToPath(new URL('../public/reference-above-panel.png', import.meta.url))
@@ -137,8 +162,12 @@ test('variant E keeps the museum reference above the live Sketchbook', async ({ 
   await expect(page.getByTestId('variant-E')).toBeVisible()
   const reference = await page.getByTestId('reference-viewer-window').boundingBox()
   const sketchbook = await page.getByTestId('reference-sketchbook-window').boundingBox()
-  if (!reference || !sketchbook) throw new Error('reference layout geometry unavailable')
+  const stage = await page.getByTestId('reference-book-stage').boundingBox()
+  const content = await page.locator('.reference-book-content').boundingBox()
+  if (!reference || !sketchbook || !stage || !content) throw new Error('reference layout geometry unavailable')
   expect(reference.y + reference.height).toBeLessThanOrEqual(sketchbook.y)
+  expect(stage.width / content.width).toBeGreaterThanOrEqual(0.94)
+  expect(stage.height / content.height).toBeGreaterThanOrEqual(0.94)
   await expect(page.getByTestId('drawing-controls')).toHaveCount(0)
   await drawStroke(page)
   await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
