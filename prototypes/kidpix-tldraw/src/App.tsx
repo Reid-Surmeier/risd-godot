@@ -6,9 +6,10 @@ import {
   TLDefaultSizeStyle,
   Tldraw,
 } from 'tldraw'
-import { PointerEvent as ReactPointerEvent, useEffect, useMemo, useRef, useState } from 'react'
+import * as TldrawRuntime from 'tldraw'
+import { CSSProperties, PointerEvent as ReactPointerEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-type VariantKey = 'A' | 'B' | 'C' | 'D'
+type VariantKey = 'A' | 'B' | 'C' | 'D' | 'E'
 type ToolKey = 'draw' | 'eraser'
 
 type PointerSnapshot = {
@@ -35,6 +36,7 @@ const VARIANTS: Array<{ key: VariantKey; name: string }> = [
   { key: 'B', name: 'Modern tldraw studio' },
   { key: 'C', name: 'RISD hybrid sketchbook' },
   { key: 'D', name: 'Japanese utility window' },
+  { key: 'E', name: 'Reference above drawing' },
 ]
 
 const EMPTY_POINTER: PointerSnapshot = {
@@ -61,9 +63,36 @@ const SIZE_OPTIONS: Array<{ value: TLDefaultSizeStyle; label: string }> = [
   { value: 'xl', label: 'Poster' },
 ]
 
+const LOCAL_TLDRAW_ASSETS = {
+  translations: {
+    en: `${import.meta.env.BASE_URL}tldraw-en.json`,
+  },
+}
+
+type TldrawAssetSetter = (assets: {
+  fonts: Record<string, string>
+  icons: Record<string, string>
+  translations: Record<string, string>
+  embedIcons: Record<string, string>
+}) => void
+type TldrawEditorAssetSetter = (assets: { fonts: Record<string, string> }) => void
+
+// hideUi does not stop tldraw 5.3.2 from preloading its full remote icon and
+// embed catalog. The prototype uses none of those assets, so replace the
+// defaults before the editor mounts and keep only the local English fallback.
+;(TldrawRuntime as unknown as { setDefaultUiAssetUrls: TldrawAssetSetter }).setDefaultUiAssetUrls({
+  fonts: {},
+  icons: {},
+  translations: LOCAL_TLDRAW_ASSETS.translations,
+  embedIcons: {},
+})
+;(TldrawRuntime as unknown as { setDefaultEditorAssetUrls: TldrawEditorAssetSetter }).setDefaultEditorAssetUrls({
+  fonts: {},
+})
+
 function readVariant(): VariantKey {
   const candidate = new URLSearchParams(window.location.search).get('variant')?.toUpperCase()
-  return candidate === 'A' || candidate === 'B' || candidate === 'C' || candidate === 'D' ? candidate : 'A'
+  return candidate === 'A' || candidate === 'B' || candidate === 'C' || candidate === 'D' || candidate === 'E' ? candidate : 'A'
 }
 
 function usePrototypeState() {
@@ -79,13 +108,15 @@ function usePrototypeState() {
 
   const patch = (next: Partial<PrototypeState>) => setState((current) => ({ ...current, ...next }))
 
-  const onEditorReady = (editor: Editor) => {
-    editor.setCurrentTool('draw')
-    editor.setCursor({ type: 'none' })
-    editor.setStyleForNextShapes(DefaultColorStyle, state.color)
-    editor.setStyleForNextShapes(DefaultSizeStyle, state.size)
-    patch({ editor })
-  }
+  const onEditorReady = useCallback((editor: Editor) => {
+    setState((current) => {
+      editor.setCurrentTool('draw')
+      editor.setCursor({ type: 'none' })
+      editor.setStyleForNextShapes(DefaultColorStyle, current.color)
+      editor.setStyleForNextShapes(DefaultSizeStyle, current.size)
+      return current.editor === editor ? current : { ...current, editor }
+    })
+  }, [])
 
   useEffect(() => {
     if (!state.editor) return
@@ -123,6 +154,78 @@ function usePrototypeState() {
   return { state, patch, onEditorReady, chooseTool, chooseColor, chooseSize, choosePencilSize, undo, clear }
 }
 
+type PrototypeController = ReturnType<typeof usePrototypeState>
+
+function usePersistentBookSpreads(prototype: PrototypeController) {
+  const [spread, setSpread] = useState(1)
+  const [turnDirection, setTurnDirection] = useState<'forward' | 'backward' | null>(null)
+  const spreadPages = useRef(new Map<number, ReturnType<Editor['getCurrentPageId']>>())
+
+  useEffect(() => {
+    if (!prototype.state.editor || spreadPages.current.has(1)) return
+    spreadPages.current.set(1, prototype.state.editor.getCurrentPageId())
+  }, [prototype.state.editor])
+
+  const showSpread = (nextSpread: number) => {
+    const editor = prototype.state.editor
+    if (!editor) return
+
+    let pageId = spreadPages.current.get(nextSpread)
+    if (!pageId) {
+      const pageName = `Book spread ${String(nextSpread).padStart(2, '0')}`
+      editor.createPage({ name: pageName })
+      pageId = editor.getPages().find((page) => page.name === pageName)?.id
+      if (!pageId) throw new Error(`tldraw did not create ${pageName}`)
+      spreadPages.current.set(nextSpread, pageId)
+    }
+
+    editor.setCurrentPage(pageId)
+    const strokes = editor.getCurrentPageShapes().filter((shape) => shape.type === 'draw').length
+    prototype.patch({ strokes })
+    setSpread(nextSpread)
+  }
+
+  const turnPage = (direction: 'forward' | 'backward') => {
+    if (!prototype.state.editor || turnDirection || (direction === 'backward' && spread === 1)) return
+    setTurnDirection(direction)
+    const duration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 520
+    window.setTimeout(() => {
+      showSpread(Math.max(1, spread + (direction === 'forward' ? 1 : -1)))
+      setTurnDirection(null)
+    }, duration)
+  }
+
+  return { spread, turnDirection, turnPage }
+}
+
+function PaperTurn({
+  direction,
+  className,
+  source,
+}: {
+  direction: 'forward' | 'backward'
+  className: string
+  source: 'v004' | 'v005'
+}) {
+  return (
+    <div
+      className={`${className} paper-turn is-${direction} uses-${source}`}
+      data-testid="book-page-flip"
+      aria-hidden="true"
+      style={{
+        '--paper-turn-image': `url("${import.meta.env.BASE_URL}${source === 'v004' ? 'sketchbook-page-v004.png' : 'sketchbook-page-v005-soft-640.png'}")`,
+      } as CSSProperties}
+    >
+      <div className="paper-turn-underlay" />
+      <div className="paper-turn-sheet">
+        <div className="book-page-face book-page-front" />
+        <div className="book-page-face book-page-back" />
+        <span className="paper-turn-edge" />
+      </div>
+    </div>
+  )
+}
+
 type DrawingCanvasProps = {
   variant: VariantKey
   onEditorReady: (editor: Editor) => void
@@ -134,6 +237,11 @@ type DrawingCanvasProps = {
 
 function DrawingCanvas({ variant, onEditorReady, onPointer, tool, pencilSize, className = '' }: DrawingCanvasProps) {
   const [pointer, setPointer] = useState<PointerSnapshot>(EMPTY_POINTER)
+
+  const mountEditor = useCallback((editor: Editor) => {
+    editor.setCameraOptions({ isLocked: variant !== 'B' })
+    onEditorReady(editor)
+  }, [onEditorReady, variant])
 
   const updatePointer = (event: ReactPointerEvent, next: Partial<PointerSnapshot> = {}) => {
     const snapshot: PointerSnapshot = {
@@ -169,10 +277,8 @@ function DrawingCanvas({ variant, onEditorReady, onPointer, tool, pencilSize, cl
       <Tldraw
         key={variant}
         hideUi
-        onMount={(editor) => {
-          editor.setCameraOptions({ isLocked: variant !== 'B' })
-          onEditorReady(editor)
-        }}
+        assetUrls={LOCAL_TLDRAW_ASSETS}
+        onMount={mountEditor}
       />
       {pointer.visible && (
         <img
@@ -277,19 +383,7 @@ function StateReadout({ variant, state, spread }: { variant: VariantKey; state: 
 
 function VariantA() {
   const prototype = usePrototypeState()
-  const [spread, setSpread] = useState(1)
-  const [turnDirection, setTurnDirection] = useState<'forward' | 'backward' | null>(null)
-
-  const turnPage = (direction: 'forward' | 'backward') => {
-    if (turnDirection || (direction === 'backward' && spread === 1)) return
-    setTurnDirection(direction)
-    const duration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 400
-    window.setTimeout(() => {
-      prototype.clear()
-      setSpread((current) => Math.max(1, current + (direction === 'forward' ? 1 : -1)))
-      setTurnDirection(null)
-    }, duration)
-  }
+  const { spread, turnDirection, turnPage } = usePersistentBookSpreads(prototype)
 
   return (
     <main className="variant-layout kidpix-layout" data-variant="A" data-testid="variant-A">
@@ -322,14 +416,7 @@ function VariantA() {
               />
             </div>
             {turnDirection && (
-              <div
-                className={`book-page-flip is-${turnDirection}`}
-                data-testid="book-page-flip"
-                aria-hidden="true"
-              >
-                <div className="book-page-face book-page-front" />
-                <div className="book-page-face book-page-back" />
-              </div>
+              <PaperTurn direction={turnDirection} className="book-page-flip" source="v004" />
             )}
           </div>
           <div className="page-turn-dock" data-testid="page-turn-dock">
@@ -484,19 +571,7 @@ function VariantC() {
 function VariantD() {
   const prototype = usePrototypeState()
   const windowDrag = useDraggableWindow()
-  const [spread, setSpread] = useState(1)
-  const [turnDirection, setTurnDirection] = useState<'forward' | 'backward' | null>(null)
-
-  const turnPage = (direction: 'forward' | 'backward') => {
-    if (turnDirection || (direction === 'backward' && spread === 1)) return
-    setTurnDirection(direction)
-    const duration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 400
-    window.setTimeout(() => {
-      prototype.clear()
-      setSpread((current) => Math.max(1, current + (direction === 'forward' ? 1 : -1)))
-      setTurnDirection(null)
-    }, duration)
-  }
+  const { spread, turnDirection, turnPage } = usePersistentBookSpreads(prototype)
 
   return (
     <main className="variant-layout japanese-window-layout" data-variant="D" data-testid="variant-D">
@@ -519,7 +594,7 @@ function VariantD() {
             <img
               className="japanese-book-image"
               data-testid="sketchbook-page-image"
-              src={`${import.meta.env.BASE_URL}sketchbook-page-v005.png`}
+              src={`${import.meta.env.BASE_URL}sketchbook-page-v005-soft-640.png`}
               alt="Smooth blank open cream sketchbook with layered paper edges and a recessed center gutter"
             />
             <div className="japanese-book-hitbox" data-testid="book-page-hitbox">
@@ -533,14 +608,7 @@ function VariantD() {
             </div>
             <span className="japanese-center-gutter" aria-hidden="true" />
             {turnDirection && (
-              <div
-                className={`japanese-page-flip is-${turnDirection}`}
-                data-testid="book-page-flip"
-                aria-hidden="true"
-              >
-                <div className="book-page-face book-page-front" />
-                <div className="book-page-face book-page-back" />
-              </div>
+              <PaperTurn direction={turnDirection} className="japanese-page-flip" source="v005" />
             )}
           </div>
         </div>
@@ -566,6 +634,82 @@ function VariantD() {
       </section>
       <div className="japanese-debug-state">
         <StateReadout variant="D" state={prototype.state} spread={spread} />
+      </div>
+    </main>
+  )
+}
+
+function VariantE() {
+  const prototype = usePrototypeState()
+  const { spread, turnDirection, turnPage } = usePersistentBookSpreads(prototype)
+
+  return (
+    <main className="variant-layout reference-drawing-layout" data-variant="E" data-testid="variant-E">
+      <div className="reference-drawing-stack">
+        <section className="reference-viewer-window" data-testid="reference-viewer-window">
+          <img
+            src={`${import.meta.env.BASE_URL}reference-above-panel.png`}
+            data-testid="reference-above-panel"
+            alt="Museum object reference viewer positioned above the drawing window"
+          />
+          <span>REFERENCE VIEW · STATIC PROTOTYPE SOURCE</span>
+        </section>
+        <section className="reference-sketchbook-window" data-testid="reference-sketchbook-window">
+          <header className="japanese-titlebar is-static">
+            <span className="japanese-window-icon" aria-hidden="true">●</span>
+            <strong>スケッチブック</strong>
+            <label className="japanese-title-option">
+              <input type="checkbox" defaultChecked /> 参照表示
+            </label>
+            <button>View</button>
+            <button className="japanese-close" aria-label="Close prototype">×</button>
+          </header>
+          <div className="reference-book-content">
+            <div className={`reference-book-stage ${turnDirection ? 'is-turning' : ''}`} data-testid="reference-book-stage">
+              <img
+                className="japanese-book-image"
+                data-testid="sketchbook-page-image"
+                src={`${import.meta.env.BASE_URL}sketchbook-page-v005-soft-640.png`}
+                alt="Blank cream sketchbook below the selected museum object reference"
+              />
+              <div className="reference-book-hitbox" data-testid="book-page-hitbox">
+                <DrawingCanvas
+                  variant="E"
+                  tool="draw"
+                  pencilSize={prototype.state.pencilSize}
+                  onEditorReady={prototype.onEditorReady}
+                  onPointer={(pointer) => prototype.patch({ pointer })}
+                />
+              </div>
+              <span className="japanese-center-gutter" aria-hidden="true" />
+              {turnDirection && (
+                <PaperTurn direction={turnDirection} className="reference-page-flip" source="v005" />
+              )}
+            </div>
+          </div>
+          <footer className="japanese-window-footer" data-testid="page-turn-dock">
+            <button
+              data-testid="previous-page"
+              disabled={spread === 1 || turnDirection !== null}
+              onClick={() => turnPage('backward')}
+            >
+              ‹ Previous
+            </button>
+            <output data-testid="spread-label" role="status" aria-live="polite">
+              Spread {String(spread).padStart(2, '0')}
+            </output>
+            <button
+              data-testid="next-page"
+              disabled={turnDirection !== null}
+              onClick={() => turnPage('forward')}
+            >
+              Next ›
+            </button>
+          </footer>
+        </section>
+      </div>
+      <div className="reference-debug-state">
+        <StateReadout variant="E" state={prototype.state} spread={spread} />
       </div>
     </main>
   )
@@ -620,7 +764,8 @@ export function App() {
     if (variant === 'A') return <VariantA key="A" />
     if (variant === 'B') return <VariantB key="B" />
     if (variant === 'C') return <VariantC key="C" />
-    return <VariantD key="D" />
+    if (variant === 'D') return <VariantD key="D" />
+    return <VariantE key="E" />
   }, [variant])
 
   return (

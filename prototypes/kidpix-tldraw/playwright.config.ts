@@ -12,6 +12,9 @@ export default defineConfig({
     viewport: { width: 1440, height: 1000 },
     colorScheme: 'light',
     screenshot: 'only-on-failure',
+    launchOptions: {
+      args: ['--disable-gpu', '--disable-software-rasterizer'],
+    },
   },
   webServer: externalBaseURL ? undefined : {
     command: 'npm run dev',

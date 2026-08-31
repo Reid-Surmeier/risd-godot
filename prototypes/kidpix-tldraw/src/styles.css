@@ -213,42 +213,97 @@ button { color: inherit; }
   top: 12.9%;
   bottom: 12.6%;
   width: 45.25%;
-  transform-style: preserve-3d;
   pointer-events: none;
 }
 .book-page-flip.is-forward {
   right: 4.8%;
-  transform-origin: left center;
-  animation: page-turn-forward 400ms ease-in both;
 }
 .book-page-flip.is-backward {
   left: 4.7%;
+}
+.paper-turn-underlay,
+.paper-turn-sheet {
+  position: absolute;
+  inset: 0;
+}
+.paper-turn-underlay {
+  z-index: 0;
+  border: 1px solid rgb(126 103 62 / 12%);
+  background-color: #fdf5e1;
+  box-shadow: inset 8px 0 16px rgb(87 64 31 / 8%);
+  animation: page-underlay-reveal 520ms ease-out both;
+}
+.paper-turn-sheet {
+  z-index: 1;
+  transform-style: preserve-3d;
+  will-change: transform, filter;
+}
+.paper-turn.is-forward .paper-turn-sheet {
+  transform-origin: left center;
+  animation: paper-turn-forward 520ms cubic-bezier(.48, .05, .28, 1) both;
+}
+.paper-turn.is-backward .paper-turn-sheet {
   transform-origin: right center;
-  animation: page-turn-backward 400ms ease-in both;
+  animation: paper-turn-backward 520ms cubic-bezier(.48, .05, .28, 1) both;
 }
 .book-page-face {
   position: absolute;
   inset: 0;
   border: 1px solid rgb(126 103 62 / 18%);
   backface-visibility: hidden;
-  background:
-    linear-gradient(90deg, rgb(118 91 47 / 10%), transparent 9%, transparent 91%, rgb(118 91 47 / 6%)),
-    #fdf4dc;
-  box-shadow: 9px 0 18px rgb(62 48 26 / 13%);
+  background-color: #fdf4dc;
+  background-repeat: no-repeat;
+  box-shadow: 7px 0 17px rgb(62 48 26 / 14%);
 }
 .book-page-back {
   transform: rotateY(180deg);
-  background:
-    linear-gradient(270deg, rgb(118 91 47 / 10%), transparent 9%, transparent 91%, rgb(118 91 47 / 6%)),
-    #fcf2d8;
+  background-color: #fcf2d8;
 }
-@keyframes page-turn-forward {
-  from { transform: perspective(1800px) rotateY(0); }
-  to { transform: perspective(1800px) rotateY(-180deg); }
+.paper-turn.uses-v004 .book-page-face {
+  background-image:
+    linear-gradient(90deg, rgb(92 67 33 / 10%), transparent 10%, transparent 90%, rgb(92 67 33 / 5%)),
+    var(--paper-turn-image);
+  background-size: 100% 100%, 221% 133%;
 }
-@keyframes page-turn-backward {
-  from { transform: perspective(1800px) rotateY(0); }
-  to { transform: perspective(1800px) rotateY(180deg); }
+.paper-turn.uses-v005 .book-page-face,
+.paper-turn.uses-v005 .paper-turn-underlay {
+  background-image:
+    linear-gradient(90deg, rgb(92 67 33 / 8%), transparent 10%, transparent 90%, rgb(92 67 33 / 4%)),
+    var(--paper-turn-image);
+  background-size: 100% 100%, 213% 111%;
+  background-repeat: no-repeat;
+}
+.paper-turn.is-forward .book-page-face,
+.paper-turn.is-forward .paper-turn-underlay { background-position: center, right center; }
+.paper-turn.is-backward .book-page-face,
+.paper-turn.is-backward .paper-turn-underlay { background-position: center, left center; }
+.paper-turn.is-forward .book-page-back { background-position: center, left center; }
+.paper-turn.is-backward .book-page-back { background-position: center, right center; }
+.paper-turn-edge {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(90deg, rgb(87 63 30 / 28%), rgb(255 255 255 / 85%), rgb(87 63 30 / 20%));
+  box-shadow: 0 0 9px rgb(58 38 17 / 25%);
+  backface-visibility: hidden;
+}
+.paper-turn.is-forward .paper-turn-edge { right: -1px; }
+.paper-turn.is-backward .paper-turn-edge { left: -1px; }
+@keyframes paper-turn-forward {
+  0% { transform: perspective(1800px) rotateY(0deg) scaleX(1); filter: drop-shadow(5px 1px 7px rgb(55 39 20 / 16%)); }
+  48% { transform: perspective(1800px) rotateY(-88deg) scaleX(.965) translateZ(14px); filter: drop-shadow(18px 4px 14px rgb(55 39 20 / 28%)); }
+  100% { transform: perspective(1800px) rotateY(-180deg) scaleX(1); filter: drop-shadow(-5px 1px 7px rgb(55 39 20 / 12%)); }
+}
+@keyframes paper-turn-backward {
+  0% { transform: perspective(1800px) rotateY(0deg) scaleX(1); filter: drop-shadow(-5px 1px 7px rgb(55 39 20 / 16%)); }
+  48% { transform: perspective(1800px) rotateY(88deg) scaleX(.965) translateZ(14px); filter: drop-shadow(-18px 4px 14px rgb(55 39 20 / 28%)); }
+  100% { transform: perspective(1800px) rotateY(180deg) scaleX(1); filter: drop-shadow(5px 1px 7px rgb(55 39 20 / 12%)); }
+}
+@keyframes page-underlay-reveal {
+  from { opacity: .4; }
+  55%, to { opacity: 1; }
 }
 
 /* Variant D: a clean Japanese game-style utility window with only the book. */
@@ -260,10 +315,10 @@ button { color: inherit; }
 .japanese-utility-window {
   position: absolute;
   z-index: 5;
-  width: min(1120px, calc(100vw - 64px));
-  height: min(850px, calc(100vh - 110px));
-  min-width: 720px;
-  min-height: 560px;
+  width: min(900px, calc(100vw - 48px));
+  height: min(900px, calc(100vh - 54px));
+  min-width: 680px;
+  min-height: 620px;
   display: grid;
   grid-template-rows: 58px minmax(0, 1fr) 66px;
   overflow: hidden;
@@ -338,7 +393,7 @@ button { color: inherit; }
   min-height: 0;
   display: grid;
   place-items: center;
-  padding: 14px 22px 8px;
+  padding: 6px 12px 4px;
   overflow: hidden;
   background: white;
 }
@@ -363,10 +418,10 @@ button { color: inherit; }
 .japanese-book-hitbox {
   position: absolute;
   z-index: 2;
-  left: 5.4%;
-  right: 5.4%;
-  top: 7.1%;
-  bottom: 7.8%;
+  left: 3%;
+  right: 3%;
+  top: 4.3%;
+  bottom: 4.6%;
   overflow: hidden;
 }
 .japanese-book-hitbox .drawing-canvas { width: 100%; height: 100%; background: transparent; }
@@ -378,8 +433,8 @@ button { color: inherit; }
 .japanese-center-gutter {
   position: absolute;
   z-index: 4;
-  top: 6.8%;
-  bottom: 7.2%;
+  top: 3.7%;
+  bottom: 3.9%;
   left: calc(50% - 7px);
   width: 14px;
   pointer-events: none;
@@ -389,29 +444,20 @@ button { color: inherit; }
 .japanese-page-flip {
   position: absolute;
   z-index: 5;
-  top: 7.1%;
-  bottom: 7.8%;
-  width: 44.6%;
-  transform-style: preserve-3d;
+  top: 4.3%;
+  bottom: 4.6%;
+  width: 47%;
   pointer-events: none;
 }
 .japanese-page-flip.is-forward {
-  right: 5.4%;
-  transform-origin: left center;
-  animation: page-turn-forward 400ms ease-in both;
+  right: 3%;
 }
 .japanese-page-flip.is-backward {
-  left: 5.4%;
-  transform-origin: right center;
-  animation: page-turn-backward 400ms ease-in both;
+  left: 3%;
 }
 .japanese-page-flip .book-page-face {
   border-color: rgb(126 103 62 / 10%);
-  background: linear-gradient(90deg, rgb(118 91 47 / 9%), transparent 10%), #fcf5e4;
   box-shadow: 8px 0 24px rgb(62 48 26 / 13%);
-}
-.japanese-page-flip .book-page-back {
-  background: linear-gradient(270deg, rgb(118 91 47 / 9%), transparent 10%), #fcf4e1;
 }
 .japanese-window-footer {
   display: grid;
@@ -433,6 +479,124 @@ button { color: inherit; }
   width: 178px;
 }
 .japanese-window-layout .pencil-cursor { image-rendering: auto; }
+
+/* Variant E: static museum reference directly above the drawing window. */
+.reference-drawing-layout {
+  overflow-y: auto;
+  padding: 8px 12px 74px;
+  background:
+    linear-gradient(rgb(255 255 255 / 62%), rgb(255 255 255 / 62%)),
+    repeating-linear-gradient(0deg, #dde4e8 0 1px, #f1f4f6 1px 4px);
+}
+.reference-drawing-stack {
+  width: min(900px, calc(100vw - 24px));
+  margin: 0 auto;
+  display: grid;
+  gap: 10px;
+}
+.reference-viewer-window {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #3b4145;
+  border-radius: 9px;
+  background: white;
+  box-shadow: 0 6px 18px rgb(34 47 59 / 17%);
+}
+.reference-viewer-window img {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: auto;
+}
+.reference-viewer-window span {
+  position: absolute;
+  z-index: 2;
+  left: 10px;
+  bottom: 9px;
+  padding: 5px 8px;
+  border: 1px solid rgb(255 255 255 / 74%);
+  border-radius: 4px;
+  color: white;
+  background: rgb(19 40 125 / 78%);
+  font: 700 9px/1 ui-monospace, monospace;
+  letter-spacing: .12em;
+  pointer-events: none;
+}
+.reference-sketchbook-window {
+  height: 620px;
+  min-height: 560px;
+  display: grid;
+  grid-template-rows: 48px minmax(0, 1fr) 52px;
+  overflow: hidden;
+  border: 2px solid #383838;
+  border-radius: 7px;
+  outline: 2px solid #ec2ec9;
+  outline-offset: -5px;
+  background: white;
+  box-shadow: 0 7px 20px rgb(34 47 59 / 19%);
+}
+.reference-sketchbook-window .japanese-titlebar { min-height: 0; padding-block: 3px; }
+.reference-sketchbook-window .japanese-titlebar.is-static { cursor: default; }
+.reference-sketchbook-window .japanese-titlebar strong { font-size: 21px; }
+.reference-sketchbook-window .japanese-titlebar button { min-height: 30px; font-size: 14px; }
+.reference-book-content {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  padding: 3px 8px;
+  overflow: hidden;
+  background: white;
+}
+.reference-book-stage {
+  position: relative;
+  height: 100%;
+  max-width: 100%;
+  aspect-ratio: 1;
+  isolation: isolate;
+}
+.reference-book-hitbox {
+  position: absolute;
+  z-index: 2;
+  left: 3%;
+  right: 3%;
+  top: 4.3%;
+  bottom: 4.6%;
+  overflow: hidden;
+}
+.reference-book-hitbox .drawing-canvas { width: 100%; height: 100%; background: transparent; }
+.reference-book-hitbox .tl-container,
+.reference-book-hitbox .tl-canvas,
+.reference-book-hitbox .tl-html-container,
+.reference-book-hitbox .tl-background { background: transparent !important; }
+.reference-book-stage.is-turning .reference-book-hitbox { pointer-events: none; }
+.reference-page-flip {
+  position: absolute;
+  z-index: 5;
+  top: 4.3%;
+  bottom: 4.6%;
+  width: 47%;
+  pointer-events: none;
+}
+.reference-page-flip.is-forward {
+  right: 3%;
+}
+.reference-page-flip.is-backward {
+  left: 3%;
+}
+.reference-page-flip .book-page-face {
+  border-color: rgb(126 103 62 / 10%);
+}
+.reference-sketchbook-window .japanese-window-footer { padding: 6px 18px 9px; }
+.reference-sketchbook-window .japanese-window-footer button { min-height: 34px; padding-block: 4px; font-size: 13px; }
+.reference-debug-state {
+  position: fixed;
+  z-index: 4;
+  left: 12px;
+  bottom: 12px;
+  width: 164px;
+}
+.reference-drawing-layout .pencil-cursor { image-rendering: auto; }
 
 /* Variant B: spatial, minimal and canvas-first. */
 .modern-layout { background: #f1f4f7; }
@@ -575,6 +739,9 @@ button { color: inherit; }
   .pencil-cursor.is-down,
   .book-page-flip,
   .japanese-page-flip,
+  .reference-page-flip,
+  .paper-turn-sheet,
+  .paper-turn-underlay,
   .sketchbook-window,
   .sketchbook-opening { animation: none; transition: none; }
 }

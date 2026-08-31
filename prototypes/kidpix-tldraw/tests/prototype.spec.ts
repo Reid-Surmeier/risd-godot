@@ -69,17 +69,31 @@ test('uses the unmodified Qwen v004 candidate as the bounded drawing surface', a
 test('variant D uses the smooth Qwen v005 Moleskine candidate without editing controls', async ({ page }) => {
   const sourcePath = fileURLToPath(new URL('../public/sketchbook-page-v005.png', import.meta.url))
   const provenancePath = fileURLToPath(new URL('../public/sketchbook-page-v005.provenance.json', import.meta.url))
+  const derivativePath = fileURLToPath(new URL('../public/sketchbook-page-v005-soft-640.png', import.meta.url))
+  const derivativeProvenancePath = fileURLToPath(new URL('../public/sketchbook-page-v005-soft-640.provenance.json', import.meta.url))
   const source = await readFile(sourcePath)
   const provenance = JSON.parse(await readFile(provenancePath, 'utf8'))
+  const derivative = await readFile(derivativePath)
+  const derivativeProvenance = JSON.parse(await readFile(derivativeProvenancePath, 'utf8'))
   const digest = createHash('sha256').update(source).digest('hex')
+  const derivativeDigest = createHash('sha256').update(derivative).digest('hex')
   expect(digest).toBe('d438ae66575c64721c0e6508000bfcaa44a59a2cfec0d9f01d0c3bb118a52c48')
   expect(provenance.sha256).toBe(digest)
   expect(provenance.owner_visual_approval).toBe('pending')
+  expect(derivativeDigest).toBe('1fa69650b2b1fb67d0aa2a0e8b9a894fa5aa3fc22a9efd29eadb157822b550ec')
+  expect(derivativeProvenance.source_sha256).toBe(digest)
+  expect(derivativeProvenance.output_sha256).toBe(derivativeDigest)
 
   await page.goto('./?variant=D')
   await expect(page.getByTestId('variant-D')).toBeVisible()
   await expect(page.getByTestId('japanese-utility-window')).toBeVisible()
-  await expect(page.getByTestId('sketchbook-page-image')).toHaveAttribute('src', /sketchbook-page-v005\.png$/)
+  const bookImage = page.getByTestId('sketchbook-page-image')
+  await expect(bookImage).toHaveAttribute('src', /sketchbook-page-v005-soft-640\.png$/)
+  const dimensions = await bookImage.evaluate((image: HTMLImageElement) => ({
+    width: image.naturalWidth,
+    height: image.naturalHeight,
+  }))
+  expect(dimensions).toEqual({ width: 640, height: 640 })
   await expect(page.getByTestId('drawing-controls')).toHaveCount(0)
   await expect(page.getByTestId('book-page-hitbox')).toBeVisible()
   await expect(page.locator('.japanese-center-gutter')).toBeVisible()
@@ -89,8 +103,11 @@ test('variant D uses the smooth Qwen v005 Moleskine candidate without editing co
 test('variant D keeps neutral page controls outside the book and retains the pencil cursor', async ({ page }) => {
   await page.goto('./?variant=D')
   const stage = await page.getByTestId('japanese-book-stage').boundingBox()
+  const content = await page.locator('.japanese-book-content').boundingBox()
   const dock = await page.getByTestId('page-turn-dock').boundingBox()
-  if (!stage || !dock) throw new Error('Japanese window geometry unavailable')
+  if (!stage || !content || !dock) throw new Error('Japanese window geometry unavailable')
+  expect(stage.width / content.width).toBeGreaterThanOrEqual(0.82)
+  expect(stage.height / content.height).toBeGreaterThanOrEqual(0.9)
   expect(dock.y).toBeGreaterThanOrEqual(stage.y + stage.height)
 
   const next = page.getByTestId('next-page')
@@ -106,6 +123,26 @@ test('variant D keeps neutral page controls outside the book and retains the pen
   await drawStroke(page)
   await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
   await page.screenshot({ path: `${evidenceDirectory}/variant-D-japanese-window.png`, fullPage: true })
+})
+
+test('variant E keeps the museum reference above the live Sketchbook', async ({ page }) => {
+  const sourcePath = fileURLToPath(new URL('../../../artifacts/references/kidpix-tldraw/reference-above-layout-source.png', import.meta.url))
+  const panelPath = fileURLToPath(new URL('../public/reference-above-panel.png', import.meta.url))
+  const sourceDigest = createHash('sha256').update(await readFile(sourcePath)).digest('hex')
+  const panelDigest = createHash('sha256').update(await readFile(panelPath)).digest('hex')
+  expect(sourceDigest).toBe('3f3c8033210ae4f503c098bee551dcf873b18a704c48957723a806381949c264')
+  expect(panelDigest).toBe('f7ed6404cdd4d63d845b2811e6fecc316276f4e66136a9290dd71a7bef3a8973')
+
+  await page.goto('./?variant=E')
+  await expect(page.getByTestId('variant-E')).toBeVisible()
+  const reference = await page.getByTestId('reference-viewer-window').boundingBox()
+  const sketchbook = await page.getByTestId('reference-sketchbook-window').boundingBox()
+  if (!reference || !sketchbook) throw new Error('reference layout geometry unavailable')
+  expect(reference.y + reference.height).toBeLessThanOrEqual(sketchbook.y)
+  await expect(page.getByTestId('drawing-controls')).toHaveCount(0)
+  await drawStroke(page)
+  await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
+  await page.screenshot({ path: `${evidenceDirectory}/variant-E-reference-above.png`, fullPage: true })
 })
 
 test('draws only inside the cream page interior and has no sparkle effect', async ({ page }) => {
@@ -127,21 +164,32 @@ test('draws only inside the cream page interior and has no sparkle effect', asyn
   await page.screenshot({ path: `${evidenceDirectory}/variant-A-drawn.png`, fullPage: true })
 })
 
-test('turns forward and backward between fresh blank spreads', async ({ page }) => {
-  await page.goto('./?variant=A')
+test('keeps independent drawings on every spread when flipping backward and forward', async ({ page }) => {
+  await page.goto('./?variant=D')
   await drawStroke(page)
   await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
 
   await page.getByTestId('next-page').click()
   await expect(page.getByTestId('book-page-flip')).toBeVisible()
+  await expect(page.locator('.paper-turn-sheet')).toBeVisible()
+  await expect(page.locator('.paper-turn-underlay')).toBeVisible()
+  await expect(page.locator('.paper-turn-edge')).toBeVisible()
   await page.waitForTimeout(160)
-  await page.screenshot({ path: `${evidenceDirectory}/variant-A-page-flip.png`, fullPage: true })
-  await expect(page.getByTestId('spread-label')).toHaveText('SPREAD 02', { timeout: 2_000 })
+  await page.screenshot({ path: `${evidenceDirectory}/variant-D-page-flip.png`, fullPage: true })
+  await expect(page.getByTestId('spread-label')).toHaveText('Spread 02', { timeout: 2_000 })
   await expect(page.getByTestId('state-readout')).toContainText('strokes: 0')
+  await drawStroke(page, 18)
+  await drawStroke(page, 42)
+  await expect(page.getByTestId('state-readout')).toContainText('strokes: 2')
 
   await page.getByTestId('previous-page').click()
-  await expect(page.getByTestId('spread-label')).toHaveText('SPREAD 01', { timeout: 2_000 })
+  await expect(page.getByTestId('spread-label')).toHaveText('Spread 01', { timeout: 2_000 })
+  await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
   await expect(page.getByTestId('previous-page')).toBeDisabled()
+
+  await page.getByTestId('next-page').click()
+  await expect(page.getByTestId('spread-label')).toHaveText('Spread 02', { timeout: 2_000 })
+  await expect(page.getByTestId('state-readout')).toContainText('strokes: 2')
 })
 
 test('uses the complete Qwen Sketchbook final as a replayable opening state', async ({ page }) => {
@@ -161,7 +209,7 @@ test('uses the complete Qwen Sketchbook final as a replayable opening state', as
   await expect(opening).toBeVisible()
 })
 
-for (const variant of ['A', 'B', 'C', 'D'] as const) {
+for (const variant of ['A', 'B', 'C', 'D', 'E'] as const) {
   test(`renders and captures structurally distinct variant ${variant}`, async ({ page }) => {
     await page.goto(`./?variant=${variant}`)
     await expect(page.getByTestId(`variant-${variant}`)).toBeVisible()
@@ -243,6 +291,18 @@ test('drawing remains operational after the former production-license timeout', 
   await drawStroke(page, 20)
   await expect(page.getByTestId('state-readout')).toContainText('strokes: 2')
   await expect(page.getByTestId('drawing-surface')).toBeVisible()
+})
+
+test('pencil-only drawing does not depend on the tldraw CDN', async ({ page }) => {
+  const remoteRequests: string[] = []
+  page.on('request', (request) => {
+    if (request.url().includes('cdn.tldraw.com')) remoteRequests.push(request.url())
+  })
+  await page.route('https://cdn.tldraw.com/**', (route) => route.abort())
+  await page.goto('./?variant=D')
+  await drawStroke(page)
+  await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
+  expect(remoteRequests).toEqual([])
 })
 
 test('drawing remains responsive through 50 committed strokes', async ({ page }) => {

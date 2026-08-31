@@ -1,0 +1,21 @@
+{
+  "classification": "deterministic-static-prototype-reference-panel",
+  "source_path": "artifacts/references/kidpix-tldraw/reference-above-layout-source.png",
+  "source_sha256": "3f3c8033210ae4f503c098bee551dcf873b18a704c48957723a806381949c264",
+  "output_path": "prototypes/kidpix-tldraw/public/reference-above-panel.png",
+  "output_sha256": "f7ed6404cdd4d63d845b2811e6fecc316276f4e66136a9290dd71a7bef3a8973",
+  "operation": {
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 3378,
+      "height": 1370
+    },
+    "resize": {
+      "width": 1200,
+      "height": 487,
+      "filter": "Lanczos"
+    }
+  },
+  "use": "static owner-supplied layout evidence inside throwaway Variant E only"
+}

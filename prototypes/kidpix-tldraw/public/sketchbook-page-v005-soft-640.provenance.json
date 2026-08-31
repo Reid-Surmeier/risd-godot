@@ -1,0 +1,24 @@
+{
+  "classification": "deterministic-prototype-display-derivative",
+  "source_path": "prototypes/kidpix-tldraw/public/sketchbook-page-v005.png",
+  "source_sha256": "d438ae66575c64721c0e6508000bfcaa44a59a2cfec0d9f01d0c3bb118a52c48",
+  "output_path": "prototypes/kidpix-tldraw/public/sketchbook-page-v005-soft-640.png",
+  "output_sha256": "1fa69650b2b1fb67d0aa2a0e8b9a894fa5aa3fc22a9efd29eadb157822b550ec",
+  "operation": {
+    "crop": {
+      "x": 32,
+      "y": 32,
+      "width": 960,
+      "height": 960,
+      "content_removed": "empty exterior margin only"
+    },
+    "resize": {
+      "width": 640,
+      "height": 640,
+      "filter": "Lanczos",
+      "image_rendering_css": "auto"
+    }
+  },
+  "generated_pixels_changed": "crop and antialiased downsample explicitly requested for this throwaway display prototype",
+  "source_owner_approval": "pending"
+}
