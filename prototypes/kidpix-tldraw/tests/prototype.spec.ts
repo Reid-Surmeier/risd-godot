@@ -102,10 +102,14 @@ test('variant D uses the smooth Qwen v005 Moleskine candidate without editing co
 
 test('variant D keeps neutral page controls outside the book and retains the pencil cursor', async ({ page }) => {
   await page.goto('./?variant=D')
+  const reference = await page.getByTestId('reference-viewer-window').boundingBox()
+  const utility = await page.getByTestId('japanese-utility-window').boundingBox()
   const stage = await page.getByTestId('japanese-book-stage').boundingBox()
   const content = await page.locator('.japanese-book-content').boundingBox()
   const dock = await page.getByTestId('page-turn-dock').boundingBox()
-  if (!stage || !content || !dock) throw new Error('Japanese window geometry unavailable')
+  if (!reference || !utility || !stage || !content || !dock) throw new Error('Japanese window geometry unavailable')
+  expect(reference.y + reference.height).toBeLessThanOrEqual(utility.y)
+  await expect(page.getByTestId('reference-above-panel')).toHaveAttribute('src', /reference-above-panel\.png$/)
   expect(stage.width / content.width).toBeGreaterThanOrEqual(0.94)
   expect(stage.height / content.height).toBeGreaterThanOrEqual(0.9)
   expect(stage.width / stage.height).toBeCloseTo(4 / 3, 2)
@@ -124,6 +128,22 @@ test('variant D keeps neutral page controls outside the book and retains the pen
   await drawStroke(page)
   await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
   await page.screenshot({ path: `${evidenceDirectory}/variant-D-japanese-window.png`, fullPage: true })
+})
+
+test('variant D applies deterministic center-gutter curvature to live marks', async ({ page }) => {
+  await page.goto('./?variant=D')
+  await expect(page.locator('#center-page-curve')).toHaveCount(1)
+  const drawingSurface = page.locator('.japanese-book-hitbox .drawing-canvas')
+  await expect(drawingSurface).toHaveCSS('filter', /center-page-curve/)
+  const box = await page.getByTestId('drawing-surface').boundingBox()
+  if (!box) throw new Error('curved drawing surface unavailable')
+  const y = box.y + box.height * 0.5
+  await page.mouse.move(box.x + box.width * 0.38, y)
+  await page.mouse.down()
+  await page.mouse.move(box.x + box.width * 0.62, y, { steps: 18 })
+  await page.mouse.up()
+  await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
+  await page.screenshot({ path: `${evidenceDirectory}/variant-D-gutter-curve.png`, fullPage: true })
 })
 
 test('variant D zooms the whole fitted book and resets to its narrow ridge', async ({ page }) => {
@@ -156,6 +176,7 @@ test('variant D refits a wider spread when its utility window is resized', async
   const utilityWindow = page.getByTestId('japanese-utility-window')
   const stage = page.getByTestId('japanese-book-stage')
   const resizeHandle = page.getByTestId('window-resize-handle')
+  await resizeHandle.scrollIntoViewIfNeeded()
   const beforeWindow = await utilityWindow.boundingBox()
   const beforeStage = await stage.boundingBox()
   const handle = await resizeHandle.boundingBox()
@@ -245,6 +266,8 @@ test('keeps independent drawings on every spread when flipping backward and forw
 
   await page.getByTestId('next-page').click()
   await expect(page.getByTestId('book-page-flip')).toBeVisible()
+  const spreadOnePreview = await page.getByTestId('book-page-preview').getAttribute('style')
+  expect(spreadOnePreview).toContain('data:image/png;base64,')
   await expect(page.locator('.paper-turn-sheet')).toBeVisible()
   await expect(page.locator('.paper-turn-underlay')).toBeVisible()
   await expect(page.locator('.paper-turn-edge')).toBeVisible()
@@ -257,11 +280,20 @@ test('keeps independent drawings on every spread when flipping backward and forw
   await expect(page.getByTestId('state-readout')).toContainText('strokes: 2')
 
   await page.getByTestId('previous-page').click()
+  await expect(page.getByTestId('book-page-flip')).toBeVisible()
+  await expect(page.getByTestId('drawing-surface')).toHaveCSS('visibility', 'hidden')
+  const spreadTwoPreview = await page.getByTestId('book-page-preview').getAttribute('style')
+  expect(spreadTwoPreview).toContain('data:image/png;base64,')
+  expect(spreadTwoPreview).not.toBe(spreadOnePreview)
+  await page.waitForTimeout(160)
+  await page.screenshot({ path: `${evidenceDirectory}/variant-D-page-flip-backward.png`, fullPage: true })
   await expect(page.getByTestId('spread-label')).toHaveText('Spread 01', { timeout: 2_000 })
   await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
   await expect(page.getByTestId('previous-page')).toBeDisabled()
 
   await page.getByTestId('next-page').click()
+  await expect(page.getByTestId('book-page-preview')).toBeVisible()
+  await expect(page.getByTestId('book-page-preview')).toHaveAttribute('style', /data:image\/png;base64,/)
   await expect(page.getByTestId('spread-label')).toHaveText('Spread 02', { timeout: 2_000 })
   await expect(page.getByTestId('state-readout')).toContainText('strokes: 2')
 })

@@ -275,6 +275,30 @@ button { color: inherit; }
   transform: rotateY(180deg);
   background-color: #fcf2d8;
 }
+.paper-turn-drawing-preview {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+  pointer-events: none;
+}
+.paper-turn.is-forward .paper-turn-drawing-preview { background-position: right center; }
+.paper-turn.is-backward .paper-turn-drawing-preview { background-position: left center; }
+.paper-turn-stationary-preview {
+  position: absolute;
+  z-index: 3;
+  left: 3%;
+  right: 3%;
+  top: 4.3%;
+  bottom: 4.6%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+.paper-turn-stationary-preview.is-forward { clip-path: inset(0 50% 0 0); }
+.paper-turn-stationary-preview.is-backward { clip-path: inset(0 0 0 50%); }
 .paper-turn.uses-v004 .book-page-face {
   background-image:
     linear-gradient(90deg, rgb(92 67 33 / 10%), transparent 10%, transparent 90%, rgb(92 67 33 / 5%)),
@@ -322,11 +346,21 @@ button { color: inherit; }
   55%, to { opacity: 1; }
 }
 
-/* Variant D: a clean Japanese game-style utility window with only the book. */
+/* Variant D: the original sculpture viewer above a Japanese game-style drawing window. */
 .japanese-window-layout {
+  overflow-y: auto;
   background:
     linear-gradient(rgb(255 255 255 / 68%), rgb(255 255 255 / 68%)),
     repeating-linear-gradient(0deg, #dfe5e9 0 1px, #eef2f4 1px 4px);
+}
+.japanese-workspace-scroll-content {
+  position: relative;
+  min-height: 1360px;
+  padding-top: 8px;
+}
+.japanese-reference-viewer {
+  width: min(980px, calc(100vw - 48px));
+  margin: 0 auto;
 }
 .japanese-utility-window {
   position: absolute;
@@ -449,7 +483,17 @@ button { color: inherit; }
 .japanese-book-hitbox .tl-canvas,
 .japanese-book-hitbox .tl-html-container,
 .japanese-book-hitbox .tl-background { background: transparent !important; }
+.japanese-book-hitbox .drawing-canvas,
+.reference-book-hitbox .drawing-canvas { filter: url("#center-page-curve"); }
 .japanese-book-stage.is-turning .japanese-book-hitbox { pointer-events: none; }
+.japanese-book-stage.is-turning .drawing-canvas,
+.reference-book-stage.is-turning .drawing-canvas { visibility: hidden; }
+.center-page-curve-filter {
+  position: fixed;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
 .japanese-center-gutter {
   position: absolute;
   z-index: 4;

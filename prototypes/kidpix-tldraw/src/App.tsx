@@ -48,6 +48,23 @@ const EMPTY_POINTER: PointerSnapshot = {
   pointerType: 'none',
 }
 
+const CENTER_PAGE_CURVE_MAP = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(`
+  <svg xmlns="http://www.w3.org/2000/svg" width="256" height="64" viewBox="0 0 256 64">
+    <defs>
+      <linearGradient id="curve" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="rgb(128,128,128)"/>
+        <stop offset="0.36" stop-color="rgb(128,128,128)"/>
+        <stop offset="0.47" stop-color="rgb(128,214,128)"/>
+        <stop offset="0.5" stop-color="rgb(128,255,128)"/>
+        <stop offset="0.53" stop-color="rgb(128,214,128)"/>
+        <stop offset="0.64" stop-color="rgb(128,128,128)"/>
+        <stop offset="1" stop-color="rgb(128,128,128)"/>
+      </linearGradient>
+    </defs>
+    <rect width="256" height="64" fill="url(#curve)"/>
+  </svg>
+`)}`
+
 const COLOR_OPTIONS: Array<{ value: TLDefaultColorStyle; label: string; hex: string }> = [
   { value: 'black', label: 'Graphite', hex: '#172121' },
   { value: 'blue', label: 'Cobalt', hex: '#1557e8' },
@@ -159,7 +176,9 @@ type PrototypeController = ReturnType<typeof usePrototypeState>
 function usePersistentBookSpreads(prototype: PrototypeController) {
   const [spread, setSpread] = useState(1)
   const [turnDirection, setTurnDirection] = useState<'forward' | 'backward' | null>(null)
+  const [turnPreview, setTurnPreview] = useState<string | null>(null)
   const spreadPages = useRef(new Map<number, ReturnType<Editor['getCurrentPageId']>>())
+  const turnLock = useRef(false)
 
   useEffect(() => {
     if (!prototype.state.editor || spreadPages.current.has(1)) return
@@ -185,27 +204,50 @@ function usePersistentBookSpreads(prototype: PrototypeController) {
     setSpread(nextSpread)
   }
 
-  const turnPage = (direction: 'forward' | 'backward') => {
-    if (!prototype.state.editor || turnDirection || (direction === 'backward' && spread === 1)) return
+  const turnPage = async (direction: 'forward' | 'backward') => {
+    const editor = prototype.state.editor
+    if (!editor || turnDirection || turnLock.current || (direction === 'backward' && spread === 1)) return
+    turnLock.current = true
+    const shapes = editor.getCurrentPageShapes().filter((shape) => shape.type === 'draw')
+    let preview: string | null = null
+    if (shapes.length > 0) {
+      try {
+        const result = await editor.toImageDataUrl(shapes, {
+          format: 'png',
+          pixelRatio: 1,
+          background: false,
+          padding: 0,
+          bounds: editor.getViewportPageBounds(),
+        })
+        preview = result.url
+      } catch {
+        preview = null
+      }
+    }
+    setTurnPreview(preview)
     setTurnDirection(direction)
     const duration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 520
     window.setTimeout(() => {
       showSpread(Math.max(1, spread + (direction === 'forward' ? 1 : -1)))
       setTurnDirection(null)
+      setTurnPreview(null)
+      turnLock.current = false
     }, duration)
   }
 
-  return { spread, turnDirection, turnPage }
+  return { spread, turnDirection, turnPreview, turnPage }
 }
 
 function PaperTurn({
   direction,
   className,
   source,
+  previewUrl,
 }: {
   direction: 'forward' | 'backward'
   className: string
   source: 'v004' | 'v005'
+  previewUrl?: string | null
 }) {
   return (
     <div
@@ -218,11 +260,46 @@ function PaperTurn({
     >
       <div className="paper-turn-underlay" />
       <div className="paper-turn-sheet">
-        <div className="book-page-face book-page-front" />
-        <div className="book-page-face book-page-back" />
+        <div className="book-page-face book-page-front">
+          {previewUrl && (
+            <span
+              className="paper-turn-drawing-preview"
+              data-testid="book-page-preview"
+              style={{ backgroundImage: `url("${previewUrl}")` }}
+            />
+          )}
+        </div>
+        <div className="book-page-face book-page-back">
+          {previewUrl && (
+            <span className="paper-turn-drawing-preview" style={{ backgroundImage: `url("${previewUrl}")` }} />
+          )}
+        </div>
         <span className="paper-turn-edge" />
       </div>
     </div>
+  )
+}
+
+function CenterPageCurveFilter() {
+  return (
+    <svg className="center-page-curve-filter" aria-hidden="true">
+      <defs>
+        <filter id="center-page-curve" x="-4%" y="-6%" width="108%" height="112%" colorInterpolationFilters="sRGB">
+          <feImage href={CENTER_PAGE_CURVE_MAP} x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="curve-map" />
+          <feDisplacementMap in="SourceGraphic" in2="curve-map" scale="12" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </defs>
+    </svg>
+  )
+}
+
+function StationaryTurnPreview({ direction, previewUrl }: { direction: 'forward' | 'backward'; previewUrl: string }) {
+  return (
+    <span
+      className={`paper-turn-stationary-preview is-${direction}`}
+      aria-hidden="true"
+      style={{ backgroundImage: `url("${previewUrl}")` }}
+    />
   )
 }
 
@@ -531,10 +608,10 @@ function VariantB() {
   )
 }
 
-function useDraggableWindow() {
+function useDraggableWindow(initialY?: number) {
   const [position, setPosition] = useState(() => ({
     x: Math.max(24, Math.round(window.innerWidth * 0.09)),
-    y: Math.max(34, Math.round(window.innerHeight * 0.08)),
+    y: initialY ?? Math.max(34, Math.round(window.innerHeight * 0.08)),
   }))
   const drag = useRef<{ pointerId: number; dx: number; dy: number } | null>(null)
 
@@ -663,15 +740,25 @@ function VariantC() {
 
 function VariantD() {
   const prototype = usePrototypeState()
-  const windowDrag = useDraggableWindow()
+  const windowDrag = useDraggableWindow(420)
   const windowResize = useResizablePanel(980, 900)
-  const { spread, turnDirection, turnPage } = usePersistentBookSpreads(prototype)
+  const { spread, turnDirection, turnPreview, turnPage } = usePersistentBookSpreads(prototype)
   const zoom = useBookZoom()
   const fittedBook = useFittedBookStage(zoom.zoom)
 
   return (
     <main className="variant-layout japanese-window-layout" data-variant="D" data-testid="variant-D">
-      <section
+      <CenterPageCurveFilter />
+      <div className="japanese-workspace-scroll-content">
+        <section className="reference-viewer-window japanese-reference-viewer" data-testid="reference-viewer-window">
+          <img
+            src={`${import.meta.env.BASE_URL}reference-above-panel.png`}
+            data-testid="reference-above-panel"
+            alt="Museum sculpture reference viewer positioned above the drawing window"
+          />
+          <span>REFERENCE VIEW · STATIC PROTOTYPE SOURCE</span>
+        </section>
+        <section
         className="japanese-utility-window"
         data-testid="japanese-utility-window"
         style={{ left: windowDrag.position.x, top: windowDrag.position.y, ...windowResize.size }}
@@ -706,9 +793,12 @@ function VariantD() {
                 onPointer={(pointer) => prototype.patch({ pointer })}
               />
             </div>
+            {turnDirection && turnPreview && (
+              <StationaryTurnPreview direction={turnDirection} previewUrl={turnPreview} />
+            )}
             <span className="japanese-center-gutter" aria-hidden="true" />
             {turnDirection && (
-              <PaperTurn direction={turnDirection} className="japanese-page-flip" source="v005" />
+              <PaperTurn direction={turnDirection} className="japanese-page-flip" source="v005" previewUrl={turnPreview} />
             )}
           </div>
         </div>
@@ -740,7 +830,8 @@ function VariantD() {
           aria-label="Resize Sketchbook window"
           {...windowResize.handleProps}
         />
-      </section>
+        </section>
+      </div>
       <div className="japanese-debug-state">
         <StateReadout variant="D" state={prototype.state} spread={spread} />
       </div>
@@ -750,12 +841,13 @@ function VariantD() {
 
 function VariantE() {
   const prototype = usePrototypeState()
-  const { spread, turnDirection, turnPage } = usePersistentBookSpreads(prototype)
+  const { spread, turnDirection, turnPreview, turnPage } = usePersistentBookSpreads(prototype)
   const zoom = useBookZoom()
   const fittedBook = useFittedBookStage(zoom.zoom)
 
   return (
     <main className="variant-layout reference-drawing-layout" data-variant="E" data-testid="variant-E">
+      <CenterPageCurveFilter />
       <div className="reference-drawing-stack">
         <section className="reference-viewer-window" data-testid="reference-viewer-window">
           <img
@@ -796,9 +888,12 @@ function VariantE() {
                   onPointer={(pointer) => prototype.patch({ pointer })}
                 />
               </div>
+              {turnDirection && turnPreview && (
+                <StationaryTurnPreview direction={turnDirection} previewUrl={turnPreview} />
+              )}
               <span className="japanese-center-gutter" aria-hidden="true" />
               {turnDirection && (
-                <PaperTurn direction={turnDirection} className="reference-page-flip" source="v005" />
+                <PaperTurn direction={turnDirection} className="reference-page-flip" source="v005" previewUrl={turnPreview} />
               )}
             </div>
           </div>
