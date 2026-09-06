@@ -348,19 +348,28 @@ button { color: inherit; }
 
 /* Variant D: the original sculpture viewer above a Japanese game-style drawing window. */
 .japanese-window-layout {
-  overflow-y: auto;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
   background:
     linear-gradient(rgb(255 255 255 / 68%), rgb(255 255 255 / 68%)),
     repeating-linear-gradient(0deg, #dfe5e9 0 1px, #eef2f4 1px 4px);
 }
 .japanese-workspace-scroll-content {
   position: relative;
-  min-height: 1360px;
-  padding-top: 8px;
+  min-height: 0;
+  overflow: auto;
 }
 .japanese-reference-viewer {
-  width: min(980px, calc(100vw - 48px));
-  margin: 0 auto;
+  width: min(calc(100% - 24px), calc(45vh * 1535 / 660));
+  aspect-ratio: 1535 / 660;
+  margin: 8px auto 0;
+  border: 0;
+  box-shadow: none;
+}
+.japanese-reference-viewer img {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .japanese-utility-window {
   position: absolute;

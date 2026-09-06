@@ -7,6 +7,7 @@ const evidenceDirectory = fileURLToPath(new URL('../../../artifacts/prototypes/k
 
 async function drawStroke(page: Page, offset = 0) {
   const surface = page.getByTestId('drawing-surface')
+  await surface.evaluate(element => element.scrollIntoView({ block: 'center' }))
   const box = await surface.boundingBox()
   if (!box) throw new Error('drawing surface has no box')
   const start = { x: box.x + box.width * 0.28 + offset, y: box.y + box.height * 0.36 + offset }
@@ -21,6 +22,7 @@ async function drawStroke(page: Page, offset = 0) {
 
 async function eraseStroke(page: Page, offset = 0) {
   const surface = page.getByTestId('drawing-surface')
+  await surface.evaluate(element => element.scrollIntoView({ block: 'center' }))
   const box = await surface.boundingBox()
   if (!box) throw new Error('drawing surface has no box')
   const crossingPoint = {
@@ -109,7 +111,7 @@ test('variant D keeps neutral page controls outside the book and retains the pen
   const dock = await page.getByTestId('page-turn-dock').boundingBox()
   if (!reference || !utility || !stage || !content || !dock) throw new Error('Japanese window geometry unavailable')
   expect(reference.y + reference.height).toBeLessThanOrEqual(utility.y)
-  await expect(page.getByTestId('reference-above-panel')).toHaveAttribute('src', /reference-above-panel\.png$/)
+  await expect(page.getByTestId('reference-above-panel')).toHaveAttribute('src', /header-layout-source\.png$/)
   expect(stage.width / content.width).toBeGreaterThanOrEqual(0.94)
   expect(stage.height / content.height).toBeGreaterThanOrEqual(0.9)
   expect(stage.width / stage.height).toBeCloseTo(4 / 3, 2)
@@ -121,6 +123,7 @@ test('variant D keeps neutral page controls outside the book and retains the pen
   await expect(page.getByTestId('book-page-flip')).toBeVisible()
   await expect(page.getByTestId('spread-label')).toHaveText('Spread 02', { timeout: 2_000 })
 
+  await page.getByTestId('drawing-surface').evaluate(element => element.scrollIntoView({ block: 'center' }))
   const hitbox = await page.getByTestId('book-page-hitbox').boundingBox()
   if (!hitbox) throw new Error('book hitbox unavailable')
   await page.mouse.move(hitbox.x + hitbox.width * 0.66, hitbox.y + hitbox.height * 0.38)
@@ -135,6 +138,7 @@ test('variant D applies deterministic center-gutter curvature to live marks', as
   await expect(page.locator('#center-page-curve')).toHaveCount(1)
   const drawingSurface = page.locator('.japanese-book-hitbox .drawing-canvas')
   await expect(drawingSurface).toHaveCSS('filter', /center-page-curve/)
+  await page.getByTestId('drawing-surface').evaluate(element => element.scrollIntoView({ block: 'center' }))
   const box = await page.getByTestId('drawing-surface').boundingBox()
   if (!box) throw new Error('curved drawing surface unavailable')
   const y = box.y + box.height * 0.5

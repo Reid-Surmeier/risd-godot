@@ -766,7 +766,7 @@ function VariantC() {
 
 function VariantD() {
   const prototype = usePrototypeState()
-  const windowDrag = useDraggableWindow(420)
+  const windowDrag = useDraggableWindow(24)
   const windowResize = useResizablePanel(980, 900)
   const { spread, turnDirection, turnPreview, turnPage } = usePersistentBookSpreads(prototype)
   const zoom = useBookZoom()
@@ -775,15 +775,14 @@ function VariantD() {
   return (
     <main className="variant-layout japanese-window-layout" data-variant="D" data-testid="variant-D">
       <CenterPageCurveFilter />
-      <div className="japanese-workspace-scroll-content">
-        <section className="reference-viewer-window japanese-reference-viewer" data-testid="reference-viewer-window">
-          <img
-            src={`${import.meta.env.BASE_URL}reference-above-panel.png`}
-            data-testid="reference-above-panel"
-            alt="Museum sculpture reference viewer positioned above the drawing window"
-          />
-          <span>REFERENCE VIEW · STATIC PROTOTYPE SOURCE</span>
-        </section>
+      <section className="reference-viewer-window japanese-reference-viewer" data-testid="reference-viewer-window">
+        <img
+          src={`${import.meta.env.BASE_URL}header-layout-source.png`}
+          data-testid="reference-above-panel"
+          alt="Fixed museum object grid, sculpture reference, and overlapping utility panel"
+        />
+      </section>
+      <div className="japanese-workspace-scroll-content" data-testid="sketchbook-scroll-pane">
         <section
         className="japanese-utility-window"
         data-testid="japanese-utility-window"

@@ -23,7 +23,7 @@ for (const variant of ['D', 'E']) {
     })
     await page.goto(`./?variant=${variant}`)
     const surface = page.getByTestId('drawing-surface')
-    await surface.scrollIntoViewIfNeeded()
+    await surface.evaluate(element => element.scrollIntoView({ block: 'center' }))
     await expect(page.getByTestId('state-readout')).toContainText('strokes: 0')
     const box = await surface.boundingBox()
     if (!box) throw Error('Missing drawing surface')
@@ -49,6 +49,7 @@ for (const variant of ['D', 'E']) {
     await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
     await page.getByTestId('zoom-in').click()
     await expect(page.getByTestId('zoom-label')).toHaveText('125%')
+    await surface.evaluate(element => element.scrollIntoView({ block: 'center' }))
     const zoomed = await surface.boundingBox()
     if (!zoomed) throw Error('Missing zoomed surface')
     const target = { x: zoomed.x + zoomed.width * 0.4, y: zoomed.y + zoomed.height * 0.4 }
@@ -67,7 +68,7 @@ for (const variant of ['D', 'E']) {
   test(`${variant}: the first stroke after scrolling starts under the pencil`, async ({ page }) => {
     await page.goto(`./?variant=${variant}`)
     const surface = page.getByTestId('drawing-surface')
-    await surface.scrollIntoViewIfNeeded()
+    await surface.evaluate(element => element.scrollIntoView({ block: 'center' }))
     const box = await surface.boundingBox()
     if (!box) throw Error('Missing drawing surface')
     const start = { x: box.x + box.width * 0.3, y: box.y + box.height * 0.4 }

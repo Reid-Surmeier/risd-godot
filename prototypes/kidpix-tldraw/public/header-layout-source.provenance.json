@@ -1,0 +1,8 @@
+{
+  "classification": "owner-supplied-layout-reference",
+  "source_path": "/home/reidsurmeier/qwen-image-pipeline/.orca/drops/Screenshot 2026-09-06 at 3.42.46\u202fPM.png",
+  "source_sha256": "78e28d1482b7f193ab842714936e6aa8ecbb04b38188c5f5a4ca993156726420",
+  "output_path": "prototypes/kidpix-tldraw/public/header-layout-source.png",
+  "operation": "byte-identical copy; upper 1535\u00d7660 region displayed using CSS clipping",
+  "use": "Variant D fixed prototype header; static pending animation source"
+}
