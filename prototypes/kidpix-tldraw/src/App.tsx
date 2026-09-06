@@ -782,7 +782,7 @@ function VariantD() {
           alt="Fixed museum object grid, sculpture reference, and overlapping utility panel"
         />
       </section>
-      <div className="japanese-workspace-scroll-content" data-testid="sketchbook-scroll-pane">
+      <div className="japanese-workspace-scroll-content" data-testid="sketchbook-workspace">
         <section
         className="japanese-utility-window"
         data-testid="japanese-utility-window"
