@@ -7,6 +7,7 @@ import {
   Tldraw,
 } from 'tldraw'
 import * as TldrawRuntime from 'tldraw'
+import { createPortal } from 'react-dom'
 import { CSSProperties, PointerEvent as ReactPointerEvent, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 type VariantKey = 'A' | 'B' | 'C' | 'D' | 'E'
@@ -372,12 +373,31 @@ type DrawingCanvasProps = {
 }
 
 function DrawingCanvas({ variant, onEditorReady, onPointer, tool, pencilSize, className = '' }: DrawingCanvasProps) {
-  const [pointer, setPointer] = useState<PointerSnapshot>(EMPTY_POINTER)
+  const pointer = useRef<PointerSnapshot>(EMPTY_POINTER)
+  const pencil = useRef<HTMLImageElement>(null)
+  const mountedEditor = useRef<Editor | null>(null)
 
   const mountEditor = useCallback((editor: Editor) => {
+    mountedEditor.current = editor
     editor.setCameraOptions({ isLocked: variant !== 'B' })
     onEditorReady(editor)
   }, [onEditorReady, variant])
+
+  const showPointer = (snapshot: PointerSnapshot) => {
+    if (pencil.current) {
+      pencil.current.hidden = !snapshot.visible
+      pencil.current.style.left = `${snapshot.x}px`
+      pencil.current.style.top = `${snapshot.y}px`
+      pencil.current.classList.toggle('is-down', snapshot.down)
+    }
+    // Coordinates belong to the cursor, not React's workspace render loop.
+    const previous = pointer.current
+    pointer.current = snapshot
+    if (previous.visible !== snapshot.visible || previous.down !== snapshot.down ||
+        previous.pressure !== snapshot.pressure || previous.pointerType !== snapshot.pointerType) {
+      onPointer(snapshot)
+    }
+  }
 
   const updatePointer = (event: ReactPointerEvent, next: Partial<PointerSnapshot> = {}) => {
     const snapshot: PointerSnapshot = {
@@ -389,14 +409,11 @@ function DrawingCanvas({ variant, onEditorReady, onPointer, tool, pencilSize, cl
       pointerType: event.pointerType,
       ...next,
     }
-    setPointer(snapshot)
-    onPointer(snapshot)
+    showPointer(snapshot)
   }
 
   const hidePointer = () => {
-    const snapshot = { ...pointer, visible: false, down: false, pressure: 0 }
-    setPointer(snapshot)
-    onPointer(snapshot)
+    showPointer({ ...pointer.current, visible: false, down: false, pressure: 0 })
   }
 
   return (
@@ -405,7 +422,12 @@ function DrawingCanvas({ variant, onEditorReady, onPointer, tool, pencilSize, cl
       data-testid="drawing-surface"
       onPointerEnter={(event) => updatePointer(event)}
       onPointerMoveCapture={(event) => updatePointer(event)}
-      onPointerDownCapture={(event) => updatePointer(event, { down: true })}
+      onPointerDownCapture={(event) => {
+        // tldraw throttles scroll/resize bounds; refresh before it starts the stroke.
+        const editor = mountedEditor.current
+        if (editor) editor.updateViewportScreenBounds(editor.getContainer())
+        updatePointer(event, { down: true })
+      }}
       onPointerUpCapture={(event) => updatePointer(event, { down: false, pressure: 0 })}
       onPointerCancelCapture={hidePointer}
       onPointerLeave={hidePointer}
@@ -416,15 +438,19 @@ function DrawingCanvas({ variant, onEditorReady, onPointer, tool, pencilSize, cl
         assetUrls={LOCAL_TLDRAW_ASSETS}
         onMount={mountEditor}
       />
-      {pointer.visible && (
+      {createPortal(
         <img
-          className={`pencil-cursor ${pointer.down ? 'is-down' : ''} ${tool === 'eraser' ? 'is-eraser' : ''}`}
+          ref={pencil}
+          hidden
+          className={`pencil-cursor ${tool === 'eraser' ? 'is-eraser' : ''}`}
+          data-variant={variant}
           data-testid="pencil-cursor"
           src={`${import.meta.env.BASE_URL}pencil-prototype.png`}
           alt=""
           aria-hidden="true"
-          style={{ left: pointer.x, top: pointer.y, height: pencilSize }}
-        />
+          style={{ height: pencilSize }}
+        />,
+        document.body,
       )}
     </div>
   )

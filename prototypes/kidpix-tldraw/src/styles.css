@@ -37,8 +37,8 @@ button { color: inherit; }
   pointer-events: none;
   user-select: none;
   image-rendering: pixelated;
-  transform: translate(-70%, -1%) rotate(2deg);
-  transform-origin: 70% 1%;
+  transform: translate(-73.333333%, 0) rotate(2deg);
+  transform-origin: 73.333333% 0;
   filter: drop-shadow(2px 3px 0 rgb(23 33 33 / 18%));
   animation: pencil-hover 1.35s ease-in-out infinite;
   transition: transform 55ms linear, filter 80ms linear, height 140ms ease-out;
@@ -46,12 +46,12 @@ button { color: inherit; }
 .pencil-cursor.is-down { animation: pencil-press 120ms ease-out both; filter: drop-shadow(1px 2px 0 rgb(23 33 33 / 12%)); }
 .pencil-cursor.is-eraser { filter: grayscale(.35) sepia(.35) drop-shadow(2px 3px 0 rgb(23 33 33 / 16%)); }
 @keyframes pencil-hover {
-  0%, 100% { transform: translate(-70%, -1%) rotate(2deg); }
-  50% { transform: translate(-70%, -3%) rotate(3.5deg); }
+  0%, 100% { transform: translate(-73.333333%, 0) rotate(2deg); }
+  50% { transform: translate(-73.333333%, 0) rotate(3.5deg); }
 }
 @keyframes pencil-press {
-  from { transform: translate(-70%, -1%) rotate(2deg) scale(1); }
-  to { transform: translate(-70%, -1%) rotate(-1deg) scale(.95); }
+  from { transform: translate(-73.333333%, 0) rotate(2deg) scale(1); }
+  to { transform: translate(-73.333333%, 0) rotate(-1deg) scale(.95); }
 }
 .prototype-switcher {
   position: fixed;
@@ -581,7 +581,7 @@ button { color: inherit; }
   bottom: 16px;
   width: 178px;
 }
-.japanese-window-layout .pencil-cursor { image-rendering: auto; }
+.pencil-cursor[data-variant="D"] { image-rendering: auto; }
 
 /* Variant E: static museum reference directly above the drawing window. */
 .reference-drawing-layout {
@@ -705,7 +705,7 @@ button { color: inherit; }
   bottom: 12px;
   width: 164px;
 }
-.reference-drawing-layout .pencil-cursor { image-rendering: auto; }
+.pencil-cursor[data-variant="E"] { image-rendering: auto; }
 
 /* Variant B: spatial, minimal and canvas-first. */
 .modern-layout { background: #f1f4f7; }

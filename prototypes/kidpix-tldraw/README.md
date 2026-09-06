@@ -50,7 +50,7 @@ Variant C begins with the complete Qwen Sketchbook v003 final, then crossfades i
 
 The Pencil slider changes only the cursor artwork from 96–240 px. The default is 160 px. Brush thickness remains a separate Stroke control, and resizing the cursor does not move its fixed graphite-tip hotspot.
 
-The former cursor offset was caused by placing a `position: fixed` cursor inside the book stage's CSS `perspective` containing block. Perspective now lives on the temporary flipping page transform, so the visible graphite tip stays on the viewport pointer while the page turn retains its 3D hinge.
+The pencil is rendered in a React portal directly under the document body, outside the book's filters, transforms, and clipping. Its graphite tip is the rotation/press origin. Pointer coordinates update the cursor element directly; only changes to pointer visibility, pressure, or button state update the diagnostic readout. This keeps hovering out of the workspace render loop and avoids repainting the filtered book just to move the pencil. The gutter curvature and page-turn drawings remain unchanged. At pointer-down, the editor refreshes its screen bounds once so scrolling or resizing immediately before drawing cannot start a stroke at the previous canvas position.
 
 To change the allowed scale in code, edit the `min`, `max`, `step`, and initial `pencilSize` values in `src/App.tsx`. The CSS animations live in `src/styles.css`: `pencil-hover`, `pencil-press`, `paper-turn-forward`, `paper-turn-backward`, `page-underlay-reveal`, `window-arrive`, and `opening-sequence`. Every nonessential animation is disabled by `prefers-reduced-motion`.
 

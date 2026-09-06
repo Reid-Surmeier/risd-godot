@@ -251,7 +251,7 @@ test('draws only inside the cream page interior and has no sparkle effect', asyn
   await page.mouse.move(box.x + box.width * 0.62, box.y + box.height * 0.07, { steps: 5 })
   await page.mouse.up()
   await expect(page.getByTestId('state-readout')).toContainText('strokes: 0')
-  await expect(page.getByTestId('pencil-cursor')).toHaveCount(0)
+  await expect(page.getByTestId('pencil-cursor')).toBeHidden()
 
   await drawStroke(page)
   await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
