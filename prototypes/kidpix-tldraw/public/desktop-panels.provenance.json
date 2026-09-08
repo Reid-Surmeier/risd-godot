@@ -1,0 +1,56 @@
+{
+  "issue": 16,
+  "orientation_source": "/home/reidsurmeier/qwen-image-pipeline/.orca/drops/Screenshot 2026-09-08 at 10.01.55\u202fAM.png",
+  "orientation_sha256": "c115d9106ebae7d372adb335a952659cf2fbac70935bee9ea123ebfe5b7dbac7",
+  "panels": [
+    {
+      "name": "calligraphy",
+      "source_path": "/tmp/orca-paste-1788876032711-e3606742-658b-4c3d-9f40-a9bbcc9bc784.png",
+      "path": "prototypes/kidpix-tldraw/public/desktop-calligraphy.png",
+      "sha256": "37b445f1cb605d5585b26f1164042e0fb629a8002305644f4496a2434e9ff77f",
+      "dimensions": [
+        1416,
+        2013
+      ],
+      "classification": "owner-supplied source reference",
+      "operation": "byte-identical copy"
+    },
+    {
+      "name": "objects",
+      "source_path": "/tmp/orca-paste-1788876043894-42f63fed-6c59-47b8-9939-56e566727312.png",
+      "path": "prototypes/kidpix-tldraw/public/desktop-objects.png",
+      "sha256": "db10e495855d7fc5d60022c67806c7812fe7e40adb4ace14167ecf0d9bb992b4",
+      "dimensions": [
+        1610,
+        2121
+      ],
+      "classification": "owner-supplied source reference",
+      "operation": "byte-identical copy"
+    },
+    {
+      "name": "chat",
+      "source_path": "/tmp/orca-paste-1788876064300-c00a8ff2-79e9-4877-b3ef-071bc9502813.png",
+      "path": "prototypes/kidpix-tldraw/public/desktop-chat.png",
+      "sha256": "31e0ef3eaaba239081d69250b2dcc04089e1fb9d441d30bc46b690e50eb1fddc",
+      "dimensions": [
+        2044,
+        948
+      ],
+      "classification": "owner-supplied source reference",
+      "operation": "byte-identical copy"
+    },
+    {
+      "name": "player",
+      "source_path": "/tmp/orca-paste-1788876074346-179bc4fa-e54e-44f8-a6a5-0ccfc4e4b703.png",
+      "path": "prototypes/kidpix-tldraw/public/desktop-player.png",
+      "sha256": "dee74dddf259c59b8cb09cc18ae07d2a9705df15c948b251f090cd3fe0bdabb8",
+      "dimensions": [
+        2544,
+        2163
+      ],
+      "classification": "owner-supplied source reference",
+      "operation": "byte-identical copy"
+    }
+  ],
+  "orientation_copy": "artifacts/prototypes/kidpix-tldraw/desktop-panels/orientation-source.png"
+}

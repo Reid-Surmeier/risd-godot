@@ -7,7 +7,7 @@ for (const viewport of [{ width: 1440, height: 1000 }, { width: 2048, height: 10
     const header = page.getByTestId('reference-viewer-window')
     const book = page.getByTestId('japanese-book-stage')
     await expect(book).toBeVisible()
-    await expect(page.getByTestId('reference-above-panel')).toHaveAttribute('src', /header-layout-source\.png$/)
+    await expect(page.getByTestId('reference-above-panel')).toHaveAttribute('src', /reference-above-panel\.png$/)
     const frame = await page.getByTestId('japanese-utility-window').boundingBox()
     const stage = await book.boundingBox()
     const before = await header.boundingBox()
@@ -37,3 +37,33 @@ for (const viewport of [{ width: 1440, height: 1000 }, { width: 2048, height: 10
     expect(paperTopIsReachable).toBe(true)
   })
 }
+
+
+test('D places all four supplied panels around the live book in the owner orientation', async ({ page }) => {
+  await page.setViewportSize({ width: 1905, height: 1280 })
+  await page.goto('./?variant=D')
+  const panels = await page.locator('.desktop-objects, .desktop-player, .desktop-calligraphy, .desktop-chat').evaluateAll(async elements => {
+    return Promise.all(elements.map(async element => {
+      const image = element as HTMLImageElement
+      await image.decode()
+      const box = image.getBoundingClientRect()
+      return { name: image.className, x: box.x, y: box.y, right: box.right, bottom: box.bottom,
+        ratio: box.width / box.height, naturalRatio: image.naturalWidth / image.naturalHeight }
+    }))
+  })
+  expect(panels).toHaveLength(4)
+  for (const panel of panels) expect(panel.ratio).toBeCloseTo(panel.naturalRatio, 3)
+  const [objects, player, tools, chat] = panels
+  const book = await page.getByTestId('japanese-utility-window').boundingBox()
+  const head = await page.getByTestId('reference-viewer-window').boundingBox()
+  if (!book || !head) throw Error('Missing live book or head reference')
+  expect(objects.right).toBeLessThan(head.x)
+  expect(head.x + head.width).toBeLessThan(player.x)
+  expect(Math.max(objects.bottom, player.bottom, head.y + head.height)).toBeLessThan(book.y)
+  expect(tools.right).toBeLessThan(book.x)
+  expect(chat.x).toBeGreaterThan(book.x + book.width)
+  expect(tools.y).toBe(book.y)
+  expect(chat.y).toBe(book.y)
+  expect(book.width).toBe(980)
+  expect(book.height).toBe(900)
+})

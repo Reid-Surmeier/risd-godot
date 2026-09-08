@@ -75,8 +75,8 @@ button { color: inherit; }
 .prototype-switcher small { font-size: 9px; letter-spacing: .14em; opacity: .62; }
 .prototype-switcher strong { margin-top: 3px; font-size: 13px; }
 .prototype-switcher[data-variant="D"] {
-  top: 18px;
-  bottom: auto;
+  top: auto;
+  bottom: 18px;
   right: 24px;
   left: auto;
   transform: none;
@@ -346,31 +346,56 @@ button { color: inherit; }
   55%, to { opacity: 1; }
 }
 
-/* Variant D: the original sculpture viewer above a Japanese game-style drawing window. */
+/* Variant D: owner-supplied panels around the full-size live sketchbook. */
 .japanese-window-layout {
+  /* Reserve the bottom strip for prototype navigation, clear of the resize grip. */
+  height: calc(100% - 76px);
   overflow: auto;
-  background:
-    linear-gradient(rgb(255 255 255 / 68%), rgb(255 255 255 / 68%)),
-    repeating-linear-gradient(0deg, #dfe5e9 0 1px, #eef2f4 1px 4px);
+  padding: 12px;
+  background: white;
+}
+.japanese-reference-row {
+  display: grid;
+  grid-template-columns: 350px 766px 566px;
+  gap: 16px;
+  align-items: start;
+  width: max-content;
+  margin-bottom: 16px;
+}
+.japanese-reference-row > img,
+.japanese-workspace-scroll-content > img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .japanese-workspace-scroll-content {
   position: relative;
-  padding-bottom: 48px;
+  display: grid;
+  gap: 16px;
+  align-items: start;
+  width: max-content;
+  padding: 0 12px 0 0;
 }
 .japanese-workspace-scroll-content > .japanese-utility-window {
   position: relative;
 }
-.japanese-reference-viewer {
-  width: min(calc(100% - 24px), calc(45vh * 1535 / 660));
-  aspect-ratio: 1535 / 660;
-  margin: 8px auto 0;
+.japanese-workspace-scroll-content > .desktop-calligraphy {
+  width: 320px;
+  justify-self: end;
+}
+.japanese-reference-row > .japanese-reference-viewer {
+  width: 766px;
+  aspect-ratio: 786 / 487;
   border: 0;
   box-shadow: none;
 }
-.japanese-reference-viewer img {
+.japanese-reference-row .japanese-reference-viewer img {
   position: absolute;
   top: 0;
-  left: 0;
+  /* Show the head at x=380..1166 in the unchanged 1200×487 reference. */
+  left: calc(-380 / 786 * 100%);
+  width: calc(1200 / 786 * 100%);
+  max-width: none;
 }
 .japanese-utility-window {
   position: absolute;

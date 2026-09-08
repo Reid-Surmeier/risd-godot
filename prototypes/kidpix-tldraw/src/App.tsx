@@ -634,9 +634,9 @@ function VariantB() {
   )
 }
 
-function useDraggableWindow(initialY?: number) {
+function useDraggableWindow(initialY?: number, initialX?: number) {
   const [position, setPosition] = useState(() => ({
-    x: Math.max(24, Math.round(window.innerWidth * 0.09)),
+    x: initialX ?? Math.max(24, Math.round(window.innerWidth * 0.09)),
     y: initialY ?? Math.max(34, Math.round(window.innerHeight * 0.08)),
   }))
   const drag = useRef<{ pointerId: number; dx: number; dy: number } | null>(null)
@@ -766,7 +766,7 @@ function VariantC() {
 
 function VariantD() {
   const prototype = usePrototypeState()
-  const windowDrag = useDraggableWindow(24)
+  const windowDrag = useDraggableWindow(0, 0)
   const windowResize = useResizablePanel(980, 900)
   const { spread, turnDirection, turnPreview, turnPage } = usePersistentBookSpreads(prototype)
   const zoom = useBookZoom()
@@ -775,14 +775,20 @@ function VariantD() {
   return (
     <main className="variant-layout japanese-window-layout" data-variant="D" data-testid="variant-D">
       <CenterPageCurveFilter />
-      <section className="reference-viewer-window japanese-reference-viewer" data-testid="reference-viewer-window">
-        <img
-          src={`${import.meta.env.BASE_URL}header-layout-source.png`}
-          data-testid="reference-above-panel"
-          alt="Fixed museum object grid, sculpture reference, and overlapping utility panel"
-        />
-      </section>
-      <div className="japanese-workspace-scroll-content" data-testid="sketchbook-workspace">
+      <div className="japanese-reference-row">
+        <img className="desktop-objects" src={`${import.meta.env.BASE_URL}desktop-objects.png`} alt="Museum objects and Japanese equipment window" />
+        <section className="reference-viewer-window japanese-reference-viewer" data-testid="reference-viewer-window">
+          <img
+            src={`${import.meta.env.BASE_URL}reference-above-panel.png`}
+            data-testid="reference-above-panel"
+            alt="Marble head on the colorful character reference background"
+          />
+        </section>
+        <img className="desktop-player" src={`${import.meta.env.BASE_URL}desktop-player.png`} alt="Seated sculpture in a silver media player reference" />
+      </div>
+      <div className="japanese-workspace-scroll-content" data-testid="sketchbook-workspace"
+        style={{ gridTemplateColumns: `350px ${windowResize.size.width}px 460px` }}>
+        <img className="desktop-calligraphy" src={`${import.meta.env.BASE_URL}desktop-calligraphy.png`} alt="Japanese calligraphy palette with brushes and ink colors" />
         <section
         className="japanese-utility-window"
         data-testid="japanese-utility-window"
@@ -856,6 +862,7 @@ function VariantD() {
           {...windowResize.handleProps}
         />
         </section>
+        <img className="desktop-chat" src={`${import.meta.env.BASE_URL}desktop-chat.png`} alt="Global Chatroom reference discussing the RISD collection" />
       </div>
       <div className="japanese-debug-state">
         <StateReadout variant="D" state={prototype.state} spread={spread} />

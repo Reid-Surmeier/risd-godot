@@ -111,7 +111,7 @@ test('variant D keeps neutral page controls outside the book and retains the pen
   const dock = await page.getByTestId('page-turn-dock').boundingBox()
   if (!reference || !utility || !stage || !content || !dock) throw new Error('Japanese window geometry unavailable')
   expect(reference.y + reference.height).toBeLessThanOrEqual(utility.y)
-  await expect(page.getByTestId('reference-above-panel')).toHaveAttribute('src', /header-layout-source\.png$/)
+  await expect(page.getByTestId('reference-above-panel')).toHaveAttribute('src', /reference-above-panel\.png$/)
   expect(stage.width / content.width).toBeGreaterThanOrEqual(0.94)
   expect(stage.height / content.height).toBeGreaterThanOrEqual(0.9)
   expect(stage.width / stage.height).toBeCloseTo(4 / 3, 2)
