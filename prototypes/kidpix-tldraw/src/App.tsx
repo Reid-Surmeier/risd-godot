@@ -659,10 +659,10 @@ function useDraggableWindow(initialY?: number, initialX?: number) {
   return { position, titleBarProps: { onPointerDown, onPointerMove, onPointerUp, onPointerCancel: onPointerUp } }
 }
 
-function useResizablePanel(initialWidth: number, initialHeight: number) {
+function useResizablePanel(initialWidth: number, initialHeight: number, scale: number) {
   const [size, setSize] = useState(() => ({
-    width: Math.min(initialWidth, window.innerWidth - 48),
-    height: Math.min(initialHeight, window.innerHeight - 54),
+    width: initialWidth,
+    height: initialHeight,
   }))
   const resize = useRef<{ pointerId: number; x: number; y: number; width: number; height: number } | null>(null)
 
@@ -682,8 +682,8 @@ function useResizablePanel(initialWidth: number, initialHeight: number) {
     const active = resize.current
     if (!active || active.pointerId !== event.pointerId) return
     setSize({
-      width: Math.max(720, Math.min(window.innerWidth - 48, active.width + event.clientX - active.x)),
-      height: Math.max(620, Math.min(window.innerHeight - 16, active.height + event.clientY - active.y)),
+      width: Math.max(720, Math.min((window.innerWidth - 48) / scale, active.width + (event.clientX - active.x) / scale)),
+      height: Math.max(620, Math.min((window.innerHeight - 16) / scale, active.height + (event.clientY - active.y) / scale)),
     })
   }
   const onPointerUp = (event: ReactPointerEvent<HTMLButtonElement>) => {
@@ -767,13 +767,20 @@ function VariantC() {
 function VariantD() {
   const prototype = usePrototypeState()
   const windowDrag = useDraggableWindow(0, 0)
-  const windowResize = useResizablePanel(980, 900)
+  const [desktopScale, setDesktopScale] = useState(() => Math.min(1, (window.innerWidth - 24) / 1822, (window.innerHeight - 24) / 1398))
+  useEffect(() => {
+    const fitDesktop = () => setDesktopScale(Math.min(1, (window.innerWidth - 24) / 1822, (window.innerHeight - 24) / 1398))
+    window.addEventListener('resize', fitDesktop)
+    return () => window.removeEventListener('resize', fitDesktop)
+  }, [])
+  const windowResize = useResizablePanel(980, 900, desktopScale)
   const { spread, turnDirection, turnPreview, turnPage } = usePersistentBookSpreads(prototype)
   const zoom = useBookZoom()
   const fittedBook = useFittedBookStage(zoom.zoom)
 
   return (
-    <main className="variant-layout japanese-window-layout" data-variant="D" data-testid="variant-D">
+    <main className="variant-layout japanese-window-layout" data-variant="D" data-testid="variant-D"
+      style={{ "--desktop-scale": desktopScale } as CSSProperties}>
       <CenterPageCurveFilter />
       <div className="japanese-reference-row">
         <img className="desktop-objects" src={`${import.meta.env.BASE_URL}desktop-objects.png`} alt="Museum objects and Japanese equipment window" />
@@ -787,12 +794,12 @@ function VariantD() {
         <img className="desktop-player" src={`${import.meta.env.BASE_URL}desktop-player.png`} alt="Seated sculpture in a silver media player reference" />
       </div>
       <div className="japanese-workspace-scroll-content" data-testid="sketchbook-workspace"
-        style={{ gridTemplateColumns: `350px ${windowResize.size.width}px 460px` }}>
+        style={{ gridTemplateColumns: `${350 * desktopScale}px ${windowResize.size.width * desktopScale}px ${460 * desktopScale}px` }}>
         <img className="desktop-calligraphy" src={`${import.meta.env.BASE_URL}desktop-calligraphy.png`} alt="Japanese calligraphy palette with brushes and ink colors" />
         <section
         className="japanese-utility-window"
         data-testid="japanese-utility-window"
-        style={{ left: windowDrag.position.x, top: windowDrag.position.y, ...windowResize.size }}
+        style={{ left: windowDrag.position.x, top: windowDrag.position.y, width: windowResize.size.width * desktopScale, height: windowResize.size.height * desktopScale }}
       >
         <header className="japanese-titlebar" data-testid="japanese-titlebar" {...windowDrag.titleBarProps}>
           <span className="japanese-window-icon" aria-hidden="true">●</span>
@@ -975,7 +982,7 @@ function PrototypeSwitcher({ variant, onVariant }: { variant: VariantKey; onVari
     return () => window.removeEventListener('keydown', onKeyDown)
   })
 
-  if (import.meta.env.PROD) return null
+  if (import.meta.env.PROD || variant === 'D') return null
 
   return (
     <nav className="prototype-switcher" data-variant={variant} aria-label="Prototype variants" data-testid="prototype-switcher">

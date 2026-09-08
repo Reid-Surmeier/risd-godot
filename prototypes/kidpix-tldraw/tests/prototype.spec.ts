@@ -193,7 +193,7 @@ test('variant D refits a wider spread when its utility window is resized', async
   await page.mouse.up()
 
   await expect.poll(async () => (await utilityWindow.boundingBox())?.width ?? 0).toBeGreaterThan(beforeWindow.width + 60)
-  await expect.poll(async () => (await stage.boundingBox())?.width ?? 0).toBeGreaterThan(beforeStage.width + 50)
+  await expect.poll(async () => (await stage.boundingBox())?.width ?? 0).toBeGreaterThan(beforeStage.width * 1.05)
   const resizedStage = await stage.boundingBox()
   if (!resizedStage) throw new Error('resized book geometry unavailable')
   expect(resizedStage.width / resizedStage.height).toBeCloseTo(4 / 3, 2)

@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
-for (const viewport of [{ width: 1440, height: 1000 }, { width: 2048, height: 1080 }]) {
-  test(`D shows the whole unchanged book after scrolling at ${viewport.width}`, async ({ page }) => {
+for (const viewport of [{ width: 1440, height: 1000 }, { width: 2048, height: 1080 }, { width: 1366, height: 768 }]) {
+  test(`D fits the whole desktop without the prototype switcher at ${viewport.width}`, async ({ page }) => {
     await page.setViewportSize(viewport)
     await page.goto('./?variant=D')
     const header = page.getByTestId('reference-viewer-window')
@@ -12,10 +12,17 @@ for (const viewport of [{ width: 1440, height: 1000 }, { width: 2048, height: 10
     const stage = await book.boundingBox()
     const before = await header.boundingBox()
     if (!frame || !stage || !before) throw Error('Missing header or sketchbook')
-    expect(frame.width).toBe(980)
-    expect(frame.height).toBe(900)
-    expect(stage.width).toBe(952)
-    expect(stage.height).toBe(714)
+    expect(frame.width).toBeLessThan(980)
+    expect(frame.width / frame.height).toBeCloseTo(980 / 900, 2)
+    expect(stage.width / stage.height).toBeCloseTo(4 / 3, 2)
+    expect(frame.y + frame.height).toBeLessThanOrEqual(viewport.height)
+    await expect(page.getByTestId('prototype-switcher')).toHaveCount(0)
+    const desktop = await page.getByTestId('variant-D').evaluate(element => ({
+      width: element.clientWidth, scrollWidth: element.scrollWidth,
+      height: element.clientHeight, scrollHeight: element.scrollHeight,
+    }))
+    expect(desktop.scrollWidth).toBeLessThanOrEqual(desktop.width)
+    expect(desktop.scrollHeight).toBeLessThanOrEqual(desktop.height)
     expect(frame.y).toBeGreaterThanOrEqual(before.y + before.height)
 
     await page.getByTestId('page-turn-dock').scrollIntoViewIfNeeded()
@@ -29,6 +36,11 @@ for (const viewport of [{ width: 1440, height: 1000 }, { width: 2048, height: 10
     expect.soft(title.y).toBeGreaterThanOrEqual(0)
     expect.soft(after.y).toBeGreaterThanOrEqual(Math.max(0, headerAfter.y + headerAfter.height))
     expect(footer.y + footer.height).toBeLessThanOrEqual(viewport.height)
+    for (const button of await page.getByTestId('page-turn-dock').locator('button').all()) {
+      const control = await button.boundingBox()
+      if (!control) throw Error('Missing book control')
+      expect(control.y + control.height).toBeLessThanOrEqual(footer.y + footer.height)
+    }
     // A visible box alone does not catch overflow clipping by an ancestor.
     const paperTopIsReachable = await book.evaluate(element => {
       const r = element.getBoundingClientRect()
@@ -64,6 +76,8 @@ test('D places all four supplied panels around the live book in the owner orient
   expect(chat.x).toBeGreaterThan(book.x + book.width)
   expect(tools.y).toBe(book.y)
   expect(chat.y).toBe(book.y)
-  expect(book.width).toBe(980)
-  expect(book.height).toBe(900)
+  expect(book.width).toBeLessThan(980)
+  expect(book.width / book.height).toBeCloseTo(980 / 900, 2)
+  await page.setViewportSize({ width: 1440, height: 1000 })
+  await expect.poll(async () => (await page.getByTestId('japanese-utility-window').boundingBox())?.width ?? Infinity).toBeLessThan(book.width)
 })
