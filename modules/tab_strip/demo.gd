@@ -2,8 +2,8 @@
 extends Control
 
 const TabStrip := preload("res://modules/tab_strip/interface.gd")
-## Tabs are drawn at this fraction of their source size (the bar is 161 source px tall).
-const SCALE := 0.55
+## The bar is the reference image fitted to the window: 3135 source px across the window width.
+const SOURCE_WIDTH := 3135.0
 
 var strip: Control
 var pages: Control
@@ -23,7 +23,6 @@ func _ready() -> void:
 		return
 	strip = created.value
 	strip.name = "TabStrip"
-	strip.scale = Vector2(SCALE, SCALE)
 	add_child(pages)
 	add_child(strip)
 	_fit()
@@ -32,6 +31,8 @@ func _ready() -> void:
 
 func _fit() -> void:
 	var vs := get_viewport_rect().size
-	TabStrip.set_bar_width(strip, vs.x / SCALE)
-	pages.position = Vector2(0, 161 * SCALE)
-	pages.size = Vector2(vs.x, vs.y - 161 * SCALE)
+	var scale := vs.x / SOURCE_WIDTH
+	strip.scale = Vector2(scale, scale)
+	TabStrip.set_bar_width(strip, SOURCE_WIDTH)
+	pages.position = Vector2(0, 161 * scale)
+	pages.size = Vector2(vs.x, vs.y - 161 * scale)

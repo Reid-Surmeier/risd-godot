@@ -8,10 +8,10 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-SCALE = 0.55            # demo.gd SCALE
+SCALE = 1920 / 3135.0   # demo.gd: bar fitted to the 1920 px playtest window
 RIGHT_CLUSTER_W = 1920  # layout.json
 ICONS_OFFSET = 456
-FULL_TAB_W = 680
+FULL_TAB_W = 640
 
 out = Path(sys.argv[1])
 rep = json.loads((out / "report.json").read_text())
@@ -56,8 +56,8 @@ check("close_button_on_every_tab", all(tb["close_rect"]["size"]["x"] > 0 for tb 
 check("third_tab_opened_from_moved_stub", states["third-tab"]["count"] == 3 and states["third-tab"]["tabs"][2]["label"] == "blank_page")
 
 full = states["full-row"]; fill = next(e for e in log if e["event"] == "fill")
-max_right = full["bar_width"] - RIGHT_CLUSTER_W + ICONS_OFFSET - 40
-check("row_fills_then_refuses", full["count"] >= 4 and "refused" in fill["result"], fill["result"])
+max_right = full["bar_width"] - RIGHT_CLUSTER_W + ICONS_OFFSET - 40  # bar_width is 3135 now
+check("row_fills_then_refuses", full["count"] >= 3 and "refused" in fill["result"], fill["result"])
 check("full_row_tabs_shrunk_not_overflowed", all(tb["x"] + tb["w"] <= max_right + 1 for tb in full["tabs"]) and full["tabs"][-1]["w"] < FULL_TAB_W,
       f"{full['count']} tabs, last w={full['tabs'][-1]['w']:.0f}, max_right={max_right:.0f}")
 check("shrunk_labels_truncated_with_dots", all(tb["truncated"] for tb in full["tabs"] if tb["label"] == "blank_page"),

@@ -123,13 +123,6 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	var mid := _piece(node, _tex.tab_mid, TextureRect.STRETCH_SCALE)
 	mid.position = Vector2(t.left_w, 0)
 	var right := _piece(node, _tex.tab_right, TextureRect.STRETCH_KEEP)
-	var opening := ColorRect.new()  # the active tab opens into its page: white over the bar's bottom border
-	opening.name = "Opening"
-	opening.color = Color.WHITE
-	opening.position = Vector2(_layout.opening.x, _layout.opening.y)
-	opening.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	opening.visible = false
-	node.add_child(opening)
 	var icon := _piece(node, null, TextureRect.STRETCH_KEEP)
 	var clip := Control.new()
 	clip.name = "LabelClip"
@@ -156,7 +149,7 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	add_child(node)
 	if not _tabs.is_empty():
 		move_child(node, _tabs[-1].node.get_index())  # behind its left neighbour: one clean join
-	var tab := {"node": node, "mid": mid, "right": right, "opening": opening, "icon": icon, "clip": clip, "label": label,
+	var tab := {"node": node, "mid": mid, "right": right,  "icon": icon, "clip": clip, "label": label,
 			"dots": dots, "close": close, "label_key": "", "width": width, "page": null}
 	_tabs.append(tab)
 	_set_label(tab, label_key)
@@ -225,7 +218,6 @@ func _set_tab_width(tab: Dictionary, width: float) -> void:
 	tab.node.size.x = width
 	tab.mid.size = Vector2(max(0.0, width - t.left_w - t.right_w), t.height)
 	tab.right.position = Vector2(width - t.right_w, 0)
-	tab.opening.size = Vector2(max(0.0, width - _layout.opening.x - _layout.opening.right_inset), _layout.opening.h)
 	_fit_label(tab)
 
 
@@ -332,7 +324,6 @@ func select_tab(index: int) -> Dictionary:
 	_active = index
 	for i in _tabs.size():
 		_tabs[i].page.visible = (i == index)
-		_tabs[i].opening.visible = (i == index)  # the active tab opens into its page; the others sit on the bar line
 	emit_signal("tab_selected", index)
 	return Errors.ok(index)
 
