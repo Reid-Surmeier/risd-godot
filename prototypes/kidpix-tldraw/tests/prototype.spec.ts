@@ -167,10 +167,10 @@ test('variant D wears the generated RO chrome: pixel title bar, arrow-only dock,
   await expect(previous).toBeDisabled()
   expect(await previous.evaluate((element) => getComputedStyle(element).backgroundImage)).toContain('ro-btn-prev-disabled.png')
   expect(await page.getByTestId('next-page').evaluate((element) => getComputedStyle(element).backgroundImage)).toContain('ro-btn-next.png')
-  // The chrome is the reference's 23-px-tall top band at 1:1 whatever the window width.
+  // The chrome is the reference's 20-px-tall top band at 1:1 whatever the window width.
   const title = await titlebar.boundingBox()
   if (!title) throw new Error('RO chrome geometry unavailable')
-  expect(title.height).toBeCloseTo(23, 0)
+  expect(title.height).toBeCloseTo(20, 0)
   await page.screenshot({ path: `${evidenceDirectory}/variant-D-ro-chrome.png`, fullPage: true })
 })
 

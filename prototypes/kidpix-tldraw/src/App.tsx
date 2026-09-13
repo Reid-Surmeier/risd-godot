@@ -779,9 +779,9 @@ const RO_CHROME_SLICES = ['top-left', 'top-mid', 'top-right', 'left', 'right', '
 function VariantD() {
   const prototype = usePrototypeState()
   const windowDrag = useDraggableWindow(0, 0)
-  const [desktopScale, setDesktopScale] = useState(() => Math.min(1, (window.innerWidth - 24) / 1822, (window.innerHeight - 24) / 1398))
+  const [desktopScale, setDesktopScale] = useState(() => Math.min(1, (window.innerWidth - 24) / 1846, (window.innerHeight - 24) / 1398))
   useEffect(() => {
-    const fitDesktop = () => setDesktopScale(Math.min(1, (window.innerWidth - 24) / 1822, (window.innerHeight - 24) / 1398))
+    const fitDesktop = () => setDesktopScale(Math.min(1, (window.innerWidth - 24) / 1846, (window.innerHeight - 24) / 1398))
     window.addEventListener('resize', fitDesktop)
     return () => window.removeEventListener('resize', fitDesktop)
   }, [])
