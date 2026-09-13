@@ -7,6 +7,7 @@ Hand-maintained, one row per `MODULE.md`. Read this first; open a module's `MODU
 | Module | Purpose | Interface | Depends on |
 | --- | --- | --- | --- |
 | [`testing`](testing/MODULE.md) | The harness, fixtures, and test doubles every other module's acceptance tests use | `testing/interface.gd` | — |
+| [`tab_strip`](modules/tab_strip/MODULE.md) | The Windows Live / IE7 toolbar with tabs opened from the blank New Tab stub, each owning a page | `modules/tab_strip/interface.gd` | — |
 | [`review`](review/MODULE.md) | The packet an independent blind reviewer receives, and the acceptance contract it judges against | `review/interface.gd` | — |
 
-2 module(s). The game's own modules are not yet named — they are decided on the wayfinder map, not invented here.
+3 module(s). `tab_strip` is the first game module; the rest are decided on the wayfinder map, not invented here.

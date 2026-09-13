@@ -1,0 +1,20 @@
+; Engine configuration file.
+; Godot 4.7.2 — the RISD Museum collection browser.
+
+config_version=5
+
+[application]
+
+config/name="risd-godot"
+run/main_scene="res://modules/tab_strip/demo.tscn"
+config/features=PackedStringArray("4.7")
+
+[display]
+
+window/size/viewport_width=1680
+window/size/viewport_height=420
+window/stretch/mode="canvas_items"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

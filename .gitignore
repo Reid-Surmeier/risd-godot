@@ -1,16 +1,2 @@
-node_modules/
-dist/
-.env
-*.env
-!env.example
-
-# Godot
 .godot/
-.import/
-export.cfg
-export_presets.cfg
-*.translation
-build/
-
-# Generation runs (evidence lives in the Issue and the release PR, not in git)
-runs/
+*.import

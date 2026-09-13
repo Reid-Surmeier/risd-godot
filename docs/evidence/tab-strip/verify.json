@@ -1,0 +1,91 @@
+{
+ "pass": true,
+ "checks": {
+  "screenshots_present": {
+   "pass": true,
+   "detail": "['01-initial.png', '02-mid-grow.png', '03-connecting.png', '04-blank-page.png', '05-selected-0.png', '06-selected-1.png', '07-third-tab.png', '08-full-row.png']"
+  },
+  "mid_grow_differs_from_initial": {
+   "pass": true,
+   "detail": ""
+  },
+  "connecting_differs_from_mid_grow": {
+   "pass": true,
+   "detail": ""
+  },
+  "blank_page_differs_from_connecting": {
+   "pass": true,
+   "detail": ""
+  },
+  "initial_one_tab": {
+   "pass": true,
+   "detail": ""
+  },
+  "click_opened_second_tab": {
+   "pass": true,
+   "detail": ""
+  },
+  "mid_grow_width_between_stub_and_full": {
+   "pass": true,
+   "detail": "w=425 full=560"
+  },
+  "connecting_label_then_blank_page": {
+   "pass": true,
+   "detail": ""
+  },
+  "new_tab_becomes_active_with_page": {
+   "pass": true,
+   "detail": ""
+  },
+  "first_tab_unchanged": {
+   "pass": true,
+   "detail": ""
+  },
+  "grow_took_about_500ms": {
+   "pass": true,
+   "detail": "539 ms"
+  },
+  "title_swap_after_about_950ms": {
+   "pass": true,
+   "detail": "952 ms"
+  },
+  "click_tab0_shows_page0": {
+   "pass": true,
+   "detail": ""
+  },
+  "click_tab1_shows_page1": {
+   "pass": true,
+   "detail": ""
+  },
+  "third_tab_opened_from_moved_stub": {
+   "pass": true,
+   "detail": ""
+  },
+  "row_fills_then_refuses": {
+   "pass": true,
+   "detail": "refused at 6 tabs"
+  },
+  "full_row_tabs_shrunk_not_overflowed": {
+   "pass": true,
+   "detail": "last w=255"
+  },
+  "first_tab_pixels_identical": {
+   "pass": true,
+   "detail": "mean abs diff 0.00"
+  },
+  "new_tab_pixels_changed": {
+   "pass": true,
+   "detail": "mean abs diff 28.23"
+  }
+ },
+ "sha256": {
+  "01-initial.png": "028d65bd44a230a70eb1b8867659c4c1d3fe521b44676b15a4707ba033beb664",
+  "02-mid-grow.png": "fb5dc620f2414679cd20ce2c6806246a9fcdec4e857592fa77e3648caba0b040",
+  "03-connecting.png": "75870f5d5f22eb07785fed80c8cdafed1c8d524e48d22c8c2bb7a3867e932725",
+  "04-blank-page.png": "47c7ded7953b0a0dd5e9d90bd31551b5b13749bfeae9c7f00e9b89df0495700e",
+  "05-selected-0.png": "6f5d8ada696c7059c08e196e6634775ed7d933d65224959628b7ee5d998b71dc",
+  "06-selected-1.png": "47c7ded7953b0a0dd5e9d90bd31551b5b13749bfeae9c7f00e9b89df0495700e",
+  "07-third-tab.png": "5e75c0baf0996d0e633a1df5efb730a74acee703a4402e364355808e8dfe6566",
+  "08-full-row.png": "84f024d7716e38d9842118ff9c3fe053ebcfba8c76efb02c9d553f881fb4f15e"
+ }
+}

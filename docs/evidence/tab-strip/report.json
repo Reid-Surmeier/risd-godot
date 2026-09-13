@@ -1,0 +1,710 @@
+{
+  "log": [
+    {
+      "active": 0,
+      "count": 1,
+      "event": "state",
+      "label": "initial",
+      "opening": false,
+      "t_ms": 0,
+      "tabs": [
+        {
+          "h": 134.0,
+          "label": "windows_live",
+          "page_visible": true,
+          "w": 560.0,
+          "x": 261.0,
+          "y": 27.0
+        }
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "01-initial.png",
+      "t_ms": 41
+    },
+    {
+      "event": "signal",
+      "index": 1,
+      "signal": "tab_opened",
+      "t_ms": 51
+    },
+    {
+      "event": "click",
+      "t_ms": 51,
+      "what": "new-tab stub",
+      "x": 456.038269042969,
+      "y": 56.803825378418
+    },
+    {
+      "event": "frame",
+      "n": 0,
+      "t_ms": 92
+    },
+    {
+      "event": "frame",
+      "n": 1,
+      "t_ms": 132
+    },
+    {
+      "event": "frame",
+      "n": 2,
+      "t_ms": 171
+    },
+    {
+      "event": "frame",
+      "n": 3,
+      "t_ms": 210
+    },
+    {
+      "event": "frame",
+      "n": 4,
+      "t_ms": 249
+    },
+    {
+      "event": "frame",
+      "n": 5,
+      "t_ms": 287
+    },
+    {
+      "event": "frame",
+      "n": 6,
+      "t_ms": 325
+    },
+    {
+      "active": 0,
+      "count": 2,
+      "event": "state",
+      "label": "mid-grow",
+      "opening": true,
+      "t_ms": 325,
+      "tabs": [
+        {
+          "h": 134.0,
+          "label": "windows_live",
+          "page_visible": true,
+          "w": 560.0,
+          "x": 261.0,
+          "y": 27.0
+        },
+        {
+          "h": 126.892066955566,
+          "label": "connecting",
+          "page_visible": false,
+          "w": 424.949340820312,
+          "x": 765.0,
+          "y": 34.8187217712402
+        }
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "02-mid-grow.png",
+      "t_ms": 357
+    },
+    {
+      "event": "frame",
+      "n": 7,
+      "t_ms": 396
+    },
+    {
+      "event": "frame",
+      "n": 8,
+      "t_ms": 435
+    },
+    {
+      "event": "frame",
+      "n": 9,
+      "t_ms": 476
+    },
+    {
+      "event": "frame",
+      "n": 10,
+      "t_ms": 514
+    },
+    {
+      "event": "frame",
+      "n": 11,
+      "t_ms": 552
+    },
+    {
+      "event": "frame",
+      "n": 12,
+      "t_ms": 590
+    },
+    {
+      "event": "signal",
+      "index": 1,
+      "signal": "tab_selected",
+      "t_ms": 590
+    },
+    {
+      "event": "signal",
+      "index": 1,
+      "signal": "tab_settled",
+      "t_ms": 590
+    },
+    {
+      "event": "frame",
+      "n": 13,
+      "t_ms": 628
+    },
+    {
+      "event": "frame",
+      "n": 14,
+      "t_ms": 665
+    },
+    {
+      "event": "frame",
+      "n": 15,
+      "t_ms": 702
+    },
+    {
+      "event": "frame",
+      "n": 16,
+      "t_ms": 739
+    },
+    {
+      "event": "frame",
+      "n": 17,
+      "t_ms": 775
+    },
+    {
+      "active": 1,
+      "count": 2,
+      "event": "state",
+      "label": "connecting",
+      "opening": false,
+      "t_ms": 775,
+      "tabs": [
+        {
+          "h": 134.0,
+          "label": "windows_live",
+          "page_visible": false,
+          "w": 560.0,
+          "x": 261.0,
+          "y": 27.0
+        },
+        {
+          "h": 134.0,
+          "label": "connecting",
+          "page_visible": true,
+          "w": 560.0,
+          "x": 765.0,
+          "y": 27.0
+        }
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "03-connecting.png",
+      "t_ms": 805
+    },
+    {
+      "event": "frame",
+      "n": 18,
+      "t_ms": 842
+    },
+    {
+      "event": "frame",
+      "n": 19,
+      "t_ms": 879
+    },
+    {
+      "event": "frame",
+      "n": 20,
+      "t_ms": 916
+    },
+    {
+      "event": "frame",
+      "n": 21,
+      "t_ms": 953
+    },
+    {
+      "event": "frame",
+      "n": 22,
+      "t_ms": 991
+    },
+    {
+      "event": "frame",
+      "n": 23,
+      "t_ms": 1028
+    },
+    {
+      "event": "frame",
+      "n": 24,
+      "t_ms": 1064
+    },
+    {
+      "event": "frame",
+      "n": 25,
+      "t_ms": 1101
+    },
+    {
+      "event": "frame",
+      "n": 26,
+      "t_ms": 1138
+    },
+    {
+      "event": "frame",
+      "n": 27,
+      "t_ms": 1174
+    },
+    {
+      "event": "frame",
+      "n": 28,
+      "t_ms": 1211
+    },
+    {
+      "event": "frame",
+      "n": 29,
+      "t_ms": 1249
+    },
+    {
+      "event": "frame",
+      "n": 30,
+      "t_ms": 1285
+    },
+    {
+      "event": "frame",
+      "n": 31,
+      "t_ms": 1322
+    },
+    {
+      "event": "frame",
+      "n": 32,
+      "t_ms": 1358
+    },
+    {
+      "event": "frame",
+      "n": 33,
+      "t_ms": 1395
+    },
+    {
+      "event": "frame",
+      "n": 34,
+      "t_ms": 1432
+    },
+    {
+      "event": "frame",
+      "n": 35,
+      "t_ms": 1469
+    },
+    {
+      "event": "frame",
+      "n": 36,
+      "t_ms": 1506
+    },
+    {
+      "event": "frame",
+      "n": 37,
+      "t_ms": 1542
+    },
+    {
+      "event": "signal",
+      "index": 1,
+      "signal": "tab_titled",
+      "t_ms": 1542
+    },
+    {
+      "event": "frame",
+      "n": 38,
+      "t_ms": 1579
+    },
+    {
+      "event": "frame",
+      "n": 39,
+      "t_ms": 1615
+    },
+    {
+      "event": "frame",
+      "n": 40,
+      "t_ms": 1652
+    },
+    {
+      "event": "frame",
+      "n": 41,
+      "t_ms": 1688
+    },
+    {
+      "event": "frame",
+      "n": 42,
+      "t_ms": 1725
+    },
+    {
+      "event": "frame",
+      "n": 43,
+      "t_ms": 1761
+    },
+    {
+      "event": "frame",
+      "n": 44,
+      "t_ms": 1798
+    },
+    {
+      "event": "frame",
+      "n": 45,
+      "t_ms": 1835
+    },
+    {
+      "event": "frame",
+      "n": 46,
+      "t_ms": 1872
+    },
+    {
+      "active": 1,
+      "count": 2,
+      "event": "state",
+      "label": "blank-page",
+      "opening": false,
+      "t_ms": 1872,
+      "tabs": [
+        {
+          "h": 134.0,
+          "label": "windows_live",
+          "page_visible": false,
+          "w": 560.0,
+          "x": 261.0,
+          "y": 27.0
+        },
+        {
+          "h": 134.0,
+          "label": "blank_page",
+          "page_visible": true,
+          "w": 560.0,
+          "x": 765.0,
+          "y": 27.0
+        }
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "04-blank-page.png",
+      "t_ms": 1914
+    },
+    {
+      "event": "signal",
+      "index": 0,
+      "signal": "tab_selected",
+      "t_ms": 1919
+    },
+    {
+      "event": "click",
+      "t_ms": 1923,
+      "what": "tab 0",
+      "x": 289.913879394531,
+      "y": 50.3732032775879
+    },
+    {
+      "active": 0,
+      "count": 2,
+      "event": "state",
+      "label": "selected-0",
+      "opening": false,
+      "t_ms": 1923,
+      "tabs": [
+        {
+          "h": 134.0,
+          "label": "windows_live",
+          "page_visible": true,
+          "w": 560.0,
+          "x": 261.0,
+          "y": 27.0
+        },
+        {
+          "h": 134.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "w": 560.0,
+          "x": 765.0,
+          "y": 27.0
+        }
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "05-selected-0.png",
+      "t_ms": 1963
+    },
+    {
+      "event": "signal",
+      "index": 1,
+      "signal": "tab_selected",
+      "t_ms": 1968
+    },
+    {
+      "event": "click",
+      "t_ms": 1972,
+      "what": "tab 1",
+      "x": 560.0,
+      "y": 50.3732032775879
+    },
+    {
+      "active": 1,
+      "count": 2,
+      "event": "state",
+      "label": "selected-1",
+      "opening": false,
+      "t_ms": 1972,
+      "tabs": [
+        {
+          "h": 134.0,
+          "label": "windows_live",
+          "page_visible": false,
+          "w": 560.0,
+          "x": 261.0,
+          "y": 27.0
+        },
+        {
+          "h": 134.0,
+          "label": "blank_page",
+          "page_visible": true,
+          "w": 560.0,
+          "x": 765.0,
+          "y": 27.0
+        }
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "06-selected-1.png",
+      "t_ms": 2010
+    },
+    {
+      "event": "signal",
+      "index": 2,
+      "signal": "tab_opened",
+      "t_ms": 2019
+    },
+    {
+      "event": "click",
+      "t_ms": 2019,
+      "what": "new-tab stub (2nd)",
+      "x": 726.124389648438,
+      "y": 56.803825378418
+    },
+    {
+      "event": "signal",
+      "index": 2,
+      "signal": "tab_selected",
+      "t_ms": 2510
+    },
+    {
+      "event": "signal",
+      "index": 2,
+      "signal": "tab_settled",
+      "t_ms": 2510
+    },
+    {
+      "event": "signal",
+      "index": 2,
+      "signal": "tab_titled",
+      "t_ms": 3461
+    },
+    {
+      "active": 2,
+      "count": 3,
+      "event": "state",
+      "label": "third-tab",
+      "opening": false,
+      "t_ms": 3807,
+      "tabs": [
+        {
+          "h": 134.0,
+          "label": "windows_live",
+          "page_visible": false,
+          "w": 454.0,
+          "x": 261.0,
+          "y": 27.0
+        },
+        {
+          "h": 134.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "w": 454.0,
+          "x": 659.0,
+          "y": 27.0
+        },
+        {
+          "h": 134.0,
+          "label": "blank_page",
+          "page_visible": true,
+          "w": 454.0,
+          "x": 1057.0,
+          "y": 27.0
+        }
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "07-third-tab.png",
+      "t_ms": 3845
+    },
+    {
+      "event": "signal",
+      "index": 3,
+      "signal": "tab_opened",
+      "t_ms": 3855
+    },
+    {
+      "event": "click",
+      "t_ms": 3855,
+      "what": "new-tab stub (fill)",
+      "x": 825.799011230469,
+      "y": 56.803825378418
+    },
+    {
+      "event": "signal",
+      "index": 3,
+      "signal": "tab_selected",
+      "t_ms": 4352
+    },
+    {
+      "event": "signal",
+      "index": 3,
+      "signal": "tab_settled",
+      "t_ms": 4352
+    },
+    {
+      "event": "signal",
+      "index": 4,
+      "signal": "tab_opened",
+      "t_ms": 4555
+    },
+    {
+      "event": "click",
+      "t_ms": 4555,
+      "what": "new-tab stub (fill)",
+      "x": 825.799011230469,
+      "y": 56.803825378418
+    },
+    {
+      "event": "signal",
+      "index": 4,
+      "signal": "tab_selected",
+      "t_ms": 5050
+    },
+    {
+      "event": "signal",
+      "index": 4,
+      "signal": "tab_settled",
+      "t_ms": 5050
+    },
+    {
+      "event": "signal",
+      "index": 5,
+      "signal": "tab_opened",
+      "t_ms": 5259
+    },
+    {
+      "event": "click",
+      "t_ms": 5259,
+      "what": "new-tab stub (fill)",
+      "x": 825.799011230469,
+      "y": 56.803825378418
+    },
+    {
+      "event": "signal",
+      "index": 3,
+      "signal": "tab_titled",
+      "t_ms": 5295
+    },
+    {
+      "event": "signal",
+      "index": 5,
+      "signal": "tab_selected",
+      "t_ms": 5765
+    },
+    {
+      "event": "signal",
+      "index": 5,
+      "signal": "tab_settled",
+      "t_ms": 5765
+    },
+    {
+      "event": "click",
+      "t_ms": 5970,
+      "what": "new-tab stub (fill)",
+      "x": 825.799011230469,
+      "y": 56.803825378418
+    },
+    {
+      "event": "signal",
+      "index": 4,
+      "signal": "tab_titled",
+      "t_ms": 6007
+    },
+    {
+      "active": 5,
+      "count": 6,
+      "event": "state",
+      "label": "full-row",
+      "opening": false,
+      "t_ms": 6664,
+      "tabs": [
+        {
+          "h": 134.0,
+          "label": "windows_live",
+          "page_visible": false,
+          "w": 255.0,
+          "x": 261.0,
+          "y": 27.0
+        },
+        {
+          "h": 134.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "w": 255.0,
+          "x": 460.0,
+          "y": 27.0
+        },
+        {
+          "h": 134.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "w": 255.0,
+          "x": 659.0,
+          "y": 27.0
+        },
+        {
+          "h": 134.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "w": 255.0,
+          "x": 858.0,
+          "y": 27.0
+        },
+        {
+          "h": 134.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "w": 255.0,
+          "x": 1057.0,
+          "y": 27.0
+        },
+        {
+          "h": 134.0,
+          "label": "connecting",
+          "page_visible": true,
+          "w": 255.0,
+          "x": 1256.0,
+          "y": 27.0
+        }
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "08-full-row.png",
+      "t_ms": 6702
+    },
+    {
+      "event": "fill",
+      "result": "refused at 6 tabs",
+      "t_ms": 6702
+    }
+  ],
+  "viewport": [
+    1680,
+    420
+  ]
+}
