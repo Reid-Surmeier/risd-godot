@@ -18,6 +18,8 @@ signal tab_closed(index: int)
 const PRESS_SECONDS := 0.1
 const GROW_SECONDS := 0.4
 const CONNECTING_SECONDS := 0.95
+const CLOSE_SECONDS := 0.3
+const SLIDE_SECONDS := 0.2
 const STUB_PINK := Color8(247, 239, 244)
 const STUB_PRESSED := Color8(228, 218, 226)
 
@@ -76,8 +78,8 @@ func _ready() -> void:
 	_stub.texture_hover = _tex.stub_idle
 	_stub.size = Vector2(_layout.stub.w, _layout.stub.h)
 	_stub.pressed.connect(func(): open_new_tab())
+	add_child(_stub)  # behind every tab, like the source stub
 	var first := _make_tab("windows_live", _layout.tab.first_tab_x, _layout.tab.full_width)
-	add_child(_stub)
 	_add_page(first, "windows_live")
 	set_bar_width(w)
 	select_tab(0)
@@ -146,6 +148,8 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 			select_tab(_tabs.find(_tab_of(node))))
 	close.pressed.connect(func(): close_tab(_tabs.find(_tab_of(node))))
 	add_child(node)
+	if not _tabs.is_empty():
+		move_child(node, _tabs[-1].node.get_index())  # behind its left neighbour: one clean join
 	var tab := {"node": node, "mid": mid, "right": right, "icon": icon, "clip": clip, "label": label,
 			"dots": dots, "close": close, "label_key": "", "width": width, "page": null}
 	_tabs.append(tab)
@@ -330,17 +334,59 @@ func close_tab(index: int) -> Dictionary:
 		return Errors.err(Errors.NO_ROOM, "the last tab stays open")
 	if _opening:
 		return Errors.err(Errors.OPEN_IN_PROGRESS)
+	_opening = true
 	var tab: Dictionary = _tabs[index]
-	_tabs.remove_at(index)
-	tab.page.queue_free()
-	tab.node.queue_free()
-	for i in _tabs.size():
-		_tabs[i].node.name = "Tab%d" % i
-		_tabs[i].page.name = "Page%d" % i
-	_layout_tabs()
-	emit_signal("tab_closed", index)
-	select_tab(clamp(index - 1 if index > 0 else 0, 0, _tabs.size() - 1))
-	return Errors.ok(_tabs.size())
+	var from_w: float = tab.width
+	tab.close.visible = false
+	_tween = create_tween()
+	# the tab folds back into a stub where it stands: contents fade, then width/height/tint reverse the grow
+	_tween.tween_method(func(s: float): _shrink(tab, from_w, s), 1.0, 0.0, CLOSE_SECONDS) \
+		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	_tween.tween_callback(func():
+		_tabs.remove_at(index)
+		tab.page.queue_free()
+		tab.node.queue_free()
+		for i in _tabs.size():
+			_tabs[i].node.name = "Tab%d" % i
+			_tabs[i].page.name = "Page%d" % i
+		_slide_row_closed()
+		emit_signal("tab_closed", index)
+		select_tab(clamp(index - 1 if index > 0 else 0, 0, _tabs.size() - 1)))
+	return Errors.ok(_tabs.size() - 1)
+
+
+func _shrink(tab: Dictionary, from_w: float, s: float) -> void:
+	# s runs 1 -> 0; contents vanish in the first third, the shape follows
+	var a: float = clamp((s - 0.66) / 0.34, 0.0, 1.0)
+	tab.icon.modulate.a = a
+	tab.label.modulate.a = a
+	tab.dots.modulate.a = a
+	var t: Dictionary = _layout.tab
+	tab.node.scale = Vector2(1.0, lerp(_layout.stub.h / float(t.height), 1.0, s))
+	_set_tab_width(tab, lerp(float(_layout.stub.w), from_w, s))
+	tab.node.position.y = lerp(float(_layout.stub.y), float(t.y), s)
+	tab.node.modulate = STUB_PINK.lerp(Color.WHITE, s)
+	if tab.node == _tabs[-1].node:
+		_layout_stub()
+
+
+## After a close, the remaining tabs and the stub slide to their new places instead of jumping.
+func _slide_row_closed() -> void:
+	var w := _fitted_width(_tabs.size())
+	var x: float = _layout.tab.first_tab_x
+	var slide := create_tween().set_parallel(true)
+	for tab in _tabs:
+		slide.tween_method(func(v: float): _set_tab_width(tab, v), tab.width, w, SLIDE_SECONDS) \
+			.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		slide.tween_property(tab.node, "position:x", x, SLIDE_SECONDS) \
+			.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		x += w - (_layout.tab.full_width - _layout.tab_pitch)
+	var stub_x: float = x - (w - (_layout.tab.full_width - _layout.tab_pitch)) + w + _layout.stub.gap_from_tab_right
+	slide.tween_property(_stub, "position:x", stub_x, SLIDE_SECONDS) \
+		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	slide.chain().tween_callback(func():
+		_opening = false
+		_layout_tabs())
 
 
 func state() -> Dictionary:

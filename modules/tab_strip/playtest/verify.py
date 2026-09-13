@@ -67,6 +67,11 @@ check("shrunk_labels_truncated_with_dots", all(tb["truncated"] for tb in full["t
 cl = states["closed-last"]
 check("close_button_removed_active_tab", cl["count"] == full["count"] - 1 and cl["active"] == cl["count"] - 1
       and sum(tb["page_visible"] for tb in cl["tabs"]) == 1, f"{full['count']} -> {cl['count']}, active {cl['active']}")
+clicks = [e for e in log if e["event"] == "click"]
+t_click = next(e["t_ms"] for e in clicks if e["what"] == "close button of active tab")
+t_closed = next((e["t_ms"] for e in signals if e["signal"] == "tab_closed"), None)
+check("close_animates_before_removal", t_closed is not None and 250 <= t_closed - t_click <= 600,
+      f"{(t_closed or 0) - t_click} ms from click to tab_closed (fold is 300 ms)")
 cs = states["closed-second"]
 check("close_second_tab_selects_left_neighbour", cs["count"] == cl["count"] - 1 and cs["active"] == 0
       and cs["tabs"][0]["page_visible"], f"count {cs['count']}, active {cs['active']}")

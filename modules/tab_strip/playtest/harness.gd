@@ -77,7 +77,7 @@ func _initialize() -> void:
 	await process_frame
 	var strip: Control = demo.get_node("TabStrip")
 	_t0 = Time.get_ticks_msec()
-	for sig in ["tab_opened", "tab_settled", "tab_titled", "tab_selected"]:
+	for sig in ["tab_opened", "tab_settled", "tab_titled", "tab_selected", "tab_closed"]:
 		strip.connect(sig, func(i: int): _log.append({"t_ms": _ms(), "event": "signal", "signal": sig, "index": i}))
 
 	_state(strip, "initial")
@@ -142,13 +142,21 @@ func _initialize() -> void:
 	# 5. close the active (last) tab with its close button, then close the second tab by clicking
 	#    it first (close shows on the active tab only)
 	var st: Dictionary = TabStrip.state(strip).value
+	DirAccess.make_dir_recursive_absolute(out_dir.path_join("close-frames"))
 	await _click(_global_center(strip, st.tabs[st.active].close_rect), "close button of active tab")
+	var t_close := _ms()
+	var cf := 0
+	while _ms() - t_close < 900:            # 0.3 s fold + 0.2 s slide, plus settle: the film of the close
+		await process_frame
+		root.get_texture().get_image().save_png(out_dir.path_join("close-frames/f%04d.png" % cf))
+		cf += 1
 	_state(strip, "closed-last")
 	await _shot(root, out_dir, "09-closed-last.png")
 	st = TabStrip.state(strip).value
 	await _click(_global_center(strip, st.tabs[1].rect), "tab 1")
 	st = TabStrip.state(strip).value
 	await _click(_global_center(strip, st.tabs[1].close_rect), "close button of tab 1")
+	await create_timer(0.9).timeout
 	_state(strip, "closed-second")
 	await _shot(root, out_dir, "10-closed-second.png")
 
