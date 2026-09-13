@@ -214,6 +214,7 @@ func _fit_label(tab: Dictionary) -> void:
 
 func _set_tab_width(tab: Dictionary, width: float) -> void:
 	var t: Dictionary = _layout.tab
+	width = round(width)  # whole source pixels: no hairline seams between the three slices
 	tab.width = width
 	tab.node.size.x = width
 	tab.mid.size = Vector2(max(0.0, width - t.left_w - t.right_w), t.height)

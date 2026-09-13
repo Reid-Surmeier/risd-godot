@@ -16,8 +16,8 @@
   161
  ],
  "tab": {
-  "y": 27,
-  "height": 134,
+  "y": 33,
+  "height": 128,
   "left_w": 76,
   "right_w": 76,
   "full_width": 680,
@@ -32,19 +32,19 @@
  },
  "flag": [
   46,
-  22
+  16
  ],
  "label_windows_live": [
   168,
-  30
+  24
  ],
  "page_icon": [
   42,
-  22
+  16
  ],
  "label_new": [
   168,
-  30
+  24
  ],
  "tab2_source_x": 765,
  "tabs_max_right": 1631,
