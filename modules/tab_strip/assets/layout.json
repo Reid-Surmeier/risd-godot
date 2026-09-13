@@ -17,7 +17,7 @@
  ],
  "tab": {
   "y": 33,
-  "height": 128,
+  "height": 123,
   "left_w": 76,
   "right_w": 76,
   "full_width": 680,
@@ -27,7 +27,7 @@
   "x": 761,
   "y": 49,
   "w": 180,
-  "h": 114,
+  "h": 107,
   "gap_from_tab_right": -60
  },
  "flag": [
@@ -73,7 +73,9 @@
   "h": 22,
   "margin_right": 90
  },
- "bar_border": {
+ "opening": {
+  "x": 7,
+  "right_inset": 44,
   "y": 123,
   "h": 5
  }
