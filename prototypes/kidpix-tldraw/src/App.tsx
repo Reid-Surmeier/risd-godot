@@ -639,17 +639,25 @@ function useDraggableWindow(initialY?: number, initialX?: number) {
     x: initialX ?? Math.max(24, Math.round(window.innerWidth * 0.09)),
     y: initialY ?? Math.max(34, Math.round(window.innerHeight * 0.08)),
   }))
-  const drag = useRef<{ pointerId: number; dx: number; dy: number } | null>(null)
+  // ox/oy: where the window sits on screen when its offset is 0 (non-zero for a relatively positioned window),
+  // so the clamp keeps the window on screen instead of clamping the offset itself.
+  const drag = useRef<{ pointerId: number; dx: number; dy: number; ox: number; oy: number } | null>(null)
 
   const onPointerDown = (event: ReactPointerEvent<HTMLElement>) => {
-    drag.current = { pointerId: event.pointerId, dx: event.clientX - position.x, dy: event.clientY - position.y }
+    const frame = (event.currentTarget.closest('section') ?? event.currentTarget).getBoundingClientRect()
+    drag.current = {
+      pointerId: event.pointerId,
+      dx: event.clientX - position.x, dy: event.clientY - position.y,
+      ox: frame.left - position.x, oy: frame.top - position.y,
+    }
     event.currentTarget.setPointerCapture(event.pointerId)
   }
   const onPointerMove = (event: ReactPointerEvent<HTMLElement>) => {
     if (!drag.current || drag.current.pointerId !== event.pointerId) return
+    const { dx, dy, ox, oy } = drag.current
     setPosition({
-      x: Math.max(8, Math.min(window.innerWidth - 320, event.clientX - drag.current.dx)),
-      y: Math.max(8, Math.min(window.innerHeight - 180, event.clientY - drag.current.dy)),
+      x: Math.max(8, Math.min(window.innerWidth - 320, event.clientX - dx + ox)) - ox,
+      y: Math.max(8, Math.min(window.innerHeight - 180, event.clientY - dy + oy)) - oy,
     })
   }
   const onPointerUp = (event: ReactPointerEvent<HTMLElement>) => {
@@ -766,8 +774,7 @@ function VariantC() {
 
 // Muse-generated RO chrome slices in public/, recorded in window-chrome.provenance.json.
 const RO_CHROME_SLICES = ['top-left', 'top-mid', 'top-right', 'left', 'right', 'bottom-left', 'bottom-mid', 'bottom-right', 'btn-prev', 'btn-next', 'btn-prev-disabled'] as const
-// The reference window is 285 px wide; the chrome is shown at an integer multiple of its 1x pixels.
-const roZoom = (windowWidth: number) => Math.max(1, Math.round(windowWidth / 285))
+// The chrome is shown at the reference's own 1x pixel size whatever the window width, as in the owner's trade-window reference.
 
 function VariantD() {
   const prototype = usePrototypeState()
@@ -778,7 +785,7 @@ function VariantD() {
     window.addEventListener('resize', fitDesktop)
     return () => window.removeEventListener('resize', fitDesktop)
   }, [])
-  const windowResize = useResizablePanel(980, 900, desktopScale)
+  const windowResize = useResizablePanel(980, 860, desktopScale) // 1x chrome is thinner than before; 860 keeps the book's ridge narrow
   const { spread, turnDirection, turnPreview, turnPage } = usePersistentBookSpreads(prototype)
   const fittedBook = useFittedBookStage(1)
 
@@ -806,7 +813,6 @@ function VariantD() {
         style={{
           left: windowDrag.position.x, top: windowDrag.position.y,
           width: windowResize.size.width * desktopScale, height: windowResize.size.height * desktopScale,
-          '--ro-k': roZoom(windowResize.size.width * desktopScale),
           ...Object.fromEntries(RO_CHROME_SLICES.map((slice) => [`--ro-${slice}`, `url("${import.meta.env.BASE_URL}ro-${slice}.png")`])),
         } as CSSProperties}
       >

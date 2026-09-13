@@ -922,11 +922,10 @@ button { color: inherit; }
 
 /* RO chrome for the D window: a 9-slice of the owner's reference window bytes (public/ro-*.png,
    public/window-chrome.provenance.json). Only the "Sketchbook" lettering and the arrow glyphs came
-   from Muse region edits; every other pixel is the reference. --ro-k is the integer zoom set inline
-   from the window width, so the chrome keeps its pixel grid and stays proportioned to the window. */
+   from Muse region edits; every other pixel is the reference, drawn 1:1 and widened by tiling. */
 .japanese-utility-window.ro-chrome {
-  --k: calc(var(--ro-k) * 1px);
-  grid-template-rows: calc(23 * var(--k)) minmax(0, 1fr) calc(22 * var(--k) + 12 * var(--k));
+  --k: 1px; /* reference pixels 1:1; the bar never scales with the window, only widens */
+  grid-template-rows: calc(23 * var(--k)) minmax(0, 1fr) calc(44 * var(--k) + 12 * var(--k) + 4 * var(--k));
   padding: 0 calc(11 * var(--k)) 0 calc(9 * var(--k));
   border: 0;
   border-radius: 0;
@@ -1002,7 +1001,7 @@ button { color: inherit; }
   background: transparent;
 }
 .japanese-utility-window.ro-chrome .japanese-window-footer .ro-arrow {
-  height: calc(22 * var(--k));
+  height: calc(44 * var(--k)); /* the reference button, 1:1 */
   aspect-ratio: 84 / 44;
   min-height: 0;
   padding: 0;
