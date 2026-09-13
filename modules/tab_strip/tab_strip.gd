@@ -204,6 +204,9 @@ func _fit_label(tab: Dictionary) -> void:
 	if full <= room:
 		tab.clip.size = Vector2(full, 66)
 		tab.dots.visible = false
+	elif room < dots_w + 20:
+		tab.clip.size = Vector2(0, 66)  # narrowest IE7 tab: icon and close button only
+		tab.dots.visible = false
 	else:
 		var cut: float = max(0.0, room - dots_w)
 		tab.clip.size = Vector2(cut, 66)
@@ -397,7 +400,8 @@ func state() -> Dictionary:
 	var tabs := []
 	for tab in _tabs:
 		tabs.append({"label": tab.label_key, "rect": Rect2(tab.node.position, tab.node.size * tab.node.scale),
-				"page_visible": tab.page.visible, "truncated": tab.dots.visible,
+				"page_visible": tab.page.visible,
+				"truncated": tab.clip.size.x < (tab.label.texture.get_width() if tab.label.texture else 0.0),
 				"close_rect": Rect2(tab.node.position + tab.close.position, tab.close.size)})
 	return Errors.ok({"count": _tabs.size(), "active": _active, "tabs": tabs, "opening": _opening,
 			"bar_width": size.x})

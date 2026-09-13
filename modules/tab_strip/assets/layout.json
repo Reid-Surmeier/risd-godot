@@ -49,7 +49,7 @@
  "tab2_source_x": 765,
  "tabs_max_right": 1631,
  "tab_pitch": 573,
- "tab_min_width": 380,
+ "tab_min_width": 270,
  "bar_background": [
   0,
   0,
@@ -71,6 +71,6 @@
  "close": {
   "w": 22,
   "h": 22,
-  "margin_right": 90
+  "margin_right": 80
  }
 }
