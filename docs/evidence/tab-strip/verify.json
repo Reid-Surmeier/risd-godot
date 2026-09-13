@@ -3,7 +3,7 @@
  "checks": {
   "screenshots_present": {
    "pass": true,
-   "detail": "['01-initial.png', '02-mid-grow.png', '03-connecting.png', '04-blank-page.png', '05-selected-0.png', '06-selected-1.png', '07-third-tab.png', '08-full-row.png', '09-closed-last.png', '10-closed-second.png']"
+   "detail": "['01-initial.png', '02-mid-grow.png', '03-connecting.png', '04-blank-page.png', '05-selected-0.png', '06-selected-1.png', '07-third-tab.png', '08-full-row.png', '09-closed-last.png', '10-closed-second.png', '11-all-closed.png', '12-reopened.png']"
   },
   "mid_grow_differs_from_initial": {
    "pass": true,
@@ -27,7 +27,7 @@
   },
   "mid_grow_width_between_stub_and_full": {
    "pass": true,
-   "detail": "w=490 full=680"
+   "detail": "w=498 full=680"
   },
   "connecting_label_then_blank_page": {
    "pass": true,
@@ -47,11 +47,11 @@
   },
   "grow_took_about_500ms": {
    "pass": true,
-   "detail": "551 ms"
+   "detail": "519 ms"
   },
   "title_swap_after_about_950ms": {
    "pass": true,
-   "detail": "927 ms"
+   "detail": "978 ms"
   },
   "click_tab0_shows_page0": {
    "pass": true,
@@ -61,7 +61,7 @@
    "pass": true,
    "detail": ""
   },
-  "close_button_only_on_active_tab": {
+  "close_button_on_every_tab": {
    "pass": true,
    "detail": ""
   },
@@ -87,7 +87,7 @@
   },
   "close_animates_before_removal": {
    "pass": true,
-   "detail": "336 ms from click to tab_closed (fold is 300 ms)"
+   "detail": "341 ms from click to tab_closed (fold is 300 ms)"
   },
   "close_second_tab_selects_left_neighbour": {
    "pass": true,
@@ -97,13 +97,21 @@
    "pass": true,
    "detail": "573 -> 680"
   },
+  "every_tab_can_close": {
+   "pass": true,
+   "detail": "count 0"
+  },
+  "stub_reopens_after_empty": {
+   "pass": true,
+   "detail": "count 1"
+  },
   "first_tab_pixels_identical": {
    "pass": true,
    "detail": "mean abs diff 0.00"
   },
   "new_tab_pixels_changed": {
    "pass": true,
-   "detail": "mean abs diff 26.73"
+   "detail": "mean abs diff 26.46"
   },
   "bar_spans_full_width": {
    "pass": true,
@@ -111,15 +119,17 @@
   }
  },
  "sha256": {
-  "01-initial.png": "0503106658fda2a513598f9196d50d48b0968466a0b7bc572769503717eb2f67",
-  "02-mid-grow.png": "a1c52c902b1d7cdc52ca9a910e4c8387dfb8ca3b7f189dc58acbf7b141edb852",
-  "03-connecting.png": "a32a1dedce720042eabd799e9eaae86ca63e247af70180a33d2dee4360ddff6b",
-  "04-blank-page.png": "9fd0cde7c08ad8c4ee911f1bf88be79fb9f168fbfd73d05a1d70456e29e771e0",
-  "05-selected-0.png": "1686981adf18d601ee1f2093065a32e59608b60a2a9c98dee62292a8d655c4f7",
-  "06-selected-1.png": "9fd0cde7c08ad8c4ee911f1bf88be79fb9f168fbfd73d05a1d70456e29e771e0",
-  "07-third-tab.png": "9f0f3b26186b667d844e0e96554b2d8a20344d3aa3aa8e35801cc406bec2bc37",
-  "08-full-row.png": "56b3c12b1b6b9b63fbbb1901f0824c55cfe5fa71cbd112149d1734cead8a4a08",
-  "09-closed-last.png": "9f0f3b26186b667d844e0e96554b2d8a20344d3aa3aa8e35801cc406bec2bc37",
-  "10-closed-second.png": "1686981adf18d601ee1f2093065a32e59608b60a2a9c98dee62292a8d655c4f7"
+  "01-initial.png": "00038d2d11a5d5c7b088de3d1b77f0a746717a0b63f417d51d837a8613bf74f6",
+  "02-mid-grow.png": "5e9a01f9036c890b02a8d5ae7c2dd9357f031385e5d97cfdf5de009639426f4f",
+  "03-connecting.png": "fe9136e2e73561ee981fb2d691545490f76d3633d39678f02be2460392ad77ca",
+  "04-blank-page.png": "2330e184b69e57a78a176e84e01a0fb15c9ec0662ccad0933a3ebf1a71b8f440",
+  "05-selected-0.png": "3a75820be17011dc2099a704a92b7b4294e567b4931463926d535c5a28650749",
+  "06-selected-1.png": "2330e184b69e57a78a176e84e01a0fb15c9ec0662ccad0933a3ebf1a71b8f440",
+  "07-third-tab.png": "9109d60a621d1f1166ce2dea1ad024a39b86482509886b117c7414bf8340d495",
+  "08-full-row.png": "8e0b32638e63271ad214d88c53c81e868f626928f61fed01b8ef5010e45dad12",
+  "09-closed-last.png": "9109d60a621d1f1166ce2dea1ad024a39b86482509886b117c7414bf8340d495",
+  "10-closed-second.png": "3a75820be17011dc2099a704a92b7b4294e567b4931463926d535c5a28650749",
+  "11-all-closed.png": "913b7fd5f27825af8a2afaec50ed4b725938caabd3db52fc008aaa4aeea27679",
+  "12-reopened.png": "0bbe46593eae3f626359e16407be2e784be645cb4a27e51b6910ec2d4611ce2b"
  }
 }

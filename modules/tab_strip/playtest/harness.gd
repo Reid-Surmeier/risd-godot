@@ -160,6 +160,20 @@ func _initialize() -> void:
 	_state(strip, "closed-second")
 	await _shot(root, out_dir, "10-closed-second.png")
 
+	# 6. close every remaining tab from its own close button, then open one again from the stub
+	for i in 8:
+		st = TabStrip.state(strip).value
+		if st.count == 0:
+			break
+		await _click(_global_center(strip, st.tabs[st.count - 1].close_rect), "close button (empty the row)")
+		await create_timer(0.7).timeout
+	_state(strip, "all-closed")
+	await _shot(root, out_dir, "11-all-closed.png")
+	await _click(_global_center(strip, TabStrip.stub_rect(strip)), "new-tab stub (after empty)")
+	await create_timer(1.8).timeout
+	_state(strip, "reopened")
+	await _shot(root, out_dir, "12-reopened.png")
+
 	var f := FileAccess.open(out_dir.path_join("report.json"), FileAccess.WRITE)
 	f.store_string(JSON.stringify({"viewport": [1680, 420], "log": _log}, "  "))
 	f.close()

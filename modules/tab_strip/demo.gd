@@ -10,6 +10,11 @@ var pages: Control
 
 
 func _ready() -> void:
+	var ground := ColorRect.new()  # the page area is white even with no tab open
+	ground.name = "Ground"
+	ground.color = Color.WHITE
+	ground.set_anchors_preset(Control.PRESET_FULL_RECT)
+	add_child(ground)
 	pages = Control.new()
 	pages.name = "PageStack"
 	var created := TabStrip.create(pages)

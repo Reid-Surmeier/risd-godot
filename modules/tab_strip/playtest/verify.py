@@ -26,7 +26,7 @@ def check(name, cond, detail=""):
 shots = {e["file"]: e for e in log if e["event"] == "screenshot"}
 hashes = {f: hashlib.sha256((out / f).read_bytes()).hexdigest() for f in shots}
 imgs = {f: np.array(Image.open(out / f).convert("RGB")).astype(int) for f in shots}
-check("screenshots_present", len(shots) == 10, str(sorted(shots)))
+check("screenshots_present", len(shots) == 12, str(sorted(shots)))
 check("mid_grow_differs_from_initial", hashes["01-initial.png"] != hashes["02-mid-grow.png"])
 check("connecting_differs_from_mid_grow", hashes["02-mid-grow.png"] != hashes["03-connecting.png"])
 check("blank_page_differs_from_connecting", hashes["03-connecting.png"] != hashes["04-blank-page.png"])
@@ -52,8 +52,7 @@ check("title_swap_after_about_950ms", 880 <= title <= 1100, f"{title} ms")
 check("click_tab0_shows_page0", states["selected-0"]["active"] == 0 and states["selected-0"]["tabs"][0]["page_visible"]
       and not states["selected-0"]["tabs"][1]["page_visible"])
 check("click_tab1_shows_page1", states["selected-1"]["active"] == 1 and states["selected-1"]["tabs"][1]["page_visible"])
-check("close_button_only_on_active_tab", states["selected-1"]["tabs"][1]["close_rect"]["size"]["x"] > 0
-      and states["selected-1"]["tabs"][0]["close_rect"]["size"]["x"] == 0)
+check("close_button_on_every_tab", all(tb["close_rect"]["size"]["x"] > 0 for tb in states["selected-1"]["tabs"]))
 check("third_tab_opened_from_moved_stub", states["third-tab"]["count"] == 3 and states["third-tab"]["tabs"][2]["label"] == "blank_page")
 
 full = states["full-row"]; fill = next(e for e in log if e["event"] == "fill")
@@ -78,9 +77,13 @@ check("close_second_tab_selects_left_neighbour", cs["count"] == cl["count"] - 1 
 check("closed_row_regrew", cs["tabs"][-1]["w"] > cl["tabs"][-1]["w"] or cs["tabs"][-1]["w"] == FULL_TAB_W,
       f"{cl['tabs'][-1]['w']:.0f} -> {cs['tabs'][-1]['w']:.0f}")
 
+ac = states["all-closed"]; ro = states["reopened"]
+check("every_tab_can_close", ac["count"] == 0 and ac["active"] == -1, f"count {ac['count']}")
+check("stub_reopens_after_empty", ro["count"] == 1 and ro["tabs"][0]["label"] == "blank_page" and ro["tabs"][0]["page_visible"], f"count {ro['count']}")
+
 def region(img, x0, y0, x1, y1):
     return img[int(y0 * SCALE):int(y1 * SCALE), int(x0 * SCALE):int(x1 * SCALE)]
-a = region(imgs["01-initial.png"], 261, 27, 700, 161); b = region(imgs["04-blank-page.png"], 261, 27, 700, 161)
+a = region(imgs["01-initial.png"], 261, 27, 700, 150); b = region(imgs["04-blank-page.png"], 261, 27, 700, 150)  # above the bottom line, which appears once the tab is inactive
 check("first_tab_pixels_identical", float(np.abs(a - b).mean()) < 0.5, f"mean abs diff {float(np.abs(a-b).mean()):.2f}")
 c = region(imgs["01-initial.png"], 900, 27, 1500, 161); d = region(imgs["04-blank-page.png"], 900, 27, 1500, 161)
 check("new_tab_pixels_changed", float(np.abs(c - d).mean()) > 5, f"mean abs diff {float(np.abs(c-d).mean()):.2f}")

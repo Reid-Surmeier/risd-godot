@@ -52,7 +52,7 @@ func _load_assets() -> Dictionary:
 	for name in ["bar_stripes", "stars", "right_cluster", "tab_left", "tab_mid", "tab_right",
 			"stub_idle", "stub_pressed", "icon_windows_flag", "icon_page", "icon_close",
 			"icon_close_pressed", "label_windows_live", "label_connecting", "label_blank_page",
-			"label_dots"]:
+			"label_dots", "bar_border"]:
 		var t = load(ASSETS + name + ".png")
 		if t == null:
 			return Errors.err(Errors.ASSET_MISSING, name)
@@ -123,6 +123,9 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	var mid := _piece(node, _tex.tab_mid, TextureRect.STRETCH_SCALE)
 	mid.position = Vector2(t.left_w, 0)
 	var right := _piece(node, _tex.tab_right, TextureRect.STRETCH_KEEP)
+	var bottom := _piece(node, _tex.bar_border, TextureRect.STRETCH_SCALE)  # inactive tabs are closed at the bottom
+	bottom.name = "BottomLine"
+	bottom.position = Vector2(0, _layout.bar_border.y)
 	var icon := _piece(node, null, TextureRect.STRETCH_KEEP)
 	var clip := Control.new()
 	clip.name = "LabelClip"
@@ -140,7 +143,6 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	close.texture_pressed = _tex.icon_close_pressed
 	close.texture_hover = _tex.icon_close
 	close.size = Vector2(_layout.close.w, _layout.close.h)
-	close.visible = false
 	node.add_child(close)
 	var index := _tabs.size()
 	node.gui_input.connect(func(ev: InputEvent):
@@ -150,7 +152,7 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	add_child(node)
 	if not _tabs.is_empty():
 		move_child(node, _tabs[-1].node.get_index())  # behind its left neighbour: one clean join
-	var tab := {"node": node, "mid": mid, "right": right, "icon": icon, "clip": clip, "label": label,
+	var tab := {"node": node, "mid": mid, "right": right, "bottom": bottom, "icon": icon, "clip": clip, "label": label,
 			"dots": dots, "close": close, "label_key": "", "width": width, "page": null}
 	_tabs.append(tab)
 	_set_label(tab, label_key)
@@ -219,6 +221,7 @@ func _set_tab_width(tab: Dictionary, width: float) -> void:
 	tab.node.size.x = width
 	tab.mid.size = Vector2(max(0.0, width - t.left_w - t.right_w), t.height)
 	tab.right.position = Vector2(width - t.right_w, 0)
+	tab.bottom.size = Vector2(width, _layout.bar_border.h)
 	_fit_label(tab)
 
 
@@ -233,6 +236,7 @@ func _fitted_width(count: int) -> float:
 
 func _layout_tabs() -> void:
 	if _tabs.is_empty():
+		_stub.position = Vector2(_layout.tab.first_tab_x + (_layout.tab.full_width - _layout.tab_pitch) + _layout.stub.gap_from_tab_right, _layout.stub.y)
 		return
 	var w := _fitted_width(_tabs.size())
 	var x: float = _layout.tab.first_tab_x
@@ -245,6 +249,9 @@ func _layout_tabs() -> void:
 
 
 func _layout_stub() -> void:
+	if _tabs.is_empty():
+		_layout_tabs()
+		return
 	var last: Dictionary = _tabs[-1]
 	_stub.position = Vector2(last.node.position.x + last.width + _layout.stub.gap_from_tab_right, _layout.stub.y)
 
@@ -321,7 +328,7 @@ func select_tab(index: int) -> Dictionary:
 	_active = index
 	for i in _tabs.size():
 		_tabs[i].page.visible = (i == index)
-		_tabs[i].close.visible = (i == index)  # IE7 shows the close button on the active tab only
+		_tabs[i].bottom.visible = (i != index)  # the active tab opens into its page; the others stay closed
 	emit_signal("tab_selected", index)
 	return Errors.ok(index)
 
@@ -331,8 +338,6 @@ func select_tab(index: int) -> Dictionary:
 func close_tab(index: int) -> Dictionary:
 	if index < 0 or index >= _tabs.size():
 		return Errors.err(Errors.INDEX_OUT_OF_RANGE, str(index))
-	if _tabs.size() == 1:
-		return Errors.err(Errors.NO_ROOM, "the last tab stays open")
 	if _opening:
 		return Errors.err(Errors.OPEN_IN_PROGRESS)
 	_opening = true
@@ -352,7 +357,10 @@ func close_tab(index: int) -> Dictionary:
 			_tabs[i].page.name = "Page%d" % i
 		_slide_row_closed()
 		emit_signal("tab_closed", index)
-		select_tab(clamp(index - 1 if index > 0 else 0, 0, _tabs.size() - 1)))
+		if _tabs.is_empty():
+			_active = -1
+		else:
+			select_tab(clamp(index - 1 if index > 0 else 0, 0, _tabs.size() - 1)))
 	return Errors.ok(_tabs.size() - 1)
 
 
@@ -367,13 +375,13 @@ func _shrink(tab: Dictionary, from_w: float, s: float) -> void:
 	_set_tab_width(tab, lerp(float(_layout.stub.w), from_w, s))
 	tab.node.position.y = lerp(float(_layout.stub.y), float(t.y), s)
 	tab.node.modulate = STUB_PINK.lerp(Color.WHITE, s)
-	if tab.node == _tabs[-1].node:
+	if not _tabs.is_empty() and tab.node == _tabs[-1].node:
 		_layout_stub()
 
 
 ## After a close, the remaining tabs and the stub slide to their new places instead of jumping.
 func _slide_row_closed() -> void:
-	var w := _fitted_width(_tabs.size())
+	var w := _fitted_width(_tabs.size()) if not _tabs.is_empty() else float(_layout.tab.full_width)
 	var x: float = _layout.tab.first_tab_x
 	var slide := create_tween().set_parallel(true)
 	for tab in _tabs:
@@ -395,7 +403,7 @@ func state() -> Dictionary:
 	for tab in _tabs:
 		tabs.append({"label": tab.label_key, "rect": Rect2(tab.node.position, tab.node.size * tab.node.scale),
 				"page_visible": tab.page.visible, "truncated": tab.dots.visible,
-				"close_rect": Rect2(tab.node.position + tab.close.position, tab.close.size) if tab.close.visible else Rect2()})
+				"close_rect": Rect2(tab.node.position + tab.close.position, tab.close.size)})
 	return Errors.ok({"count": _tabs.size(), "active": _active, "tabs": tabs, "opening": _opening,
 			"bar_width": size.x})
 
