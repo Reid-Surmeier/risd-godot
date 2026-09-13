@@ -919,3 +919,102 @@ button { color: inherit; }
   padding: calc(6px * var(--desktop-scale)) calc(12px * var(--desktop-scale));
   font-size: 12px;
 }
+
+/* RO chrome for the D window: a 9-slice of the owner's reference window bytes (public/ro-*.png,
+   public/window-chrome.provenance.json). Only the "Sketchbook" lettering and the arrow glyphs came
+   from Muse region edits; every other pixel is the reference. --ro-k is the integer zoom set inline
+   from the window width, so the chrome keeps its pixel grid and stays proportioned to the window. */
+.japanese-utility-window.ro-chrome {
+  --k: calc(var(--ro-k) * 1px);
+  grid-template-rows: calc(23 * var(--k)) minmax(0, 1fr) calc(22 * var(--k) + 12 * var(--k));
+  padding: 0 calc(11 * var(--k)) 0 calc(9 * var(--k));
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  box-shadow: none;
+  background:
+    var(--ro-top-left) left top / auto calc(23 * var(--k)) no-repeat,
+    var(--ro-top-right) right top / auto calc(23 * var(--k)) no-repeat,
+    var(--ro-top-mid) left top / auto calc(23 * var(--k)) repeat-x,
+    var(--ro-bottom-left) left bottom / auto calc(12 * var(--k)) no-repeat,
+    var(--ro-bottom-right) right bottom / auto calc(12 * var(--k)) no-repeat,
+    var(--ro-bottom-mid) left bottom / auto calc(12 * var(--k)) repeat-x,
+    linear-gradient(#fff, #fff) calc(9 * var(--k)) calc(23 * var(--k)) / calc(100% - 20 * var(--k)) calc(100% - 35 * var(--k)) no-repeat;
+  image-rendering: pixelated;
+}
+/* Side edges run only between the top band and the bottom band, so the rounded corner shadows stay clean. */
+.japanese-utility-window.ro-chrome::before,
+.japanese-utility-window.ro-chrome::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: calc(23 * var(--k));
+  bottom: calc(12 * var(--k));
+  left: 0;
+  width: calc(9 * var(--k));
+  background: var(--ro-left) left top / calc(9 * var(--k)) auto repeat-y;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+.japanese-utility-window.ro-chrome::after {
+  left: auto;
+  right: 0;
+  width: calc(11 * var(--k));
+  background: var(--ro-right) right top / calc(11 * var(--k)) auto repeat-y;
+}
+.japanese-utility-window.ro-chrome > * { position: relative; z-index: 1; }
+.japanese-utility-window.ro-chrome .japanese-titlebar {
+  display: block;
+  position: relative;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.japanese-utility-window.ro-chrome .ro-title-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.japanese-utility-window.ro-chrome .ro-close {
+  position: absolute;
+  top: calc(5 * var(--k));
+  right: calc(-2 * var(--k)); /* the close icon sits 9..24 px from the reference's right edge; the header starts 11 px in */
+  height: calc(16 * var(--k));
+  width: calc(15 * var(--k));
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+.japanese-utility-window.ro-chrome .japanese-book-content { padding: calc(4 * var(--k)) calc(4 * var(--k)) calc(2 * var(--k)); background: transparent; }
+.japanese-utility-window.ro-chrome .japanese-window-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 calc(3 * var(--k)) 0;
+  border: 0;
+  background: transparent;
+}
+.japanese-utility-window.ro-chrome .japanese-window-footer .ro-arrow {
+  height: calc(22 * var(--k));
+  aspect-ratio: 84 / 44;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: transparent;
+  font-size: 0;
+  background: var(--ro-btn-prev) center / 100% 100% no-repeat;
+  cursor: pointer;
+}
+.japanese-utility-window.ro-chrome .japanese-window-footer .ro-arrow-next { background-image: var(--ro-btn-next); }
+.japanese-utility-window.ro-chrome .japanese-window-footer .ro-arrow-prev:disabled { background-image: var(--ro-btn-prev-disabled); opacity: 1; cursor: default; }
+.japanese-utility-window.ro-chrome .japanese-window-footer .ro-arrow-next:disabled { opacity: .55; cursor: default; }
+.japanese-utility-window.ro-chrome .window-resize-handle { position: absolute; z-index: 8; right: 0; bottom: 0; width: calc(12 * var(--k)); height: calc(12 * var(--k)); }

@@ -47,6 +47,7 @@ for (const variant of ['D', 'E']) {
     await page.mouse.move(point.x + 110, point.y + 20, { steps: 8 })
     await page.mouse.up()
     await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
+    if (variant === 'D') return // D's RO chrome has no zoom controls; E keeps them.
     await page.getByTestId('zoom-in').click()
     await expect(page.getByTestId('zoom-label')).toHaveText('125%')
     await surface.evaluate(element => element.scrollIntoView({ block: 'center' }))

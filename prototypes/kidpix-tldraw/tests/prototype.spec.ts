@@ -121,7 +121,7 @@ test('variant D keeps neutral page controls outside the book and retains the pen
   await expect(next).not.toHaveCSS('background-color', 'rgb(21, 87, 232)')
   await next.click()
   await expect(page.getByTestId('book-page-flip')).toBeVisible()
-  await expect(page.getByTestId('spread-label')).toHaveText('Spread 02', { timeout: 2_000 })
+  await expect(page.getByTestId('state-readout')).toContainText('spread: 02', { timeout: 2_000 })
 
   await page.getByTestId('drawing-surface').evaluate(element => element.scrollIntoView({ block: 'center' }))
   const hitbox = await page.getByTestId('book-page-hitbox').boundingBox()
@@ -150,29 +150,30 @@ test('variant D applies deterministic center-gutter curvature to live marks', as
   await page.screenshot({ path: `${evidenceDirectory}/variant-D-gutter-curve.png`, fullPage: true })
 })
 
-test('variant D zooms the whole fitted book and resets to its narrow ridge', async ({ page }) => {
+test('variant D wears the generated RO chrome: pixel title bar, arrow-only dock, no zoom or spread readout', async ({ page }) => {
   await page.goto('./?variant=D')
-  const stage = page.getByTestId('japanese-book-stage')
-  const fitted = await stage.boundingBox()
-  if (!fitted) throw new Error('fitted Japanese book geometry unavailable')
-
-  await expect(page.getByTestId('zoom-label')).toHaveText('100%')
-  await page.getByTestId('zoom-in').click()
-  await expect(page.getByTestId('zoom-label')).toHaveText('125%')
-  await expect.poll(async () => (await stage.boundingBox())?.width ?? 0).toBeGreaterThan(fitted.width * 1.2)
-  const end = await drawStroke(page)
-  await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
-  const hotspot = await page.getByTestId('pencil-cursor').evaluate((element) => ({
-    left: Number.parseFloat(getComputedStyle(element).left),
-    top: Number.parseFloat(getComputedStyle(element).top),
-  }))
-  expect(Math.abs(hotspot.left - end.x)).toBeLessThan(1)
-  expect(Math.abs(hotspot.top - end.y)).toBeLessThan(1)
-  await page.screenshot({ path: `${evidenceDirectory}/variant-D-zoom-125.png`, fullPage: true })
-
-  await page.getByTestId('zoom-reset').click()
-  await expect(page.getByTestId('zoom-label')).toHaveText('100%')
-  await expect.poll(async () => Math.abs(((await stage.boundingBox())?.width ?? 0) - fitted.width)).toBeLessThan(1)
+  const titlebar = page.getByTestId('japanese-titlebar')
+  await expect(titlebar).toHaveText('Sketchbook')
+  const chrome = await page.getByTestId('japanese-utility-window').evaluate((element) =>
+    [getComputedStyle(element), getComputedStyle(element, '::before'), getComputedStyle(element, '::after')].map((style) => style.backgroundImage).join(' '))
+  for (const slice of ['top-left', 'top-mid', 'top-right', 'left', 'right', 'bottom-left', 'bottom-mid', 'bottom-right']) {
+    expect(chrome).toContain(`ro-${slice}.png`)
+  }
+  const dock = page.getByTestId('page-turn-dock')
+  await expect(dock.locator('button')).toHaveCount(2)
+  await expect(dock).not.toContainText(/Spread|%|Previous|Next/)
+  await expect(page.getByTestId('zoom-label')).toHaveCount(0)
+  const previous = page.getByTestId('previous-page')
+  await expect(previous).toBeDisabled()
+  expect(await previous.evaluate((element) => getComputedStyle(element).backgroundImage)).toContain('ro-btn-prev-disabled.png')
+  expect(await page.getByTestId('next-page').evaluate((element) => getComputedStyle(element).backgroundImage)).toContain('ro-btn-next.png')
+  // The chrome is the reference's 23-px-tall top band at an integer zoom chosen from the window width.
+  const frame = await page.getByTestId('japanese-utility-window').boundingBox()
+  const title = await titlebar.boundingBox()
+  if (!frame || !title) throw new Error('RO chrome geometry unavailable')
+  const zoom = Math.max(1, Math.round(frame.width / 285))
+  expect(title.height).toBeCloseTo(23 * zoom, 0)
+  await page.screenshot({ path: `${evidenceDirectory}/variant-D-ro-chrome.png`, fullPage: true })
 })
 
 test('variant D refits a wider spread when its utility window is resized', async ({ page }) => {
@@ -189,7 +190,8 @@ test('variant D refits a wider spread when its utility window is resized', async
   expect(beforeStage.width / beforeStage.height).toBeCloseTo(4 / 3, 2)
   await page.mouse.move(handle.x + handle.width / 2, handle.y + handle.height / 2)
   await page.mouse.down()
-  await page.mouse.move(handle.x + handle.width / 2 + 80, handle.y + handle.height / 2, { steps: 8 })
+  // Diagonal: the RO chrome scales with window width, so a wider window also needs height for the book to grow.
+  await page.mouse.move(handle.x + handle.width / 2 + 80, handle.y + handle.height / 2 + 80, { steps: 8 })
   await page.mouse.up()
 
   await expect.poll(async () => (await utilityWindow.boundingBox())?.width ?? 0).toBeGreaterThan(beforeWindow.width + 60)
@@ -198,11 +200,6 @@ test('variant D refits a wider spread when its utility window is resized', async
   if (!resizedStage) throw new Error('resized book geometry unavailable')
   expect(resizedStage.width / resizedStage.height).toBeCloseTo(4 / 3, 2)
 
-  await page.getByTestId('zoom-in').click()
-  await expect(page.getByTestId('zoom-label')).toHaveText('125%')
-  await page.getByTestId('zoom-reset').click()
-  await expect(page.getByTestId('zoom-label')).toHaveText('100%')
-  await expect.poll(async () => Math.abs(((await stage.boundingBox())?.width ?? 0) - resizedStage.width)).toBeLessThan(1)
   await page.screenshot({ path: `${evidenceDirectory}/variant-D-resized-wide.png`, fullPage: true })
 
   const resizedHandle = await resizeHandle.boundingBox()
@@ -277,7 +274,7 @@ test('keeps independent drawings on every spread when flipping backward and forw
   await expect(page.locator('.paper-turn-edge')).toBeVisible()
   await page.waitForTimeout(160)
   await page.screenshot({ path: `${evidenceDirectory}/variant-D-page-flip.png`, fullPage: true })
-  await expect(page.getByTestId('spread-label')).toHaveText('Spread 02', { timeout: 2_000 })
+  await expect(page.getByTestId('state-readout')).toContainText('spread: 02', { timeout: 2_000 })
   await expect(page.getByTestId('state-readout')).toContainText('strokes: 0')
   await drawStroke(page, 18)
   await drawStroke(page, 42)
@@ -291,14 +288,14 @@ test('keeps independent drawings on every spread when flipping backward and forw
   expect(spreadTwoPreview).not.toBe(spreadOnePreview)
   await page.waitForTimeout(160)
   await page.screenshot({ path: `${evidenceDirectory}/variant-D-page-flip-backward.png`, fullPage: true })
-  await expect(page.getByTestId('spread-label')).toHaveText('Spread 01', { timeout: 2_000 })
+  await expect(page.getByTestId('state-readout')).toContainText('spread: 01', { timeout: 2_000 })
   await expect(page.getByTestId('state-readout')).toContainText('strokes: 1')
   await expect(page.getByTestId('previous-page')).toBeDisabled()
 
   await page.getByTestId('next-page').click()
   await expect(page.getByTestId('book-page-preview')).toBeVisible()
   await expect(page.getByTestId('book-page-preview')).toHaveAttribute('style', /data:image\/png;base64,/)
-  await expect(page.getByTestId('spread-label')).toHaveText('Spread 02', { timeout: 2_000 })
+  await expect(page.getByTestId('state-readout')).toContainText('spread: 02', { timeout: 2_000 })
   await expect(page.getByTestId('state-readout')).toContainText('strokes: 2')
 })
 

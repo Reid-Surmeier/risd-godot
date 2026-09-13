@@ -764,6 +764,11 @@ function VariantC() {
   )
 }
 
+// Muse-generated RO chrome slices in public/, recorded in window-chrome.provenance.json.
+const RO_CHROME_SLICES = ['top-left', 'top-mid', 'top-right', 'left', 'right', 'bottom-left', 'bottom-mid', 'bottom-right', 'btn-prev', 'btn-next', 'btn-prev-disabled'] as const
+// The reference window is 285 px wide; the chrome is shown at an integer multiple of its 1x pixels.
+const roZoom = (windowWidth: number) => Math.max(1, Math.round(windowWidth / 285))
+
 function VariantD() {
   const prototype = usePrototypeState()
   const windowDrag = useDraggableWindow(0, 0)
@@ -775,8 +780,7 @@ function VariantD() {
   }, [])
   const windowResize = useResizablePanel(980, 900, desktopScale)
   const { spread, turnDirection, turnPreview, turnPage } = usePersistentBookSpreads(prototype)
-  const zoom = useBookZoom()
-  const fittedBook = useFittedBookStage(zoom.zoom)
+  const fittedBook = useFittedBookStage(1)
 
   return (
     <main className="variant-layout japanese-window-layout" data-variant="D" data-testid="variant-D"
@@ -797,18 +801,19 @@ function VariantD() {
         style={{ gridTemplateColumns: `${350 * desktopScale}px ${windowResize.size.width * desktopScale}px ${460 * desktopScale}px` }}>
         <img className="desktop-calligraphy" src={`${import.meta.env.BASE_URL}desktop-calligraphy.png`} alt="Japanese calligraphy palette with brushes and ink colors" />
         <section
-        className="japanese-utility-window"
+        className="japanese-utility-window ro-chrome"
         data-testid="japanese-utility-window"
-        style={{ left: windowDrag.position.x, top: windowDrag.position.y, width: windowResize.size.width * desktopScale, height: windowResize.size.height * desktopScale }}
+        style={{
+          left: windowDrag.position.x, top: windowDrag.position.y,
+          width: windowResize.size.width * desktopScale, height: windowResize.size.height * desktopScale,
+          '--ro-k': roZoom(windowResize.size.width * desktopScale),
+          ...Object.fromEntries(RO_CHROME_SLICES.map((slice) => [`--ro-${slice}`, `url("${import.meta.env.BASE_URL}ro-${slice}.png")`])),
+        } as CSSProperties}
       >
         <header className="japanese-titlebar" data-testid="japanese-titlebar" {...windowDrag.titleBarProps}>
-          <span className="japanese-window-icon" aria-hidden="true">●</span>
-          <strong>スケッチブック</strong>
-          <label className="japanese-title-option" onPointerDown={(event) => event.stopPropagation()}>
-            <input type="checkbox" /> ページ表示
-          </label>
-          <button onPointerDown={(event) => event.stopPropagation()}>View</button>
-          <button className="japanese-close" aria-label="Close prototype" onPointerDown={(event) => event.stopPropagation()}>×</button>
+          {/* Chrome pixels are the owner's reference bytes; only the word "Sketchbook" and the arrow glyphs came from Muse region edits: public/window-chrome.provenance.json */}
+          <strong className="ro-title-text">Sketchbook</strong>
+          <button className="ro-close" aria-label="Close prototype" onPointerDown={(event) => event.stopPropagation()} />
         </header>
         <div className="japanese-book-content" ref={fittedBook.contentRef}>
           <div
@@ -842,25 +847,19 @@ function VariantD() {
         </div>
         <footer className="japanese-window-footer" data-testid="page-turn-dock">
           <button
+            className="ro-arrow ro-arrow-prev"
             data-testid="previous-page"
+            aria-label="Previous spread"
             disabled={spread === 1 || turnDirection !== null}
             onClick={() => turnPage('backward')}
-          >
-            ‹ Previous
-          </button>
-          <div className="japanese-footer-center">
-            <output data-testid="spread-label" role="status" aria-live="polite">
-              Spread {String(spread).padStart(2, '0')}
-            </output>
-            <BookZoomControls zoom={zoom} />
-          </div>
+          />
           <button
+            className="ro-arrow ro-arrow-next"
             data-testid="next-page"
+            aria-label="Next spread"
             disabled={turnDirection !== null}
             onClick={() => turnPage('forward')}
-          >
-            Next ›
-          </button>
+          />
         </footer>
         <button
           className="window-resize-handle"

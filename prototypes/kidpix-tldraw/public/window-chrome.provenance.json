@@ -1,0 +1,204 @@
+{
+  "pipeline": "Muse (meta/muse-image via OpenRouter), edit procedure, tool v0.3.0; deterministic region Assembly per ADR 0002",
+  "application": "/home/reidsurmeier/muse-runs/sketchbook-window-chrome",
+  "runs": {
+    "title-lettering": "run-33143974c5b792ff1bda8f37 (edit-work title-01)",
+    "button-glyphs": "run-91225aaeeb77cadc03f78f88 (edit-work buttons-01)",
+    "rejected_full_redraws": [
+      "run-950f08bcfa8fe1cebb735399",
+      "run-3440a4118196cf0e1935e44e",
+      "run-53d9b859d575c8dcfeaed047"
+    ]
+  },
+  "spend_usd": {
+    "muse_requests": 5,
+    "unit": 0.01,
+    "total": 0.05,
+    "cost_state": "actual"
+  },
+  "assembly": {
+    "title": {
+      "baseline": "references/ro-window.png",
+      "baseline_sha256": "b3f47feeed242f8dfb49ae14ed34f1ea398077f9edb3c2ac7d8fe71c2926c7ff",
+      "donor": "edit-work/title-01.output.png",
+      "donor_registered_to": [
+        285,
+        155
+      ],
+      "owned_region": {
+        "x": 22,
+        "y": 8,
+        "width": 67,
+        "height": 13
+      },
+      "changed_pixels_outside_region": 0,
+      "output": "edit-work/title-assembled-1x.png",
+      "output_sha256": "8830d98e2d7a0e4d1ccd1dcb358ab082020a4f5df9e56f5235a86d9a357e4dae"
+    },
+    "buttons": {
+      "baseline": "references/buttons.png (rotated upright)",
+      "baseline_sha256": "9b46c5104cc71063b5acb908a9a6f8500de45d4cba61b0bcfe8ee308080647d2",
+      "donor": "edit-work/buttons-01.output.png",
+      "donor_registered_to": [
+        320,
+        54
+      ],
+      "owned_regions": {
+        "next": {
+          "x": 18,
+          "y": 10,
+          "width": 66,
+          "height": 32
+        },
+        "prev": {
+          "x": 231,
+          "y": 10,
+          "width": 66,
+          "height": 32
+        }
+      },
+      "changed_pixels_outside_regions": 0,
+      "output": "edit-work/buttons-assembled-1x.png",
+      "output_sha256": "ff2e82ae84ccca4036f8b64702cf895686b55d53349dd308bd38a15b6f2ce370"
+    }
+  },
+  "slices": {
+    "ro-top-left.png": {
+      "source": "title-assembled-1x.png",
+      "box": [
+        0,
+        0,
+        93,
+        23
+      ],
+      "size": [
+        93,
+        23
+      ],
+      "sha256": "b6920d97fefd2bff30c38c3fe2a9987276e6a37f85f07a27ea64c4219b31d181"
+    },
+    "ro-top-mid.png": {
+      "source": "title-assembled-1x.png",
+      "box": [
+        120,
+        0,
+        121,
+        23
+      ],
+      "size": [
+        1,
+        23
+      ],
+      "sha256": "51ed57d94ef18093d4db249dbfa436fa67c50cc615900185d2e44224938831cf"
+    },
+    "ro-top-right.png": {
+      "source": "title-assembled-1x.png",
+      "box": [
+        245,
+        0,
+        285,
+        23
+      ],
+      "size": [
+        40,
+        23
+      ],
+      "sha256": "804dd14dbcd585c87932d572523bda980608cab0cf6c524b241751b77eb18f16"
+    },
+    "ro-left.png": {
+      "source": "title-assembled-1x.png",
+      "box": [
+        0,
+        100,
+        9,
+        101
+      ],
+      "size": [
+        9,
+        1
+      ],
+      "sha256": "bb83b1991477d14b1c2ad1bf1477ee8ef8b1a9616cecec465c7c5d94aa20b042"
+    },
+    "ro-right.png": {
+      "source": "title-assembled-1x.png",
+      "box": [
+        274,
+        100,
+        285,
+        101
+      ],
+      "size": [
+        11,
+        1
+      ],
+      "sha256": "344077adca1b4aa05b6b1fb8632d9386148209d97688c5af60ff1f98e55a8553"
+    },
+    "ro-bottom-left.png": {
+      "source": "title-assembled-1x.png",
+      "box": [
+        0,
+        143,
+        9,
+        155
+      ],
+      "size": [
+        9,
+        12
+      ],
+      "sha256": "1f068a24f5507443cd700e0858a2ab190ebb01c42a2464a2fe16c58accc17a1c"
+    },
+    "ro-bottom-mid.png": {
+      "source": "title-assembled-1x.png",
+      "box": [
+        120,
+        143,
+        121,
+        155
+      ],
+      "size": [
+        1,
+        12
+      ],
+      "sha256": "41e8292b8471a7920194185b5088bc65b6d6f793db32d540bde3bfa0bb51115a"
+    },
+    "ro-bottom-right.png": {
+      "source": "title-assembled-1x.png",
+      "box": [
+        274,
+        143,
+        285,
+        155
+      ],
+      "size": [
+        11,
+        12
+      ],
+      "sha256": "0e0ae8893ce84b4390ed1e38eb1809d1563a05de562bace5d8f0e359095b77a0"
+    },
+    "ro-btn-next.png": {
+      "source": "buttons-assembled-1x.png",
+      "size": [
+        84,
+        44
+      ],
+      "sha256": "a6cc09ab0e6924fad06802c5ff011ec53517529d721573058114c54ba008ee33"
+    },
+    "ro-btn-prev.png": {
+      "source": "buttons-assembled-1x.png",
+      "size": [
+        84,
+        44
+      ],
+      "sha256": "feacd64dd7fc39bf236e3bbd5f0c71ad3c9aa532f23b58d9a91d6c98481aefd1"
+    },
+    "ro-btn-prev-disabled.png": {
+      "source": "buttons-assembled-1x.png",
+      "size": [
+        84,
+        44
+      ],
+      "sha256": "25b1f3d1cec86dd8a19e2dfe188a86b85c69b1110a878398976006a5d25c286c",
+      "derivation": "'<' glyph recolored to the reference 'trade' disabled gray 169"
+    }
+  }
+}
