@@ -27,7 +27,7 @@
   },
   "mid_grow_width_between_stub_and_full": {
    "pass": true,
-   "detail": "w=513 full=680"
+   "detail": "w=424 full=680"
   },
   "connecting_label_then_blank_page": {
    "pass": true,
@@ -47,11 +47,11 @@
   },
   "grow_took_about_500ms": {
    "pass": true,
-   "detail": "554 ms"
+   "detail": "545 ms"
   },
   "title_swap_after_about_950ms": {
    "pass": true,
-   "detail": "932 ms"
+   "detail": "938 ms"
   },
   "click_tab0_shows_page0": {
    "pass": true,
@@ -99,7 +99,7 @@
   },
   "new_tab_pixels_changed": {
    "pass": true,
-   "detail": "mean abs diff 28.61"
+   "detail": "mean abs diff 27.38"
   },
   "bar_spans_full_width": {
    "pass": true,
@@ -107,15 +107,15 @@
   }
  },
  "sha256": {
-  "01-initial.png": "4bd92d8bb2bec4328301ab0f28638586caecae214bccc169cce0e12f4b905f9e",
-  "02-mid-grow.png": "cf422feeabf7292f0dc76f0fc32f00a1fdd8acfe3feff53ecdaea46672442cf8",
-  "03-connecting.png": "94c210bbaf1d7d859ac07af134d9af4544f05fd42e6e8eb59c6c2e7b494e4113",
-  "04-blank-page.png": "07343e93d9a375f5a50add73faf9842aef5a0a5017a22c5772bcff94c7f8b647",
-  "05-selected-0.png": "c7d1b27a2b53ad15eb4105eb752258dcd03fafa493b539b6c561a08e25bcbda4",
-  "06-selected-1.png": "07343e93d9a375f5a50add73faf9842aef5a0a5017a22c5772bcff94c7f8b647",
-  "07-third-tab.png": "4e5535f9957b1fa67631367ac0631cd52298d1f79068bcb9a1c2bbc8666b77df",
-  "08-full-row.png": "a430244c8085efa1dd64e6633e95165303e446db2d35148edb9ba3d6c9029ad1",
-  "09-closed-last.png": "4e5535f9957b1fa67631367ac0631cd52298d1f79068bcb9a1c2bbc8666b77df",
-  "10-closed-second.png": "c7d1b27a2b53ad15eb4105eb752258dcd03fafa493b539b6c561a08e25bcbda4"
+  "01-initial.png": "9838eee94c43c755dfa5beee67d0268d066b10d5608ecc801bdc6196b1cb0f8b",
+  "02-mid-grow.png": "66cf57e49fefff0c6c0c7464a47d8051513ede9d3298ad64698451c6909f0ed5",
+  "03-connecting.png": "83067e6055337ca93d59f58d66ca6434430c407e259777a9209033d0d4d005c8",
+  "04-blank-page.png": "296c006eeef787c026ab9639ccee48019ca5e999c2a66d89048e1eed7a27d53e",
+  "05-selected-0.png": "2d214d8c85b0c9504c019678f8e1c2d01907ac053e02619f3de0451eb6fcb6fe",
+  "06-selected-1.png": "296c006eeef787c026ab9639ccee48019ca5e999c2a66d89048e1eed7a27d53e",
+  "07-third-tab.png": "d0780119c52a98790288c9c8f35a86e065a937c28cedb4edb999512e9f517939",
+  "08-full-row.png": "223629466f98bc2c51e0238066b1dcc9e9ea8ec641f2026f44af74cfee60caba",
+  "09-closed-last.png": "d0780119c52a98790288c9c8f35a86e065a937c28cedb4edb999512e9f517939",
+  "10-closed-second.png": "2d214d8c85b0c9504c019678f8e1c2d01907ac053e02619f3de0451eb6fcb6fe"
  }
 }
