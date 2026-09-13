@@ -2,7 +2,7 @@
   "log": [
     {
       "active": 0,
-      "bar_width": 3490.9091796875,
+      "bar_width": 3135.0,
       "count": 1,
       "event": "state",
       "label": "initial",
@@ -12,7 +12,7 @@
         {
           "close_rect": {
             "position": {
-              "x": 829.0,
+              "x": 789.0,
               "y": 79.0
             },
             "size": {
@@ -24,7 +24,7 @@
           "label": "windows_live",
           "page_visible": true,
           "truncated": false,
-          "w": 680.0,
+          "w": 640.0,
           "x": 261.0,
           "y": 33.0
         }
@@ -33,69 +33,69 @@
     {
       "event": "screenshot",
       "file": "01-initial.png",
-      "t_ms": 42
+      "t_ms": 43
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_opened",
-      "t_ms": 52
+      "t_ms": 53
     },
     {
       "event": "click",
-      "t_ms": 52,
+      "t_ms": 53,
       "what": "new-tab stub",
-      "x": 534.049987792969,
-      "y": 56.375
+      "x": 570.181823730469,
+      "y": 62.7751159667969
     },
     {
       "event": "frame",
       "n": 0,
-      "t_ms": 94
+      "t_ms": 95
     },
     {
       "event": "frame",
       "n": 1,
-      "t_ms": 134
+      "t_ms": 137
     },
     {
       "event": "frame",
       "n": 2,
-      "t_ms": 173
+      "t_ms": 177
     },
     {
       "event": "frame",
       "n": 3,
-      "t_ms": 212
+      "t_ms": 218
     },
     {
       "event": "frame",
       "n": 4,
-      "t_ms": 252
+      "t_ms": 258
     },
     {
       "event": "frame",
       "n": 5,
-      "t_ms": 291
+      "t_ms": 298
     },
     {
       "event": "frame",
       "n": 6,
-      "t_ms": 332
+      "t_ms": 338
     },
     {
       "active": 0,
-      "bar_width": 3490.9091796875,
+      "bar_width": 3135.0,
       "count": 2,
       "event": "state",
       "label": "mid-grow",
       "opening": true,
-      "t_ms": 332,
+      "t_ms": 338,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 829.0,
+              "x": 789.0,
               "y": 79.0
             },
             "size": {
@@ -107,116 +107,111 @@
           "label": "windows_live",
           "page_visible": true,
           "truncated": false,
-          "w": 680.0,
+          "w": 640.0,
           "x": 261.0,
           "y": 33.0
         },
         {
           "close_rect": {
             "position": {
-              "x": 1280.0,
-              "y": 84.5218200683594
+              "x": 1197.0,
+              "y": 84.7400207519531
             },
             "size": {
               "x": 22.0,
               "y": 22.0
             }
           },
-          "h": 117.478179931641,
+          "h": 117.259986877441,
           "label": "connecting",
           "page_visible": false,
           "truncated": true,
-          "w": 507.0,
-          "x": 885.0,
-          "y": 38.5218200683594
+          "w": 475.0,
+          "x": 834.0,
+          "y": 38.7400169372559
         }
       ]
     },
     {
       "event": "screenshot",
       "file": "02-mid-grow.png",
-      "t_ms": 364
+      "t_ms": 371
     },
     {
       "event": "frame",
       "n": 7,
-      "t_ms": 403
+      "t_ms": 411
     },
     {
       "event": "frame",
       "n": 8,
-      "t_ms": 443
+      "t_ms": 452
     },
     {
       "event": "frame",
       "n": 9,
-      "t_ms": 481
+      "t_ms": 491
     },
     {
       "event": "frame",
       "n": 10,
-      "t_ms": 520
+      "t_ms": 531
     },
     {
       "event": "frame",
       "n": 11,
-      "t_ms": 559
-    },
-    {
-      "event": "frame",
-      "n": 12,
-      "t_ms": 598
+      "t_ms": 572
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 598
+      "t_ms": 572
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_settled",
-      "t_ms": 598
+      "t_ms": 572
+    },
+    {
+      "event": "frame",
+      "n": 12,
+      "t_ms": 611
     },
     {
       "event": "frame",
       "n": 13,
-      "t_ms": 637
+      "t_ms": 651
     },
     {
       "event": "frame",
       "n": 14,
-      "t_ms": 675
+      "t_ms": 690
     },
     {
       "event": "frame",
       "n": 15,
-      "t_ms": 713
+      "t_ms": 729
     },
     {
       "event": "frame",
       "n": 16,
-      "t_ms": 751
-    },
-    {
-      "event": "frame",
-      "n": 17,
-      "t_ms": 789
+      "t_ms": 770
     },
     {
       "active": 1,
-      "bar_width": 3490.9091796875,
+      "bar_width": 3135.0,
       "count": 2,
       "event": "state",
       "label": "connecting",
       "opening": false,
-      "t_ms": 789,
+      "t_ms": 770,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 829.0,
+              "x": 789.0,
               "y": 79.0
             },
             "size": {
@@ -228,14 +223,14 @@
           "label": "windows_live",
           "page_visible": false,
           "truncated": false,
-          "w": 680.0,
+          "w": 640.0,
           "x": 261.0,
           "y": 33.0
         },
         {
           "close_rect": {
             "position": {
-              "x": 1453.0,
+              "x": 1362.0,
               "y": 79.0
             },
             "size": {
@@ -247,8 +242,8 @@
           "label": "connecting",
           "page_visible": true,
           "truncated": false,
-          "w": 680.0,
-          "x": 885.0,
+          "w": 640.0,
+          "x": 834.0,
           "y": 33.0
         }
       ]
@@ -256,162 +251,162 @@
     {
       "event": "screenshot",
       "file": "03-connecting.png",
-      "t_ms": 820
+      "t_ms": 802
+    },
+    {
+      "event": "frame",
+      "n": 17,
+      "t_ms": 841
     },
     {
       "event": "frame",
       "n": 18,
-      "t_ms": 858
+      "t_ms": 881
     },
     {
       "event": "frame",
       "n": 19,
-      "t_ms": 896
+      "t_ms": 920
     },
     {
       "event": "frame",
       "n": 20,
-      "t_ms": 935
+      "t_ms": 959
     },
     {
       "event": "frame",
       "n": 21,
-      "t_ms": 973
+      "t_ms": 999
     },
     {
       "event": "frame",
       "n": 22,
-      "t_ms": 1012
+      "t_ms": 1038
     },
     {
       "event": "frame",
       "n": 23,
-      "t_ms": 1051
+      "t_ms": 1078
     },
     {
       "event": "frame",
       "n": 24,
-      "t_ms": 1089
+      "t_ms": 1117
     },
     {
       "event": "frame",
       "n": 25,
-      "t_ms": 1128
+      "t_ms": 1156
     },
     {
       "event": "frame",
       "n": 26,
-      "t_ms": 1166
+      "t_ms": 1195
     },
     {
       "event": "frame",
       "n": 27,
-      "t_ms": 1205
+      "t_ms": 1235
     },
     {
       "event": "frame",
       "n": 28,
-      "t_ms": 1243
+      "t_ms": 1274
     },
     {
       "event": "frame",
       "n": 29,
-      "t_ms": 1282
+      "t_ms": 1312
     },
     {
       "event": "frame",
       "n": 30,
-      "t_ms": 1320
+      "t_ms": 1352
     },
     {
       "event": "frame",
       "n": 31,
-      "t_ms": 1358
+      "t_ms": 1390
     },
     {
       "event": "frame",
       "n": 32,
-      "t_ms": 1396
+      "t_ms": 1429
     },
     {
       "event": "frame",
       "n": 33,
-      "t_ms": 1435
+      "t_ms": 1468
     },
     {
       "event": "frame",
       "n": 34,
-      "t_ms": 1473
+      "t_ms": 1508
     },
     {
       "event": "frame",
       "n": 35,
-      "t_ms": 1512
-    },
-    {
-      "event": "frame",
-      "n": 36,
-      "t_ms": 1551
+      "t_ms": 1547
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_titled",
-      "t_ms": 1551
+      "t_ms": 1547
+    },
+    {
+      "event": "frame",
+      "n": 36,
+      "t_ms": 1587
     },
     {
       "event": "frame",
       "n": 37,
-      "t_ms": 1589
+      "t_ms": 1626
     },
     {
       "event": "frame",
       "n": 38,
-      "t_ms": 1628
+      "t_ms": 1665
     },
     {
       "event": "frame",
       "n": 39,
-      "t_ms": 1667
+      "t_ms": 1704
     },
     {
       "event": "frame",
       "n": 40,
-      "t_ms": 1705
+      "t_ms": 1743
     },
     {
       "event": "frame",
       "n": 41,
-      "t_ms": 1744
+      "t_ms": 1782
     },
     {
       "event": "frame",
       "n": 42,
-      "t_ms": 1783
-    },
-    {
-      "event": "frame",
-      "n": 43,
       "t_ms": 1822
     },
     {
       "event": "frame",
-      "n": 44,
-      "t_ms": 1862
+      "n": 43,
+      "t_ms": 1861
     },
     {
       "active": 1,
-      "bar_width": 3490.9091796875,
+      "bar_width": 3135.0,
       "count": 2,
       "event": "state",
       "label": "blank-page",
       "opening": false,
-      "t_ms": 1862,
+      "t_ms": 1861,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 829.0,
+              "x": 789.0,
               "y": 79.0
             },
             "size": {
@@ -423,14 +418,14 @@
           "label": "windows_live",
           "page_visible": false,
           "truncated": false,
-          "w": 680.0,
+          "w": 640.0,
           "x": 261.0,
           "y": 33.0
         },
         {
           "close_rect": {
             "position": {
-              "x": 1453.0,
+              "x": 1362.0,
               "y": 79.0
             },
             "size": {
@@ -442,8 +437,8 @@
           "label": "blank_page",
           "page_visible": true,
           "truncated": false,
-          "w": 680.0,
-          "x": 885.0,
+          "w": 640.0,
+          "x": 834.0,
           "y": 33.0
         }
       ]
@@ -451,34 +446,34 @@
     {
       "event": "screenshot",
       "file": "04-blank-page.png",
-      "t_ms": 1905
+      "t_ms": 1904
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_selected",
-      "t_ms": 1911
+      "t_ms": 1910
     },
     {
       "event": "click",
-      "t_ms": 1916,
+      "t_ms": 1915,
       "what": "tab 0",
-      "x": 330.550018310547,
-      "y": 51.9750022888184
+      "x": 355.827728271484,
+      "y": 57.8755950927734
     },
     {
       "active": 0,
-      "bar_width": 3490.9091796875,
+      "bar_width": 3135.0,
       "count": 2,
       "event": "state",
       "label": "selected-0",
       "opening": false,
-      "t_ms": 1916,
+      "t_ms": 1915,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 829.0,
+              "x": 789.0,
               "y": 79.0
             },
             "size": {
@@ -490,14 +485,14 @@
           "label": "windows_live",
           "page_visible": true,
           "truncated": false,
-          "w": 680.0,
+          "w": 640.0,
           "x": 261.0,
           "y": 33.0
         },
         {
           "close_rect": {
             "position": {
-              "x": 1453.0,
+              "x": 1362.0,
               "y": 79.0
             },
             "size": {
@@ -509,8 +504,8 @@
           "label": "blank_page",
           "page_visible": false,
           "truncated": false,
-          "w": 680.0,
-          "x": 885.0,
+          "w": 640.0,
+          "x": 834.0,
           "y": 33.0
         }
       ]
@@ -518,24 +513,24 @@
     {
       "event": "screenshot",
       "file": "05-selected-0.png",
-      "t_ms": 1957
+      "t_ms": 1956
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 1963
+      "t_ms": 1962
     },
     {
       "event": "click",
       "t_ms": 1967,
       "what": "tab 1",
-      "x": 673.75,
-      "y": 51.9750022888184
+      "x": 706.755981445312,
+      "y": 57.8755950927734
     },
     {
       "active": 1,
-      "bar_width": 3490.9091796875,
+      "bar_width": 3135.0,
       "count": 2,
       "event": "state",
       "label": "selected-1",
@@ -545,7 +540,7 @@
         {
           "close_rect": {
             "position": {
-              "x": 829.0,
+              "x": 789.0,
               "y": 79.0
             },
             "size": {
@@ -557,14 +552,14 @@
           "label": "windows_live",
           "page_visible": false,
           "truncated": false,
-          "w": 680.0,
+          "w": 640.0,
           "x": 261.0,
           "y": 33.0
         },
         {
           "close_rect": {
             "position": {
-              "x": 1453.0,
+              "x": 1362.0,
               "y": 79.0
             },
             "size": {
@@ -576,8 +571,8 @@
           "label": "blank_page",
           "page_visible": true,
           "truncated": false,
-          "w": 680.0,
-          "x": 885.0,
+          "w": 640.0,
+          "x": 834.0,
           "y": 33.0
         }
       ]
@@ -585,32 +580,32 @@
     {
       "event": "screenshot",
       "file": "06-selected-1.png",
-      "t_ms": 2008
+      "t_ms": 2007
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_opened",
-      "t_ms": 2019
+      "t_ms": 2018
     },
     {
       "event": "click",
-      "t_ms": 2019,
+      "t_ms": 2018,
       "what": "new-tab stub (2nd)",
-      "x": 877.25,
-      "y": 56.375
+      "x": 921.109985351562,
+      "y": 62.7751159667969
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_selected",
-      "t_ms": 2512
+      "t_ms": 2506
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_settled",
-      "t_ms": 2512
+      "t_ms": 2506
     },
     {
       "event": "signal",
@@ -620,17 +615,17 @@
     },
     {
       "active": 2,
-      "bar_width": 3490.9091796875,
+      "bar_width": 3135.0,
       "count": 3,
       "event": "state",
       "label": "third-tab",
       "opening": false,
-      "t_ms": 3812,
+      "t_ms": 3808,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 722.0,
+              "x": 610.0,
               "y": 79.0
             },
             "size": {
@@ -642,14 +637,14 @@
           "label": "windows_live",
           "page_visible": false,
           "truncated": true,
-          "w": 573.0,
+          "w": 461.0,
           "x": 261.0,
           "y": 33.0
         },
         {
           "close_rect": {
             "position": {
-              "x": 1239.0,
+              "x": 1004.0,
               "y": 79.0
             },
             "size": {
@@ -661,14 +656,14 @@
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
-          "w": 573.0,
-          "x": 778.0,
+          "w": 461.0,
+          "x": 655.0,
           "y": 33.0
         },
         {
           "close_rect": {
             "position": {
-              "x": 1756.0,
+              "x": 1398.0,
               "y": 79.0
             },
             "size": {
@@ -680,8 +675,8 @@
           "label": "blank_page",
           "page_visible": true,
           "truncated": true,
-          "w": 573.0,
-          "x": 1295.0,
+          "w": 461.0,
+          "x": 1049.0,
           "y": 33.0
         }
       ]
@@ -689,59 +684,28 @@
     {
       "event": "screenshot",
       "file": "07-third-tab.png",
-      "t_ms": 3853
-    },
-    {
-      "event": "signal",
-      "index": 3,
-      "signal": "tab_opened",
-      "t_ms": 3864
+      "t_ms": 3848
     },
     {
       "event": "click",
-      "t_ms": 3865,
+      "t_ms": 3859,
       "what": "new-tab stub (fill)",
-      "x": 1043.90002441406,
-      "y": 56.375
+      "x": 943.157836914062,
+      "y": 62.7751159667969
     },
     {
-      "event": "signal",
-      "index": 3,
-      "signal": "tab_selected",
-      "t_ms": 4363
-    },
-    {
-      "event": "signal",
-      "index": 3,
-      "signal": "tab_settled",
-      "t_ms": 4363
-    },
-    {
-      "event": "click",
-      "t_ms": 4570,
-      "what": "new-tab stub (fill)",
-      "x": 1042.25,
-      "y": 56.375
-    },
-    {
-      "event": "signal",
-      "index": 3,
-      "signal": "tab_titled",
-      "t_ms": 5312
-    },
-    {
-      "active": 3,
-      "bar_width": 3490.9091796875,
-      "count": 4,
+      "active": 2,
+      "bar_width": 3135.0,
+      "count": 3,
       "event": "state",
       "label": "full-row",
       "opening": false,
-      "t_ms": 6469,
+      "t_ms": 5769,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 592.0,
+              "x": 610.0,
               "y": 79.0
             },
             "size": {
@@ -753,14 +717,14 @@
           "label": "windows_live",
           "page_visible": false,
           "truncated": true,
-          "w": 443.0,
+          "w": 461.0,
           "x": 261.0,
           "y": 33.0
         },
         {
           "close_rect": {
             "position": {
-              "x": 979.0,
+              "x": 1004.0,
               "y": 79.0
             },
             "size": {
@@ -772,14 +736,14 @@
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
-          "w": 443.0,
-          "x": 648.0,
+          "w": 461.0,
+          "x": 655.0,
           "y": 33.0
         },
         {
           "close_rect": {
             "position": {
-              "x": 1366.0,
+              "x": 1398.0,
               "y": 79.0
             },
             "size": {
@@ -788,30 +752,11 @@
             }
           },
           "h": 123.0,
-          "label": "blank_page",
-          "page_visible": false,
-          "truncated": true,
-          "w": 443.0,
-          "x": 1035.0,
-          "y": 33.0
-        },
-        {
-          "close_rect": {
-            "position": {
-              "x": 1753.0,
-              "y": 79.0
-            },
-            "size": {
-              "x": 22.0,
-              "y": 22.0
-            }
-          },
-          "h": 123.000076293945,
           "label": "blank_page",
           "page_visible": true,
           "truncated": true,
-          "w": 443.0,
-          "x": 1422.0,
+          "w": 461.0,
+          "x": 1049.0,
           "y": 33.0
         }
       ]
@@ -819,45 +764,45 @@
     {
       "event": "screenshot",
       "file": "08-full-row.png",
-      "t_ms": 6509
+      "t_ms": 5811
     },
     {
       "event": "fill",
-      "result": "refused at 4 tabs",
-      "t_ms": 6509
+      "result": "refused at 3 tabs",
+      "t_ms": 5811
     },
     {
       "event": "click",
-      "t_ms": 6520,
+      "t_ms": 5823,
       "what": "close button of active tab",
-      "x": 970.200012207031,
-      "y": 49.5
-    },
-    {
-      "event": "signal",
-      "index": 3,
-      "signal": "tab_closed",
-      "t_ms": 6861
+      "x": 862.92822265625,
+      "y": 55.1196136474609
     },
     {
       "event": "signal",
       "index": 2,
-      "signal": "tab_selected",
-      "t_ms": 6861
+      "signal": "tab_closed",
+      "t_ms": 6170
     },
     {
-      "active": 2,
-      "bar_width": 3490.9091796875,
-      "count": 3,
+      "event": "signal",
+      "index": 1,
+      "signal": "tab_selected",
+      "t_ms": 6170
+    },
+    {
+      "active": 1,
+      "bar_width": 3135.0,
+      "count": 2,
       "event": "state",
       "label": "closed-last",
       "opening": false,
-      "t_ms": 7459,
+      "t_ms": 6755,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 722.0,
+              "x": 789.0,
               "y": 79.0
             },
             "size": {
@@ -868,34 +813,15 @@
           "h": 123.0,
           "label": "windows_live",
           "page_visible": false,
-          "truncated": true,
-          "w": 573.0,
+          "truncated": false,
+          "w": 640.0,
           "x": 261.0,
           "y": 33.0
         },
         {
           "close_rect": {
             "position": {
-              "x": 1239.0,
-              "y": 79.0
-            },
-            "size": {
-              "x": 22.0,
-              "y": 22.0
-            }
-          },
-          "h": 123.0,
-          "label": "blank_page",
-          "page_visible": false,
-          "truncated": true,
-          "w": 573.0,
-          "x": 778.0,
-          "y": 33.0
-        },
-        {
-          "close_rect": {
-            "position": {
-              "x": 1756.0,
+              "x": 1362.0,
               "y": 79.0
             },
             "size": {
@@ -906,9 +832,9 @@
           "h": 123.0,
           "label": "blank_page",
           "page_visible": true,
-          "truncated": true,
-          "w": 573.0,
-          "x": 1295.0,
+          "truncated": false,
+          "w": 640.0,
+          "x": 834.0,
           "y": 33.0
         }
       ]
@@ -916,53 +842,53 @@
     {
       "event": "screenshot",
       "file": "09-closed-last.png",
-      "t_ms": 7503
+      "t_ms": 6799
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 7510
+      "t_ms": 6805
     },
     {
       "event": "click",
-      "t_ms": 7514,
+      "t_ms": 6810,
       "what": "tab 1",
-      "x": 585.475036621094,
-      "y": 51.9750022888184
+      "x": 706.755981445312,
+      "y": 57.8755950927734
     },
     {
       "event": "click",
-      "t_ms": 7524,
+      "t_ms": 6818,
       "what": "close button of tab 1",
-      "x": 687.5,
-      "y": 49.5
+      "x": 840.88037109375,
+      "y": 55.1196136474609
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_closed",
-      "t_ms": 7821
+      "t_ms": 7110
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_selected",
-      "t_ms": 7821
+      "t_ms": 7110
     },
     {
       "active": 0,
-      "bar_width": 3490.9091796875,
-      "count": 2,
+      "bar_width": 3135.0,
+      "count": 1,
       "event": "state",
       "label": "closed-second",
       "opening": false,
-      "t_ms": 8428,
+      "t_ms": 7714,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 829.0,
+              "x": 789.0,
               "y": 79.0
             },
             "size": {
@@ -974,14 +900,89 @@
           "label": "windows_live",
           "page_visible": true,
           "truncated": false,
-          "w": 680.0,
+          "w": 640.0,
           "x": 261.0,
           "y": 33.0
-        },
+        }
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "10-closed-second.png",
+      "t_ms": 7759
+    },
+    {
+      "event": "click",
+      "t_ms": 7769,
+      "what": "close button (empty the row)",
+      "x": 489.9521484375,
+      "y": 55.1196136474609
+    },
+    {
+      "event": "signal",
+      "index": 0,
+      "signal": "tab_closed",
+      "t_ms": 8057
+    },
+    {
+      "active": -1,
+      "bar_width": 3135.0,
+      "count": 0,
+      "event": "state",
+      "label": "all-closed",
+      "opening": false,
+      "t_ms": 8455,
+      "tabs": []
+    },
+    {
+      "event": "screenshot",
+      "file": "11-all-closed.png",
+      "t_ms": 8499
+    },
+    {
+      "event": "signal",
+      "index": 0,
+      "signal": "tab_opened",
+      "t_ms": 8509
+    },
+    {
+      "event": "click",
+      "t_ms": 8509,
+      "what": "new-tab stub (after empty)",
+      "x": 219.253799438477,
+      "y": 62.7751159667969
+    },
+    {
+      "event": "signal",
+      "index": 0,
+      "signal": "tab_selected",
+      "t_ms": 9004
+    },
+    {
+      "event": "signal",
+      "index": 0,
+      "signal": "tab_settled",
+      "t_ms": 9004
+    },
+    {
+      "event": "signal",
+      "index": 0,
+      "signal": "tab_titled",
+      "t_ms": 9956
+    },
+    {
+      "active": 0,
+      "bar_width": 3135.0,
+      "count": 1,
+      "event": "state",
+      "label": "reopened",
+      "opening": false,
+      "t_ms": 10304,
+      "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 1453.0,
+              "x": 789.0,
               "y": 79.0
             },
             "size": {
@@ -991,122 +992,9 @@
           },
           "h": 123.0,
           "label": "blank_page",
-          "page_visible": false,
-          "truncated": false,
-          "w": 680.0,
-          "x": 885.0,
-          "y": 33.0
-        }
-      ]
-    },
-    {
-      "event": "screenshot",
-      "file": "10-closed-second.png",
-      "t_ms": 8469
-    },
-    {
-      "event": "click",
-      "t_ms": 8480,
-      "what": "close button (empty the row)",
-      "x": 805.200012207031,
-      "y": 49.5
-    },
-    {
-      "event": "signal",
-      "index": 1,
-      "signal": "tab_closed",
-      "t_ms": 8779
-    },
-    {
-      "event": "signal",
-      "index": 0,
-      "signal": "tab_selected",
-      "t_ms": 8779
-    },
-    {
-      "event": "click",
-      "t_ms": 9182,
-      "what": "close button (empty the row)",
-      "x": 462.0,
-      "y": 49.5
-    },
-    {
-      "event": "signal",
-      "index": 0,
-      "signal": "tab_closed",
-      "t_ms": 9482
-    },
-    {
-      "active": -1,
-      "bar_width": 3490.9091796875,
-      "count": 0,
-      "event": "state",
-      "label": "all-closed",
-      "opening": false,
-      "t_ms": 9876,
-      "tabs": []
-    },
-    {
-      "event": "screenshot",
-      "file": "11-all-closed.png",
-      "t_ms": 9917
-    },
-    {
-      "event": "signal",
-      "index": 0,
-      "signal": "tab_opened",
-      "t_ms": 9926
-    },
-    {
-      "event": "click",
-      "t_ms": 9926,
-      "what": "new-tab stub (after empty)",
-      "x": 190.850067138672,
-      "y": 56.375
-    },
-    {
-      "event": "signal",
-      "index": 0,
-      "signal": "tab_selected",
-      "t_ms": 10429
-    },
-    {
-      "event": "signal",
-      "index": 0,
-      "signal": "tab_settled",
-      "t_ms": 10429
-    },
-    {
-      "event": "signal",
-      "index": 0,
-      "signal": "tab_titled",
-      "t_ms": 11373
-    },
-    {
-      "active": 0,
-      "bar_width": 3490.9091796875,
-      "count": 1,
-      "event": "state",
-      "label": "reopened",
-      "opening": false,
-      "t_ms": 11724,
-      "tabs": [
-        {
-          "close_rect": {
-            "position": {
-              "x": 829.0,
-              "y": 79.0
-            },
-            "size": {
-              "x": 22.0,
-              "y": 22.0
-            }
-          },
-          "h": 122.999954223633,
-          "label": "blank_page",
           "page_visible": true,
           "truncated": false,
-          "w": 680.0,
+          "w": 640.0,
           "x": 261.0,
           "y": 33.0
         }
@@ -1115,7 +1003,7 @@
     {
       "event": "screenshot",
       "file": "12-reopened.png",
-      "t_ms": 11767
+      "t_ms": 10346
     }
   ],
   "viewport": [
