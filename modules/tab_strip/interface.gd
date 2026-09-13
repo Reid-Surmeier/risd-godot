@@ -45,8 +45,23 @@ static func select_tab(strip: Control, index: int) -> Dictionary:
 	return strip.select_tab(index)
 
 
-## Number of tabs, the active index, and each tab's current label key and pixel rect.
-## Returns ok({ count, active, tabs: [{ label, rect }], opening: bool }).
+## Close tab `index` exactly as a click on its close button does: its page goes with it, the row
+## re-lays out, the left neighbour (or the first tab) becomes active. The last tab cannot be closed.
+## Returns ok(remaining count) or err(INDEX_OUT_OF_RANGE | NO_ROOM | OPEN_IN_PROGRESS).
+static func close_tab(strip: Control, index: int) -> Dictionary:
+	return strip.close_tab(index)
+
+
+## Make the bar `width` source pixels wide: stars stay left, the icon cluster stays right,
+## pinstripes fill the middle, tabs get the room between. Called by the owner on resize.
+static func set_bar_width(strip: Control, width: float) -> void:
+	strip.set_bar_width(width)
+
+
+## Number of tabs, the active index, and each tab's current label key, pixel rect, whether its
+## label is truncated with "...", and its close button rect (empty unless active).
+## Returns ok({ count, active, tabs: [{ label, rect, page_visible, truncated, close_rect }],
+## opening: bool, bar_width }).
 static func state(strip: Control) -> Dictionary:
 	return strip.state()
 
@@ -61,3 +76,4 @@ static func stub_rect(strip: Control) -> Rect2:
 ##   tab_settled(index: int)      — grow finished, label is "Connecting..."
 ##   tab_titled(index: int)       — label swapped to "Blank Page"
 ##   tab_selected(index: int)     — active tab changed; its page is visible
+##   tab_closed(index: int)       — a tab and its page were removed

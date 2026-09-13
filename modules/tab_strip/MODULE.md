@@ -16,9 +16,11 @@ depends-on: []
 - Click the blank stub: it shows its pressed face, then grows into a full tab over 0.4 s (cubic ease-out) with the fresh stub riding on its right edge; the page icon and "Connecting..." fade in as it opens; 0.95 s later the label swaps to "Blank Page" in one frame. Signals: `tab_opened`, `tab_settled`, `tab_titled`, `tab_selected`.
 - Every tab owns one page in the caller's `page_stack`; opening a tab shows its page; clicking a tab shows its page.
 - When the row is full, tabs shrink together and labels clip (IE7 behaviour); when even the minimum width will not fit, `open_new_tab` returns `NO_ROOM` and nothing changes.
-- Labels are sliced source pixels, so only `windows_live`, `connecting` and `blank_page` exist; no font is used anywhere.
+- Labels are sliced source pixels, so only `windows_live`, `connecting` and `blank_page` exist; no font is used anywhere. A label that does not fit is cut at the last whole glyph and followed by the source's own "..." glyph; a tab never cuts a glyph in half, and `tab_min_width` keeps room for icon, two glyphs and the dots.
+- The active tab carries a close button (a Muse-drawn "x" in the toolbar's grey, `assets/icon_close.png`); clicking it removes the tab and its page, the row re-lays out and regrows, and the left neighbour becomes active. The last tab cannot be closed.
+- `set_bar_width` makes the bar any width: the stars stay left, the icon cluster stays right, the pinstripes fill the middle from a clean 700 px patch, and tabs take the room between. `demo.gd` fits it to the window and re-fits on resize; tabs are drawn at 0.55 of source size.
 
-`open_new_tab`, `select_tab`, `state`, `stub_rect` are the programmatic seam; every one returns `{ ok, value, error }`.
+`open_new_tab`, `select_tab`, `close_tab`, `set_bar_width`, `state`, `stub_rect` are the programmatic seam; every one returns `{ ok, value, error }`.
 
 ## Frozen
 
@@ -28,6 +30,6 @@ depends-on: []
 
 Geometry is in source pixels (bar 3135x161); `demo.gd` scales the strip to the window width. A tab is left slice + 1 px middle column stretched + right slice, all RGBA cutouts over the exact bar background (`bar_background.png` is the source bar with the tab and stub erased by stripe-aligned copies). The stub's left edge sits on the first tab's right edge, as in the source, so the double slant between tabs is the source's own look.
 
-The playtest (`scripts/playtest-tab-strip.sh`) runs the demo on an X display, drives it with real `InputEventMouseButton` events through `Input.parse_input_event`, screenshots each state, and `verify.py` re-hashes the screenshots and checks counts, labels, page visibility, timings and pixels independently of the harness's own report. Evidence of the accepted run is in `docs/evidence/tab-strip/`.
+The playtest (`scripts/playtest-tab-strip.sh`) runs the demo on an X display, drives it with real `InputEventMouseButton` events through `Input.parse_input_event`, screenshots each state, and `verify.py` re-hashes the screenshots and checks counts, labels, page visibility, timings and pixels independently of the harness's own report. Evidence of the accepted run is in `docs/evidence/tab-strip/` (26 checks).
 
 Known gap: the middle column stretch means very wide tabs keep a flat white face, which matches the source; there is no hover state because the source has none.

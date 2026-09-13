@@ -3,7 +3,7 @@
  "checks": {
   "screenshots_present": {
    "pass": true,
-   "detail": "['01-initial.png', '02-mid-grow.png', '03-connecting.png', '04-blank-page.png', '05-selected-0.png', '06-selected-1.png', '07-third-tab.png', '08-full-row.png']"
+   "detail": "['01-initial.png', '02-mid-grow.png', '03-connecting.png', '04-blank-page.png', '05-selected-0.png', '06-selected-1.png', '07-third-tab.png', '08-full-row.png', '09-closed-last.png', '10-closed-second.png']"
   },
   "mid_grow_differs_from_initial": {
    "pass": true,
@@ -27,7 +27,7 @@
   },
   "mid_grow_width_between_stub_and_full": {
    "pass": true,
-   "detail": "w=425 full=560"
+   "detail": "w=513 full=680"
   },
   "connecting_label_then_blank_page": {
    "pass": true,
@@ -41,13 +41,17 @@
    "pass": true,
    "detail": ""
   },
+  "full_size_tabs_not_truncated": {
+   "pass": true,
+   "detail": ""
+  },
   "grow_took_about_500ms": {
    "pass": true,
-   "detail": "539 ms"
+   "detail": "554 ms"
   },
   "title_swap_after_about_950ms": {
    "pass": true,
-   "detail": "952 ms"
+   "detail": "932 ms"
   },
   "click_tab0_shows_page0": {
    "pass": true,
@@ -57,17 +61,37 @@
    "pass": true,
    "detail": ""
   },
+  "close_button_only_on_active_tab": {
+   "pass": true,
+   "detail": ""
+  },
   "third_tab_opened_from_moved_stub": {
    "pass": true,
    "detail": ""
   },
   "row_fills_then_refuses": {
    "pass": true,
-   "detail": "refused at 6 tabs"
+   "detail": "refused at 4 tabs"
   },
   "full_row_tabs_shrunk_not_overflowed": {
    "pass": true,
-   "detail": "last w=255"
+   "detail": "4 tabs, last w=443, max_right=1987"
+  },
+  "shrunk_labels_truncated_with_dots": {
+   "pass": true,
+   "detail": "4/4 truncated"
+  },
+  "close_button_removed_active_tab": {
+   "pass": true,
+   "detail": "4 -> 3, active 2"
+  },
+  "close_second_tab_selects_left_neighbour": {
+   "pass": true,
+   "detail": "count 2, active 0"
+  },
+  "closed_row_regrew": {
+   "pass": true,
+   "detail": "573 -> 680"
   },
   "first_tab_pixels_identical": {
    "pass": true,
@@ -75,17 +99,23 @@
   },
   "new_tab_pixels_changed": {
    "pass": true,
-   "detail": "mean abs diff 28.23"
+   "detail": "mean abs diff 28.61"
+  },
+  "bar_spans_full_width": {
+   "pass": true,
+   "detail": "dark px in last 40 columns: 374"
   }
  },
  "sha256": {
-  "01-initial.png": "028d65bd44a230a70eb1b8867659c4c1d3fe521b44676b15a4707ba033beb664",
-  "02-mid-grow.png": "fb5dc620f2414679cd20ce2c6806246a9fcdec4e857592fa77e3648caba0b040",
-  "03-connecting.png": "75870f5d5f22eb07785fed80c8cdafed1c8d524e48d22c8c2bb7a3867e932725",
-  "04-blank-page.png": "47c7ded7953b0a0dd5e9d90bd31551b5b13749bfeae9c7f00e9b89df0495700e",
-  "05-selected-0.png": "6f5d8ada696c7059c08e196e6634775ed7d933d65224959628b7ee5d998b71dc",
-  "06-selected-1.png": "47c7ded7953b0a0dd5e9d90bd31551b5b13749bfeae9c7f00e9b89df0495700e",
-  "07-third-tab.png": "5e75c0baf0996d0e633a1df5efb730a74acee703a4402e364355808e8dfe6566",
-  "08-full-row.png": "84f024d7716e38d9842118ff9c3fe053ebcfba8c76efb02c9d553f881fb4f15e"
+  "01-initial.png": "4bd92d8bb2bec4328301ab0f28638586caecae214bccc169cce0e12f4b905f9e",
+  "02-mid-grow.png": "cf422feeabf7292f0dc76f0fc32f00a1fdd8acfe3feff53ecdaea46672442cf8",
+  "03-connecting.png": "94c210bbaf1d7d859ac07af134d9af4544f05fd42e6e8eb59c6c2e7b494e4113",
+  "04-blank-page.png": "07343e93d9a375f5a50add73faf9842aef5a0a5017a22c5772bcff94c7f8b647",
+  "05-selected-0.png": "c7d1b27a2b53ad15eb4105eb752258dcd03fafa493b539b6c561a08e25bcbda4",
+  "06-selected-1.png": "07343e93d9a375f5a50add73faf9842aef5a0a5017a22c5772bcff94c7f8b647",
+  "07-third-tab.png": "4e5535f9957b1fa67631367ac0631cd52298d1f79068bcb9a1c2bbc8666b77df",
+  "08-full-row.png": "a430244c8085efa1dd64e6633e95165303e446db2d35148edb9ba3d6c9029ad1",
+  "09-closed-last.png": "4e5535f9957b1fa67631367ac0631cd52298d1f79068bcb9a1c2bbc8666b77df",
+  "10-closed-second.png": "c7d1b27a2b53ad15eb4105eb752258dcd03fafa493b539b6c561a08e25bcbda4"
  }
 }

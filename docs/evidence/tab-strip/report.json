@@ -2,6 +2,7 @@
   "log": [
     {
       "active": 0,
+      "bar_width": 3490.9091796875,
       "count": 1,
       "event": "state",
       "label": "initial",
@@ -9,10 +10,21 @@
       "t_ms": 0,
       "tabs": [
         {
+          "close_rect": {
+            "position": {
+              "x": 829.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
           "h": 134.0,
           "label": "windows_live",
           "page_visible": true,
-          "w": 560.0,
+          "truncated": false,
+          "w": 680.0,
           "x": 261.0,
           "y": 27.0
         }
@@ -21,176 +33,217 @@
     {
       "event": "screenshot",
       "file": "01-initial.png",
-      "t_ms": 41
+      "t_ms": 43
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_opened",
-      "t_ms": 51
+      "t_ms": 52
     },
     {
       "event": "click",
-      "t_ms": 51,
+      "t_ms": 52,
       "what": "new-tab stub",
-      "x": 456.038269042969,
-      "y": 56.803825378418
+      "x": 534.049987792969,
+      "y": 58.3000030517578
     },
     {
       "event": "frame",
       "n": 0,
-      "t_ms": 92
+      "t_ms": 94
     },
     {
       "event": "frame",
       "n": 1,
-      "t_ms": 132
+      "t_ms": 135
     },
     {
       "event": "frame",
       "n": 2,
-      "t_ms": 171
+      "t_ms": 176
     },
     {
       "event": "frame",
       "n": 3,
-      "t_ms": 210
+      "t_ms": 216
     },
     {
       "event": "frame",
       "n": 4,
-      "t_ms": 249
+      "t_ms": 255
     },
     {
       "event": "frame",
       "n": 5,
-      "t_ms": 287
+      "t_ms": 295
     },
     {
       "event": "frame",
       "n": 6,
-      "t_ms": 325
+      "t_ms": 335
     },
     {
       "active": 0,
+      "bar_width": 3490.9091796875,
       "count": 2,
       "event": "state",
       "label": "mid-grow",
       "opening": true,
-      "t_ms": 325,
+      "t_ms": 335,
       "tabs": [
         {
+          "close_rect": {
+            "position": {
+              "x": 829.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
           "h": 134.0,
           "label": "windows_live",
           "page_visible": true,
-          "w": 560.0,
+          "truncated": false,
+          "w": 680.0,
           "x": 261.0,
           "y": 27.0
         },
         {
-          "h": 126.892066955566,
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "h": 127.309906005859,
           "label": "connecting",
           "page_visible": false,
-          "w": 424.949340820312,
-          "x": 765.0,
-          "y": 34.8187217712402
+          "truncated": true,
+          "w": 512.74755859375,
+          "x": 885.0,
+          "y": 34.3591041564941
         }
       ]
     },
     {
       "event": "screenshot",
       "file": "02-mid-grow.png",
-      "t_ms": 357
+      "t_ms": 368
     },
     {
       "event": "frame",
       "n": 7,
-      "t_ms": 396
+      "t_ms": 407
     },
     {
       "event": "frame",
       "n": 8,
-      "t_ms": 435
+      "t_ms": 447
     },
     {
       "event": "frame",
       "n": 9,
-      "t_ms": 476
+      "t_ms": 486
     },
     {
       "event": "frame",
       "n": 10,
-      "t_ms": 514
+      "t_ms": 526
     },
     {
       "event": "frame",
       "n": 11,
-      "t_ms": 552
+      "t_ms": 566
     },
     {
       "event": "frame",
       "n": 12,
-      "t_ms": 590
+      "t_ms": 605
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 590
+      "t_ms": 606
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_settled",
-      "t_ms": 590
+      "t_ms": 606
     },
     {
       "event": "frame",
       "n": 13,
-      "t_ms": 628
+      "t_ms": 644
     },
     {
       "event": "frame",
       "n": 14,
-      "t_ms": 665
+      "t_ms": 684
     },
     {
       "event": "frame",
       "n": 15,
-      "t_ms": 702
+      "t_ms": 723
     },
     {
       "event": "frame",
       "n": 16,
-      "t_ms": 739
-    },
-    {
-      "event": "frame",
-      "n": 17,
-      "t_ms": 775
+      "t_ms": 762
     },
     {
       "active": 1,
+      "bar_width": 3490.9091796875,
       "count": 2,
       "event": "state",
       "label": "connecting",
       "opening": false,
-      "t_ms": 775,
+      "t_ms": 762,
       "tabs": [
         {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
           "h": 134.0,
           "label": "windows_live",
           "page_visible": false,
-          "w": 560.0,
+          "truncated": false,
+          "w": 680.0,
           "x": 261.0,
           "y": 27.0
         },
         {
+          "close_rect": {
+            "position": {
+              "x": 1453.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
           "h": 134.0,
           "label": "connecting",
           "page_visible": true,
-          "w": 560.0,
-          "x": 765.0,
+          "truncated": false,
+          "w": 680.0,
+          "x": 885.0,
           "y": 27.0
         }
       ]
@@ -198,181 +251,199 @@
     {
       "event": "screenshot",
       "file": "03-connecting.png",
-      "t_ms": 805
+      "t_ms": 794
+    },
+    {
+      "event": "frame",
+      "n": 17,
+      "t_ms": 833
     },
     {
       "event": "frame",
       "n": 18,
-      "t_ms": 842
+      "t_ms": 872
     },
     {
       "event": "frame",
       "n": 19,
-      "t_ms": 879
+      "t_ms": 911
     },
     {
       "event": "frame",
       "n": 20,
-      "t_ms": 916
+      "t_ms": 951
     },
     {
       "event": "frame",
       "n": 21,
-      "t_ms": 953
+      "t_ms": 990
     },
     {
       "event": "frame",
       "n": 22,
-      "t_ms": 991
+      "t_ms": 1029
     },
     {
       "event": "frame",
       "n": 23,
-      "t_ms": 1028
+      "t_ms": 1068
     },
     {
       "event": "frame",
       "n": 24,
-      "t_ms": 1064
+      "t_ms": 1108
     },
     {
       "event": "frame",
       "n": 25,
-      "t_ms": 1101
+      "t_ms": 1147
     },
     {
       "event": "frame",
       "n": 26,
-      "t_ms": 1138
+      "t_ms": 1187
     },
     {
       "event": "frame",
       "n": 27,
-      "t_ms": 1174
+      "t_ms": 1226
     },
     {
       "event": "frame",
       "n": 28,
-      "t_ms": 1211
+      "t_ms": 1265
     },
     {
       "event": "frame",
       "n": 29,
-      "t_ms": 1249
+      "t_ms": 1305
     },
     {
       "event": "frame",
       "n": 30,
-      "t_ms": 1285
+      "t_ms": 1344
     },
     {
       "event": "frame",
       "n": 31,
-      "t_ms": 1322
+      "t_ms": 1383
     },
     {
       "event": "frame",
       "n": 32,
-      "t_ms": 1358
+      "t_ms": 1422
     },
     {
       "event": "frame",
       "n": 33,
-      "t_ms": 1395
+      "t_ms": 1461
     },
     {
       "event": "frame",
       "n": 34,
-      "t_ms": 1432
+      "t_ms": 1499
     },
     {
       "event": "frame",
       "n": 35,
-      "t_ms": 1469
-    },
-    {
-      "event": "frame",
-      "n": 36,
-      "t_ms": 1506
-    },
-    {
-      "event": "frame",
-      "n": 37,
-      "t_ms": 1542
+      "t_ms": 1538
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_titled",
-      "t_ms": 1542
+      "t_ms": 1538
+    },
+    {
+      "event": "frame",
+      "n": 36,
+      "t_ms": 1577
+    },
+    {
+      "event": "frame",
+      "n": 37,
+      "t_ms": 1616
     },
     {
       "event": "frame",
       "n": 38,
-      "t_ms": 1579
+      "t_ms": 1655
     },
     {
       "event": "frame",
       "n": 39,
-      "t_ms": 1615
+      "t_ms": 1694
     },
     {
       "event": "frame",
       "n": 40,
-      "t_ms": 1652
+      "t_ms": 1732
     },
     {
       "event": "frame",
       "n": 41,
-      "t_ms": 1688
+      "t_ms": 1771
     },
     {
       "event": "frame",
       "n": 42,
-      "t_ms": 1725
+      "t_ms": 1810
     },
     {
       "event": "frame",
       "n": 43,
-      "t_ms": 1761
+      "t_ms": 1849
     },
     {
       "event": "frame",
       "n": 44,
-      "t_ms": 1798
-    },
-    {
-      "event": "frame",
-      "n": 45,
-      "t_ms": 1835
-    },
-    {
-      "event": "frame",
-      "n": 46,
-      "t_ms": 1872
+      "t_ms": 1888
     },
     {
       "active": 1,
+      "bar_width": 3490.9091796875,
       "count": 2,
       "event": "state",
       "label": "blank-page",
       "opening": false,
-      "t_ms": 1872,
+      "t_ms": 1888,
       "tabs": [
         {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
           "h": 134.0,
           "label": "windows_live",
           "page_visible": false,
-          "w": 560.0,
+          "truncated": false,
+          "w": 680.0,
           "x": 261.0,
           "y": 27.0
         },
         {
+          "close_rect": {
+            "position": {
+              "x": 1453.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
           "h": 134.0,
           "label": "blank_page",
           "page_visible": true,
-          "w": 560.0,
-          "x": 765.0,
+          "truncated": false,
+          "w": 680.0,
+          "x": 885.0,
           "y": 27.0
         }
       ]
@@ -380,43 +451,66 @@
     {
       "event": "screenshot",
       "file": "04-blank-page.png",
-      "t_ms": 1914
+      "t_ms": 1930
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_selected",
-      "t_ms": 1919
+      "t_ms": 1935
     },
     {
       "event": "click",
-      "t_ms": 1923,
+      "t_ms": 1939,
       "what": "tab 0",
-      "x": 289.913879394531,
-      "y": 50.3732032775879
+      "x": 330.550018310547,
+      "y": 51.7000007629395
     },
     {
       "active": 0,
+      "bar_width": 3490.9091796875,
       "count": 2,
       "event": "state",
       "label": "selected-0",
       "opening": false,
-      "t_ms": 1923,
+      "t_ms": 1939,
       "tabs": [
         {
+          "close_rect": {
+            "position": {
+              "x": 829.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
           "h": 134.0,
           "label": "windows_live",
           "page_visible": true,
-          "w": 560.0,
+          "truncated": false,
+          "w": 680.0,
           "x": 261.0,
           "y": 27.0
         },
         {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
           "h": 134.0,
           "label": "blank_page",
           "page_visible": false,
-          "w": 560.0,
-          "x": 765.0,
+          "truncated": false,
+          "w": 680.0,
+          "x": 885.0,
           "y": 27.0
         }
       ]
@@ -424,43 +518,66 @@
     {
       "event": "screenshot",
       "file": "05-selected-0.png",
-      "t_ms": 1963
+      "t_ms": 1980
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 1968
+      "t_ms": 1986
     },
     {
       "event": "click",
-      "t_ms": 1972,
+      "t_ms": 1990,
       "what": "tab 1",
-      "x": 560.0,
-      "y": 50.3732032775879
+      "x": 673.75,
+      "y": 51.7000007629395
     },
     {
       "active": 1,
+      "bar_width": 3490.9091796875,
       "count": 2,
       "event": "state",
       "label": "selected-1",
       "opening": false,
-      "t_ms": 1972,
+      "t_ms": 1990,
       "tabs": [
         {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
           "h": 134.0,
           "label": "windows_live",
           "page_visible": false,
-          "w": 560.0,
+          "truncated": false,
+          "w": 680.0,
           "x": 261.0,
           "y": 27.0
         },
         {
+          "close_rect": {
+            "position": {
+              "x": 1453.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
           "h": 134.0,
           "label": "blank_page",
           "page_visible": true,
-          "w": 560.0,
-          "x": 765.0,
+          "truncated": false,
+          "w": 680.0,
+          "x": 885.0,
           "y": 27.0
         }
       ]
@@ -468,69 +585,103 @@
     {
       "event": "screenshot",
       "file": "06-selected-1.png",
-      "t_ms": 2010
+      "t_ms": 2030
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_opened",
-      "t_ms": 2019
+      "t_ms": 2039
     },
     {
       "event": "click",
-      "t_ms": 2019,
+      "t_ms": 2039,
       "what": "new-tab stub (2nd)",
-      "x": 726.124389648438,
-      "y": 56.803825378418
+      "x": 877.25,
+      "y": 58.3000030517578
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_selected",
-      "t_ms": 2510
+      "t_ms": 2530
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_settled",
-      "t_ms": 2510
+      "t_ms": 2530
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_titled",
-      "t_ms": 3461
+      "t_ms": 3478
     },
     {
       "active": 2,
+      "bar_width": 3490.9091796875,
       "count": 3,
       "event": "state",
       "label": "third-tab",
       "opening": false,
-      "t_ms": 3807,
+      "t_ms": 3828,
       "tabs": [
         {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
           "h": 134.0,
           "label": "windows_live",
           "page_visible": false,
-          "w": 454.0,
+          "truncated": true,
+          "w": 572.636352539062,
           "x": 261.0,
           "y": 27.0
         },
         {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
           "h": 134.0,
           "label": "blank_page",
           "page_visible": false,
-          "w": 454.0,
-          "x": 659.0,
+          "truncated": true,
+          "w": 572.636352539062,
+          "x": 777.636352539062,
           "y": 27.0
         },
         {
+          "close_rect": {
+            "position": {
+              "x": 1754.90905761719,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0000305175781,
+              "y": 22.0
+            }
+          },
           "h": 134.0,
           "label": "blank_page",
           "page_visible": true,
-          "w": 454.0,
-          "x": 1057.0,
+          "truncated": true,
+          "w": 572.636352539062,
+          "x": 1294.27270507812,
           "y": 27.0
         }
       ]
@@ -538,156 +689,129 @@
     {
       "event": "screenshot",
       "file": "07-third-tab.png",
-      "t_ms": 3845
+      "t_ms": 3868
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_opened",
-      "t_ms": 3855
+      "t_ms": 3878
     },
     {
       "event": "click",
-      "t_ms": 3855,
+      "t_ms": 3878,
       "what": "new-tab stub (fill)",
-      "x": 825.799011230469,
-      "y": 56.803825378418
+      "x": 1043.30004882812,
+      "y": 58.3000030517578
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_selected",
-      "t_ms": 4352
+      "t_ms": 4377
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_settled",
-      "t_ms": 4352
-    },
-    {
-      "event": "signal",
-      "index": 4,
-      "signal": "tab_opened",
-      "t_ms": 4555
+      "t_ms": 4377
     },
     {
       "event": "click",
-      "t_ms": 4555,
+      "t_ms": 4582,
       "what": "new-tab stub (fill)",
-      "x": 825.799011230469,
-      "y": 56.803825378418
-    },
-    {
-      "event": "signal",
-      "index": 4,
-      "signal": "tab_selected",
-      "t_ms": 5050
-    },
-    {
-      "event": "signal",
-      "index": 4,
-      "signal": "tab_settled",
-      "t_ms": 5050
-    },
-    {
-      "event": "signal",
-      "index": 5,
-      "signal": "tab_opened",
-      "t_ms": 5259
-    },
-    {
-      "event": "click",
-      "t_ms": 5259,
-      "what": "new-tab stub (fill)",
-      "x": 825.799011230469,
-      "y": 56.803825378418
+      "x": 1043.30004882812,
+      "y": 58.3000030517578
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_titled",
-      "t_ms": 5295
+      "t_ms": 5319
     },
     {
-      "event": "signal",
-      "index": 5,
-      "signal": "tab_selected",
-      "t_ms": 5765
-    },
-    {
-      "event": "signal",
-      "index": 5,
-      "signal": "tab_settled",
-      "t_ms": 5765
-    },
-    {
-      "event": "click",
-      "t_ms": 5970,
-      "what": "new-tab stub (fill)",
-      "x": 825.799011230469,
-      "y": 56.803825378418
-    },
-    {
-      "event": "signal",
-      "index": 4,
-      "signal": "tab_titled",
-      "t_ms": 6007
-    },
-    {
-      "active": 5,
-      "count": 6,
+      "active": 3,
+      "bar_width": 3490.9091796875,
+      "count": 4,
       "event": "state",
       "label": "full-row",
       "opening": false,
-      "t_ms": 6664,
+      "t_ms": 6474,
       "tabs": [
         {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
           "h": 134.0,
           "label": "windows_live",
           "page_visible": false,
-          "w": 255.0,
+          "truncated": true,
+          "w": 443.477294921875,
           "x": 261.0,
           "y": 27.0
         },
         {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
           "h": 134.0,
           "label": "blank_page",
           "page_visible": false,
-          "w": 255.0,
-          "x": 460.0,
+          "truncated": true,
+          "w": 443.477294921875,
+          "x": 648.477294921875,
           "y": 27.0
         },
         {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
           "h": 134.0,
           "label": "blank_page",
           "page_visible": false,
-          "w": 255.0,
-          "x": 659.0,
+          "truncated": true,
+          "w": 443.477294921875,
+          "x": 1035.95458984375,
           "y": 27.0
         },
         {
+          "close_rect": {
+            "position": {
+              "x": 1754.90905761719,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
           "h": 134.0,
           "label": "blank_page",
-          "page_visible": false,
-          "w": 255.0,
-          "x": 858.0,
-          "y": 27.0
-        },
-        {
-          "h": 134.0,
-          "label": "blank_page",
-          "page_visible": false,
-          "w": 255.0,
-          "x": 1057.0,
-          "y": 27.0
-        },
-        {
-          "h": 134.0,
-          "label": "connecting",
           "page_visible": true,
-          "w": 255.0,
-          "x": 1256.0,
+          "truncated": true,
+          "w": 443.477294921875,
+          "x": 1423.43176269531,
           "y": 27.0
         }
       ]
@@ -695,12 +819,178 @@
     {
       "event": "screenshot",
       "file": "08-full-row.png",
-      "t_ms": 6702
+      "t_ms": 6514
     },
     {
       "event": "fill",
-      "result": "refused at 6 tabs",
-      "t_ms": 6702
+      "result": "refused at 4 tabs",
+      "t_ms": 6514
+    },
+    {
+      "event": "signal",
+      "index": 2,
+      "signal": "tab_selected",
+      "t_ms": 6524
+    },
+    {
+      "event": "click",
+      "t_ms": 6524,
+      "what": "close button of active tab",
+      "x": 971.25,
+      "y": 49.5
+    },
+    {
+      "active": 2,
+      "bar_width": 3490.9091796875,
+      "count": 3,
+      "event": "state",
+      "label": "closed-last",
+      "opening": false,
+      "t_ms": 6524,
+      "tabs": [
+        {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "h": 134.0,
+          "label": "windows_live",
+          "page_visible": false,
+          "truncated": true,
+          "w": 572.636352539062,
+          "x": 261.0,
+          "y": 27.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "h": 134.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 572.636352539062,
+          "x": 777.636352539062,
+          "y": 27.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 1754.90905761719,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0000305175781,
+              "y": 22.0
+            }
+          },
+          "h": 134.0,
+          "label": "blank_page",
+          "page_visible": true,
+          "truncated": true,
+          "w": 572.636352539062,
+          "x": 1294.27270507812,
+          "y": 27.0
+        }
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "09-closed-last.png",
+      "t_ms": 6564
+    },
+    {
+      "event": "signal",
+      "index": 1,
+      "signal": "tab_selected",
+      "t_ms": 6569
+    },
+    {
+      "event": "click",
+      "t_ms": 6574,
+      "what": "tab 1",
+      "x": 585.175048828125,
+      "y": 51.7000007629395
+    },
+    {
+      "event": "signal",
+      "index": 0,
+      "signal": "tab_selected",
+      "t_ms": 6581
+    },
+    {
+      "event": "click",
+      "t_ms": 6581,
+      "what": "close button of tab 1",
+      "x": 687.099975585938,
+      "y": 49.5
+    },
+    {
+      "active": 0,
+      "bar_width": 3490.9091796875,
+      "count": 2,
+      "event": "state",
+      "label": "closed-second",
+      "opening": false,
+      "t_ms": 6581,
+      "tabs": [
+        {
+          "close_rect": {
+            "position": {
+              "x": 829.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "h": 134.0,
+          "label": "windows_live",
+          "page_visible": true,
+          "truncated": false,
+          "w": 680.0,
+          "x": 261.0,
+          "y": 27.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "h": 134.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": false,
+          "w": 680.0,
+          "x": 885.0,
+          "y": 27.0
+        }
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "10-closed-second.png",
+      "t_ms": 6623
     }
   ],
   "viewport": [

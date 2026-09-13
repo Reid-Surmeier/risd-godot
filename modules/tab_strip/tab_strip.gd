@@ -1,7 +1,9 @@
 ## TabStrip implementation. Reach it through interface.gd only.
 ##
 ## Every pixel comes from the sliced Muse toolbar in assets/ (layout.json maps them); the
-## strip draws nothing by hand. Geometry is in source pixels: the bar is 3135x161.
+## strip draws nothing by hand. Geometry is in source pixels (bar height 161). The bar is
+## as wide as the caller makes it: the stars stay left, the icon cluster stays right, the
+## pinstripes fill the middle, and tabs live between them.
 extends Control
 
 const Errors := preload("res://modules/tab_strip/errors.gd")
@@ -11,6 +13,7 @@ signal tab_opened(index: int)
 signal tab_settled(index: int)
 signal tab_titled(index: int)
 signal tab_selected(index: int)
+signal tab_closed(index: int)
 
 const PRESS_SECONDS := 0.1
 const GROW_SECONDS := 0.4
@@ -20,8 +23,10 @@ const STUB_PRESSED := Color8(228, 218, 226)
 
 var _layout: Dictionary = {}
 var _tex: Dictionary = {}
-var _tabs: Array = []  # [{node, mid, right, icon, label, label_key, width, page}]
+var _tabs: Array = []  # [{node, mid, right, icon, clip, label, dots, close, label_key, width, page}]
 var _stub: TextureButton
+var _right_cluster: TextureRect
+var _stripes: TextureRect
 var _page_stack: Control
 var _active := -1
 var _opening := false
@@ -42,9 +47,10 @@ func _load_assets() -> Dictionary:
 	if f == null:
 		return Errors.err(Errors.ASSET_MISSING, "layout.json")
 	_layout = JSON.parse_string(f.get_as_text())
-	for name in ["bar_background", "stars", "right_cluster", "tab_left", "tab_mid", "tab_right",
-			"stub_idle", "stub_pressed", "icon_windows_flag", "icon_page",
-			"label_windows_live", "label_connecting", "label_blank_page"]:
+	for name in ["bar_stripes", "stars", "right_cluster", "tab_left", "tab_mid", "tab_right",
+			"stub_idle", "stub_pressed", "icon_windows_flag", "icon_page", "icon_close",
+			"icon_close_pressed", "label_windows_live", "label_connecting", "label_blank_page",
+			"label_dots"]:
 		var t = load(ASSETS + name + ".png")
 		if t == null:
 			return Errors.err(Errors.ASSET_MISSING, name)
@@ -53,11 +59,16 @@ func _load_assets() -> Dictionary:
 
 
 func _ready() -> void:
-	custom_minimum_size = Vector2(_layout.bar_background[2], _layout.bar_height)
-	size = custom_minimum_size
-	_sprite("bar_background", Vector2.ZERO)
-	_sprite("stars", Vector2(_layout.stars[0], 0))
-	_sprite("right_cluster", Vector2(_layout.right_cluster[0], 0))
+	var w: float = max(size.x, _layout.bar_background[2])
+	custom_minimum_size = Vector2(0, _layout.bar_height)
+	_stripes = TextureRect.new()
+	_stripes.name = "bar_stripes"
+	_stripes.texture = _tex.bar_stripes
+	_stripes.stretch_mode = TextureRect.STRETCH_TILE
+	_stripes.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(_stripes)
+	_sprite("stars", Vector2.ZERO)
+	_right_cluster = _sprite("right_cluster", Vector2.ZERO)
 	_stub = TextureButton.new()
 	_stub.name = "NewTabStub"
 	_stub.texture_normal = _tex.stub_idle
@@ -68,8 +79,24 @@ func _ready() -> void:
 	var first := _make_tab("windows_live", _layout.tab.first_tab_x, _layout.tab.full_width)
 	add_child(_stub)
 	_add_page(first, "windows_live")
-	_layout_tabs()
+	set_bar_width(w)
 	select_tab(0)
+	resized.connect(func(): set_bar_width(size.x))
+
+
+## The bar spans `width` source pixels: right cluster pinned at the right, stripes in between.
+func set_bar_width(width: float) -> void:
+	if _stripes == null:
+		return
+	width = max(width, _layout.stars[2] + _layout.right_cluster_w)
+	size = Vector2(width, _layout.bar_height)
+	_stripes.size = Vector2(width, _layout.bar_height)
+	_right_cluster.position = Vector2(width - _layout.right_cluster_w, 0)
+	_layout_tabs()
+
+
+func _tabs_max_right() -> float:
+	return _right_cluster.position.x + _layout.right_cluster_icons_offset - 40
 
 
 func _sprite(name: String, pos: Vector2) -> TextureRect:
@@ -78,6 +105,7 @@ func _sprite(name: String, pos: Vector2) -> TextureRect:
 	r.texture = _tex[name]
 	r.position = pos
 	r.stretch_mode = TextureRect.STRETCH_KEEP
+	r.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(r)
 	return r
 
@@ -89,42 +117,57 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	node.position = Vector2(x, t.y)
 	node.size = Vector2(width, t.height)
 	node.clip_contents = true
-	var left := TextureRect.new()
-	left.texture = _tex.tab_left
-	left.stretch_mode = TextureRect.STRETCH_KEEP
-	left.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	node.add_child(left)
-	var mid := TextureRect.new()
-	mid.texture = _tex.tab_mid
-	mid.stretch_mode = TextureRect.STRETCH_SCALE
+	var left := _piece(node, _tex.tab_left, TextureRect.STRETCH_KEEP)
+	var mid := _piece(node, _tex.tab_mid, TextureRect.STRETCH_SCALE)
 	mid.position = Vector2(t.left_w, 0)
-	mid.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	node.add_child(mid)
-	var right := TextureRect.new()
-	right.texture = _tex.tab_right
-	right.stretch_mode = TextureRect.STRETCH_KEEP
-	right.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	node.add_child(right)
-	var icon := TextureRect.new()
-	icon.stretch_mode = TextureRect.STRETCH_KEEP
-	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	node.add_child(icon)
-	var label := TextureRect.new()
-	label.stretch_mode = TextureRect.STRETCH_KEEP
-	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	label.position = Vector2(_layout.label_windows_live[0], _layout.label_windows_live[1])
-	node.add_child(label)
+	var right := _piece(node, _tex.tab_right, TextureRect.STRETCH_KEEP)
+	var icon := _piece(node, null, TextureRect.STRETCH_KEEP)
+	var clip := Control.new()
+	clip.name = "LabelClip"
+	clip.clip_contents = true
+	clip.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	clip.position = Vector2(_layout.label_windows_live[0], _layout.label_windows_live[1])
+	node.add_child(clip)
+	var label := _piece(clip, null, TextureRect.STRETCH_KEEP)
+	var dots := _piece(node, _tex.label_dots, TextureRect.STRETCH_KEEP)
+	dots.name = "Dots"
+	dots.visible = false
+	var close := TextureButton.new()
+	close.name = "Close"
+	close.texture_normal = _tex.icon_close
+	close.texture_pressed = _tex.icon_close_pressed
+	close.texture_hover = _tex.icon_close
+	close.size = Vector2(_layout.close.w, _layout.close.h)
+	close.visible = false
+	node.add_child(close)
 	var index := _tabs.size()
 	node.gui_input.connect(func(ev: InputEvent):
 		if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT:
-			select_tab(index))
+			select_tab(_tabs.find(_tab_of(node))))
+	close.pressed.connect(func(): close_tab(_tabs.find(_tab_of(node))))
 	add_child(node)
-	var tab := {"node": node, "mid": mid, "right": right, "icon": icon, "label": label,
-			"label_key": "", "width": width, "page": null}
+	var tab := {"node": node, "mid": mid, "right": right, "icon": icon, "clip": clip, "label": label,
+			"dots": dots, "close": close, "label_key": "", "width": width, "page": null}
 	_tabs.append(tab)
 	_set_label(tab, label_key)
 	_set_tab_width(tab, width)
 	return tab
+
+
+func _tab_of(node: Control) -> Dictionary:
+	for tab in _tabs:
+		if tab.node == node:
+			return tab
+	return {}
+
+
+func _piece(parent: Control, texture, stretch: int) -> TextureRect:
+	var r := TextureRect.new()
+	r.texture = texture
+	r.stretch_mode = stretch
+	r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	parent.add_child(r)
+	return r
 
 
 func _set_label(tab: Dictionary, key: String) -> void:
@@ -142,6 +185,27 @@ func _set_label(tab: Dictionary, key: String) -> void:
 			tab.icon.texture = _tex.icon_page
 			tab.icon.position = Vector2(_layout.page_icon[0], _layout.page_icon[1])
 			tab.label.texture = _tex.label_blank_page
+	_fit_label(tab)
+
+
+## The label gets the room between its left edge and the close button; when it does not fit,
+## it is cut at the last whole glyph that fits and the "..." glyph follows (IE7 truncation).
+func _fit_label(tab: Dictionary) -> void:
+	var t: Dictionary = _layout.tab
+	var label_x: float = _layout.label_windows_live[0]
+	var close_x: float = tab.width - _layout.close.margin_right - _layout.close.w
+	tab.close.position = Vector2(close_x, _layout.label_windows_live[1] + (66 - _layout.close.h) / 2.0)
+	var room: float = close_x - 12 - label_x
+	var full: float = tab.label.texture.get_width() if tab.label.texture else 0.0
+	var dots_w: float = tab.dots.texture.get_width()
+	if full <= room:
+		tab.clip.size = Vector2(full, 66)
+		tab.dots.visible = false
+	else:
+		var cut: float = max(0.0, room - dots_w)
+		tab.clip.size = Vector2(cut, 66)
+		tab.dots.position = Vector2(label_x + cut, _layout.label_windows_live[1])
+		tab.dots.visible = cut > 0
 
 
 func _set_tab_width(tab: Dictionary, width: float) -> void:
@@ -150,18 +214,21 @@ func _set_tab_width(tab: Dictionary, width: float) -> void:
 	tab.node.size.x = width
 	tab.mid.size = Vector2(max(0.0, width - t.left_w - t.right_w), t.height)
 	tab.right.position = Vector2(width - t.right_w, 0)
+	_fit_label(tab)
 
 
 ## Tabs sit at a fixed pitch while they fit; when the row is full they all shrink (IE7 behaviour).
 func _fitted_width(count: int) -> float:
 	var t: Dictionary = _layout.tab
 	var overlap: float = t.full_width - _layout.tab_pitch
-	var room: float = _layout.tabs_max_right - t.first_tab_x - _layout.stub.w + _layout.stub.gap_from_tab_right * -1.0
+	var room: float = _tabs_max_right() - t.first_tab_x - _layout.stub.w + _layout.stub.gap_from_tab_right * -1.0
 	var w: float = (room + overlap * (count - 1)) / count
 	return min(t.full_width, w)
 
 
 func _layout_tabs() -> void:
+	if _tabs.is_empty():
+		return
 	var w := _fitted_width(_tabs.size())
 	var x: float = _layout.tab.first_tab_x
 	for tab in _tabs:
@@ -200,10 +267,8 @@ func open_new_tab() -> Dictionary:
 	if _fitted_width(_tabs.size() + 1) < _layout.tab_min_width:
 		return Errors.err(Errors.NO_ROOM, "%d tabs" % _tabs.size())
 	_opening = true
-	var t: Dictionary = _layout.tab
-	var start_x: float = _stub.position.x - _layout.stub.gap_from_tab_right - t.full_width + _layout.tab_pitch
 	var final_w := _fitted_width(_tabs.size() + 1)
-	var tab := _make_tab("connecting", start_x, final_w)
+	var tab := _make_tab("connecting", 0.0, final_w)
 	var index := _tabs.size() - 1
 	_add_page(tab, "connecting")
 	# the new tab starts exactly where and how the stub was (stub-sized, pressed tint, contents
@@ -241,6 +306,7 @@ func _grow(tab: Dictionary, final_w: float, s: float) -> void:
 	var a: float = clamp((s - 0.5) / 0.5, 0.0, 1.0)
 	tab.icon.modulate.a = a
 	tab.label.modulate.a = a
+	tab.dots.modulate.a = a
 	_layout_stub()
 
 
@@ -250,16 +316,41 @@ func select_tab(index: int) -> Dictionary:
 	_active = index
 	for i in _tabs.size():
 		_tabs[i].page.visible = (i == index)
+		_tabs[i].close.visible = (i == index)  # IE7 shows the close button on the active tab only
 	emit_signal("tab_selected", index)
 	return Errors.ok(index)
+
+
+## Close tab `index`: its page goes with it, the row re-lays out, and the neighbour on the left
+## (or the first tab) becomes active. The last remaining tab cannot be closed.
+func close_tab(index: int) -> Dictionary:
+	if index < 0 or index >= _tabs.size():
+		return Errors.err(Errors.INDEX_OUT_OF_RANGE, str(index))
+	if _tabs.size() == 1:
+		return Errors.err(Errors.NO_ROOM, "the last tab stays open")
+	if _opening:
+		return Errors.err(Errors.OPEN_IN_PROGRESS)
+	var tab: Dictionary = _tabs[index]
+	_tabs.remove_at(index)
+	tab.page.queue_free()
+	tab.node.queue_free()
+	for i in _tabs.size():
+		_tabs[i].node.name = "Tab%d" % i
+		_tabs[i].page.name = "Page%d" % i
+	_layout_tabs()
+	emit_signal("tab_closed", index)
+	select_tab(clamp(index - 1 if index > 0 else 0, 0, _tabs.size() - 1))
+	return Errors.ok(_tabs.size())
 
 
 func state() -> Dictionary:
 	var tabs := []
 	for tab in _tabs:
 		tabs.append({"label": tab.label_key, "rect": Rect2(tab.node.position, tab.node.size * tab.node.scale),
-				"page_visible": tab.page.visible})
-	return Errors.ok({"count": _tabs.size(), "active": _active, "tabs": tabs, "opening": _opening})
+				"page_visible": tab.page.visible, "truncated": tab.dots.visible,
+				"close_rect": Rect2(tab.node.position + tab.close.position, tab.close.size) if tab.close.visible else Rect2()})
+	return Errors.ok({"count": _tabs.size(), "active": _active, "tabs": tabs, "opening": _opening,
+			"bar_width": size.x})
 
 
 func stub_rect() -> Rect2:

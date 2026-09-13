@@ -20,7 +20,7 @@
   "height": 134,
   "left_w": 76,
   "right_w": 76,
-  "full_width": 560,
+  "full_width": 680,
   "first_tab_x": 261
  },
  "stub": {
@@ -48,12 +48,29 @@
  ],
  "tab2_source_x": 765,
  "tabs_max_right": 1631,
- "tab_pitch": 504,
- "tab_min_width": 250,
+ "tab_pitch": 624,
+ "tab_min_width": 380,
  "bar_background": [
   0,
   0,
   3135,
   161
- ]
+ ],
+ "bar_stripes": [
+  0,
+  0,
+  700,
+  161
+ ],
+ "label_dots": [
+  295,
+  40
+ ],
+ "right_cluster_icons_offset": 456,
+ "right_cluster_w": 1920,
+ "close": {
+  "w": 22,
+  "h": 22,
+  "margin_right": 90
+ }
 }

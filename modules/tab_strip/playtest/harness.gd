@@ -51,9 +51,12 @@ func _state(strip: Control, label: String) -> Dictionary:
 	var tabs := []
 	for t in s.tabs:
 		tabs.append({"label": t.label, "x": t.rect.position.x, "y": t.rect.position.y,
-				"w": t.rect.size.x, "h": t.rect.size.y, "page_visible": t.page_visible})
+				"w": t.rect.size.x, "h": t.rect.size.y, "page_visible": t.page_visible,
+				"truncated": t.truncated,
+				"close_rect": {"position": {"x": t.close_rect.position.x, "y": t.close_rect.position.y},
+						"size": {"x": t.close_rect.size.x, "y": t.close_rect.size.y}}})
 	var entry := {"t_ms": _ms(), "event": "state", "label": label, "count": s.count, "active": s.active,
-			"opening": s.opening, "tabs": tabs}
+			"opening": s.opening, "tabs": tabs, "bar_width": s.bar_width}
 	_log.append(entry)
 	return entry
 
@@ -67,7 +70,7 @@ func _initialize() -> void:
 	var out_dir := _arg("--out-dir", "/tmp/tab-strip-playtest")
 	DirAccess.make_dir_recursive_absolute(out_dir)
 	var root := get_root()
-	root.size = Vector2i(1680, 420)
+	root.size = Vector2i(1920, 420)
 	var demo: Control = load("res://modules/tab_strip/demo.tscn").instantiate()
 	root.add_child(demo)
 	await process_frame
@@ -124,16 +127,30 @@ func _initialize() -> void:
 
 	# 4. keep clicking until the strip refuses (NO_ROOM) — the row must shrink, never overflow
 	var refused := ""
-	for i in 8:
+	for i in 12:
 		var before: int = TabStrip.state(strip).value.count
 		await _click(_global_center(strip, TabStrip.stub_rect(strip)), "new-tab stub (fill)")
 		await create_timer(0.7).timeout
 		if TabStrip.state(strip).value.count == before:
 			refused = "refused at %d tabs" % before
 			break
+	await create_timer(1.2).timeout
 	_state(strip, "full-row")
 	await _shot(root, out_dir, "08-full-row.png")
 	_log.append({"t_ms": _ms(), "event": "fill", "result": refused})
+
+	# 5. close the active (last) tab with its close button, then close the second tab by clicking
+	#    it first (close shows on the active tab only)
+	var st: Dictionary = TabStrip.state(strip).value
+	await _click(_global_center(strip, st.tabs[st.active].close_rect), "close button of active tab")
+	_state(strip, "closed-last")
+	await _shot(root, out_dir, "09-closed-last.png")
+	st = TabStrip.state(strip).value
+	await _click(_global_center(strip, st.tabs[1].rect), "tab 1")
+	st = TabStrip.state(strip).value
+	await _click(_global_center(strip, st.tabs[1].close_rect), "close button of tab 1")
+	_state(strip, "closed-second")
+	await _shot(root, out_dir, "10-closed-second.png")
 
 	var f := FileAccess.open(out_dir.path_join("report.json"), FileAccess.WRITE)
 	f.store_string(JSON.stringify({"viewport": [1680, 420], "log": _log}, "  "))
