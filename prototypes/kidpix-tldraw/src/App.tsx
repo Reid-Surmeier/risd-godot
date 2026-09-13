@@ -10,7 +10,7 @@ import * as TldrawRuntime from 'tldraw'
 import { createPortal } from 'react-dom'
 import { CSSProperties, PointerEvent as ReactPointerEvent, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 
-type VariantKey = 'A' | 'B' | 'C' | 'D' | 'E'
+type VariantKey = 'A' | 'B' | 'C' | 'D' | 'E' | 'G'
 type ToolKey = 'draw' | 'eraser'
 
 type PointerSnapshot = {
@@ -38,6 +38,7 @@ const VARIANTS: Array<{ key: VariantKey; name: string }> = [
   { key: 'C', name: 'RISD hybrid sketchbook' },
   { key: 'D', name: 'Japanese utility window' },
   { key: 'E', name: 'Reference above drawing' },
+  { key: 'G', name: 'Godot overlay surface' },
 ]
 
 const EMPTY_POINTER: PointerSnapshot = {
@@ -110,7 +111,7 @@ type TldrawEditorAssetSetter = (assets: { fonts: Record<string, string> }) => vo
 
 function readVariant(): VariantKey {
   const candidate = new URLSearchParams(window.location.search).get('variant')?.toUpperCase()
-  return candidate === 'A' || candidate === 'B' || candidate === 'C' || candidate === 'D' || candidate === 'E' ? candidate : 'A'
+  return candidate === 'A' || candidate === 'B' || candidate === 'C' || candidate === 'D' || candidate === 'E' || candidate === 'G' ? candidate : 'A'
 }
 
 function usePrototypeState() {
@@ -236,7 +237,7 @@ function usePersistentBookSpreads(prototype: PrototypeController) {
     }, duration)
   }
 
-  return { spread, turnDirection, turnPreview, turnPage }
+  return { spread, turnDirection, turnPreview, turnPage, showSpread }
 }
 
 function PaperTurn({
@@ -972,6 +973,43 @@ function VariantE() {
   )
 }
 
+// G: only the transparent drawing surface. The Godot desktop (figma-ui-ux-qwen-pipeline viewer-godot)
+// draws the RO chrome and the book, floats this page in an iframe over the drawable page rectangle,
+// and posts the open spread; every spread is still its own tldraw page for the session.
+function VariantG() {
+  const prototype = usePrototypeState()
+  const { spread, showSpread } = usePersistentBookSpreads(prototype)
+  useEffect(() => {
+    document.documentElement.classList.add('godot-overlay')
+    const onMessage = (event: MessageEvent) => {
+      if (event.data?.type === 'sketchbook-spread' && Number.isInteger(event.data.spread)) showSpread(event.data.spread)
+    }
+    window.addEventListener('message', onMessage)
+    return () => {
+      window.removeEventListener('message', onMessage)
+      document.documentElement.classList.remove('godot-overlay')
+    }
+  }, [showSpread])
+
+  return (
+    <main className="variant-layout godot-overlay-layout" data-variant="G" data-testid="variant-G">
+      <CenterPageCurveFilter />
+      <div className="japanese-book-hitbox godot-overlay-hitbox" data-testid="book-page-hitbox">
+        <DrawingCanvas
+          variant="D"
+          tool="draw"
+          pencilSize={prototype.state.pencilSize}
+          onEditorReady={prototype.onEditorReady}
+          onPointer={(pointer) => prototype.patch({ pointer })}
+        />
+      </div>
+      <div className="godot-overlay-state">
+        <StateReadout variant="G" state={prototype.state} spread={spread} />
+      </div>
+    </main>
+  )
+}
+
 function PrototypeSwitcher({ variant, onVariant }: { variant: VariantKey; onVariant: (key: VariantKey) => void }) {
   const index = VARIANTS.findIndex((candidate) => candidate.key === variant)
   const cycle = (delta: number) => onVariant(VARIANTS[(index + delta + VARIANTS.length) % VARIANTS.length].key)
@@ -987,7 +1025,7 @@ function PrototypeSwitcher({ variant, onVariant }: { variant: VariantKey; onVari
     return () => window.removeEventListener('keydown', onKeyDown)
   })
 
-  if (import.meta.env.PROD || variant === 'D') return null
+  if (import.meta.env.PROD || variant === 'D' || variant === 'G') return null
 
   return (
     <nav className="prototype-switcher" data-variant={variant} aria-label="Prototype variants" data-testid="prototype-switcher">
@@ -1022,6 +1060,7 @@ export function App() {
     if (variant === 'B') return <VariantB key="B" />
     if (variant === 'C') return <VariantC key="C" />
     if (variant === 'D') return <VariantD key="D" />
+    if (variant === 'G') return <VariantG key="G" />
     return <VariantE key="E" />
   }, [variant])
 

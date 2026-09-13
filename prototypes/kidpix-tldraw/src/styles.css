@@ -927,9 +927,10 @@ button { color: inherit; }
   grid-template-rows: 20px minmax(0, 1fr) 44px;
   padding: 0 8px;
   border: 0;
-  border-radius: 5px;
+  border-radius: 0; /* the slices carry their own rounded corners; a CSS radius clipped the outline */
   outline: 0;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 30%);
+  box-shadow: none;
+  filter: drop-shadow(0 2px 3px rgb(0 0 0 / 30%)); /* follows the slices' alpha, so the corners stay round */
   background:
     var(--ro-top-left) left top / auto 20px no-repeat,
     var(--ro-top-right) right top / auto 20px no-repeat,
@@ -1016,3 +1017,9 @@ button { color: inherit; }
 .japanese-utility-window.ro-chrome .japanese-window-footer .ro-arrow-prev:disabled { background-image: var(--ro-btn-prev-disabled); opacity: 1; cursor: default; }
 .japanese-utility-window.ro-chrome .japanese-window-footer .ro-arrow-next:disabled { opacity: .55; cursor: default; }
 .japanese-utility-window.ro-chrome .window-resize-handle { position: absolute; z-index: 8; right: 0; bottom: 0; width: 12px; height: 12px; }
+
+/* G: transparent tldraw surface for the Godot desktop's iframe. */
+html.godot-overlay, html.godot-overlay body, html.godot-overlay #root { background: transparent; }
+.godot-overlay-layout { background: transparent; }
+.japanese-book-hitbox.godot-overlay-hitbox { inset: 0; left: 0; right: 0; top: 0; bottom: 0; }
+.godot-overlay-state { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }

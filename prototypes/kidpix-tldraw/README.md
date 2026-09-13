@@ -36,6 +36,8 @@ Live tldraw marks use a deterministic SVG displacement map that stays flat acros
 
 Variants D and E display `sketchbook-page-v005-soft-384.png`, a versioned 384×384 Lanczos derivative of the untouched 1024×1024 candidate. Only 32 px of empty exterior margin is removed from each source edge before downsampling; every page edge and corner remains visible. The stage widens that source into a 4:3 open spread so each page has more horizontal drawing room. A resize observer refits the complete spread against both content dimensions whenever the utility window is resized, leaving only a narrow white ridge at 100%. Compact footer controls zoom the complete book, drawing surface, gutter, and page-turn geometry together to 125% or 150%. Exact crop, resize, and hash provenance is recorded beside the derivative.
 
+Variant `G` is the Godot overlay surface: only the transparent tldraw page and pencil cursor, sized to the iframe that hosts it. The Godot desktop in figma-ui-ux-qwen-pipeline's `viewer-godot` draws the RO chrome and the book, floats this page over the drawable rectangle it publishes, and posts `{ type: 'sketchbook-spread', spread }` messages so each spread stays its own tldraw page. It must be served as this development build on the same origin as the Godot export.
+
 ## Selected Sketchbook surface and page turn
 
 Variant A places a transparent tldraw surface over the two cream page interiors in the raw Qwen v004 candidate. The exterior white field, stacked paper edge, and center seam remain visible generated pixels. Pointer input is structurally limited to the page hitbox, so dragging on the surrounding field or outer paper edge cannot create a shape.
