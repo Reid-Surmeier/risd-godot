@@ -1,0 +1,2731 @@
+{
+  "log": [
+    {
+      "active": 4,
+      "count": 6,
+      "event": "shell",
+      "label": "launch",
+      "t_ms": 1,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "tenant_code": "",
+      "tenant_ok": true
+    },
+    {
+      "cards": [
+        {
+          "id": "ref-bust",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 176.0
+          },
+          "title": "Bust of a bearded man, painted wood"
+        },
+        {
+          "id": "ref-bronze",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 176.0
+          },
+          "title": "Feline finial, bronze"
+        },
+        {
+          "id": "ref-seals",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 176.0
+          },
+          "title": "Two resting seals, glazed ceramic"
+        },
+        {
+          "id": "buddha-scan",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 176.0
+          },
+          "title": "Seated Buddha, gilt bronze (3D scan)"
+        },
+        {
+          "id": "video-1191767929",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 176.0
+          },
+          "title": "The Observer"
+        },
+        {
+          "id": "video-1187745268",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1504.0,
+            "y": 176.0
+          },
+          "title": "Inside the Exhibition, Natchiq _ Onkeehq _ Isuwiq – Indigenous Artists Honor the Seal"
+        },
+        {
+          "id": "video-1014865523",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 488.0
+          },
+          "title": "A Look Into Our Collection’s Polaroid Photographs by Andy Warhol"
+        },
+        {
+          "id": "video-1009870521",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 488.0
+          },
+          "title": "The Making of Wallpaper"
+        },
+        {
+          "id": "video-1008943970",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 488.0
+          },
+          "title": "Short Cuts Sháńdíín Sháńdíín on Diné textiles"
+        },
+        {
+          "id": "art-01",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 488.0
+          },
+          "title": "Travellers at a Tōkaidō station, woodblock print"
+        },
+        {
+          "id": "art-02",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 488.0
+          },
+          "title": "Moonlit river landscape, woodblock print"
+        },
+        {
+          "id": "art-03",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1504.0,
+            "y": 488.0
+          },
+          "title": "Three women with a dog, oil painting"
+        },
+        {
+          "id": "art-04",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 800.0
+          },
+          "title": "Red standing mobile on a black base"
+        },
+        {
+          "id": "art-05",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 800.0
+          },
+          "title": "Sailing boats at dusk, woodblock print"
+        },
+        {
+          "id": "art-06",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 800.0
+          },
+          "title": "Collage with a colour chart"
+        },
+        {
+          "id": "art-07",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 800.0
+          },
+          "title": "Mountain village with a church, oil painting"
+        }
+      ],
+      "controls": {
+        "has_image": {
+          "h": 25.0,
+          "w": 165.0,
+          "x": 420.0,
+          "y": 131.0
+        },
+        "medium": {
+          "h": 25.0,
+          "w": 137.0,
+          "x": 24.0,
+          "y": 131.0
+        },
+        "sort": {
+          "h": 25.0,
+          "w": 203.0,
+          "x": 189.0,
+          "y": 131.0
+        }
+      },
+      "count": 16,
+      "event": "page",
+      "filter": {
+        "has_image": false,
+        "medium": "All",
+        "sort": "none"
+      },
+      "label": "launch",
+      "mediums": [
+        "Bronze",
+        "Ceramic",
+        "Collage",
+        "Painting",
+        "Print",
+        "Sculpture",
+        "Video"
+      ],
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1,
+      "total": 16
+    },
+    {
+      "event": "screenshot",
+      "file": "01-launch.png",
+      "t_ms": 157
+    },
+    {
+      "event": "click",
+      "t_ms": 181,
+      "what": "control has_image",
+      "x": 502.5,
+      "y": 217.4521484375
+    },
+    {
+      "cards": [
+        {
+          "id": "ref-bust",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 176.0
+          },
+          "title": "Bust of a bearded man, painted wood"
+        },
+        {
+          "id": "ref-bronze",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 176.0
+          },
+          "title": "Feline finial, bronze"
+        },
+        {
+          "id": "ref-seals",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 176.0
+          },
+          "title": "Two resting seals, glazed ceramic"
+        },
+        {
+          "id": "art-01",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 176.0
+          },
+          "title": "Travellers at a Tōkaidō station, woodblock print"
+        },
+        {
+          "id": "art-02",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 176.0
+          },
+          "title": "Moonlit river landscape, woodblock print"
+        },
+        {
+          "id": "art-03",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1504.0,
+            "y": 176.0
+          },
+          "title": "Three women with a dog, oil painting"
+        },
+        {
+          "id": "art-04",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 488.0
+          },
+          "title": "Red standing mobile on a black base"
+        },
+        {
+          "id": "art-05",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 488.0
+          },
+          "title": "Sailing boats at dusk, woodblock print"
+        },
+        {
+          "id": "art-06",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 488.0
+          },
+          "title": "Collage with a colour chart"
+        },
+        {
+          "id": "art-07",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 488.0
+          },
+          "title": "Mountain village with a church, oil painting"
+        }
+      ],
+      "controls": {
+        "has_image": {
+          "h": 25.0,
+          "w": 166.0,
+          "x": 420.0,
+          "y": 131.0
+        },
+        "medium": {
+          "h": 25.0,
+          "w": 137.0,
+          "x": 24.0,
+          "y": 131.0
+        },
+        "sort": {
+          "h": 25.0,
+          "w": 203.0,
+          "x": 189.0,
+          "y": 131.0
+        }
+      },
+      "count": 10,
+      "event": "page",
+      "filter": {
+        "has_image": true,
+        "medium": "All",
+        "sort": "none"
+      },
+      "label": "has-image",
+      "mediums": [
+        "Bronze",
+        "Ceramic",
+        "Collage",
+        "Painting",
+        "Print",
+        "Sculpture",
+        "Video"
+      ],
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 197,
+      "total": 16
+    },
+    {
+      "event": "screenshot",
+      "file": "02-has-image.png",
+      "t_ms": 335
+    },
+    {
+      "event": "click",
+      "t_ms": 356,
+      "what": "control medium",
+      "x": 92.5,
+      "y": 217.4521484375
+    },
+    {
+      "cards": [
+        {
+          "id": "ref-bronze",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 176.0
+          },
+          "title": "Feline finial, bronze"
+        }
+      ],
+      "controls": {
+        "has_image": {
+          "h": 25.0,
+          "w": 166.0,
+          "x": 467.0,
+          "y": 131.0
+        },
+        "medium": {
+          "h": 25.0,
+          "w": 184.0,
+          "x": 24.0,
+          "y": 131.0
+        },
+        "sort": {
+          "h": 25.0,
+          "w": 203.0,
+          "x": 236.0,
+          "y": 131.0
+        }
+      },
+      "count": 1,
+      "event": "page",
+      "filter": {
+        "has_image": true,
+        "medium": "Bronze",
+        "sort": "none"
+      },
+      "label": "medium-first-with-image",
+      "mediums": [
+        "Bronze",
+        "Ceramic",
+        "Collage",
+        "Painting",
+        "Print",
+        "Sculpture",
+        "Video"
+      ],
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 371,
+      "total": 16
+    },
+    {
+      "event": "screenshot",
+      "file": "03-medium-first.png",
+      "t_ms": 443
+    },
+    {
+      "event": "click",
+      "t_ms": 462,
+      "what": "control has_image",
+      "x": 550.0,
+      "y": 217.4521484375
+    },
+    {
+      "cards": [
+        {
+          "id": "ref-bronze",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 176.0
+          },
+          "title": "Feline finial, bronze"
+        }
+      ],
+      "controls": {
+        "has_image": {
+          "h": 25.0,
+          "w": 165.0,
+          "x": 467.0,
+          "y": 131.0
+        },
+        "medium": {
+          "h": 25.0,
+          "w": 184.0,
+          "x": 24.0,
+          "y": 131.0
+        },
+        "sort": {
+          "h": 25.0,
+          "w": 203.0,
+          "x": 236.0,
+          "y": 131.0
+        }
+      },
+      "count": 1,
+      "event": "page",
+      "filter": {
+        "has_image": false,
+        "medium": "Bronze",
+        "sort": "none"
+      },
+      "label": "medium-first",
+      "mediums": [
+        "Bronze",
+        "Ceramic",
+        "Collage",
+        "Painting",
+        "Print",
+        "Sculpture",
+        "Video"
+      ],
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 477,
+      "total": 16
+    },
+    {
+      "event": "click",
+      "t_ms": 493,
+      "what": "control medium",
+      "x": 116.0,
+      "y": 217.4521484375
+    },
+    {
+      "event": "click",
+      "t_ms": 524,
+      "what": "control medium",
+      "x": 122.0,
+      "y": 217.4521484375
+    },
+    {
+      "event": "click",
+      "t_ms": 555,
+      "what": "control medium",
+      "x": 118.5,
+      "y": 217.4521484375
+    },
+    {
+      "event": "click",
+      "t_ms": 587,
+      "what": "control medium",
+      "x": 121.0,
+      "y": 217.4521484375
+    },
+    {
+      "event": "click",
+      "t_ms": 619,
+      "what": "control medium",
+      "x": 103.5,
+      "y": 217.4521484375
+    },
+    {
+      "event": "click",
+      "t_ms": 653,
+      "what": "control medium",
+      "x": 127.5,
+      "y": 217.4521484375
+    },
+    {
+      "cards": [
+        {
+          "id": "video-1191767929",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 176.0
+          },
+          "title": "The Observer"
+        },
+        {
+          "id": "video-1187745268",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 176.0
+          },
+          "title": "Inside the Exhibition, Natchiq _ Onkeehq _ Isuwiq – Indigenous Artists Honor the Seal"
+        },
+        {
+          "id": "video-1014865523",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 176.0
+          },
+          "title": "A Look Into Our Collection’s Polaroid Photographs by Andy Warhol"
+        },
+        {
+          "id": "video-1009870521",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 176.0
+          },
+          "title": "The Making of Wallpaper"
+        },
+        {
+          "id": "video-1008943970",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 176.0
+          },
+          "title": "Short Cuts Sháńdíín Sháńdíín on Diné textiles"
+        }
+      ],
+      "controls": {
+        "has_image": {
+          "h": 25.0,
+          "w": 165.0,
+          "x": 453.0,
+          "y": 131.0
+        },
+        "medium": {
+          "h": 25.0,
+          "w": 170.0,
+          "x": 24.0,
+          "y": 131.0
+        },
+        "sort": {
+          "h": 25.0,
+          "w": 203.0,
+          "x": 222.0,
+          "y": 131.0
+        }
+      },
+      "count": 5,
+      "event": "page",
+      "filter": {
+        "has_image": false,
+        "medium": "Video",
+        "sort": "none"
+      },
+      "label": "medium-video",
+      "mediums": [
+        "Bronze",
+        "Ceramic",
+        "Collage",
+        "Painting",
+        "Print",
+        "Sculpture",
+        "Video"
+      ],
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 668,
+      "total": 16
+    },
+    {
+      "event": "screenshot",
+      "file": "04-medium-video.png",
+      "t_ms": 775
+    },
+    {
+      "event": "click",
+      "t_ms": 797,
+      "what": "control sort",
+      "x": 323.5,
+      "y": 217.4521484375
+    },
+    {
+      "cards": [
+        {
+          "id": "video-1187745268",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 176.0
+          },
+          "title": "Inside the Exhibition, Natchiq _ Onkeehq _ Isuwiq – Indigenous Artists Honor the Seal"
+        },
+        {
+          "id": "video-1191767929",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 176.0
+          },
+          "title": "The Observer"
+        },
+        {
+          "id": "video-1008943970",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 176.0
+          },
+          "title": "Short Cuts Sháńdíín Sháńdíín on Diné textiles"
+        },
+        {
+          "id": "video-1009870521",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 176.0
+          },
+          "title": "The Making of Wallpaper"
+        },
+        {
+          "id": "video-1014865523",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 176.0
+          },
+          "title": "A Look Into Our Collection’s Polaroid Photographs by Andy Warhol"
+        }
+      ],
+      "controls": {
+        "has_image": {
+          "h": 25.0,
+          "w": 165.0,
+          "x": 474.0,
+          "y": 131.0
+        },
+        "medium": {
+          "h": 25.0,
+          "w": 170.0,
+          "x": 24.0,
+          "y": 131.0
+        },
+        "sort": {
+          "h": 25.0,
+          "w": 224.0,
+          "x": 222.0,
+          "y": 131.0
+        }
+      },
+      "count": 5,
+      "event": "page",
+      "filter": {
+        "has_image": false,
+        "medium": "Video",
+        "sort": "newest"
+      },
+      "label": "video-newest",
+      "mediums": [
+        "Bronze",
+        "Ceramic",
+        "Collage",
+        "Painting",
+        "Print",
+        "Sculpture",
+        "Video"
+      ],
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 813,
+      "total": 16
+    },
+    {
+      "event": "click",
+      "t_ms": 831,
+      "what": "control sort",
+      "x": 334.0,
+      "y": 217.4521484375
+    },
+    {
+      "cards": [
+        {
+          "id": "video-1008943970",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 176.0
+          },
+          "title": "Short Cuts Sháńdíín Sháńdíín on Diné textiles"
+        },
+        {
+          "id": "video-1009870521",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 176.0
+          },
+          "title": "The Making of Wallpaper"
+        },
+        {
+          "id": "video-1014865523",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 176.0
+          },
+          "title": "A Look Into Our Collection’s Polaroid Photographs by Andy Warhol"
+        },
+        {
+          "id": "video-1187745268",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 176.0
+          },
+          "title": "Inside the Exhibition, Natchiq _ Onkeehq _ Isuwiq – Indigenous Artists Honor the Seal"
+        },
+        {
+          "id": "video-1191767929",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 176.0
+          },
+          "title": "The Observer"
+        }
+      ],
+      "controls": {
+        "has_image": {
+          "h": 25.0,
+          "w": 165.0,
+          "x": 463.0,
+          "y": 131.0
+        },
+        "medium": {
+          "h": 25.0,
+          "w": 170.0,
+          "x": 24.0,
+          "y": 131.0
+        },
+        "sort": {
+          "h": 25.0,
+          "w": 213.0,
+          "x": 222.0,
+          "y": 131.0
+        }
+      },
+      "count": 5,
+      "event": "page",
+      "filter": {
+        "has_image": false,
+        "medium": "Video",
+        "sort": "oldest"
+      },
+      "label": "video-oldest",
+      "mediums": [
+        "Bronze",
+        "Ceramic",
+        "Collage",
+        "Painting",
+        "Print",
+        "Sculpture",
+        "Video"
+      ],
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 846,
+      "total": 16
+    },
+    {
+      "event": "click",
+      "t_ms": 868,
+      "what": "control medium",
+      "x": 109.0,
+      "y": 217.4521484375
+    },
+    {
+      "cards": [
+        {
+          "id": "ref-bronze",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 176.0
+          },
+          "title": "Feline finial, bronze"
+        },
+        {
+          "id": "ref-bust",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 176.0
+          },
+          "title": "Bust of a bearded man, painted wood"
+        },
+        {
+          "id": "art-03",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 176.0
+          },
+          "title": "Three women with a dog, oil painting"
+        },
+        {
+          "id": "buddha-scan",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 176.0
+          },
+          "title": "Seated Buddha, gilt bronze (3D scan)"
+        },
+        {
+          "id": "art-01",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 176.0
+          },
+          "title": "Travellers at a Tōkaidō station, woodblock print"
+        },
+        {
+          "id": "art-02",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1504.0,
+            "y": 176.0
+          },
+          "title": "Moonlit river landscape, woodblock print"
+        },
+        {
+          "id": "ref-seals",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 488.0
+          },
+          "title": "Two resting seals, glazed ceramic"
+        },
+        {
+          "id": "art-07",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 488.0
+          },
+          "title": "Mountain village with a church, oil painting"
+        },
+        {
+          "id": "art-05",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 488.0
+          },
+          "title": "Sailing boats at dusk, woodblock print"
+        },
+        {
+          "id": "art-04",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 488.0
+          },
+          "title": "Red standing mobile on a black base"
+        },
+        {
+          "id": "art-06",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 488.0
+          },
+          "title": "Collage with a colour chart"
+        },
+        {
+          "id": "video-1008943970",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1504.0,
+            "y": 488.0
+          },
+          "title": "Short Cuts Sháńdíín Sháńdíín on Diné textiles"
+        },
+        {
+          "id": "video-1009870521",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 800.0
+          },
+          "title": "The Making of Wallpaper"
+        },
+        {
+          "id": "video-1014865523",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 800.0
+          },
+          "title": "A Look Into Our Collection’s Polaroid Photographs by Andy Warhol"
+        },
+        {
+          "id": "video-1187745268",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 800.0
+          },
+          "title": "Inside the Exhibition, Natchiq _ Onkeehq _ Isuwiq – Indigenous Artists Honor the Seal"
+        },
+        {
+          "id": "video-1191767929",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 800.0
+          },
+          "title": "The Observer"
+        }
+      ],
+      "controls": {
+        "has_image": {
+          "h": 25.0,
+          "w": 165.0,
+          "x": 430.0,
+          "y": 131.0
+        },
+        "medium": {
+          "h": 25.0,
+          "w": 137.0,
+          "x": 24.0,
+          "y": 131.0
+        },
+        "sort": {
+          "h": 25.0,
+          "w": 213.0,
+          "x": 189.0,
+          "y": 131.0
+        }
+      },
+      "count": 16,
+      "event": "page",
+      "filter": {
+        "has_image": false,
+        "medium": "All",
+        "sort": "oldest"
+      },
+      "label": "all-oldest",
+      "mediums": [
+        "Bronze",
+        "Ceramic",
+        "Collage",
+        "Painting",
+        "Print",
+        "Sculpture",
+        "Video"
+      ],
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 885,
+      "total": 16
+    },
+    {
+      "event": "screenshot",
+      "file": "05-all-oldest.png",
+      "t_ms": 1042
+    },
+    {
+      "cards": [
+        {
+          "id": "ref-bronze",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 176.0
+          },
+          "title": "Feline finial, bronze"
+        },
+        {
+          "id": "ref-bust",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 176.0
+          },
+          "title": "Bust of a bearded man, painted wood"
+        },
+        {
+          "id": "art-03",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 176.0
+          },
+          "title": "Three women with a dog, oil painting"
+        },
+        {
+          "id": "buddha-scan",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 176.0
+          },
+          "title": "Seated Buddha, gilt bronze (3D scan)"
+        },
+        {
+          "id": "art-01",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 176.0
+          },
+          "title": "Travellers at a Tōkaidō station, woodblock print"
+        },
+        {
+          "id": "art-02",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1504.0,
+            "y": 176.0
+          },
+          "title": "Moonlit river landscape, woodblock print"
+        },
+        {
+          "id": "ref-seals",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 488.0
+          },
+          "title": "Two resting seals, glazed ceramic"
+        },
+        {
+          "id": "art-07",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 488.0
+          },
+          "title": "Mountain village with a church, oil painting"
+        },
+        {
+          "id": "art-05",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 488.0
+          },
+          "title": "Sailing boats at dusk, woodblock print"
+        },
+        {
+          "id": "art-04",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 488.0
+          },
+          "title": "Red standing mobile on a black base"
+        },
+        {
+          "id": "art-06",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 488.0
+          },
+          "title": "Collage with a colour chart"
+        },
+        {
+          "id": "video-1008943970",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1504.0,
+            "y": 488.0
+          },
+          "title": "Short Cuts Sháńdíín Sháńdíín on Diné textiles"
+        },
+        {
+          "id": "video-1009870521",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 800.0
+          },
+          "title": "The Making of Wallpaper"
+        },
+        {
+          "id": "video-1014865523",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 800.0
+          },
+          "title": "A Look Into Our Collection’s Polaroid Photographs by Andy Warhol"
+        },
+        {
+          "id": "video-1187745268",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 800.0
+          },
+          "title": "Inside the Exhibition, Natchiq _ Onkeehq _ Isuwiq – Indigenous Artists Honor the Seal"
+        },
+        {
+          "id": "video-1191767929",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 800.0
+          },
+          "title": "The Observer"
+        }
+      ],
+      "controls": {
+        "has_image": {
+          "h": 25.0,
+          "w": 165.0,
+          "x": 430.0,
+          "y": 131.0
+        },
+        "medium": {
+          "h": 25.0,
+          "w": 137.0,
+          "x": 24.0,
+          "y": 131.0
+        },
+        "sort": {
+          "h": 25.0,
+          "w": 213.0,
+          "x": 189.0,
+          "y": 131.0
+        }
+      },
+      "count": 16,
+      "event": "page",
+      "filter": {
+        "has_image": false,
+        "medium": "All",
+        "sort": "oldest"
+      },
+      "label": "before-card",
+      "mediums": [
+        "Bronze",
+        "Ceramic",
+        "Collage",
+        "Painting",
+        "Print",
+        "Sculpture",
+        "Video"
+      ],
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1042,
+      "total": 16
+    },
+    {
+      "event": "signal",
+      "id": "ref-bronze",
+      "keys": [
+        "id",
+        "title",
+        "maker",
+        "department",
+        "medium",
+        "year",
+        "has_image",
+        "has_video",
+        "has_3d",
+        "thumbnail",
+        "identity"
+      ],
+      "signal": "card_selected",
+      "t_ms": 1056,
+      "title": "Feline finial, bronze"
+    },
+    {
+      "event": "click",
+      "t_ms": 1064,
+      "what": "card ref-bronze",
+      "x": 164.0,
+      "y": 397.9521484375
+    },
+    {
+      "cards": [
+        {
+          "id": "ref-bronze",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 176.0
+          },
+          "title": "Feline finial, bronze"
+        },
+        {
+          "id": "ref-bust",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 176.0
+          },
+          "title": "Bust of a bearded man, painted wood"
+        },
+        {
+          "id": "art-03",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 176.0
+          },
+          "title": "Three women with a dog, oil painting"
+        },
+        {
+          "id": "buddha-scan",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 176.0
+          },
+          "title": "Seated Buddha, gilt bronze (3D scan)"
+        },
+        {
+          "id": "art-01",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 176.0
+          },
+          "title": "Travellers at a Tōkaidō station, woodblock print"
+        },
+        {
+          "id": "art-02",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1504.0,
+            "y": 176.0
+          },
+          "title": "Moonlit river landscape, woodblock print"
+        },
+        {
+          "id": "ref-seals",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 488.0
+          },
+          "title": "Two resting seals, glazed ceramic"
+        },
+        {
+          "id": "art-07",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 488.0
+          },
+          "title": "Mountain village with a church, oil painting"
+        },
+        {
+          "id": "art-05",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 488.0
+          },
+          "title": "Sailing boats at dusk, woodblock print"
+        },
+        {
+          "id": "art-04",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 488.0
+          },
+          "title": "Red standing mobile on a black base"
+        },
+        {
+          "id": "art-06",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 488.0
+          },
+          "title": "Collage with a colour chart"
+        },
+        {
+          "id": "video-1008943970",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1504.0,
+            "y": 488.0
+          },
+          "title": "Short Cuts Sháńdíín Sháńdíín on Diné textiles"
+        },
+        {
+          "id": "video-1009870521",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 800.0
+          },
+          "title": "The Making of Wallpaper"
+        },
+        {
+          "id": "video-1014865523",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 800.0
+          },
+          "title": "A Look Into Our Collection’s Polaroid Photographs by Andy Warhol"
+        },
+        {
+          "id": "video-1187745268",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 800.0
+          },
+          "title": "Inside the Exhibition, Natchiq _ Onkeehq _ Isuwiq – Indigenous Artists Honor the Seal"
+        },
+        {
+          "id": "video-1191767929",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 800.0
+          },
+          "title": "The Observer"
+        }
+      ],
+      "controls": {
+        "has_image": {
+          "h": 25.0,
+          "w": 165.0,
+          "x": 430.0,
+          "y": 131.0
+        },
+        "medium": {
+          "h": 25.0,
+          "w": 137.0,
+          "x": 24.0,
+          "y": 131.0
+        },
+        "sort": {
+          "h": 25.0,
+          "w": 213.0,
+          "x": 189.0,
+          "y": 131.0
+        }
+      },
+      "count": 16,
+      "event": "page",
+      "filter": {
+        "has_image": false,
+        "medium": "All",
+        "sort": "oldest"
+      },
+      "label": "after-card",
+      "mediums": [
+        "Bronze",
+        "Ceramic",
+        "Collage",
+        "Painting",
+        "Print",
+        "Sculpture",
+        "Video"
+      ],
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1082,
+      "total": 16
+    },
+    {
+      "event": "screenshot",
+      "file": "06-after-card.png",
+      "t_ms": 1242
+    },
+    {
+      "event": "click",
+      "t_ms": 1265,
+      "what": "white ground",
+      "x": 960.0,
+      "y": 1076.0
+    },
+    {
+      "cards": [
+        {
+          "id": "ref-bronze",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 176.0
+          },
+          "title": "Feline finial, bronze"
+        },
+        {
+          "id": "ref-bust",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 176.0
+          },
+          "title": "Bust of a bearded man, painted wood"
+        },
+        {
+          "id": "art-03",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 176.0
+          },
+          "title": "Three women with a dog, oil painting"
+        },
+        {
+          "id": "buddha-scan",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 176.0
+          },
+          "title": "Seated Buddha, gilt bronze (3D scan)"
+        },
+        {
+          "id": "art-01",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 176.0
+          },
+          "title": "Travellers at a Tōkaidō station, woodblock print"
+        },
+        {
+          "id": "art-02",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1504.0,
+            "y": 176.0
+          },
+          "title": "Moonlit river landscape, woodblock print"
+        },
+        {
+          "id": "ref-seals",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 488.0
+          },
+          "title": "Two resting seals, glazed ceramic"
+        },
+        {
+          "id": "art-07",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 488.0
+          },
+          "title": "Mountain village with a church, oil painting"
+        },
+        {
+          "id": "art-05",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 488.0
+          },
+          "title": "Sailing boats at dusk, woodblock print"
+        },
+        {
+          "id": "art-04",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 488.0
+          },
+          "title": "Red standing mobile on a black base"
+        },
+        {
+          "id": "art-06",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 488.0
+          },
+          "title": "Collage with a colour chart"
+        },
+        {
+          "id": "video-1008943970",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1504.0,
+            "y": 488.0
+          },
+          "title": "Short Cuts Sháńdíín Sháńdíín on Diné textiles"
+        },
+        {
+          "id": "video-1009870521",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 800.0
+          },
+          "title": "The Making of Wallpaper"
+        },
+        {
+          "id": "video-1014865523",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 800.0
+          },
+          "title": "A Look Into Our Collection’s Polaroid Photographs by Andy Warhol"
+        },
+        {
+          "id": "video-1187745268",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 800.0
+          },
+          "title": "Inside the Exhibition, Natchiq _ Onkeehq _ Isuwiq – Indigenous Artists Honor the Seal"
+        },
+        {
+          "id": "video-1191767929",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 800.0
+          },
+          "title": "The Observer"
+        }
+      ],
+      "controls": {
+        "has_image": {
+          "h": 25.0,
+          "w": 165.0,
+          "x": 430.0,
+          "y": 131.0
+        },
+        "medium": {
+          "h": 25.0,
+          "w": 137.0,
+          "x": 24.0,
+          "y": 131.0
+        },
+        "sort": {
+          "h": 25.0,
+          "w": 213.0,
+          "x": 189.0,
+          "y": 131.0
+        }
+      },
+      "count": 16,
+      "event": "page",
+      "filter": {
+        "has_image": false,
+        "medium": "All",
+        "sort": "oldest"
+      },
+      "label": "after-ground",
+      "mediums": [
+        "Bronze",
+        "Ceramic",
+        "Collage",
+        "Painting",
+        "Print",
+        "Sculpture",
+        "Video"
+      ],
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1282,
+      "total": 16
+    },
+    {
+      "code": "collection_page.filter_invalid",
+      "event": "set_filter_invalid",
+      "ok": false,
+      "t_ms": 1282
+    },
+    {
+      "cards": [
+        {
+          "id": "ref-bronze",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 176.0
+          },
+          "title": "Feline finial, bronze"
+        },
+        {
+          "id": "ref-bust",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 176.0
+          },
+          "title": "Bust of a bearded man, painted wood"
+        },
+        {
+          "id": "art-03",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 176.0
+          },
+          "title": "Three women with a dog, oil painting"
+        },
+        {
+          "id": "buddha-scan",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 176.0
+          },
+          "title": "Seated Buddha, gilt bronze (3D scan)"
+        },
+        {
+          "id": "art-01",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 176.0
+          },
+          "title": "Travellers at a Tōkaidō station, woodblock print"
+        },
+        {
+          "id": "art-02",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1504.0,
+            "y": 176.0
+          },
+          "title": "Moonlit river landscape, woodblock print"
+        },
+        {
+          "id": "ref-seals",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 488.0
+          },
+          "title": "Two resting seals, glazed ceramic"
+        },
+        {
+          "id": "art-07",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 488.0
+          },
+          "title": "Mountain village with a church, oil painting"
+        },
+        {
+          "id": "art-05",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 488.0
+          },
+          "title": "Sailing boats at dusk, woodblock print"
+        },
+        {
+          "id": "art-04",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 488.0
+          },
+          "title": "Red standing mobile on a black base"
+        },
+        {
+          "id": "art-06",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 488.0
+          },
+          "title": "Collage with a colour chart"
+        },
+        {
+          "id": "video-1008943970",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1504.0,
+            "y": 488.0
+          },
+          "title": "Short Cuts Sháńdíín Sháńdíín on Diné textiles"
+        },
+        {
+          "id": "video-1009870521",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 800.0
+          },
+          "title": "The Making of Wallpaper"
+        },
+        {
+          "id": "video-1014865523",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 800.0
+          },
+          "title": "A Look Into Our Collection’s Polaroid Photographs by Andy Warhol"
+        },
+        {
+          "id": "video-1187745268",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 800.0
+          },
+          "title": "Inside the Exhibition, Natchiq _ Onkeehq _ Isuwiq – Indigenous Artists Honor the Seal"
+        },
+        {
+          "id": "video-1191767929",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 800.0
+          },
+          "title": "The Observer"
+        }
+      ],
+      "controls": {
+        "has_image": {
+          "h": 25.0,
+          "w": 165.0,
+          "x": 430.0,
+          "y": 131.0
+        },
+        "medium": {
+          "h": 25.0,
+          "w": 137.0,
+          "x": 24.0,
+          "y": 131.0
+        },
+        "sort": {
+          "h": 25.0,
+          "w": 213.0,
+          "x": 189.0,
+          "y": 131.0
+        }
+      },
+      "count": 16,
+      "event": "page",
+      "filter": {
+        "has_image": false,
+        "medium": "All",
+        "sort": "oldest"
+      },
+      "label": "after-invalid",
+      "mediums": [
+        "Bronze",
+        "Ceramic",
+        "Collage",
+        "Painting",
+        "Print",
+        "Sculpture",
+        "Video"
+      ],
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1282,
+      "total": 16
+    },
+    {
+      "active": 4,
+      "count": 6,
+      "event": "shell",
+      "label": "pre-map",
+      "t_ms": 1282,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "tenant_code": "",
+      "tenant_ok": true
+    },
+    {
+      "event": "click",
+      "t_ms": 1298,
+      "what": "map tab",
+      "x": 220.478485107422,
+      "y": 43.4067001342773
+    },
+    {
+      "active": 0,
+      "count": 6,
+      "event": "shell",
+      "label": "map",
+      "t_ms": 1312,
+      "tabs": [
+        {
+          "frozen": false,
+          "key": "map",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "tenant_code": "",
+      "tenant_ok": true
+    },
+    {
+      "event": "screenshot",
+      "file": "07-map.png",
+      "t_ms": 1380
+    },
+    {
+      "event": "click",
+      "t_ms": 1401,
+      "what": "collection tab",
+      "x": 902.124389648438,
+      "y": 43.4067001342773
+    },
+    {
+      "active": 4,
+      "count": 6,
+      "event": "shell",
+      "label": "collection-again",
+      "t_ms": 1418,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "tenant_code": "",
+      "tenant_ok": true
+    },
+    {
+      "cards": [
+        {
+          "id": "ref-bronze",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 176.0
+          },
+          "title": "Feline finial, bronze"
+        },
+        {
+          "id": "ref-bust",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 176.0
+          },
+          "title": "Bust of a bearded man, painted wood"
+        },
+        {
+          "id": "art-03",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 176.0
+          },
+          "title": "Three women with a dog, oil painting"
+        },
+        {
+          "id": "buddha-scan",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 176.0
+          },
+          "title": "Seated Buddha, gilt bronze (3D scan)"
+        },
+        {
+          "id": "art-01",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 176.0
+          },
+          "title": "Travellers at a Tōkaidō station, woodblock print"
+        },
+        {
+          "id": "art-02",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1504.0,
+            "y": 176.0
+          },
+          "title": "Moonlit river landscape, woodblock print"
+        },
+        {
+          "id": "ref-seals",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 488.0
+          },
+          "title": "Two resting seals, glazed ceramic"
+        },
+        {
+          "id": "art-07",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 488.0
+          },
+          "title": "Mountain village with a church, oil painting"
+        },
+        {
+          "id": "art-05",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 488.0
+          },
+          "title": "Sailing boats at dusk, woodblock print"
+        },
+        {
+          "id": "art-04",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 488.0
+          },
+          "title": "Red standing mobile on a black base"
+        },
+        {
+          "id": "art-06",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1208.0,
+            "y": 488.0
+          },
+          "title": "Collage with a colour chart"
+        },
+        {
+          "id": "video-1008943970",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 1504.0,
+            "y": 488.0
+          },
+          "title": "Short Cuts Sháńdíín Sháńdíín on Diné textiles"
+        },
+        {
+          "id": "video-1009870521",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 800.0
+          },
+          "title": "The Making of Wallpaper"
+        },
+        {
+          "id": "video-1014865523",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 800.0
+          },
+          "title": "A Look Into Our Collection’s Polaroid Photographs by Andy Warhol"
+        },
+        {
+          "id": "video-1187745268",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 800.0
+          },
+          "title": "Inside the Exhibition, Natchiq _ Onkeehq _ Isuwiq – Indigenous Artists Honor the Seal"
+        },
+        {
+          "id": "video-1191767929",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 800.0
+          },
+          "title": "The Observer"
+        }
+      ],
+      "controls": {
+        "has_image": {
+          "h": 25.0,
+          "w": 165.0,
+          "x": 430.0,
+          "y": 131.0
+        },
+        "medium": {
+          "h": 25.0,
+          "w": 137.0,
+          "x": 24.0,
+          "y": 131.0
+        },
+        "sort": {
+          "h": 25.0,
+          "w": 213.0,
+          "x": 189.0,
+          "y": 131.0
+        }
+      },
+      "count": 16,
+      "event": "page",
+      "filter": {
+        "has_image": false,
+        "medium": "All",
+        "sort": "oldest"
+      },
+      "label": "collection-again",
+      "mediums": [
+        "Bronze",
+        "Ceramic",
+        "Collage",
+        "Painting",
+        "Print",
+        "Sculpture",
+        "Video"
+      ],
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1418,
+      "total": 16
+    },
+    {
+      "event": "screenshot",
+      "file": "08-collection-again.png",
+      "t_ms": 1576
+    },
+    {
+      "cards": [
+        {
+          "id": "ref-bronze",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 176.0
+          },
+          "title": "Feline finial, bronze"
+        },
+        {
+          "id": "ref-bust",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 176.0
+          },
+          "title": "Bust of a bearded man, painted wood"
+        },
+        {
+          "id": "art-03",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 176.0
+          },
+          "title": "Three women with a dog, oil painting"
+        },
+        {
+          "id": "buddha-scan",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 176.0
+          },
+          "title": "Seated Buddha, gilt bronze (3D scan)"
+        },
+        {
+          "id": "art-01",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 488.0
+          },
+          "title": "Travellers at a Tōkaidō station, woodblock print"
+        },
+        {
+          "id": "art-02",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 488.0
+          },
+          "title": "Moonlit river landscape, woodblock print"
+        },
+        {
+          "id": "ref-seals",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 488.0
+          },
+          "title": "Two resting seals, glazed ceramic"
+        },
+        {
+          "id": "art-07",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 488.0
+          },
+          "title": "Mountain village with a church, oil painting"
+        },
+        {
+          "id": "art-05",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 800.0
+          },
+          "title": "Sailing boats at dusk, woodblock print"
+        },
+        {
+          "id": "art-04",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 800.0
+          },
+          "title": "Red standing mobile on a black base"
+        },
+        {
+          "id": "art-06",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 800.0
+          },
+          "title": "Collage with a colour chart"
+        },
+        {
+          "id": "video-1008943970",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 800.0
+          },
+          "title": "Short Cuts Sháńdíín Sháńdíín on Diné textiles"
+        },
+        {
+          "id": "video-1009870521",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 24.0,
+            "y": 1112.0
+          },
+          "title": "The Making of Wallpaper"
+        },
+        {
+          "id": "video-1014865523",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 320.0,
+            "y": 1112.0
+          },
+          "title": "A Look Into Our Collection’s Polaroid Photographs by Andy Warhol"
+        },
+        {
+          "id": "video-1187745268",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 616.0,
+            "y": 1112.0
+          },
+          "title": "Inside the Exhibition, Natchiq _ Onkeehq _ Isuwiq – Indigenous Artists Honor the Seal"
+        },
+        {
+          "id": "video-1191767929",
+          "rect": {
+            "h": 296.0,
+            "w": 280.0,
+            "x": 912.0,
+            "y": 1112.0
+          },
+          "title": "The Observer"
+        }
+      ],
+      "controls": {
+        "has_image": {
+          "h": 25.0,
+          "w": 165.0,
+          "x": 430.0,
+          "y": 131.0
+        },
+        "medium": {
+          "h": 25.0,
+          "w": 137.0,
+          "x": 24.0,
+          "y": 131.0
+        },
+        "sort": {
+          "h": 25.0,
+          "w": 213.0,
+          "x": 189.0,
+          "y": 131.0
+        }
+      },
+      "count": 16,
+      "event": "page",
+      "filter": {
+        "has_image": false,
+        "medium": "All",
+        "sort": "oldest"
+      },
+      "label": "resized",
+      "mediums": [
+        "Bronze",
+        "Ceramic",
+        "Collage",
+        "Painting",
+        "Print",
+        "Sculpture",
+        "Video"
+      ],
+      "size": [
+        1440.0,
+        844.535888671875
+      ],
+      "t_ms": 1607,
+      "total": 16
+    },
+    {
+      "event": "screenshot",
+      "file": "09-resized.png",
+      "t_ms": 1689
+    }
+  ],
+  "viewport": [
+    1920,
+    1080
+  ]
+}

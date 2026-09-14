@@ -1,0 +1,180 @@
+{
+ "pass": true,
+ "checks": {
+  "screenshots_present": {
+   "pass": true,
+   "detail": "['01-launch.png', '02-has-image.png', '03-medium-first.png', '04-medium-video.png', '05-all-oldest.png', '06-after-card.png', '07-map.png', '08-collection-again.png', '09-resized.png']"
+  },
+  "screenshots_differ_except_card_click_and_resume": {
+   "pass": true,
+   "detail": ""
+  },
+  "card_click_changes_no_pixels": {
+   "pass": true,
+   "detail": ""
+  },
+  "collection_tab_active_with_this_tenant": {
+   "pass": true,
+   "detail": ""
+  },
+  "data_has_the_agreed_records": {
+   "pass": true,
+   "detail": "16 records"
+  },
+  "every_record_on_a_card_at_launch": {
+   "pass": true,
+   "detail": "16/16"
+  },
+  "launch_filter_is_open": {
+   "pass": true,
+   "detail": ""
+  },
+  "mediums_are_the_data's": {
+   "pass": true,
+   "detail": "['Bronze', 'Ceramic', 'Collage', 'Painting', 'Print', 'Sculpture', 'Video']"
+  },
+  "launch_cards_in_file_order": {
+   "pass": true,
+   "detail": ""
+  },
+  "three_controls_have_rects": {
+   "pass": true,
+   "detail": ""
+  },
+  "tenant_fills_page_area": {
+   "pass": true,
+   "detail": "[1920.0, 1006.0478515625]"
+  },
+  "cards_do_not_overlap": {
+   "pass": true,
+   "detail": ""
+  },
+  "cards_flow_left_to_right_top_down": {
+   "pass": true,
+   "detail": ""
+  },
+  "has_image_click_narrows_to_records_with_a_photo": {
+   "pass": true,
+   "detail": "10 of 16"
+  },
+  "has_image_shot_differs_from_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "medium_click_picks_first_medium": {
+   "pass": true,
+   "detail": "Bronze: ['ref-bronze']"
+  },
+  "has_image_click_again_turns_it_off": {
+   "pass": true,
+   "detail": ""
+  },
+  "medium_video_shows_the_five_videos": {
+   "pass": true,
+   "detail": "['video-1191767929', 'video-1187745268', 'video-1014865523', 'video-1009870521', 'video-1008943970']"
+  },
+  "medium_video_shot_differs": {
+   "pass": true,
+   "detail": ""
+  },
+  "sort_newest_orders_videos_by_year_desc": {
+   "pass": true,
+   "detail": "['video-1187745268', 'video-1191767929', 'video-1008943970', 'video-1009870521', 'video-1014865523']"
+  },
+  "sort_oldest_orders_videos_by_year_asc": {
+   "pass": true,
+   "detail": "['video-1008943970', 'video-1009870521', 'video-1014865523', 'video-1187745268', 'video-1191767929']"
+  },
+  "medium_wraps_to_all_keeping_sort": {
+   "pass": true,
+   "detail": "['ref-bronze', 'ref-bust', 'art-03', 'buddha-scan']"
+  },
+  "all_oldest_years_non_decreasing": {
+   "pass": true,
+   "detail": ""
+  },
+  "card_click_emits_card_selected_with_the_record": {
+   "pass": true,
+   "detail": "1 signal(s): ['ref-bronze']"
+  },
+  "clicked_card_is_the_first_visible": {
+   "pass": true,
+   "detail": ""
+  },
+  "card_click_changes_nothing_else": {
+   "pass": true,
+   "detail": ""
+  },
+  "ground_click_emits_nothing": {
+   "pass": true,
+   "detail": ""
+  },
+  "card_click_was_after_filters_only": {
+   "pass": true,
+   "detail": ""
+  },
+  "invalid_filter_refused_by_interface": {
+   "pass": true,
+   "detail": "collection_page.filter_invalid"
+  },
+  "invalid_filter_changed_nothing": {
+   "pass": true,
+   "detail": ""
+  },
+  "map_tab_hides_and_freezes_collection": {
+   "pass": true,
+   "detail": ""
+  },
+  "collection_tab_resumes_the_same_page": {
+   "pass": true,
+   "detail": ""
+  },
+  "collection_again_shot_matches_after_card": {
+   "pass": true,
+   "detail": ""
+  },
+  "map_page_is_white_below_the_bar": {
+   "pass": true,
+   "detail": "255.00"
+  },
+  "resize_relays_cards_within_the_page": {
+   "pass": true,
+   "detail": "[1440.0, 844.535888671875]"
+  },
+  "resized_screenshot_is_1440x900": {
+   "pass": true,
+   "detail": "(900, 1440, 3)"
+  },
+  "launch_page_mostly_white": {
+   "pass": true,
+   "detail": ""
+  },
+  "header_pixels_present_top_left": {
+   "pass": true,
+   "detail": "std 23.9"
+  },
+  "info_box_pixels_present_bottom": {
+   "pass": true,
+   "detail": "std 35.2"
+  },
+  "thumbnail_cards_have_pixels": {
+   "pass": true,
+   "detail": ""
+  },
+  "filtered_page_has_more_white_than_launch": {
+   "pass": true,
+   "detail": ""
+  }
+ },
+ "sha256": {
+  "01-launch.png": "0299d0d98bb656a5b80d22f175b16f814f9b38a99038ad7a3add83d6d44a424e",
+  "02-has-image.png": "ea0bf2336d2cc62ec7de99bd5186bcd17af1fd986fcd87d88e5ff6e25af3ae5e",
+  "03-medium-first.png": "20b475124d9e23bd96b51eb8afb28552f9711433b7f854c488b8827296758883",
+  "04-medium-video.png": "8415aaa8f53d116c172f233155d0bbce1fad060c3f1be627b2125b50e503750d",
+  "05-all-oldest.png": "7ecb538ea6a46b330172ef7fd3d015b69cafffb9935e538c0373d26283c667eb",
+  "06-after-card.png": "7ecb538ea6a46b330172ef7fd3d015b69cafffb9935e538c0373d26283c667eb",
+  "07-map.png": "ff51b658c7d814986df9a460716cd429394ea858cf308db6b7cf0a4401be0a8e",
+  "08-collection-again.png": "7ecb538ea6a46b330172ef7fd3d015b69cafffb9935e538c0373d26283c667eb",
+  "09-resized.png": "baec9ad2d919aebd8b05d65229f9259d41ef1e1fc41f2344113dcae5f91ab0ed"
+ }
+}
