@@ -27,4 +27,6 @@ The header and Info box are shown at 2x through the project's nearest filter (th
 
 The playtest (`scripts/playtest.sh collection_page`, on `testing/harness_base.gd`) builds the Shell with this page in the Collection Tab and nothing in the other Tabs, at 1920x1080 on an X display, drives the filter controls, a card, the white ground and the Map and Collection tabs with real mouse events through `Input.parse_input_event`, and calls the interface once with an invalid filter; `verify.py` re-reads `collection.json` itself, re-hashes the screenshots and checks every state against the contract (40 checks). Evidence of the accepted run is in `docs/evidence/collection-page/`.
 
-Known gaps: no hover or pressed state on cards or controls (no State Sets exist yet); the browser-rendered run (`browser_play.py`) is not written for this page; the descriptive records are not museum records.
+`playtest/browser_play.py` drives the Web export in headless Chrome at the rects the native run logged; its screenshots are in `docs/evidence/collection-page/browser/`.
+
+Known gaps: no hover or pressed state on cards or controls (no State Sets exist yet); the descriptive records are not museum records.
