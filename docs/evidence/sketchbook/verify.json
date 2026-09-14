@@ -1,0 +1,153 @@
+{
+ "pass": true,
+ "checks": {
+  "screenshots_present": {
+   "pass": true,
+   "detail": "['01-book.png', '02-drawn.png', '03-turning.png', '04-turned.png', '05-turned-back.png', '06-before-hidden.png', '07-hidden.png', '08-resumed.png', '09-resized.png', '10-restored.png']"
+  },
+  "book_screenshot_is_1920x1080": {
+   "pass": true,
+   "detail": "(1080, 1920, 3)"
+  },
+  "no_book_tenant_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "click_sketchbook_tab_creates_and_shows_desktop": {
+   "pass": true,
+   "detail": "{'frozen': False, 'key': 'sketchbook', 'page_visible': True, 'rect': {'h': 56.4976081848145, 'w': 201.186614990234, 'x': 290.296661376953, 'y': 15.1578950881958}, 'tenant': 'ok'}"
+  },
+  "tenant_fills_page_area": {
+   "pass": true,
+   "detail": "[1920.0, 1006.0478515625]"
+  },
+  "desktop_is_1to1_and_centred": {
+   "pass": true,
+   "detail": "window {'h': 500.0, 'w': 620.0, 'x': 980.0, 'y': 550.9521484375}"
+  },
+  "page_inside_window_below_title": {
+   "pass": true,
+   "detail": "page {'h': 382.619995117188, 'w': 560.239990234375, 'x': 1009.88000488281, 'y': 593.012145996094} title {'h': 20.0, 'w': 620.0, 'x': 980.0, 'y': 550.9521484375}"
+  },
+  "book_opens_on_blank_spread_1": {
+   "pass": true,
+   "detail": "{'spread': 1, 'strokes': 0, 'turning': ''}"
+  },
+  "drag_lands_inside_page": {
+   "pass": true,
+   "detail": "[1149.93994140625, 784.322143554688] -> [1213.93994140625, 808.322143554688] page {'h': 382.619995117188, 'w': 560.239990234375, 'x': 1009.88000488281, 'y': 593.012145996094}"
+  },
+  "drag_draws_one_stroke": {
+   "pass": true,
+   "detail": "strokes 1, points 9 of 9"
+  },
+  "ink_pixels_appear_on_page": {
+   "pass": true,
+   "detail": "ink px 0 -> 1019"
+  },
+  "next_click_lands_on_arrow": {
+   "pass": true,
+   "detail": ""
+  },
+  "next_starts_the_paper_turn": {
+   "pass": true,
+   "detail": "turning forward progress 0.126 face mode 4"
+  },
+  "turn_lands_on_blank_spread_2": {
+   "pass": true,
+   "detail": "spread 2 strokes 0 turn 515 ms, ink px 0"
+  },
+  "turn_in_flight_looks_different": {
+   "pass": true,
+   "detail": ""
+  },
+  "previous_click_lands_on_arrow": {
+   "pass": true,
+   "detail": ""
+  },
+  "previous_turns_back_to_the_ink": {
+   "pass": true,
+   "detail": "spread 1 strokes 1, ink px 384"
+  },
+  "title_drag_starts_on_title_bar": {
+   "pass": true,
+   "detail": "from [1290.0, 560.9521484375] title {'h': 20.0, 'w': 620.0, 'x': 980.0, 'y': 550.9521484375}"
+  },
+  "title_drag_moves_window_and_page": {
+   "pass": true,
+   "detail": "{'h': 500.0, 'w': 620.0, 'x': 980.0, 'y': 550.9521484375} -> {'h': 500.0, 'w': 620.0, 'x': 880.0, 'y': 520.9521484375} by [-100.0, -30.0]"
+  },
+  "ink_moves_with_the_window": {
+   "pass": true,
+   "detail": "ink px 384"
+  },
+  "hidden_book_page_frozen": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_tenant_process_stops": {
+   "pass": true,
+   "detail": "ticks 133 -> 133 over 20 frames"
+  },
+  "hidden_tenant_gets_no_input": {
+   "pass": true,
+   "detail": "inputs 27 -> 27"
+  },
+  "hidden_events_draw_and_turn_nothing": {
+   "pass": true,
+   "detail": "strokes 1 spread 1 turning ''"
+  },
+  "hidden_subviewports_quiet": {
+   "pass": true,
+   "detail": "static 1,1 face 0,0"
+  },
+  "hidden_page_renders_nothing": {
+   "pass": true,
+   "detail": "draw calls: white page 40, book shown 54, hidden 40"
+  },
+  "hidden_page_shows_plain_white_map": {
+   "pass": true,
+   "detail": "mean 255.00"
+  },
+  "book_resumes_with_state_intact": {
+   "pass": true,
+   "detail": "ticks frozen 133, resumed 138 -> 158"
+  },
+  "resumed_pixels_identical_to_before_hiding": {
+   "pass": true,
+   "detail": "mean abs diff 0.000"
+  },
+  "resize_shrinks_desktop_to_fit": {
+   "pass": true,
+   "detail": "tenant [1440.0, 844.535888671875], scale 0.868864059448242, window {'h': 434.432037353516, 'w': 538.69580078125, 'x': 650.072998046875, 'y': 429.075653076172}"
+  },
+  "resized_screenshot_is_1440x900": {
+   "pass": true,
+   "detail": "(900, 1440, 3)"
+  },
+  "restore_refits_back": {
+   "pass": true,
+   "detail": ""
+  },
+  "book_page_drawn": {
+   "pass": true,
+   "detail": "mean 239.5 std 13.8"
+  },
+  "page_outside_window_is_white": {
+   "pass": true,
+   "detail": "mean 255.00"
+  }
+ },
+ "sha256": {
+  "01-book.png": "18dfae8644cc09204a449406e6e1f1edf322b04a7cd2124b9386a725da76fd8d",
+  "02-drawn.png": "5e2bbf175a88955a3ef8ea54d6c25c364ef68debca15740806e95772ca5544f2",
+  "03-turning.png": "ff007c70c887fc63211fd9afe4d33dbda6ac78fa2c138155ede569aebbeddd06",
+  "04-turned.png": "99662c6fa94859bb0c0ea0564c9fba7ba3c93e872764dcfea331ed09d59c5b0e",
+  "05-turned-back.png": "6e11e3c86df9e1d3ff35de64a8420f0f03af0765aefbb73cb781640b1ea30f10",
+  "06-before-hidden.png": "8d60d57fe4d99206c2c55bf370f5a93e8302d09a12349f64d47fed0a453d7b9e",
+  "07-hidden.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
+  "08-resumed.png": "8d60d57fe4d99206c2c55bf370f5a93e8302d09a12349f64d47fed0a453d7b9e",
+  "09-resized.png": "9ee08e4e0799f07f1a75bd2c655d3ff9041d7d2966766a2f381b9d10dd0ba96b",
+  "10-restored.png": "8d60d57fe4d99206c2c55bf370f5a93e8302d09a12349f64d47fed0a453d7b9e"
+ }
+}

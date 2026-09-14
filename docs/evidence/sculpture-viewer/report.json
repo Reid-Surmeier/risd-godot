@@ -1,0 +1,2263 @@
+{
+  "log": [
+    {
+      "active": 4,
+      "count": 6,
+      "draw_calls": 40,
+      "event": "state",
+      "label": "launch",
+      "t_ms": 21,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "shell.tenant_missing",
+      "event": "viewer",
+      "label": "launch",
+      "ok": false,
+      "t_ms": 21
+    },
+    {
+      "active": 4,
+      "count": 6,
+      "draw_calls": 40,
+      "event": "state",
+      "label": "pre-viewer",
+      "t_ms": 21,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "click",
+      "t_ms": 1059,
+      "what": "3d viewer tab",
+      "x": 561.301391601562,
+      "y": 43.4067001342773
+    },
+    {
+      "active": 2,
+      "count": 6,
+      "draw_calls": 60,
+      "event": "state",
+      "label": "viewer",
+      "t_ms": 1216,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "3d_viewer",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "active_view": 0,
+      "animation_count": 0,
+      "catalogue_rect": {
+        "h": 896.485046386719,
+        "w": 400.0,
+        "x": 312.0,
+        "y": 124.952156066895
+      },
+      "code": "",
+      "controls": {
+        "audio": {
+          "h": 45.3099975585938,
+          "w": 62.0550537109375,
+          "x": 1406.375,
+          "y": 708.072143554688
+        },
+        "menu": {
+          "h": 45.3099975585938,
+          "w": 113.275024414062,
+          "x": 1468.42993164062,
+          "y": 708.072143554688
+        },
+        "next": {
+          "h": 165.47998046875,
+          "w": 134.945068359375,
+          "x": 1493.05493164062,
+          "y": 346.5771484375
+        },
+        "play-pause": {
+          "h": 45.3099975585938,
+          "w": 57.1300048828125,
+          "x": 874.474975585938,
+          "y": 708.072143554688
+        },
+        "previous": {
+          "h": 165.47998046875,
+          "w": 131.989990234375,
+          "x": 840.0,
+          "y": 346.5771484375
+        },
+        "scrubber": {
+          "h": 45.3099975585938,
+          "w": 344.75,
+          "x": 944.410034179688,
+          "y": 708.072143554688
+        }
+      },
+      "desktop_scale": 1.0,
+      "distance": 8.7,
+      "dragging": false,
+      "event": "viewer",
+      "front_window": "viewer-window",
+      "inputs": 1,
+      "interaction_count": 0,
+      "label": "viewer-shown",
+      "last_animated_control": "",
+      "model_loaded": true,
+      "muted": false,
+      "ok": true,
+      "pitch": -8.0,
+      "playing": true,
+      "pointer_scale": 0.985000014305115,
+      "progress": 0.141,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1216,
+      "ticks": 9,
+      "viewer_rect": {
+        "h": 669.799987792969,
+        "w": 788.0,
+        "x": 840.0,
+        "y": 124.952156066895
+      },
+      "viewport_rect": {
+        "h": 478.710021972656,
+        "w": 521.06494140625,
+        "x": 971.989990234375,
+        "y": 201.782165527344
+      },
+      "viewport_update_mode": 1,
+      "yaw": -129.25
+    },
+    {
+      "event": "screenshot",
+      "file": "01-viewer.png",
+      "t_ms": 1353
+    },
+    {
+      "event": "click",
+      "t_ms": 1401,
+      "what": "play-pause button",
+      "x": 903.039978027344,
+      "y": 730.727172851562
+    },
+    {
+      "active_view": 0,
+      "animation_count": 2,
+      "catalogue_rect": {
+        "h": 896.485046386719,
+        "w": 400.0,
+        "x": 312.0,
+        "y": 124.952156066895
+      },
+      "code": "",
+      "controls": {
+        "audio": {
+          "h": 45.3099975585938,
+          "w": 62.0550537109375,
+          "x": 1406.375,
+          "y": 708.072143554688
+        },
+        "menu": {
+          "h": 45.3099975585938,
+          "w": 113.275024414062,
+          "x": 1468.42993164062,
+          "y": 708.072143554688
+        },
+        "next": {
+          "h": 165.47998046875,
+          "w": 134.945068359375,
+          "x": 1493.05493164062,
+          "y": 346.5771484375
+        },
+        "play-pause": {
+          "h": 45.3099975585938,
+          "w": 57.1300048828125,
+          "x": 874.474975585938,
+          "y": 708.072143554688
+        },
+        "previous": {
+          "h": 165.47998046875,
+          "w": 131.989990234375,
+          "x": 840.0,
+          "y": 346.5771484375
+        },
+        "scrubber": {
+          "h": 45.3099975585938,
+          "w": 344.75,
+          "x": 944.410034179688,
+          "y": 708.072143554688
+        }
+      },
+      "desktop_scale": 1.0,
+      "distance": 8.7,
+      "dragging": false,
+      "event": "viewer",
+      "front_window": "viewer-window",
+      "inputs": 4,
+      "interaction_count": 1,
+      "label": "paused",
+      "last_animated_control": "play-pause",
+      "model_loaded": true,
+      "muted": false,
+      "ok": true,
+      "pitch": -8.0,
+      "playing": false,
+      "pointer_scale": 0.985000014305115,
+      "progress": 0.145,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1427,
+      "ticks": 16,
+      "viewer_rect": {
+        "h": 669.799987792969,
+        "w": 788.0,
+        "x": 840.0,
+        "y": 124.952156066895
+      },
+      "viewport_rect": {
+        "h": 478.710021972656,
+        "w": 521.06494140625,
+        "x": 971.989990234375,
+        "y": 201.782165527344
+      },
+      "viewport_update_mode": 1,
+      "yaw": -127.68
+    },
+    {
+      "event": "screenshot",
+      "file": "02-paused.png",
+      "t_ms": 1539
+    },
+    {
+      "active_view": 0,
+      "animation_count": 2,
+      "catalogue_rect": {
+        "h": 896.485046386719,
+        "w": 400.0,
+        "x": 312.0,
+        "y": 124.952156066895
+      },
+      "code": "",
+      "controls": {
+        "audio": {
+          "h": 45.3099975585938,
+          "w": 62.0550537109375,
+          "x": 1406.375,
+          "y": 708.072143554688
+        },
+        "menu": {
+          "h": 45.3099975585938,
+          "w": 113.275024414062,
+          "x": 1468.42993164062,
+          "y": 708.072143554688
+        },
+        "next": {
+          "h": 165.47998046875,
+          "w": 134.945068359375,
+          "x": 1493.05493164062,
+          "y": 346.5771484375
+        },
+        "play-pause": {
+          "h": 45.3099975585938,
+          "w": 57.1300048828125,
+          "x": 874.474975585938,
+          "y": 708.072143554688
+        },
+        "previous": {
+          "h": 165.47998046875,
+          "w": 131.989990234375,
+          "x": 840.0,
+          "y": 346.5771484375
+        },
+        "scrubber": {
+          "h": 45.3099975585938,
+          "w": 344.75,
+          "x": 944.410034179688,
+          "y": 708.072143554688
+        }
+      },
+      "desktop_scale": 1.0,
+      "distance": 8.7,
+      "dragging": false,
+      "event": "viewer",
+      "front_window": "viewer-window",
+      "inputs": 4,
+      "interaction_count": 1,
+      "label": "paused-later",
+      "last_animated_control": "play-pause",
+      "model_loaded": true,
+      "muted": false,
+      "ok": true,
+      "pitch": -8.0,
+      "playing": false,
+      "pointer_scale": 0.985000014305115,
+      "progress": 0.145,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1623,
+      "ticks": 27,
+      "viewer_rect": {
+        "h": 669.799987792969,
+        "w": 788.0,
+        "x": 840.0,
+        "y": 124.952156066895
+      },
+      "viewport_rect": {
+        "h": 478.710021972656,
+        "w": 521.06494140625,
+        "x": 971.989990234375,
+        "y": 201.782165527344
+      },
+      "viewport_update_mode": 1,
+      "yaw": -127.68
+    },
+    {
+      "event": "screenshot",
+      "file": "03-paused-later.png",
+      "t_ms": 1735
+    },
+    {
+      "event": "drag",
+      "from": [
+        1232.5224609375,
+        441.137176513672
+      ],
+      "relative_total": [
+        -100.0,
+        50.0
+      ],
+      "steps": 5,
+      "t_ms": 1910,
+      "to": [
+        1132.5224609375,
+        491.137176513672
+      ],
+      "what": "drag-orbit inside the viewport"
+    },
+    {
+      "active_view": 0,
+      "animation_count": 2,
+      "catalogue_rect": {
+        "h": 896.485046386719,
+        "w": 400.0,
+        "x": 312.0,
+        "y": 124.952156066895
+      },
+      "code": "",
+      "controls": {
+        "audio": {
+          "h": 45.3099975585938,
+          "w": 62.0550537109375,
+          "x": 1406.375,
+          "y": 708.072143554688
+        },
+        "menu": {
+          "h": 45.3099975585938,
+          "w": 113.275024414062,
+          "x": 1468.42993164062,
+          "y": 708.072143554688
+        },
+        "next": {
+          "h": 165.47998046875,
+          "w": 134.945068359375,
+          "x": 1493.05493164062,
+          "y": 346.5771484375
+        },
+        "play-pause": {
+          "h": 45.3099975585938,
+          "w": 57.1300048828125,
+          "x": 874.474975585938,
+          "y": 708.072143554688
+        },
+        "previous": {
+          "h": 165.47998046875,
+          "w": 131.989990234375,
+          "x": 840.0,
+          "y": 346.5771484375
+        },
+        "scrubber": {
+          "h": 45.3099975585938,
+          "w": 344.75,
+          "x": 944.410034179688,
+          "y": 708.072143554688
+        }
+      },
+      "desktop_scale": 1.0,
+      "distance": 8.7,
+      "dragging": false,
+      "event": "viewer",
+      "front_window": "viewer-window",
+      "inputs": 12,
+      "interaction_count": 6,
+      "label": "orbited",
+      "last_animated_control": "play-pause",
+      "model_loaded": true,
+      "muted": false,
+      "ok": true,
+      "pitch": -20.69,
+      "playing": false,
+      "pointer_scale": 0.985000014305115,
+      "progress": 0.244,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1935,
+      "ticks": 39,
+      "viewer_rect": {
+        "h": 669.799987792969,
+        "w": 788.0,
+        "x": 840.0,
+        "y": 124.952156066895
+      },
+      "viewport_rect": {
+        "h": 478.710021972656,
+        "w": 521.06494140625,
+        "x": 971.989990234375,
+        "y": 201.782165527344
+      },
+      "viewport_update_mode": 1,
+      "yaw": -92.15
+    },
+    {
+      "event": "screenshot",
+      "file": "04-orbited.png",
+      "t_ms": 2045
+    },
+    {
+      "count": 2,
+      "event": "wheel",
+      "t_ms": 2130,
+      "up": true,
+      "what": "wheel up x2 inside the viewport",
+      "x": 1232.5224609375,
+      "y": 441.137176513672
+    },
+    {
+      "active_view": 0,
+      "animation_count": 2,
+      "catalogue_rect": {
+        "h": 896.485046386719,
+        "w": 400.0,
+        "x": 312.0,
+        "y": 124.952156066895
+      },
+      "code": "",
+      "controls": {
+        "audio": {
+          "h": 45.3099975585938,
+          "w": 62.0550537109375,
+          "x": 1406.375,
+          "y": 708.072143554688
+        },
+        "menu": {
+          "h": 45.3099975585938,
+          "w": 113.275024414062,
+          "x": 1468.42993164062,
+          "y": 708.072143554688
+        },
+        "next": {
+          "h": 165.47998046875,
+          "w": 134.945068359375,
+          "x": 1493.05493164062,
+          "y": 346.5771484375
+        },
+        "play-pause": {
+          "h": 45.3099975585938,
+          "w": 57.1300048828125,
+          "x": 874.474975585938,
+          "y": 708.072143554688
+        },
+        "previous": {
+          "h": 165.47998046875,
+          "w": 131.989990234375,
+          "x": 840.0,
+          "y": 346.5771484375
+        },
+        "scrubber": {
+          "h": 45.3099975585938,
+          "w": 344.75,
+          "x": 944.410034179688,
+          "y": 708.072143554688
+        }
+      },
+      "desktop_scale": 1.0,
+      "distance": 7.8,
+      "dragging": false,
+      "event": "viewer",
+      "front_window": "viewer-window",
+      "inputs": 17,
+      "interaction_count": 8,
+      "label": "zoomed",
+      "last_animated_control": "play-pause",
+      "model_loaded": true,
+      "muted": false,
+      "ok": true,
+      "pitch": -20.69,
+      "playing": false,
+      "pointer_scale": 0.985000014305115,
+      "progress": 0.244,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2154,
+      "ticks": 48,
+      "viewer_rect": {
+        "h": 669.799987792969,
+        "w": 788.0,
+        "x": 840.0,
+        "y": 124.952156066895
+      },
+      "viewport_rect": {
+        "h": 478.710021972656,
+        "w": 521.06494140625,
+        "x": 971.989990234375,
+        "y": 201.782165527344
+      },
+      "viewport_update_mode": 1,
+      "yaw": -92.15
+    },
+    {
+      "event": "screenshot",
+      "file": "05-zoomed.png",
+      "t_ms": 2264
+    },
+    {
+      "event": "click",
+      "t_ms": 2291,
+      "what": "next button",
+      "x": 1560.52746582031,
+      "y": 429.317138671875
+    },
+    {
+      "active_view": 1,
+      "animation_count": 4,
+      "catalogue_rect": {
+        "h": 896.485046386719,
+        "w": 400.0,
+        "x": 312.0,
+        "y": 124.952156066895
+      },
+      "code": "",
+      "controls": {
+        "audio": {
+          "h": 45.3099975585938,
+          "w": 62.0550537109375,
+          "x": 1406.375,
+          "y": 708.072143554688
+        },
+        "menu": {
+          "h": 45.3099975585938,
+          "w": 113.275024414062,
+          "x": 1468.42993164062,
+          "y": 708.072143554688
+        },
+        "next": {
+          "h": 165.47998046875,
+          "w": 134.945068359375,
+          "x": 1493.05493164062,
+          "y": 346.5771484375
+        },
+        "play-pause": {
+          "h": 45.3099975585938,
+          "w": 57.1300048828125,
+          "x": 874.474975585938,
+          "y": 708.072143554688
+        },
+        "previous": {
+          "h": 165.47998046875,
+          "w": 131.989990234375,
+          "x": 840.0,
+          "y": 346.5771484375
+        },
+        "scrubber": {
+          "h": 45.3099975585938,
+          "w": 344.75,
+          "x": 944.410034179688,
+          "y": 708.072143554688
+        }
+      },
+      "desktop_scale": 1.0,
+      "distance": 7.8,
+      "dragging": false,
+      "event": "viewer",
+      "front_window": "viewer-window",
+      "inputs": 20,
+      "interaction_count": 9,
+      "label": "next",
+      "last_animated_control": "next",
+      "model_loaded": true,
+      "muted": false,
+      "ok": true,
+      "pitch": -20.69,
+      "playing": false,
+      "pointer_scale": 0.985000014305115,
+      "progress": 0.327,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2336,
+      "ticks": 55,
+      "viewer_rect": {
+        "h": 669.799987792969,
+        "w": 788.0,
+        "x": 840.0,
+        "y": 124.952156066895
+      },
+      "viewport_rect": {
+        "h": 478.710021972656,
+        "w": 521.06494140625,
+        "x": 971.989990234375,
+        "y": 201.782165527344
+      },
+      "viewport_update_mode": 1,
+      "yaw": -62.15
+    },
+    {
+      "event": "drag",
+      "from": [
+        1234.0,
+        144.652160644531
+      ],
+      "relative_total": [
+        -75.0,
+        40.0
+      ],
+      "steps": 5,
+      "t_ms": 2403,
+      "to": [
+        1159.0,
+        184.652160644531
+      ],
+      "what": "drag the viewer window by its top strip"
+    },
+    {
+      "active_view": 1,
+      "animation_count": 4,
+      "catalogue_rect": {
+        "h": 896.485046386719,
+        "w": 400.0,
+        "x": 312.0,
+        "y": 124.952156066895
+      },
+      "code": "",
+      "controls": {
+        "audio": {
+          "h": 45.3099975585938,
+          "w": 62.0550537109375,
+          "x": 1331.375,
+          "y": 748.072143554688
+        },
+        "menu": {
+          "h": 45.3099975585938,
+          "w": 113.275024414062,
+          "x": 1393.42993164062,
+          "y": 748.072143554688
+        },
+        "next": {
+          "h": 165.47998046875,
+          "w": 134.945068359375,
+          "x": 1418.05493164062,
+          "y": 386.5771484375
+        },
+        "play-pause": {
+          "h": 45.3099975585938,
+          "w": 57.1300048828125,
+          "x": 799.474975585938,
+          "y": 748.072143554688
+        },
+        "previous": {
+          "h": 165.47998046875,
+          "w": 131.989990234375,
+          "x": 765.0,
+          "y": 386.5771484375
+        },
+        "scrubber": {
+          "h": 45.3099975585938,
+          "w": 344.75,
+          "x": 869.410034179688,
+          "y": 748.072143554688
+        }
+      },
+      "desktop_scale": 1.0,
+      "distance": 7.8,
+      "dragging": false,
+      "event": "viewer",
+      "front_window": "viewer-window",
+      "inputs": 28,
+      "interaction_count": 9,
+      "label": "window-moved",
+      "last_animated_control": "next",
+      "model_loaded": true,
+      "muted": false,
+      "ok": true,
+      "pitch": -20.69,
+      "playing": false,
+      "pointer_scale": 0.985000014305115,
+      "progress": 0.327,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2429,
+      "ticks": 66,
+      "viewer_rect": {
+        "h": 669.799987792969,
+        "w": 788.0,
+        "x": 765.0,
+        "y": 164.9521484375
+      },
+      "viewport_rect": {
+        "h": 478.710021972656,
+        "w": 521.06494140625,
+        "x": 896.989990234375,
+        "y": 241.782150268555
+      },
+      "viewport_update_mode": 1,
+      "yaw": -62.15
+    },
+    {
+      "event": "screenshot",
+      "file": "06-window-moved.png",
+      "t_ms": 2539
+    },
+    {
+      "event": "drag",
+      "from": [
+        512.0,
+        573.194702148438
+      ],
+      "relative_total": [
+        120.0,
+        -20.0
+      ],
+      "steps": 4,
+      "t_ms": 2598,
+      "to": [
+        632.0,
+        553.194702148438
+      ],
+      "what": "drag the catalogue by its picture"
+    },
+    {
+      "active_view": 1,
+      "animation_count": 4,
+      "catalogue_rect": {
+        "h": 896.485046386719,
+        "w": 400.0,
+        "x": 432.0,
+        "y": 104.952156066895
+      },
+      "code": "",
+      "controls": {
+        "audio": {
+          "h": 45.3099975585938,
+          "w": 62.0550537109375,
+          "x": 1331.375,
+          "y": 748.072143554688
+        },
+        "menu": {
+          "h": 45.3099975585938,
+          "w": 113.275024414062,
+          "x": 1393.42993164062,
+          "y": 748.072143554688
+        },
+        "next": {
+          "h": 165.47998046875,
+          "w": 134.945068359375,
+          "x": 1418.05493164062,
+          "y": 386.5771484375
+        },
+        "play-pause": {
+          "h": 45.3099975585938,
+          "w": 57.1300048828125,
+          "x": 799.474975585938,
+          "y": 748.072143554688
+        },
+        "previous": {
+          "h": 165.47998046875,
+          "w": 131.989990234375,
+          "x": 765.0,
+          "y": 386.5771484375
+        },
+        "scrubber": {
+          "h": 45.3099975585938,
+          "w": 344.75,
+          "x": 869.410034179688,
+          "y": 748.072143554688
+        }
+      },
+      "desktop_scale": 1.0,
+      "distance": 7.8,
+      "dragging": false,
+      "event": "viewer",
+      "front_window": "catalogue-window",
+      "inputs": 35,
+      "interaction_count": 9,
+      "label": "catalogue-moved",
+      "last_animated_control": "next",
+      "model_loaded": true,
+      "muted": false,
+      "ok": true,
+      "pitch": -20.69,
+      "playing": false,
+      "pointer_scale": 0.985000014305115,
+      "progress": 0.327,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2623,
+      "ticks": 77,
+      "viewer_rect": {
+        "h": 669.799987792969,
+        "w": 788.0,
+        "x": 765.0,
+        "y": 164.9521484375
+      },
+      "viewport_rect": {
+        "h": 478.710021972656,
+        "w": 521.06494140625,
+        "x": 896.989990234375,
+        "y": 241.782150268555
+      },
+      "viewport_update_mode": 1,
+      "yaw": -62.15
+    },
+    {
+      "event": "screenshot",
+      "file": "07-catalogue-moved.png",
+      "t_ms": 2728
+    },
+    {
+      "event": "click",
+      "t_ms": 2755,
+      "what": "viewer top strip",
+      "x": 1159.0,
+      "y": 184.652145385742
+    },
+    {
+      "active_view": 1,
+      "animation_count": 4,
+      "catalogue_rect": {
+        "h": 896.485046386719,
+        "w": 400.0,
+        "x": 432.0,
+        "y": 104.952156066895
+      },
+      "code": "",
+      "controls": {
+        "audio": {
+          "h": 45.3099975585938,
+          "w": 62.0550537109375,
+          "x": 1331.375,
+          "y": 748.072143554688
+        },
+        "menu": {
+          "h": 45.3099975585938,
+          "w": 113.275024414062,
+          "x": 1393.42993164062,
+          "y": 748.072143554688
+        },
+        "next": {
+          "h": 165.47998046875,
+          "w": 134.945068359375,
+          "x": 1418.05493164062,
+          "y": 386.5771484375
+        },
+        "play-pause": {
+          "h": 45.3099975585938,
+          "w": 57.1300048828125,
+          "x": 799.474975585938,
+          "y": 748.072143554688
+        },
+        "previous": {
+          "h": 165.47998046875,
+          "w": 131.989990234375,
+          "x": 765.0,
+          "y": 386.5771484375
+        },
+        "scrubber": {
+          "h": 45.3099975585938,
+          "w": 344.75,
+          "x": 869.410034179688,
+          "y": 748.072143554688
+        }
+      },
+      "desktop_scale": 1.0,
+      "distance": 7.8,
+      "dragging": false,
+      "event": "viewer",
+      "front_window": "viewer-window",
+      "inputs": 38,
+      "interaction_count": 9,
+      "label": "before-hidden",
+      "last_animated_control": "next",
+      "model_loaded": true,
+      "muted": false,
+      "ok": true,
+      "pitch": -20.69,
+      "playing": false,
+      "pointer_scale": 0.985000014305115,
+      "progress": 0.327,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2779,
+      "ticks": 84,
+      "viewer_rect": {
+        "h": 669.799987792969,
+        "w": 788.0,
+        "x": 765.0,
+        "y": 164.9521484375
+      },
+      "viewport_rect": {
+        "h": 478.710021972656,
+        "w": 521.06494140625,
+        "x": 896.989990234375,
+        "y": 241.782150268555
+      },
+      "viewport_update_mode": 1,
+      "yaw": -62.15
+    },
+    {
+      "active": 2,
+      "count": 6,
+      "draw_calls": 60,
+      "event": "state",
+      "label": "before-hidden",
+      "t_ms": 2780,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "3d_viewer",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "08-before-hidden.png",
+      "t_ms": 2889
+    },
+    {
+      "event": "click",
+      "t_ms": 2905,
+      "what": "sketchbook tab",
+      "x": 390.889953613281,
+      "y": 43.4067001342773
+    },
+    {
+      "active": 1,
+      "count": 6,
+      "draw_calls": 40,
+      "event": "state",
+      "label": "sketchbook",
+      "t_ms": 2926,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "sketchbook",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "active_view": 1,
+      "animation_count": 4,
+      "catalogue_rect": {
+        "h": 896.485046386719,
+        "w": 400.0,
+        "x": 432.0,
+        "y": 104.952156066895
+      },
+      "code": "",
+      "controls": {
+        "audio": {
+          "h": 45.3099975585938,
+          "w": 62.0550537109375,
+          "x": 1331.375,
+          "y": 748.072143554688
+        },
+        "menu": {
+          "h": 45.3099975585938,
+          "w": 113.275024414062,
+          "x": 1393.42993164062,
+          "y": 748.072143554688
+        },
+        "next": {
+          "h": 165.47998046875,
+          "w": 134.945068359375,
+          "x": 1418.05493164062,
+          "y": 386.5771484375
+        },
+        "play-pause": {
+          "h": 45.3099975585938,
+          "w": 57.1300048828125,
+          "x": 799.474975585938,
+          "y": 748.072143554688
+        },
+        "previous": {
+          "h": 165.47998046875,
+          "w": 131.989990234375,
+          "x": 765.0,
+          "y": 386.5771484375
+        },
+        "scrubber": {
+          "h": 45.3099975585938,
+          "w": 344.75,
+          "x": 869.410034179688,
+          "y": 748.072143554688
+        }
+      },
+      "desktop_scale": 1.0,
+      "distance": 7.8,
+      "dragging": false,
+      "event": "viewer",
+      "front_window": "viewer-window",
+      "inputs": 39,
+      "interaction_count": 9,
+      "label": "viewer-hidden",
+      "last_animated_control": "next",
+      "model_loaded": true,
+      "muted": false,
+      "ok": true,
+      "pitch": -20.69,
+      "playing": false,
+      "pointer_scale": 0.985000014305115,
+      "progress": 0.327,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2926,
+      "ticks": 86,
+      "viewer_rect": {
+        "h": 669.799987792969,
+        "w": 788.0,
+        "x": 765.0,
+        "y": 164.9521484375
+      },
+      "viewport_rect": {
+        "h": 478.710021972656,
+        "w": 521.06494140625,
+        "x": 896.989990234375,
+        "y": 241.782150268555
+      },
+      "viewport_update_mode": 0,
+      "yaw": -62.15
+    },
+    {
+      "count": 2,
+      "event": "wheel",
+      "t_ms": 2960,
+      "up": true,
+      "what": "wheel up x2 inside the viewport while hidden",
+      "x": 1157.5224609375,
+      "y": 481.137145996094
+    },
+    {
+      "event": "drag",
+      "from": [
+        1157.5224609375,
+        481.137145996094
+      ],
+      "relative_total": [
+        -100.0,
+        50.0
+      ],
+      "steps": 5,
+      "t_ms": 3017,
+      "to": [
+        1057.5224609375,
+        531.137145996094
+      ],
+      "what": "drag-orbit inside the viewport while hidden"
+    },
+    {
+      "event": "click",
+      "t_ms": 3038,
+      "what": "next button while hidden",
+      "x": 1485.52746582031,
+      "y": 469.317138671875
+    },
+    {
+      "active_view": 1,
+      "animation_count": 4,
+      "catalogue_rect": {
+        "h": 896.485046386719,
+        "w": 400.0,
+        "x": 432.0,
+        "y": 104.952156066895
+      },
+      "code": "",
+      "controls": {
+        "audio": {
+          "h": 45.3099975585938,
+          "w": 62.0550537109375,
+          "x": 1331.375,
+          "y": 748.072143554688
+        },
+        "menu": {
+          "h": 45.3099975585938,
+          "w": 113.275024414062,
+          "x": 1393.42993164062,
+          "y": 748.072143554688
+        },
+        "next": {
+          "h": 165.47998046875,
+          "w": 134.945068359375,
+          "x": 1418.05493164062,
+          "y": 386.5771484375
+        },
+        "play-pause": {
+          "h": 45.3099975585938,
+          "w": 57.1300048828125,
+          "x": 799.474975585938,
+          "y": 748.072143554688
+        },
+        "previous": {
+          "h": 165.47998046875,
+          "w": 131.989990234375,
+          "x": 765.0,
+          "y": 386.5771484375
+        },
+        "scrubber": {
+          "h": 45.3099975585938,
+          "w": 344.75,
+          "x": 869.410034179688,
+          "y": 748.072143554688
+        }
+      },
+      "desktop_scale": 1.0,
+      "distance": 7.8,
+      "dragging": false,
+      "event": "viewer",
+      "front_window": "viewer-window",
+      "inputs": 39,
+      "interaction_count": 9,
+      "label": "viewer-hidden-after-events",
+      "last_animated_control": "next",
+      "model_loaded": true,
+      "muted": false,
+      "ok": true,
+      "pitch": -20.69,
+      "playing": false,
+      "pointer_scale": 0.985000014305115,
+      "progress": 0.327,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 3176,
+      "ticks": 86,
+      "viewer_rect": {
+        "h": 669.799987792969,
+        "w": 788.0,
+        "x": 765.0,
+        "y": 164.9521484375
+      },
+      "viewport_rect": {
+        "h": 478.710021972656,
+        "w": 521.06494140625,
+        "x": 896.989990234375,
+        "y": 241.782150268555
+      },
+      "viewport_update_mode": 0,
+      "yaw": -62.15
+    },
+    {
+      "active": 1,
+      "count": 6,
+      "draw_calls": 40,
+      "event": "state",
+      "label": "sketchbook-after-20-frames",
+      "t_ms": 3176,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "sketchbook",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "09-hidden.png",
+      "t_ms": 3237
+    },
+    {
+      "event": "click",
+      "t_ms": 3274,
+      "what": "3d viewer tab (again)",
+      "x": 561.301391601562,
+      "y": 43.4067001342773
+    },
+    {
+      "active": 2,
+      "count": 6,
+      "draw_calls": 64,
+      "event": "state",
+      "label": "viewer-again",
+      "t_ms": 3361,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "3d_viewer",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "active_view": 1,
+      "animation_count": 4,
+      "catalogue_rect": {
+        "h": 896.485046386719,
+        "w": 400.0,
+        "x": 432.0,
+        "y": 104.952156066895
+      },
+      "code": "",
+      "controls": {
+        "audio": {
+          "h": 45.3099975585938,
+          "w": 62.0550537109375,
+          "x": 1331.375,
+          "y": 748.072143554688
+        },
+        "menu": {
+          "h": 45.3099975585938,
+          "w": 113.275024414062,
+          "x": 1393.42993164062,
+          "y": 748.072143554688
+        },
+        "next": {
+          "h": 165.47998046875,
+          "w": 134.945068359375,
+          "x": 1418.05493164062,
+          "y": 386.5771484375
+        },
+        "play-pause": {
+          "h": 45.3099975585938,
+          "w": 57.1300048828125,
+          "x": 799.474975585938,
+          "y": 748.072143554688
+        },
+        "previous": {
+          "h": 165.47998046875,
+          "w": 131.989990234375,
+          "x": 765.0,
+          "y": 386.5771484375
+        },
+        "scrubber": {
+          "h": 45.3099975585938,
+          "w": 344.75,
+          "x": 869.410034179688,
+          "y": 748.072143554688
+        }
+      },
+      "desktop_scale": 1.0,
+      "distance": 7.8,
+      "dragging": false,
+      "event": "viewer",
+      "front_window": "viewer-window",
+      "inputs": 40,
+      "interaction_count": 9,
+      "label": "viewer-resumed",
+      "last_animated_control": "next",
+      "model_loaded": true,
+      "muted": false,
+      "ok": true,
+      "pitch": -20.69,
+      "playing": false,
+      "pointer_scale": 0.985000014305115,
+      "progress": 0.327,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 3361,
+      "ticks": 90,
+      "viewer_rect": {
+        "h": 669.799987792969,
+        "w": 788.0,
+        "x": 765.0,
+        "y": 164.9521484375
+      },
+      "viewport_rect": {
+        "h": 478.710021972656,
+        "w": 521.06494140625,
+        "x": 896.989990234375,
+        "y": 241.782150268555
+      },
+      "viewport_update_mode": 4,
+      "yaw": -62.15
+    },
+    {
+      "active_view": 1,
+      "animation_count": 4,
+      "catalogue_rect": {
+        "h": 896.485046386719,
+        "w": 400.0,
+        "x": 432.0,
+        "y": 104.952156066895
+      },
+      "code": "",
+      "controls": {
+        "audio": {
+          "h": 45.3099975585938,
+          "w": 62.0550537109375,
+          "x": 1331.375,
+          "y": 748.072143554688
+        },
+        "menu": {
+          "h": 45.3099975585938,
+          "w": 113.275024414062,
+          "x": 1393.42993164062,
+          "y": 748.072143554688
+        },
+        "next": {
+          "h": 165.47998046875,
+          "w": 134.945068359375,
+          "x": 1418.05493164062,
+          "y": 386.5771484375
+        },
+        "play-pause": {
+          "h": 45.3099975585938,
+          "w": 57.1300048828125,
+          "x": 799.474975585938,
+          "y": 748.072143554688
+        },
+        "previous": {
+          "h": 165.47998046875,
+          "w": 131.989990234375,
+          "x": 765.0,
+          "y": 386.5771484375
+        },
+        "scrubber": {
+          "h": 45.3099975585938,
+          "w": 344.75,
+          "x": 869.410034179688,
+          "y": 748.072143554688
+        }
+      },
+      "desktop_scale": 1.0,
+      "distance": 7.8,
+      "dragging": false,
+      "event": "viewer",
+      "front_window": "viewer-window",
+      "inputs": 40,
+      "interaction_count": 9,
+      "label": "viewer-resumed-after-20-frames",
+      "last_animated_control": "next",
+      "model_loaded": true,
+      "muted": false,
+      "ok": true,
+      "pitch": -20.69,
+      "playing": false,
+      "pointer_scale": 0.985000014305115,
+      "progress": 0.327,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 3954,
+      "ticks": 110,
+      "viewer_rect": {
+        "h": 669.799987792969,
+        "w": 788.0,
+        "x": 765.0,
+        "y": 164.9521484375
+      },
+      "viewport_rect": {
+        "h": 478.710021972656,
+        "w": 521.06494140625,
+        "x": 896.989990234375,
+        "y": 241.782150268555
+      },
+      "viewport_update_mode": 4,
+      "yaw": -62.15
+    },
+    {
+      "event": "screenshot",
+      "file": "10-resumed.png",
+      "t_ms": 4085
+    },
+    {
+      "active": 2,
+      "count": 6,
+      "draw_calls": 64,
+      "event": "state",
+      "label": "resized",
+      "t_ms": 4211,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 89.9138793945312,
+            "y": 11.3684215545654
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 217.722503662109,
+            "y": 11.3684215545654
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "3d_viewer",
+          "page_visible": true,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 345.531127929688,
+            "y": 11.3684215545654
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 473.339721679688,
+            "y": 11.3684215545654
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 601.148376464844,
+            "y": 11.3684215545654
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 728.956970214844,
+            "y": 11.3684215545654
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1440.0,
+        900.0
+      ]
+    },
+    {
+      "active_view": 1,
+      "animation_count": 4,
+      "catalogue_rect": {
+        "h": 778.923645019531,
+        "w": 347.545654296875,
+        "x": 260.821899414062,
+        "y": 67.6282119750977
+      },
+      "code": "",
+      "controls": {
+        "audio": {
+          "h": 39.3682250976562,
+          "w": 53.9173583984375,
+          "x": 1042.25646972656,
+          "y": 626.412048339844
+        },
+        "menu": {
+          "h": 39.3682250976562,
+          "w": 98.4205322265625,
+          "x": 1096.173828125,
+          "y": 626.412048339844
+        },
+        "next": {
+          "h": 143.779632568359,
+          "w": 117.248901367188,
+          "x": 1117.56958007812,
+          "y": 312.322052001953
+        },
+        "play-pause": {
+          "h": 39.3682250976562,
+          "w": 49.63818359375,
+          "x": 580.107727050781,
+          "y": 626.412048339844
+        },
+        "previous": {
+          "h": 143.779632568359,
+          "w": 114.681335449219,
+          "x": 550.153625488281,
+          "y": 312.322052001953
+        },
+        "scrubber": {
+          "h": 39.3682250976562,
+          "w": 299.540893554688,
+          "x": 640.871704101562,
+          "y": 626.412048339844
+        }
+      },
+      "desktop_scale": 0.868864059448242,
+      "distance": 7.8,
+      "dragging": false,
+      "event": "viewer",
+      "front_window": "viewer-window",
+      "inputs": 40,
+      "interaction_count": 9,
+      "label": "resized",
+      "last_animated_control": "next",
+      "model_loaded": true,
+      "muted": false,
+      "ok": true,
+      "pitch": -20.69,
+      "playing": false,
+      "pointer_scale": 0.855831110985719,
+      "progress": 0.327,
+      "size": [
+        1440.0,
+        844.535888671875
+      ],
+      "t_ms": 4211,
+      "ticks": 115,
+      "viewer_rect": {
+        "h": 581.965148925781,
+        "w": 684.664855957031,
+        "x": 550.153625488281,
+        "y": 119.760055541992
+      },
+      "viewport_rect": {
+        "h": 415.933898925781,
+        "w": 452.734619140625,
+        "x": 664.8349609375,
+        "y": 186.514877319336
+      },
+      "viewport_update_mode": 4,
+      "yaw": -62.15
+    },
+    {
+      "event": "screenshot",
+      "file": "11-resized.png",
+      "t_ms": 4316
+    },
+    {
+      "active": 2,
+      "count": 6,
+      "draw_calls": 64,
+      "event": "state",
+      "label": "restored",
+      "t_ms": 4450,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "3d_viewer",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "active_view": 1,
+      "animation_count": 4,
+      "catalogue_rect": {
+        "h": 896.485046386719,
+        "w": 400.0,
+        "x": 432.0,
+        "y": 104.952156066895
+      },
+      "code": "",
+      "controls": {
+        "audio": {
+          "h": 45.3099975585938,
+          "w": 62.0550537109375,
+          "x": 1331.375,
+          "y": 748.072143554688
+        },
+        "menu": {
+          "h": 45.3099975585938,
+          "w": 113.275024414062,
+          "x": 1393.42993164062,
+          "y": 748.072143554688
+        },
+        "next": {
+          "h": 165.47998046875,
+          "w": 134.945068359375,
+          "x": 1418.05493164062,
+          "y": 386.5771484375
+        },
+        "play-pause": {
+          "h": 45.3099975585938,
+          "w": 57.1300048828125,
+          "x": 799.474975585938,
+          "y": 748.072143554688
+        },
+        "previous": {
+          "h": 165.47998046875,
+          "w": 131.989990234375,
+          "x": 765.0,
+          "y": 386.5771484375
+        },
+        "scrubber": {
+          "h": 45.3099975585938,
+          "w": 344.75,
+          "x": 869.410034179688,
+          "y": 748.072143554688
+        }
+      },
+      "desktop_scale": 1.0,
+      "distance": 7.8,
+      "dragging": false,
+      "event": "viewer",
+      "front_window": "viewer-window",
+      "inputs": 40,
+      "interaction_count": 9,
+      "label": "restored",
+      "last_animated_control": "next",
+      "model_loaded": true,
+      "muted": false,
+      "ok": true,
+      "pitch": -20.69,
+      "playing": false,
+      "pointer_scale": 0.985000014305115,
+      "progress": 0.327,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 4450,
+      "ticks": 120,
+      "viewer_rect": {
+        "h": 669.799987792969,
+        "w": 788.0,
+        "x": 765.0,
+        "y": 164.9521484375
+      },
+      "viewport_rect": {
+        "h": 478.710021972656,
+        "w": 521.06494140625,
+        "x": 896.989990234375,
+        "y": 241.782150268555
+      },
+      "viewport_update_mode": 4,
+      "yaw": -62.15
+    },
+    {
+      "event": "screenshot",
+      "file": "12-restored.png",
+      "t_ms": 4586
+    }
+  ],
+  "viewport": [
+    1920,
+    1080
+  ]
+}

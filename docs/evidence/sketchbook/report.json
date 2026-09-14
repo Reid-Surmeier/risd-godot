@@ -1,0 +1,1667 @@
+{
+  "log": [
+    {
+      "active": 4,
+      "count": 6,
+      "draw_calls": 40,
+      "event": "state",
+      "label": "launch",
+      "t_ms": 21,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "shell.tenant_missing",
+      "event": "book",
+      "label": "launch",
+      "ok": false,
+      "t_ms": 21
+    },
+    {
+      "active": 4,
+      "count": 6,
+      "draw_calls": 40,
+      "event": "state",
+      "label": "pre-book",
+      "t_ms": 21,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "click",
+      "t_ms": 118,
+      "what": "sketchbook tab",
+      "x": 390.889953613281,
+      "y": 43.4067001342773
+    },
+    {
+      "active": 1,
+      "count": 6,
+      "draw_calls": 54,
+      "event": "state",
+      "label": "book",
+      "t_ms": 187,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "sketchbook",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "",
+      "controls": {
+        "next": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 1528.0,
+          "y": 998.9521484375
+        },
+        "previous": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 991.0,
+          "y": 998.9521484375
+        }
+      },
+      "desktop_scale": 1.0,
+      "dragging": false,
+      "drawing": false,
+      "event": "book",
+      "face_update_mode": 0,
+      "front_window": "sketchbook-window",
+      "hovering": false,
+      "ink_color": "4465e9",
+      "inputs": 1,
+      "label": "book-shown",
+      "last_stroke_points": 0,
+      "last_turn_ms": 0,
+      "ok": true,
+      "page_rect": {
+        "h": 382.619995117188,
+        "w": 560.239990234375,
+        "x": 1009.88000488281,
+        "y": 593.012145996094
+      },
+      "previous_disabled": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "spread": 1,
+      "static_update_mode": 1,
+      "strokes": 0,
+      "t_ms": 187,
+      "ticks": 9,
+      "title_rect": {
+        "h": 20.0,
+        "w": 620.0,
+        "x": 980.0,
+        "y": 550.9521484375
+      },
+      "turn_progress": 1.0,
+      "turning": "",
+      "window_rect": {
+        "h": 500.0,
+        "w": 620.0,
+        "x": 980.0,
+        "y": 550.9521484375
+      },
+      "window_visible": true
+    },
+    {
+      "event": "screenshot",
+      "file": "01-book.png",
+      "t_ms": 300
+    },
+    {
+      "event": "drag",
+      "from": [
+        1149.93994140625,
+        784.322143554688
+      ],
+      "relative_total": [
+        64.0,
+        24.0
+      ],
+      "steps": 8,
+      "t_ms": 408,
+      "to": [
+        1213.93994140625,
+        808.322143554688
+      ],
+      "what": "drag inside the page"
+    },
+    {
+      "code": "",
+      "controls": {
+        "next": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 1528.0,
+          "y": 998.9521484375
+        },
+        "previous": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 991.0,
+          "y": 998.9521484375
+        }
+      },
+      "desktop_scale": 1.0,
+      "dragging": false,
+      "drawing": false,
+      "event": "book",
+      "face_update_mode": 0,
+      "front_window": "sketchbook-window",
+      "hovering": true,
+      "ink_color": "4465e9",
+      "inputs": 12,
+      "label": "drawn",
+      "last_stroke_points": 9,
+      "last_turn_ms": 0,
+      "ok": true,
+      "page_rect": {
+        "h": 382.619995117188,
+        "w": 560.239990234375,
+        "x": 1009.88000488281,
+        "y": 593.012145996094
+      },
+      "previous_disabled": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "spread": 1,
+      "static_update_mode": 1,
+      "strokes": 1,
+      "t_ms": 433,
+      "ticks": 24,
+      "title_rect": {
+        "h": 20.0,
+        "w": 620.0,
+        "x": 980.0,
+        "y": 550.9521484375
+      },
+      "turn_progress": 1.0,
+      "turning": "",
+      "window_rect": {
+        "h": 500.0,
+        "w": 620.0,
+        "x": 980.0,
+        "y": 550.9521484375
+      },
+      "window_visible": true
+    },
+    {
+      "event": "screenshot",
+      "file": "02-drawn.png",
+      "t_ms": 545
+    },
+    {
+      "event": "click",
+      "t_ms": 612,
+      "what": "next-page button",
+      "x": 1558.5,
+      "y": 1014.9521484375
+    },
+    {
+      "code": "",
+      "controls": {
+        "next": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 1528.0,
+          "y": 998.9521484375
+        },
+        "previous": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 991.0,
+          "y": 998.9521484375
+        }
+      },
+      "desktop_scale": 1.0,
+      "dragging": false,
+      "drawing": false,
+      "event": "book",
+      "face_update_mode": 4,
+      "front_window": "sketchbook-window",
+      "hovering": false,
+      "ink_color": "4465e9",
+      "inputs": 15,
+      "label": "turning",
+      "last_stroke_points": 0,
+      "last_turn_ms": 0,
+      "ok": true,
+      "page_rect": {
+        "h": 382.619995117188,
+        "w": 560.239990234375,
+        "x": 1009.88000488281,
+        "y": 593.012145996094
+      },
+      "previous_disabled": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "spread": 2,
+      "static_update_mode": 1,
+      "strokes": 0,
+      "t_ms": 633,
+      "ticks": 30,
+      "title_rect": {
+        "h": 20.0,
+        "w": 620.0,
+        "x": 980.0,
+        "y": 550.9521484375
+      },
+      "turn_progress": 0.125701923076923,
+      "turning": "forward",
+      "window_rect": {
+        "h": 500.0,
+        "w": 620.0,
+        "x": 980.0,
+        "y": 550.9521484375
+      },
+      "window_visible": true
+    },
+    {
+      "event": "screenshot",
+      "file": "03-turning.png",
+      "t_ms": 746
+    },
+    {
+      "code": "",
+      "controls": {
+        "next": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 1528.0,
+          "y": 998.9521484375
+        },
+        "previous": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 991.0,
+          "y": 998.9521484375
+        }
+      },
+      "desktop_scale": 1.0,
+      "dragging": false,
+      "drawing": false,
+      "event": "book",
+      "face_update_mode": 0,
+      "front_window": "sketchbook-window",
+      "hovering": false,
+      "ink_color": "4465e9",
+      "inputs": 15,
+      "label": "turned",
+      "last_stroke_points": 0,
+      "last_turn_ms": 515,
+      "ok": true,
+      "page_rect": {
+        "h": 382.619995117188,
+        "w": 560.239990234375,
+        "x": 1009.88000488281,
+        "y": 593.012145996094
+      },
+      "previous_disabled": false,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "spread": 2,
+      "static_update_mode": 1,
+      "strokes": 0,
+      "t_ms": 1107,
+      "ticks": 65,
+      "title_rect": {
+        "h": 20.0,
+        "w": 620.0,
+        "x": 980.0,
+        "y": 550.9521484375
+      },
+      "turn_progress": 1.0,
+      "turning": "",
+      "window_rect": {
+        "h": 500.0,
+        "w": 620.0,
+        "x": 980.0,
+        "y": 550.9521484375
+      },
+      "window_visible": true
+    },
+    {
+      "event": "screenshot",
+      "file": "04-turned.png",
+      "t_ms": 1218
+    },
+    {
+      "event": "click",
+      "t_ms": 1251,
+      "what": "previous-page button",
+      "x": 1021.5,
+      "y": 1014.9521484375
+    },
+    {
+      "code": "",
+      "controls": {
+        "next": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 1528.0,
+          "y": 998.9521484375
+        },
+        "previous": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 991.0,
+          "y": 998.9521484375
+        }
+      },
+      "desktop_scale": 1.0,
+      "dragging": false,
+      "drawing": false,
+      "event": "book",
+      "face_update_mode": 0,
+      "front_window": "sketchbook-window",
+      "hovering": false,
+      "ink_color": "4465e9",
+      "inputs": 18,
+      "label": "turned-back",
+      "last_stroke_points": 9,
+      "last_turn_ms": 521,
+      "ok": true,
+      "page_rect": {
+        "h": 382.619995117188,
+        "w": 560.239990234375,
+        "x": 1009.88000488281,
+        "y": 593.012145996094
+      },
+      "previous_disabled": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "spread": 1,
+      "static_update_mode": 1,
+      "strokes": 1,
+      "t_ms": 1786,
+      "ticks": 120,
+      "title_rect": {
+        "h": 20.0,
+        "w": 620.0,
+        "x": 980.0,
+        "y": 550.9521484375
+      },
+      "turn_progress": 1.0,
+      "turning": "",
+      "window_rect": {
+        "h": 500.0,
+        "w": 620.0,
+        "x": 980.0,
+        "y": 550.9521484375
+      },
+      "window_visible": true
+    },
+    {
+      "event": "screenshot",
+      "file": "05-turned-back.png",
+      "t_ms": 1898
+    },
+    {
+      "event": "drag",
+      "from": [
+        1290.0,
+        560.9521484375
+      ],
+      "relative_total": [
+        -100.0,
+        -30.0
+      ],
+      "steps": 5,
+      "t_ms": 1971,
+      "to": [
+        1190.0,
+        530.9521484375
+      ],
+      "what": "drag the window by its title bar"
+    },
+    {
+      "code": "",
+      "controls": {
+        "next": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 1428.0,
+          "y": 968.9521484375
+        },
+        "previous": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 891.0,
+          "y": 968.9521484375
+        }
+      },
+      "desktop_scale": 1.0,
+      "dragging": false,
+      "drawing": false,
+      "event": "book",
+      "face_update_mode": 0,
+      "front_window": "sketchbook-window",
+      "hovering": false,
+      "ink_color": "4465e9",
+      "inputs": 26,
+      "label": "before-hidden",
+      "last_stroke_points": 9,
+      "last_turn_ms": 521,
+      "ok": true,
+      "page_rect": {
+        "h": 382.619995117188,
+        "w": 560.239990234375,
+        "x": 909.880004882812,
+        "y": 563.012145996094
+      },
+      "previous_disabled": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "spread": 1,
+      "static_update_mode": 1,
+      "strokes": 1,
+      "t_ms": 1998,
+      "ticks": 132,
+      "title_rect": {
+        "h": 20.0,
+        "w": 620.0,
+        "x": 880.0,
+        "y": 520.9521484375
+      },
+      "turn_progress": 1.0,
+      "turning": "",
+      "window_rect": {
+        "h": 500.0,
+        "w": 620.0,
+        "x": 880.0,
+        "y": 520.9521484375
+      },
+      "window_visible": true
+    },
+    {
+      "active": 1,
+      "count": 6,
+      "draw_calls": 54,
+      "event": "state",
+      "label": "before-hidden",
+      "t_ms": 1998,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "sketchbook",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "06-before-hidden.png",
+      "t_ms": 2110
+    },
+    {
+      "event": "click",
+      "t_ms": 2127,
+      "what": "map tab",
+      "x": 220.478485107422,
+      "y": 43.4067001342773
+    },
+    {
+      "active": 0,
+      "count": 6,
+      "draw_calls": 40,
+      "event": "state",
+      "label": "map",
+      "t_ms": 2148,
+      "tabs": [
+        {
+          "frozen": false,
+          "key": "map",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "",
+      "controls": {
+        "next": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 1428.0,
+          "y": 968.9521484375
+        },
+        "previous": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 891.0,
+          "y": 968.9521484375
+        }
+      },
+      "desktop_scale": 1.0,
+      "dragging": false,
+      "drawing": false,
+      "event": "book",
+      "face_update_mode": 0,
+      "front_window": "sketchbook-window",
+      "hovering": false,
+      "ink_color": "4465e9",
+      "inputs": 27,
+      "label": "book-hidden",
+      "last_stroke_points": 9,
+      "last_turn_ms": 521,
+      "ok": true,
+      "page_rect": {
+        "h": 382.619995117188,
+        "w": 560.239990234375,
+        "x": 909.880004882812,
+        "y": 563.012145996094
+      },
+      "previous_disabled": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "spread": 1,
+      "static_update_mode": 1,
+      "strokes": 1,
+      "t_ms": 2148,
+      "ticks": 133,
+      "title_rect": {
+        "h": 20.0,
+        "w": 620.0,
+        "x": 880.0,
+        "y": 520.9521484375
+      },
+      "turn_progress": 1.0,
+      "turning": "",
+      "window_rect": {
+        "h": 500.0,
+        "w": 620.0,
+        "x": 880.0,
+        "y": 520.9521484375
+      },
+      "window_visible": true
+    },
+    {
+      "event": "drag",
+      "from": [
+        1049.93994140625,
+        754.322143554688
+      ],
+      "relative_total": [
+        64.0,
+        24.0
+      ],
+      "steps": 8,
+      "t_ms": 2226,
+      "to": [
+        1113.93994140625,
+        778.322143554688
+      ],
+      "what": "drag inside the page while hidden"
+    },
+    {
+      "event": "click",
+      "t_ms": 2247,
+      "what": "next-page button while hidden",
+      "x": 1458.5,
+      "y": 984.9521484375
+    },
+    {
+      "code": "",
+      "controls": {
+        "next": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 1428.0,
+          "y": 968.9521484375
+        },
+        "previous": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 891.0,
+          "y": 968.9521484375
+        }
+      },
+      "desktop_scale": 1.0,
+      "dragging": false,
+      "drawing": false,
+      "event": "book",
+      "face_update_mode": 0,
+      "front_window": "sketchbook-window",
+      "hovering": false,
+      "ink_color": "4465e9",
+      "inputs": 27,
+      "label": "book-hidden-after-events",
+      "last_stroke_points": 9,
+      "last_turn_ms": 521,
+      "ok": true,
+      "page_rect": {
+        "h": 382.619995117188,
+        "w": 560.239990234375,
+        "x": 909.880004882812,
+        "y": 563.012145996094
+      },
+      "previous_disabled": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "spread": 1,
+      "static_update_mode": 1,
+      "strokes": 1,
+      "t_ms": 2384,
+      "ticks": 133,
+      "title_rect": {
+        "h": 20.0,
+        "w": 620.0,
+        "x": 880.0,
+        "y": 520.9521484375
+      },
+      "turn_progress": 1.0,
+      "turning": "",
+      "window_rect": {
+        "h": 500.0,
+        "w": 620.0,
+        "x": 880.0,
+        "y": 520.9521484375
+      },
+      "window_visible": true
+    },
+    {
+      "active": 0,
+      "count": 6,
+      "draw_calls": 40,
+      "event": "state",
+      "label": "map-after-20-frames",
+      "t_ms": 2384,
+      "tabs": [
+        {
+          "frozen": false,
+          "key": "map",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "07-hidden.png",
+      "t_ms": 2454
+    },
+    {
+      "event": "click",
+      "t_ms": 2475,
+      "what": "sketchbook tab (again)",
+      "x": 390.889953613281,
+      "y": 43.4067001342773
+    },
+    {
+      "active": 1,
+      "count": 6,
+      "draw_calls": 54,
+      "event": "state",
+      "label": "book-again",
+      "t_ms": 2501,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "sketchbook",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "",
+      "controls": {
+        "next": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 1428.0,
+          "y": 968.9521484375
+        },
+        "previous": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 891.0,
+          "y": 968.9521484375
+        }
+      },
+      "desktop_scale": 1.0,
+      "dragging": false,
+      "drawing": false,
+      "event": "book",
+      "face_update_mode": 0,
+      "front_window": "sketchbook-window",
+      "hovering": false,
+      "ink_color": "4465e9",
+      "inputs": 28,
+      "label": "book-resumed",
+      "last_stroke_points": 9,
+      "last_turn_ms": 521,
+      "ok": true,
+      "page_rect": {
+        "h": 382.619995117188,
+        "w": 560.239990234375,
+        "x": 909.880004882812,
+        "y": 563.012145996094
+      },
+      "previous_disabled": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "spread": 1,
+      "static_update_mode": 1,
+      "strokes": 1,
+      "t_ms": 2501,
+      "ticks": 138,
+      "title_rect": {
+        "h": 20.0,
+        "w": 620.0,
+        "x": 880.0,
+        "y": 520.9521484375
+      },
+      "turn_progress": 1.0,
+      "turning": "",
+      "window_rect": {
+        "h": 500.0,
+        "w": 620.0,
+        "x": 880.0,
+        "y": 520.9521484375
+      },
+      "window_visible": true
+    },
+    {
+      "code": "",
+      "controls": {
+        "next": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 1428.0,
+          "y": 968.9521484375
+        },
+        "previous": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 891.0,
+          "y": 968.9521484375
+        }
+      },
+      "desktop_scale": 1.0,
+      "dragging": false,
+      "drawing": false,
+      "event": "book",
+      "face_update_mode": 0,
+      "front_window": "sketchbook-window",
+      "hovering": false,
+      "ink_color": "4465e9",
+      "inputs": 28,
+      "label": "book-resumed-after-20-frames",
+      "last_stroke_points": 9,
+      "last_turn_ms": 521,
+      "ok": true,
+      "page_rect": {
+        "h": 382.619995117188,
+        "w": 560.239990234375,
+        "x": 909.880004882812,
+        "y": 563.012145996094
+      },
+      "previous_disabled": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "spread": 1,
+      "static_update_mode": 1,
+      "strokes": 1,
+      "t_ms": 2678,
+      "ticks": 158,
+      "title_rect": {
+        "h": 20.0,
+        "w": 620.0,
+        "x": 880.0,
+        "y": 520.9521484375
+      },
+      "turn_progress": 1.0,
+      "turning": "",
+      "window_rect": {
+        "h": 500.0,
+        "w": 620.0,
+        "x": 880.0,
+        "y": 520.9521484375
+      },
+      "window_visible": true
+    },
+    {
+      "event": "screenshot",
+      "file": "08-resumed.png",
+      "t_ms": 2790
+    },
+    {
+      "active": 1,
+      "count": 6,
+      "draw_calls": 54,
+      "event": "state",
+      "label": "resized",
+      "t_ms": 2830,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 89.9138793945312,
+            "y": 11.3684215545654
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "sketchbook",
+          "page_visible": true,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 217.722503662109,
+            "y": 11.3684215545654
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 345.531127929688,
+            "y": 11.3684215545654
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 473.339721679688,
+            "y": 11.3684215545654
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 601.148376464844,
+            "y": 11.3684215545654
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 728.956970214844,
+            "y": 11.3684215545654
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1440.0,
+        900.0
+      ]
+    },
+    {
+      "code": "",
+      "controls": {
+        "next": {
+          "h": 27.8036499023438,
+          "w": 53.000732421875,
+          "x": 1126.21044921875,
+          "y": 818.326782226562
+        },
+        "previous": {
+          "h": 27.8036499023438,
+          "w": 53.000732421875,
+          "x": 659.630493164062,
+          "y": 818.326782226562
+        }
+      },
+      "desktop_scale": 0.868864059448242,
+      "dragging": false,
+      "drawing": false,
+      "event": "book",
+      "face_update_mode": 0,
+      "front_window": "sketchbook-window",
+      "hovering": false,
+      "ink_color": "4465e9",
+      "inputs": 28,
+      "label": "resized",
+      "last_stroke_points": 9,
+      "last_turn_ms": 521,
+      "ok": true,
+      "page_rect": {
+        "h": 332.444732666016,
+        "w": 486.7724609375,
+        "x": 676.03466796875,
+        "y": 465.620086669922
+      },
+      "previous_disabled": true,
+      "size": [
+        1440.0,
+        844.535888671875
+      ],
+      "spread": 1,
+      "static_update_mode": 1,
+      "strokes": 1,
+      "t_ms": 2831,
+      "ticks": 163,
+      "title_rect": {
+        "h": 17.3772888183594,
+        "w": 538.69580078125,
+        "x": 650.072998046875,
+        "y": 429.075653076172
+      },
+      "turn_progress": 1.0,
+      "turning": "",
+      "window_rect": {
+        "h": 434.432037353516,
+        "w": 538.69580078125,
+        "x": 650.072998046875,
+        "y": 429.075653076172
+      },
+      "window_visible": true
+    },
+    {
+      "event": "screenshot",
+      "file": "09-resized.png",
+      "t_ms": 2913
+    },
+    {
+      "active": 1,
+      "count": 6,
+      "draw_calls": 54,
+      "event": "state",
+      "label": "restored",
+      "t_ms": 2960,
+      "tabs": [
+        {
+          "frozen": true,
+          "key": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": false,
+          "key": "sketchbook",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "",
+      "controls": {
+        "next": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 1428.0,
+          "y": 968.9521484375
+        },
+        "previous": {
+          "h": 32.0,
+          "w": 61.0,
+          "x": 891.0,
+          "y": 968.9521484375
+        }
+      },
+      "desktop_scale": 1.0,
+      "dragging": false,
+      "drawing": false,
+      "event": "book",
+      "face_update_mode": 0,
+      "front_window": "sketchbook-window",
+      "hovering": false,
+      "ink_color": "4465e9",
+      "inputs": 28,
+      "label": "restored",
+      "last_stroke_points": 9,
+      "last_turn_ms": 521,
+      "ok": true,
+      "page_rect": {
+        "h": 382.619995117188,
+        "w": 560.239990234375,
+        "x": 909.880004882812,
+        "y": 563.012145996094
+      },
+      "previous_disabled": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "spread": 1,
+      "static_update_mode": 1,
+      "strokes": 1,
+      "t_ms": 2960,
+      "ticks": 168,
+      "title_rect": {
+        "h": 20.0,
+        "w": 620.0,
+        "x": 880.0,
+        "y": 520.9521484375
+      },
+      "turn_progress": 1.0,
+      "turning": "",
+      "window_rect": {
+        "h": 500.0,
+        "w": 620.0,
+        "x": 880.0,
+        "y": 520.9521484375
+      },
+      "window_visible": true
+    },
+    {
+      "event": "screenshot",
+      "file": "10-restored.png",
+      "t_ms": 3069
+    }
+  ],
+  "viewport": [
+    1920,
+    1080
+  ]
+}
