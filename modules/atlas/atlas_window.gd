@@ -1,11 +1,14 @@
-## The Pixel Atlas map window: one draggable, resizable, collapsible frame (sliced from
-## assets/window-frame.png) whose body is a SubViewport holding atlas.gd. Reach it through
+## The Pixel Atlas desktop: the prototype's whole desktop on the Page — the four supplied raster
+## panels (minimap, itinerary, chat, notification) and the map window, all draggable, a press
+## raising the pressed one; the map window resizable and collapsible (sliced from
+## assets/window-frame.png), its body a SubViewport holding atlas.gd. Reach it through
 ## interface.gd only.
 ##
-## Ported from qwen-pipeline-experiments prototype/atlas-5 @ 421f1cc atlas_window.gd. Left behind:
-## the four desktop panels, the under-750-px phone layout, the clear-colour override and the
-## JavaScriptBridge publishes. Changed: it lays out from its own size / resized (never the root
-## viewport) and pointer positions are made local to it.
+## Ported from qwen-pipeline-experiments prototype/atlas-5 @ 421f1cc atlas_window.gd (the panels
+## arranged in 08dae0d, draggable in c0b7fc5). Left behind: the under-750-px phone layout, the
+## clear-colour override, the JavaScriptBridge publishes and the touch paths (a desktop-only
+## Tenant). Changed: it lays out from its own size / resized (never the root viewport) and
+## pointer positions are made local to it.
 extends Control
 
 const Errors := preload("res://modules/atlas/errors.gd")
@@ -13,8 +16,16 @@ const Errors := preload("res://modules/atlas/errors.gd")
 const ROOT := "res://modules/atlas/"
 const INSET := Vector2(36, 94)
 const FRAME_EXTRA := Vector2(72, 136)
-const FRAME_SIZE := Vector2(1158, 954)  # the prototype's map window on its 1950x1280 desktop
-const MARGIN := 24.0
+## The prototype's desktop composition (the owner's reference): panels and map window in the
+## 1950x1280 desktop's pixels, scaled to fit the Page and centred, as the prototype fits its viewport.
+const DESKTOP_SIZE := Vector2(1950, 1280)
+const FRAME_RECT := Rect2(450, 58, 1158, 954)
+const PANEL_RECTS := {
+	"minimap": Rect2(10, 72, 413, 371),
+	"itinerary": Rect2(18, 445, 397, 553),
+	"chat": Rect2(10, 1028, 540, 251),
+	"notification": Rect2(1674, 1200, 272, 79),
+}
 
 var key := ""
 var ticks := 0
@@ -28,6 +39,8 @@ var lock_button := TextureButton.new()
 var container := SubViewportContainer.new()
 var viewport := SubViewport.new()
 var map: Node2D
+var panels: Dictionary = {}
+var moving_window: Control
 var locked := false
 var collapsed := false
 var expanded_size := Vector2.ZERO
@@ -57,6 +70,16 @@ static func create(deps: Dictionary) -> Dictionary:
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for id in PANEL_RECTS:
+		var panel := TextureRect.new()
+		panel.name = id
+		panel.tooltip_text = "Drag to move"
+		panel.texture = load(ROOT + "assets/desktop/" + id + ".png")
+		panel.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		panel.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		add_child(panel)
+		panels[id] = panel
 	frame.name = "map"
 	frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(frame)
@@ -88,16 +111,22 @@ func _ready() -> void:
 	viewport.add_child(map)
 
 
-## The window opens centred at the largest FRAME_SIZE-proportioned rect that fits with a margin;
-## a Page resize re-fits it, as the prototype's desktop did on a viewport resize.
+## The desktop composition scaled to fit the Page and centred: the panels and the map window at
+## their reference rects; a Page resize restores it, as the prototype's desktop did on a viewport
+## resize (the phone layout under 750 px is not ported).
 func _fit_window() -> void:
 	action = ""
+	moving_window = null
 	if size.x < 2 or size.y < 2:
 		return
-	var scale := minf((size.x - 2 * MARGIN) / FRAME_SIZE.x, (size.y - 2 * MARGIN) / FRAME_SIZE.y)
-	frame.size = (FRAME_SIZE * scale).round()
-	frame.position = ((size - frame.size) / 2).round()
-	chrome_scale = minf(1.0, frame.size.x / 1724.0)
+	var scale := minf(size.x / DESKTOP_SIZE.x, size.y / DESKTOP_SIZE.y)
+	var origin := ((size - DESKTOP_SIZE * scale) / 2).round()
+	for id in panels:
+		panels[id].position = (origin + PANEL_RECTS[id].position * scale).round()
+		panels[id].size = (PANEL_RECTS[id].size * scale).round()
+	frame.position = (origin + FRAME_RECT.position * scale).round()
+	frame.size = (FRAME_RECT.size * scale).round()
+	chrome_scale = minf(1.0, FRAME_RECT.size.x / 1724.0 * scale)
 	collapsed = false
 	container.visible = true
 	_layout()
@@ -126,14 +155,28 @@ func _collapse() -> void:
 	_layout()
 
 
-## Title-bar drag and edge resize of the frame, by the mouse (a desktop-only Tenant). A press on
-## the map body is left for the SubViewportContainer to forward to the map (pan, zoom); the wheel
-## and the keys always are.
+## The topmost window (panel or map frame) under a pointer in the Tenant's own pixels.
+func _top_window_at(pointer: Vector2) -> Control:
+	var windows := get_children()
+	windows.reverse()
+	for window in windows:
+		if window is Control and window.get_rect().has_point(pointer):
+			return window
+	return null
+
+
+## The desktop's mouse handling (a desktop-only Tenant): a press raises the window under it; a
+## panel drags from anywhere, the map frame by its title bar and resizes by its edges; the wheel
+## over a panel is swallowed so the map beneath does not zoom. A press on the map body is left for
+## the SubViewportContainer to forward to the map (pan, zoom); the keys always are.
 func _input(event: InputEvent) -> void:
 	inputs += 1
 	if event is InputEventMouse and event.device == -1:
 		return
 	if event is InputEventMouseButton and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
+		var over := _top_window_at(make_canvas_position_local(event.position))
+		if over != null and over != frame:
+			get_viewport().set_input_as_handled()
 		return
 	var pointer := Vector2.ZERO
 	var pressed := false
@@ -149,29 +192,38 @@ func _input(event: InputEvent) -> void:
 	else:
 		return
 	if pressed:
-		var rect := frame.get_rect()
-		if locked or not rect.has_point(pointer):
+		var target := _top_window_at(pointer)
+		if target == null:
 			return
-		var local := pointer - rect.position
-		edges = Vector2i(-1 if local.x < 10 else (1 if local.x > rect.size.x - 10 else 0),
-				-1 if local.y < 10 else (1 if local.y > rect.size.y - 10 else 0))
-		if edges != Vector2i.ZERO and not collapsed:
-			action = "resize"
-		elif local.y >= 30 * chrome_scale and local.y < 94 * chrome_scale \
-				and local.x > 90 * chrome_scale and local.x < rect.size.x - 100 * chrome_scale:
-			action = "drag"
+		move_child(target, get_child_count() - 1)
+		var rect := target.get_rect()
+		if target == frame:
+			if locked:
+				return
+			var local := pointer - rect.position
+			edges = Vector2i(-1 if local.x < 10 else (1 if local.x > rect.size.x - 10 else 0),
+					-1 if local.y < 10 else (1 if local.y > rect.size.y - 10 else 0))
+			if edges != Vector2i.ZERO and not collapsed:
+				action = "resize"
+			elif local.y >= 30 * chrome_scale and local.y < 94 * chrome_scale \
+					and local.x > 90 * chrome_scale and local.x < rect.size.x - 100 * chrome_scale:
+				action = "drag"
+			else:
+				return
 		else:
-			return
+			action = "drag"
+		moving_window = target
 		start_pointer = pointer
 		start_rect = rect
 	elif released:
 		if action.is_empty():
 			return
 		action = ""
+		moving_window = null
 	elif motion and not action.is_empty():
 		var delta := pointer - start_pointer
 		if action == "drag":
-			frame.position = (start_rect.position + delta).clamp(Vector2.ZERO, (size - frame.size).max(Vector2.ZERO))
+			moving_window.position = (start_rect.position + delta).clamp(Vector2.ZERO, (size - moving_window.size).max(Vector2.ZERO))
 		else:
 			var low := start_rect.position
 			var high := start_rect.end
@@ -220,11 +272,19 @@ func _process(_delta: float) -> void:
 	ticks += 1
 
 
-## The harness probe (the Tenant contract): the map's own snapshot plus the window's state.
+## The harness probe (the Tenant contract): the map's own snapshot plus the desktop's state.
 func state() -> Dictionary:
 	var s: Dictionary = map.snapshot()
+	var panel_rects := {}
+	for id in panels:
+		panel_rects[id] = panels[id].get_rect()
+	var stack: Array = []
+	for window in get_children():
+		stack.append(str(window.name))
 	s.merge({"key": key, "ticks": ticks, "inputs": inputs, "size": size, "frame": frame.get_rect(),
 			"frame_global": frame.get_global_rect(),
 			"map_rect": container.get_global_rect(), "chrome_scale": chrome_scale, "locked": locked,
-			"collapsed": collapsed, "action": action, "viewport_update_mode": viewport.render_target_update_mode})
+			"collapsed": collapsed, "action": action, "viewport_update_mode": viewport.render_target_update_mode,
+			"panels": panel_rects, "stack": stack,
+			"moving_window": str(moving_window.name) if moving_window != null else ""})
 	return Errors.ok(s)

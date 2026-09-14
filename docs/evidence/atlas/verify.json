@@ -3,7 +3,7 @@
  "checks": {
   "screenshots_present": {
    "pass": true,
-   "detail": "['01-map.png', '02-zoomed.png', '03-panned.png', '04-window-moved.png', '05-window-clamped.png', '06-window-resized.png', '07-collapsed.png', '08-key-home.png', '09-before-hidden.png', '10-hidden.png', '11-resumed.png', '12-resized.png', '13-restored.png']"
+   "detail": "['01-map.png', '02-panel-moved.png', '03-zoomed.png', '04-panned.png', '05-window-moved.png', '06-window-clamped.png', '07-window-resized.png', '08-collapsed.png', '09-key-home.png', '10-before-hidden.png', '11-hidden.png', '12-resumed.png', '13-resized.png', '14-restored.png']"
   },
   "map_screenshot_is_1920x1080": {
    "pass": true,
@@ -21,21 +21,65 @@
    "pass": true,
    "detail": "[1920.0, 1006.0478515625]"
   },
-  "window_fits_page_centred": {
+  "window_at_reference_rect": {
    "pass": true,
-   "detail": "{'h': 958.0, 'w': 1163.0, 'x': 379.0, 'y': 24.0}"
+   "detail": "frame {'h': 750.0, 'w': 910.0, 'x': 548.0, 'y': 46.0} expected {'x': 548, 'y': 46, 'w': 910, 'h': 750}"
   },
-  "chrome_scale_from_frame_width": {
+  "chrome_scale_from_desktop_scale": {
    "pass": true,
-   "detail": "0.674593967517401"
+   "detail": "0.52793440586453"
+  },
+  "four_panels_at_reference_composition": {
+   "pass": true,
+   "detail": "{'chat': {'h': 197.0, 'w': 424.0, 'x': 202.0, 'y': 808.0}, 'itinerary': {'h': 435.0, 'w': 312.0, 'x': 208.0, 'y': 350.0}, 'minimap': {'h': 292.0, 'w': 325.0, 'x': 202.0, 'y': 57.0}, 'notification': {'h': 62.0, 'w': 214.0, 'x': 1510.0, 'y': 943.0}}"
+  },
+  "minimap_over_itinerary_over_chat_at_left_map_at_centre_notification_bottom_right": {
+   "pass": true,
+   "detail": ""
+  },
+  "nothing_overlaps_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "stack_opens_with_map_on_top": {
+   "pass": true,
+   "detail": "['minimap', 'itinerary', 'chat', 'notification', 'map']"
   },
   "map_body_inside_frame_below_bar": {
    "pass": true,
-   "detail": "map {'h': 866.0, 'w': 1114.0, 'x': 403.0, 'y': 160.9521484375} frame {'h': 958.0, 'w': 1163.0, 'x': 379.0, 'y': 97.9521560668945} viewport [1114.0, 866.0]"
+   "detail": "map {'h': 678.0, 'w': 872.0, 'x': 567.0, 'y': 169.9521484375} frame {'h': 750.0, 'w': 910.0, 'x': 548.0, 'y': 119.952156066895} viewport [872.0, 678.0]"
   },
   "atlas_opens_on_world_view": {
    "pass": true,
-   "detail": "zoom 0.320740729570389 min 0.320740740740741"
+   "detail": "zoom 0.25111111998558 min 0.251111111111111"
+  },
+  "panel_drag_starts_on_the_panel": {
+   "pass": true,
+   "detail": "from [1617.0, 1047.9521484375] panel {'x': 1510.0, 'y': 1016.952156066895, 'w': 214.0, 'h': 62.0}"
+  },
+  "panel_drag_moves_it_by_the_drag": {
+   "pass": true,
+   "detail": "{'h': 62.0, 'w': 214.0, 'x': 1510.0, 'y': 943.0} -> {'h': 62.0, 'w': 214.0, 'x': 810.0, 'y': 243.0} by [-700.0, -700.0]"
+  },
+  "panel_drag_moves_nothing_else": {
+   "pass": true,
+   "detail": ""
+  },
+  "pressed_panel_comes_to_the_top": {
+   "pass": true,
+   "detail": "['minimap', 'itinerary', 'chat', 'map', 'notification']"
+  },
+  "moved_panel_lies_over_the_map_body": {
+   "pass": true,
+   "detail": "panel {'x': 810.0, 'y': 316.952156066895, 'w': 214.0, 'h': 62.0} map {'h': 678.0, 'w': 872.0, 'x': 567.0, 'y': 169.9521484375}"
+  },
+  "wheel_over_panel_lands_on_it": {
+   "pass": true,
+   "detail": ""
+  },
+  "wheel_over_panel_does_not_zoom_map": {
+   "pass": true,
+   "detail": "zoom 0.25111111998558 -> 0.25111111998558"
   },
   "wheel_lands_inside_map": {
    "pass": true,
@@ -43,7 +87,7 @@
   },
   "wheel_zooms_in_at_centre": {
    "pass": true,
-   "detail": "zoom 0.3207 -> 0.5270 (x1.643), position [2240.0, 1350.0] -> [2240.0, 1350.0]"
+   "detail": "zoom 0.2511 -> 0.4126 (x1.643), position [2240.0, 1350.0] -> [2240.0, 1350.0]"
   },
   "zoom_unlocks_vertical_pan": {
    "pass": true,
@@ -51,15 +95,15 @@
   },
   "drag_pans_camera_by_drag_over_zoom": {
    "pass": true,
-   "detail": "expected [2543.6, 1577.7], got [2543.6, 1577.7]"
+   "detail": "expected [2627.8, 1640.9], got [2627.8, 1640.9]"
   },
   "title_drag_starts_on_title_bar": {
    "pass": true,
-   "detail": "from [960.5, 138.427795410156] frame {'h': 958.0, 'w': 1163.0, 'x': 379.0, 'y': 97.9521560668945}"
+   "detail": "from [1003.0, 151.628219604492] frame {'h': 750.0, 'w': 910.0, 'x': 548.0, 'y': 119.952156066895}"
   },
   "title_drag_moves_window": {
    "pass": true,
-   "detail": "{'h': 958.0, 'w': 1163.0, 'x': 379.0, 'y': 24.0} -> {'h': 958.0, 'w': 1163.0, 'x': 449.0, 'y': 9.0} by [70.0, -15.0]"
+   "detail": "{'h': 750.0, 'w': 910.0, 'x': 548.0, 'y': 46.0} -> {'h': 750.0, 'w': 910.0, 'x': 618.0, 'y': 31.0} by [70.0, -15.0], stack ['minimap', 'itinerary', 'chat', 'notification', 'map']"
   },
   "still_on_map_tab_after_window_drag": {
    "pass": true,
@@ -67,15 +111,15 @@
   },
   "window_drag_clamps_to_page_edge": {
    "pass": true,
-   "detail": "page [1920.0, 1006.0478515625], frame {'h': 958.0, 'w': 1163.0, 'x': 757.0, 'y': 48.0478515625}"
+   "detail": "page [1920.0, 1006.0478515625], frame {'h': 750.0, 'w': 910.0, 'x': 1010.0, 'y': 256.0478515625}"
   },
   "corner_drag_resizes_frame_in_place": {
    "pass": true,
-   "detail": "{'h': 958.0, 'w': 1163.0, 'x': 757.0, 'y': 48.0478515625} -> {'h': 858.0, 'w': 1013.0, 'x': 757.0, 'y': 48.0478515625} by [-150.0, -100.0]"
+   "detail": "{'h': 750.0, 'w': 910.0, 'x': 1010.0, 'y': 256.0478515625} -> {'h': 650.0, 'w': 760.0, 'x': 1010.0, 'y': 256.0478515625} by [-150.0, -100.0]"
   },
   "map_body_follows_the_resize": {
    "pass": true,
-   "detail": "map {'h': 766.0, 'w': 964.0, 'x': 781.0, 'y': 185.0} viewport [964.0, 766.0]"
+   "detail": "map {'h': 578.0, 'w': 722.0, 'x': 1029.0, 'y': 380.0} viewport [722.0, 578.0]"
   },
   "collapse_click_lands_on_left_button": {
    "pass": true,
@@ -83,7 +127,7 @@
   },
   "collapse_folds_window_to_title_bar": {
    "pass": true,
-   "detail": "{'h': 92.0, 'w': 1013.0, 'x': 757.0, 'y': 48.0478515625}"
+   "detail": "{'h': 72.0, 'w': 760.0, 'x': 1010.0, 'y': 256.0478515625}"
   },
   "collapse_again_expands_to_former_size": {
    "pass": true,
@@ -95,7 +139,7 @@
   },
   "lock_holds_window_under_title_drag": {
    "pass": true,
-   "detail": "{'h': 858.0, 'w': 1013.0, 'x': 757.0, 'y': 48.0478515625}"
+   "detail": "{'h': 650.0, 'w': 760.0, 'x': 1010.0, 'y': 256.0478515625}"
   },
   "lock_again_unlocks": {
    "pass": true,
@@ -107,11 +151,11 @@
   },
   "plus_key_zooms_in": {
    "pass": true,
-   "detail": "zoom 0.5270 -> 0.6851"
+   "detail": "zoom 0.4126 -> 0.5364"
   },
   "right_key_pans_east": {
    "pass": true,
-   "detail": "dx 145.97 expected 145.97"
+   "detail": "dx 186.44 expected 186.44"
   },
   "f_key_shows_sheet_and_again_returns": {
    "pass": true,
@@ -119,7 +163,7 @@
   },
   "home_key_resets_to_world_view": {
    "pass": true,
-   "detail": "zoom 0.283703714609146 min 0.283703703703704 position [2240.0, 1350.0]"
+   "detail": "zoom 0.214074075222015 min 0.214074074074074 position [2240.0, 1350.0]"
   },
   "wheel_after_home_leaves_a_zoomed_view": {
    "pass": true,
@@ -131,19 +175,19 @@
   },
   "hidden_tenant_process_stops": {
    "pass": true,
-   "detail": "ticks 123 -> 123 over 20 frames"
+   "detail": "ticks 143 -> 143 over 20 frames"
   },
   "hidden_tenant_gets_no_input": {
    "pass": true,
-   "detail": "inputs 65 -> 65"
+   "detail": "inputs 78 -> 78"
   },
   "hidden_events_change_nothing": {
    "pass": true,
-   "detail": "0.395029038190842 [2240.0, 1350.0] {'h': 858.0, 'w': 1013.0, 'x': 757.0, 'y': 48.0478515625}"
+   "detail": "0.298076748847961 [2240.0, 1350.0] {'h': 650.0, 'w': 760.0, 'x': 1010.0, 'y': 256.0478515625}"
   },
   "hidden_keys_change_nothing": {
    "pass": true,
-   "detail": "[('atlas', 0.395), ('atlas', 0.395), ('atlas', 0.395), ('atlas', 0.395), ('atlas', 0.395)]"
+   "detail": "[('atlas', 0.2981), ('atlas', 0.2981), ('atlas', 0.2981), ('atlas', 0.2981), ('atlas', 0.2981)]"
   },
   "hidden_subviewport_update_disabled": {
    "pass": true,
@@ -151,11 +195,11 @@
   },
   "hidden_subviewport_renders_nothing": {
    "pass": true,
-   "detail": "draw calls: white page 40, map shown 62, map hidden 40"
+   "detail": "draw calls: white page 40, map shown 65, map hidden 40"
   },
   "map_resumes_with_state_intact": {
    "pass": true,
-   "detail": "ticks frozen 123, resumed 127 -> 147"
+   "detail": "ticks frozen 143, resumed 147 -> 167"
   },
   "resumed_subviewport_updates_again": {
    "pass": true,
@@ -163,7 +207,11 @@
   },
   "resize_refits_tenant_and_window": {
    "pass": true,
-   "detail": "tenant [1440.0, 844.535888671875], frame {'h': 797.0, 'w': 967.0, 'x': 237.0, 'y': 24.0}"
+   "detail": "tenant [1440.0, 844.535888671875], frame {'h': 629.0, 'w': 764.0, 'x': 374.0, 'y': 38.0} expected {'x': 374, 'y': 38, 'w': 764, 'h': 629}"
+  },
+  "resize_refits_panels_to_reference_composition": {
+   "pass": true,
+   "detail": "{'chat': {'h': 166.0, 'w': 356.0, 'x': 84.0, 'y': 678.0}, 'itinerary': {'h': 365.0, 'w': 262.0, 'x': 89.0, 'y': 294.0}, 'minimap': {'h': 245.0, 'w': 272.0, 'x': 84.0, 'y': 48.0}, 'notification': {'h': 52.0, 'w': 179.0, 'x': 1181.0, 'y': 792.0}}"
   },
   "resized_screenshot_is_1440x900": {
    "pass": true,
@@ -175,15 +223,23 @@
   },
   "map_body_shows_sea_and_land": {
    "pass": true,
-   "detail": "cyan 577667 pink 292736 of 956820"
+   "detail": "cyan 344877 pink 177502 of 585032"
   },
   "frame_title_bar_drawn": {
    "pass": true,
-   "detail": "dark px 1541"
+   "detail": "dark px 979"
   },
-  "page_outside_window_is_white": {
+  "panels_drawn_with_their_raster_art": {
+   "pass": true,
+   "detail": "dark px {'minimap': 2720, 'itinerary': 10953, 'chat': 1398, 'notification': 610}, non-white fraction {'minimap': 0.535, 'itinerary': 0.708, 'chat': 0.262, 'notification': 0.232}"
+  },
+  "page_above_window_is_white": {
    "pass": true,
    "detail": "mean 255.00"
+  },
+  "moved_panel_draws_over_the_map": {
+   "pass": true,
+   "detail": "dark px where it landed: before 0, after 610"
   },
   "zoom_changes_map_pixels": {
    "pass": true,
@@ -199,7 +255,7 @@
   },
   "clamped_window_touches_page_corner": {
    "pass": true,
-   "detail": "frame ends at 1920.0, 1080.000007629395"
+   "detail": "frame ends at 1920.0, 1080.0"
   },
   "resize_frees_white_page_below_window": {
    "pass": true,
@@ -219,18 +275,19 @@
   }
  },
  "sha256": {
-  "01-map.png": "4773a7a18e732166d8b75050754f322cc3d51b96d2a3ed61dff6b6acf0a27cb9",
-  "02-zoomed.png": "aa1f36c68ecb6881fc4fb583bcc0edf7a19ef6f619fbd2bddc1491f48570211b",
-  "03-panned.png": "721b73534ebb02d1c6e3da70577e9c4537a6dae36755f1c787168ee23f48982e",
-  "04-window-moved.png": "8127b82cd8b9f483e9868a36aafcf14b4f2a53784febc638748e6803159f088d",
-  "05-window-clamped.png": "2b1bddf84fa9c1c85b331903ad409da381d47371584fc40dfbb05c4f6f629970",
-  "06-window-resized.png": "25bc9c26f1f1149a9883b11f91611e6aa1953e2cbbe0489fb46bd6fbae4a6eee",
-  "07-collapsed.png": "51facf0bb482429d3f41d8b3de89a4ad4df19a956ab30100678f7b85bbd5fda2",
-  "08-key-home.png": "bb741d7531207b1f1a32fd95a0b3b5d7697a472f230260b6a18fedc84884b7d1",
-  "09-before-hidden.png": "f6da20d3eb33a5140282f62a6870aac8e5533d66bb61db32d838163139bc5139",
-  "10-hidden.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
-  "11-resumed.png": "f6da20d3eb33a5140282f62a6870aac8e5533d66bb61db32d838163139bc5139",
-  "12-resized.png": "8e9ea600a606b2d42608a4375f2117923ee00cb840688729e9ec85f21c7cad2b",
-  "13-restored.png": "23738c31d2e94da55223dbcb4f032e3b7d18c246de7416131ec2e485ff410687"
+  "01-map.png": "dc62b98eaca182bb3a8287cad8086fdb2dd07a7052ea9803a3b4879828c07058",
+  "02-panel-moved.png": "05f6a187b4a635902a63e3af69686fd8ce5cd8c02ce6499f53120082fc433eb9",
+  "03-zoomed.png": "d8f6774633d696543ef356669df631f182a5f2f918dc8f44724076af6eba0bf4",
+  "04-panned.png": "d02c2f493d782718921ca226057e02685bd6460bde52ef3b9f640d29d1fa1b85",
+  "05-window-moved.png": "5177328acac922f3cdbd7c4f65e4669ded9e124b622359cb6da9b83bf84e3cd1",
+  "06-window-clamped.png": "59e501f1ee49e54ef2d990c7484874a72051cbecf4fd8b3840c3cd65730fdb84",
+  "07-window-resized.png": "056a6cf98d9aebc6da5a2f3dc277a274205983ca1efa3fa48f8e1c2253f9af01",
+  "08-collapsed.png": "29fb67b1a94174b919654dfa378fc3b5a7752d98db608e479187f9d371d7ae83",
+  "09-key-home.png": "15f5f2b494184c871ac7efe963584931ab5e50f118e973488412eaff335c0c5b",
+  "10-before-hidden.png": "218c22e021cdabe28f99f56da31e8e3c5309aa14afeba107fe558813d2af71a3",
+  "11-hidden.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
+  "12-resumed.png": "218c22e021cdabe28f99f56da31e8e3c5309aa14afeba107fe558813d2af71a3",
+  "13-resized.png": "6529d81bf0955c1029343b168992f6bbbaf2e2783bf5cb660b64170a3a197a61",
+  "14-restored.png": "7cdbd31dbdc3f6fa7f8ff4b16173cfce6ca2ff02129b831bb6897a2904e1e638"
  }
 }
