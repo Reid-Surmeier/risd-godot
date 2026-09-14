@@ -1,0 +1,200 @@
+{
+ "pass": true,
+ "checks": {
+  "five_preview_videos_match_manifest": {
+   "pass": true,
+   "detail": ""
+  },
+  "screenshots_present": {
+   "pass": true,
+   "detail": "['01-shown.png', '02-playing.png', '03-tile-3.png', '04-paused.png', '05-paused-20.png', '06-seeked.png', '07-fullscreen.png', '08-windowed.png', '09-viewer-moved.png', '10-before-hidden.png', '11-hidden.png', '12-resumed.png', '13-resized.png']"
+  },
+  "shown_screenshot_is_1920x1080": {
+   "pass": true,
+   "detail": "(1080, 1920, 3)"
+  },
+  "no_video_tenant_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "click_video_tab_creates_and_shows_player": {
+   "pass": true,
+   "detail": "{'frozen': False, 'key': 'video_player', 'page_visible': True, 'rect': {'h': 56.4976081848145, 'w': 201.186584472656, 'x': 631.11962890625, 'y': 15.1578950881958}, 'tenant': 'ok'}"
+  },
+  "tenant_fills_page_area": {
+   "pass": true,
+   "detail": "[1920.0, 1006.0478515625]"
+  },
+  "viewer_fits_page_centred": {
+   "pass": true,
+   "detail": "scale 0.5870 rect {'h': 958.0478515625, 'w': 901.692138671875, 'x': 509.0, 'y': 97.9521560668945}"
+  },
+  "video_body_at_its_source_rect_in_the_viewer": {
+   "pass": true,
+   "detail": "{'h': 429.712646484375, 'w': 801.8955078125, 'x': 557.13720703125, 'y': 160.178298950195}"
+  },
+  "eight_tiles_five_enabled_in_a_row": {
+   "pass": true,
+   "detail": "[True, True, True, True, True, False, False, False]"
+  },
+  "controls_have_rects_inside_the_viewer": {
+   "pass": true,
+   "detail": ""
+  },
+  "first_video_autoplays_from_start": {
+   "pass": true,
+   "detail": "1191767929 at 0.08/218.6"
+  },
+  "position_advances_while_playing": {
+   "pass": true,
+   "detail": "0.08 -> 0.45 over 31 ticks"
+  },
+  "tile_click_lands_on_tile_3": {
+   "pass": true,
+   "detail": ""
+  },
+  "tile_3_plays_its_mapped_video_from_start": {
+   "pass": true,
+   "detail": "1014865523 0.02 -> 0.28"
+  },
+  "video_body_pixels_change_between_positions": {
+   "pass": true,
+   "detail": "mean abs diff 131.9"
+  },
+  "pause_click_lands_on_play_control": {
+   "pass": true,
+   "detail": ""
+  },
+  "pause_holds_position": {
+   "pass": true,
+   "detail": "0.395 -> 0.395 over 21 ticks"
+  },
+  "video_body_pixels_hold_while_paused": {
+   "pass": true,
+   "detail": "mean abs diff 0.000"
+  },
+  "pause_again_resumes": {
+   "pass": true,
+   "detail": ""
+  },
+  "seek_drag_starts_on_the_knob": {
+   "pass": true,
+   "detail": "from [766.983764648438, 682.936645507812] knob {'h': 18.1982421875, 'w': 17.0241088867188, 'x': 758.4716796875, 'y': 673.837524414062}"
+  },
+  "seek_drag_moves_position_to_the_knob": {
+   "pass": true,
+   "detail": "expected 0.299, got 0.299 (43.6 s)"
+  },
+  "mute_click_lands_on_mute_control": {
+   "pass": true,
+   "detail": ""
+  },
+  "mute_silences": {
+   "pass": true,
+   "detail": ""
+  },
+  "volume_drag_starts_on_the_knob": {
+   "pass": true,
+   "detail": ""
+  },
+  "volume_drag_sets_gain_and_unmutes": {
+   "pass": true,
+   "detail": "expected 0.456, got 0.456"
+  },
+  "fullscreen_click_lands_on_its_control": {
+   "pass": true,
+   "detail": ""
+  },
+  "fullscreen_fills_the_page": {
+   "pass": true,
+   "detail": "{'h': 1006.0478515625, 'w': 1920.0, 'x': 0.0, 'y': 73.9521560668945}"
+  },
+  "fullscreen_keeps_playing": {
+   "pass": true,
+   "detail": "43.88 -> 44.21"
+  },
+  "fullscreen_pixels_cover_the_page_under_the_strip": {
+   "pass": true,
+   "detail": "white fraction 0.105, strip diff 0.000"
+  },
+  "f_key_restores_the_viewer": {
+   "pass": true,
+   "detail": "{'h': 429.712646484375, 'w': 801.8955078125, 'x': 557.13720703125, 'y': 160.178298950195}"
+  },
+  "white_desktop_outside_the_viewer": {
+   "pass": true,
+   "detail": "outside mean 255.00"
+  },
+  "space_pauses_and_resumes": {
+   "pass": true,
+   "detail": ""
+  },
+  "right_seeks_five_seconds": {
+   "pass": true,
+   "detail": "44.31 -> 49.35"
+  },
+  "key_2_picks_the_second_tile": {
+   "pass": true,
+   "detail": "1187745268 0.03/3033"
+  },
+  "save_click_toggles_session_state": {
+   "pass": true,
+   "detail": ""
+  },
+  "title_drag_starts_on_title_bar": {
+   "pass": true,
+   "detail": ""
+  },
+  "title_drag_moves_viewer_by_the_drag": {
+   "pass": true,
+   "detail": "[509.0, 24.0] -> [579.0, 9.0] by [70.0, -15.0]"
+  },
+  "viewer_drag_clamps_to_keep_title_bar_reachable": {
+   "pass": true,
+   "detail": "position [1671.86279296875, 944.408752441406] page [1920.0, 1006.0478515625]"
+  },
+  "map_tab_hides_and_freezes_video_page": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_page_pauses_video": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_page_ignores_keys_and_click": {
+   "pass": true,
+   "detail": "ticks 208 -> 208, position 0.396 -> 0.396"
+  },
+  "hidden_page_shows_plain_white_map": {
+   "pass": true,
+   "detail": "mean 255.00"
+  },
+  "video_tab_again_resumes_playing": {
+   "pass": true,
+   "detail": "0.40 -> 0.50 -> 0.75"
+  },
+  "resize_refits_viewer_to_smaller_page": {
+   "pass": true,
+   "detail": "scale 0.4881 (expected 0.4881) position [1199.97802734375, 793.288146972656]"
+  },
+  "restore_refits_viewer_to_launch_scale": {
+   "pass": true,
+   "detail": ""
+  }
+ },
+ "sha256": {
+  "01-shown.png": "4dd9deec12e2452ba72dd336675afcabb3a6a9fe5b0b9e6777ad1dcdcd93f7f9",
+  "02-playing.png": "4dd9deec12e2452ba72dd336675afcabb3a6a9fe5b0b9e6777ad1dcdcd93f7f9",
+  "03-tile-3.png": "65055c206ec6af42c463d348ca07375fb376ca46ed3a9e1d622c7aab5cc04535",
+  "04-paused.png": "8941e6af05fcdd7661cc9c4055c12a68bd43eb473f039b939be24bc90c37149b",
+  "05-paused-20.png": "ecf6b69163f53b71f8e04fa1ab19d0ecf16c20a413722179be6102c3a338a8d6",
+  "06-seeked.png": "529cca1a19cbe85cbfeced5604d66fc382891ad1f0e9b613654e18b9149b9b48",
+  "07-fullscreen.png": "9a0d1263b365103bfa4365345371438479c71e2ba73e2add162b46394c4e4887",
+  "08-windowed.png": "5a333ce41665cf17a8a7e975b2ad46e66247e1afea8544c89179714b3a2e9450",
+  "09-viewer-moved.png": "ad4a1e8652fb58274c02401461a7a21824cde58e5a0debd2b9db2cea253c7e0a",
+  "10-before-hidden.png": "9dcbc4d9f5070e35cddd5549bd0e54cf429f4b5a9aae9b336ea914999b1a45e1",
+  "11-hidden.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
+  "12-resumed.png": "9dcbc4d9f5070e35cddd5549bd0e54cf429f4b5a9aae9b336ea914999b1a45e1",
+  "13-resized.png": "b23d99ffee95a4e1d82d87abb5c52c03754dcd6a82970a7e559eda0fdd714694"
+ }
+}

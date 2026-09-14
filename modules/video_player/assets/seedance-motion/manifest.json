@@ -1,0 +1,189 @@
+{
+  "provider": "openrouter",
+  "model": "bytedance/seedance-2.5",
+  "job_id": "zv03dpGZA7mvQ9U82WBO",
+  "video_sha256": "e26bc413c0cadf491b0ab7e998c3aa898e6271d17d0e2978f59638c0e32560ea",
+  "frame_hold_ms": 45,
+  "controls": {
+    "pause": {
+      "hover": [
+        "pause-hover-0.png",
+        "pause-hover-1.png",
+        "pause-hover-2.png",
+        "pause-hover-3.png"
+      ],
+      "pressed": [
+        "pause-pressed-0.png",
+        "pause-pressed-1.png",
+        "pause-pressed-2.png",
+        "pause-pressed-3.png"
+      ],
+      "settled": [
+        "pause-settled-0.png",
+        "pause-settled-1.png",
+        "pause-settled-2.png",
+        "pause-settled-3.png"
+      ]
+    },
+    "play": {
+      "hover": [
+        "play-hover-0.png",
+        "play-hover-1.png",
+        "play-hover-2.png",
+        "play-hover-3.png"
+      ],
+      "pressed": [
+        "play-pressed-0.png",
+        "play-pressed-1.png",
+        "play-pressed-2.png",
+        "play-pressed-3.png"
+      ],
+      "settled": [
+        "play-settled-0.png",
+        "play-settled-1.png",
+        "play-settled-2.png",
+        "play-settled-3.png"
+      ]
+    },
+    "fullscreen": {
+      "hover": [
+        "fullscreen-hover-0.png",
+        "fullscreen-hover-1.png",
+        "fullscreen-hover-2.png",
+        "fullscreen-hover-3.png"
+      ],
+      "pressed": [
+        "fullscreen-pressed-0.png",
+        "fullscreen-pressed-1.png",
+        "fullscreen-pressed-2.png",
+        "fullscreen-pressed-3.png"
+      ],
+      "settled": [
+        "fullscreen-settled-0.png",
+        "fullscreen-settled-1.png",
+        "fullscreen-settled-2.png",
+        "fullscreen-settled-3.png"
+      ]
+    },
+    "save": {
+      "hover": [
+        "save-hover-0.png",
+        "save-hover-1.png",
+        "save-hover-2.png",
+        "save-hover-3.png"
+      ],
+      "pressed": [
+        "save-pressed-0.png",
+        "save-pressed-1.png",
+        "save-pressed-2.png",
+        "save-pressed-3.png"
+      ],
+      "settled": [
+        "save-settled-0.png",
+        "save-settled-1.png",
+        "save-settled-2.png",
+        "save-settled-3.png"
+      ]
+    },
+    "speaker": {
+      "hover": [
+        "speaker-hover-0.png",
+        "speaker-hover-1.png",
+        "speaker-hover-2.png",
+        "speaker-hover-3.png"
+      ],
+      "pressed": [
+        "speaker-pressed-0.png",
+        "speaker-pressed-1.png",
+        "speaker-pressed-2.png",
+        "speaker-pressed-3.png"
+      ],
+      "settled": [
+        "speaker-settled-0.png",
+        "speaker-settled-1.png",
+        "speaker-settled-2.png",
+        "speaker-settled-3.png"
+      ]
+    },
+    "mute": {
+      "hover": [
+        "mute-hover-0.png",
+        "mute-hover-1.png",
+        "mute-hover-2.png",
+        "mute-hover-3.png"
+      ],
+      "pressed": [
+        "mute-pressed-0.png",
+        "mute-pressed-1.png",
+        "mute-pressed-2.png",
+        "mute-pressed-3.png"
+      ],
+      "settled": [
+        "mute-settled-0.png",
+        "mute-settled-1.png",
+        "mute-settled-2.png",
+        "mute-settled-3.png"
+      ]
+    },
+    "seek": {
+      "hover": [
+        "seek-hover-0.png",
+        "seek-hover-1.png",
+        "seek-hover-2.png",
+        "seek-hover-3.png"
+      ],
+      "pressed": [
+        "seek-pressed-0.png",
+        "seek-pressed-1.png",
+        "seek-pressed-2.png",
+        "seek-pressed-3.png"
+      ],
+      "settled": [
+        "seek-settled-0.png",
+        "seek-settled-1.png",
+        "seek-settled-2.png",
+        "seek-settled-3.png"
+      ]
+    },
+    "volume": {
+      "hover": [
+        "volume-hover-0.png",
+        "volume-hover-1.png",
+        "volume-hover-2.png",
+        "volume-hover-3.png"
+      ],
+      "pressed": [
+        "volume-pressed-0.png",
+        "volume-pressed-1.png",
+        "volume-pressed-2.png",
+        "volume-pressed-3.png"
+      ],
+      "settled": [
+        "volume-settled-0.png",
+        "volume-settled-1.png",
+        "volume-settled-2.png",
+        "volume-settled-3.png"
+      ]
+    },
+    "minimize": {
+      "hover": [
+        "minimize-hover-0.png",
+        "minimize-hover-1.png",
+        "minimize-hover-2.png",
+        "minimize-hover-3.png"
+      ],
+      "pressed": [
+        "minimize-pressed-0.png",
+        "minimize-pressed-1.png",
+        "minimize-pressed-2.png",
+        "minimize-pressed-3.png"
+      ],
+      "settled": [
+        "minimize-settled-0.png",
+        "minimize-settled-1.png",
+        "minimize-settled-2.png",
+        "minimize-settled-3.png"
+      ]
+    }
+  }
+}

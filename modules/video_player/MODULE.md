@@ -1,0 +1,32 @@
+---
+name: video_player
+purpose: The Video Player Tab's Tenant — the issue-20 Fly Through viewer window on the Page's white desktop, eight artwork tiles of which five play a RISD Museum video, the source-cut controls always shown with Muse / Seedance motion, fullscreen filling the Page, paused while hidden and resumed on show
+interface: modules/video_player/interface.gd
+errors: modules/video_player/errors.gd
+tests: modules/video_player/playtest/harness.gd + modules/video_player/playtest/verify.py
+depends-on: [shell]
+---
+
+# video_player
+
+## What callers get
+
+`VideoPlayerInterface.create(deps)` returns a full-rect Control that satisfies the Shell's Tenant contract (`modules/shell/interface.gd`, ticket #24): it lays out from its own `size` / `resized`, never the root viewport, and `state()` is the harness probe. The Shell's demo registry maps `video_player` to it. The five preview videos and the two control manifests are checked before anything is built (`video_player.media_missing` / `video_player.asset_missing` with the path); the first video is playing when the Control enters the tree.
+
+The Page is the player's desktop: the prototype's one viewer window — the owner's Fly Through v7 screenshot as chrome, the eight original artwork tiles, the controls cut from the same pixels — scaled to fit the Page (0.587 at 1920x1080, 0.488 at 1440x900; the prototype showed its 1536x1632 canvas at 768x816 the same way) and re-fitted on resize. It drags by its title bar and stops with 200 px of the bar still inside the Page. Ticket #31's decisions hold: a tile click loads its mapped video at 0:00 and autoplays (tiles 1–5; 6–8 are visible and disabled); the controls are always shown — play/pause, the seek knob, the timer, the volume knob, mute, fullscreen, Save (this session) and the expand button; hover, pressed and settled play the Seedance frames on nine controls, then the source crop returns. Fullscreen fills the Page area (the video covers the Tenant, on top, taking the pointer), never the OS window; F or the control restores it. Keys while the Page is shown: `1`–`5`, Space, M, F, Left/Right (5 s); with the title bar focused the arrows move the viewer (Shift faster). The live title and timer use the bundled Liberation Sans; the strip stays font-free.
+
+Paused while hidden: the Shell hides the Page and freezes it; the player pauses the video on hide and resumes it on show if it was playing (`hidden_paused` in `state()`). Measured in the playtest: `_process` ticks stand still, the position holds, keys and a click aimed at the hidden page change nothing, and on show the position moves again from where it stopped.
+
+## Frozen
+
+`interface.gd`, `errors.gd`, the playtest harness and its verifier. Changing them is an Issue.
+
+## Inside
+
+`video_player.gd` is the prototype's `main.gd` (branch `Reid-Surmeier/issue-20-video-player-usability` @ `f2097ff`) with its runtime-built scene: a white ground, `surface` (the viewer, scaled), the plate, the video, the live title, the drag handle, the transport and the tiles. `PROVENANCE.md` lists every copied file with its hash and folds the prototype's six provenance records. Left behind: the A/B/C variant remnants, the hidden state strip, the command-line capture and reference-check paths, the JavaScriptBridge publishes, `tests/contract.gd` (its 30 assertions drove the scene from code; the playtest covers the same behaviour with real input through the Shell), the unused `thumbnails/` frame grabs (the tiles are cut from the plate) and `seedance-motion/verification.json` (folded into `PROVENANCE.md`). Changed for the seam: the scale-to-fit and its clamp, fullscreen as `top_level` over the Page (a reparent stops `VideoStreamPlayer`), the pause on `visibility_changed`, `texture_filter` LINEAR on the Tenant (the prototype's project default; this project's is NEAREST). One prototype bug fixed: the buttons and sliders took keyboard focus on click, so Space pressed the focused button and Right moved focus instead of seeking; they are `FOCUS_NONE` now and the keys stay page shortcuts (the drag handle keeps focus for its arrow move).
+
+Media: `media/` holds the 480-wide / 24 fps Ogg Theora/Vorbis preview set (93 MB, checked in so a fresh clone plays; ticket #31) with `manifest.json` (hashes of the previews, of the 1280x720 originals and of the Vimeo sources, the ffmpeg arguments) and `prepare.py` (`--check` the previews, `--check-originals`, `--prepare` from the originals). The 410 MB originals stay out of Git under the repository's gitignored `runs/issue-18-vimeo-media/prepared/`. **Rights for the five RISD Museum videos and the Fly Through chrome are pending on ticket #35**; nothing here asserts a licence for them. `export_presets.cfg` includes the manifests and the font bytes so the Web export carries them.
+
+The playtest (`scripts/playtest.sh video_player`, on `testing/harness_base.gd`) builds the Shell with the player in the Video Player Tab and nothing in the other Tabs, on an X display at 1920x1080, drives it with real mouse and key events through `Input.parse_input_event` (tab clicks, a tile, play/pause, a drag on the seek knob, mute, a drag on the volume knob, fullscreen and F, Space / Right / 2, Save, a title-bar drag and one past the page's corner, keys and a click while hidden) and reaches the player only through `ShellInterface.tenant_state`; `verify.py` re-hashes the media against `media/manifest.json`, re-hashes the screenshots, re-reads pixels (the video body changes between positions and holds while paused, fullscreen covers the page under the strip, white outside the viewer, the hidden page white) and checks every logged state against the contract (45 checks). Evidence of the accepted run is in `docs/evidence/video-player/`.
+
+Known gaps: no browser-rendered evidence yet (`browser_play.py` as the other Tenants have); the eight tiles' hover frame and the disabled tiles' tooltip are unmeasured; the timer's digits render in Liberation Sans over the erased source box, as in the prototype; `1187745268` is 50 minutes long (67 MB of the 93).
