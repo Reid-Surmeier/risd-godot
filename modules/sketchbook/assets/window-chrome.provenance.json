@@ -1,0 +1,201 @@
+{
+  "pipeline": "Muse (meta/muse-image via OpenRouter), edit procedure, tool v0.3.0; deterministic region Assembly per ADR 0002",
+  "application": "/home/reidsurmeier/muse-runs/sketchbook-window-chrome",
+  "runs": {
+    "title-lettering": "run-33143974c5b792ff1bda8f37 (edit-work title-01)",
+    "button-glyphs": "run-91225aaeeb77cadc03f78f88 (edit-work buttons-01)",
+    "rejected_full_redraws": [
+      "run-950f08bcfa8fe1cebb735399",
+      "run-3440a4118196cf0e1935e44e",
+      "run-53d9b859d575c8dcfeaed047"
+    ]
+  },
+  "spend_usd": {
+    "muse_requests": 5,
+    "unit": 0.01,
+    "total": 0.05,
+    "cost_state": "actual"
+  },
+  "assembly": {
+    "title": {
+      "baseline": "references/ro-window.png",
+      "baseline_sha256": "b3f47feeed242f8dfb49ae14ed34f1ea398077f9edb3c2ac7d8fe71c2926c7ff",
+      "donor": "edit-work/title-01.output.png",
+      "donor_registered_to": [
+        285,
+        155
+      ],
+      "owned_region": {
+        "x": 22,
+        "y": 8,
+        "width": 67,
+        "height": 13
+      },
+      "changed_pixels_outside_region": 0,
+      "output": "edit-work/title-assembled-1x.png",
+      "output_sha256": "8830d98e2d7a0e4d1ccd1dcb358ab082020a4f5df9e56f5235a86d9a357e4dae"
+    },
+    "buttons": {
+      "baseline": "references/buttons.png (rotated upright)",
+      "baseline_sha256": "9b46c5104cc71063b5acb908a9a6f8500de45d4cba61b0bcfe8ee308080647d2",
+      "donor": "edit-work/buttons-01.output.png",
+      "donor_registered_to": [
+        320,
+        54
+      ],
+      "owned_regions": {
+        "next": {
+          "x": 18,
+          "y": 10,
+          "width": 66,
+          "height": 32
+        },
+        "prev": {
+          "x": 231,
+          "y": 10,
+          "width": 66,
+          "height": 32
+        }
+      },
+      "changed_pixels_outside_regions": 0,
+      "output": "edit-work/buttons-assembled-1x.png",
+      "output_sha256": "ff2e82ae84ccca4036f8b64702cf895686b55d53349dd308bd38a15b6f2ce370"
+    }
+  },
+  "slices": {
+    "ro-top-left.png": {
+      "source": "title-assembled-1x.png",
+      "box": [
+        3,
+        2,
+        93,
+        22
+      ],
+      "size": [
+        90,
+        20
+      ],
+      "sha256": "0657590110910674e1c6a3911987b661a6482021b5b9fd3b04a562e0de0160fb"
+    },
+    "ro-top-mid.png": {
+      "source": "title-assembled-1x.png",
+      "box": [
+        120,
+        2,
+        121,
+        22
+      ],
+      "size": [
+        1,
+        20
+      ],
+      "sha256": "fe2a45be1b1827d808dc7aaa132936aa06978838acf1bae1610c664d3da4a5da"
+    },
+    "ro-top-right.png": {
+      "source": "title-assembled-1x.png",
+      "box": [
+        245,
+        2,
+        282,
+        22
+      ],
+      "size": [
+        37,
+        20
+      ],
+      "sha256": "fa20ebb9e57e9cfc7c190a4d25210b68145ecec69bf8a4c04682d1c8c047f82a"
+    },
+    "ro-right.png": {
+      "source": "title-assembled-1x.png",
+      "box": [
+        274,
+        100,
+        282,
+        101
+      ],
+      "size": [
+        8,
+        1
+      ],
+      "sha256": "434fe53957e4192e21f13a507b89fb3fdb9504938d2a25881d19bcfa360f40b3"
+    },
+    "ro-bottom-right.png": {
+      "source": "title-assembled-1x.png",
+      "box": [
+        274,
+        143,
+        282,
+        151
+      ],
+      "size": [
+        8,
+        8
+      ],
+      "sha256": "dd46f7c73fb6073b7ea728f3ce67c88c3222cc3e5f7aa548291248237651c9b6"
+    },
+    "ro-bottom-mid.png": {
+      "source": "title-assembled-1x.png",
+      "box": [
+        120,
+        143,
+        121,
+        151
+      ],
+      "size": [
+        1,
+        8
+      ],
+      "sha256": "f2c2ee12aa1620db64b88f7f8cf92e9ae0e84d03e914366f4e340b2fe50fa05b"
+    },
+    "ro-left.png": {
+      "source": "ro-right.png",
+      "derivation": "horizontal mirror: the equipment window's left body edge is its inner item panel, the frame proper is the symmetric cyan/purple line seen in the owner's trade-window reference",
+      "size": [
+        8,
+        1
+      ],
+      "sha256": "be9c9adec194c4e9d7bf1a9f807d739b236eb9fe407466522f87c53a47e6bbca"
+    },
+    "ro-bottom-left.png": {
+      "source": "ro-bottom-right.png",
+      "derivation": "horizontal mirror: the equipment window's left body edge is its inner item panel, the frame proper is the symmetric cyan/purple line seen in the owner's trade-window reference",
+      "size": [
+        8,
+        8
+      ],
+      "sha256": "3c00d6ba039fd5202e4484ab02678411e8d575f7c7af59cfa668d5f1bfef1edc"
+    },
+    "ro-btn-next.png": {
+      "source": "buttons-assembled-1x.png",
+      "size": [
+        84,
+        44
+      ],
+      "sha256": "a6cc09ab0e6924fad06802c5ff011ec53517529d721573058114c54ba008ee33"
+    },
+    "ro-btn-prev.png": {
+      "source": "buttons-assembled-1x.png",
+      "size": [
+        84,
+        44
+      ],
+      "sha256": "feacd64dd7fc39bf236e3bbd5f0c71ad3c9aa532f23b58d9a91d6c98481aefd1"
+    },
+    "ro-btn-prev-disabled.png": {
+      "source": "buttons-assembled-1x.png",
+      "size": [
+        84,
+        44
+      ],
+      "sha256": "25b1f3d1cec86dd8a19e2dfe188a86b85c69b1110a878398976006a5d25c286c",
+      "derivation": "'<' glyph recolored to the reference 'trade' disabled gray 169"
+    }
+  },
+  "frame": {
+    "top": 20,
+    "bottom": 8,
+    "left": 8,
+    "right": 8,
+    "note": "1x reference pixels; shadow ring removed, CSS box-shadow instead"
+  }
+}
