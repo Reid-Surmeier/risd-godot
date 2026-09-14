@@ -19,7 +19,7 @@
   },
   "click_video_tab_creates_and_shows_player": {
    "pass": true,
-   "detail": "{'frozen': False, 'key': 'video_player', 'page_visible': True, 'rect': {'h': 56.4976081848145, 'w': 201.186584472656, 'x': 631.11962890625, 'y': 15.1578950881958}, 'tenant': 'ok'}"
+   "detail": "{'frozen': False, 'key': 'video_player', 'page_visible': True, 'rect': {'h': 56.4976196289062, 'w': 176.842102050781, 'x': 558.086120605469, 'y': 1021.20574951172}, 'tenant': 'ok'}"
   },
   "tenant_fills_page_area": {
    "pass": true,
@@ -27,11 +27,11 @@
   },
   "viewer_fits_page_centred": {
    "pass": true,
-   "detail": "scale 0.5870 rect {'h': 958.0478515625, 'w': 901.692138671875, 'x': 509.0, 'y': 97.9521560668945}"
+   "detail": "scale 0.5870 rect {'h': 958.0478515625, 'w': 901.692138671875, 'x': 509.0, 'y': 24.0}"
   },
   "video_body_at_its_source_rect_in_the_viewer": {
    "pass": true,
-   "detail": "{'h': 429.712646484375, 'w': 801.8955078125, 'x': 557.13720703125, 'y': 160.178298950195}"
+   "detail": "{'h': 429.712646484375, 'w': 801.8955078125, 'x': 557.13720703125, 'y': 86.2261505126953}"
   },
   "eight_tiles_five_enabled_in_a_row": {
    "pass": true,
@@ -43,11 +43,11 @@
   },
   "first_video_autoplays_from_start": {
    "pass": true,
-   "detail": "1191767929 at 0.08/218.6"
+   "detail": "1191767929 at 0.52/218.6"
   },
   "position_advances_while_playing": {
    "pass": true,
-   "detail": "0.08 -> 0.45 over 31 ticks"
+   "detail": "0.52 -> 0.87 over 31 ticks"
   },
   "tile_click_lands_on_tile_3": {
    "pass": true,
@@ -55,11 +55,11 @@
   },
   "tile_3_plays_its_mapped_video_from_start": {
    "pass": true,
-   "detail": "1014865523 0.02 -> 0.28"
+   "detail": "1014865523 0.01 -> 0.26"
   },
   "video_body_pixels_change_between_positions": {
    "pass": true,
-   "detail": "mean abs diff 131.9"
+   "detail": "mean abs diff 131.8"
   },
   "pause_click_lands_on_play_control": {
    "pass": true,
@@ -67,7 +67,7 @@
   },
   "pause_holds_position": {
    "pass": true,
-   "detail": "0.395 -> 0.395 over 21 ticks"
+   "detail": "0.379 -> 0.379 over 21 ticks"
   },
   "video_body_pixels_hold_while_paused": {
    "pass": true,
@@ -79,7 +79,7 @@
   },
   "seek_drag_starts_on_the_knob": {
    "pass": true,
-   "detail": "from [766.983764648438, 682.936645507812] knob {'h': 18.1982421875, 'w': 17.0241088867188, 'x': 758.4716796875, 'y': 673.837524414062}"
+   "detail": "from [766.963500976562, 608.984497070312] knob {'h': 18.1982421875, 'w': 17.0241088867188, 'x': 758.451416015625, 'y': 599.885375976562}"
   },
   "seek_drag_moves_position_to_the_knob": {
    "pass": true,
@@ -107,11 +107,11 @@
   },
   "fullscreen_fills_the_page": {
    "pass": true,
-   "detail": "{'h': 1006.0478515625, 'w': 1920.0, 'x': 0.0, 'y': 73.9521560668945}"
+   "detail": "{'h': 1006.0478515625, 'w': 1920.0, 'x': 0.0, 'y': 0.0}"
   },
   "fullscreen_keeps_playing": {
    "pass": true,
-   "detail": "43.88 -> 44.21"
+   "detail": "43.86 -> 44.19"
   },
   "fullscreen_pixels_cover_the_page_under_the_strip": {
    "pass": true,
@@ -119,7 +119,7 @@
   },
   "f_key_restores_the_viewer": {
    "pass": true,
-   "detail": "{'h': 429.712646484375, 'w': 801.8955078125, 'x': 557.13720703125, 'y': 160.178298950195}"
+   "detail": "{'h': 429.712646484375, 'w': 801.8955078125, 'x': 557.13720703125, 'y': 86.2261505126953}"
   },
   "white_desktop_outside_the_viewer": {
    "pass": true,
@@ -131,7 +131,7 @@
   },
   "right_seeks_five_seconds": {
    "pass": true,
-   "detail": "44.31 -> 49.35"
+   "detail": "44.28 -> 49.30"
   },
   "key_2_picks_the_second_tile": {
    "pass": true,
@@ -163,7 +163,7 @@
   },
   "hidden_page_ignores_keys_and_click": {
    "pass": true,
-   "detail": "ticks 208 -> 208, position 0.396 -> 0.396"
+   "detail": "ticks 275 -> 275, position 0.579 -> 0.579"
   },
   "hidden_page_shows_plain_white_map": {
    "pass": true,
@@ -171,7 +171,7 @@
   },
   "video_tab_again_resumes_playing": {
    "pass": true,
-   "detail": "0.40 -> 0.50 -> 0.75"
+   "detail": "0.58 -> 1.12 -> 1.35"
   },
   "resize_refits_viewer_to_smaller_page": {
    "pass": true,
@@ -183,18 +183,18 @@
   }
  },
  "sha256": {
-  "01-shown.png": "4dd9deec12e2452ba72dd336675afcabb3a6a9fe5b0b9e6777ad1dcdcd93f7f9",
-  "02-playing.png": "4dd9deec12e2452ba72dd336675afcabb3a6a9fe5b0b9e6777ad1dcdcd93f7f9",
-  "03-tile-3.png": "65055c206ec6af42c463d348ca07375fb376ca46ed3a9e1d622c7aab5cc04535",
-  "04-paused.png": "8941e6af05fcdd7661cc9c4055c12a68bd43eb473f039b939be24bc90c37149b",
-  "05-paused-20.png": "ecf6b69163f53b71f8e04fa1ab19d0ecf16c20a413722179be6102c3a338a8d6",
-  "06-seeked.png": "529cca1a19cbe85cbfeced5604d66fc382891ad1f0e9b613654e18b9149b9b48",
-  "07-fullscreen.png": "9a0d1263b365103bfa4365345371438479c71e2ba73e2add162b46394c4e4887",
-  "08-windowed.png": "5a333ce41665cf17a8a7e975b2ad46e66247e1afea8544c89179714b3a2e9450",
-  "09-viewer-moved.png": "ad4a1e8652fb58274c02401461a7a21824cde58e5a0debd2b9db2cea253c7e0a",
-  "10-before-hidden.png": "9dcbc4d9f5070e35cddd5549bd0e54cf429f4b5a9aae9b336ea914999b1a45e1",
-  "11-hidden.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
-  "12-resumed.png": "9dcbc4d9f5070e35cddd5549bd0e54cf429f4b5a9aae9b336ea914999b1a45e1",
-  "13-resized.png": "b23d99ffee95a4e1d82d87abb5c52c03754dcd6a82970a7e559eda0fdd714694"
+  "01-shown.png": "8c58024f2a04402630c04c9796f0168884dff248fa399b2a588543d08ce0c608",
+  "02-playing.png": "441d32e953eef154b046e5cb3ce2e8e5963668917b3c6b66d80d47a65681de4d",
+  "03-tile-3.png": "5fef53db589b051152394604f33ac17a8340a853d8f5206d96712d516e1845bb",
+  "04-paused.png": "cd0e223d3ec0a102cabe750d139964d8d9952c8557b410e8b0275921560bef42",
+  "05-paused-20.png": "9b912218596016cf456ba78dd6b80fe35574a9460fd34c99fb801ef943eeb22d",
+  "06-seeked.png": "ed8a15c882fae24aaf6e83865ea89608a3d885e57ec5b4d9dcfe72d1e1cb363c",
+  "07-fullscreen.png": "81ffc46de5c25e114562e1f602bd6ab1dcc905c5fd4246ebf5cc3c4760d986f3",
+  "08-windowed.png": "98125143eb9c7f08c31c313139a4109408db337a3eec1ed39159d5d4eca8d19b",
+  "09-viewer-moved.png": "b77923c7c7c9c60d5033e27877feca9eaa6248c202e7bbb4306035aaaad3a717",
+  "10-before-hidden.png": "07d85fc68e620a3c6174d4ac40c677886a31eb2fd112fac526dc109bb7208cbc",
+  "11-hidden.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "12-resumed.png": "07d85fc68e620a3c6174d4ac40c677886a31eb2fd112fac526dc109bb7208cbc",
+  "13-resized.png": "b95c2f84e4e5464d2c91f6581a773a881934968547be862bba453f34ff360c9e"
  }
 }

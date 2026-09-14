@@ -47,11 +47,7 @@
   },
   "map_body_inside_frame_above_bar": {
    "pass": true,
-<<<<<<< HEAD
-   "detail": "map {'h': 866.0, 'w': 1114.0, 'x': 403.0, 'y': 87.0} frame {'h': 958.0, 'w': 1163.0, 'x': 379.0, 'y': 24.0} viewport [1114.0, 866.0]"
-=======
-   "detail": "map {'h': 678.0, 'w': 872.0, 'x': 567.0, 'y': 169.9521484375} frame {'h': 750.0, 'w': 910.0, 'x': 548.0, 'y': 119.952156066895} viewport [872.0, 678.0]"
->>>>>>> origin/wip/atlas-desktop
+   "detail": "map {'h': 678.0, 'w': 872.0, 'x': 567.0, 'y': 96.0} frame {'h': 750.0, 'w': 910.0, 'x': 548.0, 'y': 46.0} viewport [872.0, 678.0]"
   },
   "atlas_opens_on_world_view": {
    "pass": true,
@@ -59,7 +55,7 @@
   },
   "panel_drag_starts_on_the_panel": {
    "pass": true,
-   "detail": "from [1617.0, 1047.9521484375] panel {'x': 1510.0, 'y': 1016.952156066895, 'w': 214.0, 'h': 62.0}"
+   "detail": "from [1617.0, 974.0] panel {'x': 1510.0, 'y': 943.0, 'w': 214.0, 'h': 62.0}"
   },
   "panel_drag_moves_it_by_the_drag": {
    "pass": true,
@@ -75,7 +71,7 @@
   },
   "moved_panel_lies_over_the_map_body": {
    "pass": true,
-   "detail": "panel {'x': 810.0, 'y': 316.952156066895, 'w': 214.0, 'h': 62.0} map {'h': 678.0, 'w': 872.0, 'x': 567.0, 'y': 169.9521484375}"
+   "detail": "panel {'x': 810.0, 'y': 243.0, 'w': 214.0, 'h': 62.0} map {'h': 678.0, 'w': 872.0, 'x': 567.0, 'y': 96.0}"
   },
   "wheel_over_panel_lands_on_it": {
    "pass": true,
@@ -103,11 +99,7 @@
   },
   "title_drag_starts_on_title_bar": {
    "pass": true,
-<<<<<<< HEAD
-   "detail": "from [960.5, 64.4756393432617] frame {'h': 958.0, 'w': 1163.0, 'x': 379.0, 'y': 24.0}"
-=======
-   "detail": "from [1003.0, 151.628219604492] frame {'h': 750.0, 'w': 910.0, 'x': 548.0, 'y': 119.952156066895}"
->>>>>>> origin/wip/atlas-desktop
+   "detail": "from [1003.0, 77.6760635375977] frame {'h': 750.0, 'w': 910.0, 'x': 548.0, 'y': 46.0}"
   },
   "title_drag_moves_window": {
    "pass": true,
@@ -127,11 +119,7 @@
   },
   "map_body_follows_the_resize": {
    "pass": true,
-<<<<<<< HEAD
-   "detail": "map {'h': 766.0, 'w': 964.0, 'x': 781.0, 'y': 111.0478515625} viewport [964.0, 766.0]"
-=======
-   "detail": "map {'h': 578.0, 'w': 722.0, 'x': 1029.0, 'y': 380.0} viewport [722.0, 578.0]"
->>>>>>> origin/wip/atlas-desktop
+   "detail": "map {'h': 578.0, 'w': 722.0, 'x': 1029.0, 'y': 306.0478515625} viewport [722.0, 578.0]"
   },
   "collapse_click_lands_on_left_button": {
    "pass": true,
@@ -187,19 +175,11 @@
   },
   "hidden_tenant_process_stops": {
    "pass": true,
-<<<<<<< HEAD
-   "detail": "ticks 179 -> 179 over 20 frames"
+   "detail": "ticks 199 -> 199 over 20 frames"
   },
   "hidden_tenant_gets_no_input": {
    "pass": true,
-   "detail": "inputs 66 -> 66"
-=======
-   "detail": "ticks 143 -> 143 over 20 frames"
-  },
-  "hidden_tenant_gets_no_input": {
-   "pass": true,
-   "detail": "inputs 78 -> 78"
->>>>>>> origin/wip/atlas-desktop
+   "detail": "inputs 79 -> 79"
   },
   "hidden_events_change_nothing": {
    "pass": true,
@@ -215,19 +195,11 @@
   },
   "hidden_subviewport_renders_nothing": {
    "pass": true,
-<<<<<<< HEAD
-   "detail": "draw calls: white page 47, map shown 69, map hidden 47"
+   "detail": "draw calls: white page 47, map shown 72, map hidden 47"
   },
   "map_resumes_with_state_intact": {
    "pass": true,
-   "detail": "ticks frozen 179, resumed 183 -> 249"
-=======
-   "detail": "draw calls: white page 40, map shown 65, map hidden 40"
-  },
-  "map_resumes_with_state_intact": {
-   "pass": true,
-   "detail": "ticks frozen 143, resumed 147 -> 167"
->>>>>>> origin/wip/atlas-desktop
+   "detail": "ticks frozen 199, resumed 203 -> 265"
   },
   "resumed_subviewport_updates_again": {
    "pass": true,
@@ -251,11 +223,7 @@
   },
   "map_body_shows_sea_and_land": {
    "pass": true,
-<<<<<<< HEAD
-   "detail": "cyan 576722 pink 293659 of 956820"
-=======
-   "detail": "cyan 344877 pink 177502 of 585032"
->>>>>>> origin/wip/atlas-desktop
+   "detail": "cyan 344136 pink 178222 of 585032"
   },
   "frame_title_bar_drawn": {
    "pass": true,
@@ -263,7 +231,7 @@
   },
   "panels_drawn_with_their_raster_art": {
    "pass": true,
-   "detail": "dark px {'minimap': 2720, 'itinerary': 10953, 'chat': 1398, 'notification': 610}, non-white fraction {'minimap': 0.535, 'itinerary': 0.708, 'chat': 0.262, 'notification': 0.232}"
+   "detail": "dark px {'minimap': 2720, 'itinerary': 10953, 'chat': 1398, 'notification': 610}, non-white fraction {'minimap': 0.535, 'itinerary': 0.708, 'chat': 0.261, 'notification': 0.216}"
   },
   "page_above_window_is_white": {
    "pass": true,
@@ -287,11 +255,7 @@
   },
   "clamped_window_touches_page_corner": {
    "pass": true,
-<<<<<<< HEAD
    "detail": "frame ends at 1920.0, 1006.0478515625"
-=======
-   "detail": "frame ends at 1920.0, 1080.0"
->>>>>>> origin/wip/atlas-desktop
   },
   "resize_frees_white_page_below_window": {
    "pass": true,
@@ -311,35 +275,19 @@
   }
  },
  "sha256": {
-<<<<<<< HEAD
-  "01-map.png": "26d72dd9e78aebe10041c06a89777ea7e9e6aaf769b32300472b64e753d58aab",
-  "02-zoomed.png": "0a15ee0e23e8abe14206331311211167198eb7e781dd73e97bc9591740e7070c",
-  "03-panned.png": "08fa605245f3ffba029c21f86196360c0f4093ecf431375ea86afa05696ef293",
-  "04-window-moved.png": "25aa945a239f9f758ad199aa0416e54131218f4a0a8664b86e2066d336105b19",
-  "05-window-clamped.png": "e29406f0d3003dc9cb7d5b3587806833c131f0c73527146460db4bca1f9256ab",
-  "06-window-resized.png": "3ceea1081fc6c12d208ae22d850518fc2ad52def1737e207d0935a30fd1ee70d",
-  "07-collapsed.png": "59980fc559b864e9c670c4c1daef3907192930bfd322a9fd163ebdcf103e0079",
-  "08-key-home.png": "5d1f3c315af2b40c107f817949fac2c7610eba30ee2fb931155871571ce52a64",
-  "09-before-hidden.png": "c2a6e895e06ad2481e8d8bc13d13a9278e7f68d49b3a071e253093f512df266c",
-  "10-hidden.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
-  "11-resumed.png": "c2a6e895e06ad2481e8d8bc13d13a9278e7f68d49b3a071e253093f512df266c",
-  "12-resized.png": "f6be245d6d45f4d62249e2f16ed936346678e3dbe9516eaab4e4a76d25ba3df4",
-  "13-restored.png": "bd557b0f91a7f829961014afa2956f8c959d960cdc823ee0874b730b1cff7a0a"
-=======
-  "01-map.png": "dc62b98eaca182bb3a8287cad8086fdb2dd07a7052ea9803a3b4879828c07058",
-  "02-panel-moved.png": "05f6a187b4a635902a63e3af69686fd8ce5cd8c02ce6499f53120082fc433eb9",
-  "03-zoomed.png": "d8f6774633d696543ef356669df631f182a5f2f918dc8f44724076af6eba0bf4",
-  "04-panned.png": "d02c2f493d782718921ca226057e02685bd6460bde52ef3b9f640d29d1fa1b85",
-  "05-window-moved.png": "5177328acac922f3cdbd7c4f65e4669ded9e124b622359cb6da9b83bf84e3cd1",
-  "06-window-clamped.png": "59e501f1ee49e54ef2d990c7484874a72051cbecf4fd8b3840c3cd65730fdb84",
-  "07-window-resized.png": "056a6cf98d9aebc6da5a2f3dc277a274205983ca1efa3fa48f8e1c2253f9af01",
-  "08-collapsed.png": "29fb67b1a94174b919654dfa378fc3b5a7752d98db608e479187f9d371d7ae83",
-  "09-key-home.png": "15f5f2b494184c871ac7efe963584931ab5e50f118e973488412eaff335c0c5b",
-  "10-before-hidden.png": "218c22e021cdabe28f99f56da31e8e3c5309aa14afeba107fe558813d2af71a3",
-  "11-hidden.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
-  "12-resumed.png": "218c22e021cdabe28f99f56da31e8e3c5309aa14afeba107fe558813d2af71a3",
-  "13-resized.png": "6529d81bf0955c1029343b168992f6bbbaf2e2783bf5cb660b64170a3a197a61",
-  "14-restored.png": "7cdbd31dbdc3f6fa7f8ff4b16173cfce6ca2ff02129b831bb6897a2904e1e638"
->>>>>>> origin/wip/atlas-desktop
+  "01-map.png": "fbf2fe6bcdc459b8e45be2fa4b0528c4d1f734b316167547d10bc66495bbd04d",
+  "02-panel-moved.png": "1532d7c1281a34af1af4e48bafa0f82cb6bbe1aff11d00f0b7d29b4dea1b5eb9",
+  "03-zoomed.png": "8d731c8a3e521cc4c0a3de329bfe0a4790663e73d2de9e4ffd68f30caa70c257",
+  "04-panned.png": "1d1a8513cc1651d9cf94d9a9f132ff30cde338fbab577ea1e8f9b57b1c49b80e",
+  "05-window-moved.png": "f99e7a1bd35914c5bf95171c29c037e59bda37fa9d996fbe3499ec54af516e31",
+  "06-window-clamped.png": "71d91e5830c106c9bfd9e3f6223bf3078d2b07b92326196207b9f2a56a18a685",
+  "07-window-resized.png": "49dc828e3a0baaba50716cb77a752492cd5767f5dc7a06620cbbf59a305d952d",
+  "08-collapsed.png": "5455683638562818ca1805a48ca654f97412d5eb85c2a9f0335896512626d42b",
+  "09-key-home.png": "5428cbf452d7223e59d7b334b0f6a68c1b56f494e1a57b2b066f623aefc3e3a8",
+  "10-before-hidden.png": "b3b500d2989a39cf23f11c1856ba6109507021632f089a8e64d7beabeb9a992a",
+  "11-hidden.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "12-resumed.png": "b3b500d2989a39cf23f11c1856ba6109507021632f089a8e64d7beabeb9a992a",
+  "13-resized.png": "3c3b9aca8808055e7d05daeb295baa3b8ff1da664f7f9af2754f90e619b4218b",
+  "14-restored.png": "b1da792ac3ffe3aa2a4cb405657e221f0a6ce73968fcf6a346046b628365dac8"
  }
 }

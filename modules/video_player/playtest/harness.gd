@@ -75,6 +75,7 @@ func _initialize() -> void:
 	var root := get_root()
 	var shell: Control = Shell.create({"video_player": VideoPlayer}).value
 	var out_dir := await _mount(shell, Vector2i(1920, 1080), "/tmp/video_player-playtest")
+	await create_timer(1.0).timeout  # the launch grow and fade of the Collection tab
 
 	# 1. launch: Collection active, the Video Player Tenant not created yet
 	await _frames(3)
@@ -85,6 +86,7 @@ func _initialize() -> void:
 	#    viewer fits it and the first video is playing; thirty frames later its position has moved
 	var st: Dictionary = _state(shell, "pre-video")
 	await _click(_center(shell, st.tabs[TAB].rect), "video player tab")
+	await create_timer(0.45).timeout  # the page cross-fade
 	await _frames(8)
 	_state(shell, "video")
 	var a := _vp(shell, "shown")
@@ -172,6 +174,7 @@ func _initialize() -> void:
 	_vp(shell, "before-hidden")
 	await _shot(out_dir, "10-before-hidden.png")
 	await _click(_center(shell, st.tabs[0].rect), "map tab")
+	await create_timer(0.45).timeout  # the page cross-fade
 	await _frames(3)
 	_state(shell, "map")
 	_vp(shell, "hidden")
@@ -186,6 +189,7 @@ func _initialize() -> void:
 
 	# 11. back to the Video Player: it resumes playing from where it paused
 	await _click(_center(shell, st.tabs[TAB].rect), "video player tab (again)")
+	await create_timer(0.45).timeout  # the page cross-fade
 	await _frames(3)
 	_state(shell, "video-again")
 	_vp(shell, "resumed-on-show")

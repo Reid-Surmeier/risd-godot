@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# atlas playtest evidence (wip/shell-bottom on build/v0.1.0, the Pixel Atlas as the Map Tenant; the bar now sits along the bottom of the window, the page above it)
-=======
 # atlas playtest evidence (build/v0.1.0, the Pixel Atlas desktop as the Map Tenant)
->>>>>>> origin/wip/atlas-desktop
 
 Produced by `scripts/playtest.sh atlas` on Godot 4.7.2 (X display :99, OpenGL, window 1920x1080 then 1440x900). The harness (`modules/atlas/playtest/harness.gd`, on `testing/harness_base.gd`) builds the Shell with the atlas in the Map Tab and nothing in the other Tabs, drives it with real mouse and key events through `Input.parse_input_event`, and reaches the atlas only through `ShellInterface.tenant_state`. Verified by `modules/atlas/playtest/verify.py`, which re-hashes every screenshot, re-reads pixels and checks the logged states against the Tenant contract, ticket #30 and the map #23 correction (a Tab shows the prototype's whole desktop). `verify.json` is the verdict (68/68 pass); `report.json` is the harness log with timestamps, gestures and the probe values.
 

@@ -15,7 +15,7 @@
   },
   "click_viewer_tab_creates_and_shows_desktop": {
    "pass": true,
-   "detail": "{'frozen': False, 'key': '3d_viewer', 'page_visible': True, 'rect': {'h': 56.4976081848145, 'w': 201.186584472656, 'x': 460.708129882812, 'y': 15.1578950881958}, 'tenant': 'ok'}"
+   "detail": "{'frozen': False, 'key': '3d_viewer', 'page_visible': True, 'rect': {'h': 56.4976196289062, 'w': 176.842071533203, 'x': 412.019134521484, 'y': 1021.20574951172}, 'tenant': 'ok'}"
   },
   "tenant_fills_page_area": {
    "pass": true,
@@ -23,11 +23,11 @@
   },
   "desktop_is_1to1_and_centred": {
    "pass": true,
-   "detail": "catalogue {'h': 896.485046386719, 'w': 400.0, 'x': 312.0, 'y': 124.952156066895} viewer {'h': 669.799987792969, 'w': 788.0, 'x': 840.0, 'y': 124.952156066895}"
+   "detail": "catalogue {'h': 896.485046386719, 'w': 400.0, 'x': 312.0, 'y': 51.0} viewer {'h': 669.799987792969, 'w': 788.0, 'x': 840.0, 'y': 51.0}"
   },
   "viewport_inside_viewer_window": {
    "pass": true,
-   "detail": "{'h': 478.710021972656, 'w': 521.06494140625, 'x': 971.989990234375, 'y': 201.782165527344}"
+   "detail": "{'h': 478.710021972656, 'w': 521.06494140625, 'x': 971.989990234375, 'y': 127.830001831055}"
   },
   "viewer_in_front_at_launch": {
    "pass": true,
@@ -35,7 +35,7 @@
   },
   "autoplay_orbits_while_shown": {
    "pass": true,
-   "detail": "yaw -129.25 -> -127.68 over 7 ticks"
+   "detail": "yaw -126.7 -> -125.25 over 7 ticks"
   },
   "pause_click_lands_on_button": {
    "pass": true,
@@ -43,7 +43,7 @@
   },
   "pause_stops_orbit": {
    "pass": true,
-   "detail": "yaw -127.68 -> -127.68"
+   "detail": "yaw -125.25 -> -125.25"
   },
   "paused_render_stands_still": {
    "pass": true,
@@ -55,7 +55,7 @@
   },
   "drag_orbits_camera": {
    "pass": true,
-   "detail": "yaw -127.68 -> -92.15 (expected -92.15), pitch -8.0 -> -20.69 (expected -20.69)"
+   "detail": "yaw -125.25 -> -89.72 (expected -89.72), pitch -8.0 -> -20.69 (expected -20.69)"
   },
   "orbit_changes_render": {
    "pass": true,
@@ -79,15 +79,15 @@
   },
   "next_steps_30_degrees": {
    "pass": true,
-   "detail": "yaw -92.15 -> -62.15, view 0 -> 1"
+   "detail": "yaw -89.72 -> -59.72, view 0 -> 1"
   },
   "top_strip_drag_starts_on_strip": {
    "pass": true,
-   "detail": "from [1234.0, 144.652160644531] viewer {'h': 669.799987792969, 'w': 788.0, 'x': 840.0, 'y': 124.952156066895}"
+   "detail": "from [1234.0, 70.6999969482422] viewer {'h': 669.799987792969, 'w': 788.0, 'x': 840.0, 'y': 51.0}"
   },
   "top_strip_drag_moves_viewer_window": {
    "pass": true,
-   "detail": "{'h': 669.799987792969, 'w': 788.0, 'x': 840.0, 'y': 124.952156066895} -> {'h': 669.799987792969, 'w': 788.0, 'x': 765.0, 'y': 164.9521484375} by [-75.0, 40.0]"
+   "detail": "{'h': 669.799987792969, 'w': 788.0, 'x': 840.0, 'y': 51.0} -> {'h': 669.799987792969, 'w': 788.0, 'x': 765.0, 'y': 91.0} by [-75.0, 40.0]"
   },
   "window_drag_changes_page_pixels": {
    "pass": true,
@@ -99,7 +99,7 @@
   },
   "catalogue_drag_raises_and_moves_it": {
    "pass": true,
-   "detail": "{'h': 896.485046386719, 'w': 400.0, 'x': 312.0, 'y': 124.952156066895} -> {'h': 896.485046386719, 'w': 400.0, 'x': 432.0, 'y': 104.952156066895} by [120.0, -20.0], front catalogue-window"
+   "detail": "{'h': 896.485046386719, 'w': 400.0, 'x': 312.0, 'y': 51.0} -> {'h': 896.485046386719, 'w': 400.0, 'x': 432.0, 'y': 31.0} by [120.0, -20.0], front catalogue-window"
   },
   "viewer_click_raises_it_without_moving": {
    "pass": true,
@@ -111,15 +111,15 @@
   },
   "hidden_tenant_process_stops": {
    "pass": true,
-   "detail": "ticks 86 -> 86 over 20 frames"
+   "detail": "ticks 108 -> 108 over 20 frames"
   },
   "hidden_tenant_gets_no_input": {
    "pass": true,
-   "detail": "inputs 39 -> 39"
+   "detail": "inputs 40 -> 40"
   },
   "hidden_events_change_nothing": {
    "pass": true,
-   "detail": "-62.15 7.8 {'h': 669.799987792969, 'w': 788.0, 'x': 765.0, 'y': 164.9521484375}"
+   "detail": "-59.72 7.8 {'h': 669.799987792969, 'w': 788.0, 'x': 765.0, 'y': 91.0}"
   },
   "hidden_subviewport_update_disabled": {
    "pass": true,
@@ -127,11 +127,11 @@
   },
   "hidden_subviewport_renders_nothing": {
    "pass": true,
-   "detail": "draw calls: white page 40, viewer shown 60, hidden 40"
+   "detail": "draw calls: white page 47, viewer shown 67, hidden 47"
   },
   "viewer_resumes_with_state_intact": {
    "pass": true,
-   "detail": "ticks frozen 86, resumed 90 -> 110"
+   "detail": "ticks frozen 108, resumed 112 -> 147"
   },
   "resumed_subviewport_updates_again": {
    "pass": true,
@@ -143,7 +143,7 @@
   },
   "resize_shrinks_desktop_to_fit": {
    "pass": true,
-   "detail": "tenant [1440.0, 844.535888671875], scale 0.868864059448242, viewer {'h': 581.965148925781, 'w': 684.664855957031, 'x': 550.153625488281, 'y': 119.760055541992}"
+   "detail": "tenant [1440.0, 844.535888671875], scale 0.868864059448242, viewer {'h': 581.965148925781, 'w': 684.664855957031, 'x': 550.153625488281, 'y': 64.2959442138672}"
   },
   "resized_screenshot_is_1440x900": {
    "pass": true,
@@ -155,7 +155,7 @@
   },
   "viewport_shows_sculpture": {
    "pass": true,
-   "detail": "std 77.9 mean 211.1"
+   "detail": "std 77.6 mean 211.4"
   },
   "catalogue_picture_drawn": {
    "pass": true,
@@ -171,17 +171,17 @@
   }
  },
  "sha256": {
-  "01-viewer.png": "ce3a5b0b70e15bc2938577badf8d373ae32407bacffdb786790bc8679be017a2",
-  "02-paused.png": "f0d9cae4de3f44411976c390faf4f10bcb67bef90dce38b78304e32995dc66d1",
-  "03-paused-later.png": "e74b55f76e5dbfe434ffdd2db776a3ff4ec95bda50483e7c57e9462285837e0a",
-  "04-orbited.png": "f54c68b371646c13cee6a6437aac4fd251dd78badae6c1009225a9b7ddd9dfe1",
-  "05-zoomed.png": "98fa2a727f8d04c9263eadeb1a9d8cb1eccc9d96ced62c7207e1a93e6a73bbc5",
-  "06-window-moved.png": "c5a3d5ec3e9fa71a00f7d16b681170a15e2f20a3fb33464c3f4c70e4558a8a47",
-  "07-catalogue-moved.png": "40389ced071a45b26fcaef6c8580dfa6b4e806396aa449c4b2dcd05c8bf1b15d",
-  "08-before-hidden.png": "5afc02f6eabe3cc53c676dea1ec5238ba52e22ce58c739682289f9add9d95126",
-  "09-hidden.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
-  "10-resumed.png": "5afc02f6eabe3cc53c676dea1ec5238ba52e22ce58c739682289f9add9d95126",
-  "11-resized.png": "a01000fec42a230605692bc81714755b2af18b0bf590d14d0cfcdd8ea947c2eb",
-  "12-restored.png": "5afc02f6eabe3cc53c676dea1ec5238ba52e22ce58c739682289f9add9d95126"
+  "01-viewer.png": "08ec785b06b542b850a01ed3ab8798303d709675c96f93758d9bdbadf4a3b360",
+  "02-paused.png": "3bed8befdca14c4da181564b9e78d0e28c5f668a8fcdd5549a1703bc6f66e95a",
+  "03-paused-later.png": "f0f25d3cbb6359550de1693577aa5dffd80ded0060a1b34fb179697fb624636b",
+  "04-orbited.png": "08648af8ea4fcf4b1836699f94c2bceb73acda5e4c1142f79c219392ef737910",
+  "05-zoomed.png": "e5d2ac4e68de2161fb42dc3de2275f4d7e2b330d31e7460ba72f13e1412d1bf7",
+  "06-window-moved.png": "1eedba75ee4890e3e71ad0500c5d9db64f0aec42e5a702f37b11738cf99a7236",
+  "07-catalogue-moved.png": "111643ae267e73325570c293a41eac5051f765cdb14f640ce88d5bd4e96bcb71",
+  "08-before-hidden.png": "5f31c5a06c2cd15e7aff113954f6390e0c34e688df4d6c1b132efe7b2d562e23",
+  "09-hidden.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "10-resumed.png": "5f31c5a06c2cd15e7aff113954f6390e0c34e688df4d6c1b132efe7b2d562e23",
+  "11-resized.png": "78eaf887d60151ae212ee77efb95b62f8a373ab17fc5d838de45c39d8f0de7c0",
+  "12-restored.png": "5f31c5a06c2cd15e7aff113954f6390e0c34e688df4d6c1b132efe7b2d562e23"
  }
 }

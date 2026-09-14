@@ -17,6 +17,7 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 MANIFEST = json.loads((HERE.parent / "media" / "manifest.json").read_text())
 BAR_H = 161 * 1920 / 4180.0
+PAGE_H = 1080 - BAR_H  # the page fills the window above the bar (bar along the bottom)
 CANVAS = (1536, 1632)      # video_player.gd CANVAS_SIZE
 MARGIN = 24
 VIDEO_RECT = (82, 106, 1366, 732)
@@ -76,8 +77,8 @@ check("tenant_fills_page_area", near(sz[0], 1920, 1) and near(sz[1], 1080 - BAR_
 scale = min(1.0, (sz[0] - 2 * MARGIN) / CANVAS[0], (sz[1] - 2 * MARGIN) / CANVAS[1])
 vr = a["viewer"]["rect"]
 check("viewer_fits_page_centred", near(a["viewer"]["scale"], scale, 1e-6) and near(vr["w"], CANVAS[0] * scale, 1) and near(vr["h"], CANVAS[1] * scale, 1)
-      and near(vr["x"], (sz[0] - vr["w"]) / 2, 1) and near(vr["y"], BAR_H + (sz[1] - vr["h"]) / 2, 1.5) and vr["y"] >= BAR_H - 0.5
-      and vr["y"] + vr["h"] <= BAR_H + sz[1] + 0.5, f"scale {a['viewer']['scale']:.4f} rect {vr}")
+      and near(vr["x"], (sz[0] - vr["w"]) / 2, 1) and near(vr["y"], (sz[1] - vr["h"]) / 2, 1.5) and vr["y"] >= -0.5
+      and vr["y"] + vr["h"] <= sz[1] + 0.5, f"scale {a['viewer']['scale']:.4f} rect {vr}")
 vid = a["video_rect"]
 check("video_body_at_its_source_rect_in_the_viewer", near(vid["x"], vr["x"] + VIDEO_RECT[0] * scale, 1) and near(vid["y"], vr["y"] + VIDEO_RECT[1] * scale, 1)
       and near(vid["w"], VIDEO_RECT[2] * scale, 1) and near(vid["h"], VIDEO_RECT[3] * scale, 1), str(vid))
@@ -140,17 +141,17 @@ check("volume_drag_sets_gain_and_unmutes", near(vo["volume"], vexpect, 0.03) and
 # fullscreen fills the Page (not the OS window), keeps playing; F restores the viewer
 kf = gestures["fullscreen"]; fs = vp["fullscreen"]; fs20 = vp["fullscreen-20"]; wd = vp["windowed"]
 check("fullscreen_click_lands_on_its_control", inside((kf["x"], kf["y"]), vo["controls"]["fullscreen"]))
-check("fullscreen_fills_the_page", fs["fullscreen"] and same_rect(fs["video_rect"], {"x": 0, "y": BAR_H, "w": sz[0], "h": sz[1]}, 1.5)
+check("fullscreen_fills_the_page", fs["fullscreen"] and same_rect(fs["video_rect"], {"x": 0, "y": 0, "w": sz[0], "h": sz[1]}, 1.5)
       and states["video"]["window"] == [1920, 1080], str(fs["video_rect"]))
 check("fullscreen_keeps_playing", fs["playing"] and fs20["playing"] and fs20["stream_position"] > fs["stream_position"] + 0.2 and fs["video_id"] == vo["video_id"],
       f"{fs['stream_position']:.2f} -> {fs20['stream_position']:.2f}")
-page_fs = imgs["07-fullscreen.png"][int(BAR_H) + 2:, :]
-strip_fs, strip_w = imgs["07-fullscreen.png"][:int(BAR_H) - 2, :], imgs["08-windowed.png"][:int(BAR_H) - 2, :]
+page_fs = imgs["07-fullscreen.png"][:int(PAGE_H) - 2, :]
+strip_fs, strip_w = imgs["07-fullscreen.png"][int(PAGE_H) + 2:, :], imgs["08-windowed.png"][int(PAGE_H) + 2:, :]
 check("fullscreen_pixels_cover_the_page_under_the_strip", float((page_fs.min(axis=2) > 250).mean()) < 0.5 and float(np.abs(strip_fs - strip_w).mean()) < 0.5,
       f"white fraction {float((page_fs.min(axis=2) > 250).mean()):.3f}, strip diff {float(np.abs(strip_fs - strip_w).mean()):.3f}")
 check("f_key_restores_the_viewer", "F key" in gestures and not wd["fullscreen"] and same_rect(wd["video_rect"], vo["video_rect"]) and wd["playing"]
       and same_rect(wd["viewer"]["rect"], vo["viewer"]["rect"]), str(wd["video_rect"]))
-outside = np.concatenate([imgs["08-windowed.png"][int(BAR_H) + 2:, :int(vr["x"]) - 2].reshape(-1, 3), imgs["08-windowed.png"][int(BAR_H) + 2:, int(vr["x"] + vr["w"]) + 2:].reshape(-1, 3)])
+outside = np.concatenate([imgs["08-windowed.png"][:int(PAGE_H) - 2, :int(vr["x"]) - 2].reshape(-1, 3), imgs["08-windowed.png"][:int(PAGE_H) - 2, int(vr["x"] + vr["w"]) + 2:].reshape(-1, 3)])
 check("white_desktop_outside_the_viewer", float(outside.mean()) > 254 and float(crop(imgs["08-windowed.png"], vr).mean()) < 245, f"outside mean {float(outside.mean()):.2f}")
 
 # the keys with the page shown
@@ -172,7 +173,7 @@ check("title_drag_moves_viewer_by_the_drag", near(mv["viewer"]["position"][0], s
       f"{sv['viewer']['position']} -> {mv['viewer']['position']} by {td['relative_total']}")
 td2 = gestures["drag the title bar past the page's bottom-right corner"]; cl = vp["viewer-clamped"]
 s = cl["viewer"]["scale"]
-check("viewer_drag_clamps_to_keep_title_bar_reachable", td2["to"][0] > sz[0] and td2["to"][1] > BAR_H + sz[1]
+check("viewer_drag_clamps_to_keep_title_bar_reachable", td2["to"][0] > sz[0] and td2["to"][1] > sz[1]
       and near(cl["viewer"]["position"][0], sz[0] - 82 * s - 200, 0.5) and near(cl["viewer"]["position"][1], sz[1] - 105 * s, 0.5)
       and cl["controls"]["title_bar"]["x"] < sz[0] - 150, f"position {cl['viewer']['position']} page {sz}")
 
@@ -184,7 +185,7 @@ check("hidden_page_ignores_keys_and_click", all(g in gestures for g in ("Space k
       and hd2["ticks"] == hd["ticks"] and near(hd2["stream_position"], hd["stream_position"], 1e-3) and hd2["selected_video"] == hd["selected_video"]
       and hd2["interaction_count"] == hd["interaction_count"] and hd2["paused"] and hd2["viewer"]["position"] == hd["viewer"]["position"]
       and states["map-after-30-frames"]["active"] == 0, f"ticks {hd['ticks']} -> {hd2['ticks']}, position {hd['stream_position']:.3f} -> {hd2['stream_position']:.3f}")
-hidden_page = imgs["11-hidden.png"][int(BAR_H) + 2:, :]
+hidden_page = imgs["11-hidden.png"][:int(PAGE_H) - 2, :]
 check("hidden_page_shows_plain_white_map", float(hidden_page.mean()) > 254, f"mean {float(hidden_page.mean()):.2f}")
 va = states["video-again"]; ro = vp["resumed-on-show"]; r30 = vp["resumed-30"]
 check("video_tab_again_resumes_playing", va["active"] == 3 and not va["tabs"][3]["frozen"] and ro["playing"] and not ro["hidden_paused"] and not ro["paused"]

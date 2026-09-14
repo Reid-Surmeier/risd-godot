@@ -75,7 +75,7 @@
   },
   "every_window_shows_its_own_screenshot": {
    "pass": true,
-   "detail": "{'equipment': 4.1, 'options': 2.3, 'filters': 3.3, 'status': 8.0, 'trade': 3.7, 'chat': 2.3, 'party': 6.1, 'bottom': 0.5}"
+   "detail": "{'equipment': 4.1, 'options': 2.3, 'filters': 5.8, 'status': 8.0, 'trade': 3.7, 'chat': 2.3, 'party': 6.1, 'bottom': 0.5}"
   },
   "footer_reads_number_of_works_12": {
    "pass": true,
@@ -119,7 +119,7 @@
   },
   "party_moved_by_the_drag": {
    "pass": true,
-   "detail": "{'h': 245.224182128906, 'w': 250.725982666016, 'x': 416.566680908203, 'y': 557.256164550781} -> {'h': 245.224182128906, 'w': 250.725982666016, 'x': 416.566680908203, 'y': 472.891052246094}"
+   "detail": "{'h': 245.224182128906, 'w': 250.725982666016, 'x': 416.566680908203, 'y': 557.256164550781} -> {'h': 245.22412109375, 'w': 250.725982666016, 'x': 416.566680908203, 'y': 472.890991210938}"
   },
   "party_overlaps_the_viewer": {
    "pass": true,
@@ -131,7 +131,7 @@
   },
   "party_pixels_drawn_over_the_viewer": {
    "pass": true,
-   "detail": "diff 12.8 over {'x': 416.566680908203, 'y': 472.891052246094, 'w': 250.72598266601597, 'h': 59.99989318847611}"
+   "detail": "diff 12.8 over {'x': 416.566680908203, 'y': 472.890991210938, 'w': 250.72598266601597, 'h': 59.99995422363207}"
   },
   "viewer_moved_by_the_drag": {
    "pass": true,
@@ -187,7 +187,7 @@
   },
   "frozen_counters_stand_still": {
    "pass": true,
-   "detail": "ticks 75->75 inputs 52->52"
+   "detail": "ticks 132->132 inputs 53->53"
   },
   "hidden_gestures_change_nothing": {
    "pass": true,
@@ -207,7 +207,7 @@
   },
   "resumed_counters_advance": {
    "pass": true,
-   "detail": "75 -> 79 -> 99"
+   "detail": "132 -> 189 -> 209"
   },
   "resumed_pixels_match_before_hiding": {
    "pass": true,
@@ -231,15 +231,15 @@
   }
  },
  "sha256": {
-  "01-launch.png": "422f4c4774bca44e4f94a10a77567b3bd735acf7cc882e455de69c8f2a7e8404",
-  "02-equipment-moved.png": "8d97341f636a60d6f34b8940cf274fe95740c027c1e3bfbd95338f5447369f7d",
-  "03-party-over-viewer.png": "ed227a59771652ee47bcc4b12445aa4c8eb3aaa90c024e997e2fde6bd0dfd223",
-  "04-viewer-moved.png": "c901d2f754e2e25a4bc66f34394cbef822690987f295acbe84be755803620fe3",
-  "05-scrolled.png": "c34fab5778785fa36aba561f2b8500f3b6e44e1f63a45844694cd91afacec5ba",
-  "06-viewer-resized.png": "edfd1fbeea908f135d52d19c2e29d939dc7d05ade33d874fb401fd913c90da2f",
-  "07-chat-clamped.png": "131599a6aded7e32abeb337f45571c301657312ddb363eae8e5e2a9a65361317",
-  "08-map.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
-  "09-resumed.png": "131599a6aded7e32abeb337f45571c301657312ddb363eae8e5e2a9a65361317",
-  "10-resized.png": "46c602f50439ef2d52a51ca6a67e6fb31f9e30051b5ef35f16e67e419346a3bd"
+  "01-launch.png": "5c8ef4b435170921e48488d114d69cf5eb92153634bf833437625a72bfe779cb",
+  "02-equipment-moved.png": "dcc12eaf001d0b78775636fa4a8a3e8f20e75b38faec331888d3176a0046d0ae",
+  "03-party-over-viewer.png": "972ec705cf9b20779d0f81350cc316ecdcfc623d38f1672443ad68f954b11054",
+  "04-viewer-moved.png": "435c767dc5b97183d1ddba0fc98a11b2179792cbecefe2d79f58a1335c11a8c8",
+  "05-scrolled.png": "1c99e1192a8ff577f6381e5a9d13e5beff61e136110ca1b8170f7fcbf5f31a8f",
+  "06-viewer-resized.png": "c8e3a95ed2d3293000900bf8486ebff08641b4e6686d789c2226185add0a8555",
+  "07-chat-clamped.png": "bdbf754d4adc25576f130ff298aa638279f87e145314f2cc8f73cd826b6293e1",
+  "08-map.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "09-resumed.png": "d067e0da4a0bebe5000a949fa86f05997e2e479683c58877e5ea05d76ab2c0d3",
+  "10-resized.png": "31d6bddf1fb319dc1fbc48ddee21b5650af7b2b141a5fdadf9067f11a37dfaf9"
  }
 }

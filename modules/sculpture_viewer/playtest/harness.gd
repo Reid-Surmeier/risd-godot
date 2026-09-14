@@ -91,6 +91,7 @@ func _initialize() -> void:
 	var root := get_root()
 	var shell: Control = Shell.create({"3d_viewer": Viewer}).value
 	var out_dir := await _mount(shell, Vector2i(1920, 1080), "/tmp/sculpture_viewer-playtest")
+	await create_timer(1.0).timeout  # the launch grow and fade of the Collection tab
 
 	# 1. launch: Collection active, the 3D Viewer Tenant not created yet; draw calls of a white page
 	await _frames(3)
@@ -101,6 +102,7 @@ func _initialize() -> void:
 	#    the autoplay orbit running
 	var st: Dictionary = _state(shell, "pre-viewer")
 	await _click(_center(shell, st.tabs[2].rect), "3d viewer tab")
+	await create_timer(0.45).timeout  # the page cross-fade
 	await _frames(8)
 	_state(shell, "viewer")
 	var v := _viewer(shell, "viewer-shown")
@@ -157,6 +159,7 @@ func _initialize() -> void:
 	# 10. click the Sketchbook tab: the 3D Viewer page is frozen — no frames, no input, no rendering —
 	#     and wheel, drag and a button click aimed at the hidden viewer change nothing
 	await _click(_center(shell, st.tabs[1].rect), "sketchbook tab")
+	await create_timer(0.45).timeout  # the page cross-fade
 	await _frames(3)
 	_state(shell, "sketchbook")
 	_viewer(shell, "viewer-hidden")
@@ -172,8 +175,9 @@ func _initialize() -> void:
 	# 11. back to the 3D Viewer: it resumes with the view and the windows exactly as left
 	await _click(_center(shell, st.tabs[2].rect), "3d viewer tab (again)")
 	await _frames(3)
+	_viewer(shell, "viewer-resumed")  # it runs again from the moment its fade-in starts
+	await create_timer(0.45).timeout
 	_state(shell, "viewer-again")
-	_viewer(shell, "viewer-resumed")
 	await _frames(20)
 	_viewer(shell, "viewer-resumed-after-20-frames")
 	await _shot(out_dir, "10-resumed.png")

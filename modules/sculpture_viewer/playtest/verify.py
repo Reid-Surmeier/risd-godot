@@ -12,6 +12,7 @@ import numpy as np
 from PIL import Image
 
 BAR_H = 161 * 1920 / 4180.0
+PAGE_H = 1080 - BAR_H  # the page fills the window above the bar (bar along the bottom)
 DESKTOP = (1440, 972)                 # desktop.gd DESKTOP_SIZE (the prototype's canvas)
 CATALOGUE = (400, 400 * 5101 / 2276.0)
 VIEWER = (800, 680)
@@ -70,7 +71,7 @@ sz = v["size"]
 check("tenant_fills_page_area", near(sz[0], 1920, 1) and near(sz[1], 1080 - BAR_H, 1.5), str(sz))
 
 # the desktop: the prototype's 1440x972 canvas 1:1, centred; the catalogue at (72, 34), the viewer at (600, 34) x0.985
-ox = (sz[0] - DESKTOP[0]) / 2; oy = BAR_H + (sz[1] - DESKTOP[1]) / 2
+ox = (sz[0] - DESKTOP[0]) / 2; oy = (sz[1] - DESKTOP[1]) / 2
 cr = v["catalogue_rect"]; vr = v["viewer_rect"]; pr = v["viewport_rect"]
 check("desktop_is_1to1_and_centred", near(v["desktop_scale"], 1.0, 1e-6) and near(v["pointer_scale"], VIEWER_SCALE, 1e-3)
       and near(cr["x"], ox + 72, 1) and near(cr["y"], oy + 34, 1.5) and near(cr["w"], CATALOGUE[0], 0.5) and near(cr["h"], CATALOGUE[1], 0.5)
@@ -180,11 +181,11 @@ vp = region(first, pr)
 check("viewport_shows_sculpture", float(vp.std()) > 10 and float(vp.mean()) < 250, f"std {float(vp.std()):.1f} mean {float(vp.mean()):.1f}")
 cat = region(first, cr)
 check("catalogue_picture_drawn", float(cat.std()) > 10 and float(cat.mean()) < 250, f"std {float(cat.std()):.1f}")
-above = first[int(BAR_H) + 2:int(cr["y"]) - 2, :]
-right = first[int(BAR_H) + 2:, int(vr["x"] + vr["w"]) + 2:]
+above = first[2:int(cr["y"]) - 2, :]
+right = first[:int(PAGE_H) - 2, int(vr["x"] + vr["w"]) + 2:]
 check("page_outside_windows_is_white", above.size > 0 and float(above.mean()) > 254 and right.size > 0 and float(right.mean()) > 254,
       f"above {float(above.mean()):.2f} right {float(right.mean()):.2f}")
-hidden_page = imgs["09-hidden.png"][int(BAR_H) + 2:, :]
+hidden_page = imgs["09-hidden.png"][:int(PAGE_H) - 2, :]
 check("hidden_page_shows_plain_white_sketchbook", float(hidden_page.mean()) > 254, f"mean {float(hidden_page.mean()):.2f}")
 
 ok = all(r["pass"] for r in results.values())

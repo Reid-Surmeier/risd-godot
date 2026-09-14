@@ -12,6 +12,7 @@ import numpy as np
 from PIL import Image
 
 BAR_H = 161 * 1920 / 4180.0
+PAGE_H = 1080 - BAR_H  # the page fills the window above the bar (bar along the bottom)
 DESKTOP = (1440, 972)                 # desktop.gd DESKTOP_SIZE (the prototype's canvas)
 BOOK_ORIGIN, BOOK_SIZE = (740, 460), (620, 500)   # desktop.gd, as the prototype's desktop.gd placed it
 INK = (0x44, 0x65, 0xE9)              # drawing_surface.gd DEFAULT_INK, tldraw blue
@@ -67,7 +68,7 @@ sz = b["size"]
 check("tenant_fills_page_area", near(sz[0], 1920, 1) and near(sz[1], 1080 - BAR_H, 1.5), str(sz))
 
 # the desktop: the prototype's 1440x972 canvas 1:1, centred; the book at (740, 460) 620x500 with its 20 px title bar
-ox = (sz[0] - DESKTOP[0]) / 2; oy = BAR_H + (sz[1] - DESKTOP[1]) / 2
+ox = (sz[0] - DESKTOP[0]) / 2; oy = (sz[1] - DESKTOP[1]) / 2
 wr = b["window_rect"]; pg = b["page_rect"]; tr = b["title_rect"]
 check("desktop_is_1to1_and_centred", near(b["desktop_scale"], 1.0, 1e-6) and near(wr["x"], ox + BOOK_ORIGIN[0], 1) and near(wr["y"], oy + BOOK_ORIGIN[1], 1.5)
       and near(wr["w"], BOOK_SIZE[0], 0.5) and near(wr["h"], BOOK_SIZE[1], 0.5), f"window {wr}")
@@ -122,7 +123,7 @@ check("hidden_subviewports_quiet", all(x["static_update_mode"] in (0, 1) and x["
       f"static {h0['static_update_mode']},{h1['static_update_mode']} face {h0['face_update_mode']},{h1['face_update_mode']}")
 d0 = la["draw_calls"]; d1 = states["before-hidden"]["draw_calls"]; d2 = states["map-after-20-frames"]["draw_calls"]
 check("hidden_page_renders_nothing", d1 >= d0 + 8 and abs(d2 - d0) <= 2, f"draw calls: white page {d0}, book shown {d1}, hidden {d2}")
-hidden_page = imgs["07-hidden.png"][int(BAR_H) + 2:, :]
+hidden_page = imgs["07-hidden.png"][:int(PAGE_H) - 2, :]
 check("hidden_page_shows_plain_white_map", float(hidden_page.mean()) > 254, f"mean {float(hidden_page.mean()):.2f}")
 
 # resumed: same book, frames run again, the same pixels
@@ -146,7 +147,7 @@ check("restore_refits_back", states["restored"]["window"] == [1920, 1080] and ne
 # pixels: the book's page is drawn (not white), white outside the window
 page = region(imgs["01-book.png"], pg)
 check("book_page_drawn", float(page.mean()) < 250 and float(page.std()) > 3, f"mean {float(page.mean()):.1f} std {float(page.std()):.1f}")
-above = imgs["01-book.png"][int(BAR_H) + 2:int(wr["y"]) - 2, :]
+above = imgs["01-book.png"][2:int(wr["y"]) - 2, :]
 check("page_outside_window_is_white", above.size > 0 and float(above.mean()) > 254, f"mean {float(above.mean()):.2f}")
 
 ok = all(r["pass"] for r in results.values())

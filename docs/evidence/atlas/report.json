@@ -6,11 +6,7 @@
       "draw_calls": 47,
       "event": "state",
       "label": "launch",
-<<<<<<< HEAD
-      "t_ms": 1031,
-=======
-      "t_ms": 23,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 1021,
       "tabs": [
         {
           "frozen": true,
@@ -107,11 +103,7 @@
       "event": "atlas",
       "label": "launch",
       "ok": false,
-<<<<<<< HEAD
-      "t_ms": 1031
-=======
-      "t_ms": 23
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 1021
     },
     {
       "active": 4,
@@ -119,11 +111,7 @@
       "draw_calls": 47,
       "event": "state",
       "label": "pre-map",
-<<<<<<< HEAD
-      "t_ms": 1031,
-=======
-      "t_ms": 23,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 1021,
       "tabs": [
         {
           "frozen": true,
@@ -217,30 +205,18 @@
     },
     {
       "event": "click",
-<<<<<<< HEAD
-      "t_ms": 1607,
-=======
-      "t_ms": 655,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 1680,
       "what": "map tab",
       "x": 208.306213378906,
       "y": 1049.45458984375
     },
     {
       "active": 0,
-<<<<<<< HEAD
       "count": 7,
-      "draw_calls": 69,
+      "draw_calls": 73,
       "event": "state",
       "label": "map",
-      "t_ms": 2117,
-=======
-      "count": 6,
-      "draw_calls": 66,
-      "event": "state",
-      "label": "map",
-      "t_ms": 742,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 2192,
       "tabs": [
         {
           "frozen": false,
@@ -345,33 +321,19 @@
         "y": 46.0
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 379.0,
-        "y": 24.0
-=======
         "h": 750.0,
         "w": 910.0,
         "x": 548.0,
-        "y": 119.952156066895
->>>>>>> origin/wip/atlas-desktop
+        "y": 46.0
       },
       "inputs": 1,
       "label": "map-shown",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 866.0,
-        "w": 1114.0,
-        "x": 403.0,
-        "y": 87.0
-=======
         "h": 678.0,
         "w": 872.0,
         "x": 567.0,
-        "y": 169.9521484375
->>>>>>> origin/wip/atlas-desktop
+        "y": 96.0
       },
       "mode": "atlas",
       "moving_window": "",
@@ -411,9 +373,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 2117,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -421,10 +380,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 742,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 2192,
       "terrain_tiles": 0,
-      "ticks": 52,
+      "ticks": 50,
       "vertical_pan_locked": true,
       "viewport": [
         872.0,
@@ -442,38 +400,25 @@
     {
       "event": "screenshot",
       "file": "01-map.png",
-<<<<<<< HEAD
-      "t_ms": 2192
-    },
-    {
-      "count": 3,
-      "event": "wheel",
-      "t_ms": 2255,
-      "up": true,
-      "what": "wheel up x3 at map centre",
-      "x": 960.0,
-      "y": 520.0
-=======
-      "t_ms": 833
+      "t_ms": 2288
     },
     {
       "event": "drag",
       "from": [
         1617.0,
-        1047.9521484375
+        974.0
       ],
       "relative_total": [
         -700.0,
         -700.0
       ],
       "steps": 5,
-      "t_ms": 909,
+      "t_ms": 2363,
       "to": [
         917.0,
-        347.9521484375
+        274.0
       ],
       "what": "drag the notification panel onto the map"
->>>>>>> origin/wip/atlas-desktop
     },
     {
       "action": "",
@@ -488,33 +433,19 @@
         "y": 46.0
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 379.0,
-        "y": 24.0
-=======
         "h": 750.0,
         "w": 910.0,
         "x": 548.0,
-        "y": 119.952156066895
->>>>>>> origin/wip/atlas-desktop
+        "y": 46.0
       },
       "inputs": 8,
       "label": "panel-moved",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 866.0,
-        "w": 1114.0,
-        "x": 403.0,
-        "y": 87.0
-=======
         "h": 678.0,
         "w": 872.0,
         "x": 567.0,
-        "y": 169.9521484375
->>>>>>> origin/wip/atlas-desktop
+        "y": 96.0
       },
       "mode": "atlas",
       "moving_window": "",
@@ -554,12 +485,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 2284,
-      "terrain_tiles": 0,
-      "ticks": 62,
-      "vertical_pan_locked": false,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -567,11 +492,10 @@
         "map",
         "notification"
       ],
-      "t_ms": 941,
+      "t_ms": 2395,
       "terrain_tiles": 0,
-      "ticks": 20,
+      "ticks": 61,
       "vertical_pan_locked": true,
->>>>>>> origin/wip/atlas-desktop
       "viewport": [
         872.0,
         678.0
@@ -587,21 +511,17 @@
     },
     {
       "event": "screenshot",
-<<<<<<< HEAD
-      "file": "02-zoomed.png",
-      "t_ms": 2357
-=======
       "file": "02-panel-moved.png",
-      "t_ms": 1028
+      "t_ms": 2481
     },
     {
       "count": 3,
       "event": "wheel",
-      "t_ms": 1095,
+      "t_ms": 2544,
       "up": true,
       "what": "wheel up x3 over the notification panel",
       "x": 917.0,
-      "y": 347.9521484375
+      "y": 274.0
     },
     {
       "action": "",
@@ -619,7 +539,7 @@
         "h": 750.0,
         "w": 910.0,
         "x": 548.0,
-        "y": 119.952156066895
+        "y": 46.0
       },
       "inputs": 14,
       "label": "wheel-over-panel",
@@ -628,7 +548,7 @@
         "h": 678.0,
         "w": 872.0,
         "x": 567.0,
-        "y": 169.9521484375
+        "y": 96.0
       },
       "mode": "atlas",
       "moving_window": "",
@@ -675,9 +595,9 @@
         "map",
         "notification"
       ],
-      "t_ms": 1127,
+      "t_ms": 2575,
       "terrain_tiles": 0,
-      "ticks": 30,
+      "ticks": 71,
       "vertical_pan_locked": true,
       "viewport": [
         872.0,
@@ -695,11 +615,11 @@
     {
       "count": 3,
       "event": "wheel",
-      "t_ms": 1195,
+      "t_ms": 2641,
       "up": true,
       "what": "wheel up x3 at map centre",
       "x": 1003.0,
-      "y": 508.9521484375
+      "y": 435.0
     },
     {
       "action": "",
@@ -717,7 +637,7 @@
         "h": 750.0,
         "w": 910.0,
         "x": 548.0,
-        "y": 119.952156066895
+        "y": 46.0
       },
       "inputs": 20,
       "label": "zoomed",
@@ -726,7 +646,7 @@
         "h": 678.0,
         "w": 872.0,
         "x": 567.0,
-        "y": 169.9521484375
+        "y": 96.0
       },
       "mode": "atlas",
       "moving_window": "",
@@ -773,9 +693,9 @@
         "map",
         "notification"
       ],
-      "t_ms": 1228,
+      "t_ms": 2672,
       "terrain_tiles": 0,
-      "ticks": 39,
+      "ticks": 80,
       "vertical_pan_locked": false,
       "viewport": [
         872.0,
@@ -793,36 +713,23 @@
     {
       "event": "screenshot",
       "file": "03-zoomed.png",
-      "t_ms": 1314
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 2757
     },
     {
       "event": "drag",
       "from": [
-<<<<<<< HEAD
-        960.0,
-        520.0
-=======
         1003.0,
-        508.9521484375
->>>>>>> origin/wip/atlas-desktop
+        435.0
       ],
       "relative_total": [
         -160.0,
         -120.0
       ],
       "steps": 4,
-<<<<<<< HEAD
-      "t_ms": 2421,
-      "to": [
-        800.0,
-        400.0
-=======
-      "t_ms": 1382,
+      "t_ms": 2823,
       "to": [
         843.0,
-        388.9521484375
->>>>>>> origin/wip/atlas-desktop
+        315.0
       ],
       "what": "drag-pan inside the map"
     },
@@ -839,33 +746,19 @@
         "y": 46.0
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 379.0,
-        "y": 24.0
-=======
         "h": 750.0,
         "w": 910.0,
         "x": 548.0,
-        "y": 119.952156066895
->>>>>>> origin/wip/atlas-desktop
+        "y": 46.0
       },
       "inputs": 26,
       "label": "panned",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 866.0,
-        "w": 1114.0,
-        "x": 403.0,
-        "y": 87.0
-=======
         "h": 678.0,
         "w": 872.0,
         "x": 567.0,
-        "y": 169.9521484375
->>>>>>> origin/wip/atlas-desktop
+        "y": 96.0
       },
       "mode": "atlas",
       "moving_window": "",
@@ -905,11 +798,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 2451,
-      "terrain_tiles": 0,
-      "ticks": 72,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -917,10 +805,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 1416,
+      "t_ms": 2853,
       "terrain_tiles": 0,
-      "ticks": 49,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 90,
       "vertical_pan_locked": false,
       "viewport": [
         872.0,
@@ -937,41 +824,24 @@
     },
     {
       "event": "screenshot",
-<<<<<<< HEAD
-      "file": "03-panned.png",
-      "t_ms": 2520
-=======
       "file": "04-panned.png",
-      "t_ms": 1502
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 2936
     },
     {
       "event": "drag",
       "from": [
-<<<<<<< HEAD
-        960.5,
-        64.4756393432617
-=======
         1003.0,
-        151.628219604492
->>>>>>> origin/wip/atlas-desktop
+        77.6760635375977
       ],
       "relative_total": [
         70.0,
         -15.0
       ],
       "steps": 5,
-<<<<<<< HEAD
-      "t_ms": 2594,
-      "to": [
-        1030.5,
-        49.4756393432617
-=======
-      "t_ms": 1576,
+      "t_ms": 3010,
       "to": [
         1073.0,
-        136.628219604492
->>>>>>> origin/wip/atlas-desktop
+        62.6760635375977
       ],
       "what": "drag the map window by its title bar"
     },
@@ -988,33 +858,19 @@
         "y": 31.0
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 449.0,
-        "y": 9.0
-=======
         "h": 750.0,
         "w": 910.0,
         "x": 618.0,
-        "y": 104.952156066895
->>>>>>> origin/wip/atlas-desktop
+        "y": 31.0
       },
       "inputs": 33,
       "label": "window-moved",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 866.0,
-        "w": 1114.0,
-        "x": 473.0,
-        "y": 72.0
-=======
         "h": 678.0,
         "w": 872.0,
         "x": 637.0,
-        "y": 154.9521484375
->>>>>>> origin/wip/atlas-desktop
+        "y": 81.0
       },
       "mode": "atlas",
       "moving_window": "",
@@ -1054,11 +910,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 2624,
-      "terrain_tiles": 0,
-      "ticks": 83,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -1066,10 +917,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 1609,
+      "t_ms": 3042,
       "terrain_tiles": 0,
-      "ticks": 60,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 101,
       "vertical_pan_locked": false,
       "viewport": [
         872.0,
@@ -1086,13 +936,8 @@
     },
     {
       "event": "screenshot",
-<<<<<<< HEAD
-      "file": "04-window-moved.png",
-      "t_ms": 2693
-=======
       "file": "05-window-moved.png",
-      "t_ms": 1693
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 3126
     },
     {
       "active": 0,
@@ -1100,11 +945,7 @@
       "draw_calls": 71,
       "event": "state",
       "label": "window-moved",
-<<<<<<< HEAD
-      "t_ms": 2693,
-=======
-      "t_ms": 1693,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 3126,
       "tabs": [
         {
           "frozen": false,
@@ -1199,30 +1040,18 @@
     {
       "event": "drag",
       "from": [
-<<<<<<< HEAD
-        1030.5,
-        49.4756393432617
-=======
         1073.0,
-        136.628219604492
->>>>>>> origin/wip/atlas-desktop
+        62.6760635375977
       ],
       "relative_total": [
         1800.0,
         1200.0
       ],
       "steps": 6,
-<<<<<<< HEAD
-      "t_ms": 2773,
-      "to": [
-        2830.5,
-        1249.4755859375
-=======
-      "t_ms": 1780,
+      "t_ms": 3210,
       "to": [
         2873.0,
-        1336.62817382812
->>>>>>> origin/wip/atlas-desktop
+        1262.67602539062
       ],
       "what": "drag the title bar past the page's bottom-right corner"
     },
@@ -1239,33 +1068,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 757.0,
-        "y": 48.0478515625
-=======
         "h": 750.0,
         "w": 910.0,
         "x": 1010.0,
-        "y": 330.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 256.0478515625
       },
       "inputs": 41,
       "label": "window-clamped",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 866.0,
-        "w": 1114.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 678.0,
         "w": 872.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -1305,11 +1120,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 2803,
-      "terrain_tiles": 0,
-      "ticks": 95,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -1317,10 +1127,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 1812,
+      "t_ms": 3242,
       "terrain_tiles": 0,
-      "ticks": 72,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 113,
       "vertical_pan_locked": false,
       "viewport": [
         872.0,
@@ -1337,13 +1146,8 @@
     },
     {
       "event": "screenshot",
-<<<<<<< HEAD
-      "file": "05-window-clamped.png",
-      "t_ms": 2873
-=======
       "file": "06-window-clamped.png",
-      "t_ms": 1902
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 3327
     },
     {
       "event": "drag",
@@ -1356,11 +1160,7 @@
         -100.0
       ],
       "steps": 5,
-<<<<<<< HEAD
-      "t_ms": 2957,
-=======
-      "t_ms": 1986,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 3411,
       "to": [
         1766.0,
         902.0478515625
@@ -1380,33 +1180,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 256.0478515625
       },
       "inputs": 48,
       "label": "window-resized",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -1446,11 +1232,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 2986,
-      "terrain_tiles": 0,
-      "ticks": 106,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -1458,10 +1239,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 2015,
+      "t_ms": 3439,
       "terrain_tiles": 0,
-      "ticks": 83,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 124,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -1478,27 +1258,15 @@
     },
     {
       "event": "screenshot",
-<<<<<<< HEAD
-      "file": "06-window-resized.png",
-      "t_ms": 3055
-    },
-    {
-      "event": "click",
-      "t_ms": 3074,
-      "what": "collapse button",
-      "x": 801.523193359375,
-      "y": 91.2218627929688
-=======
       "file": "07-window-resized.png",
-      "t_ms": 2103
+      "t_ms": 3524
     },
     {
       "event": "click",
-      "t_ms": 2124,
+      "t_ms": 3543,
       "what": "collapse button",
       "x": 1044.84362792969,
-      "y": 363.787811279297
->>>>>>> origin/wip/atlas-desktop
+      "y": 289.835662841797
     },
     {
       "action": "",
@@ -1513,33 +1281,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 92.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-=======
         "h": 72.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 256.0478515625
       },
       "inputs": 50,
       "label": "collapsed",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -1579,11 +1333,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 3096,
-      "terrain_tiles": 0,
-      "ticks": 112,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -1591,10 +1340,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 2148,
+      "t_ms": 3565,
       "terrain_tiles": 0,
-      "ticks": 89,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 130,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -1611,27 +1359,15 @@
     },
     {
       "event": "screenshot",
-<<<<<<< HEAD
-      "file": "07-collapsed.png",
-      "t_ms": 3158
-    },
-    {
-      "event": "click",
-      "t_ms": 3173,
-      "what": "collapse button (again)",
-      "x": 801.523193359375,
-      "y": 91.2218627929688
-=======
       "file": "08-collapsed.png",
-      "t_ms": 2230
+      "t_ms": 3644
     },
     {
       "event": "click",
-      "t_ms": 2248,
+      "t_ms": 3660,
       "what": "collapse button (again)",
       "x": 1044.84362792969,
-      "y": 363.787811279297
->>>>>>> origin/wip/atlas-desktop
+      "y": 289.835662841797
     },
     {
       "action": "",
@@ -1646,33 +1382,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 256.0478515625
       },
       "inputs": 52,
       "label": "expanded",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -1712,11 +1434,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 3202,
-      "terrain_tiles": 0,
-      "ticks": 118,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -1724,10 +1441,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 2277,
+      "t_ms": 3689,
       "terrain_tiles": 0,
-      "ticks": 95,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 136,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -1744,17 +1460,10 @@
     },
     {
       "event": "click",
-<<<<<<< HEAD
-      "t_ms": 3222,
-      "what": "lock button",
-      "x": 1726.82592773438,
-      "y": 91.2218627929688
-=======
-      "t_ms": 2297,
+      "t_ms": 3708,
       "what": "lock button",
       "x": 1736.21215820312,
-      "y": 363.787811279297
->>>>>>> origin/wip/atlas-desktop
+      "y": 289.835662841797
     },
     {
       "action": "",
@@ -1769,33 +1478,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 256.0478515625
       },
       "inputs": 54,
       "label": "locked",
       "locked": true,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -1835,11 +1530,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 3241,
-      "terrain_tiles": 0,
-      "ticks": 122,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -1847,10 +1537,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 2317,
+      "t_ms": 3727,
       "terrain_tiles": 0,
-      "ticks": 99,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 140,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -1868,30 +1557,18 @@
     {
       "event": "drag",
       "from": [
-<<<<<<< HEAD
-        1263.5,
-        88.5234909057617
-=======
         1390.0,
-        361.676055908203
->>>>>>> origin/wip/atlas-desktop
+        287.723907470703
       ],
       "relative_total": [
         -70.0,
         15.0
       ],
       "steps": 5,
-<<<<<<< HEAD
-      "t_ms": 3308,
-      "to": [
-        1193.5,
-        103.523490905762
-=======
-      "t_ms": 2385,
+      "t_ms": 3795,
       "to": [
         1320.0,
-        376.676055908203
->>>>>>> origin/wip/atlas-desktop
+        302.723907470703
       ],
       "what": "drag the title bar while locked"
     },
@@ -1908,33 +1585,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 256.0478515625
       },
       "inputs": 61,
       "label": "locked-drag",
       "locked": true,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -1974,11 +1637,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 3337,
-      "terrain_tiles": 0,
-      "ticks": 132,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -1986,10 +1644,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 2414,
+      "t_ms": 3824,
       "terrain_tiles": 0,
-      "ticks": 109,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 150,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -2006,17 +1663,10 @@
     },
     {
       "event": "click",
-<<<<<<< HEAD
-      "t_ms": 3355,
-      "what": "lock button (again)",
-      "x": 1726.82592773438,
-      "y": 91.2218627929688
-=======
-      "t_ms": 2434,
+      "t_ms": 3843,
       "what": "lock button (again)",
       "x": 1736.21215820312,
-      "y": 363.787811279297
->>>>>>> origin/wip/atlas-desktop
+      "y": 289.835662841797
     },
     {
       "action": "",
@@ -2031,33 +1681,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 256.0478515625
       },
       "inputs": 63,
       "label": "unlocked",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -2097,11 +1733,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 3374,
-      "terrain_tiles": 0,
-      "ticks": 136,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -2109,10 +1740,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 2453,
+      "t_ms": 3863,
       "terrain_tiles": 0,
-      "ticks": 113,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 154,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -2140,33 +1770,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 256.0478515625
       },
       "inputs": 63,
       "label": "pre-keys",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -2206,11 +1822,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 3374,
-      "terrain_tiles": 0,
-      "ticks": 136,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -2218,10 +1829,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 2453,
+      "t_ms": 3863,
       "terrain_tiles": 0,
-      "ticks": 113,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 154,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -2239,11 +1849,7 @@
     {
       "event": "key",
       "keycode": "Plus",
-<<<<<<< HEAD
-      "t_ms": 3393,
-=======
-      "t_ms": 2474,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 3883,
       "what": "+ key"
     },
     {
@@ -2259,33 +1865,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 256.0478515625
       },
       "inputs": 65,
       "label": "key-plus",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -2325,11 +1917,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 3412,
-      "terrain_tiles": 0,
-      "ticks": 140,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -2337,10 +1924,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 2494,
+      "t_ms": 3902,
       "terrain_tiles": 0,
-      "ticks": 117,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 158,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -2358,11 +1944,7 @@
     {
       "event": "key",
       "keycode": "Right",
-<<<<<<< HEAD
-      "t_ms": 3433,
-=======
-      "t_ms": 2514,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 3922,
       "what": "right arrow"
     },
     {
@@ -2378,33 +1960,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 256.0478515625
       },
       "inputs": 67,
       "label": "key-right",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -2444,11 +2012,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 3452,
-      "terrain_tiles": 0,
-      "ticks": 144,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -2456,10 +2019,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 2533,
+      "t_ms": 3942,
       "terrain_tiles": 0,
-      "ticks": 121,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 162,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -2477,11 +2039,7 @@
     {
       "event": "key",
       "keycode": "F",
-<<<<<<< HEAD
-      "t_ms": 3486,
-=======
-      "t_ms": 2560,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 3969,
       "what": "F key"
     },
     {
@@ -2497,33 +2055,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 256.0478515625
       },
       "inputs": 69,
       "label": "key-f-sheet",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "sheet",
       "moving_window": "",
@@ -2563,11 +2107,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 3505,
-      "terrain_tiles": 0,
-      "ticks": 148,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -2575,10 +2114,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 2579,
+      "t_ms": 3987,
       "terrain_tiles": 0,
-      "ticks": 125,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 166,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -2596,11 +2134,7 @@
     {
       "event": "key",
       "keycode": "F",
-<<<<<<< HEAD
-      "t_ms": 3525,
-=======
-      "t_ms": 2600,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 4008,
       "what": "F key (again)"
     },
     {
@@ -2616,33 +2150,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 256.0478515625
       },
       "inputs": 71,
       "label": "key-f-atlas",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -2682,11 +2202,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 3544,
-      "terrain_tiles": 0,
-      "ticks": 152,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -2694,10 +2209,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 2619,
+      "t_ms": 4028,
       "terrain_tiles": 0,
-      "ticks": 129,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 170,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -2715,11 +2229,7 @@
     {
       "event": "key",
       "keycode": "Home",
-<<<<<<< HEAD
-      "t_ms": 3564,
-=======
-      "t_ms": 2639,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 4050,
       "what": "Home key"
     },
     {
@@ -2735,33 +2245,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 256.0478515625
       },
       "inputs": 73,
       "label": "key-home",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -2801,11 +2297,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 3583,
-      "terrain_tiles": 0,
-      "ticks": 156,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -2813,10 +2304,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 2659,
+      "t_ms": 4070,
       "terrain_tiles": 0,
-      "ticks": 133,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 174,
       "vertical_pan_locked": true,
       "viewport": [
         722.0,
@@ -2833,30 +2323,17 @@
     },
     {
       "event": "screenshot",
-<<<<<<< HEAD
-      "file": "08-key-home.png",
-      "t_ms": 3659
-=======
       "file": "09-key-home.png",
-      "t_ms": 2749
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 4160
     },
     {
       "count": 2,
       "event": "wheel",
-<<<<<<< HEAD
-      "t_ms": 3701,
-      "up": true,
-      "what": "wheel up x2 at map centre before hiding",
-      "x": 1263.0,
-      "y": 494.0478515625
-=======
-      "t_ms": 2792,
+      "t_ms": 4203,
       "up": true,
       "what": "wheel up x2 at map centre before hiding",
       "x": 1390.0,
-      "y": 669.0
->>>>>>> origin/wip/atlas-desktop
+      "y": 595.0478515625
     },
     {
       "action": "",
@@ -2871,33 +2348,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 256.0478515625
       },
       "inputs": 77,
       "label": "before-hidden",
       "locked": false,
       "map_rect": {
-<<<<<<< HEAD
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -2937,11 +2400,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 3730,
-      "terrain_tiles": 0,
-      "ticks": 164,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -2949,10 +2407,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 2823,
+      "t_ms": 4231,
       "terrain_tiles": 0,
-      "ticks": 141,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 182,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -2969,29 +2426,16 @@
     },
     {
       "event": "screenshot",
-<<<<<<< HEAD
-      "file": "09-before-hidden.png",
-      "t_ms": 3800
+      "file": "10-before-hidden.png",
+      "t_ms": 4316
     },
     {
       "active": 0,
       "count": 7,
-      "draw_calls": 69,
+      "draw_calls": 72,
       "event": "state",
       "label": "before-hidden",
-      "t_ms": 3800,
-=======
-      "file": "10-before-hidden.png",
-      "t_ms": 2909
-    },
-    {
-      "active": 0,
-      "count": 6,
-      "draw_calls": 65,
-      "event": "state",
-      "label": "before-hidden",
-      "t_ms": 2909,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 4316,
       "tabs": [
         {
           "frozen": false,
@@ -3085,11 +2529,7 @@
     },
     {
       "event": "click",
-<<<<<<< HEAD
-      "t_ms": 3820,
-=======
-      "t_ms": 2927,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 4336,
       "what": "sketchbook tab",
       "x": 354.373199462891,
       "y": 1049.45458984375
@@ -3100,11 +2540,7 @@
       "draw_calls": 47,
       "event": "state",
       "label": "sketchbook",
-<<<<<<< HEAD
-      "t_ms": 4284,
-=======
-      "t_ms": 2949,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 4790,
       "tabs": [
         {
           "frozen": true,
@@ -3209,35 +2645,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-      },
-      "inputs": 66,
-      "label": "map-hidden",
-      "locked": false,
-      "map_rect": {
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
+        "y": 256.0478515625
       },
-      "inputs": 78,
+      "inputs": 79,
       "label": "map-hidden",
       "locked": false,
       "map_rect": {
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -3277,11 +2697,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 4284,
-      "terrain_tiles": 0,
-      "ticks": 179,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -3289,10 +2704,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 2949,
+      "t_ms": 4791,
       "terrain_tiles": 0,
-      "ticks": 143,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 199,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -3310,58 +2724,34 @@
     {
       "count": 3,
       "event": "wheel",
-<<<<<<< HEAD
-      "t_ms": 4326,
-      "up": true,
-      "what": "wheel up x3 at the map's centre while hidden",
-      "x": 1263.0,
-      "y": 494.0478515625
-=======
-      "t_ms": 2993,
+      "t_ms": 4832,
       "up": true,
       "what": "wheel up x3 at the map's centre while hidden",
       "x": 1390.0,
-      "y": 669.0
->>>>>>> origin/wip/atlas-desktop
+      "y": 595.0478515625
     },
     {
       "event": "drag",
       "from": [
-<<<<<<< HEAD
-        1263.0,
-        494.0478515625
-=======
         1390.0,
-        669.0
->>>>>>> origin/wip/atlas-desktop
+        595.0478515625
       ],
       "relative_total": [
         -160.0,
         -120.0
       ],
       "steps": 4,
-<<<<<<< HEAD
-      "t_ms": 4368,
-      "to": [
-        1103.0,
-        374.0478515625
-=======
-      "t_ms": 3037,
+      "t_ms": 4874,
       "to": [
         1230.0,
-        549.0
->>>>>>> origin/wip/atlas-desktop
+        475.0478515625
       ],
       "what": "drag where the map was while hidden"
     },
     {
       "event": "key",
       "keycode": "Plus",
-<<<<<<< HEAD
-      "t_ms": 4382,
-=======
-      "t_ms": 3051,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 4888,
       "what": "+ key while hidden"
     },
     {
@@ -3377,35 +2767,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-      },
-      "inputs": 66,
-      "label": "key-plus while hidden",
-      "locked": false,
-      "map_rect": {
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
+        "y": 256.0478515625
       },
-      "inputs": 78,
+      "inputs": 79,
       "label": "key-plus while hidden",
       "locked": false,
       "map_rect": {
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -3445,11 +2819,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 4395,
-      "terrain_tiles": 0,
-      "ticks": 179,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -3457,10 +2826,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 3066,
+      "t_ms": 4902,
       "terrain_tiles": 0,
-      "ticks": 143,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 199,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -3478,11 +2846,7 @@
     {
       "event": "key",
       "keycode": "Right",
-<<<<<<< HEAD
-      "t_ms": 4409,
-=======
-      "t_ms": 3080,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 4916,
       "what": "right arrow while hidden"
     },
     {
@@ -3498,35 +2862,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-      },
-      "inputs": 66,
-      "label": "key-right while hidden",
-      "locked": false,
-      "map_rect": {
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
+        "y": 256.0478515625
       },
-      "inputs": 78,
+      "inputs": 79,
       "label": "key-right while hidden",
       "locked": false,
       "map_rect": {
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -3566,11 +2914,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 4424,
-      "terrain_tiles": 0,
-      "ticks": 179,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -3578,10 +2921,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 3095,
+      "t_ms": 4929,
       "terrain_tiles": 0,
-      "ticks": 143,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 199,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -3599,11 +2941,7 @@
     {
       "event": "key",
       "keycode": "F",
-<<<<<<< HEAD
-      "t_ms": 4437,
-=======
-      "t_ms": 3109,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 4943,
       "what": "F key while hidden"
     },
     {
@@ -3619,35 +2957,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-      },
-      "inputs": 66,
-      "label": "key-f-sheet while hidden",
-      "locked": false,
-      "map_rect": {
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
+        "y": 256.0478515625
       },
-      "inputs": 78,
+      "inputs": 79,
       "label": "key-f-sheet while hidden",
       "locked": false,
       "map_rect": {
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -3687,11 +3009,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 4451,
-      "terrain_tiles": 0,
-      "ticks": 179,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -3699,10 +3016,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 3123,
+      "t_ms": 4957,
       "terrain_tiles": 0,
-      "ticks": 143,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 199,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -3720,11 +3036,7 @@
     {
       "event": "key",
       "keycode": "F",
-<<<<<<< HEAD
-      "t_ms": 4465,
-=======
-      "t_ms": 3137,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 4971,
       "what": "F key (again) while hidden"
     },
     {
@@ -3740,35 +3052,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-      },
-      "inputs": 66,
-      "label": "key-f-atlas while hidden",
-      "locked": false,
-      "map_rect": {
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
+        "y": 256.0478515625
       },
-      "inputs": 78,
+      "inputs": 79,
       "label": "key-f-atlas while hidden",
       "locked": false,
       "map_rect": {
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -3808,11 +3104,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 4479,
-      "terrain_tiles": 0,
-      "ticks": 179,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -3820,10 +3111,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 3152,
+      "t_ms": 4985,
       "terrain_tiles": 0,
-      "ticks": 143,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 199,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -3841,11 +3131,7 @@
     {
       "event": "key",
       "keycode": "Home",
-<<<<<<< HEAD
-      "t_ms": 4492,
-=======
-      "t_ms": 3166,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 4999,
       "what": "Home key while hidden"
     },
     {
@@ -3861,35 +3147,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-      },
-      "inputs": 66,
-      "label": "key-home while hidden",
-      "locked": false,
-      "map_rect": {
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
+        "y": 256.0478515625
       },
-      "inputs": 78,
+      "inputs": 79,
       "label": "key-home while hidden",
       "locked": false,
       "map_rect": {
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -3929,11 +3199,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 4506,
-      "terrain_tiles": 0,
-      "ticks": 179,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -3941,10 +3206,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 3181,
+      "t_ms": 5013,
       "terrain_tiles": 0,
-      "ticks": 143,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 199,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -3972,35 +3236,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-      },
-      "inputs": 66,
-      "label": "map-hidden-after-events",
-      "locked": false,
-      "map_rect": {
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
+        "y": 256.0478515625
       },
-      "inputs": 78,
+      "inputs": 79,
       "label": "map-hidden-after-events",
       "locked": false,
       "map_rect": {
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -4040,11 +3288,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 4645,
-      "terrain_tiles": 0,
-      "ticks": 179,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -4052,10 +3295,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 3329,
+      "t_ms": 5152,
       "terrain_tiles": 0,
-      "ticks": 143,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 199,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -4076,11 +3318,7 @@
       "draw_calls": 47,
       "event": "state",
       "label": "sketchbook-after-20-frames",
-<<<<<<< HEAD
-      "t_ms": 4645,
-=======
-      "t_ms": 3329,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 5152,
       "tabs": [
         {
           "frozen": true,
@@ -4174,113 +3412,15 @@
     },
     {
       "event": "screenshot",
-<<<<<<< HEAD
-      "file": "10-hidden.png",
-      "t_ms": 4706
+      "file": "11-hidden.png",
+      "t_ms": 5215
     },
     {
       "event": "click",
-      "t_ms": 4725,
+      "t_ms": 5234,
       "what": "map tab (again)",
       "x": 208.306213378906,
       "y": 1049.45458984375
-=======
-      "file": "11-hidden.png",
-      "t_ms": 3393
-    },
-    {
-      "event": "click",
-      "t_ms": 3412,
-      "what": "map tab (again)",
-      "x": 220.478485107422,
-      "y": 43.4067001342773
-    },
-    {
-      "active": 0,
-      "count": 6,
-      "draw_calls": 65,
-      "event": "state",
-      "label": "map-again",
-      "t_ms": 3442,
-      "tabs": [
-        {
-          "frozen": false,
-          "key": "map",
-          "page_visible": true,
-          "rect": {
-            "h": 56.4976081848145,
-            "w": 201.186614990234,
-            "x": 119.88516998291,
-            "y": 15.1578950881958
-          },
-          "tenant": "ok"
-        },
-        {
-          "frozen": true,
-          "key": "sketchbook",
-          "page_visible": false,
-          "rect": {
-            "h": 56.4976081848145,
-            "w": 201.186614990234,
-            "x": 290.296661376953,
-            "y": 15.1578950881958
-          },
-          "tenant": null
-        },
-        {
-          "frozen": true,
-          "key": "3d_viewer",
-          "page_visible": false,
-          "rect": {
-            "h": 56.4976081848145,
-            "w": 201.186584472656,
-            "x": 460.708129882812,
-            "y": 15.1578950881958
-          },
-          "tenant": null
-        },
-        {
-          "frozen": true,
-          "key": "video_player",
-          "page_visible": false,
-          "rect": {
-            "h": 56.4976081848145,
-            "w": 201.186584472656,
-            "x": 631.11962890625,
-            "y": 15.1578950881958
-          },
-          "tenant": null
-        },
-        {
-          "frozen": true,
-          "key": "collection",
-          "page_visible": false,
-          "rect": {
-            "h": 56.4976081848145,
-            "w": 201.186584472656,
-            "x": 801.531066894531,
-            "y": 15.1578950881958
-          },
-          "tenant": null
-        },
-        {
-          "frozen": true,
-          "key": "phone",
-          "page_visible": false,
-          "rect": {
-            "h": 56.4976081848145,
-            "w": 201.186584472656,
-            "x": 971.942565917969,
-            "y": 15.1578950881958
-          },
-          "tenant": null
-        }
-      ],
-      "window": [
-        1920.0,
-        1080.0
-      ]
->>>>>>> origin/wip/atlas-desktop
     },
     {
       "action": "",
@@ -4295,35 +3435,19 @@
         "y": 256.0478515625
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-      },
-      "inputs": 67,
-      "label": "map-resumed",
-      "locked": false,
-      "map_rect": {
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-=======
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
+        "y": 256.0478515625
       },
-      "inputs": 79,
+      "inputs": 80,
       "label": "map-resumed",
       "locked": false,
       "map_rect": {
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
->>>>>>> origin/wip/atlas-desktop
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -4363,31 +3487,37 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 4757,
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 5267,
       "terrain_tiles": 0,
-      "ticks": 183,
+      "ticks": 203,
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 4,
       "visible_cities": 2,
       "visible_close_cities": 0,
       "visible_labels": 2,
-      "zoom": 0.395029038190842,
+      "zoom": 0.298076748847961,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.39240000406694
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.3924000378711
     },
     {
       "active": 0,
       "count": 7,
-      "draw_calls": 69,
+      "draw_calls": 72,
       "event": "state",
       "label": "map-again",
-      "t_ms": 5201,
+      "t_ms": 5700,
       "tabs": [
         {
           "frozen": false,
@@ -4481,71 +3611,6 @@
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
-      "code": "",
-      "collapsed": false,
-      "event": "atlas",
-      "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-      },
-      "frame_global": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
-      },
-      "inputs": 67,
-      "label": "map-resumed-after-20-frames",
-      "locked": false,
-      "map_rect": {
-        "h": 766.0,
-        "w": 964.0,
-        "x": 781.0,
-        "y": 111.0478515625
-      },
-      "mode": "atlas",
-      "ok": true,
-      "position": [
-        2240.0,
-        1350.0
-      ],
-      "region": "africa",
-      "size": [
-        1920.0,
-        1006.0478515625
-      ],
-      "t_ms": 5393,
-=======
-      "stack": [
-        "minimap",
-        "itinerary",
-        "chat",
-        "notification",
-        "map"
-      ],
-      "t_ms": 3442,
->>>>>>> origin/wip/atlas-desktop
-      "terrain_tiles": 0,
-      "ticks": 249,
-      "vertical_pan_locked": false,
-      "viewport": [
-        722.0,
-        578.0
-      ],
-      "viewport_update_mode": 4,
-      "visible_cities": 2,
-      "visible_close_cities": 0,
-      "visible_labels": 2,
-      "zoom": 0.298076748847961,
-      "zoom_max": 120.0,
-      "zoom_min": 0.214074074074074,
-      "zoom_ratio": 1.3924000378711
-    },
-    {
-      "action": "",
       "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
@@ -4560,16 +3625,16 @@
         "h": 650.0,
         "w": 760.0,
         "x": 1010.0,
-        "y": 330.0
+        "y": 256.0478515625
       },
-      "inputs": 79,
+      "inputs": 80,
       "label": "map-resumed-after-20-frames",
       "locked": false,
       "map_rect": {
         "h": 578.0,
         "w": 722.0,
         "x": 1029.0,
-        "y": 380.0
+        "y": 306.0478515625
       },
       "mode": "atlas",
       "moving_window": "",
@@ -4616,9 +3681,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 3645,
+      "t_ms": 5899,
       "terrain_tiles": 0,
-      "ticks": 167,
+      "ticks": 265,
       "vertical_pan_locked": false,
       "viewport": [
         722.0,
@@ -4635,29 +3700,16 @@
     },
     {
       "event": "screenshot",
-<<<<<<< HEAD
-      "file": "11-resumed.png",
-      "t_ms": 5462
+      "file": "12-resumed.png",
+      "t_ms": 5986
     },
     {
       "active": 0,
       "count": 7,
-      "draw_calls": 69,
+      "draw_calls": 72,
       "event": "state",
       "label": "resized",
-      "t_ms": 5504,
-=======
-      "file": "12-resumed.png",
-      "t_ms": 3734
-    },
-    {
-      "active": 0,
-      "count": 6,
-      "draw_calls": 65,
-      "event": "state",
-      "label": "resized",
-      "t_ms": 3777,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 6029,
       "tabs": [
         {
           "frozen": false,
@@ -4712,7 +3764,7 @@
           "key": "collection",
           "page_visible": false,
           "rect": {
-            "h": 42.3732299804688,
+            "h": 42.3731689453125,
             "w": 132.631591796875,
             "x": 528.114868164062,
             "y": 855.904296875
@@ -4762,35 +3814,19 @@
         "y": 38.0
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 797.0,
-        "w": 967.0,
-        "x": 237.0,
-        "y": 24.0
-      },
-      "inputs": 67,
-      "label": "resized",
-      "locked": false,
-      "map_rect": {
-        "h": 721.0,
-        "w": 927.0,
-        "x": 257.0,
-        "y": 77.0
-=======
         "h": 629.0,
         "w": 764.0,
         "x": 374.0,
-        "y": 93.464111328125
+        "y": 38.0
       },
-      "inputs": 79,
+      "inputs": 80,
       "label": "resized",
       "locked": false,
       "map_rect": {
         "h": 569.0,
         "w": 732.0,
         "x": 390.0,
-        "y": 135.464111328125
->>>>>>> origin/wip/atlas-desktop
+        "y": 80.0
       },
       "mode": "atlas",
       "moving_window": "",
@@ -4830,11 +3866,6 @@
         1440.0,
         844.535888671875
       ],
-<<<<<<< HEAD
-      "t_ms": 5504,
-      "terrain_tiles": 0,
-      "ticks": 254,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -4842,10 +3873,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 3777,
+      "t_ms": 6029,
       "terrain_tiles": 0,
-      "ticks": 172,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 270,
       "vertical_pan_locked": false,
       "viewport": [
         732.0,
@@ -4862,29 +3892,16 @@
     },
     {
       "event": "screenshot",
-<<<<<<< HEAD
-      "file": "12-resized.png",
-      "t_ms": 5554
+      "file": "13-resized.png",
+      "t_ms": 6092
     },
     {
       "active": 0,
       "count": 7,
-      "draw_calls": 69,
+      "draw_calls": 73,
       "event": "state",
       "label": "restored",
-      "t_ms": 5613,
-=======
-      "file": "13-resized.png",
-      "t_ms": 3843
-    },
-    {
-      "active": 0,
-      "count": 6,
-      "draw_calls": 66,
-      "event": "state",
-      "label": "restored",
-      "t_ms": 3899,
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 6151,
       "tabs": [
         {
           "frozen": false,
@@ -4989,35 +4006,19 @@
         "y": 46.0
       },
       "frame_global": {
-<<<<<<< HEAD
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 379.0,
-        "y": 24.0
-      },
-      "inputs": 67,
-      "label": "restored",
-      "locked": false,
-      "map_rect": {
-        "h": 866.0,
-        "w": 1114.0,
-        "x": 403.0,
-        "y": 87.0
-=======
         "h": 750.0,
         "w": 910.0,
         "x": 548.0,
-        "y": 119.952156066895
+        "y": 46.0
       },
-      "inputs": 79,
+      "inputs": 80,
       "label": "restored",
       "locked": false,
       "map_rect": {
         "h": 678.0,
         "w": 872.0,
         "x": 567.0,
-        "y": 169.9521484375
->>>>>>> origin/wip/atlas-desktop
+        "y": 96.0
       },
       "mode": "atlas",
       "moving_window": "",
@@ -5057,11 +4058,6 @@
         1920.0,
         1006.0478515625
       ],
-<<<<<<< HEAD
-      "t_ms": 5613,
-      "terrain_tiles": 0,
-      "ticks": 259,
-=======
       "stack": [
         "minimap",
         "itinerary",
@@ -5069,10 +4065,9 @@
         "notification",
         "map"
       ],
-      "t_ms": 3900,
+      "t_ms": 6151,
       "terrain_tiles": 0,
-      "ticks": 177,
->>>>>>> origin/wip/atlas-desktop
+      "ticks": 275,
       "vertical_pan_locked": false,
       "viewport": [
         872.0,
@@ -5089,13 +4084,8 @@
     },
     {
       "event": "screenshot",
-<<<<<<< HEAD
-      "file": "13-restored.png",
-      "t_ms": 5692
-=======
       "file": "14-restored.png",
-      "t_ms": 3992
->>>>>>> origin/wip/atlas-desktop
+      "t_ms": 6243
     }
   ],
   "viewport": [

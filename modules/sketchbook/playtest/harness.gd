@@ -91,6 +91,7 @@ func _initialize() -> void:
 	var root := get_root()
 	var shell: Control = Shell.create({"sketchbook": Book}).value
 	var out_dir := await _mount(shell, Vector2i(1920, 1080), "/tmp/sketchbook-playtest")
+	await create_timer(1.0).timeout  # the launch grow and fade of the Collection tab
 
 	# 1. launch: Collection active, the Sketchbook Tenant not created yet; draw calls of a white page
 	await _frames(3)
@@ -100,6 +101,7 @@ func _initialize() -> void:
 	# 2. click the Sketchbook tab: the desktop is created on first show with the book on it, spread 1, no ink
 	var st: Dictionary = _state(shell, "pre-book")
 	await _click(_center(shell, st.tabs[1].rect), "sketchbook tab")
+	await create_timer(0.45).timeout  # the page cross-fade
 	await _frames(8)
 	_state(shell, "book")
 	var b := _book(shell, "book-shown")
@@ -136,6 +138,7 @@ func _initialize() -> void:
 	# 7. click the Map tab: the Sketchbook page is frozen — no frames, no input, SubViewports quiet —
 	#    and a drag across the hidden page draws nothing, the hidden arrow turns nothing
 	await _click(_center(shell, st.tabs[0].rect), "map tab")
+	await create_timer(0.45).timeout  # the page cross-fade
 	await _frames(3)
 	_state(shell, "map")
 	_book(shell, "book-hidden")
@@ -150,8 +153,9 @@ func _initialize() -> void:
 	# 8. back to the Sketchbook: it resumes with the ink, the spread and the window exactly as left
 	await _click(_center(shell, st.tabs[1].rect), "sketchbook tab (again)")
 	await _frames(3)
+	_book(shell, "book-resumed")  # it runs again from the moment its fade-in starts
+	await create_timer(0.45).timeout
 	_state(shell, "book-again")
-	_book(shell, "book-resumed")
 	await _frames(20)
 	_book(shell, "book-resumed-after-20-frames")
 	await _shot(out_dir, "08-resumed.png")
