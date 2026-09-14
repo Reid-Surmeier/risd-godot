@@ -3,7 +3,7 @@
  "checks": {
   "screenshots_present": {
    "pass": true,
-   "detail": "['01-initial.png', '02-mid-grow.png', '03-connecting.png', '04-blank-page.png', '05-selected-0.png', '06-selected-1.png', '07-third-tab.png', '08-full-row.png', '09-closed-last.png', '10-closed-second.png', '11-all-closed.png', '12-reopened.png']"
+   "detail": "['01-initial.png', '02-mid-grow.png', '03-connecting.png', '04-blank-page.png', '05-selected-0.png', '06-selected-1.png', '07-third-tab.png', '08-full-row.png', '09-closed-last.png', '10-closed-second.png', '11-all-closed.png', '12-reopened.png', '13-fixed-open.png', '14-fixed-kept.png', '15-after-fixed-stub.png']"
   },
   "mid_grow_differs_from_initial": {
    "pass": true,
@@ -27,7 +27,7 @@
   },
   "mid_grow_width_between_stub_and_full": {
    "pass": true,
-   "detail": "w=475 full=640"
+   "detail": "w=232 full=640"
   },
   "connecting_label_then_blank_page": {
    "pass": true,
@@ -47,11 +47,11 @@
   },
   "grow_took_about_500ms": {
    "pass": true,
-   "detail": "519 ms"
+   "detail": "596 ms"
   },
   "title_swap_after_about_950ms": {
    "pass": true,
-   "detail": "975 ms"
+   "detail": "1032 ms"
   },
   "click_tab0_shows_page0": {
    "pass": true,
@@ -71,31 +71,31 @@
   },
   "row_fills_then_refuses": {
    "pass": true,
-   "detail": "refused at 3 tabs"
+   "detail": "refused at 10 tabs"
   },
   "full_row_tabs_shrunk_not_overflowed": {
    "pass": true,
-   "detail": "3 tabs, last w=461, max_right=1631"
+   "detail": "10 tabs, last w=290, max_right=2676"
   },
   "shrunk_labels_truncated_with_dots": {
    "pass": true,
-   "detail": "3/3 truncated"
+   "detail": "10/10 truncated"
   },
   "close_button_removed_active_tab": {
    "pass": true,
-   "detail": "3 -> 2, active 1"
+   "detail": "10 -> 9, active 8"
   },
   "close_animates_before_removal": {
    "pass": true,
-   "detail": "347 ms from click to tab_closed (fold is 300 ms)"
+   "detail": "382 ms from click to tab_closed (fold is 300 ms)"
   },
   "close_second_tab_selects_left_neighbour": {
    "pass": true,
-   "detail": "count 1, active 0"
+   "detail": "count 8, active 0"
   },
   "closed_row_regrew": {
    "pass": true,
-   "detail": "640 -> 640"
+   "detail": "315 -> 346"
   },
   "every_tab_can_close": {
    "pass": true,
@@ -105,31 +105,62 @@
    "pass": true,
    "detail": "count 1"
   },
+  "fixed_tab_opened_on_callers_page": {
+   "pass": true,
+   "detail": "count 2, label map"
+  },
+  "fixed_tab_has_no_close_rect": {
+   "pass": true,
+   "detail": ""
+  },
+  "fixed_close_refused_by_interface": {
+   "pass": true,
+   "detail": "tab_strip.tab_fixed"
+  },
+  "fixed_close_click_did_nothing": {
+   "pass": true,
+   "detail": "count 2"
+  },
+  "phone_key_without_label_opens_icon_only": {
+   "pass": true,
+   "detail": ""
+  },
+  "stub_still_opens_blank_after_fixed": {
+   "pass": true,
+   "detail": "count 4, last blank_page"
+  },
   "first_tab_pixels_identical": {
    "pass": true,
    "detail": "mean abs diff 0.00"
   },
   "new_tab_pixels_changed": {
    "pass": true,
-   "detail": "mean abs diff 23.75"
+   "detail": "mean abs diff 22.68"
   },
   "bar_spans_full_width": {
    "pass": true,
-   "detail": "dark px in last 40 columns: 299"
+   "detail": "dark px in last 40 columns: 245"
+  },
+  "fixed_tab_draws_no_close_button": {
+   "pass": true,
+   "detail": "fixed face std 0.0, blank tab close std 35.2"
   }
  },
  "sha256": {
-  "01-initial.png": "a1ce2d4fd05adc7ddf0c8ef26d137fce6c1068b76b62e5f65ea686aacd910a03",
-  "02-mid-grow.png": "38a999b0d3a0cdb3e6ab2a5c2e830784ff6a9413528181b888cc617e4b641b40",
-  "03-connecting.png": "6a9f8a21a49a72d5e3bc4231b7055219338a741f2e948a97efc46daf28f9e997",
-  "04-blank-page.png": "7c2ed7bb33f3af671fbf6226c6d43e230b1f75608931afbd7cd4f04ff365f4f7",
-  "05-selected-0.png": "d178800c3b501da3daee440fcc98185ccb3ac0e4e57d7294fd5ca0484295476b",
-  "06-selected-1.png": "7c2ed7bb33f3af671fbf6226c6d43e230b1f75608931afbd7cd4f04ff365f4f7",
-  "07-third-tab.png": "cd645ec8177dc57713cb0bde72b2bb4b170e11d24721069852a6dba0f66701e0",
-  "08-full-row.png": "cd645ec8177dc57713cb0bde72b2bb4b170e11d24721069852a6dba0f66701e0",
-  "09-closed-last.png": "7c2ed7bb33f3af671fbf6226c6d43e230b1f75608931afbd7cd4f04ff365f4f7",
-  "10-closed-second.png": "a1ce2d4fd05adc7ddf0c8ef26d137fce6c1068b76b62e5f65ea686aacd910a03",
-  "11-all-closed.png": "24c1569bbb07c0696a7b5119274ecac5d57c835ea989288332b2381d8bdb5f47",
-  "12-reopened.png": "964c154605663a6dd3ddcc9d6abcbc51babbdae66403f7b5ac4e3d2564ed39c6"
+  "01-initial.png": "12938118a72c503bbbe8b47e87321de3e1f38982164aac56ee89549a4ebf464e",
+  "02-mid-grow.png": "8e331ca76cda015fb7235047c06186b9996fd8585d5b788c4c9d951cf9685ddd",
+  "03-connecting.png": "9ebafdd1eefb43352a0184a68eb51185302e2d1a314ab2c82b603091262197a3",
+  "04-blank-page.png": "ec7b709c50884436793f0fa50631a13d6c1c384bfebb2262b9aaf5aabf344f3f",
+  "05-selected-0.png": "fadbf88241447491b9d7bf7ee5b28f35d6883ad3ec96470889dc1f51a015bd31",
+  "06-selected-1.png": "ec7b709c50884436793f0fa50631a13d6c1c384bfebb2262b9aaf5aabf344f3f",
+  "07-third-tab.png": "67f88ab866f9c8748e7e23ebd410abbac866aa2aaa2187b7a2ad43cf7775c223",
+  "08-full-row.png": "25b996996c16f71dd3c4d2b720e0f22f03008ec41f28094910952615a12b94a8",
+  "09-closed-last.png": "d872c0e5016e3cccf69d8c5972cdfba4cd1a194848325750d0085415218516c1",
+  "10-closed-second.png": "fab573527f0890d8a01a426f9916d917abc8b06d173707dbba25d31d5919e3d1",
+  "11-all-closed.png": "c800b9fe54301a2ef8c937b1e81f61e68f9f5e03a027fbae40ca327f12a128d2",
+  "12-reopened.png": "95adc26e1df59b15635331cd7b45e8478ee46bfb158b51ffbf362264947b904d",
+  "13-fixed-open.png": "8b662385057fcf92304cce1b0385911a888e933246000851f1aae26de9181857",
+  "14-fixed-kept.png": "8b662385057fcf92304cce1b0385911a888e933246000851f1aae26de9181857",
+  "15-after-fixed-stub.png": "9615cbd8a53c0facb1a3a81e07207edd7c6449ce570e3db8d3067c0515bfe6ad"
  }
 }

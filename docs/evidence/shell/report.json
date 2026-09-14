@@ -1,0 +1,1937 @@
+{
+  "log": [
+    {
+      "active": 4,
+      "count": 6,
+      "event": "state",
+      "fixed_count": 6,
+      "label": "launch",
+      "opening": false,
+      "stub_rect": {
+        "h": 49.148323059082,
+        "w": 82.679443359375,
+        "x": 1145.5693359375,
+        "y": 22.5071773529053
+      },
+      "t_ms": 0,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "phone",
+          "label": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "shell.tenant_missing",
+      "event": "tenant",
+      "inputs": -1,
+      "key": "map",
+      "label": "launch",
+      "ok": false,
+      "size": [
+        0,
+        0
+      ],
+      "t_ms": 0,
+      "ticks": -1
+    },
+    {
+      "code": "shell.tenant_missing",
+      "event": "tenant",
+      "inputs": -1,
+      "key": "sketchbook",
+      "label": "launch",
+      "ok": false,
+      "size": [
+        0,
+        0
+      ],
+      "t_ms": 0,
+      "ticks": -1
+    },
+    {
+      "code": "shell.tenant_missing",
+      "event": "tenant",
+      "inputs": -1,
+      "key": "3d_viewer",
+      "label": "launch",
+      "ok": false,
+      "size": [
+        0,
+        0
+      ],
+      "t_ms": 0,
+      "ticks": -1
+    },
+    {
+      "code": "shell.tenant_missing",
+      "event": "tenant",
+      "inputs": -1,
+      "key": "video_player",
+      "label": "launch",
+      "ok": false,
+      "size": [
+        0,
+        0
+      ],
+      "t_ms": 0,
+      "ticks": -1
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "collection",
+      "label": "launch",
+      "ok": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 0,
+      "ticks": 2
+    },
+    {
+      "code": "shell.tenant_missing",
+      "event": "tenant",
+      "inputs": -1,
+      "key": "phone",
+      "label": "launch",
+      "ok": false,
+      "size": [
+        0,
+        0
+      ],
+      "t_ms": 0,
+      "ticks": -1
+    },
+    {
+      "event": "screenshot",
+      "file": "01-launch.png",
+      "t_ms": 83
+    },
+    {
+      "active": 4,
+      "count": 6,
+      "event": "state",
+      "fixed_count": 6,
+      "label": "pre-map",
+      "opening": false,
+      "stub_rect": {
+        "h": 49.148323059082,
+        "w": 82.679443359375,
+        "x": 1145.5693359375,
+        "y": 22.5071773529053
+      },
+      "t_ms": 83,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "phone",
+          "label": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "click",
+      "t_ms": 100,
+      "what": "map tab",
+      "x": 220.478485107422,
+      "y": 43.4067001342773
+    },
+    {
+      "active": 0,
+      "count": 6,
+      "event": "state",
+      "fixed_count": 6,
+      "label": "map",
+      "opening": false,
+      "stub_rect": {
+        "h": 49.148323059082,
+        "w": 82.679443359375,
+        "x": 1145.5693359375,
+        "y": 22.5071773529053
+      },
+      "t_ms": 100,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "map",
+          "label": "map",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "phone",
+          "label": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "map",
+      "label": "map-shown",
+      "ok": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 100,
+      "ticks": 1
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "map",
+      "label": "map-after-20-frames",
+      "ok": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 281,
+      "ticks": 21
+    },
+    {
+      "event": "screenshot",
+      "file": "02-map.png",
+      "t_ms": 357
+    },
+    {
+      "event": "click",
+      "t_ms": 378,
+      "what": "sketchbook tab",
+      "x": 390.889953613281,
+      "y": 43.4067001342773
+    },
+    {
+      "active": 1,
+      "count": 6,
+      "event": "state",
+      "fixed_count": 6,
+      "label": "sketchbook",
+      "opening": false,
+      "stub_rect": {
+        "h": 49.148323059082,
+        "w": 82.679443359375,
+        "x": 1145.5693359375,
+        "y": 22.5071773529053
+      },
+      "t_ms": 378,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "phone",
+          "label": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "map",
+      "label": "map-hidden",
+      "ok": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 378,
+      "ticks": 23
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "sketchbook",
+      "label": "sketchbook-shown",
+      "ok": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 378,
+      "ticks": 1
+    },
+    {
+      "event": "key",
+      "t_ms": 397,
+      "what": "space key while map is hidden"
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "map",
+      "label": "map-hidden-after-20-frames",
+      "ok": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 557,
+      "ticks": 23
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 2,
+      "key": "sketchbook",
+      "label": "sketchbook-after-20-frames",
+      "ok": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 557,
+      "ticks": 23
+    },
+    {
+      "event": "screenshot",
+      "file": "03-sketchbook.png",
+      "t_ms": 628
+    },
+    {
+      "event": "click",
+      "t_ms": 647,
+      "what": "map tab (again)",
+      "x": 220.478485107422,
+      "y": 43.4067001342773
+    },
+    {
+      "active": 0,
+      "count": 6,
+      "event": "state",
+      "fixed_count": 6,
+      "label": "map-again",
+      "opening": false,
+      "stub_rect": {
+        "h": 49.148323059082,
+        "w": 82.679443359375,
+        "x": 1145.5693359375,
+        "y": 22.5071773529053
+      },
+      "t_ms": 647,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "map",
+          "label": "map",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "phone",
+          "label": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "map",
+      "label": "map-resumed",
+      "ok": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 647,
+      "ticks": 24
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "map",
+      "label": "map-resumed-after-20-frames",
+      "ok": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 800,
+      "ticks": 44
+    },
+    {
+      "event": "click",
+      "t_ms": 817,
+      "what": "where the close button of the map tab would be",
+      "x": 279.272735595703,
+      "y": 41.339714050293
+    },
+    {
+      "code": "shell.tab_fixed",
+      "event": "close_fixed",
+      "ok": false,
+      "t_ms": 1711
+    },
+    {
+      "active": 0,
+      "count": 6,
+      "event": "state",
+      "fixed_count": 6,
+      "label": "fixed-kept",
+      "opening": false,
+      "stub_rect": {
+        "h": 49.148323059082,
+        "w": 82.679443359375,
+        "x": 1145.5693359375,
+        "y": 22.5071773529053
+      },
+      "t_ms": 1711,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "map",
+          "label": "map",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "phone",
+          "label": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "04-fixed-kept.png",
+      "t_ms": 1787
+    },
+    {
+      "event": "click",
+      "t_ms": 1808,
+      "what": "new-tab stub",
+      "x": 1186.90905761719,
+      "y": 47.0813369750977
+    },
+    {
+      "active": 6,
+      "count": 7,
+      "event": "state",
+      "fixed_count": 6,
+      "label": "stub-blank",
+      "opening": false,
+      "stub_rect": {
+        "h": 49.148323059082,
+        "w": 82.679443359375,
+        "x": 1145.5693359375,
+        "y": 22.5071773529053
+      },
+      "t_ms": 3602,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 176.842102050781,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 176.842102050781,
+            "x": 265.9521484375,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 176.842071533203,
+            "x": 412.019134521484,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 176.842102050781,
+            "x": 558.086120605469,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 176.842102050781,
+            "x": 704.153137207031,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "phone",
+          "label": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 176.842163085938,
+            "x": 850.220092773438,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 10.1052627563477,
+            "w": 10.105224609375,
+            "x": 1126.27746582031,
+            "y": 36.2870826721191
+          },
+          "fixed": false,
+          "frozen": false,
+          "key": "",
+          "label": "blank_page",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4975929260254,
+            "w": 176.842102050781,
+            "x": 996.287048339844,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "05-stub-blank.png",
+      "t_ms": 3685
+    },
+    {
+      "active": 6,
+      "count": 7,
+      "event": "state",
+      "fixed_count": 6,
+      "label": "stub-blank",
+      "opening": false,
+      "stub_rect": {
+        "h": 49.148323059082,
+        "w": 82.679443359375,
+        "x": 1145.5693359375,
+        "y": 22.5071773529053
+      },
+      "t_ms": 3685,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 176.842102050781,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 176.842102050781,
+            "x": 265.9521484375,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 176.842071533203,
+            "x": 412.019134521484,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 176.842102050781,
+            "x": 558.086120605469,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 176.842102050781,
+            "x": 704.153137207031,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "phone",
+          "label": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 176.842163085938,
+            "x": 850.220092773438,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 10.1052627563477,
+            "w": 10.105224609375,
+            "x": 1126.27746582031,
+            "y": 36.2870826721191
+          },
+          "fixed": false,
+          "frozen": false,
+          "key": "",
+          "label": "blank_page",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4975929260254,
+            "w": 176.842102050781,
+            "x": 996.287048339844,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "click",
+      "t_ms": 3706,
+      "what": "close button of the blank tab",
+      "x": 1131.330078125,
+      "y": 41.339714050293
+    },
+    {
+      "active": 5,
+      "count": 6,
+      "event": "state",
+      "fixed_count": 6,
+      "label": "phone",
+      "opening": false,
+      "stub_rect": {
+        "h": 49.148323059082,
+        "w": 82.679443359375,
+        "x": 1145.5693359375,
+        "y": 22.5071773529053
+      },
+      "t_ms": 4603,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "phone",
+          "label": "phone",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "shell.tenant_missing",
+      "event": "tenant",
+      "inputs": -1,
+      "key": "phone",
+      "label": "phone-shown",
+      "ok": false,
+      "size": [
+        0,
+        0
+      ],
+      "t_ms": 4603,
+      "ticks": -1
+    },
+    {
+      "event": "screenshot",
+      "file": "06-phone.png",
+      "t_ms": 4687
+    },
+    {
+      "event": "click",
+      "t_ms": 4710,
+      "what": "collection tab",
+      "x": 902.124389648438,
+      "y": 43.4067001342773
+    },
+    {
+      "active": 4,
+      "count": 6,
+      "event": "state",
+      "fixed_count": 6,
+      "label": "resized",
+      "opening": false,
+      "stub_rect": {
+        "h": 36.8612442016602,
+        "w": 62.0095825195312,
+        "x": 859.177062988281,
+        "y": 16.8803825378418
+      },
+      "t_ms": 4748,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 89.9138793945312,
+            "y": 11.3684215545654
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 217.722503662109,
+            "y": 11.3684215545654
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 345.531127929688,
+            "y": 11.3684215545654
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 473.339721679688,
+            "y": 11.3684215545654
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 601.148376464844,
+            "y": 11.3684215545654
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "phone",
+          "label": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 42.3732070922852,
+            "w": 150.889953613281,
+            "x": 728.956970214844,
+            "y": 11.3684215545654
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1440.0,
+        900.0
+      ]
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "collection",
+      "label": "resized",
+      "ok": true,
+      "size": [
+        1440.0,
+        844.535888671875
+      ],
+      "t_ms": 4748,
+      "ticks": 8
+    },
+    {
+      "event": "screenshot",
+      "file": "07-resized.png",
+      "t_ms": 4803
+    },
+    {
+      "active": 4,
+      "count": 6,
+      "event": "state",
+      "fixed_count": 6,
+      "label": "restored",
+      "opening": false,
+      "stub_rect": {
+        "h": 49.148323059082,
+        "w": 82.679443359375,
+        "x": 1145.5693359375,
+        "y": 22.5071773529053
+      },
+      "t_ms": 4848,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "phone",
+          "label": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "collection",
+      "label": "restored",
+      "ok": true,
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 4848,
+      "ticks": 12
+    },
+    {
+      "event": "screenshot",
+      "file": "08-restored.png",
+      "t_ms": 4949
+    }
+  ],
+  "viewport": [
+    1920,
+    1080
+  ]
+}

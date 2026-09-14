@@ -1,0 +1,9 @@
+# shell playtest evidence (build c12aa1d)
+
+Produced by `scripts/playtest-shell.sh` on Godot 4.7.2 (X display, real mouse and key events through `Input.parse_input_event`, window 1920x1080 then 1440x900), verified by `modules/shell/playtest/verify.py`, which re-hashes every screenshot and checks the logged states and the dummy tenants' counters against the interface contract. `verify.json` is the verdict (31/31 pass); `report.json` is the harness log with timestamps.
+
+What the numbered screenshots show: `01-launch` six fixed tabs (Map, Sketchbook, 3D Viewer, Video Player, Collection, Phone; Phone has no title glyph yet, #34) with Collection active and its page white; `02-map` / `03-sketchbook` the pages after a click on each tab (the dummy tenants are white, so only the tenant counters in `report.json` tell them apart: the hidden Map tenant's `_process` and input counts stand still, the shown one's run); `04-fixed-kept` after a click where the Map tab's close button would be and a refused `close_tab` (`shell.tab_fixed`); `05-stub-blank` the stub's Blank Page as a seventh tab with its close button; `06-phone` after closing it, the Phone page (no tenant registered, plain white); `07-resized` the window at the 1440x900 minimum, bar re-fitted; `08-restored` back at 1920x1080. `sheet-bar.png` is the toolbar band of 01-06.
+
+`browser/` is the Web export of the same commit driven in headless Chrome (software WebGL, 1920x1080) through the DevTools protocol by `modules/shell/playtest/browser_play.py`: real clicks on the Map and Sketchbook tabs, on the Sketchbook tab where a close button would be (nothing happens), on the stub (grow frames, then Blank Page), and on the Blank Page's close button (close frames, then six tabs again). `browser/sheet-bar.png` is the toolbar band across the run.
+
+The `tab_strip` evidence in `../tab-strip/` was regenerated at the same commit (36 checks: the 29 accepted ones plus the fixed-tab segment of #39).

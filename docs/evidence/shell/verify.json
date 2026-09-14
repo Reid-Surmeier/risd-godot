@@ -1,0 +1,139 @@
+{
+ "pass": true,
+ "checks": {
+  "screenshots_present": {
+   "pass": true,
+   "detail": "['01-launch.png', '02-map.png', '03-sketchbook.png', '04-fixed-kept.png', '05-stub-blank.png', '06-phone.png', '07-resized.png', '08-restored.png']"
+  },
+  "launch_screenshot_is_1920x1080": {
+   "pass": true,
+   "detail": "(1080, 1920, 3)"
+  },
+  "six_fixed_tabs_in_order": {
+   "pass": true,
+   "detail": "['map', 'sketchbook', '3d_viewer', 'video_player', 'collection', 'phone']"
+  },
+  "labels_are_the_keys": {
+   "pass": true,
+   "detail": ""
+  },
+  "collection_active_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "no_close_rect_on_fixed_tabs": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_pages_frozen_at_launch": {
+   "pass": true,
+   "detail": "[('map', True), ('sketchbook', True), ('3d_viewer', True), ('video_player', True), ('collection', False), ('phone', True)]"
+  },
+  "only_the_launch_tenant_is_created": {
+   "pass": true,
+   "detail": "[None, None, None, None, 'ok', None]"
+  },
+  "tenant_state_missing_before_first_show": {
+   "pass": true,
+   "detail": ""
+  },
+  "tabs_left_to_right_within_window": {
+   "pass": true,
+   "detail": ""
+  },
+  "click_map_shows_map_page": {
+   "pass": true,
+   "detail": ""
+  },
+  "shown_tenant_process_runs": {
+   "pass": true,
+   "detail": "1 -> 21"
+  },
+  "tenant_fills_page_area": {
+   "pass": true,
+   "detail": "[1920.0, 1006.0478515625]"
+  },
+  "hidden_map_page_frozen": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_tenant_process_stops": {
+   "pass": true,
+   "detail": "23 -> 23 over 20 frames"
+  },
+  "hidden_tenant_gets_no_input": {
+   "pass": true,
+   "detail": "inputs 0 -> 0"
+  },
+  "shown_sketchbook_runs_and_hears_the_key": {
+   "pass": true,
+   "detail": "ticks 1->23, inputs 0->2"
+  },
+  "map_resumes_with_state_intact": {
+   "pass": true,
+   "detail": "frozen at 23, resumed 24 -> 44"
+  },
+  "fixed_close_refused_by_interface": {
+   "pass": true,
+   "detail": "shell.tab_fixed"
+  },
+  "fixed_close_click_did_nothing": {
+   "pass": true,
+   "detail": ""
+  },
+  "stub_opens_blank_page_with_close": {
+   "pass": true,
+   "detail": "count 7"
+  },
+  "closing_blank_lands_on_phone": {
+   "pass": true,
+   "detail": ""
+  },
+  "phone_has_no_tenant_yet": {
+   "pass": true,
+   "detail": ""
+  },
+  "phone_page_is_plain_white": {
+   "pass": true,
+   "detail": "mean 255.00"
+  },
+  "resize_refits_bar_and_tenant": {
+   "pass": true,
+   "detail": "window [1440.0, 900.0], tenant [1440.0, 844.535888671875]"
+  },
+  "resized_screenshot_is_1440x900": {
+   "pass": true,
+   "detail": "(900, 1440, 3)"
+  },
+  "restore_refits_back": {
+   "pass": true,
+   "detail": ""
+  },
+  "bar_spans_full_width": {
+   "pass": true,
+   "detail": ""
+  },
+  "active_fixed_tab_draws_no_close_button": {
+   "pass": true,
+   "detail": "std 0.0"
+  },
+  "launch_page_area_white": {
+   "pass": true,
+   "detail": ""
+  },
+  "stub_blank_shot_differs_from_launch": {
+   "pass": true,
+   "detail": ""
+  }
+ },
+ "sha256": {
+  "01-launch.png": "ff51b658c7d814986df9a460716cd429394ea858cf308db6b7cf0a4401be0a8e",
+  "02-map.png": "ff51b658c7d814986df9a460716cd429394ea858cf308db6b7cf0a4401be0a8e",
+  "03-sketchbook.png": "ff51b658c7d814986df9a460716cd429394ea858cf308db6b7cf0a4401be0a8e",
+  "04-fixed-kept.png": "ff51b658c7d814986df9a460716cd429394ea858cf308db6b7cf0a4401be0a8e",
+  "05-stub-blank.png": "c903b9f7e24f7fd6fde384c1e8abf96d21c092eb326dea032f0cce00f5a3d46a",
+  "06-phone.png": "ff51b658c7d814986df9a460716cd429394ea858cf308db6b7cf0a4401be0a8e",
+  "07-resized.png": "dceb612a62970a866622d19247fc46a63fa7d609e2a5c03a4ed55392fe60b900",
+  "08-restored.png": "ff51b658c7d814986df9a460716cd429394ea858cf308db6b7cf0a4401be0a8e"
+ }
+}

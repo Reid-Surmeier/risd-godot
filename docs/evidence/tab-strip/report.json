@@ -2,7 +2,7 @@
   "log": [
     {
       "active": 0,
-      "bar_width": 3135.0,
+      "bar_width": 4180.0,
       "count": 1,
       "event": "state",
       "label": "initial",
@@ -12,7 +12,7 @@
         {
           "close_rect": {
             "position": {
-              "x": 789.0,
+              "x": 799.0,
               "y": 79.0
             },
             "size": {
@@ -20,6 +20,7 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "windows_live",
           "page_visible": true,
@@ -33,69 +34,49 @@
     {
       "event": "screenshot",
       "file": "01-initial.png",
-      "t_ms": 43
+      "t_ms": 96
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_opened",
-      "t_ms": 53
+      "t_ms": 116
     },
     {
       "event": "click",
-      "t_ms": 53,
+      "t_ms": 117,
       "what": "new-tab stub",
-      "x": 570.181823730469,
-      "y": 62.7751159667969
+      "x": 427.636352539062,
+      "y": 47.0813407897949
     },
     {
       "event": "frame",
       "n": 0,
-      "t_ms": 95
+      "t_ms": 208
     },
     {
       "event": "frame",
       "n": 1,
-      "t_ms": 137
+      "t_ms": 300
     },
     {
       "event": "frame",
       "n": 2,
-      "t_ms": 177
-    },
-    {
-      "event": "frame",
-      "n": 3,
-      "t_ms": 218
-    },
-    {
-      "event": "frame",
-      "n": 4,
-      "t_ms": 258
-    },
-    {
-      "event": "frame",
-      "n": 5,
-      "t_ms": 298
-    },
-    {
-      "event": "frame",
-      "n": 6,
-      "t_ms": 338
+      "t_ms": 385
     },
     {
       "active": 0,
-      "bar_width": 3135.0,
+      "bar_width": 4180.0,
       "count": 2,
       "event": "state",
       "label": "mid-grow",
       "opening": true,
-      "t_ms": 338,
+      "t_ms": 385,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 789.0,
+              "x": 799.0,
               "y": 79.0
             },
             "size": {
@@ -103,6 +84,7 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "windows_live",
           "page_visible": true,
@@ -114,104 +96,80 @@
         {
           "close_rect": {
             "position": {
-              "x": 1197.0,
-              "y": 84.7400207519531
+              "x": 964.0,
+              "y": 93.199577331543
             },
             "size": {
               "x": 22.0,
               "y": 22.0
             }
           },
-          "h": 117.259986877441,
+          "fixed": false,
+          "h": 108.800430297852,
           "label": "connecting",
           "page_visible": false,
           "truncated": true,
-          "w": 475.0,
+          "w": 232.0,
           "x": 834.0,
-          "y": 38.7400169372559
+          "y": 47.199577331543
         }
       ]
     },
     {
       "event": "screenshot",
       "file": "02-mid-grow.png",
-      "t_ms": 371
+      "t_ms": 457
     },
     {
       "event": "frame",
-      "n": 7,
-      "t_ms": 411
+      "n": 3,
+      "t_ms": 544
     },
     {
       "event": "frame",
-      "n": 8,
-      "t_ms": 452
+      "n": 4,
+      "t_ms": 635
     },
     {
       "event": "frame",
-      "n": 9,
-      "t_ms": 491
-    },
-    {
-      "event": "frame",
-      "n": 10,
-      "t_ms": 531
-    },
-    {
-      "event": "frame",
-      "n": 11,
-      "t_ms": 572
+      "n": 5,
+      "t_ms": 712
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 572
+      "t_ms": 712
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_settled",
-      "t_ms": 572
+      "t_ms": 712
     },
     {
       "event": "frame",
-      "n": 12,
-      "t_ms": 611
+      "n": 6,
+      "t_ms": 799
     },
     {
       "event": "frame",
-      "n": 13,
-      "t_ms": 651
-    },
-    {
-      "event": "frame",
-      "n": 14,
-      "t_ms": 690
-    },
-    {
-      "event": "frame",
-      "n": 15,
-      "t_ms": 729
-    },
-    {
-      "event": "frame",
-      "n": 16,
-      "t_ms": 770
+      "n": 7,
+      "t_ms": 888
     },
     {
       "active": 1,
-      "bar_width": 3135.0,
+      "bar_width": 4180.0,
       "count": 2,
       "event": "state",
       "label": "connecting",
       "opening": false,
-      "t_ms": 770,
+      "t_ms": 888,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 789.0,
+              "x": 799.0,
               "y": 79.0
             },
             "size": {
@@ -219,6 +177,7 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "windows_live",
           "page_visible": false,
@@ -230,7 +189,7 @@
         {
           "close_rect": {
             "position": {
-              "x": 1362.0,
+              "x": 1372.0,
               "y": 79.0
             },
             "size": {
@@ -238,6 +197,7 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "connecting",
           "page_visible": true,
@@ -251,162 +211,87 @@
     {
       "event": "screenshot",
       "file": "03-connecting.png",
-      "t_ms": 802
+      "t_ms": 972
     },
     {
       "event": "frame",
-      "n": 17,
-      "t_ms": 841
+      "n": 8,
+      "t_ms": 1059
     },
     {
       "event": "frame",
-      "n": 18,
-      "t_ms": 881
+      "n": 9,
+      "t_ms": 1143
     },
     {
       "event": "frame",
-      "n": 19,
-      "t_ms": 920
+      "n": 10,
+      "t_ms": 1232
     },
     {
       "event": "frame",
-      "n": 20,
-      "t_ms": 959
+      "n": 11,
+      "t_ms": 1315
     },
     {
       "event": "frame",
-      "n": 21,
-      "t_ms": 999
+      "n": 12,
+      "t_ms": 1396
     },
     {
       "event": "frame",
-      "n": 22,
-      "t_ms": 1038
+      "n": 13,
+      "t_ms": 1484
     },
     {
       "event": "frame",
-      "n": 23,
-      "t_ms": 1078
+      "n": 14,
+      "t_ms": 1573
     },
     {
       "event": "frame",
-      "n": 24,
-      "t_ms": 1117
+      "n": 15,
+      "t_ms": 1661
     },
     {
       "event": "frame",
-      "n": 25,
-      "t_ms": 1156
-    },
-    {
-      "event": "frame",
-      "n": 26,
-      "t_ms": 1195
-    },
-    {
-      "event": "frame",
-      "n": 27,
-      "t_ms": 1235
-    },
-    {
-      "event": "frame",
-      "n": 28,
-      "t_ms": 1274
-    },
-    {
-      "event": "frame",
-      "n": 29,
-      "t_ms": 1312
-    },
-    {
-      "event": "frame",
-      "n": 30,
-      "t_ms": 1352
-    },
-    {
-      "event": "frame",
-      "n": 31,
-      "t_ms": 1390
-    },
-    {
-      "event": "frame",
-      "n": 32,
-      "t_ms": 1429
-    },
-    {
-      "event": "frame",
-      "n": 33,
-      "t_ms": 1468
-    },
-    {
-      "event": "frame",
-      "n": 34,
-      "t_ms": 1508
-    },
-    {
-      "event": "frame",
-      "n": 35,
-      "t_ms": 1547
+      "n": 16,
+      "t_ms": 1744
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_titled",
-      "t_ms": 1547
+      "t_ms": 1744
     },
     {
       "event": "frame",
-      "n": 36,
-      "t_ms": 1587
+      "n": 17,
+      "t_ms": 1829
     },
     {
       "event": "frame",
-      "n": 37,
-      "t_ms": 1626
+      "n": 18,
+      "t_ms": 1907
     },
     {
       "event": "frame",
-      "n": 38,
-      "t_ms": 1665
-    },
-    {
-      "event": "frame",
-      "n": 39,
-      "t_ms": 1704
-    },
-    {
-      "event": "frame",
-      "n": 40,
-      "t_ms": 1743
-    },
-    {
-      "event": "frame",
-      "n": 41,
-      "t_ms": 1782
-    },
-    {
-      "event": "frame",
-      "n": 42,
-      "t_ms": 1822
-    },
-    {
-      "event": "frame",
-      "n": 43,
-      "t_ms": 1861
+      "n": 19,
+      "t_ms": 1989
     },
     {
       "active": 1,
-      "bar_width": 3135.0,
+      "bar_width": 4180.0,
       "count": 2,
       "event": "state",
       "label": "blank-page",
       "opening": false,
-      "t_ms": 1861,
+      "t_ms": 1989,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 789.0,
+              "x": 799.0,
               "y": 79.0
             },
             "size": {
@@ -414,6 +299,7 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "windows_live",
           "page_visible": false,
@@ -425,7 +311,7 @@
         {
           "close_rect": {
             "position": {
-              "x": 1362.0,
+              "x": 1372.0,
               "y": 79.0
             },
             "size": {
@@ -433,6 +319,7 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "blank_page",
           "page_visible": true,
@@ -446,34 +333,34 @@
     {
       "event": "screenshot",
       "file": "04-blank-page.png",
-      "t_ms": 1904
+      "t_ms": 2084
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_selected",
-      "t_ms": 1910
+      "t_ms": 2095
     },
     {
       "event": "click",
-      "t_ms": 1915,
+      "t_ms": 2104,
       "what": "tab 0",
-      "x": 355.827728271484,
-      "y": 57.8755950927734
+      "x": 266.870819091797,
+      "y": 43.4067001342773
     },
     {
       "active": 0,
-      "bar_width": 3135.0,
+      "bar_width": 4180.0,
       "count": 2,
       "event": "state",
       "label": "selected-0",
       "opening": false,
-      "t_ms": 1915,
+      "t_ms": 2104,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 789.0,
+              "x": 799.0,
               "y": 79.0
             },
             "size": {
@@ -481,6 +368,7 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "windows_live",
           "page_visible": true,
@@ -492,7 +380,7 @@
         {
           "close_rect": {
             "position": {
-              "x": 1362.0,
+              "x": 1372.0,
               "y": 79.0
             },
             "size": {
@@ -500,6 +388,7 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "blank_page",
           "page_visible": false,
@@ -513,34 +402,34 @@
     {
       "event": "screenshot",
       "file": "05-selected-0.png",
-      "t_ms": 1956
+      "t_ms": 2198
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 1962
+      "t_ms": 2210
     },
     {
       "event": "click",
-      "t_ms": 1967,
+      "t_ms": 2219,
       "what": "tab 1",
-      "x": 706.755981445312,
-      "y": 57.8755950927734
+      "x": 530.066955566406,
+      "y": 43.4067001342773
     },
     {
       "active": 1,
-      "bar_width": 3135.0,
+      "bar_width": 4180.0,
       "count": 2,
       "event": "state",
       "label": "selected-1",
       "opening": false,
-      "t_ms": 1967,
+      "t_ms": 2219,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 789.0,
+              "x": 799.0,
               "y": 79.0
             },
             "size": {
@@ -548,6 +437,7 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "windows_live",
           "page_visible": false,
@@ -559,7 +449,7 @@
         {
           "close_rect": {
             "position": {
-              "x": 1362.0,
+              "x": 1372.0,
               "y": 79.0
             },
             "size": {
@@ -567,6 +457,7 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "blank_page",
           "page_visible": true,
@@ -580,52 +471,52 @@
     {
       "event": "screenshot",
       "file": "06-selected-1.png",
-      "t_ms": 2007
+      "t_ms": 2308
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_opened",
-      "t_ms": 2018
+      "t_ms": 2329
     },
     {
       "event": "click",
-      "t_ms": 2018,
+      "t_ms": 2330,
       "what": "new-tab stub (2nd)",
-      "x": 921.109985351562,
-      "y": 62.7751159667969
+      "x": 690.83251953125,
+      "y": 47.0813407897949
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_selected",
-      "t_ms": 2506
+      "t_ms": 2823
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_settled",
-      "t_ms": 2506
+      "t_ms": 2823
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_titled",
-      "t_ms": 3459
+      "t_ms": 3772
     },
     {
       "active": 2,
-      "bar_width": 3135.0,
+      "bar_width": 4180.0,
       "count": 3,
       "event": "state",
       "label": "third-tab",
       "opening": false,
-      "t_ms": 3808,
+      "t_ms": 4121,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 610.0,
+              "x": 799.0,
               "y": 79.0
             },
             "size": {
@@ -633,18 +524,19 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "windows_live",
           "page_visible": false,
-          "truncated": true,
-          "w": 461.0,
+          "truncated": false,
+          "w": 640.0,
           "x": 261.0,
           "y": 33.0
         },
         {
           "close_rect": {
             "position": {
-              "x": 1004.0,
+              "x": 1372.0,
               "y": 79.0
             },
             "size": {
@@ -652,18 +544,19 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "blank_page",
           "page_visible": false,
-          "truncated": true,
-          "w": 461.0,
-          "x": 655.0,
+          "truncated": false,
+          "w": 640.0,
+          "x": 834.0,
           "y": 33.0
         },
         {
           "close_rect": {
             "position": {
-              "x": 1398.0,
+              "x": 1945.0,
               "y": 79.0
             },
             "size": {
@@ -671,12 +564,13 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "blank_page",
           "page_visible": true,
-          "truncated": true,
-          "w": 461.0,
-          "x": 1049.0,
+          "truncated": false,
+          "w": 640.0,
+          "x": 1407.0,
           "y": 33.0
         }
       ]
@@ -684,28 +578,245 @@
     {
       "event": "screenshot",
       "file": "07-third-tab.png",
-      "t_ms": 3848
+      "t_ms": 4193
+    },
+    {
+      "event": "signal",
+      "index": 3,
+      "signal": "tab_opened",
+      "t_ms": 4211
     },
     {
       "event": "click",
-      "t_ms": 3859,
+      "t_ms": 4212,
       "what": "new-tab stub (fill)",
-      "x": 943.157836914062,
-      "y": 62.7751159667969
+      "x": 954.028686523438,
+      "y": 47.0813407897949
     },
     {
-      "active": 2,
-      "bar_width": 3135.0,
-      "count": 3,
+      "event": "signal",
+      "index": 3,
+      "signal": "tab_selected",
+      "t_ms": 4708
+    },
+    {
+      "event": "signal",
+      "index": 3,
+      "signal": "tab_settled",
+      "t_ms": 4708
+    },
+    {
+      "event": "signal",
+      "index": 4,
+      "signal": "tab_opened",
+      "t_ms": 4915
+    },
+    {
+      "event": "click",
+      "t_ms": 4916,
+      "what": "new-tab stub (fill)",
+      "x": 1187.82775878906,
+      "y": 47.0813407897949
+    },
+    {
+      "event": "signal",
+      "index": 4,
+      "signal": "tab_selected",
+      "t_ms": 5426
+    },
+    {
+      "event": "signal",
+      "index": 4,
+      "signal": "tab_settled",
+      "t_ms": 5426
+    },
+    {
+      "event": "signal",
+      "index": 5,
+      "signal": "tab_opened",
+      "t_ms": 5634
+    },
+    {
+      "event": "click",
+      "t_ms": 5634,
+      "what": "new-tab stub (fill)",
+      "x": 1188.74645996094,
+      "y": 47.0813407897949
+    },
+    {
+      "event": "signal",
+      "index": 3,
+      "signal": "tab_titled",
+      "t_ms": 5659
+    },
+    {
+      "event": "signal",
+      "index": 5,
+      "signal": "tab_selected",
+      "t_ms": 6133
+    },
+    {
+      "event": "signal",
+      "index": 5,
+      "signal": "tab_settled",
+      "t_ms": 6133
+    },
+    {
+      "event": "signal",
+      "index": 6,
+      "signal": "tab_opened",
+      "t_ms": 6337
+    },
+    {
+      "event": "click",
+      "t_ms": 6337,
+      "what": "new-tab stub (fill)",
+      "x": 1186.90905761719,
+      "y": 47.0813407897949
+    },
+    {
+      "event": "signal",
+      "index": 4,
+      "signal": "tab_titled",
+      "t_ms": 6364
+    },
+    {
+      "event": "signal",
+      "index": 6,
+      "signal": "tab_selected",
+      "t_ms": 6841
+    },
+    {
+      "event": "signal",
+      "index": 6,
+      "signal": "tab_settled",
+      "t_ms": 6841
+    },
+    {
+      "event": "signal",
+      "index": 7,
+      "signal": "tab_opened",
+      "t_ms": 7056
+    },
+    {
+      "event": "click",
+      "t_ms": 7057,
+      "what": "new-tab stub (fill)",
+      "x": 1186.90905761719,
+      "y": 47.0813407897949
+    },
+    {
+      "event": "signal",
+      "index": 5,
+      "signal": "tab_titled",
+      "t_ms": 7076
+    },
+    {
+      "event": "signal",
+      "index": 7,
+      "signal": "tab_selected",
+      "t_ms": 7558
+    },
+    {
+      "event": "signal",
+      "index": 7,
+      "signal": "tab_settled",
+      "t_ms": 7558
+    },
+    {
+      "event": "signal",
+      "index": 8,
+      "signal": "tab_opened",
+      "t_ms": 7778
+    },
+    {
+      "event": "click",
+      "t_ms": 7779,
+      "what": "new-tab stub (fill)",
+      "x": 1189.6650390625,
+      "y": 47.0813407897949
+    },
+    {
+      "event": "signal",
+      "index": 6,
+      "signal": "tab_titled",
+      "t_ms": 7797
+    },
+    {
+      "event": "signal",
+      "index": 8,
+      "signal": "tab_selected",
+      "t_ms": 8267
+    },
+    {
+      "event": "signal",
+      "index": 8,
+      "signal": "tab_settled",
+      "t_ms": 8267
+    },
+    {
+      "event": "signal",
+      "index": 9,
+      "signal": "tab_opened",
+      "t_ms": 8495
+    },
+    {
+      "event": "click",
+      "t_ms": 8495,
+      "what": "new-tab stub (fill)",
+      "x": 1189.6650390625,
+      "y": 47.0813407897949
+    },
+    {
+      "event": "signal",
+      "index": 7,
+      "signal": "tab_titled",
+      "t_ms": 8504
+    },
+    {
+      "event": "signal",
+      "index": 9,
+      "signal": "tab_selected",
+      "t_ms": 8985
+    },
+    {
+      "event": "signal",
+      "index": 9,
+      "signal": "tab_settled",
+      "t_ms": 8985
+    },
+    {
+      "event": "click",
+      "t_ms": 9212,
+      "what": "new-tab stub (fill)",
+      "x": 1188.74645996094,
+      "y": 47.0813407897949
+    },
+    {
+      "event": "signal",
+      "index": 8,
+      "signal": "tab_titled",
+      "t_ms": 9222
+    },
+    {
+      "event": "signal",
+      "index": 9,
+      "signal": "tab_titled",
+      "t_ms": 9943
+    },
+    {
+      "active": 9,
+      "bar_width": 4180.0,
+      "count": 10,
       "event": "state",
       "label": "full-row",
       "opening": false,
-      "t_ms": 5769,
+      "t_ms": 11109,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 610.0,
+              "x": 449.0,
               "y": 79.0
             },
             "size": {
@@ -713,18 +824,19 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "windows_live",
           "page_visible": false,
           "truncated": true,
-          "w": 461.0,
+          "w": 290.0,
           "x": 261.0,
           "y": 33.0
         },
         {
           "close_rect": {
             "position": {
-              "x": 1004.0,
+              "x": 672.0,
               "y": 79.0
             },
             "size": {
@@ -732,18 +844,19 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
-          "w": 461.0,
-          "x": 655.0,
+          "w": 290.0,
+          "x": 484.0,
           "y": 33.0
         },
         {
           "close_rect": {
             "position": {
-              "x": 1398.0,
+              "x": 895.0,
               "y": 79.0
             },
             "size": {
@@ -751,12 +864,153 @@
               "y": 22.0
             }
           },
+          "fixed": false,
+          "h": 123.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 290.0,
+          "x": 707.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 1118.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 123.000015258789,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 290.0,
+          "x": 930.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 1341.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 122.999984741211,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 290.0,
+          "x": 1153.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 1564.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 123.000015258789,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 290.0,
+          "x": 1376.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 1787.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 122.999969482422,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 290.0,
+          "x": 1599.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 2010.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 123.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 290.0,
+          "x": 1822.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 2233.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 123.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 290.0,
+          "x": 2045.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 2456.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
           "h": 123.0,
           "label": "blank_page",
           "page_visible": true,
           "truncated": true,
-          "w": 461.0,
-          "x": 1049.0,
+          "w": 290.0,
+          "x": 2268.0,
           "y": 33.0
         }
       ]
@@ -764,45 +1018,45 @@
     {
       "event": "screenshot",
       "file": "08-full-row.png",
-      "t_ms": 5811
+      "t_ms": 11196
     },
     {
       "event": "fill",
-      "result": "refused at 3 tabs",
-      "t_ms": 5811
+      "result": "refused at 10 tabs",
+      "t_ms": 11196
     },
     {
       "event": "click",
-      "t_ms": 5823,
+      "t_ms": 11218,
       "what": "close button of active tab",
-      "x": 862.92822265625,
-      "y": 55.1196136474609
+      "x": 1133.16748046875,
+      "y": 41.339714050293
     },
     {
       "event": "signal",
-      "index": 2,
+      "index": 9,
       "signal": "tab_closed",
-      "t_ms": 6170
+      "t_ms": 11600
     },
     {
       "event": "signal",
-      "index": 1,
+      "index": 8,
       "signal": "tab_selected",
-      "t_ms": 6170
+      "t_ms": 11600
     },
     {
-      "active": 1,
-      "bar_width": 3135.0,
-      "count": 2,
+      "active": 8,
+      "bar_width": 4180.0,
+      "count": 9,
       "event": "state",
       "label": "closed-last",
       "opening": false,
-      "t_ms": 6755,
+      "t_ms": 12153,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 789.0,
+              "x": 474.0,
               "y": 79.0
             },
             "size": {
@@ -810,18 +1064,19 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "windows_live",
           "page_visible": false,
-          "truncated": false,
-          "w": 640.0,
+          "truncated": true,
+          "w": 315.0,
           "x": 261.0,
           "y": 33.0
         },
         {
           "close_rect": {
             "position": {
-              "x": 1362.0,
+              "x": 722.0,
               "y": 79.0
             },
             "size": {
@@ -829,12 +1084,153 @@
               "y": 22.0
             }
           },
+          "fixed": false,
+          "h": 123.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 315.0,
+          "x": 509.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 970.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 123.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 315.0,
+          "x": 757.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 1218.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 123.000015258789,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 315.0,
+          "x": 1005.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 1466.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 122.999984741211,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 315.0,
+          "x": 1253.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 1714.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 123.000015258789,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 315.0,
+          "x": 1501.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 1962.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 122.999969482422,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 315.0,
+          "x": 1749.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 2210.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 123.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 315.0,
+          "x": 1997.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 2458.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
           "h": 123.0,
           "label": "blank_page",
           "page_visible": true,
-          "truncated": false,
-          "w": 640.0,
-          "x": 834.0,
+          "truncated": true,
+          "w": 315.0,
+          "x": 2245.0,
           "y": 33.0
         }
       ]
@@ -842,53 +1238,53 @@
     {
       "event": "screenshot",
       "file": "09-closed-last.png",
-      "t_ms": 6799
+      "t_ms": 12240
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 6805
+      "t_ms": 12253
     },
     {
       "event": "click",
-      "t_ms": 6810,
+      "t_ms": 12262,
       "what": "tab 1",
-      "x": 706.755981445312,
-      "y": 57.8755950927734
+      "x": 306.143524169922,
+      "y": 43.4067001342773
     },
     {
       "event": "click",
-      "t_ms": 6818,
+      "t_ms": 12283,
       "what": "close button of tab 1",
-      "x": 840.88037109375,
-      "y": 55.1196136474609
+      "x": 336.688995361328,
+      "y": 41.339714050293
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_closed",
-      "t_ms": 7110
+      "t_ms": 12568
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_selected",
-      "t_ms": 7110
+      "t_ms": 12568
     },
     {
       "active": 0,
-      "bar_width": 3135.0,
-      "count": 1,
+      "bar_width": 4180.0,
+      "count": 8,
       "event": "state",
       "label": "closed-second",
       "opening": false,
-      "t_ms": 7714,
+      "t_ms": 13181,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 789.0,
+              "x": 505.0,
               "y": 79.0
             },
             "size": {
@@ -896,12 +1292,153 @@
               "y": 22.0
             }
           },
+          "fixed": false,
           "h": 123.0,
           "label": "windows_live",
           "page_visible": true,
-          "truncated": false,
-          "w": 640.0,
+          "truncated": true,
+          "w": 346.0,
           "x": 261.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 784.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 123.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 346.0,
+          "x": 540.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 1063.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 123.000015258789,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 346.0,
+          "x": 819.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 1342.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 122.999984741211,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 346.0,
+          "x": 1098.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 1621.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 123.000015258789,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 346.0,
+          "x": 1377.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 1900.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 122.999969482422,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 346.0,
+          "x": 1656.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 2179.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 123.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 346.0,
+          "x": 1935.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 2458.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 123.0,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": true,
+          "w": 346.0,
+          "x": 2214.0,
           "y": 33.0
         }
       ]
@@ -909,80 +1446,213 @@
     {
       "event": "screenshot",
       "file": "10-closed-second.png",
-      "t_ms": 7759
+      "t_ms": 13273
     },
     {
       "event": "click",
-      "t_ms": 7769,
+      "t_ms": 13294,
       "what": "close button (empty the row)",
-      "x": 489.9521484375,
-      "y": 55.1196136474609
+      "x": 1134.08605957031,
+      "y": 41.339714050293
     },
     {
       "event": "signal",
-      "index": 0,
+      "index": 7,
       "signal": "tab_closed",
-      "t_ms": 8057
-    },
-    {
-      "active": -1,
-      "bar_width": 3135.0,
-      "count": 0,
-      "event": "state",
-      "label": "all-closed",
-      "opening": false,
-      "t_ms": 8455,
-      "tabs": []
-    },
-    {
-      "event": "screenshot",
-      "file": "11-all-closed.png",
-      "t_ms": 8499
+      "t_ms": 13586
     },
     {
       "event": "signal",
-      "index": 0,
-      "signal": "tab_opened",
-      "t_ms": 8509
+      "index": 6,
+      "signal": "tab_selected",
+      "t_ms": 13586
     },
     {
       "event": "click",
-      "t_ms": 8509,
-      "what": "new-tab stub (after empty)",
-      "x": 219.253799438477,
-      "y": 62.7751159667969
+      "t_ms": 13999,
+      "what": "close button (empty the row)",
+      "x": 1131.330078125,
+      "y": 41.339714050293
+    },
+    {
+      "event": "signal",
+      "index": 6,
+      "signal": "tab_closed",
+      "t_ms": 14308
+    },
+    {
+      "event": "signal",
+      "index": 5,
+      "signal": "tab_selected",
+      "t_ms": 14308
+    },
+    {
+      "event": "click",
+      "t_ms": 14716,
+      "what": "close button (empty the row)",
+      "x": 1131.330078125,
+      "y": 41.339714050293
+    },
+    {
+      "event": "signal",
+      "index": 5,
+      "signal": "tab_closed",
+      "t_ms": 15015
+    },
+    {
+      "event": "signal",
+      "index": 4,
+      "signal": "tab_selected",
+      "t_ms": 15015
+    },
+    {
+      "event": "click",
+      "t_ms": 15425,
+      "what": "close button (empty the row)",
+      "x": 1133.16748046875,
+      "y": 41.339714050293
+    },
+    {
+      "event": "signal",
+      "index": 4,
+      "signal": "tab_closed",
+      "t_ms": 15724
+    },
+    {
+      "event": "signal",
+      "index": 3,
+      "signal": "tab_selected",
+      "t_ms": 15724
+    },
+    {
+      "event": "click",
+      "t_ms": 16133,
+      "what": "close button (empty the row)",
+      "x": 1132.24877929688,
+      "y": 41.339714050293
+    },
+    {
+      "event": "signal",
+      "index": 3,
+      "signal": "tab_closed",
+      "t_ms": 16440
+    },
+    {
+      "event": "signal",
+      "index": 2,
+      "signal": "tab_selected",
+      "t_ms": 16440
+    },
+    {
+      "event": "click",
+      "t_ms": 16850,
+      "what": "close button (empty the row)",
+      "x": 898.449768066406,
+      "y": 41.339714050293
+    },
+    {
+      "event": "signal",
+      "index": 2,
+      "signal": "tab_closed",
+      "t_ms": 17147
+    },
+    {
+      "event": "signal",
+      "index": 1,
+      "signal": "tab_selected",
+      "t_ms": 17147
+    },
+    {
+      "event": "click",
+      "t_ms": 17549,
+      "what": "close button (empty the row)",
+      "x": 635.253601074219,
+      "y": 41.339714050293
+    },
+    {
+      "event": "signal",
+      "index": 1,
+      "signal": "tab_closed",
+      "t_ms": 17853
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_selected",
-      "t_ms": 9004
+      "t_ms": 17853
+    },
+    {
+      "event": "click",
+      "t_ms": 18272,
+      "what": "close button (empty the row)",
+      "x": 372.057403564453,
+      "y": 41.339714050293
+    },
+    {
+      "event": "signal",
+      "index": 0,
+      "signal": "tab_closed",
+      "t_ms": 18567
+    },
+    {
+      "active": -1,
+      "bar_width": 4180.0,
+      "count": 0,
+      "event": "state",
+      "label": "all-closed",
+      "opening": false,
+      "t_ms": 18963,
+      "tabs": []
+    },
+    {
+      "event": "screenshot",
+      "file": "11-all-closed.png",
+      "t_ms": 19036
+    },
+    {
+      "event": "signal",
+      "index": 0,
+      "signal": "tab_opened",
+      "t_ms": 19052
+    },
+    {
+      "event": "click",
+      "t_ms": 19052,
+      "what": "new-tab stub (after empty)",
+      "x": 164.440292358398,
+      "y": 47.0813407897949
+    },
+    {
+      "event": "signal",
+      "index": 0,
+      "signal": "tab_selected",
+      "t_ms": 19550
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_settled",
-      "t_ms": 9004
+      "t_ms": 19550
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_titled",
-      "t_ms": 9956
+      "t_ms": 20503
     },
     {
       "active": 0,
-      "bar_width": 3135.0,
+      "bar_width": 4180.0,
       "count": 1,
       "event": "state",
       "label": "reopened",
       "opening": false,
-      "t_ms": 10304,
+      "t_ms": 20851,
       "tabs": [
         {
           "close_rect": {
             "position": {
-              "x": 789.0,
+              "x": 799.0,
               "y": 79.0
             },
             "size": {
@@ -990,7 +1660,8 @@
               "y": 22.0
             }
           },
-          "h": 123.0,
+          "fixed": false,
+          "h": 122.999984741211,
           "label": "blank_page",
           "page_visible": true,
           "truncated": false,
@@ -1003,7 +1674,285 @@
     {
       "event": "screenshot",
       "file": "12-reopened.png",
-      "t_ms": 10346
+      "t_ms": 20926
+    },
+    {
+      "event": "fixed_open",
+      "index": 1,
+      "ok": true,
+      "page_in_stack": true,
+      "t_ms": 20926
+    },
+    {
+      "event": "signal",
+      "index": 1,
+      "signal": "tab_selected",
+      "t_ms": 20926
+    },
+    {
+      "active": 1,
+      "bar_width": 4180.0,
+      "count": 2,
+      "event": "state",
+      "label": "fixed-open",
+      "opening": false,
+      "t_ms": 20926,
+      "tabs": [
+        {
+          "close_rect": {
+            "position": {
+              "x": 799.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 122.999984741211,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": false,
+          "w": 640.0,
+          "x": 261.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "fixed": true,
+          "h": 123.0,
+          "label": "map",
+          "page_visible": true,
+          "truncated": false,
+          "w": 640.0,
+          "x": 834.0,
+          "y": 33.0
+        }
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "13-fixed-open.png",
+      "t_ms": 21003
+    },
+    {
+      "event": "signal",
+      "index": 1,
+      "signal": "tab_selected",
+      "t_ms": 21014
+    },
+    {
+      "event": "click",
+      "t_ms": 21021,
+      "what": "where the close button of the fixed tab would be",
+      "x": 635.253601074219,
+      "y": 41.339714050293
+    },
+    {
+      "code": "tab_strip.tab_fixed",
+      "event": "fixed_close",
+      "ok": false,
+      "t_ms": 21919
+    },
+    {
+      "active": 1,
+      "bar_width": 4180.0,
+      "count": 2,
+      "event": "state",
+      "label": "fixed-kept",
+      "opening": false,
+      "t_ms": 22825,
+      "tabs": [
+        {
+          "close_rect": {
+            "position": {
+              "x": 799.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 122.999984741211,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": false,
+          "w": 640.0,
+          "x": 261.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "fixed": true,
+          "h": 123.0,
+          "label": "map",
+          "page_visible": true,
+          "truncated": false,
+          "w": 640.0,
+          "x": 834.0,
+          "y": 33.0
+        }
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "14-fixed-kept.png",
+      "t_ms": 22898
+    },
+    {
+      "event": "fixed_open",
+      "index": 2,
+      "ok": true,
+      "page_in_stack": true,
+      "t_ms": 22898
+    },
+    {
+      "event": "signal",
+      "index": 3,
+      "signal": "tab_opened",
+      "t_ms": 22916
+    },
+    {
+      "event": "click",
+      "t_ms": 22917,
+      "what": "new-tab stub (after fixed)",
+      "x": 954.02880859375,
+      "y": 47.0813407897949
+    },
+    {
+      "event": "signal",
+      "index": 3,
+      "signal": "tab_selected",
+      "t_ms": 23416
+    },
+    {
+      "event": "signal",
+      "index": 3,
+      "signal": "tab_settled",
+      "t_ms": 23416
+    },
+    {
+      "event": "signal",
+      "index": 3,
+      "signal": "tab_titled",
+      "t_ms": 24357
+    },
+    {
+      "active": 3,
+      "bar_width": 4180.0,
+      "count": 4,
+      "event": "state",
+      "label": "after-fixed-stub",
+      "opening": false,
+      "t_ms": 24707,
+      "tabs": [
+        {
+          "close_rect": {
+            "position": {
+              "x": 783.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 122.999984741211,
+          "label": "blank_page",
+          "page_visible": false,
+          "truncated": false,
+          "w": 624.0,
+          "x": 261.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "fixed": true,
+          "h": 123.0,
+          "label": "map",
+          "page_visible": false,
+          "truncated": false,
+          "w": 624.0,
+          "x": 818.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "size": {
+              "x": 0.0,
+              "y": 0.0
+            }
+          },
+          "fixed": true,
+          "h": 123.0,
+          "label": "phone",
+          "page_visible": false,
+          "truncated": false,
+          "w": 624.0,
+          "x": 1375.0,
+          "y": 33.0
+        },
+        {
+          "close_rect": {
+            "position": {
+              "x": 2454.0,
+              "y": 79.0
+            },
+            "size": {
+              "x": 22.0,
+              "y": 22.0
+            }
+          },
+          "fixed": false,
+          "h": 123.0,
+          "label": "blank_page",
+          "page_visible": true,
+          "truncated": false,
+          "w": 624.0,
+          "x": 1932.0,
+          "y": 33.0
+        }
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "15-after-fixed-stub.png",
+      "t_ms": 24778
     }
   ],
   "viewport": [
