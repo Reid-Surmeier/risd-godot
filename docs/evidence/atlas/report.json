@@ -6,7 +6,11 @@
       "draw_calls": 47,
       "event": "state",
       "label": "launch",
+<<<<<<< HEAD
       "t_ms": 1031,
+=======
+      "t_ms": 23,
+>>>>>>> origin/wip/atlas-desktop
       "tabs": [
         {
           "frozen": true,
@@ -103,7 +107,11 @@
       "event": "atlas",
       "label": "launch",
       "ok": false,
+<<<<<<< HEAD
       "t_ms": 1031
+=======
+      "t_ms": 23
+>>>>>>> origin/wip/atlas-desktop
     },
     {
       "active": 4,
@@ -111,7 +119,11 @@
       "draw_calls": 47,
       "event": "state",
       "label": "pre-map",
+<<<<<<< HEAD
       "t_ms": 1031,
+=======
+      "t_ms": 23,
+>>>>>>> origin/wip/atlas-desktop
       "tabs": [
         {
           "frozen": true,
@@ -205,18 +217,30 @@
     },
     {
       "event": "click",
+<<<<<<< HEAD
       "t_ms": 1607,
+=======
+      "t_ms": 655,
+>>>>>>> origin/wip/atlas-desktop
       "what": "map tab",
       "x": 208.306213378906,
       "y": 1049.45458984375
     },
     {
       "active": 0,
+<<<<<<< HEAD
       "count": 7,
       "draw_calls": 69,
       "event": "state",
       "label": "map",
       "t_ms": 2117,
+=======
+      "count": 6,
+      "draw_calls": 66,
+      "event": "state",
+      "label": "map",
+      "t_ms": 742,
+>>>>>>> origin/wip/atlas-desktop
       "tabs": [
         {
           "frozen": false,
@@ -310,33 +334,74 @@
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 379.0,
-        "y": 24.0
+        "h": 750.0,
+        "w": 910.0,
+        "x": 548.0,
+        "y": 46.0
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 958.0,
         "w": 1163.0,
         "x": 379.0,
         "y": 24.0
+=======
+        "h": 750.0,
+        "w": 910.0,
+        "x": 548.0,
+        "y": 119.952156066895
+>>>>>>> origin/wip/atlas-desktop
       },
       "inputs": 1,
       "label": "map-shown",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 866.0,
         "w": 1114.0,
         "x": 403.0,
         "y": 87.0
+=======
+        "h": 678.0,
+        "w": 872.0,
+        "x": 567.0,
+        "y": 169.9521484375
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 1510.0,
+          "y": 943.0
+        }
+      },
       "position": [
         2240.0,
         1350.0
@@ -346,26 +411,38 @@
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 2117,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 742,
+>>>>>>> origin/wip/atlas-desktop
       "terrain_tiles": 0,
       "ticks": 52,
       "vertical_pan_locked": true,
       "viewport": [
-        1114.0,
-        866.0
+        872.0,
+        678.0
       ],
       "viewport_update_mode": 4,
       "visible_cities": 2,
       "visible_close_cities": 0,
       "visible_labels": 2,
-      "zoom": 0.320740729570389,
+      "zoom": 0.25111111998558,
       "zoom_max": 120.0,
-      "zoom_min": 0.320740740740741,
-      "zoom_ratio": 0.999999965173268
+      "zoom_min": 0.251111111111111,
+      "zoom_ratio": 1.00000003534081
     },
     {
       "event": "screenshot",
       "file": "01-map.png",
+<<<<<<< HEAD
       "t_ms": 2192
     },
     {
@@ -376,36 +453,98 @@
       "what": "wheel up x3 at map centre",
       "x": 960.0,
       "y": 520.0
+=======
+      "t_ms": 833
+    },
+    {
+      "event": "drag",
+      "from": [
+        1617.0,
+        1047.9521484375
+      ],
+      "relative_total": [
+        -700.0,
+        -700.0
+      ],
+      "steps": 5,
+      "t_ms": 909,
+      "to": [
+        917.0,
+        347.9521484375
+      ],
+      "what": "drag the notification panel onto the map"
+>>>>>>> origin/wip/atlas-desktop
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 379.0,
-        "y": 24.0
+        "h": 750.0,
+        "w": 910.0,
+        "x": 548.0,
+        "y": 46.0
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 958.0,
         "w": 1163.0,
         "x": 379.0,
         "y": 24.0
+=======
+        "h": 750.0,
+        "w": 910.0,
+        "x": 548.0,
+        "y": 119.952156066895
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 7,
-      "label": "zoomed",
+      "inputs": 8,
+      "label": "panel-moved",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 866.0,
         "w": 1114.0,
         "x": 403.0,
         "y": 87.0
+=======
+        "h": 678.0,
+        "w": 872.0,
+        "x": 567.0,
+        "y": 169.9521484375
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
         2240.0,
         1350.0
@@ -415,183 +554,545 @@
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 2284,
       "terrain_tiles": 0,
       "ticks": 62,
       "vertical_pan_locked": false,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "map",
+        "notification"
+      ],
+      "t_ms": 941,
+      "terrain_tiles": 0,
+      "ticks": 20,
+      "vertical_pan_locked": true,
+>>>>>>> origin/wip/atlas-desktop
       "viewport": [
-        1114.0,
-        866.0
+        872.0,
+        678.0
       ],
       "viewport_update_mode": 4,
-      "visible_cities": 3,
+      "visible_cities": 2,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 2,
+      "zoom": 0.25111111998558,
       "zoom_max": 120.0,
-      "zoom_min": 0.320740740740741,
-      "zoom_ratio": 1.64303204203863
+      "zoom_min": 0.251111111111111,
+      "zoom_ratio": 1.00000003534081
     },
     {
       "event": "screenshot",
+<<<<<<< HEAD
       "file": "02-zoomed.png",
       "t_ms": 2357
+=======
+      "file": "02-panel-moved.png",
+      "t_ms": 1028
+    },
+    {
+      "count": 3,
+      "event": "wheel",
+      "t_ms": 1095,
+      "up": true,
+      "what": "wheel up x3 over the notification panel",
+      "x": 917.0,
+      "y": 347.9521484375
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.52793440586453,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 750.0,
+        "w": 910.0,
+        "x": 548.0,
+        "y": 46.0
+      },
+      "frame_global": {
+        "h": 750.0,
+        "w": 910.0,
+        "x": 548.0,
+        "y": 119.952156066895
+      },
+      "inputs": 14,
+      "label": "wheel-over-panel",
+      "locked": false,
+      "map_rect": {
+        "h": 678.0,
+        "w": 872.0,
+        "x": 567.0,
+        "y": 169.9521484375
+      },
+      "mode": "atlas",
+      "moving_window": "",
+      "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
+      "position": [
+        2240.0,
+        1350.0
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "map",
+        "notification"
+      ],
+      "t_ms": 1127,
+      "terrain_tiles": 0,
+      "ticks": 30,
+      "vertical_pan_locked": true,
+      "viewport": [
+        872.0,
+        678.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 2,
+      "visible_close_cities": 0,
+      "visible_labels": 2,
+      "zoom": 0.25111111998558,
+      "zoom_max": 120.0,
+      "zoom_min": 0.251111111111111,
+      "zoom_ratio": 1.00000003534081
+    },
+    {
+      "count": 3,
+      "event": "wheel",
+      "t_ms": 1195,
+      "up": true,
+      "what": "wheel up x3 at map centre",
+      "x": 1003.0,
+      "y": 508.9521484375
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.52793440586453,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 750.0,
+        "w": 910.0,
+        "x": 548.0,
+        "y": 46.0
+      },
+      "frame_global": {
+        "h": 750.0,
+        "w": 910.0,
+        "x": 548.0,
+        "y": 119.952156066895
+      },
+      "inputs": 20,
+      "label": "zoomed",
+      "locked": false,
+      "map_rect": {
+        "h": 678.0,
+        "w": 872.0,
+        "x": 567.0,
+        "y": 169.9521484375
+      },
+      "mode": "atlas",
+      "moving_window": "",
+      "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
+      "position": [
+        2240.0,
+        1350.0
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "map",
+        "notification"
+      ],
+      "t_ms": 1228,
+      "terrain_tiles": 0,
+      "ticks": 39,
+      "vertical_pan_locked": false,
+      "viewport": [
+        872.0,
+        678.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 2,
+      "visible_close_cities": 0,
+      "visible_labels": 2,
+      "zoom": 0.412583589553833,
+      "zoom_max": 120.0,
+      "zoom_min": 0.251111111111111,
+      "zoom_ratio": 1.64303199379845
+    },
+    {
+      "event": "screenshot",
+      "file": "03-zoomed.png",
+      "t_ms": 1314
+>>>>>>> origin/wip/atlas-desktop
     },
     {
       "event": "drag",
       "from": [
+<<<<<<< HEAD
         960.0,
         520.0
+=======
+        1003.0,
+        508.9521484375
+>>>>>>> origin/wip/atlas-desktop
       ],
       "relative_total": [
         -160.0,
         -120.0
       ],
       "steps": 4,
+<<<<<<< HEAD
       "t_ms": 2421,
       "to": [
         800.0,
         400.0
+=======
+      "t_ms": 1382,
+      "to": [
+        843.0,
+        388.9521484375
+>>>>>>> origin/wip/atlas-desktop
       ],
       "what": "drag-pan inside the map"
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 379.0,
-        "y": 24.0
+        "h": 750.0,
+        "w": 910.0,
+        "x": 548.0,
+        "y": 46.0
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 958.0,
         "w": 1163.0,
         "x": 379.0,
         "y": 24.0
+=======
+        "h": 750.0,
+        "w": 910.0,
+        "x": 548.0,
+        "y": 119.952156066895
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 13,
+      "inputs": 26,
       "label": "panned",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 866.0,
         "w": 1114.0,
         "x": 403.0,
         "y": 87.0
+=======
+        "h": 678.0,
+        "w": 872.0,
+        "x": 567.0,
+        "y": 169.9521484375
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2627.7998046875,
+        1640.85009765625
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 2451,
       "terrain_tiles": 0,
       "ticks": 72,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 1416,
+      "terrain_tiles": 0,
+      "ticks": 49,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        1114.0,
-        866.0
+        872.0,
+        678.0
       ],
       "viewport_update_mode": 4,
-      "visible_cities": 3,
+      "visible_cities": 1,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 1,
+      "zoom": 0.412583589553833,
       "zoom_max": 120.0,
-      "zoom_min": 0.320740740740741,
-      "zoom_ratio": 1.64303204203863
+      "zoom_min": 0.251111111111111,
+      "zoom_ratio": 1.64303199379845
     },
     {
       "event": "screenshot",
+<<<<<<< HEAD
       "file": "03-panned.png",
       "t_ms": 2520
+=======
+      "file": "04-panned.png",
+      "t_ms": 1502
+>>>>>>> origin/wip/atlas-desktop
     },
     {
       "event": "drag",
       "from": [
+<<<<<<< HEAD
         960.5,
         64.4756393432617
+=======
+        1003.0,
+        151.628219604492
+>>>>>>> origin/wip/atlas-desktop
       ],
       "relative_total": [
         70.0,
         -15.0
       ],
       "steps": 5,
+<<<<<<< HEAD
       "t_ms": 2594,
       "to": [
         1030.5,
         49.4756393432617
+=======
+      "t_ms": 1576,
+      "to": [
+        1073.0,
+        136.628219604492
+>>>>>>> origin/wip/atlas-desktop
       ],
       "what": "drag the map window by its title bar"
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 449.0,
-        "y": 9.0
+        "h": 750.0,
+        "w": 910.0,
+        "x": 618.0,
+        "y": 31.0
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 958.0,
         "w": 1163.0,
         "x": 449.0,
         "y": 9.0
+=======
+        "h": 750.0,
+        "w": 910.0,
+        "x": 618.0,
+        "y": 104.952156066895
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 20,
+      "inputs": 33,
       "label": "window-moved",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 866.0,
         "w": 1114.0,
         "x": 473.0,
         "y": 72.0
+=======
+        "h": 678.0,
+        "w": 872.0,
+        "x": 637.0,
+        "y": 154.9521484375
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2627.7998046875,
+        1640.85009765625
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 2624,
       "terrain_tiles": 0,
       "ticks": 83,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 1609,
+      "terrain_tiles": 0,
+      "ticks": 60,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        1114.0,
-        866.0
+        872.0,
+        678.0
       ],
       "viewport_update_mode": 4,
-      "visible_cities": 3,
+      "visible_cities": 1,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 1,
+      "zoom": 0.412583589553833,
       "zoom_max": 120.0,
-      "zoom_min": 0.320740740740741,
-      "zoom_ratio": 1.64303204203863
+      "zoom_min": 0.251111111111111,
+      "zoom_ratio": 1.64303199379845
     },
     {
       "event": "screenshot",
+<<<<<<< HEAD
       "file": "04-window-moved.png",
       "t_ms": 2693
+=======
+      "file": "05-window-moved.png",
+      "t_ms": 1693
+>>>>>>> origin/wip/atlas-desktop
     },
     {
       "active": 0,
@@ -599,7 +1100,11 @@
       "draw_calls": 71,
       "event": "state",
       "label": "window-moved",
+<<<<<<< HEAD
       "t_ms": 2693,
+=======
+      "t_ms": 1693,
+>>>>>>> origin/wip/atlas-desktop
       "tabs": [
         {
           "frozen": false,
@@ -694,80 +1199,151 @@
     {
       "event": "drag",
       "from": [
+<<<<<<< HEAD
         1030.5,
         49.4756393432617
+=======
+        1073.0,
+        136.628219604492
+>>>>>>> origin/wip/atlas-desktop
       ],
       "relative_total": [
         1800.0,
         1200.0
       ],
       "steps": 6,
+<<<<<<< HEAD
       "t_ms": 2773,
       "to": [
         2830.5,
         1249.4755859375
+=======
+      "t_ms": 1780,
+      "to": [
+        2873.0,
+        1336.62817382812
+>>>>>>> origin/wip/atlas-desktop
       ],
       "what": "drag the title bar past the page's bottom-right corner"
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 750.0,
+        "w": 910.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 958.0,
         "w": 1163.0,
         "x": 757.0,
         "y": 48.0478515625
+=======
+        "h": 750.0,
+        "w": 910.0,
+        "x": 1010.0,
+        "y": 330.0
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 28,
+      "inputs": 41,
       "label": "window-clamped",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 866.0,
         "w": 1114.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 678.0,
+        "w": 872.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2627.7998046875,
+        1640.85009765625
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 2803,
       "terrain_tiles": 0,
       "ticks": 95,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 1812,
+      "terrain_tiles": 0,
+      "ticks": 72,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        1114.0,
-        866.0
+        872.0,
+        678.0
       ],
       "viewport_update_mode": 4,
-      "visible_cities": 3,
+      "visible_cities": 1,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 1,
+      "zoom": 0.412583589553833,
       "zoom_max": 120.0,
-      "zoom_min": 0.320740740740741,
-      "zoom_ratio": 1.64303204203863
+      "zoom_min": 0.251111111111111,
+      "zoom_ratio": 1.64303199379845
     },
     {
       "event": "screenshot",
+<<<<<<< HEAD
       "file": "05-window-clamped.png",
       "t_ms": 2873
+=======
+      "file": "06-window-clamped.png",
+      "t_ms": 1902
+>>>>>>> origin/wip/atlas-desktop
     },
     {
       "event": "drag",
@@ -780,7 +1356,11 @@
         -100.0
       ],
       "steps": 5,
+<<<<<<< HEAD
       "t_ms": 2957,
+=======
+      "t_ms": 1986,
+>>>>>>> origin/wip/atlas-desktop
       "to": [
         1766.0,
         902.0478515625
@@ -789,61 +1369,116 @@
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
         "y": 48.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 35,
+      "inputs": 48,
       "label": "window-resized",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 766.0,
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2627.7998046875,
+        1640.85009765625
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 2986,
       "terrain_tiles": 0,
       "ticks": 106,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 2015,
+      "terrain_tiles": 0,
+      "ticks": 83,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 4,
-      "visible_cities": 3,
+      "visible_cities": 1,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 1,
+      "zoom": 0.412583589553833,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.8575270866912
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.92729358442102
     },
     {
       "event": "screenshot",
+<<<<<<< HEAD
       "file": "06-window-resized.png",
       "t_ms": 3055
     },
@@ -853,64 +1488,130 @@
       "what": "collapse button",
       "x": 801.523193359375,
       "y": 91.2218627929688
+=======
+      "file": "07-window-resized.png",
+      "t_ms": 2103
+    },
+    {
+      "event": "click",
+      "t_ms": 2124,
+      "what": "collapse button",
+      "x": 1044.84362792969,
+      "y": 363.787811279297
+>>>>>>> origin/wip/atlas-desktop
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": true,
       "event": "atlas",
       "frame": {
-        "h": 92.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 72.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 92.0,
         "w": 1013.0,
         "x": 757.0,
         "y": 48.0478515625
+=======
+        "h": 72.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 37,
+      "inputs": 50,
       "label": "collapsed",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 766.0,
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2627.7998046875,
+        1640.85009765625
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 3096,
       "terrain_tiles": 0,
       "ticks": 112,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 2148,
+      "terrain_tiles": 0,
+      "ticks": 89,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 0,
-      "visible_cities": 3,
+      "visible_cities": 1,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 1,
+      "zoom": 0.412583589553833,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.8575270866912
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.92729358442102
     },
     {
       "event": "screenshot",
+<<<<<<< HEAD
       "file": "07-collapsed.png",
       "t_ms": 3158
     },
@@ -920,471 +1621,939 @@
       "what": "collapse button (again)",
       "x": 801.523193359375,
       "y": 91.2218627929688
+=======
+      "file": "08-collapsed.png",
+      "t_ms": 2230
+    },
+    {
+      "event": "click",
+      "t_ms": 2248,
+      "what": "collapse button (again)",
+      "x": 1044.84362792969,
+      "y": 363.787811279297
+>>>>>>> origin/wip/atlas-desktop
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
         "y": 48.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 39,
+      "inputs": 52,
       "label": "expanded",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 766.0,
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2627.7998046875,
+        1640.85009765625
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 3202,
       "terrain_tiles": 0,
       "ticks": 118,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 2277,
+      "terrain_tiles": 0,
+      "ticks": 95,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 4,
-      "visible_cities": 3,
+      "visible_cities": 1,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 1,
+      "zoom": 0.412583589553833,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.8575270866912
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.92729358442102
     },
     {
       "event": "click",
+<<<<<<< HEAD
       "t_ms": 3222,
       "what": "lock button",
       "x": 1726.82592773438,
       "y": 91.2218627929688
+=======
+      "t_ms": 2297,
+      "what": "lock button",
+      "x": 1736.21215820312,
+      "y": 363.787811279297
+>>>>>>> origin/wip/atlas-desktop
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
         "y": 48.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 41,
+      "inputs": 54,
       "label": "locked",
       "locked": true,
       "map_rect": {
+<<<<<<< HEAD
         "h": 766.0,
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2627.7998046875,
+        1640.85009765625
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 3241,
       "terrain_tiles": 0,
       "ticks": 122,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 2317,
+      "terrain_tiles": 0,
+      "ticks": 99,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 4,
-      "visible_cities": 3,
+      "visible_cities": 1,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 1,
+      "zoom": 0.412583589553833,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.8575270866912
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.92729358442102
     },
     {
       "event": "drag",
       "from": [
+<<<<<<< HEAD
         1263.5,
         88.5234909057617
+=======
+        1390.0,
+        361.676055908203
+>>>>>>> origin/wip/atlas-desktop
       ],
       "relative_total": [
         -70.0,
         15.0
       ],
       "steps": 5,
+<<<<<<< HEAD
       "t_ms": 3308,
       "to": [
         1193.5,
         103.523490905762
+=======
+      "t_ms": 2385,
+      "to": [
+        1320.0,
+        376.676055908203
+>>>>>>> origin/wip/atlas-desktop
       ],
       "what": "drag the title bar while locked"
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
         "y": 48.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 48,
+      "inputs": 61,
       "label": "locked-drag",
       "locked": true,
       "map_rect": {
+<<<<<<< HEAD
         "h": 766.0,
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2627.7998046875,
+        1640.85009765625
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 3337,
       "terrain_tiles": 0,
       "ticks": 132,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 2414,
+      "terrain_tiles": 0,
+      "ticks": 109,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 4,
-      "visible_cities": 3,
+      "visible_cities": 1,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 1,
+      "zoom": 0.412583589553833,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.8575270866912
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.92729358442102
     },
     {
       "event": "click",
+<<<<<<< HEAD
       "t_ms": 3355,
       "what": "lock button (again)",
       "x": 1726.82592773438,
       "y": 91.2218627929688
+=======
+      "t_ms": 2434,
+      "what": "lock button (again)",
+      "x": 1736.21215820312,
+      "y": 363.787811279297
+>>>>>>> origin/wip/atlas-desktop
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
         "y": 48.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 50,
+      "inputs": 63,
       "label": "unlocked",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 766.0,
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2627.7998046875,
+        1640.85009765625
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 3374,
       "terrain_tiles": 0,
       "ticks": 136,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 2453,
+      "terrain_tiles": 0,
+      "ticks": 113,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 4,
-      "visible_cities": 3,
+      "visible_cities": 1,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 1,
+      "zoom": 0.412583589553833,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.8575270866912
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.92729358442102
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
         "y": 48.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 50,
+      "inputs": 63,
       "label": "pre-keys",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 766.0,
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2627.7998046875,
+        1640.85009765625
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 3374,
       "terrain_tiles": 0,
       "ticks": 136,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 2453,
+      "terrain_tiles": 0,
+      "ticks": 113,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 4,
-      "visible_cities": 3,
+      "visible_cities": 1,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 1,
+      "zoom": 0.412583589553833,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.8575270866912
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.92729358442102
     },
     {
       "event": "key",
       "keycode": "Plus",
+<<<<<<< HEAD
       "t_ms": 3393,
+=======
+      "t_ms": 2474,
+>>>>>>> origin/wip/atlas-desktop
       "what": "+ key"
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
         "y": 48.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 52,
+      "inputs": 65,
       "label": "key-plus",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 766.0,
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2627.7998046875,
+        1640.85009765625
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 3412,
       "terrain_tiles": 0,
       "ticks": 140,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 2494,
+      "terrain_tiles": 0,
+      "ticks": 117,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 4,
       "visible_cities": 1,
       "visible_close_cities": 0,
       "visible_labels": 1,
-      "zoom": 0.685083508491516,
+      "zoom": 0.536358654499054,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 2.41478521269856
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 2.50548160406132
     },
     {
       "event": "key",
       "keycode": "Right",
+<<<<<<< HEAD
       "t_ms": 3433,
+=======
+      "t_ms": 2514,
+>>>>>>> origin/wip/atlas-desktop
       "what": "right arrow"
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
         "y": 48.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 54,
+      "inputs": 67,
       "label": "key-right",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 766.0,
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
-        2689.57983398438,
-        1577.70947265625
+        2814.2421875,
+        1640.85009765625
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 3452,
       "terrain_tiles": 0,
       "ticks": 144,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 2533,
+      "terrain_tiles": 0,
+      "ticks": 121,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 4,
       "visible_cities": 1,
       "visible_close_cities": 0,
       "visible_labels": 1,
-      "zoom": 0.685083508491516,
+      "zoom": 0.536358654499054,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 2.41478521269856
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 2.50548160406132
     },
     {
       "event": "key",
       "keycode": "F",
+<<<<<<< HEAD
       "t_ms": 3486,
+=======
+      "t_ms": 2560,
+>>>>>>> origin/wip/atlas-desktop
       "what": "F key"
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
         "y": 48.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 56,
+      "inputs": 69,
       "label": "key-f-sheet",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 766.0,
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "sheet",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
         800.0,
         800.0
@@ -1394,119 +2563,235 @@
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 3505,
       "terrain_tiles": 0,
       "ticks": 148,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 2579,
+      "terrain_tiles": 0,
+      "ticks": 125,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 4,
       "visible_cities": 2,
       "visible_close_cities": 0,
       "visible_labels": 2,
-      "zoom": 0.391250014305115,
+      "zoom": 0.273750007152557,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.37907968488748
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.27876300919015
     },
     {
       "event": "key",
       "keycode": "F",
+<<<<<<< HEAD
       "t_ms": 3525,
+=======
+      "t_ms": 2600,
+>>>>>>> origin/wip/atlas-desktop
       "what": "F key (again)"
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
         "y": 48.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 58,
+      "inputs": 71,
       "label": "key-f-atlas",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 766.0,
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
-        2689.57983398438,
-        1577.70947265625
+        2814.2421875,
+        1640.85009765625
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 3544,
       "terrain_tiles": 0,
       "ticks": 152,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 2619,
+      "terrain_tiles": 0,
+      "ticks": 129,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 4,
       "visible_cities": 1,
       "visible_close_cities": 0,
       "visible_labels": 1,
-      "zoom": 0.685083508491516,
+      "zoom": 0.536358654499054,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 2.41478521269856
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 2.50548160406132
     },
     {
       "event": "key",
       "keycode": "Home",
+<<<<<<< HEAD
       "t_ms": 3564,
+=======
+      "t_ms": 2639,
+>>>>>>> origin/wip/atlas-desktop
       "what": "Home key"
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
         "y": 48.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 60,
+      "inputs": 73,
       "label": "key-home",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 766.0,
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
         2240.0,
         1350.0
@@ -1516,66 +2801,133 @@
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 3583,
       "terrain_tiles": 0,
       "ticks": 156,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 2659,
+      "terrain_tiles": 0,
+      "ticks": 133,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": true,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 4,
-      "visible_cities": 2,
+      "visible_cities": 1,
       "visible_close_cities": 0,
-      "visible_labels": 2,
-      "zoom": 0.283703714609146,
+      "visible_labels": 1,
+      "zoom": 0.214074075222015,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.00000003843955
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.00000000536236
     },
     {
       "event": "screenshot",
+<<<<<<< HEAD
       "file": "08-key-home.png",
       "t_ms": 3659
+=======
+      "file": "09-key-home.png",
+      "t_ms": 2749
+>>>>>>> origin/wip/atlas-desktop
     },
     {
       "count": 2,
       "event": "wheel",
+<<<<<<< HEAD
       "t_ms": 3701,
       "up": true,
       "what": "wheel up x2 at map centre before hiding",
       "x": 1263.0,
       "y": 494.0478515625
+=======
+      "t_ms": 2792,
+      "up": true,
+      "what": "wheel up x2 at map centre before hiding",
+      "x": 1390.0,
+      "y": 669.0
+>>>>>>> origin/wip/atlas-desktop
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
         "y": 48.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+>>>>>>> origin/wip/atlas-desktop
       },
-      "inputs": 64,
+      "inputs": 77,
       "label": "before-hidden",
       "locked": false,
       "map_rect": {
+<<<<<<< HEAD
         "h": 766.0,
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
         2240.0,
         1350.0
@@ -1585,25 +2937,39 @@
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 3730,
       "terrain_tiles": 0,
       "ticks": 164,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 2823,
+      "terrain_tiles": 0,
+      "ticks": 141,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 4,
       "visible_cities": 2,
       "visible_close_cities": 0,
       "visible_labels": 2,
-      "zoom": 0.395029038190842,
+      "zoom": 0.298076748847961,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.39240000406694
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.3924000378711
     },
     {
       "event": "screenshot",
+<<<<<<< HEAD
       "file": "09-before-hidden.png",
       "t_ms": 3800
     },
@@ -1614,6 +2980,18 @@
       "event": "state",
       "label": "before-hidden",
       "t_ms": 3800,
+=======
+      "file": "10-before-hidden.png",
+      "t_ms": 2909
+    },
+    {
+      "active": 0,
+      "count": 6,
+      "draw_calls": 65,
+      "event": "state",
+      "label": "before-hidden",
+      "t_ms": 2909,
+>>>>>>> origin/wip/atlas-desktop
       "tabs": [
         {
           "frozen": false,
@@ -1707,7 +3085,11 @@
     },
     {
       "event": "click",
+<<<<<<< HEAD
       "t_ms": 3820,
+=======
+      "t_ms": 2927,
+>>>>>>> origin/wip/atlas-desktop
       "what": "sketchbook tab",
       "x": 354.373199462891,
       "y": 1049.45458984375
@@ -1718,7 +3100,11 @@
       "draw_calls": 47,
       "event": "state",
       "label": "sketchbook",
+<<<<<<< HEAD
       "t_ms": 4284,
+=======
+      "t_ms": 2949,
+>>>>>>> origin/wip/atlas-desktop
       "tabs": [
         {
           "frozen": true,
@@ -1812,17 +3198,18 @@
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
@@ -1836,9 +3223,51 @@
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+      },
+      "inputs": 78,
+      "label": "map-hidden",
+      "locked": false,
+      "map_rect": {
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
         2240.0,
         1350.0
@@ -1848,69 +3277,107 @@
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 4284,
       "terrain_tiles": 0,
       "ticks": 179,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 2949,
+      "terrain_tiles": 0,
+      "ticks": 143,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 0,
       "visible_cities": 2,
       "visible_close_cities": 0,
       "visible_labels": 2,
-      "zoom": 0.395029038190842,
+      "zoom": 0.298076748847961,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.39240000406694
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.3924000378711
     },
     {
       "count": 3,
       "event": "wheel",
+<<<<<<< HEAD
       "t_ms": 4326,
       "up": true,
       "what": "wheel up x3 at the map's centre while hidden",
       "x": 1263.0,
       "y": 494.0478515625
+=======
+      "t_ms": 2993,
+      "up": true,
+      "what": "wheel up x3 at the map's centre while hidden",
+      "x": 1390.0,
+      "y": 669.0
+>>>>>>> origin/wip/atlas-desktop
     },
     {
       "event": "drag",
       "from": [
+<<<<<<< HEAD
         1263.0,
         494.0478515625
+=======
+        1390.0,
+        669.0
+>>>>>>> origin/wip/atlas-desktop
       ],
       "relative_total": [
         -160.0,
         -120.0
       ],
       "steps": 4,
+<<<<<<< HEAD
       "t_ms": 4368,
       "to": [
         1103.0,
         374.0478515625
+=======
+      "t_ms": 3037,
+      "to": [
+        1230.0,
+        549.0
+>>>>>>> origin/wip/atlas-desktop
       ],
       "what": "drag where the map was while hidden"
     },
     {
       "event": "key",
       "keycode": "Plus",
+<<<<<<< HEAD
       "t_ms": 4382,
+=======
+      "t_ms": 3051,
+>>>>>>> origin/wip/atlas-desktop
       "what": "+ key while hidden"
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
@@ -1924,9 +3391,51 @@
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+      },
+      "inputs": 78,
+      "label": "key-plus while hidden",
+      "locked": false,
+      "map_rect": {
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
         2240.0,
         1350.0
@@ -1936,42 +3445,60 @@
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 4395,
       "terrain_tiles": 0,
       "ticks": 179,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 3066,
+      "terrain_tiles": 0,
+      "ticks": 143,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 0,
       "visible_cities": 2,
       "visible_close_cities": 0,
       "visible_labels": 2,
-      "zoom": 0.395029038190842,
+      "zoom": 0.298076748847961,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.39240000406694
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.3924000378711
     },
     {
       "event": "key",
       "keycode": "Right",
+<<<<<<< HEAD
       "t_ms": 4409,
+=======
+      "t_ms": 3080,
+>>>>>>> origin/wip/atlas-desktop
       "what": "right arrow while hidden"
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
@@ -1985,9 +3512,51 @@
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+      },
+      "inputs": 78,
+      "label": "key-right while hidden",
+      "locked": false,
+      "map_rect": {
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
         2240.0,
         1350.0
@@ -1997,42 +3566,60 @@
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 4424,
       "terrain_tiles": 0,
       "ticks": 179,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 3095,
+      "terrain_tiles": 0,
+      "ticks": 143,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 0,
       "visible_cities": 2,
       "visible_close_cities": 0,
       "visible_labels": 2,
-      "zoom": 0.395029038190842,
+      "zoom": 0.298076748847961,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.39240000406694
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.3924000378711
     },
     {
       "event": "key",
       "keycode": "F",
+<<<<<<< HEAD
       "t_ms": 4437,
+=======
+      "t_ms": 3109,
+>>>>>>> origin/wip/atlas-desktop
       "what": "F key while hidden"
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
@@ -2046,9 +3633,51 @@
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+      },
+      "inputs": 78,
+      "label": "key-f-sheet while hidden",
+      "locked": false,
+      "map_rect": {
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
         2240.0,
         1350.0
@@ -2058,42 +3687,60 @@
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 4451,
       "terrain_tiles": 0,
       "ticks": 179,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 3123,
+      "terrain_tiles": 0,
+      "ticks": 143,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 0,
       "visible_cities": 2,
       "visible_close_cities": 0,
       "visible_labels": 2,
-      "zoom": 0.395029038190842,
+      "zoom": 0.298076748847961,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.39240000406694
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.3924000378711
     },
     {
       "event": "key",
       "keycode": "F",
+<<<<<<< HEAD
       "t_ms": 4465,
+=======
+      "t_ms": 3137,
+>>>>>>> origin/wip/atlas-desktop
       "what": "F key (again) while hidden"
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
@@ -2107,9 +3754,51 @@
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+      },
+      "inputs": 78,
+      "label": "key-f-atlas while hidden",
+      "locked": false,
+      "map_rect": {
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
         2240.0,
         1350.0
@@ -2119,42 +3808,60 @@
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 4479,
       "terrain_tiles": 0,
       "ticks": 179,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 3152,
+      "terrain_tiles": 0,
+      "ticks": 143,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 0,
       "visible_cities": 2,
       "visible_close_cities": 0,
       "visible_labels": 2,
-      "zoom": 0.395029038190842,
+      "zoom": 0.298076748847961,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.39240000406694
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.3924000378711
     },
     {
       "event": "key",
       "keycode": "Home",
+<<<<<<< HEAD
       "t_ms": 4492,
+=======
+      "t_ms": 3166,
+>>>>>>> origin/wip/atlas-desktop
       "what": "Home key while hidden"
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
@@ -2168,9 +3875,51 @@
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+      },
+      "inputs": 78,
+      "label": "key-home while hidden",
+      "locked": false,
+      "map_rect": {
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
         2240.0,
         1350.0
@@ -2180,36 +3929,50 @@
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 4506,
       "terrain_tiles": 0,
       "ticks": 179,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 3181,
+      "terrain_tiles": 0,
+      "ticks": 143,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 0,
       "visible_cities": 2,
       "visible_close_cities": 0,
       "visible_labels": 2,
-      "zoom": 0.395029038190842,
+      "zoom": 0.298076748847961,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.39240000406694
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.3924000378711
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
@@ -2223,9 +3986,51 @@
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+      },
+      "inputs": 78,
+      "label": "map-hidden-after-events",
+      "locked": false,
+      "map_rect": {
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
         2240.0,
         1350.0
@@ -2235,22 +4040,35 @@
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 4645,
       "terrain_tiles": 0,
       "ticks": 179,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 3329,
+      "terrain_tiles": 0,
+      "ticks": 143,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 0,
       "visible_cities": 2,
       "visible_close_cities": 0,
       "visible_labels": 2,
-      "zoom": 0.395029038190842,
+      "zoom": 0.298076748847961,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.39240000406694
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.3924000378711
     },
     {
       "active": 1,
@@ -2258,7 +4076,11 @@
       "draw_calls": 47,
       "event": "state",
       "label": "sketchbook-after-20-frames",
+<<<<<<< HEAD
       "t_ms": 4645,
+=======
+      "t_ms": 3329,
+>>>>>>> origin/wip/atlas-desktop
       "tabs": [
         {
           "frozen": true,
@@ -2352,6 +4174,7 @@
     },
     {
       "event": "screenshot",
+<<<<<<< HEAD
       "file": "10-hidden.png",
       "t_ms": 4706
     },
@@ -2361,20 +4184,118 @@
       "what": "map tab (again)",
       "x": 208.306213378906,
       "y": 1049.45458984375
+=======
+      "file": "11-hidden.png",
+      "t_ms": 3393
+    },
+    {
+      "event": "click",
+      "t_ms": 3412,
+      "what": "map tab (again)",
+      "x": 220.478485107422,
+      "y": 43.4067001342773
+    },
+    {
+      "active": 0,
+      "count": 6,
+      "draw_calls": 65,
+      "event": "state",
+      "label": "map-again",
+      "t_ms": 3442,
+      "tabs": [
+        {
+          "frozen": false,
+          "key": "map",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
+          "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+>>>>>>> origin/wip/atlas-desktop
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 858.0,
-        "w": 1013.0,
-        "x": 757.0,
-        "y": 48.0478515625
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 858.0,
         "w": 1013.0,
         "x": 757.0,
@@ -2388,9 +4309,51 @@
         "w": 964.0,
         "x": 781.0,
         "y": 111.0478515625
+=======
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+      },
+      "inputs": 79,
+      "label": "map-resumed",
+      "locked": false,
+      "map_rect": {
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
       "position": [
         2240.0,
         1350.0
@@ -2400,6 +4363,7 @@
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 4757,
       "terrain_tiles": 0,
       "ticks": 183,
@@ -2554,24 +4518,124 @@
         1006.0478515625
       ],
       "t_ms": 5393,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 3442,
+>>>>>>> origin/wip/atlas-desktop
       "terrain_tiles": 0,
       "ticks": 249,
       "vertical_pan_locked": false,
       "viewport": [
-        964.0,
-        766.0
+        722.0,
+        578.0
       ],
       "viewport_update_mode": 4,
       "visible_cities": 2,
       "visible_close_cities": 0,
       "visible_labels": 2,
-      "zoom": 0.395029038190842,
+      "zoom": 0.298076748847961,
       "zoom_max": 120.0,
-      "zoom_min": 0.283703703703704,
-      "zoom_ratio": 1.39240000406694
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.3924000378711
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.52793440586453,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 256.0478515625
+      },
+      "frame_global": {
+        "h": 650.0,
+        "w": 760.0,
+        "x": 1010.0,
+        "y": 330.0
+      },
+      "inputs": 79,
+      "label": "map-resumed-after-20-frames",
+      "locked": false,
+      "map_rect": {
+        "h": 578.0,
+        "w": 722.0,
+        "x": 1029.0,
+        "y": 380.0
+      },
+      "mode": "atlas",
+      "moving_window": "",
+      "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 810.0,
+          "y": 243.0
+        }
+      },
+      "position": [
+        2240.0,
+        1350.0
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 3645,
+      "terrain_tiles": 0,
+      "ticks": 167,
+      "vertical_pan_locked": false,
+      "viewport": [
+        722.0,
+        578.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 2,
+      "visible_close_cities": 0,
+      "visible_labels": 2,
+      "zoom": 0.298076748847961,
+      "zoom_max": 120.0,
+      "zoom_min": 0.214074074074074,
+      "zoom_ratio": 1.3924000378711
     },
     {
       "event": "screenshot",
+<<<<<<< HEAD
       "file": "11-resumed.png",
       "t_ms": 5462
     },
@@ -2582,6 +4646,18 @@
       "event": "state",
       "label": "resized",
       "t_ms": 5504,
+=======
+      "file": "12-resumed.png",
+      "t_ms": 3734
+    },
+    {
+      "active": 0,
+      "count": 6,
+      "draw_calls": 65,
+      "event": "state",
+      "label": "resized",
+      "t_ms": 3777,
+>>>>>>> origin/wip/atlas-desktop
       "tabs": [
         {
           "frozen": false,
@@ -2675,17 +4751,18 @@
     },
     {
       "action": "",
-      "chrome_scale": 0.560904872389791,
+      "chrome_scale": 0.44317927017566,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 797.0,
-        "w": 967.0,
-        "x": 237.0,
-        "y": 24.0
+        "h": 629.0,
+        "w": 764.0,
+        "x": 374.0,
+        "y": 38.0
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 797.0,
         "w": 967.0,
         "x": 237.0,
@@ -2699,9 +4776,51 @@
         "w": 927.0,
         "x": 257.0,
         "y": 77.0
+=======
+        "h": 629.0,
+        "w": 764.0,
+        "x": 374.0,
+        "y": 93.464111328125
+      },
+      "inputs": 79,
+      "label": "resized",
+      "locked": false,
+      "map_rect": {
+        "h": 569.0,
+        "w": 732.0,
+        "x": 390.0,
+        "y": 135.464111328125
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 166.0,
+          "w": 356.0,
+          "x": 84.0,
+          "y": 678.0
+        },
+        "itinerary": {
+          "h": 365.0,
+          "w": 262.0,
+          "x": 89.0,
+          "y": 294.0
+        },
+        "minimap": {
+          "h": 245.0,
+          "w": 272.0,
+          "x": 84.0,
+          "y": 48.0
+        },
+        "notification": {
+          "h": 52.0,
+          "w": 179.0,
+          "x": 1181.0,
+          "y": 792.0
+        }
+      },
       "position": [
         2240.0,
         1350.0
@@ -2711,25 +4830,39 @@
         1440.0,
         844.535888671875
       ],
+<<<<<<< HEAD
       "t_ms": 5504,
       "terrain_tiles": 0,
       "ticks": 254,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 3777,
+      "terrain_tiles": 0,
+      "ticks": 172,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        927.0,
-        721.0
+        732.0,
+        569.0
       ],
       "viewport_update_mode": 4,
       "visible_cities": 2,
       "visible_close_cities": 0,
       "visible_labels": 2,
-      "zoom": 0.395029038190842,
+      "zoom": 0.298076748847961,
       "zoom_max": 120.0,
-      "zoom_min": 0.267037037037037,
-      "zoom_ratio": 1.47930430390468
+      "zoom_min": 0.210740740740741,
+      "zoom_ratio": 1.41442394005184
     },
     {
       "event": "screenshot",
+<<<<<<< HEAD
       "file": "12-resized.png",
       "t_ms": 5554
     },
@@ -2740,6 +4873,18 @@
       "event": "state",
       "label": "restored",
       "t_ms": 5613,
+=======
+      "file": "13-resized.png",
+      "t_ms": 3843
+    },
+    {
+      "active": 0,
+      "count": 6,
+      "draw_calls": 66,
+      "event": "state",
+      "label": "restored",
+      "t_ms": 3899,
+>>>>>>> origin/wip/atlas-desktop
       "tabs": [
         {
           "frozen": false,
@@ -2833,17 +4978,18 @@
     },
     {
       "action": "",
-      "chrome_scale": 0.674593967517401,
+      "chrome_scale": 0.52793440586453,
       "code": "",
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 379.0,
-        "y": 24.0
+        "h": 750.0,
+        "w": 910.0,
+        "x": 548.0,
+        "y": 46.0
       },
       "frame_global": {
+<<<<<<< HEAD
         "h": 958.0,
         "w": 1163.0,
         "x": 379.0,
@@ -2857,9 +5003,51 @@
         "w": 1114.0,
         "x": 403.0,
         "y": 87.0
+=======
+        "h": 750.0,
+        "w": 910.0,
+        "x": 548.0,
+        "y": 119.952156066895
+      },
+      "inputs": 79,
+      "label": "restored",
+      "locked": false,
+      "map_rect": {
+        "h": 678.0,
+        "w": 872.0,
+        "x": 567.0,
+        "y": 169.9521484375
+>>>>>>> origin/wip/atlas-desktop
       },
       "mode": "atlas",
+      "moving_window": "",
       "ok": true,
+      "panels": {
+        "chat": {
+          "h": 197.0,
+          "w": 424.0,
+          "x": 202.0,
+          "y": 808.0
+        },
+        "itinerary": {
+          "h": 435.0,
+          "w": 312.0,
+          "x": 208.0,
+          "y": 350.0
+        },
+        "minimap": {
+          "h": 292.0,
+          "w": 325.0,
+          "x": 202.0,
+          "y": 57.0
+        },
+        "notification": {
+          "h": 62.0,
+          "w": 214.0,
+          "x": 1510.0,
+          "y": 943.0
+        }
+      },
       "position": [
         2240.0,
         1350.0
@@ -2869,27 +5057,45 @@
         1920.0,
         1006.0478515625
       ],
+<<<<<<< HEAD
       "t_ms": 5613,
       "terrain_tiles": 0,
       "ticks": 259,
+=======
+      "stack": [
+        "minimap",
+        "itinerary",
+        "chat",
+        "notification",
+        "map"
+      ],
+      "t_ms": 3900,
+      "terrain_tiles": 0,
+      "ticks": 177,
+>>>>>>> origin/wip/atlas-desktop
       "vertical_pan_locked": false,
       "viewport": [
-        1114.0,
-        866.0
+        872.0,
+        678.0
       ],
       "viewport_update_mode": 4,
       "visible_cities": 2,
       "visible_close_cities": 0,
       "visible_labels": 2,
-      "zoom": 0.395029038190842,
+      "zoom": 0.298076748847961,
       "zoom_max": 120.0,
-      "zoom_min": 0.320740740740741,
-      "zoom_ratio": 1.23161478419777
+      "zoom_min": 0.251111111111111,
+      "zoom_ratio": 1.18703130072197
     },
     {
       "event": "screenshot",
+<<<<<<< HEAD
       "file": "13-restored.png",
       "t_ms": 5692
+=======
+      "file": "14-restored.png",
+      "t_ms": 3992
+>>>>>>> origin/wip/atlas-desktop
     }
   ],
   "viewport": [

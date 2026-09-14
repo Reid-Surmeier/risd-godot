@@ -3,11 +3,13 @@
 Every file below was copied unchanged (the two scripts excepted, see their headers) from
 `Reid-Surmeier/qwen-pipeline-experiments`, branch `prototype/atlas-5`, commit `421f1cc`,
 folder `benchmarks/atlas-prototype/godot/`, on 2026-09-13. SHA-256 is of the source file at that commit,
-which for every non-script file is also the byte-identical copy here. Only the map window travelled:
-the four desktop panels (`assets/desktop/`), `assets/window-title.png`, `assets/world.png` (never
-loaded), the 48 plain geography tiles `{col}-{row}.png` (only the `-field` tiles are loaded), the
-gitignored `*-detail.png`, the two one-node scenes (`atlas_window.tscn`, `atlas.tscn`; the nodes are
-built in code here), `project.godot` and `export_presets.cfg` stayed behind.
+which for every non-script file is also the byte-identical copy here. The whole desktop travelled
+(map #23, owner correction): the map window and the four desktop panels (`assets/desktop/`, arranged
+in `08dae0d`, draggable in `c0b7fc5`, lettering edited in `421f1cc`). Left behind: `assets/window-title.png`,
+`assets/world.png` (never loaded), the 48 plain geography tiles `{col}-{row}.png` (only the `-field`
+tiles are loaded), the gitignored `*-detail.png`, the two one-node scenes (`atlas_window.tscn`,
+sha256 `034b9f1fdc610f36d3938a233b3339adc6d6d0cf90ee22cb20a4a1d3c31f3ead`, and `atlas.tscn`; each is
+one Control/Node2D with its script attached, built in code here), `project.godot` and `export_presets.cfg`.
 
 ## Where the pixels come from (records outside this repository)
 
@@ -17,10 +19,11 @@ built in code here), `project.godot` and `export_presets.cfg` stayed behind.
 | `assets/geography/*-field.png` | Natural Earth 1:10m v5.1.2 (public domain) rasterised to the atlas grid | `benchmarks/atlas-prototype/reference/detail-sources.json`, `reference/sources.json` (URLs, SHA-256) |
 | `close-cities.json` | GeoNames (CC BY 4.0) | `benchmarks/atlas-prototype/reference/close-cities.json.gz`, `README.md` |
 | `assets/window-frame.png` | owner-supplied screenshot of a third-party game window | `benchmarks/atlas-prototype/reference/window-source.json` |
+| `assets/desktop/{minimap,itinerary,chat,notification}.png` | owner-supplied raster panels (the 9:31 AM composition, September 8): `chat.png` byte-for-byte; `minimap`, `itinerary`, `notification` carry three tight Muse lettering edits (`MiniMap`, `Collection Hightlights` + `Collection number`, `Recently Added!`, 0.03 USD via OpenRouter) and the notification's magenta backing removed by an alpha matte, all by `prepare_desktop.py` | `benchmarks/atlas-prototype/reference/desktop/` (`sources.json`, `assets.json`, `layout.png`), `generation/*-text-*`, `evidence/text-fidelity.json` |
 | `fonts/PixelMplus12-Regular.ttf` | PixelMplus by itouhiro, M+ FONTS licence | `fonts/LICENSE.txt` here |
 
-Gaps carried from `docs/research/prototype-dependencies.md`: the window frame has no rights statement
-beyond "owner supplied"; GeoNames CC BY asks for visible attribution in the shipped game, which the
+Gaps carried from `docs/research/prototype-dependencies.md`: the window frame and the four desktop
+panels have no rights statement beyond "owner supplied" (the panels show third-party game chrome); GeoNames CC BY asks for visible attribution in the shipped game, which the
 window does not show; the Muse ledgers live in the other repository and are pointed at, not copied.
 
 ## Files
@@ -37,6 +40,10 @@ window does not show; the Muse ledgers live in the other repository and are poin
 | `modules/atlas/assets/terrain.png` | `benchmarks/atlas-prototype/godot/assets/terrain.png` | `d3dff6079c74a067799daec5aac19ecf3ad3d20f87a3661c6664391f419fd0ac` | world terrain sheet, Muse (pink-cyan-v001) |
 | `modules/atlas/assets/world-badges.png` | `benchmarks/atlas-prototype/godot/assets/world-badges.png` | `ba9843b559f1fc7f5c8ff01bf4258a676549a43cbbce2124245a84c119598543` | world overview badges, Muse |
 | `modules/atlas/assets/window-frame.png` | `benchmarks/atlas-prototype/godot/assets/window-frame.png` | `e95f4a55d9adf642147573b5022922e90c30b2129a5cb342c3df60881c099b2b` | the map window frame, owner-supplied (see gaps) |
+| `modules/atlas/assets/desktop/minimap.png` | `benchmarks/atlas-prototype/godot/assets/desktop/minimap.png` | `787a6930e1bdf759d1ee1dbbb44ea3e20509e360118782eef713b21b97fa660d` | desktop panel: the minimap and calendar, owner-supplied with a Muse title edit |
+| `modules/atlas/assets/desktop/itinerary.png` | `benchmarks/atlas-prototype/godot/assets/desktop/itinerary.png` | `fa7c1905ebe91543b4a9ed06bcec8aea1ce74fcb76da1c8265637b97f86aa9a5` | desktop panel: the itinerary, owner-supplied with Muse title / label edits |
+| `modules/atlas/assets/desktop/chat.png` | `benchmarks/atlas-prototype/godot/assets/desktop/chat.png` | `191e1e0a9a98ae0f13c4e6985ac4b4c2fb856dc1c2e331d43bd2e914bd733096` | desktop panel: the chat window, owner-supplied, byte-identical to the reference |
+| `modules/atlas/assets/desktop/notification.png` | `benchmarks/atlas-prototype/godot/assets/desktop/notification.png` | `8efb289603b40af311f419bf2fa4bd963ecc34dd5f18958ba7cecf41ae439f94` | desktop panel: the notification bubble, owner-supplied, Muse lettering, magenta backing matted out |
 | `modules/atlas/assets/europe.png` | `benchmarks/atlas-prototype/godot/assets/europe.png` | `9705d50cfde60604b53d354e7d6471b92d201e8b25201ce7e891ce9cb1067aef` | regional sheet, Muse (pink-cyan-v001) |
 | `modules/atlas/assets/europe-labels.png` | `benchmarks/atlas-prototype/godot/assets/europe-labels.png` | `e9e05621b4c4d9c84ed35a23715be5560a964a55186b18634e726f41de9839a5` | Muse-drawn labels / badges cut for the region sheet |
 | `modules/atlas/assets/europe-annotations.png` | `benchmarks/atlas-prototype/godot/assets/europe-annotations.png` | `ba9fb72b7271e59922cb315e722404b6ab5ae85ae55d71fecdccb30a5e182dea` | Muse-drawn labels / badges cut for the region sheet |
@@ -116,4 +123,4 @@ window does not show; the Muse ledgers live in the other repository and are poin
 | `modules/atlas/assets/geography/7-4-field.png` | `benchmarks/atlas-prototype/godot/assets/geography/7-4-field.png` | `db5f407a0813d99c46451bc2c947c834125115db0c17b795172c139fed4dd810` | coastline field tile, Natural Earth 1:10m v5.1.2 |
 | `modules/atlas/assets/geography/7-5-field.png` | `benchmarks/atlas-prototype/godot/assets/geography/7-5-field.png` | `650db3990c9b617935b5dd2c3c55fa74f352336055bdb8d868a1b33406b91c15` | coastline field tile, Natural Earth 1:10m v5.1.2 |
 
-88 files.
+92 files.
