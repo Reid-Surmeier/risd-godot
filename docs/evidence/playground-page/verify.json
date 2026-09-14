@@ -1,0 +1,97 @@
+{
+ "pass": true,
+ "checks": {
+  "screenshots_present": {
+   "pass": true,
+   "detail": "['01-launch.png', '02-playground.png', '03-hidden.png', '04-resumed.png', '05-resized.png', '06-restored.png']"
+  },
+  "reference_is_the_owners_picture": {
+   "pass": true,
+   "detail": "(859, 803)"
+  },
+  "no_tenant_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "click_creates_and_shows_the_tenant": {
+   "pass": true,
+   "detail": "{'frozen': False, 'key': 'playground', 'page_visible': True, 'rect': {'h': 56.4976196289062, 'w': 176.842163085938, 'x': 850.220092773438, 'y': 1021.20574951172}, 'tenant': 'ok'}"
+  },
+  "tenant_fills_page_area_above_the_bar": {
+   "pass": true,
+   "detail": "[1920.0, 1006.0478515625]"
+  },
+  "picture_at_native_size": {
+   "pass": true,
+   "detail": "{'h': 803.0, 'w': 859.0, 'x': 530.0, 'y': 101.0}"
+  },
+  "picture_centred_in_page": {
+   "pass": true,
+   "detail": "{'h': 803.0, 'w': 859.0, 'x': 530.0, 'y': 101.0} in [1920.0, 1006.0478515625]"
+  },
+  "shown_tenant_process_runs": {
+   "pass": true,
+   "detail": "57 -> 76"
+  },
+  "picture_drawn_pixel_for_pixel": {
+   "pass": true,
+   "detail": "mean abs diff 0.000"
+  },
+  "picture_is_not_blank": {
+   "pass": true,
+   "detail": "std 55.7"
+  },
+  "page_white_around_the_picture": {
+   "pass": true,
+   "detail": "mean 255.00"
+  },
+  "hidden_page_frozen": {
+   "pass": true,
+   "detail": ""
+  },
+  "frozen_tenant_process_stops": {
+   "pass": true,
+   "detail": "88 -> 88 over 20 frames"
+  },
+  "frozen_tenant_gets_no_input": {
+   "pass": true,
+   "detail": "inputs 0 -> 0"
+  },
+  "hidden_page_shows_the_white_other_tab": {
+   "pass": true,
+   "detail": ""
+  },
+  "resumes_with_state_intact": {
+   "pass": true,
+   "detail": "frozen at 88, resumed 89 -> 165"
+  },
+  "resumed_pixels_identical": {
+   "pass": true,
+   "detail": ""
+  },
+  "resize_recentres_the_picture": {
+   "pass": true,
+   "detail": "{'h': 803.0, 'w': 859.0, 'x': 290.0, 'y': 20.0} in [1440.0, 844.535888671875]"
+  },
+  "resized_screenshot_is_1440x900": {
+   "pass": true,
+   "detail": "(900, 1440, 3)"
+  },
+  "resized_picture_still_pixel_for_pixel": {
+   "pass": true,
+   "detail": ""
+  },
+  "restore_refits_back": {
+   "pass": true,
+   "detail": ""
+  }
+ },
+ "sha256": {
+  "01-launch.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "02-playground.png": "f18b9d8a7b929780b30035bd7dbef02275d5a8b88a6ac521ed89e4560fa1a984",
+  "03-hidden.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "04-resumed.png": "f18b9d8a7b929780b30035bd7dbef02275d5a8b88a6ac521ed89e4560fa1a984",
+  "05-resized.png": "54f98f7e4c70fec6c83837ecd50b99087724b2e281250862ed9f015a909c0616",
+  "06-restored.png": "f18b9d8a7b929780b30035bd7dbef02275d5a8b88a6ac521ed89e4560fa1a984"
+ }
+}

@@ -3,19 +3,23 @@
  "checks": {
   "screenshots_present": {
    "pass": true,
-   "detail": "['01-launch.png', '02-map.png', '03-sketchbook.png', '04-fixed-kept.png', '05-stub-blank.png', '06-phone.png', '07-resized.png', '08-restored.png']"
+   "detail": "['01-launch.png', '02-map.png', '03-sketchbook.png', '04-fixed-kept.png', '05-stub-blank.png', '06-phone.png', '07-collection.png', '08-playground.png', '09-resized.png', '10-restored.png']"
   },
   "launch_screenshot_is_1920x1080": {
    "pass": true,
    "detail": "(1080, 1920, 3)"
   },
-  "six_fixed_tabs_in_order": {
+  "seven_fixed_tabs_in_order": {
    "pass": true,
-   "detail": "['map', 'sketchbook', '3d_viewer', 'video_player', 'collection', 'phone']"
+   "detail": "['map', 'sketchbook', '3d_viewer', 'video_player', 'collection', 'playground', 'phone']"
   },
   "labels_are_the_keys": {
    "pass": true,
    "detail": ""
+  },
+  "bar_sits_at_the_bottom": {
+   "pass": true,
+   "detail": "bar {'h': 73.9521560668945, 'w': 1920.0, 'x': 0.0, 'y': 1006.0478515625}"
   },
   "collection_active_at_launch": {
    "pass": true,
@@ -27,11 +31,11 @@
   },
   "hidden_pages_frozen_at_launch": {
    "pass": true,
-   "detail": "[('map', True), ('sketchbook', True), ('3d_viewer', True), ('video_player', True), ('collection', False), ('phone', True)]"
+   "detail": "[('map', True), ('sketchbook', True), ('3d_viewer', True), ('video_player', True), ('collection', False), ('playground', True), ('phone', True)]"
   },
   "only_the_launch_tenant_is_created": {
    "pass": true,
-   "detail": "[None, None, None, None, 'ok', None]"
+   "detail": "[None, None, None, None, 'ok', None, None]"
   },
   "tenant_state_missing_before_first_show": {
    "pass": true,
@@ -41,25 +45,69 @@
    "pass": true,
    "detail": ""
   },
+  "launch_page_area_white": {
+   "pass": true,
+   "detail": ""
+  },
+  "launch_tab_starts_stub_sized": {
+   "pass": true,
+   "detail": "w 83 (stub 83)"
+  },
+  "launch_tab_grows_to_its_width": {
+   "pass": true,
+   "detail": "[83, 85, 127, 152, 167, 174, 176, 177, 177, 177, 177, 177, 177, 177, 177, 177]"
+  },
+  "page_shows_only_after_the_grow_settles": {
+   "pass": true,
+   "detail": "first shown at frame 7"
+  },
+  "grow_frame_shows_the_bar_in_the_gap_left_of_playground": {
+   "pass": true,
+   "detail": "gap (5, 12, 3) std 4.4"
+  },
+  "launch_settles_after_press_grow_and_fade": {
+   "pass": true,
+   "detail": "707 ms"
+  },
+  "launch_tenant_created_at_settle": {
+   "pass": true,
+   "detail": "459 ms"
+  },
   "click_map_shows_map_page": {
    "pass": true,
    "detail": ""
   },
+  "clicked_tab_shows_pressed_tint_within_100ms": {
+   "pass": true,
+   "detail": "early frames [(70, [228, 218, 226])]"
+  },
+  "clicked_tab_white_again_after_the_dip": {
+   "pass": true,
+   "detail": "late frames [(263, [255, 255, 255]), (326, [255, 255, 255]), (388, [255, 255, 255])]"
+  },
+  "dip_reported_then_released": {
+   "pass": true,
+   "detail": ""
+  },
+  "page_switch_settles_in_about_200ms": {
+   "pass": true,
+   "detail": "200 ms"
+  },
   "shown_tenant_process_runs": {
    "pass": true,
-   "detail": "1 -> 21"
+   "detail": "7 -> 27"
   },
   "tenant_fills_page_area": {
    "pass": true,
    "detail": "[1920.0, 1006.0478515625]"
   },
-  "hidden_map_page_frozen": {
+  "hidden_map_page_frozen_after_fade": {
    "pass": true,
    "detail": ""
   },
   "hidden_tenant_process_stops": {
    "pass": true,
-   "detail": "23 -> 23 over 20 frames"
+   "detail": "45 -> 45 over 20 frames"
   },
   "hidden_tenant_gets_no_input": {
    "pass": true,
@@ -67,11 +115,11 @@
   },
   "shown_sketchbook_runs_and_hears_the_key": {
    "pass": true,
-   "detail": "ticks 1->23, inputs 0->2"
+   "detail": "ticks 59->80, inputs 0->2"
   },
   "map_resumes_with_state_intact": {
    "pass": true,
-   "detail": "frozen at 23, resumed 24 -> 44"
+   "detail": "frozen at 45, resumed 46 -> 123"
   },
   "fixed_close_refused_by_interface": {
    "pass": true,
@@ -83,23 +131,47 @@
   },
   "stub_opens_blank_page_with_close": {
    "pass": true,
-   "detail": "count 7"
+   "detail": "count 8"
   },
   "closing_blank_lands_on_phone": {
    "pass": true,
    "detail": ""
   },
-  "phone_has_no_tenant_yet": {
+  "phone_callable_tenant_created_on_first_show": {
    "pass": true,
    "detail": ""
   },
-  "phone_page_is_plain_white": {
+  "phone_page_is_the_grey_tenant": {
    "pass": true,
-   "detail": "mean 255.00"
+   "detail": "mean [160, 160, 160]"
+  },
+  "page_cross_fades_through_in_between_greys": {
+   "pass": true,
+   "detail": "[230, 238, 253, 255, 255, 255]"
+  },
+  "collection_tab_dips_on_click": {
+   "pass": true,
+   "detail": "[(71, [228, 218, 226]), (139, [228, 218, 226]), (202, [255, 255, 255]), (265, [255, 255, 255]), (328, [255, 255, 255]), (390, [255, 255, 255])]"
+  },
+  "phone_to_collection_settles_in_about_200ms": {
+   "pass": true,
+   "detail": "202 ms"
+  },
+  "phone_frozen_after_the_fade": {
+   "pass": true,
+   "detail": ""
+  },
+  "playground_has_no_tenant_here": {
+   "pass": true,
+   "detail": ""
+  },
+  "playground_page_is_plain_white": {
+   "pass": true,
+   "detail": ""
   },
   "resize_refits_bar_and_tenant": {
    "pass": true,
-   "detail": "window [1440.0, 900.0], tenant [1440.0, 844.535888671875]"
+   "detail": "window [1440.0, 900.0], bar {'h': 55.4641151428223, 'w': 1440.0, 'x': 0.0, 'y': 844.535888671875}, tenant [1440.0, 844.535888671875]"
   },
   "resized_screenshot_is_1440x900": {
    "pass": true,
@@ -109,7 +181,7 @@
    "pass": true,
    "detail": ""
   },
-  "bar_spans_full_width": {
+  "bar_spans_full_width_at_bottom": {
    "pass": true,
    "detail": ""
   },
@@ -117,23 +189,21 @@
    "pass": true,
    "detail": "std 0.0"
   },
-  "launch_page_area_white": {
-   "pass": true,
-   "detail": ""
-  },
   "stub_blank_shot_differs_from_launch": {
    "pass": true,
    "detail": ""
   }
  },
  "sha256": {
-  "01-launch.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
-  "02-map.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
-  "03-sketchbook.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
-  "04-fixed-kept.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
-  "05-stub-blank.png": "60e04a870d8bc82e69b1fe14d29ecd105e2317a61e0ed0179f2ab59493a7a61c",
-  "06-phone.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
-  "07-resized.png": "a4d43392f742392bef73defc95737bc0fafc1437c3693c3c3b375c4425383175",
-  "08-restored.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4"
+  "01-launch.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "02-map.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "03-sketchbook.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "04-fixed-kept.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "05-stub-blank.png": "2631ccfa36964f57dba6290013506b8dd403151c1194f0945baf7e474ea05d26",
+  "06-phone.png": "a031815a029cfa92b3908dc18634ea03c6634372ad4047ecfd6dc716811ab202",
+  "07-collection.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "08-playground.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "09-resized.png": "f02164afdfb8f0cac0e71b10c4cc26ad6d52208696ccb9b4c0a8d3f1423c10cd",
+  "10-restored.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496"
  }
 }

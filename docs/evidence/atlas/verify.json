@@ -15,7 +15,7 @@
   },
   "click_map_creates_and_shows_atlas": {
    "pass": true,
-   "detail": "{'frozen': False, 'key': 'map', 'page_visible': True, 'rect': {'h': 56.4976081848145, 'w': 201.186614990234, 'x': 119.88516998291, 'y': 15.1578950881958}, 'tenant': 'ok'}"
+   "detail": "{'frozen': False, 'key': 'map', 'page_visible': True, 'rect': {'h': 56.4976196289062, 'w': 176.842102050781, 'x': 119.88516998291, 'y': 1021.20574951172}, 'tenant': 'ok'}"
   },
   "tenant_fills_page_area": {
    "pass": true,
@@ -29,9 +29,9 @@
    "pass": true,
    "detail": "0.674593967517401"
   },
-  "map_body_inside_frame_below_bar": {
+  "map_body_inside_frame_above_bar": {
    "pass": true,
-   "detail": "map {'h': 866.0, 'w': 1114.0, 'x': 403.0, 'y': 160.9521484375} frame {'h': 958.0, 'w': 1163.0, 'x': 379.0, 'y': 97.9521560668945} viewport [1114.0, 866.0]"
+   "detail": "map {'h': 866.0, 'w': 1114.0, 'x': 403.0, 'y': 87.0} frame {'h': 958.0, 'w': 1163.0, 'x': 379.0, 'y': 24.0} viewport [1114.0, 866.0]"
   },
   "atlas_opens_on_world_view": {
    "pass": true,
@@ -55,7 +55,7 @@
   },
   "title_drag_starts_on_title_bar": {
    "pass": true,
-   "detail": "from [960.5, 138.427795410156] frame {'h': 958.0, 'w': 1163.0, 'x': 379.0, 'y': 97.9521560668945}"
+   "detail": "from [960.5, 64.4756393432617] frame {'h': 958.0, 'w': 1163.0, 'x': 379.0, 'y': 24.0}"
   },
   "title_drag_moves_window": {
    "pass": true,
@@ -75,7 +75,7 @@
   },
   "map_body_follows_the_resize": {
    "pass": true,
-   "detail": "map {'h': 766.0, 'w': 964.0, 'x': 781.0, 'y': 185.0} viewport [964.0, 766.0]"
+   "detail": "map {'h': 766.0, 'w': 964.0, 'x': 781.0, 'y': 111.0478515625} viewport [964.0, 766.0]"
   },
   "collapse_click_lands_on_left_button": {
    "pass": true,
@@ -131,11 +131,11 @@
   },
   "hidden_tenant_process_stops": {
    "pass": true,
-   "detail": "ticks 123 -> 123 over 20 frames"
+   "detail": "ticks 179 -> 179 over 20 frames"
   },
   "hidden_tenant_gets_no_input": {
    "pass": true,
-   "detail": "inputs 65 -> 65"
+   "detail": "inputs 66 -> 66"
   },
   "hidden_events_change_nothing": {
    "pass": true,
@@ -151,11 +151,11 @@
   },
   "hidden_subviewport_renders_nothing": {
    "pass": true,
-   "detail": "draw calls: white page 40, map shown 62, map hidden 40"
+   "detail": "draw calls: white page 47, map shown 69, map hidden 47"
   },
   "map_resumes_with_state_intact": {
    "pass": true,
-   "detail": "ticks frozen 123, resumed 127 -> 147"
+   "detail": "ticks frozen 179, resumed 183 -> 249"
   },
   "resumed_subviewport_updates_again": {
    "pass": true,
@@ -175,7 +175,7 @@
   },
   "map_body_shows_sea_and_land": {
    "pass": true,
-   "detail": "cyan 577667 pink 292736 of 956820"
+   "detail": "cyan 576722 pink 293659 of 956820"
   },
   "frame_title_bar_drawn": {
    "pass": true,
@@ -199,7 +199,7 @@
   },
   "clamped_window_touches_page_corner": {
    "pass": true,
-   "detail": "frame ends at 1920.0, 1080.000007629395"
+   "detail": "frame ends at 1920.0, 1006.0478515625"
   },
   "resize_frees_white_page_below_window": {
    "pass": true,
@@ -219,18 +219,18 @@
   }
  },
  "sha256": {
-  "01-map.png": "4773a7a18e732166d8b75050754f322cc3d51b96d2a3ed61dff6b6acf0a27cb9",
-  "02-zoomed.png": "aa1f36c68ecb6881fc4fb583bcc0edf7a19ef6f619fbd2bddc1491f48570211b",
-  "03-panned.png": "721b73534ebb02d1c6e3da70577e9c4537a6dae36755f1c787168ee23f48982e",
-  "04-window-moved.png": "8127b82cd8b9f483e9868a36aafcf14b4f2a53784febc638748e6803159f088d",
-  "05-window-clamped.png": "2b1bddf84fa9c1c85b331903ad409da381d47371584fc40dfbb05c4f6f629970",
-  "06-window-resized.png": "25bc9c26f1f1149a9883b11f91611e6aa1953e2cbbe0489fb46bd6fbae4a6eee",
-  "07-collapsed.png": "51facf0bb482429d3f41d8b3de89a4ad4df19a956ab30100678f7b85bbd5fda2",
-  "08-key-home.png": "bb741d7531207b1f1a32fd95a0b3b5d7697a472f230260b6a18fedc84884b7d1",
-  "09-before-hidden.png": "f6da20d3eb33a5140282f62a6870aac8e5533d66bb61db32d838163139bc5139",
-  "10-hidden.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
-  "11-resumed.png": "f6da20d3eb33a5140282f62a6870aac8e5533d66bb61db32d838163139bc5139",
-  "12-resized.png": "8e9ea600a606b2d42608a4375f2117923ee00cb840688729e9ec85f21c7cad2b",
-  "13-restored.png": "23738c31d2e94da55223dbcb4f032e3b7d18c246de7416131ec2e485ff410687"
+  "01-map.png": "26d72dd9e78aebe10041c06a89777ea7e9e6aaf769b32300472b64e753d58aab",
+  "02-zoomed.png": "0a15ee0e23e8abe14206331311211167198eb7e781dd73e97bc9591740e7070c",
+  "03-panned.png": "08fa605245f3ffba029c21f86196360c0f4093ecf431375ea86afa05696ef293",
+  "04-window-moved.png": "25aa945a239f9f758ad199aa0416e54131218f4a0a8664b86e2066d336105b19",
+  "05-window-clamped.png": "e29406f0d3003dc9cb7d5b3587806833c131f0c73527146460db4bca1f9256ab",
+  "06-window-resized.png": "3ceea1081fc6c12d208ae22d850518fc2ad52def1737e207d0935a30fd1ee70d",
+  "07-collapsed.png": "59980fc559b864e9c670c4c1daef3907192930bfd322a9fd163ebdcf103e0079",
+  "08-key-home.png": "5d1f3c315af2b40c107f817949fac2c7610eba30ee2fb931155871571ce52a64",
+  "09-before-hidden.png": "c2a6e895e06ad2481e8d8bc13d13a9278e7f68d49b3a071e253093f512df266c",
+  "10-hidden.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "11-resumed.png": "c2a6e895e06ad2481e8d8bc13d13a9278e7f68d49b3a071e253093f512df266c",
+  "12-resized.png": "f6be245d6d45f4d62249e2f16ed936346678e3dbe9516eaab4e4a76d25ba3df4",
+  "13-restored.png": "bd557b0f91a7f829961014afa2956f8c959d960cdc823ee0874b730b1cff7a0a"
  }
 }

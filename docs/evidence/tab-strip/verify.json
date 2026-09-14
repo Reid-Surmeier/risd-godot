@@ -27,7 +27,7 @@
   },
   "mid_grow_width_between_stub_and_full": {
    "pass": true,
-   "detail": "w=232 full=640"
+   "detail": "w=374 full=640"
   },
   "connecting_label_then_blank_page": {
    "pass": true,
@@ -47,11 +47,11 @@
   },
   "grow_took_about_500ms": {
    "pass": true,
-   "detail": "596 ms"
+   "detail": "549 ms"
   },
   "title_swap_after_about_950ms": {
    "pass": true,
-   "detail": "1032 ms"
+   "detail": "1005 ms"
   },
   "click_tab0_shows_page0": {
    "pass": true,
@@ -87,7 +87,7 @@
   },
   "close_animates_before_removal": {
    "pass": true,
-   "detail": "382 ms from click to tab_closed (fold is 300 ms)"
+   "detail": "375 ms from click to tab_closed (fold is 300 ms)"
   },
   "close_second_tab_selects_left_neighbour": {
    "pass": true,
@@ -148,11 +148,11 @@
  },
  "sha256": {
   "01-initial.png": "12938118a72c503bbbe8b47e87321de3e1f38982164aac56ee89549a4ebf464e",
-  "02-mid-grow.png": "8e331ca76cda015fb7235047c06186b9996fd8585d5b788c4c9d951cf9685ddd",
+  "02-mid-grow.png": "e425b31036ecd0dd5a0cee8630aa937a972d414e136f5c048d7c1ea3d2a5f094",
   "03-connecting.png": "9ebafdd1eefb43352a0184a68eb51185302e2d1a314ab2c82b603091262197a3",
   "04-blank-page.png": "ec7b709c50884436793f0fa50631a13d6c1c384bfebb2262b9aaf5aabf344f3f",
-  "05-selected-0.png": "fadbf88241447491b9d7bf7ee5b28f35d6883ad3ec96470889dc1f51a015bd31",
-  "06-selected-1.png": "ec7b709c50884436793f0fa50631a13d6c1c384bfebb2262b9aaf5aabf344f3f",
+  "05-selected-0.png": "3de99adee6fb3aa201808114b7f7f8463a813ce1b4229296b92301796dcb0bd4",
+  "06-selected-1.png": "285523e8709e8d1b800f827ced4a2e08ed1b12749a31d7dcb0c97792d825d1af",
   "07-third-tab.png": "67f88ab866f9c8748e7e23ebd410abbac866aa2aaa2187b7a2ad43cf7775c223",
   "08-full-row.png": "25b996996c16f71dd3c4d2b720e0f22f03008ec41f28094910952615a12b94a8",
   "09-closed-last.png": "d872c0e5016e3cccf69d8c5972cdfba4cd1a194848325750d0085415218516c1",
@@ -161,6 +161,6 @@
   "12-reopened.png": "95adc26e1df59b15635331cd7b45e8478ee46bfb158b51ffbf362264947b904d",
   "13-fixed-open.png": "8b662385057fcf92304cce1b0385911a888e933246000851f1aae26de9181857",
   "14-fixed-kept.png": "8b662385057fcf92304cce1b0385911a888e933246000851f1aae26de9181857",
-  "15-after-fixed-stub.png": "9615cbd8a53c0facb1a3a81e07207edd7c6449ce570e3db8d3067c0515bfe6ad"
+  "15-after-fixed-stub.png": "b4e2525c5455c2f1a83113ee8e2508385b1fd68201f7906afb7707acb700864c"
  }
 }

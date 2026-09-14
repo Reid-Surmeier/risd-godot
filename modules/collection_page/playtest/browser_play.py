@@ -9,12 +9,11 @@ import websockets
 url, out = sys.argv[1], sys.argv[2]; W, H = (int(sys.argv[3]), int(sys.argv[4])) if len(sys.argv) > 4 else (1920, 1080)
 os.makedirs(out, exist_ok=True)
 log = json.loads((Path(__file__).resolve().parents[3] / "docs/evidence/collection-page/report.json").read_text())["log"]
-BAR_H = 161 * W / 4180.0
 page = next(e for e in log if e["event"] == "page" and e["label"] == "launch")
 shell = next(e for e in log if e["event"] == "shell" and e["label"] == "launch")
-def control(name): r = page["controls"][name]; return r["x"] + r["w"] / 2, BAR_H + r["y"] + r["h"] / 2
+def control(name): r = page["controls"][name]; return r["x"] + r["w"] / 2, r["y"] + r["h"] / 2  # the page starts at row 0 (bar at the bottom)
 def tab(i): r = shell["tabs"][i]["rect"]; return r["x"] + r["w"] / 2, r["y"] + r["h"] / 2
-def card(i): r = page["cards"][i]["rect"]; return r["x"] + r["w"] / 2, BAR_H + r["y"] + r["h"] / 2
+def card(i): r = page["cards"][i]["rect"]; return r["x"] + r["w"] / 2, r["y"] + r["h"] / 2
 
 chrome = subprocess.Popen(["google-chrome", "--headless=new", "--no-sandbox", "--use-angle=swiftshader", "--enable-unsafe-swiftshader",
     "--ignore-gpu-blocklist", "--disable-gpu-sandbox", "--remote-debugging-port=9333", f"--window-size={W},{H}", "--hide-scrollbars", "about:blank"],

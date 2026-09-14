@@ -13,6 +13,7 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 DATA = json.loads((HERE.parent / "data" / "collection.json").read_text())["records"]
 BAR_H = 161 * 1920 / 4180.0
+PAGE_H = 1080 - BAR_H  # the page fills the window above the bar (bar along the bottom)
 
 out = Path(sys.argv[1])
 log = json.loads((out / "report.json").read_text())["log"]
@@ -119,7 +120,7 @@ check("collection_tab_resumes_the_same_page", ca["active"] == 4 and ca["tabs"][4
       and [c["rect"] for c in cp["cards"]] == [c["rect"] for c in ai["cards"]])
 check("collection_again_shot_matches_after_card", hashes["08-collection-again.png"] == hashes["06-after-card.png"] or
       float(np.abs(imgs["08-collection-again.png"] - imgs["06-after-card.png"]).mean()) < 0.5)
-check("map_page_is_white_below_the_bar", float(imgs["07-map.png"][int(BAR_H) + 2:].mean()) > 254, f"{float(imgs['07-map.png'][int(BAR_H) + 2:].mean()):.2f}")
+check("map_page_is_white_above_the_bar", float(imgs["07-map.png"][:int(PAGE_H) - 2].mean()) > 254, f"{float(imgs['07-map.png'][:int(PAGE_H) - 2].mean()):.2f}")
 
 # 8. resize
 rs = pages["resized"]
@@ -128,15 +129,15 @@ check("resize_relays_cards_within_the_page", abs(rs["size"][0] - 1440) < 1 and a
       and max(c["rect"]["x"] + c["rect"]["w"] for c in rs["cards"]) < max(c["rect"]["x"] + c["rect"]["w"] for c in cp["cards"]), str(rs["size"]))
 check("resized_screenshot_is_1440x900", imgs["09-resized.png"].shape[:2] == (900, 1440), str(imgs["09-resized.png"].shape))
 
-# pixels: the page ground is white; the sliced header sits top-left under the bar; the Info box sits at the bottom;
+# pixels: the page ground is white; the sliced header sits top-left of the window; the Info box sits just above the bar;
 # a card with a thumbnail has non-white pixels inside its rect and a page with fewer cards has more white
-def page_px(img, r, dy=BAR_H):
+def page_px(img, r, dy=0):
     return img[int(dy + r["y"]):int(dy + r["y"] + r["h"]), int(r["x"]):int(r["x"] + r["w"])]
 launch_img = imgs["01-launch.png"]
-check("launch_page_mostly_white", float((launch_img[int(BAR_H) + 2:].min(axis=2) > 250).mean()) > 0.6)
-hdr = launch_img[int(BAR_H) + 16:int(BAR_H) + 116, 24:1232]
+check("launch_page_mostly_white", float((launch_img[:int(PAGE_H) - 2].min(axis=2) > 250).mean()) > 0.6)
+hdr = launch_img[16:116, 24:1232]
 check("header_pixels_present_top_left", float(hdr.std()) > 20 and float(hdr.mean()) > 150, f"std {float(hdr.std()):.1f}")
-info = launch_img[1080 - 16 - 136:1080 - 16, 24:1256]
+info = launch_img[int(PAGE_H) - 16 - 136:int(PAGE_H) - 16, 24:1256]
 check("info_box_pixels_present_bottom", float(info.std()) > 10 and float(info.mean()) > 150, f"std {float(info.std()):.1f}")
 thumb_cards = [c for c in la["cards"] if next(r for r in DATA if r["id"] == c["id"]).get("thumbnail")]
 check("thumbnail_cards_have_pixels", all(float(page_px(launch_img, c["rect"]).std()) > 15 for c in thumb_cards[:6]))

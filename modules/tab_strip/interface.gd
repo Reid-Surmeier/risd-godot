@@ -6,7 +6,9 @@
 ## fresh stub riding on its right edge, the tab reads "Connecting..." then swaps to
 ## "Blank Page" in one frame. Every open tab owns one page in a PageStack; selecting a
 ## tab shows its page. A fixed tab (open_fixed_tab) is titled from the labels map, owns the
-## caller's page Control, draws no close button and never closes (seam Issue #39).
+## caller's page Control, draws no close button and never closes (seam Issue #39). A click on any
+## tab dips it: the stub's pressed tint and a 6 px drop for PRESS_SECONDS, then it sits back;
+## grow_tab replays the open gesture on a tab already in the row (the Shell's launch tab).
 ##
 ## Every public function returns { ok: bool, value: Variant, error: Variant }.
 ## Errors are the values in errors.gd. The strip raises nothing across this seam.
@@ -52,8 +54,17 @@ static func open_fixed_tab(strip: Control, label_key: String, page: Control) -> 
 
 
 ## Make tab `index` the active tab and show its page. Returns ok(index) or err(INDEX_OUT_OF_RANGE).
+## No dip: the dip belongs to the click.
 static func select_tab(strip: Control, index: int) -> Dictionary:
 	return strip.select_tab(index)
+
+
+## Replay the open gesture on tab `index` where it stands: stub-sized with the pressed tint for
+## PRESS_SECONDS, then the grow to its own width over GROW_SECONDS; neighbours and the stub stay put;
+## tab_opened then tab_settled are emitted; the active tab does not change. Blocks open_new_tab,
+## open_fixed_tab and close_tab until settled. Returns ok(index) or err(INDEX_OUT_OF_RANGE | OPEN_IN_PROGRESS).
+static func grow_tab(strip: Control, index: int) -> Dictionary:
+	return strip.grow_tab(index)
 
 
 ## Close tab `index` exactly as a click on its close button does: its page goes with it, the row
@@ -72,8 +83,9 @@ static func set_bar_width(strip: Control, width: float) -> void:
 
 ## Number of tabs, the active index, and each tab's current label key, pixel rect, whether it is
 ## fixed, whether its label is truncated with "...", and its close button rect (empty on a fixed tab).
+## `pressed` is the index of the tab dipping under a click, or -1.
 ## Returns ok({ count, active, tabs: [{ label, rect, page_visible, fixed, truncated, close_rect }],
-## opening: bool, bar_width }).
+## opening: bool, pressed: int, bar_width }).
 static func state(strip: Control) -> Dictionary:
 	return strip.state()
 
@@ -84,7 +96,7 @@ static func stub_rect(strip: Control) -> Rect2:
 
 
 ## Signals on the strip node (connect to them on the returned node):
-##   tab_opened(index: int)       — the new tab exists and its grow has started
+##   tab_opened(index: int)       — the new tab exists and its grow has started (grow_tab: the replay started)
 ##   tab_settled(index: int)      — grow finished, label is "Connecting..."
 ##   tab_titled(index: int)       — label swapped to "Blank Page"
 ##   tab_selected(index: int)     — active tab changed; its page is visible

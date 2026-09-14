@@ -34,17 +34,17 @@
     {
       "event": "screenshot",
       "file": "01-initial.png",
-      "t_ms": 96
+      "t_ms": 76
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_opened",
-      "t_ms": 116
+      "t_ms": 93
     },
     {
       "event": "click",
-      "t_ms": 117,
+      "t_ms": 93,
       "what": "new-tab stub",
       "x": 427.636352539062,
       "y": 47.0813407897949
@@ -52,17 +52,22 @@
     {
       "event": "frame",
       "n": 0,
-      "t_ms": 208
+      "t_ms": 168
     },
     {
       "event": "frame",
       "n": 1,
-      "t_ms": 300
+      "t_ms": 240
     },
     {
       "event": "frame",
       "n": 2,
-      "t_ms": 385
+      "t_ms": 308
+    },
+    {
+      "event": "frame",
+      "n": 3,
+      "t_ms": 377
     },
     {
       "active": 0,
@@ -71,7 +76,7 @@
       "event": "state",
       "label": "mid-grow",
       "opening": true,
-      "t_ms": 385,
+      "t_ms": 377,
       "tabs": [
         {
           "close_rect": {
@@ -96,8 +101,8 @@
         {
           "close_rect": {
             "position": {
-              "x": 964.0,
-              "y": 93.199577331543
+              "x": 1106.0,
+              "y": 88.2592620849609
             },
             "size": {
               "x": 22.0,
@@ -105,57 +110,62 @@
             }
           },
           "fixed": false,
-          "h": 108.800430297852,
+          "h": 113.740745544434,
           "label": "connecting",
           "page_visible": false,
           "truncated": true,
-          "w": 232.0,
+          "w": 374.0,
           "x": 834.0,
-          "y": 47.199577331543
+          "y": 42.2592582702637
         }
       ]
     },
     {
       "event": "screenshot",
       "file": "02-mid-grow.png",
-      "t_ms": 457
-    },
-    {
-      "event": "frame",
-      "n": 3,
-      "t_ms": 544
+      "t_ms": 435
     },
     {
       "event": "frame",
       "n": 4,
-      "t_ms": 635
+      "t_ms": 505
     },
     {
       "event": "frame",
       "n": 5,
-      "t_ms": 712
+      "t_ms": 573
+    },
+    {
+      "event": "frame",
+      "n": 6,
+      "t_ms": 641
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 712
+      "t_ms": 642
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_settled",
-      "t_ms": 712
-    },
-    {
-      "event": "frame",
-      "n": 6,
-      "t_ms": 799
+      "t_ms": 642
     },
     {
       "event": "frame",
       "n": 7,
-      "t_ms": 888
+      "t_ms": 710
+    },
+    {
+      "event": "frame",
+      "n": 8,
+      "t_ms": 778
+    },
+    {
+      "event": "frame",
+      "n": 9,
+      "t_ms": 846
     },
     {
       "active": 1,
@@ -164,7 +174,7 @@
       "event": "state",
       "label": "connecting",
       "opening": false,
-      "t_ms": 888,
+      "t_ms": 846,
       "tabs": [
         {
           "close_rect": {
@@ -211,73 +221,88 @@
     {
       "event": "screenshot",
       "file": "03-connecting.png",
-      "t_ms": 972
-    },
-    {
-      "event": "frame",
-      "n": 8,
-      "t_ms": 1059
-    },
-    {
-      "event": "frame",
-      "n": 9,
-      "t_ms": 1143
+      "t_ms": 903
     },
     {
       "event": "frame",
       "n": 10,
-      "t_ms": 1232
+      "t_ms": 971
     },
     {
       "event": "frame",
       "n": 11,
-      "t_ms": 1315
+      "t_ms": 1038
     },
     {
       "event": "frame",
       "n": 12,
-      "t_ms": 1396
+      "t_ms": 1105
     },
     {
       "event": "frame",
       "n": 13,
-      "t_ms": 1484
+      "t_ms": 1172
     },
     {
       "event": "frame",
       "n": 14,
-      "t_ms": 1573
+      "t_ms": 1241
     },
     {
       "event": "frame",
       "n": 15,
-      "t_ms": 1661
+      "t_ms": 1309
     },
     {
       "event": "frame",
       "n": 16,
-      "t_ms": 1744
+      "t_ms": 1376
+    },
+    {
+      "event": "frame",
+      "n": 17,
+      "t_ms": 1444
+    },
+    {
+      "event": "frame",
+      "n": 18,
+      "t_ms": 1511
+    },
+    {
+      "event": "frame",
+      "n": 19,
+      "t_ms": 1579
+    },
+    {
+      "event": "frame",
+      "n": 20,
+      "t_ms": 1647
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_titled",
-      "t_ms": 1744
+      "t_ms": 1647
     },
     {
       "event": "frame",
-      "n": 17,
-      "t_ms": 1829
+      "n": 21,
+      "t_ms": 1716
     },
     {
       "event": "frame",
-      "n": 18,
-      "t_ms": 1907
+      "n": 22,
+      "t_ms": 1784
     },
     {
       "event": "frame",
-      "n": 19,
-      "t_ms": 1989
+      "n": 23,
+      "t_ms": 1854
+    },
+    {
+      "event": "frame",
+      "n": 24,
+      "t_ms": 1922
     },
     {
       "active": 1,
@@ -286,7 +311,7 @@
       "event": "state",
       "label": "blank-page",
       "opening": false,
-      "t_ms": 1989,
+      "t_ms": 1923,
       "tabs": [
         {
           "close_rect": {
@@ -333,17 +358,17 @@
     {
       "event": "screenshot",
       "file": "04-blank-page.png",
-      "t_ms": 2084
+      "t_ms": 2002
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_selected",
-      "t_ms": 2095
+      "t_ms": 2013
     },
     {
       "event": "click",
-      "t_ms": 2104,
+      "t_ms": 2019,
       "what": "tab 0",
       "x": 266.870819091797,
       "y": 43.4067001342773
@@ -355,13 +380,13 @@
       "event": "state",
       "label": "selected-0",
       "opening": false,
-      "t_ms": 2104,
+      "t_ms": 2019,
       "tabs": [
         {
           "close_rect": {
             "position": {
               "x": 799.0,
-              "y": 79.0
+              "y": 85.0
             },
             "size": {
               "x": 22.0,
@@ -375,7 +400,7 @@
           "truncated": false,
           "w": 640.0,
           "x": 261.0,
-          "y": 33.0
+          "y": 39.0
         },
         {
           "close_rect": {
@@ -402,17 +427,17 @@
     {
       "event": "screenshot",
       "file": "05-selected-0.png",
-      "t_ms": 2198
+      "t_ms": 2093
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 2210
+      "t_ms": 2103
     },
     {
       "event": "click",
-      "t_ms": 2219,
+      "t_ms": 2110,
       "what": "tab 1",
       "x": 530.066955566406,
       "y": 43.4067001342773
@@ -424,7 +449,7 @@
       "event": "state",
       "label": "selected-1",
       "opening": false,
-      "t_ms": 2219,
+      "t_ms": 2110,
       "tabs": [
         {
           "close_rect": {
@@ -450,7 +475,7 @@
           "close_rect": {
             "position": {
               "x": 1372.0,
-              "y": 79.0
+              "y": 85.0
             },
             "size": {
               "x": 22.0,
@@ -464,24 +489,24 @@
           "truncated": false,
           "w": 640.0,
           "x": 834.0,
-          "y": 33.0
+          "y": 39.0
         }
       ]
     },
     {
       "event": "screenshot",
       "file": "06-selected-1.png",
-      "t_ms": 2308
+      "t_ms": 2184
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_opened",
-      "t_ms": 2329
+      "t_ms": 2201
     },
     {
       "event": "click",
-      "t_ms": 2330,
+      "t_ms": 2201,
       "what": "new-tab stub (2nd)",
       "x": 690.83251953125,
       "y": 47.0813407897949
@@ -490,19 +515,19 @@
       "event": "signal",
       "index": 2,
       "signal": "tab_selected",
-      "t_ms": 2823
+      "t_ms": 2704
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_settled",
-      "t_ms": 2823
+      "t_ms": 2704
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_titled",
-      "t_ms": 3772
+      "t_ms": 3645
     },
     {
       "active": 2,
@@ -511,7 +536,7 @@
       "event": "state",
       "label": "third-tab",
       "opening": false,
-      "t_ms": 4121,
+      "t_ms": 3993,
       "tabs": [
         {
           "close_rect": {
@@ -565,7 +590,7 @@
             }
           },
           "fixed": false,
-          "h": 123.0,
+          "h": 122.999954223633,
           "label": "blank_page",
           "page_visible": true,
           "truncated": false,
@@ -578,17 +603,17 @@
     {
       "event": "screenshot",
       "file": "07-third-tab.png",
-      "t_ms": 4193
+      "t_ms": 4071
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_opened",
-      "t_ms": 4211
+      "t_ms": 4091
     },
     {
       "event": "click",
-      "t_ms": 4212,
+      "t_ms": 4092,
       "what": "new-tab stub (fill)",
       "x": 954.028686523438,
       "y": 47.0813407897949
@@ -597,23 +622,23 @@
       "event": "signal",
       "index": 3,
       "signal": "tab_selected",
-      "t_ms": 4708
+      "t_ms": 4580
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_settled",
-      "t_ms": 4708
+      "t_ms": 4580
     },
     {
       "event": "signal",
       "index": 4,
       "signal": "tab_opened",
-      "t_ms": 4915
+      "t_ms": 4792
     },
     {
       "event": "click",
-      "t_ms": 4916,
+      "t_ms": 4792,
       "what": "new-tab stub (fill)",
       "x": 1187.82775878906,
       "y": 47.0813407897949
@@ -622,23 +647,23 @@
       "event": "signal",
       "index": 4,
       "signal": "tab_selected",
-      "t_ms": 5426
+      "t_ms": 5289
     },
     {
       "event": "signal",
       "index": 4,
       "signal": "tab_settled",
-      "t_ms": 5426
+      "t_ms": 5289
     },
     {
       "event": "signal",
       "index": 5,
       "signal": "tab_opened",
-      "t_ms": 5634
+      "t_ms": 5498
     },
     {
       "event": "click",
-      "t_ms": 5634,
+      "t_ms": 5498,
       "what": "new-tab stub (fill)",
       "x": 1188.74645996094,
       "y": 47.0813407897949
@@ -647,29 +672,29 @@
       "event": "signal",
       "index": 3,
       "signal": "tab_titled",
-      "t_ms": 5659
+      "t_ms": 5527
     },
     {
       "event": "signal",
       "index": 5,
       "signal": "tab_selected",
-      "t_ms": 6133
+      "t_ms": 6005
     },
     {
       "event": "signal",
       "index": 5,
       "signal": "tab_settled",
-      "t_ms": 6133
+      "t_ms": 6006
     },
     {
       "event": "signal",
       "index": 6,
       "signal": "tab_opened",
-      "t_ms": 6337
+      "t_ms": 6216
     },
     {
       "event": "click",
-      "t_ms": 6337,
+      "t_ms": 6216,
       "what": "new-tab stub (fill)",
       "x": 1186.90905761719,
       "y": 47.0813407897949
@@ -678,29 +703,29 @@
       "event": "signal",
       "index": 4,
       "signal": "tab_titled",
-      "t_ms": 6364
+      "t_ms": 6245
     },
     {
       "event": "signal",
       "index": 6,
       "signal": "tab_selected",
-      "t_ms": 6841
+      "t_ms": 6718
     },
     {
       "event": "signal",
       "index": 6,
       "signal": "tab_settled",
-      "t_ms": 6841
+      "t_ms": 6718
     },
     {
       "event": "signal",
       "index": 7,
       "signal": "tab_opened",
-      "t_ms": 7056
+      "t_ms": 6933
     },
     {
       "event": "click",
-      "t_ms": 7057,
+      "t_ms": 6933,
       "what": "new-tab stub (fill)",
       "x": 1186.90905761719,
       "y": 47.0813407897949
@@ -709,29 +734,29 @@
       "event": "signal",
       "index": 5,
       "signal": "tab_titled",
-      "t_ms": 7076
+      "t_ms": 6955
     },
     {
       "event": "signal",
       "index": 7,
       "signal": "tab_selected",
-      "t_ms": 7558
+      "t_ms": 7435
     },
     {
       "event": "signal",
       "index": 7,
       "signal": "tab_settled",
-      "t_ms": 7558
+      "t_ms": 7435
     },
     {
       "event": "signal",
       "index": 8,
       "signal": "tab_opened",
-      "t_ms": 7778
+      "t_ms": 7647
     },
     {
       "event": "click",
-      "t_ms": 7779,
+      "t_ms": 7647,
       "what": "new-tab stub (fill)",
       "x": 1189.6650390625,
       "y": 47.0813407897949
@@ -740,29 +765,29 @@
       "event": "signal",
       "index": 6,
       "signal": "tab_titled",
-      "t_ms": 7797
+      "t_ms": 7668
     },
     {
       "event": "signal",
       "index": 8,
       "signal": "tab_selected",
-      "t_ms": 8267
+      "t_ms": 8151
     },
     {
       "event": "signal",
       "index": 8,
       "signal": "tab_settled",
-      "t_ms": 8267
+      "t_ms": 8151
     },
     {
       "event": "signal",
       "index": 9,
       "signal": "tab_opened",
-      "t_ms": 8495
+      "t_ms": 8363
     },
     {
       "event": "click",
-      "t_ms": 8495,
+      "t_ms": 8363,
       "what": "new-tab stub (fill)",
       "x": 1189.6650390625,
       "y": 47.0813407897949
@@ -771,23 +796,23 @@
       "event": "signal",
       "index": 7,
       "signal": "tab_titled",
-      "t_ms": 8504
+      "t_ms": 8386
     },
     {
       "event": "signal",
       "index": 9,
       "signal": "tab_selected",
-      "t_ms": 8985
+      "t_ms": 8843
     },
     {
       "event": "signal",
       "index": 9,
       "signal": "tab_settled",
-      "t_ms": 8985
+      "t_ms": 8843
     },
     {
       "event": "click",
-      "t_ms": 9212,
+      "t_ms": 9062,
       "what": "new-tab stub (fill)",
       "x": 1188.74645996094,
       "y": 47.0813407897949
@@ -796,13 +821,13 @@
       "event": "signal",
       "index": 8,
       "signal": "tab_titled",
-      "t_ms": 9222
+      "t_ms": 9083
     },
     {
       "event": "signal",
       "index": 9,
       "signal": "tab_titled",
-      "t_ms": 9943
+      "t_ms": 9804
     },
     {
       "active": 9,
@@ -811,7 +836,7 @@
       "event": "state",
       "label": "full-row",
       "opening": false,
-      "t_ms": 11109,
+      "t_ms": 10972,
       "tabs": [
         {
           "close_rect": {
@@ -865,7 +890,7 @@
             }
           },
           "fixed": false,
-          "h": 123.0,
+          "h": 122.999954223633,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
@@ -885,7 +910,7 @@
             }
           },
           "fixed": false,
-          "h": 123.000015258789,
+          "h": 123.000030517578,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
@@ -905,7 +930,7 @@
             }
           },
           "fixed": false,
-          "h": 122.999984741211,
+          "h": 123.0,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
@@ -925,7 +950,7 @@
             }
           },
           "fixed": false,
-          "h": 123.000015258789,
+          "h": 122.999969482422,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
@@ -945,7 +970,7 @@
             }
           },
           "fixed": false,
-          "h": 122.999969482422,
+          "h": 123.000045776367,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
@@ -1005,7 +1030,7 @@
             }
           },
           "fixed": false,
-          "h": 123.0,
+          "h": 123.000061035156,
           "label": "blank_page",
           "page_visible": true,
           "truncated": true,
@@ -1018,16 +1043,16 @@
     {
       "event": "screenshot",
       "file": "08-full-row.png",
-      "t_ms": 11196
+      "t_ms": 11042
     },
     {
       "event": "fill",
       "result": "refused at 10 tabs",
-      "t_ms": 11196
+      "t_ms": 11042
     },
     {
       "event": "click",
-      "t_ms": 11218,
+      "t_ms": 11061,
       "what": "close button of active tab",
       "x": 1133.16748046875,
       "y": 41.339714050293
@@ -1036,13 +1061,13 @@
       "event": "signal",
       "index": 9,
       "signal": "tab_closed",
-      "t_ms": 11600
+      "t_ms": 11436
     },
     {
       "event": "signal",
       "index": 8,
       "signal": "tab_selected",
-      "t_ms": 11600
+      "t_ms": 11436
     },
     {
       "active": 8,
@@ -1051,7 +1076,7 @@
       "event": "state",
       "label": "closed-last",
       "opening": false,
-      "t_ms": 12153,
+      "t_ms": 11966,
       "tabs": [
         {
           "close_rect": {
@@ -1105,7 +1130,7 @@
             }
           },
           "fixed": false,
-          "h": 123.0,
+          "h": 122.999954223633,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
@@ -1125,7 +1150,7 @@
             }
           },
           "fixed": false,
-          "h": 123.000015258789,
+          "h": 123.000030517578,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
@@ -1145,7 +1170,7 @@
             }
           },
           "fixed": false,
-          "h": 122.999984741211,
+          "h": 123.0,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
@@ -1165,7 +1190,7 @@
             }
           },
           "fixed": false,
-          "h": 123.000015258789,
+          "h": 122.999969482422,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
@@ -1185,7 +1210,7 @@
             }
           },
           "fixed": false,
-          "h": 122.999969482422,
+          "h": 123.000045776367,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
@@ -1238,39 +1263,39 @@
     {
       "event": "screenshot",
       "file": "09-closed-last.png",
-      "t_ms": 12240
+      "t_ms": 12041
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 12253
+      "t_ms": 12052
     },
     {
       "event": "click",
-      "t_ms": 12262,
+      "t_ms": 12060,
       "what": "tab 1",
       "x": 306.143524169922,
       "y": 43.4067001342773
     },
     {
       "event": "click",
-      "t_ms": 12283,
+      "t_ms": 12074,
       "what": "close button of tab 1",
       "x": 336.688995361328,
-      "y": 41.339714050293
+      "y": 44.0956954956055
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_closed",
-      "t_ms": 12568
+      "t_ms": 12369
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_selected",
-      "t_ms": 12568
+      "t_ms": 12369
     },
     {
       "active": 0,
@@ -1279,7 +1304,7 @@
       "event": "state",
       "label": "closed-second",
       "opening": false,
-      "t_ms": 13181,
+      "t_ms": 12972,
       "tabs": [
         {
           "close_rect": {
@@ -1313,7 +1338,7 @@
             }
           },
           "fixed": false,
-          "h": 123.0,
+          "h": 122.999954223633,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
@@ -1333,7 +1358,7 @@
             }
           },
           "fixed": false,
-          "h": 123.000015258789,
+          "h": 123.000030517578,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
@@ -1353,7 +1378,7 @@
             }
           },
           "fixed": false,
-          "h": 122.999984741211,
+          "h": 123.0,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
@@ -1373,7 +1398,7 @@
             }
           },
           "fixed": false,
-          "h": 123.000015258789,
+          "h": 122.999969482422,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
@@ -1393,7 +1418,7 @@
             }
           },
           "fixed": false,
-          "h": 122.999969482422,
+          "h": 123.000045776367,
           "label": "blank_page",
           "page_visible": false,
           "truncated": true,
@@ -1446,11 +1471,11 @@
     {
       "event": "screenshot",
       "file": "10-closed-second.png",
-      "t_ms": 13273
+      "t_ms": 13043
     },
     {
       "event": "click",
-      "t_ms": 13294,
+      "t_ms": 13062,
       "what": "close button (empty the row)",
       "x": 1134.08605957031,
       "y": 41.339714050293
@@ -1459,17 +1484,17 @@
       "event": "signal",
       "index": 7,
       "signal": "tab_closed",
-      "t_ms": 13586
+      "t_ms": 13347
     },
     {
       "event": "signal",
       "index": 6,
       "signal": "tab_selected",
-      "t_ms": 13586
+      "t_ms": 13347
     },
     {
       "event": "click",
-      "t_ms": 13999,
+      "t_ms": 13771,
       "what": "close button (empty the row)",
       "x": 1131.330078125,
       "y": 41.339714050293
@@ -1478,17 +1503,17 @@
       "event": "signal",
       "index": 6,
       "signal": "tab_closed",
-      "t_ms": 14308
+      "t_ms": 14070
     },
     {
       "event": "signal",
       "index": 5,
       "signal": "tab_selected",
-      "t_ms": 14308
+      "t_ms": 14070
     },
     {
       "event": "click",
-      "t_ms": 14716,
+      "t_ms": 14482,
       "what": "close button (empty the row)",
       "x": 1131.330078125,
       "y": 41.339714050293
@@ -1497,17 +1522,17 @@
       "event": "signal",
       "index": 5,
       "signal": "tab_closed",
-      "t_ms": 15015
+      "t_ms": 14785
     },
     {
       "event": "signal",
       "index": 4,
       "signal": "tab_selected",
-      "t_ms": 15015
+      "t_ms": 14785
     },
     {
       "event": "click",
-      "t_ms": 15425,
+      "t_ms": 15196,
       "what": "close button (empty the row)",
       "x": 1133.16748046875,
       "y": 41.339714050293
@@ -1516,17 +1541,17 @@
       "event": "signal",
       "index": 4,
       "signal": "tab_closed",
-      "t_ms": 15724
+      "t_ms": 15491
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_selected",
-      "t_ms": 15724
+      "t_ms": 15491
     },
     {
       "event": "click",
-      "t_ms": 16133,
+      "t_ms": 15910,
       "what": "close button (empty the row)",
       "x": 1132.24877929688,
       "y": 41.339714050293
@@ -1535,17 +1560,17 @@
       "event": "signal",
       "index": 3,
       "signal": "tab_closed",
-      "t_ms": 16440
+      "t_ms": 16207
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_selected",
-      "t_ms": 16440
+      "t_ms": 16207
     },
     {
       "event": "click",
-      "t_ms": 16850,
+      "t_ms": 16623,
       "what": "close button (empty the row)",
       "x": 898.449768066406,
       "y": 41.339714050293
@@ -1554,17 +1579,17 @@
       "event": "signal",
       "index": 2,
       "signal": "tab_closed",
-      "t_ms": 17147
+      "t_ms": 16917
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 17147
+      "t_ms": 16917
     },
     {
       "event": "click",
-      "t_ms": 17549,
+      "t_ms": 17331,
       "what": "close button (empty the row)",
       "x": 635.253601074219,
       "y": 41.339714050293
@@ -1573,17 +1598,17 @@
       "event": "signal",
       "index": 1,
       "signal": "tab_closed",
-      "t_ms": 17853
+      "t_ms": 17628
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_selected",
-      "t_ms": 17853
+      "t_ms": 17628
     },
     {
       "event": "click",
-      "t_ms": 18272,
+      "t_ms": 18037,
       "what": "close button (empty the row)",
       "x": 372.057403564453,
       "y": 41.339714050293
@@ -1592,7 +1617,7 @@
       "event": "signal",
       "index": 0,
       "signal": "tab_closed",
-      "t_ms": 18567
+      "t_ms": 18337
     },
     {
       "active": -1,
@@ -1601,44 +1626,44 @@
       "event": "state",
       "label": "all-closed",
       "opening": false,
-      "t_ms": 18963,
+      "t_ms": 18736,
       "tabs": []
     },
     {
       "event": "screenshot",
       "file": "11-all-closed.png",
-      "t_ms": 19036
+      "t_ms": 18809
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_opened",
-      "t_ms": 19052
+      "t_ms": 18825
     },
     {
       "event": "click",
-      "t_ms": 19052,
+      "t_ms": 18825,
       "what": "new-tab stub (after empty)",
-      "x": 164.440292358398,
+      "x": 164.440399169922,
       "y": 47.0813407897949
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_selected",
-      "t_ms": 19550
+      "t_ms": 19314
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_settled",
-      "t_ms": 19550
+      "t_ms": 19314
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_titled",
-      "t_ms": 20503
+      "t_ms": 20268
     },
     {
       "active": 0,
@@ -1647,7 +1672,7 @@
       "event": "state",
       "label": "reopened",
       "opening": false,
-      "t_ms": 20851,
+      "t_ms": 20614,
       "tabs": [
         {
           "close_rect": {
@@ -1661,7 +1686,7 @@
             }
           },
           "fixed": false,
-          "h": 122.999984741211,
+          "h": 123.000030517578,
           "label": "blank_page",
           "page_visible": true,
           "truncated": false,
@@ -1674,20 +1699,20 @@
     {
       "event": "screenshot",
       "file": "12-reopened.png",
-      "t_ms": 20926
+      "t_ms": 20689
     },
     {
       "event": "fixed_open",
       "index": 1,
       "ok": true,
       "page_in_stack": true,
-      "t_ms": 20926
+      "t_ms": 20689
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 20926
+      "t_ms": 20689
     },
     {
       "active": 1,
@@ -1696,7 +1721,7 @@
       "event": "state",
       "label": "fixed-open",
       "opening": false,
-      "t_ms": 20926,
+      "t_ms": 20689,
       "tabs": [
         {
           "close_rect": {
@@ -1710,7 +1735,7 @@
             }
           },
           "fixed": false,
-          "h": 122.999984741211,
+          "h": 123.000030517578,
           "label": "blank_page",
           "page_visible": false,
           "truncated": false,
@@ -1743,17 +1768,17 @@
     {
       "event": "screenshot",
       "file": "13-fixed-open.png",
-      "t_ms": 21003
+      "t_ms": 20766
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 21014
+      "t_ms": 20776
     },
     {
       "event": "click",
-      "t_ms": 21021,
+      "t_ms": 20784,
       "what": "where the close button of the fixed tab would be",
       "x": 635.253601074219,
       "y": 41.339714050293
@@ -1762,7 +1787,7 @@
       "code": "tab_strip.tab_fixed",
       "event": "fixed_close",
       "ok": false,
-      "t_ms": 21919
+      "t_ms": 21680
     },
     {
       "active": 1,
@@ -1771,7 +1796,7 @@
       "event": "state",
       "label": "fixed-kept",
       "opening": false,
-      "t_ms": 22825,
+      "t_ms": 22593,
       "tabs": [
         {
           "close_rect": {
@@ -1785,7 +1810,7 @@
             }
           },
           "fixed": false,
-          "h": 122.999984741211,
+          "h": 123.000030517578,
           "label": "blank_page",
           "page_visible": false,
           "truncated": false,
@@ -1818,45 +1843,45 @@
     {
       "event": "screenshot",
       "file": "14-fixed-kept.png",
-      "t_ms": 22898
+      "t_ms": 22665
     },
     {
       "event": "fixed_open",
       "index": 2,
       "ok": true,
       "page_in_stack": true,
-      "t_ms": 22898
+      "t_ms": 22666
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_opened",
-      "t_ms": 22916
+      "t_ms": 22683
     },
     {
       "event": "click",
-      "t_ms": 22917,
+      "t_ms": 22683,
       "what": "new-tab stub (after fixed)",
-      "x": 954.02880859375,
+      "x": 954.028930664062,
       "y": 47.0813407897949
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_selected",
-      "t_ms": 23416
+      "t_ms": 23178
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_settled",
-      "t_ms": 23416
+      "t_ms": 23178
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_titled",
-      "t_ms": 24357
+      "t_ms": 24131
     },
     {
       "active": 3,
@@ -1865,7 +1890,7 @@
       "event": "state",
       "label": "after-fixed-stub",
       "opening": false,
-      "t_ms": 24707,
+      "t_ms": 24478,
       "tabs": [
         {
           "close_rect": {
@@ -1879,7 +1904,7 @@
             }
           },
           "fixed": false,
-          "h": 122.999984741211,
+          "h": 123.000030517578,
           "label": "blank_page",
           "page_visible": false,
           "truncated": false,
@@ -1952,11 +1977,11 @@
     {
       "event": "screenshot",
       "file": "15-after-fixed-stub.png",
-      "t_ms": 24778
+      "t_ms": 24549
     }
   ],
   "viewport": [
-    1680,
+    1920,
     420
   ]
 }

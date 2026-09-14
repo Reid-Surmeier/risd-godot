@@ -22,6 +22,7 @@ const CLOSE_SECONDS := 0.3
 const SLIDE_SECONDS := 0.2
 const STUB_PINK := Color8(247, 239, 244)
 const STUB_PRESSED := Color8(228, 218, 226)
+const DIP_PX := 6.0  # how far a clicked tab drops while it shows the pressed tint
 
 var _layout: Dictionary = {}
 var _tex: Dictionary = {}
@@ -33,6 +34,8 @@ var _page_stack: Control
 var _active := -1
 var _opening := false
 var _tween: Tween
+var _press_tween: Tween
+var _pressed := -1  # the tab dipping under a click, or -1
 var _windows_live_tab := true
 
 
@@ -153,6 +156,7 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	var index := _tabs.size()
 	node.gui_input.connect(func(ev: InputEvent):
 		if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT:
+			_press(_tabs.find(_tab_of(node)))
 			select_tab(_tabs.find(_tab_of(node))))
 	close.pressed.connect(func(): close_tab(_tabs.find(_tab_of(node))))
 	add_child(node)
@@ -164,6 +168,30 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	_set_label(tab, label_key)
 	_set_tab_width(tab, width)
 	return tab
+
+
+## The click dip: the clicked tab drops DIP_PX with the stub's pressed tint for PRESS_SECONDS, then sits
+## back. Not while a grow or fold runs (those own the tab's position and tint).
+func _press(index: int) -> void:
+	if _opening or index < 0 or index >= _tabs.size():
+		return
+	if _press_tween != null and _press_tween.is_valid():
+		_press_tween.kill()
+		_unpress()
+	var tab: Dictionary = _tabs[index]
+	_pressed = index
+	tab.node.modulate = STUB_PRESSED
+	tab.node.position.y = _layout.tab.y + DIP_PX
+	_press_tween = create_tween()
+	_press_tween.tween_interval(PRESS_SECONDS)
+	_press_tween.tween_callback(_unpress)
+
+
+func _unpress() -> void:
+	if _pressed >= 0 and _pressed < _tabs.size():
+		_tabs[_pressed].node.modulate = Color.WHITE
+		_tabs[_pressed].node.position.y = _layout.tab.y
+	_pressed = -1
 
 
 func _tab_of(node: Control) -> Dictionary:
@@ -341,6 +369,31 @@ func open_fixed_tab(label_key: String, page: Control) -> Dictionary:
 	return Errors.ok(_tabs.size() - 1)
 
 
+## Replay the open gesture on an existing tab, in place (the Shell's launch tab): stub-sized with the
+## pressed tint for PRESS_SECONDS, then the grow to its own width over GROW_SECONDS; its neighbours and
+## the stub stay put. Emits tab_opened, then tab_settled; selects nothing.
+func grow_tab(index: int) -> Dictionary:
+	if index < 0 or index >= _tabs.size():
+		return Errors.err(Errors.INDEX_OUT_OF_RANGE, str(index))
+	if _opening:
+		return Errors.err(Errors.OPEN_IN_PROGRESS)
+	_opening = true
+	var tab: Dictionary = _tabs[index]
+	var final_w: float = tab.width
+	_grow(tab, final_w, 0.0)
+	tab.node.modulate = STUB_PRESSED
+	emit_signal("tab_opened", index)
+	_tween = create_tween()
+	_tween.tween_interval(PRESS_SECONDS)
+	_tween.tween_method(func(s: float): _grow(tab, final_w, s), 0.0, 1.0, GROW_SECONDS) \
+		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	_tween.tween_callback(func():
+		_opening = false
+		_layout_tabs()
+		emit_signal("tab_settled", index))
+	return Errors.ok(index)
+
+
 func _grow(tab: Dictionary, final_w: float, s: float) -> void:
 	var t: Dictionary = _layout.tab
 	var sy: float = lerp(_layout.stub.h / float(t.height), 1.0, s)
@@ -442,7 +495,7 @@ func state() -> Dictionary:
 				"truncated": tab.clip.size.x < (tab.label.texture.get_width() if tab.label.texture else 0.0),
 				"close_rect": Rect2() if tab.fixed else Rect2(tab.node.position + tab.close.position, tab.close.size)})
 	return Errors.ok({"count": _tabs.size(), "active": _active, "tabs": tabs, "opening": _opening,
-			"bar_width": size.x})
+			"pressed": _pressed, "bar_width": size.x})
 
 
 func stub_rect() -> Rect2:

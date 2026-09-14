@@ -12,6 +12,7 @@ import numpy as np
 from PIL import Image
 
 BAR_H = 161 * 1920 / 4180.0
+PAGE_H = 1080 - BAR_H  # the page fills the window above the bar (bar along the bottom)
 FRAME = (1158, 954)     # atlas_window.gd FRAME_SIZE
 MARGIN = 24
 WHEEL_STEP = 1.18       # atlas.gd: one wheel notch
@@ -64,7 +65,7 @@ check("window_fits_page_centred", near(fr["w"], FRAME[0] * scale, 1) and near(fr
 cs = a["chrome_scale"]
 check("chrome_scale_from_frame_width", near(cs, min(1.0, fr["w"] / 1724.0), 1e-6), str(cs))
 mr = a["map_rect"]; fg = a["frame_global"]
-check("map_body_inside_frame_below_bar", fg["y"] >= BAR_H - 0.5 and mr["x"] >= fg["x"] and mr["y"] >= fg["y"]
+check("map_body_inside_frame_above_bar", fg["y"] >= -0.5 and fg["y"] + fg["h"] <= PAGE_H + 0.5 and mr["x"] >= fg["x"] and mr["y"] >= fg["y"]
       and mr["x"] + mr["w"] <= fg["x"] + fg["w"] and mr["y"] + mr["h"] <= fg["y"] + fg["h"]
       and near(a["viewport"][0], mr["w"], 1) and near(a["viewport"][1], mr["h"], 1), f"map {mr} frame {fg} viewport {a['viewport']}")
 check("atlas_opens_on_world_view", a["mode"] == "atlas" and near(a["zoom_ratio"], 1.0, 1e-3) and near(a["zoom"], a["zoom_min"], 1e-6),
@@ -97,7 +98,7 @@ check("still_on_map_tab_after_window_drag", states["window-moved"]["active"] == 
 
 # the frame stops at the page's edge: a drag far past the bottom-right corner lands it flush with both edges
 t2 = gestures["drag the title bar past the page's bottom-right corner"]; cl = atlas["window-clamped"]
-check("window_drag_clamps_to_page_edge", t2["to"][0] > sz[0] and t2["to"][1] > BAR_H + sz[1]
+check("window_drag_clamps_to_page_edge", t2["to"][0] > sz[0] and t2["to"][1] > sz[1]
       and near(cl["frame"]["x"], sz[0] - cl["frame"]["w"], 0.5) and near(cl["frame"]["y"], sz[1] - cl["frame"]["h"], 0.5)
       and cl["frame"]["w"] == e["frame"]["w"] and cl["frame"]["h"] == e["frame"]["h"] and cl["frame"] != e["frame"] and cl["action"] == "",
       f"page {sz}, frame {cl['frame']}")
@@ -187,13 +188,13 @@ check("map_body_shows_sea_and_land", colour_count(body, CYAN) > body.shape[0] * 
       f"cyan {colour_count(body, CYAN)} pink {colour_count(body, PINK)} of {body.shape[0] * body.shape[1]}")
 title_band = imgs["01-map.png"][int(fg["y"] + 30 * cs):int(fg["y"] + 94 * cs), int(fg["x"] + 90 * cs):int(fg["x"] + fg["w"] - 100 * cs)]
 check("frame_title_bar_drawn", (title_band.max(axis=2) < 100).sum() > 50, f"dark px {(title_band.max(axis=2) < 100).sum()}")
-outside = imgs["01-map.png"][int(BAR_H) + 2:int(fg["y"]) - 2, :]
+outside = imgs["01-map.png"][2:int(fg["y"]) - 2, :]
 check("page_outside_window_is_white", outside.size > 0 and float(outside.mean()) > 254, f"mean {float(outside.mean()):.2f}")
 check("zoom_changes_map_pixels", float(np.abs(region(imgs["02-zoomed.png"], mr) - body).mean()) > 3)
 check("pan_changes_map_pixels", float(np.abs(region(imgs["03-panned.png"], mr) - region(imgs["02-zoomed.png"], mr)).mean()) > 3)
 check("window_drag_changes_page_pixels", hashes["04-window-moved.png"] != hashes["03-panned.png"])
 cg = cl["frame_global"]
-check("clamped_window_touches_page_corner", near(cg["x"] + cg["w"], 1920, 0.5) and near(cg["y"] + cg["h"], 1080, 0.5)
+check("clamped_window_touches_page_corner", near(cg["x"] + cg["w"], 1920, 0.5) and near(cg["y"] + cg["h"], PAGE_H, 0.5)
       and hashes["05-window-clamped.png"] != hashes["04-window-moved.png"], f"frame ends at {cg['x'] + cg['w']}, {cg['y'] + cg['h']}")
 rg = rz["frame_global"]
 freed = imgs["06-window-resized.png"][int(rg["y"] + rg["h"]) + 2:int(cg["y"] + cg["h"]) - 2, int(rg["x"]) + 2:int(rg["x"] + rg["w"]) - 2]
@@ -202,7 +203,7 @@ cog = co["frame_global"]
 under = imgs["07-collapsed.png"][int(cog["y"] + cog["h"]) + 2:int(rg["y"] + rg["h"]) - 2, int(cog["x"]) + 2:int(cog["x"] + cog["w"]) - 2]
 check("collapsed_window_leaves_white_below_its_bar", under.size > 0 and float(under.mean()) > 254
       and hashes["07-collapsed.png"] != hashes["06-window-resized.png"], f"mean {float(under.mean()):.2f}")
-hidden_page = imgs["10-hidden.png"][int(BAR_H) + 2:, :]
+hidden_page = imgs["10-hidden.png"][:int(PAGE_H) - 2, :]
 check("hidden_page_shows_plain_white_sketchbook", float(hidden_page.mean()) > 254, f"mean {float(hidden_page.mean()):.2f}")
 check("resumed_pixels_identical_to_before_hiding", float(np.abs(imgs["11-resumed.png"] - imgs["09-before-hidden.png"]).mean()) < 0.5,
       f"mean abs diff {float(np.abs(imgs['11-resumed.png'] - imgs['09-before-hidden.png']).mean()):.3f}")

@@ -50,12 +50,14 @@ The vocabulary of this repository. Module terms first, then the domain's own. Te
 
 ## The Collection Browser shell _(new, map #23)_
 
-**Shell**: the tab strip and the page area beneath it; the one window the game runs in. _Avoid_: app frame, container.
+**Shell**: the page area and the tab strip along the bottom of the window beneath it (owner correction 2026-09-13; it sat on top before); the one window the game runs in. _Avoid_: app frame, container.
 
-**Tab**: one entry in the strip; it owns exactly one Page. The five fixed Tabs at launch are Map, Sketchbook, 3D Viewer, Video Player, Collection. _Avoid_: screen, view.
+**Tab**: one entry in the strip; it owns exactly one Page. The seven fixed Tabs at launch are Map, Sketchbook, 3D Viewer, Video Player, Collection, Playground, Phone, Collection active. Playground and Phone are draft mockups: the owner's picture on white. _Avoid_: screen, view.
 
 **Page**: the surface a Tab shows in the page area; built lazily on first open, kept alive while the game runs. _Avoid_: scene, panel.
 
 **Tenant**: the module that lives in a Page (the Pixel Atlas is the Map Tab's Tenant). A Tenant may own draggable windows inside its Page; the Page is that Tenant's desktop. _Avoid_: plugin, embed, widget.
 
 **Page seam**: the interface every Tenant implements so the Shell can create, show, hide, resize and query it; the only way Shell and Tenant talk. _Avoid_: API, host contract.
+
+**Switch** _(new)_: what a tab click does — the clicked Tab dips (the stub's pressed tint, 0.1 s) and the new Page cross-fades in over 0.2 s while the old one fades out; the Shell's freeze rule applies once the fade has settled. At launch the Collection Tab grows in like a stub-opened tab before its Page fades in. _Avoid_: transition, animation (see "Animation" above).

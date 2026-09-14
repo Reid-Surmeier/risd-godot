@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Plays one module's playtest harness with real input on an X display and verifies the run independently.
-# usage: scripts/playtest.sh <module> [out-dir]     (module: tab_strip | shell | atlas | collection_page)
+# usage: scripts/playtest.sh <module> [out-dir]     (module: tab_strip | shell | atlas | collection_page | playground_page | phone_page)
 set -euo pipefail
 cd "$(dirname "$0")/.."
 MODULE="${1:?usage: scripts/playtest.sh <module> [out-dir]}"

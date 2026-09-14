@@ -1,24 +1,32 @@
 ## Shell implementation. Reach it through interface.gd only.
 ##
-## A white ground, the PageStack, and the TabStrip fitted to the Shell's width (the bar is the
-## owner's reference, 4180 source px across the window, icon cluster at 65 percent). The six
-## fixed Tabs are indexes 0..5 forever: they never close and were opened before any stub tab.
+## The PageStack over a white ground, and the TabStrip along the bottom of the window, fitted to
+## the Shell's width (the bar is the owner's reference, 4180 source px across the window, icon
+## cluster at 65 percent). The seven fixed Tabs are indexes 0..6 forever: they never close and
+## were opened before any stub tab. At launch the Collection tab grows in like a stub-opened tab,
+## then its Page fades in; on every selection the new Page cross-fades over the old one and the
+## freeze rule is applied once the fade has settled.
 extends Control
 
 const Errors := preload("res://modules/shell/errors.gd")
 const TabStrip := preload("res://modules/tab_strip/interface.gd")
 
 signal tenant_created(key: String)
+signal switch_settled(index: int)
 
 const SOURCE_WIDTH := 4180.0
 const BAR_HEIGHT := 161.0
-const FIXED_TABS: Array[String] = ["map", "sketchbook", "3d_viewer", "video_player", "collection", "phone"]
+const FADE_SECONDS := 0.2
+const FIXED_TABS: Array[String] = ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground", "phone"]
 const LAUNCH_TAB := "collection"
 
 var _registry: Dictionary = {}
 var _strip: Control
 var _pages: Control
 var _fixed: Array = []  # [{key, page, tenant: Control|null, error: String}] by tab index
+var _shown: Array = []  # the Pages on screen: the active one, plus any still fading out
+var _fade: Tween
+var _switching := false
 
 
 static func create(registry: Dictionary) -> Dictionary:
@@ -26,7 +34,7 @@ static func create(registry: Dictionary) -> Dictionary:
 	shell._registry = registry
 	shell._pages = Control.new()
 	shell._pages.name = "PageStack"
-	var created: Dictionary = TabStrip.create(shell._pages, false)  # no "Windows Live" tab: the six are ours
+	var created: Dictionary = TabStrip.create(shell._pages, false)  # no "Windows Live" tab: the seven are ours
 	if not created.ok:
 		return created
 	shell._strip = created.value
@@ -57,21 +65,69 @@ func _ready() -> void:
 			push_error("shell: could not open the %s tab: %s" % [key, opened.error.code])
 			continue
 		_fixed.append({"key": key, "page": page, "tenant": null, "error": ""})
-	select_tab(FIXED_TABS.find(LAUNCH_TAB))
+	_apply_freeze()  # every Page starts hidden and frozen
+	# launch: the Collection tab grows in like a stub-opened tab; its Page fades in once it has settled
+	var launch := FIXED_TABS.find(LAUNCH_TAB)
+	var grown: Dictionary = TabStrip.grow_tab(_strip, launch)
+	if grown.ok:  # on settle, unless a click already chose a tab while the grow ran
+		_strip.connect("tab_settled", func(_index: int):
+			if TabStrip.state(_strip).value.active == -1:
+				select_tab(launch), CONNECT_ONE_SHOT)
+	else:
+		select_tab(launch)
 
 
 func _fit() -> void:
 	var scale := size.x / SOURCE_WIDTH
+	var bar_h := BAR_HEIGHT * scale
 	_strip.scale = Vector2(scale, scale)
 	TabStrip.set_bar_width(_strip, SOURCE_WIDTH)
-	_pages.position = Vector2(0, BAR_HEIGHT * scale)
-	_pages.size = Vector2(size.x, size.y - BAR_HEIGHT * scale)
+	_strip.position = Vector2(0, size.y - bar_h)
+	_pages.position = Vector2.ZERO
+	_pages.size = Vector2(size.x, size.y - bar_h)
 
 
-## The Shell's show/hide rule: the visible Page runs, every hidden Page is frozen and holds no focus.
+## A selection: the Tenant is created on the first show, then the new Page cross-fades in over
+## FADE_SECONDS while the Page(s) on screen fade out; the freeze rule is applied when the fade settles.
 func _on_tab_selected(index: int) -> void:
 	if index < _fixed.size() and _fixed[index].tenant == null and _fixed[index].error == "":
 		_create_tenant(_fixed[index])
+	var target: Control = null
+	for child in _pages.get_children():  # the strip shows exactly one live Page before it emits
+		if child.visible and not child.is_queued_for_deletion():
+			target = child
+	if target == null:
+		return
+	if _fade != null and _fade.is_valid():
+		_fade.kill()
+	var outgoing: Array = []
+	for p in _shown:
+		if p != target and is_instance_valid(p) and not p.is_queued_for_deletion():
+			p.visible = true  # the strip hid it; it keeps running until its fade is done
+			outgoing.append(p)
+	if not _shown.has(target):
+		target.modulate.a = 0.0
+	target.process_mode = Node.PROCESS_MODE_INHERIT
+	_pages.move_child(target, -1)  # on top of whatever fades out beneath it
+	_shown = [target] + outgoing
+	_switching = true
+	_fade = create_tween().set_parallel(true)
+	_fade.tween_property(target, "modulate:a", 1.0, FADE_SECONDS)
+	for p in outgoing:
+		_fade.tween_property(p, "modulate:a", 0.0, FADE_SECONDS)
+	_fade.chain().tween_callback(func():
+		for p in outgoing:
+			if is_instance_valid(p):
+				p.visible = false
+				p.modulate.a = 1.0
+		_shown = [target]
+		_switching = false
+		_apply_freeze()
+		emit_signal("switch_settled", index))
+
+
+## The Shell's show/hide rule: the visible Page runs, every hidden Page is frozen and holds no focus.
+func _apply_freeze() -> void:
 	var focus: Control = get_viewport().gui_get_focus_owner() if is_inside_tree() else null
 	for child in _pages.get_children():
 		var page := child as Control
@@ -129,5 +185,6 @@ func state() -> Dictionary:
 				"frozen": page != null and page.process_mode == Node.PROCESS_MODE_DISABLED,
 				"tenant": null if f.is_empty() else (f.error if f.error != "" else ("ok" if f.tenant != null else null)),
 				"rect": xf * t.rect, "close_rect": xf * t.close_rect if t.close_rect.size.x > 0 else Rect2()})
-	return Errors.ok({"count": s.count, "active": s.active, "opening": s.opening, "fixed_count": _fixed.size(),
+	return Errors.ok({"count": s.count, "active": s.active, "opening": s.opening, "pressed": s.pressed,
+			"switching": _switching, "fixed_count": _fixed.size(), "bar_rect": Rect2(_strip.position, _strip.size * _strip.scale),
 			"stub_rect": xf * TabStrip.stub_rect(_strip), "tabs": tabs})

@@ -1,18 +1,22 @@
-## The game's main scene: the Shell with the six fixed tabs. Tenants are registered here as
-## they are ported (the Pixel Atlas is the Map Tenant, collection_page the Collection Tenant);
-## until then the dummy tenant stands in (phone has none, so its page is white).
+## The game's main scene: the Shell with the seven fixed tabs. Tenants are registered here as
+## they are ported (the Pixel Atlas is the Map Tenant, collection_page the Collection Tenant,
+## playground_page and phone_page the two draft mockups); until the rest land, the dummy tenant
+## stands in.
 extends Control
 
 const Shell := preload("res://modules/shell/interface.gd")
 const DummyTenant := preload("res://modules/shell/playtest/dummy_tenant.gd")
 const Atlas := preload("res://modules/atlas/interface.gd")
 const CollectionPage := preload("res://modules/collection_page/interface.gd")
+const PlaygroundPage := preload("res://modules/playground_page/interface.gd")
+const PhonePage := preload("res://modules/phone_page/interface.gd")
 
 
 func _ready() -> void:
 	get_window().min_size = Vector2i(1440, 900)
 	var created := Shell.create({"map": Atlas, "sketchbook": DummyTenant, "3d_viewer": DummyTenant,
-			"video_player": DummyTenant, "collection": CollectionPage})
+			"video_player": DummyTenant, "collection": CollectionPage, "playground": PlaygroundPage,
+			"phone": PhonePage})
 	if not created.ok:
 		push_error("shell: %s" % created.error.code)
 		return

@@ -1,0 +1,97 @@
+{
+ "pass": true,
+ "checks": {
+  "screenshots_present": {
+   "pass": true,
+   "detail": "['01-launch.png', '02-phone.png', '03-hidden.png', '04-resumed.png', '05-resized.png', '06-restored.png']"
+  },
+  "reference_is_the_owners_picture": {
+   "pass": true,
+   "detail": "(269, 537)"
+  },
+  "no_tenant_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "click_creates_and_shows_the_tenant": {
+   "pass": true,
+   "detail": "{'frozen': False, 'key': 'phone', 'page_visible': True, 'rect': {'h': 56.4976196289062, 'w': 176.842102050781, 'x': 996.287048339844, 'y': 1021.20574951172}, 'tenant': 'ok'}"
+  },
+  "tenant_fills_page_area_above_the_bar": {
+   "pass": true,
+   "detail": "[1920.0, 1006.0478515625]"
+  },
+  "picture_at_native_size": {
+   "pass": true,
+   "detail": "{'h': 537.0, 'w': 269.0, 'x': 825.0, 'y': 234.0}"
+  },
+  "picture_centred_in_page": {
+   "pass": true,
+   "detail": "{'h': 537.0, 'w': 269.0, 'x': 825.0, 'y': 234.0} in [1920.0, 1006.0478515625]"
+  },
+  "shown_tenant_process_runs": {
+   "pass": true,
+   "detail": "58 -> 77"
+  },
+  "picture_drawn_pixel_for_pixel": {
+   "pass": true,
+   "detail": "mean abs diff 0.000"
+  },
+  "picture_is_not_blank": {
+   "pass": true,
+   "detail": "std 43.6"
+  },
+  "page_white_around_the_picture": {
+   "pass": true,
+   "detail": "mean 255.00"
+  },
+  "hidden_page_frozen": {
+   "pass": true,
+   "detail": ""
+  },
+  "frozen_tenant_process_stops": {
+   "pass": true,
+   "detail": "92 -> 92 over 20 frames"
+  },
+  "frozen_tenant_gets_no_input": {
+   "pass": true,
+   "detail": "inputs 0 -> 0"
+  },
+  "hidden_page_shows_the_white_other_tab": {
+   "pass": true,
+   "detail": ""
+  },
+  "resumes_with_state_intact": {
+   "pass": true,
+   "detail": "frozen at 92, resumed 93 -> 170"
+  },
+  "resumed_pixels_identical": {
+   "pass": true,
+   "detail": ""
+  },
+  "resize_recentres_the_picture": {
+   "pass": true,
+   "detail": "{'h': 537.0, 'w': 269.0, 'x': 585.0, 'y': 153.0} in [1440.0, 844.535888671875]"
+  },
+  "resized_screenshot_is_1440x900": {
+   "pass": true,
+   "detail": "(900, 1440, 3)"
+  },
+  "resized_picture_still_pixel_for_pixel": {
+   "pass": true,
+   "detail": ""
+  },
+  "restore_refits_back": {
+   "pass": true,
+   "detail": ""
+  }
+ },
+ "sha256": {
+  "01-launch.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "02-phone.png": "0a99210e56ab478e27e6371e2120d705500a371d06388da3636db5f8bf290137",
+  "03-hidden.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "04-resumed.png": "0a99210e56ab478e27e6371e2120d705500a371d06388da3636db5f8bf290137",
+  "05-resized.png": "0f98c658af8013e4cee94f9f8e5cec3651a4d07014bc26890990a62717d389cd",
+  "06-restored.png": "0a99210e56ab478e27e6371e2120d705500a371d06388da3636db5f8bf290137"
+ }
+}

@@ -108,6 +108,7 @@ func _initialize() -> void:
 	var root := get_root()
 	var shell: Control = Shell.create({"map": Atlas}).value
 	var out_dir := await _mount(shell, Vector2i(1920, 1080), "/tmp/atlas-playtest")
+	await create_timer(1.0).timeout  # the launch grow and fade of the Collection tab
 
 	# 1. launch: Collection active, the Map Tenant not created yet; draw calls of a white page
 	await _frames(3)
@@ -117,6 +118,7 @@ func _initialize() -> void:
 	# 2. click the Map tab: the atlas is created on first show, fills the page and draws
 	var st: Dictionary = _state(shell, "pre-map")
 	await _click(_center(shell, st.tabs[0].rect), "map tab")
+	await create_timer(0.45).timeout  # the page cross-fade
 	await _frames(8)
 	_state(shell, "map")
 	var a := _atlas(shell, "map-shown")
@@ -188,6 +190,7 @@ func _initialize() -> void:
 	# 11. click the Sketchbook tab: the Map page is frozen — no frames, no input, no rendering —
 	#     and wheel, drag and every key aimed at the hidden map change nothing
 	await _click(_center(shell, st.tabs[1].rect), "sketchbook tab")
+	await create_timer(0.45).timeout  # the freeze rule applies once the cross-fade has settled
 	await _frames(3)
 	_state(shell, "sketchbook")
 	_atlas(shell, "map-hidden")
@@ -202,8 +205,9 @@ func _initialize() -> void:
 	# 12. back to Map: it resumes with zoom, camera and window exactly as left
 	await _click(_center(shell, st.tabs[0].rect), "map tab (again)")
 	await _frames(3)
+	_atlas(shell, "map-resumed")  # it runs again from the moment its fade-in starts
+	await create_timer(0.45).timeout
 	_state(shell, "map-again")
-	_atlas(shell, "map-resumed")
 	await _frames(20)
 	_atlas(shell, "map-resumed-after-20-frames")
 	await _shot(out_dir, "11-resumed.png")

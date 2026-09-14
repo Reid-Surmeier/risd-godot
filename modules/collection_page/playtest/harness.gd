@@ -48,6 +48,7 @@ func _initialize() -> void:
 	var root := get_root()
 	var shell: Control = Shell.create({"collection": Page}).value
 	var out_dir := await _mount(shell, Vector2i(1920, 1080), "/tmp/collection_page-playtest")
+	await create_timer(1.0).timeout  # the launch grow and fade of the Collection tab; its Tenant exists after
 	var page: Control = shell.find_child("CollectionPage", true, false)
 	page.card_selected.connect(func(record: Dictionary) -> void:
 		_log.append({"t_ms": _ms(), "event": "signal", "signal": "card_selected", "id": record.id,
@@ -108,11 +109,13 @@ func _initialize() -> void:
 	var sh: Dictionary = _shell_state(shell, "pre-map")
 	var map_rect: Dictionary = sh.tabs[0].rect
 	await _click(_center(shell, Rect2(map_rect.x, map_rect.y, map_rect.w, map_rect.h)), "map tab")
+	await create_timer(0.45).timeout  # the page cross-fade, then the freeze rule
 	await _frames(2)
 	_shell_state(shell, "map")
 	await _shot(out_dir, "07-map.png")
 	var col_rect: Dictionary = sh.tabs[4].rect
 	await _click(_center(shell, Rect2(col_rect.x, col_rect.y, col_rect.w, col_rect.h)), "collection tab")
+	await create_timer(0.45).timeout
 	await _frames(2)
 	_shell_state(shell, "collection-again")
 	_page_state(page, "collection-again")
