@@ -5,7 +5,7 @@
       "count": 7,
       "event": "state",
       "label": "launch",
-      "t_ms": 1020,
+      "t_ms": 1030,
       "tabs": [
         {
           "frozen": true,
@@ -102,14 +102,14 @@
       "event": "player",
       "label": "launch",
       "ok": false,
-      "t_ms": 1020
+      "t_ms": 1030
     },
     {
       "active": 4,
       "count": 7,
       "event": "state",
       "label": "pre-video",
-      "t_ms": 1020,
+      "t_ms": 1030,
       "tabs": [
         {
           "frozen": true,
@@ -203,7 +203,7 @@
     },
     {
       "event": "click",
-      "t_ms": 1118,
+      "t_ms": 1120,
       "what": "video player tab",
       "x": 646.507202148438,
       "y": 1049.45458984375
@@ -213,7 +213,7 @@
       "count": 7,
       "event": "state",
       "label": "video",
-      "t_ms": 1632,
+      "t_ms": 1623,
       "tabs": [
         {
           "frozen": true,
@@ -397,8 +397,8 @@
         1006.0478515625
       ],
       "stream_length": 218.605333333333,
-      "stream_position": 0.519721,
-      "t_ms": 1632,
+      "stream_position": 0.514774666666667,
+      "t_ms": 1623,
       "thumbnail_count": 8,
       "ticks": 59,
       "tiles": [
@@ -509,7 +509,7 @@
     {
       "event": "screenshot",
       "file": "01-shown.png",
-      "t_ms": 1729
+      "t_ms": 1717
     },
     {
       "code": "",
@@ -553,7 +553,7 @@
         "seek_knob": {
           "h": 18.1982421875,
           "w": 17.0241088867188,
-          "x": 758.694458007812,
+          "x": 758.714721679688,
           "y": 599.885375976562
         },
         "timer": {
@@ -603,8 +603,8 @@
         1006.0478515625
       ],
       "stream_length": 218.605333333333,
-      "stream_position": 0.869285999999999,
-      "t_ms": 1985,
+      "stream_position": 0.872762333333334,
+      "t_ms": 1976,
       "thumbnail_count": 8,
       "ticks": 90,
       "tiles": [
@@ -715,11 +715,11 @@
     {
       "event": "screenshot",
       "file": "02-playing.png",
-      "t_ms": 2074
+      "t_ms": 2065
     },
     {
       "event": "click",
-      "t_ms": 2097,
+      "t_ms": 2088,
       "what": "tile 3",
       "x": 851.243774414062,
       "y": 866.988159179688
@@ -766,7 +766,7 @@
         "seek_knob": {
           "h": 18.1982421875,
           "w": 17.0241088867188,
-          "x": 757.904602050781,
+          "x": 757.924865722656,
           "y": 599.885375976562
         },
         "timer": {
@@ -816,8 +816,8 @@
         1006.0478515625
       ],
       "stream_length": 145.666666666667,
-      "stream_position": 0.009884,
-      "t_ms": 2123,
+      "stream_position": 0.017627,
+      "t_ms": 2114,
       "thumbnail_count": 8,
       "ticks": 96,
       "tiles": [
@@ -967,7 +967,7 @@
         "seek_knob": {
           "h": 18.1982421875,
           "w": 17.0241088867188,
-          "x": 758.248901367188,
+          "x": 758.289428710938,
           "y": 599.885375976562
         },
         "timer": {
@@ -1017,8 +1017,8 @@
         1006.0478515625
       ],
       "stream_length": 145.666666666667,
-      "stream_position": 0.260137666666667,
-      "t_ms": 2380,
+      "stream_position": 0.283704,
+      "t_ms": 2376,
       "thumbnail_count": 8,
       "ticks": 126,
       "tiles": [
@@ -1129,11 +1129,11 @@
     {
       "event": "screenshot",
       "file": "03-tile-3.png",
-      "t_ms": 2473
+      "t_ms": 2468
     },
     {
       "event": "click",
-      "t_ms": 2493,
+      "t_ms": 2489,
       "what": "play/pause",
       "x": 727.672119140625,
       "y": 607.223327636719
@@ -1180,7 +1180,7 @@
         "seek_knob": {
           "h": 18.1982421875,
           "w": 17.0241088867188,
-          "x": 758.289428710938,
+          "x": 758.329895019531,
           "y": 599.885375976562
         },
         "timer": {
@@ -1230,8 +1230,8 @@
         1006.0478515625
       ],
       "stream_length": 145.666666666667,
-      "stream_position": 0.379205,
-      "t_ms": 2511,
+      "stream_position": 0.392301,
+      "t_ms": 2506,
       "thumbnail_count": 8,
       "ticks": 131,
       "tiles": [
@@ -1342,7 +1342,7 @@
     {
       "event": "screenshot",
       "file": "04-paused.png",
-      "t_ms": 2604
+      "t_ms": 2598
     },
     {
       "code": "",
@@ -1386,7 +1386,7 @@
         "seek_knob": {
           "h": 18.1982421875,
           "w": 17.0241088867188,
-          "x": 758.289428710938,
+          "x": 758.329895019531,
           "y": 599.885375976562
         },
         "timer": {
@@ -1436,8 +1436,8 @@
         1006.0478515625
       ],
       "stream_length": 145.666666666667,
-      "stream_position": 0.379205,
-      "t_ms": 2777,
+      "stream_position": 0.392301,
+      "t_ms": 2773,
       "thumbnail_count": 8,
       "ticks": 152,
       "tiles": [
@@ -1548,11 +1548,11 @@
     {
       "event": "screenshot",
       "file": "05-paused-20.png",
-      "t_ms": 2870
+      "t_ms": 2866
     },
     {
       "event": "click",
-      "t_ms": 2891,
+      "t_ms": 2887,
       "what": "play/pause (again)",
       "x": 727.672119140625,
       "y": 607.223327636719
@@ -1599,7 +1599,7 @@
         "seek_knob": {
           "h": 18.1982421875,
           "w": 17.0241088867188,
-          "x": 758.451416015625,
+          "x": 758.4716796875,
           "y": 599.885375976562
         },
         "timer": {
@@ -1649,8 +1649,8 @@
         1006.0478515625
       ],
       "stream_length": 145.666666666667,
-      "stream_position": 0.401821,
-      "t_ms": 2910,
+      "stream_position": 0.413856333333333,
+      "t_ms": 2904,
       "thumbnail_count": 8,
       "ticks": 157,
       "tiles": [
@@ -1761,7 +1761,7 @@
     {
       "event": "drag",
       "from": [
-        766.963500976562,
+        766.983764648438,
         608.984497070312
       ],
       "relative_total": [
@@ -1769,9 +1769,9 @@
         0.0
       ],
       "steps": 5,
-      "t_ms": 2979,
+      "t_ms": 2971,
       "to": [
-        826.963500976562,
+        826.983764648438,
         608.984497070312
       ],
       "what": "drag the seek knob right"
@@ -1818,7 +1818,7 @@
         "seek_knob": {
           "h": 18.1982421875,
           "w": 17.0241088867188,
-          "x": 818.460632324219,
+          "x": 818.480895996094,
           "y": 599.885375976562
         },
         "timer": {
@@ -1868,8 +1868,8 @@
         1006.0478515625
       ],
       "stream_length": 145.666666666667,
-      "stream_position": 43.5594888888889,
-      "t_ms": 3007,
+      "stream_position": 43.5728518518519,
+      "t_ms": 2998,
       "thumbnail_count": 8,
       "ticks": 167,
       "tiles": [
@@ -1980,11 +1980,11 @@
     {
       "event": "screenshot",
       "file": "06-seeked.png",
-      "t_ms": 3139
+      "t_ms": 3131
     },
     {
       "event": "click",
-      "t_ms": 3160,
+      "t_ms": 3154,
       "what": "mute",
       "x": 1141.828125,
       "y": 608.3974609375
@@ -2031,7 +2031,7 @@
         "seek_knob": {
           "h": 18.1982421875,
           "w": 17.0241088867188,
-          "x": 818.683410644531,
+          "x": 818.703674316406,
           "y": 599.885375976562
         },
         "timer": {
@@ -2081,8 +2081,8 @@
         1006.0478515625
       ],
       "stream_length": 145.666666666667,
-      "stream_position": 43.7296117936508,
-      "t_ms": 3178,
+      "stream_position": 43.7453837407407,
+      "t_ms": 3172,
       "thumbnail_count": 8,
       "ticks": 172,
       "tiles": [
@@ -2201,7 +2201,7 @@
         0.0
       ],
       "steps": 5,
-      "t_ms": 3238,
+      "t_ms": 3240,
       "to": [
         1093.33642578125,
         607.516906738281
@@ -2250,7 +2250,7 @@
         "seek_knob": {
           "h": 18.1982421875,
           "w": 17.0241088867188,
-          "x": 818.804931640625,
+          "x": 818.845397949219,
           "y": 599.885375976562
         },
         "timer": {
@@ -2300,8 +2300,8 @@
         1006.0478515625
       ],
       "stream_length": 145.666666666667,
-      "stream_position": 43.8135294603175,
-      "t_ms": 3256,
+      "stream_position": 43.8371810740741,
+      "t_ms": 3260,
       "thumbnail_count": 8,
       "ticks": 181,
       "tiles": [
@@ -2411,7 +2411,7 @@
     },
     {
       "event": "click",
-      "t_ms": 3273,
+      "t_ms": 3279,
       "what": "fullscreen",
       "x": 1179.10510253906,
       "y": 608.103942871094
@@ -2458,7 +2458,7 @@
         "seek_knob": {
           "h": 18.1982421875,
           "w": 17.0241088867188,
-          "x": 818.865661621094,
+          "x": 818.906188964844,
           "y": 599.885375976562
         },
         "timer": {
@@ -2508,8 +2508,8 @@
         1006.0478515625
       ],
       "stream_length": 145.666666666667,
-      "stream_position": 43.8578984603175,
-      "t_ms": 3300,
+      "stream_position": 43.8866255185185,
+      "t_ms": 3309,
       "thumbnail_count": 8,
       "ticks": 186,
       "tiles": [
@@ -2620,7 +2620,7 @@
     {
       "event": "screenshot",
       "file": "07-fullscreen.png",
-      "t_ms": 3540
+      "t_ms": 3552
     },
     {
       "code": "",
@@ -2664,7 +2664,7 @@
         "seek_knob": {
           "h": 18.1982421875,
           "w": 17.0241088867188,
-          "x": 819.331481933594,
+          "x": 819.351745605469,
           "y": 599.885375976562
         },
         "timer": {
@@ -2714,8 +2714,8 @@
         1006.0478515625
       ],
       "stream_length": 145.666666666667,
-      "stream_position": 44.1865787936508,
-      "t_ms": 3732,
+      "stream_position": 44.2100124074074,
+      "t_ms": 3749,
       "thumbnail_count": 8,
       "ticks": 207,
       "tiles": [
@@ -2826,7 +2826,7 @@
     {
       "event": "key",
       "keycode": "F",
-      "t_ms": 3752,
+      "t_ms": 3767,
       "what": "F key"
     },
     {
@@ -2871,7 +2871,7 @@
         "seek_knob": {
           "h": 18.1982421875,
           "w": 17.0241088867188,
-          "x": 819.392272949219,
+          "x": 819.432739257812,
           "y": 599.885375976562
         },
         "timer": {
@@ -2921,8 +2921,8 @@
         1006.0478515625
       ],
       "stream_length": 145.666666666667,
-      "stream_position": 44.2328750899471,
-      "t_ms": 3780,
+      "stream_position": 44.2577938359789,
+      "t_ms": 3794,
       "thumbnail_count": 8,
       "ticks": 212,
       "tiles": [
@@ -3033,12 +3033,12 @@
     {
       "event": "screenshot",
       "file": "08-windowed.png",
-      "t_ms": 3913
+      "t_ms": 3926
     },
     {
       "event": "key",
       "keycode": "Space",
-      "t_ms": 3933,
+      "t_ms": 3946,
       "what": "Space key"
     },
     {
@@ -3083,7 +3083,7 @@
         "seek_knob": {
           "h": 18.1982421875,
           "w": 17.0241088867188,
-          "x": 819.412475585938,
+          "x": 819.453002929688,
           "y": 599.885375976562
         },
         "timer": {
@@ -3133,8 +3133,8 @@
         1006.0478515625
       ],
       "stream_length": 145.666666666667,
-      "stream_position": 44.2513936084656,
-      "t_ms": 3951,
+      "stream_position": 44.2768414550265,
+      "t_ms": 3963,
       "thumbnail_count": 8,
       "ticks": 217,
       "tiles": [
@@ -3245,7 +3245,7 @@
     {
       "event": "key",
       "keycode": "Space",
-      "t_ms": 3967,
+      "t_ms": 3981,
       "what": "Space key (again)"
     },
     {
@@ -3290,7 +3290,7 @@
         "seek_knob": {
           "h": 18.1982421875,
           "w": 17.0241088867188,
-          "x": 819.453002929688,
+          "x": 819.493530273438,
           "y": 599.885375976562
         },
         "timer": {
@@ -3340,8 +3340,8 @@
         1006.0478515625
       ],
       "stream_length": 145.666666666667,
-      "stream_position": 44.2762952751323,
-      "t_ms": 3984,
+      "stream_position": 44.3024611216932,
+      "t_ms": 3999,
       "thumbnail_count": 8,
       "ticks": 221,
       "tiles": [
@@ -3452,7 +3452,7 @@
     {
       "event": "key",
       "keycode": "Right",
-      "t_ms": 4007,
+      "t_ms": 4021,
       "what": "Right key"
     },
     {
@@ -3497,7 +3497,7 @@
         "seek_knob": {
           "h": 18.1982421875,
           "w": 17.0241088867188,
-          "x": 826.440246582031,
+          "x": 826.480773925781,
           "y": 599.885375976562
         },
         "timer": {
@@ -3547,8 +3547,8 @@
         1006.0478515625
       ],
       "stream_length": 145.666666666667,
-      "stream_position": 49.3012952751323,
-      "t_ms": 4025,
+      "stream_position": 49.3274611216932,
+      "t_ms": 4039,
       "thumbnail_count": 8,
       "ticks": 225,
       "tiles": [
@@ -3659,7 +3659,7 @@
     {
       "event": "key",
       "keycode": "2",
-      "t_ms": 4046,
+      "t_ms": 4059,
       "what": "2 key"
     },
     {
@@ -3754,8 +3754,8 @@
         1006.0478515625
       ],
       "stream_length": 3032.856,
-      "stream_position": 0.027118,
-      "t_ms": 4072,
+      "stream_position": 0.0274318181818182,
+      "t_ms": 4086,
       "thumbnail_count": 8,
       "ticks": 230,
       "tiles": [
@@ -3865,7 +3865,7 @@
     },
     {
       "event": "click",
-      "t_ms": 4090,
+      "t_ms": 4103,
       "what": "save",
       "x": 1154.44946289062,
       "y": 800.9462890625
@@ -3962,8 +3962,8 @@
         1006.0478515625
       ],
       "stream_length": 3032.856,
-      "stream_position": 0.0633008181818182,
-      "t_ms": 4108,
+      "stream_position": 0.0637954545454545,
+      "t_ms": 4121,
       "thumbnail_count": 8,
       "ticks": 234,
       "tiles": [
@@ -4082,7 +4082,7 @@
         -15.0
       ],
       "steps": 5,
-      "t_ms": 4171,
+      "t_ms": 4183,
       "to": [
         1016.05065917969,
         55.9631271362305
@@ -4181,8 +4181,8 @@
         1006.0478515625
       ],
       "stream_length": 3032.856,
-      "stream_position": 0.154326545454545,
-      "t_ms": 4197,
+      "stream_position": 0.154704545454545,
+      "t_ms": 4209,
       "thumbnail_count": 8,
       "ticks": 244,
       "tiles": [
@@ -4293,7 +4293,7 @@
     {
       "event": "screenshot",
       "file": "09-viewer-moved.png",
-      "t_ms": 4299
+      "t_ms": 4313
     },
     {
       "event": "drag",
@@ -4306,7 +4306,7 @@
         1200.0
       ],
       "steps": 6,
-      "t_ms": 4369,
+      "t_ms": 4383,
       "to": [
         2816.05078125,
         1255.96313476562
@@ -4405,8 +4405,8 @@
         1006.0478515625
       ],
       "stream_length": 3032.856,
-      "stream_position": 0.357118333333333,
-      "t_ms": 4393,
+      "stream_position": 0.365944666666667,
+      "t_ms": 4407,
       "thumbnail_count": 8,
       "ticks": 256,
       "tiles": [
@@ -4606,8 +4606,8 @@
         1006.0478515625
       ],
       "stream_length": 3032.856,
-      "stream_position": 0.357118333333333,
-      "t_ms": 4393,
+      "stream_position": 0.365944666666667,
+      "t_ms": 4407,
       "thumbnail_count": 8,
       "ticks": 256,
       "tiles": [
@@ -4718,11 +4718,11 @@
     {
       "event": "screenshot",
       "file": "10-before-hidden.png",
-      "t_ms": 4464
+      "t_ms": 4479
     },
     {
       "event": "click",
-      "t_ms": 4483,
+      "t_ms": 4498,
       "what": "map tab",
       "x": 208.306213378906,
       "y": 1049.45458984375
@@ -4732,7 +4732,7 @@
       "count": 7,
       "event": "state",
       "label": "map",
-      "t_ms": 4938,
+      "t_ms": 4954,
       "tabs": [
         {
           "frozen": false,
@@ -4916,10 +4916,10 @@
         1006.0478515625
       ],
       "stream_length": 3032.856,
-      "stream_position": 0.578995333333333,
-      "t_ms": 4939,
+      "stream_position": 0.589521333333333,
+      "t_ms": 4954,
       "thumbnail_count": 8,
-      "ticks": 275,
+      "ticks": 276,
       "tiles": [
         {
           "enabled": true,
@@ -5028,24 +5028,24 @@
     {
       "event": "key",
       "keycode": "Space",
-      "t_ms": 4952,
+      "t_ms": 4969,
       "what": "Space key while hidden"
     },
     {
       "event": "key",
       "keycode": "Right",
-      "t_ms": 4967,
+      "t_ms": 4983,
       "what": "Right key while hidden"
     },
     {
       "event": "key",
       "keycode": "3",
-      "t_ms": 4981,
+      "t_ms": 4997,
       "what": "3 key while hidden"
     },
     {
       "event": "click",
-      "t_ms": 4995,
+      "t_ms": 5012,
       "what": "where tile 4 was, while hidden",
       "x": 916.405151367188,
       "y": 866.988159179688
@@ -5142,10 +5142,10 @@
         1006.0478515625
       ],
       "stream_length": 3032.856,
-      "stream_position": 0.578995333333333,
-      "t_ms": 5200,
+      "stream_position": 0.589521333333333,
+      "t_ms": 5220,
       "thumbnail_count": 8,
-      "ticks": 275,
+      "ticks": 276,
       "tiles": [
         {
           "enabled": true,
@@ -5256,7 +5256,7 @@
       "count": 7,
       "event": "state",
       "label": "map-after-30-frames",
-      "t_ms": 5200,
+      "t_ms": 5220,
       "tabs": [
         {
           "frozen": false,
@@ -5351,11 +5351,11 @@
     {
       "event": "screenshot",
       "file": "11-hidden.png",
-      "t_ms": 5271
+      "t_ms": 5291
     },
     {
       "event": "click",
-      "t_ms": 5289,
+      "t_ms": 5309,
       "what": "video player tab (again)",
       "x": 646.507202148438,
       "y": 1049.45458984375
@@ -5365,7 +5365,7 @@
       "count": 7,
       "event": "state",
       "label": "video-again",
-      "t_ms": 5751,
+      "t_ms": 5776,
       "tabs": [
         {
           "frozen": true,
@@ -5549,10 +5549,10 @@
         1006.0478515625
       ],
       "stream_length": 3032.856,
-      "stream_position": 1.1186357979798,
-      "t_ms": 5751,
+      "stream_position": 1.12829988888889,
+      "t_ms": 5776,
       "thumbnail_count": 8,
-      "ticks": 335,
+      "ticks": 336,
       "tiles": [
         {
           "enabled": true,
@@ -5750,10 +5750,10 @@
         1006.0478515625
       ],
       "stream_length": 3032.856,
-      "stream_position": 1.34699388888889,
-      "t_ms": 5983,
+      "stream_position": 1.3595904040404,
+      "t_ms": 6007,
       "thumbnail_count": 8,
-      "ticks": 365,
+      "ticks": 366,
       "tiles": [
         {
           "enabled": true,
@@ -5862,14 +5862,14 @@
     {
       "event": "screenshot",
       "file": "12-resumed.png",
-      "t_ms": 6055
+      "t_ms": 6079
     },
     {
       "active": 3,
       "count": 7,
       "event": "state",
       "label": "resized",
-      "t_ms": 6091,
+      "t_ms": 6115,
       "tabs": [
         {
           "frozen": true,
@@ -6053,10 +6053,10 @@
         844.535888671875
       ],
       "stream_length": 3032.856,
-      "stream_position": 1.45996122222222,
-      "t_ms": 6091,
+      "stream_position": 1.47632388888889,
+      "t_ms": 6115,
       "thumbnail_count": 8,
-      "ticks": 370,
+      "ticks": 371,
       "tiles": [
         {
           "enabled": true,
@@ -6165,7 +6165,7 @@
     {
       "event": "screenshot",
       "file": "13-resized.png",
-      "t_ms": 6138
+      "t_ms": 6160
     },
     {
       "code": "",
@@ -6259,10 +6259,10 @@
         1006.0478515625
       ],
       "stream_length": 3032.856,
-      "stream_position": 1.55306288888889,
-      "t_ms": 6181,
+      "stream_position": 1.55965722222222,
+      "t_ms": 6204,
       "thumbnail_count": 8,
-      "ticks": 375,
+      "ticks": 376,
       "tiles": [
         {
           "enabled": true,

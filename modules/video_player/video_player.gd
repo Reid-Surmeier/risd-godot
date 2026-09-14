@@ -79,8 +79,10 @@ static func create(deps: Dictionary) -> Dictionary:
 	for v in VIDEOS:
 		if not FileAccess.file_exists(ROOT + "media/%s.ogv" % v.id):
 			return Errors.err(Errors.MEDIA_MISSING, ROOT + "media/%s.ogv" % v.id)
-	for path in ["assets/fly-through-v7.png", "assets/source-controls/manifest.json", "assets/seedance-motion/manifest.json",
-			"assets/fonts/LiberationSans-Regular.bytes", "assets/fonts/LiberationSans-Bold.bytes"]:
+	if not ResourceLoader.exists(ROOT + "assets/fly-through-v7.png"):  # an imported texture: only its .ctex is in an export
+		return Errors.err(Errors.ASSET_MISSING, ROOT + "assets/fly-through-v7.png")
+	for path in ["assets/source-controls/manifest.json", "assets/seedance-motion/manifest.json",
+			"assets/fonts/LiberationSans-Regular.bytes", "assets/fonts/LiberationSans-Bold.bytes"]:  # raw files, exported by the include filter
 		if not FileAccess.file_exists(ROOT + path):
 			return Errors.err(Errors.ASSET_MISSING, ROOT + path)
 	var t = load(ROOT + "video_player.gd").new()

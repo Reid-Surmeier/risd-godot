@@ -43,11 +43,11 @@
   },
   "first_video_autoplays_from_start": {
    "pass": true,
-   "detail": "1191767929 at 0.52/218.6"
+   "detail": "1191767929 at 0.51/218.6"
   },
   "position_advances_while_playing": {
    "pass": true,
-   "detail": "0.52 -> 0.87 over 31 ticks"
+   "detail": "0.51 -> 0.87 over 31 ticks"
   },
   "tile_click_lands_on_tile_3": {
    "pass": true,
@@ -55,11 +55,11 @@
   },
   "tile_3_plays_its_mapped_video_from_start": {
    "pass": true,
-   "detail": "1014865523 0.01 -> 0.26"
+   "detail": "1014865523 0.02 -> 0.28"
   },
   "video_body_pixels_change_between_positions": {
    "pass": true,
-   "detail": "mean abs diff 131.8"
+   "detail": "mean abs diff 131.7"
   },
   "pause_click_lands_on_play_control": {
    "pass": true,
@@ -67,7 +67,7 @@
   },
   "pause_holds_position": {
    "pass": true,
-   "detail": "0.379 -> 0.379 over 21 ticks"
+   "detail": "0.392 -> 0.392 over 21 ticks"
   },
   "video_body_pixels_hold_while_paused": {
    "pass": true,
@@ -79,7 +79,7 @@
   },
   "seek_drag_starts_on_the_knob": {
    "pass": true,
-   "detail": "from [766.963500976562, 608.984497070312] knob {'h': 18.1982421875, 'w': 17.0241088867188, 'x': 758.451416015625, 'y': 599.885375976562}"
+   "detail": "from [766.983764648438, 608.984497070312] knob {'h': 18.1982421875, 'w': 17.0241088867188, 'x': 758.4716796875, 'y': 599.885375976562}"
   },
   "seek_drag_moves_position_to_the_knob": {
    "pass": true,
@@ -111,7 +111,7 @@
   },
   "fullscreen_keeps_playing": {
    "pass": true,
-   "detail": "43.86 -> 44.19"
+   "detail": "43.89 -> 44.21"
   },
   "fullscreen_pixels_cover_the_page_under_the_strip": {
    "pass": true,
@@ -131,7 +131,7 @@
   },
   "right_seeks_five_seconds": {
    "pass": true,
-   "detail": "44.28 -> 49.30"
+   "detail": "44.30 -> 49.33"
   },
   "key_2_picks_the_second_tile": {
    "pass": true,
@@ -163,7 +163,7 @@
   },
   "hidden_page_ignores_keys_and_click": {
    "pass": true,
-   "detail": "ticks 275 -> 275, position 0.579 -> 0.579"
+   "detail": "ticks 276 -> 276, position 0.590 -> 0.590"
   },
   "hidden_page_shows_plain_white_map": {
    "pass": true,
@@ -171,7 +171,7 @@
   },
   "video_tab_again_resumes_playing": {
    "pass": true,
-   "detail": "0.58 -> 1.12 -> 1.35"
+   "detail": "0.59 -> 1.13 -> 1.36"
   },
   "resize_refits_viewer_to_smaller_page": {
    "pass": true,
@@ -185,12 +185,12 @@
  "sha256": {
   "01-shown.png": "8c58024f2a04402630c04c9796f0168884dff248fa399b2a588543d08ce0c608",
   "02-playing.png": "441d32e953eef154b046e5cb3ce2e8e5963668917b3c6b66d80d47a65681de4d",
-  "03-tile-3.png": "5fef53db589b051152394604f33ac17a8340a853d8f5206d96712d516e1845bb",
-  "04-paused.png": "cd0e223d3ec0a102cabe750d139964d8d9952c8557b410e8b0275921560bef42",
-  "05-paused-20.png": "9b912218596016cf456ba78dd6b80fe35574a9460fd34c99fb801ef943eeb22d",
+  "03-tile-3.png": "1934d1934bcc82dcf8ea1423b0f1af64942106f51d8789cf3a6d967912699284",
+  "04-paused.png": "ebc0546e4143cea518bac17f2393642ae98742c8670dfcd8b7e56fbce69773d7",
+  "05-paused-20.png": "a03667e23b3c44b40204fc46496cfae66a76a32abbb12843157d31361263e2c2",
   "06-seeked.png": "ed8a15c882fae24aaf6e83865ea89608a3d885e57ec5b4d9dcfe72d1e1cb363c",
-  "07-fullscreen.png": "81ffc46de5c25e114562e1f602bd6ab1dcc905c5fd4246ebf5cc3c4760d986f3",
-  "08-windowed.png": "98125143eb9c7f08c31c313139a4109408db337a3eec1ed39159d5d4eca8d19b",
+  "07-fullscreen.png": "e8d4987068325e261eaa5009a868f9766a77a4cce13a4ade00b169375d84f848",
+  "08-windowed.png": "d0021d1ad293326b2536b46faaa6fd813699d94eb214071ef6f2048c06b30107",
   "09-viewer-moved.png": "b77923c7c7c9c60d5033e27877feca9eaa6248c202e7bbb4306035aaaad3a717",
   "10-before-hidden.png": "07d85fc68e620a3c6174d4ac40c677886a31eb2fd112fac526dc109bb7208cbc",
   "11-hidden.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
