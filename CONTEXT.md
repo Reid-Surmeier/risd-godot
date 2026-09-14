@@ -47,3 +47,15 @@ The vocabulary of this repository. Module terms first, then the domain's own. Te
 
 - "Animation" is not a term here: a moving Icon is a conformed Motion Pass. Say which.
 - "Asset" is not a term here: say Icon, or say the file.
+
+## The Collection Browser shell _(new, map #23)_
+
+**Shell**: the tab strip and the page area beneath it; the one window the game runs in. _Avoid_: app frame, container.
+
+**Tab**: one entry in the strip; it owns exactly one Page. The five fixed Tabs at launch are Map, Sketchbook, 3D Viewer, Video Player, Collection. _Avoid_: screen, view.
+
+**Page**: the surface a Tab shows in the page area; built lazily on first open, kept alive while the game runs. _Avoid_: scene, panel.
+
+**Tenant**: the module that lives in a Page (the Pixel Atlas is the Map Tab's Tenant). A Tenant may own draggable windows inside its Page; the Page is that Tenant's desktop. _Avoid_: plugin, embed, widget.
+
+**Page seam**: the interface every Tenant implements so the Shell can create, show, hide, resize and query it; the only way Shell and Tenant talk. _Avoid_: API, host contract.
