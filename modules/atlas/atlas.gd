@@ -15,7 +15,6 @@ var close_font: FontFile
 var close_layer := Node2D.new()
 var close_grid: Dictionary = {}
 var close_draw: Array = []
-var close_city_count := 0
 var visible_close_cities := 0
 var geography := Node2D.new()
 var geography_tiles: Dictionary = {}
@@ -31,7 +30,6 @@ var sheet_button: Button  # built by _build_ui (the prototype made a spare Butto
 var hud := HBoxContainer.new()
 var detail_alpha := 0.0
 var dragging := false
-var touches: Dictionary = {}
 var selected := "europe"
 var mode := "atlas"
 var last_position := Vector2.ZERO
@@ -47,14 +45,11 @@ var visible_labels := 0
 var shown_cities: Array = []
 var overview_badges := Node2D.new()
 var overview_icons: Array = []
-var visible_world_badges := 0
 var city_groups: Array = []
 var badges: Array = []
-var orphan_dots := 0
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	if atlas.is_empty(): atlas = JSON.parse_string(FileAccess.get_file_as_string(ROOT + "atlas.json"))
 	add_child(world_root)
 	add_child(geography)
 	var terrain_material := ShaderMaterial.new()
@@ -71,7 +66,6 @@ func _ready() -> void:
 		var key := Vector2i(floori(city.at.x / 64), floori(city.at.y / 64))
 		if not close_grid.has(key): close_grid[key] = []
 		close_grid[key].append(city)
-		close_city_count += 1
 	add_child(sheet)
 	sheet.visible = false
 	for copy in [-2, -1, 0, 1, 2]:
@@ -281,27 +275,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event is InputEventMouseMotion and dragging:
 		camera.position -= event.relative / camera.zoom.x
 		_constrain()
-	elif event is InputEventScreenTouch:
-		if event.pressed: touches[event.index] = event.position
-		else: touches.erase(event.index)
-	elif event is InputEventScreenDrag:
-		if touches.size() == 2 and touches.has(event.index):
-			var keys := touches.keys()
-			var old_center: Vector2 = (touches[keys[0]] + touches[keys[1]]) / 2
-			var old_distance: float = touches[keys[0]].distance_to(touches[keys[1]])
-			touches[event.index] = event.position
-			var center: Vector2 = (touches[keys[0]] + touches[keys[1]]) / 2
-			var distance: float = touches[keys[0]].distance_to(touches[keys[1]])
-			if old_distance > 2: _zoom_at(distance / old_distance, old_center)
-			camera.position -= (center - old_center) / camera.zoom.x
-		else:
-			touches[event.index] = event.position
-			camera.position -= event.relative / camera.zoom.x
-		_constrain()
-	elif event is InputEventMagnifyGesture: _zoom_at(event.factor, event.position)
-	elif event is InputEventPanGesture:
-		camera.position += event.delta * 20 / camera.zoom.x
-		_constrain()
 	elif event is InputEventKey and event.pressed:
 		match event.keycode:
 			KEY_HOME, KEY_ESCAPE: _reset()
@@ -313,6 +286,19 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_DOWN: camera.position.y += 100 / camera.zoom.x
 			KEY_F: _toggle_sheet()
 		_constrain()
+
+## The world copy of `point` nearest the camera (the atlas wraps east-west).
+func _wrap_x(point: Vector2) -> Vector2:
+	point.x = camera.position.x + fposmod(point.x - camera.position.x + WIDTH / 2, WIDTH) - WIDTH / 2
+	return point
+
+func _to_screen(point: Vector2) -> Vector2:
+	return (point - camera.position) * camera.zoom.x + _viewport_size() / 2
+
+func _collides(box: Rect2, occupied: Array[Rect2]) -> bool:
+	for previous in occupied:
+		if box.intersects(previous): return true
+	return false
 
 func _city_scale() -> float:
 	return 0.65 if camera.zoom.x < 0.65 else 1.0 + smoothstep(2.0, 80.0, camera.zoom.x)
@@ -328,14 +314,12 @@ func _layout_annotations() -> void:
 	visible_labels = 0
 	shown_cities.clear()
 	for item in annotations: item.sprite.visible = false
-	visible_world_badges = 0
 	# Overview numbers keep their original pixels and a readable 22px screen height.
 	for badge in overview_icons:
 		badge.sprite.visible = false
 		if overview_badges.modulate.a <= 0: continue
-		var point: Vector2 = badge.at
-		point.x = camera.position.x + fposmod(point.x - camera.position.x + WIDTH / 2, WIDTH) - WIDTH / 2
-		var screen: Vector2 = (point - camera.position) * camera.zoom.x + _viewport_size() / 2
+		var point := _wrap_x(badge.at)
+		var screen := _to_screen(point)
 		var badge_scale: float = 22.0 / badge.size.y
 		var box := Rect2(screen - badge.size * badge_scale / 2, badge.size * badge_scale)
 		if not view.encloses(box): continue
@@ -343,23 +327,18 @@ func _layout_annotations() -> void:
 		badge.sprite.scale = Vector2.ONE * badge_scale / camera.zoom.x
 		badge.sprite.visible = true
 		occupied.append(box.grow(3))
-		visible_world_badges += 1
 	# Accept a complete dot/name pair as one unit, including screen-edge clipping.
 	for group in city_groups:
 		var dot: Dictionary = group.dot
 		if camera.zoom.x < dot.min_zoom: continue
-		var point: Vector2 = dot.at.lerp(dot.detail_at, terrain_detail)
-		point.x = camera.position.x + fposmod(point.x - camera.position.x + WIDTH / 2, WIDTH) - WIDTH / 2
-		var screen: Vector2 = (point - camera.position) * camera.zoom.x + _viewport_size() / 2
+		var point := _wrap_x(dot.at.lerp(dot.detail_at, terrain_detail))
+		var screen := _to_screen(point)
 		var box := Rect2(screen - Vector2(6, 6) * label_scale, Vector2(12, 12) * label_scale)
 		for label in group.labels:
 			box = box.merge(Rect2(screen + (label.offset - label.size / 2) * label_scale, label.size * label_scale))
 		if not view.encloses(box): continue
 		var padded := box.grow(18 if camera.zoom.x < 0.65 else 12)
-		var collides := false
-		for previous in occupied:
-			if padded.intersects(previous): collides = true; break
-		if collides: continue
+		if _collides(padded, occupied): continue
 		occupied.append(padded)
 		dot.sprite.position = point
 		dot.sprite.scale = Vector2.ONE * dot.scale * label_scale / camera.zoom.x
@@ -375,27 +354,16 @@ func _layout_annotations() -> void:
 	# Regional badges remain intact, outside accepted dot/name pairs.
 	if camera.zoom.x >= 0.65 and overview_badges.modulate.a <= 0:
 		for badge in badges:
-			var point: Vector2 = badge.at
-			point.x = camera.position.x + fposmod(point.x - camera.position.x + WIDTH / 2, WIDTH) - WIDTH / 2
-			var screen: Vector2 = (point - camera.position) * camera.zoom.x + _viewport_size() / 2
-			var box := Rect2(screen - badge.size / 2, badge.size).grow(3)
+			var point := _wrap_x(badge.at)
+			var box := Rect2(_to_screen(point) - badge.size / 2, badge.size).grow(3)
 			if not view.encloses(box): continue
-			var collides := false
-			for previous in occupied:
-				if box.intersects(previous): collides = true; break
-			if collides: continue
+			if _collides(box, occupied): continue
 			occupied.append(box)
 			badge.sprite.position = point
 			badge.sprite.scale = Vector2.ONE / camera.zoom.x
 			badge.sprite.visible = true
 			visible_annotations += 1
 	visible_annotations += visible_cities + visible_labels
-	orphan_dots = 0
-	for group in city_groups:
-		var paired := true
-		for label in group.labels:
-			if label.sprite.visible != group.dot.sprite.visible: paired = false
-		if not paired: orphan_dots += 1
 
 func _layout_close_cities(view: Rect2, occupied: Array[Rect2]) -> void:
 	close_draw.clear()
@@ -413,18 +381,14 @@ func _layout_close_cities(view: Rect2, occupied: Array[Rect2]) -> void:
 				if camera.zoom.x >= city.min_zoom: candidates.append(city)
 	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return a.population > b.population)
 	for city in candidates:
-		var point: Vector2 = city.at
-		point.x = camera.position.x + fposmod(point.x - camera.position.x + WIDTH / 2, WIDTH) - WIDTH / 2
-		var screen: Vector2 = (point - camera.position) * camera.zoom.x + _viewport_size() / 2
+		var point := _wrap_x(city.at)
+		var screen := _to_screen(point)
 		if not view.has_point(screen): continue
 		var size := close_font.get_string_size(city.name, HORIZONTAL_ALIGNMENT_LEFT, -1, CLOSE_FONT_SIZE)
 		var box := Rect2(screen - Vector2(5, 5) * label_scale, Vector2(10, 10) * label_scale).merge(Rect2(screen + Vector2(9, 5 - close_font.get_ascent(CLOSE_FONT_SIZE)) * label_scale, size * label_scale))
 		if not view.encloses(box): continue
 		var padded := box.grow(60)
-		var collides := false
-		for previous in occupied:
-			if padded.intersects(previous): collides = true; break
-		if collides: continue
+		if _collides(padded, occupied): continue
 		occupied.append(padded)
 		close_draw.append({"at": point, "name": city.name})
 		shown_cities.append({"id": "geonames" + str(city.id), "name": city.name, "at": [point.x, point.y], "screen": [screen.x, screen.y], "labels": 1})
@@ -471,9 +435,7 @@ func _process(_delta: float) -> void:
 	if mode == "atlas":
 		var distance := INF
 		for region in atlas.regions:
-			var point := Vector2(region.focus[0], region.focus[1])
-			point.x = camera.position.x + fposmod(point.x - camera.position.x + WIDTH / 2, WIDTH) - WIDTH / 2
-			var d := camera.position.distance_squared_to(point)
+			var d := camera.position.distance_squared_to(_wrap_x(Vector2(region.focus[0], region.focus[1])))
 			if d < distance:
 				distance = d
 				selected = region.id
@@ -490,5 +452,13 @@ func snapshot() -> Dictionary:
 		controls[name] = [rect.position.x, rect.position.y, rect.size.x, rect.size.y]
 	var pick := picker.get_global_rect()
 	controls["regions"] = [pick.position.x, pick.position.y, pick.size.x, pick.size.y]
-	var state := {"mode": mode, "region": selected, "zoom": camera.zoom.x, "zoom_ratio": camera.zoom.x / _fit_zoom(), "position": [camera.position.x, camera.position.y], "detail_alpha": detail_alpha, "visible_annotations": visible_annotations, "visible_world_badges": visible_world_badges, "world_badge_alpha": overview_badges.modulate.a, "world_badge_screen_height": 22, "visible_cities": visible_cities, "visible_close_cities": visible_close_cities, "close_city_count": close_city_count, "city_symbol_scale": _city_scale(), "visible_labels": visible_labels, "shown_cities": shown_cities, "orphan_dots": orphan_dots, "south_edge": camera.position.y + _viewport_size().y / (2.0 * camera.zoom.x), "terrain_detail": terrain_detail, "terrain_tiles": geography_tiles.size(), "south_limit": SOUTH_LIMIT, "vertical_pan_locked": _viewport_size().y / camera.zoom.x >= SOUTH_LIMIT - 0.01, "zoom_min": _fit_zoom(), "zoom_max": MAX_ZOOM, "world_size": [WIDTH, HEIGHT], "controls": controls, "viewport": [_viewport_size().x, _viewport_size().y], "popup": {"visible": picker.get_popup().visible, "position": [picker.get_popup().position.x, picker.get_popup().position.y], "size": [picker.get_popup().size.x, picker.get_popup().size.y]}, "touches": touches.size(), "fps": Engine.get_frames_per_second()}
-	return state
+	var popup := picker.get_popup()
+	return {"mode": mode, "region": selected, "zoom": camera.zoom.x, "zoom_ratio": camera.zoom.x / _fit_zoom(),
+			"position": [camera.position.x, camera.position.y], "zoom_min": _fit_zoom(), "zoom_max": MAX_ZOOM,
+			"viewport": [_viewport_size().x, _viewport_size().y],
+			"vertical_pan_locked": _viewport_size().y / camera.zoom.x >= SOUTH_LIMIT - 0.01,
+			"visible_annotations": visible_annotations, "visible_cities": visible_cities,
+			"visible_close_cities": visible_close_cities, "visible_labels": visible_labels,
+			"shown_cities": shown_cities, "terrain_tiles": geography_tiles.size(), "controls": controls,
+			"popup": {"visible": popup.visible, "position": [popup.position.x, popup.position.y],
+					"size": [popup.size.x, popup.size.y]}}

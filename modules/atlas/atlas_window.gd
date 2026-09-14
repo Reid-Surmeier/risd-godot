@@ -35,7 +35,6 @@ var action := ""
 var edges := Vector2i.ZERO
 var start_pointer := Vector2.ZERO
 var start_rect := Rect2()
-var active_pointer := -2
 
 
 static func create(deps: Dictionary) -> Dictionary:
@@ -44,9 +43,8 @@ static func create(deps: Dictionary) -> Dictionary:
 	var atlas = JSON.parse_string(FileAccess.get_file_as_string(ROOT + "atlas.json"))
 	if not (atlas is Dictionary and atlas.has("regions")):
 		return Errors.err(Errors.ASSET_MISSING, ROOT + "atlas.json (unreadable)")
-	var missing := _missing_asset(atlas)
-	if missing != "":
-		return Errors.err(Errors.ASSET_MISSING, missing)
+	if not FileAccess.file_exists(ROOT + "close-cities.json"):
+		return Errors.err(Errors.ASSET_MISSING, ROOT + "close-cities.json")
 	var t = load(ROOT + "atlas_window.gd").new()
 	t.key = deps.get("key", "")
 	t.name = "Atlas"
@@ -55,24 +53,6 @@ static func create(deps: Dictionary) -> Dictionary:
 	t.map.atlas = atlas
 	t.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	return Errors.ok(t)
-
-
-## Every file atlas.gd and this script load, checked before anything is built.
-static func _missing_asset(atlas: Dictionary) -> String:
-	if not FileAccess.file_exists(ROOT + "close-cities.json"):
-		return ROOT + "close-cities.json"
-	var needed := ["geography.gdshader", "fonts/PixelMplus12-Regular.ttf", "assets/window-frame.png",
-			"assets/terrain.png", "assets/world-badges.png"]
-	for region in atlas.regions:
-		for suffix in [".png", "-labels.png", "-annotations.png"]:
-			needed.append("assets/" + region.id + suffix)
-	for col in 8:
-		for row in 6:
-			needed.append("assets/geography/%d-%d-field.png" % [col, row])
-	for path in needed:
-		if not ResourceLoader.exists(ROOT + path):
-			return ROOT + path
-	return ""
 
 
 func _ready() -> void:
@@ -146,18 +126,14 @@ func _collapse() -> void:
 	_layout()
 
 
-## Title-bar drag and edge resize of the frame. A press on the map body is left for the
-## SubViewportContainer to forward to the map (pan, zoom); the wheel always is.
+## Title-bar drag and edge resize of the frame, by the mouse (a desktop-only Tenant). A press on
+## the map body is left for the SubViewportContainer to forward to the map (pan, zoom); the wheel
+## and the keys always are.
 func _input(event: InputEvent) -> void:
 	inputs += 1
 	if event is InputEventMouse and event.device == -1:
 		return
 	if event is InputEventMouseButton and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
-		return
-	var pointer_id := -2
-	if event is InputEventScreenTouch or event is InputEventScreenDrag:
-		pointer_id = event.index
-	if not action.is_empty() and pointer_id != active_pointer:
 		return
 	var pointer := Vector2.ZERO
 	var pressed := false
@@ -168,13 +144,6 @@ func _input(event: InputEvent) -> void:
 		pressed = event.pressed
 		released = not event.pressed
 	elif event is InputEventMouseMotion:
-		pointer = make_canvas_position_local(event.position)
-		motion = true
-	elif event is InputEventScreenTouch:
-		pointer = make_canvas_position_local(event.position)
-		pressed = event.pressed
-		released = not event.pressed
-	elif event is InputEventScreenDrag:
 		pointer = make_canvas_position_local(event.position)
 		motion = true
 	else:
@@ -193,7 +162,6 @@ func _input(event: InputEvent) -> void:
 			action = "drag"
 		else:
 			return
-		active_pointer = pointer_id
 		start_pointer = pointer
 		start_rect = rect
 	elif released:
