@@ -1,0 +1,155 @@
+{
+ "pass": true,
+ "checks": {
+  "screenshots_present": {
+   "pass": true,
+   "detail": "['01-map.png', '02-zoomed.png', '03-panned.png', '04-window-moved.png', '05-hidden.png', '06-resumed.png', '07-resized.png', '08-restored.png']"
+  },
+  "map_screenshot_is_1920x1080": {
+   "pass": true,
+   "detail": "(1080, 1920, 3)"
+  },
+  "no_map_tenant_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "click_map_creates_and_shows_atlas": {
+   "pass": true,
+   "detail": "{'frozen': False, 'key': 'map', 'page_visible': True, 'rect': {'h': 56.4976081848145, 'w': 201.186614990234, 'x': 119.88516998291, 'y': 15.1578950881958}, 'tenant': 'ok'}"
+  },
+  "tenant_fills_page_area": {
+   "pass": true,
+   "detail": "[1920.0, 1006.0478515625]"
+  },
+  "window_fits_page_centred": {
+   "pass": true,
+   "detail": "{'h': 958.0, 'w': 1163.0, 'x': 379.0, 'y': 24.0}"
+  },
+  "chrome_scale_from_frame_width": {
+   "pass": true,
+   "detail": "0.674593967517401"
+  },
+  "map_body_inside_frame_below_bar": {
+   "pass": true,
+   "detail": "map {'h': 866.0, 'w': 1114.0, 'x': 403.0, 'y': 160.9521484375} frame {'h': 958.0, 'w': 1163.0, 'x': 379.0, 'y': 97.9521560668945} viewport [1114.0, 866.0]"
+  },
+  "atlas_opens_on_world_view": {
+   "pass": true,
+   "detail": "zoom 0.320740729570389 min 0.320740740740741"
+  },
+  "wheel_lands_inside_map": {
+   "pass": true,
+   "detail": ""
+  },
+  "wheel_zooms_in_at_centre": {
+   "pass": true,
+   "detail": "zoom 0.3207 -> 0.5270 (x1.643), position [2240.0, 1350.0] -> [2240.0, 1350.0]"
+  },
+  "zoom_unlocks_vertical_pan": {
+   "pass": true,
+   "detail": ""
+  },
+  "drag_pans_camera_by_drag_over_zoom": {
+   "pass": true,
+   "detail": "expected [2543.6, 1577.7], got [2543.6, 1577.7]"
+  },
+  "title_drag_starts_on_title_bar": {
+   "pass": true,
+   "detail": "from [960.5, 138.427795410156] frame {'h': 958.0, 'w': 1163.0, 'x': 379.0, 'y': 97.9521560668945}"
+  },
+  "title_drag_moves_window": {
+   "pass": true,
+   "detail": "{'h': 958.0, 'w': 1163.0, 'x': 379.0, 'y': 24.0} -> {'h': 958.0, 'w': 1163.0, 'x': 449.0, 'y': 9.0} by [70.0, -15.0]"
+  },
+  "still_on_map_tab_after_window_drag": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_map_page_frozen": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_tenant_process_stops": {
+   "pass": true,
+   "detail": "ticks 42 -> 42 over 20 frames"
+  },
+  "hidden_tenant_gets_no_input": {
+   "pass": true,
+   "detail": "inputs 21 -> 21"
+  },
+  "hidden_events_change_nothing": {
+   "pass": true,
+   "detail": "0.526987314224243 [2543.6123046875, 1577.70947265625] {'h': 958.0, 'w': 1163.0, 'x': 449.0, 'y': 9.0}"
+  },
+  "hidden_subviewport_update_disabled": {
+   "pass": true,
+   "detail": "modes shown 4 hidden 0"
+  },
+  "hidden_subviewport_renders_nothing": {
+   "pass": true,
+   "detail": "draw calls: white page 38, map shown 62, map hidden 38"
+  },
+  "map_resumes_with_state_intact": {
+   "pass": true,
+   "detail": "ticks frozen 42, resumed 46 -> 66"
+  },
+  "resumed_subviewport_updates_again": {
+   "pass": true,
+   "detail": ""
+  },
+  "resize_refits_tenant_and_window": {
+   "pass": true,
+   "detail": "tenant [1440.0, 844.535888671875], frame {'h': 797.0, 'w': 967.0, 'x': 237.0, 'y': 24.0}"
+  },
+  "resized_screenshot_is_1440x900": {
+   "pass": true,
+   "detail": "(900, 1440, 3)"
+  },
+  "restore_refits_back": {
+   "pass": true,
+   "detail": ""
+  },
+  "map_body_shows_sea_and_land": {
+   "pass": true,
+   "detail": "cyan 577667 pink 292736 of 956820"
+  },
+  "frame_title_bar_drawn": {
+   "pass": true,
+   "detail": "dark px 1541"
+  },
+  "page_outside_window_is_white": {
+   "pass": true,
+   "detail": "mean 255.00"
+  },
+  "zoom_changes_map_pixels": {
+   "pass": true,
+   "detail": ""
+  },
+  "pan_changes_map_pixels": {
+   "pass": true,
+   "detail": ""
+  },
+  "window_drag_changes_page_pixels": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_page_shows_plain_white_sketchbook": {
+   "pass": true,
+   "detail": "mean 255.00"
+  },
+  "resumed_pixels_identical_to_before_hiding": {
+   "pass": true,
+   "detail": "mean abs diff 0.000"
+  }
+ },
+ "sha256": {
+  "01-map.png": "69690bdb77d46d46e519d726c26ec7e8db6eefb0e5636b3b8b83f54d064b2d6b",
+  "02-zoomed.png": "cd450aa6f46ae54a4254d7fef47c16be4cdc29d9a40d279d11d2302ee394d726",
+  "03-panned.png": "e0f47a549ef5de1fc0f22f814b59a6dd4a7638dc037bafaab706d2af7aaf0881",
+  "04-window-moved.png": "5b8396b1b4601b92d2dd4cd7bead8ae6edacecfbb417928a8113cea9004c76ab",
+  "05-hidden.png": "ff51b658c7d814986df9a460716cd429394ea858cf308db6b7cf0a4401be0a8e",
+  "06-resumed.png": "5b8396b1b4601b92d2dd4cd7bead8ae6edacecfbb417928a8113cea9004c76ab",
+  "07-resized.png": "fd1765201f5fdbab2b3eaafb34c8af1b7d01b4e747c432e517ce56d1146d4a5d",
+  "08-restored.png": "e0f47a549ef5de1fc0f22f814b59a6dd4a7638dc037bafaab706d2af7aaf0881"
+ }
+}
