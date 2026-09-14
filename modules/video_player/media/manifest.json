@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "what": "The five RISD Museum videos the Video Player plays: the 480-wide / 24 fps preview set is checked in here; the 1280x720 / 30 fps originals (410 MB) stay out of Git under runs/ (gitignored) and are verified by hash. prepare.py rebuilds the previews from the originals and checks either set.",
+  "rights": "RISD Museum material, owner-authorized downloads from Vimeo (issue #18); the rights record is pending on ticket #35.",
+  "originals": {
+    "dir": "runs/issue-18-vimeo-media/prepared",
+    "record": "docs/evidence/video-player-usability/media-provenance.json on branch Reid-Surmeier/issue-20-video-player-usability @ f2097ff",
+    "toolchain": {
+      "ffmpeg": "ffmpeg version N-126335-gb32f8d1c23-20260830 Copyright (c) 2000-2026 the FFmpeg developers",
+      "godot": "4.7.2.stable.official.ed1daf0bf"
+    }
+  },
+  "preview": {
+    "ffmpeg_arguments": [
+      "-i",
+      "<original>",
+      "-vf",
+      "scale=480:-2,fps=24",
+      "-c:v",
+      "libtheora",
+      "-q:v",
+      "3",
+      "-c:a",
+      "libvorbis",
+      "-q:a",
+      "1",
+      "-ac",
+      "2",
+      "-f",
+      "ogg",
+      "<preview>"
+    ],
+    "tool": "ffmpeg N-126335-gb32f8d1c23-20260830 (the prototype's build-web.sh, run 2026-09-08)",
+    "note": "another ffmpeg build encodes different bytes; prepare.py reports the hashes it produced against the ones recorded here"
+  },
+  "videos": [
+    {
+      "id": "1191767929",
+      "tile": 1,
+      "title": "The Observer",
+      "exact_vimeo_title": "The Observer",
+      "vimeo_url": "https://vimeo.com/1191767929",
+      "source_sha256": "6ae5047fe7ddbbd6a2eba9f8cf0d19b527d12d04b8d326a6b7d28e2aae4113a2",
+      "original": {
+        "path": "runs/issue-18-vimeo-media/prepared/1191767929.ogv",
+        "sha256": "b672830e2a9e03465c562dcb8c192746c01daf32cfaeebcfba02c8d1ca4acc5f",
+        "bytes": 45488769,
+        "width": 1280,
+        "height": 720
+      },
+      "preview": {
+        "file": "1191767929.ogv",
+        "sha256": "a01b6cc65ffdba7b49163d94d55fdbcd8ad3c0aec1c99e107bfc069eb16fd122",
+        "bytes": 5840695,
+        "width": 480,
+        "height": 270,
+        "fps": "24/1",
+        "duration_seconds": 218.605
+      }
+    },
+    {
+      "id": "1187745268",
+      "tile": 2,
+      "title": "Inside the Exhibition: Indigenous Artists Honor the Seal",
+      "exact_vimeo_title": "Inside the Exhibition, Natchiq _ Onkeehq _ Isuwiq – Indigenous Artists Honor the Seal",
+      "vimeo_url": "https://vimeo.com/1187745268",
+      "source_sha256": "6c4deeed3c4d707935b8d7d8629bf8ec95cb0260d1e44b1823c620a44a70a48a",
+      "original": {
+        "path": "runs/issue-18-vimeo-media/prepared/1187745268.ogv",
+        "sha256": "d9b1b6271eca62f3dc0afda60975da26623316a7bde1359f6af59afa63911a73",
+        "bytes": 147191605,
+        "width": 1280,
+        "height": 720
+      },
+      "preview": {
+        "file": "1187745268.ogv",
+        "sha256": "4c0d625da928dedba63dc5da4ba2f8145a9e426af31853853190eaeff63aec13",
+        "bytes": 67293809,
+        "width": 480,
+        "height": 270,
+        "fps": "24/1",
+        "duration_seconds": 3032.856
+      }
+    },
+    {
+      "id": "1014865523",
+      "tile": 3,
+      "title": "A Look Into Our Collection’s Polaroids by Andy Warhol",
+      "exact_vimeo_title": "A Look Into Our Collection’s Polaroid Photographs by Andy Warhol",
+      "vimeo_url": "https://vimeo.com/1014865523",
+      "source_sha256": "14f0f11efc53e08a2d44010219881eb47ed9f53c7ed210c98fc49ff436ad47cd",
+      "original": {
+        "path": "runs/issue-18-vimeo-media/prepared/1014865523.ogv",
+        "sha256": "a824e34fe775b9e638ae52680a3b99dec8a8f6cf8279e50751ee8a229055b68c",
+        "bytes": 54830766,
+        "width": 1366,
+        "height": 694
+      },
+      "preview": {
+        "file": "1014865523.ogv",
+        "sha256": "40daa4b171ded43972ca9a5777e3ca01a4cf60336ce9fffb76774cd592b7fe03",
+        "bytes": 5343770,
+        "width": 480,
+        "height": 244,
+        "fps": "24/1",
+        "duration_seconds": 145.667
+      }
+    },
+    {
+      "id": "1009870521",
+      "tile": 4,
+      "title": "The Making of Wallpaper",
+      "exact_vimeo_title": "The Making of Wallpaper",
+      "vimeo_url": "https://vimeo.com/1009870521",
+      "source_sha256": "b08ceb62e5dae0c9103e8b10f87645eaa36934275d80cdfb750292ce8a77660b",
+      "original": {
+        "path": "runs/issue-18-vimeo-media/prepared/1009870521.ogv",
+        "sha256": "e5d392f7ca1be302c6fca0f56f3dc033de8b6d952e9500ee388d810abb7ccf89",
+        "bytes": 39456162,
+        "width": 1280,
+        "height": 720
+      },
+      "preview": {
+        "file": "1009870521.ogv",
+        "sha256": "fa9cb65d9e3e921b3e962a768f28b2264a9d4b81965bf3f3343d6a25044ea14e",
+        "bytes": 5281914,
+        "width": 480,
+        "height": 270,
+        "fps": "24/1",
+        "duration_seconds": 197.784
+      }
+    },
+    {
+      "id": "1008943970",
+      "tile": 5,
+      "title": "Short Cuts: Sháńdíín Sháńdíín on Diné Textiles",
+      "exact_vimeo_title": "Short Cuts Sháńdíín Sháńdíín on Diné textiles",
+      "vimeo_url": "https://vimeo.com/1008943970",
+      "source_sha256": "c1d35f77e1ef0b424f597dc5c8d72c86f6d3406c3f5de37c113b191f9b5d5660",
+      "original": {
+        "path": "runs/issue-18-vimeo-media/prepared/1008943970.ogv",
+        "sha256": "ef30b360c6de670fabc8e789fdd30595116128afb52798c28306d7a3c18756e3",
+        "bytes": 123014149,
+        "width": 1080,
+        "height": 720
+      },
+      "preview": {
+        "file": "1008943970.ogv",
+        "sha256": "156355a49bd19a8bd205fc01b403b2e08a2c6cad2d914c3e6b020d65354f04fd",
+        "bytes": 13186787,
+        "width": 480,
+        "height": 320,
+        "fps": "24/1",
+        "duration_seconds": 386.819
+      }
+    }
+  ]
+}
