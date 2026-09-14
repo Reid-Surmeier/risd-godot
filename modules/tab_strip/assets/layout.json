@@ -78,6 +78,7 @@
   "sketchbook": "label_sketchbook.png",
   "3d_viewer": "label_3d_viewer.png",
   "video_player": "label_video_player.png",
-  "collection": "label_collection.png"
+  "collection": "label_collection.png",
+  "phone": "label_phone.png"
  }
 }
