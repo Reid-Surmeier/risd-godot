@@ -2,8 +2,10 @@
 extends Control
 
 const TabStrip := preload("res://modules/tab_strip/interface.gd")
-## The bar is the reference image fitted to the window: 3135 source px across the window width.
-const SOURCE_WIDTH := 3135.0
+## The bar is the owner's reference fitted to the window: 4180 source px across the window width,
+## which puts the icon cluster at 65 percent of the width, the reference's proportion (a long
+## empty stretch that holds six shrunk tabs).
+const SOURCE_WIDTH := 4180.0
 
 var strip: Control
 var pages: Control

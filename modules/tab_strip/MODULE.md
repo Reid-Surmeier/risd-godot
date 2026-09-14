@@ -18,7 +18,7 @@ depends-on: []
 - When the row is full, tabs shrink together and labels clip (IE7 behaviour); when even the minimum width will not fit, `open_new_tab` returns `NO_ROOM` and nothing changes.
 - Labels are sliced source pixels, so only `windows_live`, `connecting` and `blank_page` exist; no font is used anywhere. A label that does not fit is cut at the last whole glyph and followed by the source's own "..." glyph; a tab never cuts a glyph in half, and `tab_min_width` keeps room for icon, two glyphs and the dots.
 - Every tab carries a close button (a Muse-drawn "x" in the toolbar's grey, `assets/icon_close.png`); clicking it folds the tab back into a stub over 0.3 s (contents fade, then the shape reverses the grow), removes the tab and its page, slides the remaining tabs and the stub to their new places over 0.2 s, and makes the left neighbour active. Every tab can close, the last one too; with no tabs the stub sits at the first tab's place and opens a fresh one.
-- `set_bar_width` makes the bar any width: the stars stay left, the icon cluster stays right, the pinstripes fill the middle from a clean 700 px patch, and tabs take the room between. `demo.gd` fits it to the window and re-fits on resize; tabs are drawn at 0.55 of source size.
+- `set_bar_width` makes the bar any width: the stars stay left, the icon cluster stays right, the pinstripes fill the middle from a clean 700 px patch, and tabs take the room between. `demo.gd` fits it to the window and re-fits on resize; the bar is 4180 source px fitted to the window (icon cluster at 65 percent, the reference proportion), so six shrunk tabs fit.
 
 `open_new_tab`, `select_tab`, `close_tab`, `set_bar_width`, `state`, `stub_rect` are the programmatic seam; every one returns `{ ok, value, error }`.
 

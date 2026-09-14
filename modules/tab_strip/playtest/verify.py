@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-SCALE = 1920 / 3135.0   # demo.gd: bar fitted to the 1920 px playtest window
+SCALE = 1920 / 4180.0   # demo.gd: bar fitted to the 1920 px playtest window
 RIGHT_CLUSTER_W = 1920  # layout.json
 ICONS_OFFSET = 456
 FULL_TAB_W = 640
