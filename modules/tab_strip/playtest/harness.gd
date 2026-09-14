@@ -178,7 +178,7 @@ func _initialize() -> void:
 	#    (the Shell's call, not a gesture), no close button, close refused by click and by call
 	var page := ColorRect.new()
 	page.color = Color.WHITE
-	page.set_anchors_preset(Control.PRESET_FULL_RECT)
+	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var fixed: Dictionary = TabStrip.open_fixed_tab(strip, "map", page)
 	_log.append({"t_ms": _ms(), "event": "fixed_open", "ok": fixed.ok, "index": fixed.value,
 			"page_in_stack": page.get_parent() == demo.get_node("PageStack")})

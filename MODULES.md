@@ -7,7 +7,8 @@ Hand-maintained, one row per `MODULE.md`. Read this first; open a module's `MODU
 | Module | Purpose | Interface | Depends on |
 | --- | --- | --- | --- |
 | [`testing`](testing/MODULE.md) | The harness, fixtures, and test doubles every other module's acceptance tests use | `testing/interface.gd` | — |
-| [`tab_strip`](modules/tab_strip/MODULE.md) | The Windows Live / IE7 toolbar with tabs opened from the blank New Tab stub, each owning a page | `modules/tab_strip/interface.gd` | — |
+| [`tab_strip`](modules/tab_strip/MODULE.md) | The Windows Live / IE7 toolbar with tabs opened from the blank New Tab stub or fixed by the caller, each owning a page | `modules/tab_strip/interface.gd` | — |
+| [`shell`](modules/shell/MODULE.md) | The one Control the game runs in: six fixed Tabs over the strip, each Tab's Tenant created lazily on first show and frozen while hidden | `modules/shell/interface.gd` | `tab_strip` |
 | [`review`](review/MODULE.md) | The packet an independent blind reviewer receives, and the acceptance contract it judges against | `review/interface.gd` | — |
 
-3 module(s). `tab_strip` is the first game module; the rest are decided on the wayfinder map, not invented here.
+4 module(s). `tab_strip` is the first game module and `shell` (the main scene) hosts the Tenants; the Tenant modules are decided on the wayfinder map #23, not invented here.

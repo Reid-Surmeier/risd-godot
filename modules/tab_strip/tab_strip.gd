@@ -33,11 +33,13 @@ var _page_stack: Control
 var _active := -1
 var _opening := false
 var _tween: Tween
+var _windows_live_tab := true
 
 
-static func create(page_stack: Control) -> Dictionary:
+static func create(page_stack: Control, windows_live_tab: bool = true) -> Dictionary:
 	var strip = load("res://modules/tab_strip/tab_strip.gd").new()
 	strip._page_stack = page_stack
+	strip._windows_live_tab = windows_live_tab
 	var loaded: Dictionary = strip._load_assets()
 	if not loaded.ok:
 		return loaded
@@ -84,10 +86,12 @@ func _ready() -> void:
 	_stub.size = Vector2(_layout.stub.w, _layout.stub.h)
 	_stub.pressed.connect(func(): open_new_tab())
 	add_child(_stub)  # behind every tab, like the source stub
-	var first := _make_tab("windows_live", _layout.tab.first_tab_x, _layout.tab.full_width)
-	_add_page(first, "windows_live")
+	if _windows_live_tab:
+		var first := _make_tab("windows_live", _layout.tab.first_tab_x, _layout.tab.full_width)
+		_add_page(first, "windows_live")
 	set_bar_width(w)
-	select_tab(0)
+	if not _tabs.is_empty():
+		select_tab(0)
 	resized.connect(func(): set_bar_width(size.x))
 
 
@@ -269,7 +273,7 @@ func _layout_stub() -> void:
 func _add_page(tab: Dictionary, key: String) -> void:
 	var page := ColorRect.new()
 	page.color = Color.WHITE
-	page.set_anchors_preset(Control.PRESET_FULL_RECT)
+	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var title := TextureRect.new()
 	title.texture = _tex.label_blank_page if key != "windows_live" else _tex.label_windows_live
 	title.stretch_mode = TextureRect.STRETCH_KEEP

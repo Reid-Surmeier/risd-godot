@@ -29,10 +29,11 @@ const CONNECTING_SECONDS := 0.95
 
 ## Build a strip with one "Windows Live" tab and its stub, plus the PageStack it drives.
 ## `page_stack` is the Control that receives one page child per tab; the caller owns it
-## and passes it in (dependencies are passed, never constructed inside).
-## Returns ok(TabStrip node) or err(ASSET_MISSING).
-static func create(page_stack: Control) -> Dictionary:
-	return _Impl.create(page_stack)
+## and passes it in (dependencies are passed, never constructed inside). With
+## `windows_live_tab` false the strip starts with the stub alone at the first tab's place, for a
+## caller that opens its own fixed tabs (the Shell). Returns ok(TabStrip node) or err(ASSET_MISSING).
+static func create(page_stack: Control, windows_live_tab: bool = true) -> Dictionary:
+	return _Impl.create(page_stack, windows_live_tab)
 
 
 ## Open a new tab exactly as a click on the stub does (animation included) and open its page.

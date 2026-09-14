@@ -6,13 +6,14 @@ config_version=5
 [application]
 
 config/name="risd-godot"
-run/main_scene="res://modules/tab_strip/demo.tscn"
+run/main_scene="res://modules/shell/demo.tscn"
 config/features=PackedStringArray("4.7")
 
 [display]
 
 window/size/viewport_width=1920
-window/size/viewport_height=420
+window/size/viewport_height=1080
+window/size/resizable=true
 window/stretch/mode="disabled"
 
 [rendering]
