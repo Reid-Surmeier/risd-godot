@@ -51,7 +51,7 @@ func _state(strip: Control, label: String) -> Dictionary:
 	var tabs := []
 	for t in s.tabs:
 		tabs.append({"label": t.label, "x": t.rect.position.x, "y": t.rect.position.y,
-				"w": t.rect.size.x, "h": t.rect.size.y, "page_visible": t.page_visible,
+				"w": t.rect.size.x, "h": t.rect.size.y, "page_visible": t.page_visible, "fixed": t.fixed,
 				"truncated": t.truncated,
 				"close_rect": {"position": {"x": t.close_rect.position.x, "y": t.close_rect.position.y},
 						"size": {"x": t.close_rect.size.x, "y": t.close_rect.size.y}}})
@@ -173,6 +173,35 @@ func _initialize() -> void:
 	await create_timer(1.8).timeout
 	_state(strip, "reopened")
 	await _shot(root, out_dir, "12-reopened.png")
+
+	# 7. a fixed, titled tab on a caller-owned page (seam Issue #39): opened through the interface
+	#    (the Shell's call, not a gesture), no close button, close refused by click and by call
+	var page := ColorRect.new()
+	page.color = Color.WHITE
+	page.set_anchors_preset(Control.PRESET_FULL_RECT)
+	var fixed: Dictionary = TabStrip.open_fixed_tab(strip, "map", page)
+	_log.append({"t_ms": _ms(), "event": "fixed_open", "ok": fixed.ok, "index": fixed.value,
+			"page_in_stack": page.get_parent() == demo.get_node("PageStack")})
+	TabStrip.select_tab(strip, fixed.value)
+	_state(strip, "fixed-open")
+	await _shot(root, out_dir, "13-fixed-open.png")
+	st = TabStrip.state(strip).value
+	var r: Rect2 = st.tabs[fixed.value].rect
+	await _click(_global_center(strip, Rect2(r.position + Vector2(r.size.x - 80 - 22, 24 + 22), Vector2(22, 22))),
+			"where the close button of the fixed tab would be")
+	await create_timer(0.9).timeout
+	var kept: Dictionary = TabStrip.close_tab(strip, fixed.value)
+	_log.append({"t_ms": _ms(), "event": "fixed_close", "ok": kept.ok,
+			"code": kept.error.code if not kept.ok else ""})
+	await create_timer(0.9).timeout
+	_state(strip, "fixed-kept")
+	await _shot(root, out_dir, "14-fixed-kept.png")
+	var phone: Dictionary = TabStrip.open_fixed_tab(strip, "phone", ColorRect.new())  # no label pixels yet (#34)
+	_log.append({"t_ms": _ms(), "event": "fixed_open", "ok": phone.ok, "index": phone.value, "page_in_stack": true})
+	await _click(_global_center(strip, TabStrip.stub_rect(strip)), "new-tab stub (after fixed)")
+	await create_timer(1.8).timeout
+	_state(strip, "after-fixed-stub")
+	await _shot(root, out_dir, "15-after-fixed-stub.png")
 
 	var f := FileAccess.open(out_dir.path_join("report.json"), FileAccess.WRITE)
 	f.store_string(JSON.stringify({"viewport": [1680, 420], "log": _log}, "  "))

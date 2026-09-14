@@ -5,7 +5,8 @@
 ## blank New Tab stub, the stub grows into a full tab over 400 ms (ease-out) with the
 ## fresh stub riding on its right edge, the tab reads "Connecting..." then swaps to
 ## "Blank Page" in one frame. Every open tab owns one page in a PageStack; selecting a
-## tab shows its page.
+## tab shows its page. A fixed tab (open_fixed_tab) is titled from the labels map, owns the
+## caller's page Control, draws no close button and never closes (seam Issue #39).
 ##
 ## Every public function returns { ok: bool, value: Variant, error: Variant }.
 ## Errors are the values in errors.gd. The strip raises nothing across this seam.
@@ -40,14 +41,24 @@ static func open_new_tab(strip: Control) -> Dictionary:
 	return strip.open_new_tab()
 
 
+## Open a fixed, titled tab at once: no grow animation, no signals. Its label is
+## `label_<label_key>.png` from the `labels` map in layout.json; a key with no label (phone,
+## until #34) shows the page icon alone and logs it. The tab owns `page`, the caller's Control
+## (added hidden to the PageStack, full-rect, shown by select_tab); a fixed tab has no close
+## button and close_tab on it returns TAB_FIXED. Returns ok(new index) or err(OPEN_IN_PROGRESS | NO_ROOM).
+static func open_fixed_tab(strip: Control, label_key: String, page: Control) -> Dictionary:
+	return strip.open_fixed_tab(label_key, page)
+
+
 ## Make tab `index` the active tab and show its page. Returns ok(index) or err(INDEX_OUT_OF_RANGE).
 static func select_tab(strip: Control, index: int) -> Dictionary:
 	return strip.select_tab(index)
 
 
 ## Close tab `index` exactly as a click on its close button does: its page goes with it, the row
-## re-lays out, the left neighbour (or the first tab) becomes active. The last tab cannot be closed.
-## Returns ok(remaining count) or err(INDEX_OUT_OF_RANGE | NO_ROOM | OPEN_IN_PROGRESS).
+## re-lays out, the left neighbour (or the first tab) becomes active. Every tab can close, the last
+## one too (the stub then sits at the first tab's place); a fixed tab refuses with TAB_FIXED.
+## Returns ok(remaining count) or err(INDEX_OUT_OF_RANGE | TAB_FIXED | OPEN_IN_PROGRESS).
 static func close_tab(strip: Control, index: int) -> Dictionary:
 	return strip.close_tab(index)
 
@@ -58,9 +69,9 @@ static func set_bar_width(strip: Control, width: float) -> void:
 	strip.set_bar_width(width)
 
 
-## Number of tabs, the active index, and each tab's current label key, pixel rect, whether its
-## label is truncated with "...", and its close button rect (empty unless active).
-## Returns ok({ count, active, tabs: [{ label, rect, page_visible, truncated, close_rect }],
+## Number of tabs, the active index, and each tab's current label key, pixel rect, whether it is
+## fixed, whether its label is truncated with "...", and its close button rect (empty on a fixed tab).
+## Returns ok({ count, active, tabs: [{ label, rect, page_visible, fixed, truncated, close_rect }],
 ## opening: bool, bar_width }).
 static func state(strip: Control) -> Dictionary:
 	return strip.state()

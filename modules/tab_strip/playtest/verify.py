@@ -26,7 +26,7 @@ def check(name, cond, detail=""):
 shots = {e["file"]: e for e in log if e["event"] == "screenshot"}
 hashes = {f: hashlib.sha256((out / f).read_bytes()).hexdigest() for f in shots}
 imgs = {f: np.array(Image.open(out / f).convert("RGB")).astype(int) for f in shots}
-check("screenshots_present", len(shots) == 12, str(sorted(shots)))
+check("screenshots_present", len(shots) == 15, str(sorted(shots)))
 check("mid_grow_differs_from_initial", hashes["01-initial.png"] != hashes["02-mid-grow.png"])
 check("connecting_differs_from_mid_grow", hashes["02-mid-grow.png"] != hashes["03-connecting.png"])
 check("blank_page_differs_from_connecting", hashes["03-connecting.png"] != hashes["04-blank-page.png"])
@@ -81,6 +81,21 @@ ac = states["all-closed"]; ro = states["reopened"]
 check("every_tab_can_close", ac["count"] == 0 and ac["active"] == -1, f"count {ac['count']}")
 check("stub_reopens_after_empty", ro["count"] == 1 and ro["tabs"][0]["label"] == "blank_page" and ro["tabs"][0]["page_visible"], f"count {ro['count']}")
 
+fo = states["fixed-open"]; fx = next(e for e in log if e["event"] == "fixed_open"); ft = fo["tabs"][fx["index"]]
+check("fixed_tab_opened_on_callers_page", fx["ok"] and fx["page_in_stack"] and fo["count"] == 2 and ft["label"] == "map"
+      and ft["fixed"] and ft["page_visible"] and not fo["tabs"][0]["fixed"], f"count {fo['count']}, label {ft['label']}")
+check("fixed_tab_has_no_close_rect", ft["close_rect"]["size"]["x"] == 0 and ft["close_rect"]["size"]["y"] == 0)
+fc = next(e for e in log if e["event"] == "fixed_close"); fk = states["fixed-kept"]
+check("fixed_close_refused_by_interface", not fc["ok"] and fc["code"] == "tab_strip.tab_fixed", fc["code"])
+check("fixed_close_click_did_nothing", fk["count"] == 2 and fk["tabs"][1]["fixed"] and fk["active"] == 1
+      and any(e["what"].startswith("where the close button") for e in clicks), f"count {fk['count']}")
+afs = states["after-fixed-stub"]
+check("phone_key_without_label_opens_icon_only", afs["tabs"][2]["label"] == "phone" and afs["tabs"][2]["fixed"]
+      and not afs["tabs"][2]["truncated"])
+check("stub_still_opens_blank_after_fixed", afs["count"] == 4 and afs["tabs"][3]["label"] == "blank_page"
+      and not afs["tabs"][3]["fixed"] and afs["tabs"][3]["close_rect"]["size"]["x"] > 0 and afs["tabs"][3]["page_visible"],
+      f"count {afs['count']}, last {afs['tabs'][-1]['label']}")
+
 def region(img, x0, y0, x1, y1):
     return img[int(y0 * SCALE):int(y1 * SCALE), int(x0 * SCALE):int(x1 * SCALE)]
 a = region(imgs["01-initial.png"], 261, 27, 700, 150); b = region(imgs["04-blank-page.png"], 261, 27, 700, 150)  # above the bottom line, which appears once the tab is inactive
@@ -90,6 +105,14 @@ check("new_tab_pixels_changed", float(np.abs(c - d).mean()) > 5, f"mean abs diff
 # the bar spans the whole window: right cluster pinned at the right edge (its » chevron is dark)
 w = imgs["01-initial.png"].shape[1]; edge = imgs["01-initial.png"][:int(161 * SCALE), w - 40:w]
 check("bar_spans_full_width", (edge.max(axis=2) < 150).sum() > 5, f"dark px in last 40 columns: {(edge.max(axis=2) < 150).sum()}")
+
+# the fixed tab's face where a close button would sit is flat white: no "x" drawn on it
+cx = ft["x"] + ft["w"] - 80 - 22; cy = ft["y"] + 24 + 22
+fr = region(imgs["13-fixed-open.png"], cx - 6, cy - 6, cx + 28, cy + 28)
+bx = afs["tabs"][3]["close_rect"]["position"]["x"]; by = afs["tabs"][3]["close_rect"]["position"]["y"]
+br = region(imgs["15-after-fixed-stub.png"], bx - 6, by - 6, bx + 28, by + 28)
+check("fixed_tab_draws_no_close_button", float(fr.std()) < 3 and float(br.std()) > 10,
+      f"fixed face std {float(fr.std()):.1f}, blank tab close std {float(br.std()):.1f}")
 
 ok = all(r["pass"] for r in results.values())
 (out / "verify.json").write_text(json.dumps({"pass": ok, "checks": results, "sha256": hashes}, indent=1))

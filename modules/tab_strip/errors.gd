@@ -12,6 +12,8 @@ const OPEN_IN_PROGRESS := "tab_strip.open_in_progress"
 const NO_ROOM := "tab_strip.no_room"
 ## An asset listed in layout.json is missing or failed to load.
 const ASSET_MISSING := "tab_strip.asset_missing"
+## close_tab was asked to close a fixed tab (opened with open_fixed_tab); fixed tabs never close.
+const TAB_FIXED := "tab_strip.tab_fixed"
 
 
 static func err(code: String, detail: String = "") -> Dictionary:

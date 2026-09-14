@@ -25,7 +25,7 @@ const STUB_PRESSED := Color8(228, 218, 226)
 
 var _layout: Dictionary = {}
 var _tex: Dictionary = {}
-var _tabs: Array = []  # [{node, mid, right, icon, clip, label, dots, close, label_key, width, page}]
+var _tabs: Array = []  # [{node, mid, right, icon, clip, label, dots, close, label_key, width, page, fixed}]
 var _stub: TextureButton
 var _right_cluster: TextureRect
 var _stripes: TextureRect
@@ -57,6 +57,11 @@ func _load_assets() -> Dictionary:
 		if t == null:
 			return Errors.err(Errors.ASSET_MISSING, name)
 		_tex[name] = t
+	for key in _layout.get("labels", {}):  # the fixed tabs' titles (#29): label_<key>.png
+		var t = load(ASSETS + _layout.labels[key])
+		if t == null:
+			return Errors.err(Errors.ASSET_MISSING, _layout.labels[key])
+		_tex["label_" + key] = t
 	return Errors.ok()
 
 
@@ -150,7 +155,7 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	if not _tabs.is_empty():
 		move_child(node, _tabs[-1].node.get_index())  # behind its left neighbour: one clean join
 	var tab := {"node": node, "mid": mid, "right": right,  "icon": icon, "clip": clip, "label": label,
-			"dots": dots, "close": close, "label_key": "", "width": width, "page": null}
+			"dots": dots, "close": close, "label_key": "", "width": width, "page": null, "fixed": false}
 	_tabs.append(tab)
 	_set_label(tab, label_key)
 	_set_tab_width(tab, width)
@@ -188,6 +193,12 @@ func _set_label(tab: Dictionary, key: String) -> void:
 			tab.icon.texture = _tex.icon_page
 			tab.icon.position = Vector2(_layout.page_icon[0], _layout.page_icon[1])
 			tab.label.texture = _tex.label_blank_page
+		_:  # a fixed tab's title from the labels map; no label yet (phone, #34) shows the icon alone
+			tab.icon.texture = _tex.icon_page
+			tab.icon.position = Vector2(_layout.page_icon[0], _layout.page_icon[1])
+			tab.label.texture = _tex.get("label_" + key)
+			if tab.label.texture == null:
+				push_warning("tab_strip: no label pixels for '%s', showing the page icon alone" % key)
 	_fit_label(tab)
 
 
@@ -257,7 +268,6 @@ func _layout_stub() -> void:
 
 func _add_page(tab: Dictionary, key: String) -> void:
 	var page := ColorRect.new()
-	page.name = "Page%d" % (_tabs.size() - 1)
 	page.color = Color.WHITE
 	page.set_anchors_preset(Control.PRESET_FULL_RECT)
 	var title := TextureRect.new()
@@ -265,6 +275,12 @@ func _add_page(tab: Dictionary, key: String) -> void:
 	title.stretch_mode = TextureRect.STRETCH_KEEP
 	title.position = Vector2(40, 40)
 	page.add_child(title)
+	page.name = "Page%d" % (_tabs.size() - 1)
+	_own_page(tab, page)
+
+
+## The tab owns `page`: hidden in the caller's PageStack until select_tab shows it.
+func _own_page(tab: Dictionary, page: Control) -> void:
 	page.visible = false
 	_page_stack.add_child(page)
 	tab.page = page
@@ -306,6 +322,21 @@ func open_new_tab() -> Dictionary:
 	return Errors.ok(index)
 
 
+## A fixed tab appears at once, titled from the labels map, on the caller's page; no animation, no
+## signals, no close button (see close_tab).
+func open_fixed_tab(label_key: String, page: Control) -> Dictionary:
+	if _opening:
+		return Errors.err(Errors.OPEN_IN_PROGRESS)
+	if _fitted_width(_tabs.size() + 1) < _layout.tab_min_width:
+		return Errors.err(Errors.NO_ROOM, "%d tabs" % _tabs.size())
+	var tab := _make_tab(label_key, 0.0, _fitted_width(_tabs.size() + 1))
+	tab.fixed = true
+	tab.close.visible = false
+	_own_page(tab, page)
+	_layout_tabs()
+	return Errors.ok(_tabs.size() - 1)
+
+
 func _grow(tab: Dictionary, final_w: float, s: float) -> void:
 	var t: Dictionary = _layout.tab
 	var sy: float = lerp(_layout.stub.h / float(t.height), 1.0, s)
@@ -332,10 +363,12 @@ func select_tab(index: int) -> Dictionary:
 
 
 ## Close tab `index`: its page goes with it, the row re-lays out, and the neighbour on the left
-## (or the first tab) becomes active. The last remaining tab cannot be closed.
+## (or the first tab) becomes active. Every tab can close, the last one too; a fixed tab refuses.
 func close_tab(index: int) -> Dictionary:
 	if index < 0 or index >= _tabs.size():
 		return Errors.err(Errors.INDEX_OUT_OF_RANGE, str(index))
+	if _tabs[index].fixed:
+		return Errors.err(Errors.TAB_FIXED, _tabs[index].label_key)
 	if _opening:
 		return Errors.err(Errors.OPEN_IN_PROGRESS)
 	_opening = true
@@ -352,7 +385,8 @@ func close_tab(index: int) -> Dictionary:
 		tab.node.queue_free()
 		for i in _tabs.size():
 			_tabs[i].node.name = "Tab%d" % i
-			_tabs[i].page.name = "Page%d" % i
+			if not _tabs[i].fixed:  # a fixed tab's page is the caller's node; its name is theirs
+				_tabs[i].page.name = "Page%d" % i
 		_slide_row_closed()
 		emit_signal("tab_closed", index)
 		if _tabs.is_empty():
@@ -400,9 +434,9 @@ func state() -> Dictionary:
 	var tabs := []
 	for tab in _tabs:
 		tabs.append({"label": tab.label_key, "rect": Rect2(tab.node.position, tab.node.size * tab.node.scale),
-				"page_visible": tab.page.visible,
+				"page_visible": tab.page.visible, "fixed": tab.fixed,
 				"truncated": tab.clip.size.x < (tab.label.texture.get_width() if tab.label.texture else 0.0),
-				"close_rect": Rect2(tab.node.position + tab.close.position, tab.close.size)})
+				"close_rect": Rect2() if tab.fixed else Rect2(tab.node.position + tab.close.position, tab.close.size)})
 	return Errors.ok({"count": _tabs.size(), "active": _active, "tabs": tabs, "opening": _opening,
 			"bar_width": size.x})
 
