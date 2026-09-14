@@ -1,47 +1,82 @@
-## Playtest harness for collection_page: builds the Shell with this page as the Collection Tenant
-## and nothing in the other Tabs, then plays it the way a person does — real InputEventMouseButton
-## events through Input.parse_input_event on the filter controls, a card and the tabs — and reports
-## what it did and what the interfaces said. The interface is called only for what a caller would
-## call (state, one invalid set_filter). Args: --out-dir=<path>. Writes numbered screenshots and
-## report.json there.
+## Playtest harness for the Image Viewer desktop as the Collection Tenant: builds the Shell with
+## it in the Collection Tab and nothing in the other Tabs, then plays it the way a person does —
+## real InputEventMouseButton / InputEventMouseMotion events through Input.parse_input_event on
+## the windows' title bars, a window body, the viewer's corner, the wheel over the artworks and the
+## tabs — and reports what it did and what the interfaces said. The desktop is reached through the
+## Shell only. Args: --out-dir=<path>. Writes numbered screenshots and report.json there.
 extends "res://testing/harness_base.gd"
 
 const Shell := preload("res://modules/shell/interface.gd")
 const Page := preload("res://modules/collection_page/interface.gd")
 
 
+func _wheel(pos: Vector2, up: bool, count: int, what: String) -> void:
+	for i in count:
+		for pressed in [true, false]:
+			await _button(pos, MOUSE_BUTTON_WHEEL_UP if up else MOUSE_BUTTON_WHEEL_DOWN, pressed)
+	_log.append({"t_ms": _ms(), "event": "wheel", "what": what, "x": pos.x, "y": pos.y, "up": up, "count": count})
+
+
+## Press, move in `steps` motions of `step` each, release: one drag as a mouse makes it.
+func _drag(from: Vector2, step: Vector2, steps: int, what: String) -> void:
+	await _button(from, MOUSE_BUTTON_LEFT, true)
+	var pos := from
+	for i in steps:
+		pos += step
+		var ev := InputEventMouseMotion.new()
+		ev.position = pos
+		ev.global_position = pos
+		ev.relative = step
+		ev.button_mask = MOUSE_BUTTON_MASK_LEFT
+		Input.parse_input_event(ev)
+		await process_frame
+	await _button(pos, MOUSE_BUTTON_LEFT, false)
+	_log.append({"t_ms": _ms(), "event": "drag", "what": what, "from": [from.x, from.y], "to": [pos.x, pos.y],
+			"relative_total": [step.x * steps, step.y * steps], "steps": steps})
+
+
 func _shell_state(shell: Control, label: String) -> Dictionary:
 	var s: Dictionary = Shell.state(shell).value
 	var tabs := []
 	for t in s.tabs:
-		tabs.append({"key": t.key, "page_visible": t.page_visible, "frozen": t.frozen, "tenant": t.tenant,
-				"rect": _rect(t.rect)})
-	var ts: Dictionary = Shell.tenant_state(shell, "collection")
-	var entry := {"t_ms": _ms(), "event": "shell", "label": label, "active": s.active, "count": s.count,
-			"tabs": tabs, "tenant_ok": ts.ok, "tenant_code": ts.error.code if not ts.ok else ""}
+		tabs.append({"key": t.key, "page_visible": t.page_visible, "frozen": t.frozen, "tenant": t.tenant, "rect": _rect(t.rect)})
+	var entry := {"t_ms": _ms(), "event": "shell", "label": label, "active": s.active, "count": s.count, "tabs": tabs,
+			"window": [shell.size.x, shell.size.y]}
 	_log.append(entry)
 	return entry
 
 
-func _page_state(page: Control, label: String) -> Dictionary:
-	var s: Dictionary = Page.state(page).value
-	var cards := []
-	for c in s.cards:
-		cards.append({"id": c.id, "title": c.title, "rect": _rect(c.rect)})
-	var controls := {}
-	for n in s.controls:
-		controls[n] = _rect(s.controls[n])
-	var entry := {"t_ms": _ms(), "event": "page", "label": label, "total": s.total, "count": s.count,
-			"filter": s.filter, "mediums": s.mediums, "cards": cards, "controls": controls,
-			"size": [s.size.x, s.size.y]}
+func _page(shell: Control, label: String) -> Dictionary:
+	var r: Dictionary = Shell.tenant_state(shell, "collection")
+	var entry := {"t_ms": _ms(), "event": "page", "label": label, "ok": r.ok, "code": r.error.code if not r.ok else ""}
+	if r.ok:
+		var v: Dictionary = r.value
+		var page: Control = shell.find_child("CollectionPage", true, false)
+		var windows := []
+		for w in v.windows:
+			windows.append({"name": w.name, "rect": _rect(w.rect), "drag_height": w.drag_height, "order": w.order})
+		var cards := []
+		for c in v.viewer.cards:
+			cards.append(_rect(c))
+		entry.merge({"ticks": v.ticks, "inputs": v.inputs, "size": [v.size.x, v.size.y], "factor": v.factor,
+				"action": v.action, "windows": windows, "page_global": _rect(page.get_global_rect()),
+				"viewer": {"rect": _rect(v.viewer.rect), "scale": v.viewer.scale, "scroll": v.viewer.scroll,
+				"scroll_max": v.viewer.scroll_max, "body": _rect(v.viewer.body), "cards": cards}})
 	_log.append(entry)
 	return entry
 
 
-func _click_control(page: Control, name: String) -> void:
-	var s: Dictionary = Page.state(page).value
-	await _click(_center(page, s.controls[name]), "control " + name)
-	await _frames(2)
+func _window(p: Dictionary, name: String) -> Dictionary:
+	for w in p.windows:
+		if w.name == name:
+			return w
+	return {}
+
+
+## A point on a window's title bar (12 px into its drag height, 100 px in from its left edge,
+## as the prototype's playtest pressed), in global pixels.
+func _title(page: Control, w: Dictionary) -> Vector2:
+	return page.get_global_transform() * Vector2(w.rect.x + minf(100.0, w.rect.w / 2.0), w.rect.y + 12.0)
 
 
 func _initialize() -> void:
@@ -49,79 +84,91 @@ func _initialize() -> void:
 	var shell: Control = Shell.create({"collection": Page}).value
 	var out_dir := await _mount(shell, Vector2i(1920, 1080), "/tmp/collection_page-playtest")
 	var page: Control = shell.find_child("CollectionPage", true, false)
-	page.card_selected.connect(func(record: Dictionary) -> void:
-		_log.append({"t_ms": _ms(), "event": "signal", "signal": "card_selected", "id": record.id,
-				"title": record.title, "keys": record.keys()}))
 
-	# 1. launch: Collection is the active tab and its tenant is this page, every record on a card
-	_shell_state(shell, "launch")
-	_page_state(page, "launch")
+	# 1. launch: Collection active, the desktop is the Tenant, every window at its reference place
+	var st := _shell_state(shell, "launch")
+	var la := _page(shell, "launch")
 	await _shot(out_dir, "01-launch.png")
 
-	# 2. click the Has-image filter: the grid narrows to the records with a photograph
-	await _click_control(page, "has_image")
-	_page_state(page, "has-image")
-	await _shot(out_dir, "02-has-image.png")
-
-	# 3. click Medium once (the first medium), then Has-image off, then Medium round to Video
-	await _click_control(page, "medium")
-	_page_state(page, "medium-first-with-image")
-	await _shot(out_dir, "03-medium-first.png")
-	await _click_control(page, "has_image")
-	_page_state(page, "medium-first")
-	var s: Dictionary = Page.state(page).value
-	var steps: int = s.mediums.find("Video") - s.mediums.find(s.filter.medium)
-	for i in steps:
-		await _click_control(page, "medium")
-	_page_state(page, "medium-video")
-	await _shot(out_dir, "04-medium-video.png")
-
-	# 4. Sort by date: newest, then oldest; then Medium wraps round to All
-	await _click_control(page, "sort")
-	_page_state(page, "video-newest")
-	await _click_control(page, "sort")
-	_page_state(page, "video-oldest")
-	await _click_control(page, "medium")
-	_page_state(page, "all-oldest")
-	await _shot(out_dir, "05-all-oldest.png")
-
-	# 5. click the first card: card_selected(record) and nothing else changes
-	var before: Dictionary = _page_state(page, "before-card")
-	var first: Dictionary = before.cards[0]
-	await _click(_center(page, Rect2(first.rect.x, first.rect.y, first.rect.w, first.rect.h)), "card " + first.id)
+	# 2. drag the equipment window by its title bar: it moves by the drag and comes to the top
+	await _drag(_title(page, _window(la, "equipment")), Vector2(8, -3), 5, "drag equipment by its title bar")
 	await _frames(2)
-	_page_state(page, "after-card")
-	await _shot(out_dir, "06-after-card.png")
-	# a click on the white ground between the grid and the Info box emits nothing
-	var ps: Dictionary = Page.state(page).value
-	await _click(page.get_global_transform() * Vector2(ps.size.x / 2.0, ps.size.y - 4.0), "white ground")
-	await _frames(2)
-	_page_state(page, "after-ground")
+	var eq := _page(shell, "equipment-moved")
+	await _shot(out_dir, "02-equipment-moved.png")
 
-	# 6. an invalid filter through the interface is refused and changes nothing
-	var refused: Dictionary = Page.set_filter(page, {"medium": "Marble"})
-	_log.append({"t_ms": _ms(), "event": "set_filter_invalid", "ok": refused.ok,
-			"code": refused.error.code if not refused.ok else ""})
-	_page_state(page, "after-invalid")
-
-	# 7. switch to the Map tab and back: the page is frozen while hidden and resumes with its filter
-	var sh: Dictionary = _shell_state(shell, "pre-map")
-	var map_rect: Dictionary = sh.tabs[0].rect
-	await _click(_center(shell, Rect2(map_rect.x, map_rect.y, map_rect.w, map_rect.h)), "map tab")
+	# 3. drag the options window by its body (below its title bar): nothing moves
+	var op: Dictionary = _window(eq, "options")
+	await _drag(page.get_global_transform() * Vector2(op.rect.x + 100.0, op.rect.y + op.rect.h / 2.0), Vector2(6, 4), 5,
+			"drag options by its body")
 	await _frames(2)
-	_shell_state(shell, "map")
-	await _shot(out_dir, "07-map.png")
-	var col_rect: Dictionary = sh.tabs[4].rect
-	await _click(_center(shell, Rect2(col_rect.x, col_rect.y, col_rect.w, col_rect.h)), "collection tab")
-	await _frames(2)
-	_shell_state(shell, "collection-again")
-	_page_state(page, "collection-again")
-	await _shot(out_dir, "08-collection-again.png")
+	_page(shell, "options-body-drag")
 
-	# 8. the 1440x900 minimum: the page lays out from its own size, the Info box stays at the bottom
-	root.size = Vector2i(1440, 900)
+	# 4. drag the party window by its title bar up over the viewer: it lies on top of the viewer
+	var pa: Dictionary = _window(eq, "party")
+	var vw: Dictionary = _window(eq, "viewer")
+	var up := Vector2(0, -(pa.rect.y - (vw.rect.y + vw.rect.h) + 60.0) / 6.0)
+	await _drag(_title(page, pa), up, 6, "drag party by its title bar over the viewer")
+	await _frames(2)
+	var ov := _page(shell, "party-over-viewer")
+	await _shot(out_dir, "03-party-over-viewer.png")
+
+	# 5. press the viewer's title bar where party does not cover it and drag: the viewer comes to the
+	#    top of the stack and moves; party stays where it was
+	var vt := page.get_global_transform() * Vector2(vw.rect.x + vw.rect.w - 200.0, vw.rect.y + 12.0)
+	await _drag(vt, Vector2(-5, 4), 6, "drag the viewer by its title bar")
+	await _frames(2)
+	var vm := _page(shell, "viewer-moved")
+	await _shot(out_dir, "04-viewer-moved.png")
+
+	# 6. wheel down three notches over the artworks: the gallery scrolls
+	var body: Dictionary = vm.viewer.body
+	var centre := page.get_global_transform() * Vector2(body.x + body.w / 2.0, body.y + body.h / 2.0)
+	await _wheel(centre, false, 3, "wheel down x3 over the artworks")
+	await _frames(2)
+	var sc := _page(shell, "scrolled")
+	await _shot(out_dir, "05-scrolled.png")
+
+	# 7. drag the viewer's bottom-right corner inward: it shrinks in place
+	var vr: Dictionary = _window(sc, "viewer").rect
+	var corner := page.get_global_transform() * Vector2(vr.x + vr.w - 8.0, vr.y + vr.h - 8.0)
+	await _drag(corner, Vector2(-20, -12), 5, "drag the viewer's corner inward")
+	await _frames(2)
+	var rz := _page(shell, "viewer-resized")
+	await _shot(out_dir, "06-viewer-resized.png")
+
+	# 8. drag the chat window far past the page's bottom-left corner: it stops at the edge
+	await _drag(_title(page, _window(rz, "chat")), Vector2(-60, 60), 6, "drag chat past the page's bottom-left corner")
+	await _frames(2)
+	var cl := _page(shell, "chat-clamped")
+	await _shot(out_dir, "07-chat-clamped.png")
+
+	# 9. click the Map tab: the page is frozen — no frames, no input — and a drag and a wheel aimed
+	#    at the hidden windows change nothing
+	await _click(_center(shell, st.tabs[0].rect), "map tab")
 	await _frames(3)
-	_page_state(page, "resized")
-	await _shot(out_dir, "09-resized.png")
+	_shell_state(shell, "map")
+	_page(shell, "hidden")
+	await _drag(_title(page, _window(cl, "trade")), Vector2(8, -3), 5, "drag trade by its title bar while hidden")
+	await _wheel(centre, false, 3, "wheel down x3 over the artworks while hidden")
+	await _frames(20)
+	_page(shell, "hidden-after-events")
+	_shell_state(shell, "map-after-20-frames")
+	await _shot(out_dir, "08-map.png")
+
+	# 10. back to Collection: it resumes with every window exactly as left
+	await _click(_center(shell, st.tabs[4].rect), "collection tab")
+	await _frames(3)
+	_shell_state(shell, "collection-again")
+	_page(shell, "resumed")
+	await _frames(20)
+	_page(shell, "resumed-after-20-frames")
+	await _shot(out_dir, "09-resumed.png")
+
+	# 11. the 1440x900 minimum: the desktop re-fits every window to the smaller page
+	root.size = Vector2i(1440, 900)
+	await _frames(4)
+	_shell_state(shell, "resized")
+	_page(shell, "resized")
+	await _shot(out_dir, "10-resized.png")
 
 	_finish(out_dir)

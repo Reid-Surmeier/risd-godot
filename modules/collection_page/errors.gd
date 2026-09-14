@@ -2,15 +2,9 @@
 class_name CollectionPageErrors
 extends RefCounted
 
-## data/collection.json is not there or cannot be read.
-const DATA_MISSING := "collection_page.data_missing"
-## The data file is not the shape the interface documents (not JSON, no records array, a record
-## without id/title/maker/department/medium/year, a flag that is not a bool).
-const DATA_INVALID := "collection_page.data_invalid"
-## A sliced pixel file (header, Info box, a thumbnail) or the page font cannot be loaded.
+## A pixel file the desktop loads (the viewer's reference sheet, a window screenshot) is not in the
+## project (detail: its path).
 const ASSET_MISSING := "collection_page.asset_missing"
-## set_filter was given a key the filter does not have, or a value outside its range.
-const FILTER_INVALID := "collection_page.filter_invalid"
 
 
 static func err(code: String, detail: String = "") -> Dictionary:

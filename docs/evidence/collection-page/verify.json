@@ -3,41 +3,17 @@
  "checks": {
   "screenshots_present": {
    "pass": true,
-   "detail": "['01-launch.png', '02-has-image.png', '03-medium-first.png', '04-medium-video.png', '05-all-oldest.png', '06-after-card.png', '07-map.png', '08-collection-again.png', '09-resized.png']"
+   "detail": "['01-launch.png', '02-equipment-moved.png', '03-party-over-viewer.png', '04-viewer-moved.png', '05-scrolled.png', '06-viewer-resized.png', '07-chat-clamped.png', '08-map.png', '09-resumed.png', '10-resized.png']"
   },
-  "screenshots_differ_except_card_click_and_resume": {
+  "launch_screenshot_is_1920x1080": {
+   "pass": true,
+   "detail": "(1080, 1920, 3)"
+  },
+  "gesture_screenshots_all_differ": {
    "pass": true,
    "detail": ""
   },
-  "card_click_changes_no_pixels": {
-   "pass": true,
-   "detail": ""
-  },
-  "collection_tab_active_with_this_tenant": {
-   "pass": true,
-   "detail": ""
-  },
-  "data_has_the_agreed_records": {
-   "pass": true,
-   "detail": "16 records"
-  },
-  "every_record_on_a_card_at_launch": {
-   "pass": true,
-   "detail": "16/16"
-  },
-  "launch_filter_is_open": {
-   "pass": true,
-   "detail": ""
-  },
-  "mediums_are_the_data's": {
-   "pass": true,
-   "detail": "['Bronze', 'Ceramic', 'Collage', 'Painting', 'Print', 'Sculpture', 'Video']"
-  },
-  "launch_cards_in_file_order": {
-   "pass": true,
-   "detail": ""
-  },
-  "three_controls_have_rects": {
+  "collection_active_with_this_tenant": {
    "pass": true,
    "detail": ""
   },
@@ -45,132 +21,225 @@
    "pass": true,
    "detail": "[1920.0, 1006.0478515625]"
   },
-  "cards_do_not_overlap": {
+  "factor_fits_reference_to_page": {
+   "pass": true,
+   "detail": "0.785974884033203 vs 0.7859748840332031"
+  },
+  "nine_windows_in_reference_order": {
+   "pass": true,
+   "detail": "['equipment', 'options', 'filters', 'status', 'trade', 'chat', 'party', 'bottom', 'viewer']"
+  },
+  "every_window_at_its_reference_place": {
+   "pass": true,
+   "detail": "{'equipment': {'h': 199.637619018555, 'w': 378.839874267578, 'x': 9.43169784545898, 'y': 15.7194976806641}, 'options': {'h': 167.412658691406, 'w': 387.485595703125, 'x': 9.43169784545898, 'y': 228.718688964844}, 'filters': {'h': 181.560180664062, 'w': 399.275238037109, 'x': 9.43169784545898, 'y': 410.278869628906}, 'status': {'h': 49.5164184570312, 'w': 392.201446533203, 'x': 0.0, 'y': 598.912841796875}, 'trade': {'h': 167.412658691406, 'w': 386.699645996094, 'x': 9.43169784545898, 'y': 650.787170410156}, 'chat': {'h': 180.774230957031, 'w': 396.917297363281, 'x': 4.71584892272949, 'y': 825.273620605469}, 'party': {'h': 245.224182128906, 'w': 250.725982666016, 'x': 416.566680908203, 'y': 557.256164550781}, 'bottom': {'h': 42.442626953125, 'w': 1102.72290039062, 'x': 407.920959472656, 'y': 959.67529296875}}"
+  },
+  "viewer_at_its_reference_place": {
+   "pass": true,
+   "detail": "{'h': 517.171447753906, 'w': 1094.86303710938, 'x': 415.780700683594, 'y': 15.7194976806641}"
+  },
+  "windows_inside_the_page": {
    "pass": true,
    "detail": ""
   },
-  "cards_flow_left_to_right_top_down": {
+  "viewer_on_top_at_launch": {
    "pass": true,
    "detail": ""
   },
-  "has_image_click_narrows_to_records_with_a_photo": {
+  "seven_artworks_at_fixed_size": {
    "pass": true,
-   "detail": "10 of 16"
+   "detail": "[(455.625, 465.0), (286.125, 419.25), (312.375, 422.25), (506.25, 383.25), (455.625, 301.875), (436.875, 349.5), (339.375, 403.125)]"
   },
-  "has_image_shot_differs_from_launch": {
-   "pass": true,
-   "detail": ""
-  },
-  "medium_click_picks_first_medium": {
-   "pass": true,
-   "detail": "Bronze: ['ref-bronze']"
-  },
-  "has_image_click_again_turns_it_off": {
+  "artworks_do_not_overlap": {
    "pass": true,
    "detail": ""
   },
-  "medium_video_shows_the_five_videos": {
-   "pass": true,
-   "detail": "['video-1191767929', 'video-1187745268', 'video-1014865523', 'video-1009870521', 'video-1008943970']"
-  },
-  "medium_video_shot_differs": {
+  "artworks_flow_left_to_right_top_down": {
    "pass": true,
    "detail": ""
   },
-  "sort_newest_orders_videos_by_year_desc": {
-   "pass": true,
-   "detail": "['video-1187745268', 'video-1191767929', 'video-1008943970', 'video-1009870521', 'video-1014865523']"
-  },
-  "sort_oldest_orders_videos_by_year_asc": {
-   "pass": true,
-   "detail": "['video-1008943970', 'video-1009870521', 'video-1014865523', 'video-1187745268', 'video-1191767929']"
-  },
-  "medium_wraps_to_all_keeping_sort": {
-   "pass": true,
-   "detail": "['ref-bronze', 'ref-bust', 'art-03', 'buddha-scan']"
-  },
-  "all_oldest_years_non_decreasing": {
+  "first_artwork_at_the_body's_top_left": {
    "pass": true,
    "detail": ""
   },
-  "card_click_emits_card_selected_with_the_record": {
-   "pass": true,
-   "detail": "1 signal(s): ['ref-bronze']"
-  },
-  "clicked_card_is_the_first_visible": {
+  "artworks_within_the_body's_width": {
    "pass": true,
    "detail": ""
   },
-  "card_click_changes_nothing_else": {
+  "body_inside_viewer": {
    "pass": true,
    "detail": ""
   },
-  "ground_click_emits_nothing": {
+  "more_artwork_than_the_body_shows": {
    "pass": true,
    "detail": ""
   },
-  "invalid_filter_refused_by_interface": {
+  "every_window_shows_its_own_screenshot": {
    "pass": true,
-   "detail": "collection_page.filter_invalid"
+   "detail": "{'equipment': 4.1, 'options': 2.3, 'filters': 3.3, 'status': 8.0, 'trade': 3.7, 'chat': 2.3, 'party': 6.1, 'bottom': 0.5}"
   },
-  "invalid_filter_changed_nothing": {
+  "footer_reads_number_of_works_12": {
+   "pass": true,
+   "detail": "diff 5.4"
+  },
+  "visible_artworks_are_the_reference's_cuts": {
+   "pass": true,
+   "detail": "{0: 4.3, 1: 4.3, 2: 3.2}"
+  },
+  "page_white_right_of_the_desktop": {
+   "pass": true,
+   "detail": "255.0"
+  },
+  "title_drag_moves_equipment_by_the_drag": {
+   "pass": true,
+   "detail": "{'h': 199.637619018555, 'w': 378.839874267578, 'x': 9.43169784545898, 'y': 15.7194976806641} -> {'h': 199.637619018555, 'w': 378.839874267578, 'x': 49.431697845459, 'y': 0.719497680664062} by [40.0, -15.0]"
+  },
+  "title_drag_raises_equipment": {
    "pass": true,
    "detail": ""
   },
-  "map_tab_hides_and_freezes_collection": {
+  "title_drag_moves_nothing_else": {
    "pass": true,
    "detail": ""
   },
-  "collection_tab_resumes_the_same_page": {
+  "drag_started_inside_the_title_bar": {
    "pass": true,
    "detail": ""
   },
-  "collection_again_shot_matches_after_card": {
+  "body_drag_moves_nothing": {
    "pass": true,
    "detail": ""
   },
-  "map_page_is_white_below_the_bar": {
+  "body_press_still_raises_options": {
    "pass": true,
-   "detail": "255.00"
+   "detail": ""
   },
-  "resize_relays_cards_within_the_page": {
+  "body_drag_started_below_the_title_bar": {
+   "pass": true,
+   "detail": ""
+  },
+  "party_moved_by_the_drag": {
+   "pass": true,
+   "detail": "{'h': 245.224182128906, 'w': 250.725982666016, 'x': 416.566680908203, 'y': 557.256164550781} -> {'h': 245.224182128906, 'w': 250.725982666016, 'x': 416.566680908203, 'y': 472.891052246094}"
+  },
+  "party_overlaps_the_viewer": {
+   "pass": true,
+   "detail": ""
+  },
+  "party_on_top_of_the_viewer": {
+   "pass": true,
+   "detail": ""
+  },
+  "party_pixels_drawn_over_the_viewer": {
+   "pass": true,
+   "detail": "diff 12.8 over {'x': 416.566680908203, 'y': 472.891052246094, 'w': 250.72598266601597, 'h': 59.99989318847611}"
+  },
+  "viewer_moved_by_the_drag": {
+   "pass": true,
+   "detail": "{'h': 517.171447753906, 'w': 1094.86303710938, 'x': 415.780700683594, 'y': 15.7194976806641} -> {'h': 517.171447753906, 'w': 1094.86303710938, 'x': 385.780700683594, 'y': 39.7194976806641}"
+  },
+  "viewer_raised_above_party": {
+   "pass": true,
+   "detail": ""
+  },
+  "party_stays_put_under_the_viewer_drag": {
+   "pass": true,
+   "detail": ""
+  },
+  "viewer_press_was_outside_party": {
+   "pass": true,
+   "detail": ""
+  },
+  "viewer_press_inside_its_title_bar": {
+   "pass": true,
+   "detail": ""
+  },
+  "wheel_landed_on_the_artworks": {
+   "pass": true,
+   "detail": ""
+  },
+  "wheel_scrolls_the_artworks": {
+   "pass": true,
+   "detail": "scroll 157 of 862.828552246094"
+  },
+  "wheel_moves_no_window": {
+   "pass": true,
+   "detail": ""
+  },
+  "corner_drag_shrinks_the_viewer_in_place": {
+   "pass": true,
+   "detail": "{'h': 517.171447753906, 'w': 1094.86303710938, 'x': 385.780700683594, 'y': 39.7194976806641} -> {'h': 457.171447753906, 'w': 994.863098144531, 'x': 385.780700683594, 'y': 39.7194976806641}"
+  },
+  "resized_body_follows_the_frame": {
+   "pass": true,
+   "detail": ""
+  },
+  "white_where_the_viewer_was": {
+   "pass": true,
+   "detail": "255.0"
+  },
+  "chat_clamped_to_the_page_edge": {
+   "pass": true,
+   "detail": "{'h': 180.774230957031, 'w': 396.917297363281, 'x': 4.71584892272949, 'y': 825.273620605469} -> {'h': 180.774230957031, 'w': 396.917297363281, 'x': 0.0, 'y': 825.273620605469} by [-360.0, 360.0]"
+  },
+  "map_tab_hides_and_freezes_the_page": {
+   "pass": true,
+   "detail": ""
+  },
+  "frozen_counters_stand_still": {
+   "pass": true,
+   "detail": "ticks 75->75 inputs 52->52"
+  },
+  "hidden_gestures_change_nothing": {
+   "pass": true,
+   "detail": ""
+  },
+  "map_page_is_white": {
+   "pass": true,
+   "detail": ""
+  },
+  "collection_tab_resumes_the_page": {
+   "pass": true,
+   "detail": ""
+  },
+  "resumed_windows_exactly_as_left": {
+   "pass": true,
+   "detail": ""
+  },
+  "resumed_counters_advance": {
+   "pass": true,
+   "detail": "75 -> 79 -> 99"
+  },
+  "resumed_pixels_match_before_hiding": {
+   "pass": true,
+   "detail": ""
+  },
+  "resized_page_is_the_minimum": {
    "pass": true,
    "detail": "[1440.0, 844.535888671875]"
+  },
+  "resize_refits_every_window": {
+   "pass": true,
+   "detail": "{'h': 434.144226074219, 'w': 919.092529296875, 'x': 349.030853271484, 'y': 13.195873260498}"
   },
   "resized_screenshot_is_1440x900": {
    "pass": true,
    "detail": "(900, 1440, 3)"
   },
-  "launch_page_mostly_white": {
-   "pass": true,
-   "detail": ""
-  },
-  "header_pixels_present_top_left": {
-   "pass": true,
-   "detail": "std 23.9"
-  },
-  "info_box_pixels_present_bottom": {
-   "pass": true,
-   "detail": "std 35.2"
-  },
-  "thumbnail_cards_have_pixels": {
-   "pass": true,
-   "detail": ""
-  },
-  "filtered_page_has_more_white_than_launch": {
+  "resized_artworks_keep_their_size": {
    "pass": true,
    "detail": ""
   }
  },
  "sha256": {
-  "01-launch.png": "d8b824f59b20d74da23498259cf213e9f2b84f1df1dd9f0b459de60baa41bfcd",
-  "02-has-image.png": "9b9d993b231ac129fa321191a286b77534b97e48c74e5412873a77304a1e3a81",
-  "03-medium-first.png": "04e0217ed91dbcf020a4d27d0bc63a33398df1ef2ce00ca7ac8cc19e8abfe3fd",
-  "04-medium-video.png": "319b3ae007df9ef79155975ca2fbde11647b1fc5a30d3b4277541adcbb59da5c",
-  "05-all-oldest.png": "1c374e21d09d9313f3e4383d3ec58b43fe421517e5f096b73015dee5ee77496a",
-  "06-after-card.png": "1c374e21d09d9313f3e4383d3ec58b43fe421517e5f096b73015dee5ee77496a",
-  "07-map.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
-  "08-collection-again.png": "1c374e21d09d9313f3e4383d3ec58b43fe421517e5f096b73015dee5ee77496a",
-  "09-resized.png": "2b8ad31137535ebd7282d53c7802407b613d9d94b4519661ca26f53ab1023d7b"
+  "01-launch.png": "422f4c4774bca44e4f94a10a77567b3bd735acf7cc882e455de69c8f2a7e8404",
+  "02-equipment-moved.png": "8d97341f636a60d6f34b8940cf274fe95740c027c1e3bfbd95338f5447369f7d",
+  "03-party-over-viewer.png": "ed227a59771652ee47bcc4b12445aa4c8eb3aaa90c024e997e2fde6bd0dfd223",
+  "04-viewer-moved.png": "c901d2f754e2e25a4bc66f34394cbef822690987f295acbe84be755803620fe3",
+  "05-scrolled.png": "c34fab5778785fa36aba561f2b8500f3b6e44e1f63a45844694cd91afacec5ba",
+  "06-viewer-resized.png": "edfd1fbeea908f135d52d19c2e29d939dc7d05ade33d874fb401fd913c90da2f",
+  "07-chat-clamped.png": "131599a6aded7e32abeb337f45571c301657312ddb363eae8e5e2a9a65361317",
+  "08-map.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
+  "09-resumed.png": "131599a6aded7e32abeb337f45571c301657312ddb363eae8e5e2a9a65361317",
+  "10-resized.png": "46c602f50439ef2d52a51ca6a67e6fb31f9e30051b5ef35f16e67e419346a3bd"
  }
 }

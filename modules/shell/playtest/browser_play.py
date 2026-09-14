@@ -1,7 +1,7 @@
 """Drive the Web export of the game (the Shell with the real Tenants) in headless Chrome over CDP with real
 mouse events; save screenshots and a toolbar sheet. The click targets are the rects the native playtests
-logged at 1920x1080 (docs/evidence/{shell,collection-page}/report.json): the bar scales with the window
-width, the Collection page lays its controls out from its own top-left, so both hold at any window size.
+logged at 1920x1080 (docs/evidence/shell/report.json): the bar scales with the window width, so the
+targets hold at any window size.
 usage: browser_play.py URL OUTDIR [width height]"""
 import asyncio, base64, json, subprocess, sys, time, urllib.request, os
 from pathlib import Path
@@ -11,15 +11,11 @@ url, out = sys.argv[1], sys.argv[2]; W, H = (int(sys.argv[3]), int(sys.argv[4]))
 os.makedirs(out, exist_ok=True)
 EV = Path(__file__).resolve().parents[3] / "docs/evidence"
 shell_log = json.loads((EV / "shell/report.json").read_text())["log"]
-page_log = json.loads((EV / "collection-page/report.json").read_text())["log"]
 S = W / 1920.0; BAR_H = 161 * W / 4180.0
 launch = next(e for e in shell_log if e["event"] == "state" and e["label"] == "launch")
 blank = next(e for e in shell_log if e["event"] == "state" and e["label"] == "stub-blank")
-page = next(e for e in page_log if e["event"] == "page" and e["label"] == "launch")
 def mid(r, sx=S, sy=S, dy=0.0): return r["x"] * sx + r["w"] * sx / 2, dy + r["y"] * sy + r["h"] * sy / 2
 def tab(i): return mid(launch["tabs"][i]["rect"])
-def control(name): return mid(page["controls"][name], 1, 1, BAR_H)
-def card(i): return mid(page["cards"][i]["rect"], 1, 1, BAR_H)
 STUB = mid(launch["stub_rect"]); BLANK_CLOSE = mid(blank["tabs"][6]["close_rect"])
 PAGE_CENTRE = (W / 2, BAR_H + (H - BAR_H) / 2)  # inside the atlas window, which fits the page
 
@@ -55,17 +51,15 @@ async def main():
         await send("Emulation.setDeviceMetricsOverride", width=W, height=H, deviceScaleFactor=1, mobile=False)
         await send("Page.navigate", url=url); await asyncio.sleep(15)
         r = await send("Runtime.evaluate", expression="document.title + ' | canvas ' + (document.querySelector('canvas')?.width) + 'x' + (document.querySelector('canvas')?.height)"); print(r.get("result", {}).get("value"))
-        await shot("w01-launch.png")                                    # Collection active, sixteen cards
+        await shot("w01-launch.png")                                    # Collection active, the Image Viewer desktop
         await click(*tab(0), 1.5); await shot("w02-map.png")            # the Map tab: the atlas window on its page
         await wheel_up(*PAGE_CENTRE, 3); await shot("w03-map-zoomed.png")   # wheel up x3 at the page centre: zoom in
         await click(*tab(4)); await shot("w04-collection.png")          # back on Collection, the Map frozen behind
-        await click(*control("has_image")); await shot("w05-has-image.png")  # Has image: 10 of 16
-        await click(*card(0)); await shot("w06-after-card.png")         # a card click emits card_selected, changes nothing
         await click(*STUB, 0.0)                                         # the stub opens a Blank Page as the seventh tab
         for i in range(6):
-            await asyncio.sleep(0.08); await shot(f"w07-grow-{i}.png")
-        await asyncio.sleep(1.5); await shot("w08-blank-page.png")
-        await click(*BLANK_CLOSE, 1.5); await shot("w09-after-close.png")   # its close works; Phone becomes active
+            await asyncio.sleep(0.08); await shot(f"w05-grow-{i}.png")
+        await asyncio.sleep(1.5); await shot("w06-blank-page.png")
+        await click(*BLANK_CLOSE, 1.5); await shot("w07-after-close.png")   # its close works; Phone becomes active
 asyncio.run(main()); chrome.terminate()
 
 # the toolbar sheet: the bar band of every settled screenshot, stacked, labelled

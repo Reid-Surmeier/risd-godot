@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """Independent verifier for a collection_page playtest run. Never trusts the harness's own summary:
-re-reads data/collection.json itself, re-hashes every screenshot, re-reads pixels, and checks the
-logged page and shell states against the interface contract (every record on a card, each filter
-narrows to exactly the matching records, the count follows, sort order, a card click emits
-card_selected(record) and nothing else, freeze and resume across a tab switch, resize).
+re-hashes every screenshot, re-reads pixels against the prototype's own files (the eight window
+screenshots, the reference sheet's footer with "number of works: 12" and its seven artworks) and
+checks the logged states against the interface contract: every window at the reference's place,
+a title drag moves and raises a window, a body drag does not, only the topmost window under the
+pointer takes a drag, the wheel scrolls the artworks, the corner resizes the viewer, a drag stops
+at the page's edge, frozen while hidden with every gesture ignored, resumed intact, re-fitted on
+a resize.
 usage: verify.py OUT_DIR"""
 import hashlib, json, sys
 from pathlib import Path
@@ -11,140 +14,239 @@ import numpy as np
 from PIL import Image
 
 HERE = Path(__file__).resolve().parent
-DATA = json.loads((HERE.parent / "data" / "collection.json").read_text())["records"]
-BAR_H = 161 * 1920 / 4180.0
+MODULE = HERE.parent
+# desktop.gd PANELS and viewer.gd's frame, in the reference's 1944x1280 review coordinates
+PANELS = {"equipment": (12, 20, 482, 254, 30), "options": (12, 291, 493, 213, 30), "filters": (12, 522, 508, 231, 32),
+          "status": (0, 762, 499, 63, 31), "trade": (12, 828, 492, 213, 31), "chat": (6, 1050, 505, 230, 29),
+          "party": (530, 709, 319, 312, 38), "bottom": (519, 1221, 1403, 54, 54)}
+VIEWER = (529, 20, 1393, 658)
+MINIMUM = (531, 250)
+ART_SCALE = 0.375
+WORKS = [(125, 200, 1215, 1240), (1374, 200, 763, 1118), (2174, 198, 833, 1126), (3030, 250, 1350, 1022),
+         (125, 1493, 1215, 805), (2174, 1384, 1165, 932), (3475, 1276, 905, 1075)]
+FOOTER = (44, 2580, 900, 190)   # the source rect holding "number of works: 12"
+KEYED = 32                       # remove-pink.gdshader keys the outer 32 source pixels
 
 out = Path(sys.argv[1])
 log = json.loads((out / "report.json").read_text())["log"]
-pages, shells = {}, {}
+pages = {}
 for e in log:
     if e["event"] == "page":
         pages.setdefault(e["label"], e)
+shells = {}
+for e in log:
     if e["event"] == "shell":
         shells.setdefault(e["label"], e)
-signals = [e for e in log if e["event"] == "signal"]
-clicks = [e for e in log if e["event"] == "click"]
+gestures = {e["what"]: e for e in log if e["event"] in ("wheel", "drag", "click")}
 results = {}
 
 def check(name, cond, detail=""):
     results[name] = {"pass": bool(cond), "detail": detail}
 
-def ids(state):
-    return [c["id"] for c in state["cards"]]
+def near(a, b, tol=1.0):
+    return abs(a - b) <= tol
 
-def expect(medium="All", has_image=False, sort="none"):
-    rs = [r for r in DATA if (medium == "All" or r["medium"] == medium) and (not has_image or r["has_image"])]
-    if sort == "newest":
-        rs.sort(key=lambda r: (-r["year"], r["id"]))
-    elif sort == "oldest":
-        rs.sort(key=lambda r: (r["year"], r["id"]))
-    return [r["id"] for r in rs]
+def rect_near(r, x, y, w, h, tol=1.0):
+    return near(r["x"], x, tol) and near(r["y"], y, tol) and near(r["w"], w, tol) and near(r["h"], h, tol)
+
+def win(p, name):
+    return next(w for w in p["windows"] if w["name"] == name)
+
+def order(p):
+    return [w["name"] for w in p["windows"]]
+
+def same_rects(p, q, skip=()):
+    return all(win(p, n)["rect"] == win(q, n)["rect"] for n in PANELS if n not in skip) and \
+        (("viewer" in skip) or win(p, "viewer")["rect"] == win(q, "viewer")["rect"])
+
+def region(img, p, r):
+    g = p["page_global"]
+    x0, y0 = int(round(g["x"] + r["x"])), int(round(g["y"] + r["y"]))
+    return img[y0:y0 + int(round(r["h"])), x0:x0 + int(round(r["w"]))]
+
+def looks_like(shot, source, shrink=4):
+    """Mean absolute difference of a screenshot region and its source pixels, both box-shrunk so the
+    filter each was scaled with does not matter."""
+    h, w = shot.shape[:2]
+    if h < shrink or w < shrink:
+        return 255.0
+    a = np.array(Image.fromarray(shot.astype(np.uint8)).resize((w // shrink, h // shrink), Image.BOX)).astype(int)
+    b = np.array(source.convert("RGB").resize((w // shrink, h // shrink), Image.BOX)).astype(int)
+    return float(np.abs(a - b).mean())
 
 shots = {e["file"]: e for e in log if e["event"] == "screenshot"}
 hashes = {f: hashlib.sha256((out / f).read_bytes()).hexdigest() for f in shots}
 imgs = {f: np.array(Image.open(out / f).convert("RGB")).astype(int) for f in shots}
-check("screenshots_present", len(shots) == 9, str(sorted(shots)))
-check("screenshots_differ_except_card_click_and_resume", len({h for f, h in hashes.items() if f not in ("06-after-card.png", "08-collection-again.png")}) == len(hashes) - 2)
-check("card_click_changes_no_pixels", hashes["06-after-card.png"] == hashes["05-all-oldest.png"])
+check("screenshots_present", len(shots) == 10, str(sorted(shots)))
+check("launch_screenshot_is_1920x1080", imgs["01-launch.png"].shape[:2] == (1080, 1920), str(imgs["01-launch.png"].shape))
+check("gesture_screenshots_all_differ", len(set(hashes[f] for f in shots if f != "09-resumed.png")) == len(shots) - 1)
 
-# 1. launch
-la, ls = pages["launch"], shells["launch"]
-check("collection_tab_active_with_this_tenant", ls["active"] == 4 and ls["tabs"][4]["tenant"] == "ok" and ls["tenant_ok"])
-check("data_has_the_agreed_records", len(DATA) == 16 and sum(r["has_3d"] for r in DATA) == 1
-      and sum(r["has_video"] for r in DATA) == 5 and sum(r["has_image"] for r in DATA) == 10, f"{len(DATA)} records")
-check("every_record_on_a_card_at_launch", la["total"] == len(DATA) and la["count"] == len(DATA)
-      and set(ids(la)) == {r["id"] for r in DATA} and len(ids(la)) == len(set(ids(la))), f"{la['count']}/{la['total']}")
-check("launch_filter_is_open", la["filter"] == {"medium": "All", "sort": "none", "has_image": False})
-check("mediums_are_the_data's", la["mediums"] == sorted({r["medium"] for r in DATA}), str(la["mediums"]))
-check("launch_cards_in_file_order", ids(la) == [r["id"] for r in DATA])
-check("three_controls_have_rects", all(la["controls"][k]["w"] > 0 and la["controls"][k]["h"] > 0 for k in ("medium", "sort", "has_image")))
-check("tenant_fills_page_area", abs(la["size"][0] - 1920) < 1 and abs(la["size"][1] - (1080 - BAR_H)) < 1.5, str(la["size"]))
-cards = la["cards"]
-check("cards_do_not_overlap", all(not (a["rect"]["x"] < b["rect"]["x"] + b["rect"]["w"] and b["rect"]["x"] < a["rect"]["x"] + a["rect"]["w"]
-      and a["rect"]["y"] < b["rect"]["y"] + b["rect"]["h"] and b["rect"]["y"] < a["rect"]["y"] + a["rect"]["h"])
-      for i, a in enumerate(cards) for b in cards[i + 1:]))
-check("cards_flow_left_to_right_top_down", all((cards[i + 1]["rect"]["y"] > cards[i]["rect"]["y"]) or
-      (cards[i + 1]["rect"]["y"] == cards[i]["rect"]["y"] and cards[i + 1]["rect"]["x"] > cards[i]["rect"]["x"]) for i in range(len(cards) - 1)))
+# 1. launch: the desktop is the Collection Tenant and fills the page
+ls, la = shells["launch"], pages["launch"]
+check("collection_active_with_this_tenant", ls["active"] == 4 and ls["tabs"][4]["tenant"] == "ok" and ls["tabs"][4]["page_visible"] and la["ok"])
+bar_h = 161 * 1920 / 4180.0
+sz = la["size"]
+check("tenant_fills_page_area", near(sz[0], 1920) and near(sz[1], 1080 - bar_h, 1.5) and near(la["page_global"]["h"], sz[1]), str(sz))
+f = min(sz[0] / 1944.0, sz[1] / 1280.0)
+check("factor_fits_reference_to_page", near(la["factor"], f, 1e-6), f"{la['factor']} vs {f}")
+check("nine_windows_in_reference_order", order(la) == list(PANELS) + ["viewer"], str(order(la)))
+check("every_window_at_its_reference_place", all(rect_near(win(la, n)["rect"], *(v * f for v in PANELS[n][:4])) for n in PANELS)
+      and all(near(win(la, n)["drag_height"], PANELS[n][4] * f) for n in PANELS),
+      str({n: win(la, n)["rect"] for n in PANELS}))
+vw = win(la, "viewer")["rect"]
+vx, vy, vw_, vh = VIEWER[0] * f, VIEWER[1] * f, max(VIEWER[2] * f, MINIMUM[0]), max(VIEWER[3] * f, MINIMUM[1])
+check("viewer_at_its_reference_place", rect_near(vw, min(vx, sz[0] - vw_), min(vy, sz[1] - vh), vw_, vh), str(vw))
+check("windows_inside_the_page", all(w["rect"]["x"] >= -0.5 and w["rect"]["y"] >= -0.5 and w["rect"]["x"] + w["rect"]["w"] <= sz[0] + 0.5
+      and w["rect"]["y"] + w["rect"]["h"] <= sz[1] + 0.5 for w in la["windows"]))
+check("viewer_on_top_at_launch", win(la, "viewer")["order"] == max(w["order"] for w in la["windows"]))
 
-# 2. has image
-hi = pages["has-image"]
-check("has_image_click_narrows_to_records_with_a_photo", hi["filter"]["has_image"] is True and ids(hi) == expect(has_image=True)
-      and hi["count"] == len(expect(has_image=True)) and hi["total"] == len(DATA), f"{hi['count']} of {hi['total']}")
-check("has_image_shot_differs_from_launch", hashes["02-has-image.png"] != hashes["01-launch.png"])
+# the seven artworks at fixed size, flowing left to right, top down, inside the viewer's body
+cards = la["viewer"]["cards"]
+check("seven_artworks_at_fixed_size", len(cards) == 7 and all(near(c["w"], r[2] * ART_SCALE) and near(c["h"], r[3] * ART_SCALE)
+      for c, r in zip(cards, WORKS)), str([(c["w"], c["h"]) for c in cards]))
+check("artworks_do_not_overlap", all(a["x"] + a["w"] <= b["x"] + 0.5 or b["x"] + b["w"] <= a["x"] + 0.5 or a["y"] + a["h"] <= b["y"] + 0.5
+      or b["y"] + b["h"] <= a["y"] + 0.5 for i, a in enumerate(cards) for b in cards[i + 1:]))
+check("artworks_flow_left_to_right_top_down", all(cards[i + 1]["y"] > cards[i]["y"] or (cards[i + 1]["y"] == cards[i]["y"]
+      and cards[i + 1]["x"] > cards[i]["x"]) for i in range(6)))
+body = la["viewer"]["body"]
+check("first_artwork_at_the_body's_top_left", near(cards[0]["x"], body["x"]) and near(cards[0]["y"], body["y"]) and la["viewer"]["scroll"] == 0)
+check("artworks_within_the_body's_width", all(c["x"] >= body["x"] - 0.5 and c["x"] + c["w"] <= body["x"] + body["w"] + 0.5 for c in cards))
+check("body_inside_viewer", body["x"] >= vw["x"] and body["y"] >= vw["y"] and body["x"] + body["w"] <= vw["x"] + vw["w"]
+      and body["y"] + body["h"] <= vw["y"] + vw["h"] + 0.5)
+check("more_artwork_than_the_body_shows", la["viewer"]["scroll_max"] > 0 and max(c["y"] + c["h"] for c in cards) > body["y"] + body["h"])
 
-# 3. medium
-mf = pages["medium-first-with-image"]
-first = sorted({r["medium"] for r in DATA})[0]
-check("medium_click_picks_first_medium", mf["filter"]["medium"] == first and ids(mf) == expect(medium=first, has_image=True), f"{mf['filter']['medium']}: {ids(mf)}")
-m1 = pages["medium-first"]
-check("has_image_click_again_turns_it_off", m1["filter"]["has_image"] is False and ids(m1) == expect(medium=first))
-mv = pages["medium-video"]
-check("medium_video_shows_the_five_videos", mv["filter"]["medium"] == "Video" and ids(mv) == expect(medium="Video") and mv["count"] == 5, str(ids(mv)))
-check("medium_video_shot_differs", hashes["04-medium-video.png"] != hashes["03-medium-first.png"])
+# pixels: every window is its own screenshot (interior, the keyed border left out); the footer is the
+# reference's "number of works: 12"; the visible artworks are the reference's cuts; white elsewhere
+launch = imgs["01-launch.png"]
+sheet = Image.open(MODULE / "reference.png")
+diffs = {}
+for n in PANELS:
+    src = Image.open(MODULE / "assets" / f"{n}.png") if n != "filters" else \
+        Image.open(MODULE / "assets" / "layout-reference.png").crop((13, 550, 13 + 535, 550 + 245))
+    keyed = 3 if n == "filters" else KEYED
+    r = win(la, n)["rect"]
+    kx, ky = keyed * r["w"] / src.width, keyed * r["h"] / src.height
+    inner = {"x": r["x"] + kx, "y": r["y"] + ky, "w": r["w"] - 2 * kx, "h": r["h"] - 2 * ky}
+    sx, sy = src.width / r["w"], src.height / r["h"]
+    crop = src.crop((int(kx * sx), int(ky * sy), int((r["w"] - kx) * sx), int((r["h"] - ky) * sy)))
+    diffs[n] = looks_like(region(launch, la, inner), crop)
+check("every_window_shows_its_own_screenshot", all(d < 24 for d in diffs.values()), str({n: round(d, 1) for n, d in diffs.items()}))
+s = la["viewer"]["scale"]
+footer = {"x": vw["x"] + 5, "y": vw["y"] + vw["h"] - 5 - FOOTER[3] * s, "w": FOOTER[2] * s, "h": FOOTER[3] * s}
+fd = looks_like(region(launch, la, footer), sheet.crop((FOOTER[0], FOOTER[1], FOOTER[0] + FOOTER[2], FOOTER[1] + FOOTER[3])), 2)
+check("footer_reads_number_of_works_12", fd < 24 and float(region(launch, la, footer).std()) > 20, f"diff {fd:.1f}")
+art = {}
+for i, (c, r) in enumerate(zip(cards, WORKS)):
+    vis_h = min(c["y"] + c["h"], body["y"] + body["h"]) - c["y"]
+    if vis_h < 40:
+        continue
+    crop = sheet.crop((r[0], r[1], r[0] + r[2], r[1] + int(r[3] * vis_h / c["h"])))
+    art[i] = looks_like(region(launch, la, {"x": c["x"], "y": c["y"], "w": c["w"], "h": vis_h}), crop)
+check("visible_artworks_are_the_reference's_cuts", len(art) >= 2 and all(d < 24 for d in art.values()), str({i: round(d, 1) for i, d in art.items()}))
+g = la["page_global"]
+white = launch[int(g["y"] + 1):int(g["y"] + sz[1]), int(sz[0] - 20):int(sz[0])]
+check("page_white_right_of_the_desktop", float(white.min()) > 250, str(float(white.min())))
 
-# 4. sort
-vn, vo, ao = pages["video-newest"], pages["video-oldest"], pages["all-oldest"]
-check("sort_newest_orders_videos_by_year_desc", vn["filter"]["sort"] == "newest" and ids(vn) == expect(medium="Video", sort="newest"), str(ids(vn)))
-check("sort_oldest_orders_videos_by_year_asc", vo["filter"]["sort"] == "oldest" and ids(vo) == expect(medium="Video", sort="oldest"), str(ids(vo)))
-check("medium_wraps_to_all_keeping_sort", ao["filter"] == {"medium": "All", "sort": "oldest", "has_image": False}
-      and ids(ao) == expect(sort="oldest") and ao["count"] == len(DATA), str(ids(ao)[:4]))
-years = {r["id"]: r["year"] for r in DATA}
-check("all_oldest_years_non_decreasing", all(years[a] <= years[b] for a, b in zip(ids(ao), ids(ao)[1:])))
+# 2. a title drag moves the window by the drag and raises it; its size holds
+d = gestures["drag equipment by its title bar"]; eq = pages["equipment-moved"]
+e0, e1 = win(la, "equipment")["rect"], win(eq, "equipment")["rect"]
+check("title_drag_moves_equipment_by_the_drag", near(e1["x"], e0["x"] + d["relative_total"][0]) and near(e1["y"], e0["y"] + d["relative_total"][1])
+      and e1["w"] == e0["w"] and e1["h"] == e0["h"], f"{e0} -> {e1} by {d['relative_total']}")
+check("title_drag_raises_equipment", order(eq)[-1] == "equipment" and order(eq)[-2] == "viewer")
+check("title_drag_moves_nothing_else", same_rects(la, eq, skip=("equipment",)) and eq["action"] == "")
+check("drag_started_inside_the_title_bar", e0["y"] <= d["from"][1] - la["page_global"]["y"] < e0["y"] + win(la, "equipment")["drag_height"])
 
-# 5. card click
-bc, ac, ag = pages["before-card"], pages["after-card"], pages["after-ground"]
-card_click = next(e for e in clicks if e["what"].startswith("card "))
-clicked_id = card_click["what"][5:]
-rec = next(r for r in DATA if r["id"] == clicked_id)
-check("card_click_emits_card_selected_with_the_record", len(signals) == 1 and signals[0]["id"] == clicked_id and signals[0]["title"] == rec["title"]
-      and set(signals[0]["keys"]) >= {"id", "title", "maker", "department", "medium", "year", "has_image", "has_video", "has_3d"},
-      f"{len(signals)} signal(s): {[s['id'] for s in signals]}")
-check("clicked_card_is_the_first_visible", bc["cards"][0]["id"] == clicked_id)
-check("card_click_changes_nothing_else", ac["filter"] == bc["filter"] and ids(ac) == ids(bc) and ac["count"] == bc["count"]
-      and [c["rect"] for c in ac["cards"]] == [c["rect"] for c in bc["cards"]])
-check("ground_click_emits_nothing", ag["filter"] == ac["filter"] and ids(ag) == ids(ac) and len(signals) == 1
-      and any(e["what"] == "white ground" for e in clicks))
+# 3. a body drag moves nothing and raises the window it pressed
+ob = pages["options-body-drag"]; d = gestures["drag options by its body"]
+check("body_drag_moves_nothing", same_rects(eq, ob) and ob["action"] == "")
+check("body_press_still_raises_options", order(ob)[-1] == "options" and order(ob)[-2] == "equipment")
+check("body_drag_started_below_the_title_bar", d["from"][1] - eq["page_global"]["y"] >= win(eq, "options")["rect"]["y"] + win(eq, "options")["drag_height"])
 
-# 6. invalid filter
-inv = next(e for e in log if e["event"] == "set_filter_invalid"); ai = pages["after-invalid"]
-check("invalid_filter_refused_by_interface", not inv["ok"] and inv["code"] == "collection_page.filter_invalid", inv["code"])
-check("invalid_filter_changed_nothing", ai["filter"] == ag["filter"] and ids(ai) == ids(ag))
+# 4. party dragged over the viewer lies on top of it
+ov = pages["party-over-viewer"]; d = gestures["drag party by its title bar over the viewer"]
+p0, p1, v1 = win(ob, "party")["rect"], win(ov, "party")["rect"], win(ov, "viewer")["rect"]
+check("party_moved_by_the_drag", near(p1["x"], p0["x"] + d["relative_total"][0]) and near(p1["y"], p0["y"] + d["relative_total"][1]), f"{p0} -> {p1}")
+check("party_overlaps_the_viewer", p1["y"] < v1["y"] + v1["h"] and p1["x"] < v1["x"] + v1["w"] and p1["x"] + p1["w"] > v1["x"])
+check("party_on_top_of_the_viewer", order(ov)[-1] == "party" and order(ov).index("viewer") < order(ov).index("party"))
+ovimg = imgs["03-party-over-viewer.png"]
+overlap = {"x": max(p1["x"], v1["x"]), "y": max(p1["y"], v1["y"]), "w": min(p1["x"] + p1["w"], v1["x"] + v1["w"]) - max(p1["x"], v1["x"]),
+           "h": min(p1["y"] + p1["h"], v1["y"] + v1["h"]) - max(p1["y"], v1["y"])}
+src = Image.open(MODULE / "assets" / "party.png")
+sx, sy = src.width / p1["w"], src.height / p1["h"]
+pcrop = src.crop((int((overlap["x"] - p1["x"]) * sx), int((overlap["y"] - p1["y"]) * sy),
+                  int((overlap["x"] - p1["x"] + overlap["w"]) * sx), int((overlap["y"] - p1["y"] + overlap["h"]) * sy)))
+pd = looks_like(region(ovimg, ov, overlap), pcrop)
+check("party_pixels_drawn_over_the_viewer", overlap["w"] > 40 and overlap["h"] > 40 and pd < 24, f"diff {pd:.1f} over {overlap}")
 
-# 7. tab switch
-mp, ca, cp = shells["map"], shells["collection-again"], pages["collection-again"]
-check("map_tab_hides_and_freezes_collection", mp["active"] == 0 and not mp["tabs"][4]["page_visible"] and mp["tabs"][4]["frozen"]
-      and mp["tabs"][0]["page_visible"] and mp["tenant_ok"])
-check("collection_tab_resumes_the_same_page", ca["active"] == 4 and ca["tabs"][4]["page_visible"] and not ca["tabs"][4]["frozen"]
-      and ca["tabs"][4]["tenant"] == "ok" and cp["filter"] == ai["filter"] and ids(cp) == ids(ai)
-      and [c["rect"] for c in cp["cards"]] == [c["rect"] for c in ai["cards"]])
-check("collection_again_shot_matches_after_card", hashes["08-collection-again.png"] == hashes["06-after-card.png"] or
-      float(np.abs(imgs["08-collection-again.png"] - imgs["06-after-card.png"]).mean()) < 0.5)
-check("map_page_is_white_below_the_bar", float(imgs["07-map.png"][int(BAR_H) + 2:].mean()) > 254, f"{float(imgs['07-map.png'][int(BAR_H) + 2:].mean()):.2f}")
+# 5. a press on the viewer's uncovered title raises it above party and drags it; party stays
+vm = pages["viewer-moved"]; d = gestures["drag the viewer by its title bar"]
+v2 = win(vm, "viewer")["rect"]
+check("viewer_moved_by_the_drag", near(v2["x"], v1["x"] + d["relative_total"][0]) and near(v2["y"], v1["y"] + d["relative_total"][1])
+      and v2["w"] == v1["w"] and v2["h"] == v1["h"], f"{v1} -> {v2}")
+check("viewer_raised_above_party", order(vm)[-1] == "viewer" and order(vm)[-2] == "party")
+check("party_stays_put_under_the_viewer_drag", win(vm, "party")["rect"] == p1)
+px, py = d["from"][0] - ov["page_global"]["x"], d["from"][1] - ov["page_global"]["y"]
+check("viewer_press_was_outside_party", not (p1["x"] <= px < p1["x"] + p1["w"] and p1["y"] <= py < p1["y"] + p1["h"]))
+check("viewer_press_inside_its_title_bar", v1["y"] <= py < v1["y"] + win(ov, "viewer")["drag_height"])
 
-# 8. resize
-rs = pages["resized"]
-check("resize_relays_cards_within_the_page", abs(rs["size"][0] - 1440) < 1 and abs(rs["size"][1] - (900 - 161 * 1440 / 4180.0)) < 1.5
-      and ids(rs) == ids(cp) and all(c["rect"]["x"] + c["rect"]["w"] <= 1440 for c in rs["cards"])
-      and max(c["rect"]["x"] + c["rect"]["w"] for c in rs["cards"]) < max(c["rect"]["x"] + c["rect"]["w"] for c in cp["cards"]), str(rs["size"]))
-check("resized_screenshot_is_1440x900", imgs["09-resized.png"].shape[:2] == (900, 1440), str(imgs["09-resized.png"].shape))
+# 6. the wheel over the artworks scrolls them; the artworks keep their sizes
+sc = pages["scrolled"]; w = gestures["wheel down x3 over the artworks"]
+b2 = vm["viewer"]["body"]
+check("wheel_landed_on_the_artworks", not w["up"] and b2["x"] < w["x"] - vm["page_global"]["x"] < b2["x"] + b2["w"]
+      and b2["y"] < w["y"] - vm["page_global"]["y"] < b2["y"] + b2["h"])
+check("wheel_scrolls_the_artworks", 0 < sc["viewer"]["scroll"] <= sc["viewer"]["scroll_max"] + 0.5
+      and all(near(c["y"], d0["y"] - sc["viewer"]["scroll"]) and c["x"] == d0["x"] for c, d0 in zip(sc["viewer"]["cards"], vm["viewer"]["cards"]))
+      and [(c["w"], c["h"]) for c in sc["viewer"]["cards"]] == [(c["w"], c["h"]) for c in cards], f"scroll {sc['viewer']['scroll']} of {sc['viewer']['scroll_max']}")
+check("wheel_moves_no_window", same_rects(vm, sc))
 
-# pixels: the page ground is white; the sliced header sits top-left under the bar; the Info box sits at the bottom;
-# a card with a thumbnail has non-white pixels inside its rect and a page with fewer cards has more white
-def page_px(img, r, dy=BAR_H):
-    return img[int(dy + r["y"]):int(dy + r["y"] + r["h"]), int(r["x"]):int(r["x"] + r["w"])]
-launch_img = imgs["01-launch.png"]
-check("launch_page_mostly_white", float((launch_img[int(BAR_H) + 2:].min(axis=2) > 250).mean()) > 0.6)
-hdr = launch_img[int(BAR_H) + 16:int(BAR_H) + 116, 24:1232]
-check("header_pixels_present_top_left", float(hdr.std()) > 20 and float(hdr.mean()) > 150, f"std {float(hdr.std()):.1f}")
-info = launch_img[1080 - 16 - 136:1080 - 16, 24:1256]
-check("info_box_pixels_present_bottom", float(info.std()) > 10 and float(info.mean()) > 150, f"std {float(info.std()):.1f}")
-thumb_cards = [c for c in la["cards"] if next(r for r in DATA if r["id"] == c["id"]).get("thumbnail")]
-check("thumbnail_cards_have_pixels", all(float(page_px(launch_img, c["rect"]).std()) > 15 for c in thumb_cards[:6]))
-check("filtered_page_has_more_white_than_launch", float((imgs["04-medium-video.png"].min(axis=2) > 250).mean()) > float((launch_img.min(axis=2) > 250).mean()))
+# 7. the corner drag shrinks the viewer in place; the artworks keep their sizes
+rz = pages["viewer-resized"]; d = gestures["drag the viewer's corner inward"]
+v3 = win(rz, "viewer")["rect"]
+check("corner_drag_shrinks_the_viewer_in_place", v3["x"] == v2["x"] and v3["y"] == v2["y"]
+      and near(v3["w"], max(v2["w"] + d["relative_total"][0], MINIMUM[0])) and near(v3["h"], max(v2["h"] + d["relative_total"][1], MINIMUM[1])), f"{v2} -> {v3}")
+check("resized_body_follows_the_frame", near(rz["viewer"]["body"]["w"], v3["w"] - 24) and rz["viewer"]["body"]["x"] + rz["viewer"]["body"]["w"] <= v3["x"] + v3["w"]
+      and [(c["w"], c["h"]) for c in rz["viewer"]["cards"]] == [(c["w"], c["h"]) for c in cards])
+rzimg = imgs["06-viewer-resized.png"]
+below = region(rzimg, rz, {"x": v3["x"] + v3["w"] - 110, "y": v3["y"] + v3["h"] + 2, "w": 100, "h": max(1, min(20, v2["y"] + v2["h"] - v3["y"] - v3["h"] - 3))})
+check("white_where_the_viewer_was", float(below.min()) > 250, str(float(below.min())))
+
+# 8. a drag past the page's corner stops at the edge
+cl = pages["chat-clamped"]; d = gestures["drag chat past the page's bottom-left corner"]
+c0, c1 = win(rz, "chat")["rect"], win(cl, "chat")["rect"]
+check("chat_clamped_to_the_page_edge", c1["x"] == 0 and near(c1["y"], cl["size"][1] - c1["h"]) and c0["x"] + d["relative_total"][0] < 0
+      and c0["y"] + d["relative_total"][1] + c1["h"] > cl["size"][1], f"{c0} -> {c1} by {d['relative_total']}")
+
+# 9. frozen while hidden: no frames, no input, the hidden gestures change nothing
+mp = shells["map"]; hd = pages["hidden"]; ha = pages["hidden-after-events"]; ma = shells["map-after-20-frames"]
+check("map_tab_hides_and_freezes_the_page", mp["active"] == 0 and not mp["tabs"][4]["page_visible"] and mp["tabs"][4]["frozen"] and hd["ok"])
+check("frozen_counters_stand_still", ha["ticks"] == hd["ticks"] and ha["inputs"] == hd["inputs"] and ma["tabs"][4]["frozen"],
+      f"ticks {hd['ticks']}->{ha['ticks']} inputs {hd['inputs']}->{ha['inputs']}")
+check("hidden_gestures_change_nothing", same_rects(cl, ha) and order(ha) == order(cl) and ha["viewer"]["scroll"] == cl["viewer"]["scroll"]
+      and "drag trade by its title bar while hidden" in gestures and "wheel down x3 over the artworks while hidden" in gestures)
+mapimg = imgs["08-map.png"]
+check("map_page_is_white", float(mapimg[int(g["y"] + 2):int(g["y"] + sz[1] - 2)].min()) > 250)
+
+# 10. resumed intact
+ca = shells["collection-again"]; rs = pages["resumed"]; ra = pages["resumed-after-20-frames"]
+check("collection_tab_resumes_the_page", ca["active"] == 4 and ca["tabs"][4]["page_visible"] and not ca["tabs"][4]["frozen"])
+check("resumed_windows_exactly_as_left", same_rects(cl, rs) and order(rs) == order(cl) and rs["viewer"]["scroll"] == cl["viewer"]["scroll"]
+      and win(rs, "viewer")["rect"] == v3)
+check("resumed_counters_advance", ra["ticks"] > rs["ticks"] >= ha["ticks"], f"{ha['ticks']} -> {rs['ticks']} -> {ra['ticks']}")
+check("resumed_pixels_match_before_hiding", hashes["09-resumed.png"] == hashes["07-chat-clamped.png"]
+      or float(np.abs(imgs["09-resumed.png"] - imgs["07-chat-clamped.png"]).mean()) < 0.5)
+
+# 11. resize to the minimum: every window re-fitted to the smaller page
+rr = pages["resized"]; sr = shells["resized"]
+sz2 = rr["size"]; f2 = min(sz2[0] / 1944.0, sz2[1] / 1280.0)
+check("resized_page_is_the_minimum", near(sz2[0], 1440) and near(sz2[1], 900 - 161 * 1440 / 4180.0, 1.5) and sr["window"] == [1440, 900], str(sz2))
+check("resize_refits_every_window", near(rr["factor"], f2, 1e-6) and all(rect_near(win(rr, n)["rect"], *(v * f2 for v in PANELS[n][:4])) for n in PANELS)
+      and rect_near(win(rr, "viewer")["rect"], VIEWER[0] * f2, VIEWER[1] * f2, max(VIEWER[2] * f2, MINIMUM[0]), max(VIEWER[3] * f2, MINIMUM[1])), str(win(rr, "viewer")["rect"]))
+check("resized_screenshot_is_1440x900", imgs["10-resized.png"].shape[:2] == (900, 1440), str(imgs["10-resized.png"].shape))
+check("resized_artworks_keep_their_size", [(c["w"], c["h"]) for c in rr["viewer"]["cards"]] == [(c["w"], c["h"]) for c in cards])
 
 ok = all(r["pass"] for r in results.values())
 (out / "verify.json").write_text(json.dumps({"pass": ok, "checks": results, "sha256": hashes}, indent=1))
 for k, r in results.items():
     print(("PASS" if r["pass"] else "FAIL"), k, r["detail"])
-print("VERDICT", "PASS" if ok else "FAIL")
+print("VERDICT", "PASS" if ok else "FAIL", f"({sum(r['pass'] for r in results.values())}/{len(results)})")
 sys.exit(0 if ok else 1)
