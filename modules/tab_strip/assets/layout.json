@@ -72,5 +72,12 @@
   "w": 22,
   "h": 22,
   "margin_right": 80
+ },
+ "labels": {
+  "map": "label_map.png",
+  "sketchbook": "label_sketchbook.png",
+  "3d_viewer": "label_3d_viewer.png",
+  "video_player": "label_video_player.png",
+  "collection": "label_collection.png"
  }
 }
