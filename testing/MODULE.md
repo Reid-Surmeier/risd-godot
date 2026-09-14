@@ -19,4 +19,6 @@ One place to take test-time adapters from: a fixed clock, in-memory stores, reco
 
 ## Inside
 
+`harness_base.gd` is the SceneTree every module's playtest harness extends: the `--out-dir` arg, the clock and log, real clicks and keys through `Input.parse_input_event`, screenshots of the root, and `report.json`; `scripts/playtest.sh <module>` runs one harness on the X display and then the module's `verify.py`.
+
 Keep test doubles here, not scattered in modules. A double only one module needs still lives here, named for that module. A test that asserts on a screenshot the implementation itself produced is not a test — the harness must perform the interaction.

@@ -8,9 +8,9 @@ Hand-maintained, one row per `MODULE.md`. Read this first; open a module's `MODU
 | --- | --- | --- | --- |
 | [`testing`](testing/MODULE.md) | The harness, fixtures, and test doubles every other module's acceptance tests use | `testing/interface.gd` | — |
 | [`tab_strip`](modules/tab_strip/MODULE.md) | The Windows Live / IE7 toolbar with tabs opened from the blank New Tab stub or fixed by the caller, each owning a page | `modules/tab_strip/interface.gd` | — |
-| [`shell`](modules/shell/MODULE.md) | The one Control the game runs in: six fixed Tabs over the strip, each Tab's Tenant created lazily on first show and frozen while hidden | `modules/shell/interface.gd` | `tab_strip` |
+| [`shell`](modules/shell/MODULE.md) | The one Control the game runs in: six fixed Tabs over the strip, each Tab's Tenant created lazily on first show and frozen while hidden | `modules/shell/interface.gd` | `tab_strip`, `atlas`, `collection_page` (the demo scene's registry) |
 | [`atlas`](modules/atlas/MODULE.md) | The Pixel Atlas as the Map Tab's Tenant: one draggable, resizable map window on the Page whose SubViewport holds the zoomable pixel world, frozen with the Page | `modules/atlas/interface.gd` | `shell` |
-| [`collection_page`](modules/collection_page/MODULE.md) | The Collection Tab's Tenant: the RISD Museum "Collections page" look over one static record file, three working filters with a count, a card click that emits a signal | `modules/collection_page/interface.gd` | — |
+| [`collection_page`](modules/collection_page/MODULE.md) | The Collection Tab's Tenant: the RISD Museum "Collections page" look over one static record file, three working filters with a count, a card click that emits a signal | `modules/collection_page/interface.gd` | `shell` |
 | [`review`](review/MODULE.md) | The packet an independent blind reviewer receives, and the acceptance contract it judges against | `review/interface.gd` | — |
 
 6 module(s). `tab_strip` is the first game module and `shell` (the main scene) hosts the Tenants; `atlas` (the Map Tab) and `collection_page` (the Collection Tab) are the ported Tenants; the Tenant modules are decided on the wayfinder map #23, not invented here.

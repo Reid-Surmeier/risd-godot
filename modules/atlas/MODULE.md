@@ -4,7 +4,7 @@ purpose: The Pixel Atlas as the Map Tab's Tenant — one draggable, resizable, c
 interface: modules/atlas/interface.gd
 errors: modules/atlas/errors.gd
 tests: modules/atlas/playtest/harness.gd + modules/atlas/playtest/verify.py
-depends-on: []
+depends-on: [shell]
 ---
 
 # atlas
@@ -25,6 +25,6 @@ Frozen while hidden: the Shell hides the Page (`visible = false`, `process_mode 
 
 `atlas_window.gd` is the window and the Tenant node; `atlas.gd` is the map inside its SubViewport (`gui_embed_subwindows`, `UPDATE_ALWAYS` as in the prototype — the container manages it from there). Both come from `qwen-pipeline-experiments` `prototype/atlas-5` @ `421f1cc`; `PROVENANCE.md` lists all 88 copied files with hashes and the ledgers their pixels come from. Left behind: the four desktop panels, the under-750-px phone layout, the clear-colour override, the JavaScriptBridge publishes (now `snapshot()` feeding `state()`), the two one-node scenes, `world.png` and the plain geography tiles (never loaded). One prototype bug fixed: a spare `Button.new()` that was never added to the tree leaked at exit. `export_presets.cfg` includes `modules/atlas/*.json` so the Web export carries the data. No project setting changed; the prototype's `gl_compatibility` and `emulate_mouse_from_touch` are not set here (see the open questions on the port's ticket).
 
-The playtest (`scripts/playtest-atlas.sh`) runs the game's main scene on an X display at 1920x1080, drives it with real mouse events through `Input.parse_input_event` (tab clicks, wheel, drag-pan, title-bar drag) and reaches the atlas only through `ShellInterface.tenant_state`; `verify.py` re-hashes the screenshots, re-reads pixels (sea and land colours in the map body, the title lettering, white outside the window) and checks the logged states against the contract: lazy creation, page fill, the window's fit, zoom x1.18^3 at the centre, camera moved by drag/zoom, frame moved by the drag, frozen counters, unchanged state under hidden events, update mode and draw calls while hidden, identical pixels on resume, the 1440x900 re-fit. Evidence of the accepted run is in `docs/evidence/atlas/`.
+The playtest (`scripts/playtest.sh atlas`, on `testing/harness_base.gd`) builds the Shell with the atlas in the Map Tab and nothing in the other Tabs, on an X display at 1920x1080, drives it with real mouse events through `Input.parse_input_event` (tab clicks, wheel, drag-pan, title-bar drag) and reaches the atlas only through `ShellInterface.tenant_state`; `verify.py` re-hashes the screenshots, re-reads pixels (sea and land colours in the map body, the title lettering, white outside the window) and checks the logged states against the contract: lazy creation, page fill, the window's fit, zoom x1.18^3 at the centre, camera moved by drag/zoom, frame moved by the drag, frozen counters, unchanged state under hidden events, update mode and draw calls while hidden, identical pixels on resume, the 1440x900 re-fit. Evidence of the accepted run is in `docs/evidence/atlas/`.
 
 Known gaps: the prototype's keys (Home, Esc, arrows, F) are also claimed by other Tenants (map #23, cross-tab shortcuts); GeoNames attribution is not shown on screen; the window frame's rights record is "owner supplied" only.

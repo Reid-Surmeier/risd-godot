@@ -4,7 +4,7 @@ purpose: The Collection Tab's Tenant — the RISD Museum "Collections page" look
 interface: modules/collection_page/interface.gd
 errors: modules/collection_page/errors.gd
 tests: modules/collection_page/playtest/harness.gd + modules/collection_page/playtest/verify.py
-depends-on: []
+depends-on: [shell]
 ---
 
 # collection_page
@@ -25,6 +25,6 @@ The filters work: `medium` cycles All and every medium in the data, `sort` cycle
 
 Sliced pixels are shown at 2x through the project's nearest filter (the reference window is 859 px wide; the page is 1440..1920). Cards are 280x296 plain Controls in an `HFlowContainer` inside a `ScrollContainer` (vertical only); text is Liberation Sans through theme overrides, black on white, clipped to the card (clip and wrap are set before the size, or a Label's minimum size grows to its text). The `has_video` / `has_3d` badge is the repository's MED-01 / MED-06 still. The grid is rebuilt on every filter change — sixteen cards, so no incremental update.
 
-The playtest (`scripts/playtest-collection-page.sh`) runs the game's main scene at 1920x1080 on an X display, drives the filter controls, a card, the white ground and the Map and Collection tabs with real mouse events through `Input.parse_input_event`, and calls the interface once with an invalid filter; `verify.py` re-reads `collection.json` itself, re-hashes the screenshots and checks every state against the contract (41 checks). Evidence of the accepted run is in `docs/evidence/collection-page/`.
+The playtest (`scripts/playtest.sh collection_page`, on `testing/harness_base.gd`) builds the Shell with this page in the Collection Tab and nothing in the other Tabs, at 1920x1080 on an X display, drives the filter controls, a card, the white ground and the Map and Collection tabs with real mouse events through `Input.parse_input_event`, and calls the interface once with an invalid filter; `verify.py` re-reads `collection.json` itself, re-hashes the screenshots and checks every state against the contract (41 checks). Evidence of the accepted run is in `docs/evidence/collection-page/`.
 
 Known gaps: no hover or pressed state on cards or controls (no State Sets exist yet); the browser-rendered run (`browser_play.py`) is not written for this page; the descriptive records are not museum records.
