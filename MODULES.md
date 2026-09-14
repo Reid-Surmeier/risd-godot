@@ -9,6 +9,7 @@ Hand-maintained, one row per `MODULE.md`. Read this first; open a module's `MODU
 | [`testing`](testing/MODULE.md) | The harness, fixtures, and test doubles every other module's acceptance tests use | `testing/interface.gd` | — |
 | [`tab_strip`](modules/tab_strip/MODULE.md) | The Windows Live / IE7 toolbar with tabs opened from the blank New Tab stub or fixed by the caller, each owning a page | `modules/tab_strip/interface.gd` | — |
 | [`shell`](modules/shell/MODULE.md) | The one Control the game runs in: six fixed Tabs over the strip, each Tab's Tenant created lazily on first show and frozen while hidden | `modules/shell/interface.gd` | `tab_strip` |
+| [`atlas`](modules/atlas/MODULE.md) | The Pixel Atlas as the Map Tab's Tenant: one draggable, resizable map window on the Page whose SubViewport holds the zoomable pixel world, frozen with the Page | `modules/atlas/interface.gd` | — |
 | [`review`](review/MODULE.md) | The packet an independent blind reviewer receives, and the acceptance contract it judges against | `review/interface.gd` | — |
 
-4 module(s). `tab_strip` is the first game module and `shell` (the main scene) hosts the Tenants; the Tenant modules are decided on the wayfinder map #23, not invented here.
+5 module(s). `tab_strip` is the first game module and `shell` (the main scene) hosts the Tenants; the Tenant modules are decided on the wayfinder map #23, not invented here. `atlas` is the first Tenant (the Map Tab).
