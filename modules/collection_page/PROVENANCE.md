@@ -1,52 +1,49 @@
-# collection_page — where every pixel comes from
+# Provenance of modules/collection_page
 
-Nothing in `assets/` is hand-drawn. Every PNG is a crop of a picture that already existed; crop boxes are `(left, top, right, bottom)` in the source's own pixels. The page shows the header, the Info box and the cut-outs at 2x with the project's nearest filter; thumbnails are scaled to fit a 280x200 card.
+Every file below was copied unchanged (the two scripts excepted, see their headers) from
+`Reid-Surmeier/qwen-image-pipeline`, branch `prototype/81-image-viewer`, commit `5d55209`, folder
+`godot/prototype-image-viewer/`, on 2026-09-13. SHA-256 is of the source file at that commit, which for
+every non-script file is also the byte-identical copy here. Nothing in the module is hand-drawn: the
+windows are the owner's own screenshots, the viewer's chrome and artworks are regions of the owner's
+reference sheet, and the only pixels Godot adds are the prototype's one-pixel rounded outline and
+resize grip. Left behind: `viewer.tscn` (one node carrying `viewer.gd`; the node is built in code
+here), `project.godot`, `export_presets.cfg`, `run.sh`, `playtest.mjs`, `evidence/`, `web/`,
+`README.md`, `assets/SOURCES.md` (its table is carried below).
 
-**Rights: the object photographs, the video frames and the Buddha render are RISD Museum material whose rights record is pending on ticket #35.** They ship here as draft-mockup evidence, exactly as the other prototypes' pixels do; nothing in this module asserts a licence for them.
+**Rights: the seven artworks on the reference sheet are RISD Museum material whose rights record is
+pending on ticket #35; the eight HUD windows are screenshots of a third-party game's interface,
+supplied by the owner with no rights statement beyond that.** They ship here as draft-mockup evidence,
+as the other prototypes' pixels do; nothing in this module asserts a licence for them.
 
-## The owner's Collection page reference
+## Where the pixels come from (records outside this repository)
 
-Source: `docs/evidence/collection-page/reference.png` (859x803, sha256 `d596106f9c0938166b225cceecad55dead4dd68ddfad43544f134fd8c392997f`), attached by the owner on ticket #26: the RISD Museum "Collections page" window.
-
-| File | Crop | What it is |
+| Pixels | Origin | Record |
 | --- | --- | --- |
-| `header.png` | (126, 92, 730, 142) | the logo row: "RISD Museum / Digital Playground", the small icon at right, "Collections page:" |
-| `info_box.png` | (126, 686, 742, 754) | the Info box: "Saved objects — this is where you see the objects you have saved…" |
-| `obj_bust.png` | (174, 213, 408, 443) | cut-out: bust of a bearded man, painted wood (record `ref-bust`) |
-| `obj_bronze.png` | (411, 274, 676, 576) | cut-out: feline finial, bronze (record `ref-bronze`) |
-| `obj_seals.png` | (250, 500, 390, 582) | cut-out: two resting seals, ceramic (record `ref-seals`) |
+| `reference.png` | the owner's seven-artwork Image Viewer screenshot (4591x2816), pasted into the prototype session as `orca-paste-1788871973810-2fd26ef1-8eee-499c-a00f-ee95924f971b.png` | prototype `README.md` @ `5d55209` |
+| `assets/{equipment,options,status,trade,chat,party,bottom}.png` | seven owner-supplied window screenshots (Images 1–7 of the prototype session, `orca-paste-1788872786356…` through `…817835…`) | prototype `assets/SOURCES.md` @ `5d55209` |
+| `assets/layout-reference.png` | the owner's desktop layout screenshot (`.orca/drops/Screenshot 2026-09-08 at 9.07.06 AM.png`, 2052x1352); the Search filters window is cut from it at (13, 550, 535, 245) at run time | prototype `assets/SOURCES.md` @ `5d55209` |
 
-## The Buddha scan
+The owner's reference for this port (map #23 Notes, 2026-09-13 late) is the same desktop layout
+screenshot; `desktop.gd`'s placements are its 1944x1280 review coordinates, `viewer.gd`'s frame rect
+and artwork scale are the prototype's accepted state (the owner enlarged the artworks by half and
+widened the gallery to the bottom bar's right edge in `077f993`; every window became draggable with
+stacking in `5d55209`).
 
-`obj_buddha.png`: crop (116, 118, 528, 522) of `painting-tool-prototype/artifacts/qa/statue-viewer-v003/initial-viewer.png` in the `figma-ui-ux-qwen-pipeline` repository (commit `f8f8e75`; sha256 `17a7b512a4229a7f4f4c10fffa9c4426382a6c2db6ff0d6822a00c3d51fdaf92`) — the Sculpture Viewer prototype's own render of `assets/models/proton-buddha-3124123123.glb`, the one model the 3D Viewer will hold (ticket #27, record `buddha-scan`, `has_3d`).
+## Files
 
-## The five RISD Museum videos
+| File | Source path | SHA-256 | Note |
+| --- | --- | --- | --- |
+| `modules/collection_page/viewer.gd` | `godot/prototype-image-viewer/viewer.gd` | `ae905c4cee539a6a8320c5d93645e0f2a348a3dbaf0127756b0aae6cbc8d001b` | ported (edited; see the script header) |
+| `modules/collection_page/desktop.gd` | `godot/prototype-image-viewer/desktop.gd` | `7b5bbe89c8538d929c736ea01320b4310bb51cf196e7e1da6aa61b8626b64a80` | ported (edited; see the script header) |
+| `modules/collection_page/remove-pink.gdshader` | `godot/prototype-image-viewer/remove-pink.gdshader` | `a8c11066ff25bc14a5ba08e227ea342dd84c6fa071261c4df035ac0b1ca26314` | keys the magenta border of a window screenshot (outer 32 source px; 3 for the filters cut) |
+| `modules/collection_page/reference.png` | `godot/prototype-image-viewer/reference.png` | `c39ac61850b59fe297ffc2a09fcd30adbdb37c78181275248344a5e5016ad501` | the Image Viewer sheet: header, footer ("number of works: 12") and the seven artworks are sampled from it |
+| `modules/collection_page/assets/equipment.png` | `godot/prototype-image-viewer/assets/equipment.png` | `cd5406de0e17372792bedd52205d83e0a746d3c68ab0d497cc9b02fccb087262` | 装備アイテム (equipment) window, owner-supplied |
+| `modules/collection_page/assets/options.png` | `godot/prototype-image-viewer/assets/options.png` | `a06c6b034232f42e1350f367b10862d60fe39d7a5e6e651660045275a1a07349` | オプション (options) window, owner-supplied |
+| `modules/collection_page/assets/status.png` | `godot/prototype-image-viewer/assets/status.png` | `4293f42a1463ee99cfc4bf97f57b8148a3ee62e9dc0770ed029011c43d733565` | SakumaRiri status bar, owner-supplied |
+| `modules/collection_page/assets/trade.png` | `godot/prototype-image-viewer/assets/trade.png` | `ca85d0e25341042cfa64b36c6fbdfbcedb770a4fc2074f17744b3d667df55d7e` | 交換ウィンドウ (trade) window, owner-supplied |
+| `modules/collection_page/assets/chat.png` | `godot/prototype-image-viewer/assets/chat.png` | `f1cee08cb0b3528594863ee6ecd14256b7e41f269540caedef0f45b06cf022b5` | Global Chatroom window, owner-supplied |
+| `modules/collection_page/assets/party.png` | `godot/prototype-image-viewer/assets/party.png` | `53448920c5c9c9d711f2a4f20bf22d5935c3173972e2bc0c7062cf1bfead0b75` | パーティー (party) window, owner-supplied |
+| `modules/collection_page/assets/bottom.png` | `godot/prototype-image-viewer/assets/bottom.png` | `09c077c70d82875e3da6d8c8bfe7c4de9a98a5fa4150cc045ba81e9c66d4f262` | the bottom bar, owner-supplied |
+| `modules/collection_page/assets/layout-reference.png` | `godot/prototype-image-viewer/assets/layout-reference.png` | `e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d` | the owner's desktop layout; the Search filters window is cut from it |
 
-One frame each at 10 s, scaled to 320 px wide (`ffmpeg -ss 10 -frames:v 1 -vf scale=320:-2`), from the prepared preview files on this repository's branch `Reid-Surmeier/issue-20-video-player-usability` (commit `f2097ff`, `prototypes/video-player-usability/media/<id>.ogv`). Titles are the `exact_title` values of `docs/evidence/video-player-usability/media-provenance.json` on that branch (owner-authorized downloads from Vimeo, issue #18). The `year` on each record is a guess from the Vimeo id, not a museum record.
-
-| File | Source `.ogv` sha256 | Title |
-| --- | --- | --- |
-| `video_1191767929.png` | `b672830e2a9e03465c562dcb8c192746c01daf32cfaeebcfba02c8d1ca4acc5f` | The Observer |
-| `video_1187745268.png` | `d9b1b6271eca62f3dc0afda60975da26623316a7bde1359f6af59afa63911a73` | Inside the Exhibition, Natchiq _ Onkeehq _ Isuwiq – Indigenous Artists Honor the Seal |
-| `video_1014865523.png` | `a824e34fe775b9e638ae52680a3b99dec8a8f6cf8279e50751ee8a229055b68c` | A Look Into Our Collection’s Polaroid Photographs by Andy Warhol |
-| `video_1009870521.png` | `e5d392f7ca1be302c6fca0f56f3dc033de8b6d952e9500ee388d810abb7ccf89` | The Making of Wallpaper |
-| `video_1008943970.png` | `ef30b360c6de670fabc8e789fdd30595116128afb52798c28306d7a3c18756e3` | Short Cuts Sháńdíín Sháńdíín on Diné textiles |
-
-## The seven prototype-81 artworks
-
-Source: `godot/prototype-image-viewer/reference.png` in `qwen-image-pipeline`, branch `prototype/81-image-viewer` (commit `5d55209`; 4591x2816, sha256 `c39ac61850b59fe297ffc2a09fcd30adbdb37c78181275248344a5e5016ad501`), the owner's seven-artwork screenshot. Crops are the `WORKS` rectangles of that prototype's `viewer.gd`, scaled to 320 px wide (LANCZOS); `art_01` is trimmed to the print itself (the source rectangle also holds three icon groups below it). Their records are `descriptive` in `data/collection.json`: title, maker, department, medium and year were written from looking at the picture and are not museum records; a maker marked "(by eye)" is an attribution, not a fact.
-
-| File | Crop (x, y, w, h) | Record |
-| --- | --- | --- |
-| `art_01.png` | (125, 200, 1215, 810) | `art-01` |
-| `art_02.png` | (1374, 200, 763, 1118) | `art-02` |
-| `art_03.png` | (2174, 198, 833, 1126) | `art-03` |
-| `art_04.png` | (3030, 250, 1350, 1022) | `art-04` |
-| `art_05.png` | (125, 1493, 1215, 805) | `art-05` |
-| `art_06.png` | (2174, 1384, 1165, 932) | `art-06` |
-| `art_07.png` | (3475, 1276, 905, 1075) | `art-07` |
-
-## Icons and font
-
-- The `has_video` / `has_3d` badges are `assets/icons/set/MED-01-has-video.png` and `MED-06-point-cloud.png`, the repository's own stills, loaded at run time (ticket #27: ship the stills that exist).
-- `LiberationSans-Regular.ttf` is the system's `fonts-liberation` package file (sha256 `4659bc0c58c5028dd488ec928d41d9265db43d9b669fc14ca8b0832daca7b144`), SIL Open Font License 1.1. Fonts are allowed inside a Page (ticket #24); the strip stays font-free.
+12 files.
