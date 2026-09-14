@@ -1,12 +1,14 @@
 ## The Collection page Tenant: built by interface.gd's create; everything in here is free to change.
-## Sliced pixels (header, Info box, object cut-outs) come from the files PROVENANCE.md lists and
-## are shown at 2x with the project's nearest filter; everything else is a white surface with text.
+## Sliced pixels come from the files PROVENANCE.md lists: the header and Info box are shown at 2x
+## with the project's nearest filter, the object cut-outs fitted to their card's thumbnail;
+## everything else is a white surface with text.
 extends Control
 
 signal card_selected(record: Dictionary)
 
 const Errors := preload("res://modules/collection_page/errors.gd")
 const ASSETS := "res://modules/collection_page/assets/"
+const DATA := "res://modules/collection_page/data/collection.json"
 const ICONS := "res://assets/icons/set/"  # the owner's stills (ticket #27); not a module, no seam
 const REQUIRED: Array[String] = ["id", "title", "maker", "department", "medium", "year"]
 const FLAGS: Array[String] = ["has_image", "has_video", "has_3d"]
@@ -19,7 +21,6 @@ const THUMB_H := 200.0
 const CARD_H := 296.0
 const GAP := 16.0
 
-var key := ""
 var _records: Array = []
 var _mediums: Array = []
 var _filter := {"medium": MEDIUM_ALL, "sort": "none", "has_image": false}
@@ -35,11 +36,10 @@ var _grid: HFlowContainer
 var _cards: Array = []
 
 
-static func create(deps: Dictionary) -> Dictionary:
+static func create(_deps: Dictionary) -> Dictionary:
 	var page = load("res://modules/collection_page/collection_page.gd").new()
-	page.key = deps.get("key", "")
 	page.name = "CollectionPage"
-	var loaded: Dictionary = page._load_records(deps.get("data_path", "res://modules/collection_page/data/collection.json"))
+	var loaded: Dictionary = page._load_records(DATA)
 	if not loaded.ok:
 		return loaded
 	var assets: Dictionary = page._load_assets()

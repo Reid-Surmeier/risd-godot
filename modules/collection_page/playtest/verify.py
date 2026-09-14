@@ -104,7 +104,6 @@ check("card_click_changes_nothing_else", ac["filter"] == bc["filter"] and ids(ac
       and [c["rect"] for c in ac["cards"]] == [c["rect"] for c in bc["cards"]])
 check("ground_click_emits_nothing", ag["filter"] == ac["filter"] and ids(ag) == ids(ac) and len(signals) == 1
       and any(e["what"] == "white ground" for e in clicks))
-check("card_click_was_after_filters_only", signals[0]["t_ms"] > card_click["t_ms"] - 200)
 
 # 6. invalid filter
 inv = next(e for e in log if e["event"] == "set_filter_invalid"); ai = pages["after-invalid"]

@@ -2,7 +2,7 @@
 class_name CollectionPageErrors
 extends RefCounted
 
-## data/collection.json (or the path in deps) is not there or cannot be read.
+## data/collection.json is not there or cannot be read.
 const DATA_MISSING := "collection_page.data_missing"
 ## The data file is not the shape the interface documents (not JSON, no records array, a record
 ## without id/title/maker/department/medium/year, a flag that is not a bool).

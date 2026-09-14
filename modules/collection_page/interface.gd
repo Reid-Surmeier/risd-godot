@@ -20,15 +20,9 @@ extends RefCounted
 const Errors := preload("res://modules/collection_page/errors.gd")
 const _Impl := preload("res://modules/collection_page/collection_page.gd")
 
-## The record file the page reads unless deps carries "data_path".
-const DATA_PATH := "res://modules/collection_page/data/collection.json"
-## The filter's keys and the values each accepts. `medium` also accepts any medium in the data.
-const FILTER_MEDIUM_ALL := "All"
-const SORT_VALUES: Array[String] = ["none", "newest", "oldest"]
 
-
-## Build the page: deps = { "key": String (from the Shell), "data_path": String (optional) }.
-## Loads the records and every sliced pixel file; returns ok(page Control) or
+## Build the page: deps = { "key": String } is what the Shell passes and is not needed here.
+## Loads data/collection.json and every sliced pixel file; returns ok(page Control) or
 ## err(DATA_MISSING | DATA_INVALID | ASSET_MISSING).
 static func create(deps: Dictionary) -> Dictionary:
 	return _Impl.create(deps)
@@ -43,7 +37,8 @@ static func set_filter(page: Control, filter: Dictionary) -> Dictionary:
 
 ## Everything a harness needs, in the page's own pixels:
 ## ok({ total, count, filter: { medium, sort, has_image }, mediums: [String],
-##      cards: [{ id, title, rect }] (the visible cards in grid order),
+##      cards: [{ id, title, rect }] (every card that passes the filter, in grid order — not clipped
+##      to the scroll view, so a rect may lie below the page),
 ##      controls: { medium, sort, has_image: rect }, size }).
 static func state(page: Control) -> Dictionary:
 	return page.state()
