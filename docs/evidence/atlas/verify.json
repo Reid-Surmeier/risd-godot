@@ -3,7 +3,7 @@
  "checks": {
   "screenshots_present": {
    "pass": true,
-   "detail": "['01-map.png', '02-zoomed.png', '03-panned.png', '04-window-moved.png', '05-hidden.png', '06-resumed.png', '07-resized.png', '08-restored.png']"
+   "detail": "['01-map.png', '02-zoomed.png', '03-panned.png', '04-window-moved.png', '05-window-clamped.png', '06-window-resized.png', '07-collapsed.png', '08-key-home.png', '09-before-hidden.png', '10-hidden.png', '11-resumed.png', '12-resized.png', '13-restored.png']"
   },
   "map_screenshot_is_1920x1080": {
    "pass": true,
@@ -65,21 +65,85 @@
    "pass": true,
    "detail": ""
   },
+  "window_drag_clamps_to_page_edge": {
+   "pass": true,
+   "detail": "page [1920.0, 1006.0478515625], frame {'h': 958.0, 'w': 1163.0, 'x': 757.0, 'y': 48.0478515625}"
+  },
+  "corner_drag_resizes_frame_in_place": {
+   "pass": true,
+   "detail": "{'h': 958.0, 'w': 1163.0, 'x': 757.0, 'y': 48.0478515625} -> {'h': 858.0, 'w': 1013.0, 'x': 757.0, 'y': 48.0478515625} by [-150.0, -100.0]"
+  },
+  "map_body_follows_the_resize": {
+   "pass": true,
+   "detail": "map {'h': 766.0, 'w': 964.0, 'x': 781.0, 'y': 185.0} viewport [964.0, 766.0]"
+  },
+  "collapse_click_lands_on_left_button": {
+   "pass": true,
+   "detail": ""
+  },
+  "collapse_folds_window_to_title_bar": {
+   "pass": true,
+   "detail": "{'h': 92.0, 'w': 1013.0, 'x': 757.0, 'y': 48.0478515625}"
+  },
+  "collapse_again_expands_to_former_size": {
+   "pass": true,
+   "detail": ""
+  },
+  "lock_click_lands_on_right_button": {
+   "pass": true,
+   "detail": ""
+  },
+  "lock_holds_window_under_title_drag": {
+   "pass": true,
+   "detail": "{'h': 858.0, 'w': 1013.0, 'x': 757.0, 'y': 48.0478515625}"
+  },
+  "lock_again_unlocks": {
+   "pass": true,
+   "detail": ""
+  },
+  "keys_sent_with_map_active": {
+   "pass": true,
+   "detail": ""
+  },
+  "plus_key_zooms_in": {
+   "pass": true,
+   "detail": "zoom 0.5270 -> 0.6851"
+  },
+  "right_key_pans_east": {
+   "pass": true,
+   "detail": "dx 145.97 expected 145.97"
+  },
+  "f_key_shows_sheet_and_again_returns": {
+   "pass": true,
+   "detail": "sheet -> atlas"
+  },
+  "home_key_resets_to_world_view": {
+   "pass": true,
+   "detail": "zoom 0.283703714609146 min 0.283703703703704 position [2240.0, 1350.0]"
+  },
+  "wheel_after_home_leaves_a_zoomed_view": {
+   "pass": true,
+   "detail": ""
+  },
   "hidden_map_page_frozen": {
    "pass": true,
    "detail": ""
   },
   "hidden_tenant_process_stops": {
    "pass": true,
-   "detail": "ticks 42 -> 42 over 20 frames"
+   "detail": "ticks 123 -> 123 over 20 frames"
   },
   "hidden_tenant_gets_no_input": {
    "pass": true,
-   "detail": "inputs 21 -> 21"
+   "detail": "inputs 65 -> 65"
   },
   "hidden_events_change_nothing": {
    "pass": true,
-   "detail": "0.526987314224243 [2543.6123046875, 1577.70947265625] {'h': 958.0, 'w': 1163.0, 'x': 449.0, 'y': 9.0}"
+   "detail": "0.395029038190842 [2240.0, 1350.0] {'h': 858.0, 'w': 1013.0, 'x': 757.0, 'y': 48.0478515625}"
+  },
+  "hidden_keys_change_nothing": {
+   "pass": true,
+   "detail": "[('atlas', 0.395), ('atlas', 0.395), ('atlas', 0.395), ('atlas', 0.395), ('atlas', 0.395)]"
   },
   "hidden_subviewport_update_disabled": {
    "pass": true,
@@ -87,11 +151,11 @@
   },
   "hidden_subviewport_renders_nothing": {
    "pass": true,
-   "detail": "draw calls: white page 38, map shown 62, map hidden 38"
+   "detail": "draw calls: white page 40, map shown 62, map hidden 40"
   },
   "map_resumes_with_state_intact": {
    "pass": true,
-   "detail": "ticks frozen 42, resumed 46 -> 66"
+   "detail": "ticks frozen 123, resumed 127 -> 147"
   },
   "resumed_subviewport_updates_again": {
    "pass": true,
@@ -133,6 +197,18 @@
    "pass": true,
    "detail": ""
   },
+  "clamped_window_touches_page_corner": {
+   "pass": true,
+   "detail": "frame ends at 1920.0, 1080.000007629395"
+  },
+  "resize_frees_white_page_below_window": {
+   "pass": true,
+   "detail": "mean 255.00"
+  },
+  "collapsed_window_leaves_white_below_its_bar": {
+   "pass": true,
+   "detail": "mean 255.00"
+  },
   "hidden_page_shows_plain_white_sketchbook": {
    "pass": true,
    "detail": "mean 255.00"
@@ -143,13 +219,18 @@
   }
  },
  "sha256": {
-  "01-map.png": "69690bdb77d46d46e519d726c26ec7e8db6eefb0e5636b3b8b83f54d064b2d6b",
-  "02-zoomed.png": "cd450aa6f46ae54a4254d7fef47c16be4cdc29d9a40d279d11d2302ee394d726",
-  "03-panned.png": "e0f47a549ef5de1fc0f22f814b59a6dd4a7638dc037bafaab706d2af7aaf0881",
-  "04-window-moved.png": "5b8396b1b4601b92d2dd4cd7bead8ae6edacecfbb417928a8113cea9004c76ab",
-  "05-hidden.png": "ff51b658c7d814986df9a460716cd429394ea858cf308db6b7cf0a4401be0a8e",
-  "06-resumed.png": "5b8396b1b4601b92d2dd4cd7bead8ae6edacecfbb417928a8113cea9004c76ab",
-  "07-resized.png": "fd1765201f5fdbab2b3eaafb34c8af1b7d01b4e747c432e517ce56d1146d4a5d",
-  "08-restored.png": "e0f47a549ef5de1fc0f22f814b59a6dd4a7638dc037bafaab706d2af7aaf0881"
+  "01-map.png": "4773a7a18e732166d8b75050754f322cc3d51b96d2a3ed61dff6b6acf0a27cb9",
+  "02-zoomed.png": "aa1f36c68ecb6881fc4fb583bcc0edf7a19ef6f619fbd2bddc1491f48570211b",
+  "03-panned.png": "721b73534ebb02d1c6e3da70577e9c4537a6dae36755f1c787168ee23f48982e",
+  "04-window-moved.png": "8127b82cd8b9f483e9868a36aafcf14b4f2a53784febc638748e6803159f088d",
+  "05-window-clamped.png": "2b1bddf84fa9c1c85b331903ad409da381d47371584fc40dfbb05c4f6f629970",
+  "06-window-resized.png": "25bc9c26f1f1149a9883b11f91611e6aa1953e2cbbe0489fb46bd6fbae4a6eee",
+  "07-collapsed.png": "51facf0bb482429d3f41d8b3de89a4ad4df19a956ab30100678f7b85bbd5fda2",
+  "08-key-home.png": "bb741d7531207b1f1a32fd95a0b3b5d7697a472f230260b6a18fedc84884b7d1",
+  "09-before-hidden.png": "f6da20d3eb33a5140282f62a6870aac8e5533d66bb61db32d838163139bc5139",
+  "10-hidden.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
+  "11-resumed.png": "f6da20d3eb33a5140282f62a6870aac8e5533d66bb61db32d838163139bc5139",
+  "12-resized.png": "8e9ea600a606b2d42608a4375f2117923ee00cb840688729e9ec85f21c7cad2b",
+  "13-restored.png": "23738c31d2e94da55223dbcb4f032e3b7d18c246de7416131ec2e485ff410687"
  }
 }

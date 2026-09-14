@@ -293,11 +293,11 @@
     {
       "event": "screenshot",
       "file": "01-launch.png",
-      "t_ms": 157
+      "t_ms": 160
     },
     {
       "event": "click",
-      "t_ms": 181,
+      "t_ms": 185,
       "what": "control has_image",
       "x": 502.5,
       "y": 217.4521484375
@@ -446,17 +446,17 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 197,
+      "t_ms": 202,
       "total": 16
     },
     {
       "event": "screenshot",
       "file": "02-has-image.png",
-      "t_ms": 335
+      "t_ms": 341
     },
     {
       "event": "click",
-      "t_ms": 356,
+      "t_ms": 363,
       "what": "control medium",
       "x": 92.5,
       "y": 217.4521484375
@@ -515,17 +515,17 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 371,
+      "t_ms": 379,
       "total": 16
     },
     {
       "event": "screenshot",
       "file": "03-medium-first.png",
-      "t_ms": 443
+      "t_ms": 451
     },
     {
       "event": "click",
-      "t_ms": 462,
+      "t_ms": 471,
       "what": "control has_image",
       "x": 550.0,
       "y": 217.4521484375
@@ -584,47 +584,47 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 477,
+      "t_ms": 486,
       "total": 16
     },
     {
       "event": "click",
-      "t_ms": 493,
+      "t_ms": 503,
       "what": "control medium",
       "x": 116.0,
       "y": 217.4521484375
     },
     {
       "event": "click",
-      "t_ms": 524,
+      "t_ms": 535,
       "what": "control medium",
       "x": 122.0,
       "y": 217.4521484375
     },
     {
       "event": "click",
-      "t_ms": 555,
+      "t_ms": 567,
       "what": "control medium",
       "x": 118.5,
       "y": 217.4521484375
     },
     {
       "event": "click",
-      "t_ms": 587,
+      "t_ms": 600,
       "what": "control medium",
       "x": 121.0,
       "y": 217.4521484375
     },
     {
       "event": "click",
-      "t_ms": 619,
+      "t_ms": 633,
       "what": "control medium",
       "x": 103.5,
       "y": 217.4521484375
     },
     {
       "event": "click",
-      "t_ms": 653,
+      "t_ms": 666,
       "what": "control medium",
       "x": 127.5,
       "y": 217.4521484375
@@ -723,17 +723,17 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 668,
+      "t_ms": 682,
       "total": 16
     },
     {
       "event": "screenshot",
       "file": "04-medium-video.png",
-      "t_ms": 775
+      "t_ms": 791
     },
     {
       "event": "click",
-      "t_ms": 797,
+      "t_ms": 813,
       "what": "control sort",
       "x": 323.5,
       "y": 217.4521484375
@@ -832,12 +832,12 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 813,
+      "t_ms": 829,
       "total": 16
     },
     {
       "event": "click",
-      "t_ms": 831,
+      "t_ms": 847,
       "what": "control sort",
       "x": 334.0,
       "y": 217.4521484375
@@ -936,12 +936,12 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 846,
+      "t_ms": 863,
       "total": 16
     },
     {
       "event": "click",
-      "t_ms": 868,
+      "t_ms": 886,
       "what": "control medium",
       "x": 109.0,
       "y": 217.4521484375
@@ -1150,13 +1150,13 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 885,
+      "t_ms": 903,
       "total": 16
     },
     {
       "event": "screenshot",
       "file": "05-all-oldest.png",
-      "t_ms": 1042
+      "t_ms": 1063
     },
     {
       "cards": [
@@ -1362,7 +1362,7 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 1042,
+      "t_ms": 1064,
       "total": 16
     },
     {
@@ -1382,12 +1382,12 @@
         "identity"
       ],
       "signal": "card_selected",
-      "t_ms": 1056,
+      "t_ms": 1077,
       "title": "Feline finial, bronze"
     },
     {
       "event": "click",
-      "t_ms": 1064,
+      "t_ms": 1085,
       "what": "card ref-bronze",
       "x": 164.0,
       "y": 397.9521484375
@@ -1596,17 +1596,17 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 1082,
+      "t_ms": 1103,
       "total": 16
     },
     {
       "event": "screenshot",
       "file": "06-after-card.png",
-      "t_ms": 1242
+      "t_ms": 1264
     },
     {
       "event": "click",
-      "t_ms": 1265,
+      "t_ms": 1287,
       "what": "white ground",
       "x": 960.0,
       "y": 1076.0
@@ -1815,14 +1815,14 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 1282,
+      "t_ms": 1305,
       "total": 16
     },
     {
       "code": "collection_page.filter_invalid",
       "event": "set_filter_invalid",
       "ok": false,
-      "t_ms": 1282
+      "t_ms": 1305
     },
     {
       "cards": [
@@ -2028,7 +2028,7 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 1282,
+      "t_ms": 1305,
       "total": 16
     },
     {
@@ -2036,7 +2036,7 @@
       "count": 6,
       "event": "shell",
       "label": "pre-map",
-      "t_ms": 1282,
+      "t_ms": 1305,
       "tabs": [
         {
           "frozen": true,
@@ -2116,7 +2116,7 @@
     },
     {
       "event": "click",
-      "t_ms": 1298,
+      "t_ms": 1320,
       "what": "map tab",
       "x": 220.478485107422,
       "y": 43.4067001342773
@@ -2126,7 +2126,7 @@
       "count": 6,
       "event": "shell",
       "label": "map",
-      "t_ms": 1312,
+      "t_ms": 1334,
       "tabs": [
         {
           "frozen": false,
@@ -2138,7 +2138,7 @@
             "x": 119.88516998291,
             "y": 15.1578950881958
           },
-          "tenant": "ok"
+          "tenant": null
         },
         {
           "frozen": true,
@@ -2207,11 +2207,11 @@
     {
       "event": "screenshot",
       "file": "07-map.png",
-      "t_ms": 1380
+      "t_ms": 1403
     },
     {
       "event": "click",
-      "t_ms": 1401,
+      "t_ms": 1424,
       "what": "collection tab",
       "x": 902.124389648438,
       "y": 43.4067001342773
@@ -2221,7 +2221,7 @@
       "count": 6,
       "event": "shell",
       "label": "collection-again",
-      "t_ms": 1418,
+      "t_ms": 1441,
       "tabs": [
         {
           "frozen": true,
@@ -2233,7 +2233,7 @@
             "x": 119.88516998291,
             "y": 15.1578950881958
           },
-          "tenant": "ok"
+          "tenant": null
         },
         {
           "frozen": true,
@@ -2503,13 +2503,13 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 1418,
+      "t_ms": 1441,
       "total": 16
     },
     {
       "event": "screenshot",
       "file": "08-collection-again.png",
-      "t_ms": 1576
+      "t_ms": 1600
     },
     {
       "cards": [
@@ -2715,13 +2715,13 @@
         1440.0,
         844.535888671875
       ],
-      "t_ms": 1607,
+      "t_ms": 1632,
       "total": 16
     },
     {
       "event": "screenshot",
       "file": "09-resized.png",
-      "t_ms": 1689
+      "t_ms": 1715
     }
   ],
   "viewport": [

@@ -109,10 +109,6 @@
    "pass": true,
    "detail": ""
   },
-  "card_click_was_after_filters_only": {
-   "pass": true,
-   "detail": ""
-  },
   "invalid_filter_refused_by_interface": {
    "pass": true,
    "detail": "collection_page.filter_invalid"
@@ -167,14 +163,14 @@
   }
  },
  "sha256": {
-  "01-launch.png": "0299d0d98bb656a5b80d22f175b16f814f9b38a99038ad7a3add83d6d44a424e",
-  "02-has-image.png": "ea0bf2336d2cc62ec7de99bd5186bcd17af1fd986fcd87d88e5ff6e25af3ae5e",
-  "03-medium-first.png": "20b475124d9e23bd96b51eb8afb28552f9711433b7f854c488b8827296758883",
-  "04-medium-video.png": "8415aaa8f53d116c172f233155d0bbce1fad060c3f1be627b2125b50e503750d",
-  "05-all-oldest.png": "7ecb538ea6a46b330172ef7fd3d015b69cafffb9935e538c0373d26283c667eb",
-  "06-after-card.png": "7ecb538ea6a46b330172ef7fd3d015b69cafffb9935e538c0373d26283c667eb",
-  "07-map.png": "ff51b658c7d814986df9a460716cd429394ea858cf308db6b7cf0a4401be0a8e",
-  "08-collection-again.png": "7ecb538ea6a46b330172ef7fd3d015b69cafffb9935e538c0373d26283c667eb",
-  "09-resized.png": "baec9ad2d919aebd8b05d65229f9259d41ef1e1fc41f2344113dcae5f91ab0ed"
+  "01-launch.png": "d8b824f59b20d74da23498259cf213e9f2b84f1df1dd9f0b459de60baa41bfcd",
+  "02-has-image.png": "9b9d993b231ac129fa321191a286b77534b97e48c74e5412873a77304a1e3a81",
+  "03-medium-first.png": "04e0217ed91dbcf020a4d27d0bc63a33398df1ef2ce00ca7ac8cc19e8abfe3fd",
+  "04-medium-video.png": "319b3ae007df9ef79155975ca2fbde11647b1fc5a30d3b4277541adcbb59da5c",
+  "05-all-oldest.png": "1c374e21d09d9313f3e4383d3ec58b43fe421517e5f096b73015dee5ee77496a",
+  "06-after-card.png": "1c374e21d09d9313f3e4383d3ec58b43fe421517e5f096b73015dee5ee77496a",
+  "07-map.png": "d875d9b51e8274a830f89bfd087d863a99047918bc16f09b2a35aa01cb61abb4",
+  "08-collection-again.png": "1c374e21d09d9313f3e4383d3ec58b43fe421517e5f096b73015dee5ee77496a",
+  "09-resized.png": "2b8ad31137535ebd7282d53c7802407b613d9d94b4519661ca26f53ab1023d7b"
  }
 }

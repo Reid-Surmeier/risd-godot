@@ -68,6 +68,42 @@ func _atlas(shell: Control, label: String) -> Dictionary:
 
 
 
+## The global centre of one of the frame's two buttons, from the probe's frame rects
+## (atlas_window.gd _layout: collapse at (44, 42) x chrome_scale, lock at (w - 86, 42), 44 px square).
+func _frame_button(a: Dictionary, which: String) -> Vector2:
+	var cs: float = a.chrome_scale
+	var x: float = 44.0 * cs if which == "collapse" else a.frame.w - 86.0 * cs
+	return Vector2(a.frame_global.x + x + 22.0 * cs, a.frame_global.y + 64.0 * cs)
+
+
+func _title_bar(a: Dictionary) -> Vector2:
+	return Vector2(a.frame_global.x + a.frame_global.w / 2.0, a.frame_global.y + 60.0 * a.chrome_scale)
+
+
+func _map_center(a: Dictionary) -> Vector2:
+	return Vector2(a.map_rect.x + a.map_rect.w / 2.0, a.map_rect.y + a.map_rect.h / 2.0)
+
+
+## The atlas keys of ticket #30 acceptance 4: +, Right, F (twice), Home. Each is probed so the
+## verifier can check what changed — everything with Map active, nothing with another Tab active.
+func _keys(shell: Control, suffix: String) -> void:
+	await _key(KEY_PLUS, "+ key" + suffix)
+	await _frames(2)
+	_atlas(shell, "key-plus" + suffix)
+	await _key(KEY_RIGHT, "right arrow" + suffix)
+	await _frames(2)
+	_atlas(shell, "key-right" + suffix)
+	await _key(KEY_F, "F key" + suffix)
+	await _frames(2)
+	_atlas(shell, "key-f-sheet" + suffix)
+	await _key(KEY_F, "F key (again)" + suffix)
+	await _frames(2)
+	_atlas(shell, "key-f-atlas" + suffix)
+	await _key(KEY_HOME, "Home key" + suffix)
+	await _frames(2)
+	_atlas(shell, "key-home" + suffix)
+
+
 func _initialize() -> void:
 	var root := get_root()
 	var shell: Control = Shell.create({"map": Atlas}).value
@@ -87,58 +123,101 @@ func _initialize() -> void:
 	await _shot(out_dir, "01-map.png")
 
 	# 3. wheel up three times at the map's centre: zoom in around it
-	var map_center := Vector2(a.map_rect.x + a.map_rect.w / 2.0, a.map_rect.y + a.map_rect.h / 2.0)
-	await _wheel(map_center, true, 3, "wheel up x3 at map centre")
+	await _wheel(_map_center(a), true, 3, "wheel up x3 at map centre")
 	await _frames(3)
-	var b := _atlas(shell, "zoomed")
+	_atlas(shell, "zoomed")
 	await _shot(out_dir, "02-zoomed.png")
 
 	# 4. drag-pan inside the map: the camera moves against the drag, divided by the zoom
-	await _drag(map_center, Vector2(-40, -30), 4, "drag-pan inside the map")
+	await _drag(_map_center(a), Vector2(-40, -30), 4, "drag-pan inside the map")
 	await _frames(3)
 	var c := _atlas(shell, "panned")
 	await _shot(out_dir, "03-panned.png")
 
 	# 5. drag the map window by its title bar: the frame moves by the drag
-	var title := Vector2(c.frame_global.x + c.frame_global.w / 2.0, c.frame_global.y + 60.0 * c.chrome_scale)
-	await _drag(title, Vector2(14, -3), 5, "drag the map window by its title bar")
+	await _drag(_title_bar(c), Vector2(14, -3), 5, "drag the map window by its title bar")
 	await _frames(3)
 	var d := _atlas(shell, "window-moved")
 	await _shot(out_dir, "04-window-moved.png")
 	_state(shell, "window-moved")
 
-	# 6. click the Sketchbook tab: the Map page is frozen — no frames, no input, no rendering —
-	#    and events aimed at where the map was change nothing
+	# 6. drag the title bar far past the page's bottom-right corner: the frame stops at the page's edge
+	await _drag(_title_bar(d), Vector2(300, 200), 6, "drag the title bar past the page's bottom-right corner")
+	await _frames(3)
+	var cl := _atlas(shell, "window-clamped")
+	await _shot(out_dir, "05-window-clamped.png")
+
+	# 7. drag the frame's bottom-right corner inward: the frame shrinks in place and the map body follows
+	var corner := Vector2(cl.frame_global.x + cl.frame_global.w - 4.0, cl.frame_global.y + cl.frame_global.h - 4.0)
+	await _drag(corner, Vector2(-30, -20), 5, "drag the frame's bottom-right corner inward")
+	await _frames(3)
+	var rz := _atlas(shell, "window-resized")
+	await _shot(out_dir, "06-window-resized.png")
+
+	# 8. the left button collapses the window to its title bar; again expands it to the size it had
+	await _click(_frame_button(rz, "collapse"), "collapse button")
+	await _frames(3)
+	var co := _atlas(shell, "collapsed")
+	await _shot(out_dir, "07-collapsed.png")
+	await _click(_frame_button(co, "collapse"), "collapse button (again)")
+	await _frames(3)
+	var ex := _atlas(shell, "expanded")
+
+	# 9. the right button locks the window: a title-bar drag moves nothing; again unlocks it
+	await _click(_frame_button(ex, "lock"), "lock button")
+	await _frames(2)
+	var lk := _atlas(shell, "locked")
+	await _drag(_title_bar(lk), Vector2(-14, 3), 5, "drag the title bar while locked")
+	await _frames(3)
+	_atlas(shell, "locked-drag")
+	await _click(_frame_button(lk, "lock"), "lock button (again)")
+	await _frames(2)
+	_atlas(shell, "unlocked")
+
+	# 10. the keys with Map active: + zooms, Right pans, F shows the region's sheet and comes back,
+	#     Home resets to the world view; then two wheel notches so the view left behind is not the default
+	_atlas(shell, "pre-keys")
+	await _keys(shell, "")
+	await _shot(out_dir, "08-key-home.png")
+	await _wheel(_map_center(lk), true, 2, "wheel up x2 at map centre before hiding")
+	await _frames(3)
+	var e := _atlas(shell, "before-hidden")
+	await _shot(out_dir, "09-before-hidden.png")
+	_state(shell, "before-hidden")
+
+	# 11. click the Sketchbook tab: the Map page is frozen — no frames, no input, no rendering —
+	#     and wheel, drag and every key aimed at the hidden map change nothing
 	await _click(_center(shell, st.tabs[1].rect), "sketchbook tab")
 	await _frames(3)
 	_state(shell, "sketchbook")
-	var e := _atlas(shell, "map-hidden")
-	await _wheel(map_center, true, 3, "wheel up x3 at the map's centre while hidden")
-	await _drag(map_center, Vector2(-40, -30), 4, "drag where the map was while hidden")
+	_atlas(shell, "map-hidden")
+	await _wheel(_map_center(e), true, 3, "wheel up x3 at the map's centre while hidden")
+	await _drag(_map_center(e), Vector2(-40, -30), 4, "drag where the map was while hidden")
+	await _keys(shell, " while hidden")
 	await _frames(20)
-	var f := _atlas(shell, "map-hidden-after-events")
+	_atlas(shell, "map-hidden-after-events")
 	_state(shell, "sketchbook-after-20-frames")
-	await _shot(out_dir, "05-hidden.png")
+	await _shot(out_dir, "10-hidden.png")
 
-	# 7. back to Map: it resumes with zoom, camera and window exactly as left
+	# 12. back to Map: it resumes with zoom, camera and window exactly as left
 	await _click(_center(shell, st.tabs[0].rect), "map tab (again)")
 	await _frames(3)
 	_state(shell, "map-again")
-	var g := _atlas(shell, "map-resumed")
+	_atlas(shell, "map-resumed")
 	await _frames(20)
 	_atlas(shell, "map-resumed-after-20-frames")
-	await _shot(out_dir, "06-resumed.png")
+	await _shot(out_dir, "11-resumed.png")
 
-	# 8. resize the window to the 1440x900 minimum: the tenant fills the smaller page and re-fits its window
+	# 13. resize the window to the 1440x900 minimum: the tenant fills the smaller page and re-fits its window
 	root.size = Vector2i(1440, 900)
 	await _frames(4)
 	_state(shell, "resized")
 	_atlas(shell, "resized")
-	await _shot(out_dir, "07-resized.png")
+	await _shot(out_dir, "12-resized.png")
 	root.size = Vector2i(1920, 1080)
 	await _frames(4)
 	_state(shell, "restored")
 	_atlas(shell, "restored")
-	await _shot(out_dir, "08-restored.png")
+	await _shot(out_dir, "13-restored.png")
 
 	_finish(out_dir)

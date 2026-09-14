@@ -3,10 +3,10 @@
     {
       "active": 4,
       "count": 6,
-      "draw_calls": 38,
+      "draw_calls": 40,
       "event": "state",
       "label": "launch",
-      "t_ms": 24,
+      "t_ms": 21,
       "tabs": [
         {
           "frozen": true,
@@ -66,7 +66,7 @@
             "x": 801.531066894531,
             "y": 15.1578950881958
           },
-          "tenant": "ok"
+          "tenant": null
         },
         {
           "frozen": true,
@@ -91,15 +91,15 @@
       "event": "atlas",
       "label": "launch",
       "ok": false,
-      "t_ms": 24
+      "t_ms": 21
     },
     {
       "active": 4,
       "count": 6,
-      "draw_calls": 38,
+      "draw_calls": 40,
       "event": "state",
       "label": "pre-map",
-      "t_ms": 24,
+      "t_ms": 21,
       "tabs": [
         {
           "frozen": true,
@@ -159,7 +159,7 @@
             "x": 801.531066894531,
             "y": 15.1578950881958
           },
-          "tenant": "ok"
+          "tenant": null
         },
         {
           "frozen": true,
@@ -181,7 +181,7 @@
     },
     {
       "event": "click",
-      "t_ms": 663,
+      "t_ms": 567,
       "what": "map tab",
       "x": 220.478485107422,
       "y": 43.4067001342773
@@ -189,10 +189,10 @@
     {
       "active": 0,
       "count": 6,
-      "draw_calls": 60,
+      "draw_calls": 62,
       "event": "state",
       "label": "map",
-      "t_ms": 746,
+      "t_ms": 652,
       "tabs": [
         {
           "frozen": false,
@@ -252,7 +252,7 @@
             "x": 801.531066894531,
             "y": 15.1578950881958
           },
-          "tenant": "ok"
+          "tenant": null
         },
         {
           "frozen": true,
@@ -310,7 +310,7 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 746,
+      "t_ms": 652,
       "terrain_tiles": 0,
       "ticks": 9,
       "vertical_pan_locked": true,
@@ -330,12 +330,12 @@
     {
       "event": "screenshot",
       "file": "01-map.png",
-      "t_ms": 824
+      "t_ms": 729
     },
     {
       "count": 3,
       "event": "wheel",
-      "t_ms": 893,
+      "t_ms": 796,
       "up": true,
       "what": "wheel up x3 at map centre",
       "x": 960.0,
@@ -379,7 +379,7 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 924,
+      "t_ms": 828,
       "terrain_tiles": 0,
       "ticks": 19,
       "vertical_pan_locked": false,
@@ -399,7 +399,7 @@
     {
       "event": "screenshot",
       "file": "02-zoomed.png",
-      "t_ms": 999
+      "t_ms": 901
     },
     {
       "event": "drag",
@@ -412,7 +412,7 @@
         -120.0
       ],
       "steps": 4,
-      "t_ms": 1068,
+      "t_ms": 968,
       "to": [
         800.0,
         473.9521484375
@@ -457,7 +457,7 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 1101,
+      "t_ms": 1000,
       "terrain_tiles": 0,
       "ticks": 29,
       "vertical_pan_locked": false,
@@ -477,7 +477,7 @@
     {
       "event": "screenshot",
       "file": "03-panned.png",
-      "t_ms": 1172
+      "t_ms": 1070
     },
     {
       "event": "drag",
@@ -490,7 +490,7 @@
         -15.0
       ],
       "steps": 5,
-      "t_ms": 1248,
+      "t_ms": 1145,
       "to": [
         1030.5,
         123.427795410156
@@ -535,7 +535,7 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 1280,
+      "t_ms": 1177,
       "terrain_tiles": 0,
       "ticks": 40,
       "vertical_pan_locked": false,
@@ -555,15 +555,15 @@
     {
       "event": "screenshot",
       "file": "04-window-moved.png",
-      "t_ms": 1351
+      "t_ms": 1246
     },
     {
       "active": 0,
       "count": 6,
-      "draw_calls": 62,
+      "draw_calls": 64,
       "event": "state",
       "label": "window-moved",
-      "t_ms": 1351,
+      "t_ms": 1246,
       "tabs": [
         {
           "frozen": false,
@@ -623,7 +623,1009 @@
             "x": 801.531066894531,
             "y": 15.1578950881958
           },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "phone",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 971.942565917969,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "drag",
+      "from": [
+        1030.5,
+        123.427795410156
+      ],
+      "relative_total": [
+        1800.0,
+        1200.0
+      ],
+      "steps": 6,
+      "t_ms": 1330,
+      "to": [
+        2830.5,
+        1323.427734375
+      ],
+      "what": "drag the title bar past the page's bottom-right corner"
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 958.0,
+        "w": 1163.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 958.0,
+        "w": 1163.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 28,
+      "label": "window-clamped",
+      "locked": false,
+      "map_rect": {
+        "h": 866.0,
+        "w": 1114.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2543.6123046875,
+        1577.70947265625
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1362,
+      "terrain_tiles": 0,
+      "ticks": 52,
+      "vertical_pan_locked": false,
+      "viewport": [
+        1114.0,
+        866.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 3,
+      "visible_close_cities": 0,
+      "visible_labels": 3,
+      "zoom": 0.526987314224243,
+      "zoom_max": 120.0,
+      "zoom_min": 0.320740740740741,
+      "zoom_ratio": 1.64303204203863
+    },
+    {
+      "event": "screenshot",
+      "file": "05-window-clamped.png",
+      "t_ms": 1433
+    },
+    {
+      "event": "drag",
+      "from": [
+        1916.0,
+        1076.0
+      ],
+      "relative_total": [
+        -150.0,
+        -100.0
+      ],
+      "steps": 5,
+      "t_ms": 1515,
+      "to": [
+        1766.0,
+        976.0
+      ],
+      "what": "drag the frame's bottom-right corner inward"
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 35,
+      "label": "window-resized",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2543.6123046875,
+        1577.70947265625
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1544,
+      "terrain_tiles": 0,
+      "ticks": 63,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 3,
+      "visible_close_cities": 0,
+      "visible_labels": 3,
+      "zoom": 0.526987314224243,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.8575270866912
+    },
+    {
+      "event": "screenshot",
+      "file": "06-window-resized.png",
+      "t_ms": 1613
+    },
+    {
+      "event": "click",
+      "t_ms": 1634,
+      "what": "collapse button",
+      "x": 801.523193359375,
+      "y": 165.174026489258
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": true,
+      "event": "atlas",
+      "frame": {
+        "h": 92.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 92.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 37,
+      "label": "collapsed",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2543.6123046875,
+        1577.70947265625
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1656,
+      "terrain_tiles": 0,
+      "ticks": 69,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 0,
+      "visible_cities": 3,
+      "visible_close_cities": 0,
+      "visible_labels": 3,
+      "zoom": 0.526987314224243,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.8575270866912
+    },
+    {
+      "event": "screenshot",
+      "file": "07-collapsed.png",
+      "t_ms": 1721
+    },
+    {
+      "event": "click",
+      "t_ms": 1738,
+      "what": "collapse button (again)",
+      "x": 801.523193359375,
+      "y": 165.174026489258
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 39,
+      "label": "expanded",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2543.6123046875,
+        1577.70947265625
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1769,
+      "terrain_tiles": 0,
+      "ticks": 75,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 3,
+      "visible_close_cities": 0,
+      "visible_labels": 3,
+      "zoom": 0.526987314224243,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.8575270866912
+    },
+    {
+      "event": "click",
+      "t_ms": 1790,
+      "what": "lock button",
+      "x": 1726.82592773438,
+      "y": 165.174026489258
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 41,
+      "label": "locked",
+      "locked": true,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2543.6123046875,
+        1577.70947265625
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1810,
+      "terrain_tiles": 0,
+      "ticks": 79,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 3,
+      "visible_close_cities": 0,
+      "visible_labels": 3,
+      "zoom": 0.526987314224243,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.8575270866912
+    },
+    {
+      "event": "drag",
+      "from": [
+        1263.5,
+        162.475646972656
+      ],
+      "relative_total": [
+        -70.0,
+        15.0
+      ],
+      "steps": 5,
+      "t_ms": 1877,
+      "to": [
+        1193.5,
+        177.475646972656
+      ],
+      "what": "drag the title bar while locked"
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 48,
+      "label": "locked-drag",
+      "locked": true,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2543.6123046875,
+        1577.70947265625
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1905,
+      "terrain_tiles": 0,
+      "ticks": 89,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 3,
+      "visible_close_cities": 0,
+      "visible_labels": 3,
+      "zoom": 0.526987314224243,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.8575270866912
+    },
+    {
+      "event": "click",
+      "t_ms": 1924,
+      "what": "lock button (again)",
+      "x": 1726.82592773438,
+      "y": 165.174026489258
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 50,
+      "label": "unlocked",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2543.6123046875,
+        1577.70947265625
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1944,
+      "terrain_tiles": 0,
+      "ticks": 93,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 3,
+      "visible_close_cities": 0,
+      "visible_labels": 3,
+      "zoom": 0.526987314224243,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.8575270866912
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 50,
+      "label": "pre-keys",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2543.6123046875,
+        1577.70947265625
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1944,
+      "terrain_tiles": 0,
+      "ticks": 93,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 3,
+      "visible_close_cities": 0,
+      "visible_labels": 3,
+      "zoom": 0.526987314224243,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.8575270866912
+    },
+    {
+      "event": "key",
+      "keycode": "Plus",
+      "t_ms": 1964,
+      "what": "+ key"
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 52,
+      "label": "key-plus",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2543.6123046875,
+        1577.70947265625
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 1983,
+      "terrain_tiles": 0,
+      "ticks": 97,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 1,
+      "visible_close_cities": 0,
+      "visible_labels": 1,
+      "zoom": 0.685083508491516,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 2.41478521269856
+    },
+    {
+      "event": "key",
+      "keycode": "Right",
+      "t_ms": 2003,
+      "what": "right arrow"
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 54,
+      "label": "key-right",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2689.57983398438,
+        1577.70947265625
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2022,
+      "terrain_tiles": 0,
+      "ticks": 101,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 1,
+      "visible_close_cities": 0,
+      "visible_labels": 1,
+      "zoom": 0.685083508491516,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 2.41478521269856
+    },
+    {
+      "event": "key",
+      "keycode": "F",
+      "t_ms": 2048,
+      "what": "F key"
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 56,
+      "label": "key-f-sheet",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "sheet",
+      "ok": true,
+      "position": [
+        800.0,
+        800.0
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2067,
+      "terrain_tiles": 0,
+      "ticks": 105,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 2,
+      "visible_close_cities": 0,
+      "visible_labels": 2,
+      "zoom": 0.391250014305115,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.37907968488748
+    },
+    {
+      "event": "key",
+      "keycode": "F",
+      "t_ms": 2086,
+      "what": "F key (again)"
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 58,
+      "label": "key-f-atlas",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2689.57983398438,
+        1577.70947265625
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2106,
+      "terrain_tiles": 0,
+      "ticks": 109,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 1,
+      "visible_close_cities": 0,
+      "visible_labels": 1,
+      "zoom": 0.685083508491516,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 2.41478521269856
+    },
+    {
+      "event": "key",
+      "keycode": "Home",
+      "t_ms": 2126,
+      "what": "Home key"
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 60,
+      "label": "key-home",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2240.0,
+        1350.0
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2145,
+      "terrain_tiles": 0,
+      "ticks": 113,
+      "vertical_pan_locked": true,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 2,
+      "visible_close_cities": 0,
+      "visible_labels": 2,
+      "zoom": 0.283703714609146,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.00000003843955
+    },
+    {
+      "event": "screenshot",
+      "file": "08-key-home.png",
+      "t_ms": 2221
+    },
+    {
+      "count": 2,
+      "event": "wheel",
+      "t_ms": 2262,
+      "up": true,
+      "what": "wheel up x2 at map centre before hiding",
+      "x": 1263.0,
+      "y": 568.0
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 64,
+      "label": "before-hidden",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2240.0,
+        1350.0
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2291,
+      "terrain_tiles": 0,
+      "ticks": 121,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 4,
+      "visible_cities": 2,
+      "visible_close_cities": 0,
+      "visible_labels": 2,
+      "zoom": 0.395029038190842,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.39240000406694
+    },
+    {
+      "event": "screenshot",
+      "file": "09-before-hidden.png",
+      "t_ms": 2362
+    },
+    {
+      "active": 0,
+      "count": 6,
+      "draw_calls": 62,
+      "event": "state",
+      "label": "before-hidden",
+      "t_ms": 2362,
+      "tabs": [
+        {
+          "frozen": false,
+          "key": "map",
+          "page_visible": true,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 119.88516998291,
+            "y": 15.1578950881958
+          },
           "tenant": "ok"
+        },
+        {
+          "frozen": true,
+          "key": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186614990234,
+            "x": 290.296661376953,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 460.708129882812,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 631.11962890625,
+            "y": 15.1578950881958
+          },
+          "tenant": null
+        },
+        {
+          "frozen": true,
+          "key": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 56.4976081848145,
+            "w": 201.186584472656,
+            "x": 801.531066894531,
+            "y": 15.1578950881958
+          },
+          "tenant": null
         },
         {
           "frozen": true,
@@ -645,7 +1647,7 @@
     },
     {
       "event": "click",
-      "t_ms": 1370,
+      "t_ms": 2380,
       "what": "sketchbook tab",
       "x": 390.889953613281,
       "y": 43.4067001342773
@@ -653,10 +1655,10 @@
     {
       "active": 1,
       "count": 6,
-      "draw_calls": 38,
+      "draw_calls": 40,
       "event": "state",
       "label": "sketchbook",
-      "t_ms": 1392,
+      "t_ms": 2401,
       "tabs": [
         {
           "frozen": true,
@@ -680,7 +1682,7 @@
             "x": 290.296661376953,
             "y": 15.1578950881958
           },
-          "tenant": "ok"
+          "tenant": null
         },
         {
           "frozen": true,
@@ -716,7 +1718,7 @@
             "x": 801.531066894531,
             "y": 15.1578950881958
           },
-          "tenant": "ok"
+          "tenant": null
         },
         {
           "frozen": true,
@@ -743,80 +1745,86 @@
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 449.0,
-        "y": 9.0
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
       },
       "frame_global": {
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 449.0,
-        "y": 82.9521560668945
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
       },
-      "inputs": 21,
+      "inputs": 65,
       "label": "map-hidden",
       "locked": false,
       "map_rect": {
-        "h": 866.0,
-        "w": 1114.0,
-        "x": 473.0,
-        "y": 145.9521484375
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
       },
       "mode": "atlas",
       "ok": true,
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2240.0,
+        1350.0
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 1392,
+      "t_ms": 2401,
       "terrain_tiles": 0,
-      "ticks": 42,
+      "ticks": 123,
       "vertical_pan_locked": false,
       "viewport": [
-        1114.0,
-        866.0
+        964.0,
+        766.0
       ],
       "viewport_update_mode": 0,
-      "visible_cities": 3,
+      "visible_cities": 2,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 2,
+      "zoom": 0.395029038190842,
       "zoom_max": 120.0,
-      "zoom_min": 0.320740740740741,
-      "zoom_ratio": 1.64303204203863
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.39240000406694
     },
     {
       "count": 3,
       "event": "wheel",
-      "t_ms": 1440,
+      "t_ms": 2443,
       "up": true,
       "what": "wheel up x3 at the map's centre while hidden",
-      "x": 960.0,
-      "y": 593.9521484375
+      "x": 1263.0,
+      "y": 568.0
     },
     {
       "event": "drag",
       "from": [
-        960.0,
-        593.9521484375
+        1263.0,
+        568.0
       ],
       "relative_total": [
         -160.0,
         -120.0
       ],
       "steps": 4,
-      "t_ms": 1486,
+      "t_ms": 2485,
       "to": [
-        800.0,
-        473.9521484375
+        1103.0,
+        448.0
       ],
       "what": "drag where the map was while hidden"
+    },
+    {
+      "event": "key",
+      "keycode": "Plus",
+      "t_ms": 2499,
+      "what": "+ key while hidden"
     },
     {
       "action": "",
@@ -825,61 +1833,360 @@
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 449.0,
-        "y": 9.0
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
       },
       "frame_global": {
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 449.0,
-        "y": 82.9521560668945
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
       },
-      "inputs": 21,
-      "label": "map-hidden-after-events",
+      "inputs": 65,
+      "label": "key-plus while hidden",
       "locked": false,
       "map_rect": {
-        "h": 866.0,
-        "w": 1114.0,
-        "x": 473.0,
-        "y": 145.9521484375
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
       },
       "mode": "atlas",
       "ok": true,
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2240.0,
+        1350.0
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 1644,
+      "t_ms": 2512,
       "terrain_tiles": 0,
-      "ticks": 42,
+      "ticks": 123,
       "vertical_pan_locked": false,
       "viewport": [
-        1114.0,
-        866.0
+        964.0,
+        766.0
       ],
       "viewport_update_mode": 0,
-      "visible_cities": 3,
+      "visible_cities": 2,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 2,
+      "zoom": 0.395029038190842,
       "zoom_max": 120.0,
-      "zoom_min": 0.320740740740741,
-      "zoom_ratio": 1.64303204203863
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.39240000406694
+    },
+    {
+      "event": "key",
+      "keycode": "Right",
+      "t_ms": 2527,
+      "what": "right arrow while hidden"
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 65,
+      "label": "key-right while hidden",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2240.0,
+        1350.0
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2541,
+      "terrain_tiles": 0,
+      "ticks": 123,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 0,
+      "visible_cities": 2,
+      "visible_close_cities": 0,
+      "visible_labels": 2,
+      "zoom": 0.395029038190842,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.39240000406694
+    },
+    {
+      "event": "key",
+      "keycode": "F",
+      "t_ms": 2555,
+      "what": "F key while hidden"
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 65,
+      "label": "key-f-sheet while hidden",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2240.0,
+        1350.0
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2570,
+      "terrain_tiles": 0,
+      "ticks": 123,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 0,
+      "visible_cities": 2,
+      "visible_close_cities": 0,
+      "visible_labels": 2,
+      "zoom": 0.395029038190842,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.39240000406694
+    },
+    {
+      "event": "key",
+      "keycode": "F",
+      "t_ms": 2584,
+      "what": "F key (again) while hidden"
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 65,
+      "label": "key-f-atlas while hidden",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2240.0,
+        1350.0
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2598,
+      "terrain_tiles": 0,
+      "ticks": 123,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 0,
+      "visible_cities": 2,
+      "visible_close_cities": 0,
+      "visible_labels": 2,
+      "zoom": 0.395029038190842,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.39240000406694
+    },
+    {
+      "event": "key",
+      "keycode": "Home",
+      "t_ms": 2612,
+      "what": "Home key while hidden"
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 65,
+      "label": "key-home while hidden",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2240.0,
+        1350.0
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2626,
+      "terrain_tiles": 0,
+      "ticks": 123,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 0,
+      "visible_cities": 2,
+      "visible_close_cities": 0,
+      "visible_labels": 2,
+      "zoom": 0.395029038190842,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.39240000406694
+    },
+    {
+      "action": "",
+      "chrome_scale": 0.674593967517401,
+      "code": "",
+      "collapsed": false,
+      "event": "atlas",
+      "frame": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
+      },
+      "frame_global": {
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
+      },
+      "inputs": 65,
+      "label": "map-hidden-after-events",
+      "locked": false,
+      "map_rect": {
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
+      },
+      "mode": "atlas",
+      "ok": true,
+      "position": [
+        2240.0,
+        1350.0
+      ],
+      "region": "africa",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "t_ms": 2763,
+      "terrain_tiles": 0,
+      "ticks": 123,
+      "vertical_pan_locked": false,
+      "viewport": [
+        964.0,
+        766.0
+      ],
+      "viewport_update_mode": 0,
+      "visible_cities": 2,
+      "visible_close_cities": 0,
+      "visible_labels": 2,
+      "zoom": 0.395029038190842,
+      "zoom_max": 120.0,
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.39240000406694
     },
     {
       "active": 1,
       "count": 6,
-      "draw_calls": 38,
+      "draw_calls": 40,
       "event": "state",
       "label": "sketchbook-after-20-frames",
-      "t_ms": 1645,
+      "t_ms": 2763,
       "tabs": [
         {
           "frozen": true,
@@ -903,7 +2210,7 @@
             "x": 290.296661376953,
             "y": 15.1578950881958
           },
-          "tenant": "ok"
+          "tenant": null
         },
         {
           "frozen": true,
@@ -939,7 +2246,7 @@
             "x": 801.531066894531,
             "y": 15.1578950881958
           },
-          "tenant": "ok"
+          "tenant": null
         },
         {
           "frozen": true,
@@ -961,12 +2268,12 @@
     },
     {
       "event": "screenshot",
-      "file": "05-hidden.png",
-      "t_ms": 1708
+      "file": "10-hidden.png",
+      "t_ms": 2827
     },
     {
       "event": "click",
-      "t_ms": 1726,
+      "t_ms": 2845,
       "what": "map tab (again)",
       "x": 220.478485107422,
       "y": 43.4067001342773
@@ -977,7 +2284,7 @@
       "draw_calls": 62,
       "event": "state",
       "label": "map-again",
-      "t_ms": 1757,
+      "t_ms": 2873,
       "tabs": [
         {
           "frozen": false,
@@ -1001,7 +2308,7 @@
             "x": 290.296661376953,
             "y": 15.1578950881958
           },
-          "tenant": "ok"
+          "tenant": null
         },
         {
           "frozen": true,
@@ -1037,7 +2344,7 @@
             "x": 801.531066894531,
             "y": 15.1578950881958
           },
-          "tenant": "ok"
+          "tenant": null
         },
         {
           "frozen": true,
@@ -1064,53 +2371,53 @@
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 449.0,
-        "y": 9.0
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
       },
       "frame_global": {
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 449.0,
-        "y": 82.9521560668945
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
       },
-      "inputs": 22,
+      "inputs": 66,
       "label": "map-resumed",
       "locked": false,
       "map_rect": {
-        "h": 866.0,
-        "w": 1114.0,
-        "x": 473.0,
-        "y": 145.9521484375
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
       },
       "mode": "atlas",
       "ok": true,
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2240.0,
+        1350.0
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 1757,
+      "t_ms": 2873,
       "terrain_tiles": 0,
-      "ticks": 46,
+      "ticks": 127,
       "vertical_pan_locked": false,
       "viewport": [
-        1114.0,
-        866.0
+        964.0,
+        766.0
       ],
       "viewport_update_mode": 4,
-      "visible_cities": 3,
+      "visible_cities": 2,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 2,
+      "zoom": 0.395029038190842,
       "zoom_max": 120.0,
-      "zoom_min": 0.320740740740741,
-      "zoom_ratio": 1.64303204203863
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.39240000406694
     },
     {
       "action": "",
@@ -1119,66 +2426,66 @@
       "collapsed": false,
       "event": "atlas",
       "frame": {
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 449.0,
-        "y": 9.0
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 48.0478515625
       },
       "frame_global": {
-        "h": 958.0,
-        "w": 1163.0,
-        "x": 449.0,
-        "y": 82.9521560668945
+        "h": 858.0,
+        "w": 1013.0,
+        "x": 757.0,
+        "y": 122.000007629395
       },
-      "inputs": 22,
+      "inputs": 66,
       "label": "map-resumed-after-20-frames",
       "locked": false,
       "map_rect": {
-        "h": 866.0,
-        "w": 1114.0,
-        "x": 473.0,
-        "y": 145.9521484375
+        "h": 766.0,
+        "w": 964.0,
+        "x": 781.0,
+        "y": 185.0
       },
       "mode": "atlas",
       "ok": true,
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2240.0,
+        1350.0
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 1970,
+      "t_ms": 3065,
       "terrain_tiles": 0,
-      "ticks": 66,
+      "ticks": 147,
       "vertical_pan_locked": false,
       "viewport": [
-        1114.0,
-        866.0
+        964.0,
+        766.0
       ],
       "viewport_update_mode": 4,
-      "visible_cities": 3,
+      "visible_cities": 2,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 2,
+      "zoom": 0.395029038190842,
       "zoom_max": 120.0,
-      "zoom_min": 0.320740740740741,
-      "zoom_ratio": 1.64303204203863
+      "zoom_min": 0.283703703703704,
+      "zoom_ratio": 1.39240000406694
     },
     {
       "event": "screenshot",
-      "file": "06-resumed.png",
-      "t_ms": 2041
+      "file": "11-resumed.png",
+      "t_ms": 3136
     },
     {
       "active": 0,
       "count": 6,
-      "draw_calls": 60,
+      "draw_calls": 62,
       "event": "state",
       "label": "resized",
-      "t_ms": 2085,
+      "t_ms": 3178,
       "tabs": [
         {
           "frozen": false,
@@ -1202,7 +2509,7 @@
             "x": 217.722503662109,
             "y": 11.3684215545654
           },
-          "tenant": "ok"
+          "tenant": null
         },
         {
           "frozen": true,
@@ -1238,7 +2545,7 @@
             "x": 601.148376464844,
             "y": 11.3684215545654
           },
-          "tenant": "ok"
+          "tenant": null
         },
         {
           "frozen": true,
@@ -1276,7 +2583,7 @@
         "x": 237.0,
         "y": 79.464111328125
       },
-      "inputs": 22,
+      "inputs": 66,
       "label": "resized",
       "locked": false,
       "map_rect": {
@@ -1288,17 +2595,17 @@
       "mode": "atlas",
       "ok": true,
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2240.0,
+        1350.0
       ],
       "region": "africa",
       "size": [
         1440.0,
         844.535888671875
       ],
-      "t_ms": 2085,
+      "t_ms": 3178,
       "terrain_tiles": 0,
-      "ticks": 71,
+      "ticks": 152,
       "vertical_pan_locked": false,
       "viewport": [
         927.0,
@@ -1308,15 +2615,15 @@
       "visible_cities": 2,
       "visible_close_cities": 0,
       "visible_labels": 2,
-      "zoom": 0.526987314224243,
+      "zoom": 0.395029038190842,
       "zoom_max": 120.0,
       "zoom_min": 0.267037037037037,
-      "zoom_ratio": 1.97346150957761
+      "zoom_ratio": 1.47930430390468
     },
     {
       "event": "screenshot",
-      "file": "07-resized.png",
-      "t_ms": 2133
+      "file": "12-resized.png",
+      "t_ms": 3227
     },
     {
       "active": 0,
@@ -1324,7 +2631,7 @@
       "draw_calls": 62,
       "event": "state",
       "label": "restored",
-      "t_ms": 2197,
+      "t_ms": 3283,
       "tabs": [
         {
           "frozen": false,
@@ -1348,7 +2655,7 @@
             "x": 290.296661376953,
             "y": 15.1578950881958
           },
-          "tenant": "ok"
+          "tenant": null
         },
         {
           "frozen": true,
@@ -1384,7 +2691,7 @@
             "x": 801.531066894531,
             "y": 15.1578950881958
           },
-          "tenant": "ok"
+          "tenant": null
         },
         {
           "frozen": true,
@@ -1422,7 +2729,7 @@
         "x": 379.0,
         "y": 97.9521560668945
       },
-      "inputs": 22,
+      "inputs": 66,
       "label": "restored",
       "locked": false,
       "map_rect": {
@@ -1434,35 +2741,35 @@
       "mode": "atlas",
       "ok": true,
       "position": [
-        2543.6123046875,
-        1577.70947265625
+        2240.0,
+        1350.0
       ],
       "region": "africa",
       "size": [
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 2197,
+      "t_ms": 3283,
       "terrain_tiles": 0,
-      "ticks": 76,
+      "ticks": 157,
       "vertical_pan_locked": false,
       "viewport": [
         1114.0,
         866.0
       ],
       "viewport_update_mode": 4,
-      "visible_cities": 3,
+      "visible_cities": 2,
       "visible_close_cities": 0,
-      "visible_labels": 3,
-      "zoom": 0.526987314224243,
+      "visible_labels": 2,
+      "zoom": 0.395029038190842,
       "zoom_max": 120.0,
       "zoom_min": 0.320740740740741,
-      "zoom_ratio": 1.64303204203863
+      "zoom_ratio": 1.23161478419777
     },
     {
       "event": "screenshot",
-      "file": "08-restored.png",
-      "t_ms": 2270
+      "file": "13-restored.png",
+      "t_ms": 3362
     }
   ],
   "viewport": [
