@@ -29,6 +29,10 @@ try {
 	});
 	const url = new URL(process.argv[2]); url.searchParams.set('qa-crt', '1');
 	await page.goto(url.href);
+	const faviconUrl = new URL('/favicon.ico', url);
+	const faviconResponse = await page.request.get(faviconUrl.href);
+	assert.equal(faviconResponse.status(), 404, `expected ${faviconUrl.href} to return 404`);
+	expected404.push(faviconUrl.href);
 	await page.waitForFunction(() => window.shellCrtQa?.shell.active === 4 && !window.shellCrtQa.shell.switching, null, {timeout: 90000});
 	await page.waitForFunction(() => window.shellCrtQa.tenant.search.images_loaded === 2);
 	await page.keyboard.press('F9');
@@ -72,7 +76,7 @@ try {
 
 	assert.deepEqual(errors, []);
 	const report = {status: 'pass', url: process.argv[2], results,
-		motion: {nativeFilmVerifiedEntrance: true, browserEndpointSteady: true}, expected404: [...new Set(expected404)], errors};
+		motion: {generatedEntranceAvailable: false, browserEndpointSteady: true}, expected404: [...new Set(expected404)], errors};
 	writeFileSync(out + '/browser-report.json', JSON.stringify(report, null, 2) + '\n');
 	console.log(JSON.stringify(report));
 } finally {

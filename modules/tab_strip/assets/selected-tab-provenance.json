@@ -17,15 +17,16 @@
     "active_blue_playground.png": "a2575684c9abbfe57475d072ee54a5a92114d5c86a8fe2a7c0ee22f3b976396e"
   },
   "motion": {
-    "implementation": "deterministic 0.2-second left-to-right clip reveal followed by the exact still endpoint",
+    "implementation": "static exact-copy reviewed still endpoint; no procedural substitute",
     "model": "bytedance/seedance-2.0-mini",
     "blockedRuns": [
       "run-776134b41417d13c47fb0758",
-      "run-1d0246a7cf5498c397d6ae62"
+      "run-1d0246a7cf5498c397d6ae62",
+      "run-6ac00307d14b64efc976cbb5"
     ],
-    "status": "both provider submissions unreconciled; no generated video is used",
-    "maximumPossiblySpentUsd": "0.36"
+    "status": "all three provider submissions unreconciled; the third duplicated the repaired-anchor request; no generated video is used; reconcile only and do not retry",
+    "maximumPossiblySpentUsd": "0.54"
   },
-  "aggregateMaximumLiabilityUsd": "0.37",
+  "aggregateMaximumLiabilityUsd": "0.55",
   "humanReviewed": false
 }

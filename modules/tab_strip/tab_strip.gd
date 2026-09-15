@@ -20,7 +20,7 @@ const GROW_SECONDS := 0.4
 const CONNECTING_SECONDS := 0.95
 const CLOSE_SECONDS := 0.3
 const SLIDE_SECONDS := 0.2
-const FADE_SECONDS := 0.2  # the active tint fading in on the selected tab and out on the one it leaves
+const FADE_SECONDS := 0.2  # the legacy active tint fade; reviewed fixed-tab stills switch at once
 const SEA_BLUE := Color8(131, 229, 247)  # #83e5f7, the atlas world map's ocean (modules/atlas/assets/terrain.png)
 const ACTIVE_TINT := 0.12  # how much of the sea blue the active tab's face carries (Issue #45)
 const FIXED_TAB_WIDTH := 380.0
@@ -222,6 +222,9 @@ func _fade(tab: Dictionary, to: float) -> void:
 	tab.tint_to = to
 	if tab.fade != null and tab.fade.is_valid():
 		tab.fade.kill()
+	if tab.overlay.texture != null:
+		_set_tint(tab, to)
+		return
 	if _reduce_motion:
 		_set_tint(tab, to)
 		return

@@ -10,8 +10,9 @@
 ## tab dips it: the stub's pressed tint and a 6 px drop for PRESS_SECONDS, then it sits back;
 ## grow_tab replays the open gesture on a tab already in the row (the Shell's launch tab).
 ## The active tab's face carries the atlas sea blue (#83e5f7) at 12 percent (Issue #45): the tint
-## fades in over 0.2 s when a tab becomes active (a click, select_tab, a new tab settling, the
-## neighbour after a close) and fades out on the tab it leaves; icon, label and close glyph stay as drawn.
+## fades in over 0.2 s when a tab becomes active. In the Shell's compact fixed-tab mode, each selected
+## tab instead switches immediately to its reviewed blue still; generated motion is required before
+## that state may animate. Icon, label and close glyphs stay as drawn.
 ##
 ## Every public function returns { ok: bool, value: Variant, error: Variant }.
 ## Errors are the values in errors.gd. The strip raises nothing across this seam.
@@ -86,7 +87,8 @@ static func set_bar_width(strip: Control, width: float) -> void:
 
 ## Number of tabs, the active index, and each tab's current label key, pixel rect, whether it is
 ## fixed, whether its label is truncated with "...", its close button rect (empty on a fixed tab), and
-## `tint`, how far its active tint has faded in (0 white .. 1 the sea blue at 12 percent).
+## `tint`, active-state progress (0 inactive, 1 active; ordinary tabs fade to the sea blue at 12 percent,
+## while compact fixed tabs switch directly between their reviewed inactive and selected stills).
 ## `pressed` is the index of the tab dipping under a click, or -1.
 ## Returns ok({ count, active, tabs: [{ label, rect, page_visible, fixed, truncated, close_rect, tint }],
 ## opening: bool, pressed: int, bar_width }).

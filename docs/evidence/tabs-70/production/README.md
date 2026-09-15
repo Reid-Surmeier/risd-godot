@@ -9,13 +9,12 @@
 
 The Shell's six fixed tabs stop at 380 source pixels, retain complete labels and
 page icons at 65 percent, and leave more of the toolbar visible before the
-right-hand icon cluster. Selection reveals the independently reviewed blue face
-from left to right over 0.2 seconds, then holds it. Selecting an already active
-tab does not replay it; reduced-motion browsers receive the endpoint directly.
+right-hand icon cluster. Selection switches directly to the independently reviewed
+blue face and holds it.
 
 The native Shell playtest passed every tab, page, timing, freeze, resize, pressed
-state and pixel check. Its film records intermediate reveal values and a steady
-blue endpoint for both Map and Collection. The reusable non-Shell tab strip
+state and pixel check. Its film records the steady blue endpoint for both Map and
+Collection. The reusable non-Shell tab strip
 keeps its original geometry and passed its existing playtest unchanged.
 
 The exact `dab7341` Web export selected all six tabs at 1920×1080 and
@@ -23,7 +22,9 @@ The exact `dab7341` Web export selected all six tabs at 1920×1080 and
 the settled blue crop unchanged after another 160 ms. No browser or network
 errors were observed.
 
-Muse produced the recorded blue donor through OpenRouter. Both one-output
-Seedance requests are preserved as unreconciled and possibly spent; neither was
-retried, and no generated video is used. Production playback is the deterministic
-mask reveal into the exact reviewed still endpoint.
+Muse produced the recorded blue donor through OpenRouter. Three one-output
+Seedance requests are preserved as unreconciled and possibly spent; the third
+duplicated the repaired-anchor request before that earlier run was accounted for.
+Maximum liability is $0.55 including Muse. Existing runs are reconcile-only and
+must not be retried. No generated video is used. The requested entrance remains
+disabled until a certified generated Motion Pass exists.

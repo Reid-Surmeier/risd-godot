@@ -29,7 +29,7 @@ The fixed Tabs are strip indexes 0..5 forever: opened before any stub tab and ne
 
 The playtest (`scripts/playtest.sh shell`, on `testing/harness_base.gd`) builds the Shell with its own registry — the dummy tenant in four Tabs, a grey Callable-built tenant in `playground` (so a cross-fade shows in pixels), nothing in `video_player` — on an X display at 1920x1080, drives it with real mouse and key events through `Input.parse_input_event`, films the launch and two switches frame by frame, and `verify.py` re-hashes the screenshots, re-reads the film's pixels and checks the logged states, signals and tenant counters independently: six fixed tabs in order along the bottom, the launch tab stub-sized then grown with its page shown only after the settle, `switch_settled` 0.55..1.0 s after mount, the pressed tint on the clicked tab within 100 ms and gone after 220 ms, the page blend through in-between greys, a switch settling 150..450 ms after the click, lazy creation, a hidden tenant's `_process` and input counters standing still and resuming, close refused by click and by call, the stub's blank page as the seventh tab, a resize to 1440x900 (48 checks). `playtest/browser_play.py` drives the Web export in headless Chrome. Evidence of the accepted run is in `docs/evidence/shell/`.
 
-Known gap: the strip draws no active-tab difference (#45), so two white Pages look the same until a Tenant lives in them.
+Each compact fixed tab has a reviewed blue selected still, so the active Page remains identifiable even when two Pages are white.
 
 
 ## CRT presentation (#64)
