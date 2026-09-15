@@ -2,3 +2,5 @@
 *.import
 build/
 runs/
+node_modules/
+modules/collection_data/server/cache/
