@@ -152,7 +152,7 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 1020,
+      "t_ms": 1010,
       "ticks": 14,
       "windows": [
         {
@@ -408,8 +408,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 1519,
-      "ticks": 69,
+      "t_ms": 1494,
+      "ticks": 68,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -515,18 +515,18 @@
     {
       "event": "screenshot",
       "file": "01-default-results.png",
-      "t_ms": 1681
+      "t_ms": 1657
     },
     {
       "event": "click",
-      "t_ms": 1702,
+      "t_ms": 1679,
       "what": "focus IME Unicode commit",
       "x": 237.848968505859,
       "y": 453.040771484375
     },
     {
       "event": "text",
-      "t_ms": 1722,
+      "t_ms": 1698,
       "value": "雪",
       "what": "IME Unicode commit"
     },
@@ -682,8 +682,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 1722,
-      "ticks": 73,
+      "t_ms": 1699,
+      "ticks": 72,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -789,7 +789,7 @@
     {
       "event": "key",
       "keycode": "Escape",
-      "t_ms": 1741,
+      "t_ms": 1718,
       "what": "cancel Unicode draft"
     },
     {
@@ -944,8 +944,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 1741,
-      "ticks": 75,
+      "t_ms": 1718,
+      "ticks": 74,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -1050,14 +1050,14 @@
     },
     {
       "event": "click",
-      "t_ms": 1763,
+      "t_ms": 1739,
       "what": "focus A query",
       "x": 237.848968505859,
       "y": 453.040771484375
     },
     {
       "event": "text",
-      "t_ms": 1860,
+      "t_ms": 1835,
       "value": "Monet",
       "what": "A query"
     },
@@ -1213,8 +1213,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 1860,
-      "ticks": 87,
+      "t_ms": 1835,
+      "ticks": 86,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -1320,7 +1320,7 @@
     {
       "event": "key",
       "keycode": "Tab",
-      "t_ms": 1879,
+      "t_ms": 1854,
       "what": "focus Sort"
     },
     {
@@ -1475,8 +1475,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 1879,
-      "ticks": 89,
+      "t_ms": 1854,
+      "ticks": 88,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -1582,7 +1582,7 @@
     {
       "event": "key",
       "keycode": "Space",
-      "t_ms": 1903,
+      "t_ms": 1879,
       "what": "open Sort for Escape"
     },
     {
@@ -1737,8 +1737,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": true,
-      "t_ms": 1904,
-      "ticks": 91,
+      "t_ms": 1879,
+      "ticks": 90,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -1844,7 +1844,7 @@
     {
       "event": "key",
       "keycode": "Escape",
-      "t_ms": 1924,
+      "t_ms": 1899,
       "what": "dismiss Sort popup"
     },
     {
@@ -1999,8 +1999,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 1924,
-      "ticks": 93,
+      "t_ms": 1899,
+      "ticks": 92,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -2106,25 +2106,25 @@
     {
       "event": "key",
       "keycode": "Space",
-      "t_ms": 1946,
+      "t_ms": 1921,
       "what": "open Sort"
     },
     {
       "event": "key",
       "keycode": "Down",
-      "t_ms": 1968,
+      "t_ms": 1943,
       "what": "choose second sort"
     },
     {
       "event": "key",
       "keycode": "Enter",
-      "t_ms": 1988,
+      "t_ms": 1963,
       "what": "close Sort"
     },
     {
       "event": "key",
       "keycode": "Tab",
-      "t_ms": 2006,
+      "t_ms": 1982,
       "what": "focus Category"
     },
     {
@@ -2279,8 +2279,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 2007,
-      "ticks": 101,
+      "t_ms": 1982,
+      "ticks": 100,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -2386,25 +2386,25 @@
     {
       "event": "key",
       "keycode": "Space",
-      "t_ms": 2029,
+      "t_ms": 2004,
       "what": "open Category"
     },
     {
       "event": "key",
       "keycode": "Down",
-      "t_ms": 2051,
+      "t_ms": 2025,
       "what": "choose Painting"
     },
     {
       "event": "key",
       "keycode": "Enter",
-      "t_ms": 2071,
+      "t_ms": 2045,
       "what": "close Category"
     },
     {
       "event": "key",
       "keycode": "Tab",
-      "t_ms": 2089,
+      "t_ms": 2064,
       "what": "focus Has Image"
     },
     {
@@ -2559,8 +2559,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 2089,
-      "ticks": 109,
+      "t_ms": 2064,
+      "ticks": 108,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -2666,7 +2666,7 @@
     {
       "event": "key",
       "keycode": "Space",
-      "t_ms": 2108,
+      "t_ms": 2083,
       "what": "toggle Has Image off"
     },
     {
@@ -2821,8 +2821,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 2108,
-      "ticks": 111,
+      "t_ms": 2083,
+      "ticks": 110,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -2928,13 +2928,13 @@
     {
       "event": "key",
       "keycode": "Space",
-      "t_ms": 2127,
+      "t_ms": 2101,
       "what": "toggle Has Image on"
     },
     {
       "event": "key",
       "keycode": "Tab",
-      "t_ms": 2146,
+      "t_ms": 2120,
       "what": "focus OK"
     },
     {
@@ -3089,8 +3089,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 2146,
-      "ticks": 115,
+      "t_ms": 2120,
+      "ticks": 114,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -3195,8 +3195,276 @@
     },
     {
       "event": "key",
+      "keycode": "Shift+Tab",
+      "t_ms": 2139,
+      "what": "return to Has Image"
+    },
+    {
+      "applied": {
+        "category": "All",
+        "has_image": true,
+        "page": 1,
+        "q": "",
+        "sort": "date_asc"
+      },
+      "category_items": [
+        "All",
+        "Painting",
+        "Photographs",
+        "Drawings and Watercolors"
+      ],
+      "category_popup_visible": false,
+      "completions": 1,
+      "controls": {
+        "Cancel": {
+          "h": 24.2636566162109,
+          "w": 62.6159057617188,
+          "x": 336.469024658203,
+          "y": 555.965698242188
+        },
+        "Category": {
+          "h": 24.2636642456055,
+          "w": 169.062973022461,
+          "x": 230.021987915039,
+          "y": 472.216888427734
+        },
+        "Details": {
+          "h": 378.171508789062,
+          "w": 585.171081542969,
+          "x": 1276.27880859375,
+          "y": 87.2194976806641
+        },
+        "HasImage": {
+          "h": 24.0,
+          "w": 117.404830932617,
+          "x": 18.6932888031006,
+          "y": 504.307556152344
+        },
+        "Next": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1305.67590332031,
+          "y": 497.890991210938
+        },
+        "OK": {
+          "h": 24.2636566162109,
+          "w": 59.485107421875,
+          "x": 272.287719726562,
+          "y": 555.965698242188
+        },
+        "Previous": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1269.67590332031,
+          "y": 497.890991210938
+        },
+        "Query": {
+          "h": 24.2636642456055,
+          "w": 322.471923828125,
+          "x": 76.6130065917969,
+          "y": 440.908935546875
+        },
+        "Retry": {
+          "h": 23.5792465209961,
+          "w": 70.7377395629883,
+          "x": 439.780700683594,
+          "y": 97.2194976806641
+        },
+        "Sort": {
+          "h": 24.2636642456055,
+          "w": 111.14323425293,
+          "x": 50.0012435913086,
+          "y": 472.216888427734
+        }
+      },
+      "draft": {
+        "category": "Painting",
+        "has_image": true,
+        "page": 1,
+        "q": "Monet",
+        "sort": "date_desc"
+      },
+      "event": "search",
+      "focus_owner": "HasImage",
+      "ignored_completions": 0,
+      "image_failures": 0,
+      "images_loaded": 2,
+      "inputs": 37,
+      "items": [
+        {
+          "has_texture": true,
+          "id": "risd:1584511",
+          "image_unavailable": false,
+          "rect": {
+            "h": 377.171508789062,
+            "w": 476.0,
+            "x": 435.780700683594,
+            "y": 84.2194976806641
+          }
+        },
+        {
+          "has_texture": true,
+          "id": "risd:1377691",
+          "image_unavailable": false,
+          "rect": {
+            "h": 377.171508789062,
+            "w": 476.0,
+            "x": 919.780700683594,
+            "y": 84.2194976806641
+          }
+        }
+      ],
+      "label": "focus-checkbox-backward",
+      "last_successful": {
+        "category": "All",
+        "has_image": true,
+        "page": 1,
+        "q": "",
+        "sort": "date_asc"
+      },
+      "phase": "results",
+      "requests": 1,
+      "response": {
+        "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
+        "page": 1,
+        "page_size": 20,
+        "query": {
+          "category": "All",
+          "has_image": true,
+          "page": 1,
+          "q": "",
+          "sort": "date_asc"
+        },
+        "snapshot": "e7b9e9cd611b244091ad779f3ea14570247d7e23ffe0cafb124434f53860a82c",
+        "total": 2,
+        "upstream_status": "unavailable"
+      },
+      "selected": "",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "sort_items": [
+        "Title (A→Z)",
+        "Title (Z→A)",
+        "Date (old→new)",
+        "Date (new→old)"
+      ],
+      "sort_popup_visible": false,
+      "t_ms": 2139,
+      "ticks": 116,
+      "windows": [
+        {
+          "drag_height": 23.5792465209961,
+          "name": "equipment",
+          "order": 1,
+          "rect": {
+            "h": 199.637619018555,
+            "w": 378.839874267578,
+            "x": 9.43169784545898,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 23.5792465209961,
+          "name": "options",
+          "order": 2,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 387.485595703125,
+            "x": 9.43169784545898,
+            "y": 228.718688964844
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "status",
+          "order": 3,
+          "rect": {
+            "h": 49.5164184570312,
+            "w": 392.201446533203,
+            "x": 0.0,
+            "y": 598.912841796875
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "trade",
+          "order": 4,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 386.699645996094,
+            "x": 9.43169784545898,
+            "y": 650.787231445312
+          }
+        },
+        {
+          "drag_height": 22.7932716369629,
+          "name": "chat",
+          "order": 5,
+          "rect": {
+            "h": 180.774230957031,
+            "w": 396.917297363281,
+            "x": 4.71584892272949,
+            "y": 825.273620605469
+          }
+        },
+        {
+          "drag_height": 29.8670455932617,
+          "name": "party",
+          "order": 6,
+          "rect": {
+            "h": 245.22412109375,
+            "w": 250.725982666016,
+            "x": 416.566680908203,
+            "y": 557.256225585938
+          }
+        },
+        {
+          "drag_height": 42.442643737793,
+          "name": "bottom",
+          "order": 7,
+          "rect": {
+            "h": 42.442626953125,
+            "w": 1102.72277832031,
+            "x": 799.98583984375,
+            "y": 959.675354003906
+          }
+        },
+        {
+          "drag_height": 33.5,
+          "name": "viewer",
+          "order": 8,
+          "rect": {
+            "h": 517.171508789062,
+            "w": 1486.927734375,
+            "x": 415.780700683594,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 25.1511962890625,
+          "name": "filters",
+          "order": 10,
+          "rect": {
+            "h": 181.560180664062,
+            "w": 399.275238037109,
+            "x": 9.43169784545898,
+            "y": 410.278869628906
+          }
+        }
+      ]
+    },
+    {
+      "event": "key",
+      "keycode": "Tab",
+      "t_ms": 2157,
+      "what": "return to OK"
+    },
+    {
+      "event": "key",
       "keycode": "Enter",
-      "t_ms": 2165,
+      "t_ms": 2176,
       "what": "apply A"
     },
     {
@@ -3289,7 +3557,7 @@
       "ignored_completions": 0,
       "image_failures": 0,
       "images_loaded": 0,
-      "inputs": 37,
+      "inputs": 41,
       "items": [
         {
           "has_texture": false,
@@ -3351,8 +3619,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 2204,
-      "ticks": 121,
+      "t_ms": 2216,
+      "ticks": 124,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -3545,7 +3813,7 @@
       "ignored_completions": 0,
       "image_failures": 0,
       "images_loaded": 2,
-      "inputs": 37,
+      "inputs": 41,
       "items": [
         {
           "has_texture": true,
@@ -3607,8 +3875,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 2596,
-      "ticks": 158,
+      "t_ms": 2605,
+      "ticks": 161,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -3714,25 +3982,25 @@
     {
       "event": "screenshot",
       "file": "02-filtered-paintings.png",
-      "t_ms": 2757
+      "t_ms": 2767
     },
     {
       "event": "click",
-      "t_ms": 2779,
+      "t_ms": 2788,
       "what": "focus B query",
       "x": 237.848968505859,
       "y": 453.040771484375
     },
     {
       "event": "text",
-      "t_ms": 2858,
+      "t_ms": 2866,
       "value": "fail",
       "what": "B query"
     },
     {
       "event": "key",
       "keycode": "Enter",
-      "t_ms": 2877,
+      "t_ms": 2886,
       "what": "apply B"
     },
     {
@@ -3825,7 +4093,7 @@
       "ignored_completions": 0,
       "image_failures": 0,
       "images_loaded": 2,
-      "inputs": 49,
+      "inputs": 53,
       "items": [
         {
           "has_texture": true,
@@ -3887,8 +4155,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 2906,
-      "ticks": 173,
+      "t_ms": 2915,
+      "ticks": 176,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -3994,12 +4262,12 @@
     {
       "event": "screenshot",
       "file": "03-unavailable-keeps-A.png",
-      "t_ms": 3056
+      "t_ms": 3064
     },
     {
       "event": "key",
       "keycode": "Escape",
-      "t_ms": 3077,
+      "t_ms": 3084,
       "what": "cancel B"
     },
     {
@@ -4092,7 +4360,7 @@
       "ignored_completions": 0,
       "image_failures": 0,
       "images_loaded": 2,
-      "inputs": 50,
+      "inputs": 54,
       "items": [
         {
           "has_texture": true,
@@ -4154,8 +4422,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 3096,
-      "ticks": 178,
+      "t_ms": 3104,
+      "ticks": 181,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -4260,40 +4528,833 @@
     },
     {
       "event": "click",
-      "t_ms": 3117,
+      "t_ms": 3126,
+      "what": "focus pending cancel query",
+      "x": 237.848968505859,
+      "y": 453.040771484375
+    },
+    {
+      "event": "text",
+      "t_ms": 3204,
+      "value": "slow",
+      "what": "pending cancel query"
+    },
+    {
+      "event": "key",
+      "keycode": "Enter",
+      "t_ms": 3223,
+      "what": "apply pending cancel"
+    },
+    {
+      "applied": {
+        "category": "Painting",
+        "has_image": true,
+        "page": 1,
+        "q": "slow",
+        "sort": "date_desc"
+      },
+      "category_items": [
+        "All",
+        "Painting",
+        "Photographs",
+        "Drawings and Watercolors"
+      ],
+      "category_popup_visible": false,
+      "completions": 3,
+      "controls": {
+        "Cancel": {
+          "h": 24.2636566162109,
+          "w": 62.6159057617188,
+          "x": 336.469024658203,
+          "y": 555.965698242188
+        },
+        "Category": {
+          "h": 24.2636642456055,
+          "w": 169.062973022461,
+          "x": 230.021987915039,
+          "y": 472.216888427734
+        },
+        "Details": {
+          "h": 378.171508789062,
+          "w": 585.171081542969,
+          "x": 1276.27880859375,
+          "y": 87.2194976806641
+        },
+        "HasImage": {
+          "h": 24.0,
+          "w": 117.404830932617,
+          "x": 18.6932888031006,
+          "y": 504.307556152344
+        },
+        "Next": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1305.67590332031,
+          "y": 497.890991210938
+        },
+        "OK": {
+          "h": 24.2636566162109,
+          "w": 59.485107421875,
+          "x": 272.287719726562,
+          "y": 555.965698242188
+        },
+        "Previous": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1269.67590332031,
+          "y": 497.890991210938
+        },
+        "Query": {
+          "h": 24.2636642456055,
+          "w": 322.471923828125,
+          "x": 76.6130065917969,
+          "y": 440.908935546875
+        },
+        "Retry": {
+          "h": 23.5792465209961,
+          "w": 70.7377395629883,
+          "x": 439.780700683594,
+          "y": 97.2194976806641
+        },
+        "Sort": {
+          "h": 24.2636642456055,
+          "w": 111.14323425293,
+          "x": 50.0012435913086,
+          "y": 472.216888427734
+        }
+      },
+      "draft": {
+        "category": "Painting",
+        "has_image": true,
+        "page": 1,
+        "q": "slow",
+        "sort": "date_desc"
+      },
+      "event": "search",
+      "focus_owner": "Query",
+      "ignored_completions": 0,
+      "image_failures": 0,
+      "images_loaded": 2,
+      "inputs": 66,
+      "items": [
+        {
+          "has_texture": true,
+          "id": "risd:1377691",
+          "image_unavailable": false,
+          "rect": {
+            "h": 377.171508789062,
+            "w": 476.0,
+            "x": 435.780700683594,
+            "y": 84.2194976806641
+          }
+        },
+        {
+          "has_texture": true,
+          "id": "risd:1584511",
+          "image_unavailable": false,
+          "rect": {
+            "h": 377.171508789062,
+            "w": 476.0,
+            "x": 919.780700683594,
+            "y": 84.2194976806641
+          }
+        }
+      ],
+      "label": "pending-before-cancel",
+      "last_successful": {
+        "category": "Painting",
+        "has_image": true,
+        "page": 1,
+        "q": "Monet",
+        "sort": "date_desc"
+      },
+      "phase": "loading",
+      "requests": 4,
+      "response": {
+        "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
+        "page": 1,
+        "page_size": 20,
+        "query": {
+          "category": "Painting",
+          "has_image": true,
+          "page": 1,
+          "q": "Monet",
+          "sort": "date_desc"
+        },
+        "snapshot": "e7b9e9cd611b244091ad779f3ea14570247d7e23ffe0cafb124434f53860a82c",
+        "total": 2,
+        "upstream_status": "unavailable"
+      },
+      "selected": "",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "sort_items": [
+        "Title (A→Z)",
+        "Title (Z→A)",
+        "Date (old→new)",
+        "Date (new→old)"
+      ],
+      "sort_popup_visible": false,
+      "t_ms": 3223,
+      "ticks": 193,
+      "windows": [
+        {
+          "drag_height": 23.5792465209961,
+          "name": "equipment",
+          "order": 1,
+          "rect": {
+            "h": 199.637619018555,
+            "w": 378.839874267578,
+            "x": 9.43169784545898,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 23.5792465209961,
+          "name": "options",
+          "order": 2,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 387.485595703125,
+            "x": 9.43169784545898,
+            "y": 228.718688964844
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "status",
+          "order": 3,
+          "rect": {
+            "h": 49.5164184570312,
+            "w": 392.201446533203,
+            "x": 0.0,
+            "y": 598.912841796875
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "trade",
+          "order": 4,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 386.699645996094,
+            "x": 9.43169784545898,
+            "y": 650.787231445312
+          }
+        },
+        {
+          "drag_height": 22.7932716369629,
+          "name": "chat",
+          "order": 5,
+          "rect": {
+            "h": 180.774230957031,
+            "w": 396.917297363281,
+            "x": 4.71584892272949,
+            "y": 825.273620605469
+          }
+        },
+        {
+          "drag_height": 29.8670455932617,
+          "name": "party",
+          "order": 6,
+          "rect": {
+            "h": 245.22412109375,
+            "w": 250.725982666016,
+            "x": 416.566680908203,
+            "y": 557.256225585938
+          }
+        },
+        {
+          "drag_height": 42.442643737793,
+          "name": "bottom",
+          "order": 7,
+          "rect": {
+            "h": 42.442626953125,
+            "w": 1102.72277832031,
+            "x": 799.98583984375,
+            "y": 959.675354003906
+          }
+        },
+        {
+          "drag_height": 33.5,
+          "name": "viewer",
+          "order": 8,
+          "rect": {
+            "h": 517.171508789062,
+            "w": 1486.927734375,
+            "x": 415.780700683594,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 25.1511962890625,
+          "name": "filters",
+          "order": 10,
+          "rect": {
+            "h": 181.560180664062,
+            "w": 399.275238037109,
+            "x": 9.43169784545898,
+            "y": 410.278869628906
+          }
+        }
+      ]
+    },
+    {
+      "event": "key",
+      "keycode": "Escape",
+      "t_ms": 3242,
+      "what": "cancel pending request"
+    },
+    {
+      "applied": {
+        "category": "Painting",
+        "has_image": true,
+        "page": 1,
+        "q": "Monet",
+        "sort": "date_desc"
+      },
+      "category_items": [
+        "All",
+        "Painting",
+        "Photographs",
+        "Drawings and Watercolors"
+      ],
+      "category_popup_visible": false,
+      "completions": 3,
+      "controls": {
+        "Cancel": {
+          "h": 24.2636566162109,
+          "w": 62.6159057617188,
+          "x": 336.469024658203,
+          "y": 555.965698242188
+        },
+        "Category": {
+          "h": 24.2636642456055,
+          "w": 169.062973022461,
+          "x": 230.021987915039,
+          "y": 472.216888427734
+        },
+        "Details": {
+          "h": 378.171508789062,
+          "w": 585.171081542969,
+          "x": 1276.27880859375,
+          "y": 87.2194976806641
+        },
+        "HasImage": {
+          "h": 24.0,
+          "w": 117.404830932617,
+          "x": 18.6932888031006,
+          "y": 504.307556152344
+        },
+        "Next": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1305.67590332031,
+          "y": 497.890991210938
+        },
+        "OK": {
+          "h": 24.2636566162109,
+          "w": 59.485107421875,
+          "x": 272.287719726562,
+          "y": 555.965698242188
+        },
+        "Previous": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1269.67590332031,
+          "y": 497.890991210938
+        },
+        "Query": {
+          "h": 24.2636642456055,
+          "w": 322.471923828125,
+          "x": 76.6130065917969,
+          "y": 440.908935546875
+        },
+        "Retry": {
+          "h": 23.5792465209961,
+          "w": 70.7377395629883,
+          "x": 439.780700683594,
+          "y": 97.2194976806641
+        },
+        "Sort": {
+          "h": 24.2636642456055,
+          "w": 111.14323425293,
+          "x": 50.0012435913086,
+          "y": 472.216888427734
+        }
+      },
+      "draft": {
+        "category": "Painting",
+        "has_image": true,
+        "page": 1,
+        "q": "Monet",
+        "sort": "date_desc"
+      },
+      "event": "search",
+      "focus_owner": "Card_1377691",
+      "ignored_completions": 0,
+      "image_failures": 0,
+      "images_loaded": 2,
+      "inputs": 67,
+      "items": [
+        {
+          "has_texture": true,
+          "id": "risd:1377691",
+          "image_unavailable": false,
+          "rect": {
+            "h": 377.171508789062,
+            "w": 476.0,
+            "x": 435.780700683594,
+            "y": 84.2194976806641
+          }
+        },
+        {
+          "has_texture": true,
+          "id": "risd:1584511",
+          "image_unavailable": false,
+          "rect": {
+            "h": 377.171508789062,
+            "w": 476.0,
+            "x": 919.780700683594,
+            "y": 84.2194976806641
+          }
+        }
+      ],
+      "label": "pending-canceled",
+      "last_successful": {
+        "category": "Painting",
+        "has_image": true,
+        "page": 1,
+        "q": "Monet",
+        "sort": "date_desc"
+      },
+      "phase": "results",
+      "requests": 4,
+      "response": {
+        "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
+        "page": 1,
+        "page_size": 20,
+        "query": {
+          "category": "Painting",
+          "has_image": true,
+          "page": 1,
+          "q": "Monet",
+          "sort": "date_desc"
+        },
+        "snapshot": "e7b9e9cd611b244091ad779f3ea14570247d7e23ffe0cafb124434f53860a82c",
+        "total": 2,
+        "upstream_status": "unavailable"
+      },
+      "selected": "",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "sort_items": [
+        "Title (A→Z)",
+        "Title (Z→A)",
+        "Date (old→new)",
+        "Date (new→old)"
+      ],
+      "sort_popup_visible": false,
+      "t_ms": 3260,
+      "ticks": 197,
+      "windows": [
+        {
+          "drag_height": 23.5792465209961,
+          "name": "equipment",
+          "order": 1,
+          "rect": {
+            "h": 199.637619018555,
+            "w": 378.839874267578,
+            "x": 9.43169784545898,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 23.5792465209961,
+          "name": "options",
+          "order": 2,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 387.485595703125,
+            "x": 9.43169784545898,
+            "y": 228.718688964844
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "status",
+          "order": 3,
+          "rect": {
+            "h": 49.5164184570312,
+            "w": 392.201446533203,
+            "x": 0.0,
+            "y": 598.912841796875
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "trade",
+          "order": 4,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 386.699645996094,
+            "x": 9.43169784545898,
+            "y": 650.787231445312
+          }
+        },
+        {
+          "drag_height": 22.7932716369629,
+          "name": "chat",
+          "order": 5,
+          "rect": {
+            "h": 180.774230957031,
+            "w": 396.917297363281,
+            "x": 4.71584892272949,
+            "y": 825.273620605469
+          }
+        },
+        {
+          "drag_height": 29.8670455932617,
+          "name": "party",
+          "order": 6,
+          "rect": {
+            "h": 245.22412109375,
+            "w": 250.725982666016,
+            "x": 416.566680908203,
+            "y": 557.256225585938
+          }
+        },
+        {
+          "drag_height": 42.442643737793,
+          "name": "bottom",
+          "order": 7,
+          "rect": {
+            "h": 42.442626953125,
+            "w": 1102.72277832031,
+            "x": 799.98583984375,
+            "y": 959.675354003906
+          }
+        },
+        {
+          "drag_height": 33.5,
+          "name": "viewer",
+          "order": 8,
+          "rect": {
+            "h": 517.171508789062,
+            "w": 1486.927734375,
+            "x": 415.780700683594,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 25.1511962890625,
+          "name": "filters",
+          "order": 10,
+          "rect": {
+            "h": 181.560180664062,
+            "w": 399.275238037109,
+            "x": 9.43169784545898,
+            "y": 410.278869628906
+          }
+        }
+      ]
+    },
+    {
+      "applied": {
+        "category": "Painting",
+        "has_image": true,
+        "page": 1,
+        "q": "Monet",
+        "sort": "date_desc"
+      },
+      "category_items": [
+        "All",
+        "Painting",
+        "Photographs",
+        "Drawings and Watercolors"
+      ],
+      "category_popup_visible": false,
+      "completions": 3,
+      "controls": {
+        "Cancel": {
+          "h": 24.2636566162109,
+          "w": 62.6159057617188,
+          "x": 336.469024658203,
+          "y": 555.965698242188
+        },
+        "Category": {
+          "h": 24.2636642456055,
+          "w": 169.062973022461,
+          "x": 230.021987915039,
+          "y": 472.216888427734
+        },
+        "Details": {
+          "h": 378.171508789062,
+          "w": 585.171081542969,
+          "x": 1276.27880859375,
+          "y": 87.2194976806641
+        },
+        "HasImage": {
+          "h": 24.0,
+          "w": 117.404830932617,
+          "x": 18.6932888031006,
+          "y": 504.307556152344
+        },
+        "Next": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1305.67590332031,
+          "y": 497.890991210938
+        },
+        "OK": {
+          "h": 24.2636566162109,
+          "w": 59.485107421875,
+          "x": 272.287719726562,
+          "y": 555.965698242188
+        },
+        "Previous": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1269.67590332031,
+          "y": 497.890991210938
+        },
+        "Query": {
+          "h": 24.2636642456055,
+          "w": 322.471923828125,
+          "x": 76.6130065917969,
+          "y": 440.908935546875
+        },
+        "Retry": {
+          "h": 23.5792465209961,
+          "w": 70.7377395629883,
+          "x": 439.780700683594,
+          "y": 97.2194976806641
+        },
+        "Sort": {
+          "h": 24.2636642456055,
+          "w": 111.14323425293,
+          "x": 50.0012435913086,
+          "y": 472.216888427734
+        }
+      },
+      "draft": {
+        "category": "Painting",
+        "has_image": true,
+        "page": 1,
+        "q": "Monet",
+        "sort": "date_desc"
+      },
+      "event": "search",
+      "focus_owner": "Card_1377691",
+      "ignored_completions": 1,
+      "image_failures": 0,
+      "images_loaded": 2,
+      "inputs": 67,
+      "items": [
+        {
+          "has_texture": true,
+          "id": "risd:1377691",
+          "image_unavailable": false,
+          "rect": {
+            "h": 377.171508789062,
+            "w": 476.0,
+            "x": 435.780700683594,
+            "y": 84.2194976806641
+          }
+        },
+        {
+          "has_texture": true,
+          "id": "risd:1584511",
+          "image_unavailable": false,
+          "rect": {
+            "h": 377.171508789062,
+            "w": 476.0,
+            "x": 919.780700683594,
+            "y": 84.2194976806641
+          }
+        }
+      ],
+      "label": "canceled-reply-ignored",
+      "last_successful": {
+        "category": "Painting",
+        "has_image": true,
+        "page": 1,
+        "q": "Monet",
+        "sort": "date_desc"
+      },
+      "phase": "results",
+      "requests": 4,
+      "response": {
+        "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
+        "page": 1,
+        "page_size": 20,
+        "query": {
+          "category": "Painting",
+          "has_image": true,
+          "page": 1,
+          "q": "Monet",
+          "sort": "date_desc"
+        },
+        "snapshot": "e7b9e9cd611b244091ad779f3ea14570247d7e23ffe0cafb124434f53860a82c",
+        "total": 2,
+        "upstream_status": "unavailable"
+      },
+      "selected": "",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "sort_items": [
+        "Title (A→Z)",
+        "Title (Z→A)",
+        "Date (old→new)",
+        "Date (new→old)"
+      ],
+      "sort_popup_visible": false,
+      "t_ms": 4270,
+      "ticks": 307,
+      "windows": [
+        {
+          "drag_height": 23.5792465209961,
+          "name": "equipment",
+          "order": 1,
+          "rect": {
+            "h": 199.637619018555,
+            "w": 378.839874267578,
+            "x": 9.43169784545898,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 23.5792465209961,
+          "name": "options",
+          "order": 2,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 387.485595703125,
+            "x": 9.43169784545898,
+            "y": 228.718688964844
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "status",
+          "order": 3,
+          "rect": {
+            "h": 49.5164184570312,
+            "w": 392.201446533203,
+            "x": 0.0,
+            "y": 598.912841796875
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "trade",
+          "order": 4,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 386.699645996094,
+            "x": 9.43169784545898,
+            "y": 650.787231445312
+          }
+        },
+        {
+          "drag_height": 22.7932716369629,
+          "name": "chat",
+          "order": 5,
+          "rect": {
+            "h": 180.774230957031,
+            "w": 396.917297363281,
+            "x": 4.71584892272949,
+            "y": 825.273620605469
+          }
+        },
+        {
+          "drag_height": 29.8670455932617,
+          "name": "party",
+          "order": 6,
+          "rect": {
+            "h": 245.22412109375,
+            "w": 250.725982666016,
+            "x": 416.566680908203,
+            "y": 557.256225585938
+          }
+        },
+        {
+          "drag_height": 42.442643737793,
+          "name": "bottom",
+          "order": 7,
+          "rect": {
+            "h": 42.442626953125,
+            "w": 1102.72277832031,
+            "x": 799.98583984375,
+            "y": 959.675354003906
+          }
+        },
+        {
+          "drag_height": 33.5,
+          "name": "viewer",
+          "order": 8,
+          "rect": {
+            "h": 517.171508789062,
+            "w": 1486.927734375,
+            "x": 415.780700683594,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 25.1511962890625,
+          "name": "filters",
+          "order": 10,
+          "rect": {
+            "h": 181.560180664062,
+            "w": 399.275238037109,
+            "x": 9.43169784545898,
+            "y": 410.278869628906
+          }
+        }
+      ]
+    },
+    {
+      "event": "click",
+      "t_ms": 4292,
       "what": "focus slow request",
       "x": 237.848968505859,
       "y": 453.040771484375
     },
     {
       "event": "text",
-      "t_ms": 3195,
+      "t_ms": 4372,
       "value": "slow",
       "what": "slow request"
     },
     {
       "event": "key",
       "keycode": "Enter",
-      "t_ms": 3214,
+      "t_ms": 4391,
       "what": "apply slow"
     },
     {
       "event": "click",
-      "t_ms": 3236,
+      "t_ms": 4412,
       "what": "focus newer request",
       "x": 237.848968505859,
       "y": 453.040771484375
     },
     {
       "event": "text",
-      "t_ms": 3334,
+      "t_ms": 4509,
       "value": "Monet",
       "what": "newer request"
     },
     {
       "event": "key",
       "keycode": "Enter",
-      "t_ms": 3353,
+      "t_ms": 4528,
       "what": "apply newer"
     },
     {
@@ -4383,10 +5444,10 @@
       },
       "event": "search",
       "focus_owner": "Query",
-      "ignored_completions": 0,
+      "ignored_completions": 1,
       "image_failures": 0,
       "images_loaded": 0,
-      "inputs": 76,
+      "inputs": 93,
       "items": [
         {
           "has_texture": false,
@@ -4420,7 +5481,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 5,
+      "requests": 6,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -4448,8 +5509,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 3384,
-      "ticks": 207,
+      "t_ms": 4552,
+      "ticks": 334,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -4639,10 +5700,10 @@
       },
       "event": "search",
       "focus_owner": "Query",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 0,
       "images_loaded": 2,
-      "inputs": 76,
+      "inputs": 93,
       "items": [
         {
           "has_texture": true,
@@ -4676,7 +5737,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 5,
+      "requests": 6,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -4704,8 +5765,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 4376,
-      "ticks": 309,
+      "t_ms": 5540,
+      "ticks": 435,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -4810,21 +5871,21 @@
     },
     {
       "event": "click",
-      "t_ms": 4397,
+      "t_ms": 5560,
       "what": "focus paginated query",
       "x": 237.848968505859,
       "y": 453.040771484375
     },
     {
       "event": "text",
-      "t_ms": 4494,
+      "t_ms": 5657,
       "value": "pages",
       "what": "paginated query"
     },
     {
       "event": "key",
       "keycode": "Enter",
-      "t_ms": 4513,
+      "t_ms": 5677,
       "what": "apply paginated query"
     },
     {
@@ -4914,10 +5975,10 @@
       },
       "event": "search",
       "focus_owner": "Query",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 0,
       "images_loaded": 0,
-      "inputs": 90,
+      "inputs": 107,
       "items": [
         {
           "has_texture": false,
@@ -5149,7 +6210,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 6,
+      "requests": 7,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -5177,8 +6238,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 4550,
-      "ticks": 325,
+      "t_ms": 5715,
+      "ticks": 451,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -5283,14 +6344,14 @@
     },
     {
       "event": "click",
-      "t_ms": 4574,
+      "t_ms": 5738,
       "what": "focus draft retained across pagination",
       "x": 237.848968505859,
       "y": 453.040771484375
     },
     {
       "event": "text",
-      "t_ms": 4859,
+      "t_ms": 6050,
       "value": "unsent",
       "what": "draft retained across pagination"
     },
@@ -5381,10 +6442,10 @@
       },
       "event": "search",
       "focus_owner": "Query",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 0,
       "images_loaded": 5,
-      "inputs": 104,
+      "inputs": 121,
       "items": [
         {
           "has_texture": false,
@@ -5616,7 +6677,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 6,
+      "requests": 7,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -5644,8 +6705,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 4860,
-      "ticks": 339,
+      "t_ms": 6050,
+      "ticks": 465,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -5750,7 +6811,7 @@
     },
     {
       "event": "click",
-      "t_ms": 4879,
+      "t_ms": 6070,
       "what": "next page",
       "x": 1322.67590332031,
       "y": 511.890991210938
@@ -5843,10 +6904,10 @@
       },
       "event": "search",
       "focus_owner": "Next",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 0,
       "images_loaded": 0,
-      "inputs": 106,
+      "inputs": 123,
       "items": [
         {
           "has_texture": false,
@@ -5914,7 +6975,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 7,
+      "requests": 8,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 2,
@@ -5943,8 +7004,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 4914,
-      "ticks": 344,
+      "t_ms": 6114,
+      "ticks": 471,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -6049,21 +7110,21 @@
     },
     {
       "event": "click",
-      "t_ms": 4935,
+      "t_ms": 6136,
       "what": "focus empty query",
       "x": 237.848968505859,
       "y": 453.040771484375
     },
     {
       "event": "text",
-      "t_ms": 5296,
+      "t_ms": 6501,
       "value": "no-such-work",
       "what": "empty query"
     },
     {
       "event": "key",
       "keycode": "Enter",
-      "t_ms": 5316,
+      "t_ms": 6521,
       "what": "apply empty query"
     },
     {
@@ -6153,10 +7214,10 @@
       },
       "event": "search",
       "focus_owner": "Query",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 0,
       "images_loaded": 0,
-      "inputs": 134,
+      "inputs": 151,
       "items": [],
       "label": "empty-results",
       "last_successful": {
@@ -6167,7 +7228,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 8,
+      "requests": 9,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -6195,8 +7256,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 5346,
-      "ticks": 375,
+      "t_ms": 6552,
+      "ticks": 502,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -6302,25 +7363,25 @@
     {
       "event": "screenshot",
       "file": "04-empty.png",
-      "t_ms": 5448
+      "t_ms": 6656
     },
     {
       "event": "click",
-      "t_ms": 5468,
+      "t_ms": 6677,
       "what": "focus missing image query",
       "x": 237.848968505859,
       "y": 453.040771484375
     },
     {
       "event": "text",
-      "t_ms": 5560,
+      "t_ms": 6771,
       "value": "House",
       "what": "missing image query"
     },
     {
       "event": "key",
       "keycode": "Enter",
-      "t_ms": 5578,
+      "t_ms": 6790,
       "what": "apply missing image query"
     },
     {
@@ -6410,10 +7471,10 @@
       },
       "event": "search",
       "focus_owner": "Query",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 0,
       "images_loaded": 0,
-      "inputs": 148,
+      "inputs": 165,
       "items": [
         {
           "has_texture": false,
@@ -6436,7 +7497,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 9,
+      "requests": 10,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -6464,8 +7525,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 5606,
-      "ticks": 393,
+      "t_ms": 6819,
+      "ticks": 520,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -6571,25 +7632,25 @@
     {
       "event": "screenshot",
       "file": "05-missing-image.png",
-      "t_ms": 5708
+      "t_ms": 6923
     },
     {
       "event": "click",
-      "t_ms": 5729,
+      "t_ms": 6943,
       "what": "focus broken image query",
       "x": 237.848968505859,
       "y": 453.040771484375
     },
     {
       "event": "text",
-      "t_ms": 5839,
+      "t_ms": 7054,
       "value": "broken",
       "what": "broken image query"
     },
     {
       "event": "key",
       "keycode": "Enter",
-      "t_ms": 5858,
+      "t_ms": 7072,
       "what": "apply broken image query"
     },
     {
@@ -6679,10 +7740,10 @@
       },
       "event": "search",
       "focus_owner": "Query",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 0,
       "images_loaded": 0,
-      "inputs": 164,
+      "inputs": 181,
       "items": [
         {
           "has_texture": false,
@@ -6705,7 +7766,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 10,
+      "requests": 11,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -6733,8 +7794,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 5886,
-      "ticks": 413,
+      "t_ms": 7101,
+      "ticks": 540,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -6924,10 +7985,10 @@
       },
       "event": "search",
       "focus_owner": "Query",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 1,
       "images_loaded": 0,
-      "inputs": 164,
+      "inputs": 181,
       "items": [
         {
           "has_texture": false,
@@ -6950,7 +8011,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 10,
+      "requests": 11,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -6978,8 +8039,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 6081,
-      "ticks": 436,
+      "t_ms": 7286,
+      "ticks": 562,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -7085,25 +8146,25 @@
     {
       "event": "screenshot",
       "file": "06-broken-image.png",
-      "t_ms": 6184
+      "t_ms": 7389
     },
     {
       "event": "click",
-      "t_ms": 6205,
+      "t_ms": 7410,
       "what": "focus expired snapshot query",
       "x": 237.848968505859,
       "y": 453.040771484375
     },
     {
       "event": "text",
-      "t_ms": 6317,
+      "t_ms": 7519,
       "value": "expire",
       "what": "expired snapshot query"
     },
     {
       "event": "key",
       "keycode": "Enter",
-      "t_ms": 6335,
+      "t_ms": 7538,
       "what": "apply expired snapshot query"
     },
     {
@@ -7193,10 +8254,10 @@
       },
       "event": "search",
       "focus_owner": "Query",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 1,
       "images_loaded": 0,
-      "inputs": 180,
+      "inputs": 197,
       "items": [
         {
           "has_texture": false,
@@ -7219,7 +8280,7 @@
         "sort": "date_desc"
       },
       "phase": "snapshot_expired",
-      "requests": 11,
+      "requests": 12,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -7247,8 +8308,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 6362,
-      "ticks": 455,
+      "t_ms": 7564,
+      "ticks": 581,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -7354,11 +8415,11 @@
     {
       "event": "screenshot",
       "file": "07-snapshot-expired.png",
-      "t_ms": 6464
+      "t_ms": 7667
     },
     {
       "event": "click",
-      "t_ms": 6484,
+      "t_ms": 7687,
       "what": "retry expired snapshot",
       "x": 475.149566650391,
       "y": 109.009124755859
@@ -7450,10 +8511,10 @@
       },
       "event": "search",
       "focus_owner": "",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 0,
       "images_loaded": 0,
-      "inputs": 182,
+      "inputs": 199,
       "items": [],
       "label": "snapshot-retry",
       "last_successful": {
@@ -7464,7 +8525,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 12,
+      "requests": 13,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -7492,8 +8553,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 6522,
-      "ticks": 462,
+      "t_ms": 7723,
+      "ticks": 588,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -7598,21 +8659,530 @@
     },
     {
       "event": "click",
-      "t_ms": 6542,
+      "t_ms": 7743,
+      "what": "focus WebP image query",
+      "x": 237.848968505859,
+      "y": 453.040771484375
+    },
+    {
+      "event": "text",
+      "t_ms": 7816,
+      "value": "webp",
+      "what": "WebP image query"
+    },
+    {
+      "event": "key",
+      "keycode": "Enter",
+      "t_ms": 7834,
+      "what": "apply WebP image query"
+    },
+    {
+      "applied": {
+        "category": "All",
+        "has_image": false,
+        "page": 1,
+        "q": "webp",
+        "sort": "date_desc"
+      },
+      "category_items": [
+        "All",
+        "Painting",
+        "Photographs",
+        "Drawings and Watercolors"
+      ],
+      "category_popup_visible": false,
+      "completions": 12,
+      "controls": {
+        "Cancel": {
+          "h": 24.2636566162109,
+          "w": 62.6159057617188,
+          "x": 336.469024658203,
+          "y": 555.965698242188
+        },
+        "Category": {
+          "h": 24.2636642456055,
+          "w": 169.062973022461,
+          "x": 230.021987915039,
+          "y": 472.216888427734
+        },
+        "Details": {
+          "h": 378.171508789062,
+          "w": 585.171081542969,
+          "x": 1276.27880859375,
+          "y": 87.2194976806641
+        },
+        "HasImage": {
+          "h": 24.0,
+          "w": 117.404830932617,
+          "x": 18.6932888031006,
+          "y": 504.307556152344
+        },
+        "Next": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1305.67590332031,
+          "y": 497.890991210938
+        },
+        "OK": {
+          "h": 24.2636566162109,
+          "w": 59.485107421875,
+          "x": 272.287719726562,
+          "y": 555.965698242188
+        },
+        "Previous": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1269.67590332031,
+          "y": 497.890991210938
+        },
+        "Query": {
+          "h": 24.2636642456055,
+          "w": 322.471923828125,
+          "x": 76.6130065917969,
+          "y": 440.908935546875
+        },
+        "Retry": {
+          "h": 23.5792465209961,
+          "w": 70.7377395629883,
+          "x": 439.780700683594,
+          "y": 97.2194976806641
+        },
+        "Sort": {
+          "h": 24.2636642456055,
+          "w": 111.14323425293,
+          "x": 50.0012435913086,
+          "y": 472.216888427734
+        }
+      },
+      "draft": {
+        "category": "All",
+        "has_image": false,
+        "page": 1,
+        "q": "webp",
+        "sort": "date_desc"
+      },
+      "event": "search",
+      "focus_owner": "Query",
+      "ignored_completions": 2,
+      "image_failures": 0,
+      "images_loaded": 1,
+      "inputs": 211,
+      "items": [
+        {
+          "has_texture": true,
+          "id": "risd:1377691",
+          "image_unavailable": false,
+          "rect": {
+            "h": 377.171508789062,
+            "w": 476.0,
+            "x": 435.780700683594,
+            "y": 84.2194976806641
+          }
+        }
+      ],
+      "label": "webp-response",
+      "last_successful": {
+        "category": "All",
+        "has_image": false,
+        "page": 1,
+        "q": "webp",
+        "sort": "date_desc"
+      },
+      "phase": "results",
+      "requests": 14,
+      "response": {
+        "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
+        "page": 1,
+        "page_size": 20,
+        "query": {
+          "category": "All",
+          "has_image": false,
+          "page": 1,
+          "q": "webp",
+          "sort": "date_desc"
+        },
+        "snapshot": "e7b9e9cd611b244091ad779f3ea14570247d7e23ffe0cafb124434f53860a82c",
+        "total": 1,
+        "upstream_status": "unavailable"
+      },
+      "selected": "",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "sort_items": [
+        "Title (A→Z)",
+        "Title (Z→A)",
+        "Date (old→new)",
+        "Date (new→old)"
+      ],
+      "sort_popup_visible": false,
+      "t_ms": 7900,
+      "ticks": 603,
+      "windows": [
+        {
+          "drag_height": 23.5792465209961,
+          "name": "equipment",
+          "order": 1,
+          "rect": {
+            "h": 199.637619018555,
+            "w": 378.839874267578,
+            "x": 9.43169784545898,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 23.5792465209961,
+          "name": "options",
+          "order": 2,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 387.485595703125,
+            "x": 9.43169784545898,
+            "y": 228.718688964844
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "status",
+          "order": 3,
+          "rect": {
+            "h": 49.5164184570312,
+            "w": 392.201446533203,
+            "x": 0.0,
+            "y": 598.912841796875
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "trade",
+          "order": 4,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 386.699645996094,
+            "x": 9.43169784545898,
+            "y": 650.787231445312
+          }
+        },
+        {
+          "drag_height": 22.7932716369629,
+          "name": "chat",
+          "order": 5,
+          "rect": {
+            "h": 180.774230957031,
+            "w": 396.917297363281,
+            "x": 4.71584892272949,
+            "y": 825.273620605469
+          }
+        },
+        {
+          "drag_height": 29.8670455932617,
+          "name": "party",
+          "order": 6,
+          "rect": {
+            "h": 245.22412109375,
+            "w": 250.725982666016,
+            "x": 416.566680908203,
+            "y": 557.256225585938
+          }
+        },
+        {
+          "drag_height": 42.442643737793,
+          "name": "bottom",
+          "order": 7,
+          "rect": {
+            "h": 42.442626953125,
+            "w": 1102.72277832031,
+            "x": 799.98583984375,
+            "y": 959.675354003906
+          }
+        },
+        {
+          "drag_height": 33.5,
+          "name": "viewer",
+          "order": 9,
+          "rect": {
+            "h": 517.171508789062,
+            "w": 1486.927734375,
+            "x": 415.780700683594,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 25.1511962890625,
+          "name": "filters",
+          "order": 10,
+          "rect": {
+            "h": 181.560180664062,
+            "w": 399.275238037109,
+            "x": 9.43169784545898,
+            "y": 410.278869628906
+          }
+        }
+      ]
+    },
+    {
+      "applied": {
+        "category": "All",
+        "has_image": false,
+        "page": 1,
+        "q": "webp",
+        "sort": "date_desc"
+      },
+      "category_items": [
+        "All",
+        "Painting",
+        "Photographs",
+        "Drawings and Watercolors"
+      ],
+      "category_popup_visible": false,
+      "completions": 12,
+      "controls": {
+        "Cancel": {
+          "h": 24.2636566162109,
+          "w": 62.6159057617188,
+          "x": 336.469024658203,
+          "y": 555.965698242188
+        },
+        "Category": {
+          "h": 24.2636642456055,
+          "w": 169.062973022461,
+          "x": 230.021987915039,
+          "y": 472.216888427734
+        },
+        "Details": {
+          "h": 378.171508789062,
+          "w": 585.171081542969,
+          "x": 1276.27880859375,
+          "y": 87.2194976806641
+        },
+        "HasImage": {
+          "h": 24.0,
+          "w": 117.404830932617,
+          "x": 18.6932888031006,
+          "y": 504.307556152344
+        },
+        "Next": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1305.67590332031,
+          "y": 497.890991210938
+        },
+        "OK": {
+          "h": 24.2636566162109,
+          "w": 59.485107421875,
+          "x": 272.287719726562,
+          "y": 555.965698242188
+        },
+        "Previous": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1269.67590332031,
+          "y": 497.890991210938
+        },
+        "Query": {
+          "h": 24.2636642456055,
+          "w": 322.471923828125,
+          "x": 76.6130065917969,
+          "y": 440.908935546875
+        },
+        "Retry": {
+          "h": 23.5792465209961,
+          "w": 70.7377395629883,
+          "x": 439.780700683594,
+          "y": 97.2194976806641
+        },
+        "Sort": {
+          "h": 24.2636642456055,
+          "w": 111.14323425293,
+          "x": 50.0012435913086,
+          "y": 472.216888427734
+        }
+      },
+      "draft": {
+        "category": "All",
+        "has_image": false,
+        "page": 1,
+        "q": "webp",
+        "sort": "date_desc"
+      },
+      "event": "search",
+      "focus_owner": "Query",
+      "ignored_completions": 2,
+      "image_failures": 0,
+      "images_loaded": 1,
+      "inputs": 211,
+      "items": [
+        {
+          "has_texture": true,
+          "id": "risd:1377691",
+          "image_unavailable": false,
+          "rect": {
+            "h": 377.171508789062,
+            "w": 476.0,
+            "x": 435.780700683594,
+            "y": 84.2194976806641
+          }
+        }
+      ],
+      "label": "webp-image",
+      "last_successful": {
+        "category": "All",
+        "has_image": false,
+        "page": 1,
+        "q": "webp",
+        "sort": "date_desc"
+      },
+      "phase": "results",
+      "requests": 14,
+      "response": {
+        "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
+        "page": 1,
+        "page_size": 20,
+        "query": {
+          "category": "All",
+          "has_image": false,
+          "page": 1,
+          "q": "webp",
+          "sort": "date_desc"
+        },
+        "snapshot": "e7b9e9cd611b244091ad779f3ea14570247d7e23ffe0cafb124434f53860a82c",
+        "total": 1,
+        "upstream_status": "unavailable"
+      },
+      "selected": "",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "sort_items": [
+        "Title (A→Z)",
+        "Title (Z→A)",
+        "Date (old→new)",
+        "Date (new→old)"
+      ],
+      "sort_popup_visible": false,
+      "t_ms": 8052,
+      "ticks": 621,
+      "windows": [
+        {
+          "drag_height": 23.5792465209961,
+          "name": "equipment",
+          "order": 1,
+          "rect": {
+            "h": 199.637619018555,
+            "w": 378.839874267578,
+            "x": 9.43169784545898,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 23.5792465209961,
+          "name": "options",
+          "order": 2,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 387.485595703125,
+            "x": 9.43169784545898,
+            "y": 228.718688964844
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "status",
+          "order": 3,
+          "rect": {
+            "h": 49.5164184570312,
+            "w": 392.201446533203,
+            "x": 0.0,
+            "y": 598.912841796875
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "trade",
+          "order": 4,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 386.699645996094,
+            "x": 9.43169784545898,
+            "y": 650.787231445312
+          }
+        },
+        {
+          "drag_height": 22.7932716369629,
+          "name": "chat",
+          "order": 5,
+          "rect": {
+            "h": 180.774230957031,
+            "w": 396.917297363281,
+            "x": 4.71584892272949,
+            "y": 825.273620605469
+          }
+        },
+        {
+          "drag_height": 29.8670455932617,
+          "name": "party",
+          "order": 6,
+          "rect": {
+            "h": 245.22412109375,
+            "w": 250.725982666016,
+            "x": 416.566680908203,
+            "y": 557.256225585938
+          }
+        },
+        {
+          "drag_height": 42.442643737793,
+          "name": "bottom",
+          "order": 7,
+          "rect": {
+            "h": 42.442626953125,
+            "w": 1102.72277832031,
+            "x": 799.98583984375,
+            "y": 959.675354003906
+          }
+        },
+        {
+          "drag_height": 33.5,
+          "name": "viewer",
+          "order": 9,
+          "rect": {
+            "h": 517.171508789062,
+            "w": 1486.927734375,
+            "x": 415.780700683594,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 25.1511962890625,
+          "name": "filters",
+          "order": 10,
+          "rect": {
+            "h": 181.560180664062,
+            "w": 399.275238037109,
+            "x": 9.43169784545898,
+            "y": 410.278869628906
+          }
+        }
+      ]
+    },
+    {
+      "event": "click",
+      "t_ms": 8071,
       "what": "focus selection query",
       "x": 237.848968505859,
       "y": 453.040771484375
     },
     {
       "event": "text",
-      "t_ms": 6632,
+      "t_ms": 8163,
       "value": "Monet",
       "what": "selection query"
     },
     {
       "event": "key",
       "keycode": "Enter",
-      "t_ms": 6650,
+      "t_ms": 8182,
       "what": "apply selection query"
     },
     {
@@ -7630,7 +9200,7 @@
         "Drawings and Watercolors"
       ],
       "category_popup_visible": false,
-      "completions": 12,
+      "completions": 13,
       "controls": {
         "Cancel": {
           "h": 24.2636566162109,
@@ -7702,10 +9272,10 @@
       },
       "event": "search",
       "focus_owner": "Query",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 0,
       "images_loaded": 0,
-      "inputs": 196,
+      "inputs": 225,
       "items": [
         {
           "has_texture": false,
@@ -7750,7 +9320,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 13,
+      "requests": 15,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -7778,8 +9348,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 6679,
-      "ticks": 479,
+      "t_ms": 8212,
+      "ticks": 637,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -7897,7 +9467,7 @@
         "Drawings and Watercolors"
       ],
       "category_popup_visible": false,
-      "completions": 12,
+      "completions": 13,
       "controls": {
         "Cancel": {
           "h": 24.2636566162109,
@@ -7969,10 +9539,10 @@
       },
       "event": "search",
       "focus_owner": "Card_1310656",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 0,
       "images_loaded": 0,
-      "inputs": 196,
+      "inputs": 225,
       "items": [
         {
           "has_texture": false,
@@ -8017,7 +9587,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 13,
+      "requests": 15,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -8045,8 +9615,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 6679,
-      "ticks": 479,
+      "t_ms": 8213,
+      "ticks": 637,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -8152,7 +9722,7 @@
     {
       "event": "key",
       "keycode": "Enter",
-      "t_ms": 6700,
+      "t_ms": 8233,
       "what": "keyboard-select first result"
     },
     {
@@ -8170,7 +9740,7 @@
         "Drawings and Watercolors"
       ],
       "category_popup_visible": false,
-      "completions": 12,
+      "completions": 13,
       "controls": {
         "Cancel": {
           "h": 24.2636566162109,
@@ -8242,10 +9812,10 @@
       },
       "event": "search",
       "focus_owner": "Card_1310656",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 0,
       "images_loaded": 0,
-      "inputs": 198,
+      "inputs": 227,
       "items": [
         {
           "has_texture": false,
@@ -8290,7 +9860,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 13,
+      "requests": 15,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -8318,8 +9888,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 6700,
-      "ticks": 481,
+      "t_ms": 8233,
+      "ticks": 639,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -8425,7 +9995,7 @@
     {
       "event": "screenshot",
       "file": "08-selected.png",
-      "t_ms": 6804
+      "t_ms": 8338
     },
     {
       "by": [
@@ -8433,7 +10003,7 @@
         12.0
       ],
       "event": "drag",
-      "t_ms": 6837,
+      "t_ms": 8369,
       "what": "move filters"
     },
     {
@@ -8451,7 +10021,7 @@
         "Drawings and Watercolors"
       ],
       "category_popup_visible": false,
-      "completions": 12,
+      "completions": 13,
       "controls": {
         "Cancel": {
           "h": 24.2636566162109,
@@ -8523,10 +10093,10 @@
       },
       "event": "search",
       "focus_owner": "Card_1310656",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 0,
       "images_loaded": 0,
-      "inputs": 201,
+      "inputs": 230,
       "items": [
         {
           "has_texture": false,
@@ -8571,7 +10141,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 13,
+      "requests": 15,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -8599,8 +10169,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 6837,
-      "ticks": 485,
+      "t_ms": 8369,
+      "ticks": 643,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -8709,7 +10279,7 @@
         -50.0
       ],
       "event": "drag",
-      "t_ms": 6870,
+      "t_ms": 8402,
       "what": "resize viewer"
     },
     {
@@ -8727,7 +10297,7 @@
         "Drawings and Watercolors"
       ],
       "category_popup_visible": false,
-      "completions": 12,
+      "completions": 13,
       "controls": {
         "Cancel": {
           "h": 24.2636566162109,
@@ -8799,10 +10369,10 @@
       },
       "event": "search",
       "focus_owner": "Card_1310656",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 0,
       "images_loaded": 0,
-      "inputs": 204,
+      "inputs": 233,
       "items": [
         {
           "has_texture": false,
@@ -8847,7 +10417,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 13,
+      "requests": 15,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -8875,8 +10445,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 6870,
-      "ticks": 488,
+      "t_ms": 8402,
+      "ticks": 646,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -8981,569 +10551,28 @@
     },
     {
       "event": "click",
-      "t_ms": 6944,
+      "t_ms": 8424,
       "what": "focus hidden slow query",
       "x": 261.848968505859,
       "y": 465.040771484375
     },
     {
       "event": "text",
-      "t_ms": 7023,
+      "t_ms": 8553,
       "value": "slow",
       "what": "hidden slow query"
     },
     {
       "event": "key",
       "keycode": "Enter",
-      "t_ms": 7043,
+      "t_ms": 8573,
       "what": "apply hidden slow query"
     },
     {
       "event": "click",
-      "t_ms": 7063,
+      "t_ms": 8593,
       "what": "Map tab",
       "x": 220.478485107422,
-      "y": 1049.45458984375
-    },
-    {
-      "applied": {
-        "category": "All",
-        "has_image": false,
-        "page": 1,
-        "q": "slow",
-        "sort": "date_desc"
-      },
-      "category_items": [
-        "All",
-        "Painting",
-        "Photographs",
-        "Drawings and Watercolors"
-      ],
-      "category_popup_visible": false,
-      "completions": 12,
-      "controls": {
-        "Cancel": {
-          "h": 24.2636566162109,
-          "w": 62.6159057617188,
-          "x": 360.469024658203,
-          "y": 567.965698242188
-        },
-        "Category": {
-          "h": 24.2636642456055,
-          "w": 169.062973022461,
-          "x": 254.021987915039,
-          "y": 484.216888427734
-        },
-        "Details": {
-          "h": 328.171508789062,
-          "w": 553.171081542969,
-          "x": 1229.87878417969,
-          "y": 87.2194976806641
-        },
-        "HasImage": {
-          "h": 24.0,
-          "w": 117.404830932617,
-          "x": 42.6932907104492,
-          "y": 516.307556152344
-        },
-        "Next": {
-          "h": 28.0,
-          "w": 34.0,
-          "x": 1256.07592773438,
-          "y": 447.890991210938
-        },
-        "OK": {
-          "h": 24.2636566162109,
-          "w": 59.485107421875,
-          "x": 296.287719726562,
-          "y": 567.965698242188
-        },
-        "Previous": {
-          "h": 28.0,
-          "w": 34.0,
-          "x": 1220.07592773438,
-          "y": 447.890991210938
-        },
-        "Query": {
-          "h": 24.2636642456055,
-          "w": 322.471923828125,
-          "x": 100.613006591797,
-          "y": 452.908935546875
-        },
-        "Retry": {
-          "h": 23.5792465209961,
-          "w": 70.7377395629883,
-          "x": 439.780700683594,
-          "y": 97.2194976806641
-        },
-        "Sort": {
-          "h": 24.2636642456055,
-          "w": 111.14323425293,
-          "x": 74.0012435913086,
-          "y": 484.216888427734
-        }
-      },
-      "draft": {
-        "category": "All",
-        "has_image": false,
-        "page": 1,
-        "q": "slow",
-        "sort": "date_desc"
-      },
-      "event": "search",
-      "focus_owner": "",
-      "ignored_completions": 1,
-      "image_failures": 0,
-      "images_loaded": 2,
-      "inputs": 218,
-      "items": [
-        {
-          "has_texture": false,
-          "id": "risd:1310656",
-          "image_unavailable": true,
-          "rect": {
-            "h": 327.171508789062,
-            "w": 476.0,
-            "x": 435.780700683594,
-            "y": 84.2194976806641
-          }
-        },
-        {
-          "has_texture": true,
-          "id": "risd:1377691",
-          "image_unavailable": false,
-          "rect": {
-            "h": 327.171508789062,
-            "w": 476.0,
-            "x": 919.780700683594,
-            "y": 84.2194976806641
-          }
-        },
-        {
-          "has_texture": true,
-          "id": "risd:1584511",
-          "image_unavailable": false,
-          "rect": {
-            "h": 327.171508789062,
-            "w": 476.0,
-            "x": 1403.78076171875,
-            "y": 84.2194976806641
-          }
-        }
-      ],
-      "label": "hidden-before-reply",
-      "last_successful": {
-        "category": "All",
-        "has_image": false,
-        "page": 1,
-        "q": "Monet",
-        "sort": "date_desc"
-      },
-      "phase": "loading",
-      "requests": 14,
-      "response": {
-        "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
-        "page": 1,
-        "page_size": 20,
-        "query": {
-          "category": "All",
-          "has_image": false,
-          "page": 1,
-          "q": "Monet",
-          "sort": "date_desc"
-        },
-        "snapshot": "e7b9e9cd611b244091ad779f3ea14570247d7e23ffe0cafb124434f53860a82c",
-        "total": 3,
-        "upstream_status": "unavailable"
-      },
-      "selected": "risd:1310656",
-      "size": [
-        1920.0,
-        1006.0478515625
-      ],
-      "sort_items": [
-        "Title (A→Z)",
-        "Title (Z→A)",
-        "Date (old→new)",
-        "Date (new→old)"
-      ],
-      "sort_popup_visible": false,
-      "t_ms": 7493,
-      "ticks": 522,
-      "windows": [
-        {
-          "drag_height": 23.5792465209961,
-          "name": "equipment",
-          "order": 1,
-          "rect": {
-            "h": 199.637619018555,
-            "w": 378.839874267578,
-            "x": 9.43169784545898,
-            "y": 15.7194976806641
-          }
-        },
-        {
-          "drag_height": 23.5792465209961,
-          "name": "options",
-          "order": 2,
-          "rect": {
-            "h": 167.412658691406,
-            "w": 387.485595703125,
-            "x": 9.43169784545898,
-            "y": 228.718688964844
-          }
-        },
-        {
-          "drag_height": 24.3652214050293,
-          "name": "status",
-          "order": 3,
-          "rect": {
-            "h": 49.5164184570312,
-            "w": 392.201446533203,
-            "x": 0.0,
-            "y": 598.912841796875
-          }
-        },
-        {
-          "drag_height": 24.3652214050293,
-          "name": "trade",
-          "order": 4,
-          "rect": {
-            "h": 167.412658691406,
-            "w": 386.699645996094,
-            "x": 9.43169784545898,
-            "y": 650.787231445312
-          }
-        },
-        {
-          "drag_height": 22.7932716369629,
-          "name": "chat",
-          "order": 5,
-          "rect": {
-            "h": 180.774230957031,
-            "w": 396.917297363281,
-            "x": 4.71584892272949,
-            "y": 825.273620605469
-          }
-        },
-        {
-          "drag_height": 29.8670455932617,
-          "name": "party",
-          "order": 6,
-          "rect": {
-            "h": 245.22412109375,
-            "w": 250.725982666016,
-            "x": 416.566680908203,
-            "y": 557.256225585938
-          }
-        },
-        {
-          "drag_height": 42.442643737793,
-          "name": "bottom",
-          "order": 7,
-          "rect": {
-            "h": 42.442626953125,
-            "w": 1102.72277832031,
-            "x": 799.98583984375,
-            "y": 959.675354003906
-          }
-        },
-        {
-          "drag_height": 33.5,
-          "name": "viewer",
-          "order": 9,
-          "rect": {
-            "h": 467.171508789062,
-            "w": 1406.927734375,
-            "x": 415.780700683594,
-            "y": 15.7194976806641
-          }
-        },
-        {
-          "drag_height": 25.1511962890625,
-          "name": "filters",
-          "order": 10,
-          "rect": {
-            "h": 181.560180664062,
-            "w": 399.275238037109,
-            "x": 33.431697845459,
-            "y": 422.278869628906
-          }
-        }
-      ]
-    },
-    {
-      "applied": {
-        "category": "All",
-        "has_image": false,
-        "page": 1,
-        "q": "slow",
-        "sort": "date_desc"
-      },
-      "category_items": [
-        "All",
-        "Painting",
-        "Photographs",
-        "Drawings and Watercolors"
-      ],
-      "category_popup_visible": false,
-      "completions": 12,
-      "controls": {
-        "Cancel": {
-          "h": 24.2636566162109,
-          "w": 62.6159057617188,
-          "x": 360.469024658203,
-          "y": 567.965698242188
-        },
-        "Category": {
-          "h": 24.2636642456055,
-          "w": 169.062973022461,
-          "x": 254.021987915039,
-          "y": 484.216888427734
-        },
-        "Details": {
-          "h": 328.171508789062,
-          "w": 553.171081542969,
-          "x": 1229.87878417969,
-          "y": 87.2194976806641
-        },
-        "HasImage": {
-          "h": 24.0,
-          "w": 117.404830932617,
-          "x": 42.6932907104492,
-          "y": 516.307556152344
-        },
-        "Next": {
-          "h": 28.0,
-          "w": 34.0,
-          "x": 1256.07592773438,
-          "y": 447.890991210938
-        },
-        "OK": {
-          "h": 24.2636566162109,
-          "w": 59.485107421875,
-          "x": 296.287719726562,
-          "y": 567.965698242188
-        },
-        "Previous": {
-          "h": 28.0,
-          "w": 34.0,
-          "x": 1220.07592773438,
-          "y": 447.890991210938
-        },
-        "Query": {
-          "h": 24.2636642456055,
-          "w": 322.471923828125,
-          "x": 100.613006591797,
-          "y": 452.908935546875
-        },
-        "Retry": {
-          "h": 23.5792465209961,
-          "w": 70.7377395629883,
-          "x": 439.780700683594,
-          "y": 97.2194976806641
-        },
-        "Sort": {
-          "h": 24.2636642456055,
-          "w": 111.14323425293,
-          "x": 74.0012435913086,
-          "y": 484.216888427734
-        }
-      },
-      "draft": {
-        "category": "All",
-        "has_image": false,
-        "page": 1,
-        "q": "slow",
-        "sort": "date_desc"
-      },
-      "event": "search",
-      "focus_owner": "",
-      "ignored_completions": 1,
-      "image_failures": 0,
-      "images_loaded": 2,
-      "inputs": 218,
-      "items": [
-        {
-          "has_texture": false,
-          "id": "risd:1310656",
-          "image_unavailable": true,
-          "rect": {
-            "h": 327.171508789062,
-            "w": 476.0,
-            "x": 435.780700683594,
-            "y": 84.2194976806641
-          }
-        },
-        {
-          "has_texture": true,
-          "id": "risd:1377691",
-          "image_unavailable": false,
-          "rect": {
-            "h": 327.171508789062,
-            "w": 476.0,
-            "x": 919.780700683594,
-            "y": 84.2194976806641
-          }
-        },
-        {
-          "has_texture": true,
-          "id": "risd:1584511",
-          "image_unavailable": false,
-          "rect": {
-            "h": 327.171508789062,
-            "w": 476.0,
-            "x": 1403.78076171875,
-            "y": 84.2194976806641
-          }
-        }
-      ],
-      "label": "hidden-after-reply",
-      "last_successful": {
-        "category": "All",
-        "has_image": false,
-        "page": 1,
-        "q": "Monet",
-        "sort": "date_desc"
-      },
-      "phase": "loading",
-      "requests": 14,
-      "response": {
-        "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
-        "page": 1,
-        "page_size": 20,
-        "query": {
-          "category": "All",
-          "has_image": false,
-          "page": 1,
-          "q": "Monet",
-          "sort": "date_desc"
-        },
-        "snapshot": "e7b9e9cd611b244091ad779f3ea14570247d7e23ffe0cafb124434f53860a82c",
-        "total": 3,
-        "upstream_status": "unavailable"
-      },
-      "selected": "risd:1310656",
-      "size": [
-        1920.0,
-        1006.0478515625
-      ],
-      "sort_items": [
-        "Title (A→Z)",
-        "Title (Z→A)",
-        "Date (old→new)",
-        "Date (new→old)"
-      ],
-      "sort_popup_visible": false,
-      "t_ms": 8252,
-      "ticks": 522,
-      "windows": [
-        {
-          "drag_height": 23.5792465209961,
-          "name": "equipment",
-          "order": 1,
-          "rect": {
-            "h": 199.637619018555,
-            "w": 378.839874267578,
-            "x": 9.43169784545898,
-            "y": 15.7194976806641
-          }
-        },
-        {
-          "drag_height": 23.5792465209961,
-          "name": "options",
-          "order": 2,
-          "rect": {
-            "h": 167.412658691406,
-            "w": 387.485595703125,
-            "x": 9.43169784545898,
-            "y": 228.718688964844
-          }
-        },
-        {
-          "drag_height": 24.3652214050293,
-          "name": "status",
-          "order": 3,
-          "rect": {
-            "h": 49.5164184570312,
-            "w": 392.201446533203,
-            "x": 0.0,
-            "y": 598.912841796875
-          }
-        },
-        {
-          "drag_height": 24.3652214050293,
-          "name": "trade",
-          "order": 4,
-          "rect": {
-            "h": 167.412658691406,
-            "w": 386.699645996094,
-            "x": 9.43169784545898,
-            "y": 650.787231445312
-          }
-        },
-        {
-          "drag_height": 22.7932716369629,
-          "name": "chat",
-          "order": 5,
-          "rect": {
-            "h": 180.774230957031,
-            "w": 396.917297363281,
-            "x": 4.71584892272949,
-            "y": 825.273620605469
-          }
-        },
-        {
-          "drag_height": 29.8670455932617,
-          "name": "party",
-          "order": 6,
-          "rect": {
-            "h": 245.22412109375,
-            "w": 250.725982666016,
-            "x": 416.566680908203,
-            "y": 557.256225585938
-          }
-        },
-        {
-          "drag_height": 42.442643737793,
-          "name": "bottom",
-          "order": 7,
-          "rect": {
-            "h": 42.442626953125,
-            "w": 1102.72277832031,
-            "x": 799.98583984375,
-            "y": 959.675354003906
-          }
-        },
-        {
-          "drag_height": 33.5,
-          "name": "viewer",
-          "order": 9,
-          "rect": {
-            "h": 467.171508789062,
-            "w": 1406.927734375,
-            "x": 415.780700683594,
-            "y": 15.7194976806641
-          }
-        },
-        {
-          "drag_height": 25.1511962890625,
-          "name": "filters",
-          "order": 10,
-          "rect": {
-            "h": 181.560180664062,
-            "w": 399.275238037109,
-            "x": 33.431697845459,
-            "y": 422.278869628906
-          }
-        }
-      ]
-    },
-    {
-      "event": "click",
-      "t_ms": 8272,
-      "what": "Collection tab",
-      "x": 902.124389648438,
       "y": 1049.45458984375
     },
     {
@@ -9633,10 +10662,551 @@
       },
       "event": "search",
       "focus_owner": "",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 0,
       "images_loaded": 2,
-      "inputs": 219,
+      "inputs": 247,
+      "items": [
+        {
+          "has_texture": false,
+          "id": "risd:1310656",
+          "image_unavailable": true,
+          "rect": {
+            "h": 327.171508789062,
+            "w": 476.0,
+            "x": 435.780700683594,
+            "y": 84.2194976806641
+          }
+        },
+        {
+          "has_texture": true,
+          "id": "risd:1377691",
+          "image_unavailable": false,
+          "rect": {
+            "h": 327.171508789062,
+            "w": 476.0,
+            "x": 919.780700683594,
+            "y": 84.2194976806641
+          }
+        },
+        {
+          "has_texture": true,
+          "id": "risd:1584511",
+          "image_unavailable": false,
+          "rect": {
+            "h": 327.171508789062,
+            "w": 476.0,
+            "x": 1403.78076171875,
+            "y": 84.2194976806641
+          }
+        }
+      ],
+      "label": "hidden-before-reply",
+      "last_successful": {
+        "category": "All",
+        "has_image": false,
+        "page": 1,
+        "q": "Monet",
+        "sort": "date_desc"
+      },
+      "phase": "loading",
+      "requests": 16,
+      "response": {
+        "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
+        "page": 1,
+        "page_size": 20,
+        "query": {
+          "category": "All",
+          "has_image": false,
+          "page": 1,
+          "q": "Monet",
+          "sort": "date_desc"
+        },
+        "snapshot": "e7b9e9cd611b244091ad779f3ea14570247d7e23ffe0cafb124434f53860a82c",
+        "total": 3,
+        "upstream_status": "unavailable"
+      },
+      "selected": "risd:1310656",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "sort_items": [
+        "Title (A→Z)",
+        "Title (Z→A)",
+        "Date (old→new)",
+        "Date (new→old)"
+      ],
+      "sort_popup_visible": false,
+      "t_ms": 9031,
+      "ticks": 680,
+      "windows": [
+        {
+          "drag_height": 23.5792465209961,
+          "name": "equipment",
+          "order": 1,
+          "rect": {
+            "h": 199.637619018555,
+            "w": 378.839874267578,
+            "x": 9.43169784545898,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 23.5792465209961,
+          "name": "options",
+          "order": 2,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 387.485595703125,
+            "x": 9.43169784545898,
+            "y": 228.718688964844
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "status",
+          "order": 3,
+          "rect": {
+            "h": 49.5164184570312,
+            "w": 392.201446533203,
+            "x": 0.0,
+            "y": 598.912841796875
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "trade",
+          "order": 4,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 386.699645996094,
+            "x": 9.43169784545898,
+            "y": 650.787231445312
+          }
+        },
+        {
+          "drag_height": 22.7932716369629,
+          "name": "chat",
+          "order": 5,
+          "rect": {
+            "h": 180.774230957031,
+            "w": 396.917297363281,
+            "x": 4.71584892272949,
+            "y": 825.273620605469
+          }
+        },
+        {
+          "drag_height": 29.8670455932617,
+          "name": "party",
+          "order": 6,
+          "rect": {
+            "h": 245.22412109375,
+            "w": 250.725982666016,
+            "x": 416.566680908203,
+            "y": 557.256225585938
+          }
+        },
+        {
+          "drag_height": 42.442643737793,
+          "name": "bottom",
+          "order": 7,
+          "rect": {
+            "h": 42.442626953125,
+            "w": 1102.72277832031,
+            "x": 799.98583984375,
+            "y": 959.675354003906
+          }
+        },
+        {
+          "drag_height": 33.5,
+          "name": "viewer",
+          "order": 9,
+          "rect": {
+            "h": 467.171508789062,
+            "w": 1406.927734375,
+            "x": 415.780700683594,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 25.1511962890625,
+          "name": "filters",
+          "order": 10,
+          "rect": {
+            "h": 181.560180664062,
+            "w": 399.275238037109,
+            "x": 33.431697845459,
+            "y": 422.278869628906
+          }
+        }
+      ]
+    },
+    {
+      "applied": {
+        "category": "All",
+        "has_image": false,
+        "page": 1,
+        "q": "slow",
+        "sort": "date_desc"
+      },
+      "category_items": [
+        "All",
+        "Painting",
+        "Photographs",
+        "Drawings and Watercolors"
+      ],
+      "category_popup_visible": false,
+      "completions": 13,
+      "controls": {
+        "Cancel": {
+          "h": 24.2636566162109,
+          "w": 62.6159057617188,
+          "x": 360.469024658203,
+          "y": 567.965698242188
+        },
+        "Category": {
+          "h": 24.2636642456055,
+          "w": 169.062973022461,
+          "x": 254.021987915039,
+          "y": 484.216888427734
+        },
+        "Details": {
+          "h": 328.171508789062,
+          "w": 553.171081542969,
+          "x": 1229.87878417969,
+          "y": 87.2194976806641
+        },
+        "HasImage": {
+          "h": 24.0,
+          "w": 117.404830932617,
+          "x": 42.6932907104492,
+          "y": 516.307556152344
+        },
+        "Next": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1256.07592773438,
+          "y": 447.890991210938
+        },
+        "OK": {
+          "h": 24.2636566162109,
+          "w": 59.485107421875,
+          "x": 296.287719726562,
+          "y": 567.965698242188
+        },
+        "Previous": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1220.07592773438,
+          "y": 447.890991210938
+        },
+        "Query": {
+          "h": 24.2636642456055,
+          "w": 322.471923828125,
+          "x": 100.613006591797,
+          "y": 452.908935546875
+        },
+        "Retry": {
+          "h": 23.5792465209961,
+          "w": 70.7377395629883,
+          "x": 439.780700683594,
+          "y": 97.2194976806641
+        },
+        "Sort": {
+          "h": 24.2636642456055,
+          "w": 111.14323425293,
+          "x": 74.0012435913086,
+          "y": 484.216888427734
+        }
+      },
+      "draft": {
+        "category": "All",
+        "has_image": false,
+        "page": 1,
+        "q": "slow",
+        "sort": "date_desc"
+      },
+      "event": "search",
+      "focus_owner": "",
+      "ignored_completions": 2,
+      "image_failures": 0,
+      "images_loaded": 2,
+      "inputs": 247,
+      "items": [
+        {
+          "has_texture": false,
+          "id": "risd:1310656",
+          "image_unavailable": true,
+          "rect": {
+            "h": 327.171508789062,
+            "w": 476.0,
+            "x": 435.780700683594,
+            "y": 84.2194976806641
+          }
+        },
+        {
+          "has_texture": true,
+          "id": "risd:1377691",
+          "image_unavailable": false,
+          "rect": {
+            "h": 327.171508789062,
+            "w": 476.0,
+            "x": 919.780700683594,
+            "y": 84.2194976806641
+          }
+        },
+        {
+          "has_texture": true,
+          "id": "risd:1584511",
+          "image_unavailable": false,
+          "rect": {
+            "h": 327.171508789062,
+            "w": 476.0,
+            "x": 1403.78076171875,
+            "y": 84.2194976806641
+          }
+        }
+      ],
+      "label": "hidden-after-reply",
+      "last_successful": {
+        "category": "All",
+        "has_image": false,
+        "page": 1,
+        "q": "Monet",
+        "sort": "date_desc"
+      },
+      "phase": "loading",
+      "requests": 16,
+      "response": {
+        "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
+        "page": 1,
+        "page_size": 20,
+        "query": {
+          "category": "All",
+          "has_image": false,
+          "page": 1,
+          "q": "Monet",
+          "sort": "date_desc"
+        },
+        "snapshot": "e7b9e9cd611b244091ad779f3ea14570247d7e23ffe0cafb124434f53860a82c",
+        "total": 3,
+        "upstream_status": "unavailable"
+      },
+      "selected": "risd:1310656",
+      "size": [
+        1920.0,
+        1006.0478515625
+      ],
+      "sort_items": [
+        "Title (A→Z)",
+        "Title (Z→A)",
+        "Date (old→new)",
+        "Date (new→old)"
+      ],
+      "sort_popup_visible": false,
+      "t_ms": 9791,
+      "ticks": 680,
+      "windows": [
+        {
+          "drag_height": 23.5792465209961,
+          "name": "equipment",
+          "order": 1,
+          "rect": {
+            "h": 199.637619018555,
+            "w": 378.839874267578,
+            "x": 9.43169784545898,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 23.5792465209961,
+          "name": "options",
+          "order": 2,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 387.485595703125,
+            "x": 9.43169784545898,
+            "y": 228.718688964844
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "status",
+          "order": 3,
+          "rect": {
+            "h": 49.5164184570312,
+            "w": 392.201446533203,
+            "x": 0.0,
+            "y": 598.912841796875
+          }
+        },
+        {
+          "drag_height": 24.3652214050293,
+          "name": "trade",
+          "order": 4,
+          "rect": {
+            "h": 167.412658691406,
+            "w": 386.699645996094,
+            "x": 9.43169784545898,
+            "y": 650.787231445312
+          }
+        },
+        {
+          "drag_height": 22.7932716369629,
+          "name": "chat",
+          "order": 5,
+          "rect": {
+            "h": 180.774230957031,
+            "w": 396.917297363281,
+            "x": 4.71584892272949,
+            "y": 825.273620605469
+          }
+        },
+        {
+          "drag_height": 29.8670455932617,
+          "name": "party",
+          "order": 6,
+          "rect": {
+            "h": 245.22412109375,
+            "w": 250.725982666016,
+            "x": 416.566680908203,
+            "y": 557.256225585938
+          }
+        },
+        {
+          "drag_height": 42.442643737793,
+          "name": "bottom",
+          "order": 7,
+          "rect": {
+            "h": 42.442626953125,
+            "w": 1102.72277832031,
+            "x": 799.98583984375,
+            "y": 959.675354003906
+          }
+        },
+        {
+          "drag_height": 33.5,
+          "name": "viewer",
+          "order": 9,
+          "rect": {
+            "h": 467.171508789062,
+            "w": 1406.927734375,
+            "x": 415.780700683594,
+            "y": 15.7194976806641
+          }
+        },
+        {
+          "drag_height": 25.1511962890625,
+          "name": "filters",
+          "order": 10,
+          "rect": {
+            "h": 181.560180664062,
+            "w": 399.275238037109,
+            "x": 33.431697845459,
+            "y": 422.278869628906
+          }
+        }
+      ]
+    },
+    {
+      "event": "click",
+      "t_ms": 9811,
+      "what": "Collection tab",
+      "x": 902.124389648438,
+      "y": 1049.45458984375
+    },
+    {
+      "applied": {
+        "category": "All",
+        "has_image": false,
+        "page": 1,
+        "q": "slow",
+        "sort": "date_desc"
+      },
+      "category_items": [
+        "All",
+        "Painting",
+        "Photographs",
+        "Drawings and Watercolors"
+      ],
+      "category_popup_visible": false,
+      "completions": 14,
+      "controls": {
+        "Cancel": {
+          "h": 24.2636566162109,
+          "w": 62.6159057617188,
+          "x": 360.469024658203,
+          "y": 567.965698242188
+        },
+        "Category": {
+          "h": 24.2636642456055,
+          "w": 169.062973022461,
+          "x": 254.021987915039,
+          "y": 484.216888427734
+        },
+        "Details": {
+          "h": 328.171508789062,
+          "w": 553.171081542969,
+          "x": 1229.87878417969,
+          "y": 87.2194976806641
+        },
+        "HasImage": {
+          "h": 24.0,
+          "w": 117.404830932617,
+          "x": 42.6932907104492,
+          "y": 516.307556152344
+        },
+        "Next": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1256.07592773438,
+          "y": 447.890991210938
+        },
+        "OK": {
+          "h": 24.2636566162109,
+          "w": 59.485107421875,
+          "x": 296.287719726562,
+          "y": 567.965698242188
+        },
+        "Previous": {
+          "h": 28.0,
+          "w": 34.0,
+          "x": 1220.07592773438,
+          "y": 447.890991210938
+        },
+        "Query": {
+          "h": 24.2636642456055,
+          "w": 322.471923828125,
+          "x": 100.613006591797,
+          "y": 452.908935546875
+        },
+        "Retry": {
+          "h": 23.5792465209961,
+          "w": 70.7377395629883,
+          "x": 439.780700683594,
+          "y": 97.2194976806641
+        },
+        "Sort": {
+          "h": 24.2636642456055,
+          "w": 111.14323425293,
+          "x": 74.0012435913086,
+          "y": 484.216888427734
+        }
+      },
+      "draft": {
+        "category": "All",
+        "has_image": false,
+        "page": 1,
+        "q": "slow",
+        "sort": "date_desc"
+      },
+      "event": "search",
+      "focus_owner": "",
+      "ignored_completions": 2,
+      "image_failures": 0,
+      "images_loaded": 2,
+      "inputs": 248,
       "items": [
         {
           "has_texture": false,
@@ -9703,7 +11273,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 14,
+      "requests": 16,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -9731,8 +11301,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 8757,
-      "ticks": 569,
+      "t_ms": 10299,
+      "ticks": 728,
       "windows": [
         {
           "drag_height": 23.5792465209961,
@@ -9850,7 +11420,7 @@
         "Drawings and Watercolors"
       ],
       "category_popup_visible": false,
-      "completions": 13,
+      "completions": 14,
       "controls": {
         "Cancel": {
           "h": 11.0,
@@ -9922,10 +11492,10 @@
       },
       "event": "search",
       "focus_owner": "",
-      "ignored_completions": 1,
+      "ignored_completions": 2,
       "image_failures": 0,
       "images_loaded": 2,
-      "inputs": 219,
+      "inputs": 248,
       "items": [
         {
           "has_texture": false,
@@ -9992,7 +11562,7 @@
         "sort": "date_desc"
       },
       "phase": "results",
-      "requests": 14,
+      "requests": 16,
       "response": {
         "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
         "page": 1,
@@ -10020,8 +11590,8 @@
         "Date (new→old)"
       ],
       "sort_popup_visible": false,
-      "t_ms": 8798,
-      "ticks": 576,
+      "t_ms": 10340,
+      "ticks": 735,
       "windows": [
         {
           "drag_height": 10.7406549453735,
@@ -10127,7 +11697,7 @@
     {
       "event": "screenshot",
       "file": "09-compact-720x486.png",
-      "t_ms": 8827
+      "t_ms": 10368
     },
     {
       "calls": [
@@ -10150,6 +11720,13 @@
           "has_image": true,
           "page": 1,
           "q": "fail",
+          "sort": "date_desc"
+        },
+        {
+          "category": "Painting",
+          "has_image": true,
+          "page": 1,
+          "q": "slow",
           "sort": "date_desc"
         },
         {
@@ -10220,6 +11797,13 @@
           "category": "All",
           "has_image": false,
           "page": 1,
+          "q": "webp",
+          "sort": "date_desc"
+        },
+        {
+          "category": "All",
+          "has_image": false,
+          "page": 1,
           "q": "Monet",
           "sort": "date_desc"
         },
@@ -10238,7 +11822,9 @@
         2,
         3,
         3,
-        5,
+        4,
+        4,
+        4,
         6,
         7,
         8,
@@ -10247,16 +11833,18 @@
         11,
         12,
         13,
-        13,
-        13,
         14,
-        14,
-        14,
-        14
+        15,
+        15,
+        15,
+        16,
+        16,
+        16,
+        16
       ],
       "event": "fixture",
-      "server_pid": 1374363,
-      "t_ms": 8827
+      "server_pid": 1419326,
+      "t_ms": 10368
     }
   ],
   "viewport": [

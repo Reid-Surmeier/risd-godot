@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "url": "https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/b7d6c12.html",
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/6efd4dc.html",
   "initial_requests": 1,
   "applied": {
     "category": "Painting",
@@ -11,6 +11,7 @@
   },
   "selected": "risd:1377691",
   "routed": [
+    "slow-cancel",
     "outage",
     "page-1",
     "page-2"
@@ -46,26 +47,26 @@
     }
   ],
   "screenshot_sha256": {
-    "full": "4d184f2fca535f7f76e03afd62deb5fbfc27b99547208017c6a8da3e3a488cd4",
-    "compact": "552049a3de0a8c0812fa9b37160470c6c12e2600d3e3770a5805e05585990776"
+    "full": "06b0dcaa469fc83d7946d232230938c1cb4c8f898ee83c766ea4a21cb08f5fa3",
+    "compact": "73334e98c565c701b7f111235113cbd780ae8d802151e5b25da74a8cb810f8f3"
   },
   "served": {
-    "b7d6c12.html": {
+    "6efd4dc.html": {
       "status": 200,
-      "sha256": "0871dd1c4fd2285188cba22d528448c52a76e7f442b3c29301a8034848b43d89",
+      "sha256": "2ff3c1267bc1bc81a519536520f3c7527d83ac7029b27d3e64331d921cb476f2",
       "bytes": 5327
     },
-    "b7d6c12.js": {
+    "6efd4dc.js": {
       "status": 200,
       "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
       "bytes": 279815
     },
-    "b7d6c12.pck": {
+    "6efd4dc.pck": {
       "status": 200,
-      "sha256": "3fe58fc3b36a9671119f0a805bd429645a1c22d4085928f0a2746bdfc925f28f",
-      "bytes": 70584092
+      "sha256": "09389f210bbad78598dff99924dae85db51e750d043acb90986effc0de9ce679",
+      "bytes": 70586600
     },
-    "b7d6c12.wasm": {
+    "6efd4dc.wasm": {
       "status": 200,
       "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
       "bytes": 39514754
