@@ -19,9 +19,9 @@ Ported shader SHA256:
 
 ## Verification
 
-- Exact Web build: `b7ebdf9`; PCK SHA256
-  `ede34ef1d5cae73ffe83582b7c31bf8e57bc5ed57794973ba150da8b7e87265f`.
-- Browser test measured 20.89% changed pixels between F9 on/off and 9.99%
+- Exact Web build: `35b38cf`; PCK SHA256
+  `815d63468c33a3577b22da3b0694649678966f5a9cdba543baa8b068bffbbe54`.
+- Browser test measured 20.89% changed pixels between F9 on/off and 9.79%
   between later held frames, confirming both visible displacement and temporal motion.
 - F8 and F9 remained independent. Sculpture orbit, Sketchbook window dragging and
   painting at 1920×1080 and 960×540 all passed with no browser or shader errors.
@@ -31,4 +31,4 @@ Run:
 `PLAYWRIGHT_MODULE=/path/to/playwright/index.mjs node modules/shell/playtest/squiggle_browser.mjs URL OUTDIR`.
 
 Review build:
-https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/b7ebdf9.html
+https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/35b38cf.html

@@ -7,7 +7,7 @@
   },
   "motion": {
     "on_off_changed_fraction": 0.20885850694444444,
-    "temporal_changed_fraction": 0.09992380401234568
+    "temporal_changed_fraction": 0.09793354552469136
   },
   "controls": {
     "f8_independent": true,
