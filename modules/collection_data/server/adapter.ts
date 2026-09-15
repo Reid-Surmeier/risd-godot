@@ -8,6 +8,7 @@ export type Artwork = {id: string; web_id: string; title: string; makers: string
 type Snapshot = {records: Artwork[]; coverage: string; fetched_at: string; retained_at: number};
 export type Store = {snapshots: Map<string, Snapshot>; latest: string; upstream_status: string; now: () => number; media: Map<string, {bytes: Uint8Array; mime: string}>};
 const sorts = ['date_asc', 'date_desc', 'title_asc', 'title_desc'];
+const canonical = (value: unknown): string => JSON.stringify(value, (_key, entry) => entry && typeof entry === 'object' && !Array.isArray(entry) ? Object.fromEntries(Object.keys(entry).sort().map(key => [key, entry[key]])) : entry);
 const hashPattern = /^[a-f0-9]{64}$/;
 const sha = (value: string | Uint8Array) => createHash('sha256').update(value).digest('hex');
 const fault = (code: string, detail: string): Fault => ({code: `collection_data.${code}`, detail});
@@ -59,7 +60,7 @@ export function publish(store: Store, input: unknown, coverage: string, fetched_
     check(Array.isArray(input) && input.length <= 10000 && text(coverage) && coverage.length > 0 && timestamp(fetched_at), 'invalid_record', 'Invalid corpus');
     const records = (input as unknown[]).map(record).sort((a, b) => compare(a.id, b.id));
     check(new Set(records.map(x => x.id)).size === records.length, 'invalid_record', 'Duplicate identity');
-    const hash = sha(JSON.stringify({records, coverage, fetched_at}));
+    const hash = sha(canonical({records, coverage, fetched_at}));
     store.snapshots.set(hash, {records, coverage, fetched_at, retained_at: store.now()});
     store.latest = hash;
     // ponytail: a bounded refresh scope keeps in-memory snapshots small; disk index if the corpus grows.
@@ -91,7 +92,7 @@ export function search(store: Store, query: Query) {
       } else order = compare(a.title.toLowerCase(), b.title.toLowerCase());
       return (query.sort.endsWith('desc') ? -order : order) || compare(a.id, b.id);
     });
-    return {query: structuredClone(query), query_id: sha(JSON.stringify({...query, snapshot: key})), corpus: {snapshot: key, count: records.length, coverage, fetched_at, upstream_status: store.upstream_status}, total: items.length, page: query.page, page_size: 20, items: structuredClone(items.slice((query.page - 1) * 20, query.page * 20)), categories};
+    return {query: structuredClone(query), query_id: sha(canonical({...query, snapshot: key})), corpus: {snapshot: key, count: records.length, coverage, fetched_at, upstream_status: store.upstream_status}, total: items.length, page: query.page, page_size: 20, items: structuredClone(items.slice((query.page - 1) * 20, query.page * 20)), categories};
   }, 'invalid_response');
 }
 

@@ -1,0 +1,165 @@
+{
+  "url": "http://127.0.0.1:8128/",
+  "result": {
+    "rendered_hashes": [],
+    "search": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "categories": [
+          "Drawings and Watercolors",
+          "Painting",
+          "Photographs"
+        ],
+        "corpus": {
+          "count": 5,
+          "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings. One object freshly rechecked; images unverified.",
+          "fetched_at": "2026-09-15T16:23:34.164Z",
+          "snapshot": "0cc16d40514b7c7e7c966590d3d70b27bbefcd1ab8e6105cbf82974892953d26",
+          "upstream_status": "unavailable"
+        },
+        "items": [
+          {
+            "accession": "1998.107",
+            "availability": "available",
+            "category": "Painting",
+            "credit": "Gift of Houghton P. Metcalf, Jr.. Courtesy of the RISD Museum, Providence, RI.",
+            "dating": "",
+            "id": "risd:1377691",
+            "image": null,
+            "makers": [
+              "Claude Monet"
+            ],
+            "materials": "Oil on canvas",
+            "rights": {
+              "evidence_url": null,
+              "observed_at": null,
+              "status": "unknown"
+            },
+            "source_url": "https://risdmuseum.org/art-design/collection/walk-meadows-argenteuil-1998107",
+            "title": "A Walk in the Meadows at Argenteuil",
+            "upstream_checked_at": "2026-09-15T16:23:34.164Z",
+            "web_id": "1377691",
+            "year_from": 1873
+          },
+          {
+            "accession": "57.236",
+            "availability": "available",
+            "category": "Painting",
+            "credit": "Bequest of George Pierce Metcalf. Courtesy of the RISD Museum, Providence, RI.",
+            "dating": "",
+            "id": "risd:1584511",
+            "image": null,
+            "makers": [
+              "Claude Monet"
+            ],
+            "materials": "Oil on canvas",
+            "rights": {
+              "evidence_url": null,
+              "observed_at": null,
+              "status": "unknown"
+            },
+            "source_url": "https://risdmuseum.org/art-design/collection/seine-near-its-estuary-honfleur-57236",
+            "title": "The Seine Near its Estuary, Honfleur",
+            "upstream_checked_at": "2026-09-15T14:24:33.217Z",
+            "web_id": "1584511",
+            "year_from": 1843
+          }
+        ],
+        "page": 1,
+        "page_size": 20,
+        "query": {
+          "category": "Painting",
+          "has_image": false,
+          "page": 1,
+          "q": "Monet",
+          "sort": "title_asc"
+        },
+        "query_id": "eefd1fa161afbcb3846b764aae3cac5865dcbbc84df37248081a8e885efc3be9",
+        "total": 2
+      }
+    }
+  },
+  "wire": {
+    "status": 200,
+    "value": {
+      "ok": true,
+      "value": {
+        "query": {
+          "q": "Monet",
+          "category": "Painting",
+          "sort": "title_asc",
+          "has_image": false,
+          "page": 1
+        },
+        "query_id": "eefd1fa161afbcb3846b764aae3cac5865dcbbc84df37248081a8e885efc3be9",
+        "corpus": {
+          "snapshot": "0cc16d40514b7c7e7c966590d3d70b27bbefcd1ab8e6105cbf82974892953d26",
+          "count": 5,
+          "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings. One object freshly rechecked; images unverified.",
+          "fetched_at": "2026-09-15T16:23:34.164Z",
+          "upstream_status": "unavailable"
+        },
+        "total": 2,
+        "page": 1,
+        "page_size": 20,
+        "items": [
+          {
+            "id": "risd:1377691",
+            "web_id": "1377691",
+            "title": "A Walk in the Meadows at Argenteuil",
+            "makers": [
+              "Claude Monet"
+            ],
+            "dating": "",
+            "year_from": 1873,
+            "accession": "1998.107",
+            "category": "Painting",
+            "materials": "Oil on canvas",
+            "source_url": "https://risdmuseum.org/art-design/collection/walk-meadows-argenteuil-1998107",
+            "credit": "Gift of Houghton P. Metcalf, Jr.. Courtesy of the RISD Museum, Providence, RI.",
+            "rights": {
+              "status": "unknown",
+              "evidence_url": null,
+              "observed_at": null
+            },
+            "image": null,
+            "upstream_checked_at": "2026-09-15T16:23:34.164Z",
+            "availability": "available"
+          },
+          {
+            "id": "risd:1584511",
+            "web_id": "1584511",
+            "title": "The Seine Near its Estuary, Honfleur",
+            "makers": [
+              "Claude Monet"
+            ],
+            "dating": "",
+            "year_from": 1843,
+            "accession": "57.236",
+            "category": "Painting",
+            "materials": "Oil on canvas",
+            "source_url": "https://risdmuseum.org/art-design/collection/seine-near-its-estuary-honfleur-57236",
+            "credit": "Bequest of George Pierce Metcalf. Courtesy of the RISD Museum, Providence, RI.",
+            "rights": {
+              "status": "unknown",
+              "evidence_url": null,
+              "observed_at": null
+            },
+            "image": null,
+            "upstream_checked_at": "2026-09-15T14:24:33.217Z",
+            "availability": "available"
+          }
+        ],
+        "categories": [
+          "Drawings and Watercolors",
+          "Painting",
+          "Photographs"
+        ]
+      },
+      "error": null
+    }
+  },
+  "errors": [],
+  "servedHash": "794df04e591d3571eb63951d6bbb1f6f66546dc23bb194e67d91de6aee33cd73"
+}

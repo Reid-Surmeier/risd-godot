@@ -37,14 +37,15 @@ DISPLAY=:0 godot --path . res://modules/collection_data/playtest/probe.tscn
 scripts/check.sh
 ```
 
-Export Web to `build/web-search-probe/index.html`, then set GODOT_CONFIG.args to
-`["res://modules/collection_data/playtest/probe.tscn"]` in that generated HTML.
-This runs the probe without changing the product's startup scene. The browser
+Run `modules/collection_data/playtest/export_probe.sh`. It exports an isolated
+probe project from the exact module files; release Web templates reject command-line
+scene overrides. The product startup scene remains unchanged. The browser
 publishes `window.risdSearchProbe`; native writes `/tmp/risd-search78/native-report.json`.
 `playtest/verify.py` deliberately requires two rendered image hashes and **does
 not pass yet**. Do not describe this checkpoint as completed painting ingestion.
 
 Still required: object-page/carousel/image linkage, two permission-verified
-painting images and real image rendering, additional invalid-response/transport
-checks, and exact-candidate independent review. Museum object pages returned
+painting images and real image rendering, expanded transport checks and review of the complete ingestion.
+The metadata checkpoint received independent Standards/Spec review; its two
+correctness findings are covered by regressions. Museum object pages returned
 403 at this checkpoint. No guessed URLs or substitute sculpture images were used.

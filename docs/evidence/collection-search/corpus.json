@@ -20,7 +20,7 @@
         "observed_at": null
       },
       "image": null,
-      "upstream_checked_at": "2026-09-15T16:23:00.000Z",
+      "upstream_checked_at": "2026-09-15T16:23:34.164Z",
       "availability": "available"
     },
     {
@@ -43,7 +43,7 @@
         "observed_at": null
       },
       "image": null,
-      "upstream_checked_at": "2026-09-15T14:20:00.000Z",
+      "upstream_checked_at": "2026-09-15T14:24:33.217Z",
       "availability": "available"
     },
     {
@@ -66,7 +66,7 @@
         "observed_at": null
       },
       "image": null,
-      "upstream_checked_at": "2026-09-15T14:20:00.000Z",
+      "upstream_checked_at": "2026-09-15T14:24:33.217Z",
       "availability": "available"
     },
     {
@@ -89,7 +89,7 @@
         "observed_at": null
       },
       "image": null,
-      "upstream_checked_at": "2026-09-15T14:20:00.000Z",
+      "upstream_checked_at": "2026-09-15T14:24:33.217Z",
       "availability": "available"
     },
     {
@@ -112,11 +112,11 @@
         "observed_at": null
       },
       "image": null,
-      "upstream_checked_at": "2026-09-15T14:20:00.000Z",
+      "upstream_checked_at": "2026-09-15T14:24:33.217Z",
       "availability": "available"
     }
   ],
   "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings. One object freshly rechecked; images unverified.",
-  "fetched_at": "2026-09-15T16:23:00.000Z",
+  "fetched_at": "2026-09-15T16:23:34.164Z",
   "upstream_status": "unavailable"
 }

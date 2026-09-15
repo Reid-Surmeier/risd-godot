@@ -27,13 +27,14 @@ static func search(handle: Variant, query: Dictionary, done: Callable) -> Dictio
 	var normalized := _query(query)
 	if not normalized.ok:
 		return normalized
-	var completion := {"finished": false, "dispatching": true, "buffered": null}
+	var completion := {"finished": false, "dispatching": true, "has_buffered": false, "buffered": null}
 	handle.pending += 1
 	var finish := func(response: Variant) -> void:
 		if completion.finished:
 			return
 		if completion.dispatching:
-			if completion.buffered == null:
+			if not completion.has_buffered:
+				completion.has_buffered = true
 				completion.buffered = response
 			return
 		completion.finished = true
@@ -47,7 +48,7 @@ static func search(handle: Variant, query: Dictionary, done: Callable) -> Dictio
 		completion.finished = true
 		handle.pending -= 1
 		return _error(Errors.UNAVAILABLE, "Search could not be started")
-	if completion.buffered != null:
+	if completion.has_buffered:
 		finish.call(completion.buffered)
 	return _ok(null)
 

@@ -1,0 +1,13 @@
+{
+  "official_request": "https://risdmuseum.org/api/v1/collection?id=1377691&items_per_page=5",
+  "observed_at": "2026-09-15T16:23:34.164Z",
+  "status": 200,
+  "sha256": "096e9cbed40fe41ef97ae330af4eb17f3730954b736cf5011d1e400d46b5d843",
+  "broader_query_status": 403,
+  "painting_object_page_statuses": {
+    "1377691": 403,
+    "1584511": 403
+  },
+  "new_image_downloads": 0,
+  "timestamp_basis": "Successful response file mtime; previous five-record query mtime 2026-09-15T14:24:33.217Z"
+}
