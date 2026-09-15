@@ -21,7 +21,6 @@ PANELS = {"equipment": (12, 20, 482, 254, 30), "options": (12, 291, 493, 213, 30
           "party": (530, 709, 319, 312, 38), "bottom": (519, 1221, 1403, 54, 54)}
 VIEWER = (529, 20, 1393, 658)
 MINIMUM = (531, 250)
-ART_SCALE = 0.375
 WORKS = [(125, 200, 1215, 1240), (1374, 200, 763, 1118), (2174, 198, 833, 1126), (3030, 250, 1350, 1022),
          (125, 1493, 1215, 805), (2174, 1384, 1165, 932), (3475, 1276, 905, 1075)]
 FOOTER = (44, 2580, 900, 190)   # the source rect holding "number of works: 12"
@@ -117,10 +116,22 @@ check("windows_inside_the_page", all(w["rect"]["x"] >= -0.5 and w["rect"]["y"] >
       and w["rect"]["y"] + w["rect"]["h"] <= sz[1] + 0.5 for w in la["windows"]))
 check("viewer_on_top_at_launch", win(la, "viewer")["order"] == max(w["order"] for w in la["windows"]))
 
-# the seven artworks at fixed size, flowing left to right, top down, inside the viewer's body
+# the seven artworks at one uniform scale fitted to whole rows (#63), flowing left to right, top down, inside the viewer's body
 cards = la["viewer"]["cards"]
-check("seven_artworks_at_fixed_size", len(cards) == 7 and all(near(c["w"], r[2] * ART_SCALE) and near(c["h"], r[3] * ART_SCALE)
-      for c, r in zip(cards, WORKS)), str([(c["w"], c["h"]) for c in cards]))
+art_scale = cards[0]["w"] / WORKS[0][2] if cards else 0
+check("seven_artworks_at_one_uniform_scale", len(cards) == 7 and all(near(c["w"], r[2] * art_scale, 1.5) and near(c["h"], r[3] * art_scale, 1.5)
+      for c, r in zip(cards, WORKS)), f"scale {art_scale:.4f}: {[(c['w'], c['h']) for c in cards]}")
+
+def whole_works(p):
+    """#63: at scroll 0 no artwork crosses the body's clip — each is wholly inside it or wholly below it — and one is inside."""
+    b = p["viewer"]["body"]; cs = p["viewer"]["cards"]
+    inside_ = [c for c in cs if c["y"] >= b["y"] - 0.5 and c["y"] + c["h"] <= b["y"] + b["h"] + 0.5]
+    below = [c for c in cs if c["y"] >= b["y"] + b["h"] - 0.5]
+    return p["viewer"]["scroll"] == 0 and len(inside_) >= 1 and len(inside_) + len(below) == len(cs), \
+        f"{len(inside_)} whole, {len(below)} below, {len(cs) - len(inside_) - len(below)} crossing the clip (body {b})"
+
+ok_, detail_ = whole_works(la)
+check("launch_shows_whole_works_only", ok_, detail_)
 check("artworks_do_not_overlap", all(a["x"] + a["w"] <= b["x"] + 0.5 or b["x"] + b["w"] <= a["x"] + 0.5 or a["y"] + a["h"] <= b["y"] + 0.5
       or b["y"] + b["h"] <= a["y"] + 0.5 for i, a in enumerate(cards) for b in cards[i + 1:]))
 check("artworks_flow_left_to_right_top_down", all(cards[i + 1]["y"] > cards[i]["y"] or (cards[i + 1]["y"] == cards[i]["y"]
@@ -259,7 +270,8 @@ check("resized_page_is_the_minimum", near(sz2[0], 1440) and near(sz2[1], 900 - 1
 check("resize_refits_every_window", near(rr["factor"], f2, 1e-6) and all(rect_near(win(rr, n)["rect"], *place(n, f2, sz2)) for n in PANELS)
       and rect_near(win(rr, "viewer")["rect"], *viewer_place(f2, sz2)), str(win(rr, "viewer")["rect"]))
 check("resized_screenshot_is_1440x900", imgs["10-resized.png"].shape[:2] == (900, 1440), str(imgs["10-resized.png"].shape))
-check("resized_artworks_keep_their_size", [(c["w"], c["h"]) for c in rr["viewer"]["cards"]] == [(c["w"], c["h"]) for c in cards])
+ok_, detail_ = whole_works(rr)
+check("resized_page_shows_whole_works_only", ok_, detail_)
 
 # 12. #63: at pages of 1920x1000 and 1440x820 the desktop's bounding box spans the page on both axes within the
 # native margins and the viewer is at least its native size times the uniform scale
@@ -277,8 +289,8 @@ for label in ("fill-1920x1000", "fill-1440x820"):
           f"viewer {fv} native x s {VIEWER[2] * ff:.0f}x{VIEWER[3] * ff:.0f}")
     check(f"{label}_layout_is_the_fill_rule", all(rect_near(win(fp, n)["rect"], *place(n, ff, fs)) for n in PANELS)
           and rect_near(fv, *viewer_place(ff, fs)), str(fv))
-    check(f"{label}_artworks_keep_their_size_and_fill_the_wider_body", [(c["w"], c["h"]) for c in fp["viewer"]["cards"]] == [(c["w"], c["h"]) for c in cards]
-          and all(c["x"] + c["w"] <= fp["viewer"]["body"]["x"] + fp["viewer"]["body"]["w"] + 0.5 for c in fp["viewer"]["cards"]))
+    ok_, detail_ = whole_works(fp)
+    check(f"{label}_shows_whole_works_only", ok_ and all(c["x"] + c["w"] <= fp["viewer"]["body"]["x"] + fp["viewer"]["body"]["w"] + 0.5 for c in fp["viewer"]["cards"]), detail_)
 
 ok = all(r["pass"] for r in results.values())
 (out / "verify.json").write_text(json.dumps({"pass": ok, "checks": results, "sha256": hashes}, indent=1))

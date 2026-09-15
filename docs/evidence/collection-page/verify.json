@@ -45,9 +45,13 @@
    "pass": true,
    "detail": ""
   },
-  "seven_artworks_at_fixed_size": {
+  "seven_artworks_at_one_uniform_scale": {
    "pass": true,
-   "detail": "[(455.625, 465.0), (286.125, 419.25), (312.375, 422.25), (506.25, 383.25), (455.625, 301.875), (436.875, 349.5), (339.375, 403.125)]"
+   "detail": "scale 0.3350: [(407.0, 415.0), (255.0, 375.0), (279.0, 377.0), (452.0, 342.0), (407.0, 270.0), (390.0, 312.0), (303.0, 360.0)]"
+  },
+  "launch_shows_whole_works_only": {
+   "pass": true,
+   "detail": "4 whole, 3 below, 0 crossing the clip (body {'h': 420.171508789062, 'w': 1462.927734375, 'x': 427.780700683594, 'y': 53.2194976806641})"
   },
   "artworks_do_not_overlap": {
    "pass": true,
@@ -83,7 +87,7 @@
   },
   "visible_artworks_are_the_reference's_cuts": {
    "pass": true,
-   "detail": "{0: 4.3, 1: 4.3, 2: 3.2}"
+   "detail": "{0: 4.7, 1: 4.2, 2: 3.5, 3: 1.3}"
   },
   "page_white_in_the_right_margin": {
    "pass": true,
@@ -131,7 +135,7 @@
   },
   "party_pixels_drawn_over_the_viewer": {
    "pass": true,
-   "detail": "diff 12.8 over {'x': 416.566680908203, 'y': 472.891052246094, 'w': 250.72598266601597, 'h': 59.99995422363213}"
+   "detail": "diff 13.7 over {'x': 416.566680908203, 'y': 472.891052246094, 'w': 250.72598266601597, 'h': 59.99995422363213}"
   },
   "viewer_moved_by_the_drag": {
    "pass": true,
@@ -159,7 +163,7 @@
   },
   "wheel_scrolls_the_artworks": {
    "pass": true,
-   "detail": "scroll 157 of 862.828491210938"
+   "detail": "scroll 157 of 370.828491210938"
   },
   "wheel_moves_no_window": {
    "pass": true,
@@ -187,7 +191,7 @@
   },
   "frozen_counters_stand_still": {
    "pass": true,
-   "detail": "ticks 130->130 inputs 53->53"
+   "detail": "ticks 129->129 inputs 53->53"
   },
   "hidden_gestures_change_nothing": {
    "pass": true,
@@ -207,7 +211,7 @@
   },
   "resumed_counters_advance": {
    "pass": true,
-   "detail": "130 -> 185 -> 205"
+   "detail": "129 -> 183 -> 203"
   },
   "resumed_pixels_match_before_hiding": {
    "pass": true,
@@ -225,9 +229,9 @@
    "pass": true,
    "detail": "(900, 1440, 3)"
   },
-  "resized_artworks_keep_their_size": {
+  "resized_page_shows_whole_works_only": {
    "pass": true,
-   "detail": ""
+   "detail": "3 whole, 4 below, 0 crossing the clip (body {'h': 337.144226074219, 'w': 1052.45361328125, 'x': 361.030853271484, 'y': 50.695873260498})"
   },
   "fill-1920x1000_page_size": {
    "pass": true,
@@ -245,9 +249,9 @@
    "pass": true,
    "detail": "{'h': 514.087158203125, 'w': 1489.51062011719, 'x': 413.301025390625, 'y': 15.6257476806641}"
   },
-  "fill-1920x1000_artworks_keep_their_size_and_fill_the_wider_body": {
+  "fill-1920x1000_shows_whole_works_only": {
    "pass": true,
-   "detail": ""
+   "detail": "4 whole, 3 below, 0 crossing the clip (body {'h': 417.087158203125, 'w': 1465.51062011719, 'x': 425.301025390625, 'y': 53.1257476806641})"
   },
   "fill-1440x820_page_size": {
    "pass": true,
@@ -265,23 +269,23 @@
    "pass": true,
    "detail": "{'h': 421.292663574219, 'w': 1087.21533203125, 'x': 338.698822021484, 'y': 12.805248260498}"
   },
-  "fill-1440x820_artworks_keep_their_size_and_fill_the_wider_body": {
+  "fill-1440x820_shows_whole_works_only": {
    "pass": true,
-   "detail": ""
+   "detail": "3 whole, 4 below, 0 crossing the clip (body {'h': 324.292663574219, 'w': 1063.21533203125, 'x': 350.698822021484, 'y': 50.305248260498})"
   }
  },
  "sha256": {
-  "01-launch.png": "551e1a8d3c15ce60c5bda231887ef7c6cfcc39512d3edfd61d6aad014d0a360b",
-  "02-equipment-moved.png": "d6fd1ef0d330d25c08eeafc1b46ca5886a0bf96b1b6752245feb073264afc9f0",
-  "03-party-over-viewer.png": "ef3c17383e2a4c1fc4c2e9221750d4e04e881ce7ea67587e4e9028c6e34b4d38",
-  "04-viewer-moved.png": "1f6a59efc948f8a5e96b6971f904f2c5e71ff9643e92566d50a3b0c449158a1e",
-  "05-scrolled.png": "42b38c20ed25da253b855d6ccea03b708d48268818a757e0b73cd43a4b2f2a16",
-  "06-viewer-resized.png": "eec15566c56aae2b1fe1d80ad375258d1341abe6f11d34d82375dcb746f44055",
-  "07-chat-clamped.png": "109da5beccd6ffff688388a83597efabc0a3bb38153dc6bbdf15af5c08fc570e",
+  "01-launch.png": "37735fa7ca38331912dd45543de1c474e38111b3c9f7db8e3718d4dc781b7c20",
+  "02-equipment-moved.png": "2e1c82d7a44e22b5d801cd5ee32b125bf1c34587ed10f3df9793bbe2629bc14f",
+  "03-party-over-viewer.png": "4bc11c789dc2e6975b1a3699ebde6a76f31504b110c99350f2b6158a8f605875",
+  "04-viewer-moved.png": "953e66fe868d2adbe25bc34a83ea5e30e3442593c666b4497c65e0f3108d3043",
+  "05-scrolled.png": "75672058b20f039f6723b072b8efeff4d42e90010e78777ddd8a935ec39a2b06",
+  "06-viewer-resized.png": "55c2f7074881abbc42d695700ee243b1ea17ec1b16a2c4329092c9f5c33b4ce3",
+  "07-chat-clamped.png": "72664bc929b9614c52e4da6bc16e97c88b3adc1f1b3b304546fad603b2b15c27",
   "08-map.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
-  "09-resumed.png": "abca2f4b9e5ce902c0555721503189aec7de1f439ef5e22b5ea075f3df58a87d",
-  "10-resized.png": "13c2de968243dbcb61f2d4b0a5a3a95a0c8501526a8157191b8bd70c5ef35f61",
-  "11-fill-1920x1000.png": "885cbea181f4781dfa45932937c2400c86cf735b25454f3d955e73691ede49ec",
-  "11-fill-1440x820.png": "16727406b5af909e8a09db68e3e7c2bc38fb20355a18cd311d26d6b41e5991e4"
+  "09-resumed.png": "6df42b8e8418d10e41aa8443ed82592a32f206d2952286cdaa460c9ee5010013",
+  "10-resized.png": "0dcf536e9cf7da55712ac8be2b42408270d59060d17aef1619ab86d9c4dc2faa",
+  "11-fill-1920x1000.png": "2f83bef46d67bba6d7d3ae88d0d9a67c362d86cdc413b7e62dcf91cab9759cbc",
+  "11-fill-1440x820.png": "abbe0d636538b054fed1000efa58e052b36d84f48aaa158edbe578bf43d3b4e7"
  }
 }

@@ -15,7 +15,7 @@ const ROOT := "res://modules/collection_page/"
 const FILES: Array[String] = ["reference.png", "assets/equipment.png", "assets/options.png",
 	"assets/layout-reference.png", "assets/status.png", "assets/trade.png", "assets/chat.png",
 	"assets/party.png", "assets/bottom.png"]
-const ART_SCALE := 0.375
+const ART_SCALE := 0.375  # the prototype's fixed size; _fit_artworks fits whole rows to the body (#63)
 const MINIMUM_SIZE := Vector2(531, 250)
 ## The viewer in the reference's 1944x1280 review coordinates, and its right and bottom edges'
 ## native distances from the desktop's right and bottom: right, the desktop's own right margin;
@@ -124,6 +124,47 @@ func _fit() -> void:
 	frame.size = frame.size.max(MINIMUM_SIZE)
 	frame.position = frame.position.min((available - frame.size).max(Vector2.ZERO))
 	_layout()
+	_fit_artworks()
+
+
+## Whole works only (#63): at every Page layout the gallery starts at the top and the artworks take
+## one uniform scale, the largest (up to the body's height for the tallest work in the first row)
+## at which the rows that show at scroll 0 are whole and the next row starts below the body. A
+## corner resize keeps the scale, as before.
+func _fit_artworks() -> void:
+	scroll.scroll_vertical = 0
+	var body := scroll.size
+	var art := ART_SCALE
+	var candidate := body.y / 1240.0  # the tallest work filling the body
+	while candidate > 0.05:
+		if _whole_rows(candidate, body):
+			art = candidate
+			break
+		candidate *= 0.99
+	for index in WORKS.size():
+		artwork.get_child(index).custom_minimum_size = (WORKS[index].size * art).floor()
+
+
+## Whether the HFlowContainer's rows at artwork scale `art` in a body of `body` show whole at scroll 0:
+## at least one row ends inside the body and the first row that does not starts below it.
+func _whole_rows(art: float, body: Vector2) -> bool:
+	var rows: Array[float] = []
+	var x := 0.0
+	for region in WORKS:
+		var card: Vector2 = (region.size * art).floor()
+		if card.x > body.x:
+			return false
+		if rows.is_empty() or (x > 0.0 and x + card.x > body.x):
+			rows.append(0.0)
+			x = 0.0
+		x += card.x + artwork.get_theme_constant("h_separation")
+		rows[-1] = maxf(rows[-1], card.y)
+	var top := 0.0
+	for index in rows.size():
+		if top + rows[index] > body.y - 1.0:
+			return index > 0 and top >= body.y
+		top += rows[index] + artwork.get_theme_constant("v_separation")
+	return true
 
 
 func _layout() -> void:
