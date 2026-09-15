@@ -49,7 +49,7 @@ var active_window: Control
 var start_pointer := Vector2.ZERO
 var start_rect := Rect2()
 var data_handle: Variant
-var image_base_url := "http://127.0.0.1:8128/"
+var image_fetch: Callable
 var search_ui: Node
 
 
@@ -60,7 +60,7 @@ static func create(deps: Dictionary) -> Dictionary:
 	var t = load(ROOT + "viewer.gd").new()
 	t.key = deps.get("key", "")
 	t.data_handle = deps.collection_data
-	t.image_base_url = deps.get("image_base_url", "http://127.0.0.1:8128/")
+	t.image_fetch = deps.image_fetch
 	t.name = "CollectionPage"
 	t.source = load(ROOT + "reference.png")
 	t.desktop = load(ROOT + "desktop.gd").new()
@@ -115,7 +115,7 @@ func _ready() -> void:
 	search_ui = load(ROOT + "search_ui.gd").new()
 	search_ui.page = self
 	search_ui.data_handle = data_handle
-	search_ui.image_base_url = image_base_url
+	search_ui.image_fetch = image_fetch
 	add_child(search_ui)
 
 

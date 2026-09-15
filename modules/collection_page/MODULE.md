@@ -25,6 +25,6 @@ Frozen while hidden: the Shell hides the Page (`visible = false`, `process_mode 
 
 ## Inside
 
-`viewer.gd` owns layout, dragging and composition; `desktop.gd` owns the source windows; `search_ui.gd` owns native controls and result presentation. It talks to `collection_data/interface.gd` only. The fixture adapter exists only for deterministic playtest replies.
+`viewer.gd` owns layout, dragging and composition; `desktop.gd` owns the source windows; `search_ui.gd` owns native controls and result presentation. It talks to `collection_data/interface.gd` only. The testing module supplies deterministic playtest replies through its public interface.
 
-`scripts/playtest.sh collection_page` drives Unicode input, Tab/Space/popup keys, Enter/Escape, success, failure, stale completion, pinned pagination, empty, missing-image, snapshot-expired, selection, dragging, resize, hidden reply and 720x486 fit through real input events. The independent verifier checks exact requests and state plus screenshot hashes (34 checks). Browser evidence uses the production HTTP adapter and same-origin server. Accepted evidence is in `docs/evidence/collection-page-search/`.
+`scripts/playtest.sh collection_page` drives Unicode input, Tab/Space/popup keys, Enter/Escape, success, failure, stale completion, pinned pagination, empty, missing and broken images, snapshot-expired retry, keyboard selection, dragging, resize, hidden reply and 720x486 fit through real input events. The independent verifier checks exact requests and state plus screenshot hashes (40 checks). Browser evidence uses the production HTTP adapter and same-origin server. Accepted evidence is in `docs/evidence/collection-page-search/`.

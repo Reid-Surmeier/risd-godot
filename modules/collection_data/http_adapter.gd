@@ -24,3 +24,21 @@ func dispatch(query: Dictionary, done: Callable) -> Dictionary:
 		request.queue_free()
 		return {"ok": false, "value": null, "error": {"code": "collection_data.unavailable", "detail": "Search could not start"}}
 	return {"ok": true, "value": null, "error": null}
+
+
+func fetch_image(sha256: String, done: Callable) -> Dictionary:
+	var request := HTTPRequest.new()
+	request.timeout = 15.0
+	request.body_size_limit = 20 * 1024 * 1024
+	add_child(request)
+	request.request_completed.connect(func(status: int, code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+		request.queue_free()
+		if status == HTTPRequest.RESULT_SUCCESS and code == 200:
+			done.call({"ok": true, "value": body, "error": null})
+		else:
+			done.call({"ok": false, "value": null, "error": {"code": "collection_data.unavailable", "detail": "Image request failed"}}))
+	var started := request.request(base_url + "api/collection/image/" + sha256)
+	if started != OK:
+		request.queue_free()
+		return {"ok": false, "value": null, "error": {"code": "collection_data.unavailable", "detail": "Image request could not start"}}
+	return {"ok": true, "value": null, "error": null}

@@ -5,7 +5,7 @@ extends "res://testing/harness_base.gd"
 const Shell := preload("res://modules/shell/interface.gd")
 const Page := preload("res://modules/collection_page/interface.gd")
 const Data := preload("res://modules/collection_data/interface.gd")
-const FixtureAdapter := preload("res://modules/collection_page/playtest/fixture_adapter.gd")
+const Testing := preload("res://testing/interface.gd")
 
 var server_pid := -1
 
@@ -18,7 +18,8 @@ func _search(shell: Control, label: String) -> Dictionary:
 		controls[key] = _rect(s.controls[key])
 	var items := []
 	for item in s.items:
-		items.append({"id": item.id, "rect": _rect(item.rect), "has_texture": item.has_texture})
+		items.append({"id": item.id, "rect": _rect(item.rect), "has_texture": item.has_texture,
+			"image_unavailable": item.image_unavailable})
 	var response := {}
 	if not s.response.is_empty():
 		response = {"total": s.response.total, "page": s.response.page, "page_size": s.response.page_size,
@@ -30,7 +31,8 @@ func _search(shell: Control, label: String) -> Dictionary:
 	var entry := {"t_ms": _ms(), "event": "search", "label": label, "phase": s.phase, "draft": s.draft,
 		"applied": s.applied, "last_successful": s.last_successful, "requests": s.requests,
 		"completions": s.completions, "ignored_completions": s.ignored_completions, "response": response,
-		"items": items, "selected": s.selected, "images_loaded": s.images_loaded, "controls": controls,
+		"items": items, "selected": s.selected, "images_loaded": s.images_loaded, "image_failures": s.image_failures,
+		"controls": controls, "sort_popup_visible": s.sort_popup.visible, "category_popup_visible": s.category_popup.visible,
 		"focus_owner": s.focus_owner, "sort_items": s.sort_items, "category_items": s.category_items,
 		"ticks": tenant.ticks, "inputs": tenant.inputs, "size": [tenant.size.x, tenant.size.y], "windows": windows}
 	_log.append(entry)
@@ -77,13 +79,16 @@ func _initialize() -> void:
 	server_pid = OS.create_process("/usr/bin/env", ["RISD_SEARCH_PORT=8141", "node", "--experimental-strip-types",
 		"modules/collection_data/server/server.ts"], false)
 	await create_timer(0.5).timeout
-	var adapter := FixtureAdapter.new()
+	var adapter: Node = Testing.collection_page_search().value
 	get_root().add_child(adapter)
+	var image_adapter: Node = Data.http_adapter().value
+	image_adapter.base_url = "http://127.0.0.1:8141/"
+	get_root().add_child(image_adapter)
 	var data: Variant = Data.create({"search": adapter.dispatch}).value
 	var factory := func(deps: Dictionary) -> Dictionary:
 		var page_deps := deps.duplicate()
 		page_deps.collection_data = data
-		page_deps.image_base_url = "http://127.0.0.1:8141/"
+		page_deps.image_fetch = image_adapter.fetch_image
 		return Page.create(page_deps)
 	var shell: Control = Shell.create({"collection": factory}).value
 	var out_dir := await _mount(shell, Vector2i(1920, 1080), "/tmp/collection-page-search")
@@ -104,6 +109,10 @@ func _initialize() -> void:
 	_search(shell, "A-typed")
 	await _key(KEY_TAB, "focus Sort")
 	_search(shell, "focus-sort")
+	await _key(KEY_SPACE, "open Sort for Escape")
+	_search(shell, "sort-popup-open")
+	await _key(KEY_ESCAPE, "dismiss Sort popup")
+	_search(shell, "sort-popup-dismissed")
 	await _key(KEY_SPACE, "open Sort")
 	await _key(KEY_DOWN, "choose second sort")
 	await _key(KEY_ENTER, "close Sort")
@@ -114,7 +123,9 @@ func _initialize() -> void:
 	await _key(KEY_ENTER, "close Category")
 	await _key(KEY_TAB, "focus Has Image")
 	_search(shell, "focus-checkbox")
-	await _key(KEY_SPACE, "toggle Has Image")
+	await _key(KEY_SPACE, "toggle Has Image off")
+	_search(shell, "checkbox-off")
+	await _key(KEY_SPACE, "toggle Has Image on")
 	await _key(KEY_TAB, "focus OK")
 	_search(shell, "focus-ok")
 	await _key(KEY_ENTER, "apply A")
@@ -129,6 +140,7 @@ func _initialize() -> void:
 	var failed := await _wait_phase(shell, "error", "B-failed")
 	await _shot(out_dir, "03-unavailable-keeps-A.png")
 	await _key(KEY_ESCAPE, "cancel B")
+	await _frames(2)
 	var restored := _search(shell, "B-canceled-restores-A")
 
 	# A slow older request may finish after a newer request, but cannot replace it.
@@ -167,22 +179,33 @@ func _initialize() -> void:
 	var missing := await _wait_phase(shell, "results", "missing-image")
 	await _shot(out_dir, "05-missing-image.png")
 
+	await _type_text(query, "broken", "broken image query")
+	await _key(KEY_ENTER, "apply broken image query")
+	await _wait_phase(shell, "results", "broken-image-response")
+	await create_timer(0.2).timeout
+	var broken := _search(shell, "broken-image")
+	await _shot(out_dir, "06-broken-image.png")
+
 	await _type_text(query, "expire", "expired snapshot query")
 	await _key(KEY_ENTER, "apply expired snapshot query")
 	var expired := await _wait_phase(shell, "snapshot_expired", "snapshot-expired")
-	await _shot(out_dir, "06-snapshot-expired.png")
+	await _shot(out_dir, "07-snapshot-expired.png")
+	var retry: Button = shell.find_child("Retry", true, false)
+	await _click(retry.get_global_rect().get_center(), "retry expired snapshot")
+	var retried := await _wait_phase(shell, "results", "snapshot-retry")
 
 	# Selection only changes presentation; it dispatches no request.
-	await _key(KEY_ESCAPE, "restore after expiration")
 	category.select(0)
 	has_image.button_pressed = false
 	await _type_text(query, "Monet", "selection query")
 	await _key(KEY_ENTER, "apply selection query")
 	var selectable := await _wait_phase(shell, "results", "before-selection")
-	await _click(Rect2(selectable.items[0].rect.x, selectable.items[0].rect.y,
-		selectable.items[0].rect.w, selectable.items[0].rect.h).get_center(), "select first result")
+	var first_card: PanelContainer = shell.find_child("Card_" + selectable.items[0].id.trim_prefix("risd:"), true, false)
+	first_card.grab_focus()
+	_search(shell, "result-focused")
+	await _key(KEY_ENTER, "keyboard-select first result")
 	var selected := _search(shell, "selected")
-	await _shot(out_dir, "07-selected.png")
+	await _shot(out_dir, "08-selected.png")
 
 	# One retained window drag and viewer resize protect the existing chrome behavior.
 	var page: Control = shell.find_child("CollectionPage", true, false)
@@ -211,12 +234,13 @@ func _initialize() -> void:
 	get_root().size = Vector2i(720, 486)
 	await _frames(8)
 	var compact := _search(shell, "compact-720x486")
-	await _shot(out_dir, "08-compact-720x486.png")
+	await _shot(out_dir, "09-compact-720x486.png")
 
 	_log.append({"t_ms": _ms(), "event": "fixture", "calls": adapter.calls, "server_pid": server_pid,
 		"checkpoints": [launch.requests, typed.requests, canceled.requests, a.requests, failed.requests, restored.requests,
-			stale.requests, before_page.requests, page_two.requests, empty.requests, missing.requests, expired.requests,
-			selected.requests, moved.requests, resized.requests, hidden_before.requests, hidden.requests, resumed.requests, compact.requests]})
+			stale.requests, before_page.requests, page_two.requests, empty.requests, missing.requests, broken.requests,
+			expired.requests, retried.requests, selected.requests, moved.requests, resized.requests, hidden_before.requests,
+			hidden.requests, resumed.requests, compact.requests]})
 	if server_pid > 0:
 		OS.kill(server_pid)
 	_finish(out_dir)

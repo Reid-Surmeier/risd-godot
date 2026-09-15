@@ -25,7 +25,7 @@ func _ready() -> void:
 	var collection_factory := func(deps: Dictionary) -> Dictionary:
 		var page_deps := deps.duplicate()
 		page_deps.collection_data = data
-		page_deps.image_base_url = http.base_url
+		page_deps.image_fetch = http.fetch_image
 		return CollectionPage.create(page_deps)
 	var created := Shell.create({"map": Atlas, "sketchbook": Sketchbook, "3d_viewer": SculptureViewer,
 			"video_player": VideoPlayer, "collection": collection_factory, "playground": PlaygroundPage})

@@ -9,8 +9,8 @@ extends RefCounted
 const Implementation = preload("res://modules/collection_data/data.gd")
 const HttpAdapter = preload("res://modules/collection_data/http_adapter.gd")
 
-## Construct the existing production search adapter. Web uses the game document's origin and
-## native playtests use the adapter's localhost default.
+## Construct the production HTTP adapter. Composition injects its `dispatch` search Callable and
+## `fetch_image` Callable; Web uses the game document's origin and native uses localhost.
 static func http_adapter() -> Dictionary:
 	var adapter = HttpAdapter.new()
 	if OS.has_feature("web"):

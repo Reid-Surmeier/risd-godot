@@ -3,14 +3,14 @@
 extends Node
 
 const Data := preload("res://modules/collection_data/interface.gd")
-const DataErrors := preload("res://modules/collection_data/errors.gd")
-const FONT_PATH := "res://modules/atlas/fonts/PixelMplus12-Regular.ttf"
+const FONT_PATH := "res://modules/collection_page/assets/PixelMplus12-Regular.ttf"
+const SNAPSHOT_EXPIRED := "collection_data.snapshot_expired"
 const SORTS := ["title_asc", "title_desc", "date_asc", "date_desc"]
 const SORT_LABELS := ["Title (A→Z)", "Title (Z→A)", "Date (old→new)", "Date (new→old)"]
 
 var page: Control
 var data_handle: Variant
-var image_base_url := "http://127.0.0.1:8128/"
+var image_fetch: Callable
 var body := ColorRect.new()
 var results := ColorRect.new()
 var footer := ColorRect.new()
@@ -30,7 +30,7 @@ var cards := HFlowContainer.new()
 var details := PanelContainer.new()
 var font: Font
 var phase := "idle"
-var applied := {"q": "", "category": "All", "sort": "title_asc", "has_image": false, "page": 1}
+var applied := {"q": "", "category": "All", "sort": "date_asc", "has_image": true, "page": 1}
 var last_successful: Dictionary = applied.duplicate(true)
 var response: Dictionary = {}
 var selected := ""
@@ -39,6 +39,7 @@ var completions := 0
 var ignored_completions := 0
 var generation := 0
 var images_loaded := 0
+var image_failures := 0
 var layout_key := ""
 var pending_result: Dictionary = {}
 
@@ -111,6 +112,7 @@ func _build_filters() -> void:
 	sort.fit_to_longest_item = false
 	for label_text in SORT_LABELS:
 		sort.add_item(label_text)
+	sort.select(SORTS.find("date_asc"))
 	_theme_control(sort)
 	body.add_child(sort)
 	category.name = "Category"
@@ -121,6 +123,7 @@ func _build_filters() -> void:
 	body.add_child(category)
 	has_image.name = "HasImage"
 	has_image.text = "Has Image"
+	has_image.button_pressed = true
 	_theme_control(has_image)
 	body.add_child(has_image)
 	ok.name = "OK"
@@ -141,6 +144,8 @@ func _build_results() -> void:
 	status.add_theme_color_override("font_color", Color("243e58"))
 	status.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	results.add_child(status)
+	scroll.name = "Results"
+	scroll.focus_mode = Control.FOCUS_ALL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
 	results.add_child(scroll)
@@ -229,7 +234,12 @@ func _place(control: Control, rect: Rect2, scale: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
-		_cancel()
+		if sort.get_popup().visible:
+			sort.get_popup().hide()
+		elif category.get_popup().visible:
+			category.get_popup().hide()
+		else:
+			_cancel()
 		get_viewport().set_input_as_handled()
 
 
@@ -260,6 +270,7 @@ func _retry() -> void:
 	if phase == "snapshot_expired":
 		retry_query.erase("snapshot")
 		retry_query.page = 1
+	applied = retry_query
 	_dispatch(retry_query)
 
 
@@ -269,7 +280,16 @@ func _cancel() -> void:
 	applied = last_successful.duplicate(true)
 	phase = "results" if not response.is_empty() else "idle"
 	retry.visible = false
-	_render_response()
+	_show_result_status()
+	_focus_results.call_deferred()
+
+
+func _focus_results() -> void:
+	for child in cards.get_children():
+		if child is PanelContainer and not child.is_queued_for_deletion():
+			child.grab_focus()
+			return
+	scroll.grab_focus()
 
 
 func _page(delta: int) -> void:
@@ -306,7 +326,7 @@ func _received(current: int, result: Dictionary) -> void:
 		return
 	completions += 1
 	if not result.ok:
-		phase = "snapshot_expired" if result.error.code == DataErrors.SNAPSHOT_EXPIRED else "error"
+		phase = "snapshot_expired" if result.error.code == SNAPSHOT_EXPIRED else "error"
 		status.text = "Snapshot expired · apply again" if phase == "snapshot_expired" else "RISD search unavailable · previous results kept"
 		retry.visible = true
 		return
@@ -345,14 +365,13 @@ func _render_response() -> void:
 		count.text = "No search yet"
 		return
 	for child in cards.get_children():
+		cards.remove_child(child)
 		child.queue_free()
 	details.visible = false
 	selected = ""
 	images_loaded = 0
-	var corpus: Dictionary = response.corpus
-	status.text = "%d result%s · %s · %s %s" % [response.total, "" if response.total == 1 else "s", corpus.coverage,
-		corpus.upstream_status, corpus.fetched_at.left(10)]
-	count.text = "%d result%s · page %d" % [response.total, "" if response.total == 1 else "s", response.page]
+	image_failures = 0
+	_show_result_status()
 	previous.disabled = response.page <= 1
 	next.disabled = response.page * response.page_size >= response.total
 	if response.items.is_empty():
@@ -366,9 +385,19 @@ func _render_response() -> void:
 	_layout_cards()
 
 
+func _show_result_status() -> void:
+	if response.is_empty():
+		return
+	var corpus: Dictionary = response.corpus
+	status.text = "%d result%s · %s · %s %s" % [response.total, "" if response.total == 1 else "s", corpus.coverage,
+		corpus.upstream_status, corpus.fetched_at.left(10)]
+	count.text = "%d result%s · page %d" % [response.total, "" if response.total == 1 else "s", response.page]
+
+
 func _card(artwork: Dictionary) -> PanelContainer:
 	var card := PanelContainer.new()
 	card.name = "Card_" + artwork.web_id
+	card.focus_mode = Control.FOCUS_ALL
 	card.mouse_filter = Control.MOUSE_FILTER_STOP
 	card.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	card.add_theme_stylebox_override("panel", _field_style(Color("f6f7f7")))
@@ -382,16 +411,15 @@ func _card(artwork: Dictionary) -> PanelContainer:
 	image.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	column.add_child(image)
-	if artwork.image == null:
-		var missing := _label("IMAGE UNAVAILABLE")
-		missing.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		missing.add_theme_color_override("font_color", Color("6e7680"))
-		column.add_child(missing)
-	else:
-		_load_image(artwork.image, image)
-	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
-	for text_value in [artwork.title if artwork.title != "" else "Untitled", "%s · %s" % [maker, artwork.dating],
-		"RISD Museum · " + artwork.accession, artwork.credit]:
+	var missing := _label("IMAGE UNAVAILABLE")
+	missing.name = "ImageUnavailable"
+	missing.visible = artwork.image == null
+	missing.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	missing.add_theme_color_override("font_color", Color("6e7680"))
+	column.add_child(missing)
+	if artwork.image != null:
+		_load_image(artwork.image, image, missing)
+	for text_value in _identity_lines(artwork):
 		var line := _label(text_value)
 		line.clip_text = true
 		line.tooltip_text = text_value
@@ -399,9 +427,18 @@ func _card(artwork: Dictionary) -> PanelContainer:
 		column.add_child(line)
 	card.gui_input.connect(func(event: InputEvent) -> void:
 		if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			_select(artwork))
+			_select(artwork)
+		elif event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_ENTER, KEY_SPACE]:
+			_select(artwork)
+			get_viewport().set_input_as_handled())
 	card.set_meta("artwork", artwork)
 	return card
+
+
+func _identity_lines(artwork: Dictionary) -> Array:
+	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
+	return [artwork.title if artwork.title != "" else "Untitled", "%s · %s" % [maker, artwork.dating],
+		"RISD Museum · " + artwork.accession, artwork.credit]
 
 
 func _layout_cards() -> void:
@@ -420,9 +457,11 @@ func _select(artwork: Dictionary) -> void:
 	var column := VBoxContainer.new()
 	column.add_theme_constant_override("separation", 5)
 	details.add_child(column)
-	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
-	for text_value in ["SELECTED", artwork.title if artwork.title != "" else "Untitled", maker + " · " + artwork.dating,
-		artwork.category + " · " + artwork.materials, "RISD Museum · " + artwork.accession, artwork.credit, artwork.source_url]:
+	var lines := _identity_lines(artwork)
+	lines.push_front("SELECTED")
+	lines.append(artwork.category + " · " + artwork.materials)
+	lines.append(artwork.source_url)
+	for text_value in lines:
 		var line := _label(text_value)
 		line.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		line.add_theme_font_size_override("font_size", maxi(7, roundi(12 * page.factor)))
@@ -430,28 +469,38 @@ func _select(artwork: Dictionary) -> void:
 	details.visible = true
 
 
-func _load_image(manifest: Dictionary, target: TextureRect) -> void:
-	var request := HTTPRequest.new()
-	request.timeout = 15.0
-	request.body_size_limit = 20 * 1024 * 1024
-	page.add_child(request)
+func _load_image(manifest: Dictionary, target: TextureRect, unavailable: Label) -> void:
 	var image_generation := generation
-	request.request_completed.connect(func(status_code: int, code: int, _headers: PackedStringArray, bytes: PackedByteArray) -> void:
-		request.queue_free()
-		if image_generation != generation or not is_instance_valid(target) or status_code != HTTPRequest.RESULT_SUCCESS or code != 200:
+	var target_id := target.get_instance_id()
+	var unavailable_id := unavailable.get_instance_id()
+	var completed := func(result: Dictionary) -> void:
+		var live_target := instance_from_id(target_id) as TextureRect
+		var live_unavailable := instance_from_id(unavailable_id) as Label
+		if image_generation != generation or live_target == null or live_unavailable == null:
 			return
+		if not result.ok:
+			live_unavailable.visible = true
+			image_failures += 1
+			return
+		var bytes: PackedByteArray = result.value
 		var context := HashingContext.new()
 		context.start(HashingContext.HASH_SHA256)
 		context.update(bytes)
 		if context.finish().hex_encode() != manifest.sha256:
+			live_unavailable.visible = true
+			image_failures += 1
 			return
 		var decoded := Image.new()
 		var decoded_ok := decoded.load_jpg_from_buffer(bytes) if manifest.mime == "image/jpeg" else decoded.load_png_from_buffer(bytes)
 		if decoded_ok == OK:
-			target.texture = ImageTexture.create_from_image(decoded)
-			images_loaded += 1)
-	if request.request(image_base_url + "api/collection/image/" + manifest.sha256) != OK:
-		request.queue_free()
+			live_target.texture = ImageTexture.create_from_image(decoded)
+			images_loaded += 1
+		else:
+			live_unavailable.visible = true
+			image_failures += 1
+	var started: Dictionary = image_fetch.call(manifest.sha256, completed)
+	if not started.ok:
+		completed.call(started)
 
 
 func state() -> Dictionary:
@@ -472,11 +521,14 @@ func state() -> Dictionary:
 	for card in cards.get_children():
 		if card.has_meta("artwork"):
 			var image: TextureRect = card.find_child("Image", true, false)
+			var unavailable: Label = card.find_child("ImageUnavailable", true, false)
 			items.append({"id": card.get_meta("artwork").id, "rect": card.get_global_rect(),
-				"has_texture": image != null and image.texture != null})
+				"has_texture": image != null and image.texture != null,
+				"image_unavailable": unavailable != null and unavailable.visible})
 	return {"phase": phase, "draft": _draft(), "applied": applied.duplicate(true), "last_successful": last_successful.duplicate(true),
 		"requests": requests, "completions": completions, "ignored_completions": ignored_completions, "response": response.duplicate(true),
-		"items": items, "selected": selected, "images_loaded": images_loaded, "controls": controls, "query_focused": query.has_focus(),
+		"items": items, "selected": selected, "images_loaded": images_loaded, "image_failures": image_failures,
+		"controls": controls, "query_focused": query.has_focus(),
 		"focus_owner": focus_owner.name if focus_owner != null else "", "sort_items": sort_items, "category_items": category_items,
 		"sort_popup": {"visible": sort_popup.visible, "position": sort_popup.position, "size": sort_popup.size},
 		"category_popup": {"visible": category_popup.visible, "position": category_popup.position, "size": category_popup.size}}

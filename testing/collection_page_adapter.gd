@@ -4,6 +4,7 @@ extends Node
 
 const CORPUS := "res://docs/evidence/collection-search/corpus.json"
 var calls: Array[Dictionary] = []
+var expired_once := false
 
 
 func dispatch(query: Dictionary, done: Callable) -> Dictionary:
@@ -13,7 +14,8 @@ func dispatch(query: Dictionary, done: Callable) -> Dictionary:
 		if query.q == "fail":
 			done.call({"ok": false, "value": null, "error": {"code": "collection_data.unavailable", "detail": "fixture unavailable"}})
 			return
-		if query.q == "expire":
+		if query.q == "expire" and not expired_once:
+			expired_once = true
 			done.call({"ok": false, "value": null, "error": {"code": "collection_data.snapshot_expired", "detail": "fixture snapshot expired"}})
 			return
 		done.call(_result(query)))
@@ -24,7 +26,12 @@ func _result(query: Dictionary) -> Dictionary:
 	var corpus: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(CORPUS))
 	var records: Array = corpus.records.duplicate(true)
 	var term: String = query.q.to_lower()
-	if term == "pages":
+	if term == "broken":
+		var broken: Dictionary = corpus.records[0].duplicate(true)
+		broken.image = broken.image.duplicate(true)
+		broken.image.sha256 = "0".repeat(64)
+		records = [broken]
+	elif term == "pages":
 		records.clear()
 		for index in 25:
 			var clone: Dictionary = corpus.records[index % corpus.records.size()].duplicate(true)

@@ -24,11 +24,13 @@ const _Impl := preload("res://modules/collection_page/viewer.gd")
 const Data := preload("res://modules/collection_data/interface.gd")
 
 
-## Build the desktop. `deps` includes a collection_data handle and optional image_base_url.
+## Build the desktop. `deps` includes a collection_data handle and image_fetch(sha256, done).
 ## Every pixel file is checked first: returns ok(Control) or err(ASSET_MISSING, path).
 static func create(deps: Dictionary) -> Dictionary:
 	if not deps.has("collection_data") or not Data.state(deps.collection_data).ok:
 		return Errors.err(Errors.INVALID_DEPENDENCY, "A collection_data handle is required")
+	if not deps.get("image_fetch") is Callable or not deps.image_fetch.is_valid():
+		return Errors.err(Errors.INVALID_DEPENDENCY, "An image fetch operation is required")
 	return _Impl.create(deps)
 
 

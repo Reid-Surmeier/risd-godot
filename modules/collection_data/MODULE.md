@@ -14,8 +14,8 @@ Saving is a separate authorized extension in #80. Only `deps.search` is required
 this subset. Dispatch acceptance and terminal results are separate; completions happen
 once. The composition constructs the HTTP adapter; the module never constructs it.
 
-`http_adapter()` exposes the existing production adapter without making composition import a
-private implementation file; it selects same-origin Web or the native localhost default.
+`http_adapter()` exposes the production adapter without making composition import a private file;
+composition injects its search and image-fetch Callables. It selects same-origin Web or localhost.
 
 The internal TypeScript/Effect server searches a labelled, immutable corpus. All-word
 query, category and verified-image filters precede deterministic sorting and pagination.

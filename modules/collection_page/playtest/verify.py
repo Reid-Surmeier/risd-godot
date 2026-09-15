@@ -31,17 +31,19 @@ def edge_dark_fraction(image):
 
 images = {name: np.array(Image.open(out / name).convert("RGB")) for name in shots}
 hashes = {name: hashlib.sha256((out / name).read_bytes()).hexdigest() for name in shots}
-check("eight_screenshots", len(shots) == 8, sorted(shots))
-check("screenshots_are_distinct", len(set(hashes.values())) == 8)
+check("nine_screenshots", len(shots) == 9, sorted(shots))
+check("screenshots_are_distinct", len(set(hashes.values())) == 9)
 check("native_sizes", images["01-default-results.png"].shape[:2] == (1080, 1920)
-      and images["08-compact-720x486.png"].shape[:2] == (486, 720))
+      and images["09-compact-720x486.png"].shape[:2] == (486, 720))
 check("screenshots_have_visible_content", all(float(image.std()) > 12 for image in images.values()))
-compact_edges = edge_dark_fraction(images["08-compact-720x486.png"])
+compact_edges = edge_dark_fraction(images["09-compact-720x486.png"])
 check("compact_has_no_black_bars", all(value < 0.30 for value in compact_edges), compact_edges)
 
 launch = states["default-images"]
 check("default_search_once", launch["phase"] == "results" and launch["requests"] == launch["completions"] == 1)
-check("verified_default_corpus", launch["response"]["total"] == 5 and launch["images_loaded"] == 2
+check("contract_defaults", launch["applied"] ==
+      {"q": "", "category": "All", "sort": "date_asc", "has_image": True, "page": 1})
+check("verified_default_corpus", launch["response"]["total"] == 2 and launch["images_loaded"] == 2
       and "Partial RISD corpus" in launch["response"]["coverage"], launch["response"])
 check("verified_paintings_loaded", {item["id"] for item in launch["items"] if item["has_texture"]}
       == {"risd:1377691", "risd:1584511"}, launch["items"])
@@ -56,18 +58,23 @@ check("escape_restores_last_success", canceled["draft"] == canceled["last_succes
       and canceled["requests"] == typed["requests"])
 check("keyboard_focus_order", [states[name]["focus_owner"] for name in
       ["focus-sort", "focus-category", "focus-checkbox", "focus-ok"]] == ["Sort", "Category", "HasImage", "OK"])
+popup_open, popup_closed = states["sort-popup-open"], states["sort-popup-dismissed"]
+check("escape_only_dismisses_popup", popup_open["sort_popup_visible"] and not popup_closed["sort_popup_visible"]
+      and popup_closed["draft"]["q"] == "Monet" and popup_closed["requests"] == popup_open["requests"])
+check("checkbox_can_toggle_without_request", not states["checkbox-off"]["draft"]["has_image"]
+      and states["checkbox-off"]["requests"] == launch["requests"])
 
 a = states["A-images"]
 check("keyboard_apply_one_request", a["requests"] == launch["requests"] + 1 and a["response"]["query"] == a["applied"])
 check("dropdown_and_space_values_apply", a["applied"] ==
-      {"q": "Monet", "category": "Painting", "sort": "title_desc", "has_image": True, "page": 1})
+      {"q": "Monet", "category": "Painting", "sort": "date_desc", "has_image": True, "page": 1})
 check("filtered_real_paintings", a["response"]["total"] == 2 and a["images_loaded"] == 2
       and all(item["has_texture"] for item in a["items"]), a["items"])
 
 failed, restored = states["B-failed"], states["B-canceled-restores-A"]
 check("failed_B_keeps_A", failed["phase"] == "error" and failed["response"] == a["response"] and failed["requests"] == a["requests"] + 1)
 check("cancel_B_restores_A_without_request", restored["draft"] == restored["applied"] == a["applied"]
-      and restored["requests"] == failed["requests"])
+      and restored["requests"] == failed["requests"] and restored["focus_owner"].startswith("Card_"))
 stale = states["older-reply-ignored"]
 check("late_reply_ignored", stale["response"]["query"]["q"] == "Monet" and stale["ignored_completions"] == 1)
 
@@ -78,13 +85,20 @@ check("pagination_pins_snapshot", page_two["response"]["page"] == 2 and page_two
       and page_two["applied"]["snapshot"] == page_one["response"]["snapshot"])
 check("pagination_is_one_request", page_two["requests"] == page_one["requests"] + 1)
 
-empty, missing, expired = states["empty-results"], states["missing-image"], states["snapshot-expired"]
+empty, missing, broken, expired = states["empty-results"], states["missing-image"], states["broken-image"], states["snapshot-expired"]
 check("empty_state", empty["phase"] == "results" and empty["response"]["total"] == 0 and empty["items"] == [])
 check("missing_image_state", missing["response"]["total"] == 1 and len(missing["items"]) == 1
-      and not missing["items"][0]["has_texture"])
-check("snapshot_expired_state", expired["phase"] == "snapshot_expired" and expired["response"] == missing["response"])
+      and not missing["items"][0]["has_texture"] and missing["items"][0]["image_unavailable"])
+check("broken_image_state", broken["response"]["total"] == 1 and broken["image_failures"] == 1
+      and not broken["items"][0]["has_texture"] and broken["items"][0]["image_unavailable"])
+check("snapshot_expired_state", expired["phase"] == "snapshot_expired" and expired["response"] == broken["response"])
+retried = states["snapshot-retry"]
+check("snapshot_retry_becomes_last_success", retried["phase"] == "results" and retried["applied"]["q"] == "expire"
+      and retried["applied"]["page"] == 1 and "snapshot" not in retried["applied"]
+      and retried["last_successful"] == retried["applied"] and retried["requests"] == expired["requests"] + 1)
 
-before, selected = states["before-selection"], states["selected"]
+focused, before, selected = states["result-focused"], states["before-selection"], states["selected"]
+check("result_card_is_keyboard_focusable", focused["focus_owner"].startswith("Card_"))
 check("selection_does_not_request_or_save", selected["selected"] in {item["id"] for item in before["items"]}
       and selected["requests"] == before["requests"] and "saved" not in selected)
 moved = states["filters-moved"]
@@ -111,7 +125,7 @@ check("compact_controls_stay_in_filter_window", all(rect["x"] >= filter_rect["x"
 check("compact_windows_stay_in_page", all(window["rect"]["x"] >= -1 and window["rect"]["y"] >= -1
       and window["rect"]["x"] + window["rect"]["w"] <= compact["size"][0] + 1
       and window["rect"]["y"] + window["rect"]["h"] <= compact["size"][1] + 1 for window in compact["windows"]))
-check("adapter_received_exact_requests", len(fixture["calls"]) == compact["requests"] == 12
+check("adapter_received_exact_requests", len(fixture["calls"]) == compact["requests"] == 14
       and fixture["calls"][6]["q"] == "pages" and fixture["calls"][6]["page"] == 2
       and "snapshot" in fixture["calls"][6])
 
