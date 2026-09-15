@@ -42,3 +42,7 @@ pointer input before it reaches the Shell. F8 toggles presentation without rebui
 any tenant; `?crt=0` starts unfiltered. `?qa-crt=1` publishes read-only browser evidence.
 The logical desktop is at least 1440x900 and scales uniformly to the browser size,
 including smaller windows, with no minimum OS window size or letterboxing.
+
+The tentabrobpy CC0 Squigglevision shader is the final screen pass after that CRT. It
+uses a seamless 256×256 FastNoiseLite texture, a 0.45-pixel displacement and held
+3 FPS frames. F9 toggles it independently without changing F8, the Shell or a Tenant.

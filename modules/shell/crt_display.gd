@@ -1,22 +1,48 @@
 extends Control
 
 const Shell := preload("res://modules/shell/interface.gd")
+const SquiggleShader := preload("res://modules/shell/squiggle_screen.gdshader")
 
 var enabled := true
+var squiggle_enabled := true
 var _qa_elapsed := 0.0
 var _mouse_inside := false
+var squiggle: ColorRect
 @onready var crt_material: ShaderMaterial = $Screen.material
 
 func _ready() -> void:
 	$Screen.texture = $Desktop.get_texture()
 	crt_material.set_shader_parameter("tex", $Desktop.get_texture())
+	_create_squiggle()
 	resized.connect(_resize_desktop)
 	_resize_desktop()
 	get_window().mouse_exited.connect(_mouse_exited)
 	if OS.has_feature("web"):
 		enabled = not JavaScriptBridge.eval("new URLSearchParams(location.search).get('crt') === '0' || new URLSearchParams(location.search).has('qa-viewer')")
 	_publish_state()
+	_publish_squiggle_state()
 	set_process(OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).has('qa-crt')"))
+
+func _create_squiggle() -> void:
+	var layer := CanvasLayer.new()
+	layer.name = "SquiggleLayer"
+	layer.layer = 10
+	add_child(layer)
+	squiggle = ColorRect.new()
+	squiggle.name = "Squiggle"
+	squiggle.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	squiggle.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var material := ShaderMaterial.new()
+	material.shader = SquiggleShader
+	var noise := NoiseTexture2D.new()
+	noise.width = 256
+	noise.height = 256
+	noise.seamless = true
+	noise.seamless_blend_skirt = 1.0
+	noise.noise = FastNoiseLite.new()
+	material.set_shader_parameter("noise", noise)
+	squiggle.material = material
+	layer.add_child(squiggle)
 
 func _resize_desktop() -> void:
 	# Scale the logical desktop uniformly to fill every browser shape, without bars.
@@ -27,6 +53,10 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F8:
 		enabled = not enabled
 		_publish_state()
+	elif event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F9:
+		squiggle_enabled = not squiggle_enabled
+		squiggle.visible = squiggle_enabled
+		_publish_squiggle_state()
 	else:
 		var mapped := event.duplicate()
 		if event is InputEventMouse:
@@ -61,6 +91,11 @@ func _publish_state() -> void:
 	$Screen.material = crt_material if enabled else null
 	if OS.has_feature("web"):
 		JavaScriptBridge.eval("window.crtQaState = " + JSON.stringify({"enabled": enabled, "curve": crt_material.get_shader_parameter("curve"), "screen_scale": crt_material.get_shader_parameter("screen_scale")}))
+
+func _publish_squiggle_state() -> void:
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.squiggleQaState = " + JSON.stringify({"enabled": squiggle_enabled,
+				"strength_pixels": 0.45, "fps": 3.0}))
 
 # Browser-only evidence uses the existing module interfaces; it does not control the game.
 func _process(delta: float) -> void:
