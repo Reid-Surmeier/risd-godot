@@ -24,3 +24,7 @@ scan change.
 New Proton scan ingestion and actual sidebar switching remain separate work.
 The cross-scan portion of #82 stays open until those imports can be tested with
 this limit; do not claim newly uploaded scans were tested by this checkpoint.
+
+The full six-tab CRT browser regression also passed on the published game: white
+change0, near-white luminance change0.093%, no black edge bars at1920x1080,
+720x486 or1200x600, with hover, sketchbook drawing/dragging and tab switching checked.
