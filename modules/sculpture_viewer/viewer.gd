@@ -523,7 +523,7 @@ func _rotate_by(amount: float) -> void:
 	_update_camera()
 
 func _zoom_by(amount: float) -> void:
-	camera_distance = clampf(camera_distance + amount, 4.7, 10.5)
+	camera_distance = clampf(camera_distance + amount, 2.8, 10.5)
 	interaction_count += 1
 	_update_camera()
 

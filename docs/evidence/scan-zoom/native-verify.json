@@ -1,0 +1,229 @@
+{
+ "pass": true,
+ "checks": {
+  "screenshots_present": {
+   "pass": true,
+   "detail": "['01-viewer.png', '02-paused.png', '03-paused-later.png', '04-orbited.png', '05-zoomed.png', '06-window-moved.png', '07-catalogue-moved.png', '08-before-hidden.png', '09-hidden.png', '10-resumed.png', '11-resized.png', '12-restored.png', '13-fill-1440x820.png', '13-fill-1920x1000.png']"
+  },
+  "viewer_screenshot_is_1920x1080": {
+   "pass": true,
+   "detail": "(1080, 1920, 3)"
+  },
+  "no_viewer_tenant_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "click_viewer_tab_creates_and_shows_desktop": {
+   "pass": true,
+   "detail": "{'frozen': False, 'key': '3d_viewer', 'page_visible': True, 'rect': {'h': 56.4976196289062, 'w': 201.186584472656, 'x': 460.708129882812, 'y': 1021.20574951172}, 'tenant': 'ok'}"
+  },
+  "tenant_fills_page_area": {
+   "pass": true,
+   "detail": "[1920.0, 1006.0478515625]"
+  },
+  "desktop_fills_page_at_uniform_scale": {
+   "pass": true,
+   "detail": "catalogue {'h': 927.887756347656, 'w': 414.011474609375, 'x': 74.5220642089844, 'y': 35.190975189209} viewer {'h': 925.315673828125, 'w': 1088.60668945312, 'x': 699.294555664062, 'y': 35.1909446716309} expected {'x': 74.52206307870371, 'y': 35.190974231610085, 'w': 414.0114615483539, 'h': 927.8877264315261} {'x': 699.294547301463, 'y': 35.190974231610085, 'w': 1088.6066077183189, 'h': 925.315616560571}"
+  },
+  "viewport_inside_viewer_window": {
+   "pass": true,
+   "detail": "{'h': 661.328552246094, 'w': 719.841125488281, 'x': 881.636169433594, 'y': 141.330093383789}"
+  },
+  "viewer_in_front_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "autoplay_orbits_while_shown": {
+   "pass": true,
+   "detail": "yaw -126.69 -> -125.06 over 7 ticks"
+  },
+  "pause_click_lands_on_button": {
+   "pass": true,
+   "detail": ""
+  },
+  "pause_stops_orbit": {
+   "pass": true,
+   "detail": "yaw -125.06 -> -125.06"
+  },
+  "paused_render_stands_still": {
+   "pass": true,
+   "detail": "mean abs diff 0.000"
+  },
+  "orbit_drag_lands_inside_viewport": {
+   "pass": true,
+   "detail": ""
+  },
+  "drag_orbits_camera": {
+   "pass": true,
+   "detail": "yaw -125.06 -> -99.34 (expected -99.34), pitch -8.0 -> -17.19 (expected -17.19)"
+  },
+  "orbit_changes_render": {
+   "pass": true,
+   "detail": ""
+  },
+  "wheel_lands_inside_viewport": {
+   "pass": true,
+   "detail": ""
+  },
+  "wheel_zooms_camera_in": {
+   "pass": true,
+   "detail": "distance 8.7 -> 7.8"
+  },
+  "zoom_changes_render": {
+   "pass": true,
+   "detail": ""
+  },
+  "next_click_lands_on_button": {
+   "pass": true,
+   "detail": ""
+  },
+  "next_steps_30_degrees": {
+   "pass": true,
+   "detail": "yaw -99.34 -> -69.34, view 0 -> 1"
+  },
+  "top_strip_drag_starts_on_strip": {
+   "pass": true,
+   "detail": "from [1243.59790039062, 62.4061088562012] viewer {'h': 925.315673828125, 'w': 1088.60668945312, 'x': 699.294555664062, 'y': 35.1909446716309}"
+  },
+  "top_strip_drag_moves_viewer_window": {
+   "pass": true,
+   "detail": "{'h': 925.315673828125, 'w': 1088.60668945312, 'x': 699.294555664062, 'y': 35.1909446716309} -> {'h': 925.315673828125, 'w': 1088.60668945312, 'x': 624.294616699219, 'y': 75.1909408569336} by [-75.0, 40.0]"
+  },
+  "window_drag_changes_page_pixels": {
+   "pass": true,
+   "detail": ""
+  },
+  "catalogue_drag_starts_on_picture": {
+   "pass": true,
+   "detail": ""
+  },
+  "catalogue_drag_raises_and_moves_it": {
+   "pass": true,
+   "detail": "{'h': 927.887756347656, 'w': 414.011474609375, 'x': 74.5220642089844, 'y': 35.190975189209} -> {'h': 927.887817382812, 'w': 414.011505126953, 'x': 194.522064208984, 'y': 15.1909914016724} by [120.0, -20.0], front catalogue-window"
+  },
+  "viewer_click_raises_it_without_moving": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_viewer_page_frozen": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_tenant_process_stops": {
+   "pass": true,
+   "detail": "ticks 106 -> 106 over 20 frames"
+  },
+  "hidden_tenant_gets_no_input": {
+   "pass": true,
+   "detail": "inputs 40 -> 40"
+  },
+  "hidden_events_change_nothing": {
+   "pass": true,
+   "detail": "-69.34 7.8 {'h': 925.315673828125, 'w': 1088.60668945312, 'x': 624.294616699219, 'y': 75.1909408569336}"
+  },
+  "hidden_subviewport_update_disabled": {
+   "pass": true,
+   "detail": "modes hidden 0, 0"
+  },
+  "hidden_subviewport_renders_nothing": {
+   "pass": true,
+   "detail": "draw calls: white page 40, viewer shown 60, hidden 40"
+  },
+  "viewer_resumes_with_state_intact": {
+   "pass": true,
+   "detail": "ticks frozen 106, resumed 110 -> 146"
+  },
+  "resumed_subviewport_updates_again": {
+   "pass": true,
+   "detail": "modes 4, 4"
+  },
+  "resumed_pixels_identical_to_before_hiding": {
+   "pass": true,
+   "detail": "mean abs diff 0.000"
+  },
+  "resize_lays_desktop_out_again": {
+   "pass": true,
+   "detail": "tenant [1440.0, 844.535888671875], scale 0.868864059448242, viewer {'h': 742.475463867188, 'w': 873.500549316406, 'x': 521.318420410156, 'y': 46.6858787536621}"
+  },
+  "resized_screenshot_is_1440x900": {
+   "pass": true,
+   "detail": "(900, 1440, 3)"
+  },
+  "restore_lays_out_back_to_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "viewport_shows_sculpture": {
+   "pass": true,
+   "detail": "std 77.5 mean 211.5"
+  },
+  "catalogue_picture_drawn": {
+   "pass": true,
+   "detail": "std 48.6"
+  },
+  "page_outside_windows_is_white": {
+   "pass": true,
+   "detail": "above 255.00 right 255.00"
+  },
+  "hidden_page_shows_plain_white_sketchbook": {
+   "pass": true,
+   "detail": "mean 255.00"
+  },
+  "fill-1920x1000_page_size": {
+   "pass": true,
+   "detail": "[1920.0, 1000.0478515625]"
+  },
+  "fill-1920x1000_layout_is_the_fill_rule": {
+   "pass": true,
+   "detail": "viewer {'h': 919.797058105469, 'w': 1082.1142578125, 'x': 700.849426269531, 'y': 34.9810981750488} expected {'x': 700.8493766406061, 'y': 34.981097688400205, 'w': 1082.11423299065, 'h': 919.7970980420525}"
+  },
+  "fill-1920x1000_viewer_at_least_native_times_scale": {
+   "pass": true,
+   "detail": "viewer 1082x920, native x s 811x689"
+  },
+  "fill-1920x1000_plate_spans_its_slot_and_the_page_on_the_limiting_axis": {
+   "pass": true,
+   "detail": "limiting axis y: plate 919.8 slot 919.8; gaps [35.0, 42.7] margins x s [35.0, 45.3]"
+  },
+  "fill-1920x1000_plate_centred_in_its_slot_on_the_other_axis": {
+   "pass": true,
+   "detail": "x: 83.5 px before, 83.5 px after (only centres there)"
+  },
+  "fill-1440x820_page_size": {
+   "pass": true,
+   "detail": "[1440.0, 819.535888671875]"
+  },
+  "fill-1440x820_layout_is_the_fill_rule": {
+   "pass": true,
+   "detail": "viewer {'h': 753.770690917969, 'w': 886.7890625, 'x': 507.626953125, 'y': 28.6668930053711} expected {'x': 507.6269259687141, 'y': 28.66689322514789, 'w': 886.7890153384849, 'h': 753.7706630377122}"
+  },
+  "fill-1440x820_viewer_at_least_native_times_scale": {
+   "pass": true,
+   "detail": "viewer 887x754, native x s 664x565"
+  },
+  "fill-1440x820_plate_spans_its_slot_and_the_page_on_the_limiting_axis": {
+   "pass": true,
+   "detail": "limiting axis y: plate 753.8 slot 753.8; gaps [28.7, 35.0] margins x s [28.7, 37.1]"
+  },
+  "fill-1440x820_plate_centred_in_its_slot_on_the_other_axis": {
+   "pass": true,
+   "detail": "x: 1.7 px before, 1.7 px after (only centres there)"
+  }
+ },
+ "sha256": {
+  "01-viewer.png": "cedfaaf7c26c3ee5426505f3d6baa6623ed03c76549f0853fa15a94e53151f4c",
+  "02-paused.png": "de5577b52c6b8adf0d6b908a0ddce0bad566a23400667507fd02faa775c26edd",
+  "03-paused-later.png": "b769379400be0571c322b1ab08cfe29ec3bd425a65406ba09837cf8176821bea",
+  "04-orbited.png": "811d0f730129f04563336cee6a829238401736d4736e161250d5c7ff0925177e",
+  "05-zoomed.png": "7cb720184d5c4feaa36ee24b85d7da3b0da827c1bc14d360400dc695cbb48d0e",
+  "06-window-moved.png": "4e89d3a8f308ea7b186d166d4ae41ce8f145c7fbf59e406b45cd319379667b71",
+  "07-catalogue-moved.png": "fa127e76738bde6c780cd0110209380f2fbf3e65018fe36b6f63d731a19fd6b3",
+  "08-before-hidden.png": "fa127e76738bde6c780cd0110209380f2fbf3e65018fe36b6f63d731a19fd6b3",
+  "09-hidden.png": "aef83f6cbd0cad56ebc9e46140b0316727097697c419af9eb29436e0aaadb6df",
+  "10-resumed.png": "fa127e76738bde6c780cd0110209380f2fbf3e65018fe36b6f63d731a19fd6b3",
+  "11-resized.png": "9e86b5557849f17c824c882bec83234c50b3397f93851641d0a41c343ee9037a",
+  "12-restored.png": "d6accf50e8c7c0cab6ae188dd1dfbab37267f7cb02f4fdf91a7b86c80c39bc3d",
+  "13-fill-1920x1000.png": "16037f35a369f0338c2b9cfa90aa5af55dfd48397e90c7a9417edc9a4c7ca29c",
+  "13-fill-1440x820.png": "b7e28c965198709e67be3e73f358688797f148f2c08e689226b2a7c6f21180a8"
+ }
+}
