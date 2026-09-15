@@ -60,7 +60,7 @@ check("five_preview_videos_match_manifest", media_ok and len(MANIFEST["videos"])
 shots = {e["file"]: e for e in log if e["event"] == "screenshot"}
 hashes = {f: hashlib.sha256((out / f).read_bytes()).hexdigest() for f in shots}
 imgs = {f: np.array(Image.open(out / f).convert("RGB")).astype(int) for f in shots}
-check("screenshots_present", len(shots) == 13, str(sorted(shots)))
+check("screenshots_present", len(shots) == 15, str(sorted(shots)))
 check("shown_screenshot_is_1920x1080", imgs["01-shown.png"].shape[:2] == (1080, 1920), str(imgs["01-shown.png"].shape))
 
 # created lazily on first show, through the Shell
@@ -74,7 +74,7 @@ sz = a["size"]
 check("tenant_fills_page_area", near(sz[0], 1920, 1) and near(sz[1], 1080 - BAR_H, 1.5), str(sz))
 
 # the viewer: the whole 1536x1632 canvas fitted to the page with a margin, centred
-scale = min(1.0, (sz[0] - 2 * MARGIN) / CANVAS[0], (sz[1] - 2 * MARGIN) / CANVAS[1])
+scale = min((sz[0] - 2 * MARGIN) / CANVAS[0], (sz[1] - 2 * MARGIN) / CANVAS[1])   # #63: no 1:1 cap
 vr = a["viewer"]["rect"]
 check("viewer_fits_page_centred", near(a["viewer"]["scale"], scale, 1e-6) and near(vr["w"], CANVAS[0] * scale, 1) and near(vr["h"], CANVAS[1] * scale, 1)
       and near(vr["x"], (sz[0] - vr["w"]) / 2, 1) and near(vr["y"], (sz[1] - vr["h"]) / 2, 1.5) and vr["y"] >= -0.5
@@ -196,12 +196,31 @@ check("video_tab_again_resumes_playing", va["active"] == 3 and not va["tabs"][3]
 # resize: the tenant fills the smaller page, the viewer re-fits and stays reachable
 rz = vp["resized"]; rst = vp["restored"]
 bar_small = BAR_H * 1440 / 1920
-scale_small = min(1.0, (1440 - 2 * MARGIN) / CANVAS[0], (900 - bar_small - 2 * MARGIN) / CANVAS[1])
-check("resize_refits_viewer_to_smaller_page", states["resized"]["window"] == [1440, 900] and near(rz["size"][0], 1440, 1) and near(rz["size"][1], 900 - bar_small, 1.5)
-      and near(rz["viewer"]["scale"], scale_small, 1e-4) and rz["viewer"]["position"][0] <= rz["size"][0] - 82 * scale_small - 200 + 0.5
-      and rz["viewer"]["position"][1] <= rz["size"][1] - 105 * scale_small + 0.5 and rz["playing"] and imgs["13-resized.png"].shape[:2] == (900, 1440),
+scale_small = min((1440 - 2 * MARGIN) / CANVAS[0], (900 - bar_small - 2 * MARGIN) / CANVAS[1])
+check("resize_lays_viewer_out_again_centred", states["resized"]["window"] == [1440, 900] and near(rz["size"][0], 1440, 1) and near(rz["size"][1], 900 - bar_small, 1.5)
+      and near(rz["viewer"]["scale"], scale_small, 1e-4) and near(rz["viewer"]["position"][0], (rz["size"][0] - CANVAS[0] * scale_small) // 2, 1)
+      and near(rz["viewer"]["position"][1], (rz["size"][1] - CANVAS[1] * scale_small) // 2, 1) and rz["playing"] and imgs["13-resized.png"].shape[:2] == (900, 1440),
       f"scale {rz['viewer']['scale']:.4f} (expected {scale_small:.4f}) position {rz['viewer']['position']}")
 check("restore_refits_viewer_to_launch_scale", near(rst["viewer"]["scale"], scale, 1e-6) and near(rst["size"][0], 1920, 1) and rst["playing"])
+
+# #63: at pages of 1920x1000 and 1440x820 the plate is as large as the page allows: it spans the page less MARGIN on its
+# limiting axis and is centred on the other (a raster plate cannot take a non-uniform stretch); never smaller than native x s
+for label in ("fill-1920x1000", "fill-1440x820"):
+    fv = vp[label]; fs = fv["size"]; want = [int(x) for x in label[5:].split("x")]
+    fsc = min((fs[0] - 2 * MARGIN) / CANVAS[0], (fs[1] - 2 * MARGIN) / CANVAS[1])
+    r = fv["viewer"]["rect"]
+    gaps = (r["x"], r["y"], fs[0] - r["x"] - r["w"], fs[1] - r["y"] - r["h"])
+    axis = 1 if (fs[1] - 2 * MARGIN) / CANVAS[1] <= (fs[0] - 2 * MARGIN) / CANVAS[0] else 0
+    lim = (gaps[1], gaps[3]) if axis else (gaps[0], gaps[2]); other = (gaps[0], gaps[2]) if axis else (gaps[1], gaps[3])
+    check(f"{label}_page_size", near(fs[0], want[0], 1) and near(fs[1], want[1], 1), str(fs))
+    check(f"{label}_plate_at_the_largest_uniform_scale", near(fv["viewer"]["scale"], fsc, 1e-4) and near(r["w"], CANVAS[0] * fsc, 1) and near(r["h"], CANVAS[1] * fsc, 1),
+          f"scale {fv['viewer']['scale']:.4f} expected {fsc:.4f}, plate {r['w']:.0f}x{r['h']:.0f}")
+    check(f"{label}_plate_spans_the_page_on_its_limiting_axis", all(-0.5 <= g <= MARGIN + 1.5 for g in lim),
+          f"limiting axis {'y' if axis else 'x'}: gaps {[round(g, 1) for g in lim]} (margin {MARGIN})")
+    check(f"{label}_plate_centred_on_the_other_axis", near(other[0], other[1], 2.5),  # the position is floored
+          f"{'x' if axis else 'y'}: {other[0]:.1f} px before, {other[1]:.1f} px after (only centres there)")
+    check(f"{label}_video_body_follows_the_plate", near(fv["video_rect"]["w"], VIDEO_RECT[2] * fsc, 1) and near(fv["video_rect"]["x"], r["x"] + VIDEO_RECT[0] * fsc, 1)
+          and fv["playing"], str(fv["video_rect"]))
 
 ok = all(r["pass"] for r in results.values())
 (out / "verify.json").write_text(json.dumps({"pass": ok, "checks": results, "sha256": hashes}, indent=1))

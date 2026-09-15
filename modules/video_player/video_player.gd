@@ -7,7 +7,7 @@
 ## prototypes/video-player-usability/main.gd. Left behind: the A/B/C variant remnants, the
 ## hidden state strip, the command-line capture and reference-check paths, the JavaScriptBridge
 ## publishes (now state()), the unused thumbnails/ files. Changed for the Page seam (#24, #31):
-## the viewer is scaled to fit the Page and re-fits on resize (the prototype scaled its whole
+## the viewer is scaled to fit the Page and centred, again on every resize (#63; the prototype scaled its whole
 ## window the same way, 1536x1632 shown at 768x816); fullscreen fills the Page instead of the
 ## OS window; the video pauses while the Page is hidden and resumes on show; the rendering is
 ## linear-filtered as the prototype's project was; the media are the checked-in 480-wide
@@ -101,8 +101,8 @@ func _ready() -> void:
 	_build_transport()
 	_build_thumbnails()
 	_apply_layout()
-	_fit_viewer(true)
-	resized.connect(func(): _fit_viewer(false))
+	_fit_viewer()
+	resized.connect(_fit_viewer)
 	visibility_changed.connect(_on_visibility_changed)
 	_select_video(0)
 
@@ -151,13 +151,14 @@ func _on_visibility_changed() -> void:
 		last_action = "resumed on show"
 
 
-## The viewer fits the Page: the largest scale up to 1 at which the whole 1536x1632 canvas fits
-## with a margin. First fit centres it; later ones keep its place, clamped.
-func _fit_viewer(first: bool) -> void:
-	viewer_scale = minf(1.0, minf((size.x - 2 * MARGIN) / CANVAS_SIZE.x, (size.y - 2 * MARGIN) / CANVAS_SIZE.y))
+## The viewer fills the Page as far as a raster plate can (#63): the whole 1536x1632 canvas is one
+## plate that cannot re-lay out, so it scales uniformly to the largest size that fits the Page less
+## MARGIN on every side (no 1:1 cap) and centres. Every resize lays it out again, a dragged viewer
+## included.
+func _fit_viewer() -> void:
+	viewer_scale = minf((size.x - 2 * MARGIN) / CANVAS_SIZE.x, (size.y - 2 * MARGIN) / CANVAS_SIZE.y)
 	surface.scale = Vector2(viewer_scale, viewer_scale)
-	if first:
-		surface.position = ((size - CANVAS_SIZE * viewer_scale) / 2.0).floor()
+	surface.position = ((size - CANVAS_SIZE * viewer_scale) / 2.0).floor()
 	_clamp_viewer_position()
 	if fullscreen:
 		_fill_page()
