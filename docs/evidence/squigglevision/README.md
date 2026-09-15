@@ -21,7 +21,8 @@ Ported shader SHA256:
 
 - Exact Web build: `35b38cf`; PCK SHA256
   `815d63468c33a3577b22da3b0694649678966f5a9cdba543baa8b068bffbbe54`.
-- Browser test measured 20.89% changed pixels between F9 on/off and 9.79%
+- After both artwork images loaded, the browser test measured 14.75% changed pixels
+  between F9 on/off and 9.52%
   between later held frames, confirming both visible displacement and temporal motion.
 - F8 and F9 remained independent. Sculpture orbit, Sketchbook window dragging and
   painting at 1920×1080 and 960×540 all passed with no browser or shader errors.

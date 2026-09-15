@@ -15,6 +15,8 @@ try {
  const state=()=>page.evaluate(()=>window.shellCrtQa);
  await page.waitForFunction(()=>window.shellCrtQa?.shell.active===4 && !window.shellCrtQa.shell.switching);
  assert.deepEqual(await page.evaluate(()=>window.crtQaState),{enabled:true,curve:.018,screen_scale:1});
+ await page.waitForFunction(()=>window.shellCrtQa.tenant.search.images_loaded===2);
+ await page.keyboard.press('F9'); await page.waitForFunction(()=>window.squiggleQaState?.enabled===false);
  await page.waitForTimeout(700);
  const on=await page.screenshot({path:out+'/collection-crt.png'});
  const initial=(await state()).shell;

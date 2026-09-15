@@ -6,8 +6,8 @@
     "strength_pixels": 0.45
   },
   "motion": {
-    "on_off_changed_fraction": 0.20885850694444444,
-    "temporal_changed_fraction": 0.09793354552469136
+    "on_off_changed_fraction": 0.1474710648148148,
+    "temporal_changed_fraction": 0.09521894290123457
   },
   "controls": {
     "f8_independent": true,

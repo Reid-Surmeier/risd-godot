@@ -42,7 +42,7 @@ const report = {status: 'pass', settings: {}, motion: {}, controls: {}, interact
 try {
 	await page.goto(process.argv[2] + '?qa-crt=1');
 	await page.waitForFunction(() => window.shellCrtQa?.shell.active === 4 && window.squiggleQaState, null, {timeout: 90000});
-	await page.waitForTimeout(1200);
+	await page.waitForFunction(() => window.shellCrtQa.tenant.search.images_loaded === 2);
 	report.settings = await page.evaluate(() => window.squiggleQaState);
 	assert.deepEqual(report.settings, {enabled: true, strength_pixels: .45, fps: 3});
 	assert.equal(await page.evaluate(() => window.crtQaState.enabled), true);
