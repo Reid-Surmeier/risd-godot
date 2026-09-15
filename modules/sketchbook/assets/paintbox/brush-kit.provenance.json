@@ -1,0 +1,20 @@
+{
+  "assets": [
+    "cat-brush-rest.png",
+    "watercolor-brush.png"
+  ],
+  "pipeline": "Muse edit procedure v0.3.0 through OpenRouter",
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "request_count": 1,
+  "cost_usd": "0.010000",
+  "run": "run-9f4d5100ab5314e3e526c0f6",
+  "application": "/home/reidsurmeier/image-edits/watercolor-brush-holder-muse",
+  "source_output_sha256": "4fe3fe997d7ad397eb323a1acbb62e8cb35bb6c36afb9a68f06d6e3a036ad649",
+  "derived_sha256": {
+    "cat-brush-rest.png": "c6ced676e7593c690d7743fbf4406c829093e7793b55317129e8bf269959d12e",
+    "watercolor-brush.png": "1bff2a1cd9940fd84caa43b76427153eb020c3d08464c63bdd6319a639901820"
+  },
+  "assembly": "Flood-remove the contiguous near-white background at 8% fuzz, split the two non-overlapping halves, trim transparent margins, and nearest-neighbor reduce to game scale.",
+  "approval": "visual prototype; owner approval remains unverified"
+}

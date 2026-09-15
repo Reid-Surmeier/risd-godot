@@ -1,9 +1,9 @@
 extends Control
 ## Native drawing page: tldraw-equivalent ink (Freehand port) in tldraw's size-m draw style,
 ## one stroke list per spread, the prototype's spine curvature applied to the rendered ink,
-## and the pencil cursor from the web prototype.
-## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c
-## viewer-godot/scripts/drawing_surface.gd (the global class_name dropped, the pencil path). Reach it through interface.gd only.
+## and the pigment-loaded watercolor brush cursor.
+## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ d2faa30
+## viewer-godot/scripts/drawing_surface.gd (the global class_name dropped, the pixel paths moved). Reach it through interface.gd only.
 
 const Freehand := preload("res://modules/sketchbook/freehand.gd")
 
@@ -15,8 +15,10 @@ const STROKE_WIDTH := 4.5 # tldraw size m: theme stroke 2 * 1.75, plus 1
 const CURVE_SCALE := 12.0 # the web filter's feDisplacementMap scale
 # The web curve map: (x fraction, green channel / 255).
 const CURVE_STOPS := [[0.0, 0.502], [0.36, 0.502], [0.47, 0.839], [0.5, 1.0], [0.53, 0.839], [0.64, 0.502], [1.0, 0.502]]
-const PENCIL_HEIGHT := 160.0
-const PENCIL_TIP := Vector2(110.0 / 150.0, 0.0) # tip hotspot as a fraction of the image
+const PENCIL_HEIGHT := 120.0
+const PENCIL_TIP := Vector2(0.02, 0.02)
+const BRUSH := preload("res://modules/sketchbook/assets/paintbox/watercolor-brush.png")
+const BRUSH_SHADER := preload("res://modules/sketchbook/assets/paintbox/brush-tip.gdshader")
 
 var spread := 1
 var spreads: Dictionary = {} # spread -> Array[Dictionary{points, width, polygons}]
@@ -67,10 +69,11 @@ func _ready() -> void:
 		_static_view.texture = _static_viewport.get_texture()
 		_static_view.mouse_filter = MOUSE_FILTER_IGNORE
 		_static_view.stretch_mode = TextureRect.STRETCH_KEEP
+		_static_view.show_behind_parent = true
 		add_child(_static_view)
 		pencil = TextureRect.new()
-		pencil.name = "pencil-cursor"
-		pencil.texture = load("res://modules/sketchbook/assets/pencil-prototype.png")
+		pencil.name = "brush-cursor"
+		pencil.texture = BRUSH
 		pencil.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		pencil.stretch_mode = TextureRect.STRETCH_SCALE
 		pencil.texture_filter = TEXTURE_FILTER_NEAREST
@@ -78,6 +81,10 @@ func _ready() -> void:
 		pencil.size = Vector2(texture_size.x * PENCIL_HEIGHT / texture_size.y, PENCIL_HEIGHT)
 		pencil.pivot_offset = Vector2(pencil.size.x * PENCIL_TIP.x, 0)
 		pencil.mouse_filter = MOUSE_FILTER_IGNORE
+		var brush_material := ShaderMaterial.new()
+		brush_material.shader = BRUSH_SHADER
+		brush_material.set_shader_parameter("pigment_color", ink_color)
+		pencil.material = brush_material
 		pencil.visible = false
 		pencil.z_index = 20
 		add_child(pencil)
@@ -315,11 +322,14 @@ func _draw_capsules(target: CanvasItem, stroke: Dictionary) -> void:
 
 func set_ink_color(color: Color) -> void:
 	ink_color = color
+	if pencil != null:
+		(pencil.material as ShaderMaterial).set_shader_parameter("pigment_color", ink_color)
 
 func qa_state() -> Dictionary:
 	var strokes := _strokes_of(spread)
 	var last_points: int = 0 if strokes.is_empty() else strokes.back().points.size()
 	return {"spread": spread, "strokes": stroke_count(), "drawing": pen_down, "hovering": hovering,
 		"last_stroke_points": last_points, "ink_color": ink_color.to_html(false),
+		"cursor": "pigment-brush",
 		"last_stroke_color": DEFAULT_INK.to_html(false) if strokes.is_empty() else Color(strokes.back().get("color", DEFAULT_INK)).to_html(false),
 		"accumulated_input": Input.use_accumulated_input}

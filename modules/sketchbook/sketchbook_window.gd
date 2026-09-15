@@ -5,7 +5,7 @@ extends Control
 ## tldraw's ink (drawing_surface.gd); spreads keep their strokes; the arrows run the web prototype's
 ## 520 ms perspective paper turn (paper_turn.gd) carrying the outgoing page's ink, and the spine
 ## carries the prototype's gutter shading.
-## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c
+## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c (unchanged at d2faa30)
 ## viewer-godot/scripts/sketchbook_window.gd (the global class_names dropped, the pixel paths, the resize delta in the desktop's pixels). Reach it through interface.gd only.
 
 const SketchbookDrawingSurface := preload("res://modules/sketchbook/drawing_surface.gd")
