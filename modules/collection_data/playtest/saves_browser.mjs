@@ -70,6 +70,49 @@ async function save(page) {
   assert.equal(completed.tenant.search.save_phase, 'saved', JSON.stringify({search: completed.tenant.search, errors}));
 }
 
+const document = (page, replacement) => page.evaluate(value => new Promise((resolve, reject) => {
+  const opened = indexedDB.open('risd-collection-browser', 1);
+  opened.onerror = () => reject(opened.error);
+  opened.onsuccess = () => {
+    const db = opened.result;
+    const tx = db.transaction('collection', value === undefined ? 'readonly' : 'readwrite');
+    const request = value === undefined
+      ? tx.objectStore('collection').get('saved')
+      : tx.objectStore('collection').put(value, 'saved');
+    request.onerror = () => reject(request.error);
+    tx.onerror = () => reject(tx.error);
+    tx.oncomplete = () => { db.close(); resolve(value === undefined ? request.result : value); };
+  };
+}), replacement);
+
+async function expectSaveError(page, index, openError = '') {
+  if (openError) await page.evaluate(name => {
+    const prototype = Object.getPrototypeOf(indexedDB);
+    window.__risdOriginalIndexedDbOpen = prototype.open;
+    prototype.open = () => {
+      const request = {};
+      queueMicrotask(() => {
+        Object.defineProperty(request, 'error', {value: new DOMException('Test storage failure', name)});
+        request.onerror?.();
+      });
+      return request;
+    };
+  }, openError);
+  try {
+    await select(page, index);
+    const current = await state(page);
+    await page.mouse.click(...point(current.tenant.search.controls.SaveArtwork, current));
+    await page.waitForFunction(() => window.shellCrtQa.tenant.search.save_phase === 'error');
+    const failed = await state(page);
+    assert.notEqual(failed.tenant.search.save_message, 'Saved');
+  } finally {
+    if (openError) await page.evaluate(() => {
+      Object.getPrototypeOf(indexedDB).open = window.__risdOriginalIndexedDbOpen;
+      delete window.__risdOriginalIndexedDbOpen;
+    });
+  }
+}
+
 const args = {executablePath: '/usr/bin/google-chrome', headless: true,
   viewport: {width: 1920, height: 1080},
   args: ['--no-sandbox', '--use-angle=swiftshader', '--enable-unsafe-swiftshader']};
@@ -82,6 +125,24 @@ try {
   const [firstId, secondId] = await Promise.all([select(first, 0), select(second, 1)]);
   assert.notEqual(firstId, secondId);
   await Promise.all([save(first), save(second)]);
+
+  const committed = await document(first);
+  let failureIndex = 1;
+  for (const invalid of [
+    {schema_version: 1, revision: -1, items: []},
+    {schema_version: 2, revision: committed.revision, items: committed.items},
+  ]) {
+    await document(first, invalid);
+    await expectSaveError(first, failureIndex);
+    failureIndex = 1 - failureIndex;
+    assert.deepEqual(await document(first), invalid);
+    await document(first, committed);
+  }
+  for (const name of ['SecurityError', 'QuotaExceededError', 'AbortError']) {
+    await expectSaveError(first, failureIndex, name);
+    failureIndex = 1 - failureIndex;
+    assert.deepEqual(await document(first), committed);
+  }
 
   await openTab(first, 5);
   await first.waitForFunction(ids => ids.every(id => window.shellCrtQa.tenant.saved_ids?.includes(id))
@@ -120,6 +181,7 @@ try {
   const report = {status: 'pass', url: process.argv[2], reopened_url: process.argv[4] || process.argv[2],
     saved_ids: [firstId, secondId], concurrent_windows: true, persisted_after_browser_restart: true,
     persisted_after_build_update: Boolean(process.argv[4]),
+    rejected_without_overwrite: ['denied', 'quota', 'aborted', 'corrupt', 'newer-version'],
     playground_ids: playground.tenant.saved_ids, sketchbook_ids: sketchbook.tenant.saved_ids, errors};
   writeFileSync(out + '/report.json', JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify(report));

@@ -9,6 +9,13 @@
   "concurrent_windows": true,
   "persisted_after_browser_restart": true,
   "persisted_after_build_update": true,
+  "rejected_without_overwrite": [
+    "denied",
+    "quota",
+    "aborted",
+    "corrupt",
+    "newer-version"
+  ],
   "playground_ids": [
     "risd:1377691",
     "risd:1584511"

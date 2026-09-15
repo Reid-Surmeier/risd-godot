@@ -13,6 +13,8 @@ The Playwright journey opened two game pages, saved a different RISD artwork fro
 time, verified both committed records and images in Playground and Sketchbook, closed Chrome, then
 reopened the same browser profile on the newer build and verified both records again. `report.json`
 records the IDs, destinations, restart and build-update results, and zero unexpected browser errors.
+The same journey forces denied, quota, aborted, corrupt and newer-version storage failures and checks
+that each leaves the committed document unchanged and never reports `Saved`.
 
 Run:
 
