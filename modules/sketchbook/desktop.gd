@@ -218,8 +218,10 @@ func _reference_card(artwork: Dictionary) -> Control:
 
 
 func _load_reference_image(manifest: Dictionary, target: TextureRect) -> void:
+	var target_id := target.get_instance_id()
 	image_fetch.call(manifest.sha256, func(result: Dictionary) -> void:
-		if not result.ok or not is_instance_valid(target):
+		var live_target := instance_from_id(target_id) as TextureRect
+		if not result.ok or live_target == null:
 			return
 		var context := HashingContext.new()
 		context.start(HashingContext.HASH_SHA256)
@@ -229,7 +231,7 @@ func _load_reference_image(manifest: Dictionary, target: TextureRect) -> void:
 		var decoded := Image.new()
 		var status := decoded.load_jpg_from_buffer(result.value) if manifest.mime == "image/jpeg" else (decoded.load_png_from_buffer(result.value) if manifest.mime == "image/png" else decoded.load_webp_from_buffer(result.value))
 		if status == OK:
-			target.texture = ImageTexture.create_from_image(decoded))
+			live_target.texture = ImageTexture.create_from_image(decoded))
 
 
 func _place(window: Control, slot: Rect2) -> void:

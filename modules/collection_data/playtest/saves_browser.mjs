@@ -21,6 +21,11 @@ const point = (rect, state) => {
   return [(x + width / 2) / state.logical_size[0] * state.display_size[0],
     (y + height / 2) / state.logical_size[1] * state.display_size[1]];
 };
+const location = (rect, state, fx, fy) => {
+  const [x, y, width, height] = numbers(rect);
+  return [(x + width * fx) / state.logical_size[0] * state.display_size[0],
+    (y + height * fy) / state.logical_size[1] * state.display_size[1]];
+};
 const state = page => page.evaluate(() => window.shellCrtQa);
 
 function watch(page) {
@@ -162,6 +167,40 @@ try {
     && window.shellCrtQa.tenant.reference_cards.every(item => item.has_texture), firstId);
   await first.screenshot({path: out + '/02-sketchbook-reference.png'});
 
+  sketchbook = await state(first);
+  const initialPigment = sketchbook.tenant.brush_color;
+  await first.mouse.click(...point(sketchbook.tenant.wells[9], sketchbook));
+  await first.waitForFunction(color => window.shellCrtQa.tenant.brush_color !== color, initialPigment);
+  sketchbook = await state(first);
+  await first.mouse.move(...location(sketchbook.tenant.page_rect, sketchbook, 0.25, 0.5));
+  await first.mouse.down();
+  await first.mouse.move(...location(sketchbook.tenant.page_rect, sketchbook, 0.35, 0.56), {steps: 10});
+  await first.mouse.up();
+  await first.waitForFunction(() => window.shellCrtQa.tenant.strokes === 1 && !window.shellCrtQa.tenant.drawing);
+  const painted = await state(first);
+  const otherCard = painted.tenant.reference_cards.find(item => item.id === secondId);
+  await first.mouse.click(...point(otherCard.rect, painted));
+  await first.waitForFunction(id => window.shellCrtQa.tenant.selected_reference === id
+    && window.shellCrtQa.tenant.reference_cards.every(item => item.has_texture), secondId);
+  let retained = await state(first);
+  assert.equal(retained.tenant.strokes, painted.tenant.strokes);
+  assert.equal(retained.tenant.spread, painted.tenant.spread);
+  assert.equal(retained.tenant.brush_color, painted.tenant.brush_color);
+  await first.mouse.click(...point(retained.tenant.controls.next, retained));
+  await first.waitForFunction(() => window.shellCrtQa.tenant.spread === 2 && window.shellCrtQa.tenant.turning === '');
+  retained = await state(first);
+  await first.mouse.click(...point(retained.tenant.controls.previous, retained));
+  await first.waitForFunction(() => window.shellCrtQa.tenant.spread === 1
+    && window.shellCrtQa.tenant.strokes === 1 && window.shellCrtQa.tenant.turning === '');
+  await openTab(first, 0);
+  await openTab(first, 1);
+  await first.waitForFunction(() => window.shellCrtQa.tenant.reference_cards.every(item => item.has_texture));
+  retained = await state(first);
+  assert.equal(retained.tenant.selected_reference, secondId);
+  assert.equal(retained.tenant.strokes, painted.tenant.strokes);
+  assert.equal(retained.tenant.brush_color, painted.tenant.brush_color);
+  await first.screenshot({path: out + '/04-sketchbook-painted.png'});
+
   await context.close();
   context = await chromium.launchPersistentContext(profile, args);
   const reopened = context.pages()[0];
@@ -182,6 +221,7 @@ try {
     saved_ids: [firstId, secondId], concurrent_windows: true, persisted_after_browser_restart: true,
     persisted_after_build_update: Boolean(process.argv[4]),
     rejected_without_overwrite: ['denied', 'quota', 'aborted', 'corrupt', 'newer-version'],
+    drawing_state_retained: true,
     playground_ids: playground.tenant.saved_ids, sketchbook_ids: sketchbook.tenant.saved_ids, errors};
   writeFileSync(out + '/report.json', JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify(report));
