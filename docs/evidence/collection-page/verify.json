@@ -3,7 +3,7 @@
  "checks": {
   "screenshots_present": {
    "pass": true,
-   "detail": "['01-launch.png', '02-equipment-moved.png', '03-party-over-viewer.png', '04-viewer-moved.png', '05-scrolled.png', '06-viewer-resized.png', '07-chat-clamped.png', '08-map.png', '09-resumed.png', '10-resized.png']"
+   "detail": "['01-launch.png', '02-equipment-moved.png', '03-party-over-viewer.png', '04-viewer-moved.png', '05-scrolled.png', '06-viewer-resized.png', '07-chat-clamped.png', '08-map.png', '09-resumed.png', '10-resized.png', '11-fill-1440x820.png', '11-fill-1920x1000.png']"
   },
   "launch_screenshot_is_1920x1080": {
    "pass": true,
@@ -29,13 +29,13 @@
    "pass": true,
    "detail": "['equipment', 'options', 'filters', 'status', 'trade', 'chat', 'party', 'bottom', 'viewer']"
   },
-  "every_window_at_its_reference_place": {
+  "every_window_at_its_fill_place": {
    "pass": true,
-   "detail": "{'equipment': {'h': 199.637619018555, 'w': 378.839874267578, 'x': 9.43169784545898, 'y': 15.7194976806641}, 'options': {'h': 167.412658691406, 'w': 387.485595703125, 'x': 9.43169784545898, 'y': 228.718688964844}, 'filters': {'h': 181.560180664062, 'w': 399.275238037109, 'x': 9.43169784545898, 'y': 410.278869628906}, 'status': {'h': 49.5164184570312, 'w': 392.201446533203, 'x': 0.0, 'y': 598.912841796875}, 'trade': {'h': 167.412658691406, 'w': 386.699645996094, 'x': 9.43169784545898, 'y': 650.787170410156}, 'chat': {'h': 180.774230957031, 'w': 396.917297363281, 'x': 4.71584892272949, 'y': 825.273620605469}, 'party': {'h': 245.224182128906, 'w': 250.725982666016, 'x': 416.566680908203, 'y': 557.256164550781}, 'bottom': {'h': 42.442626953125, 'w': 1102.72290039062, 'x': 407.920959472656, 'y': 959.67529296875}}"
+   "detail": "{'equipment': {'h': 199.637619018555, 'w': 378.839874267578, 'x': 9.43169784545898, 'y': 15.7194976806641}, 'options': {'h': 167.412658691406, 'w': 387.485595703125, 'x': 9.43169784545898, 'y': 228.718688964844}, 'filters': {'h': 181.560180664062, 'w': 399.275238037109, 'x': 9.43169784545898, 'y': 410.278869628906}, 'status': {'h': 49.5164184570312, 'w': 392.201446533203, 'x': 0.0, 'y': 598.912841796875}, 'trade': {'h': 167.412658691406, 'w': 386.699645996094, 'x': 9.43169784545898, 'y': 650.787231445312}, 'chat': {'h': 180.774230957031, 'w': 396.917297363281, 'x': 4.71584892272949, 'y': 825.273620605469}, 'party': {'h': 245.22412109375, 'w': 250.725982666016, 'x': 416.566680908203, 'y': 557.256225585938}, 'bottom': {'h': 42.442626953125, 'w': 1102.72277832031, 'x': 799.98583984375, 'y': 959.675354003906}}"
   },
-  "viewer_at_its_reference_place": {
+  "viewer_at_its_fill_place": {
    "pass": true,
-   "detail": "{'h': 517.171447753906, 'w': 1094.86303710938, 'x': 415.780700683594, 'y': 15.7194976806641}"
+   "detail": "{'h': 517.171508789062, 'w': 1486.927734375, 'x': 415.780700683594, 'y': 15.7194976806641}"
   },
   "windows_inside_the_page": {
    "pass": true,
@@ -75,7 +75,7 @@
   },
   "every_window_shows_its_own_screenshot": {
    "pass": true,
-   "detail": "{'equipment': 4.1, 'options': 2.3, 'filters': 5.8, 'status': 8.0, 'trade': 3.7, 'chat': 2.3, 'party': 6.1, 'bottom': 0.5}"
+   "detail": "{'equipment': 4.1, 'options': 2.3, 'filters': 5.8, 'status': 8.0, 'trade': 3.7, 'chat': 2.3, 'party': 6.0, 'bottom': 0.5}"
   },
   "footer_reads_number_of_works_12": {
    "pass": true,
@@ -85,7 +85,7 @@
    "pass": true,
    "detail": "{0: 4.3, 1: 4.3, 2: 3.2}"
   },
-  "page_white_right_of_the_desktop": {
+  "page_white_in_the_right_margin": {
    "pass": true,
    "detail": "255.0"
   },
@@ -119,7 +119,7 @@
   },
   "party_moved_by_the_drag": {
    "pass": true,
-   "detail": "{'h': 245.224182128906, 'w': 250.725982666016, 'x': 416.566680908203, 'y': 557.256164550781} -> {'h': 245.22412109375, 'w': 250.725982666016, 'x': 416.566680908203, 'y': 472.890991210938}"
+   "detail": "{'h': 245.22412109375, 'w': 250.725982666016, 'x': 416.566680908203, 'y': 557.256225585938} -> {'h': 245.224060058594, 'w': 250.725982666016, 'x': 416.566680908203, 'y': 472.891052246094}"
   },
   "party_overlaps_the_viewer": {
    "pass": true,
@@ -131,11 +131,11 @@
   },
   "party_pixels_drawn_over_the_viewer": {
    "pass": true,
-   "detail": "diff 12.8 over {'x': 416.566680908203, 'y': 472.890991210938, 'w': 250.72598266601597, 'h': 59.99995422363207}"
+   "detail": "diff 12.8 over {'x': 416.566680908203, 'y': 472.891052246094, 'w': 250.72598266601597, 'h': 59.99995422363213}"
   },
   "viewer_moved_by_the_drag": {
    "pass": true,
-   "detail": "{'h': 517.171447753906, 'w': 1094.86303710938, 'x': 415.780700683594, 'y': 15.7194976806641} -> {'h': 517.171447753906, 'w': 1094.86303710938, 'x': 385.780700683594, 'y': 39.7194976806641}"
+   "detail": "{'h': 517.171508789062, 'w': 1486.927734375, 'x': 415.780700683594, 'y': 15.7194976806641} -> {'h': 517.171508789062, 'w': 1486.927734375, 'x': 385.780700683594, 'y': 39.7194976806641}"
   },
   "viewer_raised_above_party": {
    "pass": true,
@@ -159,7 +159,7 @@
   },
   "wheel_scrolls_the_artworks": {
    "pass": true,
-   "detail": "scroll 157 of 862.828552246094"
+   "detail": "scroll 157 of 862.828491210938"
   },
   "wheel_moves_no_window": {
    "pass": true,
@@ -167,7 +167,7 @@
   },
   "corner_drag_shrinks_the_viewer_in_place": {
    "pass": true,
-   "detail": "{'h': 517.171447753906, 'w': 1094.86303710938, 'x': 385.780700683594, 'y': 39.7194976806641} -> {'h': 457.171447753906, 'w': 994.863098144531, 'x': 385.780700683594, 'y': 39.7194976806641}"
+   "detail": "{'h': 517.171508789062, 'w': 1486.927734375, 'x': 385.780700683594, 'y': 39.7194976806641} -> {'h': 457.171508789062, 'w': 1386.927734375, 'x': 385.780700683594, 'y': 39.7194976806641}"
   },
   "resized_body_follows_the_frame": {
    "pass": true,
@@ -187,7 +187,7 @@
   },
   "frozen_counters_stand_still": {
    "pass": true,
-   "detail": "ticks 132->132 inputs 53->53"
+   "detail": "ticks 130->130 inputs 53->53"
   },
   "hidden_gestures_change_nothing": {
    "pass": true,
@@ -207,7 +207,7 @@
   },
   "resumed_counters_advance": {
    "pass": true,
-   "detail": "132 -> 189 -> 209"
+   "detail": "130 -> 185 -> 205"
   },
   "resumed_pixels_match_before_hiding": {
    "pass": true,
@@ -219,7 +219,7 @@
   },
   "resize_refits_every_window": {
    "pass": true,
-   "detail": "{'h': 434.144226074219, 'w': 919.092529296875, 'x': 349.030853271484, 'y': 13.195873260498}"
+   "detail": "{'h': 434.144226074219, 'w': 1076.45361328125, 'x': 349.030853271484, 'y': 13.195873260498}"
   },
   "resized_screenshot_is_1440x900": {
    "pass": true,
@@ -228,18 +228,60 @@
   "resized_artworks_keep_their_size": {
    "pass": true,
    "detail": ""
+  },
+  "fill-1920x1000_page_size": {
+   "pass": true,
+   "detail": "[1920.0, 1000.0478515625]"
+  },
+  "fill-1920x1000_desktop_spans_page_both_axes": {
+   "pass": true,
+   "detail": "gaps l/t/r/b [0.0, 15.6, 17.2, 0.0], native margins x s [0.0, 15.6, 17.2, 0.0]"
+  },
+  "fill-1920x1000_viewer_at_least_native_times_scale": {
+   "pass": true,
+   "detail": "viewer {'h': 514.087158203125, 'w': 1489.51062011719, 'x': 413.301025390625, 'y': 15.6257476806641} native x s 1088x514"
+  },
+  "fill-1920x1000_layout_is_the_fill_rule": {
+   "pass": true,
+   "detail": "{'h': 514.087158203125, 'w': 1489.51062011719, 'x': 413.301025390625, 'y': 15.6257476806641}"
+  },
+  "fill-1920x1000_artworks_keep_their_size_and_fill_the_wider_body": {
+   "pass": true,
+   "detail": ""
+  },
+  "fill-1440x820_page_size": {
+   "pass": true,
+   "detail": "[1440.0, 819.535888671875]"
+  },
+  "fill-1440x820_desktop_spans_page_both_axes": {
+   "pass": true,
+   "detail": "gaps l/t/r/b [0.0, 12.8, 14.1, 0.0], native margins x s [0.0, 12.8, 14.1, 0.0]"
+  },
+  "fill-1440x820_viewer_at_least_native_times_scale": {
+   "pass": true,
+   "detail": "viewer {'h': 421.292663574219, 'w': 1087.21533203125, 'x': 338.698822021484, 'y': 12.805248260498} native x s 892x421"
+  },
+  "fill-1440x820_layout_is_the_fill_rule": {
+   "pass": true,
+   "detail": "{'h': 421.292663574219, 'w': 1087.21533203125, 'x': 338.698822021484, 'y': 12.805248260498}"
+  },
+  "fill-1440x820_artworks_keep_their_size_and_fill_the_wider_body": {
+   "pass": true,
+   "detail": ""
   }
  },
  "sha256": {
-  "01-launch.png": "5c8ef4b435170921e48488d114d69cf5eb92153634bf833437625a72bfe779cb",
-  "02-equipment-moved.png": "dcc12eaf001d0b78775636fa4a8a3e8f20e75b38faec331888d3176a0046d0ae",
-  "03-party-over-viewer.png": "972ec705cf9b20779d0f81350cc316ecdcfc623d38f1672443ad68f954b11054",
-  "04-viewer-moved.png": "435c767dc5b97183d1ddba0fc98a11b2179792cbecefe2d79f58a1335c11a8c8",
-  "05-scrolled.png": "1c99e1192a8ff577f6381e5a9d13e5beff61e136110ca1b8170f7fcbf5f31a8f",
-  "06-viewer-resized.png": "c8e3a95ed2d3293000900bf8486ebff08641b4e6686d789c2226185add0a8555",
-  "07-chat-clamped.png": "bdbf754d4adc25576f130ff298aa638279f87e145314f2cc8f73cd826b6293e1",
+  "01-launch.png": "551e1a8d3c15ce60c5bda231887ef7c6cfcc39512d3edfd61d6aad014d0a360b",
+  "02-equipment-moved.png": "d6fd1ef0d330d25c08eeafc1b46ca5886a0bf96b1b6752245feb073264afc9f0",
+  "03-party-over-viewer.png": "ef3c17383e2a4c1fc4c2e9221750d4e04e881ce7ea67587e4e9028c6e34b4d38",
+  "04-viewer-moved.png": "1f6a59efc948f8a5e96b6971f904f2c5e71ff9643e92566d50a3b0c449158a1e",
+  "05-scrolled.png": "42b38c20ed25da253b855d6ccea03b708d48268818a757e0b73cd43a4b2f2a16",
+  "06-viewer-resized.png": "eec15566c56aae2b1fe1d80ad375258d1341abe6f11d34d82375dcb746f44055",
+  "07-chat-clamped.png": "109da5beccd6ffff688388a83597efabc0a3bb38153dc6bbdf15af5c08fc570e",
   "08-map.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
-  "09-resumed.png": "d067e0da4a0bebe5000a949fa86f05997e2e479683c58877e5ea05d76ab2c0d3",
-  "10-resized.png": "31d6bddf1fb319dc1fbc48ddee21b5650af7b2b141a5fdadf9067f11a37dfaf9"
+  "09-resumed.png": "abca2f4b9e5ce902c0555721503189aec7de1f439ef5e22b5ea075f3df58a87d",
+  "10-resized.png": "13c2de968243dbcb61f2d4b0a5a3a95a0c8501526a8157191b8bd70c5ef35f61",
+  "11-fill-1920x1000.png": "885cbea181f4781dfa45932937c2400c86cf735b25454f3d955e73691ede49ec",
+  "11-fill-1440x820.png": "16727406b5af909e8a09db68e3e7c2bc38fb20355a18cd311d26d6b41e5991e4"
  }
 }

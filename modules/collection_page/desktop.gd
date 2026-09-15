@@ -1,5 +1,6 @@
 ## The eight RO HUD windows of the Image Viewer desktop: each the owner's own screenshot, placed at
-## the layout reference's 1944x1280 review coordinates scaled to the Page, its magenta border
+## the layout reference's 1944x1280 review coordinates scaled to the Page and anchored to its
+## nearest edges (#63), its magenta border
 ## keyed out by remove-pink.gdshader. Reach it through interface.gd only.
 ##
 ## Ported from qwen-image-pipeline prototype/81-image-viewer @ 5d55209 desktop.gd. Changed: paths
@@ -7,6 +8,7 @@
 extends Control
 
 const ROOT := "res://modules/collection_page/"
+const DESKTOP := Vector2(1944, 1280)
 # Screenshot placements in the layout reference's 1944 x 1280 review coordinates.
 const PANELS := [
 	["equipment", Rect2(12, 20, 482, 254), 30],
@@ -44,11 +46,19 @@ func _ready() -> void:
 		panels.append(panel)
 
 
+## The windows at one uniform scale of the reference (#63), each kept at its native distance, times
+## the scale, from the page edges nearest its centre.
 func arrange(available: Vector2) -> void:
-	var factor := minf(available.x / 1944.0, available.y / 1280.0)
+	var factor := minf(available.x / DESKTOP.x, available.y / DESKTOP.y)
 	for index in panels.size():
 		var rect: Rect2 = PANELS[index][1]
-		panels[index].position = rect.position * factor
+		var at := rect.position * factor
+		var far := available - (DESKTOP - rect.position) * factor
+		if rect.get_center().x > DESKTOP.x / 2:
+			at.x = far.x
+		if rect.get_center().y > DESKTOP.y / 2:
+			at.y = far.y
+		panels[index].position = at
 		panels[index].size = rect.size * factor
 		panels[index].set_meta("drag_height", PANELS[index][2] * factor)
 

@@ -17,6 +17,11 @@ const FILES: Array[String] = ["reference.png", "assets/equipment.png", "assets/o
 	"assets/party.png", "assets/bottom.png"]
 const ART_SCALE := 0.375
 const MINIMUM_SIZE := Vector2(531, 250)
+## The viewer in the reference's 1944x1280 review coordinates, and its right and bottom edges'
+## native distances from the desktop's right and bottom: right, the desktop's own right margin;
+## bottom, the gap that keeps it clear of the party window below.
+const VIEWER_RECT := Rect2(529, 20, 1393, 658)
+const VIEWER_FAR_GAP := Vector2(22, 602)
 const WORKS := [
 	Rect2(125, 200, 1215, 1240), # First print and its three original icon groups.
 	Rect2(1374, 200, 763, 1118),
@@ -103,15 +108,18 @@ func _ready() -> void:
 	_fit()
 
 
-## The desktop's windows at the reference's positions fitted to the Page; a Page resize re-fits
-## them, as the prototype's desktop did on a viewport resize.
+## The desktop fills the Page (#63): the HUD windows at one uniform scale of the reference, anchored
+## to their nearest page edges (desktop.gd arrange), and the viewer takes the leftover — its left
+## edge beside the HUD column and its bottom above the party window keep their native gaps, its top
+## and right run to the page edge minus the desktop's native margin (VIEWER_FAR_GAP). Laid out
+## again on every resize.
 func _fit() -> void:
 	action = ""
 	var available := size
 	desktop.arrange(available)
 	factor = minf(available.x / 1944.0, available.y / 1280.0)
-	frame.position = Vector2(529, 20) * factor
-	frame.size = Vector2(1393, 658) * factor
+	frame.position = VIEWER_RECT.position * factor
+	frame.size = available - VIEWER_FAR_GAP * factor - frame.position
 	# The gallery still fits one fixed-size card on narrow displays.
 	frame.size = frame.size.max(MINIMUM_SIZE)
 	frame.position = frame.position.min((available - frame.size).max(Vector2.ZERO))

@@ -174,4 +174,13 @@ func _initialize() -> void:
 	_page(shell, "resized")
 	await _shot(out_dir, "10-resized.png")
 
+	# 12. #63: pages of 1920x1000 and 1440x820 (the window is the page plus the bar, 161/4180 of its
+	#     width): the desktop spans the page on both axes and the viewer takes the leftover
+	for size in [Vector2i(1920, 1000), Vector2i(1440, 820)]:
+		root.size = Vector2i(size.x, roundi(size.y + 161.0 * size.x / 4180.0))
+		await _frames(4)
+		_shell_state(shell, "fill-%dx%d" % [size.x, size.y])
+		_page(shell, "fill-%dx%d" % [size.x, size.y])
+		await _shot(out_dir, "11-fill-%dx%d.png" % [size.x, size.y])
+
 	_finish(out_dir)
