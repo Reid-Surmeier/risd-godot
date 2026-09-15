@@ -1,7 +1,8 @@
 {
   "schema": "selected-tab-production-assets/v1",
   "sourceRepository": "Reid-Surmeier/risd-godot",
-  "sourceCommit": "12c5431",
+  "sourceCommit": "1072431c12d38bafcdfceb278726f8d2a3e69ac5",
+  "anchorReviewArtifact": "image-work/selected-tab/motion-repaired/anchor-review-v2.json",
   "authorityIssue": 86,
   "applicationIssue": 70,
   "provider": "openrouter",

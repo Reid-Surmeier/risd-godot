@@ -49,11 +49,13 @@ try {
 		await page.setViewportSize({width, height});
 		await page.waitForFunction(([w, h]) => window.shellCrtQa.display_size[0] === w && window.shellCrtQa.display_size[1] === h, [width, height]);
 		const selected = [];
-		for (const index of [0, 1, 2, 3, 4, 5, 4]) {
+		for (const index of [0, 1, 2, 3, 4, 5, 4, 4]) {
 			await clickTab(index); selected.push(index);
 		}
+		await page.waitForTimeout(160);
 		const s = await state();
 		assert.equal(s.shell.tabs.length, 6);
+		assert.equal(s.shell.active, 4, 'repeat-selecting Collection must keep it active');
 		assert.ok(s.shell.tabs.every(tab => Math.abs(tab.rect[2] / tab.rect[3] - 380 / 123) < .01),
 			JSON.stringify(s.shell.tabs.map(tab => tab.rect.slice(2))));
 		await page.screenshot({path: `${out}/selected-${width}x${height}.png`});
@@ -73,10 +75,15 @@ try {
 	await page.waitForTimeout(160);
 	const held = await page.screenshot({clip});
 	assert.ok(steady.equals(held), 'Selected blue endpoint must hold steady');
+	s = await state(); [x, y, w, h] = s.shell.tabs[4].rect;
+	await page.mouse.click(...screen(x + w / 2, y + h / 2, s));
+	await page.waitForTimeout(160);
+	const repeated = await page.screenshot({clip});
+	assert.ok(held.equals(repeated), 'Repeat selection must keep the same blue endpoint');
 
 	assert.deepEqual(errors, []);
 	const report = {status: 'pass', url: process.argv[2], results,
-		motion: {generatedEntranceAvailable: false, browserEndpointSteady: true}, expected404: [...new Set(expected404)], errors};
+		motion: {generatedEntranceAvailable: false, browserEndpointSteady: true, repeatSelectionSteady: true}, expected404: [...new Set(expected404)], errors};
 	writeFileSync(out + '/browser-report.json', JSON.stringify(report, null, 2) + '\n');
 	console.log(JSON.stringify(report));
 } finally {

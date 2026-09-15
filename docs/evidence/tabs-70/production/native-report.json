@@ -10,7 +10,7 @@
       "page_visible": false,
       "pressed": -1,
       "switching": false,
-      "t_ms": 71,
+      "t_ms": 76,
       "tab_rect": {
         "h": 49.1483154296875,
         "w": 82.679443359375,
@@ -30,7 +30,7 @@
       "page_visible": false,
       "pressed": -1,
       "switching": false,
-      "t_ms": 146,
+      "t_ms": 151,
       "tab_rect": {
         "h": 49.1483154296875,
         "w": 82.679443359375,
@@ -50,12 +50,12 @@
       "page_visible": false,
       "pressed": -1,
       "switching": false,
-      "t_ms": 215,
+      "t_ms": 221,
       "tab_rect": {
-        "h": 51.57421875,
-        "w": 112.995239257812,
+        "h": 52.2445068359375,
+        "w": 121.26318359375,
         "x": 694.966491699219,
-        "y": 1026.12915039062
+        "y": 1025.45886230469
       },
       "tenant": null,
       "tint": 0.0
@@ -70,12 +70,12 @@
       "page_visible": false,
       "pressed": -1,
       "switching": false,
-      "t_ms": 284,
+      "t_ms": 290,
       "tab_rect": {
-        "h": 54.1654663085938,
-        "w": 145.607666015625,
+        "h": 54.5180053710938,
+        "w": 149.741638183594,
         "x": 694.966491699219,
-        "y": 1023.53790283203
+        "y": 1023.18536376953
       },
       "tenant": null,
       "tint": 0.0
@@ -90,12 +90,12 @@
       "page_visible": false,
       "pressed": -1,
       "switching": false,
-      "t_ms": 347,
+      "t_ms": 353,
       "tab_rect": {
-        "h": 55.5181274414062,
-        "w": 162.1435546875,
+        "h": 55.7322998046875,
+        "w": 164.899536132812,
         "x": 694.966491699219,
-        "y": 1022.18524169922
+        "y": 1021.97106933594
       },
       "tenant": null,
       "tint": 0.0
@@ -110,12 +110,12 @@
       "page_visible": false,
       "pressed": -1,
       "switching": false,
-      "t_ms": 410,
+      "t_ms": 416,
       "tab_rect": {
-        "h": 56.2118530273438,
-        "w": 170.870788574219,
+        "h": 56.3025512695312,
+        "w": 172.248840332031,
         "x": 694.966491699219,
-        "y": 1021.49151611328
+        "y": 1021.40081787109
       },
       "tenant": null,
       "tint": 0.0
@@ -130,32 +130,12 @@
       "page_visible": false,
       "pressed": -1,
       "switching": false,
-      "t_ms": 474,
+      "t_ms": 480,
       "tab_rect": {
-        "h": 56.4601440429688,
-        "w": 174.086120605469,
-        "x": 694.966491699219,
-        "y": 1021.24322509766
-      },
-      "tenant": null,
-      "tint": 0.0
-    },
-    {
-      "active": -1,
-      "event": "frame",
-      "file": "frames/launch-0007.png",
-      "film": "launch",
-      "n": 7,
-      "opening": true,
-      "page_visible": false,
-      "pressed": -1,
-      "switching": false,
-      "t_ms": 536,
-      "tab_rect": {
-        "h": 56.4976196289062,
+        "h": 56.4808349609375,
         "w": 174.545471191406,
         "x": 694.966491699219,
-        "y": 1021.20574951172
+        "y": 1021.22253417969
       },
       "tenant": null,
       "tint": 0.0
@@ -164,7 +144,27 @@
       "event": "signal",
       "key": "collection",
       "signal": "tenant_created",
-      "t_ms": 536
+      "t_ms": 480
+    },
+    {
+      "active": 4,
+      "event": "frame",
+      "file": "frames/launch-0007.png",
+      "film": "launch",
+      "n": 7,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": true,
+      "t_ms": 544,
+      "tab_rect": {
+        "h": 56.4976196289062,
+        "w": 174.545471191406,
+        "x": 694.966491699219,
+        "y": 1021.20574951172
+      },
+      "tenant": "ok",
+      "tint": 1.0
     },
     {
       "active": 4,
@@ -176,7 +176,7 @@
       "page_visible": true,
       "pressed": -1,
       "switching": true,
-      "t_ms": 599,
+      "t_ms": 609,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545471191406,
@@ -184,7 +184,7 @@
         "y": 1021.20574951172
       },
       "tenant": "ok",
-      "tint": 0.0
+      "tint": 1.0
     },
     {
       "active": 4,
@@ -196,7 +196,7 @@
       "page_visible": true,
       "pressed": -1,
       "switching": true,
-      "t_ms": 663,
+      "t_ms": 673,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545471191406,
@@ -204,7 +204,7 @@
         "y": 1021.20574951172
       },
       "tenant": "ok",
-      "tint": 0.314040005207062
+      "tint": 1.0
     },
     {
       "active": 4,
@@ -216,7 +216,7 @@
       "page_visible": true,
       "pressed": -1,
       "switching": true,
-      "t_ms": 727,
+      "t_ms": 737,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545471191406,
@@ -224,7 +224,13 @@
         "y": 1021.20574951172
       },
       "tenant": "ok",
-      "tint": 0.633080005645752
+      "tint": 1.0
+    },
+    {
+      "event": "signal",
+      "index": 4,
+      "signal": "switch_settled",
+      "t_ms": 737
     },
     {
       "active": 4,
@@ -235,8 +241,8 @@
       "opening": false,
       "page_visible": true,
       "pressed": -1,
-      "switching": true,
-      "t_ms": 792,
+      "switching": false,
+      "t_ms": 801,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545471191406,
@@ -244,13 +250,7 @@
         "y": 1021.20574951172
       },
       "tenant": "ok",
-      "tint": 0.953459978103638
-    },
-    {
-      "event": "signal",
-      "index": 4,
-      "signal": "switch_settled",
-      "t_ms": 792
+      "tint": 1.0
     },
     {
       "active": 4,
@@ -262,7 +262,7 @@
       "page_visible": true,
       "pressed": -1,
       "switching": false,
-      "t_ms": 856,
+      "t_ms": 867,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545471191406,
@@ -282,7 +282,7 @@
       "page_visible": true,
       "pressed": -1,
       "switching": false,
-      "t_ms": 921,
+      "t_ms": 933,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545471191406,
@@ -302,7 +302,7 @@
       "page_visible": true,
       "pressed": -1,
       "switching": false,
-      "t_ms": 985,
+      "t_ms": 999,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545471191406,
@@ -322,7 +322,7 @@
       "page_visible": true,
       "pressed": -1,
       "switching": false,
-      "t_ms": 1049,
+      "t_ms": 1064,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545471191406,
@@ -353,7 +353,7 @@
         "y": 1028.55505371094
       },
       "switching": false,
-      "t_ms": 1049,
+      "t_ms": 1064,
       "tabs": [
         {
           "close_rect": {
@@ -492,7 +492,7 @@
         0,
         0
       ],
-      "t_ms": 1049,
+      "t_ms": 1064,
       "ticks": -1
     },
     {
@@ -506,7 +506,7 @@
         0,
         0
       ],
-      "t_ms": 1049,
+      "t_ms": 1064,
       "ticks": -1
     },
     {
@@ -520,7 +520,7 @@
         0,
         0
       ],
-      "t_ms": 1049,
+      "t_ms": 1064,
       "ticks": -1
     },
     {
@@ -534,7 +534,7 @@
         0,
         0
       ],
-      "t_ms": 1049,
+      "t_ms": 1064,
       "ticks": -1
     },
     {
@@ -548,8 +548,8 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 1049,
-      "ticks": 7
+      "t_ms": 1064,
+      "ticks": 8
     },
     {
       "code": "shell.tenant_missing",
@@ -562,13 +562,13 @@
         0,
         0
       ],
-      "t_ms": 1049,
+      "t_ms": 1064,
       "ticks": -1
     },
     {
       "event": "screenshot",
       "file": "01-launch.png",
-      "t_ms": 1123
+      "t_ms": 1140
     },
     {
       "active": 4,
@@ -591,7 +591,7 @@
         "y": 1028.55505371094
       },
       "switching": false,
-      "t_ms": 1124,
+      "t_ms": 1140,
       "tabs": [
         {
           "close_rect": {
@@ -723,11 +723,11 @@
       "event": "signal",
       "key": "map",
       "signal": "tenant_created",
-      "t_ms": 1134
+      "t_ms": 1151
     },
     {
       "event": "click",
-      "t_ms": 1144,
+      "t_ms": 1161,
       "what": "map tab",
       "x": 207.157897949219,
       "y": 1049.45458984375
@@ -742,7 +742,7 @@
       "page_visible": true,
       "pressed": 0,
       "switching": true,
-      "t_ms": 1215,
+      "t_ms": 1232,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545471191406,
@@ -750,7 +750,7 @@
         "y": 1023.96173095703
       },
       "tenant": "ok",
-      "tint": 0.385064452886581
+      "tint": 1.0
     },
     {
       "active": 0,
@@ -762,7 +762,7 @@
       "page_visible": true,
       "pressed": 0,
       "switching": true,
-      "t_ms": 1284,
+      "t_ms": 1303,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545471191406,
@@ -770,7 +770,7 @@
         "y": 1023.96173095703
       },
       "tenant": "ok",
-      "tint": 0.464566111564636
+      "tint": 1.0
     },
     {
       "active": 0,
@@ -782,7 +782,7 @@
       "page_visible": true,
       "pressed": -1,
       "switching": true,
-      "t_ms": 1350,
+      "t_ms": 1369,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545471191406,
@@ -790,13 +790,13 @@
         "y": 1021.20574951172
       },
       "tenant": "ok",
-      "tint": 0.78635448217392
+      "tint": 1.0
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "switch_settled",
-      "t_ms": 1350
+      "t_ms": 1369
     },
     {
       "active": 0,
@@ -808,7 +808,7 @@
       "page_visible": true,
       "pressed": -1,
       "switching": false,
-      "t_ms": 1413,
+      "t_ms": 1433,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545471191406,
@@ -828,7 +828,7 @@
       "page_visible": true,
       "pressed": -1,
       "switching": false,
-      "t_ms": 1478,
+      "t_ms": 1497,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545471191406,
@@ -848,7 +848,7 @@
       "page_visible": true,
       "pressed": -1,
       "switching": false,
-      "t_ms": 1542,
+      "t_ms": 1562,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545471191406,
@@ -879,7 +879,7 @@
         "y": 1028.55505371094
       },
       "switching": false,
-      "t_ms": 1542,
+      "t_ms": 1562,
       "tabs": [
         {
           "close_rect": {
@@ -1018,7 +1018,7 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 1542,
+      "t_ms": 1562,
       "ticks": 7
     },
     {
@@ -1032,23 +1032,23 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 1692,
+      "t_ms": 1711,
       "ticks": 27
     },
     {
       "event": "screenshot",
       "file": "02-map.png",
-      "t_ms": 1762
+      "t_ms": 1782
     },
     {
       "event": "signal",
       "key": "sketchbook",
       "signal": "tenant_created",
-      "t_ms": 1773
+      "t_ms": 1793
     },
     {
       "event": "click",
-      "t_ms": 1782,
+      "t_ms": 1801,
       "what": "sketchbook tab",
       "x": 350.92822265625,
       "y": 1049.45458984375
@@ -1057,7 +1057,7 @@
       "event": "signal",
       "index": 1,
       "signal": "switch_settled",
-      "t_ms": 1899
+      "t_ms": 1926
     },
     {
       "active": 1,
@@ -1080,7 +1080,7 @@
         "y": 1028.55505371094
       },
       "switching": false,
-      "t_ms": 2219,
+      "t_ms": 2239,
       "tabs": [
         {
           "close_rect": {
@@ -1219,8 +1219,8 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 2219,
-      "ticks": 45
+      "t_ms": 2239,
+      "ticks": 46
     },
     {
       "code": "",
@@ -1233,13 +1233,13 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 2219,
+      "t_ms": 2239,
       "ticks": 60
     },
     {
       "event": "key",
       "keycode": "Space",
-      "t_ms": 2233,
+      "t_ms": 2254,
       "what": "space key while map is hidden"
     },
     {
@@ -1253,8 +1253,8 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 2380,
-      "ticks": 45
+      "t_ms": 2401,
+      "ticks": 46
     },
     {
       "code": "",
@@ -1267,17 +1267,17 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 2380,
+      "t_ms": 2401,
       "ticks": 81
     },
     {
       "event": "screenshot",
       "file": "03-sketchbook.png",
-      "t_ms": 2452
+      "t_ms": 2471
     },
     {
       "event": "click",
-      "t_ms": 2471,
+      "t_ms": 2490,
       "what": "map tab (again)",
       "x": 207.157897949219,
       "y": 1049.45458984375
@@ -1293,14 +1293,14 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 2471,
-      "ticks": 46
+      "t_ms": 2490,
+      "ticks": 47
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "switch_settled",
-      "t_ms": 2592
+      "t_ms": 2606
     },
     {
       "active": 0,
@@ -1323,7 +1323,7 @@
         "y": 1028.55505371094
       },
       "switching": false,
-      "t_ms": 2908,
+      "t_ms": 2926,
       "tabs": [
         {
           "close_rect": {
@@ -1462,12 +1462,12 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 3056,
-      "ticks": 123
+      "t_ms": 3073,
+      "ticks": 125
     },
     {
       "event": "click",
-      "t_ms": 3071,
+      "t_ms": 3088,
       "what": "where the close button of the map tab would be",
       "x": 252.631576538086,
       "y": 1047.38757324219
@@ -1476,13 +1476,13 @@
       "event": "signal",
       "index": 0,
       "signal": "switch_settled",
-      "t_ms": 3260
+      "t_ms": 3281
     },
     {
       "code": "shell.tab_fixed",
       "event": "close_fixed",
       "ok": false,
-      "t_ms": 3978
+      "t_ms": 3987
     },
     {
       "active": 0,
@@ -1505,7 +1505,7 @@
         "y": 1028.55505371094
       },
       "switching": false,
-      "t_ms": 3978,
+      "t_ms": 3988,
       "tabs": [
         {
           "close_rect": {
@@ -1636,11 +1636,11 @@
     {
       "event": "screenshot",
       "file": "04-fixed-kept.png",
-      "t_ms": 4049
+      "t_ms": 4061
     },
     {
       "event": "click",
-      "t_ms": 4068,
+      "t_ms": 4081,
       "what": "new-tab stub",
       "x": 1027.06213378906,
       "y": 1053.12915039062
@@ -1649,7 +1649,7 @@
       "event": "signal",
       "index": 6,
       "signal": "switch_settled",
-      "t_ms": 4770
+      "t_ms": 4775
     },
     {
       "active": 6,
@@ -1672,7 +1672,7 @@
         "y": 1028.55505371094
       },
       "switching": false,
-      "t_ms": 5868,
+      "t_ms": 5874,
       "tabs": [
         {
           "close_rect": {
@@ -1823,7 +1823,7 @@
     {
       "event": "screenshot",
       "file": "05-stub-blank.png",
-      "t_ms": 5942
+      "t_ms": 5944
     },
     {
       "active": 6,
@@ -1846,7 +1846,7 @@
         "y": 1028.55505371094
       },
       "switching": false,
-      "t_ms": 5943,
+      "t_ms": 5945,
       "tabs": [
         {
           "close_rect": {
@@ -1996,7 +1996,7 @@
     },
     {
       "event": "click",
-      "t_ms": 5960,
+      "t_ms": 5962,
       "what": "close button of the blank tab",
       "x": 1115.25354003906,
       "y": 1047.38757324219
@@ -2005,13 +2005,13 @@
       "event": "signal",
       "key": "playground",
       "signal": "tenant_created",
-      "t_ms": 6252
+      "t_ms": 6264
     },
     {
       "event": "signal",
       "index": 5,
       "signal": "switch_settled",
-      "t_ms": 6470
+      "t_ms": 6462
     },
     {
       "active": 5,
@@ -2034,7 +2034,7 @@
         "y": 1028.55505371094
       },
       "switching": false,
-      "t_ms": 6853,
+      "t_ms": 6850,
       "tabs": [
         {
           "close_rect": {
@@ -2173,17 +2173,17 @@
         0,
         0
       ],
-      "t_ms": 6853,
+      "t_ms": 6850,
       "ticks": -1
     },
     {
       "event": "screenshot",
       "file": "06-grey.png",
-      "t_ms": 6924
+      "t_ms": 6923
     },
     {
       "event": "click",
-      "t_ms": 6943,
+      "t_ms": 6942,
       "what": "collection tab",
       "x": 782.2392578125,
       "y": 1049.45458984375
@@ -2198,7 +2198,7 @@
       "page_visible": true,
       "pressed": 4,
       "switching": true,
-      "t_ms": 7019,
+      "t_ms": 7017,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545532226562,
@@ -2206,7 +2206,7 @@
         "y": 1023.96173095703
       },
       "tenant": "ok",
-      "tint": 0.409720540046692
+      "tint": 1.0
     },
     {
       "active": 4,
@@ -2218,7 +2218,7 @@
       "page_visible": true,
       "pressed": 4,
       "switching": true,
-      "t_ms": 7092,
+      "t_ms": 7089,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545532226562,
@@ -2226,7 +2226,7 @@
         "y": 1023.96173095703
       },
       "tenant": "ok",
-      "tint": 0.496272206306458
+      "tint": 1.0
     },
     {
       "active": 4,
@@ -2238,7 +2238,7 @@
       "page_visible": true,
       "pressed": -1,
       "switching": true,
-      "t_ms": 7158,
+      "t_ms": 7156,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545532226562,
@@ -2246,13 +2246,13 @@
         "y": 1021.20574951172
       },
       "tenant": "ok",
-      "tint": 0.792428910732269
+      "tint": 1.0
     },
     {
       "event": "signal",
       "index": 4,
       "signal": "switch_settled",
-      "t_ms": 7158
+      "t_ms": 7156
     },
     {
       "active": 4,
@@ -2264,7 +2264,7 @@
       "page_visible": true,
       "pressed": -1,
       "switching": false,
-      "t_ms": 7223,
+      "t_ms": 7221,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545532226562,
@@ -2284,7 +2284,7 @@
       "page_visible": true,
       "pressed": -1,
       "switching": false,
-      "t_ms": 7288,
+      "t_ms": 7286,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545532226562,
@@ -2304,7 +2304,7 @@
       "page_visible": true,
       "pressed": -1,
       "switching": false,
-      "t_ms": 7353,
+      "t_ms": 7351,
       "tab_rect": {
         "h": 56.4976196289062,
         "w": 174.545532226562,
@@ -2335,7 +2335,7 @@
         "y": 1028.55505371094
       },
       "switching": false,
-      "t_ms": 7353,
+      "t_ms": 7351,
       "tabs": [
         {
           "close_rect": {
@@ -2479,7 +2479,7 @@
       "event": "signal",
       "index": 3,
       "signal": "switch_settled",
-      "t_ms": 7551
+      "t_ms": 7566
     },
     {
       "active": 3,
@@ -2502,7 +2502,7 @@
         "y": 1028.55505371094
       },
       "switching": false,
-      "t_ms": 7879,
+      "t_ms": 7873,
       "tabs": [
         {
           "close_rect": {
@@ -2641,17 +2641,17 @@
         0,
         0
       ],
-      "t_ms": 7879,
+      "t_ms": 7873,
       "ticks": -1
     },
     {
       "event": "screenshot",
       "file": "08-untenanted.png",
-      "t_ms": 7949
+      "t_ms": 7944
     },
     {
       "event": "click",
-      "t_ms": 7967,
+      "t_ms": 7963,
       "what": "collection tab (again)",
       "x": 782.2392578125,
       "y": 1049.45458984375
@@ -2660,7 +2660,7 @@
       "event": "signal",
       "index": 4,
       "signal": "switch_settled",
-      "t_ms": 8086
+      "t_ms": 8093
     },
     {
       "active": 4,
@@ -2683,7 +2683,7 @@
         "y": 861.416259765625
       },
       "switching": false,
-      "t_ms": 8445,
+      "t_ms": 8427,
       "tabs": [
         {
           "close_rect": {
@@ -2778,7 +2778,7 @@
           "label": "collection",
           "page_visible": true,
           "rect": {
-            "h": 42.3732299804688,
+            "h": 42.3731689453125,
             "w": 130.909118652344,
             "x": 521.224914550781,
             "y": 855.904296875
@@ -2822,13 +2822,13 @@
         1440.0,
         844.535888671875
       ],
-      "t_ms": 8446,
+      "t_ms": 8427,
       "ticks": 102
     },
     {
       "event": "screenshot",
       "file": "09-resized.png",
-      "t_ms": 8492
+      "t_ms": 8473
     },
     {
       "active": 4,
@@ -2851,7 +2851,7 @@
         "y": 1028.55505371094
       },
       "switching": false,
-      "t_ms": 8528,
+      "t_ms": 8512,
       "tabs": [
         {
           "close_rect": {
@@ -2990,13 +2990,13 @@
         1920.0,
         1006.0478515625
       ],
-      "t_ms": 8528,
+      "t_ms": 8512,
       "ticks": 106
     },
     {
       "event": "screenshot",
       "file": "10-restored.png",
-      "t_ms": 8599
+      "t_ms": 8582
     }
   ],
   "viewport": [

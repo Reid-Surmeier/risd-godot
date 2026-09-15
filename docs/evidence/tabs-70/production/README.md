@@ -17,10 +17,14 @@ state and pixel check. Its film records the steady blue endpoint for both Map an
 Collection. The reusable non-Shell tab strip
 keeps its original geometry and passed its existing playtest unchanged.
 
-The exact `dab7341` Web export selected all six tabs at 1920×1080 and
-720×486, measured each at 380 source pixels, returned to Collection, and found
-the settled blue crop unchanged after another 160 ms. No browser or network
+The exact `4881913` Web export selected all six tabs at 1920×1080 and
+720×486, measured each at 380 source pixels, returned to Collection, selected
+Collection again, and found the blue crop unchanged. The browser also asserted
+the origin-scoped favicon 404 explicitly. No unexpected browser or network
 errors were observed.
+
+The exported PCK SHA-256 is
+`527b00937aaf31b809f27f2a93af7c23fc0073a1d63f8f039d335b4ad61f426d`.
 
 Muse produced the recorded blue donor through OpenRouter. Three one-output
 Seedance requests are preserved as unreconciled and possibly spent; the third

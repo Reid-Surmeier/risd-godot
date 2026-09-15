@@ -55,23 +55,23 @@
   },
   "launch_tab_grows_to_its_width": {
    "pass": true,
-   "detail": "[83, 83, 113, 146, 162, 171, 174, 175, 175, 175, 175, 175, 175, 175, 175, 175]"
+   "detail": "[83, 83, 121, 150, 165, 172, 175, 175, 175, 175, 175, 175, 175, 175, 175, 175]"
   },
   "page_shows_only_after_the_grow_settles": {
    "pass": true,
-   "detail": "first shown at frame 8"
+   "detail": "first shown at frame 7"
   },
   "grow_frame_shows_the_bar_in_the_gap_left_of_playground": {
    "pass": true,
-   "detail": "gap (6, 23, 3) std 5.0"
+   "detail": "gap (5, 14, 3) std 5.2"
   },
   "launch_settles_after_press_grow_and_fade": {
    "pass": true,
-   "detail": "792 ms"
+   "detail": "737 ms"
   },
   "launch_tenant_created_at_settle": {
    "pass": true,
-   "detail": "536 ms"
+   "detail": "480 ms"
   },
   "click_map_shows_map_page": {
    "pass": true,
@@ -79,15 +79,15 @@
   },
   "clicked_tab_shows_pressed_tint_within_100ms": {
    "pass": true,
-   "detail": "early frames [(71, [228, 218, 226])]"
+   "detail": "early frames [(71, [113, 194, 218])]"
   },
   "selected_tab_blue_after_the_dip": {
    "pass": true,
-   "detail": "late frames [(269, [127, 227, 246]), (334, [127, 227, 246]), (398, [127, 227, 246])]"
+   "detail": "late frames [(272, [127, 227, 246]), (336, [127, 227, 246]), (401, [127, 227, 246])]"
   },
-  "selected_blue_reveals_then_holds": {
+  "selected_blue_endpoint_is_static": {
    "pass": true,
-   "detail": "tints [0.39, 0.46, 0.79, 1.0, 1.0, 1.0]"
+   "detail": "tints [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]"
   },
   "dip_reported_then_released": {
    "pass": true,
@@ -95,7 +95,7 @@
   },
   "page_switch_settles_in_about_200ms": {
    "pass": true,
-   "detail": "206 ms"
+   "detail": "208 ms"
   },
   "shown_tenant_process_runs": {
    "pass": true,
@@ -111,7 +111,7 @@
   },
   "hidden_tenant_process_stops": {
    "pass": true,
-   "detail": "45 -> 45 over 20 frames"
+   "detail": "46 -> 46 over 20 frames"
   },
   "hidden_tenant_gets_no_input": {
    "pass": true,
@@ -123,7 +123,7 @@
   },
   "map_resumes_with_state_intact": {
    "pass": true,
-   "detail": "frozen at 45, resumed 46 -> 123"
+   "detail": "frozen at 46, resumed 47 -> 125"
   },
   "fixed_close_refused_by_interface": {
    "pass": true,
@@ -151,19 +151,19 @@
   },
   "page_cross_fades_through_in_between_greys": {
    "pass": true,
-   "detail": "[236, 243, 254, 255, 255, 255]"
+   "detail": "[237, 238, 255, 255, 255, 255]"
   },
   "collection_tab_dips_on_click": {
    "pass": true,
-   "detail": "[(76, [228, 218, 226]), (149, [188, 210, 223]), (215, [127, 227, 246]), (280, [127, 227, 246]), (345, [127, 227, 246]), (410, [127, 227, 246])]"
+   "detail": "[(75, [113, 194, 218]), (147, [113, 194, 218]), (214, [127, 227, 246]), (279, [127, 227, 246]), (344, [127, 227, 246]), (409, [127, 227, 246])]"
   },
-  "collection_blue_reveals_then_holds": {
+  "collection_blue_endpoint_is_static": {
    "pass": true,
-   "detail": "tints [0.41, 0.5, 0.79, 1.0, 1.0, 1.0]"
+   "detail": "tints [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]"
   },
   "grey_to_collection_settles_in_about_200ms": {
    "pass": true,
-   "detail": "215 ms"
+   "detail": "214 ms"
   },
   "grey_page_frozen_after_the_fade": {
    "pass": true,
