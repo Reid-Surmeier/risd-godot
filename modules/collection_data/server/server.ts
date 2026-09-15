@@ -81,7 +81,11 @@ const server = createServer(async (request, response) => {
       response.writeHead(200, {...headers, 'content-type':reply.value.mime, 'cache-control':'public, max-age=31536000, immutable'}); response.end(reply.value.bytes); return;
     }
     const path = resolve(root, '.' + decodeURIComponent(url.pathname === '/' ? '/index.html' : url.pathname));
-    if (!path.startsWith(root + sep) || !mime[extname(path)] || !(await stat(path)).isFile()) {send(404, {ok:false,value:null,error:{code:'collection_data.invalid_query',detail:'Not found'}}); return;}
+    const stats = path.startsWith(root + sep) && mime[extname(path)] ? await stat(path).catch((error: NodeJS.ErrnoException) => {
+      if (error.code === 'ENOENT') return null;
+      throw error;
+    }) : null;
+    if (!stats?.isFile()) {send(404, {ok:false,value:null,error:{code:'collection_data.invalid_query',detail:'Not found'}}); return;}
     response.writeHead(200, {...headers, 'content-type':mime[extname(path)], 'cache-control':'no-store'});
     const file = createReadStream(path); file.on('error', () => response.destroy()); file.pipe(response);
   } catch {if (!response.headersSent) send(502, {ok:false,value:null,error:{code:'collection_data.invalid_response',detail:'Collection route failed'}}); else response.destroy();}
