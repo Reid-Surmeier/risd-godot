@@ -55,6 +55,8 @@ func _vp(shell: Control, label: String) -> Dictionary:
 			controls[n] = _rect(v.controls[n])
 		entry.merge({"ticks": v.ticks, "size": [v.size.x, v.size.y],
 				"viewer": {"position": [v.viewer.position.x, v.viewer.position.y], "scale": v.viewer.scale, "rect": _rect(v.viewer.rect)},
+				"information": {"position": [v.information.position.x, v.information.position.y], "rect": _rect(v.information.rect)},
+				"arrangement": v.arrangement,
 				"selected_video": v.selected_video, "video_id": v.video_id, "title": v.title, "playing": v.playing,
 				"paused": v.paused, "hidden_paused": v.hidden_paused, "muted": v.muted, "volume": v.volume,
 				"fullscreen": v.fullscreen, "stream_position": v.stream_position, "stream_length": v.stream_length,
@@ -168,6 +170,12 @@ func _initialize() -> void:
 	await _drag(_c(m.controls.title_bar), Vector2(300, 200), 6, "drag the title bar past the page's bottom-right corner")
 	await _frames(3)
 	_vp(shell, "viewer-clamped")
+
+	# 9b. #63: the Information window drags by its own title bar; the Fly Through window stays
+	var cl := _vp(shell, "viewer-clamped-probe")
+	await _drag(_c(cl.controls.info_title_bar), Vector2(-12, 6), 5, "drag the information window by its title bar")
+	await _frames(3)
+	_vp(shell, "information-moved")
 
 	# 10. hide: the Map tab (no Tenant) shows a white page; the player is frozen and paused, its
 	#     position stands still, and keys and a click aimed at it change nothing
