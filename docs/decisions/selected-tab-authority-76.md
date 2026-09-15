@@ -63,7 +63,7 @@ The provider clip's duration is distinct from playback duration. Refresh capabil
 
 ## Policy implementation handoff
 
-Create a native map child to amend exactly `AGENTS.md` (Generated pixels), `docs/adr/0001-icon-foundry.md` (a dated selected-tab exception), and `CONTEXT.md` (approval/Assembly vocabulary only as needed). The ticket must encode the decisions above without relaxing Foundry icon rules, real-video requirements elsewhere, provider/spend gates, or certification. No module interface, error type, acceptance test, generated image or runtime code changes belong in that policy ticket.
+Create a native map child to amend exactly `AGENTS.md` (Generated pixels), `docs/adr/0001-icon-foundry.md` (a dated selected-tab exception), and `CONTEXT.md` (the scoped Assembly, Anchor and Motion Pass definitions/relationships). The glossary currently requires a whole four-state State Set per Motion Pass; explicitly permit this selected-tab entrance and held endpoint without changing the Foundry's four-state definition. The ticket must encode the decisions above without relaxing Foundry icon rules, real-video requirements elsewhere, provider/spend gates, or certification. No module interface, error type, acceptance test, generated image or runtime code changes belong in that policy ticket.
 
 Make that policy ticket a native blocker of [smaller tabs and clear blue selection](https://github.com/Reid-Surmeier/risd-godot/issues/70) before resolving this decision. Resolution clears the policy question; the explicit implementation prerequisite remains. The geometry-sensitive frozen tests and runnable implementation still need their own scoped acceptance issue after the prototype. No old study branch is merged wholesale.
 
