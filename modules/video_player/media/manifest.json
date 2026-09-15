@@ -74,12 +74,13 @@
       },
       "preview": {
         "file": "1187745268.ogv",
-        "sha256": "4c0d625da928dedba63dc5da4ba2f8145a9e426af31853853190eaeff63aec13",
-        "bytes": 67293809,
+        "sha256": "8d29a74abacd1c580890358d4ebe34518084e6f71895589f1835b00ea8e2045a",
+        "bytes": 4866025,
         "width": 480,
         "height": 270,
         "fps": "24/1",
-        "duration_seconds": 3032.856
+        "duration_seconds": 180.015,
+        "trimmed": "first 180 s of the source preview (stream copy, ffmpeg -t 180), so the Web export downloads 28 MB of video instead of 96 MB"
       }
     },
     {
@@ -146,12 +147,13 @@
       },
       "preview": {
         "file": "1008943970.ogv",
-        "sha256": "156355a49bd19a8bd205fc01b403b2e08a2c6cad2d914c3e6b020d65354f04fd",
-        "bytes": 13186787,
+        "sha256": "b68693ab10c3f2fe50fe2c19f6f3e3acf5ed8bc8e46972b33dc275e950b8f544",
+        "bytes": 7588384,
         "width": 480,
         "height": 320,
         "fps": "24/1",
-        "duration_seconds": 386.819
+        "duration_seconds": 180.015,
+        "trimmed": "first 180 s of the source preview (stream copy, ffmpeg -t 180), so the Web export downloads 28 MB of video instead of 96 MB"
       }
     }
   ]
