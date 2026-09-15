@@ -194,4 +194,13 @@ func _initialize() -> void:
 	_viewer(shell, "restored")
 	await _shot(out_dir, "12-restored.png")
 
+	# 13. #63: pages of 1920x1000 and 1440x820 (the window is the page plus the bar, 161/4180 of its
+	#     width): the desktop fills the page and the viewer window takes the largest size its slot allows
+	for page in [Vector2i(1920, 1000), Vector2i(1440, 820)]:
+		root.size = Vector2i(page.x, roundi(page.y + 161.0 * page.x / 4180.0))
+		await _frames(4)
+		_state(shell, "fill-%dx%d" % [page.x, page.y])
+		_viewer(shell, "fill-%dx%d" % [page.x, page.y])
+		await _shot(out_dir, "13-fill-%dx%d.png" % [page.x, page.y])
+
 	_finish(out_dir)

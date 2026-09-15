@@ -1,6 +1,6 @@
 ## The 3D Viewer Tenant: the Sculpture Viewer prototype's desktop — a white 1440x972 ground with
 ## the catalogue window (the sidebar picture, drag only) and the 800x680 viewer window (viewer.gd)
-## — scaled to fit the Page. Windows drag by their handles, raise on click and stack. Reach it
+## — filling the Page at one uniform scale (#63). Windows drag by their handles, raise on click and stack. Reach it
 ## through interface.gd only.
 ##
 ## Ported from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c
@@ -15,6 +15,13 @@ const Errors := preload("res://modules/sculpture_viewer/errors.gd")
 
 const ROOT := "res://modules/sculpture_viewer/"
 const DESKTOP_SIZE := Vector2(1440, 972)  # the prototype's canvas (references/statue-viewer-desktop)
+const CATALOGUE_AT := Vector2(72, 34)
+const VIEWER_SIZE := Vector2(800, 680)
+## The viewer window's slot (#63): from its native top-left to the desktop's far edges less the
+## desktop's native right margin (the viewer ends 52 px from it) and bottom margin (the catalogue
+## ends 44 px from it).
+const VIEWER_AT := Vector2(600, 34)
+const VIEWER_FAR_GAP := Vector2(52, 44)
 const REQUIRED := [
 	"assets/catalogue/sidebar.png", "assets/clean-ui/background.png", "assets/clean-ui/timer-source.png",
 	"assets/control-motion/previous.png", "assets/control-motion/next.png", "assets/control-motion/play-pause.png",
@@ -59,7 +66,7 @@ func _ready() -> void:
 	paper.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	desktop.add_child(paper)
-	catalogue = _window("catalogue-window", Vector2(72, 34), Vector2(400, 400.0 * 5101 / 2276))
+	catalogue = _window("catalogue-window", CATALOGUE_AT, Vector2(400, 400.0 * 5101 / 2276))
 	var artwork := TextureRect.new()
 	artwork.texture = load(ROOT + "assets/catalogue/sidebar.png")
 	artwork.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -69,8 +76,8 @@ func _ready() -> void:
 	catalogue.mouse_default_cursor_shape = Control.CURSOR_DRAG
 	catalogue.gui_input.connect(func(event): _drag_handle_input(event, catalogue))
 	catalogue.tooltip_text = "Drag to move the catalogue"
-	viewer_window = _window("viewer-window", Vector2(600, 34), Vector2(800, 680))
-	viewer_window.scale = Vector2(0.985, 0.985)
+	viewer_window = _window("viewer-window", VIEWER_AT, VIEWER_SIZE)
+	viewer_window.scale = Vector2(0.985, 0.985)  # the prototype's; _fit sizes it to its slot
 	viewer = load(ROOT + "viewer.gd").new()
 	viewer.name = "viewer"
 	viewer_window.add_child(viewer)
@@ -87,14 +94,25 @@ func _ready() -> void:
 	_fit()
 
 
-## The desktop keeps the prototype's pixels 1:1 where they fit and shrinks to fit a smaller Page,
-## centred either way.
+## The desktop fills the Page (#63): one uniform scale s = min(page / DESKTOP_SIZE) for all the
+## window art, the desktop's own pixels spanning the whole Page (size / s). The catalogue keeps its
+## native place by the top-left edges it sits nearest. The viewer window is a raster plate that
+## cannot re-lay out, so it scales uniformly to the largest size that fits its slot — its native
+## top-left to the page's right and bottom edges less the desktop's native margins — and centres
+## there. Laid out again on every resize.
 func _fit() -> void:
 	if size.x < 2 or size.y < 2:
 		return
-	var s := minf(1.0, minf(size.x / DESKTOP_SIZE.x, size.y / DESKTOP_SIZE.y))
+	dragged_window = null
+	var s := minf(size.x / DESKTOP_SIZE.x, size.y / DESKTOP_SIZE.y)
 	desktop.scale = Vector2(s, s)
-	desktop.position = ((size - DESKTOP_SIZE * s) / 2).round()
+	desktop.position = Vector2.ZERO
+	desktop.size = size / s
+	catalogue.position = CATALOGUE_AT
+	var slot := desktop.size - VIEWER_FAR_GAP - VIEWER_AT
+	var k := minf(slot.x / VIEWER_SIZE.x, slot.y / VIEWER_SIZE.y)
+	viewer_window.scale = Vector2(k, k)
+	viewer_window.position = VIEWER_AT + (slot - VIEWER_SIZE * k) / 2
 
 
 func _window(window_name: String, origin: Vector2, dimensions: Vector2) -> Control:
@@ -124,7 +142,7 @@ func _input(event: InputEvent) -> void:
 	inputs += 1
 	if dragged_window != null:
 		if event is InputEventMouseMotion:
-			var limit := (DESKTOP_SIZE - dragged_window.size * dragged_window.scale).max(Vector2.ZERO)
+			var limit := (desktop.size - dragged_window.size * dragged_window.scale).max(Vector2.ZERO)
 			dragged_window.position = (desktop.make_canvas_position_local(event.position) - drag_offset).clamp(Vector2.ZERO, limit)
 			get_viewport().set_input_as_handled()
 		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
