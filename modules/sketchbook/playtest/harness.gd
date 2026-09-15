@@ -1,12 +1,16 @@
 ## Playtest harness for sketchbook as the Sketchbook Tenant: builds the Shell with it in the
 ## Sketchbook Tab and nothing in the other Tabs, then plays it the way a person does — real
 ## InputEventMouseButton / InputEventMouseMotion events through Input.parse_input_event — and
-## reports what it did and what the Shell's probe said. The book is reached through the Shell
+## reports what it did and what the Shell's probe said. The desktop is reached through the Shell
 ## only (state, tenant_state). Args: --out-dir=<path>. Writes numbered screenshots and report.json.
 extends "res://testing/harness_base.gd"
 
 const Shell := preload("res://modules/shell/interface.gd")
 const Book := preload("res://modules/sketchbook/interface.gd")
+const BAR_RATIO := 161.0 / 4180.0  # the strip's height per pixel of width
+const WELL_A := 9    # row 0: a warm well
+const WELL_B := 21   # row 1: a blue well
+const TRAY := 1      # the top-middle mixing tray
 
 
 func _move(pos: Vector2) -> void:
@@ -56,14 +60,28 @@ func _book(shell: Control, label: String) -> Dictionary:
 	var entry := {"t_ms": _ms(), "event": "book", "label": label, "ok": r.ok, "code": r.error.code if not r.ok else ""}
 	if r.ok:
 		var v: Dictionary = r.value
+		var wells := []
+		for w in v.wells:
+			wells.append(_rect(w))
+		var trays := []
+		for t in v.trays:
+			trays.append(_rect(t))
 		entry.merge({"ticks": v.ticks, "inputs": v.inputs, "size": [v.size.x, v.size.y], "desktop_scale": v.desktop_scale,
+				"desktop_logical": [v.desktop_logical.x, v.desktop_logical.y],
 				"front_window": String(v.front_window), "dragging": v.dragging, "window_rect": _rect(v.window_rect),
 				"title_rect": _rect(v.title_rect), "page_rect": _rect(v.page_rect), "window_visible": v.window_visible,
 				"controls": {"previous": _rect(v.controls.previous), "next": _rect(v.controls.next)},
 				"spread": v.spread, "strokes": v.strokes, "turning": v.turning, "turn_progress": v.turn_progress,
 				"last_turn_ms": v.last_turn_ms, "previous_disabled": v.previous_disabled, "drawing": v.drawing,
 				"hovering": v.hovering, "last_stroke_points": v.last_stroke_points, "ink_color": v.ink_color,
-				"static_update_mode": v.static_update_mode, "face_update_mode": v.face_update_mode})
+				"last_stroke_color": v.last_stroke_color, "brush_cursor_visible": v.brush_cursor_visible,
+				"static_update_mode": v.static_update_mode, "face_update_mode": v.face_update_mode,
+				"paintbox_rect": _rect(v.paintbox_rect), "paintbox_title_rect": _rect(v.paintbox_title_rect),
+				"palette_rect": _rect(v.palette_rect), "wells": wells, "trays": trays,
+				"rest_rect": _rect(v.rest_rect), "parked_brush_rect": _rect(v.parked_brush_rect),
+				"brush_parked": v.brush_parked, "brush_color": v.brush_color, "brush_tip_color": v.brush_tip_color,
+				"palette_hovering": v.palette_hovering, "palette_cursor_visible": v.palette_cursor_visible,
+				"mix_count": v.mix_count, "paint_pixels": v.paint_pixels, "smear_variant": v.smear_variant, "mixbox": v.mixbox})
 	_log.append(entry)
 	return entry
 
@@ -87,6 +105,15 @@ func _settle_turn(shell: Control, label: String) -> Dictionary:
 	return _book(shell, label)
 
 
+## Size the window so the page above the strip is `page` (the strip's height follows the width).
+func _page_size(shell: Control, page: Vector2i, label: String, shot: String, out_dir: String) -> void:
+	get_root().size = Vector2i(page.x, roundi(page.y + page.x * BAR_RATIO))
+	await _frames(6)
+	_state(shell, label)
+	_book(shell, label)
+	await _shot(out_dir, shot)
+
+
 func _initialize() -> void:
 	var root := get_root()
 	var shell: Control = Shell.create({"sketchbook": Book}).value
@@ -98,45 +125,81 @@ func _initialize() -> void:
 	_state(shell, "launch")
 	_book(shell, "launch")
 
-	# 2. click the Sketchbook tab: the desktop is created on first show with the book on it, spread 1, no ink
+	# 2. click the Sketchbook tab: the desktop is created on first show — paintbox, rest, book, spread 1
 	var st: Dictionary = _state(shell, "pre-book")
 	await _click(_center(shell, st.tabs[1].rect), "sketchbook tab")
 	await create_timer(0.45).timeout  # the page cross-fade
+	await _move(Vector2(8, 8))  # the pointer on the white desktop: the brush rests
 	await _frames(8)
 	_state(shell, "book")
-	var b := _book(shell, "book-shown")
-	await _shot(out_dir, "01-book.png")
+	_book(shell, "book-shown")
+	await _shot(out_dir, "01-desktop.png")
 
-	# 3. a real drag across the left page draws one stroke: every sample reaches it, the ink is on screen
-	await _drag(_page_point(b), Vector2(8, 3), 8, "drag inside the page")
+	# 3. the fill rule at two page sizes, then back
+	await _page_size(shell, Vector2i(1920, 1000), "fill-1920x1000", "02-fill-1920x1000.png", out_dir)
+	await _page_size(shell, Vector2i(1440, 820), "fill-1440x820", "03-fill-1440x820.png", out_dir)
+	root.size = Vector2i(1920, 1080)
+	await _frames(6)
+	var b := _book(shell, "fill-restored")
+
+	# 4. load well A, smear it into the tray
+	await _move(_mid(b.wells[WELL_A]))
+	await _click(_mid(b.wells[WELL_A]), "well A")
+	await _frames(2)
+	_book(shell, "well-a")
+	var tray: Dictionary = b.trays[TRAY]
+	await _drag(Vector2(tray.x + tray.w * 0.15, tray.y + tray.h * 0.5), Vector2(tray.w * 0.7 / 14.0, 0), 14, "smear A across the tray")
+	await _frames(2)
+	_book(shell, "tray-a")
+	await _shot(out_dir, "04-tray-a.png")
+
+	# 5. load well B and drag it down through A: Mixbox mixes what the brush carries
+	await _move(_mid(b.wells[WELL_B]))
+	await _click(_mid(b.wells[WELL_B]), "well B")
+	await _frames(2)
+	_book(shell, "well-b")
+	await _drag(Vector2(tray.x + tray.w * 0.5, tray.y + tray.h * 0.1), Vector2(0, tray.h * 0.8 / 12.0), 12, "drag B through A")
+	await _frames(2)
+	_book(shell, "mixed")
+	await _shot(out_dir, "05-mixed.png")
+
+	# 6. paint on the left page with the carried pigment
+	await _drag(_page_point(b), Vector2(10, 4), 10, "paint on the page")
 	await _frames(3)
-	var d := _book(shell, "drawn")
-	await _shot(out_dir, "02-drawn.png")
+	var dr := _book(shell, "painted")
+	await _shot(out_dir, "06-painted.png")
 
-	# 4. the next arrow turns the page: the 520 ms perspective turn, then spread 2 with no ink on it
-	await _move(_mid(d.controls.next))
-	await _click(_mid(d.controls.next), "next-page button")
+	# 7. idle: the pointer on the white desktop, the brush goes back to the rest with its tip coloured
+	await _move(Vector2(dr.size[0] - 12, 12))
+	await _frames(6)
+	_book(shell, "rested")
+	await _shot(out_dir, "07-rested.png")
+
+	# 8. the next arrow turns the page: the 520 ms perspective turn, then spread 2 with no paint on it
+	await _move(_mid(dr.controls.next))
+	await _click(_mid(dr.controls.next), "next-page button")
 	await _frames(2)
 	_book(shell, "turning")
-	await _shot(out_dir, "03-turning.png")
+	await _shot(out_dir, "08-turning.png")
 	var t := await _settle_turn(shell, "turned")
-	await _shot(out_dir, "04-turned.png")
+	await _shot(out_dir, "09-turned.png")
 
-	# 5. the previous arrow turns back: spread 1 with its stroke still there
+	# 9. the previous arrow turns back: spread 1 with its stroke still there
 	await _move(_mid(t.controls.previous))
 	await _click(_mid(t.controls.previous), "previous-page button")
 	var tb := await _settle_turn(shell, "turned-back")
-	await _shot(out_dir, "05-turned-back.png")
+	await _shot(out_dir, "10-turned-back.png")
 
-	# 6. drag the window by its title bar: the window and its page move by the drag, the ink with them
+	# 10. drag the book by its title bar: the window and its page move by the drag, the paint with them
 	await _drag(_mid(tb.title_rect), Vector2(-20, -6), 5, "drag the window by its title bar")
+	await _move(Vector2(tb.size[0] - 12, 12))
 	await _frames(3)
 	var e := _book(shell, "before-hidden")
 	_state(shell, "before-hidden")
-	await _shot(out_dir, "06-before-hidden.png")
+	await _shot(out_dir, "11-before-hidden.png")
 
-	# 7. click the Map tab: the Sketchbook page is frozen — no frames, no input, SubViewports quiet —
-	#    and a drag across the hidden page draws nothing, the hidden arrow turns nothing
+	# 11. click the Map tab: the Sketchbook page is frozen — no frames, no input, SubViewports quiet —
+	#     and a drag across the hidden page draws nothing, the hidden arrow turns nothing
 	await _click(_center(shell, st.tabs[0].rect), "map tab")
 	await create_timer(0.45).timeout  # the page cross-fade
 	await _frames(3)
@@ -148,28 +211,29 @@ func _initialize() -> void:
 	await _frames(20)
 	_book(shell, "book-hidden-after-events")
 	_state(shell, "map-after-20-frames")
-	await _shot(out_dir, "07-hidden.png")
+	await _shot(out_dir, "12-hidden.png")
 
-	# 8. back to the Sketchbook: it resumes with the ink, the spread and the window exactly as left
+	# 12. back to the Sketchbook: it resumes with the paint, the spread and the window exactly as left
 	await _click(_center(shell, st.tabs[1].rect), "sketchbook tab (again)")
 	await _frames(3)
 	_book(shell, "book-resumed")  # it runs again from the moment its fade-in starts
 	await create_timer(0.45).timeout
+	await _move(Vector2(tb.size[0] - 12, 12))
 	_state(shell, "book-again")
 	await _frames(20)
 	_book(shell, "book-resumed-after-20-frames")
-	await _shot(out_dir, "08-resumed.png")
+	await _shot(out_dir, "13-resumed.png")
 
-	# 9. resize the window to the 1440x900 minimum: the desktop shrinks to fit the smaller page
+	# 13. resize the window to the 1440x900 minimum: the desktop re-fits, the moved book keeps its move
 	root.size = Vector2i(1440, 900)
-	await _frames(4)
+	await _frames(6)
 	_state(shell, "resized")
 	_book(shell, "resized")
-	await _shot(out_dir, "09-resized.png")
+	await _shot(out_dir, "14-resized.png")
 	root.size = Vector2i(1920, 1080)
-	await _frames(4)
+	await _frames(6)
 	_state(shell, "restored")
 	_book(shell, "restored")
-	await _shot(out_dir, "10-restored.png")
+	await _shot(out_dir, "15-restored.png")
 
 	_finish(out_dir)
