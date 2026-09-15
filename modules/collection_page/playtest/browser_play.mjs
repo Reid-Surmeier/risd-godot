@@ -16,7 +16,8 @@ try {
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   page.on('console', message => {
-    if (message.type() === 'error' && !/404|2D MSAA|render_target_set_msaa/.test(message.text())) errors.push(message.text());
+    if (message.type() === 'error' && !message.location().url.endsWith('/favicon.ico')
+      && !/404|2D MSAA|render_target_set_msaa/.test(message.text())) errors.push(message.text());
   });
   await page.goto(target.href);
   await page.waitForFunction(() => window.shellCrtQa?.shell.active === 4 && window.shellCrtQa.tenant.search?.phase === 'results');
@@ -39,19 +40,29 @@ try {
   const initialRequests = current.tenant.search.requests;
   await clickControl('Query');
   await page.keyboard.press('Control+A');
-  await page.keyboard.insertText('雪');
+  await page.evaluate(() => {
+    const ime = document.querySelector('.ime');
+    ime.focus();
+    ime.dispatchEvent(new CompositionEvent('compositionstart', {data: ''}));
+    ime.dispatchEvent(new CompositionEvent('compositionupdate', {data: '雪'}));
+    ime.textContent = '雪';
+    ime.dispatchEvent(new InputEvent('input', {data: '雪', inputType: 'insertCompositionText', isComposing: true, bubbles: true}));
+    ime.dispatchEvent(new CompositionEvent('compositionend', {data: '雪'}));
+    ime.dispatchEvent(new InputEvent('input', {data: '雪', inputType: 'insertText', bubbles: true}));
+    document.querySelector('#canvas').focus();
+  });
   await page.waitForFunction(() => window.shellCrtQa.tenant.search.draft.q === '雪');
   assert.equal((await state()).tenant.search.requests, initialRequests, 'typing dispatches no request');
   await page.keyboard.press('Escape');
   await page.waitForFunction(() => window.shellCrtQa.tenant.search.draft.q === '');
 
-  await page.keyboard.insertText('Monet');
+  await page.keyboard.type('Monet');
   await page.keyboard.press('Tab');
   await page.waitForFunction(() => window.shellCrtQa.tenant.search.focus_owner === 'Sort');
   await page.keyboard.press('Space'); await page.keyboard.press('ArrowDown'); await page.keyboard.press('Enter');
   await page.keyboard.press('Tab');
   await page.waitForFunction(() => window.shellCrtQa.tenant.search.focus_owner === 'Category');
-  await page.keyboard.press('Space'); await page.keyboard.press('ArrowDown'); await page.keyboard.press('Enter');
+  await page.keyboard.press('Space'); await page.keyboard.press('ArrowDown'); await page.keyboard.press('ArrowDown'); await page.keyboard.press('Enter');
   await page.keyboard.press('Tab');
   await page.waitForFunction(() => window.shellCrtQa.tenant.search.focus_owner === 'HasImage');
   await page.keyboard.press('Space'); await page.keyboard.press('Tab');
@@ -86,7 +97,9 @@ try {
   assert.ok(darkEdges.every(value => value < 0.30), 'no black bars: ' + JSON.stringify(darkEdges));
 
   const documentHtml = await (await page.request.get(target.href)).text();
-  const assets = [...documentHtml.matchAll(/(?:src|href)="([^"]+\.(?:js|pck|wasm))"/g)].map(match => new URL(match[1], target).href);
+  const config = JSON.parse(documentHtml.match(/const GODOT_CONFIG = (\{.*?\});/s)[1]);
+  const assetNames = [config.executable + '.js', ...Object.keys(config.fileSizes)];
+  const assets = assetNames.map(name => new URL(name, target).href);
   const served = {};
   for (const url of [target.href, ...assets]) {
     const response = await page.request.get(url);

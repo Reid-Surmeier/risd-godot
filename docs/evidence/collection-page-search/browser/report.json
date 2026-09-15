@@ -1,0 +1,60 @@
+{
+  "status": "pass",
+  "url": "http://127.0.0.1:8129/833b373.html",
+  "initial_requests": 1,
+  "applied": {
+    "category": "Painting",
+    "has_image": true,
+    "page": 1,
+    "q": "Monet",
+    "sort": "title_desc"
+  },
+  "selected": "risd:1584511",
+  "totals": {
+    "results": 2,
+    "images_loaded": 2
+  },
+  "viewports": [
+    {
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "width": 720,
+      "height": 486,
+      "dark_edge_fraction": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "screenshot_sha256": {
+    "full": "6bd51f55df67d11328293d20a0a3eda06ad57fb36681b9e462e2fd17e1d5b7a4",
+    "compact": "a36db043bb76b7d2f04b211fb05d33f89b8f46d289c875c035bd5103f048e659"
+  },
+  "served": {
+    "833b373.html": {
+      "status": 200,
+      "sha256": "105bf878355fe938f4ad662bf034e2608b4ad22c1c49298483a885028e9ef46f",
+      "bytes": 5327
+    },
+    "833b373.js": {
+      "status": 200,
+      "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
+      "bytes": 279815
+    },
+    "833b373.pck": {
+      "status": 200,
+      "sha256": "cd607d882bed858656eebd0921cf4a29306c15b8b10699912adb0318782130f4",
+      "bytes": 70018748
+    },
+    "833b373.wasm": {
+      "status": 200,
+      "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
+      "bytes": 39514754
+    }
+  },
+  "errors": []
+}
