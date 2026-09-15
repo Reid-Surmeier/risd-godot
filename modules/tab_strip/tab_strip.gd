@@ -20,13 +20,16 @@ const GROW_SECONDS := 0.4
 const CONNECTING_SECONDS := 0.95
 const CLOSE_SECONDS := 0.3
 const SLIDE_SECONDS := 0.2
+const FADE_SECONDS := 0.2  # the active tint fading in on the selected tab and out on the one it leaves
+const SEA_BLUE := Color8(131, 229, 247)  # #83e5f7, the atlas world map's ocean (modules/atlas/assets/terrain.png)
+const ACTIVE_TINT := 0.12  # how much of the sea blue the active tab's face carries (Issue #45)
 const STUB_PINK := Color8(247, 239, 244)
 const STUB_PRESSED := Color8(228, 218, 226)
 const DIP_PX := 6.0  # how far a clicked tab drops while it shows the pressed tint
 
 var _layout: Dictionary = {}
 var _tex: Dictionary = {}
-var _tabs: Array = []  # [{node, mid, right, icon, clip, label, dots, close, label_key, width, page, fixed}]
+var _tabs: Array = []  # [{node, left, mid, right, icon, clip, label, dots, close, label_key, width, page, fixed, tint, tint_to, fade}]
 var _stub: TextureButton
 var _right_cluster: TextureRect
 var _stripes: TextureRect
@@ -162,8 +165,9 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	add_child(node)
 	if not _tabs.is_empty():
 		move_child(node, _tabs[-1].node.get_index())  # behind its left neighbour: one clean join
-	var tab := {"node": node, "mid": mid, "right": right,  "icon": icon, "clip": clip, "label": label,
-			"dots": dots, "close": close, "label_key": "", "width": width, "page": null, "fixed": false}
+	var tab := {"node": node, "left": left, "mid": mid, "right": right, "icon": icon, "clip": clip, "label": label,
+			"dots": dots, "close": close, "label_key": "", "width": width, "page": null, "fixed": false,
+			"tint": 0.0, "tint_to": 0.0, "fade": null}
 	_tabs.append(tab)
 	_set_label(tab, label_key)
 	_set_tab_width(tab, width)
@@ -185,6 +189,27 @@ func _press(index: int) -> void:
 	_press_tween = create_tween()
 	_press_tween.tween_interval(PRESS_SECONDS)
 	_press_tween.tween_callback(_unpress)
+
+
+## The active tint: the tab's face slices fade to `to` (1 = ACTIVE_TINT of the sea blue, 0 = white) at
+## FADE_SECONDS for the whole way, so a reversed fade takes only the distance left. It multiplies every
+## piece of the tab (slices, icon, label, dots, close): the icon and label pixels are opaque on white, so
+## their white must take the tint with the face; dark glyphs and the grey outline move a few levels at most.
+func _fade(tab: Dictionary, to: float) -> void:
+	if tab.tint_to == to:
+		return
+	tab.tint_to = to
+	if tab.fade != null and tab.fade.is_valid():
+		tab.fade.kill()
+	tab.fade = create_tween()
+	tab.fade.tween_method(func(v: float): _set_tint(tab, v), tab.tint, to, FADE_SECONDS * absf(to - tab.tint))
+
+
+func _set_tint(tab: Dictionary, v: float) -> void:
+	tab.tint = v
+	var c := Color.WHITE.lerp(SEA_BLUE, v * ACTIVE_TINT)
+	for piece in [tab.left, tab.mid, tab.right, tab.icon, tab.label, tab.dots, tab.close]:
+		piece.self_modulate = c
 
 
 func _unpress() -> void:
@@ -415,6 +440,7 @@ func select_tab(index: int) -> Dictionary:
 	_active = index
 	for i in _tabs.size():
 		_tabs[i].page.visible = (i == index)
+		_fade(_tabs[i], 1.0 if i == index else 0.0)
 	emit_signal("tab_selected", index)
 	return Errors.ok(index)
 
@@ -432,12 +458,15 @@ func close_tab(index: int) -> Dictionary:
 	var tab: Dictionary = _tabs[index]
 	var from_w: float = tab.width
 	tab.close.visible = false
+	_fade(tab, 0.0)  # the tint leaves with the tab; the neighbour's fades in when it is selected below
 	_tween = create_tween()
 	# the tab folds back into a stub where it stands: contents fade, then width/height/tint reverse the grow
 	_tween.tween_method(func(s: float): _shrink(tab, from_w, s), 1.0, 0.0, CLOSE_SECONDS) \
 		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	_tween.tween_callback(func():
 		_tabs.remove_at(index)
+		if tab.fade != null and tab.fade.is_valid():
+			tab.fade.kill()
 		tab.page.queue_free()
 		tab.node.queue_free()
 		for i in _tabs.size():
@@ -491,7 +520,7 @@ func state() -> Dictionary:
 	var tabs := []
 	for tab in _tabs:
 		tabs.append({"label": tab.label_key, "rect": Rect2(tab.node.position, tab.node.size * tab.node.scale),
-				"page_visible": tab.page.visible, "fixed": tab.fixed,
+				"page_visible": tab.page.visible, "fixed": tab.fixed, "tint": tab.tint,
 				"truncated": tab.clip.size.x < (tab.label.texture.get_width() if tab.label.texture else 0.0),
 				"close_rect": Rect2() if tab.fixed else Rect2(tab.node.position + tab.close.position, tab.close.size)})
 	return Errors.ok({"count": _tabs.size(), "active": _active, "tabs": tabs, "opening": _opening,

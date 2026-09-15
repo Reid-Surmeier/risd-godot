@@ -13,7 +13,7 @@ func _state(strip: Control, label: String) -> Dictionary:
 	for t in s.tabs:
 		tabs.append({"label": t.label, "x": t.rect.position.x, "y": t.rect.position.y,
 				"w": t.rect.size.x, "h": t.rect.size.y, "page_visible": t.page_visible, "fixed": t.fixed,
-				"truncated": t.truncated,
+				"truncated": t.truncated, "tint": t.tint,
 				"close_rect": {"position": {"x": t.close_rect.position.x, "y": t.close_rect.position.y},
 						"size": {"x": t.close_rect.size.x, "y": t.close_rect.size.y}}})
 	var entry := {"t_ms": _ms(), "event": "state", "label": label, "count": s.count, "active": s.active,
@@ -21,6 +21,25 @@ func _state(strip: Control, label: String) -> Dictionary:
 	_log.append(entry)
 	return entry
 
+
+## Every frame's tints, so the verifier can time the active tint's fade (Issue #45).
+func _tints(strip: Control, film: String) -> void:
+	var s: Dictionary = TabStrip.state(strip).value
+	_log.append({"t_ms": _ms(), "event": "tint", "film": film, "active": s.active,
+			"dt": get_root().get_process_delta_time(), "tints": s.tabs.map(func(t): return t.tint)})
+
+
+## The film of a selection: every rendered frame for `ms`, with the tints of each frame logged.
+func _film(strip: Control, out_dir: String, film: String, ms: int) -> void:
+	DirAccess.make_dir_recursive_absolute(out_dir.path_join(film))
+	var t0 := _ms()
+	var n := 0
+	while _ms() - t0 < ms:
+		await process_frame
+		get_root().get_texture().get_image().save_png(out_dir.path_join(film + "/f%04d.png" % n))
+		_log.append({"t_ms": _ms(), "event": "frame", "film": film, "n": n})
+		_tints(strip, film)
+		n += 1
 
 
 func _initialize() -> void:
@@ -31,6 +50,7 @@ func _initialize() -> void:
 	for sig in ["tab_opened", "tab_settled", "tab_titled", "tab_selected", "tab_closed"]:
 		strip.connect(sig, func(i: int): _log.append({"t_ms": _ms(), "event": "signal", "signal": sig, "index": i}))
 
+	await create_timer(0.3).timeout  # the first tab's tint has faded in
 	_state(strip, "initial")
 	await _shot(out_dir, "01-initial.png")
 
@@ -47,6 +67,7 @@ func _initialize() -> void:
 		var img := root.get_texture().get_image()
 		img.save_png(out_dir.path_join("frames/f%04d.png" % frame))
 		_log.append({"t_ms": _ms(), "event": "frame", "n": frame})
+		_tints(strip, "frames")
 		frame += 1
 		if not mid_done and _ms() - t_click >= 250:      # 0.1 s press + ~0.15 s into the 0.4 s grow
 			mid_done = true
@@ -64,9 +85,11 @@ func _initialize() -> void:
 	# 2. click the first tab, then the second: pages must follow
 	var s: Dictionary = TabStrip.state(strip).value
 	await _click(_center(strip, s.tabs[0].rect), "tab 0")
+	await _film(strip, out_dir, "select-0-frames", 400)
 	_state(strip, "selected-0")
 	await _shot(out_dir, "05-selected-0.png")
 	await _click(_center(strip, s.tabs[1].rect), "tab 1")
+	await _film(strip, out_dir, "select-1-frames", 400)
 	_state(strip, "selected-1")
 	await _shot(out_dir, "06-selected-1.png")
 
@@ -100,6 +123,7 @@ func _initialize() -> void:
 	while _ms() - t_close < 900:            # 0.3 s fold + 0.2 s slide, plus settle: the film of the close
 		await process_frame
 		root.get_texture().get_image().save_png(out_dir.path_join("close-frames/f%04d.png" % cf))
+		_tints(strip, "close-frames")
 		cf += 1
 	_state(strip, "closed-last")
 	await _shot(out_dir, "09-closed-last.png")
@@ -134,6 +158,7 @@ func _initialize() -> void:
 	_log.append({"t_ms": _ms(), "event": "fixed_open", "ok": fixed.ok, "index": fixed.value,
 			"page_in_stack": page.get_parent() == demo.get_node("PageStack")})
 	TabStrip.select_tab(strip, fixed.value)
+	await _film(strip, out_dir, "select-fixed-frames", 400)
 	_state(strip, "fixed-open")
 	await _shot(out_dir, "13-fixed-open.png")
 	st = TabStrip.state(strip).value
