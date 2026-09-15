@@ -1,0 +1,2484 @@
+{
+  "log": [
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          100,
+          100
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "launch-results",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": false,
+      "requests": 0,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          100,
+          100
+        ],
+        "visible": false
+      },
+      "t_ms": 1248,
+      "visible_count": 3
+    },
+    {
+      "event": "screenshot",
+      "file": "01-after-1920x1080.png",
+      "t_ms": 1402
+    },
+    {
+      "event": "click",
+      "t_ms": 1427,
+      "what": "sort dropdown",
+      "x": 130.501251220703,
+      "y": 484.348754882812
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          100,
+          100
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "sort-popup-open",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": false,
+      "requests": 0,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": true
+      },
+      "t_ms": 1450,
+      "visible_count": 3
+    },
+    {
+      "event": "screenshot",
+      "file": "02-sort-popup.png",
+      "t_ms": 1601
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          100,
+          100
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "sort-popup-pointer-target",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": false,
+      "requests": 0,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": true
+      },
+      "t_ms": 1601,
+      "visible_count": 3
+    },
+    {
+      "event": "click",
+      "t_ms": 1626,
+      "what": "Date new-to-old",
+      "x": 130.5,
+      "y": 540.5
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          100,
+          100
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 1
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "sort-changed",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": false,
+      "requests": 0,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 1626,
+      "visible_count": 3
+    },
+    {
+      "event": "click",
+      "t_ms": 1650,
+      "what": "category dropdown",
+      "x": 314.553527832031,
+      "y": 484.348754882812
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": true
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 1
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "category-popup-open",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": false,
+      "requests": 0,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 1650,
+      "visible_count": 3
+    },
+    {
+      "event": "click",
+      "t_ms": 1673,
+      "what": "Painting category",
+      "x": 314.5,
+      "y": 540.5
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 1,
+        "has_image": false,
+        "query": "",
+        "sort": 1
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "category-changed",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": false,
+      "requests": 0,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 1673,
+      "visible_count": 3
+    },
+    {
+      "event": "click",
+      "t_ms": 1692,
+      "what": "Has Image checkbox",
+      "x": 77.3957138061523,
+      "y": 516.307556152344
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 1,
+        "has_image": true,
+        "query": "",
+        "sort": 1
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "checkbox-changed",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": false,
+      "requests": 0,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 1692,
+      "visible_count": 3
+    },
+    {
+      "event": "click",
+      "t_ms": 1714,
+      "what": "query field",
+      "x": 237.849014282227,
+      "y": 453.040771484375
+    },
+    {
+      "event": "type",
+      "t_ms": 1873,
+      "text": "Monet 42"
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 1,
+        "has_image": true,
+        "query": "Monet 42",
+        "sort": 1
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "alphabet-numerals-caret",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": true,
+      "requests": 0,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 1873,
+      "visible_count": 3
+    },
+    {
+      "event": "screenshot",
+      "file": "02b-controls-draft.png",
+      "t_ms": 2021
+    },
+    {
+      "event": "key",
+      "keycode": "Escape",
+      "t_ms": 2042,
+      "what": "restore all draft controls"
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "all-controls-restored",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": true,
+      "requests": 0,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 2042,
+      "visible_count": 3
+    },
+    {
+      "event": "click",
+      "t_ms": 2062,
+      "what": "query field",
+      "x": 237.849014282227,
+      "y": 453.040771484375
+    },
+    {
+      "event": "type",
+      "t_ms": 2141,
+      "text": "none"
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "none",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "draft-none",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": true,
+      "requests": 0,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 2142,
+      "visible_count": 3
+    },
+    {
+      "event": "key",
+      "keycode": "Escape",
+      "t_ms": 2161,
+      "what": "cancel draft"
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "escape-restored-applied",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": true,
+      "requests": 0,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 2161,
+      "visible_count": 3
+    },
+    {
+      "event": "click",
+      "t_ms": 2182,
+      "what": "query field",
+      "x": 237.849014282227,
+      "y": 453.040771484375
+    },
+    {
+      "event": "type",
+      "t_ms": 2262,
+      "text": "none"
+    },
+    {
+      "event": "key",
+      "keycode": "Enter",
+      "t_ms": 2282,
+      "what": "apply with Enter"
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "none",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "none",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "loading-keeps-prior-count",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "loading",
+      "query_focused": true,
+      "requests": 1,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 2282,
+      "visible_count": 3
+    },
+    {
+      "event": "screenshot",
+      "file": "03-loading.png",
+      "t_ms": 2430
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "none",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "none",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "empty-results",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": true,
+      "requests": 1,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 2739,
+      "visible_count": 0
+    },
+    {
+      "event": "screenshot",
+      "file": "04-empty.png",
+      "t_ms": 2842
+    },
+    {
+      "event": "click",
+      "t_ms": 2864,
+      "what": "query field",
+      "x": 237.849014282227,
+      "y": 453.040771484375
+    },
+    {
+      "event": "key",
+      "keycode": "Ctrl+A",
+      "t_ms": 2882,
+      "what": "select all"
+    },
+    {
+      "event": "type",
+      "t_ms": 2957,
+      "text": "fail"
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "none",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "fail",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "draft-fail",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": true,
+      "requests": 1,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 2957,
+      "visible_count": 0
+    },
+    {
+      "event": "click",
+      "t_ms": 2976,
+      "what": "OK",
+      "x": 302.030334472656,
+      "y": 568.097534179688
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "fail",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "fail",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "failed-search",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "error",
+      "query_focused": false,
+      "requests": 2,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 3430,
+      "visible_count": 0
+    },
+    {
+      "event": "screenshot",
+      "file": "05-error-retry.png",
+      "t_ms": 3533
+    },
+    {
+      "event": "click",
+      "t_ms": 3553,
+      "what": "Retry",
+      "x": 489.780700683594,
+      "y": 140.219497680664
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "fail",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "fail",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "retry-failed-fixture",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "error",
+      "query_focused": false,
+      "requests": 3,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 3995,
+      "visible_count": 0
+    },
+    {
+      "event": "click",
+      "t_ms": 4015,
+      "what": "query field",
+      "x": 237.849014282227,
+      "y": 453.040771484375
+    },
+    {
+      "event": "key",
+      "keycode": "Ctrl+A",
+      "t_ms": 4035,
+      "what": "select all"
+    },
+    {
+      "event": "type",
+      "t_ms": 4131,
+      "text": "monet"
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "fail",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "monet",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "draft-monet",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "error",
+      "query_focused": true,
+      "requests": 3,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 4131,
+      "visible_count": 0
+    },
+    {
+      "event": "click",
+      "t_ms": 4151,
+      "what": "Cancel",
+      "x": 367.777038574219,
+      "y": 568.097534179688
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "fail",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          336.469085693359,
+          555.965698242188,
+          62.6159362792969,
+          24.263671875
+        ],
+        "Category": [
+          230.022018432617,
+          472.216918945312,
+          169.063003540039,
+          24.2636680603027
+        ],
+        "Details": [
+          1305.53735351562,
+          93.2194976806641,
+          555.912536621094,
+          368.171508789062
+        ],
+        "HasImage": [
+          18.6932907104492,
+          504.307556152344,
+          117.404846191406,
+          24.0
+        ],
+        "OK": [
+          272.287780761719,
+          555.965698242188,
+          59.485107421875,
+          24.263671875
+        ],
+        "Query": [
+          76.6130218505859,
+          440.908935546875,
+          322.471984863281,
+          24.2636680603027
+        ],
+        "Retry": [
+          439.780700683594,
+          123.219497680664,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          50.0012474060059,
+          472.216918945312,
+          161.0,
+          24.2636680603027
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "fail",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "cancel-restored-fail",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": false,
+      "requests": 3,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 4151,
+      "visible_count": 0
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "fail",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          281.916320800781,
+          466.33203125,
+          52.3669128417969,
+          20.2921829223633
+        ],
+        "Category": [
+          192.892578125,
+          396.291259765625,
+          144.0,
+          20.2921810150146
+        ],
+        "Details": [
+          992.503051757812,
+          90.6958770751953,
+          399.932373046875,
+          285.144226074219
+        ],
+        "HasImage": [
+          16.1542167663574,
+          423.129302978516,
+          98.1879730224609,
+          24.0
+        ],
+        "OK": [
+          228.240249633789,
+          466.33203125,
+          49.7485656738281,
+          20.2921829223633
+        ],
+        "Query": [
+          64.593620300293,
+          370.107788085938,
+          269.689636230469,
+          24.0
+        ],
+        "Retry": [
+          373.030853271484,
+          120.695877075195,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          42.3376770019531,
+          396.291259765625,
+          161.0,
+          20.2921810150146
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "fail",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "resized-1440x900",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": false,
+      "requests": 3,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 4196,
+      "visible_count": 0
+    },
+    {
+      "event": "click",
+      "t_ms": 4213,
+      "what": "query field",
+      "x": 199.438446044922,
+      "y": 382.107788085938
+    },
+    {
+      "event": "key",
+      "keycode": "Ctrl+A",
+      "t_ms": 4228,
+      "what": "select all"
+    },
+    {
+      "event": "type",
+      "t_ms": 4301,
+      "text": "monet"
+    },
+    {
+      "event": "key",
+      "keycode": "Enter",
+      "t_ms": 4315,
+      "what": "apply monet"
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "monet",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          281.916320800781,
+          466.33203125,
+          52.3669128417969,
+          20.2921829223633
+        ],
+        "Category": [
+          192.892578125,
+          396.291259765625,
+          144.0,
+          20.2921810150146
+        ],
+        "Details": [
+          992.503051757812,
+          90.6958770751953,
+          399.932373046875,
+          285.144226074219
+        ],
+        "HasImage": [
+          16.1542167663574,
+          423.129302978516,
+          98.1879730224609,
+          24.0
+        ],
+        "OK": [
+          228.240249633789,
+          466.33203125,
+          49.7485656738281,
+          20.2921829223633
+        ],
+        "Query": [
+          64.593620300293,
+          370.107788085938,
+          269.689636230469,
+          24.0
+        ],
+        "Retry": [
+          373.030853271484,
+          120.695877075195,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          42.3376770019531,
+          396.291259765625,
+          161.0,
+          20.2921810150146
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "monet",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "monet-results-1440x900",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": true,
+      "requests": 4,
+      "save_state": "save",
+      "selected": -1,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 4762,
+      "visible_count": 2
+    },
+    {
+      "event": "screenshot",
+      "file": "06-after-1440x900.png",
+      "t_ms": 4860
+    },
+    {
+      "event": "click",
+      "t_ms": 4877,
+      "what": "first artwork",
+      "x": 887.257690429688,
+      "y": 233.267990112305
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "monet",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          281.916320800781,
+          466.33203125,
+          52.3669128417969,
+          20.2921829223633
+        ],
+        "Category": [
+          192.892578125,
+          396.291259765625,
+          144.0,
+          20.2921810150146
+        ],
+        "Details": [
+          992.503051757812,
+          90.6958770751953,
+          399.932373046875,
+          285.144226074219
+        ],
+        "HasImage": [
+          16.1542167663574,
+          423.129302978516,
+          98.1879730224609,
+          24.0
+        ],
+        "OK": [
+          228.240249633789,
+          466.33203125,
+          49.7485656738281,
+          20.2921829223633
+        ],
+        "Query": [
+          64.593620300293,
+          370.107788085938,
+          269.689636230469,
+          24.0
+        ],
+        "Retry": [
+          373.030853271484,
+          120.695877075195,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          42.3376770019531,
+          396.291259765625,
+          161.0,
+          20.2921810150146
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "monet",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "selected-details",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": true,
+      "requests": 4,
+      "save_state": "save",
+      "selected": 0,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 4892,
+      "visible_count": 2
+    },
+    {
+      "event": "screenshot",
+      "file": "07-selected-details.png",
+      "t_ms": 4973
+    },
+    {
+      "event": "click",
+      "t_ms": 4989,
+      "what": "Save",
+      "x": 1192.00305175781,
+      "y": 215.695877075195
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "monet",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          281.916320800781,
+          466.33203125,
+          52.3669128417969,
+          20.2921829223633
+        ],
+        "Category": [
+          192.892578125,
+          396.291259765625,
+          144.0,
+          20.2921810150146
+        ],
+        "Details": [
+          992.503051757812,
+          90.6958770751953,
+          399.932373046875,
+          285.144226074219
+        ],
+        "HasImage": [
+          16.1542167663574,
+          423.129302978516,
+          98.1879730224609,
+          24.0
+        ],
+        "OK": [
+          228.240249633789,
+          466.33203125,
+          49.7485656738281,
+          20.2921829223633
+        ],
+        "Query": [
+          64.593620300293,
+          370.107788085938,
+          269.689636230469,
+          24.0
+        ],
+        "Retry": [
+          373.030853271484,
+          120.695877075195,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          42.3376770019531,
+          396.291259765625,
+          161.0,
+          20.2921810150146
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "monet",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "saved-presentation",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": false,
+      "requests": 4,
+      "save_state": "saved",
+      "selected": 0,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 4989,
+      "visible_count": 2
+    },
+    {
+      "event": "click",
+      "t_ms": 5004,
+      "what": "Preview save error",
+      "x": 1192.00305175781,
+      "y": 274.695861816406
+    },
+    {
+      "applied": {
+        "category": 0,
+        "has_image": false,
+        "query": "monet",
+        "sort": 0
+      },
+      "category_popup": {
+        "position": [
+          230,
+          496
+        ],
+        "size": [
+          169,
+          89
+        ],
+        "visible": false
+      },
+      "controls": {
+        "Cancel": [
+          281.916320800781,
+          466.33203125,
+          52.3669128417969,
+          20.2921829223633
+        ],
+        "Category": [
+          192.892578125,
+          396.291259765625,
+          144.0,
+          20.2921810150146
+        ],
+        "Details": [
+          992.503051757812,
+          90.6958770751953,
+          399.932373046875,
+          285.144226074219
+        ],
+        "HasImage": [
+          16.1542167663574,
+          423.129302978516,
+          98.1879730224609,
+          24.0
+        ],
+        "OK": [
+          228.240249633789,
+          466.33203125,
+          49.7485656738281,
+          20.2921829223633
+        ],
+        "Query": [
+          64.593620300293,
+          370.107788085938,
+          269.689636230469,
+          24.0
+        ],
+        "Retry": [
+          373.030853271484,
+          120.695877075195,
+          100.0,
+          34.0
+        ],
+        "Sort": [
+          42.3376770019531,
+          396.291259765625,
+          161.0,
+          20.2921810150146
+        ]
+      },
+      "draft": {
+        "category": 0,
+        "has_image": false,
+        "query": "monet",
+        "sort": 0
+      },
+      "event": "state",
+      "font_path": "res://modules/atlas/fonts/PixelMplus12-Regular.ttf",
+      "label": "save-error-presentation",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "phase": "results",
+      "query_focused": false,
+      "requests": 4,
+      "save_state": "error",
+      "selected": 0,
+      "sort_popup": {
+        "position": [
+          50,
+          496
+        ],
+        "size": [
+          161,
+          89
+        ],
+        "visible": false
+      },
+      "t_ms": 5004,
+      "visible_count": 2
+    },
+    {
+      "event": "screenshot",
+      "file": "08-save-error.png",
+      "t_ms": 5086
+    },
+    {
+      "draft_fail": "fail",
+      "draft_monet": "monet",
+      "draft_none": "none",
+      "event": "assertion_inputs",
+      "layout_reference_sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "small_count": 2,
+      "t_ms": 5086
+    }
+  ],
+  "viewport": [
+    1920,
+    1080
+  ]
+}
