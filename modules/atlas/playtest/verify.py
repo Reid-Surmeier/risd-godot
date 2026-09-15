@@ -44,12 +44,23 @@ def same_view(x, y):
 def colour_count(img, rgb, tol=6):
     return int((np.abs(img - np.array(rgb)).max(axis=2) <= tol).sum())
 
+FRAME_FAR_GAP = (4, 268)                # atlas_window.gd FRAME_FAR_GAP
+MARGINS = (10, 58, 4, 1)                # the native desktop's left, top, right, bottom margins
+
 def fit(sz):
-    """The desktop composition scaled to fit a page of size sz and centred (atlas_window.gd _fit_window)."""
+    """The desktop filling a page of size sz (atlas_window.gd _fit_window, #63): one uniform scale, each panel
+    anchored to the page edges nearest its centre, the map window running to the page edge on its free sides."""
     scale = min(sz[0] / DESKTOP[0], sz[1] / DESKTOP[1])
-    origin = (round((sz[0] - DESKTOP[0] * scale) / 2), round((sz[1] - DESKTOP[1] * scale) / 2))
     def rect(r):
-        return {"x": round(origin[0] + r[0] * scale), "y": round(origin[1] + r[1] * scale), "w": round(r[2] * scale), "h": round(r[3] * scale)}
+        if r == FRAME_RECT:
+            x, y = round(r[0] * scale), round(r[1] * scale)
+            return {"x": x, "y": y, "w": round(sz[0] - FRAME_FAR_GAP[0] * scale) - x, "h": round(sz[1] - FRAME_FAR_GAP[1] * scale) - y}
+        x, y = r[0] * scale, r[1] * scale
+        if r[0] + r[2] / 2 > DESKTOP[0] / 2:
+            x = sz[0] - (DESKTOP[0] - r[0]) * scale
+        if r[1] + r[3] / 2 > DESKTOP[1] / 2:
+            y = sz[1] - (DESKTOP[1] - r[1]) * scale
+        return {"x": round(x), "y": round(y), "w": round(r[2] * scale), "h": round(r[3] * scale)}
     return scale, rect
 
 def rect_near(a, b, tol=1):
@@ -64,7 +75,7 @@ def inside(p, r):
 shots = {e["file"]: e for e in log if e["event"] == "screenshot"}
 hashes = {f: hashlib.sha256((out / f).read_bytes()).hexdigest() for f in shots}
 imgs = {f: np.array(Image.open(out / f).convert("RGB")).astype(int) for f in shots}
-check("screenshots_present", len(shots) == 14, str(sorted(shots)))
+check("screenshots_present", len(shots) == 16, str(sorted(shots)))
 check("map_screenshot_is_1920x1080", imgs["01-map.png"].shape[:2] == (1080, 1920), str(imgs["01-map.png"].shape))
 
 # created lazily on first show, through the Shell
@@ -81,7 +92,7 @@ ORIGIN = (a["frame_global"]["x"] - a["frame"]["x"], a["frame_global"]["y"] - a["
 def to_global(r):
     return {"x": ORIGIN[0] + r["x"], "y": ORIGIN[1] + r["y"], "w": r["w"], "h": r["h"]}
 
-# the desktop composition: the map window and the four panels at the prototype's reference rects, scaled to fit and centred
+# the desktop composition (#63): the four panels anchored to their nearest page edges, the map window taking the leftover
 fr = a["frame"]; scale, ref = fit(sz)
 check("window_at_reference_rect", rect_near(fr, ref(FRAME_RECT)) and fr["x"] >= 0 and fr["y"] >= 0
       and fr["x"] + fr["w"] <= sz[0] and fr["y"] + fr["h"] <= sz[1], f"frame {fr} expected {ref(FRAME_RECT)}")
@@ -91,10 +102,10 @@ pa = a["panels"]
 check("four_panels_at_reference_composition", set(pa) == set(PANELS) and all(rect_near(pa[i], ref(PANELS[i])) for i in PANELS)
       and all(pa[i]["x"] >= 0 and pa[i]["y"] >= 0 and pa[i]["x"] + pa[i]["w"] <= sz[0] and pa[i]["y"] + pa[i]["h"] <= sz[1] for i in PANELS),
       str(pa))
-check("minimap_over_itinerary_over_chat_at_left_map_at_centre_notification_bottom_right",
+check("minimap_over_itinerary_over_chat_at_left_map_at_right_notification_bottom_right",
       pa["minimap"]["y"] + pa["minimap"]["h"] <= pa["itinerary"]["y"] and pa["itinerary"]["y"] + pa["itinerary"]["h"] <= pa["chat"]["y"]
       and max(pa[i]["x"] + pa[i]["w"] for i in ("minimap", "itinerary")) <= fr["x"] and pa["chat"]["y"] >= fr["y"] + fr["h"]
-      and pa["notification"]["x"] >= fr["x"] + fr["w"] and pa["notification"]["y"] >= fr["y"] + fr["h"])
+      and pa["notification"]["x"] + pa["notification"]["w"] > sz[0] - 8 and pa["notification"]["y"] >= fr["y"] + fr["h"])
 windows = dict(pa, map=fr)
 check("nothing_overlaps_at_launch", not any(overlaps(windows[i], windows[j]) for i in windows for j in windows if i < j))
 check("stack_opens_with_map_on_top", a["stack"][-1] == "map" and set(a["stack"]) == set(PANELS) | {"map"} and a["moving_window"] == "", str(a["stack"]))
@@ -130,7 +141,8 @@ check("wheel_lands_inside_map", inside((w["x"], w["y"]), mr) and not inside((w["
 check("wheel_zooms_in_at_centre", w["up"] and near(b["zoom"] / a["zoom"], WHEEL_STEP ** w["count"], 0.01)
       and near(b["position"][0], a["position"][0], 1) and near(b["position"][1], a["position"][1], 1),
       f"zoom {a['zoom']:.4f} -> {b['zoom']:.4f} (x{b['zoom'] / a['zoom']:.3f}), position {a['position']} -> {b['position']}")
-check("zoom_unlocks_vertical_pan", a["vertical_pan_locked"] and not b["vertical_pan_locked"])
+# (#63: the wider map body fits the world by its width, so the world view may already pan vertically)
+check("zoom_leaves_vertical_pan_unlocked", not b["vertical_pan_locked"])
 
 # drag-pan: the camera moves against the drag, divided by the zoom
 d = gestures["drag-pan inside the map"]; c = atlas["panned"]
@@ -273,6 +285,26 @@ hidden_page = imgs["11-hidden.png"][:int(PAGE_H) - 2, :]
 check("hidden_page_shows_plain_white_sketchbook", float(hidden_page.mean()) > 254, f"mean {float(hidden_page.mean()):.2f}")
 check("resumed_pixels_identical_to_before_hiding", float(np.abs(imgs["12-resumed.png"] - imgs["10-before-hidden.png"]).mean()) < 0.5,
       f"mean abs diff {float(np.abs(imgs['12-resumed.png'] - imgs['10-before-hidden.png']).mean()):.3f}")
+
+# #63: at pages of 1920x1000 and 1440x820 the desktop's bounding box spans the page on both axes within the native
+# margins, and the map window is at least its native size times the uniform scale
+for label in ("fill-1920x1000", "fill-1440x820"):
+    f = atlas[label]; fs = f["size"]; want = [int(v) for v in label[5:].split("x")]
+    s_f = min(fs[0] / DESKTOP[0], fs[1] / DESKTOP[1])
+    boxes = list(f["panels"].values()) + [f["frame"]]
+    gaps = (min(b["x"] for b in boxes), min(b["y"] for b in boxes),
+            fs[0] - max(b["x"] + b["w"] for b in boxes), fs[1] - max(b["y"] + b["h"] for b in boxes))
+    check(f"{label}_page_size", near(fs[0], want[0], 1) and near(fs[1], want[1], 1), str(fs))
+    check(f"{label}_desktop_spans_page_both_axes", all(-0.5 <= g <= m * s_f + 1.5 for g, m in zip(gaps, MARGINS)),
+          f"gaps l/t/r/b {[round(g, 1) for g in gaps]}, native margins x s {[round(m * s_f, 1) for m in MARGINS]}")
+    check(f"{label}_map_window_at_least_native_times_scale", f["frame"]["w"] >= FRAME_RECT[2] * s_f - 1 and f["frame"]["h"] >= FRAME_RECT[3] * s_f - 1,
+          f"frame {f['frame']} native x s {FRAME_RECT[2] * s_f:.0f}x{FRAME_RECT[3] * s_f:.0f}")
+    _, ref_f = fit(fs)
+    check(f"{label}_layout_is_the_fill_rule", rect_near(f["frame"], ref_f(FRAME_RECT)) and all(rect_near(f["panels"][i], ref_f(PANELS[i])) for i in PANELS)
+          and not any(overlaps(x, y) for x in boxes for y in boxes if x is not y), str(f["panels"]))
+    body = f["map_rect"]
+    check(f"{label}_map_body_follows_the_window", near(body["w"], f["frame"]["w"] - round(72 * f["chrome_scale"]), 1)
+          and near(f["viewport"][0], body["w"], 1) and near(f["viewport"][1], body["h"], 1), str(body))
 
 ok = all(r["pass"] for r in results.values())
 (out / "verify.json").write_text(json.dumps({"pass": ok, "checks": results, "sha256": hashes}, indent=1))
