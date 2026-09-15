@@ -16,6 +16,7 @@ SCALE = 1920 / 4180.0
 BAR_H = 161 * SCALE
 STUB_W = 180 * SCALE
 PRESSED = (228, 218, 226)   # tab_strip's STUB_PRESSED tint on a white face
+ACTIVE = (240, 252, 254)  # the active tab's white face under tab_strip's 12 % sea-blue tint (#45)
 GREY = (160, 160, 160)      # the harness's grey tenant in playground
 
 out = Path(sys.argv[1])
@@ -110,7 +111,7 @@ late = [f for f in mf if f["t_ms"] - t_map >= 220]
 spots = {f["n"]: face_spot(np.array(Image.open(out / f["file"]).convert("RGB")).astype(int), r0) for f in mf}
 check("clicked_tab_shows_pressed_tint_within_100ms", len(early) > 0 and any(near_rgb(spots[f["n"]], PRESSED, 10) for f in early),
       f"early frames {[(f['t_ms'] - t_map, [round(v) for v in spots[f['n']]]) for f in early]}")
-check("clicked_tab_white_again_after_the_dip", len(late) > 0 and all(near_rgb(spots[f["n"]], (255, 255, 255), 3) for f in late),
+check("clicked_tab_white_again_after_the_dip", len(late) > 0 and all(near_rgb(spots[f["n"]], ACTIVE, 3) for f in late),
       f"late frames {[(f['t_ms'] - t_map, [round(v) for v in spots[f['n']]]) for f in late]}")
 check("dip_reported_then_released", any(f["pressed"] == 0 for f in early) and all(f["pressed"] == -1 for f in late))
 sw = next((s for s in signals if s["signal"] == "switch_settled" and s["index"] == 0 and s["t_ms"] > t_map), None)
@@ -167,7 +168,7 @@ check("page_cross_fades_through_in_between_greys", any(GREY[0] + 8 < v < 247 for
       and all(b >= a - 0.5 for a, b in zip(vals, vals[1:])), f"{[round(v) for v in vals]}")
 early = [fr for fr in sf if fr["t_ms"] - t_col <= 100]; late = [fr for fr in sf if fr["t_ms"] - t_col >= 220]
 check("collection_tab_dips_on_click", len(early) > 0 and any(near_rgb(spots[("switch", fr["n"])], PRESSED, 10) for fr in early)
-      and all(near_rgb(spots[("switch", fr["n"])], (255, 255, 255), 3) for fr in late),
+      and all(near_rgb(spots[("switch", fr["n"])], ACTIVE, 3) for fr in late),
       f"{[(fr['t_ms'] - t_col, [round(v) for v in spots[('switch', fr['n'])]]) for fr in sf]}")
 sw2 = next((s for s in signals if s["signal"] == "switch_settled" and s["index"] == 4 and s["t_ms"] > t_col), None)
 check("grey_to_collection_settles_in_about_200ms", sw2 is not None and 150 <= sw2["t_ms"] - t_col <= 450, f"{sw2['t_ms'] - t_col if sw2 else None} ms")
@@ -195,7 +196,8 @@ check("bar_spans_full_width_at_bottom", (bar[:, 1880:].max(axis=2) < 150).sum() 
 t4 = la["tabs"][4]["rect"]; sc = t4["h"] / 123.0
 cx, cy = t4["x"] + t4["w"] - (80 + 22) * sc, t4["y"] + (24 + 22) * sc
 spot = imgs["01-launch.png"][int(cy - 4):int(cy + 26), int(cx - 4):int(cx + 26)]
-check("active_fixed_tab_draws_no_close_button", float(spot.std()) < 3, f"std {float(spot.std()):.1f}")
+chan = max(float(spot[..., i].std()) for i in range(3))  # per channel: a flat tinted patch is not grey
+check("active_fixed_tab_draws_no_close_button", chan < 3, f"std {chan:.1f}")
 check("stub_blank_shot_differs_from_launch", hashes["05-stub-blank.png"] != hashes["01-launch.png"])
 
 ok = all(r["pass"] for r in results.values())
