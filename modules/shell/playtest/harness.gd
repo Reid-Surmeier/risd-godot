@@ -10,6 +10,7 @@
 extends "res://testing/harness_base.gd"
 
 const Shell := preload("res://modules/shell/interface.gd")
+const TabStrip := preload("res://modules/tab_strip/interface.gd")
 const DummyTenant := preload("res://modules/shell/playtest/dummy_tenant.gd")
 const GREY := Color8(160, 160, 160)
 
@@ -57,8 +58,10 @@ func _film(shell: Control, out_dir: String, prefix: String, ms: int, tab_index: 
 		var file := "frames/%s-%04d.png" % [prefix, n]
 		img.save_png(out_dir.path_join(file))
 		var s: Dictionary = Shell.state(shell).value
+		var strip_state: Dictionary = TabStrip.state(shell.get_node("TabStrip")).value
 		_log.append({"t_ms": _ms(), "event": "frame", "film": prefix, "n": n, "file": file, "opening": s.opening,
 				"pressed": s.pressed, "switching": s.switching, "active": s.active,
+				"tint": strip_state.tabs[tab_index].tint,
 				"tab_rect": _rect(s.tabs[tab_index].rect), "page_visible": s.tabs[tab_index].page_visible,
 				"tenant": s.tabs[tab_index].tenant})
 		n += 1

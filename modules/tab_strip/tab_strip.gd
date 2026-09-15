@@ -23,6 +23,8 @@ const SLIDE_SECONDS := 0.2
 const FADE_SECONDS := 0.2  # the active tint fading in on the selected tab and out on the one it leaves
 const SEA_BLUE := Color8(131, 229, 247)  # #83e5f7, the atlas world map's ocean (modules/atlas/assets/terrain.png)
 const ACTIVE_TINT := 0.12  # how much of the sea blue the active tab's face carries (Issue #45)
+const FIXED_TAB_WIDTH := 380.0
+const FIXED_TAB_SCALE := 0.65
 const STUB_PINK := Color8(247, 239, 244)
 const STUB_PRESSED := Color8(228, 218, 226)
 const DIP_PX := 6.0  # how far a clicked tab drops while it shows the pressed tint
@@ -40,12 +42,15 @@ var _tween: Tween
 var _press_tween: Tween
 var _pressed := -1  # the tab dipping under a click, or -1
 var _windows_live_tab := true
+var _compact_fixed_shell := false
+var _reduce_motion := false
 
 
 static func create(page_stack: Control, windows_live_tab: bool = true) -> Dictionary:
 	var strip = load("res://modules/tab_strip/tab_strip.gd").new()
 	strip._page_stack = page_stack
 	strip._windows_live_tab = windows_live_tab
+	strip._compact_fixed_shell = not windows_live_tab
 	var loaded: Dictionary = strip._load_assets()
 	if not loaded.ok:
 		return loaded
@@ -53,6 +58,8 @@ static func create(page_stack: Control, windows_live_tab: bool = true) -> Dictio
 
 
 func _load_assets() -> Dictionary:
+	if OS.has_feature("web"):
+		_reduce_motion = bool(JavaScriptBridge.eval("matchMedia('(prefers-reduced-motion: reduce)').matches"))
 	var f := FileAccess.open(ASSETS + "layout.json", FileAccess.READ)
 	if f == null:
 		return Errors.err(Errors.ASSET_MISSING, "layout.json")
@@ -70,6 +77,11 @@ func _load_assets() -> Dictionary:
 		if t == null:
 			return Errors.err(Errors.ASSET_MISSING, _layout.labels[key])
 		_tex["label_" + key] = t
+	for key in ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground"]:
+		var t = load(ASSETS + "active_blue_" + key + ".png")
+		if t == null:
+			return Errors.err(Errors.ASSET_MISSING, "active_blue_" + key)
+		_tex["active_blue_" + key] = t
 	return Errors.ok()
 
 
@@ -138,6 +150,14 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	var mid := _piece(node, _tex.tab_mid, TextureRect.STRETCH_SCALE)
 	mid.position = Vector2(t.left_w, 0)
 	var right := _piece(node, _tex.tab_right, TextureRect.STRETCH_KEEP)
+	var overlay_clip := Control.new()
+	overlay_clip.name = "ActiveBlueClip"
+	overlay_clip.clip_contents = true
+	overlay_clip.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	node.add_child(overlay_clip)
+	var overlay := _piece(overlay_clip, null, TextureRect.STRETCH_KEEP)
+	overlay.name = "ActiveBlue"
+	overlay.visible = false
 	var icon := _piece(node, null, TextureRect.STRETCH_KEEP)
 	var clip := Control.new()
 	clip.name = "LabelClip"
@@ -165,7 +185,8 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	add_child(node)
 	if not _tabs.is_empty():
 		move_child(node, _tabs[-1].node.get_index())  # behind its left neighbour: one clean join
-	var tab := {"node": node, "left": left, "mid": mid, "right": right, "icon": icon, "clip": clip, "label": label,
+	var tab := {"node": node, "left": left, "mid": mid, "right": right, "overlay_clip": overlay_clip,
+			"overlay": overlay, "icon": icon, "clip": clip, "label": label,
 			"dots": dots, "close": close, "label_key": "", "width": width, "page": null, "fixed": false,
 			"tint": 0.0, "tint_to": 0.0, "fade": null}
 	_tabs.append(tab)
@@ -201,12 +222,21 @@ func _fade(tab: Dictionary, to: float) -> void:
 	tab.tint_to = to
 	if tab.fade != null and tab.fade.is_valid():
 		tab.fade.kill()
+	if _reduce_motion:
+		_set_tint(tab, to)
+		return
 	tab.fade = create_tween()
 	tab.fade.tween_method(func(v: float): _set_tint(tab, v), tab.tint, to, FADE_SECONDS * absf(to - tab.tint))
 
 
 func _set_tint(tab: Dictionary, v: float) -> void:
 	tab.tint = v
+	if tab.overlay.texture != null:
+		tab.overlay.visible = v > 0.0
+		tab.overlay_clip.size = Vector2(tab.width * v, _layout.tab.height)
+		for piece in [tab.left, tab.mid, tab.right, tab.icon, tab.label, tab.dots, tab.close]:
+			piece.self_modulate = Color.WHITE
+		return
 	var c := Color.WHITE.lerp(SEA_BLUE, v * ACTIVE_TINT)
 	for piece in [tab.left, tab.mid, tab.right, tab.icon, tab.label, tab.dots, tab.close]:
 		piece.self_modulate = c
@@ -237,6 +267,8 @@ func _piece(parent: Control, texture, stretch: int) -> TextureRect:
 
 func _set_label(tab: Dictionary, key: String) -> void:
 	tab.label_key = key
+	tab.overlay.texture = _tex.get("active_blue_" + key) if _compact_fixed_shell else null
+	tab.overlay.visible = tab.overlay.texture != null and tab.tint > 0.0
 	match key:
 		"windows_live":
 			tab.icon.texture = _tex.icon_windows_flag
@@ -262,6 +294,19 @@ func _set_label(tab: Dictionary, key: String) -> void:
 ## The label gets the room between its left edge and the close button; when it does not fit,
 ## it is cut at the last whole glyph that fits and the "..." glyph follows (IE7 truncation).
 func _fit_label(tab: Dictionary) -> void:
+	if _compact_fixed_shell and tab.fixed:
+		var height: float = tab.label.texture.get_height() if tab.label.texture else 75.0
+		var full: float = tab.label.texture.get_width() if tab.label.texture else 0.0
+		var room: float = max(0.0, (tab.width - 48.0 - 110.0) / FIXED_TAB_SCALE)
+		tab.icon.scale = Vector2(FIXED_TAB_SCALE, FIXED_TAB_SCALE)
+		tab.icon.position = Vector2(34, (123 - tab.icon.texture.get_height() * FIXED_TAB_SCALE) / 2)
+		tab.clip.scale = Vector2(FIXED_TAB_SCALE, FIXED_TAB_SCALE)
+		tab.clip.position = Vector2(110, (123 - height * FIXED_TAB_SCALE) / 2)
+		tab.dots.visible = full > room
+		tab.clip.size = Vector2(min(full, max(0.0, room - 40.0 if tab.dots.visible else room)), height)
+		tab.dots.scale = Vector2(FIXED_TAB_SCALE, FIXED_TAB_SCALE)
+		tab.dots.position = tab.clip.position + Vector2(tab.clip.size.x * FIXED_TAB_SCALE, 0)
+		return
 	var t: Dictionary = _layout.tab
 	var label_x: float = _layout.label_windows_live[0]
 	var close_x: float = tab.width - _layout.close.margin_right - _layout.close.w
@@ -289,6 +334,8 @@ func _set_tab_width(tab: Dictionary, width: float) -> void:
 	tab.node.size.x = width
 	tab.mid.size = Vector2(max(0.0, width - t.left_w - t.right_w), t.height)
 	tab.right.position = Vector2(width - t.right_w, 0)
+	if tab.overlay.texture != null:
+		tab.overlay_clip.size = Vector2(width * tab.tint, t.height)
 	_fit_label(tab)
 
 
@@ -305,7 +352,7 @@ func _layout_tabs() -> void:
 	if _tabs.is_empty():
 		_stub.position = Vector2(_layout.tab.first_tab_x + (_layout.tab.full_width - _layout.tab_pitch) + _layout.stub.gap_from_tab_right, _layout.stub.y)
 		return
-	var w := _fitted_width(_tabs.size())
+	var w: float = min(FIXED_TAB_WIDTH, _fitted_width(_tabs.size())) if _compact_fixed_shell else _fitted_width(_tabs.size())
 	var x: float = _layout.tab.first_tab_x
 	for tab in _tabs:
 		if not _opening or tab != _tabs[-1]:

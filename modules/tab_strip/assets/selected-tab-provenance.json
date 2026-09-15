@@ -1,0 +1,31 @@
+{
+  "schema": "selected-tab-production-assets/v1",
+  "sourceRepository": "Reid-Surmeier/risd-godot",
+  "sourceCommit": "12c5431",
+  "authorityIssue": 86,
+  "applicationIssue": 70,
+  "provider": "openrouter",
+  "stillModel": "meta/muse-image",
+  "stillCostUsd": "0.01",
+  "assembly": "integer-position donor copies through independently reviewed label-aware binary masks",
+  "assets": {
+    "active_blue_map.png": "8a288686ca677d8b494d7cb9e9777349cc222f057801fbc24e0af9fb0a2f6e34",
+    "active_blue_sketchbook.png": "334a90bad509111611ae5c00ec8b60e49209cfb49ad6cc86548879daf6e99a5b",
+    "active_blue_3d_viewer.png": "35a380f760a7aa7fe199ccd6fc3d4a7e51a731b6aae36484ae5c20cbb87b93b8",
+    "active_blue_video_player.png": "21334de431bb7c50da46a662d92817838d7528908fbf3d608a5e806613ae77a8",
+    "active_blue_collection.png": "176831c092b89998595529d7845620c9e49d54695ff8b0d97eed5dfb05148e4b",
+    "active_blue_playground.png": "a2575684c9abbfe57475d072ee54a5a92114d5c86a8fe2a7c0ee22f3b976396e"
+  },
+  "motion": {
+    "implementation": "deterministic 0.2-second left-to-right clip reveal followed by the exact still endpoint",
+    "model": "bytedance/seedance-2.0-mini",
+    "blockedRuns": [
+      "run-776134b41417d13c47fb0758",
+      "run-1d0246a7cf5498c397d6ae62"
+    ],
+    "status": "both provider submissions unreconciled; no generated video is used",
+    "maximumPossiblySpentUsd": "0.36"
+  },
+  "aggregateMaximumLiabilityUsd": "0.37",
+  "humanReviewed": false
+}
