@@ -75,6 +75,17 @@ func _drag(from: Vector2, by: Vector2, what: String) -> void:
 	_log.append({"t_ms": _ms(), "event": "drag", "what": what, "by": [by.x, by.y]})
 
 
+func _shift_tab(what: String) -> void:
+	for pressed in [true, false]:
+		var event := InputEventKey.new()
+		event.keycode = KEY_TAB
+		event.shift_pressed = true
+		event.pressed = pressed
+		Input.parse_input_event(event)
+		await process_frame
+	_log.append({"t_ms": _ms(), "event": "key", "what": what, "keycode": "Shift+Tab"})
+
+
 func _initialize() -> void:
 	server_pid = OS.create_process("/usr/bin/env", ["RISD_SEARCH_PORT=8141", "node", "--experimental-strip-types",
 		"modules/collection_data/server/server.ts"], false)
@@ -84,11 +95,13 @@ func _initialize() -> void:
 	var image_adapter: Node = Data.http_adapter().value
 	image_adapter.base_url = "http://127.0.0.1:8141/"
 	get_root().add_child(image_adapter)
+	var image_fetch := func(sha256: String, done: Callable) -> Dictionary:
+		return adapter.fetch_image(sha256, done) if sha256 == adapter.webp_hash() else image_adapter.fetch_image(sha256, done)
 	var data: Variant = Data.create({"search": adapter.dispatch}).value
 	var factory := func(deps: Dictionary) -> Dictionary:
 		var page_deps := deps.duplicate()
 		page_deps.collection_data = data
-		page_deps.image_fetch = image_adapter.fetch_image
+		page_deps.image_fetch = image_fetch
 		return Page.create(page_deps)
 	var shell: Control = Shell.create({"collection": factory}).value
 	var out_dir := await _mount(shell, Vector2i(1920, 1080), "/tmp/collection-page-search")
@@ -128,6 +141,9 @@ func _initialize() -> void:
 	await _key(KEY_SPACE, "toggle Has Image on")
 	await _key(KEY_TAB, "focus OK")
 	_search(shell, "focus-ok")
+	await _shift_tab("return to Has Image")
+	_search(shell, "focus-checkbox-backward")
+	await _key(KEY_TAB, "return to OK")
 	await _key(KEY_ENTER, "apply A")
 	await _wait_phase(shell, "results", "A-success")
 	await create_timer(0.4).timeout
@@ -142,6 +158,16 @@ func _initialize() -> void:
 	await _key(KEY_ESCAPE, "cancel B")
 	await _frames(2)
 	var restored := _search(shell, "B-canceled-restores-A")
+
+	# Canceling an in-flight request restores A and its later reply cannot replace A.
+	await _type_text(query, "slow", "pending cancel query")
+	await _key(KEY_ENTER, "apply pending cancel")
+	var pending_before_cancel := _search(shell, "pending-before-cancel")
+	await _key(KEY_ESCAPE, "cancel pending request")
+	await _frames(2)
+	var pending_canceled := _search(shell, "pending-canceled")
+	await create_timer(1.0).timeout
+	var canceled_late := _search(shell, "canceled-reply-ignored")
 
 	# A slow older request may finish after a newer request, but cannot replace it.
 	await _type_text(query, "slow", "slow request")
@@ -194,6 +220,12 @@ func _initialize() -> void:
 	await _click(retry.get_global_rect().get_center(), "retry expired snapshot")
 	var retried := await _wait_phase(shell, "results", "snapshot-retry")
 
+	await _type_text(query, "webp", "WebP image query")
+	await _key(KEY_ENTER, "apply WebP image query")
+	await _wait_phase(shell, "results", "webp-response")
+	await create_timer(0.2).timeout
+	var webp := _search(shell, "webp-image")
+
 	# Selection only changes presentation; it dispatches no request.
 	category.select(0)
 	has_image.button_pressed = false
@@ -238,8 +270,9 @@ func _initialize() -> void:
 
 	_log.append({"t_ms": _ms(), "event": "fixture", "calls": adapter.calls, "server_pid": server_pid,
 		"checkpoints": [launch.requests, typed.requests, canceled.requests, a.requests, failed.requests, restored.requests,
-			stale.requests, before_page.requests, page_two.requests, empty.requests, missing.requests, broken.requests,
-			expired.requests, retried.requests, selected.requests, moved.requests, resized.requests, hidden_before.requests,
+			pending_before_cancel.requests, pending_canceled.requests, canceled_late.requests, stale.requests,
+			before_page.requests, page_two.requests, empty.requests, missing.requests, broken.requests,
+			expired.requests, retried.requests, webp.requests, selected.requests, moved.requests, resized.requests, hidden_before.requests,
 			hidden.requests, resumed.requests, compact.requests]})
 	if server_pid > 0:
 		OS.kill(server_pid)

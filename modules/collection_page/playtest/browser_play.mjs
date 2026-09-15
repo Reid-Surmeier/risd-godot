@@ -48,6 +48,12 @@ try {
     ime.dispatchEvent(new CompositionEvent('compositionupdate', {data: '雪'}));
     ime.textContent = '雪';
     ime.dispatchEvent(new InputEvent('input', {data: '雪', inputType: 'insertCompositionText', isComposing: true, bubbles: true}));
+    ime.dispatchEvent(new KeyboardEvent('keydown', {key: 'Enter', code: 'Enter', isComposing: true, bubbles: true}));
+  });
+  await page.waitForTimeout(100);
+  assert.equal((await state()).tenant.search.requests, initialRequests, 'Enter during composition dispatches no request');
+  await page.evaluate(() => {
+    const ime = document.querySelector('.ime');
     ime.dispatchEvent(new CompositionEvent('compositionend', {data: '雪'}));
     ime.dispatchEvent(new InputEvent('input', {data: '雪', inputType: 'insertText', bubbles: true}));
     document.querySelector('#canvas').focus();
@@ -104,6 +110,13 @@ try {
   const routed = [];
   await page.route('**/api/collection/search?**', async route => {
     const url = new URL(route.request().url());
+    if (url.searchParams.get('q') === 'slow-cancel') {
+      routed.push('slow-cancel');
+      await new Promise(resolve => setTimeout(resolve, 500));
+      await route.fulfill({status: 200, contentType: 'application/json', body: JSON.stringify({ok: false, value: null,
+        error: {code: 'collection_data.unavailable', detail: 'Canceled browser request'}})});
+      return;
+    }
     if (url.searchParams.get('q') === 'outage') {
       routed.push('outage');
       await route.fulfill({status: 200, contentType: 'application/json', body: JSON.stringify({ok: false, value: null,
@@ -124,6 +137,15 @@ try {
     }
     await route.continue();
   });
+
+  await clickControl('Query');
+  await page.keyboard.press('Control+A'); await page.keyboard.type('slow-cancel'); await page.keyboard.press('Enter');
+  await page.waitForFunction(() => window.shellCrtQa.tenant.search.phase === 'loading');
+  await page.keyboard.press('Escape');
+  await page.waitForFunction(() => window.shellCrtQa.tenant.search.phase === 'results'
+    && window.shellCrtQa.tenant.search.response.query.q === 'Monet');
+  await page.waitForTimeout(650);
+  assert.equal((await state()).tenant.search.response.query.q, 'Monet', 'canceled reply cannot replace results');
 
   await clickControl('Query');
   await page.keyboard.press('Control+A'); await page.keyboard.type('outage'); await page.keyboard.press('Enter');

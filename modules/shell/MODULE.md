@@ -4,7 +4,7 @@ purpose: The one Control the game runs in — the tab strip along the bottom wit
 interface: modules/shell/interface.gd
 errors: modules/shell/errors.gd
 tests: modules/shell/playtest/harness.gd + modules/shell/playtest/verify.py
-depends-on: [tab_strip, atlas, collection_page, playground_page]
+depends-on: [tab_strip, atlas, sketchbook, sculpture_viewer, video_player, collection_page, playground_page, collection_data]
 ---
 
 # shell

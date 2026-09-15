@@ -58,6 +58,7 @@ check("escape_restores_last_success", canceled["draft"] == canceled["last_succes
       and canceled["requests"] == typed["requests"])
 check("keyboard_focus_order", [states[name]["focus_owner"] for name in
       ["focus-sort", "focus-category", "focus-checkbox", "focus-ok"]] == ["Sort", "Category", "HasImage", "OK"])
+check("shift_tab_moves_backward", states["focus-checkbox-backward"]["focus_owner"] == "HasImage")
 popup_open, popup_closed = states["sort-popup-open"], states["sort-popup-dismissed"]
 check("escape_only_dismisses_popup", popup_open["sort_popup_visible"] and not popup_closed["sort_popup_visible"]
       and popup_closed["draft"]["q"] == "Monet" and popup_closed["requests"] == popup_open["requests"])
@@ -75,8 +76,13 @@ failed, restored = states["B-failed"], states["B-canceled-restores-A"]
 check("failed_B_keeps_A", failed["phase"] == "error" and failed["response"] == a["response"] and failed["requests"] == a["requests"] + 1)
 check("cancel_B_restores_A_without_request", restored["draft"] == restored["applied"] == a["applied"]
       and restored["requests"] == failed["requests"] and restored["focus_owner"].startswith("Card_"))
+pending, pending_canceled, canceled_late = states["pending-before-cancel"], states["pending-canceled"], states["canceled-reply-ignored"]
+check("cancel_pending_restores_A", pending["phase"] == "loading" and pending_canceled["phase"] == "results"
+      and pending_canceled["response"] == a["response"] and pending_canceled["requests"] == pending["requests"])
+check("canceled_reply_is_ignored", canceled_late["response"] == a["response"]
+      and canceled_late["ignored_completions"] == pending["ignored_completions"] + 1)
 stale = states["older-reply-ignored"]
-check("late_reply_ignored", stale["response"]["query"]["q"] == "Monet" and stale["ignored_completions"] == 1)
+check("late_reply_ignored", stale["response"]["query"]["q"] == "Monet" and stale["ignored_completions"] == 2)
 
 page_one, page_two = states["page-one-with-draft"], states["page-two"]
 check("draft_survives_pagination", page_one["draft"]["q"] == page_two["draft"]["q"] == "unsent"
@@ -96,6 +102,10 @@ retried = states["snapshot-retry"]
 check("snapshot_retry_becomes_last_success", retried["phase"] == "results" and retried["applied"]["q"] == "expire"
       and retried["applied"]["page"] == 1 and "snapshot" not in retried["applied"]
       and retried["last_successful"] == retried["applied"] and retried["requests"] == expired["requests"] + 1)
+webp = states["webp-image"]
+check("valid_webp_image_loads", webp["response"]["total"] == 1 and webp["images_loaded"] == 1
+      and webp["image_failures"] == 0 and webp["items"][0]["has_texture"]
+      and not webp["items"][0]["image_unavailable"])
 
 focused, before, selected = states["result-focused"], states["before-selection"], states["selected"]
 check("result_card_is_keyboard_focusable", focused["focus_owner"].startswith("Card_"))
@@ -125,9 +135,9 @@ check("compact_controls_stay_in_filter_window", all(rect["x"] >= filter_rect["x"
 check("compact_windows_stay_in_page", all(window["rect"]["x"] >= -1 and window["rect"]["y"] >= -1
       and window["rect"]["x"] + window["rect"]["w"] <= compact["size"][0] + 1
       and window["rect"]["y"] + window["rect"]["h"] <= compact["size"][1] + 1 for window in compact["windows"]))
-check("adapter_received_exact_requests", len(fixture["calls"]) == compact["requests"] == 14
-      and fixture["calls"][6]["q"] == "pages" and fixture["calls"][6]["page"] == 2
-      and "snapshot" in fixture["calls"][6])
+check("adapter_received_exact_requests", len(fixture["calls"]) == compact["requests"] == 16
+      and fixture["calls"][7]["q"] == "pages" and fixture["calls"][7]["page"] == 2
+      and "snapshot" in fixture["calls"][7])
 
 passed = all(value["pass"] for value in checks.values())
 (out / "verify.json").write_text(json.dumps({"pass": passed, "checks": checks, "sha256": hashes}, indent=2) + "\n")

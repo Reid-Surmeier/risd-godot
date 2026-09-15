@@ -3,6 +3,8 @@ extends Node
 ## states; every other query searches the same verified corpus served in production tests.
 
 const CORPUS := "res://docs/evidence/collection-search/corpus.json"
+const WEBP := "res://testing/fixtures/collection-image.webp"
+const WEBP_SHA := "35c93fb70fa1893a99c0c5c265a3dfda19784826f926107491305cb1d94d12d2"
 var calls: Array[Dictionary] = []
 var expired_once := false
 
@@ -22,6 +24,17 @@ func dispatch(query: Dictionary, done: Callable) -> Dictionary:
 	return {"ok": true, "value": null, "error": null}
 
 
+func webp_hash() -> String:
+	return WEBP_SHA
+
+
+func fetch_image(sha256: String, done: Callable) -> Dictionary:
+	if sha256 != WEBP_SHA:
+		return {"ok": false, "value": null, "error": {"code": "testing.image_missing", "detail": "Unknown fixture image"}}
+	done.call({"ok": true, "value": FileAccess.get_file_as_bytes(WEBP), "error": null})
+	return {"ok": true, "value": null, "error": null}
+
+
 func _result(query: Dictionary) -> Dictionary:
 	var corpus: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(CORPUS))
 	var records: Array = corpus.records.duplicate(true)
@@ -31,6 +44,14 @@ func _result(query: Dictionary) -> Dictionary:
 		broken.image = broken.image.duplicate(true)
 		broken.image.sha256 = "0".repeat(64)
 		records = [broken]
+	elif term == "webp":
+		var webp: Dictionary = corpus.records[0].duplicate(true)
+		webp.image = webp.image.duplicate(true)
+		webp.image.sha256 = WEBP_SHA
+		webp.image.mime = "image/webp"
+		webp.image.width = 8
+		webp.image.height = 8
+		records = [webp]
 	elif term == "pages":
 		records.clear()
 		for index in 25:

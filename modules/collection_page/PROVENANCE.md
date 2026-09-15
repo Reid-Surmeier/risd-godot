@@ -1,6 +1,6 @@
 # Provenance of modules/collection_page
 
-Every file below was copied unchanged (the two scripts excepted, see their headers) from
+Every file below except the PixelMplus font was copied unchanged (the two scripts excepted, see their headers) from
 `Reid-Surmeier/qwen-image-pipeline`, branch `prototype/81-image-viewer`, commit `5d55209`, folder
 `godot/prototype-image-viewer/`, on 2026-09-13. SHA-256 is of the source file at that commit, which for
 every non-script file is also the byte-identical copy here. Nothing in the module is hand-drawn: the
@@ -45,5 +45,6 @@ stacking in `5d55209`).
 | `modules/collection_page/assets/party.png` | `godot/prototype-image-viewer/assets/party.png` | `53448920c5c9c9d711f2a4f20bf22d5935c3173972e2bc0c7062cf1bfead0b75` | パーティー (party) window, owner-supplied |
 | `modules/collection_page/assets/bottom.png` | `godot/prototype-image-viewer/assets/bottom.png` | `09c077c70d82875e3da6d8c8bfe7c4de9a98a5fa4150cc045ba81e9c66d4f262` | the bottom bar, owner-supplied |
 | `modules/collection_page/assets/layout-reference.png` | `godot/prototype-image-viewer/assets/layout-reference.png` | `e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d` | the owner's desktop layout; the Search filters window is cut from it |
+| `modules/collection_page/assets/PixelMplus12-Regular.ttf` | byte-identical copy of `modules/atlas/fonts/PixelMplus12-Regular.ttf` | `02f19467ea7cc235cc06c570b7f6c3b0a12a6f682bc8d74c43f2d323d97bcd12` | M+ Fonts Project, unlimited use/copy/distribution; licence at `modules/atlas/fonts/LICENSE.txt` |
 
-12 files.
+13 files.

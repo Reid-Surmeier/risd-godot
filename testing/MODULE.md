@@ -24,4 +24,5 @@ One place to take test-time adapters from: a fixed clock, in-memory stores, reco
 Keep test doubles here, not scattered in modules. A double only one module needs still lives here, named for that module. A test that asserts on a screenshot the implementation itself produced is not a test — the harness must perform the interaction.
 
 Issue #78 creates the terminal fixture and collection-data seam test. Issue #88 exposes the
-asynchronous Collection Page adapter used for success, failure, stale completion and pagination.
+asynchronous Collection Page adapter used for success, failure, stale completion, pagination and
+the accepted WebP-image path.

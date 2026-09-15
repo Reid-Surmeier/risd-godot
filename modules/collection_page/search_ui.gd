@@ -91,15 +91,16 @@ func _field_style(color: Color = Color("fafafa")) -> StyleBoxFlat:
 
 func _theme_control(control: Control) -> void:
 	control.add_theme_font_override("font", font)
-	control.add_theme_color_override("font_color", Color("243e58"))
+	for color_name in ["font_color", "font_focus_color", "font_hover_color", "font_pressed_color", "font_hover_pressed_color"]:
+		control.add_theme_color_override(color_name, Color("243e58"))
 	for style_name in ["normal", "focus", "hover", "pressed"]:
 		control.add_theme_stylebox_override(style_name, _field_style(Color("dcecff") if style_name in ["focus", "hover"] else Color("fafafa")))
 
 
 func _build_filters() -> void:
-	for label_text in ["Search", "Sort", "Category"]:
-		var label := _label(label_text)
-		label.name = label_text + "Label"
+	for label_spec in [["Search", "Search"], ["Sort", "Sort"], ["Category", "Medium"]]:
+		var label := _label(label_spec[1])
+		label.name = label_spec[0] + "Label"
 		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		body.add_child(label)
 	query.name = "Query"
@@ -491,7 +492,11 @@ func _load_image(manifest: Dictionary, target: TextureRect, unavailable: Label) 
 			image_failures += 1
 			return
 		var decoded := Image.new()
-		var decoded_ok := decoded.load_jpg_from_buffer(bytes) if manifest.mime == "image/jpeg" else decoded.load_png_from_buffer(bytes)
+		var decoded_ok := ERR_INVALID_PARAMETER
+		match manifest.mime:
+			"image/jpeg": decoded_ok = decoded.load_jpg_from_buffer(bytes)
+			"image/png": decoded_ok = decoded.load_png_from_buffer(bytes)
+			"image/webp": decoded_ok = decoded.load_webp_from_buffer(bytes)
 		if decoded_ok == OK:
 			live_target.texture = ImageTexture.create_from_image(decoded)
 			images_loaded += 1
