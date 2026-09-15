@@ -6,7 +6,13 @@
 
 ![Saved works after closing and reopening Chrome](03-reopened-sketchbook.png)
 
-Exact tested builds: save in `5133271.html`, then reopen in corrected `59bac9d.html` on the retained
+![Paint and selected reference retained after page turns and Tab switching](04-sketchbook-painted.png)
+
+![Saved works in Playground at 720 by 486](05-playground-720x486.png)
+
+![Paint and reference at 720 by 486](06-sketchbook-720x486.png)
+
+Exact tested builds: save in `5133271.html`, then reopen in corrected `773a594.html` on the retained
 `risd-desktop-godot-f57d02de` origin.
 
 The Playwright journey opened two game pages, saved a different RISD artwork from each at the same
@@ -15,6 +21,9 @@ reopened the same browser profile on the newer build and verified both records a
 records the IDs, destinations, restart and build-update results, and zero unexpected browser errors.
 The same journey forces denied, quota, aborted, corrupt and newer-version storage failures and checks
 that each leaves the committed document unchanged and never reports `Saved`.
+On the corrected build it selects a saved reference, chooses pigment, paints, changes reference,
+turns forward and back, switches Tabs, and verifies the reference, stroke, pigment and spread remain.
+The same journey passes at 720×486; `report-720x486.json` records that run.
 
 Run:
 

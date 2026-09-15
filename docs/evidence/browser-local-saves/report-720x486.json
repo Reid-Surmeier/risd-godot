@@ -1,10 +1,10 @@
 {
   "status": "pass",
-  "url": "https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/5133271.html",
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/773a594.html",
   "reopened_url": "https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/773a594.html",
   "viewport": [
-    1920,
-    1080
+    720,
+    486
   ],
   "saved_ids": [
     "risd:1584511",
@@ -12,7 +12,7 @@
   ],
   "concurrent_windows": true,
   "persisted_after_browser_restart": true,
-  "persisted_after_build_update": true,
+  "persisted_after_build_update": false,
   "rejected_without_overwrite": [
     "denied",
     "quota",
