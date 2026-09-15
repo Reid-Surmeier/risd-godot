@@ -24,7 +24,9 @@ func _ready() -> void:
 		adapter.base_url = JavaScriptBridge.eval("new URL('./', window.location.href).href")
 	image_base_url = adapter.base_url
 	add_child(adapter)
-	var handle: Variant = Data.create({"search": adapter.dispatch}).value
+	var storage: Variant = Data.storage_adapter().value
+	var handle: Variant = Data.create({"search": adapter.dispatch, "load_saves": storage.load_saves,
+			"save_if_absent": storage.save_if_absent, "now_ms": func() -> int: return 0}).value
 	Data.search(handle, {"q": "Monet", "category": "Painting"}, _received)
 
 func _label(value: String, font_size: int = 20) -> void:

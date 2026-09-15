@@ -13,6 +13,8 @@ const CollectionPage := preload("res://modules/collection_page/interface.gd")
 const CollectionData := preload("res://modules/collection_data/interface.gd")
 const PlaygroundPage := preload("res://modules/playground_page/interface.gd")
 
+var _storage: Variant
+
 
 func _ready() -> void:
 	var http_result := CollectionData.http_adapter()
@@ -21,14 +23,34 @@ func _ready() -> void:
 		return
 	var http: Node = http_result.value
 	add_child(http)
-	var data: Variant = CollectionData.create({"search": http.dispatch}).value
+	var storage_result := CollectionData.storage_adapter()
+	if not storage_result.ok:
+		push_error("collection data: could not create storage adapter")
+		return
+	_storage = storage_result.value
+	var data_result := CollectionData.create({"search": http.dispatch, "load_saves": _storage.load_saves,
+			"save_if_absent": _storage.save_if_absent, "now_ms": func() -> int: return int(Time.get_unix_time_from_system() * 1000.0)})
+	if not data_result.ok:
+		push_error("collection data: could not create shared handle")
+		return
+	var data: Variant = data_result.value
 	var collection_factory := func(deps: Dictionary) -> Dictionary:
 		var page_deps := deps.duplicate()
 		page_deps.collection_data = data
 		page_deps.image_fetch = http.fetch_image
 		return CollectionPage.create(page_deps)
-	var created := Shell.create({"map": Atlas, "sketchbook": Sketchbook, "3d_viewer": SculptureViewer,
-			"video_player": VideoPlayer, "collection": collection_factory, "playground": PlaygroundPage})
+	var sketchbook_factory := func(deps: Dictionary) -> Dictionary:
+		var page_deps := deps.duplicate()
+		page_deps.collection_data = data
+		page_deps.image_fetch = http.fetch_image
+		return Sketchbook.create(page_deps)
+	var playground_factory := func(deps: Dictionary) -> Dictionary:
+		var page_deps := deps.duplicate()
+		page_deps.collection_data = data
+		page_deps.image_fetch = http.fetch_image
+		return PlaygroundPage.create(page_deps)
+	var created := Shell.create({"map": Atlas, "sketchbook": sketchbook_factory, "3d_viewer": SculptureViewer,
+			"video_player": VideoPlayer, "collection": collection_factory, "playground": playground_factory})
 	if not created.ok:
 		push_error("shell: %s" % created.error.code)
 		return

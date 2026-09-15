@@ -114,10 +114,12 @@ check("cancel_keeps_retained_image_load", slow_image["images_loaded"] == 0
       and slow_image_restored["response"]["query"]["q"] == "slow-image"
       and slow_image_restored["images_loaded"] == 1 and slow_image_restored["items"][0]["has_texture"])
 
-focused, before, selected = states["result-focused"], states["before-selection"], states["selected"]
+focused, before, selected, saved = states["result-focused"], states["before-selection"], states["selected"], states["saved"]
 check("result_card_is_keyboard_focusable", focused["focus_owner"].startswith("Card_"))
-check("selection_does_not_request_or_save", selected["selected"] in {item["id"] for item in before["items"]}
-      and selected["requests"] == before["requests"] and "saved" not in selected)
+check("selection_is_separate_from_save", selected["selected"] in {item["id"] for item in before["items"]}
+      and selected["requests"] == before["requests"] and selected["save_phase"] in ("idle", "saved"))
+check("save_reports_only_committed_success", saved["selected"] == selected["selected"] and saved["save_phase"] == "saved"
+      and saved["save_message"] == "Saved" and saved["requests"] == selected["requests"])
 moved = states["filters-moved"]
 f0, f1 = win(selected, "filters")["rect"], win(moved, "filters")["rect"]
 check("filter_window_drags_and_raises", abs(f1["x"] - f0["x"] - 24) < 1 and abs(f1["y"] - f0["y"] - 12) < 1

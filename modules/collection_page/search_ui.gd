@@ -34,6 +34,10 @@ var applied := {"q": "", "category": "All", "sort": "date_asc", "has_image": tru
 var last_successful: Dictionary = applied.duplicate(true)
 var response: Dictionary = {}
 var selected := ""
+var selected_artwork: Dictionary = {}
+var save_phase := "idle"
+var save_message := ""
+var save_generation := 0
 var requests := 0
 var completions := 0
 var ignored_completions := 0
@@ -464,6 +468,9 @@ func _layout_cards() -> void:
 
 func _select(artwork: Dictionary) -> void:
 	selected = artwork.id
+	selected_artwork = artwork.duplicate(true)
+	save_phase = "idle"
+	save_message = ""
 	for child in details.get_children():
 		child.queue_free()
 	var column := VBoxContainer.new()
@@ -478,7 +485,66 @@ func _select(artwork: Dictionary) -> void:
 		line.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		line.add_theme_font_size_override("font_size", maxi(7, roundi(12 * page.factor)))
 		column.add_child(line)
+	var save := Button.new()
+	save.name = "SaveArtwork"
+	save.text = "Save"
+	save.pressed.connect(_save_selected)
+	_theme_control(save)
+	column.add_child(save)
+	var saved_label := _label("")
+	saved_label.name = "SaveStatus"
+	saved_label.add_theme_font_size_override("font_size", maxi(7, roundi(12 * page.factor)))
+	column.add_child(saved_label)
 	details.visible = true
+	_refresh_selected_save_status(saved_label, save)
+
+
+func _refresh_selected_save_status(label: Label, button: Button) -> void:
+	var current := selected
+	var started := Data.saved(data_handle, func(result: Dictionary) -> void:
+		if current != selected or not is_instance_valid(label) or not result.ok:
+			return
+		var already: bool = result.value.items.any(func(item: Dictionary) -> bool: return item.artwork.id == current)
+		if already:
+			save_phase = "saved"
+			save_message = "Saved"
+			label.text = save_message
+			button.disabled = true)
+	if not started.ok:
+		save_phase = "error"
+		save_message = "Could not check saved works · " + started.error.detail
+		label.text = save_message
+
+
+func _save_selected() -> void:
+	if selected_artwork.is_empty():
+		return
+	var label := details.find_child("SaveStatus", true, false) as Label
+	var button := details.find_child("SaveArtwork", true, false) as Button
+	if label == null or button == null:
+		return
+	save_generation += 1
+	var current := save_generation
+	save_phase = "saving"
+	save_message = "Saving…"
+	label.text = save_message
+	button.disabled = true
+	var started := Data.save(data_handle, selected_artwork, func(result: Dictionary) -> void:
+		if current != save_generation or not is_instance_valid(label) or not is_instance_valid(button):
+			return
+		if result.ok:
+			save_phase = "saved"
+			save_message = "Saved"
+		else:
+			save_phase = "error"
+			save_message = "Could not save · " + result.error.detail
+			button.disabled = false
+		label.text = save_message)
+	if not started.ok:
+		save_phase = "error"
+		save_message = "Could not save · " + started.error.detail
+		label.text = save_message
+		button.disabled = false
 
 
 func _load_image(manifest: Dictionary, target: TextureRect, unavailable: Label) -> void:
@@ -524,6 +590,9 @@ func state() -> Dictionary:
 	for control in [query, sort, category, has_image, ok, cancel, retry, previous, next, details]:
 		var rect: Rect2 = control.get_global_rect()
 		controls[control.name] = rect
+	var save_button := details.find_child("SaveArtwork", true, false) as Button
+	if save_button != null:
+		controls[save_button.name] = save_button.get_global_rect()
 	var sort_popup := sort.get_popup()
 	var category_popup := category.get_popup()
 	var focus_owner := get_viewport().gui_get_focus_owner()
@@ -543,7 +612,8 @@ func state() -> Dictionary:
 				"image_unavailable": unavailable != null and unavailable.visible})
 	return {"phase": phase, "draft": _draft(), "applied": applied.duplicate(true), "last_successful": last_successful.duplicate(true),
 		"requests": requests, "completions": completions, "ignored_completions": ignored_completions, "response": response.duplicate(true),
-		"items": items, "selected": selected, "images_loaded": images_loaded, "image_failures": image_failures,
+		"items": items, "selected": selected, "save_phase": save_phase, "save_message": save_message,
+		"images_loaded": images_loaded, "image_failures": image_failures,
 		"retry_visible": retry.visible,
 		"controls": controls, "query_focused": query.has_focus(),
 		"focus_owner": focus_owner.name if focus_owner != null else "", "sort_items": sort_items, "category_items": category_items,

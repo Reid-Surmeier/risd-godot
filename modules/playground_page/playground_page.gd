@@ -15,6 +15,7 @@
 extends ColorRect
 
 const Errors := preload("res://modules/playground_page/errors.gd")
+const Data := preload("res://modules/collection_data/interface.gd")
 const ROOT := "res://modules/playground_page/"
 const DESKTOP := Vector2(2171, 1185)
 const MARGIN := 24.0
@@ -46,6 +47,12 @@ var windows: Array[Control] = []
 var _active: Control
 var _start_pointer := Vector2.ZERO
 var _start_position := Vector2.ZERO
+var data_handle: Variant
+var image_fetch: Callable
+var saved_body := ColorRect.new()
+var saved_list := VBoxContainer.new()
+var saved_ids: Array = []
+var storage_status := "loading"
 
 
 static func create(deps: Dictionary) -> Dictionary:
@@ -54,6 +61,8 @@ static func create(deps: Dictionary) -> Dictionary:
 			return Errors.err(Errors.ASSET_MISSING, ROOT + "assets/" + entry[1])
 	var page = load(ROOT + "playground_page.gd").new()
 	page.key = deps.get("key", "")
+	page.data_handle = deps.collection_data
+	page.image_fetch = deps.image_fetch
 	page.name = "PlaygroundPage"
 	page.color = Color.WHITE
 	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -84,8 +93,22 @@ func _ready() -> void:
 		window.set_meta("native", texture.get_size())
 		add_child(window)
 		windows.append(window)
+		if entry[0] != "phone":
+			var blank := ColorRect.new()
+			blank.name = "ClearedInterior"
+			blank.color = Color.WHITE
+			blank.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			window.add_child(blank)
+	saved_body.name = "SavedWorks"
+	saved_body.color = Color.WHITE
+	saved_body.mouse_filter = Control.MOUSE_FILTER_STOP
+	windows[0].add_child(saved_body)
+	saved_list.add_theme_constant_override("separation", 8)
+	saved_body.add_child(saved_list)
+	visibility_changed.connect(_refresh_saved)
 	resized.connect(_fit)
 	_fit()
+	_refresh_saved()
 
 
 func _fit() -> void:
@@ -108,12 +131,95 @@ func _fit() -> void:
 			"right_bottom":
 				window.position = Vector2(size.x - (DESKTOP.x - at.x) * s, size.y - (DESKTOP.y - at.y) * s)
 		window.size = native * s
+		var blank := window.get_node_or_null("ClearedInterior") as ColorRect
+		if blank != null:
+			var inset := maxf(2.0, float(entry[6]) * float(entry[3]) * s)
+			var top := float(window.get_meta("drag_height"))
+			blank.position = Vector2(inset, top)
+			blank.size = (window.size - Vector2(inset * 2.0, top + inset)).max(Vector2.ZERO)
 	# the main window takes the leftover: to the middle column on the right, to the margin at the bottom
 	var postpet := windows[0]
 	var right := size.x - (DESKTOP.x - right_of_postpet) * s
 	var bottom := size.y - MARGIN * s
 	postpet.size = Vector2(right, bottom) - postpet.position
 	postpet.queue_redraw()
+	var top: float = float(postpet.get_meta("drag_height"))
+	saved_body.position = Vector2(10 * s, top + 8 * s)
+	saved_body.size = (postpet.size - Vector2(20 * s, top + 18 * s)).max(Vector2.ZERO)
+	saved_list.position = Vector2(10 * s, 8 * s)
+	saved_list.size = saved_body.size - Vector2(20 * s, 16 * s)
+	for child in saved_list.get_children():
+		child.custom_minimum_size.x = saved_list.size.x
+
+
+func _refresh_saved() -> void:
+	if not is_visible_in_tree() or data_handle == null:
+		return
+	storage_status = "loading"
+	var started := Data.saved(data_handle, func(result: Dictionary) -> void:
+		if not is_instance_valid(saved_list):
+			return
+		for child in saved_list.get_children():
+			child.queue_free()
+		saved_ids.clear()
+		if not result.ok:
+			storage_status = "error"
+			saved_list.add_child(_saved_label("Saved works unavailable"))
+			return
+		storage_status = "ready"
+		if result.value.items.is_empty():
+			saved_list.add_child(_saved_label("No saved RISD works yet"))
+			return
+		for item in result.value.items:
+			saved_ids.append(item.artwork.id)
+			saved_list.add_child(_saved_card(item.artwork)))
+	if not started.ok:
+		storage_status = "error"
+
+
+func _saved_label(value: String) -> Label:
+	var label := Label.new()
+	label.text = value
+	label.add_theme_color_override("font_color", Color("243e58"))
+	label.add_theme_font_size_override("font_size", 16)
+	return label
+
+
+func _saved_card(artwork: Dictionary) -> Control:
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 10)
+	var image := TextureRect.new()
+	image.name = "SavedImage"
+	image.custom_minimum_size = Vector2(110, 82)
+	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	row.add_child(image)
+	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
+	var label := _saved_label("%s\n%s\n%s\n%s" % [artwork.title if artwork.title != "" else "Untitled", maker,
+			artwork.id, artwork.credit if artwork.credit != "" else "Credit unavailable"])
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(label)
+	if artwork.image == null:
+		image.tooltip_text = "IMAGE UNAVAILABLE"
+	else:
+		_load_saved_image(artwork.image, image)
+	return row
+
+
+func _load_saved_image(manifest: Dictionary, target: TextureRect) -> void:
+	image_fetch.call(manifest.sha256, func(result: Dictionary) -> void:
+		if not result.ok or not is_instance_valid(target):
+			return
+		var context := HashingContext.new()
+		context.start(HashingContext.HASH_SHA256)
+		context.update(result.value)
+		if context.finish().hex_encode() != manifest.sha256:
+			return
+		var decoded := Image.new()
+		var status := decoded.load_jpg_from_buffer(result.value) if manifest.mime == "image/jpeg" else (decoded.load_png_from_buffer(result.value) if manifest.mime == "image/png" else decoded.load_webp_from_buffer(result.value))
+		if status == OK:
+			target.texture = ImageTexture.create_from_image(decoded))
 
 
 ## The PostPet picture band by band at the uniform scale; in each band only its one-pixel column takes
@@ -177,5 +283,11 @@ func state() -> Dictionary:
 		list.append({"name": String(window.name), "rect": window.get_rect(), "order": window.get_index(),
 				"drag_height": -1.0 if is_inf(drag) else drag})
 	list.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return a.order < b.order)
+	var saved_images_loaded := 0
+	for image in saved_list.find_children("SavedImage", "TextureRect", true, false):
+		if image.texture != null:
+			saved_images_loaded += 1
 	return Errors.ok({"key": key, "ticks": ticks, "inputs": inputs, "size": size, "factor": factor,
-			"desktop": DESKTOP, "margin": MARGIN, "action": action, "windows": list})
+			"desktop": DESKTOP, "margin": MARGIN, "action": action, "windows": list,
+			"saved_ids": saved_ids.duplicate(), "saved_images_loaded": saved_images_loaded,
+			"storage_status": storage_status})

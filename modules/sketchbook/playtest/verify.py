@@ -14,7 +14,7 @@ import numpy as np
 from PIL import Image
 
 BAR_RATIO = 161 / 4180.0              # the strip's height per pixel of width
-DESKTOP = (1330, 679)                 # desktop.gd DESKTOP_SIZE
+DESKTOP = (1330, 860)                 # desktop.gd DESKTOP_SIZE with saved references above the tools
 MARGIN = (60, 52)                     # desktop.gd NATIVE_MARGIN
 PAINTBOX = (550, 575)                 # desktop.gd PAINTBOX_SLOT size (the prototype's variant A)
 BOOK = (630, 555)                     # desktop.gd BOOK_SLOT size
@@ -109,9 +109,10 @@ check("book_opens_on_blank_spread_1", b["spread"] == 1 and b["strokes"] == 0 and
 def fill(label, shot, page):
     e = book[label]; S = e["size"]
     s = min(S[0] / DESKTOP[0], S[1] / DESKTOP[1])
-    pb, wr = e["paintbox_rect"], e["window_rect"]
-    x0, y0 = min(pb["x"], wr["x"]), min(pb["y"], wr["y"])
-    x1, y1 = max(pb["x"] + pb["w"], wr["x"] + wr["w"]), max(pb["y"] + pb["h"], wr["y"] + wr["h"])
+    pb, wr, rr = e["paintbox_rect"], e["window_rect"], e["reference_rect"]
+    x0, y0 = min(pb["x"], wr["x"], rr["x"]), min(pb["y"], wr["y"], rr["y"])
+    x1 = max(pb["x"] + pb["w"], wr["x"] + wr["w"], rr["x"] + rr["w"])
+    y1 = max(pb["y"] + pb["h"], wr["y"] + wr["h"], rr["y"] + rr["h"])
     mx, my = MARGIN[0] * s + 1.5, MARGIN[1] * s + 1.5
     margins = (x0, S[0] - x1, y0, S[1] - y1)
     by_state = (all(-0.5 <= m for m in margins) and margins[0] <= mx and margins[1] <= mx and margins[2] <= my and margins[3] <= my)
@@ -130,9 +131,9 @@ def fill(label, shot, page):
 fill("book-shown", "01-desktop.png", None)
 fill("fill-1920x1000", "02-fill-1920x1000.png", (1920, 1000))
 f2 = fill("fill-1440x820", "03-fill-1440x820.png", (1440, 820))
-check("fill_1440x820_book_takes_the_leftover_height", f2["desktop_logical"][1] > DESKTOP[1] + 50
-      and near(f2["window_rect"]["h"], (BOOK[1] + f2["desktop_logical"][1] - DESKTOP[1]) * f2["desktop_scale"], 1.5),
-      f"logical {f2['desktop_logical']} book h {f2['window_rect']['h']:.1f}")
+check("fill_1440x820_book_takes_the_leftover_width", f2["desktop_logical"][0] > DESKTOP[0] + 50
+      and near(f2["window_rect"]["w"], (BOOK[0] + f2["desktop_logical"][0] - DESKTOP[0]) * f2["desktop_scale"], 1.5),
+      f"logical {f2['desktop_logical']} book w {f2['window_rect']['w']:.1f}")
 check("fill_restored_matches_first_show", same_rect(book["fill-restored"]["window_rect"], b["window_rect"])
       and same_rect(book["fill-restored"]["paintbox_rect"], b["paintbox_rect"]))
 
@@ -237,10 +238,18 @@ def crop(img, x, y, w, h):
 W, H = int(pg["w"]) - 4, int(pg["h"]) - 4
 before = crop(imgs["10-turned-back.png"], tb["page_rect"]["x"] + 2, tb["page_rect"]["y"] + 2, W, H)
 moved = crop(imgs["11-before-hidden.png"], e["page_rect"]["x"] + 2, e["page_rect"]["y"] + 2, W, H)
-painted = np.abs(before - crop(imgs["01-desktop.png"], pg["x"] + 2, pg["y"] + 2, W, H)).max(axis=2) > 40
-moved_diff = float(np.abs(moved[painted] - before[painted]).mean()) if painted.sum() else 255.0
-check("paint_moves_with_the_window", painted.sum() >= 150 and moved_diff < 12 and hashes["11-before-hidden.png"] != hashes["10-turned-back.png"],
-      f"{int(painted.sum())} paint px, mean abs diff after the move {moved_diff:.2f}")
+def stroke_mask(page):
+    return ((page[:, :, 0] < 180) & (page[:, :, 1] < 140) & (page[:, :, 2] < 140)
+            & (page[:, :, 0] > page[:, :, 1]))
+
+
+before_stroke, moved_stroke = stroke_mask(before), stroke_mask(moved)
+by, bx = np.where(before_stroke); my, mx = np.where(moved_stroke)
+centres_match = (len(bx) > 0 and len(mx) > 0 and abs(bx.mean() - mx.mean()) < 1 and abs(by.mean() - my.mean()) < 1)
+check("paint_moves_with_the_window", min(before_stroke.sum(), moved_stroke.sum()) >= 150
+      and abs(int(before_stroke.sum()) - int(moved_stroke.sum())) <= 5 and centres_match
+      and hashes["11-before-hidden.png"] != hashes["10-turned-back.png"],
+      f"stroke px {before_stroke.sum()} -> {moved_stroke.sum()}, aligned centre {centres_match}")
 
 # hidden: frozen page, no frames, no input, SubViewports quiet, nothing rendered, events change nothing
 mp = states["map"]; h0b = book["book-hidden"]; h1 = book["book-hidden-after-events"]

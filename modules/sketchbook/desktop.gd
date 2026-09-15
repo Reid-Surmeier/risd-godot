@@ -14,15 +14,17 @@
 extends Control
 
 const Errors := preload("res://modules/sketchbook/errors.gd")
+const Data := preload("res://modules/collection_data/interface.gd")
 
 const ROOT := "res://modules/sketchbook/"
 ## The native composition: variant A's windows (paintbox 170,345 550x575; book 750,365 630x545 on the
 ## prototype's 1440x972 canvas) moved in to the prototype's right/bottom margins, the book 10 px taller
 ## so both windows share the bottom edge and the composition's margin is NATIVE_MARGIN on every side.
 const NATIVE_MARGIN := Vector2(60, 52)
-const DESKTOP_SIZE := Vector2(1330, 679)
-const PAINTBOX_SLOT := Rect2(60, 52, 550, 575)
-const BOOK_SLOT := Rect2(640, 72, 630, 555)
+const DESKTOP_SIZE := Vector2(1330, 860)
+const REFERENCE_SLOT := Rect2(60, 30, 1210, 180)
+const PAINTBOX_SLOT := Rect2(60, 235, 550, 575)
+const BOOK_SLOT := Rect2(640, 255, 630, 555)
 const REQUIRED := [
 	"ro-top-left.png", "ro-top-mid.png", "ro-top-right.png", "ro-left.png", "ro-right.png", "ro-bottom-left.png",
 	"ro-bottom-mid.png", "ro-bottom-right.png", "ro-btn-prev.png", "ro-btn-prev-disabled.png", "ro-btn-next.png",
@@ -40,6 +42,13 @@ var paintbox: Control
 var dragged_window: Control
 var drag_offset := Vector2.ZERO
 var _slots := {}  # window -> the Rect2 the last _fit gave it
+var data_handle: Variant
+var image_fetch: Callable
+var reference_panel := PanelContainer.new()
+var reference_list := HBoxContainer.new()
+var saved_ids: Array = []
+var selected_reference := ""
+var storage_status := "loading"
 
 
 static func create(deps: Dictionary) -> Dictionary:
@@ -50,6 +59,8 @@ static func create(deps: Dictionary) -> Dictionary:
 		return Errors.err(Errors.ASSET_MISSING, ROOT + "mixbox/mixbox.gd")
 	var t = load(ROOT + "desktop.gd").new()
 	t.key = deps.get("key", "")
+	t.data_handle = deps.collection_data
+	t.image_fetch = deps.image_fetch
 	t.name = "Sketchbook"
 	t.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	return Errors.ok(t)
@@ -81,10 +92,18 @@ func _ready() -> void:
 	sketchbook.surface.pointer_changed.connect(_sync_brush_rest)
 	sketchbook.surface.set_ink_color(paintbox.brush_color)
 	paintbox.set_smear_variant("A")
+	reference_panel.name = "saved-reference-window"
+	reference_panel.add_theme_stylebox_override("panel", _reference_style(Color("eef5fb")))
+	desktop.add_child(reference_panel)
+	reference_list.add_theme_constant_override("separation", 10)
+	reference_panel.add_child(reference_list)
+	desktop.move_child(reference_panel, 1)  # behind the two draggable working windows
 	_sync_brush_rest()
 	visibility_changed.connect(_on_visibility_changed)
+	visibility_changed.connect(_refresh_references)
 	resized.connect(_fit)
 	_fit()
+	_refresh_references()
 
 
 func _sync_brush_rest() -> void:
@@ -119,6 +138,98 @@ func _fit() -> void:
 	desktop.size = logical
 	_place(paintbox, PAINTBOX_SLOT)
 	_place(sketchbook, Rect2(BOOK_SLOT.position, BOOK_SLOT.size + extra))
+	reference_panel.position = REFERENCE_SLOT.position
+	reference_panel.size = Vector2(REFERENCE_SLOT.size.x + extra.x, REFERENCE_SLOT.size.y)
+	reference_list.position = Vector2(12, 12)
+	reference_list.size = reference_panel.size - Vector2(24, 24)
+
+
+func _reference_style(color: Color) -> StyleBoxFlat:
+	var style := StyleBoxFlat.new()
+	style.bg_color = color
+	style.border_color = Color("87a8c5")
+	style.set_border_width_all(2)
+	style.set_corner_radius_all(4)
+	return style
+
+
+func _refresh_references() -> void:
+	if not is_visible_in_tree() or data_handle == null:
+		return
+	storage_status = "loading"
+	var started := Data.saved(data_handle, func(result: Dictionary) -> void:
+		if not is_instance_valid(reference_list):
+			return
+		for child in reference_list.get_children():
+			child.queue_free()
+		saved_ids.clear()
+		if not result.ok:
+			storage_status = "error"
+			reference_list.add_child(_reference_label("Saved references unavailable"))
+			return
+		storage_status = "ready"
+		if result.value.items.is_empty():
+			reference_list.add_child(_reference_label("Save a RISD artwork in Collection to use it as a reference"))
+			return
+		for item in result.value.items:
+			saved_ids.append(item.artwork.id)
+			reference_list.add_child(_reference_card(item.artwork)))
+	if not started.ok:
+		storage_status = "error"
+
+
+func _reference_label(value: String) -> Label:
+	var label := Label.new()
+	label.text = value
+	label.add_theme_color_override("font_color", Color("243e58"))
+	label.add_theme_font_size_override("font_size", 16)
+	return label
+
+
+func _reference_card(artwork: Dictionary) -> Control:
+	var card := PanelContainer.new()
+	card.set_meta("artwork_id", artwork.id)
+	card.custom_minimum_size = Vector2(270, 145)
+	card.mouse_filter = Control.MOUSE_FILTER_STOP
+	card.add_theme_stylebox_override("panel", _reference_style(Color("dcecff") if artwork.id == selected_reference else Color.WHITE))
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 8)
+	card.add_child(row)
+	var image := TextureRect.new()
+	image.name = "ReferenceImage"
+	image.custom_minimum_size = Vector2(110, 120)
+	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	row.add_child(image)
+	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
+	var label := _reference_label("%s\n%s\n%s" % [artwork.title if artwork.title != "" else "Untitled", maker, artwork.id])
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(label)
+	card.gui_input.connect(func(event: InputEvent) -> void:
+		if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			selected_reference = artwork.id
+			_refresh_references())
+	if artwork.image != null:
+		_load_reference_image(artwork.image, image)
+	else:
+		image.tooltip_text = "IMAGE UNAVAILABLE"
+	return card
+
+
+func _load_reference_image(manifest: Dictionary, target: TextureRect) -> void:
+	image_fetch.call(manifest.sha256, func(result: Dictionary) -> void:
+		if not result.ok or not is_instance_valid(target):
+			return
+		var context := HashingContext.new()
+		context.start(HashingContext.HASH_SHA256)
+		context.update(result.value)
+		if context.finish().hex_encode() != manifest.sha256:
+			return
+		var decoded := Image.new()
+		var status := decoded.load_jpg_from_buffer(result.value) if manifest.mime == "image/jpeg" else (decoded.load_png_from_buffer(result.value) if manifest.mime == "image/png" else decoded.load_webp_from_buffer(result.value))
+		if status == OK:
+			target.texture = ImageTexture.create_from_image(decoded))
 
 
 func _place(window: Control, slot: Rect2) -> void:
@@ -198,6 +309,12 @@ func state() -> Dictionary:
 	var pointer: Dictionary = s.pointer
 	var page: Rect2 = sketchbook.page_rect()
 	var p: Dictionary = paintbox.qa_state()
+	var reference_cards := []
+	for child in reference_list.get_children():
+		if child is PanelContainer and child.has_meta("artwork_id"):
+			var reference_image := child.find_child("ReferenceImage", true, false) as TextureRect
+			reference_cards.append({"id": child.get_meta("artwork_id"), "rect": _global_rect(child),
+					"has_texture": reference_image != null and reference_image.texture != null})
 	s.erase("pointer")
 	s.erase("page_rect")
 	s.merge({"key": key, "ticks": ticks, "inputs": inputs, "size": size, "desktop_scale": desktop.scale.x,
@@ -214,6 +331,9 @@ func state() -> Dictionary:
 			"rest_rect": _global_rect(paintbox.brush_rest), "parked_brush_rect": _global_rect(paintbox.parked_brush),
 			"brush_parked": p.brush_parked, "brush_color": p.brush_color, "brush_tip_color": p.brush_tip_color,
 			"palette_hovering": p.hovering, "palette_cursor_visible": paintbox.brush_cursor.visible,
-			"mix_count": p.mix_count, "paint_pixels": p.paint_pixels, "smear_variant": p.smear_variant, "mixbox": p.mixbox})
+			"mix_count": p.mix_count, "paint_pixels": p.paint_pixels, "smear_variant": p.smear_variant, "mixbox": p.mixbox,
+			"saved_ids": saved_ids.duplicate(), "selected_reference": selected_reference,
+			"storage_status": storage_status, "reference_rect": _global_rect(reference_panel),
+			"reference_cards": reference_cards})
 	s.merge(_paintbox_rects())
 	return Errors.ok(s)

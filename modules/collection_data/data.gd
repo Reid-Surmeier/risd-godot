@@ -11,15 +11,105 @@ static func _error(code: String, detail: String) -> Dictionary:
 static func create(deps: Dictionary) -> Dictionary:
 	if not deps.get("search") is Callable or not deps.search.is_valid():
 		return _error(Errors.INVALID_DEPENDENCY, "A search adapter is required")
-	return _ok({"adapter": deps.search, "pending": 0, "last_error": null})
+	for name in ["load_saves", "save_if_absent", "now_ms"]:
+		if not deps.get(name) is Callable or not deps[name].is_valid():
+			return _error(Errors.INVALID_DEPENDENCY, "A %s adapter is required" % name)
+	return _ok({"adapter": deps.search, "load_saves": deps.load_saves, "save_if_absent": deps.save_if_absent,
+			"now_ms": deps.now_ms, "pending": 0, "saved_revision": 0, "storage_status": "unknown", "last_error": null})
 
 static func _handle(value: Variant) -> bool:
-	return value is Dictionary and value.get("adapter") is Callable and value.has("pending")
+	return value is Dictionary and value.get("adapter") is Callable and value.get("load_saves") is Callable and value.has("pending")
 
 static func state(handle: Variant) -> Dictionary:
 	if not _handle(handle):
 		return _error(Errors.INVALID_DEPENDENCY, "Invalid data handle")
-	return _ok({"pending": handle.pending, "last_error": handle.last_error})
+	return _ok({"pending": handle.pending, "saved_revision": handle.saved_revision,
+			"storage_status": handle.storage_status, "last_error": handle.last_error})
+
+static func saved(handle: Variant, done: Callable) -> Dictionary:
+	if not _handle(handle) or not done.is_valid():
+		return _error(Errors.INVALID_DEPENDENCY, "Invalid saved-artwork dependency")
+	return _storage_call(handle, handle.load_saves, [], done, false)
+
+static func save(handle: Variant, artwork: Dictionary, done: Callable) -> Dictionary:
+	if not _handle(handle) or not done.is_valid():
+		return _error(Errors.INVALID_DEPENDENCY, "Invalid save dependency")
+	if not _record(artwork):
+		return _error(Errors.INVALID_RECORD, "Invalid artwork")
+	var saved_at: Variant = handle.now_ms.call()
+	if not _integer(saved_at) or saved_at < 0 or saved_at > 9007199254740991:
+		return _error(Errors.INVALID_DEPENDENCY, "Invalid clock")
+	return _storage_call(handle, handle.save_if_absent, [artwork.duplicate(true), int(saved_at)], done, true)
+
+static func _storage_call(handle: Dictionary, operation: Callable, args: Array, done: Callable, saving: bool) -> Dictionary:
+	var completion := {"finished": false, "dispatching": true, "buffered": null, "has_buffered": false}
+	handle.pending += 1
+	var finish := func(response: Variant) -> void:
+		if completion.finished:
+			return
+		if completion.dispatching:
+			completion.buffered = response
+			completion.has_buffered = true
+			return
+		completion.finished = true
+		handle.pending -= 1
+		var result := _save_result(response) if saving else _saved_result(response)
+		handle.last_error = result.error
+		handle.storage_status = "available" if result.ok else "error"
+		if result.ok:
+			handle.saved_revision = result.value.revision
+		done.call(result)
+	var call_args := args.duplicate()
+	call_args.append(finish)
+	var dispatched: Variant = operation.callv(call_args)
+	completion.dispatching = false
+	if not dispatched is Dictionary or dispatched.get("ok") != true:
+		completion.finished = true
+		handle.pending -= 1
+		return _error(Errors.STORAGE_UNAVAILABLE, "Storage operation could not start")
+	if completion.has_buffered:
+		finish.call(completion.buffered)
+	return _ok(null)
+
+static func _saved_result(response: Variant) -> Dictionary:
+	if not _result_envelope(response):
+		return _error(Errors.STORAGE_CORRUPT, "Storage returned invalid data")
+	if not response.ok:
+		return _storage_error(response)
+	return _ok(response.value.duplicate(true)) if _saved_collection(response.value) else _error(Errors.STORAGE_CORRUPT, "Saved data is corrupt")
+
+static func _save_result(response: Variant) -> Dictionary:
+	if not _result_envelope(response):
+		return _error(Errors.STORAGE_CORRUPT, "Storage returned invalid data")
+	if not response.ok:
+		return _storage_error(response)
+	var value: Variant = response.value
+	if not value is Dictionary or not value.get("record") is Dictionary or not value.get("inserted") is bool or not _integer(value.get("revision")):
+		return _error(Errors.STORAGE_CORRUPT, "Storage returned invalid save result")
+	if not _saved_item(value.record) or value.revision < 0:
+		return _error(Errors.STORAGE_CORRUPT, "Storage returned invalid save result")
+	return _ok(value.duplicate(true))
+
+static func _result_envelope(value: Variant) -> bool:
+	return value is Dictionary and value.get("ok") is bool and value.has("value") and value.has("error")
+
+static func _storage_error(response: Dictionary) -> Dictionary:
+	var error: Variant = response.error
+	var allowed := [Errors.STORAGE_UNAVAILABLE, Errors.STORAGE_CORRUPT, Errors.STORAGE_VERSION, Errors.STORAGE_WRITE_FAILED]
+	return response.duplicate(true) if error is Dictionary and error.get("code") in allowed and _text(error.get("detail")) else _error(Errors.STORAGE_CORRUPT, "Storage returned an invalid error")
+
+static func _saved_item(item: Variant) -> bool:
+	return item is Dictionary and _record(item.get("artwork")) and _integer(item.get("saved_at_ms")) and item.saved_at_ms >= 0 and item.saved_at_ms <= 9007199254740991
+
+static func _saved_collection(value: Variant) -> bool:
+	if not value is Dictionary or value.get("schema_version") != 1 or not _integer(value.get("revision")) or value.revision < 0 or not value.get("items") is Array or value.items.size() > 1000:
+		return false
+	var ids := {}
+	for item in value.items:
+		if not _saved_item(item) or ids.has(item.artwork.id):
+			return false
+		ids[item.artwork.id] = true
+	return JSON.stringify(value).to_utf8_buffer().size() <= 4 * 1024 * 1024
 
 static func search(handle: Variant, query: Dictionary, done: Callable) -> Dictionary:
 	if not _handle(handle) or not done.is_valid():

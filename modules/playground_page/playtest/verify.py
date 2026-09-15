@@ -86,6 +86,13 @@ def window_diffs(shot, p, rects=None, offset=(0, 0)):
                                  (px + i, py + i, pw - 2 * i, ph - 2 * i))
     return out_
 
+def cleared_body(shot, p, n):
+    """The retained frame's former decorative body is now a mostly-white saved-work surface."""
+    w = win(p, n); r = w["rect"]; y0 = int(round(p["page_global"]["y"])); title = max(2, int(round(w["drag_height"])))
+    crop = shot[y0 + int(r["y"]) + title:y0 + int(r["y"] + r["h"]) - 3,
+                int(r["x"]) + 3:int(r["x"] + r["w"]) - 3]
+    return float((crop.min(axis=2) > 245).mean()) if crop.size else 0.0
+
 shots = {e["file"]: e for e in log if e["event"] == "screenshot"}
 hashes = {f: hashlib.sha256((out / f).read_bytes()).hexdigest() for f in shots}
 imgs = {f: np.array(Image.open(out / f).convert("RGB")).astype(int) for f in shots}
@@ -102,6 +109,7 @@ check("click_creates_and_shows_the_desktop", sh["active"] == INDEX and sh["tabs"
       and not sh["tabs"][INDEX]["frozen"] and a["ok"], str(sh["tabs"][INDEX]))
 check("shown_desktop_process_runs", b["ticks"] - a["ticks"] >= 15, f"{a['ticks']} -> {b['ticks']}")
 check("six_windows_in_stacking_order", [w["name"] for w in a["windows"]] == ORDER, str([w["name"] for w in a["windows"]]))
+check("empty_saved_collection_is_ready", a["storage_status"] == "ready" and a["saved_ids"] == [], str(a["saved_ids"]))
 
 # every window at its reference place (fill rule at the launch page size) and matching the picture there
 s, exp = expected(a["size"])
@@ -109,10 +117,10 @@ check("factor_is_min_of_both_axes", abs(a["factor"] - s) < 1e-4, f"{a['factor']:
 for n in ORDER:
     check(f"{n}_at_reference_place", close(win(a, n)["rect"], exp[n]), f"{win(a, n)['rect']} vs {tuple(round(v, 1) for v in exp[n])}")
 d0 = window_diffs(imgs["01-desktop.png"], a)
-for n in ORDER:
-    check(f"{n}_pixels_match_the_picture", d0[n] < 16, f"mean abs diff {d0[n]:.1f}")
-shifted = window_diffs(imgs["01-desktop.png"], a, rects={n: (lambda w: (w['x'], w['y'], w['w'], w['h']))(win(a, n)["rect"]) for n in ORDER}, offset=(0, 30))
-check("pixel_check_discriminates", all(shifted[n] > d0[n] + 8 for n in ORDER), str({n: round(shifted[n], 1) for n in ORDER}))
+for n in ORDER[:-1]:
+    white = cleared_body(imgs["01-desktop.png"], a, n)
+    check(f"{n}_decorations_cleared_inside_frame", white > 0.78, f"white body fraction {white:.3f}")
+check("phone_pixels_match_the_picture", d0["phone"] < 16, f"mean abs diff {d0['phone']:.1f}")
 
 # the trade window's title drag moves it by the drag and raises it; the options body drag moves nothing
 mv = pages["trade-moved"]; t0, t1 = win(a, "trade")["rect"], win(mv, "trade")["rect"]
@@ -121,8 +129,7 @@ check("title_drag_moves_trade", abs(t1["x"] - t0["x"] - dr["relative_total"][0])
       and t1["w"] == t0["w"], f"{t0} -> {t1}")
 check("dragged_window_raised", mv["windows"][-1]["name"] == "trade", str([w["name"] for w in mv["windows"]]))
 check("others_stay_put", all(win(mv, n)["rect"] == win(a, n)["rect"] for n in ORDER if n != "trade"))
-dm = window_diffs(imgs["02-trade-moved.png"], mv)
-check("moved_trade_pixels_match_the_picture", dm["trade"] < 16, f"{dm['trade']:.1f}")
+check("moved_trade_keeps_cleared_body", cleared_body(imgs["02-trade-moved.png"], mv, "trade") > 0.78)
 ob = pages["options-body-drag"]
 check("body_drag_moves_nothing", all(win(ob, n)["rect"] == win(mv, n)["rect"] for n in ORDER) and ob["action"] == "")
 
@@ -157,7 +164,9 @@ for label, shot, want in [("page-1920x1000", "05-page-1920x1000.png", (1920, 100
     pp = win(p, "postpet")["rect"]
     check(f"{tag}_main_window_never_below_native", pp["w"] >= 1216 * s - 1 and pp["h"] >= 1137 * s - 1.5, f"{pp} vs {1216 * s:.0f}x{1137 * s:.0f}")
     dd = window_diffs(imgs[shot], p)
-    check(f"{tag}_pixels_match_the_picture", all(v < 16 for v in dd.values()), str({n: round(v, 1) for n, v in dd.items()}))
+    cleared = {n: cleared_body(imgs[shot], p, n) for n in ORDER[:-1]}
+    check(f"{tag}_retains_frames_with_cleared_bodies", all(v > 0.78 for v in cleared.values()) and dd["phone"] < 16,
+          str({n: round(v, 3) for n, v in cleared.items()}))
 check("both_axes_exercised", pages["page-1920x1000"]["size"][0] / D[0] > pages["page-1920x1000"]["size"][1] / D[1]
       and pages["page-1440x820"]["size"][0] / D[0] < pages["page-1440x820"]["size"][1] / D[1],
       "1920x1000 is height-limited (leftover width), 1440x820 width-limited (leftover height)")

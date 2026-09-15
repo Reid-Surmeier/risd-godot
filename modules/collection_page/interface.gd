@@ -8,7 +8,8 @@
 ## only the topmost window under the pointer takes the drag, and a drag stops at the Page's edge;
 ## the viewer also resizes by its bottom-right corner. The desktop lays its windows out from the
 ## reference's 1944x1280 review coordinates fitted to the Page, and re-fits on a Page resize.
-## Result selection is local presentation only; saving belongs to the later save ticket.
+## Selecting a result exposes its attribution and a Save action. Saved is shown only after the
+## shared collection_data transaction commits; repeats preserve the first snapshot and timestamp.
 ##
 ## Tenant contract (shell/interface.gd): create(deps) returns a full-rect Control that lays itself
 ## out from its own size / resized; state() is the harness probe; the Shell freezes the Page while

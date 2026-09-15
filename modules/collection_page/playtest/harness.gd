@@ -31,7 +31,8 @@ func _search(shell: Control, label: String) -> Dictionary:
 	var entry := {"t_ms": _ms(), "event": "search", "label": label, "phase": s.phase, "draft": s.draft,
 		"applied": s.applied, "last_successful": s.last_successful, "requests": s.requests,
 		"completions": s.completions, "ignored_completions": s.ignored_completions, "response": response,
-		"items": items, "selected": s.selected, "images_loaded": s.images_loaded, "image_failures": s.image_failures,
+		"items": items, "selected": s.selected, "save_phase": s.save_phase, "save_message": s.save_message,
+		"images_loaded": s.images_loaded, "image_failures": s.image_failures,
 		"retry_visible": s.retry_visible,
 		"controls": controls, "sort_popup_visible": s.sort_popup.visible, "category_popup_visible": s.category_popup.visible,
 		"focus_owner": s.focus_owner, "sort_items": s.sort_items, "category_items": s.category_items,
@@ -98,7 +99,9 @@ func _initialize() -> void:
 	get_root().add_child(image_adapter)
 	var image_fetch := func(sha256: String, done: Callable) -> Dictionary:
 		return adapter.fetch_image(sha256, done) if sha256 == adapter.webp_hash() else image_adapter.fetch_image(sha256, done)
-	var data: Variant = Data.create({"search": adapter.dispatch}).value
+	var storage: Variant = Data.storage_adapter().value
+	var data: Variant = Data.create({"search": adapter.dispatch, "load_saves": storage.load_saves,
+			"save_if_absent": storage.save_if_absent, "now_ms": func() -> int: return 1000}).value
 	var factory := func(deps: Dictionary) -> Dictionary:
 		var page_deps := deps.duplicate()
 		page_deps.collection_data = data
@@ -252,6 +255,10 @@ func _initialize() -> void:
 	await _key(KEY_ENTER, "keyboard-select first result")
 	var selected := _search(shell, "selected")
 	await _shot(out_dir, "08-selected.png")
+	var save_button: Button = shell.find_child("SaveArtwork", true, false)
+	await _click(save_button.get_global_rect().get_center(), "save selected artwork")
+	await _frames(3)
+	var saved := _search(shell, "saved")
 
 	# One retained window drag and viewer resize protect the existing chrome behavior.
 	var page: Control = shell.find_child("CollectionPage", true, false)
@@ -288,7 +295,7 @@ func _initialize() -> void:
 			pending_before_cancel.requests, pending_canceled.requests, canceled_late.requests, stale.requests,
 			before_page.requests, page_two.requests, empty.requests, missing.requests, broken.requests,
 			expired.requests, retried.requests, webp.requests, slow_image.requests, slow_image_restored.requests,
-			selected.requests, moved.requests, resized.requests, hidden_before.requests,
+			selected.requests, saved.requests, moved.requests, resized.requests, hidden_before.requests,
 			hidden.requests, resumed.requests, compact.requests]})
 	if server_pid > 0:
 		OS.kill(server_pid)

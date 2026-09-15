@@ -1,0 +1,124 @@
+// PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs node saves_browser.mjs URL OUT_DIR
+import assert from 'node:assert/strict';
+import {mkdirSync, rmSync, writeFileSync} from 'node:fs';
+
+const {chromium} = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const out = process.argv[3] || '/tmp/risd-saves-browser';
+const profile = out + '/chrome-profile';
+mkdirSync(out, {recursive: true});
+rmSync(profile, {recursive: true, force: true});
+const target = new URL(process.argv[2]);
+target.searchParams.set('qa-crt', '1');
+target.searchParams.set('crt', '0');
+const errors = [];
+
+const numbers = value => Array.isArray(value) ? value : String(value).match(/-?\d+(?:\.\d+)?/g).map(Number);
+const point = (rect, state) => {
+  const [x, y, width, height] = numbers(rect);
+  return [(x + width / 2) / state.logical_size[0] * state.display_size[0],
+    (y + height / 2) / state.logical_size[1] * state.display_size[1]];
+};
+const state = page => page.evaluate(() => window.shellCrtQa);
+
+function watch(page) {
+  page.on('pageerror', error => errors.push(error.message));
+  page.on('console', message => {
+    const ignored = message.location().url.endsWith('/favicon.ico') || /2D MSAA|render_target_set_msaa/.test(message.text());
+    if (message.type() === 'error' && !ignored) errors.push(message.text());
+  });
+}
+
+async function ready(page) {
+  watch(page);
+  await page.goto(target.href);
+  try {
+    await page.waitForFunction(() => window.shellCrtQa?.shell.active === 4
+      && window.shellCrtQa.tenant.search?.phase === 'results', null, {timeout: 90000});
+  } catch (error) {
+    console.error(JSON.stringify(await page.evaluate(() => ({shell: window.shellCrtQa, crt: window.crtQaState,
+      squiggle: window.squiggleQaState, title: document.title}))));
+    console.error(JSON.stringify(errors));
+    throw error;
+  }
+  await page.keyboard.press('F9');
+  await page.waitForFunction(() => window.squiggleQaState?.enabled === false);
+}
+
+async function openTab(page, index) {
+  const current = await state(page);
+  await page.mouse.click(...point(current.shell.tabs[index].rect, current));
+  await page.waitForFunction(tab => window.shellCrtQa?.shell.active === tab && !window.shellCrtQa.shell.switching, index);
+}
+
+async function select(page, index) {
+  const current = await state(page);
+  const item = current.tenant.search.items[index];
+  await page.mouse.click(...point(item.rect, current));
+  await page.waitForFunction(id => window.shellCrtQa.tenant.search.selected === id
+    && window.shellCrtQa.tenant.search.controls.SaveArtwork, item.id);
+  return item.id;
+}
+
+async function save(page) {
+  const current = await state(page);
+  await page.mouse.click(...point(current.tenant.search.controls.SaveArtwork, current));
+  await page.waitForFunction(() => ['saved', 'error'].includes(window.shellCrtQa.tenant.search.save_phase));
+  const completed = await state(page);
+  assert.equal(completed.tenant.search.save_phase, 'saved', JSON.stringify({search: completed.tenant.search, errors}));
+}
+
+const args = {executablePath: '/usr/bin/google-chrome', headless: true,
+  viewport: {width: 1920, height: 1080},
+  args: ['--no-sandbox', '--use-angle=swiftshader', '--enable-unsafe-swiftshader']};
+let context = await chromium.launchPersistentContext(profile, args);
+try {
+  const first = context.pages()[0];
+  const second = await context.newPage();
+  await ready(first);
+  await ready(second);
+  const [firstId, secondId] = await Promise.all([select(first, 0), select(second, 1)]);
+  assert.notEqual(firstId, secondId);
+  await Promise.all([save(first), save(second)]);
+
+  await openTab(first, 5);
+  await first.waitForFunction(ids => ids.every(id => window.shellCrtQa.tenant.saved_ids?.includes(id))
+    && window.shellCrtQa.tenant.saved_images_loaded === ids.length, [firstId, secondId]);
+  const playground = await state(first);
+  await first.screenshot({path: out + '/01-playground-saved.png'});
+
+  await openTab(first, 1);
+  await first.waitForFunction(ids => ids.every(id => window.shellCrtQa.tenant.saved_ids?.includes(id))
+    && window.shellCrtQa.tenant.reference_cards?.length === 2
+    && window.shellCrtQa.tenant.reference_cards.every(card => card.has_texture), [firstId, secondId]);
+  let sketchbook = await state(first);
+  const card = sketchbook.tenant.reference_cards.find(item => item.id === firstId);
+  await first.mouse.click(...point(card.rect, sketchbook));
+  await first.waitForFunction(id => window.shellCrtQa.tenant.selected_reference === id
+    && window.shellCrtQa.tenant.reference_cards?.length === 2
+    && window.shellCrtQa.tenant.reference_cards.every(item => item.has_texture), firstId);
+  await first.screenshot({path: out + '/02-sketchbook-reference.png'});
+
+  await context.close();
+  context = await chromium.launchPersistentContext(profile, args);
+  const reopened = context.pages()[0];
+  await ready(reopened);
+  await select(reopened, 0);
+  await reopened.waitForFunction(() => window.shellCrtQa.tenant.search.save_phase === 'saved');
+  await openTab(reopened, 5);
+  await reopened.waitForFunction(ids => ids.every(id => window.shellCrtQa.tenant.saved_ids?.includes(id))
+    && window.shellCrtQa.tenant.saved_images_loaded === ids.length, [firstId, secondId]);
+  await openTab(reopened, 1);
+  await reopened.waitForFunction(ids => ids.every(id => window.shellCrtQa.tenant.saved_ids?.includes(id))
+    && window.shellCrtQa.tenant.reference_cards.every(card => card.has_texture), [firstId, secondId]);
+  sketchbook = await state(reopened);
+  await reopened.screenshot({path: out + '/03-reopened-sketchbook.png'});
+
+  assert.deepEqual(errors, []);
+  const report = {status: 'pass', url: process.argv[2], saved_ids: [firstId, secondId],
+    concurrent_windows: true, persisted_after_browser_restart: true,
+    playground_ids: playground.tenant.saved_ids, sketchbook_ids: sketchbook.tenant.saved_ids, errors};
+  writeFileSync(out + '/report.json', JSON.stringify(report, null, 2) + '\n');
+  console.log(JSON.stringify(report));
+} finally {
+  await context.close();
+}

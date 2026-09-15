@@ -10,8 +10,8 @@
 ## and the page; and the native sketchbook window — the owner's Ragnarok-style chrome, tldraw's freehand
 ## ink ported line by line in the carried pigment, one stroke list per spread, the 520 ms perspective
 ## paper turn, the pigment-loaded brush cursor over the page. It lays out by the fill rule (ticket #63):
-## art scales uniformly by s = min(S / D), the book window takes the leftover axis. Both windows drag by
-## their title bars; a hidden Page freezes it and its SubViewports stay quiet.
+## saved RISD references sit above both working windows. Art scales uniformly by s = min(S / D), the
+## book window takes the leftover axis. Both windows drag by their title bars; a hidden Page freezes it.
 ##
 ## Every public function returns { ok: bool, value: Variant, error: Variant }; errors are the
 ## values in errors.gd; nothing is raised across this seam.
@@ -20,12 +20,17 @@ extends RefCounted
 
 const Errors := preload("res://modules/sketchbook/errors.gd")
 const _Impl := preload("res://modules/sketchbook/desktop.gd")
+const Data := preload("res://modules/collection_data/interface.gd")
 
 
-## Build the Sketchbook Tenant. `deps` is what the Shell passes, { "key": String }; the key is
+## Build the Sketchbook Tenant. `deps` includes key, collection_data and image_fetch; the key is
 ## recorded. Every pixel file the window loads is checked first: returns ok(Control) or
 ## err(ASSET_MISSING, path).
 static func create(deps: Dictionary) -> Dictionary:
+	if not deps.has("collection_data") or not Data.state(deps.collection_data).ok:
+		return Errors.err(Errors.INVALID_DEPENDENCY, "A collection_data handle is required")
+	if not deps.get("image_fetch") is Callable or not deps.image_fetch.is_valid():
+		return Errors.err(Errors.INVALID_DEPENDENCY, "An image fetch operation is required")
 	return _Impl.create(deps)
 
 
@@ -39,7 +44,8 @@ static func create(deps: Dictionary) -> Dictionary:
 ##      paintbox_rect, paintbox_title_rect, palette_rect, wells: Array[Rect2] (32, row by row),
 ##      trays: Array[Rect2] (4), rest_rect, parked_brush_rect: Rect2, brush_parked, brush_color,
 ##      brush_tip_color (html, no alpha), palette_hovering, palette_cursor_visible, mix_count,
-##      paint_pixels, smear_variant, mixbox }).
+##      paint_pixels, smear_variant, mixbox, saved_ids, selected_reference, storage_status,
+##      reference_rect, reference_cards: [{id, rect}] }).
 ## `ticks` counts the desktop's _process frames and `inputs` its _input events: both stand still
 ## while the Page is frozen. The two update modes are the render_target_update_mode of the finished-
 ## ink SubViewport and of the paper-turn face SubViewport (0 = UPDATE_DISABLED: quiet).

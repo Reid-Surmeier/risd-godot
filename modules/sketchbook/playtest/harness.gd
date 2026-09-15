@@ -7,6 +7,7 @@ extends "res://testing/harness_base.gd"
 
 const Shell := preload("res://modules/shell/interface.gd")
 const Book := preload("res://modules/sketchbook/interface.gd")
+const Data := preload("res://modules/collection_data/interface.gd")
 const BAR_RATIO := 161.0 / 4180.0  # the strip's height per pixel of width
 const WELL_A := 9    # row 0: a warm well
 const WELL_B := 21   # row 1: a blue well
@@ -69,6 +70,7 @@ func _book(shell: Control, label: String) -> Dictionary:
 		entry.merge({"ticks": v.ticks, "inputs": v.inputs, "size": [v.size.x, v.size.y], "desktop_scale": v.desktop_scale,
 				"desktop_logical": [v.desktop_logical.x, v.desktop_logical.y],
 				"front_window": String(v.front_window), "dragging": v.dragging, "window_rect": _rect(v.window_rect),
+				"reference_rect": _rect(v.reference_rect), "saved_ids": v.saved_ids, "selected_reference": v.selected_reference,
 				"title_rect": _rect(v.title_rect), "page_rect": _rect(v.page_rect), "window_visible": v.window_visible,
 				"controls": {"previous": _rect(v.controls.previous), "next": _rect(v.controls.next)},
 				"spread": v.spread, "strokes": v.strokes, "turning": v.turning, "turn_progress": v.turn_progress,
@@ -116,8 +118,19 @@ func _page_size(shell: Control, page: Vector2i, label: String, shot: String, out
 
 func _initialize() -> void:
 	var root := get_root()
-	var shell: Control = Shell.create({"sketchbook": Book}).value
+	var storage: Variant = Data.storage_adapter().value
+	var data: Variant = Data.create({"search": func(_query: Dictionary, _done: Callable) -> Dictionary:
+		return {"ok": false, "value": null, "error": {"code": "collection_data.unavailable", "detail": "unused"}},
+		"load_saves": storage.load_saves, "save_if_absent": storage.save_if_absent, "now_ms": func() -> int: return 0}).value
+	var factory := func(deps: Dictionary) -> Dictionary:
+		var page_deps := deps.duplicate()
+		page_deps.collection_data = data
+		page_deps.image_fetch = func(_sha: String, _done: Callable) -> Dictionary:
+			return {"ok": false, "value": null, "error": {"code": "collection_data.unavailable", "detail": "unused"}}
+		return Book.create(page_deps)
+	var shell: Control = Shell.create({"sketchbook": factory}).value
 	var out_dir := await _mount(shell, Vector2i(1920, 1080), "/tmp/sketchbook-playtest")
+	await _key(KEY_F9, "disable squiggle for deterministic pixel checks")
 	await create_timer(1.0).timeout  # the launch grow and fade of the Collection tab
 
 	# 1. launch: Collection active, the Sketchbook Tenant not created yet; draw calls of a white page

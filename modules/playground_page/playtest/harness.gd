@@ -8,6 +8,7 @@ extends "res://testing/harness_base.gd"
 
 const Shell := preload("res://modules/shell/interface.gd")
 const Page := preload("res://modules/playground_page/interface.gd")
+const Data := preload("res://modules/collection_data/interface.gd")
 const INDEX := 5
 
 
@@ -51,6 +52,7 @@ func _page(shell: Control, label: String) -> Dictionary:
 		var page: Control = shell.find_child("PlaygroundPage", true, false)
 		entry.merge({"ticks": v.ticks, "inputs": v.inputs, "size": [v.size.x, v.size.y], "factor": v.factor,
 				"desktop": [v.desktop.x, v.desktop.y], "margin": v.margin, "action": v.action, "windows": windows,
+				"saved_ids": v.saved_ids, "storage_status": v.storage_status,
 				"page_global": _rect(page.get_global_rect())})
 	_log.append(entry)
 	return entry
@@ -72,7 +74,17 @@ func _resize(shell: Control, size: Vector2i, label: String, shot: String, out_di
 
 
 func _initialize() -> void:
-	var shell: Control = Shell.create({"playground": Page}).value
+	var storage: Variant = Data.storage_adapter().value
+	var data: Variant = Data.create({"search": func(_query: Dictionary, _done: Callable) -> Dictionary:
+		return {"ok": false, "value": null, "error": {"code": "collection_data.unavailable", "detail": "unused"}},
+		"load_saves": storage.load_saves, "save_if_absent": storage.save_if_absent, "now_ms": func() -> int: return 0}).value
+	var factory := func(deps: Dictionary) -> Dictionary:
+		var page_deps := deps.duplicate()
+		page_deps.collection_data = data
+		page_deps.image_fetch = func(_sha: String, _done: Callable) -> Dictionary:
+			return {"ok": false, "value": null, "error": {"code": "collection_data.unavailable", "detail": "unused"}}
+		return Page.create(page_deps)
+	var shell: Control = Shell.create({"playground": factory}).value
 	var out_dir := await _mount(shell, Vector2i(1920, 1080), "/tmp/playground_page-playtest")
 	await create_timer(1.0).timeout  # the launch grow and fade of the Collection tab
 
