@@ -20,6 +20,20 @@ VIEWER_SCALE = 0.985
 VIEWPORT = (529, 486)                 # viewer.gd _build_3d_viewport
 ZOOM_STEP = 0.45                      # viewer.gd _zoom_by per wheel notch
 ORBIT_X, ORBIT_Y = 0.35, 0.25         # viewer.gd _on_viewport_input degrees per viewer pixel
+CATALOGUE_AT = (72, 34)
+VIEWER_AT, VIEWER_FAR_GAP = (600, 34), (52, 44)   # desktop.gd: the viewer's slot
+MARGINS = (72, 34, 52, 44)            # the native desktop's left, top, right, bottom margins
+
+def layout(sz):
+    """desktop.gd _fit (#63): uniform scale s, the desktop spanning the page, the catalogue at its native place and the
+    viewer plate at the largest scale k its slot allows, centred. Returns s, k, catalogue rect, viewer rect, slot (global px)."""
+    s = min(sz[0] / DESKTOP[0], sz[1] / DESKTOP[1])
+    slot = (sz[0] / s - VIEWER_FAR_GAP[0] - VIEWER_AT[0], sz[1] / s - VIEWER_FAR_GAP[1] - VIEWER_AT[1])
+    k = min(slot[0] / VIEWER[0], slot[1] / VIEWER[1])
+    vx = VIEWER_AT[0] + (slot[0] - VIEWER[0] * k) / 2; vy = VIEWER_AT[1] + (slot[1] - VIEWER[1] * k) / 2
+    cat = {"x": CATALOGUE_AT[0] * s, "y": CATALOGUE_AT[1] * s, "w": CATALOGUE[0] * s, "h": CATALOGUE[1] * s}
+    view = {"x": vx * s, "y": vy * s, "w": VIEWER[0] * k * s, "h": VIEWER[1] * k * s}
+    return s, k, cat, view, {"x": VIEWER_AT[0] * s, "y": VIEWER_AT[1] * s, "w": slot[0] * s, "h": slot[1] * s}
 
 out = Path(sys.argv[1])
 log = json.loads((out / "report.json").read_text())["log"]
@@ -57,7 +71,7 @@ def region(img, r):
 shots = {e["file"]: e for e in log if e["event"] == "screenshot"}
 hashes = {f: hashlib.sha256((out / f).read_bytes()).hexdigest() for f in shots}
 imgs = {f: np.array(Image.open(out / f).convert("RGB")).astype(int) for f in shots}
-check("screenshots_present", len(shots) == 12, str(sorted(shots)))
+check("screenshots_present", len(shots) == 14, str(sorted(shots)))
 check("viewer_screenshot_is_1920x1080", imgs["01-viewer.png"].shape[:2] == (1080, 1920), str(imgs["01-viewer.png"].shape))
 
 # created lazily on first show, through the Shell
@@ -70,15 +84,13 @@ check("click_viewer_tab_creates_and_shows_desktop", sh["active"] == 2 and sh["ta
 sz = v["size"]
 check("tenant_fills_page_area", near(sz[0], 1920, 1) and near(sz[1], 1080 - BAR_H, 1.5), str(sz))
 
-# the desktop: the prototype's 1440x972 canvas 1:1, centred; the catalogue at (72, 34), the viewer at (600, 34) x0.985
-ox = (sz[0] - DESKTOP[0]) / 2; oy = (sz[1] - DESKTOP[1]) / 2
+# the desktop (#63): uniform scale s, the catalogue at its native place, the viewer plate as large as its slot allows, centred
+ls_, lk, lcat, lview, _ = layout(sz)
 cr = v["catalogue_rect"]; vr = v["viewer_rect"]; pr = v["viewport_rect"]
-check("desktop_is_1to1_and_centred", near(v["desktop_scale"], 1.0, 1e-6) and near(v["pointer_scale"], VIEWER_SCALE, 1e-3)
-      and near(cr["x"], ox + 72, 1) and near(cr["y"], oy + 34, 1.5) and near(cr["w"], CATALOGUE[0], 0.5) and near(cr["h"], CATALOGUE[1], 0.5)
-      and near(vr["x"], ox + 600, 1) and near(vr["y"], oy + 34, 1.5) and near(vr["w"], VIEWER[0] * VIEWER_SCALE, 0.5)
-      and near(vr["h"], VIEWER[1] * VIEWER_SCALE, 0.5), f"catalogue {cr} viewer {vr}")
+check("desktop_fills_page_at_uniform_scale", near(v["desktop_scale"], ls_, 1e-4) and near(v["pointer_scale"], ls_ * lk, 1e-3)
+      and same_rect(cr, lcat, 1.5) and same_rect(vr, lview, 1.5), f"catalogue {cr} viewer {vr} expected {lcat} {lview}")
 check("viewport_inside_viewer_window", inside(pr["x"], pr["y"], vr) and inside(pr["x"] + pr["w"], pr["y"] + pr["h"], vr)
-      and near(pr["w"], VIEWPORT[0] * VIEWER_SCALE, 1) and near(pr["h"], VIEWPORT[1] * VIEWER_SCALE, 1), str(pr))
+      and near(pr["w"], VIEWPORT[0] * v["pointer_scale"], 1) and near(pr["h"], VIEWPORT[1] * v["pointer_scale"], 1), str(pr))
 check("viewer_in_front_at_launch", v["front_window"] == "viewer-window" and not v["dragging"])
 
 # autoplay: the orbit runs while shown (8 deg/s); the play/pause button stops it and the render stands still
@@ -165,15 +177,15 @@ check("resumed_pixels_identical_to_before_hiding", float(np.abs(imgs["10-resumed
 
 # resize: the desktop shrinks to fit the smaller page, both windows inside it; restore brings the launch scale back
 rs = states["resized"]; rt = viewer["resized"]; sz2 = rt["size"]
-scale2 = min(1.0, sz2[0] / DESKTOP[0], sz2[1] / DESKTOP[1])
-check("resize_shrinks_desktop_to_fit", rs["window"] == [1440, 900] and near(sz2[0], 1440, 1) and near(sz2[1], 900 - 161 * 1440 / 4180.0, 1.5)
-      and near(rt["desktop_scale"], scale2, 1e-3) and rt["desktop_scale"] < 1
-      and rt["viewer_rect"]["x"] + rt["viewer_rect"]["w"] <= 1440.5 and rt["viewer_rect"]["y"] + rt["viewer_rect"]["h"] <= 900.5
-      and rt["catalogue_rect"]["x"] + rt["catalogue_rect"]["w"] <= 1440.5 and rt["catalogue_rect"]["y"] + rt["catalogue_rect"]["h"] <= 900.5
+rs2, rk2, rcat2, rview2, _ = layout(sz2)
+check("resize_lays_desktop_out_again", rs["window"] == [1440, 900] and near(sz2[0], 1440, 1) and near(sz2[1], 900 - 161 * 1440 / 4180.0, 1.5)
+      and near(rt["desktop_scale"], rs2, 1e-3) and same_rect(rt["viewer_rect"], rview2, 1.5) and same_rect(rt["catalogue_rect"], rcat2, 1.5)
+      and rt["viewer_rect"]["x"] + rt["viewer_rect"]["w"] <= 1440.5 and rt["viewer_rect"]["y"] + rt["viewer_rect"]["h"] <= sz2[1] + 0.5
       and near(rt["yaw"], r1["yaw"], 1e-6), f"tenant {sz2}, scale {rt['desktop_scale']}, viewer {rt['viewer_rect']}")
 check("resized_screenshot_is_1440x900", imgs["11-resized.png"].shape[:2] == (900, 1440), str(imgs["11-resized.png"].shape))
-check("restore_refits_back", states["restored"]["window"] == [1920, 1080] and near(viewer["restored"]["desktop_scale"], 1.0, 1e-6)
-      and same_rect(viewer["restored"]["viewer_rect"], e["viewer_rect"]) and hashes["12-restored.png"] != hashes["11-resized.png"])
+check("restore_lays_out_back_to_launch", states["restored"]["window"] == [1920, 1080] and near(viewer["restored"]["desktop_scale"], v["desktop_scale"], 1e-6)
+      and same_rect(viewer["restored"]["viewer_rect"], v["viewer_rect"]) and same_rect(viewer["restored"]["catalogue_rect"], v["catalogue_rect"])
+      and hashes["12-restored.png"] != hashes["11-resized.png"])
 
 # pixels: the sculpture in the viewport, the catalogue picture, white outside the windows, white while hidden
 first = imgs["01-viewer.png"]
@@ -187,6 +199,31 @@ check("page_outside_windows_is_white", above.size > 0 and float(above.mean()) > 
       f"above {float(above.mean()):.2f} right {float(right.mean()):.2f}")
 hidden_page = imgs["09-hidden.png"][:int(PAGE_H) - 2, :]
 check("hidden_page_shows_plain_white_sketchbook", float(hidden_page.mean()) > 254, f"mean {float(hidden_page.mean()):.2f}")
+
+# #63: at pages of 1920x1000 and 1440x820 the viewer plate is at least native x s and as large as its slot allows: it spans
+# the slot on its limiting axis, where the desktop's bounding box then spans the page within the native margins, and is
+# centred in the slot on the other axis (a raster plate cannot take a non-uniform stretch)
+for label in ("fill-1920x1000", "fill-1440x820"):
+    fv = viewer[label]; fs = fv["size"]; want = [int(x) for x in label[5:].split("x")]
+    s_f, k_f, cat_f, view_f, slot = layout(fs)
+    vr_f, cr_f = fv["viewer_rect"], fv["catalogue_rect"]
+    check(f"{label}_page_size", near(fs[0], want[0], 1) and near(fs[1], want[1], 1), str(fs))
+    check(f"{label}_layout_is_the_fill_rule", near(fv["desktop_scale"], s_f, 1e-4) and same_rect(vr_f, view_f, 1.5) and same_rect(cr_f, cat_f, 1.5), f"viewer {vr_f} expected {view_f}")
+    check(f"{label}_viewer_at_least_native_times_scale", vr_f["w"] >= VIEWER[0] * VIEWER_SCALE * s_f - 1 and vr_f["h"] >= VIEWER[1] * VIEWER_SCALE * s_f - 1,
+          f"viewer {vr_f['w']:.0f}x{vr_f['h']:.0f}, native x s {VIEWER[0] * VIEWER_SCALE * s_f:.0f}x{VIEWER[1] * VIEWER_SCALE * s_f:.0f}")
+    axis = 1 if slot["h"] / VIEWER[1] <= slot["w"] / VIEWER[0] else 0
+    k_, e_ = ("y", "h") if axis else ("x", "w")
+    o_, oe_ = ("x", "w") if axis else ("y", "h")
+    boxes = (cr_f, vr_f)
+    gaps = (min(b["x"] for b in boxes), min(b["y"] for b in boxes), fs[0] - max(b["x"] + b["w"] for b in boxes), fs[1] - max(b["y"] + b["h"] for b in boxes))
+    lim = (gaps[1], gaps[3]) if axis else (gaps[0], gaps[2])
+    mlim = (MARGINS[1], MARGINS[3]) if axis else (MARGINS[0], MARGINS[2])
+    check(f"{label}_plate_spans_its_slot_and_the_page_on_the_limiting_axis", near(vr_f[e_], slot[e_], 1.5)
+          and all(-0.5 <= g <= m * s_f + 1.5 for g, m in zip(lim, mlim)),
+          f"limiting axis {'y' if axis else 'x'}: plate {vr_f[e_]:.1f} slot {slot[e_]:.1f}; gaps {[round(g, 1) for g in lim]} margins x s {[round(m * s_f, 1) for m in mlim]}")
+    before = vr_f[o_] - slot[o_]; after = slot[o_] + slot[oe_] - vr_f[o_] - vr_f[oe_]
+    check(f"{label}_plate_centred_in_its_slot_on_the_other_axis", near(before, after, 1.0) and before >= -0.5,
+          f"{'x' if axis else 'y'}: {before:.1f} px before, {after:.1f} px after (only centres there)")
 
 ok = all(r["pass"] for r in results.values())
 (out / "verify.json").write_text(json.dumps({"pass": ok, "checks": results, "sha256": hashes}, indent=1))

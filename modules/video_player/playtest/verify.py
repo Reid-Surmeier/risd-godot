@@ -19,9 +19,24 @@ MANIFEST = json.loads((HERE.parent / "media" / "manifest.json").read_text())
 BAR_H = 161 * 1920 / 4180.0
 PAGE_H = 1080 - BAR_H  # the page fills the window above the bar (bar along the bottom)
 CANVAS = (1536, 1632)      # video_player.gd CANVAS_SIZE
-MARGIN = 24
+MARGIN, GAP = 24, 32       # native px around and between the two windows
+FLY = (64, 54, 1406, 802)  # video_player.gd FLY_RECT, INFO_RECT: the plate's two windows
+INFO = (282, 888, 938, 658)
 VIDEO_RECT = (82, 106, 1366, 732)
 TILE0, TILE_STEP, TILE = 306, 111, 110
+
+def pair_layout(sz):
+    """video_player.gd _fit_viewer (#63): the larger-scale arrangement, side by side or stacked; returns arrangement, scale,
+    Fly Through rect and Information rect in page px."""
+    side = (FLY[2] + GAP + INFO[2] + 2 * MARGIN, FLY[3] + 2 * MARGIN); stack = (FLY[2] + 2 * MARGIN, FLY[3] + GAP + INFO[3] + 2 * MARGIN)
+    ss, st = min(sz[0] / side[0], sz[1] / side[1]), min(sz[0] / stack[0], sz[1] / stack[1])
+    s = max(ss, st); u = (sz[0] / s, sz[1] / s)
+    if ss >= st:
+        fly = (MARGIN, MARGIN, u[0] - 2 * MARGIN - GAP - INFO[2], u[1] - 2 * MARGIN); inf = (u[0] - MARGIN - INFO[2], MARGIN, INFO[2], u[1] - 2 * MARGIN)
+    else:
+        fly = (MARGIN, MARGIN, u[0] - 2 * MARGIN, u[1] - 2 * MARGIN - GAP - INFO[3]); inf = ((u[0] - INFO[2]) / 2, u[1] - MARGIN - INFO[3], INFO[2], INFO[3])
+    px = lambda r: {"x": r[0] * s, "y": r[1] * s, "w": r[2] * s, "h": r[3] * s}
+    return ("side" if ss >= st else "stacked"), s, px(fly), px(inf)
 IDS = [v["id"] for v in MANIFEST["videos"]]   # tile order 1..5
 LENGTHS = {v["id"]: v["preview"]["duration_seconds"] for v in MANIFEST["videos"]}
 
@@ -60,7 +75,7 @@ check("five_preview_videos_match_manifest", media_ok and len(MANIFEST["videos"])
 shots = {e["file"]: e for e in log if e["event"] == "screenshot"}
 hashes = {f: hashlib.sha256((out / f).read_bytes()).hexdigest() for f in shots}
 imgs = {f: np.array(Image.open(out / f).convert("RGB")).astype(int) for f in shots}
-check("screenshots_present", len(shots) == 13, str(sorted(shots)))
+check("screenshots_present", len(shots) == 15, str(sorted(shots)))
 check("shown_screenshot_is_1920x1080", imgs["01-shown.png"].shape[:2] == (1080, 1920), str(imgs["01-shown.png"].shape))
 
 # created lazily on first show, through the Shell
@@ -73,23 +88,28 @@ check("click_video_tab_creates_and_shows_player", vs["active"] == 3 and vs["tabs
 sz = a["size"]
 check("tenant_fills_page_area", near(sz[0], 1920, 1) and near(sz[1], 1080 - BAR_H, 1.5), str(sz))
 
-# the viewer: the whole 1536x1632 canvas fitted to the page with a margin, centred
-scale = min(1.0, (sz[0] - 2 * MARGIN) / CANVAS[0], (sz[1] - 2 * MARGIN) / CANVAS[1])
-vr = a["viewer"]["rect"]
-check("viewer_fits_page_centred", near(a["viewer"]["scale"], scale, 1e-6) and near(vr["w"], CANVAS[0] * scale, 1) and near(vr["h"], CANVAS[1] * scale, 1)
-      and near(vr["x"], (sz[0] - vr["w"]) / 2, 1) and near(vr["y"], (sz[1] - vr["h"]) / 2, 1.5) and vr["y"] >= -0.5
-      and vr["y"] + vr["h"] <= sz[1] + 0.5, f"scale {a['viewer']['scale']:.4f} rect {vr}")
+# the pair (#63): the plate cut into Fly Through and Information, side by side at one uniform scale filling the page
+arr, scale, fly0, info0 = pair_layout(sz)
+vr = a["viewer"]["rect"]; ir = a["information"]["rect"]
+check("pair_fills_page_side_by_side", a["arrangement"] == arr == "side" and near(a["viewer"]["scale"], scale, 1e-6)
+      and same_rect(vr, fly0, 1.5) and same_rect(ir, info0, 1.5) and vr["x"] + vr["w"] < ir["x"] and vr["w"] > ir["w"],
+      f"{a['arrangement']} scale {a['viewer']['scale']:.4f}: fly {vr} info {ir}")
 vid = a["video_rect"]
-check("video_body_at_its_source_rect_in_the_viewer", near(vid["x"], vr["x"] + VIDEO_RECT[0] * scale, 1) and near(vid["y"], vr["y"] + VIDEO_RECT[1] * scale, 1)
-      and near(vid["w"], VIDEO_RECT[2] * scale, 1) and near(vid["h"], VIDEO_RECT[3] * scale, 1), str(vid))
+body = {"x": vr["x"] + 18 * scale, "y": vr["y"] + 52 * scale, "w": vr["w"] - 40 * scale, "h": vr["h"] - 70 * scale}
+check("video_letterboxed_in_the_fly_through_body", near(vid["w"] / vid["h"], VIDEO_RECT[2] / VIDEO_RECT[3], 0.01)
+      and (near(vid["w"], body["w"], 1.5) or near(vid["h"], body["h"], 1.5))
+      and near(vid["x"] + vid["w"] / 2, body["x"] + body["w"] / 2, 1.5) and near(vid["y"] + vid["h"] / 2, body["y"] + body["h"] / 2, 1.5), f"video {vid} body {body}")
 tiles = a["tiles"]
+extra = ir["h"] / scale - INFO[3]
 check("eight_tiles_five_enabled_in_a_row", a["thumbnail_count"] == 8 and a["linked_video_count"] == 5 and len(tiles) == 8
       and [t["enabled"] for t in tiles] == [True] * 5 + [False] * 3
-      and all(near(t["rect"]["x"], vr["x"] + (TILE0 + i * TILE_STEP) * scale, 1) and near(t["rect"]["w"], TILE * scale, 1)
-              and near(t["rect"]["y"], vr["y"] + 1381 * scale, 1) for i, t in enumerate(tiles)), str([t["enabled"] for t in tiles]))
-check("controls_have_rects_inside_the_viewer", all(a["controls"][k]["w"] > 0 and a["controls"][k]["h"] > 0
-      and a["controls"][k]["x"] >= vr["x"] - 0.5 and a["controls"][k]["x"] + a["controls"][k]["w"] <= vr["x"] + vr["w"] + 0.5
-      for k in ("play", "seek", "seek_knob", "timer", "mute", "volume", "volume_knob", "fullscreen", "save", "minimize", "title_bar")))
+      and all(near(t["rect"]["x"], ir["x"] + (TILE0 + i * TILE_STEP - INFO[0]) * scale, 1) and near(t["rect"]["w"], TILE * scale, 1)
+              and near(t["rect"]["y"], ir["y"] + (1381 - INFO[1] + extra) * scale, 1) for i, t in enumerate(tiles)), str([t["rect"] for t in tiles[:2]]))
+def within(r, w):
+    return r["x"] >= w["x"] - 0.5 and r["x"] + r["w"] <= w["x"] + w["w"] + 0.5 and r["y"] >= w["y"] - 0.5 and r["y"] + r["h"] <= w["y"] + w["h"] + 0.5
+check("controls_inside_their_windows", all(a["controls"][k]["w"] > 0 and within(a["controls"][k], ir)
+      for k in ("play", "seek", "seek_knob", "timer", "mute", "volume", "volume_knob", "fullscreen", "save", "info_title_bar"))
+      and within(a["controls"]["minimize"], vr) and within(a["controls"]["title_bar"], vr), str(a["controls"]))
 
 # the first video autoplays from 0:00 and its position moves
 check("first_video_autoplays_from_start", a["selected_video"] == 0 and a["video_id"] == IDS[0] and a["playing"] and not a["paused"]
@@ -151,8 +171,12 @@ check("fullscreen_pixels_cover_the_page_under_the_strip", float((page_fs.min(axi
       f"white fraction {float((page_fs.min(axis=2) > 250).mean()):.3f}, strip diff {float(np.abs(strip_fs - strip_w).mean()):.3f}")
 check("f_key_restores_the_viewer", "F key" in gestures and not wd["fullscreen"] and same_rect(wd["video_rect"], vo["video_rect"]) and wd["playing"]
       and same_rect(wd["viewer"]["rect"], vo["viewer"]["rect"]), str(wd["video_rect"]))
-outside = np.concatenate([imgs["08-windowed.png"][:int(PAGE_H) - 2, :int(vr["x"]) - 2].reshape(-1, 3), imgs["08-windowed.png"][:int(PAGE_H) - 2, int(vr["x"] + vr["w"]) + 2:].reshape(-1, 3)])
-check("white_desktop_outside_the_viewer", float(outside.mean()) > 254 and float(crop(imgs["08-windowed.png"], vr).mean()) < 245, f"outside mean {float(outside.mean()):.2f}")
+img_w = imgs["08-windowed.png"]; wr, wi = wd["viewer"]["rect"], wd["information"]["rect"]
+top_strip = img_w[1:int(min(wr["y"], wi["y"])) - 1, :]; gap_strip = img_w[int(wr["y"] + 60):int(wr["y"] + wr["h"] - 60), int(wr["x"] + wr["w"]) + 2:int(wi["x"]) - 2]
+check("white_desktop_around_and_between_the_windows", top_strip.size > 0 and gap_strip.size > 0 and float(top_strip.mean()) > 250 and float(gap_strip.mean()) > 250
+      and float(crop(img_w, wr).mean()) < 245, f"top {float(top_strip.mean()):.1f} gap {float(gap_strip.mean()):.1f}")
+fr = crop(img_w, {"x": wr["x"] + 20 * scale, "y": wr["y"] + 60 * scale, "w": wr["w"] - 44 * scale, "h": wd["video_rect"]["y"] - wr["y"] - 64 * scale})
+check("letterbox_black_above_the_video", fr.size == 0 or float(fr.mean()) < 20, f"mean {float(fr.mean()) if fr.size else 0:.1f}")
 
 # the keys with the page shown
 ks = vp["key-space"]; ks2 = vp["key-space-again"]; kr = vp["key-right"]; k2 = vp["key-2"]
@@ -164,18 +188,24 @@ check("key_2_picks_the_second_tile", k2["selected_video"] == 1 and k2["video_id"
 ksv = gestures["save"]; sv = vp["saved"]
 check("save_click_toggles_session_state", inside((ksv["x"], ksv["y"]), k2["controls"]["save"]) and sv["saved"] and not k2["saved"])
 
-# the viewer drags by its title bar and stops at the page's edge with 200 px of the bar inside
+# the Fly Through window drags by its title bar and stops at the page's edge with 200 px of the bar inside
 td = gestures["drag the viewer by its title bar"]; mv = vp["viewer-moved"]
 check("title_drag_starts_on_title_bar", inside(td["from"], sv["controls"]["title_bar"]))
 check("title_drag_moves_viewer_by_the_drag", near(mv["viewer"]["position"][0], sv["viewer"]["position"][0] + td["relative_total"][0], 0.5)
       and near(mv["viewer"]["position"][1], sv["viewer"]["position"][1] + td["relative_total"][1], 0.5) and mv["drag_intent_count"] == sv["drag_intent_count"] + 1
-      and near(mv["video_rect"]["x"], sv["video_rect"]["x"] + td["relative_total"][0], 0.5) and mv["video_id"] == sv["video_id"] and mv["playing"] and not mv["dragging_viewer"],
+      and near(mv["video_rect"]["x"], sv["video_rect"]["x"] + td["relative_total"][0], 0.5) and mv["video_id"] == sv["video_id"] and mv["playing"] and not mv["dragging_viewer"]
+      and mv["information"]["position"] == sv["information"]["position"],
       f"{sv['viewer']['position']} -> {mv['viewer']['position']} by {td['relative_total']}")
-td2 = gestures["drag the title bar past the page's bottom-right corner"]; cl = vp["viewer-clamped"]
-s = cl["viewer"]["scale"]
+td2 = gestures["drag the title bar past the page's bottom-right corner"]; cl = vp["viewer-clamped"]; tb = cl["controls"]["title_bar"]
 check("viewer_drag_clamps_to_keep_title_bar_reachable", td2["to"][0] > sz[0] and td2["to"][1] > sz[1]
-      and near(cl["viewer"]["position"][0], sz[0] - 82 * s - 200, 0.5) and near(cl["viewer"]["position"][1], sz[1] - 105 * s, 0.5)
-      and cl["controls"]["title_bar"]["x"] < sz[0] - 150, f"position {cl['viewer']['position']} page {sz}")
+      and near(tb["x"], sz[0] - 200, 0.5) and near(tb["y"] + tb["h"], sz[1], 0.5), f"title bar {tb} page {sz}")
+ti = gestures["drag the information window by its title bar"]; im = vp["information-moved"]; ic = vp["viewer-clamped-probe"]
+check("information_drags_by_its_own_title_bar", inside(ti["from"], ic["controls"]["info_title_bar"])
+      and near(im["information"]["position"][0], ic["information"]["position"][0] + ti["relative_total"][0], 0.5)
+      and near(im["information"]["position"][1], ic["information"]["position"][1] + ti["relative_total"][1], 0.5)
+      and near(im["tiles"][0]["rect"]["x"], ic["tiles"][0]["rect"]["x"] + ti["relative_total"][0], 0.5)
+      and im["viewer"]["position"] == ic["viewer"]["position"] and im["last_action"] == "information drag",
+      f"{ic['information']['position']} -> {im['information']['position']} by {ti['relative_total']}")
 
 # hidden: frozen and paused, every event ignored; shown again: resumed from the same position
 bh = vp["before-hidden"]; mp = states["map"]; hd = vp["hidden"]; hd2 = vp["hidden-after-events"]
@@ -193,15 +223,32 @@ check("video_tab_again_resumes_playing", va["active"] == 3 and not va["tabs"][3]
       and r30["stream_position"] > ro["stream_position"] + 0.2 and r30["ticks"] > ro["ticks"] + 25 and ro["selected_video"] == hd["selected_video"]
       and ro["viewer"]["position"] == bh["viewer"]["position"] and ro["saved"] == bh["saved"], f"{hd2['stream_position']:.2f} -> {ro['stream_position']:.2f} -> {r30['stream_position']:.2f}")
 
-# resize: the tenant fills the smaller page, the viewer re-fits and stays reachable
+# resize: the pair is laid out again on the smaller page, then back
 rz = vp["resized"]; rst = vp["restored"]
-bar_small = BAR_H * 1440 / 1920
-scale_small = min(1.0, (1440 - 2 * MARGIN) / CANVAS[0], (900 - bar_small - 2 * MARGIN) / CANVAS[1])
-check("resize_refits_viewer_to_smaller_page", states["resized"]["window"] == [1440, 900] and near(rz["size"][0], 1440, 1) and near(rz["size"][1], 900 - bar_small, 1.5)
-      and near(rz["viewer"]["scale"], scale_small, 1e-4) and rz["viewer"]["position"][0] <= rz["size"][0] - 82 * scale_small - 200 + 0.5
-      and rz["viewer"]["position"][1] <= rz["size"][1] - 105 * scale_small + 0.5 and rz["playing"] and imgs["13-resized.png"].shape[:2] == (900, 1440),
-      f"scale {rz['viewer']['scale']:.4f} (expected {scale_small:.4f}) position {rz['viewer']['position']}")
-check("restore_refits_viewer_to_launch_scale", near(rst["viewer"]["scale"], scale, 1e-6) and near(rst["size"][0], 1920, 1) and rst["playing"])
+_, s_small, fly_small, info_small = pair_layout(rz["size"])
+check("resize_lays_the_pair_out_again", states["resized"]["window"] == [1440, 900] and near(rz["size"][0], 1440, 1)
+      and near(rz["size"][1], 900 - BAR_H * 1440 / 1920, 1.5) and near(rz["viewer"]["scale"], s_small, 1e-4)
+      and same_rect(rz["viewer"]["rect"], fly_small, 1.5) and same_rect(rz["information"]["rect"], info_small, 1.5)
+      and rz["playing"] and imgs["13-resized.png"].shape[:2] == (900, 1440), f"scale {rz['viewer']['scale']:.4f} fly {rz['viewer']['rect']}")
+check("restore_lays_the_pair_out_as_at_launch", near(rst["viewer"]["scale"], scale, 1e-6) and same_rect(rst["viewer"]["rect"], vr, 1.5)
+      and same_rect(rst["information"]["rect"], ir, 1.5) and rst["playing"])
+
+# #63: at pages of 1920x1000 and 1440x820 the two windows sit side by side at one uniform scale, Fly Through left and larger,
+# and their bounding box spans the page on both axes within the native margin
+for label in ("fill-1920x1000", "fill-1440x820"):
+    fv = vp[label]; fs = fv["size"]; want = [int(x) for x in label[5:].split("x")]
+    arr_f, s_f, fly_f, info_f = pair_layout(fs)
+    r1, r2 = fv["viewer"]["rect"], fv["information"]["rect"]
+    gaps = (min(r1["x"], r2["x"]), min(r1["y"], r2["y"]), fs[0] - max(r1["x"] + r1["w"], r2["x"] + r2["w"]), fs[1] - max(r1["y"] + r1["h"], r2["y"] + r2["h"]))
+    check(f"{label}_page_size", near(fs[0], want[0], 1) and near(fs[1], want[1], 1), str(fs))
+    check(f"{label}_side_by_side_fly_through_left_and_larger", fv["arrangement"] == arr_f == "side" and r1["x"] + r1["w"] < r2["x"]
+          and r1["w"] * r1["h"] > r2["w"] * r2["h"] and same_rect(r1, fly_f, 1.5) and same_rect(r2, info_f, 1.5), f"fly {r1} info {r2}")
+    check(f"{label}_pair_spans_page_both_axes", all(-0.5 <= g <= MARGIN * s_f + 1.5 for g in gaps),
+          f"gaps l/t/r/b {[round(g, 1) for g in gaps]}, native margin x s {MARGIN * s_f:.1f}")
+    check(f"{label}_windows_at_least_native_times_scale", r1["w"] >= FLY[2] * s_f - 1 and r1["h"] >= FLY[3] * s_f - 1
+          and r2["w"] >= INFO[2] * s_f - 1 and r2["h"] >= INFO[3] * s_f - 1, f"scale {s_f:.4f}")
+    check(f"{label}_video_and_tiles_follow_their_windows", within(fv["video_rect"], r1) and all(within(t["rect"], r2) for t in fv["tiles"])
+          and within(fv["controls"]["play"], r2) and fv["playing"], str(fv["video_rect"]))
 
 ok = all(r["pass"] for r in results.values())
 (out / "verify.json").write_text(json.dumps({"pass": ok, "checks": results, "sha256": hashes}, indent=1))

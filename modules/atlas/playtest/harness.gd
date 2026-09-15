@@ -160,7 +160,8 @@ func _initialize() -> void:
 	await _shot(out_dir, "04-panned.png")
 
 	# 6. drag the map window by its title bar: the frame moves by the drag
-	await _drag(_title_bar(c), Vector2(14, -3), 5, "drag the map window by its title bar")
+	#    (left and down: since #63 the window starts flush with the page's top and right margins)
+	await _drag(_title_bar(c), Vector2(-14, 3), 5, "drag the map window by its title bar")
 	await _frames(3)
 	var d := _atlas(shell, "window-moved")
 	await _shot(out_dir, "05-window-moved.png")
@@ -246,5 +247,14 @@ func _initialize() -> void:
 	_state(shell, "restored")
 	_atlas(shell, "restored")
 	await _shot(out_dir, "14-restored.png")
+
+	# 15. #63: pages of 1920x1000 and 1440x820 (the window is the page plus the bar, 161/4180 of its
+	#     width): the desktop spans the page on both axes and the map window takes the leftover
+	for page in [Vector2i(1920, 1000), Vector2i(1440, 820)]:
+		root.size = Vector2i(page.x, roundi(page.y + 161.0 * page.x / 4180.0))
+		await _frames(4)
+		_state(shell, "fill-%dx%d" % [page.x, page.y])
+		_atlas(shell, "fill-%dx%d" % [page.x, page.y])
+		await _shot(out_dir, "15-fill-%dx%d.png" % [page.x, page.y])
 
 	_finish(out_dir)

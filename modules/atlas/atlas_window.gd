@@ -17,7 +17,7 @@ const ROOT := "res://modules/atlas/"
 const INSET := Vector2(36, 94)
 const FRAME_EXTRA := Vector2(72, 136)
 ## The prototype's desktop composition (the owner's reference): panels and map window in the
-## 1950x1280 desktop's pixels, scaled to fit the Page and centred, as the prototype fits its viewport.
+## 1950x1280 desktop's pixels. _fit_window scales it uniformly and fills the Page with it (#63).
 const DESKTOP_SIZE := Vector2(1950, 1280)
 const FRAME_RECT := Rect2(450, 58, 1158, 954)
 const PANEL_RECTS := {
@@ -26,6 +26,10 @@ const PANEL_RECTS := {
 	"chat": Rect2(10, 1028, 540, 251),
 	"notification": Rect2(1674, 1200, 272, 79),
 }
+## The map window's right and bottom edges in native pixels from the desktop's right and bottom:
+## right, the desktop's own right margin (the notification ends 4 px from it); bottom, the native
+## gap that keeps it clear of the chat below.
+const FRAME_FAR_GAP := Vector2(4, 268)
 
 var key := ""
 var ticks := 0
@@ -111,21 +115,29 @@ func _ready() -> void:
 	viewport.add_child(map)
 
 
-## The desktop composition scaled to fit the Page and centred: the panels and the map window at
-## their reference rects; a Page resize restores it, as the prototype's desktop did on a viewport
-## resize (the phone layout under 750 px is not ported).
+## The desktop fills the Page (#63): one uniform scale s = min(page / DESKTOP_SIZE) for all the
+## raster art; each panel keeps its native distance, times s, to the page edges it sits nearest
+## (by its centre), and the map window takes the leftover — its left edge keeps its place beside the
+## left panels, its bottom its gap above the chat, while its top and right run to the page edge
+## minus the desktop's own native margin (FRAME_FAR_GAP). Re-laid out on every resize.
 func _fit_window() -> void:
 	action = ""
 	moving_window = null
 	if size.x < 2 or size.y < 2:
 		return
 	var scale := minf(size.x / DESKTOP_SIZE.x, size.y / DESKTOP_SIZE.y)
-	var origin := ((size - DESKTOP_SIZE * scale) / 2).round()
 	for id in panels:
-		panels[id].position = (origin + PANEL_RECTS[id].position * scale).round()
-		panels[id].size = (PANEL_RECTS[id].size * scale).round()
-	frame.position = (origin + FRAME_RECT.position * scale).round()
-	frame.size = (FRAME_RECT.size * scale).round()
+		var r: Rect2 = PANEL_RECTS[id]
+		var at := r.position * scale
+		var far := size - (DESKTOP_SIZE - r.position) * scale
+		if r.get_center().x > DESKTOP_SIZE.x / 2:
+			at.x = far.x
+		if r.get_center().y > DESKTOP_SIZE.y / 2:
+			at.y = far.y
+		panels[id].position = at.round()
+		panels[id].size = (r.size * scale).round()
+	frame.position = (FRAME_RECT.position * scale).round()
+	frame.size = (size - FRAME_FAR_GAP * scale).round() - frame.position
 	chrome_scale = minf(1.0, FRAME_RECT.size.x / 1724.0 * scale)
 	collapsed = false
 	container.visible = true
