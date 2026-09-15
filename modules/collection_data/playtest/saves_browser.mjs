@@ -10,6 +10,9 @@ rmSync(profile, {recursive: true, force: true});
 const target = new URL(process.argv[2]);
 target.searchParams.set('qa-crt', '1');
 target.searchParams.set('crt', '0');
+const reopenTarget = new URL(process.argv[4] || process.argv[2]);
+reopenTarget.searchParams.set('qa-crt', '1');
+reopenTarget.searchParams.set('crt', '0');
 const errors = [];
 
 const numbers = value => Array.isArray(value) ? value : String(value).match(/-?\d+(?:\.\d+)?/g).map(Number);
@@ -28,9 +31,9 @@ function watch(page) {
   });
 }
 
-async function ready(page) {
+async function ready(page, url = target) {
   watch(page);
-  await page.goto(target.href);
+  await page.goto(url.href);
   try {
     await page.waitForFunction(() => window.shellCrtQa?.shell.active === 4
       && window.shellCrtQa.tenant.search?.phase === 'results', null, {timeout: 90000});
@@ -101,7 +104,7 @@ try {
   await context.close();
   context = await chromium.launchPersistentContext(profile, args);
   const reopened = context.pages()[0];
-  await ready(reopened);
+  await ready(reopened, reopenTarget);
   await select(reopened, 0);
   await reopened.waitForFunction(() => window.shellCrtQa.tenant.search.save_phase === 'saved');
   await openTab(reopened, 5);
@@ -114,8 +117,9 @@ try {
   await reopened.screenshot({path: out + '/03-reopened-sketchbook.png'});
 
   assert.deepEqual(errors, []);
-  const report = {status: 'pass', url: process.argv[2], saved_ids: [firstId, secondId],
-    concurrent_windows: true, persisted_after_browser_restart: true,
+  const report = {status: 'pass', url: process.argv[2], reopened_url: process.argv[4] || process.argv[2],
+    saved_ids: [firstId, secondId], concurrent_windows: true, persisted_after_browser_restart: true,
+    persisted_after_build_update: Boolean(process.argv[4]),
     playground_ids: playground.tenant.saved_ids, sketchbook_ids: sketchbook.tenant.saved_ids, errors};
   writeFileSync(out + '/report.json', JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify(report));

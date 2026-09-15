@@ -89,8 +89,13 @@ def window_diffs(shot, p, rects=None, offset=(0, 0)):
 def cleared_body(shot, p, n):
     """The retained frame's former decorative body is now a mostly-white saved-work surface."""
     w = win(p, n); r = w["rect"]; y0 = int(round(p["page_global"]["y"])); title = max(2, int(round(w["drag_height"])))
-    crop = shot[y0 + int(r["y"]) + title:y0 + int(r["y"] + r["h"]) - 3,
-                int(r["x"]) + 3:int(r["x"] + r["w"]) - 3]
+    if n == "postpet":
+        k = PP_K * p["factor"]
+        crop = shot[y0 + int(r["y"] + 80 * k):y0 + int(r["y"] + r["h"] - 28 * k),
+                    int(r["x"] + 111 * k):int(r["x"] + r["w"] - 113 * k)]
+    else:
+        crop = shot[y0 + int(r["y"]) + title:y0 + int(r["y"] + r["h"]) - 3,
+                    int(r["x"]) + 3:int(r["x"] + r["w"]) - 3]
     return float((crop.min(axis=2) > 245).mean()) if crop.size else 0.0
 
 shots = {e["file"]: e for e in log if e["event"] == "screenshot"}

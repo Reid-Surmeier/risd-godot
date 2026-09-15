@@ -26,6 +26,7 @@ const MARGIN := 24.0
 const BANDS := [0, 45, 95, 203, 204, 660, 803]
 const BAND_COLUMNS := [246, 344, 730, 730, 730, 703]
 const STRETCH_Y_BAND := 3
+const POSTPET_BODY := Rect2(111, 80, 634, 695)
 # name, file, native position in DESKTOP px, art scale (desktop px per source px), title height in
 # desktop px (0: the whole surface drags), anchor ("left" | "right" | "right_bottom"), keyed border
 # width in source px (0: no magenta key)
@@ -93,7 +94,7 @@ func _ready() -> void:
 		window.set_meta("native", texture.get_size())
 		add_child(window)
 		windows.append(window)
-		if entry[0] != "phone":
+		if entry[0] not in ["phone", "postpet"]:
 			var blank := ColorRect.new()
 			blank.name = "ClearedInterior"
 			blank.color = Color.WHITE
@@ -143,9 +144,11 @@ func _fit() -> void:
 	var bottom := size.y - MARGIN * s
 	postpet.size = Vector2(right, bottom) - postpet.position
 	postpet.queue_redraw()
-	var top: float = float(postpet.get_meta("drag_height"))
-	saved_body.position = Vector2(10 * s, top + 8 * s)
-	saved_body.size = (postpet.size - Vector2(20 * s, top + 18 * s)).max(Vector2.ZERO)
+	var postpet_scale: float = WINDOWS[0][3] * s
+	var postpet_source: Vector2 = postpet.get_meta("native")
+	saved_body.position = POSTPET_BODY.position * postpet_scale
+	var lower_right_inset := postpet_source - POSTPET_BODY.end
+	saved_body.size = (postpet.size - saved_body.position - lower_right_inset * postpet_scale).max(Vector2.ZERO)
 	saved_list.position = Vector2(10 * s, 8 * s)
 	saved_list.size = saved_body.size - Vector2(20 * s, 16 * s)
 	for child in saved_list.get_children():
