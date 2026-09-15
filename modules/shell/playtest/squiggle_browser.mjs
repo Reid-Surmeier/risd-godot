@@ -9,7 +9,8 @@ const page = await browser.newPage({viewport: {width: 1920, height: 1080}});
 const errors = [];
 page.on('pageerror', error => errors.push(error.message));
 page.on('console', message => {
-	if (message.type() === 'error' && !/2D MSAA is not yet supported|at: render_target_set_msaa/.test(message.text())) errors.push(message.text());
+	const favicon404 = /404/.test(message.text()) && message.location().url.endsWith('/favicon.ico');
+	if (message.type() === 'error' && !favicon404 && !/2D MSAA is not yet supported|at: render_target_set_msaa/.test(message.text())) errors.push(message.text());
 });
 const state = () => page.evaluate(() => window.shellCrtQa);
 function screen(x, y, s) {
