@@ -1,0 +1,42 @@
+{
+  "status": "pass",
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-game-crt-01a0a2b7/",
+  "metrics": {
+    "mean_change": 9.922526815653102,
+    "white_change": 0,
+    "near_white_luminance_change": 0.0009285788626108187
+  },
+  "viewports": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "dark_edge_fraction": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "width": 720,
+      "height": 486,
+      "dark_edge_fraction": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "width": 1200,
+      "height": 600,
+      "dark_edge_fraction": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "errors": []
+}

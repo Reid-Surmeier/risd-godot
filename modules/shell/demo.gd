@@ -14,7 +14,6 @@ const PlaygroundPage := preload("res://modules/playground_page/interface.gd")
 
 
 func _ready() -> void:
-	get_window().min_size = Vector2i(1440, 900)
 	var created := Shell.create({"map": Atlas, "sketchbook": Sketchbook, "3d_viewer": SculptureViewer,
 			"video_player": VideoPlayer, "collection": CollectionPage, "playground": PlaygroundPage})
 	if not created.ok:
