@@ -1,6 +1,6 @@
-## The Image Viewer desktop: the Collection Tab's Tenant node. The viewer window (header and
-## footer patched from reference.png, seven fixed-size artworks cut from it in a vertical-only
-## scroll) and the eight HUD windows of desktop.gd, all draggable, stacking by press.
+## The Image Viewer desktop: the Collection Tab's Tenant node. Live search controls and verified
+## RISD results cover the old decorative filter and artwork pixels; all windows remain draggable
+## and stack by press.
 ## Reach it through interface.gd only.
 ##
 ## Ported from qwen-image-pipeline prototype/81-image-viewer @ 5d55209 viewer.gd. Left behind:
@@ -48,6 +48,9 @@ var action := ""
 var active_window: Control
 var start_pointer := Vector2.ZERO
 var start_rect := Rect2()
+var data_handle: Variant
+var image_base_url := "http://127.0.0.1:8128/"
+var search_ui: Node
 
 
 static func create(deps: Dictionary) -> Dictionary:
@@ -56,6 +59,8 @@ static func create(deps: Dictionary) -> Dictionary:
 			return Errors.err(Errors.ASSET_MISSING, ROOT + f)
 	var t = load(ROOT + "viewer.gd").new()
 	t.key = deps.get("key", "")
+	t.data_handle = deps.collection_data
+	t.image_base_url = deps.get("image_base_url", "http://127.0.0.1:8128/")
 	t.name = "CollectionPage"
 	t.source = load(ROOT + "reference.png")
 	t.desktop = load(ROOT + "desktop.gd").new()
@@ -101,11 +106,17 @@ func _ready() -> void:
 		card.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 		card.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		artwork.add_child(card)
+	artwork.visible = false
 	chrome.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	chrome.draw.connect(_draw_frame)
 	frame.add_child(chrome)
 	resized.connect(_fit)
 	_fit()
+	search_ui = load(ROOT + "search_ui.gd").new()
+	search_ui.page = self
+	search_ui.data_handle = data_handle
+	search_ui.image_base_url = image_base_url
+	add_child(search_ui)
 
 
 ## The desktop fills the Page (#63): the HUD windows at one uniform scale of the reference, anchored
@@ -248,7 +259,7 @@ func _local_rect(node: Control) -> Rect2:
 
 
 ## The harness probe (the Tenant contract): every window's rect and stacking order, the viewer's
-## scroll and its seven artwork rects, all in the Page's own pixels.
+## layout plus the live search state, all in the Page's own pixels.
 func state() -> Dictionary:
 	var windows: Array = desktop.snapshot()
 	windows.append({"name": frame.name, "rect": frame.get_rect(), "drag_height": 8 + 102 * pixel_scale, "order": frame.get_index()})
@@ -259,4 +270,4 @@ func state() -> Dictionary:
 	var bar := scroll.get_v_scroll_bar()
 	return Errors.ok({"key": key, "ticks": ticks, "inputs": inputs, "size": size, "factor": factor, "action": action,
 			"windows": windows, "viewer": {"rect": frame.get_rect(), "scale": pixel_scale, "scroll": scroll.scroll_vertical,
-			"scroll_max": bar.max_value - bar.page, "body": _local_rect(scroll), "cards": cards}})
+			"scroll_max": bar.max_value - bar.page, "body": _local_rect(scroll), "cards": cards}, "search": search_ui.state()})

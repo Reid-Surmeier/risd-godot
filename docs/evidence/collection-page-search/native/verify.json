@@ -1,0 +1,151 @@
+{
+  "pass": true,
+  "checks": {
+    "eight_screenshots": {
+      "pass": true,
+      "detail": "['01-default-results.png', '02-filtered-paintings.png', '03-unavailable-keeps-A.png', '04-empty.png', '05-missing-image.png', '06-snapshot-expired.png', '07-selected.png', '08-compact-720x486.png']"
+    },
+    "screenshots_are_distinct": {
+      "pass": true,
+      "detail": ""
+    },
+    "native_sizes": {
+      "pass": true,
+      "detail": ""
+    },
+    "screenshots_have_visible_content": {
+      "pass": true,
+      "detail": ""
+    },
+    "compact_has_no_black_bars": {
+      "pass": true,
+      "detail": "[0.0, 0.0, 0.0, 0.0]"
+    },
+    "default_search_once": {
+      "pass": true,
+      "detail": ""
+    },
+    "verified_default_corpus": {
+      "pass": true,
+      "detail": "{'coverage': 'Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.', 'page': 1, 'page_size': 20, 'query': {'category': 'All', 'has_image': False, 'page': 1, 'q': '', 'sort': 'title_asc'}, 'snapshot': 'e7b9e9cd611b244091ad779f3ea14570247d7e23ffe0cafb124434f53860a82c', 'total': 5, 'upstream_status': 'unavailable'}"
+    },
+    "verified_paintings_loaded": {
+      "pass": true,
+      "detail": "[{'has_texture': True, 'id': 'risd:1377691', 'rect': {'h': 377.171508789062, 'w': 476.0, 'x': 435.780700683594, 'y': 84.2194976806641}}, {'has_texture': False, 'id': 'risd:1310656', 'rect': {'h': 377.171508789062, 'w': 476.0, 'x': 919.780700683594, 'y': 84.2194976806641}}, {'has_texture': True, 'id': 'risd:1584511', 'rect': {'h': 377.171508789062, 'w': 476.0, 'x': 1403.78076171875, 'y': 84.2194976806641}}, {'has_texture': False, 'id': 'risd:1212256', 'rect': {'h': 377.171508789062, 'w': 476.0, 'x': 435.780700683594, 'y': 469.219482421875}}, {'has_texture': False, 'id': 'risd:1244926', 'rect': {'h': 377.171508789062, 'w': 476.0, 'x': 919.780700683594, 'y': 469.219482421875}}]"
+    },
+    "all_native_controls_present": {
+      "pass": true,
+      "detail": ""
+    },
+    "four_sort_orders": {
+      "pass": true,
+      "detail": ""
+    },
+    "categories_from_response": {
+      "pass": true,
+      "detail": ""
+    },
+    "unicode_input_without_request": {
+      "pass": true,
+      "detail": ""
+    },
+    "escape_restores_last_success": {
+      "pass": true,
+      "detail": ""
+    },
+    "keyboard_focus_order": {
+      "pass": true,
+      "detail": ""
+    },
+    "keyboard_apply_one_request": {
+      "pass": true,
+      "detail": ""
+    },
+    "dropdown_and_space_values_apply": {
+      "pass": true,
+      "detail": ""
+    },
+    "filtered_real_paintings": {
+      "pass": true,
+      "detail": "[{'has_texture': True, 'id': 'risd:1584511', 'rect': {'h': 377.171508789062, 'w': 476.0, 'x': 435.780700683594, 'y': 84.2194976806641}}, {'has_texture': True, 'id': 'risd:1377691', 'rect': {'h': 377.171508789062, 'w': 476.0, 'x': 919.780700683594, 'y': 84.2194976806641}}]"
+    },
+    "failed_B_keeps_A": {
+      "pass": true,
+      "detail": ""
+    },
+    "cancel_B_restores_A_without_request": {
+      "pass": true,
+      "detail": ""
+    },
+    "late_reply_ignored": {
+      "pass": true,
+      "detail": ""
+    },
+    "draft_survives_pagination": {
+      "pass": true,
+      "detail": ""
+    },
+    "pagination_pins_snapshot": {
+      "pass": true,
+      "detail": ""
+    },
+    "pagination_is_one_request": {
+      "pass": true,
+      "detail": ""
+    },
+    "empty_state": {
+      "pass": true,
+      "detail": ""
+    },
+    "missing_image_state": {
+      "pass": true,
+      "detail": ""
+    },
+    "snapshot_expired_state": {
+      "pass": true,
+      "detail": ""
+    },
+    "selection_does_not_request_or_save": {
+      "pass": true,
+      "detail": ""
+    },
+    "filter_window_drags_and_raises": {
+      "pass": true,
+      "detail": ""
+    },
+    "viewer_resizes_in_place": {
+      "pass": true,
+      "detail": ""
+    },
+    "hidden_page_is_frozen": {
+      "pass": true,
+      "detail": "(466, 466)"
+    },
+    "hidden_reply_applies_on_resume": {
+      "pass": true,
+      "detail": ""
+    },
+    "compact_controls_stay_in_filter_window": {
+      "pass": true,
+      "detail": "{'Query': {'h': 24.0, 'w': 143.456604003906, 'x': 35.8483009338379, 'y': 200.781448364258}, 'Sort': {'h': 20.0000019073486, 'w': 67.0, 'x': 24.009651184082, 'y': 214.709274291992}, 'Category': {'h': 20.0000019073486, 'w': 75.2102584838867, 'x': 104.09464263916, 'y': 214.709274291992}, 'HasImage': {'h': 24.0, 'w': 60.0, 'x': 10.0818271636963, 'y': 228.985305786133}, 'OK': {'h': 11.0, 'w': 26.4628677368164, 'x': 122.89720916748, 'y': 251.966217041016}, 'Cancel': {'h': 11.0, 'w': 29.0, 'x': 151.449249267578, 'y': 251.966217041016}}"
+    },
+    "compact_windows_stay_in_page": {
+      "pass": true,
+      "detail": ""
+    },
+    "adapter_received_exact_requests": {
+      "pass": true,
+      "detail": ""
+    }
+  },
+  "sha256": {
+    "06-snapshot-expired.png": "26d234e5fd7b97b084f1cde3594ba52b5da8863f9bce2a248dd9716103583d04",
+    "05-missing-image.png": "aac3e8e1c1f262fcb10b6349f0e47f3cebacbcfe2e52fb4ff24b30bd6d4f2986",
+    "02-filtered-paintings.png": "cc7b8fd69a653c6fb8f5ca93e2ed385948a7c1b88f23ef3ac81c6295209d44d1",
+    "08-compact-720x486.png": "010105c501f02e9ac3b0b77a7adc0bee6810aa767e5285eb4e023059fa7a08e1",
+    "04-empty.png": "d6f3f666341473290d1f6485b567f211665425c38a4836f61a723883adf8136d",
+    "07-selected.png": "6864e9b642822d88fe596ee436f0141cd652ce60ba09531179196ad5407a6920",
+    "01-default-results.png": "4b607492a875dea74078f7ff829641edffe74a91bbf72393f15b7da163f85114",
+    "03-unavailable-keeps-A.png": "5bd2cb859cb4bc4f3cee874510e9075829a2f31711531687207f976928de104e"
+  }
+}

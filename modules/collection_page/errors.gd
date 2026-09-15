@@ -2,6 +2,8 @@
 class_name CollectionPageErrors
 extends RefCounted
 
+const INVALID_DEPENDENCY := "collection_page.invalid_dependency"
+
 ## A pixel file the desktop loads (the viewer's reference sheet, a window screenshot) is not in the
 ## project (detail: its path).
 const ASSET_MISSING := "collection_page.asset_missing"
