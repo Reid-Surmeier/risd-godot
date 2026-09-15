@@ -32,6 +32,7 @@ func _search(shell: Control, label: String) -> Dictionary:
 		"applied": s.applied, "last_successful": s.last_successful, "requests": s.requests,
 		"completions": s.completions, "ignored_completions": s.ignored_completions, "response": response,
 		"items": items, "selected": s.selected, "images_loaded": s.images_loaded, "image_failures": s.image_failures,
+		"retry_visible": s.retry_visible,
 		"controls": controls, "sort_popup_visible": s.sort_popup.visible, "category_popup_visible": s.category_popup.visible,
 		"focus_owner": s.focus_owner, "sort_items": s.sort_items, "category_items": s.category_items,
 		"ticks": tenant.ticks, "inputs": tenant.inputs, "size": [tenant.size.x, tenant.size.y], "windows": windows}
@@ -155,6 +156,8 @@ func _initialize() -> void:
 	await _key(KEY_ENTER, "apply B")
 	var failed := await _wait_phase(shell, "error", "B-failed")
 	await _shot(out_dir, "03-unavailable-keeps-A.png")
+	await _type_text(query, "edit", "edit failed query")
+	var edited_failure := _search(shell, "B-edit-invalidates-retry")
 	await _key(KEY_ESCAPE, "cancel B")
 	await _frames(2)
 	var restored := _search(shell, "B-canceled-restores-A")
@@ -226,6 +229,17 @@ func _initialize() -> void:
 	await create_timer(0.2).timeout
 	var webp := _search(shell, "webp-image")
 
+	# Search cancellation does not cancel image loading for the retained result set.
+	await _type_text(query, "slow-image", "slow image query")
+	await _key(KEY_ENTER, "apply slow image query")
+	var slow_image := await _wait_phase(shell, "results", "slow-image-pending")
+	await _type_text(query, "fail", "fail over slow image")
+	await _key(KEY_ENTER, "apply failure over slow image")
+	await _wait_phase(shell, "error", "slow-image-failure")
+	await _key(KEY_ESCAPE, "restore slow image results")
+	await create_timer(0.7).timeout
+	var slow_image_restored := _search(shell, "slow-image-after-cancel")
+
 	# Selection only changes presentation; it dispatches no request.
 	category.select(0)
 	has_image.button_pressed = false
@@ -269,10 +283,12 @@ func _initialize() -> void:
 	await _shot(out_dir, "09-compact-720x486.png")
 
 	_log.append({"t_ms": _ms(), "event": "fixture", "calls": adapter.calls, "server_pid": server_pid,
-		"checkpoints": [launch.requests, typed.requests, canceled.requests, a.requests, failed.requests, restored.requests,
+		"checkpoints": [launch.requests, typed.requests, canceled.requests, a.requests, failed.requests, edited_failure.requests,
+			restored.requests,
 			pending_before_cancel.requests, pending_canceled.requests, canceled_late.requests, stale.requests,
 			before_page.requests, page_two.requests, empty.requests, missing.requests, broken.requests,
-			expired.requests, retried.requests, webp.requests, selected.requests, moved.requests, resized.requests, hidden_before.requests,
+			expired.requests, retried.requests, webp.requests, slow_image.requests, slow_image_restored.requests,
+			selected.requests, moved.requests, resized.requests, hidden_before.requests,
 			hidden.requests, resumed.requests, compact.requests]})
 	if server_pid > 0:
 		OS.kill(server_pid)

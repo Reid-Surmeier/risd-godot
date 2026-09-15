@@ -74,6 +74,9 @@ check("filtered_real_paintings", a["response"]["total"] == 2 and a["images_loade
 
 failed, restored = states["B-failed"], states["B-canceled-restores-A"]
 check("failed_B_keeps_A", failed["phase"] == "error" and failed["response"] == a["response"] and failed["requests"] == a["requests"] + 1)
+edited_failure = states["B-edit-invalidates-retry"]
+check("editing_failure_invalidates_retry", failed["retry_visible"] and not edited_failure["retry_visible"]
+      and edited_failure["requests"] == failed["requests"])
 check("cancel_B_restores_A_without_request", restored["draft"] == restored["applied"] == a["applied"]
       and restored["requests"] == failed["requests"] and restored["focus_owner"].startswith("Card_"))
 pending, pending_canceled, canceled_late = states["pending-before-cancel"], states["pending-canceled"], states["canceled-reply-ignored"]
@@ -106,6 +109,10 @@ webp = states["webp-image"]
 check("valid_webp_image_loads", webp["response"]["total"] == 1 and webp["images_loaded"] == 1
       and webp["image_failures"] == 0 and webp["items"][0]["has_texture"]
       and not webp["items"][0]["image_unavailable"])
+slow_image, slow_image_restored = states["slow-image-pending"], states["slow-image-after-cancel"]
+check("cancel_keeps_retained_image_load", slow_image["images_loaded"] == 0
+      and slow_image_restored["response"]["query"]["q"] == "slow-image"
+      and slow_image_restored["images_loaded"] == 1 and slow_image_restored["items"][0]["has_texture"])
 
 focused, before, selected = states["result-focused"], states["before-selection"], states["selected"]
 check("result_card_is_keyboard_focusable", focused["focus_owner"].startswith("Card_"))
@@ -135,7 +142,7 @@ check("compact_controls_stay_in_filter_window", all(rect["x"] >= filter_rect["x"
 check("compact_windows_stay_in_page", all(window["rect"]["x"] >= -1 and window["rect"]["y"] >= -1
       and window["rect"]["x"] + window["rect"]["w"] <= compact["size"][0] + 1
       and window["rect"]["y"] + window["rect"]["h"] <= compact["size"][1] + 1 for window in compact["windows"]))
-check("adapter_received_exact_requests", len(fixture["calls"]) == compact["requests"] == 16
+check("adapter_received_exact_requests", len(fixture["calls"]) == compact["requests"] == 18
       and fixture["calls"][7]["q"] == "pages" and fixture["calls"][7]["page"] == 2
       and "snapshot" in fixture["calls"][7])
 

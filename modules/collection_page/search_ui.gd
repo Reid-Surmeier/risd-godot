@@ -38,6 +38,7 @@ var requests := 0
 var completions := 0
 var ignored_completions := 0
 var generation := 0
+var render_generation := 0
 var images_loaded := 0
 var image_failures := 0
 var layout_key := ""
@@ -107,6 +108,7 @@ func _build_filters() -> void:
 	query.placeholder_text = "artist, title, keyword"
 	query.clear_button_enabled = true
 	query.text_submitted.connect(func(_value: String) -> void: _apply())
+	query.text_changed.connect(func(_value: String) -> void: _draft_edited())
 	_theme_control(query)
 	body.add_child(query)
 	sort.name = "Sort"
@@ -114,17 +116,20 @@ func _build_filters() -> void:
 	for label_text in SORT_LABELS:
 		sort.add_item(label_text)
 	sort.select(SORTS.find("date_asc"))
+	sort.item_selected.connect(func(_index: int) -> void: _draft_edited())
 	_theme_control(sort)
 	body.add_child(sort)
 	category.name = "Category"
 	category.fit_to_longest_item = false
 	category.add_item("All")
 	category.add_item("Painting")
+	category.item_selected.connect(func(_index: int) -> void: _draft_edited())
 	_theme_control(category)
 	body.add_child(category)
 	has_image.name = "HasImage"
 	has_image.text = "Has Image"
 	has_image.button_pressed = true
+	has_image.toggled.connect(func(_pressed: bool) -> void: _draft_edited())
 	_theme_control(has_image)
 	body.add_child(has_image)
 	ok.name = "OK"
@@ -249,6 +254,11 @@ func _draft() -> Dictionary:
 		"has_image": has_image.button_pressed, "page": 1}
 
 
+func _draft_edited() -> void:
+	if phase in ["error", "snapshot_expired"]:
+		retry.visible = false
+
+
 func _restore(values: Dictionary) -> void:
 	query.text = values.q
 	sort.select(maxi(0, SORTS.find(values.sort)))
@@ -365,6 +375,7 @@ func _render_response() -> void:
 		status.text = "Search RISD artworks"
 		count.text = "No search yet"
 		return
+	render_generation += 1
 	for child in cards.get_children():
 		cards.remove_child(child)
 		child.queue_free()
@@ -471,13 +482,13 @@ func _select(artwork: Dictionary) -> void:
 
 
 func _load_image(manifest: Dictionary, target: TextureRect, unavailable: Label) -> void:
-	var image_generation := generation
+	var image_render_generation := render_generation
 	var target_id := target.get_instance_id()
 	var unavailable_id := unavailable.get_instance_id()
 	var completed := func(result: Dictionary) -> void:
 		var live_target := instance_from_id(target_id) as TextureRect
 		var live_unavailable := instance_from_id(unavailable_id) as Label
-		if image_generation != generation or live_target == null or live_unavailable == null:
+		if image_render_generation != render_generation or live_target == null or live_unavailable == null:
 			return
 		if not result.ok:
 			live_unavailable.visible = true
@@ -533,6 +544,7 @@ func state() -> Dictionary:
 	return {"phase": phase, "draft": _draft(), "applied": applied.duplicate(true), "last_successful": last_successful.duplicate(true),
 		"requests": requests, "completions": completions, "ignored_completions": ignored_completions, "response": response.duplicate(true),
 		"items": items, "selected": selected, "images_loaded": images_loaded, "image_failures": image_failures,
+		"retry_visible": retry.visible,
 		"controls": controls, "query_focused": query.has_focus(),
 		"focus_owner": focus_owner.name if focus_owner != null else "", "sort_items": sort_items, "category_items": category_items,
 		"sort_popup": {"visible": sort_popup.visible, "position": sort_popup.position, "size": sort_popup.size},
