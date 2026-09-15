@@ -18,7 +18,7 @@ launch = entry("shell", "state", "launch"); blank = entry("shell", "state", "stu
 def bar(r): return r["x"] * S + r["w"] * S / 2, PAGE_H + (r["y"] - BAR_TOP_LOG) * S + r["h"] * S / 2  # a strip rect, re-based on this window's bar
 def mid(r): return r["x"] + r["w"] / 2, r["y"] + r["h"] / 2
 def tab(i): return bar(launch["tabs"][i]["rect"])
-STUB = bar(launch["stub_rect"]); BLANK_CLOSE = bar(blank["tabs"][7]["close_rect"])
+STUB = bar(launch["stub_rect"]); BLANK_CLOSE = bar(blank["tabs"][blank["count"] - 1]["close_rect"])
 
 # the Map desktop (atlas_window.gd): the 1950x1280 prototype desktop scaled to fit the page and centred; the map body's rect scales with it
 a = entry("atlas", "atlas", "map-shown"); mr = a["map_rect"]
@@ -96,13 +96,12 @@ async def main():
         await click(*TILE3, 3.0); await shot("w09-video-tile-3.png")     # tile 3: its video loads and plays
         await open_tab(4, "w10-collection.png", "Collection")            # back on Collection, every other page frozen behind
         await drag(*EQUIP_TITLE, 160, 120, 10); await shot("w11-collection-dragged.png")  # drag the equipment window by its title
-        await open_tab(5, "w12-playground.png", "Playground")            # the Playground mockup
-        await open_tab(6, "w13-phone.png", "Phone")                      # the Phone mockup
-        await click(*STUB, 0.0)                                         # the stub opens a Blank Page as the eighth tab
+        await open_tab(5, "w12-playground.png", "Playground")            # the Playground desktop, the phone folded in (#62)
+        await click(*STUB, 0.0)                                         # the stub opens a Blank Page as the seventh tab
         for i in range(6):
             await asyncio.sleep(0.08); await shot(f"w14-grow-{i}.png")
         await asyncio.sleep(1.5); await shot("w15-blank-page.png"); TABS.append(("Blank Page", "w15-blank-page.png"))
-        await click(*BLANK_CLOSE, 1.5); await shot("w16-after-close.png")   # its close works; Phone becomes active
+        await click(*BLANK_CLOSE, 1.5); await shot("w16-after-close.png")   # its close works; Playground becomes active
 asyncio.run(main()); chrome.terminate()
 
 # the toolbar sheet: the bar band (the bottom of the window) of every settled screenshot, stacked, labelled

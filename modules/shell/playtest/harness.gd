@@ -1,6 +1,7 @@
 ## Playtest harness for the shell: builds the Shell the way the game's main scene does — with its
-## own registry: the dummy tenant in five Tabs, a grey Callable-built tenant in phone (so a page
-## cross-fade is visible in pixels), nothing in playground — and plays it the way a person does,
+## own registry: the dummy tenant in four Tabs, a grey Callable-built tenant in playground (so a page
+## cross-fade is visible in pixels), nothing in video_player — six fixed Tabs since the Phone Tab folded
+## into the Playground desktop (owner correction 2026-09-14, ticket #62); and plays it the way a person does,
 ## reporting what it did, what happened, and whether the interface responded. Real
 ## InputEventMouseButton and InputEventKey events through Input.parse_input_event — never a direct
 ## call into the strip for the gestures; the interface is called only for what the Shell's caller
@@ -66,13 +67,13 @@ func _film(shell: Control, out_dir: String, prefix: String, ms: int, tab_index: 
 func _initialize() -> void:
 	var root := get_root()
 	var shell: Control = Shell.create({"map": DummyTenant, "sketchbook": DummyTenant, "3d_viewer": DummyTenant,
-			"video_player": DummyTenant, "collection": DummyTenant, "phone": Callable(self, "_grey_tenant")}).value
+			"collection": DummyTenant, "playground": Callable(self, "_grey_tenant")}).value
 	shell.switch_settled.connect(func(i: int): _log.append({"t_ms": _ms(), "event": "signal", "signal": "switch_settled", "index": i}))
 	shell.tenant_created.connect(func(k: String): _log.append({"t_ms": _ms(), "event": "signal", "signal": "tenant_created", "key": k}))
 	var out_dir := await _mount(shell, Vector2i(1920, 1080), "/tmp/shell-playtest")
 	DirAccess.make_dir_recursive_absolute(out_dir.path_join("frames"))
 
-	# 1. launch: the Collection tab grows in like a stub-opened tab, then its page fades in; seven fixed
+	# 1. launch: the Collection tab grows in like a stub-opened tab, then its page fades in; six fixed
 	#    tabs in order along the bottom, Collection active and its tenant created, the rest waiting
 	await _film(shell, out_dir, "launch", 1000, 4)
 	_state(shell, "launch")
@@ -122,7 +123,7 @@ func _initialize() -> void:
 	_state(shell, "fixed-kept")
 	await _shot(out_dir, "04-fixed-kept.png")
 
-	# 6. the stub still opens a Blank Page with a close button; closing it lands on the Phone tab,
+	# 6. the stub still opens a Blank Page with a close button; closing it lands on the Playground tab,
 	#    whose grey Callable-built tenant is created on that first show
 	await _click(_center(shell, st.stub_rect), "new-tab stub")
 	await create_timer(1.8).timeout
@@ -131,22 +132,22 @@ func _initialize() -> void:
 	var sb: Dictionary = _state(shell, "stub-blank")
 	await _click(_center(shell, sb.tabs[sb.count - 1].close_rect), "close button of the blank tab")
 	await create_timer(0.9).timeout
-	_state(shell, "phone")
-	_tenant(shell, "phone", "phone-shown")
-	await _shot(out_dir, "06-phone.png")
+	_state(shell, "grey")
+	_tenant(shell, "playground", "grey-shown")
+	await _shot(out_dir, "06-grey.png")
 
-	# 7. click the Collection tab from the grey Phone page: the film of the dip and the cross-fade
+	# 7. click the Collection tab from the grey Playground page: the film of the dip and the cross-fade
 	await _click(_center(shell, st.tabs[4].rect), "collection tab")
 	await _film(shell, out_dir, "switch", 350, 4)
 	_state(shell, "collection")
 	await _shot(out_dir, "07-collection.png")
 
-	# 8. the Playground tab has no tenant in this harness: a plain white page
-	await _click(_center(shell, st.tabs[5].rect), "playground tab")
+	# 8. the Video Player tab has no tenant in this harness: a plain white page
+	await _click(_center(shell, st.tabs[3].rect), "video player tab")
 	await create_timer(0.45).timeout
-	_state(shell, "playground")
-	_tenant(shell, "playground", "playground-shown")
-	await _shot(out_dir, "08-playground.png")
+	_state(shell, "untenanted")
+	_tenant(shell, "video_player", "untenanted-shown")
+	await _shot(out_dir, "08-untenanted.png")
 
 	# 9. resize the window to the 1440x900 minimum: the bar re-fits along the bottom, the visible tenant fills its page
 	await _click(_center(shell, st.tabs[4].rect), "collection tab (again)")
