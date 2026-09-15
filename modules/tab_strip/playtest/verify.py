@@ -98,7 +98,8 @@ check("stub_still_opens_blank_after_fixed", afs["count"] == 4 and afs["tabs"][3]
 
 def region(img, x0, y0, x1, y1):
     return img[int(y0 * SCALE):int(y1 * SCALE), int(x0 * SCALE):int(x1 * SCALE)]
-a = region(imgs["01-initial.png"], 261, 27, 700, 150); b = region(imgs["04-blank-page.png"], 261, 27, 700, 150)  # above the bottom line, which appears once the tab is inactive
+# the first tab active in both (the tint is the active state, #45), above the bottom line, which appears once the tab is inactive
+a = region(imgs["01-initial.png"], 261, 27, 700, 150); b = region(imgs["05-selected-0.png"], 261, 27, 700, 150)
 check("first_tab_pixels_identical", float(np.abs(a - b).mean()) < 0.5, f"mean abs diff {float(np.abs(a-b).mean()):.2f}")
 c = region(imgs["01-initial.png"], 900, 27, 1500, 161); d = region(imgs["04-blank-page.png"], 900, 27, 1500, 161)
 check("new_tab_pixels_changed", float(np.abs(c - d).mean()) > 5, f"mean abs diff {float(np.abs(c-d).mean()):.2f}")
@@ -111,8 +112,74 @@ cx = ft["x"] + ft["w"] - 80 - 22; cy = ft["y"] + 24 + 22
 fr = region(imgs["13-fixed-open.png"], cx - 6, cy - 6, cx + 28, cy + 28)
 bx = afs["tabs"][3]["close_rect"]["position"]["x"]; by = afs["tabs"][3]["close_rect"]["position"]["y"]
 br = region(imgs["15-after-fixed-stub.png"], bx - 6, by - 6, bx + 28, by + 28)
-check("fixed_tab_draws_no_close_button", float(fr.std()) < 3 and float(br.std()) > 10,
-      f"fixed face std {float(fr.std()):.1f}, blank tab close std {float(br.std()):.1f}")
+fstd = float(fr.std(axis=(0, 1)).max())  # per channel: the tinted face is flat but not grey (#45)
+check("fixed_tab_draws_no_close_button", fstd < 3 and float(br.std()) > 10,
+      f"fixed face std {fstd:.1f}, blank tab close std {float(br.std()):.1f}")
+
+# --- the active tint (Issue #45): the atlas sea blue #83e5f7 at 12 percent on the active tab's face
+SEA = np.array([131, 229, 247]); TINT = 0.12
+TINTED = 255 * (1 - TINT * (1 - SEA / 255.0))  # white face multiplied by the tint: about (240, 252, 254)
+def face(img, tb):  # median colour of a patch of plain face below the label, mid-tab
+    cx = tb["x"] + tb["w"] / 2
+    return np.median(region(img, cx - 12, tb["y"] + 95, cx + 12, tb["y"] + 108).reshape(-1, 3), axis=0)
+settled = ["initial", "blank-page", "selected-0", "selected-1", "third-tab", "full-row", "closed-last",
+           "closed-second", "reopened", "fixed-open", "fixed-kept", "after-fixed-stub"]
+bad = [f"{k}: active {states[k]['active']} tints {[round(tb['tint'], 2) for tb in states[k]['tabs']]}" for k in settled
+       if any(tb["tint"] != (1.0 if i == states[k]["active"] else 0.0) for i, tb in enumerate(states[k]["tabs"]))]
+check("active_tab_tinted_others_white_in_state", not bad, "; ".join(bad) or f"{len(settled)} settled states")
+px = []
+for shot, lab in [("05-selected-0.png", "selected-0"), ("06-selected-1.png", "selected-1"), ("09-closed-last.png", "closed-last"),
+                  ("10-closed-second.png", "closed-second"), ("13-fixed-open.png", "fixed-open"), ("15-after-fixed-stub.png", "after-fixed-stub")]:
+    for i, tb in enumerate(states[lab]["tabs"]):
+        c = face(imgs[shot], tb); want = TINTED if i == states[lab]["active"] else np.array([255, 255, 255])
+        px.append((shot, i, i == states[lab]["active"], c, float(np.abs(c - want).max())))
+worst = max(px, key=lambda p: p[4])
+check("active_face_pixels_sea_blue_inactive_white", worst[4] <= 3,
+      f"{len(px)} tab faces, want active {np.round(TINTED).astype(int).tolist()}; worst {worst[0]} tab {worst[1]} "
+      f"{'active' if worst[2] else 'inactive'} {worst[3].astype(int).tolist()}")
+
+tint_log = [e for e in log if e["event"] == "tint"]
+def fade(film, since_ms):
+    """The fade of the tab selected (tab_selected) after `since_ms`, from the tints of every frame of `film`.
+    Tweens run on process time, and a film's PNG saves stall wall time, so the fade is timed in process
+    time: the tint read after a frame is the tween step of the frame before, so the tint gained between two
+    consecutive probes against the earlier probe's delta gives the time a whole fade takes.
+    Returns (implied ms per 0..1 fades, mid-fade tints, the tab it left reached 0, index)."""
+    s_ = next(e for e in signals if e["signal"] == "tab_selected" and e["t_ms"] >= since_ms)
+    i = s_["index"]
+    fr_ = [e for e in tint_log if e["film"] == film and e["t_ms"] >= s_["t_ms"] and len(e["tints"]) > i]
+    implied = [1000 * a["dt"] / (b["tints"][i] - a["tints"][i]) for a, b in zip(fr_, fr_[1:])
+               if 0 < a["tints"][i] < b["tints"][i] < 1]  # both frames mid-fade: no clamp at either end
+    mid = [e["tints"][i] for e in fr_ if 0 < e["tints"][i] < 1]
+    done = any(e["tints"][i] == 1.0 for e in fr_)
+    left = done and all(v == 0.0 for j, v in enumerate(fr_[-1]["tints"]) if j != i)
+    return implied, mid, left, i
+clicks_at = {e["what"]: e["t_ms"] for e in clicks}
+def before_film(film):  # the selection that starts a selection film: the last tab_selected before its first frame
+    first = next(e["t_ms"] for e in tint_log if e["film"] == film)
+    return [e for e in signals if e["signal"] == "tab_selected" and e["t_ms"] <= first][-1]["t_ms"]
+closed_at = next(e["t_ms"] for e in signals if e["signal"] == "tab_closed")
+opened_at = next(e["t_ms"] for e in signals if e["signal"] == "tab_opened")
+for film, what, since in [("frames", "new tab settling", opened_at + 1), ("select-0-frames", "click tab 0", before_film("select-0-frames")),
+                          ("select-1-frames", "click tab 1", before_film("select-1-frames")),
+                          ("close-frames", "neighbour after a close", closed_at), ("select-fixed-frames", "fixed tab by select_tab", before_film("select-fixed-frames"))]:
+    implied, mid, left, i = fade(film, since)
+    med = float(np.median(implied)) if implied else None
+    check(f"tint_fades_over_200ms_{film.replace('-frames', '').replace('frames', 'open')}",
+          med is not None and 170 <= med <= 230 and left,
+          f"{what}: tab {i}, mid-fade tints {[round(v, 2) for v in mid]}, implied fade "
+          f"{[round(v) for v in implied]} ms (median {med and round(med)}), the tab it left back to white: {left}")
+# a mid-fade frame of select_tab on the fixed tab (from code: no dip over it) shows the face part-way from white to
+# the tinted colour, as far as its logged tint says
+m = [e for e in tint_log if e["film"] == "select-fixed-frames" and 0.25 < e["tints"][1] < 0.75]
+if m:
+    fe = next(e for e in log if e["event"] == "frame" and e.get("film") == "select-fixed-frames" and e["t_ms"] == m[0]["t_ms"])
+    mc = face(np.array(Image.open(out / "select-fixed-frames" / f"f{fe['n']:04d}.png").convert("RGB")).astype(int), states["fixed-open"]["tabs"][1])
+    want = 255 - (255 - TINTED) * m[0]["tints"][1]
+    check("mid_fade_frame_face_between_white_and_tint", TINTED[0] + 2 < mc[0] < 253 and float(np.abs(mc - want).max()) <= 3,
+          f"frame {fe['n']} tint {m[0]['tints'][1]:.2f}: face {mc.astype(int).tolist()}, want {np.round(want).astype(int).tolist()}")
+else:
+    check("mid_fade_frame_face_between_white_and_tint", False, "no frame caught the fixed tab mid-fade")
 
 ok = all(r["pass"] for r in results.values())
 (out / "verify.json").write_text(json.dumps({"pass": ok, "checks": results, "sha256": hashes}, indent=1))

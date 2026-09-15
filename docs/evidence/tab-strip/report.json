@@ -7,7 +7,7 @@
       "event": "state",
       "label": "initial",
       "opening": false,
-      "t_ms": 0,
+      "t_ms": 289,
       "tabs": [
         {
           "close_rect": {
@@ -24,6 +24,7 @@
           "h": 123.0,
           "label": "windows_live",
           "page_visible": true,
+          "tint": 1.0,
           "truncated": false,
           "w": 640.0,
           "x": 261.0,
@@ -34,17 +35,17 @@
     {
       "event": "screenshot",
       "file": "01-initial.png",
-      "t_ms": 76
+      "t_ms": 366
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_opened",
-      "t_ms": 93
+      "t_ms": 382
     },
     {
       "event": "click",
-      "t_ms": 93,
+      "t_ms": 383,
       "what": "new-tab stub",
       "x": 427.636352539062,
       "y": 47.0813407897949
@@ -52,22 +53,66 @@
     {
       "event": "frame",
       "n": 0,
-      "t_ms": 168
+      "t_ms": 457
+    },
+    {
+      "active": 0,
+      "dt": 0.007066,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 457,
+      "tints": [
+        1.0,
+        0.0
+      ]
     },
     {
       "event": "frame",
       "n": 1,
-      "t_ms": 240
+      "t_ms": 530
+    },
+    {
+      "active": 0,
+      "dt": 0.075495,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 530,
+      "tints": [
+        1.0,
+        0.0
+      ]
     },
     {
       "event": "frame",
       "n": 2,
-      "t_ms": 308
+      "t_ms": 598
+    },
+    {
+      "active": 0,
+      "dt": 0.066783,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 598,
+      "tints": [
+        1.0,
+        0.0
+      ]
     },
     {
       "event": "frame",
       "n": 3,
-      "t_ms": 377
+      "t_ms": 667
+    },
+    {
+      "active": 0,
+      "dt": 0.0666666666666667,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 667,
+      "tints": [
+        1.0,
+        0.0
+      ]
     },
     {
       "active": 0,
@@ -76,7 +121,7 @@
       "event": "state",
       "label": "mid-grow",
       "opening": true,
-      "t_ms": 377,
+      "t_ms": 667,
       "tabs": [
         {
           "close_rect": {
@@ -93,6 +138,7 @@
           "h": 123.0,
           "label": "windows_live",
           "page_visible": true,
+          "tint": 1.0,
           "truncated": false,
           "w": 640.0,
           "x": 261.0,
@@ -101,8 +147,8 @@
         {
           "close_rect": {
             "position": {
-              "x": 1106.0,
-              "y": 88.2592620849609
+              "x": 1081.0,
+              "y": 89.1289596557617
             },
             "size": {
               "x": 22.0,
@@ -110,62 +156,129 @@
             }
           },
           "fixed": false,
-          "h": 113.740745544434,
+          "h": 112.871047973633,
           "label": "connecting",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
-          "w": 374.0,
+          "w": 349.0,
           "x": 834.0,
-          "y": 42.2592582702637
+          "y": 43.1289596557617
         }
       ]
     },
     {
       "event": "screenshot",
       "file": "02-mid-grow.png",
-      "t_ms": 435
+      "t_ms": 724
     },
     {
       "event": "frame",
       "n": 4,
-      "t_ms": 505
+      "t_ms": 793
+    },
+    {
+      "active": 0,
+      "dt": 0.133124333333333,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 793,
+      "tints": [
+        1.0,
+        0.0
+      ]
     },
     {
       "event": "frame",
       "n": 5,
-      "t_ms": 573
+      "t_ms": 862
+    },
+    {
+      "active": 0,
+      "dt": 0.069441,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 862,
+      "tints": [
+        1.0,
+        0.0
+      ]
     },
     {
       "event": "frame",
       "n": 6,
-      "t_ms": 641
+      "t_ms": 931
+    },
+    {
+      "active": 0,
+      "dt": 0.069392,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 931,
+      "tints": [
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "event": "frame",
+      "n": 7,
+      "t_ms": 1000
+    },
+    {
+      "active": 0,
+      "dt": 0.068453,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 1000,
+      "tints": [
+        1.0,
+        0.0
+      ]
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 642
+      "t_ms": 1000
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_settled",
-      "t_ms": 642
-    },
-    {
-      "event": "frame",
-      "n": 7,
-      "t_ms": 710
+      "t_ms": 1000
     },
     {
       "event": "frame",
       "n": 8,
-      "t_ms": 778
+      "t_ms": 1069
+    },
+    {
+      "active": 1,
+      "dt": 0.0762563333333333,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 1069,
+      "tints": [
+        1.0,
+        0.0
+      ]
     },
     {
       "event": "frame",
       "n": 9,
-      "t_ms": 846
+      "t_ms": 1137
+    },
+    {
+      "active": 1,
+      "dt": 0.0698780000000001,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 1138,
+      "tints": [
+        0.618718326091766,
+        0.381281673908234
+      ]
     },
     {
       "active": 1,
@@ -174,7 +287,7 @@
       "event": "state",
       "label": "connecting",
       "opening": false,
-      "t_ms": 846,
+      "t_ms": 1138,
       "tabs": [
         {
           "close_rect": {
@@ -191,6 +304,7 @@
           "h": 123.0,
           "label": "windows_live",
           "page_visible": false,
+          "tint": 0.618718326091766,
           "truncated": false,
           "w": 640.0,
           "x": 261.0,
@@ -211,6 +325,7 @@
           "h": 123.0,
           "label": "connecting",
           "page_visible": true,
+          "tint": 0.381281673908234,
           "truncated": false,
           "w": 640.0,
           "x": 834.0,
@@ -221,88 +336,253 @@
     {
       "event": "screenshot",
       "file": "03-connecting.png",
-      "t_ms": 903
+      "t_ms": 1194
     },
     {
       "event": "frame",
       "n": 10,
-      "t_ms": 971
+      "t_ms": 1264
+    },
+    {
+      "active": 1,
+      "dt": 0.113455333333333,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 1264,
+      "tints": [
+        0.269328355789185,
+        0.730671644210815
+      ]
     },
     {
       "event": "frame",
       "n": 11,
-      "t_ms": 1038
+      "t_ms": 1333
+    },
+    {
+      "active": 1,
+      "dt": 0.0820376666666667,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 1333,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "event": "frame",
       "n": 12,
-      "t_ms": 1105
+      "t_ms": 1403
+    },
+    {
+      "active": 1,
+      "dt": 0.069141,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 1403,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "event": "frame",
       "n": 13,
-      "t_ms": 1172
+      "t_ms": 1471
+    },
+    {
+      "active": 1,
+      "dt": 0.070067,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 1472,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "event": "frame",
       "n": 14,
-      "t_ms": 1241
+      "t_ms": 1539
+    },
+    {
+      "active": 1,
+      "dt": 0.067828,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 1539,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "event": "frame",
       "n": 15,
-      "t_ms": 1309
+      "t_ms": 1607
+    },
+    {
+      "active": 1,
+      "dt": 0.067685,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 1607,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "event": "frame",
       "n": 16,
-      "t_ms": 1376
+      "t_ms": 1674
+    },
+    {
+      "active": 1,
+      "dt": 0.067352,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 1674,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "event": "frame",
       "n": 17,
-      "t_ms": 1444
+      "t_ms": 1744
+    },
+    {
+      "active": 1,
+      "dt": 0.068157,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 1744,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "event": "frame",
       "n": 18,
-      "t_ms": 1511
+      "t_ms": 1812
+    },
+    {
+      "active": 1,
+      "dt": 0.0690476190476191,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 1812,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "event": "frame",
       "n": 19,
-      "t_ms": 1579
+      "t_ms": 1881
     },
     {
-      "event": "frame",
-      "n": 20,
-      "t_ms": 1647
+      "active": 1,
+      "dt": 0.06875,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 1881,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_titled",
-      "t_ms": 1647
+      "t_ms": 1881
+    },
+    {
+      "event": "frame",
+      "n": 20,
+      "t_ms": 1949
+    },
+    {
+      "active": 1,
+      "dt": 0.0685185185185185,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 1949,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "event": "frame",
       "n": 21,
-      "t_ms": 1716
+      "t_ms": 2017
+    },
+    {
+      "active": 1,
+      "dt": 0.0682028624338624,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 2017,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "event": "frame",
       "n": 22,
-      "t_ms": 1784
+      "t_ms": 2085
+    },
+    {
+      "active": 1,
+      "dt": 0.068377,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 2085,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "event": "frame",
       "n": 23,
-      "t_ms": 1854
+      "t_ms": 2154
+    },
+    {
+      "active": 1,
+      "dt": 0.067882,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 2154,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "event": "frame",
       "n": 24,
-      "t_ms": 1922
+      "t_ms": 2223
+    },
+    {
+      "active": 1,
+      "dt": 0.0685185185185185,
+      "event": "tint",
+      "film": "frames",
+      "t_ms": 2223,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "active": 1,
@@ -311,7 +591,7 @@
       "event": "state",
       "label": "blank-page",
       "opening": false,
-      "t_ms": 1923,
+      "t_ms": 2223,
       "tabs": [
         {
           "close_rect": {
@@ -328,6 +608,7 @@
           "h": 123.0,
           "label": "windows_live",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": false,
           "w": 640.0,
           "x": 261.0,
@@ -348,6 +629,7 @@
           "h": 123.0,
           "label": "blank_page",
           "page_visible": true,
+          "tint": 1.0,
           "truncated": false,
           "w": 640.0,
           "x": 834.0,
@@ -358,20 +640,122 @@
     {
       "event": "screenshot",
       "file": "04-blank-page.png",
-      "t_ms": 2002
+      "t_ms": 2303
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_selected",
-      "t_ms": 2013
+      "t_ms": 2314
     },
     {
       "event": "click",
-      "t_ms": 2019,
+      "t_ms": 2321,
       "what": "tab 0",
       "x": 266.870819091797,
       "y": 43.4067001342773
+    },
+    {
+      "event": "frame",
+      "film": "select-0-frames",
+      "n": 0,
+      "t_ms": 2397
+    },
+    {
+      "active": 0,
+      "dt": 0.010661,
+      "event": "tint",
+      "film": "select-0-frames",
+      "t_ms": 2397,
+      "tints": [
+        0.412948131561279,
+        0.587051868438721
+      ]
+    },
+    {
+      "event": "frame",
+      "film": "select-0-frames",
+      "n": 1,
+      "t_ms": 2476
+    },
+    {
+      "active": 0,
+      "dt": 0.075628,
+      "event": "tint",
+      "film": "select-0-frames",
+      "t_ms": 2476,
+      "tints": [
+        0.466253161430359,
+        0.533746838569641
+      ]
+    },
+    {
+      "event": "frame",
+      "film": "select-0-frames",
+      "n": 2,
+      "t_ms": 2554
+    },
+    {
+      "active": 0,
+      "dt": 0.074372,
+      "event": "tint",
+      "film": "select-0-frames",
+      "t_ms": 2554,
+      "tints": [
+        0.844393134117126,
+        0.155606865882874
+      ]
+    },
+    {
+      "event": "frame",
+      "film": "select-0-frames",
+      "n": 3,
+      "t_ms": 2633
+    },
+    {
+      "active": 0,
+      "dt": 0.0826020000000001,
+      "event": "tint",
+      "film": "select-0-frames",
+      "t_ms": 2633,
+      "tints": [
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "event": "frame",
+      "film": "select-0-frames",
+      "n": 4,
+      "t_ms": 2710
+    },
+    {
+      "active": 0,
+      "dt": 0.075,
+      "event": "tint",
+      "film": "select-0-frames",
+      "t_ms": 2710,
+      "tints": [
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "event": "frame",
+      "film": "select-0-frames",
+      "n": 5,
+      "t_ms": 2790
+    },
+    {
+      "active": 0,
+      "dt": 0.075,
+      "event": "tint",
+      "film": "select-0-frames",
+      "t_ms": 2790,
+      "tints": [
+        1.0,
+        0.0
+      ]
     },
     {
       "active": 0,
@@ -380,13 +764,13 @@
       "event": "state",
       "label": "selected-0",
       "opening": false,
-      "t_ms": 2019,
+      "t_ms": 2790,
       "tabs": [
         {
           "close_rect": {
             "position": {
               "x": 799.0,
-              "y": 85.0
+              "y": 79.0
             },
             "size": {
               "x": 22.0,
@@ -397,10 +781,11 @@
           "h": 123.0,
           "label": "windows_live",
           "page_visible": true,
+          "tint": 1.0,
           "truncated": false,
           "w": 640.0,
           "x": 261.0,
-          "y": 39.0
+          "y": 33.0
         },
         {
           "close_rect": {
@@ -417,6 +802,7 @@
           "h": 123.0,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": false,
           "w": 640.0,
           "x": 834.0,
@@ -427,20 +813,122 @@
     {
       "event": "screenshot",
       "file": "05-selected-0.png",
-      "t_ms": 2093
+      "t_ms": 2869
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 2103
+      "t_ms": 2879
     },
     {
       "event": "click",
-      "t_ms": 2110,
+      "t_ms": 2886,
       "what": "tab 1",
       "x": 530.066955566406,
       "y": 43.4067001342773
+    },
+    {
+      "event": "frame",
+      "film": "select-1-frames",
+      "n": 0,
+      "t_ms": 2961
+    },
+    {
+      "active": 1,
+      "dt": 0.0123966666666666,
+      "event": "tint",
+      "film": "select-1-frames",
+      "t_ms": 2961,
+      "tints": [
+        0.53095331788063,
+        0.46904668211937
+      ]
+    },
+    {
+      "event": "frame",
+      "film": "select-1-frames",
+      "n": 1,
+      "t_ms": 3040
+    },
+    {
+      "active": 1,
+      "dt": 0.0666666666666667,
+      "event": "tint",
+      "film": "select-1-frames",
+      "t_ms": 3040,
+      "tints": [
+        0.468970000743866,
+        0.531029999256134
+      ]
+    },
+    {
+      "event": "frame",
+      "film": "select-1-frames",
+      "n": 2,
+      "t_ms": 3118
+    },
+    {
+      "active": 1,
+      "dt": 0.0833333333333333,
+      "event": "tint",
+      "film": "select-1-frames",
+      "t_ms": 3118,
+      "tints": [
+        0.135636687278748,
+        0.864363312721252
+      ]
+    },
+    {
+      "event": "frame",
+      "film": "select-1-frames",
+      "n": 3,
+      "t_ms": 3196
+    },
+    {
+      "active": 1,
+      "dt": 0.0801663333333334,
+      "event": "tint",
+      "film": "select-1-frames",
+      "t_ms": 3196,
+      "tints": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "event": "frame",
+      "film": "select-1-frames",
+      "n": 4,
+      "t_ms": 3275
+    },
+    {
+      "active": 1,
+      "dt": 0.078927,
+      "event": "tint",
+      "film": "select-1-frames",
+      "t_ms": 3276,
+      "tints": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "event": "frame",
+      "film": "select-1-frames",
+      "n": 5,
+      "t_ms": 3354
+    },
+    {
+      "active": 1,
+      "dt": 0.0791666666666667,
+      "event": "tint",
+      "film": "select-1-frames",
+      "t_ms": 3354,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "active": 1,
@@ -449,7 +937,7 @@
       "event": "state",
       "label": "selected-1",
       "opening": false,
-      "t_ms": 2110,
+      "t_ms": 3354,
       "tabs": [
         {
           "close_rect": {
@@ -466,6 +954,7 @@
           "h": 123.0,
           "label": "windows_live",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": false,
           "w": 640.0,
           "x": 261.0,
@@ -475,7 +964,7 @@
           "close_rect": {
             "position": {
               "x": 1372.0,
-              "y": 85.0
+              "y": 79.0
             },
             "size": {
               "x": 22.0,
@@ -486,27 +975,28 @@
           "h": 123.0,
           "label": "blank_page",
           "page_visible": true,
+          "tint": 1.0,
           "truncated": false,
           "w": 640.0,
           "x": 834.0,
-          "y": 39.0
+          "y": 33.0
         }
       ]
     },
     {
       "event": "screenshot",
       "file": "06-selected-1.png",
-      "t_ms": 2184
+      "t_ms": 3433
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_opened",
-      "t_ms": 2201
+      "t_ms": 3452
     },
     {
       "event": "click",
-      "t_ms": 2201,
+      "t_ms": 3452,
       "what": "new-tab stub (2nd)",
       "x": 690.83251953125,
       "y": 47.0813407897949
@@ -515,19 +1005,19 @@
       "event": "signal",
       "index": 2,
       "signal": "tab_selected",
-      "t_ms": 2704
+      "t_ms": 3942
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_settled",
-      "t_ms": 2704
+      "t_ms": 3942
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_titled",
-      "t_ms": 3645
+      "t_ms": 4896
     },
     {
       "active": 2,
@@ -536,7 +1026,7 @@
       "event": "state",
       "label": "third-tab",
       "opening": false,
-      "t_ms": 3993,
+      "t_ms": 5238,
       "tabs": [
         {
           "close_rect": {
@@ -553,6 +1043,7 @@
           "h": 123.0,
           "label": "windows_live",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": false,
           "w": 640.0,
           "x": 261.0,
@@ -573,6 +1064,7 @@
           "h": 123.0,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": false,
           "w": 640.0,
           "x": 834.0,
@@ -590,9 +1082,10 @@
             }
           },
           "fixed": false,
-          "h": 122.999954223633,
+          "h": 122.999984741211,
           "label": "blank_page",
           "page_visible": true,
+          "tint": 1.0,
           "truncated": false,
           "w": 640.0,
           "x": 1407.0,
@@ -603,17 +1096,17 @@
     {
       "event": "screenshot",
       "file": "07-third-tab.png",
-      "t_ms": 4071
+      "t_ms": 5311
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_opened",
-      "t_ms": 4091
+      "t_ms": 5329
     },
     {
       "event": "click",
-      "t_ms": 4092,
+      "t_ms": 5329,
       "what": "new-tab stub (fill)",
       "x": 954.028686523438,
       "y": 47.0813407897949
@@ -622,23 +1115,23 @@
       "event": "signal",
       "index": 3,
       "signal": "tab_selected",
-      "t_ms": 4580
+      "t_ms": 5824
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_settled",
-      "t_ms": 4580
+      "t_ms": 5824
     },
     {
       "event": "signal",
       "index": 4,
       "signal": "tab_opened",
-      "t_ms": 4792
+      "t_ms": 6034
     },
     {
       "event": "click",
-      "t_ms": 4792,
+      "t_ms": 6035,
       "what": "new-tab stub (fill)",
       "x": 1187.82775878906,
       "y": 47.0813407897949
@@ -647,23 +1140,23 @@
       "event": "signal",
       "index": 4,
       "signal": "tab_selected",
-      "t_ms": 5289
+      "t_ms": 6532
     },
     {
       "event": "signal",
       "index": 4,
       "signal": "tab_settled",
-      "t_ms": 5289
+      "t_ms": 6532
     },
     {
       "event": "signal",
       "index": 5,
       "signal": "tab_opened",
-      "t_ms": 5498
+      "t_ms": 6750
     },
     {
       "event": "click",
-      "t_ms": 5498,
+      "t_ms": 6750,
       "what": "new-tab stub (fill)",
       "x": 1188.74645996094,
       "y": 47.0813407897949
@@ -672,29 +1165,29 @@
       "event": "signal",
       "index": 3,
       "signal": "tab_titled",
-      "t_ms": 5527
+      "t_ms": 6777
     },
     {
       "event": "signal",
       "index": 5,
       "signal": "tab_selected",
-      "t_ms": 6005
+      "t_ms": 7235
     },
     {
       "event": "signal",
       "index": 5,
       "signal": "tab_settled",
-      "t_ms": 6006
+      "t_ms": 7235
     },
     {
       "event": "signal",
       "index": 6,
       "signal": "tab_opened",
-      "t_ms": 6216
+      "t_ms": 7457
     },
     {
       "event": "click",
-      "t_ms": 6216,
+      "t_ms": 7457,
       "what": "new-tab stub (fill)",
       "x": 1186.90905761719,
       "y": 47.0813407897949
@@ -703,29 +1196,29 @@
       "event": "signal",
       "index": 4,
       "signal": "tab_titled",
-      "t_ms": 6245
+      "t_ms": 7481
     },
     {
       "event": "signal",
       "index": 6,
       "signal": "tab_selected",
-      "t_ms": 6718
+      "t_ms": 7949
     },
     {
       "event": "signal",
       "index": 6,
       "signal": "tab_settled",
-      "t_ms": 6718
+      "t_ms": 7949
     },
     {
       "event": "signal",
       "index": 7,
       "signal": "tab_opened",
-      "t_ms": 6933
+      "t_ms": 8168
     },
     {
       "event": "click",
-      "t_ms": 6933,
+      "t_ms": 8168,
       "what": "new-tab stub (fill)",
       "x": 1186.90905761719,
       "y": 47.0813407897949
@@ -734,29 +1227,29 @@
       "event": "signal",
       "index": 5,
       "signal": "tab_titled",
-      "t_ms": 6955
+      "t_ms": 8191
     },
     {
       "event": "signal",
       "index": 7,
       "signal": "tab_selected",
-      "t_ms": 7435
+      "t_ms": 8669
     },
     {
       "event": "signal",
       "index": 7,
       "signal": "tab_settled",
-      "t_ms": 7435
+      "t_ms": 8669
     },
     {
       "event": "signal",
       "index": 8,
       "signal": "tab_opened",
-      "t_ms": 7647
+      "t_ms": 8886
     },
     {
       "event": "click",
-      "t_ms": 7647,
+      "t_ms": 8886,
       "what": "new-tab stub (fill)",
       "x": 1189.6650390625,
       "y": 47.0813407897949
@@ -765,29 +1258,29 @@
       "event": "signal",
       "index": 6,
       "signal": "tab_titled",
-      "t_ms": 7668
+      "t_ms": 8902
     },
     {
       "event": "signal",
       "index": 8,
       "signal": "tab_selected",
-      "t_ms": 8151
+      "t_ms": 9380
     },
     {
       "event": "signal",
       "index": 8,
       "signal": "tab_settled",
-      "t_ms": 8151
+      "t_ms": 9380
     },
     {
       "event": "signal",
       "index": 9,
       "signal": "tab_opened",
-      "t_ms": 8363
+      "t_ms": 9594
     },
     {
       "event": "click",
-      "t_ms": 8363,
+      "t_ms": 9594,
       "what": "new-tab stub (fill)",
       "x": 1189.6650390625,
       "y": 47.0813407897949
@@ -796,23 +1289,23 @@
       "event": "signal",
       "index": 7,
       "signal": "tab_titled",
-      "t_ms": 8386
+      "t_ms": 9610
     },
     {
       "event": "signal",
       "index": 9,
       "signal": "tab_selected",
-      "t_ms": 8843
+      "t_ms": 10096
     },
     {
       "event": "signal",
       "index": 9,
       "signal": "tab_settled",
-      "t_ms": 8843
+      "t_ms": 10096
     },
     {
       "event": "click",
-      "t_ms": 9062,
+      "t_ms": 10308,
       "what": "new-tab stub (fill)",
       "x": 1188.74645996094,
       "y": 47.0813407897949
@@ -821,13 +1314,13 @@
       "event": "signal",
       "index": 8,
       "signal": "tab_titled",
-      "t_ms": 9083
+      "t_ms": 10330
     },
     {
       "event": "signal",
       "index": 9,
       "signal": "tab_titled",
-      "t_ms": 9804
+      "t_ms": 11046
     },
     {
       "active": 9,
@@ -836,7 +1329,7 @@
       "event": "state",
       "label": "full-row",
       "opening": false,
-      "t_ms": 10972,
+      "t_ms": 12212,
       "tabs": [
         {
           "close_rect": {
@@ -853,6 +1346,7 @@
           "h": 123.0,
           "label": "windows_live",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 290.0,
           "x": 261.0,
@@ -873,6 +1367,7 @@
           "h": 123.0,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 290.0,
           "x": 484.0,
@@ -890,9 +1385,10 @@
             }
           },
           "fixed": false,
-          "h": 122.999954223633,
+          "h": 122.999984741211,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 290.0,
           "x": 707.0,
@@ -913,6 +1409,7 @@
           "h": 123.000030517578,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 290.0,
           "x": 930.0,
@@ -930,9 +1427,10 @@
             }
           },
           "fixed": false,
-          "h": 123.0,
+          "h": 123.000045776367,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 290.0,
           "x": 1153.0,
@@ -950,9 +1448,10 @@
             }
           },
           "fixed": false,
-          "h": 122.999969482422,
+          "h": 122.999984741211,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 290.0,
           "x": 1376.0,
@@ -970,9 +1469,10 @@
             }
           },
           "fixed": false,
-          "h": 123.000045776367,
+          "h": 123.000061035156,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 290.0,
           "x": 1599.0,
@@ -990,9 +1490,10 @@
             }
           },
           "fixed": false,
-          "h": 123.0,
+          "h": 123.000030517578,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 290.0,
           "x": 1822.0,
@@ -1010,9 +1511,10 @@
             }
           },
           "fixed": false,
-          "h": 123.0,
+          "h": 123.000061035156,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 290.0,
           "x": 2045.0,
@@ -1030,9 +1532,10 @@
             }
           },
           "fixed": false,
-          "h": 123.000061035156,
+          "h": 122.999938964844,
           "label": "blank_page",
           "page_visible": true,
+          "tint": 1.0,
           "truncated": true,
           "w": 290.0,
           "x": 2268.0,
@@ -1043,31 +1546,252 @@
     {
       "event": "screenshot",
       "file": "08-full-row.png",
-      "t_ms": 11042
+      "t_ms": 12283
     },
     {
       "event": "fill",
       "result": "refused at 10 tabs",
-      "t_ms": 11042
+      "t_ms": 12283
     },
     {
       "event": "click",
-      "t_ms": 11061,
+      "t_ms": 12302,
       "what": "close button of active tab",
       "x": 1133.16748046875,
       "y": 41.339714050293
     },
     {
+      "active": 9,
+      "dt": 0.00680433333333354,
+      "event": "tint",
+      "film": "close-frames",
+      "t_ms": 12373,
+      "tints": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.961196668446064
+      ]
+    },
+    {
+      "active": 9,
+      "dt": 0.07456,
+      "event": "tint",
+      "film": "close-frames",
+      "t_ms": 12448,
+      "tints": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.927175000309944
+      ]
+    },
+    {
+      "active": 9,
+      "dt": 0.0686356666666665,
+      "event": "tint",
+      "film": "close-frames",
+      "t_ms": 12523,
+      "tints": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.554374992847443
+      ]
+    },
+    {
+      "active": 9,
+      "dt": 0.0817283333333335,
+      "event": "tint",
+      "film": "close-frames",
+      "t_ms": 12600,
+      "tints": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.211196660995483
+      ]
+    },
+    {
+      "active": 9,
+      "dt": 0.0682716666666665,
+      "event": "tint",
+      "film": "close-frames",
+      "t_ms": 12675,
+      "tints": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
       "event": "signal",
       "index": 9,
       "signal": "tab_closed",
-      "t_ms": 11436
+      "t_ms": 12675
     },
     {
       "event": "signal",
       "index": 8,
       "signal": "tab_selected",
-      "t_ms": 11436
+      "t_ms": 12675
+    },
+    {
+      "active": 8,
+      "dt": 0.0754400000000002,
+      "event": "tint",
+      "film": "close-frames",
+      "t_ms": 12751,
+      "tints": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "active": 8,
+      "dt": 0.076011,
+      "event": "tint",
+      "film": "close-frames",
+      "t_ms": 12827,
+      "tints": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.377199977636337
+      ]
+    },
+    {
+      "active": 8,
+      "dt": 0.076465,
+      "event": "tint",
+      "film": "close-frames",
+      "t_ms": 12903,
+      "tints": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.757255017757416
+      ]
+    },
+    {
+      "active": 8,
+      "dt": 0.075998,
+      "event": "tint",
+      "film": "close-frames",
+      "t_ms": 12980,
+      "tints": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "active": 8,
+      "dt": 0.076324,
+      "event": "tint",
+      "film": "close-frames",
+      "t_ms": 13056,
+      "tints": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "active": 8,
+      "dt": 0.075251,
+      "event": "tint",
+      "film": "close-frames",
+      "t_ms": 13131,
+      "tints": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "active": 8,
+      "dt": 0.075602,
+      "event": "tint",
+      "film": "close-frames",
+      "t_ms": 13207,
+      "tints": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
     },
     {
       "active": 8,
@@ -1076,7 +1800,7 @@
       "event": "state",
       "label": "closed-last",
       "opening": false,
-      "t_ms": 11966,
+      "t_ms": 13207,
       "tabs": [
         {
           "close_rect": {
@@ -1093,6 +1817,7 @@
           "h": 123.0,
           "label": "windows_live",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 315.0,
           "x": 261.0,
@@ -1113,6 +1838,7 @@
           "h": 123.0,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 315.0,
           "x": 509.0,
@@ -1130,9 +1856,10 @@
             }
           },
           "fixed": false,
-          "h": 122.999954223633,
+          "h": 122.999984741211,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 315.0,
           "x": 757.0,
@@ -1153,6 +1880,7 @@
           "h": 123.000030517578,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 315.0,
           "x": 1005.0,
@@ -1170,9 +1898,10 @@
             }
           },
           "fixed": false,
-          "h": 123.0,
+          "h": 123.000045776367,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 315.0,
           "x": 1253.0,
@@ -1190,9 +1919,10 @@
             }
           },
           "fixed": false,
-          "h": 122.999969482422,
+          "h": 122.999984741211,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 315.0,
           "x": 1501.0,
@@ -1210,9 +1940,10 @@
             }
           },
           "fixed": false,
-          "h": 123.000045776367,
+          "h": 123.000061035156,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 315.0,
           "x": 1749.0,
@@ -1230,9 +1961,10 @@
             }
           },
           "fixed": false,
-          "h": 123.0,
+          "h": 123.000030517578,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 315.0,
           "x": 1997.0,
@@ -1250,9 +1982,10 @@
             }
           },
           "fixed": false,
-          "h": 123.0,
+          "h": 123.000061035156,
           "label": "blank_page",
           "page_visible": true,
+          "tint": 1.0,
           "truncated": true,
           "w": 315.0,
           "x": 2245.0,
@@ -1263,24 +1996,24 @@
     {
       "event": "screenshot",
       "file": "09-closed-last.png",
-      "t_ms": 12041
+      "t_ms": 13282
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 12052
+      "t_ms": 13294
     },
     {
       "event": "click",
-      "t_ms": 12060,
+      "t_ms": 13301,
       "what": "tab 1",
       "x": 306.143524169922,
       "y": 43.4067001342773
     },
     {
       "event": "click",
-      "t_ms": 12074,
+      "t_ms": 13315,
       "what": "close button of tab 1",
       "x": 336.688995361328,
       "y": 44.0956954956055
@@ -1289,13 +2022,13 @@
       "event": "signal",
       "index": 1,
       "signal": "tab_closed",
-      "t_ms": 12369
+      "t_ms": 13619
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_selected",
-      "t_ms": 12369
+      "t_ms": 13619
     },
     {
       "active": 0,
@@ -1304,7 +2037,7 @@
       "event": "state",
       "label": "closed-second",
       "opening": false,
-      "t_ms": 12972,
+      "t_ms": 14202,
       "tabs": [
         {
           "close_rect": {
@@ -1321,6 +2054,7 @@
           "h": 123.0,
           "label": "windows_live",
           "page_visible": true,
+          "tint": 1.0,
           "truncated": true,
           "w": 346.0,
           "x": 261.0,
@@ -1338,9 +2072,10 @@
             }
           },
           "fixed": false,
-          "h": 122.999954223633,
+          "h": 122.999984741211,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 346.0,
           "x": 540.0,
@@ -1361,6 +2096,7 @@
           "h": 123.000030517578,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 346.0,
           "x": 819.0,
@@ -1378,9 +2114,10 @@
             }
           },
           "fixed": false,
-          "h": 123.0,
+          "h": 123.000045776367,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 346.0,
           "x": 1098.0,
@@ -1398,9 +2135,10 @@
             }
           },
           "fixed": false,
-          "h": 122.999969482422,
+          "h": 122.999984741211,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 346.0,
           "x": 1377.0,
@@ -1418,9 +2156,10 @@
             }
           },
           "fixed": false,
-          "h": 123.000045776367,
+          "h": 123.000061035156,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 346.0,
           "x": 1656.0,
@@ -1438,9 +2177,10 @@
             }
           },
           "fixed": false,
-          "h": 123.0,
+          "h": 123.000030517578,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 346.0,
           "x": 1935.0,
@@ -1458,9 +2198,10 @@
             }
           },
           "fixed": false,
-          "h": 123.0,
+          "h": 123.000061035156,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": true,
           "w": 346.0,
           "x": 2214.0,
@@ -1471,11 +2212,11 @@
     {
       "event": "screenshot",
       "file": "10-closed-second.png",
-      "t_ms": 13043
+      "t_ms": 14274
     },
     {
       "event": "click",
-      "t_ms": 13062,
+      "t_ms": 14293,
       "what": "close button (empty the row)",
       "x": 1134.08605957031,
       "y": 41.339714050293
@@ -1484,17 +2225,17 @@
       "event": "signal",
       "index": 7,
       "signal": "tab_closed",
-      "t_ms": 13347
+      "t_ms": 14589
     },
     {
       "event": "signal",
       "index": 6,
       "signal": "tab_selected",
-      "t_ms": 13347
+      "t_ms": 14589
     },
     {
       "event": "click",
-      "t_ms": 13771,
+      "t_ms": 15006,
       "what": "close button (empty the row)",
       "x": 1131.330078125,
       "y": 41.339714050293
@@ -1503,17 +2244,17 @@
       "event": "signal",
       "index": 6,
       "signal": "tab_closed",
-      "t_ms": 14070
+      "t_ms": 15305
     },
     {
       "event": "signal",
       "index": 5,
       "signal": "tab_selected",
-      "t_ms": 14070
+      "t_ms": 15305
     },
     {
       "event": "click",
-      "t_ms": 14482,
+      "t_ms": 15708,
       "what": "close button (empty the row)",
       "x": 1131.330078125,
       "y": 41.339714050293
@@ -1522,17 +2263,17 @@
       "event": "signal",
       "index": 5,
       "signal": "tab_closed",
-      "t_ms": 14785
+      "t_ms": 15998
     },
     {
       "event": "signal",
       "index": 4,
       "signal": "tab_selected",
-      "t_ms": 14785
+      "t_ms": 15998
     },
     {
       "event": "click",
-      "t_ms": 15196,
+      "t_ms": 16424,
       "what": "close button (empty the row)",
       "x": 1133.16748046875,
       "y": 41.339714050293
@@ -1541,17 +2282,17 @@
       "event": "signal",
       "index": 4,
       "signal": "tab_closed",
-      "t_ms": 15491
+      "t_ms": 16728
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_selected",
-      "t_ms": 15491
+      "t_ms": 16728
     },
     {
       "event": "click",
-      "t_ms": 15910,
+      "t_ms": 17131,
       "what": "close button (empty the row)",
       "x": 1132.24877929688,
       "y": 41.339714050293
@@ -1560,17 +2301,17 @@
       "event": "signal",
       "index": 3,
       "signal": "tab_closed",
-      "t_ms": 16207
+      "t_ms": 17430
     },
     {
       "event": "signal",
       "index": 2,
       "signal": "tab_selected",
-      "t_ms": 16207
+      "t_ms": 17430
     },
     {
       "event": "click",
-      "t_ms": 16623,
+      "t_ms": 17842,
       "what": "close button (empty the row)",
       "x": 898.449768066406,
       "y": 41.339714050293
@@ -1579,17 +2320,17 @@
       "event": "signal",
       "index": 2,
       "signal": "tab_closed",
-      "t_ms": 16917
+      "t_ms": 18136
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 16917
+      "t_ms": 18136
     },
     {
       "event": "click",
-      "t_ms": 17331,
+      "t_ms": 18559,
       "what": "close button (empty the row)",
       "x": 635.253601074219,
       "y": 41.339714050293
@@ -1598,17 +2339,17 @@
       "event": "signal",
       "index": 1,
       "signal": "tab_closed",
-      "t_ms": 17628
+      "t_ms": 18848
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_selected",
-      "t_ms": 17628
+      "t_ms": 18848
     },
     {
       "event": "click",
-      "t_ms": 18037,
+      "t_ms": 19255,
       "what": "close button (empty the row)",
       "x": 372.057403564453,
       "y": 41.339714050293
@@ -1617,7 +2358,7 @@
       "event": "signal",
       "index": 0,
       "signal": "tab_closed",
-      "t_ms": 18337
+      "t_ms": 19544
     },
     {
       "active": -1,
@@ -1626,44 +2367,44 @@
       "event": "state",
       "label": "all-closed",
       "opening": false,
-      "t_ms": 18736,
+      "t_ms": 19907,
       "tabs": []
     },
     {
       "event": "screenshot",
       "file": "11-all-closed.png",
-      "t_ms": 18809
+      "t_ms": 19981
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_opened",
-      "t_ms": 18825
+      "t_ms": 19998
     },
     {
       "event": "click",
-      "t_ms": 18825,
+      "t_ms": 19998,
       "what": "new-tab stub (after empty)",
-      "x": 164.440399169922,
+      "x": 164.440353393555,
       "y": 47.0813407897949
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_selected",
-      "t_ms": 19314
+      "t_ms": 20469
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_settled",
-      "t_ms": 19314
+      "t_ms": 20469
     },
     {
       "event": "signal",
       "index": 0,
       "signal": "tab_titled",
-      "t_ms": 20268
+      "t_ms": 21412
     },
     {
       "active": 0,
@@ -1672,7 +2413,7 @@
       "event": "state",
       "label": "reopened",
       "opening": false,
-      "t_ms": 20614,
+      "t_ms": 21747,
       "tabs": [
         {
           "close_rect": {
@@ -1686,9 +2427,10 @@
             }
           },
           "fixed": false,
-          "h": 123.000030517578,
+          "h": 122.999908447266,
           "label": "blank_page",
           "page_visible": true,
+          "tint": 1.0,
           "truncated": false,
           "w": 640.0,
           "x": 261.0,
@@ -1699,20 +2441,122 @@
     {
       "event": "screenshot",
       "file": "12-reopened.png",
-      "t_ms": 20689
+      "t_ms": 21822
     },
     {
       "event": "fixed_open",
       "index": 1,
       "ok": true,
       "page_in_stack": true,
-      "t_ms": 20689
+      "t_ms": 21823
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 20689
+      "t_ms": 21823
+    },
+    {
+      "event": "frame",
+      "film": "select-fixed-frames",
+      "n": 0,
+      "t_ms": 21900
+    },
+    {
+      "active": 1,
+      "dt": 0.03597,
+      "event": "tint",
+      "film": "select-fixed-frames",
+      "t_ms": 21901,
+      "tints": [
+        0.964030001312494,
+        0.0359699986875057
+      ]
+    },
+    {
+      "event": "frame",
+      "film": "select-fixed-frames",
+      "n": 1,
+      "t_ms": 21978
+    },
+    {
+      "active": 1,
+      "dt": 0.0718966666666666,
+      "event": "tint",
+      "film": "select-fixed-frames",
+      "t_ms": 21978,
+      "tints": [
+        0.784180000424385,
+        0.215819999575615
+      ]
+    },
+    {
+      "event": "frame",
+      "film": "select-fixed-frames",
+      "n": 2,
+      "t_ms": 22056
+    },
+    {
+      "active": 1,
+      "dt": 0.0833333333333333,
+      "event": "tint",
+      "film": "select-fixed-frames",
+      "t_ms": 22056,
+      "tints": [
+        0.424696683883667,
+        0.575303316116333
+      ]
+    },
+    {
+      "event": "frame",
+      "film": "select-fixed-frames",
+      "n": 3,
+      "t_ms": 22134
+    },
+    {
+      "active": 1,
+      "dt": 0.0821720000000001,
+      "event": "tint",
+      "film": "select-fixed-frames",
+      "t_ms": 22134,
+      "tints": [
+        0.0080299973487854,
+        0.991970002651215
+      ]
+    },
+    {
+      "event": "frame",
+      "film": "select-fixed-frames",
+      "n": 4,
+      "t_ms": 22213
+    },
+    {
+      "active": 1,
+      "dt": 0.079134,
+      "event": "tint",
+      "film": "select-fixed-frames",
+      "t_ms": 22213,
+      "tints": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "event": "frame",
+      "film": "select-fixed-frames",
+      "n": 5,
+      "t_ms": 22291
+    },
+    {
+      "active": 1,
+      "dt": 0.0720273333333332,
+      "event": "tint",
+      "film": "select-fixed-frames",
+      "t_ms": 22291,
+      "tints": [
+        0.0,
+        1.0
+      ]
     },
     {
       "active": 1,
@@ -1721,7 +2565,7 @@
       "event": "state",
       "label": "fixed-open",
       "opening": false,
-      "t_ms": 20689,
+      "t_ms": 22291,
       "tabs": [
         {
           "close_rect": {
@@ -1735,9 +2579,10 @@
             }
           },
           "fixed": false,
-          "h": 123.000030517578,
+          "h": 122.999908447266,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": false,
           "w": 640.0,
           "x": 261.0,
@@ -1758,6 +2603,7 @@
           "h": 123.0,
           "label": "map",
           "page_visible": true,
+          "tint": 1.0,
           "truncated": false,
           "w": 640.0,
           "x": 834.0,
@@ -1768,17 +2614,17 @@
     {
       "event": "screenshot",
       "file": "13-fixed-open.png",
-      "t_ms": 20766
+      "t_ms": 22368
     },
     {
       "event": "signal",
       "index": 1,
       "signal": "tab_selected",
-      "t_ms": 20776
+      "t_ms": 22379
     },
     {
       "event": "click",
-      "t_ms": 20784,
+      "t_ms": 22386,
       "what": "where the close button of the fixed tab would be",
       "x": 635.253601074219,
       "y": 41.339714050293
@@ -1787,7 +2633,7 @@
       "code": "tab_strip.tab_fixed",
       "event": "fixed_close",
       "ok": false,
-      "t_ms": 21680
+      "t_ms": 23263
     },
     {
       "active": 1,
@@ -1796,7 +2642,7 @@
       "event": "state",
       "label": "fixed-kept",
       "opening": false,
-      "t_ms": 22593,
+      "t_ms": 24129,
       "tabs": [
         {
           "close_rect": {
@@ -1810,9 +2656,10 @@
             }
           },
           "fixed": false,
-          "h": 123.000030517578,
+          "h": 122.999908447266,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": false,
           "w": 640.0,
           "x": 261.0,
@@ -1833,6 +2680,7 @@
           "h": 123.0,
           "label": "map",
           "page_visible": true,
+          "tint": 1.0,
           "truncated": false,
           "w": 640.0,
           "x": 834.0,
@@ -1843,24 +2691,24 @@
     {
       "event": "screenshot",
       "file": "14-fixed-kept.png",
-      "t_ms": 22665
+      "t_ms": 24201
     },
     {
       "event": "fixed_open",
       "index": 2,
       "ok": true,
       "page_in_stack": true,
-      "t_ms": 22666
+      "t_ms": 24202
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_opened",
-      "t_ms": 22683
+      "t_ms": 24220
     },
     {
       "event": "click",
-      "t_ms": 22683,
+      "t_ms": 24220,
       "what": "new-tab stub (after fixed)",
       "x": 954.028930664062,
       "y": 47.0813407897949
@@ -1869,19 +2717,19 @@
       "event": "signal",
       "index": 3,
       "signal": "tab_selected",
-      "t_ms": 23178
+      "t_ms": 24704
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_settled",
-      "t_ms": 23178
+      "t_ms": 24704
     },
     {
       "event": "signal",
       "index": 3,
       "signal": "tab_titled",
-      "t_ms": 24131
+      "t_ms": 25653
     },
     {
       "active": 3,
@@ -1890,7 +2738,7 @@
       "event": "state",
       "label": "after-fixed-stub",
       "opening": false,
-      "t_ms": 24478,
+      "t_ms": 26001,
       "tabs": [
         {
           "close_rect": {
@@ -1904,9 +2752,10 @@
             }
           },
           "fixed": false,
-          "h": 123.000030517578,
+          "h": 122.999908447266,
           "label": "blank_page",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": false,
           "w": 624.0,
           "x": 261.0,
@@ -1927,6 +2776,7 @@
           "h": 123.0,
           "label": "map",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": false,
           "w": 624.0,
           "x": 818.0,
@@ -1947,6 +2797,7 @@
           "h": 123.0,
           "label": "phone",
           "page_visible": false,
+          "tint": 0.0,
           "truncated": false,
           "w": 624.0,
           "x": 1375.0,
@@ -1964,9 +2815,10 @@
             }
           },
           "fixed": false,
-          "h": 123.0,
+          "h": 123.000030517578,
           "label": "blank_page",
           "page_visible": true,
+          "tint": 1.0,
           "truncated": false,
           "w": 624.0,
           "x": 1932.0,
@@ -1977,7 +2829,7 @@
     {
       "event": "screenshot",
       "file": "15-after-fixed-stub.png",
-      "t_ms": 24549
+      "t_ms": 26072
     }
   ],
   "viewport": [

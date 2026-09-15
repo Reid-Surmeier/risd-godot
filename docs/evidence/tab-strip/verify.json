@@ -27,7 +27,7 @@
   },
   "mid_grow_width_between_stub_and_full": {
    "pass": true,
-   "detail": "w=374 full=640"
+   "detail": "w=349 full=640"
   },
   "connecting_label_then_blank_page": {
    "pass": true,
@@ -47,11 +47,11 @@
   },
   "grow_took_about_500ms": {
    "pass": true,
-   "detail": "549 ms"
+   "detail": "618 ms"
   },
   "title_swap_after_about_950ms": {
    "pass": true,
-   "detail": "1005 ms"
+   "detail": "881 ms"
   },
   "click_tab0_shows_page0": {
    "pass": true,
@@ -87,7 +87,7 @@
   },
   "close_animates_before_removal": {
    "pass": true,
-   "detail": "375 ms from click to tab_closed (fold is 300 ms)"
+   "detail": "373 ms from click to tab_closed (fold is 300 ms)"
   },
   "close_second_tab_selects_left_neighbour": {
    "pass": true,
@@ -135,7 +135,7 @@
   },
   "new_tab_pixels_changed": {
    "pass": true,
-   "detail": "mean abs diff 22.68"
+   "detail": "mean abs diff 23.48"
   },
   "bar_spans_full_width": {
    "pass": true,
@@ -143,24 +143,56 @@
   },
   "fixed_tab_draws_no_close_button": {
    "pass": true,
-   "detail": "fixed face std 0.0, blank tab close std 35.2"
+   "detail": "fixed face std 0.0, blank tab close std 34.8"
+  },
+  "active_tab_tinted_others_white_in_state": {
+   "pass": true,
+   "detail": "12 settled states"
+  },
+  "active_face_pixels_sea_blue_inactive_white": {
+   "pass": true,
+   "detail": "27 tab faces, want active [240, 252, 254]; worst 05-selected-0.png tab 0 active [240, 252, 254]"
+  },
+  "tint_fades_over_200ms_open": {
+   "pass": true,
+   "detail": "new tab settling: tab 1, mid-fade tints [0.38, 0.73], implied fade [200] ms (median 200), the tab it left back to white: True"
+  },
+  "tint_fades_over_200ms_select-0": {
+   "pass": true,
+   "detail": "click tab 0: tab 0, mid-fade tints [0.41, 0.47, 0.84], implied fade [200, 200] ms (median 200), the tab it left back to white: True"
+  },
+  "tint_fades_over_200ms_select-1": {
+   "pass": true,
+   "detail": "click tab 1: tab 1, mid-fade tints [0.47, 0.53, 0.86], implied fade [200, 200] ms (median 200), the tab it left back to white: True"
+  },
+  "tint_fades_over_200ms_close": {
+   "pass": true,
+   "detail": "neighbour after a close: tab 8, mid-fade tints [0.38, 0.76], implied fade [200] ms (median 200), the tab it left back to white: True"
+  },
+  "tint_fades_over_200ms_select-fixed": {
+   "pass": true,
+   "detail": "fixed tab by select_tab: tab 1, mid-fade tints [0.04, 0.22, 0.58, 0.99], implied fade [200, 200, 200] ms (median 200), the tab it left back to white: True"
+  },
+  "mid_fade_frame_face_between_white_and_tint": {
+   "pass": true,
+   "detail": "frame 2 tint 0.58: face [247, 253, 255], want [246, 253, 254]"
   }
  },
  "sha256": {
-  "01-initial.png": "12938118a72c503bbbe8b47e87321de3e1f38982164aac56ee89549a4ebf464e",
-  "02-mid-grow.png": "e425b31036ecd0dd5a0cee8630aa937a972d414e136f5c048d7c1ea3d2a5f094",
-  "03-connecting.png": "9ebafdd1eefb43352a0184a68eb51185302e2d1a314ab2c82b603091262197a3",
-  "04-blank-page.png": "ec7b709c50884436793f0fa50631a13d6c1c384bfebb2262b9aaf5aabf344f3f",
-  "05-selected-0.png": "3de99adee6fb3aa201808114b7f7f8463a813ce1b4229296b92301796dcb0bd4",
-  "06-selected-1.png": "285523e8709e8d1b800f827ced4a2e08ed1b12749a31d7dcb0c97792d825d1af",
-  "07-third-tab.png": "67f88ab866f9c8748e7e23ebd410abbac866aa2aaa2187b7a2ad43cf7775c223",
-  "08-full-row.png": "25b996996c16f71dd3c4d2b720e0f22f03008ec41f28094910952615a12b94a8",
-  "09-closed-last.png": "d872c0e5016e3cccf69d8c5972cdfba4cd1a194848325750d0085415218516c1",
-  "10-closed-second.png": "fab573527f0890d8a01a426f9916d917abc8b06d173707dbba25d31d5919e3d1",
+  "01-initial.png": "80dae699cd83e8cabd632a611c104d54d898b03d373d2649854d7d2d0b1a7b01",
+  "02-mid-grow.png": "b5dd6c0bc748e1e8b636c7d782e12e51391ec5817492e222d68e2b82d6d5fa6d",
+  "03-connecting.png": "6fe7d6acdebe4e0dbb89f167e243e8f82be15eb534161911993fa87d1864ad59",
+  "04-blank-page.png": "8832196eafad7d57609bd25dc07ee49835241f4a8830ee18ec3d6e62472bc8fe",
+  "05-selected-0.png": "8f3e6b780d5f31ceb48712cfe1753c3d275b1f69964400586de118c079435315",
+  "06-selected-1.png": "8832196eafad7d57609bd25dc07ee49835241f4a8830ee18ec3d6e62472bc8fe",
+  "07-third-tab.png": "62d6e5af62765b97a7a778aa9c306d0b867fbe6831c43e795a5310ceb7974b81",
+  "08-full-row.png": "0414e9cde2e03298feec0839abec0e028bb9d2518e06a4d78e857d013316434a",
+  "09-closed-last.png": "f45a39259e5b95af9f896e6f9ff3b3b04aea702170e8bb35f5a62731caece504",
+  "10-closed-second.png": "b8e175cfd31bf393544f744b05c4049dfa54ad2c9ac1c388aafdab4cc8940012",
   "11-all-closed.png": "c800b9fe54301a2ef8c937b1e81f61e68f9f5e03a027fbae40ca327f12a128d2",
-  "12-reopened.png": "95adc26e1df59b15635331cd7b45e8478ee46bfb158b51ffbf362264947b904d",
-  "13-fixed-open.png": "8b662385057fcf92304cce1b0385911a888e933246000851f1aae26de9181857",
-  "14-fixed-kept.png": "8b662385057fcf92304cce1b0385911a888e933246000851f1aae26de9181857",
-  "15-after-fixed-stub.png": "b4e2525c5455c2f1a83113ee8e2508385b1fd68201f7906afb7707acb700864c"
+  "12-reopened.png": "5199c23fcff13f2f745893d52b2c81b6237bce41da531ce9b121e6963e14c9df",
+  "13-fixed-open.png": "6a0f575d564939fcb68c9a5c6aefc2fee6607d03e5665f9c1f4ed2714adeaad6",
+  "14-fixed-kept.png": "6a0f575d564939fcb68c9a5c6aefc2fee6607d03e5665f9c1f4ed2714adeaad6",
+  "15-after-fixed-stub.png": "d8d3d52b64491653acf14cb138d2f0f8d57161afa8b5585405df550f9cb2d173"
  }
 }
