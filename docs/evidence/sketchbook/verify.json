@@ -1,0 +1,210 @@
+{
+ "pass": true,
+ "checks": {
+  "screenshots_present": {
+   "pass": true,
+   "detail": "['01-desktop.png', '02-fill-1920x1000.png', '03-fill-1440x820.png', '04-tray-a.png', '05-mixed.png', '06-painted.png', '07-rested.png', '08-turning.png', '09-turned.png', '10-turned-back.png', '11-before-hidden.png', '12-hidden.png', '13-resumed.png', '14-resized.png', '15-restored.png']"
+  },
+  "desktop_screenshot_is_1920x1080": {
+   "pass": true,
+   "detail": "(1080, 1920, 3)"
+  },
+  "no_book_tenant_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "click_sketchbook_tab_creates_and_shows_desktop": {
+   "pass": true,
+   "detail": "{'frozen': False, 'key': 'sketchbook', 'page_visible': True, 'rect': {'h': 56.4976196289062, 'w': 176.842102050781, 'x': 265.9521484375, 'y': 1021.20574951172}, 'tenant': 'ok'}"
+  },
+  "tenant_fills_page_area": {
+   "pass": true,
+   "detail": "[1920.0, 1006.0478515625]"
+  },
+  "paintbox_is_the_prototypes_variant_a": {
+   "pass": true,
+   "detail": "A 2.0 upstream a1bdb75 00458f"
+  },
+  "book_opens_on_blank_spread_1": {
+   "pass": true,
+   "detail": "{'spread': 1, 'strokes': 0, 'turning': ''}"
+  },
+  "fill_rule_book-shown": {
+   "pass": true,
+   "detail": "page 1920x1006.0 s 1.4436 paintbox 794x830 book 909x827 margins l/r/t/b state [86.6, 86.6, 75.1, 75.1] pixels [85, 87, 74, 75] allowed 88.1,76.6"
+  },
+  "fill_rule_fill-1920x1000": {
+   "pass": true,
+   "detail": "page 1920x1000.0 s 1.4436 paintbox 794x830 book 909x821 margins l/r/t/b state [86.6, 86.6, 75.1, 75.1] pixels [85, 87, 74, 75] allowed 88.1,76.6"
+  },
+  "fill_rule_fill-1440x820": {
+   "pass": true,
+   "detail": "page 1440x819.5 s 1.0827 paintbox 595x623 book 682x685 margins l/r/t/b state [65.0, 65.0, 56.3, 56.3] pixels [64, 65, 55, 56] allowed 66.5,57.8"
+  },
+  "fill_1440x820_book_takes_the_leftover_height": {
+   "pass": true,
+   "detail": "logical [1330.0, 756.932434082031] book h 685.3"
+  },
+  "fill_restored_matches_first_show": {
+   "pass": true,
+   "detail": ""
+  },
+  "brush_rests_below_palette_at_launch": {
+   "pass": true,
+   "detail": "parked True, tip saturated px 1924 hue 210.94510517013046 vs pigment 211"
+  },
+  "well_clicks_land_on_wells": {
+   "pass": true,
+   "detail": ""
+  },
+  "well_loads_pigment": {
+   "pass": true,
+   "detail": "A af2801 B 0178d9, brush off the rest True"
+  },
+  "tray_drags_stay_in_tray": {
+   "pass": true,
+   "detail": ""
+  },
+  "smear_deposits_paint": {
+   "pass": true,
+   "detail": "paint px 1280"
+  },
+  "carried_pigment_is_a_mix_of_both": {
+   "pass": true,
+   "detail": "A af2801 B 0178d9 carried 77312f"
+  },
+  "tray_pixels_show_a_third_colour": {
+   "pass": true,
+   "detail": "A band [183.  68.  34.] (280px), B band [ 38. 138. 219.] (240px), mixed band [137.  79.  77.] (160px)"
+  },
+  "paint_drag_lands_inside_page": {
+   "pass": true,
+   "detail": ""
+  },
+  "paint_drag_draws_one_stroke_in_the_carried_pigment": {
+   "pass": true,
+   "detail": "strokes 1 points 11 stroke 77312f carried 77312f"
+  },
+  "page_pixels_painted_in_the_carried_pigment": {
+   "pass": true,
+   "detail": "changed saturated px 190, hue 7.604628507197645 vs carried 2 (B 207)"
+  },
+  "brush_leaves_the_rest_while_painting": {
+   "pass": true,
+   "detail": "parked False page hover True, tip px on the rest 0"
+  },
+  "idle_brush_returns_to_rest_with_pigment_tip": {
+   "pass": true,
+   "detail": "tip saturated px 1841 hue 1.5894853118156362 vs carried 2, launch tip hue 210.94510517013046"
+  },
+  "next_click_lands_on_arrow": {
+   "pass": true,
+   "detail": ""
+  },
+  "next_starts_the_paper_turn": {
+   "pass": true,
+   "detail": "turning forward progress 0.069 face mode 4"
+  },
+  "turn_lands_on_blank_spread_2": {
+   "pass": true,
+   "detail": "spread 2 strokes 0 turn 511 ms, changed px 0"
+  },
+  "turn_in_flight_looks_different": {
+   "pass": true,
+   "detail": ""
+  },
+  "previous_click_lands_on_arrow": {
+   "pass": true,
+   "detail": ""
+  },
+  "previous_turns_back_to_the_paint": {
+   "pass": true,
+   "detail": "spread 1 strokes 1, changed px 1001"
+  },
+  "title_drag_starts_on_title_bar": {
+   "pass": true,
+   "detail": "from [1378.64672851562, 118.375938415527] title {'h': 28.8721771240234, 'w': 909.473754882812, 'x': 923.909790039062, 'y': 103.939849853516}"
+  },
+  "title_drag_moves_window_and_page": {
+   "pass": true,
+   "detail": "{'h': 827.040405273438, 'w': 909.473754882812, 'x': 923.909790039062, 'y': 103.939849853516} -> {'h': 827.040344238281, 'w': 909.473510742188, 'x': 823.909790039062, 'y': 73.9398422241211} by [-100.0, -30.0]"
+  },
+  "paint_moves_with_the_window": {
+   "pass": true,
+   "detail": "1001 paint px, mean abs diff after the move 11.00"
+  },
+  "hidden_book_page_frozen": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_tenant_process_stops": {
+   "pass": true,
+   "detail": "ticks 262 -> 262 over 20 frames"
+  },
+  "hidden_tenant_gets_no_input": {
+   "pass": true,
+   "detail": "inputs 71 -> 71"
+  },
+  "hidden_events_draw_and_turn_nothing": {
+   "pass": true,
+   "detail": "strokes 1 spread 1 turning ''"
+  },
+  "hidden_subviewports_quiet": {
+   "pass": true,
+   "detail": "static 1,1 face 0,0"
+  },
+  "hidden_page_renders_nothing": {
+   "pass": true,
+   "detail": "draw calls: white page 47, desktop shown 77, hidden 47"
+  },
+  "hidden_page_shows_plain_white_map": {
+   "pass": true,
+   "detail": "mean 255.00"
+  },
+  "book_resumes_with_state_intact": {
+   "pass": true,
+   "detail": "ticks frozen 262, resumed 267 -> 336"
+  },
+  "resumed_pixels_identical_to_before_hiding": {
+   "pass": true,
+   "detail": "mean abs diff 0.000"
+  },
+  "resize_refits_desktop": {
+   "pass": true,
+   "detail": "tenant [1440.0, 844.535888671875], scale 1.0827, window {'h': 710.2802734375, 'w': 682.105224609375, 'x': 617.932373046875, 'y': 55.4548835754395}"
+  },
+  "resized_screenshot_is_1440x900": {
+   "pass": true,
+   "detail": "(900, 1440, 3)"
+  },
+  "restore_refits_back": {
+   "pass": true,
+   "detail": ""
+  },
+  "book_page_drawn": {
+   "pass": true,
+   "detail": "mean 239.5 std 13.8"
+  },
+  "palette_drawn": {
+   "pass": true,
+   "detail": "mean 226.3 std 54.7"
+  }
+ },
+ "sha256": {
+  "01-desktop.png": "6bac893a14b3ff17ea7e30221b924cc3ea230e2c060fa79a996feff64b8541bc",
+  "02-fill-1920x1000.png": "7561088d14766520d1e5fa7d2ad0e1c0c565af9fe970b3aa5040728d32c9e819",
+  "03-fill-1440x820.png": "7ff83997a6f5dba2e2116507b5077552f303fffff4d78edaa6cfe71fb673c4b9",
+  "04-tray-a.png": "c7ebaf7d1ab95b53b7720b13d6bfec5ec27dc38cff09f72a93f46ef6c1844aa2",
+  "05-mixed.png": "f0f446f91bb077435b67655a029b919a221ce28494bfadae095b39e784789649",
+  "06-painted.png": "4634d2ad49f6d0e07cf2383df6a47d054c8d676299653a08b3f334ec8c907208",
+  "07-rested.png": "e721ea9eb4cec7efb6f3474a33398c782cd198acdd4f6334c5525b754fd4af12",
+  "08-turning.png": "dc7531db4b757a67d09e72093b3438df7fd89d8e60bea22464ad128f62731626",
+  "09-turned.png": "668e80cf7f56d0c28cec27cdda1dbc0b3be77decac81461a8d086305bdfe4560",
+  "10-turned-back.png": "e721ea9eb4cec7efb6f3474a33398c782cd198acdd4f6334c5525b754fd4af12",
+  "11-before-hidden.png": "5617e0b2dc91ad826b064beafe38fae8d62506a911d44d3c507afe2ae8cbaf96",
+  "12-hidden.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "13-resumed.png": "5617e0b2dc91ad826b064beafe38fae8d62506a911d44d3c507afe2ae8cbaf96",
+  "14-resized.png": "f4873341e316084f854f25b0d7d557b2d142bce468985d91b5714d7444383962",
+  "15-restored.png": "5617e0b2dc91ad826b064beafe38fae8d62506a911d44d3c507afe2ae8cbaf96"
+ }
+}
