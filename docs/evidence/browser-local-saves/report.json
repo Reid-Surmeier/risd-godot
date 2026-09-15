@@ -1,12 +1,14 @@
 {
   "status": "pass",
-  "url": "https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/9fd8c9d.html",
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/59bac9d.html",
+  "reopened_url": "https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/59bac9d.html",
   "saved_ids": [
     "risd:1584511",
     "risd:1377691"
   ],
   "concurrent_windows": true,
   "persisted_after_browser_restart": true,
+  "persisted_after_build_update": false,
   "playground_ids": [
     "risd:1377691",
     "risd:1584511"

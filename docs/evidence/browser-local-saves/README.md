@@ -6,7 +6,7 @@
 
 ![Saved works after closing and reopening Chrome](03-reopened-sketchbook.png)
 
-Exact tested build: `9fd8c9d.html` on the retained `risd-desktop-godot-f57d02de` origin.
+Exact tested build: `59bac9d.html` on the retained `risd-desktop-godot-f57d02de` origin.
 
 The Playwright journey opened two game pages, saved a different RISD artwork from each at the same
 time, verified both committed records and images in Playground and Sketchbook, closed Chrome, then
