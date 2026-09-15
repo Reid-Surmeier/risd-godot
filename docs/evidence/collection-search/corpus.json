@@ -7,7 +7,7 @@
       "makers": [
         "Claude Monet"
       ],
-      "dating": "",
+      "dating": "1873",
       "year_from": 1873,
       "accession": "1998.107",
       "category": "Painting",
@@ -19,8 +19,22 @@
         "evidence_url": null,
         "observed_at": null
       },
-      "image": null,
-      "upstream_checked_at": "2026-09-15T16:23:34.164Z",
+      "image": {
+        "id": "1377691-P9EJtJ0v",
+        "source_url": "https://risdmuseum.cdn.picturepark.com/v/P9EJtJ0v/",
+        "evidence_url": "https://risdmuseum.org/art-design/collection/walk-meadows-argenteuil-1998107",
+        "sha256": "b7e66eee6aac0ed42db55788dd2d2cd2e65fa3128b6599c769f140eff71e0ce6",
+        "mime": "image/jpeg",
+        "width": 1324,
+        "height": 1108,
+        "verified_at": "2026-09-15T18:38:24.000Z",
+        "rights": {
+          "status": "public_domain",
+          "evidence_url": "https://risdmuseum.org/art-design/collection/walk-meadows-argenteuil-1998107",
+          "observed_at": "2026-09-15T18:38:24.000Z"
+        }
+      },
+      "upstream_checked_at": "2026-09-15T18:38:24.000Z",
       "availability": "available"
     },
     {
@@ -30,8 +44,8 @@
       "makers": [
         "Claude Monet"
       ],
-      "dating": "",
-      "year_from": 1843,
+      "dating": "ca. 1868",
+      "year_from": 1868,
       "accession": "57.236",
       "category": "Painting",
       "materials": "Oil on canvas",
@@ -42,8 +56,22 @@
         "evidence_url": null,
         "observed_at": null
       },
-      "image": null,
-      "upstream_checked_at": "2026-09-15T14:24:33.217Z",
+      "image": {
+        "id": "1584511-kwn2CiqF",
+        "source_url": "https://risdmuseum.cdn.picturepark.com/v/kwn2CiqF/",
+        "evidence_url": "https://risdmuseum.org/art-design/collection/seine-near-its-estuary-honfleur-57236",
+        "sha256": "f50520a15ef1eb172fc00e472bd117be00d2f4f3136fb6949d4e06752ba6a50b",
+        "mime": "image/jpeg",
+        "width": 1324,
+        "height": 864,
+        "verified_at": "2026-09-15T18:38:24.000Z",
+        "rights": {
+          "status": "public_domain",
+          "evidence_url": "https://risdmuseum.org/art-design/collection/seine-near-its-estuary-honfleur-57236",
+          "observed_at": "2026-09-15T18:38:24.000Z"
+        }
+      },
+      "upstream_checked_at": "2026-09-15T18:38:24.000Z",
       "availability": "available"
     },
     {
@@ -116,7 +144,7 @@
       "availability": "available"
     }
   ],
-  "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings. One object freshly rechecked; images unverified.",
-  "fetched_at": "2026-09-15T16:23:34.164Z",
+  "coverage": "Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.",
+  "fetched_at": "2026-09-15T18:38:24.000Z",
   "upstream_status": "unavailable"
 }

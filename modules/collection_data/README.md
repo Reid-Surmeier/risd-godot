@@ -1,4 +1,4 @@
-# RISD search connection (issue #78, incomplete)
+# RISD search connection (issue #78)
 
 This is a working metadata-route probe, not the finished Collection screen.
 Search/sort/page the labelled cached corpus through the same origin as Godot.
@@ -11,18 +11,17 @@ Node 22.23+ and Godot 4.7.2:
 
 ```
 npm ci
-mkdir -p modules/collection_data/server/cache
-cp docs/evidence/collection-search/corpus.json modules/collection_data/server/cache/corpus.json
 npm run collection:serve -- build/web-search-probe
 ```
 
 The optional `--refresh` performs one official Monet page request (maximum 25
 records, 15 seconds, no challenge retry) before listening. It validates before
 atomically replacing the disk corpus. Server requests never crawl the museum.
-The default snapshot has five official records, two paintings, and no verified
-painting images. One painting's metadata was freshly fetched on September 15.
-`upstream_status=unavailable` records the challenged broader query. Coverage is
-partial and never represents the whole museum.
+The bundled snapshot has five official records and two Monet paintings. Their
+public-domain object-page carousel entries, exact image bytes, dimensions and
+hashes were verified on September 15. Coverage is partial and never represents
+the whole museum. A newer complete cache wins; incomplete cache files do not
+hide the bundled verified images.
 
 The composition creates `http_adapter.gd`, sets the game base URL, and passes
 its dispatch Callable to `CollectionDataInterface.create`. Existing game Tenants
@@ -41,11 +40,6 @@ Run `modules/collection_data/playtest/export_probe.sh`. It exports an isolated
 probe project from the exact module files; release Web templates reject command-line
 scene overrides. The product startup scene remains unchanged. The browser
 publishes `window.risdSearchProbe`; native writes `/tmp/risd-search78/native-report.json`.
-`playtest/verify.py` deliberately requires two rendered image hashes and **does
-not pass yet**. Do not describe this checkpoint as completed painting ingestion.
-
-Still required: object-page/carousel/image linkage, two permission-verified
-painting images and real image rendering, expanded transport checks and review of the complete ingestion.
-The metadata checkpoint received independent Standards/Spec review; its two
-correctness findings are covered by regressions. Museum object pages returned
-403 at this checkpoint. No guessed URLs or substitute sculpture images were used.
+`playtest/verify.py` requires two rendered image hashes. The native and browser
+probes both fetch images from the same-origin hash route, verify the bytes, decode
+the JPEGs and render them. No guessed URLs or substitute sculpture images are used.

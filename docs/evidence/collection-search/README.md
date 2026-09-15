@@ -1,32 +1,39 @@
-# Search connection checkpoint
+# Verified RISD painting route
 
-Native Godot and a fresh standalone Web probe both query the same real HTTP
-adapter and display the two Monet painting metadata records. This is not the
-finished Collection UI, and no painting image ingestion is claimed.
+Native Godot and a fresh standalone Web probe query the same real HTTP adapter,
+fetch image bytes through the same-origin hash route, verify those bytes, decode
+the JPEGs and display two Monet paintings. This completes the data-route probe;
+the interactive Collection screen is owned by the next ticket.
 
-![Browser metadata probe](browser.png)
-![Native metadata probe](native.png)
+## Source pages
 
-The cached corpus contains five official search records, including two paintings;
-coverage and upstream-unavailable status are displayed. The first painting was
-rechecked through an official object-ID request. Request URL, response hash and
-observed time are in source.json. Museum object pages returned 403, so neither
-painting has an ingested display image. No substitute sculpture or guessed URL
-was used. API publicDomain=null remains unknown.
+![A Walk in the Meadows at Argenteuil object page](official-object-1377691.png)
+![The Seine Near its Estuary, Honfleur object page](official-object-1584511.png)
 
-The browser report records the served PCK hash and verifies it against the local
-export, with zero page errors and a same-origin request to game and search route.
-The loopback address in this machine evidence is not a user preview URL. The
-share tool refused publication with Tailscale 401 (operator/root permission).
+The browser accessibility snapshots beside these images preserve the object-page
+identity, carousel controls and the RISD page's Public Domain / CC0 statement.
+`painting-images.json` records each object page, carousel ID, Picturepark URL,
+downloaded hash, MIME and dimensions. Artwork rights remain unknown because the
+official API says `publicDomain=null`; the public-domain finding applies to each
+verified image manifest.
+
+## Rendered result
+
+![Browser painting route](browser-paintings.png)
+![Native painting route](native-paintings.png)
+![Browser painting route at 720 by 486](browser-paintings-720.png)
+![Native painting route at 720 by 486](native-paintings-720.png)
+
+The corpus is explicitly partial: five official Monet query records, including
+two paintings. `source.json` records the fresh official metadata response and the
+challenged broader query. The UI labels the cached corpus as upstream unavailable;
+a challenge never becomes a successful empty result.
+
+The reports record the two rendered image hashes. The browser report also compares
+the served PCK hash with the local export and records zero page errors. The loopback
+address in machine evidence is not a user preview URL.
 
 Checks: five server acceptance/regression tests; native injected-adapter seam;
-malformed synchronous completion regression; real native and browser HTTP probe;
-TypeScript strict typecheck; scripts/check.sh; git diff --check.
-
-Independent Standards and Spec reviews found two correctness bugs: a synchronous
-null callback hung pending state, and property order affected snapshot hashes.
-Both were fixed with runnable regressions. Image-positive fixture and entity
-normalization coverage were also added. Full issue acceptance remains open:
-two verified images and actual image rendering, expanded transport failure probes,
-and final review of complete ingestion. The image-verification gate deliberately
-fails this metadata-only checkpoint. Product tenants and CRT are unchanged.
+malformed synchronous completion regression; real native and browser HTTP probes;
+two browser window sizes; `scripts/check.sh`; `git diff --check`; exact-candidate
+Standards and Spec review. No substitute sculpture or guessed image URL is used.
