@@ -26,9 +26,15 @@ The vocabulary of this repository. Module terms first, then the domain's own. Te
 
 **Anchor** _(new)_: an approved Icon used as the reference a Motion Pass is conformed against. Every Icon becomes its own Anchor once approved; nothing animates before it has one. _Avoid_: keyframe, source.
 
+For the selected-tab face only, **Anchor** also means the exact assembled blue still accepted under owner delegation after independent visual review. This is application acceptance, recorded with `humanReviewed: false`, not tool-level human Approval. The [selected-tab amendment](docs/adr/0001-icon-foundry.md#amendment-2026-09-15-selected-tab-face-only) defines its gates.
+
+**Assembly** _(selected-tab exception)_: source-preserving selection/cropping, integer placement and binary-mask copying of existing source and generated donor pixels. The amendment defines its face mask, provenance and exact-preservation checks; Assembly does not draw new art.
+
 **State Set** _(new)_: the four states every interactive element carries — idle, hover, pressed, settled. Hover is added in the set's own style even where the source game has none. _Avoid_: variants, versions.
 
 **Motion Pass** _(new)_: one video-model invocation that performs a whole State Set in sequence in a single longer take, from which the four states are cut. _Avoid_: animation, render.
+
+For the selected-tab face only, a **Motion Pass** yields one entrance followed by a held blue Anchor instead of a whole State Set, under the amendment's explicit inferred-motion record. The Foundry's four-state definition remains unchanged.
 
 **Retro-conformance** _(new)_: the deterministic reduction of a Motion Pass into held pixel frames — temporal subsample, dedupe, NEAREST grid-snap, palette lock without dither, held-cadence reassembly. It is the only thing permitted to change generated pixels. _Avoid_: post-processing, cleanup.
 
@@ -41,6 +47,7 @@ The vocabulary of this repository. Module terms first, then the domain's own. Te
 - Modules depend on each other only through seams.
 - An Icon is produced by an Asset Pass, approved, and only then becomes an Anchor.
 - A Motion Pass is conformed against exactly one Anchor and yields exactly one State Set.
+- The selected-tab exception instead uses two locked first/last image references and yields an entrance/held endpoint, certified against its accepted blue Anchor; it does not change the Foundry relationship above.
 - Certification is a property of a conformed Motion Pass, never of raw model output.
 
 ## Flagged ambiguities

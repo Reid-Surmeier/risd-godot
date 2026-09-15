@@ -33,6 +33,8 @@ git diff --check
 
 Icons and their motion are model output, never hand-authored and never procedurally drawn. Qwen produces the still; Seedance produces the Motion Pass; the only code permitted to touch generated pixels is the retro-conformance reduction, which snaps to grid and locks the palette. An uncertified conformed run is evidence, not a deliverable. Vocabulary is in `CONTEXT.md`.
 
+**Selected-tab exception ([#86](https://github.com/Reid-Surmeier/risd-godot/issues/86)):** before work on this map's selected-tab face, read the September 15 amendment in [ADR 0001](docs/adr/0001-icon-foundry.md#amendment-2026-09-15-selected-tab-face-only). It governs Muse/OpenRouter stills, source-preserving Assembly, inferred Seedance motion and delegated application Anchor acceptance. All other generated pixels retain the rules above; tool human-Approval and certification gates remain in force.
+
 ## Pull requests are releases
 
 One PR per whole version, written in plain words, with screenshots or exported images attached (clear exports for anything generated). Real command output after the pictures. The template asks for each.
