@@ -52,7 +52,7 @@ The vocabulary of this repository. Module terms first, then the domain's own. Te
 
 **Shell**: the page area and the tab strip along the bottom of the window beneath it (owner correction 2026-09-13; it sat on top before); the one window the game runs in. _Avoid_: app frame, container.
 
-**Tab**: one entry in the strip; it owns exactly one Page. The seven fixed Tabs at launch are Map, Sketchbook, 3D Viewer, Video Player, Collection, Playground, Phone, Collection active. Playground and Phone are draft mockups: the owner's picture on white. _Avoid_: screen, view.
+**Tab**: one entry in the strip; it owns exactly one Page. The six fixed Tabs at launch are Map, Sketchbook, 3D Viewer, Video Player, Collection, Playground, Collection active. The Phone is no longer a Tab: it is a window on the Playground desktop (owner correction 2026-09-14, #62). _Avoid_: screen, view.
 
 **Page**: the surface a Tab shows in the page area; built lazily on first open, kept alive while the game runs. _Avoid_: scene, panel.
 

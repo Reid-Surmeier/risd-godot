@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Independent verifier for a playground_page playtest run. Never trusts the harness's own summary:
-re-reads the module's reference picture itself, re-hashes every screenshot, re-reads pixels, and
-checks the logged states against the interface contract (created on first show, the picture at its
-native size centred in the Page and drawn pixel for pixel, frozen while hidden, resumed intact,
-re-centred on resize).
+"""Independent verifier for a playground_page playtest run (tickets #62 and #63). Never trusts the
+harness's own summary: re-reads the owner's layout picture (docs/evidence/playground/layout-reference.png)
+itself, recomputes where every window must sit from the window rects measured in that picture and the
+fill rule, compares the screenshots' pixels with the picture at those places, and checks the logged
+states against the interface contract (lazy creation, the title drag and raise, body drag ignored,
+frozen while hidden, resumed intact, the fill rule at 1920x1000 and 1440x820 page sizes).
 usage: verify.py OUT_DIR"""
 import hashlib, json, sys
 from pathlib import Path
@@ -11,9 +12,18 @@ import numpy as np
 from PIL import Image
 
 HERE = Path(__file__).resolve().parent
-REF = Image.open(HERE.parent / "assets" / "reference.png").convert("RGBA")
-BAR_H = 161 * 1920 / 4180.0
+REF = Image.open(HERE.parents[2] / "docs/evidence/playground/layout-reference.png").convert("RGB")
 INDEX = 5
+# Window rects in the owner's picture (2186x1362), found by template-matching each asset into it.
+PICTURE = {"postpet": (48, 74, 1216, 1137), "options": (1277, 74, 499, 215), "filters": (1277, 288, 489, 224),
+           "trade": (1271, 558, 495, 215), "chat": (1290, 948, 563, 261), "phone": (1791, 75, 380, 759)}
+ORDER = ["postpet", "options", "filters", "trade", "chat", "phone"]
+M = 24  # the desktop's native margin, in picture px
+X0 = min(r[0] for r in PICTURE.values()); Y0 = min(r[1] for r in PICTURE.values())
+X1 = max(r[0] + r[2] for r in PICTURE.values()); Y1 = max(r[1] + r[3] for r in PICTURE.values())
+D = (X1 - X0 + 2 * M, Y1 - Y0 + 2 * M)
+PP_K = 1216 / 859.0  # postpet.png's scale in the picture
+KEYED = {"options", "filters", "trade", "chat"}  # magenta border keyed out on the page, kept in the picture
 
 out = Path(sys.argv[1])
 log = json.loads((out / "report.json").read_text())["log"]
@@ -23,77 +33,138 @@ for e in log:
         pages.setdefault(e["label"], e)
     if e["event"] == "shell":
         shells.setdefault(e["label"], e)
-clicks = [e for e in log if e["event"] == "click"]
+drags = [e for e in log if e["event"] == "drag"]
 results = {}
 
 def check(name, cond, detail=""):
     results[name] = {"pass": bool(cond), "detail": detail}
 
-def near(a, b, tol):
-    return abs(a - b) <= tol
+def expected(S):
+    """Every window's rect on a page of size S by the fill rule, and the art scale."""
+    s = min(S[0] / D[0], S[1] / D[1]); rects = {}
+    for n, (x, y, w, h) in PICTURE.items():
+        dx, dy = x - X0 + M, y - Y0 + M
+        if n == "postpet":
+            right = S[0] - (D[0] - (dx + w)) * s
+            rects[n] = (dx * s, dy * s, right - dx * s, S[1] - M * s - dy * s)
+        elif n == "chat":
+            rects[n] = (S[0] - (D[0] - dx) * s, S[1] - (D[1] - dy) * s, w * s, h * s)
+        else:
+            rects[n] = (S[0] - (D[0] - dx) * s, dy * s, w * s, h * s)
+    return s, rects
 
-def over_white(ref):
-    a = np.array(ref).astype(float)
-    return (a[:, :, :3] * (a[:, :, 3:4] / 255.0) + 255.0 * (1 - a[:, :, 3:4] / 255.0)).round().astype(int)
+def win(p, n):
+    return next(w for w in p["windows"] if w["name"] == n)
+
+def close(r, e, tol=2.0):
+    return all(abs(a - b) <= tol for a, b in zip((r["x"], r["y"], r["w"], r["h"]), e))
+
+def patch_diff(shot, page_y0, screen, picture):
+    """Mean abs difference between the screenshot at `screen` (x, y, w, h in page px) and the picture's `picture` region."""
+    x, y, w, h = [int(round(v)) for v in screen]
+    crop = shot[page_y0 + y:page_y0 + y + h, x:x + w]
+    px, py, pw, ph = picture
+    ref = np.array(REF.crop((int(px), int(py), int(px + pw), int(py + ph))).resize((crop.shape[1], crop.shape[0]), Image.LANCZOS)).astype(int)
+    return float(np.abs(crop - ref).mean()) if crop.shape == ref.shape and crop.size else 999.0
+
+def window_diffs(shot, p, rects=None, offset=(0, 0)):
+    """Pixel difference of every window against the picture, at the logged rects (or `rects`)."""
+    y0 = int(round(p["page_global"]["y"])); s = p["factor"]; out_ = {}
+    for n in ORDER:
+        r = rects[n] if rects else (lambda w: (w["x"], w["y"], w["w"], w["h"]))(win(p, n)["rect"])
+        r = (r[0] + offset[0], r[1] + offset[1], r[2], r[3])
+        px, py, pw, ph = PICTURE[n]
+        if n == "postpet":  # rows 204..660 of postpet.png: the side columns and the stickers (the header and info box are the RISD version, not the picture's)
+            k = PP_K * s; extra_x = r[2] - 859 * k; extra_y = r[3] - 803 * k
+            left = (r[0], r[1] + 204 * k + extra_y, 730 * k, 456 * k)
+            right = (r[0] + 731 * k + extra_x, r[1] + 204 * k + extra_y, 128 * k, 456 * k)
+            out_[n] = max(patch_diff(shot, y0, left, (px, py + 204 * PP_K, 730 * PP_K, 456 * PP_K)),
+                          patch_diff(shot, y0, right, (px + 731 * PP_K, py + 204 * PP_K, 128 * PP_K, 456 * PP_K)))
+        else:
+            i = 8 if n in KEYED else 2  # inset past the keyed magenta border (picture px)
+            out_[n] = patch_diff(shot, y0, (r[0] + i * s, r[1] + i * s, r[2] - 2 * i * s, r[3] - 2 * i * s),
+                                 (px + i, py + i, pw - 2 * i, ph - 2 * i))
+    return out_
 
 shots = {e["file"]: e for e in log if e["event"] == "screenshot"}
 hashes = {f: hashlib.sha256((out / f).read_bytes()).hexdigest() for f in shots}
 imgs = {f: np.array(Image.open(out / f).convert("RGB")).astype(int) for f in shots}
-check("screenshots_present", len(shots) == 6, str(sorted(shots)))
-check("reference_is_the_owners_picture", REF.size == (859, 803), str(REF.size))
+check("screenshots_present", len(shots) == 8, str(sorted(shots)))
+check("picture_is_the_owners_layout", REF.size == (2186, 1362) and D == (2171, 1185), f"{REF.size}, desktop {D}")
 
 la, ls = pages["launch"], shells["launch"]
-check("no_tenant_at_launch", ls["active"] == 4 and ls["tabs"][INDEX]["tenant"] is None and ls["tabs"][INDEX]["frozen"]
-      and la["code"] == "shell.tenant_missing")
+check("six_fixed_tabs_no_phone", ls["count"] == 6 and [t["key"] for t in ls["tabs"]][-1] == "playground"
+      and all(t["key"] != "phone" for t in ls["tabs"]), str([t["key"] for t in ls["tabs"]]))
+check("no_tenant_at_launch", ls["active"] == 4 and ls["tabs"][INDEX]["tenant"] is None and la["code"] == "shell.tenant_missing")
+
 sh, a, b = shells["shown"], pages["shown"], pages["shown-after-20-frames"]
-check("click_creates_and_shows_the_tenant", sh["active"] == INDEX and sh["tabs"][INDEX]["tenant"] == "ok" and sh["tabs"][INDEX]["page_visible"]
-      and not sh["tabs"][INDEX]["frozen"] and not sh["switching"] and a["ok"], str(sh["tabs"][INDEX]))
-sz = a["size"]
-check("tenant_fills_page_area_above_the_bar", near(sz[0], 1920, 1) and near(sz[1], 1080 - BAR_H, 1.5), str(sz))
-ir = a["image_rect"]
-check("picture_at_native_size", a["image_size"] == list(REF.size) and ir["w"] == REF.size[0] and ir["h"] == REF.size[1], str(ir))
-check("picture_centred_in_page", near(ir["x"], (sz[0] - ir["w"]) // 2, 1) and near(ir["y"], (sz[1] - ir["h"]) // 2, 1)
-      and ir["x"] >= 0 and ir["y"] >= 0 and ir["x"] + ir["w"] <= sz[0] and ir["y"] + ir["h"] <= sz[1], f"{ir} in {sz}")
-check("shown_tenant_process_runs", b["ticks"] - a["ticks"] >= 15, f"{a['ticks']} -> {b['ticks']}")
+check("click_creates_and_shows_the_desktop", sh["active"] == INDEX and sh["tabs"][INDEX]["tenant"] == "ok"
+      and not sh["tabs"][INDEX]["frozen"] and a["ok"], str(sh["tabs"][INDEX]))
+check("shown_desktop_process_runs", b["ticks"] - a["ticks"] >= 15, f"{a['ticks']} -> {b['ticks']}")
+check("six_windows_in_stacking_order", [w["name"] for w in a["windows"]] == ORDER, str([w["name"] for w in a["windows"]]))
 
-# pixels: the screenshot holds the reference, composited over white, pixel for pixel at its rect; white elsewhere
-shot = imgs["02-playground.png"]
-drawn = shot[int(ir["y"]):int(ir["y"] + ir["h"]), int(ir["x"]):int(ir["x"] + ir["w"])]
-exp = over_white(REF)
-diff = float(np.abs(drawn - exp).mean()) if drawn.shape == exp.shape else 999
-check("picture_drawn_pixel_for_pixel", drawn.shape == exp.shape and diff < 0.5, f"mean abs diff {diff:.3f}")
-check("picture_is_not_blank", float(exp.std()) > 20 and float(drawn.std()) > 20, f"std {float(drawn.std()):.1f}")
-mask = np.ones(shot.shape[:2], bool); mask[int(ir["y"]):int(ir["y"] + ir["h"]), int(ir["x"]):int(ir["x"] + ir["w"])] = False
-mask[int(1080 - BAR_H) - 2:] = False
-check("page_white_around_the_picture", float(shot[mask].mean()) > 254, f"mean {float(shot[mask].mean()):.2f}")
+# every window at its reference place (fill rule at the launch page size) and matching the picture there
+s, exp = expected(a["size"])
+check("factor_is_min_of_both_axes", abs(a["factor"] - s) < 1e-4, f"{a['factor']:.4f} vs {s:.4f}")
+for n in ORDER:
+    check(f"{n}_at_reference_place", close(win(a, n)["rect"], exp[n]), f"{win(a, n)['rect']} vs {tuple(round(v, 1) for v in exp[n])}")
+d0 = window_diffs(imgs["01-desktop.png"], a)
+for n in ORDER:
+    check(f"{n}_pixels_match_the_picture", d0[n] < 16, f"mean abs diff {d0[n]:.1f}")
+shifted = window_diffs(imgs["01-desktop.png"], a, rects={n: (lambda w: (w['x'], w['y'], w['w'], w['h']))(win(a, n)["rect"]) for n in ORDER}, offset=(0, 30))
+check("pixel_check_discriminates", all(shifted[n] > d0[n] + 8 for n in ORDER), str({n: round(shifted[n], 1) for n in ORDER}))
 
-hd, c, d = shells["hidden"], pages["hidden"], pages["hidden-after-20-frames"]
-check("hidden_page_frozen", hd["active"] == 6 and hd["tabs"][INDEX]["frozen"] and not hd["tabs"][INDEX]["page_visible"] and not hd["switching"])
-check("frozen_tenant_process_stops", d["ticks"] == c["ticks"], f"{c['ticks']} -> {d['ticks']} over 20 frames")
-check("frozen_tenant_gets_no_input", d["inputs"] == c["inputs"] and any(e["event"] == "key" for e in log)
-      and any(e["what"].startswith("click on the page area") for e in clicks), f"inputs {c['inputs']} -> {d['inputs']}")
-check("hidden_page_shows_the_white_other_tab", float(imgs["03-hidden.png"][:int(1080 - BAR_H) - 2].mean()) > 254)
+# the trade window's title drag moves it by the drag and raises it; the options body drag moves nothing
+mv = pages["trade-moved"]; t0, t1 = win(a, "trade")["rect"], win(mv, "trade")["rect"]
+dr = next(e for e in drags if e["what"] == "drag trade by its title bar")
+check("title_drag_moves_trade", abs(t1["x"] - t0["x"] - dr["relative_total"][0]) < 1 and abs(t1["y"] - t0["y"] - dr["relative_total"][1]) < 1
+      and t1["w"] == t0["w"], f"{t0} -> {t1}")
+check("dragged_window_raised", mv["windows"][-1]["name"] == "trade", str([w["name"] for w in mv["windows"]]))
+check("others_stay_put", all(win(mv, n)["rect"] == win(a, n)["rect"] for n in ORDER if n != "trade"))
+dm = window_diffs(imgs["02-trade-moved.png"], mv)
+check("moved_trade_pixels_match_the_picture", dm["trade"] < 16, f"{dm['trade']:.1f}")
+ob = pages["options-body-drag"]
+check("body_drag_moves_nothing", all(win(ob, n)["rect"] == win(mv, n)["rect"] for n in ORDER) and ob["action"] == "")
 
-rs0, e, f = shells["resumed"], pages["resumed"], pages["resumed-after-20-frames"]
-check("resumes_with_state_intact", rs0["active"] == INDEX and 0 <= e["ticks"] - d["ticks"] <= 8 and f["ticks"] - e["ticks"] >= 15
-      and e["image_rect"] == ir, f"frozen at {d['ticks']}, resumed {e['ticks']} -> {f['ticks']}")
-check("resumed_pixels_identical", float(np.abs(imgs["04-resumed.png"] - imgs["02-playground.png"]).mean()) < 0.5)
+hd, c, d = shells["hidden"], pages["hidden"], pages["hidden-after-events"]
+check("hidden_page_frozen", hd["active"] == 0 and hd["tabs"][INDEX]["frozen"] and not hd["tabs"][INDEX]["page_visible"])
+check("frozen_process_stops", d["ticks"] == c["ticks"], f"{c['ticks']} -> {d['ticks']}")
+check("frozen_gets_no_input", d["inputs"] == c["inputs"] and any(e["event"] == "key" for e in log), f"{c['inputs']} -> {d['inputs']}")
+check("hidden_drag_changed_nothing", d["windows"] == ob["windows"])
+check("hidden_shows_white_map_page", float(imgs["03-hidden.png"][:int(round(a["size"][1])) - 2].mean()) > 254)
 
-rz, rt = shells["resized"], pages["resized"]
-sz2, ir2 = rt["size"], rt["image_rect"]; bar2 = 161 * 1440 / 4180.0
-check("resize_recentres_the_picture", rz["window"] == [1440, 900] and near(sz2[0], 1440, 1) and near(sz2[1], 900 - bar2, 1.5)
-      and ir2["w"] == REF.size[0] and ir2["h"] == REF.size[1] and near(ir2["x"], (sz2[0] - ir2["w"]) // 2, 1)
-      and near(ir2["y"], (sz2[1] - ir2["h"]) // 2, 1) and ir2["y"] + ir2["h"] <= sz2[1], f"{ir2} in {sz2}")
-check("resized_screenshot_is_1440x900", imgs["05-resized.png"].shape[:2] == (900, 1440), str(imgs["05-resized.png"].shape))
-rshot = imgs["05-resized.png"]
-rdrawn = rshot[int(ir2["y"]):int(ir2["y"] + ir2["h"]), int(ir2["x"]):int(ir2["x"] + ir2["w"])]
-check("resized_picture_still_pixel_for_pixel", rdrawn.shape == exp.shape and float(np.abs(rdrawn - exp).mean()) < 0.5)
-check("restore_refits_back", shells["restored"]["window"] == [1920, 1080] and pages["restored"]["image_rect"] == ir
-      and hashes["06-restored.png"] != hashes["05-resized.png"])
+rs, e, f = shells["resumed"], pages["resumed"], pages["resumed-after-20-frames"]
+g = pages["resuming"]
+check("resumes_with_state_intact", rs["active"] == INDEX and e["windows"] == ob["windows"] and f["ticks"] - e["ticks"] >= 15
+      and 0 <= g["ticks"] - d["ticks"] <= 8, f"frozen {d['ticks']}, at the click {g['ticks']}, settled {e['ticks']} -> {f['ticks']}")
+page_h = int(round(a["size"][1]))
+check("resumed_pixels_identical", float(np.abs(imgs["04-resumed.png"][:page_h] - imgs["02-trade-moved.png"][:page_h]).mean()) < 0.5)
+
+# the fill rule: at each page size every window re-lays out from the page's own size, the desktop's box
+# spans the page on both axes within the native margin, the art is uniform, pixels still match
+for label, shot, want in [("page-1920x1000", "05-page-1920x1000.png", (1920, 1000)), ("page-1440x820", "06-page-1440x820.png", (1440, 820)),
+                          ("window-1440x900", "07-window-1440x900.png", None), ("restored", "08-restored.png", None)]:
+    p = pages[label]; S = p["size"]; s, exp = expected(S); tag = label.replace("-", "_")
+    if want:
+        check(f"{tag}_page_size", abs(S[0] - want[0]) <= 1 and abs(S[1] - want[1]) <= 1, str(S))
+    check(f"{tag}_windows_at_rule_places", abs(p["factor"] - s) < 1e-4 and all(close(win(p, n)["rect"], exp[n]) for n in ORDER),
+          str({n: win(p, n)["rect"] for n in ORDER}))
+    rects = [win(p, n)["rect"] for n in ORDER]; m = M * s + 1.5
+    bx0 = min(r["x"] for r in rects); by0 = min(r["y"] for r in rects)
+    bx1 = max(r["x"] + r["w"] for r in rects); by1 = max(r["y"] + r["h"] for r in rects)
+    check(f"{tag}_desktop_spans_the_page", bx0 <= m and by0 <= m and S[0] - bx1 <= m and S[1] - by1 <= m,
+          f"box ({bx0:.0f},{by0:.0f})-({bx1:.0f},{by1:.0f}) in {S}, margin {m:.1f}")
+    pp = win(p, "postpet")["rect"]
+    check(f"{tag}_main_window_never_below_native", pp["w"] >= 1216 * s - 1 and pp["h"] >= 1137 * s - 1.5, f"{pp} vs {1216 * s:.0f}x{1137 * s:.0f}")
+    dd = window_diffs(imgs[shot], p)
+    check(f"{tag}_pixels_match_the_picture", all(v < 16 for v in dd.values()), str({n: round(v, 1) for n, v in dd.items()}))
+check("both_axes_exercised", pages["page-1920x1000"]["size"][0] / D[0] > pages["page-1920x1000"]["size"][1] / D[1]
+      and pages["page-1440x820"]["size"][0] / D[0] < pages["page-1440x820"]["size"][1] / D[1],
+      "1920x1000 is height-limited (leftover width), 1440x820 width-limited (leftover height)")
 
 ok = all(r["pass"] for r in results.values())
 (out / "verify.json").write_text(json.dumps({"pass": ok, "checks": results, "sha256": hashes}, indent=1))
 for k, r in results.items():
     print(("PASS" if r["pass"] else "FAIL"), k, r["detail"])
-print("VERDICT", "PASS" if ok else "FAIL")
+print("VERDICT", "PASS" if ok else "FAIL", f"({sum(r['pass'] for r in results.values())}/{len(results)})")
 sys.exit(0 if ok else 1)

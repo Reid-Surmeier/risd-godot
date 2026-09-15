@@ -2,7 +2,8 @@
 class_name PlaygroundPageErrors
 extends RefCounted
 
-## assets/reference.png (the owner's mockup, PROVENANCE.md) is missing or failed to load.
+## A pixel file the desktop loads (a window picture under assets/, PROVENANCE.md) is not in the
+## project (detail: its path).
 const ASSET_MISSING := "playground_page.asset_missing"
 
 

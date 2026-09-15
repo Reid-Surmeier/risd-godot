@@ -2,7 +2,7 @@
 ##
 ## The PageStack over a white ground, and the TabStrip along the bottom of the window, fitted to
 ## the Shell's width (the bar is the owner's reference, 4180 source px across the window, icon
-## cluster at 65 percent). The seven fixed Tabs are indexes 0..6 forever: they never close and
+## cluster at 65 percent). The six fixed Tabs are indexes 0..5 forever: they never close and
 ## were opened before any stub tab. At launch the Collection tab grows in like a stub-opened tab,
 ## then its Page fades in; on every selection the new Page cross-fades over the old one and the
 ## freeze rule is applied once the fade has settled.
@@ -17,7 +17,7 @@ signal switch_settled(index: int)
 const SOURCE_WIDTH := 4180.0
 const BAR_HEIGHT := 161.0
 const FADE_SECONDS := 0.2
-const FIXED_TABS: Array[String] = ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground", "phone"]
+const FIXED_TABS: Array[String] = ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground"]
 const LAUNCH_TAB := "collection"
 
 var _registry: Dictionary = {}
@@ -34,7 +34,7 @@ static func create(registry: Dictionary) -> Dictionary:
 	shell._registry = registry
 	shell._pages = Control.new()
 	shell._pages.name = "PageStack"
-	var created: Dictionary = TabStrip.create(shell._pages, false)  # no "Windows Live" tab: the seven are ours
+	var created: Dictionary = TabStrip.create(shell._pages, false)  # no "Windows Live" tab: the six are ours
 	if not created.ok:
 		return created
 	shell._strip = created.value
