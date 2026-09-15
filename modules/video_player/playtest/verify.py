@@ -176,7 +176,7 @@ top_strip = img_w[1:int(min(wr["y"], wi["y"])) - 1, :]; gap_strip = img_w[int(wr
 check("white_desktop_around_and_between_the_windows", top_strip.size > 0 and gap_strip.size > 0 and float(top_strip.mean()) > 250 and float(gap_strip.mean()) > 250
       and float(crop(img_w, wr).mean()) < 245, f"top {float(top_strip.mean()):.1f} gap {float(gap_strip.mean()):.1f}")
 fr = crop(img_w, {"x": wr["x"] + 20 * scale, "y": wr["y"] + 60 * scale, "w": wr["w"] - 44 * scale, "h": wd["video_rect"]["y"] - wr["y"] - 64 * scale})
-check("letterbox_black_above_the_video", fr.size == 0 or float(fr.mean()) < 20, f"mean {float(fr.mean()) if fr.size else 0:.1f}")
+check("letterbox_matches_light_grey_header", fr.size == 0 or bool(np.max(np.abs(fr.astype(float) - 240.0)) <= 2), f"mean {float(fr.mean()) if fr.size else 0:.1f}")
 
 # the keys with the page shown
 ks = vp["key-space"]; ks2 = vp["key-space-again"]; kr = vp["key-right"]; k2 = vp["key-2"]

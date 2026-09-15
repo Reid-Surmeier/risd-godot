@@ -22,7 +22,7 @@ const CANVAS_SIZE := Vector2(1536, 1632)  # the owner's plate; controls keep the
 ## The plate's two windows (#63), cut with their own chrome and shadow: Fly Through (the video) and
 ## Information (transport, title, Save, tiles). The Information window grows in height by one
 ## plain white row of its body (INFO_STRETCH_Y); Fly Through grows both ways by its straight frame
-## runs, the video letterboxed in black at the plate's aspect.
+## runs, the video letterboxed in header grey at the plate's aspect.
 const FLY_RECT := Rect2(64, 54, 1406, 802)
 const INFO_RECT := Rect2(282, 888, 938, 658)
 const INFO_STRETCH_Y := 1100.0
@@ -287,7 +287,7 @@ func _build_surface() -> void:
 	surface.add_child(fly_chrome)
 	fly_body = ColorRect.new()
 	fly_body.name = "letterbox"
-	fly_body.color = Color.BLACK
+	fly_body.color = Color("#f0f0f0")  # Header midtone sampled from fly-through-v7.png (#83).
 	fly_body.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	surface.add_child(fly_body)
 
