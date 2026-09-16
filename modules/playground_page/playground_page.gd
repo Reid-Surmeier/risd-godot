@@ -26,7 +26,8 @@ const MARGIN := 24.0
 const BANDS := [0, 45, 95, 203, 204, 660, 803]
 const BAND_COLUMNS := [246, 344, 730, 730, 730, 703]
 const STRETCH_Y_BAND := 3
-const POSTPET_BODY := Rect2(111, 80, 634, 695)
+# Blank content inside the PostPet panel; keep its header, info box, and colorful frame visible.
+const POSTPET_BODY := Rect2(126, 143, 603, 547)
 # name, file, native position in DESKTOP px, art scale (desktop px per source px), title height in
 # desktop px (0: the whole surface drags), anchor ("left" | "right" | "right_bottom"), keyed border
 # width in source px (0: no magenta key)
@@ -104,6 +105,7 @@ func _ready() -> void:
 	saved_body.name = "SavedWorks"
 	saved_body.color = Color.WHITE
 	saved_body.mouse_filter = Control.MOUSE_FILTER_STOP
+	saved_body.clip_contents = true
 	windows[0].add_child(saved_body)
 	saved_list.add_theme_constant_override("separation", 8)
 	saved_body.add_child(saved_list)
