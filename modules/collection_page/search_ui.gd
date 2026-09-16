@@ -47,6 +47,7 @@ var images_loaded := 0
 var image_failures := 0
 var layout_key := ""
 var pending_result: Dictionary = {}
+var pending_save_result: Dictionary = {}
 
 
 func _ready() -> void:
@@ -353,11 +354,23 @@ func _received(current: int, result: Dictionary) -> void:
 
 
 func _resume_pending() -> void:
-	if not page.is_visible_in_tree() or pending_result.is_empty():
+	if not page.is_visible_in_tree():
 		return
-	var waiting := pending_result
-	pending_result = {}
-	_received(waiting.generation, waiting.result)
+	var resumed_search := false
+	if not pending_result.is_empty():
+		var waiting := pending_result
+		pending_result = {}
+		_received(waiting.generation, waiting.result)
+		resumed_search = true
+	if not pending_save_result.is_empty():
+		var waiting_save := pending_save_result
+		pending_save_result = {}
+		_finish_save(waiting_save.generation, waiting_save.result)
+	elif not resumed_search and not selected_artwork.is_empty():
+		var label := details.find_child("SaveStatus", true, false) as Label
+		var button := details.find_child("SaveArtwork", true, false) as Button
+		if label != null and button != null:
+			_refresh_selected_save_status(label, button)
 
 
 func _update_categories(values: Array) -> void:
@@ -502,7 +515,7 @@ func _select(artwork: Dictionary) -> void:
 func _refresh_selected_save_status(label: Label, button: Button) -> void:
 	var current := selected
 	var started := Data.saved(data_handle, func(result: Dictionary) -> void:
-		if current != selected or not is_instance_valid(label) or not result.ok:
+		if current != selected or not page.is_visible_in_tree() or not is_instance_valid(label) or not result.ok:
 			return
 		var already: bool = result.value.items.any(func(item: Dictionary) -> bool: return item.artwork.id == current)
 		if already:
@@ -530,21 +543,34 @@ func _save_selected() -> void:
 	label.text = save_message
 	button.disabled = true
 	var started := Data.save(data_handle, selected_artwork, func(result: Dictionary) -> void:
-		if current != save_generation or not is_instance_valid(label) or not is_instance_valid(button):
+		if current != save_generation:
 			return
-		if result.ok:
-			save_phase = "saved"
-			save_message = "Saved"
-		else:
-			save_phase = "error"
-			save_message = "Could not save · " + result.error.detail
-			button.disabled = false
-		label.text = save_message)
+		if not page.is_visible_in_tree():
+			pending_save_result = {"generation": current, "result": result}
+			return
+		_finish_save(current, result))
 	if not started.ok:
 		save_phase = "error"
 		save_message = "Could not save · " + started.error.detail
 		label.text = save_message
 		button.disabled = false
+
+
+func _finish_save(current: int, result: Dictionary) -> void:
+	if current != save_generation:
+		return
+	var label := details.find_child("SaveStatus", true, false) as Label
+	var button := details.find_child("SaveArtwork", true, false) as Button
+	if label == null or button == null:
+		return
+	if result.ok:
+		save_phase = "saved"
+		save_message = "Saved"
+	else:
+		save_phase = "error"
+		save_message = "Could not save · " + result.error.detail
+		button.disabled = false
+	label.text = save_message
 
 
 func _load_image(manifest: Dictionary, target: TextureRect, unavailable: Label) -> void:

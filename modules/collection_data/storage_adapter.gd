@@ -13,14 +13,34 @@ const DB_SCRIPT := """
     if (name === 'QuotaExceededError') return 'collection_data.storage_write_failed';
     return 'collection_data.storage_unavailable';
   };
-  const text = value => typeof value === 'string' && new TextEncoder().encode(value).length <= 4096;
-  const artwork = a => a && typeof a === 'object' && text(a.web_id) && a.web_id.length > 0
-    && a.id === `risd:${a.web_id}` && text(a.title) && Array.isArray(a.makers) && a.makers.length <= 32
-    && a.makers.every(text) && text(a.dating) && (a.year_from === null || Number.isSafeInteger(a.year_from))
-    && ['accession','category','materials','credit','source_url','upstream_checked_at'].every(k => text(a[k]))
-    && ['available','unavailable','unknown'].includes(a.availability) && a.rights && typeof a.rights === 'object'
-    && (a.image === null || (a.image && typeof a.image === 'object' && text(a.image.id)
-      && text(a.image.sha256) && text(a.image.mime)));
+  const text = (value, limit = 4096) => typeof value === 'string'
+    && new TextEncoder().encode(value).length <= limit
+    && ![...value].some(char => { const n = char.charCodeAt(0); return n < 32 && ![9,10,13].includes(n) || n === 127; });
+  const url = (value, media = false) => text(value, 2048) && new RegExp(media
+    ? '^https://risdmuseum[.]cdn[.]picturepark[.]com/v/[a-zA-Z0-9_-]+/$'
+    : '^https://risdmuseum[.]org/art-design/collection/[a-zA-Z0-9_-]+$').test(value);
+  const time = value => typeof value === 'string'
+    && /^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}([.][0-9]{3})?Z$/.test(value);
+  const rights = value => value && typeof value === 'object'
+    && ['public_domain','licensed','unknown'].includes(value.status)
+    && Object.hasOwn(value, 'evidence_url') && Object.hasOwn(value, 'observed_at')
+    && (value.evidence_url === null || url(value.evidence_url))
+    && (value.observed_at === null || time(value.observed_at))
+    && (value.status === 'unknown' || value.evidence_url !== null && value.observed_at !== null);
+  const artwork = a => a && typeof a === 'object' && text(a.web_id, 128) && a.web_id.length > 0
+    && ![...a.web_id].some(char => char.trim() === '' || '/?#'.includes(char) || char.charCodeAt(0) === 92)
+    && a.id === `risd:${a.web_id}`
+    && ['title','dating','accession','category','materials','credit'].every(k => text(a[k]))
+    && Array.isArray(a.makers) && a.makers.length <= 32 && a.makers.every(value => text(value))
+    && Object.hasOwn(a, 'year_from') && (a.year_from === null || Number.isSafeInteger(a.year_from))
+    && url(a.source_url) && rights(a.rights) && time(a.upstream_checked_at)
+    && ['available','unavailable','unknown'].includes(a.availability) && Object.hasOwn(a, 'image')
+    && (a.image === null || (a.image && typeof a.image === 'object' && text(a.image.id) && a.image.id.length > 0
+      && url(a.image.source_url, true) && a.image.evidence_url === a.source_url
+      && /^[a-f0-9]{64}$/.test(a.image.sha256) && ['image/jpeg','image/png','image/webp'].includes(a.image.mime)
+      && Number.isSafeInteger(a.image.width) && a.image.width > 0 && Number.isSafeInteger(a.image.height) && a.image.height > 0
+      && time(a.image.verified_at) && rights(a.image.rights) && a.image.rights.status !== 'unknown'))
+    && new TextEncoder().encode(JSON.stringify(a)).length <= 65536;
   const validate = doc => {
     if (!doc || typeof doc !== 'object') return 'corrupt';
     if (doc.schema_version !== VERSION) return Number.isSafeInteger(doc.schema_version) && doc.schema_version > VERSION ? 'version' : 'corrupt';
@@ -60,6 +80,9 @@ const DB_SCRIPT := """
     saveIfAbsent(artworkJson, savedAt, done) {
       const send = once(done); let incoming;
       try { incoming = JSON.parse(artworkJson); } catch (_) { send(fail('collection_data.storage_write_failed', 'Artwork could not be stored')); return; }
+      if (!artwork(incoming) || !Number.isSafeInteger(savedAt) || savedAt < 0) {
+        send(fail('collection_data.storage_write_failed', 'Artwork could not be stored')); return;
+      }
       open().then(db => new Promise((resolve, reject) => {
         let tx;
         try { tx = db.transaction(STORE, 'readwrite', {durability: 'strict'}); }

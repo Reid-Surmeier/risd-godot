@@ -49,6 +49,7 @@ var reference_list := HBoxContainer.new()
 var saved_ids: Array = []
 var selected_reference := ""
 var storage_status := "loading"
+var refresh_generation := 0
 
 
 static func create(deps: Dictionary) -> Dictionary:
@@ -156,9 +157,11 @@ func _reference_style(color: Color) -> StyleBoxFlat:
 func _refresh_references() -> void:
 	if not is_visible_in_tree() or data_handle == null:
 		return
+	refresh_generation += 1
+	var current := refresh_generation
 	storage_status = "loading"
 	var started := Data.saved(data_handle, func(result: Dictionary) -> void:
-		if not is_instance_valid(reference_list):
+		if current != refresh_generation or not is_visible_in_tree() or not is_instance_valid(reference_list):
 			return
 		for child in reference_list.get_children():
 			child.queue_free()
@@ -174,7 +177,7 @@ func _refresh_references() -> void:
 		for item in result.value.items:
 			saved_ids.append(item.artwork.id)
 			reference_list.add_child(_reference_card(item.artwork)))
-	if not started.ok:
+	if not started.ok and current == refresh_generation and is_visible_in_tree():
 		storage_status = "error"
 
 
@@ -195,12 +198,19 @@ func _reference_card(artwork: Dictionary) -> Control:
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 8)
 	card.add_child(row)
+	var image_column := VBoxContainer.new()
+	row.add_child(image_column)
 	var image := TextureRect.new()
 	image.name = "ReferenceImage"
 	image.custom_minimum_size = Vector2(110, 120)
 	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	row.add_child(image)
+	image_column.add_child(image)
+	var unavailable := _reference_label("IMAGE UNAVAILABLE")
+	unavailable.name = "ReferenceImageUnavailable"
+	unavailable.visible = false
+	unavailable.add_theme_font_size_override("font_size", 11)
+	image_column.add_child(unavailable)
 	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
 	var label := _reference_label("%s\n%s\n%s" % [artwork.title if artwork.title != "" else "Untitled", maker, artwork.id])
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -211,27 +221,37 @@ func _reference_card(artwork: Dictionary) -> Control:
 			selected_reference = artwork.id
 			_refresh_references())
 	if artwork.image != null:
-		_load_reference_image(artwork.image, image)
+		_load_reference_image(artwork.image, image, unavailable)
 	else:
-		image.tooltip_text = "IMAGE UNAVAILABLE"
+		unavailable.visible = true
 	return card
 
 
-func _load_reference_image(manifest: Dictionary, target: TextureRect) -> void:
+func _load_reference_image(manifest: Dictionary, target: TextureRect, unavailable: Label) -> void:
+	var page_id := get_instance_id()
 	var target_id := target.get_instance_id()
+	var unavailable_id := unavailable.get_instance_id()
 	image_fetch.call(manifest.sha256, func(result: Dictionary) -> void:
+		var live_page := instance_from_id(page_id) as Control
 		var live_target := instance_from_id(target_id) as TextureRect
-		if not result.ok or live_target == null:
+		var live_unavailable := instance_from_id(unavailable_id) as Label
+		if live_page == null or not live_page.is_visible_in_tree() or live_target == null or live_unavailable == null:
+			return
+		if not result.ok:
+			live_unavailable.visible = true
 			return
 		var context := HashingContext.new()
 		context.start(HashingContext.HASH_SHA256)
 		context.update(result.value)
 		if context.finish().hex_encode() != manifest.sha256:
+			live_unavailable.visible = true
 			return
 		var decoded := Image.new()
 		var status := decoded.load_jpg_from_buffer(result.value) if manifest.mime == "image/jpeg" else (decoded.load_png_from_buffer(result.value) if manifest.mime == "image/png" else decoded.load_webp_from_buffer(result.value))
 		if status == OK:
-			live_target.texture = ImageTexture.create_from_image(decoded))
+			live_target.texture = ImageTexture.create_from_image(decoded)
+		else:
+			live_unavailable.visible = true)
 
 
 func _place(window: Control, slot: Rect2) -> void:
@@ -315,8 +335,10 @@ func state() -> Dictionary:
 	for child in reference_list.get_children():
 		if child is PanelContainer and child.has_meta("artwork_id"):
 			var reference_image := child.find_child("ReferenceImage", true, false) as TextureRect
+			var unavailable := child.find_child("ReferenceImageUnavailable", true, false) as Label
 			reference_cards.append({"id": child.get_meta("artwork_id"), "rect": _global_rect(child),
-					"has_texture": reference_image != null and reference_image.texture != null})
+					"has_texture": reference_image != null and reference_image.texture != null,
+					"image_unavailable": unavailable != null and unavailable.visible})
 	s.erase("pointer")
 	s.erase("page_rect")
 	s.merge({"key": key, "ticks": ticks, "inputs": inputs, "size": size, "desktop_scale": desktop.scale.x,

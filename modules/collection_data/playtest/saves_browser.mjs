@@ -36,8 +36,8 @@ function watch(page) {
   });
 }
 
-async function ready(page, url = target) {
-  watch(page);
+async function ready(page, url = target, collectErrors = true) {
+  if (collectErrors) watch(page);
   await page.goto(url.href);
   try {
     await page.waitForFunction(() => window.shellCrtQa?.shell.active === 4
@@ -137,6 +137,8 @@ try {
   for (const invalid of [
     {schema_version: 1, revision: -1, items: []},
     {schema_version: 2, revision: committed.revision, items: committed.items},
+    {schema_version: 1, revision: committed.revision, items: [{...committed.items[0],
+      artwork: {...committed.items[0].artwork, source_url: 'https://example.com/not-risd'}}]},
   ]) {
     await document(first, invalid);
     await expectSaveError(first, failureIndex);
@@ -221,13 +223,26 @@ try {
   assert.equal(retained.tenant.brush_color, painted.tenant.brush_color);
   await reopened.screenshot({path: out + '/04-sketchbook-painted.png'});
 
+  const offline = await context.newPage();
+  await offline.route('**/api/collection/image/*', route => route.abort());
+  await ready(offline, reopenTarget, false);
+  await openTab(offline, 5);
+  await offline.waitForFunction(ids => ids.every(id => window.shellCrtQa.tenant.saved_ids?.includes(id))
+    && window.shellCrtQa.tenant.saved_images_unavailable === ids.length, [firstId, secondId]);
+  await offline.screenshot({path: out + '/07-playground-offline.png'});
+  await openTab(offline, 1);
+  await offline.waitForFunction(ids => ids.every(id => window.shellCrtQa.tenant.saved_ids?.includes(id))
+    && window.shellCrtQa.tenant.reference_cards.every(card => card.image_unavailable), [firstId, secondId]);
+  await offline.screenshot({path: out + '/08-sketchbook-offline.png'});
+  await offline.close();
+
   assert.deepEqual(errors, []);
   const report = {status: 'pass', url: process.argv[2], reopened_url: process.argv[4] || process.argv[2],
     viewport: [viewportWidth, viewportHeight],
     saved_ids: [firstId, secondId], concurrent_windows: true, persisted_after_browser_restart: true,
     persisted_after_build_update: Boolean(process.argv[4]),
     rejected_without_overwrite: ['denied', 'quota', 'aborted', 'corrupt', 'newer-version'],
-    drawing_state_retained: true,
+    drawing_state_retained: true, offline_metadata_visible: true,
     playground_ids: playground.tenant.saved_ids, sketchbook_ids: sketchbook.tenant.saved_ids, errors};
   writeFileSync(out + '/report.json', JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify(report));

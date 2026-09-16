@@ -54,6 +54,7 @@ var saved_body := ColorRect.new()
 var saved_list := VBoxContainer.new()
 var saved_ids: Array = []
 var storage_status := "loading"
+var refresh_generation := 0
 
 
 static func create(deps: Dictionary) -> Dictionary:
@@ -158,9 +159,11 @@ func _fit() -> void:
 func _refresh_saved() -> void:
 	if not is_visible_in_tree() or data_handle == null:
 		return
+	refresh_generation += 1
+	var current := refresh_generation
 	storage_status = "loading"
 	var started := Data.saved(data_handle, func(result: Dictionary) -> void:
-		if not is_instance_valid(saved_list):
+		if current != refresh_generation or not is_visible_in_tree() or not is_instance_valid(saved_list):
 			return
 		for child in saved_list.get_children():
 			child.queue_free()
@@ -176,7 +179,7 @@ func _refresh_saved() -> void:
 		for item in result.value.items:
 			saved_ids.append(item.artwork.id)
 			saved_list.add_child(_saved_card(item.artwork)))
-	if not started.ok:
+	if not started.ok and current == refresh_generation and is_visible_in_tree():
 		storage_status = "error"
 
 
@@ -191,12 +194,19 @@ func _saved_label(value: String) -> Label:
 func _saved_card(artwork: Dictionary) -> Control:
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 10)
+	var image_column := VBoxContainer.new()
+	row.add_child(image_column)
 	var image := TextureRect.new()
 	image.name = "SavedImage"
 	image.custom_minimum_size = Vector2(110, 82)
 	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	row.add_child(image)
+	image_column.add_child(image)
+	var unavailable := _saved_label("IMAGE UNAVAILABLE")
+	unavailable.name = "SavedImageUnavailable"
+	unavailable.visible = false
+	unavailable.add_theme_font_size_override("font_size", 11)
+	image_column.add_child(unavailable)
 	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
 	var label := _saved_label("%s\n%s\n%s\n%s" % [artwork.title if artwork.title != "" else "Untitled", maker,
 			artwork.id, artwork.credit if artwork.credit != "" else "Credit unavailable"])
@@ -204,27 +214,37 @@ func _saved_card(artwork: Dictionary) -> Control:
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(label)
 	if artwork.image == null:
-		image.tooltip_text = "IMAGE UNAVAILABLE"
+		unavailable.visible = true
 	else:
-		_load_saved_image(artwork.image, image)
+		_load_saved_image(artwork.image, image, unavailable)
 	return row
 
 
-func _load_saved_image(manifest: Dictionary, target: TextureRect) -> void:
+func _load_saved_image(manifest: Dictionary, target: TextureRect, unavailable: Label) -> void:
+	var page_id := get_instance_id()
 	var target_id := target.get_instance_id()
+	var unavailable_id := unavailable.get_instance_id()
 	image_fetch.call(manifest.sha256, func(result: Dictionary) -> void:
+		var live_page := instance_from_id(page_id) as Control
 		var live_target := instance_from_id(target_id) as TextureRect
-		if not result.ok or live_target == null:
+		var live_unavailable := instance_from_id(unavailable_id) as Label
+		if live_page == null or not live_page.is_visible_in_tree() or live_target == null or live_unavailable == null:
+			return
+		if not result.ok:
+			live_unavailable.visible = true
 			return
 		var context := HashingContext.new()
 		context.start(HashingContext.HASH_SHA256)
 		context.update(result.value)
 		if context.finish().hex_encode() != manifest.sha256:
+			live_unavailable.visible = true
 			return
 		var decoded := Image.new()
 		var status := decoded.load_jpg_from_buffer(result.value) if manifest.mime == "image/jpeg" else (decoded.load_png_from_buffer(result.value) if manifest.mime == "image/png" else decoded.load_webp_from_buffer(result.value))
 		if status == OK:
-			live_target.texture = ImageTexture.create_from_image(decoded))
+			live_target.texture = ImageTexture.create_from_image(decoded)
+		else:
+			live_unavailable.visible = true)
 
 
 ## The PostPet picture band by band at the uniform scale; in each band only its one-pixel column takes
@@ -289,10 +309,15 @@ func state() -> Dictionary:
 				"drag_height": -1.0 if is_inf(drag) else drag})
 	list.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return a.order < b.order)
 	var saved_images_loaded := 0
+	var saved_images_unavailable := 0
 	for image in saved_list.find_children("SavedImage", "TextureRect", true, false):
 		if image.texture != null:
 			saved_images_loaded += 1
+	for unavailable in saved_list.find_children("SavedImageUnavailable", "Label", true, false):
+		if unavailable.visible:
+			saved_images_unavailable += 1
 	return Errors.ok({"key": key, "ticks": ticks, "inputs": inputs, "size": size, "factor": factor,
 			"desktop": DESKTOP, "margin": MARGIN, "action": action, "windows": list,
 			"saved_ids": saved_ids.duplicate(), "saved_images_loaded": saved_images_loaded,
+			"saved_images_unavailable": saved_images_unavailable,
 			"storage_status": storage_status})
