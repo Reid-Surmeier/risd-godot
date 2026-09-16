@@ -179,6 +179,8 @@ try {
   await openTab(reopened, 5);
   await reopened.waitForFunction(ids => ids.every(id => window.shellCrtQa.tenant.saved_ids?.includes(id))
     && window.shellCrtQa.tenant.saved_images_loaded === ids.length, [firstId, secondId]);
+  const upgradedPlayground = await state(reopened);
+  await reopened.screenshot({path: out + '/01-playground-saved.png'});
   await openTab(reopened, 1);
   await reopened.waitForFunction(ids => ids.every(id => window.shellCrtQa.tenant.saved_ids?.includes(id))
     && window.shellCrtQa.tenant.reference_cards.every(card => card.has_texture), [firstId, secondId]);
@@ -243,7 +245,7 @@ try {
     persisted_after_build_update: Boolean(process.argv[4]),
     rejected_without_overwrite: ['denied', 'quota', 'aborted', 'corrupt', 'newer-version'],
     drawing_state_retained: true, offline_metadata_visible: true,
-    playground_ids: playground.tenant.saved_ids, sketchbook_ids: sketchbook.tenant.saved_ids, errors};
+    playground_ids: upgradedPlayground.tenant.saved_ids, sketchbook_ids: sketchbook.tenant.saved_ids, errors};
   writeFileSync(out + '/report.json', JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify(report));
 } finally {

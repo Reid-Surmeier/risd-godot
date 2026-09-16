@@ -1,7 +1,7 @@
 {
   "status": "pass",
-  "url": "https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/773a594.html",
-  "reopened_url": "https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/773a594.html",
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/c15e184.html",
+  "reopened_url": "https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/c15e184.html",
   "viewport": [
     720,
     486
@@ -21,6 +21,7 @@
     "newer-version"
   ],
   "drawing_state_retained": true,
+  "offline_metadata_visible": true,
   "playground_ids": [
     "risd:1377691",
     "risd:1584511"
