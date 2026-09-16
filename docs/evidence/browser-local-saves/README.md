@@ -16,8 +16,8 @@
 
 ![Sketchbook preserves references when images are offline](08-sketchbook-offline.png)
 
-Exact tested builds: save in `5133271.html`, then reopen in corrected `c15e184.html` on the retained
-`risd-desktop-godot-f57d02de` origin.
+Exact tested builds: save in `5133271.html`, reopen in `c15e184.html`, then verify the corrected
+Playground content clipping in `5554d87.html` on the retained `risd-desktop-godot-f57d02de` origin.
 
 The Playwright journey opened two game pages, saved a different RISD artwork from each at the same
 time, verified both committed records and images in Playground and Sketchbook, closed Chrome, then
@@ -28,7 +28,9 @@ that each leaves the committed document unchanged and never reports `Saved`.
 On the corrected build it selects a saved reference, chooses pigment, paints, changes reference,
 turns forward and back, switches Tabs, and verifies the reference, stroke, pigment and spread remain.
 It blocks image requests and verifies that both destinations retain artwork metadata and show
-`IMAGE UNAVAILABLE`. The same journey passes at 720×486; `report-720x486.json` records that run.
+`IMAGE UNAVAILABLE`. The same journey passes on `5554d87.html` at 720×486;
+`report-720x486.json` records that run. The saved-work surface stays inside the blank center so the
+RISD header, colorful frame, side controls and bottom information panel remain visible.
 
 The pinned `/risd-collection-browser/index.html` landing-path proof remains blocked by issue #77:
 the approved share tool publishes only session-suffixed paths and forbids hand-written Tailscale
