@@ -62,7 +62,7 @@ if (process.argv.includes('--refresh')) {
   }));
   console.info(JSON.stringify({refresh: updated}));
 }
-const mime: Record<string,string> = {'.html':'text/html; charset=utf-8','.js':'application/javascript','.wasm':'application/wasm','.pck':'application/octet-stream','.png':'image/png','.ico':'image/x-icon','.json':'application/json'};
+const mime: Record<string,string> = {'.html':'text/html; charset=utf-8','.js':'application/javascript','.wasm':'application/wasm','.pck':'application/octet-stream','.png':'image/png','.ico':'image/x-icon','.json':'application/json','.glb':'model/gltf-binary'};
 const server = createServer(async (request, response) => {
   const headers = {'cross-origin-opener-policy':'same-origin','cross-origin-embedder-policy':'require-corp','x-content-type-options':'nosniff'};
   const send = (status: number, body: unknown) => {response.writeHead(status, {...headers, 'content-type':'application/json', 'cache-control':'no-store'}); response.end(JSON.stringify(body));};
