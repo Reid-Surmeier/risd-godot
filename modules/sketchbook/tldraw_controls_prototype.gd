@@ -32,6 +32,7 @@ func _ready() -> void:
 	title.position = Vector2(9, 3)
 	title.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	title.add_theme_font_size_override("font_size", 13)
+	title.add_theme_color_override("font_color", Color("26374a"))
 	title_bar.add_child(title)
 	var actions := HBoxContainer.new()
 	column.add_child(actions)
@@ -56,6 +57,7 @@ func _ready() -> void:
 	var opacity_label := Label.new()
 	opacity_label.text = "Opacity"
 	opacity_label.custom_minimum_size = Vector2(58, 0)
+	opacity_label.add_theme_color_override("font_color", Color("26374a"))
 	opacity_row.add_child(opacity_label)
 	opacity_slider.min_value = 0
 	opacity_slider.max_value = OPACITIES.size() - 1
