@@ -53,7 +53,9 @@ var _start_position := Vector2.ZERO
 var data_handle: Variant
 var image_fetch: Callable
 var saved_body := ColorRect.new()
-var saved_list: Container
+var saved_list: Control
+var gallery_scroll: ScrollContainer
+var gallery_overlay: ColorRect
 var saved_ids: Array = []
 var storage_status := "loading"
 var refresh_generation := 0
@@ -123,14 +125,17 @@ func _ready() -> void:
 	saved_body.mouse_filter = Control.MOUSE_FILTER_STOP
 	saved_body.clip_contents = true
 	windows[0].add_child(saved_body)
-	saved_list = GridContainer.new() if show_gallery else VBoxContainer.new()
+	saved_list = Control.new() if show_gallery else VBoxContainer.new()
 	if show_gallery:
-		(saved_list as GridContainer).columns = 5
-		saved_list.add_theme_constant_override("h_separation", 6)
-		saved_list.add_theme_constant_override("v_separation", 6)
+		gallery_scroll = ScrollContainer.new()
+		gallery_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+		gallery_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+		gallery_scroll.add_child(saved_list)
+		saved_body.add_child(gallery_scroll)
+		_build_gallery_overlay()
 	else:
 		saved_list.add_theme_constant_override("separation", 8)
-	saved_body.add_child(saved_list)
+		saved_body.add_child(saved_list)
 	visibility_changed.connect(_refresh_saved)
 	resized.connect(_fit)
 	_fit()
@@ -174,16 +179,18 @@ func _fit() -> void:
 	saved_body.position = POSTPET_BODY.position * postpet_scale
 	var lower_right_inset := postpet_source - POSTPET_BODY.end
 	saved_body.size = (postpet.size - saved_body.position - lower_right_inset * postpet_scale).max(Vector2.ZERO)
-	saved_list.position = Vector2(10 * s, 8 * s)
-	saved_list.size = saved_body.size - Vector2(20 * s, 16 * s)
 	if show_gallery:
-		var gap := 6.0 * s
-		saved_list.add_theme_constant_override("h_separation", roundi(gap))
-		saved_list.add_theme_constant_override("v_separation", roundi(gap))
-		var cell := (saved_list.size - Vector2(gap * 4.0, gap * 4.0)) / 5.0
-		for child in saved_list.get_children():
-			child.custom_minimum_size = cell
+		gallery_scroll.position = Vector2(10 * s, 8 * s)
+		gallery_scroll.size = saved_body.size - Vector2(20 * s, 16 * s)
+		saved_list.custom_minimum_size.x = gallery_scroll.size.x
+		_fit_gallery_tiles()
+		if gallery_overlay != null:
+			gallery_overlay.position = Vector2(12 * s, 10 * s)
+			gallery_overlay.size = saved_body.size - Vector2(24 * s, 20 * s)
+			_layout_gallery_overlay()
 	else:
+		saved_list.position = Vector2(10 * s, 8 * s)
+		saved_list.size = saved_body.size - Vector2(20 * s, 16 * s)
 		for child in saved_list.get_children():
 			child.custom_minimum_size.x = saved_list.size.x
 	if websurfer != null:
@@ -260,34 +267,139 @@ func _show_gallery(generation: int, items: Array) -> void:
 	if not _gallery_current(generation):
 		return
 	for child in saved_list.get_children():
+		saved_list.remove_child(child)
 		child.queue_free()
 	saved_ids.clear()
 	storage_status = "ready"
 	for artwork in items.slice(0, 25):
 		saved_ids.append(artwork.id)
 		saved_list.add_child(_gallery_image(artwork))
-	_fit()
+	_fit_gallery_tiles()
 
 
 func _show_gallery_error() -> void:
 	storage_status = "error"
 	for child in saved_list.get_children():
+		saved_list.remove_child(child)
 		child.queue_free()
 	saved_list.add_child(_saved_label("Paintings unavailable"))
 
 
 func _gallery_image(artwork: Dictionary) -> Control:
-	var cell := Control.new()
+	var cell := PanelContainer.new()
 	cell.clip_contents = true
+	cell.mouse_filter = Control.MOUSE_FILTER_STOP
+	cell.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	var surface := StyleBoxFlat.new()
+	surface.bg_color = Color.WHITE
+	cell.add_theme_stylebox_override("panel", surface)
+	cell.set_meta("artwork", artwork)
+	cell.set_meta("aspect", maxf(0.2, float(artwork.image.get("width", 1)) / maxf(1.0, float(artwork.image.get("height", 1)))))
 	var image := TextureRect.new()
 	image.name = "SavedImage"
 	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	image.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	image.tooltip_text = "%s — %s" % [artwork.title, ", ".join(artwork.makers)]
 	cell.add_child(image)
+	var hover := ColorRect.new()
+	hover.name = "HoverMetadata"
+	hover.color = Color(0.04, 0.05, 0.06, 0.82)
+	hover.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	hover.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hover.visible = false
+	cell.add_child(hover)
+	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
+	var caption := _saved_label("%s\n%s%s" % [artwork.title if artwork.title != "" else "Untitled", maker,
+		" · " + artwork.dating if artwork.dating != "" else ""])
+	caption.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, 8)
+	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	caption.add_theme_color_override("font_color", Color.WHITE)
+	caption.add_theme_font_size_override("font_size", 12)
+	caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hover.add_child(caption)
+	cell.mouse_entered.connect(func() -> void: hover.visible = true)
+	cell.mouse_exited.connect(func() -> void: hover.visible = false)
+	cell.gui_input.connect(func(event: InputEvent) -> void:
+		if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			_expand_gallery_artwork(artwork)
+			get_viewport().set_input_as_handled())
 	_load_saved_image(artwork.image, image, null)
 	return cell
+
+
+func _fit_gallery_tiles() -> void:
+	if gallery_scroll == null:
+		return
+	var columns := 2 if gallery_scroll.size.x < 520 else 3
+	var gap := maxf(6.0, 8.0 * factor)
+	var width := floorf((gallery_scroll.size.x - gap * (columns - 1)) / columns)
+	var heights: Array[float] = []
+	heights.resize(columns)
+	heights.fill(0.0)
+	for child in saved_list.get_children():
+		if not child.has_meta("aspect"):
+			continue
+		var column := heights.find(heights.min())
+		var height := floorf(width / float(child.get_meta("aspect")))
+		child.position = Vector2(column * (width + gap), heights[column])
+		child.size = Vector2(width, height)
+		child.custom_minimum_size = child.size
+		heights[column] += height + gap
+	saved_list.custom_minimum_size = Vector2(gallery_scroll.size.x, heights.max() if not heights.is_empty() else 0.0)
+
+
+func _build_gallery_overlay() -> void:
+	gallery_overlay = ColorRect.new()
+	gallery_overlay.name = "ExpandedArtwork"
+	gallery_overlay.color = Color.WHITE
+	gallery_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+	gallery_overlay.visible = false
+	saved_body.add_child(gallery_overlay)
+	gallery_overlay.gui_input.connect(func(event: InputEvent) -> void:
+		if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			gallery_overlay.visible = false
+			get_viewport().set_input_as_handled())
+
+
+func _expand_gallery_artwork(artwork: Dictionary) -> void:
+	for child in gallery_overlay.get_children():
+		child.queue_free()
+	var image := TextureRect.new()
+	image.name = "ExpandedImage"
+	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	gallery_overlay.add_child(image)
+	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
+	var caption := _saved_label("%s — %s%s\nClick to close" % [artwork.title if artwork.title != "" else "Untitled", maker,
+		" · " + artwork.dating if artwork.dating != "" else ""])
+	caption.name = "ExpandedCaption"
+	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	gallery_overlay.add_child(caption)
+	_layout_gallery_overlay()
+	gallery_overlay.visible = true
+	gallery_overlay.move_to_front()
+	_load_saved_image(artwork.image, image, null)
+
+
+func _layout_gallery_overlay() -> void:
+	if gallery_overlay == null:
+		return
+	var image := gallery_overlay.get_node_or_null("ExpandedImage") as TextureRect
+	if image != null:
+		image.position = Vector2(10, 10)
+		image.size = gallery_overlay.size - Vector2(20, 64)
+	var caption := gallery_overlay.get_node_or_null("ExpandedCaption") as Label
+	if caption != null:
+		caption.position = Vector2(10, gallery_overlay.size.y - 50)
+		caption.size = Vector2(gallery_overlay.size.x - 20, 42)
 
 
 func _saved_label(value: String) -> Label:

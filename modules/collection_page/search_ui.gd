@@ -26,7 +26,7 @@ var next := Button.new()
 var status := Label.new()
 var count := Label.new()
 var scroll := ScrollContainer.new()
-var cards := HFlowContainer.new()
+var cards := Control.new()
 var details := PanelContainer.new()
 var font: Font
 var phase := "idle"
@@ -161,8 +161,6 @@ func _build_results() -> void:
 	scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
 	results.add_child(scroll)
 	cards.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	cards.add_theme_constant_override("h_separation", 8)
-	cards.add_theme_constant_override("v_separation", 8)
 	scroll.add_child(cards)
 	retry.name = "Retry"
 	retry.text = "Retry"
@@ -221,8 +219,8 @@ func _layout() -> void:
 	retry.position = Vector2(12, 44)
 	retry.size = Vector2(maxf(52, 90 * page.factor), maxf(20, 30 * page.factor))
 	retry.add_theme_font_size_override("font_size", page_font)
-	details.position = Vector2(results.size.x * 0.58, 34)
-	details.size = Vector2(results.size.x * 0.40, results.size.y - 42)
+	details.position = Vector2(8, 31)
+	details.size = Vector2(results.size.x - 16, results.size.y - 37)
 	var footer_height := maxf(22, 120 * page.pixel_scale)
 	footer.position = Vector2(6, page.frame.size.y - 6 - footer_height)
 	footer.size = Vector2(page.frame.size.x * 0.62, footer_height)
@@ -245,7 +243,10 @@ func _place(control: Control, rect: Rect2, scale: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
-		if sort.get_popup().visible:
+		if details.visible:
+			details.visible = false
+			selected = ""
+		elif sort.get_popup().visible:
 			sort.get_popup().hide()
 		elif category.get_popup().visible:
 			category.get_popup().hide()
@@ -429,31 +430,45 @@ func _card(artwork: Dictionary) -> PanelContainer:
 	card.focus_mode = Control.FOCUS_ALL
 	card.mouse_filter = Control.MOUSE_FILTER_STOP
 	card.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	card.add_theme_stylebox_override("panel", _field_style(Color("f6f7f7")))
-	var column := VBoxContainer.new()
-	column.add_theme_constant_override("separation", 2)
-	card.add_child(column)
+	var surface := StyleBoxFlat.new()
+	surface.bg_color = Color.WHITE
+	card.add_theme_stylebox_override("panel", surface)
 	var image := TextureRect.new()
 	image.name = "Image"
 	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	image.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	image.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	column.add_child(image)
+	card.add_child(image)
 	var missing := _label("IMAGE UNAVAILABLE")
 	missing.name = "ImageUnavailable"
 	missing.visible = artwork.image == null
 	missing.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	missing.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	missing.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	missing.add_theme_color_override("font_color", Color("6e7680"))
-	column.add_child(missing)
+	missing.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	card.add_child(missing)
 	if artwork.image != null:
 		_load_image(artwork.image, image, missing)
-	for text_value in _identity_lines(artwork):
-		var line := _label(text_value)
-		line.clip_text = true
-		line.tooltip_text = text_value
-		line.add_theme_font_size_override("font_size", maxi(7, roundi(12 * page.factor)))
-		column.add_child(line)
+	var hover := ColorRect.new()
+	hover.name = "HoverMetadata"
+	hover.color = Color(0.04, 0.05, 0.06, 0.82)
+	hover.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hover.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	hover.visible = false
+	card.add_child(hover)
+	var caption := _label(_hover_text(artwork))
+	caption.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, 8)
+	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	caption.add_theme_color_override("font_color", Color.WHITE)
+	caption.add_theme_font_size_override("font_size", maxi(8, roundi(13 * page.factor)))
+	caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hover.add_child(caption)
+	card.mouse_entered.connect(func() -> void: hover.visible = true)
+	card.mouse_exited.connect(func() -> void: hover.visible = false)
 	card.gui_input.connect(func(event: InputEvent) -> void:
 		if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			_select(artwork)
@@ -461,7 +476,20 @@ func _card(artwork: Dictionary) -> PanelContainer:
 			_select(artwork)
 			get_viewport().set_input_as_handled())
 	card.set_meta("artwork", artwork)
+	card.set_meta("aspect", _image_aspect(artwork))
 	return card
+
+
+func _image_aspect(artwork: Dictionary) -> float:
+	if artwork.image == null:
+		return 1.0
+	return maxf(0.2, float(artwork.image.get("width", 1)) / maxf(1.0, float(artwork.image.get("height", 1))))
+
+
+func _hover_text(artwork: Dictionary) -> String:
+	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
+	return "%s\n%s%s" % [artwork.title if artwork.title != "" else "Untitled", maker,
+		" · " + artwork.dating if artwork.dating != "" else ""]
 
 
 func _identity_lines(artwork: Dictionary) -> Array:
@@ -471,12 +499,21 @@ func _identity_lines(artwork: Dictionary) -> Array:
 
 
 func _layout_cards() -> void:
-	var columns := 2 if scroll.size.x < 700 else 3
-	var width := floorf((scroll.size.x - 8.0 * (columns - 1)) / columns)
-	var height := maxf(110, scroll.size.y - 6)
+	var columns := 2 if scroll.size.x < 600 else (3 if scroll.size.x < 1000 else 4)
+	var gap := 10.0
+	var width := floorf((scroll.size.x - gap * (columns - 1)) / columns)
+	var heights: Array[float] = []
+	heights.resize(columns)
+	heights.fill(0.0)
 	for child in cards.get_children():
 		if child is PanelContainer:
-			child.custom_minimum_size = Vector2(width, height)
+			var column := heights.find(heights.min())
+			var height := floorf(width / float(child.get_meta("aspect", 1.0)))
+			child.position = Vector2(column * (width + gap), heights[column])
+			child.size = Vector2(width, height)
+			child.custom_minimum_size = child.size
+			heights[column] += height + gap
+	cards.custom_minimum_size = Vector2(scroll.size.x, heights.max() if not heights.is_empty() else 0.0)
 
 
 func _select(artwork: Dictionary) -> void:
@@ -486,13 +523,38 @@ func _select(artwork: Dictionary) -> void:
 	save_message = ""
 	for child in details.get_children():
 		child.queue_free()
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 12)
+	details.add_child(row)
+	var image := TextureRect.new()
+	image.name = "ExpandedImage"
+	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	image.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	image.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	row.add_child(image)
+	var missing := _label("IMAGE UNAVAILABLE")
+	missing.visible = artwork.image == null
+	missing.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	missing.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	missing.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	missing.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	image.add_child(missing)
+	if artwork.image != null:
+		_load_image(artwork.image, image, missing)
 	var column := VBoxContainer.new()
+	column.custom_minimum_size.x = maxf(150, details.size.x * 0.30)
 	column.add_theme_constant_override("separation", 5)
-	details.add_child(column)
+	row.add_child(column)
+	var close := Button.new()
+	close.text = "Close"
+	close.pressed.connect(func() -> void:
+		details.visible = false
+		selected = "")
+	_theme_control(close)
+	column.add_child(close)
 	var lines := _identity_lines(artwork)
-	lines.push_front("SELECTED")
 	lines.append(artwork.category + " · " + artwork.materials)
-	lines.append(artwork.source_url)
 	for text_value in lines:
 		var line := _label(text_value)
 		line.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -509,6 +571,7 @@ func _select(artwork: Dictionary) -> void:
 	saved_label.add_theme_font_size_override("font_size", maxi(7, roundi(12 * page.factor)))
 	column.add_child(saved_label)
 	details.visible = true
+	details.move_to_front()
 	_refresh_selected_save_status(saved_label, save)
 
 
