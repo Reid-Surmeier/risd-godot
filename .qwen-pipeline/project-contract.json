@@ -20,37 +20,15 @@
       "mode": "muse-image",
       "provider": "openrouter",
       "model": "meta/muse-image",
-      "parameters": {
-        "size": "512x1024"
-      },
+      "parameters": { "size": "512x1024" },
       "maximumCount": 1,
       "unitCostUsd": "0.01",
       "referenceRequirements": [
-        {
-          "slot": "reference-000",
-          "kind": "image",
-          "payloadDestination": "/input_references/0/image_url/url"
-        },
-        {
-          "slot": "reference-001",
-          "kind": "image",
-          "payloadDestination": "/input_references/1/image_url/url"
-        },
-        {
-          "slot": "reference-002",
-          "kind": "image",
-          "payloadDestination": "/input_references/2/image_url/url"
-        },
-        {
-          "slot": "reference-003",
-          "kind": "image",
-          "payloadDestination": "/input_references/3/image_url/url"
-        },
-        {
-          "slot": "reference-004",
-          "kind": "image",
-          "payloadDestination": "/input_references/0/image_url/url"
-        }
+        { "slot": "reference-000", "kind": "image", "payloadDestination": "/input_references/0/image_url/url" },
+        { "slot": "reference-001", "kind": "image", "payloadDestination": "/input_references/1/image_url/url" },
+        { "slot": "reference-002", "kind": "image", "payloadDestination": "/input_references/2/image_url/url" },
+        { "slot": "reference-003", "kind": "image", "payloadDestination": "/input_references/3/image_url/url" },
+        { "slot": "reference-004", "kind": "image", "payloadDestination": "/input_references/4/image_url/url" }
       ]
     }
   ]

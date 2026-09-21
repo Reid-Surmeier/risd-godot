@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-425cac596c8257c13f24",
+  "summary": "The two reference images are authoritative. Reconstruct a single clean, reusable **Information** dialog template for a Godot artwork viewer. The first reference shows the desired final hierarchy: a light gray/white rectangular dialog with subtle bevel, centered black title `Information`, and one very large framed artwork page. The second reference provides the original RISD Information-window chrome and its inset page/scroll treatment.\n\nGenerate exactly one upright 1350 by 968 pixel template that fills the full canvas: no outer background, no drop shadow beyond the subtle original window bevel, no transparent margins, no people, no logos, no artwork, no video controls, no thumbnails, no copy, and no controls. It must remain an empty reusable shell, because Godot inserts the selected artwork into the page at runtime.\n\nAt the top center use the exact readable word `Information` in the reference's clean black UI font. Below it, create one large bright-white rectangular page region, framed with the same thin dark-gray and light-gray nested bevel lines from the references. The page needs a generous uninterrupted, perfectly flat white interior for an interchangeable painting. At the far right inside the frame, keep a separate slim light-gray vertical scrollbar rail with a small gray thumb, never overlapping or covering the page. Keep all geometry rectangular and straight: no warping, no rounded modern cards, no decorative colors, no black lower band, no blue chat-window chrome, and no anti-aliased text.\n",
+  "procedureId": "muse-425cac596c8257c13f24",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "image-work/artwork-popup-v4/references/painted-information-window.png",
+      "sha256": "68797078d43857006308479a4691f22bbb573a91d56fb5e8ac2f9aff39d1ed7d",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "image-work/artwork-popup-v4/references/original-information-window.png",
+      "sha256": "9a1f514059b7608ecc40e4bb80db7ed1db4c98dd840b99ca6034fa462ceb30e7",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "image-work/artwork-popup-v4/recipe.json",
+      "sha256": "425cac596c8257c13f24a0b89c70a8cc5c124ec00f4c5fc9bda0ab1898082b6a"
+    },
+    {
+      "applicationPath": "image-work/artwork-popup-v4/generation-preflight.json",
+      "sha256": "db776f671f8a58c8951d5178bc1df1d61d3320a55b08f0a8a1f5e996f5731c7f"
+    },
+    {
+      "applicationPath": "image-work/artwork-popup-v4/edit-prompt.txt",
+      "sha256": "3e5b7eaae0855b1c8c833721f877bb1f4378658cb48ba39107787d308be4ca0a"
+    }
+  ]
+}
