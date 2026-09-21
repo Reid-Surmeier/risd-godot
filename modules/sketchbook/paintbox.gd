@@ -20,7 +20,7 @@ const BRUSH_SHADER := preload("res://modules/sketchbook/assets/paintbox/brush-ti
 const TITLE_HEIGHT := 22.0
 const BORDER := 4.0
 const ANRI_PALETTE_SOURCE := Rect2(68, 108, 398, 365)
-const ANRI_PALETTE_POSITION := Vector2(0.105, 0.42)
+const ANRI_PALETTE_POSITION := Vector2(0.105, 0.45)
 const ANRI_PALETTE_WIDTH := 0.79
 const WELL_START_X := 95.0 / 532.0
 const WELL_STEP_X := 23.0 / 532.0
@@ -156,15 +156,15 @@ func _layout() -> void:
 		var palette_width := interior_size.x * ANRI_PALETTE_WIDTH
 		image_rect = Rect2(tool_reference.position + ANRI_PALETTE_POSITION * interior_size,
 				Vector2(palette_width, palette_width * ANRI_PALETTE_SOURCE.size.y / ANRI_PALETTE_SOURCE.size.x))
-		brush_stage.position = tool_reference.position + Vector2(0, interior_size.y * 0.79)
-		brush_stage.size = Vector2(interior_size.x, interior_size.y * 0.21)
+		brush_stage.position = tool_reference.position + Vector2(0, interior_size.y * 0.82)
+		brush_stage.size = Vector2(interior_size.x, interior_size.y * 0.18)
 	else:
 		tool_reference.size = Vector2.ZERO
 		brush_stage.size = Vector2.ZERO
 		var available := size - Vector2(BORDER * 2.0, TITLE_HEIGHT + BORDER * 2.0)
 		var side := minf(available.x, available.y - 104.0)
 		image_rect = Rect2(Vector2((size.x - side) / 2.0, TITLE_HEIGHT + BORDER), Vector2(side, side))
-	var rest_center := tool_reference.position + Vector2(tool_reference.size.x * 0.5, tool_reference.size.y * 0.89) if anri_mode else Vector2(size.x * 0.5, image_rect.end.y + 52.0)
+	var rest_center := tool_reference.position + Vector2(tool_reference.size.x * 0.5, tool_reference.size.y * 0.96) if anri_mode else Vector2(size.x * 0.5, image_rect.end.y + 52.0)
 	brush_rest.size = Vector2(112, 108) if anri_mode else Vector2(92, 90)
 	brush_rest.position = rest_center - brush_rest.size * 0.5
 	brush_rest.visible = true

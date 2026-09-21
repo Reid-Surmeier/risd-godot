@@ -47,11 +47,17 @@ await page.mouse.move(800, 900);
 await page.waitForTimeout(250);
 const after = await page.screenshot({ clip: tray });
 state = await page.evaluate(() => window.shellCrtQa.tenant);
+const parkedBrush = state.parked_brush_rect;
+const paintbox = state.paintbox_rect;
+const paletteToBrushGap = parkedBrush[1] - (palette[1] + palette[3]);
+const paletteTopRatio = (palette[1] - paintbox[1]) / paintbox[3];
 
 assert.ok(state.paint_pixels > 0, 'tray records paint');
 assert.ok(state.mix_count > 0, 'tray records mixed pigment');
 assert.notDeepEqual(after, before, 'mixed paint is visible on the tray');
 assert.ok(Math.abs(palette[2] / palette[3] - 398 / 365) < 0.01, 'palette keeps its original aspect');
+assert.ok(paletteTopRatio >= 0.44, `white gap above palette is preserved (${paletteTopRatio})`);
+assert.ok(paletteToBrushGap >= 12, `brush clears palette by 12 px (${paletteToBrushGap})`);
 if (process.argv[3]) await page.screenshot({ path: process.argv[3] });
 console.log(`anri browser: PASS (${state.paint_pixels} painted pixels, ${state.mix_count} mixes)`);
 await browser.close();

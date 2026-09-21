@@ -60,6 +60,7 @@ func _run() -> void:
 			visible_top_tray.end - Vector2(visible_top_tray.size.x * 0.5, 8))
 	_check(box.qa_state().mix_count > 0, "visible_muse_tray_mixes_two_pigments")
 	_check(is_equal_approx(box.image_rect.size.aspect(), box.ANRI_PALETTE_SOURCE.size.aspect()), "palette_keeps_original_aspect")
+	_check(box.parked_brush.position.y - box.image_rect.end.y >= 12.0, "brush_clears_palette_base")
 	_check(box.parked_brush.visible, "brush_starts_on_cat")
 	box.set_brush_active(true)
 	_check(not box.parked_brush.visible, "brush_lifts_from_cat")
