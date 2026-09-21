@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-c1cb7c95e12cbcf0c806",
+  "summary": "Reference image: a close crop of a low-resolution late-1990s pixel chat window. Reconstruct its window treatment as a clean, upright, empty artwork-viewer window only. Preserve the reference's pale blue title-bar gradient, thin dark-blue outline, white body, slim right-side scrollbar with pale track and blue arrow caps, and coarse nearest-neighbour pixel edges. Do not include any chat messages, text input, logos, labels, close buttons, icons, photographs, paintings, people, or text anywhere.\n\nMake a tall, empty, full-frame window at 1180 by 920 pixels. The title bar is blank. The body is an off-white content area sized to hold an inserted painting. Keep a 28-pixel-wide scrollbar down the full right edge, with a small blue thumb near the top. The result is a reconstruction reference for a Godot prototype, not a finished interface: exact text and painting will be overlaid in code. No anti-aliasing, no glossy effects, no drop shadows, no rounded modern UI.\n",
+  "procedureId": "muse-c1cb7c95e12cbcf0c806",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "image-work/artwork-popup-v2/references/chatroom-scrollbar-reference.png",
+      "sha256": "7df7f1a9f0d1055d06ba98f4e84b34e76b3549682593a159e47bc17e522fc976",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "image-work/artwork-popup-v2/recipe.json",
+      "sha256": "c1cb7c95e12cbcf0c806759331dc3bc3fc2b11b13c2e2c5ef659c222e6d3f290"
+    },
+    {
+      "applicationPath": "image-work/artwork-popup-v2/generation-preflight.json",
+      "sha256": "f08d86712eec5285cedf713af1921f0cd832fbf1b12a1ce6e075610da34371f1"
+    },
+    {
+      "applicationPath": "image-work/artwork-popup-v2/edit-prompt.txt",
+      "sha256": "89f51732b218003859ca7fa00d484dd9afde06853105bba4341799468c11f789"
+    }
+  ]
+}

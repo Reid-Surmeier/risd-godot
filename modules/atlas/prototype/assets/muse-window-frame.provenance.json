@@ -1,0 +1,9 @@
+{
+  "asset": "muse-window-frame.webp",
+  "source": "image-work/artwork-popup-v2/artifacts/runs/run-60e54cbec135a15eb331edaf/materialized/image-01.webp",
+  "sourceSha256": "bd4fb31ab2d08f3c5267982d9a00038df38eb404b88fd4543db0b1c097ddaf35",
+  "provider": "OpenRouter / meta/muse-image",
+  "actualCostUsd": "0.010000",
+  "purpose": "Throwaway atlas artwork-popup v2 window-frame reconstruction",
+  "visualReview": "Inspected against the supplied chat-window reference: accepted as a prototype frame; exact text and artworks are rendered separately."
+}
