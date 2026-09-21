@@ -25,28 +25,36 @@ func _ready() -> void:
 	clip_contents = true
 	body.name = "Messages"
 	body.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	body.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+	body.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
 	body.add_theme_stylebox_override("panel", _flat(Color.WHITE))
 	add_child(body)
-	messages.add_theme_constant_override("separation", 2)
+	messages.add_theme_constant_override("separation", 1)
 	body.add_child(messages)
-	for line in ["Sebas*: A Dürer print!", "SakumaRiri: The Large Horse?", "ANRI: At RISD? Nice!", "Show_A: Love the detail!"]:
-		_add_text(line, false)
+	for line in [["Sebas*: A Dürer print!", Color("009740")], ["SakumaRiri: The Large Horse?", Color("1837e4")],
+			["ANRI: At RISD? Nice!", Color("17264f")], ["Show_A: Love the detail!", Color("be1622")],
+			["Viewing RISD's collection.", Color("ef0b0b")]]:
+		_add_text(line[0], line[1], false)
 	input.name = "MessageInput"
-	input.placeholder_text = "Message"
 	input.add_theme_font_override("font", FONT)
+	input.add_theme_font_size_override("font_size", 12)
+	input.add_theme_color_override("font_color", Color("17264f"))
+	input.add_theme_color_override("caret_color", Color("17264f"))
+	for style in ["normal", "focus", "read_only"]:
+		input.add_theme_stylebox_override(style, StyleBoxEmpty.new())
 	input.text_submitted.connect(func(_value): _post_text())
+	input.focus_entered.connect(func(): input.placeholder_text = "")
 	add_child(input)
 	attach.name = "AttachImage"
-	attach.text = "+"
 	attach.tooltip_text = "Post an image"
 	attach.pressed.connect(_pick_image)
 	add_child(attach)
 	send.name = "SendMessage"
-	send.text = "↑"
 	send.tooltip_text = "Send message"
 	send.pressed.connect(_post_text)
 	add_child(send)
+	for button in [attach, send]:
+		for style in ["normal", "hover", "pressed", "focus", "disabled"]:
+			button.add_theme_stylebox_override(style, StyleBoxEmpty.new())
 	if OS.has_feature("web"):
 		_web_callback_name = "risdChatImage%d" % get_instance_id()
 		_web_picker_id = "risd-chat-picker-%d" % get_instance_id()
@@ -71,20 +79,15 @@ func _notification(what: int) -> void:
 
 
 func _layout() -> void:
-	body.position = Vector2(size.x * 0.018, size.y * 0.125)
-	body.size = Vector2(size.x * 0.925, size.y * 0.68)
+	body.position = Vector2(size.x * 0.025, size.y * 0.125)
+	body.size = Vector2(size.x * 0.89, size.y * 0.68)
 	messages.custom_minimum_size.x = maxf(0.0, body.size.x - 10.0)
 	input.position = Vector2(size.x * 0.025, size.y * 0.845)
-	input.size = Vector2(size.x * 0.785, size.y * 0.115)
-	attach.position = Vector2(size.x * 0.815, size.y * 0.845)
-	attach.size = Vector2(size.x * 0.07, size.y * 0.115)
-	send.position = Vector2(size.x * 0.89, size.y * 0.845)
-	send.size = Vector2(size.x * 0.075, size.y * 0.115)
-	var font_size := maxi(8, roundi(size.x / 32.0))
-	input.add_theme_font_size_override("font_size", font_size)
-	for button in [attach, send]:
-		button.add_theme_font_override("font", FONT)
-		button.add_theme_font_size_override("font_size", font_size)
+	input.size = Vector2(size.x * 0.875, size.y * 0.115)
+	attach.position = Vector2(size.x * 0.012, size.y * 0.018)
+	attach.size = Vector2(size.x * 0.075, size.y * 0.085)
+	send.position = Vector2(size.x * 0.925, size.y * 0.845)
+	send.size = Vector2(size.x * 0.04, size.y * 0.115)
 	call_deferred("_sync_web_picker")
 
 
@@ -93,19 +96,19 @@ func _post_text() -> void:
 	if value.is_empty():
 		input.placeholder_text = "Type a message"
 		return
-	_add_text("You: " + value)
+	_add_text("You: " + value, Color("17264f"))
 	text_posts += 1
 	input.clear()
-	input.placeholder_text = "Message"
+	input.placeholder_text = ""
 
 
-func _add_text(value: String, scroll_to_end := true) -> void:
+func _add_text(value: String, color: Color, scroll_to_end := true) -> void:
 	var label := Label.new()
 	label.text = value
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	label.add_theme_font_override("font", FONT)
-	label.add_theme_font_size_override("font_size", 10)
-	label.add_theme_color_override("font_color", Color("17264f"))
+	label.add_theme_font_size_override("font_size", 12)
+	label.add_theme_color_override("font_color", color)
 	messages.add_child(label)
 	if scroll_to_end:
 		call_deferred("_scroll_bottom")
@@ -137,6 +140,7 @@ func _setup_web_picker() -> void:
 		input.type = 'file';
 		input.accept = 'image/png,image/jpeg,image/webp';
 		input.setAttribute('aria-label', 'Post an image');
+		input.title = 'Post an image';
 		Object.assign(input.style, { position: 'fixed', opacity: '0', zIndex: '2147483647', cursor: 'pointer' });
 		input.onchange = () => {
 			const file = input.files && input.files[0];
@@ -209,7 +213,7 @@ func _post_image_bytes(bytes: PackedByteArray, mime: String) -> void:
 	var label := Label.new()
 	label.text = "You posted an image"
 	label.add_theme_font_override("font", FONT)
-	label.add_theme_font_size_override("font_size", 10)
+	label.add_theme_font_size_override("font_size", 12)
 	label.add_theme_color_override("font_color", Color("17264f"))
 	card.add_child(label)
 	var preview := TextureRect.new()
@@ -220,7 +224,7 @@ func _post_image_bytes(bytes: PackedByteArray, mime: String) -> void:
 	card.add_child(preview)
 	messages.add_child(card)
 	image_posts += 1
-	input.placeholder_text = "Message"
+	input.placeholder_text = ""
 	call_deferred("_scroll_bottom")
 
 

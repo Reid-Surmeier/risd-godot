@@ -20,6 +20,12 @@ func _run() -> void:
 	root.add_child(chat)
 	chat.size = Vector2(320, 150)
 	await process_frame
+	_check(chat.input.get_theme_stylebox("normal") is StyleBoxEmpty, "original_input_pixels_remain_visible")
+	_check(chat.attach.text.is_empty() and chat.send.text.is_empty(), "original_chat_icons_remain_visible")
+	_check(chat.body.vertical_scroll_mode == ScrollContainer.SCROLL_MODE_SHOW_NEVER, "original_blue_scrollbar_remains_visible")
+	var first_message := chat.messages.get_child(0) as Label
+	_check(first_message.get_theme_font_size("font_size") == 12, "original_message_size_is_preserved")
+	_check(first_message.get_theme_color("font_color").is_equal_approx(Color("009740")), "original_speaker_color_is_preserved")
 	chat.input.text = "hello RISD"
 	chat.input.text_submitted.emit(chat.input.text)
 	_check(chat.qa_state().text_posts == 1, "enter_posts_text")
