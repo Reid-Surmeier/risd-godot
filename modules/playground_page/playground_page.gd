@@ -17,6 +17,7 @@ extends ColorRect
 const Errors := preload("res://modules/playground_page/errors.gd")
 const Data := preload("res://modules/collection_data/interface.gd")
 const ROOT := "res://modules/playground_page/"
+const WEBSURFER_ASSET := ROOT + "assets/websurfer-window.webp"
 const DESKTOP := Vector2(2171, 1185)
 const MARGIN := 24.0
 # The PostPet picture's bands (source rows) and the column each band stretches at: a column where the
@@ -56,16 +57,22 @@ var saved_list := VBoxContainer.new()
 var saved_ids: Array = []
 var storage_status := "loading"
 var refresh_generation := 0
+var show_websurfer := false
+var websurfer: Control
+var interactive_windows: Array[Control] = []
 
 
 static func create(deps: Dictionary) -> Dictionary:
 	for entry in WINDOWS:
 		if not ResourceLoader.exists(ROOT + "assets/" + entry[1]):
 			return Errors.err(Errors.ASSET_MISSING, ROOT + "assets/" + entry[1])
+	if deps.get("show_websurfer", false) and not ResourceLoader.exists(WEBSURFER_ASSET):
+		return Errors.err(Errors.ASSET_MISSING, WEBSURFER_ASSET)
 	var page = load(ROOT + "playground_page.gd").new()
 	page.key = deps.get("key", "")
 	page.data_handle = deps.collection_data
 	page.image_fetch = deps.image_fetch
+	page.show_websurfer = deps.get("show_websurfer", false)
 	page.name = "PlaygroundPage"
 	page.color = Color.WHITE
 	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -102,6 +109,13 @@ func _ready() -> void:
 			blank.color = Color.WHITE
 			blank.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			window.add_child(blank)
+	interactive_windows.assign(windows)
+	if show_websurfer:
+		websurfer = load(ROOT + "websurfer_window.gd").new()
+		websurfer.name = "WebSurfer"
+		websurfer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		add_child(websurfer)
+		interactive_windows.append(websurfer)
 	saved_body.name = "SavedWorks"
 	saved_body.color = Color.WHITE
 	saved_body.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -156,6 +170,10 @@ func _fit() -> void:
 	saved_list.size = saved_body.size - Vector2(20 * s, 16 * s)
 	for child in saved_list.get_children():
 		child.custom_minimum_size.x = saved_list.size.x
+	if websurfer != null:
+		var websurfer_height := minf(780.0, size.y * 0.78)
+		websurfer.size = Vector2(websurfer_height * 1616.0 / 1568.0, websurfer_height)
+		websurfer.position = Vector2(size.x - websurfer.size.x - MARGIN * s, (size.y - websurfer.size.y) * 0.5)
 
 
 func _refresh_saved() -> void:
@@ -281,7 +299,7 @@ func _input(event: InputEvent) -> void:
 			_active = null
 		else:
 			_active = null
-			for window in windows:
+			for window in interactive_windows:
 				if window.get_rect().has_point(pointer) and (_active == null or window.get_index() > _active.get_index()):
 					_active = window
 			if _active == null:
