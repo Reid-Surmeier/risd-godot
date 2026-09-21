@@ -431,6 +431,7 @@ func state() -> Dictionary:
 	var pointer: Dictionary = s.pointer
 	var page: Rect2 = sketchbook.page_rect()
 	var p: Dictionary = paintbox.qa_state()
+	var chat: Dictionary = global_chatroom.qa_state() if global_chatroom != null and global_chatroom.has_method("qa_state") else {}
 	var reference_cards := []
 	for child in reference_list.get_children():
 		if child is PanelContainer and child.has_meta("artwork_id"):
@@ -458,6 +459,10 @@ func state() -> Dictionary:
 			"mix_count": p.mix_count, "paint_pixels": p.paint_pixels, "smear_variant": p.smear_variant, "mixbox": p.mixbox,
 			"saved_ids": saved_ids.duplicate(), "selected_reference": selected_reference,
 			"storage_status": storage_status, "reference_rect": _global_rect(reference_panel),
-			"reference_cards": reference_cards})
+			"reference_cards": reference_cards,
+			"chat_text_posts": chat.get("text_posts", 0), "chat_image_posts": chat.get("image_posts", 0),
+			"chat_picker_requests": chat.get("picker_requests", 0),
+			"chat_message_count": chat.get("message_count", 0), "chat_input_rect": chat.get("input_rect", Rect2()),
+			"chat_attach_rect": chat.get("attach_rect", Rect2()), "chat_send_rect": chat.get("send_rect", Rect2())})
 	s.merge(_paintbox_rects())
 	return Errors.ok(s)

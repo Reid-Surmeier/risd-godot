@@ -22,6 +22,7 @@ extends RefCounted
 
 const Errors := preload("res://modules/collection_page/errors.gd")
 const _Impl := preload("res://modules/collection_page/viewer.gd")
+const _Chat := preload("res://modules/collection_page/global_chatroom.gd")
 const Data := preload("res://modules/collection_data/interface.gd")
 const CHAT_ASSET := "res://modules/collection_page/assets/chat.png"
 
@@ -36,16 +37,12 @@ static func create(deps: Dictionary) -> Dictionary:
 	return _Impl.create(deps)
 
 
-## The existing Global Chatroom raster for an owner-approved desktop composition.
+## The existing Global Chatroom chrome with session-local text and image posting (issue #107).
 static func global_chatroom() -> Dictionary:
 	if not ResourceLoader.exists(CHAT_ASSET):
 		return Errors.err(Errors.ASSET_MISSING, CHAT_ASSET)
-	var chat := TextureRect.new()
+	var chat := _Chat.new()
 	chat.name = "global-chatroom"
-	chat.texture = load(CHAT_ASSET)
-	chat.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	chat.stretch_mode = TextureRect.STRETCH_SCALE
-	chat.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return Errors.ok(chat)
 
 static func monet_reference() -> Dictionary:
