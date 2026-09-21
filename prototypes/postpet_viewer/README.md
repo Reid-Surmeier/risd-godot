@@ -1,6 +1,6 @@
 # PostPet viewer layout prototype
 
-Question: does the supplied PostPet setup/login geometry work as the 3D viewer page when the real Muse lion pass is placed in the viewer opening?
+Question: does the supplied PostPet setup composition work as the page shell for the sculpture collection?
 
 Run from the repository root:
 
@@ -8,4 +8,4 @@ Run from the repository root:
 godot --path . res://prototypes/postpet_viewer/prototype.tscn
 ```
 
-`reference-layout.png` is the supplied screenshot used as the exact geometry plate. `lion-native-cutout.png` is the recovered Muse pass from `/home/reidsurmeier/muse-runs/eyebox-lion/final`; the click alternate is the earlier above-camera pass. The reference remains visible so pixel geometry can be compared directly.
+`reference-layout.png` is the supplied 6400×3632 screenshot used as the exact geometry plate. The recovered Muse lion passes remain in this folder for the next interaction pass, but this prototype intentionally renders the reference composition without adding a second viewer frame.
