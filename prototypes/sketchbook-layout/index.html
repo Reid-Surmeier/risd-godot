@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sketchbook layout — throwaway prototype</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #18212b; color: #edf5ff; font: 16px/1.4 system-ui, sans-serif; }
+  main { max-width: 1600px; margin: auto; padding: 20px; }
+  h1 { margin: 0 0 4px; font-size: 22px; }
+  p { margin: 0 0 16px; color: #c5d4e4; }
+  .stage { position: relative; width: 100%; overflow: hidden; background: white; }
+  img { display: block; width: 100%; height: auto; }
+  .tag { position: absolute; padding: 5px 8px; border: 2px solid currentColor; background: #18212bdd; font-weight: 700; font-size: clamp(10px, 1.2vw, 16px); }
+  .viewer { top: 2%; right: 2%; color: #60d3ff; }
+  .reference { top: 2%; left: 20%; color: #ffdf70; }
+  .book { top: 48%; left: 20%; color: #f782ff; }
+  .rail { top: 28%; left: 1%; color: #7fffa8; }
+</style>
+<main>
+  <h1>Sketchbook layout — throwaway placement prototype</h1>
+  <p>Desktop only. Existing left rail stays fixed; the current bounded sketchbook stays centered; the Monet/head and 3D viewer windows remain fully visible above it.</p>
+  <div class="stage">
+    <img src="reference.png" alt="Approved sketchbook layout reference">
+    <span class="tag viewer">3D viewer · upper right</span>
+    <span class="tag reference">Monet / head · fixed top center</span>
+    <span class="tag book">Sketchbook · current bounded box, centered</span>
+    <span class="tag rail">Palette + tools · fixed left rail</span>
+  </div>
+</main>
+</html>
