@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1",
+  "applicationId": "risd-collections-filter-20260920",
+  "artifactRoot": "artifacts/image-generation",
+  "referenceRoots": [
+    "modules/collection_page/assets/layout-reference.png"
+  ],
+  "outputRoot": "generated",
+  "maximumCount": 1,
+  "maximumBudgetUsd": "0.01",
+  "maximumCorrectionRuns": 0,
+  "procedures": [
+    {
+      "id": "muse-ff73fcdf3ed5cfa3cf87",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "2052x1352"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    }
+  ]
+}

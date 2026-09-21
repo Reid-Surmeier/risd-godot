@@ -22,6 +22,7 @@ as the other prototypes' pixels do; nothing in this module asserts a licence for
 | `reference.png` | the owner's seven-artwork Image Viewer screenshot (4591x2816), pasted into the prototype session as `orca-paste-1788871973810-2fd26ef1-8eee-499c-a00f-ee95924f971b.png` | prototype `README.md` @ `5d55209` |
 | `assets/{equipment,options,status,trade,chat,party,bottom}.png` | seven owner-supplied window screenshots (Images 1–7 of the prototype session, `orca-paste-1788872786356…` through `…817835…`) | prototype `assets/SOURCES.md` @ `5d55209` |
 | `assets/layout-reference.png` | the owner's desktop layout screenshot (`.orca/drops/Screenshot 2026-09-08 at 9.07.06 AM.png`, 2052x1352); the Search filters window is cut from it at (13, 550, 535, 245) at run time | prototype `assets/SOURCES.md` @ `5d55209` |
+| `assets/muse-filter-frame.webp` | Muse-generated Search-filters frame, retained from run `run-bab03d72d629d31ca896b523` | `artifacts/image-generation/runs/run-bab03d72d629d31ca896b523/`; OpenRouter `meta/muse-image`; SHA-256 `6640e976fd8c2285ad2675538dc76fac2a753dc2bfbda629ff265de89b266d9c` |
 
 The owner's reference for this port (map #23 Notes, 2026-09-13 late) is the same desktop layout
 screenshot; `desktop.gd`'s placements are its 1944x1280 review coordinates, `viewer.gd`'s frame rect

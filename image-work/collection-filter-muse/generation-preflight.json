@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "001",
+      "prompt": "image-work/collection-filter-muse/edit-prompt.txt",
+      "promptSha256": "62d5286ceb50e5e71fde379ac98ebf0bb3fb114f6c8fa0a11698a3820732f0fa",
+      "size": "2052x1352",
+      "inputs": [
+        {
+          "path": "modules/collection_page/assets/layout-reference.png",
+          "sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d"
+        }
+      ]
+    }
+  ]
+}
