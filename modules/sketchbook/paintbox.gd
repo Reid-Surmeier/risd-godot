@@ -19,8 +19,7 @@ const BRUSH := preload("res://modules/sketchbook/assets/paintbox/watercolor-brus
 const BRUSH_SHADER := preload("res://modules/sketchbook/assets/paintbox/brush-tip.gdshader")
 const TITLE_HEIGHT := 22.0
 const BORDER := 4.0
-const TOOL_HEIGHT := 238.0
-const REST_HEIGHT := 118.0
+const ANRI_INTERIOR_UV := Rect2(0.105, 0.445, 0.79, 0.305)
 const WELL_START_X := 95.0 / 532.0
 const WELL_STEP_X := 23.0 / 532.0
 const WELL_Y := [150.0 / 532.0, 338.0 / 532.0]
@@ -84,11 +83,8 @@ func _ready() -> void:
 	title_bar.tooltip_text = "Drag the paintbox"
 	add_child(title_bar)
 	tool_reference = TextureRect.new()
-	tool_reference.name = "preserved-tool-reference"
-	var top_group := AtlasTexture.new()
-	top_group.atlas = ANRI_INTERIOR
-	top_group.region = Rect2(0, 0, 1120, 970)
-	tool_reference.texture = top_group
+	tool_reference.name = "muse-reconstructed-interior"
+	tool_reference.texture = ANRI_INTERIOR
 	tool_reference.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	tool_reference.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	tool_reference.mouse_filter = MOUSE_FILTER_IGNORE
@@ -127,18 +123,23 @@ func _make_brush(node_name: String) -> TextureRect:
 func _layout() -> void:
 	title_bar.position = Vector2(BORDER, BORDER)
 	title_bar.size = Vector2(size.x - BORDER * 2.0, TITLE_HEIGHT - BORDER)
-	var tool_height := TOOL_HEIGHT if anri_mode else 0.0
-	var rest_height := REST_HEIGHT if anri_mode else 104.0
 	tool_reference.position = Vector2(BORDER, TITLE_HEIGHT + BORDER)
-	tool_reference.size = Vector2(size.x - BORDER * 2.0, tool_height)
-	var available := size - Vector2(BORDER * 2.0, TITLE_HEIGHT + tool_height + BORDER * (3.0 if anri_mode else 2.0))
-	var side := minf(available.x, available.y - rest_height)
-	image_rect = Rect2(Vector2((size.x - side) / 2.0, TITLE_HEIGHT + tool_height + BORDER * (2.0 if anri_mode else 1.0)), Vector2(side, side))
-	var rest_center := Vector2(size.x * 0.5, image_rect.end.y + rest_height * 0.5)
+	if anri_mode:
+		var interior_size := Vector2(size.x - BORDER * 2.0, (size.x - BORDER * 2.0) * 2.0)
+		tool_reference.size = interior_size
+		image_rect = Rect2(tool_reference.position + ANRI_INTERIOR_UV.position * interior_size, ANRI_INTERIOR_UV.size * interior_size)
+	else:
+		tool_reference.size = Vector2.ZERO
+		var available := size - Vector2(BORDER * 2.0, TITLE_HEIGHT + BORDER * 2.0)
+		var side := minf(available.x, available.y - 104.0)
+		image_rect = Rect2(Vector2((size.x - side) / 2.0, TITLE_HEIGHT + BORDER), Vector2(side, side))
+	var rest_center := Vector2(size.x * 0.5, image_rect.end.y + 52.0)
 	brush_rest.size = Vector2(92, 90)
 	brush_rest.position = rest_center - brush_rest.size * 0.5
+	brush_rest.visible = not anri_mode
 	parked_brush.size = Vector2(132, 122)
 	parked_brush.position = rest_center - parked_brush.size * 0.5 + Vector2(4, -6)
+	parked_brush.visible = not anri_mode and not brush_active
 	brush_cursor.size = Vector2(130, 120)
 	queue_redraw()
 	state_changed.emit()
@@ -164,7 +165,7 @@ func _process(_delta: float) -> void:
 
 func set_brush_active(active: bool) -> void:
 	brush_active = active
-	parked_brush.visible = not brush_active
+	parked_brush.visible = not anri_mode and not brush_active
 
 func _update_brush_color() -> void:
 	for brush in [parked_brush, brush_cursor]:
@@ -182,7 +183,8 @@ func _draw() -> void:
 		draw_string(ThemeDB.fallback_font, Vector2(10, 17), "Paintbox · soft smear", HORIZONTAL_ALIGNMENT_LEFT, size.x - 52, 13, Color("#14222b"))
 		draw_rect(Rect2(size.x - 30, 7, 17, 11), brush_color)
 		draw_rect(Rect2(size.x - 31, 6, 19, 13), Color("#172027"), false, 1.0)
-	draw_texture_rect(PALETTE, image_rect, false)
+	if not anri_mode:
+		draw_texture_rect(PALETTE, image_rect, false)
 	for index in range(TRAYS.size()):
 		var tray: Rect2 = TRAYS[index]
 		draw_texture_rect(_tray_textures[index], Rect2(image_rect.position + tray.position * image_rect.size, tray.size * image_rect.size), false)

@@ -33,7 +33,8 @@ const REQUIRED := [
 	"ro-bottom-mid.png", "ro-bottom-right.png", "ro-btn-prev.png", "ro-btn-prev-disabled.png", "ro-btn-next.png",
 	"sketchbook-page-v005-soft-384.png", "paintbox/palette-white.png", "paintbox/watercolor-brush.png",
 	"paintbox/cat-brush-rest.png", "paintbox/brush-tip.gdshader", "paintbox/anri-interior-muse.webp",
-	"paintbox/anri-title-reference.png",
+	"paintbox/anri-title-reference.png", "tldraw-controls/button-normal-muse.png",
+	"tldraw-controls/button-hover-muse.png", "tldraw-controls/button-selected-muse.png", "tldraw-controls/titlebar-muse.png",
 ]
 
 var key := ""

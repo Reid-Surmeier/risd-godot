@@ -5,6 +5,10 @@ extends PanelContainer
 
 const OPACITIES := [0.1, 0.25, 0.5, 0.75, 1.0]
 const SIZES := {"S": 2.5, "M": 4.5, "L": 8.0, "XL": 13.0}
+const BUTTON_NORMAL := preload("res://modules/sketchbook/assets/tldraw-controls/button-normal-muse.png")
+const BUTTON_HOVER := preload("res://modules/sketchbook/assets/tldraw-controls/button-hover-muse.png")
+const BUTTON_SELECTED := preload("res://modules/sketchbook/assets/tldraw-controls/button-selected-muse.png")
+const TITLEBAR := preload("res://modules/sketchbook/assets/tldraw-controls/titlebar-muse.png")
 
 var surface: Control
 var title_bar := Panel.new()
@@ -28,14 +32,13 @@ func _ready() -> void:
 	title_bar.name = "title-bar"
 	title_bar.custom_minimum_size = Vector2(0, 23)
 	title_bar.mouse_default_cursor_shape = Control.CURSOR_DRAG
-	title_bar.add_theme_stylebox_override("panel", _button_style(Color("b8d6e8"), Color("37566b")))
 	column.add_child(title_bar)
-	var title := Label.new()
-	title.text = "Tldraw controls"
-	title.position = Vector2(9, 3)
+	var title := TextureRect.new()
+	title.texture = TITLEBAR
+	title.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	title.stretch_mode = TextureRect.STRETCH_SCALE
 	title.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	title.add_theme_font_size_override("font_size", 13)
-	title.add_theme_color_override("font_color", Color("26374a"))
+	title.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	title_bar.add_child(title)
 	var tools := HBoxContainer.new()
 	tools.add_theme_constant_override("separation", 2)
@@ -78,10 +81,14 @@ func _button(text: String, hint: String) -> Button:
 	button.custom_minimum_size = Vector2(45, 24)
 	button.add_theme_font_size_override("font_size", 11)
 	button.add_theme_color_override("font_color", Color("172027"))
+	button.add_theme_color_override("font_hover_color", Color("172027"))
 	button.add_theme_color_override("font_pressed_color", Color("174f89"))
-	button.add_theme_stylebox_override("normal", _button_style(Color("ffffff"), Color("7b8c97")))
-	button.add_theme_stylebox_override("hover", _button_style(Color("edf6fb"), Color("37566b")))
-	button.add_theme_stylebox_override("pressed", _button_style(Color("d7eaf5"), Color("37566b")))
+	button.add_theme_color_override("font_disabled_color", Color("596068"))
+	button.add_theme_stylebox_override("normal", _muse_button(BUTTON_NORMAL))
+	button.add_theme_stylebox_override("hover", _muse_button(BUTTON_HOVER))
+	button.add_theme_stylebox_override("pressed", _muse_button(BUTTON_SELECTED))
+	button.add_theme_stylebox_override("focus", _muse_button(BUTTON_SELECTED))
+	button.add_theme_stylebox_override("disabled", _muse_button(BUTTON_NORMAL))
 	return button
 
 func _choice(label: String, kind: String, value: Variant) -> Button:
@@ -151,12 +158,13 @@ func qa_state() -> Dictionary:
 		"redo_enabled": not redo_button.disabled,
 	}
 
-func _button_style(fill: Color, border: Color) -> StyleBoxFlat:
-	var style := StyleBoxFlat.new()
-	style.bg_color = fill
-	style.border_color = border
-	style.set_border_width_all(1)
-	style.set_corner_radius_all(1)
-	style.content_margin_left = 4
-	style.content_margin_right = 4
+func _muse_button(texture: Texture2D) -> StyleBoxTexture:
+	var style := StyleBoxTexture.new()
+	style.texture = texture
+	style.set_texture_margin(SIDE_LEFT, 12.0)
+	style.set_texture_margin(SIDE_TOP, 8.0)
+	style.set_texture_margin(SIDE_RIGHT, 12.0)
+	style.set_texture_margin(SIDE_BOTTOM, 8.0)
+	style.content_margin_left = 5
+	style.content_margin_right = 5
 	return style

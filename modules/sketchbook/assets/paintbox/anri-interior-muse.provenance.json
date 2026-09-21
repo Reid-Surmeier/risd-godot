@@ -31,6 +31,6 @@
   "visualReview": {
     "status": "accepted-for-prototype",
     "observed": "The toolbox, 32 paint wells, four mixing trays, cat rest and brush remain present in the requested vertical order; no title bar, controls or text were added.",
-    "limit": "Muse re-rendered object pixels; exact pixel preservation is not claimed. Runtime uses the generated top group and the original interactive palette and brush assets."
+    "limit": "Muse re-rendered object pixels; exact pixel preservation is not claimed. Runtime uses the complete generated 1:2 interior while deterministic hit areas and paint overlays preserve palette interaction."
   }
 }

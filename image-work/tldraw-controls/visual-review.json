@@ -1,0 +1,12 @@
+{
+  "run": "run-da77a73a15c0c566182d7d54",
+  "status": "accepted-for-prototype",
+  "checked": [
+    "complete control inventory",
+    "magenta window keyline",
+    "blue selected state",
+    "separate normal, hover, and selected button skins",
+    "no invented controls"
+  ],
+  "integration": "The generated titlebar and three state skins are used by the live Godot buttons."
+}
