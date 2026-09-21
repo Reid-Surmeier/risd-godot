@@ -3,8 +3,11 @@
 extends Control
 
 const SOURCE_SIZE := Vector2(1616, 1568)
+const CROP_TOP := 88.0
+const VISIBLE_SIZE := Vector2(1616, 1407)
 const CONTENT_RECT := Rect2(58, 685, 1425, 720)
 const SCROLL_RECT := Rect2(1548, 278, 58, 1149)
+const RESIZE_RECT := Rect2(1540, 1425, 76, 70)
 const MAX_CONTENT_SCROLL := 240.0
 const NAV_ITEMS := [
 	{"name": "Visit", "rect": Rect2(72, 582, 183, 67), "scroll": 0.0},
@@ -20,8 +23,13 @@ var scroll_progress := 0.0
 var current_page := "Exhibitions and Events"
 var scroll_tween: Tween
 var dragging_scrollbar := false
+var resizing := false
+var resize_start_pointer := Vector2.ZERO
+var resize_start_scale := 1.0
 var nav_buttons: Array[Button] = []
 var scroll_input := Control.new()
+var resize_input := Control.new()
+var image: TextureRect
 
 
 func _ready() -> void:
@@ -66,11 +74,10 @@ void fragment() {
 	window_material.set_shader_parameter("content_rect", Vector4(CONTENT_RECT.position.x, CONTENT_RECT.position.y, CONTENT_RECT.size.x, CONTENT_RECT.size.y))
 	window_material.set_shader_parameter("scroll_rect", Vector4(SCROLL_RECT.position.x, SCROLL_RECT.position.y, SCROLL_RECT.size.x, SCROLL_RECT.size.y))
 	window_material.set_shader_parameter("content_scroll", MAX_CONTENT_SCROLL)
-	var image := TextureRect.new()
+	image = TextureRect.new()
 	image.texture = preload("res://modules/playground_page/assets/websurfer-window.webp")
 	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	image.stretch_mode = TextureRect.STRETCH_SCALE
-	image.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	image.material = window_material
 	add_child(image)
@@ -94,19 +101,27 @@ func _build_input() -> void:
 	scroll_input.mouse_default_cursor_shape = Control.CURSOR_VSIZE
 	scroll_input.gui_input.connect(_on_scrollbar_input)
 	add_child(scroll_input)
+	resize_input.name = "ResizeGrip"
+	resize_input.mouse_default_cursor_shape = Control.CURSOR_FDIAGSIZE
+	resize_input.gui_input.connect(_on_resize_input)
+	add_child(resize_input)
 
 
 func _layout_input() -> void:
 	if nav_buttons.is_empty():
 		return
-	var scale_to_window := size / SOURCE_SIZE
+	var scale_to_window := size / VISIBLE_SIZE
+	image.position = Vector2(0, -CROP_TOP) * scale_to_window
+	image.size = SOURCE_SIZE * scale_to_window
 	for index in NAV_ITEMS.size():
 		var source: Rect2 = NAV_ITEMS[index].rect
-		nav_buttons[index].position = source.position * scale_to_window
+		nav_buttons[index].position = (source.position - Vector2(0, CROP_TOP)) * scale_to_window
 		nav_buttons[index].size = source.size * scale_to_window
-	scroll_input.position = SCROLL_RECT.position * scale_to_window
+	scroll_input.position = (SCROLL_RECT.position - Vector2(0, CROP_TOP)) * scale_to_window
 	scroll_input.size = SCROLL_RECT.size * scale_to_window
-	set_meta("drag_height", 190.0 * scale_to_window.y)
+	resize_input.position = (RESIZE_RECT.position - Vector2(0, CROP_TOP)) * scale_to_window
+	resize_input.size = RESIZE_RECT.size * scale_to_window
+	set_meta("drag_height", (190.0 - CROP_TOP) * scale_to_window.y)
 
 
 func _press_button(rect: Rect2) -> void:
@@ -141,8 +156,27 @@ func _on_scrollbar_input(event: InputEvent) -> void:
 		accept_event()
 
 
+func _on_resize_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		resizing = event.pressed
+		if event.pressed:
+			resize_start_pointer = event.global_position
+			resize_start_scale = size.y / VISIBLE_SIZE.y
+		accept_event()
+	elif event is InputEventMouseMotion and resizing:
+		var delta: Vector2 = event.global_position - resize_start_pointer
+		var dx: float = delta.x / VISIBLE_SIZE.x
+		var dy: float = delta.y / VISIBLE_SIZE.y
+		var scale_delta: float = dx if absf(dx) > absf(dy) else dy
+		var page: Control = get_parent() as Control
+		var max_scale: float = minf((page.size.x - position.x) / VISIBLE_SIZE.x, (page.size.y - position.y) / VISIBLE_SIZE.y)
+		var next_scale: float = clampf(resize_start_scale + scale_delta, 0.25, max_scale)
+		size = VISIBLE_SIZE * next_scale
+		accept_event()
+
+
 func _set_scroll_from_pointer(pointer_y: float) -> void:
-	var thumb_height := 710.0 * size.y / SOURCE_SIZE.y
+	var thumb_height := 710.0 * size.y / VISIBLE_SIZE.y
 	_set_scroll((pointer_y - thumb_height * 0.5) / (scroll_input.size.y - thumb_height))
 
 

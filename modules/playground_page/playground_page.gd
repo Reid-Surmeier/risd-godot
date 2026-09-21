@@ -172,7 +172,7 @@ func _fit() -> void:
 		child.custom_minimum_size.x = saved_list.size.x
 	if websurfer != null:
 		var websurfer_height := minf(780.0, size.y * 0.78)
-		websurfer.size = Vector2(websurfer_height * 1616.0 / 1568.0, websurfer_height)
+		websurfer.size = Vector2(websurfer_height * 1616.0 / 1407.0, websurfer_height)
 		websurfer.position = Vector2(size.x - websurfer.size.x - MARGIN * s, (size.y - websurfer.size.y) * 0.5)
 
 
