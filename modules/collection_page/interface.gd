@@ -23,6 +23,7 @@ extends RefCounted
 const Errors := preload("res://modules/collection_page/errors.gd")
 const _Impl := preload("res://modules/collection_page/viewer.gd")
 const Data := preload("res://modules/collection_data/interface.gd")
+const CHAT_ASSET := "res://modules/collection_page/assets/chat.png"
 
 
 ## Build the desktop. `deps` includes a collection_data handle and image_fetch(sha256, done).
@@ -33,6 +34,30 @@ static func create(deps: Dictionary) -> Dictionary:
 	if not deps.get("image_fetch") is Callable or not deps.image_fetch.is_valid():
 		return Errors.err(Errors.INVALID_DEPENDENCY, "An image fetch operation is required")
 	return _Impl.create(deps)
+
+
+## The existing Global Chatroom raster for an owner-approved desktop composition.
+static func global_chatroom() -> Dictionary:
+	if not ResourceLoader.exists(CHAT_ASSET):
+		return Errors.err(Errors.ASSET_MISSING, CHAT_ASSET)
+	var chat := TextureRect.new()
+	chat.name = "global-chatroom"
+	chat.texture = load(CHAT_ASSET)
+	chat.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	chat.stretch_mode = TextureRect.STRETCH_SCALE
+	chat.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return Errors.ok(chat)
+
+static func monet_reference() -> Dictionary:
+	var atlas := AtlasTexture.new()
+	atlas.atlas = load("res://modules/collection_page/reference.png")
+	atlas.region = Rect2(3475, 1276, 905, 1075)
+	var image := TextureRect.new()
+	image.texture = atlas
+	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return Errors.ok(image)
 
 
 ## The harness probe, in the Tenant's own pixels:

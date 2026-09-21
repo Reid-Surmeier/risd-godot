@@ -27,6 +27,11 @@ static func create(deps: Dictionary) -> Dictionary:
 	return _Impl.create(deps)
 
 
+## Build the live 800x680 viewer without its catalogue desktop for an approved embedding host.
+static func embedded_viewer() -> Dictionary:
+	return _Impl.embedded_viewer()
+
+
 ## The harness probe. Rects are global pixels unless said otherwise:
 ## ok({ key, ticks, inputs, size: Vector2 (the Tenant), desktop_scale, pointer_scale (global px per
 ##      viewer px: desktop_scale x the window's 0.985), front_window, dragging,

@@ -23,6 +23,8 @@ const BRUSH_SHADER := preload("res://modules/sketchbook/assets/paintbox/brush-ti
 var spread := 1
 var spreads: Dictionary = {} # spread -> Array[Dictionary{points, width, polygons}]
 var ink_color := DEFAULT_INK
+var stroke_width := STROKE_WIDTH
+var stroke_opacity := 1.0
 var interactive := true
 var render_spread := 0 # 0: the open spread; otherwise draw that spread (page-turn sheets)
 var freehand := Freehand.new()
@@ -169,7 +171,9 @@ func _place_pencil(at: Vector2) -> void:
 func _begin_stroke(at: Vector2) -> void:
 	pen_down = true
 	pointer_changed.emit()
-	active = {"points": [Vector3(at.x, at.y, 0.5)], "width": STROKE_WIDTH + _jitter() * STROKE_WIDTH / 6.0, "polygons": [], "color": ink_color}
+	var color := ink_color
+	color.a *= stroke_opacity
+	active = {"points": [Vector3(at.x, at.y, 0.5)], "width": stroke_width + _jitter() * stroke_width / 6.0, "polygons": [], "color": color}
 	_rebuild(active, false)
 	queue_redraw()
 
@@ -324,6 +328,11 @@ func set_ink_color(color: Color) -> void:
 	ink_color = color
 	if pencil != null:
 		(pencil.material as ShaderMaterial).set_shader_parameter("pigment_color", ink_color)
+
+
+func set_pen_style(width: float, opacity: float) -> void:
+	stroke_width = width
+	stroke_opacity = opacity
 
 func qa_state() -> Dictionary:
 	var strokes := _strokes_of(spread)

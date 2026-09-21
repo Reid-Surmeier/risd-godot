@@ -15,6 +15,8 @@ extends Control
 
 const Errors := preload("res://modules/sketchbook/errors.gd")
 const Data := preload("res://modules/collection_data/interface.gd")
+const SculptureViewer := preload("res://modules/sculpture_viewer/interface.gd")
+const CollectionPage := preload("res://modules/collection_page/interface.gd")
 
 const ROOT := "res://modules/sketchbook/"
 ## The native composition: variant A's windows (paintbox 170,345 550x575; book 750,365 630x545 on the
@@ -22,8 +24,8 @@ const ROOT := "res://modules/sketchbook/"
 ## so both windows share the bottom edge and the composition's margin is NATIVE_MARGIN on every side.
 const NATIVE_MARGIN := Vector2(60, 52)
 const DESKTOP_SIZE := Vector2(1330, 860)
-const REFERENCE_SLOT := Rect2(60, 30, 1210, 180)
-const PAINTBOX_SLOT := Rect2(60, 235, 550, 575)
+const REFERENCE_SLOT := Rect2(430, 255, 620, 260)
+const PAINTBOX_SLOT := Rect2(60, 235, 360, 575)
 const BOOK_SLOT := Rect2(640, 255, 630, 555)
 const REQUIRED := [
 	"ro-top-left.png", "ro-top-mid.png", "ro-top-right.png", "ro-left.png", "ro-right.png", "ro-bottom-left.png",
@@ -46,6 +48,12 @@ var data_handle: Variant
 var image_fetch: Callable
 var reference_panel := PanelContainer.new()
 var reference_list := HBoxContainer.new()
+var viewer_host := Control.new()
+var global_chatroom: Control
+var reference_art: Control
+var resizing_reference := false
+var reference_resize_origin := Vector2.ZERO
+var reference_resize_size := Vector2.ZERO
 var saved_ids: Array = []
 var selected_reference := ""
 var storage_status := "loading"
@@ -93,7 +101,34 @@ func _ready() -> void:
 	sketchbook.surface.pointer_changed.connect(_sync_brush_rest)
 	sketchbook.surface.set_ink_color(paintbox.brush_color)
 	paintbox.set_smear_variant("A")
+	var embedded := SculptureViewer.embedded_viewer()
+	if embedded.ok:
+		viewer_host.name = "embedded-3d-viewer-window"
+		viewer_host.mouse_filter = Control.MOUSE_FILTER_STOP
+		viewer_host.clip_contents = true
+		viewer_host.add_child(embedded.value)
+		var viewer_drag_strip := Control.new()
+		viewer_drag_strip.position = Vector2(12, 4)
+		viewer_drag_strip.size = Vector2(386, 28)
+		viewer_drag_strip.mouse_default_cursor_shape = Control.CURSOR_DRAG
+		viewer_drag_strip.gui_input.connect(func(event): _drag_handle_input(event, viewer_host))
+		viewer_host.add_child(viewer_drag_strip)
+		desktop.add_child(viewer_host)
+	var chat := CollectionPage.global_chatroom()
+	if chat.ok:
+		global_chatroom = chat.value
+		global_chatroom.mouse_filter = Control.MOUSE_FILTER_STOP
+		global_chatroom.gui_input.connect(func(event): _drag_handle_input(event, global_chatroom))
+		desktop.add_child(global_chatroom)
+	var reference := CollectionPage.monet_reference()
+	if reference.ok:
+		reference_art = reference.value
+		reference_panel.add_child(reference_art)
+		reference_list.visible = false
 	reference_panel.name = "saved-reference-window"
+	reference_panel.mouse_filter = Control.MOUSE_FILTER_STOP
+	reference_panel.clip_contents = true
+	reference_panel.gui_input.connect(func(event): _reference_input(event))
 	reference_panel.add_theme_stylebox_override("panel", _reference_style(Color("eef5fb")))
 	desktop.add_child(reference_panel)
 	reference_list.add_theme_constant_override("separation", 10)
@@ -138,11 +173,23 @@ func _fit() -> void:
 	desktop.position = Vector2.ZERO
 	desktop.size = logical
 	_place(paintbox, PAINTBOX_SLOT)
-	_place(sketchbook, Rect2(BOOK_SLOT.position, BOOK_SLOT.size + extra))
+	_place(sketchbook, Rect2(BOOK_SLOT.position, BOOK_SLOT.size + Vector2(extra.x * 0.25, 0)))
+	# Reuse the tested viewer at a fixed upper-right scale; its own 800x680 scene stays intact.
+	viewer_host.position = Vector2(desktop.size.x - 430, 20)
+	viewer_host.size = Vector2(410, 350)
+	if viewer_host.get_child_count() > 0:
+		var embedded: Control = viewer_host.get_child(0)
+		embedded.scale = Vector2(0.5125, 0.5125)
+	if global_chatroom != null:
+		global_chatroom.position = Vector2(desktop.size.x - 320, 420)
+		global_chatroom.size = Vector2(320, 150)
 	reference_panel.position = REFERENCE_SLOT.position
 	reference_panel.size = Vector2(REFERENCE_SLOT.size.x + extra.x, REFERENCE_SLOT.size.y)
 	reference_list.position = Vector2(12, 12)
 	reference_list.size = reference_panel.size - Vector2(24, 24)
+	if reference_art != null:
+		reference_art.position = Vector2(8, 8)
+		reference_art.size = reference_panel.size - Vector2(16, 16)
 
 
 func _reference_style(color: Color) -> StyleBoxFlat:
@@ -152,6 +199,29 @@ func _reference_style(color: Color) -> StyleBoxFlat:
 	style.set_border_width_all(2)
 	style.set_corner_radius_all(4)
 	return style
+
+
+func _reference_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and event.position.x > reference_panel.size.x - 28 and event.position.y > reference_panel.size.y - 28:
+		resizing_reference = true
+		reference_resize_origin = desktop.make_canvas_position_local(event.global_position)
+		reference_resize_size = reference_panel.size
+		reference_panel.accept_event()
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_UP:
+		_reference_zoom(1.15)
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+		_reference_zoom(1.0 / 1.15)
+	else:
+		_drag_handle_input(event, reference_panel)
+
+
+func _reference_zoom(factor: float) -> void:
+	if reference_art == null:
+		return
+	var next := clampf(reference_art.scale.x * factor, 0.35, 3.0)
+	reference_art.scale = Vector2(next, next)
+	reference_art.position = (reference_panel.size - reference_art.size * next) / 2
 
 
 func _refresh_references() -> void:
@@ -269,6 +339,7 @@ func _drag_handle_input(event: InputEvent, window: Control) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		dragged_window = window
 		drag_offset = desktop.make_canvas_position_local(event.global_position) - window.position
+		desktop.move_child(window, -1)
 		window.accept_event()
 
 
@@ -280,6 +351,19 @@ func _process(_delta: float) -> void:
 ## less the variant key cycling).
 func _input(event: InputEvent) -> void:
 	inputs += 1
+	if resizing_reference:
+		if event is InputEventMouseMotion:
+			var delta := desktop.make_canvas_position_local(event.position) - reference_resize_origin
+			reference_panel.size = (reference_resize_size + delta).max(Vector2(240, 160))
+			reference_list.size = reference_panel.size - Vector2(24, 24)
+			if reference_art != null:
+				reference_art.size = reference_panel.size - Vector2(16, 16)
+				_reference_zoom(1.0)
+			get_viewport().set_input_as_handled()
+		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+			resizing_reference = false
+			get_viewport().set_input_as_handled()
+		return
 	if dragged_window != null:
 		if event is InputEventMouseMotion:
 			var limit := (desktop.size - dragged_window.size * dragged_window.scale).max(Vector2.ZERO)

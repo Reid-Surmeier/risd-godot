@@ -54,6 +54,16 @@ static func create(deps: Dictionary) -> Dictionary:
 	return Errors.ok(t)
 
 
+## The same live 800x680 viewer used by the Tenant, for an owner-approved host such as Sketchbook.
+static func embedded_viewer() -> Dictionary:
+	for path in REQUIRED:
+		if not ResourceLoader.exists(ROOT + path):
+			return Errors.err(Errors.ASSET_MISSING, ROOT + path)
+	var embedded = load(ROOT + "viewer.gd").new()
+	embedded.name = "embedded-3d-viewer"
+	return Errors.ok(embedded)
+
+
 func _ready() -> void:
 	# The prototype's project filtered linearly; this project's default is nearest. Children inherit.
 	texture_filter = TEXTURE_FILTER_LINEAR
