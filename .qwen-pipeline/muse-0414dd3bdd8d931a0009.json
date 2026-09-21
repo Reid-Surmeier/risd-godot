@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-0414dd3bdd8d931a0009",
+  "summary": "Reformat the supplied existing paint-tool artwork into one tall, narrow interior panel for a late-1990s Japanese desktop-game window.\n\nReference 1 is the layout authority. Use only its vertical ordering: the existing toolbox group at the top, the existing two-row watercolor palette in the middle, and the existing cat brush rest with the existing watercolor brush laid diagonally across it at the bottom. References 2 through 5 are the exact object authorities. Preserve every object, its recognizable shape, colors, markings, pixel treatment, and relative scale. Keep the palette's 32 paint wells and four empty mixing trays unchanged and fully visible. Keep all toolbox objects unchanged. Keep the cat and brush unchanged.\n\nThis is preservation and reformatting, not invention. Do not add, remove, merge, replace, redesign, restyle, or reinterpret any object. Do not generate controls, labels, lettering, title bars, window chrome, borders, scenery, hands, or decorative objects. Use a clean flat white background with generous but compact spacing. Center the three groups in a 1:2 vertical composition. Output only the interior panel; the Godot application supplies the exact title bar and all interaction.\n",
+  "procedureId": "muse-0414dd3bdd8d931a0009",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "image-work/paintbox-window/references/layout-reference.png",
+      "sha256": "b2a8a2ba6025346106ca3f6eac000d1531cae8c351fc2fc5cd307a4acefd1891",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "modules/sketchbook/assets/paintbox/tool-reference.png",
+      "sha256": "bba5038f784394528c763a43b9dd16ed44b1f8ade92f610a8f321314fec53ea4",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "modules/sketchbook/assets/paintbox/palette-white.png",
+      "sha256": "c451c1003564c74e462c73826df7c7f75dfc16ace0791b6e4d03612ace1f4374",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    },
+    {
+      "path": "modules/sketchbook/assets/paintbox/watercolor-brush.png",
+      "sha256": "1bff2a1cd9940fd84caa43b76427153eb020c3d08464c63bdd6319a639901820",
+      "slot": "reference-003",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/3/image_url/url"
+    },
+    {
+      "path": "modules/sketchbook/assets/paintbox/cat-brush-rest.png",
+      "sha256": "c6ced676e7593c690d7743fbf4406c829093e7793b55317129e8bf269959d12e",
+      "slot": "reference-004",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/4/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "image-work/paintbox-window/recipe.json",
+      "sha256": "0414dd3bdd8d931a0009e6fff81b7145a78c959188ae6e228fa33124488ceb3c"
+    },
+    {
+      "applicationPath": "image-work/paintbox-window/generation-preflight.json",
+      "sha256": "52ac594227ee0bfe29f877d664dae239b602e20b063fd8469e2301ebc180dca2"
+    },
+    {
+      "applicationPath": "image-work/paintbox-window/prompt.txt",
+      "sha256": "283c4eb02969cb4e2c1921e414f3727885b596db70aacd58a77f2d0ab586e0d1"
+    }
+  ]
+}

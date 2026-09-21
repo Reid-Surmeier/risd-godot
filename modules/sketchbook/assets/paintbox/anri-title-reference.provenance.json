@@ -1,0 +1,8 @@
+{
+  "asset": "anri-title-reference.png",
+  "sha256": "4c1bfc1e627de102edb15c3404e08cf078c414705585654656168c39030a9bc4",
+  "source": "image-work/paintbox-window/references/layout-reference.png",
+  "sourceSha256": "b2a8a2ba6025346106ca3f6eac000d1531cae8c351fc2fc5cd307a4acefd1891",
+  "operation": "lossless crop 726x52+8+20",
+  "purpose": "Preserve the exact supplied Japanese title pixels in the ANRI prototype window."
+}

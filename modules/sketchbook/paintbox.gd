@@ -11,13 +11,16 @@ signal state_changed
 signal pointer_changed
 
 const Mixbox = preload("res://modules/sketchbook/mixbox/mixbox.gd")
+const ANRI_INTERIOR := preload("res://modules/sketchbook/assets/paintbox/anri-interior-muse.webp")
+const ANRI_TITLE := preload("res://modules/sketchbook/assets/paintbox/anri-title-reference.png")
 const PALETTE := preload("res://modules/sketchbook/assets/paintbox/palette-white.png")
 const BRUSH_REST := preload("res://modules/sketchbook/assets/paintbox/cat-brush-rest.png")
 const BRUSH := preload("res://modules/sketchbook/assets/paintbox/watercolor-brush.png")
 const BRUSH_SHADER := preload("res://modules/sketchbook/assets/paintbox/brush-tip.gdshader")
 const TITLE_HEIGHT := 22.0
 const BORDER := 4.0
-const REST_HEIGHT := 104.0
+const TOOL_HEIGHT := 238.0
+const REST_HEIGHT := 118.0
 const WELL_START_X := 95.0 / 532.0
 const WELL_STEP_X := 23.0 / 532.0
 const WELL_Y := [150.0 / 532.0, 338.0 / 532.0]
@@ -31,6 +34,7 @@ const TRAYS := [
 
 var brush_color := Color("#00458f")
 var title_bar: Control
+var tool_reference: TextureRect
 var image_rect := Rect2()
 var smear_variant := "A"
 var mix_count := 0
@@ -49,10 +53,18 @@ var brush_active := false
 var brush_cursor: TextureRect
 var brush_rest: TextureRect
 var parked_brush: TextureRect
+var anri_mode := false
 static var _blank_cursor: ImageTexture
 
+func set_anri_mode(enabled: bool) -> void:
+	anri_mode = enabled
+	custom_minimum_size = Vector2(320, 700) if enabled else Vector2(300, 330)
+	if is_node_ready():
+		tool_reference.visible = enabled
+		_layout()
+
 func _ready() -> void:
-	custom_minimum_size = Vector2(300, 330)
+	custom_minimum_size = Vector2(320, 700) if anri_mode else Vector2(300, 330)
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	_palette_image = PALETTE.get_image()
@@ -71,6 +83,17 @@ func _ready() -> void:
 	title_bar.mouse_default_cursor_shape = CURSOR_DRAG
 	title_bar.tooltip_text = "Drag the paintbox"
 	add_child(title_bar)
+	tool_reference = TextureRect.new()
+	tool_reference.name = "preserved-tool-reference"
+	var top_group := AtlasTexture.new()
+	top_group.atlas = ANRI_INTERIOR
+	top_group.region = Rect2(0, 0, 1120, 970)
+	tool_reference.texture = top_group
+	tool_reference.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	tool_reference.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	tool_reference.mouse_filter = MOUSE_FILTER_IGNORE
+	tool_reference.visible = anri_mode
+	add_child(tool_reference)
 	brush_rest = TextureRect.new()
 	brush_rest.name = "cat-brush-rest"
 	brush_rest.texture = BRUSH_REST
@@ -104,10 +127,14 @@ func _make_brush(node_name: String) -> TextureRect:
 func _layout() -> void:
 	title_bar.position = Vector2(BORDER, BORDER)
 	title_bar.size = Vector2(size.x - BORDER * 2.0, TITLE_HEIGHT - BORDER)
-	var available := size - Vector2(BORDER * 2.0, TITLE_HEIGHT + BORDER * 2.0)
-	var side := minf(available.x, available.y - REST_HEIGHT)
-	image_rect = Rect2(Vector2((size.x - side) / 2.0, TITLE_HEIGHT + BORDER), Vector2(side, side))
-	var rest_center := Vector2(size.x * 0.5, image_rect.end.y + REST_HEIGHT * 0.5)
+	var tool_height := TOOL_HEIGHT if anri_mode else 0.0
+	var rest_height := REST_HEIGHT if anri_mode else 104.0
+	tool_reference.position = Vector2(BORDER, TITLE_HEIGHT + BORDER)
+	tool_reference.size = Vector2(size.x - BORDER * 2.0, tool_height)
+	var available := size - Vector2(BORDER * 2.0, TITLE_HEIGHT + tool_height + BORDER * (3.0 if anri_mode else 2.0))
+	var side := minf(available.x, available.y - rest_height)
+	image_rect = Rect2(Vector2((size.x - side) / 2.0, TITLE_HEIGHT + tool_height + BORDER * (2.0 if anri_mode else 1.0)), Vector2(side, side))
+	var rest_center := Vector2(size.x * 0.5, image_rect.end.y + rest_height * 0.5)
 	brush_rest.size = Vector2(92, 90)
 	brush_rest.position = rest_center - brush_rest.size * 0.5
 	parked_brush.size = Vector2(132, 122)
@@ -146,12 +173,15 @@ func _update_brush_color() -> void:
 func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, size), Color("#ffffff"))
 	draw_rect(Rect2(Vector2.ZERO, size), Color("#24282b"), false, 2.0)
-	draw_rect(Rect2(BORDER, BORDER, size.x - BORDER * 2.0, TITLE_HEIGHT - BORDER), Color("#9bc4df"))
+	if anri_mode:
+		draw_texture_rect(ANRI_TITLE, Rect2(BORDER, BORDER, size.x - BORDER * 2.0, TITLE_HEIGHT - BORDER), false)
+	else:
+		draw_rect(Rect2(BORDER, BORDER, size.x - BORDER * 2.0, TITLE_HEIGHT - BORDER), Color("#9bc4df"))
 	draw_line(Vector2(BORDER, TITLE_HEIGHT), Vector2(size.x - BORDER, TITLE_HEIGHT), Color("#4d6778"), 1.0)
-	var names := {"A": "soft smear", "B": "flat ribbon", "C": "dry bristle"}
-	draw_string(ThemeDB.fallback_font, Vector2(10, 17), "Paintbox · %s" % names[smear_variant], HORIZONTAL_ALIGNMENT_LEFT, size.x - 52, 13, Color("#14222b"))
-	draw_rect(Rect2(size.x - 30, 7, 17, 11), brush_color)
-	draw_rect(Rect2(size.x - 31, 6, 19, 13), Color("#172027"), false, 1.0)
+	if not anri_mode:
+		draw_string(ThemeDB.fallback_font, Vector2(10, 17), "Paintbox · soft smear", HORIZONTAL_ALIGNMENT_LEFT, size.x - 52, 13, Color("#14222b"))
+		draw_rect(Rect2(size.x - 30, 7, 17, 11), brush_color)
+		draw_rect(Rect2(size.x - 31, 6, 19, 13), Color("#172027"), false, 1.0)
 	draw_texture_rect(PALETTE, image_rect, false)
 	for index in range(TRAYS.size()):
 		var tray: Rect2 = TRAYS[index]

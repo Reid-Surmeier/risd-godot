@@ -25,13 +25,15 @@ const ROOT := "res://modules/sketchbook/"
 const NATIVE_MARGIN := Vector2(60, 52)
 const DESKTOP_SIZE := Vector2(1330, 860)
 const REFERENCE_SLOT := Rect2(430, 255, 620, 260)
-const PAINTBOX_SLOT := Rect2(60, 235, 360, 575)
+const PAINTBOX_SLOT := Rect2(60, 235, 550, 575)
+const ANRI_PAINTBOX_SLOT := Rect2(40, 35, 360, 775)
 const BOOK_SLOT := Rect2(640, 255, 630, 555)
 const REQUIRED := [
 	"ro-top-left.png", "ro-top-mid.png", "ro-top-right.png", "ro-left.png", "ro-right.png", "ro-bottom-left.png",
 	"ro-bottom-mid.png", "ro-bottom-right.png", "ro-btn-prev.png", "ro-btn-prev-disabled.png", "ro-btn-next.png",
 	"sketchbook-page-v005-soft-384.png", "paintbox/palette-white.png", "paintbox/watercolor-brush.png",
-	"paintbox/cat-brush-rest.png", "paintbox/brush-tip.gdshader",
+	"paintbox/cat-brush-rest.png", "paintbox/brush-tip.gdshader", "paintbox/anri-interior-muse.webp",
+	"paintbox/anri-title-reference.png",
 ]
 
 var key := ""
@@ -59,6 +61,7 @@ var saved_ids: Array = []
 var selected_reference := ""
 var storage_status := "loading"
 var refresh_generation := 0
+var anri_prototype := false
 
 
 static func create(deps: Dictionary) -> Dictionary:
@@ -77,6 +80,9 @@ static func create(deps: Dictionary) -> Dictionary:
 
 
 func _ready() -> void:
+	anri_prototype = "--anri-paintbox" in OS.get_cmdline_user_args()
+	if OS.has_feature("web"):
+		anri_prototype = bool(JavaScriptBridge.eval("new URLSearchParams(location.search).get('paintbox') === 'anri'"))
 	# The prototype's project filtered linearly; this project's default is nearest. Children inherit.
 	texture_filter = TEXTURE_FILTER_LINEAR
 	desktop.name = "desktop"
@@ -91,12 +97,13 @@ func _ready() -> void:
 	sketchbook.name = "sketchbook-window"
 	desktop.add_child(sketchbook)
 	windows.append(sketchbook)
-	sketchbook.title_bar.gui_input.connect(func(event): _drag_handle_input(event, sketchbook))
+	sketchbook.title_bar.gui_input.connect(_drag_handle_input.bind(sketchbook))
 	paintbox = load(ROOT + "paintbox.gd").new()
 	paintbox.name = "paintbox-window"
+	paintbox.set_anri_mode(anri_prototype)
 	desktop.add_child(paintbox)
 	windows.append(paintbox)
-	paintbox.title_bar.gui_input.connect(func(event): _drag_handle_input(event, paintbox))
+	paintbox.title_bar.gui_input.connect(_drag_handle_input.bind(paintbox))
 	paintbox.color_changed.connect(sketchbook.surface.set_ink_color)
 	paintbox.pointer_changed.connect(_sync_brush_rest)
 	sketchbook.surface.pointer_changed.connect(_sync_brush_rest)
@@ -105,7 +112,8 @@ func _ready() -> void:
 	tldraw_controls = load(ROOT + "tldraw_controls_prototype.gd").new()
 	tldraw_controls.configure(sketchbook.surface)
 	desktop.add_child(tldraw_controls)
-	tldraw_controls.title_bar.gui_input.connect(func(event): _drag_handle_input(event, tldraw_controls))
+	windows.append(tldraw_controls)
+	tldraw_controls.title_bar.gui_input.connect(_drag_handle_input.bind(tldraw_controls))
 	var embedded := SculptureViewer.embedded_viewer()
 	if embedded.ok:
 		viewer_host.name = "embedded-3d-viewer-window"
@@ -177,7 +185,7 @@ func _fit() -> void:
 	desktop.scale = Vector2(s, s)
 	desktop.position = Vector2.ZERO
 	desktop.size = logical
-	_place(paintbox, PAINTBOX_SLOT)
+	_place(paintbox, ANRI_PAINTBOX_SLOT if anri_prototype else PAINTBOX_SLOT)
 	_place(sketchbook, Rect2(BOOK_SLOT.position, BOOK_SLOT.size + Vector2(extra.x * 0.25, 0)))
 	# Reuse the tested viewer at a fixed upper-right scale; its own 800x680 scene stays intact.
 	viewer_host.position = Vector2(desktop.size.x - 430, 20)
@@ -195,7 +203,7 @@ func _fit() -> void:
 	if reference_art != null:
 		reference_art.position = Vector2(8, 8)
 		reference_art.size = reference_panel.size - Vector2(16, 16)
-	_place(tldraw_controls, Rect2(90, 70, 250, 184))
+	_place(tldraw_controls, Rect2(420, 35, 310, 178) if anri_prototype else Rect2(90, 70, 250, 184))
 
 
 func _reference_style(color: Color) -> StyleBoxFlat:
