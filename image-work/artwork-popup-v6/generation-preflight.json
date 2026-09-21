@@ -1,0 +1,12 @@
+{
+  "attempts": [{
+    "id": "bottom-rail-frame-01",
+    "prompt": "image-work/artwork-popup-v6/end-frame-prompt.txt",
+    "promptSha256": "f883dec425a33aacb2f22cf40ef2f83f74bdc2694704405c10bc2a83b9d3bef8",
+    "size": "1696x1216",
+    "inputs": [{
+      "path": "image-work/artwork-popup-v5/animation/first-frame.png",
+      "sha256": "34449454093574def2f204165d9a0921327c70f693c83d6f447dfcd412a70444"
+    }]
+  }]
+}

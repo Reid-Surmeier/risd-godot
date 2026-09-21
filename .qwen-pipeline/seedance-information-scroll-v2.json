@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1",
+  "id": "seedance-information-scroll-v2",
+  "summary": "Keep the Information window completely locked: no lighting shift, text change, crop, camera movement, warped corners, duplicated rail, or altered frame. Across eight seconds, move only the existing gray thumb smoothly from the top anchor to the bottom anchor. The thumb reaches the bottom at the final frame and remains immediately above the bottom arrow. No audio.",
+  "procedureId": "seedance-information-scroll-v2",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.80",
+  "videoPlan": {"assembly": {"required": false, "pixelOwnership": "none-authoritative"}, "expectedMedia": {"width": 1696, "height": 1216, "durationSeconds": 8, "audioExpected": false}},
+  "references": [
+    {"slot": "first-frame", "path": "image-work/artwork-popup-v5/animation/first-frame.png", "sha256": "34449454093574def2f204165d9a0921327c70f693c83d6f447dfcd412a70444", "kind": "image", "authorityReason": "inferred-motion/v1:{\"provenance\":\"Owner requested a higher-frame, full-travel Muse-to-Seedance scrollbar motion.\",\"behavior\":\"Translate only the generated scrollbar thumb from the top anchor to the bottom anchor.\",\"timing\":\"Eight seconds, continuous downward travel.\",\"spatialPermissions\":\"Only the thumb may move vertically within its existing rail.\",\"cancelRestart\":\"Cancellation restores the first anchor; restart begins from the first anchor.\",\"historicalFidelity\":false}", "payloadDestination": "/input_references/0/image_url/url", "declaredMedia": {"width": 1696, "height": 1216}},
+    {"slot": "last-frame", "path": "image-work/artwork-popup-v6/bottom-rail-frame.png", "sha256": "29f7300606cb24aab14ec7bd1db40e79fea962bafd17be485ed96570122516ef", "kind": "image", "authorityReason": "inferred-motion/v1:{\"provenance\":\"Owner requested a higher-frame, full-travel Muse-to-Seedance scrollbar motion.\",\"behavior\":\"Translate only the generated scrollbar thumb from the top anchor to the bottom anchor.\",\"timing\":\"Eight seconds, continuous downward travel.\",\"spatialPermissions\":\"Only the thumb may move vertically within its existing rail.\",\"cancelRestart\":\"Cancellation restores the first anchor; restart begins from the first anchor.\",\"historicalFidelity\":false}", "payloadDestination": "/input_references/1/image_url/url", "declaredMedia": {"width": 1696, "height": 1216}}
+  ]
+}
