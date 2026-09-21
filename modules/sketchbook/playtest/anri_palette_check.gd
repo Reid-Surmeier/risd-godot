@@ -10,12 +10,25 @@ func _check(condition: bool, label: String) -> void:
 	if not condition:
 		failures += 1
 
-func _click(box: Control, point: Vector2) -> void:
+func _mouse_button(box: Control, point: Vector2, pressed: bool) -> void:
 	var event := InputEventMouseButton.new()
 	event.button_index = MOUSE_BUTTON_LEFT
-	event.pressed = true
+	event.pressed = pressed
 	event.position = point
 	box._gui_input(event)
+
+func _click(box: Control, point: Vector2) -> void:
+	_mouse_button(box, point, true)
+	_mouse_button(box, point, false)
+
+func _drag(box: Control, from: Vector2, to: Vector2) -> void:
+	_mouse_button(box, from, true)
+	for step in range(1, 9):
+		var event := InputEventMouseMotion.new()
+		event.position = from.lerp(to, float(step) / 8.0)
+		event.button_mask = MOUSE_BUTTON_MASK_LEFT
+		box._deposit(box._uv(event.position))
+	_mouse_button(box, to, false)
 
 func _run() -> void:
 	var box: Control = load("res://modules/sketchbook/paintbox.gd").new()
@@ -23,14 +36,13 @@ func _run() -> void:
 	root.add_child(box)
 	box.size = Vector2(360, 775)
 	await process_frame
-	# Visible centers measured in the 1120x2240 Muse reconstruction.
-	var visible_red_well: Vector2 = box.tool_reference.position + Vector2(728.0 / 1120.0, 1095.0 / 2240.0) * box.tool_reference.size
-	var visible_top_tray: Vector2 = box.tool_reference.position + Vector2(250.0 / 1120.0, 1200.0 / 2240.0) * box.tool_reference.size
+	var visible_red_well: Vector2 = box.image_rect.position + box._well_center(0, 10) * box.image_rect.size
+	var top_tray: Rect2 = box._active_trays()[0]
+	var visible_top_tray := Rect2(box.image_rect.position + top_tray.position * box.image_rect.size, top_tray.size * box.image_rect.size)
 	var before: Color = box.brush_color
 	for row in range(2):
 		for column in range(15):
-			var source_center := Vector2(168.0 + 56.0 * column, 1095.0 if row == 0 else 1355.0)
-			var visible_center: Vector2 = box.tool_reference.position + source_center / Vector2(1120, 2240) * box.tool_reference.size
+			var visible_center: Vector2 = box.image_rect.position + box._well_center(row, column) * box.image_rect.size
 			_check(box._well_at(box._uv(visible_center)) == row * 16 + column, "visible_well_%d_%d_is_clickable" % [row, column])
 	var motion := InputEventMouseMotion.new()
 	motion.position = visible_red_well
@@ -39,12 +51,15 @@ func _run() -> void:
 	_check(box.brush_cursor.visible, "brush_follows_visible_palette")
 	_click(box, visible_red_well)
 	_check(not box.brush_color.is_equal_approx(before), "visible_muse_well_loads_pigment")
-	_click(box, visible_top_tray)
+	_drag(box, visible_top_tray.position + Vector2(8, visible_top_tray.size.y * 0.5),
+			visible_top_tray.end - Vector2(8, visible_top_tray.size.y * 0.5))
 	_check(box.qa_state().paint_pixels > 0, "visible_muse_tray_accepts_paint")
-	var visible_blue_well: Vector2 = box.tool_reference.position + Vector2(448.0 / 1120.0, 1355.0 / 2240.0) * box.tool_reference.size
+	var visible_blue_well: Vector2 = box.image_rect.position + box._well_center(1, 5) * box.image_rect.size
 	_click(box, visible_blue_well)
-	_click(box, visible_top_tray)
+	_drag(box, visible_top_tray.position + Vector2(visible_top_tray.size.x * 0.5, 8),
+			visible_top_tray.end - Vector2(visible_top_tray.size.x * 0.5, 8))
 	_check(box.qa_state().mix_count > 0, "visible_muse_tray_mixes_two_pigments")
+	_check(is_equal_approx(box.image_rect.size.aspect(), box.ANRI_PALETTE_SOURCE.size.aspect()), "palette_keeps_original_aspect")
 	_check(box.parked_brush.visible, "brush_starts_on_cat")
 	box.set_brush_active(true)
 	_check(not box.parked_brush.visible, "brush_lifts_from_cat")

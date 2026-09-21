@@ -19,15 +19,18 @@ const BRUSH := preload("res://modules/sketchbook/assets/paintbox/watercolor-brus
 const BRUSH_SHADER := preload("res://modules/sketchbook/assets/paintbox/brush-tip.gdshader")
 const TITLE_HEIGHT := 22.0
 const BORDER := 4.0
-const ANRI_INTERIOR_UV := Rect2(0.105, 0.445, 0.79, 0.305)
+const ANRI_PALETTE_SOURCE := Rect2(68, 108, 398, 365)
+const ANRI_PALETTE_POSITION := Vector2(0.105, 0.42)
+const ANRI_PALETTE_WIDTH := 0.79
 const WELL_START_X := 95.0 / 532.0
 const WELL_STEP_X := 23.0 / 532.0
 const WELL_Y := [150.0 / 532.0, 338.0 / 532.0]
 const WELL_HIT := Vector2(10.5 / 532.0, 24.0 / 532.0)
-const ANRI_WELL_START_X := 0.057
-const ANRI_WELL_STEP_X := 0.0633
-const ANRI_WELL_Y := [0.144, 0.524]
-const ANRI_WELL_HIT := Vector2(0.025, 0.047)
+const ANRI_WELL_START_X := (95.0 - ANRI_PALETTE_SOURCE.position.x) / ANRI_PALETTE_SOURCE.size.x
+const ANRI_WELL_STEP_X := 23.0 / ANRI_PALETTE_SOURCE.size.x
+const ANRI_WELL_Y := [(150.0 - ANRI_PALETTE_SOURCE.position.y) / ANRI_PALETTE_SOURCE.size.y,
+		(338.0 - ANRI_PALETTE_SOURCE.position.y) / ANRI_PALETTE_SOURCE.size.y]
+const ANRI_WELL_HIT := Vector2(10.5, 24.0) / ANRI_PALETTE_SOURCE.size
 const TRAYS := [
 	Rect2(82.0 / 532.0, 181.0 / 532.0, 116.0 / 532.0, 104.0 / 532.0),
 	Rect2(202.0 / 532.0, 181.0 / 532.0, 130.0 / 532.0, 104.0 / 532.0),
@@ -35,10 +38,14 @@ const TRAYS := [
 	Rect2(82.0 / 532.0, 371.0 / 532.0, 372.0 / 532.0, 91.0 / 532.0),
 ]
 const ANRI_TRAYS := [
-	Rect2(0.035, 0.195, 0.29, 0.22),
-	Rect2(0.35, 0.195, 0.29, 0.22),
-	Rect2(0.665, 0.195, 0.30, 0.22),
-	Rect2(0.035, 0.575, 0.93, 0.365),
+	Rect2((Vector2(82, 181) - ANRI_PALETTE_SOURCE.position) / ANRI_PALETTE_SOURCE.size,
+			Vector2(116, 104) / ANRI_PALETTE_SOURCE.size),
+	Rect2((Vector2(202, 181) - ANRI_PALETTE_SOURCE.position) / ANRI_PALETTE_SOURCE.size,
+			Vector2(130, 104) / ANRI_PALETTE_SOURCE.size),
+	Rect2((Vector2(336, 181) - ANRI_PALETTE_SOURCE.position) / ANRI_PALETTE_SOURCE.size,
+			Vector2(118, 104) / ANRI_PALETTE_SOURCE.size),
+	Rect2((Vector2(82, 371) - ANRI_PALETTE_SOURCE.position) / ANRI_PALETTE_SOURCE.size,
+			Vector2(372, 91) / ANRI_PALETTE_SOURCE.size),
 ]
 
 var brush_color := Color("#00458f")
@@ -70,7 +77,7 @@ func set_anri_mode(enabled: bool) -> void:
 	anri_mode = enabled
 	custom_minimum_size = Vector2(320, 700) if enabled else Vector2(300, 330)
 	if is_node_ready():
-		tool_reference.visible = enabled
+		tool_reference.visible = false
 		brush_stage.visible = enabled
 		_layout()
 
@@ -83,8 +90,9 @@ func _ready() -> void:
 		var blank := Image.create(8, 8, false, Image.FORMAT_RGBA8)
 		blank.fill(Color.TRANSPARENT)
 		_blank_cursor = ImageTexture.create_from_image(blank)
-	for tray in TRAYS:
-		var pixels := Vector2i(Vector2(tray.size * 532.0).ceil())
+	var tray_source_size := ANRI_PALETTE_SOURCE.size if anri_mode else Vector2(532, 532)
+	for tray in _active_trays():
+		var pixels := Vector2i(Vector2(tray.size * tray_source_size).ceil())
 		var image := Image.create(pixels.x, pixels.y, false, Image.FORMAT_RGBA8)
 		image.fill(Color.TRANSPARENT)
 		_tray_images.append(image)
@@ -100,7 +108,7 @@ func _ready() -> void:
 	tool_reference.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	tool_reference.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	tool_reference.mouse_filter = MOUSE_FILTER_IGNORE
-	tool_reference.visible = anri_mode
+	tool_reference.visible = false
 	add_child(tool_reference)
 	brush_stage = ColorRect.new()
 	brush_stage.name = "live-brush-stage"
@@ -145,16 +153,18 @@ func _layout() -> void:
 	if anri_mode:
 		var interior_size := Vector2(size.x - BORDER * 2.0, (size.x - BORDER * 2.0) * 2.0)
 		tool_reference.size = interior_size
-		image_rect = Rect2(tool_reference.position + ANRI_INTERIOR_UV.position * interior_size, ANRI_INTERIOR_UV.size * interior_size)
-		brush_stage.position = tool_reference.position + Vector2(0, interior_size.y * 0.75)
-		brush_stage.size = Vector2(interior_size.x, interior_size.y * 0.25)
+		var palette_width := interior_size.x * ANRI_PALETTE_WIDTH
+		image_rect = Rect2(tool_reference.position + ANRI_PALETTE_POSITION * interior_size,
+				Vector2(palette_width, palette_width * ANRI_PALETTE_SOURCE.size.y / ANRI_PALETTE_SOURCE.size.x))
+		brush_stage.position = tool_reference.position + Vector2(0, interior_size.y * 0.79)
+		brush_stage.size = Vector2(interior_size.x, interior_size.y * 0.21)
 	else:
 		tool_reference.size = Vector2.ZERO
 		brush_stage.size = Vector2.ZERO
 		var available := size - Vector2(BORDER * 2.0, TITLE_HEIGHT + BORDER * 2.0)
 		var side := minf(available.x, available.y - 104.0)
 		image_rect = Rect2(Vector2((size.x - side) / 2.0, TITLE_HEIGHT + BORDER), Vector2(side, side))
-	var rest_center := tool_reference.position + Vector2(tool_reference.size.x * 0.5, tool_reference.size.y * 0.87) if anri_mode else Vector2(size.x * 0.5, image_rect.end.y + 52.0)
+	var rest_center := tool_reference.position + Vector2(tool_reference.size.x * 0.5, tool_reference.size.y * 0.89) if anri_mode else Vector2(size.x * 0.5, image_rect.end.y + 52.0)
 	brush_rest.size = Vector2(112, 108) if anri_mode else Vector2(92, 90)
 	brush_rest.position = rest_center - brush_rest.size * 0.5
 	brush_rest.visible = true
@@ -197,6 +207,9 @@ func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, size), Color("#24282b"), false, 2.0)
 	if anri_mode:
 		draw_texture_rect(ANRI_TITLE, Rect2(BORDER, BORDER, size.x - BORDER * 2.0, TITLE_HEIGHT - BORDER), false)
+		draw_texture_rect(ANRI_INTERIOR, Rect2(tool_reference.position, tool_reference.size), false)
+		draw_rect(image_rect, Color.WHITE)
+		draw_texture_rect_region(PALETTE, image_rect, ANRI_PALETTE_SOURCE)
 	else:
 		draw_rect(Rect2(BORDER, BORDER, size.x - BORDER * 2.0, TITLE_HEIGHT - BORDER), Color("#9bc4df"))
 	draw_line(Vector2(BORDER, TITLE_HEIGHT), Vector2(size.x - BORDER, TITLE_HEIGHT), Color("#4d6778"), 1.0)
@@ -212,7 +225,7 @@ func _draw() -> void:
 		draw_texture_rect(_tray_textures[index], Rect2(image_rect.position + tray.position * image_rect.size, tray.size * image_rect.size), false)
 	var hovered_tray := _tray_at(_hover_uv)
 	if hovered_tray >= 0:
-		var rect: Rect2 = TRAYS[hovered_tray]
+		var rect: Rect2 = trays[hovered_tray]
 		draw_rect(Rect2(image_rect.position + rect.position * image_rect.size, rect.size * image_rect.size), Color(brush_color, 0.7), false, 2.0)
 
 func _gui_input(event: InputEvent) -> void:
