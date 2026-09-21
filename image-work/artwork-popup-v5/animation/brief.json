@@ -1,0 +1,32 @@
+{
+  "grammar": "smooth",
+  "source_authority": "The supplied Muse-generated Information dialog is the locked visual authority. Its full rectangular light-gray window chrome, centered Information title, nested page frame, integrated close button, single narrow scrollbar track, and scroll thumb must remain exactly in the supplied locations and proportions. The empty white page must remain a flat white page. This is an inferred interaction study, not a claim about a historical animation.",
+  "style_lock": [
+    "preserve the entire supplied Information window pixel-for-pixel except for the scroll thumb's vertical location",
+    "keep the close button, frame borders, page geometry, title text, scrollbar width, and light-gray palette unchanged",
+    "no camera motion, no crop, no zoom, no perspective shift, no drop-shadow change, no new text, no artwork, and no extra controls",
+    "the scrollbar is one continuous rail embedded flush in the page frame; no duplicate rail, no floating slider, and no separate resize icon"
+  ],
+  "motion": "Show one restrained scrollbar interaction: hold the intact dialog, move only the existing gray scroll thumb straight down inside its own already-generated vertical rail to roughly the lower third, hold briefly, then return the thumb to the exact starting position. Nothing else moves, redraws, morphs, or changes opacity.",
+  "timing": "Four-second clip. Hold the first frame for 0.6 seconds. Move the thumb down in a short, smooth 0.8-second vertical glide. Hold for 1.2 seconds. Return up in 0.8 seconds. Hold the identical initial frame through the end.",
+  "camera": "Locked orthographic front view using the supplied full window frame. No pan, zoom, roll, shake, focus, reframing, parallax, or lighting shift.",
+  "background": "The supplied window fills the frame. Preserve its white and pale-gray pixels exactly; do not introduce a matte, transparency, gradients, texture, or background objects.",
+  "negative_constraints": [
+    "do not animate the close X",
+    "do not animate, warp, fade, repaint, or crop the title Information",
+    "do not animate the window frame, borders, page, shadows, or any part of the UI other than the scroll thumb",
+    "do not create a second scrollbar, a floating handle, a cursor, hands, people, audio, watermarks, subtitles, or logos",
+    "do not change the starting or ending frame; the clip must return to the original integrated Muse-generated dialog"
+  ],
+  "motion_basis": "A scroll thumb is a direct manipulation control: it translates vertically inside a fixed track while the surrounding window remains static.",
+  "real_reference": "The supplied Muse frame is the visual authority; this is an inferred UI-motion study with no historical video reference.",
+  "era_idiom_basis": "Desktop scrollbar movement is a single vertical control translation while the surrounding window frame remains completely still.",
+  "inferred_motion": {
+    "provenance": "No authoritative motion capture exists; the owner requested a motion pass after the integrated Muse frame.",
+    "behavior": "Translate only the intact existing scroll thumb down and back up within its own rail.",
+    "timing": "Four seconds: hold, descend, hold, return, hold.",
+    "spatialPermissions": "Only the scroll thumb may move vertically within the existing rail.",
+    "cancelRestart": "Cancellation restores the first anchor; restart begins from the first anchor.",
+    "historicalFidelity": false
+  }
+}
