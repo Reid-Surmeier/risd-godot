@@ -40,6 +40,16 @@ For the selected-tab face only, a **Motion Pass** yields one entrance followed b
 
 **Certification** _(new)_: the gate's verdict on a conformed Motion Pass — silhouette IoU against the Anchor, frame count, palette purity. Uncertified output is evidence, never a deliverable. _Avoid_: approval, pass.
 
+**Sound Cue** _(new)_: the owner-approved Mr. Baby Paint sound assigned to a game event. These cues apply to every prototype unless its Issue explicitly replaces one. The canonical resources live in `prototype/mr-baby-paint-audio/sounds/`.
+
+| Event | Sound Cue |
+| --- | --- |
+| Any menu or button activation without a more specific cue | `fill_stop5.wav.res` |
+| Refill paint from the paintbrush | `fill_stop3.wav.res` |
+| Save an image or sculpture | `screenshot7.wav.res` |
+| Close a menu | `stop_fill_spacebar.wav.res` |
+| Splash screen | `splash_screen.wav.res` |
+
 ## Relationships
 
 - Every module has exactly one interface and one `MODULE.md`.
@@ -49,6 +59,7 @@ For the selected-tab face only, a **Motion Pass** yields one entrance followed b
 - A Motion Pass is conformed against exactly one Anchor and yields exactly one State Set.
 - The selected-tab exception instead uses two locked first/last image references and yields an entrance/held endpoint, certified against its accepted blue Anchor; it does not change the Foundry relationship above.
 - Certification is a property of a conformed Motion Pass, never of raw model output.
+- A specific Sound Cue overrides the default menu/button cue; one event plays one cue unless an Issue explicitly says otherwise.
 
 ## Flagged ambiguities
 
