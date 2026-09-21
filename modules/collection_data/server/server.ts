@@ -6,7 +6,7 @@ import { Effect } from 'effect';
 import { parseQuery, publish, search, refresh, image, type Store } from './adapter.ts';
 import { fetchOfficial, normalize } from './ingest.ts';
 
-const base = resolve(import.meta.dirname, 'cache'), seed = resolve(import.meta.dirname, '../../../docs/evidence/collection-search'), root = resolve(process.argv[2] ?? 'build/web-crt-refined');
+const base = resolve(import.meta.dirname, 'cache'), seed = resolve(process.env.RISD_COLLECTION_EVIDENCE ?? resolve(import.meta.dirname, '../../../docs/evidence/collection-search')), root = resolve(process.argv[2] ?? 'build/web-crt-refined');
 const store: Store = {snapshots: new Map(), latest: '', upstream_status: 'cached', now: Date.now, media: new Map()};
 const run = Effect.runPromise;
 const result = async <A, E>(effect: Effect.Effect<A, E>) => {

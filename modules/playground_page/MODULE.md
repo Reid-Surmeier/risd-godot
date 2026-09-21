@@ -23,7 +23,7 @@ Layout (ticket #63). The native desktop is 2171x1185 px (the windows' rects in t
 
 ## Inside
 
-`playground_page.gd` owns the retained raster frames, clearing overlays, save cards, verified image loading, and the existing drag, raise and clamp behavior. `PROVENANCE.md` has every asset's origin and hash.
+`playground_page.gd` owns the retained raster frames, clearing overlays, save cards, verified image loading, and the existing drag, raise and clamp behavior. In the main demo, the PostPet window uses the same collection-data seam and verified hash route to fill its existing white body with a 5-by-5 grid of 25 public-domain RISD paintings; the frozen fixture leaves that optional gallery off. `PROVENANCE.md` has every raster frame's origin and hash, while `docs/evidence/playground-gallery/` records the gallery metadata, rights evidence and image hashes.
 
 The main demo also enables the approved WebSurfer raster as a seventh draggable Playground window. The unused gray source bands are cropped, and its baked bottom-right grip resizes the whole raster proportionally so its lettering and controls stay intact. All controls are invisible hit regions; button and scrollbar motion sample the source pixels without drawing replacement text. The frozen six-window acceptance fixture leaves this optional comparison window disabled.
 

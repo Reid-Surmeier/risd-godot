@@ -53,11 +53,12 @@ var _start_position := Vector2.ZERO
 var data_handle: Variant
 var image_fetch: Callable
 var saved_body := ColorRect.new()
-var saved_list := VBoxContainer.new()
+var saved_list: Container
 var saved_ids: Array = []
 var storage_status := "loading"
 var refresh_generation := 0
 var show_websurfer := false
+var show_gallery := false
 var websurfer: Control
 var interactive_windows: Array[Control] = []
 
@@ -73,6 +74,7 @@ static func create(deps: Dictionary) -> Dictionary:
 	page.data_handle = deps.collection_data
 	page.image_fetch = deps.image_fetch
 	page.show_websurfer = deps.get("show_websurfer", false)
+	page.show_gallery = deps.get("show_gallery", false)
 	page.name = "PlaygroundPage"
 	page.color = Color.WHITE
 	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -121,7 +123,13 @@ func _ready() -> void:
 	saved_body.mouse_filter = Control.MOUSE_FILTER_STOP
 	saved_body.clip_contents = true
 	windows[0].add_child(saved_body)
-	saved_list.add_theme_constant_override("separation", 8)
+	saved_list = GridContainer.new() if show_gallery else VBoxContainer.new()
+	if show_gallery:
+		(saved_list as GridContainer).columns = 5
+		saved_list.add_theme_constant_override("h_separation", 6)
+		saved_list.add_theme_constant_override("v_separation", 6)
+	else:
+		saved_list.add_theme_constant_override("separation", 8)
 	saved_body.add_child(saved_list)
 	visibility_changed.connect(_refresh_saved)
 	resized.connect(_fit)
@@ -168,8 +176,16 @@ func _fit() -> void:
 	saved_body.size = (postpet.size - saved_body.position - lower_right_inset * postpet_scale).max(Vector2.ZERO)
 	saved_list.position = Vector2(10 * s, 8 * s)
 	saved_list.size = saved_body.size - Vector2(20 * s, 16 * s)
-	for child in saved_list.get_children():
-		child.custom_minimum_size.x = saved_list.size.x
+	if show_gallery:
+		var gap := 6.0 * s
+		saved_list.add_theme_constant_override("h_separation", roundi(gap))
+		saved_list.add_theme_constant_override("v_separation", roundi(gap))
+		var cell := (saved_list.size - Vector2(gap * 4.0, gap * 4.0)) / 5.0
+		for child in saved_list.get_children():
+			child.custom_minimum_size = cell
+	else:
+		for child in saved_list.get_children():
+			child.custom_minimum_size.x = saved_list.size.x
 	if websurfer != null:
 		var websurfer_height := minf(780.0, size.y * 0.78)
 		websurfer.size = Vector2(websurfer_height * 1616.0 / 1407.0, websurfer_height)
@@ -178,6 +194,9 @@ func _fit() -> void:
 
 func _refresh_saved() -> void:
 	if not is_visible_in_tree() or data_handle == null:
+		return
+	if show_gallery:
+		_refresh_gallery()
 		return
 	refresh_generation += 1
 	var current := refresh_generation
@@ -201,6 +220,74 @@ func _refresh_saved() -> void:
 			saved_list.add_child(_saved_card(item.artwork)))
 	if not started.ok and current == refresh_generation and is_visible_in_tree():
 		storage_status = "error"
+
+
+func _refresh_gallery() -> void:
+	refresh_generation += 1
+	var current := refresh_generation
+	storage_status = "loading"
+	var query := {"q": "", "category": "Painting", "sort": "title_asc", "has_image": true, "page": 1}
+	var started := Data.search(data_handle, query, func(result: Dictionary) -> void:
+		if not _gallery_current(current):
+			return
+		if not result.ok:
+			_show_gallery_error()
+			return
+		var items: Array = result.value.items.duplicate(true)
+		if result.value.total <= items.size():
+			_show_gallery(current, items)
+			return
+		var next_query := query.duplicate()
+		next_query.page = 2
+		next_query.snapshot = result.value.corpus.snapshot
+		var next_started := Data.search(data_handle, next_query, func(next_result: Dictionary) -> void:
+			if not _gallery_current(current):
+				return
+			if next_result.ok:
+				items.append_array(next_result.value.items)
+			_show_gallery(current, items))
+		if not next_started.ok:
+			_show_gallery(current, items))
+	if not started.ok and _gallery_current(current):
+		_show_gallery_error()
+
+
+func _gallery_current(generation: int) -> bool:
+	return generation == refresh_generation and is_visible_in_tree() and is_instance_valid(saved_list)
+
+
+func _show_gallery(generation: int, items: Array) -> void:
+	if not _gallery_current(generation):
+		return
+	for child in saved_list.get_children():
+		child.queue_free()
+	saved_ids.clear()
+	storage_status = "ready"
+	for artwork in items.slice(0, 25):
+		saved_ids.append(artwork.id)
+		saved_list.add_child(_gallery_image(artwork))
+	_fit()
+
+
+func _show_gallery_error() -> void:
+	storage_status = "error"
+	for child in saved_list.get_children():
+		child.queue_free()
+	saved_list.add_child(_saved_label("Paintings unavailable"))
+
+
+func _gallery_image(artwork: Dictionary) -> Control:
+	var cell := Control.new()
+	cell.clip_contents = true
+	var image := TextureRect.new()
+	image.name = "SavedImage"
+	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	image.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	image.tooltip_text = "%s — %s" % [artwork.title, ", ".join(artwork.makers)]
+	cell.add_child(image)
+	_load_saved_image(artwork.image, image, null)
+	return cell
 
 
 func _saved_label(value: String) -> Label:
@@ -243,27 +330,29 @@ func _saved_card(artwork: Dictionary) -> Control:
 func _load_saved_image(manifest: Dictionary, target: TextureRect, unavailable: Label) -> void:
 	var page_id := get_instance_id()
 	var target_id := target.get_instance_id()
-	var unavailable_id := unavailable.get_instance_id()
+	var unavailable_id := unavailable.get_instance_id() if unavailable != null else 0
 	image_fetch.call(manifest.sha256, func(result: Dictionary) -> void:
 		var live_page := instance_from_id(page_id) as Control
 		var live_target := instance_from_id(target_id) as TextureRect
 		var live_unavailable := instance_from_id(unavailable_id) as Label
-		if live_page == null or not live_page.is_visible_in_tree() or live_target == null or live_unavailable == null:
+		if live_page == null or not live_page.is_visible_in_tree() or live_target == null or (unavailable_id != 0 and live_unavailable == null):
 			return
 		if not result.ok:
-			live_unavailable.visible = true
+			if live_unavailable != null:
+				live_unavailable.visible = true
 			return
 		var context := HashingContext.new()
 		context.start(HashingContext.HASH_SHA256)
 		context.update(result.value)
 		if context.finish().hex_encode() != manifest.sha256:
-			live_unavailable.visible = true
+			if live_unavailable != null:
+				live_unavailable.visible = true
 			return
 		var decoded := Image.new()
 		var status := decoded.load_jpg_from_buffer(result.value) if manifest.mime == "image/jpeg" else (decoded.load_png_from_buffer(result.value) if manifest.mime == "image/png" else decoded.load_webp_from_buffer(result.value))
 		if status == OK:
 			live_target.texture = ImageTexture.create_from_image(decoded)
-		else:
+		elif live_unavailable != null:
 			live_unavailable.visible = true)
 
 

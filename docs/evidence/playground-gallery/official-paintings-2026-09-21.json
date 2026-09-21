@@ -1,0 +1,1274 @@
+{
+  "observed_at": "2026-09-21T17:56:37.112Z",
+  "requests": [
+    "https://risdmuseum.org/api/v1/collection?id=1190261",
+    "https://risdmuseum.org/api/v1/collection?id=1190336",
+    "https://risdmuseum.org/api/v1/collection?id=1190396",
+    "https://risdmuseum.org/api/v1/collection?id=1190676",
+    "https://risdmuseum.org/api/v1/collection?id=1190686",
+    "https://risdmuseum.org/api/v1/collection?id=1190706",
+    "https://risdmuseum.org/api/v1/collection?id=1190751",
+    "https://risdmuseum.org/api/v1/collection?id=1190816",
+    "https://risdmuseum.org/api/v1/collection?id=1196161",
+    "https://risdmuseum.org/api/v1/collection?id=1197221",
+    "https://risdmuseum.org/api/v1/collection?id=1197226",
+    "https://risdmuseum.org/api/v1/collection?id=1197456",
+    "https://risdmuseum.org/api/v1/collection?id=1197476",
+    "https://risdmuseum.org/api/v1/collection?id=1197496",
+    "https://risdmuseum.org/api/v1/collection?id=1197566",
+    "https://risdmuseum.org/api/v1/collection?id=1197581",
+    "https://risdmuseum.org/api/v1/collection?id=1197596",
+    "https://risdmuseum.org/api/v1/collection?id=1197711",
+    "https://risdmuseum.org/api/v1/collection?id=1197766",
+    "https://risdmuseum.org/api/v1/collection?id=1197831",
+    "https://risdmuseum.org/api/v1/collection?id=1198191",
+    "https://risdmuseum.org/api/v1/collection?id=1198271",
+    "https://risdmuseum.org/api/v1/collection?id=1198296",
+    "https://risdmuseum.org/api/v1/collection?id=1207106",
+    "https://risdmuseum.org/api/v1/collection?id=1207111"
+  ],
+  "records": [
+    {
+      "id": "1190261",
+      "collection": "",
+      "credit": "Bequest of Isaac C. Bates",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1854",
+      "datingYearTo": "1904",
+      "description": "<p>Autumn Landscape, Long Island</p>\n",
+      "dimensions": "20.6 x 36.8 cm (8 1/8 x 14 1/2 inches)",
+      "edition": "",
+      "inscription": "Signature: Signed LR:C.H. Miller",
+      "makers": [
+        {
+          "name": "Charles Henry Miller",
+          "risdAffiliation": null,
+          "years": "1842-1922",
+          "nationality": [
+            "American"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "oil paint"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "13.943",
+      "onView": false,
+      "place": "",
+      "primaryMaker": "Charles Henry Miller",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "panel"
+      ],
+      "technique": [
+        "oil paint"
+      ],
+      "title": "Autumn Landscape, Long Island",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/autumn-landscape-long-island-13943"
+    },
+    {
+      "id": "1190336",
+      "collection": "",
+      "credit": "Anonymous gift",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1907",
+      "datingYearTo": "1907",
+      "description": "<p>Portrait of Mrs. William C. Baker</p>\n",
+      "dimensions": "7.9 cm (3 1/8 inches) (length)",
+      "edition": "",
+      "inscription": "Signature: Signed:E. I. Ames Apr. 1907",
+      "makers": [
+        {
+          "name": "Edwin Isaak Ames",
+          "risdAffiliation": null,
+          "years": "1862-1932",
+          "nationality": [
+            "American"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "watercolor"
+      ],
+      "mediumTechnique": "watercolor",
+      "objectNumber": "58.180",
+      "onView": false,
+      "place": "",
+      "primaryMaker": "Edwin Isaak Ames",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "ivory"
+      ],
+      "technique": [
+        "watercolor"
+      ],
+      "title": "Portrait of Mrs. William C. Baker",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/portrait-mrs-william-c-baker-58180"
+    },
+    {
+      "id": "1190396",
+      "collection": "",
+      "credit": "Gift of the National Academy of Design, bequest of Mrs. William S. Brewster",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1905",
+      "datingYearTo": "1905",
+      "description": "<p>Near Tenby, Wales</p>\n",
+      "dimensions": "12.1 x 18.1 cm (4 3/4 x 7 1/8 inches)",
+      "edition": "",
+      "inscription": "",
+      "makers": [
+        {
+          "name": "William Trost Richards",
+          "risdAffiliation": null,
+          "years": "1833-1905",
+          "nationality": [
+            "American"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "oil paint"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "54.110",
+      "onView": false,
+      "place": "",
+      "primaryMaker": "William Trost Richards",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "panel"
+      ],
+      "technique": [
+        "oil paint"
+      ],
+      "title": "Near Tenby, Wales",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/near-tenby-wales-54110"
+    },
+    {
+      "id": "1190676",
+      "collection": "",
+      "credit": "Gift of Mr. and Mrs Scott Eaton",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1800",
+      "datingYearTo": "1899",
+      "description": "<p>Hanging Grapes</p>\n",
+      "dimensions": "51.1 x 41 cm (20 1/8 x 16 1/8 inches)",
+      "edition": "",
+      "inscription": "Signature: Signed LR:F. S. Batcheller",
+      "makers": [
+        {
+          "name": "Frederick S. Batcheller",
+          "risdAffiliation": null,
+          "years": "1837-1889",
+          "nationality": [
+            "American"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "oil paint"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "81.288",
+      "onView": false,
+      "place": "",
+      "primaryMaker": "Frederick S. Batcheller",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "canvas"
+      ],
+      "technique": [
+        "oil paint"
+      ],
+      "title": "Hanging Grapes",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/hanging-grapes-81288"
+    },
+    {
+      "id": "1190686",
+      "collection": "",
+      "credit": "Museum Appropriation Fund",
+      "culture": "Byzantine",
+      "dating": "",
+      "datingYearFrom": "1603",
+      "datingYearTo": "1603",
+      "description": "<p>St. Zosimus and Mary the Egyptian</p>\n",
+      "dimensions": "44.1 x 38.1 x 3.8 cm (17 3/8 x 15 x 1 1/2 inches) updated during painting inventory project 12/7/04",
+      "edition": "",
+      "inscription": "Inscribed LL: see card",
+      "makers": [
+        {
+          "name": "Emmanuel Lambardos",
+          "risdAffiliation": null,
+          "years": "active 1593 - 1647",
+          "nationality": [
+            "Iráklion"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "tempera",
+        "gold"
+      ],
+      "mediumTechnique": "gold, tempera",
+      "objectNumber": "17.516",
+      "onView": false,
+      "place": "Place Made: Crete",
+      "primaryMaker": "Emmanuel Lambardos",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "panel"
+      ],
+      "technique": [
+        "tempera",
+        "gold"
+      ],
+      "title": "St. Zosimus and Mary the Egyptian",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/st-zosimus-and-mary-egyptian-17516"
+    },
+    {
+      "id": "1190706",
+      "collection": "",
+      "credit": "Gift of Starkweather and Sheply, Inc., by exchange",
+      "culture": "American",
+      "dating": "",
+      "datingYearFrom": "1800",
+      "datingYearTo": "1899",
+      "description": "<p>Lark Farm, Milton, Massachusetts</p>\n",
+      "dimensions": "68.3 x 102.2 cm (26 7/8 x 40 1/4 inches)",
+      "edition": "",
+      "inscription": "",
+      "makers": [
+        {
+          "name": "Unknown",
+          "risdAffiliation": null,
+          "years": "",
+          "nationality": [],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "Oil on canvas"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "62.002",
+      "onView": false,
+      "place": "",
+      "primaryMaker": "Unknown Maker, American",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "canvas"
+      ],
+      "technique": [
+        "Oil on canvas"
+      ],
+      "title": "Lark Farm, Milton, Massachusetts",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/lark-farm-milton-massachusetts-62002"
+    },
+    {
+      "id": "1190751",
+      "collection": "",
+      "credit": "Bequest of the estate of Mrs. Connal Rowan",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1877",
+      "datingYearTo": "1877",
+      "description": "<p>Portrait of Mrs. Charles Deering</p>\n",
+      "dimensions": "55.9 x 45.7 cm (22 x 18 inches)",
+      "edition": "",
+      "inscription": "",
+      "makers": [
+        {
+          "name": "John Singer Sargent",
+          "risdAffiliation": null,
+          "years": "1856–1925, b. in Florence, Italy",
+          "nationality": [
+            "American"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "oil paint"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "76.046.1",
+      "onView": false,
+      "place": "",
+      "primaryMaker": "John Singer Sargent",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "canvas"
+      ],
+      "technique": [
+        "oil paint"
+      ],
+      "title": "Portrait of Mrs. Charles Deering",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/portrait-mrs-charles-deering-760461"
+    },
+    {
+      "id": "1190816",
+      "collection": "",
+      "credit": "Bequest of Isaac C. Bates",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1855",
+      "datingYearTo": "1905",
+      "description": "<p>A Little Bavarian Girl</p>\n",
+      "dimensions": "19.4 x 15.9 cm (7 5/8 x 6 1/4 inches)",
+      "edition": "",
+      "inscription": "Signature: Unsigned",
+      "makers": [
+        {
+          "name": "Jean Paul Selinger",
+          "risdAffiliation": null,
+          "years": "1850-1909",
+          "nationality": [
+            "American"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "Oil on panel"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "13.841",
+      "onView": false,
+      "place": "",
+      "primaryMaker": "Jean Paul Selinger",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "wood panel"
+      ],
+      "technique": [
+        "Oil on panel"
+      ],
+      "title": "A Little Bavarian Girl",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/little-bavarian-girl-13841"
+    },
+    {
+      "id": "1196161",
+      "collection": "",
+      "credit": "Gift of Mrs. Gustav Radeke",
+      "culture": "Iranian",
+      "dating": "",
+      "datingYearFrom": "1500",
+      "datingYearTo": "1599",
+      "description": "<p>Majnun Pleads for Laila (?)</p>\n",
+      "dimensions": "5.1 x 8.3 cm (2 x 3 1/4 inches)",
+      "edition": "",
+      "inscription": "",
+      "makers": [
+        {
+          "name": "Unknown",
+          "risdAffiliation": null,
+          "years": "",
+          "nationality": [],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "opaque watercolor on paper on a sheet of heavy paper"
+      ],
+      "mediumTechnique": "watercolor",
+      "objectNumber": "14.048",
+      "onView": false,
+      "place": "Origin: Iran",
+      "primaryMaker": "Unknown Maker, Iranian",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "paper on a sheet of heavy paper"
+      ],
+      "technique": [
+        "opaque watercolor on paper on a sheet of heavy paper"
+      ],
+      "title": "Majnun Pleads for Laila (?)",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/majnun-pleads-laila-14048"
+    },
+    {
+      "id": "1197221",
+      "collection": "",
+      "credit": "Gift of Mr. Alfred T. Morris, Sr.",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1800",
+      "datingYearTo": "1899",
+      "description": "<p>Farmyard with Chickens</p>\n",
+      "dimensions": "38.1 x 62.9 cm (15 x 24 3/4 inches)",
+      "edition": "",
+      "inscription": "Signature: Signed LL:P. L. Couturier",
+      "makers": [
+        {
+          "name": "Philibert Léon Couturier",
+          "risdAffiliation": null,
+          "years": "1823-1901",
+          "nationality": [
+            "French"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "Oil on canvas"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "81.302",
+      "onView": false,
+      "place": "Place Made: France",
+      "primaryMaker": "Philibert Léon Couturier",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "canvas"
+      ],
+      "technique": [
+        "Oil on canvas"
+      ],
+      "title": "Farmyard with Chickens",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/farmyard-chickens-81302"
+    },
+    {
+      "id": "1197226",
+      "collection": "",
+      "credit": "Gift of the Wunsch Foundation, Inc.",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1745",
+      "datingYearTo": "1780",
+      "description": "<p>The Entombment of Christ</p>\n",
+      "dimensions": "73.7 x 47 cm (29 x 18 1/2 inches)",
+      "edition": "",
+      "inscription": "",
+      "makers": [
+        {
+          "name": "Tadeusz Kuntze",
+          "risdAffiliation": null,
+          "years": "ca. 1733-1793",
+          "nationality": [
+            "Polish"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "Oil on canvas"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "1990.094",
+      "onView": false,
+      "place": "",
+      "primaryMaker": "Tadeusz Kuntze",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [
+        "https://risdmuseum.org/api/v1/collection?id=1591391"
+      ],
+      "state": "",
+      "support": [
+        "canvas"
+      ],
+      "technique": [
+        "Oil on canvas"
+      ],
+      "title": "The Entombment of Christ",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/entombment-christ-1990094"
+    },
+    {
+      "id": "1197456",
+      "collection": "",
+      "credit": "Gift of Miss M. C. Harrington",
+      "culture": "Austrian",
+      "dating": "",
+      "datingYearFrom": "1760",
+      "datingYearTo": "1799",
+      "description": "<p>Portrait of Marie Antoinette</p>\n",
+      "dimensions": "94.6 x 80.2 x 5.1 cm (37 1/4 x 31 9/16 x 2 inches) updated during painting inventory project 12/2/04",
+      "edition": "",
+      "inscription": "",
+      "makers": [
+        {
+          "name": "Unknown",
+          "risdAffiliation": null,
+          "years": "",
+          "nationality": [],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "Oil on canvas"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "57.295",
+      "onView": false,
+      "place": "",
+      "primaryMaker": "Unknown Maker, Austrian",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "canvas"
+      ],
+      "technique": [
+        "Oil on canvas"
+      ],
+      "title": "Portrait of Marie Antoinette",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/portrait-marie-antoinette-57295"
+    },
+    {
+      "id": "1197476",
+      "collection": "",
+      "credit": "Museum Works of Art Fund",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1565",
+      "datingYearTo": "1575",
+      "description": "<p>Andromache Learning of the Death of Hector<br>Andromache Fainting on Learning of the Death of Hector<br>Andromache Learning of the Death of Hector</p>\n",
+      "dimensions": "185.4 x 225.1 cm (73 x 88 5/8 inches)",
+      "edition": "",
+      "inscription": "",
+      "makers": [
+        {
+          "name": "Francesco Primaticcio",
+          "risdAffiliation": null,
+          "years": "1503-1570",
+          "nationality": [
+            "Italian"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "Oil on canvas"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "56.083",
+      "onView": false,
+      "place": "Place Made: France",
+      "primaryMaker": "Francesco Primaticcio",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "canvas"
+      ],
+      "technique": [
+        "Oil on canvas"
+      ],
+      "title": "Andromache Learning of the Death of Hector",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/andromache-learning-death-hector-56083"
+    },
+    {
+      "id": "1197496",
+      "collection": "",
+      "credit": "Bequest of Miss Ellen D. Sharpe",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1730",
+      "datingYearTo": "1839",
+      "description": "<p>Vice-Admiral Sir William George Fairfax</p>\n",
+      "dimensions": "77.5 x 64.1 x 3.8 cm (30 1/2 x 25 1/4 x 1 1/2 inches) updated during painting inventory project 12/6/04",
+      "edition": "",
+      "inscription": "",
+      "makers": [
+        {
+          "name": "George Romney",
+          "risdAffiliation": null,
+          "years": "1734-1802",
+          "nationality": [
+            "English"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "Oil on canvas"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "54.147.74",
+      "onView": false,
+      "place": "Place Made: England",
+      "primaryMaker": "George Romney",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "canvas"
+      ],
+      "technique": [
+        "Oil on canvas"
+      ],
+      "title": "Vice-Admiral Sir William George Fairfax",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/vice-admiral-sir-william-george-fairfax-5414774"
+    },
+    {
+      "id": "1197566",
+      "collection": "",
+      "credit": "Collection of Mrs. Houghton P. Metcalf\nGift of Mrs. Houghton P. Metcalf, Sr.",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1800",
+      "datingYearTo": "1869",
+      "description": "<p>Cows and Water</p>\n",
+      "dimensions": "20.6 x 32.7 cm (8 1/8 x 12 7/8 inches)",
+      "edition": "",
+      "inscription": "Signature: Signed LR:COROT",
+      "makers": [
+        {
+          "name": "Jean-Baptiste-Camille Corot",
+          "risdAffiliation": null,
+          "years": "1796-1875",
+          "nationality": [
+            "French"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "Oil on canvas"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "1986.207.3",
+      "onView": false,
+      "place": "Place Made: France",
+      "primaryMaker": "Jean-Baptiste-Camille Corot",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "canvas"
+      ],
+      "technique": [
+        "Oil on canvas"
+      ],
+      "title": "Cows and Water",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/cows-and-water-19862073"
+    },
+    {
+      "id": "1197581",
+      "collection": "",
+      "credit": "Mrs. Murray S. Danforth",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1830",
+      "datingYearTo": "1899",
+      "description": "<p>The Little Confectioner (Le Petit Gilles)</p>\n",
+      "dimensions": "58.4 x 45.7 cm (23 x 18 inches)",
+      "edition": "",
+      "inscription": "Signature: Signed LL:T. C.",
+      "makers": [
+        {
+          "name": "Thomas Couture",
+          "risdAffiliation": null,
+          "years": "1815-1879",
+          "nationality": [
+            "French"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "Oil on canvas"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "53.108",
+      "onView": false,
+      "place": "Place Made: France",
+      "primaryMaker": "Thomas Couture",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "canvas"
+      ],
+      "technique": [
+        "Oil on canvas"
+      ],
+      "title": "The Little Confectioner (Le Petit Gilles)",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/little-confectioner-le-petit-gilles-53108"
+    },
+    {
+      "id": "1197596",
+      "collection": "",
+      "credit": "Bequest of George Pierce Metcalf",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1847",
+      "datingYearTo": "1897",
+      "description": "<p>Two Children Wading at the Shore</p>\n",
+      "dimensions": "28.1 x 40.6 x 8.9 cm (11 1/16 x 16 x 3 1/2 inches) updated during painting inventory project 12/7/04",
+      "edition": "",
+      "inscription": "Signature: Signed LL:Josef Israels",
+      "makers": [
+        {
+          "name": "Josef Israëls",
+          "risdAffiliation": null,
+          "years": "1824-1911",
+          "nationality": [
+            "Dutch"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "Oil on panel"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "57.234",
+      "onView": false,
+      "place": "Place Made: Netherlands",
+      "primaryMaker": "Josef Israëls",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "panel"
+      ],
+      "technique": [
+        "Oil on panel"
+      ],
+      "title": "Two Children Wading at the Shore",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/two-children-wading-shore-57234"
+    },
+    {
+      "id": "1197711",
+      "collection": "",
+      "credit": "Gift of Dr. Halsey DeWolf",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1800",
+      "datingYearTo": "1899",
+      "description": "<p>Still Life</p>\n",
+      "dimensions": "39.4 x 55.2 cm (15 1/2 x 21 3/4 inches)",
+      "edition": "",
+      "inscription": "",
+      "makers": [
+        {
+          "name": "David de Noter",
+          "risdAffiliation": null,
+          "years": "1825-1900",
+          "nationality": [
+            "Belgian"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "Oil on panel"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "57.176",
+      "onView": false,
+      "place": "Place Made: Belgium",
+      "primaryMaker": "David de Noter",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "panel"
+      ],
+      "technique": [
+        "Oil on panel"
+      ],
+      "title": "Still Life",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/still-life-57176"
+    },
+    {
+      "id": "1197766",
+      "collection": "",
+      "credit": "Gift of Mr. and Mrs. Arthur L. Erlanger",
+      "culture": "Dutch, Flemish",
+      "dating": "",
+      "datingYearFrom": "1660",
+      "datingYearTo": "1699",
+      "description": "<p>The Young Huntresses</p>\n",
+      "dimensions": "205.7 x 152.4 cm (81 x 60 inches)",
+      "edition": "",
+      "inscription": "",
+      "makers": [
+        {
+          "name": "Unknown",
+          "risdAffiliation": null,
+          "years": "",
+          "nationality": [],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "Oil on canvas"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "59.109",
+      "onView": false,
+      "place": "Place Made: France; Place Made: Italy",
+      "primaryMaker": "Unknown Maker, Dutch",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "canvas"
+      ],
+      "technique": [
+        "Oil on canvas"
+      ],
+      "title": "The Young Huntresses",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/young-huntresses-59109"
+    },
+    {
+      "id": "1197831",
+      "collection": "",
+      "credit": "Anonymous gift",
+      "culture": "Indo-Persian",
+      "dating": "",
+      "datingYearFrom": "1600",
+      "datingYearTo": "1699",
+      "description": "<p>Poem</p>\n",
+      "dimensions": "13.7 x 6.7 cm (5 3/8 x 2 5/8 inches)",
+      "edition": "",
+      "inscription": "On reverse:painting of a lady",
+      "makers": [
+        {
+          "name": "Unknown",
+          "risdAffiliation": null,
+          "years": "",
+          "nationality": [],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [],
+      "mediumTechnique": "",
+      "objectNumber": "17.477B",
+      "onView": false,
+      "place": "Origin: Indo-Persia",
+      "primaryMaker": "Unknown Maker, Indo-Persian",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [
+        "https://risdmuseum.org/api/v1/collection?id=1549006"
+      ],
+      "state": "",
+      "support": [],
+      "technique": [],
+      "title": "Poem",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/poem-17477b"
+    },
+    {
+      "id": "1198191",
+      "collection": "",
+      "credit": "Museum Appropriation Fund",
+      "culture": "Near Eastern",
+      "dating": "Ottoman Dynasty",
+      "datingYearFrom": "1560",
+      "datingYearTo": "1639",
+      "description": "<p>Sultan Süleyman I hunting</p>\n",
+      "dimensions": "13.7 x 7.3 cm (5 3/8 x 2 7/8 inches) (image) Textblock; mat size: A; Asian Art Department Carpenter Inventory and Cataloging Project 2004",
+      "edition": "",
+      "inscription": "",
+      "makers": [
+        {
+          "name": "Ibrāhīm Mahmūd 'Abd al-Bāqī",
+          "risdAffiliation": null,
+          "years": "1526/1527-1600",
+          "nationality": [
+            "Turkish"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "watercolor",
+        "ink",
+        "gold"
+      ],
+      "mediumTechnique": "watercolor, gold, ink",
+      "objectNumber": "17.459B",
+      "onView": false,
+      "place": "Place Made: Baghdad; Origin: Turkey",
+      "primaryMaker": "Ibrāhīm Mahmūd &#039;Abd al-Bāqī",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [
+        "https://risdmuseum.org/api/v1/collection?id=1546116"
+      ],
+      "state": "",
+      "support": [
+        "on paper"
+      ],
+      "technique": [
+        "watercolor",
+        "ink",
+        "gold"
+      ],
+      "title": "Sultan Süleyman I hunting",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/sultan-suleyman-i-hunting-17459b"
+    },
+    {
+      "id": "1198271",
+      "collection": "",
+      "credit": "Gift of the Estate of Mrs. Gustav Radeke",
+      "culture": "Japanese",
+      "dating": "Meiji",
+      "datingYearFrom": "1860",
+      "datingYearTo": "1899",
+      "description": "<p>Making dolls</p>\n",
+      "dimensions": "27.6 x 35.6 cm (10 7/8 x 14 inches)",
+      "edition": "",
+      "inscription": "Inscription/calligraphy on panel to the left of the image measuring 13 13/16 x 13 13/16\"",
+      "makers": [
+        {
+          "name": "Unknown",
+          "risdAffiliation": null,
+          "years": "",
+          "nationality": [],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "ink and color on paper"
+      ],
+      "mediumTechnique": "",
+      "objectNumber": "31.603",
+      "onView": false,
+      "place": "Origin: Japan",
+      "primaryMaker": "Unknown Maker, Japanese",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [],
+      "technique": [
+        "ink and color on paper"
+      ],
+      "title": "Making dolls",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/making-dolls-31603"
+    },
+    {
+      "id": "1198296",
+      "collection": "",
+      "credit": "Gift of Mrs. Gustav Radeke",
+      "culture": "Japanese",
+      "dating": "Edo Period",
+      "datingYearFrom": "1800",
+      "datingYearTo": "1899",
+      "description": "<p>Arhat (rakan) with fly whisk in front of cave</p>\n",
+      "dimensions": "147.3 x 53.3 cm (58 x 21 inches) approx.",
+      "edition": "",
+      "inscription": "Label: Oval label adhered to mount, recto near bottom left with a number inscribed in ink: 412",
+      "makers": [
+        {
+          "name": "Unknown",
+          "risdAffiliation": null,
+          "years": "",
+          "nationality": [],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "ink",
+        "color and gold on silk"
+      ],
+      "mediumTechnique": "paint",
+      "objectNumber": "20.1046.9",
+      "onView": false,
+      "place": "Origin: Japan",
+      "primaryMaker": "Unknown Maker, Japanese",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "silk"
+      ],
+      "technique": [
+        "ink",
+        "color and gold on silk"
+      ],
+      "title": "Arhat (rakan) with fly whisk in front of cave",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/arhat-rakan-fly-whisk-front-cave-2010469"
+    },
+    {
+      "id": "1207106",
+      "collection": "",
+      "credit": "Museum Collection",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1843",
+      "datingYearTo": "1893",
+      "description": "<p>Portrait of Henry A. Pierce</p>\n",
+      "dimensions": "102.6 x 84.5 cm (40 3/8 x 33 1/4 inches)",
+      "edition": "",
+      "inscription": "On back of canvas in pencil: W.G. Pierce or H. - Pierce\nSignature: In red: Lincoln 1868",
+      "makers": [
+        {
+          "name": "James Sullivan Lincoln",
+          "risdAffiliation": null,
+          "years": "1811-1888",
+          "nationality": [
+            "American"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "Oil on canvas"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "78.141",
+      "onView": false,
+      "place": "",
+      "primaryMaker": "James Sullivan Lincoln",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "canvas"
+      ],
+      "technique": [
+        "Oil on canvas"
+      ],
+      "title": "Portrait of Henry A. Pierce",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/portrait-henry-pierce-78141"
+    },
+    {
+      "id": "1207111",
+      "collection": "",
+      "credit": "Gift of the National Academy of Design, bequest of Mrs. William S. Brewster",
+      "culture": "",
+      "dating": "",
+      "datingYearFrom": "1865",
+      "datingYearTo": "1895",
+      "description": "<p>Guernsey, Channel Islands</p>\n",
+      "dimensions": "22.4 x 40.8 cm (8 13/16 x 16 1/16 inches)",
+      "edition": "",
+      "inscription": "Signature: Signed LL:Wm. T. Richards",
+      "makers": [
+        {
+          "name": "William Trost Richards",
+          "risdAffiliation": null,
+          "years": "1833-1905",
+          "nationality": [
+            "American"
+          ],
+          "nationalityModifiers": null,
+          "role": null,
+          "attribution_type": null
+        }
+      ],
+      "medium": [
+        "oil paint"
+      ],
+      "mediumTechnique": "oil paint",
+      "objectNumber": "54.114",
+      "onView": false,
+      "place": "",
+      "primaryMaker": "William Trost Richards",
+      "publicDomain": false,
+      "recentAcquisition": false,
+      "referenceNumber": "",
+      "relatedObjects": [],
+      "state": "",
+      "support": [
+        "cardboard"
+      ],
+      "technique": [
+        "oil paint"
+      ],
+      "title": "Guernsey, Channel Islands",
+      "type": [
+        "Paintings"
+      ],
+      "url": "https://risdmuseum.org/art-design/collection/guernsey-channel-islands-54114"
+    }
+  ]
+}
