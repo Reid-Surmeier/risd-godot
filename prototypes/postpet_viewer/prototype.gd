@@ -1,101 +1,113 @@
-## Throwaway PostPet composition built from separate UI components.
-## The screenshot is a placement reference; it is not rendered as the page.
+## PostPet setup shell with the sculpture thumbnail row feeding the real viewer module.
 extends Control
 
-const CANVAS := Vector2(6400, 3632)
-const ASSET_ROOT := "res://prototypes/postpet_viewer/assets/components/"
-const LION := "res://prototypes/postpet_viewer/assets/lion-native-cutout.png"
-
-var desktop := Control.new()
-var viewer: Panel
-
-const OBJECTS := [
-	{"id": "sphinx", "asset": "sphinx.png", "position": Vector2(5650, 930), "size": Vector2(520, 900)},
-	{"id": "bust", "asset": "bust.png", "position": Vector2(4470, 1200), "size": Vector2(700, 500)},
-	{"id": "horse", "asset": "horse.png", "position": Vector2(5050, 1200), "size": Vector2(820, 500)},
-	{"id": "nude", "asset": "nude.png", "position": Vector2(5600, 1940), "size": Vector2(600, 850)},
-	{"id": "dark-sculpture", "asset": "dark-sculpture.png", "position": Vector2(4450, 1910), "size": Vector2(650, 800)},
-	{"id": "bust-profile", "asset": "bust-profile.png", "position": Vector2(5080, 2410), "size": Vector2(700, 850)},
+const CANVAS := Vector2(1782, 1182)
+const ROOT := "res://prototypes/postpet_viewer/assets/components/"
+const THUMBNAILS := [
+	"bust.png", "horse.png", "sphinx.png", "dark-sculpture.png",
+	"nude.png", "bust-profile.png", "lion-native-cutout.png",
 ]
+
+var canvas := Control.new()
+var viewer_host: Control
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	desktop.size = CANVAS
-	desktop.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(desktop)
+	canvas.size = CANVAS
+	canvas.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(canvas)
 	var paper := ColorRect.new()
-	paper.color = Color.WHITE
 	paper.size = CANVAS
+	paper.color = Color.WHITE
 	paper.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	desktop.add_child(paper)
-	_add_component("setup-window.png", Vector2(1830, 790), Vector2(2700, 1900))
-	for object in OBJECTS:
-		_add_object(object)
+	canvas.add_child(paper)
+	_build_postpet_panel()
+	_build_viewer()
 	resized.connect(_fit)
 	_fit()
 
-func _add_component(asset: String, position: Vector2, dimensions: Vector2) -> TextureRect:
-	var image := TextureRect.new()
-	image.texture = load(ASSET_ROOT + asset)
-	image.position = position
-	image.size = dimensions
-	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	image.stretch_mode = TextureRect.STRETCH_SCALE
-	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	desktop.add_child(image)
-	return image
+func _build_postpet_panel() -> void:
+	var panel := Panel.new()
+	panel.name = "postpet-setup"
+	panel.position = Vector2(20, 28)
+	panel.size = Vector2(690, 930)
+	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	canvas.add_child(panel)
+	var header := TextureRect.new()
+	header.texture = load("res://prototypes/postpet_viewer/assets/postpet-header.png")
+	header.position = Vector2(20, 18)
+	header.size = Vector2(624, 80)
+	header.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	header.stretch_mode = TextureRect.STRETCH_SCALE
+	header.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	panel.add_child(header)
+	var rule := HSeparator.new()
+	rule.position = Vector2(20, 105)
+	rule.size = Vector2(640, 2)
+	panel.add_child(rule)
+	var row := HBoxContainer.new()
+	row.name = "sculpture-pet-row"
+	row.position = Vector2(20, 120)
+	row.size = Vector2(650, 150)
+	row.add_theme_constant_override("separation", 5)
+	panel.add_child(row)
+	for index in THUMBNAILS.size():
+		var button := Button.new()
+		button.name = "sculpture-%02d" % index
+		button.custom_minimum_size = Vector2(88, 140)
+		button.flat = true
+		button.focus_mode = Control.FOCUS_NONE
+		button.tooltip_text = "Open sculpture %02d" % (index + 1)
+		var thumb := TextureRect.new()
+		var path := ROOT + THUMBNAILS[index]
+		if index == THUMBNAILS.size() - 1:
+			path = "res://prototypes/postpet_viewer/assets/lion-native-cutout.png"
+		thumb.texture = load(path)
+		thumb.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		thumb.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		thumb.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		thumb.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		button.add_child(thumb)
+		button.pressed.connect(func(): _select_sculpture(index))
+		row.add_child(button)
+	var info := Label.new()
+	info.text = "Replace the thumbnails above with additional scan passes.\nClick a sculpture to load it into the viewer."
+	info.position = Vector2(28, 300)
+	info.add_theme_font_size_override("font_size", 18)
+	panel.add_child(info)
+	_add_form(panel)
 
-func _add_object(object: Dictionary) -> void:
-	_add_component(object.asset, object.position, object.size)
-	var hit := Button.new()
-	hit.name = "select-%s" % object.id
-	hit.position = object.position
-	hit.size = object.size
-	hit.flat = true
-	hit.focus_mode = Control.FOCUS_NONE
-	hit.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	hit.tooltip_text = "Open %s in the 3D viewer" % object.id.replace("-", " ")
-	hit.pressed.connect(func(): _open_viewer(object.id))
-	desktop.add_child(hit)
+func _add_form(panel: Panel) -> void:
+	var form := VBoxContainer.new()
+	form.position = Vector2(28, 390)
+	form.size = Vector2(620, 360)
+	form.add_theme_constant_override("separation", 18)
+	panel.add_child(form)
+	for label_text in ["ペットのなまえ:   モモ", "飼い主の名前:   ママ", "飼い主の誕生日:   ____ 月  ____ 日"]:
+		var label := Label.new()
+		label.text = label_text
+		label.add_theme_font_size_override("font_size", 22)
+		form.add_child(label)
+	var note := Label.new()
+	note.text = "※ 誕生日は半角数字で入力してください。"
+	note.modulate = Color("#ef4b55")
+	note.add_theme_font_size_override("font_size", 18)
+	form.add_child(note)
 
-func _open_viewer(object_id: String) -> void:
-	if viewer != null:
-		viewer.queue_free()
-	viewer = Panel.new()
-	viewer.name = "viewer-%s" % object_id
-	viewer.position = Vector2(1670, 400)
-	viewer.size = Vector2(3060, 2780)
-	viewer.mouse_filter = Control.MOUSE_FILTER_STOP
-	desktop.add_child(viewer)
-	var title := Label.new()
-	title.text = "RISD Museum  /  %s  /  3D viewer" % object_id.replace("-", " ").capitalize()
-	title.position = Vector2(90, 60)
-	title.add_theme_font_size_override("font_size", 76)
-	viewer.add_child(title)
-	var surface := ColorRect.new()
-	surface.position = Vector2(90, 190)
-	surface.size = Vector2(2880, 2050)
-	surface.color = Color("#f4f5f6")
-	viewer.add_child(surface)
-	var sculpture := TextureRect.new()
-	sculpture.texture = load(LION)
-	sculpture.position = Vector2(830, 420)
-	sculpture.size = Vector2(1250, 1250)
-	sculpture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	sculpture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	sculpture.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	viewer.add_child(sculpture)
-	var close := Button.new()
-	close.text = "Close"
-	close.position = Vector2(2520, 2320)
-	close.size = Vector2(360, 180)
-	close.add_theme_font_size_override("font_size", 54)
-	close.pressed.connect(func(): viewer.queue_free(); viewer = null)
-	viewer.add_child(close)
+func _build_viewer() -> void:
+	viewer_host = load("res://modules/sculpture_viewer/viewer.gd").new()
+	viewer_host.name = "sculpture-viewer"
+	viewer_host.position = Vector2(850, 245)
+	viewer_host.size = Vector2(800, 680)
+	canvas.add_child(viewer_host)
+
+func _select_sculpture(index: int) -> void:
+	# The existing viewer seam owns orbit/navigation; this hook is the replacement point for each scan.
+	viewer_host.set_meta("selected_sculpture", index)
 
 func _fit() -> void:
 	if size.x < 2 or size.y < 2:
 		return
 	var scale_factor := minf(size.x / CANVAS.x, size.y / CANVAS.y)
-	desktop.scale = Vector2(scale_factor, scale_factor)
-	desktop.position = (size - CANVAS * scale_factor) * 0.5
+	canvas.scale = Vector2(scale_factor, scale_factor)
+	canvas.position = (size - CANVAS * scale_factor) * 0.5
