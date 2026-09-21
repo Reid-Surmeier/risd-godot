@@ -7,8 +7,8 @@ extends Node2D
 const ROOT := "res://modules/atlas/"
 ## Prototype question: does a small artwork card make numbered map badges feel discoverable?
 const DEMO_ARTWORKS := {
-	8: {"title": "A Walk in the Meadows at Argenteuil", "maker": "Claude Monet · 1873", "image_path": "docs/evidence/collection-search/images/b7e66eee6aac0ed42db55788dd2d2cd2e65fa3128b6599c769f140eff71e0ce6.jpg"},
-	14: {"title": "The Seine Near its Estuary, Honfleur", "maker": "Claude Monet · ca. 1868", "image_path": "docs/evidence/collection-search/images/f50520a15ef1eb172fc00e472bd117be00d2f4f3136fb6949d4e06752ba6a50b.jpg"},
+	8: {"title": "A Walk in the Meadows at Argenteuil", "maker": "Claude Monet · 1873", "image_path": "assets/demo-marker-8.jpg"},
+	14: {"title": "The Seine Near its Estuary, Honfleur", "maker": "Claude Monet · ca. 1868", "image_path": "assets/demo-marker-14.jpg"},
 }
 
 const WIDTH := 4480.0
@@ -55,6 +55,8 @@ var badges: Array = []
 var artwork_card := PanelContainer.new()
 var artwork_image := TextureRect.new()
 var artwork_bubble := Label.new()
+var artwork_dragging := false
+var artwork_drag_offset := Vector2.ZERO
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -172,8 +174,8 @@ func _build_ui() -> void:
 func _build_artwork_card(canvas: CanvasLayer) -> void:
 	artwork_card.visible = false
 	artwork_card.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	artwork_card.custom_minimum_size = Vector2(276, 0)
-	artwork_card.size = Vector2(276, 320)
+	artwork_card.custom_minimum_size = Vector2(390, 0)
+	artwork_card.size = Vector2(390, 430)
 	var frame := StyleBoxFlat.new()
 	frame.bg_color = Color("292735")
 	frame.border_color = Color("ffffff")
@@ -189,7 +191,7 @@ func _build_artwork_card(canvas: CanvasLayer) -> void:
 	stack.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	stack.add_theme_constant_override("separation", 7)
 	artwork_card.add_child(stack)
-	artwork_image.custom_minimum_size = Vector2(260, 166)
+	artwork_image.custom_minimum_size = Vector2(374, 248)
 	artwork_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	artwork_image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	artwork_image.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -222,12 +224,13 @@ func _badge_at(pointer: Vector2) -> Dictionary:
 
 func _show_artwork(badge: Dictionary, pointer: Vector2) -> void:
 	var item: Dictionary = DEMO_ARTWORKS.get(badge.number, DEMO_ARTWORKS[8])
-	artwork_image.texture = load("res:/" + "/" + item.image_path)
+	artwork_image.texture = load(ROOT + item.image_path)
 	artwork_bubble.text = "%s\n%s\n\nMarker %d · prototype preview" % [item.title, item.maker, badge.number]
-	artwork_card.position = (pointer + Vector2(18, -286)).clamp(Vector2(12, 12), _viewport_size() - artwork_card.size - Vector2(12, 12))
+	artwork_card.position = Vector2(_viewport_size().x - artwork_card.size.x - 24, 36)
 	artwork_card.visible = true
 
 func _hide_artwork() -> void:
+	artwork_dragging = false
 	artwork_card.visible = false
 
 func _button(text: String, action: Callable) -> Button:
@@ -341,6 +344,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.pressed and event.button_index == MOUSE_BUTTON_WHEEL_DOWN: _zoom_at(1 / 1.18, event.position)
 		elif event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_MIDDLE]:
 			if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+				if artwork_card.visible and Rect2(artwork_card.position, artwork_card.size).has_point(event.position):
+					artwork_dragging = true
+					artwork_drag_offset = event.position - artwork_card.position
+					return
 				var badge := _badge_at(event.position)
 				if not badge.is_empty():
 					_show_artwork(badge, event.position)
@@ -348,11 +355,17 @@ func _unhandled_input(event: InputEvent) -> void:
 				if artwork_card.visible:
 					_hide_artwork()
 					return
+			elif artwork_dragging:
+				artwork_dragging = false
+				return
 			dragging = event.pressed
 			if event.double_click and event.pressed: _zoom_at(2.0, event.position)
-	elif event is InputEventMouseMotion and dragging:
-		camera.position -= event.relative / camera.zoom.x
-		_constrain()
+	elif event is InputEventMouseMotion:
+		if artwork_dragging:
+			artwork_card.position = (event.position - artwork_drag_offset).clamp(Vector2(12, 12), _viewport_size() - artwork_card.size - Vector2(12, 12))
+		elif dragging:
+			camera.position -= event.relative / camera.zoom.x
+			_constrain()
 	elif event is InputEventKey and event.pressed:
 		match event.keycode:
 			KEY_HOME, KEY_ESCAPE: _reset()
@@ -509,7 +522,8 @@ func _layout_geography() -> void:
 
 func _process(_delta: float) -> void:
 	detail_alpha = 1.0 if camera.zoom.x >= 0.65 else 0.0
-	overview_badges.modulate.a = 1.0 - smoothstep(maxf(0.5, _fit_zoom() * 1.3), maxf(0.65, _fit_zoom() * 1.8), camera.zoom.x)
+	# Keep the numbered artwork markers clickable at every zoom tier.
+	overview_badges.modulate.a = 1.0
 	if mode == "atlas":
 		var distance := INF
 		for region in atlas.regions:
