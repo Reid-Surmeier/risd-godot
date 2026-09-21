@@ -13,7 +13,7 @@ const browser = await chromium.launch({
 });
 const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
 await page.goto(url.href, { waitUntil: 'domcontentloaded', timeout: 120_000 });
-await page.waitForFunction(() => window.shellCrtQa?.shell?.active === 4, null, { timeout: 120_000 });
+await page.waitForFunction(() => window.shellCrtQa?.shell?.tabs?.some(({ key }) => key === 'sketchbook'), null, { timeout: 120_000 });
 await page.keyboard.press('F9');
 await page.waitForFunction(() => window.squiggleQaState?.enabled === false);
 
@@ -23,6 +23,7 @@ await page.mouse.click(tab[0] + tab[2] / 2, tab[1] + tab[3] / 2);
 await page.waitForFunction(() => window.shellCrtQa?.tenant?.palette_rect, null, { timeout: 30_000 });
 state = await page.evaluate(() => window.shellCrtQa);
 const palette = state.tenant.palette_rect;
+const initialBrushColor = state.tenant.brush_color;
 const point = ([x, y]) => [palette[0] + x * palette[2], palette[1] + y * palette[3]];
 const tray = {
   x: palette[0] + 0.035 * palette[2],
@@ -31,6 +32,9 @@ const tray = {
   height: 0.285 * palette[3],
 };
 
+assert.equal(state.tenant.wells.length, 32, 'all palette wells have hit targets');
+await page.mouse.click(...point([0.068 + 0.058 * 15, 0.115]));
+await page.waitForFunction(color => window.shellCrtQa?.tenant?.brush_color !== color, initialBrushColor);
 await page.mouse.move(800, 900);
 const before = await page.screenshot({ clip: tray });
 await page.mouse.click(...point([0.068 + 0.058 * 10, 0.115]));

@@ -156,8 +156,8 @@ func _layout() -> void:
 		var palette_width := interior_size.x * ANRI_PALETTE_WIDTH
 		image_rect = Rect2(tool_reference.position + ANRI_PALETTE_POSITION * interior_size,
 				Vector2(palette_width, palette_width * ANRI_PALETTE_SOURCE.size.y / ANRI_PALETTE_SOURCE.size.x))
-		brush_stage.position = tool_reference.position + Vector2(0, interior_size.y * 0.82)
-		brush_stage.size = Vector2(interior_size.x, interior_size.y * 0.18)
+		brush_stage.position = Vector2(tool_reference.position.x, image_rect.end.y)
+		brush_stage.size = Vector2(interior_size.x, tool_reference.position.y + tool_reference.size.y - image_rect.end.y)
 	else:
 		tool_reference.size = Vector2.ZERO
 		brush_stage.size = Vector2.ZERO
@@ -285,7 +285,7 @@ func _active_well_hit() -> Vector2:
 	return ANRI_WELL_HIT if anri_mode else WELL_HIT
 
 func _well_column_count() -> int:
-	return 15 if anri_mode else 16
+	return 16
 
 func _tray_at(uv: Vector2) -> int:
 	var trays := _active_trays()

@@ -41,7 +41,7 @@ func _run() -> void:
 	var visible_top_tray := Rect2(box.image_rect.position + top_tray.position * box.image_rect.size, top_tray.size * box.image_rect.size)
 	var before: Color = box.brush_color
 	for row in range(2):
-		for column in range(15):
+		for column in range(16):
 			var visible_center: Vector2 = box.image_rect.position + box._well_center(row, column) * box.image_rect.size
 			_check(box._well_at(box._uv(visible_center)) == row * 16 + column, "visible_well_%d_%d_is_clickable" % [row, column])
 	var motion := InputEventMouseMotion.new()
@@ -60,6 +60,7 @@ func _run() -> void:
 			visible_top_tray.end - Vector2(visible_top_tray.size.x * 0.5, 8))
 	_check(box.qa_state().mix_count > 0, "visible_muse_tray_mixes_two_pigments")
 	_check(is_equal_approx(box.image_rect.size.aspect(), box.ANRI_PALETTE_SOURCE.size.aspect()), "palette_keeps_original_aspect")
+	_check(is_equal_approx(box.brush_stage.position.y, box.image_rect.end.y), "palette_bottom_is_clean")
 	_check(box.parked_brush.position.y - box.image_rect.end.y >= 12.0, "brush_clears_palette_base")
 	_check(box.parked_brush.visible, "brush_starts_on_cat")
 	box.set_brush_active(true)
