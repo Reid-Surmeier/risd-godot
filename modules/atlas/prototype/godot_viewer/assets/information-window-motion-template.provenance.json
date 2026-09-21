@@ -1,0 +1,9 @@
+{
+  "asset": "information-window-motion-template.webp",
+  "assetSha256": "2ed0bab49112f19dc48d76f6ad0bdea5bfb6018ec747f3b32ba4b2b8570c8e1d",
+  "source": "image-work/artwork-popup-v2/artifacts/runs/run-bd4ccdc264ab378c3c98d25f/materialized/image-01.webp",
+  "provider": "OpenRouter / meta/muse-image",
+  "actualCostUsd": "0.010000",
+  "purpose": "Standalone Atlas Information dialog with generated integrated close and scroll frame",
+  "visualReview": "Inspected in Godot with marker 8: the artwork sits cleanly inside the generated page, and the integrated X and single scrollbar rail remain visible."
+}
