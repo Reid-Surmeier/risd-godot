@@ -1,0 +1,42 @@
+{
+  "log": [
+    {
+      "event": "screenshot",
+      "file": "01-desktop.png",
+      "t_ms": 264
+    },
+    {
+      "event": "click",
+      "t_ms": 283,
+      "what": "select saved artwork",
+      "x": 556.31298828125,
+      "y": 258.327087402344
+    },
+    {
+      "event": "screenshot",
+      "file": "02-after-interactions.png",
+      "t_ms": 473
+    },
+    {
+      "checks": [
+        {
+          "name": "click_saved_artwork_opens_correct_details",
+          "passed": false
+        },
+        {
+          "name": "filter_is_editable_control",
+          "passed": false
+        },
+        {
+          "name": "overflow_has_scroll_control",
+          "passed": false
+        }
+      ],
+      "event": "checks"
+    }
+  ],
+  "viewport": [
+    1920,
+    1080
+  ]
+}

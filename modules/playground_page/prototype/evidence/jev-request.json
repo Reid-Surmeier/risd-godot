@@ -1,0 +1,32 @@
+{
+  "model": "typesafe/jev-1.13",
+  "state": {
+    "context": "Godot Playground: observed input tests against real page with synthetic saves. Existing artwork frames must remain unchanged.",
+    "findings": [
+      {
+        "name": "click_saved_artwork_opens_correct_details",
+        "passed": false
+      },
+      {
+        "name": "filter_is_editable_control",
+        "passed": false
+      },
+      {
+        "name": "overflow_has_scroll_control",
+        "passed": false
+      }
+    ]
+  },
+  "questions": {
+    "route": {
+      "type": "choice",
+      "instructions": "Choose the appropriate next repair operation for the observed failures.",
+      "criteria": {
+        "repair_code": "Missing interactive behavior requires native controls and event handlers.",
+        "regenerate_art": "Interactive behavior works, but the image asset violates the reference style.",
+        "no_change": "All observed tests pass.",
+        "unknown": "The evidence does not establish a repair direction."
+      }
+    }
+  }
+}

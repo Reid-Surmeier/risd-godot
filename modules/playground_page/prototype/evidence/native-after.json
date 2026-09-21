@@ -1,0 +1,72 @@
+{
+  "log": [
+    {
+      "event": "screenshot",
+      "file": "01-desktop.png",
+      "t_ms": 271
+    },
+    {
+      "event": "click",
+      "t_ms": 291,
+      "what": "select saved artwork",
+      "x": 551.969116210938,
+      "y": 257.252014160156
+    },
+    {
+      "event": "click",
+      "t_ms": 346,
+      "what": "focus saved filter",
+      "x": 1324.0595703125,
+      "y": 295.399597167969
+    },
+    {
+      "event": "click",
+      "t_ms": 491,
+      "what": "clear filter",
+      "x": 1324.0595703125,
+      "y": 336.399597167969
+    },
+    {
+      "event": "screenshot",
+      "file": "02-after-interactions.png",
+      "t_ms": 941
+    },
+    {
+      "checks": [
+        {
+          "name": "click_saved_artwork_opens_correct_details",
+          "passed": true
+        },
+        {
+          "name": "filter_is_editable_control",
+          "passed": true
+        },
+        {
+          "name": "typing_filters_twelve_records_to_six",
+          "passed": true
+        },
+        {
+          "name": "clear_restores_all_records",
+          "passed": true
+        },
+        {
+          "name": "overflow_has_scroll_control",
+          "passed": true
+        },
+        {
+          "name": "wheel_reaches_overflow",
+          "passed": true
+        },
+        {
+          "name": "refresh_does_not_double_count_old_rows",
+          "passed": true
+        }
+      ],
+      "event": "checks"
+    }
+  ],
+  "viewport": [
+    1920,
+    1080
+  ]
+}

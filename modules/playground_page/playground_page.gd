@@ -66,6 +66,10 @@ var show_sketchbook := false
 var websurfer: Control
 var sketchbook: Control
 var interactive_windows: Array[Control] = []
+var saved_scroll := ScrollContainer.new()
+var saved_query := LineEdit.new()
+var artwork_detail := Label.new()
+var filter_count := Label.new()
 
 
 static func create(deps: Dictionary) -> Dictionary:
@@ -147,7 +151,13 @@ func _ready() -> void:
 		_build_gallery_overlay()
 	else:
 		saved_list.add_theme_constant_override("separation", 8)
-		saved_body.add_child(saved_list)
+		saved_scroll.name = "SavedScroll"
+		saved_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+		saved_scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		saved_body.add_child(saved_scroll)
+		saved_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		saved_scroll.add_child(saved_list)
+		_build_saved_controls()
 	visibility_changed.connect(_refresh_saved)
 	resized.connect(_fit)
 	_fit()
@@ -201,10 +211,7 @@ func _fit() -> void:
 			gallery_overlay.size = saved_body.size - Vector2(24 * s, 20 * s)
 			_layout_gallery_overlay()
 	else:
-		saved_list.position = Vector2(10 * s, 8 * s)
-		saved_list.size = saved_body.size - Vector2(20 * s, 16 * s)
-		for child in saved_list.get_children():
-			child.custom_minimum_size.x = saved_list.size.x
+		saved_scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	if websurfer != null:
 		var websurfer_height := minf(780.0, size.y * 0.78)
 		websurfer.size = Vector2(websurfer_height * 1616.0 / 1407.0, websurfer_height)
@@ -228,6 +235,7 @@ func _refresh_saved() -> void:
 		if current != refresh_generation or not is_visible_in_tree() or not is_instance_valid(saved_list):
 			return
 		for child in saved_list.get_children():
+			saved_list.remove_child(child)
 			child.queue_free()
 		saved_ids.clear()
 		if not result.ok:
@@ -236,11 +244,13 @@ func _refresh_saved() -> void:
 			return
 		storage_status = "ready"
 		if result.value.items.is_empty():
+			filter_count.text = "0 / 0 saved works"
 			saved_list.add_child(_saved_label("No saved RISD works yet"))
 			return
 		for item in result.value.items:
 			saved_ids.append(item.artwork.id)
-			saved_list.add_child(_saved_card(item.artwork)))
+			saved_list.add_child(_saved_card(item.artwork))
+		_filter_saved(saved_query.text))
 	if not started.ok and current == refresh_generation and is_visible_in_tree():
 		storage_status = "error"
 
@@ -427,7 +437,24 @@ func _saved_label(value: String) -> Label:
 
 
 func _saved_card(artwork: Dictionary) -> Control:
+	var button := Button.new()
+	button.name = "SavedCard"
+	button.tooltip_text = "View " + artwork.title
+	button.custom_minimum_size.y = 114
+	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	button.set_meta("search_text", (artwork.title + " " + " ".join(artwork.makers) + " " + artwork.id).to_lower())
+	button.pressed.connect(func() -> void:
+		artwork_detail.text = "%s\n\n%s\n%s\n\n%s" % [artwork.title, ", ".join(artwork.makers), artwork.id, artwork.credit]
+		move_child(windows[3], -1))
 	var row := HBoxContainer.new()
+	button.add_child(row)
+	row.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	row.offset_left = 8
+	row.offset_top = 6
+	row.offset_right = -8
+	row.offset_bottom = -6
+	row.minimum_size_changed.connect(func() -> void:
+		button.custom_minimum_size.y = maxf(114, row.get_combined_minimum_size().y + 12))
 	row.add_theme_constant_override("separation", 10)
 	var image_column := VBoxContainer.new()
 	row.add_child(image_column)
@@ -452,7 +479,91 @@ func _saved_card(artwork: Dictionary) -> Control:
 		unavailable.visible = true
 	else:
 		_load_saved_image(artwork.image, image, unavailable)
-	return row
+	_ignore_card_children(row)
+	return button
+
+
+func _ignore_card_children(node: Control) -> void:
+	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for child in node.get_children():
+		if child is Control:
+			_ignore_card_children(child)
+
+
+func _build_saved_controls() -> void:
+	# Native controls use the retained windows' blue/white palette; no generated pixels change.
+	var ui := Theme.new()
+	ui.default_font_size = 16
+	for kind in ["Button", "LineEdit", "Label"]:
+		ui.set_color("font_color", kind, Color("243e58"))
+		ui.set_color("font_hover_color", kind, Color("243e58"))
+		ui.set_color("font_focus_color", kind, Color("243e58"))
+		ui.set_color("font_pressed_color", kind, Color("243e58"))
+		ui.set_color("font_placeholder_color", kind, Color("536b80"))
+		if kind == "Label":
+			continue
+		for state_name in ["normal", "hover", "pressed", "focus"]:
+			var style := StyleBoxFlat.new()
+			style.bg_color = Color.WHITE if state_name == "normal" else Color("c2dbf1")
+			style.border_color = Color("7893ac")
+			style.set_border_width_all(1 if state_name != "focus" else 2)
+			style.content_margin_left = 8
+			style.content_margin_right = 8
+			style.content_margin_top = 5
+			style.content_margin_bottom = 5
+			ui.set_stylebox(state_name, kind, style)
+	theme = ui
+	var filter_box := _content_box(windows[2])
+	filter_box.add_child(_saved_label("Filter saved works"))
+	saved_query.name = "SavedQuery"
+	saved_query.placeholder_text = "Title, maker, or ID"
+	saved_query.max_length = 256
+	saved_query.text_changed.connect(_filter_saved)
+	filter_box.add_child(saved_query)
+	var clear := Button.new()
+	clear.name = "ClearFilter"
+	clear.text = "Clear filter"
+	clear.pressed.connect(func() -> void:
+		saved_query.clear()
+		_filter_saved("")
+		saved_query.grab_focus())
+	filter_box.add_child(clear)
+	filter_count.add_theme_color_override("font_color", Color("243e58"))
+	filter_box.add_child(filter_count)
+	var details := _content_box(windows[3])
+	details.add_child(_saved_label("Selected artwork"))
+	artwork_detail.name = "ArtworkDetail"
+	artwork_detail.text = "Select a saved work to see its details."
+	artwork_detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	details.add_child(artwork_detail)
+
+
+func _content_box(window: Control) -> VBoxContainer:
+	var body: Control = window.get_node("ClearedInterior")
+	var margin := MarginContainer.new()
+	body.add_child(margin)
+	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	for side in ["left", "top", "right", "bottom"]:
+		margin.add_theme_constant_override("margin_" + side, 10)
+	var scroll := ScrollContainer.new()
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	margin.add_child(scroll)
+	var box := VBoxContainer.new()
+	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	box.add_theme_constant_override("separation", 8)
+	scroll.add_child(box)
+	return box
+
+
+func _filter_saved(query: String) -> void:
+	var needle := query.strip_edges().to_lower()
+	var count := 0
+	for row in saved_list.get_children():
+		row.visible = needle.is_empty() or needle in String(row.get_meta("search_text", ""))
+		if row.visible:
+			count += 1
+	filter_count.text = "%d / %d saved works" % [count, saved_ids.size()]
+	saved_scroll.scroll_vertical = 0
 
 
 func _load_saved_image(manifest: Dictionary, target: TextureRect, unavailable: Label) -> void:
