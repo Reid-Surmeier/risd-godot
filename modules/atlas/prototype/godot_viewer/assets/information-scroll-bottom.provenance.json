@@ -1,0 +1,9 @@
+{
+  "asset": "information-scroll-bottom.webp",
+  "assetSha256": "a6ed137be172bf0dc4080763b6338b14344eed9430eb90600b3a80aaa7663a07",
+  "source": "image-work/artwork-popup-v2/artifacts/runs/run-06ae8d96a3962caa13b83264/materialized/image-01.webp",
+  "provider": "OpenRouter / meta/muse-image",
+  "actualCostUsd": "0.010000",
+  "purpose": "Bottom thumb anchor for the standalone Atlas Information rail",
+  "visualReview": "Inspected beside the top anchor: the complete window remains intact and the thumb is immediately above the bottom arrow."
+}

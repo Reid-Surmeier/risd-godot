@@ -1,11 +1,13 @@
 extends Control
 
 # Standalone QA prototype: click either map badge to swap the page image.
-const POPUP_SIZE := Vector2(1696, 1216)
-const PAGE_RECT := Rect2(103, 174, 1447, 946)
+const SOURCE_SIZE := Vector2(1696, 1216)
+const FRAME_CROP := Vector2(48, 48)
+const POPUP_SIZE := Vector2(1600, 1128)
+const PAGE_RECT := Rect2(55, 126, 1447, 946)
 const CONTENT_WIDTH := 1447.0
 const TEMPLATE := "res://assets/information-window-motion-template.webp"
-const SCROLL_MOTION := "res://assets/information-scroll.ogv"
+const BOTTOM_FRAME := "res://assets/information-scroll-bottom.webp"
 const TERRAIN := "res://assets/terrain.png"
 const FONT := "res://assets/PixelMplus12-Regular.ttf"
 const ARTWORKS := {
@@ -15,7 +17,8 @@ const ARTWORKS := {
 
 var popup := Control.new()
 var template := TextureRect.new()
-var rail_video := VideoStreamPlayer.new()
+var rail_track := TextureRect.new()
+var rail_thumb := TextureRect.new()
 var page := ScrollContainer.new()
 var content := VBoxContainer.new()
 var painting := TextureRect.new()
@@ -24,6 +27,8 @@ var dragging := false
 var resizing := false
 var user_scale := 1.0
 var user_positioned := false
+var rail_target := 0.0
+var rail_progress := 0.0
 
 
 func _ready() -> void:
@@ -68,15 +73,27 @@ func _build_popup() -> void:
 	template.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	template.stretch_mode = TextureRect.STRETCH_SCALE
 	template.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	template.size = POPUP_SIZE
+	template.position = -FRAME_CROP
+	template.size = SOURCE_SIZE
 	popup.add_child(template)
-	rail_video.stream = load(SCROLL_MOTION)
-	rail_video.expand = true
-	rail_video.position = Vector2.ZERO
-	rail_video.size = POPUP_SIZE
-	rail_video.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	popup.add_child(rail_video)
-	rail_video.play()
+	var frame: Texture2D = load(BOTTOM_FRAME)
+	var track_texture := AtlasTexture.new()
+	track_texture.atlas = frame
+	track_texture.region = Rect2(1568, 330, 42, 600)
+	rail_track.texture = track_texture
+	rail_track.position = Vector2(1520, 168)
+	rail_track.size = Vector2(42, 790)
+	rail_track.stretch_mode = TextureRect.STRETCH_SCALE
+	rail_track.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	popup.add_child(rail_track)
+	var thumb_texture := AtlasTexture.new()
+	thumb_texture.atlas = frame
+	thumb_texture.region = Rect2(1558, 1040, 58, 48)
+	rail_thumb.texture = thumb_texture
+	rail_thumb.position = Vector2(1512, 170)
+	rail_thumb.size = Vector2(58, 48)
+	rail_thumb.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	popup.add_child(rail_thumb)
 	page.position = PAGE_RECT.position
 	page.size = PAGE_RECT.size
 	page.clip_contents = true
@@ -97,19 +114,19 @@ func _build_popup() -> void:
 	description.custom_minimum_size = Vector2(CONTENT_WIDTH, 112)
 	content.add_child(description)
 	var drag_handle := Control.new()
-	drag_handle.position = Vector2(60, 30)
+	drag_handle.position = Vector2(12, 0)
 	drag_handle.size = Vector2(1570, 110)
 	drag_handle.mouse_filter = Control.MOUSE_FILTER_STOP
 	drag_handle.gui_input.connect(_drag_input)
 	popup.add_child(drag_handle)
 	var close := Button.new()
-	close.position = Vector2(1535, 48)
+	close.position = Vector2(1487, 0)
 	close.size = Vector2(84, 76)
 	close.modulate = Color(1, 1, 1, 0)
 	close.pressed.connect(func(): popup.hide())
 	popup.add_child(close)
 	var resize_handle := Button.new()
-	resize_handle.position = Vector2(1628, 1148)
+	resize_handle.position = Vector2(1552, 1080)
 	resize_handle.size = Vector2(48, 48)
 	resize_handle.modulate = Color(1, 1, 1, 0)
 	resize_handle.gui_input.connect(_resize_input)
@@ -132,13 +149,15 @@ func _show_artwork(number: int) -> void:
 
 func _sync_scroll_motion(value: float) -> void:
 	var range := page.get_v_scroll_bar().max_value - page.get_v_scroll_bar().page
-	if range > 0.0 and rail_video.get_stream_length() > 0.0:
-		rail_video.stream_position = value / range * 2.5
+	if range > 0.0:
+		rail_target = clampf(value / range, 0.0, 1.0)
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if popup.visible:
 		_sync_scroll_motion(page.scroll_vertical)
+		rail_progress = move_toward(rail_progress, rail_target, delta * 6.0)
+		rail_thumb.position.y = 170.0 + rail_progress * 780.0
 
 
 func _drag_input(event: InputEvent) -> void:

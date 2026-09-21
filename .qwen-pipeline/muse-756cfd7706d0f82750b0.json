@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-756cfd7706d0f82750b0",
+  "summary": "Use the supplied Information window as the exact reference. Create its matching final scroll state at 1696 by 1216 pixels. Preserve the title, close button, single integrated rail, bevels, lighting, outer frame, white page, and all geometry. The only change is the existing dark-gray scrollbar thumb: place it fully at the bottom of its existing rail, immediately above the bottom arrow. Do not add a second rail, shadows, artwork, text, a cursor, or any canvas margin. Keep the entire window inside the image with its complete left, top, right, and bottom frame visible.\n",
+  "procedureId": "muse-756cfd7706d0f82750b0",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.24",
+  "references": [
+    {
+      "path": "image-work/artwork-popup-v5/animation/first-frame.png",
+      "sha256": "34449454093574def2f204165d9a0921327c70f693c83d6f447dfcd412a70444",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "image-work/artwork-popup-v6/recipe.json",
+      "sha256": "756cfd7706d0f82750b0db62ca2689bd5064b11960e9e09c569b5a84490c0f5c"
+    },
+    {
+      "applicationPath": "image-work/artwork-popup-v6/generation-preflight.json",
+      "sha256": "8d319ad0adad1d2763d389fce88b674d73d23e80f160084c6636999da747e820"
+    },
+    {
+      "applicationPath": "image-work/artwork-popup-v6/end-frame-prompt.txt",
+      "sha256": "f883dec425a33aacb2f22cf40ef2f83f74bdc2694704405c10bc2a83b9d3bef8"
+    }
+  ]
+}
