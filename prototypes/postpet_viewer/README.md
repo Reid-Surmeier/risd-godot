@@ -1,6 +1,6 @@
 # PostPet viewer layout prototype
 
-Question: does a compact object tray on the left give the 3D viewer the PostPet-set-up-page feeling without crowding the real scan?
+Question: does the supplied PostPet setup/login geometry work as the 3D viewer page when the real Muse lion pass is placed in the viewer opening?
 
 Run from the repository root:
 
@@ -8,4 +8,4 @@ Run from the repository root:
 godot --path . res://prototypes/postpet_viewer/prototype.tscn
 ```
 
-The four tray sprites are restored, unchanged, from historical commit `02d8f10`; the Buddha model, texture and player plate are reused unchanged from the existing viewer. The non-Buddha cards are tray-selection studies, not a claim that those scans are loaded.
+`reference-layout.png` is the supplied screenshot used as the exact geometry plate. `lion-native-cutout.png` is the recovered Muse pass from `/home/reidsurmeier/muse-runs/eyebox-lion/final`; the click alternate is the earlier above-camera pass. The reference remains visible so pixel geometry can be compared directly.
