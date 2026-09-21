@@ -2,9 +2,10 @@ extends Control
 
 # Standalone QA prototype: click either map badge to swap the page image.
 const POPUP_SIZE := Vector2(1696, 1216)
-const PAGE_RECT := Rect2(103, 174, 1488, 946)
-const CONTENT_WIDTH := 1454.0
+const PAGE_RECT := Rect2(103, 174, 1447, 946)
+const CONTENT_WIDTH := 1447.0
 const TEMPLATE := "res://assets/information-window-motion-template.webp"
+const SCROLL_MOTION := "res://assets/information-scroll.ogv"
 const TERRAIN := "res://assets/terrain.png"
 const FONT := "res://assets/PixelMplus12-Regular.ttf"
 const ARTWORKS := {
@@ -14,6 +15,7 @@ const ARTWORKS := {
 
 var popup := Control.new()
 var template := TextureRect.new()
+var rail_video := VideoStreamPlayer.new()
 var page := ScrollContainer.new()
 var content := VBoxContainer.new()
 var painting := TextureRect.new()
@@ -68,12 +70,20 @@ func _build_popup() -> void:
 	template.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	template.size = POPUP_SIZE
 	popup.add_child(template)
+	rail_video.stream = load(SCROLL_MOTION)
+	rail_video.expand = true
+	rail_video.position = Vector2.ZERO
+	rail_video.size = POPUP_SIZE
+	rail_video.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	popup.add_child(rail_video)
+	rail_video.play()
 	page.position = PAGE_RECT.position
 	page.size = PAGE_RECT.size
 	page.clip_contents = true
 	page.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	page.get_v_scroll_bar().custom_minimum_size = Vector2(34, 0)
+	page.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
 	page.get_v_scroll_bar().modulate = Color(1, 1, 1, 0)
+	page.get_v_scroll_bar().value_changed.connect(_sync_scroll_motion)
 	popup.add_child(page)
 	content.custom_minimum_size = Vector2(CONTENT_WIDTH, 0)
 	content.add_theme_constant_override("separation", 22)
@@ -115,8 +125,20 @@ func _show_artwork(number: int) -> void:
 	else:
 		description.text = "The Seine Near its Estuary, Honfleur\nClaude Monet · ca. 1868\nMarker 14"
 	page.scroll_vertical = 0
+	_sync_scroll_motion(0.0)
 	popup.show()
 	_layout()
+
+
+func _sync_scroll_motion(value: float) -> void:
+	var range := page.get_v_scroll_bar().max_value - page.get_v_scroll_bar().page
+	if range > 0.0 and rail_video.get_stream_length() > 0.0:
+		rail_video.stream_position = value / range * 2.5
+
+
+func _process(_delta: float) -> void:
+	if popup.visible:
+		_sync_scroll_motion(page.scroll_vertical)
 
 
 func _drag_input(event: InputEvent) -> void:
