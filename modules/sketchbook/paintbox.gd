@@ -24,11 +24,21 @@ const WELL_START_X := 95.0 / 532.0
 const WELL_STEP_X := 23.0 / 532.0
 const WELL_Y := [150.0 / 532.0, 338.0 / 532.0]
 const WELL_HIT := Vector2(10.5 / 532.0, 24.0 / 532.0)
+const ANRI_WELL_START_X := 0.057
+const ANRI_WELL_STEP_X := 0.0633
+const ANRI_WELL_Y := [0.144, 0.524]
+const ANRI_WELL_HIT := Vector2(0.025, 0.047)
 const TRAYS := [
 	Rect2(82.0 / 532.0, 181.0 / 532.0, 116.0 / 532.0, 104.0 / 532.0),
 	Rect2(202.0 / 532.0, 181.0 / 532.0, 130.0 / 532.0, 104.0 / 532.0),
 	Rect2(336.0 / 532.0, 181.0 / 532.0, 118.0 / 532.0, 104.0 / 532.0),
 	Rect2(82.0 / 532.0, 371.0 / 532.0, 372.0 / 532.0, 91.0 / 532.0),
+]
+const ANRI_TRAYS := [
+	Rect2(0.035, 0.195, 0.29, 0.22),
+	Rect2(0.35, 0.195, 0.29, 0.22),
+	Rect2(0.665, 0.195, 0.30, 0.22),
+	Rect2(0.035, 0.575, 0.93, 0.365),
 ]
 
 var brush_color := Color("#00458f")
@@ -50,6 +60,7 @@ var hovering := false
 var _pointer := Vector2(-100000, -100000)
 var brush_active := false
 var brush_cursor: TextureRect
+var brush_stage: ColorRect
 var brush_rest: TextureRect
 var parked_brush: TextureRect
 var anri_mode := false
@@ -60,6 +71,7 @@ func set_anri_mode(enabled: bool) -> void:
 	custom_minimum_size = Vector2(320, 700) if enabled else Vector2(300, 330)
 	if is_node_ready():
 		tool_reference.visible = enabled
+		brush_stage.visible = enabled
 		_layout()
 
 func _ready() -> void:
@@ -90,6 +102,12 @@ func _ready() -> void:
 	tool_reference.mouse_filter = MOUSE_FILTER_IGNORE
 	tool_reference.visible = anri_mode
 	add_child(tool_reference)
+	brush_stage = ColorRect.new()
+	brush_stage.name = "live-brush-stage"
+	brush_stage.color = Color.WHITE
+	brush_stage.mouse_filter = MOUSE_FILTER_IGNORE
+	brush_stage.visible = anri_mode
+	add_child(brush_stage)
 	brush_rest = TextureRect.new()
 	brush_rest.name = "cat-brush-rest"
 	brush_rest.texture = BRUSH_REST
@@ -128,18 +146,21 @@ func _layout() -> void:
 		var interior_size := Vector2(size.x - BORDER * 2.0, (size.x - BORDER * 2.0) * 2.0)
 		tool_reference.size = interior_size
 		image_rect = Rect2(tool_reference.position + ANRI_INTERIOR_UV.position * interior_size, ANRI_INTERIOR_UV.size * interior_size)
+		brush_stage.position = tool_reference.position + Vector2(0, interior_size.y * 0.75)
+		brush_stage.size = Vector2(interior_size.x, interior_size.y * 0.25)
 	else:
 		tool_reference.size = Vector2.ZERO
+		brush_stage.size = Vector2.ZERO
 		var available := size - Vector2(BORDER * 2.0, TITLE_HEIGHT + BORDER * 2.0)
 		var side := minf(available.x, available.y - 104.0)
 		image_rect = Rect2(Vector2((size.x - side) / 2.0, TITLE_HEIGHT + BORDER), Vector2(side, side))
-	var rest_center := Vector2(size.x * 0.5, image_rect.end.y + 52.0)
-	brush_rest.size = Vector2(92, 90)
+	var rest_center := tool_reference.position + Vector2(tool_reference.size.x * 0.5, tool_reference.size.y * 0.87) if anri_mode else Vector2(size.x * 0.5, image_rect.end.y + 52.0)
+	brush_rest.size = Vector2(112, 108) if anri_mode else Vector2(92, 90)
 	brush_rest.position = rest_center - brush_rest.size * 0.5
-	brush_rest.visible = not anri_mode
-	parked_brush.size = Vector2(132, 122)
+	brush_rest.visible = true
+	parked_brush.size = Vector2(170, 158) if anri_mode else Vector2(132, 122)
 	parked_brush.position = rest_center - parked_brush.size * 0.5 + Vector2(4, -6)
-	parked_brush.visible = not anri_mode and not brush_active
+	parked_brush.visible = not brush_active
 	brush_cursor.size = Vector2(130, 120)
 	queue_redraw()
 	state_changed.emit()
@@ -165,7 +186,7 @@ func _process(_delta: float) -> void:
 
 func set_brush_active(active: bool) -> void:
 	brush_active = active
-	parked_brush.visible = not anri_mode and not brush_active
+	parked_brush.visible = not brush_active
 
 func _update_brush_color() -> void:
 	for brush in [parked_brush, brush_cursor]:
@@ -185,8 +206,9 @@ func _draw() -> void:
 		draw_rect(Rect2(size.x - 31, 6, 19, 13), Color("#172027"), false, 1.0)
 	if not anri_mode:
 		draw_texture_rect(PALETTE, image_rect, false)
-	for index in range(TRAYS.size()):
-		var tray: Rect2 = TRAYS[index]
+	var trays := _active_trays()
+	for index in range(trays.size()):
+		var tray: Rect2 = trays[index]
 		draw_texture_rect(_tray_textures[index], Rect2(image_rect.position + tray.position * image_rect.size, tray.size * image_rect.size), false)
 	var hovered_tray := _tray_at(_hover_uv)
 	if hovered_tray >= 0:
@@ -232,18 +254,35 @@ func _uv(point: Vector2) -> Vector2:
 	return (point - image_rect.position) / image_rect.size
 
 func _well_at(uv: Vector2) -> int:
+	var hit := _active_well_hit()
 	for row in range(2):
-		for column in range(16):
-			var center := Vector2(WELL_START_X + WELL_STEP_X * column, WELL_Y[row])
-			if absf(uv.x - center.x) <= WELL_HIT.x and absf(uv.y - center.y) <= WELL_HIT.y:
+		for column in range(_well_column_count()):
+			var center := _well_center(row, column)
+			if absf(uv.x - center.x) <= hit.x and absf(uv.y - center.y) <= hit.y:
 				return row * 16 + column
 	return -1
 
+func _well_center(row: int, column: int) -> Vector2:
+	var start_x := ANRI_WELL_START_X if anri_mode else WELL_START_X
+	var step_x := ANRI_WELL_STEP_X if anri_mode else WELL_STEP_X
+	var rows := ANRI_WELL_Y if anri_mode else WELL_Y
+	return Vector2(start_x + step_x * column, rows[row])
+
+func _active_well_hit() -> Vector2:
+	return ANRI_WELL_HIT if anri_mode else WELL_HIT
+
+func _well_column_count() -> int:
+	return 15 if anri_mode else 16
+
 func _tray_at(uv: Vector2) -> int:
-	for index in range(TRAYS.size()):
-		if TRAYS[index].has_point(uv):
+	var trays := _active_trays()
+	for index in range(trays.size()):
+		if trays[index].has_point(uv):
 			return index
 	return -1
+
+func _active_trays() -> Array:
+	return ANRI_TRAYS if anri_mode else TRAYS
 
 func _sample_well(index: int) -> Color:
 	var row := index / 16
@@ -283,7 +322,7 @@ func _deposit(uv: Vector2) -> void:
 
 func _stamp(tray_index: int, uv: Vector2, direction: Vector2) -> void:
 	_stamp_index += 1
-	var tray: Rect2 = TRAYS[tray_index]
+	var tray: Rect2 = _active_trays()[tray_index]
 	var image := _tray_images[tray_index]
 	var center := Vector2((uv - tray.position) / tray.size) * Vector2(image.get_size())
 	var tangent := direction.normalized()

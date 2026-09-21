@@ -414,12 +414,13 @@ func _paintbox_rects() -> Dictionary:
 	var xf: Transform2D = paintbox.get_global_transform()
 	var img: Rect2 = paintbox.image_rect
 	var wells := []
+	var hit: Vector2 = paintbox._active_well_hit()
 	for row in range(2):
-		for column in range(16):
-			var c := Vector2(paintbox.WELL_START_X + paintbox.WELL_STEP_X * column, paintbox.WELL_Y[row])
-			wells.append(xf * Rect2(img.position + (c - paintbox.WELL_HIT) * img.size, paintbox.WELL_HIT * 2.0 * img.size))
+		for column in range(paintbox._well_column_count()):
+			var c: Vector2 = paintbox._well_center(row, column)
+			wells.append(xf * Rect2(img.position + (c - hit) * img.size, hit * 2.0 * img.size))
 	var trays := []
-	for tray in paintbox.TRAYS:
+	for tray in paintbox._active_trays():
 		trays.append(xf * Rect2(img.position + tray.position * img.size, tray.size * img.size))
 	return {"palette_rect": xf * img, "wells": wells, "trays": trays}
 
