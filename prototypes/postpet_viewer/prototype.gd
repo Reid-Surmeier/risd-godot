@@ -59,7 +59,7 @@ func _build_postpet_panel() -> void:
 		button.focus_mode = Control.FOCUS_NONE
 		button.tooltip_text = "Open sculpture %02d" % (index + 1)
 		var thumb := TextureRect.new()
-		var path := ROOT + THUMBNAILS[index]
+		var path: String = ROOT + THUMBNAILS[index]
 		if index == THUMBNAILS.size() - 1:
 			path = "res://prototypes/postpet_viewer/assets/lion-native-cutout.png"
 		thumb.texture = load(path)
