@@ -51,6 +51,7 @@ var reference_list := HBoxContainer.new()
 var viewer_host := Control.new()
 var global_chatroom: Control
 var reference_art: Control
+var tldraw_controls: Control
 var resizing_reference := false
 var reference_resize_origin := Vector2.ZERO
 var reference_resize_size := Vector2.ZERO
@@ -101,6 +102,10 @@ func _ready() -> void:
 	sketchbook.surface.pointer_changed.connect(_sync_brush_rest)
 	sketchbook.surface.set_ink_color(paintbox.brush_color)
 	paintbox.set_smear_variant("A")
+	tldraw_controls = load(ROOT + "tldraw_controls_prototype.gd").new()
+	tldraw_controls.configure(sketchbook.surface)
+	desktop.add_child(tldraw_controls)
+	tldraw_controls.title_bar.gui_input.connect(func(event): _drag_handle_input(event, tldraw_controls))
 	var embedded := SculptureViewer.embedded_viewer()
 	if embedded.ok:
 		viewer_host.name = "embedded-3d-viewer-window"
@@ -190,6 +195,7 @@ func _fit() -> void:
 	if reference_art != null:
 		reference_art.position = Vector2(8, 8)
 		reference_art.size = reference_panel.size - Vector2(16, 16)
+	_place(tldraw_controls, Rect2(90, 70, 250, 184))
 
 
 func _reference_style(color: Color) -> StyleBoxFlat:

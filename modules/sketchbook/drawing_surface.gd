@@ -25,10 +25,12 @@ var spreads: Dictionary = {} # spread -> Array[Dictionary{points, width, polygon
 var ink_color := DEFAULT_INK
 var stroke_width := STROKE_WIDTH
 var stroke_opacity := 1.0
+var tool := "draw"
 var interactive := true
 var render_spread := 0 # 0: the open spread; otherwise draw that spread (page-turn sheets)
 var freehand := Freehand.new()
 var active: Dictionary = {}
+var redo_strokes: Dictionary = {} # spread -> strokes removed by the prototype undo action
 var pencil: TextureRect
 var pencil_time := 0.0
 var pen_down := false
@@ -154,9 +156,13 @@ func _notification(what: int) -> void:
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			_begin_stroke(event.position)
+			if tool == "draw":
+				_begin_stroke(event.position)
+			elif tool == "eraser":
+				erase_last_stroke()
 		else:
-			_end_stroke()
+			if tool == "draw":
+				_end_stroke()
 		accept_event()
 	elif event is InputEventMouseMotion:
 		_place_pencil(event.position)
@@ -188,6 +194,7 @@ func _end_stroke() -> void:
 	_dirty = false
 	_rebuild(active, true)
 	_strokes_of(spread).append(active)
+	_redo_of(spread).clear()
 	active = {}
 	if not hovering:
 		set_process(false)
@@ -214,6 +221,52 @@ func _strokes_of(index: int) -> Array:
 	if not spreads.has(index):
 		spreads[index] = []
 	return spreads[index]
+
+
+func _redo_of(index: int) -> Array:
+	if not redo_strokes.has(index):
+		redo_strokes[index] = []
+	return redo_strokes[index]
+
+
+func set_tool(next_tool: String) -> void:
+	tool = next_tool
+	if tool != "draw" and pen_down:
+		_end_stroke()
+	if pencil != null:
+		pencil.visible = hovering and tool == "draw"
+	Input.set_custom_mouse_cursor(_blank_cursor if hovering and tool == "draw" else null)
+	pointer_changed.emit()
+
+
+func erase_last_stroke() -> void:
+	var strokes := _strokes_of(spread)
+	if strokes.is_empty():
+		return
+	_redo_of(spread).append(strokes.pop_back())
+	_invalidate_static()
+	strokes_changed.emit()
+
+
+func undo() -> void:
+	erase_last_stroke()
+
+
+func redo() -> void:
+	var undone := _redo_of(spread)
+	if undone.is_empty():
+		return
+	_strokes_of(spread).append(undone.pop_back())
+	_invalidate_static()
+	strokes_changed.emit()
+
+
+func can_undo() -> bool:
+	return not _strokes_of(spread).is_empty()
+
+
+func can_redo() -> bool:
+	return not _redo_of(spread).is_empty()
 
 func stroke_count(index: int = 0) -> int:
 	return _strokes_of(index if index > 0 else spread).size()
@@ -339,6 +392,7 @@ func qa_state() -> Dictionary:
 	var last_points: int = 0 if strokes.is_empty() else strokes.back().points.size()
 	return {"spread": spread, "strokes": stroke_count(), "drawing": pen_down, "hovering": hovering,
 		"last_stroke_points": last_points, "ink_color": ink_color.to_html(false),
-		"cursor": "pigment-brush",
+		"cursor": "pigment-brush" if tool == "draw" else tool,
+		"tool": tool, "can_undo": can_undo(), "can_redo": can_redo(),
 		"last_stroke_color": DEFAULT_INK.to_html(false) if strokes.is_empty() else Color(strokes.back().get("color", DEFAULT_INK)).to_html(false),
 		"accumulated_input": Input.use_accumulated_input}
