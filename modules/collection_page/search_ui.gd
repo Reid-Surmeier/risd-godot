@@ -89,7 +89,6 @@ func _field_style(color: Color = Color("fafafa")) -> StyleBoxFlat:
 	box.bg_color = color
 	box.border_color = Color("8799a5")
 	box.set_border_width_all(1)
-	box.set_corner_radius_all(2)
 	box.content_margin_left = 4
 	box.content_margin_right = 4
 	return box
@@ -104,13 +103,8 @@ func _theme_control(control: Control) -> void:
 
 
 func _build_filters() -> void:
-	for label_spec in [["Search", "Search"], ["Sort", "Sort"], ["Category", "Medium"]]:
-		var label := _label(label_spec[1])
-		label.name = label_spec[0] + "Label"
-		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		body.add_child(label)
 	query.name = "Query"
-	query.placeholder_text = "artist, title, keyword"
+	query.placeholder_text = ""
 	query.clear_button_enabled = true
 	query.text_submitted.connect(func(_value: String) -> void: _apply())
 	query.text_changed.connect(func(_value: String) -> void: _draft_edited())
@@ -196,19 +190,19 @@ func _layout() -> void:
 	var drag_height: float = filter_panel.get_meta("drag_height")
 	body.position = Vector2(3, drag_height)
 	body.size = filter_panel.size - Vector2(6, drag_height + 3)
+	body.color = Color.TRANSPARENT # Preserve the supplied Search filters panel beneath the live controls.
 	var s := minf(body.size.x / 502.0, body.size.y / 196.0)
 	var fs := maxi(7, roundi(14 * s))
 	for control in body.get_children():
 		control.add_theme_font_size_override("font_size", fs)
-	_place(body.get_node("SearchLabel"), Rect2(8, 8, 78, 30), s)
-	_place(query, Rect2(82, 7, 412, 31), s)
-	_place(body.get_node("SortLabel"), Rect2(8, 48, 44, 30), s)
-	_place(sort, Rect2(48, 47, 142, 31), s)
-	_place(body.get_node("CategoryLabel"), Rect2(202, 48, 78, 30), s)
-	_place(category, Rect2(278, 47, 216, 31), s)
-	_place(has_image, Rect2(8, 88, 150, 30), s)
-	_place(ok, Rect2(332, 154, 76, 31), s)
-	_place(cancel, Rect2(414, 154, 80, 31), s)
+	# These are the source panel's controls, not a new form: Custom Filters, Sort by,
+	# Medium and View stay visible in the supplied Muse layout behind their live counterparts.
+	_place(query, Rect2(172, 20, 322, 31), s)
+	_place(sort, Rect2(96, 61, 119, 31), s)
+	_place(category, Rect2(329, 61, 165, 31), s)
+	_place(has_image, Rect2(69, 100, 111, 30), s)
+	_place(ok, Rect2(346, 169, 76, 31), s)
+	_place(cancel, Rect2(428, 169, 66, 31), s)
 	results.position = page.scroll.position
 	results.size = page.scroll.size
 	var page_font := maxi(7, roundi(14 * page.factor))
