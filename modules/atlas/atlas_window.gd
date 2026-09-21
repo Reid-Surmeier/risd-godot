@@ -44,6 +44,9 @@ var container := SubViewportContainer.new()
 var viewport := SubViewport.new()
 var map: Node2D
 var panels: Dictionary = {}
+var artwork_window := PanelContainer.new()
+var artwork_image := TextureRect.new()
+var artwork_bubble := Label.new()
 var moving_window: Control
 var locked := false
 var collapsed := false
@@ -68,6 +71,7 @@ static func create(deps: Dictionary) -> Dictionary:
 	t.frame_texture = load(ROOT + "assets/window-frame.png")
 	t.map = load(ROOT + "atlas.gd").new()
 	t.map.atlas = atlas
+	t.map.artwork_requested = Callable(t, "_show_artwork")
 	t.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	return Errors.ok(t)
 
@@ -110,9 +114,63 @@ func _ready() -> void:
 	# at the white-page count while the Map Tab is hidden). process_mode DISABLED stops the rest.
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	container.add_child(viewport)
+	_build_artwork_window()
 	resized.connect(_fit_window)
 	_fit_window()
 	viewport.add_child(map)
+
+
+func _build_artwork_window() -> void:
+	artwork_window.name = "artwork"
+	artwork_window.visible = false
+	artwork_window.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	artwork_window.size = Vector2(590, 500)
+	var frame := StyleBoxFlat.new()
+	frame.bg_color = Color("fffaf0")
+	frame.border_color = Color("627389")
+	frame.set_border_width_all(2)
+	frame.set_corner_radius_all(6)
+	frame.content_margin_left = 12
+	frame.content_margin_right = 12
+	frame.content_margin_top = 12
+	frame.content_margin_bottom = 12
+	artwork_window.add_theme_stylebox_override("panel", frame)
+	add_child(artwork_window)
+	var stack := VBoxContainer.new()
+	stack.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stack.add_theme_constant_override("separation", 8)
+	artwork_window.add_child(stack)
+	artwork_image.custom_minimum_size = Vector2(562, 370)
+	artwork_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	artwork_image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	artwork_image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stack.add_child(artwork_image)
+	var bubble := PanelContainer.new()
+	bubble.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var bubble_style := StyleBoxFlat.new()
+	bubble_style.bg_color = Color("fffaf0")
+	bubble_style.border_color = Color("d7c8af")
+	bubble_style.set_border_width_all(1)
+	bubble_style.set_corner_radius_all(5)
+	bubble_style.content_margin_left = 12
+	bubble_style.content_margin_right = 12
+	bubble_style.content_margin_top = 8
+	bubble_style.content_margin_bottom = 8
+	bubble.add_theme_stylebox_override("panel", bubble_style)
+	stack.add_child(bubble)
+	artwork_bubble.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	artwork_bubble.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	artwork_bubble.add_theme_color_override("font_color", Color("292735"))
+	artwork_bubble.add_theme_font_size_override("font_size", 16)
+	bubble.add_child(artwork_bubble)
+
+
+func _show_artwork(item: Dictionary, marker: int) -> void:
+	artwork_image.texture = load(ROOT + item.image_path)
+	artwork_bubble.text = "%s\n%s\n\nMarker %d · prototype preview" % [item.title, item.maker, marker]
+	artwork_window.position = Vector2(size.x - artwork_window.size.x - 24, 28).max(Vector2(12, 12))
+	artwork_window.visible = true
+	move_child(artwork_window, get_child_count() - 1)
 
 
 ## The desktop fills the Page (#63): one uniform scale s = min(page / DESKTOP_SIZE) for all the
@@ -292,6 +350,7 @@ func state() -> Dictionary:
 		panel_rects[id] = panels[id].get_rect()
 	var stack: Array = []
 	for window in get_children():
+		if window == artwork_window: continue
 		stack.append(str(window.name))
 	s.merge({"key": key, "ticks": ticks, "inputs": inputs, "size": size, "frame": frame.get_rect(),
 			"frame_global": frame.get_global_rect(),
