@@ -2,7 +2,8 @@ extends Control
 
 # Standalone QA prototype: click either map badge to swap the page image.
 const POPUP_SIZE := Vector2(1696, 1216)
-const PAGE_RECT := Rect2(102, 174, 1452, 946)
+const PAGE_RECT := Rect2(61, 140, 1602, 1020)
+const CONTENT_WIDTH := 1566.0
 const TEMPLATE := "res://assets/information-window-template.webp"
 const TERRAIN := "res://assets/terrain.png"
 const FONT := "res://assets/PixelMplus12-Regular.ttf"
@@ -14,7 +15,9 @@ const ARTWORKS := {
 var popup := Control.new()
 var template := TextureRect.new()
 var page := ScrollContainer.new()
+var content := VBoxContainer.new()
 var painting := TextureRect.new()
+var description := Label.new()
 var dragging := false
 
 
@@ -60,16 +63,27 @@ func _build_popup() -> void:
 	template.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	template.stretch_mode = TextureRect.STRETCH_SCALE
 	template.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	template.size = POPUP_SIZE
+	# Crop Muse's exterior glow so this reads as a window, not a floating card.
+	template.position = Vector2(-44, -44)
+	template.size = Vector2(1784, 1304)
 	popup.add_child(template)
 	page.position = PAGE_RECT.position
 	page.size = PAGE_RECT.size
+	page.clip_contents = true
 	page.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	page.get_v_scroll_bar().hide()
+	_style_scrollbar(page.get_v_scroll_bar())
 	popup.add_child(page)
+	content.custom_minimum_size = Vector2(CONTENT_WIDTH, 0)
+	content.add_theme_constant_override("separation", 22)
+	page.add_child(content)
 	painting.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	painting.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	page.add_child(painting)
+	content.add_child(painting)
+	description.add_theme_font_size_override("font_size", 30)
+	description.add_theme_color_override("font_color", Color.BLACK)
+	description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	description.custom_minimum_size = Vector2(CONTENT_WIDTH, 112)
+	content.add_child(description)
 	var drag_handle := Control.new()
 	drag_handle.position = Vector2(60, 30)
 	drag_handle.size = Vector2(1570, 110)
@@ -81,10 +95,30 @@ func _build_popup() -> void:
 func _show_artwork(number: int) -> void:
 	var texture: Texture2D = load(ARTWORKS[number])
 	painting.texture = texture
-	painting.custom_minimum_size = Vector2(PAGE_RECT.size.x, PAGE_RECT.size.x * texture.get_height() / texture.get_width())
+	painting.custom_minimum_size = Vector2(CONTENT_WIDTH, CONTENT_WIDTH * texture.get_height() / texture.get_width())
+	if number == 8:
+		description.text = "A Walk in the Meadows at Argenteuil\nClaude Monet · 1873\nMarker 8"
+	else:
+		description.text = "The Seine Near its Estuary, Honfleur\nClaude Monet · ca. 1868\nMarker 14"
 	page.scroll_vertical = 0
 	popup.show()
 	_layout()
+
+
+func _style_scrollbar(bar: VScrollBar) -> void:
+	bar.custom_minimum_size = Vector2(34, 0)
+	var track := StyleBoxFlat.new()
+	track.bg_color = Color("eeeeee")
+	track.border_color = Color("9a9a9a")
+	track.set_border_width_all(2)
+	var thumb := StyleBoxFlat.new()
+	thumb.bg_color = Color("aaaaaa")
+	thumb.border_color = Color("555555")
+	thumb.set_border_width_all(2)
+	thumb.set_corner_radius_all(4)
+	bar.add_theme_stylebox_override("scroll", track)
+	bar.add_theme_stylebox_override("grabber", thumb)
+	bar.add_theme_stylebox_override("grabber_highlight", thumb)
 
 
 func _drag_input(event: InputEvent) -> void:
