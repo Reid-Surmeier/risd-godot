@@ -3,7 +3,11 @@
   "applicationId": "risd-godot-artwork-popup-v2",
   "artifactRoot": "image-work/artwork-popup-v2/artifacts",
   "referenceRoots": [
-    "image-work/artwork-popup-v2/references/chatroom-scrollbar-reference.png"
+    "image-work/artwork-popup-v2/references/chatroom-scrollbar-reference.png",
+    "image-work/artwork-popup-v3/references/chatroom-style-reference.png",
+    "image-work/artwork-popup-v3/references/honfleur-painting.jpg",
+    "image-work/artwork-popup-v4/references/painted-information-window.png",
+    "image-work/artwork-popup-v4/references/original-information-window.png"
   ],
   "outputRoot": "image-work/artwork-popup-v2/generated",
   "maximumCount": 1,
@@ -45,6 +49,54 @@
           "slot": "reference-000",
           "kind": "image",
           "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-28355e3e3c40f29cf086",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1744x1360"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-425cac596c8257c13f24",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1350x968"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
         }
       ]
     }
