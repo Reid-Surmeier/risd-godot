@@ -52,11 +52,7 @@ var overview_badges := Node2D.new()
 var overview_icons: Array = []
 var city_groups: Array = []
 var badges: Array = []
-var artwork_card := PanelContainer.new()
-var artwork_image := TextureRect.new()
-var artwork_bubble := Label.new()
-var artwork_dragging := false
-var artwork_drag_offset := Vector2.ZERO
+var artwork_requested := Callable()
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -168,53 +164,7 @@ func _build_ui() -> void:
 	notice.add_theme_font_size_override("font_size", 14)
 	notice.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	canvas.add_child(notice)
-	_build_artwork_card(canvas)
 	_resize()
-
-func _build_artwork_card(canvas: CanvasLayer) -> void:
-	artwork_card.visible = false
-	artwork_card.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	artwork_card.custom_minimum_size = Vector2(390, 0)
-	artwork_card.size = Vector2(390, 430)
-	var frame := StyleBoxFlat.new()
-	frame.bg_color = Color("292735")
-	frame.border_color = Color("ffffff")
-	frame.set_border_width_all(3)
-	frame.set_corner_radius_all(8)
-	frame.content_margin_left = 8
-	frame.content_margin_right = 8
-	frame.content_margin_top = 8
-	frame.content_margin_bottom = 8
-	artwork_card.add_theme_stylebox_override("panel", frame)
-	canvas.add_child(artwork_card)
-	var stack := VBoxContainer.new()
-	stack.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	stack.add_theme_constant_override("separation", 7)
-	artwork_card.add_child(stack)
-	artwork_image.custom_minimum_size = Vector2(374, 248)
-	artwork_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	artwork_image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-	artwork_image.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	stack.add_child(artwork_image)
-	var bubble := PanelContainer.new()
-	bubble.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var bubble_style := StyleBoxFlat.new()
-	bubble_style.bg_color = Color("fff8e7")
-	bubble_style.corner_radius_bottom_left = 8
-	bubble_style.corner_radius_bottom_right = 8
-	bubble_style.corner_radius_top_left = 8
-	bubble_style.corner_radius_top_right = 8
-	bubble_style.content_margin_left = 10
-	bubble_style.content_margin_right = 10
-	bubble_style.content_margin_top = 8
-	bubble_style.content_margin_bottom = 8
-	bubble.add_theme_stylebox_override("panel", bubble_style)
-	stack.add_child(bubble)
-	artwork_bubble.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	artwork_bubble.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	artwork_bubble.add_theme_color_override("font_color", Color("292735"))
-	artwork_bubble.add_theme_font_size_override("font_size", 16)
-	bubble.add_child(artwork_bubble)
 
 func _badge_at(pointer: Vector2) -> Dictionary:
 	for badge in overview_icons:
@@ -222,16 +172,10 @@ func _badge_at(pointer: Vector2) -> Dictionary:
 			return badge
 	return {}
 
-func _show_artwork(badge: Dictionary, pointer: Vector2) -> void:
-	var item: Dictionary = DEMO_ARTWORKS.get(badge.number, DEMO_ARTWORKS[8])
-	artwork_image.texture = load(ROOT + item.image_path)
-	artwork_bubble.text = "%s\n%s\n\nMarker %d · prototype preview" % [item.title, item.maker, badge.number]
-	artwork_card.position = Vector2(_viewport_size().x - artwork_card.size.x - 24, 36)
-	artwork_card.visible = true
-
-func _hide_artwork() -> void:
-	artwork_dragging = false
-	artwork_card.visible = false
+func _show_artwork(badge: Dictionary) -> void:
+	if artwork_requested.is_valid():
+		var marker := int(badge.number)
+		artwork_requested.call(DEMO_ARTWORKS.get(marker, DEMO_ARTWORKS[8]), marker)
 
 func _button(text: String, action: Callable) -> Button:
 	var button := Button.new()
@@ -344,26 +288,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.pressed and event.button_index == MOUSE_BUTTON_WHEEL_DOWN: _zoom_at(1 / 1.18, event.position)
 		elif event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_MIDDLE]:
 			if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-				if artwork_card.visible and Rect2(artwork_card.position, artwork_card.size).has_point(event.position):
-					artwork_dragging = true
-					artwork_drag_offset = event.position - artwork_card.position
-					return
 				var badge := _badge_at(event.position)
 				if not badge.is_empty():
-					_show_artwork(badge, event.position)
+					_show_artwork(badge)
 					return
-				if artwork_card.visible:
-					_hide_artwork()
-					return
-			elif artwork_dragging:
-				artwork_dragging = false
-				return
 			dragging = event.pressed
 			if event.double_click and event.pressed: _zoom_at(2.0, event.position)
 	elif event is InputEventMouseMotion:
-		if artwork_dragging:
-			artwork_card.position = (event.position - artwork_drag_offset).clamp(Vector2(12, 12), _viewport_size() - artwork_card.size - Vector2(12, 12))
-		elif dragging:
+		if dragging:
 			camera.position -= event.relative / camera.zoom.x
 			_constrain()
 	elif event is InputEventKey and event.pressed:
@@ -443,7 +375,7 @@ func _layout_annotations() -> void:
 		shown_cities.append({"id": dot.city_id, "name": dot.name, "at": [point.x, point.y], "screen": [screen.x, screen.y], "labels": group.labels.size()})
 	_layout_close_cities(view, occupied)
 	# Regional badges remain intact, outside accepted dot/name pairs.
-	if camera.zoom.x >= 0.65 and overview_badges.modulate.a <= 0:
+	if camera.zoom.x >= 0.65:
 		for badge in badges:
 			var point := _wrap_x(badge.at)
 			var box := Rect2(_to_screen(point) - badge.size / 2, badge.size).grow(3)
