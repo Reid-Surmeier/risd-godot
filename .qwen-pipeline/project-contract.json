@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1",
+  "applicationId": "risd-godot-artwork-popup-v2",
+  "artifactRoot": "image-work/artwork-popup-v2/artifacts",
+  "referenceRoots": [
+    "image-work/artwork-popup-v2/references/chatroom-scrollbar-reference.png"
+  ],
+  "outputRoot": "image-work/artwork-popup-v2/generated",
+  "maximumCount": 1,
+  "maximumBudgetUsd": "0.01",
+  "maximumCorrectionRuns": 0,
+  "procedures": [
+    {
+      "id": "muse-artwork-popup-v2",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1180x920"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-c1cb7c95e12cbcf0c806",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1180x920"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    }
+  ]
+}
