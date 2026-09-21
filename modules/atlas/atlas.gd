@@ -5,6 +5,11 @@
 extends Node2D
 
 const ROOT := "res://modules/atlas/"
+## Prototype question: does a small artwork card make numbered map badges feel discoverable?
+const DEMO_ARTWORKS := {
+	8: {"title": "A Walk in the Meadows at Argenteuil", "maker": "Claude Monet · 1873", "image_path": "docs/evidence/collection-search/images/b7e66eee6aac0ed42db55788dd2d2cd2e65fa3128b6599c769f140eff71e0ce6.jpg"},
+	14: {"title": "The Seine Near its Estuary, Honfleur", "maker": "Claude Monet · ca. 1868", "image_path": "docs/evidence/collection-search/images/f50520a15ef1eb172fc00e472bd117be00d2f4f3136fb6949d4e06752ba6a50b.jpg"},
+}
 
 const WIDTH := 4480.0
 const HEIGHT := 3144.0
@@ -47,6 +52,9 @@ var overview_badges := Node2D.new()
 var overview_icons: Array = []
 var city_groups: Array = []
 var badges: Array = []
+var artwork_card := PanelContainer.new()
+var artwork_image := TextureRect.new()
+var artwork_bubble := Label.new()
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -80,7 +88,7 @@ func _ready() -> void:
 		var sprite := Sprite2D.new()
 		sprite.texture = texture
 		overview_badges.add_child(sprite)
-		overview_icons.append({"sprite": sprite, "at": rect.get_center(), "size": rect.size})
+		overview_icons.append({"sprite": sprite, "at": rect.get_center(), "size": rect.size, "number": badge.number})
 	for region in atlas.regions:
 		var labels_texture: Texture2D = load(ROOT + "assets/" + region.id + "-labels.png")
 		var symbols_texture: Texture2D = load(ROOT + "assets/" + region.id + "-annotations.png")
@@ -158,7 +166,69 @@ func _build_ui() -> void:
 	notice.add_theme_font_size_override("font_size", 14)
 	notice.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	canvas.add_child(notice)
+	_build_artwork_card(canvas)
 	_resize()
+
+func _build_artwork_card(canvas: CanvasLayer) -> void:
+	artwork_card.visible = false
+	artwork_card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	artwork_card.custom_minimum_size = Vector2(276, 0)
+	artwork_card.size = Vector2(276, 320)
+	var frame := StyleBoxFlat.new()
+	frame.bg_color = Color("292735")
+	frame.border_color = Color("ffffff")
+	frame.set_border_width_all(3)
+	frame.set_corner_radius_all(8)
+	frame.content_margin_left = 8
+	frame.content_margin_right = 8
+	frame.content_margin_top = 8
+	frame.content_margin_bottom = 8
+	artwork_card.add_theme_stylebox_override("panel", frame)
+	canvas.add_child(artwork_card)
+	var stack := VBoxContainer.new()
+	stack.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stack.add_theme_constant_override("separation", 7)
+	artwork_card.add_child(stack)
+	artwork_image.custom_minimum_size = Vector2(260, 166)
+	artwork_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	artwork_image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	artwork_image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stack.add_child(artwork_image)
+	var bubble := PanelContainer.new()
+	bubble.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var bubble_style := StyleBoxFlat.new()
+	bubble_style.bg_color = Color("fff8e7")
+	bubble_style.corner_radius_bottom_left = 8
+	bubble_style.corner_radius_bottom_right = 8
+	bubble_style.corner_radius_top_left = 8
+	bubble_style.corner_radius_top_right = 8
+	bubble_style.content_margin_left = 10
+	bubble_style.content_margin_right = 10
+	bubble_style.content_margin_top = 8
+	bubble_style.content_margin_bottom = 8
+	bubble.add_theme_stylebox_override("panel", bubble_style)
+	stack.add_child(bubble)
+	artwork_bubble.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	artwork_bubble.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	artwork_bubble.add_theme_color_override("font_color", Color("292735"))
+	artwork_bubble.add_theme_font_size_override("font_size", 16)
+	bubble.add_child(artwork_bubble)
+
+func _badge_at(pointer: Vector2) -> Dictionary:
+	for badge in overview_icons:
+		if badge.sprite.visible and pointer.distance_to(_to_screen(_wrap_x(badge.at))) <= 18:
+			return badge
+	return {}
+
+func _show_artwork(badge: Dictionary, pointer: Vector2) -> void:
+	var item: Dictionary = DEMO_ARTWORKS.get(badge.number, DEMO_ARTWORKS[8])
+	artwork_image.texture = load("res:/" + "/" + item.image_path)
+	artwork_bubble.text = "%s\n%s\n\nMarker %d · prototype preview" % [item.title, item.maker, badge.number]
+	artwork_card.position = (pointer + Vector2(18, -286)).clamp(Vector2(12, 12), _viewport_size() - artwork_card.size - Vector2(12, 12))
+	artwork_card.visible = true
+
+func _hide_artwork() -> void:
+	artwork_card.visible = false
 
 func _button(text: String, action: Callable) -> Button:
 	var button := Button.new()
@@ -270,6 +340,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.pressed and event.button_index == MOUSE_BUTTON_WHEEL_UP: _zoom_at(1.18, event.position)
 		elif event.pressed and event.button_index == MOUSE_BUTTON_WHEEL_DOWN: _zoom_at(1 / 1.18, event.position)
 		elif event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_MIDDLE]:
+			if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+				var badge := _badge_at(event.position)
+				if not badge.is_empty():
+					_show_artwork(badge, event.position)
+					return
+				if artwork_card.visible:
+					_hide_artwork()
+					return
 			dragging = event.pressed
 			if event.double_click and event.pressed: _zoom_at(2.0, event.position)
 	elif event is InputEventMouseMotion and dragging:
