@@ -44,7 +44,13 @@ var container := SubViewportContainer.new()
 var viewport := SubViewport.new()
 var map: Node2D
 var panels: Dictionary = {}
-var artwork_window := PanelContainer.new()
+const ARTWORK_POPUP_SIZE := Vector2(800, 600)
+const ARTWORK_SCALE := 0.5
+
+var artwork_window := Control.new()
+var artwork_chrome := Control.new()
+var artwork_page := ScrollContainer.new()
+var artwork_content := VBoxContainer.new()
 var artwork_image := TextureRect.new()
 var artwork_bubble := Label.new()
 var moving_window: Control
@@ -123,54 +129,73 @@ func _ready() -> void:
 func _build_artwork_window() -> void:
 	artwork_window.name = "artwork"
 	artwork_window.visible = false
-	artwork_window.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	artwork_window.size = Vector2(590, 500)
-	var frame := StyleBoxFlat.new()
-	frame.bg_color = Color("fffaf0")
-	frame.border_color = Color("627389")
-	frame.set_border_width_all(2)
-	frame.set_corner_radius_all(6)
-	frame.content_margin_left = 12
-	frame.content_margin_right = 12
-	frame.content_margin_top = 12
-	frame.content_margin_bottom = 12
-	artwork_window.add_theme_stylebox_override("panel", frame)
+	artwork_window.size = ARTWORK_POPUP_SIZE
+	artwork_window.clip_contents = true
+	artwork_window.z_index = 10
 	add_child(artwork_window)
-	var stack := VBoxContainer.new()
-	stack.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	stack.add_theme_constant_override("separation", 8)
-	artwork_window.add_child(stack)
-	artwork_image.custom_minimum_size = Vector2(562, 370)
+	artwork_chrome.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	artwork_chrome.size = ARTWORK_POPUP_SIZE
+	artwork_chrome.draw.connect(_draw_artwork_frame)
+	artwork_window.add_child(artwork_chrome)
+	artwork_page.position = INSET * ARTWORK_SCALE
+	artwork_page.size = ARTWORK_POPUP_SIZE - FRAME_EXTRA * ARTWORK_SCALE
+	artwork_page.clip_contents = true
+	artwork_page.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	artwork_page.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
+	artwork_window.add_child(artwork_page)
+	artwork_content.custom_minimum_size = Vector2(artwork_page.size.x, 0)
+	artwork_content.add_theme_constant_override("separation", 11)
+	artwork_page.add_child(artwork_content)
+	artwork_image.custom_minimum_size = Vector2(artwork_page.size.x, 0)
 	artwork_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	artwork_image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	artwork_image.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	stack.add_child(artwork_image)
-	var bubble := PanelContainer.new()
-	bubble.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var bubble_style := StyleBoxFlat.new()
-	bubble_style.bg_color = Color("fffaf0")
-	bubble_style.border_color = Color("d7c8af")
-	bubble_style.set_border_width_all(1)
-	bubble_style.set_corner_radius_all(5)
-	bubble_style.content_margin_left = 12
-	bubble_style.content_margin_right = 12
-	bubble_style.content_margin_top = 8
-	bubble_style.content_margin_bottom = 8
-	bubble.add_theme_stylebox_override("panel", bubble_style)
-	stack.add_child(bubble)
+	artwork_content.add_child(artwork_image)
 	artwork_bubble.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	artwork_bubble.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	artwork_bubble.add_theme_color_override("font_color", Color("292735"))
+	artwork_bubble.add_theme_color_override("font_color", Color.BLACK)
+	artwork_bubble.add_theme_font_override("font", load(ROOT + "fonts/PixelMplus12-Regular.ttf"))
 	artwork_bubble.add_theme_font_size_override("font_size", 16)
-	bubble.add_child(artwork_bubble)
+	artwork_bubble.custom_minimum_size = Vector2(artwork_page.size.x, 56)
+	artwork_content.add_child(artwork_bubble)
 
 
 func _show_artwork(item: Dictionary, marker: int) -> void:
-	artwork_image.texture = load(ROOT + item.image_path)
-	artwork_bubble.text = "%s\n%s\n\nMarker %d · prototype preview" % [item.title, item.maker, marker]
+	var image: Texture2D = load(ROOT + item.image_path)
+	artwork_image.texture = image
+	artwork_image.custom_minimum_size = Vector2(artwork_page.size.x, artwork_page.size.x * image.get_height() / image.get_width())
+	artwork_bubble.text = "%s\n%s\nMarker %d" % [item.title, item.maker, marker]
+	artwork_page.scroll_vertical = 0
 	artwork_window.position = Vector2(size.x - artwork_window.size.x - 24, 28).max(Vector2(12, 12))
 	artwork_window.visible = true
 	move_child(artwork_window, get_child_count() - 1)
+
+
+func _artwork_patch(source: Rect2, destination: Rect2) -> void:
+	if destination.size.x > 0 and destination.size.y > 0:
+		artwork_chrome.draw_texture_rect_region(frame_texture, destination, source)
+
+
+func _draw_artwork_frame() -> void:
+	# The preview reuses the map window's source slices: no generated border or scrollbar remains.
+	var w := artwork_window.size.x
+	var h := artwork_window.size.y
+	var scale := ARTWORK_SCALE
+	var top := roundf(94 * scale)
+	var right := roundf(100 * scale)
+	var left := minf(roundf(850 * scale), w - right)
+	_artwork_patch(Rect2(0, 0, left / scale, 94), Rect2(0, 0, left, top))
+	_artwork_patch(Rect2(850, 0, 774, 94), Rect2(left, 0, w - left - right, top))
+	_artwork_patch(Rect2(1624, 0, 100, 94), Rect2(w - right, 0, right, top))
+	var side := roundf(36 * scale)
+	var corner := roundf(56 * scale)
+	var bottom := roundf(42 * scale)
+	var corner_height := roundf(62 * scale)
+	_artwork_patch(Rect2(0, 94, 36, 1268), Rect2(0, top, side, h - top - corner_height))
+	_artwork_patch(Rect2(1688, 94, 36, 1268), Rect2(w - side, top, side, h - top - corner_height))
+	_artwork_patch(Rect2(0, 1362, 56, 62), Rect2(0, h - corner_height, corner, corner_height))
+	_artwork_patch(Rect2(1668, 1362, 56, 62), Rect2(w - corner, h - corner_height, corner, corner_height))
+	_artwork_patch(Rect2(56, 1382, 1612, 42), Rect2(corner, h - bottom, w - corner * 2, bottom))
 
 
 ## The desktop fills the Page (#63): one uniform scale s = min(page / DESKTOP_SIZE) for all the
@@ -230,6 +255,8 @@ func _top_window_at(pointer: Vector2) -> Control:
 	var windows := get_children()
 	windows.reverse()
 	for window in windows:
+		if window == artwork_window:
+			continue
 		if window is Control and window.get_rect().has_point(pointer):
 			return window
 	return null
