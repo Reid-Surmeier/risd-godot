@@ -2,9 +2,9 @@ extends Control
 
 # Standalone QA prototype: click either map badge to swap the page image.
 const POPUP_SIZE := Vector2(1696, 1216)
-const PAGE_RECT := Rect2(103, 174, 1488, 946)
-const CONTENT_WIDTH := 1454.0
-const TEMPLATE := "res://assets/information-window-motion-template.webp"
+const PAGE_RECT := Rect2(61, 140, 1602, 1020)
+const CONTENT_WIDTH := 1566.0
+const TEMPLATE := "res://assets/information-window-template.webp"
 const TERRAIN := "res://assets/terrain.png"
 const FONT := "res://assets/PixelMplus12-Regular.ttf"
 const ARTWORKS := {
@@ -66,14 +66,15 @@ func _build_popup() -> void:
 	template.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	template.stretch_mode = TextureRect.STRETCH_SCALE
 	template.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	template.size = POPUP_SIZE
+	# Crop Muse's exterior glow so this reads as a window, not a floating card.
+	template.position = Vector2(-44, -44)
+	template.size = Vector2(1784, 1304)
 	popup.add_child(template)
 	page.position = PAGE_RECT.position
 	page.size = PAGE_RECT.size
 	page.clip_contents = true
 	page.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	page.get_v_scroll_bar().custom_minimum_size = Vector2(34, 0)
-	page.get_v_scroll_bar().modulate = Color(1, 1, 1, 0)
+	_style_scrollbar(page.get_v_scroll_bar())
 	popup.add_child(page)
 	content.custom_minimum_size = Vector2(CONTENT_WIDTH, 0)
 	content.add_theme_constant_override("separation", 22)
@@ -93,15 +94,25 @@ func _build_popup() -> void:
 	drag_handle.gui_input.connect(_drag_input)
 	popup.add_child(drag_handle)
 	var close := Button.new()
-	close.position = Vector2(1535, 48)
-	close.size = Vector2(84, 76)
-	close.modulate = Color(1, 1, 1, 0)
+	close.text = "×"
+	close.position = Vector2(1610, 45)
+	close.size = Vector2(48, 48)
+	close.add_theme_font_size_override("font_size", 32)
+	close.add_theme_color_override("font_color", Color("222222"))
+	var close_style := StyleBoxFlat.new()
+	close_style.bg_color = Color("eeeeee")
+	close_style.border_color = Color("777777")
+	close_style.set_border_width_all(2)
+	close.add_theme_stylebox_override("normal", close_style)
 	close.pressed.connect(func(): popup.hide())
 	popup.add_child(close)
 	var resize_handle := Button.new()
+	resize_handle.text = "↘"
 	resize_handle.position = Vector2(1628, 1148)
 	resize_handle.size = Vector2(48, 48)
-	resize_handle.modulate = Color(1, 1, 1, 0)
+	resize_handle.add_theme_font_size_override("font_size", 28)
+	resize_handle.add_theme_color_override("font_color", Color("444444"))
+	resize_handle.add_theme_stylebox_override("normal", close_style)
 	resize_handle.gui_input.connect(_resize_input)
 	popup.add_child(resize_handle)
 
@@ -117,6 +128,22 @@ func _show_artwork(number: int) -> void:
 	page.scroll_vertical = 0
 	popup.show()
 	_layout()
+
+
+func _style_scrollbar(bar: VScrollBar) -> void:
+	bar.custom_minimum_size = Vector2(34, 0)
+	var track := StyleBoxFlat.new()
+	track.bg_color = Color("eeeeee")
+	track.border_color = Color("9a9a9a")
+	track.set_border_width_all(2)
+	var thumb := StyleBoxFlat.new()
+	thumb.bg_color = Color("aaaaaa")
+	thumb.border_color = Color("555555")
+	thumb.set_border_width_all(2)
+	thumb.set_corner_radius_all(4)
+	bar.add_theme_stylebox_override("scroll", track)
+	bar.add_theme_stylebox_override("grabber", thumb)
+	bar.add_theme_stylebox_override("grabber_highlight", thumb)
 
 
 func _drag_input(event: InputEvent) -> void:
