@@ -18,6 +18,7 @@ const Errors := preload("res://modules/playground_page/errors.gd")
 const Data := preload("res://modules/collection_data/interface.gd")
 const ROOT := "res://modules/playground_page/"
 const WEBSURFER_ASSET := ROOT + "assets/websurfer-window.webp"
+const SKETCHBOOK_ASSET := ROOT + "assets/sketchbook-journal.png"
 const DESKTOP := Vector2(2171, 1185)
 const MARGIN := 24.0
 # The PostPet picture's bands (source rows) and the column each band stretches at: a column where the
@@ -61,7 +62,9 @@ var storage_status := "loading"
 var refresh_generation := 0
 var show_websurfer := false
 var show_gallery := false
+var show_sketchbook := false
 var websurfer: Control
+var sketchbook: Control
 var interactive_windows: Array[Control] = []
 
 
@@ -71,12 +74,15 @@ static func create(deps: Dictionary) -> Dictionary:
 			return Errors.err(Errors.ASSET_MISSING, ROOT + "assets/" + entry[1])
 	if deps.get("show_websurfer", false) and not ResourceLoader.exists(WEBSURFER_ASSET):
 		return Errors.err(Errors.ASSET_MISSING, WEBSURFER_ASSET)
+	if deps.get("show_sketchbook", false) and not ResourceLoader.exists(SKETCHBOOK_ASSET):
+		return Errors.err(Errors.ASSET_MISSING, SKETCHBOOK_ASSET)
 	var page = load(ROOT + "playground_page.gd").new()
 	page.key = deps.get("key", "")
 	page.data_handle = deps.collection_data
 	page.image_fetch = deps.image_fetch
 	page.show_websurfer = deps.get("show_websurfer", false)
 	page.show_gallery = deps.get("show_gallery", false)
+	page.show_sketchbook = deps.get("show_sketchbook", false)
 	page.name = "PlaygroundPage"
 	page.color = Color.WHITE
 	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -120,6 +126,12 @@ func _ready() -> void:
 		websurfer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		add_child(websurfer)
 		interactive_windows.append(websurfer)
+	if show_sketchbook:
+		sketchbook = load(ROOT + "journal_window.gd").new()
+		sketchbook.name = "SketchbookJournal"
+		sketchbook.set_meta("drag_height", 54.0)
+		add_child(sketchbook)
+		interactive_windows.append(sketchbook)
 	saved_body.name = "SavedWorks"
 	saved_body.color = Color.WHITE
 	saved_body.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -197,6 +209,10 @@ func _fit() -> void:
 		var websurfer_height := minf(780.0, size.y * 0.78)
 		websurfer.size = Vector2(websurfer_height * 1616.0 / 1407.0, websurfer_height)
 		websurfer.position = Vector2(size.x - websurfer.size.x - MARGIN * s, (size.y - websurfer.size.y) * 0.5)
+	if sketchbook != null:
+		var sketchbook_height := minf(620.0, size.y * 0.62)
+		sketchbook.size = Vector2(sketchbook_height * 1138.0 / 864.0, sketchbook_height)
+		sketchbook.position = Vector2(size.x - sketchbook.size.x - MARGIN * s, size.y - sketchbook.size.y - MARGIN * s)
 
 
 func _refresh_saved() -> void:
@@ -506,6 +522,8 @@ func _input(event: InputEvent) -> void:
 			if _active == null:
 				return
 			move_child(_active, -1)
+			if _active == sketchbook and sketchbook.title_button_at(pointer - _active.position):
+				return
 			if pointer.y - _active.position.y >= float(_active.get_meta("drag_height")):
 				return
 			action = "drag"
