@@ -19,9 +19,6 @@ var content := VBoxContainer.new()
 var painting := TextureRect.new()
 var description := Label.new()
 var dragging := false
-var resizing := false
-var user_scale := 1.0
-var user_positioned := false
 
 
 func _ready() -> void:
@@ -93,28 +90,6 @@ func _build_popup() -> void:
 	drag_handle.mouse_filter = Control.MOUSE_FILTER_STOP
 	drag_handle.gui_input.connect(_drag_input)
 	popup.add_child(drag_handle)
-	var close := Button.new()
-	close.text = "×"
-	close.position = Vector2(1610, 45)
-	close.size = Vector2(48, 48)
-	close.add_theme_font_size_override("font_size", 32)
-	close.add_theme_color_override("font_color", Color("222222"))
-	var close_style := StyleBoxFlat.new()
-	close_style.bg_color = Color("eeeeee")
-	close_style.border_color = Color("777777")
-	close_style.set_border_width_all(2)
-	close.add_theme_stylebox_override("normal", close_style)
-	close.pressed.connect(func(): popup.hide())
-	popup.add_child(close)
-	var resize_handle := Button.new()
-	resize_handle.text = "↘"
-	resize_handle.position = Vector2(1628, 1148)
-	resize_handle.size = Vector2(48, 48)
-	resize_handle.add_theme_font_size_override("font_size", 28)
-	resize_handle.add_theme_color_override("font_color", Color("444444"))
-	resize_handle.add_theme_stylebox_override("normal", close_style)
-	resize_handle.gui_input.connect(_resize_input)
-	popup.add_child(resize_handle)
 
 
 func _show_artwork(number: int) -> void:
@@ -149,22 +124,13 @@ func _style_scrollbar(bar: VScrollBar) -> void:
 func _drag_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		dragging = event.pressed
-		user_positioned = user_positioned or event.pressed
 	elif event is InputEventMouseMotion and dragging:
 		popup.position += event.relative / popup.scale
 		popup.position = popup.position.clamp(Vector2.ZERO, (size - popup.size * popup.scale).max(Vector2.ZERO))
 
 
-func _resize_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		resizing = event.pressed
-	elif event is InputEventMouseMotion and resizing:
-		user_scale = clampf(user_scale + event.relative.x / POPUP_SIZE.x, 0.48, 1.0)
-		_layout()
-
-
 func _layout() -> void:
 	var scale := minf(1.0, minf((size.x - 32.0) / POPUP_SIZE.x, (size.y - 32.0) / POPUP_SIZE.y))
-	popup.scale = Vector2.ONE * scale * user_scale
-	if not user_positioned:
-		popup.position = Vector2(size.x - POPUP_SIZE.x * scale * user_scale - 24, 24).max(Vector2(8, 8))
+	popup.scale = Vector2.ONE * scale
+	if not dragging:
+		popup.position = Vector2(size.x - POPUP_SIZE.x * scale - 24, 24).max(Vector2(8, 8))
