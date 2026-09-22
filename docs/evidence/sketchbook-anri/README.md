@@ -1,6 +1,6 @@
 # ANRI paint-window prototype
 
-The opt-in `?paintbox=anri` view uses the complete Muse reconstruction: both material bars, six small green tools, orange tool case, freestanding tools, red pad, two-row interactive palette, and cat brush sit in one tall `交換ウィンドウ：ANRI` window. Tldraw controls remain a separate movable window; their titlebar and normal, hover, and selected button skins come from a second Muse reconstruction pass. Godot supplies the labels, hit areas, and working cursor, hand, pen, eraser, undo, redo, S/M/L/XL, and opacity states.
+The default view uses the complete Muse reconstruction: both material bars, six small green tools, orange tool case, freestanding tools, red pad, two-row interactive palette, and cat brush sit in one tall `交換ウィンドウ：ANRI` window. Tldraw controls remain a separate movable window; their titlebar and normal, hover, and selected button skins come from a second Muse reconstruction pass. Godot supplies the labels, hit areas, and working cursor, hand, pen, eraser, undo, redo, S/M/L/XL, and opacity states.
 
 ![ANRI window and separate controls](01-layout.png)
 

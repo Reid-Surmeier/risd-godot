@@ -131,7 +131,6 @@ func _build_artwork_window() -> void:
 	artwork_window.visible = false
 	artwork_window.size = ARTWORK_POPUP_SIZE
 	artwork_window.clip_contents = true
-	artwork_window.z_index = 10
 	add_child(artwork_window)
 	artwork_chrome.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	artwork_chrome.size = ARTWORK_POPUP_SIZE
@@ -255,8 +254,6 @@ func _top_window_at(pointer: Vector2) -> Control:
 	var windows := get_children()
 	windows.reverse()
 	for window in windows:
-		if window == artwork_window:
-			continue
 		if window is Control and window.get_rect().has_point(pointer):
 			return window
 	return null
@@ -272,7 +269,7 @@ func _input(event: InputEvent) -> void:
 		return
 	if event is InputEventMouseButton and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
 		var over := _top_window_at(make_canvas_position_local(event.position))
-		if over != null and over != frame:
+		if over != null and over != frame and over != artwork_window:
 			get_viewport().set_input_as_handled()
 		return
 	var pointer := Vector2.ZERO
@@ -294,7 +291,13 @@ func _input(event: InputEvent) -> void:
 			return
 		move_child(target, get_child_count() - 1)
 		var rect := target.get_rect()
-		if target == frame:
+		if target == artwork_window:
+			var artwork_local := pointer - rect.position
+			if artwork_local.y < roundf(94 * ARTWORK_SCALE):
+				action = "drag"
+			else:
+				return
+		elif target == frame:
 			if locked:
 				return
 			var local := pointer - rect.position

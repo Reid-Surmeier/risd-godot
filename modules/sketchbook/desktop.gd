@@ -62,7 +62,7 @@ var saved_ids: Array = []
 var selected_reference := ""
 var storage_status := "loading"
 var refresh_generation := 0
-var anri_prototype := false
+var anri_prototype := true
 
 
 static func create(deps: Dictionary) -> Dictionary:
@@ -81,9 +81,6 @@ static func create(deps: Dictionary) -> Dictionary:
 
 
 func _ready() -> void:
-	anri_prototype = "--anri-paintbox" in OS.get_cmdline_user_args()
-	if OS.has_feature("web"):
-		anri_prototype = bool(JavaScriptBridge.eval("new URLSearchParams(location.search).get('paintbox') === 'anri'"))
 	# The prototype's project filtered linearly; this project's default is nearest. Children inherit.
 	texture_filter = TEXTURE_FILTER_LINEAR
 	desktop.name = "desktop"
