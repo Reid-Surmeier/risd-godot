@@ -49,7 +49,7 @@
         {
           "slot": "reference-004",
           "kind": "image",
-          "payloadDestination": "/input_references/0/image_url/url"
+          "payloadDestination": "/input_references/4/image_url/url"
         }
       ]
     }
