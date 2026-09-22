@@ -1,9 +1,0 @@
-{
-  "asset": "information-window-template.webp",
-  "assetSha256": "257ace536a0c7cacfc41ac67d1752a0a01d1c9b61980c668d3997f1035543da1",
-  "source": "image-work/artwork-popup-v2/artifacts/runs/run-803247a2afd8fd6952c50876/materialized/image-01.webp",
-  "provider": "OpenRouter / meta/muse-image",
-  "actualCostUsd": "0.010000",
-  "purpose": "Standalone Atlas Information dialog template with an interchangeable Godot artwork page",
-  "visualReview": "Inspected with marker 8 in Godot: the painting fills the white page, the title is readable, and the generated scrollbar remains outside the image."
-}
