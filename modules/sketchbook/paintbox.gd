@@ -9,8 +9,10 @@ extends Control
 signal color_changed(color: Color)
 signal state_changed
 signal pointer_changed
+signal sound_cue_requested(cue: String)
 
 const Mixbox = preload("res://modules/sketchbook/mixbox/mixbox.gd")
+const SoundCues := preload("res://modules/sound_cues/interface.gd")
 const ANRI_INTERIOR := preload("res://modules/sketchbook/assets/paintbox/anri-interior-muse.webp")
 const ANRI_TITLE := preload("res://modules/sketchbook/assets/paintbox/anri-title-reference.png")
 const PALETTE := preload("res://modules/sketchbook/assets/paintbox/palette-white.png")
@@ -245,6 +247,7 @@ func _gui_input(event: InputEvent) -> void:
 					brush_color = _sample_well(well)
 					_update_brush_color()
 					color_changed.emit(brush_color)
+					sound_cue_requested.emit(SoundCues.REFILL)
 					state_changed.emit()
 					queue_redraw()
 				elif _tray_at(uv) >= 0:

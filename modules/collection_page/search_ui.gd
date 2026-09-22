@@ -2,7 +2,10 @@
 ## collection_data handle only.
 extends Node
 
+signal sound_cue_requested(cue: String)
+
 const Data := preload("res://modules/collection_data/interface.gd")
+const SoundCues := preload("res://modules/sound_cues/interface.gd")
 const FONT_PATH := "res://modules/collection_page/assets/PixelMplus12-Regular.ttf"
 const SNAPSHOT_EXPIRED := "collection_data.snapshot_expired"
 const SORTS := ["title_asc", "title_desc", "date_asc", "date_desc"]
@@ -563,6 +566,7 @@ func _select(artwork: Dictionary) -> void:
 	var save := Button.new()
 	save.name = "SaveArtwork"
 	save.text = "Save"
+	save.set_meta("sound_cue", "none")
 	save.pressed.connect(_save_selected)
 	_theme_control(save)
 	column.add_child(save)
@@ -629,6 +633,7 @@ func _finish_save(current: int, result: Dictionary) -> void:
 	if result.ok:
 		save_phase = "saved"
 		save_message = "Saved"
+		sound_cue_requested.emit(SoundCues.SAVE)
 	else:
 		save_phase = "error"
 		save_message = "Could not save · " + result.error.detail

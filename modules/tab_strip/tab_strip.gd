@@ -7,6 +7,7 @@
 extends Control
 
 const Errors := preload("res://modules/tab_strip/errors.gd")
+const SoundCues := preload("res://modules/sound_cues/interface.gd")
 const ASSETS := "res://modules/tab_strip/assets/"
 
 signal tab_opened(index: int)
@@ -143,6 +144,7 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	var t: Dictionary = _layout.tab
 	var node := Control.new()
 	node.name = "Tab%d" % _tabs.size()
+	node.set_meta("sound_cue_on_gui_activate", SoundCues.BUTTON)
 	node.position = Vector2(x, t.y)
 	node.size = Vector2(width, t.height)
 	node.clip_contents = false  # the opening sits just below the node; labels clip in LabelClip

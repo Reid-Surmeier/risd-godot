@@ -9,6 +9,10 @@
 ## the fields the probe documents. Behaviour unchanged.
 extends Control
 
+signal sound_cue_requested(cue: String)
+
+const SoundCues := preload("res://modules/sound_cues/interface.gd")
+
 const CANVAS_SIZE := Vector2(800, 680)
 const CAMERA_TARGET := Vector3(0.0, 2.25, 0.0)
 const DEFAULT_YAW := -132.48
@@ -313,6 +317,7 @@ func _build_transport() -> void:
 
 	menu_button = _make_button("menu", "", Rect2(638, TRANSPORT_Y, 115, 46))
 	menu_button.tooltip_text = "Open viewer menu"
+	menu_button.set_meta("sound_cue", "none")
 	menu_button.pressed.connect(_toggle_menu)
 	menu_button.add_theme_font_size_override("font_size", 22)
 	menu_button.add_theme_color_override("font_color", Color("#4e575d"))
@@ -550,6 +555,7 @@ func _toggle_menu() -> void:
 	_animate_control("menu")
 	menu_open = false
 	menu_overlay_visible = false
+	sound_cue_requested.emit(SoundCues.CLOSE)
 	if menu_panel != null:
 		menu_panel.visible = false
 	grab_focus()

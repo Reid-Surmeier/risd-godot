@@ -12,6 +12,7 @@ const VideoPlayer := preload("res://modules/video_player/interface.gd")
 const CollectionPage := preload("res://modules/collection_page/interface.gd")
 const CollectionData := preload("res://modules/collection_data/interface.gd")
 const PlaygroundPage := preload("res://modules/playground_page/interface.gd")
+const SoundCues := preload("res://modules/sound_cues/interface.gd")
 
 var _storage: Variant
 
@@ -57,4 +58,10 @@ func _ready() -> void:
 	if not created.ok:
 		push_error("shell: %s" % created.error.code)
 		return
+	var sounds := SoundCues.create()
+	if not sounds.ok:
+		push_error("sound cues: %s" % sounds.error.code)
+		return
+	add_child(sounds.value)
 	add_child(created.value)
+	SoundCues.attach(sounds.value, created.value)
