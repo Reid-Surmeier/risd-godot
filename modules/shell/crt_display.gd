@@ -5,7 +5,7 @@ const SquiggleShader := preload("res://modules/shell/squiggle_screen.gdshader")
 const HazeShader := preload("res://modules/shell/haze_screen.gdshader")
 
 var enabled := true
-var squiggle_enabled := true
+var squiggle_enabled := false  # off by default: its 3 steps a second read as flicker (owner, 2026-09-23); F9 turns it on
 var _qa_elapsed := 0.0
 var _mouse_inside := false
 var squiggle: ColorRect
@@ -45,6 +45,7 @@ func _create_squiggle() -> void:
 	noise.noise = FastNoiseLite.new()
 	material.set_shader_parameter("noise", noise)
 	squiggle.material = material
+	squiggle.visible = squiggle_enabled
 	layer.add_child(squiggle)
 
 func _create_haze() -> void:
