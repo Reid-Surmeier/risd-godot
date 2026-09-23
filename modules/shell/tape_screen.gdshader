@@ -1,6 +1,5 @@
-// The loading screen's tape look (boot_loader.gd), measured from the owner's VHS-style reference:
-// the tape frame is already reduced in pixels and JPEG-compressed; this adds what the signal does
-// on top. Brightness is soft sideways, colour trails to the right of its shape at lower resolution,
+// The loading screen's tape look (boot_loader.gd), from the owner's VHS-style reference, kept
+// subtle: the tape frame is already slightly reduced in pixels; this adds what the signal does on top. Brightness is soft sideways, colour trails to the right of its shape at lower resolution,
 // and dark edges get a light halo. White stays white.
 shader_type canvas_item;
 
@@ -13,7 +12,7 @@ void fragment() {
 	vec4 luma = (texture(TEXTURE, UV - px) + 2.0 * here + texture(TEXTURE, UV + px)) * 0.25;
 	vec4 chroma = vec4(0.0);
 	for (int k = 0; k < 5; k++) {
-		chroma += texture(TEXTURE, UV - px * float(k) * 0.75);
+		chroma += texture(TEXTURE, UV - px * float(k) * 0.4);
 	}
 	chroma /= 5.0;
 	vec4 wide = (texture(TEXTURE, UV - 2.0 * px) + texture(TEXTURE, UV + 2.0 * px)
@@ -21,7 +20,7 @@ void fragment() {
 
 	float a = max(luma.a, 1e-4);
 	float y = to_yiq(luma.rgb / a).x;
-	y += 0.25 * (y - to_yiq(wide.rgb / max(wide.a, 1e-4)).x);  // edge halo
+	y += 0.15 * (y - to_yiq(wide.rgb / max(wide.a, 1e-4)).x);  // edge halo
 	vec3 rgb = from_yiq(vec3(y, to_yiq(chroma.rgb / max(chroma.a, 1e-4)).yz));
 	COLOR = vec4(clamp(rgb, 0.0, 1.0), luma.a);
 }

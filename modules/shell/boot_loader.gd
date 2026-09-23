@@ -1,16 +1,16 @@
-## The game's loading screen, rendered by Godot so it can be degraded the way analog video is
-## (the owner's reference: a VHS-style capture, 2026-09-22). The four noise-driven dots and the
-## progress bar are drawn into a small SubViewport (real pixel reduction); every tape frame is
-## JPEG-compressed and decoded back (real block artifacts); tape_screen.gdshader adds the colour
-## bleed and the edge halo.
+## The project's main scene: loads the game, puts it underneath, and shows every tab once so its
+## first real click is instant (the Shell creates a Tab's Tenant on its first show).
 ##
-## It is the project's main scene. On the Web the boot pack holds only this scene, and
-## web/loading_shell.html has already downloaded the game pack into /tmp/game.pck (the browser
-## downloads and unzips it, off Godot's main thread) and hands over its clock and progress
-## (window.loaderHandoff). Here the pack is mounted, MAIN_SCENE loaded and put under the loading
-## screen, and every tab shown once so its first real click is instant (the Shell creates a Tab's
-## Tenant on its first show). Then the dots drift slowly outward and fade with the white, and the
-## loading screen frees itself. On desktop the game is already in res:// and only the load runs.
+## On the Web the page draws the loading screen (web/loading_shell.html, in a Web Worker so it keeps
+## moving while this thread is busy building tabs) and has already downloaded the game pack into
+## /tmp/game.pck; this scene mounts it, loads and warms the game, reports progress to the page
+## (window.loaderSetProgress) and says when it is done (window.loaderDone). The boot pack holds
+## only this scene.
+##
+## On desktop there is no page, so this scene draws the same loading screen itself: the four
+## noise-driven dots and the bar in a SubViewport slightly smaller than the window (a subtle pixel
+## reduction), tape_screen.gdshader for a light colour bleed and edge halo; at the end the dots drift
+## slowly outward and fade with the white.
 extends Control
 
 const MAIN_SCENE := "res://modules/shell/demo.tscn"
@@ -23,11 +23,10 @@ const SHELL_INTERFACE := "res://modules/shell/interface.gd"  # loaded after the 
 const MIN_SECONDS := 4.0  # the bar fills at a steady pace, never faster than empty-to-full in this
                           # long, so a quick load still reads as loading (same pace as the HTML page)
 
-@export var pixel_reduction := 1.6  # the tape is the window divided by this (same in the page)
-@export var tape_fps := 12.0        # how often a new compressed frame is taken
-@export var jpeg_quality := 0.7     # 0..1, lower = blockier
+@export var pixel_reduction := 1.25  # the tape is the window divided by this (same in the page)
 
-var clock := 0.0          # seconds, continued from the HTML loader
+var drawing := not OS.has_feature("web")  # on the Web the page draws the loading screen
+var clock := 0.0
 var progress := 0.0       # 0..1 shown by the bar (eases toward target)
 var target := 0.0
 var exit := -1.0          # < 0 while loading, then 0..1
@@ -36,13 +35,11 @@ var stage_rect := Rect2()
 var tape: SubViewport
 var stage: Node2D
 var screen: TextureRect
-var tape_texture := ImageTexture.new()
 var ring: ImageTexture  # one dot's soft ring, white with the falloff in alpha
 var noise := FastNoiseLite.new()
 var loading_path := ""
 var game: Node  # loaded and under the loading screen; the exit waits for the bar to be full
 var warm := false  # every tab has been shown once
-var since_tape := 0.0
 
 
 func _ready() -> void:
@@ -50,17 +47,23 @@ func _ready() -> void:
 	noise.frequency = 1.0
 	ring = _bake_ring()
 	_mark("godot-ready")
-	var start_progress := 0.0
-	if OS.has_feature("web"):
-		var handoff = JSON.parse_string(str(JavaScriptBridge.eval("JSON.stringify(window.loaderHandoff || {})")))
-		if handoff is Dictionary:
-			clock = float(handoff.get("t", 0.0))
-			start_progress = float(handoff.get("progress", 0.0))
+	var start_progress := 0.85 if OS.has_feature("web") else 0.0  # the page's downloads are the first 85%
 	progress = start_progress
 	target = start_progress
+	if drawing:
+		_build_screen()
 
+	if OS.has_feature("web") and not ResourceLoader.exists(MAIN_SCENE):
+		if not ProjectSettings.load_resource_pack(GAME_PACK):
+			push_error("boot_loader: cannot mount %s" % GAME_PACK)
+			return
+		_mark("pack-mounted")
+	_load_game(start_progress)
+
+
+func _build_screen() -> void:
 	tape = SubViewport.new()
-	tape.transparent_bg = false
+	tape.transparent_bg = true  # the stage draws its own white, which fades out at the exit
 	tape.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	add_child(tape)
 	stage = Node2D.new()
@@ -77,18 +80,10 @@ func _ready() -> void:
 	screen.material = ShaderMaterial.new()
 	screen.material.shader = TapeShader
 	screen.mouse_filter = Control.MOUSE_FILTER_STOP  # the game underneath waits until the exit
-	screen.texture = tape_texture
+	screen.texture = tape.get_texture()
 	layer.add_child(screen)
 	get_viewport().size_changed.connect(_fit_tape)
 	_fit_tape()
-	_take_tape_frame()
-
-	if OS.has_feature("web") and not ResourceLoader.exists(MAIN_SCENE):
-		if not ProjectSettings.load_resource_pack(GAME_PACK):
-			push_error("boot_loader: cannot mount %s" % GAME_PACK)
-			return
-		_mark("pack-mounted")
-	_load_game(start_progress)
 
 
 ## For modules/shell/playtest/perf_web.py: a named moment of the load, and the bar's value.
@@ -105,24 +100,22 @@ func _fit_tape() -> void:
 
 func _process(delta: float) -> void:
 	clock += delta
-	if OS.has_feature("web") and Engine.get_process_frames() % 6 == 0:
-		JavaScriptBridge.eval("window.loaderProgress = %f" % progress)
 	progress = move_toward(progress, target, delta / MIN_SECONDS)
 	if loading_path != "":
 		_poll_load()
+	if warm and not drawing:  # the page runs the exit
+		JavaScriptBridge.eval("window.loaderDone && window.loaderDone()")
+		queue_free()
+		return
 	if warm and exit < 0.0 and progress >= 1.0:
 		_begin_exit()
 	if exit >= 0.0:
 		exit = minf(1.0, (clock - exit_clock) / EXIT_SECONDS)
 		if exit >= 1.0:
-			_mark("game-shown")
 			queue_free()
 			return
-	stage.queue_redraw()
-	since_tape += delta
-	if exit < 0.0 and since_tape >= 1.0 / tape_fps:
-		since_tape = 0.0
-		_take_tape_frame()
+	if drawing:
+		stage.queue_redraw()
 
 
 ## The dots and the bar in "st" units: (0, 0) the middle, 1.0 the tape's height, y up.
@@ -178,25 +171,17 @@ func _draw_dot(center: Vector2, h: float, color: Color) -> void:
 	stage.draw_texture_rect(ring, Rect2(center - Vector2(r, r), Vector2(r, r) * 2.0), false, color)
 
 
-## A tape frame: what the stage shows now, JPEG-compressed and decoded back. During the exit the
-## screen shows the live stage instead (JPEG has no transparency and the game shows through).
-func _take_tape_frame() -> void:
-	if DisplayServer.get_name() == "headless":  # nothing is drawn, nothing to read back
+## The bar's goal; on the Web the page's bar is told (it keeps the steady pace itself).
+func _set_target(value: float) -> void:
+	if value <= target:
 		return
-	var image := tape.get_texture().get_image()
-	if image == null or image.is_empty():
-		return
-	var compressed := Image.new()
-	if compressed.load_jpg_from_buffer(image.save_jpg_to_buffer(jpeg_quality)) != OK:
-		return
-	if tape_texture.get_size() == Vector2(compressed.get_size()):
-		tape_texture.update(compressed)
-	else:
-		tape_texture.set_image(compressed)
+	target = value
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.loaderSetProgress && window.loaderSetProgress(%f)" % target)
 
 
 func _load_game(from: float) -> void:
-	target = maxf(target, from)
+	_set_target(from)
 	loading_path = MAIN_SCENE
 	ResourceLoader.load_threaded_request(MAIN_SCENE)
 	set_meta("load_from", target)
@@ -206,10 +191,10 @@ func _poll_load() -> void:
 	var fraction := []
 	var status := ResourceLoader.load_threaded_get_status(loading_path, fraction)
 	if status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-		target = maxf(target, lerpf(get_meta("load_from"), 0.9, float(fraction[0])))
+		_set_target(lerpf(get_meta("load_from"), 0.9, float(fraction[0])))
 	elif status == ResourceLoader.THREAD_LOAD_LOADED:
 		loading_path = ""
-		target = maxf(target, 0.9)
+		_set_target(0.9)
 		_mark("game-loaded")
 		game = (ResourceLoader.load_threaded_get(MAIN_SCENE) as PackedScene).instantiate()
 		get_tree().root.add_child(game)
@@ -230,7 +215,7 @@ func _warm_up() -> void:
 	var shell: Control = game.get_node_or_null("Desktop/Content/Shell")
 	if shell == null or DisplayServer.get_name() == "headless":  # headless draws nothing: nothing to warm
 		warm = true
-		target = 1.0
+		_set_target(1.0)
 		return
 	var launch := -1
 	for _i in 300:  # the launch: the Collection tab grows in and its page fades in
@@ -252,7 +237,7 @@ func _warm_up() -> void:
 					break
 			await get_tree().process_frame
 			await get_tree().process_frame
-		target = maxf(target, lerpf(0.9, 1.0, float(n + 1) / order.size()))
+		_set_target(lerpf(0.9, 1.0, float(n + 1) / order.size()))
 	_mark("tabs-warm")
 	warm = true
 
@@ -260,6 +245,4 @@ func _warm_up() -> void:
 func _begin_exit() -> void:
 	exit_clock = clock
 	exit = 0.0
-	tape.transparent_bg = true
-	screen.texture = tape.get_texture()  # live and transparent from here: the game shows through
 	screen.mouse_filter = Control.MOUSE_FILTER_IGNORE

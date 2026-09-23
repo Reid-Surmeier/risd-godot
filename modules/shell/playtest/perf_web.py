@@ -10,8 +10,10 @@ usage: perf_web.py URL OUT [--mbit 40] [--gpu] [--size 1920x1080]
 What it measures:
   stages   the marks web/loading_shell.html and modules/shell/boot_loader.gd push to window.loadPerf
   bar      the loading bar's value over time (window.loaderProgress, sampled ten times a second)
-  freezes  every main-thread stall over 50 ms during the load (requestAnimationFrame gaps): while
-           one runs, nothing on screen moves, so the loader looks stuck
+  freezes  every page main-thread stall over 50 ms during the load (requestAnimationFrame gaps);
+           the loading animation runs in a Web Worker so it should not stop during them
+  loader   the loading animation's own stalls over 50 ms, reported by its worker (window.loaderGaps):
+           what the viewer sees as the dots stopping
   tabs     for each fixed tab's first click: the longest stall in the 3 s after it, and how long
            until the Shell reports that tab active with its cross-fade settled (?qa-crt state)
 """
@@ -89,6 +91,7 @@ async def main():
                   "stages": json.loads(await js("JSON.stringify(window.loadPerf || [])") or "[]"),
                   "bar": json.loads(await js("JSON.stringify(window.__bar)") or "[]"),
                   "freezes": json.loads(await js("JSON.stringify(window.__gaps)") or "[]"),
+                  "loader_stalls_ms": json.loads(await js("JSON.stringify(window.loaderGaps || [])") or "[]"),
                   "tabs": []}
         await asyncio.sleep(2.0)
         for i in list(range(6)):
@@ -125,6 +128,8 @@ print(f"freezes over 50 ms before the game showed: {len(long)}; longest {max([f[
       f"{next((f[0] / 1000 for f in long if f[1] == max([g[1] for g in long], default=0)), 0):.2f} s")
 for f in sorted(long, key=lambda f: -f[1])[:6]:
     print(f"  {f[0] / 1000:7.2f} s  {f[1]} ms")
+ls = report["loader_stalls_ms"]
+print(f"loading animation stalls over 50 ms (worker): {len(ls)}; longest {max(ls, default=0)} ms")
 bar = report["bar"]; stalls = []
 for (ta, va), (tb, vb) in zip(bar, bar[1:]):
     if vb <= va and va < 0.999:

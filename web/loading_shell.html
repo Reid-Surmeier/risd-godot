@@ -30,7 +30,7 @@ body {
 	position: absolute;
 	inset: 0;
 	background-color: #fefefe;
-	transition: opacity 0.4s ease;
+	transition: opacity 1.8s ease-in; /* the exit: runs on the compositor, smooth while the page is busy */
 }
 
 #status.done {
@@ -76,15 +76,16 @@ body {
 			<div id="status-notice"></div>
 		</div>
 
-		<!-- The loading shader while everything downloads. Once the engine runs,
-		     modules/shell/boot_loader.gd takes over (same dots and tape look) from window.loaderHandoff
-		     for the last stretch: mounting the game, loading it, warming up the tabs. -->
+		<!-- The loading shader, for the whole load: the downloads, then modules/shell/boot_loader.gd
+		     mounting the game, loading it and warming up the tabs (it reports progress through
+		     window.loaderSetProgress and the end through window.loaderDone). -->
 		<script id="loading-frag" type="x-shader/x-fragment">
 precision mediump float;
 
 uniform vec2 u_resolution;
 uniform float u_time;
 uniform float u_progress; // 0..1, bytes downloaded / total
+uniform float u_spread;   // 1 while loading; grows at the exit as the dots drift outward
 
 // Book of Shaders ch.10: random
 float rand(float x) { return fract(sin(x) * 43758.5453123); }
@@ -125,7 +126,7 @@ vec3 scene(vec2 st) {
 		float t = u_time * 0.8 + fi * 10.0;            // each dot reads a different stretch of noise
 		float angle = u_time * 1.5 + fi * 1.5708       // base orbit, 90 degrees apart
 					+ (noise(t) - 0.5) * 1.5;          // noise pushes it ahead / behind
-		float radius = 0.066 + (noise(t + 50.0) - 0.5) * 0.04;  // noise breathes it in / out
+		float radius = (0.066 + (noise(t + 50.0) - 0.5) * 0.04) * u_spread;  // noise breathes it in / out
 		vec2 pos = center + radius * vec2(cos(angle), sin(angle));
 		col = drawDot(col, st, pos, colors[i]);
 	}
@@ -161,13 +162,76 @@ void main() {
 	vec3 luma = (scene(st - px) + 2.0 * scene(st) + scene(st + px)) * 0.25;
 	vec3 chroma = vec3(0.0);
 	for (int k = 0; k < 5; k++) {
-		chroma += scene(st - px * float(k) * 0.75);
+		chroma += scene(st - px * float(k) * 0.4);
 	}
 	chroma /= 5.0;
 	vec3 wide = (scene(st - 2.0 * px) + scene(st + 2.0 * px) + scene(st - 2.0 * px.yx) + scene(st + 2.0 * px.yx)) * 0.25;
 	float y = toYIQ(luma).x;
-	y += 0.25 * (y - toYIQ(wide).x);                   // edge halo
+	y += 0.15 * (y - toYIQ(wide).x);                   // edge halo
 	gl_FragColor = vec4(clamp(fromYIQ(vec3(y, toYIQ(chroma).yz)), 0.0, 1.0), 1.0);
+}
+		</script>
+
+		<!-- Runs in a Web Worker on an OffscreenCanvas: its own thread, so the dots and bar keep moving
+		     while the engine starts and while Godot builds the tabs, both of which block the page's
+		     thread (perf_web.py measured stalls of up to 1.9 s). The canvas is slightly smaller than
+		     the window and the browser scales it up smoothly: the subtle pixel reduction. -->
+		<script id="loader-worker" type="text/js-worker">
+let gl, canvas, uRes, uTime, uProgress, uSpread;
+let size = [1, 1, 1], reduction = 1, minSeconds = 4, exitSeconds = 1.8;
+let target = 0, shown = 0, last = null, start = null, exitAt = -1, exitWanted = false, lastReport = 0;
+const raf = self.requestAnimationFrame ? (f) => self.requestAnimationFrame(f) : (f) => setTimeout(() => f(performance.now()), 16);
+self.onmessage = (e) => {
+	const m = e.data;
+	if (m.size) size = m.size;
+	if (m.progress !== undefined) target = Math.max(target, m.progress); // never goes backwards
+	if (m.exit) exitWanted = true;
+	if (m.canvas) {
+		({ reduction, minSeconds, exitSeconds } = m);
+		canvas = m.canvas;
+		gl = canvas.getContext('webgl');
+		const program = gl.createProgram();
+		for (const [type, src] of [[gl.VERTEX_SHADER, 'attribute vec2 a;void main(){gl_Position=vec4(a,0.0,1.0);}'], [gl.FRAGMENT_SHADER, m.frag]]) {
+			const sh = gl.createShader(type);
+			gl.shaderSource(sh, src);
+			gl.compileShader(sh);
+			if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) console.error(gl.getShaderInfoLog(sh));
+			gl.attachShader(program, sh);
+		}
+		gl.linkProgram(program);
+		gl.useProgram(program);
+		gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW); // one full-screen triangle
+		gl.enableVertexAttribArray(0);
+		gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+		[uRes, uTime, uProgress, uSpread] = ['u_resolution', 'u_time', 'u_progress', 'u_spread'].map((n) => gl.getUniformLocation(program, n));
+		raf(frame);
+	}
+};
+function frame(now) {
+	if (start === null) start = now;
+	const w = Math.max(64, Math.round(size[0] * size[2] / reduction));
+	const h = Math.max(36, Math.round(size[1] * size[2] / reduction));
+	if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+	const dt = last === null ? 0 : (now - last) / 1000;
+	if (dt > 0.05) self.postMessage({ gap: Math.round(dt * 1000) }); // for perf_web.py: the animation stalled
+	last = now;
+	// A steady pace toward the real progress, even when the load is quick. Caught up, the bar still
+	// creeps, ever slower, toward a point 10% ahead (never past 99.5%): a long step never reads as
+	// stuck, and the bar is never full before the game is.
+	if (shown < target) shown = Math.min(target, shown + dt / minSeconds);
+	else shown += (Math.min(0.995, target + 0.1) - shown) * Math.min(1, dt * 0.35);
+	if (exitWanted && exitAt < 0 && shown >= 1) { exitAt = now; self.postMessage({ exiting: true }); }
+	const exit = exitAt < 0 ? 0 : Math.min(1, (now - exitAt) / 1000 / exitSeconds);
+	gl.viewport(0, 0, w, h);
+	gl.uniform2f(uRes, w, h);
+	gl.uniform1f(uTime, (now - start) / 1000);
+	gl.uniform1f(uProgress, shown);
+	gl.uniform1f(uSpread, 1 + 2.2 * (1 - (1 - exit) * (1 - exit))); // ease-out: the orbit slowly widens
+	gl.drawArrays(gl.TRIANGLES, 0, 3);
+	if (now - lastReport > 100) { lastReport = now; self.postMessage({ shown }); }
+	if (exit >= 1) { self.postMessage({ done: true }); return; }
+	raf(frame);
 }
 		</script>
 
@@ -207,97 +271,34 @@ const GODOT_CONFIG = $GODOT_CONFIG;
 const GODOT_THREADS_ENABLED = $GODOT_THREADS_ENABLED;
 const engine = new Engine(GODOT_CONFIG);
 
-// Runs the loading shader until stop() is called. setProgress() takes the real download
-// fraction; the bar eases toward it so cached (instant) loads still read as loading.
-// The tape look, as in modules/shell/boot_loader.gd: the shader draws into a canvas 1/1.6 of the
-// window's pixels (real pixel reduction), and 12 times a second that frame is JPEG-encoded and
-// decoded (real block artifacts) onto the visible canvas, scaled up smoothly.
-const PIXEL_REDUCTION = 1.6; // same values as boot_loader.gd
-const TAPE_FPS = 12;
-const JPEG_QUALITY = 0.7;
-const MIN_SECONDS = 4; // the bar fills at a steady pace, never faster than empty-to-full in this
-                       // long, so a quick load still reads as loading (same pace in boot_loader.gd)
+// The loading screen: the shader above, run by the worker above. setProgress() takes the real
+// progress (the downloads, then boot_loader.gd); the bar keeps a steady pace toward it. exit()
+// lets the dots drift outward while the screen fades to the game, once the bar is full.
+const PIXEL_REDUCTION = 1.25; // the canvas is the window's pixels divided by this: subtle
+const MIN_SECONDS = 4;        // the bar never goes from empty to full faster than this
+const EXIT_SECONDS = 1.8;     // same as the #status opacity transition
 const loadingScreen = (function () {
 	const screen = document.getElementById('status-shader');
-	const screen2d = screen.getContext('2d');
-	const canvas = document.createElement('canvas');
-	const gl = canvas.getContext('webgl', { preserveDrawingBuffer: true });
-	let tapeFrame = null;  // the latest decoded JPEG
-	let lastNow = null;
-	let lastTape = -1e9;
-	let encoding = false;
-	let target = 0;
-	let shown = 0;
-	let running = !!gl;
-	if (!gl) {
-		return { setProgress() {}, stop() {} }; // no WebGL: plain off-white screen
+	const overlay = document.getElementById('status');
+	if (!screen.transferControlToOffscreen || !window.Worker) {
+		return { setProgress() {}, exit(done) { done(); } }; // no OffscreenCanvas: a plain off-white screen
 	}
-
-	function compile(type, source) {
-		const shader = gl.createShader(type);
-		gl.shaderSource(shader, source);
-		gl.compileShader(shader);
-		if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-			console.error(gl.getShaderInfoLog(shader));
-		}
-		return shader;
-	}
-	const program = gl.createProgram();
-	gl.attachShader(program, compile(gl.VERTEX_SHADER, 'attribute vec2 a;void main(){gl_Position=vec4(a,0.0,1.0);}'));
-	gl.attachShader(program, compile(gl.FRAGMENT_SHADER, document.getElementById('loading-frag').textContent));
-	gl.linkProgram(program);
-	gl.useProgram(program);
-	gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
-	gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW); // one full-screen triangle
-	gl.enableVertexAttribArray(0);
-	gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
-	const uResolution = gl.getUniformLocation(program, 'u_resolution');
-	const uTime = gl.getUniformLocation(program, 'u_time');
-	const uProgress = gl.getUniformLocation(program, 'u_progress');
-	const start = performance.now();
-
-	function frame(now) {
-		if (!running) {
-			return;
-		}
-		const W = Math.round(screen.clientWidth * devicePixelRatio);
-		const H = Math.round(screen.clientHeight * devicePixelRatio);
-		if (screen.width !== W || screen.height !== H) {
-			screen.width = W;
-			screen.height = H;
-		}
-		const w = Math.max(64, Math.round(W / PIXEL_REDUCTION));
-		const h = Math.max(36, Math.round(H / PIXEL_REDUCTION));
-		if (canvas.width !== w || canvas.height !== h) {
-			canvas.width = w;
-			canvas.height = h;
-		}
-		gl.viewport(0, 0, w, h);
-		const dt = lastNow === null ? 0 : (now - lastNow) / 1000;
-		lastNow = now;
-		shown = Math.min(target, shown + dt / MIN_SECONDS);
-		gl.uniform2f(uResolution, w, h);
-		gl.uniform1f(uTime, (now - start) / 1000);
-		gl.uniform1f(uProgress, shown);
-		window.loaderHandoff = { t: (now - start) / 1000, progress: shown }; // read by boot_loader.gd
-		window.loaderProgress = shown; // for modules/shell/playtest/perf_web.py
-		gl.drawArrays(gl.TRIANGLES, 0, 3);
-		if (now - lastTape >= 1000 / TAPE_FPS && !encoding) {
-			lastTape = now;
-			encoding = true;
-			canvas.toBlob((blob) => {
-				createImageBitmap(blob).then((bitmap) => { tapeFrame = bitmap; }).finally(() => { encoding = false; });
-			}, 'image/jpeg', JPEG_QUALITY);
-		}
-		screen2d.imageSmoothingEnabled = true; // the soft upscale of a low-res signal
-		screen2d.drawImage(tapeFrame || canvas, 0, 0, W, H);
-		requestAnimationFrame(frame);
-	}
-	requestAnimationFrame(frame);
-
+	const worker = new Worker(URL.createObjectURL(new Blob([document.getElementById('loader-worker').textContent], { type: 'text/javascript' })));
+	const offscreen = screen.transferControlToOffscreen();
+	const size = () => [screen.clientWidth, screen.clientHeight, devicePixelRatio];
+	worker.postMessage({ canvas: offscreen, frag: document.getElementById('loading-frag').textContent, size: size(),
+		reduction: PIXEL_REDUCTION, minSeconds: MIN_SECONDS, exitSeconds: EXIT_SECONDS }, [offscreen]);
+	window.addEventListener('resize', () => worker.postMessage({ size: size() }));
+	let onDone = null;
+	worker.onmessage = (e) => {
+		if (e.data.shown !== undefined) window.loaderProgress = e.data.shown; // for modules/shell/playtest/perf_web.py
+		if (e.data.gap) (window.loaderGaps = window.loaderGaps || []).push(e.data.gap);
+		if (e.data.exiting) overlay.classList.add('done');
+		if (e.data.done && onDone) onDone();
+	};
 	return {
-		setProgress(p) { target = Math.max(target, p); }, // never goes backwards
-		stop() { running = false; },
+		setProgress(p) { worker.postMessage({ progress: p }); },
+		exit(done) { onDone = done; worker.postMessage({ exit: true }); },
 	};
 }());
 
@@ -307,18 +308,12 @@ const loadingScreen = (function () {
 
 	let initializing = true;
 
-	function hideLoadingScreen() {
-		if (!initializing) {
-			return;
-		}
-		initializing = false;
-		// The Godot loading scene is drawing the same dots now: fade over to it.
-		statusOverlay.classList.add('done');
-		setTimeout(() => {
-			loadingScreen.stop();
-			statusOverlay.remove();
-		}, 400);
-	}
+	// boot_loader.gd reports its part of the load, then says the game is ready underneath.
+	window.loaderSetProgress = (p) => loadingScreen.setProgress(p);
+	window.loaderDone = () => loadingScreen.exit(() => {
+		statusOverlay.remove();
+		(window.loadPerf = window.loadPerf || []).push({ name: 'game-shown', t: performance.now() });
+	});
 
 	function setStatusNotice(text) {
 		while (statusNotice.lastChild) {
@@ -392,7 +387,6 @@ const loadingScreen = (function () {
 			return engine.startGame({});
 		}).then(() => {
 			(window.loadPerf = window.loadPerf || []).push({ name: 'engine-started', t: performance.now() });
-			hideLoadingScreen();
 		}, displayFailureNotice);
 	}
 }());
