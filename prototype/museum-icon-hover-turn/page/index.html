@@ -13,6 +13,7 @@
   .icon { width: 90px; height: 90px; max-width: 100%; aspect-ratio: 1; margin: 0 auto; background-size: 100% 100%; image-rendering: auto; }
   .turn { cursor: pointer; background-repeat: no-repeat; }
   figcaption { margin-top: 6px; white-space: nowrap; }
+  .cut { margin: 20px 0 0; border: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: 8px 20px; }
   p.note { color: #666; margin: 16px 0 0; }
   @media (max-width: 560px) { .row { grid-template-columns: repeat(4, 1fr); row-gap: 16px; } }
 </style>
@@ -25,22 +26,29 @@
     <figure><div class="icon" style="background-image:url(03-horse-rider.png)"></div><figcaption>オカガメ</figcaption></figure>
     <figure><div class="icon" style="background-image:url(04-gold-couch.png)"></div><figcaption>ネコ</figcaption></figure>
     <figure><div class="icon" style="background-image:url(05-bust.png)"></div><figcaption>ひみつメカ</figcaption></figure>
-    <figure><div class="icon turn" data-icon="06-bowl" data-frames="50"></div><figcaption>ビッグマウス</figcaption></figure>
-    <figure><div class="icon turn" data-icon="07-bull" data-frames="24"></div><figcaption>フクロペンギン</figcaption></figure>
-    <figure><div class="icon turn" data-icon="08-dog" data-frames="24"></div><figcaption>イヌ</figcaption></figure>
+    <figure><div class="icon turn" data-icon="06-bowl" data-frames="50" data-certified="49"></div><figcaption>ビッグマウス</figcaption></figure>
+    <figure><div class="icon turn" data-icon="07-bull" data-frames="24" data-certified="13"></div><figcaption>フクロペンギン</figcaption></figure>
+    <figure><div class="icon turn" data-icon="08-dog" data-frames="24" data-certified="11"></div><figcaption>イヌ</figcaption></figure>
   </div>
+  <fieldset class="cut"><legend>Turn</legend>
+    <label><input type="radio" name="cut" value="full" checked> Full turn (about 35°, the spec)</label>
+    <label><input type="radio" name="cut" value="certified"> Smaller turn (every check passes)</label>
+  </fieldset>
   <p class="note">Hover the three right-hand objects. Every frame is Seedance output reduced into the icon's own tile; leaving plays the turn back to the untouched rest frame.</p>
 </main>
 <script>
   // Hover drives progress toward 1, leaving drives it back to 0; frame = progress * (frames - 1).
   const TURN_MS = 700;
+  let cut = "full";
+  for (const r of document.querySelectorAll("input[name=cut]")) r.addEventListener("change", () => { cut = r.value; });
   for (const el of document.querySelectorAll(".turn")) {
     const frames = Number(el.dataset.frames);
     el.style.backgroundImage = `url(${el.dataset.icon}-strip.png)`;
     el.style.backgroundSize = `${frames * 100}% 100%`;
     let progress = 0, target = 0, last = 0, running = false;
     const draw = () => {
-      const frame = Math.round(progress * (frames - 1));
+      const peak = cut === "certified" ? Number(el.dataset.certified) : frames - 1;
+      const frame = Math.round(progress * peak);
       el.style.backgroundPosition = `${frames > 1 ? (frame / (frames - 1)) * 100 : 0}% 0`;
       el.dataset.frame = frame;
     };
