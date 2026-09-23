@@ -50,4 +50,16 @@ assert not colour["colour histogram distance"], "a red/blue swap must fail"
 empty = run(lambda i: Image.new("RGB", source.size, "white"))
 assert not empty["every frame silhouette IoU"], "an empty frame must fail"
 
-print("selfcheck: certifier rejects still, slide, recolour and empty takes")
+def shadowed(i):
+    im = source.copy()
+    if 3 < i < 12:
+        from PIL import ImageDraw
+        ImageDraw.Draw(im).ellipse((45, 128, 140, 146), fill=(222, 222, 222))
+    return im
+
+
+shadow = run(shadowed)
+assert not shadow["no cast shadow (soft grey growth px)"], "a grey shadow under the object must fail"
+assert still["no cast shadow (soft grey growth px)"]
+
+print("selfcheck: certifier rejects still, slide, recolour, empty and shadowed takes")

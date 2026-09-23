@@ -7,17 +7,19 @@ PASS  01-staff   centroid drift px                      1.2
 FAIL  01-staff   area change                            0.182
 FAIL  01-staff   colour histogram distance              0.26
 PASS  01-staff   no pixels outside padded footprint     0
+PASS  01-staff   no cast shadow (soft grey growth px)   0
 PASS  01-staff   object visibly turns (peak IoU / peak MAE) [0.766, 1.2]
 PASS  02-green-sculpture frame count                            73
 PASS  02-green-sculpture size                                   [180, 180, 3]
 PASS  02-green-sculpture rest (hover start and leave end) frame equals source (MAE) 0.0
 PASS  02-green-sculpture rest (hover start and leave end) frame silhouette IoU 1.0
-PASS  02-green-sculpture every frame silhouette IoU             0.764
-PASS  02-green-sculpture centroid drift px                      5.96
-PASS  02-green-sculpture area change                            0.034
+PASS  02-green-sculpture every frame silhouette IoU             0.85
+PASS  02-green-sculpture centroid drift px                      2.78
+PASS  02-green-sculpture area change                            0.044
 PASS  02-green-sculpture colour histogram distance              0.17
 PASS  02-green-sculpture no pixels outside padded footprint     0
-PASS  02-green-sculpture object visibly turns (peak IoU / peak MAE) [0.764, 6.7]
+PASS  02-green-sculpture no cast shadow (soft grey growth px)   0
+PASS  02-green-sculpture object visibly turns (peak IoU / peak MAE) [0.85, 5.3]
 PASS  03-horse-rider frame count                            13
 PASS  03-horse-rider size                                   [180, 180, 3]
 PASS  03-horse-rider rest (hover start and leave end) frame equals source (MAE) 0.0
@@ -27,17 +29,19 @@ PASS  03-horse-rider centroid drift px                      2.21
 FAIL  03-horse-rider area change                            0.174
 PASS  03-horse-rider colour histogram distance              0.185
 PASS  03-horse-rider no pixels outside padded footprint     0
+PASS  03-horse-rider no cast shadow (soft grey growth px)   0
 PASS  03-horse-rider object visibly turns (peak IoU / peak MAE) [0.666, 8.1]
-PASS  04-gold-couch frame count                            73
+PASS  04-gold-couch frame count                            61
 PASS  04-gold-couch size                                   [180, 180, 3]
 PASS  04-gold-couch rest (hover start and leave end) frame equals source (MAE) 0.0
 PASS  04-gold-couch rest (hover start and leave end) frame silhouette IoU 1.0
-PASS  04-gold-couch every frame silhouette IoU             0.772
-PASS  04-gold-couch centroid drift px                      0.84
-PASS  04-gold-couch area change                            0.015
-PASS  04-gold-couch colour histogram distance              0.146
+PASS  04-gold-couch every frame silhouette IoU             0.75
+PASS  04-gold-couch centroid drift px                      3.36
+PASS  04-gold-couch area change                            0.079
+PASS  04-gold-couch colour histogram distance              0.132
 PASS  04-gold-couch no pixels outside padded footprint     0
-PASS  04-gold-couch object visibly turns (peak IoU / peak MAE) [0.772, 8.4]
+PASS  04-gold-couch no cast shadow (soft grey growth px)   75
+PASS  04-gold-couch object visibly turns (peak IoU / peak MAE) [0.75, 11.5]
 PASS  05-bust    frame count                            73
 PASS  05-bust    size                                   [180, 180, 3]
 PASS  05-bust    rest (hover start and leave end) frame equals source (MAE) 0.0
@@ -47,6 +51,7 @@ PASS  05-bust    centroid drift px                      1.11
 PASS  05-bust    area change                            0.081
 PASS  05-bust    colour histogram distance              0.115
 PASS  05-bust    no pixels outside padded footprint     0
+PASS  05-bust    no cast shadow (soft grey growth px)   29
 PASS  05-bust    object visibly turns (peak IoU / peak MAE) [0.836, 8.8]
 PASS  06-bowl    frame count                            50
 PASS  06-bowl    size                                   [180, 180, 3]
@@ -57,6 +62,7 @@ PASS  06-bowl    centroid drift px                      0.52
 PASS  06-bowl    area change                            0.014
 PASS  06-bowl    colour histogram distance              0.115
 PASS  06-bowl    no pixels outside padded footprint     0
+PASS  06-bowl    no cast shadow (soft grey growth px)   0
 FAIL  06-bowl    object visibly turns (peak IoU / peak MAE) [0.978, 6.0]
 PASS  07-bull    frame count                            24
 PASS  07-bull    size                                   [180, 180, 3]
@@ -67,6 +73,7 @@ PASS  07-bull    centroid drift px                      1.88
 FAIL  07-bull    area change                            0.154
 FAIL  07-bull    colour histogram distance              0.287
 PASS  07-bull    no pixels outside padded footprint     0
+PASS  07-bull    no cast shadow (soft grey growth px)   41
 PASS  07-bull    object visibly turns (peak IoU / peak MAE) [0.57, 17.6]
 PASS  08-dog     frame count                            24
 PASS  08-dog     size                                   [180, 180, 3]
@@ -77,4 +84,5 @@ PASS  08-dog     centroid drift px                      4.09
 PASS  08-dog     area change                            0.13
 PASS  08-dog     colour histogram distance              0.134
 PASS  08-dog     no pixels outside padded footprint     0
+PASS  08-dog     no cast shadow (soft grey growth px)   98
 PASS  08-dog     object visibly turns (peak IoU / peak MAE) [0.609, 9.3]
