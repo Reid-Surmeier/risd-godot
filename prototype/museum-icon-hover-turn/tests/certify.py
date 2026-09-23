@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 
 import numpy as np
+from scipy.ndimage import binary_dilation
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,6 +26,7 @@ PEAK_MAE_MIN = 8.0       # ...or, for a round object whose outline a turn cannot
 FOOTPRINT_PAD = 16       # new pixels may not appear further than this from the source bbox
 MIN_FRAMES = 12
 SHADOW_GROWTH_PX = 100  # soft grey pixels a frame may add over the source: a cast shadow adds hundreds
+EDGE_BAND_PX = 3        # the video softens outlines; grey inside this band of the source outline is edge, not shadow
 
 
 def load(path):
@@ -35,9 +37,10 @@ def mask(rgb):
     return np.sqrt(((255.0 - rgb) ** 2).sum(-1)) > WHITE_DISTANCE
 
 
-def soft_grey(rgb):
+def soft_grey(rgb, outside=None):
     lum, sat = rgb.mean(-1), rgb.max(-1) - rgb.min(-1)
-    return int(((lum > 150) & (lum < 248) & (sat < 14)).sum())
+    grey = (lum > 150) & (lum < 248) & (sat < 14)
+    return int((grey if outside is None else grey & outside).sum())
 
 
 def iou(a, b):
@@ -97,7 +100,8 @@ def certify(icon):
     check("area change", max(areas) <= AREA_RATIO, round(max(areas), 3))
     check("colour histogram distance", max(hists) <= HIST_DISTANCE, round(max(hists), 3))
     check("no pixels outside padded footprint", max(strays) == 0, max(strays))
-    growth = max(soft_grey(r) for r in rgbs) - soft_grey(source)
+    away = ~binary_dilation(sm, iterations=EDGE_BAND_PX)
+    growth = max(soft_grey(r, away) for r in rgbs) - soft_grey(source, away)
     check("no cast shadow (soft grey growth px)", growth <= SHADOW_GROWTH_PX, growth)
     check("object visibly turns (peak IoU / peak MAE)", min(ious) <= PEAK_IOU_MAX or max(maes) >= PEAK_MAE_MIN,
           [round(min(ious), 3), round(max(maes), 1)])

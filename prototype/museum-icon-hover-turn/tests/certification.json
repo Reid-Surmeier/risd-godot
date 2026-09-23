@@ -116,7 +116,7 @@
   {
    "check": "no cast shadow (soft grey growth px)",
    "passed": true,
-   "measured": 0
+   "measured": 13
   },
   {
    "check": "object visibly turns (peak IoU / peak MAE)",
@@ -180,7 +180,7 @@
   {
    "check": "no cast shadow (soft grey growth px)",
    "passed": true,
-   "measured": 0
+   "measured": 19
   },
   {
    "check": "object visibly turns (peak IoU / peak MAE)",
@@ -244,7 +244,7 @@
   {
    "check": "no cast shadow (soft grey growth px)",
    "passed": true,
-   "measured": 75
+   "measured": 95
   },
   {
    "check": "object visibly turns (peak IoU / peak MAE)",
@@ -308,7 +308,7 @@
   {
    "check": "no cast shadow (soft grey growth px)",
    "passed": true,
-   "measured": 29
+   "measured": 12
   },
   {
    "check": "object visibly turns (peak IoU / peak MAE)",
@@ -436,7 +436,7 @@
   {
    "check": "no cast shadow (soft grey growth px)",
    "passed": true,
-   "measured": 41
+   "measured": 92
   },
   {
    "check": "object visibly turns (peak IoU / peak MAE)",
@@ -499,8 +499,8 @@
   },
   {
    "check": "no cast shadow (soft grey growth px)",
-   "passed": true,
-   "measured": 98
+   "passed": false,
+   "measured": 129
   },
   {
    "check": "object visibly turns (peak IoU / peak MAE)",

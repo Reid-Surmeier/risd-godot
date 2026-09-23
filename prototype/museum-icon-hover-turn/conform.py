@@ -34,7 +34,7 @@ for n, i in enumerate(dict.fromkeys([1, *range(first, last + 1)])):
     frame = Image.open(run / "raw" / f"{i:03}.png").convert("RGB").resize(size, Image.LANCZOS)
     # palette lock of the ground only: the video's near-white becomes the tile's exact white
     frame = snap_ground(frame)
-    tile = Image.new("RGB", (180, 180), "white")
+    tile = Image.new("RGB", Image.open(ROOT / "source" / f"{icon}.png").size, "white")
     tile.paste(frame, (box[0], box[1]))
     if i == 1:  # the rest pose is the approved icon itself, byte for byte
         tile = Image.open(ROOT / "source" / f"{icon}.png").convert("RGB")
