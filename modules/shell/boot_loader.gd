@@ -2,7 +2,7 @@
 ## (the owner's reference: a VHS-style capture, 2026-09-22). The four noise-driven dots and the
 ## progress bar are drawn into a small SubViewport (real pixel reduction); every tape frame is
 ## JPEG-compressed and decoded back (real block artifacts); tape_screen.gdshader adds the colour
-## bleed, the edge halo and the warm / cool light flashes that change with each hold.
+## bleed, the edge halo and the cool light flashes that change with each hold.
 ##
 ## It is the project's main scene. On the Web the boot pack holds only this scene: it downloads
 ## the game pack beside the page (<build>.game.pck.gz, see scripts/export-web.sh), mounts it, then
@@ -17,6 +17,8 @@ const TapeShader := preload("res://modules/shell/tape_screen.gdshader")
 const COLORS := [Color(0.98, 0.92, 0.58), Color(0.99, 0.65, 0.63), Color(0.67, 0.79, 0.96), Color(0.83, 0.93, 0.63)]
 const WHITE := Color(0.996, 0.996, 0.996)
 const EXIT_SECONDS := 1.1
+const MIN_SECONDS := 4.0  # the bar fills at a steady pace, never faster than empty-to-full in this
+                          # long, so a quick load still reads as loading (same pace as the HTML page)
 
 @export var pixel_reduction := 4.0  # the tape is the window divided by this
 @export var tape_fps := 12.0        # how often a new compressed frame is taken
@@ -38,7 +40,7 @@ var ring: ImageTexture  # one dot's soft ring, white with the falloff in alpha
 var noise := FastNoiseLite.new()
 var download: HTTPRequest
 var loading_path := ""
-var game: Node
+var game: Node  # loaded and under the loading screen; the exit waits for the bar to be full
 var since_tape := 0.0
 var since_hold := 0.0
 
@@ -94,11 +96,13 @@ func _fit_tape() -> void:
 
 func _process(delta: float) -> void:
 	clock += delta
-	progress += (target - progress) * minf(1.0, delta * 5.0)
+	progress = move_toward(progress, target, delta / MIN_SECONDS)
 	if download != null and download.get_body_size() > 0:
 		target = maxf(target, lerpf(download.get_meta("from"), 0.85, float(download.get_downloaded_bytes()) / download.get_body_size()))
 	if loading_path != "":
 		_poll_load()
+	if game != null and exit < 0.0 and progress >= 1.0:
+		_begin_exit()
 	if exit >= 0.0:
 		exit = minf(1.0, (clock - exit_clock) / EXIT_SECONDS)
 		if exit >= 1.0:
@@ -187,15 +191,12 @@ func _take_tape_frame() -> void:
 		tape_texture.set_image(compressed)
 
 
-## Each hold the light may change: a warm yellow or cool blue cast with a brightness jump, or none.
+## Each hold the light may change: a cool blue cast with a brightness jump, or none.
 func _new_hold() -> void:
 	var tint := Color.WHITE
 	var gain := 0.0
-	if randf() < flash_chance:
-		if randf() < 0.6:
-			tint = Color(1.0, randf_range(0.98, 1.0), randf_range(0.92, 0.96))  # yellow, ~6% like the reference
-		else:
-			tint = Color(randf_range(0.94, 0.97), randf_range(0.97, 0.99), 1.0)  # blue
+	if randf() < flash_chance:  # cool only: the owner dropped the yellow ones (2026-09-22)
+		tint = Color(randf_range(0.94, 0.97), randf_range(0.97, 0.99), 1.0)
 		gain = randf_range(-0.03, 0.02)
 	screen.material.set_shader_parameter("flash", Vector3(tint.r, tint.g, tint.b))
 	screen.material.set_shader_parameter("flash_gain", gain)
@@ -251,7 +252,6 @@ func _poll_load() -> void:
 		get_tree().root.add_child(game)
 		get_tree().root.move_child(game, get_index())  # under the loading screen
 		get_tree().current_scene = game
-		get_tree().create_timer(0.35).timeout.connect(_begin_exit)
 	else:
 		loading_path = ""
 		push_error("boot_loader: loading %s failed (%d)" % [MAIN_SCENE, status])
