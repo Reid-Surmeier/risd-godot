@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+		<title>$GODOT_PROJECT_NAME</title>
+		<style>
+html, body, #canvas {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	background-color: #fefefe;
+	overflow: hidden;
+	touch-action: none;
+}
+
+#canvas {
+	display: block;
+}
+
+#canvas:focus {
+	outline: none;
+}
+
+/* Loading screen: the noise-dots shader on its own full-window canvas, over the game canvas. */
+#status {
+	position: absolute;
+	inset: 0;
+	background-color: #fefefe;
+	transition: opacity 0.4s ease;
+}
+
+#status.done {
+	opacity: 0;
+}
+
+#status-shader {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+#status-notice {
+	display: none;
+	position: absolute;
+	left: 2rem;
+	right: 2rem;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: #5b3943;
+	border-radius: 0.5rem;
+	border: 1px solid #9b3943;
+	color: #e0e0e0;
+	font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
+	line-height: 1.3;
+	padding: 1rem;
+	text-align: center;
+}
+		</style>
+		$GODOT_HEAD_INCLUDE
+	</head>
+	<body>
+		<canvas id="canvas">
+			Your browser does not support the canvas tag.
+		</canvas>
+
+		<noscript>
+			Your browser does not support JavaScript.
+		</noscript>
+
+		<div id="status">
+			<canvas id="status-shader"></canvas>
+			<div id="status-notice"></div>
+		</div>
+
+		<!-- The loading shader. Same as the Book of Shaders editor version, except the bar
+		     reads the real download progress (u_progress) instead of a timed fake. -->
+		<script id="loading-frag" type="x-shader/x-fragment">
+precision mediump float;
+
+uniform vec2 u_resolution;
+uniform float u_time;
+uniform float u_progress; // 0..1, bytes downloaded / total
+
+// Book of Shaders ch.10: random
+float rand(float x) { return fract(sin(x) * 43758.5453123); }
+
+// Book of Shaders ch.11: 1D value noise
+float noise(float x) {
+	float i = floor(x);
+	float f = fract(x);
+	return mix(rand(i), rand(i + 1.0), smoothstep(0.0, 1.0, f));
+}
+
+// rounded-rectangle distance (Inigo Quilez): < 0 inside, > 0 outside
+float sdPill(vec2 p, vec2 halfSize) {
+	float r = min(halfSize.x, halfSize.y);
+	vec2 q = abs(p) - halfSize + r;
+	return length(max(q, 0.0)) + min(max(q.x, q.y), 0.0) - r;
+}
+
+// one soft ring: strongest at 'ringR', paler in the middle, blurry outside
+vec3 drawDot(vec3 col, vec2 st, vec2 pos, vec3 dotColor) {
+	float d = length(st - pos);
+	float a = exp(-pow((d - 0.0096) / 0.0112, 2.0));
+	return mix(col, dotColor, a);
+}
+
+void main() {
+	// centered, aspect-correct: (0,0) is the middle, 1.0 = canvas height
+	vec2 st = (gl_FragCoord.xy - 0.5 * u_resolution) / u_resolution.y;
+
+	vec3 col = vec3(0.996);                            // background, sampled from the reference
+	vec3 colors[4];                                    // ring colors, sampled from the reference
+	colors[0] = vec3(0.98, 0.92, 0.58);                // yellow
+	colors[1] = vec3(0.99, 0.65, 0.63);                // red
+	colors[2] = vec3(0.67, 0.79, 0.96);                // blue
+	colors[3] = vec3(0.83, 0.93, 0.63);                // green
+
+	vec2 center = vec2(0.0, 0.064);                    // orbit center: whole group centered in the frame
+	for (int i = 0; i < 4; i++) {
+		float fi = float(i);
+		float t = u_time * 0.8 + fi * 10.0;            // each dot reads a different stretch of noise
+		float angle = u_time * 1.5 + fi * 1.5708       // base orbit, 90 degrees apart
+					+ (noise(t) - 0.5) * 1.5;          // noise pushes it ahead / behind
+		float radius = 0.066 + (noise(t + 50.0) - 0.5) * 0.04;  // noise breathes it in / out
+		vec2 pos = center + radius * vec2(cos(angle), sin(angle));
+		col = drawDot(col, st, pos, colors[i]);
+	}
+
+	// progress bar: real download progress, starting as a small sliver
+	float progress = mix(0.04, 1.0, clamp(u_progress, 0.0, 1.0));
+
+	vec2 barCenter = vec2(-0.010, -0.410);
+	vec2 barHalf = vec2(0.07, 0.0075);                // 0.14 wide, 0.015 tall
+	vec2 b = st - barCenter;
+	float track = sdPill(b, barHalf);
+	float fillHalfW = barHalf.x * progress;
+	float fill = sdPill(b - vec2(fillHalfW - barHalf.x, 0.0), vec2(fillHalfW, barHalf.y));
+	// same gaussian falloff as the dots, but tighter (dots spread 0.0112) so the bar stays crisper
+	float glow = 0.0045;
+	col = mix(col, vec3(0.975), exp(-pow(max(track, 0.0) / glow, 2.0)));         // track, soft edge
+	col = mix(col, vec3(0.885), exp(-pow(max(fill, 0.0) / glow, 2.0)));          // fill, soft edge
+	col = mix(col, vec3(0.92), exp(-pow(track / (glow * 0.5), 2.0)) * 0.5);      // diffused outline
+
+	gl_FragColor = vec4(col, 1.0);
+}
+		</script>
+
+		<script src="$GODOT_URL"></script>
+		<script>
+const GODOT_CONFIG = $GODOT_CONFIG;
+const GODOT_THREADS_ENABLED = $GODOT_THREADS_ENABLED;
+const engine = new Engine(GODOT_CONFIG);
+
+// Runs the loading shader until stop() is called. setProgress() takes the real download
+// fraction; the bar eases toward it so cached (instant) loads still read as loading.
+const loadingScreen = (function () {
+	const canvas = document.getElementById('status-shader');
+	const gl = canvas.getContext('webgl');
+	let target = 0;
+	let shown = 0;
+	let running = !!gl;
+	if (!gl) {
+		return { setProgress() {}, stop() {} }; // no WebGL: plain off-white screen
+	}
+
+	function compile(type, source) {
+		const shader = gl.createShader(type);
+		gl.shaderSource(shader, source);
+		gl.compileShader(shader);
+		if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+			console.error(gl.getShaderInfoLog(shader));
+		}
+		return shader;
+	}
+	const program = gl.createProgram();
+	gl.attachShader(program, compile(gl.VERTEX_SHADER, 'attribute vec2 a;void main(){gl_Position=vec4(a,0.0,1.0);}'));
+	gl.attachShader(program, compile(gl.FRAGMENT_SHADER, document.getElementById('loading-frag').textContent));
+	gl.linkProgram(program);
+	gl.useProgram(program);
+	gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+	gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW); // one full-screen triangle
+	gl.enableVertexAttribArray(0);
+	gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+	const uResolution = gl.getUniformLocation(program, 'u_resolution');
+	const uTime = gl.getUniformLocation(program, 'u_time');
+	const uProgress = gl.getUniformLocation(program, 'u_progress');
+	const start = performance.now();
+
+	function frame(now) {
+		if (!running) {
+			return;
+		}
+		const w = Math.round(canvas.clientWidth * devicePixelRatio);
+		const h = Math.round(canvas.clientHeight * devicePixelRatio);
+		if (canvas.width !== w || canvas.height !== h) {
+			canvas.width = w;
+			canvas.height = h;
+		}
+		gl.viewport(0, 0, w, h);
+		shown += (target - shown) * 0.08;
+		gl.uniform2f(uResolution, w, h);
+		gl.uniform1f(uTime, (now - start) / 1000);
+		gl.uniform1f(uProgress, shown);
+		gl.drawArrays(gl.TRIANGLES, 0, 3);
+		requestAnimationFrame(frame);
+	}
+	requestAnimationFrame(frame);
+
+	return {
+		setProgress(p) { target = Math.max(target, p); }, // never goes backwards
+		stop() { running = false; },
+	};
+}());
+
+(function () {
+	const statusOverlay = document.getElementById('status');
+	const statusNotice = document.getElementById('status-notice');
+
+	let initializing = true;
+
+	function hideLoadingScreen() {
+		if (!initializing) {
+			return;
+		}
+		initializing = false;
+		loadingScreen.setProgress(1);
+		// Let the bar reach the end, then fade to the game.
+		setTimeout(() => {
+			statusOverlay.classList.add('done');
+			setTimeout(() => {
+				loadingScreen.stop();
+				statusOverlay.remove();
+			}, 400);
+		}, 350);
+	}
+
+	function setStatusNotice(text) {
+		while (statusNotice.lastChild) {
+			statusNotice.removeChild(statusNotice.lastChild);
+		}
+		const lines = text.split('\n');
+		lines.forEach((line) => {
+			statusNotice.appendChild(document.createTextNode(line));
+			statusNotice.appendChild(document.createElement('br'));
+		});
+	}
+
+	function displayFailureNotice(err) {
+		console.error(err);
+		if (err instanceof Error) {
+			setStatusNotice(err.message);
+		} else if (typeof err === 'string') {
+			setStatusNotice(err);
+		} else {
+			setStatusNotice('An unknown error occurred.');
+		}
+		statusNotice.style.display = 'block';
+		initializing = false;
+	}
+
+	const missing = Engine.getMissingFeatures({
+		threads: GODOT_THREADS_ENABLED,
+	});
+
+	if (missing.length !== 0) {
+		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
+			let serviceWorkerRegistrationPromise;
+			try {
+				serviceWorkerRegistrationPromise = navigator.serviceWorker.getRegistration();
+			} catch (err) {
+				serviceWorkerRegistrationPromise = Promise.reject(new Error('Service worker registration failed.'));
+			}
+			// There's a chance that installing the service worker would fix the issue
+			Promise.race([
+				serviceWorkerRegistrationPromise.then((registration) => {
+					if (registration != null) {
+						return Promise.reject(new Error('Service worker already exists.'));
+					}
+					return registration;
+				}).then(() => engine.installServiceWorker()),
+				// For some reason, `getRegistration()` can stall
+				new Promise((resolve) => {
+					setTimeout(() => resolve(), 2000);
+				}),
+			]).then(() => {
+				// Reload if there was no error.
+				window.location.reload();
+			}).catch((err) => {
+				console.error('Error while registering service worker:', err);
+			});
+		} else {
+			// Display the message as usual
+			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
+			displayFailureNotice(missingMsg + missing.join('\n'));
+		}
+	} else {
+		engine.startGame({
+			'onProgress': function (current, total) {
+				if (current > 0 && total > 0) {
+					// Downloading is most of the wait; keep the last 10% for engine start-up.
+					loadingScreen.setProgress(0.9 * current / total);
+				}
+			},
+		}).then(hideLoadingScreen, displayFailureNotice);
+	}
+}());
+		</script>
+	</body>
+</html>
