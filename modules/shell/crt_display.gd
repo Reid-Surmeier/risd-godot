@@ -2,18 +2,21 @@ extends Control
 
 const Shell := preload("res://modules/shell/interface.gd")
 const SquiggleShader := preload("res://modules/shell/squiggle_screen.gdshader")
+const HazeShader := preload("res://modules/shell/haze_screen.gdshader")
 
 var enabled := true
 var squiggle_enabled := true
 var _qa_elapsed := 0.0
 var _mouse_inside := false
 var squiggle: ColorRect
+var haze: ColorRect  # F10 or ?haze=0 turns it off, to compare
 @onready var crt_material: ShaderMaterial = $Screen.material
 
 func _ready() -> void:
 	$Screen.texture = $Desktop.get_texture()
 	crt_material.set_shader_parameter("tex", $Desktop.get_texture())
 	_create_squiggle()
+	_create_haze()
 	resized.connect(_resize_desktop)
 	_resize_desktop()
 	get_window().mouse_exited.connect(_mouse_exited)
@@ -44,6 +47,20 @@ func _create_squiggle() -> void:
 	squiggle.material = material
 	layer.add_child(squiggle)
 
+func _create_haze() -> void:
+	var layer := CanvasLayer.new()
+	layer.name = "HazeLayer"
+	layer.layer = 11  # after Squigglevision: the very last pass
+	add_child(layer)
+	haze = ColorRect.new()
+	haze.name = "Haze"
+	haze.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	haze.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	haze.material = ShaderMaterial.new()
+	haze.material.shader = HazeShader
+	haze.visible = not (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('haze') === '0'"))
+	layer.add_child(haze)
+
 func _resize_desktop() -> void:
 	# Scale the logical desktop uniformly to fill every browser shape, without bars.
 	var factor := maxf(1.0, maxf(1440.0 / maxf(size.x, 1.0), 900.0 / maxf(size.y, 1.0)))
@@ -57,6 +74,8 @@ func _input(event: InputEvent) -> void:
 		squiggle_enabled = not squiggle_enabled
 		squiggle.visible = squiggle_enabled
 		_publish_squiggle_state()
+	elif event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F10:
+		haze.visible = not haze.visible
 	else:
 		var mapped := event.duplicate()
 		if event is InputEventMouse:

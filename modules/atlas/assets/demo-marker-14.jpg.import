@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1inio0oires6"
-path="res://.godot/imported/1581601.png-7aeb844adb811b7bbd7aa9f103c46357.ctex"
+uid="uid://h4bq1gwh3rae"
+path="res://.godot/imported/demo-marker-14.jpg-8f8a58a88963a279503e9e402a67f2a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modules/sculpture_viewer/assets/setup/turn/1581601.png"
-dest_files=["res://.godot/imported/1581601.png-7aeb844adb811b7bbd7aa9f103c46357.ctex"]
+source_file="res://modules/atlas/assets/demo-marker-14.jpg"
+dest_files=["res://.godot/imported/demo-marker-14.jpg-8f8a58a88963a279503e9e402a67f2a8.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

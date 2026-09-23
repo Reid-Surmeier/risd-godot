@@ -29,12 +29,10 @@ body {
 #status {
 	position: absolute;
 	inset: 0;
-	background-color: #fefefe;
-	transition: opacity 0.4s ease;
 }
 
-#status.done {
-	opacity: 0;
+#status.no-webgl {
+	background-color: #fefefe;
 }
 
 #status-shader {
@@ -84,6 +82,8 @@ precision mediump float;
 uniform vec2 u_resolution;
 uniform float u_time;
 uniform float u_progress; // 0..1, bytes downloaded / total
+uniform float u_exit;     // 0 while loading, then 0..1 over the exit: dots fly to the corners
+uniform float u_exitTime; // u_time when the exit started (picks each dot's corner)
 
 // Book of Shaders ch.10: random
 float rand(float x) { return fract(sin(x) * 43758.5453123); }
@@ -102,18 +102,26 @@ float sdPill(vec2 p, vec2 halfSize) {
 	return length(max(q, 0.0)) + min(max(q.x, q.y), 0.0) - r;
 }
 
-// one soft ring: strongest at 'ringR', paler in the middle, blurry outside
-vec3 drawDot(vec3 col, vec2 st, vec2 pos, vec3 dotColor) {
-	float d = length(st - pos);
-	float a = exp(-pow((d - 0.0096) / 0.0112, 2.0));
-	return mix(col, dotColor, a);
+// Colors are premultiplied (rgb * alpha) so the game shows through as the screen fades out.
+// Paint 'color' with coverage 'a' over what is there ("over" compositing).
+vec4 over(vec4 dst, vec3 color, float a) {
+	return dst * (1.0 - a) + vec4(color, 1.0) * a;
 }
 
-void main() {
-	// centered, aspect-correct: (0,0) is the middle, 1.0 = canvas height
-	vec2 st = (gl_FragCoord.xy - 0.5 * u_resolution) / u_resolution.y;
+// one soft ring: strongest at 'ringR', paler in the middle, blurry outside
+vec4 drawDot(vec4 col, vec2 st, vec2 pos, vec3 dotColor) {
+	float d = length(st - pos);
+	float a = exp(-pow((d - 0.0096) / 0.0112, 2.0));
+	return over(col, dotColor, a);
+}
 
-	vec3 col = vec3(0.996);                            // background, sampled from the reference
+// The loading screen itself at point st (premultiplied color).
+vec4 scene(vec2 st) {
+	float fade = 1.0 - smoothstep(0.15, 0.85, u_exit);  // background and bar fade out during the exit
+	float fly = u_exit * u_exit * u_exit;              // ease-in: the dots leave slowly, then fast
+	vec2 corner = vec2(0.5 * u_resolution.x / u_resolution.y, 0.5) * 1.3;  // just past each screen corner
+
+	vec4 col = vec4(vec3(0.996), 1.0) * fade;          // background, sampled from the reference
 	vec3 colors[4];                                    // ring colors, sampled from the reference
 	colors[0] = vec3(0.98, 0.92, 0.58);                // yellow
 	colors[1] = vec3(0.99, 0.65, 0.63);                // red
@@ -128,6 +136,11 @@ void main() {
 					+ (noise(t) - 0.5) * 1.5;          // noise pushes it ahead / behind
 		float radius = 0.066 + (noise(t + 50.0) - 0.5) * 0.04;  // noise breathes it in / out
 		vec2 pos = center + radius * vec2(cos(angle), sin(angle));
+		// each dot takes the corner of the quadrant its orbit slot was in when the exit began,
+		// so the four always go to four different corners
+		float q = floor(mod(u_exitTime * 1.5 + fi * 1.5708, 6.2832) / 1.5708);
+		vec2 dir = vec2(q == 0.0 || q == 3.0 ? 1.0 : -1.0, q < 2.0 ? 1.0 : -1.0);
+		pos = mix(pos, dir * corner, fly);
 		col = drawDot(col, st, pos, colors[i]);
 	}
 
@@ -142,30 +155,94 @@ void main() {
 	float fill = sdPill(b - vec2(fillHalfW - barHalf.x, 0.0), vec2(fillHalfW, barHalf.y));
 	// same gaussian falloff as the dots, but tighter (dots spread 0.0112) so the bar stays crisper
 	float glow = 0.0045;
-	col = mix(col, vec3(0.975), exp(-pow(max(track, 0.0) / glow, 2.0)));         // track, soft edge
-	col = mix(col, vec3(0.885), exp(-pow(max(fill, 0.0) / glow, 2.0)));          // fill, soft edge
-	col = mix(col, vec3(0.92), exp(-pow(track / (glow * 0.5), 2.0)) * 0.5);      // diffused outline
+	col = over(col, vec3(0.975), exp(-pow(max(track, 0.0) / glow, 2.0)) * fade);        // track, soft edge
+	col = over(col, vec3(0.885), exp(-pow(max(fill, 0.0) / glow, 2.0)) * fade);         // fill, soft edge
+	col = over(col, vec3(0.92), exp(-pow(track / (glow * 0.5), 2.0)) * 0.5 * fade);     // diffused outline
 
-	gl_FragColor = vec4(col, 1.0);
+	return col;
+}
+
+// Book of Shaders ch.11: 2D value noise, for the tape's soft mottle
+float rand2(vec2 p) { return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453123); }
+float noise2(vec2 p) {
+	vec2 i = floor(p);
+	vec2 f = fract(p);
+	vec2 u = f * f * (3.0 - 2.0 * f);
+	return mix(mix(rand2(i), rand2(i + vec2(1.0, 0.0)), u.x),
+			   mix(rand2(i + vec2(0.0, 1.0)), rand2(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+
+// Brightness (Y) and color (I, Q) the way analog video carries them
+vec3 toYIQ(vec3 c) { return mat3(0.299, 0.596, 0.211, 0.587, -0.274, -0.523, 0.114, -0.322, 0.312) * c; }
+vec3 fromYIQ(vec3 c) { return mat3(1.0, 1.0, 1.0, 0.956, -0.272, -1.106, 0.621, -0.647, 1.703) * c; }
+
+void main() {
+	// centered, aspect-correct: (0,0) is the middle, 1.0 = canvas height
+	vec2 st = (gl_FragCoord.xy - 0.5 * u_resolution) / u_resolution.y;
+	vec2 px = vec2(1.0 / u_resolution.y, 0.0);        // one pixel to the right, in st units
+
+	// Analog-video look, measured from the owner's reference capture (a VHS-style edit):
+	// 1. brightness is a little soft sideways
+	vec4 here = scene(st);
+	vec4 luma = (scene(st - px) + 2.0 * here + scene(st + px)) * 0.25;
+	// 2. color is carried at lower resolution and trails to the right of its shape
+	vec4 chroma = vec4(0.0);
+	for (int k = 0; k < 6; k++) {
+		chroma += scene(st - px * float(k) * 1.5);
+	}
+	chroma /= 6.0;
+	// 3. sharpening halo: dark edges get a light outline
+	vec4 wide = (scene(st - 3.0 * px) + scene(st + 3.0 * px) + scene(st - 2.0 * px.yx) + scene(st + 2.0 * px.yx)) * 0.25;
+
+	float a = max(luma.a, 1e-4);                       // work on straight (not premultiplied) color
+	float y = toYIQ(luma.rgb / a).x;
+	y += 0.35 * (y - toYIQ(wide.rgb / max(wide.a, 1e-4)).x);
+	vec2 iq = toYIQ(chroma.rgb / max(chroma.a, 1e-4)).yz;
+	vec3 rgb = fromYIQ(vec3(y, iq));
+
+	// 4. whites sit at the reference's grey-green off-white, blacks lift slightly
+	rgb = mix(vec3(0.06), vec3(0.898, 0.906, 0.894), rgb / 0.996);
+	// 5. soft blotchy mottle (about 1%), drifting slowly, not flickering
+	rgb += (noise2(st * vec2(5.0, 7.0) + vec2(u_time * 0.07, u_time * -0.04)) - 0.5) * 0.02;
+
+	gl_FragColor = vec4(clamp(rgb, 0.0, 1.0) * luma.a, luma.a);
 }
 		</script>
 
 		<script src="$GODOT_URL"></script>
 		<script>
+// The engine (.wasm) and game pack (.pck) are fetched as their .gz twins (scripts/export-web.sh
+// makes them) and unzipped here, so any static host sends ~52 MB instead of ~88 without needing
+// server-side compression. Falls back to the plain file if there is no twin or no DecompressionStream.
+const plainFetch = window.fetch.bind(window);
+window.fetch = async function (input, init) {
+	const url = typeof input === 'string' ? input : input.url;
+	if (/\.(wasm|pck)$/.test(url) && 'DecompressionStream' in window) {
+		const gz = await plainFetch(url + '.gz', init).catch(() => null);
+		if (gz && gz.ok && !gz.headers.get('Content-Encoding')) {
+			const type = url.endsWith('.wasm') ? 'application/wasm' : 'application/octet-stream';
+			return new Response(gz.body.pipeThrough(new DecompressionStream('gzip')), { headers: { 'Content-Type': type } });
+		}
+	}
+	return plainFetch(input, init);
+};
+
 const GODOT_CONFIG = $GODOT_CONFIG;
 const GODOT_THREADS_ENABLED = $GODOT_THREADS_ENABLED;
 const engine = new Engine(GODOT_CONFIG);
 
-// Runs the loading shader until stop() is called. setProgress() takes the real download
+// Runs the loading shader until exit() finishes. setProgress() takes the real download
 // fraction; the bar eases toward it so cached (instant) loads still read as loading.
 const loadingScreen = (function () {
 	const canvas = document.getElementById('status-shader');
 	const gl = canvas.getContext('webgl');
 	let target = 0;
 	let shown = 0;
-	let running = !!gl;
+	let exitStart = -1; // ms timestamp the exit began, -1 while loading
+	const EXIT_MS = 1100;
 	if (!gl) {
-		return { setProgress() {}, stop() {} }; // no WebGL: plain off-white screen
+		document.getElementById('status').classList.add('no-webgl'); // plain off-white screen
+		return { setProgress() {}, exit(done) { done(); } };
 	}
 
 	function compile(type, source) {
@@ -189,10 +266,15 @@ const loadingScreen = (function () {
 	const uResolution = gl.getUniformLocation(program, 'u_resolution');
 	const uTime = gl.getUniformLocation(program, 'u_time');
 	const uProgress = gl.getUniformLocation(program, 'u_progress');
+	const uExit = gl.getUniformLocation(program, 'u_exit');
+	const uExitTime = gl.getUniformLocation(program, 'u_exitTime');
 	const start = performance.now();
+	let onExitDone = null;
 
 	function frame(now) {
-		if (!running) {
+		const exit = exitStart < 0 ? 0 : Math.min((now - exitStart) / EXIT_MS, 1);
+		if (exit >= 1) {
+			onExitDone();
 			return;
 		}
 		const w = Math.round(canvas.clientWidth * devicePixelRatio);
@@ -206,6 +288,10 @@ const loadingScreen = (function () {
 		gl.uniform2f(uResolution, w, h);
 		gl.uniform1f(uTime, (now - start) / 1000);
 		gl.uniform1f(uProgress, shown);
+		gl.uniform1f(uExit, exit);
+		gl.uniform1f(uExitTime, exitStart < 0 ? 0 : (exitStart - start) / 1000);
+		gl.clearColor(0, 0, 0, 0);
+		gl.clear(gl.COLOR_BUFFER_BIT);
 		gl.drawArrays(gl.TRIANGLES, 0, 3);
 		requestAnimationFrame(frame);
 	}
@@ -213,7 +299,8 @@ const loadingScreen = (function () {
 
 	return {
 		setProgress(p) { target = Math.max(target, p); }, // never goes backwards
-		stop() { running = false; },
+		// Dots fly to the corners while the screen fades to the game; done() runs at the end.
+		exit(done) { onExitDone = done; exitStart = performance.now(); },
 	};
 }());
 
@@ -229,14 +316,8 @@ const loadingScreen = (function () {
 		}
 		initializing = false;
 		loadingScreen.setProgress(1);
-		// Let the bar reach the end, then fade to the game.
-		setTimeout(() => {
-			statusOverlay.classList.add('done');
-			setTimeout(() => {
-				loadingScreen.stop();
-				statusOverlay.remove();
-			}, 400);
-		}, 350);
+		// Let the bar reach the end, then the dots fly out to the corners over the game.
+		setTimeout(() => loadingScreen.exit(() => statusOverlay.remove()), 350);
 	}
 
 	function setStatusNotice(text) {

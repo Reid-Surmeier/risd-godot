@@ -2,28 +2,28 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1inio0oires6"
-path="res://.godot/imported/1581601.png-7aeb844adb811b7bbd7aa9f103c46357.ctex"
+uid="uid://c3dhnq6ptxne0"
+path="res://.godot/imported/sidebar.png-496ef5f0ae13bd5864c604399cdb908c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modules/sculpture_viewer/assets/setup/turn/1581601.png"
-dest_files=["res://.godot/imported/1581601.png-7aeb844adb811b7bbd7aa9f103c46357.ctex"]
+source_file="res://modules/sculpture_viewer/assets/catalogue/sidebar.png"
+dest_files=["res://.godot/imported/sidebar.png-496ef5f0ae13bd5864c604399cdb908c.ctex"]
 
 [params]
 
 compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.85
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

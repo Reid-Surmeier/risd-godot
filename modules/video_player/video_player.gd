@@ -36,6 +36,10 @@ const VIDEOS := [
 	{"id": "1009870521", "title": "The Making of Wallpaper"},
 	{"id": "1008943970", "title": "Short Cuts: Sháńdíín Sháńdíín on Diné Textiles"},
 ]
+## On the Web build the five videos are not in the game pack (they were ~29 MB of the first load):
+## scripts/export-web.sh puts them beside the page under media/, and each is downloaded into
+## WEB_MEDIA_DIR the first time its tile is picked, under the loading dots (loading.gdshader).
+const WEB_MEDIA_DIR := "user://video_player/"
 const STATE_TEXTURES := {
 	"idle": ROOT + "assets/muse-controls/idle.png",
 	"hover": ROOT + "assets/muse-controls/hover.png",
@@ -92,11 +96,14 @@ var motion_play_count := 0
 var volume: HSlider
 var save_button: TextureButton
 var saved := {}
+var fetch: HTTPRequest
+var fetching_id := ""
+var loading_overlay: ColorRect
 
 
 static func create(deps: Dictionary) -> Dictionary:
 	for v in VIDEOS:
-		if not FileAccess.file_exists(ROOT + "media/%s.ogv" % v.id):
+		if not OS.has_feature("web") and not FileAccess.file_exists(ROOT + "media/%s.ogv" % v.id):
 			return Errors.err(Errors.MEDIA_MISSING, ROOT + "media/%s.ogv" % v.id)
 	if not ResourceLoader.exists(ROOT + "assets/fly-through-v7.png"):  # an imported texture: only its .ctex is in an export
 		return Errors.err(Errors.ASSET_MISSING, ROOT + "assets/fly-through-v7.png")
@@ -129,6 +136,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	ticks += 1
 	_advance_motion(delta)
+	if fetching_id != "" and fetch.get_body_size() > 0:
+		loading_overlay.material.set_shader_parameter("progress", float(fetch.get_downloaded_bytes()) / fetch.get_body_size())
 	if video.stream != null and video.is_playing() and not video.paused and not dragging_seek:
 		var length := video.get_stream_length()
 		if length > 0.0:
@@ -334,6 +343,15 @@ func _build_surface() -> void:
 	video.finished.connect(_on_video_finished)
 	surface.add_child(video)
 
+	loading_overlay = ColorRect.new()  # the loading dots over the video while it downloads (Web only)
+	loading_overlay.name = "video-loading"
+	loading_overlay.material = ShaderMaterial.new()
+	loading_overlay.material.shader = load(ROOT + "loading.gdshader")
+	loading_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	loading_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	loading_overlay.visible = false
+	video.add_child(loading_overlay)
+
 	title_label = Label.new()
 	title_label.name = "live-title"
 	title_label.add_theme_color_override("font_color", Color("#111111"))
@@ -471,16 +489,20 @@ func _select_video(index: int) -> void:
 	if index < 0 or index >= VIDEOS.size():
 		return
 	selected_video = index
-	var stream := load(ROOT + "media/%s.ogv" % VIDEOS[selected_video].id) as VideoStream
-	if stream == null:
+	var stream := _video_stream(VIDEOS[selected_video].id)
+	video.stop()
+	if stream == null and OS.has_feature("web"):
+		_fetch_video(VIDEOS[selected_video].id)  # plays from _on_video_fetched once it is here
+	elif stream == null:
 		push_error("video_player: missing preview video %s" % VIDEOS[selected_video].id)
 		return
-	video.stop()
-	video.stream = stream
-	video.paused = false
+	else:
+		loading_overlay.visible = false
+		video.stream = stream
+		video.paused = false
+		video.play()
+		video.stream_position = 0.0
 	hidden_paused = false
-	video.play()
-	video.stream_position = 0.0
 	title_label.text = VIDEOS[selected_video].title
 	title_label.tooltip_text = VIDEOS[selected_video].title
 	play_button.texture_normal = source_faces.pause
@@ -489,6 +511,55 @@ func _select_video(index: int) -> void:
 	last_action = "selected video %d" % (selected_video + 1)
 	interaction_count += 1
 	_update_thumbnail_frames()
+
+
+## The video's stream: from the project on desktop, from WEB_MEDIA_DIR on the Web (null until fetched).
+func _video_stream(id: String) -> VideoStream:
+	if not OS.has_feature("web"):
+		return load(ROOT + "media/%s.ogv" % id) as VideoStream
+	var path := WEB_MEDIA_DIR + "%s.ogv" % id
+	if not FileAccess.file_exists(path):
+		return null
+	var stream := VideoStreamTheora.new()
+	stream.file = path
+	return stream
+
+
+## Download one video from beside the page and write it into WEB_MEDIA_DIR when complete. Picking
+## another tile mid-download cancels this one; ponytail: one download at a time, no prefetch.
+func _fetch_video(id: String) -> void:
+	loading_overlay.visible = true
+	loading_overlay.material.set_shader_parameter("progress", 0.0)
+	if fetching_id == id:
+		return
+	if fetch == null:
+		fetch = HTTPRequest.new()
+		fetch.name = "video-download"
+		fetch.request_completed.connect(_on_video_fetched)
+		add_child(fetch)
+	fetch.cancel_request()
+	fetching_id = id
+	var media_url: String = JavaScriptBridge.eval("new URL('media/', document.baseURI).href")
+	if fetch.request(media_url + "%s.ogv" % id) != OK:
+		_on_video_fetched(HTTPRequest.RESULT_CANT_CONNECT, 0, PackedStringArray(), PackedByteArray())
+
+
+func _on_video_fetched(result: int, code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	var id := fetching_id
+	fetching_id = ""
+	var file: FileAccess = null
+	if result == HTTPRequest.RESULT_SUCCESS and code == 200:
+		DirAccess.make_dir_recursive_absolute(WEB_MEDIA_DIR)
+		file = FileAccess.open(WEB_MEDIA_DIR + "%s.ogv" % id, FileAccess.WRITE)
+	if file == null:  # never retried automatically: picking the tile again retries
+		push_error("video_player: download of video %s failed (result %d, HTTP %d, write %s)" % [id, result, code, FileAccess.get_open_error()])
+		loading_overlay.visible = false
+		last_action = "video %s failed to download" % id
+		return
+	file.store_buffer(body)
+	file.close()
+	if VIDEOS[selected_video].id == id:
+		_select_video(selected_video)
 
 
 func _toggle_play_pause() -> void:
