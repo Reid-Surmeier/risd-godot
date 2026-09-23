@@ -1,6 +1,6 @@
 ---
 name: sculpture_viewer
-purpose: The 3D Viewer Tab's Tenant — the Sculpture Viewer prototype's whole desktop on the Page, the catalogue window and the 800x680 viewer window whose SubViewport holds the Buddha scan (drag-orbit, wheel zoom, transport controls), windows draggable and stacking; frozen with its Page, resumed intact
+purpose: The 3D Viewer Tab's Tenant — the RISD Museum setup screen on the Page, the setup window (header, 40-object grid whose animated objects turn on hover, form, Global Chatroom, friends list) and the 800x680 viewer window whose SubViewport holds the Buddha scan (drag-orbit, wheel zoom, transport controls), windows draggable and stacking; frozen with its Page, resumed intact
 interface: modules/sculpture_viewer/interface.gd
 errors: modules/sculpture_viewer/errors.gd
 tests: modules/sculpture_viewer/playtest/harness.gd + modules/sculpture_viewer/playtest/verify.py
@@ -8,6 +8,8 @@ depends-on: [shell]
 ---
 
 # sculpture_viewer
+
+**Setup screen (Issue #110).** The desktop is now the RISD Museum setup screen: a 2540x1680 ground (the approved raster `image-work/paintbox-3d-layout/sculpture-row-risd/review/paintbox-3d-risd-five-rows-text-refined-2x-v12.png` at 1x). The setup window is that raster's left 1050 px (`assets/setup/panel-2x.png`, drawn from 2x pixels with mipmaps), dragged anywhere on it; 18 of its 40 grid cells (`TURNING` in `desktop.gd`, template-matched to the raster with zero error) are `turn_cell.gd` nodes that play a Seedance hover turn from `assets/setup/turn/<name>.png` (eight 216x200 frames per row, frame 0 the approved icon): entering turns forward over 0.7 s and holds, leaving plays back to frame 0. The live viewer window stands exactly over the raster's mock-up viewer (1071.5, 39) at 1357/800 scale. Proof: `playtest/hover_turn.gd` (real pointer on every cell). The frozen harness's layout checks still describe the old catalogue desktop; re-freezing them is its own Issue. The old description below is kept for the viewer's behaviour, which is unchanged.
 
 ## What callers get
 

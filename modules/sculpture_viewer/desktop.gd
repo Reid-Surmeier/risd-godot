@@ -1,7 +1,9 @@
-## The 3D Viewer Tenant: the Sculpture Viewer prototype's desktop — a white 1440x972 ground with
-## the catalogue window (the sidebar picture, drag only) and the 800x680 viewer window (viewer.gd)
-## — filling the Page at one uniform scale (#63). Windows drag by their handles, raise on click and stack. Reach it
-## through interface.gd only.
+## The 3D Viewer Tenant: the RISD Museum setup screen (Issue #110) — a white 2540x1680 ground with
+## the setup panel window (the approved raster: header, the 40-object grid, form, Global Chatroom and
+## friends list, drag only) whose animated objects turn on hover, and the 800x680 viewer window
+## (viewer.gd) with the live Buddha scan where the screen's mock-up viewer stood — filling the Page at
+## one uniform scale (#63). Windows drag by their handles, raise on click and stack. Reach it through
+## interface.gd only.
 ##
 ## Ported from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c
 ## viewer-godot/scripts/desktop.gd. Left behind: the sketchbook window and the Mixbox paintbox with
@@ -14,16 +16,41 @@ extends Control
 const Errors := preload("res://modules/sculpture_viewer/errors.gd")
 
 const ROOT := "res://modules/sculpture_viewer/"
-const DESKTOP_SIZE := Vector2(1440, 972)  # the prototype's canvas (references/statue-viewer-desktop)
-const CATALOGUE_AT := Vector2(72, 34)
+## The setup screen at 1x (image-work/paintbox-3d-layout/sculpture-row-risd/review/
+## paintbox-3d-risd-five-rows-text-refined-2x-v12.png halved).
+const DESKTOP_SIZE := Vector2(2540, 1680)
+const CATALOGUE_AT := Vector2.ZERO
+const PANEL_SIZE := Vector2(1050, 1680)  # assets/setup/panel-2x.png, the raster's x 0..2100 at 2x
 const VIEWER_SIZE := Vector2(800, 680)
-## The viewer window's slot (#63): from its native top-left to the desktop's far edges less the
-## desktop's native right margin (the viewer ends 52 px from it) and bottom margin (the catalogue
-## ends 44 px from it).
-const VIEWER_AT := Vector2(600, 34)
-const VIEWER_FAR_GAP := Vector2(52, 44)
+## The mock-up viewer's frame in that raster: x 2143..4857, y 78.. at 2x.
+const VIEWER_AT := Vector2(1071.5, 39)
+const VIEWER_SCALE := 1357.0 / 800.0
+## Grid cells whose object turns on hover: top-left in the desktop's 1x pixels (template-matched
+## against the raster, exact), and the number of frames in assets/setup/turn/<name>.png, packed
+## eight 216x200 tiles per row. Frame 0 is the approved icon.
+const CELL_SIZE := Vector2(108, 100)
+const TURNING := {
+	"01-staff": [Vector2(40, 205), 41],
+	"02-green-sculpture": [Vector2(165, 205), 73],
+	"03-horse-rider": [Vector2(291, 205), 13],
+	"04-gold-couch": [Vector2(418, 205), 61],
+	"05-bust": [Vector2(531, 205), 73],
+	"06-bowl": [Vector2(650, 205), 50],
+	"07-bull": [Vector2(761, 205), 24],
+	"08-dog": [Vector2(888, 205), 24],
+	"1557236": [Vector2(165, 385), 73],
+	"1552311": [Vector2(418, 385), 73],
+	"1532371": [Vector2(531, 385), 73],
+	"1487831": [Vector2(650, 385), 73],
+	"1581601": [Vector2(761, 385), 25],
+	"1573591": [Vector2(888, 385), 73],
+	"1554066": [Vector2(165, 575), 73],
+	"1548171": [Vector2(291, 575), 73],
+	"1264886": [Vector2(418, 575), 25],
+	"1344456": [Vector2(531, 575), 25],
+}
 const REQUIRED := [
-	"assets/catalogue/sidebar.png", "assets/clean-ui/background.png", "assets/clean-ui/timer-source.png",
+	"assets/setup/panel-2x.png", "assets/clean-ui/background.png", "assets/clean-ui/timer-source.png",
 	"assets/control-motion/previous.png", "assets/control-motion/next.png", "assets/control-motion/play-pause.png",
 	"assets/control-motion/audio.png", "assets/control-motion/menu.png", "assets/control-motion/scrubber.png",
 	"assets/control-motion/track-empty.png", "assets/control-motion/track-fill.png",
@@ -76,18 +103,29 @@ func _ready() -> void:
 	paper.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	desktop.add_child(paper)
-	catalogue = _window("catalogue-window", CATALOGUE_AT, Vector2(400, 400.0 * 5101 / 2276))
+	catalogue = _window("setup-window", CATALOGUE_AT, PANEL_SIZE)
 	var artwork := TextureRect.new()
-	artwork.texture = load(ROOT + "assets/catalogue/sidebar.png")
+	artwork.texture = load(ROOT + "assets/setup/panel-2x.png")
 	artwork.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	artwork.size = catalogue.size
 	artwork.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# Drawn at about a third of its pixels on a 1080p page; without mipmaps the type aliases.
+	artwork.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	catalogue.add_child(artwork)
 	catalogue.mouse_default_cursor_shape = Control.CURSOR_DRAG
 	catalogue.gui_input.connect(func(event): _drag_handle_input(event, catalogue))
-	catalogue.tooltip_text = "Drag to move the catalogue"
+	catalogue.tooltip_text = "Drag to move the setup window"
+	for cell_name in TURNING:
+		var cell = load(ROOT + "turn_cell.gd").new()
+		cell.name = "turn-" + cell_name
+		cell.atlas = load(ROOT + "assets/setup/turn/%s.png" % cell_name)
+		cell.frames = TURNING[cell_name][1]
+		cell.position = TURNING[cell_name][0]
+		cell.size = CELL_SIZE
+		cell.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		catalogue.add_child(cell)
 	viewer_window = _window("viewer-window", VIEWER_AT, VIEWER_SIZE)
-	viewer_window.scale = Vector2(0.985, 0.985)  # the prototype's; _fit sizes it to its slot
+	viewer_window.scale = Vector2(VIEWER_SCALE, VIEWER_SCALE)
 	viewer = load(ROOT + "viewer.gd").new()
 	viewer.name = "viewer"
 	viewer_window.add_child(viewer)
@@ -105,11 +143,9 @@ func _ready() -> void:
 
 
 ## The desktop fills the Page (#63): one uniform scale s = min(page / DESKTOP_SIZE) for all the
-## window art, the desktop's own pixels spanning the whole Page (size / s). The catalogue keeps its
-## native place by the top-left edges it sits nearest. The viewer window is a raster plate that
-## cannot re-lay out, so it scales uniformly to the largest size that fits its slot — its native
-## top-left to the page's right and bottom edges less the desktop's native margins — and centres
-## there. Laid out again on every resize.
+## window art, the desktop's own pixels spanning the whole Page (size / s). The setup window and the
+## viewer keep the places the setup screen gives them, the viewer exactly over the mock-up it
+## replaces. Laid out again on every resize (a dragged window goes back to its place).
 func _fit() -> void:
 	if size.x < 2 or size.y < 2:
 		return
@@ -119,10 +155,7 @@ func _fit() -> void:
 	desktop.position = Vector2.ZERO
 	desktop.size = size / s
 	catalogue.position = CATALOGUE_AT
-	var slot := desktop.size - VIEWER_FAR_GAP - VIEWER_AT
-	var k := minf(slot.x / VIEWER_SIZE.x, slot.y / VIEWER_SIZE.y)
-	viewer_window.scale = Vector2(k, k)
-	viewer_window.position = VIEWER_AT + (slot - VIEWER_SIZE * k) / 2
+	viewer_window.position = VIEWER_AT
 
 
 func _window(window_name: String, origin: Vector2, dimensions: Vector2) -> Control:
