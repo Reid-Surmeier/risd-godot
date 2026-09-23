@@ -12,7 +12,8 @@ from scipy.ndimage import binary_dilation
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-ICONS = ["01-staff", "02-green-sculpture", "03-horse-rider", "04-gold-couch", "05-bust", "06-bowl", "07-bull", "08-dog"]
+ICONS = ["01-staff", "02-green-sculpture", "03-horse-rider", "04-gold-couch", "05-bust", "06-bowl", "07-bull", "08-dog",
+         "1557236", "1552311", "1532371", "1487831", "1581601", "1573591", "1554066", "1548171", "1264886", "1344456"]
 
 WHITE_DISTANCE = 40      # a pixel further than this from white is object
 END_MAE = 6.0            # first/last frame mean abs error, 0-255
