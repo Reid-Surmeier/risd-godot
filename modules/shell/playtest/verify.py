@@ -12,12 +12,13 @@ import numpy as np
 from PIL import Image
 
 FIXED = ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground"]
-SCALE = 1920 / 4180.0
-BAR_H = 161 * SCALE
-STUB_W = 180 * SCALE
+SOURCE_W, SOURCE_H = 5703.0, 186.0  # the rebuilt taskbar (tab_strip compact layout, #113)
+SCALE = 1920 / SOURCE_W
+BAR_H = SOURCE_H * SCALE
+STUB_W = 250 * SCALE
 PRESSED = (228, 218, 226)   # tab_strip's STUB_PRESSED tint on a white face
-ACTIVE = (127, 227, 246)   # the reviewed selected-tab blue face (#70)
-ACTIVE_PRESSED = (113, 194, 218)
+ACTIVE = (225, 225, 225)   # the selected face: the tab's 247 white at the stub's grey (0.911, #113)
+ACTIVE_PRESSED = (200, 200, 200)  # the dip's 0.85 grey over a face between white and selected (190..210)
 GREY = (160, 160, 160)      # the harness's grey tenant in playground
 
 out = Path(sys.argv[1])
@@ -189,7 +190,7 @@ check("untenanted_tab_has_no_tenant", pg["active"] == 3 and pg["tabs"][3]["page_
 check("untenanted_page_is_plain_white", float(imgs["08-untenanted.png"][:int(1080 - BAR_H) - 2].mean()) > 254)
 
 # 9. resize: the bar re-fits along the bottom, the visible tenant fills the page above it
-rs = states["resized"]; rt = tenant("resized", "collection"); bar_h2 = 161 * 1440 / 4180.0
+rs = states["resized"]; rt = tenant("resized", "collection"); bar_h2 = SOURCE_H * 1440 / SOURCE_W
 check("resize_refits_bar_and_tenant", rs["window"] == [1440, 900] and rs["stub_rect"]["x"] + rs["stub_rect"]["w"] < 1440
       and abs(rs["bar_rect"]["y"] - (900 - bar_h2)) < 1 and abs(rt["size"][0] - 1440) < 1 and abs(rt["size"][1] - (900 - bar_h2)) < 1.5,
       f"window {rs['window']}, bar {rs['bar_rect']}, tenant {rt['size']}")

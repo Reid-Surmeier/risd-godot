@@ -24,10 +24,13 @@ const SLIDE_SECONDS := 0.2
 const FADE_SECONDS := 0.2  # the legacy active tint fade; reviewed fixed-tab stills switch at once
 const SEA_BLUE := Color8(131, 229, 247)  # #83e5f7, the atlas world map's ocean (modules/atlas/assets/terrain.png)
 const ACTIVE_TINT := 0.12  # how much of the sea blue the active tab's face carries (Issue #45)
-const FIXED_TAB_WIDTH := 380.0
-const FIXED_TAB_SCALE := 0.65
 const STUB_PINK := Color8(247, 239, 244)
 const STUB_PRESSED := Color8(228, 218, 226)
+# compact fixed-tab mode (the Shell), Issue #113: the rebuilt Muse taskbar in assets/compact/
+const COMPACT := ASSETS + "compact/"
+const STUB_GREY := Color(0.911, 0.911, 0.911)  # the new-tab stub's grey over the white tab face
+const PRESSED_GREY := Color(0.85, 0.85, 0.85)  # a tab dipping under a click
+const LEGACY_GLYPH_SCALE := 0.86  # Connecting.../Blank Page/page icon pixels to the new labels' cap height
 const DIP_PX := 6.0  # how far a clicked tab drops while it shows the pressed tint
 
 var _layout: Dictionary = {}
@@ -78,11 +81,29 @@ func _load_assets() -> Dictionary:
 		if t == null:
 			return Errors.err(Errors.ASSET_MISSING, _layout.labels[key])
 		_tex["label_" + key] = t
-	for key in ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground"]:
-		var t = load(ASSETS + "active_blue_" + key + ".png")
+	if _compact_fixed_shell:
+		return _load_compact()
+	return Errors.ok()
+
+
+## The Shell's bar (Issue #113): the rebuilt taskbar's pieces and geometry replace the legacy toolbar's;
+## the Connecting.../Blank Page/page icon/close/dots glyphs stay the legacy ones.
+func _load_compact() -> Dictionary:
+	var f := FileAccess.open(COMPACT + "layout.json", FileAccess.READ)
+	if f == null:
+		return Errors.err(Errors.ASSET_MISSING, "compact/layout.json")
+	var compact: Dictionary = JSON.parse_string(f.get_as_text())
+	for key in compact:
+		_layout[key] = compact[key]
+	var names := ["bar_stripes", "stars", "right_cluster", "tab_left", "tab_mid", "tab_right", "stub_idle", "stub_pressed"]
+	for key in _layout.place:
+		names.append("icon_" + key)
+		names.append("label_" + key)
+	for name in names:
+		var t = load(COMPACT + name + ".png")
 		if t == null:
-			return Errors.err(Errors.ASSET_MISSING, "active_blue_" + key)
-		_tex["active_blue_" + key] = t
+			return Errors.err(Errors.ASSET_MISSING, "compact/" + name)
+		_tex[name] = t
 	return Errors.ok()
 
 
@@ -149,17 +170,10 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	node.size = Vector2(width, t.height)
 	node.clip_contents = false  # the opening sits just below the node; labels clip in LabelClip
 	var left := _piece(node, _tex.tab_left, TextureRect.STRETCH_KEEP)
-	var mid := _piece(node, _tex.tab_mid, TextureRect.STRETCH_SCALE)
+	# the compact middle carries the dotted baseline, which must repeat rather than stretch
+	var mid := _piece(node, _tex.tab_mid, TextureRect.STRETCH_TILE if _compact_fixed_shell else TextureRect.STRETCH_SCALE)
 	mid.position = Vector2(t.left_w, 0)
 	var right := _piece(node, _tex.tab_right, TextureRect.STRETCH_KEEP)
-	var overlay_clip := Control.new()
-	overlay_clip.name = "ActiveBlueClip"
-	overlay_clip.clip_contents = true
-	overlay_clip.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	node.add_child(overlay_clip)
-	var overlay := _piece(overlay_clip, null, TextureRect.STRETCH_KEEP)
-	overlay.name = "ActiveBlue"
-	overlay.visible = false
 	var icon := _piece(node, null, TextureRect.STRETCH_KEEP)
 	var clip := Control.new()
 	clip.name = "LabelClip"
@@ -187,8 +201,7 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	add_child(node)
 	if not _tabs.is_empty():
 		move_child(node, _tabs[-1].node.get_index())  # behind its left neighbour: one clean join
-	var tab := {"node": node, "left": left, "mid": mid, "right": right, "overlay_clip": overlay_clip,
-			"overlay": overlay, "icon": icon, "clip": clip, "label": label,
+	var tab := {"node": node, "left": left, "mid": mid, "right": right, "icon": icon, "clip": clip, "label": label,
 			"dots": dots, "close": close, "label_key": "", "width": width, "page": null, "fixed": false,
 			"tint": 0.0, "tint_to": 0.0, "fade": null}
 	_tabs.append(tab)
@@ -207,7 +220,7 @@ func _press(index: int) -> void:
 		_unpress()
 	var tab: Dictionary = _tabs[index]
 	_pressed = index
-	tab.node.modulate = STUB_PRESSED
+	tab.node.modulate = _pressed_color()
 	tab.node.position.y = _layout.tab.y + DIP_PX
 	_press_tween = create_tween()
 	_press_tween.tween_interval(PRESS_SECONDS)
@@ -218,16 +231,15 @@ func _press(index: int) -> void:
 ## FADE_SECONDS for the whole way, so a reversed fade takes only the distance left. It multiplies every
 ## piece of the tab (slices, icon, label, dots, close): the icon and label pixels are opaque on white, so
 ## their white must take the tint with the face; dark glyphs and the grey outline move a few levels at most.
+## Compact mode (Issue #113): the face slices switch at once to the stub's grey instead (a static endpoint,
+## as the reviewed blue still was); the icons and labels are cut-outs there, so they keep their own colours.
 func _fade(tab: Dictionary, to: float) -> void:
 	if tab.tint_to == to:
 		return
 	tab.tint_to = to
 	if tab.fade != null and tab.fade.is_valid():
 		tab.fade.kill()
-	if tab.overlay.texture != null:
-		_set_tint(tab, to)
-		return
-	if _reduce_motion:
+	if _reduce_motion or _compact_fixed_shell:  # compact: the selected grey is a static endpoint, as the blue still was
 		_set_tint(tab, to)
 		return
 	tab.fade = create_tween()
@@ -236,11 +248,9 @@ func _fade(tab: Dictionary, to: float) -> void:
 
 func _set_tint(tab: Dictionary, v: float) -> void:
 	tab.tint = v
-	if tab.overlay.texture != null:
-		tab.overlay.visible = v > 0.0
-		tab.overlay_clip.size = Vector2(tab.width * v, _layout.tab.height)
-		for piece in [tab.left, tab.mid, tab.right, tab.icon, tab.label, tab.dots, tab.close]:
-			piece.self_modulate = Color.WHITE
+	if _compact_fixed_shell:
+		for piece in [tab.left, tab.mid, tab.right]:
+			piece.self_modulate = Color.WHITE.lerp(STUB_GREY, v)
 		return
 	var c := Color.WHITE.lerp(SEA_BLUE, v * ACTIVE_TINT)
 	for piece in [tab.left, tab.mid, tab.right, tab.icon, tab.label, tab.dots, tab.close]:
@@ -252,6 +262,14 @@ func _unpress() -> void:
 		_tabs[_pressed].node.modulate = Color.WHITE
 		_tabs[_pressed].node.position.y = _layout.tab.y
 	_pressed = -1
+
+
+func _pressed_color() -> Color:
+	return PRESSED_GREY if _compact_fixed_shell else STUB_PRESSED
+
+
+func _stub_color() -> Color:
+	return STUB_GREY if _compact_fixed_shell else STUB_PINK
 
 
 func _tab_of(node: Control) -> Dictionary:
@@ -272,8 +290,6 @@ func _piece(parent: Control, texture, stretch: int) -> TextureRect:
 
 func _set_label(tab: Dictionary, key: String) -> void:
 	tab.label_key = key
-	tab.overlay.texture = _tex.get("active_blue_" + key) if _compact_fixed_shell else null
-	tab.overlay.visible = tab.overlay.texture != null and tab.tint > 0.0
 	match key:
 		"windows_live":
 			tab.icon.texture = _tex.icon_windows_flag
@@ -288,7 +304,7 @@ func _set_label(tab: Dictionary, key: String) -> void:
 			tab.icon.position = Vector2(_layout.page_icon[0], _layout.page_icon[1])
 			tab.label.texture = _tex.label_blank_page
 		_:  # a fixed tab's title from the labels map; no label yet (phone, #34) shows the icon alone
-			tab.icon.texture = _tex.icon_page
+			tab.icon.texture = _tex.get("icon_" + key, _tex.icon_page)  # compact: each tab's own icon
 			tab.icon.position = Vector2(_layout.page_icon[0], _layout.page_icon[1])
 			tab.label.texture = _tex.get("label_" + key)
 			if tab.label.texture == null:
@@ -299,18 +315,8 @@ func _set_label(tab: Dictionary, key: String) -> void:
 ## The label gets the room between its left edge and the close button; when it does not fit,
 ## it is cut at the last whole glyph that fits and the "..." glyph follows (IE7 truncation).
 func _fit_label(tab: Dictionary) -> void:
-	if _compact_fixed_shell and tab.fixed:
-		var height: float = tab.label.texture.get_height() if tab.label.texture else 75.0
-		var full: float = tab.label.texture.get_width() if tab.label.texture else 0.0
-		var room: float = max(0.0, (tab.width - 48.0 - 110.0) / FIXED_TAB_SCALE)
-		tab.icon.scale = Vector2(FIXED_TAB_SCALE, FIXED_TAB_SCALE)
-		tab.icon.position = Vector2(34, (123 - tab.icon.texture.get_height() * FIXED_TAB_SCALE) / 2)
-		tab.clip.scale = Vector2(FIXED_TAB_SCALE, FIXED_TAB_SCALE)
-		tab.clip.position = Vector2(110, (123 - height * FIXED_TAB_SCALE) / 2)
-		tab.dots.visible = full > room
-		tab.clip.size = Vector2(min(full, max(0.0, room - 40.0 if tab.dots.visible else room)), height)
-		tab.dots.scale = Vector2(FIXED_TAB_SCALE, FIXED_TAB_SCALE)
-		tab.dots.position = tab.clip.position + Vector2(tab.clip.size.x * FIXED_TAB_SCALE, 0)
+	if _compact_fixed_shell:
+		_fit_compact(tab)
 		return
 	var t: Dictionary = _layout.tab
 	var label_x: float = _layout.label_windows_live[0]
@@ -332,6 +338,44 @@ func _fit_label(tab: Dictionary) -> void:
 		tab.dots.visible = cut > 0
 
 
+## Compact mode: a fixed tab's icon and label sit where the rebuilt taskbar put them (layout `place`); a
+## stub-opened tab puts the legacy page icon and label, scaled to the new cap height, on the same row, the
+## icon just right of the slanted edge. Truncation is the IE7 one above, in scaled pixels.
+func _fit_compact(tab: Dictionary) -> void:
+	var t: Dictionary = _layout.tab
+	var p: Dictionary = _layout.place.get(tab.label_key, {})
+	var s: float = 1.0 if not p.is_empty() else LEGACY_GLYPH_SCALE
+	for piece in [tab.icon, tab.clip, tab.dots]:
+		piece.scale = Vector2(s, s)
+	var label_h: float = tab.label.texture.get_height() if tab.label.texture else 0.0
+	var icon_size: Vector2 = tab.icon.texture.get_size() * s if tab.icon.texture else Vector2.ZERO
+	if not p.is_empty():
+		tab.icon.position = Vector2(p.icon[0], p.icon[1])
+		tab.clip.position = Vector2(p.label[0], p.label[1])
+	else:
+		var iy: float = _layout.row_mid - icon_size.y / 2.0
+		tab.icon.position = Vector2(_layout.edge_line[0] * iy + _layout.edge_line[1] + _layout.icon_pad, iy)
+		# the legacy glyph's baseline (row 55 of 66) on the new labels' baseline
+		tab.clip.position = Vector2(tab.icon.position.x + icon_size.x + _layout.label_gap, _layout.label_baseline - 55.0 * s)
+	var end: float = tab.width - t.right_w
+	if not tab.fixed:
+		tab.close.position = Vector2(end - _layout.close.w, _layout.row_mid - _layout.close.h / 2.0)
+		end = tab.close.position.x - 12
+	var room: float = end - tab.clip.position.x
+	var full: float = (tab.label.texture.get_width() if tab.label.texture else 0.0) * s
+	var dots_w: float = tab.dots.texture.get_width() * s
+	tab.dots.visible = false
+	if full <= room:
+		tab.clip.size = Vector2(full / s, label_h)
+	elif room < dots_w + 20:
+		tab.clip.size = Vector2(0, label_h)  # narrowest tab: icon (and close button) only
+	else:
+		var cut: float = max(0.0, room - dots_w)
+		tab.clip.size = Vector2(cut / s, label_h)
+		tab.dots.position = Vector2(tab.clip.position.x + cut, _layout.label_baseline - 55.0 * s)
+		tab.dots.visible = cut > 0
+
+
 func _set_tab_width(tab: Dictionary, width: float) -> void:
 	var t: Dictionary = _layout.tab
 	width = round(width)  # whole source pixels: no hairline seams between the three slices
@@ -339,8 +383,6 @@ func _set_tab_width(tab: Dictionary, width: float) -> void:
 	tab.node.size.x = width
 	tab.mid.size = Vector2(max(0.0, width - t.left_w - t.right_w), t.height)
 	tab.right.position = Vector2(width - t.right_w, 0)
-	if tab.overlay.texture != null:
-		tab.overlay_clip.size = Vector2(width * tab.tint, t.height)
 	_fit_label(tab)
 
 
@@ -357,7 +399,7 @@ func _layout_tabs() -> void:
 	if _tabs.is_empty():
 		_stub.position = Vector2(_layout.tab.first_tab_x + (_layout.tab.full_width - _layout.tab_pitch) + _layout.stub.gap_from_tab_right, _layout.stub.y)
 		return
-	var w: float = min(FIXED_TAB_WIDTH, _fitted_width(_tabs.size())) if _compact_fixed_shell else _fitted_width(_tabs.size())
+	var w: float = min(_layout.fixed_tab_width, _fitted_width(_tabs.size())) if _compact_fixed_shell else _fitted_width(_tabs.size())
 	var x: float = _layout.tab.first_tab_x
 	for tab in _tabs:
 		if not _opening or tab != _tabs[-1]:
@@ -411,7 +453,7 @@ func open_new_tab() -> Dictionary:
 	# hidden) and stands in for it while pressed; the real stub reappears riding on its right edge
 	_layout_tabs()
 	_grow(tab, final_w, 0.0)
-	tab.node.modulate = STUB_PRESSED
+	tab.node.modulate = _pressed_color()
 	_stub.visible = false
 	emit_signal("tab_opened", index)
 	_tween = create_tween()
@@ -458,7 +500,7 @@ func grow_tab(index: int) -> Dictionary:
 	var tab: Dictionary = _tabs[index]
 	var final_w: float = tab.width
 	_grow(tab, final_w, 0.0)
-	tab.node.modulate = STUB_PRESSED
+	tab.node.modulate = _pressed_color()
 	emit_signal("tab_opened", index)
 	_tween = create_tween()
 	_tween.tween_interval(PRESS_SECONDS)
@@ -478,7 +520,7 @@ func _grow(tab: Dictionary, final_w: float, s: float) -> void:
 	tab.node.scale = Vector2(1.0, sy)
 	_set_tab_width(tab, w)
 	tab.node.position.y = lerp(float(_layout.stub.y), float(t.y), s)
-	tab.node.modulate = STUB_PINK.lerp(Color.WHITE, s)
+	tab.node.modulate = _stub_color().lerp(Color.WHITE, s)
 	var a: float = clamp((s - 0.5) / 0.5, 0.0, 1.0)
 	tab.icon.modulate.a = a
 	tab.label.modulate.a = a
@@ -544,7 +586,7 @@ func _shrink(tab: Dictionary, from_w: float, s: float) -> void:
 	tab.node.scale = Vector2(1.0, lerp(_layout.stub.h / float(t.height), 1.0, s))
 	_set_tab_width(tab, lerp(float(_layout.stub.w), from_w, s))
 	tab.node.position.y = lerp(float(_layout.stub.y), float(t.y), s)
-	tab.node.modulate = STUB_PINK.lerp(Color.WHITE, s)
+	tab.node.modulate = _stub_color().lerp(Color.WHITE, s)
 	if not _tabs.is_empty() and tab.node == _tabs[-1].node:
 		_layout_stub()
 

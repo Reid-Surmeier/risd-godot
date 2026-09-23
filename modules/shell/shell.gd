@@ -14,8 +14,8 @@ const TabStrip := preload("res://modules/tab_strip/interface.gd")
 signal tenant_created(key: String)
 signal switch_settled(index: int)
 
-const SOURCE_WIDTH := 4180.0
-const BAR_HEIGHT := 161.0
+const SOURCE_WIDTH := 5703.0  # the rebuilt taskbar (tab_strip compact layout, Issue #113)
+const BAR_HEIGHT := 186.0
 const FADE_SECONDS := 0.2
 const FIXED_TABS: Array[String] = ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground"]
 const LAUNCH_TAB := "collection"

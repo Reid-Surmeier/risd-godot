@@ -1,0 +1,105 @@
+{
+ "bar_height": 186,
+ "bar_width": 5703,
+ "tab": {
+  "y": 34,
+  "height": 146,
+  "left_w": 67,
+  "right_w": 67,
+  "full_width": 617,
+  "first_tab_x": 307
+ },
+ "tab_pitch": 550,
+ "stub": {
+  "y": 65,
+  "w": 250,
+  "h": 115,
+  "gap_from_tab_right": -67
+ },
+ "bar_background": [
+  0,
+  0,
+  5703,
+  186
+ ],
+ "tab_min_width": 270,
+ "fixed_tab_width": 617,
+ "right_cluster_icons_offset": 24,
+ "stars": [
+  0,
+  0,
+  307,
+  186
+ ],
+ "right_cluster_w": 1414,
+ "edge_line": [
+  -0.40557317039225255,
+  62.286776282077426
+ ],
+ "icon_pad": 14,
+ "label_gap": 26,
+ "place": {
+  "map": {
+   "icon": [
+    62,
+    35
+   ],
+   "label": [
+    182,
+    59
+   ]
+  },
+  "sketchbook": {
+   "icon": [
+    61,
+    38
+   ],
+   "label": [
+    180,
+    59
+   ]
+  },
+  "3d_viewer": {
+   "icon": [
+    60,
+    40
+   ],
+   "label": [
+    182,
+    59
+   ]
+  },
+  "video_player": {
+   "icon": [
+    58,
+    44
+   ],
+   "label": [
+    141,
+    59
+   ]
+  },
+  "collection": {
+   "icon": [
+    58,
+    45
+   ],
+   "label": [
+    151,
+    59
+   ]
+  },
+  "playground": {
+   "icon": [
+    57,
+    47
+   ],
+   "label": [
+    162,
+    59
+   ]
+  }
+ },
+ "row_mid": 81,
+ "label_baseline": 95
+}
