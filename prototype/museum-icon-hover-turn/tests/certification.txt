@@ -1,3 +1,53 @@
+PASS  01-staff   frame count                            41
+PASS  01-staff   size                                   [180, 180, 3]
+PASS  01-staff   rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  01-staff   rest (hover start and leave end) frame silhouette IoU 1.0
+PASS  01-staff   every frame silhouette IoU             0.766
+PASS  01-staff   centroid drift px                      1.2
+FAIL  01-staff   area change                            0.182
+FAIL  01-staff   colour histogram distance              0.26
+PASS  01-staff   no pixels outside padded footprint     0
+PASS  01-staff   object visibly turns (peak IoU / peak MAE) [0.766, 1.2]
+PASS  02-green-sculpture frame count                            73
+PASS  02-green-sculpture size                                   [180, 180, 3]
+PASS  02-green-sculpture rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  02-green-sculpture rest (hover start and leave end) frame silhouette IoU 1.0
+PASS  02-green-sculpture every frame silhouette IoU             0.764
+PASS  02-green-sculpture centroid drift px                      5.96
+PASS  02-green-sculpture area change                            0.034
+PASS  02-green-sculpture colour histogram distance              0.17
+PASS  02-green-sculpture no pixels outside padded footprint     0
+PASS  02-green-sculpture object visibly turns (peak IoU / peak MAE) [0.764, 6.7]
+PASS  03-horse-rider frame count                            13
+PASS  03-horse-rider size                                   [180, 180, 3]
+PASS  03-horse-rider rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  03-horse-rider rest (hover start and leave end) frame silhouette IoU 1.0
+FAIL  03-horse-rider every frame silhouette IoU             0.666
+PASS  03-horse-rider centroid drift px                      2.21
+FAIL  03-horse-rider area change                            0.174
+PASS  03-horse-rider colour histogram distance              0.185
+PASS  03-horse-rider no pixels outside padded footprint     0
+PASS  03-horse-rider object visibly turns (peak IoU / peak MAE) [0.666, 8.1]
+PASS  04-gold-couch frame count                            73
+PASS  04-gold-couch size                                   [180, 180, 3]
+PASS  04-gold-couch rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  04-gold-couch rest (hover start and leave end) frame silhouette IoU 1.0
+PASS  04-gold-couch every frame silhouette IoU             0.772
+PASS  04-gold-couch centroid drift px                      0.84
+PASS  04-gold-couch area change                            0.015
+PASS  04-gold-couch colour histogram distance              0.146
+PASS  04-gold-couch no pixels outside padded footprint     0
+PASS  04-gold-couch object visibly turns (peak IoU / peak MAE) [0.772, 8.4]
+PASS  05-bust    frame count                            73
+PASS  05-bust    size                                   [180, 180, 3]
+PASS  05-bust    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  05-bust    rest (hover start and leave end) frame silhouette IoU 1.0
+PASS  05-bust    every frame silhouette IoU             0.836
+PASS  05-bust    centroid drift px                      1.11
+PASS  05-bust    area change                            0.081
+PASS  05-bust    colour histogram distance              0.115
+PASS  05-bust    no pixels outside padded footprint     0
+PASS  05-bust    object visibly turns (peak IoU / peak MAE) [0.836, 8.8]
 PASS  06-bowl    frame count                            50
 PASS  06-bowl    size                                   [180, 180, 3]
 PASS  06-bowl    rest (hover start and leave end) frame equals source (MAE) 0.0

@@ -21,11 +21,11 @@
 <body>
 <main>
   <div class="row">
-    <figure><div class="icon" style="background-image:url(01-staff.png)"></div><figcaption>テディベア</figcaption></figure>
-    <figure><div class="icon" style="background-image:url(02-green-sculpture.png)"></div><figcaption>ミニウサギ</figcaption></figure>
-    <figure><div class="icon" style="background-image:url(03-horse-rider.png)"></div><figcaption>オカガメ</figcaption></figure>
-    <figure><div class="icon" style="background-image:url(04-gold-couch.png)"></div><figcaption>ネコ</figcaption></figure>
-    <figure><div class="icon" style="background-image:url(05-bust.png)"></div><figcaption>ひみつメカ</figcaption></figure>
+    <figure><div class="icon turn" data-icon="01-staff" data-frames="41" data-certified="15"></div><figcaption>テディベア</figcaption></figure>
+    <figure><div class="icon turn" data-icon="02-green-sculpture" data-frames="73" data-certified="72"></div><figcaption>ミニウサギ</figcaption></figure>
+    <figure><div class="icon turn" data-icon="03-horse-rider" data-frames="13" data-certified="8"></div><figcaption>オカガメ</figcaption></figure>
+    <figure><div class="icon turn" data-icon="04-gold-couch" data-frames="73" data-certified="72"></div><figcaption>ネコ</figcaption></figure>
+    <figure><div class="icon turn" data-icon="05-bust" data-frames="73" data-certified="72"></div><figcaption>ひみつメカ</figcaption></figure>
     <figure><div class="icon turn" data-icon="06-bowl" data-frames="50" data-certified="49"></div><figcaption>ビッグマウス</figcaption></figure>
     <figure><div class="icon turn" data-icon="07-bull" data-frames="24" data-certified="13"></div><figcaption>フクロペンギン</figcaption></figure>
     <figure><div class="icon turn" data-icon="08-dog" data-frames="24" data-certified="11"></div><figcaption>イヌ</figcaption></figure>
@@ -34,7 +34,7 @@
     <label><input type="radio" name="cut" value="full" checked> Full turn (about 35°, the spec)</label>
     <label><input type="radio" name="cut" value="certified"> Smaller turn (every check passes)</label>
   </fieldset>
-  <p class="note">Hover the three right-hand objects. Every frame is Seedance output reduced into the icon's own tile; leaving plays the turn back to the untouched rest frame.</p>
+  <p class="note">Hover any object (on a touch screen, tap it). Every frame is Seedance output reduced into the icon's own tile; leaving plays the turn back to the untouched rest frame.</p>
 </main>
 <script>
   // Hover drives progress toward 1, leaving drives it back to 0; frame = progress * (frames - 1).
@@ -60,8 +60,10 @@
       if (running) requestAnimationFrame(tick);
     };
     const go = (t) => { target = t; if (!running) { running = true; last = performance.now(); requestAnimationFrame(tick); } };
-    el.addEventListener("pointerenter", () => go(1));
-    el.addEventListener("pointerleave", () => go(0));
+    el.addEventListener("pointerenter", (e) => { if (e.pointerType !== "touch") go(1); });
+    el.addEventListener("pointerleave", (e) => { if (e.pointerType !== "touch") go(0); });
+    // touch has no hover: a tap turns it, the next tap turns it back
+    el.addEventListener("pointerdown", (e) => { if (e.pointerType === "touch") go(target ? 0 : 1); });
     draw();
   }
 </script>
