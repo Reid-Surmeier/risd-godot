@@ -534,6 +534,7 @@ func _fetch_video(id: String) -> void:
 		return
 	if fetch == null:
 		fetch = HTTPRequest.new()
+		fetch.download_chunk_size = 4 << 20  # the default 64 KB per frame hands a video over slowly
 		fetch.name = "video-download"
 		fetch.request_completed.connect(_on_video_fetched)
 		add_child(fetch)
