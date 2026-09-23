@@ -1,7 +1,7 @@
 extends Node
 
 const Errors := preload("res://modules/sound_cues/errors.gd")
-const ROOT := "res://prototype/mr-baby-paint-audio/sounds/"
+const ROOT := "res://modules/sound_cues/assets/"
 const MAPPINGS := {
 	"button": ROOT + "fill_stop5.wav.res",
 	"refill": ROOT + "fill_stop3.wav.res",
