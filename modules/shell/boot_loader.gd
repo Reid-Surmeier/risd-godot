@@ -23,9 +23,9 @@ const SHELL_INTERFACE := "res://modules/shell/interface.gd"  # loaded after the 
 const MIN_SECONDS := 4.0  # the bar fills at a steady pace, never faster than empty-to-full in this
                           # long, so a quick load still reads as loading (same pace as the HTML page)
 
-@export var pixel_reduction := 2.5  # the tape is the window divided by this (same in the page)
+@export var pixel_reduction := 1.6  # the tape is the window divided by this (same in the page)
 @export var tape_fps := 12.0        # how often a new compressed frame is taken
-@export var jpeg_quality := 0.5     # 0..1, lower = blockier
+@export var jpeg_quality := 0.7     # 0..1, lower = blockier
 
 var clock := 0.0          # seconds, continued from the HTML loader
 var progress := 0.0       # 0..1 shown by the bar (eases toward target)

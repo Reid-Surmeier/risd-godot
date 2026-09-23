@@ -6,18 +6,24 @@
 # .pck is only the loading scene (preset "Web"); the game is <sha>.game.pck (preset "Web Game"),
 # which modules/shell/boot_loader.gd downloads and mounts. The .wasm and both packs get a .gz twin:
 # the page and the loading scene fetch those and unzip them in the browser.
+# The build is made in build/web-next and swapped in only when complete, and the build that was
+# live stays beside the new one: a page already loading it (or its cached index.html) can finish.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 GODOT_BIN="${GODOT_BIN:-$HOME/.local/opt/godot-4.7.2/Godot_v4.7.2-stable_linux.x86_64}"
 SHA=$(git rev-parse --short HEAD)$( [ -n "$(git status --porcelain --untracked-files=no)" ] && echo "-dirty" || true )
 export DISPLAY="${GODOT_DISPLAY:-${DISPLAY:-:99}}"; unset WAYLAND_DISPLAY
-rm -rf build/web && mkdir -p build/web/media
-"$GODOT_BIN" --headless --path . --export-release "Web" "build/web/$SHA.html" 2>&1 | grep -E 'ERROR' || true
-"$GODOT_BIN" --headless --path . --export-pack "Web Game" "build/web/$SHA.game.pck" 2>&1 | grep -E 'ERROR' || true
-sed -i "s|<title>[^<]*</title>|<title>risd-godot shell build $SHA</title>|" "build/web/$SHA.html"
-cat > build/web/index.html <<HTML
+OUT=build/web; NEXT=build/web-next
+rm -rf "$NEXT" && mkdir -p "$NEXT/media"
+"$GODOT_BIN" --headless --path . --export-release "Web" "$NEXT/$SHA.html" 2>&1 | grep -E 'ERROR' || true
+"$GODOT_BIN" --headless --path . --export-pack "Web Game" "$NEXT/$SHA.game.pck" 2>&1 | grep -E 'ERROR' || true
+sed -i "s|<title>[^<]*</title>|<title>risd-godot shell build $SHA</title>|" "$NEXT/$SHA.html"
+cat > "$NEXT/index.html" <<HTML
 <!doctype html><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-store"><meta http-equiv="refresh" content="0; url=$SHA.html"><title>risd-godot shell build $SHA</title><a href="$SHA.html">build $SHA</a>
 HTML
-cp modules/video_player/media/*.ogv build/web/media/
-for f in build/web/"$SHA".{wasm,pck,game.pck}; do gzip -9 -k -f "$f"; done
-echo "exported build $SHA -> build/web/$SHA.html"
+cp modules/video_player/media/*.ogv "$NEXT/media/"
+for f in "$NEXT/$SHA".{wasm,pck,game.pck}; do gzip -9 -k -f "$f"; done
+LIVE=$(grep -o 'url=[^"]*\.html' "$OUT/index.html" 2>/dev/null | sed 's/^url=//; s/\.html$//' || true)
+if [ -n "$LIVE" ] && [ "$LIVE" != "$SHA" ]; then cp -n "$OUT/$LIVE".* "$NEXT/" 2>/dev/null || true; fi
+rm -rf "$OUT" && mv "$NEXT" "$OUT"
+echo "exported build $SHA -> $OUT/$SHA.html (kept $LIVE beside it)"

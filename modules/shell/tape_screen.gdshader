@@ -21,7 +21,7 @@ void fragment() {
 
 	float a = max(luma.a, 1e-4);
 	float y = to_yiq(luma.rgb / a).x;
-	y += 0.4 * (y - to_yiq(wide.rgb / max(wide.a, 1e-4)).x);   // edge halo
+	y += 0.25 * (y - to_yiq(wide.rgb / max(wide.a, 1e-4)).x);  // edge halo
 	vec3 rgb = from_yiq(vec3(y, to_yiq(chroma.rgb / max(chroma.a, 1e-4)).yz));
 	COLOR = vec4(clamp(rgb, 0.0, 1.0), luma.a);
 }

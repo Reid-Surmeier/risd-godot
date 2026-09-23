@@ -166,7 +166,7 @@ void main() {
 	chroma /= 5.0;
 	vec3 wide = (scene(st - 2.0 * px) + scene(st + 2.0 * px) + scene(st - 2.0 * px.yx) + scene(st + 2.0 * px.yx)) * 0.25;
 	float y = toYIQ(luma).x;
-	y += 0.4 * (y - toYIQ(wide).x);                    // edge halo
+	y += 0.25 * (y - toYIQ(wide).x);                   // edge halo
 	gl_FragColor = vec4(clamp(fromYIQ(vec3(y, toYIQ(chroma).yz)), 0.0, 1.0), 1.0);
 }
 		</script>
@@ -209,12 +209,12 @@ const engine = new Engine(GODOT_CONFIG);
 
 // Runs the loading shader until stop() is called. setProgress() takes the real download
 // fraction; the bar eases toward it so cached (instant) loads still read as loading.
-// The tape look, as in modules/shell/boot_loader.gd: the shader draws into a canvas 1/2.5 of the
+// The tape look, as in modules/shell/boot_loader.gd: the shader draws into a canvas 1/1.6 of the
 // window's pixels (real pixel reduction), and 12 times a second that frame is JPEG-encoded and
 // decoded (real block artifacts) onto the visible canvas, scaled up smoothly.
-const PIXEL_REDUCTION = 2.5; // same values as boot_loader.gd
+const PIXEL_REDUCTION = 1.6; // same values as boot_loader.gd
 const TAPE_FPS = 12;
-const JPEG_QUALITY = 0.5;
+const JPEG_QUALITY = 0.7;
 const MIN_SECONDS = 4; // the bar fills at a steady pace, never faster than empty-to-full in this
                        // long, so a quick load still reads as loading (same pace in boot_loader.gd)
 const loadingScreen = (function () {
