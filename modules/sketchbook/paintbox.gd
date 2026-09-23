@@ -21,6 +21,7 @@ const BRUSH := preload("res://modules/sketchbook/assets/paintbox/watercolor-brus
 const BRUSH_SHADER := preload("res://modules/sketchbook/assets/paintbox/brush-tip.gdshader")
 const TITLE_HEIGHT := 22.0
 const BORDER := 4.0
+const MIX_CUE_INTERVAL := 1.4
 const ANRI_PALETTE_SOURCE := Rect2(68, 108, 398, 365)
 const ANRI_PALETTE_POSITION := Vector2(0.105, 0.45)
 const ANRI_PALETTE_WIDTH := 0.79
@@ -61,6 +62,7 @@ var _tray_images: Array[Image] = []
 var _tray_textures: Array[ImageTexture] = []
 var _paint_pixels := 0
 var _mixing := false
+var _mix_cue_elapsed := 0.0
 var _drag_pigment := brush_color
 var _last_deposit := Vector2(-10, -10)
 var _hover_uv := Vector2(-1, -1)
@@ -184,7 +186,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouse:
 		_pointer = make_canvas_position_local(event.position)
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	var mouse := _pointer
 	var next_hovering := image_rect.has_point(mouse) and Rect2(Vector2.ZERO, size).has_point(mouse)
 	if next_hovering != hovering:
@@ -195,6 +197,11 @@ func _process(_delta: float) -> void:
 		state_changed.emit()
 	if hovering:
 		brush_cursor.position = mouse - Vector2(3, 3)
+	if _mixing:
+		_mix_cue_elapsed += delta
+		if _mix_cue_elapsed >= MIX_CUE_INTERVAL:
+			_mix_cue_elapsed = 0.0
+			sound_cue_requested.emit(SoundCues.MIXING)
 
 func set_brush_active(active: bool) -> void:
 	brush_active = active
@@ -252,11 +259,14 @@ func _gui_input(event: InputEvent) -> void:
 					queue_redraw()
 				elif _tray_at(uv) >= 0:
 					_mixing = true
+					_mix_cue_elapsed = 0.0
+					sound_cue_requested.emit(SoundCues.MIXING)
 					_drag_pigment = brush_color
 					_last_deposit = Vector2(-10, -10)
 					_deposit(uv)
 			else:
 				_mixing = false
+				_mix_cue_elapsed = 0.0
 			accept_event()
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			var tray := _tray_at(uv)

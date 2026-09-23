@@ -46,6 +46,7 @@ For the selected-tab face only, a **Motion Pass** yields one entrance followed b
 | --- | --- |
 | Any menu or button activation without a more specific cue | `fill_stop5.wav.res` |
 | Refill paint from the paintbrush | `fill_stop3.wav.res` |
+| Mix or fill paint in a palette tray | `UIMisc_Percussive bubbly cute UI elements_RogueWaves_KawaiiUI2_03.wav.res` |
 | Save an image or sculpture | `screenshot7.wav.res` |
 | Close a menu | `stop_fill_spacebar.wav.res` |
 | Splash screen | `splash_screen.wav.res` |

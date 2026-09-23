@@ -18,6 +18,20 @@ func _run() -> void:
 	controls.configure(surface)
 	host.add_child(controls)
 	await process_frame
+	var press := InputEventMouseButton.new()
+	press.button_index = MOUSE_BUTTON_LEFT
+	press.pressed = true
+	press.position = Vector2(30, 30)
+	surface._gui_input(press)
+	var motion := InputEventMouseMotion.new()
+	motion.position = Vector2(90, 60)
+	motion.button_mask = MOUSE_BUTTON_MASK_LEFT
+	surface._gui_input(motion)
+	press.pressed = false
+	press.position = motion.position
+	surface._gui_input(press)
+	_check(surface.stroke_count() == 1, "page_pointer_drag_draws")
+	surface.undo()
 
 	for tool in ["select", "hand", "draw", "eraser"]:
 		_press(controls, "tool", tool)

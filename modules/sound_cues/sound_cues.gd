@@ -5,6 +5,7 @@ const ROOT := "res://modules/sound_cues/assets/"
 const MAPPINGS := {
 	"button": ROOT + "fill_stop5.wav.res",
 	"refill": ROOT + "fill_stop3.wav.res",
+	"mixing": ROOT + "UIMisc_Percussive bubbly cute UI elements_RogueWaves_KawaiiUI2_03.wav.res",
 	"save": ROOT + "screenshot7.wav.res",
 	"close": ROOT + "stop_fill_spacebar.wav.res",
 	"splash": ROOT + "splash_screen.wav.res",
@@ -15,7 +16,7 @@ var streams := {}
 var last_cue := ""
 var last_path := ""
 var play_count := 0
-var counts := {"button": 0, "refill": 0, "save": 0, "close": 0}
+var counts := {"button": 0, "refill": 0, "mixing": 0, "save": 0, "close": 0}
 
 
 static func create() -> Dictionary:
@@ -57,7 +58,7 @@ func state() -> Dictionary:
 		"play_count": play_count,
 		"counts": counts.duplicate(),
 		"mappings": MAPPINGS.duplicate(),
-		"applicable": ["button", "refill", "save", "close"],
+		"applicable": ["button", "refill", "mixing", "save", "close"],
 		"not_applicable": ["splash", "sculpture_save"],
 	})
 

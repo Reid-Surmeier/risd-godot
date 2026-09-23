@@ -12,6 +12,7 @@ const _Impl := preload("res://modules/sound_cues/sound_cues.gd")
 
 const BUTTON := "button"
 const REFILL := "refill"
+const MIXING := "mixing"
 const SAVE := "save"
 const CLOSE := "close"
 const SPLASH := "splash"
