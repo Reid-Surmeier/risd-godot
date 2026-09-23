@@ -1,9 +1,10 @@
 """Load and first-click performance of the Web export, in headless Chrome over CDP with the network
 throttled. Writes OUT/report.json and prints a summary.
 
-usage: perf_web.py URL OUT [--mbit 40] [--gpu] [--size 1920x1080]
+usage: perf_web.py URL OUT [--mbit 40] [--gpu] [--size 1920x1080] [--dpr 1]
 
   --mbit N   download bandwidth (default 40; 0 = unthrottled). The cache is disabled: a cold load.
+  --dpr N    device pixel ratio (2 = a retina Mac: twice the pixels to render)
   --gpu      WebGL on the NVIDIA card under WSL (ANGLE gl-egl -> Mesa d3d12); default is SwiftShader,
              which is much slower than any real browser and so a worst case.
 
@@ -25,7 +26,7 @@ args = sys.argv[1:]
 url, out = args[0], args[1]
 opt = lambda name, default: args[args.index(name) + 1] if name in args else default
 MBIT = float(opt("--mbit", 40)); GPU = "--gpu" in args
-W, H = (int(v) for v in opt("--size", "1920x1080").split("x"))
+W, H = (int(v) for v in opt("--size", "1920x1080").split("x")); DPR = float(opt("--dpr", 1))
 os.makedirs(out, exist_ok=True)
 
 # The strip's tab rects from the accepted native playtest, re-based on this window (as browser_play.py does).
@@ -75,7 +76,7 @@ async def main():
         if MBIT > 0:
             await send("Network.emulateNetworkConditions", offline=False, latency=20,
                        downloadThroughput=MBIT * 1e6 / 8, uploadThroughput=1e6)
-        await send("Emulation.setDeviceMetricsOverride", width=W, height=H, deviceScaleFactor=1, mobile=False)
+        await send("Emulation.setDeviceMetricsOverride", width=W, height=H, deviceScaleFactor=DPR, mobile=False)
         await send("Page.addScriptToEvaluateOnNewDocument", source=MONITOR)
         sep = "&" if "?" in url else "?"
         await send("Page.navigate", url=url + sep + "crt=0&qa-crt")
@@ -86,7 +87,7 @@ async def main():
             if marks and '"game-shown"' in marks:
                 break
         await asyncio.sleep(1.0)
-        report = {"url": url, "mbit": MBIT, "gpu": GPU, "size": [W, H],
+        report = {"url": url, "mbit": MBIT, "gpu": GPU, "size": [W, H], "dpr": DPR,
                   "webgl": await js("(function(){const g=document.createElement('canvas').getContext('webgl');const e=g&&g.getExtension('WEBGL_debug_renderer_info');return e?g.getParameter(e.UNMASKED_RENDERER_WEBGL):'?'})()"),
                   "stages": json.loads(await js("JSON.stringify(window.loadPerf || [])") or "[]"),
                   "bar": json.loads(await js("JSON.stringify(window.__bar)") or "[]"),

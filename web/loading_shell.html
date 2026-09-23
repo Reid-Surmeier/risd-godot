@@ -179,7 +179,7 @@ void main() {
 		<script id="loader-worker" type="text/js-worker">
 let gl, canvas, uRes, uTime, uProgress, uSpread;
 let size = [1, 1, 1], reduction = 1, minSeconds = 4, exitSeconds = 1.8;
-let target = 0, shown = 0, last = null, start = null, exitAt = -1, exitWanted = false, lastReport = 0;
+let target = 0, shown = 0, last = null, clock = 0, exitClock = -1, exitWanted = false, lastReport = 0;
 const raf = self.requestAnimationFrame ? (f) => self.requestAnimationFrame(f) : (f) => setTimeout(() => f(performance.now()), 16);
 self.onmessage = (e) => {
 	const m = e.data;
@@ -209,23 +209,27 @@ self.onmessage = (e) => {
 	}
 };
 function frame(now) {
-	if (start === null) start = now;
 	const w = Math.max(64, Math.round(size[0] * size[2] / reduction));
 	const h = Math.max(36, Math.round(size[1] * size[2] / reduction));
 	if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
-	const dt = last === null ? 0 : (now - last) / 1000;
-	if (dt > 0.05) self.postMessage({ gap: Math.round(dt * 1000) }); // for perf_web.py: the animation stalled
+	const real = last === null ? 0 : (now - last) / 1000;
+	if (real > 0.05) self.postMessage({ gap: Math.round(real * 1000) }); // for perf_web.py: the animation stalled
 	last = now;
+	// The animation's own clock advances at most one 30 fps frame per frame: when the GPU is busy
+	// with a big piece of the game (shader compiles, texture uploads) and a frame comes late, the
+	// dots carry on from where they were instead of jumping ahead, which read as flicker.
+	const dt = Math.min(real, 1 / 30);
+	clock += dt;
 	// A steady pace toward the real progress, even when the load is quick. Caught up, the bar still
 	// creeps, ever slower, toward a point 10% ahead (never past 99.5%): a long step never reads as
 	// stuck, and the bar is never full before the game is.
 	if (shown < target) shown = Math.min(target, shown + dt / minSeconds);
 	else shown += (Math.min(0.995, target + 0.1) - shown) * Math.min(1, dt * 0.35);
-	if (exitWanted && exitAt < 0 && shown >= 1) { exitAt = now; self.postMessage({ exiting: true }); }
-	const exit = exitAt < 0 ? 0 : Math.min(1, (now - exitAt) / 1000 / exitSeconds);
+	if (exitWanted && exitClock < 0 && shown >= 1) { exitClock = clock; self.postMessage({ exiting: true }); }
+	const exit = exitClock < 0 ? 0 : Math.min(1, (clock - exitClock) / exitSeconds);
 	gl.viewport(0, 0, w, h);
 	gl.uniform2f(uRes, w, h);
-	gl.uniform1f(uTime, (now - start) / 1000);
+	gl.uniform1f(uTime, clock);
 	gl.uniform1f(uProgress, shown);
 	gl.uniform1f(uSpread, 1 + 2.2 * (1 - (1 - exit) * (1 - exit))); // ease-out: the orbit slowly widens
 	gl.drawArrays(gl.TRIANGLES, 0, 3);
