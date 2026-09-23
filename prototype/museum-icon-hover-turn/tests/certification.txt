@@ -1,0 +1,30 @@
+PASS  06-bowl    frame count                            50
+PASS  06-bowl    size                                   [180, 180, 3]
+PASS  06-bowl    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  06-bowl    rest (hover start and leave end) frame silhouette IoU 1.0
+PASS  06-bowl    every frame silhouette IoU             0.978
+PASS  06-bowl    centroid drift px                      0.52
+PASS  06-bowl    area change                            0.014
+PASS  06-bowl    colour histogram distance              0.115
+PASS  06-bowl    no pixels outside padded footprint     0
+FAIL  06-bowl    object visibly turns (peak IoU / peak MAE) [0.978, 6.0]
+PASS  07-bull    frame count                            24
+PASS  07-bull    size                                   [180, 180, 3]
+PASS  07-bull    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  07-bull    rest (hover start and leave end) frame silhouette IoU 1.0
+FAIL  07-bull    every frame silhouette IoU             0.57
+PASS  07-bull    centroid drift px                      1.88
+FAIL  07-bull    area change                            0.154
+FAIL  07-bull    colour histogram distance              0.287
+PASS  07-bull    no pixels outside padded footprint     0
+PASS  07-bull    object visibly turns (peak IoU / peak MAE) [0.57, 17.6]
+PASS  08-dog     frame count                            24
+PASS  08-dog     size                                   [180, 180, 3]
+PASS  08-dog     rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  08-dog     rest (hover start and leave end) frame silhouette IoU 1.0
+FAIL  08-dog     every frame silhouette IoU             0.609
+PASS  08-dog     centroid drift px                      4.09
+PASS  08-dog     area change                            0.13
+PASS  08-dog     colour histogram distance              0.134
+PASS  08-dog     no pixels outside padded footprint     0
+PASS  08-dog     object visibly turns (peak IoU / peak MAE) [0.609, 9.3]

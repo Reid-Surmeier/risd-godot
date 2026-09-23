@@ -1,0 +1,179 @@
+{
+ "06-bowl": [
+  {
+   "check": "frame count",
+   "passed": true,
+   "measured": 50
+  },
+  {
+   "check": "size",
+   "passed": true,
+   "measured": [
+    180,
+    180,
+    3
+   ]
+  },
+  {
+   "check": "rest (hover start and leave end) frame equals source (MAE)",
+   "passed": true,
+   "measured": 0.0
+  },
+  {
+   "check": "rest (hover start and leave end) frame silhouette IoU",
+   "passed": true,
+   "measured": 1.0
+  },
+  {
+   "check": "every frame silhouette IoU",
+   "passed": true,
+   "measured": 0.978
+  },
+  {
+   "check": "centroid drift px",
+   "passed": true,
+   "measured": 0.52
+  },
+  {
+   "check": "area change",
+   "passed": true,
+   "measured": 0.014
+  },
+  {
+   "check": "colour histogram distance",
+   "passed": true,
+   "measured": 0.115
+  },
+  {
+   "check": "no pixels outside padded footprint",
+   "passed": true,
+   "measured": 0
+  },
+  {
+   "check": "object visibly turns (peak IoU / peak MAE)",
+   "passed": false,
+   "measured": [
+    0.978,
+    6.0
+   ]
+  }
+ ],
+ "07-bull": [
+  {
+   "check": "frame count",
+   "passed": true,
+   "measured": 24
+  },
+  {
+   "check": "size",
+   "passed": true,
+   "measured": [
+    180,
+    180,
+    3
+   ]
+  },
+  {
+   "check": "rest (hover start and leave end) frame equals source (MAE)",
+   "passed": true,
+   "measured": 0.0
+  },
+  {
+   "check": "rest (hover start and leave end) frame silhouette IoU",
+   "passed": true,
+   "measured": 1.0
+  },
+  {
+   "check": "every frame silhouette IoU",
+   "passed": false,
+   "measured": 0.57
+  },
+  {
+   "check": "centroid drift px",
+   "passed": true,
+   "measured": 1.88
+  },
+  {
+   "check": "area change",
+   "passed": false,
+   "measured": 0.154
+  },
+  {
+   "check": "colour histogram distance",
+   "passed": false,
+   "measured": 0.287
+  },
+  {
+   "check": "no pixels outside padded footprint",
+   "passed": true,
+   "measured": 0
+  },
+  {
+   "check": "object visibly turns (peak IoU / peak MAE)",
+   "passed": true,
+   "measured": [
+    0.57,
+    17.6
+   ]
+  }
+ ],
+ "08-dog": [
+  {
+   "check": "frame count",
+   "passed": true,
+   "measured": 24
+  },
+  {
+   "check": "size",
+   "passed": true,
+   "measured": [
+    180,
+    180,
+    3
+   ]
+  },
+  {
+   "check": "rest (hover start and leave end) frame equals source (MAE)",
+   "passed": true,
+   "measured": 0.0
+  },
+  {
+   "check": "rest (hover start and leave end) frame silhouette IoU",
+   "passed": true,
+   "measured": 1.0
+  },
+  {
+   "check": "every frame silhouette IoU",
+   "passed": false,
+   "measured": 0.609
+  },
+  {
+   "check": "centroid drift px",
+   "passed": true,
+   "measured": 4.09
+  },
+  {
+   "check": "area change",
+   "passed": true,
+   "measured": 0.13
+  },
+  {
+   "check": "colour histogram distance",
+   "passed": true,
+   "measured": 0.134
+  },
+  {
+   "check": "no pixels outside padded footprint",
+   "passed": true,
+   "measured": 0
+  },
+  {
+   "check": "object visibly turns (peak IoU / peak MAE)",
+   "passed": true,
+   "measured": [
+    0.609,
+    9.3
+   ]
+  }
+ ]
+}
