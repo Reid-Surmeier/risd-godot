@@ -1,11 +1,8 @@
 // The loading screen's tape look (boot_loader.gd), measured from the owner's VHS-style reference:
 // the tape frame is already reduced in pixels and JPEG-compressed; this adds what the signal does
 // on top. Brightness is soft sideways, colour trails to the right of its shape at lower resolution,
-// dark edges get a light halo, and each hold can carry a warm or cool light flash. White stays white.
+// and dark edges get a light halo. White stays white.
 shader_type canvas_item;
-
-uniform vec3 flash = vec3(1.0);   // this hold's light cast (1,1,1 = none)
-uniform float flash_gain = 0.0;   // this hold's brightness jump
 
 vec3 to_yiq(vec3 c) { return mat3(vec3(0.299, 0.596, 0.211), vec3(0.587, -0.274, -0.523), vec3(0.114, -0.322, 0.312)) * c; }
 vec3 from_yiq(vec3 c) { return mat3(vec3(1.0, 1.0, 1.0), vec3(0.956, -0.272, -1.106), vec3(0.621, -0.647, 1.703)) * c; }
@@ -26,6 +23,5 @@ void fragment() {
 	float y = to_yiq(luma.rgb / a).x;
 	y += 0.4 * (y - to_yiq(wide.rgb / max(wide.a, 1e-4)).x);   // edge halo
 	vec3 rgb = from_yiq(vec3(y, to_yiq(chroma.rgb / max(chroma.a, 1e-4)).yz));
-	rgb = rgb * flash + flash_gain;
 	COLOR = vec4(clamp(rgb, 0.0, 1.0), luma.a);
 }

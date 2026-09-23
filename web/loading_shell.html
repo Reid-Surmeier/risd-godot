@@ -76,9 +76,9 @@ body {
 			<div id="status-notice"></div>
 		</div>
 
-		<!-- The loading shader for the engine download: the clean first stage. Once the engine runs,
-		     modules/shell/boot_loader.gd takes over (same dots, the tape look, the fly-out) from
-		     window.loaderHandoff. The bar reads the real download progress (u_progress). -->
+		<!-- The loading shader while everything downloads. Once the engine runs,
+		     modules/shell/boot_loader.gd takes over (same dots and tape look) from window.loaderHandoff
+		     for the last stretch: mounting the game, loading it, warming up the tabs. -->
 		<script id="loading-frag" type="x-shader/x-fragment">
 precision mediump float;
 
@@ -173,17 +173,31 @@ void main() {
 
 		<script src="$GODOT_URL"></script>
 		<script>
-// The engine (.wasm) and boot pack (.pck) are fetched as their .gz twins (scripts/export-web.sh
-// makes them) and unzipped here, so any static host sends ~10 MB of engine instead of ~40 without
-// server-side compression. Falls back to the plain file if there is no twin or no DecompressionStream.
+// The engine (.wasm), the boot pack (.pck) and the game pack (.game.pck) are fetched as their .gz
+// twins (scripts/export-web.sh makes them) and unzipped by the browser as they stream in, so any
+// static host sends ~52 MB instead of ~88 and Godot's main thread never unzips anything. The
+// compressed bytes are counted as they arrive: that count is the loading bar. Falls back to the
+// plain file if there is no twin or no DecompressionStream.
+const DOWNLOAD_COUNT = 2; // the engine and the game pack; the 10 KB boot pack is fetched later, by startGame
+const downloads = {}; // url -> [bytes received, bytes total] of the compressed file
+function downloadProgress() {
+	const d = Object.values(downloads);
+	let got = 0, total = 0;
+	for (const [a, b] of d) { got += a; total += b; }
+	return d.length < DOWNLOAD_COUNT || !total ? 0 : got / total;
+}
 const plainFetch = window.fetch.bind(window);
 window.fetch = async function (input, init) {
 	const url = typeof input === 'string' ? input : input.url;
 	if (/\.(wasm|pck)$/.test(url) && 'DecompressionStream' in window) {
 		const gz = await plainFetch(url + '.gz', init).catch(() => null);
 		if (gz && gz.ok && !gz.headers.get('Content-Encoding')) {
+			const entry = downloads[url] = [0, Number(gz.headers.get('Content-Length')) || 0];
+			const counted = gz.body.pipeThrough(new TransformStream({
+				transform(chunk, controller) { entry[0] += chunk.byteLength; controller.enqueue(chunk); },
+			}));
 			const type = url.endsWith('.wasm') ? 'application/wasm' : 'application/octet-stream';
-			return new Response(gz.body.pipeThrough(new DecompressionStream('gzip')), { headers: { 'Content-Type': type } });
+			return new Response(counted.pipeThrough(new DecompressionStream('gzip')), { headers: { 'Content-Type': type } });
 		}
 	}
 	return plainFetch(input, init);
@@ -195,12 +209,12 @@ const engine = new Engine(GODOT_CONFIG);
 
 // Runs the loading shader until stop() is called. setProgress() takes the real download
 // fraction; the bar eases toward it so cached (instant) loads still read as loading.
-// The tape look, as in modules/shell/boot_loader.gd: the shader draws into a canvas a quarter of
-// the window's pixels (real pixel reduction), and 12 times a second that frame is JPEG-encoded and
+// The tape look, as in modules/shell/boot_loader.gd: the shader draws into a canvas 1/2.5 of the
+// window's pixels (real pixel reduction), and 12 times a second that frame is JPEG-encoded and
 // decoded (real block artifacts) onto the visible canvas, scaled up smoothly.
-const PIXEL_REDUCTION = 4;
+const PIXEL_REDUCTION = 2.5; // same values as boot_loader.gd
 const TAPE_FPS = 12;
-const JPEG_QUALITY = 0.4;
+const JPEG_QUALITY = 0.5;
 const MIN_SECONDS = 4; // the bar fills at a steady pace, never faster than empty-to-full in this
                        // long, so a quick load still reads as loading (same pace in boot_loader.gd)
 const loadingScreen = (function () {
@@ -266,6 +280,7 @@ const loadingScreen = (function () {
 		gl.uniform1f(uTime, (now - start) / 1000);
 		gl.uniform1f(uProgress, shown);
 		window.loaderHandoff = { t: (now - start) / 1000, progress: shown }; // read by boot_loader.gd
+		window.loaderProgress = shown; // for modules/shell/playtest/perf_web.py
 		gl.drawArrays(gl.TRIANGLES, 0, 3);
 		if (now - lastTape >= 1000 / TAPE_FPS && !encoding) {
 			lastTape = now;
@@ -365,15 +380,20 @@ const loadingScreen = (function () {
 			displayFailureNotice(missingMsg + missing.join('\n'));
 		}
 	} else {
-		engine.startGame({
-			'onProgress': function (current, total) {
-				if (current > 0 && total > 0) {
-					// The engine is about a fifth of the whole download; the game pack is the rest,
-					// fetched by the Godot loading scene (boot_loader.gd) with the bar continuing.
-					loadingScreen.setProgress(0.2 * current / total);
-				}
-			},
-		}).then(hideLoadingScreen, displayFailureNotice);
+		// The downloads are 85% of the bar; the Godot loading scene does the last 15%.
+		const progressTimer = setInterval(() => loadingScreen.setProgress(0.85 * downloadProgress()), 100);
+		// The game pack downloads alongside the engine and lands in Godot's file system before the
+		// engine starts; boot_loader.gd mounts it from there.
+		const exe = GODOT_CONFIG['executable'];
+		Promise.all([engine.init(exe), engine.preloadFile(`${exe}.game.pck`, '/tmp/game.pck')]).then(() => {
+			clearInterval(progressTimer);
+			loadingScreen.setProgress(0.85);
+			(window.loadPerf = window.loadPerf || []).push({ name: 'downloads-done', t: performance.now() });
+			return engine.startGame({});
+		}).then(() => {
+			(window.loadPerf = window.loadPerf || []).push({ name: 'engine-started', t: performance.now() });
+			hideLoadingScreen();
+		}, displayFailureNotice);
 	}
 }());
 		</script>
