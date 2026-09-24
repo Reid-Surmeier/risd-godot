@@ -133,7 +133,7 @@ func _ready() -> void:
 		desktop.add_child(global_chatroom)
 	var reference := CollectionPage.monet_reference()
 	if reference.ok:
-		reference_art = reference.value
+		reference_art = _framed(reference.value)
 		reference_panel.add_child(reference_art)
 		reference_list.visible = false
 	reference_panel.name = "saved-reference-window"
@@ -202,6 +202,52 @@ func _fit() -> void:
 		reference_art.position = Vector2(8, 8)
 		reference_art.size = reference_panel.size - Vector2(16, 16)
 	_place(tldraw_controls, Rect2(420, 35, 310, 178) if anri_prototype else Rect2(90, 70, 250, 184))
+
+
+## The painting in the owner's gold frame: the Muse cleanup of the owner's frame screenshot
+## (image-work/renaissance-frame-lowpoly-empty-v1), its opening keyed out, as a nine-patch whose
+## opening takes the painting's proportions. Left-aligned in the panel so it shows beside the book.
+const GOLD_FRAME := ROOT + "assets/gold-frame/frame.png"
+const GOLD_FRAME_MARGINS := [143, 130, 139, 130] # band widths in the texture's pixels (605x732)
+
+func _framed(painting: TextureRect) -> Control:
+	var atlas: AtlasTexture = painting.texture
+	atlas.region = atlas.region.grow(-24) # drop the collection card's white mat
+	painting.stretch_mode = TextureRect.STRETCH_SCALE
+	var frame := NinePatchRect.new()
+	frame.name = "gold-frame"
+	frame.texture = load(GOLD_FRAME)
+	frame.patch_margin_left = GOLD_FRAME_MARGINS[0]
+	frame.patch_margin_top = GOLD_FRAME_MARGINS[1]
+	frame.patch_margin_right = GOLD_FRAME_MARGINS[2]
+	frame.patch_margin_bottom = GOLD_FRAME_MARGINS[3]
+	frame.draw_center = false
+	frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var holder := Control.new()
+	holder.name = "framed-reference"
+	holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	holder.add_child(painting)
+	holder.add_child(frame)
+	holder.resized.connect(func() -> void:
+		# Fit the height, then shrink to the gap left of the book window if it is wider.
+		var art := _framed_size(holder.size.y, atlas.region.size)
+		var fit := minf(1.0, (BOOK_SLOT.position.x - REFERENCE_SLOT.position.x - 16.0) / art.x)
+		var k := holder.size.y * fit / frame.texture.get_size().y
+		var near := Vector2(GOLD_FRAME_MARGINS[0], GOLD_FRAME_MARGINS[1]) * k
+		var bands := near + Vector2(GOLD_FRAME_MARGINS[2], GOLD_FRAME_MARGINS[3]) * k
+		var opening := art * fit - bands
+		painting.position = near
+		painting.size = opening
+		frame.scale = Vector2(k, k)
+		frame.size = (opening + bands) / k)
+	return holder
+
+
+## The framed painting's size at height h: bands scale with h, the opening keeps the painting's shape.
+func _framed_size(h: float, painting: Vector2) -> Vector2:
+	var k := h / 732.0
+	var bands := Vector2(GOLD_FRAME_MARGINS[0] + GOLD_FRAME_MARGINS[2], GOLD_FRAME_MARGINS[1] + GOLD_FRAME_MARGINS[3]) * k
+	return Vector2((h - bands.y) * painting.x / painting.y + bands.x, h)
 
 
 func _reference_style(color: Color) -> StyleBoxFlat:
