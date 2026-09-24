@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-190840cb03ae51b75fa6",
+  "summary": "Edit this pixel-art mouse pointer. Recolor only the arrow's body from white to a bright sky blue (#5CC8F5), with its bevel along the lower-right edges in a deeper blue (#2E8FD0) and the small highlight streaks in a very pale blue (#C9F0FF). Keep the exact same arrow shape, the same pixels, the same black one-pixel outline and the same flat magenta #FF00FF background. Change nothing else.\n",
+  "procedureId": "muse-190840cb03ae51b75fa6",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "references/cursor-white.png",
+      "sha256": "20b5c25516b152d50f952d626ca1456291a8fe309c7facc4161de858e46c107b",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "image-work/cursor-blue-recipe.json",
+      "sha256": "190840cb03ae51b75fa6e99e1a26120eebb58fb8bc6973376857c17a5d226e9b"
+    },
+    {
+      "applicationPath": "image-work/cursor-blue-preflight.json",
+      "sha256": "f482aadd671f1d8540606d2b519698b13332512c033186b43b622c45457b65a3"
+    },
+    {
+      "applicationPath": "image-work/cursor-blue-prompt.txt",
+      "sha256": "70bee1d3778802e470063b17bde9b2491210e5cdaebe22065de0ffa71bc9950c"
+    }
+  ]
+}

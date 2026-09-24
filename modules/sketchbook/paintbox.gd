@@ -192,7 +192,7 @@ func _process(delta: float) -> void:
 	if next_hovering != hovering:
 		hovering = next_hovering
 		brush_cursor.visible = hovering
-		Input.set_custom_mouse_cursor(_blank_cursor if hovering else null)
+		Input.set_custom_mouse_cursor(_blank_cursor if hovering else load("res://assets/cursor/arrow.png"))
 		pointer_changed.emit()
 		state_changed.emit()
 	if hovering:

@@ -162,7 +162,7 @@ func _sync_brush_rest() -> void:
 func _on_visibility_changed() -> void:
 	if is_visible_in_tree():
 		return
-	Input.set_custom_mouse_cursor(null)
+	Input.set_custom_mouse_cursor(load("res://assets/cursor/arrow.png"))
 	if paintbox.hovering:
 		paintbox.hovering = false
 		paintbox.brush_cursor.visible = false
