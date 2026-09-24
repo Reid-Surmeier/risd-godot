@@ -6,10 +6,10 @@
 ## White only (owner's call): on white paper the light has nothing to brighten, by design.
 extends RefCounted
 
-const REACH_PX := 56.0  # how far the light spreads past the edge, in screen pixels
+const REACH_PX := 90.0  # how far the light spreads past the edge, in screen pixels
 const DOWNSAMPLE := 4  # the blur runs on a quarter-size silhouette; the light is scaled back up smoothly
-const GAIN := 1.7  # the blurred silhouette's edge sits near 0.5; this brings the light at the edge near full
-const INNER := 0.25  # how much of the light also falls on the control itself
+const GAIN := 3.2  # extreme (owner's variation): full white well past the edge before it falls off
+const INNER := 0.0  # none on the control itself: only the area around it lights up
 const FADE_IN := 0.22
 const FADE_OUT := 0.45
 const ARROW := "res://assets/cursor/arrow.png"
@@ -162,7 +162,7 @@ static func _silhouette(target: Control, s: float) -> Image:
 
 
 ## White light: the silhouette's alpha blurred (three box passes each way, near a gaussian) and brightened;
-## over the control itself only INNER of it, so the button is lit but still reads.
+## cut out where the control draws (INNER of it left there), so the control keeps its own look.
 static func _glow(mask: Image) -> Image:
 	var full := mask.get_size()
 	var small := mask.duplicate() as Image
