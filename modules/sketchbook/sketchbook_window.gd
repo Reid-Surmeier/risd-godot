@@ -23,12 +23,23 @@ const MIN_SIZE := Vector2(420, 380)
 # The drawable page interior inside the book image (fractions, from the web prototype).
 const HITBOX_INSET := Rect2(0.03, 0.043, 0.94, 0.911)
 const TURN_SECONDS := 0.52
+# The Muse gold frame around the book (image-work/renaissance-frame-lowpoly-*), a nine-patch with its
+# opening keyed out. Margins are the band widths in texture pixels; the frame draws at half size.
+# ?frame=thick shows the full-width frame, ?frame=thin-exact the original ornament re-laid at half width.
+const GOLD_FRAMES := {
+	"thin": {"margins": [74, 71, 73, 76]},
+	"thick": {"margins": [143, 130, 139, 130]},
+	"thin-exact": {"margins": [72, 65, 68, 61]},
+}
+const GOLD_FRAME_SCALE := 0.5
 var turn_seconds := TURN_SECONDS # QA can slow it (?turn-seconds=) to photograph frames
 
 var spread := 1
 var title_bar: Control
 var resize_handle: Control
 var book: TextureRect
+var gold_frame: NinePatchRect
+var _gold_margins: Array = GOLD_FRAMES["thin"]["margins"]
 var previous_button: TextureButton
 var next_button: TextureButton
 var surface: SketchbookDrawingSurface
@@ -70,6 +81,7 @@ func _ready() -> void:
 	book.texture_filter = TEXTURE_FILTER_LINEAR
 	book.mouse_filter = MOUSE_FILTER_IGNORE
 	add_child(book)
+	_build_gold_frame()
 	surface = SketchbookDrawingSurface.new()
 	surface.name = "drawing-surface"
 	surface.strokes_changed.connect(layout_changed.emit)
@@ -110,6 +122,27 @@ func _ready() -> void:
 	resized.connect(_layout)
 	show_spread(1)
 	_layout()
+
+func _build_gold_frame() -> void:
+	var kind := "thin"
+	if OS.has_feature("web"):
+		var asked = JavaScriptBridge.eval("new URLSearchParams(location.search).get('frame') || ''")
+		if asked is String and GOLD_FRAMES.has(asked):
+			kind = asked
+	_gold_margins = GOLD_FRAMES[kind]["margins"]
+	gold_frame = NinePatchRect.new()
+	gold_frame.name = "gold-frame"
+	gold_frame.texture = load("res://modules/sketchbook/assets/gold-frame/frame-%s.png" % kind)
+	gold_frame.patch_margin_left = _gold_margins[0]
+	gold_frame.patch_margin_top = _gold_margins[1]
+	gold_frame.patch_margin_right = _gold_margins[2]
+	gold_frame.patch_margin_bottom = _gold_margins[3]
+	gold_frame.axis_stretch_horizontal = NinePatchRect.AXIS_STRETCH_MODE_TILE_FIT
+	gold_frame.axis_stretch_vertical = NinePatchRect.AXIS_STRETCH_MODE_TILE_FIT
+	gold_frame.draw_center = false
+	gold_frame.scale = Vector2.ONE * GOLD_FRAME_SCALE
+	gold_frame.mouse_filter = MOUSE_FILTER_IGNORE
+	add_child(gold_frame)
 
 func _arrow(node_name: String, kind: String) -> TextureButton:
 	var button := TextureButton.new()
@@ -280,9 +313,13 @@ func _layout() -> void:
 	# spread's proportion (owner request, 2026-09-13); the ink scales with the page.
 	var content := Rect2(FRAME_SIDE + CONTENT_PAD, FRAME_TOP + CONTENT_PAD,
 		w - 2 * (FRAME_SIDE + CONTENT_PAD), h - FRAME_TOP - FRAME_BOTTOM - FOOTER - 2 * CONTENT_PAD)
-	var stage := content.size
+	# The gold frame fills the content area and the book sits in its opening.
+	gold_frame.position = content.position
+	gold_frame.size = content.size / GOLD_FRAME_SCALE
+	var inset := Vector2(_gold_margins[0], _gold_margins[1]) * GOLD_FRAME_SCALE
+	var stage := content.size - inset - Vector2(_gold_margins[2], _gold_margins[3]) * GOLD_FRAME_SCALE
 	book.size = stage
-	book.position = content.position
+	book.position = content.position + inset
 	var page := page_rect()
 	surface.position = page.position
 	surface.size = page.size
