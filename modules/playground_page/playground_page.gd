@@ -20,7 +20,6 @@ const ROOT := "res://modules/playground_page/"
 const WEBSURFER_ASSET := ROOT + "assets/websurfer-window.webp"
 const SKETCHBOOK_ASSET := ROOT + "assets/sketchbook-journal.png"
 const FENGSHUI_ASSET := ROOT + "assets/fengshui.png"
-const ARENA_URL := "https://www.are.na/reid-surmeier/blocks"
 # The owner's Feng Shui layout (2026-09-23, docs/evidence/playground-fengshui/layout-reference.png): its
 # windows measured in that picture's px on a REF page, tidied to a 24 px margin and even gaps. The
 # right column anchors right, the chat window bottom; the Feng Shui window takes the rest. Options,
@@ -164,7 +163,7 @@ func _ready() -> void:
 		add_child(fengshui)
 		interactive_windows.append(fengshui)
 		if OS.has_feature("web"):
-			JavaScriptBridge.eval(ARENA_JS.replace("ARENA_URL", ARENA_URL))
+			JavaScriptBridge.eval(preload("res://modules/playground_page/arena_embed.gd").script())
 		visibility_changed.connect(_place_arena)
 		tree_exiting.connect(func() -> void:
 			if OS.has_feature("web"):
@@ -718,8 +717,8 @@ func _draw_fengshui(window: Control, texture: Texture2D) -> void:
 	window.draw_rect(Rect2(FS_CLIENT_LEFT * k, middle.position.y, (FS_CLIENT_RIGHT - FS_CLIENT_LEFT) * k, middle.size.y), Color.WHITE)
 
 
-## The web build lays the live Are.na page (an iframe over the canvas) on the Feng Shui client area,
-## cut away wherever a window above the Feng Shui window covers it; hidden with the Page.
+## The web build lays the owner's Are.na profile (arena_embed.gd, HTML over the canvas) on the Feng
+## Shui client area, cut away wherever a window above the Feng Shui window covers it; hidden with the Page.
 func _place_arena() -> void:
 	if not OS.has_feature("web") or fengshui == null:
 		return
@@ -778,61 +777,6 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	ticks += 1
 	_place_arena()
-
-
-# window.playgroundArena(placement | null): positions the one Are.na iframe in page px. The canvas
-# shows the view through crt_display.gd's barrel warp (published as window.crtQaState), so each
-# corner is carried through the inverse of that warp. Narrower than 1200 px, the page is laid out at
-# 1200 px and scaled down, so Are.na keeps its desktop layout (as in the owner's picture). Covered parts are cut out of a clip path made
-# of the uncovered cells of a grid on the holes' edges; during a window drag it ignores the pointer.
-const ARENA_JS := """
-window.playgroundArena = (() => {
-	let frame = null;
-	return (p) => {
-		if (!p) { if (frame) frame.style.display = 'none'; return; }
-		if (!frame) {
-			frame = document.createElement('iframe');
-			frame.id = 'playground-arena';
-			frame.title = 'Are.na';
-			frame.src = 'ARENA_URL';
-			frame.style.cssText = 'position:fixed;border:0;margin:0;padding:0;background:#fff;z-index:1';
-			document.body.appendChild(frame);
-		}
-		const box = document.getElementById('canvas').getBoundingClientRect();
-		const crt = window.crtQaState, [vw, vh] = p.view;
-		const warp = (x, y) => {
-			if (!crt || !crt.enabled) return [x, y];
-			const a = vh / vw;
-			const u = (x - 0.5) / crt.screen_scale / a, v = (y - 0.5) / crt.screen_scale;
-			const k = 1 - (u * u + v * v - 0.25) * crt.curve;
-			return [u / k * a + 0.5, v / k + 0.5];
-		};
-		const toPage = (x, y) => {
-			const t = [x / vw, y / vh], d = [t[0], t[1]];
-			for (let i = 0; i < 8; i++) { const s = warp(d[0], d[1]); d[0] += t[0] - s[0]; d[1] += t[1] - s[1]; }
-			return [box.left + d[0] * box.width, box.top + d[1] * box.height];
-		};
-		const [x0, y0] = toPage(p.rect[0], p.rect[1]);
-		const [x1, y1] = toPage(p.rect[0] + p.rect[2], p.rect[1] + p.rect[3]);
-		const z = Math.min(1, (x1 - x0) / 1200), w = (x1 - x0) / z, h = (y1 - y0) / z;
-		const holes = p.holes.map((r) => {
-			const [a, b] = toPage(r[0], r[1]), [c, d] = toPage(r[0] + r[2], r[1] + r[3]);
-			return [Math.max(0, (a - x0) / z), Math.max(0, (b - y0) / z), Math.min(w, (c - x0) / z), Math.min(h, (d - y0) / z)];
-		}).filter((r) => r[0] < r[2] && r[1] < r[3]);
-		const xs = [...new Set([0, w, ...holes.flatMap((r) => [r[0], r[2]])])].sort((a, b) => a - b);
-		const ys = [...new Set([0, h, ...holes.flatMap((r) => [r[1], r[3]])])].sort((a, b) => a - b);
-		let path = '';
-		for (let i = 0; i + 1 < xs.length; i++) for (let j = 0; j + 1 < ys.length; j++) {
-			const cx = (xs[i] + xs[i + 1]) / 2, cy = (ys[j] + ys[j + 1]) / 2;
-			if (!holes.some((r) => cx > r[0] && cx < r[2] && cy > r[1] && cy < r[3]))
-				path += `M${xs[i]} ${ys[j]}H${xs[i + 1]}V${ys[j + 1]}H${xs[i]}Z`;
-		}
-		Object.assign(frame.style, {display: 'block', left: x0 + 'px', top: y0 + 'px', width: w + 'px', height: h + 'px',
-			transformOrigin: '0 0', transform: `scale(${z})`,
-			clipPath: holes.length ? `path('${path || 'M0 0'}')` : '', pointerEvents: p.drag ? 'none' : 'auto'});
-	};
-})();
-"""
 
 
 func state() -> Dictionary:
