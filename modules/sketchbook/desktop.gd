@@ -58,6 +58,8 @@ var tldraw_controls: Control
 var resizing_reference := false
 var reference_resize_origin := Vector2.ZERO
 var reference_resize_size := Vector2.ZERO
+var reference_height := 0.0 # the framed painting's height once the user resizes it; 0 = fit the gap
+var reference_shape := Vector2.ONE # the framed painting's own width x height
 var saved_ids: Array = []
 var selected_reference := ""
 var storage_status := "loading"
@@ -140,7 +142,8 @@ func _ready() -> void:
 	reference_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	reference_panel.clip_contents = true
 	reference_panel.gui_input.connect(func(event): _reference_input(event))
-	reference_panel.add_theme_stylebox_override("panel", _reference_style(Color("eef5fb")))
+	# The framed painting is the window itself: no panel behind it.
+	reference_panel.add_theme_stylebox_override("panel", StyleBoxEmpty.new() if reference_art != null else _reference_style(Color("eef5fb")))
 	desktop.add_child(reference_panel)
 	reference_list.add_theme_constant_override("separation", 10)
 	reference_panel.add_child(reference_list)
@@ -199,20 +202,21 @@ func _fit() -> void:
 	reference_list.position = Vector2(12, 12)
 	reference_list.size = reference_panel.size - Vector2(24, 24)
 	if reference_art != null:
-		reference_art.position = Vector2(8, 8)
-		reference_art.size = reference_panel.size - Vector2(16, 16)
+		reference_panel.size = _framed_size(_reference_height())
 	_place(tldraw_controls, Rect2(420, 35, 310, 178) if anri_prototype else Rect2(90, 70, 250, 184))
 
 
 ## The painting in the owner's gold frame: the Muse cleanup of the owner's frame screenshot
 ## (image-work/renaissance-frame-lowpoly-empty-v1), its opening keyed out, as a nine-patch whose
-## opening takes the painting's proportions. Left-aligned in the panel so it shows beside the book.
+## opening takes the painting's proportions. The panel is exactly the framed painting; its corner
+## resizes it with the aspect locked.
 const GOLD_FRAME := ROOT + "assets/gold-frame/frame.png"
 const GOLD_FRAME_MARGINS := [143, 130, 139, 130] # band widths in the texture's pixels (605x732)
 
 func _framed(painting: TextureRect) -> Control:
 	var atlas: AtlasTexture = painting.texture
 	atlas.region = atlas.region.grow(-24) # drop the collection card's white mat
+	reference_shape = atlas.region.size
 	painting.stretch_mode = TextureRect.STRETCH_SCALE
 	var frame := NinePatchRect.new()
 	frame.name = "gold-frame"
@@ -229,13 +233,10 @@ func _framed(painting: TextureRect) -> Control:
 	holder.add_child(painting)
 	holder.add_child(frame)
 	holder.resized.connect(func() -> void:
-		# Fit the height, then shrink to the gap left of the book window if it is wider.
-		var art := _framed_size(holder.size.y, atlas.region.size)
-		var fit := minf(1.0, (BOOK_SLOT.position.x - REFERENCE_SLOT.position.x - 16.0) / art.x)
-		var k := holder.size.y * fit / frame.texture.get_size().y
+		var k := holder.size.y / frame.texture.get_size().y
 		var near := Vector2(GOLD_FRAME_MARGINS[0], GOLD_FRAME_MARGINS[1]) * k
 		var bands := near + Vector2(GOLD_FRAME_MARGINS[2], GOLD_FRAME_MARGINS[3]) * k
-		var opening := art * fit - bands
+		var opening := _framed_size(holder.size.y) - bands
 		painting.position = near
 		painting.size = opening
 		frame.scale = Vector2(k, k)
@@ -244,10 +245,18 @@ func _framed(painting: TextureRect) -> Control:
 
 
 ## The framed painting's size at height h: bands scale with h, the opening keeps the painting's shape.
-func _framed_size(h: float, painting: Vector2) -> Vector2:
+func _framed_size(h: float) -> Vector2:
 	var k := h / 732.0
 	var bands := Vector2(GOLD_FRAME_MARGINS[0] + GOLD_FRAME_MARGINS[2], GOLD_FRAME_MARGINS[1] + GOLD_FRAME_MARGINS[3]) * k
-	return Vector2((h - bands.y) * painting.x / painting.y + bands.x, h)
+	return Vector2((h - bands.y) * reference_shape.x / reference_shape.y + bands.x, h)
+
+
+## Until the user resizes it, the framed painting fits the gap left of the book window.
+func _reference_height() -> float:
+	if reference_height > 0.0:
+		return reference_height
+	var gap := BOOK_SLOT.position.x - REFERENCE_SLOT.position.x - 16.0
+	return REFERENCE_SLOT.size.y * minf(1.0, gap / _framed_size(REFERENCE_SLOT.size.y).x)
 
 
 func _reference_style(color: Color) -> StyleBoxFlat:
@@ -264,6 +273,7 @@ func _reference_input(event: InputEvent) -> void:
 		resizing_reference = true
 		reference_resize_origin = desktop.make_canvas_position_local(event.global_position)
 		reference_resize_size = reference_panel.size
+		desktop.move_child(reference_panel, -1)
 		reference_panel.accept_event()
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_UP:
@@ -412,11 +422,15 @@ func _input(event: InputEvent) -> void:
 	if resizing_reference:
 		if event is InputEventMouseMotion:
 			var delta := desktop.make_canvas_position_local(event.position) - reference_resize_origin
-			reference_panel.size = (reference_resize_size + delta).max(Vector2(240, 160))
-			reference_list.size = reference_panel.size - Vector2(24, 24)
 			if reference_art != null:
-				reference_art.size = reference_panel.size - Vector2(16, 16)
+				# Aspect locked: follow whichever axis the pointer pulled further.
+				var grow := maxf(delta.y, delta.x * reference_resize_size.y / reference_resize_size.x)
+				reference_height = maxf(160.0, reference_resize_size.y + grow)
+				reference_panel.size = _framed_size(reference_height)
 				_reference_zoom(1.0)
+			else:
+				reference_panel.size = (reference_resize_size + delta).max(Vector2(240, 160))
+				reference_list.size = reference_panel.size - Vector2(24, 24)
 			get_viewport().set_input_as_handled()
 		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			resizing_reference = false
