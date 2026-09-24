@@ -27,6 +27,9 @@ func _hover(out_dir: String, target: Control, name: String) -> void:
 	await _move(_centre_of(target))
 	await create_timer(0.35).timeout
 	await _shot(out_dir, name + "-hover.png")
+	var halo: TextureRect = target.get_meta("hover_glow")
+	if halo.texture != null:
+		halo.texture.get_image().save_png(out_dir.path_join(name + "-light.png"))
 	_log.append({"event": "hover", "what": name, "rect": str(target.get_global_rect()),
 			"glow_visible": (target.get_meta("hover_glow") as Control).visible})
 
@@ -53,8 +56,9 @@ func _initialize() -> void:
 	var buttons := shell.find_children("*", "Button", true, false).filter(func(b): return b.is_visible_in_tree() and b.text != "")
 	if not buttons.is_empty():
 		await _hover(out_dir, buttons[0], "02-control-button")
-	var tab: Control = shell.find_child("TabStrip", true, false).get_child(0).get_parent().find_children("Tab*", "", false, false)[3]
-	await _hover(out_dir, tab, "03-tab")
+	var strip: Control = shell.find_child("TabStrip", true, false)
+	await _hover(out_dir, strip.find_children("Tab*", "", false, false)[3], "03-tab")
+	await _hover(out_dir, strip.find_child("NewTabStub", true, false), "04-new-tab")
 	var f := FileAccess.open(out_dir.path_join("report.json"), FileAccess.WRITE)
 	f.store_string(JSON.stringify(_log, "  "))
 	quit()
