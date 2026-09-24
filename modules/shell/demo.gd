@@ -50,7 +50,7 @@ func _ready() -> void:
 		page_deps.collection_data = data
 		page_deps.image_fetch = http.fetch_image
 		page_deps.show_websurfer = true
-		page_deps.show_gallery = true
+		page_deps.show_fengshui = true
 		page_deps.show_sketchbook = true
 		return PlaygroundPage.create(page_deps)
 	var created := Shell.create({"map": Atlas, "sketchbook": sketchbook_factory, "3d_viewer": SculptureViewer,

@@ -19,6 +19,27 @@ const Data := preload("res://modules/collection_data/interface.gd")
 const ROOT := "res://modules/playground_page/"
 const WEBSURFER_ASSET := ROOT + "assets/websurfer-window.webp"
 const SKETCHBOOK_ASSET := ROOT + "assets/sketchbook-journal.png"
+const FENGSHUI_ASSET := ROOT + "assets/fengshui.png"
+const ARENA_URL := "https://www.are.na/reid-surmeier/blocks"
+# The owner's Feng Shui layout (2026-09-23, docs/evidence/playground-fengshui/layout-reference.png): its
+# windows measured in that picture's px on a REF page, tidied to a 24 px margin and even gaps. The
+# right column anchors right, the chat window bottom; the Feng Shui window takes the rest. Options,
+# filters, trade and PostPet are hidden: in the picture they only peeked out from under the others.
+const REF := Vector2(1830, 1275)
+const REF_FENGSHUI_RIGHT := 1044.0
+const REF_JOURNAL := Rect2(1060, 24, 552, 419)
+const REF_WEBSURFER := Rect2(1070, 453, 577, 502)
+const REF_PHONE := Rect2(1488, 24, 318, 635)
+const REF_CHAT := Rect2(1072, 1033, 471, 218)
+# assets/fengshui.png rows: title, menu and toolbar above FS_TOP, the element panels from FS_BOTTOM.
+# Between them only the side borders of row FS_ROW are drawn, taller, and the Are.na page fills the
+# client columns FS_CLIENT_LEFT..FS_CLIENT_RIGHT. FS_TITLE rows drag the window.
+const FS_TOP := 134.0
+const FS_BOTTOM := 844.0
+const FS_ROW := 216.0
+const FS_CLIENT_LEFT := 14.0
+const FS_CLIENT_RIGHT := 1394.0
+const FS_TITLE := 50.0
 const DESKTOP := Vector2(2171, 1185)
 const MARGIN := 24.0
 # The PostPet picture's bands (source rows) and the column each band stretches at: a column where the
@@ -65,6 +86,9 @@ var show_gallery := false
 var show_sketchbook := false
 var websurfer: Control
 var sketchbook: Control
+var show_fengshui := false
+var fengshui: Control
+var arena_placed := ""
 var interactive_windows: Array[Control] = []
 var saved_scroll := ScrollContainer.new()
 var saved_query := LineEdit.new()
@@ -80,6 +104,8 @@ static func create(deps: Dictionary) -> Dictionary:
 		return Errors.err(Errors.ASSET_MISSING, WEBSURFER_ASSET)
 	if deps.get("show_sketchbook", false) and not ResourceLoader.exists(SKETCHBOOK_ASSET):
 		return Errors.err(Errors.ASSET_MISSING, SKETCHBOOK_ASSET)
+	if deps.get("show_fengshui", false) and not ResourceLoader.exists(FENGSHUI_ASSET):
+		return Errors.err(Errors.ASSET_MISSING, FENGSHUI_ASSET)
 	var page = load(ROOT + "playground_page.gd").new()
 	page.key = deps.get("key", "")
 	page.data_handle = deps.collection_data
@@ -87,6 +113,7 @@ static func create(deps: Dictionary) -> Dictionary:
 	page.show_websurfer = deps.get("show_websurfer", false)
 	page.show_gallery = deps.get("show_gallery", false)
 	page.show_sketchbook = deps.get("show_sketchbook", false)
+	page.show_fengshui = deps.get("show_fengshui", false)
 	page.name = "PlaygroundPage"
 	page.color = Color.WHITE
 	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -124,6 +151,24 @@ func _ready() -> void:
 			blank.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			window.add_child(blank)
 	interactive_windows.assign(windows)
+	if show_fengshui:
+		for index in 4:  # postpet, options, filters, trade
+			windows[index].visible = false
+			interactive_windows.erase(windows[index])
+		var texture: Texture2D = load(FENGSHUI_ASSET)
+		fengshui = Control.new()
+		fengshui.name = "FengShui"
+		fengshui.mouse_filter = Control.MOUSE_FILTER_STOP
+		fengshui.set_meta("native", texture.get_size())
+		fengshui.draw.connect(_draw_fengshui.bind(fengshui, texture))
+		add_child(fengshui)
+		interactive_windows.append(fengshui)
+		if OS.has_feature("web"):
+			JavaScriptBridge.eval(ARENA_JS.replace("ARENA_URL", ARENA_URL))
+		visibility_changed.connect(_place_arena)
+		tree_exiting.connect(func() -> void:
+			if OS.has_feature("web"):
+				JavaScriptBridge.eval("window.playgroundArena(null)"))
 	if show_websurfer:
 		websurfer = load(ROOT + "websurfer_window.gd").new()
 		websurfer.name = "WebSurfer"
@@ -174,22 +219,15 @@ func _fit() -> void:
 		var window := windows[index]
 		var native: Vector2 = window.get_meta("native") * float(entry[3])  # desktop px
 		var at: Vector2 = entry[2]
-		window.set_meta("drag_height", entry[4] * s if entry[4] > 0.0 else INF)
+		var position_now := at * s
 		match entry[5]:
 			"left":
-				window.position = at * s
 				right_of_postpet = at.x + native.x
 			"right":
-				window.position = Vector2(size.x - (DESKTOP.x - at.x) * s, at.y * s)
+				position_now = Vector2(size.x - (DESKTOP.x - at.x) * s, at.y * s)
 			"right_bottom":
-				window.position = Vector2(size.x - (DESKTOP.x - at.x) * s, size.y - (DESKTOP.y - at.y) * s)
-		window.size = native * s
-		var blank := window.get_node_or_null("ClearedInterior") as ColorRect
-		if blank != null:
-			var inset := maxf(2.0, float(entry[6]) * float(entry[3]) * s)
-			var top := float(window.get_meta("drag_height"))
-			blank.position = Vector2(inset, top)
-			blank.size = (window.size - Vector2(inset * 2.0, top + inset)).max(Vector2.ZERO)
+				position_now = Vector2(size.x - (DESKTOP.x - at.x) * s, size.y - (DESKTOP.y - at.y) * s)
+		_place_window(index, Rect2(position_now, native * s))
 	# the main window takes the leftover: to the middle column on the right, to the margin at the bottom
 	var postpet := windows[0]
 	var right := size.x - (DESKTOP.x - right_of_postpet) * s
@@ -212,6 +250,9 @@ func _fit() -> void:
 			_layout_gallery_overlay()
 	else:
 		saved_scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	if show_fengshui:
+		_fit_fengshui()
+		return
 	if websurfer != null:
 		var websurfer_height := minf(780.0, size.y * 0.78)
 		websurfer.size = Vector2(websurfer_height * 1616.0 / 1407.0, websurfer_height)
@@ -222,8 +263,55 @@ func _fit() -> void:
 		sketchbook.position = Vector2(size.x - sketchbook.size.x - MARGIN * s, size.y - sketchbook.size.y - MARGIN * s)
 
 
+## Window `index` of WINDOWS at `rect`, with its title height and cleared interior scaled to match.
+func _place_window(index: int, rect: Rect2) -> void:
+	var entry: Array = WINDOWS[index]
+	var window := windows[index]
+	var k: float = rect.size.x / Vector2(window.get_meta("native")).x  # page px per source px
+	window.position = rect.position
+	window.size = rect.size
+	window.set_meta("drag_height", entry[4] / entry[3] * k if entry[4] > 0.0 else INF)
+	var blank := window.get_node_or_null("ClearedInterior") as ColorRect
+	if blank != null:
+		var inset := maxf(2.0, float(entry[6]) * k)
+		var top := float(window.get_meta("drag_height"))
+		blank.position = Vector2(inset, top)
+		blank.size = (window.size - Vector2(inset * 2.0, top + inset)).max(Vector2.ZERO)
+
+
+## The Feng Shui layout: REF scaled by s, the right column and phone anchored right, the chat window
+## bottom; the Feng Shui window runs from the margin to the right column and to the bottom margin.
+func _fit_fengshui() -> void:
+	var s := minf(size.x / REF.x, size.y / REF.y)
+	var right := func(rect: Rect2) -> Rect2:
+		return Rect2(size.x - (REF.x - rect.position.x) * s, rect.position.y * s, rect.size.x * s, rect.size.y * s)
+	_place_window(5, right.call(REF_PHONE))
+	var chat: Rect2 = right.call(REF_CHAT)
+	chat.position.y = size.y - (REF.y - REF_CHAT.position.y) * s
+	_place_window(4, chat)
+	if sketchbook != null:
+		var journal: Rect2 = right.call(REF_JOURNAL)
+		sketchbook.position = journal.position
+		sketchbook.size = journal.size
+	if websurfer != null:
+		var surfer: Rect2 = right.call(REF_WEBSURFER)
+		websurfer.position = surfer.position
+		websurfer.size = surfer.size
+	var margin := REF_JOURNAL.position.y * s
+	var available := Vector2(size.x - (REF.x - REF_FENGSHUI_RIGHT) * s - margin, size.y - margin * 2.0)
+	var source: Vector2 = fengshui.get_meta("native")
+	# uniform art scale; the picture's bands never take more than 60% of the height
+	var k := minf(available.x / source.x, available.y * 0.6 / (FS_TOP + source.y - FS_BOTTOM))
+	fengshui.position = Vector2(margin, margin)
+	fengshui.size = Vector2(source.x * k, available.y)
+	fengshui.set_meta("drag_height", FS_TITLE * k)
+	fengshui.set_meta("embed", Rect2(FS_CLIENT_LEFT * k, FS_TOP * k, (FS_CLIENT_RIGHT - FS_CLIENT_LEFT) * k,
+			fengshui.size.y - (FS_TOP + source.y - FS_BOTTOM) * k))
+	fengshui.queue_redraw()
+
+
 func _refresh_saved() -> void:
-	if not is_visible_in_tree() or data_handle == null:
+	if not is_visible_in_tree() or data_handle == null or show_fengshui:
 		return
 	if show_gallery:
 		_refresh_gallery()
@@ -615,6 +703,46 @@ func _draw_postpet(window: Control, texture: Texture2D) -> void:
 		dy += h
 
 
+## The Feng Shui picture: its top and bottom bands at the window's width, and between them the side
+## borders of one row drawn taller, around the white client area the Are.na page covers.
+func _draw_fengshui(window: Control, texture: Texture2D) -> void:
+	var src: Vector2 = texture.get_size()
+	var k := window.size.x / src.x
+	var bottom := (src.y - FS_BOTTOM) * k
+	var middle := Rect2(0, FS_TOP * k, window.size.x, window.size.y - bottom - FS_TOP * k)
+	window.draw_texture_rect_region(texture, Rect2(0, 0, window.size.x, FS_TOP * k), Rect2(0, 0, src.x, FS_TOP))
+	window.draw_texture_rect_region(texture, Rect2(0, middle.end.y, window.size.x, bottom), Rect2(0, FS_BOTTOM, src.x, src.y - FS_BOTTOM))
+	window.draw_texture_rect_region(texture, Rect2(0, middle.position.y, FS_CLIENT_LEFT * k, middle.size.y), Rect2(0, FS_ROW, FS_CLIENT_LEFT, 1))
+	window.draw_texture_rect_region(texture, Rect2(FS_CLIENT_RIGHT * k, middle.position.y, window.size.x - FS_CLIENT_RIGHT * k, middle.size.y),
+			Rect2(FS_CLIENT_RIGHT, FS_ROW, src.x - FS_CLIENT_RIGHT, 1))
+	window.draw_rect(Rect2(FS_CLIENT_LEFT * k, middle.position.y, (FS_CLIENT_RIGHT - FS_CLIENT_LEFT) * k, middle.size.y), Color.WHITE)
+
+
+## The web build lays the live Are.na page (an iframe over the canvas) on the Feng Shui client area,
+## cut away wherever a window above the Feng Shui window covers it; hidden with the Page.
+func _place_arena() -> void:
+	if not OS.has_feature("web") or fengshui == null:
+		return
+	var placement := "null"
+	if is_visible_in_tree():
+		var to_view := get_global_transform_with_canvas()
+		var embed: Rect2 = fengshui.get_meta("embed", Rect2())
+		embed.position += fengshui.position
+		var holes := []
+		for window in interactive_windows:
+			if window.visible and window.get_index() > fengshui.get_index() and window.get_rect().intersects(embed):
+				holes.append(_rect_array(to_view * window.get_rect()))
+		placement = JSON.stringify({"rect": _rect_array(to_view * embed), "view": [get_viewport_rect().size.x, get_viewport_rect().size.y],
+				"holes": holes, "drag": not action.is_empty()})
+	if placement != arena_placed:
+		arena_placed = placement
+		JavaScriptBridge.eval("window.playgroundArena(%s)" % placement)
+
+
+func _rect_array(rect: Rect2) -> Array:
+	return [rect.position.x, rect.position.y, rect.size.x, rect.size.y]
+
+
 ## A press raises the topmost window under the pointer; on its title bar it starts a drag.
 func _input(event: InputEvent) -> void:
 	inputs += 1
@@ -649,6 +777,62 @@ func _input(event: InputEvent) -> void:
 
 func _process(_delta: float) -> void:
 	ticks += 1
+	_place_arena()
+
+
+# window.playgroundArena(placement | null): positions the one Are.na iframe in page px. The canvas
+# shows the view through crt_display.gd's barrel warp (published as window.crtQaState), so each
+# corner is carried through the inverse of that warp. Narrower than 1200 px, the page is laid out at
+# 1200 px and scaled down, so Are.na keeps its desktop layout (as in the owner's picture). Covered parts are cut out of a clip path made
+# of the uncovered cells of a grid on the holes' edges; during a window drag it ignores the pointer.
+const ARENA_JS := """
+window.playgroundArena = (() => {
+	let frame = null;
+	return (p) => {
+		if (!p) { if (frame) frame.style.display = 'none'; return; }
+		if (!frame) {
+			frame = document.createElement('iframe');
+			frame.id = 'playground-arena';
+			frame.title = 'Are.na';
+			frame.src = 'ARENA_URL';
+			frame.style.cssText = 'position:fixed;border:0;margin:0;padding:0;background:#fff;z-index:1';
+			document.body.appendChild(frame);
+		}
+		const box = document.getElementById('canvas').getBoundingClientRect();
+		const crt = window.crtQaState, [vw, vh] = p.view;
+		const warp = (x, y) => {
+			if (!crt || !crt.enabled) return [x, y];
+			const a = vh / vw;
+			const u = (x - 0.5) / crt.screen_scale / a, v = (y - 0.5) / crt.screen_scale;
+			const k = 1 - (u * u + v * v - 0.25) * crt.curve;
+			return [u / k * a + 0.5, v / k + 0.5];
+		};
+		const toPage = (x, y) => {
+			const t = [x / vw, y / vh], d = [t[0], t[1]];
+			for (let i = 0; i < 8; i++) { const s = warp(d[0], d[1]); d[0] += t[0] - s[0]; d[1] += t[1] - s[1]; }
+			return [box.left + d[0] * box.width, box.top + d[1] * box.height];
+		};
+		const [x0, y0] = toPage(p.rect[0], p.rect[1]);
+		const [x1, y1] = toPage(p.rect[0] + p.rect[2], p.rect[1] + p.rect[3]);
+		const z = Math.min(1, (x1 - x0) / 1200), w = (x1 - x0) / z, h = (y1 - y0) / z;
+		const holes = p.holes.map((r) => {
+			const [a, b] = toPage(r[0], r[1]), [c, d] = toPage(r[0] + r[2], r[1] + r[3]);
+			return [Math.max(0, (a - x0) / z), Math.max(0, (b - y0) / z), Math.min(w, (c - x0) / z), Math.min(h, (d - y0) / z)];
+		}).filter((r) => r[0] < r[2] && r[1] < r[3]);
+		const xs = [...new Set([0, w, ...holes.flatMap((r) => [r[0], r[2]])])].sort((a, b) => a - b);
+		const ys = [...new Set([0, h, ...holes.flatMap((r) => [r[1], r[3]])])].sort((a, b) => a - b);
+		let path = '';
+		for (let i = 0; i + 1 < xs.length; i++) for (let j = 0; j + 1 < ys.length; j++) {
+			const cx = (xs[i] + xs[i + 1]) / 2, cy = (ys[j] + ys[j + 1]) / 2;
+			if (!holes.some((r) => cx > r[0] && cx < r[2] && cy > r[1] && cy < r[3]))
+				path += `M${xs[i]} ${ys[j]}H${xs[i + 1]}V${ys[j + 1]}H${xs[i]}Z`;
+		}
+		Object.assign(frame.style, {display: 'block', left: x0 + 'px', top: y0 + 'px', width: w + 'px', height: h + 'px',
+			transformOrigin: '0 0', transform: `scale(${z})`,
+			clipPath: holes.length ? `path('${path || 'M0 0'}')` : '', pointerEvents: p.drag ? 'none' : 'auto'});
+	};
+})();
+"""
 
 
 func state() -> Dictionary:

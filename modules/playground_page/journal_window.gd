@@ -241,8 +241,8 @@ func _layout_buttons() -> void:
 	var scale := size / SOURCE_SIZE
 	editor.position = CONTENT_RECT.position * scale
 	editor.size = CONTENT_RECT.size * scale
-	editor.add_theme_font_size_override("font_size", maxi(12, roundi(29.0 * scale.y)))
-	editor.add_theme_constant_override("line_spacing", maxi(3, roundi(9.0 * scale.y)))
+	editor.add_theme_font_size_override("font_size", maxi(9, roundi(29.0 * scale.y)))
+	editor.add_theme_constant_override("line_spacing", maxi(2, roundi(9.0 * scale.y)))
 	rail.position = RAIL_RECT.position * scale
 	rail.size = RAIL_RECT.size * scale
 	var list: VBoxContainer = rail.get_child(0)
@@ -256,8 +256,8 @@ func _layout_buttons() -> void:
 	face_paper.size = size
 	face_editor.position = (CONTENT_RECT.position - PAGE_RECT.position) * scale
 	face_editor.size = CONTENT_RECT.size * scale
-	face_editor.add_theme_font_size_override("font_size", maxi(12, roundi(29.0 * scale.y)))
-	face_editor.add_theme_constant_override("line_spacing", maxi(3, roundi(9.0 * scale.y)))
+	face_editor.add_theme_font_size_override("font_size", maxi(9, roundi(29.0 * scale.y)))
+	face_editor.add_theme_constant_override("line_spacing", maxi(2, roundi(9.0 * scale.y)))
 	turn.position = Vector2.ZERO
 	turn.size = size
 	rings.position = RINGS_RECT.position * scale
