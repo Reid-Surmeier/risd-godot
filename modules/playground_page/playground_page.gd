@@ -31,13 +31,14 @@ const REF_WEBSURFER := Rect2(1070, 453, 577, 502)
 const REF_PHONE := Rect2(1488, 24, 318, 635)
 const REF_CHAT := Rect2(1072, 1033, 471, 218)
 # assets/fengshui.png rows: title, menu and toolbar above FS_TOP, the element panels from FS_BOTTOM.
-# Between them only the side borders of row FS_ROW are drawn, taller, and the Are.na page fills the
+# Between them only the side borders of row FS_ROW (just under the toolbar, the same frame as the title
+# bar, both inner dark lines included) are drawn, taller, and the Are.na page fills the
 # client columns FS_CLIENT_LEFT..FS_CLIENT_RIGHT. FS_TITLE rows drag the window.
 const FS_TOP := 134.0
 const FS_BOTTOM := 844.0
-const FS_ROW := 216.0
+const FS_ROW := 135.0
 const FS_CLIENT_LEFT := 14.0
-const FS_CLIENT_RIGHT := 1394.0
+const FS_CLIENT_RIGHT := 1392.0
 const FS_TITLE := 50.0
 const DESKTOP := Vector2(2171, 1185)
 const MARGIN := 24.0
