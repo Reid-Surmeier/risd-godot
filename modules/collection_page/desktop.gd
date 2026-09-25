@@ -8,12 +8,13 @@
 extends Control
 
 const ROOT := "res://modules/collection_page/"
+const MUSE_FILTER_FRAME := ROOT + "assets/muse-filter-frame.webp"
 const DESKTOP := Vector2(1944, 1280)
 # Screenshot placements in the layout reference's 1944 x 1280 review coordinates.
 const PANELS := [
 	["equipment", Rect2(12, 20, 482, 254), 30],
 	["options", Rect2(12, 291, 493, 213), 30],
-	["filters", Rect2(12, 522, 508, 231), 32],
+	["filters", Rect2(12, 522, 508, 231), 44],
 	["status", Rect2(0, 762, 499, 63), 31],
 	["trade", Rect2(12, 828, 492, 213), 31],
 	["chat", Rect2(6, 1050, 505, 230), 29],
@@ -30,8 +31,14 @@ func _ready() -> void:
 		panel.name = entry[0]
 		var texture: Texture2D
 		if entry[0] == "filters":
-			var layout: Texture2D = load(ROOT + "assets/layout-reference.png")
-			texture = ImageTexture.create_from_image(layout.get_image().get_region(Rect2i(13, 550, 535, 245)))
+			var frame := AtlasTexture.new()
+			var muse_image := Image.new()
+			if muse_image.load_webp_from_buffer(FileAccess.get_file_as_bytes(MUSE_FILTER_FRAME)) != OK:
+				push_error("Muse filter frame could not be decoded")
+				return
+			frame.atlas = ImageTexture.create_from_image(muse_image)
+			frame.region = Rect2(12, 526, 520, 220)
+			texture = frame
 		else:
 			texture = load(ROOT + "assets/" + entry[0] + ".png")
 		panel.texture = texture

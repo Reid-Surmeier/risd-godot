@@ -21,6 +21,8 @@ var query := LineEdit.new()
 var sort := OptionButton.new()
 var category := OptionButton.new()
 var has_image := CheckBox.new()
+var none := CheckBox.new()
+var password := LineEdit.new()
 var ok := Button.new()
 var cancel := Button.new()
 var retry := Button.new()
@@ -51,6 +53,7 @@ var image_failures := 0
 var layout_key := ""
 var pending_result: Dictionary = {}
 var pending_save_result: Dictionary = {}
+var filter_labels: Array[Label] = []
 
 
 func _ready() -> void:
@@ -92,7 +95,6 @@ func _field_style(color: Color = Color("fafafa")) -> StyleBoxFlat:
 	box.bg_color = color
 	box.border_color = Color("8799a5")
 	box.set_border_width_all(1)
-	box.set_corner_radius_all(2)
 	box.content_margin_left = 4
 	box.content_margin_right = 4
 	return box
@@ -107,13 +109,12 @@ func _theme_control(control: Control) -> void:
 
 
 func _build_filters() -> void:
-	for label_spec in [["Search", "Search"], ["Sort", "Sort"], ["Category", "Medium"]]:
-		var label := _label(label_spec[1])
-		label.name = label_spec[0] + "Label"
-		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for label_text in ["Custom Filters :", "Sort by :", "Medium :", "View :", "Pw. :"]:
+		var label := _label(label_text)
+		filter_labels.append(label)
 		body.add_child(label)
 	query.name = "Query"
-	query.placeholder_text = "artist, title, keyword"
+	query.placeholder_text = ""
 	query.clear_button_enabled = true
 	query.text_submitted.connect(func(_value: String) -> void: _apply())
 	query.text_changed.connect(func(_value: String) -> void: _draft_edited())
@@ -137,9 +138,24 @@ func _build_filters() -> void:
 	has_image.name = "HasImage"
 	has_image.text = "Has Image"
 	has_image.button_pressed = true
-	has_image.toggled.connect(func(_pressed: bool) -> void: _draft_edited())
+	has_image.toggled.connect(func(pressed: bool) -> void:
+		none.set_pressed_no_signal(not pressed)
+		_draft_edited())
 	_theme_control(has_image)
 	body.add_child(has_image)
+	none.name = "NoImage"
+	none.text = "None"
+	none.focus_mode = Control.FOCUS_NONE
+	none.toggled.connect(func(pressed: bool) -> void:
+		has_image.set_pressed_no_signal(not pressed)
+		_draft_edited())
+	_theme_control(none)
+	body.add_child(none)
+	password.name = "Password"
+	password.focus_mode = Control.FOCUS_NONE
+	password.placeholder_text = ""
+	_theme_control(password)
+	body.add_child(password)
 	ok.name = "OK"
 	ok.text = "OK"
 	ok.pressed.connect(_apply)
@@ -197,19 +213,24 @@ func _layout() -> void:
 	var drag_height: float = filter_panel.get_meta("drag_height")
 	body.position = Vector2(3, drag_height)
 	body.size = filter_panel.size - Vector2(6, drag_height + 3)
+	body.color = Color("f2f1ef")
 	var s := minf(body.size.x / 502.0, body.size.y / 196.0)
 	var fs := maxi(7, roundi(14 * s))
 	for control in body.get_children():
 		control.add_theme_font_size_override("font_size", fs)
-	_place(body.get_node("SearchLabel"), Rect2(8, 8, 78, 30), s)
-	_place(query, Rect2(82, 7, 412, 31), s)
-	_place(body.get_node("SortLabel"), Rect2(8, 48, 44, 30), s)
-	_place(sort, Rect2(48, 47, 142, 31), s)
-	_place(body.get_node("CategoryLabel"), Rect2(202, 48, 78, 30), s)
-	_place(category, Rect2(278, 47, 216, 31), s)
-	_place(has_image, Rect2(8, 88, 150, 30), s)
-	_place(ok, Rect2(332, 154, 76, 31), s)
-	_place(cancel, Rect2(414, 154, 80, 31), s)
+	_place(filter_labels[0], Rect2(9, 23, 156, 27), s)
+	_place(filter_labels[1], Rect2(9, 64, 82, 27), s)
+	_place(filter_labels[2], Rect2(245, 64, 78, 27), s)
+	_place(filter_labels[3], Rect2(9, 103, 55, 27), s)
+	_place(filter_labels[4], Rect2(285, 103, 52, 27), s)
+	_place(query, Rect2(172, 20, 322, 31), s)
+	_place(sort, Rect2(96, 61, 119, 31), s)
+	_place(category, Rect2(329, 61, 165, 31), s)
+	_place(has_image, Rect2(69, 100, 111, 30), s)
+	_place(none, Rect2(178, 100, 101, 30), s)
+	_place(password, Rect2(340, 100, 154, 30), s)
+	_place(ok, Rect2(346, 169, 76, 31), s)
+	_place(cancel, Rect2(428, 169, 66, 31), s)
 	results.position = page.scroll.position
 	results.size = page.scroll.size
 	var page_font := maxi(7, roundi(14 * page.factor))
@@ -278,6 +299,7 @@ func _restore(values: Dictionary) -> void:
 			break
 	category.select(maxi(0, category_index))
 	has_image.button_pressed = values.has_image
+	none.set_pressed_no_signal(not values.has_image)
 
 
 func _apply() -> void:
