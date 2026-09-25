@@ -13,6 +13,7 @@ const MARGIN := 14.0  # page px from the page's edge and top
 const INSET := 72.0  # page px the Tenant gives up on the icons' side: its windows then overlap the column by ~20 px
 const PITCH := 150.0  # page px between icon tops at most; shrinks to fit a short page
 const SELECTED := Color(0.62, 0.66, 1.0)  # the classic selected-icon blue, as a tint
+const QUIET := preload("res://modules/shell/desktop_icon.gdshader")  # lighter grey, slightly see-through; a selected icon is drawn in full
 
 var _selected: TextureRect
 var _flash: Tween
@@ -81,6 +82,9 @@ func _ready() -> void:
 		icon.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 		icon.mouse_filter = Control.MOUSE_FILTER_STOP
 		icon.gui_input.connect(_on_icon_input.bind(icon))
+		var quiet := ShaderMaterial.new()
+		quiet.shader = QUIET
+		icon.material = quiet
 		add_child(icon)
 	_fit.call_deferred()
 
@@ -132,9 +136,11 @@ func _select(icon: TextureRect) -> void:
 		_flash.kill()
 	if _selected != null and _selected != icon:
 		_selected.modulate = Color.WHITE
+		(_selected.material as ShaderMaterial).set_shader_parameter("quiet", 1.0)
 	_selected = icon
 	if icon != null:
 		icon.modulate = SELECTED
+		(icon.material as ShaderMaterial).set_shader_parameter("quiet", 0.0)
 
 
 func _input(event: InputEvent) -> void:  # a click anywhere off the icons clears the selection
