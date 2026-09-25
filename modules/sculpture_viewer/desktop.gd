@@ -19,11 +19,11 @@ const ROOT := "res://modules/sculpture_viewer/"
 ## The setup screen at 1x (image-work/paintbox-3d-layout/sculpture-row-risd/review/
 ## paintbox-3d-risd-five-rows-text-refined-2x-v12.png halved).
 const DESKTOP_SIZE := Vector2(2540, 1680)
-const CATALOGUE_AT := Vector2.ZERO
+const CATALOGUE_AT := Vector2(2540 - 1050, 0)  # owner layout 2026-09-25: the setup window flush right (DESKTOP_SIZE.x - PANEL_SIZE.x)
 const PANEL_SIZE := Vector2(1050, 1680)  # assets/setup/panel-2x.png, the raster's x 0..2100 at 2x
 const VIEWER_SIZE := Vector2(800, 680)
 ## The mock-up viewer's frame in that raster: x 2143..4857, y 78.. at 2x.
-const VIEWER_AT := Vector2(1071.5, 39)
+const VIEWER_AT := Vector2(40, 39)  # and the viewer on the left
 const VIEWER_SCALE := 1357.0 / 800.0
 ## Grid cells whose object turns on hover: top-left in the desktop's 1x pixels (template-matched
 ## against the raster, exact), and the number of frames in assets/setup/turn/<name>.png, packed
@@ -154,7 +154,7 @@ func _fit() -> void:
 	desktop.scale = Vector2(s, s)
 	desktop.position = Vector2.ZERO
 	desktop.size = size / s
-	catalogue.position = CATALOGUE_AT
+	catalogue.position = Vector2(desktop.size.x - PANEL_SIZE.x, CATALOGUE_AT.y)  # flush right however wide the Page
 	viewer_window.position = VIEWER_AT
 
 

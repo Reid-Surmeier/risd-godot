@@ -22,6 +22,22 @@ var _flash: Tween
 ## page or hold its backdrop (the Sketchbook's and 3D Viewer's `desktop`) to the node that holds the windows, then sit just
 ## above any full-page backdrop there (the paper, the ground), below everything else.
 static func insert(tenant: Control) -> Control:
+	var holder := window_holder(tenant)
+	var at := _backdrop_in(holder, tenant) + 1
+	if SIDE == "left":
+		tenant.offset_left += INSET
+	else:
+		tenant.offset_right -= INSET
+	var icons: Control = load("res://modules/shell/desktop_icons.gd").new()
+	holder.add_child(icons)
+	holder.move_child(icons, at)
+	holder.resized.connect(icons._fit)
+	holder.item_rect_changed.connect(icons._fit)
+	return icons
+
+
+## The node whose children are `tenant`'s windows (window_shadows.gd uses it too).
+static func window_holder(tenant: Control) -> Control:
 	var holder := tenant
 	var descended := true
 	while descended:
@@ -31,15 +47,12 @@ static func insert(tenant: Control) -> Control:
 				holder = c
 				descended = true
 				break
-	var at := _backdrop_in(holder, tenant) + 1
-	if SIDE == "left":
-		tenant.offset_left += INSET
-	else:
-		tenant.offset_right -= INSET
-	var icons: Control = load("res://modules/shell/desktop_icons.gd").new()
-	holder.add_child(icons)
-	holder.move_child(icons, at)
-	return icons
+	return holder
+
+
+## True for a full-page backdrop (the paper, the ground) among a holder's children.
+static func is_backdrop(c: Node, tenant: Control) -> bool:
+	return (c is ColorRect or c is TextureRect) and _full(c, tenant)
 
 
 ## The index of the last full-page ColorRect/TextureRect among `holder`'s children (the paper, the ground), or -1.
@@ -59,7 +72,7 @@ static func _full(c: Control, tenant: Control) -> bool:  # anchored to fill, or 
 
 func _ready() -> void:
 	name = "DesktopIcons"
-	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	size = Vector2.ZERO  # nothing to click: a Tenant that picks the child under the pointer never finds the layer
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	for key in ICONS:
 		var icon := TextureRect.new()
@@ -69,8 +82,6 @@ func _ready() -> void:
 		icon.mouse_filter = Control.MOUSE_FILTER_STOP
 		icon.gui_input.connect(_on_icon_input.bind(icon))
 		add_child(icon)
-	resized.connect(_fit)
-	item_rect_changed.connect(_fit)
 	_fit.call_deferred()
 
 

@@ -12,6 +12,7 @@ const Errors := preload("res://modules/shell/errors.gd")
 const TabStrip := preload("res://modules/tab_strip/interface.gd")
 const HoverGlow := preload("res://modules/shell/hover_glow.gd")
 const DesktopIcons := preload("res://modules/shell/desktop_icons.gd")
+const WindowShadows := preload("res://modules/shell/window_shadows.gd")
 
 signal tenant_created(key: String)
 signal switch_settled(index: int)
@@ -170,6 +171,7 @@ func _create_tenant(f: Dictionary) -> void:
 	f.tenant = result.value
 	f.page.add_child(f.tenant)
 	DesktopIcons.insert(f.tenant)  # prototype: the owner's desktop icons under this Page's windows
+	WindowShadows.attach(f.tenant)  # prototype: a light drop shadow under every window of this Page
 	if f.key == "sketchbook":  # prototype: the hover glow on every button of the Sketchbook Page first
 		HoverGlow.attach_all(f.tenant)
 	emit_signal("tenant_created", f.key)
