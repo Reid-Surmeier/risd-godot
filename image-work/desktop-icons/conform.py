@@ -4,7 +4,7 @@ and label then sits on the same pixel size, as in the owner's screenshot. Restac
 import json, numpy as np
 from PIL import Image
 
-STROKE = 1.5  # game px per drawn pixel; the screenshot's outlines and letters are about this wide
+STROKE = 1.8  # game px per drawn pixel; a tad bigger than the screenshot (owner, 2026-09-25)
 GAP = 3       # game px between icon and label
 M = np.array([255.0, 0.0, 255.0])
 
