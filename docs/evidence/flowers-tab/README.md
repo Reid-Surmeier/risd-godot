@@ -1,7 +1,7 @@
-# Flowers tab evidence (build 2eefab0)
+# Flowers tab evidence (build 376c518)
 
 `modules/flowers_page/playtest/browser_play.py` on the Web export, headless Chromium on the GPU
-(ANGLE D3D12, RTX 4070 SUPER), 1920x1080, real mouse input; `report.json` is its log (11/11 pass).
+(ANGLE D3D12, RTX 4070 SUPER), 1920x1080, real mouse input; `report.json` is its log (14/14 pass).
 
 - `01-launch.png` — Collection at launch; the Flowers tab after Playground.
 - `02-flowers-title.png` … `08-flowers-again.png` — click the tab; the title screen; Start New →
@@ -11,4 +11,6 @@
 - `site-01-title.png`, `site-02-instructions.png` — the same two screens on ferryhalim.com.
 - `native-placeholder.png` — the desktop build: the title frame as a still.
 - `taskbar-before.png` / `taskbar-after.png` — the bar before and after (native Shell playtest).
-- `view-samples-without-server.png` — View Samples waits for the site's PHP (see docs/research/flowers-tab.md).
+- `09-send-form.png` … `13-sample.png` (`sheet-send.png`) — the steps that needed the site's PHP, answered
+  in the page: the send form, preview, "DELIVERY SUCCESSFUL! YOUR FLOWER NUMBER IS", that number
+  entered (the card comes back), View Samples (a player's bouquet from the captured samples).
