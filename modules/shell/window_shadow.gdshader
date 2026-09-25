@@ -1,30 +1,47 @@
-// A CSS filter: drop-shadow for one window: the drawn quad grows by `pad` page px on every side, and each
-// pixel takes the shadow colour at the window picture's alpha, blurred over `blur` px (a 5x5 gaussian).
+// A window's drop shadow, drawn over a quad around it: two gaussian-blurred copies of the window's
+// visible box (exact, via erf, so any width stays smooth): a wide, diffuse ambient shadow falling
+// `amb_offset` below the window, and a faint tight contact shadow just under its edge.
 shader_type canvas_item;
 
-uniform vec4 shadow_color : source_color = vec4(0.0, 0.0, 0.0, 0.22);
-uniform float blur = 3.0;      // local px
-uniform float pad = 8.0;       // local px the quad grows by
-uniform vec2 quad_size = vec2(100.0);  // the picture's drawn size, local px
+uniform vec2 quad_pos;        // the drawn quad, node px
+uniform vec2 quad_size = vec2(100.0);
+uniform vec4 box;             // the window's visible box: x, y, w, h (node px)
+uniform float spread = 0.0;   // the ambient box grows by this on every side
+uniform float amb_offset = 8.0;
+uniform float amb_sigma = 16.0;
+uniform float amb_alpha = 0.38;
+uniform float contact_offset = 2.0;
+uniform float contact_sigma = 2.5;
+uniform float contact_alpha = 0.14;
+uniform float radius = 0.0;   // the window's corner radius (node px): the contact shadow rounds with it
 
-varying vec2 uv_inner;
+float erf_a(float x) {  // Abramowitz-Stegun 7.1.27, |error| < 5e-4
+	float s = sign(x);
+	float a = abs(x);
+	float t = 1.0 + (0.278393 + (0.230389 + (0.000972 + 0.078108 * a) * a) * a) * a;
+	t *= t;
+	return s - s / (t * t);
+}
 
-void vertex() {
-	vec2 dir = UV * 2.0 - 1.0;
-	VERTEX += dir * pad;
-	uv_inner = UV + dir * pad / quad_size;
+float blurred_box(vec2 p, vec2 lo, vec2 hi, float sigma) {
+	float k = 1.0 / (max(sigma, 0.001) * 1.41421356);
+	float x = 0.5 * (erf_a((p.x - lo.x) * k) - erf_a((p.x - hi.x) * k));
+	float y = 0.5 * (erf_a((p.y - lo.y) * k) - erf_a((p.y - hi.y) * k));
+	return x * y;
+}
+
+float blurred_round_box(vec2 p, vec2 lo, vec2 hi, float r, float sigma) {  // via its signed distance
+	vec2 c = (lo + hi) * 0.5;
+	vec2 q = abs(p - c) - (hi - lo) * 0.5 + r;
+	float sd = length(max(q, 0.0)) + min(max(q.x, q.y), 0.0) - r;
+	return 0.5 * (1.0 - erf_a(sd / (max(sigma, 0.001) * 1.41421356)));
 }
 
 void fragment() {
-	vec2 step_uv = blur / 2.0 / quad_size;
-	float w[5] = float[](0.06, 0.24, 0.40, 0.24, 0.06);
-	float a = 0.0;
-	for (int i = 0; i < 5; i++) {
-		for (int j = 0; j < 5; j++) {
-			vec2 p = uv_inner + vec2(float(i - 2), float(j - 2)) * step_uv;
-			float inside = step(0.0, p.x) * step(p.x, 1.0) * step(0.0, p.y) * step(p.y, 1.0);
-			a += w[i] * w[j] * texture(TEXTURE, clamp(p, 0.0, 1.0)).a * inside;
-		}
-	}
-	COLOR = vec4(shadow_color.rgb, shadow_color.a * a);
+	vec2 p = quad_pos + UV * quad_size;
+	vec2 lo = box.xy;
+	vec2 hi = box.xy + box.zw;
+	float amb = blurred_box(p, lo - spread + vec2(0.0, amb_offset), hi + spread + vec2(0.0, amb_offset), amb_sigma);
+	float contact = blurred_round_box(p, lo + vec2(0.0, contact_offset), hi + vec2(0.0, contact_offset), radius, contact_sigma);
+	COLOR = vec4(0.0, 0.0, 0.0, clamp(amb_alpha * amb + contact_alpha * contact, 0.0, 1.0));
 }
