@@ -10,6 +10,7 @@ extends Control
 
 const Errors := preload("res://modules/shell/errors.gd")
 const TabStrip := preload("res://modules/tab_strip/interface.gd")
+const HoverGlow := preload("res://modules/shell/hover_glow.gd")
 
 signal tenant_created(key: String)
 signal switch_settled(index: int)
@@ -77,6 +78,12 @@ func _ready() -> void:
 			continue
 		_fixed.append({"key": key, "page": page, "tenant": null, "error": ""})
 	_apply_freeze()  # every Page starts hidden and frozen
+	# prototype: the hover glow on the strip's buttons and the six tabs, and the two-state arrow cursor
+	HoverGlow.use_cursor()
+	HoverGlow.attach_all(_strip)
+	for tab in _strip.get_children():
+		if tab.name.begins_with("Tab"):
+			HoverGlow.attach(tab)
 	# launch: the Collection tab grows in like a stub-opened tab; its Page fades in once it has settled
 	var launch := FIXED_TABS.find(LAUNCH_TAB)
 	var grown: Dictionary = TabStrip.grow_tab(_strip, launch)
@@ -161,6 +168,8 @@ func _create_tenant(f: Dictionary) -> void:
 		return
 	f.tenant = result.value
 	f.page.add_child(f.tenant)
+	if f.key == "sketchbook":  # prototype: the hover glow on every button of the Sketchbook Page first
+		HoverGlow.attach_all(f.tenant)
 	emit_signal("tenant_created", f.key)
 
 

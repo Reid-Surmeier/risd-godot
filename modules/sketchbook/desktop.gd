@@ -165,7 +165,7 @@ func _sync_brush_rest() -> void:
 func _on_visibility_changed() -> void:
 	if is_visible_in_tree():
 		return
-	Input.set_custom_mouse_cursor(null)
+	Input.set_custom_mouse_cursor(Engine.get_meta("arrow_cursor", null), Input.CURSOR_ARROW, Engine.get_meta("arrow_cursor").get_meta("tip") if Engine.has_meta("arrow_cursor") else Vector2.ZERO)  # hover-glow prototype
 	if paintbox.hovering:
 		paintbox.hovering = false
 		paintbox.brush_cursor.visible = false

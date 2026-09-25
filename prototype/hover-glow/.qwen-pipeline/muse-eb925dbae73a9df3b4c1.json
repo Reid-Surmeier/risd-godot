@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-eb925dbae73a9df3b4c1",
+  "summary": "One single retro computer mouse pointer arrow, drawn as crisp pixel art, filling most of the frame. A large chunky arrow pointing up and to the left, with a short thick tail going down-right. Pure white body, a soft pale-grey bevel along its lower-right edges so it looks slightly raised like a 1990s desktop button, and two small white highlight streaks. A clean solid black one-pixel outline around the whole arrow. Every pixel sits on a coarse square grid, about 32 pixels tall overall. The background is flat solid magenta #FF00FF, perfectly uniform. No text, no drop shadow, no hand, no other objects.\n",
+  "procedureId": "muse-eb925dbae73a9df3b4c1",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [],
+  "sourceInputs": [
+    {
+      "applicationPath": "image-work/cursor-white-recipe.json",
+      "sha256": "eb925dbae73a9df3b4c16fc72402ffcabba43e0d9ec5b6d6e56b9d7386cfe9e5"
+    },
+    {
+      "applicationPath": "image-work/cursor-white-prompt.txt",
+      "sha256": "f049c5d8d6172afeef5eb8465b2f68961675b2c25d82fcc353e5c314f59db861"
+    }
+  ]
+}
