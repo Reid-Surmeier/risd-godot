@@ -24,11 +24,11 @@ const ROOT := "res://modules/sketchbook/"
 ## prototype's 1440x972 canvas) moved in to the prototype's right/bottom margins, the book 10 px taller
 ## so both windows share the bottom edge and the composition's margin is NATIVE_MARGIN on every side.
 const NATIVE_MARGIN := Vector2(60, 52)
-const DESKTOP_SIZE := Vector2(1330, 860)
-const REFERENCE_SLOT := Rect2(430, 255, 620, 260)
+const DESKTOP_SIZE := Vector2(1330, 1060)  # tall enough for the owner's arrangement of 2026-09-25
+const REFERENCE_SLOT := Rect2(397, 25, 620, 446)  # owner layout 2026-09-25: the framed painting large, top middle
 const PAINTBOX_SLOT := Rect2(60, 235, 360, 575)
-const ANRI_PAINTBOX_SLOT := Rect2(40, 35, 360, 775)
-const BOOK_SLOT := Rect2(640, 255, 630, 555)
+const ANRI_PAINTBOX_SLOT := Rect2(8, 28, 360, 775)
+const BOOK_SLOT := Rect2(397, 494, 630, 555)  # under the painting
 const REQUIRED := [
 	"ro-top-left.png", "ro-top-mid.png", "ro-top-right.png", "ro-left.png", "ro-right.png", "ro-bottom-left.png",
 	"ro-bottom-mid.png", "ro-bottom-right.png", "ro-btn-prev.png", "ro-btn-prev-disabled.png", "ro-btn-next.png",
@@ -203,7 +203,7 @@ func _fit() -> void:
 		var embedded: Control = viewer_host.get_child(0)
 		embedded.scale = Vector2(0.5125, 0.5125)
 	if global_chatroom != null:
-		global_chatroom.position = Vector2(desktop.size.x - 320, 420)
+		global_chatroom.position = Vector2(desktop.size.x - 337, 370)  # just under the viewer
 		global_chatroom.size = Vector2(320, 150)
 	reference_panel.position = REFERENCE_SLOT.position
 	reference_panel.size = Vector2(REFERENCE_SLOT.size.x + extra.x, REFERENCE_SLOT.size.y)
@@ -211,7 +211,7 @@ func _fit() -> void:
 	reference_list.size = reference_panel.size - Vector2(24, 24)
 	if reference_art != null:
 		reference_panel.size = _framed_size(_reference_height())
-	_place(tldraw_controls, Rect2(420, 35, 310, 178) if anri_prototype else Rect2(90, 70, 250, 184))
+	_place(tldraw_controls, Rect2(14, 865, 310, 178) if anri_prototype else Rect2(90, 70, 250, 184))  # bottom left
 
 
 ## The painting in the owner's gold frame: the Muse cleanup of the owner's frame screenshot
@@ -263,8 +263,7 @@ func _framed_size(h: float) -> Vector2:
 func _reference_height() -> float:
 	if reference_height > 0.0:
 		return reference_height
-	var gap := BOOK_SLOT.position.x - REFERENCE_SLOT.position.x - 16.0
-	return REFERENCE_SLOT.size.y * minf(1.0, gap / _framed_size(REFERENCE_SLOT.size.y).x)
+	return REFERENCE_SLOT.size.y  # the book now sits below it, not beside it
 
 
 func _reference_style(color: Color) -> StyleBoxFlat:
