@@ -1,7 +1,8 @@
 ## The game's main scene: the Shell with the six fixed tabs, every Tab's Tenant registered:
 ## the Pixel Atlas desktop is the Map Tenant, sketchbook and sculpture_viewer the Sketchbook and
 ## 3D Viewer Tenants, video_player the Video Player Tenant, the owner's framed page (2026-09-25) the Collection Tenant,
-## playground_page the Playground desktop (the Phone Tab folded into it, ticket #62).
+## playground_page the Playground desktop (the Phone Tab folded into it, ticket #62), flowers_page the
+## Flowers Tab (Orisinal Flowers on the site's own Ruffle build, 2026-09-25).
 extends Control
 
 const Shell := preload("res://modules/shell/interface.gd")
@@ -11,6 +12,7 @@ const SculptureViewer := preload("res://modules/sculpture_viewer/interface.gd")
 const VideoPlayer := preload("res://modules/video_player/interface.gd")
 const CollectionData := preload("res://modules/collection_data/interface.gd")
 const PlaygroundPage := preload("res://modules/playground_page/interface.gd")
+const FlowersPage := preload("res://modules/flowers_page/interface.gd")
 const SoundCues := preload("res://modules/sound_cues/interface.gd")
 const COLLECTION_PICTURE := "res://modules/shell/assets/collection_frame/page.png"  # image-work/collection-frame
 
@@ -59,7 +61,7 @@ func _ready() -> void:
 		page_deps.show_sketchbook = true
 		return PlaygroundPage.create(page_deps)
 	var created := Shell.create({"map": Atlas, "sketchbook": sketchbook_factory, "3d_viewer": SculptureViewer,
-			"video_player": VideoPlayer, "collection": collection_factory, "playground": playground_factory})
+			"video_player": VideoPlayer, "collection": collection_factory, "playground": playground_factory, "flowers": FlowersPage})
 	if not created.ok:
 		push_error("shell: %s" % created.error.code)
 		return

@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "001",
+      "prompt": "edit-prompt.txt",
+      "promptSha256": "78ce62a4407cf59d99b897279d6d3c695f2298edc63bcf0d424359d972e2728f",
+      "size": "2048x256",
+      "inputs": [
+        {
+          "path": "references/edit-target.png",
+          "sha256": "b52d87287efbdbda95ba0411ce032fbf9d9a56cf39a3abdb93d9ff5f0bdf62b2"
+        },
+        {
+          "path": "references/style.png",
+          "sha256": "088e92b683acb8facd2ca90954fc459983f5926f384625d9ce6410c07fc1738b"
+        }
+      ]
+    }
+  ]
+}

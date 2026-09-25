@@ -1,7 +1,7 @@
 ## Playtest harness for the shell: builds the Shell the way the game's main scene does — with its
-## own registry: the dummy tenant in four Tabs, a grey Callable-built tenant in playground (so a page
-## cross-fade is visible in pixels), nothing in video_player — six fixed Tabs since the Phone Tab folded
-## into the Playground desktop (owner correction 2026-09-14, ticket #62); and plays it the way a person does,
+## own registry: the dummy tenant in four Tabs, a grey Callable-built tenant in flowers (so a page
+## cross-fade is visible in pixels), nothing in video_player or playground — seven fixed Tabs since Flowers
+## joined after Playground (2026-09-25; six since the Phone Tab folded into Playground, ticket #62); and plays it the way a person does,
 ## reporting what it did, what happened, and whether the interface responded. Real
 ## InputEventMouseButton and InputEventKey events through Input.parse_input_event — never a direct
 ## call into the strip for the gestures; the interface is called only for what the Shell's caller
@@ -70,13 +70,13 @@ func _film(shell: Control, out_dir: String, prefix: String, ms: int, tab_index: 
 func _initialize() -> void:
 	var root := get_root()
 	var shell: Control = Shell.create({"map": DummyTenant, "sketchbook": DummyTenant, "3d_viewer": DummyTenant,
-			"collection": DummyTenant, "playground": Callable(self, "_grey_tenant")}).value
+			"collection": DummyTenant, "flowers": Callable(self, "_grey_tenant")}).value
 	shell.switch_settled.connect(func(i: int): _log.append({"t_ms": _ms(), "event": "signal", "signal": "switch_settled", "index": i}))
 	shell.tenant_created.connect(func(k: String): _log.append({"t_ms": _ms(), "event": "signal", "signal": "tenant_created", "key": k}))
 	var out_dir := await _mount(shell, Vector2i(1920, 1080), "/tmp/shell-playtest")
 	DirAccess.make_dir_recursive_absolute(out_dir.path_join("frames"))
 
-	# 1. launch: the Collection tab grows in like a stub-opened tab, then its page fades in; six fixed
+	# 1. launch: the Collection tab grows in like a stub-opened tab, then its page fades in; seven fixed
 	#    tabs in order along the bottom, Collection active and its tenant created, the rest waiting
 	await _film(shell, out_dir, "launch", 1000, 4)
 	_state(shell, "launch")
@@ -126,7 +126,7 @@ func _initialize() -> void:
 	_state(shell, "fixed-kept")
 	await _shot(out_dir, "04-fixed-kept.png")
 
-	# 6. the stub still opens a Blank Page with a close button; closing it lands on the Playground tab,
+	# 6. the stub still opens a Blank Page with a close button; closing it lands on the Flowers tab,
 	#    whose grey Callable-built tenant is created on that first show
 	await _click(_center(shell, st.stub_rect), "new-tab stub")
 	await create_timer(1.8).timeout
@@ -136,10 +136,10 @@ func _initialize() -> void:
 	await _click(_center(shell, sb.tabs[sb.count - 1].close_rect), "close button of the blank tab")
 	await create_timer(0.9).timeout
 	_state(shell, "grey")
-	_tenant(shell, "playground", "grey-shown")
+	_tenant(shell, "flowers", "grey-shown")
 	await _shot(out_dir, "06-grey.png")
 
-	# 7. click the Collection tab from the grey Playground page: the film of the dip and the cross-fade
+	# 7. click the Collection tab from the grey Flowers page: the film of the dip and the cross-fade
 	await _click(_center(shell, st.tabs[4].rect), "collection tab")
 	await _film(shell, out_dir, "switch", 350, 4)
 	_state(shell, "collection")

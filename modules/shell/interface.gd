@@ -1,9 +1,10 @@
 ## The shell seam. Other modules reference this file only. Frozen: changing it is an Issue.
 ##
 ## The Shell is the page area with the tab strip along the bottom of the window: the one Control
-## the game runs in. At launch it opens six fixed Tabs in this order — map, sketchbook,
-## 3d_viewer, video_player, collection, playground — with Collection active (the Phone Tab folded
-## into the Playground desktop, owner correction 2026-09-14, ticket #62), and keeps the
+## the game runs in. At launch it opens seven fixed Tabs in this order — map, sketchbook,
+## 3d_viewer, video_player, collection, playground, flowers — with Collection active (the Phone Tab
+## folded into the Playground desktop, owner correction 2026-09-14, ticket #62; Flowers added after
+## Playground at the owner's request, 2026-09-25), and keeps the
 ## strip's stub, which opens Blank Pages. Each fixed Tab owns one Page, a plain white surface; the
 ## Tenant that lives in it is created lazily on the Tab's first show from the registry the caller
 ## passes in.
@@ -38,7 +39,7 @@ const Errors := preload("res://modules/shell/errors.gd")
 const _Impl := preload("res://modules/shell/shell.gd")
 
 ## The fixed Tabs in launch order; the key is the tab_strip label key and the registry key.
-const FIXED_TABS: Array[String] = ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground"]
+const FIXED_TABS: Array[String] = ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground", "flowers"]
 const LAUNCH_TAB := "collection"
 ## The page cross-fade, in seconds. The value every acceptance test asserts against.
 const FADE_SECONDS := 0.2
@@ -46,7 +47,7 @@ const FADE_SECONDS := 0.2
 
 ## Build the Shell: a full-rect Control (its own white ground, the PageStack filling the space
 ## above the bar, the TabStrip along the bottom fitted to its width and re-fitted on resize) with
-## the six fixed Tabs open and Collection active once its launch grow and fade have settled.
+## the seven fixed Tabs open and Collection active once its launch grow and fade have settled.
 ## `registry` maps a fixed key to the Tenant that lives in that Tab: a Script whose static
 ## create(deps) builds it, or a Callable with the same signature. A key with no entry shows a
 ## plain white Page. Returns ok(Shell node) or the tab_strip error that stopped it.
