@@ -186,7 +186,7 @@ func _input(event: InputEvent) -> void:
 	if dragged_window != null:
 		if event is InputEventMouseMotion:
 			var limit := (desktop.size - dragged_window.size * dragged_window.scale).max(Vector2.ZERO)
-			dragged_window.position = (desktop.make_canvas_position_local(event.position) - drag_offset).clamp(Vector2.ZERO, limit)
+			dragged_window.position = (desktop.make_canvas_position_local(event.position) - drag_offset).clamp(_margin_low(), limit)
 			get_viewport().set_input_as_handled()
 		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			dragged_window = null
@@ -226,3 +226,9 @@ func state() -> Dictionary:
 			"viewport_rect": _global_rect(viewer.viewport_container), "controls": controls,
 			"viewport_update_mode": viewer.viewport_container.get_child(0).render_target_update_mode})
 	return Errors.ok(s)
+
+
+## The top-left a window may be dragged to, in desktop px: the page's own left margin too, when this
+## Tenant was placed with one (offset_left, e.g. the Shell's desktop-icon strip).
+func _margin_low() -> Vector2:
+	return Vector2(-offset_left / desktop.scale.x, 0)

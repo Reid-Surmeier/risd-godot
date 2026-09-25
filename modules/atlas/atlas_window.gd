@@ -323,7 +323,7 @@ func _input(event: InputEvent) -> void:
 	elif motion and not action.is_empty():
 		var delta := pointer - start_pointer
 		if action == "drag":
-			moving_window.position = (start_rect.position + delta).clamp(Vector2.ZERO, (size - moving_window.size).max(Vector2.ZERO))
+			moving_window.position = (start_rect.position + delta).clamp(Vector2(-offset_left, 0), (size - moving_window.size).max(Vector2.ZERO))
 		else:
 			var low := start_rect.position
 			var high := start_rect.end

@@ -771,7 +771,7 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseMotion and not action.is_empty():
 		var delta: Vector2 = make_canvas_position_local(event.position) - _start_pointer
-		_active.position = (_start_position + delta).clamp(Vector2.ZERO, (size - _active.size).max(Vector2.ZERO))
+		_active.position = (_start_position + delta).clamp(Vector2(-offset_left, 0), (size - _active.size).max(Vector2.ZERO))
 		get_viewport().set_input_as_handled()
 
 

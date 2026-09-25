@@ -400,7 +400,7 @@ func _place(window: Control, slot: Rect2) -> void:
 		grown = window.size - _slots[window].size
 	_slots[window] = slot
 	window.size = (slot.size + grown).max(window.custom_minimum_size)
-	window.position = (slot.position + moved).clamp(Vector2.ZERO, (desktop.size - window.size).max(Vector2.ZERO))
+	window.position = (slot.position + moved).clamp(_margin_low(), (desktop.size - window.size).max(Vector2.ZERO))
 
 
 func _drag_handle_input(event: InputEvent, window: Control) -> void:
@@ -439,7 +439,7 @@ func _input(event: InputEvent) -> void:
 	if dragged_window != null:
 		if event is InputEventMouseMotion:
 			var limit := (desktop.size - dragged_window.size * dragged_window.scale).max(Vector2.ZERO)
-			dragged_window.position = (desktop.make_canvas_position_local(event.position) - drag_offset).clamp(Vector2.ZERO, limit)
+			dragged_window.position = (desktop.make_canvas_position_local(event.position) - drag_offset).clamp(_margin_low(), limit)
 			get_viewport().set_input_as_handled()
 		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			dragged_window = null
@@ -523,3 +523,9 @@ func state() -> Dictionary:
 			"chat_attach_rect": chat.get("attach_rect", Rect2()), "chat_send_rect": chat.get("send_rect", Rect2())})
 	s.merge(_paintbox_rects())
 	return Errors.ok(s)
+
+
+## The top-left a window may be dragged to, in desktop px: the page's own left margin too, when this
+## Tenant was placed with one (offset_left, e.g. the Shell's desktop-icon strip).
+func _margin_low() -> Vector2:
+	return Vector2(-offset_left / desktop.scale.x, 0)

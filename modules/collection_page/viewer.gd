@@ -243,7 +243,7 @@ func _input(event: InputEvent) -> void:
 		var delta: Vector2 = make_canvas_position_local(event.position) - start_pointer
 		var available := size
 		if action == "drag":
-			active_window.position = (start_rect.position + delta).clamp(Vector2.ZERO, (available - active_window.size).max(Vector2.ZERO))
+			active_window.position = (start_rect.position + delta).clamp(Vector2(-offset_left, 0), (available - active_window.size).max(Vector2.ZERO))
 		else:
 			frame.size = (start_rect.size + delta).clamp(MINIMUM_SIZE, available - frame.position)
 		_layout()
