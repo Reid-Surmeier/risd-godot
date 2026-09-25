@@ -1,0 +1,9 @@
+Reference image 1 is a handheld phone photo taken inside a painting gallery at the RISD Museum. It is the authority for what is in the room: the walls and their grey color, the doorways and door trim, the white baseboards, the oak floor, the ceiling track lights, any plinths, and exactly which paintings hang where, in which frames, at which heights and in which order along each wall.
+
+Reference image 2 is only a style guide. It is a different gallery, re-rendered as 8-bit pixel art. Use nothing from its contents: not its blue walls, not its skylight, not its benches, not its character, not its paintings.
+
+Rebuild the room of reference image 1 as a single wide landscape view, as if a visitor stands at eye height in the same spot looking in the same direction, with a straight, level camera and natural perspective. Reference image 1 is a narrow portrait crop, so extend the room to the left and right exactly as it continues: more of the same wall, floor, baseboard and ceiling. Where the photo does not show a wall, continue it as plain grey gallery wall; do not invent extra paintings, furniture or doorways.
+
+Render everything in the look of reference image 2: low-resolution pixel art with clearly visible square pixels, a limited palette, crisp hard edges, flat shading with a few tonal steps, no blur and no photographic noise. Each painting on the wall is a small pixel version of the actual painting in reference image 1: keep its composition, main shapes and colors so it is recognisable, and keep its ornate gold frame. Wall labels become small plain off-white rectangles with no text.
+
+No people, no visitors, no character, no text, no watermark, no UI.

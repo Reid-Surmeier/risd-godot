@@ -46,6 +46,16 @@ func _ready() -> void:
 		page.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		page.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		# PROTOTYPE (2026-09-25): the gallery walk fills the frame's white opening (458,521 2110x1412 in page.png)
+		var walk: Control = load("res://modules/shell/prototype/gallery_walk/gallery_walk.gd").new()
+		walk.name = "GalleryWalk"
+		page.add_child(walk)
+		page.resized.connect(func() -> void:
+			var tex_size: Vector2 = page.texture.get_size()
+			var s := minf(page.size.x / tex_size.x, page.size.y / tex_size.y)
+			var origin := (page.size - tex_size * s) / 2
+			walk.position = (origin + Vector2(458, 521) * s).round()
+			walk.size = (Vector2(2110, 1412) * s).round())
 		return {"ok": true, "value": page, "error": null}
 	var sketchbook_factory := func(deps: Dictionary) -> Dictionary:
 		var page_deps := deps.duplicate()

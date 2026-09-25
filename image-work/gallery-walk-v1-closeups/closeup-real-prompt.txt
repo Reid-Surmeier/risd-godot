@@ -1,0 +1,11 @@
+Reference image 1 is the museum's own high-resolution photograph of a painting, Claude Monet's A Walk in the Meadows at Argenteuil (RISD Museum). It is the authority for the painting's picture: its composition, figures, trees, poppies, clouds and colors.
+
+Reference image 2 is a handheld phone photo of that same painting hanging on a grey gallery wall. It is the authority for the painting's ornate gold frame and the grey wall around it.
+
+Reference image 3 is only a style guide. It is a different gallery re-rendered as 8-bit pixel art. Use nothing from its contents.
+
+Re-render this as a straight-on close view of the one framed painting on the wall, as if a visitor has walked right up to it and stands centered in front of it: camera level, square to the wall, no perspective tilt. The framed painting is centered in a wide landscape view and fills about three quarters of the image height, with plain grey wall around it and a sliver of the white baseboard and oak floor at the bottom edge. Keep the painting's own proportions.
+
+Render everything in the look of reference image 3: pixel art with clearly visible square pixels, a limited palette, crisp hard edges and flat shading, no blur and no photographic noise or glare. Reproduce the painting faithfully from reference image 1 so it is clearly recognisable, as a detailed pixel-art version of it.
+
+No people, no visitors, no character, no text, no watermark, no UI.

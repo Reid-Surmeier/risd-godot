@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-77ab05a96567affdde24",
+  "summary": "Reference image 1 is the museum's own high-resolution photograph of a painting, Claude Monet's A Walk in the Meadows at Argenteuil (RISD Museum). It is the authority for the painting's picture: its composition, figures, trees, poppies, clouds and colors.\n\nReference image 2 is a handheld phone photo of that same painting hanging on a grey gallery wall. It is the authority for the painting's ornate gold frame and the grey wall around it.\n\nReference image 3 is only a style guide. It is a different gallery re-rendered as 8-bit pixel art. Use nothing from its contents.\n\nRe-render this as a straight-on close view of the one framed painting on the wall, as if a visitor has walked right up to it and stands centered in front of it: camera level, square to the wall, no perspective tilt. The framed painting is centered in a wide landscape view and fills about three quarters of the image height, with plain grey wall around it and a sliver of the white baseboard and oak floor at the bottom edge. Keep the painting's own proportions.\n\nRender everything in the look of reference image 3: pixel art with clearly visible square pixels, a limited palette, crisp hard edges and flat shading, no blur and no photographic noise or glare. Reproduce the painting faithfully from reference image 1 so it is clearly recognisable, as a detailed pixel-art version of it.\n\nNo people, no visitors, no character, no text, no watermark, no UI.\n",
+  "procedureId": "muse-77ab05a96567affdde24",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.05",
+  "references": [
+    {
+      "path": "references/monet-walk-meadows-argenteuil-1998.107-iiif-UJbzC.png",
+      "sha256": "8e206cbf823e644efefd214a8f81145ff08eba7e7981a50d76628d70e0472216",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "source/p-poppies.png",
+      "sha256": "c2512602508a5999943c99b3145bca5838a34c3f6c18e9f806207c4229d5efb6",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "references/style-grand-gallery-8bit.png",
+      "sha256": "6b57d33c47f8912ca515dd36f7603d4809c0ab012318d2964b37cf8ae1dff9c2",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-011.json",
+      "sha256": "77ab05a96567affdde24e7aeecdd19794b77092f3a70eb16000abd5baadb2912"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "492ef662b125e994ce6ef18a33d276d42093bdc410622db1f5b3eefb1bf6b0db"
+    },
+    {
+      "applicationPath": "closeup-real-prompt.txt",
+      "sha256": "667438dba0a2638fe7f2ad6f62ef7013e5844f8c65f213e3779e82a1c153e18f"
+    }
+  ]
+}

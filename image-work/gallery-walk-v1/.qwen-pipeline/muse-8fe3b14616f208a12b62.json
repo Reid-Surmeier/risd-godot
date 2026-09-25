@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-8fe3b14616f208a12b62",
+  "summary": "Reference image 1 is a handheld phone photo taken inside a painting gallery at the RISD Museum. It is the authority for what is in the room: the walls and their grey color, the doorways and door trim, the white baseboards, the oak floor, the ceiling track lights, any plinths, and exactly which paintings hang where, in which frames, at which heights and in which order along each wall.\n\nReference image 2 is only a style guide. It is a different gallery, re-rendered as 8-bit pixel art. Use nothing from its contents: not its blue walls, not its skylight, not its benches, not its character, not its paintings.\n\nRebuild the room of reference image 1 as a single wide landscape view, as if a visitor stands at eye height in the same spot looking in the same direction, with a straight, level camera and natural perspective. Reference image 1 is a narrow portrait crop, so extend the room to the left and right exactly as it continues: more of the same wall, floor, baseboard and ceiling. Where the photo does not show a wall, continue it as plain grey gallery wall; do not invent extra paintings, furniture or doorways.\n\nRender everything in the look of reference image 2: low-resolution pixel art with clearly visible square pixels, a limited palette, crisp hard edges, flat shading with a few tonal steps, no blur and no photographic noise. Each painting on the wall is a small pixel version of the actual painting in reference image 1: keep its composition, main shapes and colors so it is recognisable, and keep its ornate gold frame. Wall labels become small plain off-white rectangles with no text.\n\nNo people, no visitors, no character, no text, no watermark, no UI.\n",
+  "procedureId": "muse-8fe3b14616f208a12b62",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.06",
+  "references": [
+    {
+      "path": "source/n3-poppy-wall.png",
+      "sha256": "d6a613c84820f6b52ff24254c5ac29a7c83437790875c5545179eeeae4486289",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/style-grand-gallery-8bit.png",
+      "sha256": "6b57d33c47f8912ca515dd36f7603d4809c0ab012318d2964b37cf8ae1dff9c2",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-004.json",
+      "sha256": "8fe3b14616f208a12b624101fa2b53f9fb9050e2b1094b1b73b78a954005dd35"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "864eb4e3397f6be6dafdc97ee32cefb9e163ead53654ef35bc2616dce2918b10"
+    },
+    {
+      "applicationPath": "walk-prompt.txt",
+      "sha256": "3384937c430ebb30b29f94fc3c90e287251b859152007de7f771d64dd1d45960"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+Reference image 1 is a handheld phone photo of one painting hanging on a grey gallery wall at the RISD Museum. It is the authority for the painting's picture, its ornate gold frame, and the grey wall around it.
+
+Reference image 2 is only a style guide. It is a different gallery re-rendered as 8-bit pixel art. Use nothing from its contents.
+
+Re-render this as a straight-on close view of the one painting, as if a visitor has walked right up to it and stands centered in front of it: camera level, square to the wall, no perspective tilt. The framed painting is centered in a wide landscape view and fills about three quarters of the image height, with plain grey wall around it and a sliver of the white baseboard and oak floor at the bottom edge. Keep the painting's own proportions.
+
+Render everything in the look of reference image 2: pixel art with clearly visible square pixels, a limited palette, crisp hard edges and flat shading, no blur and no photographic noise or glare. Reproduce the painting's composition, figures, shapes and colors faithfully so it is clearly recognisable, as a detailed pixel-art version of it. Keep the frame's carved gold ornament. If there is a wall label, render it as a small plain off-white rectangle with no text.
+
+No people, no visitors, no character, no text, no watermark, no UI.
