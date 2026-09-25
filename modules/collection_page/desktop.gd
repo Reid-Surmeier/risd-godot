@@ -32,11 +32,7 @@ func _ready() -> void:
 		var texture: Texture2D
 		if entry[0] == "filters":
 			var frame := AtlasTexture.new()
-			var muse_image := Image.new()
-			if muse_image.load_webp_from_buffer(FileAccess.get_file_as_bytes(MUSE_FILTER_FRAME)) != OK:
-				push_error("Muse filter frame could not be decoded")
-				return
-			frame.atlas = ImageTexture.create_from_image(muse_image)
+			frame.atlas = load(MUSE_FILTER_FRAME)
 			frame.region = Rect2(12, 526, 520, 220)
 			texture = frame
 		else:
