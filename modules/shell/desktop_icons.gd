@@ -14,6 +14,7 @@ const PITCH := 128.0  # page px between icon tops at most; shrinks to fit a shor
 const SELECTED := Color(0.62, 0.66, 1.0)  # the classic selected-icon blue, as a tint
 
 var _selected: TextureRect
+var _flash: Tween
 
 
 ## Put the column inside `tenant`, under its windows: descend through plain containers that fill the
@@ -91,12 +92,15 @@ func _on_icon_input(event: InputEvent, icon: TextureRect) -> void:
 	_select(icon)
 	if event.double_click:
 		icon.modulate = Color(0.4, 0.45, 1.0)
-		create_tween().tween_property(icon, "modulate", SELECTED, 0.15)
+		_flash = create_tween()
+		_flash.tween_property(icon, "modulate", SELECTED, 0.15)
 		emit_signal("opened", icon.name)
 	icon.accept_event()
 
 
 func _select(icon: TextureRect) -> void:
+	if _flash != null and _flash.is_valid():
+		_flash.kill()
 	if _selected != null and _selected != icon:
 		_selected.modulate = Color.WHITE
 	_selected = icon
