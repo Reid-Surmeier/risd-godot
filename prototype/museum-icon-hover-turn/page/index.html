@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Museum Icon Hover Turn</title>
+<style>
+  :root { --ink: #222; --rule: #bbb; --bg: #fff; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 12px "MS UI Gothic", "Hiragino Kaku Gothic ProN", sans-serif; }
+  main { max-width: 760px; margin: 24px auto; padding: 0 16px; }
+  .row { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px; border-top: 1px solid var(--rule); padding-top: 12px; }
+  figure { margin: 0; text-align: center; }
+  .icon { width: 90px; height: 90px; max-width: 100%; aspect-ratio: 1; margin: 0 auto; background-size: 100% 100%; image-rendering: auto; }
+  .cell { width: 100%; max-width: 100px; height: auto; aspect-ratio: 216 / 200; }
+  .label { height: 34px; width: auto; max-width: 100%; }
+  .still .icon { opacity: 0.55; }
+  .row + .row { margin-top: 10px; }
+  .turn { cursor: pointer; background-repeat: no-repeat; }
+  figcaption { margin-top: 6px; white-space: nowrap; }
+  .cut { margin: 20px 0 0; border: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: 8px 20px; }
+  p.note { color: #666; margin: 16px 0 0; }
+  @media (max-width: 560px) { .row { grid-template-columns: repeat(4, 1fr); row-gap: 16px; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="row">
+    <figure><div class="icon turn" data-icon="01-staff" data-frames="41" data-certified="15"></div><figcaption>テディベア</figcaption></figure>
+    <figure><div class="icon turn" data-icon="02-green-sculpture" data-frames="73" data-certified="72"></div><figcaption>ミニウサギ</figcaption></figure>
+    <figure><div class="icon turn" data-icon="03-horse-rider" data-frames="13" data-certified="8"></div><figcaption>オカガメ</figcaption></figure>
+    <figure><div class="icon turn" data-icon="04-gold-couch" data-frames="61" data-certified="60"></div><figcaption>ネコ</figcaption></figure>
+    <figure><div class="icon turn" data-icon="05-bust" data-frames="73" data-certified="72"></div><figcaption>ひみつメカ</figcaption></figure>
+    <figure><div class="icon turn" data-icon="06-bowl" data-frames="50" data-certified="49"></div><figcaption>ビッグマウス</figcaption></figure>
+    <figure><div class="icon turn" data-icon="07-bull" data-frames="24" data-certified="13"></div><figcaption>フクロペンギン</figcaption></figure>
+    <figure><div class="icon turn" data-icon="08-dog" data-frames="24" data-certified="11"></div><figcaption>イヌ</figcaption></figure>
+  </div>
+  <div class="row">
+    <figure class="still" title="output blocked by the provider content filter"><div class="icon cell" style="background-image:url(1377621.png)"></div><figcaption><img class="label" src="labels/1377621.png" alt=""></figcaption></figure>
+    <figure><div class="icon cell turn" data-icon="1557236" data-frames="73" data-certified="28"></div><figcaption><img class="label" src="labels/1557236.png" alt=""></figcaption></figure>
+    <figure class="still" title="input blocked by the provider content filter"><div class="icon cell" style="background-image:url(1587391.png)"></div><figcaption><img class="label" src="labels/1587391.png" alt=""></figcaption></figure>
+    <figure><div class="icon cell turn" data-icon="1552311" data-frames="73" data-certified="25"></div><figcaption><img class="label" src="labels/1552311.png" alt=""></figcaption></figure>
+    <figure><div class="icon cell turn" data-icon="1532371" data-frames="73" data-certified="72"></div><figcaption><img class="label" src="labels/1532371.png" alt=""></figcaption></figure>
+    <figure><div class="icon cell turn" data-icon="1487831" data-frames="73" data-certified="12"></div><figcaption><img class="label" src="labels/1487831.png" alt=""></figcaption></figure>
+    <figure><div class="icon cell turn" data-icon="1581601" data-frames="25" data-certified="11"></div><figcaption><img class="label" src="labels/1581601.png" alt=""></figcaption></figure>
+    <figure><div class="icon cell turn" data-icon="1573591" data-frames="73" data-certified="10"></div><figcaption><img class="label" src="labels/1573591.png" alt=""></figcaption></figure>
+  </div>
+  <div class="row">
+    <figure class="still" title="input blocked by the provider content filter"><div class="icon cell" style="background-image:url(1245796.png)"></div><figcaption><img class="label" src="labels/1245796.png" alt=""></figcaption></figure>
+    <figure><div class="icon cell turn" data-icon="1554066" data-frames="73" data-certified="14"></div><figcaption><img class="label" src="labels/1554066.png" alt=""></figcaption></figure>
+    <figure><div class="icon cell turn" data-icon="1548171" data-frames="73" data-certified="22"></div><figcaption><img class="label" src="labels/1548171.png" alt=""></figcaption></figure>
+    <figure><div class="icon cell turn" data-icon="1264886" data-frames="25" data-certified="24"></div><figcaption><img class="label" src="labels/1264886.png" alt=""></figcaption></figure>
+    <figure><div class="icon cell turn" data-icon="1344456" data-frames="25" data-certified="15"></div><figcaption><img class="label" src="labels/1344456.png" alt=""></figcaption></figure>
+    <figure class="still" title="not generated yet (credits ran out)"><div class="icon cell" style="background-image:url(1544676.png)"></div><figcaption><img class="label" src="labels/1544676.png" alt=""></figcaption></figure>
+  </div>
+  <fieldset class="cut"><legend>Turn</legend>
+    <label><input type="radio" name="cut" value="full" checked> Full turn (about 35°, the spec)</label>
+    <label><input type="radio" name="cut" value="certified"> Smaller turn (every check passes)</label>
+  </fieldset>
+  <p class="note">Hover any object (on a touch screen, tap it). Faded objects are not animated yet: three were blocked by the video provider's content filter, one waits on credits. Every frame is Seedance output reduced into the icon's own tile; leaving plays the turn back to the untouched rest frame.</p>
+</main>
+<script>
+  // Hover drives progress toward 1, leaving drives it back to 0; frame = progress * (frames - 1).
+  const TURN_MS = 700;
+  let cut = "full";
+  for (const r of document.querySelectorAll("input[name=cut]")) r.addEventListener("change", () => { cut = r.value; });
+  for (const el of document.querySelectorAll(".turn")) {
+    const frames = Number(el.dataset.frames);
+    el.style.backgroundImage = `url(${el.dataset.icon}-strip.png)`;
+    el.style.backgroundSize = `${frames * 100}% 100%`;
+    let progress = 0, target = 0, last = 0, running = false;
+    const draw = () => {
+      const peak = cut === "certified" ? Number(el.dataset.certified) : frames - 1;
+      const frame = Math.round(progress * peak);
+      el.style.backgroundPosition = `${frames > 1 ? (frame / (frames - 1)) * 100 : 0}% 0`;
+      el.dataset.frame = frame;
+    };
+    const tick = (now) => {
+      const step = (now - last) / TURN_MS; last = now;
+      progress = target > progress ? Math.min(target, progress + step) : Math.max(target, progress - step);
+      draw();
+      running = progress !== target;
+      if (running) requestAnimationFrame(tick);
+    };
+    const go = (t) => { target = t; if (!running) { running = true; last = performance.now(); requestAnimationFrame(tick); } };
+    el.addEventListener("pointerenter", (e) => { if (e.pointerType !== "touch") go(1); });
+    el.addEventListener("pointerleave", (e) => { if (e.pointerType !== "touch") go(0); });
+    // touch has no hover: a tap turns it, the next tap turns it back
+    el.addEventListener("pointerdown", (e) => { if (e.pointerType === "touch") go(target ? 0 : 1); });
+    draw();
+  }
+</script>
+</body>
+</html>

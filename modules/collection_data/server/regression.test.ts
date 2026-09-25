@@ -37,8 +37,8 @@ test('verified painting manifests match committed bytes; official entity/categor
   raw[0].title='A &amp; B &#233;';raw[0].type=['pAiNtInGs'];
   const normalized=await run(normalize(raw,corpus.fetched_at));assert.equal(normalized[0].title,'A & B é');assert.equal(normalized[0].category,'Painting');assert.equal(normalized[0].rights.status,'unknown');
 });
-test('missing static files are 404 while the entry and Collection route still work', async()=>{
-  const root=await mkdtemp(join(tmpdir(),'risd-static-'));await writeFile(join(root,'index.html'),'working');
+test('static GLBs retain exact bytes and MIME while the entry, Collection route and 404 stay intact', async()=>{
+  const root=await mkdtemp(join(tmpdir(),'risd-static-')),glb=Buffer.from([0x67,0x6c,0x54,0x46,2,0,0,0]);await writeFile(join(root,'index.html'),'working');await writeFile(join(root,'model.glb'),glb);
   const reservation=createServer();reservation.listen(0,'127.0.0.1');await once(reservation,'listening');
   const address=reservation.address();assert.ok(address && typeof address==='object');const port=address.port;
   reservation.close();await once(reservation,'close');
@@ -54,6 +54,7 @@ test('missing static files are 404 while the entry and Collection route still wo
     const base=`http://127.0.0.1:${port}`;
     const entry=await fetch(base+'/');assert.equal(entry.status,200);assert.equal(await entry.text(),'working');
     const searchReply=await fetch(base+'/api/collection/search?has_image=true');assert.equal(searchReply.status,200);assert.equal((await searchReply.json()).ok,true);
+    const model=await fetch(base+'/model.glb');assert.equal(model.status,200);assert.equal(model.headers.get('content-type'),'model/gltf-binary');assert.deepEqual(Buffer.from(await model.arrayBuffer()),glb);
     const missing=await fetch(base+'/favicon.ico');assert.equal(missing.status,404);
     assert.equal((await missing.json()).error.detail,'Not found');
   }finally{

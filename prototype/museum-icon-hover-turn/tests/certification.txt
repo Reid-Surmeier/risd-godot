@@ -1,0 +1,198 @@
+PASS  01-staff   frame count                            41
+PASS  01-staff   size                                   [180, 180, 3]
+PASS  01-staff   rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  01-staff   rest (hover start and leave end) frame silhouette IoU 1.0
+PASS  01-staff   every frame silhouette IoU             0.766
+PASS  01-staff   centroid drift px                      1.2
+FAIL  01-staff   area change                            0.182
+FAIL  01-staff   colour histogram distance              0.26
+PASS  01-staff   no pixels outside padded footprint     0
+PASS  01-staff   no cast shadow (soft grey growth px)   0
+PASS  01-staff   object visibly turns (peak IoU / peak MAE) [0.766, 1.2]
+PASS  02-green-sculpture frame count                            73
+PASS  02-green-sculpture size                                   [180, 180, 3]
+PASS  02-green-sculpture rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  02-green-sculpture rest (hover start and leave end) frame silhouette IoU 1.0
+PASS  02-green-sculpture every frame silhouette IoU             0.85
+PASS  02-green-sculpture centroid drift px                      2.78
+PASS  02-green-sculpture area change                            0.044
+PASS  02-green-sculpture colour histogram distance              0.17
+PASS  02-green-sculpture no pixels outside padded footprint     0
+PASS  02-green-sculpture no cast shadow (soft grey growth px)   13
+PASS  02-green-sculpture object visibly turns (peak IoU / peak MAE) [0.85, 5.3]
+PASS  03-horse-rider frame count                            13
+PASS  03-horse-rider size                                   [180, 180, 3]
+PASS  03-horse-rider rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  03-horse-rider rest (hover start and leave end) frame silhouette IoU 1.0
+FAIL  03-horse-rider every frame silhouette IoU             0.666
+PASS  03-horse-rider centroid drift px                      2.21
+FAIL  03-horse-rider area change                            0.174
+PASS  03-horse-rider colour histogram distance              0.185
+PASS  03-horse-rider no pixels outside padded footprint     0
+PASS  03-horse-rider no cast shadow (soft grey growth px)   19
+PASS  03-horse-rider object visibly turns (peak IoU / peak MAE) [0.666, 8.1]
+PASS  04-gold-couch frame count                            61
+PASS  04-gold-couch size                                   [180, 180, 3]
+PASS  04-gold-couch rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  04-gold-couch rest (hover start and leave end) frame silhouette IoU 1.0
+PASS  04-gold-couch every frame silhouette IoU             0.75
+PASS  04-gold-couch centroid drift px                      3.36
+PASS  04-gold-couch area change                            0.079
+PASS  04-gold-couch colour histogram distance              0.132
+PASS  04-gold-couch no pixels outside padded footprint     0
+PASS  04-gold-couch no cast shadow (soft grey growth px)   95
+PASS  04-gold-couch object visibly turns (peak IoU / peak MAE) [0.75, 11.5]
+PASS  05-bust    frame count                            73
+PASS  05-bust    size                                   [180, 180, 3]
+PASS  05-bust    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  05-bust    rest (hover start and leave end) frame silhouette IoU 1.0
+PASS  05-bust    every frame silhouette IoU             0.836
+PASS  05-bust    centroid drift px                      1.11
+PASS  05-bust    area change                            0.081
+PASS  05-bust    colour histogram distance              0.115
+PASS  05-bust    no pixels outside padded footprint     0
+PASS  05-bust    no cast shadow (soft grey growth px)   12
+PASS  05-bust    object visibly turns (peak IoU / peak MAE) [0.836, 8.8]
+PASS  06-bowl    frame count                            50
+PASS  06-bowl    size                                   [180, 180, 3]
+PASS  06-bowl    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  06-bowl    rest (hover start and leave end) frame silhouette IoU 1.0
+PASS  06-bowl    every frame silhouette IoU             0.978
+PASS  06-bowl    centroid drift px                      0.52
+PASS  06-bowl    area change                            0.014
+PASS  06-bowl    colour histogram distance              0.115
+PASS  06-bowl    no pixels outside padded footprint     0
+PASS  06-bowl    no cast shadow (soft grey growth px)   0
+FAIL  06-bowl    object visibly turns (peak IoU / peak MAE) [0.978, 6.0]
+PASS  07-bull    frame count                            24
+PASS  07-bull    size                                   [180, 180, 3]
+PASS  07-bull    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  07-bull    rest (hover start and leave end) frame silhouette IoU 1.0
+FAIL  07-bull    every frame silhouette IoU             0.57
+PASS  07-bull    centroid drift px                      1.88
+FAIL  07-bull    area change                            0.154
+FAIL  07-bull    colour histogram distance              0.287
+PASS  07-bull    no pixels outside padded footprint     0
+PASS  07-bull    no cast shadow (soft grey growth px)   92
+PASS  07-bull    object visibly turns (peak IoU / peak MAE) [0.57, 17.6]
+PASS  08-dog     frame count                            24
+PASS  08-dog     size                                   [180, 180, 3]
+PASS  08-dog     rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  08-dog     rest (hover start and leave end) frame silhouette IoU 1.0
+FAIL  08-dog     every frame silhouette IoU             0.609
+PASS  08-dog     centroid drift px                      4.09
+PASS  08-dog     area change                            0.13
+PASS  08-dog     colour histogram distance              0.134
+PASS  08-dog     no pixels outside padded footprint     0
+FAIL  08-dog     no cast shadow (soft grey growth px)   129
+PASS  08-dog     object visibly turns (peak IoU / peak MAE) [0.609, 9.3]
+PASS  1557236    frame count                            73
+PASS  1557236    size                                   [200, 216, 3]
+PASS  1557236    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  1557236    rest (hover start and leave end) frame silhouette IoU 1.0
+FAIL  1557236    every frame silhouette IoU             0.717
+FAIL  1557236    centroid drift px                      6.36
+PASS  1557236    area change                            0.127
+PASS  1557236    colour histogram distance              0.124
+PASS  1557236    no pixels outside padded footprint     0
+FAIL  1557236    no cast shadow (soft grey growth px)   205
+PASS  1557236    object visibly turns (peak IoU / peak MAE) [0.717, 23.0]
+PASS  1552311    frame count                            73
+PASS  1552311    size                                   [200, 216, 3]
+PASS  1552311    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  1552311    rest (hover start and leave end) frame silhouette IoU 1.0
+PASS  1552311    every frame silhouette IoU             0.858
+FAIL  1552311    centroid drift px                      7.01
+PASS  1552311    area change                            0.048
+PASS  1552311    colour histogram distance              0.113
+PASS  1552311    no pixels outside padded footprint     0
+FAIL  1552311    no cast shadow (soft grey growth px)   207
+PASS  1552311    object visibly turns (peak IoU / peak MAE) [0.858, 25.6]
+PASS  1532371    frame count                            73
+PASS  1532371    size                                   [200, 216, 3]
+PASS  1532371    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  1532371    rest (hover start and leave end) frame silhouette IoU 1.0
+PASS  1532371    every frame silhouette IoU             0.851
+PASS  1532371    centroid drift px                      4.81
+PASS  1532371    area change                            0.028
+PASS  1532371    colour histogram distance              0.135
+PASS  1532371    no pixels outside padded footprint     0
+PASS  1532371    no cast shadow (soft grey growth px)   96
+PASS  1532371    object visibly turns (peak IoU / peak MAE) [0.851, 12.5]
+PASS  1487831    frame count                            73
+PASS  1487831    size                                   [200, 216, 3]
+PASS  1487831    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  1487831    rest (hover start and leave end) frame silhouette IoU 1.0
+FAIL  1487831    every frame silhouette IoU             0.724
+FAIL  1487831    centroid drift px                      7.33
+PASS  1487831    area change                            0.118
+PASS  1487831    colour histogram distance              0.108
+PASS  1487831    no pixels outside padded footprint     0
+FAIL  1487831    no cast shadow (soft grey growth px)   374
+PASS  1487831    object visibly turns (peak IoU / peak MAE) [0.724, 46.2]
+PASS  1581601    frame count                            25
+PASS  1581601    size                                   [200, 216, 3]
+PASS  1581601    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  1581601    rest (hover start and leave end) frame silhouette IoU 1.0
+FAIL  1581601    every frame silhouette IoU             0.446
+PASS  1581601    centroid drift px                      2.67
+FAIL  1581601    area change                            0.2
+PASS  1581601    colour histogram distance              0.123
+PASS  1581601    no pixels outside padded footprint     0
+FAIL  1581601    no cast shadow (soft grey growth px)   343
+PASS  1581601    object visibly turns (peak IoU / peak MAE) [0.446, 37.7]
+PASS  1573591    frame count                            73
+PASS  1573591    size                                   [200, 216, 3]
+PASS  1573591    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  1573591    rest (hover start and leave end) frame silhouette IoU 1.0
+FAIL  1573591    every frame silhouette IoU             0.734
+PASS  1573591    centroid drift px                      4.52
+PASS  1573591    area change                            0.125
+FAIL  1573591    colour histogram distance              0.262
+PASS  1573591    no pixels outside padded footprint     0
+FAIL  1573591    no cast shadow (soft grey growth px)   286
+PASS  1573591    object visibly turns (peak IoU / peak MAE) [0.734, 16.6]
+PASS  1554066    frame count                            73
+PASS  1554066    size                                   [200, 216, 3]
+PASS  1554066    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  1554066    rest (hover start and leave end) frame silhouette IoU 1.0
+FAIL  1554066    every frame silhouette IoU             0.703
+PASS  1554066    centroid drift px                      3.85
+PASS  1554066    area change                            0.11
+PASS  1554066    colour histogram distance              0.159
+PASS  1554066    no pixels outside padded footprint     0
+FAIL  1554066    no cast shadow (soft grey growth px)   272
+PASS  1554066    object visibly turns (peak IoU / peak MAE) [0.703, 28.5]
+PASS  1548171    frame count                            73
+PASS  1548171    size                                   [200, 216, 3]
+PASS  1548171    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  1548171    rest (hover start and leave end) frame silhouette IoU 1.0
+PASS  1548171    every frame silhouette IoU             0.836
+PASS  1548171    centroid drift px                      2.16
+PASS  1548171    area change                            0.028
+PASS  1548171    colour histogram distance              0.132
+PASS  1548171    no pixels outside padded footprint     0
+FAIL  1548171    no cast shadow (soft grey growth px)   173
+PASS  1548171    object visibly turns (peak IoU / peak MAE) [0.836, 18.5]
+PASS  1264886    frame count                            25
+PASS  1264886    size                                   [200, 216, 3]
+PASS  1264886    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  1264886    rest (hover start and leave end) frame silhouette IoU 1.0
+PASS  1264886    every frame silhouette IoU             0.794
+PASS  1264886    centroid drift px                      0.96
+PASS  1264886    area change                            0.137
+PASS  1264886    colour histogram distance              0.114
+PASS  1264886    no pixels outside padded footprint     0
+PASS  1264886    no cast shadow (soft grey growth px)   20
+PASS  1264886    object visibly turns (peak IoU / peak MAE) [0.794, 23.7]
+PASS  1344456    frame count                            25
+PASS  1344456    size                                   [200, 216, 3]
+PASS  1344456    rest (hover start and leave end) frame equals source (MAE) 0.0
+PASS  1344456    rest (hover start and leave end) frame silhouette IoU 1.0
+FAIL  1344456    every frame silhouette IoU             0.711
+PASS  1344456    centroid drift px                      5.5
+PASS  1344456    area change                            0.088
+PASS  1344456    colour histogram distance              0.163
+PASS  1344456    no pixels outside padded footprint     0
+FAIL  1344456    no cast shadow (soft grey growth px)   191
+PASS  1344456    object visibly turns (peak IoU / peak MAE) [0.711, 23.6]
