@@ -10,6 +10,7 @@ const ROOT := "res://modules/shell/assets/desktop_icons/"
 const ICONS: Array[String] = ["downloads", "documents", "websurfer2", "nextrooms", "wastebin", "screensavers", "do_not_open"]
 const SIDE := "left"  # "left" or "right"; windows overlap the column
 const MARGIN := 14.0  # page px from the page's edge and top
+const INSET := 72.0  # page px the Tenant gives up on the icons' side: its windows then overlap the column by ~20 px
 const PITCH := 150.0  # page px between icon tops at most; shrinks to fit a short page
 const SELECTED := Color(0.62, 0.66, 1.0)  # the classic selected-icon blue, as a tint
 
@@ -31,6 +32,10 @@ static func insert(tenant: Control) -> Control:
 				descended = true
 				break
 	var at := _backdrop_in(holder, tenant) + 1
+	if SIDE == "left":
+		tenant.offset_left += INSET
+	else:
+		tenant.offset_right -= INSET
 	var icons: Control = load("res://modules/shell/desktop_icons.gd").new()
 	holder.add_child(icons)
 	holder.move_child(icons, at)
@@ -73,17 +78,30 @@ func _fit() -> void:
 	var k := get_global_transform().get_scale().x  # a Tenant that scales its desktop (3D Viewer, Sketchbook)
 	if k <= 0.0:
 		return
-	var margin := MARGIN / k
-	var pitch := minf(PITCH / k, (size.y - margin) / ICONS.size())
+	# the column is placed in Page pixels, out in the strip the Tenant gave up (this layer does not clip)
+	var page := _page()
+	if page == null:
+		return
+	var to_local := get_global_transform().affine_inverse()
+	var page_rect := Rect2(page.global_position, page.size)
+	var pitch := minf(PITCH, (page_rect.size.y - MARGIN) / ICONS.size())
 	var column := 0.0
 	for icon in get_children():
-		column = maxf(column, icon.texture.get_width() / k)
+		column = maxf(column, icon.texture.get_width())
 	for i in get_child_count():
 		var icon: TextureRect = get_child(i)
 		icon.size = icon.texture.get_size()
 		icon.scale = Vector2.ONE / k  # page pixels, whatever the desktop's scale
-		var x := margin if SIDE == "left" else size.x - margin - column
-		icon.position = Vector2(x + (column - icon.size.x / k) * 0.5, margin + i * pitch)
+		var x := MARGIN if SIDE == "left" else page_rect.size.x - MARGIN - column
+		var at := page_rect.position + Vector2(x + (column - icon.size.x) * 0.5, MARGIN + i * pitch)
+		icon.position = to_local * at
+
+
+func _page() -> Control:  # the Shell's Page this column's Tenant sits on
+	var n := get_parent()
+	while n != null and not n.name.begins_with("Page_"):
+		n = n.get_parent()
+	return n as Control
 
 
 func _on_icon_input(event: InputEvent, icon: TextureRect) -> void:
