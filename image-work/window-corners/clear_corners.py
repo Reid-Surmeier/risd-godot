@@ -36,7 +36,25 @@ def magenta_key(a):
                 seen[ny, nx] = True; q.append((nx, ny))
     return int(seen.sum())
 
-def clear(path):
+def white_edges(a, band_frac=0.04, tol=18):
+    """A near-white margin left outside the frame along whole edges: flooded in from the border through
+    near-white only, never deeper than the band, so the frame's outline stops it."""
+    h, w = a.shape[:2]
+    band = max(4, int(band_frac * min(w, h)))
+    white = (a[..., :3].min(2) > 255 - tol) & (a[..., 3] > 16)
+    seen = np.zeros((h, w), bool)
+    seen[0, :] |= white[0, :]; seen[-1, :] |= white[-1, :]; seen[:, 0] |= white[:, 0]; seen[:, -1] |= white[:, -1]
+    q = collections.deque((x, y) for y, x in zip(*np.nonzero(seen)))
+    while q:
+        x, y = q.popleft()
+        a[y, x, 3] = 0
+        for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+            if 0 <= nx < w and 0 <= ny < h and not seen[ny, nx] and white[ny, nx] \
+                    and min(nx, ny, w - 1 - nx, h - 1 - ny) < band:
+                seen[ny, nx] = True; q.append((nx, ny))
+    return int(seen.sum())
+
+def clear(path, edges=True):
     im = Image.open(path).convert('RGBA'); a = np.asarray(im).astype(float)
     h, w = a.shape[:2]
     report = []
@@ -69,6 +87,9 @@ def clear(path):
                 a[y, x, :3] = np.clip((a[y, x, :3] - (1 - k) * seed) / max(k, 0.05), 0, 255)
         report.append(f'r~{int(d * 3.4)}')
     a[..., 3] = alpha
+    edged = white_edges(a) if edges else 0
+    if edged:
+        report.append(f'white edge {edged} px')
     keyed = magenta_key(a)  # sprite-key magenta (and its bleed), from the border and the cleared corners
     if keyed:
         report.append(f'magenta {keyed} px')
@@ -76,10 +97,12 @@ def clear(path):
 
 if __name__ == '__main__':
     before_after = []
-    for p in sys.argv[1:]:
-        before, after, report = clear(p)
+    for p in sys.argv[1:]:  # "noedge:path" keeps a white margin that is the window's own (the minimap's button strip)
+        edges = not p.startswith('noedge:')
+        p = p.removeprefix('noedge:')
+        before, after, report = clear(p, edges)
         print(p, report)
-        if 'r~' in ' '.join(report) or 'magenta' in ' '.join(report):
+        if any(k in ' '.join(report) for k in ('r~', 'magenta', 'white edge')):
             ext = p.rsplit('.', 1)[1].lower()
             after.save(p, **({'lossless': True} if ext == 'webp' else {}))
             before_after.append((before, after))
