@@ -1,0 +1,88 @@
+{
+ "attempts": [
+  {
+   "id": "001",
+   "prompt": "prompts/downloads.txt",
+   "promptSha256": "346d8a52dcf6a9535d485bb2a6c36f108e59c2b7f7595ea11cb0ea9d60111645",
+   "size": "1024x1024",
+   "inputs": [
+    {
+     "path": "inputs/downloads.png",
+     "sha256": "0e252024c2760a272eaf3df0bbd579b411537124779cbb8f4e3e1fb0c54e9936"
+    }
+   ]
+  },
+  {
+   "id": "002",
+   "prompt": "prompts/documents.txt",
+   "promptSha256": "7e31db6421eea1db271a0f66d61ee31ed6bb2dea0304a71072acb6373ed836c3",
+   "size": "1024x1024",
+   "inputs": [
+    {
+     "path": "inputs/documents.png",
+     "sha256": "ed48b09283d1157f1d67432cc2b21726ad092a75d20d8680636bcdf38732d85a"
+    }
+   ]
+  },
+  {
+   "id": "003",
+   "prompt": "prompts/websurfer2.txt",
+   "promptSha256": "68e9023373bf9cf43a96bd7f704b8fff24f5038349ba0046f1bb85f0ebc7be2e",
+   "size": "1024x1024",
+   "inputs": [
+    {
+     "path": "inputs/websurfer2.png",
+     "sha256": "55de3e0c4be759549725c222540f3bac556ba00f608532215bd12d12f30d89c7"
+    }
+   ]
+  },
+  {
+   "id": "004",
+   "prompt": "prompts/nextrooms.txt",
+   "promptSha256": "d951a920c43e9e6d38aea4d3227f2e7664ab8770938ede5446284c933eb7ca9c",
+   "size": "1024x1024",
+   "inputs": [
+    {
+     "path": "inputs/nextrooms.png",
+     "sha256": "f51bccae2585480e881f05a0f8f82a373333283a009d783ce49f4c8afd6be7c1"
+    }
+   ]
+  },
+  {
+   "id": "005",
+   "prompt": "prompts/wastebin.txt",
+   "promptSha256": "e1e6dfb022a67ab450e2467ef6d3aff37e0a0fd74b0c923f4f311d7adb7018d3",
+   "size": "1024x1024",
+   "inputs": [
+    {
+     "path": "inputs/wastebin.png",
+     "sha256": "46be1c3f4249adbdcd7a3ff06a5484c99ec6800726c646f818942fcadcbad2d2"
+    }
+   ]
+  },
+  {
+   "id": "006",
+   "prompt": "prompts/screensavers.txt",
+   "promptSha256": "348db7087e9b9b178d1a1d344ea2f9b5100d6707dea4cd2ccb93ac925343f24f",
+   "size": "1024x1024",
+   "inputs": [
+    {
+     "path": "inputs/screensavers.png",
+     "sha256": "f6097bdeddd5e0e7a43308e74bcc958cd89bbe8131c09a09dc997f3ecbabef66"
+    }
+   ]
+  },
+  {
+   "id": "007",
+   "prompt": "prompts/do_not_open.txt",
+   "promptSha256": "5181c3e2f753cf7b4cb5246f49fc67d2bf2820ef4732b742b956cc07cce60fd8",
+   "size": "1024x1024",
+   "inputs": [
+    {
+     "path": "inputs/do_not_open.png",
+     "sha256": "141835b4add42f9d1208e1540878ffc7916c30cb19df55bf8d3b793efa3d9817"
+    }
+   ]
+  }
+ ]
+}

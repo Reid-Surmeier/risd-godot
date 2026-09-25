@@ -1,0 +1,9 @@
+Edit this image. It is a photo of one desktop icon from a CRT screen: a small pixel-art icon with its file name label underneath, on a pink wallpaper with an orange strip at the right edge.
+
+Isolate that one icon and its label on a completely flat, solid pure magenta background (#FF00FF), every background pixel exactly #FF00FF. Remove the pink wallpaper, the orange strip, the CRT scanlines, the blur, the glow and any screen curvature or warp: the icon must be perfectly straight and flat, with straight vertical and horizontal edges and no bowing or perspective.
+
+Keep the icon drawing exactly the same: same shape, same colours, same proportions, same crisp black pixel outline, same 1990s desktop pixel-art style. Do not redesign or restyle it, do not add shading, shadow or anything new.
+
+Under the icon, keep the label, centred, in the same small black bitmap sans-serif desktop font, fully visible and not cut off. The label text reads exactly: NextRooms. Match the source spelling and capitalisation letter for letter.
+
+Nothing else in the image: one icon, one label, flat magenta everywhere else.
