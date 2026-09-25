@@ -17,12 +17,16 @@ signal switch_settled(index: int)
 const SOURCE_WIDTH := 5703.0  # the rebuilt taskbar (tab_strip compact layout, Issue #113)
 const BAR_HEIGHT := 186.0
 const FADE_SECONDS := 0.2
+# Placeholder top header (the owner's menu-bar screenshot, 2026-09-23) above every Tab's Page,
+# fitted to the window's width.
+const HEADER_TEXTURE := "res://modules/shell/assets/top-header-placeholder.png"
 const FIXED_TABS: Array[String] = ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground"]
 const LAUNCH_TAB := "collection"
 
 var _registry: Dictionary = {}
 var _strip: Control
 var _pages: Control
+var _header: TextureRect
 var _fixed: Array = []  # [{key, page, tenant: Control|null, error: String}] by tab index
 var _shown: Array = []  # the Pages on screen: the active one, plus any still fading out
 var _fade: Tween
@@ -51,6 +55,13 @@ func _ready() -> void:
 	ground.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(ground)
 	add_child(_pages)
+	_header = TextureRect.new()
+	_header.name = "TopHeader"
+	_header.texture = load(HEADER_TEXTURE)
+	_header.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_header.stretch_mode = TextureRect.STRETCH_SCALE
+	_header.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	add_child(_header)
 	add_child(_strip)
 	_strip.connect("tab_selected", _on_tab_selected)
 	_fit()
@@ -83,8 +94,11 @@ func _fit() -> void:
 	_strip.scale = Vector2(scale, scale)
 	TabStrip.set_bar_width(_strip, SOURCE_WIDTH)
 	_strip.position = Vector2(0, size.y - bar_h)
-	_pages.position = Vector2.ZERO
-	_pages.size = Vector2(size.x, size.y - bar_h)
+	var header_h := size.x * _header.texture.get_height() / _header.texture.get_width()
+	_header.position = Vector2.ZERO
+	_header.size = Vector2(size.x, header_h)
+	_pages.position = Vector2(0, header_h)
+	_pages.size = Vector2(size.x, size.y - bar_h - header_h)
 
 
 ## A selection: the Tenant is created on the first show, then the new Page cross-fades in over
