@@ -1,6 +1,6 @@
 ## The game's main scene: the Shell with the six fixed tabs, every Tab's Tenant registered:
 ## the Pixel Atlas desktop is the Map Tenant, sketchbook and sculpture_viewer the Sketchbook and
-## 3D Viewer Tenants, video_player the Video Player Tenant, collection_page the Collection Tenant,
+## 3D Viewer Tenants, video_player the Video Player Tenant, the owner's framed page (2026-09-25) the Collection Tenant,
 ## playground_page the Playground desktop (the Phone Tab folded into it, ticket #62).
 extends Control
 
@@ -9,10 +9,10 @@ const Atlas := preload("res://modules/atlas/interface.gd")
 const Sketchbook := preload("res://modules/sketchbook/interface.gd")
 const SculptureViewer := preload("res://modules/sculpture_viewer/interface.gd")
 const VideoPlayer := preload("res://modules/video_player/interface.gd")
-const CollectionPage := preload("res://modules/collection_page/interface.gd")
 const CollectionData := preload("res://modules/collection_data/interface.gd")
 const PlaygroundPage := preload("res://modules/playground_page/interface.gd")
 const SoundCues := preload("res://modules/sound_cues/interface.gd")
+const COLLECTION_PICTURE := "res://modules/shell/assets/collection_frame/page.png"  # image-work/collection-frame
 
 var _storage: Variant
 
@@ -35,11 +35,16 @@ func _ready() -> void:
 		push_error("collection data: could not create shared handle")
 		return
 	var data: Variant = data_result.value
-	var collection_factory := func(deps: Dictionary) -> Dictionary:
-		var page_deps := deps.duplicate()
-		page_deps.collection_data = data
-		page_deps.image_fetch = http.fetch_image
-		return CollectionPage.create(page_deps)
+	var collection_factory := func(_deps: Dictionary) -> Dictionary:  # the frame and clock, filling the Page's height
+		var page := TextureRect.new()
+		page.name = "CollectionFrame"
+		page.texture = load(COLLECTION_PICTURE)
+		page.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		page.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		page.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		page.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		return {"ok": true, "value": page, "error": null}
 	var sketchbook_factory := func(deps: Dictionary) -> Dictionary:
 		var page_deps := deps.duplicate()
 		page_deps.collection_data = data

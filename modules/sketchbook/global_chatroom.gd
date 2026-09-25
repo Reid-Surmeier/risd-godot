@@ -1,7 +1,7 @@
 extends TextureRect
 
-const CHAT_ASSET := "res://modules/collection_page/assets/chat.png"
-const FONT := preload("res://modules/collection_page/assets/PixelMplus12-Regular.ttf")
+const CHAT_ASSET := "res://modules/sketchbook/assets/chatroom/chat.png"
+const FONT := preload("res://modules/sketchbook/assets/chatroom/PixelMplus12-Regular.ttf")
 const MAX_IMAGE_BYTES := 8 * 1024 * 1024
 
 var body := ScrollContainer.new()

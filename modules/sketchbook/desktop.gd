@@ -16,7 +16,8 @@ extends Control
 const Errors := preload("res://modules/sketchbook/errors.gd")
 const Data := preload("res://modules/collection_data/interface.gd")
 const SculptureViewer := preload("res://modules/sculpture_viewer/interface.gd")
-const CollectionPage := preload("res://modules/collection_page/interface.gd")
+const GlobalChatroom := preload("res://modules/sketchbook/global_chatroom.gd")
+const MONET := "res://modules/sketchbook/assets/monet-reference.png"  # the Monet crop the Collection page used to lend
 
 const ROOT := "res://modules/sketchbook/"
 ## The native composition: variant A's windows (paintbox 170,345 550x575; book 750,365 630x545 on the
@@ -127,15 +128,19 @@ func _ready() -> void:
 		viewer_drag_strip.gui_input.connect(func(event): _drag_handle_input(event, viewer_host))
 		viewer_host.add_child(viewer_drag_strip)
 		desktop.add_child(viewer_host)
-	var chat := CollectionPage.global_chatroom()
-	if chat.ok:
-		global_chatroom = chat.value
+	if ResourceLoader.exists(GlobalChatroom.CHAT_ASSET):
+		global_chatroom = GlobalChatroom.new()
+		global_chatroom.name = "global-chatroom"
 		global_chatroom.mouse_filter = Control.MOUSE_FILTER_STOP
 		global_chatroom.gui_input.connect(func(event): _drag_handle_input(event, global_chatroom))
 		desktop.add_child(global_chatroom)
-	var reference := CollectionPage.monet_reference()
-	if reference.ok:
-		reference_art = _framed(reference.value)
+	if ResourceLoader.exists(MONET):
+		var monet := TextureRect.new()
+		monet.texture = load(MONET)
+		monet.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		monet.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		monet.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		reference_art = _framed(monet)
 		reference_panel.add_child(reference_art)
 		reference_list.visible = false
 	reference_panel.name = "saved-reference-window"
