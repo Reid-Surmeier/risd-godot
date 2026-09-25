@@ -70,19 +70,37 @@ Why not the alternatives: an `<iframe>` of the site pulls its ads and analytics 
 ferryhalim.com staying up; a newer Ruffle could play differently from what the owner saw; a port
 to GDScript would not be "this exact flow".
 
-## What does not work off ferryhalim.com
+## The site's two PHP scripts, rebuilt in the page (owner, 2026-09-25: "rebuild those")
 
-**View Samples, Enter Flower Number and Send** need the site's PHP and its database of players'
-bouquets. On the tab, `flowers/flowersread.php` answers 404 and View Samples stays on "SEARCHING
-FLOWERS ..."; submitting a number made no request in the one try (`12345`, probably rejected by
-the game's own format check). Pointing `hstflowers.txt` at ferryhalim.com does not help: the
-browser blocks the calls (no CORS headers). The owner's options:
+The protocol, read from the SWFs' own actions (a Flash 4 action dump of `flowers.swf` and
+`flowersmain.swf`):
 
-1. Leave them as they are (the tab plays everything local: picking, arranging, backgrounds, patterns).
-2. Proxy `flowers/*.php` to ferryhalim.com from our own server (the RISD same-origin server in
-   `modules/collection_data/server/` already serves the build). That would send e-mail and store
-   bouquets on Ferry Halim's server from our site, so it needs his explicit OK for that use too.
-3. A small local stand-in for the two scripts (samples from a fixed list, numbers stored by us).
+- **Send** (the form: your name and e-mail, recipient's name and e-mail, message, "send a copy to
+  myself" `c`, "notify me when the recipient got the flowers" `n`; then Preview, Submit): the loader
+  POSTs `reply, s, se, r, re, c, n, ran, data, x` to `flowersmake.php`. `data` is `url_full`:
+  `s|se|r|re|<bg><pattern>|m|` then `type|x|y|xscale|yscale|rotate|` per flower, spaces as `+`,
+  line breaks as `%0D%0A`, the last `|` cut; `ran` is a checksum (2 x the sum of the character codes
+  of s+se+r+re+c+n+url_full, minus 371). It waits up to 60 s for a non-empty `reply`, which the game
+  shows as "DELIVERY SUCCESSFUL! YOUR FLOWER NUMBER IS: <reply>".
+- **Enter Flower Number** accepts 12 or more digits only, then GETs `flowersread.php?code=<n>&nt=<0|1>`.
+  `reply=2` shows "Sorry, the number you have entered doesn't exist in the flowers database."
+- **View Samples** GETs `flowersread.php?sample=999&ran=<0..887>`.
+- Both reads answer `&s=…&se=…&r=…&re=…&bgc=<bg><pattern>&m=…&ft1=…&fx1=…&fy1=…&fxs1=…&fys1=…&fr1=…
+  …&total=<n>&reply=1` (samples leave out `se`, `r`, `re`).
+
+`flowers_embed.gd` answers those URLs in the page, through `window.fetch` (what Ruffle's
+loadVariables calls), in exactly that format:
+
+- `flowersread.php?sample=…` → a random line of `web/samples.txt`: **84 distinct replies captured
+  from the site** on 2026-09-25 (200 read-only requests at 1/s), byte for byte. They are other
+  players' public samples; the game shows only "created by" and the bouquet.
+- `flowersmake.php` → the bouquet is stored in the browser's `localStorage` under a new random
+  12-digit number, answered as `reply=<number>`.
+- `flowersread.php?code=…` → that bouquet (`reply=1`), or `reply=2`.
+
+What stays different from ferryhalim.com: **no e-mail is sent** (the recipient, the copy to
+yourself and the notification need a mail server), and a number only opens in the browser that made
+it (no shared database). The sample pool is a snapshot, not the live pool.
 
 ## Where things are
 

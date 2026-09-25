@@ -4,12 +4,68 @@
 ## (window.crtQaState), so both corners are carried through that warp's inverse, as
 ## playground_page/arena_embed.gd does. The player loads flowers.swf with the SWFs' folder as base,
 ## so its hstflowers.txt and flowersmain.swf resolve beside it, as on ferryhalim.com.
+##
+## The site's two PHP scripts are answered in the page (window.fetch, which Ruffle's loadVariables
+## uses), in the site's own reply format (docs/research/flowers-tab.md, from the SWFs' actions):
+##   flowersread.php?sample=999  a random sample from web/samples.txt, replies captured from the site
+##   flowersmake.php (POST)      stores the bouquet (url_full, "s|se|r|re|bgpt|m|" + six fields per
+##                               flower) in localStorage under a new 12-digit number; reply=<number>
+##   flowersread.php?code=N      that bouquet (reply=1), or reply=2 for an unknown number
+## No e-mail is sent: that needs a mail server.
 extends RefCounted
 
 const JS := """
 window.flowersEmbed = (() => {
 	const BASE = new URL('flowers/', document.baseURI).href;
 	let frame = null;
+	const KEY = 'orisinal-flowers:';
+	const memory = {};  // when localStorage is unavailable
+	const store = {
+		get: (k) => { try { return localStorage.getItem(KEY + k); } catch (e) { return memory[k] || null; } },
+		set: (k, v) => { try { localStorage.setItem(KEY + k, v); } catch (e) { memory[k] = v; } },
+	};
+	let samples = null;
+	window.flowersLog = [];  // what the stand-in answered, for the playtest
+	const reply = (text) => { window.flowersLog.push(text.slice(-40)); return new Response(text, {status: 200, headers: {'Content-Type': 'text/html'}}); };
+	const bouquet = (data) => {  // url_full -> the reply flowersread.php gives for a number
+		const f = data.split('|');
+		if (f.length < 6) return null;
+		const out = ['s=' + f[0], 'se=' + f[1], 'r=' + f[2], 're=' + f[3], 'bgc=' + f[4], 'm=' + f[5]];
+		let n = 0;
+		for (let i = 6; i + 5 < f.length; i += 6) {
+			n += 1;
+			['ft', 'fx', 'fy', 'fxs', 'fys', 'fr'].forEach((name, j) => out.push(name + n + '=' + f[i + j]));
+		}
+		return '&' + out.join('&') + '&total=' + n + '&reply=1';
+	};
+	const answer = async (url, init) => {
+		if (url.pathname.endsWith('/flowersread.php')) {
+			if (url.searchParams.get('sample') !== null) {
+				if (!samples) samples = (await (await window.flowersFetch(BASE + 'samples.txt')).text()).split(String.fromCharCode(10)).filter((l) => l);
+				return reply(samples[Math.floor(Math.random() * samples.length)]);
+			}
+			return reply(store.get(url.searchParams.get('code') || '') || '&reply=2');
+		}
+		const body = init && init.body != null ? await new Response(init.body).text() : '';
+		const vars = new URLSearchParams(body || url.search);
+		const saved = bouquet(vars.get('data') || '');
+		if (!saved) return reply('&reply=');
+		let number = '';
+		do { number = String(1e11 + Math.floor(Math.random() * 9e11)); } while (store.get(number));
+		store.set(number, saved);
+		return reply('&reply=' + number);
+	};
+	if (!window.flowersFetch) {
+		window.flowersFetch = window.fetch.bind(window);
+		window.fetch = (input, init) => {
+			const url = new URL(input instanceof Request ? input.url : String(input), document.baseURI);
+			if (url.href.startsWith(BASE) && (url.pathname.endsWith('/flowersread.php') || url.pathname.endsWith('/flowersmake.php'))) {
+				if (input instanceof Request && !init) return input.text().then((text) => answer(url, {body: text}));
+				return answer(url, init);
+			}
+			return window.flowersFetch(input, init);
+		};
+	}
 	const build = () => {
 		frame = document.createElement('div');
 		frame.id = 'flowers-game';

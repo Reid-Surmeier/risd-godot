@@ -16,8 +16,8 @@ game at the site's 750x422 aspect, centred and scaled to fit (at most 2x, 48 px 
 build the window is covered by a Ruffle player (HTML over the canvas, placed through the CRT warp's
 inverse like `playground_page/arena_embed.gd`, hidden while the Page is hidden) that plays the game
 from its title screen: Start New → instructions → pick flowers from the garden and arrange, rotate
-and scale them in the vase → background and pattern → send; Enter Flower Number; View Samples;
-Credits. Off the Web the window shows the game's own title frame as a still.
+and scale them in the vase → background and pattern → the send form → preview → submit (a flower
+number); Enter Flower Number; View Samples; Credits. Off the Web the window shows the game's own title frame as a still.
 
 Owner's request (2026-09-25): "make a flowers tab that's this exact flow in a new tab. I have
 permission from the owners."
@@ -31,9 +31,11 @@ permission from the owners."
   itself serves, byte-identical), less its source maps, with its MIT and Apache-2.0 licences.
 - `assets/title.png` is the game's title frame rendered by that Ruffle at 2x (the window picture).
 - The research, the file hashes and the one thing that cannot work off ferryhalim.com are in
-  `docs/research/flowers-tab.md`: View Samples (`flowersread.php`), Enter Flower Number and Send
-  (`flowersmake.php`) call the site's PHP beside the SWF, which a static host does not have; View
-  Samples then waits on "SEARCHING FLOWERS ..." for good.
+  `docs/research/flowers-tab.md`. View Samples, Enter Flower Number and Send call the site's PHP
+  (`flowersread.php`, `flowersmake.php`); `flowers_embed.gd` answers them in the page in the site's
+  own reply format: samples from `web/samples.txt` (84 replies captured from the site), a sent
+  bouquet stored in `localStorage` under a 12-digit number, that number read back. No e-mail is sent;
+  a number opens only in the browser that made it.
 
 ## Frozen
 

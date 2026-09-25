@@ -2,7 +2,9 @@
 Opens the build with ?qa-crt=1 (crt_display.gd publishes the Shell's state and the active Tenant's),
 clicks the Flowers tab on the bar, waits for the Ruffle player to load the game, then plays the
 site's flow: title -> Start New -> instructions -> Next -> the garden and the vase; picks a flower;
-moves the mouse; leaves the tab (the player hides) and comes back (the game is where it was).
+moves the mouse; leaves the tab (the player hides) and comes back (the game is where it was); then
+the steps that needed the site's PHP, answered by the page's stand-in: sends the bouquet (form,
+preview, submit -> a flower number), enters that number (the card comes back), views a sample.
 Screenshots and report.json go to OUTDIR. Exit 1 when a check fails.
 usage: uv run --with playwright --with pillow python browser_play.py BUILD_URL OUTDIR   (BUILD_URL: the folder with index.html)
 With GALLIUM_DRIVER set (source ~/promo-lab/gpu-env.sh) Chromium renders on the GPU through ANGLE; otherwise
@@ -124,6 +126,33 @@ async def main():
         back = region(out / "08-flowers-again.png", frame)
         placed = region(out / "06-placed.png", frame)
         check("game_is_where_it_was_after_coming_back", changed(placed, back) < 3, f"diff {changed(placed, back):.2f}")
+        # the steps that needed the site's PHP, now answered in the page (flowers_embed.gd)
+        await page.mouse.click(*at(710, 409)); await page.wait_for_timeout(2500)  # NEXT: the send form
+        for (gx, gy), text in (((226, 32), "Reid"), ((226, 56), "reid@example.com"), ((226, 93), "Ana"),
+                               ((226, 117), "ana@example.com"), ((226, 230), "Hello from the Flowers tab")):
+            await page.mouse.click(*at(gx, gy)); await page.wait_for_timeout(200)
+            await page.keyboard.type(text, delay=30)
+        await page.screenshot(path=out / "09-send-form.png")
+        await page.mouse.click(*at(660, 410)); await page.wait_for_timeout(2500)  # CONTINUE TO PREVIEW
+        await page.screenshot(path=out / "10-preview.png")
+        await page.mouse.click(*at(725, 410)); await page.wait_for_timeout(4000)  # SUBMIT
+        await page.screenshot(path=out / "11-delivered.png")
+        number = await page.evaluate("(Object.keys(localStorage).find((k) => k.startsWith('orisinal-flowers:')) || ':').split(':')[1]")
+        answered = await page.evaluate("window.flowersLog")
+        check("submit_gives_a_12_digit_flower_number", re.fullmatch(r"\d{12}", number or "") and any(a.endswith("reply=" + number) for a in answered), f"{number} {answered}")
+        await page.mouse.click(*at(692, 410)); await page.wait_for_timeout(2500)  # MAIN MENU
+        await page.mouse.click(*at(513, 303)); await page.wait_for_timeout(2000)  # Enter Flower Number
+        await page.mouse.click(*at(375, 199)); await page.keyboard.type(number, delay=30)
+        await page.mouse.click(*at(328, 228)); await page.wait_for_timeout(4000)  # SUBMIT
+        await page.screenshot(path=out / "12-your-flowers.png")
+        card = region(out / "12-your-flowers.png", {"x": frame["x"], "y": frame["y"], "w": 350 * s, "h": 200 * s})
+        check("the_number_brings_the_card_back", (await page.evaluate("window.flowersLog"))[-1].endswith("reply=1")
+              and ImageStat.Stat(card.convert("L")).stddev[0] > 5, (await page.evaluate("window.flowersLog"))[-1])
+        await page.mouse.click(*at(715, 409)); await page.wait_for_timeout(2500)  # BACK TO MENU
+        await page.mouse.click(*at(513, 333)); await page.wait_for_timeout(4000)  # View Samples
+        await page.screenshot(path=out / "13-sample.png")
+        last = (await page.evaluate("window.flowersLog"))[-1]
+        check("view_samples_shows_a_players_bouquet", last.endswith("reply=1") and "&total=" in last, last)
         check("no_failed_requests", not failed, failed)
         await browser.close()
     report = {"build": sha, "checks": checks, "console_errors": log}
