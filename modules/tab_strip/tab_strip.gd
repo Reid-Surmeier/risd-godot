@@ -31,6 +31,7 @@ const COMPACT := ASSETS + "compact/"
 const STUB_GREY := Color(0.911, 0.911, 0.911)  # the new-tab stub's grey over the white tab face
 const PRESSED_GREY := Color(0.85, 0.85, 0.85)  # a tab dipping under a click
 const LEGACY_GLYPH_SCALE := 0.86  # Connecting.../Blank Page/page icon pixels to the new labels' cap height
+const LEGACY_WHITE_TO_FACE := Color(0.969, 0.969, 0.969)  # those glyphs are opaque on 255 white; the face is 247
 const DIP_PX := 6.0  # how far a clicked tab drops while it shows the pressed tint
 
 var _layout: Dictionary = {}
@@ -249,8 +250,12 @@ func _fade(tab: Dictionary, to: float) -> void:
 func _set_tint(tab: Dictionary, v: float) -> void:
 	tab.tint = v
 	if _compact_fixed_shell:
+		var face := Color.WHITE.lerp(STUB_GREY, v)
 		for piece in [tab.left, tab.mid, tab.right]:
-			piece.self_modulate = Color.WHITE.lerp(STUB_GREY, v)
+			piece.self_modulate = face
+		var glyphs := Color.WHITE if tab.label_key in _layout.place else LEGACY_WHITE_TO_FACE * face
+		for piece in [tab.icon, tab.label, tab.dots, tab.close]:
+			piece.self_modulate = glyphs
 		return
 	var c := Color.WHITE.lerp(SEA_BLUE, v * ACTIVE_TINT)
 	for piece in [tab.left, tab.mid, tab.right, tab.icon, tab.label, tab.dots, tab.close]:
@@ -310,6 +315,8 @@ func _set_label(tab: Dictionary, key: String) -> void:
 			if tab.label.texture == null:
 				push_warning("tab_strip: no label pixels for '%s', showing the page icon alone" % key)
 	_fit_label(tab)
+	if _compact_fixed_shell:
+		_set_tint(tab, tab.tint)  # the glyphs' white follows the face from the first frame
 
 
 ## The label gets the room between its left edge and the close button; when it does not fit,
@@ -503,6 +510,13 @@ func grow_tab(index: int) -> Dictionary:
 	tab.node.modulate = _pressed_color()
 	emit_signal("tab_opened", index)
 	_tween = create_tween()
+	# the launch replays this on the first frame, whose texture uploads can outlast PRESS_SECONDS: hold the
+	# tween until that frame is on screen, so the pressed stub is always seen
+	_tween.pause()
+	var held := _tween
+	RenderingServer.frame_post_draw.connect(func():
+		if held.is_valid():
+			held.play(), CONNECT_ONE_SHOT)
 	_tween.tween_interval(PRESS_SECONDS)
 	_tween.tween_method(func(s: float): _grow(tab, final_w, s), 0.0, 1.0, GROW_SECONDS) \
 		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
@@ -525,6 +539,8 @@ func _grow(tab: Dictionary, final_w: float, s: float) -> void:
 	tab.icon.modulate.a = a
 	tab.label.modulate.a = a
 	tab.dots.modulate.a = a
+	if _compact_fixed_shell:
+		tab.close.modulate.a = a  # the close button arrives with the label, not at stub size
 	_layout_stub()
 
 
