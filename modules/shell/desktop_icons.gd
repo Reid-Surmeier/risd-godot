@@ -64,19 +64,25 @@ func _ready() -> void:
 		icon.gui_input.connect(_on_icon_input.bind(icon))
 		add_child(icon)
 	resized.connect(_fit)
-	_fit()
+	item_rect_changed.connect(_fit)
+	_fit.call_deferred()
 
 
 func _fit() -> void:
-	var pitch := minf(PITCH, (size.y - MARGIN) / ICONS.size())
+	var k := get_global_transform().get_scale().x  # a Tenant that scales its desktop (3D Viewer, Sketchbook)
+	if k <= 0.0:
+		return
+	var margin := MARGIN / k
+	var pitch := minf(PITCH / k, (size.y - margin) / ICONS.size())
 	var column := 0.0
 	for icon in get_children():
-		column = maxf(column, icon.texture.get_width())
+		column = maxf(column, icon.texture.get_width() / k)
 	for i in get_child_count():
 		var icon: TextureRect = get_child(i)
 		icon.size = icon.texture.get_size()
-		var x := MARGIN if SIDE == "left" else size.x - MARGIN - column
-		icon.position = Vector2(x + (column - icon.size.x) * 0.5, MARGIN + i * pitch)
+		icon.scale = Vector2.ONE / k  # page pixels, whatever the desktop's scale
+		var x := margin if SIDE == "left" else size.x - margin - column
+		icon.position = Vector2(x + (column - icon.size.x / k) * 0.5, margin + i * pitch)
 
 
 func _on_icon_input(event: InputEvent, icon: TextureRect) -> void:
