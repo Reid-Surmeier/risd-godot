@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Independent verifier for a shell playtest run. Never trusts the harness's own summary:
 re-hashes every screenshot, re-reads pixels (the films included), and checks the logged states
-against the interface contract (six fixed tabs along the bottom — seven until the owner folded the
-Phone Tab into the Playground desktop on 2026-09-14, ticket #62 — launch tab grown in then faded
+against the interface contract (seven fixed tabs along the bottom — Flowers added after Playground on
+2026-09-25, six before that since the owner folded the Phone Tab into the Playground desktop on
+2026-09-14, ticket #62 — launch tab grown in then faded
 in, the click dip and the page cross-fade with their timings, lazy tenants, freeze/resume after the
 fade, no close on fixed tabs, the stub's blank page, resize).
 usage: verify.py OUT_DIR"""
@@ -11,7 +12,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-FIXED = ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground"]
+FIXED = ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground", "flowers"]
 SOURCE_W, SOURCE_H = 5703.0, 186.0  # the rebuilt taskbar (tab_strip compact layout, #113)
 SCALE = 1920 / SOURCE_W
 BAR_H = SOURCE_H * SCALE
@@ -19,7 +20,7 @@ STUB_W = 250 * SCALE
 PRESSED = (228, 218, 226)   # tab_strip's STUB_PRESSED tint on a white face
 ACTIVE = (225, 225, 225)   # the selected face: the tab's 247 white at the stub's grey (0.911, #113)
 ACTIVE_PRESSED = (200, 200, 200)  # the dip's 0.85 grey over a face between white and selected (190..210)
-GREY = (160, 160, 160)      # the harness's grey tenant in playground
+GREY = (160, 160, 160)      # the harness's grey tenant in the last fixed tab (flowers)
 
 out = Path(sys.argv[1])
 log = json.loads((out / "report.json").read_text())["log"]
@@ -57,9 +58,9 @@ imgs = {f: np.array(Image.open(out / f).convert("RGB")).astype(int) for f in sho
 check("screenshots_present", len(shots) == 10, str(sorted(shots)))
 check("launch_screenshot_is_1920x1080", imgs["01-launch.png"].shape[:2] == (1080, 1920), str(imgs["01-launch.png"].shape))
 
-# 1. launch state: six fixed tabs along the bottom, Collection active, its tenant alone created
+# 1. launch state: seven fixed tabs along the bottom, Collection active, its tenant alone created
 la = states["launch"]
-check("six_fixed_tabs_in_order", la["count"] == 6 and la["fixed_count"] == 6 and [t["key"] for t in la["tabs"]] == FIXED
+check("seven_fixed_tabs_in_order", la["count"] == 7 and la["fixed_count"] == 7 and [t["key"] for t in la["tabs"]] == FIXED
       and all(t["fixed"] for t in la["tabs"]), str([t["key"] for t in la["tabs"]]))
 check("labels_are_the_keys", [t["label"] for t in la["tabs"]] == FIXED)
 check("bar_sits_at_the_bottom", abs(la["bar_rect"]["y"] - (1080 - BAR_H)) < 1 and abs(la["bar_rect"]["h"] - BAR_H) < 1
@@ -75,7 +76,7 @@ check("only_the_launch_tenant_is_created", la["tabs"][4]["tenant"] == "ok"
 check("tenant_state_missing_before_first_show", tenant("launch", "map")["code"] == "shell.tenant_missing"
       and tenant("launch", "collection")["ok"])
 check("tabs_left_to_right_within_window", all(la["tabs"][i]["rect"]["x"] < la["tabs"][i + 1]["rect"]["x"] for i in range(5))
-      and la["stub_rect"]["x"] + la["stub_rect"]["w"] < 1920 and la["stub_rect"]["x"] > la["tabs"][5]["rect"]["x"])
+      and la["stub_rect"]["x"] + la["stub_rect"]["w"] < 1920 and la["stub_rect"]["x"] > la["tabs"][6]["rect"]["x"])
 check("launch_page_area_white", float(imgs["01-launch.png"][:int(1080 - BAR_H) - 2].mean()) > 254)
 
 # 2. the launch film: the Collection tab starts stub-sized with its page hidden and no tenant, grows to
@@ -145,22 +146,22 @@ check("map_resumes_with_state_intact", 0 <= e["ticks"] - d["ticks"] <= 8 and f["
 # 5. a fixed tab does not close
 cf = next(e for e in log if e["event"] == "close_fixed"); fk = states["fixed-kept"]
 check("fixed_close_refused_by_interface", not cf["ok"] and cf["code"] == "shell.tab_fixed", cf["code"])
-check("fixed_close_click_did_nothing", fk["count"] == 6 and fk["active"] == 0
+check("fixed_close_click_did_nothing", fk["count"] == 7 and fk["active"] == 0
       and any(e["what"].startswith("where the close button") for e in clicks))
 
-# 6. the stub's blank page (seventh tab), its close, landing on Playground with the Callable-built grey tenant
+# 6. the stub's blank page (eighth tab), its close, landing on Flowers with the Callable-built grey tenant
 sb = states["stub-blank"]
-check("stub_opens_blank_page_with_close", sb["count"] == 7 and sb["tabs"][6]["label"] == "blank_page"
-      and not sb["tabs"][6]["fixed"] and sb["tabs"][6]["close_rect"]["w"] > 0 and sb["active"] == 6
-      and sb["tabs"][6]["page_visible"], f"count {sb['count']}")
+check("stub_opens_blank_page_with_close", sb["count"] == 8 and sb["tabs"][7]["label"] == "blank_page"
+      and not sb["tabs"][7]["fixed"] and sb["tabs"][7]["close_rect"]["w"] > 0 and sb["active"] == 7
+      and sb["tabs"][7]["page_visible"], f"count {sb['count']}")
 ph = states["grey"]
-check("closing_blank_lands_on_playground", ph["count"] == 6 and ph["active"] == 5 and ph["tabs"][5]["page_visible"])
-check("playground_callable_tenant_created_on_first_show", tenant("grey-shown", "playground")["ok"] and ph["tabs"][5]["tenant"] == "ok")
+check("closing_blank_lands_on_flowers", ph["count"] == 7 and ph["active"] == 6 and ph["tabs"][6]["page_visible"])
+check("flowers_callable_tenant_created_on_first_show", tenant("grey-shown", "flowers")["ok"] and ph["tabs"][6]["tenant"] == "ok")
 page = imgs["06-grey.png"][:int(1080 - BAR_H) - 2, :]
-check("playground_page_is_the_grey_tenant", near_rgb(page.reshape(-1, 3).mean(axis=0), GREY, 2) and float(page.std()) < 1,
+check("flowers_page_is_the_grey_tenant", near_rgb(page.reshape(-1, 3).mean(axis=0), GREY, 2) and float(page.std()) < 1,
       f"mean {[round(v) for v in page.reshape(-1, 3).mean(axis=0)]}")
 
-# 7. Playground (grey) -> Collection: the cross-fade in pixels (grey to white through in-between greys), the dip on Collection
+# 7. Flowers (grey) -> Collection: the cross-fade in pixels (grey to white through in-between greys), the dip on Collection
 t_col = next(e["t_ms"] for e in clicks if e["what"] == "collection tab")
 sf = frames["switch"]; r4 = la["tabs"][4]["rect"]
 centre = {}
@@ -181,7 +182,7 @@ check("collection_blue_endpoint_is_static", all(v > 0.99 for v in switch_tints),
 sw2 = next((s for s in signals if s["signal"] == "switch_settled" and s["index"] == 4 and s["t_ms"] > t_col), None)
 check("grey_to_collection_settles_in_about_200ms", sw2 is not None and 150 <= sw2["t_ms"] - t_col <= 450, f"{sw2['t_ms'] - t_col if sw2 else None} ms")
 co = states["collection"]
-check("grey_page_frozen_after_the_fade", co["active"] == 4 and co["tabs"][5]["frozen"] and not co["tabs"][5]["page_visible"] and not co["switching"])
+check("grey_page_frozen_after_the_fade", co["active"] == 4 and co["tabs"][6]["frozen"] and not co["tabs"][6]["page_visible"] and not co["switching"])
 
 # 8. Video Player: no tenant in this harness, a plain white page
 pg = states["untenanted"]
