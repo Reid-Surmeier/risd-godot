@@ -136,7 +136,10 @@ func _ready() -> void:
 		desktop.add_child(global_chatroom)
 	if ResourceLoader.exists(MONET):
 		var monet := TextureRect.new()
-		monet.texture = load(MONET)
+		var card := AtlasTexture.new()  # _framed trims the card's mat off the region
+		card.atlas = load(MONET)
+		card.region = Rect2(Vector2.ZERO, card.atlas.get_size())
+		monet.texture = card
 		monet.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		monet.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		monet.mouse_filter = Control.MOUSE_FILTER_IGNORE
