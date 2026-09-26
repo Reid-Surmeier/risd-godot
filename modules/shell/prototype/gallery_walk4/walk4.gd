@@ -118,8 +118,14 @@ func _pool_mat() -> StandardMaterial3D:
 		var img := Image.create(n, n, false, Image.FORMAT_RGBA8)
 		for y in n:
 			for x in n:
-				var d := Vector2((x - n / 2.0) / (n / 2.0), (y - n * 0.42) / (n * 0.55)).length()
-				img.set_pixel(x, y, Color(1, 1, 1, pow(clampf(1.0 - d, 0.0, 1.0), 1.6)))
+				# a soft cone from the lamp above: brightest just above the picture's centre, every edge of the
+				# quad already at zero so no line shows where it ends
+				var u := (x + 0.5) / n * 2.0 - 1.0
+				var v := (y + 0.5) / n * 2.0 - 1.0
+				var d := Vector2(u, (v + 0.15) / 1.15).length()
+				var a := pow(clampf(1.0 - d, 0.0, 1.0), 2.2)
+				a *= smoothstep(1.0, 0.7, absf(u)) * smoothstep(1.0, 0.7, absf(v))
+				img.set_pixel(x, y, Color(1, 1, 1, a))
 		_pool_tex = ImageTexture.create_from_image(img)
 	var m := StandardMaterial3D.new()
 	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED

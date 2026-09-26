@@ -82,7 +82,7 @@ func build_framed(frame_tex: Texture2D, canvas_tex: Texture2D, canvas: Vector2, 
 		quad(st, [Vector3(X0, Y1, 0), Vector3(X1, Y1, 0), Vector3(X1, Y1, z), Vector3(X0, Y1, z)], [Vector2(0.1, ev), Vector2(0.9, ev), Vector2(0.9, ev * 2), Vector2(0.1, ev * 2)])
 		quad(st, [Vector3(X0, Y0, z), Vector3(X1, Y0, z), Vector3(X1, Y0, 0), Vector3(X0, Y0, 0)], [Vector2(0.1, 1 - ev * 2), Vector2(0.9, 1 - ev * 2), Vector2(0.9, 1 - ev), Vector2(0.1, 1 - ev)])
 		quad(st, [Vector3(X0, Y0, 0), Vector3(X0, Y0, z), Vector3(X0, Y1, z), Vector3(X0, Y1, 0)], [Vector2(eu, 0.9), Vector2(eu * 2, 0.9), Vector2(eu * 2, 0.1), Vector2(eu, 0.1)])
-		quad(st, [Vector3(X1, Y0, z), Vector3(X1, Y0, 0), Vector3(X1, Y1, 0), Vector3(X1, Y1, z)], [Vector2(1 - eu * 2, 0.9), Vector2(1 - eu, 0.9), Vector2(1 - eu, 0.1), Vector2(1 - eu * 2, 0.1)]), mat(frame_tex, 0.6))
+		quad(st, [Vector3(X1, Y0, z), Vector3(X1, Y0, 0), Vector3(X1, Y1, 0), Vector3(X1, Y1, z)], [Vector2(1 - eu * 2, 0.9), Vector2(1 - eu, 0.9), Vector2(1 - eu, 0.1), Vector2(1 - eu * 2, 0.1)]), mat(frame_tex, 0.6, true))  # cut to the frame: a crest or shaped corner leaves no floating edge
 	# inner reveals, from the frame's inner lip down to the canvas
 	var zc := DEPTH - INSET
 	var u1: float = us[1]
