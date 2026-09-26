@@ -7,8 +7,10 @@ switch compares the same pose with the old analytical shading.
 
 ## Texture and light workflow
 
-1. Keep the approved wall/oak maps as base colour, mapped with UV1. No normal
-   maps or new generated assets were needed. Existing artwork masters stay intact.
+1. Map surface colour with UV1. The continuation now uses Muse `oak-muse.webp`
+   and `wall-muse.webp`; original wall/oak maps and artwork masters stay intact.
+   Recipes, references and $0.02 spend are in `image-work/gallery-dollhouse-materials`.
+   No normal maps are used.
 2. `python3 modules/shell/prototype/gallery_walk4/bake/run.py` persists the merged
    room, separated into floor, four walls and ceiling. It unwraps UV2 for static
    lighting; the floor has one continuous world-space UV2 layout so individual
@@ -37,7 +39,8 @@ room black despite a valid bake; the pixel regression detects this.
 Texture imports are committed for the oak mip chain and the lightmap's required
 2D-array format. No screen-space noise, snapping or texture warping was added.
 Native bake took 18.22 seconds on this host's software Vulkan renderer.
-Paid generation: 0 requests, $0.
+Initial camera/bake pass: 0 paid requests. Material continuation: 2 Muse requests
+through OpenRouter, $0.02 total, with unchanged native image bytes.
 
 ## Character decision
 

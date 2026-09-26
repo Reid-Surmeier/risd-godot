@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-f533d6c419c434f51f85",
+  "summary": "Produce ONE seamless, unlit, hand-painted oak grain ALBEDO TEXTURE for a low-poly cozy museum game inspired by the supplied Animal Crossing reference. The first image is the existing wood material; the second is a style reference ONLY. Output only a flat rectangular texture filling the canvas, no room, no objects, no perspective, no text or border. Keep warm pale honey/oat wood, slightly less yellow/orange than the first reference. Replace its dense photographic hairline grain with about 8 broad gently flowing horizontal grain ribbons across the height, irregular rounded painterly shapes and a few restrained elongated growth-ring motifs. Very low contrast, soft clean edges, 4-5 closely related warm wood tones. Readable at 128 pixels, playful but quiet. Uniform overall brightness across the canvas; evenly painted base colour only. Absolutely no pores, scratches, fine parallel lines, noise, speckling, glossy reflections, bevel shading, cast shadows or baked illumination. This is grain for the INSIDE of existing geometric parquet planks: DO NOT draw plank borders, seams, tiles or a herringbone layout. Grain flows horizontally left-to-right and continues seamlessly across every edge; both pairs of edges must tile naturally. Original museum palette, GameCube-era painted material simplification, not a screenshot recreation.\n",
+  "procedureId": "muse-f533d6c419c434f51f85",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "2.00",
+  "references": [
+    {
+      "path": "references/oak-before.png",
+      "sha256": "ea9d9966c0295584c531e5550aab372fee9d53662ffe12fd2553014c9ebaec0e",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/animal-crossing-reference.png",
+      "sha256": "2b1e17713272836bb50b3e71cf8bc4cec82b83843857c7fef538c25d54ae9a5c",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-oak.json",
+      "sha256": "f533d6c419c434f51f85aab1ee931f6c96a52980eaa66922013a87d94b3d3083"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "05f28e7487f2b22de998a268ba78e17278584fb0aaa7218255b6cd44d84546e6"
+    },
+    {
+      "applicationPath": "prompts/oak.txt",
+      "sha256": "6ae44996a57b09c0f3804e92ca1a144ffb66d63a34c24077e6a8ec9e1f424de7"
+    }
+  ]
+}

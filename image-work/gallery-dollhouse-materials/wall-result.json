@@ -1,0 +1,25 @@
+{
+  "source": [
+    "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype/image-work/gallery-dollhouse-materials/references/wall-before.png",
+    "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype/image-work/gallery-dollhouse-materials/references/animal-crossing-reference.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype/image-work/gallery-dollhouse-materials/artifacts/image-generation/runs/run-92ba97b16084444f177dc75f/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "f3191776008e78ab6a3306fa164bf10b91af1a4ed43a2ac621e1cc95f8b68f36"
+    }
+  ],
+  "changesRequested": "Produce ONE seamless, unlit, hand-painted museum wall ALBEDO TEXTURE. The first image supplies the museum's muted blue-gray/slate wall colour; the second Animal Crossing image supplies only its broad, simple, softly painted game-material character. Output ONLY a square orthographic material tile covering the whole canvas. No room, pictures, objects, wallpaper motif, molding, border or text. Maintain a quiet medium desaturated blue-gray around RGB 91,104,114, with very subtle broad irregular rounded paint patches in neighboring hues (roughly 4 percent brightness variation). Let broad pigment shapes occupy tens to hundreds of pixels, not tiny noise. This should feel like softly brush-painted matte plaster in a cozy low-poly game, not a photographic PBR scan, not mottled dirt or clouds. Uniform overall illumination from edge to edge, no gradient, hotspot, vignette, shadows, ambient occlusion or normals. No pores, fine grain, cracks, speckles, lines or canvas weave. Seamless left-right and top-bottom, low contrast enough not to compete with paintings when mapped across a museum wall. The existing geometry and offline lightmap supply every joint and shadow.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-92ba97b16084444f177dc75f",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype/image-work/gallery-dollhouse-materials/artifacts/image-generation/runs/run-92ba97b16084444f177dc75f"
+}

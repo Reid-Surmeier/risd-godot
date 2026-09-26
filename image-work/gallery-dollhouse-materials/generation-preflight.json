@@ -1,0 +1,36 @@
+{
+  "attempts": [
+    {
+      "id": "oak",
+      "prompt": "prompts/oak.txt",
+      "promptSha256": "6ae44996a57b09c0f3804e92ca1a144ffb66d63a34c24077e6a8ec9e1f424de7",
+      "size": "1024x512",
+      "inputs": [
+        {
+          "path": "references/oak-before.png",
+          "sha256": "ea9d9966c0295584c531e5550aab372fee9d53662ffe12fd2553014c9ebaec0e"
+        },
+        {
+          "path": "references/animal-crossing-reference.png",
+          "sha256": "2b1e17713272836bb50b3e71cf8bc4cec82b83843857c7fef538c25d54ae9a5c"
+        }
+      ]
+    },
+    {
+      "id": "wall",
+      "prompt": "prompts/wall.txt",
+      "promptSha256": "7c7de0a56d76015fb06a8bde732c6143d293a0abccb3c6e3c1502815b49eeae4",
+      "size": "1024x1024",
+      "inputs": [
+        {
+          "path": "references/wall-before.png",
+          "sha256": "1d5442054d96e092675f41929cf1245a247ec677e13f23b7eccd42f0f22f0a60"
+        },
+        {
+          "path": "references/animal-crossing-reference.png",
+          "sha256": "2b1e17713272836bb50b3e71cf8bc4cec82b83843857c7fef538c25d54ae9a5c"
+        }
+      ]
+    }
+  ]
+}

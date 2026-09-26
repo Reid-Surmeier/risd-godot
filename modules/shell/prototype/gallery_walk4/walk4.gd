@@ -16,7 +16,6 @@ const W := 10.0  # room width, west wall x = -W/2 (the arch-end wall in the Jan 
 const H := 6.0  # wall height to the cornice
 const VAULT_RISE := 3.0
 const SKY_W := 4.2
-const WALL_COL := Color("#535b63")
 const WHITE := Color("#e9e6de")
 const CASING := 0.28
 const GAP := 0.75  # default gap between frames; measured gaps in gaps.json
@@ -262,8 +261,9 @@ func _box(c: Vector3, size: Vector3, col: Color, layer := 1, m: Material = null)
 	return mi
 
 
-func _wall_ps(extra := Color.WHITE) -> ShaderMaterial:  # flat paint: a grain texture shimmered at 480 px
-	return ps(null, WALL_COL * extra, Vector2.ONE, true)
+func _wall_ps(extra := Color.WHITE) -> ShaderMaterial:
+	# Broad pigment patches, one repeat per four metres; no fine grain to crawl.
+	return ps(load(DIR + "textures/wall-muse.webp"), extra, Vector2(0.25, 0.25), true)
 
 
 const LAYER_WEST := 2
@@ -403,9 +403,9 @@ func _build_floor() -> void:
 				if absf(c.x) > W / 2 + 0.4 or c.y > 0.4 or c.y < -L - 0.4:
 					continue
 				var p := [r.position, Vector2(r.end.x, r.position.y), r.end, Vector2(r.position.x, r.end.y)]
-				var u0 := rng.randf_range(0.0, 0.7)
-				var v0 := rng.randf_range(0.0, 0.9)
-				var uv := [Vector2(u0, v0), Vector2(u0 + 0.3, v0), Vector2(u0 + 0.3, v0 + 0.08), Vector2(u0, v0 + 0.08)]
+				# One grain length per plank; vary its vertical strip without wrapping.
+				var v0 := rng.randf_range(0.0, 2.0 / 3.0)
+				var uv := [Vector2(0, v0), Vector2(1, v0), Vector2(1, v0 + 1.0 / 3.0), Vector2(0, v0 + 1.0 / 3.0)]
 				var uv2 := [Vector2(0, 0), Vector2(a, 0), Vector2(a, b), Vector2(0, b)]
 				if vert:
 					uv = [uv[3], uv[0], uv[1], uv[2]]
@@ -420,7 +420,7 @@ func _build_floor() -> void:
 					st.set_uv(uv[i])
 					st.set_uv2(uv2[i])
 					st.add_vertex(w)
-	var mat := ps(load(DIR + "textures/oak.png"), Color(1.06, 1.0, 0.92), Vector2.ONE, true)
+	var mat := ps(load(DIR + "textures/oak-muse.webp"), Color.WHITE, Vector2.ONE, true)
 	mat.set_shader_parameter("plank_seams", true)
 	mat.set_shader_parameter("jitter", 0.0)  # herringbone has T-junctions: snapped corners would open cracks
 	mat.set_shader_parameter("plank", PLANK)
@@ -504,7 +504,7 @@ func _arch_end() -> void:
 	_panel(Vector3(-3.0, 0, z1), Vector3(0, 0, beyond), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
 	_panel(Vector3(3.0, 0, zb), Vector3(0, 0, -beyond), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
 	_panel(Vector3(-3.0, 5.0, zb), Vector3(6.0, 0, 0), Vector3(0, 0, -beyond), ps(null, Color("#8c8579"), Vector2.ONE, true), 1.0, 1, lit)
-	_panel(Vector3(-3.0, 0.002, z0), Vector3(6.0, 0, 0), Vector3(0, 0, beyond + PORTAL_DEPTH), ps(load(DIR + "textures/oak.png"), Color(1.0, 0.94, 0.84), Vector2(1, 3), true), 1.0, 1, lit)
+	_panel(Vector3(-3.0, 0.002, z0), Vector3(6.0, 0, 0), Vector3(0, 0, beyond + PORTAL_DEPTH), ps(load(DIR + "textures/oak-muse.webp"), Color.WHITE, Vector2(1, 3), true), 1.0, 1, lit)
 	var card := MeshInstance3D.new()
 	var qm := QuadMesh.new()
 	qm.size = Vector2(6.0, 5.0)
