@@ -1,0 +1,20 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+DOLLHOUSE_RENDER texture_bytes=188356387 draw_calls=74
+VIEW gallery yaw 90.0
+VIEW dollhouse yaw 90.0
+VIEW dollhouse yaw -90.0
+OTHER_WALL east
+VIEW dollhouse yaw 90.0
+OTHER_WALL west
+DOLLHOUSE_OTHER_WALL both directions
+ERROR: two-second walking cadence outside 6–9 audible contacts: 4
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (/tmp/gallery-cadence-audit.gd:11)
+       [1] _initialize (/tmp/gallery-cadence-audit.gd:99)
+       [2] _observe_steps (/tmp/gallery-cadence-audit.gd:57)
+DOLLHOUSE_FOOTSTEPS contacts_2s=4 blocked=0
