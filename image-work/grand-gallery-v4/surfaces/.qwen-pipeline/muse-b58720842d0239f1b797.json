@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-b58720842d0239f1b797",
+  "summary": "Reference image 1 is a phone photo of the herringbone oak floor of the RISD Museum Grand Gallery.\n\nRender a single flat, even sheet of the same pale natural oak wood, seen straight down: one continuous piece of straight-grained, quarter-sawn pale honey oak with fine parallel grain lines running left to right across the whole image, subtle natural variation, a satin finish. No boards, no seams, no joints, no herringbone, no pattern, no knots larger than a fingernail, no shadows, no reflections, no vignette, even flat lighting. Fill the whole image edge to edge.\n",
+  "procedureId": "muse-b58720842d0239f1b797",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.12",
+  "references": [
+    {
+      "path": "references/floor-crop.png",
+      "sha256": "d7636e7c478a7d423cf0fede9544cac9c5b40544babee1c088de983a57672b12",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-oak-grain.json",
+      "sha256": "b58720842d0239f1b797607b72198b7d6f515b111dd7ad872a9422e1fd79b5e0"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "24bd19564f3f78526a2c70d8b9a197086315012999fddc8e33694744adb970a6"
+    },
+    {
+      "applicationPath": "prompts/oak-grain.txt",
+      "sha256": "dd980c81c85de5959ff89aa26336dde3221297a2bd9b50ac837986b4692ef08d"
+    }
+  ]
+}

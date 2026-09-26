@@ -108,6 +108,25 @@
           "payloadDestination": "/input_references/0/image_url/url"
         }
       ]
+    },
+    {
+      "id": "muse-b58720842d0239f1b797",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1600x800"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
     }
   ]
 }

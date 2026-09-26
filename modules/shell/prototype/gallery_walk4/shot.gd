@@ -69,4 +69,21 @@ func _initialize() -> void:
 	await _key(KEY_ESCAPE, "close")
 	await create_timer(0.6).timeout
 	await _shot(out_dir, "16-closed.png")
+	var w6 := {}
+	for p in walk._paintings:
+		if p.tag == "W6":
+			w6 = p
+	await _pose(-2.6, w6.center.z - 2.2, 130, "17-tiepolo-oblique.png", out_dir)
+	await _pose(0.6, -21.5, 0, "18-far-door.png", out_dir)
+	await _pose(-0.6, -4.5, 180, "19-arch-door.png", out_dir)
+	await _pose(2.0, -12.0, 200, "20-floor.png", out_dir)
+	# click a painting across the room, past a bench: must route round it and open
+	await _pose(-3.5, -12.0, -100, "21-before-cross-click.png", out_dir)
+	var e5 := {}
+	for p in walk._paintings:
+		if p.tag == "E4":
+			e5 = p
+	await _click(walk.get_global_rect().position + walk._to_screen(e5.center), "E4 across the room")
+	await create_timer(12.0).timeout
+	await _shot(out_dir, "22-cross-click-detail.png")
 	quit(0)

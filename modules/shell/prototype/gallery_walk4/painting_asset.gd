@@ -91,12 +91,26 @@ func build_framed(frame_tex: Texture2D, canvas_tex: Texture2D, canvas: Vector2, 
 		quad(st, [Vector3(-cx, -cy, zc), Vector3(cx, -cy, zc), Vector3(cx, cy, zc), Vector3(-cx, cy, zc)], [Vector2(0, 1), Vector2(1, 1), Vector2(1, 0), Vector2(0, 0)]), mat(canvas_tex))
 
 
-## A shaped work: its keyed Muse cut-out as a slab standing off the wall.
-func build_shaped(tex: Texture2D, size: Vector2) -> void:
+## A shaped work: a closed slab following its real outline (points in 0..1 of the texture, y down): a triangulated
+## front face textured with its keyed Muse cut-out, and continuous side faces back to the wall.
+func build_shaped(tex: Texture2D, size: Vector2, outline: Array) -> void:
 	outer = size
-	var w := size.x / 2.0
-	var h := size.y / 2.0
-	for z in [0.05, 0.03, 0.01]:
-		_mesh(func(st: SurfaceTool) -> void:
-			quad(st, [Vector3(-w, -h, z), Vector3(w, -h, z), Vector3(w, h, z), Vector3(-w, h, z)], [Vector2(0, 1), Vector2(1, 1), Vector2(1, 0), Vector2(0, 0)]),
-			mat(tex, 1.0 if z == 0.05 else 0.35, true))
+	var d := 0.05
+	var pts := PackedVector2Array()
+	var uvs: Array = []
+	for q in outline:
+		pts.append(Vector2((q[0] - 0.5) * size.x, (0.5 - q[1]) * size.y))
+		uvs.append(Vector2(q[0], q[1]))
+	var tris := Geometry2D.triangulate_polygon(pts)
+	_mesh(func(st: SurfaceTool) -> void:
+		for i in tris:
+			st.set_uv(uvs[i])
+			st.add_vertex(Vector3(pts[i].x, pts[i].y, d)), mat(tex))
+	var edge := mat(tex, 0.5)
+	_mesh(func(st: SurfaceTool) -> void:
+		for i in pts.size():
+			var j := (i + 1) % pts.size()
+			var a := pts[i]
+			var b := pts[j]
+			quad(st, [Vector3(a.x, a.y, 0), Vector3(b.x, b.y, 0), Vector3(b.x, b.y, d), Vector3(a.x, a.y, d)],
+				[uvs[i], uvs[j], uvs[j], uvs[i]]), edge)

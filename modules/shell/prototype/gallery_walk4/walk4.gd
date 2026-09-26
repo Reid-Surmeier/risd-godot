@@ -11,16 +11,22 @@ extends Control
 const PaintingAsset := preload("res://modules/shell/prototype/gallery_walk4/painting_asset.gd")
 const DIR := "res://modules/shell/prototype/gallery_walk4/"
 const LOW_RES := Vector2i(480, 320)
-const L := 26.0  # room length, arch end (z = 0) to far end (z = -L)
-const W := 11.5  # room width, west wall x = -W/2
+const L := 26.3  # room length, arch end (z = 0) to far end (z = -L): paintings + measured gaps (see _build_paintings)
+const W := 10.0  # room width, west wall x = -W/2 (the arch-end wall in the Jan 2026 photo)
 const H := 6.0  # wall height to the cornice
 const VAULT_RISE := 3.0
 const SKY_W := 4.2
 const WALL_COL := Color("#535b63")
 const WHITE := Color("#e9e6de")
-const DOOR := Vector2(1.7, 3.0)
 const CASING := 0.28
-const REVEAL := 0.6
+const GAP := 0.75  # default gap between frames; measured gaps in gaps.json
+const PLANK := Vector2(0.66, 0.11)
+# The two doorways differ: the arch door (to the medieval gallery) has a cornice head and a shallow reveal onto
+# the wide lit room; the far door has a plain casing and a deep vestibule with a second door at its end.
+const DOORS := {
+	"arch": {"z": 0.0, "size": Vector2(1.7, 3.05), "reveal": 0.45, "card": "door-arch", "cornice": true, "vestibule": false},
+	"far": {"z": -L, "size": Vector2(1.9, 2.8), "reveal": 2.6, "card": "door-far", "cornice": false, "vestibule": true},
+}
 const BENCHES := [-9.0, -17.0]
 const WALK_MPS := 1.2
 const STEP_M := 1.0
@@ -47,6 +53,10 @@ var _zoom_root: Control
 var _zoom := 1.0
 var _drag_from = null
 var _dragged := false
+var _path: Array = []  # waypoints still to walk before _target
+var _action := 0  # bumped by every new action; a pending approach whose number is stale gives up
+var _stall_t := 0.0
+var _last_pos := Vector3.ZERO
 
 
 func _ready() -> void:
@@ -147,13 +157,14 @@ func _build_room() -> void:
 	_vp.add_child(sun)
 	var X := W / 2.0
 	# floor
-	_rect(Vector3(0, 0, -L / 2), Vector2(W, L), Vector3.RIGHT, Vector3.FORWARD, _mat(load(DIR + "textures/floor.png"), Color.WHITE, Vector2(W / 1.3, L / 1.3)))
+	_rect(Vector3(0, -0.002, -L / 2), Vector2(W, L), Vector3.RIGHT, Vector3.FORWARD, _mat(null, Color("#6b5234")))  # the seams
+	_build_floor()
 	# long walls
 	_rect(Vector3(-X, H / 2, -L / 2), Vector2(L, H), Vector3.FORWARD, Vector3.UP, _wall_mat(L, H))
 	_rect(Vector3(X, H / 2, -L / 2), Vector2(L, H), Vector3.BACK, Vector3.UP, _wall_mat(L, H))
-	# end walls, each around its doorway
-	for end in [{"z": 0.0, "right": Vector3.LEFT, "card": "door-arch"}, {"z": -L, "right": Vector3.RIGHT, "card": "door-far"}]:
-		_end_wall(end.z, end.right, end.card)
+	# end walls, each around its own doorway
+	_end_wall(DOORS.arch, Vector3.LEFT)
+	_end_wall(DOORS.far, Vector3.RIGHT)
 	# skirting and cornice along the long walls
 	for s in [-1.0, 1.0]:
 		_box(Vector3(s * (X - 0.015), 0.09, -L / 2), Vector3(0.03, 0.18, L), WHITE)
@@ -196,35 +207,82 @@ func _build_room() -> void:
 				_box(Vector3(lx, 0.1, bz + lz), Vector3(0.05, 0.2, 0.05), Color("#1a1a1a"))
 
 
-# An end wall at z with a doorway in the middle: three wall pieces, a white casing with depth, a reveal and the
-# Muse view of the room beyond, glowing, with a green EXIT sign.
-func _end_wall(z: float, right: Vector3, card: String) -> void:
+# Herringbone oak as geometry: planks PLANK long and wide, each a random stretch of the Muse oak grain with its own
+# tone, laid on the lattice (b, b), (a, -a) and turned 45 degrees so the zigzag runs down the room.
+func _build_floor() -> void:
+	var a := PLANK.x
+	var b := PLANK.y
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 1877
+	var rot := Transform2D(PI / 4, Vector2(0, -L / 2))
+	var reach := (L + W) * 0.75
+	var s := 0.004  # half a seam
+	var n := int(reach / b)
+	var m := int(reach / a) + 1
+	for j in range(-m, m + 1):
+		for k in range(-n, n + 1):
+			var o := Vector2(k * b + j * a, k * b - j * a)
+			for vert in [false, true]:
+				var r := Rect2(o, Vector2(a, b)) if not vert else Rect2(o + Vector2(0, b), Vector2(b, a))
+				var c := rot * r.get_center()
+				if absf(c.x) > W / 2 + 0.4 or c.y > 0.4 or c.y < -L - 0.4:
+					continue
+				var p := [r.position + Vector2(s, s), Vector2(r.end.x - s, r.position.y + s), r.end - Vector2(s, s), Vector2(r.position.x + s, r.end.y - s)]
+				var u0 := rng.randf_range(0.0, 0.7)
+				var v0 := rng.randf_range(0.0, 0.9)
+				var uv := [Vector2(u0, v0), Vector2(u0 + 0.3, v0), Vector2(u0 + 0.3, v0 + 0.08), Vector2(u0, v0 + 0.08)]
+				if vert:
+					uv = [uv[3], uv[0], uv[1], uv[2]]
+				var tone := rng.randf_range(0.9, 1.06)
+				st.set_color(Color(tone, tone * 0.99, tone * 0.97))
+				for i in [0, 1, 2, 0, 2, 3]:
+					var q: Vector2 = rot * p[i]
+					st.set_uv(uv[i])
+					st.add_vertex(Vector3(q.x, 0, q.y))
+	var m3 := _mat(load(DIR + "textures/oak.png"))
+	m3.vertex_color_use_as_albedo = true
+	var mi := MeshInstance3D.new()
+	mi.mesh = st.commit()
+	mi.material_override = m3
+	_vp.add_child(mi)
+
+
+# An end wall with its doorway: three wall pieces, a white casing with depth (and a cornice head on the arch door),
+# a reveal, what lies beyond (a deep vestibule for the far door), the glowing Muse view, a green EXIT sign.
+func _end_wall(door: Dictionary, right: Vector3) -> void:
+	var z: float = door.z
+	var ds: Vector2 = door.size
 	var X := W / 2.0
 	var n := Vector3(0, 0, -1) if z == 0.0 else Vector3(0, 0, 1)  # into the room
-	var dw := DOOR.x / 2.0
+	var dw := ds.x / 2.0
 	var side := X - dw
 	_rect(Vector3(-(dw + side / 2) * right.x, H / 2, z), Vector2(side, H), right, Vector3.UP, _wall_mat(side, H))
 	_rect(Vector3((dw + side / 2) * right.x, H / 2, z), Vector2(side, H), right, Vector3.UP, _wall_mat(side, H))
-	_rect(Vector3(0, (H + DOOR.y) / 2, z), Vector2(DOOR.x, H - DOOR.y), right, Vector3.UP, _wall_mat(DOOR.x, H - DOOR.y))
+	_rect(Vector3(0, (H + ds.y) / 2, z), Vector2(ds.x, H - ds.y), right, Vector3.UP, _wall_mat(ds.x, H - ds.y))
 	for s in [-1.0, 1.0]:
 		_box(Vector3(s * (dw + side / 2), 0.09, z + n.z * 0.015), Vector3(side, 0.18, 0.03), WHITE)
-	# casing: two jambs and a head, standing 0.1 m proud
-	_box(Vector3(-(dw + CASING / 2), DOOR.y / 2 + CASING / 4, z + n.z * 0.05), Vector3(CASING, DOOR.y + CASING / 2, 0.1), WHITE)
-	_box(Vector3(dw + CASING / 2, DOOR.y / 2 + CASING / 4, z + n.z * 0.05), Vector3(CASING, DOOR.y + CASING / 2, 0.1), WHITE)
-	_box(Vector3(0, DOOR.y + CASING / 2, z + n.z * 0.05), Vector3(DOOR.x + CASING * 2 + 0.08, CASING, 0.12), WHITE)
-	# the reveal and the view beyond
-	var back := z - n.z * REVEAL
-	var rev := _mat(null, Color("#cfc8b8"))
-	_rect(Vector3(-dw, DOOR.y / 2, (z + back) / 2), Vector2(REVEAL, DOOR.y), Vector3(0, 0, -n.z), Vector3.UP, rev)
-	_rect(Vector3(dw, DOOR.y / 2, (z + back) / 2), Vector2(REVEAL, DOOR.y), Vector3(0, 0, n.z), Vector3.UP, rev)
-	_rect(Vector3(0, DOOR.y, (z + back) / 2), Vector2(DOOR.x, REVEAL), Vector3.RIGHT, Vector3(0, 0, n.z), rev)
-	_rect(Vector3(0, 0.005, (z + back) / 2), Vector2(DOOR.x, REVEAL), Vector3.RIGHT, Vector3(0, 0, -n.z), _mat(load(DIR + "textures/floor.png")))
-	_rect(Vector3(0, DOOR.y / 2, back), DOOR, right, Vector3.UP, _mat(load(DIR + "textures/%s.jpg" % card), Color(1.25, 1.22, 1.15)))
-	var glow := _mat(null, Color(1.0, 0.97, 0.9, 0.22))
+	_box(Vector3(-(dw + CASING / 2), ds.y / 2 + CASING / 4, z + n.z * 0.05), Vector3(CASING, ds.y + CASING / 2, 0.1), WHITE)
+	_box(Vector3(dw + CASING / 2, ds.y / 2 + CASING / 4, z + n.z * 0.05), Vector3(CASING, ds.y + CASING / 2, 0.1), WHITE)
+	_box(Vector3(0, ds.y + CASING / 2, z + n.z * 0.05), Vector3(ds.x + CASING * 2 + 0.08, CASING, 0.12), WHITE)
+	if door.cornice:  # a projecting cornice over the head
+		_box(Vector3(0, ds.y + CASING + 0.06, z + n.z * 0.1), Vector3(ds.x + CASING * 2 + 0.4, 0.12, 0.2), WHITE)
+		_box(Vector3(0, ds.y + CASING + 0.16, z + n.z * 0.13), Vector3(ds.x + CASING * 2 + 0.55, 0.08, 0.26), WHITE)
+	var depth: float = door.reveal
+	var back := z - n.z * depth
+	var rev := _mat(null, Color("#e3dccb") if door.vestibule else Color("#cfc8b8"))
+	_rect(Vector3(-dw, ds.y / 2, (z + back) / 2), Vector2(depth, ds.y), Vector3(0, 0, -n.z), Vector3.UP, rev)
+	_rect(Vector3(dw, ds.y / 2, (z + back) / 2), Vector2(depth, ds.y), Vector3(0, 0, n.z), Vector3.UP, rev)
+	_rect(Vector3(0, ds.y, (z + back) / 2), Vector2(ds.x, depth), Vector3.RIGHT, Vector3(0, 0, n.z), _mat(null, Color("#efe9dc")))
+	_rect(Vector3(0, 0.004, (z + back) / 2), Vector2(ds.x, depth), Vector3.RIGHT, Vector3(0, 0, -n.z), _mat(null, Color("#d8cdb6") if door.vestibule else Color("#b9956a")))
+	_rect(Vector3(0, ds.y / 2, back), ds, right, Vector3.UP, _mat(load(DIR + "textures/%s.jpg" % door.card), Color(1.25, 1.22, 1.15)))
+	var glow := _mat(null, Color(1.0, 0.97, 0.9, 0.2))
 	glow.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	glow.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
-	_rect(Vector3(0, DOOR.y / 2, z + n.z * 0.02), DOOR + Vector2(0.3, 0.3), right, Vector3.UP, glow)
-	_box(Vector3(0, DOOR.y + CASING + 0.14, z + n.z * 0.04), Vector3(0.34, 0.14, 0.05), Color(0.2, 1.0, 0.45))
+	_rect(Vector3(0, ds.y / 2, z + n.z * 0.02), ds + Vector2(0.3, 0.3), right, Vector3.UP, glow)
+	var sign_y: float = ds.y + CASING + (0.42 if door.cornice else 0.16)
+	_box(Vector3(0, sign_y, z + n.z * 0.04), Vector3(0.34, 0.14, 0.05), Color(0.2, 1.0, 0.45))
 
 
 func _hang_center(rec: Dictionary, outer_h: float) -> float:
@@ -251,7 +309,7 @@ func _build_paintings() -> void:
 	for r in works:
 		var node: Node3D = PaintingAsset.new()
 		if r.tag == "W6":
-			node.build_shaped(load(DIR + "frames/W6-shaped.png"), Vector2(r.canvas_w, r.canvas_h))
+			node.build_shaped(load(DIR + "frames/W6-shaped.png"), Vector2(r.canvas_w, r.canvas_h), r.outline)
 		else:
 			node.build_framed(load(DIR + "frames/%s.png" % r.tag), load(DIR + "canvas/%s.jpg" % r.tag), Vector2(r.canvas_w, r.canvas_h), r.margins_px)
 		assets[r.tag] = node
@@ -259,23 +317,29 @@ func _build_paintings() -> void:
 	# long walls: even gaps, in the researched order. West runs arch end -> far end; east runs far end -> arch end.
 	for wall in [{"tags": ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10"], "x": -X, "rot": PI / 2, "from_far": false},
 			{"tags": ["E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9"], "x": X, "rot": -PI / 2, "from_far": true}]:
+		var gaps: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(DIR + "gaps.json"))
 		var total := 0.0
-		for t in wall.tags:
-			total += assets[t].outer.x
-		var gap: float = (L - total) / (wall.tags.size() + 1)
-		var d := gap
-		for t in wall.tags:
+		for i in wall.tags.size():
+			total += assets[wall.tags[i]].outer.x
+			if i > 0:
+				total += gaps.get("%s-%s" % [wall.tags[i - 1], wall.tags[i]], GAP)
+		var d: float = (L - total) / 2.0  # the rest splits evenly between the two corners
+		for i in wall.tags.size():
+			var t: String = wall.tags[i]
+			if i > 0:
+				d += gaps.get("%s-%s" % [wall.tags[i - 1], t], GAP)
 			var w: float = assets[t].outer.x
 			var along := d + w / 2.0
 			var z := -(L - along) if wall.from_far else -along
 			_place(t, by[t], assets[t], Vector3(wall.x, 0, z), wall.rot)
-			d += w + gap
+			d += w
 	# end walls: one painting centred on each side of the door
-	var mid := (DOOR.x / 2.0 + CASING + X) / 2.0
-	_place("S1", by.S1, assets.S1, Vector3(mid, 0, 0), PI)  # arch end, east of the door
-	_place("S2", by.S2, assets.S2, Vector3(-mid, 0, 0), PI)
-	_place("N1", by.N1, assets.N1, Vector3(-mid, 0, -L), 0.0)  # far end, west of the door
-	_place("N2", by.N2, assets.N2, Vector3(mid, 0, -L), 0.0)
+	var ma := (DOORS.arch.size.x / 2.0 + CASING + X) / 2.0
+	var mf := (DOORS.far.size.x / 2.0 + CASING + X) / 2.0
+	_place("S1", by.S1, assets.S1, Vector3(ma, 0, 0), PI)  # arch end, east of the door
+	_place("S2", by.S2, assets.S2, Vector3(-ma, 0, 0), PI)
+	_place("N1", by.N1, assets.N1, Vector3(-mf, 0, -L), 0.0)  # far end, west of the door
+	_place("N2", by.N2, assets.N2, Vector3(mf, 0, -L), 0.0)
 
 
 func _place(tag: String, rec: Dictionary, node: Node3D, at: Vector3, rot: float) -> void:
@@ -380,6 +444,7 @@ func _open_detail(p: Dictionary) -> void:
 	_zoom_root.scale = Vector2.ONE
 	_zoom_root.position = (size - Vector2(pw, ph)) / 2.0
 	_open = p
+	_held.clear()
 	_detail.visible = true
 	var t := create_tween()
 	t.tween_property(_detail, "modulate:a", 1.0, 0.4)
@@ -433,14 +498,25 @@ func _process(delta: float) -> void:
 		else:
 			_yaw += signf(d) * a
 	var moving := false
-	if _target != null:
-		var to: Vector3 = _target - _pos
+	var goal = _path[0] if not _path.is_empty() else _target
+	if goal != null:
+		var to: Vector3 = goal - _pos
 		to.y = 0
-		if to.length() < 0.03:
-			_target = null
+		if to.length() < 0.05:
+			if not _path.is_empty():
+				_path.pop_front()
+			else:
+				_target = null
 		else:
 			_pos = _clamp(_pos + to.normalized() * minf(to.length(), WALK_MPS * delta))
 			moving = true
+			# stuck against something for half a second: give up on this walk
+			_stall_t = _stall_t + delta if _pos.distance_to(_last_pos) < WALK_MPS * delta * 0.2 else 0.0
+			if _stall_t > 0.5:
+				_path.clear()
+				_target = null
+				_stall_t = 0.0
+	_last_pos = _pos
 	if moving and _kid_frames.size() > 1:
 		_kid_t += delta
 		_kid.texture = _kid_frames[int(_kid_t * 10.0) % _kid_frames.size()]
@@ -491,10 +567,32 @@ func _update_camera(k: float) -> void:
 
 
 func _step(dir: float) -> void:
+	_new_action()
 	_target = _clamp((_target if _target != null else _pos) + _fwd() * STEP_M * dir)
 
 
+func _new_action() -> void:
+	_action += 1
+	_path.clear()
+
+
+# Walk to p, around a bench if one is in the way: to the bench's side at our z, along it, then on.
+func _walk_to(p: Vector3) -> void:
+	_new_action()
+	_target = _clamp(p)
+	for bz in BENCHES:
+		var z0: float = minf(_pos.z, _target.z)
+		var z1: float = maxf(_pos.z, _target.z)
+		if z0 < bz + 1.6 and z1 > bz - 1.6 and (absf(_pos.x) < 1.3 or absf(_target.x) < 1.3):
+			var sx := 1.5 * (signf(_target.x + _pos.x) if absf(_target.x + _pos.x) > 0.01 else 1.0)
+			var zin := clampf(_pos.z, bz - 1.9, bz + 1.9)
+			var zout := clampf(_target.z, bz - 1.9, bz + 1.9)
+			_path = [_clamp(Vector3(sx, 0, zin)), _clamp(Vector3(sx, 0, zout))]
+			break
+
+
 func _turn(dir: float) -> void:
+	_path.clear()
 	_target_yaw = (_target_yaw if _target_yaw != null else _yaw) + dir * PI / 4
 
 
@@ -509,8 +607,11 @@ func _painting_at(pt: Vector2) -> Dictionary:
 	var best := {}
 	var best_d := INF
 	for p in _paintings:
-		if _cam.is_position_behind(p.center):
-			continue
+		var behind := false
+		for c in p.corners:
+			behind = behind or _cam.is_position_behind(c)
+		if behind or not Rect2(Vector2.ZERO, size).grow(40).has_point(_to_screen(p.center)):
+			continue  # a corner behind the camera flips its projection across the screen
 		var poly := PackedVector2Array()
 		for c in p.corners:
 			poly.append(_to_screen(c))
@@ -541,7 +642,7 @@ func _click(pt: Vector2) -> void:
 	var o := _cam.project_ray_origin(vp_pt)
 	var d := _cam.project_ray_normal(vp_pt)
 	if d.y < -0.01:
-		_target = _clamp(o + d * (-o.y / d.y))
+		_walk_to(o + d * (-o.y / d.y))
 		var to: Vector3 = _target - _pos
 		if to.length() > 0.2:
 			_target_yaw = atan2(-to.x, -to.z)
@@ -550,11 +651,19 @@ func _click(pt: Vector2) -> void:
 func _approach(p: Dictionary) -> void:
 	var stand: Vector3 = p.center + p.normal * clampf(p.outer.y * 1.1, 2.0, 3.5)
 	stand.y = 0
-	_target = _clamp(stand)
-	_target_yaw = atan2(p.normal.x, p.normal.z)
-	while _target != null or _target_yaw != null:
+	_walk_to(stand)
+	var mine := _action
+	var face := atan2(p.normal.x, p.normal.z)
+	while _target != null or not _path.is_empty():
 		await get_tree().process_frame
-		if not _open.is_empty():
+		if _action != mine or not _open.is_empty():
+			return  # a newer click or key took over
+	if _pos.distance_to(_clamp(stand)) > 0.6:
+		return  # could not get there
+	_target_yaw = face
+	while _target_yaw != null:
+		await get_tree().process_frame
+		if _action != mine:
 			return
 	_open_detail(p)
 
@@ -605,8 +714,19 @@ func _input(event: InputEvent) -> void:  # Esc closes the detail view before any
 		_close_detail()
 
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_VISIBILITY_CHANGED or what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_FOCUS_EXIT:
+		_held.clear()
+
+
 func _unhandled_key_input(event: InputEvent) -> void:
-	if not is_visible_in_tree() or event.echo:
+	if event.echo:
+		return
+	if not event.pressed and event is InputEventKey:  # releases always count, even while hidden
+		for k in ["up", "down", "left", "right"]:
+			if _held.has(k) and event.keycode in {"up": [KEY_UP, KEY_W], "down": [KEY_DOWN, KEY_S], "left": [KEY_LEFT, KEY_A], "right": [KEY_RIGHT, KEY_D]}[k]:
+				_held.erase(k)
+	if not is_visible_in_tree():
 		return
 	var key := ""
 	match event.keycode:
@@ -636,6 +756,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if not _open.is_empty():
 		return
 	_held[key] = 0.0
+	_new_action()
 	match key:
 		"up": _step(1.0)
 		"down": _step(-1.0)

@@ -59,6 +59,18 @@
      "sha256": "6db20b89ef019e278646ae736268f5ff2e77d9a378d71d4c87ea8e7232bcf858"
     }
    ]
+  },
+  {
+   "id": "oak-grain",
+   "prompt": "prompts/oak-grain.txt",
+   "promptSha256": "dd980c81c85de5959ff89aa26336dde3221297a2bd9b50ac837986b4692ef08d",
+   "size": "1600x800",
+   "inputs": [
+    {
+     "path": "references/floor-crop.png",
+     "sha256": "d7636e7c478a7d423cf0fede9544cac9c5b40544babee1c088de983a57672b12"
+    }
+   ]
   }
  ]
 }
