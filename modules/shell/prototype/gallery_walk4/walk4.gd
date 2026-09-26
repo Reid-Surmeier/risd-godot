@@ -309,7 +309,7 @@ func _build_paintings() -> void:
 	for r in works:
 		var node: Node3D = PaintingAsset.new()
 		if r.tag == "W6":
-			node.build_shaped(load(DIR + "frames/W6-shaped.png"), Vector2(r.canvas_w, r.canvas_h), r.outline)
+			node.build_shaped(load(DIR + "frames/W6-shaped.png"), Vector2(r.canvas_w, r.canvas_h), r.outline, Color(r.edge_color))
 		else:
 			node.build_framed(load(DIR + "frames/%s.png" % r.tag), load(DIR + "canvas/%s.jpg" % r.tag), Vector2(r.canvas_w, r.canvas_h), r.margins_px)
 		assets[r.tag] = node
@@ -419,7 +419,8 @@ func _open_detail(p: Dictionary) -> void:
 	var rec: Dictionary = p.rec
 	var pic: TextureRect = _zoom_root.get_node("Painting")
 	var frame: NinePatchRect = _zoom_root.get_node("Frame")
-	var tex: Texture2D = load(DIR + "detail/%s.jpg" % p.tag)
+	# one master: the shaped work shows its own keyed cut-out, as in the room, on white
+	var tex: Texture2D = load(DIR + ("frames/W6-shaped.png" if p.tag == "W6" else "detail/%s.jpg" % p.tag))
 	pic.texture = tex
 	var aspect := float(tex.get_width()) / tex.get_height()
 	var ph := minf(size.y * 0.74, size.x * 0.66 / aspect)
@@ -568,7 +569,7 @@ func _update_camera(k: float) -> void:
 
 func _step(dir: float) -> void:
 	_new_action()
-	_target = _clamp((_target if _target != null else _pos) + _fwd() * STEP_M * dir)
+	_target = _clamp(_pos + _fwd() * STEP_M * dir)  # from where the kid stands: a key replaces any click walk
 
 
 func _new_action() -> void:
@@ -576,23 +577,55 @@ func _new_action() -> void:
 	_path.clear()
 
 
-# Walk to p, around a bench if one is in the way: to the bench's side at our z, along it, then on.
+# Walk to p. Every leg is checked against each bench's rectangle (grown by the kid's clearance); a leg that
+# crosses one is replaced by a detour down the side lane nearer the start, past both of the bench's ends.
 func _walk_to(p: Vector3) -> void:
 	_new_action()
 	_target = _clamp(p)
+	var pts: Array = [_pos, _target]
+	var i := 0
+	while i < pts.size() - 1 and pts.size() < 12:
+		var hit := _bench_hit(pts[i], pts[i + 1])
+		if hit == INF:
+			i += 1
+			continue
+		var bz: float = hit
+		var a: Vector3 = pts[i]
+		var b: Vector3 = pts[i + 1]
+		var side := func(v: Vector3, other: Vector3) -> float: return signf(v.x) if absf(v.x) > 0.05 else (signf(other.x) if absf(other.x) > 0.05 else 1.0)
+		var xa: float = side.call(a, b) * 1.6
+		var xb: float = side.call(b, a) * 1.6
+		var sa := signf(a.z - bz) if absf(a.z - bz) > 0.01 else 1.0
+		var sb := signf(b.z - bz) if absf(b.z - bz) > 0.01 else sa
+		var detour: Array = []
+		if xa == xb:  # same side of the bench: along the lane from our end to the target's end
+			detour = [Vector3(xa, 0, bz + 1.95 * sa)] if sa == sb else [Vector3(xa, 0, bz + 1.95 * sa), Vector3(xa, 0, bz + 1.95 * sb)]
+		else:  # opposite sides: round the bench's end on our side
+			detour = [Vector3(xa, 0, bz + 1.95 * sa), Vector3(xb, 0, bz + 1.95 * sa)]
+		for k in detour.size():
+			pts.insert(i + 1 + k, detour[k])
+		i += detour.size()  # the detour's own legs clear the bench; go on from its last point
+	_path = pts.slice(1, pts.size() - 1)
+
+
+# The z of the first bench the straight leg a->b crosses, or INF.
+func _bench_hit(a: Vector3, b: Vector3) -> float:
 	for bz in BENCHES:
-		var z0: float = minf(_pos.z, _target.z)
-		var z1: float = maxf(_pos.z, _target.z)
-		if z0 < bz + 1.6 and z1 > bz - 1.6 and (absf(_pos.x) < 1.3 or absf(_target.x) < 1.3):
-			var sx := 1.5 * (signf(_target.x + _pos.x) if absf(_target.x + _pos.x) > 0.01 else 1.0)
-			var zin := clampf(_pos.z, bz - 1.9, bz + 1.9)
-			var zout := clampf(_target.z, bz - 1.9, bz + 1.9)
-			_path = [_clamp(Vector3(sx, 0, zin)), _clamp(Vector3(sx, 0, zout))]
-			break
+		var r := Rect2(Vector2(-0.48 - 0.5, bz - 1.5 - 0.5), Vector2(0.96 + 1.0, 3.0 + 1.0))
+		var aa := Vector2(a.x, a.z)
+		var bb := Vector2(b.x, b.z)
+		if r.has_point(aa) or r.has_point(bb):
+			return bz
+		var corners := [r.position, Vector2(r.end.x, r.position.y), r.end, Vector2(r.position.x, r.end.y)]
+		for k in 4:
+			if Geometry2D.segment_intersects_segment(aa, bb, corners[k], corners[(k + 1) % 4]) != null:
+				return bz
+	return INF
 
 
 func _turn(dir: float) -> void:
-	_path.clear()
+	_new_action()
+	_target = null  # turning by key ends any click walk
 	_target_yaw = (_target_yaw if _target_yaw != null else _yaw) + dir * PI / 4
 
 

@@ -93,7 +93,7 @@ func build_framed(frame_tex: Texture2D, canvas_tex: Texture2D, canvas: Vector2, 
 
 ## A shaped work: a closed slab following its real outline (points in 0..1 of the texture, y down): a triangulated
 ## front face textured with its keyed Muse cut-out, and continuous side faces back to the wall.
-func build_shaped(tex: Texture2D, size: Vector2, outline: Array) -> void:
+func build_shaped(tex: Texture2D, size: Vector2, outline: Array, edge_color: Color) -> void:
 	outer = size
 	var d := 0.05
 	var pts := PackedVector2Array()
@@ -106,7 +106,8 @@ func build_shaped(tex: Texture2D, size: Vector2, outline: Array) -> void:
 		for i in tris:
 			st.set_uv(uvs[i])
 			st.add_vertex(Vector3(pts[i].x, pts[i].y, d)), mat(tex))
-	var edge := mat(tex, 0.5)
+	var edge := mat(null)  # the gilt edge's own colour: the texture's outline pixels would sample the keyed matte
+	edge.albedo_color = edge_color * Color(0.7, 0.7, 0.7)
 	_mesh(func(st: SurfaceTool) -> void:
 		for i in pts.size():
 			var j := (i + 1) % pts.size()

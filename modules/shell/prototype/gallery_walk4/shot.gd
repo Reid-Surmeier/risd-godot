@@ -86,4 +86,30 @@ func _initialize() -> void:
 	await _click(walk.get_global_rect().position + walk._to_screen(e5.center), "E4 across the room")
 	await create_timer(12.0).timeout
 	await _shot(out_dir, "22-cross-click-detail.png")
+	await _key(KEY_ESCAPE, "close")
+	await create_timer(0.6).timeout
+	# Astra round 2 case: from W7, click E4 across a bench at an angle
+	var w7 := {}
+	for p in walk._paintings:
+		if p.tag == "W7":
+			w7 = p
+	await _pose(-3.2, w7.center.z, -60, "23-from-w7.png", out_dir)
+	await _click(walk.get_global_rect().position + walk._to_screen(e5.center), "E4 from W7")
+	await create_timer(14.0).timeout
+	await _shot(out_dir, "24-w7-to-e4-detail.png")
+	await _key(KEY_ESCAPE, "close")
+	await create_timer(0.6).timeout
+	# click far-end N1 from the start, then tap S: must step back locally
+	await _pose(0, -4.2, 0, "25-start-again.png", out_dir)
+	var n1 := {}
+	for p in walk._paintings:
+		if p.tag == "N1":
+			n1 = p
+	await _click(walk.get_global_rect().position + walk._to_screen(n1.center), "N1")
+	await create_timer(1.0).timeout
+	var z_before: float = walk._pos.z
+	await _key(KEY_S, "step back")
+	await create_timer(2.0).timeout
+	print("STEP-BACK z before %.2f after %.2f target %s" % [z_before, walk._pos.z, str(walk._target)])
+	await _shot(out_dir, "26-after-step-back.png")
 	quit(0)
