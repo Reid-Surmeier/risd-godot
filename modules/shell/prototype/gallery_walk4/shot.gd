@@ -118,6 +118,31 @@ func _initialize() -> void:
 	await create_timer(20.0).timeout
 	print("BOTH-BENCHES end pos %s target %s" % [str(walk._pos), str(walk._target)])
 	await _shot(out_dir, "28-after-both-benches.png")
+	# Astra round 4: starting against the first bench, to beyond the second
+	walk._pos = walk._clamp(Vector3(0, 0, -7.2))
+	walk._update_camera(1.0)
+	walk._walk_to(Vector3(0, 0, -18.9))
+	print("AGAINST-BENCH path %s" % str(walk._path))
+	await create_timer(20.0).timeout
+	print("AGAINST-BENCH end pos %s target %s" % [str(walk._pos), str(walk._target)])
+	# 300 random walks through the real movement code (stepped, not timed): each must arrive
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 7
+	var fails := 0
+	for n in 300:
+		var a := Vector3(rng.randf_range(-4.5, 4.5), 0, rng.randf_range(-25.8, -0.5))
+		var b := Vector3(rng.randf_range(-4.5, 4.5), 0, rng.randf_range(-25.8, -0.5))
+		walk._pos = walk._clamp(a)
+		walk._walk_to(b)
+		var steps := 0
+		while (walk._target != null or not walk._path.is_empty()) and steps < 2000:
+			walk._process(0.05)
+			steps += 1
+		if walk._pos.distance_to(walk._clamp(b)) > 0.1:
+			fails += 1
+			if fails <= 5:
+				print("FUZZ fail from %s to %s ended %s" % [str(walk._pos), str(walk._clamp(b)), str(walk._pos)])
+	print("FUZZ %d of 300 walks failed" % fails)
 	# a painting half out of view: close to the east wall, looking along it; click its visible part
 	var e6 := {}
 	for p in walk._paintings:

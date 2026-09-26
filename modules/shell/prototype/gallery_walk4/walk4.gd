@@ -28,6 +28,7 @@ const DOORS := {
 	"far": {"z": -L, "size": Vector2(1.9, 2.8), "reveal": 2.6, "card": "door-far", "cornice": false, "vestibule": true},
 }
 const BENCHES := [-9.0, -17.0]
+const BENCH_CLEAR := Vector2(0.78, 1.8)  # the kid's clearance round a bench (half-size x, z): collision and route planning share it
 const WALK_MPS := 1.2
 const STEP_M := 1.0
 const TURN_HELD_DPS := 40.0
@@ -532,8 +533,8 @@ func _clamp(p: Vector3) -> Vector3:
 	var m := 0.55
 	p = Vector3(clampf(p.x, -W / 2 + m, W / 2 - m), 0, clampf(p.z, -L + m, -m))
 	for bz in BENCHES:
-		var hx := 0.48 + 0.3
-		var hz := 1.5 + 0.3
+		var hx := BENCH_CLEAR.x
+		var hz := BENCH_CLEAR.y
 		var dx := p.x
 		var dz: float = p.z - bz
 		if absf(dx) < hx and absf(dz) < hz:
@@ -602,8 +603,14 @@ func _walk_to(p: Vector3) -> void:
 			detour = [Vector3(xa, 0, bz + 2.15 * sa)] if sa == sb else [Vector3(xa, 0, bz + 2.15 * sa), Vector3(xa, 0, bz + 2.15 * sb)]
 		else:  # opposite sides: round the bench's end on our side
 			detour = [Vector3(xa, 0, bz + 2.15 * sa), Vector3(xb, 0, bz + 2.15 * sa)]
+		var added := 0
 		for k in detour.size():
-			pts.insert(i + 1 + k, detour[k])
+			var q: Vector3 = _clamp(detour[k])
+			if q.distance_to(pts[i + added]) > 0.05:  # never the point we stand on
+				pts.insert(i + 1 + added, q)
+				added += 1
+		if added == 0:
+			i += 1
 		# no advance: the new legs are checked again against every bench
 	_path = pts.slice(1, pts.size() - 1)
 
@@ -613,10 +620,11 @@ func _bench_hit(a: Vector3, b: Vector3) -> float:
 	var order := BENCHES.duplicate()
 	order.sort_custom(func(p: float, q: float) -> bool: return absf(p - a.z) < absf(q - a.z))
 	for bz in order:
-		var r := Rect2(Vector2(-0.48 - 0.5, bz - 1.5 - 0.5), Vector2(0.96 + 1.0, 3.0 + 1.0))
+		# the collision rectangle, a hair smaller so a kid standing on its edge is outside it
+		var r := Rect2(Vector2(-BENCH_CLEAR.x, bz - BENCH_CLEAR.y), BENCH_CLEAR * 2.0).grow(-0.02)
 		var aa := Vector2(a.x, a.z)
 		var bb := Vector2(b.x, b.z)
-		if r.has_point(aa) or r.has_point(bb):
+		if r.has_point(bb):
 			return bz
 		var corners := [r.position, Vector2(r.end.x, r.position.y), r.end, Vector2(r.position.x, r.end.y)]
 		for k in 4:
