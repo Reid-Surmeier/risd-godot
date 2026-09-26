@@ -8,6 +8,7 @@ const pause = ms => new Promise(r => setTimeout(r, ms));
  const browser=await puppeteer.launch({executablePath:'/usr/bin/google-chrome',headless:'new',args:['--use-gl=angle','--use-angle=gl-egl','--ignore-gpu-blocklist','--no-sandbox']});
  try {
   const p=await browser.newPage(); await p.setViewport({width:1600,height:900});
+  const wallEvents=[];p.on('console',m=>{if(m.text().includes('OTHER_WALL '))wallEvents.push(m.text());});
   const errors=[]; p.on('pageerror',e=>errors.push(String(e))); p.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
   await p.goto(url,{waitUntil:'load',timeout:120000});
   await p.waitForFunction(()=>window.loadPerf?.some(mark=>mark.name==='tabs-warm'),{timeout:120000});
@@ -26,7 +27,7 @@ const pause = ms => new Promise(r => setTimeout(r, ms));
    deltas.sort((a,b)=>a-b); const percentile=q=>deltas[Math.floor((deltas.length-1)*q)];
    measures.push({phase,samples:deltas.length,median_ms:percentile(.5),p95_ms:percentile(.95),mean_ms:deltas.reduce((a,b)=>a+b,0)/deltas.length});
   }
-  const recorder=await p.screencast({path:'/tmp/'+label+'.webm',fps:15});
+  const recorder=await p.screencast({path:'/tmp/'+label+'.webm',fps:30});
   await p.keyboard.down('ArrowUp'); await pause(2000); await p.keyboard.up('ArrowUp');
   if(label.startsWith('baseline')) {await p.keyboard.down('ArrowLeft');await pause(2000);await p.keyboard.up('ArrowLeft');} else {await p.keyboard.press('e');await pause(2000);}
   await recorder.stop();
@@ -34,6 +35,10 @@ const pause = ms => new Promise(r => setTimeout(r, ms));
   const transfer=await p.evaluate(()=>performance.getEntriesByType('resource').reduce((a,r)=>a+r.transferSize,0));
   const ui=[];
   if(!label.startsWith('baseline')) {
+   await p.mouse.click(1070,187);await pause(500);
+   ui.push({control:'other-wall',passed:wallEvents.length>0,events:wallEvents});
+   await p.screenshot({path:'/tmp/'+label+'-other-wall.png'});
+   await p.keyboard.press('F6');await pause(200);
    await p.mouse.click(630,550);await pause(300);
    await p.screenshot({path:'/tmp/'+label+'-menu.png'});
    await p.keyboard.press('ArrowDown');await p.keyboard.press('ArrowDown');await p.keyboard.press('Enter');await pause(500);

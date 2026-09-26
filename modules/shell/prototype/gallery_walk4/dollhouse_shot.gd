@@ -32,6 +32,31 @@ func _choose_view(title: String) -> void:
 				return
 	_require(false, "camera choice missing: " + title)
 
+func _observe_steps(code: Key, seconds: float) -> int:
+	var started := 0
+	var playing := {}
+	var event := InputEventKey.new()
+	event.keycode = code
+	event.pressed = true
+	Input.parse_input_event(event)
+	var elapsed := 0.0
+	while elapsed < seconds:
+		await process_frame
+		elapsed += walk.get_process_delta_time()
+		for name in walk._sfx:
+			if not str(name).begins_with("step"):
+				continue
+			var active: bool = walk._sfx[name].playing
+			if active and not playing.get(name, false):
+				started += 1
+			playing[name] = active
+	event = InputEventKey.new()
+	event.keycode = code
+	Input.parse_input_event(event)
+	await create_timer(0.5).timeout
+	return started
+
+
 func _initialize() -> void:
 	var main: Control = load("res://modules/shell/demo.tscn").instantiate()
 	var out := await _mount(main, Vector2i(1920, 1080), "/tmp/gallery-dollhouse")
@@ -58,6 +83,26 @@ func _initialize() -> void:
 	await create_timer(0.3).timeout
 	await _shot(out, "03-gallery-baked.png")
 	await _choose_view("Dollhouse")
+	_require(not walk._view_panel.visible, "comparison toolbar visible by default")
+	var bay: float = walk._pos.z
+	var wall_button: Button = walk.get_node("OtherWall")
+	await _click(wall_button.global_position + wall_button.size / 2, "other wall shortcut")
+	await create_timer(0.3).timeout
+	_require(walk._pos.x > 0 and is_equal_approx(walk._pos.z, bay), "other wall did not cross to the same bay")
+	_require(sin(walk.view_yaw) < -0.9, "other wall did not face east")
+	await _shot(out, "04-other-wall.png")
+	await _click(wall_button.global_position + wall_button.size / 2, "return to west wall")
+	await create_timer(0.3).timeout
+	_require(walk._pos.x < 0 and sin(walk.view_yaw) > 0.9, "other wall did not return west")
+	print("DOLLHOUSE_OTHER_WALL both directions")
+	var cadence := await _observe_steps(KEY_D, 2.0)
+	_require(cadence >= 6 and cadence <= 9, "two-second walking cadence outside 6–9 audible contacts: " + str(cadence))
+	walk._pos = Vector3(-4.45, 0, -12)
+	await create_timer(0.2).timeout
+	var blocked_steps := await _observe_steps(KEY_W, 1.0)
+	_require(blocked_steps == 0, "walking into a wall produced footsteps")
+	print("DOLLHOUSE_FOOTSTEPS contacts_2s=", cadence, " blocked=", blocked_steps)
+	walk._pos = Vector3(-2.6, 0, -12)
 	# A held right key must move right on screen without rotating the fixed view.
 	var before: Vector3 = walk._pos
 	var orientation: Basis = walk._cam.global_basis
@@ -127,6 +172,7 @@ func _initialize() -> void:
 		if correct:
 			opened += 1
 		await _key(KEY_ESCAPE, "close art")
+	_require(not walk._view_panel.visible, "closing artwork restored the removed toolbar")
 	print("DOLLHOUSE_ARTWORKS ", opened, "/", walk._paintings.size())
 	Engine.time_scale = 1
 	print("DOLLHOUSE_FAILURES ", failures)

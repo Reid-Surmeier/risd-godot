@@ -7,6 +7,7 @@ const HazeShader := preload("res://modules/shell/haze_screen.gdshader")
 var enabled := true
 var squiggle_enabled := false  # off by default: its 3 steps a second read as flicker (owner, 2026-09-23); F9 turns it on
 var _qa_elapsed := 0.0
+var _qa_enabled := false
 var _mouse_inside := false
 var squiggle: ColorRect
 var haze: ColorRect  # F10 or ?haze=0 turns it off, to compare
@@ -24,7 +25,7 @@ func _ready() -> void:
 		enabled = not JavaScriptBridge.eval("new URLSearchParams(location.search).get('crt') === '0' || new URLSearchParams(location.search).has('qa-viewer')")
 	_publish_state()
 	_publish_squiggle_state()
-	set_process(OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).has('qa-crt')"))
+	_qa_enabled = OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).has('qa-crt')")
 
 func _create_squiggle() -> void:
 	var layer := CanvasLayer.new()
@@ -123,6 +124,16 @@ func _process(delta: float) -> void:
 	if _qa_elapsed < 0.25:
 		return
 	_qa_elapsed = 0.0
+	var quiet := Vector4.ZERO
+	for view in get_tree().get_nodes_in_group("soft_render_view"):
+		if view.is_visible_in_tree():
+			var rect: Rect2 = view.get_global_rect()
+			var extent := Vector2($Desktop.size)
+			quiet = Vector4(rect.position.x / extent.x, rect.position.y / extent.y, rect.end.x / extent.x, rect.end.y / extent.y)
+			break
+	crt_material.set_shader_parameter("quiet_rect", quiet)
+	if not _qa_enabled:
+		return
 	var shell: Control = $Desktop/Content.get_node_or_null("Shell")
 	if shell == null:
 		return

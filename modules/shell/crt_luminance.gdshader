@@ -12,6 +12,8 @@ render_mode unshaded, blend_disabled;
 	This should be supplied by a subviewport texture rendered at a lower res.
 	*/
 uniform sampler2D tex : repeat_disable, filter_linear;
+// The gallery already supplies its subtle RGB6 finish; avoid a second strong grid.
+uniform vec4 quiet_rect = vec4(0.0);
 uniform float strength : hint_range(0.0, 1.0) = 0.30;
 uniform float grain_strength : hint_range(0.0, 0.3) = 0.2;
 
@@ -248,12 +250,14 @@ void fragment()
 	// Sample color
 	vec3 col = sample(warped_coords);
 
+	float quiet = step(quiet_rect.x, warped_coords.x) * step(quiet_rect.y, warped_coords.y) * step(warped_coords.x, quiet_rect.z) * step(warped_coords.y, quiet_rect.w);
+	float finish = mix(1.0, 0.12, quiet);
 	// Apply phosphor mask
-	col = mix(col, apply_mask(col, FRAGCOORD.xy), strength);
+	col = mix(col, apply_mask(col, FRAGCOORD.xy), strength * finish);
 	// Zero-mean texture uses available highlight/shadow room, keeping pure white
 	// and black unchanged. Static screen-space grain avoids flicker while painting.
 	float scanline = 0.10 * cos(FRAGCOORD.y * 2.0943951);
 	float grain = fract(sin(dot(FRAGCOORD.xy, vec2(12.9898, 78.233))) * 43758.5453) * 2.0 - 1.0;
-	col += min(col, vec3(1.0) - col) * (scanline + grain_strength * grain);
+	col += min(col, vec3(1.0) - col) * (scanline + grain_strength * grain) * finish;
 	COLOR = vec4(linear_to_srgb(col), 1.0);
 }

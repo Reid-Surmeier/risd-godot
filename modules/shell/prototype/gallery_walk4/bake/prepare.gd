@@ -82,6 +82,10 @@ func _prepare() -> void:
 		instance.layers = source.layers
 		instance.gi_mode = GeometryInstance3D.GI_MODE_STATIC
 		instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
+		if material.albedo_texture and material.albedo_texture.resource_path.ends_with("/skylight.png"):
+			instance.gi_mode = GeometryInstance3D.GI_MODE_DISABLED  # omit glazing from bake ray geometry
+			material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+			instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		room.add_child(instance)
 		instance.owner = room
 		index += 1
@@ -90,13 +94,37 @@ func _prepare() -> void:
 		light.position = Vector3(0, 5.7, z)
 		light.omni_range = 13.0
 		light.omni_attenuation = 0.65
-		light.light_energy = 1.2
+		light.light_energy = 0.4
 		light.light_color = Color("#fff1d9")
 		light.light_size = 2.5
 		light.light_bake_mode = Light3D.BAKE_STATIC
 		light.shadow_enabled = true
 		room.add_child(light)
 		light.owner = room
+	# Offline spotlights: local warm pools around the paintings, retained in the lightmap.
+	for painting in walk._paintings:
+		var spot := SpotLight3D.new()
+		room.add_child(spot)
+		spot.owner = room
+		spot.position = painting.center + painting.normal * 2.2 + Vector3.UP * 3.1
+		spot.look_at(painting.center + Vector3.UP * 0.3, Vector3.UP)
+		spot.spot_range = 7.0
+		spot.spot_angle = 25.0
+		spot.spot_angle_attenuation = 1.5
+		spot.light_color = Color("#ffd391")
+		spot.light_energy = 8.0
+		spot.light_size = 0.35
+		spot.light_bake_mode = Light3D.BAKE_STATIC
+		spot.shadow_enabled = true
+	var daylight := DirectionalLight3D.new()
+	daylight.rotation_degrees = Vector3(-60, -25, 0)
+	daylight.light_color = Color("#eff5ff")
+	daylight.light_energy = 0.8
+	daylight.light_angular_distance = 6.0
+	daylight.light_bake_mode = Light3D.BAKE_STATIC
+	daylight.shadow_enabled = true
+	room.add_child(daylight)
+	daylight.owner = room
 	var lm := LightmapGI.new()
 	lm.name = "Lightmap"
 	lm.quality = LightmapGI.BAKE_QUALITY_LOW
@@ -105,7 +133,7 @@ func _prepare() -> void:
 	lm.generate_probes_subdiv = LightmapGI.GENERATE_PROBES_DISABLED
 	lm.environment_mode = LightmapGI.ENVIRONMENT_MODE_CUSTOM_COLOR
 	lm.environment_custom_color = Color("#cbd4e1")
-	lm.environment_custom_energy = 0.35
+	lm.environment_custom_energy = 0.22
 	room.add_child(lm)
 	lm.owner = room
 	var scene := PackedScene.new()

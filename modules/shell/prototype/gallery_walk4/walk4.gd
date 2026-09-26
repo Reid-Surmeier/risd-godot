@@ -19,7 +19,7 @@ const SKY_W := 4.2
 const WHITE := Color("#e9e6de")
 const CASING := 0.28
 const GAP := 0.75  # default gap between frames; measured gaps in gaps.json
-const PLANK := Vector2(0.66, 0.11)
+const PLANK := Vector2(0.84, 0.18)
 # The two doorways differ: the arch door (to the medieval gallery) has a cornice head and a shallow reveal onto
 # the wide lit room; the far door has a plain casing and a deep vestibule with a second door at its end.
 const DOORS := {
@@ -33,7 +33,7 @@ const STEP_M := 1.0
 const TURN_HELD_DPS := 40.0
 const TURN_TAP_DPS := 75.0
 const HOLD_S := 0.25
-const KID_H := 1.05
+const KID_H := 1.75
 
 var _vp: SubViewport
 # PROTOTYPE #132: fixed dollhouse, lower gallery view, and original camera.
@@ -77,6 +77,7 @@ const WALK_FRAMES := 16
 
 
 func _ready() -> void:
+	add_to_group("soft_render_view")
 	clip_contents = true
 	focus_mode = Control.FOCUS_ALL
 	mouse_filter = Control.MOUSE_FILTER_STOP
@@ -84,7 +85,8 @@ func _ready() -> void:
 	box.stretch = true
 	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	box.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	box.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	box.material = _post()
 	add_child(box)
 	_vp = SubViewport.new()
 	_vp.own_world_3d = true
@@ -107,19 +109,19 @@ func _ready() -> void:
 	_update_camera(1.0)
 
 
-# The PS1 finish after the render: 15-bit colour with a 4x4 ordered dither, drawn with hard pixels.
+# GameCube RGB6 quantization: subtle 2x2 ordering at rendered texels, no time/noise.
+# Formula: Dolphin PixelShaderGen, documented in research/animal-crossing-look.
 func _post() -> ShaderMaterial:
 	var sh := Shader.new()
 	sh.code = """
 shader_type canvas_item;
-uniform float levels = 32.0;
-const float BAYER[16] = float[](0.0, 8.0, 2.0, 10.0, 12.0, 4.0, 14.0, 6.0, 3.0, 11.0, 1.0, 9.0, 15.0, 7.0, 13.0, 5.0);
 void fragment() {
 	vec4 c = texture(TEXTURE, UV);
-	ivec2 px = ivec2(floor(UV / TEXTURE_PIXEL_SIZE)) % 4;
-	float d = (BAYER[px.y * 4 + px.x] / 16.0 - 0.5) / levels;
-	c.rgb = floor((c.rgb + d) * levels + 0.5) / levels;
-	COLOR = c;
+	ivec2 px = ivec2(floor(UV / TEXTURE_PIXEL_SIZE));
+	float d = float(((px.x ^ px.y) & 1) * 2 + (px.y & 1));
+	vec3 v = floor(c.rgb * 255.0 + 0.5);
+	v = v - floor(v / 64.0) + d;
+	COLOR = vec4(clamp(floor(v / 4.0) / 63.0, 0.0, 1.0), c.a);
 }
 """
 	var m := ShaderMaterial.new()
@@ -292,7 +294,8 @@ func _build_room() -> void:
 	# skirting and cornice
 	var white := ps(null, WHITE)
 	for s in [-1.0, 1.0]:
-		_box(Vector3(s * (X - 0.015), 0.09, -L / 2), Vector3(0.03, 0.18, L), WHITE, 1, white)
+		_box(Vector3(s * (X - 0.04), 0.12, -L / 2), Vector3(0.08, 0.24, L), WHITE, 1, white)
+		_box(Vector3(s * (X - 0.06), 0.255, -L / 2), Vector3(0.12, 0.05, L), WHITE, 1, white)
 		_box(Vector3(s * (X - 0.12), H - 0.17, -L / 2), Vector3(0.24, 0.34, L), WHITE, 1, white)
 		_box(Vector3(s * (X - 0.05), H - 0.42, -L / 2), Vector3(0.1, 0.16, L), WHITE, 1, white)
 	for z in [-0.12, -L + 0.12]:
@@ -715,6 +718,17 @@ func _build_view_controls() -> void:
 	background.content_margin_bottom = 4
 	_view_panel.add_theme_stylebox_override("panel", background)
 	add_child(_view_panel)
+	_view_panel.hide()  # F6 exposes authoring comparisons; the museum has no debug strip.
+	var other_wall := Button.new()
+	other_wall.name = "OtherWall"
+	other_wall.text = "Other wall"
+	other_wall.tooltip_text = "Cross the gallery to view the opposite paintings"
+	other_wall.focus_mode = Control.FOCUS_NONE
+	other_wall.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
+	other_wall.position = Vector2(-126, 12)
+	other_wall.size = Vector2(114, 32)
+	other_wall.pressed.connect(_other_wall)
+	add_child(other_wall)
 	_view_bar = HBoxContainer.new()
 	_view_bar.alignment = BoxContainer.ALIGNMENT_CENTER
 	_view_bar.add_theme_constant_override("separation", 8)
@@ -777,6 +791,17 @@ func _set_view(mode: int) -> void:
 	if OS.has_feature("web"):
 		JavaScriptBridge.eval("var u=new URL(location.href);u.searchParams.set('variant','%s');history.replaceState(null,'',u)" % ["dollhouse", "gallery", "original"][mode])
 	print("VIEW ", ["dollhouse", "gallery", "original"][mode], " yaw ", rad_to_deg(view_yaw))
+
+
+func _other_wall() -> void:
+	if not _open.is_empty():
+		return
+	# A deliberate gallery shortcut: keep the same bay, cross to the other hang.
+	var east := sin(view_yaw) > 0.0
+	_pos = _clamp(Vector3(2.6 if east else -2.6, 0, _pos.z))
+	view_yaw = -PI / 2.0 if east else PI / 2.0
+	_set_view(0)
+	print("OTHER_WALL ", "east" if east else "west")
 
 
 func _rotate_view(direction: int) -> void:
@@ -920,6 +945,7 @@ func _build_detail() -> void:
 
 func _open_detail(p: Dictionary) -> void:
 	_view_panel.hide()
+	get_node("OtherWall").hide()
 	_velocity = Vector3.ZERO
 	var rec: Dictionary = p.rec
 	var pic: TextureRect = _zoom_root.get_node("Painting")
@@ -959,13 +985,14 @@ func _open_detail(p: Dictionary) -> void:
 
 
 func _close_detail() -> void:
-	_view_panel.show()
+	_view_panel.hide()
 	_play("menu_close")
 	var t := create_tween()
 	t.tween_property(_detail, "modulate:a", 0.0, 0.3)
 	await t.finished
 	_detail.visible = false
 	_open = {}
+	get_node("OtherWall").show()
 
 
 func _zoom_at(point: Vector2, factor: float) -> void:
@@ -1034,7 +1061,10 @@ func _process(delta: float) -> void:
 	var distance_moved := _pos.distance_to(position_before)
 	if distance_moved > 0.0001 and _kid_frames.size() >= WALK_FRAMES:
 		var previous := int(_kid_t * 10.0) if _kid_t > 0.0 else -1
-		_kid_t += distance_moved / WALK_MPS
+		var speed := distance_moved / maxf(delta, 0.0001)
+		# GC contacts are eight keyframes apart; full-stick cadence is ~3.6 steps/s.
+		var steps_per_second := 3.6 * sqrt(minf(speed / 2.0, 1.0))
+		_kid_t += delta * steps_per_second * 8.0 / 10.0
 		var current := int(_kid_t * 10.0)
 		for frame in range(previous + 1, current + 1):
 			if frame % WALK_FRAMES in CONTACT_FRAMES:
@@ -1076,7 +1106,7 @@ func _update_camera(k: float) -> void:
 		var distance := 14.2 if view_mode == 0 else 9.3
 		_cam.fov = 20.0 if view_mode == 0 else 30.0
 		var forward := Vector3(-sin(view_yaw), 0, -cos(view_yaw))
-		var center := _pos + forward * 0.7 + Vector3(0, 1.3, 0)
+		var center := _pos + forward * 0.7 + Vector3(0, 1.55, 0)
 		# Follow the kid along the gallery; the cutaway lets the eye sit outside it.
 		_cam.position = center - forward * distance * cos(pitch) + Vector3.UP * distance * sin(pitch)
 		_cam.look_at(center)
@@ -1345,6 +1375,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			if _held.has(k) and event.keycode in {"up": [KEY_UP, KEY_W], "down": [KEY_DOWN, KEY_S], "left": [KEY_LEFT, KEY_A], "right": [KEY_RIGHT, KEY_D]}[k]:
 				_held.erase(k)
 	if not is_visible_in_tree():
+		return
+	if event.pressed and event.keycode == KEY_F6:
+		_view_panel.visible = not _view_panel.visible
+		get_viewport().set_input_as_handled()
 		return
 	if event.pressed and _open.is_empty() and event.keycode in [KEY_Q, KEY_E]:
 		_rotate_view(1 if event.keycode == KEY_Q else -1)
