@@ -1,6 +1,6 @@
 # Painting Cover Flow viewer
 
-Issue [#127](https://github.com/Reid-Surmeier/risd-godot/issues/127). Standalone browser interaction for the approved blue window: six real RISD paintings, white floor and soft shadows. This is not yet embedded into the Godot app.
+Issue [#127](https://github.com/Reid-Surmeier/risd-godot/issues/127). Standalone browser interaction for the approved blue window: six real RISD paintings, white floor and soft shadows. The native Sketchbook integration is described below.
 
 Run from the repository root:
 
@@ -28,6 +28,8 @@ Issue #128 removes the caption row and arrow buttons. The transparent 3D scene i
 
 The native counterpart is `modules/sketchbook/painting_flow.gd`, sharing this catalogue and these original images. It participates in the actual Sketchbook desktop’s dragging, stacking and tab lifecycle. The book’s original texture now appears without outer chrome, retaining its edge shadow, drawing and page turns.
 
-Exported prototype: `build/web-sketchbook-129/`, served by the existing collection server on port 8141. Tailnet link: https://windows-wsl.taile06c45.ts.net/sketchbook-coverflow-01a0df0c/?crt=0&paintbox=anri (open the Sketchbook tab). Shared for three days from 2026-09-26. The export includes the checkout’s existing unrelated Playground changes; those files are not part of #129.
+Current export: `build/web/2728281-dirty.html` in the `build/integrated` checkout. It is based on gallery-walk `84604cb`, a descendant of the owner’s `743907e` reference, with the Cover Flow changes applied. The original animated boot loader, gallery walk, seven tabs, sounds, desktop icons and current layout remain present.
 
-Run `modules/sketchbook/playtest/coverflow.mjs` as described in the Sketchbook module document. Evidence: `evidence/native/`. No new generation spend.
+Tailnet: https://windows-wsl.taile06c45.ts.net/sketchbook-coverflow-01a0df0c/2728281-dirty.html (open Sketchbook after loading). This supersedes the earlier export from `build/v0.1.0`; the old share now serves the corrected current build. The app uses the existing split boot/game pack exporter and original loading HTML. The new painting viewer uses the current Shell’s window shadow; the book retains its original baked shadow. No unrelated dirty files were moved from the older checkout.
+
+Run `modules/sketchbook/playtest/coverflow.mjs` as described in the Sketchbook module document. Current evidence: `evidence/integrated/`; `evidence/native/` records the superseded older-base prototype. The updated acceptance check requires the loading animation to advance and exit before exercising the seven-tab build and Sketchbook controls. No new generation spend.

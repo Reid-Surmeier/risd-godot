@@ -41,3 +41,13 @@ ponytail: 0 findings, 0 fixed, 0 accepted
 
 ### Verification
 `scripts/check.sh` and `git diff --check` passed. `modules/sketchbook/playtest/coverflow.mjs` passed against the actual Tailscale export: painting clicks both directions, enlarge/Escape, keyboard, vertical and horizontal wheel, painting drag, slider endpoints, viewer movement, book drawing and page turns, book drag/resize, stacking, hidden-tab freeze/resume and viewport resize. The updated screenshots and result are in `evidence/native/`. The six museum-image hashes match the catalogue; the book PNG is byte-identical to the original. No new generation spend.
+
+## Corrected current build — issue 129
+
+The first native export used an older base. The corrected integration starts from gallery-walk `84604cb`, a descendant of the owner's `743907e` reference. Its Shell, loading HTML, boot scene and project configuration are unchanged. Both boot/game export presets are retained, including compressed downloads, original animated loader and Flowers assets. Latest desktop positions, seven tabs, gallery walk and sounds are preserved. The viewer uses the existing Shell window shadow, while the frameless book opts out of a second rectangular shadow.
+
+Independent Standards, Spec and Ponytail reviews found no remaining material defects in this port. Browser acceptance exposed an inherited cursor restore error: `get_meta(key, null)` still reports a missing key. Both Sketchbook restore sites now check presence before reading the optional arrow texture. No helper or new module dependency was introduced.
+
+Final verification: the focused browser acceptance passed on the actual `2728281-dirty.html` tailnet export with zero browser engine errors. It checks the loading animation advancing and exiting, current seven tabs, all painting inputs, window movement, book drawing/page turns, stacking, hidden-tab freeze and resize. `scripts/check.sh` and `git diff --check` passed (baseline exit still warns about six ObjectDB leaks). The final cursor guard received an independent review with no material findings. Current screenshots and machine-readable results are in `evidence/integrated/`. The dirty suffix records documentation edits present during export; application code is commit `2728281`.
+
+Verdict: ready for prototype review; not a release-wide ship verdict.
