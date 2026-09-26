@@ -8,7 +8,7 @@ Run from the repository root:
 python3 -m http.server 8137 --bind 127.0.0.1 --directory prototypes/painting-coverflow/web
 ```
 
-Publish that port with the share skill for remote access. Scroll, drag/swipe, click a side painting, use arrow keys or the slider. Click the center painting or View painting to enlarge it; Escape closes. Home/End reach the ends. Reduced-motion users get immediate selection updates.
+Publish that port with the share skill for remote access. Scroll, drag/swipe, click a side painting, use arrow keys or the slider. Click the center painting to enlarge it; Escape closes. Home/End reach the ends. Reduced-motion users get immediate selection updates.
 
 `web/paintings.json` reuses the existing `risd-3dscans` catalog; it is a six-painting snapshot, not a live search of the whole collection. Museum images are unchanged local copies so navigation does not depend on cross-origin API calls. Original URLs, hashes and catalog revision are recorded in `PROVENANCE.json`. Two catalog entries visibly depict drawings and were excluded. Some existing source links go to the collection landing page rather than an individual object.
 
@@ -21,3 +21,5 @@ bun build prototypes/painting-coverflow/viewer.ts --target browser --minify --ou
 ```
 
 Browser acceptance uses an existing Playwright installation: `PLAYWRIGHT_MODULE=/path/to/playwright/index.mjs CHROMIUM_PATH=/path/to/chrome node prototypes/painting-coverflow/acceptance.mjs`. Those variables are optional when Playwright and its browser are installed in the normal locations. `VIEWER_URL` overrides the local test address. Screenshots land in `evidence/`. The motion research records the Apple video inspected before implementation.
+
+Issue #128 removes the caption row and arrow buttons. The transparent 3D scene ignores pointer hits while painting buttons explicitly accept them, so the visible faces remain clickable. Browser acceptance covers center-face clicks on both side paintings.

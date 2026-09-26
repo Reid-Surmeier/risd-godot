@@ -4,9 +4,6 @@ type Painting = {id:string; title:string; artist:string; risdUrl:string; imageUr
 const stage=document.querySelector<HTMLDivElement>('#stage')!;
 const scene=document.querySelector<HTMLDivElement>('#scene')!;
 const slider=document.querySelector<HTMLInputElement>('#scrubber')!;
-const previous=document.querySelector<HTMLButtonElement>('#previous')!;
-const next=document.querySelector<HTMLButtonElement>('#next')!;
-const openButton=document.querySelector<HTMLButtonElement>('#open')!;
 const detail=document.querySelector<HTMLDialogElement>('#detail')!;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 let paintings:Painting[]=[],cards:HTMLButtonElement[]=[];
@@ -18,10 +15,8 @@ const clamp=(n:number)=>Math.max(0,Math.min(paintings.length-1,n));
 function label() {
  const index=Math.round(target),p=paintings[index];if(!p)return;
  slider.value=String(index);slider.setAttribute('aria-valuetext',`${index+1} of ${paintings.length}: ${p.title}`);
- previous.disabled=index===0;next.disabled=index===paintings.length-1;
  if(index===selected)return;selected=index;
- document.querySelector('#title')!.textContent=p.title;
- document.querySelector('#artist')!.textContent=p.artist+' · ';
+ document.querySelector('#announcement')!.textContent=`${p.title} — ${p.artist}`;
  document.querySelector('#position')!.textContent=`${index+1} / ${paintings.length}`;
  document.querySelector<HTMLAnchorElement>('#museum-link')!.href=p.risdUrl;
  const cardHadFocus=cards.includes(document.activeElement as HTMLButtonElement);
@@ -75,7 +70,6 @@ function showPainting() {
  document.querySelector<HTMLAnchorElement>('#detail-link')!.href=p.risdUrl;
  detail.showModal();
 }
-previous.onclick=()=>step(-1);next.onclick=()=>step(1);openButton.onclick=showPainting;
 slider.oninput=()=>{clearTimeout(wheelEnd);move(Number(slider.value));};
 document.querySelector<HTMLButtonElement>('#close')!.onclick=()=>detail.close();
 detail.addEventListener('click',e=>{if(e.target===detail){const r=detail.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)detail.close();}});
@@ -137,6 +131,6 @@ Effect.runPromise(Effect.either(load)).then(result=>{
   card.onclick=e=>{if(e.detail===0){if(i===selected)showPainting();else move(i);}};
   card.append(img);scene.append(card);return card;
  });
- loading.remove();slider.max=String(paintings.length-1);slider.disabled=false;openButton.hidden=false;
+ loading.remove();slider.max=String(paintings.length-1);slider.disabled=false;
  position=target=Math.min(2,paintings.length-1);label();render();
 });
