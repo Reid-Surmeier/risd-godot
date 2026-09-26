@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-1993a0b1a62ec80be940",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: Francisco Collantes, Hagar and Ishmael, a wooded landscape. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a wide ornate carved dark antique-gilt frame with dense scrolling foliage along every side. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-1993a0b1a62ec80be940",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/E9-view0.png",
+      "sha256": "025973516323ae3df22f614171bf7425ab149939a1df5897d3afe0284743b0ca",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/E9-view1.png",
+      "sha256": "83d1ed1aedf62c26b783ee49157c7cdad5dae4419943841abded862c947bb302",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-E9.json",
+      "sha256": "1993a0b1a62ec80be94085557a6bb549f8915fdfd8a7e61a351cfbf58a173878"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "7c40d4cd59581e7ca80cde40b647d051cf233a3d0c3c6441a96f59468d006b30"
+    },
+    {
+      "applicationPath": "prompts/E9.txt",
+      "sha256": "21e11406258b8248ac9771100123fa59ad0c11558225e7049e8800143c321fd5"
+    }
+  ]
+}

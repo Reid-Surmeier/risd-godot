@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-a4b6c54dab2285297a06",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: Sebastien Bourdon, Landscape with a Mill. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a wide, heavily carved dark antique-gilt frame with dense scrolling foliage along every side, dark in its recesses. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-a4b6c54dab2285297a06",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/E3-view0.png",
+      "sha256": "2bcd14e79e594dc89a19484a3f45e5d6eca6c39582a5a9203111a15476128cb7",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/E3-view1.png",
+      "sha256": "8f607d894dbc05ae1e5866b09c058cef5c0fb8d6624657b542e43cecdd82d8de",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-E3.json",
+      "sha256": "a4b6c54dab2285297a06c2bbf6cda3c5f75aafec8a9f5708a366470980bcf008"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "7c40d4cd59581e7ca80cde40b647d051cf233a3d0c3c6441a96f59468d006b30"
+    },
+    {
+      "applicationPath": "prompts/E3.txt",
+      "sha256": "75425113e08fa756fc87fc8f3bfa360b019110960283e0c72154acbc9b5ff0a7"
+    }
+  ]
+}

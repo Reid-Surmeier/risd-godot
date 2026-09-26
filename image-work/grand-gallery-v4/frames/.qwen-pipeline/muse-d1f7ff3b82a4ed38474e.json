@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-d1f7ff3b82a4ed38474e",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: a full-length portrait of a lady of the Hampden family in pink, a tall canvas. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a narrow plain gilt molding with a simple stepped inner lip. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-d1f7ff3b82a4ed38474e",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/N1-view0.png",
+      "sha256": "69fba1bba9155b0e3fba6bd5a13ccc4bb67247b2e62ecb8a013e75296d4ea7c6",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/N1-view1.png",
+      "sha256": "e4b5149be11e4641fbff3bbbf8fef09b705f036a159e8e689819456fe4a18b6f",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-N1.json",
+      "sha256": "d1f7ff3b82a4ed38474ee5283af941d280b3199537937bcf37878dc9b92be137"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "7c40d4cd59581e7ca80cde40b647d051cf233a3d0c3c6441a96f59468d006b30"
+    },
+    {
+      "applicationPath": "prompts/N1.txt",
+      "sha256": "73b7b7e7ce90a0e6eebfa468cefe1033175a9967920af50c28fd804fd852b0df"
+    }
+  ]
+}

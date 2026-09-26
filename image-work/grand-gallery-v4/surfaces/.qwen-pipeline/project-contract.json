@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "1",
+  "applicationId": "app-19010daf1a1a",
+  "artifactRoot": "artifacts/image-generation",
+  "referenceRoots": [
+    "references/floor-crop.png",
+    "references/wall-crop.png",
+    "references/skylight-crop.png",
+    "references/door-far-crop.png",
+    "references/door-arch-crop.png"
+  ],
+  "outputRoot": "generated",
+  "maximumCount": 1,
+  "maximumBudgetUsd": "0.12",
+  "maximumCorrectionRuns": 0,
+  "procedures": [
+    {
+      "id": "muse-f06185a8ea4f5604a417",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1024"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-789e64af09698fcac7f8",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1024"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-734283e074106173845d",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1024"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-2bdd75a00a01c552ec59",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1600"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-1c9d288596cdf35b6f0f",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1600"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    }
+  ]
+}

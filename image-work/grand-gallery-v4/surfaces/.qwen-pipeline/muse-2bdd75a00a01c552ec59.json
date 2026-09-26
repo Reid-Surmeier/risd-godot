@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-2bdd75a00a01c552ec59",
+  "summary": "Reference image 1 is a phone photo of the far doorway of the RISD Museum Grand Gallery, seen from inside the gallery: beyond the opening is a short, bright vestibule with cream walls, a second white-framed doorway with a green EXIT sign above it, and a brightly lit white room beyond that.\n\nRender ONLY what is seen through the opening, filling the whole image edge to edge, as a straight-on view from the gallery floor at eye height: the short bright vestibule, its cream side walls in perspective, the second white doorway and the glowing, almost white room beyond, bright and warm like daylight. Remove all people. Do not include the gallery's own door frame or wall. Clean, soft, bright, slightly glowing, in the same colours as the photo. The EXIT sign may be a plain glowing green rectangle with no letters. No text.\n",
+  "procedureId": "muse-2bdd75a00a01c552ec59",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.12",
+  "references": [
+    {
+      "path": "references/door-far-crop.png",
+      "sha256": "f27b73f89da8bb6cda3718f9c6e71c5d4f6ab7fc3ae825fc002c87290f41622c",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-door-far.json",
+      "sha256": "2bdd75a00a01c552ec59352c3376cdac21c3b340dc6c2d581267c87cb92522dd"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "0a89e9c0d2d626f5d020ca81995af2ebb2d9c0d20eb0e8a32919cadf15453def"
+    },
+    {
+      "applicationPath": "prompts/door-far.txt",
+      "sha256": "07a34adf92e86078b4e4c62c632b24c79d072e493008e9e5c3e208598c624b20"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-9557907f5ca76a8d9dd0",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: Bartolomeo Passarotti, a cavalier with his hunting dogs, a tall canvas. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a medium-width, richly carved antique-gilt frame with continuous scrolling leaf ornament along every side. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-9557907f5ca76a8d9dd0",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/E8-view0.png",
+      "sha256": "b6558d903b62c639ca17a81cf4a98970db9860248715a6407c1b515c67843b3c",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/E8-view1.png",
+      "sha256": "b555ec0d718b338906615e73136c8b0a012d89e367006fe46eb7b1bb40d196a1",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-E8.json",
+      "sha256": "9557907f5ca76a8d9dd0e45d637e6605149a14dbd63e346a55dc314fbf156ea5"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "7c40d4cd59581e7ca80cde40b647d051cf233a3d0c3c6441a96f59468d006b30"
+    },
+    {
+      "applicationPath": "prompts/E8.txt",
+      "sha256": "bc90748455434cf0fba545d827909c2b1662315797c587a17942be93687f35b0"
+    }
+  ]
+}

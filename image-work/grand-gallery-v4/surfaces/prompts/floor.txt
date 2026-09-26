@@ -1,0 +1,3 @@
+Reference image 1 is a phone photo of the floor of the RISD Museum Grand Gallery: pale natural oak boards laid in a herringbone pattern, satin finish.
+
+Render a seamless, tileable, square texture of this floor seen from directly above (orthographic, no perspective): the same pale honey oak, the same herringbone pattern with each board about six times as long as it is wide, exactly 8 boards across the tile width, subtle natural grain and slight board-to-board tone variation, thin dark seams. Even, flat, shadowless lighting with no reflections, no highlights, no vignette. The pattern must continue seamlessly across all four edges so the tile repeats without visible seams. No objects, no text.

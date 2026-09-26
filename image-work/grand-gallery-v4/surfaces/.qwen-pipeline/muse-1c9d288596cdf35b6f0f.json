@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-1c9d288596cdf35b6f0f",
+  "summary": "Reference image 1 is a phone photo of the doorway at the south end of the RISD Museum Grand Gallery, seen from inside the gallery: through the opening is the neighbouring medieval gallery — a softly lit stone room with a Romanesque carved stone arch and a large wooden crucifix of Christ hanging in the middle.\n\nRender ONLY what is seen through the opening, filling the whole image edge to edge, as a straight-on view from the gallery floor at eye height: the medieval room's warm lit stone walls and the curve of the carved stone arch, and the wooden crucifix hanging in the centre, glowing softly with warm light. Remove all people. Do not include the gallery's own door frame or wall. Clean, soft, slightly glowing, in the same colours as the photo. No text.\n",
+  "procedureId": "muse-1c9d288596cdf35b6f0f",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.12",
+  "references": [
+    {
+      "path": "references/door-arch-crop.png",
+      "sha256": "6db20b89ef019e278646ae736268f5ff2e77d9a378d71d4c87ea8e7232bcf858",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-door-arch.json",
+      "sha256": "1c9d288596cdf35b6f0f75f4e382657351c5cae549adc465935b282638bd6743"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "0a89e9c0d2d626f5d020ca81995af2ebb2d9c0d20eb0e8a32919cadf15453def"
+    },
+    {
+      "applicationPath": "prompts/door-arch.txt",
+      "sha256": "59c7263529bb65e3e70e8a71041e2b99e397670355851d69ac106ded779b9766"
+    }
+  ]
+}

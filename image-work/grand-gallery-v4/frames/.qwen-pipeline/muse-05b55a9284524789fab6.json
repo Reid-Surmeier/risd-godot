@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-05b55a9284524789fab6",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: Henri Gascar, a lady as Fortune in pink, a tall canvas. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a moderately narrow gilt frame with a smooth molding and a fine carved inner bead. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-05b55a9284524789fab6",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/W8-view0.png",
+      "sha256": "72b692ef4e6c366acfdff6906cd89421ab3c1fc593d065fab942127ec6b71818",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/W8-view1.png",
+      "sha256": "2a3c7a00d8fffa4a5049b870168278a35d9e11cf39551d6c704f2fa9a3996018",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-W8.json",
+      "sha256": "05b55a9284524789fab6b9ce5fb93af6170c86c383a110327a77bbd5f147547b"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "7c40d4cd59581e7ca80cde40b647d051cf233a3d0c3c6441a96f59468d006b30"
+    },
+    {
+      "applicationPath": "prompts/W8.txt",
+      "sha256": "2fc0fdf1d4732d4d5e06077281266ef390f74056b6111f3ecbdb154e8c9c845a"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-f30853787c76437013da",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: Salomon van Ruysdael, The Ferry Boat, a river landscape. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a wide ornate carved antique-gilt frame with dense scrolling acanthus along every side, darker gold with worn recesses. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-f30853787c76437013da",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/E7-view0.png",
+      "sha256": "1730f95dc4b52cdddcd303c46245580aebc8eee2611681229502448d58ec50ce",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/E7-view1.png",
+      "sha256": "e8b0a8c5e51256182714e4774b357b9ed149ebe50c707ed11fad32a01265c7ae",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-E7.json",
+      "sha256": "f30853787c76437013da82a4774b96e938d2ac8efe0db38ca8ca9b10636bf1a7"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "7c40d4cd59581e7ca80cde40b647d051cf233a3d0c3c6441a96f59468d006b30"
+    },
+    {
+      "applicationPath": "prompts/E7.txt",
+      "sha256": "8b9d49ae17dc67d72a7eeb7bef9ef3398c0ac17164d9622cad11065175410132"
+    }
+  ]
+}

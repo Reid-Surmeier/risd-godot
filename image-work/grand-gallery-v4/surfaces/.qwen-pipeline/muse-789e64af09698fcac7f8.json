@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-789e64af09698fcac7f8",
+  "summary": "Reference image 1 is a phone photo of a painted wall of the RISD Museum Grand Gallery: a flat, matte, dark blue-grey paint.\n\nRender a seamless, tileable, square texture of that painted wall seen straight on: flat matte paint in a dark slate blue-grey (about #535b63), with only the faintest roller texture and very soft tonal variation. Even, flat lighting, no gradient, no vignette, no shadows, no objects, no frames, no text. It must tile seamlessly on all four edges.\n",
+  "procedureId": "muse-789e64af09698fcac7f8",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.12",
+  "references": [
+    {
+      "path": "references/wall-crop.png",
+      "sha256": "d5050b20d1b2919efba3a551372b2b3a952d027d618a9130c634f703736decd5",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-wall.json",
+      "sha256": "789e64af09698fcac7f876f2412366ae3b8639cf92bd6c239ad4a979b0de1454"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "0a89e9c0d2d626f5d020ca81995af2ebb2d9c0d20eb0e8a32919cadf15453def"
+    },
+    {
+      "applicationPath": "prompts/wall.txt",
+      "sha256": "5a0c13c8b3c7ea6899055918af49959ce90d36776a840ac77b36da4d40578c69"
+    }
+  ]
+}

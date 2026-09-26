@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-f06185a8ea4f5604a417",
+  "summary": "Reference image 1 is a phone photo of the floor of the RISD Museum Grand Gallery: pale natural oak boards laid in a herringbone pattern, satin finish.\n\nRender a seamless, tileable, square texture of this floor seen from directly above (orthographic, no perspective): the same pale honey oak, the same herringbone pattern with each board about six times as long as it is wide, exactly 8 boards across the tile width, subtle natural grain and slight board-to-board tone variation, thin dark seams. Even, flat, shadowless lighting with no reflections, no highlights, no vignette. The pattern must continue seamlessly across all four edges so the tile repeats without visible seams. No objects, no text.\n",
+  "procedureId": "muse-f06185a8ea4f5604a417",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.12",
+  "references": [
+    {
+      "path": "references/floor-crop.png",
+      "sha256": "d7636e7c478a7d423cf0fede9544cac9c5b40544babee1c088de983a57672b12",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-floor.json",
+      "sha256": "f06185a8ea4f5604a4170c3d6d4b30d5b7d040c543616e0be2dafeac76575cf7"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "0a89e9c0d2d626f5d020ca81995af2ebb2d9c0d20eb0e8a32919cadf15453def"
+    },
+    {
+      "applicationPath": "prompts/floor.txt",
+      "sha256": "248f6e0831563eebe09135a425b914272e67dd7c5637223dd79efc09ff8f3530"
+    }
+  ]
+}

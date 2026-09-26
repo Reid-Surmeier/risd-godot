@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-8f9c330b7549e59a80a9",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: Paolo Veronese, Wisdom and Strength, a tall allegory of two figures. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a moderately wide antique gilt frame with a smooth cove and a narrow carved inner bead, burnished warm gold. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-8f9c330b7549e59a80a9",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/S1-view0.png",
+      "sha256": "44f8c48f7e0c3cb4089c18c33b1f2d667348b18d524f1d1ab7d2638252b7d2c8",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-S1.json",
+      "sha256": "8f9c330b7549e59a80a90daa2627f5954003ad0352824ffac94007b35afa5afc"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "7c40d4cd59581e7ca80cde40b647d051cf233a3d0c3c6441a96f59468d006b30"
+    },
+    {
+      "applicationPath": "prompts/S1.txt",
+      "sha256": "2d0f584612c4a0542df89e3279079eb6770823121be7e36bf4b5a5bbbfbc83cb"
+    }
+  ]
+}

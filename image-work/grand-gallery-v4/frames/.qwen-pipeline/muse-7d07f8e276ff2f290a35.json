@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-7d07f8e276ff2f290a35",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: Jan Cossiers, The Supper at Emmaus. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a dark ebonized black wooden frame with several parallel ribbed moldings stepping inward and a thin gold inner lip. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-7d07f8e276ff2f290a35",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/W1-view0.png",
+      "sha256": "4ea124baecfba1774928fc43aaba11288eb796cae08444bf93e4b5b573ef9c83",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/W1-view1.png",
+      "sha256": "229a867e44d21dc2d128394f316d81ed63f1c9188f6fc7e8f4c00a7a237a75eb",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-W1.json",
+      "sha256": "7d07f8e276ff2f290a350c7c78a014debc36f8a816d426dff10031d4162b7bd9"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "7c40d4cd59581e7ca80cde40b647d051cf233a3d0c3c6441a96f59468d006b30"
+    },
+    {
+      "applicationPath": "prompts/W1.txt",
+      "sha256": "00cd06220b5b91030cb1b68e80b54b713371dd14a6f198437f6e732e17844272"
+    }
+  ]
+}

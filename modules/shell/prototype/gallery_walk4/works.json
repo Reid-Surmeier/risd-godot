@@ -1,0 +1,429 @@
+[
+ {
+  "tag": "S1",
+  "acc": "56.096",
+  "title": "Wisdom and Strength (c.1572)",
+  "artist": "Paolo Veronese",
+  "canvas_w": 1.6640000000000001,
+  "canvas_h": 2.146,
+  "hang": "frame bottom \u2248 0.75 m",
+  "margins_px": [
+   166,
+   167,
+   166,
+   167
+  ],
+  "frame_px": [
+   1137,
+   1547
+  ]
+ },
+ {
+  "tag": "S2",
+  "acc": "57.227",
+  "title": "The Virgin and Child Appearing to Saint Francis of Assisi (c.1599)",
+  "artist": "Francesco Vanni",
+  "canvas_w": 1.829,
+  "canvas_h": 2.661,
+  "hang": "frame bottom \u2248 0.5 m",
+  "margins_px": [
+   76,
+   79,
+   76,
+   79
+  ],
+  "frame_px": [
+   1044,
+   1530
+  ]
+ },
+ {
+  "tag": "W1",
+  "acc": "23.332",
+  "title": "The Supper at Emmaus (c.1650)",
+  "artist": "Jan Cossiers",
+  "canvas_w": 1.111,
+  "canvas_h": 0.851,
+  "hang": "centre \u2248 1.55 m",
+  "margins_px": [
+   222,
+   213,
+   222,
+   213
+  ],
+  "frame_px": [
+   1646,
+   1314
+  ]
+ },
+ {
+  "tag": "W2",
+  "acc": "56.177",
+  "title": "Christ at the Column (c.1635)",
+  "artist": "Matthias Stom",
+  "canvas_w": 1.145,
+  "canvas_h": 1.829,
+  "hang": "centre \u2248 1.5 m",
+  "margins_px": [
+   160,
+   173,
+   161,
+   167
+  ],
+  "frame_px": [
+   1158,
+   1757
+  ]
+ },
+ {
+  "tag": "W3",
+  "acc": "62.019",
+  "title": "The Resurrection of Christ (c.1640) (the \"night fire scene\")",
+  "artist": "Benjamin Gerritsz. Cuyp",
+  "canvas_w": 0.7020000000000001,
+  "canvas_h": 0.9209999999999999,
+  "hang": "centre \u2248 1.55 m",
+  "margins_px": [
+   208,
+   223,
+   207,
+   209
+  ],
+  "frame_px": [
+   1266,
+   1589
+  ]
+ },
+ {
+  "tag": "W4",
+  "acc": "60.009",
+  "title": "Portrait of a Woman (1655) (black dress, white collar)",
+  "artist": "Bartholomeus van der Helst",
+  "canvas_w": 0.98,
+  "canvas_h": 1.12,
+  "hang": "centre \u2248 1.55 m",
+  "margins_px": [
+   124,
+   125,
+   124,
+   125
+  ],
+  "frame_px": [
+   1284,
+   1443
+  ]
+ },
+ {
+  "tag": "W5",
+  "acc": "57.157",
+  "title": "Charity (c.1550)",
+  "artist": "School of Fontainebleau",
+  "canvas_w": 1.334,
+  "canvas_h": 1.581,
+  "hang": "centre \u2248 1.55 m",
+  "margins_px": [
+   156,
+   164,
+   156,
+   159
+  ],
+  "frame_px": [
+   1229,
+   1521
+  ]
+ },
+ {
+  "tag": "W6",
+  "acc": "32.246",
+  "title": "The Angel of Fame (c.1750), shaped ceiling canvas",
+  "artist": "Giovanni Battista Tiepolo",
+  "canvas_w": 1.98,
+  "canvas_h": 3.31,
+  "hang": "bottom \u2248 1.2 m, top \u2248 4.5 m"
+ },
+ {
+  "tag": "W7",
+  "acc": "44.161",
+  "title": "A Musical Group (c.1730) (woman in yellow with lute)",
+  "artist": "Pier Leone Ghezzi",
+  "canvas_w": 1.705,
+  "canvas_h": 1.222,
+  "hang": "centre \u2248 1.55 m",
+  "margins_px": [
+   191,
+   178,
+   186,
+   175
+  ],
+  "frame_px": [
+   1741,
+   1244
+  ]
+ },
+ {
+  "tag": "W8",
+  "acc": "55.152",
+  "title": "Allegorical Portrait of a Lady as Fortune (1676) (woman in pink)",
+  "artist": "Henri Gascar",
+  "canvas_w": 1.092,
+  "canvas_h": 1.956,
+  "hang": "frame bottom \u2248 0.5\u20130.6 m",
+  "margins_px": [
+   150,
+   158,
+   151,
+   158
+  ],
+  "frame_px": [
+   1037,
+   1765
+  ]
+ },
+ {
+  "tag": "W9",
+  "acc": "62.058",
+  "title": "The Marriage of Peleus and Thetis (c.1610) (the crowded \"battle/allegory\")",
+  "artist": "Joachim Wtewael",
+  "canvas_w": 1.6640000000000001,
+  "canvas_h": 1.095,
+  "hang": "centre \u2248 1.55 m",
+  "margins_px": [
+   153,
+   140,
+   153,
+   137
+  ],
+  "frame_px": [
+   1378,
+   952
+  ]
+ },
+ {
+  "tag": "W10",
+  "acc": "60.107",
+  "title": "Still Life with Figure (c.1660) (fruit with a woman)",
+  "artist": "Michele Pace del Campidoglio",
+  "canvas_w": 1.607,
+  "canvas_h": 1.222,
+  "hang": "centre \u2248 1.55 m, above a floor vent",
+  "margins_px": [
+   150,
+   146,
+   150,
+   140
+  ],
+  "frame_px": [
+   1544,
+   1192
+  ]
+ },
+ {
+  "tag": "N1",
+  "acc": "42.283",
+  "title": "Portrait of a Lady of the Hampden Family (c.1610) (full-length, pink)",
+  "artist": "Unknown, Anglo-Flemish",
+  "canvas_w": 1.2,
+  "canvas_h": 2.013,
+  "hang": "frame bottom \u2248 0.5 m",
+  "margins_px": [
+   167,
+   178,
+   167,
+   178
+  ],
+  "frame_px": [
+   1042,
+   1649
+  ]
+ },
+ {
+  "tag": "N2",
+  "acc": "60.039",
+  "title": "Portrait of Lady Sarah Ingestre (1827) (full-length, white satin, silver/white carved frame)",
+  "artist": "Thomas Lawrence",
+  "canvas_w": 1.429,
+  "canvas_h": 2.351,
+  "hang": "frame bottom \u2248 0.35\u20130.5 m",
+  "margins_px": [
+   119,
+   235,
+   121,
+   90
+  ],
+  "frame_px": [
+   1159,
+   1834
+  ]
+ },
+ {
+  "tag": "E1",
+  "acc": "63.061",
+  "title": "Arsenal in a Ruined Basilica (c.1715) (dark ruins capriccio)",
+  "artist": "Alessandro Magnasco",
+  "canvas_w": 2.146,
+  "canvas_h": 1.4669999999999999,
+  "hang": "centre \u2248 1.55 m, above a floor vent",
+  "margins_px": [
+   109,
+   103,
+   110,
+   103
+  ],
+  "frame_px": [
+   1515,
+   1105
+  ]
+ },
+ {
+  "tag": "E2",
+  "acc": "18.264",
+  "title": "Portrait of Theodore Atkinson, Jr. (1757) (man in red coat)",
+  "artist": "John Singleton Copley",
+  "canvas_w": 1.016,
+  "canvas_h": 1.27,
+  "hang": "centre \u2248 1.55 m",
+  "margins_px": [
+   139,
+   145,
+   140,
+   142
+  ],
+  "frame_px": [
+   1294,
+   1603
+  ]
+ },
+ {
+  "tag": "E3",
+  "acc": "51.506",
+  "title": "Landscape with a Mill (c.1655) (classical landscape)",
+  "artist": "S\u00e9bastien Bourdon",
+  "canvas_w": 1.051,
+  "canvas_h": 0.86,
+  "hang": "centre \u2248 1.55 m",
+  "margins_px": [
+   154,
+   152,
+   150,
+   145
+  ],
+  "frame_px": [
+   1635,
+   1363
+  ]
+ },
+ {
+  "tag": "E4",
+  "acc": "1987.056",
+  "title": "A View of Paris from the Louvre (1835) (the \"Venice/city river view\"; it shows **Paris**)",
+  "artist": "Louise-Jos\u00e9phine Sarazin de Belmont",
+  "canvas_w": 1.626,
+  "canvas_h": 1.197,
+  "hang": "centre \u2248 1.55 m",
+  "margins_px": [
+   111,
+   111,
+   111,
+   109
+  ],
+  "frame_px": [
+   1448,
+   1174
+  ]
+ },
+ {
+  "tag": "E5",
+  "acc": "2003.105",
+  "title": "Portrait of Antoine-Georges-Fran\u00e7ois de Chabaud-Latour and His Family (c.1806) (family group with bust)",
+  "artist": "Jacques-Luc Barbier-Walbonne",
+  "canvas_w": 1.74,
+  "canvas_h": 2.21,
+  "hang": "frame bottom \u2248 0.5 m",
+  "margins_px": [
+   182,
+   226,
+   182,
+   192
+  ],
+  "frame_px": [
+   1360,
+   1725
+  ]
+ },
+ {
+  "tag": "E6",
+  "acc": "37.104",
+  "title": "Architectural Fantasy (c.1805) (Roman bridge)",
+  "artist": "Hubert Robert",
+  "canvas_w": 1.4780000000000002,
+  "canvas_h": 1.14,
+  "hang": "centre \u2248 1.55 m",
+  "margins_px": [
+   102,
+   98,
+   102,
+   95
+  ],
+  "frame_px": [
+   1474,
+   1150
+  ]
+ },
+ {
+  "tag": "E7",
+  "acc": "33.204",
+  "title": "The Ferry Boat (c.1645) (Dutch river landscape)",
+  "artist": "Salomon van Ruysdael",
+  "canvas_w": 1.442,
+  "canvas_h": 0.972,
+  "hang": "centre \u2248 1.55 m",
+  "margins_px": [
+   168,
+   159,
+   167,
+   158
+  ],
+  "frame_px": [
+   1519,
+   1110
+  ]
+ },
+ {
+  "tag": "E8",
+  "acc": "62.064",
+  "title": "Portrait of a Cavalier with his Hunting Dogs (c.1575)",
+  "artist": "Bartolomeo Passarotti",
+  "canvas_w": 1.149,
+  "canvas_h": 1.975,
+  "hang": "frame bottom \u2248 0.5 m",
+  "margins_px": [
+   123,
+   123,
+   124,
+   125
+  ],
+  "frame_px": [
+   1008,
+   1732
+  ]
+ },
+ {
+  "tag": "E9",
+  "acc": "18.096",
+  "title": "Hagar and Ishmael (c.1640) (wooded landscape, large dark tree)",
+  "artist": "Francisco Collantes",
+  "canvas_w": 1.391,
+  "canvas_h": 1.092,
+  "hang": "centre \u2248 1.55 m, above a floor vent",
+  "margins_px": [
+   170,
+   161,
+   170,
+   157
+  ],
+  "frame_px": [
+   1426,
+   1155
+  ]
+ }
+]

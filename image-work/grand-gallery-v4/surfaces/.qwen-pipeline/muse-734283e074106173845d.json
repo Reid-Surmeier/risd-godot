@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-734283e074106173845d",
+  "summary": "Reference image 1 is a phone photo looking up at the long skylight of the RISD Museum Grand Gallery: a flat glazed ceiling panel of many small glass panes in a regular grid of thin light-grey metal mullions, glowing with cool daylight.\n\nRender a seamless, tileable texture of this skylight seen straight up from directly below (orthographic, no perspective): a regular grid of rectangular glass panes, exactly 6 panes across and 6 panes along the tile, thin light-grey mullions, the glass a soft luminous pale sky blue with a gentle even glow. No sky details, no clouds, no lamps, no text. It must tile seamlessly on all four edges.\n",
+  "procedureId": "muse-734283e074106173845d",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.12",
+  "references": [
+    {
+      "path": "references/skylight-crop.png",
+      "sha256": "1870aa6fc6576a4b3d5f17380106a34c294c2535ecaeba8f950a39b8cccd0091",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-skylight.json",
+      "sha256": "734283e074106173845d9b8a2ebcd31d10543ca4629dcb43780e9fa4d74402d5"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "0a89e9c0d2d626f5d020ca81995af2ebb2d9c0d20eb0e8a32919cadf15453def"
+    },
+    {
+      "applicationPath": "prompts/skylight.txt",
+      "sha256": "38a8b05c0c108cab776f5381c009b7b18dd00b6bf6ccb3f50f7ea7fb0861bd43"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+Reference image 1 is a phone photo of a painted wall of the RISD Museum Grand Gallery: a flat, matte, dark blue-grey paint.
+
+Render a seamless, tileable, square texture of that painted wall seen straight on: flat matte paint in a dark slate blue-grey (about #535b63), with only the faintest roller texture and very soft tonal variation. Even, flat lighting, no gradient, no vignette, no shadows, no objects, no frames, no text. It must tile seamlessly on all four edges.
