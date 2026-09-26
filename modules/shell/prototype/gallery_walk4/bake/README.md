@@ -86,3 +86,9 @@ The harness does not claim to test dropdown wiring: the Chrome check uses actual
 mouse/keyboard selection and verifies the resulting URL variant. The recovery
 regression fails on the pre-fix command and passes after restoration was added;
 the cutaway regression also fails when the hidden-wall filter is removed.
+
+Web export must include both desktop and mobile VRAM texture formats, and import
+ETC2/ASTC as well as S3TC/BPTC. The old export disabled both, which omitted the
+newly compressed textures and crashed on load. See the [Godot Web export guide](https://docs.godotengine.org/en/4.5/tutorials/export/exporting_for_web.html).
+The Chrome check waits for completed tab warm-up and rejects missing resources
+before measuring frame times; a loading screen is not a performance result.
