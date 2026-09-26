@@ -45,8 +45,10 @@ void fragment() {
 	if (plank_seams) {
 		vec2 p = UV2;
 		float d = min(min(p.x, plank.x - p.x), min(p.y, plank.y - p.y));
-		float fw = fwidth(d);
-		c.rgb *= mix(0.62, 1.0, smoothstep(0.0, max(fw * 1.5, 0.004), d));
+		float fw = max(fwidth(p.x), fwidth(p.y));  // metres per pixel here
+		float seam = 1.0 - smoothstep(0.0, max(fw, 0.004), d);  // 1 on the seam, anti-aliased
+		float seen = clamp(0.006 / max(fw, 1e-5), 0.0, 1.0);  // a seam thinner than a pixel fades out, as a mipmap would
+		c.rgb *= 1.0 - 0.3 * seam * seen;
 	}
 	ALBEDO = c.rgb * (1.0 - glow);
 	EMISSION = c.rgb * glow;

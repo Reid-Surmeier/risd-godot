@@ -229,7 +229,7 @@ func _build_room() -> void:
 	_vp.add_child(we)
 	# The skylight, as two lights from overhead each leaning toward one long wall: flat, from the top, and every
 	# painting casts a short shadow down its own wall. The floor and benches take both.
-	for side in [{"x": -1.0, "mask": 1 | LAYER_WEST}, {"x": 1.0, "mask": 1 | LAYER_EAST}]:
+	for side in [{"x": -1.0, "mask": 1 | LAYER_WEST}, {"x": 1.0, "mask": LAYER_EAST}]:  # the floor takes one of them
 		var sky := DirectionalLight3D.new()
 		sky.light_energy = 0.75
 		sky.shadow_opacity = 0.7
@@ -351,8 +351,9 @@ func _build_floor() -> void:
 					st.set_uv(uv[i])
 					st.set_uv2(uv2[i])
 					st.add_vertex(w)
-	var mat := ps(load(DIR + "textures/oak.png"), Color.WHITE, Vector2.ONE, true)
+	var mat := ps(load(DIR + "textures/oak.png"), Color(0.86, 0.84, 0.82), Vector2.ONE, true)
 	mat.set_shader_parameter("plank_seams", true)
+	mat.set_shader_parameter("jitter", 0.0)  # herringbone has T-junctions: snapped corners would open cracks
 	mat.set_shader_parameter("plank", PLANK)
 	var mi := MeshInstance3D.new()
 	mi.mesh = st.commit()
