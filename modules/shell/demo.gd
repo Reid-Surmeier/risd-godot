@@ -46,8 +46,8 @@ func _ready() -> void:
 		page.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		page.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-		# PROTOTYPE (2026-09-26): the Grand Gallery walk fills the frame's white opening (458,521 2110x1412 in page.png)
-		var walk: Control = load("res://modules/shell/prototype/gallery_walk2/walk2.gd").new()
+		# PROTOTYPE (2026-09-26): the Grand Gallery 3D walk fills the frame's white opening (458,521 2110x1412 in page.png)
+		var walk: Control = load("res://modules/shell/prototype/gallery_walk3/walk3.gd").new()
 		walk.name = "GalleryWalk"
 		page.add_child(walk)
 		page.resized.connect(func() -> void:
