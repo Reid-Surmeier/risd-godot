@@ -1,4 +1,4 @@
-// Issue #127: browser acceptance; run against the served web/ directory.
+// Issues #127 and #128: browser acceptance; run against the served web/ directory.
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
@@ -11,6 +11,15 @@ try {
  await page.waitForFunction(()=>[...document.querySelectorAll('.painting img')].every(i=>i.complete&&i.naturalWidth>0));
  const count=await page.locator('.painting').count();assert.ok(count>=5);
  const selected=()=>page.locator('.painting[aria-current="true"]');
+ // Regression #128: click the center of each visible angled face, not just its edge.
+ for(const index of [1,3]) {
+  await page.locator('#scrubber').fill('2');await page.waitForTimeout(650);
+  const face=await page.locator(`.painting[data-index="${index}"]`).boundingBox();
+  await page.mouse.click(face.x+face.width/2,face.y+face.height/2);await page.waitForTimeout(650);
+  assert.equal(Number(await selected().getAttribute('data-index')),index);
+ }
+ assert.equal(await page.locator('#previous,#next,.info').count(),0);
+ await page.locator('#scrubber').fill('2');await page.waitForTimeout(650);
  const first=await selected().getAttribute('data-index');
  await page.locator('#stage').focus();await page.keyboard.press('ArrowRight');await page.waitForTimeout(650);
  assert.equal(Number(await selected().getAttribute('data-index')),Number(first)+1);
@@ -22,26 +31,26 @@ try {
  await page.keyboard.press('ArrowRight');await page.waitForTimeout(100);assert.equal(Number(await selected().getAttribute('data-index')),count-1);
  await page.keyboard.press('Home');await page.waitForTimeout(650);assert.equal(Number(await selected().getAttribute('data-index')),0);
  await page.keyboard.press('ArrowLeft');assert.equal(Number(await selected().getAttribute('data-index')),0);
- await page.locator('#next').click();await page.waitForTimeout(650);
+ await page.locator('#stage').focus();await page.keyboard.press('ArrowRight');await page.waitForTimeout(650);
  await mkdir(new URL('./evidence/',import.meta.url),{recursive:true});
  await page.screenshot({path:new URL('./evidence/desktop.png',import.meta.url).pathname});
  await page.setViewportSize({width:390,height:844});await page.waitForTimeout(200);
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
- await page.locator('#next').click();await page.waitForTimeout(650);assert.equal(Number(await selected().getAttribute('data-index')),2);
+ await page.locator('#stage').focus();await page.keyboard.press('ArrowRight');await page.waitForTimeout(650);assert.equal(Number(await selected().getAttribute('data-index')),2);
  await page.screenshot({path:new URL('./evidence/mobile.png',import.meta.url).pathname});
- await page.emulateMedia({reducedMotion:'reduce'});await page.locator('#previous').click();await page.waitForTimeout(50);
+ await page.emulateMedia({reducedMotion:'reduce'});await page.locator('#stage').focus();await page.keyboard.press('ArrowLeft');await page.waitForTimeout(50);
  assert.equal(Number(await selected().getAttribute('data-index')),1);
  await page.setViewportSize({width:1440,height:960});
  await selected().focus();await page.keyboard.press('ArrowRight');await page.waitForTimeout(50);
  await page.keyboard.press('Enter');await page.waitForSelector('dialog[open]');
- assert.equal(await page.locator('#detail-title').textContent(),await page.locator('#title').textContent());
+ assert.equal(await page.locator('#detail-title').textContent(),await selected().locator('img').getAttribute('alt'));
  await page.keyboard.press('Escape');
  await page.emulateMedia({reducedMotion:'no-preference'});
  await page.locator('#scrubber').fill('2');await page.waitForTimeout(650);
- await page.locator('#next').click();await page.waitForTimeout(80);
+ await page.locator('#stage').focus();await page.keyboard.press('ArrowRight');await page.waitForTimeout(80);
  const halfway=Number(await page.locator('#stage').getAttribute('data-position'));
  assert.ok(halfway>2&&halfway<3);
- await page.locator('#previous').click();await page.waitForTimeout(650);
+ await page.locator('#stage').focus();await page.keyboard.press('ArrowLeft');await page.waitForTimeout(650);
  assert.equal(await page.locator('#stage').getAttribute('data-position'),'2.0000');
  const b=await page.locator('#stage').boundingBox(),y=b.y+b.height/2;
  await page.mouse.move(760,y);await page.mouse.down();await page.mouse.move(350,y,{steps:20});await page.mouse.up();await page.waitForTimeout(650);
