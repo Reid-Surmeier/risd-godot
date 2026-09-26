@@ -743,6 +743,11 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func _detail_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		if event.keycode in [KEY_EQUAL, KEY_PLUS, KEY_KP_ADD]:
+			_zoom_at(size / 2.0, 1.25)
+		elif event.keycode in [KEY_MINUS, KEY_KP_SUBTRACT]:
+			_zoom_at(size / 2.0, 0.8)
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 			_zoom_at(event.position, 1.15)
