@@ -287,6 +287,18 @@
      "sha256": "a9a1b900724f3af918db50f64ee8a1626dda6a5dd7717166e8e7ba1cdb8b055b"
     }
    ]
+  },
+  {
+   "id": "W5b",
+   "prompt": "prompts/W5b.txt",
+   "promptSha256": "edcc173c9109d09a4736304da573c9e2e1089c5889eb37a05b058557c2de69e1",
+   "size": "1408x1760",
+   "inputs": [
+    {
+     "path": "references/W5-frame-photo.png",
+     "sha256": "111753484701e37f521bcb0dc500a08e20050c4103212184576f78769b666db4"
+    }
+   ]
   }
  ]
 }
