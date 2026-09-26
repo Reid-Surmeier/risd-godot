@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+BAKE_PREPARE surfaces=119 result=0
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Vulkan 1.4.318 - Forward Mobile - Using Device #0: Unknown - llvmpipe (LLVM 20.1.2, 256 bits)
+
+WARNING: Detected another project.godot at res://modules/atlas/prototype/godot_viewer. The folder will be ignored.
+     at: _should_skip_directory (editor/file_system/editor_file_system.cpp:3497)
+res://modules/shell/prototype/gallery_walk4/textures/oak-muse.webp: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/textures/wall-muse.webp: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+Done baking lightmaps in 00:00:00.00.
+Done baking lightmaps in 00:00:17.16.
+ERROR: Condition "p_I->data != this" is true. Returning: false
+   at: erase (./core/templates/list.h:228)
+BAKE_OK users=119
+ERROR: Can't use get_node() with absolute paths from outside the active scene tree.
+   at: get_node_or_null (scene/main/node.cpp:1910)
