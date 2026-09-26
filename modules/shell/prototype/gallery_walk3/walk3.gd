@@ -6,6 +6,7 @@
 extends Control
 
 const DIR := "res://modules/shell/prototype/gallery_walk3/"
+const PaintingAsset := preload("res://modules/shell/prototype/gallery_walk3/painting_asset.gd")
 const LOW_RES := Vector2i(480, 320)  # the render resolution; upscaled with hard pixels
 const STEP_M := 1.5
 const WALK_MPS := 1.6
@@ -28,6 +29,8 @@ var _paintings: Array = []  # {id, wall, center(Vector3), normal(Vector3), size(
 var _detail: Control
 var _open := ""
 var _held := {}
+var _margins: Array = FRAME_MARGINS
+var _detail_canvas_px := 1.0  # the frame texture's opening height in its pixels, so the frame keeps its real proportion
 
 
 func _ready() -> void:
@@ -168,7 +171,17 @@ func _build_room() -> void:
 		var west: bool = p.wall == "west"
 		var n := Vector3.RIGHT if west else Vector3.LEFT
 		var c := Vector3(-W / 2 if west else W / 2, p.center_y, -p.along_from_south)
-		_paintings.append({"id": p.id, "center": c, "normal": n, "size": Vector2(p.width, p.height), "detail": p.detail})
+		_paintings.append({"id": p.id, "center": c, "normal": n, "size": Vector2(p.width, p.height), "detail": p.detail,
+			"asset": p.get("asset", {})})
+		if p.has("asset"):  # a modelled Painting Asset (map #116), standing out of the wall
+			var a: Dictionary = p.asset
+			var node: Node3D = PaintingAsset.new()
+			if a.kind == "framed":
+				node.build_framed(load(DIR + a.frame), load(DIR + a.canvas), Vector2(p.width, p.height), a.opening)
+			else:
+				node.build_shaped(load(DIR + a.texture), Vector2(p.width, p.height))
+			node.transform = Transform3D(Basis(Vector3.UP, PI / 2 if west else -PI / 2), c)
+			_vp.add_child(node)
 
 
 func _build_kid() -> void:
@@ -241,10 +254,11 @@ func _layout_detail(aspect: float) -> void:
 	var pw := ph * aspect
 	pic.size = Vector2(pw, ph)
 	pic.position = (size - pic.size) / 2
-	var k := ph * 0.09 / FRAME_MARGINS[1]
+	var m: Array = _margins
+	var k: float = ph * 0.09 / float(m[1]) if m == FRAME_MARGINS else ph / maxf(1.0, _detail_canvas_px)
 	frame.scale = Vector2(k, k)
-	frame.size = Vector2(pw / k + FRAME_MARGINS[0] + FRAME_MARGINS[2], ph / k + FRAME_MARGINS[1] + FRAME_MARGINS[3])
-	frame.position = pic.position - Vector2(FRAME_MARGINS[0], FRAME_MARGINS[1]) * k
+	frame.size = Vector2(pw / k + m[0] + m[2], ph / k + m[1] + m[3])
+	frame.position = pic.position - Vector2(m[0], m[1]) * k
 
 
 func _process(delta: float) -> void:
@@ -365,9 +379,25 @@ func _approach(pt: Dictionary) -> void:
 
 
 func _open_detail(pt: Dictionary) -> void:
-	var tex: Texture2D = load(DIR + "paintings/%s.jpg" % pt.detail)
+	var a: Dictionary = pt.asset
+	var tex: Texture2D = load(DIR + (a.canvas if a.get("kind") == "framed" else a.texture if a.get("kind") == "shaped" else "paintings/%s.jpg" % pt.detail))
 	var pic: TextureRect = _detail.get_node("Painting")
+	var frame: NinePatchRect = _detail.get_node("Frame")
 	pic.texture = tex
+	frame.visible = a.get("kind") != "shaped"
+	if a.get("kind") == "framed":  # the painting's own Muse frame, from the same master as the room
+		var ft: Texture2D = load(DIR + a.frame)
+		var fs := ft.get_size()
+		frame.texture = ft
+		_margins = [int(a.opening[0] * fs.x), int(a.opening[1] * fs.y), int((1.0 - a.opening[2]) * fs.x), int((1.0 - a.opening[3]) * fs.y)]
+		_detail_canvas_px = (a.opening[3] - a.opening[1]) * fs.y
+	else:
+		frame.texture = load(DIR + "textures/detail-frame.png")
+		_margins = FRAME_MARGINS
+	frame.patch_margin_left = _margins[0]
+	frame.patch_margin_top = _margins[1]
+	frame.patch_margin_right = _margins[2]
+	frame.patch_margin_bottom = _margins[3]
 	_layout_detail(float(tex.get_width()) / tex.get_height())
 	_open = pt.id
 	var t := create_tween()

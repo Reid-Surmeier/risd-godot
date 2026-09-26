@@ -73,9 +73,20 @@
    "wall": "west",
    "along_from_south": 6.239782450556659,
    "center_y": 1.6900323104874209,
-   "width": 1.298470265456703,
+   "width": 1.2679999832542272,
    "height": 1.591510247544208,
-   "detail": "east-2-02"
+   "detail": "east-2-02",
+   "asset": {
+    "kind": "framed",
+    "frame": "assets/fire-frame.png",
+    "canvas": "assets/fire-canvas.jpg",
+    "opening": [
+     0.16350710900473933,
+     0.13971050975456262,
+     0.8372827804107424,
+     0.8691000629326621
+    ]
+   }
   },
   {
    "id": "east-0-00",
@@ -90,19 +101,34 @@
    "id": "east-0-01",
    "wall": "west",
    "along_from_south": 11.610046955506718,
-   "center_y": 1.7101319960691928,
-   "width": 1.3783921051023869,
-   "height": 1.6406980654017216,
-   "detail": "east-0-01"
+   "center_y": 2.599743900868332,
+   "width": 2.0,
+   "height": 3.419921875,
+   "detail": "east-0-01",
+   "asset": {
+    "kind": "shaped",
+    "texture": "assets/angel-shaped.png"
+   }
   },
   {
    "id": "east-0-02",
    "wall": "west",
    "along_from_south": 14.413120452823138,
    "center_y": 1.5404046099931525,
-   "width": 2.0264421246654494,
+   "width": 2.122212493248354,
    "height": 1.5172599664373287,
-   "detail": "east-0-02"
+   "detail": "east-0-02",
+   "asset": {
+    "kind": "framed",
+    "frame": "assets/music-frame.png",
+    "canvas": "assets/music-canvas.jpg",
+    "opening": [
+     0.10919540229885058,
+     0.1422829581993569,
+     0.8942528735632184,
+     0.860128617363344
+    ]
+   }
   },
   {
    "id": "east-0-03",

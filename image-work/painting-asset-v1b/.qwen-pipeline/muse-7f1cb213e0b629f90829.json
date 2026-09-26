@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-7f1cb213e0b629f90829",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: a group portrait of musicians: a woman in a yellow and blue dress holding a lute, three men in powdered wigs around her, dark background. They are the authority for the painting's picture: its composition, every figure and object, their poses, the colours and the light.\n\nReturn a clean, faithful, straight-on reproduction of the painted canvas ONLY: exactly the picture area inside the frame, filling the whole image edge to edge, with no frame, no wall and no border. Correct the perspective so the canvas is a perfect rectangle facing the viewer. Remove glass glare, reflections, spotlight hot spots, motion blur and phone noise. Keep the painting exactly as painted: same drawing, same figures, same colours, same brushwork and craquelure character, sharp and detailed. Do not restyle it, do not add or remove anything, no text, no watermark.\n",
+  "procedureId": "muse-7f1cb213e0b629f90829",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.03",
+  "references": [
+    {
+      "path": "references/music-view-a.png",
+      "sha256": "ef6e91438ed552303663ed5d739dc910a31ba75886ab70fa7ab1253b2e405e01",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/music-view-b.png",
+      "sha256": "6c06b8cf497a39669263c69b4ec739b38fdbaeabe905d159b04a821fc6bdd908",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-music-canvas.json",
+      "sha256": "7f1cb213e0b629f908293b9d8b37e16ffcd2dac1f0d0f186417dc532699eb12e"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "53008157dd58a737a865c621c9e9fce7e6de501ad20ad5cf0c2d90dce5dec5d4"
+    },
+    {
+      "applicationPath": "prompts/music-canvas.txt",
+      "sha256": "9c52c50d84d83947809cf65d4f757d95b4eb4fcb083157440ba1a3339bb60cf8"
+    }
+  ]
+}

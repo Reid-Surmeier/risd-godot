@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-c913ac27a1bb962fa527",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: an allegory of Charity: a seated woman in a red robe with several infant children around her in a classical setting. They are the authority for the painting's picture: its composition, every figure and object, their poses, the colours and the light.\n\nReturn a clean, faithful, straight-on reproduction of the painted canvas ONLY: exactly the picture area inside the frame, filling the whole image edge to edge, with no frame, no wall and no border. Correct the perspective so the canvas is a perfect rectangle facing the viewer. Remove glass glare, reflections, spotlight hot spots, motion blur and phone noise. Keep the painting exactly as painted: same drawing, same figures, same colours, same brushwork and craquelure character, sharp and detailed. Do not restyle it, do not add or remove anything, no text, no watermark.\n",
+  "procedureId": "muse-c913ac27a1bb962fa527",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.08",
+  "references": [
+    {
+      "path": "references/charity-view-a.png",
+      "sha256": "3ba23ae2c8ed232aac71a242eb80674137293c348931df2da772a6c35181660a",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/charity-view-b.png",
+      "sha256": "dce11c74ab5c1be00001d2b208d645cac67ac2a1a5b9c6317ebc40e120573326",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-charity-canvas.json",
+      "sha256": "c913ac27a1bb962fa52724fe0e3de46835be226e1ce05bb1eaa9f4b702a2ae02"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "9c0d7ab4e8d126e1d27c639a06f925e95719d2f99d210e4576dd3f23a3d410a7"
+    },
+    {
+      "applicationPath": "prompts/charity-canvas.txt",
+      "sha256": "9180f2af7db71ada960f14f1fda29b71196ecd2b7bb47c06661c192e6d4f934f"
+    }
+  ]
+}

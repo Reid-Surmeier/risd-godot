@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-b6011a525e7340f33390",
+  "summary": "Reference images 1 and 2 are phone photos of one real object in the RISD Museum Grand Gallery: a large shaped canvas made for a ceiling, showing an angel in pink robes blowing a long trumpet among clouds, with putti below; the canvas has an irregular cartouche outline (curved top, shaped scalloped bottom corners) edged by a thin gilded border. They are the authority for its outline, its picture and its colours.\n\nRender the whole shaped canvas alone, facing the viewer head-on, perfectly straight and symmetrical where the object is symmetrical, with no perspective tilt: the painted picture faithfully reproduced (same angel, trumpet, clouds, putti, colours and light), sharp and clean, with no glare or reflections, and its thin gilded border rendered as a clean low-poly gilt edge with crisp planar highlights. Everything outside the object's outline is a perfectly flat, even, pure magenta (#FF00FF) background filling the rest of the canvas, touching the object's edge directly with no shadow, no wall, no halo and no gradient. No text, no watermark.\n",
+  "procedureId": "muse-b6011a525e7340f33390",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.08",
+  "references": [
+    {
+      "path": "references/angel-view-a.png",
+      "sha256": "e10a515e903f84537904e23c1a2844baeda205b5f0780a34b9120590a17a9de8",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/angel-view-b.png",
+      "sha256": "d7c5a77b91ae60320b887c322bea6c603b687729a00c7ada2f068351951aabc9",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-angel-shaped.json",
+      "sha256": "b6011a525e7340f3339096e4372581a65548e70c0c563dcad0b909d0da3b207f"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "9c0d7ab4e8d126e1d27c639a06f925e95719d2f99d210e4576dd3f23a3d410a7"
+    },
+    {
+      "applicationPath": "prompts/angel-shaped.txt",
+      "sha256": "8e300c2abf77618b19857ce91d80f3b6f31600bddecd950c7431614e2c4f98fe"
+    }
+  ]
+}
