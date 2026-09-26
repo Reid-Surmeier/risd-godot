@@ -195,7 +195,7 @@ func _process(delta: float) -> void:
 		if hovering:
 			Input.set_custom_mouse_cursor(_blank_cursor)
 		else:  # the shell's arrow when it set one (hover-glow prototype), else the system arrow
-			Input.set_custom_mouse_cursor(Engine.get_meta("arrow_cursor", null), Input.CURSOR_ARROW, Engine.get_meta("arrow_cursor").get_meta("tip") if Engine.has_meta("arrow_cursor") else Vector2.ZERO)
+			Input.set_custom_mouse_cursor((Engine.get_meta("arrow_cursor") if Engine.has_meta("arrow_cursor") else null), Input.CURSOR_ARROW, Engine.get_meta("arrow_cursor").get_meta("tip") if Engine.has_meta("arrow_cursor") else Vector2.ZERO)
 		pointer_changed.emit()
 		state_changed.emit()
 	if hovering:

@@ -28,9 +28,19 @@ const face=async index=>{
  throw Error(`No exposed point for painting ${index}`);
 };
 try{
- await page.goto(url.href);
+ await page.goto(url.href, {waitUntil:'domcontentloaded'});
+ await page.waitForFunction(()=>window.loaderProgress>0&&document.querySelector('#status-shader'),null,{timeout:120000});
+ const loadingA=await page.screenshot({path:`${output}/loading-a.png`});
+ await wait(600);
+ const loadingB=await page.screenshot({path:`${output}/loading-b.png`});
+ assert.notDeepEqual(loadingA,loadingB,'original loading animation advances');
+ await page.waitForFunction(()=>window.loadPerf?.some(event=>event.name==='game-shown'),null,{timeout:180000});
+ assert.equal(await page.locator('#status').count(),0,'loader exits into the game');
  await page.waitForFunction(()=>window.shellCrtQa?.shell?.tabs?.[1],null,{timeout:120000});
- await wait(1000);await tab(1);
+ await wait(1000);
+ assert.equal((await state()).shell.tabs.length,7,'current seven-tab build');
+ await page.screenshot({path:`${output}/gallery-launch.png`});
+ await tab(1);
  await page.waitForFunction(()=>window.shellCrtQa?.tenant.painting_viewer?.count===6);
  await wait(1500);
  assert.equal((await state()).tenant.chrome_pieces,0);
@@ -47,7 +57,7 @@ try{
  await page.mouse.wheel(100,0);await selected(5);
  await page.mouse.wheel(-100,0);await selected(4);
  const from=await screen(await face(4));
- await page.mouse.move(...from);await page.mouse.down();await page.mouse.move(from[0]+215,from[1],{steps:14});await page.mouse.up();await selected(3);
+ await page.mouse.move(...from);await page.mouse.down();await page.mouse.move(from[0]+((await state()).tenant.painting_viewer_rect[2]-20*(await state()).tenant.desktop_scale)*.31,from[1],{steps:14});await page.mouse.up();await selected(3);
  let q=await state();const slider=q.tenant.painting_viewer.slider;
  await click([slider[0]+slider[2]*.02,slider[1]+slider[3]/2]);await selected(0);
  await click([slider[0]+slider[2]*.98,slider[1]+slider[3]/2]);await selected(5);
@@ -95,6 +105,6 @@ try{
  assert.ok(r[0]>=0&&r[1]>=0&&r[0]+r[2]<=q.logical_size[0]+1);
  await page.screenshot({path:`${output}/compact.png`});
  assert.deepEqual(errors,[]);
- await writeFile(`${output}/result.json`,JSON.stringify({passed:true,checks:['original six paintings','frameless book','side clicks both directions','enlarge/escape','keyboard','vertical/horizontal wheel','drag paintings','scrubber endpoints','native window drag','drawing','page turns preserve ink','window stacking','frameless book drag/resize','hidden freeze/resume','resize'],state:q},null,2));
+ await writeFile(`${output}/result.json`,JSON.stringify({passed:true,checks:['animated loading screen','loader exit','current seven tabs','original six paintings','frameless book','side clicks both directions','enlarge/escape','keyboard','vertical/horizontal wheel','drag paintings','scrubber endpoints','native window drag','drawing','page turns preserve ink','window stacking','frameless book drag/resize','hidden freeze/resume','resize'],state:q,load:await page.evaluate(()=>window.loadPerf)},null,2));
  console.log('PASS: native Sketchbook Cover Flow interactions, book ink/page turn, stacking, tab freeze and resize');
 }finally{await browser.close()}
