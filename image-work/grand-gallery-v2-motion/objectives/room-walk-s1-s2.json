@@ -1,0 +1,46 @@
+{
+ "schemaVersion": "1",
+ "id": "gg2-room-walk-s1-s2-v1-objective",
+ "summary": "A first-person walk forward down a museum picture gallery in a late-1990s low-polygon real-time 3D game. The first frame and the last frame are both supplied: the first is the view from just inside the south end of the gallery, the last is the view after walking forward. The camera walks straight forward along the centre line of the room from just inside the south end of the gallery to just behind the long dark-blue bench, about a third of the way down the room, at a steady walking pace with a gentle start and stop and a very slight step bob, always looking straight down the room at the far doorway with the green EXIT sign.\n\nThis is one continuous game level seen by a moving camera: the deep slate-blue walls, the gilt-framed paintings in their fixed places, the cream barrel vault with its long skylight grid, the white skirting and the pale herringbone oak floor all stay exactly as drawn in the two frames; the paintings along both walls slide outward past the frame edges and grow as the camera passes them, with correct perspective; nothing morphs, no painting changes its picture, no new objects appear. Keep the same low-polygon flat-shaded rendering, the same colours and exposure, the same low-resolution textures in every frame.\n\nNo people, no characters, no cuts, no zoom without movement, no camera rotation, no text, no watermark. Silent, no audio.",
+ "procedureId": "room-walk-s1-s2-v1",
+ "requestedCount": 1,
+ "budgetCeilingUsd": "0.15",
+ "videoPlan": {
+  "assembly": {
+   "required": false,
+   "pixelOwnership": "none-authoritative"
+  },
+  "expectedMedia": {
+   "width": 720,
+   "height": 480,
+   "durationSeconds": 4,
+   "audioExpected": false
+  }
+ },
+ "references": [
+  {
+   "slot": "first-frame",
+   "path": "references/s1-720x480.png",
+   "sha256": "f32799a6c0d04ae2c9b667943743821f963e4bc674ee77224f40ab2d7e19a30f",
+   "kind": "image",
+   "authorityReason": "inferred-motion/v1:{\"behavior\": \"A steady forward walk of the camera along the room's centre line.\", \"cancelRestart\": \"Not interruptible; plays once per step.\", \"historicalFidelity\": false, \"provenance\": \"Two consecutive Muse stills of the same game level (grand-gallery-v2 stops s1 and s2); no motion source exists.\", \"spatialPermissions\": \"The camera moves straight forward only; the room, paintings and lighting stay fixed.\", \"timing\": \"Four seconds, even pace with a gentle start and stop.\"}",
+   "payloadDestination": "/input_references/0/image_url/url",
+   "declaredMedia": {
+    "width": 720,
+    "height": 480
+   }
+  },
+  {
+   "slot": "last-frame",
+   "path": "references/s2-720x480.png",
+   "sha256": "3ba8100f51cacd647196a3bb8384304e36bed625a84a754b70ebe6ad4a940d9e",
+   "kind": "image",
+   "authorityReason": "inferred-motion/v1:{\"behavior\": \"A steady forward walk of the camera along the room's centre line.\", \"cancelRestart\": \"Not interruptible; plays once per step.\", \"historicalFidelity\": false, \"provenance\": \"Two consecutive Muse stills of the same game level (grand-gallery-v2 stops s1 and s2); no motion source exists.\", \"spatialPermissions\": \"The camera moves straight forward only; the room, paintings and lighting stay fixed.\", \"timing\": \"Four seconds, even pace with a gentle start and stop.\"}",
+   "payloadDestination": "/input_references/1/image_url/url",
+   "declaredMedia": {
+    "width": 720,
+    "height": 480
+   }
+  }
+ ]
+}
