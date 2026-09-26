@@ -80,3 +80,9 @@ For the selected-tab face only, a **Motion Pass** yields one entrance followed b
 **Page seam**: the interface every Tenant implements so the Shell can create, show, hide, resize and query it; the only way Shell and Tenant talk. _Avoid_: API, host contract.
 
 **Switch** _(new)_: what a tab click does — the clicked Tab dips (the stub's pressed tint, 0.1 s) and the new Page cross-fades in over 0.2 s while the old one fades out; the Shell's freeze rule applies once the fade has settled. At launch the Collection Tab grows in like a stub-opened tab before its Page fades in. _Avoid_: transition, animation (see "Animation" above).
+
+**Room Survey** _(new)_: the measured account of one real museum room — every painting's, doorway's and window's wall, position, height and size — triangulated from the owner's walkthrough video and cross-checked against current photos of the room. It is measurement only; its pixels are never textures. _Avoid_: scan, reconstruction, capture.
+
+**Placement** _(new)_: one entry of a Room Survey — where a single object hangs or stands in the room, in metres. _Avoid_: position, layout entry.
+
+**Painting Asset** _(new)_: one real painting built for the 3D room — an Asset Pass that turns the painting's best views into one standardized straight-on image in the approved style, modelled as a low-poly frame with real depth and the canvas inset, hung at its Placement; plus a high-resolution version shown only in the detail view. _Avoid_: painting texture, painting sprite.
