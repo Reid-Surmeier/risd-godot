@@ -4,6 +4,13 @@
 extends "res://testing/harness_base.gd"
 
 var walk: Control
+var failed := 0
+
+
+func _require(ok: bool, message: String) -> void:
+	if not ok:
+		failed += 1
+		push_error(message)
 
 
 func _pose(x: float, z: float, yaw_deg: float, name: String, out_dir: String) -> void:
@@ -33,6 +40,10 @@ func _initialize() -> void:
 	var out_dir := await _mount(main, Vector2i(1920, 1080), "/tmp/gallery-walk4")
 	await create_timer(4.0).timeout
 	walk = main.find_child("GalleryWalk", true, false)
+	# The original view remains a user-selectable comparison.
+	walk._view_bar.get_child(0).item_selected.emit(2)
+	walk._pos = Vector3(0, 0, -4.2)
+	walk._update_camera(1.0)
 	await _shot(out_dir, "01-start.png")
 	await _pose(0, -3.0, 90, "02-west-wall-near.png", out_dir)
 	await _pose(0, -14.0, 90, "03-west-wall-mid.png", out_dir)
@@ -110,12 +121,14 @@ func _initialize() -> void:
 	var z_before: float = walk._pos.z
 	await _key(KEY_S, "step back")
 	await create_timer(2.0).timeout
+	_require(walk._pos.z > z_before + 0.5, "back input did not cancel approach and step back")
 	print("STEP-BACK z before %.2f after %.2f target %s" % [z_before, walk._pos.z, str(walk._target)])
 	await _shot(out_dir, "26-after-step-back.png")
 	# Astra round 3: past both benches, from the far end to the arch end
 	await _pose(0, -24.0, 180, "27-far-end-facing-arch.png", out_dir)
 	walk._walk_to(Vector3(0, 0, -5.0))
 	await create_timer(20.0).timeout
+	_require(walk._pos.distance_to(Vector3(0, 0, -5.0)) < 0.1 and walk._target == null, "both benches route did not finish")
 	print("BOTH-BENCHES end pos %s target %s" % [str(walk._pos), str(walk._target)])
 	await _shot(out_dir, "28-after-both-benches.png")
 	# Astra round 4: starting against the first bench, to beyond the second
@@ -124,6 +137,7 @@ func _initialize() -> void:
 	walk._walk_to(Vector3(0, 0, -18.9))
 	print("AGAINST-BENCH path %s" % str(walk._path))
 	await create_timer(20.0).timeout
+	_require(walk._pos.distance_to(Vector3(0, 0, -18.9)) < 0.1 and walk._target == null, "against bench route did not finish")
 	print("AGAINST-BENCH end pos %s target %s" % [str(walk._pos), str(walk._target)])
 	# 300 random walks through the real movement code (stepped, not timed): each must arrive
 	var rng := RandomNumberGenerator.new()
@@ -142,6 +156,7 @@ func _initialize() -> void:
 			fails += 1
 			if fails <= 5:
 				print("FUZZ fail from %s to %s ended %s" % [str(walk._pos), str(walk._clamp(b)), str(walk._pos)])
+	_require(fails == 0, "random routes failed")
 	print("FUZZ %d of 300 walks failed" % fails)
 	# a painting half out of view: close to the east wall, looking along it; click its visible part
 	var e6 := {}
@@ -163,6 +178,7 @@ func _initialize() -> void:
 	print("HALF-VISIBLE picks %s at %s" % [walk._painting_at(pick).get("tag", "none"), str(pick)])
 	await _click(walk.get_global_rect().position + pick, "E6 half visible")
 	await create_timer(6.0).timeout
+	_require(walk._open.get("tag", "none") == "E6", "visible part of E6 must open E6")
 	print("HALF-VISIBLE open %s" % walk._open.get("tag", "none"))
 	await _shot(out_dir, "30-half-visible-detail.png")
-	quit(0)
+	quit(1 if failed else 0)

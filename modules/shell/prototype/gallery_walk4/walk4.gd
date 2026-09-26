@@ -37,12 +37,22 @@ const HOLD_S := 0.25
 const KID_H := 1.05
 
 var _vp: SubViewport
+# PROTOTYPE #132: fixed dollhouse, lower gallery view, and original camera.
+var view_mode := 0
+var view_yaw := PI / 2.0
+var _view_panel: PanelContainer
+var _view_bar: HBoxContainer
+var _view_label: Label
+var _velocity := Vector3.ZERO
+var _source_meshes: Array[Node] = []
+var _baked_room: Node3D
+var _lighting_choice: CheckButton
 var _cam: Camera3D
 var _kid: Sprite3D
 var _shadow: MeshInstance3D
 var _kid_frames: Array[Texture2D] = []
 var _kid_t := 0.0
-var _pos := Vector3(0, 0, -4.2)
+var _pos := Vector3(-2.6, 0, -8.0)
 var _yaw := 0.0
 var _target = null
 var _target_yaw = null
@@ -60,10 +70,11 @@ var _stall_t := 0.0
 var _last_pos := Vector3.ZERO
 # Sounds: Animal Crossing: Wild World's own (sounds/SOURCES.md)
 var _sfx := {}
-var _step_t := 0.0
 var _step_i := 0
 var _hover_tag := ""
-const STEP_S := 0.42  # one footstep per this much walking
+# First 16 held frames: visible alternate contacts at 0 and 8, reviewed in bake/README.
+const CONTACT_FRAMES := [0, 8]
+const WALK_FRAMES := 16
 
 
 func _ready() -> void:
@@ -83,7 +94,9 @@ func _ready() -> void:
 	resized.connect(func() -> void: box.stretch_shrink = maxi(1, roundi(size.x / LOW_RES.x)))  # render at ~LOW_RES wide
 	_build_room()
 	_build_paintings()
+	_partition_surfaces()
 	_merge_static()
+	_source_meshes = _vp.find_children("*", "MeshInstance3D", true, false)
 	_build_kid()
 	_cam = Camera3D.new()
 	_cam.fov = 58.0
@@ -91,6 +104,7 @@ func _ready() -> void:
 	_vp.add_child(_cam)
 	_build_detail()
 	_build_sounds()
+	_build_view_controls()
 	_update_camera(1.0)
 
 
@@ -263,7 +277,7 @@ func _build_room() -> void:
 	env.background_color = Color("#20242a")
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	env.ambient_light_color = Color("#dde1e7")
-	env.ambient_light_energy = 0.62
+	env.ambient_light_energy = 0.0  # LightmapGI supplies the baked illumination
 	var we := WorldEnvironment.new()
 	we.environment = env
 	_vp.add_child(we)
@@ -671,6 +685,114 @@ func _play(n: String, pitch := 1.0) -> void:
 		pl.play()
 
 
+# Keep cutaway groups intact through batching. The bake sees the complete room.
+func _partition_surfaces() -> void:
+	for mi in _vp.find_children("*", "MeshInstance3D", true, false):
+		var bounds: AABB = mi.global_transform * mi.mesh.get_aabb()
+		var center := bounds.get_center()
+		if center.y > H - 0.6:
+			mi.layers = 32
+		elif bounds.end.x < -W / 2.0 + 0.5:
+			mi.layers = 2
+		elif bounds.position.x > W / 2.0 - 0.5:
+			mi.layers = 4
+		elif bounds.position.z > -0.65:
+			mi.layers = 8
+		elif bounds.end.z < -L + 0.65:
+			mi.layers = 16
+		else:
+			mi.layers = 1
+
+
+func _build_view_controls() -> void:
+	_view_panel = PanelContainer.new()
+	_view_panel.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+	_view_panel.offset_top = -40
+	_view_panel.offset_bottom = -4
+	var background := StyleBoxFlat.new()
+	background.bg_color = Color(0.06, 0.07, 0.09, 0.88)
+	background.content_margin_top = 4
+	background.content_margin_bottom = 4
+	_view_panel.add_theme_stylebox_override("panel", background)
+	add_child(_view_panel)
+	_view_bar = HBoxContainer.new()
+	_view_bar.alignment = BoxContainer.ALIGNMENT_CENTER
+	_view_bar.add_theme_constant_override("separation", 8)
+	_view_panel.add_child(_view_bar)
+	var choice := OptionButton.new()
+	for title in ["Dollhouse", "Gallery", "Original"]:
+		choice.add_item(title)
+	choice.focus_mode = Control.FOCUS_NONE
+	choice.item_selected.connect(_set_view)
+	_view_bar.add_child(choice)
+	for direction in [1, -1]:
+		var button := Button.new()
+		button.text = "↶ Q" if direction == 1 else "E ↷"
+		button.focus_mode = Control.FOCUS_NONE
+		button.pressed.connect(func() -> void: _rotate_view(direction))
+		_view_bar.add_child(button)
+	_lighting_choice = CheckButton.new()
+	_lighting_choice.text = "Baked light"
+	_lighting_choice.focus_mode = Control.FOCUS_NONE
+	_lighting_choice.toggled.connect(_set_lighting)
+	_view_bar.add_child(_lighting_choice)
+	_lighting_choice.disabled = not ResourceLoader.exists(DIR + "baked/room.tscn")
+	_view_label = Label.new()
+	_view_bar.add_child(_view_label)
+	if OS.has_feature("web"):
+		var variant = JavaScriptBridge.eval("new URLSearchParams(location.search).get('variant')")
+		view_mode = {"dollhouse": 0, "gallery": 1, "original": 2}.get(str(variant), 0)
+	choice.select(view_mode)
+	var use_bake := not _lighting_choice.disabled
+	if OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('lighting') === 'original'"):
+		use_bake = false
+	_lighting_choice.button_pressed = use_bake
+
+
+func _set_lighting(enabled: bool) -> void:
+	if enabled and _baked_room == null:
+		_baked_room = load(DIR + "baked/room.tscn").instantiate()
+		_vp.add_child(_baked_room)
+	if _baked_room:
+		_baked_room.visible = enabled
+	for mesh in _source_meshes:
+		mesh.visible = not enabled
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("var u=new URL(location.href);u.searchParams.set('lighting','%s');history.replaceState(null,'',u)" % ("baked" if enabled else "original"))
+
+
+func _set_view(mode: int) -> void:
+	_new_action()
+	_held.clear()
+	_velocity = Vector3.ZERO
+	_target = null
+	_target_yaw = null
+	view_mode = mode
+	(_view_bar.get_child(0) as OptionButton).select(mode)
+	_update_camera(1.0)
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("var u=new URL(location.href);u.searchParams.set('variant','%s');history.replaceState(null,'',u)" % ["dollhouse", "gallery", "original"][mode])
+	print("VIEW ", ["dollhouse", "gallery", "original"][mode], " yaw ", rad_to_deg(view_yaw))
+
+
+func _rotate_view(direction: int) -> void:
+	view_yaw = wrapf(view_yaw + direction * PI / 2.0, -PI, PI)
+	_set_view(view_mode)
+
+
+func _screen_direction() -> Vector3:
+	var forward := Vector3(-sin(view_yaw), 0, -cos(view_yaw))
+	var right := Vector3(cos(view_yaw), 0, -sin(view_yaw))
+	return (forward * (int(_held.has("up")) - int(_held.has("down"))) + right * (int(_held.has("right")) - int(_held.has("left")))).normalized()
+
+
+func _painting_shown(p: Dictionary) -> bool:
+	if view_mode == 2:
+		return true
+	var forward := Vector3(-sin(view_yaw), 0, -cos(view_yaw))
+	return p.normal.dot(forward) < 0.1
+
+
 # Every static mesh that shares a look (same shader, texture, tint, flags) becomes one mesh: a few dozen draw calls
 # instead of ~350, which is what held the frame rate down in the browser.
 func _merge_static() -> void:
@@ -696,6 +818,7 @@ func _merge_static() -> void:
 			key = "std|%s|%s|%s|%s" % [st3.albedo_texture.get_rid().get_id() if st3.albedo_texture else 0, st3.albedo_color, st3.blend_mode, st3.transparency]
 		else:
 			continue
+		key += "|layer:%s" % mi.layers
 		if not groups.has(key):
 			groups[key] = []
 		groups[key].append(mi)
@@ -710,6 +833,7 @@ func _merge_static() -> void:
 				st.append_from(mi.mesh, surf, xf)
 		var merged := MeshInstance3D.new()
 		merged.mesh = st.commit()
+		merged.layers = list[0].layers
 		merged.material_override = list[0].material_override
 		merged.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		for mi in list:
@@ -791,6 +915,8 @@ func _build_detail() -> void:
 
 
 func _open_detail(p: Dictionary) -> void:
+	_view_panel.hide()
+	_velocity = Vector3.ZERO
 	var rec: Dictionary = p.rec
 	var pic: TextureRect = _zoom_root.get_node("Painting")
 	var frame: NinePatchRect = _zoom_root.get_node("Frame")
@@ -829,6 +955,7 @@ func _open_detail(p: Dictionary) -> void:
 
 
 func _close_detail() -> void:
+	_view_panel.show()
 	_play("menu_close")
 	var t := create_tween()
 	t.tween_property(_detail, "modulate:a", 0.0, 0.3)
@@ -858,15 +985,15 @@ func _process(delta: float) -> void:
 		return
 	for k in _held.keys():
 		_held[k] += delta
-	if _held.get("left", 0.0) > HOLD_S:
+	if view_mode == 2 and _held.get("left", 0.0) > HOLD_S:
 		_yaw += deg_to_rad(TURN_HELD_DPS) * delta
 		_target_yaw = null
-	if _held.get("right", 0.0) > HOLD_S:
+	if view_mode == 2 and _held.get("right", 0.0) > HOLD_S:
 		_yaw -= deg_to_rad(TURN_HELD_DPS) * delta
 		_target_yaw = null
-	if _held.get("up", 0.0) > HOLD_S:
+	if view_mode == 2 and _held.get("up", 0.0) > HOLD_S:
 		_target = _clamp(_pos + _fwd() * 0.4)
-	if _held.get("down", 0.0) > HOLD_S:
+	if view_mode == 2 and _held.get("down", 0.0) > HOLD_S:
 		_target = _clamp(_pos - _fwd() * 0.4)
 	if _target_yaw != null:
 		var d := wrapf(_target_yaw - _yaw, -PI, PI)
@@ -876,7 +1003,12 @@ func _process(delta: float) -> void:
 			_target_yaw = null
 		else:
 			_yaw += signf(d) * a
-	var moving := false
+	var position_before := _pos
+	if view_mode != 2:
+		var direction := _screen_direction()
+		_velocity = _velocity.move_toward(direction * 2.0, (12.0 if direction != Vector3.ZERO else 16.0) * delta)
+		if _velocity.length() > 0.01:
+			_pos = _clamp(_pos + _velocity * delta)
 	var goal = _path[0] if not _path.is_empty() else _target
 	if goal != null:
 		var to: Vector3 = goal - _pos
@@ -888,7 +1020,6 @@ func _process(delta: float) -> void:
 				_target = null
 		else:
 			_pos = _clamp(_pos + to.normalized() * minf(to.length(), WALK_MPS * delta))
-			moving = true
 			# stuck against something for half a second: give up on this walk
 			_stall_t = _stall_t + delta if _pos.distance_to(_last_pos) < WALK_MPS * delta * 0.2 else 0.0
 			if _stall_t > 0.5:
@@ -896,18 +1027,18 @@ func _process(delta: float) -> void:
 				_target = null
 				_stall_t = 0.0
 	_last_pos = _pos
-	if moving:
-		_step_t += delta
-		if _step_t >= STEP_S:
-			_step_t -= STEP_S
-			_step_i = (_step_i + 1 + randi() % 5) % 6  # never the same step twice in a row
-			_play("step_wood_%02d" % (_step_i + 1), randf_range(0.94, 1.06))
-	else:
-		_step_t = STEP_S * 0.7  # the first step lands soon after starting
-	if moving and _kid_frames.size() > 1:
-		_kid_t += delta
-		_kid.texture = _kid_frames[int(_kid_t * 10.0) % _kid_frames.size()]
+	var distance_moved := _pos.distance_to(position_before)
+	if distance_moved > 0.0001 and _kid_frames.size() >= WALK_FRAMES:
+		var previous := int(_kid_t * 10.0) if _kid_t > 0.0 else -1
+		_kid_t += distance_moved / WALK_MPS
+		var current := int(_kid_t * 10.0)
+		for frame in range(previous + 1, current + 1):
+			if frame % WALK_FRAMES in CONTACT_FRAMES:
+				_step_i = (_step_i + 1) % 6
+				_play("step_wood_%02d" % (_step_i + 1))
+		_kid.texture = _kid_frames[current % WALK_FRAMES]
 	elif not _kid_frames.is_empty():
+		_kid_t = 0.0
 		_kid.texture = _kid_frames[0]
 	_update_camera(minf(1.0, delta * 5.0))
 	_update_hover()
@@ -935,6 +1066,25 @@ func _clamp(p: Vector3) -> Vector3:
 func _update_camera(k: float) -> void:
 	_kid.position = _pos
 	_shadow.position = _pos + Vector3(0, 0.01, 0)
+	_kid.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y if view_mode == 2 else BaseMaterial3D.BILLBOARD_ENABLED
+	if view_mode != 2:
+		var pitch := deg_to_rad(45.0 if view_mode == 0 else 35.0)
+		var distance := 14.2 if view_mode == 0 else 9.3
+		_cam.fov = 20.0 if view_mode == 0 else 30.0
+		var forward := Vector3(-sin(view_yaw), 0, -cos(view_yaw))
+		var center := _pos + forward * 0.7 + Vector3(0, 1.3, 0)
+		# Follow the kid along the gallery; the cutaway lets the eye sit outside it.
+		_cam.position = center - forward * distance * cos(pitch) + Vector3.UP * distance * sin(pitch)
+		_cam.look_at(center)
+		var hidden := 4 if forward.x < -0.5 else (2 if forward.x > 0.5 else (8 if forward.z < -0.5 else 16))
+		_cam.cull_mask = 31 & ~hidden
+		if _view_label:
+			_view_label.text = "WASD · Click art · " + ("West wall" if forward.x < -0.5 else ("East wall" if forward.x > 0.5 else ("Far wall" if forward.z < -0.5 else "Arch wall")))
+		return
+	_cam.cull_mask = 63
+	_cam.fov = 58.0
+	if _view_label:
+		_view_label.text = "WASD · Click art"
 	var head := _pos + Vector3(0, 1.3, 0)
 	var want := _pos - _fwd() * 3.1 + Vector3(0, 1.95, 0)
 	var d := want - head
@@ -966,6 +1116,7 @@ func _new_action() -> void:
 # Walk to p. Every leg is checked against each bench's rectangle (grown by the kid's clearance); a leg that
 # crosses one is replaced by a detour down the side lane nearer the start, past both of the bench's ends.
 func _walk_to(p: Vector3) -> void:
+	_velocity = Vector3.ZERO
 	_new_action()
 	_target = _clamp(p)
 	var pts: Array = [_pos, _target]
@@ -1056,6 +1207,8 @@ func _painting_at(pt: Vector2) -> Dictionary:
 	var best := {}
 	var best_d := INF
 	for p in _paintings:
+		if not _painting_shown(p):
+			continue
 		var poly := _visible_outline(p.corners)
 		if poly.size() < 3:
 			continue
@@ -1177,6 +1330,7 @@ func _input(event: InputEvent) -> void:  # Esc closes the detail view before any
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_VISIBILITY_CHANGED or what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_FOCUS_EXIT:
 		_held.clear()
+		_velocity = Vector3.ZERO
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -1187,6 +1341,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			if _held.has(k) and event.keycode in {"up": [KEY_UP, KEY_W], "down": [KEY_DOWN, KEY_S], "left": [KEY_LEFT, KEY_A], "right": [KEY_RIGHT, KEY_D]}[k]:
 				_held.erase(k)
 	if not is_visible_in_tree():
+		return
+	if event.pressed and _open.is_empty() and event.keycode in [KEY_Q, KEY_E]:
+		_rotate_view(1 if event.keycode == KEY_Q else -1)
+		get_viewport().set_input_as_handled()
 		return
 	var key := ""
 	match event.keycode:
@@ -1217,6 +1375,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		return
 	_held[key] = 0.0
 	_new_action()
+	if view_mode != 2:
+		_target = null
+		_target_yaw = null
+		return
 	match key:
 		"up": _step(1.0)
 		"down": _step(-1.0)
