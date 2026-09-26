@@ -734,7 +734,9 @@ func _build_view_controls() -> void:
 	_lighting_choice = CheckButton.new()
 	_lighting_choice.text = "Baked light"
 	_lighting_choice.focus_mode = Control.FOCUS_NONE
-	_lighting_choice.toggled.connect(_set_lighting)
+	_lighting_choice.toggled.connect(func(enabled: bool) -> void:
+		_play("select")
+		_set_lighting(enabled))
 	_view_bar.add_child(_lighting_choice)
 	_lighting_choice.disabled = not ResourceLoader.exists(DIR + "baked/room.tscn")
 	_view_label = Label.new()
@@ -746,7 +748,8 @@ func _build_view_controls() -> void:
 	var use_bake := not _lighting_choice.disabled
 	if OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('lighting') === 'original'"):
 		use_bake = false
-	_lighting_choice.button_pressed = use_bake
+	_lighting_choice.set_pressed_no_signal(use_bake)
+	_set_lighting(use_bake)
 
 
 func _set_lighting(enabled: bool) -> void:
@@ -762,6 +765,7 @@ func _set_lighting(enabled: bool) -> void:
 
 
 func _set_view(mode: int) -> void:
+	_play("select")
 	_new_action()
 	_held.clear()
 	_velocity = Vector3.ZERO

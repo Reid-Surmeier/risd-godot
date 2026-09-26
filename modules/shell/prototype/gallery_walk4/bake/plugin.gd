@@ -31,7 +31,11 @@ func _bake_room() -> void:
 			for light in room.find_children("*", "Light3D", true, false):
 				light.get_parent().remove_child(light)
 				light.queue_free()
-			EditorInterface.save_scene()
+			var error := EditorInterface.save_scene()
+			if error != OK:
+				push_error("Saving baked room failed: " + error_string(error))
+				get_tree().quit(1)
+				return
 			print("BAKE_OK users=", lightmap.light_data.get_user_count())
 			get_tree().quit()
 			return

@@ -41,7 +41,10 @@ func _initialize() -> void:
 	await create_timer(4.0).timeout
 	walk = main.find_child("GalleryWalk", true, false)
 	# The original view remains a user-selectable comparison.
-	walk._view_bar.get_child(0).item_selected.emit(2)
+	for choice in walk.find_children("*", "OptionButton", true, false):
+		if choice.get_item_text(0) == "Dollhouse":
+			choice.select(2)
+			choice.item_selected.emit(2)
 	walk._pos = Vector3(0, 0, -4.2)
 	walk._update_camera(1.0)
 	await _shot(out_dir, "01-start.png")

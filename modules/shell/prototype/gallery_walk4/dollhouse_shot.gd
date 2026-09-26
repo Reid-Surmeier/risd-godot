@@ -21,6 +21,17 @@ func _held_key(code: Key, seconds: float) -> void:
 	Input.parse_input_event(event)
 	await create_timer(0.2).timeout
 
+
+func _choose_view(title: String) -> void:
+	for choice in walk.find_children("*", "OptionButton", true, false):
+		for index in choice.item_count:
+			if choice.get_item_text(index) == title:
+				# Public control setup; Chrome separately exercises the native popup.
+				choice.select(index)
+				choice.item_selected.emit(index)
+				return
+	_require(false, "camera choice missing: " + title)
+
 func _initialize() -> void:
 	var main: Control = load("res://modules/shell/demo.tscn").instantiate()
 	var out := await _mount(main, Vector2i(1920, 1080), "/tmp/gallery-dollhouse")
@@ -43,10 +54,10 @@ func _initialize() -> void:
 	await create_timer(0.3).timeout
 	await _shot(out, "02-dollhouse-original-light.png")
 	walk._lighting_choice.button_pressed = true
-	walk._view_bar.get_child(0).item_selected.emit(1)
+	await _choose_view("Gallery")
 	await create_timer(0.3).timeout
 	await _shot(out, "03-gallery-baked.png")
-	walk._view_bar.get_child(0).item_selected.emit(0)
+	await _choose_view("Dollhouse")
 	# A held right key must move right on screen without rotating the fixed view.
 	var before: Vector3 = walk._pos
 	var orientation: Basis = walk._cam.global_basis
@@ -67,6 +78,31 @@ func _initialize() -> void:
 	await create_timer(0.4).timeout
 	_require(walk._pos.distance_to(before) < 0.01, "focus loss left character moving")
 	await _key(KEY_D, "release held right")
+	# East paintings are cut away while looking west. Their projected locations
+	# must not capture clicks on the visible room behind them.
+	Engine.time_scale = 5
+	walk._pos = Vector3(4, 0, -12)
+	for i in 4:
+		if absf(wrapf(walk.view_yaw - PI / 2, -PI, PI)) < 0.01:
+			break
+		await _key(KEY_E, "face west")
+	await create_timer(0.2).timeout
+	var hidden_checks := 0
+	for painting in walk._paintings:
+		if painting.normal.x > -0.5:
+			continue
+		var point: Vector2 = walk._cam.unproject_position(painting.center) / Vector2(walk._vp.size) * walk.size
+		if not Rect2(Vector2.ZERO, walk.size).has_point(point):
+			continue
+		await _click(walk.global_position + point, "cutaway wall")
+		await create_timer(12).timeout
+		_require(walk._open.get("tag", "") != painting.tag, "cutaway painting intercepted click: " + painting.tag)
+		hidden_checks += 1
+		await _key(KEY_ESCAPE, "close visible art if opened")
+		await _key(KEY_D, "cancel approach")
+		break
+	_require(hidden_checks > 0, "hidden-wall scenario projected no paintings")
+	print("DOLLHOUSE_HIDDEN_WALL ", hidden_checks)
 	Engine.time_scale = 5
 	var opened := 0
 	# Real room records, not a copied fixture inventory. Every actual painting must open.

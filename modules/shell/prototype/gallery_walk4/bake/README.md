@@ -25,8 +25,9 @@ switch compares the same pose with the old analytical shading.
 Requires Godot 4.7.2 and an X display. The offline editor uses Mobile/Vulkan;
 the shipped viewer uses Compatibility. There is no public GDScript bake method
 in this version, so the temporary editor plugin invokes the native Bake Lightmaps
-control. `run.py` restores project settings even on failure. A failed bake is not
-a deliverable: rerun the rendered checks before exporting.
+control. `run.py` checks plugin configuration before preparation and restores
+project settings and the previous bake assets on failure. Rerun the rendered
+checks before exporting a successful bake.
 
 **Renderer correction to the research:** keep `disable_ambient_light = false` on
 the baked materials. Compatibility also gates lightmap evaluation with that flag.
@@ -61,6 +62,7 @@ the repository checks and Compatibility harness are the executable proof here.
 | `dollhouse_shot.gd` | Right moves screen-right without rotating the camera; E changes the viewing side; lost focus stops movement. | Old tank-control tests do not cover the new input model. Real input events and existing controls. |
 | `dollhouse_shot.gd` | Every real room artwork opens from its visible side. | Cutaway-wall picking is new; reads the actual room inventory rather than copying a fixture list. Real click/approach/detail path. |
 | `shot.gd` | Both bench routes arrive, backing out cancels approach, random routes finish, partly visible E6 opens. | Retains earlier regressions; converts diagnostic-only output into nonzero failure status. No new production seam. |
+| `bake/test_run.py` | An editor failure or preflight refusal preserves the previous bake and project settings. | Rendered success cases cannot cover offline process failure. Runs the real command in a temporary project with a failing child executable; no production hook. |
 
 The black-room negative control temporarily restored the faulty material flag:
 the lighting check exited 1 with `baked surface is black with runtime lights
@@ -69,7 +71,7 @@ a failure, and no frozen module acceptance files were changed.
 
 Run `scripts/check-gallery.sh` for the two rendered harnesses, then
 `scripts/check.sh` and `git diff --check`. Screenshots default to
-`/tmp/gallery-check/`. The test harness may set a starting pose and read scene
+`/tmp/gallery-check/`. The test harness may set a starting pose, select a camera through the public OptionButton API, and read scene
 state, as the existing prototype harness does; asserted outcomes are motion,
 rendered illumination and the opened artwork, not private call order.
 
@@ -78,3 +80,9 @@ intervals at most 10% above the fresh 84604cb baseline on the same Chrome/GPU,
 1600×900 viewport. Report load bytes separately; this prototype keeps both
 lighting sets resident to permit comparison. Desktop texture allocation is a
 proxy only, not a browser GPU-memory measurement.
+
+Camera setup locates the option by its visible label, independent of toolbar order.
+The harness does not claim to test dropdown wiring: the Chrome check uses actual
+mouse/keyboard selection and verifies the resulting URL variant. The recovery
+regression fails on the pre-fix command and passes after restoration was added;
+the cutaway regression also fails when the hidden-wall filter is removed.
