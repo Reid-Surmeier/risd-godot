@@ -727,7 +727,7 @@ func _build_view_controls() -> void:
 	_view_bar.add_child(choice)
 	for direction in [1, -1]:
 		var button := Button.new()
-		button.text = "↶ Q" if direction == 1 else "E ↷"
+		button.text = "Q <" if direction == 1 else "> E"
 		button.focus_mode = Control.FOCUS_NONE
 		button.pressed.connect(func() -> void: _rotate_view(direction))
 		_view_bar.add_child(button)
