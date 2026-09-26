@@ -24,7 +24,7 @@ const PLANK := Vector2(0.66, 0.11)
 # The two doorways differ: the arch door (to the medieval gallery) has a cornice head and a shallow reveal onto
 # the wide lit room; the far door has a plain casing and a deep vestibule with a second door at its end.
 const DOORS := {
-	"arch": {"z": 0.0, "size": Vector2(2.1, 3.4), "reveal": 0.5, "card": "door-arch", "cornice": true, "vestibule": false},
+	"arch": {"z": 0.0, "size": Vector2(1.9, 3.1), "reveal": 0.45, "card": "door-arch", "cornice": true, "vestibule": false},
 	"far": {"z": -L, "size": Vector2(1.9, 2.8), "reveal": 2.6, "card": "door-far", "cornice": false, "vestibule": true},
 }
 const BENCHES := [-9.0, -17.0]
@@ -69,16 +69,15 @@ func _ready() -> void:
 	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	box.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	box.material = _post()
 	add_child(box)
 	_vp = SubViewport.new()
 	_vp.own_world_3d = true
-	_vp.msaa_3d = Viewport.MSAA_4X  # smooth polygon edges at the low resolution
-	_vp.positional_shadow_atlas_size = 1024
+	_vp.msaa_3d = Viewport.MSAA_2X  # steadies polygon edges at the low resolution; all light is baked, so this is cheap
 	box.add_child(_vp)
 	resized.connect(func() -> void: box.stretch_shrink = maxi(1, roundi(size.x / LOW_RES.x)))  # render at ~LOW_RES wide
 	_build_room()
 	_build_paintings()
+	_merge_static()
 	_build_kid()
 	_cam = Camera3D.new()
 	_cam.fov = 58.0
@@ -110,6 +109,26 @@ void fragment() {
 
 static var _ps1_shader: Shader
 static var _soft_rect: ImageTexture
+static var _pool_tex: ImageTexture
+
+
+func _pool_mat() -> StandardMaterial3D:
+	if _pool_tex == null:
+		var n := 64
+		var img := Image.create(n, n, false, Image.FORMAT_RGBA8)
+		for y in n:
+			for x in n:
+				var d := Vector2((x - n / 2.0) / (n / 2.0), (y - n * 0.42) / (n * 0.55)).length()
+				img.set_pixel(x, y, Color(1, 1, 1, pow(clampf(1.0 - d, 0.0, 1.0), 1.6)))
+		_pool_tex = ImageTexture.create_from_image(img)
+	var m := StandardMaterial3D.new()
+	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	m.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	m.albedo_texture = _pool_tex
+	m.albedo_color = Color(0.32, 0.24, 0.12)
+	m.render_priority = -1
+	return m
 
 
 # A soft dark rectangle (its edges fade over a fifth of each side): the baked shadow under frames and benches.
@@ -164,7 +183,15 @@ func _ao(p: Vector3, vertical: bool) -> float:
 		for bz in BENCHES:
 			var dx := maxf(absf(p.x) - 0.48, 0.0)
 			var dz := maxf(absf(p.z - bz) - 1.5, 0.0)
-			ao *= t.call(Vector2(dx, dz).length(), 0.35, 0.4)
+			ao *= t.call(Vector2(dx, dz).length(), 0.35, 0.45)
+		# the skylight's pool: brighter down the middle, falling off toward the walls and the ends, with the soft
+		# lighter/darker patches of daylight on satin oak
+		var pool := 0.74 + 0.36 * exp(-pow(p.x / 2.7, 2.0))
+		pool *= 0.9 + 0.1 * smoothstep(0.0, 3.0, minf(-p.z, p.z + L))
+		pool *= 1.0 + 0.06 * sin(p.z * 0.9 + 1.3) * cos(p.x * 1.1)
+		ao *= pool
+	else:
+		ao *= 0.86 + 0.14 * smoothstep(0.0, H, p.y)  # walls: lighter toward the skylight
 	return ao
 
 
@@ -208,8 +235,8 @@ func _box(c: Vector3, size: Vector3, col: Color, layer := 1, m: Material = null)
 	return mi
 
 
-func _wall_ps(extra := Color.WHITE) -> ShaderMaterial:
-	return ps(load(DIR + "textures/wall.png"), extra, Vector2(1.0 / 1.5, 1.0 / 1.5), true)
+func _wall_ps(extra := Color.WHITE) -> ShaderMaterial:  # flat paint: a grain texture shimmered at 480 px
+	return ps(null, WALL_COL * extra, Vector2.ONE, true)
 
 
 const LAYER_WEST := 2
@@ -227,28 +254,6 @@ func _build_room() -> void:
 	var we := WorldEnvironment.new()
 	we.environment = env
 	_vp.add_child(we)
-	# The skylight, as two lights from overhead each leaning toward one long wall: flat, from the top, and every
-	# painting casts a short shadow down its own wall. The floor and benches take both.
-	for side in [{"x": -1.0, "mask": LAYER_WEST}, {"x": 1.0, "mask": LAYER_EAST}]:
-		var sky := DirectionalLight3D.new()
-		sky.light_energy = 0.75
-		sky.shadow_opacity = 0.7
-		sky.shadow_blur = 1.5
-		sky.light_color = Color("#fffaf0")
-		sky.light_cull_mask = side.mask
-		sky.shadow_enabled = true
-		sky.shadow_bias = 0.03
-		sky.shadow_normal_bias = 0.6
-		sky.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
-		sky.directional_shadow_max_distance = 22.0
-		sky.transform.basis = Basis.looking_at(Vector3(side.x * 0.42, -1.0, 0.12).normalized(), Vector3(0, 0, -1))
-		_vp.add_child(sky)
-	var top := DirectionalLight3D.new()  # the floor and benches: straight down, so the walls throw no band across it
-	top.light_energy = 0.75
-	top.light_color = Color("#fffaf0")
-	top.light_cull_mask = 1
-	top.transform.basis = Basis.looking_at(Vector3(0.04, -1.0, 0.08).normalized(), Vector3(0, 0, -1))
-	_vp.add_child(top)
 	var X := W / 2.0
 	# (no base plane under the planks: 3 mm below them it z-fought through at a distance)
 	_build_floor()
@@ -265,35 +270,66 @@ func _build_room() -> void:
 		_box(Vector3(s * (X - 0.05), H - 0.42, -L / 2), Vector3(0.1, 0.16, L), WHITE, 1, white)
 	for z in [-0.12, -L + 0.12]:
 		_box(Vector3(0, H - 0.17, z), Vector3(W, 0.34, 0.24), WHITE, 1, white)
-	# barrel vault (low-poly, shaded by facet), end lunettes, skylight
+	# barrel vault from the cornice, end lunettes, and the long skylight curving with it, lamps along its edges
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var segs := 10
-	var vault := Color("#dcd5c4")
+	var gl := SurfaceTool.new()
+	gl.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var segs := 36
+	var vault := Color("#e2dccd")
+	var arc := 0.0
 	for i in segs:
 		var a0 := PI * i / segs
 		var a1 := PI * (i + 1) / segs
 		var p0 := Vector3(-cos(a0) * X, H + sin(a0) * VAULT_RISE, 0)
 		var p1 := Vector3(-cos(a1) * X, H + sin(a1) * VAULT_RISE, 0)
-		var shade := 0.72 + 0.28 * sin((a0 + a1) / 2.0)
-		st.set_color(vault * Color(shade, shade, shade))
-		for v in [p0, p1, p1 + Vector3(0, 0, -L), p0, p1 + Vector3(0, 0, -L), p0 + Vector3(0, 0, -L)]:
-			st.add_vertex(v)
-		st.set_color(vault * Color(0.8, 0.8, 0.8))
-		for z in [0.0, -L]:
+		var seg_len := p0.distance_to(p1)
+		var glass := absf((p0.x + p1.x) / 2.0) < SKY_W / 2.0
+		var z0 := -0.9 if glass else 0.0
+		var z1 := -L + 0.9 if glass else -L
+		if glass:  # the glazing: its own strip, its grid following the curve
+			var u0 := arc / 0.7
+			var u1 := (arc + seg_len) / 0.7
+			var q := [p0 + Vector3(0, 0, z0), p1 + Vector3(0, 0, z0), p1 + Vector3(0, 0, z1), p0 + Vector3(0, 0, z1)]
+			var qu := [Vector2(u0, 0), Vector2(u1, 0), Vector2(u1, (z0 - z1) / 0.7), Vector2(u0, (z0 - z1) / 0.7)]
+			for k in [0, 1, 2, 0, 2, 3]:
+				gl.set_uv(qu[k])
+				gl.add_vertex(q[k])
+			arc += seg_len
+			# the frame of the glazing at both ends
+			for zz in [0.0, -L]:
+				var zi := -0.9 if zz == 0.0 else -L + 0.9
+				for v in [p0 + Vector3(0, 0, zz), p1 + Vector3(0, 0, zz), p1 + Vector3(0, 0, zi), p0 + Vector3(0, 0, zz), p1 + Vector3(0, 0, zi), p0 + Vector3(0, 0, zi)]:
+					st.set_color(vault * Color(0.85, 0.85, 0.85))
+					st.add_vertex(v)
+		else:
+			var up := 0.5 + 0.5 * sin((a0 + a1) / 2.0)  # the cove darkens toward the cornice, brightens toward the light
+			var shade := lerpf(0.66, 1.02, up)
+			st.set_color(vault * Color(shade, shade, shade))
+			for v in [p0, p1, p1 + Vector3(0, 0, -L), p0, p1 + Vector3(0, 0, -L), p0 + Vector3(0, 0, -L)]:
+				st.add_vertex(v)
+		st.set_color(vault * Color(0.82, 0.82, 0.8))
+		for z in [0.0, -L]:  # the end lunettes
 			for v in [Vector3(0, H, z), p0 + Vector3(0, 0, z), p1 + Vector3(0, 0, z)]:
 				st.add_vertex(v)
 	var vmi := MeshInstance3D.new()
 	vmi.mesh = st.commit()
 	vmi.material_override = ps(null, Color.WHITE, Vector2.ONE, true)
-	vmi.layers = LAYER_UNLIT
-	vmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_vp.add_child(vmi)
-	var sky_y := H + VAULT_RISE * sqrt(maxf(0.0, 1.0 - pow(SKY_W / 2.0 / X, 2))) - 0.02
-	var skym := ps(load(DIR + "textures/skylight.png"), Color.WHITE, Vector2(1.0 / SKY_W, 1.0 / SKY_W), false, 1.0)
-	var sk := _panel(Vector3(-SKY_W / 2, sky_y, 0), Vector3(SKY_W, 0, 0), Vector3(0, 0, -(L - 1.0)), skym, 2.0, LAYER_UNLIT, func(_p: Vector3) -> float: return 1.0)
-	sk.position.z = -0.5
-	sk.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var gmi := MeshInstance3D.new()
+	gmi.mesh = gl.commit()
+	gmi.material_override = ps(load(DIR + "textures/skylight.png"), Color(1.08, 1.1, 1.14))
+	_vp.add_child(gmi)
+	# track lamps along both edges of the glazing, aimed at the walls
+	var edge_y := H + VAULT_RISE * sqrt(maxf(0.0, 1.0 - pow(SKY_W / 2.0 / X, 2))) - 0.12
+	var lamp := ps(null, Color("#2a2a2a"))
+	var z := -1.6
+	while z > -L + 1.2:
+		for sx in [-1.0, 1.0]:
+			var head := _box(Vector3(sx * (SKY_W / 2.0 + 0.15), edge_y, z), Vector3(0.14, 0.14, 0.2), Color.BLACK, 1, lamp)
+			head.rotation.z = sx * 0.7
+			_box(Vector3(sx * (SKY_W / 2.0 + 0.2), edge_y - 0.09, z), Vector3(0.1, 0.03, 0.1), Color.BLACK, 1, ps(null, Color("#ffe9b8")))
+		z -= 2.2
 	# benches down the centre: a tufted seat on a dark frame
 	for bz in BENCHES:
 		var bs := MeshInstance3D.new()
@@ -357,7 +393,7 @@ func _build_floor() -> void:
 					st.set_uv(uv[i])
 					st.set_uv2(uv2[i])
 					st.add_vertex(w)
-	var mat := ps(load(DIR + "textures/oak.png"), Color(0.86, 0.84, 0.82), Vector2.ONE, true)
+	var mat := ps(load(DIR + "textures/oak.png"), Color(1.06, 1.0, 0.92), Vector2.ONE, true)
 	mat.set_shader_parameter("plank_seams", true)
 	mat.set_shader_parameter("jitter", 0.0)  # herringbone has T-junctions: snapped corners would open cracks
 	mat.set_shader_parameter("plank", PLANK)
@@ -368,13 +404,10 @@ func _build_floor() -> void:
 	_vp.add_child(mi)
 
 
-# The arch end: a Romanesque stone portal standing proud of the wall (piers, engaged columns with capitals, a roll
-# moulding round the arch, a deep stone tunnel), opening onto the lit medieval gallery.
-const PORTAL_A := 1.1  # half the opening
-const PORTAL_B := 1.95  # half the portal's face
-const PORTAL_SPRING := 2.7
-const PORTAL_TOP := 4.7
-const PORTAL_DEPTH := 1.1
+# The arch end, as in the video: one white-cased door in the gallery wall; behind its plaster reveal the Romanesque
+# stone portal of the medieval gallery is the same opening (its round arch shows at the top of the door), a deep
+# stone tunnel, then the medieval room: blue-grey walls, herringbone floor, the crucifix lit warm.
+const PORTAL_DEPTH := 1.2
 
 
 func _arch_end() -> void:
@@ -392,129 +425,67 @@ func _arch_end() -> void:
 		_box(Vector3(s * (dw + 0.17), ds.y / 2 + 0.1, -0.04), Vector3(0.3, ds.y + 0.2, 0.08), WHITE, 1, white)
 		_box(Vector3(s * (dw + 0.04), ds.y / 2, -0.07), Vector3(0.08, ds.y, 0.14), WHITE, 1, white)
 	_box(Vector3(0, ds.y + 0.19, -0.04), Vector3(ds.x + 0.64, 0.3, 0.08), WHITE, 1, white)
-	# the cornice head over this door (the far door has none)
-	_box(Vector3(0, ds.y + 0.4, -0.1), Vector3(ds.x + 0.9, 0.12, 0.2), WHITE, 1, white)
-	_box(Vector3(0, ds.y + 0.5, -0.13), Vector3(ds.x + 1.05, 0.08, 0.26), WHITE, 1, white)
-	_box(Vector3(0, ds.y + 0.74, -0.04), Vector3(0.34, 0.14, 0.05), Color.WHITE, 1, ps(null, Color(0.2, 1.0, 0.45), Vector2.ONE, false, 1.0))
-	# the wall's thickness: a short plaster reveal, then the stone portal on the far side
-	var rev := ps(null, Color("#d9d2c2"), Vector2.ONE, true)
-	var deep := func(p: Vector3) -> float: return lerpf(0.85, 0.6, clampf(p.z / 0.5, 0.0, 1.0))
-	_panel(Vector3(-dw, 0, 0), Vector3(0, 0, 0.5), Vector3(0, ds.y, 0), rev, 0.5, 1, deep)
-	_panel(Vector3(dw, 0, 0.5), Vector3(0, 0, -0.5), Vector3(0, ds.y, 0), rev, 0.5, 1, deep)
-	_panel(Vector3(-dw, ds.y, 0.5), Vector3(ds.x, 0, 0), Vector3(0, 0, -0.5), rev, 0.5, 1, deep)
-	_panel(Vector3(-dw, 0.004, 0), Vector3(ds.x, 0, 0), Vector3(0, 0, 0.5), ps(null, Color("#b39c7e"), Vector2.ONE, true), 0.5, 1, deep)
-	var b := PORTAL_B
-	var stone := ps(load(DIR + "textures/stone.png"), Color.WHITE, Vector2(0.8, 0.8), true)
-	var zf := 1.6  # the portal's face, in the medieval gallery, facing us
-	var zb := zf + PORTAL_DEPTH
-	var a := PORTAL_A
-	var N := 12
-	var arch := []
-	for k in N + 1:
-		var th := PI - PI * k / N
-		arch.append(Vector2(a * cos(th), PORTAL_SPRING + a * sin(th)))
-	# outer boundary walked the same number of steps: up the left edge, across the top, down the right
-	var outer := []
-	var per := (PORTAL_TOP - PORTAL_SPRING) * 2.0 + 2.0 * b
-	for k in N + 1:
-		var d := per * k / N
-		if d <= PORTAL_TOP - PORTAL_SPRING:
-			outer.append(Vector2(-b, PORTAL_SPRING + d))
-		elif d <= PORTAL_TOP - PORTAL_SPRING + 2.0 * b:
-			outer.append(Vector2(-b + (d - (PORTAL_TOP - PORTAL_SPRING)), PORTAL_TOP))
-		else:
-			outer.append(Vector2(b, PORTAL_TOP - (d - (PORTAL_TOP - PORTAL_SPRING) - 2.0 * b)))
+	_box(Vector3(0, ds.y + 0.36, -0.08), Vector3(ds.x + 0.8, 0.07, 0.16), WHITE, 1, white)
+	_box(Vector3(0, ds.y + 0.62, -0.04), Vector3(0.34, 0.14, 0.05), Color.WHITE, 1, ps(null, Color(0.3, 1.0, 0.5)))
+	# the wall's plaster reveal
+	var zr := 0.45
+	var rev := ps(null, Color("#dcd5c6"), Vector2.ONE, true)
+	var deep := func(p: Vector3) -> float: return lerpf(0.9, 0.62, clampf(p.z / zr, 0.0, 1.0))
+	_panel(Vector3(-dw, 0, 0), Vector3(0, 0, zr), Vector3(0, ds.y, 0), rev, 0.3, 1, deep)
+	_panel(Vector3(dw, 0, zr), Vector3(0, 0, -zr), Vector3(0, ds.y, 0), rev, 0.3, 1, deep)
+	_panel(Vector3(-dw, ds.y, zr), Vector3(ds.x, 0, 0), Vector3(0, 0, -zr), rev, 0.3, 1, deep)
+	# the stone portal: a round-arched tunnel, its arch rising just past the door head
+	var stone := ps(load(DIR + "textures/stone.png"), Color(1.0, 0.97, 0.92), Vector2(0.8, 0.8), true)
+	var a := dw
+	var spring := ds.y - a * 0.75
+	var z0 := zr
+	var z1 := zr + PORTAL_DEPTH
+	var N := 16
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var face_ao := func(p: Vector2) -> float: return 0.9 - 0.25 * exp(-p.y / 0.5)
-	var put := func(p: Vector3, n: Vector3, o: float) -> void:
+	var put := func(p: Vector3, o: float) -> void:
 		st.set_color(Color(o, o, o))
-		st.set_normal(n)
 		st.set_uv(Vector2(p.x + p.z, p.y))
 		st.add_vertex(p)
-	var quad := func(q: Array, n: Vector3, o: Array) -> void:
+	var quad := func(q: Array, o: Array) -> void:
 		for i in [0, 1, 2, 0, 2, 3]:
-			put.call(q[i], n, o[i])
-	var fn := Vector3(0, 0, -1)
-	for s in [-1.0, 1.0]:  # piers
-		var x0: float = s * a
-		var x1: float = s * b
-		quad.call([Vector3(x0, 0, zf), Vector3(x1, 0, zf), Vector3(x1, PORTAL_SPRING, zf), Vector3(x0, PORTAL_SPRING, zf)], fn, [0.7, 0.7, 0.9, 0.9])
-	for k in N:  # spandrels, arch to outer edge
-		var p0: Vector2 = arch[k]
-		var p1: Vector2 = arch[k + 1]
-		var o0: Vector2 = outer[k]
-		var o1: Vector2 = outer[k + 1]
-		quad.call([Vector3(p0.x, p0.y, zf), Vector3(o0.x, o0.y, zf), Vector3(o1.x, o1.y, zf), Vector3(p1.x, p1.y, zf)], fn,
-			[face_ao.call(p0), 0.95, 0.95, face_ao.call(p1)])
-	for k in N:  # the arched tunnel, darker deeper in
-		var p0: Vector2 = arch[k]
-		var p1: Vector2 = arch[k + 1]
-		var nn := Vector3(-(p0.x + p1.x), -((p0.y + p1.y) / 2.0 - PORTAL_SPRING) * 2.0, 0).normalized()
-		quad.call([Vector3(p0.x, p0.y, zf), Vector3(p1.x, p1.y, zf), Vector3(p1.x, p1.y, zb), Vector3(p0.x, p0.y, zb)], nn, [0.8, 0.8, 0.5, 0.5])
-	for s in [-1.0, 1.0]:  # tunnel sides below the spring
-		quad.call([Vector3(s * a, 0, zf), Vector3(s * a, PORTAL_SPRING, zf), Vector3(s * a, PORTAL_SPRING, zb), Vector3(s * a, 0, zb)], Vector3(-s, 0, 0), [0.62, 0.8, 0.5, 0.42])
-	for s in [-1.0, 1.0]:  # the portal's outer sides, its full depth
-		quad.call([Vector3(s * b, 0, zf), Vector3(s * b, PORTAL_TOP, zf), Vector3(s * b, PORTAL_TOP, zb), Vector3(s * b, 0, zb)], Vector3(s, 0, 0), [0.6, 0.85, 0.85, 0.6])
-	quad.call([Vector3(-b, PORTAL_TOP, zf), Vector3(b, PORTAL_TOP, zf), Vector3(b, PORTAL_TOP, zb), Vector3(-b, PORTAL_TOP, zb)], Vector3.UP, [0.9, 0.9, 0.9, 0.9])
+			put.call(q[i], o[i])
+	for k in N:  # the barrel of the arch
+		var t0 := PI * k / N
+		var t1 := PI * (k + 1) / N
+		var q0 := Vector2(-a * cos(t0), spring + a * sin(t0))
+		var q1 := Vector2(-a * cos(t1), spring + a * sin(t1))
+		quad.call([Vector3(q0.x, q0.y, z0), Vector3(q1.x, q1.y, z0), Vector3(q1.x, q1.y, z1), Vector3(q0.x, q0.y, z1)], [0.62, 0.62, 0.8, 0.8])
+	for sx in [-1.0, 1.0]:  # the jambs
+		quad.call([Vector3(sx * a, 0, z0), Vector3(sx * a, spring, z0), Vector3(sx * a, spring, z1), Vector3(sx * a, 0, z1)], [0.5, 0.66, 0.84, 0.7])
+	# the stone face round the arch, seen through the door above its head
+	for k in N:
+		var t0 := PI * k / N
+		var t1 := PI * (k + 1) / N
+		var q0 := Vector2(-a * cos(t0), spring + a * sin(t0))
+		var q1 := Vector2(-a * cos(t1), spring + a * sin(t1))
+		quad.call([Vector3(q0.x, q0.y, z0), Vector3(q0.x, ds.y + 0.4, z0), Vector3(q1.x, ds.y + 0.4, z0), Vector3(q1.x, q1.y, z0)], [0.55, 0.5, 0.5, 0.55])
 	var mi := MeshInstance3D.new()
 	mi.mesh = st.commit()
 	mi.material_override = stone
 	_vp.add_child(mi)
-	# engaged columns with capitals and bases, and a roll moulding round the arch
-	for s in [-1.0, 1.0]:
-		for off in [0.2, 0.52]:
-			var col := MeshInstance3D.new()
-			var cm := CylinderMesh.new()
-			cm.top_radius = 0.12
-			cm.bottom_radius = 0.12
-			cm.height = PORTAL_SPRING - 0.5
-			cm.radial_segments = 8
-			col.mesh = cm
-			col.material_override = stone
-			col.position = Vector3(s * (a + off), 0.25 + cm.height / 2.0, zf - 0.08)
-			_vp.add_child(col)
-			_box(Vector3(s * (a + off), PORTAL_SPRING - 0.12, zf - 0.08), Vector3(0.36, 0.24, 0.32), WHITE, 1, stone)
-			_box(Vector3(s * (a + off), 0.12, zf - 0.08), Vector3(0.34, 0.24, 0.3), WHITE, 1, stone)
-	for ring in [0.2, 0.52]:
-		for k in N:
-			var th := PI - PI * (k + 0.5) / N
-			var r: float = a + ring
-			var seg := _box(Vector3(r * cos(th), PORTAL_SPRING + r * sin(th), zf - 0.08), Vector3(0.2, PI * r / N + 0.02, 0.2), WHITE, 1, stone)
-			seg.rotation.z = th - PI / 2.0
-	# beyond: the medieval gallery, lit warm, its view at the back
-	var beyond := 4.0
-	# the medieval gallery around the portal: a stone room from the door to past the portal
-	var room0 := ps(load(DIR + "textures/stone.png"), Color(0.9, 0.86, 0.8), Vector2(0.8, 0.8), true)
-	var dim := func(_p: Vector3) -> float: return 0.7
-	_panel(Vector3(-3.2, 0, 0.5), Vector3(0, 0, zb - 0.5), Vector3(0, 5.0, 0), room0, 1.0, 1, dim)
-	_panel(Vector3(3.2, 0, zb), Vector3(0, 0, -(zb - 0.5)), Vector3(0, 5.0, 0), room0, 1.0, 1, dim)
-	_panel(Vector3(-3.2, 0, 0.5), Vector3(6.4, 0, 0), Vector3(0, 0, zb - 0.5), ps(null, Color("#9c8a70"), Vector2.ONE, true), 1.0, 1, dim)
-	_panel(Vector3(-3.2, 5.0, zb), Vector3(6.4, 0, 0), Vector3(0, 0, -(zb - 0.5)), ps(null, Color("#5d5347"), Vector2.ONE, true), 1.0, 1, dim)
-	_panel(Vector3(-3.2, PORTAL_TOP, zf), Vector3(3.2 - b, 0, 0), Vector3(0, 5.0 - PORTAL_TOP, 0), room0, 1.0, 1, dim)
-	_panel(Vector3(b, PORTAL_TOP, zf), Vector3(3.2 - b, 0, 0), Vector3(0, 5.0 - PORTAL_TOP, 0), room0, 1.0, 1, dim)
-	_panel(Vector3(-3.2, 0, zf), Vector3(3.2 - b, 0, 0), Vector3(0, PORTAL_TOP, 0), room0, 1.0, 1, dim)
-	_panel(Vector3(b, 0, zf), Vector3(3.2 - b, 0, 0), Vector3(0, PORTAL_TOP, 0), room0, 1.0, 1, dim)
-	var room := ps(load(DIR + "textures/stone.png"), Color(0.95, 0.9, 0.82), Vector2(0.8, 0.8), true)
-	var dark := func(_p: Vector3) -> float: return 0.75
-	_panel(Vector3(-2.6, 0, zb), Vector3(0, 0, beyond), Vector3(0, 4.6, 0), room, 1.0, 1, dark)
-	_panel(Vector3(2.6, 0, zb + beyond), Vector3(0, 0, -beyond), Vector3(0, 4.6, 0), room, 1.0, 1, dark)
-	_panel(Vector3(-2.6, 0, zb), Vector3(5.2, 0, 0), Vector3(0, 0, beyond), ps(null, Color("#9c8a70"), Vector2.ONE, true), 1.0, 1, dark)
-	_panel(Vector3(-2.6, 4.6, zb + beyond), Vector3(5.2, 0, 0), Vector3(0, 0, -beyond), ps(null, Color("#5d5347"), Vector2.ONE, true), 1.0, 1, dark)
+	# the medieval gallery beyond: lit warm toward the crucifix
+	var beyond := 5.0
+	var zb := z1 + beyond
+	var room := ps(null, Color("#56606b"), Vector2.ONE, true)
+	var lit := func(p: Vector3) -> float: return lerpf(0.55, 1.05, clampf((p.z - z1) / beyond, 0.0, 1.0))
+	_panel(Vector3(-3.0, 0, z1), Vector3(0, 0, beyond), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
+	_panel(Vector3(3.0, 0, zb), Vector3(0, 0, -beyond), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
+	_panel(Vector3(-3.0, 5.0, zb), Vector3(6.0, 0, 0), Vector3(0, 0, -beyond), ps(null, Color("#8c8579"), Vector2.ONE, true), 1.0, 1, lit)
+	_panel(Vector3(-3.0, 0.002, z0), Vector3(6.0, 0, 0), Vector3(0, 0, beyond + PORTAL_DEPTH), ps(load(DIR + "textures/oak.png"), Color(1.0, 0.94, 0.84), Vector2(1, 3), true), 1.0, 1, lit)
 	var card := MeshInstance3D.new()
 	var qm := QuadMesh.new()
-	qm.size = Vector2(5.2, 4.6)
+	qm.size = Vector2(6.0, 5.0)
 	card.mesh = qm
-	card.material_override = ps(load(DIR + "textures/door-arch.jpg"), Color.WHITE, Vector2(1, 1), false, 0.85)
-	card.position = Vector3(0, 2.3, zb + beyond - 0.01)
+	card.material_override = ps(load(DIR + "textures/door-arch.jpg"), Color(1.08, 1.04, 0.98))
+	card.position = Vector3(0, 2.5, zb - 0.01)
 	card.rotation.y = PI
 	_vp.add_child(card)
-	var warm := OmniLight3D.new()
-	warm.position = Vector3(0, 3.2, 1.0)  # lights the portal's face and, through the door, the reveal
-	warm.light_color = Color("#ffd9a0")
-	warm.light_energy = 1.6
-	warm.omni_range = 5.5
-	_vp.add_child(warm)
 
 
 # The far end: a plain rectangular door with a stepped white casing, a deep cream vestibule lit from its far end,
@@ -554,12 +525,6 @@ func _far_end() -> void:
 	card.material_override = ps(load(DIR + "textures/door-far.jpg"), Color.WHITE, Vector2.ONE, false, 0.9)
 	card.position = Vector3(0, ds.y / 2, z - depth + 0.01)
 	_vp.add_child(card)
-	var warm := OmniLight3D.new()
-	warm.position = Vector3(0, ds.y - 0.4, z - depth + 0.5)
-	warm.light_color = Color("#fff3e0")
-	warm.light_energy = 1.4
-	warm.omni_range = 4.0
-	_vp.add_child(warm)
 	_box(Vector3(0, ds.y + 0.62, z + 0.04), Vector3(0.34, 0.14, 0.05), Color.WHITE, 1, ps(null, Color(0.2, 1.0, 0.45), Vector2.ONE, false, 1.0))
 
 
@@ -636,6 +601,15 @@ func _place(tag: String, rec: Dictionary, node: Node3D, at: Vector3, rot: float)
 	sh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	node.add_child(sh)
 	node.move_child(sh, 0)
+	# the track lamp's warm pool, brightest just above the picture and spilling onto the wall around it
+	var pool := MeshInstance3D.new()
+	var pq := QuadMesh.new()
+	pq.size = Vector2(node.outer.x * 1.7 + 0.6, node.outer.y * 1.6 + 0.6)
+	pool.mesh = pq
+	pool.material_override = _pool_mat()
+	pool.position = Vector3(0, 0.25, 0.004)
+	node.add_child(pool)
+	node.move_child(pool, 0)
 	var layer := LAYER_EAST if at.x > W / 2.0 - 0.1 or (absf(at.z) < 0.1 and at.x > 0) else LAYER_WEST
 	for c in node.get_children():
 		(c as VisualInstance3D).layers = layer
@@ -664,6 +638,53 @@ func _rect(c: Vector3, size: Vector2, right: Vector3, up: Vector3, m: Material) 
 	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_vp.add_child(mi)
 	return mi
+
+
+# Every static mesh that shares a look (same shader, texture, tint, flags) becomes one mesh: a few dozen draw calls
+# instead of ~350, which is what held the frame rate down in the browser.
+func _merge_static() -> void:
+	var groups := {}
+	var stack: Array = [_vp]
+	while not stack.is_empty():
+		var n: Node = stack.pop_back()
+		for c in n.get_children():
+			stack.append(c)
+		if not (n is MeshInstance3D) or n.mesh == null:
+			continue
+		var mi := n as MeshInstance3D
+		var m := mi.material_override
+		var key := ""
+		if m is ShaderMaterial:
+			var sm := m as ShaderMaterial
+			var tex = sm.get_shader_parameter("albedo")
+			key = "ps|%s|%s|%s|%s|%s|%s|%s" % [tex.get_rid().get_id() if tex else 0, sm.get_shader_parameter("tint"),
+				sm.get_shader_parameter("use_vertex_color"), sm.get_shader_parameter("uv_scale"), sm.get_shader_parameter("plank_seams"),
+				sm.get_shader_parameter("alpha_cut"), sm.get_shader_parameter("use_texture")]
+		elif m is StandardMaterial3D:
+			var st3 := m as StandardMaterial3D
+			key = "std|%s|%s|%s|%s" % [st3.albedo_texture.get_rid().get_id() if st3.albedo_texture else 0, st3.albedo_color, st3.blend_mode, st3.transparency]
+		else:
+			continue
+		if not groups.has(key):
+			groups[key] = []
+		groups[key].append(mi)
+	for key in groups:
+		var list: Array = groups[key]
+		if list.size() < 2:
+			continue
+		var st := SurfaceTool.new()
+		for mi in list:
+			var xf: Transform3D = (mi as MeshInstance3D).global_transform
+			for surf in mi.mesh.get_surface_count():
+				st.append_from(mi.mesh, surf, xf)
+		var merged := MeshInstance3D.new()
+		merged.mesh = st.commit()
+		merged.material_override = list[0].material_override
+		merged.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		for mi in list:
+			mi.get_parent().remove_child(mi)
+			mi.queue_free()
+		_vp.add_child(merged)
 
 
 func _build_kid() -> void:
