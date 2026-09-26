@@ -1,22 +1,12 @@
 extends Control
-## The RISD Sketchbook window in the owner's Ragnarok-style chrome, fully native.
-## Every frame pixel is the reference window's own bytes (assets/sketchbook/ro-*.png,
-## window-chrome.provenance.json), drawn 1:1 and widened by tiling. Drawing is the Freehand port of
-## tldraw's ink (drawing_surface.gd); spreads keep their strokes; the arrows run the web prototype's
-## 520 ms perspective paper turn (paper_turn.gd) carrying the outgoing page's ink, and the spine
-## carries the prototype's gutter shading.
-## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c (unchanged at d2faa30)
-## viewer-godot/scripts/sketchbook_window.gd (the global class_names dropped, the pixel paths, the resize delta in the desktop's pixels). Reach it through interface.gd only.
+## Original open-book texture and its baked edge shadow, with drawing and page turns.
+## The transparent top paper margin is the drag handle; there is no surrounding frame.
 
 const SketchbookDrawingSurface := preload("res://modules/sketchbook/drawing_surface.gd")
 const PaperTurn := preload("res://modules/sketchbook/paper_turn.gd")
 
 signal layout_changed
 
-const FRAME_TOP := 20
-const FRAME_SIDE := 8
-const FRAME_BOTTOM := 8
-const CONTENT_PAD := 4
 const FOOTER := 44
 const BUTTON_SIZE := Vector2(61, 32) # the 84x44 reference button, reduced
 const MIN_SIZE := Vector2(420, 380)
@@ -42,26 +32,12 @@ var stationary_ink: SketchbookDrawingSurface
 var turning := ""
 var turn_started_ms := 0
 var last_turn_ms := 0
-var _pieces: Dictionary = {}
-var _body: ColorRect
 var _resizing := false
 var _resize_anchor := Vector2.ZERO
 var _resize_origin := Vector2.ZERO
 
 func _ready() -> void:
 	custom_minimum_size = MIN_SIZE
-	_body = ColorRect.new()
-	_body.color = Color.WHITE
-	_body.mouse_filter = MOUSE_FILTER_IGNORE
-	add_child(_body)
-	for piece in ["top-left", "top-mid", "top-right", "left", "right", "bottom-left", "bottom-mid", "bottom-right"]:
-		var rect := TextureRect.new()
-		rect.name = piece
-		rect.texture = load("res://modules/sketchbook/assets/ro-%s.png" % piece)
-		rect.stretch_mode = TextureRect.STRETCH_TILE
-		rect.mouse_filter = MOUSE_FILTER_IGNORE
-		add_child(rect)
-		_pieces[piece] = rect
 	book = TextureRect.new()
 	book.name = "book"
 	book.texture = load("res://modules/sketchbook/assets/sketchbook-page-v005-soft-384.png")
@@ -69,6 +45,21 @@ func _ready() -> void:
 	book.stretch_mode = TextureRect.STRETCH_SCALE
 	book.texture_filter = TEXTURE_FILTER_LINEAR
 	book.mouse_filter = MOUSE_FILTER_IGNORE
+	# Unmatte only the neutral white surround/shadow at draw time. The original cream
+	# paper stays opaque; its existing shadow blends over windows underneath, not a white box.
+	var matte := Shader.new()
+	matte.code = """shader_type canvas_item;
+void fragment() {
+    float lo = min(COLOR.r, min(COLOR.g, COLOR.b));
+    float hi = max(COLOR.r, max(COLOR.g, COLOR.b));
+    if (hi - lo < 0.035 && lo > 0.6) {
+        float alpha = 1.0 - lo;
+        COLOR = vec4((COLOR.rgb - vec3(lo)) / max(alpha, 0.001), alpha * COLOR.a);
+    }
+}"""
+	var paper_material := ShaderMaterial.new()
+	paper_material.shader = matte
+	book.material = paper_material
 	add_child(book)
 	surface = SketchbookDrawingSurface.new()
 	surface.name = "drawing-surface"
@@ -95,12 +86,6 @@ func _ready() -> void:
 	next_button = _arrow("next-page", "next")
 	previous_button.pressed.connect(func(): turn_page("backward"))
 	next_button.pressed.connect(func(): turn_page("forward"))
-	var close := Button.new()
-	close.name = "close"
-	close.flat = true
-	close.tooltip_text = "Close"
-	close.pressed.connect(func(): visible = false; layout_changed.emit())
-	add_child(close)
 	resize_handle = Control.new()
 	resize_handle.name = "resize-handle"
 	resize_handle.size = Vector2(12, 12)
@@ -252,34 +237,9 @@ func _gutter_texture() -> GradientTexture2D:
 func _layout() -> void:
 	var w := size.x
 	var h := size.y
-	_body.position = Vector2(FRAME_SIDE, FRAME_TOP)
-	_body.size = Vector2(w - 2 * FRAME_SIDE, h - FRAME_TOP - FRAME_BOTTOM)
-	var tl: TextureRect = _pieces["top-left"]
-	var tr: TextureRect = _pieces["top-right"]
-	var bl: TextureRect = _pieces["bottom-left"]
-	var br: TextureRect = _pieces["bottom-right"]
-	tl.position = Vector2.ZERO
-	tl.size = tl.texture.get_size()
-	tr.size = tr.texture.get_size()
-	tr.position = Vector2(w - tr.size.x, 0)
-	_pieces["top-mid"].position = Vector2(tl.size.x, 0)
-	_pieces["top-mid"].size = Vector2(w - tl.size.x - tr.size.x, FRAME_TOP)
-	_pieces["left"].position = Vector2(0, FRAME_TOP)
-	_pieces["left"].size = Vector2(FRAME_SIDE, h - FRAME_TOP - FRAME_BOTTOM)
-	_pieces["right"].position = Vector2(w - FRAME_SIDE, FRAME_TOP)
-	_pieces["right"].size = Vector2(FRAME_SIDE, h - FRAME_TOP - FRAME_BOTTOM)
-	bl.size = bl.texture.get_size()
-	bl.position = Vector2(0, h - FRAME_BOTTOM)
-	br.size = br.texture.get_size()
-	br.position = Vector2(w - br.size.x, h - FRAME_BOTTOM)
-	_pieces["bottom-mid"].position = Vector2(bl.size.x, h - FRAME_BOTTOM)
-	_pieces["bottom-mid"].size = Vector2(w - bl.size.x - br.size.x, FRAME_BOTTOM)
 	title_bar.position = Vector2.ZERO
-	title_bar.size = Vector2(w, FRAME_TOP)
-	# Book: fills the content area in both axes, so resizing the window in x or y changes the
-	# spread's proportion (owner request, 2026-09-13); the ink scales with the page.
-	var content := Rect2(FRAME_SIDE + CONTENT_PAD, FRAME_TOP + CONTENT_PAD,
-		w - 2 * (FRAME_SIDE + CONTENT_PAD), h - FRAME_TOP - FRAME_BOTTOM - FOOTER - 2 * CONTENT_PAD)
+	title_bar.size = Vector2(w, (h - FOOTER) * HITBOX_INSET.position.y)
+	var content := Rect2(0, 0, w, h - FOOTER)
 	var stage := content.size
 	book.size = stage
 	book.position = content.position
@@ -290,14 +250,9 @@ func _layout() -> void:
 	gutter.size = Vector2(14.0, stage.y * (1.0 - 0.037 - 0.039))
 	turn.position = Vector2.ZERO
 	turn.size = size
-	# The close icon sits 5..19 px from the frame's right edge, 3..19 px down.
-	var close: Control = get_node_or_null("close")
-	if close != null:
-		close.position = Vector2(w - 20, 3)
-		close.size = Vector2(15, 16)
-	var footer_y := h - FRAME_BOTTOM - FOOTER
-	previous_button.position = Vector2(FRAME_SIDE + 3, footer_y)
-	next_button.position = Vector2(w - FRAME_SIDE - 3 - BUTTON_SIZE.x, footer_y)
+	var footer_y := h - FOOTER
+	previous_button.position = Vector2(12, footer_y)
+	next_button.position = Vector2(w - 12 - BUTTON_SIZE.x, footer_y)
 	resize_handle.position = Vector2(w - 12, h - 12)
 	layout_changed.emit()
 
@@ -324,7 +279,7 @@ func qa_state() -> Dictionary:
 		"turn_progress": turn.progress if turning != "" else 1.0,
 		"last_turn_ms": last_turn_ms,
 		"page_rect": [page.position.x, page.position.y, page.size.x, page.size.y],
-		"chrome_pieces": _pieces.size(),
+		"chrome_pieces": 0,
 		"previous_disabled": previous_button.disabled,
 		"visible": visible,
 		"pointer": surface.qa_state(),

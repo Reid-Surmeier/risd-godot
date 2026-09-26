@@ -27,7 +27,7 @@ const DESKTOP_SIZE := Vector2(1330, 860)
 const REFERENCE_SLOT := Rect2(430, 255, 620, 260)
 const PAINTBOX_SLOT := Rect2(60, 235, 360, 575)
 const ANRI_PAINTBOX_SLOT := Rect2(40, 35, 360, 775)
-const BOOK_SLOT := Rect2(640, 255, 630, 555)
+const BOOK_SLOT := Rect2(640, 350, 630, 490)
 const REQUIRED := [
 	"ro-top-left.png", "ro-top-mid.png", "ro-top-right.png", "ro-left.png", "ro-right.png", "ro-bottom-left.png",
 	"ro-bottom-mid.png", "ro-bottom-right.png", "ro-btn-prev.png", "ro-btn-prev-disabled.png", "ro-btn-next.png",
@@ -53,8 +53,8 @@ var reference_panel := PanelContainer.new()
 var reference_list := HBoxContainer.new()
 var viewer_host := Control.new()
 var global_chatroom: Control
-var reference_art: Control
 var tldraw_controls: Control
+var painting_flow: Control
 var resizing_reference := false
 var reference_resize_origin := Vector2.ZERO
 var reference_resize_size := Vector2.ZERO
@@ -71,7 +71,11 @@ static func create(deps: Dictionary) -> Dictionary:
 			return Errors.err(Errors.ASSET_MISSING, ROOT + "assets/" + name)
 	if not ResourceLoader.exists(ROOT + "mixbox/mixbox.gd"):
 		return Errors.err(Errors.ASSET_MISSING, ROOT + "mixbox/mixbox.gd")
+	var flow: Dictionary = load(ROOT + "painting_flow.gd").create()
+	if not flow.ok:
+		return flow
 	var t = load(ROOT + "desktop.gd").new()
+	t.painting_flow = flow.value
 	t.key = deps.get("key", "")
 	t.data_handle = deps.collection_data
 	t.image_fetch = deps.image_fetch
@@ -128,17 +132,16 @@ func _ready() -> void:
 		viewer_drag_strip.gui_input.connect(func(event): _drag_handle_input(event, viewer_host))
 		viewer_host.add_child(viewer_drag_strip)
 		desktop.add_child(viewer_host)
+		windows.append(viewer_host)
 	var chat := CollectionPage.global_chatroom()
 	if chat.ok:
 		global_chatroom = chat.value
 		global_chatroom.mouse_filter = Control.MOUSE_FILTER_STOP
 		global_chatroom.gui_input.connect(func(event): _drag_handle_input(event, global_chatroom))
 		desktop.add_child(global_chatroom)
-	var reference := CollectionPage.monet_reference()
-	if reference.ok:
-		reference_art = reference.value
-		reference_panel.add_child(reference_art)
-		reference_list.visible = false
+		windows.append(global_chatroom)
+	# Cover Flow replaces the static Monet window; saved references remain available.
+	reference_panel.visible = false
 	reference_panel.name = "saved-reference-window"
 	reference_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	reference_panel.clip_contents = true
@@ -147,7 +150,13 @@ func _ready() -> void:
 	desktop.add_child(reference_panel)
 	reference_list.add_theme_constant_override("separation", 10)
 	reference_panel.add_child(reference_list)
+	windows.push_front(reference_panel)
 	desktop.move_child(reference_panel, 1)  # behind the two draggable working windows
+	painting_flow.name = "painting-flow-window"
+	desktop.add_child(painting_flow)
+	windows.append(painting_flow)
+	painting_flow.title_bar.gui_input.connect(_drag_handle_input.bind(painting_flow))
+	# Keep saved references available; the new viewer starts above the working book.
 	_sync_brush_rest()
 	visibility_changed.connect(_on_visibility_changed)
 	visibility_changed.connect(_refresh_references)
@@ -201,10 +210,8 @@ func _fit() -> void:
 	reference_panel.size = Vector2(REFERENCE_SLOT.size.x + extra.x, REFERENCE_SLOT.size.y)
 	reference_list.position = Vector2(12, 12)
 	reference_list.size = reference_panel.size - Vector2(24, 24)
-	if reference_art != null:
-		reference_art.position = Vector2(8, 8)
-		reference_art.size = reference_panel.size - Vector2(16, 16)
-	_place(tldraw_controls, Rect2(420, 35, 310, 178) if anri_prototype else Rect2(90, 70, 250, 184))
+	_place(painting_flow, Rect2(420, 20, 650, 325))
+	_place(tldraw_controls, Rect2(420, 365, 200, 178) if anri_prototype else Rect2(90, 70, 250, 184))
 
 
 func _reference_style(color: Color) -> StyleBoxFlat:
@@ -223,20 +230,7 @@ func _reference_input(event: InputEvent) -> void:
 		reference_resize_size = reference_panel.size
 		reference_panel.accept_event()
 		return
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_UP:
-		_reference_zoom(1.15)
-	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-		_reference_zoom(1.0 / 1.15)
-	else:
-		_drag_handle_input(event, reference_panel)
-
-
-func _reference_zoom(factor: float) -> void:
-	if reference_art == null:
-		return
-	var next := clampf(reference_art.scale.x * factor, 0.35, 3.0)
-	reference_art.scale = Vector2(next, next)
-	reference_art.position = (reference_panel.size - reference_art.size * next) / 2
+	_drag_handle_input(event, reference_panel)
 
 
 func _refresh_references() -> void:
@@ -256,6 +250,7 @@ func _refresh_references() -> void:
 			reference_list.add_child(_reference_label("Saved references unavailable"))
 			return
 		storage_status = "ready"
+		reference_panel.visible = not result.value.items.is_empty()
 		if result.value.items.is_empty():
 			reference_list.add_child(_reference_label("Save a RISD artwork in Collection to use it as a reference"))
 			return
@@ -371,9 +366,6 @@ func _input(event: InputEvent) -> void:
 			var delta := desktop.make_canvas_position_local(event.position) - reference_resize_origin
 			reference_panel.size = (reference_resize_size + delta).max(Vector2(240, 160))
 			reference_list.size = reference_panel.size - Vector2(24, 24)
-			if reference_art != null:
-				reference_art.size = reference_panel.size - Vector2(16, 16)
-				_reference_zoom(1.0)
 			get_viewport().set_input_as_handled()
 		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			resizing_reference = false
@@ -392,7 +384,7 @@ func _input(event: InputEvent) -> void:
 		var pointer := desktop.make_canvas_position_local(event.position)
 		for index in range(windows.size() - 1, -1, -1):
 			var window := windows[index]
-			if Rect2(window.position, window.size * window.scale).has_point(pointer):
+			if window.visible and Rect2(window.position, window.size * window.scale).has_point(pointer):
 				desktop.move_child(window, -1)
 				windows.erase(window)
 				windows.append(window)
@@ -460,6 +452,9 @@ func state() -> Dictionary:
 			"saved_ids": saved_ids.duplicate(), "selected_reference": selected_reference,
 			"storage_status": storage_status, "reference_rect": _global_rect(reference_panel),
 			"reference_cards": reference_cards,
+			"painting_viewer": painting_flow.qa_state(),
+			"painting_viewer_rect": _global_rect(painting_flow),
+			"painting_title_rect": _global_rect(painting_flow.title_bar),
 			"chat_text_posts": chat.get("text_posts", 0), "chat_image_posts": chat.get("image_posts", 0),
 			"chat_picker_requests": chat.get("picker_requests", 0),
 			"chat_message_count": chat.get("message_count", 0), "chat_input_rect": chat.get("input_rect", Rect2()),
