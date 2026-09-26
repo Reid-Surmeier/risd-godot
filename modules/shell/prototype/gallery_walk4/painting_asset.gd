@@ -10,20 +10,27 @@ const INSET := 0.035
 var outer := Vector2.ZERO  # the framed size in metres, for picking
 
 
-static func mat(tex: Texture2D, shade := 1.0, cut := false) -> StandardMaterial3D:
-	var m := StandardMaterial3D.new()
-	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	m.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-	m.albedo_texture = tex
-	m.albedo_color = Color(shade, shade, shade)
-	m.cull_mode = BaseMaterial3D.CULL_DISABLED
-	if cut:
-		m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
-		m.alpha_scissor_threshold = 0.5
+static var _shader: Shader
+
+
+# The room's PS1 surface shader, lit (paintings cast and receive the skylight's shadows); no affine warp on a canvas.
+static func mat(tex: Texture2D, shade := 1.0, cut := false) -> ShaderMaterial:
+	if _shader == null:
+		_shader = load("res://modules/shell/prototype/gallery_walk4/ps1.gdshader")
+	var m := ShaderMaterial.new()
+	m.shader = _shader
+	m.set_shader_parameter("use_texture", tex != null)
+	if tex:
+		m.set_shader_parameter("albedo", tex)
+	m.set_shader_parameter("tint", Color(shade, shade, shade))
+	m.set_shader_parameter("affine", false)
+	m.set_shader_parameter("alpha_cut", 0.5 if cut else 0.0)
 	return m
 
 
 static func quad(st: SurfaceTool, p: Array, uv: Array) -> void:
+	var n: Vector3 = (p[1] - p[0]).cross(p[3] - p[0]).normalized()
+	st.set_normal(n)
 	for i in [0, 1, 2, 0, 2, 3]:
 		st.set_uv(uv[i])
 		st.add_vertex(p[i])
@@ -103,11 +110,12 @@ func build_shaped(tex: Texture2D, size: Vector2, outline: Array, edge_color: Col
 		uvs.append(Vector2(q[0], q[1]))
 	var tris := Geometry2D.triangulate_polygon(pts)
 	_mesh(func(st: SurfaceTool) -> void:
+		st.set_normal(Vector3.BACK)
 		for i in tris:
 			st.set_uv(uvs[i])
 			st.add_vertex(Vector3(pts[i].x, pts[i].y, d)), mat(tex))
 	var edge := mat(null)  # the gilt edge's own colour: the texture's outline pixels would sample the keyed matte
-	edge.albedo_color = edge_color * Color(0.7, 0.7, 0.7)
+	edge.set_shader_parameter("tint", edge_color * Color(0.7, 0.7, 0.7))
 	_mesh(func(st: SurfaceTool) -> void:
 		for i in pts.size():
 			var j := (i + 1) % pts.size()

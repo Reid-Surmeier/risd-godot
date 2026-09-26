@@ -8,3 +8,12 @@
   3D nine-slices at their real band widths; room 26 × 11.5 m (estimate), even gaps per wall (estimate, the video survey refines it).
 
 Spend (OpenRouter, Muse, declared $0.01 each): 25 passes = $0.25.
+
+## Round 6 (owner feedback, 2026-09-26)
+- `frames2/`: 22 frames redone as Muse *edits of each frame's own straightened video photo* (canvas blanked, magenta outside) — the
+  frame's real outline, band widths and ornament come from the photo, not from a description. The Veronese (S1) from RISD's Jan 2026
+  photo (its video views were blurred). `stone.png`: Muse limestone for the arch portal. 24 passes, $0.24 declared.
+- Look: `ps1.gdshader` — a Godot 4 port of Mighty Duke's CC0 "PS1 Shader" (godotshaders.com) with vertex snapping and affine texturing,
+  lit per pixel; 15-bit colour with 4x4 ordered dither after the render; baked occlusion in vertex colours; soft baked shadows under
+  every frame and bench; lighting from overhead (skylight) as in the game's 3D viewer. Lighting reference: the owner's Animal Crossing:
+  Wild World E3 2005 trailer (flat top light, soft contact shadows).

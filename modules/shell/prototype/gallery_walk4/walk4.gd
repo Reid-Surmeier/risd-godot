@@ -24,7 +24,7 @@ const PLANK := Vector2(0.66, 0.11)
 # The two doorways differ: the arch door (to the medieval gallery) has a cornice head and a shallow reveal onto
 # the wide lit room; the far door has a plain casing and a deep vestibule with a second door at its end.
 const DOORS := {
-	"arch": {"z": 0.0, "size": Vector2(1.7, 3.05), "reveal": 0.45, "card": "door-arch", "cornice": true, "vestibule": false},
+	"arch": {"z": 0.0, "size": Vector2(2.1, 3.4), "reveal": 0.5, "card": "door-arch", "cornice": true, "vestibule": false},
 	"far": {"z": -L, "size": Vector2(1.9, 2.8), "reveal": 2.6, "card": "door-far", "cornice": false, "vestibule": true},
 }
 const BENCHES := [-9.0, -17.0]
@@ -69,13 +69,14 @@ func _ready() -> void:
 	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	box.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	box.material = _crt()
+	box.material = _post()
 	add_child(box)
 	_vp = SubViewport.new()
 	_vp.own_world_3d = true
-	_vp.msaa_3d = Viewport.MSAA_DISABLED
+	_vp.msaa_3d = Viewport.MSAA_4X  # smooth polygon edges at the low resolution
+	_vp.positional_shadow_atlas_size = 1024
 	box.add_child(_vp)
-	resized.connect(func() -> void: box.stretch_shrink = maxi(1, roundi(size.x / LOW_RES.x)))  # render at ~480 px wide
+	resized.connect(func() -> void: box.stretch_shrink = maxi(1, roundi(size.x / LOW_RES.x)))  # render at ~LOW_RES wide
 	_build_room()
 	_build_paintings()
 	_build_kid()
@@ -87,59 +88,133 @@ func _ready() -> void:
 	_update_camera(1.0)
 
 
-func _crt() -> ShaderMaterial:
+# The PS1 finish after the render: 15-bit colour with a 4x4 ordered dither, drawn with hard pixels.
+func _post() -> ShaderMaterial:
 	var sh := Shader.new()
-	sh.code = "shader_type canvas_item;\nvoid fragment() {\n\tvec4 c = texture(TEXTURE, UV);\n\tc.rgb *= mix(1.0, 0.93, mod(floor(UV.y / TEXTURE_PIXEL_SIZE.y), 2.0));\n\tCOLOR = c;\n}\n"
+	sh.code = """
+shader_type canvas_item;
+uniform float levels = 32.0;
+const float BAYER[16] = float[](0.0, 8.0, 2.0, 10.0, 12.0, 4.0, 14.0, 6.0, 3.0, 11.0, 1.0, 9.0, 15.0, 7.0, 13.0, 5.0);
+void fragment() {
+	vec4 c = texture(TEXTURE, UV);
+	ivec2 px = ivec2(floor(UV / TEXTURE_PIXEL_SIZE)) % 4;
+	float d = (BAYER[px.y * 4 + px.x] / 16.0 - 0.5) / levels;
+	c.rgb = floor((c.rgb + d) * levels + 0.5) / levels;
+	COLOR = c;
+}
+"""
 	var m := ShaderMaterial.new()
 	m.shader = sh
 	return m
 
 
-func _mat(tex: Texture2D, col := Color.WHITE, uv := Vector2.ONE) -> StandardMaterial3D:
+static var _ps1_shader: Shader
+static var _soft_rect: ImageTexture
+
+
+# A soft dark rectangle (its edges fade over a fifth of each side): the baked shadow under frames and benches.
+func _shadow_mat(strength: float) -> StandardMaterial3D:
+	if _soft_rect == null:
+		var n := 64
+		var img := Image.create(n, n, false, Image.FORMAT_RGBA8)
+		for y in n:
+			for x in n:
+				var d := minf(minf(x, n - 1 - x), minf(y, n - 1 - y)) / (n * 0.2)
+				var a := smoothstep(0.0, 1.0, clampf(d, 0.0, 1.0))
+				img.set_pixel(x, y, Color(0, 0, 0, a))
+		_soft_rect = ImageTexture.create_from_image(img)
 	var m := StandardMaterial3D.new()
 	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	m.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-	m.albedo_color = col
-	m.cull_mode = BaseMaterial3D.CULL_DISABLED
-	if tex:
-		m.albedo_texture = tex
-		m.uv1_scale = Vector3(uv.x, uv.y, 1)
+	m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	m.albedo_texture = _soft_rect
+	m.albedo_color = Color(0.05, 0.06, 0.09, strength)
+	m.render_priority = -1
 	return m
 
 
-# A flat rectangle: centre, width along `right`, height along `up`, facing `normal`.
-func _rect(c: Vector3, size: Vector2, right: Vector3, up: Vector3, m: Material) -> MeshInstance3D:
+# A room material: the PS1 surface shader, lit, optionally textured, with baked occlusion in vertex colour.
+static func ps(tex: Texture2D, tint := Color.WHITE, uv := Vector2.ONE, vcol := false, glow := 0.0, cut := 0.0) -> ShaderMaterial:
+	if _ps1_shader == null:
+		_ps1_shader = load("res://modules/shell/prototype/gallery_walk4/ps1.gdshader")
+	var m := ShaderMaterial.new()
+	m.shader = _ps1_shader
+	m.set_shader_parameter("use_texture", tex != null)
+	if tex:
+		m.set_shader_parameter("albedo", tex)
+	m.set_shader_parameter("tint", tint)
+	m.set_shader_parameter("uv_scale", uv)
+	m.set_shader_parameter("use_vertex_color", vcol)
+	m.set_shader_parameter("glow", glow)
+	m.set_shader_parameter("alpha_cut", cut)
+	return m
+
+
+# Baked occlusion: darker where a surface meets the floor, the cornice, another wall or a bench.
+func _ao(p: Vector3, vertical: bool) -> float:
+	var t := func(d: float, s: float, k: float) -> float: return 1.0 - k * exp(-maxf(d, 0.0) / s)
+	var ao := 1.0
+	for d in [p.x + W / 2.0, W / 2.0 - p.x, -p.z, p.z + L]:
+		if d > 0.03:
+			ao *= t.call(d, 0.55, 0.3)
+	if vertical and p.y > 0.02:
+		ao *= t.call(p.y, 0.45, 0.32)
+	if vertical and p.y < H - 0.02:
+		ao *= t.call(H - p.y, 0.6, 0.18)
+	if not vertical:
+		for bz in BENCHES:
+			var dx := maxf(absf(p.x) - 0.48, 0.0)
+			var dz := maxf(absf(p.z - bz) - 1.5, 0.0)
+			ao *= t.call(Vector2(dx, dz).length(), 0.35, 0.4)
+	return ao
+
+
+# A subdivided flat panel from corner c along u and v (cells about `cell` metres), occlusion in its vertex
+# colours, UVs in metres times uv_per_m. layer: which skylight lights it.
+func _panel(c: Vector3, u: Vector3, v: Vector3, m: Material, cell := 0.5, layer := 1, ao := Callable()) -> MeshInstance3D:
+	var nu := maxi(1, ceili(u.length() / cell))
+	var nv := maxi(1, ceili(v.length() / cell))
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var r := right * size.x / 2.0
-	var u := up * size.y / 2.0
-	var p := [c - r - u, c + r - u, c + r + u, c - r + u]
-	var uv := [Vector2(0, 1), Vector2(1, 1), Vector2(1, 0), Vector2(0, 0)]
-	for i in [0, 1, 2, 0, 2, 3]:
-		st.set_uv(uv[i])
-		st.add_vertex(p[i])
+	var n := u.cross(v).normalized()
+	var vertical := absf(n.y) < 0.5
+	for j in nv:
+		for i in nu:
+			var q := [Vector2(i, j), Vector2(i + 1, j), Vector2(i + 1, j + 1), Vector2(i, j + 1)]
+			for k in [0, 1, 2, 0, 2, 3]:
+				var f := Vector2(q[k].x / nu, q[k].y / nv)
+				var p := c + u * f.x + v * f.y
+				var o: float = ao.call(p) if ao.is_valid() else _ao(p, vertical)
+				st.set_color(Color(o, o, o))
+				st.set_normal(n)
+				st.set_uv(Vector2(f.x * u.length(), (1.0 - f.y) * v.length()))
+				st.add_vertex(p)
 	var mi := MeshInstance3D.new()
 	mi.mesh = st.commit()
 	mi.material_override = m
+	mi.layers = layer
 	_vp.add_child(mi)
 	return mi
 
 
-func _box(c: Vector3, size: Vector3, col: Color) -> void:
+func _box(c: Vector3, size: Vector3, col: Color, layer := 1, m: Material = null) -> MeshInstance3D:
 	var mi := MeshInstance3D.new()
 	var bm := BoxMesh.new()
 	bm.size = size
 	mi.mesh = bm
 	mi.position = c
-	var m := StandardMaterial3D.new()
-	m.albedo_color = col
-	m.roughness = 1.0
-	mi.material_override = m
+	mi.material_override = m if m else ps(null, col)
+	mi.layers = layer
 	_vp.add_child(mi)
+	return mi
 
 
-func _wall_mat(w: float, h: float) -> StandardMaterial3D:
-	return _mat(load(DIR + "textures/wall.png"), Color.WHITE, Vector2(w / 1.5, h / 1.5))
+func _wall_ps(extra := Color.WHITE) -> ShaderMaterial:
+	return ps(load(DIR + "textures/wall.png"), extra, Vector2(1.0 / 1.5, 1.0 / 1.5), true)
+
+
+const LAYER_WEST := 2
+const LAYER_EAST := 4
+const LAYER_UNLIT := 8
 
 
 func _build_room() -> void:
@@ -147,32 +222,44 @@ func _build_room() -> void:
 	env.background_mode = Environment.BG_COLOR
 	env.background_color = Color("#20242a")
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	env.ambient_light_color = Color(0.85, 0.85, 0.88)
-	env.ambient_light_energy = 0.9
+	env.ambient_light_color = Color("#dde1e7")
+	env.ambient_light_energy = 0.62
 	var we := WorldEnvironment.new()
 	we.environment = env
 	_vp.add_child(we)
-	var sun := DirectionalLight3D.new()  # the skylight, for the benches' and trims' shading
-	sun.rotation = Vector3(deg_to_rad(-70), deg_to_rad(20), 0)
-	sun.light_energy = 0.5
-	_vp.add_child(sun)
+	# The skylight, as two lights from overhead each leaning toward one long wall: flat, from the top, and every
+	# painting casts a short shadow down its own wall. The floor and benches take both.
+	for side in [{"x": -1.0, "mask": 1 | LAYER_WEST}, {"x": 1.0, "mask": 1 | LAYER_EAST}]:
+		var sky := DirectionalLight3D.new()
+		sky.light_energy = 0.75
+		sky.shadow_opacity = 0.7
+		sky.shadow_blur = 1.5
+		sky.light_color = Color("#fffaf0")
+		sky.light_cull_mask = side.mask
+		sky.shadow_enabled = true
+		sky.shadow_bias = 0.03
+		sky.shadow_normal_bias = 0.6
+		sky.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
+		sky.directional_shadow_max_distance = 22.0
+		sky.transform.basis = Basis.looking_at(Vector3(side.x * 0.42, -1.0, 0.12).normalized(), Vector3(0, 0, -1))
+		_vp.add_child(sky)
 	var X := W / 2.0
-	# floor
-	_rect(Vector3(0, -0.002, -L / 2), Vector2(W, L), Vector3.RIGHT, Vector3.FORWARD, _mat(null, Color("#6b5234")))  # the seams
+	# (no base plane under the planks: 3 mm below them it z-fought through at a distance)
 	_build_floor()
-	# long walls
-	_rect(Vector3(-X, H / 2, -L / 2), Vector2(L, H), Vector3.FORWARD, Vector3.UP, _wall_mat(L, H))
-	_rect(Vector3(X, H / 2, -L / 2), Vector2(L, H), Vector3.BACK, Vector3.UP, _wall_mat(L, H))
-	# end walls, each around its own doorway
-	_end_wall(DOORS.arch, Vector3.LEFT)
-	_end_wall(DOORS.far, Vector3.RIGHT)
-	# skirting and cornice along the long walls
+	# long walls, subdivided so the occlusion and the affine texturing hold
+	_panel(Vector3(-X, 0, 0), Vector3(0, 0, -L), Vector3(0, H, 0), _wall_ps(), 0.5, LAYER_WEST)
+	_panel(Vector3(X, 0, -L), Vector3(0, 0, L), Vector3(0, H, 0), _wall_ps(), 0.5, LAYER_EAST)
+	_arch_end()
+	_far_end()
+	# skirting and cornice
+	var white := ps(null, WHITE)
 	for s in [-1.0, 1.0]:
-		_box(Vector3(s * (X - 0.015), 0.09, -L / 2), Vector3(0.03, 0.18, L), WHITE)
-		_box(Vector3(s * (X - 0.12), H - 0.17, -L / 2), Vector3(0.24, 0.34, L), WHITE)
+		_box(Vector3(s * (X - 0.015), 0.09, -L / 2), Vector3(0.03, 0.18, L), WHITE, 1, white)
+		_box(Vector3(s * (X - 0.12), H - 0.17, -L / 2), Vector3(0.24, 0.34, L), WHITE, 1, white)
+		_box(Vector3(s * (X - 0.05), H - 0.42, -L / 2), Vector3(0.1, 0.16, L), WHITE, 1, white)
 	for z in [-0.12, -L + 0.12]:
-		_box(Vector3(0, H - 0.17, z), Vector3(W, 0.34, 0.24), WHITE)
-	# barrel vault (low-poly), end lunettes, skylight
+		_box(Vector3(0, H - 0.17, z), Vector3(W, 0.34, 0.24), WHITE, 1, white)
+	# barrel vault (low-poly, shaded by facet), end lunettes, skylight
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var segs := 10
@@ -182,34 +269,51 @@ func _build_room() -> void:
 		var a1 := PI * (i + 1) / segs
 		var p0 := Vector3(-cos(a0) * X, H + sin(a0) * VAULT_RISE, 0)
 		var p1 := Vector3(-cos(a1) * X, H + sin(a1) * VAULT_RISE, 0)
-		var shade := 0.8 + 0.2 * sin((a0 + a1) / 2.0)
+		var shade := 0.72 + 0.28 * sin((a0 + a1) / 2.0)
 		st.set_color(vault * Color(shade, shade, shade))
 		for v in [p0, p1, p1 + Vector3(0, 0, -L), p0, p1 + Vector3(0, 0, -L), p0 + Vector3(0, 0, -L)]:
 			st.add_vertex(v)
-		st.set_color(vault * Color(0.88, 0.88, 0.88))
+		st.set_color(vault * Color(0.8, 0.8, 0.8))
 		for z in [0.0, -L]:
 			for v in [Vector3(0, H, z), p0 + Vector3(0, 0, z), p1 + Vector3(0, 0, z)]:
 				st.add_vertex(v)
-	var vm := StandardMaterial3D.new()
-	vm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	vm.vertex_color_use_as_albedo = true
-	vm.cull_mode = BaseMaterial3D.CULL_DISABLED
 	var vmi := MeshInstance3D.new()
 	vmi.mesh = st.commit()
-	vmi.material_override = vm
+	vmi.material_override = ps(null, Color.WHITE, Vector2.ONE, true)
+	vmi.layers = LAYER_UNLIT
+	vmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_vp.add_child(vmi)
 	var sky_y := H + VAULT_RISE * sqrt(maxf(0.0, 1.0 - pow(SKY_W / 2.0 / X, 2))) - 0.02
-	_rect(Vector3(0, sky_y, -L / 2), Vector2(SKY_W, L - 1.0), Vector3.RIGHT, Vector3.BACK, _mat(load(DIR + "textures/skylight.png"), Color(1.1, 1.1, 1.1), Vector2(1, (L - 1.0) / SKY_W)))
-	# benches down the centre
+	var skym := ps(load(DIR + "textures/skylight.png"), Color.WHITE, Vector2(1.0 / SKY_W, 1.0 / SKY_W), false, 1.0)
+	var sk := _panel(Vector3(-SKY_W / 2, sky_y, 0), Vector3(SKY_W, 0, 0), Vector3(0, 0, -(L - 1.0)), skym, 2.0, LAYER_UNLIT, func(_p: Vector3) -> float: return 1.0)
+	sk.position.z = -0.5
+	sk.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	# benches down the centre: a tufted seat on a dark frame
 	for bz in BENCHES:
-		_box(Vector3(0, 0.3, bz), Vector3(0.95, 0.18, 3.0), Color("#2b3346"))
-		for lx in [-0.4, 0.4]:
-			for lz in [-1.4, 1.4]:
-				_box(Vector3(lx, 0.1, bz + lz), Vector3(0.05, 0.2, 0.05), Color("#1a1a1a"))
+		var bs := MeshInstance3D.new()
+		var pm := PlaneMesh.new()
+		pm.size = Vector2(1.5, 3.6)
+		bs.mesh = pm
+		bs.material_override = _shadow_mat(0.55)
+		bs.position = Vector3(0.08, 0.004, bz + 0.05)
+		bs.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		_vp.add_child(bs)
+		_box(Vector3(0, 0.36, bz), Vector3(0.95, 0.12, 3.0), Color("#2f3a52"))
+		_box(Vector3(0, 0.26, bz), Vector3(0.85, 0.08, 2.9), Color("#1d2433"))
+		for lx in [-0.38, 0.38]:
+			for lz in [-1.38, 1.38]:
+				_box(Vector3(lx, 0.11, bz + lz), Vector3(0.06, 0.22, 0.06), Color("#141414"))
+
+
+func _rect_floor() -> void:  # under the planks, never seen: only there so nothing shows through
+	var m := ps(null, Color("#6b5234"))
+	var f := _panel(Vector3(-W / 2, -0.003, 0), Vector3(W, 0, 0), Vector3(0, 0, -L), m, 8.0, 1, func(_p: Vector3) -> float: return 1.0)
+	f.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 
 
 # Herringbone oak as geometry: planks PLANK long and wide, each a random stretch of the Muse oak grain with its own
-# tone, laid on the lattice (b, b), (a, -a) and turned 45 degrees so the zigzag runs down the room.
+# tone and the room's occlusion, laid on the lattice (b, b), (a, -a) turned 45 degrees so the zigzag runs down the
+# room. The seams are drawn by the shader from UV2 (position inside the plank), anti-aliased.
 func _build_floor() -> void:
 	var a := PLANK.x
 	var b := PLANK.y
@@ -219,7 +323,6 @@ func _build_floor() -> void:
 	rng.seed = 1877
 	var rot := Transform2D(PI / 4, Vector2(0, -L / 2))
 	var reach := (L + W) * 0.75
-	var s := 0.004  # half a seam
 	var n := int(reach / b)
 	var m := int(reach / a) + 1
 	for j in range(-m, m + 1):
@@ -230,60 +333,227 @@ func _build_floor() -> void:
 				var c := rot * r.get_center()
 				if absf(c.x) > W / 2 + 0.4 or c.y > 0.4 or c.y < -L - 0.4:
 					continue
-				var p := [r.position + Vector2(s, s), Vector2(r.end.x - s, r.position.y + s), r.end - Vector2(s, s), Vector2(r.position.x + s, r.end.y - s)]
+				var p := [r.position, Vector2(r.end.x, r.position.y), r.end, Vector2(r.position.x, r.end.y)]
 				var u0 := rng.randf_range(0.0, 0.7)
 				var v0 := rng.randf_range(0.0, 0.9)
 				var uv := [Vector2(u0, v0), Vector2(u0 + 0.3, v0), Vector2(u0 + 0.3, v0 + 0.08), Vector2(u0, v0 + 0.08)]
+				var uv2 := [Vector2(0, 0), Vector2(a, 0), Vector2(a, b), Vector2(0, b)]
 				if vert:
 					uv = [uv[3], uv[0], uv[1], uv[2]]
+					uv2 = [Vector2(0, b), Vector2(0, 0), Vector2(a, 0), Vector2(a, b)]
 				var tone := rng.randf_range(0.9, 1.06)
-				st.set_color(Color(tone, tone * 0.99, tone * 0.97))
 				for i in [0, 1, 2, 0, 2, 3]:
 					var q: Vector2 = rot * p[i]
+					var w := Vector3(q.x, 0, q.y)
+					var o2 := _ao(w, false) * tone
+					st.set_color(Color(o2, o2 * 0.99, o2 * 0.97))
+					st.set_normal(Vector3.UP)
 					st.set_uv(uv[i])
-					st.add_vertex(Vector3(q.x, 0, q.y))
-	var m3 := _mat(load(DIR + "textures/oak.png"))
-	m3.vertex_color_use_as_albedo = true
+					st.set_uv2(uv2[i])
+					st.add_vertex(w)
+	var mat := ps(load(DIR + "textures/oak.png"), Color.WHITE, Vector2.ONE, true)
+	mat.set_shader_parameter("plank_seams", true)
+	mat.set_shader_parameter("plank", PLANK)
 	var mi := MeshInstance3D.new()
 	mi.mesh = st.commit()
-	mi.material_override = m3
+	mi.material_override = mat
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_vp.add_child(mi)
 
 
-# An end wall with its doorway: three wall pieces, a white casing with depth (and a cornice head on the arch door),
-# a reveal, what lies beyond (a deep vestibule for the far door), the glowing Muse view, a green EXIT sign.
-func _end_wall(door: Dictionary, right: Vector3) -> void:
-	var z: float = door.z
-	var ds: Vector2 = door.size
+# The arch end: a Romanesque stone portal standing proud of the wall (piers, engaged columns with capitals, a roll
+# moulding round the arch, a deep stone tunnel), opening onto the lit medieval gallery.
+const PORTAL_A := 1.1  # half the opening
+const PORTAL_B := 1.95  # half the portal's face
+const PORTAL_SPRING := 2.7
+const PORTAL_TOP := 4.7
+const PORTAL_DEPTH := 1.1
+
+
+func _arch_end() -> void:
 	var X := W / 2.0
-	var n := Vector3(0, 0, -1) if z == 0.0 else Vector3(0, 0, 1)  # into the room
+	var door: Dictionary = DOORS.arch
+	var ds: Vector2 = door.size
 	var dw := ds.x / 2.0
 	var side := X - dw
-	_rect(Vector3(-(dw + side / 2) * right.x, H / 2, z), Vector2(side, H), right, Vector3.UP, _wall_mat(side, H))
-	_rect(Vector3((dw + side / 2) * right.x, H / 2, z), Vector2(side, H), right, Vector3.UP, _wall_mat(side, H))
-	_rect(Vector3(0, (H + ds.y) / 2, z), Vector2(ds.x, H - ds.y), right, Vector3.UP, _wall_mat(ds.x, H - ds.y))
+	var white := ps(null, WHITE)
+	_panel(Vector3(X, 0, 0), Vector3(-side, 0, 0), Vector3(0, H, 0), _wall_ps(), 0.5, 1)
+	_panel(Vector3(-dw, 0, 0), Vector3(-side, 0, 0), Vector3(0, H, 0), _wall_ps(), 0.5, 1)
+	_panel(Vector3(dw, ds.y, 0), Vector3(-ds.x, 0, 0), Vector3(0, H - ds.y, 0), _wall_ps(), 0.5, 1)
 	for s in [-1.0, 1.0]:
-		_box(Vector3(s * (dw + side / 2), 0.09, z + n.z * 0.015), Vector3(side, 0.18, 0.03), WHITE)
-	_box(Vector3(-(dw + CASING / 2), ds.y / 2 + CASING / 4, z + n.z * 0.05), Vector3(CASING, ds.y + CASING / 2, 0.1), WHITE)
-	_box(Vector3(dw + CASING / 2, ds.y / 2 + CASING / 4, z + n.z * 0.05), Vector3(CASING, ds.y + CASING / 2, 0.1), WHITE)
-	_box(Vector3(0, ds.y + CASING / 2, z + n.z * 0.05), Vector3(ds.x + CASING * 2 + 0.08, CASING, 0.12), WHITE)
-	if door.cornice:  # a projecting cornice over the head
-		_box(Vector3(0, ds.y + CASING + 0.06, z + n.z * 0.1), Vector3(ds.x + CASING * 2 + 0.4, 0.12, 0.2), WHITE)
-		_box(Vector3(0, ds.y + CASING + 0.16, z + n.z * 0.13), Vector3(ds.x + CASING * 2 + 0.55, 0.08, 0.26), WHITE)
+		_box(Vector3(s * (dw + side / 2), 0.09, -0.015), Vector3(side, 0.18, 0.03), WHITE, 1, white)
+		_box(Vector3(s * (dw + 0.17), ds.y / 2 + 0.1, -0.04), Vector3(0.3, ds.y + 0.2, 0.08), WHITE, 1, white)
+		_box(Vector3(s * (dw + 0.04), ds.y / 2, -0.07), Vector3(0.08, ds.y, 0.14), WHITE, 1, white)
+	_box(Vector3(0, ds.y + 0.19, -0.04), Vector3(ds.x + 0.64, 0.3, 0.08), WHITE, 1, white)
+	# the cornice head over this door (the far door has none)
+	_box(Vector3(0, ds.y + 0.4, -0.1), Vector3(ds.x + 0.9, 0.12, 0.2), WHITE, 1, white)
+	_box(Vector3(0, ds.y + 0.5, -0.13), Vector3(ds.x + 1.05, 0.08, 0.26), WHITE, 1, white)
+	_box(Vector3(0, ds.y + 0.74, -0.04), Vector3(0.34, 0.14, 0.05), Color.WHITE, 1, ps(null, Color(0.2, 1.0, 0.45), Vector2.ONE, false, 1.0))
+	# the wall's thickness: a short plaster reveal, then the stone portal on the far side
+	var rev := ps(null, Color("#d9d2c2"), Vector2.ONE, true)
+	var deep := func(p: Vector3) -> float: return lerpf(0.85, 0.6, clampf(p.z / 0.5, 0.0, 1.0))
+	_panel(Vector3(-dw, 0, 0), Vector3(0, 0, 0.5), Vector3(0, ds.y, 0), rev, 0.5, 1, deep)
+	_panel(Vector3(dw, 0, 0.5), Vector3(0, 0, -0.5), Vector3(0, ds.y, 0), rev, 0.5, 1, deep)
+	_panel(Vector3(-dw, ds.y, 0.5), Vector3(ds.x, 0, 0), Vector3(0, 0, -0.5), rev, 0.5, 1, deep)
+	_panel(Vector3(-dw, 0.004, 0), Vector3(ds.x, 0, 0), Vector3(0, 0, 0.5), ps(null, Color("#b39c7e"), Vector2.ONE, true), 0.5, 1, deep)
+	var b := PORTAL_B
+	var stone := ps(load(DIR + "textures/stone.png"), Color.WHITE, Vector2(0.8, 0.8), true)
+	var zf := 1.6  # the portal's face, in the medieval gallery, facing us
+	var zb := zf + PORTAL_DEPTH
+	var a := PORTAL_A
+	var N := 12
+	var arch := []
+	for k in N + 1:
+		var th := PI - PI * k / N
+		arch.append(Vector2(a * cos(th), PORTAL_SPRING + a * sin(th)))
+	# outer boundary walked the same number of steps: up the left edge, across the top, down the right
+	var outer := []
+	var per := (PORTAL_TOP - PORTAL_SPRING) * 2.0 + 2.0 * b
+	for k in N + 1:
+		var d := per * k / N
+		if d <= PORTAL_TOP - PORTAL_SPRING:
+			outer.append(Vector2(-b, PORTAL_SPRING + d))
+		elif d <= PORTAL_TOP - PORTAL_SPRING + 2.0 * b:
+			outer.append(Vector2(-b + (d - (PORTAL_TOP - PORTAL_SPRING)), PORTAL_TOP))
+		else:
+			outer.append(Vector2(b, PORTAL_TOP - (d - (PORTAL_TOP - PORTAL_SPRING) - 2.0 * b)))
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var face_ao := func(p: Vector2) -> float: return 0.9 - 0.25 * exp(-p.y / 0.5)
+	var put := func(p: Vector3, n: Vector3, o: float) -> void:
+		st.set_color(Color(o, o, o))
+		st.set_normal(n)
+		st.set_uv(Vector2(p.x + p.z, p.y))
+		st.add_vertex(p)
+	var quad := func(q: Array, n: Vector3, o: Array) -> void:
+		for i in [0, 1, 2, 0, 2, 3]:
+			put.call(q[i], n, o[i])
+	var fn := Vector3(0, 0, -1)
+	for s in [-1.0, 1.0]:  # piers
+		var x0: float = s * a
+		var x1: float = s * b
+		quad.call([Vector3(x0, 0, zf), Vector3(x1, 0, zf), Vector3(x1, PORTAL_SPRING, zf), Vector3(x0, PORTAL_SPRING, zf)], fn, [0.7, 0.7, 0.9, 0.9])
+	for k in N:  # spandrels, arch to outer edge
+		var p0: Vector2 = arch[k]
+		var p1: Vector2 = arch[k + 1]
+		var o0: Vector2 = outer[k]
+		var o1: Vector2 = outer[k + 1]
+		quad.call([Vector3(p0.x, p0.y, zf), Vector3(o0.x, o0.y, zf), Vector3(o1.x, o1.y, zf), Vector3(p1.x, p1.y, zf)], fn,
+			[face_ao.call(p0), 0.95, 0.95, face_ao.call(p1)])
+	for k in N:  # the arched tunnel, darker deeper in
+		var p0: Vector2 = arch[k]
+		var p1: Vector2 = arch[k + 1]
+		var nn := Vector3(-(p0.x + p1.x), -((p0.y + p1.y) / 2.0 - PORTAL_SPRING) * 2.0, 0).normalized()
+		quad.call([Vector3(p0.x, p0.y, zf), Vector3(p1.x, p1.y, zf), Vector3(p1.x, p1.y, zb), Vector3(p0.x, p0.y, zb)], nn, [0.8, 0.8, 0.5, 0.5])
+	for s in [-1.0, 1.0]:  # tunnel sides below the spring
+		quad.call([Vector3(s * a, 0, zf), Vector3(s * a, PORTAL_SPRING, zf), Vector3(s * a, PORTAL_SPRING, zb), Vector3(s * a, 0, zb)], Vector3(-s, 0, 0), [0.62, 0.8, 0.5, 0.42])
+	for s in [-1.0, 1.0]:  # the portal's outer sides, its full depth
+		quad.call([Vector3(s * b, 0, zf), Vector3(s * b, PORTAL_TOP, zf), Vector3(s * b, PORTAL_TOP, zb), Vector3(s * b, 0, zb)], Vector3(s, 0, 0), [0.6, 0.85, 0.85, 0.6])
+	quad.call([Vector3(-b, PORTAL_TOP, zf), Vector3(b, PORTAL_TOP, zf), Vector3(b, PORTAL_TOP, zb), Vector3(-b, PORTAL_TOP, zb)], Vector3.UP, [0.9, 0.9, 0.9, 0.9])
+	var mi := MeshInstance3D.new()
+	mi.mesh = st.commit()
+	mi.material_override = stone
+	_vp.add_child(mi)
+	# engaged columns with capitals and bases, and a roll moulding round the arch
+	for s in [-1.0, 1.0]:
+		for off in [0.2, 0.52]:
+			var col := MeshInstance3D.new()
+			var cm := CylinderMesh.new()
+			cm.top_radius = 0.12
+			cm.bottom_radius = 0.12
+			cm.height = PORTAL_SPRING - 0.5
+			cm.radial_segments = 8
+			col.mesh = cm
+			col.material_override = stone
+			col.position = Vector3(s * (a + off), 0.25 + cm.height / 2.0, zf - 0.08)
+			_vp.add_child(col)
+			_box(Vector3(s * (a + off), PORTAL_SPRING - 0.12, zf - 0.08), Vector3(0.36, 0.24, 0.32), WHITE, 1, stone)
+			_box(Vector3(s * (a + off), 0.12, zf - 0.08), Vector3(0.34, 0.24, 0.3), WHITE, 1, stone)
+	for ring in [0.2, 0.52]:
+		for k in N:
+			var th := PI - PI * (k + 0.5) / N
+			var r: float = a + ring
+			var seg := _box(Vector3(r * cos(th), PORTAL_SPRING + r * sin(th), zf - 0.08), Vector3(0.2, PI * r / N + 0.02, 0.2), WHITE, 1, stone)
+			seg.rotation.z = th - PI / 2.0
+	# beyond: the medieval gallery, lit warm, its view at the back
+	var beyond := 4.0
+	# the medieval gallery around the portal: a stone room from the door to past the portal
+	var room0 := ps(load(DIR + "textures/stone.png"), Color(0.9, 0.86, 0.8), Vector2(0.8, 0.8), true)
+	var dim := func(_p: Vector3) -> float: return 0.7
+	_panel(Vector3(-3.2, 0, 0.5), Vector3(0, 0, zb - 0.5), Vector3(0, 5.0, 0), room0, 1.0, 1, dim)
+	_panel(Vector3(3.2, 0, zb), Vector3(0, 0, -(zb - 0.5)), Vector3(0, 5.0, 0), room0, 1.0, 1, dim)
+	_panel(Vector3(-3.2, 0, 0.5), Vector3(6.4, 0, 0), Vector3(0, 0, zb - 0.5), ps(null, Color("#9c8a70"), Vector2.ONE, true), 1.0, 1, dim)
+	_panel(Vector3(-3.2, 5.0, zb), Vector3(6.4, 0, 0), Vector3(0, 0, -(zb - 0.5)), ps(null, Color("#5d5347"), Vector2.ONE, true), 1.0, 1, dim)
+	_panel(Vector3(-3.2, PORTAL_TOP, zf), Vector3(3.2 - b, 0, 0), Vector3(0, 5.0 - PORTAL_TOP, 0), room0, 1.0, 1, dim)
+	_panel(Vector3(b, PORTAL_TOP, zf), Vector3(3.2 - b, 0, 0), Vector3(0, 5.0 - PORTAL_TOP, 0), room0, 1.0, 1, dim)
+	_panel(Vector3(-3.2, 0, zf), Vector3(3.2 - b, 0, 0), Vector3(0, PORTAL_TOP, 0), room0, 1.0, 1, dim)
+	_panel(Vector3(b, 0, zf), Vector3(3.2 - b, 0, 0), Vector3(0, PORTAL_TOP, 0), room0, 1.0, 1, dim)
+	var room := ps(load(DIR + "textures/stone.png"), Color(0.95, 0.9, 0.82), Vector2(0.8, 0.8), true)
+	var dark := func(_p: Vector3) -> float: return 0.75
+	_panel(Vector3(-2.6, 0, zb), Vector3(0, 0, beyond), Vector3(0, 4.6, 0), room, 1.0, 1, dark)
+	_panel(Vector3(2.6, 0, zb + beyond), Vector3(0, 0, -beyond), Vector3(0, 4.6, 0), room, 1.0, 1, dark)
+	_panel(Vector3(-2.6, 0, zb), Vector3(5.2, 0, 0), Vector3(0, 0, beyond), ps(null, Color("#9c8a70"), Vector2.ONE, true), 1.0, 1, dark)
+	_panel(Vector3(-2.6, 4.6, zb + beyond), Vector3(5.2, 0, 0), Vector3(0, 0, -beyond), ps(null, Color("#5d5347"), Vector2.ONE, true), 1.0, 1, dark)
+	var card := MeshInstance3D.new()
+	var qm := QuadMesh.new()
+	qm.size = Vector2(5.2, 4.6)
+	card.mesh = qm
+	card.material_override = ps(load(DIR + "textures/door-arch.jpg"), Color.WHITE, Vector2(1, 1), false, 0.85)
+	card.position = Vector3(0, 2.3, zb + beyond - 0.01)
+	card.rotation.y = PI
+	_vp.add_child(card)
+	var warm := OmniLight3D.new()
+	warm.position = Vector3(0, 3.2, 1.0)  # lights the portal's face and, through the door, the reveal
+	warm.light_color = Color("#ffd9a0")
+	warm.light_energy = 1.6
+	warm.omni_range = 5.5
+	_vp.add_child(warm)
+
+
+# The far end: a plain rectangular door with a stepped white casing, a deep cream vestibule lit from its far end,
+# and the second door and bright room at its back.
+func _far_end() -> void:
+	var door: Dictionary = DOORS.far
+	var z := -L
+	var ds: Vector2 = door.size
+	var X := W / 2.0
+	var dw := ds.x / 2.0
+	var side := X - dw
+	_panel(Vector3(-X, 0, z), Vector3(side, 0, 0), Vector3(0, H, 0), _wall_ps(), 0.5, 1)
+	_panel(Vector3(dw, 0, z), Vector3(side, 0, 0), Vector3(0, H, 0), _wall_ps(), 0.5, 1)
+	_panel(Vector3(-dw, ds.y, z), Vector3(ds.x, 0, 0), Vector3(0, H - ds.y, 0), _wall_ps(), 0.5, 1)
+	var white := ps(null, WHITE)
+	for s in [-1.0, 1.0]:
+		_box(Vector3(s * (dw + side / 2), 0.09, z + 0.015), Vector3(side, 0.18, 0.03), WHITE, 1, white)
+		# casing: an outer flat band and an inner stepped bead, both with depth
+		_box(Vector3(s * (dw + 0.17), ds.y / 2 + 0.1, z + 0.04), Vector3(0.3, ds.y + 0.2, 0.08), WHITE, 1, white)
+		_box(Vector3(s * (dw + 0.04), ds.y / 2, z + 0.07), Vector3(0.08, ds.y, 0.14), WHITE, 1, white)
+		_box(Vector3(s * (dw + 0.2), 0.13, z + 0.06), Vector3(0.36, 0.26, 0.12), WHITE, 1, white)  # plinth blocks
+	_box(Vector3(0, ds.y + 0.19, z + 0.04), Vector3(ds.x + 0.64, 0.3, 0.08), WHITE, 1, white)
+	_box(Vector3(0, ds.y + 0.04, z + 0.07), Vector3(ds.x + 0.08, 0.08, 0.14), WHITE, 1, white)
+	_box(Vector3(0, ds.y + 0.38, z + 0.07), Vector3(ds.x + 0.8, 0.08, 0.14), WHITE, 1, white)
+	# the vestibule, darker at its mouth, lit from the far end
 	var depth: float = door.reveal
-	var back := z - n.z * depth
-	var rev := _mat(null, Color("#e3dccb") if door.vestibule else Color("#cfc8b8"))
-	_rect(Vector3(-dw, ds.y / 2, (z + back) / 2), Vector2(depth, ds.y), Vector3(0, 0, -n.z), Vector3.UP, rev)
-	_rect(Vector3(dw, ds.y / 2, (z + back) / 2), Vector2(depth, ds.y), Vector3(0, 0, n.z), Vector3.UP, rev)
-	_rect(Vector3(0, ds.y, (z + back) / 2), Vector2(ds.x, depth), Vector3.RIGHT, Vector3(0, 0, n.z), _mat(null, Color("#efe9dc")))
-	_rect(Vector3(0, 0.004, (z + back) / 2), Vector2(ds.x, depth), Vector3.RIGHT, Vector3(0, 0, -n.z), _mat(null, Color("#d8cdb6") if door.vestibule else Color("#b9956a")))
-	_rect(Vector3(0, ds.y / 2, back), ds, right, Vector3.UP, _mat(load(DIR + "textures/%s.jpg" % door.card), Color(1.25, 1.22, 1.15)))
-	var glow := _mat(null, Color(1.0, 0.97, 0.9, 0.2))
-	glow.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	glow.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
-	_rect(Vector3(0, ds.y / 2, z + n.z * 0.02), ds + Vector2(0.3, 0.3), right, Vector3.UP, glow)
-	var sign_y: float = ds.y + CASING + (0.42 if door.cornice else 0.16)
-	_box(Vector3(0, sign_y, z + n.z * 0.04), Vector3(0.34, 0.14, 0.05), Color(0.2, 1.0, 0.45))
+	var cream := ps(null, Color("#e6dfcf"), Vector2.ONE, true)
+	var lit := func(p: Vector3) -> float: return lerpf(0.55, 1.0, clampf((z - p.z) / depth, 0.0, 1.0))
+	_panel(Vector3(-dw, 0, z), Vector3(0, 0, -depth), Vector3(0, ds.y, 0), cream, 0.5, 1, lit)
+	_panel(Vector3(dw, 0, z - depth), Vector3(0, 0, depth), Vector3(0, ds.y, 0), cream, 0.5, 1, lit)
+	_panel(Vector3(-dw, ds.y, z), Vector3(ds.x, 0, 0), Vector3(0, 0, -depth), ps(null, Color("#f0ebe0"), Vector2.ONE, true), 0.5, 1, lit)
+	_panel(Vector3(-dw, 0.004, z - depth), Vector3(ds.x, 0, 0), Vector3(0, 0, depth), ps(null, Color("#d8cdb6"), Vector2.ONE, true), 0.5, 1, lit)
+	var card := MeshInstance3D.new()
+	var qm := QuadMesh.new()
+	qm.size = ds
+	card.mesh = qm
+	card.material_override = ps(load(DIR + "textures/door-far.jpg"), Color.WHITE, Vector2.ONE, false, 0.9)
+	card.position = Vector3(0, ds.y / 2, z - depth + 0.01)
+	_vp.add_child(card)
+	var warm := OmniLight3D.new()
+	warm.position = Vector3(0, ds.y - 0.4, z - depth + 0.5)
+	warm.light_color = Color("#fff3e0")
+	warm.light_energy = 1.4
+	warm.omni_range = 4.0
+	_vp.add_child(warm)
+	_box(Vector3(0, ds.y + 0.62, z + 0.04), Vector3(0.34, 0.14, 0.05), Color.WHITE, 1, ps(null, Color(0.2, 1.0, 0.45), Vector2.ONE, false, 1.0))
 
 
 func _hang_center(rec: Dictionary, outer_h: float) -> float:
@@ -349,12 +619,44 @@ func _place(tag: String, rec: Dictionary, node: Node3D, at: Vector3, rot: float)
 	var basis := Basis(Vector3.UP, rot)
 	node.transform = Transform3D(basis, at)
 	_vp.add_child(node)
+	# the skylight's cast shadow: soft, straight down the wall below the frame, a little wider than it
+	var sh := MeshInstance3D.new()
+	var q := QuadMesh.new()
+	q.size = node.outer + Vector2(0.22, 0.3)
+	sh.mesh = q
+	sh.material_override = _shadow_mat(0.5)
+	sh.position = Vector3(0, -0.2, 0.006)
+	sh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	node.add_child(sh)
+	node.move_child(sh, 0)
+	var layer := LAYER_EAST if at.x > W / 2.0 - 0.1 or (absf(at.z) < 0.1 and at.x > 0) else LAYER_WEST
+	for c in node.get_children():
+		(c as VisualInstance3D).layers = layer
 	var n := basis * Vector3.BACK
 	var r := basis * Vector3.RIGHT
 	var corners := []
 	for c in [Vector2(-1, -1), Vector2(1, -1), Vector2(1, 1), Vector2(-1, 1)]:
 		corners.append(at + r * c.x * outer.x / 2.0 + Vector3.UP * c.y * outer.y / 2.0 + n * 0.09)
 	_paintings.append({"tag": tag, "rec": rec, "center": at, "normal": n, "corners": corners, "outer": outer})
+
+
+func _mat(tex: Texture2D) -> StandardMaterial3D:
+	var m := StandardMaterial3D.new()
+	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	m.albedo_texture = tex
+	return m
+
+
+func _rect(c: Vector3, size: Vector2, right: Vector3, up: Vector3, m: Material) -> MeshInstance3D:
+	var mi := MeshInstance3D.new()
+	var q := QuadMesh.new()
+	q.size = size
+	mi.mesh = q
+	mi.material_override = m
+	mi.transform = Transform3D(Basis(right, up, right.cross(up)), c)
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_vp.add_child(mi)
+	return mi
 
 
 func _build_kid() -> void:
@@ -389,7 +691,7 @@ func _build_kid() -> void:
 func _build_detail() -> void:
 	_detail = Control.new()
 	_detail.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	_detail.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_detail.mouse_filter = Control.MOUSE_FILTER_PASS
 	_detail.modulate.a = 0.0
 	_detail.visible = false
 	_detail.clip_contents = true
@@ -409,6 +711,19 @@ func _build_detail() -> void:
 	pic.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	pic.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_zoom_root.add_child(pic)
+	var close := TextureButton.new()  # the game's own tab close icon, drawn at twice its size
+	close.name = "Close"
+	close.texture_normal = load("res://modules/tab_strip/assets/icon_close.png")
+	close.texture_pressed = load("res://modules/tab_strip/assets/icon_close_pressed.png")
+	close.ignore_texture_size = true
+	close.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+	close.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	close.size = Vector2(44, 44)
+	close.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+	close.position = Vector2(-58, 14)
+	close.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	close.pressed.connect(func() -> void: _close_detail())
+	_detail.add_child(close)
 	var frame := NinePatchRect.new()
 	frame.name = "Frame"
 	frame.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
@@ -733,6 +1048,9 @@ func _approach(p: Dictionary) -> void:
 
 func _gui_input(event: InputEvent) -> void:
 	if not _open.is_empty():
+		var close: Control = _detail.get_node("Close")
+		if event is InputEventMouse and close.get_global_rect().has_point(event.global_position):
+			return  # the X button takes it
 		_detail_input(event)
 		accept_event()
 		return
