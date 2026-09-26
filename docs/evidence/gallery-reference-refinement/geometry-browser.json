@@ -1,0 +1,65 @@
+{
+  "url": "http://127.0.0.1:8766/6e56edf.html",
+  "label": "candidate-geometry",
+  "viewport": [
+    1600,
+    900
+  ],
+  "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+  "measures": [
+    {
+      "phase": "standing",
+      "samples": 300,
+      "median_ms": 16.69999999999709,
+      "p95_ms": 16.799999999999272,
+      "mean_ms": 16.66600000000001
+    },
+    {
+      "phase": "walking",
+      "samples": 300,
+      "median_ms": 16.700000000000728,
+      "p95_ms": 16.700000000000728,
+      "mean_ms": 16.666333333333338
+    },
+    {
+      "phase": "turning",
+      "samples": 300,
+      "median_ms": 16.69999999999709,
+      "p95_ms": 16.700000000004366,
+      "mean_ms": 16.66600000000001
+    }
+  ],
+  "transfer_bytes": 149229316,
+  "ui": [
+    {
+      "control": "other-wall",
+      "passed": true,
+      "events": [
+        "OTHER_WALL east",
+        "OTHER_WALL west",
+        "OTHER_WALL west"
+      ]
+    },
+    {
+      "control": "camera",
+      "url": "http://127.0.0.1:8766/6e56edf.html?lighting=baked&variant=gallery",
+      "passed": true
+    },
+    {
+      "control": "lighting",
+      "url": "http://127.0.0.1:8766/6e56edf.html?lighting=original&variant=gallery",
+      "passed": true
+    }
+  ],
+  "errors": [
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "WARNING: 2D MSAA is not yet supported for GLES3.",
+    "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "WARNING: 2D MSAA is not yet supported for GLES3.",
+    "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)"
+  ]
+}
