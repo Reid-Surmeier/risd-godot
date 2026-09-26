@@ -229,7 +229,7 @@ func _build_room() -> void:
 	_vp.add_child(we)
 	# The skylight, as two lights from overhead each leaning toward one long wall: flat, from the top, and every
 	# painting casts a short shadow down its own wall. The floor and benches take both.
-	for side in [{"x": -1.0, "mask": 1 | LAYER_WEST}, {"x": 1.0, "mask": LAYER_EAST}]:  # the floor takes one of them
+	for side in [{"x": -1.0, "mask": LAYER_WEST}, {"x": 1.0, "mask": LAYER_EAST}]:
 		var sky := DirectionalLight3D.new()
 		sky.light_energy = 0.75
 		sky.shadow_opacity = 0.7
@@ -243,6 +243,12 @@ func _build_room() -> void:
 		sky.directional_shadow_max_distance = 22.0
 		sky.transform.basis = Basis.looking_at(Vector3(side.x * 0.42, -1.0, 0.12).normalized(), Vector3(0, 0, -1))
 		_vp.add_child(sky)
+	var top := DirectionalLight3D.new()  # the floor and benches: straight down, so the walls throw no band across it
+	top.light_energy = 0.75
+	top.light_color = Color("#fffaf0")
+	top.light_cull_mask = 1
+	top.transform.basis = Basis.looking_at(Vector3(0.04, -1.0, 0.08).normalized(), Vector3(0, 0, -1))
+	_vp.add_child(top)
 	var X := W / 2.0
 	# (no base plane under the planks: 3 mm below them it z-fought through at a distance)
 	_build_floor()
