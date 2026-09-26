@@ -58,6 +58,12 @@ var _path: Array = []  # waypoints still to walk before _target
 var _action := 0  # bumped by every new action; a pending approach whose number is stale gives up
 var _stall_t := 0.0
 var _last_pos := Vector3.ZERO
+# Sounds: Animal Crossing: Wild World's own (sounds/SOURCES.md)
+var _sfx := {}
+var _step_t := 0.0
+var _step_i := 0
+var _hover_tag := ""
+const STEP_S := 0.42  # one footstep per this much walking
 
 
 func _ready() -> void:
@@ -84,6 +90,7 @@ func _ready() -> void:
 	_cam.near = 0.05
 	_vp.add_child(_cam)
 	_build_detail()
+	_build_sounds()
 	_update_camera(1.0)
 
 
@@ -646,6 +653,24 @@ func _rect(c: Vector3, size: Vector2, right: Vector3, up: Vector3, m: Material) 
 	return mi
 
 
+func _build_sounds() -> void:
+	for n in ["step_wood_01", "step_wood_02", "step_wood_03", "step_wood_04", "step_wood_05", "step_wood_06",
+			"pickup", "menu_open", "menu_close", "select", "cancel", "cursor", "item_select"]:
+		if ResourceLoader.exists(DIR + "sounds/%s.ogg" % n):
+			var pl := AudioStreamPlayer.new()
+			pl.stream = load(DIR + "sounds/%s.ogg" % n)
+			pl.volume_db = -8.0 if n.begins_with("step") else -4.0
+			add_child(pl)
+			_sfx[n] = pl
+
+
+func _play(n: String, pitch := 1.0) -> void:
+	if _sfx.has(n) and is_visible_in_tree():
+		var pl: AudioStreamPlayer = _sfx[n]
+		pl.pitch_scale = pitch
+		pl.play()
+
+
 # Every static mesh that shares a look (same shader, texture, tint, flags) becomes one mesh: a few dozen draw calls
 # instead of ~350, which is what held the frame rate down in the browser.
 func _merge_static() -> void:
@@ -796,12 +821,15 @@ func _open_detail(p: Dictionary) -> void:
 	_zoom_root.position = (size - Vector2(pw, ph)) / 2.0
 	_open = p
 	_held.clear()
+	_play("menu_open")
+	get_tree().create_timer(0.18).timeout.connect(func() -> void: _play("pickup"))
 	_detail.visible = true
 	var t := create_tween()
 	t.tween_property(_detail, "modulate:a", 1.0, 0.4)
 
 
 func _close_detail() -> void:
+	_play("menu_close")
 	var t := create_tween()
 	t.tween_property(_detail, "modulate:a", 0.0, 0.3)
 	await t.finished
@@ -868,6 +896,14 @@ func _process(delta: float) -> void:
 				_target = null
 				_stall_t = 0.0
 	_last_pos = _pos
+	if moving:
+		_step_t += delta
+		if _step_t >= STEP_S:
+			_step_t -= STEP_S
+			_step_i = (_step_i + 1 + randi() % 5) % 6  # never the same step twice in a row
+			_play("step_wood_%02d" % (_step_i + 1), randf_range(0.94, 1.06))
+	else:
+		_step_t = STEP_S * 0.7  # the first step lands soon after starting
 	if moving and _kid_frames.size() > 1:
 		_kid_t += delta
 		_kid.texture = _kid_frames[int(_kid_t * 10.0) % _kid_frames.size()]
@@ -1039,13 +1075,19 @@ func _painting_at(pt: Vector2) -> Dictionary:
 
 
 func _update_hover() -> void:
-	var over := not _painting_at(get_local_mouse_position()).is_empty()
+	var hp := _painting_at(get_local_mouse_position())
+	var tag: String = hp.get("tag", "")
+	if tag != "" and tag != _hover_tag:
+		_play("cursor", 1.1)
+	_hover_tag = tag
+	var over := not hp.is_empty()
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND if over else Control.CURSOR_ARROW
 
 
 func _click(pt: Vector2) -> void:
 	var p := _painting_at(pt)
 	if not p.is_empty():
+		_play("select")
 		_approach(p)
 		return
 	var vp_pt := pt / size * Vector2(_vp.size)
