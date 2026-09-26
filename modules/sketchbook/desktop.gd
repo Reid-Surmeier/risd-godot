@@ -17,7 +17,6 @@ const Errors := preload("res://modules/sketchbook/errors.gd")
 const Data := preload("res://modules/collection_data/interface.gd")
 const SculptureViewer := preload("res://modules/sculpture_viewer/interface.gd")
 const GlobalChatroom := preload("res://modules/sketchbook/global_chatroom.gd")
-const MONET := "res://modules/sketchbook/assets/monet-reference.png"  # the Monet crop the Collection page used to lend
 
 const ROOT := "res://modules/sketchbook/"
 ## The native composition: variant A's windows (paintbox 170,345 550x575; book 750,365 630x545 on the
@@ -54,13 +53,11 @@ var reference_panel := PanelContainer.new()
 var reference_list := HBoxContainer.new()
 var viewer_host := Control.new()
 var global_chatroom: Control
-var reference_art: Control
 var tldraw_controls: Control
+var painting_flow: Control
 var resizing_reference := false
 var reference_resize_origin := Vector2.ZERO
 var reference_resize_size := Vector2.ZERO
-var reference_height := 0.0 # the framed painting's height once the user resizes it; 0 = fit the gap
-var reference_shape := Vector2.ONE # the framed painting's own width x height
 var saved_ids: Array = []
 var selected_reference := ""
 var storage_status := "loading"
@@ -74,7 +71,11 @@ static func create(deps: Dictionary) -> Dictionary:
 			return Errors.err(Errors.ASSET_MISSING, ROOT + "assets/" + name)
 	if not ResourceLoader.exists(ROOT + "mixbox/mixbox.gd"):
 		return Errors.err(Errors.ASSET_MISSING, ROOT + "mixbox/mixbox.gd")
+	var flow: Dictionary = load(ROOT + "painting_flow.gd").create()
+	if not flow.ok:
+		return flow
 	var t = load(ROOT + "desktop.gd").new()
+	t.painting_flow = flow.value
 	t.key = deps.get("key", "")
 	t.data_handle = deps.collection_data
 	t.image_fetch = deps.image_fetch
@@ -128,34 +129,30 @@ func _ready() -> void:
 		viewer_drag_strip.gui_input.connect(func(event): _drag_handle_input(event, viewer_host))
 		viewer_host.add_child(viewer_drag_strip)
 		desktop.add_child(viewer_host)
+		windows.append(viewer_host)
 	if ResourceLoader.exists(GlobalChatroom.CHAT_ASSET):
 		global_chatroom = GlobalChatroom.new()
 		global_chatroom.name = "global-chatroom"
 		global_chatroom.mouse_filter = Control.MOUSE_FILTER_STOP
 		global_chatroom.gui_input.connect(func(event): _drag_handle_input(event, global_chatroom))
 		desktop.add_child(global_chatroom)
-	if ResourceLoader.exists(MONET):
-		var monet := TextureRect.new()
-		var card := AtlasTexture.new()  # _framed trims the card's mat off the region
-		card.atlas = load(MONET)
-		card.region = Rect2(Vector2.ZERO, card.atlas.get_size())
-		monet.texture = card
-		monet.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		monet.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		monet.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		reference_art = _framed(monet)
-		reference_panel.add_child(reference_art)
-		reference_list.visible = false
+		windows.append(global_chatroom)
+	# Cover Flow replaces the static painting; browser-local saved references remain available.
+	reference_panel.visible = false
 	reference_panel.name = "saved-reference-window"
 	reference_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	reference_panel.clip_contents = true
 	reference_panel.gui_input.connect(func(event): _reference_input(event))
-	# The framed painting is the window itself: no panel behind it.
-	reference_panel.add_theme_stylebox_override("panel", StyleBoxEmpty.new() if reference_art != null else _reference_style(Color("eef5fb")))
+	reference_panel.add_theme_stylebox_override("panel", _reference_style(Color("eef5fb")))
 	desktop.add_child(reference_panel)
 	reference_list.add_theme_constant_override("separation", 10)
 	reference_panel.add_child(reference_list)
+	windows.push_front(reference_panel)
 	desktop.move_child(reference_panel, 1)  # behind the two draggable working windows
+	painting_flow.name = "painting-flow-window"
+	desktop.add_child(painting_flow)
+	windows.append(painting_flow)
+	painting_flow.title_bar.gui_input.connect(_drag_handle_input.bind(painting_flow))
 	_sync_brush_rest()
 	visibility_changed.connect(_on_visibility_changed)
 	visibility_changed.connect(_refresh_references)
@@ -209,61 +206,8 @@ func _fit() -> void:
 	reference_panel.size = Vector2(REFERENCE_SLOT.size.x + extra.x, REFERENCE_SLOT.size.y)
 	reference_list.position = Vector2(12, 12)
 	reference_list.size = reference_panel.size - Vector2(24, 24)
-	if reference_art != null:
-		reference_panel.size = _framed_size(_reference_height())
+	_place(painting_flow, REFERENCE_SLOT)
 	_place(tldraw_controls, Rect2(14, 865, 310, 178) if anri_prototype else Rect2(90, 70, 250, 184))  # bottom left
-
-
-## The painting in the owner's gold frame: the Muse cleanup of the owner's frame screenshot
-## (image-work/renaissance-frame-lowpoly-empty-v1), its opening keyed out, as a nine-patch whose
-## opening takes the painting's proportions. The panel is exactly the framed painting; its corner
-## resizes it with the aspect locked.
-const GOLD_FRAME := ROOT + "assets/gold-frame/frame.png"
-const GOLD_FRAME_MARGINS := [143, 130, 139, 130] # band widths in the texture's pixels (605x732)
-
-func _framed(painting: TextureRect) -> Control:
-	var atlas: AtlasTexture = painting.texture
-	atlas.region = atlas.region.grow(-24) # drop the collection card's white mat
-	reference_shape = atlas.region.size
-	painting.stretch_mode = TextureRect.STRETCH_SCALE
-	var frame := NinePatchRect.new()
-	frame.name = "gold-frame"
-	frame.texture = load(GOLD_FRAME)
-	frame.patch_margin_left = GOLD_FRAME_MARGINS[0]
-	frame.patch_margin_top = GOLD_FRAME_MARGINS[1]
-	frame.patch_margin_right = GOLD_FRAME_MARGINS[2]
-	frame.patch_margin_bottom = GOLD_FRAME_MARGINS[3]
-	frame.draw_center = false
-	frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var holder := Control.new()
-	holder.name = "framed-reference"
-	holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	holder.add_child(painting)
-	holder.add_child(frame)
-	holder.resized.connect(func() -> void:
-		var k := holder.size.y / frame.texture.get_size().y
-		var near := Vector2(GOLD_FRAME_MARGINS[0], GOLD_FRAME_MARGINS[1]) * k
-		var bands := near + Vector2(GOLD_FRAME_MARGINS[2], GOLD_FRAME_MARGINS[3]) * k
-		var opening := _framed_size(holder.size.y) - bands
-		painting.position = near
-		painting.size = opening
-		frame.scale = Vector2(k, k)
-		frame.size = (opening + bands) / k)
-	return holder
-
-
-## The framed painting's size at height h: bands scale with h, the opening keeps the painting's shape.
-func _framed_size(h: float) -> Vector2:
-	var k := h / 732.0
-	var bands := Vector2(GOLD_FRAME_MARGINS[0] + GOLD_FRAME_MARGINS[2], GOLD_FRAME_MARGINS[1] + GOLD_FRAME_MARGINS[3]) * k
-	return Vector2((h - bands.y) * reference_shape.x / reference_shape.y + bands.x, h)
-
-
-## Until the user resizes it, the framed painting fits the gap left of the book window.
-func _reference_height() -> float:
-	if reference_height > 0.0:
-		return reference_height
-	return REFERENCE_SLOT.size.y  # the book now sits below it, not beside it
 
 
 func _reference_style(color: Color) -> StyleBoxFlat:
@@ -283,20 +227,7 @@ func _reference_input(event: InputEvent) -> void:
 		desktop.move_child(reference_panel, -1)
 		reference_panel.accept_event()
 		return
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_UP:
-		_reference_zoom(1.15)
-	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-		_reference_zoom(1.0 / 1.15)
-	else:
-		_drag_handle_input(event, reference_panel)
-
-
-func _reference_zoom(factor: float) -> void:
-	if reference_art == null:
-		return
-	var next := clampf(reference_art.scale.x * factor, 0.35, 3.0)
-	reference_art.scale = Vector2(next, next)
-	reference_art.position = (reference_panel.size - reference_art.size * next) / 2
+	_drag_handle_input(event, reference_panel)
 
 
 func _refresh_references() -> void:
@@ -316,6 +247,7 @@ func _refresh_references() -> void:
 			reference_list.add_child(_reference_label("Saved references unavailable"))
 			return
 		storage_status = "ready"
+		reference_panel.visible = not result.value.items.is_empty()
 		if result.value.items.is_empty():
 			reference_list.add_child(_reference_label("Save a RISD artwork in Collection to use it as a reference"))
 			return
@@ -429,15 +361,8 @@ func _input(event: InputEvent) -> void:
 	if resizing_reference:
 		if event is InputEventMouseMotion:
 			var delta := desktop.make_canvas_position_local(event.position) - reference_resize_origin
-			if reference_art != null:
-				# Aspect locked: follow whichever axis the pointer pulled further.
-				var grow := maxf(delta.y, delta.x * reference_resize_size.y / reference_resize_size.x)
-				reference_height = maxf(160.0, reference_resize_size.y + grow)
-				reference_panel.size = _framed_size(reference_height)
-				_reference_zoom(1.0)
-			else:
-				reference_panel.size = (reference_resize_size + delta).max(Vector2(240, 160))
-				reference_list.size = reference_panel.size - Vector2(24, 24)
+			reference_panel.size = (reference_resize_size + delta).max(Vector2(240, 160))
+			reference_list.size = reference_panel.size - Vector2(24, 24)
 			get_viewport().set_input_as_handled()
 		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			resizing_reference = false
@@ -456,7 +381,7 @@ func _input(event: InputEvent) -> void:
 		var pointer := desktop.make_canvas_position_local(event.position)
 		for index in range(windows.size() - 1, -1, -1):
 			var window := windows[index]
-			if Rect2(window.position, window.size * window.scale).has_point(pointer):
+			if window.visible and Rect2(window.position, window.size * window.scale).has_point(pointer):
 				desktop.move_child(window, -1)
 				windows.erase(window)
 				windows.append(window)
@@ -524,6 +449,9 @@ func state() -> Dictionary:
 			"saved_ids": saved_ids.duplicate(), "selected_reference": selected_reference,
 			"storage_status": storage_status, "reference_rect": _global_rect(reference_panel),
 			"reference_cards": reference_cards,
+			"painting_viewer": painting_flow.qa_state(),
+			"painting_viewer_rect": _global_rect(painting_flow),
+			"painting_title_rect": _global_rect(painting_flow.title_bar),
 			"chat_text_posts": chat.get("text_posts", 0), "chat_image_posts": chat.get("image_posts", 0),
 			"chat_picker_requests": chat.get("picker_requests", 0),
 			"chat_message_count": chat.get("message_count", 0), "chat_input_rect": chat.get("input_rect", Rect2()),

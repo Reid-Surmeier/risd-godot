@@ -83,3 +83,7 @@ any repository.
 | `modules/sketchbook/assets/sketchbook-page-v005-soft-384.png` | `viewer-godot/assets/sketchbook/sketchbook-page-v005-soft-384.png` | `dfbedb206a11d4233632be95f6568253327db10b5942c9b3f0ce819dd8af9aa6` | the open book (approval pending) |
 | `modules/sketchbook/assets/window-chrome.provenance.json` | `viewer-godot/assets/sketchbook/window-chrome.provenance.json` | `be71901eee78764987875754b74dbedc990861c50230042e848403866b117c40` | the chrome's Muse record |
 | `modules/sketchbook/assets/sketchbook-page-v005-soft-384.provenance.json` | `viewer-godot/assets/sketchbook/sketchbook-page-v005-soft-384.provenance.json` | `ae32828fd9aab49bfd20fbac1df409d70126519d8e60a36d690fcf45815a112e` | the page's record |
+
+## Native painting viewer, ticket #129
+
+No new paid generation or replacement artwork. `painting_flow.gd` reuses the six unchanged museum JPGs, `paintings.json`, and the user-supplied blue minimap frame at `prototypes/painting-coverflow/web/`; hashes and source URLs remain in that prototype’s `PROVENANCE.json` and catalogue. The book texture and original page buttons listed above are unchanged. The supplied sketchbook screenshot is visual reference only. UI materials key the frame’s exterior magenta and remove the book’s white matte at draw time; source files are untouched. The original baked book shadow is retained.

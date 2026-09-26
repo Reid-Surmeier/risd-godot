@@ -1,0 +1,100 @@
+// Run against an exported app: GAME_URL=... PLAYWRIGHT_MODULE=... CHROMIUM_PATH=... node this-file
+import assert from 'node:assert/strict';
+import {mkdir,writeFile} from 'node:fs/promises';
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH,args:['--enable-unsafe-swiftshader']});
+const page=await browser.newPage({viewport:{width:1600,height:1000}});
+const errors=[];
+page.on('console',message=>{if(/SCRIPT ERROR|^ERROR:/.test(message.text()))errors.push(message.text())});
+page.on('pageerror',error=>errors.push(error.message));
+const output=process.env.EVIDENCE_DIR || 'prototypes/painting-coverflow/evidence/native';
+await mkdir(output,{recursive:true});
+const url=new URL(process.env.GAME_URL);
+url.search='?qa-crt&crt=0&paintbox=anri';
+const state=()=>page.evaluate(()=>window.shellCrtQa);
+const wait=ms=>page.waitForTimeout(ms);
+const rect=value=>Array.isArray(value)?value:value.match(/-?\d+(?:\.\d+)?/g).map(Number);
+const screen=async point=>{const q=await state();return point.map((p,i)=>p*q.display_size[i]/q.logical_size[i])};
+const click=async point=>page.mouse.click(...await screen(point));
+const center=value=>{const r=rect(value);return[r[0]+r[2]/2,r[1]+r[3]/2]};
+const tab=async index=>{await click(center((await state()).shell.tabs[index].rect));await page.waitForFunction(i=>window.shellCrtQa?.shell.active===i&&!window.shellCrtQa.shell.switching,index);await wait(350)};
+const selected=async index=>page.waitForFunction(i=>window.shellCrtQa?.tenant.painting_viewer?.selected===i&&Math.abs(window.shellCrtQa.tenant.painting_viewer.position-i)<.01,index);
+// Pick an exposed face point, checking the visible polygons in reverse draw order.
+const face=async index=>{
+ const q=await state(), cards=q.tenant.painting_viewer.cards, card=cards.find(c=>c.index===index);
+ const inside=(point,poly)=>{let result=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const a=poly[i],b=poly[j];if((a[1]>point[1])!==(b[1]>point[1])&&point[0]<(b[0]-a[0])*(point[1]-a[1])/(b[1]-a[1])+a[0])result=!result}return result};
+ const [a,b,c,d]=card.points;
+ for(const u of [.5,.25,.75,.1,.9]){const top=a.map((v,i)=>v+(b[i]-v)*u),bottom=d.map((v,i)=>v+(c[i]-v)*u),p=top.map((v,i)=>(v+bottom[i])/2);if([...cards].reverse().find(item=>inside(p,item.points))?.index===index)return p}
+ throw Error(`No exposed point for painting ${index}`);
+};
+try{
+ await page.goto(url.href);
+ await page.waitForFunction(()=>window.shellCrtQa?.shell?.tabs?.[1],null,{timeout:120000});
+ await wait(1000);await tab(1);
+ await page.waitForFunction(()=>window.shellCrtQa?.tenant.painting_viewer?.count===6);
+ await wait(1500);
+ assert.equal((await state()).tenant.chrome_pieces,0);
+ await page.screenshot({path:`${output}/desktop.png`});
+ await click(await face(3));await selected(3);
+ await click(await face(2));await selected(2);
+ await click(await face(2));
+ await page.waitForFunction(()=>window.shellCrtQa.tenant.painting_viewer.enlarged);
+ await page.screenshot({path:`${output}/enlarged.png`});
+ await page.keyboard.press('Escape');await wait(400);
+ assert.equal((await state()).tenant.painting_viewer.enlarged,false);
+ await page.keyboard.press('ArrowRight');await selected(3);
+ await page.mouse.move(...await screen(await face(3)));await page.mouse.wheel(0,100);await selected(4);
+ await page.mouse.wheel(100,0);await selected(5);
+ await page.mouse.wheel(-100,0);await selected(4);
+ const from=await screen(await face(4));
+ await page.mouse.move(...from);await page.mouse.down();await page.mouse.move(from[0]+215,from[1],{steps:14});await page.mouse.up();await selected(3);
+ let q=await state();const slider=q.tenant.painting_viewer.slider;
+ await click([slider[0]+slider[2]*.02,slider[1]+slider[3]/2]);await selected(0);
+ await click([slider[0]+slider[2]*.98,slider[1]+slider[3]/2]);await selected(5);
+ await click(await face(5));await page.keyboard.press('Escape');await page.keyboard.press('Home');await selected(0);
+ // Drag the native title and restore; both the frame and its contents must move together.
+ q=await state();const before=q.tenant.painting_viewer_rect, title=await screen(center(q.tenant.painting_title_rect));
+ await page.mouse.move(...title);await page.mouse.down();await page.mouse.move(title[0]-40,title[1]+15,{steps:8});await page.mouse.up();await wait(500);
+ const moved=(await state()).tenant.painting_viewer_rect;
+ assert.ok(Math.abs(moved[0]-before[0]+40)<2&&Math.abs(moved[1]-before[1]-15)<2,'native viewer drag');
+ let handle=await screen(center((await state()).tenant.painting_title_rect));
+ await page.mouse.move(...handle);await page.mouse.down();await page.mouse.move(handle[0]+40,handle[1]-15,{steps:8});await page.mouse.up();await wait(450);
+ // Book remains drawable and its original navigation works after chrome removal.
+ q=await state();const book=q.tenant.page_rect,start=await screen([book[0]+book[2]*.35,book[1]+book[3]*.6]);
+ await page.mouse.move(...start);await page.mouse.down();await page.mouse.move(start[0]+80,start[1]-40,{steps:12});await page.mouse.up();await wait(400);
+ assert.equal((await state()).tenant.strokes,1);
+ assert.equal((await state()).tenant.front_window,'sketchbook-window');
+ await click(center((await state()).tenant.controls.next));await wait(1500);
+ assert.equal((await state()).tenant.spread,2);
+ await click(center((await state()).tenant.controls.previous));await wait(1500);
+ assert.equal((await state()).tenant.spread,1);assert.equal((await state()).tenant.strokes,1);
+ // The paper's top margin still drags, and the existing corner still resizes.
+ q=await state();const originalBook=q.tenant.window_rect;
+ handle=await screen(center(q.tenant.title_rect));
+ await page.mouse.move(...handle);await page.mouse.down();await page.mouse.move(handle[0]-80,handle[1]-180,{steps:12});await page.mouse.up();await wait(500);
+ let bookMoved=(await state()).tenant.window_rect;
+ assert.ok(Math.abs(bookMoved[0]-originalBook[0]+80)<2&&Math.abs(bookMoved[1]-originalBook[1]+180)<2,'frameless book drag');
+ await page.screenshot({path:`${output}/book-shadow-overlap.png`});
+ handle=await screen(center((await state()).tenant.title_rect));
+ await page.mouse.move(...handle);await page.mouse.down();await page.mouse.move(handle[0]+80,handle[1]+180,{steps:12});await page.mouse.up();await wait(400);
+ let br=(await state()).tenant.window_rect, corner=await screen([br[0]+br[2]-5,br[1]+br[3]-5]);
+ await page.mouse.move(...corner);await page.mouse.down();await page.mouse.move(corner[0]-25,corner[1]-25,{steps:8});await page.mouse.up();await wait(400);
+ let resized=(await state()).tenant.window_rect;
+ assert.ok(Math.abs(resized[2]-br[2]+25)<2&&Math.abs(resized[3]-br[3]+25)<2,'frameless book resize');
+ corner=await screen([resized[0]+resized[2]-5,resized[1]+resized[3]-5]);
+ await page.mouse.move(...corner);await page.mouse.down();await page.mouse.move(corner[0]+25,corner[1]+25,{steps:8});await page.mouse.up();await wait(400);
+ const saved=(await state()).tenant;
+ await tab(0);await wait(2500);await tab(1);
+ q=await state();assert.equal(q.tenant.painting_viewer.selected,0);
+ assert.deepEqual(q.tenant.painting_viewer_rect,saved.painting_viewer_rect);
+ assert.ok(q.tenant.painting_viewer.ticks-saved.painting_viewer.ticks<35,'hidden tab freezes animation');
+ assert.equal(q.tenant.strokes,1);
+ await page.screenshot({path:`${output}/book-and-viewer.png`});
+ await page.setViewportSize({width:1200,height:800});await wait(1200);
+ q=await state();const r=q.tenant.painting_viewer_rect;
+ assert.ok(r[0]>=0&&r[1]>=0&&r[0]+r[2]<=q.logical_size[0]+1);
+ await page.screenshot({path:`${output}/compact.png`});
+ assert.deepEqual(errors,[]);
+ await writeFile(`${output}/result.json`,JSON.stringify({passed:true,checks:['original six paintings','frameless book','side clicks both directions','enlarge/escape','keyboard','vertical/horizontal wheel','drag paintings','scrubber endpoints','native window drag','drawing','page turns preserve ink','window stacking','frameless book drag/resize','hidden freeze/resume','resize'],state:q},null,2));
+ console.log('PASS: native Sketchbook Cover Flow interactions, book ink/page turn, stacking, tab freeze and resize');
+}finally{await browser.close()}
