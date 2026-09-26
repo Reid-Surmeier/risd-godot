@@ -1,0 +1,184 @@
+{
+  "home": {
+    "source": "/tmp/orca-paste-1790463217298-144fe770-a4bf-4757-99ae-db558a9480e7.png",
+    "sha256": "2b1e17713272836bb50b3e71cf8bc4cec82b83843857c7fef538c25d54ae9a5c",
+    "size": [
+      3508,
+      2269
+    ],
+    "crops": {
+      "home-room": [
+        160,
+        113,
+        3210,
+        1914
+      ],
+      "home-materials": [
+        479,
+        133,
+        1951,
+        815
+      ],
+      "home-light-shapes": [
+        1969,
+        514,
+        2838,
+        1480
+      ]
+    }
+  },
+  "white": {
+    "source": "/tmp/orca-paste-1790463548080-87ecd719-a5ca-4ee6-8a22-058045e7850d.png",
+    "sha256": "bc18d9810bb987b2e10fcdf6cadd0e677c77d3e97b73dedaabc065cb432708a3",
+    "size": [
+      2411,
+      1788
+    ],
+    "crops": {
+      "white-vault": [
+        299,
+        0,
+        2106,
+        669
+      ],
+      "white-contact": [
+        1482,
+        1280,
+        2164,
+        1741
+      ]
+    },
+    "samples": {
+      "vault_lit": {
+        "box": [
+          390,
+          130,
+          429,
+          162
+        ],
+        "mean_rgb": [
+          171.6,
+          188.1,
+          189.0
+        ],
+        "display_luma": 0.724
+      },
+      "vault_band": {
+        "box": [
+          702,
+          104,
+          741,
+          143
+        ],
+        "mean_rgb": [
+          130.7,
+          136.6,
+          122.7
+        ],
+        "display_luma": 0.527
+      },
+      "lunette_dark": {
+        "box": [
+          1150,
+          383,
+          1202,
+          416
+        ],
+        "mean_rgb": [
+          88.5,
+          94.4,
+          85.0
+        ],
+        "display_luma": 0.363
+      },
+      "lunette_mid": {
+        "box": [
+          1150,
+          513,
+          1202,
+          546
+        ],
+        "mean_rgb": [
+          115.3,
+          133.5,
+          136.3
+        ],
+        "display_luma": 0.509
+      },
+      "cornice_lip": {
+        "box": [
+          1118,
+          646,
+          1170,
+          651
+        ],
+        "mean_rgb": [
+          143.9,
+          165.2,
+          178.4
+        ],
+        "display_luma": 0.634
+      },
+      "bench_shadow": {
+        "box": [
+          1729,
+          1585,
+          1794,
+          1624
+        ],
+        "mean_rgb": [
+          65.0,
+          63.1,
+          57.4
+        ],
+        "display_luma": 0.247
+      },
+      "floor_beside_bench": {
+        "box": [
+          2132,
+          1579,
+          2197,
+          1618
+        ],
+        "mean_rgb": [
+          108.5,
+          103.3,
+          85.8
+        ],
+        "display_luma": 0.404
+      }
+    }
+  },
+  "owner": {
+    "source": "/tmp/orca-paste-1790463198799-047ab0e7-c761-459e-8fe7-0328d497b00c.png",
+    "sha256": "017320036f706c8f0e9a542e439e32646f8e1c0bb58a6a47e5d5d4d493047386",
+    "size": [
+      2826,
+      2126
+    ],
+    "crops": {
+      "owner-room": [
+        745,
+        414,
+        2154,
+        1322
+      ]
+    }
+  },
+  "candidate": {
+    "source": "/tmp/gallery-refine-verified/dollhouse_shot/01-dollhouse-baked.png",
+    "sha256": "84a36107c447a0ba51dee72e40dd177bc90ed6a19d5e68df1a621f0248827d59",
+    "size": [
+      1920,
+      1080
+    ],
+    "crops": {
+      "candidate-room": [
+        646,
+        210,
+        1345,
+        679
+      ]
+    }
+  }
+}
