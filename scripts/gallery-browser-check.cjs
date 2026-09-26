@@ -15,6 +15,12 @@ const pause = ms => new Promise(r => setTimeout(r, ms));
   await pause(3000);
   if(errors.some(error=>/No loader found|Failed loading resource|RuntimeError/.test(error)))throw new Error(errors.join('\n'));
   await p.screenshot({path:'/tmp/'+label+'-start.png'});
+  if(!label.startsWith('baseline')) {
+   await p.mouse.click(1070,187);await pause(500);
+   await p.screenshot({path:'/tmp/'+label+'-east.png'});
+   await p.mouse.click(1070,187);await pause(500);
+   if(!wallEvents.some(e=>e.includes('east')) || !wallEvents.some(e=>e.includes('west')))throw new Error('Other wall failed one crossing direction');
+  }
   const gpu=await p.evaluate(()=>{const gl=document.createElement('canvas').getContext('webgl2');const ext=gl?.getExtension('WEBGL_debug_renderer_info');return ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):'unknown';});
   await p.keyboard.press('ArrowUp'); await pause(1000);
   const measures=[];
@@ -36,7 +42,7 @@ const pause = ms => new Promise(r => setTimeout(r, ms));
   const ui=[];
   if(!label.startsWith('baseline')) {
    await p.mouse.click(1070,187);await pause(500);
-   ui.push({control:'other-wall',passed:wallEvents.length>0,events:wallEvents});
+   ui.push({control:'other-wall',passed:wallEvents.length>=3,events:wallEvents});
    await p.screenshot({path:'/tmp/'+label+'-other-wall.png'});
    await p.keyboard.press('F6');await pause(200);
    await p.mouse.click(630,550);await pause(300);

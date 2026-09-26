@@ -49,7 +49,7 @@ for this camera decision; billboard rotation cannot supply front/side artwork.
 A directional character pass belongs after the owner chooses the view.
 Visual inspection of the existing held frames identifies alternating contacts
 at frames 0 and 8 of the first 16-frame stride. Later frames turn and settle, so
-they are excluded from the repeating stride. Distance advances the animation;
+they are excluded from the repeating stride. Actual movement speed sets the cadence (about3.6 contacts/s at full keyboard speed);
 crossing a contact frame plays a step, and blocked movement does not advance it.
 No generated pixels or Nintendo source audio were modified.
 
@@ -95,3 +95,26 @@ ETC2/ASTC as well as S3TC/BPTC. The old export disabled both, which omitted the
 newly compressed textures and crashed on load. See the [Godot Web export guide](https://docs.godotengine.org/en/4.5/tutorials/export/exporting_for_web.html).
 The Chrome check waits for completed tab warm-up and rejects missing resources
 before measuring frame times; a loading screen is not a performance result.
+
+## Reference refinement continuation
+
+The normal view hides authoring comparisons; F6 reveals them. OtherWall crosses
+to the opposite collection at the same gallery bay. The selected screenshot's
+measured target is about33% visible character height and80% feet position; the
+current uniform scale/aim trial measures about32%/79%. See
+`docs/research/animal-crossing-reference-composition.md`.
+
+The native bake now uses less omni fill, narrower warm spots and a directional
+skylight. Glazing remains visible but is excluded from static GI geometry;
+runtime shadow flags alone do not exclude it from the bake. Lighting remains
+fully offline. The continuation uses medium bake quality, a lit oak shader with
+a wider minification footprint and reduced grain contrast, bevelled bench
+upholstery with unchanged outer bounds, and a sloped cornice underside. The
+shader retains the existing Muse image bytes; it is a material treatment, not
+a new generated texture or an exact Nintendo lighting reconstruction.
+
+The rendered checks now cover real OtherWall clicks both ways, absence of the
+toolbar after closing artwork, walking/blocked footstep counts, and agreement
+between bench triangle winding and shaded normals. An old-cadence negative
+control fails the two-second walk with four contacts; the candidate gives seven.
+Audio timbre and exact audiovisual phase remain unverified.

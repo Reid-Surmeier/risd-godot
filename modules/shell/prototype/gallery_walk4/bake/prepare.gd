@@ -78,6 +78,11 @@ func _prepare() -> void:
 		instance.name = "Surface%03d" % index
 		instance.mesh = mesh
 		instance.material_override = material
+		if floor_mesh:
+			var oak := ShaderMaterial.new()
+			oak.shader = load(DIR + "oak.gdshader")
+			oak.set_shader_parameter("oak", material.albedo_texture)
+			instance.material_override = oak
 		instance.transform = source.global_transform
 		instance.layers = source.layers
 		instance.gi_mode = GeometryInstance3D.GI_MODE_STATIC
@@ -117,7 +122,7 @@ func _prepare() -> void:
 		spot.light_bake_mode = Light3D.BAKE_STATIC
 		spot.shadow_enabled = true
 	var daylight := DirectionalLight3D.new()
-	daylight.rotation_degrees = Vector3(-60, -25, 0)
+	daylight.rotation_degrees = Vector3(-60, -75, 0)  # across the gallery, avoiding a hard far-lunette shadow
 	daylight.light_color = Color("#eff5ff")
 	daylight.light_energy = 0.8
 	daylight.light_angular_distance = 6.0
@@ -127,7 +132,7 @@ func _prepare() -> void:
 	daylight.owner = room
 	var lm := LightmapGI.new()
 	lm.name = "Lightmap"
-	lm.quality = LightmapGI.BAKE_QUALITY_LOW
+	lm.quality = LightmapGI.BAKE_QUALITY_MEDIUM
 	lm.bounces = 2
 	lm.directional = false
 	lm.generate_probes_subdiv = LightmapGI.GENERATE_PROBES_DISABLED

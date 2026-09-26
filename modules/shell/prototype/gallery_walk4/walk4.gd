@@ -298,6 +298,8 @@ func _build_room() -> void:
 		_box(Vector3(s * (X - 0.06), 0.255, -L / 2), Vector3(0.12, 0.05, L), WHITE, 1, white)
 		_box(Vector3(s * (X - 0.12), H - 0.17, -L / 2), Vector3(0.24, 0.34, L), WHITE, 1, white)
 		_box(Vector3(s * (X - 0.05), H - 0.42, -L / 2), Vector3(0.1, 0.16, L), WHITE, 1, white)
+		# Sloped plaster fascia joins the two cornice steps; its underside bakes separately.
+		_panel(Vector3(s * (X - 0.1), H - 0.50, -L if s > 0 else 0.0), Vector3(0, 0, L * s), Vector3(-s * 0.14, 0.18, 0), white)
 	for z in [-0.12, -L + 0.12]:
 		_box(Vector3(0, H - 0.17, z), Vector3(W, 0.34, 0.24), WHITE, 1, white)
 	# barrel vault from the cornice, end lunettes, and the long skylight curving with it, lamps along its edges
@@ -370,11 +372,44 @@ func _build_room() -> void:
 		bs.position = Vector3(0.08, 0.004, bz + 0.05)
 		bs.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		_vp.add_child(bs)
-		_box(Vector3(0, 0.36, bz), Vector3(0.95, 0.12, 3.0), Color("#2f3a52"))
+		_bench_cushion(bz)
 		_box(Vector3(0, 0.26, bz), Vector3(0.85, 0.08, 2.9), Color("#1d2433"))
 		for lx in [-0.38, 0.38]:
 			for lz in [-1.38, 1.38]:
 				_box(Vector3(lx, 0.11, bz + lz), Vector3(0.06, 0.22, 0.06), Color("#141414"))
+
+
+# Same bench bounds, with bevelled upholstery edges that the lightmap can describe.
+func _bench_cushion(z: float) -> void:
+	var outline := [Vector2(-0.40, -1.5), Vector2(0.40, -1.5), Vector2(0.475, -1.425), Vector2(0.475, 1.425), Vector2(0.40, 1.5), Vector2(-0.40, 1.5), Vector2(-0.475, 1.425), Vector2(-0.475, -1.425)]
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var rings: Array = []
+	for height in [0.30, 0.38, 0.42]:
+		var ring: Array = []
+		for point in outline:
+			var inset := Vector2(signf(point.x), signf(point.y)) * (0.035 if height == 0.42 else 0.0)
+			ring.append(Vector3(point.x - inset.x, height, point.y - inset.y + z))
+		rings.append(ring)
+	for level in 2:
+		for i in 8:
+			var next := (i + 1) % 8
+			var q := [rings[level][i], rings[level][next], rings[level + 1][next], rings[level + 1][i]]
+			var normal: Vector3 = (q[3] - q[0]).cross(q[1] - q[0]).normalized()
+			for corner in [0, 1, 2, 0, 2, 3]:
+				st.set_normal(normal)
+				st.add_vertex(q[corner])
+	for level in [0, 2]:
+		for i in 8:
+			st.set_normal(Vector3.UP if level == 2 else Vector3.DOWN)
+			var first := i if level == 2 else (i + 1) % 8
+			var second := (i + 1) % 8 if level == 2 else i
+			for point in [Vector3(0, 0.42 if level == 2 else 0.30, z), rings[level][first], rings[level][second]]:
+				st.add_vertex(point)
+	var seat := MeshInstance3D.new()
+	seat.mesh = st.commit()
+	seat.material_override = ps(null, Color("#2f3a52"))
+	_vp.add_child(seat)
 
 
 func _rect_floor() -> void:  # under the planks, never seen: only there so nothing shows through

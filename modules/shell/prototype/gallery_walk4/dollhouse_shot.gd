@@ -72,6 +72,25 @@ func _initialize() -> void:
 		var color: Color = image.get_pixelv(Vector2i(pixel))
 		_require(maxf(color.r, maxf(color.g, color.b)) > 0.08, "baked surface is black with runtime lights removed")
 	_require(walk._vp.find_children("*", "Light3D", true, false).is_empty(), "runtime has a live light")
+	var bevel_faces := 0
+	for mesh in walk._baked_room.get_children():
+		if not mesh is MeshInstance3D or not mesh.material_override is StandardMaterial3D:
+			continue
+		if not mesh.material_override.albedo_color.is_equal_approx(Color("#2f3a52")):
+			continue
+		for surface in mesh.mesh.get_surface_count():
+			var arrays: Array = mesh.mesh.surface_get_arrays(surface)
+			var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+			var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
+			var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+			for i in range(0, indices.size(), 3):
+				var a := indices[i]
+				var geometric := (vertices[indices[i + 2]] - vertices[a]).cross(vertices[indices[i + 1]] - vertices[a])
+				_require(geometric.dot(normals[a]) > 0.0, "bench winding opposes its shaded face normal")
+				if absf(normals[a].y) > 0.01 and absf(normals[a].y) < 0.99:
+					bevel_faces += 1
+	_require(bevel_faces > 0, "bench has no sloped upholstery faces")
+	print("DOLLHOUSE_BENCH_BEVEL faces=", bevel_faces)
 	if "--lighting-only" in OS.get_cmdline_user_args():
 		quit(1 if failures else 0)
 		return

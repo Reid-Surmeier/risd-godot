@@ -49,6 +49,7 @@ func _initialize() -> void:
 	walk._pos = Vector3(0, 0, -4.2)
 	walk._update_camera(1.0)
 	await _shot(out_dir, "01-start.png")
+	await _pose(1.8, -6.8, 0, "01b-bench-bevel.png", out_dir)
 	await _pose(0, -3.0, 90, "02-west-wall-near.png", out_dir)
 	await _pose(0, -14.0, 90, "03-west-wall-mid.png", out_dir)
 	await _pose(0, -22.0, 90, "04-west-wall-far.png", out_dir)
