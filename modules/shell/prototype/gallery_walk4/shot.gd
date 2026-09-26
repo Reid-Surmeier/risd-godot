@@ -112,4 +112,32 @@ func _initialize() -> void:
 	await create_timer(2.0).timeout
 	print("STEP-BACK z before %.2f after %.2f target %s" % [z_before, walk._pos.z, str(walk._target)])
 	await _shot(out_dir, "26-after-step-back.png")
+	# Astra round 3: past both benches, from the far end to the arch end
+	await _pose(0, -24.0, 180, "27-far-end-facing-arch.png", out_dir)
+	walk._walk_to(Vector3(0, 0, -5.0))
+	await create_timer(20.0).timeout
+	print("BOTH-BENCHES end pos %s target %s" % [str(walk._pos), str(walk._target)])
+	await _shot(out_dir, "28-after-both-benches.png")
+	# a painting half out of view: close to the east wall, looking along it; click its visible part
+	var e6 := {}
+	for p in walk._paintings:
+		if p.tag == "E6":
+			e6 = p
+	await _pose(3.2, e6.center.z + 1.6, -35, "29-half-visible.png", out_dir)
+	var poly: PackedVector2Array = walk._visible_outline(e6.corners)
+	var inside := Rect2(Vector2.ZERO, walk.size)
+	var pick := Vector2(-1, -1)
+	for q in poly:
+		if inside.grow(-20).has_point(q):
+			pick = q
+			break
+	var cen := Vector2.ZERO
+	for q in poly:
+		cen += q / poly.size()
+	pick = pick.lerp(cen, 0.3) if pick.x >= 0 else cen
+	print("HALF-VISIBLE picks %s at %s" % [walk._painting_at(pick).get("tag", "none"), str(pick)])
+	await _click(walk.get_global_rect().position + pick, "E6 half visible")
+	await create_timer(6.0).timeout
+	print("HALF-VISIBLE open %s" % walk._open.get("tag", "none"))
+	await _shot(out_dir, "30-half-visible-detail.png")
 	quit(0)

@@ -584,7 +584,7 @@ func _walk_to(p: Vector3) -> void:
 	_target = _clamp(p)
 	var pts: Array = [_pos, _target]
 	var i := 0
-	while i < pts.size() - 1 and pts.size() < 12:
+	while i < pts.size() - 1 and pts.size() < 16:
 		var hit := _bench_hit(pts[i], pts[i + 1])
 		if hit == INF:
 			i += 1
@@ -599,18 +599,20 @@ func _walk_to(p: Vector3) -> void:
 		var sb := signf(b.z - bz) if absf(b.z - bz) > 0.01 else sa
 		var detour: Array = []
 		if xa == xb:  # same side of the bench: along the lane from our end to the target's end
-			detour = [Vector3(xa, 0, bz + 1.95 * sa)] if sa == sb else [Vector3(xa, 0, bz + 1.95 * sa), Vector3(xa, 0, bz + 1.95 * sb)]
+			detour = [Vector3(xa, 0, bz + 2.15 * sa)] if sa == sb else [Vector3(xa, 0, bz + 2.15 * sa), Vector3(xa, 0, bz + 2.15 * sb)]
 		else:  # opposite sides: round the bench's end on our side
-			detour = [Vector3(xa, 0, bz + 1.95 * sa), Vector3(xb, 0, bz + 1.95 * sa)]
+			detour = [Vector3(xa, 0, bz + 2.15 * sa), Vector3(xb, 0, bz + 2.15 * sa)]
 		for k in detour.size():
 			pts.insert(i + 1 + k, detour[k])
-		i += detour.size()  # the detour's own legs clear the bench; go on from its last point
+		# no advance: the new legs are checked again against every bench
 	_path = pts.slice(1, pts.size() - 1)
 
 
-# The z of the first bench the straight leg a->b crosses, or INF.
+# The z of the nearest bench (from a) that the straight leg a->b crosses, or INF.
 func _bench_hit(a: Vector3, b: Vector3) -> float:
-	for bz in BENCHES:
+	var order := BENCHES.duplicate()
+	order.sort_custom(func(p: float, q: float) -> bool: return absf(p - a.z) < absf(q - a.z))
+	for bz in order:
 		var r := Rect2(Vector2(-0.48 - 0.5, bz - 1.5 - 0.5), Vector2(0.96 + 1.0, 3.0 + 1.0))
 		var aa := Vector2(a.x, a.z)
 		var bb := Vector2(b.x, b.z)
@@ -635,20 +637,38 @@ func _to_screen(p: Vector3) -> Vector2:
 	return _cam.unproject_position(p) / Vector2(_vp.size) * size
 
 
+# A painting's outline on screen, cut where it passes behind the camera (so a painting half out of view is
+# still clickable by what shows, and a corner behind the camera never flips across the screen).
+func _visible_outline(corners: Array) -> PackedVector2Array:
+	var fwd := -_cam.global_transform.basis.z
+	var o := _cam.global_position + fwd * (_cam.near * 2.0)
+	var kept: Array = []
+	for i in corners.size():
+		var a: Vector3 = corners[i]
+		var b: Vector3 = corners[(i + 1) % corners.size()]
+		var da := (a - o).dot(fwd)
+		var db := (b - o).dot(fwd)
+		if da >= 0.0:
+			kept.append(a)
+		if (da >= 0.0) != (db >= 0.0):
+			kept.append(a + (b - a) * (da / (da - db)))
+	var out := PackedVector2Array()
+	for q in kept:
+		out.append(_to_screen(q))
+	return out
+
+
 # The painting under the pointer: its on-screen outline grown by a margin; the nearest wins.
 func _painting_at(pt: Vector2) -> Dictionary:
 	var best := {}
 	var best_d := INF
 	for p in _paintings:
-		var behind := false
-		for c in p.corners:
-			behind = behind or _cam.is_position_behind(c)
-		if behind or not Rect2(Vector2.ZERO, size).grow(40).has_point(_to_screen(p.center)):
-			continue  # a corner behind the camera flips its projection across the screen
-		var poly := PackedVector2Array()
-		for c in p.corners:
-			poly.append(_to_screen(c))
-		var cen := (poly[0] + poly[2]) / 2.0
+		var poly := _visible_outline(p.corners)
+		if poly.size() < 3:
+			continue
+		var cen := Vector2.ZERO
+		for q in poly:
+			cen += q / poly.size()
 		var grown := PackedVector2Array()
 		for q in poly:
 			grown.append(q + (q - cen).normalized() * 14.0)
