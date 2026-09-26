@@ -1,0 +1,24 @@
+{
+  "issue": 127,
+  "sourceRepository": "https://github.com/ReidSurmeier/risd-3dscans",
+  "sourceCommit": "3cbb1a7cfd5ce6387364a760c32c36de2f33acce",
+  "sourceFile": "data/risd-stream.json",
+  "sourceSha256": "754f15e24a7993938b01af6bf2b770b47a8e276e9dc46253ff7d1a6d3e7264bc",
+  "sourceMode": "Existing catalog snapshot; no new API or ingestion layer. Individual image URLs and hashes in web/paintings.json.",
+  "excluded": [
+    {
+      "id": "52-192",
+      "reason": "Source says painting but image is a line drawing"
+    },
+    {
+      "id": "50-091",
+      "reason": "Source says painting but image is a line drawing"
+    }
+  ],
+  "windowSource": "User attachment orca-paste-1790449018559-9492ca62-d53e-456a-b178-b0295c06a48c.png",
+  "windowSha256": "328f93e97bf1aa72ecb4d4b638fb8553381aef4afbe85fc3ff68840ed925a684",
+  "imageTreatment": "Original source bytes copied without pixel editing; CSS transforms and shadows only",
+  "motionReference": "https://www.youtube.com/watch?v=9RIJhdY6134&t=263s",
+  "motionInspected": "4:26\u20134:38; frame sequence across 4:26\u20134:28 before implementation",
+  "newPaidGenerations": 0
+}
