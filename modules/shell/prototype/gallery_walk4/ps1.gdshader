@@ -17,7 +17,12 @@ uniform vec2 plank = vec2(0.66, 0.11);
 uniform float jitter = 0.0;  // kept so older callers still set them
 uniform bool affine = false;
 
+uniform vec2 floor_z_limits = vec2(-26.3, 0.0);
+varying float floor_world_z;
+void vertex() { floor_world_z = (MODEL_MATRIX * vec4(VERTEX, 1.0)).z; }
+
 void fragment() {
+	if (plank_seams && (floor_world_z < floor_z_limits.x || floor_world_z > floor_z_limits.y)) { discard; }
 	vec4 c = use_texture ? texture(albedo, UV * uv_scale) : vec4(1.0);
 	c *= tint;
 	if (use_vertex_color) {
