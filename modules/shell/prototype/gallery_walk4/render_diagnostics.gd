@@ -14,6 +14,7 @@ var _frame_delta_ms := 0.0
 var _measure_gpu := false
 var _last_draw_us := 0
 var _draw_interval_ms := 0.0
+var _chart: TextureRect
 const MODES := {"current": [2, 0.5], "copy-none": [2, 0.0], "copy-full": [2, 1.0], "rgb6-plain": [1, 0.5], "bypass": [0, 0.0]}
 
 func _ready() -> void:
@@ -46,9 +47,11 @@ func _command(args: Array) -> void:
 			var wanted := str(request.get("mode", "current"))
 			if MODES.has(wanted):
 				_mode = wanted
-				var material: ShaderMaterial = view.get_child(0).material
+				var material: ShaderMaterial = view._vp.get_parent().material
 				material.set_shader_parameter("quantization_mode", MODES[wanted][0])
 				material.set_shader_parameter("copy_filter", MODES[wanted][1])
+		"chart":
+			_chart_visible(bool(request.get("visible", false)))
 		"pose":
 			_replay = false
 			set_process(false)
@@ -63,6 +66,20 @@ func _command(args: Array) -> void:
 			set_process(false)
 			view.set_process(true)
 	_publish()
+
+func _chart_visible(enabled: bool) -> void:
+	if _chart == null:
+		var image := Image.create(64, 64, false, Image.FORMAT_RGBA8)
+		for y in 64:
+			for x in 64:
+				image.set_pixel(x, y, Color(float(x) / 63.0, float(y % 8) / 7.0, float((x + y) % 16) / 15.0))
+		_chart = TextureRect.new()
+		_chart.texture = ImageTexture.create_from_image(image)
+		_chart.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		_chart.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		view._vp.add_child(_chart)
+	_chart.size = Vector2(view._vp.size)
+	_chart.visible = enabled
 
 func _pose(scene: String) -> void:
 	_scene = scene
@@ -127,8 +144,11 @@ func _publish() -> void:
 		"container": [view.size.x, view.size.y], "space": view._space,
 		"position": [view._pos.x, view._pos.y, view._pos.z], "camera_transform": values,
 		"camera_fov": camera.fov, "camera_yaw": view.view_yaw, "paintings": view._paintings.size()}
-	var box: SubViewportContainer = view.get_child(0)
+	var box: SubViewportContainer = view._vp.get_parent()
 	var finish: ShaderMaterial = box.material
+	var display_rect: Rect2 = view.get_global_rect()
+	var desktop_size: Vector2 = Vector2(view.get_viewport().size)
+	state["display_rect_normalized"] = [display_rect.position.x / desktop_size.x, display_rect.position.y / desktop_size.y, display_rect.end.x / desktop_size.x, display_rect.end.y / desktop_size.y]
 	state["display_material"] = {"node": str(box.get_path()), "class": box.get_class(), "visible": box.is_visible_in_tree(), "use_parent_material": box.use_parent_material, "instance": finish.get_instance_id(), "shader": finish.shader.resource_path, "copy_filter": finish.get_shader_parameter("copy_filter"), "quantization_mode": finish.get_shader_parameter("quantization_mode")}
 	state["godot_delta_ms"] = _frame_delta_ms
 	state["godot_process_ms"] = Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0

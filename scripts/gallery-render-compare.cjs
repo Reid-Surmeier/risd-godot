@@ -25,7 +25,23 @@ const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
   const gpu=await page.evaluate(()=>{const gl=document.createElement('canvas').getContext('webgl2');const ext=gl?.getExtension('WEBGL_debug_renderer_info');return ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):'unknown';});
   console.log(JSON.stringify({gpu,expected_gpu:process.env.PRODUCER_BROWSER_GPU_MODE||'unspecified'}));
   if(process.env.PRODUCER_BROWSER_GPU_MODE==='hardware' && /llvmpipe|swiftshader|software|unknown/i.test(gpu))throw new Error('Hardware capture requested but renderer is '+gpu);
-  const command=async request=>{await page.evaluate(r=>window.galleryRenderCommand(JSON.stringify(r)),request);await pause(60);};
+  const command=async request=>{
+   await page.evaluate(r=>window.galleryRenderCommand(JSON.stringify(r)),request);await pause(60);
+   const state=await page.evaluate(()=>window.galleryRenderState);
+   if(state?.display_material?.class!=='SubViewportContainer' || !state.display_material.shader.endsWith('/gamecube.gdshader'))throw new Error('Diagnostic did not address actual gallery material: '+JSON.stringify(state?.display_material));
+  };
+  // Prove the intervention changes pixels on the actual displayed viewport before a blind run.
+  await command({action:'pose',scene:'warm'});await command({action:'chart',visible:true});
+  const preflight=out+'-preflight';fs.mkdirSync(preflight,{recursive:true});
+  for(const mode of ['bypass','current']){await command({action:'mode',mode});await pause(300);await page.screenshot({path:path.join(preflight,mode+'.png')});}
+  const diagnostic=await page.evaluate(()=>window.galleryRenderState);
+  const changed=Number(require('child_process').execFileSync('python3',['-c',
+   'from PIL import Image; import sys; a=Image.open(sys.argv[1]).convert("RGB"); b=Image.open(sys.argv[2]).convert("RGB"); r=list(map(float,sys.argv[3].split(","))); box=tuple(round(v*(a.width if i%2==0 else a.height)) for i,v in enumerate(r)); print(sum(x!=y for x,y in zip(a.crop(box).getdata(),b.crop(box).getdata())))',
+   path.join(preflight,'bypass.png'),path.join(preflight,'current.png'),diagnostic.display_rect_normalized.join(',')],{encoding:'utf8'}).trim());
+  if(changed===0)throw new Error('Displayed high-gradient control is unchanged between bypass and current');
+  fs.writeFileSync(path.join(preflight,'result.json'),JSON.stringify({changed_pixels:changed,gpu,diagnostic},null,2));
+  console.log(JSON.stringify({preflight_changed_pixels:changed}));
+  await command({action:'chart',visible:false});
   const results=[];
   for(const width of (process.env.RENDER_WIDTHS||'1600,720').split(',').map(Number)) {
    const height=width===1600?900:486;
