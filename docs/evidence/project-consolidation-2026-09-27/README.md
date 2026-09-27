@@ -16,6 +16,8 @@ Tested Web game commit: **407828a**. The same-origin server includes **9505c16**
 | `npm run test:collection` | 6/6, including exact bytes/MIME for GLB, OGV, SWF, text and explicit gzip downloads |
 | `scripts/check-gallery.sh` | Exit 0 on NVIDIA RTX 4070 SUPER; render, motion, rig, floor clearance, navigation and dollhouse checks report zero failures; 300 navigation trials passed |
 | Unchanged `modules/sketchbook/playtest/coverflow.mjs` | Passed: animated loader, seven tabs, six paintings, frameless book, pointer/keyboard/wheel/scrubber, drag/resize, drawing, page turns retaining ink, stacking and hidden-tab freeze/resume |
+| Gallery browser controls | Six controls passed on hardware ANGLE/D3D12; frame samples approximately 16.67 ms at 1600×900. The log retains resource 404/COEP warnings and unsupported 2D MSAA warnings; this is not a clean-console or cross-device performance claim. |
+| GitHub Verify | Run [36333149756](https://github.com/Reid-Surmeier/risd-godot/actions/runs/36333149756) failed before any test steps. No job log was available; annotation access returned HTTP 403. Local passing checks do not establish green CI. |
 | Git history recovery | Pre-consolidation bundle cloned into temporary RAM storage; `git fsck --full` passed, 251 refs recovered |
 
 Browser screenshots were inspected directly. This run verifies retained behavior and layout; it is not an M3 performance measurement or visual acceptance of the rejected character, wall/door/floor details or retro shader strength. Asset backups are tracked separately in the preservation receipts; a passing game check does not authorize cleanup.

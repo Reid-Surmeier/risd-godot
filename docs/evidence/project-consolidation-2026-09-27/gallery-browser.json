@@ -1,0 +1,110 @@
+{
+  "url": "https://windows-wsl.taile06c45.ts.net/sketchbook-coverflow-01a0df0c/407828a.html",
+  "label": "risd-consolidated-gallery",
+  "viewport": [
+    1600,
+    900
+  ],
+  "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+  "measures": [
+    {
+      "phase": "standing",
+      "samples": 300,
+      "median_ms": 16.665000000000873,
+      "p95_ms": 16.67000000000189,
+      "mean_ms": 16.666016666666668
+    },
+    {
+      "phase": "walking",
+      "samples": 301,
+      "median_ms": 16.665000000000873,
+      "p95_ms": 16.67000000000189,
+      "mean_ms": 16.665996677740864
+    },
+    {
+      "phase": "turning",
+      "samples": 301,
+      "median_ms": 16.665000000000873,
+      "p95_ms": 16.67000000000553,
+      "mean_ms": 16.665996677740853
+    }
+  ],
+  "transfer_bytes": 127900376,
+  "ui": [
+    {
+      "control": "visible-entrance",
+      "passed": true,
+      "events": [
+        "ENTRY_COMPLETE (0.0, 0.0, -2.553806)"
+      ]
+    },
+    {
+      "control": "mouse-drag-no-click",
+      "passed": true,
+      "orbit": {
+        "position": [
+          0,
+          -2.55380630493164
+        ],
+        "space": "gallery",
+        "yaw": -2.12345206695842
+      }
+    },
+    {
+      "control": "horizontal-wheel-both-directions",
+      "passed": true,
+      "forward": {
+        "position": [
+          0,
+          -2.55380630493164
+        ],
+        "space": "gallery",
+        "yaw": -1.16348913064205
+      },
+      "reverse": {
+        "position": [
+          0,
+          -2.55380630493164
+        ],
+        "space": "gallery",
+        "yaw": -2.12173860174052
+      }
+    },
+    {
+      "control": "other-wall",
+      "passed": true,
+      "events": [
+        "OTHER_WALL west",
+        "OTHER_WALL east",
+        "OTHER_WALL west",
+        "OTHER_WALL east"
+      ]
+    },
+    {
+      "control": "camera",
+      "url": "https://windows-wsl.taile06c45.ts.net/sketchbook-coverflow-01a0df0c/407828a.html?lighting=baked&variant=gallery",
+      "passed": true
+    },
+    {
+      "control": "lighting",
+      "url": "https://windows-wsl.taile06c45.ts.net/sketchbook-coverflow-01a0df0c/407828a.html?lighting=original&variant=gallery",
+      "passed": true
+    }
+  ],
+  "errors": [
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "WARNING: 2D MSAA is not yet supported for GLES3.",
+    "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+    "WARNING: 2D MSAA is not yet supported for GLES3.",
+    "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOriginAfterDefaultedToSameOriginByCoep",
+    "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOriginAfterDefaultedToSameOriginByCoep",
+    "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOriginAfterDefaultedToSameOriginByCoep",
+    "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOriginAfterDefaultedToSameOriginByCoep",
+    "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOriginAfterDefaultedToSameOriginByCoep",
+    "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOriginAfterDefaultedToSameOriginByCoep",
+    "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOriginAfterDefaultedToSameOriginByCoep",
+    "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOriginAfterDefaultedToSameOriginByCoep",
+    "Failed to load resource: net::ERR_BLOCKED_BY_RESPONSE.NotSameOriginAfterDefaultedToSameOriginByCoep"
+  ]
+}

@@ -40,14 +40,14 @@ Local audit files in the preservation directory:
 
 - `repository-history.bundle`: all local refs before consolidation, including unpublished branches; `git bundle verify` passed.
 - `hashed-inventory.json` and `selected-originals.json`: source paths, SHA-256 hashes and deduplicated selections. The selected set is 9,068 unique original files, 12,906,945,296 bytes. Duplicate paths are retained in the full inventory.
-- `recovery/`: staged/unstaged patches, tracked dirty-file snapshots, worktree identity and GitHub issue/comment export.
+- `recovery/`: staged/unstaged binary patches, tracked-file inventories, worktree identity and GitHub issue/comment export.
 - `backup-registry.toml`, `run-backups.py`, `receipts/` and `backup-progress.log`: exact upload allowlist and verification evidence. Rebuildable exclusions are recorded in `excluded-rebuildable.json`.
 
 Backup completion is recorded in the committed evidence report after all sets verify. Do not remove sources based on this document alone. This is a point-in-time preservation run, not a claim that future edits are automatically backed up. Re-inventory new originals and make a fresh Git bundle before a later cleanup.
 
 ## Restore without overwriting current work
 
-1. Use the installed `proton-drive` CLI with `PROTON_DRIVE_CREDENTIALS_STORE=pass`. Obtain credentials through the existing encrypted store; never put values in a command or document. Download the history and metadata snapshots identified by the receipts into a new recovery directory. Check their manifest hashes and each member's SHA-256 before extraction; inspect TAR member paths and reject absolute paths or `..` traversal.
+1. Use the installed `proton-drive` CLI with `PROTON_DRIVE_CREDENTIALS_STORE=pass`. Obtain credentials through the existing encrypted store; never put values in a command or document. Download the history and metadata snapshots identified by the receipts into a new recovery directory. Check `archive_sha256` and every member against the downloaded manifest (the existing `workspace_ops.backups.verify_archive_contents` accepts that manifest). The folder hash identifies the canonical manifest payload, not the formatted JSON file. Before extraction, inspect TAR member paths and reject absolute paths or `..` traversal.
 2. Run `git bundle verify repository-history.bundle` from a Git repository, then clone the bundle into a new checkout. Fetch all branch/tag refs from the bundle if the default clone does not create the local branch names you need. Import any subsequent history bundle in chronological order; incremental bundles require the base history.
 3. Download original-object batches. Each member is `objects/<sha256>/<original-basename>`. Match it with `selected-originals.json`; use `hashed-inventory.json` to recover every original location, including duplicate paths. Restore beneath a separate recovery root first, not directly over the current home directory. Recheck SHA-256 after writing.
 4. Recreate a dirty worktree at the recorded base commit and apply its saved staged and unstaged patches in that order. Restore untracked objects from the inventory separately. Preservation branches are archival source, not automatically approved changes to the game.
