@@ -32,6 +32,8 @@ The audit found **185 Git worktree records, 178 existing directories and five di
 
 The catalog distinguishes Git-backed files from untracked originals. It does not pretend generated originals are reproducible from their prompts. Avoid dumping large originals into ordinary Git or creating another complete project copy. Orca's repository base ref is `build/v0.1.0`; the Collection server on port 8142 runs from the canonical checkout.
 
+Godot ignores the authoring roots `artifacts/`, `image-work/` and singular `prototype/` through committed `.gdignore` files. This matters when the canonical checkout also holds originals: generation-output JSON had inflated the game pack to 2,043,114,320 bytes. Excluding authoring artifacts reduced it to 126,225,688 bytes (105,142,583 compressed). Package inspection confirmed those roots are absent while plural `prototypes/painting-coverflow/web/` and `modules/shell/prototype/gallery_walk4/` remain included. Source originals were not deleted or changed.
+
 ## Backup record
 
 Private destination: **Proton Drive `/my-files/Backups/projects/risd-godot/`**. Each immutable snapshot has a manifest-hash folder with `<backup-id>-<manifest-sha256>.tar` and `<backup-id>-<manifest-sha256>.manifest.json`. The existing Workspace Operations backup runner uploads, downloads, checks both hashes and verifies every archived member. An upload alone is not a verified backup.
