@@ -9,6 +9,8 @@ var _replay := false
 var _tick := 0
 var _scene := "warm"
 var _mode := "current"
+var _render_viewports: Array[Viewport] = []
+var _frame_delta_ms := 0.0
 const MODES := {"current": [2, 0.5], "copy-none": [2, 0.0], "copy-full": [2, 1.0], "rgb6-plain": [1, 0.5], "bypass": [0, 0.0]}
 
 func _ready() -> void:
@@ -16,6 +18,10 @@ func _ready() -> void:
 	_window = JavaScriptBridge.get_interface("window")
 	_callback = JavaScriptBridge.create_callback(_command)
 	_window.galleryRenderCommand = _callback
+	for viewport: Viewport in [view._vp, view.get_viewport(), get_tree().root]:
+		if viewport not in _render_viewports:
+			_render_viewports.append(viewport)
+			RenderingServer.viewport_set_measure_render_time(viewport.get_viewport_rid(), true)
 	set_process(false)
 	_publish()
 
@@ -72,6 +78,7 @@ func _pose(scene: String) -> void:
 	view._update_camera(1.0)
 
 func _process(_delta: float) -> void:
+	_frame_delta_ms = _delta * 1000.0
 	if not _replay:
 		return
 	# All modes replay the same 8-second input schedule at 60 simulation ticks/s.
@@ -98,10 +105,18 @@ func _publish() -> void:
 	var values := []
 	for column in [transform.basis.x, transform.basis.y, transform.basis.z, transform.origin]:
 		values.append([column.x, column.y, column.z])
+	var timings := []
+	for viewport in _render_viewports:
+		var rid := viewport.get_viewport_rid()
+		timings.append({"viewport": str(viewport.get_path()), "cpu_ms": RenderingServer.viewport_get_measured_render_time_cpu(rid), "gpu_ms": RenderingServer.viewport_get_measured_render_time_gpu(rid)})
 	var state := {"mode": _mode, "scene": _scene, "tick": _tick, "replaying": _replay,
 		"viewport": [view._vp.size.x, view._vp.size.y], "msaa_3d": view._vp.msaa_3d,
 		"backend": RenderingServer.get_current_rendering_method(), "engine": Engine.get_version_info().string,
 		"container": [view.size.x, view.size.y], "space": view._space,
 		"position": [view._pos.x, view._pos.y, view._pos.z], "camera_transform": values,
 		"camera_fov": camera.fov, "camera_yaw": view.view_yaw, "paintings": view._paintings.size()}
+	state["godot_delta_ms"] = _frame_delta_ms
+	state["godot_process_ms"] = Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0
+	state["render_setup_cpu_ms"] = RenderingServer.get_frame_setup_time_cpu()
+	state["viewport_render_timings"] = timings
 	JavaScriptBridge.eval("window.galleryRenderState = " + JSON.stringify(state))
