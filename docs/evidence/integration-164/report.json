@@ -2,7 +2,7 @@
   "log": [
     {
       "event": "click",
-      "t_ms": 9871,
+      "t_ms": 10402,
       "what": "Tab map",
       "x": 164.150314331055,
       "y": 1052.11401367188
@@ -10,11 +10,11 @@
     {
       "event": "screenshot",
       "file": "tab-map.png",
-      "t_ms": 11559
+      "t_ms": 12257
     },
     {
       "event": "click",
-      "t_ms": 12260,
+      "t_ms": 12962,
       "what": "Tab sketchbook",
       "x": 290.62890625,
       "y": 1052.73486328125
@@ -22,11 +22,11 @@
     {
       "event": "screenshot",
       "file": "tab-sketchbook.png",
-      "t_ms": 14199
+      "t_ms": 15060
     },
     {
       "event": "click",
-      "t_ms": 15157,
+      "t_ms": 16138,
       "what": "Tab 3d_viewer",
       "x": 417.474822998047,
       "y": 1053.10534667969
@@ -34,11 +34,11 @@
     {
       "event": "screenshot",
       "file": "tab-3d_viewer.png",
-      "t_ms": 17542
+      "t_ms": 18645
     },
     {
       "event": "click",
-      "t_ms": 17876,
+      "t_ms": 18994,
       "what": "Tab video_player",
       "x": 544.501953125,
       "y": 1053.22314453125
@@ -46,11 +46,11 @@
     {
       "event": "screenshot",
       "file": "tab-video_player.png",
-      "t_ms": 19319
+      "t_ms": 20465
     },
     {
       "event": "click",
-      "t_ms": 19506,
+      "t_ms": 20650,
       "what": "Tab collection",
       "x": 671.522399902344,
       "y": 1053.08752441406
@@ -58,11 +58,11 @@
     {
       "event": "screenshot",
       "file": "tab-collection.png",
-      "t_ms": 22691
+      "t_ms": 23771
     },
     {
       "event": "click",
-      "t_ms": 23129,
+      "t_ms": 24184,
       "what": "Tab playground",
       "x": 798.348388671875,
       "y": 1052.69909667969
@@ -70,11 +70,11 @@
     {
       "event": "screenshot",
       "file": "tab-playground.png",
-      "t_ms": 24434
+      "t_ms": 25505
     },
     {
       "event": "click",
-      "t_ms": 24621,
+      "t_ms": 25691,
       "what": "Tab flowers",
       "x": 924.794006347656,
       "y": 1052.060546875
@@ -82,11 +82,11 @@
     {
       "event": "screenshot",
       "file": "tab-flowers.png",
-      "t_ms": 25858
+      "t_ms": 27048
     },
     {
       "event": "click",
-      "t_ms": 25978,
+      "t_ms": 27184,
       "what": "Start",
       "x": 50.5980606079102,
       "y": 1052.82543945312
@@ -94,31 +94,31 @@
     {
       "event": "screenshot",
       "file": "start.png",
-      "t_ms": 27282
+      "t_ms": 28609
     },
     {
       "event": "key",
       "keycode": "Enter",
-      "t_ms": 27381,
+      "t_ms": 28712,
       "what": "Start menu Map"
     },
     {
       "event": "click",
-      "t_ms": 28879,
+      "t_ms": 30314,
       "what": "Collection before Home",
       "x": 671.522399902344,
       "y": 1053.08752441406
     },
     {
       "event": "click",
-      "t_ms": 31928,
+      "t_ms": 33556,
       "what": "Home",
       "x": 1034.34875488281,
       "y": 1052.78723144531
     },
     {
       "event": "click",
-      "t_ms": 33803,
+      "t_ms": 35474,
       "what": "Top Search",
       "x": 729.977722167969,
       "y": 27.0601539611816
@@ -126,11 +126,11 @@
     {
       "event": "screenshot",
       "file": "top-search.png",
-      "t_ms": 35147
+      "t_ms": 36804
     },
     {
       "event": "click",
-      "t_ms": 35355,
+      "t_ms": 37011,
       "what": "Playground explore",
       "x": 64.0915832519531,
       "y": 158.474273681641
@@ -138,16 +138,16 @@
     {
       "event": "screenshot",
       "file": "playground-explore.png",
-      "t_ms": 36683
+      "t_ms": 38328
     },
     {
       "event": "screenshot",
       "file": "playground-explore-scrolled.png",
-      "t_ms": 37030
+      "t_ms": 38677
     },
     {
       "event": "click",
-      "t_ms": 37402,
+      "t_ms": 39027,
       "what": "Playground all",
       "x": 156.010482788086,
       "y": 158.010375976562
@@ -155,11 +155,11 @@
     {
       "event": "screenshot",
       "file": "playground-all.png",
-      "t_ms": 38750
+      "t_ms": 40413
     },
     {
       "event": "click",
-      "t_ms": 38873,
+      "t_ms": 40551,
       "what": "Playground channels",
       "x": 254.718521118164,
       "y": 157.622695922852
@@ -167,11 +167,11 @@
     {
       "event": "screenshot",
       "file": "playground-channels.png",
-      "t_ms": 40140
+      "t_ms": 42209
     },
     {
       "event": "click",
-      "t_ms": 40379,
+      "t_ms": 42446,
       "what": "Playground search",
       "x": 344.177612304688,
       "y": 157.3701171875
@@ -179,7 +179,7 @@
     {
       "event": "screenshot",
       "file": "playground-search.png",
-      "t_ms": 41654
+      "t_ms": 44071
     }
   ],
   "viewport": [

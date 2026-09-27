@@ -44,6 +44,7 @@ var container := SubViewportContainer.new()
 var viewport := SubViewport.new()
 var map: Node2D
 var panels: Dictionary = {}
+var minimap_heading := ColorRect.new()
 const ARTWORK_POPUP_SIZE := Vector2(800, 600)
 const ARTWORK_SCALE := 0.5
 
@@ -94,6 +95,17 @@ func _ready() -> void:
 		panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		add_child(panel)
 		panels[id] = panel
+	minimap_heading.color = Color("#e8f4f7")
+	minimap_heading.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	panels.minimap.add_child(minimap_heading)
+	var label := Label.new()
+	label.text = "MINI MAP"
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.add_theme_font_size_override("font_size", 14)
+	label.add_theme_color_override("font_color", Color("#385e78"))
+	label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	minimap_heading.add_child(label)
 	frame.name = "map"
 	frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(frame)
@@ -203,6 +215,8 @@ func _draw_artwork_frame() -> void:
 ## left panels, its bottom its gap above the chat, while its top and right run to the page edge
 ## minus the desktop's own native margin (FRAME_FAR_GAP). Re-laid out on every resize.
 func _fit_window() -> void:
+	# Compact Pages use the selected #164 heading in place of the baked clock.
+	minimap_heading.visible = size.x * DESKTOP_SIZE.y < size.y * DESKTOP_SIZE.x
 	action = ""
 	moving_window = null
 	if size.x < 2 or size.y < 2:
@@ -218,6 +232,8 @@ func _fit_window() -> void:
 			at.y = far.y
 		panels[id].position = at.round()
 		panels[id].size = (r.size * scale).round()
+	minimap_heading.position = Vector2(panels.minimap.size.x * 0.07, 0)
+	minimap_heading.size = Vector2(panels.minimap.size.x * 0.74, panels.minimap.size.y * 0.35)
 	frame.position = (FRAME_RECT.position * scale).round()
 	frame.size = (size - FRAME_FAR_GAP * scale).round() - frame.position
 	chrome_scale = minf(1.0, FRAME_RECT.size.x / 1724.0 * scale)

@@ -82,6 +82,7 @@ func _ready() -> void:
 		push_error("sound cues: %s" % sounds.error.code)
 		return
 	add_child(sounds.value)
+	created.value._square_stage = true
 	add_child(created.value)
 	SoundCues.attach(sounds.value, created.value)
 	var chrome := preload("res://modules/shell/square_chrome.gd").new()

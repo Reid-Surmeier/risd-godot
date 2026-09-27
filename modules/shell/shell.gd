@@ -34,6 +34,7 @@ var _fixed: Array = []  # [{key, page, tenant: Control|null, error: String}] by 
 var _shown: Array = []  # the Pages on screen: the active one, plus any still fading out
 var _fade: Tween
 var _switching := false
+var _square_stage := false
 
 
 static func create(registry: Dictionary) -> Dictionary:
@@ -170,8 +171,9 @@ func _create_tenant(f: Dictionary) -> void:
 		return
 	f.tenant = result.value
 	f.page.add_child(f.tenant)
-	DesktopIcons.insert(f.tenant)  # prototype: the owner's desktop icons under this Page's windows
-	WindowShadows.attach(f.tenant)  # prototype: a light drop shadow under every window of this Page
+	if not (_square_stage and f.key == "playground"):
+		DesktopIcons.insert(f.tenant)
+		WindowShadows.attach(f.tenant)
 	if f.key == "sketchbook":  # prototype: the hover glow on every button of the Sketchbook Page first
 		HoverGlow.attach_all(f.tenant)
 	emit_signal("tenant_created", f.key)

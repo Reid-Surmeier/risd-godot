@@ -46,3 +46,19 @@ The frozen Shell fixture was not changed to conceal those baseline failures.
 Selected sources: chrome A at `89b0e39c` (#156), Playground A at `542f1394`
 (#158). Runtime asset hashes and origins are retained in the owning modules'
 `PROVENANCE.md` and asset manifests. New paid generation: zero calls, USD 0.
+
+## Technical-review repairs
+
+Atlas now owns its compact-layout clock heading. Shell omits its own Playground
+desktop decorations before mounting; chrome no longer traverses either Tenant's
+children. The stripe raster is Shell-owned, with source and output hashes recorded.
+Four duplicate query assignments were removed; the input's text-change signal
+remains the single update path.
+
+After these repairs, the native Playground acceptance and full square mouse/key/
+wheel capture passed again, and refreshed Map/Search captures were visually
+inspected. `scripts/check.sh` and `git diff --check` passed. The Atlas playtest
+reports 68/78 on both this tree and untouched main: all ten failure lines are
+identical (`/tmp/risd-164-review-atlas.log` and
+`/tmp/risd-164-review-atlas-main.log`). No frozen interface, error or acceptance
+file changed in this repair.

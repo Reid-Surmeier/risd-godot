@@ -302,7 +302,6 @@ func _search_controls() -> float:
 	field.max_length = 256
 	field.text_changed.connect(func(text): query = text)
 	var search := func(_text = ""):
-		query = field.text
 		_render()
 	field.text_submitted.connect(search)
 	_put(field, Rect2(0, 52, 742, 46))
@@ -315,15 +314,12 @@ func _search_controls() -> float:
 			materials.append(record.materials)
 	_put(_choice(materials, 0 if material_filter.is_empty() else materials.find(material_filter), func(index):
 		material_filter = "" if index == 0 else materials[index]
-		query = field.text
 		_render()), Rect2(0, 112, 430, 40))
 	_put(_choice(["Title A–Z", "Oldest first", "Newest first"], sort_order, func(index):
 		sort_order = index
-		query = field.text
 		_render()), Rect2(444, 112, 147, 40))
 	_put(_button(("☑" if images_only else "☐") + " Has images", func():
 		images_only = not images_only
-		query = field.text
 		_render(), 14, true), Rect2(606, 112, 124, 40))
 	_put(_button("Clear", func():
 		query = ""

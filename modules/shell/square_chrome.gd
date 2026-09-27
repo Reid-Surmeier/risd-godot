@@ -29,7 +29,7 @@ func _ready() -> void:
 	add_child(strip)
 	for bar in [header, strip]:
 		bar.size = Vector2(1080, 54)
-		_raster(bar, "res://modules/tab_strip/assets/compact/bar_stripes.png", Rect2(0, 0, 1080, 54))
+		_raster(bar, ASSETS + "bar_stripes.png", Rect2(0, 0, 1080, 54))
 	var brand := Label.new()
 	brand.text = "RISD MUSEUM"
 	brand.position = Vector2(18, 14)
@@ -155,34 +155,7 @@ func _open_start() -> void:
 
 
 func _prepare_tenant(key: String) -> void:
-	if key == "playground":
-		# The selected Playground grid occupies its whole Page, without desktop decoration.
-		var tenant := pages.get_node("Page_playground").get_child(0) as Control
-		tenant.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-		var icons := tenant.find_child("DesktopIcons", true, false) as Control
-		if icons != null:
-			icons.hide()
-		tenant.get_node("WindowShadows").process_mode = Node.PROCESS_MODE_DISABLED
-	elif key == "map":
-		var minimap := pages.get_node_or_null("Page_map/Atlas/minimap") as Control
-		if minimap != null:
-			var mask := ColorRect.new()
-			mask.color = Color("#e8f4f7")
-			mask.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			minimap.add_child(mask)
-			var label := Label.new()
-			label.text = "MINI MAP"
-			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-			label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-			label.add_theme_font_size_override("font_size", 14)
-			label.add_theme_color_override("font_color", Color("#385e78"))
-			label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-			mask.add_child(label)
-			minimap.resized.connect(func() -> void:
-				mask.position = Vector2(minimap.size.x * 0.07, 0)
-				mask.size = Vector2(minimap.size.x * 0.74, minimap.size.y * 0.35))
-			minimap.resized.emit()
-	elif key == "collection":
+	if key == "collection":
 		var collection := pages.get_node("Page_collection/CollectionFrame") as TextureRect
 		var mask := ColorRect.new()
 		mask.color = Color.WHITE

@@ -1,5 +1,15 @@
 [
   {
+    "asset": "bar_stripes",
+    "source": "modules/tab_strip/assets/compact/bar_stripes.png",
+    "crop": null,
+    "binaryGroundRemoval": false,
+    "sourceSha256": "433b984f2cb2d606159548237b3d7be3549469b0999175b41da20106f103dd5e",
+    "sha256": "433b984f2cb2d606159548237b3d7be3549469b0999175b41da20106f103dd5e",
+    "provider": "existing source; no new request",
+    "newCostUSD": 0
+  },
+  {
     "asset": "map",
     "source": "modules/tab_strip/assets/compact/icon_map.png",
     "crop": null,
