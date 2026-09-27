@@ -1,0 +1,88 @@
+{
+  "method": "Manual visible silhouette landmarks, shadows excluded; coordinates in full screenshot; \u00b12 px endpoints. Game viewport excludes gold frame and desktop. Ratios are arithmetic, not subpixel accuracy.",
+  "reference": {
+    "height_percent": 33.4,
+    "feet_percent": 80.6,
+    "source": "../../research/animal-crossing-reference-composition.md"
+  },
+  "samples": [
+    {
+      "file": "baseline-1600-entry.png",
+      "viewport_crop_xyxy": [
+        542,
+        175,
+        1128,
+        567
+      ],
+      "crown_y": 382,
+      "feet_y": 491,
+      "height_percent": 27.81,
+      "feet_percent": 80.61
+    },
+    {
+      "file": "candidate-1600-entry.png",
+      "viewport_crop_xyxy": [
+        542,
+        175,
+        1128,
+        567
+      ],
+      "crown_y": 359,
+      "feet_y": 494,
+      "height_percent": 34.44,
+      "feet_percent": 81.38
+    },
+    {
+      "file": "baseline-720-entry.png",
+      "viewport_crop_xyxy": [
+        217,
+        94,
+        538,
+        309
+      ],
+      "crown_y": 206,
+      "feet_y": 267,
+      "height_percent": 28.37,
+      "feet_percent": 80.47
+    },
+    {
+      "file": "candidate-720-entry.png",
+      "viewport_crop_xyxy": [
+        217,
+        94,
+        538,
+        309
+      ],
+      "crown_y": 193,
+      "feet_y": 268,
+      "height_percent": 34.88,
+      "feet_percent": 80.93
+    },
+    {
+      "file": "../gallery-42-integrated/entry-1600.png",
+      "viewport_crop_xyxy": [
+        542,
+        175,
+        1128,
+        567
+      ],
+      "crown_y": 382,
+      "feet_y": 490,
+      "height_percent": 27.55,
+      "feet_percent": 80.36
+    },
+    {
+      "file": "../gallery-camera-pitch/candidate-720-entry.png",
+      "viewport_crop_xyxy": [
+        217,
+        94,
+        538,
+        309
+      ],
+      "crown_y": 206,
+      "feet_y": 267,
+      "height_percent": 28.37,
+      "feet_percent": 80.47
+    }
+  ]
+}
