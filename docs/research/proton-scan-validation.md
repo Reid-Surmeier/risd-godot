@@ -138,3 +138,18 @@ No authoritative source in the local OBJ, MTL, GLB or manifests supplies museum 
 No source, selected GLB, runtime asset, runtime code or frozen test changed. Paid actions: none; cost USD 0. The `research` workflow was carried out on its existing isolated research branch; its cited evidence and diagnostic harness remain outside runtime assets.
 
 Verification: both material trials exited 0 and saved all 28 expected captures; `scripts/check.sh` passed (existing ObjectDB leak warning), and `git diff --check` passed. [Capture SHA-256 manifest](proton-scan-validation/diagnostic-sha256.txt) pins the new evidence. These checks establish diagnostic execution only, not visual acceptance.
+
+## Independent image-only review of the diagnostic candidates — 27 September
+
+An independent GPT-6 Astra reviewer at medium effort saw only the matched Buddha/candidate [comparison sheet](proton-scan-validation/godot-captures/comparison-sheet.jpg), [wedge sheet](proton-scan-validation/godot-captures/wedge-sheet.jpg), and opaque/neutral captures linked above. It did not see code, this report, or prior verdicts. Its exact live-orbit visual findings were:
+
+| Scan ID | Verdict | Visible defect |
+| --- | --- | --- |
+| 20260811121459 | Fail as supplied | Coherent sculpture, but a broad smooth white/gray bowl protrudes beneath the terracotta plinth; the jagged join and floating base are conspicuous, especially at 270°. |
+| 20260811122415 | Fail | Readable relief, but the pedestal has large see-through horizontal slots, thin projecting fragments, and an open lower-corner wedge at 255–285°. |
+| 20260811123051 | Fail | Bearded front, but blue-gray gaps fragment hair and beard, the nose breaks angularly, and the rear exposes a hollow torso with abrupt shell edges. Alternate materials retain the defects. |
+| 20260820133334 | Fail | Coherent front, but a large smooth pale side/rear bulge, ragged vertical join, and exposed interior dominate the silhouette at 255–285°. Neutral material retains it. |
+
+This is an image-only verdict across sampled angles, not a test of runtime controls. It supersedes the earlier allowance for two *diagnostic* Viewer trials as a claim of live visual acceptance: **none of the four passes the World Asset Gate**. The next falsifiable repair is a source-backed mesh treatment of one specific defect (start with the group's base join), followed by matched front/side/back Godot captures and a new blind review. Do not silently erase source-present geometry. The four provisional scan thumbnails and sixteen image-only panel cells remain usable as catalogue data, but all four scans remain unaccepted as interactive assets.
+
+The [RISD Museum collection API documentation](https://risdmuseum.org/art-design/projects-publications/articles/risd-museum-collection-api) describes title, object number, type and images, but no department field. It also distinguishes its web ID from other identifiers. The four timestamp-like Proton file IDs have no verified link to any museum web ID or object number. A direct query from this host returned HTTP 403, so this tick did not infer a museum title or department from an unsuccessful lookup. Keep the provisional IDs and null attribution until a primary record can be matched to the scan source.
