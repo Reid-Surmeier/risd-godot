@@ -4,8 +4,8 @@ extends Control
 const SOURCE_SIZE := Vector2(1696, 1216)
 const FRAME_CROP := Vector2(48, 48)
 const POPUP_SIZE := Vector2(1600, 1128)
-const PAGE_RECT := Rect2(55, 126, 1447, 946)
-const CONTENT_WIDTH := 1447.0
+const PAGE_RECT := Rect2(55, 126, 1460, 946)
+const CONTENT_WIDTH := 1460.0
 const TEMPLATE := "res://assets/information-window-motion-template.webp"
 const BOTTOM_FRAME := "res://assets/information-scroll-bottom.webp"
 const TERRAIN := "res://assets/terrain.png"
@@ -98,8 +98,7 @@ func _build_popup() -> void:
 	page.size = PAGE_RECT.size
 	page.clip_contents = true
 	page.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	page.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
-	page.get_v_scroll_bar().modulate = Color(1, 1, 1, 0)
+	page.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
 	page.get_v_scroll_bar().value_changed.connect(_sync_scroll_motion)
 	popup.add_child(page)
 	content.custom_minimum_size = Vector2(CONTENT_WIDTH, 0)
