@@ -40,3 +40,11 @@
 - Blocked: independent live-reference verdict and production no-QA check; Mac M3 load/input symptoms remain unmeasured.
 - Next: inspect completed blind verdict and production run, then verify integrated motion/lighting and Mac-device evidence.
 - Checkpoint unchanged because the active API coordinator owns it.
+
+2026-09-27 00:31 EDT — Heartbeat tick (map #116; #136/#138 closed, #137 open).
+- Integrated prototype advanced to 2ee7ca0: blind visitor review, doorway floor fix, performance follow-up and rejected lighting calibration are recorded.
+- Verified #137 trace finding: a 431.7ms post-Flowers Godot gap overlaps 374.911ms of Ruffle work; no unvisited-Flowers or Mac M3 cause established.
+- Recorded precise limit and M3 capture next step on #137: https://github.com/Reid-Surmeier/risd-godot/issues/137#issuecomment-5852637468
+- Blind integrated review still rejects lighting/material cohesion; global probe rescaling was rejected after a white-room regression.
+- Next: coordinator should inspect current blind findings and test a focused material/UV treatment; M3 owner-device capture remains needed for #137.
+- Checkpoint unchanged: active API coordinator owns it and its stale next instruction must not be overwritten by this tick.
