@@ -80,6 +80,12 @@ func run() -> void:
 	var before: Quaternion = visitor.skeleton.get_bone_pose_rotation(head)
 	visitor.pose(0.65, false, 0.0, Vector3.BACK, 0.0)
 	require(before.angle_to(visitor.skeleton.get_bone_pose_rotation(head)) > 0.2, "head look did not move bone")
+	var right_look: Quaternion = visitor.skeleton.get_bone_pose_rotation(head)
+	visitor.gesture = ""
+	visitor.look_direction = -1.0
+	visitor.play_gesture("look")
+	visitor.pose(0.65, false, 0.0, Vector3.BACK, 0.0)
+	require(right_look.angle_to(visitor.skeleton.get_bone_pose_rotation(head)) > 0.4, "opposite orbit direction left head turn unchanged")
 	visitor.play_gesture("wave")
 	var hand: int = visitor.skeleton.find_bone("hand.r")
 	var hand_before: Transform3D = visitor.skeleton.get_bone_global_pose(hand)

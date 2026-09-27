@@ -928,10 +928,12 @@ func _move_to(p: Vector3) -> void:
 
 
 func _orbit(amount: float) -> void:
-	if _generated_visitor:
-		_kid.play_gesture("look")
 	if is_zero_approx(amount):
 		return
+	if _generated_visitor:
+		if _rigged_visitor:
+			_kid.look_direction = signf(amount)
+		_kid.play_gesture("look")
 	_new_action()
 	_target = null
 	_target_yaw = null

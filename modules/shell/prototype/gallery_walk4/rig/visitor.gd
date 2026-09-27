@@ -7,6 +7,7 @@ var world_height := 1.75
 var identity := false
 var gesture := ""
 var gesture_time := 0.0
+var look_direction := 1.0
 var layers := 1:
 	set(value):
 		layers = value
@@ -168,7 +169,7 @@ func pose(delta: float, moving: bool, _legacy_phase: float, heading: Vector3, _c
 					skeleton.set_bone_pose(bone, lower_pose[bone])
 		var head := skeleton.find_bone("head")
 		var q := skeleton.get_bone_pose_rotation(head)
-		skeleton.set_bone_pose_rotation(head, q * Quaternion(Vector3.UP, sin(minf(gesture_time / 1.3, 1.0) * PI) * 0.48))
+		skeleton.set_bone_pose_rotation(head, q * Quaternion(Vector3.UP, sin(minf(gesture_time / 1.3, 1.0) * PI) * 0.48 * look_direction))
 		if gesture_time >= 1.3:
 			gesture = ""
 	# Slight knee reserve prevents idle/walk crossfade from fully extending a
