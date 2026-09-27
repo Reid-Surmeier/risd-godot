@@ -4,7 +4,7 @@ purpose: The Video Player Tab's Tenant — the issue-20 Fly Through viewer windo
 interface: modules/video_player/interface.gd
 errors: modules/video_player/errors.gd
 tests: modules/video_player/playtest/harness.gd + modules/video_player/playtest/verify.py
-depends-on: [shell]
+depends-on: []
 ---
 
 # video_player

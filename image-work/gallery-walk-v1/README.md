@@ -12,6 +12,6 @@ owner's walkthrough video `IMG_6343.MOV` (Proton Drive `/my-files/OBJ/`, local c
   Monet, *A Walk in the Meadows at Argenteuil*, 1998.107, `iiif.micr.io/UJbzC`, plus the 110.5 s frame).
 
 Source frames (`source/`) and raw run folders (`artifacts/`) are not committed; the frames re-extract from the
-video at the times above. Results are in `review/`; the game copies are in `modules/shell/prototype/gallery_walk/stills/`.
+video at the times above. Results are in `review/`; the former game copies remain in Git history under `modules/shell/prototype/gallery_walk/stills/`.
 
 Spend: 11 Muse passes via OpenRouter at a declared $0.01 each = $0.11 (actual cost reported as unknown by the pipeline).

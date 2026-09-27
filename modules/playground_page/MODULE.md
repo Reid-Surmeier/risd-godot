@@ -4,7 +4,7 @@ purpose: The Playground Tab's Tenant — the retained window layout with cleared
 interface: modules/playground_page/interface.gd
 errors: modules/playground_page/errors.gd
 tests: modules/playground_page/playtest/harness.gd + modules/playground_page/playtest/verify.py
-depends-on: [shell, collection_data]
+depends-on: [collection_data]
 ---
 
 # playground_page

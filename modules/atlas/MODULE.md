@@ -4,7 +4,7 @@ purpose: The Pixel Atlas as the Map Tab's Tenant — the prototype's whole deskt
 interface: modules/atlas/interface.gd
 errors: modules/atlas/errors.gd
 tests: modules/atlas/playtest/harness.gd + modules/atlas/playtest/verify.py
-depends-on: [shell]
+depends-on: []
 ---
 
 # atlas

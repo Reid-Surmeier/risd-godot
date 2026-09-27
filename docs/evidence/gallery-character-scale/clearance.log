@@ -1,6 +1,0 @@
-Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
-
-CLEARANCE factor=1.17 heading=(0.0, 0.0, 1.0) min=(-0.659181, -0.000061, -0.596324) max=(0.673322, 1.944778, 0.255158) bench_low_halfwidth=0.66808515787125 wall_x_overrun=0.1233216047287 door_edge_overrun=0.1233216047287
-CLEARANCE factor=1.17 heading=(1.0, 0.0, 0.0) min=(-0.596324, 0.033171, -0.673322) max=(0.417842, 1.944778, 0.659181) bench_low_halfwidth=0.41784167289734 wall_x_overrun=0.0 door_edge_overrun=0.0
-CLEARANCE factor=1.42 heading=(0.0, 0.0, 1.0) min=(-0.800031, -0.000074, -0.685282) max=(0.817194, 2.360329, 0.34814) bench_low_halfwidth=0.50647282600403 wall_x_overrun=0.26719380617142 door_edge_overrun=0.26719380617142
-CLEARANCE factor=1.42 heading=(1.0, 0.0, 0.0) min=(-0.685282, 0.028521, -0.817194) max=(0.535438, 2.360329, 0.800032) bench_low_halfwidth=0.53543782234192 wall_x_overrun=0.0 door_edge_overrun=0.0

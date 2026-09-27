@@ -4,7 +4,7 @@ purpose: The Windows Live / IE7 toolbar with tabs you can open by clicking the b
 interface: modules/tab_strip/interface.gd
 errors: modules/tab_strip/errors.gd
 tests: modules/tab_strip/playtest/harness.gd + modules/tab_strip/playtest/verify.py
-depends-on: []
+depends-on: [sound_cues]
 ---
 
 # tab_strip

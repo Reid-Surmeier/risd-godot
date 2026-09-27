@@ -1,3 +1,12 @@
+---
+name: sound_cues
+purpose: Canonical shared audio feedback for controls, paint, saves, and menu closing
+interface: modules/sound_cues/interface.gd
+errors: modules/sound_cues/errors.gd
+tests: modules/sound_cues/playtest/check.gd
+depends-on: []
+---
+
 # sound_cues
 
 ## Interface

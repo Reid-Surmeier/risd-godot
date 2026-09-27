@@ -4,7 +4,7 @@ purpose: The Sketchbook Tab — original painting Cover Flow, frameless book and
 interface: modules/sketchbook/interface.gd
 errors: modules/sketchbook/errors.gd
 tests: modules/sketchbook/playtest/harness.gd + modules/sketchbook/playtest/verify.py
-depends-on: [shell, collection_data]
+depends-on: [collection_data, sculpture_viewer, sound_cues]
 ---
 
 # sketchbook

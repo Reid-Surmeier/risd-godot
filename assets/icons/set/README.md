@@ -1,7 +1,7 @@
 # The generated set
 
-Finished 64x64 icons, one file per icon, reduced from a Qwen Asset Pass against the
-declared set palette in `tools/set_palette.py`.
+Finished 64x64 icons, one file per icon, reduced from a Qwen Asset Pass with the
+per-icon palette in `tools/icon_palette.py`.
 
 **The palette is declared, not sampled, and that correction matters.** ADR 0001 and
 [risd-godot#4](https://github.com/Reid-Surmeier/risd-godot/issues/4) originally said the

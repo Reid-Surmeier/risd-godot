@@ -16,7 +16,7 @@ Hypotheses tested: excess transferred resources; unnecessary hidden transition t
 
 The live670e820 baseline transferred143,481,240 bytes for its compressed game pack. The isolated cde21b9 export baseline was139,802,354 compressed bytes; compare the selected change against this same-worktree baseline, not the live build's different artifact.
 
-Export filters exclude only `modules/shell/prototype/gallery_walk/`, `gallery_walk2/`, and `gallery_walk3/`. Production references point to `gallery_walk4`; the removed folders' references are internal historical prototype/test references. No files or generated pixels were deleted or transformed.
+The historical `gallery_walk`, `gallery_walk2`, and `gallery_walk3` folders were excluded from exports; production references point to `gallery_walk4`. Those superseded folders now remain in Git history instead of the working tree.
 
 The [pack audit](../evidence/gallery-load-performance/pack-audit.json) records369 removed pack entries,48,447,658 uncompressed bytes. The compressed pack shrank to92,176,947 bytes:47,625,407 fewer bytes, **34.1%**. All213 imported current-gallery resources match their before-export length and stored MD5, including painting, lightmap and visitor resources. The native navigation test reports23 paintings and0 failures.
 

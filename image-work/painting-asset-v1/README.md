@@ -7,7 +7,7 @@ Muse `edit` passes, one per part, from two video views of each painting:
 - **Canvas** (`prompts/*-canvas.txt`): the picture only, straight-on, de-glared, faithful.
 - **Shaped** (`prompts/angel-shaped.txt`): the whole cartouche canvas with its gilt edge on a magenta matte.
 
-Built in `modules/shell/prototype/gallery_walk3/painting_asset.gd`: frame texture on a front face 9 cm off the wall, side faces from the
+Built in the historical `modules/shell/prototype/gallery_walk3/painting_asset.gd` retained in Git history: frame texture on a front face 9 cm off the wall, side faces from the
 frame's own band colours, canvas inset 3 cm; shaped works as a keyed slab 4 cm off the wall. The detail view uses the same frame
 texture as a nine-patch around the same canvas (one master).
 

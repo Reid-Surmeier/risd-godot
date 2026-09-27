@@ -1,8 +1,0 @@
-{
-  "release": "v0.3.0",
-  "commit": "3dfb74d44f492adadae916cda942b0d40e8bf386",
-  "artifactSha256": "ba0bdabf5c009f2d48362779b131a6b7c65fa16660576946cad18fac72c0d66c",
-  "procedureVersion": "1",
-  "runSchemaVersion": "3",
-  "adapterProtocolVersion": "1"
-}

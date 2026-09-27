@@ -11,7 +11,7 @@ The Grand Gallery as a real-time 3D room whose walls are the real walls, measure
    find paintings (texture blobs; `*-rects.json` are rectangles marked by eye where detection failed), write a 48 px/m
    wall strip. **Details** (`elevation/sharpen.py`): for each painting, the sharpest correctly aligned view anywhere in
    that wall's stretch of video, re-projected straight-on at 700 px/m.
-4. **Layout**: `modules/shell/prototype/gallery_walk3/layout.json`, metres from the arch end. The wall with the supper
+4. **Layout**: historical `modules/shell/prototype/gallery_walk3/layout.json` in Git history, metres from the arch end. The wall with the supper
    scene, Charity, the angel and the musical group is on the left from the arch end; the family-portrait wall on the right
    (from the elevation geometry plus the 0:25 wide shot; the walking-direction evidence was contradictory — confirm).
    Room length 35 m and width 12 m are estimates; gaps between pieces are estimates.

@@ -9,7 +9,7 @@ sys.path.insert(0, "/home/reidsurmeier/.qwen-icon-states-wt/seedance/src")
 from PIL import Image
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from seedance_icons.retro import snap_and_lock
-from set_palette import set_palette_image
+from icon_palette import icon_palette
 
 RUNS = sys.argv[1]
 ANCH = "/home/reidsurmeier/Qwen-3-pro-Pipeline/artifacts/references/risd-icon-anchors-v001"
@@ -20,8 +20,6 @@ SCALE = 4
 # Declared, not sampled. The grammar allows at most one gold element per icon, so gold
 # is always a minority colour and median-cut always drops it: sampling the bust anchor
 # turned a 16,850-pixel gold star into grey.
-palette = set_palette_image()
-
 tiles, labels = [], []
 for d in sorted(glob.glob(os.path.join(RUNS, "*/"))):
     imgs = sorted(glob.glob(os.path.join(d, "image-*.png")))
@@ -29,7 +27,8 @@ for d in sorted(glob.glob(os.path.join(RUNS, "*/"))):
         continue
     name = os.path.basename(d.rstrip("/"))
     for i, p in enumerate(imgs):
-        red = snap_and_lock(Image.open(p).convert("RGB"), palette, 64)
+        source = Image.open(p).convert("RGB")
+        red = snap_and_lock(source, icon_palette(source), 64)
         tiles.append(red.resize((64 * SCALE, 64 * SCALE), Image.NEAREST))
         labels.append(f"{name} #{i+1}")
 

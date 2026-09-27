@@ -4,7 +4,7 @@ purpose: The 3D Viewer Tab's Tenant — the RISD Museum setup screen on the Page
 interface: modules/sculpture_viewer/interface.gd
 errors: modules/sculpture_viewer/errors.gd
 tests: modules/sculpture_viewer/playtest/harness.gd + modules/sculpture_viewer/playtest/verify.py
-depends-on: [shell]
+depends-on: [sound_cues]
 ---
 
 # sculpture_viewer
