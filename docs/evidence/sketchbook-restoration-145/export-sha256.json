@@ -1,0 +1,50 @@
+{
+  "a4ebdea2.png": {
+    "bytes": 21443,
+    "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+  },
+  "a4ebdea2.audio.worklet.js": {
+    "bytes": 7298,
+    "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+  },
+  "a4ebdea2.png.import": {
+    "bytes": 943,
+    "sha256": "595c400663a43e77092af59820adf309cc26c1a92023f4de8a15138f11ad7f3f"
+  },
+  "a4ebdea2.game.pck": {
+    "bytes": 133618812,
+    "sha256": "cf745a1f7f2b6474bb6ca6d20f57365b926e0c0f19c13a9d5ddff717038925de"
+  },
+  "a4ebdea2.audio.position.worklet.js": {
+    "bytes": 2973,
+    "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+  },
+  "a4ebdea2.pck.gz": {
+    "bytes": 9612,
+    "sha256": "82e20f3dfd0dfa2be2372a50ea0bfaa4b303c3cc361b6a8bea5dba00c831a06c"
+  },
+  "a4ebdea2.wasm.gz": {
+    "bytes": 10084300,
+    "sha256": "1fcd0bf7cd26f1a6efee07c21cb78a3ead958b4b355bf1f9640e1b4a1147c894"
+  },
+  "a4ebdea2.js": {
+    "bytes": 279815,
+    "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba"
+  },
+  "a4ebdea2.game.pck.gz": {
+    "bytes": 112535711,
+    "sha256": "a162aa68b0665465097b3f0771a3e7cac0c46c759fb45b8551a3e72ecf95c49d"
+  },
+  "a4ebdea2.wasm": {
+    "bytes": 39514754,
+    "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
+  },
+  "a4ebdea2.html": {
+    "bytes": 17084,
+    "sha256": "395741b6e7b515f377bb7041d438fe9db08c8a71c736c5b5b6ab59f2d68e380d"
+  },
+  "a4ebdea2.pck": {
+    "bytes": 11484,
+    "sha256": "7f55d67691e7a6d5f4bd46ff20fcce7408f6ee15707ce98b6b29a28ebc03b78a"
+  }
+}
