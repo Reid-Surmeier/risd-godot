@@ -1,0 +1,147 @@
+[
+  {
+    "asset": "map",
+    "source": "modules/tab_strip/assets/compact/icon_map.png",
+    "crop": null,
+    "binaryGroundRemoval": false,
+    "sourceSha256": "501f7e4a433afa89c3a21c7824f95b253172a70e85edb83a51da47a481d098cb",
+    "sha256": "501f7e4a433afa89c3a21c7824f95b253172a70e85edb83a51da47a481d098cb",
+    "provider": "existing source; no new request",
+    "newCostUSD": 0
+  },
+  {
+    "asset": "sketchbook",
+    "source": "modules/tab_strip/assets/compact/icon_sketchbook.png",
+    "crop": null,
+    "binaryGroundRemoval": false,
+    "sourceSha256": "5536f650b154f05e71392f945dd5e7553412f74670f43ed07cf8b7e0e4443bb7",
+    "sha256": "5536f650b154f05e71392f945dd5e7553412f74670f43ed07cf8b7e0e4443bb7",
+    "provider": "existing source; no new request",
+    "newCostUSD": 0
+  },
+  {
+    "asset": "3d_viewer",
+    "source": "modules/tab_strip/assets/compact/icon_3d_viewer.png",
+    "crop": null,
+    "binaryGroundRemoval": false,
+    "sourceSha256": "993810c7fff0016a269c9e52b4029207eb7967e5c901f440efa91a6993b8412b",
+    "sha256": "993810c7fff0016a269c9e52b4029207eb7967e5c901f440efa91a6993b8412b",
+    "provider": "existing source; no new request",
+    "newCostUSD": 0
+  },
+  {
+    "asset": "video_player",
+    "source": "modules/tab_strip/assets/compact/icon_video_player.png",
+    "crop": null,
+    "binaryGroundRemoval": false,
+    "sourceSha256": "8956209092ffe64d25912ac2172a784fbb9c368facc544dd242481dc8ff9e791",
+    "sha256": "8956209092ffe64d25912ac2172a784fbb9c368facc544dd242481dc8ff9e791",
+    "provider": "existing source; no new request",
+    "newCostUSD": 0
+  },
+  {
+    "asset": "collection",
+    "source": "modules/tab_strip/assets/compact/icon_collection.png",
+    "crop": null,
+    "binaryGroundRemoval": false,
+    "sourceSha256": "8d2edda76720322b948cc500bd66b6fb859b949d5b079896827092aa6eae00ef",
+    "sha256": "8d2edda76720322b948cc500bd66b6fb859b949d5b079896827092aa6eae00ef",
+    "provider": "existing source; no new request",
+    "newCostUSD": 0
+  },
+  {
+    "asset": "playground",
+    "source": "modules/tab_strip/assets/compact/icon_playground.png",
+    "crop": null,
+    "binaryGroundRemoval": false,
+    "sourceSha256": "2cc1fe564820cfcaf24bf3327ef079ca0a1a6865c84d126373f87232d86fc8ff",
+    "sha256": "2cc1fe564820cfcaf24bf3327ef079ca0a1a6865c84d126373f87232d86fc8ff",
+    "provider": "existing source; no new request",
+    "newCostUSD": 0
+  },
+  {
+    "asset": "flowers",
+    "source": "modules/tab_strip/assets/compact/icon_flowers.png",
+    "crop": null,
+    "binaryGroundRemoval": false,
+    "sourceSha256": "06a940e53b831831bb64be97783661b9e2d3cd77be3d255b6f9e1fbd8cff0fec",
+    "sha256": "06a940e53b831831bb64be97783661b9e2d3cd77be3d255b6f9e1fbd8cff0fec",
+    "provider": "existing source; no new request",
+    "newCostUSD": 0
+  },
+  {
+    "asset": "start",
+    "source": "modules/tab_strip/assets/compact/stars.png",
+    "crop": [
+      36,
+      43,
+      169,
+      151
+    ],
+    "binaryGroundRemoval": true,
+    "sourceSha256": "d0272c637a3dab9300184df24f5bf060dbfc6729299c9a112ef4a6d7e071606e",
+    "sha256": "3632f2d01b231c6ee298213f2c3535e37586b3e4ecfc9f3fe3dc39118bc75e1f",
+    "provider": "existing source; no new request",
+    "newCostUSD": 0
+  },
+  {
+    "asset": "search",
+    "source": "modules/shell/assets/top-header-placeholder.png",
+    "crop": [
+      4406,
+      23,
+      4465,
+      84
+    ],
+    "binaryGroundRemoval": true,
+    "sourceSha256": "018433543c504c220edc25ce3ee03b0206974802be676c061f9edf19084f4a81",
+    "sha256": "851433bde5f955a995c3bcebbfad74d9361dd9f687e4cb76503cbd4dd489174f",
+    "provider": "existing source; no new request",
+    "newCostUSD": 0
+  },
+  {
+    "asset": "home",
+    "source": "modules/tab_strip/assets/compact/right_cluster.png",
+    "crop": [
+      23,
+      59,
+      124,
+      150
+    ],
+    "binaryGroundRemoval": true,
+    "sourceSha256": "84886be35ac298474db50f7ed7c0e3b90369b9c8841165ced859dfcd3166b289",
+    "sha256": "bf71b2145c27796844fcb44feab3aa17bc928e4d1520e47c086fd3883638aac5",
+    "provider": "existing source; no new request",
+    "newCostUSD": 0
+  },
+  {
+    "asset": "selected-face",
+    "source": "modules/tab_strip/assets/compact/stub_idle.png",
+    "crop": [
+      63,
+      0,
+      169,
+      112
+    ],
+    "binaryGroundRemoval": false,
+    "sourceSha256": "9c5d49c25b88ea9862cdc0d96ed3f4ad5a687c625309cea0c997e934b4aabbed",
+    "sha256": "c58cef81ff7665be075d14df5b94afc7d00ca9fb53b81fce7976aedce923368a",
+    "provider": "existing source; no new request",
+    "newCostUSD": 0
+  },
+  {
+    "asset": "stripe-face",
+    "source": "modules/tab_strip/assets/compact/bar_stripes.png",
+    "crop": [
+      0,
+      0,
+      100,
+      140
+    ],
+    "binaryGroundRemoval": false,
+    "sourceSha256": "433b984f2cb2d606159548237b3d7be3549469b0999175b41da20106f103dd5e",
+    "sha256": "4650fd3a638e77eee1ba4bda7b8f7a718d0869afa5402eff2df39a530a557ac4",
+    "provider": "existing source; no new request",
+    "newCostUSD": 0
+  }
+]

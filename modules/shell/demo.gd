@@ -17,6 +17,7 @@ const SoundCues := preload("res://modules/sound_cues/interface.gd")
 const COLLECTION_PICTURE := "res://modules/shell/assets/collection_frame/page.png"  # image-work/collection-frame
 
 var _storage: Variant
+var _playground: Control
 
 
 func _ready() -> void:
@@ -66,10 +67,11 @@ func _ready() -> void:
 		var page_deps := deps.duplicate()
 		page_deps.collection_data = data
 		page_deps.image_fetch = http.fetch_image
-		page_deps.show_websurfer = true
-		page_deps.show_fengshui = true
-		page_deps.show_sketchbook = true
-		return PlaygroundPage.create(page_deps)
+		page_deps.square_pages = true
+		var result := PlaygroundPage.create(page_deps)
+		if result.ok:
+			_playground = result.value
+		return result
 	var created := Shell.create({"map": Atlas, "sketchbook": sketchbook_factory, "3d_viewer": SculptureViewer,
 			"video_player": VideoPlayer, "collection": collection_factory, "playground": playground_factory, "flowers": FlowersPage})
 	if not created.ok:
@@ -82,3 +84,11 @@ func _ready() -> void:
 	add_child(sounds.value)
 	add_child(created.value)
 	SoundCues.attach(sounds.value, created.value)
+	var chrome := preload("res://modules/shell/square_chrome.gd").new()
+	chrome.name = "SquareChrome"
+	chrome.shell = created.value
+	chrome.search_requested = func() -> void:
+		var result := PlaygroundPage.show_page(_playground, "search")
+		if not result.ok:
+			push_error("Playground Search: %s" % result.error)
+	add_child(chrome)

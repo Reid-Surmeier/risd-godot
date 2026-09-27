@@ -1,5 +1,13 @@
 # Provenance of modules/playground_page
 
+## Square pages (#164)
+
+The four native page layouts reproduce selected prototype #158 A at commit `542f1394`; the source is `modules/playground_page/prototype-158/index.html` at that commit. `import_square_assets.py` imports the original 12 public connection records and 25 verified RISD works. Their unchanged downloaded/copied image bytes, source URLs, providers, SHA-256 hashes and zero cost are recorded in `assets/square/provenance.json`. `assets/square/catalog.json` retains the records, connection timestamps, source identity and RISD rights evidence. Runtime copies belong here so exported games do not depend on the evidence tree. No images were generated and no paid service was used.
+
+`assets/fonts/LiberationSans-Regular.ttf` is the installed Liberation Sans regular font, used for the selected prototype's Arial-compatible typography. Source: `/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf`; SHA-256 `4659bc0c58c5028dd488ec928d41d9265db43d9b669fc14ca8b0832daca7b144`. Its packaged licence is `assets/fonts/Liberation-LICENSE.txt`.
+
+## Retained desktop
+
 Every pixel file is the owner's, copied unchanged from this repository except `assets/filters.png`, which is a plain crop (no resampling) of an owner file. Nothing is hand-drawn or generated. The layout itself is the owner's picture of 2026-09-14, `docs/evidence/playground/layout-reference.png` (2186x1362, SHA-256 `1e3d7792f794d1775aee92c3ace579258911202dc2280ffab9955fc700caf589`, dropped as `.orca/drops/Screenshot 2026-09-14 at 8.53.22 PM.png`, ticket #62). The window positions and scales in `playground_page.gd` were measured by template-matching each file below into that picture.
 
 | File | Origin | SHA-256 | What it is |

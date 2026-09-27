@@ -32,16 +32,28 @@ const Data := preload("res://modules/collection_data/interface.gd")
 
 
 ## Build the desktop. `deps` includes key, collection_data and image_fetch.
+## Issue #164: square_pages=true selects Explore / All Blocks / Channels / Search.
 ## Every pixel file is checked first: returns ok(Control) or err(ASSET_MISSING, path).
 static func create(deps: Dictionary) -> Dictionary:
 	if not deps.has("collection_data") or not Data.state(deps.collection_data).ok:
 		return Errors.err(Errors.INVALID_DEPENDENCY, "A collection_data handle is required")
 	if not deps.get("image_fetch") is Callable or not deps.image_fetch.is_valid():
 		return Errors.err(Errors.INVALID_DEPENDENCY, "An image fetch operation is required")
+	if deps.get("square_pages", false):
+		return preload("res://modules/playground_page/square_pages.gd").create(deps)
 	return _Impl.create(deps)
 
 
+## Issue #164: select a square Playground page; unknown pages leave the current page intact.
+static func show_page(tenant: Control, page: String) -> Dictionary:
+	if not is_instance_valid(tenant) or not tenant.has_method("show_page"):
+		return Errors.err(Errors.PAGE_UNKNOWN, page)
+	return tenant.show_page(page)
+
+
 ## The harness probe, in the Tenant's own pixels:
+## Square mode: ok({key, page, query, channel, results, saved_ids, connections, size,
+## ticks, inputs, storage_status}); page keys are explore, all, channels, search.
 ## ok({ key, ticks, inputs, size: Vector2, factor, desktop: Vector2, margin, action: "" | "drag",
 ##      saved_ids, storage_status, windows: [{ name, rect: Rect2, drag_height (-1: the whole surface), order }] }), the windows
 ## postpet, options, filters, trade, chat, phone in stacking order (the last is on top).

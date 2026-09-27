@@ -14,6 +14,8 @@ var haze: ColorRect  # F10 or ?haze=0 turns it off, to compare
 @onready var crt_material: ShaderMaterial = $Screen.material
 
 func _ready() -> void:
+	if not OS.has_feature("web"):
+		get_window().size = Vector2i(1080, 1080)
 	$Screen.texture = $Desktop.get_texture()
 	crt_material.set_shader_parameter("tex", $Desktop.get_texture())
 	_create_squiggle()
@@ -64,9 +66,8 @@ func _create_haze() -> void:
 	layer.add_child(haze)
 
 func _resize_desktop() -> void:
-	# Scale the logical desktop uniformly to fill every browser shape, without bars.
-	var factor := maxf(1.0, maxf(1440.0 / maxf(size.x, 1.0), 900.0 / maxf(size.y, 1.0)))
-	$Desktop.size = Vector2i((size * factor).round())
+	# The accepted full-bleed square stage; pointer mapping uses this same extent.
+	$Desktop.size = Vector2i(1080, 1080)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F8:

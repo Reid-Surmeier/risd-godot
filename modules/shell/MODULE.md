@@ -11,6 +11,16 @@ depends-on: [tab_strip, atlas, sketchbook, sculpture_viewer, video_player, playg
 
 ## What callers get
 
+The playable demo uses the selected square Browser chrome from #156, integrated
+under #164: a 1080×1080 logical stage with shared 54-pixel top/bottom bars and a
+full-width 1080×972 Tenant area. `square_chrome.gd` composes the existing Shell,
+hides its legacy raster bars, and delegates selection through the Shell seam.
+Start opens all seven Tabs, Home selects Map, Previous/Next cycle Tabs, and the
+top Search selects Playground then calls its public `show_page(..., "search")`.
+The frozen standalone Shell fixture retains its legacy geometry and animations.
+`playtest/square_capture.gd` separately checks the playable demo with real input
+and exports all seven Tabs and four Playground pages to `docs/evidence/integration-164/`.
+
 `ShellInterface.create(registry)` returns a full-rect Control: a white ground, the PageStack filling the window above the bar, and the TabStrip along the **bottom** of the window (owner correction on map #23), fitted to the Shell's width (the owner's reference bar, 4180 source px across the window with the icon cluster at 65 percent; re-fitted on `resized`). It opens the seven fixed Tabs in launch order — `map`, `sketchbook`, `3d_viewer`, `video_player`, `collection`, `playground`, `flowers` — with Collection active. (Flowers joined after Playground on 2026-09-25 at the owner's request. Six from 2026-09-14, when the owner folded the Phone Tab into the Playground desktop, #62; tab_strip's `layout.json` keeps the `phone` label file; the Shell no longer opens it.) The strip's stub keeps opening Blank Pages, which close as before; a fixed Tab has no close button and `close_tab` on it returns `shell.tab_fixed`.
 
 Motion. At launch the Collection tab grows in like a stub-opened tab (the strip's `grow_tab`: stub-sized with the pressed tint for 0.1 s, then the 0.4 s grow, its neighbours still) and its Page then fades in over `FADE_SECONDS` (0.2 s). On a tab click the strip dips the clicked tab (pressed tint, 6 source px down, 0.1 s) and the Shell cross-fades the new Page in over 0.2 s while the old one fades out; `switch_settled(index)` fires when the fade is done and the freeze rule has been applied. `state()` reports `switching` (a fade running; two Pages may be visible then), `pressed` (the strip's dipping tab or -1) and `bar_rect`.

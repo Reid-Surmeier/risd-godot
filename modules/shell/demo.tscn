@@ -19,7 +19,8 @@ grow_vertical = 2
 script = ExtResource("1")
 
 [node name="Desktop" type="SubViewport" parent="."]
-size = Vector2i(1920, 1080)
+gui_embed_subwindows = true
+size = Vector2i(1080, 1080)
 render_target_update_mode = 4
 
 [node name="Content" type="Control" parent="Desktop"]
