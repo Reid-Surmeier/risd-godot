@@ -107,6 +107,28 @@ func _run() -> void:
 		_require(walk._space == "gallery", "real S input did not return from " + side)
 		_require(absf(walk._pos.z - (-0.7 if side == "arch" else -walk.L + 0.7)) < 0.08, "key traversal returned to wrong gallery end")
 		print("NAV_KEY_ROUNDTRIP ", side, " passed")
+	# The door floor must also be reachable by the actual click ray, not only
+	# by supplying a private route target or holding a movement key.
+	for side in ["arch", "far"]:
+		walk._pos = Vector3(0, 0, -1.0 if side == "arch" else -walk.L + 1.0)
+		walk.view_yaw = PI if side == "arch" else 0.0
+		walk._update_camera(1.0)
+		await _frames(2)
+		var door_floor := Vector3(0, 0, 0.15 if side == "arch" else -walk.L - 0.15)
+		var point: Vector2 = walk._to_screen(door_floor)
+		_require(Rect2(Vector2.ZERO, walk.size).has_point(point), "door floor cannot be clicked on screen: " + side)
+		await _click(walk.global_position + point, "exit via " + side + " floor")
+		await _advance(1.5)
+		_require(walk._space == side, "real floor click did not enter " + side)
+		walk.view_yaw = PI
+		walk._update_camera(1.0)
+		await _frames(2)
+		point = walk._to_screen(Vector3(0, 0, 0.15))
+		await _click(walk.global_position + point, "return through white doorway")
+		await _advance(1.2)
+		_require(walk._space == "gallery", "real floor click did not return from " + side)
+		_require(absf(walk._pos.z - (-0.7 if side == "arch" else -walk.L + 0.7)) < 0.08, "clicked return chose wrong gallery end")
+		print("NAV_CLICK_ROUNDTRIP ", side, " passed")
 	# A diagonal cannot jump through a solid wall beside either doorway.
 	for z in [0.0, -walk.L]:
 		walk._pos = Vector3(1.2, 0, z + (-0.8 if z == 0 else 0.8))

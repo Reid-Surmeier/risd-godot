@@ -47,8 +47,13 @@ const angleDelta=(a,b)=>Math.atan2(Math.sin(a-b),Math.cos(a-b));
    await p.mouse.move(850,370);await p.mouse.wheel({deltaX:320,deltaY:0});
    await until(()=>orbits.length>orbitCount,'Browser horizontal wheel did not settle a camera turn');
    const wheel=orbits.at(-1);
-   if(angleDelta(wheel.yaw,drag.yaw)>=-0.02 || picks.length!==beforePicks)throw new Error('Horizontal wheel did not turn left or generated a click');
-   ui.push({control:'horizontal-wheel',passed:true,orbit:wheel});
+   if(Math.abs(angleDelta(wheel.yaw,drag.yaw))<0.02 || picks.length!==beforePicks)throw new Error('Horizontal wheel did not turn or generated a click: '+JSON.stringify({drag,wheel,beforePicks,picks}));
+   const reverseCount=orbits.length;
+   await p.mouse.wheel({deltaX:-320,deltaY:0});
+   await until(()=>orbits.length>reverseCount,'Opposite horizontal wheel did not turn');
+   const reversed=orbits.at(-1);
+   if(Math.abs(angleDelta(reversed.yaw,drag.yaw))>0.015 || picks.length!==beforePicks)throw new Error('Opposite wheel did not return to the starting view without clicking');
+   ui.push({control:'horizontal-wheel-both-directions',passed:true,forward:wheel,reverse:reversed});
    await p.screenshot({path:'/tmp/'+label+'-wheel.png'});
    // Restore a real settled wall view using the user shortcut, before benchmarking.
    await p.mouse.click(1070,187);await pause(500);

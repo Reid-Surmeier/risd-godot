@@ -14,7 +14,7 @@
   "actualCostUsd": "0.60795",
   "humanReviewed": false,
   "toolCertified": false,
-  "applicationAdoption": "pending explicit deviation decision",
+  "applicationAdoption": "Owner authorized reviewed cuts experimentally; imported in fdd9b33, source run still failed",
   "walkSelectionSourceFrames": [
     51,
     72
@@ -23,5 +23,6 @@
     2.125,
     3.0
   ],
-  "rejected": "Side-view gestures rotate to front after~3.2s; front view does not wave."
+  "rejected": "Side-view gestures rotate to front after~3.2s; front view does not wave.",
+  "applicationRecord": "../recovery.json"
 }
