@@ -800,8 +800,8 @@ func _build_view_controls() -> void:
 	other_wall.text = "Other wall"
 	other_wall.tooltip_text = "Cross the gallery to view the opposite paintings"
 	other_wall.focus_mode = Control.FOCUS_NONE
-	other_wall.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
-	other_wall.position = Vector2(-126, 12)
+	other_wall.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
+	other_wall.position = Vector2(-126, -44)
 	other_wall.size = Vector2(114, 32)
 	other_wall.pressed.connect(_other_wall)
 	add_child(other_wall)
