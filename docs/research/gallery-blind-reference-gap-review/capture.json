@@ -1,0 +1,139 @@
+{
+  "url": "https://windows-wsl.taile06c45.ts.net/gallery-dollhouse-01a0df97/670e820.html?lighting=baked",
+  "shots": [
+    {
+      "name": "00-idle",
+      "seconds": 0.211
+    },
+    {
+      "name": "01-w-080",
+      "seconds": 0.671
+    },
+    {
+      "name": "01-w-350",
+      "seconds": 1.152
+    },
+    {
+      "name": "01-w-stop",
+      "seconds": 1.732
+    },
+    {
+      "name": "02-s-080",
+      "seconds": 2.042
+    },
+    {
+      "name": "02-s-350",
+      "seconds": 2.493
+    },
+    {
+      "name": "02-s-stop",
+      "seconds": 3.107
+    },
+    {
+      "name": "03-a-080",
+      "seconds": 3.395
+    },
+    {
+      "name": "03-a-350",
+      "seconds": 3.904
+    },
+    {
+      "name": "03-a-stop",
+      "seconds": 4.46
+    },
+    {
+      "name": "04-d-080",
+      "seconds": 4.802
+    },
+    {
+      "name": "04-d-350",
+      "seconds": 5.303
+    },
+    {
+      "name": "04-d-stop",
+      "seconds": 5.864
+    },
+    {
+      "name": "05-wd",
+      "seconds": 6.563
+    },
+    {
+      "name": "06-d-only",
+      "seconds": 6.95
+    },
+    {
+      "name": "07-orbit",
+      "seconds": 8.839
+    },
+    {
+      "name": "08-s-orbit",
+      "seconds": 9.464
+    },
+    {
+      "name": "09-idle-orbit",
+      "seconds": 10.282
+    },
+    {
+      "name": "10-small",
+      "seconds": 11.33
+    }
+  ],
+  "log": [
+    {
+      "time": 1790474908800,
+      "text": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "time": 1790474910609,
+      "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+    },
+    {
+      "time": 1790474911460,
+      "text": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL"
+    },
+    {
+      "time": 1790474911689,
+      "text": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support."
+    },
+    {
+      "time": 1790474921212,
+      "text": "WARNING: 2D MSAA is not yet supported for GLES3."
+    },
+    {
+      "time": 1790474921212,
+      "text": "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)"
+    },
+    {
+      "time": 1790474923680,
+      "text": "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'."
+    },
+    {
+      "time": 1790474923680,
+      "text": "   at: get_meta (core/object/object.cpp:1053)"
+    },
+    {
+      "time": 1790474925031,
+      "text": "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'."
+    },
+    {
+      "time": 1790474925031,
+      "text": "   at: get_meta (core/object/object.cpp:1053)"
+    },
+    {
+      "time": 1790474925671,
+      "text": "WARNING: 2D MSAA is not yet supported for GLES3."
+    },
+    {
+      "time": 1790474925671,
+      "text": "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)"
+    },
+    {
+      "time": 1790474929918,
+      "text": "ENTRY_COMPLETE (0.0, 0.0, -2.569518)"
+    },
+    {
+      "time": 1790474938934,
+      "text": "VIEW_ORBIT {\"position\":[-1.56151151657104,-1.42486774921417],\"space\":\"gallery\",\"yaw\":-2.06375698401765}"
+    }
+  ]
+}
