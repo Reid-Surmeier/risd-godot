@@ -7,6 +7,7 @@ GitHub Issues hold the authoritative scope, decisions and acceptance criteria. T
 | Issue | Purpose |
 | --- | --- |
 | [#143](https://github.com/Reid-Surmeier/risd-godot/issues/143) | Preserve originals and Git history in Proton, consolidate the latest build, document its home, then propose cleanup |
+| [#146](https://github.com/Reid-Surmeier/risd-godot/issues/146) | Keep the original framed painting separate from the six-image Finder-like viewer |
 | [#145](https://github.com/Reid-Surmeier/risd-godot/issues/145) | Restore the exact gold painting frame, original mountain reference and palette v7 omitted during consolidation |
 | [#109](https://github.com/Reid-Surmeier/risd-godot/issues/109) | Whole-game integration |
 | [#127](https://github.com/Reid-Surmeier/risd-godot/issues/127), [#128](https://github.com/Reid-Surmeier/risd-godot/issues/128), [#129](https://github.com/Reid-Surmeier/risd-godot/issues/129) | Recent Sketchbook work; consult issue history and the integrated source together |

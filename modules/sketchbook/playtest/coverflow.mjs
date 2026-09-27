@@ -51,19 +51,20 @@ try{
  assert.equal((await state()).shell.tabs.length,7,'current seven-tab build');
  await page.screenshot({path:`${output}/gallery-launch.png`});
  await tab(1);
- await page.waitForFunction(()=>window.shellCrtQa?.tenant.painting_viewer?.count===7);
+ await page.waitForFunction(()=>window.shellCrtQa?.tenant.painting_viewer?.count===6);
  await wait(1500);
  assert.equal((await state()).tenant.chrome_pieces,0);
  await page.waitForFunction(()=>window.shellCrtQa.tenant.saved_ids.length===2);
- assert.equal((await state()).tenant.reference_visible,false,'populated saves must not resurrect legacy cards');
- assert.ok((await state()).tenant.palette_asset.endsWith('palette-window-v7.png'));
- assert.ok((await state()).tenant.painting_viewer.frame_asset.endsWith('gold-frame/frame.png'));
- assert.equal((await state()).tenant.painting_viewer.selected,6,'original mountain/church painting is initially selected');
- await page.screenshot({path:`${output}/desktop.png`});
- await click(await face(6));
- await page.screenshot({path:`${output}/original-frame-enlarged.png`});
- await page.keyboard.press('Escape');
- await page.keyboard.press('Home');await selected(0);
+ assert.equal((await state()).tenant.saved_cards_visible,false,'populated saves must not resurrect legacy cards');
+ assert.equal((await state()).tenant.reference_visible,true,'standalone framed painting is visible');
+	assert.ok((await state()).tenant.palette_asset.endsWith('palette-window-v7.png'));
+ assert.ok((await state()).tenant.gold_frame_asset.endsWith('gold-frame/frame.png'));
+ assert.ok((await state()).tenant.framed_painting_asset.endsWith('monet-reference.png'));
+	assert.ok(!('frame_asset' in (await state()).tenant.painting_viewer),'Finder-like viewer images are unframed');
+	assert.equal((await state()).tenant.painting_viewer.selected,2);
+	await page.screenshot({path:`${output}/desktop.png`});
+	await click(await face(2));await page.keyboard.press('Escape');
+	await page.keyboard.press('Home');await selected(0);
  await page.keyboard.press('ArrowRight');await selected(1);
  await page.keyboard.press('ArrowRight');await selected(2);
  const palette=rect((await state()).tenant.paintbox_rect),k=palette[2]/1484;
@@ -93,8 +94,14 @@ try{
  await page.mouse.move(...from);await page.mouse.down();await page.mouse.move(from[0]+((await state()).tenant.painting_viewer_rect[2]-20*(await state()).tenant.desktop_scale)*.31,from[1],{steps:14});await page.mouse.up();await selected(3);
  let q=await state();const slider=q.tenant.painting_viewer.slider;
  await click([slider[0]+slider[2]*.02,slider[1]+slider[3]/2]);await selected(0);
- await click([slider[0]+slider[2]*.98,slider[1]+slider[3]/2]);await selected(6);
- await click(await face(6));await page.keyboard.press('Escape');await page.keyboard.press('Home');await selected(0);
+ await click([slider[0]+slider[2]*.98,slider[1]+slider[3]/2]);await selected(5);
+ await click(await face(5));await page.keyboard.press('Escape');await page.keyboard.press('Home');await selected(0);
+	// The flat framed painting is a separate draggable window from the image viewer.
+	q=await state();const framedBefore=q.tenant.framed_painting_rect, framedHandle=await screen(center(framedBefore));
+	await page.mouse.move(...framedHandle);await page.mouse.down();await page.mouse.move(framedHandle[0]-25,framedHandle[1]+10,{steps:8});await page.mouse.up();await wait(350);
+	const framedMoved=(await state()).tenant.framed_painting_rect;
+	assert.ok(Math.abs(framedMoved[0]-framedBefore[0]+25)<2&&Math.abs(framedMoved[1]-framedBefore[1]-10)<2,'standalone framed painting drag');
+	await page.mouse.move(...await screen(center(framedMoved)));await page.mouse.down();await page.mouse.move((await screen(center(framedMoved)))[0]+25,(await screen(center(framedMoved)))[1]-10,{steps:8});await page.mouse.up();await wait(350);
  // Drag the native title and restore; both the frame and its contents must move together.
  q=await state();const before=q.tenant.painting_viewer_rect, title=await screen(center(q.tenant.painting_title_rect));
  await page.mouse.move(...title);await page.mouse.down();await page.mouse.move(title[0]-40,title[1]+15,{steps:8});await page.mouse.up();await wait(500);
@@ -138,7 +145,7 @@ try{
  assert.ok(r[0]>=0&&r[1]>=0&&r[0]+r[2]<=q.logical_size[0]+1);
  await page.screenshot({path:`${output}/compact.png`});
  assert.deepEqual(errors,[]);
- await writeFile(`${output}/result.json`,JSON.stringify({passed:true,checks:['animated loading screen','loader exit','current seven tabs','six paintings plus original mountain reference','original individual gold frames','palette v7 tools','populated saves without legacy cards','frameless book','side clicks both directions','enlarge/escape','keyboard','vertical/horizontal wheel','drag paintings','scrubber endpoints','native window drag','drawing','page turns preserve ink','window stacking','frameless book drag/resize','hidden freeze/resume','resize'],state:q,load:await page.evaluate(()=>window.loadPerf)},null,2));
+ await writeFile(`${output}/result.json`,JSON.stringify({passed:true,checks:['animated loading screen','loader exit','current seven tabs','six unframed viewer images','separate original framed painting','palette v7 tools','populated saves without legacy cards','frameless book','side clicks both directions','enlarge/escape','keyboard','vertical/horizontal wheel','drag paintings','scrubber endpoints','independent viewer and framed-painting drag','drawing','page turns preserve ink','window stacking','frameless book drag/resize','hidden freeze/resume','resize'],state:q,load:await page.evaluate(()=>window.loadPerf)},null,2));
  console.log('PASS: native Sketchbook Cover Flow interactions, book ink/page turn, stacking, tab freeze and resize');
 }catch(error){
  await page.screenshot({path:`${output}/failure.png`}).catch(()=>{});

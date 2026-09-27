@@ -19,6 +19,8 @@ const SculptureViewer := preload("res://modules/sculpture_viewer/interface.gd")
 const GlobalChatroom := preload("res://modules/sketchbook/global_chatroom.gd")
 
 const ROOT := "res://modules/sketchbook/"
+const GOLD_FRAME := preload("res://modules/sketchbook/assets/gold-frame/frame.png")
+const REFERENCE_PAINTING := preload("res://modules/sketchbook/assets/monet-reference.png")
 ## The native composition: variant A's windows (paintbox 170,345 550x575; book 750,365 630x545 on the
 ## prototype's 1440x972 canvas) moved in to the prototype's right/bottom margins, the book 10 px taller
 ## so both windows share the bottom edge and the composition's margin is NATIVE_MARGIN on every side.
@@ -27,7 +29,8 @@ const DESKTOP_SIZE := Vector2(1330, 1060)  # tall enough for the owner's arrange
 const REFERENCE_SLOT := Rect2(397, 25, 620, 446)  # owner layout 2026-09-25: the framed painting large, top middle
 const PAINTBOX_SLOT := Rect2(60, 235, 360, 575)
 const ANRI_PAINTBOX_SLOT := Rect2(8, 28, 360, 360.0 * 3072.0 / 1484.0)
-const BOOK_SLOT := Rect2(397, 494, 630, 555)  # under the painting
+const FRAMED_PAINTING_SLOT := Rect2(397, 520, 248, 300)
+const BOOK_SLOT := Rect2(663, 494, 420, 555)  # beside the standalone framed painting
 const REQUIRED := [
 	"ro-top-left.png", "ro-top-mid.png", "ro-top-right.png", "ro-left.png", "ro-right.png", "ro-bottom-left.png",
 	"ro-bottom-mid.png", "ro-bottom-right.png", "ro-btn-prev.png", "ro-btn-prev-disabled.png", "ro-btn-next.png",
@@ -51,6 +54,7 @@ var data_handle: Variant
 var image_fetch: Callable
 var reference_panel := PanelContainer.new()
 var reference_list := HBoxContainer.new()
+var reference_art: Control
 var viewer_host := Control.new()
 var global_chatroom: Control
 var tldraw_controls: Control
@@ -138,18 +142,19 @@ func _ready() -> void:
 		global_chatroom.gui_input.connect(func(event): _drag_handle_input(event, global_chatroom))
 		desktop.add_child(global_chatroom)
 		windows.append(global_chatroom)
-	# Cover Flow replaces the static painting; browser-local saved references remain available.
-	reference_panel.visible = false
-	reference_panel.name = "saved-reference-window"
+	# The original framed painting and the Finder-like viewer are separate movable windows.
+	reference_panel.name = "framed-painting-window"
 	reference_panel.mouse_filter = Control.MOUSE_FILTER_STOP
-	reference_panel.clip_contents = true
+	reference_panel.clip_contents = false
 	reference_panel.gui_input.connect(func(event): _reference_input(event))
-	reference_panel.add_theme_stylebox_override("panel", _reference_style(Color("eef5fb")))
+	reference_panel.add_theme_stylebox_override("panel", _reference_style(Color(1, 1, 1, 0)))
 	desktop.add_child(reference_panel)
+	reference_art = _framed_painting()
+	reference_panel.add_child(reference_art)
 	reference_list.add_theme_constant_override("separation", 10)
+	reference_list.visible = false
 	reference_panel.add_child(reference_list)
-	windows.push_front(reference_panel)
-	desktop.move_child(reference_panel, 1)  # behind the two draggable working windows
+	windows.append(reference_panel)
 	painting_flow.name = "painting-flow-window"
 	desktop.add_child(painting_flow)
 	windows.append(painting_flow)
@@ -203,8 +208,7 @@ func _fit() -> void:
 	if global_chatroom != null:
 		global_chatroom.position = Vector2(desktop.size.x - 337, 370)  # just under the viewer
 		global_chatroom.size = Vector2(320, 150)
-	reference_panel.position = REFERENCE_SLOT.position
-	reference_panel.size = Vector2(REFERENCE_SLOT.size.x + extra.x, REFERENCE_SLOT.size.y)
+	_place(reference_panel, FRAMED_PAINTING_SLOT)
 	reference_list.position = Vector2(12, 12)
 	reference_list.size = reference_panel.size - Vector2(24, 24)
 	_place(painting_flow, REFERENCE_SLOT)
@@ -218,6 +222,42 @@ func _reference_style(color: Color) -> StyleBoxFlat:
 	style.set_border_width_all(2)
 	style.set_corner_radius_all(4)
 	return style
+
+
+func _framed_painting() -> Control:
+	var atlas := AtlasTexture.new()
+	atlas.atlas = REFERENCE_PAINTING
+	atlas.region = Rect2(Vector2(24, 24), REFERENCE_PAINTING.get_size() - Vector2(48, 48))
+	var painting := TextureRect.new()
+	painting.texture = atlas
+	painting.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	painting.stretch_mode = TextureRect.STRETCH_SCALE
+	painting.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var frame := NinePatchRect.new()
+	frame.name = "gold-frame"
+	frame.texture = GOLD_FRAME
+	frame.patch_margin_left = 143
+	frame.patch_margin_top = 130
+	frame.patch_margin_right = 139
+	frame.patch_margin_bottom = 130
+	frame.draw_center = false
+	frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var holder := Control.new()
+	holder.name = "framed-reference"
+	holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	holder.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	holder.add_child(painting)
+	holder.add_child(frame)
+	holder.resized.connect(func() -> void:
+		var k := holder.size.y / GOLD_FRAME.get_height()
+		var near := Vector2(143, 130) * k
+		var bands := Vector2(282, 260) * k
+		var opening := holder.size - bands
+		painting.position = near
+		painting.size = opening
+		frame.scale = Vector2(k, k)
+		frame.size = holder.size / k)
+	return holder
 
 
 func _reference_input(event: InputEvent) -> void:
@@ -248,7 +288,7 @@ func _refresh_references() -> void:
 			reference_list.add_child(_reference_label("Saved references unavailable"))
 			return
 		storage_status = "ready"
-		reference_panel.visible = false  # #145 retires the card window; saved collection data stays intact.
+		reference_panel.visible = true
 		if result.value.items.is_empty():
 			reference_list.add_child(_reference_label("Save a RISD artwork in Collection to use it as a reference"))
 			return
@@ -450,6 +490,8 @@ func state() -> Dictionary:
 			"saved_ids": saved_ids.duplicate(), "selected_reference": selected_reference,
 			"storage_status": storage_status, "reference_rect": _global_rect(reference_panel),
 			"reference_cards": reference_cards, "reference_visible": reference_panel.visible,
+			"saved_cards_visible": reference_list.visible, "framed_painting_rect": _global_rect(reference_panel),
+			"framed_painting_asset": REFERENCE_PAINTING.resource_path, "gold_frame_asset": GOLD_FRAME.resource_path,
 			"palette_asset": paintbox.ANRI_INTERIOR.resource_path, "drawing_tool": sketchbook.surface.tool,
 			"painting_viewer": painting_flow.qa_state(),
 			"painting_viewer_rect": _global_rect(painting_flow),
