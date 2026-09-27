@@ -5,6 +5,10 @@ extends Control
 const Errors := preload("res://modules/sketchbook/errors.gd")
 const SOURCE := "res://prototypes/painting-coverflow/web/"
 const STRIPS := 16
+const GOLD_FRAME := preload("res://modules/sketchbook/assets/gold-frame/frame.png")
+const REFERENCE := preload("res://modules/sketchbook/assets/monet-reference.png")
+const FRAME_BANDS := Vector2(282, 260)
+const FRAME_NEAR := Vector2(143, 130)
 var title_bar := Control.new()
 var stage := Control.new()
 var slider := HSlider.new()
@@ -44,9 +48,14 @@ static func create() -> Dictionary:
 		if texture == null:
 			return Errors.err(Errors.ASSET_MISSING, path)
 		images.append(texture)
+	# The exact archived mountain/church reference, without its old white card mat.
+	var original := AtlasTexture.new()
+	original.atlas = REFERENCE
+	original.region = Rect2(Vector2(24, 24), REFERENCE.get_size() - Vector2(48, 48))
+	images.append(original)
 	var window = load("res://modules/sketchbook/painting_flow.gd").new()
 	window.textures = images
-	window.selected = mini(2, images.size() - 1)
+	window.selected = images.size() - 1
 	window.location = float(window.selected)
 	return Errors.ok(window)
 
@@ -136,10 +145,17 @@ func _process(delta: float) -> void:
 	velocity = (velocity - 18.0 * (velocity + 18.0 * difference) * dt) * decay
 	stage.queue_redraw()
 
+func _framed_size(index: int) -> Vector2:
+	var art := textures[index].get_size()
+	return Vector2(472.0 * art.x / art.y + FRAME_BANDS.x, 732)
+
 func _project(index: int, u: float, v: float) -> Vector2:
-	var texture := textures[index]
-	var factor := minf(stage.size.x * 0.42 / texture.get_width(), (stage.size.y - 38) / texture.get_height())
-	var dimensions := texture.get_size() * factor
+	var native := _framed_size(index)
+	var factor := minf(stage.size.x * 0.42 / native.x, (stage.size.y - 38) / native.y)
+	if enlarged:
+		factor = minf((stage.size.x - 20) / native.x, (stage.size.y - 8) / native.y)
+		return (stage.size - native * factor) / 2 + Vector2(u, v) * native * factor
+	var dimensions := native * factor
 	var distance := index - location
 	var turn := minf(1.0, absf(distance))
 	var x := signf(distance) * (stage.size.x * 0.31 * turn + maxf(0, absf(distance) - 1) * stage.size.x * 0.078)
@@ -154,13 +170,7 @@ func _draw_stage() -> void:
 	cards.clear()
 	if textures.is_empty():
 		return
-	if enlarged:
-		var texture := textures[selected]
-		var factor := minf((stage.size.x - 20) / texture.get_width(), (stage.size.y - 8) / texture.get_height())
-		var dimensions := texture.get_size() * factor
-		stage.draw_texture_rect(texture, Rect2((stage.size - dimensions) / 2, dimensions), false)
-		return
-	var order := range(textures.size())
+	var order := [selected] if enlarged else range(textures.size())
 	order.sort_custom(func(a, b): return absf(a - location) > absf(b - location))
 	for index in order:
 		var quad := PackedVector2Array([_project(index, 0, 0), _project(index, 1, 0), _project(index, 1, 1), _project(index, 0, 1)])
@@ -168,12 +178,36 @@ func _draw_stage() -> void:
 		var left := quad[3]
 		var right := quad[2]
 		stage.draw_texture_rect(floor_shadow, Rect2(left.x - 18, left.y - 7, right.x - left.x + 36, 34), false)
-		for strip in range(STRIPS):
-			var u0 := float(strip) / STRIPS
-			var u1 := float(strip + 1) / STRIPS
-			var points := PackedVector2Array([_project(index, u0, 0), _project(index, u1, 0), _project(index, u1, 1), _project(index, u0, 1)])
-			var uv := PackedVector2Array([Vector2(u0, 0), Vector2(u1, 0), Vector2(u1, 1), Vector2(u0, 1)])
-			stage.draw_polygon(points, PackedColorArray([Color.WHITE]), uv, textures[index])
+		var native := _framed_size(index)
+		var opening := Rect2(FRAME_NEAR / native, (native - FRAME_BANDS) / native)
+		_draw_projected(index, opening, Rect2(0, 0, 1, 1), textures[index])
+		var xs := [0.0, opening.position.x, opening.end.x, 1.0]
+		var ys := [0.0, opening.position.y, opening.end.y, 1.0]
+		var us := [0.0, 143.0 / 605, 466.0 / 605, 1.0]
+		var vs := [0.0, 130.0 / 732, 602.0 / 732, 1.0]
+		for row in 3:
+			for column in 3:
+				if row == 1 and column == 1:
+					continue
+				_draw_projected(index, Rect2(xs[column], ys[row], xs[column + 1] - xs[column], ys[row + 1] - ys[row]),
+					Rect2(us[column], vs[row], us[column + 1] - us[column], vs[row + 1] - vs[row]), GOLD_FRAME)
+
+func _draw_projected(index: int, destination: Rect2, source: Rect2, texture: Texture2D) -> void:
+	# Polygon UVs address the underlying texture, including for an AtlasTexture.
+	if texture is AtlasTexture:
+		source = Rect2((texture.region.position + source.position * texture.region.size) / texture.atlas.get_size(), source.size * texture.region.size / texture.atlas.get_size())
+		texture = texture.atlas
+	var strips := 2 if texture == GOLD_FRAME else STRIPS
+	for strip in strips:
+		var a := float(strip) / strips
+		var b := float(strip + 1) / strips
+		var x0 := lerpf(destination.position.x, destination.end.x, a)
+		var x1 := lerpf(destination.position.x, destination.end.x, b)
+		var u0 := lerpf(source.position.x, source.end.x, a)
+		var u1 := lerpf(source.position.x, source.end.x, b)
+		var points := PackedVector2Array([_project(index, x0, destination.position.y), _project(index, x1, destination.position.y), _project(index, x1, destination.end.y), _project(index, x0, destination.end.y)])
+		var uv := PackedVector2Array([Vector2(u0, source.position.y), Vector2(u1, source.position.y), Vector2(u1, source.end.y), Vector2(u0, source.end.y)])
+		stage.draw_polygon(points, PackedColorArray([Color.WHITE]), uv, texture)
 
 func _hit(point: Vector2) -> int:
 	for i in range(cards.size() - 1, -1, -1):
@@ -238,4 +272,4 @@ func qa_state() -> Dictionary:
 		hits.append({"index": card.index, "points": points})
 	var rect := slider.get_global_rect()
 	return {"selected": selected, "position": location, "enlarged": enlarged, "ticks": ticks,
-		"count": textures.size(), "cards": hits, "slider": [rect.position.x, rect.position.y, rect.size.x, rect.size.y]}
+		"count": textures.size(), "frame_asset": GOLD_FRAME.resource_path, "cards": hits, "slider": [rect.position.x, rect.position.y, rect.size.x, rect.size.y]}

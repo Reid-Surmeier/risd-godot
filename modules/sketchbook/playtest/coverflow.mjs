@@ -1,6 +1,6 @@
 // Run against an exported app: GAME_URL=... PLAYWRIGHT_MODULE=... CHROMIUM_PATH=... node this-file
 import assert from 'node:assert/strict';
-import {mkdir,writeFile} from 'node:fs/promises';
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
 const {chromium}=await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH,args:['--enable-unsafe-swiftshader']});
 const page=await browser.newPage({viewport:{width:1600,height:1000}});
@@ -28,6 +28,16 @@ const face=async index=>{
  throw Error(`No exposed point for painting ${index}`);
 };
 try{
+ // Use a populated browser profile: the old cards were invisible only with no saves.
+ const corpus=JSON.parse(await readFile(new URL('../../../docs/evidence/collection-search/corpus.json',import.meta.url),'utf8'));
+ const seeded=corpus.records.filter(item=>item.image).slice(0,2).map(artwork=>({artwork,saved_at_ms:Date.now()}));
+ await page.goto(new URL('api/collection/search',url).href);
+ await page.evaluate(items=>new Promise((resolve,reject)=>{
+  const request=indexedDB.open('risd-collection-browser',1);
+  request.onupgradeneeded=()=>request.result.createObjectStore('collection');
+  request.onerror=()=>reject(request.error);
+  request.onsuccess=()=>{const db=request.result,tx=db.transaction('collection','readwrite');tx.objectStore('collection').put({schema_version:1,revision:1,items},'saved');tx.oncomplete=()=>{db.close();resolve()};tx.onerror=()=>reject(tx.error)};
+ }),seeded);
  await page.goto(url.href, {waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>window.loaderProgress>0&&document.querySelector('#status-shader'),null,{timeout:120000});
  const loadingA=await page.screenshot({path:`${output}/loading-a.png`});
@@ -41,10 +51,33 @@ try{
  assert.equal((await state()).shell.tabs.length,7,'current seven-tab build');
  await page.screenshot({path:`${output}/gallery-launch.png`});
  await tab(1);
- await page.waitForFunction(()=>window.shellCrtQa?.tenant.painting_viewer?.count===6);
+ await page.waitForFunction(()=>window.shellCrtQa?.tenant.painting_viewer?.count===7);
  await wait(1500);
  assert.equal((await state()).tenant.chrome_pieces,0);
+ await page.waitForFunction(()=>window.shellCrtQa.tenant.saved_ids.length===2);
+ assert.equal((await state()).tenant.reference_visible,false,'populated saves must not resurrect legacy cards');
+ assert.ok((await state()).tenant.palette_asset.endsWith('palette-window-v7.png'));
+ assert.ok((await state()).tenant.painting_viewer.frame_asset.endsWith('gold-frame/frame.png'));
+ assert.equal((await state()).tenant.painting_viewer.selected,6,'original mountain/church painting is initially selected');
  await page.screenshot({path:`${output}/desktop.png`});
+ await click(await face(6));
+ await page.screenshot({path:`${output}/original-frame-enlarged.png`});
+ await page.keyboard.press('Escape');
+ await page.keyboard.press('Home');await selected(0);
+ await page.keyboard.press('ArrowRight');await selected(1);
+ await page.keyboard.press('ArrowRight');await selected(2);
+ const palette=rect((await state()).tenant.paintbox_rect),k=palette[2]/1484;
+ await click([palette[0]+1160*k,palette[1]+1130*k]);
+ await page.waitForFunction(()=>window.shellCrtQa.tenant.drawing_tool==='eraser');
+ await click([palette[0]+1180*k,palette[1]+650*k]);
+ await page.waitForFunction(()=>window.shellCrtQa.tenant.drawing_tool==='draw');
+ const paintState=(await state()).tenant, tray=rect(paintState.trays[0]);
+ const mixStroke=async()=>{const a=await screen([tray[0]+tray[2]*.25,tray[1]+tray[3]*.5]),b=await screen([tray[0]+tray[2]*.75,tray[1]+tray[3]*.5]);await page.mouse.move(...a);await page.mouse.down();await page.mouse.move(...b,{steps:12});await page.mouse.up();await wait(150)};
+ await click(center(paintState.wells[5]));await mixStroke();
+ await click(center(paintState.wells[19]));await mixStroke();
+ assert.ok((await state()).tenant.paint_pixels>0,'new palette tray receives pigment');
+ assert.ok((await state()).tenant.mix_count>0,'new palette mixes overlapping pigments');
+ await page.screenshot({path:`${output}/palette-mixing.png`});
  await click(await face(3));await selected(3);
  await click(await face(2));await selected(2);
  await click(await face(2));
@@ -60,8 +93,8 @@ try{
  await page.mouse.move(...from);await page.mouse.down();await page.mouse.move(from[0]+((await state()).tenant.painting_viewer_rect[2]-20*(await state()).tenant.desktop_scale)*.31,from[1],{steps:14});await page.mouse.up();await selected(3);
  let q=await state();const slider=q.tenant.painting_viewer.slider;
  await click([slider[0]+slider[2]*.02,slider[1]+slider[3]/2]);await selected(0);
- await click([slider[0]+slider[2]*.98,slider[1]+slider[3]/2]);await selected(5);
- await click(await face(5));await page.keyboard.press('Escape');await page.keyboard.press('Home');await selected(0);
+ await click([slider[0]+slider[2]*.98,slider[1]+slider[3]/2]);await selected(6);
+ await click(await face(6));await page.keyboard.press('Escape');await page.keyboard.press('Home');await selected(0);
  // Drag the native title and restore; both the frame and its contents must move together.
  q=await state();const before=q.tenant.painting_viewer_rect, title=await screen(center(q.tenant.painting_title_rect));
  await page.mouse.move(...title);await page.mouse.down();await page.mouse.move(title[0]-40,title[1]+15,{steps:8});await page.mouse.up();await wait(500);
@@ -105,6 +138,10 @@ try{
  assert.ok(r[0]>=0&&r[1]>=0&&r[0]+r[2]<=q.logical_size[0]+1);
  await page.screenshot({path:`${output}/compact.png`});
  assert.deepEqual(errors,[]);
- await writeFile(`${output}/result.json`,JSON.stringify({passed:true,checks:['animated loading screen','loader exit','current seven tabs','original six paintings','frameless book','side clicks both directions','enlarge/escape','keyboard','vertical/horizontal wheel','drag paintings','scrubber endpoints','native window drag','drawing','page turns preserve ink','window stacking','frameless book drag/resize','hidden freeze/resume','resize'],state:q,load:await page.evaluate(()=>window.loadPerf)},null,2));
+ await writeFile(`${output}/result.json`,JSON.stringify({passed:true,checks:['animated loading screen','loader exit','current seven tabs','six paintings plus original mountain reference','original individual gold frames','palette v7 tools','populated saves without legacy cards','frameless book','side clicks both directions','enlarge/escape','keyboard','vertical/horizontal wheel','drag paintings','scrubber endpoints','native window drag','drawing','page turns preserve ink','window stacking','frameless book drag/resize','hidden freeze/resume','resize'],state:q,load:await page.evaluate(()=>window.loadPerf)},null,2));
  console.log('PASS: native Sketchbook Cover Flow interactions, book ink/page turn, stacking, tab freeze and resize');
+}catch(error){
+ await page.screenshot({path:`${output}/failure.png`}).catch(()=>{});
+ await writeFile(`${output}/failure.json`,JSON.stringify({message:error.message,errors,state:await state().catch(()=>null)},null,2));
+ throw error;
 }finally{await browser.close()}

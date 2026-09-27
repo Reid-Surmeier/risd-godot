@@ -26,7 +26,7 @@ const NATIVE_MARGIN := Vector2(60, 52)
 const DESKTOP_SIZE := Vector2(1330, 1060)  # tall enough for the owner's arrangement of 2026-09-25
 const REFERENCE_SLOT := Rect2(397, 25, 620, 446)  # owner layout 2026-09-25: the framed painting large, top middle
 const PAINTBOX_SLOT := Rect2(60, 235, 360, 575)
-const ANRI_PAINTBOX_SLOT := Rect2(8, 28, 360, 775)
+const ANRI_PAINTBOX_SLOT := Rect2(8, 28, 360, 360.0 * 3072.0 / 1484.0)
 const BOOK_SLOT := Rect2(397, 494, 630, 555)  # under the painting
 const REQUIRED := [
 	"ro-top-left.png", "ro-top-mid.png", "ro-top-right.png", "ro-left.png", "ro-right.png", "ro-bottom-left.png",
@@ -113,6 +113,7 @@ func _ready() -> void:
 	paintbox.set_smear_variant("A")
 	tldraw_controls = load(ROOT + "tldraw_controls_prototype.gd").new()
 	tldraw_controls.configure(sketchbook.surface)
+	paintbox.tool_selected.connect(tldraw_controls._select_tool)
 	desktop.add_child(tldraw_controls)
 	windows.append(tldraw_controls)
 	tldraw_controls.title_bar.gui_input.connect(_drag_handle_input.bind(tldraw_controls))
@@ -247,7 +248,7 @@ func _refresh_references() -> void:
 			reference_list.add_child(_reference_label("Saved references unavailable"))
 			return
 		storage_status = "ready"
-		reference_panel.visible = not result.value.items.is_empty()
+		reference_panel.visible = false  # #145 retires the card window; saved collection data stays intact.
 		if result.value.items.is_empty():
 			reference_list.add_child(_reference_label("Save a RISD artwork in Collection to use it as a reference"))
 			return
@@ -448,7 +449,8 @@ func state() -> Dictionary:
 			"mix_count": p.mix_count, "paint_pixels": p.paint_pixels, "smear_variant": p.smear_variant, "mixbox": p.mixbox,
 			"saved_ids": saved_ids.duplicate(), "selected_reference": selected_reference,
 			"storage_status": storage_status, "reference_rect": _global_rect(reference_panel),
-			"reference_cards": reference_cards,
+			"reference_cards": reference_cards, "reference_visible": reference_panel.visible,
+			"palette_asset": paintbox.ANRI_INTERIOR.resource_path, "drawing_tool": sketchbook.surface.tool,
 			"painting_viewer": painting_flow.qa_state(),
 			"painting_viewer_rect": _global_rect(painting_flow),
 			"painting_title_rect": _global_rect(painting_flow.title_bar),

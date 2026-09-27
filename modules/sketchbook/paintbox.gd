@@ -8,13 +8,13 @@ extends Control
 
 signal color_changed(color: Color)
 signal state_changed
+signal tool_selected(tool: String)
 signal pointer_changed
 signal sound_cue_requested(cue: String)
 
 const Mixbox = preload("res://modules/sketchbook/mixbox/mixbox.gd")
 const SoundCues := preload("res://modules/sound_cues/interface.gd")
-const ANRI_INTERIOR := preload("res://modules/sketchbook/assets/paintbox/anri-interior-muse.webp")
-const ANRI_TITLE := preload("res://modules/sketchbook/assets/paintbox/anri-title-reference.png")
+const ANRI_INTERIOR := preload("res://modules/sketchbook/assets/paintbox/palette-window-v7.png")
 const PALETTE := preload("res://modules/sketchbook/assets/paintbox/palette-white.png")
 const BRUSH_REST := preload("res://modules/sketchbook/assets/paintbox/cat-brush-rest.png")
 const BRUSH := preload("res://modules/sketchbook/assets/paintbox/watercolor-brush.png")
@@ -23,8 +23,6 @@ const TITLE_HEIGHT := 22.0
 const BORDER := 4.0
 const MIX_CUE_INTERVAL := 1.4
 const ANRI_PALETTE_SOURCE := Rect2(68, 108, 398, 365)
-const ANRI_PALETTE_POSITION := Vector2(0.105, 0.45)
-const ANRI_PALETTE_WIDTH := 0.79
 const WELL_START_X := 95.0 / 532.0
 const WELL_STEP_X := 23.0 / 532.0
 const WELL_Y := [150.0 / 532.0, 338.0 / 532.0]
@@ -155,20 +153,21 @@ func _layout() -> void:
 	title_bar.size = Vector2(size.x - BORDER * 2.0, TITLE_HEIGHT - BORDER)
 	tool_reference.position = Vector2(BORDER, TITLE_HEIGHT + BORDER)
 	if anri_mode:
-		var interior_size := Vector2(size.x - BORDER * 2.0, (size.x - BORDER * 2.0) * 2.0)
-		tool_reference.size = interior_size
-		var palette_width := interior_size.x * ANRI_PALETTE_WIDTH
-		image_rect = Rect2(tool_reference.position + ANRI_PALETTE_POSITION * interior_size,
-				Vector2(palette_width, palette_width * ANRI_PALETTE_SOURCE.size.y / ANRI_PALETTE_SOURCE.size.x))
-		brush_stage.position = Vector2(tool_reference.position.x, image_rect.end.y)
-		brush_stage.size = Vector2(interior_size.x, tool_reference.position.y + tool_reference.size.y - image_rect.end.y)
+		var k := size.x / 1484.0
+		title_bar.size.y = 92 * k
+		tool_reference.position = Vector2.ZERO
+		tool_reference.size = size
+		# Register the retained source palette in the owner's 1484x3072 assembly.
+		image_rect = Rect2(Vector2(180, 1363) * k, ANRI_PALETTE_SOURCE.size * 2.72 * k)
+		brush_stage.position = Vector2(20, 2370) * k
+		brush_stage.size = Vector2(1440, 650) * k
 	else:
 		tool_reference.size = Vector2.ZERO
 		brush_stage.size = Vector2.ZERO
 		var available := size - Vector2(BORDER * 2.0, TITLE_HEIGHT + BORDER * 2.0)
 		var side := minf(available.x, available.y - 104.0)
 		image_rect = Rect2(Vector2((size.x - side) / 2.0, TITLE_HEIGHT + BORDER), Vector2(side, side))
-	var rest_center := tool_reference.position + Vector2(tool_reference.size.x * 0.5, tool_reference.size.y * 0.96) if anri_mode else Vector2(size.x * 0.5, image_rect.end.y + 52.0)
+	var rest_center := tool_reference.position + Vector2(tool_reference.size.x * 0.5, tool_reference.size.y * 0.885) if anri_mode else Vector2(size.x * 0.5, image_rect.end.y + 52.0)
 	brush_rest.size = Vector2(112, 108) if anri_mode else Vector2(92, 90)
 	brush_rest.position = rest_center - brush_rest.size * 0.5
 	brush_rest.visible = true
@@ -218,13 +217,10 @@ func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, size), Color("#ffffff"))
 	draw_rect(Rect2(Vector2.ZERO, size), Color("#24282b"), false, 2.0)
 	if anri_mode:
-		draw_texture_rect(ANRI_TITLE, Rect2(BORDER, BORDER, size.x - BORDER * 2.0, TITLE_HEIGHT - BORDER), false)
 		draw_texture_rect(ANRI_INTERIOR, Rect2(tool_reference.position, tool_reference.size), false)
-		draw_rect(image_rect, Color.WHITE)
-		draw_texture_rect_region(PALETTE, image_rect, ANRI_PALETTE_SOURCE)
 	else:
 		draw_rect(Rect2(BORDER, BORDER, size.x - BORDER * 2.0, TITLE_HEIGHT - BORDER), Color("#9bc4df"))
-	draw_line(Vector2(BORDER, TITLE_HEIGHT), Vector2(size.x - BORDER, TITLE_HEIGHT), Color("#4d6778"), 1.0)
+		draw_line(Vector2(BORDER, TITLE_HEIGHT), Vector2(size.x - BORDER, TITLE_HEIGHT), Color("#4d6778"), 1.0)
 	if not anri_mode:
 		draw_string(ThemeDB.fallback_font, Vector2(10, 17), "Paintbox · soft smear", HORIZONTAL_ALIGNMENT_LEFT, size.x - 52, 13, Color("#14222b"))
 		draw_rect(Rect2(size.x - 30, 7, 17, 11), brush_color)
@@ -241,6 +237,16 @@ func _draw() -> void:
 		draw_rect(Rect2(image_rect.position + rect.position * image_rect.size, rect.size * image_rect.size), Color(brush_color, 0.7), false, 2.0)
 
 func _gui_input(event: InputEvent) -> void:
+	if anri_mode and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var source_point: Vector2 = event.position * 1484.0 / size.x
+		if Rect2(1010, 450, 370, 430).has_point(source_point):
+			tool_selected.emit("draw")
+			accept_event()
+			return
+		if Rect2(1005, 975, 330, 330).has_point(source_point):
+			tool_selected.emit("eraser")
+			accept_event()
+			return
 	if event is InputEventMouseMotion:
 		_hover_uv = _uv(event.position)
 		mouse_default_cursor_shape = CURSOR_POINTING_HAND if _well_at(_hover_uv) >= 0 else CURSOR_CROSS if _tray_at(_hover_uv) >= 0 else CURSOR_ARROW
