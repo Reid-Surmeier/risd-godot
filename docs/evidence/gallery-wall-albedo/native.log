@@ -1,0 +1,22 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.1 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Microsoft - D3D12 (NVIDIA GeForce RTX 4070 SUPER)
+
+ENTRY_COMPLETE (0.0, 0.0, -2.561263)
+NAV_SPACE gallery -> gallery
+WALL_ALBEDO control scene=corner camera=[X: (-0.881582, 0.0, -0.47203), Y: (-0.333776, 0.707107, 0.623373), Z: (0.333776, 0.707107, -0.623373), O: (-0.040802, 11.89092, -10.79478)] walls=4 live_lights=0
+NAV_SPACE gallery -> gallery
+WALL_ALBEDO control scene=warm camera=[X: (-1.0, 0.0, 0.0), Y: (0.0, 0.707107, 0.707107), Z: (-0.0, 0.707107, -0.707107), O: (2.0, 11.89092, -13.34092)] walls=4 live_lights=0
+NAV_SPACE gallery -> gallery
+WALL_ALBEDO control scene=art camera=[X: (-0.0, 0.0, -1.0), Y: (-0.707107, 0.707107, 0.0), Z: (0.707107, 0.707107, -0.0), O: (6.040916, 11.89092, -12.0)] walls=4 live_lights=0
+NAV_SPACE gallery -> arch
+WALL_ALBEDO control scene=white camera=[X: (-1.0, 0.0, -0.0), Y: (-0.0, 0.707107, 0.707107), Z: (0.0, 0.707107, -0.707107), O: (-0.0, 11.89092, -12.34092)] walls=4 live_lights=0
+NAV_SPACE arch -> gallery
+WALL_ALBEDO lift scene=corner camera=[X: (-0.881582, 0.0, -0.47203), Y: (-0.333776, 0.707107, 0.623373), Z: (0.333776, 0.707107, -0.623373), O: (-0.040802, 11.89092, -10.79478)] walls=4 live_lights=0
+NAV_SPACE gallery -> gallery
+WALL_ALBEDO lift scene=warm camera=[X: (-1.0, 0.0, 0.0), Y: (0.0, 0.707107, 0.707107), Z: (-0.0, 0.707107, -0.707107), O: (2.0, 11.89092, -13.34092)] walls=4 live_lights=0
+NAV_SPACE gallery -> gallery
+WALL_ALBEDO lift scene=art camera=[X: (-0.0, 0.0, -1.0), Y: (-0.707107, 0.707107, 0.0), Z: (0.707107, 0.707107, -0.0), O: (6.040916, 11.89092, -12.0)] walls=4 live_lights=0
+NAV_SPACE gallery -> arch
+WALL_ALBEDO lift scene=white camera=[X: (-1.0, 0.0, -0.0), Y: (-0.0, 0.707107, 0.707107), Z: (0.0, 0.707107, -0.707107), O: (-0.0, 11.89092, -12.34092)] walls=4 live_lights=0
