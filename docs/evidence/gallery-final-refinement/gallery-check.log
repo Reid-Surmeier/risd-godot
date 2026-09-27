@@ -1,0 +1,124 @@
+BAKE_RECOVERY editor failure and preflight refusal preserve working files
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.1 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Microsoft - D3D12 (NVIDIA GeForce RTX 4070 SUPER)
+
+GAMECUBE_GPU filter=0.0 pixels=1600 max_error=0.00246500968933
+GAMECUBE_GPU filter=0.5 pixels=1600 max_error=0.00261443853378
+GAMECUBE_GPU filter=1.0 pixels=1600 max_error=0.00248366594315
+QUIET_GPU CRT_and_HAZE pixels=1600 max_error=0.0
+QUIET_GPU outside_region_effect_delta=0.11764705181122
+MAPPING_REFRESH production_callbacks=3 elapsed=0.05s qa_timer=0.05
+FINAL_RENDER_GPU_FAILURES 0
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.1 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Microsoft - D3D12 (NVIDIA GeForce RTX 4070 SUPER)
+
+VISITOR_MOTION walk=21 look=18 greeting=24 empty_rejected=true static_rejected=true failures=0
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.1 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Microsoft - D3D12 (NVIDIA GeForce RTX 4070 SUPER)
+
+ENTRY_COMPLETE (0.0, 0.0, -2.569998)
+NAV_SPACE gallery -> arch
+NAV_SPACE arch -> gallery
+NAV_ROUNDTRIP arch passed
+NAV_SPACE gallery -> far
+NAV_SPACE far -> gallery
+NAV_ROUNDTRIP far passed
+NAV_SPACE gallery -> arch
+NAV_SPACE arch -> gallery
+NAV_KEY_ROUNDTRIP arch passed
+NAV_SPACE gallery -> far
+NAV_SPACE far -> gallery
+NAV_KEY_ROUNDTRIP far passed
+NAV_PICK floor
+NAV_SPACE gallery -> arch
+NAV_PICK floor
+NAV_SPACE arch -> gallery
+NAV_CLICK_ROUNDTRIP arch passed
+NAV_PICK floor
+NAV_SPACE gallery -> far
+NAV_PICK floor
+NAV_SPACE far -> gallery
+NAV_CLICK_ROUNDTRIP far passed
+VIEW_ORBIT {"position":[-2.59999990463257,-12.0],"space":"gallery","yaw":2.4699756330259}
+VIEW_ORBIT {"position":[-2.59999990463257,-12.0],"space":"gallery","yaw":2.07178781644324}
+VIEW_ORBIT {"position":[-2.59999990463257,-12.0],"space":"gallery","yaw":2.16997337231589}
+NAV_PICK floor
+NAV_INPUT drag/easing/pan/wheel/click/cancel passed; paintings=23
+NAV_FAILURES 0
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.1 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Microsoft - D3D12 (NVIDIA GeForce RTX 4070 SUPER)
+
+ENTRY_COMPLETE (0.0, 0.0, -2.55705)
+DOLLHOUSE_RENDER texture_bytes=286876316 draw_calls=75
+DOLLHOUSE_BENCH_BEVEL faces=32
+VIEW gallery yaw 90.0
+VIEW dollhouse yaw 90.0
+VIEW dollhouse yaw -90.0
+OTHER_WALL east
+VIEW dollhouse yaw 90.0
+OTHER_WALL west
+DOLLHOUSE_OTHER_WALL both directions
+DOLLHOUSE_FOOTSTEPS contacts_2s=8 blocked=0
+VIEW_ORBIT {"position":[-2.41208171844482,-13.0643472671509],"space":"gallery","yaw":0.000892210157758399}
+VIEW_ORBIT {"position":[4.0,-12.0],"space":"gallery","yaw":-1.57003753406753}
+VIEW_ORBIT {"position":[4.0,-12.0],"space":"gallery","yaw":-3.1409182534311}
+VIEW_ORBIT {"position":[4.0,-12.0],"space":"gallery","yaw":1.57162455920888}
+NAV_PICK floor
+DOLLHOUSE_HIDDEN_WALL 1
+NAV_PICK W1
+NAV_PICK W2
+NAV_PICK W3
+NAV_PICK W4
+NAV_PICK W5
+NAV_PICK W6
+NAV_PICK W7
+NAV_PICK W8
+NAV_PICK W9
+NAV_PICK W10
+VIEW_ORBIT {"position":[2.40000009536743,-23.0603446960449],"space":"gallery","yaw":0.000597105170729726}
+VIEW_ORBIT {"position":[2.40000009536743,-23.0603446960449],"space":"gallery","yaw":-1.57004784138439}
+NAV_PICK E1
+NAV_PICK E2
+NAV_PICK E3
+NAV_PICK E4
+NAV_PICK E5
+NAV_PICK E6
+NAV_PICK E7
+NAV_PICK E8
+NAV_PICK E9
+VIEW_ORBIT {"position":[3.11499977111816,-2.59999990463257],"space":"gallery","yaw":-3.1411923256053}
+NAV_PICK S1
+NAV_PICK S2
+VIEW_ORBIT {"position":[-3.11500000953674,-23.6999988555908],"space":"gallery","yaw":1.57141821059781}
+VIEW_ORBIT {"position":[-3.11500000953674,-23.6999988555908],"space":"gallery","yaw":0.000566150103344177}
+NAV_PICK N1
+NAV_PICK N2
+DOLLHOUSE_ARTWORKS 23/23
+DOLLHOUSE_FAILURES 0
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.1 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Microsoft - D3D12 (NVIDIA GeForce RTX 4070 SUPER)
+
+ENTRY_COMPLETE (0.0, 0.0, -2.555004)
+VIEW original yaw -180.0
+NAV_PICK W6
+NAV_PICK E4
+NAV_PICK E4
+NAV_PICK N1
+STEP-BACK z before -5.23 after -4.27 target <null>
+BOTH-BENCHES end pos (0.02309, 0.0, -5.027309) target <null>
+AGAINST-BENCH path [(1.6, 0.0, -6.85), (1.6, 0.0, -11.15), (1.6, 0.0, -14.85), (1.6, 0.0, -19.15)]
+AGAINST-BENCH end pos (0.041598, 0.0, -18.90566) target <null>
+FUZZ 0 of 300 walks failed
+HALF-VISIBLE picks E6 at (362.4364, 245.9633)
+NAV_PICK E6
+HALF-VISIBLE open E6
