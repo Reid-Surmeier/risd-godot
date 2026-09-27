@@ -1,10 +1,10 @@
 {
-    "updatedAt": "2026-09-27T06:07:27+00:00",
-    "status": "integrated-42-camera-browser-verified-blind-final-review-active",
+    "updatedAt": "2026-09-27T06:30:56+00:00",
+    "status": "integrated-42-verified-scale-and-shadow-trials-rejected-m3-unmeasured",
     "owner": "active API coordinator",
     "baseline": "c5700d4",
     "runtime": "29e7a5b",
-    "next": "Review final blind visual gaps; avoid speculative wall/character edits rejected at 720; Mac M3 startup and random lag remain unmeasured; heartbeat continues overnight",
+    "next": "Keep 22089e5 shared build; do not integrate rejected albedo, fill, silhouette, shadow or scale trials. Exact Animal Crossing finish remains an art/modeling task; collect Mac M3 fresh-gallery and Flowers-return performance before #137 fix. Heartbeat continues through morning.",
     "browserExport": "build/web/22089e5.html",
     "implementationWorktree": "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype",
     "heartbeatAutomationId": "283bf0fc-59d8-4e5b-8ecb-20bfc8a2d13c",
