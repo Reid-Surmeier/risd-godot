@@ -23,15 +23,17 @@ const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
   await page.waitForFunction(()=>window.loadPerf?.some(m=>m.name==='game-shown') && window.galleryRenderCommand,{timeout:120000});
   await pause(3000);
   const gpu=await page.evaluate(()=>{const gl=document.createElement('canvas').getContext('webgl2');const ext=gl?.getExtension('WEBGL_debug_renderer_info');return ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):'unknown';});
+  console.log(JSON.stringify({gpu,expected_gpu:process.env.PRODUCER_BROWSER_GPU_MODE||'unspecified'}));
+  if(process.env.PRODUCER_BROWSER_GPU_MODE==='hardware' && /llvmpipe|swiftshader|software|unknown/i.test(gpu))throw new Error('Hardware capture requested but renderer is '+gpu);
   const command=async request=>{await page.evaluate(r=>window.galleryRenderCommand(JSON.stringify(r)),request);await pause(60);};
   const results=[];
-  for(const width of [1600,720]) {
+  for(const width of (process.env.RENDER_WIDTHS||'1600,720').split(',').map(Number)) {
    const height=width===1600?900:486;
    await page.setViewport({width,height});await pause(500);
    await page.mouse.move(10,40);
    for(const [label,mode] of Object.entries(key)) {
     await command({action:'mode',mode});
-    for(const scene of ['entry','warm','art','white']) {
+    for(const scene of (process.env.RENDER_SCENES||'entry,warm,art,white').split(',')) {
      await command({action:'pose',scene});await pause(400);
      const prefix=path.join(out,`${label}-${width}-${scene}`);
      await page.screenshot({path:prefix+'.png'});

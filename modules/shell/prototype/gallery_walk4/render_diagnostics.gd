@@ -127,6 +127,9 @@ func _publish() -> void:
 		"container": [view.size.x, view.size.y], "space": view._space,
 		"position": [view._pos.x, view._pos.y, view._pos.z], "camera_transform": values,
 		"camera_fov": camera.fov, "camera_yaw": view.view_yaw, "paintings": view._paintings.size()}
+	var box: SubViewportContainer = view.get_child(0)
+	var finish: ShaderMaterial = box.material
+	state["display_material"] = {"node": str(box.get_path()), "class": box.get_class(), "visible": box.is_visible_in_tree(), "use_parent_material": box.use_parent_material, "instance": finish.get_instance_id(), "shader": finish.shader.resource_path, "copy_filter": finish.get_shader_parameter("copy_filter"), "quantization_mode": finish.get_shader_parameter("quantization_mode")}
 	state["godot_delta_ms"] = _frame_delta_ms
 	state["godot_process_ms"] = Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0
 	state["godot_post_draw_interval_ms"] = _draw_interval_ms
