@@ -20,7 +20,8 @@ func run() -> void:
 	walk.view_yaw = PI / 2
 	var samples := {}
 	for label in ["raw", "warm", "cool", "disabled"]:
-		walk._kid.body.material_override.albedo_color = Color.WHITE if label == "raw" else Color(1.6, 1.6, 1.6)
+		if walk._kid.body.material_override:
+			walk._kid.body.material_override.albedo_color = Color.WHITE if label == "raw" else Color(1.6, 1.6, 1.6)
 		walk._pos = Vector3(-3.4, 0, -12.0) if label != "cool" else Vector3(1.4, 0, -5.0)
 		walk._update_camera(1.0)
 		walk._kid.reset_contacts()

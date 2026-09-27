@@ -7,29 +7,31 @@ func require(ok: bool, message: String) -> void:
 		push_error(message)
 
 func mesh_sole_height(visitor) -> float:
-	var arrays: Array = visitor.body.mesh.surface_get_arrays(0)
-	var bones: PackedInt32Array = arrays[Mesh.ARRAY_BONES]
-	var weights: PackedFloat32Array = arrays[Mesh.ARRAY_WEIGHTS]
-	var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
 	var skin: Skin = visitor.body.skin
 	var minimum := INF
-	for index in vertices.size():
-		if vertices[index].y > 0.18:
-			continue
-		var point := Vector3.ZERO
-		for influence in 4:
-			var bind := bones[index * 4 + influence]
-			var bone: int = skin.get_bind_bone(bind)
-			if bone < 0:
-				bone = visitor.skeleton.find_bone(skin.get_bind_name(bind))
-			point += (visitor.skeleton.get_bone_global_pose(bone) * skin.get_bind_pose(bind) * vertices[index]) * weights[index * 4 + influence]
-		minimum = minf(minimum, (visitor.skeleton.global_transform * point).y)
+	for surface in visitor.body.mesh.get_surface_count():
+		var arrays: Array = visitor.body.mesh.surface_get_arrays(surface)
+		var bones: PackedInt32Array = arrays[Mesh.ARRAY_BONES]
+		var weights: PackedFloat32Array = arrays[Mesh.ARRAY_WEIGHTS]
+		var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+		for index in vertices.size():
+			if vertices[index].y > 0.18:
+				continue
+			var point := Vector3.ZERO
+			for influence in 4:
+				var bind := bones[index * 4 + influence]
+				var bone: int = skin.get_bind_bone(bind)
+				if bone < 0:
+					bone = visitor.skeleton.find_bone(skin.get_bind_name(bind))
+				point += (visitor.skeleton.get_bone_global_pose(bone) * skin.get_bind_pose(bind) * vertices[index]) * weights[index * 4 + influence]
+			minimum = minf(minimum, (visitor.skeleton.global_transform * point).y)
 	return minimum
 
 func _initialize() -> void:
 	call_deferred("run")
 func run() -> void:
 	var visitor = load("res://modules/shell/prototype/gallery_walk4/rig/visitor.gd").new()
+	visitor.identity = OS.get_environment("GALLERY_CHARACTER") == "identity"
 	visitor.world_height = 1.75 * 1.17
 	root.add_child(visitor)
 	await process_frame
@@ -38,7 +40,7 @@ func run() -> void:
 	sprite.free()
 	require(visitor.skeleton.get_bone_count() >= 20, "real articulated skeleton missing")
 	require(visitor.body.gi_mode == GeometryInstance3D.GI_MODE_DYNAMIC, "visitor cannot receive probes")
-	require(visitor.player.get_animation_list().size() == 3, "untrimmed or missing clips")
+	require(visitor.player.has_animation("Idle") and visitor.player.has_animation("Walking_A") and visitor.player.has_animation("Interact"), "motion clips missing")
 	visitor.pose(0.0, false, 0.0, Vector3.FORWARD, 0.0)
 	var total_contacts := 0
 	var drift := 0.0

@@ -4,6 +4,7 @@ extends Node3D
 const HEIGHT := 2.174243
 const SOURCE_STRIDE := 0.66  # stance travel fit, then checked with world-space sole anchors
 var world_height := 1.75
+var identity := false
 var gesture := ""
 var gesture_time := 0.0
 var layers := 1:
@@ -25,9 +26,9 @@ var _walk_weight := 0.0
 var _time := 0.0
 
 func _ready() -> void:
-	_model = load("res://modules/shell/prototype/gallery_walk4/rig/visitor.glb").instantiate()
+	_model = load("res://modules/shell/prototype/gallery_walk4/identity/visitor_identity.glb" if identity else "res://modules/shell/prototype/gallery_walk4/rig/visitor.glb").instantiate()
 	add_child(_model)
-	_model.scale = Vector3.ONE * world_height / HEIGHT
+	_model.scale = Vector3.ONE * world_height / (2.065 if identity else HEIGHT)
 	# Anchor at the forward edge of the idle footprint; keep the mesh on y=0.
 	_model.position.z = -0.18
 	skeleton = _model.find_children("*", "Skeleton3D", true, false)[0]
@@ -35,13 +36,14 @@ func _ready() -> void:
 	body.gi_mode = GeometryInstance3D.GI_MODE_DYNAMIC
 	body.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	body.layers = layers
-	var material: StandardMaterial3D = body.get_active_material(0).duplicate()
-	# Bounded art-direction gain for indirect-only capture; this adds no direct light.
-	material.albedo_color = Color(1.6, 1.6, 1.6)
-	material.roughness = 1.0
-	material.specular_mode = BaseMaterial3D.SPECULAR_DISABLED
-	material.disable_ambient_light = false
-	body.material_override = material
+	if not identity:
+		var material: StandardMaterial3D = body.get_active_material(0).duplicate()
+		# Bounded art-direction gain for indirect-only capture; this adds no direct light.
+		material.albedo_color = Color(1.6, 1.6, 1.6)
+		material.roughness = 1.0
+		material.specular_mode = BaseMaterial3D.SPECULAR_DISABLED
+		material.disable_ambient_light = false
+		body.material_override = material
 	player = _model.find_children("*", "AnimationPlayer", true, false)[0]
 	player.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
 	_sample("Idle", 0.0)
@@ -51,7 +53,7 @@ func _ready() -> void:
 		var foot := skeleton.find_bone("foot." + side)
 		var pose := skeleton.get_bone_global_pose(foot)
 		# Flat sole centre measured from the imported idle mesh, not the camera.
-		var point := Vector3(pose.origin.x, 0.0, pose.origin.z + 0.045)
+		var point := Vector3(pose.origin.x, -0.015 if identity else 0.0, pose.origin.z + 0.045)
 		_feet.append({"upper": skeleton.find_bone("upperleg." + side), "lower": skeleton.find_bone("lowerleg." + side), "foot": foot, "toe": skeleton.find_bone("toes." + side), "sole": pose.affine_inverse() * point, "flat": pose.basis, "locked": false, "anchor": Vector3.ZERO})
 
 func _sample(clip: String, seconds: float) -> void:
@@ -137,7 +139,7 @@ func pose(delta: float, moving: bool, _legacy_phase: float, heading: Vector3, _c
 	var stepping := moving or turn_distance > 0.0001
 	if stepping:
 		gesture = ""
-		phase = fposmod(phase + (distance if moving else turn_distance) / (SOURCE_STRIDE * world_height / HEIGHT), 1.0)
+		phase = fposmod(phase + (distance if moving else turn_distance) / (SOURCE_STRIDE * world_height / (2.065 if identity else HEIGHT)), 1.0)
 	_walk_weight = move_toward(_walk_weight, (1.0 if moving else 0.7) if stepping else 0.0, delta * 8.0)
 	_sample("Idle", fposmod(_time, player.get_animation("Idle").length))
 	var idle_pose := []
