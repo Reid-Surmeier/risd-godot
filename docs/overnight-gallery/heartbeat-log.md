@@ -14,3 +14,11 @@
 - #141 now scopes startup and real input/stall diagnostics; Mac M3 symptom remains unmeasured.
 - Next: inspect completed candidate outputs and actual Godot timings, then compare live 3D rig/display against the Animal Crossing reference.
 - Checkpoint unchanged: active API coordinator owns it; current next action still applies.
+
+2026-09-26 23:01 EDT — Heartbeat tick (map #116; #137, #139–141 open).
+- Confirmed #136/#138 research closed; #141 load trim integrated at e02a88b, with Mac M3 and unvisited-gallery lag still unmeasured.
+- Rig worktree has active uncommitted changes; display worktree advanced to d97b31b. No candidate files touched.
+- Verified d97b31b JavaScript syntax and commit whitespace checks pass; it exposes display material state and rejects software rendering when hardware is required.
+- Existing /tmp/gallery-display-140/copy-hardware packet predates that field; all three 1600px entry PNG SHA-256 hashes match, so it cannot select a shader mode.
+- Next: recapture actual export with d97b31b, confirm distinct material parameters and pixels before another blind review; then compare integrated rig motion/light and M3 load/input evidence.
+- Checkpoint unchanged: active API coordinator owns it, and its integration instruction still applies.
