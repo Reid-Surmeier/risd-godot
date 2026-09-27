@@ -1,6 +1,6 @@
 # Grounded 3D visitor — #139
 
-The visitor is now a real lit, skinned mesh with world-space foot contact and continuous rotation. This is a motion/lighting prototype, not the finished Animal Crossing character identity. KayKit Rogue has a green tunic, brown hair, belt and boots; its face, head shape and outfit differ substantially from the approved red-cap identity. No generation or new spend.
+The visitor is now a real lit, skinned mesh with world-space foot contact and continuous rotation. This is a motion/lighting prototype, not the finished Animal Crossing-inspired character identity. KayKit Rogue has a green tunic, brown hair, belt and boots; its face, head shape and outfit differ substantially from the red-cap reference. No generation or new spend.
 
 ![Initial browser idle](entry.png)
 
