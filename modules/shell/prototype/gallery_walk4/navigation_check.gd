@@ -50,14 +50,10 @@ func _run() -> void:
 	await _shot(out, "01-entrance.png")
 	var entry_from: Vector3 = walk._pos
 	await _advance(0.2)
-	var moving_image: Image = walk._kid.texture.get_image()
-	var cell := Vector2i(moving_image.get_width() / walk._kid.hframes, moving_image.get_height() / walk._kid.vframes)
-	var cell_origin: Vector2i = walk._kid.frame_coords * cell
-	var first_pixels := hash(moving_image.get_region(Rect2i(cell_origin, cell)).get_data())
+	var skeleton: Skeleton3D = walk._kid.skeleton
+	var first_pose: Transform3D = skeleton.get_bone_global_pose(skeleton.find_bone("foot.l"))
 	await _advance(0.3)
-	moving_image = walk._kid.texture.get_image()
-	cell_origin = walk._kid.frame_coords * cell
-	_require(hash(moving_image.get_region(Rect2i(cell_origin, cell)).get_data()) != first_pixels, "visible entrance sprite stayed on one frame")
+	_require(not first_pose.is_equal_approx(skeleton.get_bone_global_pose(skeleton.find_bone("foot.l"))), "visible entrance skeleton stayed on one pose")
 	_require(walk._pos.z < entry_from.z - 0.4 and walk._kid_t > 0.0, "entrance did not advance walk animation")
 	await _shot(out, "01b-entrance-walking.png")
 	await _advance(2.5)

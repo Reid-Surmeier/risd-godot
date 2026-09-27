@@ -6,7 +6,7 @@ import sys
 import tempfile
 
 source = Path(__file__).with_name('run.py')
-for existing_plugin in (False, True):
+for variant, existing_plugin in ((name, plugin) for name in ("room", "white") for plugin in (False, True)):
     with tempfile.TemporaryDirectory() as temporary:
         root = Path(temporary)
         runner = root / 'modules/shell/prototype/gallery_walk4/bake/run.py'
@@ -16,7 +16,7 @@ for existing_plugin in (False, True):
         project.write_text('[application]\n' + ('[editor_plugins]\n' if existing_plugin else ''))
         baked = runner.parent.parent / 'baked'
         baked.mkdir()
-        for name in ('room.tscn', 'room.lmbake', 'room.exr', 'room.exr.import'):
+        for name in (variant + extension for extension in ('.tscn', '.lmbake', '.exr', '.exr.import')):
             (baked / name).write_bytes(b'previous valid bake')
         before = {path: path.read_bytes() for path in [project, *baked.iterdir()]}
         # The child process modifies outputs, then the editor fails. This models
@@ -29,7 +29,7 @@ for existing_plugin in (False, True):
                          '    p.write_bytes(b"unfinished bake")\n'
                          'sys.exit(2 if "--editor" in sys.argv else 0)\n')
         godot.chmod(0o755)
-        result = subprocess.run([sys.executable, str(runner)],
+        result = subprocess.run([sys.executable, str(runner)] + (["--white"] if variant == "white" else []),
                                 env={**os.environ, 'PATH': str(root) + os.pathsep + os.environ['PATH']},
                                 capture_output=True, timeout=10)
         assert result.returncode != 0, 'failed bake reported success'

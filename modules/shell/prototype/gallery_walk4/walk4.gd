@@ -53,9 +53,12 @@ var _view_label: Label
 var _velocity := Vector3.ZERO
 var _source_meshes: Array[Node] = []
 var _baked_room: Node3D
+var _white_capture: LightmapGI
+var _baked_lighting := true
 var _lighting_choice: CheckButton
 var _cam: Camera3D
-var _kid: Sprite3D
+var _kid: Node3D
+var _rigged_visitor := true
 var _generated_visitor := true
 var _shadow: MeshInstance3D
 var _kid_frames: Array[Texture2D] = []
@@ -121,6 +124,7 @@ func _ready() -> void:
 	_entrance_active = true
 	_entrance_waiting = true
 	_motion_heading = (_target - _pos).normalized()
+	_kid.position = _pos
 	if _generated_visitor:
 		_kid.pose(0.0, false, 0.0, _motion_heading, view_yaw if view_mode != 2 else _yaw)
 	_update_camera(1.0)
@@ -854,8 +858,9 @@ func _build_test_room() -> void:
 		face.call(Vector3(-width / 2.0, height / 2.0, middle), Vector3(0.035, height, depth), Color("#d7d6ce"), layer)
 		face.call(Vector3(width / 2.0, height / 2.0, middle), Vector3(0.035, height, depth), Color("#f8f7f0"), layer)
 		face.call(Vector3(0, height, middle), Vector3(width, 0.035, depth), Color("#fdfcf6"), layer)
-		face.call(Vector3(0, 0.012, middle), Vector3(width, 0.025, depth), Color("#e3e0d6"), layer)
-		face.call(Vector3(0, 0.026, door.z), Vector3(width, 0.03, 0.24), Color("#cbc7bc"), layer)
+		face.call(Vector3(0, -0.0125, middle), Vector3(width, 0.025, depth), Color("#e3e0d6"), layer)
+		# Flush threshold: the walkable floor stays at y=0, including the entrance.
+		face.call(Vector3(0, -0.014, door.z), Vector3(width, 0.03, 0.24), Color("#cbc7bc"), layer)
 	_portal_flash = ColorRect.new()
 	_portal_flash.color = Color.WHITE
 	_portal_flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -875,6 +880,7 @@ func _enter_space(next: String) -> void:
 	for node in _vp.get_children():
 		if node is WorldEnvironment:
 			node.environment.background_color = Color("#20242a") if next == "gallery" else Color("#ece9e2")
+			node.environment.ambient_light_energy = 0.6 if next == "gallery" and not _baked_lighting else 0.0
 	if next == "gallery":
 		_pos = Vector3(0, 0, -0.7 if previous == "arch" else -L + 0.7)
 		view_yaw = 0.0 if previous == "arch" else PI
@@ -882,6 +888,11 @@ func _enter_space(next: String) -> void:
 		_pos = Vector3(0, 0, -0.7)
 		view_yaw = 0.0
 	_yaw = view_yaw
+	if _rigged_visitor:
+		_kid.position = _pos
+		_kid.reset_contacts()
+		_motion_heading = Vector3.FORWARD if next != "gallery" or previous == "arch" else Vector3.BACK
+		_kid.pose(0.0, false, 0.0, _motion_heading, view_yaw)
 	_view_turn_remaining = 0.0
 	get_node("OtherWall").visible = next == "gallery"
 	_portal_flash.modulate.a = 1.0
@@ -914,11 +925,25 @@ func _orbit(amount: float) -> void:
 
 
 func _set_lighting(enabled: bool) -> void:
+	_baked_lighting = enabled
+	# Original room comparison has no capture. Supply neutral ambient only there;
+	# baked/probe-disabled tests retain zero ambient and genuine spatial capture.
+	for node in _vp.get_children():
+		if node is WorldEnvironment:
+			node.environment.ambient_light_energy = 0.6 if not enabled and _space == "gallery" else 0.0
 	if enabled and _baked_room == null:
 		_baked_room = load(DIR + "baked/room.tscn").instantiate()
 		_vp.add_child(_baked_room)
 	if _baked_room:
 		_baked_room.visible = enabled
+	if _white_capture == null and ResourceLoader.exists(DIR + "baked/white.lmbake"):
+		_white_capture = LightmapGI.new()
+		var capture: LightmapGIData = ResourceLoader.load(DIR + "baked/white.lmbake", "LightmapGIData", ResourceLoader.CACHE_MODE_IGNORE)
+		capture.clear_users()  # white scene uses existing geometry; keep only its probe field
+		_white_capture.light_data = capture
+		_vp.add_child(_white_capture)
+	if _white_capture:
+		_white_capture.visible = _space != "gallery"
 	for mesh in _source_meshes:
 		mesh.visible = not enabled
 	# The old photographed end cards are scenery, not traversable rooms.
@@ -1028,9 +1053,10 @@ func _merge_static() -> void:
 
 func _build_kid() -> void:
 	_generated_visitor = not (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('character') === 'original'"))
+	_rigged_visitor = not (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('character') === 'sprite'")) and _generated_visitor
 	if _generated_visitor:
-		_kid = load(DIR + "visitor.gd").new()
-		_kid.world_height = KID_H
+		_kid = load(DIR + ("rig/visitor.gd" if _rigged_visitor else "visitor.gd")).new()
+		_kid.world_height = KID_H * (1.17 if _rigged_visitor else 1.0)
 	else:
 		var i := 0
 		while ResourceLoader.exists(DIR + "kid/%02d.png" % i):
@@ -1211,7 +1237,7 @@ func _process(delta: float) -> void:
 	var position_before := _pos
 	if view_mode != 2:
 		var direction := _screen_direction()
-		_velocity = _velocity.move_toward(direction * 2.0, (12.0 if direction != Vector3.ZERO else 16.0) * delta)
+		_velocity = _velocity.move_toward(direction * (WALK_MPS if _rigged_visitor else 2.0), (12.0 if direction != Vector3.ZERO else 16.0) * delta)
 		if _velocity.length() > 0.01:
 			_move_to(_pos + _velocity * delta)
 	var goal = _path[0] if not _path.is_empty() else _target
@@ -1251,7 +1277,7 @@ func _process(delta: float) -> void:
 		_kid_t += delta * steps_per_second * 8.0 / 10.0
 		var current := int(_kid_t * 10.0)
 		for frame in range(previous + 1, current + 1):
-			if frame % WALK_FRAMES in CONTACT_FRAMES:
+			if not _rigged_visitor and frame % WALK_FRAMES in CONTACT_FRAMES:
 				_step_i = (_step_i + 1) % 6
 				_play("step_wood_%02d" % (_step_i + 1))
 		if not _generated_visitor:
@@ -1260,8 +1286,13 @@ func _process(delta: float) -> void:
 		_kid_t = 0.0
 		if not _generated_visitor:
 			_kid.texture = _kid_frames[0]
+	_kid.position = _pos
 	if _generated_visitor:
 		_kid.pose(delta, distance_moved > 0.0001, _kid_t * 10.0 / WALK_FRAMES, _motion_heading, view_yaw if view_mode != 2 else _yaw)
+	if _rigged_visitor:
+		for contact in _kid.contacts:
+			_step_i = (_step_i + 1) % 6
+			_play("step_wood_%02d" % (_step_i + 1))
 	_update_camera(minf(1.0, delta * 5.0))
 	_update_hover()
 	if orbit_settled:
@@ -1291,11 +1322,16 @@ func _clamp(p: Vector3) -> Vector3:
 # The camera follows behind the kid but never leaves the room: the line from the kid's head to where the camera
 # wants to be is cut where it would cross a wall.
 func _update_camera(k: float) -> void:
+	if _baked_room:
+		_baked_room.get_node("Lightmap").visible = _space == "gallery"
+	if _white_capture:
+		_white_capture.visible = _space != "gallery"
 	_kid.layers = 1 if _space == "gallery" else 64
 	_shadow.layers = _kid.layers
 	_kid.position = _pos
-	_shadow.position = _pos + Vector3(0, 0.01, 0)
-	_kid.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y if view_mode == 2 else BaseMaterial3D.BILLBOARD_ENABLED
+	_shadow.position = (_kid.footprint_position() if _rigged_visitor else _pos) + Vector3(0, 0.01, 0)
+	if not _rigged_visitor:
+		_kid.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y if view_mode == 2 else BaseMaterial3D.BILLBOARD_ENABLED
 	if view_mode != 2:
 		var pitch := deg_to_rad(45.0 if view_mode == 0 else 35.0)
 		var distance := 14.2 if view_mode == 0 else 9.3
@@ -1510,7 +1546,12 @@ func _approach(p: Dictionary) -> void:
 			return
 	if _generated_visitor:
 		_motion_heading = -p.normal
-		_kid.pose(0.0, false, 0.0, _motion_heading, view_yaw if view_mode != 2 else _yaw)
+		_kid.pose(get_process_delta_time() if _rigged_visitor else 0.0, false, 0.0, _motion_heading, view_yaw if view_mode != 2 else _yaw)
+		if _rigged_visitor:
+			while absf(wrapf(_kid.rotation.y - atan2(_motion_heading.x, _motion_heading.z), -PI, PI)) > 0.015:
+				await get_tree().process_frame
+				if _action != mine or not _open.is_empty():
+					return
 		_kid.play_gesture("wave")
 		while _kid.gesture != "":
 			await get_tree().process_frame

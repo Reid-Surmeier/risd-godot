@@ -135,7 +135,16 @@ func _prepare() -> void:
 	lm.quality = LightmapGI.BAKE_QUALITY_MEDIUM
 	lm.bounces = 2
 	lm.directional = false
-	lm.generate_probes_subdiv = LightmapGI.GENERATE_PROBES_DISABLED
+	lm.generate_probes_subdiv = LightmapGI.GENERATE_PROBES_SUBDIV_8
+	# Dynamic visitor captures are sampled near body height. Manual probes keep
+	# walkable edges/thresholds represented without increasing the whole grid.
+	for z in [0.1, -0.7, -3.0, -8.0, -13.0, -18.0, -23.0, -26.4]:
+		for x in [-4.2, -2.0, 0.0, 2.0, 4.2]:
+			for y in [0.3, 1.1, 2.0]:
+				var probe := LightmapProbe.new()
+				probe.position = Vector3(x, y, z)
+				room.add_child(probe)
+				probe.owner = room
 	lm.environment_mode = LightmapGI.ENVIRONMENT_MODE_CUSTOM_COLOR
 	lm.environment_custom_color = Color("#cbd4e1")
 	lm.environment_custom_energy = 0.22

@@ -8,7 +8,7 @@ func _enter_tree() -> void:
 
 func _bake_room() -> void:
 	await get_tree().create_timer(2).timeout
-	EditorInterface.open_scene_from_path(DIR + "room.tscn")
+	EditorInterface.open_scene_from_path(DIR + str(ProjectSettings.get_setting("gallery_bake/scene", "room")) + ".tscn")
 	await get_tree().create_timer(2).timeout
 	var room := EditorInterface.get_edited_scene_root()
 	var lightmap := room.get_node("Lightmap") as LightmapGI
@@ -22,7 +22,7 @@ func _bake_room() -> void:
 			for dialog in button.find_children("*", "EditorFileDialog", true, false):
 				if dialog.visible:
 					dialog.hide()
-					dialog.file_selected.emit(DIR + "room.lmbake")
+					dialog.file_selected.emit(DIR + str(ProjectSettings.get_setting("gallery_bake/scene", "room")) + ".lmbake")
 			await get_tree().create_timer(2).timeout
 			if lightmap.light_data == null or lightmap.light_data.get_user_count() == 0:
 				push_error("Gallery bake produced no lightmap users")
