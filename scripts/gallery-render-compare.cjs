@@ -17,7 +17,7 @@ const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
  try {
   const page=await browser.newPage(); const errors=[];
   page.on('pageerror',e=>errors.push(String(e)));
-  page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+  page.on('console',m=>{if(m.type()==='error'){errors.push(m.text());console.error(m.text());}});
   await page.setViewport({width:1600,height:900});
   await page.goto(url.href,{waitUntil:'load',timeout:120000});
   await page.waitForFunction(()=>window.loadPerf?.some(m=>m.name==='game-shown') && window.galleryRenderCommand,{timeout:120000});
@@ -51,7 +51,14 @@ const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
      });
      const video=await page.screencast({path:prefix+'.webm',fps:30});
      await command({action:'replay',scene});
-     await page.waitForFunction(()=>window.galleryRenderState?.tick>=480 && !window.galleryRenderState.replaying,{timeout:30000});
+     const replayStarted=Date.now();
+     try {
+      await page.waitForFunction(()=>window.galleryRenderState?.tick>=480 && !window.galleryRenderState.replaying,{timeout:30000});
+     } catch(error) {
+      const failure=await page.evaluate(()=>({state:window.galleryRenderState,trace:window.renderTrace,deltas:window.renderDeltas}));
+      fs.writeFileSync(prefix+'-failure.json',JSON.stringify({...failure,wall_ms:Date.now()-replayStarted,errors},null,2));
+      await video.stop();throw error;
+     }
      await video.stop();
      const evidence=await page.evaluate(()=>{window.renderTracing=false;return {trace:window.renderTrace,deltas:window.renderDeltas,final:window.galleryRenderState,dpr:devicePixelRatio};});
      const sorted=evidence.deltas.slice().sort((a,b)=>a-b);

@@ -11,6 +11,9 @@ var _scene := "warm"
 var _mode := "current"
 var _render_viewports: Array[Viewport] = []
 var _frame_delta_ms := 0.0
+var _measure_gpu := false
+var _last_draw_us := 0
+var _draw_interval_ms := 0.0
 const MODES := {"current": [2, 0.5], "copy-none": [2, 0.0], "copy-full": [2, 1.0], "rgb6-plain": [1, 0.5], "bypass": [0, 0.0]}
 
 func _ready() -> void:
@@ -18,12 +21,21 @@ func _ready() -> void:
 	_window = JavaScriptBridge.get_interface("window")
 	_callback = JavaScriptBridge.create_callback(_command)
 	_window.galleryRenderCommand = _callback
-	for viewport: Viewport in [view._vp, view.get_viewport(), get_tree().root]:
-		if viewport not in _render_viewports:
-			_render_viewports.append(viewport)
-			RenderingServer.viewport_set_measure_render_time(viewport.get_viewport_rid(), true)
+	_measure_gpu = JavaScriptBridge.eval("new URLSearchParams(location.search).has('render_gpu_times')")
+	if _measure_gpu:
+		for viewport: Viewport in [view._vp, view.get_viewport(), get_tree().root]:
+			if viewport not in _render_viewports:
+				_render_viewports.append(viewport)
+				RenderingServer.viewport_set_measure_render_time(viewport.get_viewport_rid(), true)
+	RenderingServer.frame_post_draw.connect(_drawn)
 	set_process(false)
 	_publish()
+
+func _drawn() -> void:
+	var now := Time.get_ticks_usec()
+	if _last_draw_us:
+		_draw_interval_ms = (now - _last_draw_us) / 1000.0
+	_last_draw_us = now
 
 func _command(args: Array) -> void:
 	var request = JSON.parse_string(str(args[0]))
@@ -117,6 +129,8 @@ func _publish() -> void:
 		"camera_fov": camera.fov, "camera_yaw": view.view_yaw, "paintings": view._paintings.size()}
 	state["godot_delta_ms"] = _frame_delta_ms
 	state["godot_process_ms"] = Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0
+	state["godot_post_draw_interval_ms"] = _draw_interval_ms
+	state["gpu_timing_enabled"] = _measure_gpu
 	state["render_setup_cpu_ms"] = RenderingServer.get_frame_setup_time_cpu()
 	state["viewport_render_timings"] = timings
 	JavaScriptBridge.eval("window.galleryRenderState = " + JSON.stringify(state))
