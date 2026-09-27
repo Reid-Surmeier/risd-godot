@@ -17,7 +17,7 @@ Runtime modules use frozen GDScript seams; `testing/` and `review/` are workflow
 
 The current combined game is on **`build/v0.1.0`**, in [build PR #38](https://github.com/Reid-Surmeier/risd-godot/pull/38). It includes the latest Sketchbook desktop, painting Cover Flow, and the retained walkable gallery. The gallery character, room finish and retro rendering still need revision; consolidation does not approve their visual quality.
 
-On this machine, work on that branch in `/home/reidsurmeier/risd-godot-worktrees/build-integrated`. The folder name predates consolidation. `/home/reidsurmeier/risd-godot` remains the primary Git/Orca registration and contains original work; it is not the current build checkout. Do not create another copy to resume work.
+On this machine, the canonical checkout is **`/home/reidsurmeier/risd-godot`**, on `build/v0.1.0`. It is the sole remaining Git worktree and Orca's current-build workspace. Original work remains here; unique originals from the removed integration checkout are preserved under the locally ignored `asset-authoring/build-integrated/`. Do not create another copy to resume work.
 
 - [Project home, original assets, backup and recovery](docs/project-home.md)
 - [Issues and Wayfinder maps](docs/work/index.md)
