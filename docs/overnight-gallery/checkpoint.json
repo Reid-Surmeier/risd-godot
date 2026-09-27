@@ -1,10 +1,10 @@
 {
-    "updatedAt": "2026-09-27T05:35:00+00:00",
-    "status": "wider-camera-control-and-parquet-integrated-native-checks-passed",
+    "updatedAt": "2026-09-27T05:40:00+00:00",
+    "status": "combined-build-browser-verified-final-blind-not-yet-cutaway-and-pitch-trials-active",
     "owner": "active API coordinator",
     "baseline": "c5700d4",
     "runtime": "9b454d1",
-    "next": "Export and browser-check the integrated camera/control/parquet build, then obtain final blind reference review; retain current character and RGB6 finish; Mac M3 lag remains unmeasured",
+    "next": "Evaluate isolated cutaway/room-light and 42-degree camera trials against the final blind gaps; integrate only verified gains; retain current character and RGB6 finish; Mac M3 lag remains unmeasured",
     "browserExport": "build/web/index.html",
     "implementationWorktree": "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype",
     "heartbeatAutomationId": "283bf0fc-59d8-4e5b-8ecb-20bfc8a2d13c",
