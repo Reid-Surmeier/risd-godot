@@ -621,7 +621,35 @@ func _trim_profile(origin: Vector3, across: Vector3, along: Vector3, points: Arr
 		cap.material_override = material
 		_vp.add_child(cap)
 
+func _door_panel(center: Vector3, material: Material) -> void:
+	# One closed face and four bevels replace intersecting thin bead extrusions.
+	var outline := [Vector2(-0.5, -0.425), Vector2(0.5, -0.425), Vector2(0.5, 0.425), Vector2(-0.5, 0.425)]
+	var outer: Array[Vector3] = []
+	var inner: Array[Vector3] = []
+	for p in outline:
+		outer.append(center + Vector3(p.x, p.y, 0))
+		inner.append(center + Vector3(p.x - signf(p.x) * 0.055, p.y - signf(p.y) * 0.055, 0.035))
+	var faces: Array = [inner]
+	for i in 4:
+		var next := (i + 1) % 4
+		faces.append([outer[i], outer[next], inner[next], inner[i]])
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for face in faces:
+		for triangle in [[0, 2, 1], [0, 3, 2]]:
+			var normal: Vector3 = (face[triangle[2]] - face[triangle[0]]).cross(face[triangle[1]] - face[triangle[0]]).normalized()
+			assert(normal.z > 0, "Door-panel winding must face into the vestibule")
+			for index in triangle:
+				st.set_normal(normal)
+				st.set_uv(Vector2(face[index].x, face[index].y))
+				st.add_vertex(face[index])
+	var panel := MeshInstance3D.new()
+	panel.mesh = st.commit()
+	panel.material_override = material
+	_vp.add_child(panel)
+
 func _far_end() -> void:
+	var first_surface := _vp.get_child_count()
 	var door: Dictionary = DOORS.far
 	var z := -L
 	var ds: Vector2 = door.size
@@ -648,13 +676,18 @@ func _far_end() -> void:
 	var depth: float = door.reveal
 	var cream := ps(load(DIR + "textures/ivory-trim.svg"), Color(1.0, 0.98, 0.91), Vector2(0.65, 0.65), true)
 	var lit := func(p: Vector3) -> float: return lerpf(0.55, 1.0, clampf((z - p.z) / depth, 0.0, 1.0))
-	_panel(Vector3(-dw, 0, z), Vector3(0, 0, -depth), Vector3(0, ds.y, 0), cream, 0.5, 1, lit)
-	_panel(Vector3(dw, 0, z - depth), Vector3(0, 0, depth), Vector3(0, ds.y, 0), cream, 0.5, 1, lit)
+	# Rear backing sits 5 cm behind the door leaf; extend the shell to meet it.
+	var shell_depth := depth + 0.05
+	_panel(Vector3(-dw, 0, z), Vector3(0, 0, -shell_depth), Vector3(0, ds.y, 0), cream, 0.5, 1, lit)
+	_panel(Vector3(dw, 0, z - shell_depth), Vector3(0, 0, shell_depth), Vector3(0, ds.y, 0), cream, 0.5, 1, lit)
 	# Inward ceiling and upward floor normals are required for the offline bake.
-	_panel(Vector3(-dw, ds.y, z - depth), Vector3(ds.x, 0, 0), Vector3(0, 0, depth), cream, 0.5, 1, lit)
+	_panel(Vector3(-dw, ds.y, z - shell_depth), Vector3(ds.x, 0, 0), Vector3(0, 0, shell_depth), cream, 0.5, 1, lit)
+	var threshold := ps(load(DIR + "textures/oak.png"), Color(0.83, 0.79, 0.71), Vector2(0.52, 1.0), true)
+	var threshold_section := [Vector2(-0.12, 0), Vector2(-0.10, 0.012), Vector2(0.10, 0.012), Vector2(0.12, 0), Vector2(0.12, -0.015), Vector2(-0.12, -0.015)]
+	_trim_profile(Vector3(-dw, 0, z), Vector3.BACK, Vector3(ds.x, 0, 0), threshold_section, threshold, Vector3.UP)
 	for row in 13:
 		var timber := ps(load(DIR + "textures/oak.png"), Color(1.05, 1.03, 0.97) * (0.98 if row % 3 == 0 else 1.0), Vector2(0.52, 1.0), true)
-		_panel(Vector3(-dw, 0, z - row * depth / 13.0), Vector3(ds.x, 0, 0), Vector3(0, 0, -depth / 13.0), timber, 0.4)
+		_panel(Vector3(-dw, 0.003, z - 0.12 - row * (shell_depth - 0.12) / 13.0), Vector3(ds.x, 0, 0), Vector3(0, 0, -(shell_depth - 0.12) / 13.0), timber, 0.4)
 	for s in [-1.0, 1.0]:
 		_trim_profile(Vector3(s * dw, 0, z), Vector3.UP, Vector3(0, 0, -depth), skirting, white, Vector3(-s, 0, 0))
 	# The reference's second pale doorway is real relief at the rear, not a picture.
@@ -664,15 +697,35 @@ func _far_end() -> void:
 		_trim_profile(Vector3(s * 0.62, 0, rear), Vector3(s * 0.55, 0, 0), Vector3(0, 2.35, 0), casing, white)
 	_trim_profile(Vector3(-0.80, 2.35, rear), Vector3(0, 0.55, 0), Vector3(1.6, 0, 0), casing, white)
 	_panel(Vector3(-0.62, 0, rear - 0.02), Vector3(1.24, 0, 0), Vector3(0, 2.35, 0), white)
-	var bead := [Vector2(0, 0), Vector2(0, 0.012), Vector2(0.015, 0.027), Vector2(0.04, 0.027), Vector2(0.055, 0.01), Vector2(0.055, 0)]
-	for panel_y in [0.25, 1.2]:
-		for s in [-1.0, 1.0]:
-			_trim_profile(Vector3(s * 0.44, panel_y, rear), Vector3(s, 0, 0), Vector3(0, 0.8, 0), bead, white)
-		for edge_y in [panel_y, panel_y + 0.8]:
-			_trim_profile(Vector3(-0.495, edge_y, rear), Vector3.UP, Vector3(0.99, 0, 0), bead, white)
+	for panel_y in [0.68, 1.68]:
+		_door_panel(Vector3(0, panel_y, rear - 0.021), white)
 	for sign_z in [z + 0.041, rear + 0.03]:
 		var sign_y := ds.y + 0.48 if sign_z > z else 2.65
 		_panel(Vector3(-0.17, sign_y, sign_z), Vector3(0.34, 0, 0), Vector3(0, 0.15, 0), ps(load(DIR + "textures/exit-sign.svg"), Color.WHITE, Vector2(1.0 / 0.34, 1.0 / 0.15)))
+	# The inherited panel builder emits reverse winding against its normals.
+	# Align this slice's triangle faces before UV2/bake; leave other assets alone.
+	for child_index in range(first_surface, _vp.get_child_count()):
+		var instance = _vp.get_child(child_index)
+		if not instance is MeshInstance3D:
+			continue
+		var aligned := ArrayMesh.new()
+		for surface in instance.mesh.get_surface_count():
+			var arrays: Array = instance.mesh.surface_get_arrays(surface)
+			var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+			var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
+			var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX] if arrays[Mesh.ARRAY_INDEX] != null else PackedInt32Array()
+			if indices.is_empty():
+				indices = PackedInt32Array(range(vertices.size()))
+			for index in range(0, indices.size(), 3):
+				var a := indices[index]
+				var geometric := (vertices[indices[index + 2]] - vertices[a]).cross(vertices[indices[index + 1]] - vertices[a])
+				if geometric.dot(normals[a]) < 0:
+					var b := indices[index + 1]
+					indices[index + 1] = indices[index + 2]
+					indices[index + 2] = b
+			arrays[Mesh.ARRAY_INDEX] = indices
+			aligned.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+		instance.mesh = aligned
 
 
 func _hang_center(rec: Dictionary, outer_h: float) -> float:

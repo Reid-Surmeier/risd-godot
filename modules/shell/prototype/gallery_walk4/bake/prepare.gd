@@ -50,7 +50,10 @@ func _prepare() -> void:
 		if floor_mesh:
 			mesh.lightmap_size_hint = Vector2i(512, 1024)
 		else:
-			var error := mesh.lightmap_unwrap(source.global_transform, 0.12)
+			# Door relief needs several lightmap texels across its 55 mm bevel.
+			var albedo: Texture2D = original.get_shader_parameter("albedo")
+			var texel := 0.025 if albedo and albedo.resource_path.ends_with("/ivory-trim.svg") else 0.12
+			var error := mesh.lightmap_unwrap(source.global_transform, texel)
 			if error != OK:
 				push_error("UV unwrap failed for " + str(index))
 				quit(1)

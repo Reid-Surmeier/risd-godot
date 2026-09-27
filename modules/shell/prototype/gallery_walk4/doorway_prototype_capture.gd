@@ -11,6 +11,18 @@ func capture() -> void:
 		if material is StandardMaterial3D and material.albedo_texture and material.albedo_texture.resource_path.ends_with("door-far.jpg"):
 			push_error("Far vestibule still contains its photographic backplate")
 			failures += 1
+		if material is StandardMaterial3D and material.albedo_texture and material.albedo_texture.resource_path.ends_with("ivory-trim.svg"):
+			for surface in mesh.mesh.get_surface_count():
+				var arrays: Array = mesh.mesh.surface_get_arrays(surface)
+				var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+				var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
+				var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+				for index in range(0, indices.size(), 3):
+					var a := indices[index]
+					var geometric := (vertices[indices[index + 2]] - vertices[a]).cross(vertices[indices[index + 1]] - vertices[a])
+					if geometric.dot(normals[a]) < -0.000001:
+						push_error("Baked ivory winding opposes its face normal")
+						failures += 1
 	DirAccess.make_dir_recursive_absolute(output)
 	for width in [1600, 720]:
 		root.size = Vector2i(width, roundi(width * 0.75))

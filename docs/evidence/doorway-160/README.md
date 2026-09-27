@@ -138,3 +138,53 @@ Source and outputs are retained. Repair SHA-256:
 Browser traversal can be reproduced with
 `node modules/shell/prototype/gallery_walk4/doorway_prototype_walk.cjs <served-export-url> <output-folder>`.
 The launcher uses `?gameplay=1`; its default is the saved-asset inspection.
+
+## Targeted repair after the second blind review
+
+The second independent review accepted the new modeled vestibule but failed
+the full slice on rear-corner slits and jagged rear-panel shading; it also
+requested a floor transition. See `BLIND-REVIEW-2.md`.
+
+The rear backing plane was 5 cm beyond the ends of the sidewalls and ceiling.
+The shell now extends to that plane, closing the actual geometry gap. The
+rear door's overlapping bead rails are replaced by continuous beveled panel
+faces; the triangle winding and normals are computed together and asserted
+to face the vestibule. A 24 cm wide oak threshold has a 12 mm beveled rise;
+the vestibule boards terminate at its rear edge. Existing navigation still
+uses its flat walkable plane; the small visual bevel does not change portal
+movement or collision rules.
+
+The new packet is `seam-browser/` (four matched detail angles and one context
+view at 1600 and 720) plus `seam-native/`. Earlier captures remain preserved
+as rejected candidates. A third independent verdict is required before any
+claim that the complete slice passes.
+
+The first local seam-repair bake exposed coarse shading on the small panel
+bevels (`seam-lightmap-before.png`). Ivory surfaces now unwrap at 25 mm per
+lightmap texel instead of 120 mm, giving the 55 mm bevel more than two texels.
+Panel borders meet the door leaf rather than floating in front of it. The
+vestibule floor is 3 mm above the inherited room-plank plane to separate their
+offline bake surfaces; the modeled threshold bridges the tiny height change.
+
+The higher-detail bake also exposed a winding mismatch inherited from the
+panel builder: its triangles faced opposite their stored normals. All faces
+created by this doorway slice now align their triangle winding to the
+outward normals before merging and unwrapping. The native capture check
+independently verifies that agreement on the saved ivory meshes. Other
+gallery assets are not changed by this correction.
+
+Final targeted-repair bake: 64.58 seconds, `BAKE_OK users=120`. Repository
+checks, the saved-mesh winding/profile/light checks, doorway floor checks and
+native portal/navigation checks all pass. `seam-browser/browser.json` records
+four detail angles plus one context view at each width and no page errors.
+Final bake SHA-256:
+
+- `baked/room.tscn`: `78df6fe8d3dc188d930ffe947da80f2e69bd5108631d481b23f0aade6a39974e`
+- `baked/room.exr`: `b4477c3871c6b26abf7f8835a514eccb7fc54df8f3b2ecb1b9d05577ad06721c`
+- `baked/room.lmbake`: `0e3e3e6c491ba2737d9b07ee46aeb082c4f928fa9b235cf07427de0d3ee11afb`
+
+`seam-gameplay/` records fresh real-keyboard browser roundtrips at both widths,
+each with `gallery -> far` and `far -> gallery` and zero console/page errors.
+The videos decode to 227 frames at 1600×1200 and 102 at 720×540. The approach
+captures were inspected alongside the static angle packet. No visual pass is
+claimed here before the third independent review.
