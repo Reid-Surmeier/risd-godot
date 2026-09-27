@@ -1,0 +1,818 @@
+{
+  "url": "http://127.0.0.1:8771/cde21b9-dirty.html?qa-perf=1&qa-crt=1",
+  "cpu": 1,
+  "network_mbit": 40,
+  "load": {
+    "marks": [
+      {
+        "name": "downloads-done",
+        "t": 25808.19999998808
+      },
+      {
+        "name": "godot-ready",
+        "t": 26755.19999998808
+      },
+      {
+        "name": "pack-mounted",
+        "t": 26762.09999999404
+      },
+      {
+        "name": "game-loaded",
+        "t": 26909.5
+      },
+      {
+        "name": "game-instanced",
+        "t": 27001.59999999404
+      },
+      {
+        "name": "warmup-start",
+        "t": 27001.69999998808
+      },
+      {
+        "name": "engine-started",
+        "t": 27363.89999999106
+      },
+      {
+        "name": "launch-settled",
+        "t": 32235.89999999106
+      },
+      {
+        "name": "tab-0-start",
+        "t": 32235.89999999106
+      },
+      {
+        "name": "tab-0-selected",
+        "t": 32997.89999999106
+      },
+      {
+        "name": "tab-0-drawn",
+        "t": 33200.69999998808
+      },
+      {
+        "name": "tab-1-start",
+        "t": 33200.79999999702
+      },
+      {
+        "name": "tab-1-selected",
+        "t": 33780.69999998808
+      },
+      {
+        "name": "tab-1-drawn",
+        "t": 35238.59999999404
+      },
+      {
+        "name": "tab-2-start",
+        "t": 35238.69999998808
+      },
+      {
+        "name": "tab-2-selected",
+        "t": 36166.39999999106
+      },
+      {
+        "name": "tab-2-drawn",
+        "t": 36588.29999999702
+      },
+      {
+        "name": "tab-3-start",
+        "t": 36588.39999999106
+      },
+      {
+        "name": "tab-3-selected",
+        "t": 36734.69999998808
+      },
+      {
+        "name": "tab-3-drawn",
+        "t": 36972.19999998808
+      },
+      {
+        "name": "tab-5-start",
+        "t": 36972.19999998808
+      },
+      {
+        "name": "tab-5-selected",
+        "t": 37189
+      },
+      {
+        "name": "tab-5-drawn",
+        "t": 37480
+      },
+      {
+        "name": "tab-4-start",
+        "t": 37480
+      },
+      {
+        "name": "tab-4-selected",
+        "t": 37481
+      },
+      {
+        "name": "tab-4-drawn",
+        "t": 37721.69999998808
+      },
+      {
+        "name": "tabs-warm",
+        "t": 37721.79999999702
+      },
+      {
+        "name": "game-shown",
+        "t": 39571.5
+      }
+    ],
+    "resources": [
+      {
+        "name": "cde21b9-dirty.wasm.gz",
+        "bytes": 10084605,
+        "duration": 4141
+      },
+      {
+        "name": "cde21b9-dirty.game.pck.gz",
+        "bytes": 92177247,
+        "duration": 24601.29999999702
+      },
+      {
+        "name": "cde21b9-dirty.pck.gz",
+        "bytes": 9917,
+        "duration": 26.200000002980232
+      }
+    ],
+    "memory": {
+      "used": 131721355,
+      "total": 148047367
+    }
+  },
+  "tabs": [
+    {
+      "i": 0,
+      "elapsed": 382.5,
+      "key": "map",
+      "tenant": "ok",
+      "frames": {
+        "count": 41,
+        "median": 16.69999999999709,
+        "p95": 16.700000000004366,
+        "max": 50,
+        "over50": 0
+      }
+    },
+    {
+      "i": 1,
+      "elapsed": 431.79999999701977,
+      "key": "sketchbook",
+      "tenant": "ok",
+      "frames": {
+        "count": 45,
+        "median": 16.69999999999709,
+        "p95": 16.799999999995634,
+        "max": 50,
+        "over50": 0
+      }
+    },
+    {
+      "i": 2,
+      "elapsed": 430.40000000596046,
+      "key": "3d_viewer",
+      "tenant": "ok",
+      "frames": {
+        "count": 45,
+        "median": 16.69999999999709,
+        "p95": 16.80000000000291,
+        "max": 49.900000000001455,
+        "over50": 0
+      }
+    },
+    {
+      "i": 3,
+      "elapsed": 431,
+      "key": "video_player",
+      "tenant": "ok",
+      "frames": {
+        "count": 45,
+        "median": 16.69999999999709,
+        "p95": 16.80000000000291,
+        "max": 50.099999999998545,
+        "over50": 1
+      }
+    },
+    {
+      "i": 5,
+      "elapsed": 431.29999999701977,
+      "key": "playground",
+      "tenant": "ok",
+      "frames": {
+        "count": 45,
+        "median": 16.69999999999709,
+        "p95": 16.799999999995634,
+        "max": 49.89999999999418,
+        "over50": 0
+      }
+    },
+    {
+      "i": 6,
+      "elapsed": 446.40000000596046,
+      "key": "flowers",
+      "tenant": "ok",
+      "frames": {
+        "count": 45,
+        "median": 16.69999999999709,
+        "p95": 16.80000000000291,
+        "max": 66.69999999999709,
+        "over50": 1
+      }
+    },
+    {
+      "i": 4,
+      "elapsed": 434.29999999701977,
+      "key": "collection",
+      "tenant": "ok",
+      "frames": {
+        "count": 45,
+        "median": 16.69999999999709,
+        "p95": 16.80000000000291,
+        "max": 50.099999999998545,
+        "over50": 1
+      }
+    }
+  ],
+  "phases": [
+    {
+      "label": "S",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "down"
+        ],
+        "position": [
+          -5.91912645416164e-17,
+          -3.05277109146118
+        ],
+        "space": "gallery",
+        "us": 22672400,
+        "velocity": [
+          -2.44929370517034e-16,
+          -2
+        ],
+        "wall_ms": 16.9
+      }
+    },
+    {
+      "label": "stop",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [],
+        "position": [
+          -9.70192464227362e-17,
+          -3.36165976524353
+        ],
+        "space": "gallery",
+        "us": 22938800,
+        "velocity": [
+          0,
+          0
+        ],
+        "wall_ms": 16.6
+      }
+    },
+    {
+      "label": "W",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "up"
+        ],
+        "position": [
+          -4.59922942316875e-17,
+          -2.94499349594116
+        ],
+        "space": "gallery",
+        "us": 23455500,
+        "velocity": [
+          2.44929370517034e-16,
+          2
+        ],
+        "wall_ms": 16.7
+      }
+    },
+    {
+      "label": "W+D",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "up",
+          "right"
+        ],
+        "position": [
+          -0.486875593662262,
+          -2.11339616775513
+        ],
+        "space": "gallery",
+        "us": 23972100,
+        "velocity": [
+          -1.41421353816986,
+          1.41421353816986
+        ],
+        "wall_ms": 16.7
+      }
+    },
+    {
+      "label": "D",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "right"
+        ],
+        "position": [
+          -0.944488048553467,
+          -2.01106309890747
+        ],
+        "space": "gallery",
+        "us": 24222100,
+        "velocity": [
+          -2,
+          2.44929370517034e-16
+        ],
+        "wall_ms": 16.5
+      }
+    },
+    {
+      "label": "D+S",
+      "state": {
+        "delta_ms": 139.666666666666,
+        "held": [
+          "right",
+          "down"
+        ],
+        "position": [
+          -1.5381795167923,
+          -2.21782064437866
+        ],
+        "space": "gallery",
+        "us": 24854000,
+        "velocity": [
+          -1.41421353816986,
+          -1.41421353816986
+        ],
+        "wall_ms": 431.7
+      }
+    },
+    {
+      "label": "S",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "down"
+        ],
+        "position": [
+          -1.6905711889267,
+          -2.72548699378967
+        ],
+        "space": "gallery",
+        "us": 25105700,
+        "velocity": [
+          -2.44929370517034e-16,
+          -2
+        ],
+        "wall_ms": 17
+      }
+    },
+    {
+      "label": "S+W cancellation",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "down",
+          "up"
+        ],
+        "position": [
+          -1.6905711889267,
+          -3.18346905708313
+        ],
+        "space": "gallery",
+        "us": 25622000,
+        "velocity": [
+          0,
+          0
+        ],
+        "wall_ms": 16.6
+      }
+    },
+    {
+      "label": "W reversal",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "up"
+        ],
+        "position": [
+          -1.6905711889267,
+          -2.53346967697144
+        ],
+        "space": "gallery",
+        "us": 26122000,
+        "velocity": [
+          2.44929370517034e-16,
+          2
+        ],
+        "wall_ms": 16.7
+      }
+    },
+    {
+      "label": "stop",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [],
+        "position": [
+          -1.6905711889267,
+          -2.42458081245422
+        ],
+        "space": "gallery",
+        "us": 26372100,
+        "velocity": [
+          0,
+          0
+        ],
+        "wall_ms": 16.7
+      }
+    },
+    {
+      "label": "A",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "left"
+        ],
+        "position": [
+          -1.17390501499176,
+          -2.42458081245422
+        ],
+        "space": "gallery",
+        "us": 26873100,
+        "velocity": [
+          2,
+          -2.44929370517034e-16
+        ],
+        "wall_ms": 17.6
+      }
+    },
+    {
+      "label": "D reversal",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "right"
+        ],
+        "position": [
+          -0.900571942329407,
+          -2.42458081245422
+        ],
+        "space": "gallery",
+        "us": 27138800,
+        "velocity": [
+          -0.400000154972076,
+          4.89858840295741e-17
+        ],
+        "wall_ms": 15.8
+      }
+    },
+    {
+      "label": "stop",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [],
+        "position": [
+          -1.34946048259735,
+          -2.42458081245422
+        ],
+        "space": "gallery",
+        "us": 27671900,
+        "velocity": [
+          0,
+          0
+        ],
+        "wall_ms": 16.7
+      }
+    }
+  ],
+  "input_origin": {
+    "keys": 0,
+    "dom": 0,
+    "us": 22155500,
+    "browser_ms": 48283.79999999702,
+    "focused": true,
+    "visibility": "visible",
+    "active": 4
+  },
+  "resources": [
+    {
+      "name": "cde21b9-dirty.js",
+      "start": 253.79999999701977,
+      "end": 346.69999998807907,
+      "duration": 92.8999999910593,
+      "bytes": 280115
+    },
+    {
+      "name": "cde21b9-dirty.wasm.gz",
+      "start": 1100.699999988079,
+      "end": 5241.699999988079,
+      "duration": 4141,
+      "bytes": 10084605
+    },
+    {
+      "name": "cde21b9-dirty.game.pck.gz",
+      "start": 1101,
+      "end": 25702.29999999702,
+      "duration": 24601.29999999702,
+      "bytes": 92177247
+    },
+    {
+      "name": "favicon.ico",
+      "start": 1104.7999999970198,
+      "end": 1126.8999999910593,
+      "duration": 22.099999994039536,
+      "bytes": 635
+    },
+    {
+      "name": "cde21b9-dirty.pck.gz",
+      "start": 25808.69999998808,
+      "end": 25834.89999999106,
+      "duration": 26.200000002980232,
+      "bytes": 9917
+    },
+    {
+      "name": "1191767929.ogv",
+      "start": 36889.69999998808,
+      "end": 38511.5,
+      "duration": 1621.800000011921,
+      "bytes": 5840995
+    },
+    {
+      "name": "reid-surmeier",
+      "start": 37193.09999999404,
+      "end": 37347.39999999106,
+      "duration": 154.29999999701977,
+      "bytes": 0
+    },
+    {
+      "name": "contents",
+      "start": 37193.29999999702,
+      "end": 37366,
+      "duration": 172.70000000298023,
+      "bytes": 0
+    },
+    {
+      "name": "eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiI1MDY2MjQ5Ni9vcmlnaW5hbF84ZDAyNTE4YWZkOTg0MzNlYzVjYTA3NWVlNjBlYzAzMS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo3NX0sImpwZWciOnsicXVhbGl0eSI6NzV9LCJyb3RhdGUiOm51bGx9fQ==",
+      "start": 37432.5,
+      "end": 37563.59999999404,
+      "duration": 131.09999999403954,
+      "bytes": 0
+    },
+    {
+      "name": "eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiI1MDY2MjU2MS9vcmlnaW5hbF8xMzE0OTZjNzEwNWY4YTZhNDYyZjI2Y2JmMmUyZjI2YS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo3NX0sImpwZWciOnsicXVhbGl0eSI6NzV9LCJyb3RhdGUiOm51bGx9fQ==",
+      "start": 37432.59999999404,
+      "end": 37596.39999999106,
+      "duration": 163.79999999701977,
+      "bytes": 0
+    },
+    {
+      "name": "eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiI1MDY2MjU1MS9vcmlnaW5hbF8yYWFhNDI1OTcwNDRlOWFjMGFiZjA3ODI1NzMzMzc3NS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo3NX0sImpwZWciOnsicXVhbGl0eSI6NzV9LCJyb3RhdGUiOm51bGx9fQ==",
+      "start": 37432.59999999404,
+      "end": 37631.59999999404,
+      "duration": 199,
+      "bytes": 0
+    },
+    {
+      "name": "eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiI1MDY2MjU1Ny9vcmlnaW5hbF8wYmI3MzI0NjQ1NmQ3N2VjZjdhMzc0NWJhNjU4YjA5Yi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo3NX0sImpwZWciOnsicXVhbGl0eSI6NzV9LCJyb3RhdGUiOm51bGx9fQ==",
+      "start": 37432.59999999404,
+      "end": 37633.09999999404,
+      "duration": 200.5,
+      "bytes": 0
+    },
+    {
+      "name": "eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiI1MDY2MjYxNy9vcmlnaW5hbF8yYTBkNjlhNWY4ZjgzMWY3MGZlZGU5YTZmM2Q1ZDYyOC5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo3NX0sImpwZWciOnsicXVhbGl0eSI6NzV9LCJyb3RhdGUiOm51bGx9fQ==",
+      "start": 37432.69999998808,
+      "end": 37528.5,
+      "duration": 95.80000001192093,
+      "bytes": 0
+    },
+    {
+      "name": "eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiI1MDY2MjU4OC9vcmlnaW5hbF8yZDEwOGU3ZmNhYzkyM2E5NTk5NWYyY2YzNWRmOGQxZi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo3NX0sImpwZWciOnsicXVhbGl0eSI6NzV9LCJyb3RhdGUiOm51bGx9fQ==",
+      "start": 37432.69999998808,
+      "end": 37588.5,
+      "duration": 155.80000001192093,
+      "bytes": 0
+    },
+    {
+      "name": "eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiI1MDY2MjYyMy9vcmlnaW5hbF85ZDIyYjJiMThmY2RlNjBkYjRlZTVlZmQ1NzgwNThiNy5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo3NX0sImpwZWciOnsicXVhbGl0eSI6NzV9LCJyb3RhdGUiOm51bGx9fQ==",
+      "start": 37432.69999998808,
+      "end": 37646.29999999702,
+      "duration": 213.6000000089407,
+      "bytes": 0
+    },
+    {
+      "name": "eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiI1MDY2MzQ1Ny9vcmlnaW5hbF9jMjM4NDg5Zjk3NTYzNTJhYTdkMjE1MWE3MGY1OTIzOC5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo3NX0sImpwZWciOnsicXVhbGl0eSI6NzV9LCJyb3RhdGUiOm51bGx9fQ==",
+      "start": 37432.69999998808,
+      "end": 37661.69999998808,
+      "duration": 229,
+      "bytes": 0
+    },
+    {
+      "name": "eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiI1MDY2MzQ5MC9vcmlnaW5hbF9iZTI3NjYzMDU1NGQzNGUzODRmY2MzYTc3MTNlMjFkYS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo3NX0sImpwZWciOnsicXVhbGl0eSI6NzV9LCJyb3RhdGUiOm51bGx9fQ==",
+      "start": 37432.79999999702,
+      "end": 37644.69999998808,
+      "duration": 211.8999999910593,
+      "bytes": 0
+    },
+    {
+      "name": "ruffle.js",
+      "start": 46248.39999999106,
+      "end": 46372.09999999404,
+      "duration": 123.70000000298023,
+      "bytes": 400186
+    },
+    {
+      "name": "core.ruffle.4592c196d36da0816efa.js",
+      "start": 46401.79999999702,
+      "end": 46444.79999999702,
+      "duration": 43,
+      "bytes": 80912
+    },
+    {
+      "name": "904b38d7fb3b9f71670a.wasm",
+      "start": 46447.09999999404,
+      "end": 50349.29999999702,
+      "duration": 3902.2000000029802,
+      "bytes": 15244511
+    },
+    {
+      "name": "flowers.swf",
+      "start": 50769.09999999404,
+      "end": 50794.5,
+      "duration": 25.400000005960464,
+      "bytes": 3498
+    },
+    {
+      "name": "hstflowers.txt",
+      "start": 50868.29999999702,
+      "end": 50892.19999998808,
+      "duration": 23.899999991059303,
+      "bytes": 307
+    },
+    {
+      "name": "flowersmain.swf",
+      "start": 50983.29999999702,
+      "end": 51063.19999998808,
+      "duration": 79.8999999910593,
+      "bytes": 220229
+    }
+  ],
+  "observed_peak_js_heap_bytes": 247593238,
+  "startup_raf_ms": {
+    "count": 1650,
+    "median": 16.69999999999891,
+    "p95": 16.799999999999272,
+    "max": 2116.600000000002,
+    "over50": 12
+  },
+  "latency_ms": {
+    "count": 14,
+    "median": 3.399999991081131,
+    "p95": 7.000000000043656,
+    "max": 7.000000000043656,
+    "over50": 0
+  },
+  "process_wall_ms": {
+    "count": 333,
+    "median": 16.7,
+    "p95": 17.6,
+    "max": 431.7,
+    "over50": 1
+  },
+  "post_draw_ms": {
+    "count": 333,
+    "median": 16.7,
+    "p95": 18.6,
+    "max": 447.7,
+    "over50": 1
+  },
+  "dom": [
+    {
+      "kind": "keydown",
+      "key": "s",
+      "ms": 48284.79999999702,
+      "event_ms": 48284.5,
+      "repeat": false
+    },
+    {
+      "kind": "keyup",
+      "key": "s",
+      "ms": 48700.69999998808,
+      "event_ms": 48691.29999999702,
+      "repeat": false
+    },
+    {
+      "kind": "keydown",
+      "key": "w",
+      "ms": 49101.59999999404,
+      "event_ms": 49101.29999999702,
+      "repeat": false
+    },
+    {
+      "kind": "keydown",
+      "key": "d",
+      "ms": 49502.59999999404,
+      "event_ms": 49502.39999999106,
+      "repeat": false
+    },
+    {
+      "kind": "keyup",
+      "key": "w",
+      "ms": 49914.39999999106,
+      "event_ms": 49904.29999999702,
+      "repeat": false
+    },
+    {
+      "kind": "keydown",
+      "key": "s",
+      "ms": 50316.59999999404,
+      "event_ms": 50316.29999999702,
+      "repeat": false
+    },
+    {
+      "kind": "keyup",
+      "key": "d",
+      "ms": 50817.29999999702,
+      "event_ms": 50805.5,
+      "repeat": false
+    },
+    {
+      "kind": "keydown",
+      "key": "w",
+      "ms": 51245,
+      "event_ms": 51227.09999999404,
+      "repeat": false
+    },
+    {
+      "kind": "keyup",
+      "key": "s",
+      "ms": 51649.29999999702,
+      "event_ms": 51649.09999999404,
+      "repeat": false
+    },
+    {
+      "kind": "keyup",
+      "key": "w",
+      "ms": 52051.89999999106,
+      "event_ms": 52051.79999999702,
+      "repeat": false
+    },
+    {
+      "kind": "keydown",
+      "key": "a",
+      "ms": 52465.69999998808,
+      "event_ms": 52454.39999999106,
+      "repeat": false
+    },
+    {
+      "kind": "keyup",
+      "key": "a",
+      "ms": 52868.29999999702,
+      "event_ms": 52868.09999999404,
+      "repeat": false
+    },
+    {
+      "kind": "keydown",
+      "key": "d",
+      "ms": 52869.09999999404,
+      "event_ms": 52868.79999999702,
+      "repeat": false
+    },
+    {
+      "kind": "keyup",
+      "key": "d",
+      "ms": 53281.59999999404,
+      "event_ms": 53281.39999999106,
+      "repeat": false
+    }
+  ],
+  "errors": [],
+  "consoleLog": [
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+    "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL",
+    "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support.",
+    "WARNING: 2D MSAA is not yet supported for GLES3.",
+    "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "WARNING: 2D MSAA is not yet supported for GLES3.",
+    "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+    "ENTRY_COMPLETE (0.0, 0.0, -2.569438)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "%cNew Ruffle instance created (Version: nightly 2024-03-09 | WebAssembly extensions: ON | Used renderer: wgpu-webgl) background: #37528C; color: #FFAD33",
+    "Loading SWF file http://127.0.0.1:8771/flowers/flowers.swf"
+  ],
+  "raw_evidence": "late-stall-raw.json.gz"
+}

@@ -124,6 +124,8 @@ func _ready() -> void:
 	if _generated_visitor:
 		_kid.pose(0.0, false, 0.0, _motion_heading, view_yaw if view_mode != 2 else _yaw)
 	_update_camera(1.0)
+	if OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).has('qa-perf')"):
+		add_child(load(DIR + "performance_probe.gd").new())
 
 
 # GameCube RGB6 quantization: subtle 2x2 ordering at rendered texels, no time/noise.

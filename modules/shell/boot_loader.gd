@@ -217,6 +217,7 @@ func _warm_up() -> void:
 		warm = true
 		_set_target(1.0)
 		return
+	_mark("warmup-start")
 	var launch := -1
 	for _i in 300:  # the launch: the Collection tab grows in and its page fades in
 		await get_tree().process_frame
@@ -224,19 +225,23 @@ func _warm_up() -> void:
 		if s.active >= 0 and not s.switching and not s.opening:
 			launch = s.active
 			break
+	_mark("launch-settled")
 	var order := []
 	for i in 6:
 		if i != launch:
 			order.append(i)
 	order.append(launch)
 	for n in order.size():
+		_mark("tab-%d-start" % order[n])
 		if Shell.select_tab(shell, order[n]).ok:
+			_mark("tab-%d-selected" % order[n])
 			for _i in 120:  # its cross-fade, then two frames drawn with it on screen
 				await get_tree().process_frame
 				if not Shell.state(shell).value.switching:
 					break
 			await get_tree().process_frame
 			await get_tree().process_frame
+		_mark("tab-%d-drawn" % order[n])
 		_set_target(lerpf(0.9, 1.0, float(n + 1) / order.size()))
 	_mark("tabs-warm")
 	warm = true
