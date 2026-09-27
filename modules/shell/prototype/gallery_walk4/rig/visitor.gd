@@ -83,6 +83,9 @@ func sole_positions() -> Array:
 		points.append(skeleton.global_transform * (skeleton.get_bone_global_pose(foot.foot) * foot.sole))
 	return points
 
+func sole_support() -> Array:
+	return [_feet[0].locked, _feet[1].locked]
+
 func _solve_leg(foot: Dictionary, target: Vector3) -> void:
 	var upper: Transform3D = skeleton.get_bone_global_pose(foot.upper)
 	var lower: Transform3D = skeleton.get_bone_global_pose(foot.lower)

@@ -61,6 +61,7 @@ var _kid: Node3D
 var _rigged_visitor := true
 var _generated_visitor := true
 var _shadow: MeshInstance3D
+var _sole_shadows: Array[MeshInstance3D] = []
 var _kid_frames: Array[Texture2D] = []
 var _kid_t := 0.0
 var _pos := Vector3(-2.6, 0, -8.0)
@@ -1072,7 +1073,7 @@ func _build_kid() -> void:
 		_kid.offset = Vector2(0, _kid_frames[0].get_height() / 2.0)
 	_vp.add_child(_kid)
 	var g := Gradient.new()
-	g.set_color(0, Color(0, 0, 0, 0.55))
+	g.set_color(0, Color(0, 0, 0, 0.9 if _rigged_visitor else 0.55))
 	g.set_color(1, Color(0, 0, 0, 0))
 	var gt := GradientTexture2D.new()
 	gt.gradient = g
@@ -1082,6 +1083,11 @@ func _build_kid() -> void:
 	var sm := _mat(gt)
 	sm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	_shadow = _rect(Vector3(0, 0.01, 0), Vector2(0.75, 0.42), Vector3.RIGHT, Vector3.FORWARD, sm)
+	if _rigged_visitor:
+		sm.albedo_color.a = 0.25
+		for index in 2:
+			var contact_material: StandardMaterial3D = sm.duplicate()
+			_sole_shadows.append(_rect(Vector3.ZERO, Vector2(0.56, 0.72), Vector3.RIGHT, Vector3.FORWARD, contact_material))
 
 
 # ---------------------------------------------------------------- the detail view
@@ -1329,7 +1335,19 @@ func _update_camera(k: float) -> void:
 	_kid.layers = 1 if _space == "gallery" else 64
 	_shadow.layers = _kid.layers
 	_kid.position = _pos
-	_shadow.position = (_kid.footprint_position() if _rigged_visitor else _pos) + Vector3(0, 0.01, 0)
+	_shadow.position = _pos + Vector3(0, 0.01, 0)
+	if _rigged_visitor:
+		var soles: Array = _kid.sole_positions()
+		var support: Array = _kid.sole_support()
+		_shadow.position = (soles[0] + soles[1]) * 0.5
+		_shadow.position.y = _pos.y + 0.006
+		for index in 2:
+			var contact := _sole_shadows[index]
+			contact.layers = _kid.layers
+			contact.position = Vector3(soles[index].x, _pos.y + 0.008, soles[index].z)
+			contact.rotation.y = _kid.rotation.y
+			var height: float = maxf(0.0, soles[index].y - _pos.y)
+			contact.material_override.albedo_color.a = 0.85 if support[index] else 0.22 * clampf(1.0 - height / 0.25, 0.0, 1.0)
 	if not _rigged_visitor:
 		_kid.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y if view_mode == 2 else BaseMaterial3D.BILLBOARD_ENABLED
 	if view_mode != 2:

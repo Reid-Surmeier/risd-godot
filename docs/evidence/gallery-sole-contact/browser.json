@@ -1,0 +1,63 @@
+[
+  {
+    "label": "embedded",
+    "viewport": [
+      1600,
+      900
+    ],
+    "events": [
+      "ENTRY_COMPLETE (0.0, 0.0, -2.569438)",
+      "ENTRY_COMPLETE (0.0, 0.0, -2.569915)",
+      "NAV_SPACE gallery -> arch"
+    ],
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "WARNING: 2D MSAA is not yet supported for GLES3.",
+      "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+      "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+      "   at: get_meta (core/object/object.cpp:1053)",
+      "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+      "   at: get_meta (core/object/object.cpp:1053)",
+      "WARNING: 2D MSAA is not yet supported for GLES3.",
+      "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+      "WARNING: 2D MSAA is not yet supported for GLES3.",
+      "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+      "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+      "   at: get_meta (core/object/object.cpp:1053)",
+      "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+      "   at: get_meta (core/object/object.cpp:1053)",
+      "WARNING: 2D MSAA is not yet supported for GLES3.",
+      "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)"
+    ]
+  },
+  {
+    "label": "large",
+    "viewport": [
+      2880,
+      1800
+    ],
+    "events": [
+      "ENTRY_COMPLETE (0.0, 0.0, -2.569878)",
+      "ENTRY_COMPLETE (0.0, 0.0, -2.551665)",
+      "NAV_SPACE gallery -> arch"
+    ],
+    "errors": [
+      "WARNING: 2D MSAA is not yet supported for GLES3.",
+      "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+      "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+      "   at: get_meta (core/object/object.cpp:1053)",
+      "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+      "   at: get_meta (core/object/object.cpp:1053)",
+      "WARNING: 2D MSAA is not yet supported for GLES3.",
+      "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+      "WARNING: 2D MSAA is not yet supported for GLES3.",
+      "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+      "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+      "   at: get_meta (core/object/object.cpp:1053)",
+      "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+      "   at: get_meta (core/object/object.cpp:1053)",
+      "WARNING: 2D MSAA is not yet supported for GLES3.",
+      "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)"
+    ]
+  }
+]
