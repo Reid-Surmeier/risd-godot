@@ -6,11 +6,19 @@ render_mode unshaded;
 // 1 = the interlaced mode's 1/4, 1/2, 1/4 rows; 0 = no vertical softening.
 // Half strength suits the prototype's lower-than-480-line viewport.
 uniform float copy_filter : hint_range(0.0, 1.0) = 0.5;
+// Diagnostic controls (#140). Default 2 retains the shipped finish.
+// 0 preserves input color; 1 is plain six-bit truncation; 2 is GX raster dither.
+uniform int quantization_mode : hint_range(0, 2) = 2;
 
 vec4 rgb6(vec4 c, ivec2 pixel) {
+	if (quantization_mode == 0) {
+		return c;
+	}
 	float d = float(((pixel.x ^ pixel.y) & 1) * 2 + (pixel.y & 1));
 	vec3 v = floor(c.rgb * 255.0 + 0.5);
-	v = v - floor(v / 64.0) + d;
+	if (quantization_mode == 2) {
+		v = v - floor(v / 64.0) + d;
+	}
 	return vec4(clamp(floor(v / 4.0) / 63.0, 0.0, 1.0), c.a);
 }
 

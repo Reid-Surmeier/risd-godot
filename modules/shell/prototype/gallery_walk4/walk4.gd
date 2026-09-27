@@ -131,14 +131,27 @@ func _ready() -> void:
 	_update_camera(1.0)
 	if OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).has('qa-perf')"):
 		add_child(load(DIR + "performance_probe.gd").new())
+	if OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).has('render_qa')"):
+		add_child(load(DIR + "render_diagnostics.gd").new())
 
 
 # GameCube RGB6 quantization: subtle 2x2 ordering at rendered texels, no time/noise.
 # Formula: Dolphin PixelShaderGen, documented in research/animal-crossing-look.
 func _post() -> ShaderMaterial:
-	if not (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('final_render') === 'original'")):
+	var render_mode = JavaScriptBridge.eval("new URLSearchParams(location.search).get('final_render')") if OS.has_feature("web") else null
+	if render_mode != "original":
 		var finish := ShaderMaterial.new()
 		finish.shader = load(DIR + "gamecube.gdshader")
+		# Opt-in diagnostic modes keep viewport/camera/shell geometry identical.
+		if render_mode == "copy-none":
+			finish.set_shader_parameter("copy_filter", 0.0)
+		elif render_mode == "copy-full":
+			finish.set_shader_parameter("copy_filter", 1.0)
+		elif render_mode == "rgb6-plain":
+			finish.set_shader_parameter("quantization_mode", 1)
+		elif render_mode == "bypass":
+			finish.set_shader_parameter("quantization_mode", 0)
+			finish.set_shader_parameter("copy_filter", 0.0)
 		return finish
 	var sh := Shader.new()
 	sh.code = """
