@@ -100,7 +100,7 @@ func _pose(scene: String) -> void:
 	view.view_mode = 0
 	view.view_yaw = PI / 2.0 if scene == "art" else PI
 	view._yaw = view.view_yaw
-	view._pos = {"entry": Vector3(0, 0, -0.35), "warm": Vector3(2.0, 0, -4.0), "art": Vector3(-3.3, 0, -12.0), "white": Vector3(0, 0, -1.0)}.get(scene, Vector3(2.0, 0, -4.0))
+	view._pos = {"entry": Vector3(0, 0, -0.35), "warm": Vector3(2.0, 0, -4.0), "art": Vector3(-3.3, 0, -12.0), "white": Vector3(0, 0, -3.0)}.get(scene, Vector3(2.0, 0, -4.0))
 	view._last_pos = view._pos
 	view._motion_heading = Vector3.FORWARD
 	view._process(0.0)
@@ -112,13 +112,13 @@ func _process(_delta: float) -> void:
 		return
 	# All modes replay the same 8-second input schedule at 60 simulation ticks/s.
 	if _tick == 0:
-		view._held["down" if _scene == "entry" else "up" if _scene == "white" else "right"] = 0.0
+		view._held["down" if _scene == "entry" else "right"] = 0.0
 	if _tick == 120:
 		view._held.clear()
 	if _tick == 180:
 		view._view_turn_remaining = 0.5
 	if _tick == 240:
-		view._held["up" if _scene == "entry" else "down" if _scene == "white" else "left"] = 0.0
+		view._held["up" if _scene == "entry" else "left"] = 0.0
 	if _tick == 360:
 		view._held.clear()
 	view._process(1.0 / 60.0)
