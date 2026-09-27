@@ -36,7 +36,15 @@ func _ready() -> void:
 	body.gi_mode = GeometryInstance3D.GI_MODE_DYNAMIC
 	body.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	body.layers = layers
-	if not identity:
+	if identity:
+		for surface in body.mesh.get_surface_count():
+			var source: StandardMaterial3D = body.get_active_material(surface)
+			var gain: float = {"warm skin": 1.5, "cream shirt": 1.55, "oxblood shirt stripe": 1.35, "eye whites": 1.15}.get(source.resource_name, 1.0)
+			if gain > 1.0:
+				var lit := source.duplicate()
+				lit.albedo_color = source.albedo_color * Color(gain, gain, gain)
+				body.set_surface_override_material(surface, lit)
+	else:
 		var material: StandardMaterial3D = body.get_active_material(0).duplicate()
 		# Bounded art-direction gain for indirect-only capture; this adds no direct light.
 		material.albedo_color = Color(1.6, 1.6, 1.6)

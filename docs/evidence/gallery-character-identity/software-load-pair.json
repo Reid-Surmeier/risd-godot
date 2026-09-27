@@ -1,0 +1,294 @@
+[
+  {
+    "choice": "default",
+    "marks": [
+      {
+        "name": "downloads-done",
+        "t": 2023.5
+      },
+      {
+        "name": "godot-ready",
+        "t": 9319.70000000298
+      },
+      {
+        "name": "pack-mounted",
+        "t": 9332.20000000298
+      },
+      {
+        "name": "game-loaded",
+        "t": 9615.300000011921
+      },
+      {
+        "name": "game-instanced",
+        "t": 9897.90000000596
+      },
+      {
+        "name": "warmup-start",
+        "t": 9897.90000000596
+      },
+      {
+        "name": "engine-started",
+        "t": 11273.20000000298
+      },
+      {
+        "name": "launch-settled",
+        "t": 49510.20000000298
+      },
+      {
+        "name": "tab-0-start",
+        "t": 49510.20000000298
+      },
+      {
+        "name": "tab-0-selected",
+        "t": 51943.80000001192
+      },
+      {
+        "name": "tab-0-drawn",
+        "t": 53149.10000000894
+      },
+      {
+        "name": "tab-1-start",
+        "t": 53149.10000000894
+      },
+      {
+        "name": "tab-1-selected",
+        "t": 54564.40000000596
+      },
+      {
+        "name": "tab-1-drawn",
+        "t": 62018.20000000298
+      },
+      {
+        "name": "tab-2-start",
+        "t": 62018.20000000298
+      },
+      {
+        "name": "tab-2-selected",
+        "t": 64104.90000000596
+      },
+      {
+        "name": "tab-2-drawn",
+        "t": 66209.10000000894
+      },
+      {
+        "name": "tab-3-start",
+        "t": 66209.10000000894
+      },
+      {
+        "name": "tab-3-selected",
+        "t": 66490.20000000298
+      },
+      {
+        "name": "tab-3-drawn",
+        "t": 68020.10000000894
+      },
+      {
+        "name": "tab-5-start",
+        "t": 68020.20000000298
+      },
+      {
+        "name": "tab-5-selected",
+        "t": 68751.10000000894
+      },
+      {
+        "name": "tab-5-drawn",
+        "t": 70480.20000000298
+      },
+      {
+        "name": "tab-4-start",
+        "t": 70480.20000000298
+      },
+      {
+        "name": "tab-4-selected",
+        "t": 70481.5
+      },
+      {
+        "name": "tab-4-drawn",
+        "t": 71238.40000000596
+      },
+      {
+        "name": "tabs-warm",
+        "t": 71238.5
+      },
+      {
+        "name": "game-shown",
+        "t": 74857.60000000894
+      }
+    ],
+    "resources": [
+      {
+        "name": "ac23e2a-dirty.wasm.gz",
+        "transfer": 10084605,
+        "start": 670.3000000119209,
+        "end": 842.8000000119209
+      },
+      {
+        "name": "ac23e2a-dirty.game.pck.gz",
+        "transfer": 93895629,
+        "start": 670.4000000059605,
+        "end": 1895.5
+      },
+      {
+        "name": "ac23e2a-dirty.pck.gz",
+        "transfer": 9917,
+        "start": 2023.9000000059605,
+        "end": 2026.800000011921
+      },
+      {
+        "name": "1191767929.ogv",
+        "transfer": 5840995,
+        "start": 67607.60000000894,
+        "end": 67883.30000001192
+      }
+    ],
+    "gpu": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)",
+    "errors": [],
+    "timeout": null
+  },
+  {
+    "choice": "identity",
+    "marks": [
+      {
+        "name": "downloads-done",
+        "t": 2216
+      },
+      {
+        "name": "godot-ready",
+        "t": 9233.60000000894
+      },
+      {
+        "name": "pack-mounted",
+        "t": 9243.20000000298
+      },
+      {
+        "name": "game-loaded",
+        "t": 9526.60000000894
+      },
+      {
+        "name": "game-instanced",
+        "t": 9858.60000000894
+      },
+      {
+        "name": "warmup-start",
+        "t": 9858.70000000298
+      },
+      {
+        "name": "engine-started",
+        "t": 11032.20000000298
+      },
+      {
+        "name": "launch-settled",
+        "t": 47855.79999999702
+      },
+      {
+        "name": "tab-0-start",
+        "t": 47855.79999999702
+      },
+      {
+        "name": "tab-0-selected",
+        "t": 50376.90000000596
+      },
+      {
+        "name": "tab-0-drawn",
+        "t": 51515.29999999702
+      },
+      {
+        "name": "tab-1-start",
+        "t": 51515.29999999702
+      },
+      {
+        "name": "tab-1-selected",
+        "t": 53065.60000000894
+      },
+      {
+        "name": "tab-1-drawn",
+        "t": 59436.5
+      },
+      {
+        "name": "tab-2-start",
+        "t": 59436.60000000894
+      },
+      {
+        "name": "tab-2-selected",
+        "t": 61427.20000000298
+      },
+      {
+        "name": "tab-2-drawn",
+        "t": 63369.20000000298
+      },
+      {
+        "name": "tab-3-start",
+        "t": 63369.29999999702
+      },
+      {
+        "name": "tab-3-selected",
+        "t": 63644.90000000596
+      },
+      {
+        "name": "tab-3-drawn",
+        "t": 65127.40000000596
+      },
+      {
+        "name": "tab-5-start",
+        "t": 65127.5
+      },
+      {
+        "name": "tab-5-selected",
+        "t": 65884.10000000894
+      },
+      {
+        "name": "tab-5-drawn",
+        "t": 67500.10000000894
+      },
+      {
+        "name": "tab-4-start",
+        "t": 67500.10000000894
+      },
+      {
+        "name": "tab-4-selected",
+        "t": 67501.60000000894
+      },
+      {
+        "name": "tab-4-drawn",
+        "t": 68254.10000000894
+      },
+      {
+        "name": "tabs-warm",
+        "t": 68254.10000000894
+      },
+      {
+        "name": "game-shown",
+        "t": 71807.5
+      }
+    ],
+    "resources": [
+      {
+        "name": "ac23e2a-dirty.wasm.gz",
+        "transfer": 10084605,
+        "start": 434.5,
+        "end": 617.9000000059605
+      },
+      {
+        "name": "ac23e2a-dirty.game.pck.gz",
+        "transfer": 93895629,
+        "start": 434.70000000298023,
+        "end": 2080.2999999970198
+      },
+      {
+        "name": "ac23e2a-dirty.pck.gz",
+        "transfer": 9917,
+        "start": 2216.4000000059605,
+        "end": 2225.7999999970198
+      },
+      {
+        "name": "1191767929.ogv",
+        "transfer": 5840995,
+        "start": 64720,
+        "end": 65103.29999999702
+      }
+    ],
+    "gpu": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)",
+    "errors": [],
+    "timeout": null
+  }
+]
