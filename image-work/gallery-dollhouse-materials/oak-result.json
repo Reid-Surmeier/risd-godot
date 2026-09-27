@@ -1,0 +1,25 @@
+{
+  "source": [
+    "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype/image-work/gallery-dollhouse-materials/references/oak-before.png",
+    "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype/image-work/gallery-dollhouse-materials/references/animal-crossing-reference.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype/image-work/gallery-dollhouse-materials/artifacts/image-generation/runs/run-9839c903a7d0d67f9cf410c1/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "bb6f54cd7f4f423babaaacf8107dc735bb7fcb45118cacba9725bbbd3cb600c1"
+    }
+  ],
+  "changesRequested": "Produce ONE seamless, unlit, hand-painted oak grain ALBEDO TEXTURE for a low-poly cozy museum game inspired by the supplied Animal Crossing reference. The first image is the existing wood material; the second is a style reference ONLY. Output only a flat rectangular texture filling the canvas, no room, no objects, no perspective, no text or border. Keep warm pale honey/oat wood, slightly less yellow/orange than the first reference. Replace its dense photographic hairline grain with about 8 broad gently flowing horizontal grain ribbons across the height, irregular rounded painterly shapes and a few restrained elongated growth-ring motifs. Very low contrast, soft clean edges, 4-5 closely related warm wood tones. Readable at 128 pixels, playful but quiet. Uniform overall brightness across the canvas; evenly painted base colour only. Absolutely no pores, scratches, fine parallel lines, noise, speckling, glossy reflections, bevel shading, cast shadows or baked illumination. This is grain for the INSIDE of existing geometric parquet planks: DO NOT draw plank borders, seams, tiles or a herringbone layout. Grain flows horizontally left-to-right and continues seamlessly across every edge; both pairs of edges must tile naturally. Original museum palette, GameCube-era painted material simplification, not a screenshot recreation.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-9839c903a7d0d67f9cf410c1",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype/image-work/gallery-dollhouse-materials/artifacts/image-generation/runs/run-9839c903a7d0d67f9cf410c1"
+}

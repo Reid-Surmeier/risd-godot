@@ -1,0 +1,118 @@
+{
+  "base": "a2ccb4c",
+  "hardware": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+  "results": [
+    {
+      "width": 1600,
+      "scene": "entry",
+      "common_ticks": 479,
+      "pose_mismatches": 0,
+      "control": {
+        "median_ms": 24.7,
+        "p95_ms": 30.22999999999999
+      },
+      "broad": {
+        "median_ms": 24.8,
+        "p95_ms": 29.209999999999997
+      },
+      "p95_delta_percent": -3.374131657294055,
+      "changed_scene_pixels": 49815
+    },
+    {
+      "width": 1600,
+      "scene": "warm",
+      "common_ticks": 479,
+      "pose_mismatches": 0,
+      "control": {
+        "median_ms": 25.1,
+        "p95_ms": 30.31
+      },
+      "broad": {
+        "median_ms": 24.3,
+        "p95_ms": 28.7
+      },
+      "p95_delta_percent": -5.311778290993074,
+      "changed_scene_pixels": 101084,
+      "held_changed_pixels": [
+        3,
+        3
+      ],
+      "held_changed_floor_pixels": [
+        0,
+        0
+      ]
+    },
+    {
+      "width": 1600,
+      "scene": "art",
+      "common_ticks": 479,
+      "pose_mismatches": 0,
+      "control": {
+        "median_ms": 20.4,
+        "p95_ms": 26.409999999999997
+      },
+      "broad": {
+        "median_ms": 20.9,
+        "p95_ms": 27.409999999999997
+      },
+      "p95_delta_percent": 3.7864445285876513,
+      "changed_scene_pixels": 80813
+    },
+    {
+      "width": 720,
+      "scene": "entry",
+      "common_ticks": 479,
+      "pose_mismatches": 0,
+      "control": {
+        "median_ms": 18.5,
+        "p95_ms": 21.409999999999997
+      },
+      "broad": {
+        "median_ms": 17.2,
+        "p95_ms": 19.619999999999994
+      },
+      "p95_delta_percent": -8.360579168612814,
+      "changed_scene_pixels": 15342
+    },
+    {
+      "width": 720,
+      "scene": "warm",
+      "common_ticks": 479,
+      "pose_mismatches": 0,
+      "control": {
+        "median_ms": 18.5,
+        "p95_ms": 22.2
+      },
+      "broad": {
+        "median_ms": 18.3,
+        "p95_ms": 21.509999999999998
+      },
+      "p95_delta_percent": -3.1081081081081097,
+      "changed_scene_pixels": 30942,
+      "held_changed_pixels": [
+        2,
+        0
+      ],
+      "held_changed_floor_pixels": [
+        2,
+        0
+      ]
+    },
+    {
+      "width": 720,
+      "scene": "art",
+      "common_ticks": 479,
+      "pose_mismatches": 0,
+      "control": {
+        "median_ms": 18.2,
+        "p95_ms": 21.11
+      },
+      "broad": {
+        "median_ms": 18.3,
+        "p95_ms": 21.0
+      },
+      "p95_delta_percent": -0.5210800568450913,
+      "changed_scene_pixels": 24847
+    }
+  ]
+}

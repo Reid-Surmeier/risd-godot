@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DYNAMIC_CLEARANCE factor=1.17 walking_halfwidth=0.68794500827789 deepest=0.60418364405632 widest_frame=96 margin_at_door_edge_x_010=0.16205499172211
+GESTURE_CLEARANCE factor=1.17 wave_halfwidth=0.67306244373322
+DYNAMIC_CLEARANCE factor=1.42 walking_halfwidth=0.83491915464401 deepest=0.69525051116943 widest_frame=18 margin_at_door_edge_x_010=0.01508084535599
+GESTURE_CLEARANCE factor=1.42 wave_halfwidth=0.81687927246094

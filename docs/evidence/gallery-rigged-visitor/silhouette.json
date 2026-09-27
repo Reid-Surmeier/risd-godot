@@ -1,0 +1,33 @@
+{
+  "native_side_idle": {
+    "picture": [
+      1152,
+      720
+    ],
+    "bounds": [
+      489,
+      347,
+      664,
+      585
+    ],
+    "height_percent": 33.19444444444444,
+    "sole_percent": 81.25
+  },
+  "browser_initial_idle_manual": {
+    "picture_y": [
+      175,
+      567
+    ],
+    "character_y": [
+      365,
+      490
+    ],
+    "height_percent": 32.142857142857146,
+    "sole_percent": 80.35714285714286,
+    "uncertainty_px": 1
+  },
+  "reference": {
+    "height_percent": 32.9,
+    "sole_percent": 80.4
+  }
+}

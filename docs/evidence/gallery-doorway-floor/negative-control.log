@@ -1,0 +1,26 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.1 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Microsoft - D3D12 (NVIDIA GeForce RTX 4070 SUPER)
+
+DOORWAY_FLOOR 1152-baked-arch clear_samples=3/9
+ERROR: passage floor is obscured or missing: 1152-baked-arch
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] require (res://modules/shell/prototype/gallery_walk4/doorway_check.gd:8)
+       [1] run (res://modules/shell/prototype/gallery_walk4/doorway_check.gd:57)
+       [2] _shot (res://testing/harness_base.gd:44)
+DOORWAY_FLOOR 1152-baked-far clear_samples=9/9
+DOORWAY_FLOOR 1152-original-arch clear_samples=9/9
+DOORWAY_FLOOR 1152-original-far clear_samples=9/9
+DOORWAY_FLOOR 588-baked-arch clear_samples=3/9
+ERROR: passage floor is obscured or missing: 588-baked-arch
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] require (res://modules/shell/prototype/gallery_walk4/doorway_check.gd:8)
+       [1] run (res://modules/shell/prototype/gallery_walk4/doorway_check.gd:57)
+       [2] _shot (res://testing/harness_base.gd:44)
+DOORWAY_FLOOR 588-baked-far clear_samples=9/9
+DOORWAY_FLOOR 588-original-arch clear_samples=9/9
+DOORWAY_FLOOR 588-original-far clear_samples=9/9
+DOORWAY_FAILURES 2

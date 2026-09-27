@@ -1,0 +1,29 @@
+{
+  "url": "http://127.0.0.1:8781/60d25f9.html?lighting=baked",
+  "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+  "orbits": [
+    "VIEW_ORBIT {\"position\":[0.0,-0.703919947147369],\"space\":\"gallery\",\"yaw\":-1.57171478211886}",
+    "VIEW_ORBIT {\"position\":[0.0,-0.703919947147369],\"space\":\"gallery\",\"yaw\":-3.14063249999808}"
+  ],
+  "errors": [
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "WARNING: 2D MSAA is not yet supported for GLES3.",
+    "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "WARNING: 2D MSAA is not yet supported for GLES3.",
+    "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)"
+  ],
+  "marks": [
+    {
+      "name": "tabs-warm",
+      "t": 14468
+    },
+    {
+      "name": "game-shown",
+      "t": 16334.20000000298
+    }
+  ]
+}

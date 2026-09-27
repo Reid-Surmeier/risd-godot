@@ -1,0 +1,53 @@
+{
+  "reference": {
+    "source": "/tmp/orca-paste-1790463217298-144fe770-a4bf-4757-99ae-db558a9480e7.png",
+    "crop": [
+      160,
+      112,
+      3210,
+      1920
+    ],
+    "character": [
+      1266,
+      854,
+      1629,
+      1458
+    ],
+    "floor_join_y": 549,
+    "source_sha256": "2b1e17713272836bb50b3e71cf8bc4cec82b83843857c7fef538c25d54ae9a5c"
+  },
+  "owner-current": {
+    "source": "/tmp/orca-paste-1790463198799-047ab0e7-c761-459e-8fe7-0328d497b00c.png",
+    "crop": [
+      741,
+      414,
+      2160,
+      1321
+    ],
+    "character": [
+      666,
+      542,
+      755,
+      727
+    ],
+    "floor_join_y": 532,
+    "source_sha256": "017320036f706c8f0e9a542e439e32646f8e1c0bb58a6a47e5d5d4d493047386"
+  },
+  "candidate": {
+    "source": "/tmp/gallery-refine-verified/dollhouse_shot/01-dollhouse-baked.png",
+    "crop": [
+      644,
+      210,
+      1347,
+      680
+    ],
+    "character": [
+      323,
+      243,
+      379,
+      360
+    ],
+    "floor_join_y": 214,
+    "source_sha256": "84a36107c447a0ba51dee72e40dd177bc90ed6a19d5e68df1a621f0248827d59"
+  }
+}

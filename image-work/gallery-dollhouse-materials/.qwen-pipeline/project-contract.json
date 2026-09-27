@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1",
+  "applicationId": "app-6965005f399b",
+  "artifactRoot": "artifacts/image-generation",
+  "referenceRoots": [
+    "references/oak-before.png",
+    "references/animal-crossing-reference.png",
+    "references/wall-before.png"
+  ],
+  "outputRoot": "generated",
+  "maximumCount": 1,
+  "maximumBudgetUsd": "2.00",
+  "maximumCorrectionRuns": 0,
+  "procedures": [
+    {
+      "id": "muse-f533d6c419c434f51f85",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x512"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "1.00",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-163fe84673202c99cf6a",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1024"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "1.00",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    }
+  ]
+}

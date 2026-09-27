@@ -1,0 +1,638 @@
+{
+  "baseline": {
+    "url": "http://127.0.0.1:18768/22089e5.html?render_qa=1",
+    "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "WARNING: 2D MSAA is not yet supported for GLES3.",
+      "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+      "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+      "   at: get_meta (core/object/object.cpp:1053)",
+      "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+      "   at: get_meta (core/object/object.cpp:1053)",
+      "WARNING: 2D MSAA is not yet supported for GLES3.",
+      "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)"
+    ],
+    "shots": {
+      "entry": {
+        "scene": "entry",
+        "tick": 0,
+        "space": "gallery",
+        "position": [
+          0,
+          0,
+          -0.349999994039536
+        ],
+        "pose_hash": 3173266870,
+        "camera": [
+          [
+            -1,
+            0,
+            -8.74227765734759e-8
+          ],
+          [
+            -5.84972568162812e-8,
+            0.743144810199738,
+            0.669130623340607
+          ],
+          [
+            6.49677858177711e-8,
+            0.669130623340607,
+            -0.743144810199738
+          ],
+          [
+            -1.20660256264937e-15,
+            11.3516550064087,
+            -10.2026557922363
+          ]
+        ],
+        "shader": {
+          "class": "SubViewportContainer",
+          "copy_filter": null,
+          "instance": -9223371983670999000,
+          "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+          "quantization_mode": null,
+          "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+          "use_parent_material": false,
+          "visible": true
+        }
+      },
+      "warm": {
+        "scene": "warm",
+        "tick": 0,
+        "space": "gallery",
+        "position": [
+          2,
+          0,
+          -4
+        ],
+        "pose_hash": 3790991449,
+        "camera": [
+          [
+            -1,
+            0,
+            8.74227765734759e-8
+          ],
+          [
+            5.84972568162812e-8,
+            0.743144810199738,
+            0.669130623340607
+          ],
+          [
+            -6.49677858177711e-8,
+            0.669130623340607,
+            -0.743144810199738
+          ],
+          [
+            2,
+            11.3516550064087,
+            -13.8526563644409
+          ]
+        ],
+        "shader": {
+          "class": "SubViewportContainer",
+          "copy_filter": null,
+          "instance": -9223371983670999000,
+          "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+          "quantization_mode": null,
+          "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+          "use_parent_material": false,
+          "visible": true
+        }
+      },
+      "art": {
+        "scene": "art",
+        "tick": 0,
+        "space": "gallery",
+        "position": [
+          -3.29999995231628,
+          0,
+          -12
+        ],
+        "pose_hash": 1795417782,
+        "camera": [
+          [
+            -4.37113882867379e-8,
+            0,
+            -1
+          ],
+          [
+            -0.669130623340607,
+            0.743144810199738,
+            2.92486284081406e-8
+          ],
+          [
+            0.743144810199738,
+            0.669130623340607,
+            -3.24838929088855e-8
+          ],
+          [
+            6.55265617370605,
+            11.3516550064087,
+            -12
+          ]
+        ],
+        "shader": {
+          "class": "SubViewportContainer",
+          "copy_filter": null,
+          "instance": -9223371983670999000,
+          "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+          "quantization_mode": null,
+          "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+          "use_parent_material": false,
+          "visible": true
+        }
+      },
+      "white": {
+        "scene": "white",
+        "tick": 0,
+        "space": "arch",
+        "position": [
+          0,
+          0,
+          -3
+        ],
+        "pose_hash": 3692123775,
+        "camera": [
+          [
+            -1,
+            0,
+            -8.74227765734759e-8
+          ],
+          [
+            -5.84972568162812e-8,
+            0.743144810199738,
+            0.669130623340607
+          ],
+          [
+            6.49677858177711e-8,
+            0.669130623340607,
+            -0.743144810199738
+          ],
+          [
+            -1.20660256264937e-15,
+            11.3516550064087,
+            -12.8526563644409
+          ]
+        ],
+        "shader": {
+          "class": "SubViewportContainer",
+          "copy_filter": null,
+          "instance": -9223371983670999000,
+          "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+          "quantization_mode": null,
+          "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+          "use_parent_material": false,
+          "visible": true
+        }
+      },
+      "walk": {
+        "scene": "warm",
+        "tick": 60,
+        "space": "gallery",
+        "position": [
+          0.850001096725464,
+          0,
+          -4
+        ],
+        "pose_hash": 2168235486,
+        "camera": [
+          [
+            -1,
+            0,
+            8.74227765734759e-8
+          ],
+          [
+            5.84972568162812e-8,
+            0.743144810199738,
+            0.669130623340607
+          ],
+          [
+            -6.49677858177711e-8,
+            0.669130623340607,
+            -0.743144810199738
+          ],
+          [
+            0.850001096725464,
+            11.3516550064087,
+            -13.8526563644409
+          ]
+        ],
+        "shader": {
+          "class": "SubViewportContainer",
+          "copy_filter": null,
+          "instance": -9223371983670999000,
+          "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+          "quantization_mode": null,
+          "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+          "use_parent_material": false,
+          "visible": true
+        }
+      },
+      "turn": {
+        "scene": "warm",
+        "tick": 200,
+        "space": "gallery",
+        "position": [
+          -0.385554283857346,
+          0,
+          -4
+        ],
+        "pose_hash": 3624044257,
+        "camera": [
+          [
+            -0.881936132907867,
+            0,
+            0.471368879079819
+          ],
+          [
+            0.315407365560532,
+            0.743144869804382,
+            0.590130507946014
+          ],
+          [
+            -0.35029536485672,
+            0.669130682945251,
+            -0.655406296253204
+          ],
+          [
+            -5.02978897094727,
+            11.3516550064087,
+            -12.689414024353
+          ]
+        ],
+        "shader": {
+          "class": "SubViewportContainer",
+          "copy_filter": null,
+          "instance": -9223371983670999000,
+          "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+          "quantization_mode": null,
+          "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+          "use_parent_material": false,
+          "visible": true
+        }
+      },
+      "return-walk": {
+        "scene": "warm",
+        "tick": 290,
+        "space": "gallery",
+        "position": [
+          0.448149472475052,
+          0,
+          -4.45546340942383
+        ],
+        "pose_hash": 3031870562,
+        "camera": [
+          [
+            -0.877582490444183,
+            0,
+            0.479425668716431
+          ],
+          [
+            0.320798486471176,
+            0.743144690990448,
+            0.587217450141907
+          ],
+          [
+            -0.356282621622086,
+            0.669130861759186,
+            -0.652170777320862
+          ],
+          [
+            -4.275465965271,
+            11.3516550064087,
+            -13.1019821166992
+          ]
+        ],
+        "shader": {
+          "class": "SubViewportContainer",
+          "copy_filter": null,
+          "instance": -9223371983670999000,
+          "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+          "quantization_mode": null,
+          "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+          "use_parent_material": false,
+          "visible": true
+        }
+      }
+    }
+  },
+  "candidate": {
+    "url": "http://127.0.0.1:18769/773198d.html?render_qa=1",
+    "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "WARNING: 2D MSAA is not yet supported for GLES3.",
+      "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+      "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+      "   at: get_meta (core/object/object.cpp:1053)",
+      "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+      "   at: get_meta (core/object/object.cpp:1053)",
+      "WARNING: 2D MSAA is not yet supported for GLES3.",
+      "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)"
+    ],
+    "shots": {
+      "entry": {
+        "scene": "entry",
+        "tick": 0,
+        "space": "gallery",
+        "position": [
+          0,
+          0,
+          -0.349999994039536
+        ],
+        "pose_hash": 3173266870,
+        "camera": [
+          [
+            -1,
+            0,
+            -8.74227765734759e-8
+          ],
+          [
+            -5.84972568162812e-8,
+            0.743144810199738,
+            0.669130623340607
+          ],
+          [
+            6.49677858177711e-8,
+            0.669130623340607,
+            -0.743144810199738
+          ],
+          [
+            -1.20660256264937e-15,
+            11.3516550064087,
+            -10.2026557922363
+          ]
+        ],
+        "shader": {
+          "class": "SubViewportContainer",
+          "copy_filter": null,
+          "instance": -9223371983670999000,
+          "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+          "quantization_mode": null,
+          "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+          "use_parent_material": false,
+          "visible": true
+        }
+      },
+      "warm": {
+        "scene": "warm",
+        "tick": 0,
+        "space": "gallery",
+        "position": [
+          2,
+          0,
+          -4
+        ],
+        "pose_hash": 3790991449,
+        "camera": [
+          [
+            -1,
+            0,
+            8.74227765734759e-8
+          ],
+          [
+            5.84972568162812e-8,
+            0.743144810199738,
+            0.669130623340607
+          ],
+          [
+            -6.49677858177711e-8,
+            0.669130623340607,
+            -0.743144810199738
+          ],
+          [
+            2,
+            11.3516550064087,
+            -13.8526563644409
+          ]
+        ],
+        "shader": {
+          "class": "SubViewportContainer",
+          "copy_filter": null,
+          "instance": -9223371983670999000,
+          "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+          "quantization_mode": null,
+          "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+          "use_parent_material": false,
+          "visible": true
+        }
+      },
+      "art": {
+        "scene": "art",
+        "tick": 0,
+        "space": "gallery",
+        "position": [
+          -3.29999995231628,
+          0,
+          -12
+        ],
+        "pose_hash": 1795417782,
+        "camera": [
+          [
+            -4.37113882867379e-8,
+            0,
+            -1
+          ],
+          [
+            -0.669130623340607,
+            0.743144810199738,
+            2.92486284081406e-8
+          ],
+          [
+            0.743144810199738,
+            0.669130623340607,
+            -3.24838929088855e-8
+          ],
+          [
+            6.55265617370605,
+            11.3516550064087,
+            -12
+          ]
+        ],
+        "shader": {
+          "class": "SubViewportContainer",
+          "copy_filter": null,
+          "instance": -9223371983670999000,
+          "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+          "quantization_mode": null,
+          "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+          "use_parent_material": false,
+          "visible": true
+        }
+      },
+      "white": {
+        "scene": "white",
+        "tick": 0,
+        "space": "arch",
+        "position": [
+          0,
+          0,
+          -3
+        ],
+        "pose_hash": 3692123775,
+        "camera": [
+          [
+            -1,
+            0,
+            -8.74227765734759e-8
+          ],
+          [
+            -5.84972568162812e-8,
+            0.743144810199738,
+            0.669130623340607
+          ],
+          [
+            6.49677858177711e-8,
+            0.669130623340607,
+            -0.743144810199738
+          ],
+          [
+            -1.20660256264937e-15,
+            11.3516550064087,
+            -12.8526563644409
+          ]
+        ],
+        "shader": {
+          "class": "SubViewportContainer",
+          "copy_filter": null,
+          "instance": -9223371983670999000,
+          "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+          "quantization_mode": null,
+          "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+          "use_parent_material": false,
+          "visible": true
+        }
+      },
+      "walk": {
+        "scene": "warm",
+        "tick": 60,
+        "space": "gallery",
+        "position": [
+          0.850001096725464,
+          0,
+          -4
+        ],
+        "pose_hash": 2168235486,
+        "camera": [
+          [
+            -1,
+            0,
+            8.74227765734759e-8
+          ],
+          [
+            5.84972568162812e-8,
+            0.743144810199738,
+            0.669130623340607
+          ],
+          [
+            -6.49677858177711e-8,
+            0.669130623340607,
+            -0.743144810199738
+          ],
+          [
+            0.850001096725464,
+            11.3516550064087,
+            -13.8526563644409
+          ]
+        ],
+        "shader": {
+          "class": "SubViewportContainer",
+          "copy_filter": null,
+          "instance": -9223371983670999000,
+          "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+          "quantization_mode": null,
+          "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+          "use_parent_material": false,
+          "visible": true
+        }
+      },
+      "turn": {
+        "scene": "warm",
+        "tick": 200,
+        "space": "gallery",
+        "position": [
+          -0.385554283857346,
+          0,
+          -4
+        ],
+        "pose_hash": 3624044257,
+        "camera": [
+          [
+            -0.881936132907867,
+            0,
+            0.471368879079819
+          ],
+          [
+            0.315407365560532,
+            0.743144869804382,
+            0.590130507946014
+          ],
+          [
+            -0.35029536485672,
+            0.669130682945251,
+            -0.655406296253204
+          ],
+          [
+            -5.02978897094727,
+            11.3516550064087,
+            -12.689414024353
+          ]
+        ],
+        "shader": {
+          "class": "SubViewportContainer",
+          "copy_filter": null,
+          "instance": -9223371983670999000,
+          "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+          "quantization_mode": null,
+          "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+          "use_parent_material": false,
+          "visible": true
+        }
+      },
+      "return-walk": {
+        "scene": "warm",
+        "tick": 290,
+        "space": "gallery",
+        "position": [
+          0.448149472475052,
+          0,
+          -4.45546340942383
+        ],
+        "pose_hash": 3031870562,
+        "camera": [
+          [
+            -0.877582490444183,
+            0,
+            0.479425668716431
+          ],
+          [
+            0.320798486471176,
+            0.743144690990448,
+            0.587217450141907
+          ],
+          [
+            -0.356282621622086,
+            0.669130861759186,
+            -0.652170777320862
+          ],
+          [
+            -4.275465965271,
+            11.3516550064087,
+            -13.1019821166992
+          ]
+        ],
+        "shader": {
+          "class": "SubViewportContainer",
+          "copy_filter": null,
+          "instance": -9223371983670999000,
+          "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+          "quantization_mode": null,
+          "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+          "use_parent_material": false,
+          "visible": true
+        }
+      }
+    }
+  }
+}

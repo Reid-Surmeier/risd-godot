@@ -1,0 +1,1707 @@
+{
+  "before_gzip_bytes": 139802354,
+  "after_gzip_bytes": 92176947,
+  "after_gzip_sha256": "78d82168363ae3c386fe90035191ed40bb63cdd1367584cdf5e8e94f8c2ffcfc",
+  "removed_entries": {
+    ".godot/imported/00.png-5d41959d0107c5d8b3a04205a5d00963.ctex": {
+      "bytes": 4136,
+      "md5": "4965b4ba9b128fc1374550138aa47493"
+    },
+    ".godot/imported/00.png-e39461984215f0f597338c196806bfab.ctex": {
+      "bytes": 4136,
+      "md5": "4965b4ba9b128fc1374550138aa47493"
+    },
+    ".godot/imported/000.jpg-2803c4b814568fbd478c19072420d0eb.ctex": {
+      "bytes": 496808,
+      "md5": "e6bfd369ad9fc2d96ca35cdfee82fcb8"
+    },
+    ".godot/imported/000.jpg-52b78a454d0e4a55678f3f8a032e1970.ctex": {
+      "bytes": 479828,
+      "md5": "0cadf27e8e89e5f49c94a846602b7241"
+    },
+    ".godot/imported/001.jpg-7be36638164adc0acff6f4aa271b4ee7.ctex": {
+      "bytes": 454564,
+      "md5": "7bd3c5ab02681ce4b7cfb124afd309cf"
+    },
+    ".godot/imported/001.jpg-c7c9f631d7f18cabdfd3057ec8a1e7d7.ctex": {
+      "bytes": 491418,
+      "md5": "0037629377b5f5844082635ecb7fa69d"
+    },
+    ".godot/imported/002.jpg-d82e390d3285663143b0b96530085189.ctex": {
+      "bytes": 496002,
+      "md5": "745b57089e6c13d9a8182e939b988a54"
+    },
+    ".godot/imported/002.jpg-ed1de144397d1a7e87f7594317dfad2d.ctex": {
+      "bytes": 474908,
+      "md5": "632ce77f58fe8a86921c80fcca42f906"
+    },
+    ".godot/imported/003.jpg-88864f6c95c2835bd3cb411a57a0b007.ctex": {
+      "bytes": 485898,
+      "md5": "f232bc35518c9b5c7220f8d57419ff4f"
+    },
+    ".godot/imported/003.jpg-b6985429cae75d41bdff5f5f00fbadd0.ctex": {
+      "bytes": 464024,
+      "md5": "a9be07bc7451f8921f7988edbda61e7d"
+    },
+    ".godot/imported/004.jpg-c06830176d6989e62c6389625ebec529.ctex": {
+      "bytes": 483738,
+      "md5": "c550742c643429953e265291d26ce4cd"
+    },
+    ".godot/imported/004.jpg-f6135fc69e592e8d5082f94201bbb9fa.ctex": {
+      "bytes": 470376,
+      "md5": "3bb0a759d883bf9ca5c8a68fa318a43d"
+    },
+    ".godot/imported/005.jpg-66cb87539f5957a6c91278dd3a0a2adb.ctex": {
+      "bytes": 460682,
+      "md5": "60f0c143901fc1afc18a03ad5d89a6b0"
+    },
+    ".godot/imported/005.jpg-dbccd4df949d8eb525212da1e55acba4.ctex": {
+      "bytes": 476208,
+      "md5": "f94684321bd7be0c62f8ebd28a9ecc95"
+    },
+    ".godot/imported/006.jpg-85211fa6f33c381adf336b12c510e27f.ctex": {
+      "bytes": 475978,
+      "md5": "bc299af54a8c63622b9ba8c7fd70530e"
+    },
+    ".godot/imported/006.jpg-9f11aa4efd36e8b7d77cb5af14af0915.ctex": {
+      "bytes": 498048,
+      "md5": "835465b22f56b3388043fd68273d3359"
+    },
+    ".godot/imported/007.jpg-8c656c8f7d53229cc3561e6757e7191f.ctex": {
+      "bytes": 447728,
+      "md5": "a96ef4c53619dbc3a0c175bfcaa9f739"
+    },
+    ".godot/imported/007.jpg-ffda9f9d64c7d12765c18b21b9617e77.ctex": {
+      "bytes": 487984,
+      "md5": "b6fd17bbf6f28513cef1ccf99e00873e"
+    },
+    ".godot/imported/008.jpg-0a8b120b6095bc42bfe1982af93b3ba1.ctex": {
+      "bytes": 483576,
+      "md5": "de74b9e98960f21e7fb827c4fbeaeba1"
+    },
+    ".godot/imported/008.jpg-0e4e46918538d380514ec780ad7ff3dc.ctex": {
+      "bytes": 472836,
+      "md5": "dd0a56c5219d1eec44f6388a01496265"
+    },
+    ".godot/imported/009.jpg-13de2bffc13359af97289d81a1ea4549.ctex": {
+      "bytes": 482012,
+      "md5": "8fd3eb67c04a7b112be6ab039aa4f6de"
+    },
+    ".godot/imported/009.jpg-2eaffe3ca64d9c621e8c98d9a7c762a0.ctex": {
+      "bytes": 449878,
+      "md5": "b5a78defb0ac3f4a9ceb9de845dfab3e"
+    },
+    ".godot/imported/01.png-44a468e38f3241d6fc56b6c493216726.ctex": {
+      "bytes": 4394,
+      "md5": "4c700df46cd909846b18178c5a9d7a3a"
+    },
+    ".godot/imported/01.png-d305a4fd46878a949479b8b2d5b7eb8a.ctex": {
+      "bytes": 4394,
+      "md5": "4c700df46cd909846b18178c5a9d7a3a"
+    },
+    ".godot/imported/010.jpg-77d7478d0da28c3f6f8492fddaad81de.ctex": {
+      "bytes": 459920,
+      "md5": "bde1791168c4cb4d042b9b072eda3d8a"
+    },
+    ".godot/imported/010.jpg-c201503303a0725a5ca92a909da654e2.ctex": {
+      "bytes": 490372,
+      "md5": "e627475708ac7ace04fcecd8cae7ecec"
+    },
+    ".godot/imported/011.jpg-53ddac3cfbf8fe8a41ac7f14082531c8.ctex": {
+      "bytes": 461056,
+      "md5": "1f4f76a1b246b439e9a3dc9962a29d92"
+    },
+    ".godot/imported/011.jpg-87ad8fb06df8cc46294a771b491c4e38.ctex": {
+      "bytes": 475756,
+      "md5": "b1b4f9f2e9e6db0e5d8d609b1619acc0"
+    },
+    ".godot/imported/012.jpg-398dd444ca9acf9448297c6b839aa0b5.ctex": {
+      "bytes": 481496,
+      "md5": "622fe6a91f6a706b8f4b010a16bc461d"
+    },
+    ".godot/imported/012.jpg-5dd590de8793302d6b6199eaf65c7748.ctex": {
+      "bytes": 469896,
+      "md5": "e4245ebb9065007419ffa038ebb2238d"
+    },
+    ".godot/imported/013.jpg-9aaeb7d88081e4afbb3eb89fe834975d.ctex": {
+      "bytes": 444966,
+      "md5": "2694e2b6a5c9d1155937a0f4b88a874b"
+    },
+    ".godot/imported/013.jpg-ae7828745e87dd08393ff9b2d73e1c8e.ctex": {
+      "bytes": 470310,
+      "md5": "701511acb1965491bcca8be3ba8f0114"
+    },
+    ".godot/imported/014.jpg-6bd548a350280afff8ba9bfe6b3013d9.ctex": {
+      "bytes": 464386,
+      "md5": "3ee99b47662f0f74869e133d6c003779"
+    },
+    ".godot/imported/014.jpg-a02ca73fde0b0d63ea6d9d3ca54a4090.ctex": {
+      "bytes": 486648,
+      "md5": "e3efad84d13fa41cf38df413fabf3249"
+    },
+    ".godot/imported/015.jpg-51972c64866feea3b0ab7fc681d61f8b.ctex": {
+      "bytes": 475402,
+      "md5": "2645a3328aecff5f61028cadad1acde1"
+    },
+    ".godot/imported/015.jpg-d804420c0f48193955d5cdb073add4a2.ctex": {
+      "bytes": 443188,
+      "md5": "c8d8b5a56563f8d662342a1fb79c32b6"
+    },
+    ".godot/imported/016.jpg-2bc409990aa477e99d2e0d70cf75e6c7.ctex": {
+      "bytes": 473158,
+      "md5": "a250d9479a621ed444595df650339df6"
+    },
+    ".godot/imported/016.jpg-7ca402ba47908ad2eb3301f856ac76be.ctex": {
+      "bytes": 448614,
+      "md5": "167099b9e2dfc5b84332e66ab7845774"
+    },
+    ".godot/imported/02.png-31c95e092bb261877f9db2477cf0b3ae.ctex": {
+      "bytes": 4690,
+      "md5": "4e703d72e1d79bcdb12e58bd7723fe94"
+    },
+    ".godot/imported/02.png-a0b73052fe1e83a8681ae56423a655b4.ctex": {
+      "bytes": 4690,
+      "md5": "4e703d72e1d79bcdb12e58bd7723fe94"
+    },
+    ".godot/imported/03.png-b60380e86bb588c5ab0b74357fc29944.ctex": {
+      "bytes": 4702,
+      "md5": "10034da3654fa47b60c07adec8017b8f"
+    },
+    ".godot/imported/03.png-da2efb82e2b667a5276d5da29a84e1bc.ctex": {
+      "bytes": 4702,
+      "md5": "10034da3654fa47b60c07adec8017b8f"
+    },
+    ".godot/imported/04.png-5093680945fc23db4155bb771122abb1.ctex": {
+      "bytes": 4656,
+      "md5": "6481c264e195e925b160e93ca3b31520"
+    },
+    ".godot/imported/04.png-8ebf26a0cd2ee45509222632403bd6cf.ctex": {
+      "bytes": 4656,
+      "md5": "6481c264e195e925b160e93ca3b31520"
+    },
+    ".godot/imported/05.png-40a72b20617e995db7ed7f892c2eff78.ctex": {
+      "bytes": 4600,
+      "md5": "166b19a95608945642132a8c3a03934c"
+    },
+    ".godot/imported/05.png-52e1856ee6b3c163930e482cc9e754c0.ctex": {
+      "bytes": 4600,
+      "md5": "166b19a95608945642132a8c3a03934c"
+    },
+    ".godot/imported/06.png-5e0e7864aa4b463010b8bca5cb99747e.ctex": {
+      "bytes": 4668,
+      "md5": "6145634bf75ca00cdd2cf86413774403"
+    },
+    ".godot/imported/06.png-871da43b9f569e3b5c3dc159a36aae4f.ctex": {
+      "bytes": 4668,
+      "md5": "6145634bf75ca00cdd2cf86413774403"
+    },
+    ".godot/imported/07.png-0a6e24ca6ea3aad0855001699b23e2c8.ctex": {
+      "bytes": 4762,
+      "md5": "789acf00ed0eb1b808ca1d8b1117c999"
+    },
+    ".godot/imported/07.png-fc6094105aa6d43364e141e9e567ea5a.ctex": {
+      "bytes": 4762,
+      "md5": "789acf00ed0eb1b808ca1d8b1117c999"
+    },
+    ".godot/imported/08.png-2ef322e88d6a0b6d6c5b4776f27519cb.ctex": {
+      "bytes": 4746,
+      "md5": "174a6e375f18f7c5a1ede63f53d89065"
+    },
+    ".godot/imported/08.png-9c7d5bdef6a220cc9ccf03e32e56c91b.ctex": {
+      "bytes": 4746,
+      "md5": "174a6e375f18f7c5a1ede63f53d89065"
+    },
+    ".godot/imported/09.png-282a08624acae0c41fb4c1c8a1eb5b5d.ctex": {
+      "bytes": 4734,
+      "md5": "51f82dc79402e8343bf015bcb2ef9b46"
+    },
+    ".godot/imported/09.png-dc405032a5ceac8c7bca883cca829de5.ctex": {
+      "bytes": 4734,
+      "md5": "51f82dc79402e8343bf015bcb2ef9b46"
+    },
+    ".godot/imported/10.png-8e7e3eb04736bae0f992d9910c3b68c6.ctex": {
+      "bytes": 4480,
+      "md5": "2de3f316d3cf43e6cad8a7e194285b16"
+    },
+    ".godot/imported/10.png-c4be308d2da09f352265642bbb71eb54.ctex": {
+      "bytes": 4480,
+      "md5": "2de3f316d3cf43e6cad8a7e194285b16"
+    },
+    ".godot/imported/11.png-19abba575753d14f07ee11d28fdb3d97.ctex": {
+      "bytes": 4430,
+      "md5": "280c10dcdf345c20dca113748ea34ce4"
+    },
+    ".godot/imported/11.png-8a88de67c3b823131675415345bc8d90.ctex": {
+      "bytes": 4430,
+      "md5": "280c10dcdf345c20dca113748ea34ce4"
+    },
+    ".godot/imported/12.png-6c9ba8efb6b59ba7cba99d85d464d462.ctex": {
+      "bytes": 4524,
+      "md5": "41860b356932d8fe7daec0c0a2238bff"
+    },
+    ".godot/imported/12.png-c5a999e0f2c16e639b5e8ea9f77a6195.ctex": {
+      "bytes": 4524,
+      "md5": "41860b356932d8fe7daec0c0a2238bff"
+    },
+    ".godot/imported/13.png-4978ec5741ee321142405ee3498d8f2f.ctex": {
+      "bytes": 4782,
+      "md5": "28cec752bf4b8227b42d2328f11338de"
+    },
+    ".godot/imported/13.png-57287fb4d6f5306bc9112295bcc024a9.ctex": {
+      "bytes": 4782,
+      "md5": "28cec752bf4b8227b42d2328f11338de"
+    },
+    ".godot/imported/14.png-1592062a4ccf9489f4c17c6995ad173c.ctex": {
+      "bytes": 4582,
+      "md5": "a3aff26dd28d1a9a4ca3f09b34b314bc"
+    },
+    ".godot/imported/14.png-b973d051f395b77f0219c85a0a55a7fb.ctex": {
+      "bytes": 4582,
+      "md5": "a3aff26dd28d1a9a4ca3f09b34b314bc"
+    },
+    ".godot/imported/15.png-508266b8f0f7e66478c6919dfe5d1a35.ctex": {
+      "bytes": 4536,
+      "md5": "9a542ec5e25102bed6c1f7e03aa47bb2"
+    },
+    ".godot/imported/15.png-66519572e62802878e8486b05a0dd138.ctex": {
+      "bytes": 4536,
+      "md5": "9a542ec5e25102bed6c1f7e03aa47bb2"
+    },
+    ".godot/imported/16.png-090afd536d129077b07dedbc79a2b890.ctex": {
+      "bytes": 4444,
+      "md5": "41b7cba7436e5b5471ba7d8511c77779"
+    },
+    ".godot/imported/16.png-15d8074ffe61fded9c45e54f8cb9c6d4.ctex": {
+      "bytes": 4444,
+      "md5": "41b7cba7436e5b5471ba7d8511c77779"
+    },
+    ".godot/imported/17.png-c3d1c6cb1edb9a863efde812aa4ff52e.ctex": {
+      "bytes": 4692,
+      "md5": "f82278b77e60e6dfc5d7a1bcf141b929"
+    },
+    ".godot/imported/17.png-df522f484682fbf4e3b280bbedc7e2b5.ctex": {
+      "bytes": 4692,
+      "md5": "f82278b77e60e6dfc5d7a1bcf141b929"
+    },
+    ".godot/imported/18.png-2807d31819ac2c34527892f94285c164.ctex": {
+      "bytes": 4834,
+      "md5": "78fcc713306b3cb44ef7e1e3b484ab89"
+    },
+    ".godot/imported/18.png-c618c886df64e96ac5fdcc86beb836b1.ctex": {
+      "bytes": 4834,
+      "md5": "78fcc713306b3cb44ef7e1e3b484ab89"
+    },
+    ".godot/imported/19.png-131935d7b048fd7f4b41415e64262ae9.ctex": {
+      "bytes": 4712,
+      "md5": "67aabc6478bd1ed50850ef9db917ce09"
+    },
+    ".godot/imported/19.png-25aa9d404da8990aee7cdc94dc538591.ctex": {
+      "bytes": 4712,
+      "md5": "67aabc6478bd1ed50850ef9db917ce09"
+    },
+    ".godot/imported/20.png-531e9135494bac9489409fe490d7a94e.ctex": {
+      "bytes": 4584,
+      "md5": "eb88c60112fd5e70a464b289a7454abe"
+    },
+    ".godot/imported/20.png-f77742d1dec3e6d9c54e92b44ed8746c.ctex": {
+      "bytes": 4584,
+      "md5": "eb88c60112fd5e70a464b289a7454abe"
+    },
+    ".godot/imported/21.png-1c2187f5a38d9a0d2064ef2d3d528e41.ctex": {
+      "bytes": 4500,
+      "md5": "9d370965ca306f19a61befc4d8735190"
+    },
+    ".godot/imported/21.png-8c58c78c844271452855a034d99e7d84.ctex": {
+      "bytes": 4500,
+      "md5": "9d370965ca306f19a61befc4d8735190"
+    },
+    ".godot/imported/22.png-70170e1d1496346e45ff29f9933859ad.ctex": {
+      "bytes": 4502,
+      "md5": "c2e13f9d56e4108f1ad4a504371e4127"
+    },
+    ".godot/imported/22.png-cfe7ffa9cbb8753d2a8c8b897416c4fa.ctex": {
+      "bytes": 4502,
+      "md5": "c2e13f9d56e4108f1ad4a504371e4127"
+    },
+    ".godot/imported/23.png-53b6ea513aac6051d8edf833606f8b50.ctex": {
+      "bytes": 4664,
+      "md5": "eb56a3bf1a37c71809aec94d4ec340f4"
+    },
+    ".godot/imported/23.png-ef4773ea2c4954b56cfddddeb92db796.ctex": {
+      "bytes": 4664,
+      "md5": "eb56a3bf1a37c71809aec94d4ec340f4"
+    },
+    ".godot/imported/24.png-22a28fa4fac97dd93af36b25910db001.ctex": {
+      "bytes": 4624,
+      "md5": "da890b114af9b645b43e17bffa80594f"
+    },
+    ".godot/imported/24.png-de749f379e239d0d37739abbf3218c07.ctex": {
+      "bytes": 4624,
+      "md5": "da890b114af9b645b43e17bffa80594f"
+    },
+    ".godot/imported/25.png-4a4ecb2173d52f07c398ba4b4a65f861.ctex": {
+      "bytes": 4630,
+      "md5": "07fb1308b074594f7c67a65d2345928b"
+    },
+    ".godot/imported/25.png-abb31cd3418d5760947072b4a264a630.ctex": {
+      "bytes": 4630,
+      "md5": "07fb1308b074594f7c67a65d2345928b"
+    },
+    ".godot/imported/26.png-017d70ad395c73d92ee3aab45b887468.ctex": {
+      "bytes": 4538,
+      "md5": "5e37aa233d0b262815834d060e1e68ca"
+    },
+    ".godot/imported/26.png-196c0252249d69b69dafab66200611da.ctex": {
+      "bytes": 4538,
+      "md5": "5e37aa233d0b262815834d060e1e68ca"
+    },
+    ".godot/imported/27.png-28cfd5f535286ebebb44edd585729c00.ctex": {
+      "bytes": 4572,
+      "md5": "5959cce08f5a51a3bb9fc59bf69d3714"
+    },
+    ".godot/imported/27.png-3ad2741128303d08efdcbcbdffb09c7e.ctex": {
+      "bytes": 4572,
+      "md5": "5959cce08f5a51a3bb9fc59bf69d3714"
+    },
+    ".godot/imported/28.png-de88a38efd8c94dde1f5ad6d27c0dba0.ctex": {
+      "bytes": 4676,
+      "md5": "0a49a0626a12febd24698f27a3c25ff4"
+    },
+    ".godot/imported/28.png-fda1fd6bc8910126e26d5b871e9cbf43.ctex": {
+      "bytes": 4676,
+      "md5": "0a49a0626a12febd24698f27a3c25ff4"
+    },
+    ".godot/imported/29.png-0d4daecfa12535d80b798cce16143b14.ctex": {
+      "bytes": 4760,
+      "md5": "8696ad55b9c7f39e640f1edcd325a1a9"
+    },
+    ".godot/imported/29.png-3ae01e00d62cf7fba32fd99bb76d0f0a.ctex": {
+      "bytes": 4760,
+      "md5": "8696ad55b9c7f39e640f1edcd325a1a9"
+    },
+    ".godot/imported/30.png-6ad4569ad25b9fbe66a00148a2b094df.ctex": {
+      "bytes": 4764,
+      "md5": "8bfd94c66092da7a743f1bc9cda30b49"
+    },
+    ".godot/imported/30.png-e11a3b35f35d00075165a2e4c175bf0e.ctex": {
+      "bytes": 4764,
+      "md5": "8bfd94c66092da7a743f1bc9cda30b49"
+    },
+    ".godot/imported/31.png-241f168b49c4fd6b464bd93a60fec9b0.ctex": {
+      "bytes": 4742,
+      "md5": "7f955eefee36d94e75140dcfd502e707"
+    },
+    ".godot/imported/31.png-c60c38b5245829a4d0371cd14286dff4.ctex": {
+      "bytes": 4742,
+      "md5": "7f955eefee36d94e75140dcfd502e707"
+    },
+    ".godot/imported/32.png-06eafcc5b0fb860f24da639d86777386.ctex": {
+      "bytes": 4392,
+      "md5": "7b395e42e80ff92d08881c18ffc3fbdf"
+    },
+    ".godot/imported/32.png-1a89b497b5211e04032c2e112c93057b.ctex": {
+      "bytes": 4392,
+      "md5": "7b395e42e80ff92d08881c18ffc3fbdf"
+    },
+    ".godot/imported/33.png-241253fca6d87495248edffa1a9623e8.ctex": {
+      "bytes": 4584,
+      "md5": "8ffc7f7620bba7ac16f061bd77eadb62"
+    },
+    ".godot/imported/33.png-ff0748e43df499c9106389d39ff4120b.ctex": {
+      "bytes": 4584,
+      "md5": "8ffc7f7620bba7ac16f061bd77eadb62"
+    },
+    ".godot/imported/34.png-9f7d428c758240ef2451f4f4ed075659.ctex": {
+      "bytes": 4686,
+      "md5": "eeb161e2aae3baf6c47e09bbe242262b"
+    },
+    ".godot/imported/34.png-e39e4cea65447860ec322efdd941ffac.ctex": {
+      "bytes": 4686,
+      "md5": "eeb161e2aae3baf6c47e09bbe242262b"
+    },
+    ".godot/imported/35.png-721001426d666692d7848d30bf7f2908.ctex": {
+      "bytes": 4732,
+      "md5": "9b48d99a079ab3bc17e93f40e9c8f0d4"
+    },
+    ".godot/imported/35.png-9ca4763946947f58880dbb7cec607702.ctex": {
+      "bytes": 4732,
+      "md5": "9b48d99a079ab3bc17e93f40e9c8f0d4"
+    },
+    ".godot/imported/36.png-84de506feae2467b5d9731bcd5d00a27.ctex": {
+      "bytes": 4560,
+      "md5": "c2aa119031f9df2f8fcc99d77d1fe68f"
+    },
+    ".godot/imported/36.png-868da92fd8424103ab4fea5a3e8a8a86.ctex": {
+      "bytes": 4560,
+      "md5": "c2aa119031f9df2f8fcc99d77d1fe68f"
+    },
+    ".godot/imported/37.png-1f733b1096e58f5554e6d503b61baf36.ctex": {
+      "bytes": 4706,
+      "md5": "6b60a449edd7567f6723a8652dff437b"
+    },
+    ".godot/imported/37.png-d9472b2d9f6500a600f273056bc12fb0.ctex": {
+      "bytes": 4706,
+      "md5": "6b60a449edd7567f6723a8652dff437b"
+    },
+    ".godot/imported/38.png-2d06390281a1fdb1e6248ca78c178a31.ctex": {
+      "bytes": 4790,
+      "md5": "a1999082e26531d1b63c58594765fcd1"
+    },
+    ".godot/imported/38.png-8aa641ae27946fedec63ebd3ae2d7825.ctex": {
+      "bytes": 4790,
+      "md5": "a1999082e26531d1b63c58594765fcd1"
+    },
+    ".godot/imported/39.png-95261212e9600df909e90a479184198c.ctex": {
+      "bytes": 4682,
+      "md5": "95c2f35a8cbd9c42bdf55bb599aae5e7"
+    },
+    ".godot/imported/39.png-e526f28604a4018ba5501f90ba5095c2.ctex": {
+      "bytes": 4682,
+      "md5": "95c2f35a8cbd9c42bdf55bb599aae5e7"
+    },
+    ".godot/imported/40.png-83fd63b67d096ff2d12a613e778d676d.ctex": {
+      "bytes": 4166,
+      "md5": "6f5a9691819faf4765861a1e3b3b4c46"
+    },
+    ".godot/imported/40.png-9cc6f4d387b9a2eaa104f9c432884ada.ctex": {
+      "bytes": 4166,
+      "md5": "6f5a9691819faf4765861a1e3b3b4c46"
+    },
+    ".godot/imported/41.png-34366bfb7dd5a71dfe81a2b3811a8916.ctex": {
+      "bytes": 4244,
+      "md5": "296488f4226dfb2441aa91a6e69930a9"
+    },
+    ".godot/imported/41.png-d1561a36e1dedd11aa312d9eff745451.ctex": {
+      "bytes": 4244,
+      "md5": "296488f4226dfb2441aa91a6e69930a9"
+    },
+    ".godot/imported/42.png-0e05abc5e776e2fd53eb2e1200028629.ctex": {
+      "bytes": 4150,
+      "md5": "4c2bb1d670c0b6dae42a82c53d27c613"
+    },
+    ".godot/imported/42.png-ef3bf3667be248860ff7cb8ebf70e718.ctex": {
+      "bytes": 4150,
+      "md5": "4c2bb1d670c0b6dae42a82c53d27c613"
+    },
+    ".godot/imported/43.png-abd55e9297d1a72c15d14c0111c43f35.ctex": {
+      "bytes": 4212,
+      "md5": "761c3e6e6cc5016f31922c4dd974f6ad"
+    },
+    ".godot/imported/43.png-cb4e1dc5474440cbc98f20d54632f17c.ctex": {
+      "bytes": 4212,
+      "md5": "761c3e6e6cc5016f31922c4dd974f6ad"
+    },
+    ".godot/imported/44.png-728f8e9ff89bacd827811cad740fbe3f.ctex": {
+      "bytes": 4262,
+      "md5": "3312467455cbdd2ea79dd1daa8603c12"
+    },
+    ".godot/imported/44.png-a65bd577326d13dd0c64761865765125.ctex": {
+      "bytes": 4262,
+      "md5": "3312467455cbdd2ea79dd1daa8603c12"
+    },
+    ".godot/imported/45.png-87ca93d37a0244d67feb30a2057b30b4.ctex": {
+      "bytes": 4226,
+      "md5": "82b36011de01877de5fb8870996e0226"
+    },
+    ".godot/imported/45.png-ce9986f9ee4908f0a80595c48fedab41.ctex": {
+      "bytes": 4226,
+      "md5": "82b36011de01877de5fb8870996e0226"
+    },
+    ".godot/imported/46.png-469f4b890115ca6a75d32988dc3509c3.ctex": {
+      "bytes": 4288,
+      "md5": "4c7958b6436f2863ed1b402f74a7c3bc"
+    },
+    ".godot/imported/46.png-a4217ba71bfd28e31b683367c11ec9b6.ctex": {
+      "bytes": 4288,
+      "md5": "4c7958b6436f2863ed1b402f74a7c3bc"
+    },
+    ".godot/imported/47.png-be296be4f596ac49e337c2a2b7431e17.ctex": {
+      "bytes": 4272,
+      "md5": "4657a84b4208e75f82b0eff3aae671e0"
+    },
+    ".godot/imported/47.png-cf2212cea8fa9705b86df50ca519ddbd.ctex": {
+      "bytes": 4272,
+      "md5": "4657a84b4208e75f82b0eff3aae671e0"
+    },
+    ".godot/imported/angel-shaped.png-78aa43e5c1710f9d8563b87823ba2655.ctex": {
+      "bytes": 1295124,
+      "md5": "71d7586a6bb5bfacc457b7e71ff2cce1"
+    },
+    ".godot/imported/detail-frame.png-65bb6c92fefdeeb0fc015bc9ef327a95.ctex": {
+      "bytes": 1140016,
+      "md5": "0380b0aabe8897306d4baee1289e11ba"
+    },
+    ".godot/imported/east-0-00.jpg-86c0c9143fe8c1f3ac129d689843086a.ctex": {
+      "bytes": 812554,
+      "md5": "8d7fe530510a05ff444d95f0fff21ce6"
+    },
+    ".godot/imported/east-0-01.jpg-5173269faef6690e303ee261de6c81c9.ctex": {
+      "bytes": 433432,
+      "md5": "79685386b8347cc5b2b38498b6038ba2"
+    },
+    ".godot/imported/east-0-02.jpg-3ea6bbc789b6de93dca5981646d35148.ctex": {
+      "bytes": 957890,
+      "md5": "21a691047a6ac6f14f57f6e612967de8"
+    },
+    ".godot/imported/east-0-03.jpg-8fbf8512a37469876e4f8cb04e43efd6.ctex": {
+      "bytes": 867600,
+      "md5": "e7f22b24b4d51c5d0c5be312375d97bc"
+    },
+    ".godot/imported/east-0-04.jpg-6453c521126d1fefb85f484e2a4feda6.ctex": {
+      "bytes": 776450,
+      "md5": "8eea9eb19734591bf90629667a75ef98"
+    },
+    ".godot/imported/east-0.png-a46ccb2f7cd610e2d7a998f9233d525b.ctex": {
+      "bytes": 97282,
+      "md5": "5358d332c673d5542e8e992172d4012d"
+    },
+    ".godot/imported/east-1-00.jpg-ab318997fb7cd35ad99da7f5fce2b293.ctex": {
+      "bytes": 629826,
+      "md5": "d2615ed921672fe3d0fd676ef60625cb"
+    },
+    ".godot/imported/east-1-01.jpg-27c1d53327b47125e30a5663428d3c18.ctex": {
+      "bytes": 604812,
+      "md5": "aace91ee92704d6f6a59d6ffa0386179"
+    },
+    ".godot/imported/east-1-02.jpg-c2b5b20172372139cb29af4ae8d43ed3.ctex": {
+      "bytes": 184402,
+      "md5": "3e6ae26f27d955159b1eca144f7179e2"
+    },
+    ".godot/imported/east-1.png-56af09c68686ef417eef312e14facb2f.ctex": {
+      "bytes": 34280,
+      "md5": "436046591e4093b4ee5f75cba53887c9"
+    },
+    ".godot/imported/east-2-00.jpg-33324d51188442856d7dccee611deb4c.ctex": {
+      "bytes": 598664,
+      "md5": "220c661a76122cdc4a47e139c5d3e1b4"
+    },
+    ".godot/imported/east-2-01.jpg-5e9cdefda4246a119c91f2397ea4e9ae.ctex": {
+      "bytes": 1127994,
+      "md5": "71b835cee09f29b553afb1c2257c13bd"
+    },
+    ".godot/imported/east-2-02.jpg-ce5eb9297981e716d21ff7b131d6f92b.ctex": {
+      "bytes": 682926,
+      "md5": "72f7636f0d0add1355910a8b8b74106f"
+    },
+    ".godot/imported/east-2.png-38bfb41c44600ce04c7949dfd4c3c209.ctex": {
+      "bytes": 36764,
+      "md5": "77e6ed59f63fa4aa9648060165a495dd"
+    },
+    ".godot/imported/fire-canvas.jpg-4723c505df0e0cab598b7cdc9366fb64.ctex": {
+      "bytes": 2087882,
+      "md5": "152db377072cbe19939a70106ade8cf5"
+    },
+    ".godot/imported/fire-frame.png-925cd665a8efcf1ccd8c9d03c4d20159.ctex": {
+      "bytes": 308368,
+      "md5": "5bb60581793c595aee3e95a81a271a5f"
+    },
+    ".godot/imported/floor.png-1d8b04cc137ce2c0e896180ced49e80f.ctex": {
+      "bytes": 10682,
+      "md5": "fbb4a583b292eeda2629878734241f10"
+    },
+    ".godot/imported/monet-walk-meadows-argenteuil-1998.107.jpg-0111a51610e17574433c42de95e098b7.ctex": {
+      "bytes": 5616474,
+      "md5": "410d5294b95ad64785af1b3398854a77"
+    },
+    ".godot/imported/music-canvas.jpg-554112a876bb79be81551ec234e8e5b8.ctex": {
+      "bytes": 1866022,
+      "md5": "cf7c6b1d4a83f4adab35507052b4835c"
+    },
+    ".godot/imported/music-frame.png-7ebccdd2df5598c4de5d8375b31ed0ad.ctex": {
+      "bytes": 1031388,
+      "md5": "820fdabd01c774a6405b5ac3d4900295"
+    },
+    ".godot/imported/n0-doorway.png-1face59abf2a5a5f0f49db31f68c580a.ctex": {
+      "bytes": 601848,
+      "md5": "43401f64f7e00293b5b21a820bd9b15c"
+    },
+    ".godot/imported/n1-room.png-2b3b19ff109ceacfbf9e0fe304234544.ctex": {
+      "bytes": 684326,
+      "md5": "29ea7c049ff928b78c703355304f0c8b"
+    },
+    ".godot/imported/n2-right-wall.png-9f37ef08de6e92390c6913f1e412aafa.ctex": {
+      "bytes": 590860,
+      "md5": "30991c370a012c07a07dd6328445e346"
+    },
+    ".godot/imported/n3-poppy-wall.png-32bc8124cb2968f70b5b77027362b26e.ctex": {
+      "bytes": 519814,
+      "md5": "fc2073b633de0e5c4373ffc887c6ba5c"
+    },
+    ".godot/imported/n4-le-repos-wall.png-6e415d9967069407fee5469210162fc6.ctex": {
+      "bytes": 553160,
+      "md5": "d03d25d8a665451e74d654383ec43575"
+    },
+    ".godot/imported/n5-reverse.png-2f0d56e7a519b6eb745d1add988ed10a.ctex": {
+      "bytes": 643584,
+      "md5": "0fae8e392988bbec0c32a2fc3bdbc3f3"
+    },
+    ".godot/imported/north.png-7b62c4cc06702b393133611cde5e924b.ctex": {
+      "bytes": 38040,
+      "md5": "791f41560bf7b2e58b61627f43954471"
+    },
+    ".godot/imported/p-bonnet.png-43789f1952e9f97949d4822e458895e7.ctex": {
+      "bytes": 603506,
+      "md5": "3555b794ae736ac7b2c7e8527865a076"
+    },
+    ".godot/imported/p-le-repos.png-336c6936c4427a8fdea4d617bddead4f.ctex": {
+      "bytes": 689352,
+      "md5": "e42efdb8cea2f893e8edae980733e39c"
+    },
+    ".godot/imported/p-poppies.png-2e948185f9776d86a3d7656dca72f8a0.ctex": {
+      "bytes": 1136242,
+      "md5": "0fd1837922856c16b244864412c6df57"
+    },
+    ".godot/imported/p-road.png-0e1cab06ce53281fa0b16b61a0a9c1eb.ctex": {
+      "bytes": 640328,
+      "md5": "211cfc18805fc751a4573b6a9cc1ba52"
+    },
+    ".godot/imported/p-sailboats.png-c9b8100ef3538e33715353d3c83c5378.ctex": {
+      "bytes": 857672,
+      "md5": "20a18d6c7be866221cd292e80e4e7d23"
+    },
+    ".godot/imported/r2.png-68923eb386cffb5e4debcf247329777c.ctex": {
+      "bytes": 140350,
+      "md5": "97041adaa41881926bf74a38d09301be"
+    },
+    ".godot/imported/r3.png-2144c5a724609624d5780d6bd0b2f540.ctex": {
+      "bytes": 155494,
+      "md5": "8f7dc5a4970d99ae1be6addd933e0033"
+    },
+    ".godot/imported/s1.png-53222e8605d5bf48ea31a42affb709e6.ctex": {
+      "bytes": 141990,
+      "md5": "ee3efffbc6545c55f2246be25bfb86c2"
+    },
+    ".godot/imported/s2.png-d10de4652a06e9c877c02f89a4165b6a.ctex": {
+      "bytes": 139912,
+      "md5": "18ea39ba90451e3fd8857540409a610d"
+    },
+    ".godot/imported/s3.png-afb013b9163680ca7af07c28a096a6b6.ctex": {
+      "bytes": 134560,
+      "md5": "bfa641335f887f250c05de3d44e549fe"
+    },
+    ".godot/imported/skylight.png-cd8a08063c82bd2cab191fcc05967bf9.ctex": {
+      "bytes": 17464,
+      "md5": "5928e9f38f0e27772e0885b214e6da1f"
+    },
+    ".godot/imported/south.png-ff893080f4a436220d82e9508e16529a.ctex": {
+      "bytes": 46008,
+      "md5": "bbf44bf001807a4bc4d1bb5aeb4b02df"
+    },
+    ".godot/imported/west-d-00.jpg-cc2d0580195efcb93e2a48267de20941.ctex": {
+      "bytes": 691814,
+      "md5": "5f0d694eeec70589935d5d4c207e23c6"
+    },
+    ".godot/imported/west-d-01.jpg-161f592aa2805b85920ce3c9c6799d20.ctex": {
+      "bytes": 690204,
+      "md5": "36d76cd8387b3cb2236741aba981528f"
+    },
+    ".godot/imported/west-d-02.jpg-1123d48386c91ed99a90b4b3c8f33c2e.ctex": {
+      "bytes": 867742,
+      "md5": "37173ca8ecc5c8b6974a419ebcb62061"
+    },
+    ".godot/imported/west-d.png-9441ac0f1a7913436c614763ad89bcf1.ctex": {
+      "bytes": 68006,
+      "md5": "221e2d294d53bf4b89ada0d551981427"
+    },
+    "modules/shell/prototype/gallery_walk/gallery_walk.gd.remap": {
+      "bytes": 76,
+      "md5": "d74e48dba6e065efe441e5630662c30e"
+    },
+    "modules/shell/prototype/gallery_walk/gallery_walk.gdc": {
+      "bytes": 6811,
+      "md5": "64f308f0bec21705da7c7557bf18f1d3"
+    },
+    "modules/shell/prototype/gallery_walk/shot.gd.remap": {
+      "bytes": 68,
+      "md5": "f58993ad4a0ccb74916ae1d98d9c99cf"
+    },
+    "modules/shell/prototype/gallery_walk/shot.gdc": {
+      "bytes": 1335,
+      "md5": "489ba0c81d5dc732b7ee22b8c8e3faac"
+    },
+    "modules/shell/prototype/gallery_walk/stills/monet-walk-meadows-argenteuil-1998.107.jpg.import": {
+      "bytes": 227,
+      "md5": "ed9184382aa4035a12a69ee92725254b"
+    },
+    "modules/shell/prototype/gallery_walk/stills/n0-doorway.png.import": {
+      "bytes": 199,
+      "md5": "dc2f797568675f25a597ac88afa55748"
+    },
+    "modules/shell/prototype/gallery_walk/stills/n1-room.png.import": {
+      "bytes": 196,
+      "md5": "e1fd2c3f74105956a6730264821b68ec"
+    },
+    "modules/shell/prototype/gallery_walk/stills/n2-right-wall.png.import": {
+      "bytes": 201,
+      "md5": "982cfb31573bd7e26f6d4d834ef4d163"
+    },
+    "modules/shell/prototype/gallery_walk/stills/n3-poppy-wall.png.import": {
+      "bytes": 202,
+      "md5": "5780dfc808b2b616cb93da48cd3ae0a1"
+    },
+    "modules/shell/prototype/gallery_walk/stills/n4-le-repos-wall.png.import": {
+      "bytes": 205,
+      "md5": "b6a07c4dcaaf5080d5e4aea6b4f39475"
+    },
+    "modules/shell/prototype/gallery_walk/stills/n5-reverse.png.import": {
+      "bytes": 198,
+      "md5": "12a912d02d43a477d6d15b8fc911b0f5"
+    },
+    "modules/shell/prototype/gallery_walk/stills/p-bonnet.png.import": {
+      "bytes": 197,
+      "md5": "3c3468215fe5b074c8906c7a3cfac95f"
+    },
+    "modules/shell/prototype/gallery_walk/stills/p-le-repos.png.import": {
+      "bytes": 199,
+      "md5": "ffa60fc4e4a7531c1f58f8a111f56974"
+    },
+    "modules/shell/prototype/gallery_walk/stills/p-poppies.png.import": {
+      "bytes": 198,
+      "md5": "063b57dafd624bb9096e152edce8c9cb"
+    },
+    "modules/shell/prototype/gallery_walk/stills/p-road.png.import": {
+      "bytes": 194,
+      "md5": "a592f82fbbde5dc145fa6d21e319c2e3"
+    },
+    "modules/shell/prototype/gallery_walk/stills/p-sailboats.png.import": {
+      "bytes": 199,
+      "md5": "ae0e433def263ecee106f48e8e8118e8"
+    },
+    "modules/shell/prototype/gallery_walk2/box_room.gd.remap": {
+      "bytes": 73,
+      "md5": "d9aa8c824c23fedfd3ea160410fff69d"
+    },
+    "modules/shell/prototype/gallery_walk2/box_room.gdc": {
+      "bytes": 3343,
+      "md5": "d8dea0c5b26a08ee005b02f8c06ea859"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/000.jpg.import": {
+      "bytes": 192,
+      "md5": "074c0f63fbd6f0d7a003c160defb626e"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/001.jpg.import": {
+      "bytes": 191,
+      "md5": "75316cd923120d6e46cf82f4e456d613"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/002.jpg.import": {
+      "bytes": 192,
+      "md5": "05fc4cc1a0aa7e3465bf71a4e869353d"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/003.jpg.import": {
+      "bytes": 192,
+      "md5": "0ffbfd66b4737f351728348e46acdcdb"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/004.jpg.import": {
+      "bytes": 192,
+      "md5": "c72a7d0b65b938e7ab777776486410db"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/005.jpg.import": {
+      "bytes": 192,
+      "md5": "fd4fcb7fb868b49929cd26889a66fbf9"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/006.jpg.import": {
+      "bytes": 192,
+      "md5": "f0d30acda274351aa39ba96eca6beba5"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/007.jpg.import": {
+      "bytes": 192,
+      "md5": "64f280a962f50ddc0086e700314e5f33"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/008.jpg.import": {
+      "bytes": 192,
+      "md5": "231e721283f989e833dfd695ae4409ec"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/009.jpg.import": {
+      "bytes": 191,
+      "md5": "2942cd70e13cdef095bc303d8a9e5f63"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/010.jpg.import": {
+      "bytes": 191,
+      "md5": "356002319e0f28115983a9bd81e4a4ef"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/011.jpg.import": {
+      "bytes": 191,
+      "md5": "86fe2ecd6c5285e7a2ee31d8ce598e75"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/012.jpg.import": {
+      "bytes": 191,
+      "md5": "03b72fe84c3edd0b8476adb1fdf7639b"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/013.jpg.import": {
+      "bytes": 192,
+      "md5": "d81a10b05dad19fdbf9e1b7f6d38f539"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/014.jpg.import": {
+      "bytes": 192,
+      "md5": "400561cc2c5922c1ae9084b53c3de001"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/015.jpg.import": {
+      "bytes": 192,
+      "md5": "f358e38370ce3fe159e16c3209a1f5bc"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s1-s2/016.jpg.import": {
+      "bytes": 192,
+      "md5": "7f1350a290f65e33f09685bd64d450a2"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/000.jpg.import": {
+      "bytes": 190,
+      "md5": "d09f316b080d9c3aa4fc75a0e9b3a86e"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/001.jpg.import": {
+      "bytes": 191,
+      "md5": "af51a8cb09df3722bf77122e16ca8f9b"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/002.jpg.import": {
+      "bytes": 192,
+      "md5": "68de95ea2379fe91495044fac27160cd"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/003.jpg.import": {
+      "bytes": 191,
+      "md5": "3eb6664e0742e4bdefe1caf107b6059e"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/004.jpg.import": {
+      "bytes": 192,
+      "md5": "b4a333758ce0c92c210ce7a228318cd6"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/005.jpg.import": {
+      "bytes": 191,
+      "md5": "c50a378a3fce0e4449729e0adb2a844a"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/006.jpg.import": {
+      "bytes": 192,
+      "md5": "62b9eaa04650ce8e9f421e0070faa387"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/007.jpg.import": {
+      "bytes": 192,
+      "md5": "9ac3f2db2a720a5f7c0521adc3b0e5b8"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/008.jpg.import": {
+      "bytes": 191,
+      "md5": "6dc8b4baa7872f1db275821e5707d3c4"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/009.jpg.import": {
+      "bytes": 192,
+      "md5": "bc2bc5bb33eb68cafc9a08338bb1b8fd"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/010.jpg.import": {
+      "bytes": 192,
+      "md5": "b2f9c7ae82a3a5098a77f936dd51d7e3"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/011.jpg.import": {
+      "bytes": 192,
+      "md5": "e310f2d16a981961233b47e29e89ae1b"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/012.jpg.import": {
+      "bytes": 191,
+      "md5": "e01cc61b6da1efe6323a17048d97c1ed"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/013.jpg.import": {
+      "bytes": 192,
+      "md5": "11fd9975122b02fe8405020804469afc"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/014.jpg.import": {
+      "bytes": 192,
+      "md5": "c0932ad1b861b01677e29028ddf8cd59"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/015.jpg.import": {
+      "bytes": 191,
+      "md5": "8067a6330ce1eefc5e1e5bfbc484ae90"
+    },
+    "modules/shell/prototype/gallery_walk2/clips/s2-s3/016.jpg.import": {
+      "bytes": 191,
+      "md5": "269a924da6a767c560e04155c470135f"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/00.png.import": {
+      "bytes": 190,
+      "md5": "bdbbac0cfcf01e4c7667f061cc72d7a6"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/01.png.import": {
+      "bytes": 191,
+      "md5": "a35682f524d2b806c113a1c6f11d184f"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/02.png.import": {
+      "bytes": 191,
+      "md5": "32ad3386da9d8803dd6f1a05f6556d7b"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/03.png.import": {
+      "bytes": 191,
+      "md5": "6f77923980739a9570eb9b8cf9241f37"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/04.png.import": {
+      "bytes": 191,
+      "md5": "697252f1f9ad4a24dcfc812881cd9504"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/05.png.import": {
+      "bytes": 191,
+      "md5": "576d97c66831f0d449b4c2d8a940cd6f"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/06.png.import": {
+      "bytes": 191,
+      "md5": "33b6ea0a17da9064e3b335e8cf3c2347"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/07.png.import": {
+      "bytes": 191,
+      "md5": "7364865690b5b978d384b5d3a1120f70"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/08.png.import": {
+      "bytes": 191,
+      "md5": "13de86a1ea5f896d64efb08e9cf52801"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/09.png.import": {
+      "bytes": 191,
+      "md5": "2b4283f5526573c51612829a0b9c7443"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/10.png.import": {
+      "bytes": 191,
+      "md5": "65284c46f70da5e30b5a0bc180cf3fd0"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/11.png.import": {
+      "bytes": 191,
+      "md5": "31255a472e3bd6019fca5f2a248ba005"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/12.png.import": {
+      "bytes": 191,
+      "md5": "b10441cc648ce52b28bb95703644cd5a"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/13.png.import": {
+      "bytes": 191,
+      "md5": "7b5f4d703c8ada59535405d988bf5f04"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/14.png.import": {
+      "bytes": 191,
+      "md5": "db7b1df53c9656fe58f912846d1bc931"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/15.png.import": {
+      "bytes": 191,
+      "md5": "a6f8d004e9e53f6d3e934bccb82f34a5"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/16.png.import": {
+      "bytes": 191,
+      "md5": "e56d4d09ca37fe55d08bd28b10b81129"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/17.png.import": {
+      "bytes": 191,
+      "md5": "9f253f1c6c9aea077b0c5764957e5cae"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/18.png.import": {
+      "bytes": 191,
+      "md5": "9c9e3b3c9f38321e475b73954b4d778b"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/19.png.import": {
+      "bytes": 190,
+      "md5": "0ca29f5d19e40b90154c81ff57e7c1ae"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/20.png.import": {
+      "bytes": 191,
+      "md5": "80cd1143c8d4fcd90306714648241174"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/21.png.import": {
+      "bytes": 191,
+      "md5": "6a13a915f98c1bafbdd2b8c0de9c7320"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/22.png.import": {
+      "bytes": 190,
+      "md5": "68972a580f41b3329fc26e93cc6bb037"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/23.png.import": {
+      "bytes": 191,
+      "md5": "a1d1dff92f9de3eb5f055afa341eba42"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/24.png.import": {
+      "bytes": 191,
+      "md5": "fb2871384dd1fbe80968d80a60443d00"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/25.png.import": {
+      "bytes": 191,
+      "md5": "9d1ad530a74ab6fb98e91f3bd1c33301"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/26.png.import": {
+      "bytes": 191,
+      "md5": "e706fa98c86d6ccff68b7aa4717bc5d0"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/27.png.import": {
+      "bytes": 191,
+      "md5": "d8b8bd27e808682902dee6079347c34f"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/28.png.import": {
+      "bytes": 190,
+      "md5": "3ac3bd407332309cbaab576b5cfd9ac1"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/29.png.import": {
+      "bytes": 191,
+      "md5": "120f52c1ccd7f3ab246fb81ae9ab90ad"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/30.png.import": {
+      "bytes": 189,
+      "md5": "fed8f860e7c0f8d879547295525ab2ad"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/31.png.import": {
+      "bytes": 191,
+      "md5": "7678c6088dc53f9b44f6d43708f69e43"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/32.png.import": {
+      "bytes": 191,
+      "md5": "ba515f0309289bf69953dc75d8920a80"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/33.png.import": {
+      "bytes": 191,
+      "md5": "332f5aedf488da335bda7d36017c207f"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/34.png.import": {
+      "bytes": 191,
+      "md5": "abaae109f1d2aec698f0e96e83a6f805"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/35.png.import": {
+      "bytes": 191,
+      "md5": "3434eb93bcaeb9ce3935e7efeeb3f8fa"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/36.png.import": {
+      "bytes": 191,
+      "md5": "26ff57a03134b7237731863837cdf4e1"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/37.png.import": {
+      "bytes": 191,
+      "md5": "6c5862650b894b5ba86b366dfea9b2cc"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/38.png.import": {
+      "bytes": 191,
+      "md5": "94346fc1d95b7fb6ab525f003b5fdd10"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/39.png.import": {
+      "bytes": 191,
+      "md5": "23e64734a2f8fcac292bb56f7d050cd8"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/40.png.import": {
+      "bytes": 190,
+      "md5": "a959d1f9834b082106762c1e939d01b5"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/41.png.import": {
+      "bytes": 190,
+      "md5": "9b6de81242bf8bb27bc3f6a492ba8176"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/42.png.import": {
+      "bytes": 191,
+      "md5": "f66cba15bf2b36dffce86207e0374161"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/43.png.import": {
+      "bytes": 191,
+      "md5": "c11961db18fdd36647ee930fe32cbb72"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/44.png.import": {
+      "bytes": 191,
+      "md5": "fee1f13dee5cdc2ed2cf4c2e10bdbdfe"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/45.png.import": {
+      "bytes": 191,
+      "md5": "b1d625f3eb1adb41977354c023fb9d81"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/46.png.import": {
+      "bytes": 191,
+      "md5": "59420908dbb98eae9af50e744e7c5111"
+    },
+    "modules/shell/prototype/gallery_walk2/kid/47.png.import": {
+      "bytes": 190,
+      "md5": "92acc3888c923446a9a5f4aa36873852"
+    },
+    "modules/shell/prototype/gallery_walk2/shot.gd.remap": {
+      "bytes": 69,
+      "md5": "8db18df62b3646b81aaed710e75d804f"
+    },
+    "modules/shell/prototype/gallery_walk2/shot.gdc": {
+      "bytes": 1454,
+      "md5": "b207bd9f2a7240122ebcf650d52b9afd"
+    },
+    "modules/shell/prototype/gallery_walk2/stills/r2.png.import": {
+      "bytes": 191,
+      "md5": "59e8519f515938f276b70cf27a434c82"
+    },
+    "modules/shell/prototype/gallery_walk2/stills/r3.png.import": {
+      "bytes": 190,
+      "md5": "5ab24e52321e6f8f29f9a5ff2e710c07"
+    },
+    "modules/shell/prototype/gallery_walk2/stills/s1.png.import": {
+      "bytes": 191,
+      "md5": "4b6178207745b110f191134d3e3a47bc"
+    },
+    "modules/shell/prototype/gallery_walk2/stills/s2.png.import": {
+      "bytes": 191,
+      "md5": "403f2931a06691ebc7dde9e3363f723c"
+    },
+    "modules/shell/prototype/gallery_walk2/stills/s3.png.import": {
+      "bytes": 191,
+      "md5": "baafff692b39b527f1dabd599675a3a8"
+    },
+    "modules/shell/prototype/gallery_walk2/walk2.gd.remap": {
+      "bytes": 70,
+      "md5": "0ced696b2c97669db070a65788fa5870"
+    },
+    "modules/shell/prototype/gallery_walk2/walk2.gdc": {
+      "bytes": 6031,
+      "md5": "b923b1c2c6cb5706c909045e1b5f91e9"
+    },
+    "modules/shell/prototype/gallery_walk3/assets/angel-shaped.png.import": {
+      "bytes": 200,
+      "md5": "4239005ecb0022dda7386351194e082e"
+    },
+    "modules/shell/prototype/gallery_walk3/assets/fire-canvas.jpg.import": {
+      "bytes": 200,
+      "md5": "6b7de7ff2ac0c804c264de9cc1cadf68"
+    },
+    "modules/shell/prototype/gallery_walk3/assets/fire-frame.png.import": {
+      "bytes": 197,
+      "md5": "362fbd96d78a8e914a979bd86f382356"
+    },
+    "modules/shell/prototype/gallery_walk3/assets/music-canvas.jpg.import": {
+      "bytes": 201,
+      "md5": "f3cee5385632986ccc84f16159d36de2"
+    },
+    "modules/shell/prototype/gallery_walk3/assets/music-frame.png.import": {
+      "bytes": 200,
+      "md5": "ba8151c35e41a617168a773a3202d96d"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/00.png.import": {
+      "bytes": 191,
+      "md5": "80d23579332be404f72fa286a30e1f83"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/01.png.import": {
+      "bytes": 191,
+      "md5": "fa84d58fe85f491fe557e37a7bece530"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/02.png.import": {
+      "bytes": 191,
+      "md5": "a5625721ea7ceae04c036c4e788411a2"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/03.png.import": {
+      "bytes": 191,
+      "md5": "8e062623da04c04e7aa45892c4f4f873"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/04.png.import": {
+      "bytes": 191,
+      "md5": "176c44709a885402047d38e5b107f031"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/05.png.import": {
+      "bytes": 191,
+      "md5": "2ff5208555fbe29a751ee3150fc2dfd4"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/06.png.import": {
+      "bytes": 191,
+      "md5": "e1e5c8ac4b4f10e6db4242c7f98f2cac"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/07.png.import": {
+      "bytes": 191,
+      "md5": "f0b1c52e3abb1d59f011c8c1d5d68ca6"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/08.png.import": {
+      "bytes": 191,
+      "md5": "55c72d97c5a00c86664f50be7119a7d6"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/09.png.import": {
+      "bytes": 191,
+      "md5": "01a343c6fd1240e424ba3232d7c24bab"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/10.png.import": {
+      "bytes": 191,
+      "md5": "fae70e0264e5c167367bc3d75d49dc04"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/11.png.import": {
+      "bytes": 191,
+      "md5": "c3f2d7f720bc0c1b2eda918218b1c0c4"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/12.png.import": {
+      "bytes": 191,
+      "md5": "6b9a3d06c6d8105046cd76e10968b3e5"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/13.png.import": {
+      "bytes": 191,
+      "md5": "8a6abfe4193eff4b3eafe41700a31da7"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/14.png.import": {
+      "bytes": 191,
+      "md5": "ff9955f3ed201e9484e01ad33a4be0d8"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/15.png.import": {
+      "bytes": 190,
+      "md5": "40c576fe16610fbacebfc1fa34615229"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/16.png.import": {
+      "bytes": 191,
+      "md5": "62407ce51bf00abae98876c7cf4fd167"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/17.png.import": {
+      "bytes": 191,
+      "md5": "5d8edb784f144aca7fc036d67544925f"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/18.png.import": {
+      "bytes": 191,
+      "md5": "af0a08b190ae9f9f018f0613cd18cf15"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/19.png.import": {
+      "bytes": 190,
+      "md5": "ea1360f255461001ba5ff3c734f68463"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/20.png.import": {
+      "bytes": 191,
+      "md5": "ed0c6dd4ee3e79e118521d050be316fe"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/21.png.import": {
+      "bytes": 190,
+      "md5": "acb35f87ae46a5ed02e0cb5ef00d1304"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/22.png.import": {
+      "bytes": 191,
+      "md5": "2202df13b7a115ab39582799e8e59c3a"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/23.png.import": {
+      "bytes": 191,
+      "md5": "aee65d95800bab0c9ff383c4623959a4"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/24.png.import": {
+      "bytes": 191,
+      "md5": "dd7b912a52c1209e819cd5410dea1c48"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/25.png.import": {
+      "bytes": 190,
+      "md5": "14e89d3edb7e0dd0696e3e34125b5b04"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/26.png.import": {
+      "bytes": 190,
+      "md5": "4dac577fd921cd906297109346903c26"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/27.png.import": {
+      "bytes": 191,
+      "md5": "f62868099539b004263653efda18ddda"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/28.png.import": {
+      "bytes": 191,
+      "md5": "99195e2769b9e6560f88e717e274d09a"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/29.png.import": {
+      "bytes": 191,
+      "md5": "d888c8a904b09addf376242bcad2dac8"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/30.png.import": {
+      "bytes": 190,
+      "md5": "ac2b0d8a7c03d4fd100f1e0d199e4259"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/31.png.import": {
+      "bytes": 190,
+      "md5": "89297d800634141cca16dfac85826bc8"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/32.png.import": {
+      "bytes": 191,
+      "md5": "2264f447a6fe0833d5cfee66b9cdeb43"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/33.png.import": {
+      "bytes": 190,
+      "md5": "9a3afe6f29e72ee629a0077498cf9d35"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/34.png.import": {
+      "bytes": 191,
+      "md5": "c981b441c42cec8735e5231a54409ab7"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/35.png.import": {
+      "bytes": 190,
+      "md5": "cee9d6e6f812699ee80fa9d65ea9c392"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/36.png.import": {
+      "bytes": 190,
+      "md5": "9ef13d43f29c19f6a68439ec7b205116"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/37.png.import": {
+      "bytes": 191,
+      "md5": "97e604a9cfb626dd20e20d1dc3ea4860"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/38.png.import": {
+      "bytes": 190,
+      "md5": "7bd966ab8e5fb5ccd47ba46174f4c581"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/39.png.import": {
+      "bytes": 191,
+      "md5": "820f9d43781a3936e49fb10d54f365be"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/40.png.import": {
+      "bytes": 190,
+      "md5": "ebe7b87ece2307bd7ab353c8aef9c4b9"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/41.png.import": {
+      "bytes": 191,
+      "md5": "ef9500650c5799881be603046ac5888b"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/42.png.import": {
+      "bytes": 191,
+      "md5": "d613b65f99c6f7d3edbff32038327614"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/43.png.import": {
+      "bytes": 190,
+      "md5": "006ec7b80d43f7a8061c295fc78c5b93"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/44.png.import": {
+      "bytes": 191,
+      "md5": "ee003f4f2475f273a2dc77c80a8db14b"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/45.png.import": {
+      "bytes": 191,
+      "md5": "d06a7b64947eb82660523d8f4605c421"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/46.png.import": {
+      "bytes": 191,
+      "md5": "641d91a552885e7c7f0ccd4b3426d64d"
+    },
+    "modules/shell/prototype/gallery_walk3/kid/47.png.import": {
+      "bytes": 191,
+      "md5": "f1304a4a607247ad7db112f0be62f334"
+    },
+    "modules/shell/prototype/gallery_walk3/layout.json": {
+      "bytes": 4477,
+      "md5": "cfc040ac3e6d3a8a5983351b4e7c2fe8"
+    },
+    "modules/shell/prototype/gallery_walk3/painting_asset.gd.remap": {
+      "bytes": 79,
+      "md5": "63c70c6a7ae2dd61866b3991ccd930c2"
+    },
+    "modules/shell/prototype/gallery_walk3/painting_asset.gdc": {
+      "bytes": 3800,
+      "md5": "ab8ca4bcf25c29fa941ec351af4f59c2"
+    },
+    "modules/shell/prototype/gallery_walk3/paintings/east-0-00.jpg.import": {
+      "bytes": 198,
+      "md5": "a2f6b89c970986ad1058ccb10d334a7e"
+    },
+    "modules/shell/prototype/gallery_walk3/paintings/east-0-01.jpg.import": {
+      "bytes": 198,
+      "md5": "1f7d89f1fdb10ba2697498b85d448ba6"
+    },
+    "modules/shell/prototype/gallery_walk3/paintings/east-0-02.jpg.import": {
+      "bytes": 197,
+      "md5": "be5192505b0c32939eabe80ab303a12b"
+    },
+    "modules/shell/prototype/gallery_walk3/paintings/east-0-03.jpg.import": {
+      "bytes": 198,
+      "md5": "1c048c8d2df7e9d3601df2c732f850ac"
+    },
+    "modules/shell/prototype/gallery_walk3/paintings/east-0-04.jpg.import": {
+      "bytes": 198,
+      "md5": "e3d87262670d2417b7713a97a775f858"
+    },
+    "modules/shell/prototype/gallery_walk3/paintings/east-1-00.jpg.import": {
+      "bytes": 198,
+      "md5": "fb6009cab48f6f3b888d670502f6a1a6"
+    },
+    "modules/shell/prototype/gallery_walk3/paintings/east-1-01.jpg.import": {
+      "bytes": 197,
+      "md5": "0e55c13cd6ae1748298e0ef8e8e3fcd1"
+    },
+    "modules/shell/prototype/gallery_walk3/paintings/east-1-02.jpg.import": {
+      "bytes": 197,
+      "md5": "f11638d628794d8c3a581024d916daca"
+    },
+    "modules/shell/prototype/gallery_walk3/paintings/east-2-00.jpg.import": {
+      "bytes": 197,
+      "md5": "6a2b961dcae2a05e02859430ae3ed405"
+    },
+    "modules/shell/prototype/gallery_walk3/paintings/east-2-01.jpg.import": {
+      "bytes": 198,
+      "md5": "b2d59024be7a9ce302f7ea653293ef49"
+    },
+    "modules/shell/prototype/gallery_walk3/paintings/east-2-02.jpg.import": {
+      "bytes": 198,
+      "md5": "b8c5b78a8ecff8fa864d97a288672c86"
+    },
+    "modules/shell/prototype/gallery_walk3/paintings/west-d-00.jpg.import": {
+      "bytes": 198,
+      "md5": "0c4fa5fcc11fd7a0b1e3604d97df18ca"
+    },
+    "modules/shell/prototype/gallery_walk3/paintings/west-d-01.jpg.import": {
+      "bytes": 198,
+      "md5": "a80ae0b6a4edb20e926cec12129127ed"
+    },
+    "modules/shell/prototype/gallery_walk3/paintings/west-d-02.jpg.import": {
+      "bytes": 198,
+      "md5": "7441dd535a25b74b78ee641056428d8e"
+    },
+    "modules/shell/prototype/gallery_walk3/shot.gd.remap": {
+      "bytes": 69,
+      "md5": "866085644b7cbc08d3a49c224d2723bf"
+    },
+    "modules/shell/prototype/gallery_walk3/shot.gdc": {
+      "bytes": 2030,
+      "md5": "e4c447d790c9a532b6ba5bc81facdf36"
+    },
+    "modules/shell/prototype/gallery_walk3/shot_assets.gd.remap": {
+      "bytes": 76,
+      "md5": "c69fb49e71bd1d736b2d2ffc403dd946"
+    },
+    "modules/shell/prototype/gallery_walk3/shot_assets.gdc": {
+      "bytes": 1389,
+      "md5": "4c3d8246c6244737a6b1c05f85aed8fd"
+    },
+    "modules/shell/prototype/gallery_walk3/textures/detail-frame.png.import": {
+      "bytes": 201,
+      "md5": "8626b05f8e8d8ffe00bdb2ed07ec8efd"
+    },
+    "modules/shell/prototype/gallery_walk3/textures/east-0.png.import": {
+      "bytes": 195,
+      "md5": "828ae978225d4f2657b00074ac2069f4"
+    },
+    "modules/shell/prototype/gallery_walk3/textures/east-1.png.import": {
+      "bytes": 194,
+      "md5": "cfe45e6cdf25810985ad103769ba3bec"
+    },
+    "modules/shell/prototype/gallery_walk3/textures/east-2.png.import": {
+      "bytes": 195,
+      "md5": "565844b5455630493c176c99200e16cd"
+    },
+    "modules/shell/prototype/gallery_walk3/textures/floor.png.import": {
+      "bytes": 194,
+      "md5": "9b3280594e29a9cd738c592e1f461657"
+    },
+    "modules/shell/prototype/gallery_walk3/textures/north.png.import": {
+      "bytes": 194,
+      "md5": "35dd1f3fa2615ad3426c08b27631650a"
+    },
+    "modules/shell/prototype/gallery_walk3/textures/skylight.png.import": {
+      "bytes": 197,
+      "md5": "679825f00caa3b3ac8b6bc3c916819cc"
+    },
+    "modules/shell/prototype/gallery_walk3/textures/south.png.import": {
+      "bytes": 192,
+      "md5": "57bd20cc4b886de42263f376a6129d32"
+    },
+    "modules/shell/prototype/gallery_walk3/textures/west-d.png.import": {
+      "bytes": 195,
+      "md5": "fd77d11005c84fb37df0691ab80d2211"
+    },
+    "modules/shell/prototype/gallery_walk3/walk3.gd.remap": {
+      "bytes": 70,
+      "md5": "49f33708cf7ff9956b6cc093cd3b001f"
+    },
+    "modules/shell/prototype/gallery_walk3/walk3.gdc": {
+      "bytes": 14624,
+      "md5": "fc1c27ef2e28f13b8d9b0643e2cdedd0"
+    }
+  },
+  "changed_entries": [
+    ".godot/exported/133200997/export-0a08ab27efda39f57f4322491663c4f0-demo.scn",
+    ".godot/exported/133200997/export-8499216367dfacb2f5cf6a02055b8bfe-probe.scn",
+    ".godot/exported/133200997/export-bac6df157516dc97df4fd4d1b0fe9c21-demo.scn",
+    ".godot/global_script_class_cache.cfg",
+    ".godot/uid_cache.bin",
+    "modules/shell/prototype/gallery_walk4/performance_probe.gdc"
+  ],
+  "current_gallery_imports_preserved": 213,
+  "current_gallery_imports": [
+    ".godot/imported/00.png-5abcecaaf38528990d07b05a4f7cb584.ctex",
+    ".godot/imported/01.png-44334014e68dd9fece7b7513cf807904.ctex",
+    ".godot/imported/02.png-34673f1fe3fb04b816bd3e6d4433b466.ctex",
+    ".godot/imported/03.png-948dccc848a2b51b7aac9b50a14d1d20.ctex",
+    ".godot/imported/04.png-6f71fdcf8447d905822f6592a980331c.ctex",
+    ".godot/imported/05.png-a0f93a2d172bc6e274a64743e07aed8d.ctex",
+    ".godot/imported/06.png-6e5de403333fab69934b88c6aa3e61b9.ctex",
+    ".godot/imported/07.png-4526216d2af1350dc27850028774a9e5.ctex",
+    ".godot/imported/08.png-e136d4f2f826b6c425d86ad3fc13271d.ctex",
+    ".godot/imported/09.png-f47d32756a72992adf80eb9d2ba0854a.ctex",
+    ".godot/imported/10.png-5152e2bd507f97132a93627f9ef4841f.ctex",
+    ".godot/imported/11.png-b05f4b2197f165aadc5a58f4598f7112.ctex",
+    ".godot/imported/12.png-44cc47948e2fe8b00fb46425085b97c2.ctex",
+    ".godot/imported/13.png-69fe5c944d62603c1ec9e1c4546aae28.ctex",
+    ".godot/imported/14.png-5d453e1f0f9253f8e8de98422b236fcf.ctex",
+    ".godot/imported/15.png-e6b911354e5fa0acce64001cebf82557.ctex",
+    ".godot/imported/16.png-c8d7effb173b6da055ec4023264c3c84.ctex",
+    ".godot/imported/17.png-b14ac9fee58bf870a7123b99e4b4064a.ctex",
+    ".godot/imported/18.png-3df76565bc2e20b3b60b8a1729ac4b86.ctex",
+    ".godot/imported/19.png-c602c7e24a64a5f02afd0bf478317b8e.ctex",
+    ".godot/imported/20.png-14736c54220a09f1f757748396a0ba61.ctex",
+    ".godot/imported/21.png-bba1a181b8cceaccc7d49102937d646b.ctex",
+    ".godot/imported/22.png-9eac2a1f1fa0a8a8781f960c3a5f2564.ctex",
+    ".godot/imported/23.png-aac6d127a78d5211ad810deca7b84d7d.ctex",
+    ".godot/imported/24.png-4c28940929f14688cfcbdc93248a7fac.ctex",
+    ".godot/imported/25.png-e60521f523e9e41e752586d6640859a6.ctex",
+    ".godot/imported/26.png-891e1ce560a72637814b14cdb7cbf4dc.ctex",
+    ".godot/imported/27.png-3dacc80153251f6e62cc2d5d00fa3de5.ctex",
+    ".godot/imported/28.png-c7496973576429e94a724e99c618c873.ctex",
+    ".godot/imported/29.png-95b32eca2506ee7155c0795a838621d2.ctex",
+    ".godot/imported/30.png-67d9605acd2283c6bc210f01c7e82326.ctex",
+    ".godot/imported/31.png-360bf7b43d06dec17ce762fc2f28cc79.ctex",
+    ".godot/imported/32.png-bc5bff04d9b841fdc37003def9614a06.ctex",
+    ".godot/imported/33.png-76e4bec0b1505a755930c081c155d3e1.ctex",
+    ".godot/imported/34.png-6d7033f9cac5532073c73bdebe59b71b.ctex",
+    ".godot/imported/35.png-5986491d32f241b586ede3da0fbb445c.ctex",
+    ".godot/imported/36.png-5b75d249d9cf39e0235656b1c87eca04.ctex",
+    ".godot/imported/37.png-11b1604bce22ba38c9f365190e3bd296.ctex",
+    ".godot/imported/38.png-4ed2b8587130eb1d5494b3b654a3c0ae.ctex",
+    ".godot/imported/39.png-0bf2ce1eb959025891a1c318eff03ce1.ctex",
+    ".godot/imported/40.png-5d8e4262999c58d8836461cd29893fc4.ctex",
+    ".godot/imported/41.png-012441ba0358cde2fe9a61b7bfd2b75d.ctex",
+    ".godot/imported/42.png-f8fbfa2def53602eb5e1ad2f24b69174.ctex",
+    ".godot/imported/43.png-6196cf81a4a80ca6cb3722b10512fea0.ctex",
+    ".godot/imported/44.png-f53052f022824216194c5cfb2420a077.ctex",
+    ".godot/imported/45.png-3e7388e190ba1e2b9380898b43e44193.ctex",
+    ".godot/imported/46.png-2a03b47410c4a59a5e3eb48850b79ff4.ctex",
+    ".godot/imported/47.png-73da7197b66f66de3535979683a1c126.ctex",
+    ".godot/imported/E1.jpg-4e2e91059f3322c9c039530b6d0ccede.ctex",
+    ".godot/imported/E1.jpg-b486284ea2d4890f7cb33a36037e9976.ctex",
+    ".godot/imported/E1.png-33f7881a80e009a211f80eb7f9c22224.ctex",
+    ".godot/imported/E2.jpg-38ada5a8752421e0e9ba991b6bdd33be.ctex",
+    ".godot/imported/E2.jpg-4e60336ccfd9806b072eb503e4dd1d7c.ctex",
+    ".godot/imported/E2.png-351724124ff2c7a3628432f43bd66a80.ctex",
+    ".godot/imported/E3.jpg-dd40864ff50ff61735c02bc570139e2d.ctex",
+    ".godot/imported/E3.jpg-f8a461190775844501075ec736bdf8c4.ctex",
+    ".godot/imported/E3.png-5ce4528fb94210ca3bcd5465a0b54b5c.ctex",
+    ".godot/imported/E4.jpg-04e766f9caa3d7bee21ca465f73f5c7b.ctex",
+    ".godot/imported/E4.jpg-1d92da0030e1cce20a70cb8f91088d1f.ctex",
+    ".godot/imported/E4.png-9b640e1f133fc4271f22205894f801a9.ctex",
+    ".godot/imported/E5.jpg-3e9d50436d4ca6b91b164a824108a77f.ctex",
+    ".godot/imported/E5.jpg-68822d8f29ac3910e7d507a64f0dee8f.ctex",
+    ".godot/imported/E5.png-f5ced63db48e89b8754c5504b492d044.ctex",
+    ".godot/imported/E6.jpg-101d9db65738272a089779a45a480639.ctex",
+    ".godot/imported/E6.jpg-c3d7bda6d9628e0dcac6e8a0de38bb73.ctex",
+    ".godot/imported/E6.png-41248d0f3fe6dfbe2a85711fd781f724.ctex",
+    ".godot/imported/E7.jpg-de30134a023813e3ec5b6f7d482962e7.ctex",
+    ".godot/imported/E7.jpg-e39febefd43278d6d093e1ed869f619b.ctex",
+    ".godot/imported/E7.png-b16ed1f8384f6f0b8f7ec9d336ff33b7.ctex",
+    ".godot/imported/E8.jpg-95c590fe3e67ddd42b81ac5639555dbc.ctex",
+    ".godot/imported/E8.jpg-d916aaaf70507fd95bc50b187737b824.ctex",
+    ".godot/imported/E8.png-51ade24cd8d1af29a39868bc8d943947.ctex",
+    ".godot/imported/E9.jpg-2b5c943903a25994c8783012cfb86a85.ctex",
+    ".godot/imported/E9.jpg-fab4fb5caca648067cedda4cd62b82fa.ctex",
+    ".godot/imported/E9.png-756f39c7b0b2953679b619a547aef8a8.ctex",
+    ".godot/imported/N1.jpg-810d2f4ad8bdc2c6f87df49afa96381c.ctex",
+    ".godot/imported/N1.jpg-d45addc852aff56d48f736da1699ea03.ctex",
+    ".godot/imported/N1.png-ff2c267b785a769604f341e12eb29f38.ctex",
+    ".godot/imported/N2.jpg-47b17efb153174a52c25ef85e9e15cbc.ctex",
+    ".godot/imported/N2.jpg-584a8a46e3c786b60f08dad04ee7fff0.ctex",
+    ".godot/imported/N2.png-8f5d5b9b4f60c6de4344ffe61a061048.ctex",
+    ".godot/imported/S1.jpg-5de8cff95e6e84a6ac334ed8e473dc9a.ctex",
+    ".godot/imported/S1.jpg-fba3cda86c851ee79f38baf1804e6470.ctex",
+    ".godot/imported/S1.png-a91e1b801d922d0c182f62822520bda8.ctex",
+    ".godot/imported/S2.jpg-42d359fa68135f9394c173b8253b3481.ctex",
+    ".godot/imported/S2.jpg-dd69a64c5cc2048dbf7034f91ff7c472.ctex",
+    ".godot/imported/S2.png-999395982a4fce3139fe37def185e870.ctex",
+    ".godot/imported/W1.jpg-839637172a083a2dd609d0007fb4a2ef.ctex",
+    ".godot/imported/W1.jpg-d59aab2a7b49a4d744a36cf7a0c2f8ba.ctex",
+    ".godot/imported/W1.png-7058a54890645ca183f6170adef98e8d.ctex",
+    ".godot/imported/W10.jpg-61a6c96f0e2b7eaaea364d998683607a.ctex",
+    ".godot/imported/W10.jpg-da6ac9c7419b459c42785dc683e0b294.ctex",
+    ".godot/imported/W10.png-31575cc7771cb5266f4a6603b719b23c.ctex",
+    ".godot/imported/W2.jpg-3d2b1066e11aed9b7029fa640f011dae.ctex",
+    ".godot/imported/W2.jpg-5c75a96a11afe2ab3fff1c027a368b93.ctex",
+    ".godot/imported/W2.png-a8001e5693bee4ca8765bb68bdd4eca2.ctex",
+    ".godot/imported/W3.jpg-110d65ed16e824fdfd97faea2a987ac2.ctex",
+    ".godot/imported/W3.jpg-df13f5ff47ce2da55b4845f452d96c30.ctex",
+    ".godot/imported/W3.png-4eca9a06ddf001b63fc519e5269e704e.ctex",
+    ".godot/imported/W4.jpg-234612d4928cc15dcc08cf5c01f91688.ctex",
+    ".godot/imported/W4.jpg-80382ff55a2b3353c9de3318fbdd3cca.ctex",
+    ".godot/imported/W4.png-2a6632b56a86de0824ff7022d021e468.ctex",
+    ".godot/imported/W5.jpg-1c2deb33d22eb0ca56622ad9e2eef339.ctex",
+    ".godot/imported/W5.jpg-31129db40e3fe6ae1f9a6f19507c9068.ctex",
+    ".godot/imported/W5.png-8b446398982ed45cf9ec83b8b2d5fe05.ctex",
+    ".godot/imported/W6-shaped.png-6f0bfe9b1cda35421452448ab55b5430.ctex",
+    ".godot/imported/W6.jpg-98f866b9e5c12611c48f2dc90b7d2db2.ctex",
+    ".godot/imported/W6.jpg-f95176ae7f8737bafc87f7c36791e84b.ctex",
+    ".godot/imported/W7.jpg-17c6b0b16114253d6edab33a42b42b61.ctex",
+    ".godot/imported/W7.jpg-d8cbff156a568ea36aef974f3332089a.ctex",
+    ".godot/imported/W7.png-6fe691eb3ee3872e5b4209562e89015d.ctex",
+    ".godot/imported/W8.jpg-e9cf8dda32011162f6e024a6039e0ee7.ctex",
+    ".godot/imported/W8.jpg-ea88f51e1e7aef6a1ba1d594eb6eeebe.ctex",
+    ".godot/imported/W8.png-4c5ec5fca3faa367d23a207c4b324d00.ctex",
+    ".godot/imported/W9.jpg-2c59e2f2e65aa414ac9a9d3d2c3b696d.ctex",
+    ".godot/imported/W9.jpg-e03f3ae30b0ca44cb1f29d9973d2811f.ctex",
+    ".godot/imported/W9.png-723a1a61f7314844815dbffef1c73f3b.ctex",
+    ".godot/imported/cancel.ogg-bf7bc59f0073ef42b1b90d7b4bc6adc6.oggvorbisstr",
+    ".godot/imported/cursor.ogg-984df9ec3f646c00143ddf27eef32810.oggvorbisstr",
+    ".godot/imported/door-arch.jpg-f2c8df6c363fbd5488632ec76fd44813.ctex",
+    ".godot/imported/door-far.jpg-48b55b4f65736a20ee3bcb82d661b9a6.ctex",
+    ".godot/imported/door.ogg-51e758746edbecf4dd83bcb20f667174.oggvorbisstr",
+    ".godot/imported/floor.png-6719ac5795b2903ae6c9f001b0592fd5.ctex",
+    ".godot/imported/idle.webp-3e6327bb5cb626c3086e9c0749e5a3eb.ctex",
+    ".godot/imported/item_select.ogg-6ce27fad9cced583103aa289a95d86e4.oggvorbisstr",
+    ".godot/imported/look-01.png-b4211a69db633d950b931a18cfe74949.ctex",
+    ".godot/imported/look-02.png-5f3c3c3e46190a70b77af87c4d773737.ctex",
+    ".godot/imported/look-03.png-48edad848a8f4a54fcac6dd974bcd4ec.ctex",
+    ".godot/imported/look-04.png-142a2a1dcd67c72c60a1557a26693766.ctex",
+    ".godot/imported/look-05.png-336bdf2f5539cc897f0d5fefeef4026a.ctex",
+    ".godot/imported/look-06.png-6e266e01882cf21bd72891ad193aefed.ctex",
+    ".godot/imported/look-07.png-d0911b40d783c7c1211c69496245cbaf.ctex",
+    ".godot/imported/look-08.png-eab17d16844fa9b468d7bfaba23a2bfa.ctex",
+    ".godot/imported/look-09.png-2fd56f2a38110d57ad1794c784128cbd.ctex",
+    ".godot/imported/look-10.png-1f2150154acd26a1e152826e0bb5adbc.ctex",
+    ".godot/imported/look-11.png-af38e9c57287fc48a78977c964a3506d.ctex",
+    ".godot/imported/look-12.png-5a8d7380e7f2137c381859610b9ce447.ctex",
+    ".godot/imported/look-13.png-6610ca8def665182d708bc99f2e512ec.ctex",
+    ".godot/imported/look-14.png-e63269d020e5a8e30cecbf96e27fdd19.ctex",
+    ".godot/imported/look-15.png-69d43356ab6706182dd6e0e7fc8315af.ctex",
+    ".godot/imported/look-16.png-bcdfd95cce412f394f15ccc668e76a0f.ctex",
+    ".godot/imported/look-17.png-1fa4b4b2c5e9e27a681dcd72b48df218.ctex",
+    ".godot/imported/look-18.png-53d7ca0efdd498e1a10943c7327aad79.ctex",
+    ".godot/imported/menu_close.ogg-98c3500d3be36f77cdec001b039fd181.oggvorbisstr",
+    ".godot/imported/menu_open.ogg-674ef102d65c29f4f489ce77ccb49be0.oggvorbisstr",
+    ".godot/imported/oak-muse.webp-61be9fa16fdf8ab46025bc8d38bebbd8.etc2.ctex",
+    ".godot/imported/oak-muse.webp-61be9fa16fdf8ab46025bc8d38bebbd8.s3tc.ctex",
+    ".godot/imported/oak.png-b9b1b852d74c9124d4d6624912978c21.etc2.ctex",
+    ".godot/imported/oak.png-b9b1b852d74c9124d4d6624912978c21.s3tc.ctex",
+    ".godot/imported/pickup.ogg-ab0d571587e75b5a002d54c5e8639ea7.oggvorbisstr",
+    ".godot/imported/room.exr-5510312a4ecf7ead78330478c6c0ad75.astc.ctexarray",
+    ".godot/imported/room.exr-5510312a4ecf7ead78330478c6c0ad75.bptc.ctexarray",
+    ".godot/imported/select.ogg-6fd49cdf33f075963b2e5cbc2a91965c.oggvorbisstr",
+    ".godot/imported/skylight.png-b5ce732c1fdc77630c6f0dc92629e2c8.ctex",
+    ".godot/imported/step_ground_01.ogg-6dfcbb1ba731d0009e0735aa2352dcb8.oggvorbisstr",
+    ".godot/imported/step_ground_02.ogg-5b86299c59e83f4e72216e09e3793e72.oggvorbisstr",
+    ".godot/imported/step_ground_03.ogg-b6cc281bc9a157e4932edcafc35d14b7.oggvorbisstr",
+    ".godot/imported/step_ground_04.ogg-245405ea0b1cd184d78323254dd55e7e.oggvorbisstr",
+    ".godot/imported/step_wood_01.ogg-a26cd32b140537588e22d624e412cfe8.oggvorbisstr",
+    ".godot/imported/step_wood_02.ogg-11877fe42e5618fcd4385f77c1676608.oggvorbisstr",
+    ".godot/imported/step_wood_03.ogg-47c64144deea5eb75e770efac70f7ccc.oggvorbisstr",
+    ".godot/imported/step_wood_04.ogg-346ecb499decc0c7d9990a583f7598af.oggvorbisstr",
+    ".godot/imported/step_wood_05.ogg-548610ec0ea024f518dee45208aa8499.oggvorbisstr",
+    ".godot/imported/step_wood_06.ogg-aaa9237760fc00cb74ebb35d90a0334e.oggvorbisstr",
+    ".godot/imported/stone.png-df21f01aba0fdd9fdaf5a729990aa6d0.ctex",
+    ".godot/imported/walk-01.png-f1293844e75787787fce6548c0bd31e1.ctex",
+    ".godot/imported/walk-02.png-9067e33662e1751f9e5b337e32184ff2.ctex",
+    ".godot/imported/walk-03.png-e5ea2a46446863472a1b1696e0e82492.ctex",
+    ".godot/imported/walk-04.png-32b614ca819990d9f7a7725da15aa80b.ctex",
+    ".godot/imported/walk-05.png-0a543fc513a0f91e11f45ea38bce3cfc.ctex",
+    ".godot/imported/walk-06.png-5ae89b8e2f89e28a7d0b9892fd041f15.ctex",
+    ".godot/imported/walk-07.png-2d03c641f2d57714f7798ef74f42e6ac.ctex",
+    ".godot/imported/walk-08.png-93638f109fd230798e1311ad99be79ea.ctex",
+    ".godot/imported/walk-09.png-cda4b209ec468548a37ed3ffd9547ef3.ctex",
+    ".godot/imported/walk-10.png-2409fa9a1e516f289c82ff26e2876edf.ctex",
+    ".godot/imported/walk-11.png-06732ee3526c171e068ac3f2f1165e60.ctex",
+    ".godot/imported/walk-12.png-d022389701c855aee3733240f0192a6b.ctex",
+    ".godot/imported/walk-13.png-ee22b9112694c6f17c2bb0e4cb6e0e5c.ctex",
+    ".godot/imported/walk-14.png-9e2d1d9e3edb14c12209024bcdc49af5.ctex",
+    ".godot/imported/walk-15.png-4237ab4184bb40e268c862bd316ade8b.ctex",
+    ".godot/imported/walk-16.png-7401871aab8f28a429b0b062e21bfcc5.ctex",
+    ".godot/imported/walk-17.png-084de1521cb852c4c77cde55dea9d605.ctex",
+    ".godot/imported/walk-18.png-54ea4b04f27d4e44294721dbd5663c1c.ctex",
+    ".godot/imported/walk-19.png-82bb5c975953545a6ff5f4a733ca23ce.ctex",
+    ".godot/imported/walk-20.png-b31ee722e13260c81980eabb920bd85b.ctex",
+    ".godot/imported/walk-21.png-ff4a693ab35d1249f165510dc64f360e.ctex",
+    ".godot/imported/wall-muse.webp-9ab8856f456b1281683061f64c05a88a.etc2.ctex",
+    ".godot/imported/wall-muse.webp-9ab8856f456b1281683061f64c05a88a.s3tc.ctex",
+    ".godot/imported/wall.png-fe2e03005f310e633ff0f5161787e653.ctex",
+    ".godot/imported/wave-01.png-ede8c7ec222c79705af5357187599bf7.ctex",
+    ".godot/imported/wave-02.png-4621d7af0ff038555ebf0122ee348cf7.ctex",
+    ".godot/imported/wave-03.png-707b92264b948253ab4c6bd7fc731bca.ctex",
+    ".godot/imported/wave-04.png-670fb2eddf72f8bd3de5b6c010131d58.ctex",
+    ".godot/imported/wave-05.png-e3a396e25ba1c92d32cd46d81b625aec.ctex",
+    ".godot/imported/wave-06.png-be65b38aba2d7d981aa28b3db376f0de.ctex",
+    ".godot/imported/wave-07.png-0f6a53e7e9560d8bc4adca206de2cf30.ctex",
+    ".godot/imported/wave-08.png-8b23967cf5793effd12ea50c4c6e1ed5.ctex",
+    ".godot/imported/wave-09.png-2faf367881ea7553a65230c6593fa800.ctex",
+    ".godot/imported/wave-10.png-79cc67aa0ecf104efa4729c546caacf9.ctex",
+    ".godot/imported/wave-11.png-5d9622e922debb0b833a959ccbaaeeb8.ctex",
+    ".godot/imported/wave-12.png-e987853342c0bc612f618ab35f5ca7cd.ctex",
+    ".godot/imported/wave-13.png-35acfb8c07a72a55c11ac5a103d47e01.ctex",
+    ".godot/imported/wave-14.png-002ccb9d4f00ac8db59a3c6b7dc9eda4.ctex",
+    ".godot/imported/wave-15.png-ab9354d736ac5cd4ec4e1c6956ffe8f2.ctex",
+    ".godot/imported/wave-16.png-3e6b6d62cdde00caf4306d60bd3694fb.ctex",
+    ".godot/imported/wave-17.png-d4c0e9d7c26190174daf8ca33f111a48.ctex",
+    ".godot/imported/wave-18.png-b7178c9928695723a9e39b6036a327d9.ctex",
+    ".godot/imported/wave-19.png-fa95d1122f19c826ccbe40f7f81f30ad.ctex",
+    ".godot/imported/wave-20.png-9628dce0fc4f250106bd9128da0ae56c.ctex",
+    ".godot/imported/wave-21.png-55992faa32a3d47b3c2da241990206dc.ctex",
+    ".godot/imported/wave-22.png-ca1a23fcea2b1945e67394401a2f2e81.ctex",
+    ".godot/imported/wave-23.png-15c3922c8cbd95a8dcd8b6c13d73355e.ctex",
+    ".godot/imported/wave-24.png-deeb1a931552e66421d005f91b41d6a6.ctex"
+  ]
+}

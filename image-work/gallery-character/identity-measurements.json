@@ -1,0 +1,134 @@
+{
+  "source": "image-work/gallery-character/artifacts/image-generation/runs/run-3a63fae0e86ebe17f53fddda/materialized/image-01.webp",
+  "sha256": "098c8123d1b12e667522224770eadf2bccb6e46a251b4f0fdd92beb3d997c343",
+  "humanReviewed": false,
+  "accepted": false,
+  "certified": false,
+  "method": "Read-only RGB dominant-green threshold: matte iff g>180 and g>1.5*r and g>1.5*b; no image output or editing. Bounds exclusive, rough anti-alias tolerance.",
+  "size": [
+    1600,
+    1600
+  ],
+  "views": {
+    "front": {
+      "cell": [
+        0,
+        0,
+        800,
+        800
+      ],
+      "silhouette_bounds_exclusive": [
+        160,
+        46,
+        643,
+        764
+      ],
+      "local_bounds_exclusive": [
+        160,
+        46,
+        643,
+        764
+      ],
+      "height": 718,
+      "width": 483,
+      "bbox_center_local_x": 401.5,
+      "sole_baseline_local_y": 764,
+      "candidate_padded_crop": [
+        130,
+        16,
+        673,
+        789
+      ]
+    },
+    "back": {
+      "cell": [
+        800,
+        0,
+        1600,
+        800
+      ],
+      "silhouette_bounds_exclusive": [
+        964,
+        45,
+        1448,
+        763
+      ],
+      "local_bounds_exclusive": [
+        164,
+        45,
+        648,
+        763
+      ],
+      "height": 718,
+      "width": 484,
+      "bbox_center_local_x": 406.0,
+      "sole_baseline_local_y": 763,
+      "candidate_padded_crop": [
+        934,
+        15,
+        1478,
+        788
+      ]
+    },
+    "left": {
+      "cell": [
+        0,
+        800,
+        800,
+        1600
+      ],
+      "silhouette_bounds_exclusive": [
+        184,
+        837,
+        609,
+        1563
+      ],
+      "local_bounds_exclusive": [
+        184,
+        37,
+        609,
+        763
+      ],
+      "height": 726,
+      "width": 425,
+      "bbox_center_local_x": 396.5,
+      "sole_baseline_local_y": 763,
+      "candidate_padded_crop": [
+        154,
+        807,
+        639,
+        1588
+      ]
+    },
+    "right": {
+      "cell": [
+        800,
+        800,
+        1600,
+        1600
+      ],
+      "silhouette_bounds_exclusive": [
+        996,
+        837,
+        1421,
+        1563
+      ],
+      "local_bounds_exclusive": [
+        196,
+        37,
+        621,
+        763
+      ],
+      "height": 726,
+      "width": 425,
+      "bbox_center_local_x": 408.5,
+      "sole_baseline_local_y": 763,
+      "candidate_padded_crop": [
+        966,
+        807,
+        1451,
+        1588
+      ]
+    }
+  }
+}

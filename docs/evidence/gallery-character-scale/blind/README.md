@@ -1,0 +1,1 @@
+Compare A and B at matched sizes. Which makes the visitor readable while retaining credible scale against doorways and artwork? Inspect feet, body overlap, and artwork occlusion. No independent blind verdict has been obtained.

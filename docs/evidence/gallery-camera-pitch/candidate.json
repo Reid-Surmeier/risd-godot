@@ -1,0 +1,348 @@
+{
+  "label": "candidate",
+  "sha": "d857fa0",
+  "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+  "marks": [
+    {
+      "name": "downloads-done",
+      "t": 930
+    },
+    {
+      "name": "tabs-warm",
+      "t": 12404.300000011921
+    },
+    {
+      "name": "game-shown",
+      "t": 14281.800000011921
+    }
+  ],
+  "metrics": [
+    {
+      "width": 1600,
+      "samples": 120,
+      "median_ms": 16.700000000000728,
+      "p95_ms": 16.700000000000728,
+      "turnTick": 202
+    },
+    {
+      "width": 720,
+      "samples": 120,
+      "median_ms": 16.69999999999709,
+      "p95_ms": 16.700000000004366,
+      "turnTick": 201
+    }
+  ],
+  "poses": [
+    {
+      "width": 1600,
+      "scene": "entry",
+      "space": "gallery",
+      "camera": [
+        [
+          -1,
+          0,
+          -8.74227765734759e-8
+        ],
+        [
+          -5.84972568162812e-8,
+          0.743144810199738,
+          0.669130623340607
+        ],
+        [
+          6.49677858177711e-8,
+          0.669130623340607,
+          -0.743144810199738
+        ],
+        [
+          -1.20660256264937e-15,
+          11.3516550064087,
+          -10.2026557922363
+        ]
+      ],
+      "fov": 23
+    },
+    {
+      "width": 1600,
+      "scene": "warm",
+      "space": "gallery",
+      "camera": [
+        [
+          -1,
+          0,
+          8.74227765734759e-8
+        ],
+        [
+          5.84972568162812e-8,
+          0.743144810199738,
+          0.669130623340607
+        ],
+        [
+          -6.49677858177711e-8,
+          0.669130623340607,
+          -0.743144810199738
+        ],
+        [
+          2,
+          11.3516550064087,
+          -13.8526563644409
+        ]
+      ],
+      "fov": 23
+    },
+    {
+      "width": 1600,
+      "scene": "art",
+      "space": "gallery",
+      "camera": [
+        [
+          -4.37113882867379e-8,
+          0,
+          -1
+        ],
+        [
+          -0.669130623340607,
+          0.743144810199738,
+          2.92486284081406e-8
+        ],
+        [
+          0.743144810199738,
+          0.669130623340607,
+          -3.24838929088855e-8
+        ],
+        [
+          6.55265617370605,
+          11.3516550064087,
+          -12
+        ]
+      ],
+      "fov": 23
+    },
+    {
+      "width": 1600,
+      "scene": "white",
+      "space": "arch",
+      "camera": [
+        [
+          -1,
+          0,
+          -8.74227765734759e-8
+        ],
+        [
+          -5.84972568162812e-8,
+          0.743144810199738,
+          0.669130623340607
+        ],
+        [
+          6.49677858177711e-8,
+          0.669130623340607,
+          -0.743144810199738
+        ],
+        [
+          -1.20660256264937e-15,
+          11.3516550064087,
+          -12.8526563644409
+        ]
+      ],
+      "fov": 23
+    },
+    {
+      "width": 720,
+      "scene": "entry",
+      "space": "gallery",
+      "camera": [
+        [
+          -1,
+          0,
+          -8.74227765734759e-8
+        ],
+        [
+          -5.84972568162812e-8,
+          0.743144810199738,
+          0.669130623340607
+        ],
+        [
+          6.49677858177711e-8,
+          0.669130623340607,
+          -0.743144810199738
+        ],
+        [
+          -1.20660256264937e-15,
+          11.3516550064087,
+          -10.2026557922363
+        ]
+      ],
+      "fov": 23
+    },
+    {
+      "width": 720,
+      "scene": "warm",
+      "space": "gallery",
+      "camera": [
+        [
+          -1,
+          0,
+          8.74227765734759e-8
+        ],
+        [
+          5.84972568162812e-8,
+          0.743144810199738,
+          0.669130623340607
+        ],
+        [
+          -6.49677858177711e-8,
+          0.669130623340607,
+          -0.743144810199738
+        ],
+        [
+          2,
+          11.3516550064087,
+          -13.8526563644409
+        ]
+      ],
+      "fov": 23
+    },
+    {
+      "width": 720,
+      "scene": "art",
+      "space": "gallery",
+      "camera": [
+        [
+          -4.37113882867379e-8,
+          0,
+          -1
+        ],
+        [
+          -0.669130623340607,
+          0.743144810199738,
+          2.92486284081406e-8
+        ],
+        [
+          0.743144810199738,
+          0.669130623340607,
+          -3.24838929088855e-8
+        ],
+        [
+          6.55265617370605,
+          11.3516550064087,
+          -12
+        ]
+      ],
+      "fov": 23
+    },
+    {
+      "width": 720,
+      "scene": "white",
+      "space": "arch",
+      "camera": [
+        [
+          -1,
+          0,
+          -8.74227765734759e-8
+        ],
+        [
+          -5.84972568162812e-8,
+          0.743144810199738,
+          0.669130623340607
+        ],
+        [
+          6.49677858177711e-8,
+          0.669130623340607,
+          -0.743144810199738
+        ],
+        [
+          -1.20660256264937e-15,
+          11.3516550064087,
+          -12.8526563644409
+        ]
+      ],
+      "fov": 23
+    }
+  ],
+  "final": {
+    "backend": "gl_compatibility",
+    "camera_fov": 23,
+    "camera_transform": [
+      [
+        -0.877582609653473,
+        0,
+        0.479425460100174
+      ],
+      [
+        0.320798248052597,
+        0.743144810199738,
+        0.587217390537262
+      ],
+      [
+        -0.356282562017441,
+        0.669130623340607,
+        -0.652170956134796
+      ],
+      [
+        -3.0156466960907,
+        11.3516550064087,
+        -13.7902393341064
+      ]
+    ],
+    "camera_yaw": -2.64159265358979,
+    "container": [
+      641,
+      429
+    ],
+    "display_material": {
+      "class": "SubViewportContainer",
+      "copy_filter": null,
+      "instance": -9223371983670999000,
+      "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+      "quantization_mode": null,
+      "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+      "use_parent_material": false,
+      "visible": true
+    },
+    "display_rect_normalized": [
+      0.302083333333333,
+      0.191394444846322,
+      0.747222222222222,
+      0.63275246953768
+    ],
+    "engine": "4.7.2-stable (official)",
+    "godot_delta_ms": 19.047619047619,
+    "godot_post_draw_interval_ms": 18.9,
+    "godot_process_ms": 23,
+    "gpu_timing_enabled": false,
+    "mode": "current",
+    "msaa_3d": 1,
+    "paintings": 23,
+    "position": [
+      1.70796859264374,
+      0,
+      -5.14371967315674
+    ],
+    "render_setup_cpu_ms": 0,
+    "replaying": false,
+    "scene": "warm",
+    "space": "gallery",
+    "tick": 480,
+    "viewport": [
+      641,
+      429
+    ],
+    "viewport_render_timings": [],
+    "visitor": {
+      "identity": true,
+      "idle_time": 7.99999999999998,
+      "phase": 0.410758583346144,
+      "pose_hash": 561934555,
+      "yaw": 2.07075095176697
+    }
+  },
+  "errors": [
+    "WARNING: 2D MSAA is not yet supported for GLES3.",
+    "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "WARNING: 2D MSAA is not yet supported for GLES3.",
+    "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)"
+  ]
+}

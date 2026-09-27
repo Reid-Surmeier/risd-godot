@@ -1,0 +1,26 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: planted sole moved more than 2cm: 0.22507017850876
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] require (/tmp/gallery-rig-negative.gd:7)
+       [1] run (/tmp/gallery-rig-negative.gd:73)
+ERROR: sole penetrated floor: 0.1356798261404
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] require (/tmp/gallery-rig-negative.gd:7)
+       [1] run (/tmp/gallery-rig-negative.gd:74)
+RIG_CONTACT contacts=23 max_stance_drift=0.22507017850876 penetration=0.1356798261404
+ERROR: stop phase left a sliding planted sole: 0.16428299248219
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] require (/tmp/gallery-rig-negative.gd:7)
+       [1] run (/tmp/gallery-rig-negative.gd:106)
+RIG_STOP_PHASES count=24 max_drift=0.16428299248219
+ERROR: stationary turn lost physical foot contact
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] require (/tmp/gallery-rig-negative.gd:7)
+       [1] run (/tmp/gallery-rig-negative.gd:120)
+RIG_PIVOT max_stance_drift=0.33495858311653 boot_penetration=0.14393325150013
+RIG_FAILURES 4

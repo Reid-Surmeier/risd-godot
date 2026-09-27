@@ -1,0 +1,297 @@
+{
+  "marks": [
+    {
+      "name": "downloads-done",
+      "t": 2588.5
+    },
+    {
+      "name": "godot-ready",
+      "t": 3427.7999999970198
+    },
+    {
+      "name": "pack-mounted",
+      "t": 3435.7000000029802
+    },
+    {
+      "name": "game-loaded",
+      "t": 3580.5
+    },
+    {
+      "name": "game-instanced",
+      "t": 3669.4000000059605
+    },
+    {
+      "name": "warmup-start",
+      "t": 3669.4000000059605
+    },
+    {
+      "name": "engine-started",
+      "t": 4017.7000000029802
+    },
+    {
+      "name": "launch-settled",
+      "t": 8842.40000000596
+    },
+    {
+      "name": "tab-0-start",
+      "t": 8842.40000000596
+    },
+    {
+      "name": "tab-0-selected",
+      "t": 9645.29999999702
+    },
+    {
+      "name": "tab-0-drawn",
+      "t": 9849.59999999404
+    },
+    {
+      "name": "tab-1-start",
+      "t": 9849.70000000298
+    },
+    {
+      "name": "tab-1-selected",
+      "t": 10437.40000000596
+    },
+    {
+      "name": "tab-1-drawn",
+      "t": 11874.90000000596
+    },
+    {
+      "name": "tab-2-start",
+      "t": 11874.90000000596
+    },
+    {
+      "name": "tab-2-selected",
+      "t": 12821.90000000596
+    },
+    {
+      "name": "tab-2-drawn",
+      "t": 13274.70000000298
+    },
+    {
+      "name": "tab-3-start",
+      "t": 13274.90000000596
+    },
+    {
+      "name": "tab-3-selected",
+      "t": 13424.09999999404
+    },
+    {
+      "name": "tab-3-drawn",
+      "t": 13676
+    },
+    {
+      "name": "tab-5-start",
+      "t": 13676.09999999404
+    },
+    {
+      "name": "tab-5-selected",
+      "t": 13884.59999999404
+    },
+    {
+      "name": "tab-5-drawn",
+      "t": 14228.20000000298
+    },
+    {
+      "name": "tab-4-start",
+      "t": 14228.20000000298
+    },
+    {
+      "name": "tab-4-selected",
+      "t": 14229.29999999702
+    },
+    {
+      "name": "tab-4-drawn",
+      "t": 14458.09999999404
+    },
+    {
+      "name": "tabs-warm",
+      "t": 14458.20000000298
+    },
+    {
+      "name": "game-shown",
+      "t": 16324.70000000298
+    }
+  ],
+  "resources": [
+    {
+      "name": "cde21b9-dirty.game.pck.gz",
+      "transfer": 139802654,
+      "encoded": 139802354,
+      "decoded": 139802354,
+      "start": 1104,
+      "end": 2448,
+      "duration": 1344
+    },
+    {
+      "name": "cde21b9-dirty.wasm.gz",
+      "transfer": 10084605,
+      "encoded": 10084305,
+      "decoded": 10084305,
+      "start": 1104,
+      "end": 1266,
+      "duration": 162
+    },
+    {
+      "name": "1191767929.ogv",
+      "transfer": 5840995,
+      "encoded": 5840695,
+      "decoded": 5840695,
+      "start": 13583,
+      "end": 13658,
+      "duration": 75
+    },
+    {
+      "name": "cde21b9-dirty.js",
+      "transfer": 280115,
+      "encoded": 279815,
+      "decoded": 279815,
+      "start": 234,
+      "end": 239,
+      "duration": 5
+    },
+    {
+      "name": "cde21b9-dirty.pck.gz",
+      "transfer": 9917,
+      "encoded": 9617,
+      "decoded": 9617,
+      "start": 2589,
+      "end": 2592,
+      "duration": 3
+    },
+    {
+      "name": "favicon.ico",
+      "transfer": 635,
+      "encoded": 335,
+      "decoded": 335,
+      "start": 1115,
+      "end": 1124,
+      "duration": 9
+    },
+    {
+      "name": "reid-surmeier",
+      "transfer": 0,
+      "encoded": 0,
+      "decoded": 0,
+      "start": 13889,
+      "end": 14025,
+      "duration": 136
+    },
+    {
+      "name": "contents?per=24&sort=created_at_desc",
+      "transfer": 0,
+      "encoded": 0,
+      "decoded": 0,
+      "start": 13890,
+      "end": 14082,
+      "duration": 192
+    },
+    {
+      "name": "eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiI1MDY2MjQ5Ni9vcmlnaW5hbF84ZDAyNTE4YWZkOTg0MzNlYzVjYTA3NWVlNjBlYzAzMS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo3NX0sImpwZWciOnsicXVhbGl0eSI6NzV9LCJyb3RhdGUiOm51bGx9fQ==",
+      "transfer": 0,
+      "encoded": 0,
+      "decoded": 0,
+      "start": 14158,
+      "end": 14232,
+      "duration": 74
+    },
+    {
+      "name": "eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiI1MDY2MjU1MS9vcmlnaW5hbF8yYWFhNDI1OTcwNDRlOWFjMGFiZjA3ODI1NzMzMzc3NS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo3NX0sImpwZWciOnsicXVhbGl0eSI6NzV9LCJyb3RhdGUiOm51bGx9fQ==",
+      "transfer": 0,
+      "encoded": 0,
+      "decoded": 0,
+      "start": 14158,
+      "end": 14249,
+      "duration": 91
+    },
+    {
+      "name": "eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiI1MDY2MjU4OC9vcmlnaW5hbF8yZDEwOGU3ZmNhYzkyM2E5NTk5NWYyY2YzNWRmOGQxZi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo3NX0sImpwZWciOnsicXVhbGl0eSI6NzV9LCJyb3RhdGUiOm51bGx9fQ==",
+      "transfer": 0,
+      "encoded": 0,
+      "decoded": 0,
+      "start": 14158,
+      "end": 14253,
+      "duration": 95
+    },
+    {
+      "name": "eyJidWNrZXQiOiJhcmVuYV9pbWFnZXMiLCJrZXkiOiI1MDY2MjU2MS9vcmlnaW5hbF8xMzE0OTZjNzEwNWY4YTZhNDYyZjI2Y2JmMmUyZjI2YS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjEyMDAsImhlaWdodCI6MTIwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo3NX0sImpwZWciOnsicXVhbGl0eSI6NzV9LCJyb3RhdGUiOm51bGx9fQ==",
+      "transfer": 0,
+      "encoded": 0,
+      "decoded": 0,
+      "start": 14158,
+      "end": 14254,
+      "duration": 96
+    }
+  ],
+  "totalTransfer": 156018921,
+  "framesBeforeShow": {
+    "count": 197,
+    "p50": 16.69999999999891,
+    "p95": 300,
+    "p99": 1983.3000000000002,
+    "max": 2149.9000000000005,
+    "over50": 23,
+    "over100": 18
+  },
+  "framesAfterShow": {
+    "count": 300,
+    "p50": 16.700000000000728,
+    "p95": 16.700000000000728,
+    "p99": 16.799999999999272,
+    "max": 16.80000000000291,
+    "over50": 0,
+    "over100": 0
+  },
+  "longTasks": [
+    {
+      "start": 244.09999999403954,
+      "duration": 860
+    },
+    {
+      "start": 1362.2999999970198,
+      "duration": 188
+    },
+    {
+      "start": 2459,
+      "duration": 122
+    },
+    {
+      "start": 2617.7000000029802,
+      "duration": 1400
+    },
+    {
+      "start": 4392,
+      "duration": 1996
+    },
+    {
+      "start": 6389,
+      "duration": 312
+    },
+    {
+      "start": 6703.79999999702,
+      "duration": 2133
+    },
+    {
+      "start": 8842,
+      "duration": 946
+    },
+    {
+      "start": 9849.40000000596,
+      "duration": 1908
+    },
+    {
+      "start": 11874.70000000298,
+      "duration": 1244
+    },
+    {
+      "start": 13274.5,
+      "duration": 303
+    },
+    {
+      "start": 13675.90000000596,
+      "duration": 411
+    }
+  ],
+  "wallSeconds": 21.337,
+  "errors": []
+}

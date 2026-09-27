@@ -7,6 +7,7 @@ const HazeShader := preload("res://modules/shell/haze_screen.gdshader")
 var enabled := true
 var squiggle_enabled := false  # off by default: its 3 steps a second read as flicker (owner, 2026-09-23); F9 turns it on
 var _qa_elapsed := 0.0
+var _qa_enabled := false
 var _mouse_inside := false
 var squiggle: ColorRect
 var haze: ColorRect  # F10 or ?haze=0 turns it off, to compare
@@ -24,7 +25,7 @@ func _ready() -> void:
 		enabled = not JavaScriptBridge.eval("new URLSearchParams(location.search).get('crt') === '0' || new URLSearchParams(location.search).has('qa-viewer')")
 	_publish_state()
 	_publish_squiggle_state()
-	set_process(OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).has('qa-crt')"))
+	_qa_enabled = OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).has('qa-crt')")
 
 func _create_squiggle() -> void:
 	var layer := CanvasLayer.new()
@@ -87,6 +88,8 @@ func _input(event: InputEvent) -> void:
 			mapped.global_position = mapped.position
 			if event is InputEventMouseMotion:
 				mapped.relative = mapped.position - _screen_to_desktop(event.position - event.relative)
+		elif event is InputEventGesture:
+			mapped.position = _screen_to_desktop(event.position)
 		elif event is InputEventScreenTouch or event is InputEventScreenDrag:
 			mapped.position = _screen_to_desktop(event.position)
 			if event is InputEventScreenDrag:
@@ -117,8 +120,22 @@ func _publish_squiggle_state() -> void:
 		JavaScriptBridge.eval("window.squiggleQaState = " + JSON.stringify({"enabled": squiggle_enabled,
 				"strength_pixels": 0.45, "fps": 3.0}))
 
-# Browser-only evidence uses the existing module interfaces; it does not control the game.
+# Keep render coordinates current; only browser evidence is throttled.
 func _process(delta: float) -> void:
+	var quiet := Vector4.ZERO
+	for view in get_tree().get_nodes_in_group("soft_render_view"):
+		if view.is_visible_in_tree():
+			var rect: Rect2 = view.get_global_rect()
+			var extent := Vector2($Desktop.size)
+			quiet = Vector4(rect.position.x / extent.x, rect.position.y / extent.y, rect.end.x / extent.x, rect.end.y / extent.y)
+			break
+	crt_material.set_shader_parameter("quiet_rect", quiet)
+	haze.material.set_shader_parameter("quiet_rect", quiet)
+	haze.material.set_shader_parameter("desktop_aspect", float($Desktop.size.y) / float($Desktop.size.x))
+	haze.material.set_shader_parameter("desktop_curve", crt_material.get_shader_parameter("curve") if enabled else 0.0)
+	haze.material.set_shader_parameter("desktop_scale", crt_material.get_shader_parameter("screen_scale") if enabled else 1.0)
+	if not _qa_enabled:
+		return
 	_qa_elapsed += delta
 	if _qa_elapsed < 0.25:
 		return

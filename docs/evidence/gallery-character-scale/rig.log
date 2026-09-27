@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+RIG_CONTACT contacts=18 max_stance_drift=0.00000050315055 penetration=0.00007398703747
+RIG_STOP_PHASES count=24 max_drift=0.00000048188446
+RIG_PIVOT max_stance_drift=0.00000047736074 boot_penetration=0.00007398703747
+RIG_FAILURES 0

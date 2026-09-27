@@ -1,0 +1,91 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-09c77d9814d6",
+      "objectiveId": "muse-5083134568618fe21fb4",
+      "objective": "Create ONE production character turnaround sheet for a low-poly GameCube Animal Crossing-style museum visitor, using the supplied official GameCube human characters as the visual reference for proportions, simple geometric face and toy-like rendering. A NEW human villager identity with a large round head (about half total height), tiny torso and short legs, large flat black oval eyes with white highlights, a tiny triangular nose, friendly small mouth, short dark-brown hair under a muted red soft cap, warm cream short-sleeved shirt with one simple dark-red leaf emblem on the front, dark navy shorts, tiny warm brown shoes. No backpack or accessories. Symmetric outfit and hair. Simple matte painted low-poly shading, broad warm light from upper front, soft restrained face shadow, no realistic skin/hair detail. Match the early GameCube visual simplicity, NOT a modern glossy detailed character.\n\nThe sheet is a precisely aligned 2 by 2 grid, with NO visible dividing lines, frames, labels or text. Upper-left: direct front view. Upper-right: direct back view. Lower-left: direct left profile facing LEFT. Lower-right: direct right profile facing RIGHT. All four are exactly the SAME character, outfit, proportions and scale. Each full-body figure is centered in its own equal square quadrant, with hat/top at 15% and soles at 87% of its quadrant height; silhouette width under 55% of quadrant width. Keep all figures completely inside their own quadrant with generous empty margins. Neutral standing pose, both feet flat and separated, arms slightly away from sides with relaxed rounded hands; never a T-pose. Front/back/profile direction is mandatory, not four three-quarter views. Camera is orthographic with a mild 20-degree downward angle consistent across all views, so top of cap and shoes are visible without foreshortening the head excessively. No cast shadows, no ground plane, no perspective background.\n\nEvery background pixel is a flat uniform saturated pure green #00FF00 matte, including between figures and outside silhouettes. Absolutely no green in the character or outfit. No shadow on the green, no gradients, no texture on the green. This will be keyed transparently by the game shader. Output only the four-view character sheet at 2048 by 2048. Do not include source artwork, logos, text, extra characters, scenery, a collage border or watermarks.\n",
+      "procedureId": "muse-5083134568618fe21fb4",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "recipe.json",
+          "sha256": "5083134568618fe21fb4adc8d1dc65f440a30c4f5b5ca391ac783bb7d55a555b"
+        },
+        {
+          "applicationPath": "generation-preflight.json",
+          "sha256": "9fd49cd1d997b72f15cdf8e71deb7d66729adb939f7ae6b2bdc5125f761a5c0e"
+        },
+        {
+          "applicationPath": "prompt.txt",
+          "sha256": "0a693a6a5736cb91436d337623d212adab4068730bcc7181e8c23c4ccb0f7796"
+        }
+      ],
+      "museParameters": {
+        "size": "2048x2048"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "references/chara01.png",
+          "sha256": "327c2bef35d56e7704e7dc82edff245f3de75d0f7c4601315f10bb8c6cbbb172",
+          "byteLength": 11488,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 125,
+            "height": 80
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "references/chara02.png",
+          "sha256": "8c8c2036295c48eb0beeea67c0d8d8c94d1ea7bd0823eb9430bee9136e552b3f",
+          "byteLength": 10809,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 116,
+            "height": 77
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "3dfb74d44f492adadae916cda942b0d40e8bf386",
+        "artifactSha256": "ba0bdabf5c009f2d48362779b131a6b7c65fa16660576946cad18fac72c0d66c",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-09c77d9814d6\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"2048x2048\"},\"objective\":\"Create ONE production character turnaround sheet for a low-poly GameCube Animal Crossing-style museum visitor, using the supplied official GameCube human characters as the visual reference for proportions, simple geometric face and toy-like rendering. A NEW human villager identity with a large round head (about half total height), tiny torso and short legs, large flat black oval eyes with white highlights, a tiny triangular nose, friendly small mouth, short dark-brown hair under a muted red soft cap, warm cream short-sleeved shirt with one simple dark-red leaf emblem on the front, dark navy shorts, tiny warm brown shoes. No backpack or accessories. Symmetric outfit and hair. Simple matte painted low-poly shading, broad warm light from upper front, soft restrained face shadow, no realistic skin/hair detail. Match the early GameCube visual simplicity, NOT a modern glossy detailed character.\\n\\nThe sheet is a precisely aligned 2 by 2 grid, with NO visible dividing lines, frames, labels or text. Upper-left: direct front view. Upper-right: direct back view. Lower-left: direct left profile facing LEFT. Lower-right: direct right profile facing RIGHT. All four are exactly the SAME character, outfit, proportions and scale. Each full-body figure is centered in its own equal square quadrant, with hat/top at 15% and soles at 87% of its quadrant height; silhouette width under 55% of quadrant width. Keep all figures completely inside their own quadrant with generous empty margins. Neutral standing pose, both feet flat and separated, arms slightly away from sides with relaxed rounded hands; never a T-pose. Front/back/profile direction is mandatory, not four three-quarter views. Camera is orthographic with a mild 20-degree downward angle consistent across all views, so top of cap and shoes are visible without foreshortening the head excessively. No cast shadows, no ground plane, no perspective background.\\n\\nEvery background pixel is a flat uniform saturated pure green #00FF00 matte, including between figures and outside silhouettes. Absolutely no green in the character or outfit. No shadow on the green, no gradients, no texture on the green. This will be keyed transparently by the game shader. Output only the four-view character sheet at 2048 by 2048. Do not include source artwork, logos, text, extra characters, scenery, a collage border or watermarks.\\n\",\"objectiveId\":\"muse-5083134568618fe21fb4\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-5083134568618fe21fb4\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"references/chara01.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":11488,\"inspectedMedia\":{\"height\":80,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":125},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"327c2bef35d56e7704e7dc82edff245f3de75d0f7c4601315f10bb8c6cbbb172\",\"slot\":\"reference-000\"},{\"applicationPath\":\"references/chara02.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":10809,\"inspectedMedia\":{\"height\":77,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":116},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"8c8c2036295c48eb0beeea67c0d8d8c94d1ea7bd0823eb9430bee9136e552b3f\",\"slot\":\"reference-001\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"recipe.json\",\"sha256\":\"5083134568618fe21fb4adc8d1dc65f440a30c4f5b5ca391ac783bb7d55a555b\"},{\"applicationPath\":\"generation-preflight.json\",\"sha256\":\"9fd49cd1d997b72f15cdf8e71deb7d66729adb939f7ae6b2bdc5125f761a5c0e\"},{\"applicationPath\":\"prompt.txt\",\"sha256\":\"0a693a6a5736cb91436d337623d212adab4068730bcc7181e8c23c4ccb0f7796\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"ba0bdabf5c009f2d48362779b131a6b7c65fa16660576946cad18fac72c0d66c\",\"commit\":\"3dfb74d44f492adadae916cda942b0d40e8bf386\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "3a63fae0e86ebe17f53fddda1bdf2b6ac254c8c3efce60025bb11724bc124ac3"
+  },
+  "normalView": {
+    "objective": "Create ONE production character turnaround sheet for a low-poly GameCube Animal Crossing-style museum visitor, using the supplied official GameCube human characters as the visual reference for proportions, simple geometric face and toy-like rendering. A NEW human villager identity with a large round head (about half total height), tiny torso and short legs, large flat black oval eyes with white highlights, a tiny triangular nose, friendly small mouth, short dark-brown hair under a muted red soft cap, warm cream short-sleeved shirt with one simple dark-red leaf emblem on the front, dark navy shorts, tiny warm brown shoes. No backpack or accessories. Symmetric outfit and hair. Simple matte painted low-poly shading, broad warm light from upper front, soft restrained face shadow, no realistic skin/hair detail. Match the early GameCube visual simplicity, NOT a modern glossy detailed character.\n\nThe sheet is a precisely aligned 2 by 2 grid, with NO visible dividing lines, frames, labels or text. Upper-left: direct front view. Upper-right: direct back view. Lower-left: direct left profile facing LEFT. Lower-right: direct right profile facing RIGHT. All four are exactly the SAME character, outfit, proportions and scale. Each full-body figure is centered in its own equal square quadrant, with hat/top at 15% and soles at 87% of its quadrant height; silhouette width under 55% of quadrant width. Keep all figures completely inside their own quadrant with generous empty margins. Neutral standing pose, both feet flat and separated, arms slightly away from sides with relaxed rounded hands; never a T-pose. Front/back/profile direction is mandatory, not four three-quarter views. Camera is orthographic with a mild 20-degree downward angle consistent across all views, so top of cap and shoes are visible without foreshortening the head excessively. No cast shadows, no ground plane, no perspective background.\n\nEvery background pixel is a flat uniform saturated pure green #00FF00 matte, including between figures and outside silhouettes. Absolutely no green in the character or outfit. No shadow on the green, no gradients, no texture on the green. This will be keyed transparently by the game shader. Output only the four-view character sheet at 2048 by 2048. Do not include source artwork, logos, text, extra characters, scenery, a collage border or watermarks.\n",
+    "evidence": "2 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

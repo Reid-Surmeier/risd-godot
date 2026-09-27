@@ -12,6 +12,8 @@ render_mode unshaded, blend_disabled;
 	This should be supplied by a subviewport texture rendered at a lower res.
 	*/
 uniform sampler2D tex : repeat_disable, filter_linear;
+// The gallery already supplies its subtle RGB6 finish; avoid a second strong grid.
+uniform vec4 quiet_rect = vec4(0.0);
 uniform float strength : hint_range(0.0, 1.0) = 0.30;
 uniform float grain_strength : hint_range(0.0, 0.3) = 0.2;
 
@@ -245,15 +247,22 @@ void fragment()
 	// Warp UV coordinates
 	vec2 warped_coords = warp((UV - 0.5) / screen_scale + 0.5, float(textureSize(tex, 0).y) / float(textureSize(tex, 0).x), curve);
 
-	// Sample color
-	vec3 col = sample(warped_coords);
+	// The gallery owns its console finish; preserve only the shell's input-mapped geometry.
+	bool quiet = quiet_rect.z > quiet_rect.x && quiet_rect.w > quiet_rect.y
+		&& all(greaterThanEqual(warped_coords, quiet_rect.xy))
+		&& all(lessThanEqual(warped_coords, quiet_rect.zw));
+	if (quiet) {
+		COLOR = vec4(texture(tex, warped_coords).rgb, 1.0);
+	} else {
+		vec3 col = sample(warped_coords);
 
-	// Apply phosphor mask
-	col = mix(col, apply_mask(col, FRAGCOORD.xy), strength);
-	// Zero-mean texture uses available highlight/shadow room, keeping pure white
-	// and black unchanged. Static screen-space grain avoids flicker while painting.
-	float scanline = 0.10 * cos(FRAGCOORD.y * 2.0943951);
-	float grain = fract(sin(dot(FRAGCOORD.xy, vec2(12.9898, 78.233))) * 43758.5453) * 2.0 - 1.0;
-	col += min(col, vec3(1.0) - col) * (scanline + grain_strength * grain);
-	COLOR = vec4(linear_to_srgb(col), 1.0);
+		// Apply phosphor mask
+		col = mix(col, apply_mask(col, FRAGCOORD.xy), strength);
+		// Zero-mean texture uses available highlight/shadow room, keeping pure white
+		// and black unchanged. Static screen-space grain avoids flicker while painting.
+		float scanline = 0.10 * cos(FRAGCOORD.y * 2.0943951);
+		float grain = fract(sin(dot(FRAGCOORD.xy, vec2(12.9898, 78.233))) * 43758.5453) * 2.0 - 1.0;
+		col += min(col, vec3(1.0) - col) * (scanline + grain_strength * grain);
+		COLOR = vec4(linear_to_srgb(col), 1.0);
+	}
 }

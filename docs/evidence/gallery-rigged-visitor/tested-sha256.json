@@ -1,0 +1,8 @@
+{
+  "modules/shell/prototype/gallery_walk4/walk4.gd": "0103fcfa602a9180103da026ca569251fca5f7aad303b39de7ad2e07ad38f475",
+  "modules/shell/prototype/gallery_walk4/rig/visitor.gd": "9edf053b2effcdcd84926ad91f8b6e2b01eae11bc4c9e2e66c6ef0a156dd9fb4",
+  "modules/shell/prototype/gallery_walk4/rig/visitor.glb": "dcedfffbe3576b8bb6d279dc0e51b35cebb1f9890c7aea20c579587d13cd35d2",
+  "modules/shell/prototype/gallery_walk4/baked/room.lmbake": "87af147017206238e98266b92ee8bc84e57f740875cc335bc0832ef34f9cbb70",
+  "modules/shell/prototype/gallery_walk4/baked/white.lmbake": "17be77205bf0365908176993cc364619b16c3bd4cec0f12d9fb959dca2689dde",
+  "build/web/cde21b9-dirty.game.pck.gz": "21a046393f91b8f7883e110dad933c2fcf34de367ed96bde87c55fe86a6fae19"
+}
