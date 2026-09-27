@@ -18,10 +18,13 @@ func _initialize() -> void:
 func _run() -> void:
 	var neutral := "--neutral" in OS.get_cmdline_user_args()
 	var opaque := "--opaque" in OS.get_cmdline_user_args()
+	var group_trial := "--group-trial" in OS.get_cmdline_user_args()
 	if neutral:
 		output = "res://docs/research/proton-scan-validation/neutral-captures"
 	elif opaque:
 		output = "res://docs/research/proton-scan-validation/opaque-captures"
+	elif group_trial:
+		output = "res://docs/research/proton-scan-validation/group-base-trial-captures"
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(output))
 	root.size = Vector2i(768, 768)
 	var stage := Node3D.new()
@@ -62,11 +65,14 @@ func _run() -> void:
 	stage.add_child(camera)
 	camera.current = true
 	for id in SCANS:
+		if group_trial and id != "20260811121459":
+			continue
 		if (neutral or opaque) and id not in ["20260811123051", "20260820133334"]:
 			continue
 		var state := GLTFState.new()
 		var doc := GLTFDocument.new()
-		var err := doc.append_from_file(SCANS[id], state)
+		var source: String = "/tmp/risd-scan-154/group-without-flat-underside.glb" if group_trial else SCANS[id]
+		var err := doc.append_from_file(source, state)
 		if err != OK:
 			push_error("GLB load failed %s: %s" % [id, err])
 			quit(1)
