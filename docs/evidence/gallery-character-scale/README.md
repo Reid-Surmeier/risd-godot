@@ -4,7 +4,7 @@
 
 Worktree: `/home/reidsurmeier/orca/workspaces/risd-godot/gallery-character-scale`, branch `Reid-Surmeier/gallery-character-scale`, based on `9e1fbea`. The tested Web baseline is `22089e5`, whose `walk4.gd` and `rig/visitor.gd` are identical to the trial base. Candidate export `9e1fbea-dirty` contains the single multiplier change. No camera, art, room, collider, IK, pixel asset, or paid generation changes.
 
-The [bounded clearance follow-up](../gallery-character-scale-clearance/README.md) was also rejected: its doorway steering corridor is only 20 cm wide with 1.5 cm sampled walking clearance. The [scale-only source diff](scale-only.patch) is retained as evidence; runtime source was restored to base after both trials.
+The [bounded clearance follow-up](../gallery-character-scale-clearance/README.md) was also rejected: its doorway steering corridor is only 20 cm wide with 1.5 cm sampled walking clearance. The scale-only source diff is retained in isolated commit `713fe4b`; runtime source was restored to base after both trials.
 
 ## Matched evidence
 

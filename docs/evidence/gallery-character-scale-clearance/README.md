@@ -2,7 +2,7 @@
 
 **Rejected. Keep production scale.** The scale-only trial's larger visitor can clear a 1.9 m doorway only inside a very narrow centre corridor. The parent stopped further GPU iterations after reviewing the dynamic clearance measurements, considering that precision inappropriate for casual keyboard and trackpad navigation. A larger character needs a separately scoped doorway/interaction design.
 
-This follow-up changed the wall margin from 0.55 m to 0.85 m and doorway centre tolerance from ±0.40 m to ±0.10 m, consistently in the controller's clamp and swept end-wall check. It retained the preceding 1.42 rig multiplier. Museum geometry remained unchanged. [The isolated diff](trial.patch) records the experiment; it is not integrated. Production source in this worktree was restored to base `9e1fbea` after rejection. The preceding [scale-only evidence](../gallery-character-scale/README.md) remains separate.
+This follow-up changed the wall margin from 0.55 m to 0.85 m and doorway centre tolerance from ±0.40 m to ±0.10 m, consistently in the controller's clamp and swept end-wall check. It retained the preceding 1.42 rig multiplier. Museum geometry remained unchanged. The isolated diff remains in branch `Reid-Surmeier/gallery-character-scale`; it is not integrated. Production source in that worktree was restored to base `9e1fbea` after rejection. The preceding [scale-only evidence](../gallery-character-scale/README.md) remains separate.
 
 ## Dynamic mesh evidence
 
