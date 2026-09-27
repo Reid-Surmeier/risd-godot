@@ -1071,7 +1071,7 @@ func _build_kid() -> void:
 	if _generated_visitor:
 		_kid = load(DIR + ("rig/visitor.gd" if _rigged_visitor else "visitor.gd")).new()
 		if _rigged_visitor:
-			_kid.identity = OS.get_environment("GALLERY_CHARACTER") == "identity" or (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('character') === 'identity'"))
+			_kid.identity = OS.get_environment("GALLERY_CHARACTER") != "rogue" and not (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('character') === 'rogue'"))
 		_kid.world_height = KID_H * (1.17 if _rigged_visitor else 1.0)
 	else:
 		var i := 0

@@ -1,0 +1,240 @@
+[
+  {
+    "label": "default",
+    "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+    "marks": [
+      {
+        "name": "downloads-done",
+        "t": 1648.7999999970198
+      },
+      {
+        "name": "godot-ready",
+        "t": 2449.5
+      },
+      {
+        "name": "pack-mounted",
+        "t": 2456
+      },
+      {
+        "name": "game-loaded",
+        "t": 2618.2000000029802
+      },
+      {
+        "name": "game-instanced",
+        "t": 2702
+      },
+      {
+        "name": "warmup-start",
+        "t": 2702.0999999940395
+      },
+      {
+        "name": "engine-started",
+        "t": 3044
+      },
+      {
+        "name": "launch-settled",
+        "t": 7636.29999999702
+      },
+      {
+        "name": "tab-0-start",
+        "t": 7636.29999999702
+      },
+      {
+        "name": "tab-0-selected",
+        "t": 8370.5
+      },
+      {
+        "name": "tab-0-drawn",
+        "t": 8566.09999999404
+      },
+      {
+        "name": "tab-1-start",
+        "t": 8566.09999999404
+      },
+      {
+        "name": "tab-1-selected",
+        "t": 9142.5
+      },
+      {
+        "name": "tab-1-drawn",
+        "t": 10604.40000000596
+      },
+      {
+        "name": "tab-2-start",
+        "t": 10604.40000000596
+      },
+      {
+        "name": "tab-2-selected",
+        "t": 11539.40000000596
+      },
+      {
+        "name": "tab-2-drawn",
+        "t": 11984
+      },
+      {
+        "name": "tab-3-start",
+        "t": 11984.29999999702
+      },
+      {
+        "name": "tab-3-selected",
+        "t": 12128.79999999702
+      },
+      {
+        "name": "tab-3-drawn",
+        "t": 12399.29999999702
+      },
+      {
+        "name": "tab-5-start",
+        "t": 12399.29999999702
+      },
+      {
+        "name": "tab-5-selected",
+        "t": 12609
+      },
+      {
+        "name": "tab-5-drawn",
+        "t": 12917.79999999702
+      },
+      {
+        "name": "tab-4-start",
+        "t": 12917.90000000596
+      },
+      {
+        "name": "tab-4-selected",
+        "t": 12919
+      },
+      {
+        "name": "tab-4-drawn",
+        "t": 13166
+      },
+      {
+        "name": "tabs-warm",
+        "t": 13166
+      },
+      {
+        "name": "game-shown",
+        "t": 15032.5
+      }
+    ],
+    "errors": []
+  },
+  {
+    "label": "original-lighting",
+    "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+    "marks": [
+      {
+        "name": "downloads-done",
+        "t": 1424.7999999970198
+      },
+      {
+        "name": "godot-ready",
+        "t": 2366
+      },
+      {
+        "name": "pack-mounted",
+        "t": 2373
+      },
+      {
+        "name": "game-loaded",
+        "t": 2520.6000000089407
+      },
+      {
+        "name": "game-instanced",
+        "t": 2604
+      },
+      {
+        "name": "warmup-start",
+        "t": 2604
+      },
+      {
+        "name": "engine-started",
+        "t": 2923.7000000029802
+      },
+      {
+        "name": "launch-settled",
+        "t": 6464.600000008941
+      },
+      {
+        "name": "tab-0-start",
+        "t": 6464.600000008941
+      },
+      {
+        "name": "tab-0-selected",
+        "t": 7194.20000000298
+      },
+      {
+        "name": "tab-0-drawn",
+        "t": 7394.4000000059605
+      },
+      {
+        "name": "tab-1-start",
+        "t": 7394.5
+      },
+      {
+        "name": "tab-1-selected",
+        "t": 7961.100000008941
+      },
+      {
+        "name": "tab-1-drawn",
+        "t": 9308.90000000596
+      },
+      {
+        "name": "tab-2-start",
+        "t": 9308.90000000596
+      },
+      {
+        "name": "tab-2-selected",
+        "t": 10234.60000000894
+      },
+      {
+        "name": "tab-2-drawn",
+        "t": 10673.5
+      },
+      {
+        "name": "tab-3-start",
+        "t": 10673.60000000894
+      },
+      {
+        "name": "tab-3-selected",
+        "t": 10828.29999999702
+      },
+      {
+        "name": "tab-3-drawn",
+        "t": 11070.60000000894
+      },
+      {
+        "name": "tab-5-start",
+        "t": 11070.60000000894
+      },
+      {
+        "name": "tab-5-selected",
+        "t": 11282.40000000596
+      },
+      {
+        "name": "tab-5-drawn",
+        "t": 11571.5
+      },
+      {
+        "name": "tab-4-start",
+        "t": 11571.5
+      },
+      {
+        "name": "tab-4-selected",
+        "t": 11572.40000000596
+      },
+      {
+        "name": "tab-4-drawn",
+        "t": 11837.20000000298
+      },
+      {
+        "name": "tabs-warm",
+        "t": 11837.29999999702
+      },
+      {
+        "name": "game-shown",
+        "t": 13732.40000000596
+      }
+    ],
+    "errors": []
+  }
+]

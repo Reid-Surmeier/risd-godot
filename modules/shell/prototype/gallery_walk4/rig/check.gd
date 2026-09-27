@@ -31,7 +31,7 @@ func _initialize() -> void:
 	call_deferred("run")
 func run() -> void:
 	var visitor = load("res://modules/shell/prototype/gallery_walk4/rig/visitor.gd").new()
-	visitor.identity = OS.get_environment("GALLERY_CHARACTER") == "identity"
+	visitor.identity = OS.get_environment("GALLERY_CHARACTER") != "rogue"
 	visitor.world_height = 1.75 * 1.17
 	root.add_child(visitor)
 	await process_frame
