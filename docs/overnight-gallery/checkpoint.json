@@ -1,13 +1,19 @@
 {
-  "updatedAt": "2026-09-27T02:09:08.275710+00:00",
-  "status": "primary-research-in-progress",
-  "owner": "active API coordinator",
-  "baseline": "87e860c",
-  "runtime": "670e820",
-  "next": "Wait for #136 character and #138 renderer reports; blind review live WASD; quantify cold stage and pack cuts before implementation",
-  "implementationWorktree": "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype",
-  "heartbeatAutomationId": "283bf0fc-59d8-4e5b-8ecb-20bfc8a2d13c",
-  "heartbeatFirstTick": "2026-09-26 22:05 EDT",
-  "coldStartSecondsLinuxProxy": 16.21,
-  "gamePackTransferBytes": 143481240
+    "updatedAt": "2026-09-27T02:09:08.275710+00:00",
+    "status": "three-isolated-prototypes-in-progress",
+    "owner": "active API coordinator",
+    "baseline": "c5700d4",
+    "runtime": "670e820",
+    "next": "Review #139 rig, #140 display, and #137 performance candidates; integrate only verified commits, export and repeat independent blind motion review",
+    "implementationWorktree": "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype",
+    "heartbeatAutomationId": "283bf0fc-59d8-4e5b-8ecb-20bfc8a2d13c",
+    "heartbeatFirstTick": "2026-09-26 22:05 EDT",
+    "coldStartSecondsLinuxProxy": 16.21,
+    "gamePackTransferBytes": 143481240,
+    "prototypeIssues": [
+        139,
+        140,
+        137
+    ],
+    "blindBaseline": "c5700d4"
 }

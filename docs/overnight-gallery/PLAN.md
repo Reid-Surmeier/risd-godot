@@ -25,7 +25,7 @@ The active API coordinator owns /home/reidsurmeier/risd-godot-worktrees/gallery-
 
 ## Current checkpoint
 
-Research and heartbeat setup underway. Current baseline: bc3ed53, exported runtime670e820. The screenshot at /home/reidsurmeier/risd-godot/.orca/drops/Screenshot 2026-09-26 at 9.49.53 PM.png shows the foot/shadow separation that motivated the new objective. Character, load/input and independent renderer research tickets are being added under the existing map116. Shader-target preference remains under grilling; research can proceed independently.
+Primary character and GameCube research passed the implementation gate at cde21b9. The independent blind baseline at c5700d4 verifies foot/shadow separation, abrupt reversal, and no character lighting response; its scale comparison says the current figure is already close to the house reference. Exported runtime 670e820 remains the unchanged control. Issue #139 has an isolated rig candidate worktree; #140 has an isolated display candidate worktree; #137 has an isolated performance worktree. The coordinator will integrate only candidates that pass native/browser and visual checks. No claim of M3 measurement or Nintendo-exact rendering follows from the Linux baseline.
 
 Research tickets: [grounded 3D visitor](https://github.com/Reid-Surmeier/risd-godot/issues/136), [load and WASD performance](https://github.com/Reid-Surmeier/risd-godot/issues/137), [GameCube renderer and blind comparison](https://github.com/Reid-Surmeier/risd-godot/issues/138). Orca heartbeat automation: 283bf0fc-59d8-4e5b-8ecb-20bfc8a2d13c (every :00 and :30, America/New_York; hard precheck after 08:00 September 27).
 
