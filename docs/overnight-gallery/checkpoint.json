@@ -1,20 +1,20 @@
 {
-    "updatedAt": "2026-09-27T04:37:08.574902+00:00",
-    "status": "integrated-3d-visitor-and-doorway-verified-uv-trial-active",
+    "updatedAt": "2026-09-27T04:48:00+00:00",
+    "status": "integrated-3d-visitor-and-doorway-verified-uv-trial-rejected-gallery-light-trial-active",
     "owner": "active API coordinator",
     "baseline": "c5700d4",
-    "runtime": "2ee7ca0",
-    "next": "Review isolated visitor UV/albedo bake; retain only if blind embedded motion and white-room check improve; reexport clean runtime, run final Chrome and share; document Mac M3 unmeasured limit and remaining visual mismatch",
+    "runtime": "35b6de4",
+    "next": "Evaluate isolated gallery-only character fill against white-room regression; test one wider composition if light candidate finishes; reexport clean runtime and rerun Chrome only if an accepted candidate changes it; Mac M3 lag remains unmeasured",
     "implementationWorktree": "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype",
     "heartbeatAutomationId": "283bf0fc-59d8-4e5b-8ecb-20bfc8a2d13c",
     "heartbeatFirstTick": "2026-09-26 22:05 EDT",
     "coldStartSecondsLinuxProxy": 16.21,
-    "gamePackTransferBytes": 143481240,
+    "gamePackTransferBytes": 113745158,
     "prototypeIssues": [
         137,
         139,
         140,
         142
     ],
-    "blindBaseline": "c5700d4"
+    "blindBaseline": "35b6de4"
 }
