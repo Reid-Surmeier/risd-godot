@@ -82,8 +82,10 @@ const angleDelta=(a,b)=>Math.atan2(Math.sin(a-b),Math.cos(a-b));
   await p.screenshot({path:'/tmp/'+label+'-end.png'});
   const transfer=await p.evaluate(()=>performance.getEntriesByType('resource').reduce((a,r)=>a+r.transferSize,0));
   if(!label.startsWith('baseline')) {
-   await p.mouse.click(1070,187);await pause(500);
-   ui.push({control:'other-wall',passed:wallEvents.length>=3,events:wallEvents});
+   const beforeOtherWall=wallEvents.length;
+   await p.mouse.click(1060,538);
+   await until(()=>wallEvents.length>beforeOtherWall,'Other wall did not react after the motion replay');
+   ui.push({control:'other-wall',passed:true,events:wallEvents});
    await p.screenshot({path:'/tmp/'+label+'-other-wall.png'});
    await p.screenshot({path:'/tmp/'+label+'-shell-1600.png'});
    await p.setViewport({width:720,height:486});await pause(750);
