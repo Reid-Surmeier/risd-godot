@@ -9,15 +9,15 @@ This is the September 27, 2026 consolidation record for [#143](https://github.co
 | GitHub `Reid-Surmeier/risd-godot`, branch `build/v0.1.0`, PR #38 | Current version under construction |
 | `/home/reidsurmeier/risd-godot` | Canonical checkout on `build/v0.1.0`, primary Git repository and Orca registration; original assets remain here |
 | `asset-authoring/build-integrated/` beneath that home | Unique originals moved from the removed integration checkout; locally ignored through `.git/info/exclude` and excluded from Godot import by `.gdignore` |
-| `build/integrated` at `407828a` | Historical integration ref; do not continue a competing build here |
-| `prototype/gallery-walk` at `dd6948a` | Retained gallery source, merged into the version build |
+| `build/integrated` at `407828a` | Archived historical integration ref in the verified all-ref bundle; removed from the live branch list |
+| `prototype/gallery-walk` at `dd6948a` | Archived gallery source merged into the version build; removed from the live branch list |
 | `preservation/preconsolidation-build-20260927` at `84dd741` | Previously uncommitted Playground journal study, saved without claiming acceptance |
 | `/home/reidsurmeier/risd-godot-ingestion` | Original museum scans, photographs and walkthrough media; private source data |
 | `/home/reidsurmeier/runs/risd-godot-preservation/2026-09-27` | Inventory, backup registry, checksums, dirty-tree patches and verification receipts |
 
 Merge `72d95bc` combines the latest Sketchbook branch (`9a19174`) with the retained gallery (`dd6948a`). Merge `407828a` joins the older version-build ancestry while retaining newer Sketchbook corrections. Export exclusions retain assets needed by both. No new character, generated art or retro effect was made in this consolidation.
 
-The audit found **185 Git worktree records, 178 existing directories and five dirty worktrees**. The remaining RISD overnight automation was already disabled when checked. Future scheduled work should target the existing current-build workspace; Orca’s repository-targeted automation mode creates a fresh worktree for every run. An Orca workspace and a Git worktree are different inventories. Do not treat an inactive Orca label as proof a directory can be deleted.
+The audit found **185 Git worktree records, 178 existing directories and five dirty worktrees**. After backup and per-path live-process checks, cleanup removed 183 obsolete worktrees and pruned seven missing records. The canonical checkout is the only remaining worktree. Available disk space rose from 13,356,580,864 to 116,638,490,624 bytes, a gain of 103,281,909,760 bytes (96.2 GiB). Future scheduled work should target the canonical workspace; Orca’s repository-targeted automation mode creates a fresh worktree for every run.
 
 ## Where work belongs
 
@@ -61,6 +61,6 @@ The final pre-cleanup snapshot is `receipts/risd-final-standard-55a22b26.json`: 
 
 Migration rechecked all 7,965 original-bearing paths against their saved hashes. Eight primary-checkout collisions were moved into `final-standard/primary-checkout-collisions/` in the preservation run directory before switching branches with `--no-overwrite-ignore`. This includes both differing `.qwen-pipeline` configuration files. From the integration checkout, 1,760 unique files moved into `asset-authoring/build-integrated/`; one identical file was deduplicated and no relative-path conflicts remained. `final-standard/migration-originals.json` records every source, destination and hash; its SHA-256 is `23b087f52941e988ead510263fcc037ec2ea898139bd36f88cff8c8e55b5159b`.
 
-The detached integration checkout was removed through Orca only after proving its sole remaining original was a verified duplicate and no process, open file or share referenced that checkout. `git worktree list` now contains only `/home/reidsurmeier/risd-godot`. Migration did not prune branches or remove ingestion media. The [earlier cleanup proposal](evidence/project-consolidation-2026-09-27/cleanup-proposal.md) is historical; executed gates and results live under `final-standard/` in the preservation run directory.
+The detached integration checkout was removed through Orca only after proving its sole remaining original was a verified duplicate and no process, open file or share referenced that checkout. `git worktree list` now contains only `/home/reidsurmeier/risd-godot`. Branch cleanup retained exactly seven local and seven remote branches: `main`, `build/v0.1.0`, and five dated preservation branches. Tag `accepted/2026-09-27` remains. The verified all-ref bundle preserves the 247 deleted branch refs and their exact object IDs. Ingestion media was not removed. The [earlier cleanup proposal](evidence/project-consolidation-2026-09-27/cleanup-proposal.md) is historical; executed gates and results live under `final-standard/` in the preservation run directory.
 
 Before any later cleanup, re-inventory new originals and preserve a fresh Git bundle. Branch history alone does not preserve ignored or untracked assets. Keep the existing private receipts and relocation map with any restore: authoring paths are deliberately outside Git and must be recovered from their original paths in the snapshot using that map.

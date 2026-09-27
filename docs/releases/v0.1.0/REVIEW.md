@@ -32,4 +32,4 @@ The separate whole-repository audit additionally removed unused `tools/set_palet
 
 ## Verification limits
 
-This review records the three completed review axes and the disposition of cleanup findings. It does not claim new browser, performance, clean-restore or CI passes. Re-run the repository and relevant Sketchbook/gallery checks on the final consolidated commit, inspect that export, and attach its exact evidence before reconsidering the verdict. Unresolved Standards and Spec items above prevent `ship` even when the accepted visual layout is preserved.
+The consolidated checkout passed `scripts/check.sh` and `git diff --check`. Its browser export retained the gallery and Cover Flow, reduced the game pack from 2,043,114,320 to 126,225,688 bytes, and visibly rendered both the gallery and Sketchbook. One software-rendered smoke run reached `game-shown` in 69.18 seconds; it is evidence, not the controlled repeated median required by #141. GitHub Verify still fails before executing any job steps. The unresolved Standards and Spec items above therefore continue to prevent `ship`.
