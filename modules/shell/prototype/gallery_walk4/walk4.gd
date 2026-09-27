@@ -1370,9 +1370,9 @@ func _update_camera(k: float) -> void:
 	if view_mode != 2:
 		var pitch := deg_to_rad(45.0 if view_mode == 0 else 35.0)
 		var distance := 14.2 if view_mode == 0 else 9.3
-		_cam.fov = 20.0 if view_mode == 0 else 30.0
+		_cam.fov = 23.0 if view_mode == 0 else 30.0
 		var forward := Vector3(-sin(view_yaw), 0, -cos(view_yaw))
-		var center := _pos + forward * 0.7 + Vector3(0, 1.55, 0)
+		var center := _pos + forward * 0.7 + Vector3(0, 1.85 if view_mode == 0 else 1.55, 0)
 		# Follow the kid along the gallery; the cutaway lets the eye sit outside it.
 		_cam.position = center - forward * distance * cos(pitch) + Vector3.UP * distance * sin(pitch)
 		_cam.look_at(center)
