@@ -6,7 +6,7 @@ config_version=5
 [application]
 
 config/name="risd-godot"
-run/main_scene="res://modules/shell/boot_loader.tscn"
+run/main_scene="res://modules/shell/prototype/gallery_walk4/doorway_prototype.tscn"
 config/features=PackedStringArray("4.7")
 boot_splash/bg_color=Color(0.996, 0.996, 0.996, 1)
 boot_splash/show_image=false

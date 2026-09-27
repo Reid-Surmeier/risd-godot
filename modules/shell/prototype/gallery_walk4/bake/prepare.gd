@@ -130,6 +130,18 @@ func _prepare() -> void:
 	daylight.shadow_enabled = true
 	room.add_child(daylight)
 	daylight.owner = room
+	# #160 prototype: broad neutral bounce at the far doorway, offline only.
+	var doorway_fill := OmniLight3D.new()
+	doorway_fill.position = Vector3(0, 3.4, -23.0)
+	doorway_fill.omni_range = 7.0
+	doorway_fill.omni_attenuation = 0.6
+	doorway_fill.light_energy = 0.8
+	doorway_fill.light_color = Color("#eef2ff")
+	doorway_fill.light_size = 2.0
+	doorway_fill.light_bake_mode = Light3D.BAKE_STATIC
+	doorway_fill.shadow_enabled = true
+	room.add_child(doorway_fill)
+	doorway_fill.owner = room
 	var lm := LightmapGI.new()
 	lm.name = "Lightmap"
 	lm.quality = LightmapGI.BAKE_QUALITY_MEDIUM

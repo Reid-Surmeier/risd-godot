@@ -596,6 +596,31 @@ func _arch_end() -> void:
 
 # The far end: a plain rectangular door with a stepped white casing, a deep cream vestibule lit from its far end,
 # and the second door and bright room at its back.
+func _trim_profile(origin: Vector3, across: Vector3, along: Vector3, points: Array, material: Material) -> void:
+	# #160 prototype: extruded section, UV1 in metres; offline bake unwraps UV2.
+	for index in points.size():
+		var a: Vector2 = points[index]
+		var b: Vector2 = points[(index + 1) % points.size()]
+		var corner := origin + across * a.x + Vector3.BACK * a.y
+		var edge := across * (b.x - a.x) + Vector3.BACK * (b.y - a.y)
+		if across.cross(along).z > 0:
+			_panel(corner, edge, along, material, 0.3)
+		else:
+			_panel(corner, along, edge, material, 0.3)
+	var triangles := Geometry2D.triangulate_polygon(PackedVector2Array(points))
+	for end in [0, 1]:
+		var st := SurfaceTool.new()
+		st.begin(Mesh.PRIMITIVE_TRIANGLES)
+		for index in triangles:
+			var p: Vector2 = points[index]
+			st.set_normal(along.normalized() * (1 if end else -1))
+			st.set_uv(p)
+			st.add_vertex(origin + along * end + across * p.x + Vector3.BACK * p.y)
+		var cap := MeshInstance3D.new()
+		cap.mesh = st.commit()
+		cap.material_override = material
+		_vp.add_child(cap)
+
 func _far_end() -> void:
 	var door: Dictionary = DOORS.far
 	var z := -L
@@ -603,19 +628,22 @@ func _far_end() -> void:
 	var X := W / 2.0
 	var dw := ds.x / 2.0
 	var side := X - dw
-	_panel(Vector3(-X, 0, z), Vector3(side, 0, 0), Vector3(0, H, 0), _wall_ps(), 0.5, 1)
-	_panel(Vector3(dw, 0, z), Vector3(side, 0, 0), Vector3(0, H, 0), _wall_ps(), 0.5, 1)
-	_panel(Vector3(-dw, ds.y, z), Vector3(ds.x, 0, 0), Vector3(0, H - ds.y, 0), _wall_ps(), 0.5, 1)
-	var white := ps(null, WHITE)
+	var reference_blue := _wall_ps(Color(0.62, 0.80, 1.22))
+	_panel(Vector3(-X, 0, z), Vector3(side, 0, 0), Vector3(0, H, 0), reference_blue, 0.5, 1)
+	_panel(Vector3(dw, 0, z), Vector3(side, 0, 0), Vector3(0, H, 0), reference_blue, 0.5, 1)
+	_panel(Vector3(-dw, ds.y, z), Vector3(ds.x, 0, 0), Vector3(0, H - ds.y, 0), reference_blue, 0.5, 1)
+	var white := ps(load(DIR + "textures/ivory-trim.svg"), Color.WHITE, Vector2(0.7, 0.7), true)
+	var casing := [Vector2(0, 0), Vector2(0, 0.10), Vector2(0.018, 0.125), Vector2(0.042, 0.125), Vector2(0.06, 0.105), Vector2(0.075, 0.075), Vector2(0.27, 0.075), Vector2(0.285, 0.09), Vector2(0.305, 0.09), Vector2(0.32, 0.06), Vector2(0.32, 0)]
+	var skirting := [Vector2(0, 0), Vector2(0, 0.07), Vector2(0.035, 0.07), Vector2(0.05, 0.055), Vector2(0.18, 0.055), Vector2(0.20, 0.067), Vector2(0.225, 0.065), Vector2(0.24, 0.035), Vector2(0.24, 0)]
 	for s in [-1.0, 1.0]:
-		_box(Vector3(s * (dw + side / 2), 0.09, z + 0.015), Vector3(side, 0.18, 0.03), WHITE, 1, white)
-		# casing: an outer flat band and an inner stepped bead, both with depth
-		_box(Vector3(s * (dw + 0.17), ds.y / 2 + 0.1, z + 0.04), Vector3(0.3, ds.y + 0.2, 0.08), WHITE, 1, white)
-		_box(Vector3(s * (dw + 0.04), ds.y / 2, z + 0.07), Vector3(0.08, ds.y, 0.14), WHITE, 1, white)
-		_box(Vector3(s * (dw + 0.2), 0.13, z + 0.06), Vector3(0.36, 0.26, 0.12), WHITE, 1, white)  # plinth blocks
-	_box(Vector3(0, ds.y + 0.19, z + 0.04), Vector3(ds.x + 0.64, 0.3, 0.08), WHITE, 1, white)
-	_box(Vector3(0, ds.y + 0.04, z + 0.07), Vector3(ds.x + 0.08, 0.08, 0.14), WHITE, 1, white)
-	_box(Vector3(0, ds.y + 0.38, z + 0.07), Vector3(ds.x + 0.8, 0.08, 0.14), WHITE, 1, white)
+		_trim_profile(Vector3(s * (dw + 0.36), 0, z), Vector3.UP, Vector3(s * (side - 0.36), 0, 0), skirting, white)
+		_trim_profile(Vector3(s * dw, 0.26, z), Vector3(s, 0, 0), Vector3(0, ds.y - 0.26, 0), casing, white)
+		var plinth := [Vector2(0, 0), Vector2(0, 0.12), Vector2(0.02, 0.14), Vector2(0.34, 0.14), Vector2(0.36, 0.12), Vector2(0.36, 0)]
+		_trim_profile(Vector3(s * dw, 0, z), Vector3(s, 0, 0), Vector3(0, 0.26, 0), plinth, white)
+		_panel(Vector3(s * dw, 0.26, z), Vector3(s * 0.36, 0, 0), Vector3(0, 0, 0.12), white)
+	_trim_profile(Vector3(-dw - 0.32, ds.y, z), Vector3.UP, Vector3(ds.x + 0.64, 0, 0), casing, white)
+	var crown := [Vector2(0, 0), Vector2(0, 0.065), Vector2(0.025, 0.09), Vector2(0.055, 0.14), Vector2(0.075, 0.15), Vector2(0.10, 0.15), Vector2(0.10, 0)]
+	_trim_profile(Vector3(-dw - 0.38, ds.y + 0.32, z), Vector3.UP, Vector3(ds.x + 0.76, 0, 0), crown, white)
 	# the vestibule, darker at its mouth, lit from the far end
 	var depth: float = door.reveal
 	var cream := ps(null, Color("#e6dfcf"), Vector2.ONE, true)
