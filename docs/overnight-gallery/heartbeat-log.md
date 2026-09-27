@@ -31,3 +31,12 @@
 - Distinct pixels do not select a look; display post-draw p95 regression and integrated 3D blind review remain open. Mac M3 lag remains unmeasured.
 - Next: review corrected display motion against live references, repeat flagged timing case, and verify rig contact/readability after its active pass.
 - Checkpoint unchanged because the active API coordinator owns it; its integration instruction still applies.
+
+2026-09-27 00:02 EDT — Heartbeat tick (map #116; #136/#138 closed, #137 open).
+- Coordinator integrated display pose reset at c601383 and advanced prototype to 7995f94; display worktree retains one uncommitted evidence README edit.
+- Independently verified integrated anonymous #140 packet: 12 captures completed, six paired trajectories have zero reported state mismatches, original 3D visitor and RTX hardware recorded.
+- Paired Godot post-draw p95 differences stay within 6.38% in this single instrumented run; no visual winner or Mac M3 conclusion follows.
+- Recorded verification and limits on #140: https://github.com/Reid-Surmeier/risd-godot/issues/140#issuecomment-5852478373
+- Blocked: independent live-reference verdict and production no-QA check; Mac M3 load/input symptoms remain unmeasured.
+- Next: inspect completed blind verdict and production run, then verify integrated motion/lighting and Mac-device evidence.
+- Checkpoint unchanged because the active API coordinator owns it.
