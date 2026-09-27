@@ -22,3 +22,12 @@
 - Existing /tmp/gallery-display-140/copy-hardware packet predates that field; all three 1600px entry PNG SHA-256 hashes match, so it cannot select a shader mode.
 - Next: recapture actual export with d97b31b, confirm distinct material parameters and pixels before another blind review; then compare integrated rig motion/light and M3 load/input evidence.
 - Checkpoint unchanged: active API coordinator owns it, and its integration instruction still applies.
+
+2026-09-26 23:30 EDT — Heartbeat tick (map #116; research #136/#138 closed, #137 open).
+- Prototype integrated #141 at e02a88b, #139 rig at 685d76e and independent visual review at 945aae4; #139 remains visually open for foot contact and view angle.
+- Isolated display candidate reached 04b34c6; rig and character identity worktrees have active edits. No candidate files touched.
+- Independently compared corrected #140 exported PNGs: A/B/C differ only inside the gallery viewport at both sizes and scenes; 1600 warm A/B changes 81.4% of viewport pixels, with about 1 byte mean RGB difference.
+- Recorded verification and limits on #140: https://github.com/Reid-Surmeier/risd-godot/issues/140#issuecomment-5852315523
+- Distinct pixels do not select a look; display post-draw p95 regression and integrated 3D blind review remain open. Mac M3 lag remains unmeasured.
+- Next: review corrected display motion against live references, repeat flagged timing case, and verify rig contact/readability after its active pass.
+- Checkpoint unchanged because the active API coordinator owns it; its integration instruction still applies.
