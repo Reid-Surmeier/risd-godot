@@ -56,11 +56,11 @@ const angleDelta=(a,b)=>Math.atan2(Math.sin(a-b),Math.cos(a-b));
    ui.push({control:'horizontal-wheel-both-directions',passed:true,forward:wheel,reverse:reversed});
    await p.screenshot({path:'/tmp/'+label+'-wheel.png'});
    // Restore a real settled wall view using the user shortcut, before benchmarking.
-   await p.mouse.click(1070,187);await pause(500);
+   await p.mouse.click(1060,538);await pause(500);
    if(wallEvents.at(-1)?.includes('east'))await p.screenshot({path:'/tmp/'+label+'-east.png'});
-   await p.mouse.click(1070,187);await pause(500);
+   await p.mouse.click(1060,538);await pause(500);
    if(wallEvents.at(-1)?.includes('east'))await p.screenshot({path:'/tmp/'+label+'-east.png'});
-   if(!wallEvents.at(-1)?.includes('west')){await p.mouse.click(1070,187);await pause(500);}
+   if(!wallEvents.at(-1)?.includes('west')){await p.mouse.click(1060,538);await pause(500);}
    if(!wallEvents.some(e=>e.includes('east')) || !wallEvents.some(e=>e.includes('west')))throw new Error('Other wall failed one crossing direction');
   }
   const gpu=await p.evaluate(()=>{const gl=document.createElement('canvas').getContext('webgl2');const ext=gl?.getExtension('WEBGL_debug_renderer_info');return ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):'unknown';});
