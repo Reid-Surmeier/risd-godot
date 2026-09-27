@@ -1021,5 +1021,5 @@ button { color: inherit; }
 /* G: transparent tldraw surface for the Godot desktop's iframe. */
 html.godot-overlay, html.godot-overlay body, html.godot-overlay #root { background: transparent; }
 .godot-overlay-layout { background: transparent; }
-.japanese-book-hitbox.godot-overlay-hitbox { inset: 0; left: 0; right: 0; top: 0; bottom: 0; }
+.godot-overlay-layout .japanese-utility-window { min-width: 0; min-height: 0; max-width: none; max-height: none; }
 .godot-overlay-state { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }

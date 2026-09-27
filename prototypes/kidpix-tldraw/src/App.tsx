@@ -777,47 +777,29 @@ function VariantC() {
 const RO_CHROME_SLICES = ['top-left', 'top-mid', 'top-right', 'left', 'right', 'bottom-left', 'bottom-mid', 'bottom-right', 'btn-prev', 'btn-next', 'btn-prev-disabled'] as const
 // The chrome is shown at the reference's own 1x pixel size whatever the window width, as in the owner's trade-window reference.
 
-function VariantD() {
-  const prototype = usePrototypeState()
-  const windowDrag = useDraggableWindow(0, 0)
-  const [desktopScale, setDesktopScale] = useState(() => Math.min(1, (window.innerWidth - 24) / 1846, (window.innerHeight - 24) / 1398))
-  useEffect(() => {
-    const fitDesktop = () => setDesktopScale(Math.min(1, (window.innerWidth - 24) / 1846, (window.innerHeight - 24) / 1398))
-    window.addEventListener('resize', fitDesktop)
-    return () => window.removeEventListener('resize', fitDesktop)
-  }, [])
-  const windowResize = useResizablePanel(980, 860, desktopScale) // 1x chrome is thinner than before; 860 keeps the book's ridge narrow
-  const { spread, turnDirection, turnPreview, turnPage } = usePersistentBookSpreads(prototype)
-  const fittedBook = useFittedBookStage(1)
+type SketchbookWindowProps = {
+  prototype: PrototypeController
+  spreads: ReturnType<typeof usePersistentBookSpreads>
+  fittedBook: ReturnType<typeof useFittedBookStage>
+  style: CSSProperties
+  titleBarProps: Record<string, unknown>
+  resizeHandleProps: Record<string, unknown>
+}
 
+// The owner-approved Sketchbook window: RO reference chrome, fitted book, curved live strokes,
+// paper turns, arrow-only dock. Shared by the D desktop and the Godot overlay (G).
+function SketchbookWindow({ prototype, spreads, fittedBook, style, titleBarProps, resizeHandleProps }: SketchbookWindowProps) {
+  const { spread, turnDirection, turnPreview, turnPage } = spreads
   return (
-    <main className="variant-layout japanese-window-layout" data-variant="D" data-testid="variant-D"
-      style={{ "--desktop-scale": desktopScale } as CSSProperties}>
-      <CenterPageCurveFilter />
-      <div className="japanese-reference-row">
-        <img className="desktop-objects" src={`${import.meta.env.BASE_URL}desktop-objects.png`} alt="Museum objects and Japanese equipment window" />
-        <section className="reference-viewer-window japanese-reference-viewer" data-testid="reference-viewer-window">
-          <img
-            src={`${import.meta.env.BASE_URL}reference-above-panel.png`}
-            data-testid="reference-above-panel"
-            alt="Marble head on the colorful character reference background"
-          />
-        </section>
-        <img className="desktop-player" src={`${import.meta.env.BASE_URL}desktop-player.png`} alt="Seated sculpture in a silver media player reference" />
-      </div>
-      <div className="japanese-workspace-scroll-content" data-testid="sketchbook-workspace"
-        style={{ gridTemplateColumns: `${350 * desktopScale}px ${windowResize.size.width * desktopScale}px ${460 * desktopScale}px` }}>
-        <img className="desktop-calligraphy" src={`${import.meta.env.BASE_URL}desktop-calligraphy.png`} alt="Japanese calligraphy palette with brushes and ink colors" />
         <section
         className="japanese-utility-window ro-chrome"
         data-testid="japanese-utility-window"
         style={{
-          left: windowDrag.position.x, top: windowDrag.position.y,
-          width: windowResize.size.width * desktopScale, height: windowResize.size.height * desktopScale,
+          ...style,
           ...Object.fromEntries(RO_CHROME_SLICES.map((slice) => [`--ro-${slice}`, `url("${import.meta.env.BASE_URL}ro-${slice}.png")`])),
         } as CSSProperties}
       >
-        <header className="japanese-titlebar" data-testid="japanese-titlebar" {...windowDrag.titleBarProps}>
+        <header className="japanese-titlebar" data-testid="japanese-titlebar" {...titleBarProps}>
           {/* Chrome pixels are the owner's reference bytes; only the word "Sketchbook" and the arrow glyphs came from Muse region edits: public/window-chrome.provenance.json */}
           <strong className="ro-title-text">Sketchbook</strong>
           <button className="ro-close" aria-label="Close prototype" onPointerDown={(event) => event.stopPropagation()} />
@@ -872,9 +854,55 @@ function VariantD() {
           className="window-resize-handle"
           data-testid="window-resize-handle"
           aria-label="Resize Sketchbook window"
-          {...windowResize.handleProps}
+          {...resizeHandleProps}
         />
         </section>
+  )
+}
+
+function VariantD() {
+  const prototype = usePrototypeState()
+  const windowDrag = useDraggableWindow(0, 0)
+  const [desktopScale, setDesktopScale] = useState(() => Math.min(1, (window.innerWidth - 24) / 1846, (window.innerHeight - 24) / 1398))
+  useEffect(() => {
+    const fitDesktop = () => setDesktopScale(Math.min(1, (window.innerWidth - 24) / 1846, (window.innerHeight - 24) / 1398))
+    window.addEventListener('resize', fitDesktop)
+    return () => window.removeEventListener('resize', fitDesktop)
+  }, [])
+  const windowResize = useResizablePanel(980, 860, desktopScale) // 1x chrome is thinner than before; 860 keeps the book's ridge narrow
+  const spreads = usePersistentBookSpreads(prototype)
+  const { spread } = spreads
+  const fittedBook = useFittedBookStage(1)
+
+  return (
+    <main className="variant-layout japanese-window-layout" data-variant="D" data-testid="variant-D"
+      style={{ "--desktop-scale": desktopScale } as CSSProperties}>
+      <CenterPageCurveFilter />
+      <div className="japanese-reference-row">
+        <img className="desktop-objects" src={`${import.meta.env.BASE_URL}desktop-objects.png`} alt="Museum objects and Japanese equipment window" />
+        <section className="reference-viewer-window japanese-reference-viewer" data-testid="reference-viewer-window">
+          <img
+            src={`${import.meta.env.BASE_URL}reference-above-panel.png`}
+            data-testid="reference-above-panel"
+            alt="Marble head on the colorful character reference background"
+          />
+        </section>
+        <img className="desktop-player" src={`${import.meta.env.BASE_URL}desktop-player.png`} alt="Seated sculpture in a silver media player reference" />
+      </div>
+      <div className="japanese-workspace-scroll-content" data-testid="sketchbook-workspace"
+        style={{ gridTemplateColumns: `${350 * desktopScale}px ${windowResize.size.width * desktopScale}px ${460 * desktopScale}px` }}>
+        <img className="desktop-calligraphy" src={`${import.meta.env.BASE_URL}desktop-calligraphy.png`} alt="Japanese calligraphy palette with brushes and ink colors" />
+        <SketchbookWindow
+          prototype={prototype}
+          spreads={spreads}
+          fittedBook={fittedBook}
+          style={{
+            left: windowDrag.position.x, top: windowDrag.position.y,
+            width: windowResize.size.width * desktopScale, height: windowResize.size.height * desktopScale,
+          }}
+          titleBarProps={windowDrag.titleBarProps}
+          resizeHandleProps={windowResize.handleProps}
+        />
         <img className="desktop-chat" src={`${import.meta.env.BASE_URL}desktop-chat.png`} alt="Global Chatroom reference discussing the RISD collection" />
       </div>
       <div className="japanese-debug-state">
@@ -973,38 +1001,53 @@ function VariantE() {
   )
 }
 
-// G: only the transparent drawing surface. The Godot desktop (figma-ui-ux-qwen-pipeline viewer-godot)
-// draws the RO chrome and the book, floats this page in an iframe over the drawable page rectangle,
-// and posts the open spread; every spread is still its own tldraw page for the session.
+// G: the whole approved Sketchbook window, alone on a transparent page, for the Godot desktop's
+// iframe (figma-ui-ux-qwen-pipeline viewer-godot, web-shell/overlay.js). The window fills the iframe
+// inside an 8 px ring for its shadow; title drags and corner resizes are relayed to the parent as
+// pointer deltas (movementX/Y survive the iframe moving under the pointer), which moves the iframe.
+const OVERLAY_RING = 8
 function VariantG() {
   const prototype = usePrototypeState()
-  const { spread, showSpread } = usePersistentBookSpreads(prototype)
+  const spreads = usePersistentBookSpreads(prototype)
+  const fittedBook = useFittedBookStage(1)
+  const relay = (type: 'sketchbook-move' | 'sketchbook-resize') => {
+    const active = { current: null as number | null }
+    return {
+      onPointerDown: (event: ReactPointerEvent<HTMLElement>) => {
+        active.current = event.pointerId
+        event.currentTarget.setPointerCapture(event.pointerId)
+        event.preventDefault()
+        event.stopPropagation()
+      },
+      onPointerMove: (event: ReactPointerEvent<HTMLElement>) => {
+        if (active.current !== event.pointerId) return
+        window.parent.postMessage({ type, dx: event.movementX, dy: event.movementY }, '*')
+      },
+      onPointerUp: (event: ReactPointerEvent<HTMLElement>) => { if (active.current === event.pointerId) active.current = null },
+      onPointerCancel: (event: ReactPointerEvent<HTMLElement>) => { if (active.current === event.pointerId) active.current = null },
+    }
+  }
+  const [titleBarProps] = useState(() => relay('sketchbook-move'))
+  const [resizeHandleProps] = useState(() => relay('sketchbook-resize'))
   useEffect(() => {
     document.documentElement.classList.add('godot-overlay')
-    const onMessage = (event: MessageEvent) => {
-      if (event.data?.type === 'sketchbook-spread' && Number.isInteger(event.data.spread)) showSpread(event.data.spread)
-    }
-    window.addEventListener('message', onMessage)
-    return () => {
-      window.removeEventListener('message', onMessage)
-      document.documentElement.classList.remove('godot-overlay')
-    }
-  }, [showSpread])
+    window.parent.postMessage({ type: 'sketchbook-ready', ring: OVERLAY_RING }, '*')
+    return () => document.documentElement.classList.remove('godot-overlay')
+  }, [])
 
   return (
     <main className="variant-layout godot-overlay-layout" data-variant="G" data-testid="variant-G">
       <CenterPageCurveFilter />
-      <div className="japanese-book-hitbox godot-overlay-hitbox" data-testid="book-page-hitbox">
-        <DrawingCanvas
-          variant="D"
-          tool="draw"
-          pencilSize={prototype.state.pencilSize}
-          onEditorReady={prototype.onEditorReady}
-          onPointer={(pointer) => prototype.patch({ pointer })}
-        />
-      </div>
+      <SketchbookWindow
+        prototype={prototype}
+        spreads={spreads}
+        fittedBook={fittedBook}
+        style={{ left: OVERLAY_RING, top: OVERLAY_RING, width: `calc(100% - ${2 * OVERLAY_RING}px)`, height: `calc(100% - ${2 * OVERLAY_RING}px)` }}
+        titleBarProps={titleBarProps}
+        resizeHandleProps={resizeHandleProps}
+      />
       <div className="godot-overlay-state">
-        <StateReadout variant="G" state={prototype.state} spread={spread} />
+        <StateReadout variant="G" state={prototype.state} spread={spreads.spread} />
       </div>
     </main>
   )
