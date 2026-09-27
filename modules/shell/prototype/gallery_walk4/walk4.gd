@@ -1368,7 +1368,7 @@ func _update_camera(k: float) -> void:
 	if not _rigged_visitor:
 		_kid.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y if view_mode == 2 else BaseMaterial3D.BILLBOARD_ENABLED
 	if view_mode != 2:
-		var pitch := deg_to_rad(45.0 if view_mode == 0 else 35.0)
+		var pitch := deg_to_rad(42.0 if view_mode == 0 else 35.0)
 		var distance := 14.2 if view_mode == 0 else 9.3
 		_cam.fov = 23.0 if view_mode == 0 else 30.0
 		var forward := Vector3(-sin(view_yaw), 0, -cos(view_yaw))
