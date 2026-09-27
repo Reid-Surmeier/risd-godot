@@ -31,8 +31,12 @@ func _run() -> void:
 				await process_frame
 			var state: Dictionary = Shell.state(shell).value
 			var shown_size: Vector2 = stage.pages.size * stage.pages.scale
-			if state.active != i or state.fixed_count != 7 or shown_size.x <= 0 or shown_size.y <= 0 or stage.pages.position.x + shown_size.x > 1080.5 or stage.pages.position.y + shown_size.y > 1026.5:
+			if state.active != i or state.fixed_count != 7 or not stage.tab_buttons[i].button_pressed or shown_size.x <= 0 or shown_size.y <= 0 or stage.pages.position.x + shown_size.x > 1080.5 or stage.pages.position.y + shown_size.y > 1026.5 or not stage.header.get_global_rect().encloses(stage.switcher.get_global_rect()) or (v == 2 and stage.side_panel.get_global_rect().intersects(stage.pages.get_global_rect())):
 				push_error("square stage failed at variant %s Tab %s" % [v, KEYS[i]])
+				quit(1)
+				return
+			if i == 0 and not stage.pages.has_node("Page_map/Atlas/minimap/PrototypeClockMask") or i == 4 and not stage.pages.has_node("Page_collection/CollectionFrame/PrototypeClockMask"):
+				push_error("prototype clock mask missing at %s" % KEYS[i])
 				quit(1)
 				return
 			var path := "%s/%s-%s.png" % [out, "ABC"[v], KEYS[i]]
