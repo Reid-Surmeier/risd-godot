@@ -269,7 +269,10 @@ func _on_resize_input(event: InputEvent) -> void:
 		_resize_origin = size
 		accept_event()
 	elif event is InputEventMouseMotion and _resizing:
-		size = (_resize_origin + get_parent().get_local_mouse_position() - _resize_anchor).max(MIN_SIZE)
+		var desired: Vector2 = _resize_origin + get_parent().get_local_mouse_position() - _resize_anchor
+		var minimum_scale := maxf(MIN_SIZE.x / _resize_origin.x, MIN_SIZE.y / _resize_origin.y)
+		var scale := maxf(maxf(desired.x / _resize_origin.x, desired.y / _resize_origin.y), minimum_scale)
+		size = _resize_origin * scale
 		accept_event()
 
 func qa_state() -> Dictionary:

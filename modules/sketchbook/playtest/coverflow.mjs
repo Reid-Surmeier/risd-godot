@@ -59,9 +59,13 @@ try{
  assert.equal((await state()).tenant.reference_visible,true,'standalone framed painting is visible');
 	assert.ok((await state()).tenant.palette_asset.endsWith('palette-window-v7.png'));
  assert.ok((await state()).tenant.gold_frame_asset.endsWith('gold-frame/frame.png'));
- assert.ok((await state()).tenant.framed_painting_asset.endsWith('monet-reference.png'));
+	assert.ok((await state()).tenant.framed_painting_asset.endsWith('monet-reference.png'));
 	assert.ok(!('frame_asset' in (await state()).tenant.painting_viewer),'Finder-like viewer images are unframed');
 	assert.equal((await state()).tenant.painting_viewer.selected,2);
+	let proportions=await state();
+	assert.ok(Math.abs(proportions.tenant.framed_painting_rect[2]/proportions.tenant.framed_painting_rect[3]-605/732)<.002,'gold frame starts at native aspect ratio');
+	const desktopLogical=rect(proportions.tenant.desktop_logical), expectedBookRatio=(630+(desktopLogical[0]-1330)*.25)/555;
+	assert.ok(Math.abs(proportions.tenant.window_rect[2]/proportions.tenant.window_rect[3]-expectedBookRatio)<.002,'Sketchbook starts at accepted wide layout ratio');
 	await page.screenshot({path:`${output}/desktop.png`});
 	await click(await face(2));await page.keyboard.press('Escape');
 	await page.keyboard.press('Home');await selected(0);
@@ -102,6 +106,11 @@ try{
 	const framedMoved=(await state()).tenant.framed_painting_rect;
 	assert.ok(Math.abs(framedMoved[0]-framedBefore[0]+25)<2&&Math.abs(framedMoved[1]-framedBefore[1]-10)<2,'standalone framed painting drag');
 	await page.mouse.move(...await screen(center(framedMoved)));await page.mouse.down();await page.mouse.move((await screen(center(framedMoved)))[0]+25,(await screen(center(framedMoved)))[1]-10,{steps:8});await page.mouse.up();await wait(350);
+	const framedRestored=(await state()).tenant.framed_painting_rect;
+	let frameCorner=await screen([framedRestored[0]+framedRestored[2]-4,framedRestored[1]+framedRestored[3]-4]);
+	await page.mouse.move(...frameCorner);await page.mouse.down();await page.mouse.move(frameCorner[0]+45,frameCorner[1]+12,{steps:8});await page.mouse.up();await wait(350);
+	const framedResized=(await state()).tenant.framed_painting_rect;
+	assert.ok(framedResized[2]>framedRestored[2]&&Math.abs(framedResized[2]/framedResized[3]-605/732)<.002,'gold frame resize is proportional');
  // Drag the native title and restore; both the frame and its contents must move together.
  q=await state();const before=q.tenant.painting_viewer_rect, title=await screen(center(q.tenant.painting_title_rect));
  await page.mouse.move(...title);await page.mouse.down();await page.mouse.move(title[0]-40,title[1]+15,{steps:8});await page.mouse.up();await wait(500);
@@ -129,8 +138,8 @@ try{
  await page.mouse.move(...handle);await page.mouse.down();await page.mouse.move(handle[0]+80,handle[1]+180,{steps:12});await page.mouse.up();await wait(400);
  let br=(await state()).tenant.window_rect, corner=await screen([br[0]+br[2]-5,br[1]+br[3]-5]);
  await page.mouse.move(...corner);await page.mouse.down();await page.mouse.move(corner[0]-25,corner[1]-25,{steps:8});await page.mouse.up();await wait(400);
- let resized=(await state()).tenant.window_rect;
- assert.ok(Math.abs(resized[2]-br[2]+25)<2&&Math.abs(resized[3]-br[3]+25)<2,'frameless book resize');
+	let resized=(await state()).tenant.window_rect;
+	assert.ok(resized[2]<br[2]&&resized[3]<br[3]&&Math.abs(resized[2]/resized[3]-br[2]/br[3])<.002,'frameless book resize is proportional');
  corner=await screen([resized[0]+resized[2]-5,resized[1]+resized[3]-5]);
  await page.mouse.move(...corner);await page.mouse.down();await page.mouse.move(corner[0]+25,corner[1]+25,{steps:8});await page.mouse.up();await wait(400);
  const saved=(await state()).tenant;
@@ -145,7 +154,7 @@ try{
  assert.ok(r[0]>=0&&r[1]>=0&&r[0]+r[2]<=q.logical_size[0]+1);
  await page.screenshot({path:`${output}/compact.png`});
  assert.deepEqual(errors,[]);
- await writeFile(`${output}/result.json`,JSON.stringify({passed:true,checks:['animated loading screen','loader exit','current seven tabs','six unframed viewer images','separate original framed painting','palette v7 tools','populated saves without legacy cards','frameless book','side clicks both directions','enlarge/escape','keyboard','vertical/horizontal wheel','drag paintings','scrubber endpoints','independent viewer and framed-painting drag','drawing','page turns preserve ink','window stacking','frameless book drag/resize','hidden freeze/resume','resize'],state:q,load:await page.evaluate(()=>window.loadPerf)},null,2));
+ await writeFile(`${output}/result.json`,JSON.stringify({passed:true,checks:['animated loading screen','loader exit','current seven tabs','six unframed viewer images','separate original framed painting','native frame aspect and proportional resize','accepted Sketchbook aspect and proportional resize','palette v7 tools','populated saves without legacy cards','frameless book','side clicks both directions','enlarge/escape','keyboard','vertical/horizontal wheel','drag paintings','scrubber endpoints','independent viewer and framed-painting drag','drawing','page turns preserve ink','window stacking','hidden freeze/resume','resize'],state:q,load:await page.evaluate(()=>window.loadPerf)},null,2));
  console.log('PASS: native Sketchbook Cover Flow interactions, book ink/page turn, stacking, tab freeze and resize');
 }catch(error){
  await page.screenshot({path:`${output}/failure.png`}).catch(()=>{});

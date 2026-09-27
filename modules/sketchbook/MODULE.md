@@ -23,7 +23,7 @@ Working windows drag by their title bars or the book’s upper paper margin (cla
 
 ## How it lays out (ticket #63)
 
-The current native composition D is 1330x1060. Cover Flow starts at `(397,25,620,446)`, the standalone framed painting at `(397,520,248,300)`, the Anri paintbox at `(8,28,360,745)`, the drawing controls at `(14,865,310,178)`, and the book at `(663,494,420,555)`. From Tenant size S, `s = min(S.x / D.x, S.y / D.y)` scales everything uniformly. Each window is independently draggable and keeps its move across resize.
+The current native composition D is 1330x1060. Cover Flow starts at `(397,25,620,446)`, the standalone framed painting at `(397,520,228,276)`, the Anri paintbox at `(8,28,360,745)`, the drawing controls at `(14,865,310,178)`, and the book at its accepted `(640,494,630,555)` proportions. From Tenant size S, `s = min(S.x / D.x, S.y / D.y)` scales everything uniformly. The framed painting and book preserve their aspect ratios when resized; each window remains independently draggable.
 
 Frozen while hidden: the Shell hides the Page (`visible = false`, `process_mode DISABLED`); on hide the desktop hands the arrow back (the palette and the page both hide it) and parks the brush. Measured in the playtest: `_process` and `_input` counters stand still, a drag across the hidden page draws nothing and a click on the hidden arrow turns nothing, the finished-ink SubViewport stays at `UPDATE_ONCE` / `UPDATE_DISABLED` and the paper-turn face at `UPDATE_DISABLED`, and the frame's draw calls fall back to the white-page count (47 against 77 with the desktop shown); on show it resumes with the paint, the tray, the carried pigment, the spread and the windows exactly as left (pixel-identical).
 

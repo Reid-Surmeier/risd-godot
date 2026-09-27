@@ -21,6 +21,7 @@ const GlobalChatroom := preload("res://modules/sketchbook/global_chatroom.gd")
 const ROOT := "res://modules/sketchbook/"
 const GOLD_FRAME := preload("res://modules/sketchbook/assets/gold-frame/frame.png")
 const REFERENCE_PAINTING := preload("res://modules/sketchbook/assets/monet-reference.png")
+const GOLD_FRAME_SIZE := Vector2(605, 732)
 ## The native composition: variant A's windows (paintbox 170,345 550x575; book 750,365 630x545 on the
 ## prototype's 1440x972 canvas) moved in to the prototype's right/bottom margins, the book 10 px taller
 ## so both windows share the bottom edge and the composition's margin is NATIVE_MARGIN on every side.
@@ -29,8 +30,8 @@ const DESKTOP_SIZE := Vector2(1330, 1060)  # tall enough for the owner's arrange
 const REFERENCE_SLOT := Rect2(397, 25, 620, 446)  # owner layout 2026-09-25: the framed painting large, top middle
 const PAINTBOX_SLOT := Rect2(60, 235, 360, 575)
 const ANRI_PAINTBOX_SLOT := Rect2(8, 28, 360, 360.0 * 3072.0 / 1484.0)
-const FRAMED_PAINTING_SLOT := Rect2(397, 520, 248, 300)
-const BOOK_SLOT := Rect2(663, 494, 420, 555)  # beside the standalone framed painting
+const FRAMED_PAINTING_SLOT := Rect2(397, 520, 228.0, 276.0)
+const BOOK_SLOT := Rect2(640, 494, 630, 555)  # accepted #129 proportions beside the painting
 const REQUIRED := [
 	"ro-top-left.png", "ro-top-mid.png", "ro-top-right.png", "ro-left.png", "ro-right.png", "ro-bottom-left.png",
 	"ro-bottom-mid.png", "ro-bottom-right.png", "ro-btn-prev.png", "ro-btn-prev-disabled.png", "ro-btn-next.png",
@@ -231,16 +232,13 @@ func _framed_painting() -> Control:
 	var painting := TextureRect.new()
 	painting.texture = atlas
 	painting.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	painting.stretch_mode = TextureRect.STRETCH_SCALE
+	painting.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	painting.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var frame := NinePatchRect.new()
+	var frame := TextureRect.new()
 	frame.name = "gold-frame"
 	frame.texture = GOLD_FRAME
-	frame.patch_margin_left = 143
-	frame.patch_margin_top = 130
-	frame.patch_margin_right = 139
-	frame.patch_margin_bottom = 130
-	frame.draw_center = false
+	frame.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	frame.stretch_mode = TextureRect.STRETCH_SCALE
 	frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var holder := Control.new()
 	holder.name = "framed-reference"
@@ -249,14 +247,12 @@ func _framed_painting() -> Control:
 	holder.add_child(painting)
 	holder.add_child(frame)
 	holder.resized.connect(func() -> void:
-		var k := holder.size.y / GOLD_FRAME.get_height()
+		var k := holder.size.y / GOLD_FRAME_SIZE.y
 		var near := Vector2(143, 130) * k
-		var bands := Vector2(282, 260) * k
-		var opening := holder.size - bands
 		painting.position = near
-		painting.size = opening
-		frame.scale = Vector2(k, k)
-		frame.size = holder.size / k)
+		painting.size = Vector2(323, 472) * k
+		frame.position = Vector2.ZERO
+		frame.size = GOLD_FRAME_SIZE * k)
 	return holder
 
 
@@ -402,7 +398,9 @@ func _input(event: InputEvent) -> void:
 	if resizing_reference:
 		if event is InputEventMouseMotion:
 			var delta := desktop.make_canvas_position_local(event.position) - reference_resize_origin
-			reference_panel.size = (reference_resize_size + delta).max(Vector2(240, 160))
+			var desired := reference_resize_size + delta
+			var scale := maxf(maxf(desired.x / GOLD_FRAME_SIZE.x, desired.y / GOLD_FRAME_SIZE.y), 0.35)
+			reference_panel.size = GOLD_FRAME_SIZE * scale
 			reference_list.size = reference_panel.size - Vector2(24, 24)
 			get_viewport().set_input_as_handled()
 		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
