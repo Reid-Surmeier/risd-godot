@@ -61,3 +61,33 @@ No paid action, source modification or candidate regeneration occurred. The larg
 ## Verification record
 
 Local audit: Python SHA-256 of all twelve sources, five candidate GLBs, five manifests' listed outputs and forty source/reduced render paths; glTF JSON/BIN inspection; normalized RGB RMSE of the captured pairs; Godot 4.7.2 headless GLTFDocument scene/material probe. The first scripts/check.sh invocation failed because this fresh worktree lacked generated Godot resource imports; godot --headless --editor --import --path . exited 0, then scripts/check.sh exited 0 with “checks passed” and an ObjectDB leak warning. git diff --check exited 0. No runtime assets were changed.
+
+## Matched Godot Compatibility comparison — follow-up
+
+The [scratch Godot harness](proton-scan-validation/capture.gd) loads the four selected GLBs with `GLTFDocument.append_from_file` and `generate_scene`, retaining each candidate's embedded material and JPEG. It loads the Buddha GLB and applies the shipped separate JPG and material settings used by `viewer.gd`. All five use the Viewer's background, ambient/key/fill light, floor, 36° perspective field of view and −8° camera pitch. The harness normalizes each longest AABB extent to 4.5 units, centers it horizontally, places its bottom at Y=0 and targets half its resulting height. Full views use camera distance 8.7; detail views use 5.2. It saves 768×768 images through Godot's Compatibility renderer.
+
+![Matched Godot orbit, front and detail captures; rows are Buddha then the four scan IDs](proton-scan-validation/godot-captures/comparison-sheet.jpg)
+
+The [individual PNG captures](proton-scan-validation/godot-captures/) include 0°/90°/180°/270°, selected front and close detail for every object (30 images). The selected front is the camera's world yaw with an unrotated GLB. The previous Blender orbit labels cannot be used as Godot front yaw: their apparent front/back differs for 20260811121459 and 20260811122415. The table below comes from inspecting the Godot images. All four selected GLB SHA-256 values remain those in the table above; all twelve OBJ/MTL/JPG source hashes were recomputed and still match the table above. No GLB or source file was changed.
+
+| Object | Godot front camera yaw | AABB scale to 4.5 max | Target Y | Full / detail distance | Viewer's model yaw for its −132.48° default camera |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Buddha baseline | 0° | 1.000000 | 2.250 | 8.7 / 5.2 | existing −144° is an 11.52° three-quarter view |
+| 20260811121459 group/skulls | 0° | 0.999656 | 1.866 | 8.7 / 5.2 | −132.48° |
+| 20260811122415 relief | 180° | 1.000090 | 2.250 | 8.7 / 5.2 | 47.52° |
+| 20260811123051 bearded bust | 180° | 1.000178 | 2.173 | 8.7 / 5.2 | 47.52° |
+| 20260820133334 pale bust | 180° | 0.999961 | 2.250 | 8.7 / 5.2 | 47.52° |
+
+Those model-yaw values translate the inspected camera direction into the current Viewer's fixed default camera: `model yaw = −132.48° − front camera yaw`, wrapped to ±180°. They are trial starting values, not settings committed to the Viewer. The first scan is broad and therefore shorter in frame despite the same longest-extent scale. Its child is most legible among the skulls at 0°, although the child's face is in profile; a final three-quarter choice remains visual judgment. The relief and both busts face the camera at 180°. Full distance 8.7 keeps all silhouettes in frame; detail distance 5.2 intentionally crops them. A future Viewer needs per-scan camera target Y as well as yaw if it keeps the current fixed 2.25 target.
+
+![Godot 255°/270°/285° wedge inspection for the relief and pale bust](proton-scan-validation/godot-captures/wedge-sheet.jpg)
+
+The pale bust's large smooth white rear fill is present at **255°, 270° and 285°**, so changing the orbit angle near 270° does not hide it. It is on the selected GLB with its embedded texture under Godot lighting; the earlier source/reduced Blender sheet also shows a white 270° wedge in both, so this is not evidence of a reduction-only defect. In the relief's Godot 255°/270°/285° captures, the earlier conspicuous white wedge is not visible at this scale; pale gaps under the ledge and base remain. The source/reduced Blender 270° pair still shows the reported white area. The bearded bust retains cyan flecks and a missing lower-body area, visible in its front and detail captures. The candidates are substantially less evenly lit than the Buddha due to their embedded texture tones and geometry, despite identical lights.
+
+Command used from the repository root:
+
+```bash
+env -u WAYLAND_DISPLAY DISPLAY=:99 godot --display-driver x11 --rendering-method gl_compatibility --path . --script docs/research/proton-scan-validation/capture.gd
+```
+
+Godot reported version `4.7.2.stable.official.ed1daf0bf` and fell back to OpenGL ES 3.2 Mesa llvmpipe in Compatibility. The harness emitted all 34 PNGs (30 standard views plus 255°/285° for the two wedge candidates); the contact sheets were assembled from those PNGs with Pillow. These captures are a controlled Godot comparison, **not** an integration run of the shipped Viewer: they do not test its GUI, runtime loader, interactions, export, or final 5×4 catalogue. The source scans, selected GLBs, shipped Viewer and game assets remain untouched. Human object titles/departments and the final sixteen catalogue-only records remain unverified; #154 stays open. An independent blind review of these new captures is a separate gate.
