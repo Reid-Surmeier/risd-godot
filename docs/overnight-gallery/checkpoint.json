@@ -1,0 +1,9 @@
+{
+  "updatedAt": "2026-09-27T01:59:13.787224+00:00",
+  "status": "research-and-heartbeat-setup",
+  "owner": "active API coordinator",
+  "baseline": "bc3ed53",
+  "runtime": "670e820",
+  "next": "Resolve three research decisions; reproduce M3-reported loading/movement lag using documented proxies",
+  "implementationWorktree": "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype"
+}
