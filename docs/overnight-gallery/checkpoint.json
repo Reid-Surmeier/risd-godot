@@ -4,7 +4,7 @@
     "owner": "active API coordinator",
     "baseline": "c5700d4",
     "runtime": "29e7a5b",
-    "next": "Keep 22089e5 shared build; do not integrate rejected albedo, fill, silhouette, shadow or scale trials. Exact Animal Crossing finish remains an art/modeling task; collect Mac M3 fresh-gallery and Flowers-return performance before #137 fix. Heartbeat continues through morning.",
+    "next": "Keep 22089e5 shared build; do not integrate rejected albedo, fill, silhouette, shadow or scale trials. Exact Animal Crossing finish remains an art/modeling task; collect Mac M3 fresh-gallery and Flowers-return performance before #137 fix. Scheduled overnight heartbeat disabled at 07:30 EDT.",
     "browserExport": "build/web/22089e5.html",
     "implementationWorktree": "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype",
     "heartbeatAutomationId": "283bf0fc-59d8-4e5b-8ecb-20bfc8a2d13c",
@@ -17,5 +17,7 @@
         140,
         142
     ],
-    "blindBaseline": "35b6de4"
+    "blindBaseline": "35b6de4",
+    "heartbeatDisabledAt": "2026-09-27T07:30:56-04:00",
+    "morningReport": "docs/overnight-gallery/morning-report-2026-09-27.md"
 }
