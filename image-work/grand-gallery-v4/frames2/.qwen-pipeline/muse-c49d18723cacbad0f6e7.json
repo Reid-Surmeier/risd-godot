@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-c49d18723cacbad0f6e7",
+  "summary": "Reference image 1 is a straightened phone photo of a real antique picture frame hanging on a gallery wall at the RISD Museum; the painting inside has been blanked out to white. It is the sole authority for this frame: its exact outline and corners, the width of every side, its profile and moldings, every carved ornament and where it sits, its colour and finish.\n\nClean it up into a crisp, straight-on render of this same frame alone: perfectly square to the viewer with no perspective tilt, crisp readable relief rendered as a clean low-poly game model (large flat planar facets, crisp highlight bands, controlled dark creases), removing photo blur, glare, reflections and noise. Keep its real shape exactly: do not round its corners, do not simplify its carving into plain moldings, do not invent ornament it does not have, and keep the width of each side as in the photo.\n\nThe complete inner opening, edge to edge inside the innermost lip, is perfectly clean flat pure white (#FFFFFF). Everything outside the frame's outer edge is perfectly flat pure magenta (#FF00FF), touching the frame directly with no shadow and no wall. No text, no label. Return one complete image with no transparency.\n",
+  "procedureId": "muse-c49d18723cacbad0f6e7",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/W2-frame-photo.png",
+      "sha256": "7bbde4a334fbb702331268bdad286a699d40d107760fb89a6e26eb9f9644fa63",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-W2.json",
+      "sha256": "c49d18723cacbad0f6e79d67116571bcd2aeec7d197342b606e6e6abf72d9236"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "646066167d65000fd4b56e1e3f54a93908a5c013680748914d6114b8a18069fe"
+    },
+    {
+      "applicationPath": "prompts/frame.txt",
+      "sha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949"
+    }
+  ]
+}

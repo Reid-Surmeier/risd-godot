@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-1326ce32a368b0de9e88",
+  "summary": "Image 1 is the approved look for this game: a late-1990s real-time 3D game render with a third-person camera close behind the character, seen over her shoulder, with photographic low-resolution textures and CRT softness. Match image 1 exactly in rendering style, camera distance, lens, and in how the character looks from behind. Image 2 is a real photo looking down the RISD Museum Grand Gallery today; image 3 is the left-wall reference sheet; image 4 is the right-wall reference sheet; image 5 shows the same character from the front.\n\nPut the character in the gallery: the camera is close behind and slightly above the character, who stands in the lower middle of the frame with her back to us, looking down the length of the gallery toward the far doorway, as if about to walk forward. The character is the small chibi kid with the orange-red bowl-cut hair / red beret, pale pink skin, white shirt with black-and-red stripes and a rainbow chest graphic, bare pink legs, with jagged low-resolution sprite-like edges. Do not restyle, re-age or re-colour the character. Seen from behind: the back of the red beret and bowl-cut hair, the striped shirt, the bare pink legs.\n\nTHE ROOM IS THE REAL RISD MUSEUM GRAND GALLERY AS IT IS HUNG TODAY (the photos, not any older salon hang):\n- A long rectangular gallery seen straight down its length: deep slate-blue walls, cream-white cornice and a white skirting board, a cream barrel-vaulted ceiling with one long glazed skylight grid down its centre giving cool daylight, and a pale herringbone oak floor.\n- At the far end, centred: a white-framed rectangular doorway with a small green EXIT sign above it, a large portrait hanging on each side of it.\n- Paintings hang in a single row at eye level with generous blue wall between them (a few large ones reach higher). The left wall carries, from nearest to farthest, the paintings in the left-wall reference sheet; the right wall carries, from nearest to farthest, the paintings in the right-wall reference sheet. Each distinct painting appears once even if it is photographed several times in the sheet. Keep each painting recognisable by its colours and main shapes, and keep its gilt frame.\n- One long dark-blue upholstered bench in the middle of the floor. No people.\n\nTHE RENDERING STYLE: PlayStation-1 / Nintendo-64 era real-time 3D. Chunky low-polygon geometry with visible flat-shaded facets, low-resolution muddy textures with colour banding, affine texture warping on the floor, flat vertex lighting with hard shading, no soft shadows, no reflections, no depth of field, slight VHS/CRT softness and faint scanlines over the whole image, aliased stair-stepped edges. The paintings are low-resolution texture rectangles on the walls; the gold frames are simple extruded boxes; the vault is a coarse polygonal curve; the skylight is a flat glowing panel with a blocky grid.\n\nFill the whole frame with the 3D game view only: no window frame, no user interface, no text, no watermark, no borders.\n",
+  "procedureId": "muse-1326ce32a368b0de9e88",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.10",
+  "references": [
+    {
+      "path": "references/style-nextrooms-art-store-view.png",
+      "sha256": "d2e0908c244239646ad7320ad9fc119e4e960ae52c2025f0a4d88a0fa6d0c260",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "source/wide-north-entry.png",
+      "sha256": "1da5c5c42afc0f7dd64fbf649001b29777f2114da08b6fe15ecefd4d9bd5c256",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "references/wall-west-arch-to-door.png",
+      "sha256": "752df0299008d167f6b5f669a83feb8322dd029a108d8df997ba8c68c7e48823",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    },
+    {
+      "path": "references/wall-east-arch-to-door.png",
+      "sha256": "2fd0f88b74e23c5af4fd5ecf336868d540189134a787588f98cc8c1072bd3c1f",
+      "slot": "reference-003",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/3/image_url/url"
+    },
+    {
+      "path": "references/character-4x.png",
+      "sha256": "6cbb1aefdb2c1b18e1824018a6fcb9ea27097cb3a177883274820d0eac488973",
+      "slot": "reference-004",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/4/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-v3.json",
+      "sha256": "1326ce32a368b0de9e88387b75c6eeb2b51cc0ddfdf2f1ced815fbd2ccac255b"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "5ffa8d8942139dc1e371866a8be5af7efc032d043ba94aac0d79e9822def4463"
+    },
+    {
+      "applicationPath": "prompts/v3.txt",
+      "sha256": "492eac9477a1f932c50e1ee1162bc8debbbc189ce8768302e98fc41c48605fc8"
+    }
+  ]
+}

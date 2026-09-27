@@ -1,0 +1,15 @@
+Image 1 is the approved look for this game: a late-1990s real-time 3D render of a museum gallery with a chibi kid in it. Match image 1 exactly in rendering style, colour, exposure, camera height, lens and character. Image 2 is a real photo looking down the same gallery today; image 3 is the left-wall reference sheet; image 4 is the right-wall reference sheet. Redraw the gallery so its architecture and paintings follow images 2, 3 and 4 (the real room today) instead of the older salon hang in image 1.
+
+THE CAMERA: a standing player's shoulder height with a slight downward tilt, centred and symmetric, looking straight down the length of the room from just inside its south end; both side walls recede to the far doorway, which sits just above the middle of the frame. Floor fills the bottom half.
+
+The character: the small chibi kid with the orange-red bowl-cut hair / red beret, pale pink skin, white shirt with black-and-red stripes and a rainbow chest graphic, bare pink legs, with jagged low-resolution sprite-like edges. Do not restyle, re-age or re-colour the character. Standing facing the camera in the lower middle of the frame, about one quarter of the frame height, as in image 1.
+
+THE ROOM IS THE REAL RISD MUSEUM GRAND GALLERY AS IT IS HUNG TODAY (the photos, not any older salon hang):
+- A long rectangular gallery seen straight down its length: deep slate-blue walls, cream-white cornice and a white skirting board, a cream barrel-vaulted ceiling with one long glazed skylight grid down its centre giving cool daylight, and a pale herringbone oak floor.
+- At the far end, centred: a white-framed rectangular doorway with a small green EXIT sign above it, a large portrait hanging on each side of it.
+- Paintings hang in a single row at eye level with generous blue wall between them (a few large ones reach higher). The left wall carries, from nearest to farthest, the paintings in the left-wall reference sheet; the right wall carries, from nearest to farthest, the paintings in the right-wall reference sheet. Each distinct painting appears once even if it is photographed several times in the sheet. Keep each painting recognisable by its colours and main shapes, and keep its gilt frame.
+- One long dark-blue upholstered bench in the middle of the floor. No people.
+
+THE RENDERING STYLE, PUSHED TOWARD LOW-POLY: every surface is built from large flat-shaded polygons with clearly visible facets and hard edges between them, like an early 3D game level: the vault is a handful of flat bands, the bench is a few boxes, the frames are bevelled boxes. Textures are photographic but low-resolution and slightly smeared across the polygons, with colour banding. Do not draw a pixel-art grid; the image should look like a soft, low-resolution real-time 3D render shown on a CRT, with faint scanlines. No soft shadows, no reflections, no depth of field.
+
+Fill the whole frame with the 3D game view only: no window frame, no user interface, no text, no watermark, no borders.

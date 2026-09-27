@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-3b36cd47baafeac87b1c",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: Joachim Wtewael, The Marriage of Peleus and Thetis. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a narrow plain gilt molding with a flat face and a small stepped inner lip, no carving. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-3b36cd47baafeac87b1c",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/W9-view0.png",
+      "sha256": "d731661bb964ce3a5e238c4cf939d60795370362194feaa6506e72b5cfa04eb8",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/W9-view1.png",
+      "sha256": "d774a5e620706470769e76a5bc0814cad1d0fad947cb534bbcc381f5eb52a051",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-W9.json",
+      "sha256": "3b36cd47baafeac87b1c2f5b69caab477ad6f16e4a4a38c61845b442d00505a6"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "7c40d4cd59581e7ca80cde40b647d051cf233a3d0c3c6441a96f59468d006b30"
+    },
+    {
+      "applicationPath": "prompts/W9.txt",
+      "sha256": "e23d9375a32da180171a209c33f1e4d834c83d9454d00eae02a593074590d049"
+    }
+  ]
+}

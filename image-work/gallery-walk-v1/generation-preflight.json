@@ -1,0 +1,100 @@
+{
+ "attempts": [
+  {
+   "id": "001",
+   "prompt": "walk-prompt.txt",
+   "promptSha256": "3384937c430ebb30b29f94fc3c90e287251b859152007de7f771d64dd1d45960",
+   "size": "1776x1184",
+   "inputs": [
+    {
+     "path": "source/n0-doorway.png",
+     "sha256": "8afe4f3b8fcc0cc7be230b39c051da22b52d5a5da332e55e3348896734af313f"
+    },
+    {
+     "path": "references/style-grand-gallery-8bit.png",
+     "sha256": "6b57d33c47f8912ca515dd36f7603d4809c0ab012318d2964b37cf8ae1dff9c2"
+    }
+   ]
+  },
+  {
+   "id": "002",
+   "prompt": "walk-prompt.txt",
+   "promptSha256": "3384937c430ebb30b29f94fc3c90e287251b859152007de7f771d64dd1d45960",
+   "size": "1776x1184",
+   "inputs": [
+    {
+     "path": "source/n1-room.png",
+     "sha256": "38c059283430c4bf09d1d82c0f23abb237f4c148cfe3d3c15aecf1657d964544"
+    },
+    {
+     "path": "references/style-grand-gallery-8bit.png",
+     "sha256": "6b57d33c47f8912ca515dd36f7603d4809c0ab012318d2964b37cf8ae1dff9c2"
+    }
+   ]
+  },
+  {
+   "id": "003",
+   "prompt": "walk-prompt.txt",
+   "promptSha256": "3384937c430ebb30b29f94fc3c90e287251b859152007de7f771d64dd1d45960",
+   "size": "1776x1184",
+   "inputs": [
+    {
+     "path": "source/n2-right-wall.png",
+     "sha256": "d39aec1280461a27394d5b83a59ea4ff74dc118e1ea0208be37a1a65a322dc58"
+    },
+    {
+     "path": "references/style-grand-gallery-8bit.png",
+     "sha256": "6b57d33c47f8912ca515dd36f7603d4809c0ab012318d2964b37cf8ae1dff9c2"
+    }
+   ]
+  },
+  {
+   "id": "004",
+   "prompt": "walk-prompt.txt",
+   "promptSha256": "3384937c430ebb30b29f94fc3c90e287251b859152007de7f771d64dd1d45960",
+   "size": "1776x1184",
+   "inputs": [
+    {
+     "path": "source/n3-poppy-wall.png",
+     "sha256": "d6a613c84820f6b52ff24254c5ac29a7c83437790875c5545179eeeae4486289"
+    },
+    {
+     "path": "references/style-grand-gallery-8bit.png",
+     "sha256": "6b57d33c47f8912ca515dd36f7603d4809c0ab012318d2964b37cf8ae1dff9c2"
+    }
+   ]
+  },
+  {
+   "id": "005",
+   "prompt": "walk-prompt.txt",
+   "promptSha256": "3384937c430ebb30b29f94fc3c90e287251b859152007de7f771d64dd1d45960",
+   "size": "1776x1184",
+   "inputs": [
+    {
+     "path": "source/n4-le-repos-wall.png",
+     "sha256": "931f155eb1d8c9da3c35850be2cf7712baa3f030ea5686e3ac5f31b8b03d93e9"
+    },
+    {
+     "path": "references/style-grand-gallery-8bit.png",
+     "sha256": "6b57d33c47f8912ca515dd36f7603d4809c0ab012318d2964b37cf8ae1dff9c2"
+    }
+   ]
+  },
+  {
+   "id": "006",
+   "prompt": "walk-prompt.txt",
+   "promptSha256": "3384937c430ebb30b29f94fc3c90e287251b859152007de7f771d64dd1d45960",
+   "size": "1776x1184",
+   "inputs": [
+    {
+     "path": "source/n5-reverse.png",
+     "sha256": "35393cefc63a6cfbafc19ef4d32c0bd9bd4bb224b0323d598a7b187b6a30f0f9"
+    },
+    {
+     "path": "references/style-grand-gallery-8bit.png",
+     "sha256": "6b57d33c47f8912ca515dd36f7603d4809c0ab012318d2964b37cf8ae1dff9c2"
+    }
+   ]
+  }
+ ]
+}

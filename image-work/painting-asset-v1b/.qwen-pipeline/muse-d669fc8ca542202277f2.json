@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-d669fc8ca542202277f2",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: a group portrait of musicians: a woman in a yellow dress with a lute among three men in wigs. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a wide, deeply carved, pierced antique-gilt frame with scrolling rococo acanthus ornament along every side and at the corners, slightly worn and dark in its recesses. Reproduce that real carving as low-poly relief; do not simplify it into a plain molding and do not invent ornament it does not have. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-d669fc8ca542202277f2",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.03",
+  "references": [
+    {
+      "path": "references/music-view-a.png",
+      "sha256": "ef6e91438ed552303663ed5d739dc910a31ba75886ab70fa7ab1253b2e405e01",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/music-view-b.png",
+      "sha256": "6c06b8cf497a39669263c69b4ec739b38fdbaeabe905d159b04a821fc6bdd908",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-music-frame.json",
+      "sha256": "d669fc8ca542202277f21914656462becff997d54a8df3e38ead0fa537a84c43"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "53008157dd58a737a865c621c9e9fce7e6de501ad20ad5cf0c2d90dce5dec5d4"
+    },
+    {
+      "applicationPath": "prompts/music-frame.txt",
+      "sha256": "47add7a4315557dd8657379a8db3aa3995f81fcd009e4df44c646832dcee24e5"
+    }
+  ]
+}

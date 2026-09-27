@@ -1,0 +1,107 @@
+{
+ "websurfer2": {
+  "museRun": "run-b225c10c723427168f2684c8",
+  "size": [
+   84,
+   73
+  ],
+  "icon": [
+   52,
+   55
+  ],
+  "label": [
+   84,
+   15
+  ]
+ },
+ "downloads": {
+  "museRun": "run-7cee258da54f73c77860d975",
+  "size": [
+   77,
+   59
+  ],
+  "icon": [
+   29,
+   41
+  ],
+  "label": [
+   77,
+   15
+  ]
+ },
+ "do_not_open": {
+  "museRun": "run-49ab52cc90db38bdd2b96f7f",
+  "size": [
+   82,
+   99
+  ],
+  "icon": [
+   67,
+   47
+  ],
+  "label": [
+   82,
+   49
+  ]
+ },
+ "wastebin": {
+  "museRun": "run-ce9c326dfe4d9516f07d66b5",
+  "size": [
+   68,
+   64
+  ],
+  "icon": [
+   35,
+   47
+  ],
+  "label": [
+   68,
+   14
+  ]
+ },
+ "screensavers": {
+  "museRun": "run-1354439b0e6e0f52634acf84",
+  "size": [
+   87,
+   86
+  ],
+  "icon": [
+   38,
+   44
+  ],
+  "label": [
+   87,
+   39
+  ]
+ },
+ "documents": {
+  "museRun": "run-b5b0d6b6ce5be4edf0573d3c",
+  "size": [
+   79,
+   64
+  ],
+  "icon": [
+   31,
+   46
+  ],
+  "label": [
+   79,
+   15
+  ]
+ },
+ "nextrooms": {
+  "museRun": "run-6b73dc7d32dab831fe965f5b",
+  "size": [
+   76,
+   62
+  ],
+  "icon": [
+   45,
+   45
+  ],
+  "label": [
+   76,
+   14
+  ]
+ }
+}

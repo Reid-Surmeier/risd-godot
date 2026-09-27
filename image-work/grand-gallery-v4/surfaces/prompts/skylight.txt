@@ -1,0 +1,3 @@
+Reference image 1 is a phone photo looking up at the long skylight of the RISD Museum Grand Gallery: a flat glazed ceiling panel of many small glass panes in a regular grid of thin light-grey metal mullions, glowing with cool daylight.
+
+Render a seamless, tileable texture of this skylight seen straight up from directly below (orthographic, no perspective): a regular grid of rectangular glass panes, exactly 6 panes across and 6 panes along the tile, thin light-grey mullions, the glass a soft luminous pale sky blue with a gentle even glow. No sky details, no clouds, no lamps, no text. It must tile seamlessly on all four edges.

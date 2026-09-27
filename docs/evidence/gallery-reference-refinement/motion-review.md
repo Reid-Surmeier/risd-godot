@@ -1,0 +1,14 @@
+# Refined motion review
+
+Verdict: visibly improved framing and filtering; directional-motion match to the reference is not established. The remaining largest gap is the persistent rear-facing avatar, not the floor texture.
+
+Reviewed `/tmp/candidate-refine.webm` and `/tmp/candidate-refine-start.png` against the supplied GameCube screenshot and cached reference frames around 986 s and 1383–1385 s. Read-only review; no implementation inspected. Video metadata: 1600×900, 30 fps, 124 frames (approximately 4.13 seconds), no audio stream. Audio was not heard or assessed.
+
+1. **Framing improved.** In the still, avatar is approximately 60×125 px in a 590×390 px room view: about 32% of its height. This now agrees substantially better with the supplied close room screenshot than the previous 22% framing. Its silhouette remains narrower and less dominated by its head than the reference.
+2. **Filtering improved.** The intrusive uniform fine grid previously visible across the room is no longer dominant. Floor, wall and avatar now read as softer continuous surfaces. Enlarged consecutive floor crops still expose very fine diagonal plank lines whose contrast changes during translation; this is a residual texture-aliasing risk, not evidence that severe crawl persists. Frame-sheet inspection cannot certify real-time flicker is absent. Avoid adding another global blur merely to remove these last lines.
+3. **Directional animation remains the main gap.** The first roughly 2.2 seconds show alternating arm and leg poses, then idle. The avatar presents the same back-of-head/back-of-shirt silhouette throughout, including the later change of room view. Unlike the reference's recognizable turns and changing face/profile/back views, this clip does not demonstrate direction-specific facing. Without input telemetry, it cannot prove that a requested direction was handled incorrectly; it does prove that a full directional match has not been shown.
+4. **Cadence is more legible at 30 fps.** Foot alternation and torso sway are clear; the head remains comparatively fixed and whole-body weight shift is mild. Reference motion has stronger bob/tilt and more decisive facing changes. Encoding at 30 fps is verified; application frame rate is not.
+
+Next correction: make avatar facing follow the actual travel direction relative to the camera, then record a short forward/right/back/left route with stop-and-turn moments. Keep the current framing. If that recording shows distracting floor shimmer, reduce only the floor's fine-line contrast or improve its minification filtering; leave broad herringbone shapes intact.
+
+Evidence: `/tmp/blind-motion-refined-detail.png`, `/tmp/blind-motion-refined-gait.png`, `/tmp/blind-motion-refined-floor.png`. All are extracted inspection sheets, not edited deliverables.

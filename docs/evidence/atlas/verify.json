@@ -1,0 +1,335 @@
+{
+ "pass": true,
+ "checks": {
+  "screenshots_present": {
+   "pass": true,
+   "detail": "['01-map.png', '02-panel-moved.png', '03-zoomed.png', '04-panned.png', '05-window-moved.png', '06-window-clamped.png', '07-window-resized.png', '08-collapsed.png', '09-key-home.png', '10-before-hidden.png', '11-hidden.png', '12-resumed.png', '13-resized.png', '14-restored.png', '15-fill-1440x820.png', '15-fill-1920x1000.png']"
+  },
+  "map_screenshot_is_1920x1080": {
+   "pass": true,
+   "detail": "(1080, 1920, 3)"
+  },
+  "no_map_tenant_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "click_map_creates_and_shows_atlas": {
+   "pass": true,
+   "detail": "{'frozen': False, 'key': 'map', 'page_visible': True, 'rect': {'h': 56.4976196289062, 'w': 176.842102050781, 'x': 119.88516998291, 'y': 1021.20574951172}, 'tenant': 'ok'}"
+  },
+  "tenant_fills_page_area": {
+   "pass": true,
+   "detail": "[1920.0, 1006.0478515625]"
+  },
+  "window_at_reference_rect": {
+   "pass": true,
+   "detail": "frame {'h': 749.0, 'w': 1563.0, 'x': 354.0, 'y': 46.0} expected {'x': 354, 'y': 46, 'w': 1563, 'h': 749}"
+  },
+  "chrome_scale_from_desktop_scale": {
+   "pass": true,
+   "detail": "0.52793440586453"
+  },
+  "four_panels_at_reference_composition": {
+   "pass": true,
+   "detail": "{'chat': {'h': 197.0, 'w': 424.0, 'x': 8.0, 'y': 808.0}, 'itinerary': {'h': 435.0, 'w': 312.0, 'x': 14.0, 'y': 350.0}, 'minimap': {'h': 292.0, 'w': 325.0, 'x': 8.0, 'y': 57.0}, 'notification': {'h': 62.0, 'w': 214.0, 'x': 1703.0, 'y': 943.0}}"
+  },
+  "minimap_over_itinerary_over_chat_at_left_map_at_right_notification_bottom_right": {
+   "pass": true,
+   "detail": ""
+  },
+  "nothing_overlaps_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "stack_opens_with_map_on_top": {
+   "pass": true,
+   "detail": "['minimap', 'itinerary', 'chat', 'notification', 'map']"
+  },
+  "map_body_inside_frame_above_bar": {
+   "pass": true,
+   "detail": "map {'h': 677.0, 'w': 1525.0, 'x': 373.0, 'y': 96.0} frame {'h': 749.0, 'w': 1563.0, 'x': 354.0, 'y': 46.0} viewport [1525.0, 677.0]"
+  },
+  "atlas_opens_on_world_view": {
+   "pass": true,
+   "detail": "zoom 0.335044652223587 min 0.335044642857143"
+  },
+  "panel_drag_starts_on_the_panel": {
+   "pass": true,
+   "detail": "from [1810.0, 974.0] panel {'x': 1703.0, 'y': 943.0, 'w': 214.0, 'h': 62.0}"
+  },
+  "panel_drag_moves_it_by_the_drag": {
+   "pass": true,
+   "detail": "{'h': 62.0, 'w': 214.0, 'x': 1703.0, 'y': 943.0} -> {'h': 62.0, 'w': 214.0, 'x': 1003.0, 'y': 243.0} by [-700.0, -700.0]"
+  },
+  "panel_drag_moves_nothing_else": {
+   "pass": true,
+   "detail": ""
+  },
+  "pressed_panel_comes_to_the_top": {
+   "pass": true,
+   "detail": "['minimap', 'itinerary', 'chat', 'map', 'notification']"
+  },
+  "moved_panel_lies_over_the_map_body": {
+   "pass": true,
+   "detail": "panel {'x': 1003.0, 'y': 243.0, 'w': 214.0, 'h': 62.0} map {'h': 677.0, 'w': 1525.0, 'x': 373.0, 'y': 96.0}"
+  },
+  "wheel_over_panel_lands_on_it": {
+   "pass": true,
+   "detail": ""
+  },
+  "wheel_over_panel_does_not_zoom_map": {
+   "pass": true,
+   "detail": "zoom 0.335044652223587 -> 0.335044652223587"
+  },
+  "wheel_lands_inside_map": {
+   "pass": true,
+   "detail": ""
+  },
+  "wheel_zooms_in_at_centre": {
+   "pass": true,
+   "detail": "zoom 0.3350 -> 0.5505 (x1.643), position [2240.0, 1350.0] -> [2240.0, 1350.0]"
+  },
+  "zoom_leaves_vertical_pan_unlocked": {
+   "pass": true,
+   "detail": ""
+  },
+  "drag_pans_camera_by_drag_over_zoom": {
+   "pass": true,
+   "detail": "expected [2530.7, 1568.0], got [2530.7, 1568.0]"
+  },
+  "title_drag_starts_on_title_bar": {
+   "pass": true,
+   "detail": "from [1135.5, 77.6760635375977] frame {'h': 749.0, 'w': 1563.0, 'x': 354.0, 'y': 46.0}"
+  },
+  "title_drag_moves_window": {
+   "pass": true,
+   "detail": "{'h': 749.0, 'w': 1563.0, 'x': 354.0, 'y': 46.0} -> {'h': 749.0, 'w': 1563.0, 'x': 284.0, 'y': 61.0} by [-70.0, 15.0], stack ['minimap', 'itinerary', 'chat', 'notification', 'map']"
+  },
+  "still_on_map_tab_after_window_drag": {
+   "pass": true,
+   "detail": ""
+  },
+  "window_drag_clamps_to_page_edge": {
+   "pass": true,
+   "detail": "page [1920.0, 1006.0478515625], frame {'h': 749.0, 'w': 1563.0, 'x': 357.0, 'y': 257.0478515625}"
+  },
+  "corner_drag_resizes_frame_in_place": {
+   "pass": true,
+   "detail": "{'h': 749.0, 'w': 1563.0, 'x': 357.0, 'y': 257.0478515625} -> {'h': 649.0, 'w': 1413.0, 'x': 357.0, 'y': 257.0478515625} by [-150.0, -100.0]"
+  },
+  "map_body_follows_the_resize": {
+   "pass": true,
+   "detail": "map {'h': 577.0, 'w': 1375.0, 'x': 376.0, 'y': 307.0478515625} viewport [1375.0, 577.0]"
+  },
+  "collapse_click_lands_on_left_button": {
+   "pass": true,
+   "detail": ""
+  },
+  "collapse_folds_window_to_title_bar": {
+   "pass": true,
+   "detail": "{'h': 72.0, 'w': 1413.0, 'x': 357.0, 'y': 257.0478515625}"
+  },
+  "collapse_again_expands_to_former_size": {
+   "pass": true,
+   "detail": ""
+  },
+  "lock_click_lands_on_right_button": {
+   "pass": true,
+   "detail": ""
+  },
+  "lock_holds_window_under_title_drag": {
+   "pass": true,
+   "detail": "{'h': 649.0, 'w': 1413.0, 'x': 357.0, 'y': 257.0478515625}"
+  },
+  "lock_again_unlocks": {
+   "pass": true,
+   "detail": ""
+  },
+  "keys_sent_with_map_active": {
+   "pass": true,
+   "detail": ""
+  },
+  "plus_key_zooms_in": {
+   "pass": true,
+   "detail": "zoom 0.5505 -> 0.7156"
+  },
+  "right_key_pans_east": {
+   "pass": true,
+   "detail": "dx 139.74 expected 139.74"
+  },
+  "f_key_shows_sheet_and_again_returns": {
+   "pass": true,
+   "detail": "sheet -> atlas"
+  },
+  "home_key_resets_to_world_view": {
+   "pass": true,
+   "detail": "zoom 0.301562488079071 min 0.3015625 position [2240.0, 1350.0]"
+  },
+  "wheel_after_home_leaves_a_zoomed_view": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_map_page_frozen": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_tenant_process_stops": {
+   "pass": true,
+   "detail": "ticks 195 -> 195 over 20 frames"
+  },
+  "hidden_tenant_gets_no_input": {
+   "pass": true,
+   "detail": "inputs 79 -> 79"
+  },
+  "hidden_events_change_nothing": {
+   "pass": true,
+   "detail": "0.419895589351654 [2240.0, 1350.0] {'h': 649.0, 'w': 1413.0, 'x': 357.0, 'y': 257.0478515625}"
+  },
+  "hidden_keys_change_nothing": {
+   "pass": true,
+   "detail": "[('atlas', 0.4199), ('atlas', 0.4199), ('atlas', 0.4199), ('atlas', 0.4199), ('atlas', 0.4199)]"
+  },
+  "hidden_subviewport_update_disabled": {
+   "pass": true,
+   "detail": "modes shown 4 hidden 0"
+  },
+  "hidden_subviewport_renders_nothing": {
+   "pass": true,
+   "detail": "draw calls: white page 47, map shown 75, map hidden 47"
+  },
+  "map_resumes_with_state_intact": {
+   "pass": true,
+   "detail": "ticks frozen 195, resumed 199 -> 259"
+  },
+  "resumed_subviewport_updates_again": {
+   "pass": true,
+   "detail": ""
+  },
+  "resize_refits_tenant_and_window": {
+   "pass": true,
+   "detail": "tenant [1440.0, 844.535888671875], frame {'h': 630.0, 'w': 1140.0, 'x': 297.0, 'y': 38.0} expected {'x': 297, 'y': 38, 'w': 1140, 'h': 630}"
+  },
+  "resize_refits_panels_to_reference_composition": {
+   "pass": true,
+   "detail": "{'chat': {'h': 166.0, 'w': 356.0, 'x': 7.0, 'y': 678.0}, 'itinerary': {'h': 365.0, 'w': 262.0, 'x': 12.0, 'y': 294.0}, 'minimap': {'h': 245.0, 'w': 272.0, 'x': 7.0, 'y': 48.0}, 'notification': {'h': 52.0, 'w': 179.0, 'x': 1258.0, 'y': 792.0}}"
+  },
+  "resized_screenshot_is_1440x900": {
+   "pass": true,
+   "detail": "(900, 1440, 3)"
+  },
+  "restore_refits_back": {
+   "pass": true,
+   "detail": ""
+  },
+  "map_body_shows_sea_and_land": {
+   "pass": true,
+   "detail": "cyan 651958 pink 287259 of 1023633"
+  },
+  "frame_title_bar_drawn": {
+   "pass": true,
+   "detail": "dark px 979"
+  },
+  "panels_drawn_with_their_raster_art": {
+   "pass": true,
+   "detail": "dark px {'minimap': 2720, 'itinerary': 10953, 'chat': 1398, 'notification': 610}, non-white fraction {'minimap': 0.535, 'itinerary': 0.708, 'chat': 0.261, 'notification': 0.216}"
+  },
+  "page_above_window_is_white": {
+   "pass": true,
+   "detail": "mean 255.00"
+  },
+  "moved_panel_draws_over_the_map": {
+   "pass": true,
+   "detail": "dark px where it landed: before 0, after 610"
+  },
+  "zoom_changes_map_pixels": {
+   "pass": true,
+   "detail": ""
+  },
+  "pan_changes_map_pixels": {
+   "pass": true,
+   "detail": ""
+  },
+  "window_drag_changes_page_pixels": {
+   "pass": true,
+   "detail": ""
+  },
+  "clamped_window_touches_page_corner": {
+   "pass": true,
+   "detail": "frame ends at 1920.0, 1006.0478515625"
+  },
+  "resize_frees_white_page_below_window": {
+   "pass": true,
+   "detail": "mean 254.04"
+  },
+  "collapsed_window_leaves_white_below_its_bar": {
+   "pass": true,
+   "detail": "mean 254.73"
+  },
+  "hidden_page_shows_plain_white_sketchbook": {
+   "pass": true,
+   "detail": "mean 255.00"
+  },
+  "resumed_pixels_identical_to_before_hiding": {
+   "pass": true,
+   "detail": "mean abs diff 0.000"
+  },
+  "fill-1920x1000_page_size": {
+   "pass": true,
+   "detail": "[1920.0, 1000.0478515625]"
+  },
+  "fill-1920x1000_desktop_spans_page_both_axes": {
+   "pass": true,
+   "detail": "gaps l/t/r/b [8.0, 45.0, 3.0, 0.0], native margins x s [7.8, 45.3, 3.1, 0.8]"
+  },
+  "fill-1920x1000_map_window_at_least_native_times_scale": {
+   "pass": true,
+   "detail": "frame {'h': 746.0, 'w': 1565.0, 'x': 352.0, 'y': 45.0} native x s 905x745"
+  },
+  "fill-1920x1000_layout_is_the_fill_rule": {
+   "pass": true,
+   "detail": "{'chat': {'h': 196.0, 'w': 422.0, 'x': 8.0, 'y': 803.0}, 'itinerary': {'h': 432.0, 'w': 310.0, 'x': 14.0, 'y': 348.0}, 'minimap': {'h': 290.0, 'w': 323.0, 'x': 8.0, 'y': 56.0}, 'notification': {'h': 62.0, 'w': 213.0, 'x': 1704.0, 'y': 938.0}}"
+  },
+  "fill-1920x1000_map_body_follows_the_window": {
+   "pass": true,
+   "detail": "{'h': 675.0, 'w': 1527.0, 'x': 371.0, 'y': 94.0}"
+  },
+  "fill-1440x820_page_size": {
+   "pass": true,
+   "detail": "[1440.0, 819.535888671875]"
+  },
+  "fill-1440x820_desktop_spans_page_both_axes": {
+   "pass": true,
+   "detail": "gaps l/t/r/b [6.0, 37.0, 3.0, 0.5], native margins x s [6.4, 37.1, 2.6, 0.6]"
+  },
+  "fill-1440x820_map_window_at_least_native_times_scale": {
+   "pass": true,
+   "detail": "frame {'h': 611.0, 'w': 1149.0, 'x': 288.0, 'y': 37.0} native x s 741x611"
+  },
+  "fill-1440x820_layout_is_the_fill_rule": {
+   "pass": true,
+   "detail": "{'chat': {'h': 161.0, 'w': 346.0, 'x': 6.0, 'y': 658.0}, 'itinerary': {'h': 354.0, 'w': 254.0, 'x': 12.0, 'y': 285.0}, 'minimap': {'h': 238.0, 'w': 264.0, 'x': 6.0, 'y': 46.0}, 'notification': {'h': 51.0, 'w': 174.0, 'x': 1263.0, 'y': 768.0}}"
+  },
+  "fill-1440x820_map_body_follows_the_window": {
+   "pass": true,
+   "detail": "{'h': 553.0, 'w': 1118.0, 'x': 303.0, 'y': 77.0}"
+  }
+ },
+ "sha256": {
+  "01-map.png": "b77910d64fcbbeeb12de37705e467e4ab1f19538277299c15f8c1ddb94cb5941",
+  "02-panel-moved.png": "dc20d07a7ad5eb1d8cd86468489ea7481c86e90ef8ea5c2d08025399ef3972d0",
+  "03-zoomed.png": "62f320d9319f7bf5b4e2593850084130a04d74913cfb11db25922095a732e06c",
+  "04-panned.png": "61c0989a3487406f3b065f1c338c58ac5c36bf20238575dba445875d43ac6a55",
+  "05-window-moved.png": "0bfa2895617cebf48263c457958fc5a63a7377965e699a4a30917d31df505a36",
+  "06-window-clamped.png": "ad55655209a1e410b060b9cf88ac5e7170b1483d48cdf9c0bc7bea4948615eed",
+  "07-window-resized.png": "cf1aef24ab08db5f34a27a99d1a6e9263824e2d89ffc2814479a6bff94375a23",
+  "08-collapsed.png": "8fa06cd3eef76d8f09011da088333cb8917fd0070cd64fb826cc4f37dd1a1e10",
+  "09-key-home.png": "ef437b85528c830b040dcbc71d513633def8590c992a521e4b8448a4806965c0",
+  "10-before-hidden.png": "e98885e14e57d33c871b5393f0925e208fba10af309519b22053fe0c57294412",
+  "11-hidden.png": "7a3459e21c19bb92363455e2ccf6ab341927775be3ca1fa6a11f29dd51ea9496",
+  "12-resumed.png": "e98885e14e57d33c871b5393f0925e208fba10af309519b22053fe0c57294412",
+  "13-resized.png": "f4b9a44639260266fdccf248e371f4309a53d5b9cb6f2170dc1570a5641572aa",
+  "14-restored.png": "c76fabfa0a29458859364aabd4df40cc2246779db520c9b4e09960aad97d7e8d",
+  "15-fill-1920x1000.png": "a3e7a8ddedb06e4515c225ac4bd41c094051f83473ae5086b79c39b7fcf169b9",
+  "15-fill-1440x820.png": "140fa73056c2ff75e720aa5d9d667821656a0d7dda8834c4d13b67b6584955b0"
+ }
+}

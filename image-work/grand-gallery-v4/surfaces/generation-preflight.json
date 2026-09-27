@@ -1,0 +1,76 @@
+{
+ "attempts": [
+  {
+   "id": "floor",
+   "prompt": "prompts/floor.txt",
+   "promptSha256": "248f6e0831563eebe09135a425b914272e67dd7c5637223dd79efc09ff8f3530",
+   "size": "1024x1024",
+   "inputs": [
+    {
+     "path": "references/floor-crop.png",
+     "sha256": "d7636e7c478a7d423cf0fede9544cac9c5b40544babee1c088de983a57672b12"
+    }
+   ]
+  },
+  {
+   "id": "wall",
+   "prompt": "prompts/wall.txt",
+   "promptSha256": "5a0c13c8b3c7ea6899055918af49959ce90d36776a840ac77b36da4d40578c69",
+   "size": "1024x1024",
+   "inputs": [
+    {
+     "path": "references/wall-crop.png",
+     "sha256": "d5050b20d1b2919efba3a551372b2b3a952d027d618a9130c634f703736decd5"
+    }
+   ]
+  },
+  {
+   "id": "skylight",
+   "prompt": "prompts/skylight.txt",
+   "promptSha256": "38a8b05c0c108cab776f5381c009b7b18dd00b6bf6ccb3f50f7ea7fb0861bd43",
+   "size": "1024x1024",
+   "inputs": [
+    {
+     "path": "references/skylight-crop.png",
+     "sha256": "1870aa6fc6576a4b3d5f17380106a34c294c2535ecaeba8f950a39b8cccd0091"
+    }
+   ]
+  },
+  {
+   "id": "door-far",
+   "prompt": "prompts/door-far.txt",
+   "promptSha256": "07a34adf92e86078b4e4c62c632b24c79d072e493008e9e5c3e208598c624b20",
+   "size": "1024x1600",
+   "inputs": [
+    {
+     "path": "references/door-far-crop.png",
+     "sha256": "f27b73f89da8bb6cda3718f9c6e71c5d4f6ab7fc3ae825fc002c87290f41622c"
+    }
+   ]
+  },
+  {
+   "id": "door-arch",
+   "prompt": "prompts/door-arch.txt",
+   "promptSha256": "59c7263529bb65e3e70e8a71041e2b99e397670355851d69ac106ded779b9766",
+   "size": "1024x1600",
+   "inputs": [
+    {
+     "path": "references/door-arch-crop.png",
+     "sha256": "6db20b89ef019e278646ae736268f5ff2e77d9a378d71d4c87ea8e7232bcf858"
+    }
+   ]
+  },
+  {
+   "id": "oak-grain",
+   "prompt": "prompts/oak-grain.txt",
+   "promptSha256": "dd980c81c85de5959ff89aa26336dde3221297a2bd9b50ac837986b4692ef08d",
+   "size": "1600x800",
+   "inputs": [
+    {
+     "path": "references/floor-crop.png",
+     "sha256": "d7636e7c478a7d423cf0fede9544cac9c5b40544babee1c088de983a57672b12"
+    }
+   ]
+  }
+ ]
+}

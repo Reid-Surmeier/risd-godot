@@ -1,0 +1,3 @@
+Reference image 1 is a phone photo of the doorway at the south end of the RISD Museum Grand Gallery, seen from inside the gallery: through the opening is the neighbouring medieval gallery — a softly lit stone room with a Romanesque carved stone arch and a large wooden crucifix of Christ hanging in the middle.
+
+Render ONLY what is seen through the opening, filling the whole image edge to edge, as a straight-on view from the gallery floor at eye height: the medieval room's warm lit stone walls and the curve of the carved stone arch, and the wooden crucifix hanging in the centre, glowing softly with warm light. Remove all people. Do not include the gallery's own door frame or wall. Clean, soft, slightly glowing, in the same colours as the photo. No text.

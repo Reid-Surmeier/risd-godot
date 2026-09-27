@@ -1,0 +1,16 @@
+Redraw image 1 (a low-resolution late-1990s 3D game render) so that the same character stands in the museum gallery shown in images 2, 3 and 4 instead of the shopping mall. Image 2 is a photo looking down the gallery's length; image 3 is the left-wall reference sheet; image 4 is the right-wall reference sheet; image 5 is the character.
+
+KEEP EXACTLY AS IN IMAGE 1:
+- The camera: same eye height, same slight downward tilt, same field of view, same centred framing.
+- The character: the small chibi kid with the orange-red bowl-cut hair / red beret, pale pink skin, white shirt with black-and-red stripes and a rainbow chest graphic, bare pink legs, with jagged low-resolution sprite-like edges. Do not restyle, re-age or re-colour the character. Standing facing the camera in the lower middle of the frame at the same pixel size as in image 1.
+- THE RENDERING STYLE: PlayStation-1 / Nintendo-64 era real-time 3D. Chunky low-polygon geometry with visible flat-shaded facets, low-resolution muddy textures with colour banding, affine texture warping on the floor, flat vertex lighting with hard shading, no soft shadows, no reflections, no depth of field, slight VHS/CRT softness and faint scanlines over the whole image, aliased stair-stepped edges. The paintings are low-resolution texture rectangles on the walls; the gold frames are simple extruded boxes; the vault is a coarse polygonal curve; the skylight is a flat glowing panel with a blocky grid.
+
+THE ROOM IS THE REAL RISD MUSEUM GRAND GALLERY AS IT IS HUNG TODAY (the photos, not any older salon hang):
+- A long rectangular gallery seen straight down its length: deep slate-blue walls, cream-white cornice and a white skirting board, a cream barrel-vaulted ceiling with one long glazed skylight grid down its centre giving cool daylight, and a pale herringbone oak floor.
+- At the far end, centred: a white-framed rectangular doorway with a small green EXIT sign above it, a large portrait hanging on each side of it.
+- Paintings hang in a single row at eye level with generous blue wall between them (a few large ones reach higher). The left wall carries, from nearest to farthest, the paintings in the left-wall reference sheet; the right wall carries, from nearest to farthest, the paintings in the right-wall reference sheet. Each distinct painting appears once even if it is photographed several times in the sheet. Keep each painting recognisable by its colours and main shapes, and keep its gilt frame.
+- One long dark-blue upholstered bench in the middle of the floor. No people.
+
+The gallery must feel dim and moody like image 1 but with its walls reading clearly as blue.
+
+Fill the whole frame with the 3D game view only: no window frame, no user interface, no text, no watermark, no borders.

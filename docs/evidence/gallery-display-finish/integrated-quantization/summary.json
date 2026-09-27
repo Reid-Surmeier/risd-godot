@@ -1,0 +1,793 @@
+{
+  "runtime": "c601383",
+  "cases": [
+    {
+      "label": "A",
+      "mode": "rgb6-plain",
+      "width": 1600,
+      "height": 900,
+      "scene": "art",
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "metrics": {
+        "median_ms": 16.700000000004366,
+        "p95_ms": 33.400000000001455,
+        "samples": 479
+      },
+      "viewport": [
+        584,
+        391
+      ],
+      "msaa_3d": 1,
+      "display_material": {
+        "class": "SubViewportContainer",
+        "copy_filter": 0.5,
+        "instance": -9223371983687776000,
+        "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+        "quantization_mode": 1,
+        "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+        "use_parent_material": false,
+        "visible": true
+      },
+      "visitor": {
+        "identity": true,
+        "idle_time": 0,
+        "phase": 0.12,
+        "pose_hash": 1795417782,
+        "yaw": 3.14159274101257
+      },
+      "completed_tick": 480,
+      "godot": {
+        "godot_delta_ms": {
+          "median": 23.3333333333333,
+          "p95": 25.7,
+          "max": 29.4666666666667
+        },
+        "godot_process_ms": {
+          "median": 28.5,
+          "p95": 31,
+          "max": 31
+        },
+        "godot_post_draw_interval_ms": {
+          "median": 23,
+          "p95": 28.1,
+          "max": 31.8
+        }
+      }
+    },
+    {
+      "label": "A",
+      "mode": "rgb6-plain",
+      "width": 1600,
+      "height": 900,
+      "scene": "warm",
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "metrics": {
+        "median_ms": 16.700000000000728,
+        "p95_ms": 33.400000000001455,
+        "samples": 479
+      },
+      "viewport": [
+        584,
+        391
+      ],
+      "msaa_3d": 1,
+      "display_material": {
+        "class": "SubViewportContainer",
+        "copy_filter": 0.5,
+        "instance": -9223371983687776000,
+        "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+        "quantization_mode": 1,
+        "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+        "use_parent_material": false,
+        "visible": true
+      },
+      "visitor": {
+        "identity": true,
+        "idle_time": 0,
+        "phase": 0.12,
+        "pose_hash": 3790991449,
+        "yaw": 3.14159274101257
+      },
+      "completed_tick": 480,
+      "godot": {
+        "godot_delta_ms": {
+          "median": 23.6111111111111,
+          "p95": 26.1454545454546,
+          "max": 44.5113333333338
+        },
+        "godot_process_ms": {
+          "median": 28.1,
+          "p95": 31.6,
+          "max": 31.6
+        },
+        "godot_post_draw_interval_ms": {
+          "median": 23,
+          "p95": 28.2,
+          "max": 43.1
+        }
+      }
+    },
+    {
+      "label": "A",
+      "mode": "rgb6-plain",
+      "width": 1600,
+      "height": 900,
+      "scene": "white",
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "metrics": {
+        "median_ms": 16.69999999999709,
+        "p95_ms": 33.39999999999418,
+        "samples": 479
+      },
+      "viewport": [
+        584,
+        391
+      ],
+      "msaa_3d": 1,
+      "display_material": {
+        "class": "SubViewportContainer",
+        "copy_filter": 0.5,
+        "instance": -9223371983687776000,
+        "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+        "quantization_mode": 1,
+        "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+        "use_parent_material": false,
+        "visible": true
+      },
+      "visitor": {
+        "identity": true,
+        "idle_time": 0,
+        "phase": 0.12,
+        "pose_hash": 3692123775,
+        "yaw": 3.14159274101257
+      },
+      "completed_tick": 480,
+      "godot": {
+        "godot_delta_ms": {
+          "median": 18.75,
+          "p95": 21.4285714285714,
+          "max": 28.2400952380946
+        },
+        "godot_process_ms": {
+          "median": 21.8,
+          "p95": 28.2,
+          "max": 28.2
+        },
+        "godot_post_draw_interval_ms": {
+          "median": 18.9,
+          "p95": 22.2,
+          "max": 25.7
+        }
+      }
+    },
+    {
+      "label": "A",
+      "mode": "rgb6-plain",
+      "width": 720,
+      "height": 486,
+      "scene": "art",
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "metrics": {
+        "median_ms": 16.69999999999709,
+        "p95_ms": 16.80000000000291,
+        "samples": 479
+      },
+      "viewport": [
+        641,
+        429
+      ],
+      "msaa_3d": 1,
+      "display_material": {
+        "class": "SubViewportContainer",
+        "copy_filter": 0.5,
+        "instance": -9223371983687776000,
+        "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+        "quantization_mode": 1,
+        "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+        "use_parent_material": false,
+        "visible": true
+      },
+      "visitor": {
+        "identity": true,
+        "idle_time": 0,
+        "phase": 0.12,
+        "pose_hash": 1795417782,
+        "yaw": 3.14159274101257
+      },
+      "completed_tick": 480,
+      "godot": {
+        "godot_delta_ms": {
+          "median": 16.6666666666667,
+          "p95": 19.4444444444444,
+          "max": 27.7737777777778
+        },
+        "godot_process_ms": {
+          "median": 18.7,
+          "p95": 26.7,
+          "max": 26.7
+        },
+        "godot_post_draw_interval_ms": {
+          "median": 16.7,
+          "p95": 20,
+          "max": 28.9
+        }
+      }
+    },
+    {
+      "label": "A",
+      "mode": "rgb6-plain",
+      "width": 720,
+      "height": 486,
+      "scene": "warm",
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "metrics": {
+        "median_ms": 16.69999999999709,
+        "p95_ms": 33.29999999998836,
+        "samples": 479
+      },
+      "viewport": [
+        641,
+        429
+      ],
+      "msaa_3d": 1,
+      "display_material": {
+        "class": "SubViewportContainer",
+        "copy_filter": 0.5,
+        "instance": -9223371983687776000,
+        "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+        "quantization_mode": 1,
+        "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+        "use_parent_material": false,
+        "visible": true
+      },
+      "visitor": {
+        "identity": true,
+        "idle_time": 0,
+        "phase": 0.12,
+        "pose_hash": 3790991449,
+        "yaw": 3.14159274101257
+      },
+      "completed_tick": 480,
+      "godot": {
+        "godot_delta_ms": {
+          "median": 17.2,
+          "p95": 18.75,
+          "max": 31.6901818181801
+        },
+        "godot_process_ms": {
+          "median": 19,
+          "p95": 28.7,
+          "max": 28.7
+        },
+        "godot_post_draw_interval_ms": {
+          "median": 17.5,
+          "p95": 19.1,
+          "max": 29.3
+        }
+      }
+    },
+    {
+      "label": "A",
+      "mode": "rgb6-plain",
+      "width": 720,
+      "height": 486,
+      "scene": "white",
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "metrics": {
+        "median_ms": 16.69999999999709,
+        "p95_ms": 16.79999999998836,
+        "samples": 479
+      },
+      "viewport": [
+        641,
+        429
+      ],
+      "msaa_3d": 1,
+      "display_material": {
+        "class": "SubViewportContainer",
+        "copy_filter": 0.5,
+        "instance": -9223371983687776000,
+        "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+        "quantization_mode": 1,
+        "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+        "use_parent_material": false,
+        "visible": true
+      },
+      "visitor": {
+        "identity": true,
+        "idle_time": 0,
+        "phase": 0.12,
+        "pose_hash": 3692123775,
+        "yaw": 3.14159274101257
+      },
+      "completed_tick": 480,
+      "godot": {
+        "godot_delta_ms": {
+          "median": 16.6666666666667,
+          "p95": 16.6666666666667,
+          "max": 16.6666666666667
+        },
+        "godot_process_ms": {
+          "median": 16.9,
+          "p95": 19,
+          "max": 19
+        },
+        "godot_post_draw_interval_ms": {
+          "median": 16.7,
+          "p95": 17.9,
+          "max": 21.6
+        }
+      }
+    },
+    {
+      "label": "B",
+      "mode": "current",
+      "width": 1600,
+      "height": 900,
+      "scene": "art",
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "metrics": {
+        "median_ms": 16.69999999999709,
+        "p95_ms": 33.39999999999418,
+        "samples": 479
+      },
+      "viewport": [
+        584,
+        391
+      ],
+      "msaa_3d": 1,
+      "display_material": {
+        "class": "SubViewportContainer",
+        "copy_filter": 0.5,
+        "instance": -9223371983687776000,
+        "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+        "quantization_mode": 2,
+        "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+        "use_parent_material": false,
+        "visible": true
+      },
+      "visitor": {
+        "identity": true,
+        "idle_time": 0,
+        "phase": 0.12,
+        "pose_hash": 1795417782,
+        "yaw": 3.14159274101257
+      },
+      "completed_tick": 480,
+      "godot": {
+        "godot_delta_ms": {
+          "median": 22.2222222222222,
+          "p95": 25,
+          "max": 31.6
+        },
+        "godot_process_ms": {
+          "median": 27.1,
+          "p95": 35.8,
+          "max": 35.8
+        },
+        "godot_post_draw_interval_ms": {
+          "median": 21.9,
+          "p95": 27.3,
+          "max": 38
+        }
+      }
+    },
+    {
+      "label": "B",
+      "mode": "current",
+      "width": 1600,
+      "height": 900,
+      "scene": "warm",
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "metrics": {
+        "median_ms": 16.700000000004366,
+        "p95_ms": 33.400000000001455,
+        "samples": 479
+      },
+      "viewport": [
+        584,
+        391
+      ],
+      "msaa_3d": 1,
+      "display_material": {
+        "class": "SubViewportContainer",
+        "copy_filter": 0.5,
+        "instance": -9223371983687776000,
+        "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+        "quantization_mode": 2,
+        "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+        "use_parent_material": false,
+        "visible": true
+      },
+      "visitor": {
+        "identity": true,
+        "idle_time": 0,
+        "phase": 0.12,
+        "pose_hash": 3790991449,
+        "yaw": 3.14159274101257
+      },
+      "completed_tick": 480,
+      "godot": {
+        "godot_delta_ms": {
+          "median": 23.3333333333333,
+          "p95": 26.5973333333325,
+          "max": 33.332
+        },
+        "godot_process_ms": {
+          "median": 28.8,
+          "p95": 33.1,
+          "max": 33.1
+        },
+        "godot_post_draw_interval_ms": {
+          "median": 22.9,
+          "p95": 28.4,
+          "max": 33.7
+        }
+      }
+    },
+    {
+      "label": "B",
+      "mode": "current",
+      "width": 1600,
+      "height": 900,
+      "scene": "white",
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "metrics": {
+        "median_ms": 16.69999999999709,
+        "p95_ms": 33.30000000000291,
+        "samples": 479
+      },
+      "viewport": [
+        584,
+        391
+      ],
+      "msaa_3d": 1,
+      "display_material": {
+        "class": "SubViewportContainer",
+        "copy_filter": 0.5,
+        "instance": -9223371983687776000,
+        "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+        "quantization_mode": 2,
+        "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+        "use_parent_material": false,
+        "visible": true
+      },
+      "visitor": {
+        "identity": true,
+        "idle_time": 0,
+        "phase": 0.12,
+        "pose_hash": 3692123775,
+        "yaw": 3.14159274101257
+      },
+      "completed_tick": 480,
+      "godot": {
+        "godot_delta_ms": {
+          "median": 16.6666666666667,
+          "p95": 24.0740740740741,
+          "max": 33.3313333333333
+        },
+        "godot_process_ms": {
+          "median": 21.5,
+          "p95": 26.4,
+          "max": 26.4
+        },
+        "godot_post_draw_interval_ms": {
+          "median": 18.1,
+          "p95": 22,
+          "max": 27.1
+        }
+      }
+    },
+    {
+      "label": "B",
+      "mode": "current",
+      "width": 720,
+      "height": 486,
+      "scene": "art",
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "metrics": {
+        "median_ms": 16.699999999982538,
+        "p95_ms": 16.800000000017462,
+        "samples": 479
+      },
+      "viewport": [
+        641,
+        429
+      ],
+      "msaa_3d": 1,
+      "display_material": {
+        "class": "SubViewportContainer",
+        "copy_filter": 0.5,
+        "instance": -9223371983687776000,
+        "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+        "quantization_mode": 2,
+        "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+        "use_parent_material": false,
+        "visible": true
+      },
+      "visitor": {
+        "identity": true,
+        "idle_time": 0,
+        "phase": 0.12,
+        "pose_hash": 1795417782,
+        "yaw": 3.14159274101257
+      },
+      "completed_tick": 480,
+      "godot": {
+        "godot_delta_ms": {
+          "median": 16.6666666666667,
+          "p95": 18.5185185185185,
+          "max": 24.998
+        },
+        "godot_process_ms": {
+          "median": 18.8,
+          "p95": 20.4,
+          "max": 20.4
+        },
+        "godot_post_draw_interval_ms": {
+          "median": 17.1,
+          "p95": 18.8,
+          "max": 21.4
+        }
+      }
+    },
+    {
+      "label": "B",
+      "mode": "current",
+      "width": 720,
+      "height": 486,
+      "scene": "warm",
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "metrics": {
+        "median_ms": 16.69999999999709,
+        "p95_ms": 33.29999999998836,
+        "samples": 479
+      },
+      "viewport": [
+        641,
+        429
+      ],
+      "msaa_3d": 1,
+      "display_material": {
+        "class": "SubViewportContainer",
+        "copy_filter": 0.5,
+        "instance": -9223371983687776000,
+        "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+        "quantization_mode": 2,
+        "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+        "use_parent_material": false,
+        "visible": true
+      },
+      "visitor": {
+        "identity": true,
+        "idle_time": 0,
+        "phase": 0.12,
+        "pose_hash": 3790991449,
+        "yaw": 3.14159274101257
+      },
+      "completed_tick": 480,
+      "godot": {
+        "godot_delta_ms": {
+          "median": 16.6666666666667,
+          "p95": 18.75,
+          "max": 31.9424444444444
+        },
+        "godot_process_ms": {
+          "median": 19.1,
+          "p95": 25.9,
+          "max": 25.9
+        },
+        "godot_post_draw_interval_ms": {
+          "median": 17.2,
+          "p95": 19.5,
+          "max": 26.6
+        }
+      }
+    },
+    {
+      "label": "B",
+      "mode": "current",
+      "width": 720,
+      "height": 486,
+      "scene": "white",
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "metrics": {
+        "median_ms": 16.699999999982538,
+        "p95_ms": 16.79999999998836,
+        "samples": 479
+      },
+      "viewport": [
+        641,
+        429
+      ],
+      "msaa_3d": 1,
+      "display_material": {
+        "class": "SubViewportContainer",
+        "copy_filter": 0.5,
+        "instance": -9223371983687776000,
+        "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@47",
+        "quantization_mode": 2,
+        "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+        "use_parent_material": false,
+        "visible": true
+      },
+      "visitor": {
+        "identity": true,
+        "idle_time": 0,
+        "phase": 0.12,
+        "pose_hash": 3692123775,
+        "yaw": 3.14159274101257
+      },
+      "completed_tick": 480,
+      "godot": {
+        "godot_delta_ms": {
+          "median": 16.6666666666667,
+          "p95": 16.6666666666667,
+          "max": 24.9586666666667
+        },
+        "godot_process_ms": {
+          "median": 17.4,
+          "p95": 20.7,
+          "max": 20.7
+        },
+        "godot_post_draw_interval_ms": {
+          "median": 16.7,
+          "p95": 18.3,
+          "max": 21.5
+        }
+      }
+    }
+  ],
+  "matched_paths_and_poses": [
+    {
+      "width": 1600,
+      "scene": "warm",
+      "common_ticks": 479,
+      "mismatches": {
+        "position": 0,
+        "camera_transform": 0,
+        "camera_yaw": 0,
+        "space": 0,
+        "viewport": 0,
+        "visitor": 0
+      },
+      "spaces": [
+        "gallery"
+      ]
+    },
+    {
+      "width": 1600,
+      "scene": "art",
+      "common_ticks": 479,
+      "mismatches": {
+        "position": 0,
+        "camera_transform": 0,
+        "camera_yaw": 0,
+        "space": 0,
+        "viewport": 0,
+        "visitor": 0
+      },
+      "spaces": [
+        "gallery"
+      ]
+    },
+    {
+      "width": 1600,
+      "scene": "white",
+      "common_ticks": 479,
+      "mismatches": {
+        "position": 0,
+        "camera_transform": 0,
+        "camera_yaw": 0,
+        "space": 0,
+        "viewport": 0,
+        "visitor": 0
+      },
+      "spaces": [
+        "arch"
+      ]
+    },
+    {
+      "width": 720,
+      "scene": "warm",
+      "common_ticks": 479,
+      "mismatches": {
+        "position": 0,
+        "camera_transform": 0,
+        "camera_yaw": 0,
+        "space": 0,
+        "viewport": 0,
+        "visitor": 0
+      },
+      "spaces": [
+        "gallery"
+      ]
+    },
+    {
+      "width": 720,
+      "scene": "art",
+      "common_ticks": 479,
+      "mismatches": {
+        "position": 0,
+        "camera_transform": 0,
+        "camera_yaw": 0,
+        "space": 0,
+        "viewport": 0,
+        "visitor": 0
+      },
+      "spaces": [
+        "gallery"
+      ]
+    },
+    {
+      "width": 720,
+      "scene": "white",
+      "common_ticks": 479,
+      "mismatches": {
+        "position": 0,
+        "camera_transform": 0,
+        "camera_yaw": 0,
+        "space": 0,
+        "viewport": 0,
+        "visitor": 0
+      },
+      "spaces": [
+        "arch"
+      ]
+    }
+  ],
+  "mode_pixel_changes": [
+    {
+      "width": 1600,
+      "scene": "warm",
+      "changed_pixels": 201133
+    },
+    {
+      "width": 1600,
+      "scene": "art",
+      "changed_pixels": 201213
+    },
+    {
+      "width": 1600,
+      "scene": "white",
+      "changed_pixels": 225362
+    },
+    {
+      "width": 720,
+      "scene": "warm",
+      "changed_pixels": 61429
+    },
+    {
+      "width": 720,
+      "scene": "art",
+      "changed_pixels": 60722
+    },
+    {
+      "width": 720,
+      "scene": "white",
+      "changed_pixels": 68040
+    }
+  ],
+  "static_holds": [
+    {
+      "width": 1600,
+      "label": "A",
+      "changed_pixels": 0
+    },
+    {
+      "width": 1600,
+      "label": "B",
+      "changed_pixels": 0
+    },
+    {
+      "width": 720,
+      "label": "A",
+      "changed_pixels": 0
+    },
+    {
+      "width": 720,
+      "label": "B",
+      "changed_pixels": 0
+    }
+  ]
+}

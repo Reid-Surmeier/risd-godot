@@ -1,0 +1,105 @@
+{
+  "url": "https://windows-wsl.taile06c45.ts.net/gallery-overnight-3d-01a0df97/22089e5.html",
+  "label": "risd-research-20260927",
+  "viewport": [
+    1600,
+    900
+  ],
+  "gpu": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)",
+  "measures": [
+    {
+      "phase": "standing",
+      "samples": 58,
+      "median_ms": 83.39999999999418,
+      "p95_ms": 100,
+      "mean_ms": 87.35344827586206
+    },
+    {
+      "phase": "walking",
+      "samples": 58,
+      "median_ms": 83.39999999999418,
+      "p95_ms": 100,
+      "mean_ms": 86.77931034482754
+    },
+    {
+      "phase": "turning",
+      "samples": 62,
+      "median_ms": 83.30000000000291,
+      "p95_ms": 100,
+      "mean_ms": 81.71774193548387
+    }
+  ],
+  "transfer_bytes": 113745585,
+  "ui": [
+    {
+      "control": "visible-entrance",
+      "passed": true,
+      "events": [
+        "ENTRY_COMPLETE (0.0, 0.0, -2.5882)"
+      ]
+    },
+    {
+      "control": "mouse-drag-no-click",
+      "passed": true,
+      "orbit": {
+        "position": [
+          0,
+          -2.58820009231567
+        ],
+        "space": "gallery",
+        "yaw": -2.12333076081229
+      }
+    },
+    {
+      "control": "horizontal-wheel-both-directions",
+      "passed": true,
+      "forward": {
+        "position": [
+          0,
+          -2.58820009231567
+        ],
+        "space": "gallery",
+        "yaw": -1.16312931926948
+      },
+      "reverse": {
+        "position": [
+          0,
+          -2.58820009231567
+        ],
+        "space": "gallery",
+        "yaw": -2.12212862162132
+      }
+    },
+    {
+      "control": "other-wall",
+      "passed": true,
+      "events": [
+        "OTHER_WALL west",
+        "OTHER_WALL east",
+        "OTHER_WALL west",
+        "OTHER_WALL east"
+      ]
+    },
+    {
+      "control": "camera",
+      "url": "https://windows-wsl.taile06c45.ts.net/gallery-overnight-3d-01a0df97/22089e5.html?lighting=baked&variant=gallery",
+      "passed": true
+    },
+    {
+      "control": "lighting",
+      "url": "https://windows-wsl.taile06c45.ts.net/gallery-overnight-3d-01a0df97/22089e5.html?lighting=original&variant=gallery",
+      "passed": true
+    }
+  ],
+  "errors": [
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "WARNING: 2D MSAA is not yet supported for GLES3.",
+    "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "WARNING: 2D MSAA is not yet supported for GLES3.",
+    "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)"
+  ]
+}

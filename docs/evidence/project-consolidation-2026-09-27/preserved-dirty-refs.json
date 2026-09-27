@@ -1,0 +1,26 @@
+[
+  {
+    "source": "/home/reidsurmeier/orca/workspaces/risd-godot/atlas-artwork-popup-prototype",
+    "base": "007b4cb0ccb20b2425645795c269687b3da735b7",
+    "ref": "refs/heads/preservation/20260927-worktree-002",
+    "commit": "19a21bb65b01df58f865672e01f53364db2c659a"
+  },
+  {
+    "source": "/home/reidsurmeier/orca/workspaces/risd-godot/auto-risd-find-save-study-heartbeat-run-135-20260916T1240",
+    "base": "8a71c3c4dc1e17a54838f85c79655b9ae4338672",
+    "ref": "refs/heads/preservation/20260927-worktree-078",
+    "commit": "7235678cb22031f898e2a839f61b112bfd626301"
+  },
+  {
+    "source": "/home/reidsurmeier/orca/workspaces/risd-godot/kidpix-sketchbook-prototype",
+    "base": "2a3a6a81ff916f2287d516aef200f164e040cf5c",
+    "ref": "refs/heads/preservation/20260927-worktree-143",
+    "commit": "ce212a288c5570535e168640e9103a1e4ce9d3c4"
+  },
+  {
+    "source": "/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype",
+    "base": "dd6948a699831f8c7dd9330607b4d0bba99532be",
+    "ref": "refs/heads/preservation/20260927-worktree-167",
+    "commit": "889df1fe5ddd04cc1f0b33e0436b73ff50f40b34"
+  }
+]

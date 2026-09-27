@@ -1,0 +1,217 @@
+{
+ "pass": true,
+ "checks": {
+  "screenshots_present": {
+   "pass": true,
+   "detail": "['01-launch.png', '02-map.png', '03-sketchbook.png', '04-fixed-kept.png', '05-stub-blank.png', '06-grey.png', '07-collection.png', '08-untenanted.png', '09-resized.png', '10-restored.png']"
+  },
+  "launch_screenshot_is_1920x1080": {
+   "pass": true,
+   "detail": "(1080, 1920, 3)"
+  },
+  "six_fixed_tabs_in_order": {
+   "pass": true,
+   "detail": "['map', 'sketchbook', '3d_viewer', 'video_player', 'collection', 'playground']"
+  },
+  "labels_are_the_keys": {
+   "pass": true,
+   "detail": ""
+  },
+  "bar_sits_at_the_bottom": {
+   "pass": true,
+   "detail": "bar {'h': 73.9521560668945, 'w': 1920.0, 'x': 0.0, 'y': 1006.0478515625}"
+  },
+  "collection_active_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "no_close_rect_on_fixed_tabs": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_pages_frozen_at_launch": {
+   "pass": true,
+   "detail": "[('map', True), ('sketchbook', True), ('3d_viewer', True), ('video_player', True), ('collection', False), ('playground', True)]"
+  },
+  "only_the_launch_tenant_is_created": {
+   "pass": true,
+   "detail": "[None, None, None, None, 'ok', None]"
+  },
+  "tenant_state_missing_before_first_show": {
+   "pass": true,
+   "detail": ""
+  },
+  "tabs_left_to_right_within_window": {
+   "pass": true,
+   "detail": ""
+  },
+  "launch_page_area_white": {
+   "pass": true,
+   "detail": ""
+  },
+  "launch_tab_starts_stub_sized": {
+   "pass": true,
+   "detail": "w 83 (stub 83)"
+  },
+  "launch_tab_grows_to_its_width": {
+   "pass": true,
+   "detail": "[83, 83, 121, 150, 165, 172, 175, 175, 175, 175, 175, 175, 175, 175, 175, 175]"
+  },
+  "page_shows_only_after_the_grow_settles": {
+   "pass": true,
+   "detail": "first shown at frame 7"
+  },
+  "grow_frame_shows_the_bar_in_the_gap_left_of_playground": {
+   "pass": true,
+   "detail": "gap (5, 14, 3) std 5.2"
+  },
+  "launch_settles_after_press_grow_and_fade": {
+   "pass": true,
+   "detail": "737 ms"
+  },
+  "launch_tenant_created_at_settle": {
+   "pass": true,
+   "detail": "480 ms"
+  },
+  "click_map_shows_map_page": {
+   "pass": true,
+   "detail": ""
+  },
+  "clicked_tab_shows_pressed_tint_within_100ms": {
+   "pass": true,
+   "detail": "early frames [(71, [113, 194, 218])]"
+  },
+  "selected_tab_blue_after_the_dip": {
+   "pass": true,
+   "detail": "late frames [(272, [127, 227, 246]), (336, [127, 227, 246]), (401, [127, 227, 246])]"
+  },
+  "selected_blue_endpoint_is_static": {
+   "pass": true,
+   "detail": "tints [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]"
+  },
+  "dip_reported_then_released": {
+   "pass": true,
+   "detail": ""
+  },
+  "page_switch_settles_in_about_200ms": {
+   "pass": true,
+   "detail": "208 ms"
+  },
+  "shown_tenant_process_runs": {
+   "pass": true,
+   "detail": "7 -> 27"
+  },
+  "tenant_fills_page_area": {
+   "pass": true,
+   "detail": "[1920.0, 1006.0478515625]"
+  },
+  "hidden_map_page_frozen_after_fade": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_tenant_process_stops": {
+   "pass": true,
+   "detail": "46 -> 46 over 20 frames"
+  },
+  "hidden_tenant_gets_no_input": {
+   "pass": true,
+   "detail": "inputs 0 -> 0"
+  },
+  "shown_sketchbook_runs_and_hears_the_key": {
+   "pass": true,
+   "detail": "ticks 60->81, inputs 0->2"
+  },
+  "map_resumes_with_state_intact": {
+   "pass": true,
+   "detail": "frozen at 46, resumed 47 -> 125"
+  },
+  "fixed_close_refused_by_interface": {
+   "pass": true,
+   "detail": "shell.tab_fixed"
+  },
+  "fixed_close_click_did_nothing": {
+   "pass": true,
+   "detail": ""
+  },
+  "stub_opens_blank_page_with_close": {
+   "pass": true,
+   "detail": "count 7"
+  },
+  "closing_blank_lands_on_playground": {
+   "pass": true,
+   "detail": ""
+  },
+  "playground_callable_tenant_created_on_first_show": {
+   "pass": true,
+   "detail": ""
+  },
+  "playground_page_is_the_grey_tenant": {
+   "pass": true,
+   "detail": "mean [160, 160, 160]"
+  },
+  "page_cross_fades_through_in_between_greys": {
+   "pass": true,
+   "detail": "[237, 238, 255, 255, 255, 255]"
+  },
+  "collection_tab_dips_on_click": {
+   "pass": true,
+   "detail": "[(75, [113, 194, 218]), (147, [113, 194, 218]), (214, [127, 227, 246]), (279, [127, 227, 246]), (344, [127, 227, 246]), (409, [127, 227, 246])]"
+  },
+  "collection_blue_endpoint_is_static": {
+   "pass": true,
+   "detail": "tints [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]"
+  },
+  "grey_to_collection_settles_in_about_200ms": {
+   "pass": true,
+   "detail": "214 ms"
+  },
+  "grey_page_frozen_after_the_fade": {
+   "pass": true,
+   "detail": ""
+  },
+  "untenanted_tab_has_no_tenant": {
+   "pass": true,
+   "detail": ""
+  },
+  "untenanted_page_is_plain_white": {
+   "pass": true,
+   "detail": ""
+  },
+  "resize_refits_bar_and_tenant": {
+   "pass": true,
+   "detail": "window [1440.0, 900.0], bar {'h': 55.4641151428223, 'w': 1440.0, 'x': 0.0, 'y': 844.535888671875}, tenant [1440.0, 844.535888671875]"
+  },
+  "resized_screenshot_is_1440x900": {
+   "pass": true,
+   "detail": "(900, 1440, 3)"
+  },
+  "restore_refits_back": {
+   "pass": true,
+   "detail": ""
+  },
+  "bar_spans_full_width_at_bottom": {
+   "pass": true,
+   "detail": ""
+  },
+  "active_fixed_tab_draws_no_close_button": {
+   "pass": true,
+   "detail": "dark pixels 14"
+  },
+  "stub_blank_shot_differs_from_launch": {
+   "pass": true,
+   "detail": ""
+  }
+ },
+ "sha256": {
+  "01-launch.png": "874f9fdaca06ddd802da7e432deedc09a932972cac4c2cfe3f482c741443b70f",
+  "02-map.png": "f5a39ce71536e7c441d32e57910072e6aec6cdaf596988a937147b0346de8277",
+  "03-sketchbook.png": "517f18f587636840477f900f070f43410d3eefc5c9280a79c6cd4b48881c584a",
+  "04-fixed-kept.png": "f5a39ce71536e7c441d32e57910072e6aec6cdaf596988a937147b0346de8277",
+  "05-stub-blank.png": "ce27c58c136aeb1b7a280ff23bc76c797eb744695663ebcdc095706ccdac8778",
+  "06-grey.png": "261400fefeb3704e3e6ae2d9dcdc7fd4fb66e4daff967a4d8dfa3ea90a5bd15a",
+  "07-collection.png": "874f9fdaca06ddd802da7e432deedc09a932972cac4c2cfe3f482c741443b70f",
+  "08-untenanted.png": "e115663a7731b63387e9a497da8caf1fa725b23e5f57c614895a7c6d83e2bffd",
+  "09-resized.png": "ad3c97777a7a118a9d9be13608543db0e9231d90c0fc3c2e205b60a6b3869fda",
+  "10-restored.png": "874f9fdaca06ddd802da7e432deedc09a932972cac4c2cfe3f482c741443b70f"
+ }
+}

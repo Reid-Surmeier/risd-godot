@@ -1,0 +1,176 @@
+{
+ "attempts": [
+  {
+   "id": "v1p1",
+   "prompt": "prompts/v1-pass1.txt",
+   "promptSha256": "3ae2d527129155581a021c1daa356a160c52e6f426ad9503c3b849b0bc576858",
+   "size": "2112x1408",
+   "inputs": [
+    {
+     "path": "references/style-nextrooms-mall-viewport.png",
+     "sha256": "31960ccc2bba5fdd453c691d349e714029e651b6d8cba893fcba3a4453880429"
+    },
+    {
+     "path": "source/wide-north-entry.png",
+     "sha256": "1da5c5c42afc0f7dd64fbf649001b29777f2114da08b6fe15ecefd4d9bd5c256"
+    },
+    {
+     "path": "references/wall-west-arch-to-door.png",
+     "sha256": "752df0299008d167f6b5f669a83feb8322dd029a108d8df997ba8c68c7e48823"
+    },
+    {
+     "path": "references/wall-east-arch-to-door.png",
+     "sha256": "2fd0f88b74e23c5af4fd5ecf336868d540189134a787588f98cc8c1072bd3c1f"
+    },
+    {
+     "path": "references/character-4x.png",
+     "sha256": "6cbb1aefdb2c1b18e1824018a6fcb9ea27097cb3a177883274820d0eac488973"
+    }
+   ]
+  },
+  {
+   "id": "v2",
+   "prompt": "prompts/v2.txt",
+   "promptSha256": "39bc3435f66e0182f4b39886a013b303453d3c3d4d99a5ada93505841d1cef64",
+   "size": "2112x1408",
+   "inputs": [
+    {
+     "path": "references/style-grand-gallery-final.png",
+     "sha256": "71d0078cf3f8b6c678d04451b64f738eec9d7ca63ec8e1b480053feb52b725cf"
+    },
+    {
+     "path": "source/wide-north-entry.png",
+     "sha256": "1da5c5c42afc0f7dd64fbf649001b29777f2114da08b6fe15ecefd4d9bd5c256"
+    },
+    {
+     "path": "references/wall-west-arch-to-door.png",
+     "sha256": "752df0299008d167f6b5f669a83feb8322dd029a108d8df997ba8c68c7e48823"
+    },
+    {
+     "path": "references/wall-east-arch-to-door.png",
+     "sha256": "2fd0f88b74e23c5af4fd5ecf336868d540189134a787588f98cc8c1072bd3c1f"
+    }
+   ]
+  },
+  {
+   "id": "v3",
+   "prompt": "prompts/v3.txt",
+   "promptSha256": "492eac9477a1f932c50e1ee1162bc8debbbc189ce8768302e98fc41c48605fc8",
+   "size": "2112x1408",
+   "inputs": [
+    {
+     "path": "references/style-nextrooms-art-store-view.png",
+     "sha256": "d2e0908c244239646ad7320ad9fc119e4e960ae52c2025f0a4d88a0fa6d0c260"
+    },
+    {
+     "path": "source/wide-north-entry.png",
+     "sha256": "1da5c5c42afc0f7dd64fbf649001b29777f2114da08b6fe15ecefd4d9bd5c256"
+    },
+    {
+     "path": "references/wall-west-arch-to-door.png",
+     "sha256": "752df0299008d167f6b5f669a83feb8322dd029a108d8df997ba8c68c7e48823"
+    },
+    {
+     "path": "references/wall-east-arch-to-door.png",
+     "sha256": "2fd0f88b74e23c5af4fd5ecf336868d540189134a787588f98cc8c1072bd3c1f"
+    },
+    {
+     "path": "references/character-4x.png",
+     "sha256": "6cbb1aefdb2c1b18e1824018a6fcb9ea27097cb3a177883274820d0eac488973"
+    }
+   ]
+  },
+  {
+   "id": "v4",
+   "prompt": "prompts/v4.txt",
+   "promptSha256": "85686f70494b8e33924688773ffbd607c93b5dcef8cce53434f9646e66ca2685",
+   "size": "2112x1408",
+   "inputs": [
+    {
+     "path": "references/style-grand-gallery-final.png",
+     "sha256": "71d0078cf3f8b6c678d04451b64f738eec9d7ca63ec8e1b480053feb52b725cf"
+    },
+    {
+     "path": "source/wide-north-entry.png",
+     "sha256": "1da5c5c42afc0f7dd64fbf649001b29777f2114da08b6fe15ecefd4d9bd5c256"
+    },
+    {
+     "path": "references/wall-west-arch-to-door.png",
+     "sha256": "752df0299008d167f6b5f669a83feb8322dd029a108d8df997ba8c68c7e48823"
+    },
+    {
+     "path": "references/wall-east-arch-to-door.png",
+     "sha256": "2fd0f88b74e23c5af4fd5ecf336868d540189134a787588f98cc8c1072bd3c1f"
+    }
+   ]
+  },
+  {
+   "id": "v5",
+   "prompt": "prompts/v5.txt",
+   "promptSha256": "e39c84b95c855669a7539abde6e60e203aa097f50ada327d7f5411dfe005d0b3",
+   "size": "2112x1408",
+   "inputs": [
+    {
+     "path": "references/style-grand-gallery-final.png",
+     "sha256": "71d0078cf3f8b6c678d04451b64f738eec9d7ca63ec8e1b480053feb52b725cf"
+    },
+    {
+     "path": "source/wide-north-entry.png",
+     "sha256": "1da5c5c42afc0f7dd64fbf649001b29777f2114da08b6fe15ecefd4d9bd5c256"
+    },
+    {
+     "path": "references/wall-west-arch-to-door.png",
+     "sha256": "752df0299008d167f6b5f669a83feb8322dd029a108d8df997ba8c68c7e48823"
+    },
+    {
+     "path": "references/wall-east-arch-to-door.png",
+     "sha256": "2fd0f88b74e23c5af4fd5ecf336868d540189134a787588f98cc8c1072bd3c1f"
+    }
+   ]
+  },
+  {
+   "id": "v6",
+   "prompt": "prompts/v6.txt",
+   "promptSha256": "945d77b41278c4c7f6c6a64d93f2a683113933cb0e8b4693b73cca28917c6b23",
+   "size": "2112x1408",
+   "inputs": [
+    {
+     "path": "references/style-grand-gallery-final.png",
+     "sha256": "71d0078cf3f8b6c678d04451b64f738eec9d7ca63ec8e1b480053feb52b725cf"
+    },
+    {
+     "path": "source/wide-north-entry.png",
+     "sha256": "1da5c5c42afc0f7dd64fbf649001b29777f2114da08b6fe15ecefd4d9bd5c256"
+    },
+    {
+     "path": "references/wall-west-arch-to-door.png",
+     "sha256": "752df0299008d167f6b5f669a83feb8322dd029a108d8df997ba8c68c7e48823"
+    },
+    {
+     "path": "references/wall-east-arch-to-door.png",
+     "sha256": "2fd0f88b74e23c5af4fd5ecf336868d540189134a787588f98cc8c1072bd3c1f"
+    },
+    {
+     "path": "references/style-nextrooms-art-store-view.png",
+     "sha256": "d2e0908c244239646ad7320ad9fc119e4e960ae52c2025f0a4d88a0fa6d0c260"
+    }
+   ]
+  },
+  {
+   "id": "kid-back",
+   "prompt": "prompts/kid-back.txt",
+   "promptSha256": "b3eaf05269c551f44ab8f285f8148172c01e62a75d5d8b609f72f809044f9cc1",
+   "size": "1024x1024",
+   "inputs": [
+    {
+     "path": "references/kid-back-crop.png",
+     "sha256": "37289734fa2dc4a8a4f4f696904c164ede067fd4b833961021d0dce6b419e50b"
+    },
+    {
+     "path": "references/character-4x.png",
+     "sha256": "6cbb1aefdb2c1b18e1824018a6fcb9ea27097cb3a177883274820d0eac488973"
+    }
+   ]
+  }
+ ]
+}

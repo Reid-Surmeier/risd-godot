@@ -1,0 +1,100 @@
+{
+ "attempts": [
+  {
+   "id": "s2",
+   "prompt": "prompts/s2-mid-north.txt",
+   "promptSha256": "c0b573bc0a93c7d299ccc8a22a9386e57c5057d8047ae3086bd7c0c0efca787d",
+   "size": "2112x1408",
+   "inputs": [
+    {
+     "path": "references/anchor-v4-south-end-north.png",
+     "sha256": "91df878e53f73876e6f39140a72a401d40a57e831ddb2ce85bddcbb3c3f6c2a9"
+    },
+    {
+     "path": "references/wide-north-entry.png",
+     "sha256": "1da5c5c42afc0f7dd64fbf649001b29777f2114da08b6fe15ecefd4d9bd5c256"
+    },
+    {
+     "path": "references/wall-west-arch-to-door.png",
+     "sha256": "752df0299008d167f6b5f669a83feb8322dd029a108d8df997ba8c68c7e48823"
+    },
+    {
+     "path": "references/wall-east-arch-to-door.png",
+     "sha256": "2fd0f88b74e23c5af4fd5ecf336868d540189134a787588f98cc8c1072bd3c1f"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "prompt": "prompts/s3-near-door-north.txt",
+   "promptSha256": "705ec06b0c48747409f826b1eac53bfad3186aa80aacf0bebf982d1d62aec386",
+   "size": "2112x1408",
+   "inputs": [
+    {
+     "path": "references/anchor-v4-south-end-north.png",
+     "sha256": "91df878e53f73876e6f39140a72a401d40a57e831ddb2ce85bddcbb3c3f6c2a9"
+    },
+    {
+     "path": "references/north-wall-door.png",
+     "sha256": "f4c60c69e70553d6745cb5b1d4a881a0abfba475d3ae203e49b5ba2734ba3b76"
+    },
+    {
+     "path": "references/wall-west-arch-to-door.png",
+     "sha256": "752df0299008d167f6b5f669a83feb8322dd029a108d8df997ba8c68c7e48823"
+    },
+    {
+     "path": "references/wall-east-arch-to-door.png",
+     "sha256": "2fd0f88b74e23c5af4fd5ecf336868d540189134a787588f98cc8c1072bd3c1f"
+    }
+   ]
+  },
+  {
+   "id": "r3",
+   "prompt": "prompts/r3-north-end-south.txt",
+   "promptSha256": "54f1c21734e7a49e4c62d1ab4b958e0de4f5ec5a8d4414feb1f24a43644cb56b",
+   "size": "2112x1408",
+   "inputs": [
+    {
+     "path": "references/anchor-v4-south-end-north.png",
+     "sha256": "91df878e53f73876e6f39140a72a401d40a57e831ddb2ce85bddcbb3c3f6c2a9"
+    },
+    {
+     "path": "references/arch-outside.png",
+     "sha256": "fdaaf16656bfd239bde16c849d78d0238d672f50bbee0034ad24de9336dfbc10"
+    },
+    {
+     "path": "references/wall-east-door-to-arch.png",
+     "sha256": "0981081d9aabc9960e4def1adcc9fa21a2045ce3b19372a286e039f089524dad"
+    },
+    {
+     "path": "references/wall-west-door-to-arch.png",
+     "sha256": "14fd2b0f13dd5ec7fc7e4084c0f6ec60eb67c35cefd3170a72b8a2dcf7da8e0b"
+    }
+   ]
+  },
+  {
+   "id": "r2",
+   "prompt": "prompts/r2-mid-south.txt",
+   "promptSha256": "eb93adfca40294bc164cbd0808984c7fab5c969c168be2c5cf627e37cb9cec22",
+   "size": "2112x1408",
+   "inputs": [
+    {
+     "path": "references/anchor-v4-south-end-north.png",
+     "sha256": "91df878e53f73876e6f39140a72a401d40a57e831ddb2ce85bddcbb3c3f6c2a9"
+    },
+    {
+     "path": "references/arch-outside.png",
+     "sha256": "fdaaf16656bfd239bde16c849d78d0238d672f50bbee0034ad24de9336dfbc10"
+    },
+    {
+     "path": "references/wall-east-door-to-arch.png",
+     "sha256": "0981081d9aabc9960e4def1adcc9fa21a2045ce3b19372a286e039f089524dad"
+    },
+    {
+     "path": "references/wall-west-door-to-arch.png",
+     "sha256": "14fd2b0f13dd5ec7fc7e4084c0f6ec60eb67c35cefd3170a72b8a2dcf7da8e0b"
+    }
+   ]
+  }
+ ]
+}

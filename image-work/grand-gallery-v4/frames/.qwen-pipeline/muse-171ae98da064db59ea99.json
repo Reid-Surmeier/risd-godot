@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-171ae98da064db59ea99",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: John Singleton Copley, portrait of Theodore Atkinson in a red coat. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a carved rococo gilt frame with shell-and-scroll cartouches at the four corners and at the middle of each side, bright gold. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-171ae98da064db59ea99",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/E2-view0.png",
+      "sha256": "8970320ea43643f5c53e1900700af9424e35df1898c001d5030181a5bc1a1452",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/E2-view1.png",
+      "sha256": "252c956af736bea13678ef7077c94c72babd92c80d9518f334028c0a357024e9",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-E2.json",
+      "sha256": "171ae98da064db59ea99216ce580da25800e60c4f99694143c2944e9405c20d1"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "7c40d4cd59581e7ca80cde40b647d051cf233a3d0c3c6441a96f59468d006b30"
+    },
+    {
+      "applicationPath": "prompts/E2.txt",
+      "sha256": "8fbbfd38ad6d45dcbd7a509ae0e26b1dce877a676dd37bbe0a3449272a13348c"
+    }
+  ]
+}

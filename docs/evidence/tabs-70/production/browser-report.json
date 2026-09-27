@@ -1,0 +1,61 @@
+{
+  "status": "pass",
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/4881913.html",
+  "results": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        4,
+        4
+      ],
+      "tabSourceWidths": [
+        379.9999557071353,
+        379.999889267839,
+        379.9999557071353,
+        379.9999557071353,
+        379.9999557071353,
+        379.9999557071353
+      ],
+      "active": 4
+    },
+    {
+      "width": 720,
+      "height": 486,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        4,
+        4
+      ],
+      "tabSourceWidths": [
+        379.9998188674575,
+        379.99986316030584,
+        379.99986316030584,
+        379.99986316030584,
+        379.99986316030584,
+        379.99986316030584
+      ],
+      "active": 4
+    }
+  ],
+  "motion": {
+    "generatedEntranceAvailable": false,
+    "browserEndpointSteady": true,
+    "repeatSelectionSteady": true
+  },
+  "expected404": [
+    "https://windows-wsl.taile06c45.ts.net/favicon.ico"
+  ],
+  "errors": []
+}

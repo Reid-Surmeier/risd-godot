@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-5c5b8a0ede345fff3afa",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: an allegory of Charity: a seated woman in a red robe with several infant children, in a carved gilt frame. They are the sole authority for this painting's FRAME: its proportions, profile, width of each side, ornament, colour and finish. Reference image 3 is only a style example from the same game: an empty picture frame rendered as a clean low-poly model.\n\nRender this painting's frame alone, as an empty frame, in the style of reference image 3: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt, crisp readable relief built from large flat facets, angular stepped curves, planar highlight bands and controlled dark creases, the frame's own real colours (burnished antique gold with warm ochre highlights). Keep its real proportions: the outer edge has the painting's aspect ratio as in the photos, and every side of the frame has its real width relative to the painting.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost molding, is perfectly clean, featureless, flat solid pure white (#FFFFFF). The frame's outer edge fills the whole canvas edge to edge with no background around it. No glare, no reflections, no wall, no label, no text, no photorealism. Return one complete image with no transparency.\n",
+  "procedureId": "muse-5c5b8a0ede345fff3afa",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.08",
+  "references": [
+    {
+      "path": "references/charity-view-a.png",
+      "sha256": "3ba23ae2c8ed232aac71a242eb80674137293c348931df2da772a6c35181660a",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/charity-view-b.png",
+      "sha256": "dce11c74ab5c1be00001d2b208d645cac67ac2a1a5b9c6317ebc40e120573326",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "references/frame-system-example.png",
+      "sha256": "7283c6276210cefb4fa8db4574e6f50541d31040f1ac9599c402e1a3d3a2bd31",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-charity-frame.json",
+      "sha256": "5c5b8a0ede345fff3afa87c18013c16ab67bb8c68fa37c6e965bc9178fc31aea"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "9c0d7ab4e8d126e1d27c639a06f925e95719d2f99d210e4576dd3f23a3d410a7"
+    },
+    {
+      "applicationPath": "prompts/charity-frame.txt",
+      "sha256": "f740ecddd103d786b24cdf47b13987a310addb2592a941535b2e11d073b00d15"
+    }
+  ]
+}

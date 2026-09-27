@@ -1,0 +1,630 @@
+{
+  "url": "http://127.0.0.1:8772/cde21b9-dirty.html?qa-perf=1&qa-crt=1",
+  "cpu": 1,
+  "network_mbit": 40,
+  "load": {
+    "marks": [
+      {
+        "name": "downloads-done",
+        "t": 37711
+      },
+      {
+        "name": "godot-ready",
+        "t": 38623.19999998808
+      },
+      {
+        "name": "pack-mounted",
+        "t": 38631.19999998808
+      },
+      {
+        "name": "game-loaded",
+        "t": 38771.69999998808
+      },
+      {
+        "name": "game-instanced",
+        "t": 38862.59999999404
+      },
+      {
+        "name": "warmup-start",
+        "t": 38862.59999999404
+      },
+      {
+        "name": "engine-started",
+        "t": 39224.59999999404
+      },
+      {
+        "name": "launch-settled",
+        "t": 44161.89999999106
+      },
+      {
+        "name": "tab-0-start",
+        "t": 44161.89999999106
+      },
+      {
+        "name": "tab-0-selected",
+        "t": 44905.89999999106
+      },
+      {
+        "name": "tab-0-drawn",
+        "t": 45089.79999999702
+      },
+      {
+        "name": "tab-1-start",
+        "t": 45089.89999999106
+      },
+      {
+        "name": "tab-1-selected",
+        "t": 45671.69999998808
+      },
+      {
+        "name": "tab-1-drawn",
+        "t": 47103
+      },
+      {
+        "name": "tab-2-start",
+        "t": 47103.09999999404
+      },
+      {
+        "name": "tab-2-selected",
+        "t": 48012.89999999106
+      },
+      {
+        "name": "tab-2-drawn",
+        "t": 48466.69999998808
+      },
+      {
+        "name": "tab-3-start",
+        "t": 48466.79999999702
+      },
+      {
+        "name": "tab-3-selected",
+        "t": 48616.09999999404
+      },
+      {
+        "name": "tab-3-drawn",
+        "t": 48882.79999999702
+      },
+      {
+        "name": "tab-5-start",
+        "t": 48882.79999999702
+      },
+      {
+        "name": "tab-5-selected",
+        "t": 49100.29999999702
+      },
+      {
+        "name": "tab-5-drawn",
+        "t": 49415.5
+      },
+      {
+        "name": "tab-4-start",
+        "t": 49415.59999999404
+      },
+      {
+        "name": "tab-4-selected",
+        "t": 49416.59999999404
+      },
+      {
+        "name": "tab-4-drawn",
+        "t": 49665.5
+      },
+      {
+        "name": "tabs-warm",
+        "t": 49665.5
+      },
+      {
+        "name": "game-shown",
+        "t": 51515.5
+      }
+    ],
+    "resources": [
+      {
+        "name": "cde21b9-dirty.wasm.gz",
+        "bytes": 10084605,
+        "duration": 4094.0999999940395
+      },
+      {
+        "name": "cde21b9-dirty.game.pck.gz",
+        "bytes": 139802654,
+        "duration": 36428.90000000596
+      },
+      {
+        "name": "cde21b9-dirty.pck.gz",
+        "bytes": 9917,
+        "duration": 25.600000008940697
+      }
+    ],
+    "memory": {
+      "used": 181549317,
+      "total": 198006213
+    }
+  },
+  "tabs": [
+    {
+      "i": 0,
+      "elapsed": 416.5,
+      "key": "map",
+      "tenant": "ok",
+      "frames": {
+        "count": 42,
+        "median": 16.69999999999709,
+        "p95": 16.700000000004366,
+        "max": 66.69999999999709,
+        "over50": 1
+      }
+    },
+    {
+      "i": 1,
+      "elapsed": 448.5,
+      "key": "sketchbook",
+      "tenant": "ok",
+      "frames": {
+        "count": 46,
+        "median": 16.69999999999709,
+        "p95": 16.799999999995634,
+        "max": 50,
+        "over50": 0
+      }
+    },
+    {
+      "i": 2,
+      "elapsed": 428.59999999403954,
+      "key": "3d_viewer",
+      "tenant": "ok",
+      "frames": {
+        "count": 45,
+        "median": 16.69999999999709,
+        "p95": 16.700000000004366,
+        "max": 50.099999999998545,
+        "over50": 1
+      }
+    },
+    {
+      "i": 3,
+      "elapsed": 449.79999999701977,
+      "key": "video_player",
+      "tenant": "ok",
+      "frames": {
+        "count": 46,
+        "median": 16.69999999999709,
+        "p95": 16.80000000000291,
+        "max": 49.89999999999418,
+        "over50": 0
+      }
+    },
+    {
+      "i": 5,
+      "elapsed": 429.8999999910593,
+      "key": "playground",
+      "tenant": "ok",
+      "frames": {
+        "count": 45,
+        "median": 16.69999999999709,
+        "p95": 16.700000000004366,
+        "max": 50.10000000000582,
+        "over50": 1
+      }
+    },
+    {
+      "i": 6,
+      "elapsed": 430.5,
+      "key": "flowers",
+      "tenant": "ok",
+      "frames": {
+        "count": 43,
+        "median": 16.69999999999709,
+        "p95": 16.700000000004366,
+        "max": 83.40000000000146,
+        "over50": 1
+      }
+    },
+    {
+      "i": 4,
+      "elapsed": 451.6000000089407,
+      "key": "collection",
+      "tenant": "ok",
+      "frames": {
+        "count": 46,
+        "median": 16.69999999999709,
+        "p95": 16.80000000000291,
+        "max": 49.900000000001455,
+        "over50": 0
+      }
+    }
+  ],
+  "phases": [
+    {
+      "label": "S",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "down"
+        ],
+        "position": [
+          -5.51091083663326e-17,
+          -3.01943778991699
+        ],
+        "space": "gallery",
+        "us": 22741200,
+        "velocity": [
+          -2.44929370517034e-16,
+          -2
+        ]
+      }
+    },
+    {
+      "label": "stop",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [],
+        "position": [
+          -1.0145531016874e-16,
+          -3.39788293838501
+        ],
+        "space": "gallery",
+        "us": 23274300,
+        "velocity": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "label": "W",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "up"
+        ],
+        "position": [
+          -6.26837997588276e-17,
+          -3.08129000663757
+        ],
+        "space": "gallery",
+        "us": 23524400,
+        "velocity": [
+          2.44929370517034e-16,
+          2
+        ]
+      }
+    },
+    {
+      "label": "W+D",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "up",
+          "right"
+        ],
+        "position": [
+          -0.416162759065628,
+          -2.22040271759033
+        ],
+        "space": "gallery",
+        "us": 24041000,
+        "velocity": [
+          -1.41421353816986,
+          1.41421353816986
+        ]
+      }
+    },
+    {
+      "label": "D",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "right"
+        ],
+        "position": [
+          -0.854249000549316,
+          -2.07092905044556
+        ],
+        "space": "gallery",
+        "us": 24291000,
+        "velocity": [
+          -2,
+          2.44929370517034e-16
+        ]
+      }
+    },
+    {
+      "label": "D+S",
+      "state": {
+        "delta_ms": 145.566666666667,
+        "held": [
+          "right",
+          "down"
+        ],
+        "position": [
+          -1.5806884765625,
+          -2.30758738517761
+        ],
+        "space": "gallery",
+        "us": 24994900,
+        "velocity": [
+          -1.41421353816986,
+          -1.41421353816986
+        ]
+      }
+    },
+    {
+      "label": "S",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "down"
+        ],
+        "position": [
+          -1.71796238422394,
+          -2.79219365119934
+        ],
+        "space": "gallery",
+        "us": 25257600,
+        "velocity": [
+          -2.44929370517034e-16,
+          -2
+        ]
+      }
+    },
+    {
+      "label": "S+W cancellation",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "down",
+          "up"
+        ],
+        "position": [
+          -1.71796238422394,
+          -3.31447100639343
+        ],
+        "space": "gallery",
+        "us": 25757700,
+        "velocity": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "label": "W reversal",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "up"
+        ],
+        "position": [
+          -1.71796238422394,
+          -2.6645450592041
+        ],
+        "space": "gallery",
+        "us": 26274200,
+        "velocity": [
+          2.44929370517034e-16,
+          2
+        ]
+      }
+    },
+    {
+      "label": "stop",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [],
+        "position": [
+          -1.71796238422394,
+          -2.55565190315247
+        ],
+        "space": "gallery",
+        "us": 26540800,
+        "velocity": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "label": "A",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "left"
+        ],
+        "position": [
+          -1.16802954673767,
+          -2.55565190315247
+        ],
+        "space": "gallery",
+        "us": 27041000,
+        "velocity": [
+          2,
+          -2.44929370517034e-16
+        ]
+      }
+    },
+    {
+      "label": "D reversal",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [
+          "right"
+        ],
+        "position": [
+          -0.938029766082764,
+          -2.55565190315247
+        ],
+        "space": "gallery",
+        "us": 27307700,
+        "velocity": [
+          -0.600000143051147,
+          7.34788243899999e-17
+        ]
+      }
+    },
+    {
+      "label": "stop",
+      "state": {
+        "delta_ms": 16.6666666666667,
+        "held": [],
+        "position": [
+          -1.37691831588745,
+          -2.55565190315247
+        ],
+        "space": "gallery",
+        "us": 27824200,
+        "velocity": [
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "observed_peak_js_heap_bytes": 344628963,
+  "startup_raf_ms": {
+    "count": 2363,
+    "median": 16.69999999999709,
+    "p95": 16.799999999999272,
+    "max": 2133.2999999999956,
+    "over50": 13
+  },
+  "latency_ms": {
+    "count": 0,
+    "over50": 0
+  },
+  "process_wall_ms": {
+    "count": 338,
+    "median": 16.6666666666667,
+    "p95": 16.6666666666667,
+    "max": 145.566666666667,
+    "over50": 2
+  },
+  "post_draw_ms": {
+    "count": 338,
+    "median": 16.7,
+    "p95": 19.9,
+    "max": 459.1,
+    "over50": 1
+  },
+  "dom": [
+    {
+      "kind": "keydown",
+      "key": "s",
+      "ms": 60280.29999999702,
+      "event_ms": 60280,
+      "repeat": false
+    },
+    {
+      "kind": "keyup",
+      "key": "s",
+      "ms": 60714.09999999404,
+      "event_ms": 60706.59999999404,
+      "repeat": false
+    },
+    {
+      "kind": "keydown",
+      "key": "w",
+      "ms": 61124.79999999702,
+      "event_ms": 61114.69999998808,
+      "repeat": false
+    },
+    {
+      "kind": "keydown",
+      "key": "d",
+      "ms": 61526.5,
+      "event_ms": 61526.29999999702,
+      "repeat": false
+    },
+    {
+      "kind": "keyup",
+      "key": "w",
+      "ms": 61928.39999999106,
+      "event_ms": 61928.29999999702,
+      "repeat": false
+    },
+    {
+      "kind": "keydown",
+      "key": "s",
+      "ms": 62330.29999999702,
+      "event_ms": 62330.09999999404,
+      "repeat": false
+    },
+    {
+      "kind": "keyup",
+      "key": "d",
+      "ms": 62872.59999999404,
+      "event_ms": 62859.79999999702,
+      "repeat": false
+    },
+    {
+      "kind": "keydown",
+      "key": "w",
+      "ms": 63301.79999999702,
+      "event_ms": 63287.89999999106,
+      "repeat": false
+    },
+    {
+      "kind": "keyup",
+      "key": "s",
+      "ms": 63711.19999998808,
+      "event_ms": 63711.09999999404,
+      "repeat": false
+    },
+    {
+      "kind": "keyup",
+      "key": "w",
+      "ms": 64114.09999999404,
+      "event_ms": 64114,
+      "repeat": false
+    },
+    {
+      "kind": "keydown",
+      "key": "a",
+      "ms": 64527.59999999404,
+      "event_ms": 64527.29999999702,
+      "repeat": false
+    },
+    {
+      "kind": "keyup",
+      "key": "a",
+      "ms": 64930.29999999702,
+      "event_ms": 64930.09999999404,
+      "repeat": false
+    },
+    {
+      "kind": "keydown",
+      "key": "d",
+      "ms": 64931,
+      "event_ms": 64930.89999999106,
+      "repeat": false
+    },
+    {
+      "kind": "keyup",
+      "key": "d",
+      "ms": 65343.79999999702,
+      "event_ms": 65343.69999998808,
+      "repeat": false
+    }
+  ],
+  "errors": [],
+  "consoleLog": [
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+    "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL",
+    "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support.",
+    "WARNING: 2D MSAA is not yet supported for GLES3.",
+    "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "WARNING: 2D MSAA is not yet supported for GLES3.",
+    "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+    "ENTRY_COMPLETE (0.0, 0.0, -2.569438)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+    "   at: get_meta (core/object/object.cpp:1053)",
+    "%cNew Ruffle instance created (Version: nightly 2024-03-09 | WebAssembly extensions: ON | Used renderer: wgpu-webgl) background: #37528C; color: #FFAD33",
+    "Loading SWF file http://127.0.0.1:8772/flowers/flowers.swf"
+  ],
+  "raw_evidence": "network-before-raw.json.gz"
+}

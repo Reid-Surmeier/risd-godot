@@ -1,0 +1,85 @@
+{
+ "scene_origin_x": 1345,
+ "bar_top": 219,
+ "bar_height": 161,
+ "stripe_period": 35,
+ "stars": [
+  0,
+  0,
+  255,
+  161
+ ],
+ "right_cluster": [
+  1215,
+  0,
+  1920,
+  161
+ ],
+ "tab": {
+  "y": 33,
+  "height": 123,
+  "left_w": 76,
+  "right_w": 76,
+  "full_width": 640,
+  "first_tab_x": 261
+ },
+ "stub": {
+  "x": 761,
+  "y": 49,
+  "w": 180,
+  "h": 107,
+  "gap_from_tab_right": -60
+ },
+ "flag": [
+  46,
+  16
+ ],
+ "label_windows_live": [
+  168,
+  24
+ ],
+ "page_icon": [
+  42,
+  16
+ ],
+ "label_new": [
+  168,
+  24
+ ],
+ "tab2_source_x": 765,
+ "tabs_max_right": 1631,
+ "tab_pitch": 573,
+ "tab_min_width": 270,
+ "bar_background": [
+  0,
+  0,
+  3135,
+  161
+ ],
+ "bar_stripes": [
+  0,
+  0,
+  700,
+  161
+ ],
+ "label_dots": [
+  295,
+  40
+ ],
+ "right_cluster_icons_offset": 456,
+ "right_cluster_w": 1920,
+ "close": {
+  "w": 22,
+  "h": 22,
+  "margin_right": 80
+ },
+ "labels": {
+  "map": "label_map.png",
+  "sketchbook": "label_sketchbook.png",
+  "3d_viewer": "label_3d_viewer.png",
+  "video_player": "label_video_player.png",
+  "collection": "label_collection.png",
+  "playground": "label_playground.png",
+  "phone": "label_phone.png"
+ }
+}

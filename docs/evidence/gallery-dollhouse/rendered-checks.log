@@ -1,0 +1,34 @@
+BAKE_RECOVERY editor failure and preflight refusal preserve working files
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+DOLLHOUSE_RENDER texture_bytes=185501013 draw_calls=85
+VIEW gallery yaw 90.0
+VIEW dollhouse yaw 90.0
+VIEW dollhouse yaw 0.0
+VIEW dollhouse yaw -90.0
+VIEW dollhouse yaw -180.0
+VIEW dollhouse yaw 90.0
+DOLLHOUSE_HIDDEN_WALL 1
+VIEW dollhouse yaw 0.0
+VIEW dollhouse yaw -90.0
+VIEW dollhouse yaw -180.0
+VIEW dollhouse yaw 90.0
+VIEW dollhouse yaw 0.0
+DOLLHOUSE_ARTWORKS 23/23
+DOLLHOUSE_FAILURES 0
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+VIEW original yaw 90.0
+STEP-BACK z before -5.37 after -4.37 target <null>
+BOTH-BENCHES end pos (0.013588, 0.0, -5.015711) target <null>
+AGAINST-BENCH path [(1.6, 0.0, -6.85), (1.6, 0.0, -11.15), (1.6, 0.0, -14.85), (1.6, 0.0, -19.15)]
+AGAINST-BENCH end pos (0.0, 0.0, -18.9) target <null>
+FUZZ 0 of 300 walks failed
+HALF-VISIBLE picks E6 at (362.4364, 245.9633)
+HALF-VISIBLE open E6

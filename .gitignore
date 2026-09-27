@@ -1,16 +1,7 @@
-node_modules/
-dist/
-.env
-*.env
-!env.example
-
-# Godot
 .godot/
-.import/
-export.cfg
-export_presets.cfg
-*.translation
+*.import
 build/
-
-# Generation runs (evidence lives in the Issue and the release PR, not in git)
 runs/
+node_modules/
+modules/collection_data/server/cache/
+modules/shell/prototype/gallery_walk4/identity/Rogue_rogue_texture.png

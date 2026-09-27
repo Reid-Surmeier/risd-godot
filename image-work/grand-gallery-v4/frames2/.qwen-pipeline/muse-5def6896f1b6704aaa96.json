@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-5def6896f1b6704aaa96",
+  "summary": "Reference image 1 is a photo of a real painting in the RISD Museum: Paolo Veronese's Wisdom and Strength, a tall canvas in a very narrow, plain, dark bronze-brown frame (a thin simple molding, only a few centimetres wide, with a slim dull-gold inner lip). It is the authority for the frame only.\n\nRender this frame alone, empty: straight on, perfectly square, a clean low-poly game-model rendering of that thin plain dark molding with its slim inner gold lip, keeping it as narrow as in the photo relative to the tall canvas. The complete inner opening is perfectly clean flat pure white (#FFFFFF). Everything outside the frame is flat pure magenta (#FF00FF). No carving, no ornament, no text. One complete image, no transparency.\n",
+  "procedureId": "muse-5def6896f1b6704aaa96",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/S1-photo-2026-01.png",
+      "sha256": "a9a1b900724f3af918db50f64ee8a1626dda6a5dd7717166e8e7ba1cdb8b055b",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-S1b.json",
+      "sha256": "5def6896f1b6704aaa96aae7e5f076fab51a4e7fbc612e144e61a53c44e1e5de"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "5ff20f8aacdd077b758d44b4419e8534543d5cd6f5cb6c176dd0e6e04845e35e"
+    },
+    {
+      "applicationPath": "prompts/S1.txt",
+      "sha256": "6fb2f3adbb7785568efdf96d3a86c74398551cdb7353e24f5669532bacd7eca9"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+ "attempts": [
+  {
+   "id": "music-frame",
+   "prompt": "prompts/music-frame.txt",
+   "promptSha256": "47add7a4315557dd8657379a8db3aa3995f81fcd009e4df44c646832dcee24e5",
+   "size": "1776x1328",
+   "inputs": [
+    {
+     "path": "references/music-view-a.png",
+     "sha256": "ef6e91438ed552303663ed5d739dc910a31ba75886ab70fa7ab1253b2e405e01"
+    },
+    {
+     "path": "references/music-view-b.png",
+     "sha256": "6c06b8cf497a39669263c69b4ec739b38fdbaeabe905d159b04a821fc6bdd908"
+    }
+   ]
+  },
+  {
+   "id": "music-canvas",
+   "prompt": "prompts/music-canvas.txt",
+   "promptSha256": "9c52c50d84d83947809cf65d4f757d95b4eb4fcb083157440ba1a3339bb60cf8",
+   "size": "1776x1328",
+   "inputs": [
+    {
+     "path": "references/music-view-a.png",
+     "sha256": "ef6e91438ed552303663ed5d739dc910a31ba75886ab70fa7ab1253b2e405e01"
+    },
+    {
+     "path": "references/music-view-b.png",
+     "sha256": "6c06b8cf497a39669263c69b4ec739b38fdbaeabe905d159b04a821fc6bdd908"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1",
+  "applicationId": "app-gallery-character-motion-135",
+  "artifactRoot": "artifacts/image-generation",
+  "referenceRoots": [
+    "references/turnaround.png"
+  ],
+  "outputRoot": "generated",
+  "maximumCount": 1,
+  "maximumBudgetUsd": "0.35",
+  "maximumCorrectionRuns": 0,
+  "procedures": [
+    {
+      "id": "visitor-motion-study",
+      "version": "1",
+      "mode": "seedance-video",
+      "provider": "openrouter",
+      "model": "bytedance/seedance-2.0-mini",
+      "maximumCount": 1,
+      "unitCostUsd": "0.35",
+      "referenceRequirements": [
+        {
+          "slot": "first-frame",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "last-frame",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    }
+  ]
+}

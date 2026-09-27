@@ -1,0 +1,256 @@
+{
+  "observed_at": "2026-09-21T17:56:37.112Z",
+  "method": "RISD Collection search inspected in a real browser; 25 type-Paintings records were confirmed Public Domain on their official object pages; the object-page Picturepark bytes were downloaded, hashed and decoded locally.",
+  "records": [
+    {
+      "web_id": "1190261",
+      "object_page": "https://risdmuseum.org/art-design/collection/autumn-landscape-long-island-13943",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/yevFmm9E/",
+      "sha256": "790312c2a73943efbe8dbbb68d6f7dcd6ce841ad6a09499bc29282c5f4264d0c",
+      "mime": "image/jpeg",
+      "width": 1324,
+      "height": 642
+    },
+    {
+      "web_id": "1190336",
+      "object_page": "https://risdmuseum.org/art-design/collection/portrait-mrs-william-c-baker-58180",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/QdixSFFw/",
+      "sha256": "24d1df97ce2d46431fef361b8c64be5931f752c3a553f43f2554fdcc25eb39ca",
+      "mime": "image/jpeg",
+      "width": 1324,
+      "height": 1542
+    },
+    {
+      "web_id": "1190396",
+      "object_page": "https://risdmuseum.org/art-design/collection/near-tenby-wales-54110",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/deLYttw0/",
+      "sha256": "f9573b011318f634958183f6f68b7c86a8850624d42d1b2366bea79a983f0ee3",
+      "mime": "image/jpeg",
+      "width": 1324,
+      "height": 910
+    },
+    {
+      "web_id": "1190676",
+      "object_page": "https://risdmuseum.org/art-design/collection/hanging-grapes-81288",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/pqlhwnca/",
+      "sha256": "f89dbc7091c2ec722d6ceac3037d27e90827c7849a62789aafdcd913fc5ae2ce",
+      "mime": "image/jpeg",
+      "width": 1324,
+      "height": 1564
+    },
+    {
+      "web_id": "1190686",
+      "object_page": "https://risdmuseum.org/art-design/collection/st-zosimus-and-mary-egyptian-17516",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/QGjHMFe7/",
+      "sha256": "18d3d71d4df68ed67f69bcc16e9fcd477ee43089a5fe4811ae1a1669cc73e2cb",
+      "mime": "image/jpeg",
+      "width": 1324,
+      "height": 1511
+    },
+    {
+      "web_id": "1190706",
+      "object_page": "https://risdmuseum.org/art-design/collection/lark-farm-milton-massachusetts-62002",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/ItSCg9lX/",
+      "sha256": "cc0cd6ddd93b488486121781f6a26b3b60cc871cdb010c775a806b3db401d0d1",
+      "mime": "image/jpeg",
+      "width": 1324,
+      "height": 877
+    },
+    {
+      "web_id": "1190751",
+      "object_page": "https://risdmuseum.org/art-design/collection/portrait-mrs-charles-deering-760461",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/E4LZiMiM/",
+      "sha256": "822cd46ceab55723737147c7defdcd27442a7ed98be5ecc07307e2876d047fb4",
+      "mime": "image/jpeg",
+      "width": 1324,
+      "height": 1722
+    },
+    {
+      "web_id": "1190816",
+      "object_page": "https://risdmuseum.org/art-design/collection/little-bavarian-girl-13841",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/DHeyGzks/",
+      "sha256": "a0f1b6a4339c276b3d2884d8881d8f71ae9a0cd7e7b8f5bce2b1e5c6a2540265",
+      "mime": "image/jpeg",
+      "width": 1324,
+      "height": 1582
+    },
+    {
+      "web_id": "1196161",
+      "object_page": "https://risdmuseum.org/art-design/collection/majnun-pleads-laila-14048",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/68yEW8gR/",
+      "sha256": "4cf81dbe259d011496c63773d202b71f9031c1a9e6b6f055eebd43fca2f5e8fb",
+      "mime": "image/jpeg",
+      "width": 65,
+      "height": 80
+    },
+    {
+      "web_id": "1197221",
+      "object_page": "https://risdmuseum.org/art-design/collection/farmyard-chickens-81302",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/02ZiRsCV/",
+      "sha256": "4bd8ca167dac068b90d487ff88e661a49c0a99936597c4d80dd9d05dcbe095a1",
+      "mime": "image/jpeg",
+      "width": 80,
+      "height": 56
+    },
+    {
+      "web_id": "1197226",
+      "object_page": "https://risdmuseum.org/art-design/collection/entombment-christ-1990094",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/0VbPo7Sk/",
+      "sha256": "d76d010ba6ca651f5a1e310c7e1ffab9071c1de7d88a0c37102c4a3e081a3324",
+      "mime": "image/jpeg",
+      "width": 50,
+      "height": 80
+    },
+    {
+      "web_id": "1197456",
+      "object_page": "https://risdmuseum.org/art-design/collection/portrait-marie-antoinette-57295",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/0W9pLmjD/",
+      "sha256": "8ea22adc261ccf80ee6c27c74b9f7324509f79b41adca8594de0d31739ec7ee8",
+      "mime": "image/jpeg",
+      "width": 67,
+      "height": 80
+    },
+    {
+      "web_id": "1197476",
+      "object_page": "https://risdmuseum.org/art-design/collection/andromache-learning-death-hector-56083",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/wca7IqVC/",
+      "sha256": "5efac9ed8dcff848e3406ea7b97472c92d2d863502a76b0af5f268768acaacea",
+      "mime": "image/jpeg",
+      "width": 80,
+      "height": 66
+    },
+    {
+      "web_id": "1197496",
+      "object_page": "https://risdmuseum.org/art-design/collection/vice-admiral-sir-william-george-fairfax-5414774",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/KoSn6HXB/",
+      "sha256": "6b71815d35e53282fefd515bde647b3e56277515c1c5e67d2f5b179de6761e0f",
+      "mime": "image/jpeg",
+      "width": 900,
+      "height": 1088
+    },
+    {
+      "web_id": "1197566",
+      "object_page": "https://risdmuseum.org/art-design/collection/cows-and-water-19862073",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/Ll5clyZY/",
+      "sha256": "f14316795c64a158c56d8f25be455d7ba2a816b3ebd4fe2c26f4d74e31c82097",
+      "mime": "image/jpeg",
+      "width": 80,
+      "height": 50
+    },
+    {
+      "web_id": "1197581",
+      "object_page": "https://risdmuseum.org/art-design/collection/little-confectioner-le-petit-gilles-53108",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/d6isIBjz/",
+      "sha256": "d9f1f7bc2846d94a025f6e6657419bc575528a1715dd94a97e091a18254e5af2",
+      "mime": "image/jpeg",
+      "width": 62,
+      "height": 80
+    },
+    {
+      "web_id": "1197596",
+      "object_page": "https://risdmuseum.org/art-design/collection/two-children-wading-shore-57234",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/Tz0G9ukB/",
+      "sha256": "031b205006f5a0190e4472fcf6b8a5738ea79d4fb28150b37f4c60a126be680e",
+      "mime": "image/jpeg",
+      "width": 80,
+      "height": 55
+    },
+    {
+      "web_id": "1197711",
+      "object_page": "https://risdmuseum.org/art-design/collection/still-life-57176",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/G0Pw5G21/",
+      "sha256": "50cab9dffb58bf40a1509b7188faf64255ec2e63adc96f0f644e3e4446f242fd",
+      "mime": "image/jpeg",
+      "width": 80,
+      "height": 59
+    },
+    {
+      "web_id": "1197766",
+      "object_page": "https://risdmuseum.org/art-design/collection/young-huntresses-59109",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/JHaAyH69/",
+      "sha256": "ce5c2f8a0e385b7e0b27ebc846501aace2878965e735a655ee86d1f9dde2ec8a",
+      "mime": "image/jpeg",
+      "width": 58,
+      "height": 80
+    },
+    {
+      "web_id": "1197831",
+      "object_page": "https://risdmuseum.org/art-design/collection/poem-17477b",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/losIhiCM/",
+      "sha256": "3d9f131a30f625218a2916da95044aaebd6b6e2855238e5382c0e7cab314df56",
+      "mime": "image/jpeg",
+      "width": 55,
+      "height": 80
+    },
+    {
+      "web_id": "1198191",
+      "object_page": "https://risdmuseum.org/art-design/collection/sultan-suleyman-i-hunting-17459b",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/IGYDBn2p/",
+      "sha256": "6651120af8f52875e77e78c49ca914ca05ef84762ae9d6017c19f47d1367215c",
+      "mime": "image/jpeg",
+      "width": 900,
+      "height": 1388
+    },
+    {
+      "web_id": "1198271",
+      "object_page": "https://risdmuseum.org/art-design/collection/making-dolls-31603",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/rHXGvcqv/",
+      "sha256": "c6c7910711892384a9f5d8f46fa9b602df7a92e9be7990014ecda7af0e89fb67",
+      "mime": "image/jpeg",
+      "width": 80,
+      "height": 60
+    },
+    {
+      "web_id": "1198296",
+      "object_page": "https://risdmuseum.org/art-design/collection/arhat-rakan-fly-whisk-front-cave-2010469",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/WMNI47wv/",
+      "sha256": "ac49959b6009654c6b1787b725a75613e0ce2fcaacf4740215609c2a5d186513",
+      "mime": "image/jpeg",
+      "width": 40,
+      "height": 80
+    },
+    {
+      "web_id": "1207106",
+      "object_page": "https://risdmuseum.org/art-design/collection/portrait-henry-pierce-78141",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/ZvFnEqZx/",
+      "sha256": "5cbc1f879d1d1aaeb3c29f6df3d63af59547b4755dba993c6288bf6af4d62e8c",
+      "mime": "image/jpeg",
+      "width": 630,
+      "height": 767
+    },
+    {
+      "web_id": "1207111",
+      "object_page": "https://risdmuseum.org/art-design/collection/guernsey-channel-islands-54114",
+      "carousel_rights": "public_domain",
+      "image_url": "https://risdmuseum.cdn.picturepark.com/v/HbFsOVRQ/",
+      "sha256": "fc5f62367ffdf01e52b6dc3662f5c763c1c13ca3d1f841bfba8ef909f070edf0",
+      "mime": "image/jpeg",
+      "width": 900,
+      "height": 487
+    }
+  ]
+}

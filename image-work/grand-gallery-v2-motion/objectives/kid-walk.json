@@ -1,0 +1,46 @@
+{
+ "schemaVersion": "1",
+ "id": "gg2-kid-walk-v1-objective",
+ "summary": "Animate this exact character as a looping walk cycle seen from directly behind, for a third-person game: the small chibi kid with a large red-orange beret over an orange-red bowl cut, a big round pale pink head, a white shirt with bold black horizontal stripes and short rounded pink bare legs, rendered as a late-1990s low-polygon real-time 3D game character. The first frame and the last frame are both the supplied image, unchanged.\n\nBeat by beat. The kid walks in place, away from the camera, as if walking forward down a corridor on a treadmill: left foot steps, right foot steps, a small up-and-down body bob on each step, arms swinging slightly at the sides, the beret bouncing a little. Four even steps over four seconds, and the last frame returns exactly to the opening pose so the cycle loops without a seam.\n\nPreservation. Same character throughout: the same colours, stripes, beret, proportions and size; always seen from directly behind; the character does not turn around, does not move across the frame, does not grow or shrink, and never shows the face.\n\nFraming. Locked camera, no camera movement, no zoom, no cuts. The background stays a completely flat, even pure green (#00FF00) in every frame with no floor, no shadow, no gradient, no other objects, no text. Silent, no audio.",
+ "procedureId": "kid-walk-v1",
+ "requestedCount": 1,
+ "budgetCeilingUsd": "0.15",
+ "videoPlan": {
+  "assembly": {
+   "required": false,
+   "pixelOwnership": "none-authoritative"
+  },
+  "expectedMedia": {
+   "width": 640,
+   "height": 640,
+   "durationSeconds": 4,
+   "audioExpected": false
+  }
+ },
+ "references": [
+  {
+   "slot": "first-frame",
+   "path": "references/kid-back-640.png",
+   "sha256": "dde594beee5a7a011ff280c5a80345b34c9382902377914912e3a260f197317b",
+   "kind": "image",
+   "authorityReason": "inferred-motion/v1:{\"behavior\": \"A seamless in-place walk cycle seen from behind.\", \"cancelRestart\": \"Not interruptible; the game restarts the loop from frame one.\", \"historicalFidelity\": false, \"provenance\": \"A Muse render of the NextRooms kid seen from behind on a flat green matte (grand-gallery-v2 kid-back pass); no motion source exists.\", \"spatialPermissions\": \"The character stays centred at the same size; only the legs, arms and a small body bob move.\", \"timing\": \"Four steps over four seconds, ending on the opening pose.\"}",
+   "payloadDestination": "/input_references/0/image_url/url",
+   "declaredMedia": {
+    "width": 640,
+    "height": 640
+   }
+  },
+  {
+   "slot": "last-frame",
+   "path": "references/kid-back-640.png",
+   "sha256": "dde594beee5a7a011ff280c5a80345b34c9382902377914912e3a260f197317b",
+   "kind": "image",
+   "authorityReason": "inferred-motion/v1:{\"behavior\": \"A seamless in-place walk cycle seen from behind.\", \"cancelRestart\": \"Not interruptible; the game restarts the loop from frame one.\", \"historicalFidelity\": false, \"provenance\": \"A Muse render of the NextRooms kid seen from behind on a flat green matte (grand-gallery-v2 kid-back pass); no motion source exists.\", \"spatialPermissions\": \"The character stays centred at the same size; only the legs, arms and a small body bob move.\", \"timing\": \"Four steps over four seconds, ending on the opening pose.\"}",
+   "payloadDestination": "/input_references/1/image_url/url",
+   "declaredMedia": {
+    "width": 640,
+    "height": 640
+   }
+  }
+ ]
+}

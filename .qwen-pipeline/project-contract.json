@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1",
+  "applicationId": "app-5a60c5fefea3",
+  "artifactRoot": "artifacts/image-generation",
+  "referenceRoots": [
+    "image-work/paintbox-window/references/layout-reference.png",
+    "modules/sketchbook/assets/paintbox/tool-reference.png",
+    "modules/sketchbook/assets/paintbox/palette-white.png",
+    "modules/sketchbook/assets/paintbox/watercolor-brush.png",
+    "modules/sketchbook/assets/paintbox/cat-brush-rest.png"
+  ],
+  "outputRoot": "generated",
+  "maximumCount": 1,
+  "maximumBudgetUsd": "0.01",
+  "maximumCorrectionRuns": 0,
+  "procedures": [
+    {
+      "id": "muse-0414dd3bdd8d931a0009",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "512x1024"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        },
+        {
+          "slot": "reference-002",
+          "kind": "image",
+          "payloadDestination": "/input_references/2/image_url/url"
+        },
+        {
+          "slot": "reference-003",
+          "kind": "image",
+          "payloadDestination": "/input_references/3/image_url/url"
+        },
+        {
+          "slot": "reference-004",
+          "kind": "image",
+          "payloadDestination": "/input_references/4/image_url/url"
+        }
+      ]
+    }
+  ]
+}

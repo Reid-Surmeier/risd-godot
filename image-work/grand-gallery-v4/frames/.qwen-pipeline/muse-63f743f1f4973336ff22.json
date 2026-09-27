@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-63f743f1f4973336ff22",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: School of Fontainebleau, Charity. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a fairly narrow, plain, smooth gilt molding with a rounded outer edge and a small stepped inner lip, with no carved ornament. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-63f743f1f4973336ff22",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/W5-view0.png",
+      "sha256": "de88a23fa0ecae55a23e1500139dc517db1d86074149c006eafa2d10d0f66565",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-W5.json",
+      "sha256": "63f743f1f4973336ff229b517e2f7e42bb65a089d4bc3460fd4b661caa44a6d4"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "7c40d4cd59581e7ca80cde40b647d051cf233a3d0c3c6441a96f59468d006b30"
+    },
+    {
+      "applicationPath": "prompts/W5.txt",
+      "sha256": "eae3f3ad3a54ff403dfa8fbcc40921af8e9dcb237ffa20a6d73f1a40471105a1"
+    }
+  ]
+}

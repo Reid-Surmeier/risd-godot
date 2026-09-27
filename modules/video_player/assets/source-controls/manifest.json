@@ -1,0 +1,174 @@
+{
+  "source_sha256": "dca286cc2912ecee5a6bbf89a6b79a6680eaf4296e5e9a3b62fc4cbf23dd2f16",
+  "canvas": [
+    960,
+    720
+  ],
+  "controls": {
+    "pause": {
+      "source_rect": [
+        325,
+        969,
+        95,
+        49
+      ],
+      "atlas_rect": [
+        17,
+        16,
+        285,
+        147
+      ],
+      "scale": 3
+    },
+    "play": {
+      "source_rect": [
+        325,
+        969,
+        95,
+        49
+      ],
+      "atlas_rect": [
+        337,
+        16,
+        285,
+        147
+      ],
+      "scale": 3
+    },
+    "fullscreen": {
+      "source_rect": [
+        1117,
+        975,
+        49,
+        40
+      ],
+      "atlas_rect": [
+        726,
+        30,
+        147,
+        120
+      ],
+      "scale": 3
+    },
+    "save": {
+      "source_rect": [
+        1028,
+        1298,
+        143,
+        51
+      ],
+      "atlas_rect": [
+        17,
+        219,
+        286,
+        102
+      ],
+      "scale": 2
+    },
+    "speaker": {
+      "source_rect": [
+        1057,
+        975,
+        42,
+        41
+      ],
+      "atlas_rect": [
+        417,
+        208,
+        126,
+        123
+      ],
+      "scale": 3
+    },
+    "mute": {
+      "source_rect": [
+        1057,
+        975,
+        42,
+        41
+      ],
+      "atlas_rect": [
+        737,
+        208,
+        126,
+        123
+      ],
+      "scale": 3
+    },
+    "seek": {
+      "source_rect": [
+        424,
+        981,
+        29,
+        31
+      ],
+      "atlas_rect": [
+        116,
+        403,
+        87,
+        93
+      ],
+      "scale": 3
+    },
+    "volume": {
+      "source_rect": [
+        1035,
+        975,
+        23,
+        38
+      ],
+      "atlas_rect": [
+        445,
+        393,
+        69,
+        114
+      ],
+      "scale": 3
+    },
+    "minimize": {
+      "source_rect": [
+        1418,
+        63,
+        32,
+        35
+      ],
+      "atlas_rect": [
+        752,
+        397,
+        96,
+        105
+      ],
+      "scale": 3
+    },
+    "thumbnail": {
+      "source_rect": [
+        306,
+        1381,
+        110,
+        110
+      ],
+      "atlas_rect": [
+        105,
+        575,
+        110,
+        110
+      ],
+      "scale": 1
+    },
+    "scroll": {
+      "source_rect": [
+        305,
+        1493,
+        241,
+        26
+      ],
+      "atlas_rect": [
+        359,
+        617,
+        241,
+        26
+      ],
+      "scale": 1
+    }
+  }
+}

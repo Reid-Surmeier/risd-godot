@@ -1,0 +1,80 @@
+[
+  {
+    "id": "42-219",
+    "title": "The Basin at Argenteuil",
+    "artist": "Claude Monet",
+    "classification": "painting",
+    "imageUrl": "https://risdmuseum.cdn.picturepark.com/v/oSMPh0wK/",
+    "thumbnailUrl": "https://risdmuseum.cdn.picturepark.com/v/XX57x17V/",
+    "risdUrl": "https://risdmuseum.org/art-design/collection",
+    "localImage": "assets/42-219.jpg",
+    "sha256": "5bb288637b2285d4ab8276b9c51e96c4936af7a93d1a54871806473b3dc22bf1",
+    "width": 1324,
+    "height": 984
+  },
+  {
+    "id": "1998-107",
+    "title": "A Walk in the Meadows at Argenteuil",
+    "artist": "Claude Monet",
+    "classification": "painting",
+    "imageUrl": "https://risdmuseum.cdn.picturepark.com/v/tKY50bdH/",
+    "thumbnailUrl": "https://risdmuseum.cdn.picturepark.com/v/nOwfegdJ/",
+    "risdUrl": "https://risdmuseum.org/art-design/collection",
+    "localImage": "assets/1998-107.jpg",
+    "sha256": "ffe677d378d0a295078ab004bc6b9490f227e445f1f528d4ef0ebc995e97b648",
+    "width": 1324,
+    "height": 1095
+  },
+  {
+    "id": "44-541",
+    "title": "The Seine at Giverny",
+    "artist": "Claude Monet",
+    "classification": "painting",
+    "imageUrl": "https://risdmuseum.cdn.picturepark.com/v/IaDNTna7/",
+    "thumbnailUrl": "https://risdmuseum.cdn.picturepark.com/v/XEkZflxG/",
+    "risdUrl": "https://risdmuseum.org/art-design/collection",
+    "localImage": "assets/44-541.jpg",
+    "sha256": "a6f171bd6bb87750e3b233fd4339ca258e17d2636199f33d2cfff44711091968",
+    "width": 1324,
+    "height": 933
+  },
+  {
+    "id": "42-214",
+    "title": "Before the Race",
+    "artist": "Edgar Degas",
+    "classification": "painting",
+    "imageUrl": "https://risdmuseum.cdn.picturepark.com/v/7joXxDGJ/",
+    "thumbnailUrl": "https://risdmuseum.cdn.picturepark.com/v/es0LCne3/",
+    "risdUrl": "https://risdmuseum.org/art-design/collection",
+    "localImage": "assets/42-214.jpg",
+    "sha256": "1123eae182ea76b07865e236bd076523e72458d63c141b9f8a056a8ebbaf3acb",
+    "width": 1324,
+    "height": 1147
+  },
+  {
+    "id": "39-025",
+    "title": "Portrait of a Man",
+    "artist": "Unknown Maker, Egyptian",
+    "classification": "painting",
+    "imageUrl": "https://risdmuseum.cdn.picturepark.com/v/HQHH0tO4/",
+    "thumbnailUrl": "https://risdmuseum.cdn.picturepark.com/v/a3kALa6k/",
+    "risdUrl": "https://risdmuseum.org/art-design/collection/portrait-man-39025",
+    "localImage": "assets/39-025.jpg",
+    "sha256": "fec6c3cbe45c8a03f54b191c2f488daade5e427d4ce69b9a022eb867301b2105",
+    "width": 1324,
+    "height": 1992
+  },
+  {
+    "id": "2020-3",
+    "title": "Hallmarks",
+    "artist": "Jordan Seaberry ( American, b.1989 in Chicago)",
+    "classification": "painting",
+    "imageUrl": "https://risdmuseum.cdn.picturepark.com/v/AF8sLJhl/",
+    "thumbnailUrl": "https://risdmuseum.cdn.picturepark.com/v/V80iSbDs/",
+    "risdUrl": "https://risdmuseum.org/art-design/collection/hallmarks-20203",
+    "localImage": "assets/2020-3.jpg",
+    "sha256": "e7bc051590334f5bd3bd26b234dfa129ad0bb910690bdbb73e05dbb4214e6413",
+    "width": 1324,
+    "height": 1160
+  }
+]

@@ -1,0 +1,200 @@
+{
+  "pass": true,
+  "checks": {
+    "nine_screenshots": {
+      "pass": true,
+      "detail": "['01-default-results.png', '02-filtered-paintings.png', '03-unavailable-keeps-A.png', '04-empty.png', '05-missing-image.png', '06-broken-image.png', '07-snapshot-expired.png', '08-selected.png', '09-compact-720x486.png']"
+    },
+    "screenshots_are_distinct": {
+      "pass": true,
+      "detail": ""
+    },
+    "native_sizes": {
+      "pass": true,
+      "detail": ""
+    },
+    "screenshots_have_visible_content": {
+      "pass": true,
+      "detail": ""
+    },
+    "compact_has_no_black_bars": {
+      "pass": true,
+      "detail": "[0.0, 0.0, 0.0, 0.0]"
+    },
+    "default_search_once": {
+      "pass": true,
+      "detail": ""
+    },
+    "contract_defaults": {
+      "pass": true,
+      "detail": ""
+    },
+    "verified_default_corpus": {
+      "pass": true,
+      "detail": "{'coverage': 'Partial RISD corpus: 5 Monet query records, 2 paintings with object-page and public-domain image verification.', 'page': 1, 'page_size': 20, 'query': {'category': 'All', 'has_image': True, 'page': 1, 'q': '', 'sort': 'date_asc'}, 'snapshot': 'e7b9e9cd611b244091ad779f3ea14570247d7e23ffe0cafb124434f53860a82c', 'total': 2, 'upstream_status': 'unavailable'}"
+    },
+    "verified_paintings_loaded": {
+      "pass": true,
+      "detail": "[{'has_texture': True, 'id': 'risd:1584511', 'image_unavailable': False, 'rect': {'h': 377.171508789062, 'w': 476.0, 'x': 435.780700683594, 'y': 84.2194976806641}}, {'has_texture': True, 'id': 'risd:1377691', 'image_unavailable': False, 'rect': {'h': 377.171508789062, 'w': 476.0, 'x': 919.780700683594, 'y': 84.2194976806641}}]"
+    },
+    "all_native_controls_present": {
+      "pass": true,
+      "detail": ""
+    },
+    "four_sort_orders": {
+      "pass": true,
+      "detail": ""
+    },
+    "categories_from_response": {
+      "pass": true,
+      "detail": ""
+    },
+    "unicode_input_without_request": {
+      "pass": true,
+      "detail": ""
+    },
+    "escape_restores_last_success": {
+      "pass": true,
+      "detail": ""
+    },
+    "keyboard_focus_order": {
+      "pass": true,
+      "detail": ""
+    },
+    "shift_tab_moves_backward": {
+      "pass": true,
+      "detail": ""
+    },
+    "escape_only_dismisses_popup": {
+      "pass": true,
+      "detail": ""
+    },
+    "checkbox_can_toggle_without_request": {
+      "pass": true,
+      "detail": ""
+    },
+    "keyboard_apply_one_request": {
+      "pass": true,
+      "detail": ""
+    },
+    "dropdown_and_space_values_apply": {
+      "pass": true,
+      "detail": ""
+    },
+    "filtered_real_paintings": {
+      "pass": true,
+      "detail": "[{'has_texture': True, 'id': 'risd:1377691', 'image_unavailable': False, 'rect': {'h': 377.171508789062, 'w': 476.0, 'x': 435.780700683594, 'y': 84.2194976806641}}, {'has_texture': True, 'id': 'risd:1584511', 'image_unavailable': False, 'rect': {'h': 377.171508789062, 'w': 476.0, 'x': 919.780700683594, 'y': 84.2194976806641}}]"
+    },
+    "failed_B_keeps_A": {
+      "pass": true,
+      "detail": ""
+    },
+    "editing_failure_invalidates_retry": {
+      "pass": true,
+      "detail": ""
+    },
+    "cancel_B_restores_A_without_request": {
+      "pass": true,
+      "detail": ""
+    },
+    "cancel_pending_restores_A": {
+      "pass": true,
+      "detail": ""
+    },
+    "canceled_reply_is_ignored": {
+      "pass": true,
+      "detail": ""
+    },
+    "late_reply_ignored": {
+      "pass": true,
+      "detail": ""
+    },
+    "draft_survives_pagination": {
+      "pass": true,
+      "detail": ""
+    },
+    "pagination_pins_snapshot": {
+      "pass": true,
+      "detail": ""
+    },
+    "pagination_is_one_request": {
+      "pass": true,
+      "detail": ""
+    },
+    "empty_state": {
+      "pass": true,
+      "detail": ""
+    },
+    "missing_image_state": {
+      "pass": true,
+      "detail": ""
+    },
+    "broken_image_state": {
+      "pass": true,
+      "detail": ""
+    },
+    "snapshot_expired_state": {
+      "pass": true,
+      "detail": ""
+    },
+    "snapshot_retry_becomes_last_success": {
+      "pass": true,
+      "detail": ""
+    },
+    "valid_webp_image_loads": {
+      "pass": true,
+      "detail": ""
+    },
+    "cancel_keeps_retained_image_load": {
+      "pass": true,
+      "detail": ""
+    },
+    "result_card_is_keyboard_focusable": {
+      "pass": true,
+      "detail": ""
+    },
+    "selection_does_not_request_or_save": {
+      "pass": true,
+      "detail": ""
+    },
+    "filter_window_drags_and_raises": {
+      "pass": true,
+      "detail": ""
+    },
+    "viewer_resizes_in_place": {
+      "pass": true,
+      "detail": ""
+    },
+    "hidden_page_is_frozen": {
+      "pass": true,
+      "detail": "(810, 810)"
+    },
+    "hidden_reply_applies_on_resume": {
+      "pass": true,
+      "detail": ""
+    },
+    "compact_controls_stay_in_filter_window": {
+      "pass": true,
+      "detail": "{'Query': {'h': 24.0, 'w': 143.456604003906, 'x': 35.8483009338379, 'y': 200.781448364258}, 'Sort': {'h': 20.0000019073486, 'w': 77.0, 'x': 24.009651184082, 'y': 214.709274291992}, 'Category': {'h': 20.0000019073486, 'w': 75.2102584838867, 'x': 104.09464263916, 'y': 214.709274291992}, 'HasImage': {'h': 24.0, 'w': 60.0, 'x': 10.0818271636963, 'y': 228.985305786133}, 'OK': {'h': 11.0, 'w': 26.4628677368164, 'x': 122.89720916748, 'y': 251.966217041016}, 'Cancel': {'h': 11.0, 'w': 29.0, 'x': 151.449249267578, 'y': 251.966217041016}}"
+    },
+    "compact_windows_stay_in_page": {
+      "pass": true,
+      "detail": ""
+    },
+    "adapter_received_exact_requests": {
+      "pass": true,
+      "detail": ""
+    }
+  },
+  "sha256": {
+    "01-default-results.png": "2543ce9fa83d8b3152b818107a8c490557cbe7cae40d89a81c13d59b5a54e54c",
+    "07-snapshot-expired.png": "312edfd9d8e98c00f413aad5b413509c8363dcfb963e9feabfb6dbe9a57d2863",
+    "02-filtered-paintings.png": "5d9e144af25f48c94c9c2460a830290dcab047c2faf53729d55af64f22693bef",
+    "06-broken-image.png": "9ad55708a02d46a4ec7dcd2eccb4a3caba85c0a76cccc7ccfb742e19188c7c75",
+    "03-unavailable-keeps-A.png": "b5ba3d4ac8cf4e90d5c7b7410c27b47a6a750a9aaf8c12e559ea1474696961a4",
+    "04-empty.png": "86988b8b84e1e1d20559aefa274f418c3a23d5a9eac6c9e8670f988d8855cd0e",
+    "08-selected.png": "d0d0709c11d715f8f58a1cc6f38845873ecdecbc61547d426b80f4b3f76a395e",
+    "09-compact-720x486.png": "da60e3b11f27ed579cb2a46f9827c30ffdd18b4cf32458dcc766d118753850a7",
+    "05-missing-image.png": "1004f9fe688c72d8ab327c65995eef761babcf6e1505e4389b7c5578dbbba367"
+  }
+}

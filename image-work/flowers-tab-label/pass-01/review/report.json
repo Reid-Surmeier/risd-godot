@@ -1,0 +1,25 @@
+{
+  "source": [
+    "/home/reidsurmeier/risd-godot-worktrees/flowers-tab/image-work/flowers-tab-label/pass-01/references/edit-target.png",
+    "/home/reidsurmeier/risd-godot-worktrees/flowers-tab/image-work/flowers-tab-label/pass-01/references/style.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/risd-godot-worktrees/flowers-tab/image-work/flowers-tab-label/pass-01/artifacts/image-generation/runs/run-0eb871be00ebeea3313f1615/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "843a17090a94286fd22f124ccad2aace84cdd75c6520e0fdcc137336b10ad44a"
+    }
+  ],
+  "changesRequested": "Edit reference 1. Reference 1 is a Windows taskbar strip with three tabs: \"Collection\", \"Playground\", and a third tab that is empty, followed by a short gray new-tab button. Keep every pixel of reference 1 the same except inside the empty third tab.\n\nInside the empty third tab, add exactly two things, matching the other tabs:\n1. A small colored icon of a flower in the same glossy early-2000s Windows icon style as the magnifying glass and the folder icons in reference 1 and the map, notebook and teapot icons in reference 2: one pink blossom with a short green stem and one or two green leaves, the same size as the folder icon, vertically centered on the same row, the same distance from the tab's slanted left edge as the folder icon sits from its tab's left edge.\n2. The label \"Flowers\" right after the icon, with the same gap as between the folder icon and \"Playground\": exactly the same font, size, weight, letter spacing and black color as \"Playground\" and \"Collection\", on the same baseline, first letter capital, the rest lowercase.\n\nNo other text, no change to the tab outlines, dashed slanted edges, dotted baseline, the gray new-tab button or the striped background. No shadows, no curvature. Return one straight horizontal band spanning edge to edge, centered vertically, with pure white above and below.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-0eb871be00ebeea3313f1615",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/risd-godot-worktrees/flowers-tab/image-work/flowers-tab-label/pass-01/artifacts/image-generation/runs/run-0eb871be00ebeea3313f1615"
+}

@@ -1,0 +1,76 @@
+{
+  "status": "pass",
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/7f2cad0.html",
+  "initial_requests": 1,
+  "applied": {
+    "category": "Painting",
+    "has_image": true,
+    "page": 1,
+    "q": "Monet",
+    "sort": "date_desc"
+  },
+  "selected": "risd:1377691",
+  "routed": [
+    "slow-cancel",
+    "outage",
+    "page-1",
+    "page-2"
+  ],
+  "outage": {
+    "phase": "error",
+    "retained_query": "Monet"
+  },
+  "pagination": {
+    "page": 2,
+    "draft": "unsent",
+    "applied": "pages",
+    "snapshot": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "totals": {
+    "results": 2,
+    "images_loaded": 2
+  },
+  "viewports": [
+    {
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "width": 720,
+      "height": 486,
+      "dark_edge_fraction": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "screenshot_sha256": {
+    "full": "06b0dcaa469fc83d7946d232230938c1cb4c8f898ee83c766ea4a21cb08f5fa3",
+    "compact": "73334e98c565c701b7f111235113cbd780ae8d802151e5b25da74a8cb810f8f3"
+  },
+  "served": {
+    "7f2cad0.html": {
+      "status": 200,
+      "sha256": "28ed832bee5bdb7bc03199bc1c084acac452efcb795f775d6be76116e7b6986e",
+      "bytes": 5327
+    },
+    "7f2cad0.js": {
+      "status": 200,
+      "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
+      "bytes": 279815
+    },
+    "7f2cad0.pck": {
+      "status": 200,
+      "sha256": "301362e6dc34da7e247d8cb02e1d2f92735520b723e75d983b4d51cfaaf976e7",
+      "bytes": 70587768
+    },
+    "7f2cad0.wasm": {
+      "status": 200,
+      "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
+      "bytes": 39514754
+    }
+  },
+  "errors": []
+}

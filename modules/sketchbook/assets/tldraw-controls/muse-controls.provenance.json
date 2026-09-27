@@ -1,0 +1,20 @@
+{
+  "sourceAsset": "muse-controls-sheet.webp",
+  "sourceSha256": "9b43753d1b52e3ec1424772d74660cfea4d06f6cdb383185d78b04a707055723",
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "procedure": "edit",
+  "run": "run-da77a73a15c0c566182d7d54",
+  "costUsd": "0.010000",
+  "derivedAssets": {
+    "button-normal-muse.png": "e3ca25173cc78a93a7a5a554459b412a271abe9ec6b44ae9efcb5364b77f6ff2",
+    "button-hover-muse.png": "5a14ea3a3bfd0d26ab883def6164b9c9de8aafb211743fb8afcee3447e3b19c7",
+    "button-selected-muse.png": "7f75b261ac0bb80b31abc5a464ca4265373e53b21a65a7b751d79a685dde75d6",
+    "titlebar-muse.png": "a319d593dde632d6c27f614d4fd9b7b86f1e923cec816b21bec59c2cd9032942"
+  },
+  "visualReview": {
+    "status": "accepted-for-prototype",
+    "observed": "Muse reconstructed the complete control inventory and produced distinct normal, hover, and selected bevel skins in the supplied late-1990s control language.",
+    "limit": "Labels and hit areas remain deterministic Godot controls; the generated pixels provide the title and interactive state skins."
+  }
+}

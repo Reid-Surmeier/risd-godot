@@ -1,0 +1,223 @@
+{
+ "pass": true,
+ "checks": {
+  "screenshots_present": {
+   "pass": true,
+   "detail": "['01-desktop.png', '02-trade-moved.png', '03-hidden.png', '04-resumed.png', '05-page-1920x1000.png', '06-page-1440x820.png', '07-window-1440x900.png', '08-restored.png']"
+  },
+  "picture_is_the_owners_layout": {
+   "pass": true,
+   "detail": "(2186, 1362), desktop (2171, 1185)"
+  },
+  "six_fixed_tabs_no_phone": {
+   "pass": true,
+   "detail": "['map', 'sketchbook', '3d_viewer', 'video_player', 'collection', 'playground']"
+  },
+  "no_tenant_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "click_creates_and_shows_the_desktop": {
+   "pass": true,
+   "detail": "{'frozen': False, 'key': 'playground', 'page_visible': True, 'rect': {'h': 56.4976196289062, 'w': 201.186584472656, 'x': 971.942565917969, 'y': 1021.20574951172}, 'tenant': 'ok'}"
+  },
+  "shown_desktop_process_runs": {
+   "pass": true,
+   "detail": "44 -> 63"
+  },
+  "six_windows_in_stacking_order": {
+   "pass": true,
+   "detail": "['postpet', 'options', 'filters', 'trade', 'chat', 'phone']"
+  },
+  "factor_is_min_of_both_axes": {
+   "pass": true,
+   "detail": "0.8490 vs 0.8490"
+  },
+  "postpet_at_reference_place": {
+   "pass": true,
+   "detail": "{'h': 965.296508789062, 'w': 1109.21911621094, 'x': 20.3756523132324, 'y': 20.3756523132324} vs (20.4, 20.4, 1109.2, 965.3)"
+  },
+  "options_at_reference_place": {
+   "pass": true,
+   "detail": "{'h': 182.371078491211, 'w': 423.637084960938, 'x': 1140.63122558594, 'y': 20.3756523132324} vs (1140.6, 20.4, 423.6, 182.5)"
+  },
+  "filters_at_reference_place": {
+   "pass": true,
+   "detail": "{'h': 190.117492675781, 'w': 415.154541015625, 'x': 1140.63122558594, 'y': 202.058563232422} vs (1140.6, 202.1, 415.2, 190.2)"
+  },
+  "trade_at_reference_place": {
+   "pass": true,
+   "detail": "{'h': 182.526641845703, 'w': 420.25439453125, 'x': 1135.53735351562, 'y': 431.284637451172} vs (1135.5, 431.3, 420.2, 182.5)"
+  },
+  "chat_at_reference_place": {
+   "pass": true,
+   "detail": "{'h': 221.761596679688, 'w': 477.984741210938, 'x': 1151.66809082031, 'y': 762.388977050781} vs (1151.7, 762.4, 478.0, 221.6)"
+  },
+  "phone_at_reference_place": {
+   "pass": true,
+   "detail": "{'h': 644.029968261719, 'w': 322.614624023438, 'x': 1577.00988769531, 'y': 21.2246379852295} vs (1577.0, 21.2, 322.6, 644.4)"
+  },
+  "postpet_pixels_match_the_picture": {
+   "pass": true,
+   "detail": "mean abs diff 10.7"
+  },
+  "options_pixels_match_the_picture": {
+   "pass": true,
+   "detail": "mean abs diff 10.4"
+  },
+  "filters_pixels_match_the_picture": {
+   "pass": true,
+   "detail": "mean abs diff 11.9"
+  },
+  "trade_pixels_match_the_picture": {
+   "pass": true,
+   "detail": "mean abs diff 10.7"
+  },
+  "chat_pixels_match_the_picture": {
+   "pass": true,
+   "detail": "mean abs diff 8.8"
+  },
+  "phone_pixels_match_the_picture": {
+   "pass": true,
+   "detail": "mean abs diff 3.4"
+  },
+  "pixel_check_discriminates": {
+   "pass": true,
+   "detail": "{'postpet': 36.0, 'options': 29.6, 'filters': 29.5, 'trade': 40.6, 'chat': 24.4, 'phone': 22.9}"
+  },
+  "title_drag_moves_trade": {
+   "pass": true,
+   "detail": "{'h': 182.526641845703, 'w': 420.25439453125, 'x': 1135.53735351562, 'y': 431.284637451172} -> {'h': 182.526641845703, 'w': 420.25439453125, 'x': 1063.53735351562, 'y': 491.284637451172}"
+  },
+  "dragged_window_raised": {
+   "pass": true,
+   "detail": "['postpet', 'options', 'filters', 'chat', 'phone', 'trade']"
+  },
+  "others_stay_put": {
+   "pass": true,
+   "detail": ""
+  },
+  "moved_trade_pixels_match_the_picture": {
+   "pass": true,
+   "detail": "10.7"
+  },
+  "body_drag_moves_nothing": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_page_frozen": {
+   "pass": true,
+   "detail": ""
+  },
+  "frozen_process_stops": {
+   "pass": true,
+   "detail": "104 -> 104"
+  },
+  "frozen_gets_no_input": {
+   "pass": true,
+   "detail": "18 -> 18"
+  },
+  "hidden_drag_changed_nothing": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_shows_white_map_page": {
+   "pass": true,
+   "detail": ""
+  },
+  "resumes_with_state_intact": {
+   "pass": true,
+   "detail": "frozen 104, at the click 105, settled 148 -> 168"
+  },
+  "resumed_pixels_identical": {
+   "pass": true,
+   "detail": ""
+  },
+  "page_1920x1000_page_size": {
+   "pass": true,
+   "detail": "[1920.0, 1000.0478515625]"
+  },
+  "page_1920x1000_windows_at_rule_places": {
+   "pass": true,
+   "detail": "{'postpet': {'h': 959.53955078125, 'w': 1114.05456542969, 'x': 20.2541351318359, 'y': 20.2541351318359}, 'options': {'h': 181.283432006836, 'w': 421.110473632812, 'x': 1145.27941894531, 'y': 20.2541332244873}, 'filters': {'h': 188.983673095703, 'w': 412.678588867188, 'x': 1145.27941894531, 'y': 200.853485107422}, 'trade': {'h': 181.438018798828, 'w': 417.748046875, 'x': 1140.2158203125, 'y': 428.712493896484}, 'chat': {'h': 220.439025878906, 'w': 475.134033203125, 'x': 1156.25036621094, 'y': 757.842163085938}, 'phone': {'h': 640.189025878906, 'w': 320.690551757812, 'x': 1579.05541992188, 'y': 21.0980567932129}}"
+  },
+  "page_1920x1000_desktop_spans_the_page": {
+   "pass": true,
+   "detail": "box (20,20)-(1900,980) in [1920.0, 1000.0478515625], margin 21.8"
+  },
+  "page_1920x1000_main_window_never_below_native": {
+   "pass": true,
+   "detail": "{'h': 959.53955078125, 'w': 1114.05456542969, 'x': 20.2541351318359, 'y': 20.2541351318359} vs 1026x960"
+  },
+  "page_1920x1000_pixels_match_the_picture": {
+   "pass": true,
+   "detail": "{'postpet': 7.1, 'options': 6.7, 'filters': 9.3, 'trade': 15.8, 'chat': 7.9, 'phone': 3.2}"
+  },
+  "page_1440x820_page_size": {
+   "pass": true,
+   "detail": "[1440.0, 820.535888671875]"
+  },
+  "page_1440x820_windows_at_rule_places": {
+   "pass": true,
+   "detail": "{'postpet': {'h': 788.697998046875, 'w': 806.559448242188, 'x': 15.9189319610596, 'y': 15.9189319610596}, 'options': {'h': 142.481460571289, 'w': 330.975769042969, 'x': 831.100891113281, 'y': 15.9189310073853}, 'filters': {'h': 148.533508300781, 'w': 324.348693847656, 'x': 831.100891113281, 'y': 157.862731933594}, 'trade': {'h': 142.602996826172, 'w': 328.333190917969, 'x': 827.121154785156, 'y': 336.950714111328}, 'chat': {'h': 173.256225585938, 'w': 373.436157226562, 'x': 839.7236328125, 'y': 630.171997070312}, 'phone': {'h': 503.162719726562, 'w': 252.0498046875, 'x': 1172.03137207031, 'y': 16.5822200775146}}"
+  },
+  "page_1440x820_desktop_spans_the_page": {
+   "pass": true,
+   "detail": "box (16,16)-(1424,805) in [1440.0, 820.535888671875], margin 17.4"
+  },
+  "page_1440x820_main_window_never_below_native": {
+   "pass": true,
+   "detail": "{'h': 788.697998046875, 'w': 806.559448242188, 'x': 15.9189319610596, 'y': 15.9189319610596} vs 807x754"
+  },
+  "page_1440x820_pixels_match_the_picture": {
+   "pass": true,
+   "detail": "{'postpet': 6.6, 'options': 7.1, 'filters': 5.1, 'trade': 10.8, 'chat': 5.5, 'phone': 7.0}"
+  },
+  "window_1440x900_windows_at_rule_places": {
+   "pass": true,
+   "detail": "{'postpet': {'h': 812.697998046875, 'w': 806.559448242188, 'x': 15.9189319610596, 'y': 15.9189319610596}, 'options': {'h': 142.481460571289, 'w': 330.975769042969, 'x': 831.100891113281, 'y': 15.9189310073853}, 'filters': {'h': 148.533508300781, 'w': 324.348693847656, 'x': 831.100891113281, 'y': 157.862731933594}, 'trade': {'h': 142.602996826172, 'w': 328.333190917969, 'x': 827.121154785156, 'y': 336.950714111328}, 'chat': {'h': 173.256225585938, 'w': 373.436157226562, 'x': 839.7236328125, 'y': 654.171997070312}, 'phone': {'h': 503.162719726562, 'w': 252.0498046875, 'x': 1172.03137207031, 'y': 16.5822200775146}}"
+  },
+  "window_1440x900_desktop_spans_the_page": {
+   "pass": true,
+   "detail": "box (16,16)-(1424,829) in [1440.0, 844.535888671875], margin 17.4"
+  },
+  "window_1440x900_main_window_never_below_native": {
+   "pass": true,
+   "detail": "{'h': 812.697998046875, 'w': 806.559448242188, 'x': 15.9189319610596, 'y': 15.9189319610596} vs 807x754"
+  },
+  "window_1440x900_pixels_match_the_picture": {
+   "pass": true,
+   "detail": "{'postpet': 6.6, 'options': 7.1, 'filters': 5.1, 'trade': 10.8, 'chat': 5.5, 'phone': 7.0}"
+  },
+  "restored_windows_at_rule_places": {
+   "pass": true,
+   "detail": "{'postpet': {'h': 965.296508789062, 'w': 1109.21911621094, 'x': 20.3756523132324, 'y': 20.3756523132324}, 'options': {'h': 182.371078491211, 'w': 423.637084960938, 'x': 1140.63122558594, 'y': 20.3756523132324}, 'filters': {'h': 190.117492675781, 'w': 415.154541015625, 'x': 1140.63122558594, 'y': 202.058563232422}, 'trade': {'h': 182.526641845703, 'w': 420.25439453125, 'x': 1135.53735351562, 'y': 431.284637451172}, 'chat': {'h': 221.761596679688, 'w': 477.984741210938, 'x': 1151.66809082031, 'y': 762.388977050781}, 'phone': {'h': 644.029968261719, 'w': 322.614624023438, 'x': 1577.00988769531, 'y': 21.2246379852295}}"
+  },
+  "restored_desktop_spans_the_page": {
+   "pass": true,
+   "detail": "box (20,20)-(1900,986) in [1920.0, 1006.0478515625], margin 21.9"
+  },
+  "restored_main_window_never_below_native": {
+   "pass": true,
+   "detail": "{'h': 965.296508789062, 'w': 1109.21911621094, 'x': 20.3756523132324, 'y': 20.3756523132324} vs 1032x965"
+  },
+  "restored_pixels_match_the_picture": {
+   "pass": true,
+   "detail": "{'postpet': 10.7, 'options': 10.4, 'filters': 11.9, 'trade': 10.7, 'chat': 8.8, 'phone': 3.4}"
+  },
+  "both_axes_exercised": {
+   "pass": true,
+   "detail": "1920x1000 is height-limited (leftover width), 1440x820 width-limited (leftover height)"
+  }
+ },
+ "sha256": {
+  "01-desktop.png": "67b47ee4aed958cbaff13060c475104ac9d90daeb30c02aa74531711df295932",
+  "02-trade-moved.png": "e1e8f3d5084d0ba4b79c8eebcf16cbb0433352078a3237085d0144079e75d12a",
+  "03-hidden.png": "bf432571d6648c73ae69e9ae95f962719944261ce46e964cabb616c99f18515a",
+  "04-resumed.png": "e1e8f3d5084d0ba4b79c8eebcf16cbb0433352078a3237085d0144079e75d12a",
+  "05-page-1920x1000.png": "f840b49ded82d44a5ba0540d06883305b57c55c70b76d6cea46aee6cd6a6c923",
+  "06-page-1440x820.png": "9094b9d7f47a64d552e7ca9a4a6ce09e0adeae761f82e29864a8c9bd69f2da69",
+  "07-window-1440x900.png": "41fee002d0ef1f36e89c033d8423860a22eec3fb5415075fea8b45690b618cdf",
+  "08-restored.png": "67b47ee4aed958cbaff13060c475104ac9d90daeb30c02aa74531711df295932"
+ }
+}

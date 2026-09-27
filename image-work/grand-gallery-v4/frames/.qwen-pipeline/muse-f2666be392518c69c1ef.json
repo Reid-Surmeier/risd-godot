@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-f2666be392518c69c1ef",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: Louise-Josephine Sarazin de Belmont, A View of Paris from the Louvre, a wide canvas. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a medium-width gilt frame with a smooth cove and a narrow carved leaf band near the inner edge. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-f2666be392518c69c1ef",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/E4-view0.png",
+      "sha256": "90e78dee3858be9039fb9bffde1ac23ee1ee3cfbe6c53af01c14549bc83171bc",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-E4.json",
+      "sha256": "f2666be392518c69c1ef0fe984fad60439db24bb599481b14970dd3f4b4e78bd"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "7c40d4cd59581e7ca80cde40b647d051cf233a3d0c3c6441a96f59468d006b30"
+    },
+    {
+      "applicationPath": "prompts/E4.txt",
+      "sha256": "6396329ca2ebc46f274826f86bb5ccff44a0f51397f73bb8eb67807d7fcdb8af"
+    }
+  ]
+}

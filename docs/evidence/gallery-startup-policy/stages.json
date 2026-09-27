@@ -1,0 +1,173 @@
+{
+  "source_sha256": "c70c8f1c510943b822b8c76f6575fe16d5dd6d4c907db92c7c4475b45b4fb71b",
+  "source_runtime": "105551c",
+  "viewport": [
+    720,
+    486
+  ],
+  "marks": [
+    {
+      "name": "downloads-done",
+      "t": 1839.800000011921
+    },
+    {
+      "name": "godot-ready",
+      "t": 2662.4000000059605
+    },
+    {
+      "name": "pack-mounted",
+      "t": 2669.600000023842
+    },
+    {
+      "name": "game-loaded",
+      "t": 2819.2000000178814
+    },
+    {
+      "name": "game-instanced",
+      "t": 2901.100000023842
+    },
+    {
+      "name": "warmup-start",
+      "t": 2901.2000000178814
+    },
+    {
+      "name": "engine-started",
+      "t": 3245.600000023842
+    },
+    {
+      "name": "launch-settled",
+      "t": 7604.600000023842
+    },
+    {
+      "name": "tab-0-start",
+      "t": 7604.600000023842
+    },
+    {
+      "name": "tab-0-selected",
+      "t": 8322.40000000596
+    },
+    {
+      "name": "tab-0-drawn",
+      "t": 8514.40000000596
+    },
+    {
+      "name": "tab-1-start",
+      "t": 8514.600000023842
+    },
+    {
+      "name": "tab-1-selected",
+      "t": 9100.40000000596
+    },
+    {
+      "name": "tab-1-drawn",
+      "t": 10581.200000017881
+    },
+    {
+      "name": "tab-2-start",
+      "t": 10581.300000011921
+    },
+    {
+      "name": "tab-2-selected",
+      "t": 11497
+    },
+    {
+      "name": "tab-2-drawn",
+      "t": 11931.100000023842
+    },
+    {
+      "name": "tab-3-start",
+      "t": 11931.200000017881
+    },
+    {
+      "name": "tab-3-selected",
+      "t": 12078.200000017881
+    },
+    {
+      "name": "tab-3-drawn",
+      "t": 12314.300000011921
+    },
+    {
+      "name": "tab-5-start",
+      "t": 12314.40000000596
+    },
+    {
+      "name": "tab-5-selected",
+      "t": 12527.100000023842
+    },
+    {
+      "name": "tab-5-drawn",
+      "t": 12797.800000011921
+    },
+    {
+      "name": "tab-4-start",
+      "t": 12797.90000000596
+    },
+    {
+      "name": "tab-4-selected",
+      "t": 12799
+    },
+    {
+      "name": "tab-4-drawn",
+      "t": 13072.90000000596
+    },
+    {
+      "name": "tabs-warm",
+      "t": 13073
+    },
+    {
+      "name": "game-shown",
+      "t": 14930.800000011921
+    }
+  ],
+  "engine_to_tabs_ms": 9827.4,
+  "engine_to_launch_ms": 4359.0,
+  "launch_to_tabs_ms": 5468.4,
+  "warmup_start_to_launch_ms": 4703.4,
+  "tabs_to_shown_ms": 1857.8,
+  "stages": [
+    {
+      "tab": 0,
+      "name": "Map",
+      "select_ms": 717.8,
+      "after_select_ms": 192.0,
+      "total_ms": 909.8
+    },
+    {
+      "tab": 1,
+      "name": "Sketchbook",
+      "select_ms": 585.8,
+      "after_select_ms": 1480.8,
+      "total_ms": 2066.6
+    },
+    {
+      "tab": 2,
+      "name": "3D Viewer",
+      "select_ms": 915.7,
+      "after_select_ms": 434.1,
+      "total_ms": 1349.8
+    },
+    {
+      "tab": 3,
+      "name": "Video",
+      "select_ms": 147.0,
+      "after_select_ms": 236.1,
+      "total_ms": 383.1
+    },
+    {
+      "tab": 5,
+      "name": "Playground",
+      "select_ms": 212.7,
+      "after_select_ms": 270.7,
+      "total_ms": 483.4
+    },
+    {
+      "tab": 4,
+      "name": "Gallery return",
+      "select_ms": 1.1,
+      "after_select_ms": 273.9,
+      "total_ms": 275.0
+    }
+  ],
+  "sum_select_ms": 2580.1,
+  "sum_after_select_ms": 2887.6
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-5a19bb19f0b25fe5bf32",
+  "summary": "Reference image 1 is a phone photo of a carved Romanesque stone portal in the RISD Museum's medieval gallery: pale warm limestone blocks, weathered, with fine tooling marks.\n\nRender a seamless, tileable, square texture of that pale weathered limestone ashlar seen straight on: warm cream-grey stone blocks about a third of the tile high, thin recessed mortar joints, soft weathering and faint tool marks, even flat lighting, no shadows, no carving, no objects, no text. It must tile seamlessly on all four edges.\n",
+  "procedureId": "muse-5a19bb19f0b25fe5bf32",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/portal-crop.png",
+      "sha256": "dedfa0317d3e14e29ff57ff617a64029670390c0afa8e0e754abdb036f57bc8c",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-stone.json",
+      "sha256": "5a19bb19f0b25fe5bf3283dca4eed3e91b2c2fead5eeb221e610d8c41f51d9ac"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "646066167d65000fd4b56e1e3f54a93908a5c013680748914d6114b8a18069fe"
+    },
+    {
+      "applicationPath": "prompts/stone.txt",
+      "sha256": "e3cdb9ce5da98b9d538e839306031937d7a49e3a8bd7b33490991a4ffd4e37d9"
+    }
+  ]
+}

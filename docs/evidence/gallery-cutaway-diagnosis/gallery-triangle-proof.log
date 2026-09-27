@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.1 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Microsoft - D3D12 (NVIDIA GeForce RTX 4070 SUPER)
+
+ENTRY_COMPLETE (0.0, 0.0, -2.558628)
+TRIANGLE camera=[X: (-0.881582, 0.0, -0.47203), Y: (-0.333776, 0.707107, 0.623373), Z: (0.333776, 0.707107, -0.623373), O: (-0.040802, 11.89092, -10.79478)] cull=11
+WALL_TOP world=(-5.0, 6.0, 0.0) screen=(259.7177, -139.9258)
+WALL_TOP world=(5.0, 6.0, 0.0) screen=(-771.2441, 113.6532)
+WALL_TOP world=(-5.0, 6.0, -26.3) screen=(-2885.345, -3124.314)
+WALL_TOP world=(5.0, 6.0, -26.3) screen=(-101.5206, -2062.688)
+VISIBLE_WALL Surface001 layer=2 bounds=[P: (-5.0, 0.0, -26.3), S: (0.00001, 6.0, 26.3)]
+VISIBLE_WALL Surface118 layer=8 bounds=[P: (-5.0, 0.0, 0.0), S: (10.0, 6.0, 0.00001)]

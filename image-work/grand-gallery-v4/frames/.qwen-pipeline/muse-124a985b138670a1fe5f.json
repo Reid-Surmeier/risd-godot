@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-124a985b138670a1fe5f",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: Alessandro Magnasco, Arsenal in a Ruined Basilica, a wide canvas. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a narrow plain gilt molding with a smooth face and a small stepped inner lip. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-124a985b138670a1fe5f",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/E1-view0.png",
+      "sha256": "e7421983cec527bab0f9b951c270b9daec551855e1cb8aea2126f94d4d0eacee",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/E1-view1.png",
+      "sha256": "e2ff3f97f6a240ffc6fdb99279ccde7a9e2d3a6de1135e89b96dc4446c329b92",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-E1.json",
+      "sha256": "124a985b138670a1fe5ff6a8c9d90e689d52a0dcf3a71b31d1cd017bd7d9e0b0"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "7c40d4cd59581e7ca80cde40b647d051cf233a3d0c3c6441a96f59468d006b30"
+    },
+    {
+      "applicationPath": "prompts/E1.txt",
+      "sha256": "910511aa7651c299454fb2b322a4939ca193889f4aab63efe8252c713399f0ff"
+    }
+  ]
+}

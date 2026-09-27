@@ -1,0 +1,5 @@
+{
+  "name": "risd-collection-adapter", "private": true, "type": "module",
+  "scripts": {"test:collection": "node --experimental-strip-types --test modules/collection_data/server/*.test.ts", "collection:serve": "node --experimental-strip-types modules/collection_data/server/server.ts"},
+  "dependencies": {"effect": "3.22.2"}
+}

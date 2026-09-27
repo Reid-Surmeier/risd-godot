@@ -1,0 +1,88 @@
+{
+ "build": "376c518",
+ "checks": [
+  {
+   "name": "flowers_is_the_seventh_fixed_tab_after_playground",
+   "ok": true,
+   "detail": "['map', 'sketchbook', '3d_viewer', 'video_player', 'collection', 'playground', 'flowers']"
+  },
+  {
+   "name": "collection_is_still_the_launch_tab",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ruffle_loaded_the_site_swf",
+   "ok": true,
+   "detail": "{'width': 750, 'height': 422, 'swfVersion': 4, 'frameRate': 30}"
+  },
+  {
+   "name": "player_sits_on_the_window",
+   "ok": true,
+   "detail": "frame {'x': 250.390625, 'y': 108.046875, 'w': 1489.75, 'h': 838.265625} window corners [[250.39112827092129, 108.05345825228555], [1740.1517654096601, 946.3345346395021]]"
+  },
+  {
+   "name": "title_screen_renders",
+   "ok": true,
+   "detail": "stddev 13.6"
+  },
+  {
+   "name": "start_new_opens_the_instructions",
+   "ok": true,
+   "detail": "diff 16.7"
+  },
+  {
+   "name": "next_opens_the_garden_and_vase",
+   "ok": true,
+   "detail": "diff 4.4"
+  },
+  {
+   "name": "dragging_a_blossom_puts_a_flower_in_the_vase",
+   "ok": true,
+   "detail": "6 tries of 285 pink points"
+  },
+  {
+   "name": "player_hides_with_the_page",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "name": "game_is_where_it_was_after_coming_back",
+   "ok": true,
+   "detail": "diff 0.00"
+  },
+  {
+   "name": "submit_gives_a_12_digit_flower_number",
+   "ok": true,
+   "detail": "186742943016 ['&reply=186742943016']"
+  },
+  {
+   "name": "the_number_brings_the_card_back",
+   "ok": true,
+   "detail": "&fxs2=116&fys2=116&fr2=0&total=2&reply=1"
+  },
+  {
+   "name": "view_samples_shows_a_players_bouquet",
+   "ok": true,
+   "detail": "&fxs3=122&fys3=122&fr3=0&total=3&reply=1"
+  },
+  {
+   "name": "no_failed_requests",
+   "ok": true,
+   "detail": "[]"
+  }
+ ],
+ "console_errors": [
+  "WARNING: 2D MSAA is not yet supported for GLES3.",
+  "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+  "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+  "   at: get_meta (core/object/object.cpp:1053)",
+  "ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.",
+  "   at: get_meta (core/object/object.cpp:1053)",
+  "WARNING: 2D MSAA is not yet supported for GLES3.",
+  "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+  {
+   "renderer": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)"
+  }
+ ]
+}

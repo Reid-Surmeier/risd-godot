@@ -1,0 +1,15 @@
+{
+ "ppm": 200,
+ "along_m": [
+  -4.4424718253578455,
+  3.199565608794952
+ ],
+ "top_m": 2.0887291044273892,
+ "bottom_m": -0.9181179543952951,
+ "skirting_top_row": 453,
+ "camera_row_median": 277.6897495230105,
+ "scale_m_per_unit": 0.634991387753669,
+ "cam_height_units": 2.2834955370489145,
+ "wall_inliers": 8814,
+ "floor_inliers": 174
+}

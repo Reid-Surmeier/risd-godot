@@ -1,0 +1,3 @@
+Reference image 1 is a photo of a real painting in the RISD Museum: Paolo Veronese's Wisdom and Strength, a tall canvas in a very narrow, plain, dark bronze-brown frame (a thin simple molding, only a few centimetres wide, with a slim dull-gold inner lip). It is the authority for the frame only.
+
+Render this frame alone, empty: straight on, perfectly square, a clean low-poly game-model rendering of that thin plain dark molding with its slim inner gold lip, keeping it as narrow as in the photo relative to the tall canvas. The complete inner opening is perfectly clean flat pure white (#FFFFFF). Everything outside the frame is flat pure magenta (#FF00FF). No carving, no ornament, no text. One complete image, no transparency.

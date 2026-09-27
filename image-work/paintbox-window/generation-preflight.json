@@ -1,0 +1,32 @@
+{
+  "attempts": [
+    {
+      "id": "001",
+      "prompt": "image-work/paintbox-window/prompt.txt",
+      "promptSha256": "283c4eb02969cb4e2c1921e414f3727885b596db70aacd58a77f2d0ab586e0d1",
+      "size": "512x1024",
+      "inputs": [
+        {
+          "path": "image-work/paintbox-window/references/layout-reference.png",
+          "sha256": "b2a8a2ba6025346106ca3f6eac000d1531cae8c351fc2fc5cd307a4acefd1891"
+        },
+        {
+          "path": "modules/sketchbook/assets/paintbox/tool-reference.png",
+          "sha256": "bba5038f784394528c763a43b9dd16ed44b1f8ade92f610a8f321314fec53ea4"
+        },
+        {
+          "path": "modules/sketchbook/assets/paintbox/palette-white.png",
+          "sha256": "c451c1003564c74e462c73826df7c7f75dfc16ace0791b6e4d03612ace1f4374"
+        },
+        {
+          "path": "modules/sketchbook/assets/paintbox/watercolor-brush.png",
+          "sha256": "1bff2a1cd9940fd84caa43b76427153eb020c3d08464c63bdd6319a639901820"
+        },
+        {
+          "path": "modules/sketchbook/assets/paintbox/cat-brush-rest.png",
+          "sha256": "c6ced676e7593c690d7743fbf4406c829093e7793b55317129e8bf269959d12e"
+        }
+      ]
+    }
+  ]
+}

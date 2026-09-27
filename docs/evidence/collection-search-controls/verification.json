@@ -1,0 +1,43 @@
+{
+  "ok": true,
+  "checks": {
+    "source_hash_locked": true,
+    "popup_opened_by_pointer": true,
+    "sort_changed_by_pointer": true,
+    "category_changed_by_pointer": true,
+    "checkbox_changed_by_pointer": true,
+    "alphabet_numerals_and_caret": true,
+    "all_draft_controls_restored": true,
+    "typed_draft_by_keys": true,
+    "escape_restored_applied": true,
+    "loading_kept_prior_results": true,
+    "empty_success": true,
+    "failure_and_retry": true,
+    "cancel_restored_applied": true,
+    "monet_filter": true,
+    "selection_details": true,
+    "save_and_error_presentations": true,
+    "01-after-1920x1080.png_size": true,
+    "01-after-1920x1080.png_no_black_bars": true,
+    "06-after-1440x900.png_size": true,
+    "06-after-1440x900.png_no_black_bars": true,
+    "02-sort-popup.png_captured": true,
+    "02b-controls-draft.png_captured": true,
+    "03-loading.png_captured": true,
+    "04-empty.png_captured": true,
+    "05-error-retry.png_captured": true,
+    "07-selected-details.png_captured": true,
+    "08-save-error.png_captured": true
+  },
+  "screenshots": {
+    "01-after-1920x1080.png": "1abfd218bf867917848283fdcc6dfc4530b9961985be22e7b9f7cda152ff2be2",
+    "02-sort-popup.png": "8e1c76f41bfe7c9eed5e85f21578a424c5f4146a9b8763b8cbf655d1334445e2",
+    "02b-controls-draft.png": "89093dcd44fe3ad4ece2e73645cd169fc03d5cf46c7c641814b081c05db41a37",
+    "03-loading.png": "82f0cd7cec4a4b23305f1bb46b1ad9e52ac14d7598fda75eb79d3aa934d7ef94",
+    "04-empty.png": "67e4786e7ab1a07f3a93e2fe8bac49e50b6924ca12553c1a7a80f780f38ea11e",
+    "05-error-retry.png": "c84f6de8488f4654eb87febf76f6753567c191f669b6f9956c3f01d65a4101dc",
+    "06-after-1440x900.png": "6521aa9ab4dce4497e63593032c24801aaacee7dbbb67c2b30cc0b5da5af16d1",
+    "07-selected-details.png": "8e45f9c01120387682190ba34de0a68c5f0018efa2044e8e4e7d300faf5b34a6",
+    "08-save-error.png": "6d113ea283d54961d18b4c5dd97adf3af78f6666baf981d71dc30f310fef8b92"
+  }
+}

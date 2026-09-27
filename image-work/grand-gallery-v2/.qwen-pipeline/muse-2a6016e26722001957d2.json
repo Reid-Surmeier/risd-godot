@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-2a6016e26722001957d2",
+  "summary": "Image 1 shows a character from behind in a late-1990s real-time 3D game (NextRooms). Image 2 shows the same character from the front. Render this one character alone, seen from directly behind as in image 1, standing upright and still, full body from the top of the red beret to the feet, centred in the frame and filling about three quarters of its height, on a completely flat, even, pure green background (#00FF00) with no floor, no shadow, no gradient and no other objects.\n\nKeep the character exactly as the game draws it: a small chibi kid with a large red-orange beret over an orange-red bowl cut, a big round pale pink head, a white shirt with bold black horizontal stripes, short rounded pink bare legs. The same low-polygon real-time 3D look as image 1: smooth flat-shaded shapes, slightly soft low-resolution edges, no outlines, no pixel-art grid, no text, no watermark.\n",
+  "procedureId": "muse-2a6016e26722001957d2",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.10",
+  "references": [
+    {
+      "path": "references/kid-back-crop.png",
+      "sha256": "37289734fa2dc4a8a4f4f696904c164ede067fd4b833961021d0dce6b419e50b",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/character-4x.png",
+      "sha256": "6cbb1aefdb2c1b18e1824018a6fcb9ea27097cb3a177883274820d0eac488973",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-kid-back.json",
+      "sha256": "2a6016e26722001957d240b9a88c929c810e09de2d142d4abf5ca60ba49451f2"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "c04d4eaf9c807fd55b3a33814f590acd5e1446c41f6adad3b2fbe2097dcd2853"
+    },
+    {
+      "applicationPath": "prompts/kid-back.txt",
+      "sha256": "b3eaf05269c551f44ab8f285f8148172c01e62a75d5d8b609f72f809044f9cc1"
+    }
+  ]
+}

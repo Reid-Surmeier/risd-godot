@@ -1,0 +1,15 @@
+Image 1 is the approved look for this game: a late-1990s real-time 3D render of a museum gallery with a chibi kid in it. Match image 1 exactly in rendering style, colour, exposure, camera height, lens and character. Image 2 is a real photo looking down the same gallery today; image 3 is the left-wall reference sheet; image 4 is the right-wall reference sheet. Redraw the gallery so its architecture and paintings follow images 2, 3 and 4 (the real room today) instead of the older salon hang in image 1.
+
+THE CAMERA: a standing player's shoulder height with a slight downward tilt, centred and symmetric, looking straight down the length of the room from just inside its south end; both side walls recede to the far doorway, which sits just above the middle of the frame. Floor fills the bottom half.
+
+There is no character and no person anywhere in this view: the floor in the lower middle of the frame is empty.
+
+THE ROOM IS THE REAL RISD MUSEUM GRAND GALLERY AS IT IS HUNG TODAY (the photos, not any older salon hang):
+- A long rectangular gallery seen straight down its length: deep slate-blue walls, cream-white cornice and a white skirting board, a cream barrel-vaulted ceiling with one long glazed skylight grid down its centre giving cool daylight, and a pale herringbone oak floor.
+- At the far end, centred: a white-framed rectangular doorway with a small green EXIT sign above it, a large portrait hanging on each side of it.
+- Paintings hang in a single row at eye level with generous blue wall between them (a few large ones reach higher). The left wall carries, from nearest to farthest, the paintings in the left-wall reference sheet; the right wall carries, from nearest to farthest, the paintings in the right-wall reference sheet. Each distinct painting appears once even if it is photographed several times in the sheet. Keep each painting recognisable by its colours and main shapes, and keep its gilt frame.
+- One long dark-blue upholstered bench in the middle of the floor. No people.
+
+THE RENDERING STYLE: PlayStation-1 / Nintendo-64 era real-time 3D. Chunky low-polygon geometry with visible flat-shaded facets, low-resolution muddy textures with colour banding, affine texture warping on the floor, flat vertex lighting with hard shading, no soft shadows, no reflections, no depth of field, slight VHS/CRT softness and faint scanlines over the whole image, aliased stair-stepped edges. The paintings are low-resolution texture rectangles on the walls; the gold frames are simple extruded boxes; the vault is a coarse polygonal curve; the skylight is a flat glowing panel with a blocky grid.
+
+Fill the whole frame with the 3D game view only: no window frame, no user interface, no text, no watermark, no borders.

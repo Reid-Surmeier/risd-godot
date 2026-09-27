@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-14e0599a768ad177c706",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: Hubert Robert, Architectural Fantasy with a Roman bridge. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a medium-width gilt frame with a fine carved bead-and-reel outer edge and a carved leaf inner molding. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-14e0599a768ad177c706",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/E6-view0.png",
+      "sha256": "1f27406e796cbae9450f16c475d0f6467a72a1b58f4cc6797709bd770afbaeab",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/E6-view1.png",
+      "sha256": "88bc46414b5ea74583bab5066b9a50c973726e52b4b0e6ca8206f9835bd51d24",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-E6.json",
+      "sha256": "14e0599a768ad177c7061c0f1ec738e99fbe9cf70be3dc43d14870a763bc9ad9"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "7c40d4cd59581e7ca80cde40b647d051cf233a3d0c3c6441a96f59468d006b30"
+    },
+    {
+      "applicationPath": "prompts/E6.txt",
+      "sha256": "c3a625392beabbd0dd72b7b94ea5954b211d003de78213eef758f9ece8d52d2e"
+    }
+  ]
+}

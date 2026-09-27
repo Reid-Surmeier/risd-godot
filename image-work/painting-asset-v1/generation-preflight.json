@@ -1,0 +1,140 @@
+{
+ "attempts": [
+  {
+   "id": "charity-frame",
+   "prompt": "prompts/charity-frame.txt",
+   "promptSha256": "f740ecddd103d786b24cdf47b13987a310addb2592a941535b2e11d073b00d15",
+   "size": "1440x1776",
+   "inputs": [
+    {
+     "path": "references/charity-view-a.png",
+     "sha256": "3ba23ae2c8ed232aac71a242eb80674137293c348931df2da772a6c35181660a"
+    },
+    {
+     "path": "references/charity-view-b.png",
+     "sha256": "dce11c74ab5c1be00001d2b208d645cac67ac2a1a5b9c6317ebc40e120573326"
+    },
+    {
+     "path": "references/frame-system-example.png",
+     "sha256": "7283c6276210cefb4fa8db4574e6f50541d31040f1ac9599c402e1a3d3a2bd31"
+    }
+   ]
+  },
+  {
+   "id": "charity-canvas",
+   "prompt": "prompts/charity-canvas.txt",
+   "promptSha256": "9180f2af7db71ada960f14f1fda29b71196ecd2b7bb47c06661c192e6d4f934f",
+   "size": "1440x1776",
+   "inputs": [
+    {
+     "path": "references/charity-view-a.png",
+     "sha256": "3ba23ae2c8ed232aac71a242eb80674137293c348931df2da772a6c35181660a"
+    },
+    {
+     "path": "references/charity-view-b.png",
+     "sha256": "dce11c74ab5c1be00001d2b208d645cac67ac2a1a5b9c6317ebc40e120573326"
+    }
+   ]
+  },
+  {
+   "id": "fire-frame",
+   "prompt": "prompts/fire-frame.txt",
+   "promptSha256": "332fdc31fba432137759d9f4413c72f17865916a80d61a8b2940891fecbf54a0",
+   "size": "1440x1760",
+   "inputs": [
+    {
+     "path": "references/fire-view-a.png",
+     "sha256": "40773a7912242972e728014b0b891dedbbd6058df0e87214e38ee2b616254d92"
+    },
+    {
+     "path": "references/fire-view-b.png",
+     "sha256": "42ad39f607145eed1e9e03f15a6781d1a4613e82110645b7b18cc7f4caf22abe"
+    },
+    {
+     "path": "references/frame-system-example.png",
+     "sha256": "7283c6276210cefb4fa8db4574e6f50541d31040f1ac9599c402e1a3d3a2bd31"
+    }
+   ]
+  },
+  {
+   "id": "fire-canvas",
+   "prompt": "prompts/fire-canvas.txt",
+   "promptSha256": "3213c7cd89c52b6d91af6c31b09c46265c74f964b88479f8b309dc7fa7ba12cf",
+   "size": "1440x1760",
+   "inputs": [
+    {
+     "path": "references/fire-view-a.png",
+     "sha256": "40773a7912242972e728014b0b891dedbbd6058df0e87214e38ee2b616254d92"
+    },
+    {
+     "path": "references/fire-view-b.png",
+     "sha256": "42ad39f607145eed1e9e03f15a6781d1a4613e82110645b7b18cc7f4caf22abe"
+    }
+   ]
+  },
+  {
+   "id": "angel-shaped",
+   "prompt": "prompts/angel-shaped.txt",
+   "promptSha256": "8e300c2abf77618b19857ce91d80f3b6f31600bddecd950c7431614e2c4f98fe",
+   "size": "1248x1920",
+   "inputs": [
+    {
+     "path": "references/angel-view-a.png",
+     "sha256": "e10a515e903f84537904e23c1a2844baeda205b5f0780a34b9120590a17a9de8"
+    },
+    {
+     "path": "references/angel-view-b.png",
+     "sha256": "d7c5a77b91ae60320b887c322bea6c603b687729a00c7ada2f068351951aabc9"
+    }
+   ]
+  },
+  {
+   "id": "charity-frame-v2",
+   "prompt": "prompts/charity-frame-v2.txt",
+   "promptSha256": "05e2f0485bfe9ad3e7d70c73516dbd435864c4f0444e1f3952eaeaaef0343932",
+   "size": "1440x1776",
+   "inputs": [
+    {
+     "path": "references/charity-view-a.png",
+     "sha256": "3ba23ae2c8ed232aac71a242eb80674137293c348931df2da772a6c35181660a"
+    },
+    {
+     "path": "references/charity-view-b.png",
+     "sha256": "dce11c74ab5c1be00001d2b208d645cac67ac2a1a5b9c6317ebc40e120573326"
+    }
+   ]
+  },
+  {
+   "id": "fire-frame-v2",
+   "prompt": "prompts/fire-frame-v2.txt",
+   "promptSha256": "d3a23cd47daccace1e51e73bc81bac06fe50eb8f8559b3626c278f5c44893322",
+   "size": "1440x1760",
+   "inputs": [
+    {
+     "path": "references/fire-view-a.png",
+     "sha256": "40773a7912242972e728014b0b891dedbbd6058df0e87214e38ee2b616254d92"
+    },
+    {
+     "path": "references/fire-view-b.png",
+     "sha256": "42ad39f607145eed1e9e03f15a6781d1a4613e82110645b7b18cc7f4caf22abe"
+    }
+   ]
+  },
+  {
+   "id": "charity-canvas-b",
+   "prompt": "prompts/charity-canvas.txt",
+   "promptSha256": "9180f2af7db71ada960f14f1fda29b71196ecd2b7bb47c06661c192e6d4f934f",
+   "size": "1440x1776",
+   "inputs": [
+    {
+     "path": "references/charity-view-a.png",
+     "sha256": "3ba23ae2c8ed232aac71a242eb80674137293c348931df2da772a6c35181660a"
+    },
+    {
+     "path": "references/charity-view-b.png",
+     "sha256": "dce11c74ab5c1be00001d2b208d645cac67ac2a1a5b9c6317ebc40e120573326"
+    }
+   ]
+  }
+ ]
+}

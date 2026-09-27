@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-da78d2f8a66538d14fe3",
+  "summary": "Reconstruct the supplied Tldraw control panel as a late-1990s Japanese desktop-game window skin, using reference 1 as the exact visual-language authority and reference 2 only as the control inventory and row layout.\n\nOutput a clean UI asset sheet on a flat white background. At the top, show one complete compact control window with the title \"Tldraw controls\" and these four rows: Cursor, Hand, Pen, Eraser; Undo, Redo; S, M, L, XL; 10%, 25%, 50%, 75%, 100%. Below it, show three large isolated blank button skins in a horizontal row: normal, hover, selected. Every button must use reference 1's original beveled silver Windows-98-era button shape, blue radio indicator language, pale blue pressed fill, one-pixel grey edge, and magenta outer-window keyline. Keep the panel rectangular, pixelated, flat, and compact.\n\nThis is UI reconstruction and reformatting. Do not use modern rounded cards, shadows, gradients beyond the original bevel, glossy web styling, icons not present in the references, extra controls, decorative scenery, handwriting, or invented objects. The complete panel establishes appearance; the three blank skins are implementation assets for interactive normal, hover, and selected states.\n",
+  "procedureId": "muse-da78d2f8a66538d14fe3",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "references/control-language.png",
+      "sha256": "c43c2d0642d14469917b0eb60562d013a06542ce1bf02e8596603c559dd13d9e",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/current-controls.png",
+      "sha256": "25172cb05998fb91ef3e867b83128aaf8f81b2b8368584a821e2a4da25c20e66",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe.json",
+      "sha256": "da78d2f8a66538d14fe3953d10b8c1cc04369b5c469c966c69f136589246c6a8"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "519dd883a0eb027bc0f220082f8892d0db1b4dd81be0f31ceb28092da2564c16"
+    },
+    {
+      "applicationPath": "prompt.txt",
+      "sha256": "d3aa457ef3e85399c5debf69827480babf80d92826764f593fc204875d2c5b22"
+    }
+  ]
+}

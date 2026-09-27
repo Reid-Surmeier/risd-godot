@@ -1,0 +1,304 @@
+{
+ "attempts": [
+  {
+   "id": "E1",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1760x1232",
+   "inputs": [
+    {
+     "path": "references/E1-frame-photo.png",
+     "sha256": "af88527fdc12b0462ad50e5e79b826162a2e690be332b40b1a645b027f3a27a1"
+    }
+   ]
+  },
+  {
+   "id": "E2",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1376x1760",
+   "inputs": [
+    {
+     "path": "references/E2-frame-photo.png",
+     "sha256": "46aeb93c8f22acaeb2c193fe68cb41b33963e39624792c0c1fc7a4b4bfe8cc70"
+    }
+   ]
+  },
+  {
+   "id": "E3",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1760x1440",
+   "inputs": [
+    {
+     "path": "references/E3-frame-photo.png",
+     "sha256": "6a88e66c6d8a216f2933ab3dd10d33f903217fe24f16fd07c5a15df53cdd0967"
+    }
+   ]
+  },
+  {
+   "id": "E4",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1760x1328",
+   "inputs": [
+    {
+     "path": "references/E4-frame-photo.png",
+     "sha256": "738410880fcc94d3c74e71b1f4e762093cf283dc24513c87de4b57964d31d5cd"
+    }
+   ]
+  },
+  {
+   "id": "E5",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1360x1760",
+   "inputs": [
+    {
+     "path": "references/E5-frame-photo.png",
+     "sha256": "b61849a028a2ec5995ae7ac687ddf86bb96dfbb10e1b9d69296e1b77c18d8749"
+    }
+   ]
+  },
+  {
+   "id": "E6",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1760x1376",
+   "inputs": [
+    {
+     "path": "references/E6-frame-photo.png",
+     "sha256": "6381ccb4232ed413cfa0c23295ab23e9ce790908bb132d023f4b04a78c579afc"
+    }
+   ]
+  },
+  {
+   "id": "E7",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1760x1184",
+   "inputs": [
+    {
+     "path": "references/E7-frame-photo.png",
+     "sha256": "e3b3ae0cfa320f9937ee0e0f7b9f3569c35214234733f2dc9699352be75b77e0"
+    }
+   ]
+  },
+  {
+   "id": "E8",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "944x1760",
+   "inputs": [
+    {
+     "path": "references/E8-frame-photo.png",
+     "sha256": "8ceb156c2257ea621dfa99479474d4a0994a4f6dfd6ac3e748c30950af8f63db"
+    }
+   ]
+  },
+  {
+   "id": "E9",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1760x1360",
+   "inputs": [
+    {
+     "path": "references/E9-frame-photo.png",
+     "sha256": "b9650603d8ab552adb551cc11c7d10bd990a20847f5ef82bc1a303f529552c0f"
+    }
+   ]
+  },
+  {
+   "id": "N1",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1024x1760",
+   "inputs": [
+    {
+     "path": "references/N1-frame-photo.png",
+     "sha256": "97b8bdf2e535259f958d6dd066ab329670f4677a1ed4ee30bc96df59d4e8afb6"
+    }
+   ]
+  },
+  {
+   "id": "N2",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1056x1760",
+   "inputs": [
+    {
+     "path": "references/N2-frame-photo.png",
+     "sha256": "590cf8a85a755ff6b9d5cb4fc68c26de63dc840fd7e4d99c58192dd413ffbd10"
+    }
+   ]
+  },
+  {
+   "id": "S1",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1360x1760",
+   "inputs": [
+    {
+     "path": "references/S1-frame-photo.png",
+     "sha256": "4b07e2741edf194a2fdb656cfa0bd610512303b13b0d9d6fbf99f3a5158f5bfb"
+    }
+   ]
+  },
+  {
+   "id": "S2",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1216x1760",
+   "inputs": [
+    {
+     "path": "references/S2-frame-photo.png",
+     "sha256": "c8ecc760fc6472aa57c2ece8388c51ad9a7f97e8ae6837b943259ac0c381e1ba"
+    }
+   ]
+  },
+  {
+   "id": "W1",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1744x1360",
+   "inputs": [
+    {
+     "path": "references/W1-frame-photo.png",
+     "sha256": "f79a942b645808abc3a58d99b7ec78afbbff894ce309076c859c193fb83d60ed"
+    }
+   ]
+  },
+  {
+   "id": "W10",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1760x1328",
+   "inputs": [
+    {
+     "path": "references/W10-frame-photo.png",
+     "sha256": "c9b77a715e5224720f42bad9543d9b1804db06fc80b95cabf5da8dc083dc51f5"
+    }
+   ]
+  },
+  {
+   "id": "W2",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1040x1760",
+   "inputs": [
+    {
+     "path": "references/W2-frame-photo.png",
+     "sha256": "7bbde4a334fbb702331268bdad286a699d40d107760fb89a6e26eb9f9644fa63"
+    }
+   ]
+  },
+  {
+   "id": "W3",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1296x1760",
+   "inputs": [
+    {
+     "path": "references/W3-frame-photo.png",
+     "sha256": "aaa0b316af5c1f6c620578e3497f6ce9f486189e1e33772fd93fc5e70d4d2c0c"
+    }
+   ]
+  },
+  {
+   "id": "W4",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1520x1760",
+   "inputs": [
+    {
+     "path": "references/W4-frame-photo.png",
+     "sha256": "c5aeb716f0eb30a126ebf388ae13115824fe650835c6cdc7ed375a1a819afbc5"
+    }
+   ]
+  },
+  {
+   "id": "W5",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1408x1760",
+   "inputs": [
+    {
+     "path": "references/W5-frame-photo.png",
+     "sha256": "111753484701e37f521bcb0dc500a08e20050c4103212184576f78769b666db4"
+    }
+   ]
+  },
+  {
+   "id": "W7",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1760x1136",
+   "inputs": [
+    {
+     "path": "references/W7-frame-photo.png",
+     "sha256": "cc95c67c020acbc2170899051dbd498770f0484e5705f4559aa2910418232ba4"
+    }
+   ]
+  },
+  {
+   "id": "W8",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "944x1760",
+   "inputs": [
+    {
+     "path": "references/W8-frame-photo.png",
+     "sha256": "4ded3033b1269c990f8a54188d2e8432a17c45a23eb393d798e713d86d74b390"
+    }
+   ]
+  },
+  {
+   "id": "W9",
+   "prompt": "prompts/frame.txt",
+   "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+   "size": "1744x1152",
+   "inputs": [
+    {
+     "path": "references/W9-frame-photo.png",
+     "sha256": "6040d156cccf1ae6b27e27978e2bd7cbe096c3844497035c63973aade5e26e54"
+    }
+   ]
+  },
+  {
+   "id": "stone",
+   "prompt": "prompts/stone.txt",
+   "promptSha256": "e3cdb9ce5da98b9d538e839306031937d7a49e3a8bd7b33490991a4ffd4e37d9",
+   "size": "1024x1024",
+   "inputs": [
+    {
+     "path": "references/portal-crop.png",
+     "sha256": "dedfa0317d3e14e29ff57ff617a64029670390c0afa8e0e754abdb036f57bc8c"
+    }
+   ]
+  },
+  {
+   "id": "S1b",
+   "prompt": "prompts/S1.txt",
+   "promptSha256": "6fb2f3adbb7785568efdf96d3a86c74398551cdb7353e24f5669532bacd7eca9",
+   "size": "1248x1616",
+   "inputs": [
+    {
+     "path": "references/S1-photo-2026-01.png",
+     "sha256": "a9a1b900724f3af918db50f64ee8a1626dda6a5dd7717166e8e7ba1cdb8b055b"
+    }
+   ]
+  },
+  {
+   "id": "W5b",
+   "prompt": "prompts/W5b.txt",
+   "promptSha256": "edcc173c9109d09a4736304da573c9e2e1089c5889eb37a05b058557c2de69e1",
+   "size": "1408x1760",
+   "inputs": [
+    {
+     "path": "references/W5-frame-photo.png",
+     "sha256": "111753484701e37f521bcb0dc500a08e20050c4103212184576f78769b666db4"
+    }
+   ]
+  }
+ ]
+}

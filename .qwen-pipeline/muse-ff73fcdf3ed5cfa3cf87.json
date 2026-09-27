@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-ff73fcdf3ed5cfa3cf87",
+  "summary": "Preserve this desktop composition exactly. Edit only the lower-left \"Search filters\" window. Reconstruct it as a crisp, legible early-2000s Muse/Ragnarok Online UI panel: retain the blue title bar, then show a \"Custom Filters :\" text field; a \"Sort by :\" dropdown set to \"Date (O->N)\"; a \"Medium :\" dropdown set to \"All\"; a \"View :\" row with selected circular \"Has Image\", unselected circular \"None\", and a \"Pw. :\" field; and aligned \"OK\" and \"cancel\" buttons. Match the surrounding Windows/Ragnarok window chrome: thin blue-gray beveled outlines, square dropdown arrows, compact pixel-font labels, white fields, no modern rounded cards, no new windows, no text outside this panel. Keep all existing artwork, other windows, desktop whitespace, and the bottom tab strip unchanged.\n",
+  "procedureId": "muse-ff73fcdf3ed5cfa3cf87",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "modules/collection_page/assets/layout-reference.png",
+      "sha256": "e51cbb294653573b43432f623df7277a86adbeddb0d2f0d7c31b36928592075d",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "image-work/collection-filter-muse/recipe.json",
+      "sha256": "ff73fcdf3ed5cfa3cf876dde9cb18383209797a42ead54fa6227ce64bef2b43a"
+    },
+    {
+      "applicationPath": "image-work/collection-filter-muse/generation-preflight.json",
+      "sha256": "523472bc04074ae4680d27b11192c9e1261a637fd1791c94d518b2af54bc31d4"
+    },
+    {
+      "applicationPath": "image-work/collection-filter-muse/edit-prompt.txt",
+      "sha256": "62d5286ceb50e5e71fde379ac98ebf0bb3fb114f6c8fa0a11698a3820732f0fa"
+    }
+  ]
+}

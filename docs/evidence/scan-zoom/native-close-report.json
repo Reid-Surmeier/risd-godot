@@ -1,0 +1,32 @@
+{
+  "log": [
+    {
+      "event": "click",
+      "t_ms": 4193,
+      "what": "3D Viewer tab",
+      "x": 561.301391601562,
+      "y": 1049.45458984375
+    },
+    {
+      "event": "click",
+      "t_ms": 4632,
+      "what": "pause orbit",
+      "x": 786.383056640625,
+      "y": 872.057250976562
+    },
+    {
+      "event": "screenshot",
+      "file": "closest.png",
+      "t_ms": 6163
+    },
+    {
+      "distance": 2.8,
+      "event": "close-zoom",
+      "model_loaded": true
+    }
+  ],
+  "viewport": [
+    1440,
+    972
+  ]
+}

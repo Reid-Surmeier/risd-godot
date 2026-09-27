@@ -1,0 +1,28 @@
+{
+  "sourceRun": "run-b987214702e0dedab7819356",
+  "sourceStatus": "failed",
+  "sourceSha256": "3f792dfdc2d3a99ce38f8976a5daebbfa50e058f4bef29ba36a108dd36cb9852",
+  "derivative": "streamable-study.mp4",
+  "derivativeSha256": "726dff582c81e947e5aedf075f177e35f0887824d9da2fb189e10210041ed2d7",
+  "operation": "ffmpeg -map0:v:0 -c copy -movflags +faststart; container only",
+  "decodedFramehashIdentical": true,
+  "frames": 193,
+  "dimensions": [
+    960,
+    960
+  ],
+  "actualCostUsd": "0.60795",
+  "humanReviewed": false,
+  "toolCertified": false,
+  "applicationAdoption": "Owner authorized reviewed cuts experimentally; imported in fdd9b33, source run still failed",
+  "walkSelectionSourceFrames": [
+    51,
+    72
+  ],
+  "walkSelectionSeconds": [
+    2.125,
+    3.0
+  ],
+  "rejected": "Side-view gestures rotate to front after~3.2s; front view does not wave.",
+  "applicationRecord": "../recovery.json"
+}

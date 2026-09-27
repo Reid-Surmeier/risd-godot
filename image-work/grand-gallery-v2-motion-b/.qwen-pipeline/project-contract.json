@@ -1,0 +1,80 @@
+{
+ "schemaVersion": "1",
+ "applicationId": "app-gg2motion02",
+ "artifactRoot": "artifacts/image-generation",
+ "referenceRoots": [
+  "references/kid-back-480.png",
+  "references/s1-640x480.png",
+  "references/s2-640x480.png",
+  "references/s3-640x480.png"
+ ],
+ "outputRoot": "generated",
+ "maximumCount": 1,
+ "maximumBudgetUsd": "0.60",
+ "maximumCorrectionRuns": 0,
+ "procedures": [
+  {
+   "id": "kid-walk-v1",
+   "version": "1",
+   "mode": "seedance-video",
+   "provider": "openrouter",
+   "model": "bytedance/seedance-2.0-mini",
+   "maximumCount": 1,
+   "unitCostUsd": "0.15",
+   "referenceRequirements": [
+    {
+     "slot": "first-frame",
+     "kind": "image",
+     "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+     "slot": "last-frame",
+     "kind": "image",
+     "payloadDestination": "/input_references/1/image_url/url"
+    }
+   ]
+  },
+  {
+   "id": "room-walk-s1-s2-v1",
+   "version": "1",
+   "mode": "seedance-video",
+   "provider": "openrouter",
+   "model": "bytedance/seedance-2.0-mini",
+   "maximumCount": 1,
+   "unitCostUsd": "0.15",
+   "referenceRequirements": [
+    {
+     "slot": "first-frame",
+     "kind": "image",
+     "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+     "slot": "last-frame",
+     "kind": "image",
+     "payloadDestination": "/input_references/1/image_url/url"
+    }
+   ]
+  },
+  {
+   "id": "room-walk-s2-s3-v1",
+   "version": "1",
+   "mode": "seedance-video",
+   "provider": "openrouter",
+   "model": "bytedance/seedance-2.0-mini",
+   "maximumCount": 1,
+   "unitCostUsd": "0.15",
+   "referenceRequirements": [
+    {
+     "slot": "first-frame",
+     "kind": "image",
+     "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+     "slot": "last-frame",
+     "kind": "image",
+     "payloadDestination": "/input_references/1/image_url/url"
+    }
+   ]
+  }
+ ]
+}

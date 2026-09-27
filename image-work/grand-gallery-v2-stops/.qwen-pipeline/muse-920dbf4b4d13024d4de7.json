@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-920dbf4b4d13024d4de7",
+  "summary": "Image 1 is a view of this game's museum gallery from its south end, looking straight down its length to the north doorway. Image 2 is a real photo of that north end wall and its doorway; images 3 and 4 are the left-wall and right-wall paintings, in order from the south end to the north door.\n\nRender a later step of the walk: the camera has walked along the centre line to about two thirds of the way down the gallery, past the bench (now behind the camera and out of view), still looking straight north at the same height and tilt. The north end wall now fills the middle of the frame: the white-framed doorway with its green EXIT sign in the centre, one large portrait on each side of it; the last few paintings of each side wall appear large at the left and right edges.\n\nKeep image 1 exactly: the same late-1990s real-time 3D game render (low-polygon flat-shaded geometry, low-resolution photographic textures with colour banding, cool even skylight, CRT softness), the same colours, the same exposure, the same lens and camera height, the same deep slate-blue walls, cream barrel vault with its long skylight grid, white skirting, pale herringbone oak floor, and the same gilt-framed paintings in the same places. It is one continuous game level: this view must look like the next frame of the same game, not a new drawing. No people and no character anywhere. Fill the whole frame with the 3D game view: no interface, no text, no watermark, no borders.\n",
+  "procedureId": "muse-920dbf4b4d13024d4de7",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.06",
+  "references": [
+    {
+      "path": "references/anchor-v4-south-end-north.png",
+      "sha256": "91df878e53f73876e6f39140a72a401d40a57e831ddb2ce85bddcbb3c3f6c2a9",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/north-wall-door.png",
+      "sha256": "f4c60c69e70553d6745cb5b1d4a881a0abfba475d3ae203e49b5ba2734ba3b76",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "references/wall-west-arch-to-door.png",
+      "sha256": "752df0299008d167f6b5f669a83feb8322dd029a108d8df997ba8c68c7e48823",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    },
+    {
+      "path": "references/wall-east-arch-to-door.png",
+      "sha256": "2fd0f88b74e23c5af4fd5ecf336868d540189134a787588f98cc8c1072bd3c1f",
+      "slot": "reference-003",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/3/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-s3.json",
+      "sha256": "920dbf4b4d13024d4de7b4a0df2732d4a34ee2449739c56836415f7c2d20bfb7"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "9df835578c58c0d0598048242def2dc4d42ed1a94db1a7016725d7edf327c09f"
+    },
+    {
+      "applicationPath": "prompts/s3-near-door-north.txt",
+      "sha256": "705ec06b0c48747409f826b1eac53bfad3186aa80aacf0bebf982d1d62aec386"
+    }
+  ]
+}

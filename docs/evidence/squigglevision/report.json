@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "settings": {
+    "enabled": true,
+    "fps": 3,
+    "strength_pixels": 0.45
+  },
+  "motion": {
+    "on_off_changed_fraction": 0.1474710648148148,
+    "temporal_changed_fraction": 0.09827208719135802
+  },
+  "controls": {
+    "f8_independent": true,
+    "f9_independent": true
+  },
+  "interactions": {
+    "sculpture_orbit": true,
+    "window_drag": true,
+    "paint_full_and_half": true
+  },
+  "errors": []
+}

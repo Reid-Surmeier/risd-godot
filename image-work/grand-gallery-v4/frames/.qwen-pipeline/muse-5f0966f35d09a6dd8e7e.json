@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-5f0966f35d09a6dd8e7e",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: Francesco Vanni, the Virgin and Child appearing to Saint Francis, a tall altarpiece. They are the sole authority for this painting's FRAME: its exact profile, the width of each side relative to the painting, its colour and finish, and whatever ornament it really has — here a fairly narrow, plain, smooth gilt molding with a simple stepped inner lip. Do not add any ornament, rosettes, carving, friezes or corner blocks that the real frame does not have.\n\nRender this painting's frame alone, as an empty frame: facing the viewer head-on, perfectly straight, square and symmetrical, no perspective tilt. Render it as a clean low-poly game model: the real profile built from a few large flat planar facets with crisp highlight bands and controlled dark creases, no photographic noise, no glare, no reflections. The outer edge of the image is the outer edge of the frame, with the painting's aspect ratio as in the photos.\n\nDELETE the painting: the complete inner opening, edge to edge inside the innermost lip, is perfectly clean, featureless, flat solid pure white (#FFFFFF). No wall, no label, no text. Return one complete image with no transparency.\n",
+  "procedureId": "muse-5f0966f35d09a6dd8e7e",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.30",
+  "references": [
+    {
+      "path": "references/S2-view0.png",
+      "sha256": "2461affc0a0a64d7c921845beabbda1c8be02bc7bd901f79b736aed22b9e1198",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/S2-view1.png",
+      "sha256": "ebb3b8f8c12fd71a830eb92c320ab7c642cda310a8e66d3f55d0ea3616ae6d3c",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-S2.json",
+      "sha256": "5f0966f35d09a6dd8e7ea423306207527edfb59c0e35813739b530d1463ae762"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "7c40d4cd59581e7ca80cde40b647d051cf233a3d0c3c6441a96f59468d006b30"
+    },
+    {
+      "applicationPath": "prompts/S2.txt",
+      "sha256": "cd8ddaa42844fcce145a70b8b69df8f20bf214824ae968c6c253fcd38edba88d"
+    }
+  ]
+}

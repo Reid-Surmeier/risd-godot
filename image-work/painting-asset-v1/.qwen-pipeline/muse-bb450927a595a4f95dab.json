@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-bb450927a595a4f95dab",
+  "summary": "Reference images 1 and 2 are phone photos of one real painting hanging in the RISD Museum Grand Gallery: a night scene: a blazing fire lighting figures and a tent in a dark landscape. They are the authority for the painting's picture: its composition, every figure and object, their poses, the colours and the light.\n\nReturn a clean, faithful, straight-on reproduction of the painted canvas ONLY: exactly the picture area inside the frame, filling the whole image edge to edge, with no frame, no wall and no border. Correct the perspective so the canvas is a perfect rectangle facing the viewer. Remove glass glare, reflections, spotlight hot spots, motion blur and phone noise. Keep the painting exactly as painted: same drawing, same figures, same colours, same brushwork and craquelure character, sharp and detailed. Do not restyle it, do not add or remove anything, no text, no watermark.\n",
+  "procedureId": "muse-bb450927a595a4f95dab",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.08",
+  "references": [
+    {
+      "path": "references/fire-view-a.png",
+      "sha256": "40773a7912242972e728014b0b891dedbbd6058df0e87214e38ee2b616254d92",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/fire-view-b.png",
+      "sha256": "42ad39f607145eed1e9e03f15a6781d1a4613e82110645b7b18cc7f4caf22abe",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe-fire-canvas.json",
+      "sha256": "bb450927a595a4f95dabdb56ffa2eebd56fee829a969ab37c9e25e1136f1c1d6"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "9c0d7ab4e8d126e1d27c639a06f925e95719d2f99d210e4576dd3f23a3d410a7"
+    },
+    {
+      "applicationPath": "prompts/fire-canvas.txt",
+      "sha256": "3213c7cd89c52b6d91af6c31b09c46265c74f964b88479f8b309dc7fa7ba12cf"
+    }
+  ]
+}

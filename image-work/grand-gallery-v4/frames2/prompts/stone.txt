@@ -1,0 +1,3 @@
+Reference image 1 is a phone photo of a carved Romanesque stone portal in the RISD Museum's medieval gallery: pale warm limestone blocks, weathered, with fine tooling marks.
+
+Render a seamless, tileable, square texture of that pale weathered limestone ashlar seen straight on: warm cream-grey stone blocks about a third of the tile high, thin recessed mortar joints, soft weathering and faint tool marks, even flat lighting, no shadows, no carving, no objects, no text. It must tile seamlessly on all four edges.
