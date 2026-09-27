@@ -65,3 +65,12 @@
 - Rendering research landed at cde21b9 before later controlled display work; integrated blind visual acceptance remains open.
 - Next: coordinator reviews current floor/visitor trials; #137 still needs the documented fresh M3 control/treatment capture.
 - Checkpoint unchanged: active API coordinator owns it, and its current next step is compatible with this finding.
+
+2026-09-27 02:01 EDT — Heartbeat tick (map #116; #136/#138 closed, #137 open).
+- Active prototype and isolated camera/cutaway workers advanced to 22089e5; no worker or runtime files touched.
+- Independently recounted exact background RGB(32,36,41) in the recorded 720px corner crop: 45° 6,227 pixels; 42° 4,672 (−25.0%), matching the pitch report.
+- Verified 29e7a5b changes only dollhouse pitch 45°→42°; fixed-pose harness uses (-4.45,0,-2.56), yaw 2.65; native logs identify Mesa llvmpipe.
+- Wall-albedo lift was rejected by blind review at 22089e5; no production material change. Pitch retains a visible finite-wall background gap and warm/art clipping.
+- Mac M3 load and movement lag remain unmeasured; Linux RTX and llvmpipe captures cannot close #137.
+- Next: coordinator judge 42° against the integrated blind gaps, then capture fresh unvisited-Flowers control and Flowers-return treatment on M3.
+- Checkpoint unchanged because the active API coordinator owns it; current instruction to evaluate trials remains compatible.
