@@ -1,0 +1,321 @@
+{
+  "verified_at": "2026-09-27T16:36:53Z",
+  "project": "risd-godot",
+  "proton_root": "/my-files/Backups/projects/risd-godot",
+  "original_files": 9068,
+  "original_bytes": 12906945296,
+  "original_manifest_coverage": "exact match to all selected SHA-256 identities and sizes",
+  "initial_sets_verified": 37,
+  "git_restore": "251 refs, git fsck --full passed",
+  "selected_originals_sha256": "a14f96f63320bd59d159b1aa47baf78189fe76355f1be381db21e416f8f6516a",
+  "hashed_inventory_sha256": "c697afce0e40925dcb4c958e1eb81f0b9303efb4ac74b7c03e61a9e86ff06a8d",
+  "receipts": [
+    {
+      "backup_id": "risd-originals-001",
+      "project_id": "risd-godot",
+      "file_count": 246,
+      "total_bytes": 390990814,
+      "manifest_sha256": "622f4e568b81ac7dc4c0eb77e3cdf613f84fd48cd28f3749427f4f61b42d1bf2",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-002",
+      "project_id": "risd-godot",
+      "file_count": 125,
+      "total_bytes": 358720317,
+      "manifest_sha256": "15b8b39c1486bcaaa726d00fc95646e7de4196f8f42ddd9b33a31897366c967e",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-003",
+      "project_id": "risd-godot",
+      "file_count": 1640,
+      "total_bytes": 388957089,
+      "manifest_sha256": "a213ee1630ce5dafe112c45cb8448b2c2a7e4facd4c9b86ddc2bd9a957e5f1da",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-004",
+      "project_id": "risd-godot",
+      "file_count": 144,
+      "total_bytes": 375118631,
+      "manifest_sha256": "6142d2ac4a163703cc91868398246a2ab9491a4cc8831ce0dc7b24b9807930d9",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-005",
+      "project_id": "risd-godot",
+      "file_count": 108,
+      "total_bytes": 380879585,
+      "manifest_sha256": "10bce48f0479900f0c0d74942338c9c7c08e3b65ea176a630722af5917e1aebf",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-006",
+      "project_id": "risd-godot",
+      "file_count": 216,
+      "total_bytes": 398259548,
+      "manifest_sha256": "074bc8be1741aa6ea533798b9d4235678788cc6a218b4c9611692fe7a3e97e60",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-007",
+      "project_id": "risd-godot",
+      "file_count": 215,
+      "total_bytes": 379281558,
+      "manifest_sha256": "fc02c5dc21edbee73f3767a6962287333ff86198fe72b51fba5d2fabc7e8aacf",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-008",
+      "project_id": "risd-godot",
+      "file_count": 110,
+      "total_bytes": 365367249,
+      "manifest_sha256": "2ae15fb4e74b3acba75a4e0fb8ccee73164f053346dab380acf7e7d163dc6ab3",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-009",
+      "project_id": "risd-godot",
+      "file_count": 145,
+      "total_bytes": 391704801,
+      "manifest_sha256": "d9b1915a8584cdf3b56127df80b93cf330853e0ac7aa0a0b6ab302a7726dc20f",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-010",
+      "project_id": "risd-godot",
+      "file_count": 121,
+      "total_bytes": 395421337,
+      "manifest_sha256": "ee34a6e4a2655e40329fe6411cb1b3594f218164ba9df87da9049e0f8f57b620",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-011",
+      "project_id": "risd-godot",
+      "file_count": 121,
+      "total_bytes": 377105423,
+      "manifest_sha256": "efaf7c34174e1e76fe0b27ffe8647e3b8b9ec40e14ed03c47dada0ac40ef81f6",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-012",
+      "project_id": "risd-godot",
+      "file_count": 160,
+      "total_bytes": 385438683,
+      "manifest_sha256": "6c03d05e0ea8db68e850ae5da7500f6af83f5a04ee9155805f5af4a710d66559",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-013",
+      "project_id": "risd-godot",
+      "file_count": 262,
+      "total_bytes": 400411589,
+      "manifest_sha256": "298afac0081336d8d7343d0a44e1145914f163f66562bf7fd7e8d62dabbc83b2",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-014",
+      "project_id": "risd-godot",
+      "file_count": 147,
+      "total_bytes": 388742535,
+      "manifest_sha256": "c6744fdfcddfe5f69767a9657e94c4434c0c06d22e22f721df94a93ce128bf6e",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-015",
+      "project_id": "risd-godot",
+      "file_count": 143,
+      "total_bytes": 395299734,
+      "manifest_sha256": "6cab0af080906445d07e3bd305e15efadb2549e89609722641fabe45fa53afa2",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-016",
+      "project_id": "risd-godot",
+      "file_count": 129,
+      "total_bytes": 392490697,
+      "manifest_sha256": "4407ebd0f31f4f636df71068aa8fe43cb164bc28e4f40b391e7c129f0f261ffc",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-017",
+      "project_id": "risd-godot",
+      "file_count": 134,
+      "total_bytes": 401535889,
+      "manifest_sha256": "3291bca1e3d2a3195d8e82d23e0512b293dccb5752e0153413d2607e30167626",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-018",
+      "project_id": "risd-godot",
+      "file_count": 159,
+      "total_bytes": 388172157,
+      "manifest_sha256": "93aaead6c2beff2fc79fe28f61ca799b7201e62df3e8d651ae946275378b6683",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-019",
+      "project_id": "risd-godot",
+      "file_count": 208,
+      "total_bytes": 363911499,
+      "manifest_sha256": "f7d89c3f87e0041cd3976efb2572a86fde4a35db0282750dbe6d527514752dc8",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-020",
+      "project_id": "risd-godot",
+      "file_count": 199,
+      "total_bytes": 383470943,
+      "manifest_sha256": "6d815781d8725f65c452c91e01073f44d1462a9ddac1a05d0094d1c860d9ed89",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-021",
+      "project_id": "risd-godot",
+      "file_count": 201,
+      "total_bytes": 382380083,
+      "manifest_sha256": "8e0c48c1f7417799b1b25533c129da88cd9b7e0626a1cc842ce8ecddbe45e66c",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-022",
+      "project_id": "risd-godot",
+      "file_count": 1211,
+      "total_bytes": 402580415,
+      "manifest_sha256": "3d5d96fc4db0a5f3c5d39ee3dcfec51f4754606409afb5b96e1e30d31abc23df",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-023",
+      "project_id": "risd-godot",
+      "file_count": 1728,
+      "total_bytes": 402500304,
+      "manifest_sha256": "8cb3f8030a8047b45b0256bc445679a4bded11a1ce21befde04374cb1030b6ad",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-024",
+      "project_id": "risd-godot",
+      "file_count": 493,
+      "total_bytes": 374348204,
+      "manifest_sha256": "6655270052927f91152370f5773b60e6f4e5373468517263d5148ff5803e051f",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-025",
+      "project_id": "risd-godot",
+      "file_count": 241,
+      "total_bytes": 388524177,
+      "manifest_sha256": "e1afa072f374d555104e22f6f76b34bb9472b48fe254867b194d4fc12664655a",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-026",
+      "project_id": "risd-godot",
+      "file_count": 252,
+      "total_bytes": 379589107,
+      "manifest_sha256": "61cdad4af8ffe3d36a33f6cf9391324365f7e26465a3b59090e16b5d260ba792",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-027",
+      "project_id": "risd-godot",
+      "file_count": 197,
+      "total_bytes": 380609332,
+      "manifest_sha256": "a18be6a221629c291526d539573827ce1cb73c94b29952804c90c87220919d2c",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-028",
+      "project_id": "risd-godot",
+      "file_count": 3,
+      "total_bytes": 309720508,
+      "manifest_sha256": "aff878447866f3bdc0614b36b11e234bc90c567196c0123a220502a989bb4e9d",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-029",
+      "project_id": "risd-godot",
+      "file_count": 2,
+      "total_bytes": 339050291,
+      "manifest_sha256": "8aa02fd2eedbe7705999eab1444c0964e022b9889e1425c54c1ac45234a42f9f",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-030",
+      "project_id": "risd-godot",
+      "file_count": 2,
+      "total_bytes": 314248304,
+      "manifest_sha256": "e7d15fe06f54f569414174d6b3c735133fa50c2037b21590191ee6ec805dfd75",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-031",
+      "project_id": "risd-godot",
+      "file_count": 2,
+      "total_bytes": 351613294,
+      "manifest_sha256": "3502728428bcd8ab4008e46d6073d8224f25e7c722fd6c0e0778cf0e455e638d",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-032",
+      "project_id": "risd-godot",
+      "file_count": 1,
+      "total_bytes": 278455062,
+      "manifest_sha256": "4892b2e7806a9c5f6cf2057ddb5d97e1162cb219ace4c73b9a841d13fef7e11e",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-033",
+      "project_id": "risd-godot",
+      "file_count": 1,
+      "total_bytes": 209967825,
+      "manifest_sha256": "b0b044ec446fdd4c6537bbdb6e373b1f0e5af3045f444a09c83717df37c69b0f",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-034",
+      "project_id": "risd-godot",
+      "file_count": 1,
+      "total_bytes": 435456128,
+      "manifest_sha256": "1ff14a894eeda507014e1f9129677ba639252965b71c5fbcc075b4a476fb2e86",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-originals-035",
+      "project_id": "risd-godot",
+      "file_count": 1,
+      "total_bytes": 256622184,
+      "manifest_sha256": "c5215c8dcae46f37126099b7de0e97b0f7ad47979f71f7d8297ca63f2ea30868",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-preservation-state",
+      "project_id": "risd-godot",
+      "file_count": 33,
+      "total_bytes": 29216282,
+      "manifest_sha256": "469e984c3ac019c6022ba26c22d0ffa0d540d1507c9e78b96d5a587a59d71871",
+      "status": "verified"
+    },
+    {
+      "backup_id": "risd-local-history",
+      "project_id": "risd-godot",
+      "file_count": 1,
+      "total_bytes": 1575768868,
+      "manifest_sha256": "d40fb83d495c8e93882b994037d220ab40f4c4f10314416efff5db49b9bc60f4",
+      "status": "verified"
+    }
+  ],
+  "source_moves_or_deletions": 0,
+  "final_metadata": {
+    "backup_id": "risd-preservation-final",
+    "project_id": "risd-godot",
+    "file_count": 141,
+    "total_bytes": 67043292,
+    "manifest_sha256": "101c3ca1e45d83d10a08f427ea91c6684bbcb36b4018a3f2a601c76c5759de5c",
+    "status": "verified"
+  },
+  "final_metadata_verified_at": "2026-09-27T16:37:54Z",
+  "consolidated_history_receipt": "Issue #143 and local receipts/risd-consolidated-history.json; incremental bundle depends on repository-history.bundle"
+}

@@ -17,7 +17,7 @@ This is the September 27, 2026 consolidation record for [#143](https://github.co
 
 Merge `72d95bc` combines the latest Sketchbook branch (`9a19174`) with the retained gallery (`dd6948a`). Merge `407828a` joins the older version-build ancestry while retaining newer Sketchbook corrections. Export exclusions retain assets needed by both. No new character, generated art or retro effect was made in this consolidation.
 
-The audit found **185 Git worktree records, 178 existing directories and five dirty worktrees**. An Orca workspace and a Git worktree are different inventories. Do not treat an inactive Orca label as proof a directory can be deleted.
+The audit found **185 Git worktree records, 178 existing directories and five dirty worktrees**. The remaining RISD overnight automation was already disabled when checked. Future scheduled work should target the existing current-build workspace; Orca’s repository-targeted automation mode creates a fresh worktree for every run. An Orca workspace and a Git worktree are different inventories. Do not treat an inactive Orca label as proof a directory can be deleted.
 
 ## Where work belongs
 
@@ -43,7 +43,7 @@ Local audit files in the preservation directory:
 - `recovery/`: staged/unstaged binary patches, tracked-file inventories, worktree identity and GitHub issue/comment export.
 - `backup-registry.toml`, `run-backups.py`, `receipts/` and `backup-progress.log`: exact upload allowlist and verification evidence. Rebuildable exclusions are recorded in `excluded-rebuildable.json`.
 
-Backup completion is recorded in the committed evidence report after all sets verify. Do not remove sources based on this document alone. This is a point-in-time preservation run, not a claim that future edits are automatically backed up. Re-inventory new originals and make a fresh Git bundle before a later cleanup.
+All 35 original-object batches and the initial Git history verified after download; the final recovery metadata also verified. See the [committed receipt catalog](evidence/project-consolidation-2026-09-27/preservation.json). The final metadata folder is `101c3ca1e45d83d10a08f427ea91c6684bbcb36b4018a3f2a601c76c5759de5c` under the Proton destination above. The subsequent incremental Git bundle is identified by `receipts/risd-consolidated-history.json` and issue #143. Do not remove sources based on this document alone. This is a point-in-time preservation run, not a claim that future edits are automatically backed up. Re-inventory new originals and make a fresh Git bundle before a later cleanup.
 
 ## Restore without overwriting current work
 
@@ -56,3 +56,5 @@ Backup completion is recorded in the committed evidence report after all sets ve
 ## Cleanup gate
 
 First finish every verification receipt and preserve final consolidation commits. Then identify inactive worktrees with no live process, terminal, server or share, compare their current files against the saved inventory, and list exact paths and reclaimable space. Ask the owner before deleting or relocating them. Keep unique originals and the ingestion directory until their new home is verified. Branch history alone does not preserve ignored or untracked assets.
+
+The [exact cleanup proposal](evidence/project-consolidation-2026-09-27/cleanup-proposal.md) lists 122 inactive automation worktrees, approximately 41.69 GB allocated. It is a proposal, not deletion authorization.

@@ -33,3 +33,5 @@ Game PCK  8393bb3029010394b4e5fca21e7da6c0640c848bbe501d789393b9c6e1d6a51e
 The served HTML hash matches the local export. Browser state/check details are in `result.json`; command output is alongside this file. `preserved-dirty-refs.json` maps the four other dirty source snapshots to archival Git commits. The previous version checkout's journal study is separately preserved at `84dd741`.
 
 For paths, backup coverage, restore instructions and cleanup conditions, see [Project home](../../project-home.md). No source directory was moved or deleted in this consolidation.
+
+All selected original assets (9,068 unique files / 12,906,945,296 bytes) now have verified upload/download receipts, with exact SHA-256 and size coverage. Final recovery metadata also verified. See [receipt catalog](preservation.json) and [cleanup proposal](cleanup-proposal.md). Original directories remain untouched.
