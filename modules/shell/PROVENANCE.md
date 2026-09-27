@@ -25,3 +25,19 @@ material tint and local offline light. No new Muse invocation is claimed.
 Godot 4.7.2 unwraps UV2 and bakes the saved room lightmap; there are no runtime
 lights in the showcase. Bake hashes and captures are recorded in
 `docs/evidence/doorway-160/`.
+
+## Repair after the first blind review
+
+The far-door photograph is removed from both the saved geometry and source
+builder. Cream walls, ceiling, returning trim and the rear paneled doorway
+are modeled. The former live-game placeholder recess is also removed for
+this door, so gameplay shows the same baked asset as the fixed views.
+
+The recess floor reuses the existing `textures/oak.png` without editing its
+pixels (original v4 Muse oak-grain pass; recipe and reference prompt under
+`image-work/grand-gallery-v4/surfaces/`). SHA-256:
+`ea9d9966c0295584c531e5550aab372fee9d53662ffe12fd2553014c9ebaec0e`.
+The authored vector `textures/exit-sign.svg` uses explicit path lettering,
+not a font-dependent raster. Provider: local SVG. Model: none. Cost: USD 0.
+SHA-256: `7f15231b789fb9539d2affcb90fcc593735f446191877a9427179ddfec9a1e07`.
+No new image-generation calls were made for the repair.

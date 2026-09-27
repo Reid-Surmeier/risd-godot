@@ -596,14 +596,14 @@ func _arch_end() -> void:
 
 # The far end: a plain rectangular door with a stepped white casing, a deep cream vestibule lit from its far end,
 # and the second door and bright room at its back.
-func _trim_profile(origin: Vector3, across: Vector3, along: Vector3, points: Array, material: Material) -> void:
+func _trim_profile(origin: Vector3, across: Vector3, along: Vector3, points: Array, material: Material, depth_axis := Vector3.BACK) -> void:
 	# #160 prototype: extruded section, UV1 in metres; offline bake unwraps UV2.
 	for index in points.size():
 		var a: Vector2 = points[index]
 		var b: Vector2 = points[(index + 1) % points.size()]
-		var corner := origin + across * a.x + Vector3.BACK * a.y
-		var edge := across * (b.x - a.x) + Vector3.BACK * (b.y - a.y)
-		if across.cross(along).z > 0:
+		var corner := origin + across * a.x + depth_axis * a.y
+		var edge := across * (b.x - a.x) + depth_axis * (b.y - a.y)
+		if across.cross(along).dot(depth_axis) > 0:
 			_panel(corner, edge, along, material, 0.3)
 		else:
 			_panel(corner, along, edge, material, 0.3)
@@ -615,7 +615,7 @@ func _trim_profile(origin: Vector3, across: Vector3, along: Vector3, points: Arr
 			var p: Vector2 = points[index]
 			st.set_normal(along.normalized() * (1 if end else -1))
 			st.set_uv(p)
-			st.add_vertex(origin + along * end + across * p.x + Vector3.BACK * p.y)
+			st.add_vertex(origin + along * end + across * p.x + depth_axis * p.y)
 		var cap := MeshInstance3D.new()
 		cap.mesh = st.commit()
 		cap.material_override = material
@@ -628,7 +628,7 @@ func _far_end() -> void:
 	var X := W / 2.0
 	var dw := ds.x / 2.0
 	var side := X - dw
-	var reference_blue := _wall_ps(Color(0.62, 0.80, 1.22))
+	var reference_blue := _wall_ps(Color(0.76, 0.84, 0.96))
 	_panel(Vector3(-X, 0, z), Vector3(side, 0, 0), Vector3(0, H, 0), reference_blue, 0.5, 1)
 	_panel(Vector3(dw, 0, z), Vector3(side, 0, 0), Vector3(0, H, 0), reference_blue, 0.5, 1)
 	_panel(Vector3(-dw, ds.y, z), Vector3(ds.x, 0, 0), Vector3(0, H - ds.y, 0), reference_blue, 0.5, 1)
@@ -644,22 +644,35 @@ func _far_end() -> void:
 	_trim_profile(Vector3(-dw - 0.32, ds.y, z), Vector3.UP, Vector3(ds.x + 0.64, 0, 0), casing, white)
 	var crown := [Vector2(0, 0), Vector2(0, 0.065), Vector2(0.025, 0.09), Vector2(0.055, 0.14), Vector2(0.075, 0.15), Vector2(0.10, 0.15), Vector2(0.10, 0)]
 	_trim_profile(Vector3(-dw - 0.38, ds.y + 0.32, z), Vector3.UP, Vector3(ds.x + 0.76, 0, 0), crown, white)
-	# the vestibule, darker at its mouth, lit from the far end
+	# #160: a fully modeled cream vestibule, no photographic depth card.
 	var depth: float = door.reveal
-	var cream := ps(null, Color("#e6dfcf"), Vector2.ONE, true)
+	var cream := ps(load(DIR + "textures/ivory-trim.svg"), Color(1.0, 0.98, 0.91), Vector2(0.65, 0.65), true)
 	var lit := func(p: Vector3) -> float: return lerpf(0.55, 1.0, clampf((z - p.z) / depth, 0.0, 1.0))
 	_panel(Vector3(-dw, 0, z), Vector3(0, 0, -depth), Vector3(0, ds.y, 0), cream, 0.5, 1, lit)
 	_panel(Vector3(dw, 0, z - depth), Vector3(0, 0, depth), Vector3(0, ds.y, 0), cream, 0.5, 1, lit)
-	_panel(Vector3(-dw, ds.y, z), Vector3(ds.x, 0, 0), Vector3(0, 0, -depth), ps(null, Color("#f0ebe0"), Vector2.ONE, true), 0.5, 1, lit)
-	_panel(Vector3(-dw, 0.004, z - depth), Vector3(ds.x, 0, 0), Vector3(0, 0, depth), ps(null, Color("#d8cdb6"), Vector2.ONE, true), 0.5, 1, lit)
-	var card := MeshInstance3D.new()
-	var qm := QuadMesh.new()
-	qm.size = ds
-	card.mesh = qm
-	card.material_override = ps(load(DIR + "textures/door-far.jpg"), Color.WHITE, Vector2.ONE, false, 0.9)
-	card.position = Vector3(0, ds.y / 2, z - depth + 0.01)
-	_vp.add_child(card)
-	_box(Vector3(0, ds.y + 0.62, z + 0.04), Vector3(0.34, 0.14, 0.05), Color.WHITE, 1, ps(null, Color(0.2, 1.0, 0.45), Vector2.ONE, false, 1.0))
+	# Inward ceiling and upward floor normals are required for the offline bake.
+	_panel(Vector3(-dw, ds.y, z - depth), Vector3(ds.x, 0, 0), Vector3(0, 0, depth), cream, 0.5, 1, lit)
+	for row in 13:
+		var timber := ps(load(DIR + "textures/oak.png"), Color(1.05, 1.03, 0.97) * (0.98 if row % 3 == 0 else 1.0), Vector2(0.52, 1.0), true)
+		_panel(Vector3(-dw, 0, z - row * depth / 13.0), Vector3(ds.x, 0, 0), Vector3(0, 0, -depth / 13.0), timber, 0.4)
+	for s in [-1.0, 1.0]:
+		_trim_profile(Vector3(s * dw, 0, z), Vector3.UP, Vector3(0, 0, -depth), skirting, white, Vector3(-s, 0, 0))
+	# The reference's second pale doorway is real relief at the rear, not a picture.
+	var rear := z - depth
+	_panel(Vector3(-dw, 0, rear - 0.05), Vector3(ds.x, 0, 0), Vector3(0, ds.y, 0), cream)
+	for s in [-1.0, 1.0]:
+		_trim_profile(Vector3(s * 0.62, 0, rear), Vector3(s * 0.55, 0, 0), Vector3(0, 2.35, 0), casing, white)
+	_trim_profile(Vector3(-0.80, 2.35, rear), Vector3(0, 0.55, 0), Vector3(1.6, 0, 0), casing, white)
+	_panel(Vector3(-0.62, 0, rear - 0.02), Vector3(1.24, 0, 0), Vector3(0, 2.35, 0), white)
+	var bead := [Vector2(0, 0), Vector2(0, 0.012), Vector2(0.015, 0.027), Vector2(0.04, 0.027), Vector2(0.055, 0.01), Vector2(0.055, 0)]
+	for panel_y in [0.25, 1.2]:
+		for s in [-1.0, 1.0]:
+			_trim_profile(Vector3(s * 0.44, panel_y, rear), Vector3(s, 0, 0), Vector3(0, 0.8, 0), bead, white)
+		for edge_y in [panel_y, panel_y + 0.8]:
+			_trim_profile(Vector3(-0.495, edge_y, rear), Vector3.UP, Vector3(0.99, 0, 0), bead, white)
+	for sign_z in [z + 0.041, rear + 0.03]:
+		var sign_y := ds.y + 0.48 if sign_z > z else 2.65
+		_panel(Vector3(-0.17, sign_y, sign_z), Vector3(0.34, 0, 0), Vector3(0, 0.15, 0), ps(load(DIR + "textures/exit-sign.svg"), Color.WHITE, Vector2(1.0 / 0.34, 1.0 / 0.15)))
 
 
 func _hang_center(rec: Dictionary, outer_h: float) -> float:
@@ -889,7 +902,7 @@ func _build_test_room() -> void:
 	face.call(Vector3(0, 3.02, -0.08), Vector3(2.16, 0.14, 0.16), Color.WHITE, 512)
 	# A shallow white recess shows depth through the existing casing. The actual
 	# portal crosses at the mouth, before its rear wall; no new gallery bake.
-	for door in [DOORS.arch, DOORS.far]:
+	for door in [DOORS.arch]:  # far passage now belongs to its baked architectural slice
 		var outward := 1.0 if door.z == 0.0 else -1.0
 		var layer := 8 if door.z == 0.0 else 16
 		var depth := 1.1

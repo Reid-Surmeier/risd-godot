@@ -16,9 +16,10 @@ const puppeteer = require('/home/reidsurmeier/promo-lab/node_modules/puppeteer-c
     await page.screenshot({path:`${out}/${width}-view-${i}.png`});
     await page.keyboard.press('ArrowRight'); await new Promise(r=>setTimeout(r,500));
    }
+   await page.screenshot({path:`${out}/${width}-context.png`});
    await page.close();
   }
-  fs.writeFileSync(`${out}/browser.json`,JSON.stringify({errors,widths:[1600,720],views:4},null,2));
+  fs.writeFileSync(`${out}/browser.json`,JSON.stringify({errors,widths:[1600,720],views:4,contextViews:1},null,2));
   if(errors.length) throw Error(errors.join('\n'));
  } finally {await browser.close();}
 })().catch(e=>{console.error(e);process.exit(1)});

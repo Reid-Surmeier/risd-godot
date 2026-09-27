@@ -142,6 +142,17 @@ func _prepare() -> void:
 	doorway_fill.shadow_enabled = true
 	room.add_child(doorway_fill)
 	doorway_fill.owner = room
+	var recess_fill := OmniLight3D.new()
+	recess_fill.position = Vector3(0, 2.2, -27.65)
+	recess_fill.omni_range = 4.0
+	recess_fill.omni_attenuation = 0.6
+	recess_fill.light_energy = 0.65
+	recess_fill.light_color = Color("#fff5df")
+	recess_fill.light_size = 0.9
+	recess_fill.light_bake_mode = Light3D.BAKE_STATIC
+	recess_fill.shadow_enabled = true
+	room.add_child(recess_fill)
+	recess_fill.owner = room
 	var lm := LightmapGI.new()
 	lm.name = "Lightmap"
 	lm.quality = LightmapGI.BAKE_QUALITY_MEDIUM

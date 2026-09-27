@@ -6,6 +6,11 @@ func capture() -> void:
 	root.add_child(scene)
 	var output := OS.get_cmdline_user_args()[0]
 	var failures := 0
+	for mesh in scene.find_children("*", "MeshInstance3D", true, false):
+		var material = mesh.material_override
+		if material is StandardMaterial3D and material.albedo_texture and material.albedo_texture.resource_path.ends_with("door-far.jpg"):
+			push_error("Far vestibule still contains its photographic backplate")
+			failures += 1
 	DirAccess.make_dir_recursive_absolute(output)
 	for width in [1600, 720]:
 		root.size = Vector2i(width, roundi(width * 0.75))
@@ -22,5 +27,9 @@ func capture() -> void:
 					if lit < 0.08:
 						push_error("Mirrored trim is dark: " + str(side) + " luminance=" + str(lit))
 						failures += 1
+				var floor_pixel := Vector2i(scene.camera.unproject_position(Vector3(0, 0, -27.0)))
+				if frame.get_pixelv(floor_pixel).get_luminance() < 0.08:
+					push_error("Vestibule floor has lost its baked light")
+					failures += 1
 	print("DOORWAY_PROFILE failures=", failures)
 	quit(1 if failures else 0)

@@ -35,7 +35,7 @@ study, not a new Muse image. Spend: USD 0.
    visitor and shell; it is not a screenshot of the complete game interface.
 
 Run `godot --path . --rendering-method gl_compatibility` to inspect the saved
-scene. Left/right switches the four fixed camera views. Browser export:
+scene. Left/right switches four detail views and one wider context view. Browser export:
 `godot --headless --path . --export-release 'Doorway Prototype' build/doorway/index.html`.
 The capture command is
 `godot --path . --rendering-method gl_compatibility --script modules/shell/prototype/gallery_walk4/doorway_prototype_capture.gd -- /tmp/doorway-captures`.
@@ -43,7 +43,7 @@ It checks that both mirrored casing fronts receive light, catching the
 observed black-side failure. Re-bake after source changes with
 `python3 modules/shell/prototype/gallery_walk4/bake/run.py`.
 
-## Limits
+## Original candidate limits (see repair below)
 
 The inherited recess photo card and neutral threshold remain visible in the
 saved-room showcase; the live gameplay viewer hides the card and overlays its
@@ -52,7 +52,7 @@ full traversal appearance gate. It also does not establish a new arch-end,
 bench, or upper-cornice treatment. These limits must remain in the blind-review
 and decision record; a successful profile check is not visual acceptance.
 
-## Candidate result and verification
+## First candidate result and verification
 
 `final/` and `browser-final/` contain the final four angles at both sizes.
 The close corner has continuous baseboard-to-plinth contact, closed profile
@@ -88,3 +88,53 @@ The later batch should reuse profile extrusion → UV1 material → UV2 unwrap
 → saved bake → identical native/Web cameras → independent reference review.
 Do not propagate this candidate until the recess/threshold and full-game
 appearance have passed that last step.
+
+## Repair after independent review
+
+The first Astra-medium blind review failed the full slice; see
+`BLIND-REVIEW-1.md`. The accepted profile geometry was retained. The repair
+removes the photographic backplate, models the rear paneled doorway, adds
+returning baseboard profiles, and uses textured cream surfaces and a warm oak
+floor. Reversed ceiling/floor normals caused missing baked illumination in
+the inherited recess; those normals are now inward/upward respectively.
+The duplicate live-game white recess is removed at the far door, so the
+gameplay passage and showcase use the same saved geometry. Blue-wall
+saturation is reduced, local recess lighting is baked, and the EXIT signs
+use explicit vector lettering.
+
+`repair-native/` and `repair-browser/` contain the new matched four-view
+captures. `repair-gameplay/` contains 1600- and 720-width approach/return
+screenshots and real keyboard-driven browser roundtrip videos. The prototype
+launcher hides the inherited visitor and its contact shadow; no character
+asset is changed. The destination remains the existing white navigation test
+room; this issue does not redesign that separate room.
+
+The rear-door panel details and molding dimensions are an interpretation of
+the low-resolution reference, not a surveyed reconstruction. The arch end,
+benches and upper room cornice remain outside this small slice. A second
+independent visual verdict is still required; these repairs do not constitute
+self-approval.
+
+Repair validation: repository check, profile/backplate/floor-light check,
+doorway floor check, and both native portal roundtrips passed again.
+Exported browser gameplay completed `gallery -> far` and `far -> gallery`
+at both widths with zero recorded console or page errors. The videos decode
+to 174 frames at 1600×1200 and 99 frames at 720×540. The return camera faces
+back into the gallery, following the existing gameplay behavior.
+
+The additional `repair-browser/*-context.png` views show the unchanged bench
+and upper room cornice in relation to the far doorway. The nearest existing
+bench remains centered at z=-17 m, 9.3 m from the far wall. These context
+assets are shown for spatial judgment, not certified by this doorway repair.
+
+Repair bake: 56.55 seconds, `BAKE_OK users=119`. The same two Godot editor
+teardown messages occurred; subsequent native and browser renders succeeded.
+Source and outputs are retained. Repair SHA-256:
+
+- `baked/room.tscn`: `45b10c5e4f761d82fbda4b636538a3aa13c2ef2a12eb8ab89de2e94ca25a6e05`
+- `baked/room.exr`: `9c2ec24469763f204f7ee548e73cd5794268ced1dded18372b457bb13cf779b3`
+- `baked/room.lmbake`: `5b34664c81462cf5695c120774e3fe9ccba998541f3d629e2c20aa5468a79068`
+
+Browser traversal can be reproduced with
+`node modules/shell/prototype/gallery_walk4/doorway_prototype_walk.cjs <served-export-url> <output-folder>`.
+The launcher uses `?gameplay=1`; its default is the saved-asset inspection.
