@@ -2,6 +2,8 @@
 
 verdict: needs-work
 
+Owner disposition: merged to `main` in PR #38 on 2026-09-27. The merge establishes the accepted build as the default branch; it does not resolve or waive the findings below.
+
 Reviewed 2026-09-27 against fixed point `main` at `b54016f74060723749b62d051b6c5563e59cddf6`. Visual baseline: owner-approved `8b26833af8397ee8df611977bc82795bc916849e`. This record also covers the consolidation changes committed alongside it; it is not a ship verdict for a subsequently changed commit.
 
 ## Standards
