@@ -39,6 +39,8 @@ test('verified painting manifests match committed bytes; official entity/categor
 });
 test('static GLBs retain exact bytes and MIME while the entry, Collection route and 404 stay intact', async()=>{
   const root=await mkdtemp(join(tmpdir(),'risd-static-')),glb=Buffer.from([0x67,0x6c,0x54,0x46,2,0,0,0]);await writeFile(join(root,'index.html'),'working');await writeFile(join(root,'model.glb'),glb);
+  const exportedTypes={'.ogv':'video/ogg','.swf':'application/x-shockwave-flash','.txt':'text/plain; charset=utf-8','.gz':'application/gzip'};
+  for(const extension of Object.keys(exportedTypes))await writeFile(join(root,'export'+extension),Buffer.from([0,255,128,42]));
   const reservation=createServer();reservation.listen(0,'127.0.0.1');await once(reservation,'listening');
   const address=reservation.address();assert.ok(address && typeof address==='object');const port=address.port;
   reservation.close();await once(reservation,'close');
@@ -55,6 +57,11 @@ test('static GLBs retain exact bytes and MIME while the entry, Collection route 
     const entry=await fetch(base+'/');assert.equal(entry.status,200);assert.equal(await entry.text(),'working');
     const searchReply=await fetch(base+'/api/collection/search?has_image=true');assert.equal(searchReply.status,200);assert.equal((await searchReply.json()).ok,true);
     const model=await fetch(base+'/model.glb');assert.equal(model.status,200);assert.equal(model.headers.get('content-type'),'model/gltf-binary');assert.deepEqual(Buffer.from(await model.arrayBuffer()),glb);
+    for(const [extension,type] of Object.entries(exportedTypes)){
+      const asset=await fetch(base+'/export'+extension);assert.equal(asset.status,200);assert.equal(asset.headers.get('content-type'),type);
+      assert.deepEqual(Buffer.from(await asset.arrayBuffer()),Buffer.from([0,255,128,42]));
+      assert.equal(asset.headers.get('content-encoding'),null,'gzip packs are decoded explicitly by the game loader');
+    }
     const missing=await fetch(base+'/favicon.ico');assert.equal(missing.status,404);
     assert.equal((await missing.json()).error.detail,'Not found');
   }finally{
