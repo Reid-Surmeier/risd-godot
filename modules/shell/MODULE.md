@@ -18,8 +18,7 @@ hides its legacy raster bars, and delegates selection through the Shell seam.
 Start opens all seven Tabs, Home selects Map, Previous/Next cycle Tabs, and the
 top Search selects Playground then calls its public `show_page(..., "search")`.
 The frozen standalone Shell fixture retains its legacy geometry and animations.
-The composition root enables square presentation internally. In that mode Shell
-omits its own desktop icons and window shadows for the Playground Page before
+Shell omits its own desktop icons and window shadows for the Playground Page before
 mounting it, so the Tenant retains its full-rect layout without post-hoc edits.
 `playtest/square_capture.gd` separately checks the playable demo with real input
 and exports all seven Tabs and four Playground pages to `docs/evidence/integration-164/`.

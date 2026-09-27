@@ -62,3 +62,9 @@ reports 68/78 on both this tree and untouched main: all ten failure lines are
 identical (`/tmp/risd-164-review-atlas.log` and
 `/tmp/risd-164-review-atlas-main.log`). No frozen interface, error or acceptance
 file changed in this repair.
+
+The final seam repair removes the private `_square_stage` flag entirely: Shell
+unconditionally omits its own decorations for Playground. The legacy Playground
+fixture improves from 44/52 to 49/52; remaining failures are its obsolete six-tab
+expectation and two old Page-size expectations. The demo's new Playground usage
+is limited to public `create` and `show_page` calls; it traverses no Tenant nodes.

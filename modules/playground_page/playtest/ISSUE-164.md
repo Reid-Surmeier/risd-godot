@@ -1,5 +1,9 @@
 # Issue #164 validation
 
+Final seam cleanup: Shell now always leaves Playground undecorated. Re-running
+the legacy fixture improves its result to 49/52; only the old six-tab assertion
+and two Page-size expectations remain. No frozen test was changed.
+
 Native square acceptance passed on 2026-09-27 with Godot 4.7.2, X11 and the OpenGL compatibility renderer. The harness uses actual mouse and key input and asserts Explore chronology, all 37 blocks, four page navigation, public channel contents, typed search, unknown-page stability, and RISD saves read back through collection-data. The captured Explore, All Blocks, Channels, Search and search-results images were visually inspected; final design acceptance belongs to the independent integrated blind review.
 
 Command: `DISPLAY=:99 godot --path . --resolution 1080x1080 --windowed --script res://modules/playground_page/playtest/square_harness.gd --display-driver x11 --rendering-driver opengl3 -- --out-dir=/tmp/playground-square-164`.
