@@ -1,6 +1,8 @@
 # Controlled GameCube display comparison — #140
 
-Compared runtime: `9acb174`, based on `cde21b9`. Checkpoint code `9af800b` additionally keeps the next white-room diagnostic replay inside the room; that fixture adjustment is awaiting its browser comparison. The shader default remains RGB6 raster parity with copy strength **0.5**. Diagnostic controls isolate alternatives without changing scene assets, camera, lights or shell geometry. This comparison uses the existing sprite as a fixed control; the new 3D visitor must receive a final integrated visual/interaction pass.
+**Decision: retain the existing raster dither and 0.5 copy strength.** Two independent blind comparisons found no qualifying improvement. The final integrated red-cap comparison and real-input proof use `c601383`; the later head-turn-only update is outside these recordings.
+
+First-round compared runtime: `9acb174`, based on `cde21b9`. Checkpoint code `9af800b` additionally keeps the next white-room diagnostic replay inside the room; that fixture adjustment is awaiting its browser comparison. The shader default remains RGB6 raster parity with copy strength **0.5**. Diagnostic controls isolate alternatives without changing scene assets, camera, lights or shell geometry. This comparison uses the existing sprite as a fixed control; the new 3D visitor must receive a final integrated visual/interaction pass.
 
 ## Evidence and decision
 
@@ -24,7 +26,7 @@ Twenty-four recordings cover three copy strengths, two window sizes and four pos
 
 Final compared runtime: **`c601383`**. This tree includes the default original red-cap 3D visitor, corrected foot contact, and the same 0.5 copy strength for both alternatives. The rig's independent idle/walk/gesture state is reset before each fixture; legacy sprite phase alone was insufficient. This diagnostic-only adjustment leaves normal character behavior unchanged.
 
-Anonymous packet: `/tmp/gallery-display-140/blind-quant-integrated/`. The new A/B labels belong to this second packet and are independent of the earlier copy-strength labels. No key or state JSON is in that blind folder. Independent final visual review is pending; the production shader default remains unchanged.
+Anonymous packet: `/tmp/gallery-display-140/blind-quant-integrated/`. The new A/B labels belong to this second packet and are independent of the earlier copy-strength labels. No key or state JSON is in that blind folder. [Independent final Astra review](integrated-quantization/blind-review.md) was sealed before the [key](integrated-quantization/mode-key.json) was opened: **A=plain six-bit, B=current raster dither**. Verdict: **none**. Neither wins in at least two scenes; both preserve artwork and white-plane readability, with no persuasive differential crawl in sampled motion. B has somewhat smoother light transitions. Two valid comparison rounds are now inconclusive, so tuning stops and the existing raster dither plus 0.5 copy strength remains the production default.
 
 ![Integrated variant A, white room](integrated-quantization/A-1600-white.png)
 ![Integrated variant B, white room](integrated-quantization/B-1600-white.png)
