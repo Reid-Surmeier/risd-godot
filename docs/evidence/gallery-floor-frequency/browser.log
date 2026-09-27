@@ -1,0 +1,23 @@
+Failed to load resource: the server responded with a status of 404 (File not found)
+WARNING: 2D MSAA is not yet supported for GLES3.
+   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)
+ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.
+   at: get_meta (core/object/object.cpp:1053)
+ERROR: The object does not have any 'meta' values with the key 'arrow_cursor'.
+   at: get_meta (core/object/object.cpp:1053)
+WARNING: 2D MSAA is not yet supported for GLES3.
+   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)
+{"gpu":"ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)","expected_gpu":"hardware"}
+{"preflight_changed_pixels":202199}
+{"label":"A","mode":"control","width":1600,"scene":"entry","viewport":[584,391],"space_after":"gallery","median_ms":33.19999999999709,"p95_ms":33.400000000001455,"samples":479}
+{"label":"A","mode":"control","width":1600,"scene":"warm","viewport":[584,391],"space_after":"gallery","median_ms":33.299999999995634,"p95_ms":33.400000000001455,"samples":479}
+{"label":"A","mode":"control","width":1600,"scene":"art","viewport":[584,391],"space_after":"gallery","median_ms":16.69999999999709,"p95_ms":33.400000000001455,"samples":479}
+{"label":"B","mode":"broad","width":1600,"scene":"entry","viewport":[584,391],"space_after":"gallery","median_ms":33.19999999999709,"p95_ms":33.400000000001455,"samples":479}
+{"label":"B","mode":"broad","width":1600,"scene":"warm","viewport":[584,391],"space_after":"gallery","median_ms":16.70000000001164,"p95_ms":33.40000000000873,"samples":479}
+{"label":"B","mode":"broad","width":1600,"scene":"art","viewport":[584,391],"space_after":"gallery","median_ms":16.69999999999709,"p95_ms":33.39999999999418,"samples":479}
+{"label":"A","mode":"control","width":720,"scene":"entry","viewport":[641,429],"space_after":"gallery","median_ms":16.69999999999709,"p95_ms":33.39999999999418,"samples":479}
+{"label":"A","mode":"control","width":720,"scene":"warm","viewport":[641,429],"space_after":"gallery","median_ms":16.69999999999709,"p95_ms":33.39999999999418,"samples":479}
+{"label":"A","mode":"control","width":720,"scene":"art","viewport":[641,429],"space_after":"gallery","median_ms":16.69999999999709,"p95_ms":33.30000000000291,"samples":479}
+{"label":"B","mode":"broad","width":720,"scene":"entry","viewport":[641,429],"space_after":"gallery","median_ms":16.699999999982538,"p95_ms":33.19999999998254,"samples":479}
+{"label":"B","mode":"broad","width":720,"scene":"warm","viewport":[641,429],"space_after":"gallery","median_ms":16.699999999982538,"p95_ms":33.30000000001746,"samples":479}
+{"label":"B","mode":"broad","width":720,"scene":"art","viewport":[641,429],"space_after":"gallery","median_ms":16.699999999982538,"p95_ms":33.39999999999418,"samples":479}

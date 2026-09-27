@@ -1,0 +1,30 @@
+{
+  "modules/shell/prototype/gallery_walk4/textures/oak-muse.webp": {
+    "sha256": "bb6f54cd7f4f423babaaacf8107dc735bb7fcb45118cacba9725bbbd3cb600c1",
+    "unchanged_from_a2ccb4c": true
+  },
+  "modules/shell/prototype/gallery_walk4/baked/room.exr": {
+    "sha256": "4417b840d443401947515c29199a56e3dbc2daea1270121e2aed3085ca3284c1",
+    "unchanged_from_a2ccb4c": true
+  },
+  "modules/shell/prototype/gallery_walk4/baked/room.lmbake": {
+    "sha256": "87af147017206238e98266b92ee8bc84e57f740875cc335bc0832ef34f9cbb70",
+    "unchanged_from_a2ccb4c": true
+  },
+  "modules/shell/prototype/gallery_walk4/baked/room.tscn": {
+    "sha256": "17196644d3c1efc0b2d4e31a82c69f1a14c673115b7a4496f666c495379c54ef",
+    "unchanged_from_a2ccb4c": true
+  },
+  "modules/shell/prototype/gallery_walk4/identity/visitor_identity.glb": {
+    "sha256": "8ae841b87653190979e198e43c7cc4aec45c8c6d66d43746d023cc03be1afe5c",
+    "unchanged_from_a2ccb4c": true
+  },
+  "modules/shell/prototype/gallery_walk4/gamecube.gdshader": {
+    "sha256": "7e7dd33a0531246cccdc05cb493a476ee416ae84e2d776d741307b223864dbda",
+    "unchanged_from_a2ccb4c": true
+  },
+  "modules/shell/prototype/gallery_walk4/rig/visitor.gd": {
+    "sha256": "fa9d537599a9c21d3b35f5ec90b452e6daccddc6de165697e8cf387e026cbc4b",
+    "unchanged_from_a2ccb4c": true
+  }
+}

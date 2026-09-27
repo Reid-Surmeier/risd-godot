@@ -1,0 +1,53 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.1 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Microsoft - D3D12 (NVIDIA GeForce RTX 4070 SUPER)
+
+FLOOR_CANDIDATE existing_acceptance=dollhouse_shot in_memory_grain_width=0.25
+ENTRY_COMPLETE (0.0, 0.0, -2.556377)
+DOLLHOUSE_RENDER texture_bytes=292567596 draw_calls=86
+DOLLHOUSE_BENCH_BEVEL faces=32
+VIEW gallery yaw 90.0
+VIEW dollhouse yaw 90.0
+VIEW dollhouse yaw -90.0
+OTHER_WALL east
+VIEW dollhouse yaw 90.0
+OTHER_WALL west
+DOLLHOUSE_OTHER_WALL both directions
+DOLLHOUSE_FOOTSTEPS contacts_2s=7 blocked=0
+VIEW_ORBIT {"position":[-2.43981146812439,-12.6424617767334],"space":"gallery","yaw":0.000928530266572588}
+VIEW_ORBIT {"position":[4.0,-12.0],"space":"gallery","yaw":-1.57019304512625}
+VIEW_ORBIT {"position":[4.0,-12.0],"space":"gallery","yaw":-3.14094897602392}
+VIEW_ORBIT {"position":[4.0,-12.0],"space":"gallery","yaw":1.57113215002966}
+NAV_PICK floor
+DOLLHOUSE_HIDDEN_WALL 1
+NAV_PICK W1
+NAV_PICK W2
+NAV_PICK W3
+NAV_PICK W4
+NAV_PICK W5
+NAV_PICK W6
+NAV_PICK W7
+NAV_PICK W8
+NAV_PICK W9
+NAV_PICK W10
+VIEW_ORBIT {"position":[2.40000009536743,-23.0603446960449],"space":"gallery","yaw":0.000431364423606688}
+VIEW_ORBIT {"position":[2.40000009536743,-23.0603446960449],"space":"gallery","yaw":-1.57047945391438}
+NAV_PICK E1
+NAV_PICK E2
+NAV_PICK E3
+NAV_PICK E4
+NAV_PICK E5
+NAV_PICK E6
+NAV_PICK E7
+NAV_PICK E8
+NAV_PICK E9
+VIEW_ORBIT {"position":[3.11499977111816,-2.59999990463257],"space":"gallery","yaw":-3.14108143859613}
+NAV_PICK S1
+NAV_PICK S2
+VIEW_ORBIT {"position":[-3.11500000953674,-23.6999988555908],"space":"gallery","yaw":1.57132327025858}
+VIEW_ORBIT {"position":[-3.11500000953674,-23.6999988555908],"space":"gallery","yaw":0.00052699005971036}
+NAV_PICK N1
+NAV_PICK N2
+DOLLHOUSE_ARTWORKS 23/23
+DOLLHOUSE_FAILURES 0
