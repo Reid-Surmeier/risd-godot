@@ -1,0 +1,262 @@
+{
+  "captures": [
+    {
+      "active": 0,
+      "capture": "modules/shell/prototype/square_stage/evidence/A-map.png",
+      "page_rect": [
+        0.0,
+        54.0,
+        1080.0,
+        972.0
+      ],
+      "tab": "map",
+      "variant": "A"
+    },
+    {
+      "active": 1,
+      "capture": "modules/shell/prototype/square_stage/evidence/A-sketchbook.png",
+      "page_rect": [
+        0.0,
+        54.0,
+        1080.0,
+        972.0
+      ],
+      "tab": "sketchbook",
+      "variant": "A"
+    },
+    {
+      "active": 2,
+      "capture": "modules/shell/prototype/square_stage/evidence/A-3d_viewer.png",
+      "page_rect": [
+        0.0,
+        54.0,
+        1080.0,
+        972.0
+      ],
+      "tab": "3d_viewer",
+      "variant": "A"
+    },
+    {
+      "active": 3,
+      "capture": "modules/shell/prototype/square_stage/evidence/A-video_player.png",
+      "page_rect": [
+        0.0,
+        54.0,
+        1080.0,
+        972.0
+      ],
+      "tab": "video_player",
+      "variant": "A"
+    },
+    {
+      "active": 4,
+      "capture": "modules/shell/prototype/square_stage/evidence/A-collection.png",
+      "page_rect": [
+        0.0,
+        54.0,
+        1080.0,
+        972.0
+      ],
+      "tab": "collection",
+      "variant": "A"
+    },
+    {
+      "active": 5,
+      "capture": "modules/shell/prototype/square_stage/evidence/A-playground.png",
+      "page_rect": [
+        0.0,
+        54.0,
+        1080.0,
+        972.0
+      ],
+      "tab": "playground",
+      "variant": "A"
+    },
+    {
+      "active": 6,
+      "capture": "modules/shell/prototype/square_stage/evidence/A-flowers.png",
+      "page_rect": [
+        0.0,
+        54.0,
+        1080.0,
+        972.0
+      ],
+      "tab": "flowers",
+      "variant": "A"
+    },
+    {
+      "active": 0,
+      "capture": "modules/shell/prototype/square_stage/evidence/B-map.png",
+      "page_rect": [
+        28.0,
+        82.0,
+        1017.77777099609,
+        916.0
+      ],
+      "tab": "map",
+      "variant": "B"
+    },
+    {
+      "active": 1,
+      "capture": "modules/shell/prototype/square_stage/evidence/B-sketchbook.png",
+      "page_rect": [
+        28.0,
+        82.0,
+        1017.77777099609,
+        916.0
+      ],
+      "tab": "sketchbook",
+      "variant": "B"
+    },
+    {
+      "active": 2,
+      "capture": "modules/shell/prototype/square_stage/evidence/B-3d_viewer.png",
+      "page_rect": [
+        28.0,
+        82.0,
+        1017.77777099609,
+        916.0
+      ],
+      "tab": "3d_viewer",
+      "variant": "B"
+    },
+    {
+      "active": 3,
+      "capture": "modules/shell/prototype/square_stage/evidence/B-video_player.png",
+      "page_rect": [
+        28.0,
+        82.0,
+        1017.77777099609,
+        916.0
+      ],
+      "tab": "video_player",
+      "variant": "B"
+    },
+    {
+      "active": 4,
+      "capture": "modules/shell/prototype/square_stage/evidence/B-collection.png",
+      "page_rect": [
+        28.0,
+        82.0,
+        1017.77777099609,
+        916.0
+      ],
+      "tab": "collection",
+      "variant": "B"
+    },
+    {
+      "active": 5,
+      "capture": "modules/shell/prototype/square_stage/evidence/B-playground.png",
+      "page_rect": [
+        28.0,
+        82.0,
+        1017.77777099609,
+        916.0
+      ],
+      "tab": "playground",
+      "variant": "B"
+    },
+    {
+      "active": 6,
+      "capture": "modules/shell/prototype/square_stage/evidence/B-flowers.png",
+      "page_rect": [
+        28.0,
+        82.0,
+        1017.77777099609,
+        916.0
+      ],
+      "tab": "flowers",
+      "variant": "B"
+    },
+    {
+      "active": 0,
+      "capture": "modules/shell/prototype/square_stage/evidence/C-map.png",
+      "page_rect": [
+        188.0,
+        54.0,
+        892.0,
+        802.800048828125
+      ],
+      "tab": "map",
+      "variant": "C"
+    },
+    {
+      "active": 1,
+      "capture": "modules/shell/prototype/square_stage/evidence/C-sketchbook.png",
+      "page_rect": [
+        188.0,
+        54.0,
+        892.0,
+        802.800048828125
+      ],
+      "tab": "sketchbook",
+      "variant": "C"
+    },
+    {
+      "active": 2,
+      "capture": "modules/shell/prototype/square_stage/evidence/C-3d_viewer.png",
+      "page_rect": [
+        188.0,
+        54.0,
+        892.0,
+        802.800048828125
+      ],
+      "tab": "3d_viewer",
+      "variant": "C"
+    },
+    {
+      "active": 3,
+      "capture": "modules/shell/prototype/square_stage/evidence/C-video_player.png",
+      "page_rect": [
+        188.0,
+        54.0,
+        892.0,
+        802.800048828125
+      ],
+      "tab": "video_player",
+      "variant": "C"
+    },
+    {
+      "active": 4,
+      "capture": "modules/shell/prototype/square_stage/evidence/C-collection.png",
+      "page_rect": [
+        188.0,
+        54.0,
+        892.0,
+        802.800048828125
+      ],
+      "tab": "collection",
+      "variant": "C"
+    },
+    {
+      "active": 5,
+      "capture": "modules/shell/prototype/square_stage/evidence/C-playground.png",
+      "page_rect": [
+        188.0,
+        54.0,
+        892.0,
+        802.800048828125
+      ],
+      "tab": "playground",
+      "variant": "C"
+    },
+    {
+      "active": 6,
+      "capture": "modules/shell/prototype/square_stage/evidence/C-flowers.png",
+      "page_rect": [
+        188.0,
+        54.0,
+        892.0,
+        802.800048828125
+      ],
+      "tab": "flowers",
+      "variant": "C"
+    }
+  ],
+  "home_active": 0,
+  "size": [
+    1080,
+    1080
+  ],
+  "start_items": 7
+}
