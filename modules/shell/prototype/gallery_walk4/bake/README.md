@@ -118,3 +118,17 @@ toolbar after closing artwork, walking/blocked footstep counts, and agreement
 between bench triangle winding and shaded normals. An old-cadence negative
 control fails the two-second walk with four contacts; the candidate gives seven.
 Audio timbre and exact audiovisual phase remain unverified.
+
+## Final lamp refinement
+
+The final comparison lowers painting spot energy from 8 to 6 and aims at the
+painting centre instead of 0.3 m above it. Fixed-pose Compatibility renders
+show less conspicuous olive light caps above the west-wall frames while the
+warm floor pools, artwork colours and ivory trim face separation remain.
+An independent visual review retained this restrained change; the room layout,
+materials, skylight/fill lights and accepted visitor assets are unchanged.
+The offline bake completed in 51.25 seconds with 118 lightmap users; the rendered
+scene reports zero runtime lights. This is visual refinement, not an exact
+Nintendo appearance claim. Before/after evidence is packaged with the final
+refinement report; no generated source pixels were edited and no paid calls
+were made for this pass.

@@ -112,12 +112,12 @@ func _prepare() -> void:
 		room.add_child(spot)
 		spot.owner = room
 		spot.position = painting.center + painting.normal * 2.2 + Vector3.UP * 3.1
-		spot.look_at(painting.center + Vector3.UP * 0.3, Vector3.UP)
+		spot.look_at(painting.center, Vector3.UP)
 		spot.spot_range = 7.0
 		spot.spot_angle = 25.0
 		spot.spot_angle_attenuation = 1.5
 		spot.light_color = Color("#ffd391")
-		spot.light_energy = 8.0
+		spot.light_energy = 6.0
 		spot.light_size = 0.35
 		spot.light_bake_mode = Light3D.BAKE_STATIC
 		spot.shadow_enabled = true
