@@ -56,3 +56,12 @@
 - #137 remains open: hidden-Flowers trace is bounded; unvisited-Flowers Mac M3 load and movement lag remain unmeasured.
 - Next: coordinator reviews camera candidate against current integrated visual gaps; obtain M3 capture for #137 using the documented control/treatment sequence.
 - Checkpoint unchanged because the active API coordinator owns it and its next instruction remains applicable.
+
+2026-09-27 01:30 EDT — Heartbeat tick (map #116; #136/#138 closed, #137 open).
+- Coordinator advanced integrated prototype to 9b454d1 (floor-grain UV); silhouette verdict and artwork-clear control also landed since 01:00.
+- Orca shows active coordinator plus floor, camera, lighting, display and visitor worktrees; no worker or runtime files changed in this tick.
+- Independently checked #137 archived 4× CPU evidence: 14/14 transitions, receipt p95 6.2 ms, Godot process p95 19.4 ms/max 23.8 ms, post-draw p95 19.9 ms/max 24.3 ms; errors empty.
+- The runner visits Flowers before input and waits 400 ms per phase. It cannot establish rapid second-key behavior in a fresh unvisited-Flowers session or Mac M3 behavior.
+- Rendering research landed at cde21b9 before later controlled display work; integrated blind visual acceptance remains open.
+- Next: coordinator reviews current floor/visitor trials; #137 still needs the documented fresh M3 control/treatment capture.
+- Checkpoint unchanged: active API coordinator owns it, and its current next step is compatible with this finding.
