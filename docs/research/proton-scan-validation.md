@@ -6,7 +6,7 @@
 
 All four local OBJ/MTL/JPG triplets match their recorded SHA-256 hashes. Their selected GLBs match the manifests, carry 119,999–120,000 triangles and an embedded JPEG Base Color texture, and import through Godot 4.7.2 as one textured mesh. Existing source/reduced captures show no obvious decimation loss at four angles. None needs reconversion for polygon count or material preservation.
 
-The candidates are **not visually accepted in the game**. The initial camera shows the back of two models, all four look much darker than the shipped Buddha in available captures, and no comparable Godot candidate captures exist. Human object identities and departments remain unverified.
+The candidates are **not visually accepted in the game**. Matched Godot captures and material diagnostics now exist below. Two remain eligible only for diagnostic Viewer prototypes; the bearded and pale busts have source-present defects that survive an opaque material. Human object identities and departments remain unverified. The final follow-up supersedes the initial orientation and thumbnail proposal below.
 
 ![Four source/reduced orbit comparisons, source left and GLB right](proton-scan-validation/source-vs-glb.png)
 
@@ -91,3 +91,50 @@ env -u WAYLAND_DISPLAY DISPLAY=:99 godot --display-driver x11 --rendering-method
 ```
 
 Godot reported version `4.7.2.stable.official.ed1daf0bf` and fell back to OpenGL ES 3.2 Mesa llvmpipe in Compatibility. The harness emitted all 34 PNGs (30 standard views plus 255°/285° for the two wedge candidates); the contact sheets were assembled from those PNGs with Pillow. These captures are a controlled Godot comparison, **not** an integration run of the shipped Viewer: they do not test its GUI, runtime loader, interactions, export, or final 5×4 catalogue. The source scans, selected GLBs, shipped Viewer and game assets remain untouched. Human object titles/departments and the final sixteen catalogue-only records remain unverified; #154 stays open. An independent blind review of these new captures is a separate gate.
+
+## Bounded defect diagnosis and truthful catalogue mapping — 27 September follow-up
+
+The [independent matched-capture review recorded on #154](https://github.com/Reid-Surmeier/risd-godot/issues/154#issuecomment-5859915593) permits only diagnostic prototypes for the group and relief; it accepts none of the four as runtime assets. This follow-up did not reconvert any GLB. It tested the two held busts using the same Godot harness, bounds, camera, lights and angles with two material overrides:
+
+1. `--opaque`: retain the imported Base Color texture, use an opaque rough material, preserve double-sided rendering.
+2. `--neutral`: remove the Base Color texture, use uniform gray, opaque rough material, preserve double-sided rendering. This is a geometry diagnostic, not a proposed replacement appearance.
+
+Each mode produced 14 PNGs in [opaque-captures](proton-scan-validation/opaque-captures/) and [neutral-captures](proton-scan-validation/neutral-captures/). Run the earlier capture command with `-- --opaque` or `-- --neutral`. Both completed with Godot 4.7.2 Compatibility. The scratch material code asserts that an embedded source texture exists before applying the opaque override.
+
+![Bearded bust, opaque source texture, matched detail](proton-scan-validation/opaque-captures/20260811123051-detail.png)
+
+![Pale bust, opaque source texture, 270 degrees](proton-scan-validation/opaque-captures/20260820133334-270.png)
+
+The selected GLBs declare `doubleSided: true`, `KHR_materials_transmission.transmissionFactor: 1`, specular factor 0 and IOR 1. Their original MTL declares `Tf 1 1 1` and `Ni 1`. This makes a material override a reasonable bounded diagnostic, but it does **not** prove transmission caused the defects. The opaque override still shows the blue-gray interruptions around hair, beard and face, the open rear/lower bust, and the pale bust's broad white rear mass. The neutral capture retains the [pale rear mass](proton-scan-validation/neutral-captures/20260820133334-270.png) and [open bust rear](proton-scan-validation/neutral-captures/20260811123051-000.png). Neutral front detail is strongly shadowed under these matched lights and is not evidence of improved facial quality.
+
+**No credible source-preserving repair was established.** Default yaw can orient the front but leaves the defect exposed during orbit. Opaque material does not remove it. Uniform gray discards the recorded appearance and does not repair geometry. Removing a broad rear cap would expose a hole; filling the missing bust or inventing rear detail would add unsupported surface information. The evidence does not establish whether the pale rear mass is a reconstruction cap, a scanned support, or the actual object back, so it must not be silently deleted. A complete scan/raw capture or authoritative reference for those surfaces is the exact missing input. Automated hue removal, hole filling, or replacement detail is not justified by these files. No repaired candidate exists to submit to a new acceptance review.
+
+**Safest prototype fallback:** keep the group and relief in an explicitly diagnostic viewer, keep both busts available as truthful scan thumbnails with “3D preview unavailable — scan needs repair,” and retain Buddha as the comparison fixture outside the 20-entry selection. This does not satisfy the map's four-live-scans destination; #154 and that portion of #157 stay open. It lets catalogue selection and unavailable states be exercised without claiming that import success passed the visual gate.
+
+### Concrete provisional 20-entry mapping
+
+The first four thumbnails must come from each actual scan's matched front capture, not visually similar panel art. Use `proton-scan:<ID>` as stable identity, `Scan <ID>` as display name, `department: null`, `museum_record: null`, and `identity_status: provisional`. Descriptions below describe appearance only. All four retain `runtime_accepted: false`.
+
+| Position | ID | Truthful thumbnail | Appearance / diagnostic state |
+| --- | --- | --- | --- |
+| 1 | 20260811121459 | [front](proton-scan-validation/godot-captures/20260811121459-front.png) | Group with skulls; diagnostic only |
+| 2 | 20260811122415 | [front](proton-scan-validation/godot-captures/20260811122415-front.png) | Relief; diagnostic only |
+| 3 | 20260811123051 | [front](proton-scan-validation/godot-captures/20260811123051-front.png) | Bearded bust; held for repair |
+| 4 | 20260820133334 | [front](proton-scan-validation/godot-captures/20260820133334-front.png) | Pale bust; held for repair |
+
+The prior sixteen-cell proposal included panel cell 5, whose bearded portrait visually duplicates scan 20260811123051. Exclude it conservatively without asserting a museum identity. Also exclude cell 18 because Buddha already has a live model. A non-duplicating provisional selection is **cells 6–17 and 19–22**, in that order. These cells are identified row-major in the 8×5 panel. Use IDs `panel-cell:06` etc., displayed labels “Catalogue image 06” etc., `department: null`, `museum_record: null`, `identity_status: provisional`, and `has_3d_scan: false` meaning no linked scan in this inventory, not a claim about museum holdings.
+
+| Positions | Panel cells | Appearance descriptions, in order |
+| --- | --- | --- |
+| 5–7 | 6–8 | Decorated bowl; bull; pale animal-shaped vessel |
+| 8–12 | 9–13 | Dark curved object; colored bust; standing figure; guardian lion; small dark figure |
+| 13–16 | 14–17 | Rider; dancing figure; standing figure; terracotta figure |
+| 17–20 | 19–22 | Gold mask; blue carved form; bird; blue turtle-like form |
+
+Pixel provenance is the unchanged [setup panel](../../modules/sculpture_viewer/assets/setup/panel-2x.png), SHA-256 `d6cdb4c2c3ff042ea3380868184d297ea608f733bd377723cc71fd792f5b99d5`. To extract only the image, use 216×200 rectangles in the original 2100×3360 PNG: column X values `[80,330,582,836,1062,1300,1522,1776]`, row Y values `[410,770,1150]` for rows 1–3. These are twice the existing [desktop cell coordinates](../../modules/sculpture_viewer/desktop.gd); do not include the raster's labels as metadata. This is a concrete research selection for #157 to prototype, not a claim that the new 5×4 UI has already been built or visually approved.
+
+No authoritative source in the local OBJ, MTL, GLB or manifests supplies museum identity or department. No reverse-image match was treated as identity evidence. Provisional labels therefore resolve the safe display policy while museum attribution stays unknown. Existing decorative Japanese labels and hover asset filenames are not sufficient attribution.
+
+No source, selected GLB, runtime asset, runtime code or frozen test changed. Paid actions: none; cost USD 0. The `research` workflow was carried out on its existing isolated research branch; its cited evidence and diagnostic harness remain outside runtime assets.
+
+Verification: both material trials exited 0 and saved all 28 expected captures; `scripts/check.sh` passed (existing ObjectDB leak warning), and `git diff --check` passed. [Capture SHA-256 manifest](proton-scan-validation/diagnostic-sha256.txt) pins the new evidence. These checks establish diagnostic execution only, not visual acceptance.

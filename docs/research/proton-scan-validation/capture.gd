@@ -1,7 +1,7 @@
 extends SceneTree
 
 # Scratch evidence harness for #154. Run from the repository root with Godot 4.7.2.
-const OUTPUT := "res://docs/research/proton-scan-validation/godot-captures"
+var output := "res://docs/research/proton-scan-validation/godot-captures"
 const INGEST := "/home/reidsurmeier/risd-godot-ingestion/proton"
 const SCANS := {
 	"buddha": "res://modules/sculpture_viewer/assets/models/proton-buddha-3124123123.glb",
@@ -16,7 +16,13 @@ func _initialize() -> void:
 	call_deferred("_run")
 
 func _run() -> void:
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUTPUT))
+	var neutral := "--neutral" in OS.get_cmdline_user_args()
+	var opaque := "--opaque" in OS.get_cmdline_user_args()
+	if neutral:
+		output = "res://docs/research/proton-scan-validation/neutral-captures"
+	elif opaque:
+		output = "res://docs/research/proton-scan-validation/opaque-captures"
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(output))
 	root.size = Vector2i(768, 768)
 	var stage := Node3D.new()
 	root.add_child(stage)
@@ -56,6 +62,8 @@ func _run() -> void:
 	stage.add_child(camera)
 	camera.current = true
 	for id in SCANS:
+		if (neutral or opaque) and id not in ["20260811123051", "20260820133334"]:
+			continue
 		var state := GLTFState.new()
 		var doc := GLTFDocument.new()
 		var err := doc.append_from_file(SCANS[id], state)
@@ -69,6 +77,14 @@ func _run() -> void:
 			quit(1)
 			return
 		stage.add_child(model)
+		if opaque:
+			_opaque_material(model)
+		if neutral:
+			var clay := StandardMaterial3D.new()
+			clay.albedo_color = Color("#999999")
+			clay.roughness = 1.0
+			clay.cull_mode = BaseMaterial3D.CULL_DISABLED
+			_override_material(model, clay)
 		if id == "buddha":
 			var texture := load("res://modules/sculpture_viewer/assets/models/3124123123.jpg") as Texture2D
 			var gold := StandardMaterial3D.new()
@@ -104,7 +120,7 @@ func _capture(camera: Camera3D, target: Vector3, yaw_degrees: float, distance: f
 	for i in 4:
 		await process_frame
 	await RenderingServer.frame_post_draw
-	var path := ProjectSettings.globalize_path(OUTPUT.path_join(filename + ".png"))
+	var path := ProjectSettings.globalize_path(output.path_join(filename + ".png"))
 	var err := root.get_texture().get_image().save_png(path)
 	if err != OK:
 		push_error("Screenshot failed: " + path)
@@ -132,3 +148,16 @@ func _override_material(node: Node, material: StandardMaterial3D) -> void:
 		(node as MeshInstance3D).material_override = material
 	for child in node.get_children():
 		_override_material(child, material)
+
+func _opaque_material(node: Node) -> void:
+	if node is MeshInstance3D:
+		var mesh := node as MeshInstance3D
+		var original := mesh.get_active_material(0) as StandardMaterial3D
+		assert(original != null and original.albedo_texture != null)
+		var material := StandardMaterial3D.new()
+		material.albedo_texture = original.albedo_texture
+		material.roughness = 1.0
+		material.cull_mode = BaseMaterial3D.CULL_DISABLED
+		mesh.material_override = material
+	for child in node.get_children():
+		_opaque_material(child)
