@@ -48,3 +48,11 @@
 - Blind integrated review still rejects lighting/material cohesion; global probe rescaling was rejected after a white-room regression.
 - Next: coordinator should inspect current blind findings and test a focused material/UV treatment; M3 owner-device capture remains needed for #137.
 - Checkpoint unchanged: active API coordinator owns it and its stale next instruction must not be overwritten by this tick.
+
+2026-09-27 01:02 EDT — Heartbeat tick (map #116; #136/#138 closed, #137 open).
+- Active API coordinator owns prototype at d10a5b5; wider-camera worktree reached 64421fd. No runtime or worker files changed in this tick.
+- Read-only checked 64421fd: four-line camera diff, clean diff check, native/RTX input and rig evidence, and the recorded blind verdict.
+- Viewed 720px entry/art captures: wider view includes more doorway and artwork, with visibly smaller visitor/art; this supports review, not integrated acceptance.
+- #137 remains open: hidden-Flowers trace is bounded; unvisited-Flowers Mac M3 load and movement lag remain unmeasured.
+- Next: coordinator reviews camera candidate against current integrated visual gaps; obtain M3 capture for #137 using the documented control/treatment sequence.
+- Checkpoint unchanged because the active API coordinator owns it and its next instruction remains applicable.
