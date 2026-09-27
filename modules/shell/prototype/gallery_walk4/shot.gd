@@ -14,6 +14,8 @@ func _require(ok: bool, message: String) -> void:
 
 
 func _pose(x: float, z: float, yaw_deg: float, name: String, out_dir: String) -> void:
+	walk._new_action()
+	walk._view_turn_remaining = 0.0
 	walk._pos = Vector3(x, 0, z)
 	walk._yaw = deg_to_rad(yaw_deg)
 	walk._target = null

@@ -1,0 +1,177 @@
+{
+  "source_url": "https://www.youtube.com/watch?v=To31pQwX1lI",
+  "title": "Animal Crossing Playthrough: Welcome to Detroit! (Day 1) | No Commentary/Free to Use (GameCube)",
+  "uploader": "TallestBrake3",
+  "duration_seconds": 7489,
+  "format_id": "137",
+  "upload_frame_size": [
+    1920,
+    1080
+  ],
+  "upload_fps": 30,
+  "method": "yt-dlp --no-playlist -f 137 --download-sections (stream copy, no force-keyframes); ffmpeg -ss local_offset -i clip -frames:v 1 frame.png. No crop, grade, resizing, deinterlacing or image generation. Time labels are requested source times, approximately one decoded frame tolerance.",
+  "notes": "Original YouTube AVC upload is already compressed/upscaled and sometimes interlaced/comb-like. Source-copy segments retain compressed packets; PNG extraction does not add a lossy encoding stage. Preliminary reencoded 982/3452 frames were replaced with these source-copy-derived files.",
+  "frames": [
+    {
+      "source_time_seconds": 982,
+      "section_start_seconds": 978,
+      "local_seek_seconds": 4,
+      "frame": "video-982.png",
+      "frame_sha256": "cc2599390fb4f41f8e79d1395f1d4ffc87c73b354acd5461562c8b73efbe5df6",
+      "clip_path": "/tmp/gallery-overlay-lossless-978.mp4",
+      "clip_sha256": "e1bda51b38587860f3012fd289975e82a29cc3c9d3c787b5f06a5aab5aac3d79",
+      "clip_probe": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "30/1"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "6.033984"
+        }
+      }
+    },
+    {
+      "source_time_seconds": 1800,
+      "section_start_seconds": 1800,
+      "local_seek_seconds": 0,
+      "frame": "video-1800.png",
+      "frame_sha256": "4c5a3f5322b2354da20194d2a0b998a77ae437d6260afc2fee9a0b5362adf9b7",
+      "clip_path": "/tmp/gallery-overlay-light-1800.mp4",
+      "clip_sha256": "05bb77ed164c98a78fc28c67b0fdb26ca75ceb30a627ea20b40cd37cde5a1ac4",
+      "clip_probe": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "30/1"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "1.066992"
+        }
+      }
+    },
+    {
+      "source_time_seconds": 3452,
+      "section_start_seconds": 3448,
+      "local_seek_seconds": 4,
+      "frame": "video-3452.png",
+      "frame_sha256": "1e04c26e03e60d7eff3dcb685006857fb7cd57733a792818a5adc45af721f263",
+      "clip_path": "/tmp/gallery-overlay-lossless-3448.mp4",
+      "clip_sha256": "75bd4f0cd616e11ffe2a6f6b1976f74278b7718a0e5d09553ecaa3b339ec57b4",
+      "clip_probe": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "30/1"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "10.033008"
+        }
+      }
+    },
+    {
+      "source_time_seconds": 3540,
+      "section_start_seconds": 3540,
+      "local_seek_seconds": 0,
+      "frame": "video-3540.png",
+      "frame_sha256": "85cd79f87dd4e141cb6c03088f8e35198f674999c428b6574ae29426a99f00bd",
+      "clip_path": "/tmp/gallery-overlay-lossless-3540.mp4",
+      "clip_sha256": "6eeb356d6e3b7aa39b3e325ea8b59bc3258bdbd93c95f70fb4c8bfc73b812928",
+      "clip_probe": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "30/1"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "2.033984"
+        }
+      }
+    },
+    {
+      "source_time_seconds": 3660,
+      "section_start_seconds": 3660,
+      "local_seek_seconds": 0,
+      "frame": "video-3660.png",
+      "frame_sha256": "42c97815067791c3530e1dade4ee4d040428edc6a4aff793175547fd96b5cafe",
+      "clip_path": "/tmp/gallery-overlay-lossless-3660.mp4",
+      "clip_sha256": "4e267982c605cbcd410c2db3874db4e540f44d93cb6bb32e6cee9e83c8d86f02",
+      "clip_probe": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "30/1"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "2.033333"
+        }
+      }
+    },
+    {
+      "source_time_seconds": 4800,
+      "section_start_seconds": 4800,
+      "local_seek_seconds": 0,
+      "frame": "video-4800.png",
+      "frame_sha256": "2784bbda40c52b3b59155b1afd36a6e844589449c518bf5197e06ef0137e4e9f",
+      "clip_path": "/tmp/gallery-overlay-light-4800.mp4",
+      "clip_sha256": "c8dad3f2842f1563b0249519478d7c05130ce57a363f1fc32905c3b46e4d8108",
+      "clip_probe": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "30/1"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "1.033008"
+        }
+      }
+    },
+    {
+      "source_time_seconds": 6600,
+      "section_start_seconds": 6600,
+      "local_seek_seconds": 0,
+      "frame": "video-6600.png",
+      "frame_sha256": "4bfca9c1c0a1ca7a9e748023db1efa9a71733ed02e5d538364ea344327bbb3ca",
+      "clip_path": "/tmp/gallery-overlay-light-6600.mp4",
+      "clip_sha256": "6b93ca4c333aae1b60ff22c8f4dea92bf63e99efeab6f1392572848741e4c185",
+      "clip_probe": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "30/1"
+          }
+        ],
+        "format": {
+          "start_time": "0.000000",
+          "duration": "1.100000"
+        }
+      }
+    }
+  ]
+}

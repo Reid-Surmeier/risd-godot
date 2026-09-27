@@ -1,0 +1,167 @@
+{
+  "idle": "idle.webp",
+  "walk": [
+    "walk-01.png",
+    "walk-02.png",
+    "walk-03.png",
+    "walk-04.png",
+    "walk-05.png",
+    "walk-06.png",
+    "walk-07.png",
+    "walk-08.png",
+    "walk-09.png",
+    "walk-10.png",
+    "walk-11.png",
+    "walk-12.png",
+    "walk-13.png",
+    "walk-14.png",
+    "walk-15.png",
+    "walk-16.png",
+    "walk-17.png",
+    "walk-18.png",
+    "walk-19.png",
+    "walk-20.png",
+    "walk-21.png"
+  ],
+  "look": [
+    "look-01.png",
+    "look-02.png",
+    "look-03.png",
+    "look-04.png",
+    "look-05.png",
+    "look-06.png",
+    "look-07.png",
+    "look-08.png",
+    "look-09.png",
+    "look-10.png",
+    "look-11.png",
+    "look-12.png",
+    "look-13.png",
+    "look-14.png",
+    "look-15.png",
+    "look-16.png",
+    "look-17.png",
+    "look-18.png"
+  ],
+  "wave": [
+    "wave-01.png",
+    "wave-02.png",
+    "wave-03.png",
+    "wave-04.png",
+    "wave-05.png",
+    "wave-06.png",
+    "wave-07.png",
+    "wave-08.png",
+    "wave-09.png",
+    "wave-10.png",
+    "wave-11.png",
+    "wave-12.png",
+    "wave-13.png",
+    "wave-14.png",
+    "wave-15.png",
+    "wave-16.png",
+    "wave-17.png",
+    "wave-18.png",
+    "wave-19.png",
+    "wave-20.png",
+    "wave-21.png",
+    "wave-22.png",
+    "wave-23.png",
+    "wave-24.png"
+  ],
+  "gesture_fps": 12,
+  "source_fps": 24,
+  "gesture_facing": {
+    "look": 0,
+    "wave": 1
+  },
+  "registration": {
+    "idle": {
+      "visible_height": 721,
+      "pivots": [
+        [
+          402,
+          763
+        ],
+        [
+          406,
+          762
+        ],
+        [
+          397,
+          762
+        ],
+        [
+          407.5,
+          762
+        ]
+      ]
+    },
+    "walk": {
+      "visible_height": 437,
+      "pivots": [
+        [
+          228,
+          474
+        ],
+        [
+          255.5,
+          472
+        ],
+        [
+          196,
+          462
+        ],
+        [
+          283,
+          462
+        ]
+      ]
+    },
+    "look": {
+      "visible_height": 430,
+      "pivots": [
+        [
+          242,
+          458
+        ]
+      ]
+    },
+    "wave": {
+      "visible_height": 432,
+      "pivots": [
+        [
+          241,
+          458
+        ]
+      ]
+    }
+  },
+  "experimental": true,
+  "certified": false,
+  "humanReviewed": false,
+  "ownerApprovedExperimentalCuts": true,
+  "source_run": "run-b987214702e0dedab7819356",
+  "source_run_state": "failed",
+  "source_frames": {
+    "walk": [
+      51,
+      71,
+      1
+    ],
+    "look": [
+      96,
+      131,
+      2
+    ],
+    "wave": [
+      132,
+      179,
+      2
+    ]
+  },
+  "gesture_labels": {
+    "look": "front curious head look",
+    "wave": "rear raised-hand greeting"
+  }
+}

@@ -32,6 +32,30 @@ func _choose_view(title: String) -> void:
 				return
 	_require(false, "camera choice missing: " + title)
 
+func _face(wanted: float) -> void:
+	# Q/E now ease like pointer orbit. Wait for each real turn, rather than
+	# queuing four turns against the same intermediate orientation.
+	for attempt in 4:
+		for frame in 180:
+			if absf(walk._view_turn_remaining) < 0.001:
+				break
+			await process_frame
+		_require(absf(walk._view_turn_remaining) < 0.001, "camera turn did not settle")
+		if absf(wrapf(walk.view_yaw - wanted, -PI, PI)) < 0.01:
+			return
+		await _key(KEY_E, "view next wall")
+	_require(false, "real turn input did not reach requested wall")
+
+
+func _close_art() -> void:
+	await _key(KEY_ESCAPE, "close art")
+	for frame in 180:
+		if walk._open.is_empty() and not walk._detail.visible:
+			return
+		await process_frame
+	_require(false, "artwork detail did not close")
+
+
 func _observe_steps(code: Key, seconds: float) -> int:
 	var started := 0
 	var playing := {}
@@ -62,6 +86,9 @@ func _initialize() -> void:
 	var out := await _mount(main, Vector2i(1920, 1080), "/tmp/gallery-dollhouse")
 	await create_timer(4).timeout
 	walk = main.find_child("GalleryWalk", true, false)
+	walk._new_action()
+	walk._target = null
+	walk.view_yaw = PI / 2.0
 	walk._pos = Vector3(-2.6, 0, -12)
 	await create_timer(0.5).timeout
 	await _shot(out, "01-dollhouse-baked.png")
@@ -146,10 +173,7 @@ func _initialize() -> void:
 	# must not capture clicks on the visible room behind them.
 	Engine.time_scale = 5
 	walk._pos = Vector3(4, 0, -12)
-	for i in 4:
-		if absf(wrapf(walk.view_yaw - PI / 2, -PI, PI)) < 0.01:
-			break
-		await _key(KEY_E, "face west")
+	await _face(PI / 2)
 	await create_timer(0.2).timeout
 	var hidden_checks := 0
 	for painting in walk._paintings:
@@ -162,7 +186,7 @@ func _initialize() -> void:
 		await create_timer(12).timeout
 		_require(walk._open.get("tag", "") != painting.tag, "cutaway painting intercepted click: " + painting.tag)
 		hidden_checks += 1
-		await _key(KEY_ESCAPE, "close visible art if opened")
+		await _close_art()
 		await _key(KEY_D, "cancel approach")
 		break
 	_require(hidden_checks > 0, "hidden-wall scenario projected no paintings")
@@ -171,13 +195,13 @@ func _initialize() -> void:
 	var opened := 0
 	# Real room records, not a copied fixture inventory. Every actual painting must open.
 	for painting in walk._paintings:
+		walk._new_action()
+		walk._target = null
+		walk._velocity = Vector3.ZERO
 		walk._pos = painting.center + painting.normal * 2.6
 		walk._pos.y = 0
 		var wanted := atan2(painting.normal.x, painting.normal.z)
-		for i in 4:
-			if absf(wrapf(walk.view_yaw - wanted, -PI, PI)) < 0.01:
-				break
-			await _key(KEY_E, "view next wall")
+		await _face(wanted)
 		await create_timer(0.2).timeout
 		var point: Vector2 = walk._cam.unproject_position(painting.center) / Vector2(walk._vp.size) * walk.size
 		_require(Rect2(Vector2.ZERO, walk.size).has_point(point), "painting center outside view: " + painting.tag)
@@ -190,7 +214,7 @@ func _initialize() -> void:
 		_require(correct, "click failed to open " + painting.tag + "; opened " + str(walk._open.get("tag", "none")))
 		if correct:
 			opened += 1
-		await _key(KEY_ESCAPE, "close art")
+		await _close_art()
 	_require(not walk._view_panel.visible, "closing artwork restored the removed toolbar")
 	print("DOLLHOUSE_ARTWORKS ", opened, "/", walk._paintings.size())
 	Engine.time_scale = 1

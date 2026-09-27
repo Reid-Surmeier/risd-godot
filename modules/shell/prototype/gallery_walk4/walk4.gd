@@ -38,7 +38,15 @@ const KID_H := 1.75
 var _vp: SubViewport
 # PROTOTYPE #132: fixed dollhouse, lower gallery view, and original camera.
 var view_mode := 0
-var view_yaw := PI / 2.0
+var view_yaw := PI
+var _view_turn_remaining := 0.0
+var _orbit_from = null
+var _orbit_dragged := false
+var _space := "gallery"  # arch/far identify which gallery doorway the white test room returns to
+var _entrance_active := false
+var _entrance_waiting := false
+var _motion_heading := Vector3.FORWARD
+var _portal_flash: ColorRect
 var _view_panel: PanelContainer
 var _view_bar: HBoxContainer
 var _view_label: Label
@@ -48,6 +56,7 @@ var _baked_room: Node3D
 var _lighting_choice: CheckButton
 var _cam: Camera3D
 var _kid: Sprite3D
+var _generated_visitor := true
 var _shadow: MeshInstance3D
 var _kid_frames: Array[Texture2D] = []
 var _kid_t := 0.0
@@ -98,6 +107,7 @@ func _ready() -> void:
 	_partition_surfaces()
 	_merge_static()
 	_source_meshes = _vp.find_children("*", "MeshInstance3D", true, false)
+	_build_test_room()
 	_build_kid()
 	_cam = Camera3D.new()
 	_cam.fov = 58.0
@@ -106,12 +116,23 @@ func _ready() -> void:
 	_build_detail()
 	_build_sounds()
 	_build_view_controls()
+	_pos = Vector3(0, 0, -0.35)
+	_walk_to(Vector3(0, 0, -2.6))
+	_entrance_active = true
+	_entrance_waiting = true
+	_motion_heading = (_target - _pos).normalized()
+	if _generated_visitor:
+		_kid.pose(0.0, false, 0.0, _motion_heading, view_yaw if view_mode != 2 else _yaw)
 	_update_camera(1.0)
 
 
 # GameCube RGB6 quantization: subtle 2x2 ordering at rendered texels, no time/noise.
 # Formula: Dolphin PixelShaderGen, documented in research/animal-crossing-look.
 func _post() -> ShaderMaterial:
+	if not (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('final_render') === 'original'")):
+		var finish := ShaderMaterial.new()
+		finish.shader = load(DIR + "gamecube.gdshader")
+		return finish
 	var sh := Shader.new()
 	sh.code = """
 shader_type canvas_item;
@@ -801,6 +822,95 @@ func _build_view_controls() -> void:
 	_set_lighting(use_bake)
 
 
+# #135: deliberately plain navigation room, reused with a remembered return doorway.
+# Native unshaded face tones require no new runtime light or gallery rebake.
+func _build_test_room() -> void:
+	var face := func(c: Vector3, size3: Vector3, color: Color, layer: int) -> void:
+		var material := StandardMaterial3D.new()
+		material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		material.albedo_color = color
+		_box(c, size3, color, layer, material)
+	face.call(Vector3(0, -0.06, -3), Vector3(6, 0.12, 6.4), Color("#ece9e2"), 64)
+	face.call(Vector3(-3, 1.8, -3), Vector3(0.12, 3.6, 6), Color("#dddcd7"), 128)
+	face.call(Vector3(3, 1.8, -3), Vector3(0.12, 3.6, 6), Color("#f5f4ed"), 256)
+	face.call(Vector3(0, 1.8, -6), Vector3(6, 3.6, 0.12), Color("#e7e6df"), 1024)
+	for sign_x in [-1.0, 1.0]:
+		face.call(Vector3(sign_x * 1.975, 1.8, 0), Vector3(2.05, 3.6, 0.12), Color("#f1f0ea"), 512)
+		face.call(Vector3(sign_x * 1.01, 1.5, -0.08), Vector3(0.14, 3.0, 0.16), Color.WHITE, 512)
+	face.call(Vector3(0, 3.3, 0), Vector3(1.9, 0.6, 0.12), Color("#f1f0ea"), 512)
+	face.call(Vector3(0, 3.02, -0.08), Vector3(2.16, 0.14, 0.16), Color.WHITE, 512)
+	# A shallow white recess shows depth through the existing casing. The actual
+	# portal crosses at the mouth, before its rear wall; no new gallery bake.
+	for door in [DOORS.arch, DOORS.far]:
+		var outward := 1.0 if door.z == 0.0 else -1.0
+		var layer := 8 if door.z == 0.0 else 16
+		var depth := 1.1
+		var width: float = door.size.x - 0.08
+		var height: float = door.size.y - 0.04
+		var middle: float = door.z + outward * depth / 2.0
+		face.call(Vector3(0, height / 2.0, door.z + outward * depth), Vector3(width, height, 0.025), Color("#eeede7"), layer)
+		face.call(Vector3(-width / 2.0, height / 2.0, middle), Vector3(0.035, height, depth), Color("#d7d6ce"), layer)
+		face.call(Vector3(width / 2.0, height / 2.0, middle), Vector3(0.035, height, depth), Color("#f8f7f0"), layer)
+		face.call(Vector3(0, height, middle), Vector3(width, 0.035, depth), Color("#fdfcf6"), layer)
+		face.call(Vector3(0, 0.012, middle), Vector3(width, 0.025, depth), Color("#e3e0d6"), layer)
+		face.call(Vector3(0, 0.026, door.z), Vector3(width, 0.03, 0.24), Color("#cbc7bc"), layer)
+	_portal_flash = ColorRect.new()
+	_portal_flash.color = Color.WHITE
+	_portal_flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_portal_flash.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_portal_flash.modulate.a = 0.0
+	add_child(_portal_flash)
+
+
+func _enter_space(next: String) -> void:
+	var previous := _space
+	_new_action()
+	_target = null
+	_target_yaw = null
+	_velocity = Vector3.ZERO
+	_held.clear()
+	_space = next
+	for node in _vp.get_children():
+		if node is WorldEnvironment:
+			node.environment.background_color = Color("#20242a") if next == "gallery" else Color("#ece9e2")
+	if next == "gallery":
+		_pos = Vector3(0, 0, -0.7 if previous == "arch" else -L + 0.7)
+		view_yaw = 0.0 if previous == "arch" else PI
+	else:
+		_pos = Vector3(0, 0, -0.7)
+		view_yaw = 0.0
+	_yaw = view_yaw
+	_view_turn_remaining = 0.0
+	get_node("OtherWall").visible = next == "gallery"
+	_portal_flash.modulate.a = 1.0
+	create_tween().tween_property(_portal_flash, "modulate:a", 0.0, 0.22)
+	_update_camera(1.0)
+	print("NAV_SPACE ", previous, " -> ", next)
+
+
+func _move_to(p: Vector3) -> void:
+	# Sweep the doorway's wall plane as well as clamping the endpoint: diagonal
+	# movement must not cut a corner through a solid part of the end wall.
+	for wall in [0.0, -L] if _space == "gallery" else [0.0]:
+		var edge: float = wall - 0.55 if wall == 0.0 else wall + 0.55
+		if (_pos.z - edge) * (p.z - edge) < 0.0:
+			var at_x := lerpf(_pos.x, p.x, (edge - _pos.z) / (p.z - _pos.z))
+			if absf(at_x) > 0.4:
+				p.z = edge
+	_pos = _clamp(p)
+
+
+func _orbit(amount: float) -> void:
+	if _generated_visitor:
+		_kid.play_gesture("look")
+	if is_zero_approx(amount):
+		return
+	_new_action()
+	_target = null
+	_target_yaw = null
+	_view_turn_remaining += amount
+
+
 func _set_lighting(enabled: bool) -> void:
 	if enabled and _baked_room == null:
 		_baked_room = load(DIR + "baked/room.tscn").instantiate()
@@ -809,6 +919,12 @@ func _set_lighting(enabled: bool) -> void:
 		_baked_room.visible = enabled
 	for mesh in _source_meshes:
 		mesh.visible = not enabled
+	# The old photographed end cards are scenery, not traversable rooms.
+	for mesh in _source_meshes + (_baked_room.find_children("*", "MeshInstance3D", true, false) if _baked_room else []):
+		var material = mesh.material_override
+		var texture = material.albedo_texture if material is StandardMaterial3D else (material.get_shader_parameter("albedo") if material is ShaderMaterial else null)
+		if texture and (texture.resource_path.ends_with("door-arch.jpg") or texture.resource_path.ends_with("door-far.jpg")):
+			mesh.hide()
 	if OS.has_feature("web"):
 		JavaScriptBridge.eval("var u=new URL(location.href);u.searchParams.set('lighting','%s');history.replaceState(null,'',u)" % ("baked" if enabled else "original"))
 
@@ -820,6 +936,7 @@ func _set_view(mode: int) -> void:
 	_velocity = Vector3.ZERO
 	_target = null
 	_target_yaw = null
+	_view_turn_remaining = 0.0
 	view_mode = mode
 	(_view_bar.get_child(0) as OptionButton).select(mode)
 	_update_camera(1.0)
@@ -829,7 +946,7 @@ func _set_view(mode: int) -> void:
 
 
 func _other_wall() -> void:
-	if not _open.is_empty():
+	if not _open.is_empty() or _space != "gallery":
 		return
 	# A deliberate gallery shortcut: keep the same bay, cross to the other hang.
 	var east := sin(view_yaw) > 0.0
@@ -840,8 +957,7 @@ func _other_wall() -> void:
 
 
 func _rotate_view(direction: int) -> void:
-	view_yaw = wrapf(view_yaw + direction * PI / 2.0, -PI, PI)
-	_set_view(view_mode)
+	_orbit(direction * PI / 2.0)
 
 
 func _screen_direction() -> Vector3:
@@ -851,6 +967,8 @@ func _screen_direction() -> Vector3:
 
 
 func _painting_shown(p: Dictionary) -> bool:
+	if _space != "gallery":
+		return false
 	if view_mode == 2:
 		return true
 	var forward := Vector3(-sin(view_yaw), 0, -cos(view_yaw))
@@ -907,18 +1025,23 @@ func _merge_static() -> void:
 
 
 func _build_kid() -> void:
-	var i := 0
-	while ResourceLoader.exists(DIR + "kid/%02d.png" % i):
-		_kid_frames.append(load(DIR + "kid/%02d.png" % i))
-		i += 1
-	_kid = Sprite3D.new()
-	_kid.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
-	_kid.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
-	_kid.shaded = false
-	_kid.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
-	_kid.texture = _kid_frames[0]
-	_kid.pixel_size = KID_H / _kid_frames[0].get_height()
-	_kid.offset = Vector2(0, _kid_frames[0].get_height() / 2.0)
+	_generated_visitor = not (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('character') === 'original'"))
+	if _generated_visitor:
+		_kid = load(DIR + "visitor.gd").new()
+		_kid.world_height = KID_H
+	else:
+		var i := 0
+		while ResourceLoader.exists(DIR + "kid/%02d.png" % i):
+			_kid_frames.append(load(DIR + "kid/%02d.png" % i))
+			i += 1
+		_kid = Sprite3D.new()
+		_kid.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
+		_kid.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
+		_kid.shaded = false
+		_kid.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+		_kid.texture = _kid_frames[0]
+		_kid.pixel_size = KID_H / _kid_frames[0].get_height()
+		_kid.offset = Vector2(0, _kid_frames[0].get_height() / 2.0)
 	_vp.add_child(_kid)
 	var g := Gradient.new()
 	g.set_color(0, Color(0, 0, 0, 0.55))
@@ -1047,8 +1170,22 @@ func _fwd() -> Vector3:
 
 
 func _process(delta: float) -> void:
+	if _entrance_waiting:
+		# Boot warms every tab behind its loader. Start only when the viewer is visible.
+		if not is_visible_in_tree() or get_tree().root.has_node("BootLoader"):
+			return
+		if OS.has_feature("web") and JavaScriptBridge.eval("document.getElementById('status') !== null"):
+			return
+		_entrance_waiting = false
 	if not _open.is_empty():
 		return
+	var turn := _view_turn_remaining * (1.0 - exp(-delta * 12.0))
+	var orbit_settled := absf(_view_turn_remaining) >= 0.001 and absf(_view_turn_remaining - turn) < 0.001
+	_view_turn_remaining -= turn
+	if view_mode == 2:
+		_yaw = wrapf(_yaw + turn, -PI, PI)
+	else:
+		view_yaw = wrapf(view_yaw + turn, -PI, PI)
 	for k in _held.keys():
 		_held[k] += delta
 	if view_mode == 2 and _held.get("left", 0.0) > HOLD_S:
@@ -1074,7 +1211,7 @@ func _process(delta: float) -> void:
 		var direction := _screen_direction()
 		_velocity = _velocity.move_toward(direction * 2.0, (12.0 if direction != Vector3.ZERO else 16.0) * delta)
 		if _velocity.length() > 0.01:
-			_pos = _clamp(_pos + _velocity * delta)
+			_move_to(_pos + _velocity * delta)
 	var goal = _path[0] if not _path.is_empty() else _target
 	if goal != null:
 		var to: Vector3 = goal - _pos
@@ -1085,7 +1222,7 @@ func _process(delta: float) -> void:
 			else:
 				_target = null
 		else:
-			_pos = _clamp(_pos + to.normalized() * minf(to.length(), WALK_MPS * delta))
+			_move_to(_pos + to.normalized() * minf(to.length(), WALK_MPS * delta))
 			# stuck against something for half a second: give up on this walk
 			_stall_t = _stall_t + delta if _pos.distance_to(_last_pos) < WALK_MPS * delta * 0.2 else 0.0
 			if _stall_t > 0.5:
@@ -1094,7 +1231,17 @@ func _process(delta: float) -> void:
 				_stall_t = 0.0
 	_last_pos = _pos
 	var distance_moved := _pos.distance_to(position_before)
-	if distance_moved > 0.0001 and _kid_frames.size() >= WALK_FRAMES:
+	if distance_moved > 0.0001:
+		_motion_heading = (_pos - position_before).normalized()
+	if _entrance_active and _target == null:
+		_entrance_active = false
+		print("ENTRY_COMPLETE ", _pos)
+	if not _entrance_active:
+		if _space != "gallery" and _pos.z > 0.0:
+			_enter_space("gallery")
+		elif _space == "gallery" and (_pos.z > 0.0 or _pos.z < -L):
+			_enter_space("arch" if _pos.z > 0.0 else "far")
+	if distance_moved > 0.0001:
 		var previous := int(_kid_t * 10.0) if _kid_t > 0.0 else -1
 		var speed := distance_moved / maxf(delta, 0.0001)
 		# GC contacts are eight keyframes apart; full-stick cadence is ~3.6 steps/s.
@@ -1105,18 +1252,27 @@ func _process(delta: float) -> void:
 			if frame % WALK_FRAMES in CONTACT_FRAMES:
 				_step_i = (_step_i + 1) % 6
 				_play("step_wood_%02d" % (_step_i + 1))
-		_kid.texture = _kid_frames[current % WALK_FRAMES]
-	elif not _kid_frames.is_empty():
+		if not _generated_visitor:
+			_kid.texture = _kid_frames[current % WALK_FRAMES]
+	else:
 		_kid_t = 0.0
-		_kid.texture = _kid_frames[0]
+		if not _generated_visitor:
+			_kid.texture = _kid_frames[0]
+	if _generated_visitor:
+		_kid.pose(delta, distance_moved > 0.0001, _kid_t * 10.0 / WALK_FRAMES, _motion_heading, view_yaw if view_mode != 2 else _yaw)
 	_update_camera(minf(1.0, delta * 5.0))
 	_update_hover()
+	if orbit_settled:
+		print("VIEW_ORBIT ", JSON.stringify({"yaw": view_yaw if view_mode != 2 else _yaw, "position": [_pos.x, _pos.z], "space": _space}))
 
 
 # Inside the room, clear of the walls and the benches.
 func _clamp(p: Vector3) -> Vector3:
 	var m := 0.55
-	p = Vector3(clampf(p.x, -W / 2 + m, W / 2 - m), 0, clampf(p.z, -L + m, -m))
+	var doorway := absf(p.x) <= 0.4
+	if _space != "gallery":
+		return Vector3(clampf(p.x, -3.0 + m, 3.0 - m), 0, clampf(p.z, -6.0 + m, 0.2 if doorway else -m))
+	p = Vector3(clampf(p.x, -W / 2 + m, W / 2 - m), 0, clampf(p.z, -L - 0.2 if doorway else -L + m, 0.2 if doorway else -m))
 	for bz in BENCHES:
 		var hx := BENCH_CLEAR.x
 		var hz := BENCH_CLEAR.y
@@ -1133,6 +1289,8 @@ func _clamp(p: Vector3) -> Vector3:
 # The camera follows behind the kid but never leaves the room: the line from the kid's head to where the camera
 # wants to be is cut where it would cross a wall.
 func _update_camera(k: float) -> void:
+	_kid.layers = 1 if _space == "gallery" else 64
+	_shadow.layers = _kid.layers
 	_kid.position = _pos
 	_shadow.position = _pos + Vector3(0, 0.01, 0)
 	_kid.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y if view_mode == 2 else BaseMaterial3D.BILLBOARD_ENABLED
@@ -1145,12 +1303,12 @@ func _update_camera(k: float) -> void:
 		# Follow the kid along the gallery; the cutaway lets the eye sit outside it.
 		_cam.position = center - forward * distance * cos(pitch) + Vector3.UP * distance * sin(pitch)
 		_cam.look_at(center)
-		var hidden := 4 if forward.x < -0.5 else (2 if forward.x > 0.5 else (8 if forward.z < -0.5 else 16))
-		_cam.cull_mask = 31 & ~hidden
+		var hidden := (4 if forward.x < -0.2 else (2 if forward.x > 0.2 else 0)) | (8 if forward.z < -0.2 else (16 if forward.z > 0.2 else 0))
+		_cam.cull_mask = (1984 & ~(hidden * 64)) if _space != "gallery" else (31 & ~hidden)
 		if _view_label:
 			_view_label.text = "WASD · Click art · " + ("West wall" if forward.x < -0.5 else ("East wall" if forward.x > 0.5 else ("Far wall" if forward.z < -0.5 else "Arch wall")))
 		return
-	_cam.cull_mask = 63
+	_cam.cull_mask = 1984 if _space != "gallery" else 63
 	_cam.fov = 58.0
 	if _view_label:
 		_view_label.text = "WASD · Click art"
@@ -1159,9 +1317,11 @@ func _update_camera(k: float) -> void:
 	var d := want - head
 	var t := 1.0
 	var m := 0.25
+	var room_w := W if _space == "gallery" else 6.0
+	var room_l := L if _space == "gallery" else 6.0
 	for axis in [0, 2]:
-		var lo: float = -W / 2 + m if axis == 0 else -L + m
-		var hi: float = W / 2 - m if axis == 0 else -m
+		var lo: float = -room_w / 2 + m if axis == 0 else -room_l + m
+		var hi: float = room_w / 2 - m if axis == 0 else -m
 		if d[axis] > 0.0001:
 			t = minf(t, (hi - head[axis]) / d[axis])
 		elif d[axis] < -0.0001:
@@ -1178,6 +1338,10 @@ func _step(dir: float) -> void:
 
 
 func _new_action() -> void:
+	_entrance_waiting = false
+	if _entrance_active:
+		_entrance_active = false
+		_pos.z = minf(_pos.z, -0.05)
 	_action += 1
 	_path.clear()
 
@@ -1188,6 +1352,8 @@ func _walk_to(p: Vector3) -> void:
 	_velocity = Vector3.ZERO
 	_new_action()
 	_target = _clamp(p)
+	if _space != "gallery":
+		return
 	var pts: Array = [_pos, _target]
 	var i := 0
 	while i < pts.size() - 1 and pts.size() < 16:
@@ -1308,6 +1474,7 @@ func _update_hover() -> void:
 
 func _click(pt: Vector2) -> void:
 	var p := _painting_at(pt)
+	print("NAV_PICK ", p.get("tag", "floor"))
 	if not p.is_empty():
 		_play("select")
 		_approach(p)
@@ -1339,6 +1506,14 @@ func _approach(p: Dictionary) -> void:
 		await get_tree().process_frame
 		if _action != mine:
 			return
+	if _generated_visitor:
+		_motion_heading = -p.normal
+		_kid.pose(0.0, false, 0.0, _motion_heading, view_yaw if view_mode != 2 else _yaw)
+		_kid.play_gesture("wave")
+		while _kid.gesture != "":
+			await get_tree().process_frame
+			if _action != mine or not _open.is_empty():
+				return
 	_open_detail(p)
 
 
@@ -1352,10 +1527,32 @@ func _gui_input(event: InputEvent) -> void:
 		_detail_input(event)
 		accept_event()
 		return
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		grab_focus()
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			grab_focus()
+			if event.pressed:
+				_new_action()
+				_target = null
+				_orbit_from = event.position
+				_orbit_dragged = false
+			else:
+				if _orbit_from != null and not _orbit_dragged:
+					_click(event.position)
+				_orbit_from = null
+			accept_event()
+		elif event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_LEFT, MOUSE_BUTTON_WHEEL_RIGHT]:
+			_orbit(0.10 * event.factor * (1.0 if event.button_index == MOUSE_BUTTON_WHEEL_LEFT else -1.0))
+			accept_event()
+	elif event is InputEventMouseMotion and _orbit_from != null:
+		if not _orbit_dragged and event.position.distance_to(_orbit_from) > 6.0:
+			_orbit_dragged = true
+			_orbit((event.position.x - _orbit_from.x) * 0.006)
+		elif _orbit_dragged:
+			_orbit(event.relative.x * 0.006)
 		accept_event()
-		_click(event.position)
+	elif event is InputEventPanGesture:
+		_orbit(-event.delta.x * 0.05)
+		accept_event()
 
 
 func _detail_input(event: InputEvent) -> void:
@@ -1400,6 +1597,8 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_VISIBILITY_CHANGED or what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_FOCUS_EXIT:
 		_held.clear()
 		_velocity = Vector3.ZERO
+		_orbit_from = null
+		_orbit_dragged = false
 
 
 func _unhandled_key_input(event: InputEvent) -> void:

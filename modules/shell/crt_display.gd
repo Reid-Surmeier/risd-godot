@@ -88,6 +88,8 @@ func _input(event: InputEvent) -> void:
 			mapped.global_position = mapped.position
 			if event is InputEventMouseMotion:
 				mapped.relative = mapped.position - _screen_to_desktop(event.position - event.relative)
+		elif event is InputEventGesture:
+			mapped.position = _screen_to_desktop(event.position)
 		elif event is InputEventScreenTouch or event is InputEventScreenDrag:
 			mapped.position = _screen_to_desktop(event.position)
 			if event is InputEventScreenDrag:
@@ -118,12 +120,8 @@ func _publish_squiggle_state() -> void:
 		JavaScriptBridge.eval("window.squiggleQaState = " + JSON.stringify({"enabled": squiggle_enabled,
 				"strength_pixels": 0.45, "fps": 3.0}))
 
-# Browser-only evidence uses the existing module interfaces; it does not control the game.
+# Keep render coordinates current; only browser evidence is throttled.
 func _process(delta: float) -> void:
-	_qa_elapsed += delta
-	if _qa_elapsed < 0.25:
-		return
-	_qa_elapsed = 0.0
 	var quiet := Vector4.ZERO
 	for view in get_tree().get_nodes_in_group("soft_render_view"):
 		if view.is_visible_in_tree():
@@ -132,8 +130,16 @@ func _process(delta: float) -> void:
 			quiet = Vector4(rect.position.x / extent.x, rect.position.y / extent.y, rect.end.x / extent.x, rect.end.y / extent.y)
 			break
 	crt_material.set_shader_parameter("quiet_rect", quiet)
+	haze.material.set_shader_parameter("quiet_rect", quiet)
+	haze.material.set_shader_parameter("desktop_aspect", float($Desktop.size.y) / float($Desktop.size.x))
+	haze.material.set_shader_parameter("desktop_curve", crt_material.get_shader_parameter("curve") if enabled else 0.0)
+	haze.material.set_shader_parameter("desktop_scale", crt_material.get_shader_parameter("screen_scale") if enabled else 1.0)
 	if not _qa_enabled:
 		return
+	_qa_elapsed += delta
+	if _qa_elapsed < 0.25:
+		return
+	_qa_elapsed = 0.0
 	var shell: Control = $Desktop/Content.get_node_or_null("Shell")
 	if shell == null:
 		return
