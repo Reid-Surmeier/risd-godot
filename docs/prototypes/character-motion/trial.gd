@@ -61,7 +61,7 @@ func solve_leg(foot: Dictionary, point: Vector3) -> void:
 	target.set_bone_global_pose(foot.ankle, end)
 	target.force_update_all_bone_transforms()
 
-func contacts(phase: float, moving: bool) -> void:
+func contacts(phase: float, moving: bool, delta: float) -> void:
 	for i in feet.size():
 		var foot: Dictionary = feet[i]
 		target.set_bone_pose(foot.toe, target.get_bone_rest(foot.toe))
@@ -71,20 +71,34 @@ func contacts(phase: float, moving: bool) -> void:
 		var point: Vector3 = target.global_transform * (target.get_bone_global_pose(foot.ankle) * foot.sole)
 		if moving:
 			foot.settling = false
+			foot.settled = false
 		if not moving:
 			var rest_point: Vector3 = target.global_transform * (target.get_bone_global_rest(foot.ankle) * foot.sole)
 			rest_point.y = 0
-			if not foot.settling and foot.anchor.distance_to(rest_point) > 0.002:
-				foot.settling = true
+			# Keep one sole planted while the other takes a visible recovery step.
+			if i == 0 and not feet[1].settled:
 				if not foot.locked:
 					foot.anchor = Vector3(point.x, 0, point.z)
-			if foot.settling:
-				foot.anchor = foot.anchor.lerp(rest_point, 0.2)
+					foot.anchor_basis = target.global_basis * foot.rest_flat
+				planted = true
+			elif not foot.settled and (foot.settling or foot.anchor.distance_to(rest_point) > 0.002):
+				if not foot.settling:
+					foot.settling = true
+					foot.settle_start = Vector3(point.x, 0, point.z)
+					foot.settle_t = 0.0
+				foot.settle_t = minf(1.0, foot.settle_t + delta / 0.45)
+				var progress: float = foot.settle_t
+				foot.anchor = foot.settle_start.lerp(rest_point, progress * progress * (3.0 - 2.0 * progress))
+				foot.anchor.y = 0.10 * sin(PI * progress)
 				planted = false
-				if foot.anchor.distance_to(rest_point) < 0.002:
-					foot.anchor = rest_point
+				if progress >= 1.0:
 					foot.settling = false
+					foot.settled = true
 					planted = true
+			else:
+				foot.anchor = rest_point
+				foot.settled = true
+				planted = true
 		if planted and not foot.locked and moving:
 			foot.anchor = Vector3(point.x, 0, point.z)
 			foot.anchor_basis = target.global_basis * foot.rest_flat
@@ -183,7 +197,8 @@ func setup() -> Node3D:
 		feet.append({"upper": target.find_bone("Armature_Leg_1_" + side + "_2"),
 			"lower": target.find_bone("Armature_Leg_2_" + side), "ankle": ankle,
 			"toe": target.find_bone("Armature_Toe_" + side), "flat": ankle_rest.basis, "rest_flat": ankle_rest.basis,
-			"anchor_basis": Basis.IDENTITY, "settling": false,
+			"anchor_basis": Basis.IDENTITY, "settling": false, "settled": false,
+			"settle_t": 0.0, "settle_start": Vector3.ZERO,
 			"sole": ankle_rest.affine_inverse() * sole, "locked": false, "anchor": Vector3.ZERO})
 	for foot in feet:
 		var rest_point: Vector3 = target.global_transform * (target.get_bone_global_rest(foot.ankle) * foot.sole)
@@ -240,6 +255,7 @@ func setup() -> Node3D:
 
 func run() -> void:
 	setup()
+	var metrics_only := OS.get_environment("MOTION_METRICS_ONLY") == "1"
 	var view := OS.get_environment("MOTION_VIEW")
 	if OS.has_feature("web"):
 		view = str(JavaScriptBridge.eval("new URLSearchParams(location.search).get('view') || 'front'"))
@@ -254,16 +270,17 @@ func run() -> void:
 	var yaw := 0.0
 	# Warm shaders and skinning before starting the playback clock.
 	transfer(old_pose, 0)
-	contacts(0, false)
+	contacts(0, false, 1.0 / 30.0)
 	label.text = "Preparing motion replay..."
 	camera.position = Vector3(0, 2.6, 6)
 	camera.look_at(Vector3(0, 0.8, 0))
 	for warm_frame in (30 if OS.has_feature("web") else 1):
 		transfer(old_pose, 0)
-		contacts(0, false)
+		contacts(0, false, 1.0 / 30.0)
 		skin_points(skin_meshes[0])
 		await get_tree().process_frame
-		await RenderingServer.frame_post_draw
+		if not metrics_only:
+			await RenderingServer.frame_post_draw
 	var started := Time.get_ticks_usec()
 	var previous_time := 0.0
 	var frame := 0
@@ -316,7 +333,7 @@ func run() -> void:
 		# Measured slow-walk trial sped by actual displacement: accelerated walk, not run.
 		gait += (speed / 0.4 if speed > 0 else 1.0) * delta
 		var pose := sample(clip, gait)
-		hip_adjust = move_toward(hip_adjust, -0.30 if clip == "Walking_A" else 0.2, delta * 4.0)
+		hip_adjust = move_toward(hip_adjust, -0.30 if clip == "Walking_A" else 0.08, delta * 4.0)
 		leg_weight = move_toward(leg_weight, 1.0 if clip == "Walking_A" else 0.0, delta * 4.0)
 		var blend := clampf((time - transition) / 0.2, 0, 1)
 		for i in pose.size():
@@ -326,7 +343,7 @@ func run() -> void:
 		model.rotation.y = yaw
 		model.position += Basis(Vector3.UP, yaw) * Vector3(0, 0, speed * delta)
 		transfer(pose, sin(time * 2) * 0.35 if time >= 14 else 0.0)
-		contacts(fmod(gait / player.get_animation("Walking_A").length, 1.0), clip == "Walking_A")
+		contacts(fmod(gait / player.get_animation("Walking_A").length, 1.0), clip == "Walking_A", delta)
 		label.text = "NON-AUTHENTIC KAYKIT RETARGET — " + view + "\n" + action + "  %.2fs" % time
 		var center := model.position + Vector3.UP * 0.8
 		var offset: Vector3 = {"front": Vector3(0, 1.8, 6), "side": Vector3(6, 1.8, 0), "back": Vector3(0, 1.8, -6), "gallery": Vector3(0, 0, 0)}[view]
@@ -338,10 +355,11 @@ func run() -> void:
 		camera.position = center + offset
 		camera.look_at(center)
 		await get_tree().process_frame
-		await RenderingServer.frame_post_draw
+		if not metrics_only:
+			await RenderingServer.frame_post_draw
 		if OS.has_feature("web"):
 			JavaScriptBridge.eval("window.motionProgress = {demo_seconds: %f, frame: %d}" % [time, frame])
-		if not OS.has_feature("web"):
+		if not OS.has_feature("web") and not metrics_only:
 			root.get_texture().get_image().save_png(out + "/%04d.png" % frame)
 		var feet := []
 		for bone in ["Armature_Ankle_L", "Armature_Toe_L", "Armature_Ankle_R", "Armature_Toe_R"]:
