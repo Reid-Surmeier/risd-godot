@@ -347,6 +347,9 @@ func _build_room() -> void:
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var gl := SurfaceTool.new()
 	gl.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var caps := [SurfaceTool.new(), SurfaceTool.new()]
+	for cap_tool in caps:
+		cap_tool.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var segs := 36
 	var vault := Color("#e2dccd")
 	var arc := 0.0
@@ -380,14 +383,25 @@ func _build_room() -> void:
 			st.set_color(vault * Color(shade, shade, shade))
 			for v in [p0, p1, p1 + Vector3(0, 0, -L), p0, p1 + Vector3(0, 0, -L), p0 + Vector3(0, 0, -L)]:
 				st.add_vertex(v)
-		st.set_color(vault * Color(0.82, 0.82, 0.8))
-		for z in [0.0, -L]:  # the end lunettes
-			for v in [Vector3(0, H, z), p0 + Vector3(0, 0, z), p1 + Vector3(0, 0, z)]:
-				st.add_vertex(v)
+		for end in 2:  # each lunette has its own lightmap unwrap
+			var z := 0.0 if end == 0 else -L
+			caps[end].set_color(vault * Color(0.82, 0.82, 0.8))
+			# Face each cap into the room. The far cap otherwise faces away from
+			# the bake lights and leaves the far glazing termination exposed.
+			var cap := [Vector3(0, H, z), p0 + Vector3(0, 0, z), p1 + Vector3(0, 0, z)]
+			if z < 0.0:
+				cap.reverse()
+			for v in cap:
+				caps[end].add_vertex(v)
 	var vmi := MeshInstance3D.new()
 	vmi.mesh = st.commit()
 	vmi.material_override = ps(null, Color.WHITE, Vector2.ONE, true)
 	_vp.add_child(vmi)
+	for cap_tool in caps:
+		var cap_mesh := MeshInstance3D.new()
+		cap_mesh.mesh = cap_tool.commit()
+		cap_mesh.material_override = ps(null, Color.WHITE, Vector2.ONE, true)
+		_vp.add_child(cap_mesh)
 	var gmi := MeshInstance3D.new()
 	gmi.mesh = gl.commit()
 	gmi.material_override = ps(load(DIR + "textures/skylight.png"), Color(0.85, 1.0, 1.12))
