@@ -1,8 +1,9 @@
 # #159 — sourced visitor in the Grand Gallery
 
-Status: first two visible batches **failed** independent review; repaired batch awaiting
-a fresh independent visual gate. Technical integration is not visual acceptance.
-This is a throwaway branch, not a runtime or release asset selection.
+Status: first two visible batches **failed** independent review; the target-directed
+batch passed two independent image-only visual reviews at gameplay size. This
+selects the #159 prototype, not a runtime or release asset: the separate #171
+motion gate and integrated gallery review remain open.
 
 ![Front at gallery gameplay size](evidence/front.png)
 ![Profile at gallery gameplay size](evidence/profile.png)
@@ -174,5 +175,34 @@ forearm direction to agree with the painting target (dot product >0.98); this
 cannot establish human-readable intent. Held-look/point samples also require all
 four target corners on screen and the camera clear of the painting plane.
 Fresh blind review still decides whether the actions communicate their intent.
-The prior 1.0021× clock check was not visual acceptance. #159 remains open;
-no runtime integration or visitor selection.
+The prior 1.0021× clock check was not visual acceptance. The final isolated
+browser timing, source-rig verification, and two new independent blind reviews
+support selecting this bounded prototype. Neither reviewer claims authentic
+Nintendo animation, a 60 fps guarantee, or sub-frame motion quality.
+
+The first fresh reviewer could see the supplied 1080 screenshots but its video
+inspection tool could not display extracted frames. It passed source identity,
+hair/clothing, limbs and still-pose contact, but correctly marked the full gate
+unverified and look/point target ambiguous from the two sparse stills. We did
+not count that evidence-limited verdict as a pass. A second independent
+GPT-6 Astra medium reviewer received source/front/back plus chronological
+native contact sheets extracted from the frozen movie. It returned **PASS for
+the visible still sequence**: target-directed attention and arm gesture read as
+addressing the same gold-framed painting that opens next; no clipping or
+texture corruption. A third independent GPT-6 Astra medium reviewer received
+four 4-fps motion sheets and returned **PASS for sampled motion**: alternating
+steps, planted pauses, turn/reversal and held gesture show no visible severe
+skating, limb flip, mesh collapse or penetration. These sampled frames cannot
+prove smoothness between frames; the 30-fps native movie and the numeric
+plant/contact checks remain available for that broader inspection.
+
+![Motion 0–4 seconds](evidence/motion-4.png)
+![Motion 4–8 seconds](evidence/motion-8.png)
+![Motion 12–16 seconds](evidence/motion-16.png)
+![Motion 20–24 seconds](evidence/motion-24.png)
+
+Selected #159 prototype: `e95197a3` plus this evidence update, with source
+New Horizons Hair36 geometry, UVs, weights and skeleton unchanged. KayKit
+Idle/Walking_A/Interact and procedural direction/settling remain explicitly
+non-authentic. #171 must independently pass its exact runtime motion and Web
+gate before the visitor is copied into the build branch.
