@@ -17,17 +17,15 @@ void vertex() {
 }
 void fragment() {
 	if (floor_world_z < floor_z_limits.x || floor_world_z > floor_z_limits.y) { discard; }
-	// The Muse oak pass has broad board grain but also painted board divisions.
-	// Sample only within one source board, at a varied horizontal crop; the
-	// modeled geometry is the only source of herringbone structure.
-	float grain_scale = mix(0.48, 0.72, COLOR.a);
-	float crop = fract(COLOR.a * 17.63) * (1.0 - grain_scale);
-	// A clean source-board interior with varied lengthwise crop.
-	float source_row = 0.29 + COLOR.a * 0.025;
-	vec2 grain_uv = vec2(UV.x * grain_scale + crop, source_row + UV.y * 0.13);
+	// Four distinct source-guided plank faces; crop the center of each row so
+	// atlas row dividers never become another pattern over modeled herringbone.
+	float row = min(floor(COLOR.a * 4.0), 3.0);
+	float source_row = (row + 0.5) / 4.0;
+	vec2 grain_uv = vec2(UV.x * 0.16 + fract(COLOR.a * 17.63) * 0.84,
+		source_row + (UV.y - 0.5) * 0.13);
 	vec3 grain = textureGrad(oak, grain_uv, dFdx(grain_uv), dFdy(grain_uv)).rgb;
-	vec3 grain_low = textureLod(oak, grain_uv, 5.0).rgb;
-	vec3 grain_detail = clamp((grain - grain_low) * 0.5, vec3(-0.05), vec3(0.05));
+	vec3 grain_origin = textureLod(oak, vec2(0.5, source_row), 6.0).rgb;
+	vec3 grain_detail = clamp((grain - grain_origin) * 0.75, vec3(-0.08), vec3(0.08));
 	// The full floor image has a second herringbone; its 4x4 mip only supplies
 	// broad photo-guided colour patches, never a visible structural overlay.
 	float patch = dot(textureLod(parquet_macro, floor_world_xz / 12.0 + vec2(0.19, 0.13), 8.0).rgb, vec3(0.299, 0.587, 0.114));

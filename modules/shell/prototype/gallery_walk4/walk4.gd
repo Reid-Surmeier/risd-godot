@@ -504,8 +504,9 @@ func _build_floor() -> void:
 					st.set_uv(uv[i])
 					st.set_uv2(uv2[i])
 					st.add_vertex(w)
-	var mat := ps(load(DIR + "textures/oak-muse.webp"), Color.WHITE, Vector2.ONE, true)
+	var mat := ps(load(DIR + "textures/oak-board-atlas-168.webp"), Color.WHITE, Vector2.ONE, true)
 	mat.set_shader_parameter("plank_seams", true)
+	mat.set_shader_parameter("oak_atlas", true)
 	mat.set_shader_parameter("jitter", 0.0)  # herringbone has T-junctions: snapped corners would open cracks
 	mat.set_shader_parameter("plank", PLANK)
 	var mi := MeshInstance3D.new()

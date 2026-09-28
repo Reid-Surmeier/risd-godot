@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "board-atlas-001",
+      "prompt": "edit-prompt.txt",
+      "promptSha256": "e57103f5808137e180db04332ef9fa6980113cdc4ba1c2941339937314b2fe30",
+      "size": "1600x800",
+      "inputs": [
+        {
+          "path": "references/floor-crop.png",
+          "sha256": "d7636e7c478a7d423cf0fede9544cac9c5b40544babee1c088de983a57672b12"
+        },
+        {
+          "path": "references/oak-muse.webp",
+          "sha256": "bb6f54cd7f4f423babaaacf8107dc735bb7fcb45118cacba9725bbbd3cb600c1"
+        }
+      ]
+    }
+  ]
+}

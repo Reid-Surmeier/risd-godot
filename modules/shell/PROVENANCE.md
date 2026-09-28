@@ -94,3 +94,24 @@ trial: none / none / 0 / USD 0. Native and Web before/after captures and the
 blind-review status are recorded in `docs/evidence/floor-168/README.md`. The
 seventh floor candidate failed independent blind acceptance; this is not a
 runtime-selected asset.
+
+## Source-guided board-atlas trial — issue #168
+
+One new Muse edit output was submitted through OpenRouter as a bounded floor
+repair. The input order was the local RISD floor crop above, then the rejected
+`oak-muse.webp` texture above as a material-family reference only. Their hashes,
+the exact prompt, and the frozen plan are in `image-work/floor-168-board/`.
+Provider/model: OpenRouter `meta/muse-image`; count: 1. Run:
+`run-082b39a8176407a9c5f4c563`. The pipeline reserved USD 0.01;
+the run state records actual cost USD 0.01 but retains `spendState: unknown`
+for retry safety, and the
+run must not be resubmitted. The materialized WebP and this prototype's
+`textures/oak-board-atlas-168.webp` have SHA-256
+`07ba958b7c4008687578c117c2eef80d2a232f3612da799e3557b24e96d98190`.
+An independent image-only atlas preflight found four distinct plausible oak
+faces, but flagged brighter yellow-gold contrast and pale scratches. It is
+only input to the trial, not a pass of the rendered gallery floor. The atlas
+remains outside the selected build. Its final 720/1600 native and exported-Web
+captures failed fresh independent image-only review: repeated V columns,
+comb-like grain, flat finish and native/Web sharpness difference. Evidence and
+the unselected bake are retained in `docs/evidence/floor-168/`.

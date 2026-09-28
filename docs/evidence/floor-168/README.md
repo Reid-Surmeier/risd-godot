@@ -58,6 +58,44 @@ The available RISD crop is only `1080×620`, and direct inspection shows the woo
 
 The checkpoint still passes `scripts/check.sh`, `git diff --check`, the focused native navigation script (`NAV_FAILURES 0`: both room round trips, floor clicks, drag/pan/orbit and all 23 painting targets), and the doorway-floor script (`DOORWAY_FAILURES 0`: eight original/baked, two-resolution views at 9/9 clear samples each). These are functional checks, **not** a visual pass for the floor.
 
+### Ninth source-guided board-atlas trial — failed after bake
+
+One new saved Muse edit pass used the RISD crop as first reference and the
+rejected `oak-muse.webp` as second material-family reference. It returned a
+four-row long-grain oak atlas at
+`image-work/floor-168-board/artifacts/image-generation/runs/run-082b39a8176407a9c5f4c563/materialized/image-01.webp`
+(SHA-256 `07ba958b7c4008687578c117c2eef80d2a232f3612da799e3557b24e96d98190`).
+OpenRouter `meta/muse-image`, one request, USD 0.01 actual cost recorded in
+the run state; `spendState: unknown` and `retryState: never-resubmit` bar a
+blind retry. Full prompt, input hashes and
+output limitations are in `image-work/floor-168-board/README.md` and the Shell
+provenance. This is the first new paid source-guided floor pass under #168;
+the prior seven candidates reused existing image pixels.
+
+An independent Astra-medium image-only **atlas preflight** judged its four
+plank faces plausible, but noted brighter/yellower colour and pale scratches.
+The first native shader-only capture (0.55-wide source crop) was self-rejected:
+fine detail disappeared and the room looked flat. A narrower 0.16-wide crop
+improved grain legibility and tonal depth at 720/1600. A fresh independent
+image-only comparison narrowly preferred that cheap B preview over the failed
+seventh packet and allowed a full bake/Web gate, while explicitly observing
+recurring V columns and too-even finish. Thus it is **not yet visually
+accepted**. Godot 4.7.2 completed the ninth saved lightmap bake (`BAKE_OK
+users=120`); saved scene/EXR/lightmap hashes are respectively
+`cbe6a0a56fd8fae8075a457aacaf921d548261961f631f04f0419f2c24cb938b`,
+`d6939d56611c8122c00e1458adf9314adf908c7d5c4c53faac00e75d6e9f2059`,
+and `60c1abc37fbd4c1c010289ad113ea7e3fa27f78d7cb991f58fa1e01dd0659a88`.
+The [saved native captures](board-atlas-baked-native/) and [exported-Web
+captures](board-atlas-baked-browser/) cover two poses at 720 and 1600 square.
+The Web capture reported `errors: []`; `scripts/check.sh` and
+`git diff --check` passed. A fresh independent GPT-6 Astra medium image-only
+review of the RISD crop and these eight final images gave **FAIL**: repeated V
+columns still dominate, grain reads as parallel comb lines, board response is
+uniformly matte/printed, and native captures are much softer than Web.
+Individual board direction and tone are legible, but the result does not meet
+the frame-level visual gate. This atlas and bake are **not selected** or
+integrated; the failed trial and paid-run receipt are retained for diagnosis.
+
 ### Speck diagnosis, unresolved
 
 Small black floor points at corresponding positions are also present in the accepted #160 baseline. A [flat-albedo before/after diagnostic](speck-diagnostic/) kept the same camera while eliminating oak texture from the shader. The points remained; disabling floor shadow casting in a trial rebake did **not** remove them either. Therefore source oak pixels, UV crop, and floor self-shadow are falsified as sole causes. The no-benefit shadow change was reverted; the later bake retains original shadow behavior. The points remain an unresolved saved-bake/render issue, not a fixed floor-texture claim.

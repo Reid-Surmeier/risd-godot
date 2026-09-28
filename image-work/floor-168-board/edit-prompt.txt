@@ -1,0 +1,5 @@
+Reference 1 is the available RISD Grand Gallery floor photograph crop. Reference 2 is a previous oak texture trial whose broad repeated bands and oval knots must be corrected, not copied.
+
+Create a clean top-down texture atlas with exactly four distinct long, horizontal quarter-sawn oak plank faces, stacked as four equal-height rows. Each row is uninterrupted from left to right and has its own irregular, fine lengthwise wood grain, soft worn-pale honey and muted amber tones, subtle localized varnish variation and tiny scratches. Match the restrained colour and patchy age visible in reference 1. Use reference 2 only for the general oak material family.
+
+No herringbone layout inside the image: the game mesh supplies that pattern. No repeated V bands, broad parallel brightness stripes, large oval knots, dark rectangular patches, cross-board shadows, bevels, gaps, labels, perspective, vignette, or floor objects. Grain should be uneven and natural across each face; the four rows should differ from one another, not repeat. Flat diffuse top-down material capture, full image filled edge to edge.

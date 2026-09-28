@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-dafe8c02a7574f9bdf74",
+  "summary": "Reference 1 is the available RISD Grand Gallery floor photograph crop. Reference 2 is a previous oak texture trial whose broad repeated bands and oval knots must be corrected, not copied.\n\nCreate a clean top-down texture atlas with exactly four distinct long, horizontal quarter-sawn oak plank faces, stacked as four equal-height rows. Each row is uninterrupted from left to right and has its own irregular, fine lengthwise wood grain, soft worn-pale honey and muted amber tones, subtle localized varnish variation and tiny scratches. Match the restrained colour and patchy age visible in reference 1. Use reference 2 only for the general oak material family.\n\nNo herringbone layout inside the image: the game mesh supplies that pattern. No repeated V bands, broad parallel brightness stripes, large oval knots, dark rectangular patches, cross-board shadows, bevels, gaps, labels, perspective, vignette, or floor objects. Grain should be uneven and natural across each face; the four rows should differ from one another, not repeat. Flat diffuse top-down material capture, full image filled edge to edge.\n",
+  "procedureId": "muse-dafe8c02a7574f9bdf74",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "references/floor-crop.png",
+      "sha256": "d7636e7c478a7d423cf0fede9544cac9c5b40544babee1c088de983a57672b12",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/oak-muse.webp",
+      "sha256": "bb6f54cd7f4f423babaaacf8107dc735bb7fcb45118cacba9725bbbd3cb600c1",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recipe.json",
+      "sha256": "dafe8c02a7574f9bdf7434fdc4bdf504f6b54672e380b7c2e723d7ca6baad754"
+    },
+    {
+      "applicationPath": "generation-preflight.json",
+      "sha256": "41ee32fd8c0877bc0552e56dc40ad56fae42ebda38c6809410290f29c246b30b"
+    },
+    {
+      "applicationPath": "edit-prompt.txt",
+      "sha256": "e57103f5808137e180db04332ef9fa6980113cdc4ba1c2941339937314b2fe30"
+    }
+  ]
+}
