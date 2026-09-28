@@ -53,3 +53,26 @@ museum accession record; the catalogue picture and the clean plate have no right
 | `modules/sculpture_viewer/assets/control-motion/track-fill.png` | `viewer-godot/assets/control-motion/track-fill.png` | `2af20f635bbfff11321f43383e2969bfbbc84bb436cf54d3d74061d34ac48b25` | progress rail fill |
 | `modules/sculpture_viewer/assets/control-motion/extraction.json` | `viewer-godot/assets/control-motion/extraction.json` | `6d7cc975bdc5d7125049b50c4218baf3a1a7adcb6f21fcfacd1694e6ee3c4c59` | the frame-cut record (not loaded) |
 | `modules/sculpture_viewer/assets/catalogue/sidebar.png` | `viewer-godot/assets/catalogue/sidebar.png` | `575489dd8a67f905ed5aadc0f081a0c82e158fdf1599cc63703ea88b2b430c0e` | the catalogue picture, owner-supplied (see gaps) |
+
+## Square catalogue integration (#170)
+
+The four PNGs below are copied byte-for-byte from selected prototype #165 at
+`ea9c8205`, originally captured by the #154 Proton audit in Godot 4.7.2.
+They are accepted **only as truthful 2D catalogue thumbnails**. Their candidate
+GLBs have not passed the full-orbit gate and are not imported into this runtime.
+Provider: local Godot render of owner-supplied source scans. Cost: USD 0;
+no generation or external paid API calls. Source OBJ/MTL/JPG and candidate hashes
+remain in the #154 audit's `docs/research/proton-scan-validation/` record.
+
+| Runtime thumbnail | SHA-256 |
+| --- | --- |
+| `assets/scans/20260811121459-front.png` | `a3b68dd79037f55d97c142bb1932b7073970cd2e0f7d657148853c6991224282` |
+| `assets/scans/20260811122415-front.png` | `5ecb033f9efca6071bf580b2d487a2bcf50f6492ab8ec6d115cbf6a50b5b3267` |
+| `assets/scans/20260811123051-front.png` | `30c8fce99f4d74fd6ebb56cde9793cbd629235f8062444a821d0b654f3f6de3e` |
+| `assets/scans/20260820133334-front.png` | `084106155dd8543a0be2ea2360c15aa580a2111df17c6a3a5362dfca661fce92` |
+
+The RISD wordmark and sixteen image-only cells reuse
+`assets/setup/panel-2x.png` (SHA-256
+`d6cdb4c2c3ff042ea3380868184d297ea608f733bd377723cc71fd792f5b99d5`);
+the hover atlases keep their existing provenance above.
+Descriptions are provisional visual descriptors; department is unverified.
