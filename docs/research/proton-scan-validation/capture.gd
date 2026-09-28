@@ -19,12 +19,15 @@ func _run() -> void:
 	var neutral := "--neutral" in OS.get_cmdline_user_args()
 	var opaque := "--opaque" in OS.get_cmdline_user_args()
 	var group_trial := "--group-trial" in OS.get_cmdline_user_args()
+	var group_floor := "--group-floor" in OS.get_cmdline_user_args()
 	if neutral:
 		output = "res://docs/research/proton-scan-validation/neutral-captures"
 	elif opaque:
 		output = "res://docs/research/proton-scan-validation/opaque-captures"
 	elif group_trial:
 		output = "res://docs/research/proton-scan-validation/group-base-trial-captures"
+	elif group_floor:
+		output = "res://docs/research/proton-scan-validation/group-floor-trial-captures"
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(output))
 	root.size = Vector2i(768, 768)
 	var stage := Node3D.new()
@@ -59,13 +62,15 @@ func _run() -> void:
 	floor_mat.albedo_color = Color("#f7f7f9")
 	floor_mat.roughness = 0.9
 	floor.material_override = floor_mat
+	if group_floor:
+		floor.position.y = 0.43
 	stage.add_child(floor)
 	var camera := Camera3D.new()
 	camera.fov = 36.0
 	stage.add_child(camera)
 	camera.current = true
 	for id in SCANS:
-		if group_trial and id != "20260811121459":
+		if (group_trial or group_floor) and id != "20260811121459":
 			continue
 		if (neutral or opaque) and id not in ["20260811123051", "20260820133334"]:
 			continue
