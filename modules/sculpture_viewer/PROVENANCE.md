@@ -76,3 +76,21 @@ The RISD wordmark and sixteen image-only cells reuse
 `d6cdb4c2c3ff042ea3380868184d297ea608f733bd377723cc71fd792f5b99d5`);
 the hover atlases keep their existing provenance above.
 Descriptions are provisional visual descriptors; department is unverified.
+
+## Throwaway live-scan trial (#157; not a runtime dependency)
+
+`prototype_157/bearded-candidate.glb` is a byte-identical copy of the owner-supplied
+Proton OBJ conversion at
+`/home/reidsurmeier/risd-godot-ingestion/proton/20260811123051/candidate-120k/proton-scan-20260811123051.glb`.
+SHA-256: `faaece8dd2b1b25f6d2a7d96671db37ea810ede3bdc5441099f18f96ffc50d74`.
+Godot's import extracted its embedded 2048×1962 JPEG beside the trial as
+`prototype_157/bearded-candidate_20260811123051.jpg`, SHA-256
+`07f3925095dee7f29c7480758075255fa6689a3e038e2bbffa2cfd6087c25e48`;
+this is not a newly authored texture.
+The source OBJ/JPG and conversion procedure are recorded in the
+[#154 research report at `e7586320`](https://github.com/Reid-Surmeier/risd-godot/blob/e7586320/docs/research/proton-scan-validation.md).
+Godot 4.7.2 Compatibility generated the seven
+`prototype_157/evidence/*.png` captures locally from this model and the
+existing square catalogue. Provider: local Godot render; paid generation: none;
+cost: USD 0. This branch is diagnostic only; it does not license or accept the
+scan for the shipped Viewer.

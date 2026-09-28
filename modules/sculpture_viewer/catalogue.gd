@@ -35,6 +35,9 @@ var selected := 0
 var hovered := -1
 var tick := 0.0
 var turn_frames: Dictionary = {}
+var scan_viewport: SubViewport
+var scan_camera: Camera3D
+var scan_yaw := 180.0
 
 
 func _ready() -> void:
@@ -43,6 +46,9 @@ func _ready() -> void:
 	for cell in TURN:
 		var path: String = "res://modules/sculpture_viewer/assets/setup/turn/%s.png" % TURN[cell][0]
 		turn_frames[cell] = load(path)
+	_build_scan_preview()
+	visibility_changed.connect(_scan_render_mode)
+	_scan_render_mode()
 	set_process(true)
 	queue_redraw()
 
@@ -51,6 +57,77 @@ func _process(delta: float) -> void:
 	if hovered >= 4 and CELLS[hovered - 4] in turn_frames:
 		tick += delta
 		queue_redraw()
+	if hovered == 2 and scan_camera:
+		scan_yaw = wrapf(scan_yaw + delta * 12.0, 0.0, 360.0)
+		_update_scan_camera()
+		queue_redraw()
+
+
+func _build_scan_preview() -> void:
+	# PROTOTYPE #157: only the independently preview-passing bearded scan is loaded.
+	scan_viewport = SubViewport.new()
+	scan_viewport.size = Vector2i(550, 392)
+	scan_viewport.own_world_3d = true
+	scan_viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
+	add_child(scan_viewport)
+	var environment := Environment.new()
+	environment.background_mode = Environment.BG_COLOR
+	environment.background_color = Color("#f8f8fa")
+	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	environment.ambient_light_color = Color("#d9e1e7")
+	environment.ambient_light_energy = 0.82
+	var world := WorldEnvironment.new()
+	world.environment = environment
+	scan_viewport.add_child(world)
+	var key := DirectionalLight3D.new()
+	key.rotation_degrees = Vector3(-42, -28, 0)
+	key.light_energy = 1.15
+	scan_viewport.add_child(key)
+	var fill := OmniLight3D.new()
+	fill.position = Vector3(-3.5, 2.5, 4)
+	fill.light_color = Color("#dcebf4")
+	fill.light_energy = 0.52
+	fill.omni_range = 10.0
+	scan_viewport.add_child(fill)
+	var packed := load("res://modules/sculpture_viewer/prototype_157/bearded-candidate.glb") as PackedScene
+	if packed == null:
+		push_error("Prototype bearded GLB could not be loaded")
+		return
+	var model := packed.instantiate()
+	scan_viewport.add_child(model)
+	_make_opaque(model)
+	scan_camera = Camera3D.new()
+	scan_camera.fov = 36.0
+	scan_viewport.add_child(scan_camera)
+	scan_camera.current = true
+	_update_scan_camera()
+
+
+func _make_opaque(node: Node) -> void:
+	if node is MeshInstance3D:
+		var mesh := node as MeshInstance3D
+		var original := mesh.get_active_material(0) as StandardMaterial3D
+		if original and original.albedo_texture:
+			var material := StandardMaterial3D.new()
+			material.albedo_texture = original.albedo_texture
+			material.roughness = 1.0
+			material.cull_mode = BaseMaterial3D.CULL_DISABLED
+			mesh.material_override = material
+	for child in node.get_children():
+		_make_opaque(child)
+
+
+func _update_scan_camera() -> void:
+	var yaw := deg_to_rad(scan_yaw)
+	var pitch := deg_to_rad(-8.0)
+	var target := Vector3(0, 2.173, 0)
+	scan_camera.position = target + Vector3(sin(yaw) * cos(pitch), sin(pitch), cos(yaw) * cos(pitch)) * 7.2
+	scan_camera.look_at(target)
+
+
+func _scan_render_mode() -> void:
+	if scan_viewport:
+		scan_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS if hovered == 2 and is_visible_in_tree() else SubViewport.UPDATE_DISABLED
 
 
 func _input(event: InputEvent) -> void:
@@ -59,6 +136,7 @@ func _input(event: InputEvent) -> void:
 		if over != hovered:
 			hovered = over
 			tick = 0.0
+			_scan_render_mode()
 			queue_redraw()
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		var hit := _hit(make_canvas_position_local(event.position))
@@ -125,7 +203,8 @@ func _draw_detail() -> void:
 	_text(Vector2(x, y + 68), _name(selected) + " · provisional label", 13, MUTED)
 	_text(Vector2(x, y + 106), "Department: unverified", 15, INK)
 	_text(Vector2(x, y + 137), "Source scan: present" if selected < 4 else "Image-only catalogue entry", 15, INK)
-	_text(Vector2(x, y + 164), "3D preview unavailable" if selected < 4 else "No linked 3D scan", 16, PINK)
+	var preview_status := "Live 3D hover trial · not accepted" if selected == 2 else "3D preview unavailable" if selected < 4 else "No linked 3D scan"
+	_text(Vector2(x, y + 164), preview_status, 16, PINK)
 	_draw_project(Rect2(box.position.x + 15, box.position.y + 216, box.size.x - 30, 251))
 
 
@@ -149,15 +228,19 @@ func _draw_hover() -> void:
 	draw_rect(box, PINK, false, 2)
 	_text(box.position + Vector2(12, 25), "ENLARGED PREVIEW", 14, PINK)
 	_text(box.position + Vector2(12, 47), APPEARANCE[hovered], 13, INK)
-	var art := Rect2(box.position + Vector2(12, 56), Vector2(box.size.x - 24, box.size.y - 111))
+	var art := Rect2(box.position + Vector2(12, 56), Vector2(box.size.x - 24, box.size.y - 87))
 	var aspect := 1.0 if hovered < 4 else 216.0 / 200.0
 	var fitted := Vector2(minf(art.size.x, art.size.y * aspect), art.size.y)
 	fitted.y = fitted.x / aspect
 	art.position += (art.size - fitted) / 2.0
 	art.size = fitted
 	if hovered < 4:
-		draw_texture_rect(SCANS[hovered], art, false)
-		_text(box.end - Vector2(box.size.x - 12, 16), "3D preview unavailable", 14, PINK)
+		if hovered == 2 and scan_camera:
+			draw_texture_rect(scan_viewport.get_texture(), art, false)
+			_text(box.end - Vector2(box.size.x - 12, 16), "LIVE 3D · source scan trial", 13, PINK)
+		else:
+			draw_texture_rect(SCANS[hovered], art, false)
+			_text(box.end - Vector2(box.size.x - 12, 16), "3D preview unavailable", 14, PINK)
 	else:
 		var cell: int = CELLS[hovered - 4]
 		if cell in turn_frames:
