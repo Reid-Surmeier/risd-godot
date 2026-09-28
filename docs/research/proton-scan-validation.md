@@ -202,3 +202,39 @@ Independent GPT-6 Astra, medium-effort image-only review received candidate/sour
 > FAIL — candidate is not credible for unrestricted orbit. Pedestal has large see-through horizontal gaps, floating thin strips, broken corners, and missing lower-edge sections. Most obvious at candidate 120°, 285°, and 300°; clearly visible at game size. A narrow bright vertical opening remains near the rear/side junction at 330° and 000°. Upper silhouette and carved face read well, but pedestal continuity falls visibly below the reference’s overall coherence. No meaningful continuity improvement is visible versus original corresponding views. Candidate angles are offset approximately 180° from original filenames; comparing matching physical views shows the same major gaps. All expected source images exist.
 
 The reviewer inspected the source orbit before the final rigid 180° yaw alignment; it explicitly compared corresponding physical views. The committed source orbit is aligned to the candidate and was visually inspected again by the author; that orientation correction does not alter geometry or the unchanged candidate verdict. **Weld variant rejected.** No accepted repair or runtime integration results from this research.
+
+## Both busts: unreduced-source diagnosis — 28 September UTC
+
+This follow-up investigates the remaining bust repair options on the same isolated research branch. It does not produce a repaired candidate: the checks below find no source-backed surface that can replace the defects. [The Blender probe](proton-scan-validation/bust_probe.py) and [measured JSON](proton-scan-validation/bust_probe.json) record candidate and source topology, geometry area, collapsed texture coordinates, source/candidate hashes and temporary source export hashes. Original OBJ/MTL/JPG and selected GLB hashes match their existing manifests; runnable assertions check those hashes and source face counts.
+
+The apparent component count again needs coincident-vertex welding before interpretation. The bearded candidate has **three** geometric components, not 7,207 independent pieces; the pale candidate has **one**, not 809. Welding at 0.000001 normalized units is used only for measurement. No welded bust is exported as a proposed repair.
+
+| Observation | Bearded scan 20260811123051 | Pale scan 20260820133334 |
+| --- | ---: | ---: |
+| Source vertices / faces | 1,569,675 / 3,131,415 | 505,068 / 1,010,132 |
+| Source open edges / summed length | 8,039 / 42.0227 | 0 / 0 |
+| Candidate open edges / summed length after index welding | 1,991 / 41.8975 | 0 / 0 |
+| Source near-collapsed UV faces / covered geometry area | 114,837 / 1.40586 | 1,402 / 0.04677 |
+| Candidate near-collapsed UV faces / covered geometry area | 4,305 / 1.47107 | 11 / 0.00150 |
+
+Lengths and areas use the existing normalization, longest extent 4.5 units. Near-collapsed UV means absolute 2D cross product below `1e-12`; it measures negligible texture-coordinate area, not necessarily missing triangles. The bearded source already has this condition across **3.21% of its geometric surface area**. It cannot all be attributed to decimation. The probe does not claim that this condition explains every visible blue-gray patch; geometry openings and texture defects are distinct and can coexist.
+
+**Pale bust:** the original source and selected candidate both have zero open edges. The conspicuous smooth rear mass is connected to the rest of the mesh. Earlier image-only language about an “open” rear/join describes its appearance, not proven topological holes. Deleting a rear mass would cut currently connected source geometry; the inputs do not identify a detachable scanner support, a reconstruction cap, or the intended rear surface. The original texture atlas contains real stone/front/rear-looking image patches and some surrounding room pixels, but no camera calibration or raw capture set that could establish a replacement surface and its correct projection. A watertight model can still contain bad reconstruction; watertightness is not visual acceptance.
+
+**Bearded bust:** the original source has essentially the same normalized open-edge length as the candidate. The texture atlas includes photographs of interior-looking terracotta surfaces and markings, so an open/hollow reverse cannot automatically be classified as a scanning accident or filled as though solid. No museum identity is inferred from those markings. The severe facial/beard interruptions also persist in the unreduced source render. Repainting them or filling nearby loops from an arbitrary nearest face would introduce unsupported texture or shape. The original OBJ therefore does not supply an intact face/reverse hidden by reduction.
+
+The probe exports each **unreduced source** to a disposable GLB under `/tmp/risd-scan-154-bust-source/` using rigid yaw 180°, floor/extent normalization and the actual JPG resized to 2048 pixels wide. It does not remove/add faces, replace geometry, or change UVs. These full-resolution models are evidence only. The reused Godot harness captures each original candidate and unreduced source every 30° through 360°, including the reverse, plus front/detail/255°/285°: **64 unretouched 768×768 PNGs**. [Four neutral-label sheets and capture hashes](proton-scan-validation/bust-capture-sha256.txt) make the visual comparison reproducible. A means the selected candidate; B means unreduced source, aligned to the same camera yaw.
+
+![Bearded candidate full orbit](proton-scan-validation/bust-20260811123051-A.jpg)
+
+![Bearded unreduced source full orbit](proton-scan-validation/bust-20260811123051-B.jpg)
+
+![Pale candidate full orbit](proton-scan-validation/bust-20260820133334-A.jpg)
+
+![Pale unreduced source full orbit](proton-scan-validation/bust-20260820133334-B.jpg)
+
+The author's inspection finds no full-orbit repair in the higher-resolution source: the pale rear mass and irregular join remain; the bearded facial interruptions and abrupt lower/reverse edges remain. The source retains somewhat finer detail, but increasing triangle count does not remove the failures. The texture atlases and full-source captures also warn against reconstructing a stereotypical complete bust over potentially intentional historical hollow/unfinished surfaces.
+
+**Stop automatic mesh removal/filling for these variants.** The required input is the original calibrated/raw scan or photographs that cover the bearded face, hair/beard, lower/reverse surfaces and the pale bust's entire side/rear. It must distinguish physical form/damage from scan reconstruction before a source-grounded repair can be specified. Another polygon reduction, material replacement, UV seam weld or larger weld radius does not supply that information. Both candidates remain unaccepted, all four `runtime_accepted` values remain false, and #154 stays open.
+
+Reproduce with `blender -b -P docs/research/proton-scan-validation/bust_probe.py`, then the existing Godot capture command with `-- --bust-original` and `-- --bust-source`, then `python3 docs/research/proton-scan-validation/bust_evidence.py`. Blender 4.0.2 and Godot 4.7.2 Compatibility/Mesa llvmpipe completed all exports/captures. `scripts/check.sh` and `git diff --check` passed. No source, selected candidate, runtime file or frozen acceptance test changed; no paid action, USD 0. A fresh independent image-only Astra-medium review is requested for these exact orbits; its findings will be recorded below before any claim of visual acceptance.

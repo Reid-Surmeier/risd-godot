@@ -1,0 +1,132 @@
+{
+  "20260811123051": {
+    "components": [
+      {
+        "vertices": 60676,
+        "faces": 119473,
+        "bounds": [
+          [
+            -2.249850034713745,
+            2.2493503093719482
+          ],
+          [
+            -1.4072140455245972,
+            1.405394434928894
+          ],
+          [
+            -0.0004045225796289742,
+            4.344915866851807
+          ]
+        ],
+        "area": 43.825535467629486,
+        "zero_uv_faces": 4244,
+        "zero_uv_area": 1.4586648567488287
+      },
+      {
+        "vertices": 180,
+        "faces": 356,
+        "bounds": [
+          [
+            -0.5099263191223145,
+            -0.36148181557655334
+          ],
+          [
+            0.7164161801338196,
+            0.9013760089874268
+          ],
+          [
+            2.7487571239471436,
+            3.2076222896575928
+          ]
+        ],
+        "area": 0.12880078304442577,
+        "zero_uv_faces": 33,
+        "zero_uv_area": 0.008483127949148184
+      },
+      {
+        "vertices": 87,
+        "faces": 170,
+        "bounds": [
+          [
+            -0.4843655228614807,
+            -0.3504408895969391
+          ],
+          [
+            0.729602575302124,
+            0.8430243134498596
+          ],
+          [
+            2.7368600368499756,
+            3.04573917388916
+          ]
+        ],
+        "area": 0.06510320679262804,
+        "zero_uv_faces": 28,
+        "zero_uv_area": 0.003918533737305552
+      }
+    ],
+    "boundary_edges": 1991,
+    "boundary_length": 41.897489805473015,
+    "candidate_sha256": "faaece8dd2b1b25f6d2a7d96671db37ea810ede3bdc5441099f18f96ffc50d74",
+    "source": {
+      "vertices": 1569675,
+      "faces": 3131415,
+      "boundary_edges": 8039,
+      "boundary_length": 42.02272884873673,
+      "zero_uv_faces": 114837,
+      "zero_uv_area": 1.405859422531921,
+      "area": 43.86201658592832,
+      "input_sha256": {
+        "obj": "bd8b66a479d9f7c6dacbb36cd3b2db4c081f01af0f1fff77685a8196a55a6a71",
+        "mtl": "7363cb9574afed80bb8ae95c7f312f11064369544201e0bb2dfa529529c37ea6",
+        "jpg": "fb25726c8e7c2ceda0c007d6e30e183989c020a0524b8a60ee159a5b7da3162c"
+      },
+      "output": "/tmp/risd-scan-154-bust-source/20260811123051.glb",
+      "sha256": "07da99d09afd3585e6fdf2303eb64aa1d14f368b8bd993f914344b4b8706d396"
+    }
+  },
+  "20260820133334": {
+    "components": [
+      {
+        "vertices": 60002,
+        "faces": 120000,
+        "bounds": [
+          [
+            -1.2871596813201904,
+            1.2872426509857178
+          ],
+          [
+            -1.2675204277038574,
+            1.2681058645248413
+          ],
+          [
+            0.00016156595665961504,
+            4.500336647033691
+          ]
+        ],
+        "area": 32.94001819673281,
+        "zero_uv_faces": 11,
+        "zero_uv_area": 0.0015042293198348489
+      }
+    ],
+    "boundary_edges": 0,
+    "boundary_length": 0,
+    "candidate_sha256": "94e634a0554b6925fe26be4bbe5b3df2e53a19088883e733f4f9bcffed626d9e",
+    "source": {
+      "vertices": 505068,
+      "faces": 1010132,
+      "boundary_edges": 0,
+      "boundary_length": 0,
+      "zero_uv_faces": 1402,
+      "zero_uv_area": 0.0467738900669582,
+      "area": 32.92008346379503,
+      "input_sha256": {
+        "obj": "af49afcfecff54f7715b3c15872252e96cfb51c8d8eca48755f8a080db913f1e",
+        "mtl": "4b1479cd567f2aeb354b06c4c36f3c148d4b920a52a6141f6879b35a733f3265",
+        "jpg": "95c778b9c52f8eaa73e89aa3b1f72c34b37026dceb3583b99a436b8bf036e8ab"
+      },
+      "output": "/tmp/risd-scan-154-bust-source/20260820133334.glb",
+      "sha256": "93fed4c279647093e2578ecce14cfab2565cc58d5c05b5af01eb8353adc479a4"
+    }
+  }
+}
