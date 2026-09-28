@@ -2,6 +2,8 @@
 
 Throwaway branch `heartbeat/surface-168-0800`, based on accepted floor prototype `af3eb976`; no build integration. Both groups were captured at matched 720 and 1600 square native and exported-Web gameplay cameras. The reference photos are [whole gallery](reference/wide-north-entry.png) (SHA-256 `1da5c5c42afc0f7dd64fbf649001b29777f2114da08b6fe15ecefd4d9bd5c256`) and [west wall frames](reference/wall-west-arch-to-door.png) (SHA-256 `752df0299008d167f6b5f669a83feb8322dd029a108d8df997ba8c68c7e48823`), already tracked under `image-work/grand-gallery-v2/`. These are comparison evidence only, not runtime textures or a rights grant.
 
+The [exact independent blind findings](BLIND-REVIEWS.md) are recorded before any later owner art direction.
+
 ## Baseline
 
 [Native](baseline-native/) and [Web](baseline-web/) show wall view 2 and skylight/vault view 3. Web errors: `[]`. A fresh GPT-6 Astra medium reviewer saw only those images and the references, and **failed both**: the wall was dark green/charcoal with obvious cloudy mottling rather than smooth slate blue; the skylight grid was much denser than the photographed broad panes, with a blurred black-and-white patch at the far end and native grid interference. Native was softer than Web.
