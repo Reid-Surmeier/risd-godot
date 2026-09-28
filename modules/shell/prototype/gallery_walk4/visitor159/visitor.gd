@@ -284,6 +284,11 @@ func pose(delta: float, moving: bool, _legacy_phase: float, heading: Vector3, _c
 	if heading.length_squared() > 0.1:
 		var wanted := atan2(heading.x, heading.z)
 		rotation.y = wanted if delta == 0 else rotate_toward(rotation.y, wanted, (5.5 if moving else 3.0) * delta)
+		# The inherited approach controller considers <0.015 rad aligned and
+		# starts Interact. Finish that residual rotation before it starts, so the
+		# next pose does not classify the final fraction of a degree as walking.
+		if absf(wrapf(rotation.y - wanted, -PI, PI)) < 0.015:
+			rotation.y = wanted
 	var turn_distance := absf(wrapf(rotation.y - old_yaw, -PI, PI)) * 0.3 if delta > 0 else 0.0
 	var stepping := moving or turn_distance > 0.0001
 	if stepping:

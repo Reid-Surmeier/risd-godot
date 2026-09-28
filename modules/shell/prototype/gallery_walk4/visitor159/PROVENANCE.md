@@ -41,6 +41,8 @@ then run the editor import once. Inputs and extracted textures are gitignored.
 godot --headless --editor --path . --import
 godot --rendering-method gl_compatibility --path . res://modules/shell/prototype/gallery_walk4/visitor159/play.tscn
 VISITOR_CAPTURE=1 godot --rendering-method gl_compatibility --path . res://modules/shell/prototype/gallery_walk4/visitor159/play.tscn --resolution 1080x1080
+VISITOR_FAST=1 VISITOR_CAPTURE=1 godot --headless --path . res://modules/shell/prototype/gallery_walk4/visitor159/play.tscn --fixed-fps 30
+node modules/shell/prototype/gallery_walk4/visitor159/verify.cjs /tmp/risd-159-evidence/native-metrics.json
 godot --rendering-method gl_compatibility --path . --script res://modules/shell/prototype/gallery_walk4/visitor159/light_check.gd
 godot --headless --path . --export-release Visitor159 /tmp/risd-159-web/index.html
 ```

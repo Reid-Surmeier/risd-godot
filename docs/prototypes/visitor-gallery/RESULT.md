@@ -41,6 +41,10 @@ claimed. No provider generation or spend was used.
 3. A look request at the instant reverse input was released was canceled by
    normal braking movement. The evidence now stops first, then invokes looking;
    it does not bypass the controller's gesture-cancellation behavior.
+4. Fixed-30-fps capture exposed a residual alignment turn canceling Interact
+   just after the controller started it. The visitor now finishes rotation at
+   the controller's existing 0.015-radian alignment tolerance. The regression
+   verifier requires actual `wave` samples, not merely an opened detail view.
 
 ## Technical evidence
 
@@ -60,12 +64,41 @@ positive dimensions. No room lighting or global finishing change was made.
 ![Cool spatial light](evidence/cool.png)
 ![Probe-disabled negative control](evidence/disabled.png)
 
-Final native movie, final Web clock/frame-time evidence, exact checked metrics
-and independent image/video-only verdict will be appended after capture.
-Native software-rendered Movie Maker output is deterministic 30 fps evidence,
-not a measurement of live hardware performance. Browser live frame pacing is
-recorded independently; preliminary runs are approximately 22–25 fps on this
-software-rendered shared host, and do **not** establish a 60 fps guarantee.
+The final browser recording is [browser-normal-speed.webm](evidence/browser-normal-speed.webm),
+with its [summary](evidence/browser-summary.json) and full
+[clock/contact records](evidence/browser-metrics.json). The
+[native controller movie](evidence/native-controller.mp4) is 1080 square,
+961 frames at 30 fps (32.033 seconds including warm-up). Its
+[metrics](evidence/native-metrics.json) pass all stages and both gestures:
+maximum sole penetration **0.000000272 m**, whole-plant drift **0.00000204 m**.
+It was rendered offline in 2:59; that is explicitly not live native frame time.
 
-Repository `scripts/check.sh` and `git diff --check` passed during development.
-They will be rerun on the final checkpoint. No frozen module interface changed.
+![Actual artwork gesture before detail opens](evidence/artwork-gesture.png)
+
+Final isolated browser result: **28.0138 demo seconds / 27.9624 wall seconds =
+1.00184×**. Independent browser observations: 961; median interval **29.1 ms**,
+95th percentile **42.5 ms**, maximum **86.9 ms**. Browser console/page errors: 0.
+Actual `look` and `wave` samples plus detail opening are required by the verifier.
+Maximum sampled sole penetration: **0.000000347 m**; maximum whole-planted-interval
+sole-vertex drift: **0.00000204 m**, across 194 bottom sock vertices sampled at
+roughly 0.1-second intervals. Gate tolerances remain 0.01 m penetration and
+0.02 m planted drift; numerical tests do not replace visual inspection.
+
+The browser timing run used Playwright Chromium / SwiftShader at 720 square
+while the other agents' Godot and browser renders were held. Preliminary
+contended runs were slower and are not used as the final timing claim. Native
+software-rendered Movie Maker output is deterministic 30 fps evidence, not a
+measurement of live hardware performance. Neither establishes a 60 fps guarantee.
+
+Repository `scripts/check.sh` and `git diff --check` passed on the final source;
+the repo check retains the baseline ObjectDB exit-leak warning. Native and
+browser `verify.cjs` checks pass. No frozen module interface changed. The original
+gallery/controller, `works.json`, `gaps.json`, room meshes and paintings have no
+diff from the base. Source GLB hashes still match the pinned inputs.
+
+## Independent visual gate
+
+Pending a fresh GPT-6 Astra medium-effort blind review of source reference
+images and final captures/video only. No earlier verdict or implementation
+narrative is part of the review packet. #159 remains open; this report does not
+select the visitor for the build until that review passes.
