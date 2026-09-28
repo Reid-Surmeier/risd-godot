@@ -36,7 +36,7 @@ func _run() -> void:
 		assert(state.rows == 5 and state.columns == 4 and state.cards.size() == 20)
 		await _pointer(state.cards[i].get_center(), true)
 		state = Shell.tenant_state(chrome.shell, "3d_viewer").value
-		assert(state.selected == i and not state["3d_preview_available"])
+		assert(state.selected == i and state["3d_preview_available"] == (i < 4))
 		var id: String = EXPECTED_IDS[i] if i < 4 else "panel-cell:%02d" % EXPECTED_CELLS[i - 4]
 		assert(state.selected_id == id and state.department == "unverified")
 		var details := {}
@@ -48,7 +48,7 @@ func _run() -> void:
 		assert(details.Title == EXPECTED_NAMES[i], "card %02d title: %s != %s" % [i + 1, details.Title, EXPECTED_NAMES[i]])
 		assert(details.Department == "Department: unknown")
 		assert(details.LocalSource == ("Scan " + id if i < 4 else "Panel cell %02d" % EXPECTED_CELLS[i - 4]))
-		assert(details.Status == ("3D preview unavailable" if i < 4 else "No linked 3D scan · image only"))
+		assert(details.Status == ("3D scan available" if i < 4 else "No linked 3D scan · image only"))
 		if i in EXPECTED_RECORDS:
 			var record: Array = EXPECTED_RECORDS[i]
 			assert(details.Identity == "Museum title verified · " + record[0])
@@ -60,5 +60,5 @@ func _run() -> void:
 			assert(details.Description == "Museum description unknown. This %s has not yet been matched to a museum record." % ("scan thumbnail" if i < 4 else "image-only entry"))
 		_log.append({"event": "detail", "index": i, "id": id, "displayed": details})
 		await _shot(out, "card-%02d.png" % (i + 1))
-	print("PASS: 20 native selections; exact displayed metadata; 16 explicit unknowns; 5x4 order; no live scans")
+	print("PASS: 20 native selections; exact displayed metadata; 16 explicit unknowns; 5x4 order; four live scans")
 	_finish(out)

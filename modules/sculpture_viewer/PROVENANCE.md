@@ -58,8 +58,8 @@ museum accession record; the catalogue picture and the clean plate have no right
 
 The four PNGs below are copied byte-for-byte from selected prototype #165 at
 `ea9c8205`, originally captured by the #154 Proton audit in Godot 4.7.2.
-They are accepted **only as truthful 2D catalogue thumbnails**. Their candidate
-GLBs have not passed the full-orbit gate and are not imported into this runtime.
+At #170 integration these were accepted only as 2D thumbnails. The owner
+subsequently accepted the existing GLBs for present use; see the #154/#157 record below.
 Provider: local Godot render of owner-supplied source scans. Cost: USD 0;
 no generation or external paid API calls. Source OBJ/MTL/JPG and candidate hashes
 remain in the #154 audit's `docs/research/proton-scan-validation/` record.
@@ -91,3 +91,23 @@ All other museum fields remain unknown, as do both verified objects' departments
 No new raster or mesh was produced or imported. All thumbnail hashes above remain
 unchanged; museum identity does not certify scan quality or redistribution rights.
 Provider: RISD Museum primary records; generation: none; cost: USD 0.
+
+## Four live scans — #154/#157 owner acceptance, 2026-09-28
+
+Existing Proton-derived 120k GLBs copied byte-for-byte; embedded source textures retained. No generation, repair or new spend ($0). Owner accepted the current scan defects for now and requested integration into the retained Viewer. This is visual acceptance for present use, not a new rights determination.
+
+| Scan | Runtime SHA-256 | Local source |
+| --- | --- | --- |
+| 20260811121459 | `86c2c80bc05489b12bec1a03216d8765c66baaf3f8f89cf1f018004cba152193` | `/home/reidsurmeier/risd-godot-ingestion/proton/20260811121459/candidate-120k-rerun/proton-scan-20260811121459.glb` |
+| 20260811122415 | `da7480355f1c384ed8588e44cd2f1bf9c666d03c2bd7a9017f958f3d5ee08a41` | `/home/reidsurmeier/risd-godot-ingestion/proton/20260811122415/candidate-120k/proton-scan-20260811122415.glb` |
+| 20260811123051 | `faaece8dd2b1b25f6d2a7d96671db37ea810ede3bdc5441099f18f96ffc50d74` | `/home/reidsurmeier/risd-godot-ingestion/proton/20260811123051/candidate-120k/proton-scan-20260811123051.glb` |
+| 20260820133334 | `94e634a0554b6925fe26be4bbe5b3df2e53a19088883e733f4f9bcffed626d9e` | `/home/reidsurmeier/risd-godot-ingestion/proton/20260820133334/prototype/proton-scan-20260820133334.glb` |
+
+Godot 4.7.2 extracts each embedded JPEG beside its GLB during import (no texture edits):
+
+| Extracted texture | SHA-256 |
+| --- | --- |
+| `proton-scan-20260811121459_20260811121459.jpg` | `6780ce0ec57bebe97b5b30a0d72e4d5f00fbf596f39205e39dac458b889311c1` |
+| `proton-scan-20260811122415_20260811122415.jpg` | `11ce6c3272d41248fbe51b4a0d347a575fd3d1ec2842470577fe246104af4725` |
+| `proton-scan-20260811123051_20260811123051.jpg` | `07f3925095dee7f29c7480758075255fa6689a3e038e2bbffa2cfd6087c25e48` |
+| `proton-scan-20260820133334_20260820133334.jpg` | `ac0a8420ff16e964554d45fbebd2801b262dc7c942f971303ccfa8d5ab58cc88` |

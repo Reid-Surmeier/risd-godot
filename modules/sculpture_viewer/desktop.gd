@@ -45,6 +45,7 @@ var catalogue: Control
 var cards_view: Control
 var viewer_window: Control
 var viewer: Control
+var hover_viewer: Control
 var dragged_window: Control
 var drag_offset := Vector2.ZERO
 
@@ -96,13 +97,27 @@ func _ready() -> void:
 	catalogue.tooltip_text = "Drag to move the setup window"
 	cards_view = Catalogue.new()
 	catalogue.add_child(cards_view)
-	cards_view.position = Vector2(18, 185)
-	cards_view.scale = Vector2.ONE * 1014.0 / 1080.0
+	cards_view.position = Vector2.ZERO
 	viewer_window = _window("viewer-window", VIEWER_AT, VIEWER_SIZE)
 	viewer_window.scale = Vector2(VIEWER_SCALE, VIEWER_SCALE)
 	viewer = load(ROOT + "viewer.gd").new()
 	viewer.name = "viewer"
 	viewer_window.add_child(viewer)
+	cards_view.selection_changed.connect(viewer.show_scan)
+	viewer.show_scan(cards_view.IDS[0])
+	hover_viewer = load(ROOT + "viewer.gd").new()
+	hover_viewer.preview_only = true
+	hover_viewer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	cards_view.add_child(hover_viewer)
+	hover_viewer.position = Vector2(-1150, 1246)
+	hover_viewer.scale = Vector2.ONE * 0.72
+	hover_viewer.hide()
+	hover_viewer.set_process(false)
+	cards_view.hover_changed.connect(func(id: String):
+		hover_viewer.visible = not id.is_empty()
+		hover_viewer.set_process(not id.is_empty())
+		if not id.is_empty():
+			hover_viewer.show_scan(id))
 	# These strips never cover the sculpture, arrow buttons or transport controls.
 	for rect in [Rect2(12, 4, 776, 32), Rect2(12, 644, 776, 28)]:
 		var handle := Control.new()
@@ -201,6 +216,10 @@ func state() -> Dictionary:
 			"viewport_update_mode": viewer.viewport_container.get_child(0).render_target_update_mode})
 	var catalogue_data: Dictionary = cards_view.catalogue_state()
 	s.merge(catalogue_data)
+	s["3d_preview_available"] = viewer.model_loaded and not viewer.scan_id.is_empty()
+	s["hover_model_id"] = hover_viewer.scan_id if hover_viewer.visible else ""
+	s["hover_model_loaded"] = hover_viewer.visible and hover_viewer.model_loaded
+	s["separate_preview_world"] = viewer.camera.get_world_3d() != hover_viewer.camera.get_world_3d()
 	var cards := []
 	for i in 20:
 		cards.append(cards_view.get_global_transform() * cards_view._card_rect(i))

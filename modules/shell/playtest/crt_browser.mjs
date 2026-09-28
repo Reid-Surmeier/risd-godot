@@ -62,7 +62,7 @@ try {
    assert.equal((await state()).tenant.action,'','drag released outside');
    const active=(await state()).shell.active;await page.mouse.click(2,2);await settle();assert.equal((await state()).shell.active,active,'exterior click ignored');
   }
-  await tab(2);t=(await state()).tenant;assert.equal(t.model_loaded,true);assert.ok(rect(t.viewport_rect)[2]>100);
+  await tab(2);t=(await state()).tenant;await click(center(t.cards[0]));t=(await state()).tenant;assert.equal(t.model_loaded,true);assert.ok(rect(t.viewport_rect)[2]>100);
   await click(center(t.cards[19]));assert.equal((await state()).tenant.selected,19);
   let vr=rect(t.viewer_rect),vf=[vr[0]+vr[2]*.4,vr[1]+8];await drag(vf,[vf[0]+15,vf[1]+22]);
   t=(await state()).tenant;assert.ok(rect(t.viewer_rect)[1]>vr[1]+10,'Viewer window drag');

@@ -1,5 +1,5 @@
 ## The 800x680 3D sculpture viewer window: the clean media-player chrome over a SubViewport with
-## the Buddha scan; drag orbits, the wheel zooms, previous / next, play / pause, scrubber, audio
+## the selected scan (Buddha by default in Sketchbook); drag orbits, the wheel zooms, previous / next, play / pause, scrubber, audio
 ## and menu with their Muse + Seedance motion frames. Lives inside desktop.gd; reach it through
 ## interface.gd only.
 ##
@@ -25,6 +25,10 @@ const SOURCE_ASSET_PATHS := {
 	"background": "res://modules/sculpture_viewer/assets/clean-ui/background.png",
 }
 
+var preview_only := false
+var scan_id := ""
+var camera_target := CAMERA_TARGET
+var sculpture: Node3D
 var yaw_degrees := DEFAULT_YAW
 var pitch_degrees := DEFAULT_PITCH
 var camera_distance := DEFAULT_DISTANCE
@@ -61,6 +65,7 @@ const MOTION_END := 23.0
 var model_loaded := false
 var model_texture_loaded := false
 
+var unavailable: Label
 var camera: Camera3D
 var environment: Environment
 var viewport_container: SubViewportContainer
@@ -79,6 +84,12 @@ var last_pointer_position := Vector2.ZERO
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	focus_mode = Control.FOCUS_ALL
+	if preview_only:
+		set_process_unhandled_key_input(false)
+		_build_3d_viewport()
+		viewport_container.position = Vector2.ZERO
+		viewport_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		return
 	_build_surface()
 	_load_motion_assets()
 	_build_3d_viewport()
@@ -92,6 +103,10 @@ func _ready() -> void:
 var _spin_frame := 0
 
 func _process(delta: float) -> void:
+	if preview_only:
+		yaw_degrees = wrapf(yaw_degrees + delta * 12.0, -180.0, 180.0)
+		_update_camera()
+		return
 	if playing and not scrubber_dragging:
 		yaw_degrees = wrapf(yaw_degrees + delta * 8.0, -180.0, 180.0)
 		playback_progress = fposmod(playback_progress + delta / 45.0, 1.0)
@@ -138,6 +153,7 @@ func _build_3d_viewport() -> void:
 
 	var viewport := SubViewport.new()
 	viewport.name = "render-surface"
+	viewport.own_world_3d = true
 	viewport.size = Vector2i(529, 486)
 	viewport.render_target_update_mode = SubViewport.UPDATE_ONCE # re-armed on every camera change
 	viewport.handle_input_locally = false
@@ -172,11 +188,12 @@ func _build_3d_viewport() -> void:
 	fill_light.omni_range = 10.0
 	viewport.add_child(fill_light)
 
-	var sculpture := Node3D.new()
+	sculpture = Node3D.new()
 	sculpture.name = "sculpture-model"
 	sculpture.rotation_degrees.y = -144.0
 	viewport.add_child(sculpture)
-	_load_proton_model(sculpture)
+	if not preview_only:
+		_load_proton_model(sculpture)
 
 	var floor_mesh := PlaneMesh.new()
 	floor_mesh.size = Vector2(7.0, 7.0)
@@ -193,6 +210,15 @@ func _build_3d_viewport() -> void:
 	camera.name = "orbit-camera"
 	camera.fov = 36.0
 	viewport.add_child(camera)
+	unavailable = Label.new()
+	unavailable.text = "No linked 3D scan"
+	unavailable.position = viewport_container.position + Vector2(0, 215)
+	unavailable.size = Vector2(529, 50)
+	unavailable.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	unavailable.add_theme_color_override("font_color", Color("#77727e"))
+	unavailable.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	unavailable.hide()
+	add_child(unavailable)
 
 func _load_proton_model(root: Node3D) -> void:
 	if not ResourceLoader.exists(MODEL_PATH):
@@ -218,6 +244,33 @@ func _load_proton_model(root: Node3D) -> void:
 	_apply_model_material(model, gold)
 	model_texture_loaded = true
 	model_loaded = true
+
+## Internal selection shared by the main player and enlarged hover renderer.
+func show_scan(id: String) -> void:
+	for child in sculpture.get_children():
+		sculpture.remove_child(child)
+		child.queue_free()
+	scan_id = id
+	model_loaded = false
+	model_texture_loaded = false
+	if not id.is_empty():
+		var path := "res://modules/sculpture_viewer/assets/models/proton-scan-%s.glb" % id
+		var packed := load(path) as PackedScene
+		if packed != null:
+			sculpture.add_child(packed.instantiate())
+			sculpture.rotation_degrees.y = DEFAULT_YAW if id == "20260811121459" else 47.52
+			camera_target = Vector3(0, 1.8665 if id == "20260811121459" else 2.173 if id == "20260811123051" else 2.25, 0)
+			model_loaded = true
+			model_texture_loaded = true
+	unavailable.visible = not model_loaded and not preview_only
+	yaw_degrees = DEFAULT_YAW
+	pitch_degrees = DEFAULT_PITCH
+	camera_distance = DEFAULT_DISTANCE
+	playback_progress = fposmod((yaw_degrees + 180.0) / 360.0, 1.0)
+	if progress_slider != null:
+		progress_slider.set_value_no_signal(playback_progress * 100.0)
+		_update_scrubber_thumb()
+	_update_camera()
 
 func _apply_model_material(node: Node, material: StandardMaterial3D) -> void:
 	if node is MeshInstance3D:
@@ -601,8 +654,8 @@ func _update_camera(rerender := true) -> void:
 		sin(pitch),
 		cos(yaw) * cos(pitch)
 	) * camera_distance
-	camera.position = CAMERA_TARGET + offset
-	camera.look_at(CAMERA_TARGET)
+	camera.position = camera_target + offset
+	camera.look_at(camera_target)
 	var viewport := camera.get_viewport()
 	if rerender and viewport is SubViewport:
 		viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
@@ -624,6 +677,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 func qa_state() -> Dictionary:
 	return {
 		"model_loaded": model_loaded,
+		"model_id": scan_id,
 		"yaw": snappedf(yaw_degrees, 0.01),
 		"pitch": snappedf(pitch_degrees, 0.01),
 		"distance": snappedf(camera_distance, 0.01),

@@ -18,7 +18,7 @@ assert len({round(r["y"], 2) for r in cards}) == 5
 for i in range(20):
     s = states[f"selected-{i:02d}"]
     assert s["selected"] == s["hovered"] == i
-    assert not s["3d_preview_available"] and s["department"] == "unverified"
+    assert s["3d_preview_available"] == (i < 4) and s["department"] == "unverified"
 assert states["selected-02"]["selected_id"] == "20260811123051"
 assert states["selected-19"]["selected_id"] == "panel-cell:22"
 assert states["selected-02"]["selected_name"] != states["selected-19"]["selected_name"]
@@ -36,7 +36,7 @@ for name in shots:
     hashes[name] = hashlib.sha256((out / name).read_bytes()).hexdigest()
 first = Image.open(out / "selected-02.png").convert("RGB")
 last = Image.open(out / "selected-19.png").convert("RGB")
-assert ImageChops.difference(first.crop((110, 235, 470, 435)), last.crop((110, 235, 470, 435))).getbbox()
-assert ImageChops.difference(first.crop((115, 710, 390, 994)), last.crop((115, 710, 390, 994))).getbbox()
+assert ImageChops.difference(first.crop((600, 500, 1000, 650)), last.crop((600, 500, 1000, 650))).getbbox()
+assert ImageChops.difference(first.crop((80, 550, 320, 750)), last.crop((80, 550, 320, 750))).getbbox()
 (out / "verify.json").write_text(json.dumps({"pass": True, "sha256": hashes}, indent=2) + "\n")
 print("PASS: seven tabs, 5x4 geometry, 20 selections, truthful metadata, animated hover, freeze, return, pixels")

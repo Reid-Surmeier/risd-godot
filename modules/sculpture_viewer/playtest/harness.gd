@@ -57,8 +57,19 @@ func _run() -> void:
 		await _pointer(state.cards[i].get_center(), true)
 		var selected := _probe("selected-%02d" % i)
 		assert(selected.selected == i and selected.hovered == i)
-		assert(not selected["3d_preview_available"])
-		if i in [2, 5, 19]:
+		assert(selected["3d_preview_available"] == (i < 4))
+		assert(selected.model_loaded == (i < 4))
+		assert(selected.model_id == (selected.selected_id if i < 4 else ""))
+		assert(selected.separate_preview_world)
+		assert(selected.hover_model_loaded == (i < 4))
+		if i < 4:
+			assert(selected.hover_model_id == selected.selected_id)
+			var before_yaw: float = selected.yaw
+			await _pointer(selected.controls.next.get_center(), true)
+			var after: Dictionary = Shell.tenant_state(chrome.shell, "3d_viewer").value
+			assert(absf(after.yaw - before_yaw) > 20.0)
+			await _pointer(after.cards[i].get_center())
+		if i in [0, 1, 2, 3, 5, 19]:
 			await _shot(out, "selected-%02d.png" % i)
 	var state: Dictionary = Shell.tenant_state(chrome.shell, "3d_viewer").value
 	await _pointer(state.cards[5].get_center())

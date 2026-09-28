@@ -1,5 +1,8 @@
-## Square catalogue selected in #165, integrated by #170.
+## Retained setup sidebar with live scan selection (#157 owner correction).
 extends Control
+
+signal selection_changed(id: String)
+signal hover_changed(id: String)
 
 const PANEL := preload("res://modules/sculpture_viewer/assets/setup/panel-2x.png")
 const SCANS := [
@@ -67,11 +70,12 @@ var detail_labels: Dictionary = {}
 
 
 func _ready() -> void:
-	size = Vector2(1080, 1080)
+	size = Vector2(1050, 1680)
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	mouse_exited.connect(func() -> void:
 		hovered = -1
 		tick = 0.0
+		hover_changed.emit("")
 		queue_redraw())
 	for cell in TURN:
 		var path: String = "res://modules/sculpture_viewer/assets/setup/turn/%s.png" % TURN[cell][0]
@@ -93,12 +97,14 @@ func _gui_input(event: InputEvent) -> void:
 		var over := _hit(event.position)
 		if over != hovered:
 			hovered = over
+			hover_changed.emit(IDS[over] if over >= 0 and over < 4 else "")
 			tick = 0.0
 			queue_redraw()
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		var hit := _hit(event.position)
 		if hit >= 0:
 			selected = hit
+			selection_changed.emit(IDS[hit] if hit < 4 else "")
 			_update_details()
 			queue_redraw()
 			get_viewport().set_input_as_handled()
@@ -113,17 +119,12 @@ func _hit(point: Vector2) -> int:
 
 
 func _card_rect(i: int) -> Rect2:
-	return Rect2(468 + (i % 4) * 143, 184 + (i / 4) * 137, 134, 128)
+	return Rect2(40 + (i % 4) * 247, 185 + (i / 4) * 183, 218, 165)
 
 
 func _draw() -> void:
-	draw_rect(Rect2(Vector2.ZERO, size), Color.WHITE)
-	# Existing approved RISD setup lettering; no newly generated logo.
-	draw_texture_rect_region(PANEL, Rect2(37, 22, 305, 88), Rect2(40, 35, 610, 175))
-	_text(Vector2(675, 52), "3D VIEWER", 22, PINK)
-	_text(Vector2(675, 79), "SCAN CATALOGUE  /  20 OBJECTS", 14, MUTED)
-	draw_line(Vector2(42, 129), Vector2(1038, 129), LINE, 1)
-	_text(Vector2(44, 159), "FOUR SCAN SOURCES · SIXTEEN IMAGE-ONLY ENTRIES", 14, INK)
+	# Keep the original RISD header, window ground and chat; replace only objects and form.
+	draw_rect(Rect2(20, 180, 1010, 1134), Color.WHITE)
 	for i in range(20):
 		_draw_card(i)
 	_draw_detail()
@@ -134,8 +135,9 @@ func _draw() -> void:
 func _draw_card(i: int) -> void:
 	var box := _card_rect(i)
 	var active := i == selected
-	draw_rect(box, Color("#f6f5f7"))
-	draw_rect(box, PINK if active else LINE, false, 2 if active else 1)
+	draw_rect(box, Color.WHITE)
+	if active:
+		draw_rect(box, LINE, false, 1)
 	var art := Rect2(box.position + Vector2(5, 5), Vector2(box.size.x - 10, box.size.y - 36))
 	if art.size.x > art.size.y:
 		art.position.x += (art.size.x - art.size.y) / 2.0
@@ -146,34 +148,29 @@ func _draw_card(i: int) -> void:
 		var cell: int = CELLS[i - 4] - 1
 		var source := Rect2(CELL_X[cell % 8], CELL_Y[cell / 8], 216, 200)
 		draw_texture_rect_region(PANEL, art, source)
-	var label := "SCAN %02d" % (i + 1) if i < 4 else "OBJECT %02d" % (i + 1)
+	var label: String = APPEARANCE[i]
 	_text(box.position + Vector2(6, box.size.y - 11), label, 12, PINK if i < 4 else MUTED)
 
 
 func _draw_detail() -> void:
-	var box := Rect2(42, 184, 385, 490)
-	draw_rect(box, Color("#faf9fa"))
-	draw_rect(box, LINE, false, 1)
-	_text(Vector2(62, 214), "SELECTED OBJECT", 14, PINK)
-	draw_line(Vector2(62, 411), Vector2(407, 411), LINE, 1)
-	_text(Vector2(62, 439), "DESCRIPTION", 14, PINK)
+	draw_line(Vector2(40, 1100), Vector2(1010, 1100), LINE, 1)
 
 
 func _build_details() -> void:
-	_detail_label("Title", 232, 61, 21, INK)
-	_detail_label("Identity", 302, 22, 13, MUTED)
-	_detail_label("Department", 330, 22, 15, INK)
-	_detail_label("LocalSource", 356, 22, 13, MUTED)
-	_detail_label("Status", 382, 22, 16, PINK)
-	_detail_label("Description", 452, 88, 15, INK)
-	_detail_label("Source", 548, 106, 12, MUTED)
+	_detail_label("Title", 1108, 28, 21, INK)
+	_detail_label("Identity", 1138, 22, 15, MUTED)
+	_detail_label("Department", 1162, 22, 15, INK)
+	_detail_label("LocalSource", 1186, 22, 13, MUTED)
+	_detail_label("Status", 1210, 22, 16, PINK)
+	_detail_label("Description", 1234, 36, 15, INK)
+	_detail_label("Source", 1272, 40, 12, MUTED)
 
 
 func _detail_label(key: String, y: float, height: float, px: int, color: Color) -> void:
 	var label := Label.new()
 	label.name = "Detail" + key
-	label.position = Vector2(62, y)
-	label.size = Vector2(345, height)
+	label.position = Vector2(40, y)
+	label.size = Vector2(970, height)
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	label.add_theme_font_size_override("font_size", px)
@@ -189,13 +186,13 @@ func _update_details() -> void:
 	detail_labels.Identity.text = "Museum title verified · " + record.accession if not record.is_empty() else "Visual descriptor · museum title unknown"
 	detail_labels.Department.text = "Department: unknown"
 	detail_labels.LocalSource.text = _name(selected)
-	detail_labels.Status.text = "3D preview unavailable" if selected < 4 else "No linked 3D scan · image only"
+	detail_labels.Status.text = "3D scan available" if selected < 4 else "No linked 3D scan · image only"
 	detail_labels.Description.text = record.get("description", "Museum description unknown. This %s has not yet been matched to a museum record." % ("scan thumbnail" if selected < 4 else "image-only entry"))
 	detail_labels.Source.text = "Source: RISD Museum record (summary)\n" + record.url if not record.is_empty() else "Museum source: unknown\nThe label above describes appearance only."
 
 
 func _draw_hover() -> void:
-	var box := Rect2(44, 691, 299, 307)
+	var box := Rect2(-1250, 1190, 600, 470)
 	draw_rect(box, Color.WHITE)
 	draw_rect(box, PINK, false, 2)
 	_text(box.position + Vector2(12, 25), "ENLARGED PREVIEW", 14, PINK)
@@ -207,8 +204,7 @@ func _draw_hover() -> void:
 	art.position += (art.size - fitted) / 2.0
 	art.size = fitted
 	if hovered < 4:
-		draw_texture_rect(SCANS[hovered], art, false)
-		_text(box.end - Vector2(box.size.x - 12, 16), "3D preview unavailable", 14, PINK)
+		_text(box.end - Vector2(box.size.x - 12, 16), "3D scan · rotating preview", 14, PINK)
 	else:
 		var cell: int = CELLS[hovered - 4]
 		if cell in turn_frames:
@@ -233,4 +229,4 @@ func _text(at: Vector2, message: String, px: int, color: Color) -> void:
 func catalogue_state() -> Dictionary:
 	return {"selected": selected, "hovered": hovered,
 		"selected_id": IDS[selected] if selected < 4 else "panel-cell:%02d" % CELLS[selected - 4],
-		"3d_preview_available": false}
+		"3d_preview_available": selected < 4}

@@ -1,6 +1,6 @@
 ## Sculpture Viewer seam; #170 authorizes the square catalogue and updated state probe.
 ## The Tenant lays out from its own Page size and freezes with the Shell.
-## The four unaccepted source scans are thumbnails only; none is a live 3D preview.
+## #157 owner correction accepts four current scans in the retained player and sidebar.
 ## All functions return { ok, value, error }; errors remain defined in errors.gd.
 class_name SculptureViewerInterface
 extends RefCounted
@@ -23,7 +23,7 @@ static func embedded_viewer() -> Dictionary:
 ## ok({ key, ticks, inputs, size: Vector2, desktop_scale,
 ## rows: 5, columns: 4, cards: Array[Rect2] (global Page coordinates),
 ## selected, hovered (-1 outside cells), selected_id, selected_name,
-## department: "unverified", hover_tick, "3d_preview_available": false }).
+## department: "unverified", hover_tick, "3d_preview_available": bool (selected scan index < 4) }).
 ## ticks, inputs and hover_tick stand still while the Shell freezes this Page.
 static func state(tenant: Control) -> Dictionary:
 	return tenant.state()
