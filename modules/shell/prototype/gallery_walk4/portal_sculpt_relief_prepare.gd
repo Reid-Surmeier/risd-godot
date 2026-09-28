@@ -60,8 +60,15 @@ func _animals(p: Vector2, variant: int) -> float:
 		raised = maxf(raised, 0.47 * _ellipse(p, Vector2(0.07, 0.77), Vector2(0.25, 0.18)))
 		for x in [-0.59, -0.30, 0.36, 0.66]:
 			raised = maxf(raised, 0.32 * _stroke(p, [Vector2(x, 0.44), Vector2(x - 0.04, 0.16), Vector2(x + 0.09, 0.12)], 0.058))
-		var feather := _stroke(p, [Vector2(-0.70, 0.62), Vector2(-0.48, 0.49), Vector2(-0.24, 0.45)], 0.034)
-		return raised - 0.16 * feather
+		# Join the head into curved necks and shoulders, as in the detail photo.
+		raised = maxf(raised, 0.43 * _stroke(p, [Vector2(0.07, 0.77), Vector2(0.05, 0.61), Vector2(-0.18, 0.49), Vector2(-0.48, 0.56)], 0.090))
+		raised = maxf(raised, 0.38 * _stroke(p, [Vector2(0.08, 0.63), Vector2(0.31, 0.51), Vector2(0.59, 0.59), Vector2(0.80, 0.70)], 0.080))
+		var feather := 0.0
+		for side in [-1.0, 1.0]:
+			for row in 4:
+				var x := 0.26 + row * 0.12
+				feather += _stroke(p, [Vector2(side * x, 0.67), Vector2(side * (x - 0.06), 0.55), Vector2(side * (x - 0.12), 0.47)], 0.018)
+		return raised - 0.10 * feather
 	# The opposite face has a high central head and two descending forms,
 	# unlike the broad horizontal paired bodies on the first animal capital.
 	raised = 0.46 * _ellipse(p, Vector2(-0.06, 0.77), Vector2(0.30, 0.19))
@@ -70,6 +77,14 @@ func _animals(p: Vector2, variant: int) -> float:
 		raised = maxf(raised, 0.35 * _mass(q, [Vector2(0.05, 0.58), Vector2(0.26, 0.73), Vector2(0.66, 0.67), Vector2(0.76, 0.46), Vector2(0.56, 0.29), Vector2(0.21, 0.37)]))
 		raised = maxf(raised, 0.34 * _stroke(q, [Vector2(0.29, 0.41), Vector2(0.23, 0.15), Vector2(0.45, 0.10)], 0.065))
 		raised = maxf(raised, 0.28 * _stroke(q, [Vector2(0.65, 0.46), Vector2(0.70, 0.16), Vector2(0.60, 0.12)], 0.050))
+	# The opposite capital has a central rounded head and connected, curled bodies.
+	raised = maxf(raised, 0.43 * _stroke(p, [Vector2(-0.06, 0.77), Vector2(-0.03, 0.61), Vector2(0.09, 0.49)], 0.095))
+	for side in [-1.0, 1.0]:
+		var q := Vector2(p.x * side, p.y)
+		raised = maxf(raised, 0.39 * _stroke(q, [Vector2(0.02, 0.62), Vector2(0.23, 0.52), Vector2(0.45, 0.58), Vector2(0.64, 0.73)], 0.075))
+		for row in 4:
+			var x := 0.25 + row * 0.105
+			raised -= 0.09 * _stroke(q, [Vector2(x, 0.62), Vector2(x + 0.07, 0.49), Vector2(x, 0.39)], 0.016)
 	return raised
 
 func _band(p: Vector2, side: int) -> float:

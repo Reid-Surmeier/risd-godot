@@ -695,8 +695,8 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 		for corners in [[0, 2, 3, 1], [4, 5, 7, 6], [0, 4, 6, 2], [1, 3, 7, 5], [0, 1, 5, 4], [2, 6, 7, 3]]:
 			face.call([p[corners[3]], p[corners[2]], p[corners[1]], p[corners[0]]])
 	# Smooth tunnel intrados, aligned with the photographed round opening.
+	vary.call(0)
 	for k in 32:
-		vary.call(k)
 		var a := PI * k / 32.0
 		var b := PI * (k + 1) / 32.0
 		var p := Vector3(-radius * cos(a), spring + radius * sin(a), rear)
@@ -711,7 +711,11 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 			if strip == 0:
 				plo.y = minf(plo.y, height)
 				qlo.y = minf(qlo.y, height)
-			face.call([p + hi, q + hi, qlo, plo])
+			# One continuous grain coordinate across the curved soffit.
+			var uv := [Vector2(a * radius, (hi.z)), Vector2(b * radius, hi.z), Vector2(b * radius, lo.z), Vector2(a * radius, lo.z)]
+			for index in 4:
+				uv[index] = Vector2(0.025, 0.025) + uv[index] * 0.02
+			face.call([p + hi, q + hi, qlo, plo], [], uv)
 	for side in [-1.0, 1.0]:
 		# Match the visible backing courses instead of stretching one texture
 		# patch over the full-height jamb.
@@ -750,6 +754,33 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 						face.call([q[edge], q[next], inset[next], inset[edge]])
 				else:
 					face.call(q)
+	# The official full-portal photograph shows a narrow fan-carved outer band.
+	# Interpret its radial cuts as bounded geometry, without photo-depth sampling.
+	builder.current = capital_st
+	vary.call(0)
+	var ornament := func(u: float, v: float) -> Vector3:
+		var angle := PI * u
+		var r := radius + 0.805 + v * 0.075
+		var cell := Vector2(fposmod(u * 48.0, 1.0) * 2.0 - 1.0, v * 2.0 - 1.0)
+		var cuts := absf(sin(atan2(cell.y, cell.x) * 3.0)) * smoothstep(0.12, 0.55, cell.length())
+		var edge := smoothstep(0.0, 0.15, v) * smoothstep(0.0, 0.15, 1.0 - v)
+		return Vector3(-r * cos(angle), spring + r * sin(angle), front + 0.266 + 0.022 * (1.0 - cuts) * edge)
+	for segment in 384:
+		var a := segment / 384.0
+		var b := (segment + 1) / 384.0
+		for row in 12:
+			var lo := row / 12.0
+			var hi := (row + 1) / 12.0
+			var q := [ornament.call(a, lo), ornament.call(a, hi), ornament.call(b, hi), ornament.call(b, lo)]
+			var uv: Array = []
+			for point in q:
+				uv.append(Vector2(0.10, 0.025) + Vector2(point.x, point.y) * 0.015)
+			face.call(q, [], uv, 1)
+		# Close the thin outer edge into the stone instead of leaving a ribbon.
+		var p0: Vector3 = ornament.call(a, 1.0)
+		var p1: Vector3 = ornament.call(b, 1.0)
+		face.call([p0, p0 - Vector3(0, 0, 0.04), p1 - Vector3(0, 0, 0.04), p1])
+	builder.current = st
 	for side in [-1.0, 1.0]:
 		# Backing courses and stepped impost support the three photographed shafts.
 		for row in 6:
@@ -758,8 +789,8 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 		# Source photos resolve the stepped impost above each shaft. Separate
 		# surfaces keep real depth changes from stretching a strip across them.
 		for section in 3:
-			var section_width: float = [0.28, 0.21, 0.38][section]
-			var center_x: float = side * (radius + [0.115, 0.36, 0.655][section])
+			var section_width: float = [0.38, 0.232, 0.58][section]
+			var center_x: float = side * (radius + [0.14, 0.37, 0.59][section])
 			var face_z := front + 0.35 + section * 0.11
 			var depth := face_z - (front - 0.12)
 			block.call(Vector3(center_x, spring - 0.075, face_z - depth / 2), Vector3(section_width, 0.19, depth))
@@ -803,22 +834,28 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 			profile.append_array([Vector2(spring - 0.54, 0.15), Vector2(spring - 0.50, 0.15)])
 			for index in profile.size():
 				profile[index].y *= shaft_scale
+			# Continuous tone and UV height across the entire shaft.
+			vary.call(column + int(side) * 11)
 			for level in profile.size() - 1:
-				vary.call(column + int(side) * 11 + level * 7)
 				for k in 20:
 					var a := TAU * k / 20.0
 					var b := TAU * (k + 1) / 20.0
 					var lo: Vector2 = profile[level]
 					var hi: Vector2 = profile[level + 1]
 					var smooth: Array = []
-					if is_equal_approx(lo.y, hi.y):
-						smooth = [Vector3(cos(b), 0, sin(b)), Vector3(cos(b), 0, sin(b)), Vector3(cos(a), 0, sin(a)), Vector3(cos(a), 0, sin(a))]
+					if hi.x - lo.x > 0.00001:
+						# The shaft has slight taper/entasis: cylinder-only normals
+						# left every tapered segment flat, creating long light bands.
+						var slope := (hi.y - lo.y) / (hi.x - lo.x)
+						var na := Vector3(cos(a), -slope, sin(a)).normalized()
+						var nb := Vector3(cos(b), -slope, sin(b)).normalized()
+						smooth = [nb, nb, na, na]
 					var origin: Vector2 = patch_origin.call()
 					# Circumference and height share the same grain density. Reset
 					# within each short shaft course to avoid the texture's mortar.
-					var uv := [Vector2(b * lo.y, 0), Vector2(b * hi.y, hi.x - lo.x), Vector2(a * hi.y, hi.x - lo.x), Vector2(a * lo.y, 0)]
+					var uv := [Vector2(b * lo.y, lo.x - profile[0].x), Vector2(b * hi.y, hi.x - profile[0].x), Vector2(a * hi.y, hi.x - profile[0].x), Vector2(a * lo.y, lo.x - profile[0].x)]
 					for index in 4:
-						uv[index] = origin + uv[index] * 0.12
+						uv[index] = origin + uv[index] * 0.04
 					face.call([Vector3(x + lo.y * cos(b), lo.x, zc + lo.y * sin(b)), Vector3(x + hi.y * cos(b), hi.x, zc + hi.y * sin(b)), Vector3(x + hi.y * cos(a), hi.x, zc + hi.y * sin(a)), Vector3(x + lo.y * cos(a), lo.x, zc + lo.y * sin(a))], smooth, uv)
 			# Broad worn lobes and scroll recesses from the photo, not invented figures.
 			builder.current = capital_st
@@ -846,7 +883,7 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 					var row0: float = lerpf(data[iy * int(relief.width) + ix], data[iy * int(relief.width) + ix + 1], px - ix)
 					var row1: float = lerpf(data[(iy + 1) * int(relief.width) + ix], data[(iy + 1) * int(relief.width) + ix + 1], px - ix)
 					carving += 0.12 * shaft_scale * (lerpf(row0, row1, py - iy) / 255.0 - 0.5) * sin(PI * clampf(v, 0, 1)) * pow(sa, 1.5)
-				return Vector3(x + xx * width, spring - 0.52 + v * 0.33, zc + zz * width + carving)
+				return Vector3(x + xx * width, spring - 0.52 + v * 0.35, zc + zz * width + carving)
 			for row in 96:
 				for segment in 128:
 					var a := TAU * segment / 128.0
@@ -863,7 +900,7 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 						normals.append(up.cross(along).normalized())
 					face.call(q, normals, texture_uv, 1 if (a + b) * 0.5 < PI else -1)
 			builder.current = st
-			block.call(Vector3(x, spring - 0.18, zc), Vector3(0.37 * shaft_scale, 0.04, 0.38))
+			# Capital now meets the aligned impost directly; no extra shelf slab.
 	var instance := MeshInstance3D.new()
 	instance.mesh = st.commit()
 	instance.material_override = ps(load(DIR + "textures/stone.png"), Color.WHITE, Vector2.ONE, true)

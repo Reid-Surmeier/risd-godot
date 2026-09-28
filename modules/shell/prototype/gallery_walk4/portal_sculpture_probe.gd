@@ -6,7 +6,7 @@ func _initialize() -> void:
 
 func capture() -> void:
 	var args := OS.get_cmdline_user_args()
-	assert(args.size() == 1, "Supply an output directory")
+	assert(args.size() >= 1, "Supply an output directory; optionally --textured")
 	var output: String = args[0]
 	DirAccess.make_dir_recursive_absolute(output)
 	var walk = load("res://modules/shell/prototype/gallery_walk4/walk4.gd").new()
@@ -26,6 +26,10 @@ func capture() -> void:
 		copy.transform = source.global_transform
 		var material := StandardMaterial3D.new()
 		material.albedo_color = Color("#c7bca6")
+		if "--textured" in args:
+			material.albedo_texture = texture
+			material.albedo_color = Color.WHITE
+			material.vertex_color_use_as_albedo = true
 		material.roughness = 1.0
 		material.specular_mode = BaseMaterial3D.SPECULAR_DISABLED
 		copy.material_override = material

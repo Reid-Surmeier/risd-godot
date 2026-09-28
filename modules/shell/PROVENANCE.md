@@ -164,3 +164,13 @@ The directly lit flat-material probes are geometry diagnostics only. A
 subsequent portal12 bake completed with 120 lightmap users; saved hashes and
 native self-inspection limitations are in `PORTAL12-FORM.md`. Independent
 acceptance remains pending; this candidate is not integrated.
+
+### Portal13/14 — unaccepted source repair
+
+Existing official portal references guide the outer fan-carved band and connected capital forms. Existing stone texture is unchanged; continuous UVs, slope-correct shaft normals and aligned imposts are geometry/material-coordinate corrections. No photo brightness used as depth. Local Godot authoring; zero paid calls, USD0. Saved room remains Portal12 until a new bake is explicitly recorded.
+
+| Source | SHA-256 |
+| --- | --- |
+| `portal-capital-relief.json` | `25c7f5b414e6f519d81c29a2d6c0434a4a683a5b72dfb222b323a7af1574ec1b` |
+| `portal_sculpt_relief_prepare.gd` | `88b95549164040aae8758c34ed79286b39fdf0ce8112247a6941c9bd2395bbeb` |
+| `walk4.gd` | `af8f81bb121de29cecdc5d9a40a7a5057786cfa8107c739669a519341eb7211f` |
