@@ -1,0 +1,17 @@
+{
+  "pass": true,
+  "sha256": {
+    "tab-map.png": "b5195d8469f899e5050af6799c40bad2920b874a385d7d72e8a7172f2489e9e0",
+    "tab-sketchbook.png": "5877c74f8ace7fbd04b5ec2d857ae48c73455d7cb7522e2bee9d098524fc827d",
+    "tab-3d_viewer.png": "c760bcb4121391ff2ded4cec975410c7f728d9ae605d0487944d37fb0fce3cd8",
+    "tab-video_player.png": "104c0d79515aebc80108cd1e2f4ee7a2169714d442cc3e0944174dffd31874a0",
+    "tab-collection.png": "a6138a1e82ae73b3f2fc232ba6f31d4cb491cef61bfd790ca95b5819fbb9cbcb",
+    "tab-playground.png": "e4c471e6c16393f989e813c187de344634f515cc6a52c45ae6ab2c2420b1ff7a",
+    "tab-flowers.png": "ac1f074037be4628ef5b24e94ca10dfc8455f7bc13a415ea06c704ba0afed538",
+    "selected-02.png": "974bb8fcbf460b57258f1067066fedad0a34123a85cc8811d3f28dc426f6f1d0",
+    "selected-05.png": "34edd9a741c1335980dd0d4711094b359f5d149948a4f273ac3d2790e50a5bc0",
+    "selected-19.png": "b3079be79eeca97ddf796fcccf13555b72cf911ee0569083e048fe60364fd68b",
+    "hover.png": "7c57fac0a93297c5aa8edb7e64341a94f081ba6b21f73aad3ebfbccf3e318f35",
+    "returned.png": "0c1d867f192365a82766864d3b3c4bd5a8a1154145ed829048a092fd96cf047b"
+  }
+}

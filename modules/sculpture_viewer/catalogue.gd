@@ -30,7 +30,7 @@ const INK := Color("#36333c")
 const MUTED := Color("#77727e")
 const PINK := Color("#dc526b")
 const LINE := Color("#c7c3cc")
-# Exact scan-to-record comparisons: research checkpoint ae5e3bbe, issue #169.
+# Exact photo-to-record comparisons: research checkpoints ae5e3bbe and 39a10662, issue #169.
 # These are museum-record summaries, not assertions about scan licensing or mesh quality.
 const RECORDS := {
 	"20260811121459": {
@@ -44,6 +44,18 @@ const RECORDS := {
 		"accession": "59.050",
 		"description": "Roman marble portrait head, made around 130 CE for insertion into a separate bust. Its damaged portions remain unrestored.",
 		"url": "https://risdmuseum.org/art-design/collection/portrait-hadrian-59050",
+	},
+	"panel-cell:11": {
+		"title": "Aphrodite",
+		"accession": "26.117",
+		"description": "Greek bronze figure of Aphrodite, dated 199–100 BCE.",
+		"url": "https://risdmuseum.org/sites/default/files/museumplus/312237.pdf#page=37",
+	},
+	"panel-cell:17": {
+		"title": "Aphrodite",
+		"accession": "06.331",
+		"description": "Terracotta figure of Aphrodite with gilding, dated 300–200 BCE.",
+		"url": "https://risdmuseum.org/sites/default/files/museumplus/312237.pdf#page=3",
 	},
 }
 
@@ -167,7 +179,8 @@ func _detail_label(key: String, y: float, height: float, px: int, color: Color) 
 
 
 func _update_details() -> void:
-	var record: Dictionary = RECORDS.get(IDS[selected], {}) if selected < 4 else {}
+	var id: String = IDS[selected] if selected < 4 else "panel-cell:%02d" % CELLS[selected - 4]
+	var record: Dictionary = RECORDS.get(id, {})
 	detail_labels.Title.text = record.get("title", APPEARANCE[selected])
 	detail_labels.Identity.text = "Museum title verified · " + record.accession if not record.is_empty() else "Visual descriptor · museum title unknown"
 	detail_labels.Department.text = "Department: unknown"
