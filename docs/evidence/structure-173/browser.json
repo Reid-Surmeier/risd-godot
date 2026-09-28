@@ -1,0 +1,81 @@
+{
+  "url": "local scratch export; no owner-facing URL",
+  "matrix": [
+    {
+      "width": 1080,
+      "height": 1080,
+      "stage": [
+        0,
+        0,
+        1080,
+        1080
+      ],
+      "exterior": {
+        "bad": 0,
+        "samples": 0
+      },
+      "status": "pass"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "stage": [
+        420,
+        0,
+        1080,
+        1080
+      ],
+      "exterior": {
+        "bad": 0,
+        "samples": 18600
+      },
+      "status": "pass"
+    },
+    {
+      "width": 1080,
+      "height": 1920,
+      "stage": [
+        0,
+        420,
+        1080,
+        1080
+      ],
+      "exterior": {
+        "bad": 0,
+        "samples": 18600
+      },
+      "status": "pass"
+    },
+    {
+      "width": 720,
+      "height": 486,
+      "stage": [
+        117,
+        0,
+        486,
+        486
+      ],
+      "exterior": {
+        "bad": 0,
+        "samples": 2310
+      },
+      "status": "pass"
+    },
+    {
+      "width": 486,
+      "height": 720,
+      "stage": [
+        0,
+        117,
+        486,
+        486
+      ],
+      "exterior": {
+        "bad": 0,
+        "samples": 2310
+      },
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}
