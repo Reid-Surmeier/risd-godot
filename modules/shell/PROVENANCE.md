@@ -106,7 +106,7 @@ same lattice as the gallery, below the retained y=0 live threshold. The
 generated guide's invented iconography is not copied. This trial is not
 independently accepted and has not entered the build branch.
 
-### Post-portal4 repair, still awaiting independent acceptance
+### Post-portal4 repair, independently rejected as portal7
 
 The source-only four-face capital relief is recorded in
 `image-work/architecture-167/README.md`; local Godot provider, USD 0 additional
@@ -121,3 +121,29 @@ world coordinates, modeled parquet and room lighting; the inherited far-
 door QA room is unchanged. The depth-ID diagnostic cannot substitute for
 native/exported walk images. Portal4's independent FAIL is preserved in
 `docs/evidence/architecture-167/BLIND-REVIEW-PORTAL-4.md`.
+
+### Portal8 source-led repair trial, not selected
+
+Portal7 failed independently on repeated impost decoration, mirrored-looking
+capital pairs, stretched stone, layered joins and the floor-pattern seam.
+Exact findings are in `BLIND-REVIEW-PORTAL-7.md`; its packet stays immutable.
+The next local Godot trial samples two separate owner-photo impost bands
+instead of the analytic repeating diamond; capital bodies use individually
+bounded profiles, not measured dimensions. No paid request or Muse output is
+used. Source-only JSON SHA-256:
+`796c7e6a0574ad37b12e82a9fd4d26a065169b0632030e428fea221fd611ef04`.
+The source photo/hash and exact perspective quadrilaterals are recorded in
+`image-work/architecture-167/README.md`. Additional provider cost: USD 0.
+
+### Portal10 — six supports from closer official references, unreviewed
+
+RISD Museum's full portal and capital-detail photographs supersede the soft
+video cue for the next geometry trial. Primary links and photo hashes are
+in `docs/evidence/architecture-167/PORTAL-CLOSER-SOURCES.md`. The photos are
+inspection references only, not shipped textures. The local Godot script
+produces six 96×96 bounded relief fields and two separate impost fields:
+JSON SHA-256 `6cd956768fa19fec696533078f4020d42fd8eee4840c0b3953acdd87a0766314`.
+Three staggered shafts per side and stepped impost sections are fitted to
+the existing surround envelope; depth/proportions are visual interpretation,
+not surveyed geometry. No additional paid call; USD 0. The old Muse guide
+remains excluded. Independent acceptance is still required.

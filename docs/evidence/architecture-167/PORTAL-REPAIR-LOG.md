@@ -122,3 +122,66 @@ relief. Exported checks and the fresh independent gate are still required.
 The adjacent space remains the existing bounded navigation recess, not a
 new reconstruction of an entire neighboring gallery. No extra paintings,
 new surveyed room dimensions, or bench changes are claimed.
+
+## Portal7 frozen FAIL and portal8/9 source sampling repairs
+
+The independent portal7 gate failed repeated impost decoration, mirrored-looking
+capital pairs, stone stretching, architectural joins and floor continuity.
+Exact findings: `BLIND-REVIEW-PORTAL-7.md`; immutable packet and technical
+results: `PORTAL7-RESULT.md`. Checkpoint `cebb4089` preserves the full failed
+packet and the continuous-world traversal repair; nothing is integrated.
+
+The analytic six-period diamond function was the direct source of the
+repeated impost decoration. It is replaced with separately sampled owner-
+photo bands. Column UV aspect now uses matching circumference/height grain
+density, and jambs use source-backed courses instead of a single stretched
+patch. A tapered rear soffit meets the unchanged plaster doorway head.
+The passage's crossing planks now replay the gallery's grain/tone RNG and
+vertical-plank UV orientation; gallery geometry and material are untouched.
+
+The first native preview of these repairs, `/tmp/risd-167-portal8-native`,
+was self-rejected before a Web packet: stretched shafts improved, but relief
+remained soft. Inspection found that signed-power x coordinates skipped
+central source columns: at 128 angular samples, the old exponent 0.55 steps
+roughly 0.19 across normalized face x near its center, versus 0.049 with
+cosine x. The next trial retains a rounded-square outline while uniformly
+sampling x, and reduces capital lighting texel size from 0.008 to 0.004.
+The individually sampled impost relief uses 48 vertical rows and bounded
+0.040 depth. No repeated ornament is fabricated, and no new paid call occurs.
+
+An overly deep capital trial produced 11, then 4 triangle/normal disagreements.
+Restoring 0.12 bounded displacement with a front-only taper removes those
+folds; the next source check reports two stone meshes, zero disagreements,
+one passage floor. Temporary diagnostic logging was removed. A fresh baked
+preview and independent review are still required, not assumed to pass.
+
+The public Shell playtest fails; an isolated pre-portal cornice checkpoint
+reproduces its main failures. See `SHELL-BASELINE.md`. Frozen tests remain
+unchanged, and no passing public baseline is claimed.
+
+## Portal10: closer source changes the structural interpretation
+
+The museum's own full-portal and capital-detail photographs resolve three
+staggered shafts per side, including the narrow center shaft; the previous
+two-support interpretation was incomplete. Source URLs, hashes and limits
+are recorded in `PORTAL-CLOSER-SOURCES.md`. The raw photographs stay outside
+runtime. No new paid generation occurred.
+
+The next source trial uses six independently sampled capital fields, real
+stepped impost sections, and a few long shaft courses. Original opening,
+passage extent and gallery paintings remain fixed. The detailed photograph
+needs a nine-pixel sampling footprint rather than the previous three-pixel
+filter; otherwise its high-frequency stone grain aliases into spiky relief.
+
+At carved ridges, micro-step analytic normals could oppose their finite mesh
+faces even though both faced outward. Derivatives now follow mesh spacing,
+and ridges over 60 degrees use their actual triangle planes. A separate
+parameterized front/back winding check runs before shading, so changing
+shading normals cannot waive a reversed relief face. Source output:
+
+```text
+PORTAL_SOURCE stone_meshes=2 reversed_triangles=0 relief_winding=0 passage_floor=1
+```
+
+Temporary diagnostic logging is removed. Portal10 bake/native self-check is
+the next step; this source result is not visual acceptance.

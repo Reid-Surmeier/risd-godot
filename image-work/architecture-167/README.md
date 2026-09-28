@@ -55,3 +55,40 @@ relief, with fine lighting UVs shared with the capitals. Its repetition,
 depth and the nonuniform arch block layout are authoring choices inspired
 by the photo, not measured ornament or surveyed section dimensions. No new
 paid call, image edit or generated guide enters this revision.
+
+## Portal8 trial after independent portal7 FAIL
+
+The prior analytic impost diamonds were explicitly rejected as too repetitive.
+They are replaced with two separately sampled source-photo bands. Source:
+`image-work/grand-gallery-v2/source/arch-outside.png`, SHA-256
+`fdaaf16656bfd239bde16c849d78d0238d672f50bbee0034ad24de9336dfbc10`.
+Left quadrilateral pixels clockwise: `(2,631) (367,647) (361,687) (2,674)`;
+right: `(677,628) (1075,594) (1075,657) (672,677)`.
+Each yields a 128×40 luminance field with a 3×3 local average, mapped to a
+bounded shallow geometry relief. Four capital photo fields remain, with
+individually bounded body profiles and front-only taper to avoid folded
+side relief. These remain stylized approximations, not recovered depth.
+
+Local Godot-generated JSON SHA-256:
+`796c7e6a0574ad37b12e82a9fd4d26a065169b0632030e428fea221fd611ef04`.
+Additional calls/spend: 0 / USD 0. Rejected Muse guide excluded. Portal8 is
+unreviewed and must not be integrated. Original source pixels are unchanged.
+
+## Portal10 — closer official reference, source-only trial
+
+The museum's full portal and capital detail photographs resolve three
+staggered supports per side, including a narrow middle shaft, and stepped
+imposts with distinct leaf, animal and scroll carving. See
+`docs/evidence/architecture-167/PORTAL-CLOSER-SOURCES.md` for primary URLs,
+download hashes, exact offline command and limitations. Original inspection
+downloads stay outside runtime and are not distributed as new textures.
+
+The local authoring script now samples six 96×96 perspective-bounded fields
+and two separate impost fields, instead of four owner-video fields. The
+high-resolution left detail uses a nine-pixel box footprint; the smaller
+right faces use three pixels. Numeric guide SHA-256:
+`6cd956768fa19fec696533078f4020d42fd8eee4840c0b3953acdd87a0766314`.
+The relief remains bounded geometry interpretation, not scan depth. Support
+widths/steps are fitted inside the existing surround; no surveyed dimension
+or full neighboring gallery is claimed. Provider: local Godot; new calls 0,
+new cost USD 0. The rejected Muse guide remains excluded.

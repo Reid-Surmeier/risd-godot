@@ -70,7 +70,7 @@ func _prepare() -> void:
 			var fine_trim := cornice_mesh or (source_albedo and (source_albedo.resource_path.ends_with("/ivory-trim.svg") or source_albedo.resource_path.ends_with("/stone.png")))
 			var texel := 0.025 if fine_trim else 0.12
 			if source.get_meta("portal_capital", false):
-				texel = 0.008
+				texel = 0.004
 			var error := mesh.lightmap_unwrap(source.global_transform, texel)
 			if error != OK:
 				push_error("UV unwrap failed for " + str(index))
@@ -102,6 +102,8 @@ func _prepare() -> void:
 		var instance := MeshInstance3D.new()
 		instance.name = "Surface%03d" % index
 		instance.mesh = mesh
+		if source.has_meta("portal_relief_winding_failures"):
+			instance.set_meta("portal_relief_winding_failures", source.get_meta("portal_relief_winding_failures"))
 		instance.material_override = material
 		if floor_mesh or portal_floor:
 			var oak := ShaderMaterial.new()

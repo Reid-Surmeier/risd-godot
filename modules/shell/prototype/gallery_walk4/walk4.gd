@@ -588,24 +588,34 @@ func _portal_floor(end: float) -> void:
 	var b := PLANK.y
 	var rot := Transform2D(PI / 4, Vector2(0, -L / 2))
 	var clip := PackedVector2Array([Vector2(-3, 0), Vector2(3, 0), Vector2(3, end), Vector2(-3, end)])
-	for j in range(-32, 33):
-		for k in range(-100, 101):
+	var reach := (L + W) * 0.75
+	var n := int(reach / b)
+	var m := int(reach / a) + 1
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 1877
+	for j in range(-m, m + 1):
+		for k in range(-n, n + 1):
 			var o := Vector2(k * b + j * a, k * b - j * a)
 			for vertical in [false, true]:
 				var r := Rect2(o, Vector2(a, b)) if not vertical else Rect2(o + Vector2(0, b), Vector2(b, a))
 				var c := rot * r.get_center()
+				# Replay gallery plank selection so a plank crossing z=0 retains
+				# the same grain strip and tone on both sides of the clipping plane.
+				var v0 := 0.09 * posmod(j * 11 + k * 3, 7)
+				var tone := 0.90 + 0.025 * posmod(j * 7 + k * 13, 7)
+				if absf(c.x) <= W / 2 + 0.4 and c.y <= 0.4 and c.y >= -L - 0.4:
+					v0 = rng.randf_range(0.0, 2.0 / 3.0)
+					tone = rng.randf_range(0.9, 1.06)
 				if absf(c.x) > 3.5 or c.y < -0.5 or c.y > end + 0.5:
 					continue
 				var corners := PackedVector2Array([rot * r.position, rot * Vector2(r.end.x, r.position.y), rot * r.end, rot * Vector2(r.position.x, r.end.y)])
 				for polygon in Geometry2D.intersect_polygons(corners, clip):
 					var indices := Geometry2D.triangulate_polygon(polygon)
-					var tone := 0.90 + 0.025 * posmod(j * 7 + k * 13, 7)
-					var v0 := 0.09 * posmod(j * 11 + k * 3, 7)
 					for index in indices:
 						var p: Vector2 = polygon[index]
 						var local: Vector2 = (rot.affine_inverse() * p - r.position) / r.size
 						var u := local.y if vertical else local.x
-						var v := local.x if vertical else local.y
+						var v := 1.0 - local.x if vertical else local.y
 						st.set_normal(Vector3.UP)
 						st.set_uv(Vector2(u, v0 + v / 3.0))
 						st.set_color(Color(tone, tone * 0.99, tone * 0.97))
@@ -618,6 +628,16 @@ func _portal_floor(end: float) -> void:
 	_vp.add_child(mesh)
 
 
+func _portal_relief_sample(data: Array, width: int, height: int, u: float, v: float) -> float:
+	var px := clampf(u, 0.0, 1.0) * (width - 1)
+	var py := clampf(v, 0.0, 1.0) * (height - 1)
+	var ix := mini(int(px), width - 2)
+	var iy := mini(int(py), height - 2)
+	var a: float = lerpf(data[iy * width + ix], data[iy * width + ix + 1], px - ix)
+	var b: float = lerpf(data[(iy + 1) * width + ix], data[(iy + 1) * width + ix + 1], px - ix)
+	return lerpf(a, b, py - iy) / 255.0
+
+
 func _portal_stone(radius: float, height: float, rear: float, front: float) -> void:
 	# #167: photo-led orders and supports, not a survey or invented capital carving.
 	# Retain the existing opening and tunnel depth; all additions remain outside it.
@@ -628,13 +648,14 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 	var capital_st := SurfaceTool.new()
 	capital_st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var builder := {"current": st}
+	var winding := {"failures": 0}
 	var stone_patch := {"index": 0, "tone": 1.0}
 	var vary := func(seed_value: int) -> void:
 		stone_patch.index = posmod(seed_value, 5)
 		stone_patch.tone = 0.94 + 0.025 * posmod(seed_value, 5)
 	var patch_origin := func() -> Vector2:
 		return [Vector2(0.025, 0.025), Vector2(0.36, 0.025), Vector2(0.69, 0.025), Vector2(0.22, 0.36), Vector2(0.57, 0.70)][stone_patch.index]
-	var face := func(q: Array, smooth: Array = [], supplied_uv: Array = []) -> void:
+	var face := func(q: Array, smooth: Array = [], supplied_uv: Array = [], expected_z := 0) -> void:
 		var normal: Vector3 = (q[2] - q[0]).cross(q[1] - q[0]).normalized()
 		# Sample grain inside one existing limestone block, not its rectangular joints.
 		var size := Vector2((q[1] - q[0]).length(), (q[3] - q[0]).length())
@@ -645,8 +666,22 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 		var uv := [origin, origin + Vector2(size.x, 0), origin + size, origin + Vector2(0, size.y)]
 		if not supplied_uv.is_empty():
 			uv = supplied_uv
-		for i in [0, 1, 2, 0, 2, 3]:
-			builder.current.set_normal(normal if smooth.is_empty() else smooth[i])
+		var triangles := [0, 1, 2, 0, 2, 3]
+		for offset in triangles.size():
+			var i: int = triangles[offset]
+			var triangle: int = int(offset / 3) * 3
+			var a: Vector3 = q[triangles[triangle]]
+			var geometric: Vector3 = (q[triangles[triangle + 2]] - a).cross(q[triangles[triangle + 1]] - a).normalized()
+			# Independent topology check for parameterized relief: front and
+			# back half-surfaces have known outward Z signs, before shading.
+			if offset % 3 == 0 and expected_z != 0 and geometric.z * expected_z < -0.000001:
+				winding.failures += 1
+			var shading: Vector3 = normal if smooth.is_empty() else smooth[i]
+			# A carved crease must use its own triangle plane, not an analytic
+			# tangent across the ridge. Preserve smoothing only within 60 degrees.
+			if not smooth.is_empty() and shading.dot(geometric) < 0.5:
+				shading = geometric
+			builder.current.set_normal(shading)
 			builder.current.set_color(Color(stone_patch.tone, stone_patch.tone, stone_patch.tone))
 			builder.current.set_uv(uv[i])
 			builder.current.add_vertex(q[i])
@@ -669,9 +704,19 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 		for strip in 6:
 			var lo := Vector3(0, 0, (front - rear) * strip / 6.0)
 			var hi := Vector3(0, 0, (front - rear) * (strip + 1) / 6.0)
-			face.call([p + hi, q + hi, q + lo, p + lo])
+			# Close the round-to-rectangular soffit junction at the existing
+			# plaster reveal. Only the rear strip tapers to the unchanged head.
+			var plo := p + lo
+			var qlo := q + lo
+			if strip == 0:
+				plo.y = minf(plo.y, height)
+				qlo.y = minf(qlo.y, height)
+			face.call([p + hi, q + hi, qlo, plo])
 	for side in [-1.0, 1.0]:
-		block.call(Vector3(side * (radius + 0.15), spring / 2, (rear + front) / 2), Vector3(0.3, spring, front - rear))
+		# Match the visible backing courses instead of stretching one texture
+		# patch over the full-height jamb.
+		for course in 6:
+			block.call(Vector3(side * (radius + 0.15), (course + 0.5) * spring / 6, (rear + front) / 2), Vector3(0.3, spring / 6, front - rear))
 	# Three stepped concentric orders; the narrow radial joints are real gaps.
 	for order in 3:
 		var inner := radius + order * 0.27
@@ -706,46 +751,60 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 				else:
 					face.call(q)
 	for side in [-1.0, 1.0]:
-		# Backing courses and an impost band support the recessed column pair.
+		# Backing courses and stepped impost support the three photographed shafts.
 		for row in 6:
 			block.call(Vector3(side * (radius + 0.41), (row + 0.5) * spring / 6, front + 0.02), Vector3(0.80, spring / 6, 0.32))
 		block.call(Vector3(side * (radius + 0.41), 0.11, front + 0.16), Vector3(0.84, 0.22, 0.58))
-		block.call(Vector3(side * (radius + 0.41), spring - 0.045, front + 0.20), Vector3(0.87, 0.12, 0.64))
-		# Shallow carved diaper band seen above the photo's capitals. This is
-		# bounded stylization of visible relief, not a claim of measured carving.
-		builder.current = capital_st
-		var frieze := func(u: float, v: float) -> Vector3:
-			var diamond := absf(fposmod(u * 6.0, 1.0) - 0.5) * 2.0 + absf(v - 0.5) * 2.0
-			var relief_depth := 0.010 * exp(-pow((diamond - 0.72) / 0.22, 2.0))
-			relief_depth *= smoothstep(0.0, 0.15, v) * smoothstep(0.0, 0.15, 1.0 - v)
-			return Vector3(side * (radius + 0.41) + (u - 0.5) * 0.87, spring - 0.045 + (v - 0.5) * 0.12, front + 0.522 + relief_depth)
-		for row in 24:
-			for column in 192:
-				var u := column / 192.0
-				var v := row / 24.0
-				var samples := [Vector2(u, v), Vector2(u, v + 1.0 / 24.0), Vector2(u + 1.0 / 192.0, v + 1.0 / 24.0), Vector2(u + 1.0 / 192.0, v)]
-				var q: Array = []
-				var smooth: Array = []
-				var texture_uv: Array = []
-				var origin: Vector2 = patch_origin.call()
-				for sample in samples:
-					q.append(frieze.call(sample.x, sample.y))
-					texture_uv.append(origin + sample * 0.10)
-					var along: Vector3 = frieze.call(sample.x + 0.001, sample.y) - frieze.call(sample.x - 0.001, sample.y)
-					var up: Vector3 = frieze.call(sample.x, sample.y + 0.001) - frieze.call(sample.x, sample.y - 0.001)
-					smooth.append(along.cross(up).normalized())
-				face.call(q, smooth, texture_uv)
-		builder.current = st
-		for column in 2:
+		# Source photos resolve the stepped impost above each shaft. Separate
+		# surfaces keep real depth changes from stretching a strip across them.
+		for section in 3:
+			var section_width: float = [0.28, 0.21, 0.38][section]
+			var center_x: float = side * (radius + [0.115, 0.36, 0.655][section])
+			var face_z := front + 0.35 + section * 0.11
+			var depth := face_z - (front - 0.12)
+			block.call(Vector3(center_x, spring - 0.045, face_z - depth / 2), Vector3(section_width, 0.12, depth))
+			builder.current = capital_st
+			var frieze := func(u: float, v: float) -> Vector3:
+				var x := center_x + (u - 0.5) * section_width
+				var photo_u: float = (x - (side * (radius + 0.41) - 0.435)) / 0.87
+				var field: Array = relief.bands[0 if side < 0 else 1]
+				var sample := _portal_relief_sample(field, int(relief.band_width), int(relief.band_height), photo_u, 1.0 - v)
+				var relief_depth := 0.030 * sample
+				relief_depth *= smoothstep(0.0, 0.15, v) * smoothstep(0.0, 0.15, 1.0 - v)
+				return Vector3(x, spring - 0.045 + (v - 0.5) * 0.12, face_z + 0.002 + relief_depth)
+			for row in 48:
+				for column in 64:
+					var u := column / 64.0
+					var v := row / 48.0
+					var samples := [Vector2(u, v), Vector2(u, v + 1.0 / 48.0), Vector2(u + 1.0 / 64.0, v + 1.0 / 48.0), Vector2(u + 1.0 / 64.0, v)]
+					var q: Array = []
+					var smooth: Array = []
+					var texture_uv: Array = []
+					var origin: Vector2 = patch_origin.call()
+					for sample in samples:
+						q.append(frieze.call(sample.x, sample.y))
+						texture_uv.append(origin + sample * 0.10)
+						var along: Vector3 = frieze.call(sample.x + 1.0 / 64.0, sample.y) - frieze.call(sample.x - 1.0 / 64.0, sample.y)
+						var up: Vector3 = frieze.call(sample.x, sample.y + 1.0 / 48.0) - frieze.call(sample.x, sample.y - 1.0 / 48.0)
+						smooth.append(along.cross(up).normalized())
+					face.call(q, smooth, texture_uv, 1)
+			builder.current = st
+		for column in 3:
 			vary.call(column + int(side) * 11)
-			var x: float = side * (radius + 0.17 + column * 0.32)
-			var zc := front + 0.17 + column * 0.13
+			var x: float = side * (radius + [0.14, 0.37, 0.59][column])
+			var zc := front + 0.13 + column * 0.11
+			var shaft_scale: float = [1.0, 0.61, 0.98][column]
 			var profile := [Vector2(0.20, 0.16), Vector2(0.25, 0.16), Vector2(0.29, 0.125)]
-			for strip in 13:
-				var t := strip / 12.0
+			# The closer source shows a few long shaft courses, not thirteen
+			# short repeated texture bands. Keep the same height/radius envelope.
+			for strip in 5:
+				var t := strip / 4.0
 				profile.append(Vector2(lerpf(0.34, spring - 0.50, t), 0.132 + 0.004 * sin(t * PI)))
 			profile.append_array([Vector2(spring - 0.39, 0.15), Vector2(spring - 0.35, 0.15)])
+			for index in profile.size():
+				profile[index].y *= shaft_scale
 			for level in profile.size() - 1:
+				vary.call(column + int(side) * 11 + level * 7)
 				for k in 20:
 					var a := TAU * k / 20.0
 					var b := TAU * (k + 1) / 20.0
@@ -755,18 +814,26 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 					if is_equal_approx(lo.y, hi.y):
 						smooth = [Vector3(cos(b), 0, sin(b)), Vector3(cos(b), 0, sin(b)), Vector3(cos(a), 0, sin(a)), Vector3(cos(a), 0, sin(a))]
 					var origin: Vector2 = patch_origin.call()
-					var uv := [Vector2(b / TAU, lo.x / spring), Vector2(b / TAU, hi.x / spring), Vector2(a / TAU, hi.x / spring), Vector2(a / TAU, lo.x / spring)]
+					# Circumference and height share the same grain density. Reset
+					# within each short shaft course to avoid the texture's mortar.
+					var uv := [Vector2(b * lo.y, 0), Vector2(b * hi.y, hi.x - lo.x), Vector2(a * hi.y, hi.x - lo.x), Vector2(a * lo.y, 0)]
 					for index in 4:
-						uv[index] = origin + uv[index] * 0.10
+						uv[index] = origin + uv[index] * 0.12
 					face.call([Vector3(x + lo.y * cos(b), lo.x, zc + lo.y * sin(b)), Vector3(x + hi.y * cos(b), hi.x, zc + hi.y * sin(b)), Vector3(x + hi.y * cos(a), hi.x, zc + hi.y * sin(a)), Vector3(x + lo.y * cos(a), lo.x, zc + lo.y * sin(a))], smooth, uv)
 			# Broad worn lobes and scroll recesses from the photo, not invented figures.
 			builder.current = capital_st
+			var field_index: int = 2 - column if side < 0.0 else 3 + column
 			var carved := func(angle: float, v: float) -> Vector3:
-				var width := 0.155 + 0.038 * sin(clampf(v, 0, 1) * PI * 0.65)
+				# Individually bounded front masses follow the six source faces;
+				# these are visual profiles, not surveyed dimensions.
+				var shoulders: Array = [0.025, 0.026, 0.049, 0.046, 0.021, 0.031]
+				var width: float = (0.145 + shoulders[field_index] * sin(clampf(v, 0, 1) * PI * 0.65)) * shaft_scale
 				var ca := cos(angle)
 				var sa := sin(angle)
-				var xx := signf(ca) * pow(absf(ca), 0.55)
-				var zz := signf(sa) * pow(absf(sa), 0.55)
+				# Uniform front-face sampling: the previous signed-power x
+				# skipped central photo columns and smeared their relief.
+				var xx := ca
+				var zz := signf(sa) * pow(maxf(0.0, 1.0 - pow(absf(ca), 4.0)), 0.25)
 				var carving := 0.0
 				if sa > 0.0:
 					# Individually sampled source faces replace the repeated generic
@@ -775,28 +842,28 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 					var py := (1.0 - clampf(v, 0, 1)) * (int(relief.height) - 1)
 					var ix := mini(int(px), int(relief.width) - 2)
 					var iy := mini(int(py), int(relief.height) - 2)
-					var data: Array = relief.fields[1 - column if side < 0.0 else 2 + column]
+					var data: Array = relief.fields[field_index]
 					var row0: float = lerpf(data[iy * int(relief.width) + ix], data[iy * int(relief.width) + ix + 1], px - ix)
 					var row1: float = lerpf(data[(iy + 1) * int(relief.width) + ix], data[(iy + 1) * int(relief.width) + ix + 1], px - ix)
-					carving += 0.12 * (lerpf(row0, row1, py - iy) / 255.0 - 0.5) * sin(PI * clampf(v, 0, 1)) * sa
+					carving += 0.12 * shaft_scale * (lerpf(row0, row1, py - iy) / 255.0 - 0.5) * sin(PI * clampf(v, 0, 1)) * pow(sa, 3.0)
 				return Vector3(x + xx * width, spring - 0.46 + v * 0.33, zc + zz * width + carving)
-			for row in 48:
+			for row in 96:
 				for segment in 128:
 					var a := TAU * segment / 128.0
 					var b := TAU * (segment + 1) / 128.0
-					var uv := [Vector2(b, row / 48.0), Vector2(b, (row + 1) / 48.0), Vector2(a, (row + 1) / 48.0), Vector2(a, row / 48.0)]
+					var uv := [Vector2(b, row / 96.0), Vector2(b, (row + 1) / 96.0), Vector2(a, (row + 1) / 96.0), Vector2(a, row / 96.0)]
 					var q: Array = []
 					var normals: Array = []
 					var texture_uv: Array = []
 					for sample in uv:
 						texture_uv.append(patch_origin.call() + Vector2(sample.x / TAU, sample.y) * 0.10)
 						q.append(carved.call(sample.x, sample.y))
-						var along: Vector3 = carved.call(sample.x + 0.001, sample.y) - carved.call(sample.x - 0.001, sample.y)
-						var up: Vector3 = carved.call(sample.x, sample.y + 0.001) - carved.call(sample.x, sample.y - 0.001)
+						var along: Vector3 = carved.call(sample.x + TAU / 128.0, sample.y) - carved.call(sample.x - TAU / 128.0, sample.y)
+						var up: Vector3 = carved.call(sample.x, sample.y + 1.0 / 96.0) - carved.call(sample.x, sample.y - 1.0 / 96.0)
 						normals.append(up.cross(along).normalized())
-					face.call(q, normals, texture_uv)
+					face.call(q, normals, texture_uv, 1 if (a + b) * 0.5 < PI else -1)
 			builder.current = st
-			block.call(Vector3(x, spring - 0.11, zc), Vector3(0.39, 0.06, 0.39))
+			block.call(Vector3(x, spring - 0.11, zc), Vector3(0.37 * shaft_scale, 0.06, 0.38))
 	var instance := MeshInstance3D.new()
 	instance.mesh = st.commit()
 	instance.material_override = ps(load(DIR + "textures/stone.png"), Color.WHITE, Vector2.ONE, true)
@@ -805,6 +872,7 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 	capitals.mesh = capital_st.commit()
 	capitals.material_override = instance.material_override
 	capitals.set_meta("portal_capital", true)
+	capitals.set_meta("portal_relief_winding_failures", winding.failures)
 	_vp.add_child(capitals)
 
 
