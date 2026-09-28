@@ -193,17 +193,19 @@ func _draw_card(i: int) -> void:
 
 
 func _draw_detail() -> void:
+	# A hovered preview is the object currently being viewed; clicks retain selection after leave.
+	var detail := hovered if hovered >= 0 else selected
 	var box := Rect2(42, 184, 385, 490)
 	draw_rect(box, Color("#faf9fa"))
 	draw_rect(box, LINE, false, 1)
 	var x := box.position.x + 20
 	var y := box.position.y + 30
-	_text(Vector2(x, y), "SELECTED OBJECT", 14, PINK)
-	_text(Vector2(x, y + 38), APPEARANCE[selected], 21, INK)
-	_text(Vector2(x, y + 68), _name(selected) + " · provisional label", 13, MUTED)
+	_text(Vector2(x, y), "VIEWING OBJECT" if hovered >= 0 else "SELECTED OBJECT", 14, PINK)
+	_text(Vector2(x, y + 38), APPEARANCE[detail], 21, INK)
+	_text(Vector2(x, y + 68), _name(detail) + " · provisional label", 13, MUTED)
 	_text(Vector2(x, y + 106), "Department: unverified", 15, INK)
-	_text(Vector2(x, y + 137), "Source scan: present" if selected < 4 else "Image-only catalogue entry", 15, INK)
-	var preview_status := "Live 3D hover trial · not accepted" if selected == 2 else "3D preview unavailable" if selected < 4 else "No linked 3D scan"
+	_text(Vector2(x, y + 137), "Source scan: present" if detail < 4 else "Image-only catalogue entry", 15, INK)
+	var preview_status := "Live 3D hover trial · not accepted" if detail == 2 else "3D preview unavailable" if detail < 4 else "No linked 3D scan"
 	_text(Vector2(x, y + 164), preview_status, 16, PINK)
 	_draw_project(Rect2(box.position.x + 15, box.position.y + 216, box.size.x - 30, 251))
 
