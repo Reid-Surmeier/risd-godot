@@ -75,4 +75,19 @@ The RISD wordmark and sixteen image-only cells reuse
 `assets/setup/panel-2x.png` (SHA-256
 `d6cdb4c2c3ff042ea3380868184d297ea608f733bd377723cc71fd792f5b99d5`);
 the hover atlases keep their existing provenance above.
-Descriptions are provisional visual descriptors; department is unverified.
+Descriptions were initially provisional visual descriptors; department remains unverified.
+
+## Two verified catalogue records — issue #169
+
+The [primary-image comparison at ae5e3bbe](https://github.com/Reid-Surmeier/risd-godot/blob/ae5e3bbe/docs/research/2026-09-28-viewer-primary-record-comparison.md)
+pins the exact source-image evidence and hashes for two museum-object matches.
+`catalogue.gd` now uses their exact museum titles, short record-based summaries
+(not quoted museum narrative), and direct source URLs:
+
+- Scan `20260811121459`: [RISD record 73.148](https://risdmuseum.org/art-design/collection/love-triumphs-over-death-cupid-and-skulls-73148), matched to the official illustrated checklist, physical page 23 of `327266.pdf`.
+- Scan `20260820133334`: [RISD record 59.050](https://risdmuseum.org/art-design/collection/portrait-hadrian-59050), matched to official photograph `UZ3LXvjG` and physical page 73 of `312237.pdf`.
+
+All other museum fields remain unknown, as do both verified objects' departments.
+No new raster or mesh was produced or imported. All thumbnail hashes above remain
+unchanged; museum identity does not certify scan quality or redistribution rights.
+Provider: RISD Museum primary records; generation: none; cost: USD 0.

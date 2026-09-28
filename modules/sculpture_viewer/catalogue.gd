@@ -30,11 +30,28 @@ const INK := Color("#36333c")
 const MUTED := Color("#77727e")
 const PINK := Color("#dc526b")
 const LINE := Color("#c7c3cc")
+# Exact scan-to-record comparisons: research checkpoint ae5e3bbe, issue #169.
+# These are museum-record summaries, not assertions about scan licensing or mesh quality.
+const RECORDS := {
+	"20260811121459": {
+		"title": "Love Triumphs over Death (Cupid and Skulls)",
+		"accession": "73.148",
+		"description": "Terracotta sculpture by Gustave Doré, made around 1876–1880; gift of Uforia, Inc.",
+		"url": "https://risdmuseum.org/art-design/collection/love-triumphs-over-death-cupid-and-skulls-73148",
+	},
+	"20260820133334": {
+		"title": "Portrait of Hadrian",
+		"accession": "59.050",
+		"description": "Roman marble portrait head, made around 130 CE for insertion into a separate bust. Its damaged portions remain unrestored.",
+		"url": "https://risdmuseum.org/art-design/collection/portrait-hadrian-59050",
+	},
+}
 
 var selected := 0
 var hovered := -1
 var tick := 0.0
 var turn_frames: Dictionary = {}
+var detail_labels: Dictionary = {}
 
 
 func _ready() -> void:
@@ -44,6 +61,8 @@ func _ready() -> void:
 		var path: String = "res://modules/sculpture_viewer/assets/setup/turn/%s.png" % TURN[cell][0]
 		turn_frames[cell] = load(path)
 	set_process(true)
+	_build_details()
+	_update_details()
 	queue_redraw()
 
 
@@ -64,6 +83,7 @@ func _input(event: InputEvent) -> void:
 		var hit := _hit(make_canvas_position_local(event.position))
 		if hit >= 0:
 			selected = hit
+			_update_details()
 			queue_redraw()
 			get_viewport().set_input_as_handled()
 
@@ -118,29 +138,43 @@ func _draw_detail() -> void:
 	var box := Rect2(42, 184, 385, 490)
 	draw_rect(box, Color("#faf9fa"))
 	draw_rect(box, LINE, false, 1)
-	var x := box.position.x + 20
-	var y := box.position.y + 30
-	_text(Vector2(x, y), "SELECTED OBJECT", 14, PINK)
-	_text(Vector2(x, y + 38), APPEARANCE[selected], 21, INK)
-	_text(Vector2(x, y + 68), _name(selected) + " · provisional label", 13, MUTED)
-	_text(Vector2(x, y + 106), "Department: unverified", 15, INK)
-	_text(Vector2(x, y + 137), "Source scan: present" if selected < 4 else "Image-only catalogue entry", 15, INK)
-	_text(Vector2(x, y + 164), "3D preview unavailable" if selected < 4 else "No linked 3D scan", 16, PINK)
-	_draw_project(Rect2(box.position.x + 15, box.position.y + 216, box.size.x - 30, 251))
+	_text(Vector2(62, 214), "SELECTED OBJECT", 14, PINK)
+	draw_line(Vector2(62, 411), Vector2(407, 411), LINE, 1)
+	_text(Vector2(62, 439), "DESCRIPTION", 14, PINK)
 
 
-func _draw_project(box: Rect2) -> void:
-	draw_rect(box, Color.WHITE)
-	draw_rect(box, LINE, false, 1)
-	_text(box.position + Vector2(12, 25), "ABOUT THE SCANNING PROJECT", 14, PINK)
-	var lines := [
-		"Lorem ipsum dolor sit amet, consectetur",
-		"adipiscing elit. Integer nec odio.",
-		"Praesent libero, sed cursus ante",
-		"dapibus diam. Sed nisi. Nulla quis sem."
-	]
-	for n in range(lines.size()):
-		_text(box.position + Vector2(12, 55 + n * 25), lines[n], 13, INK)
+func _build_details() -> void:
+	_detail_label("Title", 232, 61, 21, INK)
+	_detail_label("Identity", 302, 22, 13, MUTED)
+	_detail_label("Department", 330, 22, 15, INK)
+	_detail_label("LocalSource", 356, 22, 13, MUTED)
+	_detail_label("Status", 382, 22, 16, PINK)
+	_detail_label("Description", 452, 88, 15, INK)
+	_detail_label("Source", 548, 106, 12, MUTED)
+
+
+func _detail_label(key: String, y: float, height: float, px: int, color: Color) -> void:
+	var label := Label.new()
+	label.name = "Detail" + key
+	label.position = Vector2(62, y)
+	label.size = Vector2(345, height)
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label.add_theme_font_size_override("font_size", px)
+	label.add_theme_color_override("font_color", color)
+	add_child(label)
+	detail_labels[key] = label
+
+
+func _update_details() -> void:
+	var record: Dictionary = RECORDS.get(IDS[selected], {}) if selected < 4 else {}
+	detail_labels.Title.text = record.get("title", APPEARANCE[selected])
+	detail_labels.Identity.text = "Museum title verified · " + record.accession if not record.is_empty() else "Visual descriptor · museum title unknown"
+	detail_labels.Department.text = "Department: unknown"
+	detail_labels.LocalSource.text = _name(selected)
+	detail_labels.Status.text = "3D preview unavailable" if selected < 4 else "No linked 3D scan · image only"
+	detail_labels.Description.text = record.get("description", "Museum description unknown. This %s has not yet been matched to a museum record." % ("scan thumbnail" if selected < 4 else "image-only entry"))
+	detail_labels.Source.text = "Source: RISD Museum record (summary)\n" + record.url if not record.is_empty() else "Museum source: unknown\nThe label above describes appearance only."
 
 
 func _draw_hover() -> void:
