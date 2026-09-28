@@ -360,10 +360,10 @@ func _build_room() -> void:
 		var z0 := -0.9 if glass else 0.0
 		var z1 := -L + 0.9 if glass else -L
 		if glass:  # the glazing: its own strip, its grid following the curve
-			var u0 := arc / 0.7
-			var u1 := (arc + seg_len) / 0.7
+			var u0 := arc / 1.5
+			var u1 := (arc + seg_len) / 1.5
 			var q := [p0 + Vector3(0, 0, z0), p1 + Vector3(0, 0, z0), p1 + Vector3(0, 0, z1), p0 + Vector3(0, 0, z1)]
-			var qu := [Vector2(u0, 0), Vector2(u1, 0), Vector2(u1, (z0 - z1) / 0.7), Vector2(u0, (z0 - z1) / 0.7)]
+			var qu := [Vector2(u0, 0), Vector2(u1, 0), Vector2(u1, (z0 - z1) / 4.0), Vector2(u0, (z0 - z1) / 4.0)]
 			for k in [0, 1, 2, 0, 2, 3]:
 				gl.set_uv(qu[k])
 				gl.add_vertex(q[k])
@@ -390,7 +390,7 @@ func _build_room() -> void:
 	_vp.add_child(vmi)
 	var gmi := MeshInstance3D.new()
 	gmi.mesh = gl.commit()
-	gmi.material_override = ps(load(DIR + "textures/skylight.png"), Color(1.08, 1.1, 1.14))
+	gmi.material_override = ps(load(DIR + "textures/skylight.png"), Color(0.85, 1.0, 1.12))
 	_vp.add_child(gmi)
 	# track lamps along both edges of the glazing, aimed at the walls
 	var edge_y := H + VAULT_RISE * sqrt(maxf(0.0, 1.0 - pow(SKY_W / 2.0 / X, 2))) - 0.12

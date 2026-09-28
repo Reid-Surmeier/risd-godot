@@ -1,68 +1,68 @@
-[gd_scene format=4 uid="uid://dml0vohjk5hnn"]
+[gd_scene format=4 uid="uid://dqixcu0xrw5t6"]
 
 [ext_resource type="Shader" uid="uid://dbwvkm3w83671" path="res://modules/shell/prototype/gallery_walk4/oak.gdshader" id="1_yksqi"]
 [ext_resource type="Texture2D" uid="uid://bcky6cqxb8ois" path="res://modules/shell/prototype/gallery_walk4/textures/oak-board-atlas-168-v2.webp" id="2_83uiw"]
-[ext_resource type="Texture2D" uid="uid://bwey73iuihcx6" path="res://modules/shell/prototype/gallery_walk4/textures/stone.png" id="2_yn1v0"]
-[ext_resource type="Texture2D" uid="uid://bjfes7qglxfya" path="res://modules/shell/prototype/gallery_walk4/textures/floor.png" id="3_7frbv"]
-[ext_resource type="Texture2D" uid="uid://dj4r0ugufmt72" path="res://modules/shell/prototype/gallery_walk4/textures/door-arch.jpg" id="3_yksqi"]
-[ext_resource type="Texture2D" uid="uid://cwmko84uscwuw" path="res://modules/shell/prototype/gallery_walk4/textures/wall.png" id="4_83uiw"]
-[ext_resource type="Texture2D" uid="uid://ckd1bnhtgoog" path="res://modules/shell/prototype/gallery_walk4/textures/skylight.png" id="5_2g0w5"]
-[ext_resource type="Texture2D" uid="uid://xqrutqtytm6y" path="res://modules/shell/prototype/gallery_walk4/frames/W1.png" id="6_7frbv"]
-[ext_resource type="Texture2D" uid="uid://dkm7emp04hogo" path="res://modules/shell/prototype/gallery_walk4/textures/oak-muse.webp" id="6_83uiw"]
-[ext_resource type="Texture2D" uid="uid://dc6q0vw570usr" path="res://modules/shell/prototype/gallery_walk4/canvas/W1.jpg" id="7_83uiw"]
-[ext_resource type="Texture2D" uid="uid://d0ver0dyrmv4m" path="res://modules/shell/prototype/gallery_walk4/frames/W2.png" id="8_o3wtj"]
-[ext_resource type="Texture2D" uid="uid://tweeq1u1ngrc" path="res://modules/shell/prototype/gallery_walk4/canvas/W2.jpg" id="9_0oa23"]
-[ext_resource type="Texture2D" uid="uid://bnbju7v3pjkqy" path="res://modules/shell/prototype/gallery_walk4/frames/W3.png" id="10_hkak6"]
-[ext_resource type="Texture2D" uid="uid://ddvbnbmmixd6u" path="res://modules/shell/prototype/gallery_walk4/canvas/W3.jpg" id="11_yxtfc"]
-[ext_resource type="Texture2D" uid="uid://dw406vx47mth5" path="res://modules/shell/prototype/gallery_walk4/frames/W4.png" id="12_0637x"]
-[ext_resource type="Texture2D" uid="uid://106dnsp8i38n" path="res://modules/shell/prototype/gallery_walk4/canvas/W4.jpg" id="13_xvy1e"]
-[ext_resource type="Texture2D" uid="uid://b24w201aa75nd" path="res://modules/shell/prototype/gallery_walk4/frames/W5.png" id="14_ujh1e"]
-[ext_resource type="Texture2D" uid="uid://bv7cs3jhalvhh" path="res://modules/shell/prototype/gallery_walk4/canvas/W5.jpg" id="15_tlfsc"]
-[ext_resource type="Texture2D" uid="uid://bgnyy0j4yw6bo" path="res://modules/shell/prototype/gallery_walk4/frames/W6-shaped.png" id="16_llwas"]
-[ext_resource type="Texture2D" uid="uid://dx57qkd2017le" path="res://modules/shell/prototype/gallery_walk4/frames/W7.png" id="17_q6s0g"]
-[ext_resource type="Texture2D" uid="uid://dtyexk6rbnfag" path="res://modules/shell/prototype/gallery_walk4/canvas/W7.jpg" id="18_xdvyo"]
-[ext_resource type="Texture2D" uid="uid://c8t6c5jl12p58" path="res://modules/shell/prototype/gallery_walk4/frames/W8.png" id="19_wpt6x"]
-[ext_resource type="Texture2D" uid="uid://dfm7n4wmlcsaf" path="res://modules/shell/prototype/gallery_walk4/canvas/W8.jpg" id="20_ely3f"]
-[ext_resource type="Texture2D" uid="uid://xgie53v8vt8w" path="res://modules/shell/prototype/gallery_walk4/frames/W9.png" id="21_gucsa"]
-[ext_resource type="Texture2D" uid="uid://g05qfcstrp3r" path="res://modules/shell/prototype/gallery_walk4/canvas/W9.jpg" id="22_gpydh"]
-[ext_resource type="Texture2D" uid="uid://crrhgrsb3ucmv" path="res://modules/shell/prototype/gallery_walk4/frames/W10.png" id="23_wh851"]
-[ext_resource type="Texture2D" uid="uid://ckm88s8sxtjg6" path="res://modules/shell/prototype/gallery_walk4/canvas/W10.jpg" id="24_wixi6"]
-[ext_resource type="Texture2D" uid="uid://ctxy7tq38krgo" path="res://modules/shell/prototype/gallery_walk4/frames/E1.png" id="25_adcbp"]
-[ext_resource type="Texture2D" uid="uid://m07xp2xj5a4w" path="res://modules/shell/prototype/gallery_walk4/canvas/E1.jpg" id="26_fntxj"]
-[ext_resource type="Texture2D" uid="uid://bjf62p1of20lp" path="res://modules/shell/prototype/gallery_walk4/frames/E2.png" id="27_mxqko"]
-[ext_resource type="Texture2D" uid="uid://c6w71n6m68j7q" path="res://modules/shell/prototype/gallery_walk4/canvas/E2.jpg" id="28_lc4ag"]
-[ext_resource type="Texture2D" uid="uid://dr0i5ca8axu2s" path="res://modules/shell/prototype/gallery_walk4/frames/E3.png" id="29_3148j"]
-[ext_resource type="Texture2D" uid="uid://c0hb1yy0bb556" path="res://modules/shell/prototype/gallery_walk4/canvas/E3.jpg" id="30_7eugj"]
-[ext_resource type="Texture2D" uid="uid://bpqkrc2806626" path="res://modules/shell/prototype/gallery_walk4/frames/E4.png" id="31_sb4sf"]
-[ext_resource type="Texture2D" uid="uid://dpg4dcmplja05" path="res://modules/shell/prototype/gallery_walk4/canvas/E4.jpg" id="32_71n0y"]
-[ext_resource type="Texture2D" uid="uid://ngh3i5sqcxtr" path="res://modules/shell/prototype/gallery_walk4/frames/E5.png" id="33_nt3gf"]
-[ext_resource type="Texture2D" uid="uid://dqjafvyffpb34" path="res://modules/shell/prototype/gallery_walk4/canvas/E5.jpg" id="34_xvtwt"]
-[ext_resource type="Texture2D" uid="uid://hxt5r4fqjh25" path="res://modules/shell/prototype/gallery_walk4/frames/E6.png" id="35_njsa2"]
-[ext_resource type="Texture2D" uid="uid://b7a6pu380v4tm" path="res://modules/shell/prototype/gallery_walk4/canvas/E6.jpg" id="36_68s0x"]
-[ext_resource type="Texture2D" uid="uid://dnej8cyui1b7f" path="res://modules/shell/prototype/gallery_walk4/frames/E7.png" id="37_5mric"]
-[ext_resource type="Texture2D" uid="uid://dtgb3f2s48gne" path="res://modules/shell/prototype/gallery_walk4/canvas/E7.jpg" id="38_v8j5k"]
-[ext_resource type="Texture2D" uid="uid://cpg8e3u1qtadp" path="res://modules/shell/prototype/gallery_walk4/frames/E8.png" id="39_6cqma"]
-[ext_resource type="Texture2D" uid="uid://d101fomc34bmd" path="res://modules/shell/prototype/gallery_walk4/canvas/E8.jpg" id="40_34u1i"]
-[ext_resource type="Texture2D" uid="uid://duwxwgtv2fns2" path="res://modules/shell/prototype/gallery_walk4/frames/E9.png" id="41_f3s0u"]
-[ext_resource type="Texture2D" uid="uid://bigt7qesnexo" path="res://modules/shell/prototype/gallery_walk4/canvas/E9.jpg" id="42_acii8"]
-[ext_resource type="Texture2D" uid="uid://bklreay1etoba" path="res://modules/shell/prototype/gallery_walk4/frames/S1.png" id="43_1ff7l"]
-[ext_resource type="Texture2D" uid="uid://c6itwit75awig" path="res://modules/shell/prototype/gallery_walk4/canvas/S1.jpg" id="44_m2qis"]
-[ext_resource type="Texture2D" uid="uid://dt5vq1a08nlin" path="res://modules/shell/prototype/gallery_walk4/frames/S2.png" id="45_6im5r"]
-[ext_resource type="Texture2D" uid="uid://c1akehplt176o" path="res://modules/shell/prototype/gallery_walk4/canvas/S2.jpg" id="46_s7mt8"]
-[ext_resource type="Texture2D" uid="uid://b0tjx4p0ye8s8" path="res://modules/shell/prototype/gallery_walk4/frames/N1.png" id="47_sru7r"]
-[ext_resource type="Texture2D" uid="uid://c5ijna7lotfpv" path="res://modules/shell/prototype/gallery_walk4/canvas/N1.jpg" id="48_fixx1"]
-[ext_resource type="Texture2D" uid="uid://b1rukgpgvaox1" path="res://modules/shell/prototype/gallery_walk4/frames/N2.png" id="49_l0iri"]
-[ext_resource type="Texture2D" uid="uid://b8spd76mdlgsn" path="res://modules/shell/prototype/gallery_walk4/canvas/N2.jpg" id="50_e16s7"]
-[ext_resource type="Texture2D" uid="uid://c5fc5f4ctsmmc" path="res://modules/shell/prototype/gallery_walk4/textures/exit-sign.svg" id="53_2g0w5"]
-[ext_resource type="Texture2D" uid="uid://cesc874sfhk2l" path="res://modules/shell/prototype/gallery_walk4/textures/ivory-trim.svg" id="53_v2n2s"]
-[ext_resource type="Texture2D" uid="uid://2q1hh2avju6l" path="res://modules/shell/prototype/gallery_walk4/textures/oak.png" id="54_2g0w5"]
+[ext_resource type="Texture2D" uid="uid://bjfes7qglxfya" path="res://modules/shell/prototype/gallery_walk4/textures/floor.png" id="3_o3wtj"]
+[ext_resource type="Texture2D" uid="uid://cwmko84uscwuw" path="res://modules/shell/prototype/gallery_walk4/textures/wall.png" id="4_0oa23"]
+[ext_resource type="Texture2D" uid="uid://bwey73iuihcx6" path="res://modules/shell/prototype/gallery_walk4/textures/stone.png" id="5_hkak6"]
+[ext_resource type="Texture2D" uid="uid://dkm7emp04hogo" path="res://modules/shell/prototype/gallery_walk4/textures/oak-muse.webp" id="6_yxtfc"]
+[ext_resource type="Texture2D" uid="uid://dj4r0ugufmt72" path="res://modules/shell/prototype/gallery_walk4/textures/door-arch.jpg" id="7_0637x"]
+[ext_resource type="Texture2D" uid="uid://cesc874sfhk2l" path="res://modules/shell/prototype/gallery_walk4/textures/ivory-trim.svg" id="8_xvy1e"]
+[ext_resource type="Texture2D" uid="uid://ckd1bnhtgoog" path="res://modules/shell/prototype/gallery_walk4/textures/skylight.png" id="9_ujh1e"]
+[ext_resource type="Texture2D" uid="uid://xqrutqtytm6y" path="res://modules/shell/prototype/gallery_walk4/frames/W1.png" id="10_tlfsc"]
+[ext_resource type="Texture2D" uid="uid://dc6q0vw570usr" path="res://modules/shell/prototype/gallery_walk4/canvas/W1.jpg" id="11_llwas"]
+[ext_resource type="Texture2D" uid="uid://d0ver0dyrmv4m" path="res://modules/shell/prototype/gallery_walk4/frames/W2.png" id="12_q6s0g"]
+[ext_resource type="Texture2D" uid="uid://tweeq1u1ngrc" path="res://modules/shell/prototype/gallery_walk4/canvas/W2.jpg" id="13_xdvyo"]
+[ext_resource type="Texture2D" uid="uid://bnbju7v3pjkqy" path="res://modules/shell/prototype/gallery_walk4/frames/W3.png" id="14_wpt6x"]
+[ext_resource type="Texture2D" uid="uid://ddvbnbmmixd6u" path="res://modules/shell/prototype/gallery_walk4/canvas/W3.jpg" id="15_ely3f"]
+[ext_resource type="Texture2D" uid="uid://dw406vx47mth5" path="res://modules/shell/prototype/gallery_walk4/frames/W4.png" id="16_gucsa"]
+[ext_resource type="Texture2D" uid="uid://106dnsp8i38n" path="res://modules/shell/prototype/gallery_walk4/canvas/W4.jpg" id="17_gpydh"]
+[ext_resource type="Texture2D" uid="uid://b24w201aa75nd" path="res://modules/shell/prototype/gallery_walk4/frames/W5.png" id="18_wh851"]
+[ext_resource type="Texture2D" uid="uid://bv7cs3jhalvhh" path="res://modules/shell/prototype/gallery_walk4/canvas/W5.jpg" id="19_wixi6"]
+[ext_resource type="Texture2D" uid="uid://bgnyy0j4yw6bo" path="res://modules/shell/prototype/gallery_walk4/frames/W6-shaped.png" id="20_adcbp"]
+[ext_resource type="Texture2D" uid="uid://dx57qkd2017le" path="res://modules/shell/prototype/gallery_walk4/frames/W7.png" id="21_fntxj"]
+[ext_resource type="Texture2D" uid="uid://dtyexk6rbnfag" path="res://modules/shell/prototype/gallery_walk4/canvas/W7.jpg" id="22_mxqko"]
+[ext_resource type="Texture2D" uid="uid://c8t6c5jl12p58" path="res://modules/shell/prototype/gallery_walk4/frames/W8.png" id="23_lc4ag"]
+[ext_resource type="Texture2D" uid="uid://dfm7n4wmlcsaf" path="res://modules/shell/prototype/gallery_walk4/canvas/W8.jpg" id="24_3148j"]
+[ext_resource type="Texture2D" uid="uid://xgie53v8vt8w" path="res://modules/shell/prototype/gallery_walk4/frames/W9.png" id="25_7eugj"]
+[ext_resource type="Texture2D" uid="uid://g05qfcstrp3r" path="res://modules/shell/prototype/gallery_walk4/canvas/W9.jpg" id="26_sb4sf"]
+[ext_resource type="Texture2D" uid="uid://crrhgrsb3ucmv" path="res://modules/shell/prototype/gallery_walk4/frames/W10.png" id="27_71n0y"]
+[ext_resource type="Texture2D" uid="uid://ckm88s8sxtjg6" path="res://modules/shell/prototype/gallery_walk4/canvas/W10.jpg" id="28_nt3gf"]
+[ext_resource type="Texture2D" uid="uid://ctxy7tq38krgo" path="res://modules/shell/prototype/gallery_walk4/frames/E1.png" id="29_xvtwt"]
+[ext_resource type="Texture2D" uid="uid://m07xp2xj5a4w" path="res://modules/shell/prototype/gallery_walk4/canvas/E1.jpg" id="30_njsa2"]
+[ext_resource type="Texture2D" uid="uid://bjf62p1of20lp" path="res://modules/shell/prototype/gallery_walk4/frames/E2.png" id="31_68s0x"]
+[ext_resource type="Texture2D" uid="uid://c6w71n6m68j7q" path="res://modules/shell/prototype/gallery_walk4/canvas/E2.jpg" id="32_5mric"]
+[ext_resource type="Texture2D" uid="uid://dr0i5ca8axu2s" path="res://modules/shell/prototype/gallery_walk4/frames/E3.png" id="33_v8j5k"]
+[ext_resource type="Texture2D" uid="uid://c0hb1yy0bb556" path="res://modules/shell/prototype/gallery_walk4/canvas/E3.jpg" id="34_6cqma"]
+[ext_resource type="Texture2D" uid="uid://bpqkrc2806626" path="res://modules/shell/prototype/gallery_walk4/frames/E4.png" id="35_34u1i"]
+[ext_resource type="Texture2D" uid="uid://dpg4dcmplja05" path="res://modules/shell/prototype/gallery_walk4/canvas/E4.jpg" id="36_f3s0u"]
+[ext_resource type="Texture2D" uid="uid://ngh3i5sqcxtr" path="res://modules/shell/prototype/gallery_walk4/frames/E5.png" id="37_acii8"]
+[ext_resource type="Texture2D" uid="uid://dqjafvyffpb34" path="res://modules/shell/prototype/gallery_walk4/canvas/E5.jpg" id="38_1ff7l"]
+[ext_resource type="Texture2D" uid="uid://hxt5r4fqjh25" path="res://modules/shell/prototype/gallery_walk4/frames/E6.png" id="39_m2qis"]
+[ext_resource type="Texture2D" uid="uid://b7a6pu380v4tm" path="res://modules/shell/prototype/gallery_walk4/canvas/E6.jpg" id="40_6im5r"]
+[ext_resource type="Texture2D" uid="uid://dnej8cyui1b7f" path="res://modules/shell/prototype/gallery_walk4/frames/E7.png" id="41_s7mt8"]
+[ext_resource type="Texture2D" uid="uid://dtgb3f2s48gne" path="res://modules/shell/prototype/gallery_walk4/canvas/E7.jpg" id="42_sru7r"]
+[ext_resource type="Texture2D" uid="uid://cpg8e3u1qtadp" path="res://modules/shell/prototype/gallery_walk4/frames/E8.png" id="43_fixx1"]
+[ext_resource type="Texture2D" uid="uid://d101fomc34bmd" path="res://modules/shell/prototype/gallery_walk4/canvas/E8.jpg" id="44_l0iri"]
+[ext_resource type="Texture2D" uid="uid://duwxwgtv2fns2" path="res://modules/shell/prototype/gallery_walk4/frames/E9.png" id="45_e16s7"]
+[ext_resource type="Texture2D" uid="uid://bigt7qesnexo" path="res://modules/shell/prototype/gallery_walk4/canvas/E9.jpg" id="46_arvs0"]
+[ext_resource type="Texture2D" uid="uid://bklreay1etoba" path="res://modules/shell/prototype/gallery_walk4/frames/S1.png" id="47_tegrj"]
+[ext_resource type="Texture2D" uid="uid://c6itwit75awig" path="res://modules/shell/prototype/gallery_walk4/canvas/S1.jpg" id="48_62g35"]
+[ext_resource type="Texture2D" uid="uid://dt5vq1a08nlin" path="res://modules/shell/prototype/gallery_walk4/frames/S2.png" id="49_20g14"]
+[ext_resource type="Texture2D" uid="uid://c1akehplt176o" path="res://modules/shell/prototype/gallery_walk4/canvas/S2.jpg" id="50_xtaij"]
+[ext_resource type="Texture2D" uid="uid://b0tjx4p0ye8s8" path="res://modules/shell/prototype/gallery_walk4/frames/N1.png" id="51_3qyne"]
+[ext_resource type="Texture2D" uid="uid://c5ijna7lotfpv" path="res://modules/shell/prototype/gallery_walk4/canvas/N1.jpg" id="52_dfqig"]
+[ext_resource type="Texture2D" uid="uid://b1rukgpgvaox1" path="res://modules/shell/prototype/gallery_walk4/frames/N2.png" id="53_hj2wk"]
+[ext_resource type="Texture2D" uid="uid://b8spd76mdlgsn" path="res://modules/shell/prototype/gallery_walk4/canvas/N2.jpg" id="54_n7qok"]
+[ext_resource type="Texture2D" uid="uid://c5fc5f4ctsmmc" path="res://modules/shell/prototype/gallery_walk4/textures/exit-sign.svg" id="55_y2fj7"]
+[ext_resource type="Texture2D" uid="uid://2q1hh2avju6l" path="res://modules/shell/prototype/gallery_walk4/textures/oak.png" id="56_7mbie"]
 [ext_resource type="LightmapGIData" uid="uid://dlbh10wmb6hxp" path="res://modules/shell/prototype/gallery_walk4/baked/room.lmbake" id="57_o3wtj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_83uiw"]
 render_priority = 0
 shader = ExtResource("1_yksqi")
 shader_parameter/oak = ExtResource("2_83uiw")
-shader_parameter/parquet_macro = ExtResource("3_7frbv")
+shader_parameter/parquet_macro = ExtResource("3_o3wtj")
 shader_parameter/ground_tone = Color(0.88, 0.8, 0.72, 1)
 shader_parameter/floor_z_limits = Vector2(-26.3, 0)
 
@@ -82,7 +82,7 @@ _surfaces = [{
 cull_mode = 2
 specular_mode = 2
 albedo_color = Color(1.35, 1.45, 1.65, 1)
-albedo_texture = ExtResource("4_83uiw")
+albedo_texture = ExtResource("4_0oa23")
 uv1_scale = Vector3(0.25, 0.25, 1)
 texture_filter = 5
 
@@ -104,7 +104,7 @@ _surfaces = [{
 cull_mode = 2
 specular_mode = 2
 albedo_color = Color(1.35, 1.45, 1.65, 1)
-albedo_texture = ExtResource("4_83uiw")
+albedo_texture = ExtResource("4_0oa23")
 uv1_scale = Vector3(0.25, 0.25, 1)
 texture_filter = 5
 
@@ -146,7 +146,7 @@ _surfaces = [{
 cull_mode = 2
 specular_mode = 2
 albedo_color = Color(1, 0.97, 0.92, 1)
-albedo_texture = ExtResource("2_yn1v0")
+albedo_texture = ExtResource("5_hkak6")
 uv1_scale = Vector3(0.8, 0.8, 1)
 texture_filter = 5
 
@@ -187,7 +187,7 @@ _surfaces = [{
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpt6x"]
 cull_mode = 2
 specular_mode = 2
-albedo_texture = ExtResource("6_83uiw")
+albedo_texture = ExtResource("6_yxtfc")
 uv1_scale = Vector3(1, 3, 1)
 texture_filter = 5
 
@@ -209,7 +209,7 @@ _surfaces = [{
 cull_mode = 2
 specular_mode = 2
 albedo_color = Color(1.08, 1.04, 0.98, 1)
-albedo_texture = ExtResource("3_yksqi")
+albedo_texture = ExtResource("7_0637x")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_gpydh"]
@@ -229,7 +229,7 @@ _surfaces = [{
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wh851"]
 cull_mode = 2
 specular_mode = 2
-albedo_texture = ExtResource("53_v2n2s")
+albedo_texture = ExtResource("8_xvy1e")
 uv1_scale = Vector3(0.7, 0.7, 1)
 texture_filter = 5
 
@@ -250,7 +250,7 @@ _surfaces = [{
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_adcbp"]
 cull_mode = 2
 specular_mode = 2
-albedo_texture = ExtResource("53_v2n2s")
+albedo_texture = ExtResource("8_xvy1e")
 uv1_scale = Vector3(0.7, 0.7, 1)
 texture_filter = 5
 
@@ -293,14 +293,14 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.8862745, 0.8627451, 0.8039216, 1)
-albedo_texture = ExtResource("5_2g0w5")
+albedo_texture = ExtResource("9_ujh1e")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7eugj"]
 lightmap_size_hint = Vector2i(38, 210)
 _surfaces = [{
 "aabb": AABB(-2.1130912, 8.718924, -25.4, 4.2261825, 0.28107643, 24.5),
-"attribute_data": PackedByteArray("AAAAAAAAAAA2lFc8wQkcO9fcFz8AAAAAvRjZPcEJHDvX3Bc/AAAMQr0Y2T32Y38/AAAAAAAADEI2lFc89mN/P6VZmT8AAAAAiLFOPsEJHDulWZk/AAAMQoixTj72Y38/FejnPwAAAADDlJk+wQkcOxXo5z8AAAxCw5SZPvZjfz+onRtAAAAAAE2YzD7BCRw7qJ0bQAAADEJNmMw+9mN/P954Q0AAAAAAAAAAP8EJHDveeENAAAAMQgAAAD/2Y38/FFRrQAAAAADYsxk/wQkcOxRUa0AAAAxC2LMZP/Zjfz/ZfolAAAAAAJ01Mz/BCRw72X6JQAAADEKdNTM/9mN/P3UinUAAAAAAn1NMP8EJHDt1Ip1AAAAMQp9TTD/2Y38/Q32wQAAAAADq3GQ/wQkcO0N9sEAAAAxC6txkP/Zjfz/eeMNAAAAAAK+hfD/BCRw73njDQAAADEKvoXw/9mN/Pw=="),
+"attribute_data": PackedByteArray("AAAAAAAAAAA2lFc8wQkcOw29jT4AAAAAvRjZPcEJHDsNvY0+AADEQL0Y2T32Y38/AAAAAAAAxEA2lFc89mN/P3ggDz8AAAAAiLFOPsEJHDt4IA8/AADEQIixTj72Y38/NXJYPwAAAADDlJk+wQkcOzVyWD8AAMRAw5SZPvZjfz/QPZE/AAAAAE2YzD7BCRw70D2RPwAAxEBNmMw+9mN/P9Bwtj8AAAAAAAAAP8EJHDvQcLY/AADEQAAAAD/2Y38/z6PbPwAAAADYsxk/wQkcO8+j2z8AAMRA2LMZP/Zjfz9CVABAAAAAAJ01Mz/BCRw7QlQAQAAAxECdNTM/9mN/P7KoEkAAAAAAn1NMP8EJHDuyqBJAAADEQJ9TTD/2Y38/LrkkQAAAAADq3GQ/wQkcOy65JEAAAMRA6txkP/Zjfz/QcDZAAAAAAK+hfD/BCRw70HA2QAAAxECvoXw/9mN/Pw=="),
 "format": 34359742519,
 "index_count": 60,
 "index_data": PackedByteArray("AAABAAIAAAACAAMAAQAEAAUAAQAFAAIABAAGAAcABAAHAAUABgAIAAkABgAJAAcACAAKAAsACAALAAkACgAMAA0ACgANAAsADAAOAA8ADAAPAA0ADgAQABEADgARAA8AEAASABMAEAATABEAEgAUABUAEgAVABMA"),
@@ -317,7 +317,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("6_7frbv")
+albedo_texture = ExtResource("10_tlfsc")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_71n0y"]
@@ -342,7 +342,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("6_7frbv")
+albedo_texture = ExtResource("10_tlfsc")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xvtwt"]
@@ -364,7 +364,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("6_7frbv")
+albedo_texture = ExtResource("10_tlfsc")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_68s0x"]
@@ -385,7 +385,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("7_83uiw")
+albedo_texture = ExtResource("11_llwas")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_v8j5k"]
@@ -409,7 +409,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("8_o3wtj")
+albedo_texture = ExtResource("12_q6s0g")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_34u1i"]
@@ -434,7 +434,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("8_o3wtj")
+albedo_texture = ExtResource("12_q6s0g")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_acii8"]
@@ -456,7 +456,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("8_o3wtj")
+albedo_texture = ExtResource("12_q6s0g")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_m2qis"]
@@ -477,7 +477,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("9_0oa23")
+albedo_texture = ExtResource("13_xdvyo")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_s7mt8"]
@@ -501,7 +501,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("10_hkak6")
+albedo_texture = ExtResource("14_wpt6x")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fixx1"]
@@ -526,7 +526,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("10_hkak6")
+albedo_texture = ExtResource("14_wpt6x")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_e16s7"]
@@ -548,7 +548,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("10_hkak6")
+albedo_texture = ExtResource("14_wpt6x")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tegrj"]
@@ -569,7 +569,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("11_yxtfc")
+albedo_texture = ExtResource("15_ely3f")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_20g14"]
@@ -593,7 +593,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("12_0637x")
+albedo_texture = ExtResource("16_gucsa")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3qyne"]
@@ -618,7 +618,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("12_0637x")
+albedo_texture = ExtResource("16_gucsa")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hj2wk"]
@@ -640,7 +640,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("12_0637x")
+albedo_texture = ExtResource("16_gucsa")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_y2fj7"]
@@ -661,7 +661,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("13_xvy1e")
+albedo_texture = ExtResource("17_gpydh")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_a52a5"]
@@ -685,7 +685,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("14_ujh1e")
+albedo_texture = ExtResource("18_wh851")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_u11kk"]
@@ -710,7 +710,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("14_ujh1e")
+albedo_texture = ExtResource("18_wh851")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qlp7u"]
@@ -732,7 +732,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("14_ujh1e")
+albedo_texture = ExtResource("18_wh851")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xyr65"]
@@ -753,7 +753,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("15_tlfsc")
+albedo_texture = ExtResource("19_wixi6")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fisoq"]
@@ -774,7 +774,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("16_llwas")
+albedo_texture = ExtResource("20_adcbp")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fki7k"]
@@ -818,7 +818,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("17_q6s0g")
+albedo_texture = ExtResource("21_fntxj")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fknsn"]
@@ -843,7 +843,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("17_q6s0g")
+albedo_texture = ExtResource("21_fntxj")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lpps8"]
@@ -865,7 +865,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("17_q6s0g")
+albedo_texture = ExtResource("21_fntxj")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_01ydx"]
@@ -886,7 +886,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("18_xdvyo")
+albedo_texture = ExtResource("22_mxqko")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_atf8y"]
@@ -910,7 +910,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("19_wpt6x")
+albedo_texture = ExtResource("23_lc4ag")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bk3yb"]
@@ -935,7 +935,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("19_wpt6x")
+albedo_texture = ExtResource("23_lc4ag")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1adni"]
@@ -957,7 +957,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("19_wpt6x")
+albedo_texture = ExtResource("23_lc4ag")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vmmdg"]
@@ -978,7 +978,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("20_ely3f")
+albedo_texture = ExtResource("24_3148j")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7i8k5"]
@@ -1002,7 +1002,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("21_gucsa")
+albedo_texture = ExtResource("25_7eugj")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_coujt"]
@@ -1027,7 +1027,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("21_gucsa")
+albedo_texture = ExtResource("25_7eugj")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mqui4"]
@@ -1049,7 +1049,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("21_gucsa")
+albedo_texture = ExtResource("25_7eugj")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8luwh"]
@@ -1070,7 +1070,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("22_gpydh")
+albedo_texture = ExtResource("26_sb4sf")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_in6n1"]
@@ -1094,7 +1094,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("23_wh851")
+albedo_texture = ExtResource("27_71n0y")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kjj6m"]
@@ -1119,7 +1119,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("23_wh851")
+albedo_texture = ExtResource("27_71n0y")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_h2da1"]
@@ -1141,7 +1141,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("23_wh851")
+albedo_texture = ExtResource("27_71n0y")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kxcig"]
@@ -1162,7 +1162,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("24_wixi6")
+albedo_texture = ExtResource("28_nt3gf")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_wd072"]
@@ -1186,7 +1186,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("25_adcbp")
+albedo_texture = ExtResource("29_xvtwt")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5y2fl"]
@@ -1211,7 +1211,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("25_adcbp")
+albedo_texture = ExtResource("29_xvtwt")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_i7lil"]
@@ -1233,7 +1233,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("25_adcbp")
+albedo_texture = ExtResource("29_xvtwt")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_clmff"]
@@ -1254,7 +1254,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("26_fntxj")
+albedo_texture = ExtResource("30_njsa2")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_474kt"]
@@ -1278,7 +1278,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("27_mxqko")
+albedo_texture = ExtResource("31_68s0x")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vcm6c"]
@@ -1303,7 +1303,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("27_mxqko")
+albedo_texture = ExtResource("31_68s0x")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ey58j"]
@@ -1325,7 +1325,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("27_mxqko")
+albedo_texture = ExtResource("31_68s0x")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_au6ec"]
@@ -1346,7 +1346,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("28_lc4ag")
+albedo_texture = ExtResource("32_5mric")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nbvpd"]
@@ -1370,7 +1370,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("29_3148j")
+albedo_texture = ExtResource("33_v8j5k")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_svbl3"]
@@ -1395,7 +1395,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("29_3148j")
+albedo_texture = ExtResource("33_v8j5k")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_75aif"]
@@ -1417,7 +1417,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("29_3148j")
+albedo_texture = ExtResource("33_v8j5k")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fq2ae"]
@@ -1438,7 +1438,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("30_7eugj")
+albedo_texture = ExtResource("34_6cqma")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_872pq"]
@@ -1462,7 +1462,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("31_sb4sf")
+albedo_texture = ExtResource("35_34u1i")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_b6vmk"]
@@ -1487,7 +1487,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("31_sb4sf")
+albedo_texture = ExtResource("35_34u1i")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_a56jr"]
@@ -1509,7 +1509,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("31_sb4sf")
+albedo_texture = ExtResource("35_34u1i")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_x8pto"]
@@ -1530,7 +1530,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("32_71n0y")
+albedo_texture = ExtResource("36_f3s0u")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_c74n4"]
@@ -1554,7 +1554,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("33_nt3gf")
+albedo_texture = ExtResource("37_acii8")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_cnmsl"]
@@ -1579,7 +1579,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("33_nt3gf")
+albedo_texture = ExtResource("37_acii8")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1f4qo"]
@@ -1601,7 +1601,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("33_nt3gf")
+albedo_texture = ExtResource("37_acii8")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_dlhdy"]
@@ -1622,7 +1622,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("34_xvtwt")
+albedo_texture = ExtResource("38_1ff7l")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xmsei"]
@@ -1646,7 +1646,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("35_njsa2")
+albedo_texture = ExtResource("39_m2qis")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3toe4"]
@@ -1671,7 +1671,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("35_njsa2")
+albedo_texture = ExtResource("39_m2qis")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hnvyb"]
@@ -1693,7 +1693,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("35_njsa2")
+albedo_texture = ExtResource("39_m2qis")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3rsv5"]
@@ -1714,7 +1714,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("36_68s0x")
+albedo_texture = ExtResource("40_6im5r")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_su8la"]
@@ -1738,7 +1738,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("37_5mric")
+albedo_texture = ExtResource("41_s7mt8")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_swghi"]
@@ -1763,7 +1763,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("37_5mric")
+albedo_texture = ExtResource("41_s7mt8")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8svqv"]
@@ -1785,7 +1785,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("37_5mric")
+albedo_texture = ExtResource("41_s7mt8")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vsiv3"]
@@ -1806,7 +1806,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("38_v8j5k")
+albedo_texture = ExtResource("42_sru7r")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_trn74"]
@@ -1830,7 +1830,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("39_6cqma")
+albedo_texture = ExtResource("43_fixx1")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_f0enh"]
@@ -1855,7 +1855,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("39_6cqma")
+albedo_texture = ExtResource("43_fixx1")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qotv4"]
@@ -1877,7 +1877,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("39_6cqma")
+albedo_texture = ExtResource("43_fixx1")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_gr25a"]
@@ -1898,7 +1898,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("40_34u1i")
+albedo_texture = ExtResource("44_l0iri")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_p8opo"]
@@ -1922,7 +1922,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("41_f3s0u")
+albedo_texture = ExtResource("45_e16s7")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hg1j4"]
@@ -1947,7 +1947,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("41_f3s0u")
+albedo_texture = ExtResource("45_e16s7")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_opdst"]
@@ -1969,7 +1969,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("41_f3s0u")
+albedo_texture = ExtResource("45_e16s7")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_j1p7t"]
@@ -1990,7 +1990,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("42_acii8")
+albedo_texture = ExtResource("46_arvs0")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ju2gk"]
@@ -2014,7 +2014,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("43_1ff7l")
+albedo_texture = ExtResource("47_tegrj")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_agttx"]
@@ -2039,7 +2039,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("43_1ff7l")
+albedo_texture = ExtResource("47_tegrj")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_uciom"]
@@ -2061,7 +2061,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("43_1ff7l")
+albedo_texture = ExtResource("47_tegrj")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4lvsf"]
@@ -2082,7 +2082,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("44_m2qis")
+albedo_texture = ExtResource("48_62g35")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hqud5"]
@@ -2106,7 +2106,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("45_6im5r")
+albedo_texture = ExtResource("49_20g14")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_2v8ap"]
@@ -2131,7 +2131,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("45_6im5r")
+albedo_texture = ExtResource("49_20g14")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ds32m"]
@@ -2153,7 +2153,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("45_6im5r")
+albedo_texture = ExtResource("49_20g14")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_x681k"]
@@ -2174,7 +2174,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("46_s7mt8")
+albedo_texture = ExtResource("50_xtaij")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_r3xl6"]
@@ -2198,7 +2198,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("47_sru7r")
+albedo_texture = ExtResource("51_3qyne")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_uylaa"]
@@ -2223,7 +2223,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("47_sru7r")
+albedo_texture = ExtResource("51_3qyne")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4aagi"]
@@ -2245,7 +2245,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("47_sru7r")
+albedo_texture = ExtResource("51_3qyne")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3h0db"]
@@ -2266,7 +2266,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("48_fixx1")
+albedo_texture = ExtResource("52_dfqig")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kci62"]
@@ -2290,7 +2290,7 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("49_l0iri")
+albedo_texture = ExtResource("53_hj2wk")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1kise"]
@@ -2315,7 +2315,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.6, 0.6, 0.6, 1)
-albedo_texture = ExtResource("49_l0iri")
+albedo_texture = ExtResource("53_hj2wk")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fcup6"]
@@ -2337,7 +2337,7 @@ cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.45, 0.45, 0.45, 1)
-albedo_texture = ExtResource("49_l0iri")
+albedo_texture = ExtResource("53_hj2wk")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3wvxj"]
@@ -2358,7 +2358,7 @@ _surfaces = [{
 cull_mode = 2
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("50_e16s7")
+albedo_texture = ExtResource("54_n7qok")
 texture_filter = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mwttf"]
@@ -2538,7 +2538,7 @@ _surfaces = [{
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1pda"]
 cull_mode = 2
 specular_mode = 2
-albedo_texture = ExtResource("53_2g0w5")
+albedo_texture = ExtResource("55_y2fj7")
 uv1_scale = Vector3(2.9411764, 6.6666665, 1)
 texture_filter = 5
 
@@ -2559,7 +2559,7 @@ _surfaces = [{
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38qn0"]
 cull_mode = 2
 specular_mode = 2
-albedo_texture = ExtResource("53_v2n2s")
+albedo_texture = ExtResource("8_xvy1e")
 uv1_scale = Vector3(0.7, 0.7, 1)
 texture_filter = 5
 
@@ -2581,7 +2581,7 @@ _surfaces = [{
 cull_mode = 2
 specular_mode = 2
 albedo_color = Color(1, 0.98, 0.91, 1)
-albedo_texture = ExtResource("53_v2n2s")
+albedo_texture = ExtResource("8_xvy1e")
 uv1_scale = Vector3(0.65, 0.65, 1)
 texture_filter = 5
 
@@ -2603,7 +2603,7 @@ _surfaces = [{
 cull_mode = 2
 specular_mode = 2
 albedo_color = Color(1.0289999, 1.0094, 0.9506, 0.98)
-albedo_texture = ExtResource("54_2g0w5")
+albedo_texture = ExtResource("56_7mbie")
 uv1_scale = Vector3(0.52, 1, 1)
 texture_filter = 5
 
@@ -2625,7 +2625,7 @@ _surfaces = [{
 cull_mode = 2
 specular_mode = 2
 albedo_color = Color(1.05, 1.03, 0.97, 1)
-albedo_texture = ExtResource("54_2g0w5")
+albedo_texture = ExtResource("56_7mbie")
 uv1_scale = Vector3(0.52, 1, 1)
 texture_filter = 5
 
@@ -2647,7 +2647,7 @@ _surfaces = [{
 cull_mode = 2
 specular_mode = 2
 albedo_color = Color(0.83, 0.79, 0.71, 1)
-albedo_texture = ExtResource("54_2g0w5")
+albedo_texture = ExtResource("56_7mbie")
 uv1_scale = Vector3(0.52, 1, 1)
 texture_filter = 5
 
@@ -2669,7 +2669,7 @@ _surfaces = [{
 cull_mode = 2
 specular_mode = 2
 albedo_color = Color(1.026, 1.218, 1.584, 1)
-albedo_texture = ExtResource("4_83uiw")
+albedo_texture = ExtResource("4_0oa23")
 uv1_scale = Vector3(0.25, 0.25, 1)
 texture_filter = 5
 
@@ -2751,7 +2751,7 @@ _surfaces = [{
 cull_mode = 2
 specular_mode = 2
 albedo_color = Color(1.35, 1.45, 1.65, 1)
-albedo_texture = ExtResource("4_83uiw")
+albedo_texture = ExtResource("4_0oa23")
 uv1_scale = Vector3(0.25, 0.25, 1)
 texture_filter = 5
 
@@ -2769,1184 +2769,1184 @@ _surfaces = [{
 "vertex_data": PackedByteArray("MzNzP2ZmRkAAAAAAMzPzPmZmRkAAAAAAMzPzPlVVZUAAAAAAMzNzP1VVZUAAAAAAAAAAAGZmRkAAAAAAAAAAAFVVZUAAAAAAMjPzvmZmRkAAAAAAMjPzvlVVZUAAAAAAMzNzv2ZmRkAAAAAAMzNzv1VVZUAAAAAAMzPzPiIigkAAAAAAMzNzPyIigkAAAAAAAAAAACIigkAAAAAAMjPzviIigkAAAAAAMzNzvyIigkAAAAAAMzPzPpqZkUAAAAAAMzNzP5qZkUAAAAAAAAAAAJqZkUAAAAAAMjPzvpqZkUAAAAAAMzNzv5qZkUAAAAAAMzPzPhERoUAAAAAAMzNzPxERoUAAAAAAAAAAABERoUAAAAAAMjPzvhERoUAAAAAAMzNzvxERoUAAAAAAMzPzPoiIsEAAAAAAMzNzP4iIsEAAAAAAAAAAAIiIsEAAAAAAMjPzvoiIsEAAAAAAMzNzv4iIsEAAAAAAMzPzPgAAwEAAAAAAMzNzPwAAwEAAAAAAAAAAAAAAwEAAAAAAMjPzvgAAwEAAAAAAMzNzvwAAwEAAAAAAMzNzvwAAAAAAAAAAMzOzvwAAAAAAAAAAMzOzvwAAAD8AAAAAMzNzvwAAAD8AAAAAzczsvwAAAAAAAAAAzczsvwAAAD8AAAAANDMTwAAAAAAAAAAANDMTwAAAAD8AAAAAAAAwwAAAAAAAAAAAAAAwwAAAAD8AAAAAzsxMwAAAAAAAAAAAzsxMwAAAAD8AAAAAm5lpwAAAAAAAAAAAm5lpwAAAAD8AAAAAMzODwAAAAAAAAAAAMzODwAAAAD8AAAAAmpmRwAAAAAAAAAAAmpmRwAAAAD8AAAAAAACgwAAAAAAAAAAAAACgwAAAAD8AAAAAMzOzvwAAgD8AAAAAMzNzvwAAgD8AAAAAzczsvwAAgD8AAAAANDMTwAAAgD8AAAAAAAAwwAAAgD8AAAAAzsxMwAAAgD8AAAAAm5lpwAAAgD8AAAAAMzODwAAAgD8AAAAAmpmRwAAAgD8AAAAAAACgwAAAgD8AAAAAMzOzvwAAwD8AAAAAMzNzvwAAwD8AAAAAzczsvwAAwD8AAAAANDMTwAAAwD8AAAAAAAAwwAAAwD8AAAAAzsxMwAAAwD8AAAAAm5lpwAAAwD8AAAAAMzODwAAAwD8AAAAAmpmRwAAAwD8AAAAAAACgwAAAwD8AAAAAMzOzvwAAAEAAAAAAMzNzvwAAAEAAAAAAzczsvwAAAEAAAAAANDMTwAAAAEAAAAAAAAAwwAAAAEAAAAAAzsxMwAAAAEAAAAAAm5lpwAAAAEAAAAAAMzODwAAAAEAAAAAAmpmRwAAAAEAAAAAAAACgwAAAAEAAAAAAMzOzvwAAIEAAAAAAMzNzvwAAIEAAAAAAzczsvwAAIEAAAAAANDMTwAAAIEAAAAAAAAAwwAAAIEAAAAAAzsxMwAAAIEAAAAAAm5lpwAAAIEAAAAAAMzODwAAAIEAAAAAAmpmRwAAAIEAAAAAAAACgwAAAIEAAAAAAMzOzvwAAQEAAAAAAMzNzvwAAQEAAAAAAzczsvwAAQEAAAAAANDMTwAAAQEAAAAAAAAAwwAAAQEAAAAAAzsxMwAAAQEAAAAAAm5lpwAAAQEAAAAAAMzODwAAAQEAAAAAAmpmRwAAAQEAAAAAAAACgwAAAQEAAAAAAMzOzvwAAYEAAAAAAMzNzvwAAYEAAAAAAzczsvwAAYEAAAAAANDMTwAAAYEAAAAAAAAAwwAAAYEAAAAAAzsxMwAAAYEAAAAAAm5lpwAAAYEAAAAAAMzODwAAAYEAAAAAAmpmRwAAAYEAAAAAAAACgwAAAYEAAAAAAMzOzvwAAgEAAAAAAMzNzvwAAgEAAAAAAzczsvwAAgEAAAAAANDMTwAAAgEAAAAAAAAAwwAAAgEAAAAAAzsxMwAAAgEAAAAAAm5lpwAAAgEAAAAAAMzODwAAAgEAAAAAAmpmRwAAAgEAAAAAAAACgwAAAgEAAAAAAMzOzvwAAkEAAAAAAMzNzvwAAkEAAAAAAzczsvwAAkEAAAAAANDMTwAAAkEAAAAAAAAAwwAAAkEAAAAAAzsxMwAAAkEAAAAAAm5lpwAAAkEAAAAAAMzODwAAAkEAAAAAAmpmRwAAAkEAAAAAAAACgwAAAkEAAAAAAMzOzvwAAoEAAAAAAMzNzvwAAoEAAAAAAzczsvwAAoEAAAAAANDMTwAAAoEAAAAAAAAAwwAAAoEAAAAAAzsxMwAAAoEAAAAAAm5lpwAAAoEAAAAAAMzODwAAAoEAAAAAAmpmRwAAAoEAAAAAAAACgwAAAoEAAAAAAMzOzvwAAsEAAAAAAMzNzvwAAsEAAAAAAzczsvwAAsEAAAAAANDMTwAAAsEAAAAAAAAAwwAAAsEAAAAAAzsxMwAAAsEAAAAAAm5lpwAAAsEAAAAAAMzODwAAAsEAAAAAAmpmRwAAAsEAAAAAAAACgwAAAsEAAAAAAMzOzvwAAwEAAAAAAMzNzvwAAwEAAAAAAzczsvwAAwEAAAAAANDMTwAAAwEAAAAAAAAAwwAAAwEAAAAAAzsxMwAAAwEAAAAAAm5lpwAAAwEAAAAAAMzODwAAAwEAAAAAAmpmRwAAAwEAAAAAAAACgwAAAwEAAAAAAAACgQAAAAAAAAAAAmpmRQAAAAAAAAAAAmpmRQAAAAD8AAAAAAACgQAAAAD8AAAAAMzODQAAAAAAAAAAAMzODQAAAAD8AAAAAmZlpQAAAAAAAAAAAmZlpQAAAAD8AAAAAzMxMQAAAAAAAAAAAzMxMQAAAAD8AAAAA//8vQAAAAAAAAAAA//8vQAAAAD8AAAAAMjMTQAAAAAAAAAAAMjMTQAAAAD8AAAAAzMzsPwAAAAAAAAAAzMzsPwAAAD8AAAAAMjOzPwAAAAAAAAAAMjOzPwAAAD8AAAAAMDNzPwAAAAAAAAAAMDNzPwAAAD8AAAAAmpmRQAAAgD8AAAAAAACgQAAAgD8AAAAAMzODQAAAgD8AAAAAmZlpQAAAgD8AAAAAzMxMQAAAgD8AAAAA//8vQAAAgD8AAAAAMjMTQAAAgD8AAAAAzMzsPwAAgD8AAAAAMjOzPwAAgD8AAAAAMDNzPwAAgD8AAAAAmpmRQAAAwD8AAAAAAACgQAAAwD8AAAAAMzODQAAAwD8AAAAAmZlpQAAAwD8AAAAAzMxMQAAAwD8AAAAA//8vQAAAwD8AAAAAMjMTQAAAwD8AAAAAzMzsPwAAwD8AAAAAMjOzPwAAwD8AAAAAMDNzPwAAwD8AAAAAmpmRQAAAAEAAAAAAAACgQAAAAEAAAAAAMzODQAAAAEAAAAAAmZlpQAAAAEAAAAAAzMxMQAAAAEAAAAAA//8vQAAAAEAAAAAAMjMTQAAAAEAAAAAAzMzsPwAAAEAAAAAAMjOzPwAAAEAAAAAAMDNzPwAAAEAAAAAAmpmRQAAAIEAAAAAAAACgQAAAIEAAAAAAMzODQAAAIEAAAAAAmZlpQAAAIEAAAAAAzMxMQAAAIEAAAAAA//8vQAAAIEAAAAAAMjMTQAAAIEAAAAAAzMzsPwAAIEAAAAAAMjOzPwAAIEAAAAAAMDNzPwAAIEAAAAAAmpmRQAAAQEAAAAAAAACgQAAAQEAAAAAAMzODQAAAQEAAAAAAmZlpQAAAQEAAAAAAzMxMQAAAQEAAAAAA//8vQAAAQEAAAAAAMjMTQAAAQEAAAAAAzMzsPwAAQEAAAAAAMjOzPwAAQEAAAAAAMDNzPwAAQEAAAAAAmpmRQAAAYEAAAAAAAACgQAAAYEAAAAAAMzODQAAAYEAAAAAAmZlpQAAAYEAAAAAAzMxMQAAAYEAAAAAA//8vQAAAYEAAAAAAMjMTQAAAYEAAAAAAzMzsPwAAYEAAAAAAMjOzPwAAYEAAAAAAMDNzPwAAYEAAAAAAmpmRQAAAgEAAAAAAAACgQAAAgEAAAAAAMzODQAAAgEAAAAAAmZlpQAAAgEAAAAAAzMxMQAAAgEAAAAAA//8vQAAAgEAAAAAAMjMTQAAAgEAAAAAAzMzsPwAAgEAAAAAAMjOzPwAAgEAAAAAAMDNzPwAAgEAAAAAAmpmRQAAAkEAAAAAAAACgQAAAkEAAAAAAMzODQAAAkEAAAAAAmZlpQAAAkEAAAAAAzMxMQAAAkEAAAAAA//8vQAAAkEAAAAAAMjMTQAAAkEAAAAAAzMzsPwAAkEAAAAAAMjOzPwAAkEAAAAAAMDNzPwAAkEAAAAAAmpmRQAAAoEAAAAAAAACgQAAAoEAAAAAAMzODQAAAoEAAAAAAmZlpQAAAoEAAAAAAzMxMQAAAoEAAAAAA//8vQAAAoEAAAAAAMjMTQAAAoEAAAAAAzMzsPwAAoEAAAAAAMjOzPwAAoEAAAAAAMDNzPwAAoEAAAAAAmpmRQAAAsEAAAAAAAACgQAAAsEAAAAAAMzODQAAAsEAAAAAAmZlpQAAAsEAAAAAAzMxMQAAAsEAAAAAA//8vQAAAsEAAAAAAMjMTQAAAsEAAAAAAzMzsPwAAsEAAAAAAMjOzPwAAsEAAAAAAMDNzPwAAsEAAAAAAmpmRQAAAwEAAAAAAAACgQAAAwEAAAAAAMzODQAAAwEAAAAAAmZlpQAAAwEAAAAAAzMxMQAAAwEAAAAAA//8vQAAAwEAAAAAAMjMTQAAAwEAAAAAAzMzsPwAAwEAAAAAAMjOzPwAAwEAAAAAAMDNzPwAAwEAAAAAA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AID//////38AgP//////fwCA//////9/AIA=")
 }]
 
-[node name="BakedRoom" type="Node3D" unique_id=951542826]
+[node name="BakedRoom" type="Node3D" unique_id=280298098]
 
-[node name="Surface000" type="MeshInstance3D" parent="." unique_id=1226589936]
+[node name="Surface000" type="MeshInstance3D" parent="." unique_id=849563031]
 material_override = SubResource("ShaderMaterial_83uiw")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_o3wtj")
 
-[node name="Surface001" type="MeshInstance3D" parent="." unique_id=1049026544]
+[node name="Surface001" type="MeshInstance3D" parent="." unique_id=1557339112]
 layers = 2
 material_override = SubResource("StandardMaterial3D_0oa23")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_hkak6")
 
-[node name="Surface002" type="MeshInstance3D" parent="." unique_id=1457915486]
+[node name="Surface002" type="MeshInstance3D" parent="." unique_id=1060473180]
 layers = 4
 material_override = SubResource("StandardMaterial3D_yxtfc")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_0637x")
 
-[node name="Surface003" type="MeshInstance3D" parent="." unique_id=661129039]
+[node name="Surface003" type="MeshInstance3D" parent="." unique_id=1576091790]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7199998, -0.04)
 layers = 8
 material_override = SubResource("StandardMaterial3D_xvy1e")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_ujh1e")
 
-[node name="Surface004" type="MeshInstance3D" parent="." unique_id=1068148560]
+[node name="Surface004" type="MeshInstance3D" parent="." unique_id=753500857]
 layers = 8
 material_override = SubResource("StandardMaterial3D_tlfsc")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_llwas")
 
-[node name="Surface005" type="MeshInstance3D" parent="." unique_id=521484887]
+[node name="Surface005" type="MeshInstance3D" parent="." unique_id=1055029744]
 layers = 8
 material_override = SubResource("StandardMaterial3D_q6s0g")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_xdvyo")
 
-[node name="Surface006" type="MeshInstance3D" parent="." unique_id=415901913]
+[node name="Surface006" type="MeshInstance3D" parent="." unique_id=1093443165]
 layers = 8
 material_override = SubResource("StandardMaterial3D_wpt6x")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_ely3f")
 
-[node name="Surface007" type="MeshInstance3D" parent="." unique_id=534733771]
+[node name="Surface007" type="MeshInstance3D" parent="." unique_id=1887785880]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2.5, 6.64)
 layers = 8
 material_override = SubResource("StandardMaterial3D_gucsa")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_gpydh")
 
-[node name="Surface008" type="MeshInstance3D" parent="." unique_id=402366199]
+[node name="Surface008" type="MeshInstance3D" parent="." unique_id=1159544920]
 layers = 2
 material_override = SubResource("StandardMaterial3D_wh851")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_wixi6")
 
-[node name="Surface009" type="MeshInstance3D" parent="." unique_id=361832250]
+[node name="Surface009" type="MeshInstance3D" parent="." unique_id=678228117]
 layers = 4
 material_override = SubResource("StandardMaterial3D_adcbp")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_fntxj")
 
-[node name="Surface010" type="MeshInstance3D" parent="." unique_id=1704317235]
+[node name="Surface010" type="MeshInstance3D" parent="." unique_id=454987267]
 layers = 32
 material_override = SubResource("StandardMaterial3D_mxqko")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_lc4ag")
 
-[node name="Surface011" type="MeshInstance3D" parent="." unique_id=1080251292]
+[node name="Surface011" type="MeshInstance3D" parent="." unique_id=1191253912]
 layers = 32
 material_override = SubResource("StandardMaterial3D_3148j")
 cast_shadow = 0
 gi_mode = 0
 mesh = SubResource("ArrayMesh_7eugj")
 
-[node name="Surface012" type="MeshInstance3D" parent="." unique_id=1737356694]
+[node name="Surface012" type="MeshInstance3D" parent="." unique_id=1535913087]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -2.2311482)
 layers = 2
 material_override = SubResource("StandardMaterial3D_sb4sf")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_71n0y")
 
-[node name="Surface013" type="MeshInstance3D" parent="." unique_id=1029267311]
+[node name="Surface013" type="MeshInstance3D" parent="." unique_id=858215250]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -2.2311482)
 layers = 2
 material_override = SubResource("StandardMaterial3D_nt3gf")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_xvtwt")
 
-[node name="Surface014" type="MeshInstance3D" parent="." unique_id=849792956]
+[node name="Surface014" type="MeshInstance3D" parent="." unique_id=642783348]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -2.2311482)
 layers = 2
 material_override = SubResource("StandardMaterial3D_njsa2")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_68s0x")
 
-[node name="Surface015" type="MeshInstance3D" parent="." unique_id=2133562568]
+[node name="Surface015" type="MeshInstance3D" parent="." unique_id=409040191]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -2.2311482)
 layers = 2
 material_override = SubResource("StandardMaterial3D_5mric")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_v8j5k")
 
-[node name="Surface016" type="MeshInstance3D" parent="." unique_id=226351557]
+[node name="Surface016" type="MeshInstance3D" parent="." unique_id=1060055436]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.5, -4.3606734)
 layers = 2
 material_override = SubResource("StandardMaterial3D_6cqma")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_34u1i")
 
-[node name="Surface017" type="MeshInstance3D" parent="." unique_id=2135232087]
+[node name="Surface017" type="MeshInstance3D" parent="." unique_id=1143296342]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.5, -4.3606734)
 layers = 2
 material_override = SubResource("StandardMaterial3D_f3s0u")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_acii8")
 
-[node name="Surface018" type="MeshInstance3D" parent="." unique_id=1121338340]
+[node name="Surface018" type="MeshInstance3D" parent="." unique_id=1800286543]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.5, -4.3606734)
 layers = 2
 material_override = SubResource("StandardMaterial3D_1ff7l")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_m2qis")
 
-[node name="Surface019" type="MeshInstance3D" parent="." unique_id=1511351264]
+[node name="Surface019" type="MeshInstance3D" parent="." unique_id=40320847]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.5, -4.3606734)
 layers = 2
 material_override = SubResource("StandardMaterial3D_6im5r")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_s7mt8")
 
-[node name="Surface020" type="MeshInstance3D" parent="." unique_id=1109486925]
+[node name="Surface020" type="MeshInstance3D" parent="." unique_id=350745332]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -6.5040536)
 layers = 2
 material_override = SubResource("StandardMaterial3D_sru7r")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_fixx1")
 
-[node name="Surface021" type="MeshInstance3D" parent="." unique_id=1187449398]
+[node name="Surface021" type="MeshInstance3D" parent="." unique_id=1366049886]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -6.5040536)
 layers = 2
 material_override = SubResource("StandardMaterial3D_l0iri")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_e16s7")
 
-[node name="Surface022" type="MeshInstance3D" parent="." unique_id=1207311411]
+[node name="Surface022" type="MeshInstance3D" parent="." unique_id=1299337520]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -6.5040536)
 layers = 2
 material_override = SubResource("StandardMaterial3D_arvs0")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_tegrj")
 
-[node name="Surface023" type="MeshInstance3D" parent="." unique_id=734653681]
+[node name="Surface023" type="MeshInstance3D" parent="." unique_id=1512705771]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -6.5040536)
 layers = 2
 material_override = SubResource("StandardMaterial3D_62g35")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_20g14")
 
-[node name="Surface024" type="MeshInstance3D" parent="." unique_id=865259926]
+[node name="Surface024" type="MeshInstance3D" parent="." unique_id=501694710]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -8.556713)
 layers = 2
 material_override = SubResource("StandardMaterial3D_xtaij")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_3qyne")
 
-[node name="Surface025" type="MeshInstance3D" parent="." unique_id=28758279]
+[node name="Surface025" type="MeshInstance3D" parent="." unique_id=1122767314]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -8.556713)
 layers = 2
 material_override = SubResource("StandardMaterial3D_dfqig")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_hj2wk")
 
-[node name="Surface026" type="MeshInstance3D" parent="." unique_id=1298426144]
+[node name="Surface026" type="MeshInstance3D" parent="." unique_id=1764792673]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -8.556713)
 layers = 2
 material_override = SubResource("StandardMaterial3D_n7qok")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_y2fj7")
 
-[node name="Surface027" type="MeshInstance3D" parent="." unique_id=1492168615]
+[node name="Surface027" type="MeshInstance3D" parent="." unique_id=65638528]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -8.556713)
 layers = 2
 material_override = SubResource("StandardMaterial3D_7mbie")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_a52a5")
 
-[node name="Surface028" type="MeshInstance3D" parent="." unique_id=1726804982]
+[node name="Surface028" type="MeshInstance3D" parent="." unique_id=1930224259]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -10.74448)
 layers = 2
 material_override = SubResource("StandardMaterial3D_wqrpr")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_u11kk")
 
-[node name="Surface029" type="MeshInstance3D" parent="." unique_id=1311066336]
+[node name="Surface029" type="MeshInstance3D" parent="." unique_id=1574321472]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -10.74448)
 layers = 2
 material_override = SubResource("StandardMaterial3D_xjc4b")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_qlp7u")
 
-[node name="Surface030" type="MeshInstance3D" parent="." unique_id=665490790]
+[node name="Surface030" type="MeshInstance3D" parent="." unique_id=698953202]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -10.74448)
 layers = 2
 material_override = SubResource("StandardMaterial3D_eoc52")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_xyr65")
 
-[node name="Surface031" type="MeshInstance3D" parent="." unique_id=942700026]
+[node name="Surface031" type="MeshInstance3D" parent="." unique_id=1186915722]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -10.74448)
 layers = 2
 material_override = SubResource("StandardMaterial3D_4h6px")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_fisoq")
 
-[node name="Surface032" type="MeshInstance3D" parent="." unique_id=1315433489]
+[node name="Surface032" type="MeshInstance3D" parent="." unique_id=1432338031]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 2.855, -13.2896595)
 layers = 2
 material_override = SubResource("StandardMaterial3D_5kkgm")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_fki7k")
 
-[node name="Surface033" type="MeshInstance3D" parent="." unique_id=753512942]
+[node name="Surface033" type="MeshInstance3D" parent="." unique_id=1841599045]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 2.855, -13.2896595)
 layers = 2
 material_override = SubResource("StandardMaterial3D_ljki2")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_40atw")
 
-[node name="Surface034" type="MeshInstance3D" parent="." unique_id=1987973398]
+[node name="Surface034" type="MeshInstance3D" parent="." unique_id=1754898427]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -16.094774)
 layers = 2
 material_override = SubResource("StandardMaterial3D_c1qan")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_fknsn")
 
-[node name="Surface035" type="MeshInstance3D" parent="." unique_id=868442425]
+[node name="Surface035" type="MeshInstance3D" parent="." unique_id=658934927]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -16.094774)
 layers = 2
 material_override = SubResource("StandardMaterial3D_081pl")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_lpps8")
 
-[node name="Surface036" type="MeshInstance3D" parent="." unique_id=1706159790]
+[node name="Surface036" type="MeshInstance3D" parent="." unique_id=1347203742]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -16.094774)
 layers = 2
 material_override = SubResource("StandardMaterial3D_l6xkq")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_01ydx")
 
-[node name="Surface037" type="MeshInstance3D" parent="." unique_id=178830875]
+[node name="Surface037" type="MeshInstance3D" parent="." unique_id=1240875094]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -16.094774)
 layers = 2
 material_override = SubResource("StandardMaterial3D_lc6ge")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_atf8y")
 
-[node name="Surface038" type="MeshInstance3D" parent="." unique_id=519410807]
+[node name="Surface038" type="MeshInstance3D" parent="." unique_id=899741550]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.6706917, -18.635756)
 layers = 2
 material_override = SubResource("StandardMaterial3D_tn616")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_bk3yb")
 
-[node name="Surface039" type="MeshInstance3D" parent="." unique_id=2034165780]
+[node name="Surface039" type="MeshInstance3D" parent="." unique_id=162768940]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.6706917, -18.635756)
 layers = 2
 material_override = SubResource("StandardMaterial3D_cs5sh")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_1adni")
 
-[node name="Surface040" type="MeshInstance3D" parent="." unique_id=437739477]
+[node name="Surface040" type="MeshInstance3D" parent="." unique_id=1084764424]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.6706917, -18.635756)
 layers = 2
 material_override = SubResource("StandardMaterial3D_ohbo7")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_vmmdg")
 
-[node name="Surface041" type="MeshInstance3D" parent="." unique_id=1828605420]
+[node name="Surface041" type="MeshInstance3D" parent="." unique_id=810361734]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.6706917, -18.635756)
 layers = 2
 material_override = SubResource("StandardMaterial3D_xm5tp")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_7i8k5")
 
-[node name="Surface042" type="MeshInstance3D" parent="." unique_id=1891756826]
+[node name="Surface042" type="MeshInstance3D" parent="." unique_id=1774377754]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -21.024601)
 layers = 2
 material_override = SubResource("StandardMaterial3D_lbxt3")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_coujt")
 
-[node name="Surface043" type="MeshInstance3D" parent="." unique_id=1936435931]
+[node name="Surface043" type="MeshInstance3D" parent="." unique_id=1639922047]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -21.024601)
 layers = 2
 material_override = SubResource("StandardMaterial3D_ca6ef")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_mqui4")
 
-[node name="Surface044" type="MeshInstance3D" parent="." unique_id=1129867403]
+[node name="Surface044" type="MeshInstance3D" parent="." unique_id=309315897]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -21.024601)
 layers = 2
 material_override = SubResource("StandardMaterial3D_qau0d")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_8luwh")
 
-[node name="Surface045" type="MeshInstance3D" parent="." unique_id=697204723]
+[node name="Surface045" type="MeshInstance3D" parent="." unique_id=921940820]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -21.024601)
 layers = 2
 material_override = SubResource("StandardMaterial3D_epnib")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_in6n1")
 
-[node name="Surface046" type="MeshInstance3D" parent="." unique_id=329343011]
+[node name="Surface046" type="MeshInstance3D" parent="." unique_id=975665513]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -23.741325)
 layers = 2
 material_override = SubResource("StandardMaterial3D_trld1")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_kjj6m")
 
-[node name="Surface047" type="MeshInstance3D" parent="." unique_id=1893566833]
+[node name="Surface047" type="MeshInstance3D" parent="." unique_id=1942426392]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -23.741325)
 layers = 2
 material_override = SubResource("StandardMaterial3D_nxvga")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_h2da1")
 
-[node name="Surface048" type="MeshInstance3D" parent="." unique_id=505118053]
+[node name="Surface048" type="MeshInstance3D" parent="." unique_id=1545943435]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -23.741325)
 layers = 2
 material_override = SubResource("StandardMaterial3D_y8xjo")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_kxcig")
 
-[node name="Surface049" type="MeshInstance3D" parent="." unique_id=402330269]
+[node name="Surface049" type="MeshInstance3D" parent="." unique_id=87776556]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 1.55, -23.741325)
 layers = 2
 material_override = SubResource("StandardMaterial3D_363tn")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_wd072")
 
-[node name="Surface050" type="MeshInstance3D" parent="." unique_id=1532520347]
+[node name="Surface050" type="MeshInstance3D" parent="." unique_id=1880121390]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -23.060345)
 layers = 4
 material_override = SubResource("StandardMaterial3D_l2ise")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_5y2fl")
 
-[node name="Surface051" type="MeshInstance3D" parent="." unique_id=888808172]
+[node name="Surface051" type="MeshInstance3D" parent="." unique_id=62113230]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -23.060345)
 layers = 4
 material_override = SubResource("StandardMaterial3D_uh8te")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_i7lil")
 
-[node name="Surface052" type="MeshInstance3D" parent="." unique_id=348007031]
+[node name="Surface052" type="MeshInstance3D" parent="." unique_id=920807574]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -23.060345)
 layers = 4
 material_override = SubResource("StandardMaterial3D_dkqaw")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_clmff")
 
-[node name="Surface053" type="MeshInstance3D" parent="." unique_id=786507368]
+[node name="Surface053" type="MeshInstance3D" parent="." unique_id=1752357346]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -23.060345)
 layers = 4
 material_override = SubResource("StandardMaterial3D_p0jqs")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_474kt")
 
-[node name="Surface054" type="MeshInstance3D" parent="." unique_id=732858581]
+[node name="Surface054" type="MeshInstance3D" parent="." unique_id=2051071231]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -20.574673)
 layers = 4
 material_override = SubResource("StandardMaterial3D_465qn")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_vcm6c")
 
-[node name="Surface055" type="MeshInstance3D" parent="." unique_id=281972546]
+[node name="Surface055" type="MeshInstance3D" parent="." unique_id=704187453]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -20.574673)
 layers = 4
 material_override = SubResource("StandardMaterial3D_pwpj3")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_ey58j")
 
-[node name="Surface056" type="MeshInstance3D" parent="." unique_id=108897339]
+[node name="Surface056" type="MeshInstance3D" parent="." unique_id=1334727347]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -20.574673)
 layers = 4
 material_override = SubResource("StandardMaterial3D_6pf02")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_au6ec")
 
-[node name="Surface057" type="MeshInstance3D" parent="." unique_id=1511779554]
+[node name="Surface057" type="MeshInstance3D" parent="." unique_id=1135024841]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -20.574673)
 layers = 4
 material_override = SubResource("StandardMaterial3D_6fhov")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_nbvpd")
 
-[node name="Surface058" type="MeshInstance3D" parent="." unique_id=361979805]
+[node name="Surface058" type="MeshInstance3D" parent="." unique_id=1400179195]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -18.365484)
 layers = 4
 material_override = SubResource("StandardMaterial3D_ywlgo")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_svbl3")
 
-[node name="Surface059" type="MeshInstance3D" parent="." unique_id=1111590971]
+[node name="Surface059" type="MeshInstance3D" parent="." unique_id=692092591]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -18.365484)
 layers = 4
 material_override = SubResource("StandardMaterial3D_87xey")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_75aif")
 
-[node name="Surface060" type="MeshInstance3D" parent="." unique_id=694290211]
+[node name="Surface060" type="MeshInstance3D" parent="." unique_id=1387600105]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -18.365484)
 layers = 4
 material_override = SubResource("StandardMaterial3D_3la2a")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_fq2ae")
 
-[node name="Surface061" type="MeshInstance3D" parent="." unique_id=136039798]
+[node name="Surface061" type="MeshInstance3D" parent="." unique_id=1557168324]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -18.365484)
 layers = 4
 material_override = SubResource("StandardMaterial3D_gf6xf")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_872pq")
 
-[node name="Surface062" type="MeshInstance3D" parent="." unique_id=1679389035]
+[node name="Surface062" type="MeshInstance3D" parent="." unique_id=534184729]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -16.014277)
 layers = 4
 material_override = SubResource("StandardMaterial3D_ivvcg")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_b6vmk")
 
-[node name="Surface063" type="MeshInstance3D" parent="." unique_id=1041120641]
+[node name="Surface063" type="MeshInstance3D" parent="." unique_id=1085745657]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -16.014277)
 layers = 4
 material_override = SubResource("StandardMaterial3D_8406u")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_a56jr")
 
-[node name="Surface064" type="MeshInstance3D" parent="." unique_id=600325108]
+[node name="Surface064" type="MeshInstance3D" parent="." unique_id=759221296]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -16.014277)
 layers = 4
 material_override = SubResource("StandardMaterial3D_dhkbg")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_x8pto")
 
-[node name="Surface065" type="MeshInstance3D" parent="." unique_id=40036784]
+[node name="Surface065" type="MeshInstance3D" parent="." unique_id=1540130752]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -16.014277)
 layers = 4
 material_override = SubResource("StandardMaterial3D_ej6v2")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_c74n4")
 
-[node name="Surface066" type="MeshInstance3D" parent="." unique_id=1046297612]
+[node name="Surface066" type="MeshInstance3D" parent="." unique_id=2061244938]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 2.006257, -13.090508)
 layers = 4
 material_override = SubResource("StandardMaterial3D_v8jxs")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_cnmsl")
 
-[node name="Surface067" type="MeshInstance3D" parent="." unique_id=1046942149]
+[node name="Surface067" type="MeshInstance3D" parent="." unique_id=537691280]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 2.006257, -13.090508)
 layers = 4
 material_override = SubResource("StandardMaterial3D_idll8")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_1f4qo")
 
-[node name="Surface068" type="MeshInstance3D" parent="." unique_id=1308217147]
+[node name="Surface068" type="MeshInstance3D" parent="." unique_id=250968942]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 2.006257, -13.090508)
 layers = 4
 material_override = SubResource("StandardMaterial3D_m7kps")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_dlhdy")
 
-[node name="Surface069" type="MeshInstance3D" parent="." unique_id=318461354]
+[node name="Surface069" type="MeshInstance3D" parent="." unique_id=1259910533]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 2.006257, -13.090508)
 layers = 4
 material_override = SubResource("StandardMaterial3D_ilh04")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_xmsei")
 
-[node name="Surface070" type="MeshInstance3D" parent="." unique_id=1455651606]
+[node name="Surface070" type="MeshInstance3D" parent="." unique_id=715199479]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -10.256396)
 layers = 4
 material_override = SubResource("StandardMaterial3D_3kkix")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_3toe4")
 
-[node name="Surface071" type="MeshInstance3D" parent="." unique_id=301449427]
+[node name="Surface071" type="MeshInstance3D" parent="." unique_id=745055020]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -10.256396)
 layers = 4
 material_override = SubResource("StandardMaterial3D_5xfxu")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_hnvyb")
 
-[node name="Surface072" type="MeshInstance3D" parent="." unique_id=451425479]
+[node name="Surface072" type="MeshInstance3D" parent="." unique_id=1383723992]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -10.256396)
 layers = 4
 material_override = SubResource("StandardMaterial3D_cpdnj")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_3rsv5")
 
-[node name="Surface073" type="MeshInstance3D" parent="." unique_id=664816458]
+[node name="Surface073" type="MeshInstance3D" parent="." unique_id=899029609]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -10.256396)
 layers = 4
 material_override = SubResource("StandardMaterial3D_bb7xl")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_su8la")
 
-[node name="Surface074" type="MeshInstance3D" parent="." unique_id=78058698]
+[node name="Surface074" type="MeshInstance3D" parent="." unique_id=1713214924]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -7.718697)
 layers = 4
 material_override = SubResource("StandardMaterial3D_n8kh2")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_swghi")
 
-[node name="Surface075" type="MeshInstance3D" parent="." unique_id=1582407768]
+[node name="Surface075" type="MeshInstance3D" parent="." unique_id=1314976336]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -7.718697)
 layers = 4
 material_override = SubResource("StandardMaterial3D_e6j3y")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_8svqv")
 
-[node name="Surface076" type="MeshInstance3D" parent="." unique_id=841225530]
+[node name="Surface076" type="MeshInstance3D" parent="." unique_id=690282617]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -7.718697)
 layers = 4
 material_override = SubResource("StandardMaterial3D_toh1w")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_vsiv3")
 
-[node name="Surface077" type="MeshInstance3D" parent="." unique_id=1731462783]
+[node name="Surface077" type="MeshInstance3D" parent="." unique_id=2017685014]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -7.718697)
 layers = 4
 material_override = SubResource("StandardMaterial3D_3yr0s")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_trn74")
 
-[node name="Surface078" type="MeshInstance3D" parent="." unique_id=1914174715]
+[node name="Surface078" type="MeshInstance3D" parent="." unique_id=2077366339]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.6610904, -5.295171)
 layers = 4
 material_override = SubResource("StandardMaterial3D_72br2")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_f0enh")
 
-[node name="Surface079" type="MeshInstance3D" parent="." unique_id=302492699]
+[node name="Surface079" type="MeshInstance3D" parent="." unique_id=349926102]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.6610904, -5.295171)
 layers = 4
 material_override = SubResource("StandardMaterial3D_1c56t")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_qotv4")
 
-[node name="Surface080" type="MeshInstance3D" parent="." unique_id=1822063744]
+[node name="Surface080" type="MeshInstance3D" parent="." unique_id=55041970]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.6610904, -5.295171)
 layers = 4
 material_override = SubResource("StandardMaterial3D_hqals")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_gr25a")
 
-[node name="Surface081" type="MeshInstance3D" parent="." unique_id=1657040725]
+[node name="Surface081" type="MeshInstance3D" parent="." unique_id=868788884]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.6610904, -5.295171)
 layers = 4
 material_override = SubResource("StandardMaterial3D_nbxw7")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_p8opo")
 
-[node name="Surface082" type="MeshInstance3D" parent="." unique_id=1765131610]
+[node name="Surface082" type="MeshInstance3D" parent="." unique_id=1832789180]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -2.8904788)
 layers = 4
 material_override = SubResource("StandardMaterial3D_wpg0f")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_hg1j4")
 
-[node name="Surface083" type="MeshInstance3D" parent="." unique_id=631210754]
+[node name="Surface083" type="MeshInstance3D" parent="." unique_id=1443513224]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -2.8904788)
 layers = 4
 material_override = SubResource("StandardMaterial3D_woyku")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_opdst")
 
-[node name="Surface084" type="MeshInstance3D" parent="." unique_id=1156810445]
+[node name="Surface084" type="MeshInstance3D" parent="." unique_id=1147721320]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -2.8904788)
 layers = 4
 material_override = SubResource("StandardMaterial3D_42hfj")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_j1p7t")
 
-[node name="Surface085" type="MeshInstance3D" parent="." unique_id=863581466]
+[node name="Surface085" type="MeshInstance3D" parent="." unique_id=982417973]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.55, -2.8904788)
 layers = 4
 material_override = SubResource("StandardMaterial3D_niduf")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_ju2gk")
 
-[node name="Surface086" type="MeshInstance3D" parent="." unique_id=1927905908]
+[node name="Surface086" type="MeshInstance3D" parent="." unique_id=1671050418]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.115, 1.9409931, 0)
 layers = 8
 material_override = SubResource("StandardMaterial3D_ar8wu")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_agttx")
 
-[node name="Surface087" type="MeshInstance3D" parent="." unique_id=508634245]
+[node name="Surface087" type="MeshInstance3D" parent="." unique_id=900619726]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.115, 1.9409931, 0)
 layers = 8
 material_override = SubResource("StandardMaterial3D_j1o7r")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_uciom")
 
-[node name="Surface088" type="MeshInstance3D" parent="." unique_id=1693864282]
+[node name="Surface088" type="MeshInstance3D" parent="." unique_id=530603723]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.115, 1.9409931, 0)
 layers = 8
 material_override = SubResource("StandardMaterial3D_wo7us")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_4lvsf")
 
-[node name="Surface089" type="MeshInstance3D" parent="." unique_id=1896751209]
+[node name="Surface089" type="MeshInstance3D" parent="." unique_id=1075995838]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.115, 1.9409931, 0)
 layers = 8
 material_override = SubResource("StandardMaterial3D_01hkd")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_hqud5")
 
-[node name="Surface090" type="MeshInstance3D" parent="." unique_id=1015972393]
+[node name="Surface090" type="MeshInstance3D" parent="." unique_id=1351225714]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.115, 2.0786395, 0)
 layers = 8
 material_override = SubResource("StandardMaterial3D_vlbhn")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_2v8ap")
 
-[node name="Surface091" type="MeshInstance3D" parent="." unique_id=2097591571]
+[node name="Surface091" type="MeshInstance3D" parent="." unique_id=1988264805]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.115, 2.0786395, 0)
 layers = 8
 material_override = SubResource("StandardMaterial3D_elccv")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_ds32m")
 
-[node name="Surface092" type="MeshInstance3D" parent="." unique_id=1775062921]
+[node name="Surface092" type="MeshInstance3D" parent="." unique_id=887088259]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.115, 2.0786395, 0)
 layers = 8
 material_override = SubResource("StandardMaterial3D_lugkq")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_x681k")
 
-[node name="Surface093" type="MeshInstance3D" parent="." unique_id=1490918274]
+[node name="Surface093" type="MeshInstance3D" parent="." unique_id=128730325]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.115, 2.0786395, 0)
 layers = 8
 material_override = SubResource("StandardMaterial3D_kti0u")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_r3xl6")
 
-[node name="Surface094" type="MeshInstance3D" parent="." unique_id=633016303]
+[node name="Surface094" type="MeshInstance3D" parent="." unique_id=408099404]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.115, 1.7280179, -26.3)
 layers = 16
 material_override = SubResource("StandardMaterial3D_1ljkb")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_uylaa")
 
-[node name="Surface095" type="MeshInstance3D" parent="." unique_id=419771935]
+[node name="Surface095" type="MeshInstance3D" parent="." unique_id=60517636]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.115, 1.7280179, -26.3)
 layers = 16
 material_override = SubResource("StandardMaterial3D_p3vkh")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_4aagi")
 
-[node name="Surface096" type="MeshInstance3D" parent="." unique_id=369283475]
+[node name="Surface096" type="MeshInstance3D" parent="." unique_id=965989665]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.115, 1.7280179, -26.3)
 layers = 16
 material_override = SubResource("StandardMaterial3D_14bi0")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_3h0db")
 
-[node name="Surface097" type="MeshInstance3D" parent="." unique_id=1665276548]
+[node name="Surface097" type="MeshInstance3D" parent="." unique_id=506772358]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.115, 1.7280179, -26.3)
 layers = 16
 material_override = SubResource("StandardMaterial3D_3187g")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_kci62")
 
-[node name="Surface098" type="MeshInstance3D" parent="." unique_id=1762010491]
+[node name="Surface098" type="MeshInstance3D" parent="." unique_id=887489891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.115, 1.8549186, -26.3)
 layers = 16
 material_override = SubResource("StandardMaterial3D_4id73")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_1kise")
 
-[node name="Surface099" type="MeshInstance3D" parent="." unique_id=1734351052]
+[node name="Surface099" type="MeshInstance3D" parent="." unique_id=1447896750]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.115, 1.8549186, -26.3)
 layers = 16
 material_override = SubResource("StandardMaterial3D_8lqfe")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_fcup6")
 
-[node name="Surface100" type="MeshInstance3D" parent="." unique_id=1580382457]
+[node name="Surface100" type="MeshInstance3D" parent="." unique_id=407965619]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.115, 1.8549186, -26.3)
 layers = 16
 material_override = SubResource("StandardMaterial3D_v20c6")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_3wvxj")
 
-[node name="Surface101" type="MeshInstance3D" parent="." unique_id=356139268]
+[node name="Surface101" type="MeshInstance3D" parent="." unique_id=782405695]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.115, 1.8549186, -26.3)
 layers = 16
 material_override = SubResource("StandardMaterial3D_hqoxg")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_mwttf")
 
-[node name="Surface102" type="MeshInstance3D" parent="." unique_id=5185961]
+[node name="Surface102" type="MeshInstance3D" parent="." unique_id=1877664932]
 material_override = SubResource("StandardMaterial3D_8ioon")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_8x6qy")
 
-[node name="Surface103" type="MeshInstance3D" parent="." unique_id=458155945]
+[node name="Surface103" type="MeshInstance3D" parent="." unique_id=1649382338]
 material_override = SubResource("StandardMaterial3D_euedw")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_f8asd")
 
-[node name="Surface104" type="MeshInstance3D" parent="." unique_id=1466236874]
+[node name="Surface104" type="MeshInstance3D" parent="." unique_id=544431190]
 material_override = SubResource("StandardMaterial3D_0no6t")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_pbgbe")
 
-[node name="Surface105" type="MeshInstance3D" parent="." unique_id=2018063110]
+[node name="Surface105" type="MeshInstance3D" parent="." unique_id=708867348]
 layers = 32
 material_override = SubResource("StandardMaterial3D_0cdce")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_hqffo")
 
-[node name="Surface106" type="MeshInstance3D" parent="." unique_id=1067772767]
+[node name="Surface106" type="MeshInstance3D" parent="." unique_id=1736952608]
 layers = 32
 material_override = SubResource("StandardMaterial3D_837em")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_44k2v")
 
-[node name="Surface107" type="MeshInstance3D" parent="." unique_id=1477721526]
+[node name="Surface107" type="MeshInstance3D" parent="." unique_id=34147662]
 layers = 32
 material_override = SubResource("StandardMaterial3D_n5xaf")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_c87cq")
 
-[node name="Surface108" type="MeshInstance3D" parent="." unique_id=942939724]
+[node name="Surface108" type="MeshInstance3D" parent="." unique_id=1850602235]
 layers = 4
 material_override = SubResource("StandardMaterial3D_k8ipo")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_lrb82")
 
-[node name="Surface109" type="MeshInstance3D" parent="." unique_id=1251606176]
+[node name="Surface109" type="MeshInstance3D" parent="." unique_id=453245691]
 layers = 2
 material_override = SubResource("StandardMaterial3D_3jhia")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_suv5m")
 
-[node name="Surface110" type="MeshInstance3D" parent="." unique_id=1374449437]
+[node name="Surface110" type="MeshInstance3D" parent="." unique_id=1327377134]
 layers = 16
 material_override = SubResource("StandardMaterial3D_e1pda")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_nyf6a")
 
-[node name="Surface111" type="MeshInstance3D" parent="." unique_id=1772297858]
+[node name="Surface111" type="MeshInstance3D" parent="." unique_id=332373821]
 layers = 16
 material_override = SubResource("StandardMaterial3D_38qn0")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_s5d62")
 
-[node name="Surface112" type="MeshInstance3D" parent="." unique_id=1072530579]
+[node name="Surface112" type="MeshInstance3D" parent="." unique_id=2049174799]
 layers = 16
 material_override = SubResource("StandardMaterial3D_oaf68")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_6dmmn")
 
-[node name="Surface113" type="MeshInstance3D" parent="." unique_id=1073060468]
+[node name="Surface113" type="MeshInstance3D" parent="." unique_id=582481566]
 layers = 16
 material_override = SubResource("StandardMaterial3D_7f6ai")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_g17fu")
 
-[node name="Surface114" type="MeshInstance3D" parent="." unique_id=1082322919]
+[node name="Surface114" type="MeshInstance3D" parent="." unique_id=1082223993]
 layers = 16
 material_override = SubResource("StandardMaterial3D_5bsod")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_jsv8h")
 
-[node name="Surface115" type="MeshInstance3D" parent="." unique_id=1590564457]
+[node name="Surface115" type="MeshInstance3D" parent="." unique_id=528006464]
 layers = 16
 material_override = SubResource("StandardMaterial3D_0nmaa")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_duc2w")
 
-[node name="Surface116" type="MeshInstance3D" parent="." unique_id=337525101]
+[node name="Surface116" type="MeshInstance3D" parent="." unique_id=1530788700]
 layers = 16
 material_override = SubResource("StandardMaterial3D_vu1fc")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_ray8l")
 
-[node name="Surface117" type="MeshInstance3D" parent="." unique_id=763113241]
+[node name="Surface117" type="MeshInstance3D" parent="." unique_id=1448108781]
 layers = 8
 material_override = SubResource("StandardMaterial3D_54ht0")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_6v0y5")
 
-[node name="Surface118" type="MeshInstance3D" parent="." unique_id=1297133716]
+[node name="Surface118" type="MeshInstance3D" parent="." unique_id=1589012686]
 layers = 8
 material_override = SubResource("StandardMaterial3D_hns7r")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_gm786")
 
-[node name="Surface119" type="MeshInstance3D" parent="." unique_id=575930929]
+[node name="Surface119" type="MeshInstance3D" parent="." unique_id=394007352]
 layers = 8
 material_override = SubResource("StandardMaterial3D_i1e1h")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_6jeca")
 
-[node name="Surface120" type="MeshInstance3D" parent="." unique_id=1975430623]
+[node name="Surface120" type="MeshInstance3D" parent="." unique_id=2104679285]
 layers = 8
 material_override = SubResource("StandardMaterial3D_assqs")
 cast_shadow = 2
 mesh = SubResource("ArrayMesh_s6ndg")
 
-[node name="@LightmapProbe@559" type="LightmapProbe" parent="." unique_id=1120014054]
+[node name="@LightmapProbe@559" type="LightmapProbe" parent="." unique_id=1984396742]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 0.3, 0.1)
 
-[node name="@LightmapProbe@560" type="LightmapProbe" parent="." unique_id=1509795934]
+[node name="@LightmapProbe@560" type="LightmapProbe" parent="." unique_id=1087843048]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 1.1, 0.1)
 
-[node name="@LightmapProbe@561" type="LightmapProbe" parent="." unique_id=249903049]
+[node name="@LightmapProbe@561" type="LightmapProbe" parent="." unique_id=639811113]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 2, 0.1)
 
-[node name="@LightmapProbe@562" type="LightmapProbe" parent="." unique_id=1784493349]
+[node name="@LightmapProbe@562" type="LightmapProbe" parent="." unique_id=490055399]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.3, 0.1)
 
-[node name="@LightmapProbe@563" type="LightmapProbe" parent="." unique_id=1230984550]
+[node name="@LightmapProbe@563" type="LightmapProbe" parent="." unique_id=646287767]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.1, 0.1)
 
-[node name="@LightmapProbe@564" type="LightmapProbe" parent="." unique_id=443576860]
+[node name="@LightmapProbe@564" type="LightmapProbe" parent="." unique_id=849985224]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 0.1)
 
-[node name="@LightmapProbe@565" type="LightmapProbe" parent="." unique_id=1015310536]
+[node name="@LightmapProbe@565" type="LightmapProbe" parent="." unique_id=263197512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.1)
 
-[node name="@LightmapProbe@566" type="LightmapProbe" parent="." unique_id=1631930382]
+[node name="@LightmapProbe@566" type="LightmapProbe" parent="." unique_id=1807237770]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0.1)
 
-[node name="@LightmapProbe@567" type="LightmapProbe" parent="." unique_id=341916736]
+[node name="@LightmapProbe@567" type="LightmapProbe" parent="." unique_id=946517226]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.1)
 
-[node name="@LightmapProbe@568" type="LightmapProbe" parent="." unique_id=947644316]
+[node name="@LightmapProbe@568" type="LightmapProbe" parent="." unique_id=1150526904]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.3, 0.1)
 
-[node name="@LightmapProbe@569" type="LightmapProbe" parent="." unique_id=1390534231]
+[node name="@LightmapProbe@569" type="LightmapProbe" parent="." unique_id=1637516501]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.1, 0.1)
 
-[node name="@LightmapProbe@570" type="LightmapProbe" parent="." unique_id=1220779918]
+[node name="@LightmapProbe@570" type="LightmapProbe" parent="." unique_id=995168167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0.1)
 
-[node name="@LightmapProbe@571" type="LightmapProbe" parent="." unique_id=747773018]
+[node name="@LightmapProbe@571" type="LightmapProbe" parent="." unique_id=1368694856]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0.3, 0.1)
 
-[node name="@LightmapProbe@572" type="LightmapProbe" parent="." unique_id=878693857]
+[node name="@LightmapProbe@572" type="LightmapProbe" parent="." unique_id=1739632036]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 1.1, 0.1)
 
-[node name="@LightmapProbe@573" type="LightmapProbe" parent="." unique_id=1335041732]
+[node name="@LightmapProbe@573" type="LightmapProbe" parent="." unique_id=526965535]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 2, 0.1)
 
-[node name="@LightmapProbe@574" type="LightmapProbe" parent="." unique_id=819785628]
+[node name="@LightmapProbe@574" type="LightmapProbe" parent="." unique_id=1106839621]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 0.3, -0.7)
 
-[node name="@LightmapProbe@575" type="LightmapProbe" parent="." unique_id=1210940916]
+[node name="@LightmapProbe@575" type="LightmapProbe" parent="." unique_id=122325489]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 1.1, -0.7)
 
-[node name="@LightmapProbe@576" type="LightmapProbe" parent="." unique_id=1106410356]
+[node name="@LightmapProbe@576" type="LightmapProbe" parent="." unique_id=391391384]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 2, -0.7)
 
-[node name="@LightmapProbe@577" type="LightmapProbe" parent="." unique_id=1558368682]
+[node name="@LightmapProbe@577" type="LightmapProbe" parent="." unique_id=2010408114]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.3, -0.7)
 
-[node name="@LightmapProbe@578" type="LightmapProbe" parent="." unique_id=175966044]
+[node name="@LightmapProbe@578" type="LightmapProbe" parent="." unique_id=1434967938]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.1, -0.7)
 
-[node name="@LightmapProbe@579" type="LightmapProbe" parent="." unique_id=445626118]
+[node name="@LightmapProbe@579" type="LightmapProbe" parent="." unique_id=1317272883]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -0.7)
 
-[node name="@LightmapProbe@580" type="LightmapProbe" parent="." unique_id=183102244]
+[node name="@LightmapProbe@580" type="LightmapProbe" parent="." unique_id=1489784127]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -0.7)
 
-[node name="@LightmapProbe@581" type="LightmapProbe" parent="." unique_id=1684343866]
+[node name="@LightmapProbe@581" type="LightmapProbe" parent="." unique_id=1287176603]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -0.7)
 
-[node name="@LightmapProbe@582" type="LightmapProbe" parent="." unique_id=1707693221]
+[node name="@LightmapProbe@582" type="LightmapProbe" parent="." unique_id=319225312]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.7)
 
-[node name="@LightmapProbe@583" type="LightmapProbe" parent="." unique_id=107465418]
+[node name="@LightmapProbe@583" type="LightmapProbe" parent="." unique_id=1043435961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.3, -0.7)
 
-[node name="@LightmapProbe@584" type="LightmapProbe" parent="." unique_id=1868768768]
+[node name="@LightmapProbe@584" type="LightmapProbe" parent="." unique_id=2078215857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.1, -0.7)
 
-[node name="@LightmapProbe@585" type="LightmapProbe" parent="." unique_id=1569746631]
+[node name="@LightmapProbe@585" type="LightmapProbe" parent="." unique_id=2099355380]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -0.7)
 
-[node name="@LightmapProbe@586" type="LightmapProbe" parent="." unique_id=373884309]
+[node name="@LightmapProbe@586" type="LightmapProbe" parent="." unique_id=1064869492]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0.3, -0.7)
 
-[node name="@LightmapProbe@587" type="LightmapProbe" parent="." unique_id=518227037]
+[node name="@LightmapProbe@587" type="LightmapProbe" parent="." unique_id=746234248]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 1.1, -0.7)
 
-[node name="@LightmapProbe@588" type="LightmapProbe" parent="." unique_id=670051786]
+[node name="@LightmapProbe@588" type="LightmapProbe" parent="." unique_id=271668605]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 2, -0.7)
 
-[node name="@LightmapProbe@589" type="LightmapProbe" parent="." unique_id=749782595]
+[node name="@LightmapProbe@589" type="LightmapProbe" parent="." unique_id=1497616054]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 0.3, -3)
 
-[node name="@LightmapProbe@590" type="LightmapProbe" parent="." unique_id=1124297755]
+[node name="@LightmapProbe@590" type="LightmapProbe" parent="." unique_id=1258393755]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 1.1, -3)
 
-[node name="@LightmapProbe@591" type="LightmapProbe" parent="." unique_id=1114846053]
+[node name="@LightmapProbe@591" type="LightmapProbe" parent="." unique_id=617737895]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 2, -3)
 
-[node name="@LightmapProbe@592" type="LightmapProbe" parent="." unique_id=532017009]
+[node name="@LightmapProbe@592" type="LightmapProbe" parent="." unique_id=1301159636]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.3, -3)
 
-[node name="@LightmapProbe@593" type="LightmapProbe" parent="." unique_id=1701754312]
+[node name="@LightmapProbe@593" type="LightmapProbe" parent="." unique_id=1903806596]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.1, -3)
 
-[node name="@LightmapProbe@594" type="LightmapProbe" parent="." unique_id=1634411484]
+[node name="@LightmapProbe@594" type="LightmapProbe" parent="." unique_id=719219297]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -3)
 
-[node name="@LightmapProbe@595" type="LightmapProbe" parent="." unique_id=967099191]
+[node name="@LightmapProbe@595" type="LightmapProbe" parent="." unique_id=486014021]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -3)
 
-[node name="@LightmapProbe@596" type="LightmapProbe" parent="." unique_id=1178546557]
+[node name="@LightmapProbe@596" type="LightmapProbe" parent="." unique_id=1609953056]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -3)
 
-[node name="@LightmapProbe@597" type="LightmapProbe" parent="." unique_id=482699464]
+[node name="@LightmapProbe@597" type="LightmapProbe" parent="." unique_id=956687949]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3)
 
-[node name="@LightmapProbe@598" type="LightmapProbe" parent="." unique_id=599347974]
+[node name="@LightmapProbe@598" type="LightmapProbe" parent="." unique_id=594232382]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.3, -3)
 
-[node name="@LightmapProbe@599" type="LightmapProbe" parent="." unique_id=136998671]
+[node name="@LightmapProbe@599" type="LightmapProbe" parent="." unique_id=1707835172]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.1, -3)
 
-[node name="@LightmapProbe@600" type="LightmapProbe" parent="." unique_id=356400464]
+[node name="@LightmapProbe@600" type="LightmapProbe" parent="." unique_id=945662634]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -3)
 
-[node name="@LightmapProbe@601" type="LightmapProbe" parent="." unique_id=703752430]
+[node name="@LightmapProbe@601" type="LightmapProbe" parent="." unique_id=1674930655]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0.3, -3)
 
-[node name="@LightmapProbe@602" type="LightmapProbe" parent="." unique_id=1005294514]
+[node name="@LightmapProbe@602" type="LightmapProbe" parent="." unique_id=20545274]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 1.1, -3)
 
-[node name="@LightmapProbe@603" type="LightmapProbe" parent="." unique_id=462692529]
+[node name="@LightmapProbe@603" type="LightmapProbe" parent="." unique_id=28009802]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 2, -3)
 
-[node name="@LightmapProbe@604" type="LightmapProbe" parent="." unique_id=1739860270]
+[node name="@LightmapProbe@604" type="LightmapProbe" parent="." unique_id=237963301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 0.3, -8)
 
-[node name="@LightmapProbe@605" type="LightmapProbe" parent="." unique_id=1550343616]
+[node name="@LightmapProbe@605" type="LightmapProbe" parent="." unique_id=326440401]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 1.1, -8)
 
-[node name="@LightmapProbe@606" type="LightmapProbe" parent="." unique_id=443034079]
+[node name="@LightmapProbe@606" type="LightmapProbe" parent="." unique_id=2137668596]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 2, -8)
 
-[node name="@LightmapProbe@607" type="LightmapProbe" parent="." unique_id=964954356]
+[node name="@LightmapProbe@607" type="LightmapProbe" parent="." unique_id=1926266334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.3, -8)
 
-[node name="@LightmapProbe@608" type="LightmapProbe" parent="." unique_id=810821137]
+[node name="@LightmapProbe@608" type="LightmapProbe" parent="." unique_id=2131872432]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.1, -8)
 
-[node name="@LightmapProbe@609" type="LightmapProbe" parent="." unique_id=1597596317]
+[node name="@LightmapProbe@609" type="LightmapProbe" parent="." unique_id=43137138]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -8)
 
-[node name="@LightmapProbe@610" type="LightmapProbe" parent="." unique_id=92000393]
+[node name="@LightmapProbe@610" type="LightmapProbe" parent="." unique_id=2028120446]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -8)
 
-[node name="@LightmapProbe@611" type="LightmapProbe" parent="." unique_id=2013067328]
+[node name="@LightmapProbe@611" type="LightmapProbe" parent="." unique_id=1025097365]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -8)
 
-[node name="@LightmapProbe@612" type="LightmapProbe" parent="." unique_id=1853747907]
+[node name="@LightmapProbe@612" type="LightmapProbe" parent="." unique_id=918894935]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -8)
 
-[node name="@LightmapProbe@613" type="LightmapProbe" parent="." unique_id=1103988011]
+[node name="@LightmapProbe@613" type="LightmapProbe" parent="." unique_id=1456040705]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.3, -8)
 
-[node name="@LightmapProbe@614" type="LightmapProbe" parent="." unique_id=86394012]
+[node name="@LightmapProbe@614" type="LightmapProbe" parent="." unique_id=393534671]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.1, -8)
 
-[node name="@LightmapProbe@615" type="LightmapProbe" parent="." unique_id=28657827]
+[node name="@LightmapProbe@615" type="LightmapProbe" parent="." unique_id=326905835]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -8)
 
-[node name="@LightmapProbe@616" type="LightmapProbe" parent="." unique_id=864904566]
+[node name="@LightmapProbe@616" type="LightmapProbe" parent="." unique_id=1059688976]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0.3, -8)
 
-[node name="@LightmapProbe@617" type="LightmapProbe" parent="." unique_id=629008791]
+[node name="@LightmapProbe@617" type="LightmapProbe" parent="." unique_id=1348512924]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 1.1, -8)
 
-[node name="@LightmapProbe@618" type="LightmapProbe" parent="." unique_id=1775426183]
+[node name="@LightmapProbe@618" type="LightmapProbe" parent="." unique_id=9244482]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 2, -8)
 
-[node name="@LightmapProbe@619" type="LightmapProbe" parent="." unique_id=1823857987]
+[node name="@LightmapProbe@619" type="LightmapProbe" parent="." unique_id=1856699127]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 0.3, -13)
 
-[node name="@LightmapProbe@620" type="LightmapProbe" parent="." unique_id=2108636702]
+[node name="@LightmapProbe@620" type="LightmapProbe" parent="." unique_id=732143568]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 1.1, -13)
 
-[node name="@LightmapProbe@621" type="LightmapProbe" parent="." unique_id=238974873]
+[node name="@LightmapProbe@621" type="LightmapProbe" parent="." unique_id=358989383]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 2, -13)
 
-[node name="@LightmapProbe@622" type="LightmapProbe" parent="." unique_id=151114583]
+[node name="@LightmapProbe@622" type="LightmapProbe" parent="." unique_id=315938786]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.3, -13)
 
-[node name="@LightmapProbe@623" type="LightmapProbe" parent="." unique_id=398622322]
+[node name="@LightmapProbe@623" type="LightmapProbe" parent="." unique_id=682091221]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.1, -13)
 
-[node name="@LightmapProbe@624" type="LightmapProbe" parent="." unique_id=1248216378]
+[node name="@LightmapProbe@624" type="LightmapProbe" parent="." unique_id=1124107113]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -13)
 
-[node name="@LightmapProbe@625" type="LightmapProbe" parent="." unique_id=1916476454]
+[node name="@LightmapProbe@625" type="LightmapProbe" parent="." unique_id=938241980]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -13)
 
-[node name="@LightmapProbe@626" type="LightmapProbe" parent="." unique_id=1096434923]
+[node name="@LightmapProbe@626" type="LightmapProbe" parent="." unique_id=540677369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -13)
 
-[node name="@LightmapProbe@627" type="LightmapProbe" parent="." unique_id=35986211]
+[node name="@LightmapProbe@627" type="LightmapProbe" parent="." unique_id=358437951]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -13)
 
-[node name="@LightmapProbe@628" type="LightmapProbe" parent="." unique_id=1560037856]
+[node name="@LightmapProbe@628" type="LightmapProbe" parent="." unique_id=249147015]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.3, -13)
 
-[node name="@LightmapProbe@629" type="LightmapProbe" parent="." unique_id=1793588967]
+[node name="@LightmapProbe@629" type="LightmapProbe" parent="." unique_id=202019935]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.1, -13)
 
-[node name="@LightmapProbe@630" type="LightmapProbe" parent="." unique_id=90884471]
+[node name="@LightmapProbe@630" type="LightmapProbe" parent="." unique_id=1882215147]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -13)
 
-[node name="@LightmapProbe@631" type="LightmapProbe" parent="." unique_id=1009171521]
+[node name="@LightmapProbe@631" type="LightmapProbe" parent="." unique_id=1039575609]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0.3, -13)
 
-[node name="@LightmapProbe@632" type="LightmapProbe" parent="." unique_id=2104984680]
+[node name="@LightmapProbe@632" type="LightmapProbe" parent="." unique_id=1039353136]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 1.1, -13)
 
-[node name="@LightmapProbe@633" type="LightmapProbe" parent="." unique_id=962534365]
+[node name="@LightmapProbe@633" type="LightmapProbe" parent="." unique_id=2090055918]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 2, -13)
 
-[node name="@LightmapProbe@634" type="LightmapProbe" parent="." unique_id=1737812020]
+[node name="@LightmapProbe@634" type="LightmapProbe" parent="." unique_id=517370419]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 0.3, -18)
 
-[node name="@LightmapProbe@635" type="LightmapProbe" parent="." unique_id=232356849]
+[node name="@LightmapProbe@635" type="LightmapProbe" parent="." unique_id=1761337965]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 1.1, -18)
 
-[node name="@LightmapProbe@636" type="LightmapProbe" parent="." unique_id=1665571837]
+[node name="@LightmapProbe@636" type="LightmapProbe" parent="." unique_id=527085763]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 2, -18)
 
-[node name="@LightmapProbe@637" type="LightmapProbe" parent="." unique_id=1073991837]
+[node name="@LightmapProbe@637" type="LightmapProbe" parent="." unique_id=298596625]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.3, -18)
 
-[node name="@LightmapProbe@638" type="LightmapProbe" parent="." unique_id=1225234236]
+[node name="@LightmapProbe@638" type="LightmapProbe" parent="." unique_id=176059357]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.1, -18)
 
-[node name="@LightmapProbe@639" type="LightmapProbe" parent="." unique_id=996178543]
+[node name="@LightmapProbe@639" type="LightmapProbe" parent="." unique_id=716563372]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -18)
 
-[node name="@LightmapProbe@640" type="LightmapProbe" parent="." unique_id=1373462239]
+[node name="@LightmapProbe@640" type="LightmapProbe" parent="." unique_id=213370234]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -18)
 
-[node name="@LightmapProbe@641" type="LightmapProbe" parent="." unique_id=341723434]
+[node name="@LightmapProbe@641" type="LightmapProbe" parent="." unique_id=703498979]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -18)
 
-[node name="@LightmapProbe@642" type="LightmapProbe" parent="." unique_id=918427416]
+[node name="@LightmapProbe@642" type="LightmapProbe" parent="." unique_id=941515954]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -18)
 
-[node name="@LightmapProbe@643" type="LightmapProbe" parent="." unique_id=1632740616]
+[node name="@LightmapProbe@643" type="LightmapProbe" parent="." unique_id=1099724879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.3, -18)
 
-[node name="@LightmapProbe@644" type="LightmapProbe" parent="." unique_id=1016844370]
+[node name="@LightmapProbe@644" type="LightmapProbe" parent="." unique_id=2123188589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.1, -18)
 
-[node name="@LightmapProbe@645" type="LightmapProbe" parent="." unique_id=118991073]
+[node name="@LightmapProbe@645" type="LightmapProbe" parent="." unique_id=584760374]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -18)
 
-[node name="@LightmapProbe@646" type="LightmapProbe" parent="." unique_id=569889878]
+[node name="@LightmapProbe@646" type="LightmapProbe" parent="." unique_id=317826587]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0.3, -18)
 
-[node name="@LightmapProbe@647" type="LightmapProbe" parent="." unique_id=2513193]
+[node name="@LightmapProbe@647" type="LightmapProbe" parent="." unique_id=826152966]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 1.1, -18)
 
-[node name="@LightmapProbe@648" type="LightmapProbe" parent="." unique_id=1850902643]
+[node name="@LightmapProbe@648" type="LightmapProbe" parent="." unique_id=1988030589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 2, -18)
 
-[node name="@LightmapProbe@649" type="LightmapProbe" parent="." unique_id=187560268]
+[node name="@LightmapProbe@649" type="LightmapProbe" parent="." unique_id=1642932446]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 0.3, -23)
 
-[node name="@LightmapProbe@650" type="LightmapProbe" parent="." unique_id=1940031293]
+[node name="@LightmapProbe@650" type="LightmapProbe" parent="." unique_id=1172268877]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 1.1, -23)
 
-[node name="@LightmapProbe@651" type="LightmapProbe" parent="." unique_id=2000060807]
+[node name="@LightmapProbe@651" type="LightmapProbe" parent="." unique_id=1124965478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 2, -23)
 
-[node name="@LightmapProbe@652" type="LightmapProbe" parent="." unique_id=50351141]
+[node name="@LightmapProbe@652" type="LightmapProbe" parent="." unique_id=1273240980]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.3, -23)
 
-[node name="@LightmapProbe@653" type="LightmapProbe" parent="." unique_id=1737496258]
+[node name="@LightmapProbe@653" type="LightmapProbe" parent="." unique_id=1153120876]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.1, -23)
 
-[node name="@LightmapProbe@654" type="LightmapProbe" parent="." unique_id=1633316957]
+[node name="@LightmapProbe@654" type="LightmapProbe" parent="." unique_id=462410996]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -23)
 
-[node name="@LightmapProbe@655" type="LightmapProbe" parent="." unique_id=1300895174]
+[node name="@LightmapProbe@655" type="LightmapProbe" parent="." unique_id=46887776]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -23)
 
-[node name="@LightmapProbe@656" type="LightmapProbe" parent="." unique_id=1989682469]
+[node name="@LightmapProbe@656" type="LightmapProbe" parent="." unique_id=1444389603]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -23)
 
-[node name="@LightmapProbe@657" type="LightmapProbe" parent="." unique_id=1589867833]
+[node name="@LightmapProbe@657" type="LightmapProbe" parent="." unique_id=877942405]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -23)
 
-[node name="@LightmapProbe@658" type="LightmapProbe" parent="." unique_id=2110233816]
+[node name="@LightmapProbe@658" type="LightmapProbe" parent="." unique_id=1977806090]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.3, -23)
 
-[node name="@LightmapProbe@659" type="LightmapProbe" parent="." unique_id=2016253595]
+[node name="@LightmapProbe@659" type="LightmapProbe" parent="." unique_id=1770624233]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.1, -23)
 
-[node name="@LightmapProbe@660" type="LightmapProbe" parent="." unique_id=1240230305]
+[node name="@LightmapProbe@660" type="LightmapProbe" parent="." unique_id=353933122]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -23)
 
-[node name="@LightmapProbe@661" type="LightmapProbe" parent="." unique_id=1969177533]
+[node name="@LightmapProbe@661" type="LightmapProbe" parent="." unique_id=1991297583]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0.3, -23)
 
-[node name="@LightmapProbe@662" type="LightmapProbe" parent="." unique_id=847261721]
+[node name="@LightmapProbe@662" type="LightmapProbe" parent="." unique_id=1155617725]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 1.1, -23)
 
-[node name="@LightmapProbe@663" type="LightmapProbe" parent="." unique_id=253644450]
+[node name="@LightmapProbe@663" type="LightmapProbe" parent="." unique_id=2021429069]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 2, -23)
 
-[node name="@LightmapProbe@664" type="LightmapProbe" parent="." unique_id=979362455]
+[node name="@LightmapProbe@664" type="LightmapProbe" parent="." unique_id=829624027]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 0.3, -26.4)
 
-[node name="@LightmapProbe@665" type="LightmapProbe" parent="." unique_id=516100186]
+[node name="@LightmapProbe@665" type="LightmapProbe" parent="." unique_id=239142084]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 1.1, -26.4)
 
-[node name="@LightmapProbe@666" type="LightmapProbe" parent="." unique_id=1000001292]
+[node name="@LightmapProbe@666" type="LightmapProbe" parent="." unique_id=522664541]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 2, -26.4)
 
-[node name="@LightmapProbe@667" type="LightmapProbe" parent="." unique_id=718639607]
+[node name="@LightmapProbe@667" type="LightmapProbe" parent="." unique_id=1955862767]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.3, -26.4)
 
-[node name="@LightmapProbe@668" type="LightmapProbe" parent="." unique_id=898213087]
+[node name="@LightmapProbe@668" type="LightmapProbe" parent="." unique_id=124508378]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.1, -26.4)
 
-[node name="@LightmapProbe@669" type="LightmapProbe" parent="." unique_id=1770308357]
+[node name="@LightmapProbe@669" type="LightmapProbe" parent="." unique_id=1046248517]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -26.4)
 
-[node name="@LightmapProbe@670" type="LightmapProbe" parent="." unique_id=1659613972]
+[node name="@LightmapProbe@670" type="LightmapProbe" parent="." unique_id=1107065675]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -26.4)
 
-[node name="@LightmapProbe@671" type="LightmapProbe" parent="." unique_id=155113311]
+[node name="@LightmapProbe@671" type="LightmapProbe" parent="." unique_id=398898234]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -26.4)
 
-[node name="@LightmapProbe@672" type="LightmapProbe" parent="." unique_id=2099022317]
+[node name="@LightmapProbe@672" type="LightmapProbe" parent="." unique_id=1633934154]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -26.4)
 
-[node name="@LightmapProbe@673" type="LightmapProbe" parent="." unique_id=1604695774]
+[node name="@LightmapProbe@673" type="LightmapProbe" parent="." unique_id=2041232781]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.3, -26.4)
 
-[node name="@LightmapProbe@674" type="LightmapProbe" parent="." unique_id=1877391410]
+[node name="@LightmapProbe@674" type="LightmapProbe" parent="." unique_id=1832988998]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.1, -26.4)
 
-[node name="@LightmapProbe@675" type="LightmapProbe" parent="." unique_id=1173920728]
+[node name="@LightmapProbe@675" type="LightmapProbe" parent="." unique_id=1284844783]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -26.4)
 
-[node name="@LightmapProbe@676" type="LightmapProbe" parent="." unique_id=1596865158]
+[node name="@LightmapProbe@676" type="LightmapProbe" parent="." unique_id=2120733636]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0.3, -26.4)
 
-[node name="@LightmapProbe@677" type="LightmapProbe" parent="." unique_id=862042482]
+[node name="@LightmapProbe@677" type="LightmapProbe" parent="." unique_id=462888761]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 1.1, -26.4)
 
-[node name="@LightmapProbe@678" type="LightmapProbe" parent="." unique_id=598932969]
+[node name="@LightmapProbe@678" type="LightmapProbe" parent="." unique_id=386899583]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 2, -26.4)
 
-[node name="Lightmap" type="LightmapGI" parent="." unique_id=1550907268]
+[node name="Lightmap" type="LightmapGI" parent="." unique_id=575174571]
 bounces = 2
 environment_mode = 3
 environment_custom_color = Color(0.79607844, 0.83137256, 0.88235295, 1)
