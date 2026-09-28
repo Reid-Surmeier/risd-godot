@@ -930,10 +930,6 @@ func _move_to(p: Vector3) -> void:
 func _orbit(amount: float) -> void:
 	if is_zero_approx(amount):
 		return
-	if _generated_visitor:
-		if _rigged_visitor:
-			_kid.look_direction = signf(amount)
-		_kid.play_gesture("look")
 	_new_action()
 	_target = null
 	_target_yaw = null
@@ -981,6 +977,8 @@ func _set_view(mode: int) -> void:
 	_target_yaw = null
 	_view_turn_remaining = 0.0
 	view_mode = mode
+	if mode == 2 and _kid:
+		_yaw = wrapf(_kid.rotation.y - PI, -PI, PI)
 	(_view_bar.get_child(0) as OptionButton).select(mode)
 	_update_camera(1.0)
 	if OS.has_feature("web"):
@@ -1068,26 +1066,10 @@ func _merge_static() -> void:
 
 
 func _build_kid() -> void:
-	_generated_visitor = not (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('character') === 'original'"))
-	_rigged_visitor = not (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('character') === 'sprite'")) and _generated_visitor
-	if _generated_visitor:
-		_kid = load(DIR + ("rig/visitor.gd" if _rigged_visitor else "visitor.gd")).new()
-		if _rigged_visitor:
-			_kid.identity = OS.get_environment("GALLERY_CHARACTER") != "rogue" and not (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('character') === 'rogue'"))
-		_kid.world_height = KID_H * (1.17 if _rigged_visitor else 1.0)
-	else:
-		var i := 0
-		while ResourceLoader.exists(DIR + "kid/%02d.png" % i):
-			_kid_frames.append(load(DIR + "kid/%02d.png" % i))
-			i += 1
-		_kid = Sprite3D.new()
-		_kid.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
-		_kid.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
-		_kid.shaded = false
-		_kid.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
-		_kid.texture = _kid_frames[0]
-		_kid.pixel_size = KID_H / _kid_frames[0].get_height()
-		_kid.offset = Vector2(0, _kid_frames[0].get_height() / 2.0)
+	_generated_visitor = true
+	_rigged_visitor = true
+	_kid = load(DIR + "visitor159/visitor.gd").new()
+	_kid.world_height = KID_H
 	_vp.add_child(_kid)
 	var g := Gradient.new()
 	g.set_color(0, Color(0, 0, 0, 0.9 if _rigged_visitor else 0.55))
@@ -1311,7 +1293,8 @@ func _process(delta: float) -> void:
 			_kid.texture = _kid_frames[0]
 	_kid.position = _pos
 	if _generated_visitor:
-		_kid.pose(delta, distance_moved > 0.0001, _kid_t * 10.0 / WALK_FRAMES, _motion_heading, view_yaw if view_mode != 2 else _yaw)
+		var facing := _fwd() if view_mode == 2 else _motion_heading
+		_kid.pose(delta, distance_moved > 0.0001, _kid_t * 10.0 / WALK_FRAMES, facing, view_yaw if view_mode != 2 else _yaw)
 	if _rigged_visitor:
 		for contact in _kid.contacts:
 			_step_i = (_step_i + 1) % 6
@@ -1582,13 +1565,7 @@ func _approach(p: Dictionary) -> void:
 	if _generated_visitor:
 		_motion_heading = -p.normal
 		_kid.pose(get_process_delta_time() if _rigged_visitor else 0.0, false, 0.0, _motion_heading, view_yaw if view_mode != 2 else _yaw)
-		if _rigged_visitor:
-			while absf(wrapf(_kid.rotation.y - atan2(_motion_heading.x, _motion_heading.z), -PI, PI)) > 0.015:
-				await get_tree().process_frame
-				if _action != mine or not _open.is_empty():
-					return
-		_kid.play_gesture("wave")
-		while _kid.gesture != "":
+		while absf(wrapf(_kid.rotation.y - atan2(_motion_heading.x, _motion_heading.z), -PI, PI)) > 0.015:
 			await get_tree().process_frame
 			if _action != mine or not _open.is_empty():
 				return

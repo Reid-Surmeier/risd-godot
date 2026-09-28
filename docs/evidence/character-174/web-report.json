@@ -1,0 +1,24 @@
+{
+  "url": "local scratch export; no owner-facing URL",
+  "screenshots": [
+    "visitor-web-front-idle.png",
+    "visitor-web-profile.png",
+    "visitor-web-back.png",
+    "visitor-web-turn-90.png",
+    "visitor-web-turn-180.png",
+    "visitor-web-walk.png",
+    "visitor-web-stop.png",
+    "visitor-web-diagonal.png",
+    "visitor-web-diagonal-stop.png"
+  ],
+  "controls": [
+    "gallery view plus Q orbit for front/profile/back views",
+    "gallery view S (walk away from arch) for straight/diagonal movement",
+    "original third-person view ArrowLeft ×2 for 90° and ×2 more for 180° turns"
+  ],
+  "gameplay_crop_changed_pixels": {
+    "idle_to_walk": 17015,
+    "walk_to_stop": 3415
+  },
+  "errors": []
+}
