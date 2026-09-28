@@ -114,6 +114,11 @@ func _prepare() -> void:
 		instance.layers = source.layers
 		instance.gi_mode = GeometryInstance3D.GI_MODE_STATIC
 		instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
+		if material.albedo_texture and material.albedo_texture.resource_path.ends_with("/door-arch.jpg"):
+			# Gameplay hides this inherited reference card. It must not remain an
+			# invisible light blocker over the modeled recess's rear wall.
+			instance.gi_mode = GeometryInstance3D.GI_MODE_DISABLED
+			instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		if material.albedo_texture and material.albedo_texture.resource_path.ends_with("/skylight.png"):
 			instance.gi_mode = GeometryInstance3D.GI_MODE_DISABLED  # omit glazing from bake ray geometry
 			material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
@@ -183,9 +188,9 @@ func _prepare() -> void:
 	# #167: local diffuse illumination on the museum-side portal, outside the gallery.
 	var portal_fill := OmniLight3D.new()
 	portal_fill.position = Vector3(0, 3.1, 4.0)
-	portal_fill.omni_range = 3.5
+	portal_fill.omni_range = 7.0
 	portal_fill.omni_attenuation = 0.6
-	portal_fill.light_energy = 1.1
+	portal_fill.light_energy = 0.9
 	portal_fill.light_color = Color("#f5f5f2")
 	portal_fill.light_size = 1.5
 	portal_fill.light_bake_mode = Light3D.BAKE_STATIC

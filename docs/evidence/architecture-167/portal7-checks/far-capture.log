@@ -1,0 +1,15 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+DOORWAY_PROTOTYPE view=0
+DOORWAY_PROTOTYPE view=0
+DOORWAY_PROTOTYPE view=1
+DOORWAY_PROTOTYPE view=2
+DOORWAY_PROTOTYPE view=3
+DOORWAY_PROTOTYPE view=0
+DOORWAY_PROTOTYPE view=1
+DOORWAY_PROTOTYPE view=2
+DOORWAY_PROTOTYPE view=3
+DOORWAY_PROFILE failures=0

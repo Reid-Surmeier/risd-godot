@@ -1,0 +1,27 @@
+[
+  {
+    "width": 1600,
+    "events": [
+      "PORTAL_FLOOR_DEPTH clear_samples=9/9 meshes=1",
+      "DOORWAY_GAMEPLAY_READY",
+      "NAV_SPACE gallery -> arch",
+      "VIEW_ORBIT {\"position\":[0.000000000000000861235413378709,4.43252038955688],\"space\":\"arch\",\"yaw\":-0.000555270536318861}",
+      "VIEW_ORBIT {\"position\":[0.000000000000000861235413378709,4.43252038955688],\"space\":\"arch\",\"yaw\":3.14107965398971}",
+      "NAV_SPACE arch -> gallery"
+    ],
+    "errors": []
+  },
+  {
+    "width": 720,
+    "events": [
+      "PORTAL_FLOOR_DEPTH clear_samples=9/9 meshes=1",
+      "DOORWAY_GAMEPLAY_READY",
+      "NAV_SPACE gallery -> arch",
+      "VIEW_ORBIT {\"position\":[0.000000000000000800777060339894,3.93884015083313],\"space\":\"arch\",\"yaw\":-1.57167559789003}",
+      "VIEW_ORBIT {\"position\":[0.000000000000000800777060339894,3.93884015083313],\"space\":\"arch\",\"yaw\":-0.000537244268909085}",
+      "VIEW_ORBIT {\"position\":[0.000000000000000800777060339894,3.93884015083313],\"space\":\"arch\",\"yaw\":3.14091733905247}",
+      "NAV_SPACE arch -> gallery"
+    ],
+    "errors": []
+  }
+]

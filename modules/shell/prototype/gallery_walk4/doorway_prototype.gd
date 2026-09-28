@@ -21,20 +21,37 @@ func _ready() -> void:
 			shadow.hide()
 		walk._update_camera(1.0)
 		if JavaScriptBridge.eval("new URLSearchParams(location.search).has('qa-floor')"):
+			# Read-only exported-runtime observation; browser still drives real keys.
+			var frames := [0]
+			get_tree().process_frame.connect(func() -> void:
+				frames[0] += 1
+				if frames[0] % 10 == 0:
+					JavaScriptBridge.eval("window.__portalQA=" + JSON.stringify({"space": walk._space, "position": [walk._pos.x, walk._pos.z], "mask": walk._cam.cull_mask}))
+			)
 			for frame in 6:
 				await get_tree().process_frame
-			var image: Image = walk._vp.get_texture().get_image()
-			var clear := 0
-			for x in [-0.5, 0.0, 0.5]:
-				for depth in [0.15, 0.22, 0.32]:
-					var z: float = depth if arch else -walk.L - depth
-					var pixel := Vector2i(walk._cam.unproject_position(Vector3(x, 0, z)))
-					if image.get_pixelv(pixel).get_luminance() > (0.65 if arch else 0.04):
-						clear += 1
-			print("DOORWAY_FLOOR clear_samples=", clear, "/9")
+			if arch:
+				var probe: Dictionary = await load("res://modules/shell/prototype/gallery_walk4/portal_floor_probe.gd").sample(walk)
+				print("PORTAL_FLOOR_DEPTH clear_samples=", probe.clear, "/9 meshes=", probe.meshes)
+			else:
+				var image: Image = walk._vp.get_texture().get_image()
+				var clear := 0
+				for x in [-0.5, 0.0, 0.5]:
+					for depth in [0.15, 0.22, 0.32]:
+						var pixel := Vector2i(walk._cam.unproject_position(Vector3(x, 0, -walk.L - depth)))
+						if image.get_pixelv(pixel).get_luminance() > 0.04:
+							clear += 1
+				print("DOORWAY_FLOOR clear_samples=", clear, "/9")
 		print("DOORWAY_GAMEPLAY_READY")
 		return
-	add_child(load("res://modules/shell/prototype/gallery_walk4/baked/room.tscn").instantiate())
+	var room: Node = load("res://modules/shell/prototype/gallery_walk4/baked/room.tscn").instantiate()
+	add_child(room)
+	# Match actual gameplay: this inherited photographic reference is not the
+	# modeled room. Keeping it in the static fixture created a false black end.
+	for mesh in room.find_children("*", "MeshInstance3D", true, false):
+		var material: Material = mesh.material_override
+		if material is StandardMaterial3D and material.albedo_texture and material.albedo_texture.resource_path.ends_with("/door-arch.jpg"):
+			mesh.hide()
 	var world := WorldEnvironment.new()
 	world.environment = Environment.new()
 	world.environment.background_mode = Environment.BG_COLOR

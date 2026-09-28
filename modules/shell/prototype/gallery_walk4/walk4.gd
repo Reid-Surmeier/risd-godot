@@ -559,8 +559,14 @@ func _arch_end() -> void:
 	var zb := z1 + beyond
 	var room := ps(null, Color("#56606b"), Vector2.ONE, true)
 	var lit := func(p: Vector3) -> float: return lerpf(0.55, 1.05, clampf((p.z - z1) / beyond, 0.0, 1.0))
-	_panel(Vector3(-3.0, 0, z1), Vector3(0, 0, beyond), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
-	_panel(Vector3(3.0, 0, zb), Vector3(0, 0, -beyond), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
+	_panel(Vector3(-3.0, 0, 0), Vector3(0, 0, zb), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
+	_panel(Vector3(3.0, 0, zb), Vector3(0, 0, -zb), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
+	# Visible reverse face of the existing wall, with outward-facing normals.
+	# Extending the side returns to this plane closes the former floor-edge gaps.
+	_panel(Vector3(-3.0, 0, 0.01), Vector3(3.0 - dw, 0, 0), Vector3(0, 5.0, 0), room, 0.5, 1, lit)
+	_panel(Vector3(dw, 0, 0.01), Vector3(3.0 - dw, 0, 0), Vector3(0, 5.0, 0), room, 0.5, 1, lit)
+	_panel(Vector3(-dw, ds.y, 0.01), Vector3(ds.x, 0, 0), Vector3(0, 5.0 - ds.y, 0), room, 0.5, 1, lit)
+	_panel(Vector3(3.0, 0, zb + 0.01), Vector3(-6.0, 0, 0), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
 	_panel(Vector3(-3.0, 5.0, zb), Vector3(6.0, 0, 0), Vector3(0, 0, -beyond), ps(null, Color("#8c8579"), Vector2.ONE, true), 1.0, 1, lit)
 	_portal_floor(zb)
 	var card := MeshInstance3D.new()
@@ -575,7 +581,7 @@ func _arch_end() -> void:
 
 func _portal_floor(end: float) -> void:
 	# Continue the same plank lattice without extending the gallery's clipped mesh.
-	# The live white passage remains above this backing floor at y=0.
+	# This is the visible walkable passage floor, with no overlay above it.
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var a := PLANK.x
@@ -672,10 +678,13 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 		var outer := inner + 0.265
 		var zf := front + order * 0.13
 		var zb := zf - 0.21
-		for k in 15:
+		var blocks: int = [13, 15, 17][order]
+		var joint_angle := func(t: float) -> float:
+			return PI * t + 0.008 * sin(5.0 * PI * t + order) * sin(PI * t)
+		for k in blocks:
 			vary.call(k * 7 + order * 13)
-			var a := PI * k / 15.0 + 0.0005
-			var b := PI * (k + 1) / 15.0 - 0.0005
+			var a: float = joint_angle.call(k / float(blocks))
+			var b: float = joint_angle.call((k + 1) / float(blocks))
 			var p: Array = []
 			for z in [zf, zb]:
 				p.append(Vector3(-inner * cos(a), spring + inner * sin(a), z))
@@ -699,9 +708,34 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 	for side in [-1.0, 1.0]:
 		# Backing courses and an impost band support the recessed column pair.
 		for row in 6:
-			block.call(Vector3(side * (radius + 0.41), (row + 0.5) * spring / 6, front + 0.02), Vector3(0.80, spring / 6 - 0.001, 0.32))
+			block.call(Vector3(side * (radius + 0.41), (row + 0.5) * spring / 6, front + 0.02), Vector3(0.80, spring / 6, 0.32))
 		block.call(Vector3(side * (radius + 0.41), 0.11, front + 0.16), Vector3(0.84, 0.22, 0.58))
 		block.call(Vector3(side * (radius + 0.41), spring - 0.045, front + 0.20), Vector3(0.87, 0.12, 0.64))
+		# Shallow carved diaper band seen above the photo's capitals. This is
+		# bounded stylization of visible relief, not a claim of measured carving.
+		builder.current = capital_st
+		var frieze := func(u: float, v: float) -> Vector3:
+			var diamond := absf(fposmod(u * 6.0, 1.0) - 0.5) * 2.0 + absf(v - 0.5) * 2.0
+			var relief_depth := 0.010 * exp(-pow((diamond - 0.72) / 0.22, 2.0))
+			relief_depth *= smoothstep(0.0, 0.15, v) * smoothstep(0.0, 0.15, 1.0 - v)
+			return Vector3(side * (radius + 0.41) + (u - 0.5) * 0.87, spring - 0.045 + (v - 0.5) * 0.12, front + 0.522 + relief_depth)
+		for row in 24:
+			for column in 192:
+				var u := column / 192.0
+				var v := row / 24.0
+				var samples := [Vector2(u, v), Vector2(u, v + 1.0 / 24.0), Vector2(u + 1.0 / 192.0, v + 1.0 / 24.0), Vector2(u + 1.0 / 192.0, v)]
+				var q: Array = []
+				var smooth: Array = []
+				var texture_uv: Array = []
+				var origin: Vector2 = patch_origin.call()
+				for sample in samples:
+					q.append(frieze.call(sample.x, sample.y))
+					texture_uv.append(origin + sample * 0.10)
+					var along: Vector3 = frieze.call(sample.x + 0.001, sample.y) - frieze.call(sample.x - 0.001, sample.y)
+					var up: Vector3 = frieze.call(sample.x, sample.y + 0.001) - frieze.call(sample.x, sample.y - 0.001)
+					smooth.append(along.cross(up).normalized())
+				face.call(q, smooth, texture_uv)
+		builder.current = st
 		for column in 2:
 			vary.call(column + int(side) * 11)
 			var x: float = side * (radius + 0.17 + column * 0.32)
@@ -735,20 +769,16 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 				var zz := signf(sa) * pow(absf(sa), 0.55)
 				var carving := 0.0
 				if sa > 0.0:
-					for side_lobe in [-0.62, 0.62]:
-						var d := Vector2((xx - side_lobe) * 0.75, (v - 0.69) * 1.4).length()
-						carving += 0.025 * exp(-pow((d - 0.19) / 0.065, 2.0))
-					carving += 0.022 * exp(-pow(xx / 0.33, 2.0)) * sin(PI * clampf(v, 0, 1))
-					carving -= 0.013 * exp(-pow((absf(xx) - 0.37) / 0.11, 2.0)) * sin(PI * clampf(v, 0, 1))
-					# Photo luminance is only a shallow relief cue, not measured depth.
+					# Individually sampled source faces replace the repeated generic
+					# scroll rings. Photo luminance is a bounded cue, not scan depth.
 					var px := clampf((xx + 1.0) * 0.5, 0, 1) * (int(relief.width) - 1)
 					var py := (1.0 - clampf(v, 0, 1)) * (int(relief.height) - 1)
 					var ix := mini(int(px), int(relief.width) - 2)
 					var iy := mini(int(py), int(relief.height) - 2)
-					var data: Array = relief.fields[column]
+					var data: Array = relief.fields[1 - column if side < 0.0 else 2 + column]
 					var row0: float = lerpf(data[iy * int(relief.width) + ix], data[iy * int(relief.width) + ix + 1], px - ix)
 					var row1: float = lerpf(data[(iy + 1) * int(relief.width) + ix], data[(iy + 1) * int(relief.width) + ix + 1], px - ix)
-					carving += 0.055 * (lerpf(row0, row1, py - iy) / 255.0 - 0.5) * sin(PI * clampf(v, 0, 1)) * sa
+					carving += 0.12 * (lerpf(row0, row1, py - iy) / 255.0 - 0.5) * sin(PI * clampf(v, 0, 1)) * sa
 				return Vector3(x + xx * width, spring - 0.46 + v * 0.33, zc + zz * width + carving)
 			for row in 48:
 				for segment in 128:
@@ -1137,17 +1167,8 @@ func _build_test_room() -> void:
 		face.call(Vector3(sign_x * 1.01, 1.5, -0.08), Vector3(0.14, 3.0, 0.16), Color.WHITE, 512)
 	face.call(Vector3(0, 3.3, 0), Vector3(1.9, 0.6, 0.12), Color("#f1f0ea"), 512)
 	face.call(Vector3(0, 3.02, -0.08), Vector3(2.16, 0.14, 0.16), Color.WHITE, 512)
-	# The modeled portal replaces the temporary white back/side walls. Retain
-	# the existing flush navigation threshold; portal transition logic is unchanged.
-	for door in [DOORS.arch]:
-		var outward := 1.0 if door.z == 0.0 else -1.0
-		var layer := 8 if door.z == 0.0 else 16
-		var depth := 1.1
-		var width: float = door.size.x - 0.08
-		var middle: float = door.z + outward * depth / 2.0
-		face.call(Vector3(0, -0.0125, middle), Vector3(width, 0.025, depth), Color("#e3e0d6"), layer)
-		# Flush threshold: the walkable floor stays at y=0, including the entrance.
-		face.call(Vector3(0, -0.014, door.z), Vector3(width, 0.03, 0.24), Color("#cbc7bc"), layer)
+	# Arch traversal uses the modeled stone passage and its parquet. The far
+	# doorway retains #135's isolated navigation room on layers 64–1024.
 	_portal_flash = ColorRect.new()
 	_portal_flash.color = Color.WHITE
 	_portal_flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -1158,6 +1179,13 @@ func _build_test_room() -> void:
 
 func _enter_space(next: String) -> void:
 	var previous := _space
+	# Arch is contiguous world geometry, not the far door's separate QA room.
+	if previous == "arch" or next == "arch":
+		_space = next
+		get_node("OtherWall").visible = next == "gallery"
+		_update_camera(1.0)
+		print("NAV_SPACE ", previous, " -> ", next)
+		return
 	_new_action()
 	_target = null
 	_target_yaw = null
@@ -1191,7 +1219,7 @@ func _enter_space(next: String) -> void:
 func _move_to(p: Vector3) -> void:
 	# Sweep the doorway's wall plane as well as clamping the endpoint: diagonal
 	# movement must not cut a corner through a solid part of the end wall.
-	for wall in [0.0, -L] if _space == "gallery" else [0.0]:
+	for wall in [0.0, -L] if _space == "gallery" else ([] if _space == "arch" else [0.0]):
 		var edge: float = wall - 0.55 if wall == 0.0 else wall + 0.55
 		if (_pos.z - edge) * (p.z - edge) < 0.0:
 			var at_x := lerpf(_pos.x, p.x, (edge - _pos.z) / (p.z - _pos.z))
@@ -1219,7 +1247,7 @@ func _set_lighting(enabled: bool) -> void:
 	# baked/probe-disabled tests retain zero ambient and genuine spatial capture.
 	for node in _vp.get_children():
 		if node is WorldEnvironment:
-			node.environment.ambient_light_energy = 0.6 if not enabled and _space == "gallery" else 0.0
+			node.environment.ambient_light_energy = 0.6 if not enabled and _space != "far" else 0.0
 	if enabled and _baked_room == null:
 		_baked_room = load(DIR + "baked/room.tscn").instantiate()
 		_vp.add_child(_baked_room)
@@ -1232,7 +1260,7 @@ func _set_lighting(enabled: bool) -> void:
 		_white_capture.light_data = capture
 		_vp.add_child(_white_capture)
 	if _white_capture:
-		_white_capture.visible = _space != "gallery"
+		_white_capture.visible = _space == "far"
 	for mesh in _source_meshes:
 		mesh.visible = not enabled
 	# The old photographed end cards are scenery, not traversable rooms.
@@ -1565,7 +1593,7 @@ func _process(delta: float) -> void:
 		_entrance_active = false
 		print("ENTRY_COMPLETE ", _pos)
 	if not _entrance_active:
-		if _space != "gallery" and _pos.z > 0.0:
+		if (_space == "far" and _pos.z > 0.0) or (_space == "arch" and _pos.z < 0.0):
 			_enter_space("gallery")
 		elif _space == "gallery" and (_pos.z > 0.0 or _pos.z < -L):
 			_enter_space("arch" if _pos.z > 0.0 else "far")
@@ -1603,6 +1631,17 @@ func _process(delta: float) -> void:
 func _clamp(p: Vector3) -> Vector3:
 	var m := 0.55
 	var doorway := absf(p.x) <= 0.4
+	if _space == "arch":
+		# Keep the visitor inside the narrow reveal until fully past its jambs.
+		if (_pos.z - 2.2) * (p.z - 2.2) < 0.0 or (_pos.z == 2.2 and p.z < 2.2):
+			var crossing_x := lerpf(_pos.x, p.x, (2.2 - _pos.z) / (p.z - _pos.z))
+			if absf(crossing_x) > 0.4:
+				if _pos.z >= 2.2:
+					p.z = 2.2
+				else:
+					p.x = clampf(p.x, -0.4, 0.4)
+		var in_passage := p.z < 2.2
+		return Vector3(clampf(p.x, -0.4 if in_passage else -2.45, 0.4 if in_passage else 2.45), 0, clampf(p.z, -0.2, 6.1))
 	if _space != "gallery":
 		return Vector3(clampf(p.x, -3.0 + m, 3.0 - m), 0, clampf(p.z, -6.0 + m, 0.2 if doorway else -m))
 	p = Vector3(clampf(p.x, -W / 2 + m, W / 2 - m), 0, clampf(p.z, -L - 0.2 if doorway else -L + m, 0.2 if doorway else -m))
@@ -1623,10 +1662,10 @@ func _clamp(p: Vector3) -> Vector3:
 # wants to be is cut where it would cross a wall.
 func _update_camera(k: float) -> void:
 	if _baked_room:
-		_baked_room.get_node("Lightmap").visible = _space == "gallery"
+		_baked_room.get_node("Lightmap").visible = _space != "far"
 	if _white_capture:
-		_white_capture.visible = _space != "gallery"
-	_kid.layers = 1 if _space == "gallery" else 64
+		_white_capture.visible = _space == "far"
+	_kid.layers = 64 if _space == "far" else 1
 	_shadow.layers = _kid.layers
 	_kid.position = _pos
 	_shadow.position = _pos + Vector3(0, 0.01, 0)
@@ -1644,6 +1683,22 @@ func _update_camera(k: float) -> void:
 			contact.material_override.albedo_color.a = 0.85 if support[index] else 0.22 * clampf(1.0 - height / 0.25, 0.0, 1.0)
 	if not _rigged_visitor:
 		_kid.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y if view_mode == 2 else BaseMaterial3D.BILLBOARD_ENABLED
+	# The recess has a real roof: the gallery's elevated cutaway eye cannot
+	# see through it. Follow at visitor height throughout approach and passage.
+	if _space == "arch" or (_space == "gallery" and _pos.z > -4.0 and absf(_pos.x) < 1.4):
+		var heading := _yaw if view_mode == 2 else view_yaw
+		var forward := Vector3(-sin(heading), 0, -cos(heading))
+		var eye := _pos - forward * 3.1 + Vector3(0, 2.45, 0)
+		if eye.z >= 2.2:
+			eye.x = clampf(eye.x, -2.7, 2.7)
+		if eye.z > -0.1 and eye.z < 2.2:
+			eye.x = clampf(eye.x, -0.7, 0.7)
+		eye.z = minf(eye.z, 6.3)
+		_cam.position = eye
+		_cam.fov = 58.0
+		_cam.cull_mask = 31
+		_cam.look_at(_pos + forward * 2.0 + Vector3(0, 1.1, 0))
+		return
 	if view_mode != 2:
 		var pitch := deg_to_rad(42.0 if view_mode == 0 else 35.0)
 		var distance := 14.2 if view_mode == 0 else 9.3

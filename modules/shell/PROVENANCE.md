@@ -99,9 +99,25 @@ Self-inspection rejects exact ornamental fidelity: it regularizes/sharpens
 details beyond the photo. Broad rounded/carved mass is a modeling guide only;
 the image is not an accepted runtime decal or displacement asset.
 
-The next authored-geometry trial uses rounded lobes and scroll recesses,
+The earlier authored-geometry trial used rounded lobes and scroll recesses,
 thicker supports, real narrow arris bevels, quieter joints and multiple
 interior-stone UV patches. The passage uses clipped modeled planks on the
 same lattice as the gallery, below the retained y=0 live threshold. The
 generated guide's invented iconography is not copied. This trial is not
 independently accepted and has not entered the build branch.
+
+### Post-portal4 repair, still awaiting independent acceptance
+
+The source-only four-face capital relief is recorded in
+`image-work/architecture-167/README.md`; local Godot provider, USD 0 additional
+cost, JSON SHA-256 `8a38552770d32ec3b775ca1fda935d5231186bc91a2d8f4763988ca4f70880bc`.
+It replaces the repeated analytic scroll motif with four individual owner-
+photo cues. The shallow impost band and uneven arch joints are bounded
+geometry interpretations, not surveyed dimensions or photogrammetric depth.
+The rejected Muse guide remains excluded from runtime.
+
+The white live threshold overlay is removed. Actual arch movement retains
+world coordinates, modeled parquet and room lighting; the inherited far-
+door QA room is unchanged. The depth-ID diagnostic cannot substitute for
+native/exported walk images. Portal4's independent FAIL is preserved in
+`docs/evidence/architecture-167/BLIND-REVIEW-PORTAL-4.md`.

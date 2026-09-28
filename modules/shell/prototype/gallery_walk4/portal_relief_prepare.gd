@@ -5,10 +5,11 @@ func _initialize() -> void:
 	var source := Image.load_from_file("res://image-work/grand-gallery-v2/source/arch-outside.png")
 	assert(source != null)
 	var fields: Array = []
-	var width := 48
-	var height := 40
-	# Pixel crops of the two right-side capital faces. No image pixels are edited.
-	for crop in [Rect2i(701, 641, 125, 137), Rect2i(828, 645, 116, 139)]:
+	var width := 64
+	var height := 56
+	# Four individually visible faces, excluding the impost above each capital.
+	# Order is left outer, left inner, right inner, right outer. Source unchanged.
+	for crop in [Rect2i(119, 679, 116, 100), Rect2i(236, 681, 115, 99), Rect2i(705, 673, 122, 105), Rect2i(828, 673, 119, 106)]:
 		var field: Array = []
 		for y in height:
 			for x in width:
@@ -22,5 +23,5 @@ func _initialize() -> void:
 	var output := FileAccess.open("res://modules/shell/prototype/gallery_walk4/portal-capital-relief.json", FileAccess.WRITE)
 	output.store_string(JSON.stringify({"width": width, "height": height, "fields": fields}) + "\n")
 	output.close()
-	print("PORTAL_RELIEF fields=2 grid=48x40 source-photo-only")
+	print("PORTAL_RELIEF fields=4 grid=64x56 source-photo-only")
 	quit()
