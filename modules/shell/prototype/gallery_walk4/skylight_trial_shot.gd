@@ -2,7 +2,7 @@ extends "res://testing/harness_base.gd"
 
 func _initialize() -> void:
 	var main: Control = load("res://modules/shell/demo.tscn").instantiate()
-	var out := await _mount(main, Vector2i(720, 720), "/tmp/risd-skylight-168-0900")
+	var out := await _mount(main, Vector2i(720, 720), "/tmp/risd-skylight-168-1000")
 	await create_timer(4.0).timeout
 	var walk: Control = main.find_child("GalleryWalk", true, false)
 	walk._pos = Vector3(0, 0, -18)

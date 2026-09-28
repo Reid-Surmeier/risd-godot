@@ -149,3 +149,14 @@ and exact blind visual findings in `docs/evidence/surface-168-0800/README.md`.
 The reviewer passed the *visible wall*; World Asset Gate provenance remains
 open, so this is not a selected build asset. No generated image, paid provider
 call, or spend occurred in this trial.
+
+## Isolated vault cap trial — issue #168, 2026-09-28
+
+The `heartbeat/skylight-168-1000` trial derives its cap geometry and Godot
+lightmap from `prototype/gallery_walk4/walk4.gd` and `bake/prepare.gd`; the
+unchanged Muse skylight input is SHA-256
+`5de8accfe1a91a4e4e6b3951329579076ae43479227b2959375a4d7ea431c86c`.
+The final cap trial's `room.exr` / `room.lmbake` / `room.tscn` hashes and three
+blind-review failures are in `docs/evidence/skylight-cap-168-1000/README.md`.
+Provider none, generation count 0, cost USD 0. The trial is rejected and is
+not folded into the build.

@@ -385,22 +385,26 @@ func _build_room() -> void:
 				st.add_vertex(v)
 		for end in 2:  # each lunette has its own lightmap unwrap
 			var z := 0.0 if end == 0 else -L
-			caps[end].set_color(vault * Color(0.82, 0.82, 0.8))
 			# Face each cap into the room. The far cap otherwise faces away from
 			# the bake lights and leaves the far glazing termination exposed.
 			var cap := [Vector3(0, H, z), p0 + Vector3(0, 0, z), p1 + Vector3(0, 0, z)]
+			var cap_shades := [0.45, 0.48 + 0.1 * sin(a0), 0.48 + 0.1 * sin(a1)]
 			if z < 0.0:
 				cap.reverse()
-			for v in cap:
-				caps[end].add_vertex(v)
+				cap_shades.reverse()
+			for k in cap.size():
+				caps[end].set_color(Color(cap_shades[k], cap_shades[k], cap_shades[k]))
+				caps[end].add_vertex(cap[k])
 	var vmi := MeshInstance3D.new()
 	vmi.mesh = st.commit()
 	vmi.material_override = ps(null, Color.WHITE, Vector2.ONE, true)
 	_vp.add_child(vmi)
+	var cap_mat := ps(null, Color("#b6aa9c"), Vector2.ONE, true)
+	cap_mat.resource_name = "GalleryVaultCap"
 	for cap_tool in caps:
 		var cap_mesh := MeshInstance3D.new()
 		cap_mesh.mesh = cap_tool.commit()
-		cap_mesh.material_override = ps(null, Color.WHITE, Vector2.ONE, true)
+		cap_mesh.material_override = cap_mat
 		_vp.add_child(cap_mesh)
 	var gmi := MeshInstance3D.new()
 	gmi.mesh = gl.commit()

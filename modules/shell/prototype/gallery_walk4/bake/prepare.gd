@@ -42,7 +42,7 @@ func _prepare() -> void:
 						var ao := maxf(walk._ao(world, false), 0.01)
 						colors[i] = Color(colors[i].r / ao, colors[i].g / ao, colors[i].b / ao, colors[i].a)
 				arrays[Mesh.ARRAY_TEX_UV2] = uv2
-			elif not colors.is_empty():
+			elif not colors.is_empty() and original.resource_name != "GalleryVaultCap":
 				# Keep intrinsic material colour; drop the old room-light multiplier.
 				for i in colors.size():
 					colors[i] = Color.WHITE
@@ -65,11 +65,13 @@ func _prepare() -> void:
 		var uv_scale = original.get_shader_parameter("uv_scale")
 		if uv_scale != null:
 			material.uv1_scale = Vector3(uv_scale.x, uv_scale.y, 1)
-		material.vertex_color_use_as_albedo = floor_mesh
+		material.vertex_color_use_as_albedo = floor_mesh or original.resource_name == "GalleryVaultCap"
 		material.specular_mode = BaseMaterial3D.SPECULAR_DISABLED
 		material.disable_ambient_light = false  # Compatibility gates lightmaps with ambient lighting
 		material.cull_mode = BaseMaterial3D.CULL_DISABLED
 		material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+		if original.resource_name == "GalleryVaultCap":
+			material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		if original.get_shader_parameter("alpha_cut") != null and original.get_shader_parameter("alpha_cut") > 0:
 			material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
 			material.alpha_scissor_threshold = original.get_shader_parameter("alpha_cut")
