@@ -76,7 +76,8 @@ try {
   await drag([px+pw*.35,py+ph*.4],[px+pw*.48,py+ph*.5]);assert.equal((await state()).tenant.strokes,strokes+1,'Sketchbook paint regression');
   matrix.push({width,height,stage:s.stage_rect,exterior,status:'pass'});console.log(`PASS ${id}`);
  }
- assert.deepEqual(errors,[]);writeFileSync(`${out}/browser.json`,JSON.stringify({url:url.href,matrix,errors},null,2)+'\n');
+ const candidate=url.pathname.split('/').at(-1).replace(/\.html$/,'');
+ assert.deepEqual(errors,[]);writeFileSync(`${out}/browser.json`,JSON.stringify({candidate,url:'local scratch export; no owner-facing URL',controls:['seven Tabs and Home/Start selection','five viewport sizes and white exterior pixel samples','touch Tab selection with nonzero stage offset','Map exterior release','Viewer selection, window drag, orbit, zoom, and retained selection','Playground window drag and four pages','Sketchbook paint'],matrix,errors},null,2)+'\n');
 } catch(error) {
  const pages=browser.contexts().flatMap(c=>c.pages());
  if(pages[0]){await pages[0].screenshot({path:`${out}/failure.png`});writeFileSync(`${out}/failure.json`,JSON.stringify({error:String(error),state:await pages[0].evaluate(()=>window.shellCrtQa),errors},null,2));}

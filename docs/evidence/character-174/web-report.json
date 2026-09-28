@@ -17,8 +17,9 @@
     "original third-person view ArrowLeft ×2 for 90° and ×2 more for 180° turns"
   ],
   "gameplay_crop_changed_pixels": {
-    "idle_to_walk": 17015,
-    "walk_to_stop": 3415
+    "idle_to_walk": 16986,
+    "walk_to_stop": 3360
   },
-  "errors": []
+  "errors": [],
+  "candidate": "d91add3d"
 }

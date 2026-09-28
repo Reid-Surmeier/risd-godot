@@ -77,5 +77,15 @@
       "status": "pass"
     }
   ],
-  "errors": []
+  "errors": [],
+  "candidate": "d91add3d",
+  "controls": [
+    "Start, Home and all seven Tabs",
+    "five viewport sizes; centered square and sampled pure-white exterior",
+    "touch Tab selection with a nonzero stage offset",
+    "Map exterior-release handling",
+    "Viewer selection, window drag, orbit, zoom and retained selection",
+    "Playground window drag and Explore/All/Channels/Search navigation",
+    "Sketchbook paint input"
+  ]
 }

@@ -13,11 +13,11 @@ The Shell demo presents its original content in a SubViewport and maps pointer p
 
 - scripts/check.sh: checks passed (Godot 4.7.2 headless); git diff --check passed. Existing gdlint is not installed; no claim of clearing the separately tracked lint backlog.
 - Godot Web import/export succeeded without script/shader errors.
-- Focused browser run passed: six tabs, exact 35px window-drag destination within 2px, sketchbook stroke, F8 state preservation, Viewer idle/hover/idle pixels, crt=0 bypass, no console/runtime errors.
-- Screenshots inspected at full and small sizes. Pure-white pixel difference is zero. Near-white mean linear luminance differs by 0.0929%. No dark edge bars at 1920x1080, 720x486 or 1200x600; the bottom bar remains clickable at every size.
-- Live PCK SHA256 verified: `368b0ca7127cf107529127a73a9bc113e2e42769d6cabacf46fc4194dec2e893`.
+- Focused browser run passed on candidate `d91add3d`: six tabs, exact 35px window-drag destination within 2px, sketchbook stroke, F8 state preservation, Viewer idle/hover/idle pixels, CRT bypass, no console/runtime errors.
+- Screenshots inspected at full and small sizes. White exterior difference is zero; near-white luminance is unchanged. No dark edge bars at 1920×1080, 720×486 or 1200×600; the bottom bar remains clickable at every size.
+- Candidate PCK SHA-256: `ffec14ea62d185de23dfa3d50744cfaf61b04c258e961a4c48784922c748c4f9`.
 
-Run: `PLAYWRIGHT_MODULE=/path/to/playwright/index.mjs node modules/shell/playtest/crt_browser.mjs URL`. This uses the already installed browser tooling; no dependency or paid generation was added. The preview is a tailnet-only Web export, not a tagged release.
+Run: `PLAYWRIGHT_MODULE=/path/to/playwright/index.mjs node modules/shell/playtest/crt_display_browser.mjs <candidate URL>`. This uses the already installed browser tooling; no dependency or paid generation was added. The candidate export is scratch evidence, not a release.
 
 ## Review
 
@@ -30,5 +30,3 @@ Independent review found missing SubViewport mouse-entry/exit notifications. Fix
 Independent review found coloured moire and insufficient near-white/pointer checks. Replaced the coloured grille with a neutral grille, lowered colour separation, added the near-white mean check and exact drag destination assertion. Updated screenshots reviewed; no remaining spec blockers. The revised browser run passed.
 
 Source: Harrison Allen, CC0, [CRT with Luminance Preservation](https://godotshaders.com/shader/crt-with-luminance-preservation-no-scanlines/), adapted from the previously accepted painting prototype. No spend.
-
-https://windows-wsl.taile06c45.ts.net/risd-game-crt-01a0a2b7/

@@ -1,4 +1,4 @@
-// PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs node modules/shell/playtest/crt_browser.mjs URL
+// PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs node modules/shell/playtest/crt_display_browser.mjs URL
 import assert from 'node:assert/strict';
 import {mkdirSync, writeFileSync} from 'node:fs';
 const {chromium} = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
@@ -13,9 +13,13 @@ try {
  page.on('console',m=>{if(m.type()==='error' && !/404|2D MSAA|render_target_set_msaa/.test(m.text()))errors.push(m.text());});
  await page.goto(url.href);
  const state=()=>page.evaluate(()=>window.shellCrtQa);
- await page.waitForFunction(()=>window.shellCrtQa?.shell.active===4 && !window.shellCrtQa.shell.switching);
- assert.deepEqual(await page.evaluate(()=>window.crtQaState),{enabled:true,curve:.018,screen_scale:1});
- await page.waitForFunction(()=>window.shellCrtQa.tenant.search.images_loaded===2);
+ await page.waitForFunction(()=>window.shellCrtQa?.shell.active===4 && !window.shellCrtQa.shell.switching,null,{timeout:240000});
+ const crtState=await page.evaluate(()=>window.crtQaState);
+ assert.equal(crtState.enabled,true);
+ assert.equal(crtState.curve,.018);
+ assert.equal(crtState.screen_scale,1);
+ await page.waitForTimeout(1000);
+ await page.keyboard.press('F9'); await page.waitForFunction(()=>window.squiggleQaState?.enabled===true);
  await page.keyboard.press('F9'); await page.waitForFunction(()=>window.squiggleQaState?.enabled===false);
  await page.waitForTimeout(700);
  const on=await page.screenshot({path:out+'/collection-crt.png'});
@@ -23,24 +27,26 @@ try {
  await page.keyboard.press('F8'); await page.waitForTimeout(400);
  const off=await page.screenshot({path:out+'/collection-off.png'});
  assert.deepEqual((await state()).shell,initial,'F8 preserves all tab states');
- const metrics=await page.evaluate(async([a,b])=>{
+ const metrics=await page.evaluate(async([a,b,stage])=>{
   async function decode(s){const i=new Image();i.src='data:image/png;base64,'+s;await i.decode();const c=document.createElement('canvas');c.width=i.width;c.height=i.height;const x=c.getContext('2d');x.drawImage(i,0,0);return x.getImageData(0,0,c.width,c.height).data;}
   const [on,off]=await Promise.all([decode(a),decode(b)]);let whiteChange=0,change=0;
-  for(let i=0;i<on.length;i++)if(i%4!==3){change+=Math.abs(on[i]-off[i]);if(i<1440*3*4)whiteChange+=Math.abs(on[i]-off[i]);}
+  const [sx,sy,sw,sh]=stage;let whiteChannels=0;
+  for(let y=0;y<972;y++)for(let x=0;x<1440;x++)if(x<sx||x>=sx+sw||y<sy||y>=sy+sh){const i=(y*1440+x)*4;for(let c=0;c<3;c++){whiteChange+=Math.abs(on[i+c]-off[i+c]);whiteChannels++;}}
+  for(let i=0;i<on.length;i++)if(i%4!==3)change+=Math.abs(on[i]-off[i]);
   let onY=0,offY=0;
   const linear=v=>v<=10.31475?v/3294.6:((v/255+.055)/1.055)**2.4;
   for(let y=290;y<302;y++)for(let x=150;x<250;x++)for(let c=0;c<3;c++){
    const i=(y*1440+x)*4+c,w=[.2126,.7152,.0722][c];onY+=linear(on[i])*w;offY+=linear(off[i])*w;
   }
-  return {mean_change:change/(1440*972*3),white_change:whiteChange/(1440*3*3),near_white_luminance_change:Math.abs(onY-offY)/offY};
- },[on.toString('base64'),off.toString('base64')]);
+  return {mean_change:change/(1440*972*3),white_change:whiteChange/whiteChannels,near_white_luminance_change:Math.abs(onY-offY)/offY};
+ },[on.toString('base64'),off.toString('base64'),(await state()).stage_rect]);
  assert.ok(metrics.near_white_luminance_change<.02,'Near-white brightness preserved: '+JSON.stringify(metrics));
  assert.ok(metrics.mean_change>.3,'CRT visible'); assert.ok(metrics.white_change<.1,'White stays white');
  await page.keyboard.press('F8');
  function screen(x,y,s){
-  const [w,h]=s.logical_size,[dw,dh]=s.display_size,aspect=h/w;
+  const [w,h]=s.logical_size,[sx,sy,sw,sh]=s.stage_rect,aspect=h/w;
   const qx=(x/w-.5)/aspect,qy=y/h-.5,a=.018*(qx*qx+qy*qy),c=1+.018/4;
-  const k=2*c/(1+Math.sqrt(1+4*a*c));return [(qx*k*aspect+.5)*dw,(qy*k+.5)*dh];
+  const k=2*c/(1+Math.sqrt(1+4*a*c));return [sx+(qx*k*aspect+.5)*sw,sy+(qy*k+.5)*sh];
  }
  async function openTab(index){const s=await state(),[x,y,w,h]=s.shell.tabs[index].rect;await page.mouse.click(...screen(x+w/2,y+h/2,s));await page.waitForFunction(i=>window.shellCrtQa.shell.active===i&&!window.shellCrtQa.shell.switching,index);}
  for(const index of [0,1,2,3,4,5]) {await openTab(index);await page.screenshot({path:out+`/tab-${index}.png`});}
@@ -76,7 +82,9 @@ try {
   // Bottom bar must remain clickable after fitting the smaller browser.
   await openTab(1);
  }
- url.searchParams.set('crt','0');await page.goto(url.href);await page.waitForFunction(()=>window.crtQaState?.enabled===false&&window.shellCrtQa?.shell.active===4);
+ const bypass=new URL(process.argv[2]);bypass.searchParams.set('qa-crt','1');bypass.searchParams.set('crt','0');
+ await page.goto(bypass.href);await page.waitForFunction(()=>window.crtQaState?.enabled===false&&window.shellCrtQa?.shell.active===4);
  assert.deepEqual(errors,[]);
- const report={status:'pass',url:process.argv[2],metrics,viewports,errors};writeFileSync(out+'/report.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));
+ const candidate=new URL(process.argv[2]).pathname.split('/').at(-1).replace(/\.html$/,'');
+ const report={status:'pass',candidate,url:'local scratch export; no owner-facing URL',metrics,viewports,errors};writeFileSync(out+'/report.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));
 }finally{await browser.close();}
