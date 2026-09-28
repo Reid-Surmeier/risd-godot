@@ -532,7 +532,7 @@ func _arch_end() -> void:
 	var ds: Vector2 = door.size
 	var dw := ds.x / 2.0
 	var side := X - dw
-	var white := ps(null, WHITE)
+	var white := ps(load(DIR + "textures/ivory-trim.svg"), Color.WHITE, Vector2(0.7, 0.7), true)
 	_panel(Vector3(X, 0, 0), Vector3(-side, 0, 0), Vector3(0, H, 0), _wall_ps(), 0.5, 1)
 	_panel(Vector3(-dw, 0, 0), Vector3(-side, 0, 0), Vector3(0, H, 0), _wall_ps(), 0.5, 1)
 	_panel(Vector3(dw, ds.y, 0), Vector3(-ds.x, 0, 0), Vector3(0, H - ds.y, 0), _wall_ps(), 0.5, 1)
@@ -542,7 +542,7 @@ func _arch_end() -> void:
 		_box(Vector3(s * (dw + 0.04), ds.y / 2, -0.07), Vector3(0.08, ds.y, 0.14), WHITE, 1, white)
 	_box(Vector3(0, ds.y + 0.19, -0.04), Vector3(ds.x + 0.64, 0.3, 0.08), WHITE, 1, white)
 	_box(Vector3(0, ds.y + 0.36, -0.08), Vector3(ds.x + 0.8, 0.07, 0.16), WHITE, 1, white)
-	_box(Vector3(0, ds.y + 0.62, -0.04), Vector3(0.34, 0.14, 0.05), Color.WHITE, 1, ps(null, Color(0.3, 1.0, 0.5)))
+	_panel(Vector3(0.17, ds.y + 0.55, -0.071), Vector3(-0.34, 0, 0), Vector3(0, 0.15, 0), ps(load(DIR + "textures/exit-sign.svg"), Color.WHITE, Vector2(1.0 / 0.34, 1.0 / 0.15)))
 	# the wall's plaster reveal
 	var zr := 0.45
 	var rev := ps(null, Color("#dcd5c6"), Vector2.ONE, true)
@@ -551,40 +551,9 @@ func _arch_end() -> void:
 	_panel(Vector3(dw, 0, zr), Vector3(0, 0, -zr), Vector3(0, ds.y, 0), rev, 0.3, 1, deep)
 	_panel(Vector3(-dw, ds.y, zr), Vector3(ds.x, 0, 0), Vector3(0, 0, -zr), rev, 0.3, 1, deep)
 	# the stone portal: a round-arched tunnel, its arch rising just past the door head
-	var stone := ps(load(DIR + "textures/stone.png"), Color(1.0, 0.97, 0.92), Vector2(0.8, 0.8), true)
-	var a := dw
-	var spring := ds.y - a * 0.75
 	var z0 := zr
 	var z1 := zr + PORTAL_DEPTH
-	var N := 16
-	var st := SurfaceTool.new()
-	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var put := func(p: Vector3, o: float) -> void:
-		st.set_color(Color(o, o, o))
-		st.set_uv(Vector2(p.x + p.z, p.y))
-		st.add_vertex(p)
-	var quad := func(q: Array, o: Array) -> void:
-		for i in [0, 1, 2, 0, 2, 3]:
-			put.call(q[i], o[i])
-	for k in N:  # the barrel of the arch
-		var t0 := PI * k / N
-		var t1 := PI * (k + 1) / N
-		var q0 := Vector2(-a * cos(t0), spring + a * sin(t0))
-		var q1 := Vector2(-a * cos(t1), spring + a * sin(t1))
-		quad.call([Vector3(q0.x, q0.y, z0), Vector3(q1.x, q1.y, z0), Vector3(q1.x, q1.y, z1), Vector3(q0.x, q0.y, z1)], [0.62, 0.62, 0.8, 0.8])
-	for sx in [-1.0, 1.0]:  # the jambs
-		quad.call([Vector3(sx * a, 0, z0), Vector3(sx * a, spring, z0), Vector3(sx * a, spring, z1), Vector3(sx * a, 0, z1)], [0.5, 0.66, 0.84, 0.7])
-	# the stone face round the arch, seen through the door above its head
-	for k in N:
-		var t0 := PI * k / N
-		var t1 := PI * (k + 1) / N
-		var q0 := Vector2(-a * cos(t0), spring + a * sin(t0))
-		var q1 := Vector2(-a * cos(t1), spring + a * sin(t1))
-		quad.call([Vector3(q0.x, q0.y, z0), Vector3(q0.x, ds.y + 0.4, z0), Vector3(q1.x, ds.y + 0.4, z0), Vector3(q1.x, q1.y, z0)], [0.55, 0.5, 0.5, 0.55])
-	var mi := MeshInstance3D.new()
-	mi.mesh = st.commit()
-	mi.material_override = stone
-	_vp.add_child(mi)
+	_portal_stone(dw, ds.y, z0, z1)
 	# the medieval gallery beyond: lit warm toward the crucifix
 	var beyond := 5.0
 	var zb := z1 + beyond
@@ -593,7 +562,7 @@ func _arch_end() -> void:
 	_panel(Vector3(-3.0, 0, z1), Vector3(0, 0, beyond), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
 	_panel(Vector3(3.0, 0, zb), Vector3(0, 0, -beyond), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
 	_panel(Vector3(-3.0, 5.0, zb), Vector3(6.0, 0, 0), Vector3(0, 0, -beyond), ps(null, Color("#8c8579"), Vector2.ONE, true), 1.0, 1, lit)
-	_panel(Vector3(-3.0, 0.002, z0), Vector3(6.0, 0, 0), Vector3(0, 0, beyond + PORTAL_DEPTH), ps(load(DIR + "textures/oak-muse.webp"), Color.WHITE, Vector2(1, 3), true), 1.0, 1, lit)
+	_portal_floor(zb)
 	var card := MeshInstance3D.new()
 	var qm := QuadMesh.new()
 	qm.size = Vector2(6.0, 5.0)
@@ -602,6 +571,211 @@ func _arch_end() -> void:
 	card.position = Vector3(0, 2.5, zb - 0.01)
 	card.rotation.y = PI
 	_vp.add_child(card)
+
+
+func _portal_floor(end: float) -> void:
+	# Continue the same plank lattice without extending the gallery's clipped mesh.
+	# The live white passage remains above this backing floor at y=0.
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var a := PLANK.x
+	var b := PLANK.y
+	var rot := Transform2D(PI / 4, Vector2(0, -L / 2))
+	var clip := PackedVector2Array([Vector2(-3, 0), Vector2(3, 0), Vector2(3, end), Vector2(-3, end)])
+	for j in range(-32, 33):
+		for k in range(-100, 101):
+			var o := Vector2(k * b + j * a, k * b - j * a)
+			for vertical in [false, true]:
+				var r := Rect2(o, Vector2(a, b)) if not vertical else Rect2(o + Vector2(0, b), Vector2(b, a))
+				var c := rot * r.get_center()
+				if absf(c.x) > 3.5 or c.y < -0.5 or c.y > end + 0.5:
+					continue
+				var corners := PackedVector2Array([rot * r.position, rot * Vector2(r.end.x, r.position.y), rot * r.end, rot * Vector2(r.position.x, r.end.y)])
+				for polygon in Geometry2D.intersect_polygons(corners, clip):
+					var indices := Geometry2D.triangulate_polygon(polygon)
+					var tone := 0.90 + 0.025 * posmod(j * 7 + k * 13, 7)
+					var v0 := 0.09 * posmod(j * 11 + k * 3, 7)
+					for index in indices:
+						var p: Vector2 = polygon[index]
+						var local: Vector2 = (rot.affine_inverse() * p - r.position) / r.size
+						var u := local.y if vertical else local.x
+						var v := local.x if vertical else local.y
+						st.set_normal(Vector3.UP)
+						st.set_uv(Vector2(u, v0 + v / 3.0))
+						st.set_color(Color(tone, tone * 0.99, tone * 0.97))
+						st.add_vertex(Vector3(p.x, -0.002, p.y))
+	var mesh := MeshInstance3D.new()
+	mesh.mesh = st.commit()
+	mesh.material_override = ps(load(DIR + "textures/oak-muse.webp"), Color.WHITE, Vector2.ONE, true)
+	mesh.set_meta("portal_floor", true)
+	mesh.set_meta("portal_floor_end", end)
+	_vp.add_child(mesh)
+
+
+func _portal_stone(radius: float, height: float, rear: float, front: float) -> void:
+	# #167: photo-led orders and supports, not a survey or invented capital carving.
+	# Retain the existing opening and tunnel depth; all additions remain outside it.
+	var spring := height - radius * 0.75
+	var relief: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(DIR + "portal-capital-relief.json"))
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var capital_st := SurfaceTool.new()
+	capital_st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var builder := {"current": st}
+	var stone_patch := {"index": 0, "tone": 1.0}
+	var vary := func(seed_value: int) -> void:
+		stone_patch.index = posmod(seed_value, 5)
+		stone_patch.tone = 0.94 + 0.025 * posmod(seed_value, 5)
+	var patch_origin := func() -> Vector2:
+		return [Vector2(0.025, 0.025), Vector2(0.36, 0.025), Vector2(0.69, 0.025), Vector2(0.22, 0.36), Vector2(0.57, 0.70)][stone_patch.index]
+	var face := func(q: Array, smooth: Array = [], supplied_uv: Array = []) -> void:
+		var normal: Vector3 = (q[2] - q[0]).cross(q[1] - q[0]).normalized()
+		# Sample grain inside one existing limestone block, not its rectangular joints.
+		var size := Vector2((q[1] - q[0]).length(), (q[3] - q[0]).length())
+		size *= 0.22
+		if maxf(size.x, size.y) > 0.10:
+			size *= 0.10 / maxf(size.x, size.y)
+		var origin: Vector2 = patch_origin.call()
+		var uv := [origin, origin + Vector2(size.x, 0), origin + size, origin + Vector2(0, size.y)]
+		if not supplied_uv.is_empty():
+			uv = supplied_uv
+		for i in [0, 1, 2, 0, 2, 3]:
+			builder.current.set_normal(normal if smooth.is_empty() else smooth[i])
+			builder.current.set_color(Color(stone_patch.tone, stone_patch.tone, stone_patch.tone))
+			builder.current.set_uv(uv[i])
+			builder.current.add_vertex(q[i])
+	var block := func(center: Vector3, extent: Vector3) -> void:
+		vary.call(roundi(center.x * 37 + center.y * 53 + center.z * 17))
+		var p: Array = []
+		for z in [-1, 1]:
+			for y in [-1, 1]:
+				for x in [-1, 1]:
+					p.append(center + Vector3(x, y, z) * extent * 0.5)
+		for corners in [[0, 2, 3, 1], [4, 5, 7, 6], [0, 4, 6, 2], [1, 3, 7, 5], [0, 1, 5, 4], [2, 6, 7, 3]]:
+			face.call([p[corners[3]], p[corners[2]], p[corners[1]], p[corners[0]]])
+	# Smooth tunnel intrados, aligned with the photographed round opening.
+	for k in 32:
+		vary.call(k)
+		var a := PI * k / 32.0
+		var b := PI * (k + 1) / 32.0
+		var p := Vector3(-radius * cos(a), spring + radius * sin(a), rear)
+		var q := Vector3(-radius * cos(b), spring + radius * sin(b), rear)
+		for strip in 6:
+			var lo := Vector3(0, 0, (front - rear) * strip / 6.0)
+			var hi := Vector3(0, 0, (front - rear) * (strip + 1) / 6.0)
+			face.call([p + hi, q + hi, q + lo, p + lo])
+	for side in [-1.0, 1.0]:
+		block.call(Vector3(side * (radius + 0.15), spring / 2, (rear + front) / 2), Vector3(0.3, spring, front - rear))
+	# Three stepped concentric orders; the narrow radial joints are real gaps.
+	for order in 3:
+		var inner := radius + order * 0.27
+		var outer := inner + 0.265
+		var zf := front + order * 0.13
+		var zb := zf - 0.21
+		for k in 15:
+			vary.call(k * 7 + order * 13)
+			var a := PI * k / 15.0 + 0.0005
+			var b := PI * (k + 1) / 15.0 - 0.0005
+			var p: Array = []
+			for z in [zf, zb]:
+				p.append(Vector3(-inner * cos(a), spring + inner * sin(a), z))
+				p.append(Vector3(-outer * cos(a), spring + outer * sin(a), z))
+				p.append(Vector3(-outer * cos(b), spring + outer * sin(b), z))
+				p.append(Vector3(-inner * cos(b), spring + inner * sin(b), z))
+			for corners in [[0, 1, 2, 3], [7, 6, 5, 4], [0, 4, 5, 1], [1, 5, 6, 2], [2, 6, 7, 3], [3, 7, 4, 0]]:
+				var q := [p[corners[0]], p[corners[1]], p[corners[2]], p[corners[3]]]
+				if corners == [0, 1, 2, 3]:
+					# Worn arris: a narrow real bevel around the stone's front face.
+					var center: Vector3 = (q[0] + q[1] + q[2] + q[3]) * 0.25
+					var inset: Array = []
+					for point in q:
+						inset.append(center + (point - center) * 0.96 + Vector3(0, 0, 0.007))
+					face.call(inset)
+					for edge in 4:
+						var next := (edge + 1) % 4
+						face.call([q[edge], q[next], inset[next], inset[edge]])
+				else:
+					face.call(q)
+	for side in [-1.0, 1.0]:
+		# Backing courses and an impost band support the recessed column pair.
+		for row in 6:
+			block.call(Vector3(side * (radius + 0.41), (row + 0.5) * spring / 6, front + 0.02), Vector3(0.80, spring / 6 - 0.001, 0.32))
+		block.call(Vector3(side * (radius + 0.41), 0.11, front + 0.16), Vector3(0.84, 0.22, 0.58))
+		block.call(Vector3(side * (radius + 0.41), spring - 0.045, front + 0.20), Vector3(0.87, 0.12, 0.64))
+		for column in 2:
+			vary.call(column + int(side) * 11)
+			var x: float = side * (radius + 0.17 + column * 0.32)
+			var zc := front + 0.17 + column * 0.13
+			var profile := [Vector2(0.20, 0.16), Vector2(0.25, 0.16), Vector2(0.29, 0.125)]
+			for strip in 13:
+				var t := strip / 12.0
+				profile.append(Vector2(lerpf(0.34, spring - 0.50, t), 0.132 + 0.004 * sin(t * PI)))
+			profile.append_array([Vector2(spring - 0.39, 0.15), Vector2(spring - 0.35, 0.15)])
+			for level in profile.size() - 1:
+				for k in 20:
+					var a := TAU * k / 20.0
+					var b := TAU * (k + 1) / 20.0
+					var lo: Vector2 = profile[level]
+					var hi: Vector2 = profile[level + 1]
+					var smooth: Array = []
+					if is_equal_approx(lo.y, hi.y):
+						smooth = [Vector3(cos(b), 0, sin(b)), Vector3(cos(b), 0, sin(b)), Vector3(cos(a), 0, sin(a)), Vector3(cos(a), 0, sin(a))]
+					var origin: Vector2 = patch_origin.call()
+					var uv := [Vector2(b / TAU, lo.x / spring), Vector2(b / TAU, hi.x / spring), Vector2(a / TAU, hi.x / spring), Vector2(a / TAU, lo.x / spring)]
+					for index in 4:
+						uv[index] = origin + uv[index] * 0.10
+					face.call([Vector3(x + lo.y * cos(b), lo.x, zc + lo.y * sin(b)), Vector3(x + hi.y * cos(b), hi.x, zc + hi.y * sin(b)), Vector3(x + hi.y * cos(a), hi.x, zc + hi.y * sin(a)), Vector3(x + lo.y * cos(a), lo.x, zc + lo.y * sin(a))], smooth, uv)
+			# Broad worn lobes and scroll recesses from the photo, not invented figures.
+			builder.current = capital_st
+			var carved := func(angle: float, v: float) -> Vector3:
+				var width := 0.155 + 0.038 * sin(clampf(v, 0, 1) * PI * 0.65)
+				var ca := cos(angle)
+				var sa := sin(angle)
+				var xx := signf(ca) * pow(absf(ca), 0.55)
+				var zz := signf(sa) * pow(absf(sa), 0.55)
+				var carving := 0.0
+				if sa > 0.0:
+					for side_lobe in [-0.62, 0.62]:
+						var d := Vector2((xx - side_lobe) * 0.75, (v - 0.69) * 1.4).length()
+						carving += 0.025 * exp(-pow((d - 0.19) / 0.065, 2.0))
+					carving += 0.022 * exp(-pow(xx / 0.33, 2.0)) * sin(PI * clampf(v, 0, 1))
+					carving -= 0.013 * exp(-pow((absf(xx) - 0.37) / 0.11, 2.0)) * sin(PI * clampf(v, 0, 1))
+					# Photo luminance is only a shallow relief cue, not measured depth.
+					var px := clampf((xx + 1.0) * 0.5, 0, 1) * (int(relief.width) - 1)
+					var py := (1.0 - clampf(v, 0, 1)) * (int(relief.height) - 1)
+					var ix := mini(int(px), int(relief.width) - 2)
+					var iy := mini(int(py), int(relief.height) - 2)
+					var data: Array = relief.fields[column]
+					var row0: float = lerpf(data[iy * int(relief.width) + ix], data[iy * int(relief.width) + ix + 1], px - ix)
+					var row1: float = lerpf(data[(iy + 1) * int(relief.width) + ix], data[(iy + 1) * int(relief.width) + ix + 1], px - ix)
+					carving += 0.055 * (lerpf(row0, row1, py - iy) / 255.0 - 0.5) * sin(PI * clampf(v, 0, 1)) * sa
+				return Vector3(x + xx * width, spring - 0.46 + v * 0.33, zc + zz * width + carving)
+			for row in 48:
+				for segment in 128:
+					var a := TAU * segment / 128.0
+					var b := TAU * (segment + 1) / 128.0
+					var uv := [Vector2(b, row / 48.0), Vector2(b, (row + 1) / 48.0), Vector2(a, (row + 1) / 48.0), Vector2(a, row / 48.0)]
+					var q: Array = []
+					var normals: Array = []
+					var texture_uv: Array = []
+					for sample in uv:
+						texture_uv.append(patch_origin.call() + Vector2(sample.x / TAU, sample.y) * 0.10)
+						q.append(carved.call(sample.x, sample.y))
+						var along: Vector3 = carved.call(sample.x + 0.001, sample.y) - carved.call(sample.x - 0.001, sample.y)
+						var up: Vector3 = carved.call(sample.x, sample.y + 0.001) - carved.call(sample.x, sample.y - 0.001)
+						normals.append(up.cross(along).normalized())
+					face.call(q, normals, texture_uv)
+			builder.current = st
+			block.call(Vector3(x, spring - 0.11, zc), Vector3(0.39, 0.06, 0.39))
+	var instance := MeshInstance3D.new()
+	instance.mesh = st.commit()
+	instance.material_override = ps(load(DIR + "textures/stone.png"), Color.WHITE, Vector2.ONE, true)
+	_vp.add_child(instance)
+	var capitals := MeshInstance3D.new()
+	capitals.mesh = capital_st.commit()
+	capitals.material_override = instance.material_override
+	capitals.set_meta("portal_capital", true)
+	_vp.add_child(capitals)
 
 
 # The far end: a plain rectangular door with a stepped white casing, a deep cream vestibule lit from its far end,
@@ -963,19 +1137,14 @@ func _build_test_room() -> void:
 		face.call(Vector3(sign_x * 1.01, 1.5, -0.08), Vector3(0.14, 3.0, 0.16), Color.WHITE, 512)
 	face.call(Vector3(0, 3.3, 0), Vector3(1.9, 0.6, 0.12), Color("#f1f0ea"), 512)
 	face.call(Vector3(0, 3.02, -0.08), Vector3(2.16, 0.14, 0.16), Color.WHITE, 512)
-	# A shallow white recess shows depth through the existing casing. The actual
-	# portal crosses at the mouth, before its rear wall; no new gallery bake.
-	for door in [DOORS.arch]:  # far passage now belongs to its baked architectural slice
+	# The modeled portal replaces the temporary white back/side walls. Retain
+	# the existing flush navigation threshold; portal transition logic is unchanged.
+	for door in [DOORS.arch]:
 		var outward := 1.0 if door.z == 0.0 else -1.0
 		var layer := 8 if door.z == 0.0 else 16
 		var depth := 1.1
 		var width: float = door.size.x - 0.08
-		var height: float = door.size.y - 0.04
 		var middle: float = door.z + outward * depth / 2.0
-		face.call(Vector3(0, height / 2.0, door.z + outward * depth), Vector3(width, height, 0.025), Color("#eeede7"), layer)
-		face.call(Vector3(-width / 2.0, height / 2.0, middle), Vector3(0.035, height, depth), Color("#d7d6ce"), layer)
-		face.call(Vector3(width / 2.0, height / 2.0, middle), Vector3(0.035, height, depth), Color("#f8f7f0"), layer)
-		face.call(Vector3(0, height, middle), Vector3(width, 0.035, depth), Color("#fdfcf6"), layer)
 		face.call(Vector3(0, -0.0125, middle), Vector3(width, 0.025, depth), Color("#e3e0d6"), layer)
 		# Flush threshold: the walkable floor stays at y=0, including the entrance.
 		face.call(Vector3(0, -0.014, door.z), Vector3(width, 0.03, 0.24), Color("#cbc7bc"), layer)
@@ -1134,6 +1303,10 @@ func _merge_static() -> void:
 		if not (n is MeshInstance3D) or n.mesh == null:
 			continue
 		var mi := n as MeshInstance3D
+		# Offline capital relief owns finer lighting UVs than the arch stone.
+		# Keep its authoring metadata intact rather than merging it into the arch.
+		if mi.get_meta("portal_capital", false):
+			continue
 		var m := mi.material_override
 		var key := ""
 		if m is ShaderMaterial:

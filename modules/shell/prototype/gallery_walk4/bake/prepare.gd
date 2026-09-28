@@ -24,6 +24,8 @@ func _prepare() -> void:
 		var mesh := ArrayMesh.new()
 		var floor_mesh: bool = original.get_shader_parameter("plank_seams") == true
 		var source_albedo: Texture2D = original.get_shader_parameter("albedo")
+		var stone_mesh := source_albedo != null and source_albedo.resource_path.ends_with("/stone.png")
+		var portal_floor: bool = source.get_meta("portal_floor", false)
 		var cornice_mesh := source_albedo != null and source_albedo.resource_path.ends_with("/cornice-ivory.svg")
 		for surface in source.mesh.get_surface_count():
 			var arrays = source.mesh.surface_get_arrays(surface)
@@ -55,7 +57,7 @@ func _prepare() -> void:
 					if not colors.is_empty():
 						colors[i] /= maxf(walk._ao(world, false), 0.01)
 				arrays[Mesh.ARRAY_TEX_UV2] = uv2
-			elif not colors.is_empty():
+			elif not colors.is_empty() and not stone_mesh and not portal_floor:
 				# Keep intrinsic material colour; drop the old room-light multiplier.
 				for i in colors.size():
 					colors[i] = Color.WHITE
@@ -65,8 +67,10 @@ func _prepare() -> void:
 			mesh.lightmap_size_hint = Vector2i(512, 1024)
 		else:
 			# Both plaster profiles need multiple texels across their narrow relief.
-			var fine_trim := cornice_mesh or (source_albedo and source_albedo.resource_path.ends_with("/ivory-trim.svg"))
+			var fine_trim := cornice_mesh or (source_albedo and (source_albedo.resource_path.ends_with("/ivory-trim.svg") or source_albedo.resource_path.ends_with("/stone.png")))
 			var texel := 0.025 if fine_trim else 0.12
+			if source.get_meta("portal_capital", false):
+				texel = 0.008
 			var error := mesh.lightmap_unwrap(source.global_transform, texel)
 			if error != OK:
 				push_error("UV unwrap failed for " + str(index))
@@ -82,7 +86,7 @@ func _prepare() -> void:
 		var uv_scale = original.get_shader_parameter("uv_scale")
 		if uv_scale != null:
 			material.uv1_scale = Vector3(uv_scale.x, uv_scale.y, 1)
-		material.vertex_color_use_as_albedo = floor_mesh
+		material.vertex_color_use_as_albedo = floor_mesh or stone_mesh or portal_floor
 		material.specular_mode = BaseMaterial3D.SPECULAR_DISABLED
 		material.disable_ambient_light = false  # Compatibility gates lightmaps with ambient lighting
 		material.cull_mode = BaseMaterial3D.CULL_DISABLED
@@ -99,10 +103,12 @@ func _prepare() -> void:
 		instance.name = "Surface%03d" % index
 		instance.mesh = mesh
 		instance.material_override = material
-		if floor_mesh:
+		if floor_mesh or portal_floor:
 			var oak := ShaderMaterial.new()
 			oak.shader = load(DIR + "oak.gdshader")
 			oak.set_shader_parameter("oak", material.albedo_texture)
+			if portal_floor:
+				oak.set_shader_parameter("floor_z_limits", Vector2(0, source.get_meta("portal_floor_end")))
 			instance.material_override = oak
 		instance.transform = source.global_transform
 		instance.layers = source.layers
@@ -174,6 +180,29 @@ func _prepare() -> void:
 	recess_fill.shadow_enabled = true
 	room.add_child(recess_fill)
 	recess_fill.owner = room
+	# #167: local diffuse illumination on the museum-side portal, outside the gallery.
+	var portal_fill := OmniLight3D.new()
+	portal_fill.position = Vector3(0, 3.1, 4.0)
+	portal_fill.omni_range = 3.5
+	portal_fill.omni_attenuation = 0.6
+	portal_fill.light_energy = 1.1
+	portal_fill.light_color = Color("#f5f5f2")
+	portal_fill.light_size = 1.5
+	portal_fill.light_bake_mode = Light3D.BAKE_STATIC
+	portal_fill.shadow_enabled = true
+	room.add_child(portal_fill)
+	portal_fill.owner = room
+	var arch_fill := OmniLight3D.new()
+	arch_fill.position = Vector3(0, 2.5, -1.8)
+	arch_fill.omni_range = 3.0
+	arch_fill.omni_attenuation = 0.6
+	arch_fill.light_energy = 0.65
+	arch_fill.light_color = Color("#f5f5f2")
+	arch_fill.light_size = 1.4
+	arch_fill.light_bake_mode = Light3D.BAKE_STATIC
+	arch_fill.shadow_enabled = true
+	room.add_child(arch_fill)
+	arch_fill.owner = room
 	var lm := LightmapGI.new()
 	lm.name = "Lightmap"
 	lm.quality = LightmapGI.BAKE_QUALITY_MEDIUM

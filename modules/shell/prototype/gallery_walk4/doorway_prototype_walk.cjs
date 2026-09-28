@@ -3,6 +3,7 @@ const fs=require('fs'), puppeteer=require('/home/reidsurmeier/promo-lab/node_mod
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 (async()=>{
  const [url,out]=process.argv.slice(2); fs.mkdirSync(out,{recursive:true});
+ const portal=process.argv[4]||'far';
  const browser=await puppeteer.launch({executablePath:'/usr/bin/google-chrome',headless:true,args:['--no-sandbox','--use-gl=angle','--use-angle=gl-egl','--ignore-gpu-blocklist']});
  const results=[];
  try {
@@ -11,15 +12,16 @@ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
    await page.setRequestInterception(true);
    page.on('request',r=>new URL(r.url()).pathname==='/favicon.ico'?r.respond({status:204}):r.continue());
    const events=[],errors=[];
-   page.on('console',m=>{if(/NAV_SPACE|DOORWAY_GAMEPLAY_READY/.test(m.text()))events.push(m.text());if(m.type()==='error')errors.push(m.text());});
+   page.on('console',m=>{if(/NAV_SPACE|DOORWAY_GAMEPLAY_READY|DOORWAY_FLOOR/.test(m.text()))events.push(m.text());if(m.type()==='error')errors.push(m.text());});
    page.on('pageerror',e=>errors.push(String(e)));
-   await page.goto(url+'?gameplay=1',{waitUntil:'domcontentloaded',timeout:120000});
+   await page.goto(url+'?gameplay=1&qa-floor=1&portal='+portal,{waitUntil:'domcontentloaded',timeout:120000});
    for(let i=0;i<240&&!events.some(e=>e.includes('READY'));i++)await wait(500);
    if(!events.some(e=>e.includes('READY')))throw Error('Gameplay did not start: '+errors.join('\n'));
+   if(!events.some(e=>e.includes('DOORWAY_FLOOR clear_samples=9/9')))throw Error('Passage floor visibility failed: '+events.join('\n'));
    await wait(1000);
    const video=await page.screencast({path:`${out}/${width}-roundtrip.webm`,fps:20});
    await page.screenshot({path:`${out}/${width}-approach.png`});
-   for(const [key,route,label] of [['w','gallery -> far','inside'],['s','far -> gallery','return']]) {
+   for(const [key,route,label] of [['w',`gallery -> ${portal}`,'inside'],['s',`${portal} -> gallery`,'return']]) {
     await page.keyboard.down(key);
     for(let i=0;i<100&&!events.some(e=>e.includes(route));i++)await wait(100);
     await page.keyboard.up(key); await wait(600);

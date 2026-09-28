@@ -62,3 +62,46 @@ The visible cornice batch passed independent Astra-medium image-only review;
 it remains isolated from the build branch. The arch and benches are not
 passed by that verdict. Evidence, bake hashes and the scoped gate are in
 `docs/evidence/architecture-167/RESULT.md`.
+
+## Stone portal first batch — issue #167, independently rejected
+
+Source: owner-video still `image-work/grand-gallery-v2/source/arch-outside.png`,
+SHA-256 `fdaaf16656bfd239bde16c849d78d0238d672f50bbee0034ad24de9336dfbc10`,
+and the second still `image-work/grand-gallery-v4/frames2/references/portal-t19.png`,
+SHA-256 `7532d1e6ecf472436b2c2ce0818878e4c10d28a786d1cb5ed4ff43189386e78f`.
+The archive identifies the owner video `IMG_6344.MOV` near 19 seconds.
+
+Manual Godot geometry models three nested orders, paired supports, plain
+splayed capital masses, imposts and bases. The existing opening and tunnel
+depth are retained; section offsets are bounded prototype parameters, not
+survey data. No specific capital figures or foliage are invented. The
+existing Muse `textures/stone.png` pixels are reused unchanged, SHA-256
+`54f9436e284d82827459666b4d73c24e6bd0b54f62b3a44c810c57f9ddb6d882`.
+UVs sample grain inside a stone block with physical face proportions; real
+geometry supplies the radial joints. Source/limits: `PORTAL-SOURCE.md` in
+the architecture evidence folder. Provider for new work: local Godot.
+New image calls in that first batch: 0. New cost: USD 0. Independent image-only
+review failed the capital mass, mechanical stone and passage transition;
+see `docs/evidence/architecture-167/BLIND-REVIEW-PORTAL-1.md`.
+
+## #167 portal capital modeling guide (not runtime art)
+
+OpenRouter `meta/muse-image`, saved Muse edit, one output, declared/report
+USD 0.010000; spend state remains `unknown` (no blind retry). Run
+`run-98f29412a000da0b764a2be2`. Source: owner portal still
+`image-work/grand-gallery-v2/source/arch-outside.png`; style-only reference:
+`image-work/grand-gallery-v2/references/style-grand-gallery-final.png`.
+Prompt/recipe/reference hashes and visual limitations are in
+`image-work/architecture-167/README.md` and its saved plan.
+Output `portal-capital-guide.webp` SHA-256
+`5587dd51fd7f3eb2fc2531716b62bf6c0d7d6365b38cc6a35b0a759a3ae527f1`.
+Self-inspection rejects exact ornamental fidelity: it regularizes/sharpens
+details beyond the photo. Broad rounded/carved mass is a modeling guide only;
+the image is not an accepted runtime decal or displacement asset.
+
+The next authored-geometry trial uses rounded lobes and scroll recesses,
+thicker supports, real narrow arris bevels, quieter joints and multiple
+interior-stone UV patches. The passage uses clipped modeled planks on the
+same lattice as the gallery, below the retained y=0 live threshold. The
+generated guide's invented iconography is not copied. This trial is not
+independently accepted and has not entered the build branch.

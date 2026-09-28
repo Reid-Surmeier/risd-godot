@@ -7,7 +7,9 @@
     "modules/sketchbook/assets/paintbox/tool-reference.png",
     "modules/sketchbook/assets/paintbox/palette-white.png",
     "modules/sketchbook/assets/paintbox/watercolor-brush.png",
-    "modules/sketchbook/assets/paintbox/cat-brush-rest.png"
+    "modules/sketchbook/assets/paintbox/cat-brush-rest.png",
+    "image-work/grand-gallery-v2/source/arch-outside.png",
+    "image-work/grand-gallery-v2/references/style-grand-gallery-final.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -50,6 +52,30 @@
           "slot": "reference-004",
           "kind": "image",
           "payloadDestination": "/input_references/4/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-24c11b5671cff67806e8",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1024"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
         }
       ]
     }

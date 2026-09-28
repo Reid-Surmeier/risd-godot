@@ -4,8 +4,9 @@ const puppeteer = require(path.join(require('os').homedir(), 'promo-lab/node_mod
   const out = process.argv[3]; fs.mkdirSync(out, {recursive: true});
   const browser = await puppeteer.launch({executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--use-gl=angle', '--use-angle=gl-egl', '--ignore-gpu-blocklist', '--no-sandbox']});
   const results = [];
+  const views = process.argv[4] ? process.argv[4].split(',').map(Number) : [5, 6, 7];
   try {
-    for (const width of [1600, 720]) for (const view of [5, 6, 7]) {
+    for (const width of [1600, 720]) for (const view of views) {
       const page = await browser.newPage(); await page.setViewport({width, height: width});
       const errors = [];
       page.on('console', m => {if (m.type() === 'error' && !m.text().startsWith('Failed to load resource')) errors.push(m.text());});
@@ -20,5 +21,5 @@ const puppeteer = require(path.join(require('os').homedir(), 'promo-lab/node_mod
   } finally {await browser.close();}
   fs.writeFileSync(path.join(out, 'browser.json'), JSON.stringify(results, null, 2));
   if (results.some(r => r.errors.length)) throw Error('Browser errors');
-  console.log('ARCHITECTURE_BROWSER 6 captures, zero page errors');
+  console.log(`ARCHITECTURE_BROWSER ${results.length} captures, zero page errors`);
 })().catch(e => {console.error(e); process.exit(1)});

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-24c11b5671cff67806e8",
+  "summary": "Create one source-faithful sculpted limestone capital study for a stylized 3D museum reconstruction. Reference 1 is the actual museum portal and owns all architectural content. Reference 2 is only the soft, readable game rendering style; do not import its room, objects, or colors. Isolate the paired capitals on the RIGHT side of the photographed portal, including their broad carved upper mass and narrow rounded necks. Show them as a close, nearly orthographic frontal stone-relief study on a neutral stone background, filling the square. Preserve the visible worn scroll-like and figure-like relief masses and their arrangement from the photograph. Do not invent faces, animals, lettering, new ornament, symmetry, dimensions, or unseen construction. Where the photo is unclear, preserve worn broad relief rather than sharpen into invented iconography. These are rounded carved masses, not smooth inverted wedges or blocks with painted details. Muted warm-gray limestone, softened chipped edges, quiet mineral variation, shallow occlusion that explains real recesses, diffuse neutral lighting with no cast shadow or dramatic directional light. No gallery, columns below the neck, portal arch, frame, border, labels or typography. This is a bounded visual modeling guide, not a claim of exact historic reconstruction or a flat in-game decal.\n",
+  "procedureId": "muse-24c11b5671cff67806e8",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "image-work/grand-gallery-v2/source/arch-outside.png",
+      "sha256": "fdaaf16656bfd239bde16c849d78d0238d672f50bbee0034ad24de9336dfbc10",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "image-work/grand-gallery-v2/references/style-grand-gallery-final.png",
+      "sha256": "71d0078cf3f8b6c678d04451b64f738eec9d7ca63ec8e1b480053feb52b725cf",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "image-work/architecture-167/portal-relief-recipe.json",
+      "sha256": "24c11b5671cff67806e85de27b9d14cfb2c1d7fa5d3f89e7e1527627cfce841c"
+    },
+    {
+      "applicationPath": "image-work/architecture-167/portal-relief-plan.json",
+      "sha256": "aec6656e5843c08144aa2daa818dc1f3d1dce93d941d9104a080aca06fef2db9"
+    },
+    {
+      "applicationPath": "image-work/architecture-167/portal-relief-prompt.txt",
+      "sha256": "968d84eed5d2c50aae03f8b1a81fd38467dd98411b3bca798a940ebfe8de5d7f"
+    }
+  ]
+}

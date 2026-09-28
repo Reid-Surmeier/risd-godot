@@ -1,0 +1,22 @@
+[
+  {
+    "width": 1600,
+    "events": [
+      "DOORWAY_FLOOR clear_samples=9/9",
+      "DOORWAY_GAMEPLAY_READY",
+      "NAV_SPACE gallery -> arch",
+      "NAV_SPACE arch -> gallery"
+    ],
+    "errors": []
+  },
+  {
+    "width": 720,
+    "events": [
+      "DOORWAY_FLOOR clear_samples=9/9",
+      "DOORWAY_GAMEPLAY_READY",
+      "NAV_SPACE gallery -> arch",
+      "NAV_SPACE arch -> gallery"
+    ],
+    "errors": []
+  }
+]
