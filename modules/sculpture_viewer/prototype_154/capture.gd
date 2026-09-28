@@ -30,6 +30,11 @@ func _set_case(index: int) -> void:
 func _process(_delta: float) -> void:
 	if not OS.has_feature("web"):
 		return
+	if JavaScriptBridge.eval("window.scan154Interactive === true"):
+		page.set_process(true)
+		page.set_process_input(true)
+		JavaScriptBridge.eval("window.scan154State = " + JSON.stringify({"hovered": page.hovered, "selected": page.selected, "yaw": page.scan_yaw, "rendering": page.scan_viewport.render_target_update_mode}))
+		return
 	var request = JavaScriptBridge.eval("window.scan154Request ?? -1")
 	if request >= 0 and int(request) != current:
 		_set_case(int(request))
@@ -48,5 +53,7 @@ func _native() -> void:
 			await get_tree().process_frame
 		await RenderingServer.frame_post_draw
 		assert(get_viewport().get_texture().get_image().save_png(args[0].path_join("%s-%02d.png" % [args[1], index])) == OK)
+		if index == 3:
+			assert(page.scan_viewport.get_texture().get_image().save_png(args[0].path_join("%s-reference.png" % args[1])) == OK)
 	print("PASS: six native angles and three unavailable states")
 	get_tree().quit()

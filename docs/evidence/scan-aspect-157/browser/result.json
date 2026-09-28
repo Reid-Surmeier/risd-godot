@@ -1,0 +1,22 @@
+[
+  {
+    "width": 720,
+    "angles": 6,
+    "heldStates": 3,
+    "realCardClicks": 20,
+    "hoverRotates": true,
+    "leaveDisablesRenderer": true,
+    "selectionPreserved": true,
+    "errors": []
+  },
+  {
+    "width": 1600,
+    "angles": 6,
+    "heldStates": 3,
+    "realCardClicks": 20,
+    "hoverRotates": true,
+    "leaveDisablesRenderer": true,
+    "selectionPreserved": true,
+    "errors": []
+  }
+]

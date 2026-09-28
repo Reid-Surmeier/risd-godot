@@ -232,6 +232,8 @@ func _draw_hover() -> void:
 	_text(box.position + Vector2(12, 47), APPEARANCE[hovered], 13, INK)
 	var art := Rect2(box.position + Vector2(12, 56), Vector2(box.size.x - 24, box.size.y - 87))
 	var aspect := 1.0 if hovered < 4 else 216.0 / 200.0
+	if hovered == 2 and scan_camera:
+		aspect = float(scan_viewport.size.x) / scan_viewport.size.y
 	var fitted := Vector2(minf(art.size.x, art.size.y * aspect), art.size.y)
 	fitted.y = fitted.x / aspect
 	art.position += (art.size - fitted) / 2.0

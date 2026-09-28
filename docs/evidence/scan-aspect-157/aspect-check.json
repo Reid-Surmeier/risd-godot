@@ -1,0 +1,30 @@
+[
+  {
+    "platform": "native",
+    "width": 720,
+    "beforeRelativeAspect": 0.7088634964988442,
+    "afterRelativeAspect": 0.992478396386644,
+    "heldStatesAndCardsUnchanged": true
+  },
+  {
+    "platform": "browser",
+    "width": 720,
+    "beforeRelativeAspect": 0.7088634964988442,
+    "afterRelativeAspect": 0.992478396386644,
+    "heldStatesAndCardsUnchanged": true
+  },
+  {
+    "platform": "native",
+    "width": 1600,
+    "beforeRelativeAspect": 0.7125939370303149,
+    "afterRelativeAspect": 0.9988449540510919,
+    "heldStatesAndCardsUnchanged": true
+  },
+  {
+    "platform": "browser",
+    "width": 1600,
+    "beforeRelativeAspect": 0.7125939370303149,
+    "afterRelativeAspect": 0.9988449540510919,
+    "heldStatesAndCardsUnchanged": true
+  }
+]
