@@ -62,13 +62,35 @@ whose recorded generation input is the RISD floor crop above.
 The original prompt and input hashes are in
 `image-work/grand-gallery-v4/surfaces/generation-preflight.json`.
 
-The #168 trial changes no image pixels. It uses a neutral material tint and
-samples the source-guided herringbone albedo continuously in world space over
-the modeled planks, avoiding the failed per-board fine-grain reset. The
-herringbone geometry, authored plank UVs, and polygon count remain.
+The #168 trial changes no image pixels. Independent blind review rejected the
+world-space full-floor image because its painted herringbone overlapped the
+modeled planks, and rejected the first per-board UV revision because geometry
+was still too dense. The current isolated candidate samples one interior
+`oak-muse.webp` board strip with restrained UV crop, tone and warmth variation.
+Only the modeled geometry defines herringbone. UV1 was remapped locally per
+plank; the modeled planks were broadened as a visual trial, not as measured
+RISD dimensions. Its latest unselected material also samples only a heavily
+filtered 4×4 mip of the `floor.png` pass for broad colour variation; no second
+herringbone detail is intended. Matched diagnostic renders isolated the
+remaining repeated V stripe to `oak-muse.webp`'s cross-board luminance band,
+not to the lightmap or board-colour tint. The current seventh trial subtracts
+a blurred mip-5 version of that same source oak sample, retaining authored
+fine grain but removing the broad reused band. A restrained geometry-derived
+board join restores some plank readability at 720 without resampling the source
+stripe. Its rebaked native and exported-Web 720/1600 evidence **failed** fresh
+independent image-only review: native 720 flattened near the doorway, Web 720
+retained regular V columns, and 1600 grain/finish remained too uniform.
+Four subsequent shader-only previews were self-rejected without a rebake.
+The RISD crop does not resolve enough distinct wood grain, the Muse oak pass
+contradicts its no-boards/no-large-knots prompt, and the Muse floor pass has
+its own herringbone that doubles the modeled geometry. A new source-led
+board-level edit is needed before visual selection. Flat-albedo capture showed tiny dark specks
+persist without oak pixels, and a trial removing floor shadow casting did not
+remove them; that
+no-benefit change was reverted. The speck source remains unresolved.
 Godot 4.7.2 regenerated the saved UV2/lightmap scene. Authoring provider:
 local GDScript/shader. Image-generation provider/model/count/cost for this
 trial: none / none / 0 / USD 0. Native and Web before/after captures and the
 blind-review status are recorded in `docs/evidence/floor-168/README.md`. The
-world-space candidate awaits independent blind acceptance; this is not a
+seventh floor candidate failed independent blind acceptance; this is not a
 runtime-selected asset.

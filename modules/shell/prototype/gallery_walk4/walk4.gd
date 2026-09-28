@@ -19,7 +19,7 @@ const SKY_W := 4.2
 const WHITE := Color("#e9e6de")
 const CASING := 0.28
 const GAP := 0.75  # default gap between frames; measured gaps in gaps.json
-const PLANK := Vector2(0.84, 0.18)
+const PLANK := Vector2(1.35, 0.29)  # #168 visual trial: broader source-relative courses, not survey dimensions
 # The two doorways differ: the arch door (to the medieval gallery) has a cornice head and a shallow reveal onto
 # the wide lit room; the far door has a plain casing and a deep vestibule with a second door at its end.
 const DOORS := {
@@ -473,35 +473,38 @@ func _build_floor() -> void:
 	var reach := (L + W) * 0.75
 	var n := int(reach / b)
 	var m := int(reach / a) + 1
+	var edge_pad := 0.5 * (a + b) / sqrt(2.0) + 0.05
 	for j in range(-m, m + 1):
 		for k in range(-n, n + 1):
 			var o := Vector2(k * b + j * a, k * b - j * a)
 			for vert in [false, true]:
 				var r := Rect2(o, Vector2(a, b)) if not vert else Rect2(o + Vector2(0, b), Vector2(b, a))
 				var c := rot * r.get_center()
-				if absf(c.x) > W / 2 + 0.4 or c.y > 0.4 or c.y < -L - 0.4:
+				if absf(c.x) > W / 2 + edge_pad or c.y > edge_pad or c.y < -L - edge_pad:
 					continue
 				var p := [r.position, Vector2(r.end.x, r.position.y), r.end, Vector2(r.position.x, r.end.y)]
-				# One grain length per plank; vary its vertical strip without wrapping.
-				var v0 := rng.randf_range(0.0, 2.0 / 3.0)
-				var uv := [Vector2(0, v0), Vector2(1, v0), Vector2(1, v0 + 1.0 / 3.0), Vector2(0, v0 + 1.0 / 3.0)]
+				# Local board UV lets the baked oak shader stay inside one source
+				# board; alpha carries a stable random crop for this modeled plank.
+				var uv := [Vector2(0, 0), Vector2(1, 0), Vector2(1, 1), Vector2(0, 1)]
 				var uv2 := [Vector2(0, 0), Vector2(a, 0), Vector2(a, b), Vector2(0, b)]
 				if vert:
 					uv = [uv[3], uv[0], uv[1], uv[2]]
 					uv2 = [Vector2(0, b), Vector2(0, 0), Vector2(a, 0), Vector2(a, b)]
 				# The source crop has narrow board-to-board variation; retain the
 				# authored lattice, UVs and grain but quiet the orange stripe effect.
-				var tone := rng.randf_range(0.91, 1.07)
+				var tone := rng.randf_range(0.92, 1.08)
+				var warmth := rng.randf_range(-0.035, 0.035)
+				var crop_seed := rng.randf()
 				for i in [0, 1, 2, 0, 2, 3]:
 					var q: Vector2 = rot * p[i]
 					var w := Vector3(q.x, 0, q.y)
 					var o2 := _ao(w, false) * tone
-					st.set_color(Color(o2, o2, o2))
+					st.set_color(Color(o2 * (1.0 + warmth), o2, o2 * (1.0 - warmth), crop_seed))
 					st.set_normal(Vector3.UP)
 					st.set_uv(uv[i])
 					st.set_uv2(uv2[i])
 					st.add_vertex(w)
-	var mat := ps(load(DIR + "textures/oak.png"), Color.WHITE, Vector2.ONE, true)
+	var mat := ps(load(DIR + "textures/oak-muse.webp"), Color.WHITE, Vector2.ONE, true)
 	mat.set_shader_parameter("plank_seams", true)
 	mat.set_shader_parameter("jitter", 0.0)  # herringbone has T-junctions: snapped corners would open cracks
 	mat.set_shader_parameter("plank", PLANK)

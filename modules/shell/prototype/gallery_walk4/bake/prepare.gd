@@ -39,7 +39,8 @@ func _prepare() -> void:
 					var world: Vector3 = source.global_transform * vertices[i]
 					uv2.append(Vector2((world.x + 5.5) / 11.0, (0.5 - world.z) / 27.3))
 					if not colors.is_empty():
-						colors[i] /= maxf(walk._ao(world, false), 0.01)
+						var ao := maxf(walk._ao(world, false), 0.01)
+						colors[i] = Color(colors[i].r / ao, colors[i].g / ao, colors[i].b / ao, colors[i].a)
 				arrays[Mesh.ARRAY_TEX_UV2] = uv2
 			elif not colors.is_empty():
 				# Keep intrinsic material colour; drop the old room-light multiplier.
@@ -84,7 +85,8 @@ func _prepare() -> void:
 		if floor_mesh:
 			var oak := ShaderMaterial.new()
 			oak.shader = load(DIR + "oak.gdshader")
-			oak.set_shader_parameter("parquet", load(DIR + "textures/floor.png"))
+			oak.set_shader_parameter("oak", material.albedo_texture)
+			oak.set_shader_parameter("parquet_macro", load(DIR + "textures/floor.png"))
 			instance.material_override = oak
 		instance.transform = source.global_transform
 		instance.layers = source.layers
