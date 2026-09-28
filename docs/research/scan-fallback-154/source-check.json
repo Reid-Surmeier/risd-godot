@@ -1,0 +1,45 @@
+{
+  "source_and_candidate_hashes_match": true,
+  "scans": [
+    {
+      "id": "20260811121459",
+      "variant": "candidate-120k-rerun",
+      "hashes": {
+        "obj": "ccb7bf5347add65d7c152e2675f7565e97d879b6cc0be9414c4ddc1f2766e4ed",
+        "mtl": "3b86d45f9070e7e90ad0a07b7e7869b956a2212f8fb1737dee73eca8a34ed61b",
+        "jpg": "08e09af5f7560322ed86d1f6d5c27cad78a49fde19ee11a2254e2ced7e371bf9",
+        "glb": "86c2c80bc05489b12bec1a03216d8765c66baaf3f8f89cf1f018004cba152193"
+      }
+    },
+    {
+      "id": "20260811122415",
+      "variant": "candidate-120k",
+      "hashes": {
+        "obj": "9f5fda816915b8e02620f64da22450158f683b05e24014fde9732141416f1d48",
+        "mtl": "d1bea301850754678ffb2a297411fd6d75c062fc1fcbd1a498d6ed0b12554557",
+        "jpg": "61914b89aa686765d9cf92ce994b66193d42e4e3493e3a4e467278887af2b2ea",
+        "glb": "da7480355f1c384ed8588e44cd2f1bf9c666d03c2bd7a9017f958f3d5ee08a41"
+      }
+    },
+    {
+      "id": "20260811123051",
+      "variant": "candidate-120k",
+      "hashes": {
+        "obj": "bd8b66a479d9f7c6dacbb36cd3b2db4c081f01af0f1fff77685a8196a55a6a71",
+        "mtl": "7363cb9574afed80bb8ae95c7f312f11064369544201e0bb2dfa529529c37ea6",
+        "jpg": "fb25726c8e7c2ceda0c007d6e30e183989c020a0524b8a60ee159a5b7da3162c",
+        "glb": "faaece8dd2b1b25f6d2a7d96671db37ea810ede3bdc5441099f18f96ffc50d74"
+      }
+    },
+    {
+      "id": "20260820133334",
+      "variant": "prototype",
+      "hashes": {
+        "obj": "af49afcfecff54f7715b3c15872252e96cfb51c8d8eca48755f8a080db913f1e",
+        "mtl": "4b1479cd567f2aeb354b06c4c36f3c148d4b920a52a6141f6879b35a733f3265",
+        "jpg": "95c778b9c52f8eaa73e89aa3b1f72c34b37026dceb3583b99a436b8bf036e8ab",
+        "glb": "94e634a0554b6925fe26be4bbe5b3df2e53a19088883e733f4f9bcffed626d9e"
+      }
+    }
+  ]
+}
