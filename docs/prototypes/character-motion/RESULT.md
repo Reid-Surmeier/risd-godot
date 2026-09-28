@@ -7,7 +7,7 @@
 ![Gallery camera](evidence/gallery-walk.png)
 ![Back interaction](evidence/back-interact.png)
 
-Continuous 18-second, 540-frame native captures: [front](evidence/front.mp4), [side](evidence/side.mp4), [back](evidence/back.mp4), [gallery camera](evidence/gallery.mp4). [Web replay](evidence/browser.webm) records the same 540 poses in Chromium/SwiftShader, including startup. [Rejected uncorrected transfer](evidence/raw-rejected.mp4) records the original contact failure.
+Continuous 18-second, 540-frame native captures: [front](evidence/front.mp4), [side](evidence/side.mp4), [back](evidence/back.mp4), [gallery camera](evidence/gallery.mp4). The [original Web replay](evidence/browser.webm) was rejected for slow playback and is retained as failure evidence. Its replacement is the [normal-speed Web replay with independent wall-clock overlay](evidence/browser-normal-speed.webm). [Rejected uncorrected transfer](evidence/raw-rejected.mp4) records the original contact failure.
 
 ## Preserved target and bounded donor
 
@@ -27,7 +27,20 @@ The separate shirt audit measures 1,284 triangle edges over 540 poses. Edge-leng
 
 The scripted scenarios cover idle, straight start/walk/release, diagonal walk, 90/180-degree turns, a turn to artwork, interruption of `Interact` at approximately 0.65 s by movement, a second release, project-authored head look, and a complete interaction. Translation uses the current gallery's 1.2-unit speed. At that speed the sampled walk runs at three times its source cadence: **accelerated walk, not a native run**. Front/side/back are full-body inspection views; the gallery view uses the existing camera's 23-degree FOV, 14.2-unit distance and 42-degree pitch at 600×600. This is an isolated camera/rig test, not a test of live gallery input, collision, artwork picking or animation-controller integration.
 
-The Web test exported with Godot 4.7.2's single-thread Compatibility template and completed 540 poses with no console/page errors. Its asynchronous capture loop waits for rendering and a timer; wall-clock playback is therefore slower than the 18-second native encoded frame sequence. Pose/contact equivalence is verified; native/Web timing parity and interactive browser performance are **not** established by this harness.
+The original Web test exported with Godot 4.7.2's single-thread Compatibility template and completed 540 poses with no console/page errors. Its fixed 1/30-second pose step was tied to a loop that also waited for rendering and a timer. That made real playback slow, rather than merely retiming the recording. The independent reviewer passed the sampled poses/deformation but correctly withheld complete motion sign-off. See the measured correction below.
+
+## Browser timing diagnosis and correction
+
+The independent browser oracle observes each published demo timestamp through `requestAnimationFrame` and stamps it with browser `performance.now()`. Its four-second regression failed on the actual old export: **4.000 demo seconds / 6.4921 browser seconds = 0.6161×**. Removing only the extra timer also failed, in the opposite direction: **4.000 / 2.2841 = 1.7512×**. This distinguishes the fixed-per-iteration step from recording retiming or asset deformation. Raw observations are retained in `evidence/timing-before.json` and `evidence/timing-without-timer.json`.
+
+The corrected browser loop samples actual elapsed time and uses its delta for locomotion, gait and turn interpolation. Offline native frames retain their deterministic 30 FPS sampling. Shader/skinning warm-up occurs visibly under “Preparing motion replay” before the playback clock begins. A separate DOM overlay uses browser `performance.now()`, rather than the engine's clock, to display wall time beside the demo timestamp. After 18 seconds it explicitly displays “COMPLETE”; heavyweight audit serialization happens afterwards and is not motion playback. No frame-rate conversion or video time-stretch is applied to the Playwright recording.
+
+`browser.cjs` now asserts a wall/demo ratio within 5%; `timing.cjs` runs the same assertion through a short four-second capture. The real-time contact verifier accepts variable frame counts, checks scenario duration and monotonic sample gaps under 0.1 seconds, and retains the same floor/sole-vertex thresholds. The final full-run timing and geometry records are committed separately as `evidence/timing-normal-speed.json` and `evidence/browser-normal-speed-metrics.json.gz`. This proves timing on the tested Chromium/SwiftShader host; integration with live gallery input/collision remains outside this isolated prototype.
+
+Final normal-speed result: **17.9872 demo seconds / 17.9827 browser seconds = 1.000250×**, 1,080 rendered observations. Frame intervals are 16.7 ms median, 16.8 ms p95, and 23.8 ms maximum. The real-time geometry check passes with maximum floor penetration **0.000000376**, planted sole-center error **0.000171321**, and planted sole-vertex drift **0.000133994** world units. The target GLB remains SHA-256 `a2e6e0948dafb5b0ac10ffdc7359c64fbe04371038f0265d9cb1e1af390e54c4`. Fresh independent visual review of this corrected-time recording remains pending; the earlier pose/deformation pass does not alone close the ticket.
+
+![Independent browser and demo clocks during playback](evidence/browser-normal-speed-10s.png)
+![Explicit completed playback before audit export](evidence/browser-normal-speed-complete.png)
 
 ## Reproduce and verify
 

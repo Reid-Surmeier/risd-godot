@@ -8,7 +8,11 @@ for path in sys.argv[1:]:
     opener = gzip.open if path.endswith(".gz") else open
     with opener(path, "rt") as stream:
         frames = json.load(stream)
-    assert len(frames) == 540, (path, len(frames))
+    if frames[0].get("realtime"):
+        assert frames[0]["time"] < 0.1 and frames[-1]["time"] > 17.9
+        assert all(0 < b["time"] - a["time"] < 0.1 for a, b in zip(frames, frames[1:])), "replay stalled"
+    else:
+        assert len(frames) == 540, (path, len(frames))
     assert {frame["clip"] for frame in frames} == {"Idle", "Walking_A", "Interact"}
     penetration = max(0, -min(frame["skin_min"] for frame in frames))
     anchor_error = max(foot["error"] for frame in frames for foot in frame["support"])

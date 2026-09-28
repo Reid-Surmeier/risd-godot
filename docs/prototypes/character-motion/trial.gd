@@ -228,8 +228,29 @@ func run() -> void:
 	var old_pose: Array = sample("Idle", 0)
 	var gait := 0.0
 	var yaw := 0.0
-	for frame in 540:
-		var time := frame / 30.0
+	# Warm shaders and skinning before starting the playback clock.
+	transfer(old_pose, 0)
+	contacts(0, false)
+	label.text = "Preparing motion replay..."
+	camera.position = Vector3(0, 2.6, 6)
+	camera.look_at(Vector3(0, 0.8, 0))
+	for warm_frame in (30 if OS.has_feature("web") else 1):
+		transfer(old_pose, 0)
+		contacts(0, false)
+		skin_points(skin_meshes[0])
+		await get_tree().process_frame
+		await RenderingServer.frame_post_draw
+	var started := Time.get_ticks_usec()
+	var previous_time := 0.0
+	var frame := 0
+	var realtime := OS.has_feature("web") or OS.get_environment("MOTION_REALTIME") == "1"
+	while true:
+		var wall_time := (Time.get_ticks_usec() - started) / 1000000.0
+		var time := wall_time if realtime else frame / 30.0
+		if time >= 18.0:
+			break
+		var delta := time - previous_time if realtime else 1.0 / 30
+		previous_time = time
 		var clip := "Idle"
 		var action := "idle"
 		var speed := 0.0
@@ -269,15 +290,15 @@ func run() -> void:
 			previous = clip
 			gait = 0
 		# Measured slow-walk trial sped by actual displacement: accelerated walk, not run.
-		gait += (speed / 0.4 if speed > 0 else 1.0) / 30
+		gait += (speed / 0.4 if speed > 0 else 1.0) * delta
 		var pose := sample(clip, gait)
 		var blend := clampf((time - transition) / 0.2, 0, 1)
 		for i in pose.size():
 			pose[i] = old_pose[i].interpolate_with(pose[i], blend)
 		mapped_before = pose
-		yaw = lerp_angle(yaw, desired_yaw, 0.15)
+		yaw = lerp_angle(yaw, desired_yaw, 1.0 - pow(0.85, delta * 30.0))
 		model.rotation.y = yaw
-		model.position += Basis(Vector3.UP, yaw) * Vector3(0, 0, speed / 30)
+		model.position += Basis(Vector3.UP, yaw) * Vector3(0, 0, speed * delta)
 		transfer(pose, sin(time * 2) * 0.35 if time >= 14 else 0.0)
 		contacts(fmod(gait / player.get_animation("Walking_A").length, 1.0), clip == "Walking_A")
 		label.text = "NON-AUTHENTIC KAYKIT RETARGET — " + view + "\n" + action + "  %.2fs" % time
@@ -292,10 +313,10 @@ func run() -> void:
 		camera.look_at(center)
 		await get_tree().process_frame
 		await RenderingServer.frame_post_draw
+		if OS.has_feature("web"):
+			JavaScriptBridge.eval("window.motionProgress = {demo_seconds: %f, frame: %d}" % [time, frame])
 		if not OS.has_feature("web"):
 			root.get_texture().get_image().save_png(out + "/%04d.png" % frame)
-		else:
-			await get_tree().create_timer(1.0 / 30).timeout
 		var feet := []
 		for bone in ["Armature_Ankle_L", "Armature_Toe_L", "Armature_Ankle_R", "Armature_Toe_R"]:
 			var point := target.global_transform * target.get_bone_global_pose(target.find_bone(bone)).origin
@@ -311,12 +332,17 @@ func run() -> void:
 		for foot in self.feet:
 			var p: Vector3 = target.global_transform * (target.get_bone_global_pose(foot.ankle) * foot.sole)
 			support.append({"locked": foot.locked, "error": p.distance_to(foot.anchor) if foot.locked else 0.0})
-		metrics.append({"time": time, "clip": clip, "action": action, "feet": feet, "sole_vertices": sole_points, "skin_min": skin_min, "support": support,
+		metrics.append({"time": time, "wall_time": wall_time, "realtime": realtime, "clip": clip, "action": action, "feet": feet, "sole_vertices": sole_points, "skin_min": skin_min, "support": support,
 			"position": [model.position.x, model.position.y, model.position.z], "yaw": yaw})
+		frame += 1
 	if OS.has_feature("web"):
+		# Let the browser observe the final rendered timestamp before audit serialization.
+		await get_tree().process_frame
+		JavaScriptBridge.eval("window.motionComplete = true")
+		await get_tree().create_timer(0.1).timeout
 		JavaScriptBridge.eval("window.motionMetrics = " + JSON.stringify(metrics))
 	else:
 		FileAccess.open("res://metrics-" + view + ".json", FileAccess.WRITE).store_string(JSON.stringify(metrics))
-	print("PASS: 540 complete frames; rig=", target.get_bone_count(), " target_scale=", body_scale, " hip_ratio=", hip_ratio)
+	print("PASS: ", metrics.size(), " complete frames; rig=", target.get_bone_count(), " target_scale=", body_scale, " hip_ratio=", hip_ratio)
 	if not OS.has_feature("web"):
 		get_tree().quit()
