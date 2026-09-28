@@ -134,3 +134,18 @@ review with minor sheen/grain and scene-wide native-softness reservations.
 This is the selected floor visual candidate, pending navigation and build
 integration checks; it is not acceptance of the wall or skylight batches.
 the current build retains the previous floor.
+
+## Blue wall visual trial — issue #168, 2026-09-28
+
+The isolated `heartbeat/surface-168-0800` trial reuses the existing
+`prototype/gallery_walk4/textures/wall.png` unchanged (SHA-256
+`1d5442054d96e092675f41929cf1245a247ec677e13f23b7eccd42f0f22f0a60`),
+with a `(1.35, 1.45, 1.65)` material tint and a new Godot 4.7.2 lightmap.
+The texture entered the repository at `5b58d527`; its original provider and
+source recipe are not established. Comparison references are the already
+tracked `image-work/grand-gallery-v2/source/wide-north-entry.png` and
+`image-work/grand-gallery-v2/references/wall-west-arch-to-door.png`, hashes
+and exact blind visual findings in `docs/evidence/surface-168-0800/README.md`.
+The reviewer passed the *visible wall*; World Asset Gate provenance remains
+open, so this is not a selected build asset. No generated image, paid provider
+call, or spend occurred in this trial.

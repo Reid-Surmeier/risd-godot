@@ -21,6 +21,17 @@ func set_floor_pose(walk: Control, index: int) -> void:
 		walk._cam.position = Vector3(0.8, 1.75, -14.0)
 		walk._cam.look_at(Vector3(0.2, 0.0, -18.5))
 		walk._cam.fov = 55.0
+	elif index == 2:
+		walk.set_process(false)
+		walk._cam.position = Vector3(1.4, 1.7, -12.0)
+		walk._cam.look_at(Vector3(-5.0, 2.4, -14.0))
+		walk._cam.fov = 62.0
+	elif index == 3:
+		walk.set_process(false)
+		walk._cam.cull_mask = 63
+		walk._cam.position = Vector3(0.0, 1.8, -12.0)
+		walk._cam.look_at(Vector3(0.0, 5.8, -19.0))
+		walk._cam.fov = 66.0
 
 func _initialize() -> void:
 	call_deferred("capture")
@@ -30,7 +41,7 @@ func capture() -> void:
 	DirAccess.make_dir_recursive_absolute(output)
 	for width in [720, 1600]:
 		root.size = Vector2i(width, width)
-		for index in [0, 1]:
+		for index in [0, 1, 2, 3]:
 			var walk := Walk.new()
 			root.add_child(walk)
 			if OS.get_cmdline_user_args().size() > 1 and OS.get_cmdline_user_args()[1] == "unbaked":

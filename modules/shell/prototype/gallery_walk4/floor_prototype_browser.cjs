@@ -13,7 +13,7 @@ const puppeteer = require('/home/reidsurmeier/promo-lab/node_modules/puppeteer-c
   const errors = [];
   try {
     for (const width of [720, 1600]) {
-      for (const view of [0, 1]) {
+      for (const view of [0, 1, 2, 3]) {
         const page = await browser.newPage();
         await page.setViewport({ width, height: width });
         page.on('pageerror', error => errors.push(String(error)));
@@ -37,7 +37,7 @@ const puppeteer = require('/home/reidsurmeier/promo-lab/node_modules/puppeteer-c
         await page.close();
       }
     }
-    fs.writeFileSync(path.join(output, 'browser.json'), JSON.stringify({ widths: [720, 1600], views: [0, 1], errors }, null, 2));
+    fs.writeFileSync(path.join(output, 'browser.json'), JSON.stringify({ widths: [720, 1600], views: [0, 1, 2, 3], errors }, null, 2));
     if (errors.length) throw Error(errors.join('\n'));
   } finally {
     await browser.close();

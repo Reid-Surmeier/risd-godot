@@ -305,8 +305,7 @@ func _box(c: Vector3, size: Vector3, col: Color, layer := 1, m: Material = null)
 
 
 func _wall_ps(extra := Color.WHITE) -> ShaderMaterial:
-	# Broad pigment patches, one repeat per four metres; no fine grain to crawl.
-	return ps(load(DIR + "textures/wall-muse.webp"), extra, Vector2(0.25, 0.25), true)
+	return ps(load(DIR + "textures/wall.png"), extra * Color(1.35, 1.45, 1.65), Vector2(0.25, 0.25), true)
 
 
 const LAYER_WEST := 2
