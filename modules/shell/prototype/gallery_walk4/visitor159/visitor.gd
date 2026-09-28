@@ -1,6 +1,7 @@
 extends Node3D
 ## #159 throwaway: sourced New Horizons geometry, non-authentic KayKit motion.
-## Transfer/contact corrections are the verified #171 prototype, not Nintendo clips.
+## Transfer/contact corrections adapt #171, with #159-specific stationary repair.
+## These are not Nintendo clips or a claim of #171's current visual acceptance.
 const HOME := "res://modules/shell/prototype/gallery_walk4/visitor159/"
 const MAP := {
 	"Armature_Spine_1": "hips", "Armature_Waist": "hips",
@@ -36,6 +37,7 @@ var look_direction := 1.0
 var contacts := 0
 var phase := 0.0
 var lighting := true
+var fill := 0.25
 var layers := 1:
 	set(value):
 		layers = value
@@ -48,6 +50,7 @@ var _gait := 0.0
 var _clip := ""
 var _blend_start := 0.0
 var _from := []
+var _stationary_weight := 0.0
 
 # Adapted from the already accepted KayKit gallery visitor's two-bone solver.
 func solve_leg(foot: Dictionary, point: Vector3) -> void:
@@ -60,6 +63,10 @@ func solve_leg(foot: Dictionary, point: Vector3) -> void:
 	var direction := (ankle - upper.origin).normalized()
 	var distance := clampf(ankle.distance_to(upper.origin), 0.001, a + b - 0.00001)
 	var pole := lower.origin - upper.origin
+	# A donor knee pole can turn sideways on this much shorter leg. A settled
+	# neutral stance bends forward in the sourced rig's own coordinate frame.
+	if _stationary_weight > 0:
+		pole = pole.lerp(Vector3.BACK, _stationary_weight)
 	pole = (pole - direction * pole.dot(direction)).normalized()
 	if pole.length_squared() < 0.1:
 		pole = Vector3.FORWARD
@@ -89,6 +96,13 @@ func solve_contacts(phase: float, moving: bool, settling: bool = false) -> void:
 		var planted := (phase >= 0.11 and phase < 0.46) if i == 0 else (phase >= 0.61 and phase < 0.96)
 		planted = planted if moving else true
 		var point: Vector3 = target.global_transform * (target.get_bone_global_pose(foot.ankle) * foot.sole)
+		if not moving:
+			# The donor's idle/interact stance is not a target-body stance. Settle
+			# toward the sourced rig's neutral sole locations, not its retargeted
+			# ankle sample, so a turn/interaction cannot leave crossed resting feet.
+			point = target.global_transform * foot.neutral
+			if settling:
+				point = foot.settle_from.lerp(point, smoothstep(0, 1, clampf((_clock - _blend_start) / 0.2, 0, 1)))
 		if planted and not foot.locked:
 			if moving:
 				contacts += 1
@@ -163,8 +177,8 @@ func transfer(poses: Array, look: float) -> void:
 			local.basis = parent_pose.basis.inverse() * wanted
 		if parent < 0:
 			var hips := donor.find_bone("hips")
-			local.origin += (poses[hips].origin - donor.get_bone_global_rest(hips).origin) * hip_ratio
-			local.origin.y -= 0.30
+			local.origin += (poses[hips].origin - donor.get_bone_global_rest(hips).origin) * hip_ratio * (1.0 - _stationary_weight)
+			local.origin.y -= lerpf(0.30, 0.03, _stationary_weight)
 		target.set_bone_pose(i, local)
 		current.append(parent_pose * local)
 	target.force_update_all_bone_transforms()
@@ -208,7 +222,8 @@ func _ready() -> void:
 			"lower": target.find_bone("Armature_Leg_2_" + side), "ankle": ankle,
 			"toe": target.find_bone("Armature_Toe_" + side), "flat": ankle_rest.basis, "rest_flat": ankle_rest.basis,
 			"anchor_basis": Basis.IDENTITY,
-			"sole": ankle_rest.affine_inverse() * sole, "locked": false, "anchor": Vector3.ZERO})
+			"sole": ankle_rest.affine_inverse() * sole, "neutral": sole,
+			"settle_from": Vector3.ZERO, "locked": false, "anchor": Vector3.ZERO})
 	print("REST bounds=", min_y, "..", max_y, " soles=", sole_indices.size())
 	var source: Node3D = load(HOME + "inputs/donor.glb").instantiate()
 	add_child(source)
@@ -238,7 +253,8 @@ func _ready() -> void:
 				# has metallic=1; diffuse gallery probes need a nonmetallic copy.
 				lit.albedo_color = original.emission * Color(1.6, 1.6, 1.6)
 				lit.albedo_texture = original.emission_texture
-				lit.emission_enabled = false
+				lit.emission_enabled = fill > 0
+				lit.emission_energy_multiplier = 0.6 if str(mesh.name).contains("Hair") else fill
 				lit.roughness = 1.0
 				lit.metallic = 0.0
 				lit.specular_mode = BaseMaterial3D.SPECULAR_DISABLED
@@ -299,6 +315,9 @@ func pose(delta: float, moving: bool, _legacy_phase: float, heading: Vector3, _c
 			gesture = ""
 	var clip := "Walking_A" if stepping else ("Interact" if gesture == "wave" else "Idle")
 	if clip != _clip:
+		var current_soles := sole_positions()
+		for i in feet.size():
+			feet[i].settle_from = current_soles[i]
 		_from = mapped_before.duplicate()
 		_clip = clip
 		_blend_start = _clock
@@ -310,8 +329,27 @@ func pose(delta: float, moving: bool, _legacy_phase: float, heading: Vector3, _c
 		for i in poses.size():
 			poses[i] = _from[i].interpolate_with(poses[i], blend)
 	mapped_before = poses
-	var look := sin(minf(gesture_time / 1.3, 1.0) * PI) * 0.35 * look_direction if gesture != "" else 0.0
+	var gesture_weight := sin(minf(gesture_time / 1.3, 1.0) * PI) if gesture != "" else 0.0
+	var look := gesture_weight * (0.65 if gesture == "look" else 0.25) * look_direction
+	_stationary_weight = move_toward(_stationary_weight, 0.0 if stepping else 1.0, delta / 0.2) if delta > 0 else (0.0 if stepping else 1.0)
 	transfer(poses, look)
+	if gesture == "wave":
+		# Non-authentic pose accent: make the artwork acknowledgement clear from
+		# the rear camera without touching the sourced geometry or skin weights.
+		var upper_index := target.find_bone("Armature_Arm_1_L")
+		var lower_index := target.find_bone("Armature_Arm_2_L")
+		var upper := target.get_bone_global_pose(upper_index)
+		var direction := (target.get_bone_global_pose(lower_index).origin - upper.origin).normalized()
+		var toward := Vector3(1, -0.6, 0.1).normalized()
+		upper.basis = Basis(Quaternion.IDENTITY.slerp(Quaternion(direction, toward), gesture_weight)) * upper.basis
+		target.set_bone_global_pose(upper_index, upper)
+		target.force_update_all_bone_transforms()
+		var lower := target.get_bone_global_pose(lower_index)
+		var wrist := target.find_bone("Armature_Wrist_L")
+		var forearm := (target.get_bone_global_pose(wrist).origin - lower.origin).normalized()
+		lower.basis = Basis(Quaternion.IDENTITY.slerp(Quaternion(forearm, Vector3(1, -0.15, 0.15).normalized()), gesture_weight)) * lower.basis
+		target.set_bone_global_pose(lower_index, lower)
+		target.force_update_all_bone_transforms()
 	phase = fmod(_gait / player.get_animation("Walking_A").length, 1.0)
 	# As in #171: feet finish their short walk-to-idle settling before planting.
 	solve_contacts(phase, stepping, not stepping and _clock - _blend_start < 0.2)

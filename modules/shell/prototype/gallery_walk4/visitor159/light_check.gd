@@ -33,10 +33,11 @@ func run() -> void:
 		samples[test] = Vector3(color.r, color.g, color.b)
 		result[test] = [color.r, color.g, color.b]
 		print("VISITOR159_LIGHT ", test, " ", color)
-		assert(color.r > 0.04 if test != "disabled" else color.r < 0.03, "light regression: " + test)
-	# This brown hair sample has a subtle response (unlike the old light-skinned
-	# surrogate). Require several 8-bit levels, plus the black GI-off control.
+		assert(color.r > 0.04, "character is unreadably dark: " + test)
+	# The pose-readability fill is character-only. Require several 8-bit levels
+	# of spatial response and a stronger GI contribution above the fill-only control.
 	assert(samples.warm.distance_to(samples.cool) > 0.01, "spatial probe response missing")
+	assert(samples.warm.distance_to(samples.disabled) > 0.03, "probe contribution missing above character-only fill")
 	assert(gallery._paintings.size() == 23)
 	for painting in gallery._paintings:
 		assert(not painting.rec.is_empty() and painting.outer.x > 0 and painting.outer.y > 0)

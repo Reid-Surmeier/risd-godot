@@ -93,7 +93,8 @@ func _process(delta: float) -> void:
 		previous_stage = stage
 	if not OS.has_feature("web"):
 		gallery._process(dt)
-	label.text = "#159 PROTOTYPE · sourced mesh / fallback motion\nDEMO %.2fs · %s" % [elapsed, stage]
+	# Blind visual capture: no action names to explain an otherwise unreadable pose.
+	label.text = "DEMO %.2fs" % elapsed
 	if not gallery._open.is_empty():
 		detail_seen = true
 	if stage == "complete":
@@ -139,4 +140,8 @@ func sample(stage: String) -> void:
 			previous_feet[side] = {"locked": foot.locked, "anchor": foot.anchor, "points": current}
 	stage_counts[stage] = stage_counts.get(stage, 0) + 1
 	max_drift = maxf(max_drift, drift)
-	records.append({"time": elapsed, "stage": stage, "position": [gallery._pos.x, gallery._pos.z], "yaw": kid.rotation.y, "gesture": kid.gesture, "min_sole_y": minimum, "drift": drift})
+	var soles: Array = kid.sole_positions()
+	var left: Vector3 = kid.global_transform.affine_inverse() * soles[0]
+	var right: Vector3 = kid.global_transform.affine_inverse() * soles[1]
+	var stationary: bool = kid._clip != "Walking_A" and kid._clock - kid._blend_start >= 0.21
+	records.append({"time": elapsed, "stage": stage, "position": [gallery._pos.x, gallery._pos.z], "yaw": kid.rotation.y, "gesture": kid.gesture, "min_sole_y": minimum, "drift": drift, "stationary": stationary, "left_x": left.x, "right_x": right.x})

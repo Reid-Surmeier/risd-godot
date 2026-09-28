@@ -4,7 +4,7 @@ const fs = require('node:fs');
   const browser = await chromium.launch({headless:true,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
   const dir = '/tmp/risd-159-evidence/browser';
   fs.mkdirSync(dir,{recursive:true});
-  const context = await browser.newContext({viewport:{width:720,height:720},recordVideo:{dir,size:{width:720,height:720}}});
+  const context = await browser.newContext({viewport:{width:1080,height:1080},recordVideo:{dir,size:{width:1080,height:1080}}});
   const page = await context.newPage();
   const errors=[];
   page.on('pageerror',e=>errors.push(String(e)));

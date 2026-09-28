@@ -1,5 +1,16 @@
 extends "res://modules/shell/prototype/gallery_walk4/walk4.gd"
 ## Throwaway visitor replacement only; inherited room, art, navigation and picking.
+var visitor_pitch := 25.0
+
+func _update_camera(k: float) -> void:
+	super._update_camera(k)
+	if view_mode != 0:
+		return
+	var pitch := deg_to_rad(visitor_pitch)
+	var forward := Vector3(-sin(view_yaw), 0, -cos(view_yaw))
+	var center := _pos + forward * 0.7 + Vector3.UP * 1.55
+	_cam.position = center - forward * 14.2 * cos(pitch) + Vector3.UP * 14.2 * sin(pitch)
+	_cam.look_at(center)
 
 func _ready() -> void:
 	super._ready()

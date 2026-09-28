@@ -1,6 +1,7 @@
 # #159 — sourced visitor in the Grand Gallery
 
-Status: technical prototype running; final independent visual gate pending.
+Status: first visible batch **failed** independent review; repaired batch awaiting
+a fresh independent visual gate. Technical integration is not visual acceptance.
 This is a throwaway branch, not a runtime or release asset selection.
 
 ![Front at gallery gameplay size](evidence/front.png)
@@ -15,8 +16,9 @@ level: the replacement uses the existing navigation, camera, collision, picking
 and artwork-detail controller. Visual acceptance is not inferred from that fact.
 
 The branch starts at build `8606d87d09692357a8b86173b1e8f6537277be6d`.
-`visitor159/gallery.gd` subclasses the existing gallery and replaces only its
-visitor; the original room/controller file and all paintings remain unchanged.
+`visitor159/gallery.gd` subclasses the existing gallery, replaces its visitor,
+and lowers the default camera framing; the original room/controller file and
+all paintings remain unchanged.
 The dedicated Web export feature selects the throwaway scene. This branch's
 viewport width is 1080 for square Movie Maker evidence, not a build integration.
 
@@ -48,6 +50,35 @@ claimed. No provider generation or spend was used.
 
 ## Technical evidence
 
+### Repair after the first blind review
+
+Fresh external GPT-6 Astra medium image-only review rejected `858e21df`: identity
+and provisional rig/contact/cohesion passed, but the elevated rear/diagonal view
+hid torso/arms under hair; look and artwork gestures needed labels to read; hair
+was too dark/soft. That failed checkpoint remains in Git history and was not
+integrated or closed.
+
+The bounded repair preserves the exact source geometry and rig. A 42° / 25° / 15°
+framing trial selected 25° with a 1.55 m framing center: it shows the torso and
+limbs while retaining more floor context than 15°. Character-only source-color
+fill is 0.25, or 0.6 on hair; the existing diffuse probe response remains, and no
+room light or global finishing shader changes. A non-authentic pose accent extends
+the left arm and forearm outward during Interact; the look head-turn peaks at 0.65 rad.
+These are disclosed procedural accents, not recovered game animation.
+
+Closer inspection also rejected a numerically planted but crouched/asymmetric
+resting stance. The donor idle lowered the pose root by 0.556 source units and
+supplied sideways knee poles. Stationary settling now targets source-rest sole
+positions, restores neutral hip height (0.03 source-unit reach reserve), and
+blends knee poles forward over 0.2 seconds. Walking keeps the donor displacement.
+The verifier additionally requires separated left/right soles at settled stops.
+This is a #159-only procedural repair; #171 has a separate reopened visual gate.
+
+Both final captures are now 1080 square. Action labels were removed: only clocks
+remain, so look/artwork poses must communicate without explanatory captions.
+Independent static views also reset foot anchors before changing orientation;
+they no longer inherit anchors from the previous static view.
+
 The capture uses real key-event handling and pointer press/release over W5;
 `NAV_PICK W5` confirms picking before the normal approach, turn, gesture and
 detail flow. Front/profile/back, straight/diagonal walk, stop, reversal, look,
@@ -55,8 +86,9 @@ and artwork interaction all appear in one continuous sequence. The headless
 controller check verifies all stages, both look and wave, 23 works, and 42 bones.
 
 Light probe negative control: warm hair pixel RGB
-`[0.333333, 0.188235, 0.098039]`; cool `[0.317647, 0.176471, 0.086275]`;
-GI-disabled `[0,0,0]`. This is a subtle spatial response, not a claim of dramatic
+`[0.466667, 0.274510, 0.156863]`; cool `[0.458824, 0.266667, 0.149020]`;
+GI-disabled/fill-only `[0.317647, 0.203922, 0.125490]`. This is a subtle spatial
+response with a clear probe contribution above fill, not a claim of dramatic
 color variation. The probe test also checks that all 23 painting records have
 positive dimensions. No room lighting or global finishing change was made.
 
@@ -70,23 +102,29 @@ with its [summary](evidence/browser-summary.json) and full
 [native controller movie](evidence/native-controller.mp4) is 1080 square,
 961 frames at 30 fps (32.033 seconds including warm-up). Its
 [metrics](evidence/native-metrics.json) pass all stages and both gestures:
-maximum sole penetration **0.000000272 m**, whole-plant drift **0.00000204 m**.
-It was rendered offline in 2:59; that is explicitly not live native frame time.
+maximum sole penetration **0.000000227 m**, whole-plant drift **0.001694 m**.
+It was rendered offline in 3:19 including the browser-test pause; that is
+explicitly not live native frame time.
 
 ![Actual artwork gesture before detail opens](evidence/artwork-gesture.png)
 
-Final isolated browser result: **28.0138 demo seconds / 27.9624 wall seconds =
-1.00184×**. Independent browser observations: 961; median interval **29.1 ms**,
-95th percentile **42.5 ms**, maximum **86.9 ms**. Browser console/page errors: 0.
+Final repaired 1080-square isolated browser result: **28.0020 demo seconds /
+27.9443 wall seconds = 1.0021×**. This passes the pre-existing ±5% overall clock
+gate. Independent browser observations: 658;
+median interval **41.8 ms**, 95th percentile **62.2 ms**, maximum **155.6 ms**.
+Browser console/page errors: 0. The software-rendered 1080 capture has visible
+frame-time limitations; the earlier 720-square performance is not substituted.
 Actual `look` and `wave` samples plus detail opening are required by the verifier.
-Maximum sampled sole penetration: **0.000000347 m**; maximum whole-planted-interval
-sole-vertex drift: **0.00000204 m**, across 194 bottom sock vertices sampled at
+Maximum sampled sole penetration: **0.000000278 m**; maximum whole-planted-interval
+sole-vertex drift: **0.001420 m**, across 194 bottom sock vertices sampled at
 roughly 0.1-second intervals. Gate tolerances remain 0.01 m penetration and
 0.02 m planted drift; numerical tests do not replace visual inspection.
 
-The browser timing run used Playwright Chromium / SwiftShader at 720 square
+The browser timing run used Playwright Chromium / SwiftShader at 1080 square
 while the other agents' Godot and browser renders were held. Preliminary
-contended runs were slower and are not used as the final timing claim. Native
+contended runs were slower (final-source trial 0.8318× with another native gallery
+capture active) and are not used as the final timing claim. The native Movie Maker
+process was stopped during the browser window and resumed afterwards. Native
 software-rendered Movie Maker output is deterministic 30 fps evidence, not a
 measurement of live hardware performance. Neither establishes a 60 fps guarantee.
 
@@ -98,7 +136,8 @@ diff from the base. Source GLB hashes still match the pinned inputs.
 
 ## Independent visual gate
 
-Pending a fresh GPT-6 Astra medium-effort blind review of source reference
+The first verdict was FAIL as recorded above. Pending a fresh GPT-6 Astra
+medium-effort blind review of source reference
 images and final captures/video only. No earlier verdict or implementation
 narrative is part of the review packet. #159 remains open; this report does not
 select the visitor for the build until that review passes.

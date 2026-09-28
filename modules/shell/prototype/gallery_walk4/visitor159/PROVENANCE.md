@@ -18,19 +18,29 @@ permission. Neither the GLB nor a release/runtime acceptance is conveyed here.
 Input acquisition and exact source attribution remain in #163's report and
 `docs/research/2026-09-27-acnh-authored-hair-source.md` on that branch.
 
-The 42-bone imported target uses the verified #171 rotation transfer and contact
-solver (report pin `422e3d40d146cae4be77340cbc008d44e3ce8e59`). Only donor Idle,
+The 42-bone imported target adapts #171 rotation transfer and contact
+solver (historical report pin `422e3d40d146cae4be77340cbc008d44e3ce8e59`;
+#171 was later reopened for resting-stance visual repair). Only donor Idle,
 Walking_A and Interact are sampled. All motion is **non-authentic fallback**;
 authentic New Horizons clips remain an open source route, not a claim here.
 The controller adds turning, blending and reach-limited planted-foot corrections.
+After the first visual rejection, a disclosed procedural Interact accent extends
+the left arm/forearm outward; look rotation peaks at 0.65 rad. Stationary settling
+uses source-rest sole positions, neutral hip height and forward knee poles with
+a 0.2-second blend, avoiding donor crouch/sideways knee bend. These remain
+non-authentic pose corrections, not geometry or bind edits.
 
 Material copies convert the source emission color/texture to diffuse albedo,
 set metallic=0, roughness=1, disable specular, and use the gallery's established
-1.6 indirect-light gain. Imported emission is already sRGB. This conversion is
+1.6 indirect-light gain. The repaired batch retains character-only source-color
+emission fill of 0.25 (0.6 for hair) for readability; this does not light the room.
+Imported emission is already sRGB. This conversion is
 necessary because the emissive-only source export has metallic=1: simply disabling
 emission produces black under diffuse light probes. `VISITOR_MATERIAL=source`
 (Web `?material=source`) preserves the unchanged source-emissive material route.
-No global lighting or room finish is changed. No generation/provider spend occurred.
+The default prototype camera pitch is 25° (42° and 15° were compared), with a
+1.55 m target height. No global lighting or room finish is changed. No
+generation/provider spend occurred. Source identity and rights are unchanged.
 
 ## Reproduce (Godot 4.7.2)
 

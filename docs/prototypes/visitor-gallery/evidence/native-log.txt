@@ -12,11 +12,11 @@ ENTRY_COMPLETE (0.0, 0.0, -2.579999)
 VIEW_ORBIT {"position":[-1.90963494777679,-12.0840225219727],"space":"gallery","yaw":1.91992876353306}
 VISITOR159_TARGET W5
 NAV_PICK W5
-VISITOR159_COMPLETE paintings=23 detail=true penetration=0.00000027194619 drift=0.00000203926311
+VISITOR159_COMPLETE paintings=23 detail=true penetration=0.00000022724271 drift=0.0016944281524
 --------------------------------------------------------------------------------
 Done recording movie at path: /tmp/risd-159-evidence/native-full.avi
-961 frames at 30 FPS (movie length: 00:00:32:01), recorded in 00:02:59 (17% of real-time speed).
-CPU render time: 0.33 seconds (average: 0.34 ms/frame)
+961 frames at 30 FPS (movie length: 00:00:32:01), recorded in 00:03:19 (16% of real-time speed).
+CPU render time: 0.26 seconds (average: 0.27 ms/frame)
 GPU render time: 0.00 seconds (average: 0.00 ms/frame)
-Encoding time: 12.86 seconds (average: 13.38 ms/frame)
+Encoding time: 10.88 seconds (average: 11.32 ms/frame)
 --------------------------------------------------------------------------------

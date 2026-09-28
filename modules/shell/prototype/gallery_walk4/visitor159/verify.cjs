@@ -8,6 +8,7 @@ for(const path of process.argv.slice(2)){
   assert(d.max_planted_vertex_drift<.02,`planted drift ${d.max_planted_vertex_drift}`);
   for(const stage of ['front idle','profile turn','back turn','straight walk','diagonal walk','stop','reverse','reverse stop','look','artwork approach / gesture'])assert(d.stages[stage]>0,stage);
   for(const gesture of ['look','wave'])assert(d.records.some(r=>r.gesture===gesture),`missing ${gesture}`);
+  for(const r of d.records.filter(r=>r.stationary))assert(r.left_x>.08&&r.right_x<-.08,`crossed/narrow neutral stance at ${r.time}: ${r.left_x}, ${r.right_x}`);
   if(data.samples){
     const wall=(data.end-data.start)/1000;
     assert(Math.abs(d.demo_seconds/wall-1)<.05,`wall-clock ratio ${d.demo_seconds/wall}`);

@@ -17,6 +17,7 @@ func run() -> void:
 	gallery.view_yaw = PI / 2
 	gallery.set_process(false)
 	for view in ["front", "profile", "back"]:
+		gallery._kid.reset_contacts()
 		var direction: Vector3 = {"front": Vector3.RIGHT, "profile": Vector3.BACK, "back": Vector3.LEFT}[view]
 		gallery._kid.pose(0, false, 0, direction, gallery.view_yaw)
 		for i in 90:
