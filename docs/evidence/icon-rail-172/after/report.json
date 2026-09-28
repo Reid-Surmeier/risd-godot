@@ -1,0 +1,619 @@
+{
+  "log": [
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "downloads",
+      "rect": {
+        "h": 59.0,
+        "w": 77.0,
+        "x": 19.0,
+        "y": 68.0
+      },
+      "tab": "map",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "documents",
+      "rect": {
+        "h": 64.0,
+        "w": 79.0,
+        "x": 18.0,
+        "y": 204.857147216797
+      },
+      "tab": "map",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "websurfer2",
+      "rect": {
+        "h": 73.0,
+        "w": 84.0,
+        "x": 15.5,
+        "y": 341.714294433594
+      },
+      "tab": "map",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "nextrooms",
+      "rect": {
+        "h": 62.0,
+        "w": 76.0,
+        "x": 19.5,
+        "y": 478.571441650391
+      },
+      "tab": "map",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "wastebin",
+      "rect": {
+        "h": 64.0,
+        "w": 68.0,
+        "x": 23.5,
+        "y": 615.428588867188
+      },
+      "tab": "map",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "screensavers",
+      "rect": {
+        "h": 86.0,
+        "w": 87.0,
+        "x": 14.0,
+        "y": 752.285705566406
+      },
+      "tab": "map",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "do_not_open",
+      "rect": {
+        "h": 99.0,
+        "w": 82.0,
+        "x": 16.5,
+        "y": 889.142883300781
+      },
+      "tab": "map",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "screenshot",
+      "file": "map.png",
+      "t_ms": 4997
+    },
+    {
+      "event": "input",
+      "opened": "downloads",
+      "selected": "downloads",
+      "tab": "map"
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "downloads",
+      "rect": {
+        "h": 59.0,
+        "w": 77.0,
+        "x": 19.0,
+        "y": 68.0
+      },
+      "tab": "sketchbook",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "documents",
+      "rect": {
+        "h": 64.0,
+        "w": 79.0,
+        "x": 18.0000076293945,
+        "y": 204.857147216797
+      },
+      "tab": "sketchbook",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "websurfer2",
+      "rect": {
+        "h": 73.0,
+        "w": 84.0,
+        "x": 15.5000076293945,
+        "y": 341.714294433594
+      },
+      "tab": "sketchbook",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "nextrooms",
+      "rect": {
+        "h": 62.0,
+        "w": 76.0,
+        "x": 19.5,
+        "y": 478.571441650391
+      },
+      "tab": "sketchbook",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "wastebin",
+      "rect": {
+        "h": 64.0,
+        "w": 68.0,
+        "x": 23.5,
+        "y": 615.428588867188
+      },
+      "tab": "sketchbook",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "screensavers",
+      "rect": {
+        "h": 86.0,
+        "w": 87.0,
+        "x": 14.0000076293945,
+        "y": 752.28564453125
+      },
+      "tab": "sketchbook",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "do_not_open",
+      "rect": {
+        "h": 99.0,
+        "w": 82.0,
+        "x": 16.5000076293945,
+        "y": 889.142822265625
+      },
+      "tab": "sketchbook",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "screenshot",
+      "file": "sketchbook.png",
+      "t_ms": 7632
+    },
+    {
+      "event": "input",
+      "opened": "downloads",
+      "selected": "downloads",
+      "tab": "sketchbook"
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "downloads",
+      "rect": {
+        "h": 59.0,
+        "w": 77.0,
+        "x": 19.0,
+        "y": 68.0
+      },
+      "tab": "3d_viewer",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "documents",
+      "rect": {
+        "h": 64.0,
+        "w": 79.0,
+        "x": 18.0,
+        "y": 204.857147216797
+      },
+      "tab": "3d_viewer",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "websurfer2",
+      "rect": {
+        "h": 73.0,
+        "w": 84.0,
+        "x": 15.5,
+        "y": 341.714294433594
+      },
+      "tab": "3d_viewer",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "nextrooms",
+      "rect": {
+        "h": 62.0,
+        "w": 76.0,
+        "x": 19.5,
+        "y": 478.571441650391
+      },
+      "tab": "3d_viewer",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "wastebin",
+      "rect": {
+        "h": 64.0,
+        "w": 68.0,
+        "x": 23.5,
+        "y": 615.428588867188
+      },
+      "tab": "3d_viewer",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "screensavers",
+      "rect": {
+        "h": 86.0,
+        "w": 87.0,
+        "x": 14.0,
+        "y": 752.285705566406
+      },
+      "tab": "3d_viewer",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "do_not_open",
+      "rect": {
+        "h": 99.0,
+        "w": 82.0,
+        "x": 16.5,
+        "y": 889.142883300781
+      },
+      "tab": "3d_viewer",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "screenshot",
+      "file": "3d_viewer.png",
+      "t_ms": 10120
+    },
+    {
+      "event": "input",
+      "opened": "downloads",
+      "selected": "downloads",
+      "tab": "3d_viewer"
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "downloads",
+      "rect": {
+        "h": 59.0,
+        "w": 77.0,
+        "x": 19.0,
+        "y": 68.0
+      },
+      "tab": "video_player",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "documents",
+      "rect": {
+        "h": 64.0,
+        "w": 79.0,
+        "x": 18.0,
+        "y": 204.857147216797
+      },
+      "tab": "video_player",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "websurfer2",
+      "rect": {
+        "h": 73.0,
+        "w": 84.0,
+        "x": 15.5,
+        "y": 341.714294433594
+      },
+      "tab": "video_player",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "nextrooms",
+      "rect": {
+        "h": 62.0,
+        "w": 76.0,
+        "x": 19.5,
+        "y": 478.571441650391
+      },
+      "tab": "video_player",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "wastebin",
+      "rect": {
+        "h": 64.0,
+        "w": 68.0,
+        "x": 23.5,
+        "y": 615.428588867188
+      },
+      "tab": "video_player",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "screensavers",
+      "rect": {
+        "h": 86.0,
+        "w": 87.0,
+        "x": 14.0,
+        "y": 752.285705566406
+      },
+      "tab": "video_player",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "do_not_open",
+      "rect": {
+        "h": 99.0,
+        "w": 82.0,
+        "x": 16.5,
+        "y": 889.142883300781
+      },
+      "tab": "video_player",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "screenshot",
+      "file": "video_player.png",
+      "t_ms": 11715
+    },
+    {
+      "event": "input",
+      "opened": "downloads",
+      "selected": "downloads",
+      "tab": "video_player"
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "downloads",
+      "rect": {
+        "h": 59.0,
+        "w": 77.0,
+        "x": 19.0,
+        "y": 68.0
+      },
+      "tab": "collection",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "documents",
+      "rect": {
+        "h": 64.0,
+        "w": 79.0,
+        "x": 18.0,
+        "y": 204.857147216797
+      },
+      "tab": "collection",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "websurfer2",
+      "rect": {
+        "h": 73.0,
+        "w": 84.0,
+        "x": 15.5,
+        "y": 341.714294433594
+      },
+      "tab": "collection",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "nextrooms",
+      "rect": {
+        "h": 62.0,
+        "w": 76.0,
+        "x": 19.5,
+        "y": 478.571441650391
+      },
+      "tab": "collection",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "wastebin",
+      "rect": {
+        "h": 64.0,
+        "w": 68.0,
+        "x": 23.5,
+        "y": 615.428588867188
+      },
+      "tab": "collection",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "screensavers",
+      "rect": {
+        "h": 86.0,
+        "w": 87.0,
+        "x": 14.0,
+        "y": 752.285705566406
+      },
+      "tab": "collection",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "do_not_open",
+      "rect": {
+        "h": 99.0,
+        "w": 82.0,
+        "x": 16.5,
+        "y": 889.142883300781
+      },
+      "tab": "collection",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "screenshot",
+      "file": "collection.png",
+      "t_ms": 14326
+    },
+    {
+      "event": "screenshot",
+      "file": "playground.png",
+      "t_ms": 15065
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "downloads",
+      "rect": {
+        "h": 59.0,
+        "w": 77.0,
+        "x": 19.0,
+        "y": 68.0
+      },
+      "tab": "flowers",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "documents",
+      "rect": {
+        "h": 64.0,
+        "w": 79.0,
+        "x": 18.0,
+        "y": 204.857147216797
+      },
+      "tab": "flowers",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "websurfer2",
+      "rect": {
+        "h": 73.0,
+        "w": 84.0,
+        "x": 15.5,
+        "y": 341.714294433594
+      },
+      "tab": "flowers",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "nextrooms",
+      "rect": {
+        "h": 62.0,
+        "w": 76.0,
+        "x": 19.5,
+        "y": 478.571441650391
+      },
+      "tab": "flowers",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "wastebin",
+      "rect": {
+        "h": 64.0,
+        "w": 68.0,
+        "x": 23.5,
+        "y": 615.428588867188
+      },
+      "tab": "flowers",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "screensavers",
+      "rect": {
+        "h": 86.0,
+        "w": 87.0,
+        "x": 14.0,
+        "y": 752.285705566406
+      },
+      "tab": "flowers",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "rail",
+      "fits": true,
+      "icon": "do_not_open",
+      "rect": {
+        "h": 99.0,
+        "w": 82.0,
+        "x": 16.5,
+        "y": 889.142883300781
+      },
+      "tab": "flowers",
+      "tenant_left": 115.0
+    },
+    {
+      "event": "screenshot",
+      "file": "flowers.png",
+      "t_ms": 15595
+    },
+    {
+      "event": "input",
+      "opened": "downloads",
+      "selected": "downloads",
+      "tab": "flowers"
+    }
+  ],
+  "viewport": [
+    1080,
+    1080
+  ]
+}

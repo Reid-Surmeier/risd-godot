@@ -8,9 +8,9 @@ signal opened(key: String)
 
 const ROOT := "res://modules/shell/assets/desktop_icons/"
 const ICONS: Array[String] = ["downloads", "documents", "websurfer2", "nextrooms", "wastebin", "screensavers", "do_not_open"]
-const SIDE := "left"  # "left" or "right"; windows overlap the column
+const SIDE := "left"  # "left" or "right"
 const MARGIN := 14.0  # page px from the page's edge and top
-const INSET := 72.0  # page px the Tenant gives up on the icons' side: its windows then overlap the column by ~20 px
+const INSET := 115.0  # widest icon and baked caption (87 px), plus both 14 px margins
 const PITCH := 150.0  # page px between icon tops at most; shrinks to fit a short page
 const SELECTED := Color(0.62, 0.66, 1.0)  # the classic selected-icon blue, as a tint
 const QUIET := preload("res://modules/shell/desktop_icon.gdshader")  # lighter grey, slightly see-through; a selected icon is drawn in full
