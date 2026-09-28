@@ -36,9 +36,9 @@ func _ready() -> void:
 		view = int(JavaScriptBridge.eval("new URLSearchParams(location.search).get('view') || '0'"))
 	set_view(view)
 func set_view(index: int) -> void:
-	view = posmod(index, 5)
-	var positions := [Vector3(0, 2.1, -20), Vector3(2.9, 1.3, -23), Vector3(1.8, 0.65, -25), Vector3(-2.5, 2.6, -22), Vector3(0, 3, -9)]
-	var targets := [Vector3(0, 1.7, -26.3), Vector3(0.9, 1.2, -26.3), Vector3(1.15, 0.3, -26.3), Vector3(0, 1.65, -26.3), Vector3(0, 2.4, -26.3)]
+	view = posmod(index, 8)
+	var positions := [Vector3(0, 2.1, -20), Vector3(2.9, 1.3, -23), Vector3(1.8, 0.65, -25), Vector3(-2.5, 2.6, -22), Vector3(0, 3, -9), Vector3(0, 3.2, -13), Vector3(0, 3.2, -23), Vector3(0, 3.2, -4)]
+	var targets := [Vector3(0, 1.7, -26.3), Vector3(0.9, 1.2, -26.3), Vector3(1.15, 0.3, -26.3), Vector3(0, 1.65, -26.3), Vector3(0, 2.4, -26.3), Vector3(-5, 5.75, -13), Vector3(-5, 5.75, -26.3), Vector3(-5, 5.75, 0)]
 	camera.position = positions[view]
 	camera.look_at(targets[view])
 	print("DOORWAY_PROTOTYPE view=", view)

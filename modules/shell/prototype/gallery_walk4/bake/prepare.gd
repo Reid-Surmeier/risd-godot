@@ -61,6 +61,9 @@ func _prepare() -> void:
 		var material := StandardMaterial3D.new()
 		material.albedo_color = original.get_shader_parameter("tint") if original.get_shader_parameter("tint") != null else Color.WHITE
 		material.albedo_texture = original.get_shader_parameter("albedo")
+		if material.albedo_texture and material.albedo_texture.resource_path.ends_with("/cornice-ivory.svg"):
+			material.emission_enabled = true
+			material.emission = Color(0.15, 0.15, 0.14)
 		var uv_scale = original.get_shader_parameter("uv_scale")
 		if uv_scale != null:
 			material.uv1_scale = Vector3(uv_scale.x, uv_scale.y, 1)

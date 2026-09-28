@@ -334,15 +334,14 @@ func _build_room() -> void:
 	_far_end()
 	# skirting and cornice
 	var white := ps(null, WHITE)
+	var cornice := ps(load(DIR + "textures/cornice-ivory.svg"), Color.WHITE, Vector2(0.7, 0.7), true)
+	var cornice_section := [Vector2(0, 0), Vector2(0, 0.08), Vector2(0.06, 0.08), Vector2(0.12, 0.16), Vector2(0.17, 0.17), Vector2(0.22, 0.12), Vector2(0.29, 0.12), Vector2(0.32, 0.22), Vector2(0.49, 0.22), Vector2(0.50, 0)]
 	for s in [-1.0, 1.0]:
 		_box(Vector3(s * (X - 0.04), 0.12, -L / 2), Vector3(0.08, 0.24, L), WHITE, 1, white)
 		_box(Vector3(s * (X - 0.06), 0.255, -L / 2), Vector3(0.12, 0.05, L), WHITE, 1, white)
-		_box(Vector3(s * (X - 0.12), H - 0.17, -L / 2), Vector3(0.24, 0.34, L), WHITE, 1, white)
-		_box(Vector3(s * (X - 0.05), H - 0.42, -L / 2), Vector3(0.1, 0.16, L), WHITE, 1, white)
-		# Sloped plaster fascia joins the two cornice steps; its underside bakes separately.
-		_panel(Vector3(s * (X - 0.1), H - 0.50, -L if s > 0 else 0.0), Vector3(0, 0, L * s), Vector3(-s * 0.14, 0.18, 0), white)
-	for z in [-0.12, -L + 0.12]:
-		_box(Vector3(0, H - 0.17, z), Vector3(W, 0.34, 0.24), WHITE, 1, white)
+		_trim_profile(Vector3(s * X, H - 0.50, 0), Vector3.UP, Vector3(0, 0, -L), cornice_section, cornice, Vector3(-s, 0, 0))
+	for z in [0.0, -L]:
+		_trim_profile(Vector3(-X, H - 0.50, z), Vector3.UP, Vector3(W, 0, 0), cornice_section, cornice, Vector3(0, 0, -1 if z == 0.0 else 1))
 	# barrel vault from the cornice, end lunettes, and the long skylight curving with it, lamps along its edges
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
