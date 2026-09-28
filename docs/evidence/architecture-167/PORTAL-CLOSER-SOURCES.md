@@ -17,13 +17,13 @@ animal and scroll forms. The outer arch also carries a shallow carved band.
 These are observed forms, not recovered dimensions. Perspective and lighting
 still prevent a measured section or exact depth reconstruction.
 
-The current two-support candidate is therefore an oversimplification, not a
+The earlier two-support candidate was therefore an oversimplification, not a
 faithful reconstruction of this new evidence. Future geometry should retain
 the existing opening/traversal envelope while using these clearer forms.
 No raw photograph has been added to runtime or committed as distributable
 art. No paid generation was required to obtain these primary references.
 
-The offline authoring command accepts the two inspection downloads explicitly:
+The rejected portal10 offline authoring command accepted the two inspection downloads explicitly:
 
 ```bash
 godot --headless --path . --script modules/shell/prototype/gallery_walk4/portal_relief_prepare.gd -- /tmp/risd-167-official-portal.jpg /tmp/risd-167-official-capitals.jpg
@@ -37,6 +37,19 @@ faces use three pixels. This is a bounded authoring guide, not photogrammetry.
 Body widths and stepped support positions remain within the pre-existing
 portal surround envelope, and the gallery opening/traversal coordinates remain
 unchanged. Source photos are not runtime dependencies or albedo decals.
+
+Portal10 was self-rejected: lighting and shadows in a photograph are not
+surface depth, and the sampled fields generated noisy, pitted carving rather
+than coherent sculpted forms. This method is retained as historical evidence,
+not the selected authoring method.
+
+The portal11 form study uses `portal_sculpt_relief_prepare.gd` instead. It
+authors smooth raised leaf, scroll and figural masses plus incised veins and
+two-tier impost cuts from the observed photographs. It reads no image pixels.
+These are bounded visual interpretations, not recovered iconography or exact
+depth measurements. An isolated flat-material, directly lit probe is used to
+reject poor forms before a full lightmap bake. That probe does not establish
+gallery material quality, runtime clearance or independent acceptance.
 
 The parent also supplied the renovation contractor's
 [Grand Gallery project](https://www.sitespecificllc.com/rhode-island-school-of-design-radeke-museum)

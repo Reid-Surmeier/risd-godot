@@ -762,16 +762,16 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 			var center_x: float = side * (radius + [0.115, 0.36, 0.655][section])
 			var face_z := front + 0.35 + section * 0.11
 			var depth := face_z - (front - 0.12)
-			block.call(Vector3(center_x, spring - 0.045, face_z - depth / 2), Vector3(section_width, 0.12, depth))
+			block.call(Vector3(center_x, spring - 0.075, face_z - depth / 2), Vector3(section_width, 0.19, depth))
 			builder.current = capital_st
 			var frieze := func(u: float, v: float) -> Vector3:
 				var x := center_x + (u - 0.5) * section_width
 				var photo_u: float = (x - (side * (radius + 0.41) - 0.435)) / 0.87
 				var field: Array = relief.bands[0 if side < 0 else 1]
 				var sample := _portal_relief_sample(field, int(relief.band_width), int(relief.band_height), photo_u, 1.0 - v)
-				var relief_depth := 0.030 * sample
+				var relief_depth := 0.040 * sample
 				relief_depth *= smoothstep(0.0, 0.15, v) * smoothstep(0.0, 0.15, 1.0 - v)
-				return Vector3(x, spring - 0.045 + (v - 0.5) * 0.12, face_z + 0.002 + relief_depth)
+				return Vector3(x, spring - 0.075 + (v - 0.5) * 0.19, face_z + 0.002 + relief_depth)
 			for row in 48:
 				for column in 64:
 					var u := column / 64.0
@@ -799,8 +799,8 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 			# short repeated texture bands. Keep the same height/radius envelope.
 			for strip in 5:
 				var t := strip / 4.0
-				profile.append(Vector2(lerpf(0.34, spring - 0.50, t), 0.132 + 0.004 * sin(t * PI)))
-			profile.append_array([Vector2(spring - 0.39, 0.15), Vector2(spring - 0.35, 0.15)])
+				profile.append(Vector2(lerpf(0.34, spring - 0.57, t), 0.132 + 0.004 * sin(t * PI)))
+			profile.append_array([Vector2(spring - 0.54, 0.15), Vector2(spring - 0.50, 0.15)])
 			for index in profile.size():
 				profile[index].y *= shaft_scale
 			for level in profile.size() - 1:
@@ -836,8 +836,8 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 				var zz := signf(sa) * pow(maxf(0.0, 1.0 - pow(absf(ca), 4.0)), 0.25)
 				var carving := 0.0
 				if sa > 0.0:
-					# Individually sampled source faces replace the repeated generic
-					# scroll rings. Photo luminance is a bounded cue, not scan depth.
+					# Authored leaf, scroll and figural masses follow the source;
+					# photo illumination is deliberately not treated as scan depth.
 					var px := clampf((xx + 1.0) * 0.5, 0, 1) * (int(relief.width) - 1)
 					var py := (1.0 - clampf(v, 0, 1)) * (int(relief.height) - 1)
 					var ix := mini(int(px), int(relief.width) - 2)
@@ -845,8 +845,8 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 					var data: Array = relief.fields[field_index]
 					var row0: float = lerpf(data[iy * int(relief.width) + ix], data[iy * int(relief.width) + ix + 1], px - ix)
 					var row1: float = lerpf(data[(iy + 1) * int(relief.width) + ix], data[(iy + 1) * int(relief.width) + ix + 1], px - ix)
-					carving += 0.12 * shaft_scale * (lerpf(row0, row1, py - iy) / 255.0 - 0.5) * sin(PI * clampf(v, 0, 1)) * pow(sa, 3.0)
-				return Vector3(x + xx * width, spring - 0.46 + v * 0.33, zc + zz * width + carving)
+					carving += 0.12 * shaft_scale * (lerpf(row0, row1, py - iy) / 255.0 - 0.5) * sin(PI * clampf(v, 0, 1)) * pow(sa, 1.5)
+				return Vector3(x + xx * width, spring - 0.52 + v * 0.33, zc + zz * width + carving)
 			for row in 96:
 				for segment in 128:
 					var a := TAU * segment / 128.0
@@ -863,12 +863,15 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 						normals.append(up.cross(along).normalized())
 					face.call(q, normals, texture_uv, 1 if (a + b) * 0.5 < PI else -1)
 			builder.current = st
-			block.call(Vector3(x, spring - 0.11, zc), Vector3(0.37 * shaft_scale, 0.06, 0.38))
+			block.call(Vector3(x, spring - 0.18, zc), Vector3(0.37 * shaft_scale, 0.04, 0.38))
 	var instance := MeshInstance3D.new()
 	instance.mesh = st.commit()
 	instance.material_override = ps(load(DIR + "textures/stone.png"), Color.WHITE, Vector2.ONE, true)
 	_vp.add_child(instance)
 	var capitals := MeshInstance3D.new()
+	# Average actual neighboring relief triangles instead of switching between
+	# finite-difference normals and individual faces at steep carved shoulders.
+	capital_st.generate_normals()
 	capitals.mesh = capital_st.commit()
 	capitals.material_override = instance.material_override
 	capitals.set_meta("portal_capital", true)

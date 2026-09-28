@@ -147,3 +147,18 @@ Three staggered shafts per side and stepped impost sections are fitted to
 the existing surround envelope; depth/proportions are visual interpretation,
 not surveyed geometry. No additional paid call; USD 0. The old Muse guide
 remains excluded. Independent acceptance is still required.
+
+### Portal11/12 — authored form probes, not accepted runtime assets
+
+Portal10's photo-luminance depth was self-rejected for noisy, pitted surfaces.
+`portal_sculpt_relief_prepare.gd` now authors six smooth leaf/scroll/figural
+fields and two-tier impost cuts using the official photographs as visual
+references, without reading photo pixels. Provider: local Godot authoring;
+paid generation count: 0; additional cost: USD 0. These are bounded visual
+interpretations, not a scan or a surveyed reconstruction. The rejected Muse
+guide remains excluded. Current authored JSON SHA-256:
+`32567a93487a67818e12be440e7b6277305e0662efeed8c3b5f5fb143330f2ba`.
+Generator SHA-256:
+`f3e976887302a3690612f78de5bfcba8b9787e4fec3cb47f9f16b0ede9550b65`.
+The directly lit flat-material probes are geometry diagnostics only; the
+saved room remains the rejected portal10 bake until a fresh bake is made.
