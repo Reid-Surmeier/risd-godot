@@ -36,7 +36,7 @@ func _run() -> void:
 		assert(chrome.tab_buttons[i].button_pressed)
 		assert(chrome.pages.size == Vector2(1080, 972))
 		await _shot(out, "tab-" + chrome.KEYS[i] + ".png")
-	await _press(chrome.strip.get_child(1), "Start")
+	await _press(chrome.strip.get_node("Start"), "Start")
 	assert(chrome.start_menu.visible and chrome.start_menu.item_count == 7)
 	await _shot(out, "start.png")
 	# Activate Map from the actual popup with keyboard input.
@@ -45,7 +45,7 @@ func _run() -> void:
 	await _frames(30)
 	assert(chrome._active() == 0)
 	await _press(chrome.tab_buttons[4], "Collection before Home")
-	await _press(chrome.strip.get_child(chrome.strip.get_child_count() - 1), "Home")
+	await _press(chrome.strip.get_node("Home"), "Home")
 	assert(chrome._active() == 0, "Home must select Map")
 	for button in chrome.header.get_children():
 		if button is Button and button.text == "Search Playground":
@@ -63,7 +63,7 @@ func _run() -> void:
 		await _shot(out, "playground-" + page + ".png")
 		if page == "explore":
 			var wheel := InputEventMouseButton.new()
-			wheel.position = Vector2(950, 900)
+			wheel.position = tenant.browsing.scroll.get_global_rect().get_center()
 			wheel.button_index = MOUSE_BUTTON_WHEEL_DOWN
 			wheel.pressed = true
 			Input.parse_input_event(wheel)
@@ -71,7 +71,7 @@ func _run() -> void:
 			wheel.pressed = false
 			Input.parse_input_event(wheel)
 			await _frames(5)
-			var scroll := tenant.find_children("*", "ScrollContainer", true, false)[0] as ScrollContainer
+			var scroll: ScrollContainer = tenant.browsing.scroll
 			assert(scroll.scroll_vertical > 0, "Playground must scroll to lower Save controls")
 			await _shot(out, "playground-explore-scrolled.png")
 	print("PASS: seven Tabs, Start selection, Home, top Search focus, four Playground pages")

@@ -88,7 +88,7 @@ var websurfer: Control
 var sketchbook: Control
 var show_fengshui := false
 var fengshui: Control
-var arena_placed := ""
+var browsing: Control
 var interactive_windows: Array[Control] = []
 var saved_scroll := ScrollContainer.new()
 var saved_query := LineEdit.new()
@@ -114,6 +114,12 @@ static func create(deps: Dictionary) -> Dictionary:
 	page.show_gallery = deps.get("show_gallery", false)
 	page.show_sketchbook = deps.get("show_sketchbook", false)
 	page.show_fengshui = deps.get("show_fengshui", false)
+	if page.show_fengshui:
+		var result := preload("res://modules/playground_page/square_pages.gd").create(deps)
+		if not result.ok:
+			page.free()
+			return result
+		page.browsing = result.value
 	page.name = "PlaygroundPage"
 	page.color = Color.WHITE
 	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -163,12 +169,8 @@ func _ready() -> void:
 		fengshui.draw.connect(_draw_fengshui.bind(fengshui, texture))
 		add_child(fengshui)
 		interactive_windows.append(fengshui)
-		if OS.has_feature("web"):
-			JavaScriptBridge.eval(preload("res://modules/playground_page/arena_embed.gd").script())
-		visibility_changed.connect(_place_arena)
-		tree_exiting.connect(func() -> void:
-			if OS.has_feature("web"):
-				JavaScriptBridge.eval("window.playgroundArena(null)"))
+		fengshui.add_child(browsing)
+		browsing.clip_contents = true
 	if show_websurfer:
 		websurfer = load(ROOT + "websurfer_window.gd").new()
 		websurfer.name = "WebSurfer"
@@ -307,6 +309,10 @@ func _fit_fengshui() -> void:
 	fengshui.set_meta("drag_height", FS_TITLE * k)
 	fengshui.set_meta("embed", Rect2(FS_CLIENT_LEFT * k, FS_TOP * k, (FS_CLIENT_RIGHT - FS_CLIENT_LEFT) * k,
 			fengshui.size.y - (FS_TOP + source.y - FS_BOTTOM) * k))
+	var embed: Rect2 = fengshui.get_meta("embed")
+	browsing.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
+	browsing.position = embed.position
+	browsing.size = embed.size
 	fengshui.queue_redraw()
 
 
@@ -718,31 +724,6 @@ func _draw_fengshui(window: Control, texture: Texture2D) -> void:
 	window.draw_rect(Rect2(FS_CLIENT_LEFT * k, middle.position.y, (FS_CLIENT_RIGHT - FS_CLIENT_LEFT) * k, middle.size.y), Color.WHITE)
 
 
-## The web build lays the owner's Are.na profile (arena_embed.gd, HTML over the canvas) on the Feng
-## Shui client area, cut away wherever a window above the Feng Shui window covers it; hidden with the Page.
-func _place_arena() -> void:
-	if not OS.has_feature("web") or fengshui == null:
-		return
-	var placement := "null"
-	if is_visible_in_tree():
-		var to_view := get_global_transform_with_canvas()
-		var embed: Rect2 = fengshui.get_meta("embed", Rect2())
-		embed.position += fengshui.position
-		var holes := []
-		for window in interactive_windows:
-			if window.visible and window.get_index() > fengshui.get_index() and window.get_rect().intersects(embed):
-				holes.append(_rect_array(to_view * window.get_rect()))
-		placement = JSON.stringify({"rect": _rect_array(to_view * embed), "view": [get_viewport_rect().size.x, get_viewport_rect().size.y],
-				"holes": holes, "drag": not action.is_empty()})
-	if placement != arena_placed:
-		arena_placed = placement
-		JavaScriptBridge.eval("window.playgroundArena(%s)" % placement)
-
-
-func _rect_array(rect: Rect2) -> Array:
-	return [rect.position.x, rect.position.y, rect.size.x, rect.size.y]
-
-
 ## A press raises the topmost window under the pointer; on its title bar it starts a drag.
 func _input(event: InputEvent) -> void:
 	inputs += 1
@@ -777,7 +758,13 @@ func _input(event: InputEvent) -> void:
 
 func _process(_delta: float) -> void:
 	ticks += 1
-	_place_arena()
+
+
+
+func show_page(page: String) -> Dictionary:
+	if browsing == null:
+		return Errors.err(Errors.PAGE_UNKNOWN, page)
+	return browsing.show_page(page)
 
 
 func state() -> Dictionary:
@@ -795,8 +782,15 @@ func state() -> Dictionary:
 	for unavailable in saved_list.find_children("SavedImageUnavailable", "Label", true, false):
 		if unavailable.visible:
 			saved_images_unavailable += 1
-	return Errors.ok({"key": key, "ticks": ticks, "inputs": inputs, "size": size, "factor": factor,
+	var result := {"key": key, "ticks": ticks, "inputs": inputs, "size": size, "factor": factor,
 			"desktop": DESKTOP, "margin": MARGIN, "action": action, "windows": list,
 			"saved_ids": saved_ids.duplicate(), "saved_images_loaded": saved_images_loaded,
 			"saved_images_unavailable": saved_images_unavailable,
-			"storage_status": storage_status})
+			"storage_status": storage_status}
+	if browsing != null:
+		result.merge(browsing.state().value)
+		result["main_window"] = fengshui.get_global_rect()
+		result["navigation"] = {}
+		for button in browsing.navigation.get_children():
+			result.navigation[String(button.name)] = button.get_global_rect()
+	return Errors.ok(result)

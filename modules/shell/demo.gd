@@ -67,7 +67,9 @@ func _ready() -> void:
 		var page_deps := deps.duplicate()
 		page_deps.collection_data = data
 		page_deps.image_fetch = http.fetch_image
-		page_deps.square_pages = true
+		page_deps.show_websurfer = true
+		page_deps.show_fengshui = true
+		page_deps.show_sketchbook = true
 		var result := PlaygroundPage.create(page_deps)
 		if result.ok:
 			_playground = result.value

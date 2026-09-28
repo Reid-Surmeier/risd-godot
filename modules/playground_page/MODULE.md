@@ -1,6 +1,6 @@
 ---
 name: playground_page
-purpose: The Playground Tab's Tenant — square Explore, All Blocks, Channels and Search, with the retained desktop available to existing callers
+purpose: The Playground Tab's Tenant — square Explore, All Blocks, Channels and Search, inside the retained desktop
 interface: modules/playground_page/interface.gd
 errors: modules/playground_page/errors.gd
 tests: modules/playground_page/playtest/harness.gd + modules/playground_page/playtest/verify.py + modules/playground_page/playtest/square_harness.gd
@@ -10,6 +10,8 @@ depends-on: [collection_data]
 # playground_page
 
 ## What callers get
+
+Issue #173 restores the production Feng Shui desktop from `1a1fd69c`: journal, WebSurfer, phone and chat retain their overlapping draggable compositions. The four native browsing pages and shared data from #164 are now hosted inside the Feng Shui client opening. `show_page` forwards to that retained child. The earlier independent square-page option remains available to its isolated acceptance fixture; production no longer selects it. The external Are.na HTML overlay is replaced by these native pages.
 
 Issue #164 adds optional `deps.square_pages: true`. This selects the native Godot `square_pages.gd` Tenant with the selected A layout from prototype #158 (`542f1394`): Explore orders the 12 public connections newest first; All Blocks combines them with the 25 verified RISD works; Channels opens four local groups; Search supports title/artist/material/accession words, material and date ordering, clear, random work, detail and source links. Images and catalog are imported into this module's runtime assets, never loaded from review evidence. Search describes its 25-work sample explicitly. No account system is introduced.
 

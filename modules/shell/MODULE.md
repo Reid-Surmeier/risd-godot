@@ -15,11 +15,11 @@ The playable demo uses the selected square Browser chrome from #156, integrated
 under #164: a 1080×1080 logical stage with shared 54-pixel top/bottom bars and a
 full-width 1080×972 Tenant area. `square_chrome.gd` composes the existing Shell,
 hides its legacy raster bars, and delegates selection through the Shell seam.
-Start opens all seven Tabs, Home selects Map, Previous/Next cycle Tabs, and the
+The bottom strip uses the provenance-backed compact art at native spacing (307 px star/Start, seven 617 px tabs at 550 px pitch, and 124 px of Home); one uniform scale fits the 4348×186 band. This direct asset use is explicitly scoped by #173. Start opens all seven Tabs, Home selects Map, Previous/Next cycle Tabs, and the
 top Search selects Playground then calls its public `show_page(..., "search")`.
 The frozen standalone Shell fixture retains its legacy geometry and animations.
 Shell omits its own desktop icons and window shadows for the Playground Page before
-mounting it, so the Tenant retains its full-rect layout without post-hoc edits.
+mounting it, so the Tenant retains its overlapping desktop with native browsing inside the Feng Shui window.
 `playtest/square_capture.gd` separately checks the playable demo with real input
 and exports all seven Tabs and four Playground pages to `docs/evidence/integration-164/`.
 
@@ -52,8 +52,7 @@ low colour separation and static fine grain follow the owner's reference. Curvat
 is .018, with no border or vignette; pure whites remain white. The same warp maps
 pointer input before it reaches the Shell. F8 toggles presentation without rebuilding
 any tenant; `?crt=0` starts unfiltered. `?qa-crt=1` publishes read-only browser evidence.
-The logical desktop is at least 1440x900 and scales uniformly to the browser size,
-including smaller windows, with no minimum OS window size or letterboxing.
+The logical desktop is 1080×1080. It scales uniformly by the smaller browser dimension and is centered inside a plain-white exterior. The displayed rect drives mouse, touch, drag and gesture mapping, including terminal releases for drags started inside. Flowers uses that same square fit for its HTML overlay.
 
 The tentabrobpy CC0 Squigglevision shader is the final screen pass after that CRT. It
 uses a seamless 256×256 FastNoiseLite texture, a 0.45-pixel displacement and held

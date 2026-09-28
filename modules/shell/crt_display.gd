@@ -9,6 +9,9 @@ var squiggle_enabled := false  # off by default: its 3 steps a second read as fl
 var _qa_elapsed := 0.0
 var _qa_enabled := false
 var _mouse_inside := false
+var stage_rect := Rect2()
+var pointer_buttons := {}
+var touches := {}
 var squiggle: ColorRect
 var haze: ColorRect  # F10 or ?haze=0 turns it off, to compare
 @onready var crt_material: ShaderMaterial = $Screen.material
@@ -37,7 +40,7 @@ func _create_squiggle() -> void:
 	squiggle = ColorRect.new()
 	squiggle.name = "Squiggle"
 	squiggle.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	squiggle.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	squiggle.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
 	var material := ShaderMaterial.new()
 	material.shader = SquiggleShader
 	var noise := NoiseTexture2D.new()
@@ -59,15 +62,21 @@ func _create_haze() -> void:
 	haze = ColorRect.new()
 	haze.name = "Haze"
 	haze.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	haze.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	haze.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
 	haze.material = ShaderMaterial.new()
 	haze.material.shader = HazeShader
 	haze.visible = not (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('haze') === '0'"))
 	layer.add_child(haze)
 
 func _resize_desktop() -> void:
-	# The accepted full-bleed square stage; pointer mapping uses this same extent.
+	# One uniform fit for pixels, effects and every pointer event.
 	$Desktop.size = Vector2i(1080, 1080)
+	var side := minf(size.x, size.y)
+	stage_rect = Rect2((size - Vector2.ONE * side) / 2.0, Vector2.ONE * side)
+	for surface in [$Screen, squiggle, haze]:
+		surface.position = stage_rect.position
+		surface.size = stage_rect.size
+	_publish_state()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F8:
@@ -80,9 +89,29 @@ func _input(event: InputEvent) -> void:
 	elif event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F10:
 		haze.visible = not haze.visible
 	else:
+		if event is InputEventMouse or event is InputEventGesture or event is InputEventScreenTouch or event is InputEventScreenDrag:
+			var inside := stage_rect.has_point(event.position)
+			var finishing := false
+			if event is InputEventMouseButton:
+				finishing = not event.pressed and pointer_buttons.has(event.button_index)
+				if inside and event.pressed:
+					pointer_buttons[event.button_index] = true
+				elif not event.pressed:
+					pointer_buttons.erase(event.button_index)
+			elif event is InputEventScreenTouch:
+				finishing = not event.pressed and touches.has(event.index)
+				if inside and event.pressed:
+					touches[event.index] = true
+				elif not event.pressed:
+					touches.erase(event.index)
+			if not inside:
+				_mouse_exited()
+				# A drag started inside still needs its release, even in the white margin.
+				if not finishing:
+					return
 		var mapped := event.duplicate()
 		if event is InputEventMouse:
-			if not _mouse_inside:
+			if not _mouse_inside and stage_rect.has_point(event.position):
 				$Desktop.notify_mouse_entered()
 				_mouse_inside = true
 			mapped.position = _screen_to_desktop(event.position)
@@ -91,6 +120,8 @@ func _input(event: InputEvent) -> void:
 				mapped.relative = mapped.position - _screen_to_desktop(event.position - event.relative)
 		elif event is InputEventGesture:
 			mapped.position = _screen_to_desktop(event.position)
+			if event is InputEventPanGesture:
+				mapped.delta = mapped.position - _screen_to_desktop(event.position - event.delta)
 		elif event is InputEventScreenTouch or event is InputEventScreenDrag:
 			mapped.position = _screen_to_desktop(event.position)
 			if event is InputEventScreenDrag:
@@ -99,11 +130,12 @@ func _input(event: InputEvent) -> void:
 	get_viewport().set_input_as_handled()
 
 func _screen_to_desktop(point: Vector2) -> Vector2:
+	point = (point - stage_rect.position) / stage_rect.size
 	var logical_size := Vector2($Desktop.size)
 	if not enabled:
-		return point / size * logical_size
+		return point * logical_size
 	# Same display-to-source warp as crt_luminance.gdshader.
-	var uv := (point / size - Vector2(0.5, 0.5)) / float(crt_material.get_shader_parameter("screen_scale"))
+	var uv := (point - Vector2(0.5, 0.5)) / float(crt_material.get_shader_parameter("screen_scale"))
 	var aspect := logical_size.y / logical_size.x
 	uv.x /= aspect
 	var curve: float = crt_material.get_shader_parameter("curve")
@@ -114,7 +146,7 @@ func _screen_to_desktop(point: Vector2) -> Vector2:
 func _publish_state() -> void:
 	$Screen.material = crt_material if enabled else null
 	if OS.has_feature("web"):
-		JavaScriptBridge.eval("window.crtQaState = " + JSON.stringify({"enabled": enabled, "curve": crt_material.get_shader_parameter("curve"), "screen_scale": crt_material.get_shader_parameter("screen_scale")}))
+		JavaScriptBridge.eval("window.crtQaState = " + JSON.stringify({"enabled": enabled, "curve": crt_material.get_shader_parameter("curve"), "screen_scale": crt_material.get_shader_parameter("screen_scale"), "stage_rect": [stage_rect.position.x, stage_rect.position.y, stage_rect.size.x, stage_rect.size.y]}))
 
 func _publish_squiggle_state() -> void:
 	if OS.has_feature("web"):
@@ -145,8 +177,10 @@ func _process(delta: float) -> void:
 	if shell == null:
 		return
 	var state: Dictionary = Shell.state(shell).value
-	for tab in state.tabs:
-		var rect: Rect2 = tab.rect
+	var chrome: Control = $Desktop/Content.get_node("SquareChrome")
+	for i in state.tabs.size():
+		var tab: Dictionary = state.tabs[i]
+		var rect: Rect2 = chrome.tab_buttons[i].get_global_rect() if i < 7 else tab.rect
 		tab.rect = [rect.position.x, rect.position.y, rect.size.x, rect.size.y]
 	var tenant := {}
 	if state.active >= 0 and state.active < state.tabs.size():
@@ -158,7 +192,7 @@ func _process(delta: float) -> void:
 					var rect: Rect2 = tenant[key]
 					tenant[key] = [rect.position.x, rect.position.y, rect.size.x, rect.size.y]
 	JavaScriptBridge.eval("window.shellCrtQa = " + JSON.stringify({"shell": state, "tenant": tenant,
-			"logical_size": [$Desktop.size.x, $Desktop.size.y], "display_size": [size.x, size.y]}))
+			"logical_size": [$Desktop.size.x, $Desktop.size.y], "display_size": [size.x, size.y], "stage_rect": [stage_rect.position.x, stage_rect.position.y, stage_rect.size.x, stage_rect.size.y]}))
 
 func _mouse_exited() -> void:
 	if _mouse_inside:

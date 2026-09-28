@@ -15,7 +15,7 @@ uniform float desktop_scale = 1.0;
 
 void fragment() {
 	vec4 sharp = texture(screen, SCREEN_UV);
-	vec2 source_uv = (SCREEN_UV - vec2(0.5)) / desktop_scale;
+	vec2 source_uv = (UV - vec2(0.5)) / desktop_scale;
 	source_uv.x /= desktop_aspect;
 	source_uv /= 1.0 - (dot(source_uv, source_uv) - 0.25) * desktop_curve;
 	source_uv.x *= desktop_aspect;

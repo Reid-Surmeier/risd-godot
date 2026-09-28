@@ -2,6 +2,8 @@
 extends Control
 
 const Shell := preload("res://modules/shell/interface.gd")
+const COMPACT := "res://modules/tab_strip/assets/compact/"
+const BAND_WIDTH := 4348.0
 const ASSETS := "res://modules/shell/assets/square_chrome/"
 const KEYS := ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground", "flowers"]
 const NAMES := ["Map", "Sketchbook", "3D Viewer", "Video Player", "Collection", "Playground", "Flowers"]
@@ -25,11 +27,11 @@ func _ready() -> void:
 	add_child(header)
 	strip = Control.new()
 	strip.name = "BottomTabStrip"
-	strip.position.y = 1026
+	strip.position.y = 1080 - 186 * 1080 / BAND_WIDTH
+	strip.scale = Vector2.ONE * 1080 / BAND_WIDTH
 	add_child(strip)
-	for bar in [header, strip]:
-		bar.size = Vector2(1080, 54)
-		_raster(bar, ASSETS + "bar_stripes.png", Rect2(0, 0, 1080, 54))
+	header.size = Vector2(1080, 54)
+	_raster(header, ASSETS + "bar_stripes.png", Rect2(0, 0, 1080, 54))
 	var brand := Label.new()
 	brand.text = "RISD MUSEUM"
 	brand.position = Vector2(18, 14)
@@ -54,15 +56,37 @@ func _ready() -> void:
 	inset.set_content_margin_all(6)
 	for state_name in ["normal", "hover", "pressed", "focus"]:
 		search.add_theme_stylebox_override(state_name, inset)
-	_button(strip, "Start", Rect2(0, 3, 98, 51), "start", _open_start)
-	for i in KEYS.size():
-		var x := 100.0 + i * 127.0
-		var face := _raster(strip, ASSETS + "selected-face.png", Rect2(x + 1, 3, 125, 48))
+	strip.size = Vector2(BAND_WIDTH, 186)
+	var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(COMPACT + "layout.json"))
+	_raster(strip, COMPACT + "bar_stripes.png", Rect2(0, 0, BAND_WIDTH, 186))
+	_raster(strip, COMPACT + "stars.png", Rect2(0, 0, 307, 186))
+	_band_button("Start", Rect2(0, 0, 307, 186), _open_start)
+	# Draw right-to-left, retaining the source's 67 px overlap and native label positions.
+	for i in range(KEYS.size() - 1, -1, -1):
+		var x := 307.0 + i * 550.0
+		var face := Control.new()
 		face.name = "Selected%d" % i
-		var button := _button(strip, NAMES[i], Rect2(x, 0, 127, 54), KEYS[i], _select.bind(i))
+		face.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		strip.add_child(face)
+		_raster(face, COMPACT + "tab_left.png", Rect2(x, 34, 67, 146))
+		var middle := _raster(face, COMPACT + "tab_mid.png", Rect2(x + 67, 34, 483, 146))
+		middle.stretch_mode = TextureRect.STRETCH_TILE
+		_raster(face, COMPACT + "tab_right.png", Rect2(x + 550, 34, 67, 146))
+		for kind in ["icon", "label"]:
+			var at: Array = layout.place[KEYS[i]][kind]
+			var path: String = COMPACT + kind + "_" + KEYS[i] + ".png"
+			var texture: Texture2D = load(path)
+			_raster(strip, path, Rect2(Vector2(x + at[0], 34 + at[1]), texture.get_size()))
+	for i in KEYS.size():
+		var button := _band_button(NAMES[i], Rect2(307 + i * 550, 34, 550, 146), _select.bind(i))
 		button.toggle_mode = true
 		tab_buttons.append(button)
-	_button(strip, "Home", Rect2(992, 3, 88, 51), "home", _select.bind(0))
+	var home := _raster(strip, COMPACT + "right_cluster.png", Rect2(4224, 0, 124, 186))
+	var crop := AtlasTexture.new()
+	crop.atlas = home.texture
+	crop.region = Rect2(0, 0, 124, 186)
+	home.texture = crop
+	_band_button("Home", Rect2(4224, 0, 124, 186), _select.bind(0))
 	start_menu = PopupMenu.new()
 	start_menu.name = "StartMenu"
 	var menu_style := StyleBoxTexture.new()
@@ -76,10 +100,16 @@ func _ready() -> void:
 	start_menu.id_pressed.connect(_select)
 	add_child(start_menu)
 	shell.switch_settled.connect(func(_index: int) -> void: _sync_tabs())
-	shell.tenant_created.connect(_prepare_tenant)
 	shell.resized.connect(_layout)
 	_layout()
 	_sync_tabs()
+
+
+func _band_button(label: String, rect: Rect2, callback: Callable) -> Button:
+	var button := _button(strip, "", rect, "", callback)
+	button.name = label.replace(" ", "")
+	button.tooltip_text = label
+	return button
 
 
 func _button(parent: Control, text: String, rect: Rect2, icon: String, callback: Callable) -> Button:
@@ -131,7 +161,7 @@ func _sync_tabs() -> void:
 	var active := _active()
 	for i in tab_buttons.size():
 		tab_buttons[i].button_pressed = i == active
-		strip.get_node("Selected%d" % i).visible = i == active
+		strip.get_node("Selected%d" % i).modulate = Color(0.911, 0.911, 0.911) if i == active else Color.WHITE
 	title_label.text = NAMES[active] if active >= 0 else "Loading"
 
 
@@ -152,19 +182,3 @@ func _search() -> void:
 func _open_start() -> void:
 	start_menu.position = Vector2i(0, int(1026 - start_menu.get_contents_minimum_size().y))
 	start_menu.popup()
-
-
-func _prepare_tenant(key: String) -> void:
-	if key == "collection":
-		var collection := pages.get_node("Page_collection/CollectionFrame") as TextureRect
-		var mask := ColorRect.new()
-		mask.color = Color.WHITE
-		mask.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		collection.add_child(mask)
-		var fit := func() -> void:
-			var factor := minf(collection.size.x / collection.texture.get_width(), collection.size.y / collection.texture.get_height())
-			var origin := (collection.size - collection.texture.get_size() * factor) / 2.0
-			mask.position = origin + Vector2(1100, 2250) * factor
-			mask.size = Vector2(950, 702) * factor
-		collection.resized.connect(fit)
-		fit.call()

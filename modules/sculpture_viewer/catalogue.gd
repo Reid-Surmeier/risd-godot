@@ -69,6 +69,10 @@ var detail_labels: Dictionary = {}
 func _ready() -> void:
 	size = Vector2(1080, 1080)
 	mouse_filter = Control.MOUSE_FILTER_STOP
+	mouse_exited.connect(func() -> void:
+		hovered = -1
+		tick = 0.0
+		queue_redraw())
 	for cell in TURN:
 		var path: String = "res://modules/sculpture_viewer/assets/setup/turn/%s.png" % TURN[cell][0]
 		turn_frames[cell] = load(path)
@@ -84,15 +88,15 @@ func _process(delta: float) -> void:
 		queue_redraw()
 
 
-func _input(event: InputEvent) -> void:
+func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		var over := _hit(make_canvas_position_local(event.position))
+		var over := _hit(event.position)
 		if over != hovered:
 			hovered = over
 			tick = 0.0
 			queue_redraw()
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var hit := _hit(make_canvas_position_local(event.position))
+		var hit := _hit(event.position)
 		if hit >= 0:
 			selected = hit
 			_update_details()

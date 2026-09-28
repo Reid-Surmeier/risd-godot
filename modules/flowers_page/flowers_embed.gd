@@ -99,7 +99,8 @@ window.flowersEmbed = (() => {
 		const toPage = (x, y) => {
 			const t = [x / vw, y / vh], d = [t[0], t[1]];
 			for (let i = 0; i < 8; i++) { const s = warp(d[0], d[1]); d[0] += t[0] - s[0]; d[1] += t[1] - s[1]; }
-			return [box.left + d[0] * box.width, box.top + d[1] * box.height];
+			const side = Math.min(box.width, box.height);
+			return [box.left + (box.width - side) / 2 + d[0] * side, box.top + (box.height - side) / 2 + d[1] * side];
 		};
 		const [x0, y0] = toPage(p.rect[0], p.rect[1]);
 		const [x1, y1] = toPage(p.rect[0] + p.rect[2], p.rect[1] + p.rect[3]);

@@ -1,9 +1,32 @@
-## Square catalogue Tenant. The Buddha viewer remains available to embedding hosts.
+## The 3D Viewer Tenant: the RISD Museum setup screen (Issue #110) — a white 2540x1680 ground with
+## the setup panel window (the approved raster: header, the 40-object grid, form, Global Chatroom and
+## friends list, drag only) whose animated objects turn on hover, and the 800x680 viewer window
+## (viewer.gd) with the live Buddha scan where the screen's mock-up viewer stood — filling the Page at
+## one uniform scale (#63). Windows drag by their handles, raise on click and stack. Reach it through
+## interface.gd only.
+##
+## Ported from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c
+## viewer-godot/scripts/desktop.gd. Left behind: the sketchbook window and the Mixbox paintbox with
+## its variant switcher (the Sketchbook Tenant; ticket #36), the ?qa-viewer isolation, the perf
+## telemetry and the JavaScriptBridge publishes. Changed: the desktop is a child scaled to fit the
+## Tenant's own size / resized (never the root viewport), pointer positions are made local to it,
+## and the drag clamp is against the desktop, as the prototype's was.
 extends Control
 
-const Errors := preload("res://modules/sculpture_viewer/errors.gd")
 const Catalogue := preload("res://modules/sculpture_viewer/catalogue.gd")
+const Errors := preload("res://modules/sculpture_viewer/errors.gd")
+
 const ROOT := "res://modules/sculpture_viewer/"
+## The setup screen at 1x (image-work/paintbox-3d-layout/sculpture-row-risd/review/
+## paintbox-3d-risd-five-rows-text-refined-2x-v12.png halved).
+const DESKTOP_SIZE := Vector2(2540, 1680)
+const CATALOGUE_RIGHT_GAP := 87.0  # owner layout 2026-09-25
+const CATALOGUE_AT := Vector2(2540 - 1050, 31)  # owner layout 2026-09-25: the setup window flush right (DESKTOP_SIZE.x - PANEL_SIZE.x)
+const PANEL_SIZE := Vector2(1050, 1680)  # assets/setup/panel-2x.png, the raster's x 0..2100 at 2x
+const VIEWER_SIZE := Vector2(800, 680)
+## The mock-up viewer's frame in that raster: x 2143..4857, y 78.. at 2x.
+const VIEWER_AT := Vector2(-36, 25)  # the viewer on the left, over the icon strip (owner layout 2026-09-25)
+const VIEWER_SCALE := 1357.0 / 800.0
 const REQUIRED := [
 	"assets/setup/panel-2x.png", "assets/clean-ui/background.png", "assets/clean-ui/timer-source.png",
 	"assets/control-motion/previous.png", "assets/control-motion/next.png", "assets/control-motion/play-pause.png",
@@ -16,25 +39,28 @@ const REQUIRED := [
 var key := ""
 var ticks := 0
 var inputs := 0
+var desktop := Control.new()
+var windows: Array[Control] = []
 var catalogue: Control
+var cards_view: Control
+var viewer_window: Control
+var viewer: Control
+var dragged_window: Control
+var drag_offset := Vector2.ZERO
 
 
 static func create(deps: Dictionary) -> Dictionary:
-	var paths := ["assets/setup/panel-2x.png"]
-	for id in Catalogue.IDS:
-		paths.append("assets/scans/%s-front.png" % id)
-	for cell in Catalogue.TURN:
-		paths.append("assets/setup/turn/%s.png" % Catalogue.TURN[cell][0])
-	for path in paths:
+	for path in REQUIRED:
 		if not ResourceLoader.exists(ROOT + path):
 			return Errors.err(Errors.ASSET_MISSING, ROOT + path)
-	var tenant = load("res://modules/sculpture_viewer/desktop.gd").new()
-	tenant.key = deps.get("key", "")
-	tenant.name = "SculptureViewer"
-	tenant.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	return Errors.ok(tenant)
+	var t = load(ROOT + "desktop.gd").new()
+	t.key = deps.get("key", "")
+	t.name = "SculptureViewer"
+	t.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	return Errors.ok(t)
 
 
+## The same live 800x680 viewer used by the Tenant, for an owner-approved host such as Sketchbook.
 static func embedded_viewer() -> Dictionary:
 	for path in REQUIRED:
 		if not ResourceLoader.exists(ROOT + path):
@@ -45,34 +71,146 @@ static func embedded_viewer() -> Dictionary:
 
 
 func _ready() -> void:
-	texture_filter = TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-	catalogue = Catalogue.new()
-	add_child(catalogue)
+	# The prototype's project filtered linearly; this project's default is nearest. Children inherit.
+	texture_filter = TEXTURE_FILTER_LINEAR
+	desktop.name = "desktop"
+	desktop.size = DESKTOP_SIZE
+	desktop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(desktop)
+	var paper := ColorRect.new()
+	paper.color = Color.WHITE
+	paper.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	desktop.add_child(paper)
+	catalogue = _window("setup-window", CATALOGUE_AT, PANEL_SIZE)
+	var artwork := TextureRect.new()
+	artwork.texture = load(ROOT + "assets/setup/panel-2x.png")
+	artwork.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	artwork.size = catalogue.size
+	artwork.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# Drawn at about a third of its pixels on a 1080p page; without mipmaps the type aliases.
+	artwork.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	catalogue.add_child(artwork)
+	catalogue.mouse_default_cursor_shape = Control.CURSOR_DRAG
+	catalogue.gui_input.connect(func(event): _drag_handle_input(event, catalogue))
+	catalogue.tooltip_text = "Drag to move the setup window"
+	cards_view = Catalogue.new()
+	catalogue.add_child(cards_view)
+	cards_view.position = Vector2(18, 185)
+	cards_view.scale = Vector2.ONE * 1014.0 / 1080.0
+	viewer_window = _window("viewer-window", VIEWER_AT, VIEWER_SIZE)
+	viewer_window.scale = Vector2(VIEWER_SCALE, VIEWER_SCALE)
+	viewer = load(ROOT + "viewer.gd").new()
+	viewer.name = "viewer"
+	viewer_window.add_child(viewer)
+	# These strips never cover the sculpture, arrow buttons or transport controls.
+	for rect in [Rect2(12, 4, 776, 32), Rect2(12, 644, 776, 28)]:
+		var handle := Control.new()
+		handle.position = rect.position
+		handle.size = rect.size
+		handle.mouse_default_cursor_shape = Control.CURSOR_DRAG
+		handle.tooltip_text = "Drag the frame to move the viewer"
+		handle.gui_input.connect(func(event): _drag_handle_input(event, viewer_window))
+		viewer_window.add_child(handle)
 	resized.connect(_fit)
 	_fit()
 
 
+## The desktop fills the Page (#63): one uniform scale s = min(page / DESKTOP_SIZE) for all the
+## window art, the desktop's own pixels spanning the whole Page (size / s). The setup window and the
+## viewer keep the places the setup screen gives them, the viewer exactly over the mock-up it
+## replaces. Laid out again on every resize (a dragged window goes back to its place).
 func _fit() -> void:
-	var factor := minf(size.x / 1080.0, size.y / 1022.0)
-	catalogue.scale = Vector2.ONE * factor
-	catalogue.position = (size - Vector2(1080, 1022) * factor) / 2.0
+	if size.x < 2 or size.y < 2:
+		return
+	dragged_window = null
+	var s := minf(size.x / DESKTOP_SIZE.x, size.y / DESKTOP_SIZE.y)
+	desktop.scale = Vector2(s, s)
+	desktop.position = Vector2.ZERO
+	desktop.size = size / s
+	catalogue.position = Vector2(desktop.size.x - PANEL_SIZE.x - CATALOGUE_RIGHT_GAP, CATALOGUE_AT.y)  # right, with the owner's gap
+	viewer_window.position = Vector2(maxf(0, VIEWER_AT.x), VIEWER_AT.y)
+
+
+func _window(window_name: String, origin: Vector2, dimensions: Vector2) -> Control:
+	var window := Control.new()
+	window.name = window_name
+	window.position = origin
+	window.size = dimensions
+	desktop.add_child(window)
+	windows.append(window)
+	return window
+
+
+func _drag_handle_input(event: InputEvent, window: Control) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		dragged_window = window
+		drag_offset = desktop.make_canvas_position_local(event.global_position) - window.position
+		window.accept_event()
 
 
 func _process(_delta: float) -> void:
 	ticks += 1
 
 
-func _input(_event: InputEvent) -> void:
+## Window drag and raise, by the mouse, in the desktop's own pixels (desktop.gd:206-250 of the
+## prototype, less the paintbox key cycling).
+func _input(event: InputEvent) -> void:
 	inputs += 1
+	if dragged_window != null:
+		if event is InputEventMouseMotion:
+			var limit := (desktop.size - dragged_window.size * dragged_window.scale).max(Vector2.ZERO)
+			dragged_window.position = (desktop.make_canvas_position_local(event.position) - drag_offset).clamp(_margin_low(), limit)
+			get_viewport().set_input_as_handled()
+		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+			dragged_window = null
+			get_viewport().set_input_as_handled()
+		return
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var pointer := desktop.make_canvas_position_local(event.position)
+		for index in range(windows.size() - 1, -1, -1):
+			var window := windows[index]
+			if Rect2(window.position, window.size * window.scale).has_point(pointer):
+				desktop.move_child(window, -1)
+				windows.erase(window)
+				windows.append(window)
+				break
 
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+		dragged_window = null
+
+
+## A Control's rect in global pixels, its own and its ancestors' scale applied.
+static func _global_rect(c: Control) -> Rect2:
+	return c.get_global_transform() * Rect2(Vector2.ZERO, c.size)
+
+
+## The harness probe (the Tenant contract): the desktop's windows plus the viewer's own state.
 func state() -> Dictionary:
-	var data: Dictionary = catalogue.catalogue_state()
+	var s: Dictionary = viewer.qa_state()
+	var controls := {}
+	for entry in [["previous", viewer.previous_button], ["next", viewer.next_button], ["play-pause", viewer.play_button],
+			["scrubber", viewer.progress_slider], ["audio", viewer.audio_button], ["menu", viewer.menu_button]]:
+		controls[entry[0]] = _global_rect(entry[1])
+	s.merge({"key": key, "ticks": ticks, "inputs": inputs, "size": size, "desktop_scale": desktop.scale.x,
+			"pointer_scale": desktop.scale.x * viewer_window.scale.x, "front_window": windows.back().name, "dragging": dragged_window != null,
+			"catalogue_rect": _global_rect(catalogue), "viewer_rect": _global_rect(viewer_window),
+			"viewport_rect": _global_rect(viewer.viewport_container), "controls": controls,
+			"viewport_update_mode": viewer.viewport_container.get_child(0).render_target_update_mode})
+	var catalogue_data: Dictionary = cards_view.catalogue_state()
+	s.merge(catalogue_data)
 	var cards := []
-	for i in range(20):
-		cards.append(catalogue.get_global_transform() * catalogue._card_rect(i))
-	data.merge({"key": key, "ticks": ticks, "inputs": inputs, "size": size,
-		"desktop_scale": catalogue.scale.x, "cards": cards, "rows": 5, "columns": 4,
-		"selected_name": catalogue.APPEARANCE[catalogue.selected],
-		"department": "unverified", "hover_tick": catalogue.tick})
-	return Errors.ok(data)
+	for i in 20:
+		cards.append(cards_view.get_global_transform() * cards_view._card_rect(i))
+	s.merge({"cards": cards, "rows": 5, "columns": 4,
+		"selected_name": cards_view.APPEARANCE[cards_view.selected],
+		"department": "unverified", "hover_tick": cards_view.tick})
+	return Errors.ok(s)
+
+
+## The top-left a window may be dragged to, in desktop px: the page's own left margin too, when this
+## Tenant was placed with one (offset_left, e.g. the Shell's desktop-icon strip).
+func _margin_low() -> Vector2:
+	return Vector2(-offset_left / desktop.scale.x, 0)

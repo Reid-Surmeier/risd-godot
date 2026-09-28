@@ -1,6 +1,6 @@
 ---
 name: sculpture_viewer
-purpose: The 3D Viewer Tab's square twenty-object catalogue and separate embedded Buddha viewer
+purpose: The 3D Viewer Tab's retained catalogue and live Buddha viewer windows
 interface: modules/sculpture_viewer/interface.gd
 errors: modules/sculpture_viewer/errors.gd
 tests: modules/sculpture_viewer/playtest/harness.gd + modules/sculpture_viewer/playtest/verify.py
@@ -9,7 +9,7 @@ depends-on: [sound_cues]
 
 # sculpture_viewer
 
-Issue #170 integrates layout C selected by #165 at ea9c8205. The Page fits a 1080×1022 catalogue uniformly inside its own size. Five rows of four cards contain four source-scan thumbnails, followed by the sixteen retained image-only entries. Issue #169 adds four source-backed museum titles, record summaries, and URLs after exact image comparison: the skull group (73.148), pale bust (59.050), and two Aphrodite figures (26.117 and 06.331). The other sixteen labels remain explicitly visual descriptors; their museum title, description, and source are unknown. Every department is explicitly unknown. [CATALOGUE.md](CATALOGUE.md) pins the twenty ordered source hashes, verified fields, and explicit unknowns. The detail panel replaces the project placeholder paragraph with the selected object's description and source. The RISD wordmark is cropped from the existing approved panel.
+Issue #173 restores the two-window desktop from `1a1fd69c`, including independent dragging, stacking and the visible live Buddha viewport. The catalogue from #170 is uniformly fitted inside the retained setup window; its data and truthful scan availability remain unchanged. The live Buddha is the retained separate viewer, not a claim that one of the four source scans passed its asset gate. Five rows of four cards contain four source-scan thumbnails, followed by the sixteen retained image-only entries. Issue #169 adds four source-backed museum titles, record summaries, and URLs after exact image comparison: the skull group (73.148), pale bust (59.050), and two Aphrodite figures (26.117 and 06.331). The other sixteen labels remain explicitly visual descriptors; their museum title, description, and source are unknown. Every department is explicitly unknown. [CATALOGUE.md](CATALOGUE.md) pins the twenty ordered source hashes, verified fields, and explicit unknowns. The detail panel replaces the project placeholder paragraph with the selected object's description and source. The RISD wordmark is cropped from the existing approved panel.
 
 A single enlarged preview occupies the lower left below the details, clear of all cells and text. Source scans always say “3D preview unavailable”; image-only objects show their existing animation where one exists, labelled as an animated thumbnail with no linked scan. No candidate GLB from #154 is loaded or accepted by this catalogue. Live scan orbit remains gated by #154 and #157.
 
