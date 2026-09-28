@@ -44,7 +44,7 @@ const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
   await command({action:'chart',visible:false});
   const results=[];
   for(const width of (process.env.RENDER_WIDTHS||'1600,720').split(',').map(Number)) {
-   const height=width===1600?900:486;
+   const height=width===1080?1080:width===1600?900:486;
    await page.setViewport({width,height});await pause(500);
    await page.mouse.move(10,40);
    for(const [label,mode] of Object.entries(key)) {

@@ -1,0 +1,152 @@
+{
+  "preflight_changed_pixels": 327056,
+  "rows": [
+    {
+      "run": "risd-display-161-web-0400",
+      "label": "A",
+      "mode": "bypass",
+      "scene": "warm",
+      "window": [
+        1080,
+        1080
+      ],
+      "gallery_viewport": [
+        672,
+        449
+      ],
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "ticks": 479,
+      "raf_median_ms": 33.299999999995634,
+      "raf_p95_ms": 33.400000000001455,
+      "post_draw_median_ms": 24.6,
+      "post_draw_p95_ms": 37
+    },
+    {
+      "run": "risd-display-161-web-0400",
+      "label": "A",
+      "mode": "bypass",
+      "scene": "white",
+      "window": [
+        1080,
+        1080
+      ],
+      "gallery_viewport": [
+        672,
+        449
+      ],
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "ticks": 479,
+      "raf_median_ms": 16.69999999999709,
+      "raf_p95_ms": 33.400000000001455,
+      "post_draw_median_ms": 19.8,
+      "post_draw_p95_ms": 22.9
+    },
+    {
+      "run": "risd-display-161-web-0400",
+      "label": "B",
+      "mode": "current",
+      "scene": "warm",
+      "window": [
+        1080,
+        1080
+      ],
+      "gallery_viewport": [
+        672,
+        449
+      ],
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "ticks": 479,
+      "raf_median_ms": 16.700000000004366,
+      "raf_p95_ms": 33.400000000001455,
+      "post_draw_median_ms": 23.5,
+      "post_draw_p95_ms": 29.2
+    },
+    {
+      "run": "risd-display-161-web-0400",
+      "label": "B",
+      "mode": "current",
+      "scene": "white",
+      "window": [
+        1080,
+        1080
+      ],
+      "gallery_viewport": [
+        672,
+        449
+      ],
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "ticks": 479,
+      "raf_median_ms": 16.69999999999709,
+      "raf_p95_ms": 33.39999999999418,
+      "post_draw_median_ms": 19.3,
+      "post_draw_p95_ms": 22.1
+    },
+    {
+      "run": "risd-display-161-web-warm-repeat",
+      "label": "A",
+      "mode": "current",
+      "scene": "warm",
+      "window": [
+        1080,
+        1080
+      ],
+      "gallery_viewport": [
+        672,
+        449
+      ],
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "ticks": 479,
+      "raf_median_ms": 33.29999999999927,
+      "raf_p95_ms": 33.400000000001455,
+      "post_draw_median_ms": 26.4,
+      "post_draw_p95_ms": 32.5
+    },
+    {
+      "run": "risd-display-161-web-warm-repeat",
+      "label": "B",
+      "mode": "bypass",
+      "scene": "warm",
+      "window": [
+        1080,
+        1080
+      ],
+      "gallery_viewport": [
+        672,
+        449
+      ],
+      "gpu": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+      "ticks": 479,
+      "raf_median_ms": 33.299999999995634,
+      "raf_p95_ms": 33.400000000001455,
+      "post_draw_median_ms": 25.8,
+      "post_draw_p95_ms": 34.7
+    }
+  ],
+  "mismatched_ticks": {
+    "warm": {
+      "position": 0,
+      "camera_transform": 0,
+      "camera_yaw": 0,
+      "space": 0,
+      "viewport": 0,
+      "visitor_identity": 0,
+      "visitor_phase": 0,
+      "visitor_idle_time": 0,
+      "visitor_yaw": 0,
+      "visitor_pose_hash": 0
+    },
+    "white": {
+      "position": 0,
+      "camera_transform": 0,
+      "camera_yaw": 0,
+      "space": 0,
+      "viewport": 0,
+      "visitor_identity": 0,
+      "visitor_phase": 0,
+      "visitor_idle_time": 0,
+      "visitor_yaw": 0,
+      "visitor_pose_hash": 0
+    }
+  },
+  "qualification": "Instrumented browser screencasts; one known 404 and GLES3 2D MSAA warning; no stable uninstrumented 10% comparison."
+}
