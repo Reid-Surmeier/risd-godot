@@ -53,3 +53,28 @@ museum accession record; the catalogue picture and the clean plate have no right
 | `modules/sculpture_viewer/assets/control-motion/track-fill.png` | `viewer-godot/assets/control-motion/track-fill.png` | `2af20f635bbfff11321f43383e2969bfbbc84bb436cf54d3d74061d34ac48b25` | progress rail fill |
 | `modules/sculpture_viewer/assets/control-motion/extraction.json` | `viewer-godot/assets/control-motion/extraction.json` | `6d7cc975bdc5d7125049b50c4218baf3a1a7adcb6f21fcfacd1694e6ee3c4c59` | the frame-cut record (not loaded) |
 | `modules/sculpture_viewer/assets/catalogue/sidebar.png` | `viewer-godot/assets/catalogue/sidebar.png` | `575489dd8a67f905ed5aadc0f081a0c82e158fdf1599cc63703ea88b2b430c0e` | the catalogue picture, owner-supplied (see gaps) |
+
+## Throwaway square catalogue prototype (#165)
+
+Four 2D front captures below were copied unchanged from the isolated #154 scan audit, `docs/research/proton-scan-validation/godot-captures/` on its research branch. The audit captured the hash-matched Proton candidate GLBs in Godot 4.7.2 Compatibility at matched camera/light settings; its report records each source OBJ/MTL/JPG and GLB hash. These PNGs are **not accepted runtime assets** and do not prove any model passes the full-orbit visual gate. The prototype also crops the existing `assets/setup/panel-2x.png` (SHA-256 `d6cdb4c2c3ff042ea3380868184d297ea608f733bd377723cc71fd792f5b99d5`) and reuses existing `assets/setup/turn/*.png` atlases. Provider/cost for this prototype: local Godot capture only, USD 0; no paid image generation.
+
+| Prototype scan capture | SHA-256 |
+| --- | --- |
+| `prototype_165/scans/20260811121459-front.png` | `a3b68dd79037f55d97c142bb1932b7073970cd2e0f7d657148853c6991224282` |
+| `prototype_165/scans/20260811122415-front.png` | `5ecb033f9efca6071bf580b2d487a2bcf50f6492ab8ec6d115cbf6a50b5b3267` |
+| `prototype_165/scans/20260811123051-front.png` | `30c8fce99f4d74fd6ebb56cde9793cbd629235f8062444a821d0b654f3f6de3e` |
+| `prototype_165/scans/20260820133334-front.png` | `084106155dd8543a0be2ea2360c15aa580a2111df17c6a3a5362dfca661fce92` |
+
+The nine native 1080-square review captures were produced locally by `prototype_165/run.gd -- --capture`, Godot 4.7.2 Compatibility/Mesa llvmpipe, from those sources and the existing setup panel/turn atlases. Provider/cost: local Godot only, USD 0. Their SHA-256 hashes are:
+
+| Capture | SHA-256 |
+| --- | --- |
+| `prototype_165/evidence/layout-a.png` | `a415c00af774d1ea4fe44d1c364574ad4098791def2be0dedd25827b54ae1b46` |
+| `prototype_165/evidence/selected-a.png` | `c4d9345e43fe81e38faa15a78060556d1d5a4a9d729d4bd431e799a86c135f8f` |
+| `prototype_165/evidence/hover-a.png` | `e7d8065ebe13dce3cfad55b8ed9635862a126101d48d5ef2e3cbad61a255eae3` |
+| `prototype_165/evidence/layout-b.png` | `ed0d43c96157af6474a40457f85d357449b76dfbb68367aee1e1cc57978500d6` |
+| `prototype_165/evidence/selected-b.png` | `166d1dd88d45c1971510fbb9bbec51c0138e27d7a76f3c7f77223138884ebc69` |
+| `prototype_165/evidence/hover-b.png` | `87bb63b97e5ae7d185137d84488aeee9e099fbe9bd9899e034b0f8c49cd87ae3` |
+| `prototype_165/evidence/layout-c.png` | `6351ed035a5f84f7724b6659c3a2fd566feb05fa338bf26a1cad6d6eb75e52ed` |
+| `prototype_165/evidence/selected-c.png` | `451db8491020c3520f9f1354f22aa076c23f563d517507bdce15cfc4f6702c52` |
+| `prototype_165/evidence/hover-c.png` | `65d65e1cf1de10cc8df84bbbb72e3c6e260acf3c64f94863e93530e5dfd292e6` |
