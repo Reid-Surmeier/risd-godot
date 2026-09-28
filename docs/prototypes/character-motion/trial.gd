@@ -27,6 +27,8 @@ var mapped_before := []
 var skin_meshes := []
 var sole_indices := []
 var floor_offset := 0.0
+var hip_adjust := 0.2
+var leg_weight := 0.0
 var feet := []
 @onready var root := get_tree().root
 
@@ -67,12 +69,28 @@ func contacts(phase: float, moving: bool) -> void:
 		var planted := (phase >= 0.11 and phase < 0.46) if i == 0 else (phase >= 0.61 and phase < 0.96)
 		planted = planted if moving else true
 		var point: Vector3 = target.global_transform * (target.get_bone_global_pose(foot.ankle) * foot.sole)
-		if planted and not foot.locked:
+		if moving:
+			foot.settling = false
+		if not moving:
+			var rest_point: Vector3 = target.global_transform * (target.get_bone_global_rest(foot.ankle) * foot.sole)
+			rest_point.y = 0
+			if not foot.settling and foot.anchor.distance_to(rest_point) > 0.002:
+				foot.settling = true
+				if not foot.locked:
+					foot.anchor = Vector3(point.x, 0, point.z)
+			if foot.settling:
+				foot.anchor = foot.anchor.lerp(rest_point, 0.2)
+				planted = false
+				if foot.anchor.distance_to(rest_point) < 0.002:
+					foot.anchor = rest_point
+					foot.settling = false
+					planted = true
+		if planted and not foot.locked and moving:
 			foot.anchor = Vector3(point.x, 0, point.z)
 			foot.anchor_basis = target.global_basis * foot.rest_flat
 		foot.locked = planted
 		foot.flat = target.global_basis.inverse() * foot.anchor_basis if planted else foot.rest_flat
-		var goal: Vector3 = foot.anchor if planted else Vector3(point.x, maxf(point.y, 0.015), point.z)
+		var goal: Vector3 = foot.anchor if planted or foot.settling else Vector3(point.x, maxf(point.y, 0.015), point.z)
 		solve_leg(foot, target.global_transform.affine_inverse() * goal)
 
 func skin_points(mesh: MeshInstance3D) -> PackedVector3Array:
@@ -113,6 +131,8 @@ func transfer(poses: Array, look: float) -> void:
 		if pairs.has(i):
 			var source: int = pairs[i]
 			var delta: Basis = poses[source].basis * donor.get_bone_global_rest(source).basis.inverse()
+			if target.get_bone_name(i).contains("Leg_"):
+				delta = Basis.IDENTITY.slerp(delta, leg_weight)
 			var wanted := delta * target.get_bone_global_rest(i).basis
 			if target.get_bone_name(i) == "Armature_Head_2":
 				wanted = Basis(Vector3.UP, look) * wanted
@@ -120,7 +140,7 @@ func transfer(poses: Array, look: float) -> void:
 		if parent < 0:
 			var hips := donor.find_bone("hips")
 			local.origin += (poses[hips].origin - donor.get_bone_global_rest(hips).origin) * hip_ratio
-			local.origin.y -= 0.30
+			local.origin.y += hip_adjust
 		target.set_bone_pose(i, local)
 		current.append(parent_pose * local)
 	target.force_update_all_bone_transforms()
@@ -163,8 +183,12 @@ func setup() -> Node3D:
 		feet.append({"upper": target.find_bone("Armature_Leg_1_" + side + "_2"),
 			"lower": target.find_bone("Armature_Leg_2_" + side), "ankle": ankle,
 			"toe": target.find_bone("Armature_Toe_" + side), "flat": ankle_rest.basis, "rest_flat": ankle_rest.basis,
-			"anchor_basis": Basis.IDENTITY,
+			"anchor_basis": Basis.IDENTITY, "settling": false,
 			"sole": ankle_rest.affine_inverse() * sole, "locked": false, "anchor": Vector3.ZERO})
+	for foot in feet:
+		var rest_point: Vector3 = target.global_transform * (target.get_bone_global_rest(foot.ankle) * foot.sole)
+		foot.anchor = Vector3(rest_point.x, 0, rest_point.z)
+		foot.anchor_basis = target.global_basis * foot.rest_flat
 	print("REST bounds=", min_y, "..", max_y, " soles=", sole_indices.size())
 	var source: Node3D = load("res://donor.glb").instantiate()
 	stage.add_child(source)
@@ -292,6 +316,8 @@ func run() -> void:
 		# Measured slow-walk trial sped by actual displacement: accelerated walk, not run.
 		gait += (speed / 0.4 if speed > 0 else 1.0) * delta
 		var pose := sample(clip, gait)
+		hip_adjust = move_toward(hip_adjust, -0.30 if clip == "Walking_A" else 0.2, delta * 4.0)
+		leg_weight = move_toward(leg_weight, 1.0 if clip == "Walking_A" else 0.0, delta * 4.0)
 		var blend := clampf((time - transition) / 0.2, 0, 1)
 		for i in pose.size():
 			pose[i] = old_pose[i].interpolate_with(pose[i], blend)
