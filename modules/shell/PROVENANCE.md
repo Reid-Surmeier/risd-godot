@@ -160,5 +160,7 @@ guide remains excluded. Current authored JSON SHA-256:
 `32567a93487a67818e12be440e7b6277305e0662efeed8c3b5f5fb143330f2ba`.
 Generator SHA-256:
 `f3e976887302a3690612f78de5bfcba8b9787e4fec3cb47f9f16b0ede9550b65`.
-The directly lit flat-material probes are geometry diagnostics only; the
-saved room remains the rejected portal10 bake until a fresh bake is made.
+The directly lit flat-material probes are geometry diagnostics only. A
+subsequent portal12 bake completed with 120 lightmap users; saved hashes and
+native self-inspection limitations are in `PORTAL12-FORM.md`. Independent
+acceptance remains pending; this candidate is not integrated.
