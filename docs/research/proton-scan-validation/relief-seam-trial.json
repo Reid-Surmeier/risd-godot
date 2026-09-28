@@ -1,0 +1,71 @@
+{
+  "weld_distance_normalized_units": 1e-06,
+  "source_yaw_degrees": 180,
+  "inputs": {
+    "/home/reidsurmeier/risd-godot-ingestion/proton/20260811122415/20260811122415.obj": "9f5fda816915b8e02620f64da22450158f683b05e24014fde9732141416f1d48",
+    "/home/reidsurmeier/risd-godot-ingestion/proton/20260811122415/20260811122415.mtl": "d1bea301850754678ffb2a297411fd6d75c062fc1fcbd1a498d6ed0b12554557",
+    "/home/reidsurmeier/risd-godot-ingestion/proton/20260811122415/20260811122415.jpg": "61914b89aa686765d9cf92ce994b66193d42e4e3493e3a4e467278887af2b2ea",
+    "/home/reidsurmeier/risd-godot-ingestion/proton/20260811122415/candidate-120k/proton-scan-20260811122415.glb": "da7480355f1c384ed8588e44cd2f1bf9c666d03c2bd7a9017f958f3d5ee08a41"
+  },
+  "meshes": {
+    "candidate": {
+      "before_weld": {
+        "vertices": 81387,
+        "faces": 119999,
+        "components": 2170,
+        "largest_components": [
+          1490,
+          1399,
+          1221,
+          1166,
+          1097
+        ],
+        "open_edges": 38797,
+        "pedestal_open_edges_below_z_1": 9731,
+        "open_edge_length": 895.1161217989866
+      },
+      "after_weld": {
+        "vertices": 61674,
+        "faces": 119999,
+        "components": 2,
+        "largest_components": [
+          60956,
+          718
+        ],
+        "open_edges": 3485,
+        "pedestal_open_edges_below_z_1": 2271,
+        "open_edge_length": 60.17618988151662
+      },
+      "output": "/tmp/risd-scan-154-relief-seams/candidate.glb",
+      "sha256": "08cb58a21c0bb5e3e100e713695c27364815f704172bb9eef67657c302d13455"
+    },
+    "source": {
+      "before_weld": {
+        "vertices": 1125731,
+        "faces": 2240589,
+        "components": 2,
+        "largest_components": [
+          1116561,
+          9170
+        ],
+        "open_edges": 11009,
+        "pedestal_open_edges_below_z_1": 8357,
+        "open_edge_length": 60.20167768211104
+      },
+      "after_weld": {
+        "vertices": 1125731,
+        "faces": 2240589,
+        "components": 2,
+        "largest_components": [
+          1116561,
+          9170
+        ],
+        "open_edges": 11009,
+        "pedestal_open_edges_below_z_1": 8357,
+        "open_edge_length": 60.20167768211104
+      },
+      "output": "/tmp/risd-scan-154-relief-seams/source.glb",
+      "sha256": "5d2298fefdd2468e9c95d97598521498f5b8cdbb91a9c81d675716f025799d0a"
+    }
+  }
+}

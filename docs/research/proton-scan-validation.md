@@ -160,4 +160,45 @@ The blind review's visible group-base bowl prompted a bounded topology test, not
 
 The same Godot Compatibility harness then captured the trial at [0°](proton-scan-validation/group-base-trial-captures/20260811121459-000.png), [90°](proton-scan-validation/group-base-trial-captures/20260811121459-090.png), [180°](proton-scan-validation/group-base-trial-captures/20260811121459-180.png) and [270°](proton-scan-validation/group-base-trial-captures/20260811121459-270.png), plus [front](proton-scan-validation/group-base-trial-captures/20260811121459-front.png) and [detail](proton-scan-validation/group-base-trial-captures/20260811121459-detail.png). The broad smooth bowl is materially reduced, but a jagged gray strip persists under the carved plinth in the 270° and front views. A fixed 590×80-pixel lower-base ROI at 270° contains 21,480 medium-gray low-saturation pixels in the original versus 13,205 in the trial (45.5% versus 28.0%); this is a diagnostic backstop, not a visual-quality score. The trial also raises the minimum mesh height from 0 to 0.1944 because it removes the lowest component. It does **not** pass the live-orbit gate; the remaining gray strip and altered lower silhouette need source-backed interpretation before another deletion. No trial GLB entered runtime.
 
-The other three candidates remain unchanged. Their selected GLBs contain 2,170, 7,207 and 809 disconnected components respectively. This fragmentation supports the observed gaps but does not identify a safe automatic fill or removal. The source scan triplets and selected GLB hashes above are unchanged. There is still no authoritative museum metadata. All four `runtime_accepted` values remain false; the 5×4 Viewer can use the four truthful thumbnails with unavailable-live state while repair research continues.
+The other three candidates remain unchanged. Their selected GLBs contain 2,170, 7,207 and 809 disconnected index components respectively. **Correction from the relief follow-up below:** these counts include coincident vertices split for UV/material attributes; they do not establish geometric fragmentation. The source scan triplets and selected GLB hashes above are unchanged. There is still no authoritative museum metadata. All four `runtime_accepted` values remain false; the 5×4 Viewer can use the four truthful thumbnails with unavailable-live state while repair research continues.
+
+## Relief pedestal: source topology and seam-weld trial — 28 September UTC
+
+The new research branch starts at `82cf74e9`; earlier trials are preserved. This trial targets only scan `20260811122415`'s pedestal slots. [The reversible Blender probe](proton-scan-validation/relief_seam_trial.py) reads the unchanged OBJ/MTL/JPG and selected GLB, then writes disposable derived files under `/tmp/risd-scan-154-relief-seams/`. [Its machine-readable record](proton-scan-validation/relief-seam-trial.json) pins all four inputs, output hashes and topology counts. The MTL binds the actual JPG atlas as `_texture`; that JPG contains stone, inscription and pedestal patches. It supplies no missing 3D positions or authoritative museum identity. The Buddha comparison still uses its shipped GLB with separate JPG and the Viewer's metallic/rough material, rather than the scans' embedded material.
+
+The narrowly reversible repair merges only vertices within **0.000001 normalized units** (longest object extent 4.5). It adds no faces, deletes no faces, fills no holes and retains per-face UVs and material. An assertion requires unchanged face count. The unreduced source is independently exported with all **2,240,589 faces**, its real JPG resized to the comparison's 2048-edge size, rigid yaw 180° to match the candidate, and the same longest-extent/floor normalization. Source geometry is not welded in that export. It is diagnostic evidence, not a new runtime candidate.
+
+| Mesh | Vertices | Connected components | Open edges | Total open-edge length |
+| --- | ---: | ---: | ---: | ---: |
+| Selected GLB, imported | 81,387 | 2,170 | 38,797 | 895.1161 |
+| Selected GLB, coincident seams welded | 61,674 | 2 | 3,485 | 60.1762 |
+| Original OBJ, normalized | 1,125,731 | 2 | 11,009 | 60.2017 |
+| Original OBJ, same weld diagnostic | 1,125,731 | 2 | 11,009 | 60.2017 |
+
+The GLB's post-weld vertex count exactly matches the converter's pre-export count in its original manifest. Its thousands of apparent components were therefore chiefly split export indices, not thousands of disconnected pieces of stone. This invalidates using the earlier raw GLB component counts as evidence of fragmentation, and cautions against deleting components in the other scans without the same source check. The normalized source and welded candidate have nearly equal total open-edge lengths despite their very different polygon counts. **8,357 source open edges lie wholly below height 1.0**, locating most source openings around the pedestal. Edge counts alone do not establish appearance; the Godot captures below test that.
+
+![Anonymous A: coincident-seam trial, full orbit](proton-scan-validation/relief-orbit-A.jpg)
+
+![Anonymous B: unreduced source, full orbit](proton-scan-validation/relief-orbit-B.jpg)
+
+Each variant has 16 unretouched 768×768 Godot captures: every 30° around the complete orbit, including the reverse, plus front, detail, 255° and 285°. They reuse the matched lighting/camera harness and retain the embedded texture. The [capture hashes](proton-scan-validation/relief-capture-sha256.txt) pin the 32 PNGs and two sheets. Both variants visibly retain the large horizontal pedestal slots, thin disconnected-looking ledges, and open lower-corner surfaces. Coincident seam welding does not restore those surfaces; the unreduced source does not contain a complete pedestal hidden by the reduction. These are source-present geometry openings, not an alpha/transmission setting that can be repaired by swapping material.
+
+**Stop this repair variant; do not accept or integrate it.** A larger weld threshold would move/join distinct measured surfaces. Automatic hole filling would invent pedestal geometry and UV coverage without establishing whether the real object has damage, gaps or recessed surfaces there. The exact missing input is a more complete raw scan/photogrammetry capture of the pedestal's side, underside and rear, or calibrated reference photographs that justify a separately scoped reconstruction. Neither OBJ topology nor the JPG atlas alone supplies it. The trial leaves all four `runtime_accepted: false` and adds no title, accession or department.
+
+Reproduction, after normal Godot resource import:
+
+```bash
+blender -b -P docs/research/proton-scan-validation/relief_seam_trial.py
+# Supply a working X11 display. This host used a private Xvfb with Mesa EGL.
+godot --display-driver x11 --rendering-method gl_compatibility --path . --script docs/research/proton-scan-validation/capture.gd -- --relief-seam-trial
+godot --display-driver x11 --rendering-method gl_compatibility --path . --script docs/research/proton-scan-validation/capture.gd -- --relief-source
+python3 docs/research/proton-scan-validation/relief_evidence.py
+```
+
+Blender 4.0.2 exited 0; its unused Draco extension warning did not prevent uncompressed GLB export. Godot 4.7.2 Compatibility/Mesa llvmpipe saved all captures and exited 0. Initial Xvfb attempts failed because this host's NVIDIA EGL initialization crashed; a private TCP Xvfb with `__EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json` produced the recorded captures. `scripts/check.sh` passed (existing ObjectDB leak warning); `git diff --check` passed. No runtime file, selected GLB, original source or frozen acceptance test changed. Paid actions: none, USD 0.
+
+Independent GPT-6 Astra, medium-effort image-only review received candidate/source/Buddha images and no code, report, prior verdict or implementation account. Exact findings:
+
+> FAIL — candidate is not credible for unrestricted orbit. Pedestal has large see-through horizontal gaps, floating thin strips, broken corners, and missing lower-edge sections. Most obvious at candidate 120°, 285°, and 300°; clearly visible at game size. A narrow bright vertical opening remains near the rear/side junction at 330° and 000°. Upper silhouette and carved face read well, but pedestal continuity falls visibly below the reference’s overall coherence. No meaningful continuity improvement is visible versus original corresponding views. Candidate angles are offset approximately 180° from original filenames; comparing matching physical views shows the same major gaps. All expected source images exist.
+
+The reviewer inspected the source orbit before the final rigid 180° yaw alignment; it explicitly compared corresponding physical views. The committed source orbit is aligned to the candidate and was visually inspected again by the author; that orientation correction does not alter geometry or the unchanged candidate verdict. **Weld variant rejected.** No accepted repair or runtime integration results from this research.

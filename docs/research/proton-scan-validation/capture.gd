@@ -19,7 +19,11 @@ func _run() -> void:
 	var neutral := "--neutral" in OS.get_cmdline_user_args()
 	var opaque := "--opaque" in OS.get_cmdline_user_args()
 	var group_trial := "--group-trial" in OS.get_cmdline_user_args()
-	if neutral:
+	var relief_trial := "--relief-seam-trial" in OS.get_cmdline_user_args()
+	var relief_source := "--relief-source" in OS.get_cmdline_user_args()
+	if relief_trial or relief_source:
+		output = "res://docs/research/proton-scan-validation/relief-%s-captures" % ("source" if relief_source else "seam-trial")
+	elif neutral:
 		output = "res://docs/research/proton-scan-validation/neutral-captures"
 	elif opaque:
 		output = "res://docs/research/proton-scan-validation/opaque-captures"
@@ -65,6 +69,8 @@ func _run() -> void:
 	stage.add_child(camera)
 	camera.current = true
 	for id in SCANS:
+		if (relief_trial or relief_source) and id != "20260811122415":
+			continue
 		if group_trial and id != "20260811121459":
 			continue
 		if (neutral or opaque) and id not in ["20260811123051", "20260820133334"]:
@@ -72,6 +78,8 @@ func _run() -> void:
 		var state := GLTFState.new()
 		var doc := GLTFDocument.new()
 		var source: String = "/tmp/risd-scan-154/group-without-flat-underside.glb" if group_trial else SCANS[id]
+		if relief_trial or relief_source:
+			source = "/tmp/risd-scan-154-relief-seams/%s.glb" % ("source" if relief_source else "candidate")
 		var err := doc.append_from_file(source, state)
 		if err != OK:
 			push_error("GLB load failed %s: %s" % [id, err])
@@ -107,6 +115,8 @@ func _run() -> void:
 		print("MODEL %s bounds=%s scale=%.6f normalized_height=%.4f" % [id, bounds, scale_factor, height])
 		var target := Vector3(0, height * 0.5, 0)
 		var angles := [0.0, 90.0, 180.0, 270.0]
+		if relief_trial or relief_source:
+			angles = [0.0, 30.0, 60.0, 90.0, 120.0, 150.0, 180.0, 210.0, 240.0, 270.0, 300.0, 330.0]
 		for yaw in angles:
 			await _capture(camera, target, yaw, 8.7, "%s-%03d" % [id, int(yaw)])
 		await _capture(camera, target, FRONT[id], 8.7, "%s-front" % id)
