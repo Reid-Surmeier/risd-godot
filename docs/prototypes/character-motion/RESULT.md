@@ -1,6 +1,6 @@
 # #171 — non-authentic motion on the sourced New Horizons rig
 
-2026-09-28 UTC. **Native/Web playback and numerical contact checks pass; independent visual gate pending. No runtime asset accepted or installed.** This is a throwaway prototype, not Nintendo motion. #159 must remain blocked until the independent visual review and its other gates pass.
+2026-09-28 UTC. **Bounded fallback prototype passes native/Web playback, numerical contact checks and the scoped independent visual review below. No runtime asset accepted or installed.** This is a throwaway prototype, not Nintendo motion. #159 must satisfy its remaining integration gates independently.
 
 ![Idle](evidence/front-idle.png)
 ![Side walk](evidence/side-walk.png)
@@ -52,4 +52,12 @@ The committed `evidence/native-metrics.json.gz` and `evidence/browser-metrics.js
 
 Export the scratch project with `godot --headless --editor --path <scratch> --export-release Web /tmp/risd-171-web/index.html`, serve that folder privately on port 8171, then run `browser.cjs` with `PLAYWRIGHT_PATH` pointing to the already installed Playwright package. It records video, errors and metrics under `/tmp/risd-171-browser`; run `verify.py` on that metrics file too. Never publish the raw model payload as a runtime asset based on this test.
 
-Repository `scripts/check.sh` passed after a fresh Godot editor import; `git diff --check` passed. The engine logged its existing exit-time object-leak warning, not a test failure. Independent GPT-6 Astra medium image/video-only review is requested on the final replacement evidence. Until that review is recorded, this ticket remains open and the visual gate remains pending.
+Repository `scripts/check.sh` passed after a fresh Godot editor import; `git diff --check` passed. The engine logged its existing exit-time object-leak warning, not a test failure.
+
+## Independent final visual decision — scoped PASS
+
+The fresh independent GPT-6 Astra reviewer, at medium effort and supplied images only, returned **PASS for sampled visual motion and normal overall browser speed**. The reviewer inspected native gait, turn and interaction samples spaced 0.1 seconds apart, plus browser images showing WALL 2.55 / DEMO 2.55, WALL 9.98 / DEMO 9.99 and completion 17.97 / 17.98. It found no obvious garment or hair detachment and no gross floor-contact failure.
+
+The reviewer did **not** play the video directly. Frame pacing and micro-skating therefore remain unverified by that visual review; the separate browser wall-clock and mesh-contact measurements above are numerical evidence, not a claim that the reviewer saw continuous smooth playback. It described the side-view gait as slightly jog-like, noted that the hair reduces arm-gesture readability from the gallery/back views, and noted that no artwork target appears in the trial.
+
+This closes #171's bounded, explicitly non-authentic fallback-motion prototype: the unchanged sourced rig can carry the selected donor motions with the documented project-authored contact and timing corrections. It does **not** approve an authentic Animal Crossing animation claim, a native run, a shipped model, live gallery input/collision, or artwork interaction/picking. #151 can reference this demonstrated fallback while keeping the native-container research route distinct; #159 owns gameplay integration and its remaining acceptance checks.
