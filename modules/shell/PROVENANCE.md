@@ -149,3 +149,19 @@ and exact blind visual findings in `docs/evidence/surface-168-0800/README.md`.
 The reviewer passed the *visible wall*; World Asset Gate provenance remains
 open, so this is not a selected build asset. No generated image, paid provider
 call, or spend occurred in this trial.
+
+## Documented wall-source replacement — issue #168, 2026-09-28
+
+The isolated `research/wall-source-168-20260928T0830` trial uses the previously
+recorded `textures/wall-muse.webp` output (SHA-256
+`f3191776008e78ab6a3306fa164bf10b91af1a4ed43a2ac621e1cc95f8b68f36`),
+made by OpenRouter `meta/muse-image` run `run-92ba97b16084444f177dc75f`
+at recorded cost USD 0.01. Its original source inputs and prompt are in
+`image-work/gallery-dollhouse-materials/`. The deterministic local treatment
+is `image-work/wall-source-led-168/make.py`; the resulting prototype texture
+`textures/wall-source-led-168.png` has SHA-256
+`08f8bcd7522d1228016bae304085a66b1f6e223291425b68ceac0d025d56d769`.
+This tick made zero provider calls and spent USD 0. Matched native/Web captures,
+the fresh independent image-only wall PASS, and the remaining skylight FAIL are
+in `docs/evidence/wall-source-168/`. The original source of `wall.png` remains
+unknown; no rights claim is inferred from the documented replacement.
