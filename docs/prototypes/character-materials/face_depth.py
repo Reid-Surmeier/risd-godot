@@ -20,6 +20,6 @@ for px, py in ((250, 215), (300, 215), (350, 215), (250, 265), (300, 265), (350,
         found, position, _, _, obj, _ = bpy.context.scene.ray_cast(depsgraph, origin, direction)
         if not found:
             break
-        hits.append(obj.name)
+        hits.append((obj.name, round(position.y, 3), round(position.z, 3)))
         origin = position + direction * 0.002
     print("FACE_RAY", px, py, hits)
