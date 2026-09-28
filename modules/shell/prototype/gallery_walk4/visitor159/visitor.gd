@@ -34,6 +34,7 @@ var world_height := 1.75
 var gesture := ""
 var gesture_time := 0.0
 var look_direction := 1.0
+var attention_target = null
 var contacts := 0
 var phase := 0.0
 var lighting := true
@@ -311,7 +312,7 @@ func pose(delta: float, moving: bool, _legacy_phase: float, heading: Vector3, _c
 		gesture = ""
 	if gesture != "":
 		gesture_time += delta
-		if gesture_time >= 1.3:
+		if gesture_time >= (2.2 if gesture == "wave" else 1.8):
 			gesture = ""
 	var clip := "Walking_A" if stepping else ("Interact" if gesture == "wave" else "Idle")
 	if clip != _clip:
@@ -324,30 +325,47 @@ func pose(delta: float, moving: bool, _legacy_phase: float, heading: Vector3, _c
 		_gait = 0
 	_gait += (distance if moving else turn_distance) / (0.4 * world_height / 1.75)
 	var poses := sample(clip, _gait if stepping else (gesture_time if clip == "Interact" else _clock))
+	if clip == "Interact" and attention_target != null:
+		var quiet_arm := sample("Idle", _clock)
+		for name in ["upperarm.r", "lowerarm.r", "hand.r"]:
+			var bone := donor.find_bone(name)
+			poses[bone] = quiet_arm[bone]
 	if not _from.is_empty():
 		var blend := clampf((_clock - _blend_start) / 0.2, 0, 1)
 		for i in poses.size():
 			poses[i] = _from[i].interpolate_with(poses[i], blend)
 	mapped_before = poses
-	var gesture_weight := sin(minf(gesture_time / 1.3, 1.0) * PI) if gesture != "" else 0.0
+	var gesture_duration := 2.2 if gesture == "wave" else 1.8
+	var gesture_weight := minf(smoothstep(0, 0.35, gesture_time), 1.0 - smoothstep(gesture_duration - 0.35, gesture_duration, gesture_time)) if gesture != "" else 0.0
 	var look := gesture_weight * (0.65 if gesture == "look" else 0.25) * look_direction
 	_stationary_weight = move_toward(_stationary_weight, 0.0 if stepping else 1.0, delta / 0.2) if delta > 0 else (0.0 if stepping else 1.0)
 	transfer(poses, look)
+	if attention_target != null and gesture != "":
+		var head_index := target.find_bone("Armature_Head_2")
+		var head := target.get_bone_global_pose(head_index)
+		var toward_head: Vector3 = (target.global_transform.affine_inverse() * attention_target - head.origin).normalized()
+		var head_yaw := clampf(atan2(toward_head.x, toward_head.z), -1.1, 1.1)
+		var head_pitch := clampf(asin(toward_head.y), -0.4, 0.45)
+		var aimed := Basis(Vector3.UP, head_yaw) * Basis(Vector3.RIGHT, -head_pitch) * target.get_bone_global_rest(head_index).basis
+		head.basis = head.basis.slerp(aimed, gesture_weight)
+		target.set_bone_global_pose(head_index, head)
+		target.force_update_all_bone_transforms()
 	if gesture == "wave":
 		# Non-authentic pose accent: make the artwork acknowledgement clear from
-		# the rear camera without touching the sourced geometry or skin weights.
+		# the attention camera without touching sourced geometry or skin weights.
 		var upper_index := target.find_bone("Armature_Arm_1_L")
 		var lower_index := target.find_bone("Armature_Arm_2_L")
 		var upper := target.get_bone_global_pose(upper_index)
 		var direction := (target.get_bone_global_pose(lower_index).origin - upper.origin).normalized()
-		var toward := Vector3(1, -0.6, 0.1).normalized()
+		var toward: Vector3 = (target.global_transform.affine_inverse() * attention_target - upper.origin).normalized() if attention_target != null else Vector3(1, -0.6, 0.1).normalized()
 		upper.basis = Basis(Quaternion.IDENTITY.slerp(Quaternion(direction, toward), gesture_weight)) * upper.basis
 		target.set_bone_global_pose(upper_index, upper)
 		target.force_update_all_bone_transforms()
 		var lower := target.get_bone_global_pose(lower_index)
 		var wrist := target.find_bone("Armature_Wrist_L")
 		var forearm := (target.get_bone_global_pose(wrist).origin - lower.origin).normalized()
-		lower.basis = Basis(Quaternion.IDENTITY.slerp(Quaternion(forearm, Vector3(1, -0.15, 0.15).normalized()), gesture_weight)) * lower.basis
+		var pointing: Vector3 = (target.global_transform.affine_inverse() * attention_target - lower.origin).normalized() if attention_target != null else Vector3(1, -0.15, 0.15).normalized()
+		lower.basis = Basis(Quaternion.IDENTITY.slerp(Quaternion(forearm, pointing), gesture_weight)) * lower.basis
 		target.set_bone_global_pose(lower_index, lower)
 		target.force_update_all_bone_transforms()
 	phase = fmod(_gait / player.get_animation("Walking_A").length, 1.0)

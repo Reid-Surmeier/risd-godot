@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
 	var dt := delta if OS.has_feature("web") else 1.0 / 30
 	elapsed += dt
 	var stage := "complete"
-	for section in [[2, "front idle"], [4, "profile turn"], [6, "back turn"], [8, "straight walk"], [10, "diagonal walk"], [12, "stop"], [14, "reverse"], [15, "reverse stop"], [17, "look"], [28, "artwork approach / gesture"]]:
+	for section in [[2, "front idle"], [4, "profile turn"], [6, "back turn"], [8, "straight walk"], [10, "diagonal walk"], [12, "stop"], [14, "reverse"], [15, "reverse stop"], [19, "look"], [32, "artwork approach / gesture"]]:
 		if elapsed < section[0]:
 			stage = section[1]
 			break
@@ -144,4 +144,21 @@ func sample(stage: String) -> void:
 	var left: Vector3 = kid.global_transform.affine_inverse() * soles[0]
 	var right: Vector3 = kid.global_transform.affine_inverse() * soles[1]
 	var stationary: bool = kid._clip != "Walking_A" and kid._clock - kid._blend_start >= 0.21
-	records.append({"time": elapsed, "stage": stage, "position": [gallery._pos.x, gallery._pos.z], "yaw": kid.rotation.y, "gesture": kid.gesture, "min_sole_y": minimum, "drift": drift, "stationary": stationary, "left_x": left.x, "right_x": right.x})
+	var pointing_dot := -1.0
+	var target_in_frame = null
+	var camera_clearance := -1.0
+	if kid.gesture != "" and kid.gesture_time > 0.8 and kid.gesture_time < (1.4 if kid.gesture == "look" else 1.8):
+		camera_clearance = (gallery._cam.position - kid.attention_target).dot(gallery.attention_normal)
+		target_in_frame = true
+		for painting in gallery._paintings:
+			if painting.center.distance_to(kid.attention_target) > 0.001:
+				continue
+			for corner in painting.corners:
+				var pixel: Vector2 = gallery._cam.unproject_position(corner)
+				target_in_frame = target_in_frame and Rect2(Vector2.ZERO, Vector2(gallery._vp.size)).has_point(pixel) and not gallery._cam.is_position_behind(corner)
+	if kid.gesture == "wave" and kid.gesture_time > 0.4 and kid.gesture_time < 1.8:
+		var lower: Vector3 = kid.target.get_bone_global_pose(kid.target.find_bone("Armature_Arm_2_L")).origin
+		var wrist: Vector3 = kid.target.get_bone_global_pose(kid.target.find_bone("Armature_Wrist_L")).origin
+		var aim: Vector3 = kid.target.global_transform.affine_inverse() * kid.attention_target
+		pointing_dot = (wrist - lower).normalized().dot((aim - lower).normalized())
+	records.append({"time": elapsed, "stage": stage, "position": [gallery._pos.x, gallery._pos.z], "yaw": kid.rotation.y, "gesture": kid.gesture, "min_sole_y": minimum, "drift": drift, "stationary": stationary, "left_x": left.x, "right_x": right.x, "pointing_dot": pointing_dot, "target_in_frame": target_in_frame, "camera_clearance": camera_clearance})

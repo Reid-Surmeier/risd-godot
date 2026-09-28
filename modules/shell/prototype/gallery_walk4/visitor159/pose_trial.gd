@@ -10,7 +10,7 @@ func run() -> void:
 	gallery.set_process(false)
 	gallery._new_action()
 	gallery._target = null
-	gallery._pos = Vector3(-2.6,0,-8)
+	gallery._pos = Vector3(-1.909635,0,-12.084023)
 	gallery._kid.position = gallery._pos
 	gallery.view_yaw = PI / 2
 	DirAccess.make_dir_recursive_absolute("/tmp/risd-159-pose")
@@ -18,6 +18,14 @@ func run() -> void:
 		gallery.view_yaw = PI / 2 + (0.35 if view == "rear_diagonal" else 0.0)
 		var direction := Vector3.RIGHT if view == "front" else Vector3.LEFT
 		for pose in ["idle","look","wave"]:
+			gallery._pos = Vector3(-2.936562,0,-10.754420) if pose == "wave" else Vector3(-1.909635,0,-12.084023)
+			gallery._kid.position = gallery._pos
+			gallery._kid.attention_target = gallery._nearest_work().center
+			gallery.attention_normal = gallery._nearest_work().normal
+			if pose != "idle":
+				var toward: Vector3 = gallery._kid.attention_target - gallery._pos
+				toward.y = 0
+				direction = toward.normalized().rotated(Vector3.UP, -0.65 if pose == "look" else 0.0)
 			gallery._kid.reset_contacts()
 			gallery._kid.pose(0,false,0,direction,gallery.view_yaw)
 			for i in 60:
@@ -27,11 +35,6 @@ func run() -> void:
 				for i in 19:
 					gallery._kid.pose(1.0/30,false,0,direction,gallery.view_yaw)
 			gallery._update_camera(1)
-			if view == "front" and pose == "idle":
-				var kid = gallery._kid
-				print("STANCE root=", kid.target.get_bone_pose(0).origin, " rest=", kid.target.get_bone_rest(0).origin)
-				for foot in kid.feet:
-					print("STANCE neutral=",foot.neutral," upper=",kid.target.get_bone_global_pose(foot.upper).origin," knee=",kid.target.get_bone_global_pose(foot.lower).origin," ankle=",kid.target.get_bone_global_pose(foot.ankle).origin)
 			await process_frame
 			await RenderingServer.frame_post_draw
 			root.get_texture().get_image().save_png("/tmp/risd-159-pose/"+view+"-"+pose+".png")

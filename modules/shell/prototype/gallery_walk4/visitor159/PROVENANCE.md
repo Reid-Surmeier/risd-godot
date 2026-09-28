@@ -24,8 +24,15 @@ solver (historical report pin `422e3d40d146cae4be77340cbc008d44e3ce8e59`;
 Walking_A and Interact are sampled. All motion is **non-authentic fallback**;
 authentic New Horizons clips remain an open source route, not a claim here.
 The controller adds turning, blending and reach-limited planted-foot corrections.
-After the first visual rejection, a disclosed procedural Interact accent extends
-the left arm/forearm outward; look rotation peaks at 0.65 rad. Stationary settling
+After two visual rejections, a disclosed procedural Interact accent aims the
+camera-side left arm/forearm at the picked painting center, with the right arm
+sampling Idle. Looking turns the body to a three-quarter stance and aims the head
+at the nearest work. A temporary target-relative camera (heading +1.48 rad,
+6 m distance, 51° FOV, center between visitor/work) exposes face and target;
+default camera remains 14.2 m / 23° and transitions continuously. Cutaway masking
+follows the actual camera and keeps all walls when the eye is inside the gallery.
+A 1.8 m minimum clearance from the work's plane protects the approach endpoint;
+look/point hold for 1.8/2.2 seconds including eased entry and exit. Stationary settling
 uses source-rest sole positions, neutral hip height and forward knee poles with
 a 0.2-second blend, avoiding donor crouch/sideways knee bend. These remain
 non-authentic pose corrections, not geometry or bind edits.

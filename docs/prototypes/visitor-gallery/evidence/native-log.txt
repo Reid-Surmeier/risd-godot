@@ -15,8 +15,8 @@ NAV_PICK W5
 VISITOR159_COMPLETE paintings=23 detail=true penetration=0.00000022724271 drift=0.0016944281524
 --------------------------------------------------------------------------------
 Done recording movie at path: /tmp/risd-159-evidence/native-full.avi
-961 frames at 30 FPS (movie length: 00:00:32:01), recorded in 00:03:19 (16% of real-time speed).
-CPU render time: 0.26 seconds (average: 0.27 ms/frame)
+1081 frames at 30 FPS (movie length: 00:00:36:01), recorded in 00:03:19 (18% of real-time speed).
+CPU render time: 0.32 seconds (average: 0.30 ms/frame)
 GPU render time: 0.00 seconds (average: 0.00 ms/frame)
-Encoding time: 10.88 seconds (average: 11.32 ms/frame)
+Encoding time: 13.38 seconds (average: 12.38 ms/frame)
 --------------------------------------------------------------------------------
