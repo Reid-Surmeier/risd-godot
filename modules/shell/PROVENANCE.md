@@ -41,3 +41,24 @@ The authored vector `textures/exit-sign.svg` uses explicit path lettering,
 not a font-dependent raster. Provider: local SVG. Model: none. Cost: USD 0.
 SHA-256: `7f15231b789fb9539d2affcb90fcc593735f446191877a9427179ddfec9a1e07`.
 No new image-generation calls were made for the repair.
+
+## Cornice trial — issue #167
+
+The cornice uses the same photographed doorway reference above plus
+`image-work/grand-gallery-v4/surfaces/references/door-arch-crop.png`
+(`6db20b89ef019e278646ae736268f5ff2e77d9a378d71d4c87ea8e7232bcf858`).
+The photographs support pale rounded plaster relief, not exact section
+dimensions. The existing prototype envelope is retained. Local authored
+geometry supplies a roll and cove, UV1 supplies material coordinates, and
+Godot 4.7.2 unwraps 25 mm UV2 and bakes the saved lightmap. A neutral fill is
+isolated to this plaster material; no global room light is changed.
+
+The hand-authored `prototype/gallery_walk4/textures/cornice-ivory.svg`
+retains its pale ivory base, with the earlier decorative horizontal lines
+removed because perpendicular extrusion UVs made them look like joints.
+SHA-256: `69a315944cfca068373c0220beda9134b87df87b272607deb6bb48e736264bff`.
+Provider: local Godot/SVG. Model: none. Paid calls: 0. Cost: USD 0.
+The visible cornice batch passed independent Astra-medium image-only review;
+it remains isolated from the build branch. The arch and benches are not
+passed by that verdict. Evidence, bake hashes and the scoped gate are in
+`docs/evidence/architecture-167/RESULT.md`.

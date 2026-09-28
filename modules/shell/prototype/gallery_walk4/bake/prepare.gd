@@ -23,6 +23,8 @@ func _prepare() -> void:
 			continue  # old shadow cards and lamp pools must not be lit twice
 		var mesh := ArrayMesh.new()
 		var floor_mesh: bool = original.get_shader_parameter("plank_seams") == true
+		var source_albedo: Texture2D = original.get_shader_parameter("albedo")
+		var cornice_mesh := source_albedo != null and source_albedo.resource_path.ends_with("/cornice-ivory.svg")
 		for surface in source.mesh.get_surface_count():
 			var arrays = source.mesh.surface_get_arrays(surface)
 			var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
@@ -32,6 +34,18 @@ func _prepare() -> void:
 				builder.create_from(source.mesh, surface)
 				builder.generate_normals()
 				arrays = builder.commit().surface_get_arrays(0)
+			if cornice_mesh:
+				# The inherited panel triangles face opposite their supplied normals.
+				# Match the doorway's winding repair, scoped to this new cornice.
+				var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX] if arrays[Mesh.ARRAY_INDEX] != null else PackedInt32Array(range(vertices.size()))
+				for triangle in range(0, indices.size(), 3):
+					var a := indices[triangle]
+					var geometric := (vertices[indices[triangle + 2]] - vertices[a]).cross(vertices[indices[triangle + 1]] - vertices[a])
+					if geometric.dot(normals[a]) < 0:
+						var b := indices[triangle + 1]
+						indices[triangle + 1] = indices[triangle + 2]
+						indices[triangle + 2] = b
+				arrays[Mesh.ARRAY_INDEX] = indices
 			var colors: PackedColorArray = arrays[Mesh.ARRAY_COLOR] if arrays[Mesh.ARRAY_COLOR] != null else PackedColorArray()
 			var uv2 := PackedVector2Array()
 			if floor_mesh:
@@ -50,9 +64,9 @@ func _prepare() -> void:
 		if floor_mesh:
 			mesh.lightmap_size_hint = Vector2i(512, 1024)
 		else:
-			# Door relief needs several lightmap texels across its 55 mm bevel.
-			var albedo: Texture2D = original.get_shader_parameter("albedo")
-			var texel := 0.025 if albedo and albedo.resource_path.ends_with("/ivory-trim.svg") else 0.12
+			# Both plaster profiles need multiple texels across their narrow relief.
+			var fine_trim := cornice_mesh or (source_albedo and source_albedo.resource_path.ends_with("/ivory-trim.svg"))
+			var texel := 0.025 if fine_trim else 0.12
 			var error := mesh.lightmap_unwrap(source.global_transform, texel)
 			if error != OK:
 				push_error("UV unwrap failed for " + str(index))
@@ -61,9 +75,10 @@ func _prepare() -> void:
 		var material := StandardMaterial3D.new()
 		material.albedo_color = original.get_shader_parameter("tint") if original.get_shader_parameter("tint") != null else Color.WHITE
 		material.albedo_texture = original.get_shader_parameter("albedo")
-		if material.albedo_texture and material.albedo_texture.resource_path.ends_with("/cornice-ivory.svg"):
+		if cornice_mesh:
+			# Local neutral fill keeps plaster distinct from the warm vault bake.
 			material.emission_enabled = true
-			material.emission = Color(0.15, 0.15, 0.14)
+			material.emission = Color(0.35, 0.35, 0.35)
 		var uv_scale = original.get_shader_parameter("uv_scale")
 		if uv_scale != null:
 			material.uv1_scale = Vector3(uv_scale.x, uv_scale.y, 1)
@@ -78,7 +93,7 @@ func _prepare() -> void:
 		# Preserve artwork/painted frame colours; they still occlude the surrounding light.
 		if material.albedo_texture and not "/textures/" in material.albedo_texture.resource_path:
 			material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		if source.layers == 32:
+		if source.layers == 32 and not cornice_mesh:
 			material.albedo_color = Color("#e2dccd")
 		var instance := MeshInstance3D.new()
 		instance.name = "Surface%03d" % index

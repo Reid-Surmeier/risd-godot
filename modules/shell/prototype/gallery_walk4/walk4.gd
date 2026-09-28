@@ -335,7 +335,18 @@ func _build_room() -> void:
 	# skirting and cornice
 	var white := ps(null, WHITE)
 	var cornice := ps(load(DIR + "textures/cornice-ivory.svg"), Color.WHITE, Vector2(0.7, 0.7), true)
-	var cornice_section := [Vector2(0, 0), Vector2(0, 0.08), Vector2(0.06, 0.08), Vector2(0.12, 0.16), Vector2(0.17, 0.17), Vector2(0.22, 0.12), Vector2(0.29, 0.12), Vector2(0.32, 0.22), Vector2(0.49, 0.22), Vector2(0.50, 0)]
+	# Reference-led plaster roll/cove, within the existing 0.50 x 0.22 envelope.
+	# The crop establishes rounded relief, not measured molding dimensions.
+	var cornice_section := [
+		Vector2(0, 0), Vector2(0, 0.075), Vector2(0.025, 0.075),
+		Vector2(0.035, 0.092), Vector2(0.05, 0.111), Vector2(0.07, 0.127),
+		Vector2(0.095, 0.139), Vector2(0.12, 0.142), Vector2(0.145, 0.137),
+		Vector2(0.165, 0.125), Vector2(0.18, 0.11), Vector2(0.20, 0.11),
+		Vector2(0.23, 0.114), Vector2(0.26, 0.123), Vector2(0.29, 0.137),
+		Vector2(0.32, 0.155), Vector2(0.35, 0.178), Vector2(0.38, 0.206),
+		Vector2(0.395, 0.22), Vector2(0.435, 0.22),
+		Vector2(0.46, 0.205), Vector2(0.48, 0.16), Vector2(0.50, 0),
+	]
 	for s in [-1.0, 1.0]:
 		_box(Vector3(s * (X - 0.04), 0.12, -L / 2), Vector3(0.08, 0.24, L), WHITE, 1, white)
 		_box(Vector3(s * (X - 0.06), 0.255, -L / 2), Vector3(0.12, 0.05, L), WHITE, 1, white)
