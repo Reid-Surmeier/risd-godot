@@ -41,3 +41,34 @@ The authored vector `textures/exit-sign.svg` uses explicit path lettering,
 not a font-dependent raster. Provider: local SVG. Model: none. Cost: USD 0.
 SHA-256: `7f15231b789fb9539d2affcb90fcc593735f446191877a9427179ddfec9a1e07`.
 No new image-generation calls were made for the repair.
+
+## Oak floor trial — issue #168
+
+The recorded RISD Grand Gallery phone-photo crop at
+`image-work/grand-gallery-v4/surfaces/references/floor-crop.png` is SHA-256
+`d7636e7c478a7d423cf0fede9544cac9c5b40544babee1c088de983a57672b12`.
+The original full-resolution phone file, capture date and crop coordinates
+remain unverified. The initial floor's pre-existing Muse oak-grain pass at
+`prototype/gallery_walk4/textures/oak-muse.webp` is SHA-256
+`bb6f54cd7f4f423babaaacf8107dc735bb7fcb45118cacba9725bbbd3cb600c1`.
+The rejected fine-strip trial sampled the existing finer Muse
+`prototype/gallery_walk4/textures/oak.png`, SHA-256
+`ea9d9966c0295584c531e5550aab372fee9d53662ffe12fd2553014c9ebaec0e`.
+Its independent blind review failed the repeated comb-grain gate. The next
+source-led trial instead samples existing Muse herringbone
+`prototype/gallery_walk4/textures/floor.png`, SHA-256
+`e4bda4edcd4c83bed11cc1d38eba9d5a7924aa822a9ce0a710a71a145d49ad1f`,
+whose recorded generation input is the RISD floor crop above.
+The original prompt and input hashes are in
+`image-work/grand-gallery-v4/surfaces/generation-preflight.json`.
+
+The #168 trial changes no image pixels. It uses a neutral material tint and
+samples the source-guided herringbone albedo continuously in world space over
+the modeled planks, avoiding the failed per-board fine-grain reset. The
+herringbone geometry, authored plank UVs, and polygon count remain.
+Godot 4.7.2 regenerated the saved UV2/lightmap scene. Authoring provider:
+local GDScript/shader. Image-generation provider/model/count/cost for this
+trial: none / none / 0 / USD 0. Native and Web before/after captures and the
+blind-review status are recorded in `docs/evidence/floor-168/README.md`. The
+world-space candidate awaits independent blind acceptance; this is not a
+runtime-selected asset.

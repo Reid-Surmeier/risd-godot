@@ -84,7 +84,7 @@ func _prepare() -> void:
 		if floor_mesh:
 			var oak := ShaderMaterial.new()
 			oak.shader = load(DIR + "oak.gdshader")
-			oak.set_shader_parameter("oak", material.albedo_texture)
+			oak.set_shader_parameter("parquet", load(DIR + "textures/floor.png"))
 			instance.material_override = oak
 		instance.transform = source.global_transform
 		instance.layers = source.layers

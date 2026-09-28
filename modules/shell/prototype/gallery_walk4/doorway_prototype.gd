@@ -18,7 +18,11 @@ func _ready() -> void:
 		walk._shadow.hide()
 		for shadow in walk._sole_shadows:
 			shadow.hide()
-		walk._update_camera(1.0)
+		var floor_view = JavaScriptBridge.eval("new URLSearchParams(location.search).get('floor_view')")
+		if floor_view != null:
+			set_floor_pose(walk, int(floor_view))
+		else:
+			walk._update_camera(1.0)
 		print("DOORWAY_GAMEPLAY_READY")
 		return
 	add_child(load("res://modules/shell/prototype/gallery_walk4/baked/room.tscn").instantiate())
@@ -35,6 +39,26 @@ func _ready() -> void:
 	if OS.has_feature("web"):
 		view = int(JavaScriptBridge.eval("new URLSearchParams(location.search).get('view') || '0'"))
 	set_view(view)
+
+# #168 floor trial: the same gallery pose is used by native and Web captures.
+static func set_floor_pose(walk: Control, index: int) -> void:
+	walk._new_action()
+	walk._entrance_active = false
+	walk._entrance_waiting = false
+	walk._target = null
+	walk._pos = Vector3(0, 0, -17.0)
+	walk.view_mode = 1
+	walk.view_yaw = 0.0
+	walk._kid.hide()
+	walk._shadow.hide()
+	for shadow in walk._sole_shadows:
+		shadow.hide()
+	walk._update_camera(1.0)
+	if index == 1:
+		walk.set_process(false)
+		walk._cam.position = Vector3(0.8, 1.75, -14.0)
+		walk._cam.look_at(Vector3(0.2, 0.0, -18.5))
+		walk._cam.fov = 55.0
 func set_view(index: int) -> void:
 	view = posmod(index, 5)
 	var positions := [Vector3(0, 2.1, -20), Vector3(2.9, 1.3, -23), Vector3(1.8, 0.65, -25), Vector3(-2.5, 2.6, -22), Vector3(0, 3, -9)]

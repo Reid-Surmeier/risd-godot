@@ -489,17 +489,19 @@ func _build_floor() -> void:
 				if vert:
 					uv = [uv[3], uv[0], uv[1], uv[2]]
 					uv2 = [Vector2(0, b), Vector2(0, 0), Vector2(a, 0), Vector2(a, b)]
-				var tone := rng.randf_range(0.9, 1.06)
+				# The source crop has narrow board-to-board variation; retain the
+				# authored lattice, UVs and grain but quiet the orange stripe effect.
+				var tone := rng.randf_range(0.91, 1.07)
 				for i in [0, 1, 2, 0, 2, 3]:
 					var q: Vector2 = rot * p[i]
 					var w := Vector3(q.x, 0, q.y)
 					var o2 := _ao(w, false) * tone
-					st.set_color(Color(o2, o2 * 0.99, o2 * 0.97))
+					st.set_color(Color(o2, o2, o2))
 					st.set_normal(Vector3.UP)
 					st.set_uv(uv[i])
 					st.set_uv2(uv2[i])
 					st.add_vertex(w)
-	var mat := ps(load(DIR + "textures/oak-muse.webp"), Color.WHITE, Vector2.ONE, true)
+	var mat := ps(load(DIR + "textures/oak.png"), Color.WHITE, Vector2.ONE, true)
 	mat.set_shader_parameter("plank_seams", true)
 	mat.set_shader_parameter("jitter", 0.0)  # herringbone has T-junctions: snapped corners would open cracks
 	mat.set_shader_parameter("plank", PLANK)
