@@ -19,7 +19,7 @@ const SKY_W := 4.2
 const WHITE := Color("#e9e6de")
 const CASING := 0.28
 const GAP := 0.75  # default gap between frames; measured gaps in gaps.json
-const PLANK := Vector2(1.35, 0.29)  # #168 visual trial: broader source-relative courses, not survey dimensions
+const PLANK := Vector2(1.9, 0.36)  # #168 trial: contractor gallery photo shows broader courses; not survey dimensions
 # The two doorways differ: the arch door (to the medieval gallery) has a cornice head and a shallow reveal onto
 # the wide lit room; the far door has a plain casing and a deep vestibule with a second door at its end.
 const DOORS := {
@@ -492,8 +492,8 @@ func _build_floor() -> void:
 					uv2 = [Vector2(0, b), Vector2(0, 0), Vector2(a, 0), Vector2(a, b)]
 				# The source crop has narrow board-to-board variation; retain the
 				# authored lattice, UVs and grain but quiet the orange stripe effect.
-				var tone := rng.randf_range(0.92, 1.08)
-				var warmth := rng.randf_range(-0.035, 0.035)
+				var tone := rng.randf_range(0.97, 1.03)
+				var warmth := rng.randf_range(-0.018, 0.018)
 				var crop_seed := rng.randf()
 				for i in [0, 1, 2, 0, 2, 3]:
 					var q: Vector2 = rot * p[i]
@@ -504,7 +504,33 @@ func _build_floor() -> void:
 					st.set_uv(uv[i])
 					st.set_uv2(uv2[i])
 					st.add_vertex(w)
-	var mat := ps(load(DIR + "textures/oak-board-atlas-168.webp"), Color.WHITE, Vector2.ONE, true)
+	# The renovation photographs show straight-laid boards framing both long
+	# sides of the herringbone field. This is an isolated geometry trial, not a
+	# measured reconstruction; each overlay board still gets a distinct atlas
+	# face and authored baked contact.
+	for side in [-1, 1]:
+		for border_row in range(2):
+			var x0 := -W / 2.0 + border_row * b if side < 0 else W / 2.0 - (border_row + 1) * b
+			var x1 := x0 + b
+			for segment in range(ceili(L / a)):
+				var z0 := -L + segment * a
+				var z1 := minf(z0 + a, 0.0)
+				var board_length := z1 - z0
+				var border_tone := rng.randf_range(0.97, 1.03)
+				var border_seed := rng.randf()
+				var points := [Vector3(x0, 0.002, z0), Vector3(x0, 0.002, z1),
+					Vector3(x1, 0.002, z1), Vector3(x1, 0.002, z0)]
+				var board_uv := [Vector2(0, 0), Vector2(1, 0), Vector2(1, 1), Vector2(0, 1)]
+				var board_uv2 := [Vector2(0, 0), Vector2(board_length, 0),
+					Vector2(board_length, b), Vector2(0, b)]
+				for i in [0, 1, 2, 0, 2, 3]:
+					var shade := _ao(points[i], false) * border_tone
+					st.set_color(Color(shade, shade, shade, border_seed))
+					st.set_normal(Vector3.UP)
+					st.set_uv(board_uv[i])
+					st.set_uv2(board_uv2[i])
+					st.add_vertex(points[i])
+	var mat := ps(load(DIR + "textures/oak-board-atlas-168-v2.webp"), Color(1.18, 1.16, 1.14), Vector2.ONE, true)
 	mat.set_shader_parameter("plank_seams", true)
 	mat.set_shader_parameter("oak_atlas", true)
 	mat.set_shader_parameter("jitter", 0.0)  # herringbone has T-junctions: snapped corners would open cracks

@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "board-atlas-002",
+      "prompt": "edit-prompt.txt",
+      "promptSha256": "2db82db03fe2e73e5a493c8a0296638d048274d8df8dc32cc5bce345e7855004",
+      "size": "1600x800",
+      "inputs": [
+        {
+          "path": "references/gallery-2456.webp",
+          "sha256": "0038d6b413cf9a0489b8f96c1d0fc1c03d7faaa99a27fc1dad0c28195374df44"
+        },
+        {
+          "path": "references/gallery-2447.webp",
+          "sha256": "d10407d44ef26a46f98394360741fee4c0a15d19bc3a15861fe9a324f2b4cfab"
+        }
+      ]
+    }
+  ]
+}

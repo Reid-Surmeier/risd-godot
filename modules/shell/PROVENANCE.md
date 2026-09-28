@@ -115,3 +115,22 @@ remains outside the selected build. Its final 720/1600 native and exported-Web
 captures failed fresh independent image-only review: repeated V columns,
 comb-like grain, flat finish and native/Web sharpness difference. Evidence and
 the unselected bake are retained in `docs/evidence/floor-168/`.
+
+## Second source-photo oak atlas trial — issue #168
+
+The tenth floor experiment uses two reference-only photographs of this exact
+gallery from [Site Specific's Radeke Museum renovation page](https://www.sitespecificllc.com/rhode-island-school-of-design-radeke-museum).
+The ordered 2500×1667 sources, exact URLs, SHA-256 hashes and prompt are in
+`image-work/floor-168-board-v2/`; the photographs are not shipped as textures.
+OpenRouter `meta/muse-image` returned one eight-face diffuse atlas at actual
+recorded cost USD 0.01, run `run-e098a83f7967ea5cc2ba2c2e`, SHA-256
+`8b568b890e7ffa5a2ef86173b21222b3bc6374d7abea15be5ea1865532524aec`.
+The run is never-resubmit. Independent image-only review accepted its source
+appearance only, with warmer/tile-seam caveats. The modeled-board rebake passed
+technically, but a first native/Web world-asset review failed the
+continuous-chevron impression, faint end joints and uniform finish. A
+no-rebake seam/tone correction then passed a fresh native/Web image-only
+review with minor sheen/grain and scene-wide native-softness reservations.
+This is the selected floor visual candidate, pending navigation and build
+integration checks; it is not acceptance of the wall or skylight batches.
+the current build retains the previous floor.

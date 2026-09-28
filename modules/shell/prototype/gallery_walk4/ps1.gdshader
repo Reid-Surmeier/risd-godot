@@ -26,9 +26,11 @@ void fragment() {
 	if (plank_seams && (floor_world_z < floor_z_limits.x || floor_world_z > floor_z_limits.y)) { discard; }
 	vec2 image_uv = UV * uv_scale;
 	if (plank_seams && oak_atlas) {
-		float row = min(floor(COLOR.a * 4.0), 3.0);
-		image_uv = vec2(UV.x * 0.16 + fract(COLOR.a * 17.63) * 0.84,
-			(row + 0.5) / 4.0 + (UV.y - 0.5) * 0.13);
+		float face = min(floor(COLOR.a * 8.0), 7.0);
+		float row = floor(face * 0.5);
+		float column = mod(face, 2.0);
+		image_uv = vec2((column + 0.04 + UV.x * 0.92) * 0.5,
+			(row + 0.06 + UV.y * 0.88) * 0.25);
 	}
 	vec4 c = use_texture ? texture(albedo, image_uv) : vec4(1.0);
 	c *= tint;

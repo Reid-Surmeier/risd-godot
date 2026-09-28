@@ -99,3 +99,44 @@ integrated; the failed trial and paid-run receipt are retained for diagnosis.
 ### Speck diagnosis, unresolved
 
 Small black floor points at corresponding positions are also present in the accepted #160 baseline. A [flat-albedo before/after diagnostic](speck-diagnostic/) kept the same camera while eliminating oak texture from the shader. The points remained; disabling floor shadow casting in a trial rebake did **not** remove them either. Therefore source oak pixels, UV crop, and floor self-shadow are falsified as sole causes. The no-benefit shadow change was reverted; the later bake retains original shadow behavior. The points remain an unresolved saved-bake/render issue, not a fixed floor-texture claim.
+
+### Tenth source-photo geometry/material trial — failed final visual gate
+
+[Site Specific's Radeke Museum renovation photographs](https://www.sitespecificllc.com/rhode-island-school-of-design-radeke-museum)
+show this same Grand Gallery at 2500×1667, including its complete floor.
+Reference-only copies are in `image-work/floor-168-board-v2/references/`:
+`gallery-2456.webp` SHA-256 `0038d6b413cf9a0489b8f96c1d0fc1c03d7faaa99a27fc1dad0c28195374df44`
+and `gallery-2447.webp` SHA-256 `d10407d44ef26a46f98394360741fee4c0a15d19bc3a15861fe9a324f2b4cfab`.
+These are source/style evidence, not runtime textures or redistribution grants.
+They show lighter, broader parquet courses and a straight-plank perimeter that
+the ninth model lacks. A first cheap geometry/material preview widened boards
+from `1.35×0.29` to `1.9×0.36` game units and reduced grain/board contrast;
+without a matching rebake it still looked dark and flat, so it is **not an
+acceptance packet**. Two straight-plank courses now cover each long perimeter
+side; exact dimensions remain a visual trial, not survey measurements. One
+hash-locked Muse edit for eight distinct board faces completed under
+`image-work/floor-168-board-v2/` at actual recorded cost USD 0.01. Its WebP
+SHA-256 is `8b568b890e7ffa5a2ef86173b21222b3bc6374d7abea15be5ea1865532524aec`;
+a fresh independent image-only review passed it as an input only, with
+warm/tile-edge caveats. Godot 4.7.2 rebaked the modeled-floor trial (`BAKE_OK
+users=120`). Saved scene/EXR/lightmap SHA-256 values are respectively
+`8557aef7c14fa5c604e97293790d85d192bfb3edaa0644903bd738ed8c54d0eb`,
+`d93510d6e86b8ef42303dde170dc2af8a19c0f6551707bd023c574cf49dec3fe`,
+and `e21954a1723daf9691a67c58d347a495dd66210106e67e6ec69289684affe595`.
+The final shader-only grain amount changed after this bake; no geometry or
+lightmap did. Matched 720/1600 [native](tenth-native/) and
+[exported-Web](tenth-browser/) captures completed with zero browser errors. A
+fresh [image-only Astra-medium review](tenth-blind-review.md) of the two gallery
+photos and eight final captures **failed**: end joints were too faint, so the
+parquet read as continuous chevrons; grain/finish remained too uniform; native
+was softer than Web. The pale palette, scale and room continuity were strengths.
+The tenth trial is not selected. A no-rebake eleventh shader probe strengthens
+only board-end joints and board-level tone. Its matched
+[native](eleventh-native/) and [Web](eleventh-browser/) packet reported zero Web
+errors, and a fresh [image-only Astra-medium review](eleventh-blind-review.md)
+**passed** it as believable source-led herringbone oak at square gameplay
+size. Minor reservations: relatively matte finish, fine/straight grain,
+scene-wide softer native captures and scattered native dark specks. This
+selects the floor *visual candidate*, subject to navigation/repository checks
+and integration; it does not pass the wall/skylight groups in #168.
+The ninth failure stays frozen at `e48034a9`.

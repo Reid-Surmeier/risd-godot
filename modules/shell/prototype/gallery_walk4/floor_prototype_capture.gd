@@ -33,6 +33,8 @@ func capture() -> void:
 		for index in [0, 1]:
 			var walk := Walk.new()
 			root.add_child(walk)
+			if OS.get_cmdline_user_args().size() > 1 and OS.get_cmdline_user_args()[1] == "unbaked":
+				walk._set_lighting(false)
 			walk.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 			set_floor_pose(walk, index)
 			for frame in 12:
