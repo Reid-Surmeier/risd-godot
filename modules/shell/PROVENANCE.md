@@ -163,5 +163,6 @@ is `image-work/wall-source-led-168/make.py`; the resulting prototype texture
 `08f8bcd7522d1228016bae304085a66b1f6e223291425b68ceac0d025d56d769`.
 This tick made zero provider calls and spent USD 0. Matched native/Web captures,
 the fresh independent image-only wall PASS, and the remaining skylight FAIL are
-in `docs/evidence/wall-source-168/`. The original source of `wall.png` remains
-unknown; no rights claim is inferred from the documented replacement.
+in `docs/evidence/wall-source-168/`. The Muse pass's first input was byte-identical
+to `wall.png`, whose original source remains unknown. The visual pass does not
+clear the upstream source gate or imply redistribution rights.
