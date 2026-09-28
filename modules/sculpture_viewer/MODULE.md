@@ -1,6 +1,6 @@
 ---
 name: sculpture_viewer
-purpose: The 3D Viewer Tab's retained catalogue and live Buddha viewer windows
+purpose: The 3D Viewer Tab's retained sidebar, live scans and enlarged hover preview
 interface: modules/sculpture_viewer/interface.gd
 errors: modules/sculpture_viewer/errors.gd
 tests: modules/sculpture_viewer/playtest/harness.gd + modules/sculpture_viewer/playtest/verify.py

@@ -1,0 +1,20 @@
+{
+  "pass": true,
+  "sha256": {
+    "tab-map.png": "53a599ddbbd4fd8e12ac4f6c97a23819bde4dc7b29656713746950717882fc03",
+    "tab-sketchbook.png": "dc2db767f97d991407c94883a938b13c5a5b071fc481c5d087883018c8f60f6f",
+    "tab-3d_viewer.png": "243cc1e1052f42e317bd97ff40b41e739fdd8943cf4020d034846f34b95fbafd",
+    "tab-video_player.png": "de3cbce65d76809e1628167d088ffe8204c92cda1f66fd54af585b9057426914",
+    "tab-collection.png": "b21297b19f9bcdb70e24582d2c3b71086a9f64a94ad1c1fea3339efc63d0b60d",
+    "tab-playground.png": "8013ceb259ccfd8d224cbdc2f3635afd69e606511b92307d16cff049bee92db9",
+    "tab-flowers.png": "b77017ee83418273aa7f9ac5b0d2d765ef4768ee2c920967aca5a4c64b989840",
+    "selected-00.png": "c63e8cf9e148eeb45200b3519c3d8d78b561ba5125f12cf167806e7cb823a127",
+    "selected-01.png": "51cb403d189933fecb656ba414f3c076dec269b072b28b2cefb1bc82b6c953af",
+    "selected-02.png": "2bffd628d1ac8178264a78456568f9339c464c817f974188fb3aa54f86b15a89",
+    "selected-03.png": "331ead99f21e644405c102e1184395943e9ad35d57edb1d2c9ed3760ef3f1e7a",
+    "selected-05.png": "d405ec46dac28ab98150867581a9c31737f4cc140e23b0ebd03b5e5b4b1db57b",
+    "selected-19.png": "0fb8123bf02f206b50e2863f7e64614fa6a49c6ac2a7d2fffc18495bdbc31622",
+    "hover.png": "5dc124d73c792d412bd9ed8389fa110b265dd0b6370dec29e6aed77e9a058c10",
+    "returned.png": "fa5118cb534f219cf9d98e31373b91eebfbe92fdf80f0a719f35dea22a577e68"
+  }
+}

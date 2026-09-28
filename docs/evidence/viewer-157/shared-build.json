@@ -1,0 +1,32 @@
+{
+  "runtime_commit": "d55fc7f5",
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-viewer-latest-01a0e95d/viewer157.html?v=d55fc7f5&qa-crt=1",
+  "scans": [
+    {
+      "index": 0,
+      "id": "20260811121459",
+      "progress": 0.135,
+      "yaw": -131.31
+    },
+    {
+      "index": 1,
+      "id": "20260811122415",
+      "progress": 0.135,
+      "yaw": -131.27
+    },
+    {
+      "index": 2,
+      "id": "20260811123051",
+      "progress": 0.139,
+      "yaw": -129.95
+    },
+    {
+      "index": 3,
+      "id": "20260820133334",
+      "progress": 0.138,
+      "yaw": -130.21
+    }
+  ],
+  "errors": [],
+  "status": "pass"
+}

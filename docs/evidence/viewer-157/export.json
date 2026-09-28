@@ -1,0 +1,7 @@
+{
+  "runtime_commit": "d55fc7f5",
+  "game_pack_sha256": "edcf8d8a294ae1d81248c223afe4627b821ba02b57c82a63890a4a06ca296991",
+  "game_pack_gzip_sha256": "5b45d86e825c86ce674240419d7cd1ad436abc07544602e515463915ffc2a0d5",
+  "shared_https_gzip_sha256": "5b45d86e825c86ce674240419d7cd1ad436abc07544602e515463915ffc2a0d5",
+  "shared_bytes_match": true
+}

@@ -1,0 +1,173 @@
+{
+  "candidate": "viewer157",
+  "matrix": [
+    {
+      "width": 1080,
+      "height": 1080,
+      "status": "pass"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "status": "pass"
+    },
+    {
+      "width": 1080,
+      "height": 1920,
+      "status": "pass"
+    },
+    {
+      "width": 720,
+      "height": 486,
+      "status": "pass"
+    },
+    {
+      "width": 486,
+      "height": 720,
+      "status": "pass"
+    }
+  ],
+  "selections": [
+    {
+      "width": 1080,
+      "height": 1080,
+      "index": 0,
+      "id": "20260811121459",
+      "loaded": true
+    },
+    {
+      "width": 1080,
+      "height": 1080,
+      "index": 1,
+      "id": "20260811122415",
+      "loaded": true
+    },
+    {
+      "width": 1080,
+      "height": 1080,
+      "index": 2,
+      "id": "20260811123051",
+      "loaded": true
+    },
+    {
+      "width": 1080,
+      "height": 1080,
+      "index": 3,
+      "id": "20260820133334",
+      "loaded": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "index": 0,
+      "id": "20260811121459",
+      "loaded": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "index": 1,
+      "id": "20260811122415",
+      "loaded": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "index": 2,
+      "id": "20260811123051",
+      "loaded": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "index": 3,
+      "id": "20260820133334",
+      "loaded": true
+    },
+    {
+      "width": 1080,
+      "height": 1920,
+      "index": 0,
+      "id": "20260811121459",
+      "loaded": true
+    },
+    {
+      "width": 1080,
+      "height": 1920,
+      "index": 1,
+      "id": "20260811122415",
+      "loaded": true
+    },
+    {
+      "width": 1080,
+      "height": 1920,
+      "index": 2,
+      "id": "20260811123051",
+      "loaded": true
+    },
+    {
+      "width": 1080,
+      "height": 1920,
+      "index": 3,
+      "id": "20260820133334",
+      "loaded": true
+    },
+    {
+      "width": 720,
+      "height": 486,
+      "index": 0,
+      "id": "20260811121459",
+      "loaded": true
+    },
+    {
+      "width": 720,
+      "height": 486,
+      "index": 1,
+      "id": "20260811122415",
+      "loaded": true
+    },
+    {
+      "width": 720,
+      "height": 486,
+      "index": 2,
+      "id": "20260811123051",
+      "loaded": true
+    },
+    {
+      "width": 720,
+      "height": 486,
+      "index": 3,
+      "id": "20260820133334",
+      "loaded": true
+    },
+    {
+      "width": 486,
+      "height": 720,
+      "index": 0,
+      "id": "20260811121459",
+      "loaded": true
+    },
+    {
+      "width": 486,
+      "height": 720,
+      "index": 1,
+      "id": "20260811122415",
+      "loaded": true
+    },
+    {
+      "width": 486,
+      "height": 720,
+      "index": 2,
+      "id": "20260811123051",
+      "loaded": true
+    },
+    {
+      "width": 486,
+      "height": 720,
+      "index": 3,
+      "id": "20260820133334",
+      "loaded": true
+    }
+  ],
+  "errors": []
+}
