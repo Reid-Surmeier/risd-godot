@@ -16,6 +16,8 @@ Fresh external GPT-6 Astra medium image-only verdict: **PASS — presentation-on
 
 The source hair gaps remain visible and are not repaired or hidden by this change. The existing preview remains explicitly labeled “trial · not accepted”; three other source cards retain “3D preview unavailable.” The reviewer explicitly does not accept the bearded live scan or four complete scans.
 
+Reviewer input order: six original bearded source captures `000/060/120/180/240/300` from `/home/reidsurmeier/orca/workspaces/risd-godot/research-relief-repair-154/docs/research/proton-scan-validation/bust-source-captures/20260811123051-*.png`; BEFORE #154 browser `720-00`, `720-03`, `1600-00`; AFTER this packet's browser `720-00` through `720-05`; AFTER native `1600-00`, `1600-03`; AFTER fallback browser `720-06`, `720-07`, `720-08`. Model: `gpt-6-astra`, medium effort, read-only image review. No metrics accompanied the images. The review therefore spans six Web angles at 720 and native front/back at 1600; the rest of the packet is execution/pixel evidence, not an independently reviewed image set.
+
 | Platform/width | Before displayed/source silhouette aspect | After | Cards and three held states |
 | --- | ---: | ---: | --- |
 | Native 720 | 0.7089 | 0.9925 | Unchanged |
