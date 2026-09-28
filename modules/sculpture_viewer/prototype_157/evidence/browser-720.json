@@ -1,0 +1,18 @@
+[
+  {
+    "width": 720,
+    "rotated": true,
+    "cleared": true,
+    "errors": [],
+    "performance": {
+      "resource": [
+        {
+          "name": "a3dec73e.game.pck.gz",
+          "durationMs": 1387,
+          "bytes": 141034799
+        }
+      ],
+      "heap": 176059246
+    }
+  }
+]
