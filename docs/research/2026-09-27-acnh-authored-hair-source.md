@@ -1,0 +1,17 @@
+# ACNH authored human hair: source and conversion path
+
+Question: can the bare-scalp Hair00 prototype be repaired with an authored game hair asset, preserving the body rig rather than inventing cap geometry?
+
+## Primary sources
+
+- The [Human Pack workshop item by catcraze777](https://steamcommunity.com/sharedfiles/filedetails/?id=2347078991) describes the creator's New Horizons human character assets, presets, hair variants, and paintable skin/hair. Its Nintendo ownership attribution is not a license for distribution or game use. The public Steam Workshop file-details endpoint supplied the 219,174,290-byte archive in one bounded download on 2026-09-27, SHA-256 `61eed80e0b794131f4f272fc1d7250584b0989dba8a1f2f991e595787a0ab6bd`.
+- The creator's [custom human guide, Hair section](https://steamcommunity.com/sharedfiles/filedetails/?id=2342493347) says there are 36 unique hair models and some use `mHairSkin_D` as a second material for a shaved/skin blend. It also identifies `mHair_D` and `mHairSkin_D` as editable diffuse textures. Inspection of the downloaded Hair00 MDL found `mHair_D` and `mTransparent_D`, not `mHairSkin_D`; the local DAE Hair00 uses only `mHair`. The prototype's visible rear/side bare scalp belongs to `Body__mSkin` UVs, not a lost Hair00 second material. That eliminates a simple material-toggle repair for Hair00.
+- [SourceIO 5.3.0 release](https://github.com/REDxEYE/SourceIO/releases/tag/5.3.0) and its [MDL import guide](https://github.com/REDxEYE/SourceIO/blob/master/wiki/MDL_IMPORT.md) give a bounded Source 1 MDL/VVD/VTX → Blender route. The local Blender is 4.0.2; this SourceIO release imported the authored hair rigs and meshes. Downloaded addon SHA-256 `516a7b24d1636f15606ba2fcb4aa106695d13c01e6992857383a42b9dd346708`.
+
+## Trial and result
+
+Hair36's source MDL, VVD, and VTX SHA-256 hashes are `d1af466a948e9b11567ea46324706f4e18cabc244a3fe8cdd6d24d0857047897`, `72d3c69e12ac4dd9f2bf8e0718ba7670b5bffb6cc6d45749f3d0b9b8638e5734`, and `56ab0071e9343a0ad56e4dccbed77e0bc752bc35cdb75d202b9d176419bfe1d5`. Source `mhair_d.vtf` and `mhair_d.vmt` hashes are `25a6aea96ee951f1e5ced6b2a4f0b16a97f7a20f156106e6aee0104056322655` and `2b2ca0d1d4cd360a386d01ae853ce0a7004dc65d04f993d4ee42b1ab5b5a2837`. The source files remain outside the repository. The trial tinted source diffuse pixels into a glTF-compatible PNG; its SHA-256 is `3343dfb6121696acf2e684ffd24b5a1f3bc7553721ca01ccb774ba407cb3499c`. The chosen brown tint is a prototype palette, not a proven reconstruction of the game's shader.
+
+The corresponding Godot 4.7.2 Compatibility captures and full rig audit are in [ticket 163's result](../prototypes/character-materials/RESULT.md). The independent image-only reviewer reported **PASS for static all-angle appearance**: continuous face, covered scalp, coherent shirt/trousers/shoes, and no visible tears or internal surfaces. Caveats: hair lobes flatter than polished ACNH, flat lighting, muddy trouser/shoe separation, and hair partially obscures the left shoulder in the posed view. The reviewer explicitly could not establish animation or source origin from stills. Separate file/hash inspection establishes origin; zero AnimationPlayers on Godot import means **native motion has not been recovered**. The pass selects a static prototype direction only, not a runtime-ready character.
+
+Copyright/rights and motion compatibility remain separate release gates. No raw Nintendo-derived source asset, packed archive, converted GLB, or tinted texture is committed here. No paid generation was used; spend USD 0.
