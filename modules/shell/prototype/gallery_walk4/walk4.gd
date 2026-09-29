@@ -945,6 +945,14 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 				var relief_depth := 0.040 * sample
 				relief_depth *= smoothstep(0.0, 0.15, v) * smoothstep(0.0, 0.15, 1.0 - v)
 				return Vector3(x, spring - 0.075 + (v - 0.5) * 0.19, face_z + 0.002 + relief_depth)
+			# Close the relief skin to its backing at both horizontal edges.
+			for v in [0.0, 1.0]:
+				var left: Vector3 = frieze.call(0.0, v)
+				var right: Vector3 = frieze.call(1.0, v)
+				var edge := [Vector3(left.x, left.y, face_z), left, right, Vector3(right.x, right.y, face_z)]
+				if v > 0.0:
+					edge.reverse()
+				face.call(edge)
 			for row in 48:
 				for column in 64:
 					var u := column / 64.0
@@ -967,12 +975,17 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 			var x: float = side * (radius + [0.14, 0.37, 0.59][column])
 			var zc := front + 0.13 + column * 0.11
 			var shaft_scale: float = [1.0, 0.61, 0.98][column]
-			var profile := [Vector2(0.20, 0.16), Vector2(0.25, 0.16), Vector2(0.29, 0.125)]
+			var profile := [Vector2(0.02, 0.20), Vector2(0.06, 0.205), Vector2(0.16, 0.19), Vector2(0.20, 0.16), Vector2(0.25, 0.16), Vector2(0.29, 0.125)]
 			# The closer source shows a few long shaft courses, not thirteen
 			# short repeated texture bands. Keep the same height/radius envelope.
-			for strip in 5:
-				var t := strip / 4.0
-				profile.append(Vector2(lerpf(0.34, spring - 0.57, t), 0.132 + 0.004 * sin(t * PI)))
+			for strip in 4:
+				var t := strip / 3.0
+				var y := lerpf(0.34, spring - 0.57, t)
+				var r := 0.132 + 0.004 * sin(t * PI)
+				if strip in [1, 2]:
+					profile.append_array([Vector2(y - 0.004, r), Vector2(y, r - 0.002), Vector2(y + 0.004, r)])
+				else:
+					profile.append(Vector2(y, r))
 			profile.append_array([Vector2(spring - 0.54, 0.15), Vector2(spring - 0.50, 0.15)])
 			for index in profile.size():
 				profile[index].y *= shaft_scale
@@ -1006,13 +1019,13 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 				# Individually bounded front masses follow the six source faces;
 				# these are visual profiles, not surveyed dimensions.
 				var shoulders: Array = [0.025, 0.026, 0.049, 0.046, 0.021, 0.031]
-				var width: float = (0.145 + shoulders[field_index] * sin(clampf(v, 0, 1) * PI * 0.65)) * shaft_scale
+				var width: float = (lerpf(0.15, 0.145, smoothstep(0.0, 0.2, v)) + shoulders[field_index] * sin(clampf(v, 0, 1) * PI * 0.65)) * shaft_scale
 				var ca := cos(angle)
 				var sa := sin(angle)
 				# Uniform front-face sampling: the previous signed-power x
 				# skipped central photo columns and smeared their relief.
 				var xx := ca
-				var zz := signf(sa) * pow(maxf(0.0, 1.0 - pow(absf(ca), 4.0)), 0.25)
+				var zz := lerpf(sa, signf(sa) * pow(maxf(0.0, 1.0 - pow(absf(ca), 4.0)), 0.25), smoothstep(0.0, 0.2, v))
 				var carving := 0.0
 				if sa > 0.0:
 					# Authored leaf, scroll and figural masses follow the source;
