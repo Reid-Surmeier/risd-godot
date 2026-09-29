@@ -1,0 +1,190 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+REST bounds=0.18734590709209..17.0174369812012 soles=194
+CLIP Idle length=1.06666672229767
+CLIP Walking_A length=1.06666672229767
+CLIP Interact length=1.29999995231628
+BAKE_PREPARE surfaces=139 result=0
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Vulkan 1.4.318 - Forward Mobile - Using Device #0: Unknown - llvmpipe (LLVM 20.1.2, 256 bits)
+
+WARNING: UID duplicate detected between res://build/collection-d34af203/media/1008943970.ogv and res://build/architecture-4779e528/media/1008943970.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/collection-d34af203/media/1009870521.ogv and res://build/architecture-4779e528/media/1009870521.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/collection-d34af203/media/1014865523.ogv and res://build/architecture-4779e528/media/1014865523.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/collection-d34af203/media/1187745268.ogv and res://build/architecture-4779e528/media/1187745268.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/collection-d34af203/media/1191767929.ogv and res://build/architecture-4779e528/media/1191767929.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/floor-05fd1a28/media/1008943970.ogv and res://build/collection-d34af203/media/1008943970.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/floor-05fd1a28/media/1009870521.ogv and res://build/collection-d34af203/media/1009870521.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/floor-05fd1a28/media/1014865523.ogv and res://build/collection-d34af203/media/1014865523.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/floor-05fd1a28/media/1187745268.ogv and res://build/collection-d34af203/media/1187745268.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/floor-05fd1a28/media/1191767929.ogv and res://build/collection-d34af203/media/1191767929.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/playground-8c4753f8/media/1008943970.ogv and res://build/floor-05fd1a28/media/1008943970.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/playground-8c4753f8/media/1009870521.ogv and res://build/floor-05fd1a28/media/1009870521.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/playground-8c4753f8/media/1014865523.ogv and res://build/floor-05fd1a28/media/1014865523.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/playground-8c4753f8/media/1187745268.ogv and res://build/floor-05fd1a28/media/1187745268.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/playground-8c4753f8/media/1191767929.ogv and res://build/floor-05fd1a28/media/1191767929.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/playground-16cd1090/media/1008943970.ogv and res://build/playground-8c4753f8/media/1008943970.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/playground-16cd1090/media/1009870521.ogv and res://build/playground-8c4753f8/media/1009870521.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/playground-16cd1090/media/1014865523.ogv and res://build/playground-8c4753f8/media/1014865523.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/playground-16cd1090/media/1187745268.ogv and res://build/playground-8c4753f8/media/1187745268.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/playground-16cd1090/media/1191767929.ogv and res://build/playground-8c4753f8/media/1191767929.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/surfaces-2faf81e2/media/1008943970.ogv and res://build/playground-16cd1090/media/1008943970.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/surfaces-2faf81e2/media/1009870521.ogv and res://build/playground-16cd1090/media/1009870521.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/surfaces-2faf81e2/media/1014865523.ogv and res://build/playground-16cd1090/media/1014865523.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/surfaces-2faf81e2/media/1187745268.ogv and res://build/playground-16cd1090/media/1187745268.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/surfaces-2faf81e2/media/1191767929.ogv and res://build/playground-16cd1090/media/1191767929.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/viewer-restored-157/media/1008943970.ogv and res://build/surfaces-2faf81e2/media/1008943970.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/viewer-restored-157/media/1009870521.ogv and res://build/surfaces-2faf81e2/media/1009870521.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/viewer-restored-157/media/1014865523.ogv and res://build/surfaces-2faf81e2/media/1014865523.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/viewer-restored-157/media/1187745268.ogv and res://build/surfaces-2faf81e2/media/1187745268.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/viewer-restored-157/media/1191767929.ogv and res://build/surfaces-2faf81e2/media/1191767929.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/world-c614b5ed/media/1008943970.ogv and res://build/viewer-restored-157/media/1008943970.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/world-c614b5ed/media/1009870521.ogv and res://build/viewer-restored-157/media/1009870521.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/world-c614b5ed/media/1014865523.ogv and res://build/viewer-restored-157/media/1014865523.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/world-c614b5ed/media/1187745268.ogv and res://build/viewer-restored-157/media/1187745268.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://build/world-c614b5ed/media/1191767929.ogv and res://build/viewer-restored-157/media/1191767929.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://modules/video_player/media/1008943970.ogv and res://build/world-c614b5ed/media/1008943970.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://modules/video_player/media/1009870521.ogv and res://build/world-c614b5ed/media/1009870521.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://modules/video_player/media/1014865523.ogv and res://build/world-c614b5ed/media/1014865523.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://modules/video_player/media/1187745268.ogv and res://build/world-c614b5ed/media/1187745268.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://modules/video_player/media/1191767929.ogv and res://build/world-c614b5ed/media/1191767929.ogv.
+     at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+Done baking lightmaps in 00:00:00.00.
+ERROR: Attempted to call reimport_files() recursively, this is not allowed.
+   at: reimport_files (editor/file_system/editor_file_system.cpp:3259)
+   GDScript backtrace (most recent call first):
+       [0] _bake_room (res://modules/shell/prototype/gallery_walk4/bake/plugin.gd:25)
+Done baking lightmaps in 00:05:30.19.
+ERROR: Condition "p_I->data != this" is true. Returning: false
+   at: erase (./core/templates/list.h:228)
+res://modules/shell/prototype/gallery_walk4/textures/stone.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/textures/door-arch.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/W1.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/W1.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/W2.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/W2.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/W3.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/W3.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/W4.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/W4.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/W5.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/W5.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/W6-shaped.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/W7.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/W7.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/W8.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/W8.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/W9.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/W9.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/W10.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/W10.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/E1.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/E1.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/E2.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/E2.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/E3.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/E3.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/E4.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/E4.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/E5.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/E5.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/E6.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/E6.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/E7.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/E7.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/E8.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/E8.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/E9.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/E9.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/S1.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/S1.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/S2.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/S2.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/N1.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/N1.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/frames/N2.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://modules/shell/prototype/gallery_walk4/canvas/N2.jpg: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+BAKE_OK users=137
+
+================================================================
+handle_crash: Program crashed with signal 11
+Engine version: Godot Engine v4.7.2.stable.official (ed1daf0bf001b61586d9930840f2f1394092c079)
+Dumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues
+Load address: 74900a600000
+
+[1] 74900a645330 (main+45330) - /lib/x86_64-linux-gnu/libc.so.6(+0x45330) [0x74900a645330]
+[2] 1cb7244 (godot+18b7244) - godot() [0x1cb7244]
+[3] 1cb71dc (godot+18b71dc) - godot() [0x1cb71dc]
+[4] 1cb71dc (godot+18b71dc) - godot() [0x1cb71dc]
+[5] 1cb71dc (godot+18b71dc) - godot() [0x1cb71dc]
+[6] 1cb7b7e (godot+18b7b7e) - godot() [0x1cb7b7e]
+[7] 4406195 (godot+4006195) - godot() [0x4406195]
+[8] 52e6c23 (godot+4ee6c23) - godot() [0x52e6c23]
+[9] 74900a69cb84 (main+9cb84) - /lib/x86_64-linux-gnu/libc.so.6(+0x9cb84) [0x74900a69cb84]
+[10] 74900a729ecc (main+129ecc) - /lib/x86_64-linux-gnu/libc.so.6(+0x129ecc) [0x74900a729ecc]
+-- END OF C++ BACKTRACE --
+================================================================
+Traceback (most recent call last):
+  File "/home/reidsurmeier/orca/workspaces/risd-godot/integrate-square-164/modules/shell/prototype/gallery_walk4/bake/run.py", line 22, in <module>
+    subprocess.run(['godot', '--editor', '--path', str(root), '--rendering-method', 'mobile', '--max-fps', '10'], check=True, timeout=600)
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['godot', '--editor', '--path', '/home/reidsurmeier/orca/workspaces/risd-godot/integrate-square-164', '--rendering-method', 'mobile', '--max-fps', '10']' died with <Signals.SIGABRT: 6>.
