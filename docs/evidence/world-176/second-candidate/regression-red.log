@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SCRIPT ERROR: Assertion failed: rounded corner rim rises above straight rim
+          at: run (res://modules/shell/prototype/gallery_walk4/world_176_check.gd:10)
+          GDScript backtrace (most recent call first):
+              [0] run (res://modules/shell/prototype/gallery_walk4/world_176_check.gd:10)

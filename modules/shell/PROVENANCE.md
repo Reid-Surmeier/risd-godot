@@ -59,3 +59,7 @@ Current architecture source comes from build c9d2985c; see its architecture-167 
 ## Native wall and skylight candidate #168
 
 See docs/evidence/surfaces-168-current/README.md. Wall now uses native matte #6f83a3 with no image dependency. Skylight SVG is authored vector source, SHA256 fe3627efa8da494eaeba99fbd9c9e1182c023dc640cfd491be348950093ae50b, source-led from the recorded Site Specific gallery2447/2456 photos; 8×8 thin pale grid, square UV scale, stepped modeled surround. Provider none/count0/USD0 for this group. Floor macro texture dependency removed. All three separate saved-bake native/browser visual gates PASS at720/1600; recorded caveats remain in docs/evidence/surfaces-168-current.
+
+## #176 final world correction (2026-09-29)
+
+Source candidate2670002d corrects portal supports/joins, bench upholstery/underframes and photo-visible wall vents, joints and caption plates. Uses the existing recorded gallery photographs and accepted textures; no generation or additional spend. Rounded bench geometry and correct side UVs; flush wall divisions; closed portal relief edges and circular collar transitions. Both benches retain their locations; all23paintings and traversable openings retained. Third saved bake137users. Separate independent Astra medium image-only re-reviews: bench/walls PASS on secondcandidate, portalPASS onthird. Exact records and remaining fidelity limits in docs/evidence/world-176. No museum measurement or final owner approval is implied.
