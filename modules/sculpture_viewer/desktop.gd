@@ -155,8 +155,9 @@ func _ready() -> void:
 	for window in windows:
 		var grip := Button.new()
 		grip.name = "ResizeGrip"
-		grip.text = "◢"
-		grip.add_theme_font_size_override("font_size", 28)
+		grip.draw.connect(func():
+			for inset in [16, 24, 32]:
+				grip.draw_line(Vector2(inset, 40), Vector2(40, inset), Color("#dddddd"), 2.0, true))
 		grip.position = window.size - Vector2(48, 48)
 		grip.size = Vector2(48, 48)
 		grip.mouse_default_cursor_shape = Control.CURSOR_FDIAGSIZE
