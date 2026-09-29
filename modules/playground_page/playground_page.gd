@@ -788,7 +788,11 @@ func state() -> Dictionary:
 			"saved_images_unavailable": saved_images_unavailable,
 			"storage_status": storage_status}
 	if browsing != null:
-		result.merge(browsing.state().value)
+		var browsing_state: Dictionary = browsing.state().value
+		result.merge(browsing_state)
+		# The embedded page owns saves; retain the desktop size/input counters.
+		result.saved_ids = browsing_state.saved_ids
+		result.storage_status = browsing_state.storage_status
 		result["main_window"] = fengshui.get_global_rect()
 		result["navigation"] = {}
 		for button in browsing.navigation.get_children():

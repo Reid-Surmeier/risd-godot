@@ -16,6 +16,17 @@ func _mount(node: Node, _size: Vector2i, _default_out_dir: String) -> String:
 	var panel: Control = node.detail.get_child(0)
 	assert(Rect2(Vector2.ZERO, node.canvas.size).encloses(panel.get_rect()), "detail escaped client")
 	node.detail.free()
+	var made := Page.create({"collection_data": node.data_handle, "image_fetch": func(_a, _b): return {}, "show_fengshui": true})
+	assert(made.ok)
+	var desktop: Control = made.value
+	desktop.hide()
+	get_root().add_child(desktop)
+	desktop.browsing.saved_ids = ["probe"]
+	desktop.browsing.status = "available"
+	var reported: Dictionary = Page.state(desktop).value
+	assert(reported.saved_ids == ["probe"] and reported.storage_status == "available", "desktop shadowed embedded save state")
+	assert(reported.size == desktop.size, "embedded state replaced desktop dimensions")
+	desktop.free()
 	return output
 
 func _press_named(tenant: Control, target: String) -> void:
