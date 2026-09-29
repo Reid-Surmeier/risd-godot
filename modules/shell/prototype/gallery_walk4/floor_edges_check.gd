@@ -14,7 +14,7 @@ func _initialize() -> void:
 			var b := Vector3i((vertices[triangle + (side + 1) % 3] * 100000.0).round())
 			var key := str(a) + str(b) if a < b else str(b) + str(a)
 			var midpoint := Vector3(a + b) / 200000.0
-			if absf(midpoint.x) < 4.5 and midpoint.z < -0.5 and midpoint.z > -25.8:
+			if absf(midpoint.y) < 0.0001 and absf(midpoint.x) < 4.25 and midpoint.z < -0.5 and midpoint.z > -25.8:
 				edges[key] = edges.get(key, 0) + 1
 	var unmatched := 0
 	for count in edges.values():

@@ -113,7 +113,7 @@ func _prepare() -> void:
 		instance.material_override = material
 		if floor_mesh or portal_floor:
 			var oak := ShaderMaterial.new()
-			oak.shader = load(DIR + "oak.gdshader")  # #177 owner-selected warm parquet; retain portal cutaway support
+			oak.shader = load(DIR + ("floor_oak.gdshader" if floor_mesh else "oak.gdshader"))  # #186 selected gallery floor; retained passage
 			oak.set_shader_parameter("oak", material.albedo_texture)
 			if portal_floor:
 				oak.set_shader_parameter("floor_z_limits", Vector2(0, source.get_meta("portal_floor_end")))

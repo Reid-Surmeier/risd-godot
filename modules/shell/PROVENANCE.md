@@ -72,3 +72,7 @@ Owner-uploaded screenshot exactly matches6bdf721c architecture-167/owner-repairs
 ## #177 browser floor edge repair — 2026-09-29
 
 The restored warm parquet had rasterization holes at plank T-junctions. A magenta-background Web control exposed the same floor pixels as background. Each authored plank now has matching split edges, with shared lattice vertices quantized to 0.1 mm before world rotation. The saved floor ArrayMesh alone was retessellated; interpolated source colors, texture UVs and lightmap UVs remain. The existing lightmap, materials, source textures and scan hashes are unchanged. No rebake, provider request or spend. `floor_edges_check.gd` rejects the old mesh (6062 unmatched interior edges) and passes the repaired mesh (0). Browser/native matched close-ups and independent image review are recorded under `docs/evidence/owner-world-177/floor-repair/`.
+
+## #186 lighter floor selection (2026-09-29)
+
+Owner screenshot SHA256488e207d35b839603ee3d35cf1630f62a23bc800f4a03eadba61c862237b4a3f exactly matches world-176/integrated/details/bench.png, runtime c614b5ed. This supersedes #177's warm floor only. Restore existing oak-board-atlas-168-v3.webp, floor_oak.gdshader and 1.9×0.36 herringbone layout with #177's conformed shared edges. Current couch/walls/passage and lighting remain. Saved floor lighting UVs verified against the existing world-space mapping; lightmap EXR/LMBake hashes unchanged. No new generation, spend or bake. Evidence: docs/evidence/floor-selection-186.
