@@ -178,3 +178,11 @@ Existing official portal references guide the outer fan-carved band and connecte
 ## #167 owner bench correction — September 29, 2026
 
 Prototype-only `gallery_walk4/textures/bench-cloth-muse.webp`: OpenRouter `meta/muse-image`, one image, run `run-88c6ecd80fdd005ff1c6ce34`. Reported cost/reservation $0.010000, spend reconciliation unknown, no resubmission. SHA256 `4e87afbd59fec5004a36506934a30b62cc0f58500e07829572a9007ac13ffe51`. Ordered museum still and owner screenshot, hashes, prompt, recipe and review: `image-work/architecture-167/bench-material/`. Generated cloth pixels unchanged. Rounded/tufted cushion and slender open frame are authored geometry using inherited proportions, not measured reconstruction. Awaiting full-room and independent visual review; absent from build branch.
+
+### Bench8 geometry refinement — 2026-09-29
+
+Existing Muse cloth pixels unchanged. Source7e9cee01 narrows/softens modeled tufts and cavity color using the recorded museum bench reference. No new provider call, USD0. Bake127users, clean runner exit; native evidence owner-repairs/bake8. Visual acceptance and browser proof pending.
+
+- `room.tscn` SHA256 `fa1bd9ad9c1ef89279225e91bfcfb30990c9fc5d85949e37d4256cd5a514923c`
+- `room.lmbake` SHA256 `87529c49d38174870633da01f8654c2eceafdc2c8da40fd1be3a096914a130e7`
+- `room.exr` SHA256 `19ec1364ff612f120b336de96f3f84ed7d4f67b62ab863a546d45c8a250abbbb`
