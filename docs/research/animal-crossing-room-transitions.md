@@ -23,7 +23,7 @@ The dedicated door camera centers on the door actor and has its own process. Thi
 This is a proposed adaptation, not a claim about Nintendo's exact implementation:
 
 1. Commit only when the visitor crosses an inset doorway trigger toward its destination. Latch the destination once; pause ordinary movement and further doorway checks. Optionally guide a short step to the doorway center if alignment needs it.
-2. Hold the current room/camera and fade the Collection viewport fully to black. Start before the visitor or camera reaches clipping geometry. A plain fade is sufficient for the first implementation; an iris is optional polish.
+2. Hold the current room/camera and fade the Collection viewport fully to white, matching the verified GameCube museum wipe type. Start before the visitor or camera reaches clipping geometry. A plain white fade is sufficient for the first implementation.
 3. While fully covered, switch room, wall visibility/cutaway state, camera position and target, and visitor spawn/facing together. Reset camera smoothing so it cannot sweep through walls after reveal. Place the visitor inside the destination, clear of the return trigger.
 4. Reveal the settled destination, then restore movement. Rearm that doorway only after the visitor leaves its trigger; preserve reverse traversal afterward. A spatial rearm condition is preferable to a guessed cooldown.
 5. Verify both directions, held movement during arrival, backing away before commit, diagonal approaches, and different viewport shapes. Capture frames around the swap: no exposed geometry change, camera sweep, one-frame old-room view, or immediate return trip.

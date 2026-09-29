@@ -9,6 +9,6 @@ A move from z=-0.02 to +0.02 changes room state gallery→arch and mask23→15, 
 
 The far doorway follows a different path: it changes room/position/camera before starting a white flash. Changing the flash color alone would not hide the preceding switch. This diagnosis does not establish that all passage-floor defects have the same cause; the separate passage mesh finding remains.
 
-[Animal Crossing primary-source findings and proposed transition](../../research/animal-crossing-room-transitions.md): commit doorway → suspend normal movement → cover the Collection viewport completely → atomically set destination, cutaway, camera, visitor position/facing and smoothing → reveal → rearm outside the trigger. GameCube museum doors use a white fade; black is an optional art-direction choice, not a historical claim. Real connected-room topology remains #181/#182 work.
+[Animal Crossing primary-source findings and proposed transition](../../research/animal-crossing-room-transitions.md): commit doorway → suspend normal movement → cover the Collection viewport completely → atomically set destination, cutaway, camera, visitor position/facing and smoothing → reveal → rearm outside the trigger. Use a white fade for the first implementation, matching the verified GameCube museum door data. Real connected-room topology remains #181/#182 work.
 
 No runtime transition change, rebake, paid generation, or 3D Viewer change in this report.
