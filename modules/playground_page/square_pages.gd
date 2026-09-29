@@ -31,6 +31,8 @@ var title := Label.new()
 var navigation := HBoxContainer.new()
 var detail: Control
 var status := ""
+var compact := false
+var content_width := 1008.0
 
 
 static func create(deps: Dictionary) -> Dictionary:
@@ -57,7 +59,8 @@ func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	var theme := Theme.new()
 	theme.default_font_size = 16
-	theme.default_font = load("res://modules/playground_page/assets/fonts/LiberationSans-Regular.ttf")
+	theme.default_font = load("res://modules/playground_page/assets/fonts/LiberationSans-Regular.ttf").duplicate()
+	theme.default_font.fallbacks = [load("res://modules/playground_page/assets/fonts/WenQuanYi-Hangul.ttf")]
 	theme.set_color("font_color", "Label", INK)
 	theme.set_color("font_color", "LineEdit", INK)
 	theme.set_color("font_placeholder_color", "LineEdit", MUTED)
@@ -74,6 +77,7 @@ func _ready() -> void:
 	title.position = Vector2(36, 28)
 	title.add_theme_font_size_override("font_size", 31)
 	var motto := _label("Collect, connect, come back.", 13, MUTED)
+	motto.name = "Motto"
 	motto.position = Vector2(870, 43)
 	canvas.add_child(motto)
 	canvas.add_child(navigation)
@@ -85,6 +89,7 @@ func _ready() -> void:
 		button.custom_minimum_size.y = 34
 		navigation.add_child(button)
 	var line := ColorRect.new()
+	line.name = "Divider"
 	line.color = Color("dddddd")
 	line.position = Vector2(36, 144)
 	line.size = Vector2(1008, 1)
@@ -111,12 +116,21 @@ func _input(_event: InputEvent) -> void:
 
 
 func _layout() -> void:
-	var factor := size.x / 1080.0
+	var was_compact := compact
+	compact = size.x < 800
+	var logical_width := 540.0 if compact else 1080.0
+	var factor := size.x / logical_width
 	canvas.scale = Vector2.ONE * factor
-	canvas.size = Vector2(1080, size.y / maxf(factor, 0.01))
-	scroll.size = Vector2(1022, maxf(50, canvas.size.y - 186))
+	canvas.size = Vector2(logical_width, size.y / maxf(factor, 0.01))
+	content_width = logical_width - 72
+	content.custom_minimum_size.x = content_width
+	scroll.size = Vector2(content_width + 14, maxf(50, canvas.size.y - 186))
+	canvas.get_node("Motto").visible = not compact
+	canvas.get_node("Divider").size.x = content_width
 	if is_instance_valid(detail):
-		detail.size = canvas.size
+		detail.queue_free()
+	if was_compact != compact:
+		_render()
 
 
 func show_page(next: String) -> Dictionary:
@@ -202,33 +216,34 @@ func _render(preserve_scroll: bool = false) -> void:
 	results = _filtered()
 	var heading: String = {"explore": "Recent connections", "all": "All Blocks", "channels": channel,
 		"search": "Search the RISD collection"}[page]
-	_put(_label(heading, 24), Rect2(0, 0, 720, 34))
+	_put(_label(heading, 24), Rect2(0, 0, content_width, 34))
 	var count := _label("%d %s%s" % [results.size(), "works" if page == "search" else "blocks",
 		" · newest connection first" if page == "explore" else ""], 13, MUTED)
 	count.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	_put(count, Rect2(705, 2, 303, 30))
+	_put(count, Rect2(0, 34, content_width, 26) if compact else Rect2(705, 2, 303, 30))
 	if not status.is_empty() and status != "available":
 		count.text = "Save unavailable — try again"
 		count.add_theme_color_override("font_color", Color("aa2222"))
-	var top := 52.0
+	var top := 74.0 if compact else 52.0
 	if page == "search":
 		top = _search_controls()
 	elif page == "all":
 		_put(_button("✓ Saved on this browser" if saved_only else "Show saved on this browser", func():
 			saved_only = not saved_only
-			_render()), Rect2(0, 52, 225, 39))
-		_put(_label("Public Are.na blocks + RISD works", 13, MUTED), Rect2(240, 56, 500, 30))
-		top = 111
+			_render()), Rect2(0, 68 if compact else 52, 225, 39))
+		_put(_label("Public Are.na blocks + RISD works", 13, MUTED), Rect2(0, 112, content_width, 30) if compact else Rect2(240, 56, 500, 30))
+		top = 152 if compact else 111
 	elif not channel.is_empty():
-		_put(_button("← Channels", func(): show_page("channels")), Rect2(0, 46, 130, 32))
-		top = 98
-	var height := 377.0 if page == "explore" else 326.0
+		_put(_button("← Channels", func(): show_page("channels")), Rect2(0, 68 if compact else 46, 130, 32))
+		top = 114 if compact else 98
+	var height := 397.0 if page == "explore" else 346.0
+	var columns := 1 if compact else 3
 	for i in results.size():
-		_card(results[i], Vector2((i % 3) * 345, top + (i / 3) * height))
+		_card(results[i], Vector2((i % columns) * 345, top + (i / columns) * height))
 	if results.is_empty():
 		var message := "No works match this search. Try an artist, object, title, or clear the filters." if page == "search" else "Nothing here yet. Save a block from Explore or Search to collect it here."
-		_put(_label(message, 16, MUTED), Rect2(0, top + 30, 1008, 40))
-	content.custom_minimum_size.y = top + maxf(100, ceil(results.size() / 3.0) * height) + 24
+		_put(_label(message, 16, MUTED), Rect2(0, top + 30, content_width, 70))
+	content.custom_minimum_size.y = top + maxf(100, ceil(float(results.size()) / columns) * height) + 24
 
 
 func _filtered() -> Array:
@@ -254,32 +269,35 @@ func _filtered() -> Array:
 
 func _card(record: Dictionary, position: Vector2) -> void:
 	var card := Control.new()
-	_put(card, Rect2(position, Vector2(318, 355)))
+	var width := content_width if compact else 318.0
+	_put(card, Rect2(position, Vector2(width, 375)))
 	var top := 0.0
 	if page == "explore":
 		var date := Time.get_datetime_dict_from_datetime_string(record.connected_at, false)
 		var connection := "%s connected\nto %s · Sep %d, %02d:%02d UTC" % [record.connector, record.channel, date.day, date.hour, date.minute]
-		_put(_label(connection, 12, MUTED), Rect2(0, 0, 318, 42), card)
+		_put(_label(connection, 12, MUTED), Rect2(0, 0, width, 42), card)
 		top = 51
 	var art := _button("", func(): _detail(record))
 	art.tooltip_text = "Open " + record.title
 	art.add_theme_stylebox_override("normal", _box(Color("fafafa"), Color("e5e5e5")))
-	_put(art, Rect2(0, top, 318, 205), card)
+	_put(art, Rect2(0, top, width, 205), card)
 	var image := _image(record)
-	_put(image, Rect2(15, 15, 288, 175), art)
+	_put(image, Rect2(15, 15, width - 30, 175), art)
 	if record.source_width < 200:
 		image.size.y = 130
 		_put(_label("Small source preview", 12, MUTED), Rect2(85, 159, 180, 25), art)
 	var caption := _label(record.title)
 	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_put(caption, Rect2(0, top + 216, 318, 42), card)
-	var byline_top := top + 216 + caption.get_line_count() * 20
+	_put(caption, Rect2(0, top + 216, width, 42), card)
+	caption.max_lines_visible = 2
+	caption.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	var byline_top := top + 262
 	var byline: String = ", ".join(record.makers) + " · " + str(int(record.year_from)) if record.has("makers") else record.type
 	if record.source_width < 200:
 		byline += " · Low-res source"
 	var by := _label(byline, 13, MUTED)
 	by.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-	_put(by, Rect2(0, byline_top, 318, 22), card)
+	_put(by, Rect2(0, byline_top, width, 22), card)
 	var save := _button("✓ Saved here" if str(record.id) in saved_ids else "+ Save here", func(): _save(record), 12)
 	save.name = "Save_" + str(record.id).replace(":", "_")
 	_put(save, Rect2(0, byline_top + 30, 101, 28), card)
@@ -304,31 +322,33 @@ func _search_controls() -> float:
 	var search := func(_text = ""):
 		_render()
 	field.text_submitted.connect(search)
-	_put(field, Rect2(0, 52, 742, 46))
+	_put(field, Rect2(0, 68 if compact else 52, content_width if compact else 742, 46))
 	field.grab_focus.call_deferred()
-	_put(_button("Search", search, 16), Rect2(756, 55, 80, 40))
-	_put(_button("Random object ↗", func(): _detail(works.pick_random()), 16), Rect2(850, 55, 158, 40))
+	_put(_button("Search", search, 16), Rect2(0, 122, 80, 40) if compact else Rect2(756, 55, 80, 40))
+	_put(_button("Random object ↗", func(): _detail(works.pick_random()), 16), Rect2(96, 122, 158, 40) if compact else Rect2(850, 55, 158, 40))
 	var materials := ["All materials"]
 	for record in works:
 		if record.materials not in materials:
 			materials.append(record.materials)
 	_put(_choice(materials, 0 if material_filter.is_empty() else materials.find(material_filter), func(index):
 		material_filter = "" if index == 0 else materials[index]
-		_render()), Rect2(0, 112, 430, 40))
+		_render()), Rect2(0, 172, content_width, 40) if compact else Rect2(0, 112, 430, 40))
 	_put(_choice(["Title A–Z", "Oldest first", "Newest first"], sort_order, func(index):
 		sort_order = index
-		_render()), Rect2(444, 112, 147, 40))
+		_render()), Rect2(0, 222, 147, 40) if compact else Rect2(444, 112, 147, 40))
 	_put(_button(("☑" if images_only else "☐") + " Has images", func():
 		images_only = not images_only
-		_render(), 14, true), Rect2(606, 112, 124, 40))
+		_render(), 14, true), Rect2(162, 222, 124, 40) if compact else Rect2(606, 112, 124, 40))
 	_put(_button("Clear", func():
 		query = ""
 		material_filter = ""
 		sort_order = 0
 		images_only = true
-		_render(), 16), Rect2(744, 112, 69, 40))
-	_put(_label("Search sample: 25 verified public-domain paintings. Museum records open from each work.", 13, MUTED), Rect2(0, 168, 1008, 25))
-	return 207
+		_render(), 16), Rect2(304, 222, 69, 40) if compact else Rect2(744, 112, 69, 40))
+	var note := _label("Search sample: 25 verified public-domain paintings. Museum records open from each work.", 13, MUTED)
+	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_put(note, Rect2(0, 274 if compact else 168, content_width, 42))
+	return 330 if compact else 207
 
 
 func _choice(items: Array, selected: int, action: Callable) -> OptionButton:
@@ -362,10 +382,12 @@ func _groups() -> Dictionary:
 
 func _channels() -> void:
 	results = []
-	_put(_label("Channels", 24), Rect2(0, 0, 700, 34))
-	_put(_label("4 fixed groups", 13, MUTED), Rect2(916, 0, 100, 34))
+	_put(_label("Channels", 24), Rect2(0, 0, content_width, 34))
+	_put(_label("4 fixed groups", 13, MUTED), Rect2(content_width - 100, 0, 100, 34))
 	var groups := _groups()
 	var index := 0
+	var columns := 1 if compact else 3
+	var width := content_width if compact else 318.0
 	for group in groups:
 		var list: Array = groups[group]
 		var button := _button("", func():
@@ -373,18 +395,18 @@ func _channels() -> void:
 			_render())
 		button.name = "Channel_" + str(index)
 		button.add_theme_stylebox_override("normal", _box(Color.WHITE, GREEN))
-		_put(button, Rect2((index % 3) * 345, 58 + (index / 3) * 264, 318, 236))
+		_put(button, Rect2((index % columns) * 345, 58 + (index / columns) * 264, width, 236))
 		var heading := _label(group, 22, GREEN)
 		heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		_put(heading, Rect2(8, 20, 302, 36), button)
+		_put(heading, Rect2(8, 20, width - 16, 36), button)
 		for i in mini(3, list.size()):
-			_put(_image(list[i]), Rect2(22 + i * 94, 70, 86, 88), button)
+			_put(_image(list[i]), Rect2((width - 274) / 2 + i * 94, 70, 86, 88), button)
 		var source := "Source channel by Rin Lee" if index == 0 else "Collected by you · this browser" if index == 3 else "RISD Museum works"
 		var meta := _label(source + "\n%d blocks · %s" % [list.size(), "browser-local" if index == 3 else "snapshot Sep 2026"], 12, MUTED)
 		meta.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		_put(meta, Rect2(8, 178, 302, 45), button)
+		_put(meta, Rect2(8, 178, width - 16, 45), button)
 		index += 1
-	content.custom_minimum_size.y = 620
+	content.custom_minimum_size.y = 58 + ceil(4.0 / columns) * 264
 
 
 func _detail(record: Dictionary) -> void:
@@ -397,15 +419,16 @@ func _detail(record: Dictionary) -> void:
 	detail.size = canvas.size
 	var panel := Panel.new()
 	panel.add_theme_stylebox_override("panel", _box(Color.WHITE, Color("999999")))
-	_put(panel, Rect2(130, 30, 820, minf(810, canvas.size.y - 60)), detail)
-	_put(_button("Close ×", func(): detail.queue_free()), Rect2(690, 18, 105, 36), panel)
+	var width := canvas.size.x - 40 if compact else 820.0
+	_put(panel, Rect2(20 if compact else 130, 30, width, minf(810, canvas.size.y - 60)), detail)
+	_put(_button("Close ×", func(): detail.queue_free()), Rect2(width - 130, 18, 105, 36), panel)
 	var heading := _label(record.title, 23)
 	heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_put(heading, Rect2(26, 60, 768, 60), panel)
-	_put(_image(record), Rect2(50, 128, 720, panel.size.y - 300), panel)
+	_put(heading, Rect2(26, 60, width - 52, 60), panel)
+	_put(_image(record), Rect2(26, 128, width - 52, maxf(40, panel.size.y - 300)), panel)
 	var byline: String = ", ".join(record.makers) if record.has("makers") else record.connector
-	_put(_label(byline, 16), Rect2(26, panel.size.y - 146, 760, 28), panel)
-	_put(_label(record.get("materials", "Public Are.na block"), 14, MUTED), Rect2(26, panel.size.y - 113, 760, 26), panel)
+	_put(_label(byline, 16), Rect2(26, panel.size.y - 146, width - 52, 28), panel)
+	_put(_label(record.get("materials", "Public Are.na block"), 14, MUTED), Rect2(26, panel.size.y - 113, width - 52, 26), panel)
 	var url: String = record.get("source_url", record.get("source", ""))
 	_put(_button("Open museum record ↗" if record.has("makers") else "Open Are.na block ↗", func(): OS.shell_open(url), 16), Rect2(26, panel.size.y - 65, 240, 38), panel)
 

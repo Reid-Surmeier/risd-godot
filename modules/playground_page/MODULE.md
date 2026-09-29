@@ -25,6 +25,10 @@ The Page retains the six-window layout and frames from the owner's layout pictur
 
 Layout (ticket #63). The native desktop is 2171x1185 px (the windows' rects in the picture plus a 24 px margin). From the Page's size S, `factor = min(S.x / 2171, S.y / 1185)` scales every window uniformly. The leftover on the other axis goes to the PostPet window: its rect runs to the middle column on the right and to the bottom margin. It is a raster, so it is drawn band by band at the uniform scale, and only a one-pixel column per band (a column with no horizontal step inside that band) and one flat row take up the extra width and height. The middle column and the phone anchor to the right edge, the chat window to the bottom edge. Every resize re-lays out (drags reset), and at any aspect the desktop spans the page within the margin.
 
+## Embedded readability (#175)
+
+The browsing child uses a 540-wide single-column canvas below 800 client pixels, while the standalone 1080-wide layout remains available. Only content inside the retained Feng Shui window reflows. A shipped Hangul font subset supplies Korean channel glyphs. `embedded_check.gd` reuses the frozen square interaction harness at the retained client size and checks text scale, Korean coverage and contained detail.
+
 ## Frozen
 
 `interface.gd`, `errors.gd`, the playtest harnesses and verifier. Issue #164 explicitly extends the interface, errors and acceptance surface for square pages; the original desktop fixture remains unchanged.

@@ -27,3 +27,7 @@ Every pixel file is the owner's, copied unchanged from this repository except `a
 Why copies: collection_page's interface exposes only `create` and `state`, and its frozen verifier reads these files from its own `assets/` folder, so moving them into a shared module would change frozen files of a module this ticket does not name. One shared HUD-window module is a follow-up Issue.
 
 Rights: as in collection_page — the HUD windows are screenshots of a third-party game's interface supplied by the owner; the RISD Museum material's rights record is pending on ticket #35. Nothing here asserts a licence.
+
+## Korean browsing labels (#175)
+
+`assets/fonts/WenQuanYi-Hangul.ttf` is an unaltered-outline subset of the installed WenQuanYi Zen Hei face 0 (`/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc`, SHA-256 `79c18ebe7b811951e8311bad7103ebeae8c337ed9988ea69e8a78a66cfe029b9`). FontTools kept U+1100–11FF, U+3130–318F and U+AC00–D7AF with name metadata; it dropped unsupported BDF/FFTM metadata tables. Output SHA-256 `78561fd93c5c2bd5232686627e5b059e97ccaa95215aff12f81448c019837578`. The packaged copyright/embedding exception and GPL-2 text are retained beside it. Provider: installed Debian font package; cost $0; no generated visual. Used as a fallback for the existing Liberation Sans so original Korean catalog names remain readable in Web exports without depending on host fonts.
