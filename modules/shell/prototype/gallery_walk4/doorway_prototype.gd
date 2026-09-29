@@ -72,11 +72,11 @@ func _ready() -> void:
 		view = int(JavaScriptBridge.eval("new URLSearchParams(location.search).get('view') || '0'"))
 	set_view(view)
 func set_view(index: int) -> void:
-	view = posmod(index, 16)
-	var positions := [Vector3(0, 2.1, -20), Vector3(2.9, 1.3, -23), Vector3(1.8, 0.65, -25), Vector3(-2.5, 2.6, -22), Vector3(0, 3, -9), Vector3(0, 3.2, -13), Vector3(0, 3.2, -23), Vector3(0, 3.2, -4), Vector3(0, 2.0, -5), Vector3(0, 2.1, 6.5), Vector3(2.2, 1.8, 4.1), Vector3(2.5, 2.2, -6.3), Vector3(0.75, 0.8, -7.3), Vector3(0, 1.7, -4), Vector3(3.7, 2.1, -1.8), Vector3(1.8, 2.4, -3)]
-	var targets := [Vector3(0, 1.7, -26.3), Vector3(0.9, 1.2, -26.3), Vector3(1.15, 0.3, -26.3), Vector3(0, 1.65, -26.3), Vector3(0, 2.4, -26.3), Vector3(-5, 5.75, -13), Vector3(-5, 5.75, -26.3), Vector3(-5, 5.75, 0), Vector3(0, 1.9, 0), Vector3(0, 2.1, 1.6), Vector3(0.95, 1.8, 1.6), Vector3(0, 0.24, -9), Vector3(0, 0.24, -8.3), Vector3(0, 4.2, -20), Vector3(3.7, 0, -0.5), Vector3(0.9, 2.0, 0)]
+	view = posmod(index, 17)
+	var positions := [Vector3(0, 2.1, -20), Vector3(2.9, 1.3, -23), Vector3(1.8, 0.65, -25), Vector3(-2.5, 2.6, -22), Vector3(0, 3, -9), Vector3(0, 3.2, -13), Vector3(0, 3.2, -23), Vector3(0, 3.2, -4), Vector3(0, 2.0, -5), Vector3(0, 2.1, 6.5), Vector3(2.2, 1.8, 4.1), Vector3(2.5, 2.2, -6.3), Vector3(0.75, 0.8, -7.3), Vector3(0, 1.7, -4), Vector3(3.7, 2.1, -1.8), Vector3(1.8, 2.4, -3), Vector3(1.4, 1.7, -12)]
+	var targets := [Vector3(0, 1.7, -26.3), Vector3(0.9, 1.2, -26.3), Vector3(1.15, 0.3, -26.3), Vector3(0, 1.65, -26.3), Vector3(0, 2.4, -26.3), Vector3(-5, 5.75, -13), Vector3(-5, 5.75, -26.3), Vector3(-5, 5.75, 0), Vector3(0, 1.9, 0), Vector3(0, 2.1, 1.6), Vector3(0.95, 1.8, 1.6), Vector3(0, 0.24, -9), Vector3(0, 0.24, -8.3), Vector3(0, 4.2, -20), Vector3(3.7, 0, -0.5), Vector3(0.9, 2.0, 0), Vector3(-5, 2.4, -14)]
 	camera.position = positions[view]
-	camera.fov = 66 if view == 13 else (54 if view == 9 else 48)
+	camera.fov = 62 if view == 16 else (66 if view == 13 else (54 if view == 9 else 48))
 	camera.look_at(targets[view])
 	print("DOORWAY_PROTOTYPE view=", view)
 func _unhandled_key_input(event: InputEvent) -> void:
