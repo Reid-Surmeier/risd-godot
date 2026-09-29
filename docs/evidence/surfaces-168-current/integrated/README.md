@@ -5,4 +5,4 @@ Runtime2faf81e2. Repository, owner repair, portal/cornice winding, rendered cuta
 Shared full app (3days): https://windows-wsl.taile06c45.ts.net/risd-surfaces-01a0e95d/
 HTTPS game archive matches local SHA25641c266db8d45395f24d77eb2e9323668e3789f6a44f0fa99826e5149ce73d2ad.
 
-Independent integrated layout review pending. Final owner approval not inferred.
+Independent image-only integrated layout review PASS: all five sizes retain centered square/white exterior, complete unstretched ornate frame and clock, gallery confined to opening. Character visible including walk; no new UI overlaps or character clipping. Lighter floor/blue-gray walls preserve layout. Walking camera crop cuts upper artwork within gallery viewport. Stills do not establish motion quality/interactions/performance. Final owner approval not inferred.
