@@ -31,7 +31,7 @@ def extract():
     (ROOT / 'survey-2fps' / 'manifest.json').write_text(json.dumps(records, indent=2))
 
 
-def reconstruct(name, clips, focal):
+def reconstruct(name, clips, focal, all_pairs=False, resume=''):
     assert pycolmap.has_cuda, 'CUDA build required; no silent CPU extraction/matching fallback'
     run = ROOT / name
     images = run / 'images'
@@ -69,6 +69,8 @@ def reconstruct(name, clips, focal):
     matching = pycolmap.FeatureMatchingOptions()
     matching.num_threads = 8
     matching.gpu_index = '0'
+    if all_pairs:
+        pycolmap.match_exhaustive(database, matching_options=matching, device=pycolmap.Device.cuda)
     pycolmap.match_sequential(database, matching_options=matching,
                              pairing_options=pycolmap.SequentialPairingOptions(overlap=12),
                              device=pycolmap.Device.cuda)
@@ -93,11 +95,15 @@ def reconstruct(name, clips, focal):
     options.snapshot_path = str(run / 'snapshots')
     (run / 'snapshots').mkdir(exist_ok=True)
     options.snapshot_frames_freq = 100
-    models = pycolmap.incremental_mapping(database, images, sparse, options=options)
+    models = pycolmap.incremental_mapping(database, images, sparse, options=options, input_path=resume)
     result = {'clips': clips, 'input_images': len(names), 'seconds': time.time()-start,
               'pycolmap': pycolmap.__version__, 'cuda': pycolmap.has_cuda,
+              'all_pairs': all_pairs, 'resumed_from': resume,
               'metric_scale': 'unknown: monocular arbitrary units', 'models': []}
     for index, model in models.items():
+        model_path = sparse / str(index)
+        model_path.mkdir(exist_ok=True)
+        model.write(model_path)
         model.export_PLY(str(sparse / f'{index}.ply'))
         registered = sorted(image.name for image in model.images.values() if image.has_pose)
         result['models'].append({'id': index, 'images': model.num_reg_images(),
@@ -114,6 +120,8 @@ if __name__ == '__main__':
     parser.add_argument('stage', choices=['extract', 'reconstruct'])
     parser.add_argument('--name', default='sfm-galleries-v1')
     parser.add_argument('--focal', type=float, help='Measured preliminary focal estimate, at 1280 px width')
+    parser.add_argument('--all-pairs', action='store_true')
+    parser.add_argument('--resume', default='', help='Existing sparse component to extend')
     parser.add_argument('--clips', nargs='+', default=['IMG_6383', 'IMG_6384', 'IMG_6385', 'IMG_6386'])
     args = parser.parse_args()
-    extract() if args.stage == 'extract' else reconstruct(args.name, args.clips, args.focal)
+    extract() if args.stage == 'extract' else reconstruct(args.name, args.clips, args.focal, args.all_pairs, args.resume)

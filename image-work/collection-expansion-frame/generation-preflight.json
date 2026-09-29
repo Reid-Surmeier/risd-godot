@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "arabs-frame-002",
+      "prompt": "prompts/frame.txt",
+      "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+      "size": "1760x1568",
+      "inputs": [
+        {
+          "path": "references/frame-photo.png",
+          "sha256": "132ff9a2cff4ae75c4989318422615c84b556e9cdbc930a1d76583358d5d15e9"
+        }
+      ]
+    }
+  ]
+}

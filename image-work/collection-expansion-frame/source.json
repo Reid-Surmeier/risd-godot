@@ -1,0 +1,44 @@
+{
+  "video": "IMG_6386.MOV",
+  "sample_2fps": 122,
+  "nominal_seconds": 60.5,
+  "source_sha256": "a27e94ab529205b858c07c3b444f5475f5df06bcbc1aa8552db424ccc9f4286a",
+  "corners_native": [
+    [
+      528.4483762103276,
+      785.4720925841602
+    ],
+    [
+      564.308730039393,
+      212.93444625008544
+    ],
+    [
+      1016.430677215146,
+      246.0042247015349
+    ],
+    [
+      1021.8492079355537,
+      772.7105801370835
+    ]
+  ],
+  "rectification_output_to_source": [
+    0.09375014562960697,
+    0.7540489249362561,
+    308.5770597960048,
+    -0.5889204521390841,
+    0.07557750096110616,
+    990.7079294047269,
+    9.844039773799251e-05,
+    0.00011897853605089882
+  ],
+  "canvas_dimensions_m": [
+    0.651,
+    0.541
+  ],
+  "painting_accession": "35.786",
+  "prompt_reused": "image-work/grand-gallery-v4/frames2/prompts/frame.txt",
+  "source_note": "Canvas-plane rectification does not remove perspective from protruding carving.",
+  "quoted_price_usd": 0.01,
+  "price_source": "https://openrouter.ai/meta/muse-image",
+  "price_checked": "2026-09-29"
+}

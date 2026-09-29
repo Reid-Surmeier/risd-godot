@@ -47,3 +47,72 @@ Primary tool references: [COLMAP CUDA wheels](https://colmap.github.io/pycolmap/
 ## Repository verification
 
 Python compilation and `git diff --check` passed. `scripts/check.sh` initially failed because the fresh worktree had not imported its Godot assets; after `godot --headless --editor --import --path .`, it passed. Godot reports eight leaked ObjectDB instances at shutdown, which this experiment does not change. The review page rendered without JavaScript errors and both sparse/dense screenshots were inspected. No runtime GDScript or frozen acceptance file changed.
+
+## Expanded survey and metric section — September 29 continuation
+
+![Observed section in provisional metres](../evidence/collection-reconstruction/metric-section.png)
+
+The eight-clip exhaustive GPU match trial (`sfm-connected-v4`) used 1,584 training
+images. The resumed main component grew from 192 to 194 views. A separate 234-view
+component spans IMG_6380, IMG_6384 and IMG_6385; the museum remains disconnected.
+The export now explicitly saves every component's camera/track files: COLMAP's
+resume path otherwise persisted only the starting model alongside the PLYs.
+The mapper was rerun from cached matches to recover those files; component IDs
+outside the major stable components changed. `expanded-sfm.json` is the saved rerun.
+
+Shared-track similarity fits reserve every fifth correspondence for evaluation.
+Components 7→0 and 11→6 pass the exploratory fit filter (at least 50 shared points,
+80% train/held-out inliers within 2% of correspondence radius, non-collinear spread).
+The first has 6,844 shared point pairs and 91.5% held-out inliers. These are local
+alignment candidates, **not independent proof of room connections**: points share
+source images and bundle adjustment. No accepted alignment reaches component 3,
+so its metric scale has not been propagated into the main map.
+
+The verified Delacroix canvas is 0.651 × 0.541 m (see
+[anchor research](collection-scale-anchors.md)). Ten views of component 3 support
+canvas-plane fits with width/height scale disagreement below 5%. Their median
+scale is 0.444195 metres per reconstruction unit; the 10–90 percentile interval is
+0.442346–0.445263. This is consistency across correlated views, not an absolute
+accuracy confidence interval. Level/plumb canvas orientation remains an assumption.
+The saved rerun gives 0.444490 m/unit, consistent with the earlier component.
+
+`metric_section.py` exports 79,558 observed dense points in provisional metres and
+the front/plan plot above. The cabinet silhouette provides an independent visual
+sanity check, but catalogue-height/width/depth validation is still pending. The
+plot shows depth and artwork separation; it does not invent wall, floor or doorway
+surfaces. No game runtime or 3D Viewer file changed.
+
+Reproduction (using the ingestion virtualenv):
+
+```sh
+python modules/shell/prototype/collection_reconstruction/component_links.py /home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-connected-v4
+python modules/shell/prototype/collection_reconstruction/metric_section.py
+```
+
+The alignment script includes a synthetic transform-direction check. The metric
+export checks an orthonormal basis, positive scale and finite coordinates. These
+checks do not substitute for held-out video, navigation, collision or bake gates.
+
+## First Muse asset pass
+
+The source-preserving Muse pass is now executed: one frame, OpenRouter
+`meta/muse-image`, actual recorded cost $0.010000. See the
+[application record](../../image-work/collection-expansion-frame/README.md) for
+source/result images, recipe, full run archive and remaining checks. No sculpture
+pass or batch has been run.
+
+The frame trial uncovered the existing rectangular side strips' mismatch with
+this carved outline. An isolated perimeter extrusion fixes the visible fragments
+without changing the game builder. The 9 cm depth is still assumed. The authentic
+canvas remains separate at its catalogue dimensions; no room bake is claimed.
+
+The earlier software-render limitation has a working GPU path for these native
+Godot captures: clear `LIBGL_ALWAYS_SOFTWARE`, use `DISPLAY=:0`,
+`GALLIUM_DRIVER=d3d12`, `MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA`, and Godot's
+Compatibility renderer. The log identifies **D3D12 (NVIDIA GeForce RTX 4070 SUPER)**.
+Direct NVIDIA Vulkan initialization failed on this WSL host. This GPU evidence is
+for the native asset trial, not the earlier browser point-cloud preview.
+
+Validation: full `scripts/check.sh` passed with the existing eight ObjectDB leak
+warning; `git diff --check` passed. The asset harness verified four meshes and
+exported three views, all inspected. No production files or frozen tests changed.
