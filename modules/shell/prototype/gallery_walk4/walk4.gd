@@ -452,7 +452,7 @@ func _bench_surface(x: float, z: float) -> Vector3:
 	for bx in [-0.19, 0.19]:
 		for bz in [-1.05, -0.63, -0.21, 0.21, 0.63, 1.05]:
 			var distance := Vector2(x - bx, z - bz).length_squared()
-			height -= 0.065 * exp(-distance / 0.012)
+			height -= 0.035 * exp(-distance / 0.007)
 	return Vector3(x, height, z)
 
 func _bench_cushion(z: float) -> void:
@@ -471,7 +471,7 @@ func _bench_cushion(z: float) -> void:
 				# Authored cavity occlusion follows the modeled tuft depth, not painted buttons.
 				var edge := minf(0.475 - absf(point.x), 1.5 - absf(point.z))
 				var crown := 0.355 + 0.065 * sin(clampf(edge / 0.13, 0, 1) * PI / 2)
-				st.set_color(Color.WHITE * lerpf(1.0, 0.55, clampf((crown - point.y) / 0.065, 0, 1)))
+				st.set_color(Color.WHITE * lerpf(1.0, 0.75, clampf((crown - point.y) / 0.035, 0, 1)))
 				st.set_uv(Vector2(point.x, point.z) * 1.8)
 				st.add_vertex(point + Vector3(0, 0, z))
 	# Match the sampled top edge with a rounded lower welt, without box corners.
