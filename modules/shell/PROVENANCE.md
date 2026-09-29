@@ -41,3 +41,12 @@ Architecture is source-led authored geometry, not a scan or surveyed reconstruct
 | `portal-capital-relief.json` | `25c7f5b414e6f519d81c29a2d6c0434a4a683a5b72dfb222b323a7af1574ec1b` |
 
 Owner final hands-on acceptance remains separate and pending. No paid calls for integration or the dissolve repair.
+
+Additional authored source hashes for the selected architecture:
+
+| Source | SHA-256 |
+| --- | --- |
+| `textures/cornice-ivory.svg` | `69a315944cfca068373c0220beda9134b87df87b272607deb6bb48e736264bff` |
+| `textures/ivory-trim.svg` | `89a3ccde5dfb4d78c4023e35e1ae9b3cc457ecb240b67994ba3af7612951c776` |
+| `textures/exit-sign.svg` | `7f15231b789fb9539d2affcb90fcc593735f446191877a9427179ddfec9a1e07` |
+| `portal_sculpt_relief_prepare.gd` | `88b95549164040aae8758c34ed79286b39fdf0ce8112247a6941c9bd2395bbeb` |

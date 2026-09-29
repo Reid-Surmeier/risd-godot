@@ -3,7 +3,7 @@ const fs = require('fs'), assert = require('assert/strict');
 const puppeteer = require('/home/reidsurmeier/promo-lab/node_modules/puppeteer-core');
 (async () => {
  const [url, out] = process.argv.slice(2); fs.mkdirSync(out,{recursive:true});
- const browser = await puppeteer.launch({executablePath:'/usr/bin/google-chrome',headless:true,args:['--no-sandbox','--use-gl=angle','--use-angle=gl-egl','--ignore-gpu-blocklist']});
+ const browser = await puppeteer.launch({executablePath:'/usr/bin/google-chrome',headless:true,protocolTimeout:300000,args:['--no-sandbox','--use-gl=angle','--use-angle=gl-egl','--ignore-gpu-blocklist']});
  const page = await browser.newPage(), errors = [], rows = [];
  page.on('pageerror', e => errors.push(String(e)));
  page.on('console', m => {if(m.type()==='error' && !/404|2D MSAA|render_target_set_msaa/.test(m.text())) errors.push(m.text());});
