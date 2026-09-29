@@ -59,6 +59,17 @@ static func set_floor_pose(walk: Control, index: int) -> void:
 		walk._cam.position = Vector3(0.8, 1.75, -14.0)
 		walk._cam.look_at(Vector3(0.2, 0.0, -18.5))
 		walk._cam.fov = 55.0
+	elif index == 2:
+		walk.set_process(false)
+		walk._cam.position = Vector3(1.4, 1.7, -12.0)
+		walk._cam.look_at(Vector3(-5.0, 2.4, -14.0))
+		walk._cam.fov = 62.0
+	elif index == 3:
+		walk.set_process(false)
+		walk._cam.cull_mask = 63  # the normal floor view hides the skylight layer
+		walk._cam.position = Vector3(0.0, 1.8, -12.0)
+		walk._cam.look_at(Vector3(0.0, 5.8, -19.0))
+		walk._cam.fov = 66.0
 func set_view(index: int) -> void:
 	view = posmod(index, 5)
 	var positions := [Vector3(0, 2.1, -20), Vector3(2.9, 1.3, -23), Vector3(1.8, 0.65, -25), Vector3(-2.5, 2.6, -22), Vector3(0, 3, -9)]
