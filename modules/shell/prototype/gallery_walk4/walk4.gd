@@ -53,6 +53,7 @@ var _view_label: Label
 var _velocity := Vector3.ZERO
 var _source_meshes: Array[Node] = []
 var _baked_room: Node3D
+var _portal_floor_material: ShaderMaterial
 var _white_capture: LightmapGI
 var _baked_lighting := true
 var _lighting_choice: CheckButton
@@ -1443,6 +1444,8 @@ func _set_lighting(enabled: bool) -> void:
 	# The old photographed end cards are scenery, not traversable rooms.
 	for mesh in _source_meshes + (_baked_room.find_children("*", "MeshInstance3D", true, false) if _baked_room else []):
 		var material = mesh.material_override
+		if material is ShaderMaterial and material.shader.resource_path.ends_with("/oak.gdshader") and material.get_shader_parameter("floor_z_limits").x == 0:
+			_portal_floor_material = material
 		var texture = material.albedo_texture if material is StandardMaterial3D else (material.get_shader_parameter("albedo") if material is ShaderMaterial else null)
 		if texture and (texture.resource_path.ends_with("door-arch.jpg") or texture.resource_path.ends_with("door-far.jpg")):
 			mesh.hide()
@@ -1840,6 +1843,9 @@ func _clamp(p: Vector3) -> Vector3:
 # The camera follows behind the kid but never leaves the room: the line from the kid's head to where the camera
 # wants to be is cut where it would cross a wall.
 func _update_camera(k: float) -> void:
+	if _portal_floor_material:
+		# Hidden portal masonry cannot leave its baked footprint on the exposed floor.
+		_portal_floor_material.set_shader_parameter("cutaway", false)
 	if _baked_room:
 		_baked_room.get_node("Lightmap").visible = _space != "far"
 	if _white_capture:
@@ -1891,6 +1897,8 @@ func _update_camera(k: float) -> void:
 		if _space == "arch":
 			hidden = (4 if forward.x < -0.2 else (2 if forward.x > 0.2 else 0)) | (16 if forward.z < -0.2 else (8 if forward.z > 0.2 else 0))
 		_cam.cull_mask = (1984 & ~(hidden * 64)) if _space == "far" else (31 & ~hidden)
+		if _portal_floor_material:
+			_portal_floor_material.set_shader_parameter("cutaway", _space != "far" and (_cam.cull_mask & 8) == 0)
 		if _view_label:
 			_view_label.text = "WASD · Click art · " + ("West wall" if forward.x < -0.5 else ("East wall" if forward.x > 0.5 else ("Far wall" if forward.z < -0.5 else "Arch wall")))
 		return
