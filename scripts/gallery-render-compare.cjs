@@ -13,14 +13,14 @@ const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
  const shuffled=[...modes]; for(let i=shuffled.length-1;i>0;i--){const j=crypto.randomInt(i+1);[shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];}
  const key=Object.fromEntries(shuffled.map((mode,i)=>[String.fromCharCode(65+i),mode]));
  fs.writeFileSync(out+'-key.json',JSON.stringify(key,null,2));
- const browser=await puppeteer.launch({executablePath:'/usr/bin/google-chrome',headless:'new',args:['--use-gl=angle','--use-angle=gl-egl','--ignore-gpu-blocklist','--no-sandbox']});
+ const browser=await puppeteer.launch({executablePath:'/usr/bin/google-chrome',headless:'new',protocolTimeout:300000,args:['--use-gl=angle','--use-angle=gl-egl','--ignore-gpu-blocklist','--no-sandbox']});
  try {
   const page=await browser.newPage(); const errors=[];
   page.on('pageerror',e=>errors.push(String(e)));
   page.on('console',m=>{if(m.type()==='error'){errors.push(m.text());console.error(m.text());}});
   await page.setViewport({width:1600,height:900});
   await page.goto(url.href,{waitUntil:'load',timeout:120000});
-  await page.waitForFunction(()=>window.loadPerf?.some(m=>m.name==='game-shown') && window.galleryRenderCommand,{timeout:120000});
+  await page.waitForFunction(()=>window.loadPerf?.some(m=>m.name==='game-shown') && window.galleryRenderCommand,{timeout:240000});
   await pause(3000);
   const gpu=await page.evaluate(()=>{const gl=document.createElement('canvas').getContext('webgl2');const ext=gl?.getExtension('WEBGL_debug_renderer_info');return ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):'unknown';});
   console.log(JSON.stringify({gpu,expected_gpu:process.env.PRODUCER_BROWSER_GPU_MODE||'unspecified'}));
@@ -44,7 +44,7 @@ const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
   await command({action:'chart',visible:false});
   const results=[];
   for(const width of (process.env.RENDER_WIDTHS||'1600,720').split(',').map(Number)) {
-   const height=width===1600?900:486;
+   const height=process.env.RENDER_SQUARE==='1'?width:(width===1600?900:486);
    await page.setViewport({width,height});await pause(500);
    await page.mouse.move(10,40);
    for(const [label,mode] of Object.entries(key)) {

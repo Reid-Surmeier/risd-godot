@@ -92,6 +92,7 @@ func _pose(scene: String) -> void:
 	view._enter_space("arch" if scene == "white" else "gallery")
 	view._portal_flash.modulate.a = 0.0
 	view._target = null
+	view._target_yaw = null
 	view._path.clear()
 	view._held.clear()
 	view._velocity = Vector3.ZERO
@@ -103,13 +104,16 @@ func _pose(scene: String) -> void:
 	view._pos = {"entry": Vector3(0, 0, -0.35), "warm": Vector3(2.0, 0, -4.0), "art": Vector3(-3.3, 0, -12.0), "white": Vector3(0, 0, -3.0)}.get(scene, Vector3(2.0, 0, -4.0))
 	view._last_pos = view._pos
 	view._motion_heading = Vector3.FORWARD
-	# The integrated rig owns its animation clock; legacy sprite phase is ignored.
-	if view._kid.has_method("reset_contacts"):
-		view._kid.reset_contacts()
-		view._kid.phase = 0.12
-		view._kid._time = 0.0
-		view._kid.gesture = ""
-		view._kid.gesture_time = 0.0
+	# #161 reset the selected Hair36 rig before every matched replay.
+	view._kid.reset_contacts()
+	view._kid._clock = 0.0
+	view._kid._gait = 0.0
+	view._kid._clip = "Idle"
+	view._kid._blend_start = -1.0
+	view._kid._from.clear()
+	view._kid._stationary_weight = 1.0
+	view._kid.rotation.y = 0.0
+	view._kid.target.reset_bone_poses()
 	view._process(0.0)
 	view._update_camera(1.0)
 
@@ -157,11 +161,10 @@ func _publish() -> void:
 	var desktop_size: Vector2 = Vector2(view.get_viewport().size)
 	state["display_rect_normalized"] = [display_rect.position.x / desktop_size.x, display_rect.position.y / desktop_size.y, display_rect.end.x / desktop_size.x, display_rect.end.y / desktop_size.y]
 	state["display_material"] = {"node": str(box.get_path()), "class": box.get_class(), "visible": box.is_visible_in_tree(), "use_parent_material": box.use_parent_material, "instance": finish.get_instance_id(), "shader": finish.shader.resource_path, "copy_filter": finish.get_shader_parameter("copy_filter"), "quantization_mode": finish.get_shader_parameter("quantization_mode")}
-	if view._kid.has_method("reset_contacts"):
-		var poses := []
-		for bone in view._kid.skeleton.get_bone_count():
-			poses.append(view._kid.skeleton.get_bone_pose(bone))
-		state["visitor"] = {"identity": view._kid.identity, "phase": view._kid.phase, "idle_time": view._kid._time, "yaw": view._kid.rotation.y, "pose_hash": hash(poses)}
+	var poses := []
+	for bone in view._kid.target.get_bone_count():
+		poses.append(view._kid.target.get_bone_pose(bone))
+	state["visitor"] = {"identity": "Hair36", "phase": view._kid.phase, "idle_time": view._kid._clock, "yaw": view._kid.rotation.y, "pose_hash": hash(poses)}
 	state["godot_delta_ms"] = _frame_delta_ms
 	state["godot_process_ms"] = Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0
 	state["godot_post_draw_interval_ms"] = _draw_interval_ms

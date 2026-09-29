@@ -1,0 +1,7 @@
+# Current gallery finish comparison — #161
+
+Baseline: complete reviewed surface build2faf81e2/evidencec551aabe, selected Hair36 visitor and current architecture. Earlier prototype-display-161 remains preserved; its old visitor recordings are not reused as acceptance. This trial reuses the current build and existing opt-in render diagnostics; default runtime finish is unchanged.
+
+Research precedes trial: docs/research/animal-crossing-reference-light.md and gallery-display-astra-blind-valid.md distinguish broad material/face shading from uncertain capture noise. Compare existing diagnostic bypass/current/full-copy modes at identical square gameplay views, warm/artwork/white rooms and matched normal-speed walking. Full-copy is the stronger filtering candidate. No mesh, painting identity, bake or default shader values are changed. A new finish is selected only if it improves two scenes without new defects or >10% repeatable uninstrumented frame-time regression; otherwise current remains.
+
+The old private diagnostic referenced the previous rig skeleton/identity/time/gesture fields. Updated only its fixture reset and telemetry to the selected Hair36 target/clock. Native check compares both initial skeleton and120 movement ticks across repeated resets. Browser capture retains anonymous labels/key separation and adds an explicit square option. Final Web/native visual/motion and timing review remain outstanding. Spend USD0.
