@@ -29,8 +29,8 @@ void fragment() {
 		float face = min(floor(COLOR.a * 8.0), 7.0);
 		float row = floor(face * 0.5);
 		float column = mod(face, 2.0);
-		float row_start = vec4(0.0, 0.276, 0.525, 0.753)[int(row)];
-		float row_end = vec4(0.276, 0.525, 0.753, 1.0)[int(row)];
+		float row_start = (row < 1.0 ? 0.0 : (row < 2.0 ? 0.276 : (row < 3.0 ? 0.525 : 0.753)));
+		float row_end = (row < 1.0 ? 0.276 : (row < 2.0 ? 0.525 : (row < 3.0 ? 0.753 : 1.0)));
 		image_uv = vec2((column + 0.04 + UV.x * 0.92) * 0.5,
 			mix(row_start, row_end, 0.06 + UV.y * 0.88));
 	}
