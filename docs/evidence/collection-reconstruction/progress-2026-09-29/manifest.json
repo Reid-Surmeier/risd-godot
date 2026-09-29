@@ -1,0 +1,26 @@
+{
+  "joined-plan.png": {
+    "source": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/heldout-calibrated-v1/joined-plan.png",
+    "sha256": "a3086e2151f1ff56e6669188479c0c363885e09299ed62cfc4be019f146ff240"
+  },
+  "decorative-front.png": {
+    "source": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/review-preview/decorative-front.png",
+    "sha256": "4ab52364120fa1566cb2c09062e663815abe11944fd17aa156c7d7f89c138f04"
+  },
+  "muse-frame-angle.png": {
+    "source": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/review-preview/muse-frame-angle.png",
+    "sha256": "79c7f088c1059f51a75aab7c19bf3ab78e9c7778963426b89bfdf7a29ebdcf15"
+  },
+  "sculpture-muse.webp": {
+    "source": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/review-preview/sculpture-muse.webp",
+    "sha256": "0325b88fba070b85c957a6991623c843c1515b83c508b37dc09cc43b8906064f"
+  },
+  "head-surface-v2-oblique.png": {
+    "source": "docs/evidence/collection-reconstruction/head-surface-v2-oblique.png",
+    "sha256": "f1334a516cb9df7a95527cf9d36e7086cefcd32bda47b7097b1f3111f15fc2ae"
+  },
+  "validation.json": {
+    "source": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/heldout-calibrated-v1/audit.json",
+    "sha256": "58fbf93ba2a6c4287338d11e3de8665eaa6afd6c62e37f8eb5e8aa8ed94d045d"
+  }
+}
