@@ -3,6 +3,8 @@
 from pathlib import Path
 import subprocess
 import argparse
+import re
+import threading
 
 root = Path(__file__).resolve().parents[5]
 parser = argparse.ArgumentParser(description=__doc__)
@@ -19,7 +21,27 @@ previous = {path: path.read_bytes() if path.exists() else None
 try:
     subprocess.run(['godot', '--path', str(root), '--rendering-method', 'gl_compatibility', '--script', prepare], check=True, timeout=120)
     project.write_text(original + '\n[gallery_bake]\nscene="' + name + '"\n\n[editor_plugins]\nenabled=PackedStringArray("res://modules/shell/prototype/gallery_walk4/bake/plugin.cfg")\n')
-    subprocess.run(['godot', '--editor', '--path', str(root), '--rendering-method', 'mobile', '--max-fps', '10'], check=True, timeout=600)
+    command = ['godot', '--editor', '--path', str(root), '--rendering-method', 'mobile', '--max-fps', '10',
+               'res://modules/shell/prototype/gallery_walk4/baked/' + name + '.tscn']
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    deadline = threading.Timer(1800, process.kill)
+    deadline.start()
+    saved = False
+    try:
+        for line in process.stdout:
+            print(line, end='', flush=True)
+            # Emitted only after the plugin validates users and saves the scene.
+            saved |= re.fullmatch(r'BAKE_OK users=[1-9][0-9]*\n?', line) is not None
+        code = process.wait()
+    finally:
+        deadline.cancel()
+        if process.poll() is None:
+            process.kill()
+            process.wait()
+    if not saved:
+        raise RuntimeError(f'Editor exited {code} without a saved bake')
+    if code:
+        print(f'BAKE_EDITOR_EXIT {code} after save; retained outputs require rendered verification')
 except BaseException:
     for path, content in previous.items():
         if content is None:

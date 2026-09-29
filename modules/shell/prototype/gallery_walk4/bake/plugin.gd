@@ -8,9 +8,17 @@ func _enter_tree() -> void:
 
 func _bake_room() -> void:
 	await get_tree().create_timer(2).timeout
-	EditorInterface.open_scene_from_path(DIR + str(ProjectSettings.get_setting("gallery_bake/scene", "room")) + ".tscn")
+	while EditorInterface.get_resource_filesystem().is_scanning():
+		await get_tree().create_timer(0.5).timeout
+	var scene_path := DIR + str(ProjectSettings.get_setting("gallery_bake/scene", "room")) + ".tscn"
+	EditorInterface.open_scene_from_path(scene_path)
 	await get_tree().create_timer(2).timeout
 	var room := EditorInterface.get_edited_scene_root()
+	if room == null or room.scene_file_path != scene_path or not room.has_node("Lightmap"):
+		push_error("Bake scene was replaced during editor startup: " + scene_path)
+		get_tree().quit(1)
+		return
+	print("BAKE_STARTED scene=", room.scene_file_path)
 	var lightmap := room.get_node("Lightmap") as LightmapGI
 	EditorInterface.edit_node(lightmap)
 	await get_tree().create_timer(1).timeout

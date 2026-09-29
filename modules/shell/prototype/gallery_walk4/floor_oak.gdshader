@@ -2,8 +2,8 @@
 shader_type spatial;
 render_mode cull_disabled, specular_disabled;
 uniform sampler2D oak : source_color, filter_linear_mipmap, repeat_enable;
-// #168: the recorded RISD floor crop is muted tan, not saturated orange.
-uniform vec4 ground_tone : source_color = vec4(0.88, 0.80, 0.72, 1.0);
+// #187: retain selected board detail with the owner-requested honey oak tone.
+uniform vec4 ground_tone : source_color = vec4(0.96, 0.80, 0.60, 1.0);
 // Whole authored planks extend past the end walls; the white doorway recess
 // shares the floor plane. Keep parquet fragments inside the room to avoid Z fighting.
 uniform vec2 floor_z_limits = vec2(-26.3, 0.0);

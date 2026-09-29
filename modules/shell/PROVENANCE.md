@@ -76,3 +76,7 @@ The restored warm parquet had rasterization holes at plank T-junctions. A magent
 ## #186 lighter floor selection (2026-09-29)
 
 Owner screenshot SHA256488e207d35b839603ee3d35cf1630f62a23bc800f4a03eadba61c862237b4a3f exactly matches world-176/integrated/details/bench.png, runtime c614b5ed. This supersedes #177's warm floor only. Restore existing oak-board-atlas-168-v3.webp, floor_oak.gdshader and 1.9×0.36 herringbone layout with #177's conformed shared edges. Current couch/walls/passage and lighting remain. Saved floor lighting UVs verified against the existing world-space mapping; lightmap EXR/LMBake hashes unchanged. No new generation, spend or bake. Evidence: docs/evidence/floor-selection-186.
+
+## #187 warm floor and room light (2026-09-29)
+
+Owner requested the older honey tone on the accepted #186 grain/layout, warmer lamp light and less skylight. Existing atlas pixels and 1.9×0.36 plank layout retained; floor shader tint adjusted, baked daylight reduced from 0.8 to 0.35, fill warmed and increased from 0.4 to 0.55, painting spots from 6.0 to 6.8. Doorway reveal and passage-facing normals corrected; shared panel winding now agrees with supplied normals. New offline lightmap is authored from this geometry and lighting. No image generation/provider calls or spend. Evidence and bake device/timing: `docs/evidence/warm-room-187/`.

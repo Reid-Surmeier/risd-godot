@@ -279,7 +279,8 @@ func _panel(c: Vector3, u: Vector3, v: Vector3, m: Material, cell := 0.5, layer 
 	for j in nv:
 		for i in nu:
 			var q := [Vector2(i, j), Vector2(i + 1, j), Vector2(i + 1, j + 1), Vector2(i, j + 1)]
-			for k in [0, 1, 2, 0, 2, 3]:
+			# Godot uses clockwise front faces; agree with the supplied normal.
+			for k in [0, 2, 1, 0, 3, 2]:
 				var f := Vector2(q[k].x / nu, q[k].y / nv)
 				var p := c + u * f.x + v * f.y
 				var o: float = ao.call(p) if ao.is_valid() else _ao(p, vertical)
@@ -730,13 +731,13 @@ func _arch_end() -> void:
 	var crown := [Vector2(0, 0), Vector2(0, 0.065), Vector2(0.025, 0.09), Vector2(0.055, 0.14), Vector2(0.075, 0.15), Vector2(0.10, 0.15), Vector2(0.10, 0)]
 	_trim_profile(Vector3(-dw - 0.38, ds.y + 0.32, 0), Vector3.UP, Vector3(ds.x + 0.76, 0, 0), crown, white, Vector3.FORWARD)
 	_panel(Vector3(0.17, ds.y + 0.55, -0.071), Vector3(-0.34, 0, 0), Vector3(0, 0.15, 0), ps(load(DIR + "textures/exit-sign.svg"), Color.WHITE, Vector2(1.0 / 0.34, 1.0 / 0.15)))
-	# the wall's plaster reveal
+	# Reveal normals face into the opening, where the baked light arrives.
 	var zr := 0.45
 	var rev := ps(null, Color("#dcd5c6"), Vector2.ONE, true)
 	var deep := func(p: Vector3) -> float: return lerpf(0.9, 0.62, clampf(p.z / zr, 0.0, 1.0))
-	_panel(Vector3(-dw, 0, 0), Vector3(0, 0, zr), Vector3(0, ds.y, 0), rev, 0.3, 1, deep)
-	_panel(Vector3(dw, 0, zr), Vector3(0, 0, -zr), Vector3(0, ds.y, 0), rev, 0.3, 1, deep)
-	_panel(Vector3(-dw, ds.y, zr), Vector3(ds.x, 0, 0), Vector3(0, 0, -zr), rev, 0.3, 1, deep)
+	_panel(Vector3(-dw, 0, zr), Vector3(0, 0, -zr), Vector3(0, ds.y, 0), rev, 0.3, 1, deep)
+	_panel(Vector3(dw, 0, 0), Vector3(0, 0, zr), Vector3(0, ds.y, 0), rev, 0.3, 1, deep)
+	_panel(Vector3(-dw, ds.y, 0), Vector3(ds.x, 0, 0), Vector3(0, 0, zr), rev, 0.3, 1, deep)
 	# the stone portal: a round-arched tunnel, its arch rising just past the door head
 	var z0 := zr
 	var z1 := zr + PORTAL_DEPTH
@@ -746,15 +747,15 @@ func _arch_end() -> void:
 	var zb := z1 + beyond
 	var room := ps(null, Color("#56606b"), Vector2.ONE, true)
 	var lit := func(p: Vector3) -> float: return lerpf(0.55, 1.05, clampf((p.z - z1) / beyond, 0.0, 1.0))
-	_panel(Vector3(-3.0, 0, 0), Vector3(0, 0, zb), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
-	_panel(Vector3(3.0, 0, zb), Vector3(0, 0, -zb), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
+	_panel(Vector3(-3.0, 0, zb), Vector3(0, 0, -zb), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
+	_panel(Vector3(3.0, 0, 0), Vector3(0, 0, zb), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
 	# Visible reverse face of the existing wall, with outward-facing normals.
 	# Extending the side returns to this plane closes the former floor-edge gaps.
 	_panel(Vector3(-3.0, 0, 0.01), Vector3(3.0 - dw, 0, 0), Vector3(0, 5.0, 0), room, 0.5, 1, lit)
 	_panel(Vector3(dw, 0, 0.01), Vector3(3.0 - dw, 0, 0), Vector3(0, 5.0, 0), room, 0.5, 1, lit)
 	_panel(Vector3(-dw, ds.y, 0.01), Vector3(ds.x, 0, 0), Vector3(0, 5.0 - ds.y, 0), room, 0.5, 1, lit)
 	_panel(Vector3(3.0, 0, zb + 0.01), Vector3(-6.0, 0, 0), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
-	_panel(Vector3(-3.0, 5.0, zb), Vector3(6.0, 0, 0), Vector3(0, 0, -beyond), ps(null, Color("#8c8579"), Vector2.ONE, true), 1.0, 1, lit)
+	_panel(Vector3(-3.0, 5.0, z1), Vector3(6.0, 0, 0), Vector3(0, 0, beyond), ps(null, Color("#8c8579"), Vector2.ONE, true), 1.0, 1, lit)
 	_portal_floor(zb)
 	var card := MeshInstance3D.new()
 	var qm := QuadMesh.new()

@@ -38,8 +38,8 @@ func _prepare() -> void:
 				builder.generate_normals()
 				arrays = builder.commit().surface_get_arrays(0)
 			if cornice_mesh:
-				# The inherited panel triangles face opposite their supplied normals.
-				# Match the doorway's winding repair, scoped to this new cornice.
+				# Profile caps can face opposite their supplied normals.
+				# Keep the cornice bake winding consistent with its shaded faces.
 				var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX] if arrays[Mesh.ARRAY_INDEX] != null else PackedInt32Array(range(vertices.size()))
 				for triangle in range(0, indices.size(), 3):
 					var a := indices[triangle]
@@ -140,8 +140,8 @@ func _prepare() -> void:
 		light.position = Vector3(0, 5.7, z)
 		light.omni_range = 13.0
 		light.omni_attenuation = 0.65
-		light.light_energy = 0.4
-		light.light_color = Color("#fff1d9")
+		light.light_energy = 0.55
+		light.light_color = Color("#ffe1b2")
 		light.light_size = 2.5
 		light.light_bake_mode = Light3D.BAKE_STATIC
 		light.shadow_enabled = true
@@ -158,14 +158,14 @@ func _prepare() -> void:
 		spot.spot_angle = 25.0
 		spot.spot_angle_attenuation = 1.5
 		spot.light_color = Color("#ffd391")
-		spot.light_energy = 6.0
+		spot.light_energy = 6.8
 		spot.light_size = 0.35
 		spot.light_bake_mode = Light3D.BAKE_STATIC
 		spot.shadow_enabled = true
 	var daylight := DirectionalLight3D.new()
 	daylight.rotation_degrees = Vector3(-60, -75, 0)  # across the gallery, avoiding a hard far-lunette shadow
 	daylight.light_color = Color("#eff5ff")
-	daylight.light_energy = 0.8
+	daylight.light_energy = 0.35
 	daylight.light_angular_distance = 6.0
 	daylight.light_bake_mode = Light3D.BAKE_STATIC
 	daylight.shadow_enabled = true
@@ -233,8 +233,8 @@ func _prepare() -> void:
 				room.add_child(probe)
 				probe.owner = room
 	lm.environment_mode = LightmapGI.ENVIRONMENT_MODE_CUSTOM_COLOR
-	lm.environment_custom_color = Color("#cbd4e1")
-	lm.environment_custom_energy = 0.22
+	lm.environment_custom_color = Color("#dfd6c7")
+	lm.environment_custom_energy = 0.18
 	room.add_child(lm)
 	lm.owner = room
 	var scene := PackedScene.new()
