@@ -85,3 +85,18 @@ Near-floor coverage remains 3.8–18.6% in other usable views, with no sparse
 floor points in those footprints. Far-floor discrepancies reach 7.3 provisional
 cm at the 90th percentile. This does not accept collisions, a step, a slope,
 metric scale or room navigation. No new paid generation or CUDA sweep.
+
+## Collection threshold landmarks — September 29, 23:00 UTC heartbeat
+
+Local NumPy/pycolmap/Pillow triangulation, **$0**, zero paid calls. Three
+native-resolution reference frames were also decoded with CUDA on RTX 4070
+SUPER; no new feature, matching or depth sweep. Generator:
+`prototype/collection_reconstruction/threshold_landmarks.py`.
+[Sources, annotations, hashes and evidence](../../docs/evidence/collection-reconstruction/heartbeat-20260929T2300/provenance.json).
+
+Five landmarks predict reserved frame 15 within 3.40 px, but the knot is
+4.75 provisional cm off the four-corner plane and ±3 px pick sensitivity
+produces a 21.05-degree 95th-percentile normal deviation. These are nearby
+same-video checks. Narrow threshold measurements do not accept a level floor,
+a physical step, room collisions, metric scale or navigation. Existing Muse
+receipts and failed sculpture meshes remain unchanged.

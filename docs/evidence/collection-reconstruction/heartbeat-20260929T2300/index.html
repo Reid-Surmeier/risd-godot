@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Collection threshold measurements · 23:00 UTC</title>
+<style>body{max-width:1100px;margin:30px auto;padding:0 20px;background:#172029;color:#eef3f8;font:18px/1.5 system-ui}img{max-width:100%;height:auto}a{color:#9dd7ff}figure{margin:24px 0}figcaption{margin:10px 0}</style>
+<h1>Collection threshold measurements</h1><p>September 29, 2026 · 23:00 UTC tick · prototype evidence, not an accepted floor or museum walk.</p>
+<p>Five manually marked landmarks predict the reserved frame within <b>3.40 pixels</b>. However, the threshold knot is <b>4.75 provisional cm</b> away from the plane fitted to four casing toes. The plane tilts up to <b>21.05° at the 95th percentile</b> when picks are perturbed within ±3 pixels. A narrow threshold cannot establish the room floor.</p>
+<p>The measured left/right jamb directions also disagree by 4.71°. No level floor, physical step or slope is inferred. Existing 49/69 held-out support and 46/69 split-point passes are nearby same-video checks, not independent capture accuracy.</p>
+<figure><img src="000015.png" alt="Reserved doorway photograph with green manual landmarks and red predictions"><figcaption>Reserved frame 15. Green circles: frozen manual picks. Red crosses: predictions fitted using frames 13 and 18. The knot was excluded from the plane fit.</figcaption></figure>
+<figure><img src="threshold-plan.png" alt="Measured threshold plan and elevation with scale bars"><figcaption>Only measured landmark connections are drawn. Casing toe distances include lateral offset; they are not assumed wall thicknesses.</figcaption></figure>
+<details><summary>Training views and native-resolution floor crops</summary>
+<figure><img src="000013.png" alt="Training frame 13"><figcaption>Training frame 13.</figcaption></figure>
+<figure><img src="000018.png" alt="Training frame 18"><figcaption>Training frame 18.</figcaption></figure>
+<figure><img src="native-01-floor.png" alt="Native-resolution floor crop from frame 13"><figcaption>Native-resolution crop 13: CUDA decode from the verified 1920×1080 original.</figcaption></figure>
+<figure><img src="native-02-floor.png" alt="Native-resolution floor crop from reserved frame 15"><figcaption>Native-resolution crop 15; no new measurements fitted from this crop.</figcaption></figure>
+<figure><img src="native-03-floor.png" alt="Native-resolution floor crop from frame 18"><figcaption>Native-resolution crop 18. Motion blur and repetitive boards still limit landmark identification.</figcaption></figure></details>
+<p>Repository and synthetic measurement checks pass. Shell playtest repeats seven previous layout/pixel/timing failures. All images inspected. No browser navigation or gameplay performance claimed; 3D Viewer unchanged; $0 paid calls.</p>
+<p><a href="result.json">Measurements and sensitivity</a> · <a href="provenance.json">Sources and hashes</a> · <a href="native-extraction.json">CUDA extraction command</a> · <a href="shell-playtest.log">Shell results</a></p></html>

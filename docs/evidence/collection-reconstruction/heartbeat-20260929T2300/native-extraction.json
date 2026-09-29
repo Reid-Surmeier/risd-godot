@@ -1,0 +1,32 @@
+{
+  "command": [
+    "ffmpeg",
+    "-n",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-hwaccel",
+    "cuda",
+    "-hwaccel_output_format",
+    "cuda",
+    "-noautorotate",
+    "-ss",
+    "250",
+    "-i",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6380.MOV",
+    "-t",
+    "3.1",
+    "-vf",
+    "scale_cuda=1920:1080:format=yuv420p,hwdownload,format=yuv420p,fps=6,select=eq(n\\,12)+eq(n\\,14)+eq(n\\,17)",
+    "-fps_mode",
+    "vfr",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/threshold-source-native-v1/%02d.png"
+  ],
+  "mapping": {
+    "01.png": "000013.jpg",
+    "02.png": "000015.jpg",
+    "03.png": "000018.jpg"
+  },
+  "source_sha256": "eaf7a7853b6cc5610517631b44aa83de1006ac6caa5aa673038f1f067cafd3d4",
+  "note": "CUDA decode/scale at native 1920x1080. Same fps filter/order and source seek as doorway_revisit.py; not new views."
+}

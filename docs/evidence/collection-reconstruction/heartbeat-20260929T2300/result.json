@@ -1,0 +1,228 @@
+{
+  "labels": [
+    "inner-left",
+    "inner-right",
+    "outer-left",
+    "outer-right",
+    "knot"
+  ],
+  "annotations": {
+    "IMG_6380_exit6fps/000013.jpg": [
+      [
+        84,
+        770
+      ],
+      [
+        431,
+        746
+      ],
+      [
+        52,
+        794
+      ],
+      [
+        459,
+        766
+      ],
+      [
+        265,
+        775
+      ]
+    ],
+    "IMG_6380_exit6fps/000018.jpg": [
+      [
+        166,
+        827
+      ],
+      [
+        586,
+        832
+      ],
+      [
+        127,
+        858
+      ],
+      [
+        630,
+        872
+      ],
+      [
+        364,
+        851
+      ]
+    ],
+    "IMG_6380_exit6fps/000015.jpg": [
+      [
+        134,
+        791
+      ],
+      [
+        504,
+        783
+      ],
+      [
+        101,
+        815
+      ],
+      [
+        534,
+        808
+      ],
+      [
+        316,
+        804
+      ]
+    ]
+  },
+  "training": [
+    "IMG_6380_exit6fps/000013.jpg",
+    "IMG_6380_exit6fps/000018.jpg"
+  ],
+  "heldout": "IMG_6380_exit6fps/000015.jpg",
+  "source_sha256": {
+    "points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "image_sha256": {
+    "IMG_6380_exit6fps/000013.jpg": "56c308f8015aab6eea50e3d2ecbd324c0a8c7822b5326b5bcaf50c895ac37c7e",
+    "IMG_6380_exit6fps/000018.jpg": "c8d1d99174a00064a2e7be47876bc3c59e25cbe87032c5848e7f47dd9dd6cf02",
+    "IMG_6380_exit6fps/000015.jpg": "0e694c29f0d3eef9c71308cca1270504df4525ff315b546058640ba61e9fc02a"
+  },
+  "heldout_pose_fit_inliers": 280,
+  "points_world": [
+    [
+      0.45566070775475687,
+      1.7145993376343607,
+      1.3709731819396351
+    ],
+    [
+      0.46967968601678745,
+      2.412748554451083,
+      1.4867732915764642
+    ],
+    [
+      0.44497124342518085,
+      1.6647619217900567,
+      1.4406824200456316
+    ],
+    [
+      0.42480505274273245,
+      2.402193378950418,
+      1.614968959438807
+    ],
+    [
+      0.4698179233647652,
+      2.039180181077407,
+      1.4690796971431441
+    ]
+  ],
+  "maximum_ray_angle_degrees": [
+    7.459195937511913,
+    5.736579090025664,
+    8.355649444029684,
+    6.910397084473228,
+    6.701255538862067
+  ],
+  "reprojection_errors_px": {
+    "IMG_6380_exit6fps/000013.jpg": [
+      0.8227588639195524,
+      0.47739599451795917,
+      1.5811465735712604,
+      1.2180860670207367,
+      2.2062208408236117
+    ],
+    "IMG_6380_exit6fps/000018.jpg": [
+      0.9213540308409197,
+      0.6450361313722348,
+      1.7727460109717346,
+      1.7198285954101311,
+      2.7354391848683632
+    ],
+    "IMG_6380_exit6fps/000015.jpg": [
+      1.8346385518873778,
+      1.518577113675521,
+      3.398721935253619,
+      1.3326406418226378,
+      2.3593951614833464
+    ]
+  },
+  "threshold_px": 8.0,
+  "diagnostic_pass": true,
+  "provisional_m_per_unit": 2.6266704457139363,
+  "center_world": [
+    0.44877917248486443,
+    2.0485757982064796,
+    1.4783494632501344
+  ],
+  "normal_world": [
+    -0.9590265999395413,
+    0.05169261385776784,
+    -0.27856032431226646
+  ],
+  "corner_plane_residuals_m": [
+    0.0158836867367981,
+    0.009365790400798544,
+    0.014961235057963918,
+    0.008443338721964308
+  ],
+  "reserved_knot_plane_distance_m": 0.047490770801448645,
+  "plane_spread_singular_values_m": [
+    1.9248293586897118,
+    0.28997648569165774,
+    0.025201945508589126
+  ],
+  "inner_to_outer_lengths_m": [
+    0.22682954090961285,
+    0.35783768525339044
+  ],
+  "normal_angle_from_prior_up_degrees": 8.024506079341148,
+  "sensitivity": {
+    "pixel_uniform_radius": 3,
+    "samples": 300,
+    "columns": [
+      "normal_deviation_deg",
+      "left_strip_length_m",
+      "right_strip_length_m"
+    ],
+    "percentiles": [
+      5,
+      50,
+      95
+    ],
+    "values": [
+      [
+        0.77397848036466,
+        0.17947397587514688,
+        0.20846305432706264
+      ],
+      [
+        5.591872355358637,
+        0.22504226273167416,
+        0.34710664045580175
+      ],
+      [
+        21.049897879649098,
+        0.34656293971604557,
+        0.5825566679479974
+      ]
+    ]
+  },
+  "navigation_accepted": false,
+  "caveat": "Narrow threshold only. Outer casing toes may not identify the same surface as the inner toes. Knot excluded from plane fit. Same-video reserved pose is correlated; no independent capture, scale, full floor or navigation acceptance. Jamb-derived up assumes vertical casing; its disagreement is reported, not treated as surveyed gravity.",
+  "jamb_direction_disagreement_degrees": 4.708855209834483,
+  "height_relative_to_inner_midpoint_along_jamb_up_m": [
+    -0.005596035428667219,
+    0.0055960354286671635,
+    -0.011770853528872574,
+    0.07043840604349094,
+    -0.0375297336542122
+  ],
+  "jamb_up_world": [
+    -0.9875467540325171,
+    0.050639768825871234,
+    -0.14895308796094675
+  ]
+}
