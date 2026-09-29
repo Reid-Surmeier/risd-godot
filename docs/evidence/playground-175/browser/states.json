@@ -1,0 +1,2330 @@
+{
+  "states": [
+    {
+      "name": "Page_explore",
+      "state": {
+        "display_size": [
+          1080,
+          1080
+        ],
+        "logical_size": [
+          1080,
+          1080
+        ],
+        "shell": {
+          "active": 5,
+          "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+          "count": 7,
+          "fixed_count": 7,
+          "opening": false,
+          "pressed": -1,
+          "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+          "switching": false,
+          "tabs": [
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "map",
+              "label": "map",
+              "page_visible": false,
+              "rect": [
+                76.2557525634766,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "sketchbook",
+              "label": "sketchbook",
+              "page_visible": false,
+              "rect": [
+                212.87028503418,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "3d_viewer",
+              "label": "3d_viewer",
+              "page_visible": false,
+              "rect": [
+                349.484832763672,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "video_player",
+              "label": "video_player",
+              "page_visible": false,
+              "rect": [
+                486.099365234375,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "collection",
+              "label": "collection",
+              "page_visible": false,
+              "rect": [
+                622.7138671875,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": false,
+              "key": "playground",
+              "label": "playground",
+              "page_visible": true,
+              "rect": [
+                759.328430175781,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "flowers",
+              "label": "flowers",
+              "page_visible": false,
+              "rect": [
+                895.942932128906,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": null
+            }
+          ]
+        },
+        "stage_rect": [
+          0,
+          0,
+          1080,
+          1080
+        ],
+        "tenant": {
+          "action": "",
+          "channel": "",
+          "connections": [
+            "2026-09-22T21:18:53Z",
+            "2026-09-22T21:18:19Z",
+            "2026-09-22T21:18:02Z",
+            "2026-09-22T21:17:44Z",
+            "2026-09-22T21:17:33Z",
+            "2026-09-22T21:16:42Z",
+            "2026-09-22T21:15:48Z",
+            "2026-09-22T21:15:34Z",
+            "2026-09-22T21:14:30Z",
+            "2026-09-22T21:14:27Z",
+            "2026-09-22T21:13:09Z",
+            "2026-09-22T20:13:40Z"
+          ],
+          "desktop": "(2171.0, 1185.0)",
+          "factor": 0.497466605251036,
+          "inputs": 4,
+          "key": "playground",
+          "main_window": [
+            14.1639347076416,
+            68.163932800293,
+            601.967224121094,
+            943.672119140625
+          ],
+          "margin": 24,
+          "navigation": {
+            "Page_all": "[P: (152.357, 220.5871), S: (76.4788, 37.14684)]",
+            "Page_channels": "[P: (261.6124, 220.5871), S: (74.29369, 37.14684)]",
+            "Page_explore": "[P: (59.48987, 220.5871), S: (60.09048, 37.14684)]",
+            "Page_search": "[P: (368.6827, 220.5871), S: (55.72026, 37.14684)]"
+          },
+          "page": "explore",
+          "query": "",
+          "results": [
+            50674575,
+            50674566,
+            50674559,
+            1482094,
+            15578699,
+            27905250,
+            7740876,
+            19876412,
+            22279292,
+            31148360,
+            50674477,
+            50672783
+          ],
+          "saved_ids": [],
+          "saved_images_loaded": 0,
+          "saved_images_unavailable": 0,
+          "size": "(1080.0, 972.0)",
+          "storage_status": "available",
+          "ticks": 157,
+          "windows": [
+            {
+              "drag_height": 31.8378608777596,
+              "name": "postpet",
+              "order": 0,
+              "rect": "[P: (11.9392, 11.9392), S: (604.9196, 948.1216)]"
+            },
+            {
+              "drag_height": 14.923997341276,
+              "name": "options",
+              "order": 1,
+              "rect": "[P: (623.3257, 11.9392), S: (248.2319, 106.8611)]"
+            },
+            {
+              "drag_height": 15.4214649017026,
+              "name": "filters",
+              "order": 2,
+              "rect": "[P: (623.3257, 118.397), S: (243.2615, 111.4001)]"
+            },
+            {
+              "drag_height": 15.4214636552251,
+              "name": "trade",
+              "order": 3,
+              "rect": "[P: (620.3409, 252.713), S: (246.2498, 106.9522)]"
+            },
+            {
+              "drag_height": 16.2927287780144,
+              "name": "chat",
+              "order": 4,
+              "rect": "[P: (632.6558, 829.1803), S: (277.9672, 128.6558)]"
+            },
+            {
+              "drag_height": -1,
+              "name": "phone",
+              "order": 5,
+              "rect": "[P: (878.1639, 14.16393), S: (187.6721, 374.7541)]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Page_all",
+      "state": {
+        "display_size": [
+          1080,
+          1080
+        ],
+        "logical_size": [
+          1080,
+          1080
+        ],
+        "shell": {
+          "active": 5,
+          "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+          "count": 7,
+          "fixed_count": 7,
+          "opening": false,
+          "pressed": -1,
+          "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+          "switching": false,
+          "tabs": [
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "map",
+              "label": "map",
+              "page_visible": false,
+              "rect": [
+                76.2557525634766,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "sketchbook",
+              "label": "sketchbook",
+              "page_visible": false,
+              "rect": [
+                212.87028503418,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "3d_viewer",
+              "label": "3d_viewer",
+              "page_visible": false,
+              "rect": [
+                349.484832763672,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "video_player",
+              "label": "video_player",
+              "page_visible": false,
+              "rect": [
+                486.099365234375,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "collection",
+              "label": "collection",
+              "page_visible": false,
+              "rect": [
+                622.7138671875,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": false,
+              "key": "playground",
+              "label": "playground",
+              "page_visible": true,
+              "rect": [
+                759.328430175781,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "flowers",
+              "label": "flowers",
+              "page_visible": false,
+              "rect": [
+                895.942932128906,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": null
+            }
+          ]
+        },
+        "stage_rect": [
+          0,
+          0,
+          1080,
+          1080
+        ],
+        "tenant": {
+          "action": "",
+          "channel": "",
+          "connections": [
+            "2026-09-22T21:18:53Z",
+            "2026-09-22T21:18:19Z",
+            "2026-09-22T21:18:02Z",
+            "2026-09-22T21:17:44Z",
+            "2026-09-22T21:17:33Z",
+            "2026-09-22T21:16:42Z",
+            "2026-09-22T21:15:48Z",
+            "2026-09-22T21:15:34Z",
+            "2026-09-22T21:14:30Z",
+            "2026-09-22T21:14:27Z",
+            "2026-09-22T21:13:09Z",
+            "2026-09-22T20:13:40Z"
+          ],
+          "desktop": "(2171.0, 1185.0)",
+          "factor": 0.497466605251036,
+          "inputs": 8,
+          "key": "playground",
+          "main_window": [
+            14.1639347076416,
+            68.163932800293,
+            601.967224121094,
+            943.672119140625
+          ],
+          "margin": 24,
+          "navigation": {
+            "Page_all": "[P: (152.357, 220.5871), S: (76.4788, 37.14684)]",
+            "Page_channels": "[P: (261.6124, 220.5871), S: (74.29369, 37.14684)]",
+            "Page_explore": "[P: (59.48987, 220.5871), S: (60.09048, 37.14684)]",
+            "Page_search": "[P: (368.6827, 220.5871), S: (55.72026, 37.14684)]"
+          },
+          "page": "all",
+          "query": "",
+          "results": [
+            50674575,
+            50674566,
+            50674559,
+            1482094,
+            15578699,
+            27905250,
+            7740876,
+            19876412,
+            22279292,
+            31148360,
+            50674477,
+            50672783,
+            "risd:1190261",
+            "risd:1190336",
+            "risd:1190396",
+            "risd:1190676",
+            "risd:1190686",
+            "risd:1190706",
+            "risd:1190751",
+            "risd:1190816",
+            "risd:1196161",
+            "risd:1197221",
+            "risd:1197226",
+            "risd:1197456",
+            "risd:1197476",
+            "risd:1197496",
+            "risd:1197566",
+            "risd:1197581",
+            "risd:1197596",
+            "risd:1197711",
+            "risd:1197766",
+            "risd:1197831",
+            "risd:1198191",
+            "risd:1198271",
+            "risd:1198296",
+            "risd:1207106",
+            "risd:1207111"
+          ],
+          "saved_ids": [],
+          "saved_images_loaded": 0,
+          "saved_images_unavailable": 0,
+          "size": "(1080.0, 972.0)",
+          "storage_status": "available",
+          "ticks": 209,
+          "windows": [
+            {
+              "drag_height": 31.8378608777596,
+              "name": "postpet",
+              "order": 0,
+              "rect": "[P: (11.9392, 11.9392), S: (604.9196, 948.1216)]"
+            },
+            {
+              "drag_height": 14.923997341276,
+              "name": "options",
+              "order": 1,
+              "rect": "[P: (623.3257, 11.9392), S: (248.2319, 106.8611)]"
+            },
+            {
+              "drag_height": 15.4214649017026,
+              "name": "filters",
+              "order": 2,
+              "rect": "[P: (623.3257, 118.397), S: (243.2615, 111.4001)]"
+            },
+            {
+              "drag_height": 15.4214636552251,
+              "name": "trade",
+              "order": 3,
+              "rect": "[P: (620.3409, 252.713), S: (246.2498, 106.9522)]"
+            },
+            {
+              "drag_height": 16.2927287780144,
+              "name": "chat",
+              "order": 4,
+              "rect": "[P: (632.6558, 829.1803), S: (277.9672, 128.6558)]"
+            },
+            {
+              "drag_height": -1,
+              "name": "phone",
+              "order": 5,
+              "rect": "[P: (878.1639, 14.16393), S: (187.6721, 374.7541)]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Page_channels",
+      "state": {
+        "display_size": [
+          1080,
+          1080
+        ],
+        "logical_size": [
+          1080,
+          1080
+        ],
+        "shell": {
+          "active": 5,
+          "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+          "count": 7,
+          "fixed_count": 7,
+          "opening": false,
+          "pressed": -1,
+          "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+          "switching": false,
+          "tabs": [
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "map",
+              "label": "map",
+              "page_visible": false,
+              "rect": [
+                76.2557525634766,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "sketchbook",
+              "label": "sketchbook",
+              "page_visible": false,
+              "rect": [
+                212.87028503418,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "3d_viewer",
+              "label": "3d_viewer",
+              "page_visible": false,
+              "rect": [
+                349.484832763672,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "video_player",
+              "label": "video_player",
+              "page_visible": false,
+              "rect": [
+                486.099365234375,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "collection",
+              "label": "collection",
+              "page_visible": false,
+              "rect": [
+                622.7138671875,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": false,
+              "key": "playground",
+              "label": "playground",
+              "page_visible": true,
+              "rect": [
+                759.328430175781,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "flowers",
+              "label": "flowers",
+              "page_visible": false,
+              "rect": [
+                895.942932128906,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": null
+            }
+          ]
+        },
+        "stage_rect": [
+          0,
+          0,
+          1080,
+          1080
+        ],
+        "tenant": {
+          "action": "",
+          "channel": "",
+          "connections": [
+            "2026-09-22T21:18:53Z",
+            "2026-09-22T21:18:19Z",
+            "2026-09-22T21:18:02Z",
+            "2026-09-22T21:17:44Z",
+            "2026-09-22T21:17:33Z",
+            "2026-09-22T21:16:42Z",
+            "2026-09-22T21:15:48Z",
+            "2026-09-22T21:15:34Z",
+            "2026-09-22T21:14:30Z",
+            "2026-09-22T21:14:27Z",
+            "2026-09-22T21:13:09Z",
+            "2026-09-22T20:13:40Z"
+          ],
+          "desktop": "(2171.0, 1185.0)",
+          "factor": 0.497466605251036,
+          "inputs": 11,
+          "key": "playground",
+          "main_window": [
+            14.1639347076416,
+            68.163932800293,
+            601.967224121094,
+            943.672119140625
+          ],
+          "margin": 24,
+          "navigation": {
+            "Page_all": "[P: (152.357, 220.5871), S: (76.4788, 37.14684)]",
+            "Page_channels": "[P: (261.6124, 220.5871), S: (74.29369, 37.14684)]",
+            "Page_explore": "[P: (59.48987, 220.5871), S: (60.09048, 37.14684)]",
+            "Page_search": "[P: (368.6827, 220.5871), S: (55.72026, 37.14684)]"
+          },
+          "page": "channels",
+          "query": "",
+          "results": [],
+          "saved_ids": [],
+          "saved_images_loaded": 0,
+          "saved_images_unavailable": 0,
+          "size": "(1080.0, 972.0)",
+          "storage_status": "available",
+          "ticks": 255,
+          "windows": [
+            {
+              "drag_height": 31.8378608777596,
+              "name": "postpet",
+              "order": 0,
+              "rect": "[P: (11.9392, 11.9392), S: (604.9196, 948.1216)]"
+            },
+            {
+              "drag_height": 14.923997341276,
+              "name": "options",
+              "order": 1,
+              "rect": "[P: (623.3257, 11.9392), S: (248.2319, 106.8611)]"
+            },
+            {
+              "drag_height": 15.4214649017026,
+              "name": "filters",
+              "order": 2,
+              "rect": "[P: (623.3257, 118.397), S: (243.2615, 111.4001)]"
+            },
+            {
+              "drag_height": 15.4214636552251,
+              "name": "trade",
+              "order": 3,
+              "rect": "[P: (620.3409, 252.713), S: (246.2498, 106.9522)]"
+            },
+            {
+              "drag_height": 16.2927287780144,
+              "name": "chat",
+              "order": 4,
+              "rect": "[P: (632.6558, 829.1803), S: (277.9672, 128.6558)]"
+            },
+            {
+              "drag_height": -1,
+              "name": "phone",
+              "order": 5,
+              "rect": "[P: (878.1639, 14.16393), S: (187.6721, 374.7541)]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Page_search",
+      "state": {
+        "display_size": [
+          1080,
+          1080
+        ],
+        "logical_size": [
+          1080,
+          1080
+        ],
+        "shell": {
+          "active": 5,
+          "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+          "count": 7,
+          "fixed_count": 7,
+          "opening": false,
+          "pressed": -1,
+          "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+          "switching": false,
+          "tabs": [
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "map",
+              "label": "map",
+              "page_visible": false,
+              "rect": [
+                76.2557525634766,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "sketchbook",
+              "label": "sketchbook",
+              "page_visible": false,
+              "rect": [
+                212.87028503418,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "3d_viewer",
+              "label": "3d_viewer",
+              "page_visible": false,
+              "rect": [
+                349.484832763672,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "video_player",
+              "label": "video_player",
+              "page_visible": false,
+              "rect": [
+                486.099365234375,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "collection",
+              "label": "collection",
+              "page_visible": false,
+              "rect": [
+                622.7138671875,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": false,
+              "key": "playground",
+              "label": "playground",
+              "page_visible": true,
+              "rect": [
+                759.328430175781,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "flowers",
+              "label": "flowers",
+              "page_visible": false,
+              "rect": [
+                895.942932128906,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": null
+            }
+          ]
+        },
+        "stage_rect": [
+          0,
+          0,
+          1080,
+          1080
+        ],
+        "tenant": {
+          "action": "",
+          "channel": "",
+          "connections": [
+            "2026-09-22T21:18:53Z",
+            "2026-09-22T21:18:19Z",
+            "2026-09-22T21:18:02Z",
+            "2026-09-22T21:17:44Z",
+            "2026-09-22T21:17:33Z",
+            "2026-09-22T21:16:42Z",
+            "2026-09-22T21:15:48Z",
+            "2026-09-22T21:15:34Z",
+            "2026-09-22T21:14:30Z",
+            "2026-09-22T21:14:27Z",
+            "2026-09-22T21:13:09Z",
+            "2026-09-22T20:13:40Z"
+          ],
+          "desktop": "(2171.0, 1185.0)",
+          "factor": 0.497466605251036,
+          "inputs": 16,
+          "key": "playground",
+          "main_window": [
+            14.1639347076416,
+            68.163932800293,
+            601.967224121094,
+            943.672119140625
+          ],
+          "margin": 24,
+          "navigation": {
+            "Page_all": "[P: (152.357, 220.5871), S: (76.4788, 37.14684)]",
+            "Page_channels": "[P: (261.6124, 220.5871), S: (74.29369, 37.14684)]",
+            "Page_explore": "[P: (59.48987, 220.5871), S: (60.09048, 37.14684)]",
+            "Page_search": "[P: (368.6827, 220.5871), S: (55.72026, 37.14684)]"
+          },
+          "page": "search",
+          "query": "",
+          "results": [
+            "risd:1190816",
+            "risd:1197476",
+            "risd:1198296",
+            "risd:1190261",
+            "risd:1197566",
+            "risd:1197221",
+            "risd:1207111",
+            "risd:1190676",
+            "risd:1190706",
+            "risd:1196161",
+            "risd:1198271",
+            "risd:1190396",
+            "risd:1197831",
+            "risd:1207106",
+            "risd:1197456",
+            "risd:1190751",
+            "risd:1190336",
+            "risd:1190686",
+            "risd:1197711",
+            "risd:1198191",
+            "risd:1197226",
+            "risd:1197581",
+            "risd:1197766",
+            "risd:1197596",
+            "risd:1197496"
+          ],
+          "saved_ids": [],
+          "saved_images_loaded": 0,
+          "saved_images_unavailable": 0,
+          "size": "(1080.0, 972.0)",
+          "storage_status": "available",
+          "ticks": 312,
+          "windows": [
+            {
+              "drag_height": 31.8378608777596,
+              "name": "postpet",
+              "order": 0,
+              "rect": "[P: (11.9392, 11.9392), S: (604.9196, 948.1216)]"
+            },
+            {
+              "drag_height": 14.923997341276,
+              "name": "options",
+              "order": 1,
+              "rect": "[P: (623.3257, 11.9392), S: (248.2319, 106.8611)]"
+            },
+            {
+              "drag_height": 15.4214649017026,
+              "name": "filters",
+              "order": 2,
+              "rect": "[P: (623.3257, 118.397), S: (243.2615, 111.4001)]"
+            },
+            {
+              "drag_height": 15.4214636552251,
+              "name": "trade",
+              "order": 3,
+              "rect": "[P: (620.3409, 252.713), S: (246.2498, 106.9522)]"
+            },
+            {
+              "drag_height": 16.2927287780144,
+              "name": "chat",
+              "order": 4,
+              "rect": "[P: (632.6558, 829.1803), S: (277.9672, 128.6558)]"
+            },
+            {
+              "drag_height": -1,
+              "name": "phone",
+              "order": 5,
+              "rect": "[P: (878.1639, 14.16393), S: (187.6721, 374.7541)]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "search-results",
+      "state": {
+        "display_size": [
+          1080,
+          1080
+        ],
+        "logical_size": [
+          1080,
+          1080
+        ],
+        "shell": {
+          "active": 5,
+          "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+          "count": 7,
+          "fixed_count": 7,
+          "opening": false,
+          "pressed": -1,
+          "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+          "switching": false,
+          "tabs": [
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "map",
+              "label": "map",
+              "page_visible": false,
+              "rect": [
+                76.2557525634766,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "sketchbook",
+              "label": "sketchbook",
+              "page_visible": false,
+              "rect": [
+                212.87028503418,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "3d_viewer",
+              "label": "3d_viewer",
+              "page_visible": false,
+              "rect": [
+                349.484832763672,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "video_player",
+              "label": "video_player",
+              "page_visible": false,
+              "rect": [
+                486.099365234375,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "collection",
+              "label": "collection",
+              "page_visible": false,
+              "rect": [
+                622.7138671875,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": false,
+              "key": "playground",
+              "label": "playground",
+              "page_visible": true,
+              "rect": [
+                759.328430175781,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "flowers",
+              "label": "flowers",
+              "page_visible": false,
+              "rect": [
+                895.942932128906,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": null
+            }
+          ]
+        },
+        "stage_rect": [
+          0,
+          0,
+          1080,
+          1080
+        ],
+        "tenant": {
+          "action": "",
+          "channel": "",
+          "connections": [
+            "2026-09-22T21:18:53Z",
+            "2026-09-22T21:18:19Z",
+            "2026-09-22T21:18:02Z",
+            "2026-09-22T21:17:44Z",
+            "2026-09-22T21:17:33Z",
+            "2026-09-22T21:16:42Z",
+            "2026-09-22T21:15:48Z",
+            "2026-09-22T21:15:34Z",
+            "2026-09-22T21:14:30Z",
+            "2026-09-22T21:14:27Z",
+            "2026-09-22T21:13:09Z",
+            "2026-09-22T20:13:40Z"
+          ],
+          "desktop": "(2171.0, 1185.0)",
+          "factor": 0.497466605251036,
+          "inputs": 37,
+          "key": "playground",
+          "main_window": [
+            14.1639347076416,
+            68.163932800293,
+            601.967224121094,
+            943.672119140625
+          ],
+          "margin": 24,
+          "navigation": {
+            "Page_all": "[P: (152.357, 220.5871), S: (76.4788, 37.14684)]",
+            "Page_channels": "[P: (261.6124, 220.5871), S: (74.29369, 37.14684)]",
+            "Page_explore": "[P: (59.48987, 220.5871), S: (60.09048, 37.14684)]",
+            "Page_search": "[P: (368.6827, 220.5871), S: (55.72026, 37.14684)]"
+          },
+          "page": "search",
+          "query": "portrait",
+          "results": [
+            "risd:1207106",
+            "risd:1197456",
+            "risd:1190751",
+            "risd:1190336"
+          ],
+          "saved_ids": [],
+          "saved_images_loaded": 0,
+          "saved_images_unavailable": 0,
+          "size": "(1080.0, 972.0)",
+          "storage_status": "available",
+          "ticks": 391,
+          "windows": [
+            {
+              "drag_height": 31.8378608777596,
+              "name": "postpet",
+              "order": 0,
+              "rect": "[P: (11.9392, 11.9392), S: (604.9196, 948.1216)]"
+            },
+            {
+              "drag_height": 14.923997341276,
+              "name": "options",
+              "order": 1,
+              "rect": "[P: (623.3257, 11.9392), S: (248.2319, 106.8611)]"
+            },
+            {
+              "drag_height": 15.4214649017026,
+              "name": "filters",
+              "order": 2,
+              "rect": "[P: (623.3257, 118.397), S: (243.2615, 111.4001)]"
+            },
+            {
+              "drag_height": 15.4214636552251,
+              "name": "trade",
+              "order": 3,
+              "rect": "[P: (620.3409, 252.713), S: (246.2498, 106.9522)]"
+            },
+            {
+              "drag_height": 16.2927287780144,
+              "name": "chat",
+              "order": 4,
+              "rect": "[P: (632.6558, 829.1803), S: (277.9672, 128.6558)]"
+            },
+            {
+              "drag_height": -1,
+              "name": "phone",
+              "order": 5,
+              "rect": "[P: (878.1639, 14.16393), S: (187.6721, 374.7541)]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "detail",
+      "state": {
+        "display_size": [
+          1080,
+          1080
+        ],
+        "logical_size": [
+          1080,
+          1080
+        ],
+        "shell": {
+          "active": 5,
+          "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+          "count": 7,
+          "fixed_count": 7,
+          "opening": false,
+          "pressed": -1,
+          "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+          "switching": false,
+          "tabs": [
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "map",
+              "label": "map",
+              "page_visible": false,
+              "rect": [
+                76.2557525634766,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "sketchbook",
+              "label": "sketchbook",
+              "page_visible": false,
+              "rect": [
+                212.87028503418,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "3d_viewer",
+              "label": "3d_viewer",
+              "page_visible": false,
+              "rect": [
+                349.484832763672,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "video_player",
+              "label": "video_player",
+              "page_visible": false,
+              "rect": [
+                486.099365234375,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "collection",
+              "label": "collection",
+              "page_visible": false,
+              "rect": [
+                622.7138671875,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": false,
+              "key": "playground",
+              "label": "playground",
+              "page_visible": true,
+              "rect": [
+                759.328430175781,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "flowers",
+              "label": "flowers",
+              "page_visible": false,
+              "rect": [
+                895.942932128906,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": null
+            }
+          ]
+        },
+        "stage_rect": [
+          0,
+          0,
+          1080,
+          1080
+        ],
+        "tenant": {
+          "action": "",
+          "channel": "",
+          "connections": [
+            "2026-09-22T21:18:53Z",
+            "2026-09-22T21:18:19Z",
+            "2026-09-22T21:18:02Z",
+            "2026-09-22T21:17:44Z",
+            "2026-09-22T21:17:33Z",
+            "2026-09-22T21:16:42Z",
+            "2026-09-22T21:15:48Z",
+            "2026-09-22T21:15:34Z",
+            "2026-09-22T21:14:30Z",
+            "2026-09-22T21:14:27Z",
+            "2026-09-22T21:13:09Z",
+            "2026-09-22T20:13:40Z"
+          ],
+          "desktop": "(2171.0, 1185.0)",
+          "factor": 0.497466605251036,
+          "inputs": 40,
+          "key": "playground",
+          "main_window": [
+            14.1639347076416,
+            68.163932800293,
+            601.967224121094,
+            943.672119140625
+          ],
+          "margin": 24,
+          "navigation": {
+            "Page_all": "[P: (152.357, 220.5871), S: (76.4788, 37.14684)]",
+            "Page_channels": "[P: (261.6124, 220.5871), S: (74.29369, 37.14684)]",
+            "Page_explore": "[P: (59.48987, 220.5871), S: (60.09048, 37.14684)]",
+            "Page_search": "[P: (368.6827, 220.5871), S: (55.72026, 37.14684)]"
+          },
+          "page": "search",
+          "query": "portrait",
+          "results": [
+            "risd:1207106",
+            "risd:1197456",
+            "risd:1190751",
+            "risd:1190336"
+          ],
+          "saved_ids": [],
+          "saved_images_loaded": 0,
+          "saved_images_unavailable": 0,
+          "size": "(1080.0, 972.0)",
+          "storage_status": "available",
+          "ticks": 438,
+          "windows": [
+            {
+              "drag_height": 31.8378608777596,
+              "name": "postpet",
+              "order": 0,
+              "rect": "[P: (11.9392, 11.9392), S: (604.9196, 948.1216)]"
+            },
+            {
+              "drag_height": 14.923997341276,
+              "name": "options",
+              "order": 1,
+              "rect": "[P: (623.3257, 11.9392), S: (248.2319, 106.8611)]"
+            },
+            {
+              "drag_height": 15.4214649017026,
+              "name": "filters",
+              "order": 2,
+              "rect": "[P: (623.3257, 118.397), S: (243.2615, 111.4001)]"
+            },
+            {
+              "drag_height": 15.4214636552251,
+              "name": "trade",
+              "order": 3,
+              "rect": "[P: (620.3409, 252.713), S: (246.2498, 106.9522)]"
+            },
+            {
+              "drag_height": 16.2927287780144,
+              "name": "chat",
+              "order": 4,
+              "rect": "[P: (632.6558, 829.1803), S: (277.9672, 128.6558)]"
+            },
+            {
+              "drag_height": -1,
+              "name": "phone",
+              "order": 5,
+              "rect": "[P: (878.1639, 14.16393), S: (187.6721, 374.7541)]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "final-explore",
+      "state": {
+        "display_size": [
+          1080,
+          1080
+        ],
+        "logical_size": [
+          1080,
+          1080
+        ],
+        "shell": {
+          "active": 5,
+          "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+          "count": 7,
+          "fixed_count": 7,
+          "opening": false,
+          "pressed": -1,
+          "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+          "switching": false,
+          "tabs": [
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "map",
+              "label": "map",
+              "page_visible": false,
+              "rect": [
+                76.2557525634766,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "sketchbook",
+              "label": "sketchbook",
+              "page_visible": false,
+              "rect": [
+                212.87028503418,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "3d_viewer",
+              "label": "3d_viewer",
+              "page_visible": false,
+              "rect": [
+                349.484832763672,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "video_player",
+              "label": "video_player",
+              "page_visible": false,
+              "rect": [
+                486.099365234375,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "collection",
+              "label": "collection",
+              "page_visible": false,
+              "rect": [
+                622.7138671875,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": false,
+              "key": "playground",
+              "label": "playground",
+              "page_visible": true,
+              "rect": [
+                759.328430175781,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "flowers",
+              "label": "flowers",
+              "page_visible": false,
+              "rect": [
+                895.942932128906,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": null
+            }
+          ]
+        },
+        "stage_rect": [
+          0,
+          0,
+          1080,
+          1080
+        ],
+        "tenant": {
+          "action": "",
+          "channel": "",
+          "connections": [
+            "2026-09-22T21:18:53Z",
+            "2026-09-22T21:18:19Z",
+            "2026-09-22T21:18:02Z",
+            "2026-09-22T21:17:44Z",
+            "2026-09-22T21:17:33Z",
+            "2026-09-22T21:16:42Z",
+            "2026-09-22T21:15:48Z",
+            "2026-09-22T21:15:34Z",
+            "2026-09-22T21:14:30Z",
+            "2026-09-22T21:14:27Z",
+            "2026-09-22T21:13:09Z",
+            "2026-09-22T20:13:40Z"
+          ],
+          "desktop": "(2171.0, 1185.0)",
+          "factor": 0.497466605251036,
+          "inputs": 46,
+          "key": "playground",
+          "main_window": [
+            14.1639347076416,
+            68.163932800293,
+            601.967224121094,
+            943.672119140625
+          ],
+          "margin": 24,
+          "navigation": {
+            "Page_all": "[P: (152.357, 220.5871), S: (76.4788, 37.14684)]",
+            "Page_channels": "[P: (261.6124, 220.5871), S: (74.29369, 37.14684)]",
+            "Page_explore": "[P: (59.48987, 220.5871), S: (60.09048, 37.14684)]",
+            "Page_search": "[P: (368.6827, 220.5871), S: (55.72026, 37.14684)]"
+          },
+          "page": "explore",
+          "query": "portrait",
+          "results": [
+            50674575,
+            50674566,
+            50674559,
+            1482094,
+            15578699,
+            27905250,
+            7740876,
+            19876412,
+            22279292,
+            31148360,
+            50674477,
+            50672783
+          ],
+          "saved_ids": [],
+          "saved_images_loaded": 0,
+          "saved_images_unavailable": 0,
+          "size": "(1080.0, 972.0)",
+          "storage_status": "available",
+          "ticks": 515,
+          "windows": [
+            {
+              "drag_height": 31.8378608777596,
+              "name": "postpet",
+              "order": 0,
+              "rect": "[P: (11.9392, 11.9392), S: (604.9196, 948.1216)]"
+            },
+            {
+              "drag_height": 14.923997341276,
+              "name": "options",
+              "order": 1,
+              "rect": "[P: (623.3257, 11.9392), S: (248.2319, 106.8611)]"
+            },
+            {
+              "drag_height": 15.4214649017026,
+              "name": "filters",
+              "order": 2,
+              "rect": "[P: (623.3257, 118.397), S: (243.2615, 111.4001)]"
+            },
+            {
+              "drag_height": 15.4214636552251,
+              "name": "trade",
+              "order": 3,
+              "rect": "[P: (620.3409, 252.713), S: (246.2498, 106.9522)]"
+            },
+            {
+              "drag_height": 16.2927287780144,
+              "name": "chat",
+              "order": 4,
+              "rect": "[P: (632.6558, 829.1803), S: (277.9672, 128.6558)]"
+            },
+            {
+              "drag_height": -1,
+              "name": "phone",
+              "order": 5,
+              "rect": "[P: (878.1639, 14.16393), S: (187.6721, 374.7541)]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "save-attempt",
+      "state": {
+        "display_size": [
+          1080,
+          1080
+        ],
+        "logical_size": [
+          1080,
+          1080
+        ],
+        "shell": {
+          "active": 5,
+          "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+          "count": 7,
+          "fixed_count": 7,
+          "opening": false,
+          "pressed": -1,
+          "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+          "switching": false,
+          "tabs": [
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "map",
+              "label": "map",
+              "page_visible": false,
+              "rect": [
+                76.2557525634766,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "sketchbook",
+              "label": "sketchbook",
+              "page_visible": false,
+              "rect": [
+                212.87028503418,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "3d_viewer",
+              "label": "3d_viewer",
+              "page_visible": false,
+              "rect": [
+                349.484832763672,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "video_player",
+              "label": "video_player",
+              "page_visible": false,
+              "rect": [
+                486.099365234375,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "collection",
+              "label": "collection",
+              "page_visible": false,
+              "rect": [
+                622.7138671875,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": false,
+              "key": "playground",
+              "label": "playground",
+              "page_visible": true,
+              "rect": [
+                759.328430175781,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "flowers",
+              "label": "flowers",
+              "page_visible": false,
+              "rect": [
+                895.942932128906,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": null
+            }
+          ]
+        },
+        "stage_rect": [
+          0,
+          0,
+          1080,
+          1080
+        ],
+        "tenant": {
+          "action": "",
+          "channel": "",
+          "connections": [
+            "2026-09-22T21:18:53Z",
+            "2026-09-22T21:18:19Z",
+            "2026-09-22T21:18:02Z",
+            "2026-09-22T21:17:44Z",
+            "2026-09-22T21:17:33Z",
+            "2026-09-22T21:16:42Z",
+            "2026-09-22T21:15:48Z",
+            "2026-09-22T21:15:34Z",
+            "2026-09-22T21:14:30Z",
+            "2026-09-22T21:14:27Z",
+            "2026-09-22T21:13:09Z",
+            "2026-09-22T20:13:40Z"
+          ],
+          "desktop": "(2171.0, 1185.0)",
+          "factor": 0.497466605251036,
+          "inputs": 50,
+          "key": "playground",
+          "main_window": [
+            14.1639347076416,
+            68.163932800293,
+            601.967224121094,
+            943.672119140625
+          ],
+          "margin": 24,
+          "navigation": {
+            "Page_all": "[P: (152.357, 220.5871), S: (76.4788, 37.14684)]",
+            "Page_channels": "[P: (261.6124, 220.5871), S: (74.29369, 37.14684)]",
+            "Page_explore": "[P: (59.48987, 220.5871), S: (60.09048, 37.14684)]",
+            "Page_search": "[P: (368.6827, 220.5871), S: (55.72026, 37.14684)]"
+          },
+          "page": "explore",
+          "query": "portrait",
+          "results": [
+            50674575,
+            50674566,
+            50674559,
+            1482094,
+            15578699,
+            27905250,
+            7740876,
+            19876412,
+            22279292,
+            31148360,
+            50674477,
+            50672783
+          ],
+          "saved_ids": [
+            "50674575.0"
+          ],
+          "saved_images_loaded": 0,
+          "saved_images_unavailable": 0,
+          "size": "(1080.0, 972.0)",
+          "storage_status": "available",
+          "ticks": 595,
+          "windows": [
+            {
+              "drag_height": 31.8378608777596,
+              "name": "postpet",
+              "order": 0,
+              "rect": "[P: (11.9392, 11.9392), S: (604.9196, 948.1216)]"
+            },
+            {
+              "drag_height": 14.923997341276,
+              "name": "options",
+              "order": 1,
+              "rect": "[P: (623.3257, 11.9392), S: (248.2319, 106.8611)]"
+            },
+            {
+              "drag_height": 15.4214649017026,
+              "name": "filters",
+              "order": 2,
+              "rect": "[P: (623.3257, 118.397), S: (243.2615, 111.4001)]"
+            },
+            {
+              "drag_height": 15.4214636552251,
+              "name": "trade",
+              "order": 3,
+              "rect": "[P: (620.3409, 252.713), S: (246.2498, 106.9522)]"
+            },
+            {
+              "drag_height": 16.2927287780144,
+              "name": "chat",
+              "order": 4,
+              "rect": "[P: (632.6558, 829.1803), S: (277.9672, 128.6558)]"
+            },
+            {
+              "drag_height": -1,
+              "name": "phone",
+              "order": 5,
+              "rect": "[P: (878.1639, 14.16393), S: (187.6721, 374.7541)]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "saved",
+      "state": {
+        "display_size": [
+          1080,
+          1080
+        ],
+        "logical_size": [
+          1080,
+          1080
+        ],
+        "shell": {
+          "active": 5,
+          "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+          "count": 7,
+          "fixed_count": 7,
+          "opening": false,
+          "pressed": -1,
+          "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+          "switching": false,
+          "tabs": [
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "map",
+              "label": "map",
+              "page_visible": false,
+              "rect": [
+                76.2557525634766,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "sketchbook",
+              "label": "sketchbook",
+              "page_visible": false,
+              "rect": [
+                212.87028503418,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "3d_viewer",
+              "label": "3d_viewer",
+              "page_visible": false,
+              "rect": [
+                349.484832763672,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "video_player",
+              "label": "video_player",
+              "page_visible": false,
+              "rect": [
+                486.099365234375,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "collection",
+              "label": "collection",
+              "page_visible": false,
+              "rect": [
+                622.7138671875,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": false,
+              "key": "playground",
+              "label": "playground",
+              "page_visible": true,
+              "rect": [
+                759.328430175781,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "flowers",
+              "label": "flowers",
+              "page_visible": false,
+              "rect": [
+                895.942932128906,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": null
+            }
+          ]
+        },
+        "stage_rect": [
+          0,
+          0,
+          1080,
+          1080
+        ],
+        "tenant": {
+          "action": "",
+          "channel": "",
+          "connections": [
+            "2026-09-22T21:18:53Z",
+            "2026-09-22T21:18:19Z",
+            "2026-09-22T21:18:02Z",
+            "2026-09-22T21:17:44Z",
+            "2026-09-22T21:17:33Z",
+            "2026-09-22T21:16:42Z",
+            "2026-09-22T21:15:48Z",
+            "2026-09-22T21:15:34Z",
+            "2026-09-22T21:14:30Z",
+            "2026-09-22T21:14:27Z",
+            "2026-09-22T21:13:09Z",
+            "2026-09-22T20:13:40Z"
+          ],
+          "desktop": "(2171.0, 1185.0)",
+          "factor": 0.497466605251036,
+          "inputs": 50,
+          "key": "playground",
+          "main_window": [
+            14.1639347076416,
+            68.163932800293,
+            601.967224121094,
+            943.672119140625
+          ],
+          "margin": 24,
+          "navigation": {
+            "Page_all": "[P: (152.357, 220.5871), S: (76.4788, 37.14684)]",
+            "Page_channels": "[P: (261.6124, 220.5871), S: (74.29369, 37.14684)]",
+            "Page_explore": "[P: (59.48987, 220.5871), S: (60.09048, 37.14684)]",
+            "Page_search": "[P: (368.6827, 220.5871), S: (55.72026, 37.14684)]"
+          },
+          "page": "explore",
+          "query": "portrait",
+          "results": [
+            50674575,
+            50674566,
+            50674559,
+            1482094,
+            15578699,
+            27905250,
+            7740876,
+            19876412,
+            22279292,
+            31148360,
+            50674477,
+            50672783
+          ],
+          "saved_ids": [
+            "50674575.0"
+          ],
+          "saved_images_loaded": 0,
+          "saved_images_unavailable": 0,
+          "size": "(1080.0, 972.0)",
+          "storage_status": "available",
+          "ticks": 611,
+          "windows": [
+            {
+              "drag_height": 31.8378608777596,
+              "name": "postpet",
+              "order": 0,
+              "rect": "[P: (11.9392, 11.9392), S: (604.9196, 948.1216)]"
+            },
+            {
+              "drag_height": 14.923997341276,
+              "name": "options",
+              "order": 1,
+              "rect": "[P: (623.3257, 11.9392), S: (248.2319, 106.8611)]"
+            },
+            {
+              "drag_height": 15.4214649017026,
+              "name": "filters",
+              "order": 2,
+              "rect": "[P: (623.3257, 118.397), S: (243.2615, 111.4001)]"
+            },
+            {
+              "drag_height": 15.4214636552251,
+              "name": "trade",
+              "order": 3,
+              "rect": "[P: (620.3409, 252.713), S: (246.2498, 106.9522)]"
+            },
+            {
+              "drag_height": 16.2927287780144,
+              "name": "chat",
+              "order": 4,
+              "rect": "[P: (632.6558, 829.1803), S: (277.9672, 128.6558)]"
+            },
+            {
+              "drag_height": -1,
+              "name": "phone",
+              "order": 5,
+              "rect": "[P: (878.1639, 14.16393), S: (187.6721, 374.7541)]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "scroll-end",
+      "state": {
+        "display_size": [
+          1080,
+          1080
+        ],
+        "logical_size": [
+          1080,
+          1080
+        ],
+        "shell": {
+          "active": 5,
+          "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+          "count": 7,
+          "fixed_count": 7,
+          "opening": false,
+          "pressed": -1,
+          "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+          "switching": false,
+          "tabs": [
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "map",
+              "label": "map",
+              "page_visible": false,
+              "rect": [
+                76.2557525634766,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "sketchbook",
+              "label": "sketchbook",
+              "page_visible": false,
+              "rect": [
+                212.87028503418,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "3d_viewer",
+              "label": "3d_viewer",
+              "page_visible": false,
+              "rect": [
+                349.484832763672,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "video_player",
+              "label": "video_player",
+              "page_visible": false,
+              "rect": [
+                486.099365234375,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "collection",
+              "label": "collection",
+              "page_visible": false,
+              "rect": [
+                622.7138671875,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": false,
+              "key": "playground",
+              "label": "playground",
+              "page_visible": true,
+              "rect": [
+                759.328430175781,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": "ok"
+            },
+            {
+              "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+              "fixed": true,
+              "frozen": true,
+              "key": "flowers",
+              "label": "flowers",
+              "page_visible": false,
+              "rect": [
+                895.942932128906,
+                1042.24475097656,
+                136.614532470703,
+                36.264949798584
+              ],
+              "tenant": null
+            }
+          ]
+        },
+        "stage_rect": [
+          0,
+          0,
+          1080,
+          1080
+        ],
+        "tenant": {
+          "action": "",
+          "channel": "",
+          "connections": [
+            "2026-09-22T21:18:53Z",
+            "2026-09-22T21:18:19Z",
+            "2026-09-22T21:18:02Z",
+            "2026-09-22T21:17:44Z",
+            "2026-09-22T21:17:33Z",
+            "2026-09-22T21:16:42Z",
+            "2026-09-22T21:15:48Z",
+            "2026-09-22T21:15:34Z",
+            "2026-09-22T21:14:30Z",
+            "2026-09-22T21:14:27Z",
+            "2026-09-22T21:13:09Z",
+            "2026-09-22T20:13:40Z"
+          ],
+          "desktop": "(2171.0, 1185.0)",
+          "factor": 0.497466605251036,
+          "inputs": 53,
+          "key": "playground",
+          "main_window": [
+            14.1639347076416,
+            68.163932800293,
+            601.967224121094,
+            943.672119140625
+          ],
+          "margin": 24,
+          "navigation": {
+            "Page_all": "[P: (152.357, 220.5871), S: (76.4788, 37.14684)]",
+            "Page_channels": "[P: (261.6124, 220.5871), S: (74.29369, 37.14684)]",
+            "Page_explore": "[P: (59.48987, 220.5871), S: (60.09048, 37.14684)]",
+            "Page_search": "[P: (368.6827, 220.5871), S: (55.72026, 37.14684)]"
+          },
+          "page": "explore",
+          "query": "portrait",
+          "results": [
+            50674575,
+            50674566,
+            50674559,
+            1482094,
+            15578699,
+            27905250,
+            7740876,
+            19876412,
+            22279292,
+            31148360,
+            50674477,
+            50672783
+          ],
+          "saved_ids": [
+            "50674575.0"
+          ],
+          "saved_images_loaded": 0,
+          "saved_images_unavailable": 0,
+          "size": "(1080.0, 972.0)",
+          "storage_status": "available",
+          "ticks": 691,
+          "windows": [
+            {
+              "drag_height": 31.8378608777596,
+              "name": "postpet",
+              "order": 0,
+              "rect": "[P: (11.9392, 11.9392), S: (604.9196, 948.1216)]"
+            },
+            {
+              "drag_height": 14.923997341276,
+              "name": "options",
+              "order": 1,
+              "rect": "[P: (623.3257, 11.9392), S: (248.2319, 106.8611)]"
+            },
+            {
+              "drag_height": 15.4214649017026,
+              "name": "filters",
+              "order": 2,
+              "rect": "[P: (623.3257, 118.397), S: (243.2615, 111.4001)]"
+            },
+            {
+              "drag_height": 15.4214636552251,
+              "name": "trade",
+              "order": 3,
+              "rect": "[P: (620.3409, 252.713), S: (246.2498, 106.9522)]"
+            },
+            {
+              "drag_height": 16.2927287780144,
+              "name": "chat",
+              "order": 4,
+              "rect": "[P: (632.6558, 829.1803), S: (277.9672, 128.6558)]"
+            },
+            {
+              "drag_height": -1,
+              "name": "phone",
+              "order": 5,
+              "rect": "[P: (878.1639, 14.16393), S: (187.6721, 374.7541)]"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "errors": []
+}
