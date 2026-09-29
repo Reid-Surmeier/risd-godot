@@ -1,0 +1,68 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+REST bounds=0.18734590709209..17.0174369812012 soles=194
+CLIP Idle length=1.06666672229767
+CLIP Walking_A length=1.06666672229767
+CLIP Interact length=1.29999995231628
+ENTRY_COMPLETE (0.0, 0.0, -2.6)
+DOLLHOUSE_RENDER texture_bytes=201630642 draw_calls=92
+ERROR: bench has no sloped upholstery faces
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://modules/shell/prototype/gallery_walk4/dollhouse_shot.gd:11)
+       [1] _initialize (res://modules/shell/prototype/gallery_walk4/dollhouse_shot.gd:119)
+       [2] _shot (res://testing/harness_base.gd:44)
+DOLLHOUSE_BENCH_BEVEL faces=0
+VIEW gallery yaw 90.0
+VIEW dollhouse yaw 90.0
+VIEW dollhouse yaw -90.0
+OTHER_WALL east
+VIEW dollhouse yaw 90.0
+OTHER_WALL west
+DOLLHOUSE_OTHER_WALL both directions
+ERROR: two-second walking cadence outside 6–9 audible contacts: 10
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://modules/shell/prototype/gallery_walk4/dollhouse_shot.gd:11)
+       [1] _initialize (res://modules/shell/prototype/gallery_walk4/dollhouse_shot.gd:145)
+       [2] _observe_steps (res://modules/shell/prototype/gallery_walk4/dollhouse_shot.gd:81)
+DOLLHOUSE_FOOTSTEPS contacts_2s=10 blocked=0
+VIEW_ORBIT {"position":[-2.45871520042419,-12.6679182052612],"space":"gallery","yaw":0.000294079242476309}
+VIEW_ORBIT {"position":[4.0,-12.0],"space":"gallery","yaw":-1.56991137328375}
+VIEW_ORBIT {"position":[4.0,-12.0],"space":"gallery","yaw":-3.14143069385111}
+VIEW_ORBIT {"position":[4.0,-12.0],"space":"gallery","yaw":1.57079887389026}
+NAV_PICK floor
+DOLLHOUSE_HIDDEN_WALL 1
+NAV_PICK W1
+NAV_PICK W2
+NAV_PICK W3
+NAV_PICK W4
+NAV_PICK W5
+NAV_PICK W6
+NAV_PICK W7
+NAV_PICK W8
+NAV_PICK W9
+NAV_PICK W10
+VIEW_ORBIT {"position":[2.40000009536743,-23.0603446960449],"space":"gallery","yaw":0.000188710343095474}
+VIEW_ORBIT {"position":[2.40000009536743,-23.0603446960449],"space":"gallery","yaw":-1.57060010323261}
+NAV_PICK E1
+NAV_PICK E2
+NAV_PICK E3
+NAV_PICK E4
+NAV_PICK E5
+NAV_PICK E6
+NAV_PICK E7
+NAV_PICK E8
+NAV_PICK E9
+VIEW_ORBIT {"position":[3.11499977111816,-2.59999990463257],"space":"gallery","yaw":-3.14156433439234}
+NAV_PICK S1
+NAV_PICK S2
+VIEW_ORBIT {"position":[-3.11500000953674,-23.6999988555908],"space":"gallery","yaw":1.57176785787799}
+VIEW_ORBIT {"position":[-3.11500000953674,-23.6999988555908],"space":"gallery","yaw":0.000366480235191771}
+NAV_PICK N1
+NAV_PICK N2
+DOLLHOUSE_ARTWORKS 23/23
+DOLLHOUSE_FAILURES 2

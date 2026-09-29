@@ -1,0 +1,628 @@
+{
+  "url": "http://127.0.0.1:8787/583db13f.html",
+  "normal": {
+    "backend": "gl_compatibility",
+    "camera_fov": 23,
+    "camera_transform": [
+      [
+        -1,
+        0,
+        8.74227765734759e-8
+      ],
+      [
+        5.84972639217085e-8,
+        0.743144750595093,
+        0.669130682945251
+      ],
+      [
+        -6.49677787123437e-8,
+        0.669130682945251,
+        -0.743144750595093
+      ],
+      [
+        2,
+        8.61043739318848,
+        -11.4745931625366
+      ]
+    ],
+    "camera_yaw": -3.14159265358979,
+    "container": [
+      695,
+      465
+    ],
+    "display_material": {
+      "class": "SubViewportContainer",
+      "copy_filter": null,
+      "instance": -9223371974527416000,
+      "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@112",
+      "quantization_mode": null,
+      "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+      "use_parent_material": false,
+      "visible": true
+    },
+    "display_rect_normalized": [
+      0.177777777777778,
+      0.209259259259259,
+      0.821296296296296,
+      0.639814814814815
+    ],
+    "engine": "4.7.2-stable (official)",
+    "godot_delta_ms": 0,
+    "godot_post_draw_interval_ms": 73.6,
+    "godot_process_ms": 750.4,
+    "gpu_timing_enabled": false,
+    "mode": "current",
+    "msaa_3d": 1,
+    "paintings": 23,
+    "position": [
+      2,
+      0,
+      -4
+    ],
+    "preview": {
+      "close": [
+        0.787962962962963,
+        0.242592592592593
+      ],
+      "outer_frame_visible": true,
+      "pan": [
+        0,
+        0
+      ],
+      "picture_size": [
+        0,
+        0
+      ],
+      "source_size": [
+        0,
+        0
+      ],
+      "tag": "",
+      "visible": false,
+      "zoom": 1
+    },
+    "render_setup_cpu_ms": 0.2,
+    "replaying": false,
+    "scene": "warm",
+    "space": "gallery",
+    "tick": 0,
+    "viewport": [
+      695,
+      465
+    ],
+    "viewport_render_timings": [],
+    "visible_paintings": [
+      {
+        "point": [
+          0.188026577234268,
+          0.574351847171783
+        ],
+        "tag": "E8"
+      },
+      {
+        "point": [
+          0.220633983612061,
+          0.377996474504471
+        ],
+        "tag": "E9"
+      },
+      {
+        "point": [
+          0.410980522632599,
+          0.248400419950485
+        ],
+        "tag": "S1"
+      },
+      {
+        "point": [
+          0.814904749393463,
+          0.275964051485062
+        ],
+        "tag": "S2"
+      }
+    ],
+    "visitor": {
+      "identity": "Hair36",
+      "idle_time": 0.483333333333333,
+      "phase": 0,
+      "pose_hash": 2370630174,
+      "yaw": 3.14159274101257
+    }
+  },
+  "fullscreen": {
+    "backend": "gl_compatibility",
+    "camera_fov": 23,
+    "camera_transform": [
+      [
+        -1,
+        0,
+        8.74227765734759e-8
+      ],
+      [
+        5.84972639217085e-8,
+        0.743144750595093,
+        0.669130682945251
+      ],
+      [
+        -6.49677787123437e-8,
+        0.669130682945251,
+        -0.743144750595093
+      ],
+      [
+        2,
+        8.61043739318848,
+        -11.4745931625366
+      ]
+    ],
+    "camera_yaw": -3.14159265358979,
+    "container": [
+      695,
+      465
+    ],
+    "display_material": {
+      "class": "SubViewportContainer",
+      "copy_filter": null,
+      "instance": -9223371974527416000,
+      "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@112",
+      "quantization_mode": null,
+      "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+      "use_parent_material": false,
+      "visible": true
+    },
+    "display_rect_normalized": [
+      0.177777777777778,
+      0.209259259259259,
+      0.821296296296296,
+      0.639814814814815
+    ],
+    "engine": "4.7.2-stable (official)",
+    "godot_delta_ms": 0,
+    "godot_post_draw_interval_ms": 103.4,
+    "godot_process_ms": 132.6,
+    "gpu_timing_enabled": false,
+    "mode": "current",
+    "msaa_3d": 1,
+    "paintings": 23,
+    "position": [
+      2,
+      0,
+      -4
+    ],
+    "preview": {
+      "close": [
+        0.787962962962963,
+        0.242592592592593
+      ],
+      "outer_frame_visible": true,
+      "pan": [
+        0,
+        0
+      ],
+      "picture_size": [
+        0,
+        0
+      ],
+      "source_size": [
+        0,
+        0
+      ],
+      "tag": "",
+      "visible": false,
+      "zoom": 1
+    },
+    "render_setup_cpu_ms": 0.2,
+    "replaying": false,
+    "scene": "warm",
+    "space": "gallery",
+    "tick": 0,
+    "viewport": [
+      695,
+      465
+    ],
+    "viewport_render_timings": [],
+    "visible_paintings": [
+      {
+        "point": [
+          0.188026577234268,
+          0.574351847171783
+        ],
+        "tag": "E8"
+      },
+      {
+        "point": [
+          0.220633983612061,
+          0.377996474504471
+        ],
+        "tag": "E9"
+      },
+      {
+        "point": [
+          0.410980522632599,
+          0.248400419950485
+        ],
+        "tag": "S1"
+      },
+      {
+        "point": [
+          0.814904749393463,
+          0.275964051485062
+        ],
+        "tag": "S2"
+      }
+    ],
+    "visitor": {
+      "identity": "Hair36",
+      "idle_time": 1.71546666666667,
+      "phase": 0,
+      "pose_hash": 3216114249,
+      "yaw": 3.14159274101257
+    }
+  },
+  "opened": {
+    "backend": "gl_compatibility",
+    "camera_fov": 23,
+    "camera_transform": [
+      [
+        -4.37113882867379e-8,
+        0,
+        -1
+      ],
+      [
+        -0.669130682945251,
+        0.743144750595093,
+        2.92486319608543e-8
+      ],
+      [
+        0.743144750595093,
+        0.669130682945251,
+        -3.24838893561719e-8
+      ],
+      [
+        5.97459316253662,
+        8.61043739318848,
+        -13.2896595001221
+      ]
+    ],
+    "camera_yaw": 1.5707963267949,
+    "container": [
+      1032,
+      948
+    ],
+    "display_material": {
+      "class": "SubViewportContainer",
+      "copy_filter": null,
+      "instance": -9223371974527416000,
+      "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@112",
+      "quantization_mode": null,
+      "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+      "use_parent_material": false,
+      "visible": true
+    },
+    "display_rect_normalized": [
+      0.0222222222222222,
+      0.0611111111111111,
+      0.977777777777778,
+      0.938888888888889
+    ],
+    "engine": "4.7.2-stable (official)",
+    "godot_delta_ms": 0,
+    "godot_post_draw_interval_ms": 88.2,
+    "godot_process_ms": 142.2,
+    "gpu_timing_enabled": false,
+    "mode": "current",
+    "msaa_3d": 1,
+    "paintings": 23,
+    "position": [
+      -1.5,
+      0,
+      -13.2896595001221
+    ],
+    "preview": {
+      "close": [
+        0.944444444444444,
+        0.0944444444444444
+      ],
+      "outer_frame_visible": false,
+      "pan": [
+        310.872497558594,
+        123.239990234375
+      ],
+      "picture_size": [
+        410.254974365234,
+        701.52001953125
+      ],
+      "source_size": [
+        1024,
+        1751
+      ],
+      "tag": "W6",
+      "visible": true,
+      "zoom": 1
+    },
+    "render_setup_cpu_ms": 0,
+    "replaying": false,
+    "scene": "art",
+    "space": "gallery",
+    "tick": 0,
+    "viewport": [
+      516,
+      474
+    ],
+    "viewport_render_timings": [],
+    "visible_paintings": [
+      {
+        "point": [
+          0.115477934479713,
+          0.172853901982307
+        ],
+        "tag": "W5"
+      },
+      {
+        "point": [
+          0.500000059604645,
+          0.133721247315407
+        ],
+        "tag": "W6"
+      },
+      {
+        "point": [
+          0.880609452724457,
+          0.167614370584488
+        ],
+        "tag": "W7"
+      }
+    ],
+    "visitor": {
+      "identity": "Hair36",
+      "idle_time": 3.7518,
+      "phase": 0.771802686876684,
+      "pose_hash": 3923811989,
+      "yaw": -1.570796251297
+    }
+  },
+  "returned": {
+    "backend": "gl_compatibility",
+    "camera_fov": 23,
+    "camera_transform": [
+      [
+        -4.37113882867379e-8,
+        0,
+        -1
+      ],
+      [
+        -0.669130682945251,
+        0.743144750595093,
+        2.92486319608543e-8
+      ],
+      [
+        0.743144750595093,
+        0.669130682945251,
+        -3.24838893561719e-8
+      ],
+      [
+        5.97459316253662,
+        8.61043739318848,
+        -13.2896595001221
+      ]
+    ],
+    "camera_yaw": 1.5707963267949,
+    "container": [
+      695,
+      465
+    ],
+    "display_material": {
+      "class": "SubViewportContainer",
+      "copy_filter": null,
+      "instance": -9223371974527416000,
+      "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@112",
+      "quantization_mode": null,
+      "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+      "use_parent_material": false,
+      "visible": true
+    },
+    "display_rect_normalized": [
+      0.177777777777778,
+      0.209259259259259,
+      0.821296296296296,
+      0.639814814814815
+    ],
+    "engine": "4.7.2-stable (official)",
+    "godot_delta_ms": 0,
+    "godot_post_draw_interval_ms": 175.4,
+    "godot_process_ms": 175.5,
+    "gpu_timing_enabled": false,
+    "mode": "current",
+    "msaa_3d": 1,
+    "paintings": 23,
+    "position": [
+      -1.5,
+      0,
+      -13.2896595001221
+    ],
+    "preview": {
+      "close": [
+        0.787962962962963,
+        0.242592592592593
+      ],
+      "outer_frame_visible": true,
+      "pan": [
+        366.128662109375,
+        113.638641357422
+      ],
+      "picture_size": [
+        410.254974365234,
+        701.52001953125
+      ],
+      "source_size": [
+        1024,
+        1751
+      ],
+      "tag": "",
+      "visible": false,
+      "zoom": 1.15
+    },
+    "render_setup_cpu_ms": 0.1,
+    "replaying": false,
+    "scene": "art",
+    "space": "gallery",
+    "tick": 0,
+    "viewport": [
+      695,
+      465
+    ],
+    "viewport_render_timings": [],
+    "visible_paintings": [
+      {
+        "point": [
+          0.290557295084,
+          0.264069825410843
+        ],
+        "tag": "W5"
+      },
+      {
+        "point": [
+          0.499537080526352,
+          0.244874998927116
+        ],
+        "tag": "W6"
+      },
+      {
+        "point": [
+          0.74583500623703,
+          0.262116074562073
+        ],
+        "tag": "W7"
+      }
+    ],
+    "visitor": {
+      "identity": "Hair36",
+      "idle_time": 4.51993333333333,
+      "phase": 0,
+      "pose_hash": 3660917329,
+      "yaw": -1.570796251297
+    }
+  },
+  "portrait": {
+    "backend": "gl_compatibility",
+    "camera_fov": 23,
+    "camera_transform": [
+      [
+        -4.37113882867379e-8,
+        0,
+        -1
+      ],
+      [
+        -0.669130682945251,
+        0.743144750595093,
+        2.92486319608543e-8
+      ],
+      [
+        0.743144750595093,
+        0.669130682945251,
+        -3.24838893561719e-8
+      ],
+      [
+        5.94370222091675,
+        8.61043739318848,
+        -13.2675266265869
+      ]
+    ],
+    "camera_yaw": 1.5707963267949,
+    "container": [
+      1032,
+      948
+    ],
+    "display_material": {
+      "class": "SubViewportContainer",
+      "copy_filter": null,
+      "instance": -9223371974527416000,
+      "node": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/CollectionFrame/GalleryWalk/@SubViewportContainer@112",
+      "quantization_mode": null,
+      "shader": "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+      "use_parent_material": false,
+      "visible": true
+    },
+    "display_rect_normalized": [
+      0.0222222222222222,
+      0.0611111111111111,
+      0.977777777777778,
+      0.938888888888889
+    ],
+    "engine": "4.7.2-stable (official)",
+    "godot_delta_ms": 0,
+    "godot_post_draw_interval_ms": 97.6,
+    "godot_process_ms": 137.3,
+    "gpu_timing_enabled": false,
+    "mode": "current",
+    "msaa_3d": 1,
+    "paintings": 23,
+    "position": [
+      -1.53089082241058,
+      0,
+      -13.2675266265869
+    ],
+    "preview": {
+      "close": [
+        0.944444444444444,
+        0.0944444444444444
+      ],
+      "outer_frame_visible": false,
+      "pan": [
+        310.872497558594,
+        123.239990234375
+      ],
+      "picture_size": [
+        410.254974365234,
+        701.52001953125
+      ],
+      "source_size": [
+        1024,
+        1751
+      ],
+      "tag": "W6",
+      "visible": true,
+      "zoom": 1
+    },
+    "render_setup_cpu_ms": 0.1,
+    "replaying": false,
+    "scene": "art",
+    "space": "gallery",
+    "tick": 0,
+    "viewport": [
+      516,
+      474
+    ],
+    "viewport_render_timings": [],
+    "visible_paintings": [
+      {
+        "point": [
+          0.116999417543411,
+          0.174331441521645
+        ],
+        "tag": "W5"
+      },
+      {
+        "point": [
+          0.50376695394516,
+          0.135174185037613
+        ],
+        "tag": "W6"
+      },
+      {
+        "point": [
+          0.882796287536621,
+          0.169088825583458
+        ],
+        "tag": "W7"
+      }
+    ],
+    "visitor": {
+      "identity": "Hair36",
+      "idle_time": 3.56526666666667,
+      "phase": 0.771800842858082,
+      "pose_hash": 3927648623,
+      "yaw": -1.570796251297
+    }
+  },
+  "errors": []
+}

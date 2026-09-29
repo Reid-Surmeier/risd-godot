@@ -80,3 +80,7 @@ Owner screenshot SHA256488e207d35b839603ee3d35cf1630f62a23bc800f4a03eadba61c8622
 ## #187 warm floor and room light (2026-09-29)
 
 Owner requested the older honey tone on the accepted #186 grain/layout, warmer lamp light and less skylight. Existing atlas pixels and 1.9×0.36 plank layout retained; floor shader tint adjusted, baked daylight reduced from 0.8 to 0.35, fill warmed and increased from 0.4 to 0.55, painting spots from 6.0 to 6.8. Doorway reveal and passage-facing normals corrected; shared panel winding now agrees with supplied normals. New offline lightmap is authored from this geometry and lighting. No image generation/provider calls or spend. Evidence and bake device/timing: `docs/evidence/warm-room-187/`.
+
+## #189 white baseboard visibility (2026-09-29)
+
+Owner screenshot `Screenshot 2026-09-29 at 3.39.58 PM.png` showed the left wall baseboard disappearing into shadow. Existing board geometry retained; its two saved merged materials now receive neutral emission fill (0.55), matching the cornice treatment. Source recipe remains in bake/prepare.gd, keyed by baseboard metadata. Saved room SHA256 `cec2c8fc7c555b46115c40a4752ae03bb1f40ff23129b8770dfd27c4c1f027a1`. All139 mesh geometry/normal/UV arrays and transforms match #187; EXR/LMBake unchanged. No generation, provider, spend or rebake. Native left-board luminance rises from0.272 to0.605; visual evidence in docs/evidence/collection-interaction-189.

@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Surface000 bounds=[P: (-5.628571, 0.0, -27.91439), S: (11.00258, 0.002, 29.34493)] material=ShaderMaterial color=floor
+Surface116 bounds=[P: (4.88, 0.0, -26.3), S: (0.12, 0.28, 26.3)] material=StandardMaterial3D color=(0.9137, 0.902, 0.8706, 1.0)
+Surface117 bounds=[P: (-5.0, 0.0, -26.3), S: (0.12, 0.28, 26.3)] material=StandardMaterial3D color=(0.9137, 0.902, 0.8706, 1.0)
