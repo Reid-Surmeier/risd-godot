@@ -19,7 +19,7 @@ const SKY_W := 4.2
 const WHITE := Color("#e9e6de")
 const CASING := 0.28
 const GAP := 0.75  # default gap between frames; measured gaps in gaps.json
-const PLANK := Vector2(1.9, 0.36)  # #168 trial: contractor gallery photo shows broader courses; not survey dimensions
+const PLANK := Vector2(1.9, 0.36)  # #168 source-relative visual scale, not survey dimensions
 # The two doorways differ: the arch door (to the medieval gallery) has a cornice head and a shallow reveal onto
 # the wide lit room; the far door has a plain casing and a deep vestibule with a second door at its end.
 const DOORS := {
@@ -53,6 +53,9 @@ var _view_label: Label
 var _velocity := Vector3.ZERO
 var _source_meshes: Array[Node] = []
 var _baked_room: Node3D
+var _portal_floor_material: ShaderMaterial
+var _cutaway_materials := {}
+var _cutaway_alpha := {8: 1.0}
 var _white_capture: LightmapGI
 var _baked_lighting := true
 var _lighting_choice: CheckButton
@@ -334,15 +337,25 @@ func _build_room() -> void:
 	_far_end()
 	# skirting and cornice
 	var white := ps(null, WHITE)
+	var cornice := ps(load(DIR + "textures/cornice-ivory.svg"), Color.WHITE, Vector2(0.7, 0.7), true)
+	# Reference-led plaster roll/cove, within the existing 0.50 x 0.22 envelope.
+	# The crop establishes rounded relief, not measured molding dimensions.
+	var cornice_section := [
+		Vector2(0, 0), Vector2(0, 0.075), Vector2(0.025, 0.075),
+		Vector2(0.035, 0.092), Vector2(0.05, 0.111), Vector2(0.07, 0.127),
+		Vector2(0.095, 0.139), Vector2(0.12, 0.142), Vector2(0.145, 0.137),
+		Vector2(0.165, 0.125), Vector2(0.18, 0.11), Vector2(0.20, 0.11),
+		Vector2(0.23, 0.114), Vector2(0.26, 0.123), Vector2(0.29, 0.137),
+		Vector2(0.32, 0.155), Vector2(0.35, 0.178), Vector2(0.38, 0.206),
+		Vector2(0.395, 0.22), Vector2(0.435, 0.22),
+		Vector2(0.46, 0.205), Vector2(0.48, 0.16), Vector2(0.50, 0),
+	]
 	for s in [-1.0, 1.0]:
 		_box(Vector3(s * (X - 0.04), 0.12, -L / 2), Vector3(0.08, 0.24, L), WHITE, 1, white)
 		_box(Vector3(s * (X - 0.06), 0.255, -L / 2), Vector3(0.12, 0.05, L), WHITE, 1, white)
-		_box(Vector3(s * (X - 0.12), H - 0.17, -L / 2), Vector3(0.24, 0.34, L), WHITE, 1, white)
-		_box(Vector3(s * (X - 0.05), H - 0.42, -L / 2), Vector3(0.1, 0.16, L), WHITE, 1, white)
-		# Sloped plaster fascia joins the two cornice steps; its underside bakes separately.
-		_panel(Vector3(s * (X - 0.1), H - 0.50, -L if s > 0 else 0.0), Vector3(0, 0, L * s), Vector3(-s * 0.14, 0.18, 0), white)
-	for z in [-0.12, -L + 0.12]:
-		_box(Vector3(0, H - 0.17, z), Vector3(W, 0.34, 0.24), WHITE, 1, white)
+		_trim_profile(Vector3(s * X, H - 0.50, 0), Vector3.UP, Vector3(0, 0, -L), cornice_section, cornice, Vector3(-s, 0, 0))
+	for z in [0.0, -L]:
+		_trim_profile(Vector3(-X, H - 0.50, z), Vector3.UP, Vector3(W, 0, 0), cornice_section, cornice, Vector3(0, 0, -1 if z == 0.0 else 1))
 	# barrel vault from the cornice, end lunettes, and the long skylight curving with it, lamps along its edges
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
@@ -361,10 +374,10 @@ func _build_room() -> void:
 		var z0 := -0.9 if glass else 0.0
 		var z1 := -L + 0.9 if glass else -L
 		if glass:  # the glazing: its own strip, its grid following the curve
-			var u0 := arc / 0.7
-			var u1 := (arc + seg_len) / 0.7
+			var u0 := arc / SKY_W
+			var u1 := (arc + seg_len) / SKY_W
 			var q := [p0 + Vector3(0, 0, z0), p1 + Vector3(0, 0, z0), p1 + Vector3(0, 0, z1), p0 + Vector3(0, 0, z1)]
-			var qu := [Vector2(u0, 0), Vector2(u1, 0), Vector2(u1, (z0 - z1) / 0.7), Vector2(u0, (z0 - z1) / 0.7)]
+			var qu := [Vector2(u0, 0), Vector2(u1, 0), Vector2(u1, (z0 - z1) / (SKY_W * 2.0)), Vector2(u0, (z0 - z1) / (SKY_W * 2.0))]
 			for k in [0, 1, 2, 0, 2, 3]:
 				gl.set_uv(qu[k])
 				gl.add_vertex(q[k])
@@ -372,7 +385,10 @@ func _build_room() -> void:
 			# the frame of the glazing at both ends
 			for zz in [0.0, -L]:
 				var zi := -0.9 if zz == 0.0 else -L + 0.9
-				for v in [p0 + Vector3(0, 0, zz), p1 + Vector3(0, 0, zz), p1 + Vector3(0, 0, zi), p0 + Vector3(0, 0, zz), p1 + Vector3(0, 0, zi), p0 + Vector3(0, 0, zi)]:
+				var cap := [p0 + Vector3(0, 0, zz), p1 + Vector3(0, 0, zz), p1 + Vector3(0, 0, zi), p0 + Vector3(0, 0, zz), p1 + Vector3(0, 0, zi), p0 + Vector3(0, 0, zi)]
+				if zz < 0:
+					cap.reverse()  # both end strips face into the gallery
+				for v in cap:
 					st.set_color(vault * Color(0.85, 0.85, 0.85))
 					st.add_vertex(v)
 		else:
@@ -383,10 +399,14 @@ func _build_room() -> void:
 				st.add_vertex(v)
 		st.set_color(vault * Color(0.82, 0.82, 0.8))
 		for z in [0.0, -L]:  # the end lunettes
-			for v in [Vector3(0, H, z), p0 + Vector3(0, 0, z), p1 + Vector3(0, 0, z)]:
+			var lunette := [Vector3(0, H, z), p0 + Vector3(0, 0, z), p1 + Vector3(0, 0, z)]
+			if z == 0:
+				lunette.reverse()
+			for v in lunette:
 				st.add_vertex(v)
 	var vmi := MeshInstance3D.new()
 	vmi.mesh = st.commit()
+	vmi.set_meta("vault", true)
 	vmi.material_override = ps(null, Color.WHITE, Vector2.ONE, true)
 	_vp.add_child(vmi)
 	var gmi := MeshInstance3D.new()
@@ -414,43 +434,92 @@ func _build_room() -> void:
 		bs.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		_vp.add_child(bs)
 		_bench_cushion(bz)
-		_box(Vector3(0, 0.26, bz), Vector3(0.85, 0.08, 2.9), Color("#1d2433"))
+		for rail_x in [-0.39, 0.39]:
+			_box(Vector3(rail_x, 0.265, bz), Vector3(0.035, 0.05, 2.82), Color("#242325"))
+		for rail_z in [-1.39, 1.39]:
+			_box(Vector3(0, 0.265, bz + rail_z), Vector3(0.81, 0.05, 0.035), Color("#242325"))
 		for lx in [-0.38, 0.38]:
 			for lz in [-1.38, 1.38]:
-				_box(Vector3(lx, 0.11, bz + lz), Vector3(0.06, 0.22, 0.06), Color("#141414"))
+				_box(Vector3(lx, 0.13, bz + lz), Vector3(0.038, 0.26, 0.038), Color("#242325"))
 
 
-# Same bench bounds, with bevelled upholstery edges that the lightmap can describe.
+# Source-led upholstery: rounded edges and paired button depressions, same bounds.
+func _bench_surface(x: float, z: float) -> Vector3:
+	var corner := Vector2(maxf(absf(x) - 0.385, 0), maxf(absf(z) - 1.41, 0))
+	if corner.length() > 0.09:
+		corner = corner.normalized() * 0.09
+		x = signf(x) * (0.385 + corner.x)
+		z = signf(z) * (1.41 + corner.y)
+	var edge := minf(0.475 - absf(x), 1.5 - absf(z))
+	var height := 0.355 + 0.065 * sin(clampf(edge / 0.13, 0, 1) * PI / 2)
+	for bx in [-0.19, 0.19]:
+		for bz in [-1.05, -0.63, -0.21, 0.21, 0.63, 1.05]:
+			var distance := Vector2(x - bx, z - bz).length_squared()
+			height -= 0.035 * exp(-distance / 0.007)
+	return Vector3(x, height, z)
+
 func _bench_cushion(z: float) -> void:
-	var outline := [Vector2(-0.40, -1.5), Vector2(0.40, -1.5), Vector2(0.475, -1.425), Vector2(0.475, 1.425), Vector2(0.40, 1.5), Vector2(-0.40, 1.5), Vector2(-0.475, 1.425), Vector2(-0.475, -1.425)]
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var rings: Array = []
-	for height in [0.30, 0.38, 0.42]:
-		var ring: Array = []
-		for point in outline:
-			var inset := Vector2(signf(point.x), signf(point.y)) * (0.035 if height == 0.42 else 0.0)
-			ring.append(Vector3(point.x - inset.x, height, point.y - inset.y + z))
-		rings.append(ring)
-	for level in 2:
-		for i in 8:
-			var next := (i + 1) % 8
-			var q := [rings[level][i], rings[level][next], rings[level + 1][next], rings[level + 1][i]]
-			var normal: Vector3 = (q[3] - q[0]).cross(q[1] - q[0]).normalized()
-			for corner in [0, 1, 2, 0, 2, 3]:
-				st.set_normal(normal)
-				st.add_vertex(q[corner])
-	for level in [0, 2]:
-		for i in 8:
-			st.set_normal(Vector3.UP if level == 2 else Vector3.DOWN)
-			var first := i if level == 2 else (i + 1) % 8
-			var second := (i + 1) % 8 if level == 2 else i
-			for point in [Vector3(0, 0.42 if level == 2 else 0.30, z), rings[level][first], rings[level][second]]:
-				st.add_vertex(point)
+	for row in 96:
+		for column in 32:
+			var quad: Array[Vector3] = []
+			for offset in [Vector2(0, 0), Vector2(1, 0), Vector2(1, 1), Vector2(0, 1)]:
+				quad.append(_bench_surface(-0.475 + (column + offset.x) * 0.95 / 32, -1.5 + (row + offset.y) * 3.0 / 96))
+			for i in [0, 1, 2, 0, 2, 3]:
+				var point := quad[i]
+				var dx := _bench_surface(point.x + 0.001, point.z) - _bench_surface(point.x - 0.001, point.z)
+				var dz := _bench_surface(point.x, point.z + 0.001) - _bench_surface(point.x, point.z - 0.001)
+				st.set_normal(dz.cross(dx).normalized())
+				# Authored cavity occlusion follows the modeled tuft depth, not painted buttons.
+				var edge := minf(0.475 - absf(point.x), 1.5 - absf(point.z))
+				var crown := 0.355 + 0.065 * sin(clampf(edge / 0.13, 0, 1) * PI / 2)
+				st.set_color(Color.WHITE * lerpf(1.0, 0.75, clampf((crown - point.y) / 0.035, 0, 1)))
+				st.set_uv(Vector2(point.x, point.z) * 1.8)
+				st.add_vertex(point + Vector3(0, 0, z))
+	# Match the sampled top edge with a rounded lower welt, without box corners.
+	var perimeter: Array[Vector3] = []
+	for edge in 4:
+		var count := 32 if edge % 2 == 0 else 96
+		for i in count:
+			var t := float(i) / count
+			var point := Vector2(-0.475 + t * 0.95, -1.5) if edge == 0 else (Vector2(0.475, -1.5 + t * 3) if edge == 1 else (Vector2(0.475 - t * 0.95, 1.5) if edge == 2 else Vector2(-0.475, 1.5 - t * 3)))
+			perimeter.append(_bench_surface(point.x, point.y))
+	st.set_color(Color.WHITE)
+	for i in perimeter.size():
+		var a := perimeter[i]
+		var b := perimeter[(i + 1) % perimeter.size()]
+		for level in 4:
+			var quad: Array[Vector3] = []
+			for spec in [Vector2(0, level), Vector2(1, level), Vector2(1, level + 1), Vector2(0, level + 1)]:
+				var point := a if spec.x == 0 else b
+				var inset := 0.025 * (1 - cos(spec.y / 4 * PI / 2))
+				quad.append(Vector3(point.x - signf(point.x) * inset, lerpf(point.y, 0.30, sin(spec.y / 4 * PI / 2)), point.z - signf(point.z) * inset))
+			for index in [0, 2, 1, 0, 3, 2]:
+				var point := quad[index]
+				var outward := Vector2(point.x - clampf(point.x, -0.385, 0.385), point.z - clampf(point.z, -1.41, 1.41)).normalized()
+				var angle := float(level + (1 if index >= 2 else 0)) / 4 * PI / 2
+				st.set_normal(Vector3(outward.x * cos(angle), -sin(angle), outward.y * cos(angle)))
+				st.set_uv(Vector2(float(i) / perimeter.size() * 7.8, quad[index].y) * 1.8)
+				st.add_vertex(quad[index] + Vector3(0, 0, z))
 	var seat := MeshInstance3D.new()
 	seat.mesh = st.commit()
-	seat.material_override = ps(null, Color("#2f3a52"))
+	seat.material_override = ps(load(DIR + "textures/bench-cloth-muse.webp"), Color(1.1, 1.1, 1.1), Vector2.ONE, true)
+	seat.set_meta("bench_cushion", true)
 	_vp.add_child(seat)
+	# Fabric-covered buttons sit inside the modeled depressions in the source bench.
+	for bx in [-0.19, 0.19]:
+		for bz in [-1.05, -0.63, -0.21, 0.21, 0.63, 1.05]:
+			var button := MeshInstance3D.new()
+			var dome := SphereMesh.new()
+			dome.radius = 0.007
+			dome.height = 0.004
+			dome.radial_segments = 12
+			dome.rings = 6
+			button.mesh = dome
+			button.position = _bench_surface(bx, bz) + Vector3(0, 0.003, z)
+			button.material_override = ps(load(DIR + "textures/bench-cloth-muse.webp"), Color(1.1, 1.1, 1.1))
+			_vp.add_child(button)
 
 
 func _rect_floor() -> void:  # under the planks, never seen: only there so nothing shows through
@@ -554,17 +623,22 @@ func _arch_end() -> void:
 	var ds: Vector2 = door.size
 	var dw := ds.x / 2.0
 	var side := X - dw
-	var white := ps(null, WHITE)
+	var white := ps(load(DIR + "textures/ivory-trim.svg"), Color.WHITE, Vector2(0.7, 0.7), true)
 	_panel(Vector3(X, 0, 0), Vector3(-side, 0, 0), Vector3(0, H, 0), _wall_ps(), 0.5, 1)
 	_panel(Vector3(-dw, 0, 0), Vector3(-side, 0, 0), Vector3(0, H, 0), _wall_ps(), 0.5, 1)
 	_panel(Vector3(dw, ds.y, 0), Vector3(-ds.x, 0, 0), Vector3(0, H - ds.y, 0), _wall_ps(), 0.5, 1)
+	# Same source-led plaster moulding construction as the opposite doorway.
+	var casing := [Vector2(0, 0), Vector2(0, 0.10), Vector2(0.018, 0.125), Vector2(0.042, 0.125), Vector2(0.06, 0.105), Vector2(0.075, 0.075), Vector2(0.27, 0.075), Vector2(0.285, 0.09), Vector2(0.305, 0.09), Vector2(0.32, 0.06), Vector2(0.32, 0)]
+	var skirting := [Vector2(0, 0), Vector2(0, 0.07), Vector2(0.035, 0.07), Vector2(0.05, 0.055), Vector2(0.18, 0.055), Vector2(0.20, 0.067), Vector2(0.225, 0.065), Vector2(0.24, 0.035), Vector2(0.24, 0)]
 	for s in [-1.0, 1.0]:
-		_box(Vector3(s * (dw + side / 2), 0.09, -0.015), Vector3(side, 0.18, 0.03), WHITE, 1, white)
-		_box(Vector3(s * (dw + 0.17), ds.y / 2 + 0.1, -0.04), Vector3(0.3, ds.y + 0.2, 0.08), WHITE, 1, white)
-		_box(Vector3(s * (dw + 0.04), ds.y / 2, -0.07), Vector3(0.08, ds.y, 0.14), WHITE, 1, white)
-	_box(Vector3(0, ds.y + 0.19, -0.04), Vector3(ds.x + 0.64, 0.3, 0.08), WHITE, 1, white)
-	_box(Vector3(0, ds.y + 0.36, -0.08), Vector3(ds.x + 0.8, 0.07, 0.16), WHITE, 1, white)
-	_box(Vector3(0, ds.y + 0.62, -0.04), Vector3(0.34, 0.14, 0.05), Color.WHITE, 1, ps(null, Color(0.3, 1.0, 0.5)))
+		_trim_profile(Vector3(s * (dw + 0.36), 0, 0), Vector3.UP, Vector3(s * (side - 0.36), 0, 0), skirting, white, Vector3.FORWARD)
+		_trim_profile(Vector3(s * dw, 0.26, 0), Vector3(s, 0, 0), Vector3(0, ds.y - 0.26, 0), casing, white, Vector3.FORWARD)
+		var plinth := [Vector2(0, 0), Vector2(0, 0.12), Vector2(0.02, 0.14), Vector2(0.34, 0.14), Vector2(0.36, 0.12), Vector2(0.36, 0)]
+		_trim_profile(Vector3(s * dw, 0, 0), Vector3(s, 0, 0), Vector3(0, 0.26, 0), plinth, white, Vector3.FORWARD)
+	_trim_profile(Vector3(-dw - 0.32, ds.y, 0), Vector3.UP, Vector3(ds.x + 0.64, 0, 0), casing, white, Vector3.FORWARD)
+	var crown := [Vector2(0, 0), Vector2(0, 0.065), Vector2(0.025, 0.09), Vector2(0.055, 0.14), Vector2(0.075, 0.15), Vector2(0.10, 0.15), Vector2(0.10, 0)]
+	_trim_profile(Vector3(-dw - 0.38, ds.y + 0.32, 0), Vector3.UP, Vector3(ds.x + 0.76, 0, 0), crown, white, Vector3.FORWARD)
+	_panel(Vector3(0.17, ds.y + 0.55, -0.071), Vector3(-0.34, 0, 0), Vector3(0, 0.15, 0), ps(load(DIR + "textures/exit-sign.svg"), Color.WHITE, Vector2(1.0 / 0.34, 1.0 / 0.15)))
 	# the wall's plaster reveal
 	var zr := 0.45
 	var rev := ps(null, Color("#dcd5c6"), Vector2.ONE, true)
@@ -573,49 +647,24 @@ func _arch_end() -> void:
 	_panel(Vector3(dw, 0, zr), Vector3(0, 0, -zr), Vector3(0, ds.y, 0), rev, 0.3, 1, deep)
 	_panel(Vector3(-dw, ds.y, zr), Vector3(ds.x, 0, 0), Vector3(0, 0, -zr), rev, 0.3, 1, deep)
 	# the stone portal: a round-arched tunnel, its arch rising just past the door head
-	var stone := ps(load(DIR + "textures/stone.png"), Color(1.0, 0.97, 0.92), Vector2(0.8, 0.8), true)
-	var a := dw
-	var spring := ds.y - a * 0.75
 	var z0 := zr
 	var z1 := zr + PORTAL_DEPTH
-	var N := 16
-	var st := SurfaceTool.new()
-	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var put := func(p: Vector3, o: float) -> void:
-		st.set_color(Color(o, o, o))
-		st.set_uv(Vector2(p.x + p.z, p.y))
-		st.add_vertex(p)
-	var quad := func(q: Array, o: Array) -> void:
-		for i in [0, 1, 2, 0, 2, 3]:
-			put.call(q[i], o[i])
-	for k in N:  # the barrel of the arch
-		var t0 := PI * k / N
-		var t1 := PI * (k + 1) / N
-		var q0 := Vector2(-a * cos(t0), spring + a * sin(t0))
-		var q1 := Vector2(-a * cos(t1), spring + a * sin(t1))
-		quad.call([Vector3(q0.x, q0.y, z0), Vector3(q1.x, q1.y, z0), Vector3(q1.x, q1.y, z1), Vector3(q0.x, q0.y, z1)], [0.62, 0.62, 0.8, 0.8])
-	for sx in [-1.0, 1.0]:  # the jambs
-		quad.call([Vector3(sx * a, 0, z0), Vector3(sx * a, spring, z0), Vector3(sx * a, spring, z1), Vector3(sx * a, 0, z1)], [0.5, 0.66, 0.84, 0.7])
-	# the stone face round the arch, seen through the door above its head
-	for k in N:
-		var t0 := PI * k / N
-		var t1 := PI * (k + 1) / N
-		var q0 := Vector2(-a * cos(t0), spring + a * sin(t0))
-		var q1 := Vector2(-a * cos(t1), spring + a * sin(t1))
-		quad.call([Vector3(q0.x, q0.y, z0), Vector3(q0.x, ds.y + 0.4, z0), Vector3(q1.x, ds.y + 0.4, z0), Vector3(q1.x, q1.y, z0)], [0.55, 0.5, 0.5, 0.55])
-	var mi := MeshInstance3D.new()
-	mi.mesh = st.commit()
-	mi.material_override = stone
-	_vp.add_child(mi)
+	_portal_stone(dw, ds.y, z0, z1)
 	# the medieval gallery beyond: lit warm toward the crucifix
 	var beyond := 5.0
 	var zb := z1 + beyond
 	var room := ps(null, Color("#56606b"), Vector2.ONE, true)
 	var lit := func(p: Vector3) -> float: return lerpf(0.55, 1.05, clampf((p.z - z1) / beyond, 0.0, 1.0))
-	_panel(Vector3(-3.0, 0, z1), Vector3(0, 0, beyond), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
-	_panel(Vector3(3.0, 0, zb), Vector3(0, 0, -beyond), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
+	_panel(Vector3(-3.0, 0, 0), Vector3(0, 0, zb), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
+	_panel(Vector3(3.0, 0, zb), Vector3(0, 0, -zb), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
+	# Visible reverse face of the existing wall, with outward-facing normals.
+	# Extending the side returns to this plane closes the former floor-edge gaps.
+	_panel(Vector3(-3.0, 0, 0.01), Vector3(3.0 - dw, 0, 0), Vector3(0, 5.0, 0), room, 0.5, 1, lit)
+	_panel(Vector3(dw, 0, 0.01), Vector3(3.0 - dw, 0, 0), Vector3(0, 5.0, 0), room, 0.5, 1, lit)
+	_panel(Vector3(-dw, ds.y, 0.01), Vector3(ds.x, 0, 0), Vector3(0, 5.0 - ds.y, 0), room, 0.5, 1, lit)
+	_panel(Vector3(3.0, 0, zb + 0.01), Vector3(-6.0, 0, 0), Vector3(0, 5.0, 0), room, 1.0, 1, lit)
 	_panel(Vector3(-3.0, 5.0, zb), Vector3(6.0, 0, 0), Vector3(0, 0, -beyond), ps(null, Color("#8c8579"), Vector2.ONE, true), 1.0, 1, lit)
-	_panel(Vector3(-3.0, 0.002, z0), Vector3(6.0, 0, 0), Vector3(0, 0, beyond + PORTAL_DEPTH), ps(load(DIR + "textures/oak-muse.webp"), Color.WHITE, Vector2(1, 3), true), 1.0, 1, lit)
+	_portal_floor(zb)
 	var card := MeshInstance3D.new()
 	var qm := QuadMesh.new()
 	qm.size = Vector2(6.0, 5.0)
@@ -624,6 +673,343 @@ func _arch_end() -> void:
 	card.position = Vector3(0, 2.5, zb - 0.01)
 	card.rotation.y = PI
 	_vp.add_child(card)
+
+
+func _portal_floor(end: float) -> void:
+	# Continue the same plank lattice without extending the gallery's clipped mesh.
+	# This is the visible walkable passage floor, with no overlay above it.
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var a := PLANK.x
+	var b := PLANK.y
+	var rot := Transform2D(PI / 4, Vector2(0, -L / 2))
+	var clip := PackedVector2Array([Vector2(-3, 0), Vector2(3, 0), Vector2(3, end), Vector2(-3, end)])
+	var reach := (L + W) * 0.75
+	var n := int(reach / b)
+	var m := int(reach / a) + 1
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 1877
+	for j in range(-m, m + 1):
+		for k in range(-n, n + 1):
+			var o := Vector2(k * b + j * a, k * b - j * a)
+			for vertical in [false, true]:
+				var r := Rect2(o, Vector2(a, b)) if not vertical else Rect2(o + Vector2(0, b), Vector2(b, a))
+				var c := rot * r.get_center()
+				# Replay gallery plank selection so a plank crossing z=0 retains
+				# the same grain strip and tone on both sides of the clipping plane.
+				var v0 := 0.09 * posmod(j * 11 + k * 3, 7)
+				var tone := 0.90 + 0.025 * posmod(j * 7 + k * 13, 7)
+				if absf(c.x) <= W / 2 + 0.4 and c.y <= 0.4 and c.y >= -L - 0.4:
+					v0 = rng.randf_range(0.0, 2.0 / 3.0)
+					tone = rng.randf_range(0.9, 1.06)
+				if absf(c.x) > 3.5 or c.y < -0.5 or c.y > end + 0.5:
+					continue
+				var corners := PackedVector2Array([rot * r.position, rot * Vector2(r.end.x, r.position.y), rot * r.end, rot * Vector2(r.position.x, r.end.y)])
+				for polygon in Geometry2D.intersect_polygons(corners, clip):
+					var indices := Geometry2D.triangulate_polygon(polygon)
+					for index in indices:
+						var p: Vector2 = polygon[index]
+						var local: Vector2 = (rot.affine_inverse() * p - r.position) / r.size
+						var u := local.y if vertical else local.x
+						var v := 1.0 - local.x if vertical else local.y
+						st.set_normal(Vector3.UP)
+						st.set_uv(Vector2(u, v0 + v / 3.0))
+						st.set_color(Color(tone, tone * 0.99, tone * 0.97))
+						st.add_vertex(Vector3(p.x, -0.002, p.y))
+	var mesh := MeshInstance3D.new()
+	mesh.mesh = st.commit()
+	mesh.material_override = ps(load(DIR + "textures/oak-muse.webp"), Color.WHITE, Vector2.ONE, true)
+	mesh.set_meta("portal_floor", true)
+	mesh.set_meta("portal_floor_end", end)
+	_vp.add_child(mesh)
+
+
+func _portal_relief_sample(data: Array, width: int, height: int, u: float, v: float) -> float:
+	var px := clampf(u, 0.0, 1.0) * (width - 1)
+	var py := clampf(v, 0.0, 1.0) * (height - 1)
+	var ix := mini(int(px), width - 2)
+	var iy := mini(int(py), height - 2)
+	var a: float = lerpf(data[iy * width + ix], data[iy * width + ix + 1], px - ix)
+	var b: float = lerpf(data[(iy + 1) * width + ix], data[(iy + 1) * width + ix + 1], px - ix)
+	return lerpf(a, b, py - iy) / 255.0
+
+
+func _portal_stone(radius: float, height: float, rear: float, front: float) -> void:
+	# #167: photo-led orders and supports, not a survey or invented capital carving.
+	# Retain the existing opening and tunnel depth; all additions remain outside it.
+	var spring := height - radius * 0.75
+	var relief: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(DIR + "portal-capital-relief.json"))
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var capital_st := SurfaceTool.new()
+	capital_st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var builder := {"current": st}
+	var winding := {"failures": 0}
+	var stone_patch := {"index": 0, "tone": 1.0}
+	var vary := func(seed_value: int) -> void:
+		stone_patch.index = posmod(seed_value, 5)
+		stone_patch.tone = 0.94 + 0.025 * posmod(seed_value, 5)
+	var patch_origin := func() -> Vector2:
+		return [Vector2(0.025, 0.025), Vector2(0.36, 0.025), Vector2(0.69, 0.025), Vector2(0.22, 0.36), Vector2(0.57, 0.70)][stone_patch.index]
+	var face := func(q: Array, smooth: Array = [], supplied_uv: Array = [], expected_z := 0) -> void:
+		var normal: Vector3 = (q[2] - q[0]).cross(q[1] - q[0]).normalized()
+		# Sample grain inside one existing limestone block, not its rectangular joints.
+		var size := Vector2((q[1] - q[0]).length(), (q[3] - q[0]).length())
+		size *= 0.22
+		if maxf(size.x, size.y) > 0.10:
+			size *= 0.10 / maxf(size.x, size.y)
+		var origin: Vector2 = patch_origin.call()
+		var uv := [origin, origin + Vector2(size.x, 0), origin + size, origin + Vector2(0, size.y)]
+		if not supplied_uv.is_empty():
+			uv = supplied_uv
+		var triangles := [0, 1, 2, 0, 2, 3]
+		for offset in triangles.size():
+			var i: int = triangles[offset]
+			var triangle: int = int(offset / 3) * 3
+			var a: Vector3 = q[triangles[triangle]]
+			var geometric: Vector3 = (q[triangles[triangle + 2]] - a).cross(q[triangles[triangle + 1]] - a).normalized()
+			# Independent topology check for parameterized relief: front and
+			# back half-surfaces have known outward Z signs, before shading.
+			if offset % 3 == 0 and expected_z != 0 and geometric.z * expected_z < -0.000001:
+				winding.failures += 1
+			var shading: Vector3 = normal if smooth.is_empty() else smooth[i]
+			# A carved crease must use its own triangle plane, not an analytic
+			# tangent across the ridge. Preserve smoothing only within 60 degrees.
+			if not smooth.is_empty() and shading.dot(geometric) < 0.5:
+				shading = geometric
+			builder.current.set_normal(shading)
+			builder.current.set_color(Color(stone_patch.tone, stone_patch.tone, stone_patch.tone))
+			builder.current.set_uv(uv[i])
+			builder.current.add_vertex(q[i])
+	var block := func(center: Vector3, extent: Vector3) -> void:
+		vary.call(roundi(center.x * 37 + center.y * 53 + center.z * 17))
+		var p: Array = []
+		for z in [-1, 1]:
+			for y in [-1, 1]:
+				for x in [-1, 1]:
+					p.append(center + Vector3(x, y, z) * extent * 0.5)
+		for corners in [[0, 2, 3, 1], [4, 5, 7, 6], [0, 4, 6, 2], [1, 3, 7, 5], [0, 1, 5, 4], [2, 6, 7, 3]]:
+			face.call([p[corners[3]], p[corners[2]], p[corners[1]], p[corners[0]]])
+	# Smooth tunnel intrados, aligned with the photographed round opening.
+	vary.call(0)
+	for k in 32:
+		var a := PI * k / 32.0
+		var b := PI * (k + 1) / 32.0
+		var p := Vector3(-radius * cos(a), spring + radius * sin(a), rear)
+		var q := Vector3(-radius * cos(b), spring + radius * sin(b), rear)
+		for strip in 6:
+			var lo := Vector3(0, 0, (front - rear) * strip / 6.0)
+			var hi := Vector3(0, 0, (front - rear) * (strip + 1) / 6.0)
+			# Close the round-to-rectangular soffit junction at the existing
+			# plaster reveal. Only the rear strip tapers to the unchanged head.
+			var plo := p + lo
+			var qlo := q + lo
+			if strip == 0:
+				plo.y = minf(plo.y, height)
+				qlo.y = minf(qlo.y, height)
+			# One continuous grain coordinate across the curved soffit.
+			var uv := [Vector2(a * radius, (hi.z)), Vector2(b * radius, hi.z), Vector2(b * radius, lo.z), Vector2(a * radius, lo.z)]
+			for index in 4:
+				uv[index] = Vector2(0.025, 0.025) + uv[index] * 0.02
+			face.call([p + hi, q + hi, qlo, plo], [], uv)
+	for side in [-1.0, 1.0]:
+		# Match the visible backing courses instead of stretching one texture
+		# patch over the full-height jamb.
+		for course in 6:
+			block.call(Vector3(side * (radius + 0.15), (course + 0.5) * spring / 6, (rear + front) / 2), Vector3(0.3, spring / 6, front - rear))
+	# Three stepped concentric orders; the narrow radial joints are real gaps.
+	for order in 3:
+		var inner := radius + order * 0.27
+		var outer := inner + 0.265
+		var zf := front + order * 0.13
+		var zb := zf - 0.21
+		var blocks: int = [13, 15, 17][order]
+		var joint_angle := func(t: float) -> float:
+			return PI * t + 0.008 * sin(5.0 * PI * t + order) * sin(PI * t)
+		for k in blocks:
+			vary.call(k * 7 + order * 13)
+			var a: float = joint_angle.call(k / float(blocks))
+			var b: float = joint_angle.call((k + 1) / float(blocks))
+			var p: Array = []
+			for z in [zf, zb]:
+				p.append(Vector3(-inner * cos(a), spring + inner * sin(a), z))
+				p.append(Vector3(-outer * cos(a), spring + outer * sin(a), z))
+				p.append(Vector3(-outer * cos(b), spring + outer * sin(b), z))
+				p.append(Vector3(-inner * cos(b), spring + inner * sin(b), z))
+			for corners in [[0, 1, 2, 3], [7, 6, 5, 4], [0, 4, 5, 1], [1, 5, 6, 2], [2, 6, 7, 3], [3, 7, 4, 0]]:
+				var q := [p[corners[0]], p[corners[1]], p[corners[2]], p[corners[3]]]
+				if corners == [0, 1, 2, 3]:
+					# Worn arris: a narrow real bevel around the stone's front face.
+					var center: Vector3 = (q[0] + q[1] + q[2] + q[3]) * 0.25
+					var inset: Array = []
+					for point in q:
+						inset.append(center + (point - center) * 0.96 + Vector3(0, 0, 0.007))
+					face.call(inset)
+					for edge in 4:
+						var next := (edge + 1) % 4
+						face.call([q[edge], q[next], inset[next], inset[edge]])
+				else:
+					face.call(q)
+	# The official full-portal photograph shows a narrow fan-carved outer band.
+	# Interpret its radial cuts as bounded geometry, without photo-depth sampling.
+	builder.current = capital_st
+	vary.call(0)
+	var ornament := func(u: float, v: float) -> Vector3:
+		var angle := PI * u
+		var r := radius + 0.805 + v * 0.075
+		var cell := Vector2(fposmod(u * 48.0, 1.0) * 2.0 - 1.0, v * 2.0 - 1.0)
+		var cuts := absf(sin(atan2(cell.y, cell.x) * 3.0)) * smoothstep(0.12, 0.55, cell.length())
+		var edge := smoothstep(0.0, 0.15, v) * smoothstep(0.0, 0.15, 1.0 - v)
+		return Vector3(-r * cos(angle), spring + r * sin(angle), front + 0.266 + 0.022 * (1.0 - cuts) * edge)
+	for segment in 384:
+		var a := segment / 384.0
+		var b := (segment + 1) / 384.0
+		for row in 12:
+			var lo := row / 12.0
+			var hi := (row + 1) / 12.0
+			var q := [ornament.call(a, lo), ornament.call(a, hi), ornament.call(b, hi), ornament.call(b, lo)]
+			var uv: Array = []
+			for point in q:
+				uv.append(Vector2(0.10, 0.025) + Vector2(point.x, point.y) * 0.015)
+			face.call(q, [], uv, 1)
+		# Close the thin outer edge into the stone instead of leaving a ribbon.
+		var p0: Vector3 = ornament.call(a, 1.0)
+		var p1: Vector3 = ornament.call(b, 1.0)
+		face.call([p0, p0 - Vector3(0, 0, 0.04), p1 - Vector3(0, 0, 0.04), p1])
+	builder.current = st
+	for side in [-1.0, 1.0]:
+		# Backing courses and stepped impost support the three photographed shafts.
+		for row in 6:
+			block.call(Vector3(side * (radius + 0.41), (row + 0.5) * spring / 6, front + 0.02), Vector3(0.80, spring / 6, 0.32))
+		block.call(Vector3(side * (radius + 0.41), 0.11, front + 0.16), Vector3(0.84, 0.22, 0.58))
+		# Source photos resolve the stepped impost above each shaft. Separate
+		# surfaces keep real depth changes from stretching a strip across them.
+		for section in 3:
+			var section_width: float = [0.38, 0.232, 0.58][section]
+			var center_x: float = side * (radius + [0.14, 0.37, 0.59][section])
+			var face_z := front + 0.35 + section * 0.11
+			var depth := face_z - (front - 0.12)
+			block.call(Vector3(center_x, spring - 0.075, face_z - depth / 2), Vector3(section_width, 0.19, depth))
+			builder.current = capital_st
+			var frieze := func(u: float, v: float) -> Vector3:
+				var x := center_x + (u - 0.5) * section_width
+				var photo_u: float = (x - (side * (radius + 0.41) - 0.435)) / 0.87
+				var field: Array = relief.bands[0 if side < 0 else 1]
+				var sample := _portal_relief_sample(field, int(relief.band_width), int(relief.band_height), photo_u, 1.0 - v)
+				var relief_depth := 0.040 * sample
+				relief_depth *= smoothstep(0.0, 0.15, v) * smoothstep(0.0, 0.15, 1.0 - v)
+				return Vector3(x, spring - 0.075 + (v - 0.5) * 0.19, face_z + 0.002 + relief_depth)
+			for row in 48:
+				for column in 64:
+					var u := column / 64.0
+					var v := row / 48.0
+					var samples := [Vector2(u, v), Vector2(u, v + 1.0 / 48.0), Vector2(u + 1.0 / 64.0, v + 1.0 / 48.0), Vector2(u + 1.0 / 64.0, v)]
+					var q: Array = []
+					var smooth: Array = []
+					var texture_uv: Array = []
+					var origin: Vector2 = patch_origin.call()
+					for sample in samples:
+						q.append(frieze.call(sample.x, sample.y))
+						texture_uv.append(origin + sample * 0.10)
+						var along: Vector3 = frieze.call(sample.x + 1.0 / 64.0, sample.y) - frieze.call(sample.x - 1.0 / 64.0, sample.y)
+						var up: Vector3 = frieze.call(sample.x, sample.y + 1.0 / 48.0) - frieze.call(sample.x, sample.y - 1.0 / 48.0)
+						smooth.append(along.cross(up).normalized())
+					face.call(q, smooth, texture_uv, 1)
+			builder.current = st
+		for column in 3:
+			vary.call(column + int(side) * 11)
+			var x: float = side * (radius + [0.14, 0.37, 0.59][column])
+			var zc := front + 0.13 + column * 0.11
+			var shaft_scale: float = [1.0, 0.61, 0.98][column]
+			var profile := [Vector2(0.20, 0.16), Vector2(0.25, 0.16), Vector2(0.29, 0.125)]
+			# The closer source shows a few long shaft courses, not thirteen
+			# short repeated texture bands. Keep the same height/radius envelope.
+			for strip in 5:
+				var t := strip / 4.0
+				profile.append(Vector2(lerpf(0.34, spring - 0.57, t), 0.132 + 0.004 * sin(t * PI)))
+			profile.append_array([Vector2(spring - 0.54, 0.15), Vector2(spring - 0.50, 0.15)])
+			for index in profile.size():
+				profile[index].y *= shaft_scale
+			# Continuous tone and UV height across the entire shaft.
+			vary.call(column + int(side) * 11)
+			for level in profile.size() - 1:
+				for k in 20:
+					var a := TAU * k / 20.0
+					var b := TAU * (k + 1) / 20.0
+					var lo: Vector2 = profile[level]
+					var hi: Vector2 = profile[level + 1]
+					var smooth: Array = []
+					if hi.x - lo.x > 0.00001:
+						# The shaft has slight taper/entasis: cylinder-only normals
+						# left every tapered segment flat, creating long light bands.
+						var slope := (hi.y - lo.y) / (hi.x - lo.x)
+						var na := Vector3(cos(a), -slope, sin(a)).normalized()
+						var nb := Vector3(cos(b), -slope, sin(b)).normalized()
+						smooth = [nb, nb, na, na]
+					var origin: Vector2 = patch_origin.call()
+					# Circumference and height share the same grain density. Reset
+					# within each short shaft course to avoid the texture's mortar.
+					var uv := [Vector2(b * lo.y, lo.x - profile[0].x), Vector2(b * hi.y, hi.x - profile[0].x), Vector2(a * hi.y, hi.x - profile[0].x), Vector2(a * lo.y, lo.x - profile[0].x)]
+					for index in 4:
+						uv[index] = origin + uv[index] * 0.04
+					face.call([Vector3(x + lo.y * cos(b), lo.x, zc + lo.y * sin(b)), Vector3(x + hi.y * cos(b), hi.x, zc + hi.y * sin(b)), Vector3(x + hi.y * cos(a), hi.x, zc + hi.y * sin(a)), Vector3(x + lo.y * cos(a), lo.x, zc + lo.y * sin(a))], smooth, uv)
+			# Broad worn lobes and scroll recesses from the photo, not invented figures.
+			builder.current = capital_st
+			var field_index: int = 2 - column if side < 0.0 else 3 + column
+			var carved := func(angle: float, v: float) -> Vector3:
+				# Individually bounded front masses follow the six source faces;
+				# these are visual profiles, not surveyed dimensions.
+				var shoulders: Array = [0.025, 0.026, 0.049, 0.046, 0.021, 0.031]
+				var width: float = (0.145 + shoulders[field_index] * sin(clampf(v, 0, 1) * PI * 0.65)) * shaft_scale
+				var ca := cos(angle)
+				var sa := sin(angle)
+				# Uniform front-face sampling: the previous signed-power x
+				# skipped central photo columns and smeared their relief.
+				var xx := ca
+				var zz := signf(sa) * pow(maxf(0.0, 1.0 - pow(absf(ca), 4.0)), 0.25)
+				var carving := 0.0
+				if sa > 0.0:
+					# Authored leaf, scroll and figural masses follow the source;
+					# photo illumination is deliberately not treated as scan depth.
+					var px := clampf((xx + 1.0) * 0.5, 0, 1) * (int(relief.width) - 1)
+					var py := (1.0 - clampf(v, 0, 1)) * (int(relief.height) - 1)
+					var ix := mini(int(px), int(relief.width) - 2)
+					var iy := mini(int(py), int(relief.height) - 2)
+					var data: Array = relief.fields[field_index]
+					var row0: float = lerpf(data[iy * int(relief.width) + ix], data[iy * int(relief.width) + ix + 1], px - ix)
+					var row1: float = lerpf(data[(iy + 1) * int(relief.width) + ix], data[(iy + 1) * int(relief.width) + ix + 1], px - ix)
+					carving += 0.12 * shaft_scale * (lerpf(row0, row1, py - iy) / 255.0 - 0.5) * sin(PI * clampf(v, 0, 1)) * pow(sa, 1.5)
+				return Vector3(x + xx * width, spring - 0.52 + v * 0.35, zc + zz * width + carving)
+			for row in 96:
+				for segment in 128:
+					var a := TAU * segment / 128.0
+					var b := TAU * (segment + 1) / 128.0
+					var uv := [Vector2(b, row / 96.0), Vector2(b, (row + 1) / 96.0), Vector2(a, (row + 1) / 96.0), Vector2(a, row / 96.0)]
+					var q: Array = []
+					var normals: Array = []
+					var texture_uv: Array = []
+					for sample in uv:
+						texture_uv.append(patch_origin.call() + Vector2(sample.x / TAU, sample.y) * 0.10)
+						q.append(carved.call(sample.x, sample.y))
+						var along: Vector3 = carved.call(sample.x + TAU / 128.0, sample.y) - carved.call(sample.x - TAU / 128.0, sample.y)
+						var up: Vector3 = carved.call(sample.x, sample.y + 1.0 / 96.0) - carved.call(sample.x, sample.y - 1.0 / 96.0)
+						normals.append(up.cross(along).normalized())
+					face.call(q, normals, texture_uv, 1 if (a + b) * 0.5 < PI else -1)
+			builder.current = st
+			# Capital now meets the aligned impost directly; no extra shelf slab.
+	var instance := MeshInstance3D.new()
+	instance.mesh = st.commit()
+	instance.material_override = ps(load(DIR + "textures/stone.png"), Color.WHITE, Vector2.ONE, true)
+	_vp.add_child(instance)
+	var capitals := MeshInstance3D.new()
+	# Average actual neighboring relief triangles instead of switching between
+	# finite-difference normals and individual faces at steep carved shoulders.
+	capital_st.generate_normals()
+	capitals.mesh = capital_st.commit()
+	capitals.material_override = instance.material_override
+	capitals.set_meta("portal_capital", true)
+	capitals.set_meta("portal_relief_winding_failures", winding.failures)
+	_vp.add_child(capitals)
 
 
 # The far end: a plain rectangular door with a stepped white casing, a deep cream vestibule lit from its far end,
@@ -895,8 +1281,16 @@ func _partition_surfaces() -> void:
 	for mi in _vp.find_children("*", "MeshInstance3D", true, false):
 		var bounds: AABB = mi.global_transform * mi.mesh.get_aabb()
 		var center := bounds.get_center()
-		if center.y > H - 0.6:
+		if bounds.size.y < 0.05 and absf(center.y) < 0.05:
+			mi.layers = 1  # floors remain visible when the near wall is cut away
+		elif center.y > H - 0.6 or (bounds.size.y < 0.05 and center.y > 4.0):
 			mi.layers = 32
+		elif bounds.position.z >= -0.01 and bounds.size.x < 0.1 and center.x < -2.9:
+			mi.layers = 2
+		elif bounds.position.z >= -0.01 and bounds.size.x < 0.1 and center.x > 2.9:
+			mi.layers = 4
+		elif bounds.position.z > 6.5:
+			mi.layers = 16
 		elif bounds.end.x < -W / 2.0 + 0.5:
 			mi.layers = 2
 		elif bounds.position.x > W / 2.0 - 0.5:
@@ -985,22 +1379,8 @@ func _build_test_room() -> void:
 		face.call(Vector3(sign_x * 1.01, 1.5, -0.08), Vector3(0.14, 3.0, 0.16), Color.WHITE, 512)
 	face.call(Vector3(0, 3.3, 0), Vector3(1.9, 0.6, 0.12), Color("#f1f0ea"), 512)
 	face.call(Vector3(0, 3.02, -0.08), Vector3(2.16, 0.14, 0.16), Color.WHITE, 512)
-	# A shallow white recess shows depth through the existing casing. The actual
-	# portal crosses at the mouth, before its rear wall; no new gallery bake.
-	for door in [DOORS.arch]:  # far passage now belongs to its baked architectural slice
-		var outward := 1.0 if door.z == 0.0 else -1.0
-		var layer := 8 if door.z == 0.0 else 16
-		var depth := 1.1
-		var width: float = door.size.x - 0.08
-		var height: float = door.size.y - 0.04
-		var middle: float = door.z + outward * depth / 2.0
-		face.call(Vector3(0, height / 2.0, door.z + outward * depth), Vector3(width, height, 0.025), Color("#eeede7"), layer)
-		face.call(Vector3(-width / 2.0, height / 2.0, middle), Vector3(0.035, height, depth), Color("#d7d6ce"), layer)
-		face.call(Vector3(width / 2.0, height / 2.0, middle), Vector3(0.035, height, depth), Color("#f8f7f0"), layer)
-		face.call(Vector3(0, height, middle), Vector3(width, 0.035, depth), Color("#fdfcf6"), layer)
-		face.call(Vector3(0, -0.0125, middle), Vector3(width, 0.025, depth), Color("#e3e0d6"), layer)
-		# Flush threshold: the walkable floor stays at y=0, including the entrance.
-		face.call(Vector3(0, -0.014, door.z), Vector3(width, 0.03, 0.24), Color("#cbc7bc"), layer)
+	# Arch traversal uses the modeled stone passage and its parquet. The far
+	# doorway retains #135's isolated navigation room on layers 64–1024.
 	_portal_flash = ColorRect.new()
 	_portal_flash.color = Color.WHITE
 	_portal_flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -1011,6 +1391,13 @@ func _build_test_room() -> void:
 
 func _enter_space(next: String) -> void:
 	var previous := _space
+	# Arch is contiguous world geometry, not the far door's separate QA room.
+	if previous == "arch" or next == "arch":
+		_space = next
+		get_node("OtherWall").visible = next == "gallery"
+		_update_camera(1.0)
+		print("NAV_SPACE ", previous, " -> ", next)
+		return
 	_new_action()
 	_target = null
 	_target_yaw = null
@@ -1044,7 +1431,7 @@ func _enter_space(next: String) -> void:
 func _move_to(p: Vector3) -> void:
 	# Sweep the doorway's wall plane as well as clamping the endpoint: diagonal
 	# movement must not cut a corner through a solid part of the end wall.
-	for wall in [0.0, -L] if _space == "gallery" else [0.0]:
+	for wall in [0.0, -L] if _space == "gallery" else ([] if _space == "arch" else [0.0]):
 		var edge: float = wall - 0.55 if wall == 0.0 else wall + 0.55
 		if (_pos.z - edge) * (p.z - edge) < 0.0:
 			var at_x := lerpf(_pos.x, p.x, (edge - _pos.z) / (p.z - _pos.z))
@@ -1056,10 +1443,6 @@ func _move_to(p: Vector3) -> void:
 func _orbit(amount: float) -> void:
 	if is_zero_approx(amount):
 		return
-	if _generated_visitor:
-		if _rigged_visitor:
-			_kid.look_direction = signf(amount)
-		_kid.play_gesture("look")
 	_new_action()
 	_target = null
 	_target_yaw = null
@@ -1072,10 +1455,25 @@ func _set_lighting(enabled: bool) -> void:
 	# baked/probe-disabled tests retain zero ambient and genuine spatial capture.
 	for node in _vp.get_children():
 		if node is WorldEnvironment:
-			node.environment.ambient_light_energy = 0.6 if not enabled and _space == "gallery" else 0.0
+			node.environment.ambient_light_energy = 0.6 if not enabled and _space != "far" else 0.0
 	if enabled and _baked_room == null:
 		_baked_room = load(DIR + "baked/room.tscn").instantiate()
 		_vp.add_child(_baked_room)
+		for mesh in _baked_room.find_children("*", "MeshInstance3D", true, false):
+			if mesh.layers in _cutaway_alpha and mesh.material_override is StandardMaterial3D:
+				var original: StandardMaterial3D = mesh.material_override
+				var material := ShaderMaterial.new()
+				material.shader = load(DIR + "cutaway.gdshader")
+				material.set_shader_parameter("textured", original.albedo_texture != null)
+				material.set_shader_parameter("tex", original.albedo_texture)
+				material.set_shader_parameter("tint", original.albedo_color)
+				material.set_shader_parameter("uv_scale", original.uv1_scale)
+				material.set_shader_parameter("vertex_tint", original.vertex_color_use_as_albedo)
+				material.set_shader_parameter("unshaded", original.shading_mode == BaseMaterial3D.SHADING_MODE_UNSHADED)
+				material.set_shader_parameter("scissor", original.alpha_scissor_threshold if original.transparency == BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR else 0.0)
+				if not _cutaway_materials.has(mesh.layers):
+					_cutaway_materials[mesh.layers] = []
+				_cutaway_materials[mesh.layers].append({"mesh": mesh, "material": material, "original": original})
 	if _baked_room:
 		_baked_room.visible = enabled
 	if _white_capture == null and ResourceLoader.exists(DIR + "baked/white.lmbake"):
@@ -1085,12 +1483,14 @@ func _set_lighting(enabled: bool) -> void:
 		_white_capture.light_data = capture
 		_vp.add_child(_white_capture)
 	if _white_capture:
-		_white_capture.visible = _space != "gallery"
+		_white_capture.visible = _space == "far"
 	for mesh in _source_meshes:
 		mesh.visible = not enabled
 	# The old photographed end cards are scenery, not traversable rooms.
 	for mesh in _source_meshes + (_baked_room.find_children("*", "MeshInstance3D", true, false) if _baked_room else []):
 		var material = mesh.material_override
+		if material is ShaderMaterial and material.shader.resource_path.ends_with("/oak.gdshader") and material.get_shader_parameter("floor_z_limits").x == 0:
+			_portal_floor_material = material
 		var texture = material.albedo_texture if material is StandardMaterial3D else (material.get_shader_parameter("albedo") if material is ShaderMaterial else null)
 		if texture and (texture.resource_path.ends_with("door-arch.jpg") or texture.resource_path.ends_with("door-far.jpg")):
 			mesh.hide()
@@ -1107,6 +1507,8 @@ func _set_view(mode: int) -> void:
 	_target_yaw = null
 	_view_turn_remaining = 0.0
 	view_mode = mode
+	if mode == 2 and _kid:
+		_yaw = wrapf(_kid.rotation.y - PI, -PI, PI)
 	(_view_bar.get_child(0) as OptionButton).select(mode)
 	_update_camera(1.0)
 	if OS.has_feature("web"):
@@ -1156,6 +1558,10 @@ func _merge_static() -> void:
 		if not (n is MeshInstance3D) or n.mesh == null:
 			continue
 		var mi := n as MeshInstance3D
+		# Offline capital relief owns finer lighting UVs than the arch stone.
+		# Keep its authoring metadata intact rather than merging it into the arch.
+		if mi.get_meta("portal_capital", false) or mi.get_meta("vault", false):
+			continue
 		var m := mi.material_override
 		var key := ""
 		if m is ShaderMaterial:
@@ -1169,7 +1575,9 @@ func _merge_static() -> void:
 			key = "std|%s|%s|%s|%s" % [st3.albedo_texture.get_rid().get_id() if st3.albedo_texture else 0, st3.albedo_color, st3.blend_mode, st3.transparency]
 		else:
 			continue
-		key += "|layer:%s" % mi.layers
+		# SurfaceTool cannot mix indexed primitives with unindexed triangle lists:
+		# doing so leaves the latter vertices unreferenced (e.g. upholstered seats).
+		key += "|layer:%s|indexed:%s" % [mi.layers, mi.mesh.surface_get_arrays(0)[Mesh.ARRAY_INDEX] != null]
 		if not groups.has(key):
 			groups[key] = []
 		groups[key].append(mi)
@@ -1194,26 +1602,10 @@ func _merge_static() -> void:
 
 
 func _build_kid() -> void:
-	_generated_visitor = not (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('character') === 'original'"))
-	_rigged_visitor = not (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('character') === 'sprite'")) and _generated_visitor
-	if _generated_visitor:
-		_kid = load(DIR + ("rig/visitor.gd" if _rigged_visitor else "visitor.gd")).new()
-		if _rigged_visitor:
-			_kid.identity = OS.get_environment("GALLERY_CHARACTER") != "rogue" and not (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('character') === 'rogue'"))
-		_kid.world_height = KID_H * (1.17 if _rigged_visitor else 1.0)
-	else:
-		var i := 0
-		while ResourceLoader.exists(DIR + "kid/%02d.png" % i):
-			_kid_frames.append(load(DIR + "kid/%02d.png" % i))
-			i += 1
-		_kid = Sprite3D.new()
-		_kid.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
-		_kid.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
-		_kid.shaded = false
-		_kid.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
-		_kid.texture = _kid_frames[0]
-		_kid.pixel_size = KID_H / _kid_frames[0].get_height()
-		_kid.offset = Vector2(0, _kid_frames[0].get_height() / 2.0)
+	_generated_visitor = true
+	_rigged_visitor = true
+	_kid = load(DIR + "visitor159/visitor.gd").new()
+	_kid.world_height = KID_H
 	_vp.add_child(_kid)
 	var g := Gradient.new()
 	g.set_color(0, Color(0, 0, 0, 0.9 if _rigged_visitor else 0.55))
@@ -1414,7 +1806,7 @@ func _process(delta: float) -> void:
 		_entrance_active = false
 		print("ENTRY_COMPLETE ", _pos)
 	if not _entrance_active:
-		if _space != "gallery" and _pos.z > 0.0:
+		if (_space == "far" and _pos.z > 0.0) or (_space == "arch" and _pos.z < 0.0):
 			_enter_space("gallery")
 		elif _space == "gallery" and (_pos.z > 0.0 or _pos.z < -L):
 			_enter_space("arch" if _pos.z > 0.0 else "far")
@@ -1437,7 +1829,8 @@ func _process(delta: float) -> void:
 			_kid.texture = _kid_frames[0]
 	_kid.position = _pos
 	if _generated_visitor:
-		_kid.pose(delta, distance_moved > 0.0001, _kid_t * 10.0 / WALK_FRAMES, _motion_heading, view_yaw if view_mode != 2 else _yaw)
+		var facing := _fwd() if view_mode == 2 else _motion_heading
+		_kid.pose(delta, distance_moved > 0.0001, _kid_t * 10.0 / WALK_FRAMES, facing, view_yaw if view_mode != 2 else _yaw)
 	if _rigged_visitor:
 		for contact in _kid.contacts:
 			_step_i = (_step_i + 1) % 6
@@ -1452,6 +1845,17 @@ func _process(delta: float) -> void:
 func _clamp(p: Vector3) -> Vector3:
 	var m := 0.55
 	var doorway := absf(p.x) <= 0.4
+	if _space == "arch":
+		# Keep the visitor inside the narrow reveal until fully past its jambs.
+		if (_pos.z - 2.2) * (p.z - 2.2) < 0.0 or (_pos.z == 2.2 and p.z < 2.2):
+			var crossing_x := lerpf(_pos.x, p.x, (2.2 - _pos.z) / (p.z - _pos.z))
+			if absf(crossing_x) > 0.4:
+				if _pos.z >= 2.2:
+					p.z = 2.2
+				else:
+					p.x = clampf(p.x, -0.4, 0.4)
+		var in_passage := p.z < 2.2
+		return Vector3(clampf(p.x, -0.4 if in_passage else -2.45, 0.4 if in_passage else 2.45), 0, clampf(p.z, -0.2, 6.1))
 	if _space != "gallery":
 		return Vector3(clampf(p.x, -3.0 + m, 3.0 - m), 0, clampf(p.z, -6.0 + m, 0.2 if doorway else -m))
 	p = Vector3(clampf(p.x, -W / 2 + m, W / 2 - m), 0, clampf(p.z, -L - 0.2 if doorway else -L + m, 0.2 if doorway else -m))
@@ -1470,12 +1874,33 @@ func _clamp(p: Vector3) -> Vector3:
 
 # The camera follows behind the kid but never leaves the room: the line from the kid's head to where the camera
 # wants to be is cut where it would cross a wall.
+func _cutaway_mask(target: int, blend: float) -> int:
+	if not _baked_lighting or _space == "far":
+		return target
+	# Orbit cutaways must not draw translucent walls across the visitor.
+	if absf(_view_turn_remaining) > 0.001 or _orbit_dragged:
+		blend = 1.0
+	var mask := target
+	for layer in _cutaway_alpha:
+		var alpha := move_toward(float(_cutaway_alpha[layer]), 1.0 if target & layer else 0.0, blend)
+		_cutaway_alpha[layer] = alpha
+		for entry in _cutaway_materials.get(layer, []):
+			entry.mesh.material_override = entry.material if alpha < 1.0 else entry.original
+			entry.material.set_shader_parameter("cutaway_opacity", alpha)
+		if alpha > 0.0:
+			mask |= layer
+	if _portal_floor_material:
+		_portal_floor_material.set_shader_parameter("cutaway", 1.0 - float(_cutaway_alpha[8]))
+	return mask
+
 func _update_camera(k: float) -> void:
+	# Fade visibility changes; the camera's angle, distance and FOV stay fixed.
+	var fade := minf(0.2, get_process_delta_time() * 2.5) if is_processing() else 1.0
 	if _baked_room:
-		_baked_room.get_node("Lightmap").visible = _space == "gallery"
+		_baked_room.get_node("Lightmap").visible = _space != "far"
 	if _white_capture:
-		_white_capture.visible = _space != "gallery"
-	_kid.layers = 1 if _space == "gallery" else 64
+		_white_capture.visible = _space == "far"
+	_kid.layers = 64 if _space == "far" else 1
 	_shadow.layers = _kid.layers
 	_kid.position = _pos
 	_shadow.position = _pos + Vector3(0, 0.01, 0)
@@ -1493,6 +1918,22 @@ func _update_camera(k: float) -> void:
 			contact.material_override.albedo_color.a = 0.85 if support[index] else 0.22 * clampf(1.0 - height / 0.25, 0.0, 1.0)
 	if not _rigged_visitor:
 		_kid.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y if view_mode == 2 else BaseMaterial3D.BILLBOARD_ENABLED
+	# Preserve the selected view at the doorway; only the original follow view
+	# needs its camera constrained inside the positive-z recess.
+	if view_mode == 2 and _space == "arch":
+		var heading := _yaw if view_mode == 2 else view_yaw
+		var forward := Vector3(-sin(heading), 0, -cos(heading))
+		var eye := _pos - forward * 3.1 + Vector3(0, 2.45, 0)
+		if eye.z >= 2.2:
+			eye.x = clampf(eye.x, -2.7, 2.7)
+		if eye.z > -0.1 and eye.z < 2.2:
+			eye.x = clampf(eye.x, -0.7, 0.7)
+		eye.z = minf(eye.z, 6.3)
+		_cam.position = eye
+		_cam.fov = 58.0
+		_cam.cull_mask = _cutaway_mask(31, fade)
+		_cam.look_at(_pos + forward * 2.0 + Vector3(0, 1.1, 0))
+		return
 	if view_mode != 2:
 		var pitch := deg_to_rad(42.0 if view_mode == 0 else 35.0)
 		var distance := 14.2 if view_mode == 0 else 9.3
@@ -1503,11 +1944,13 @@ func _update_camera(k: float) -> void:
 		_cam.position = center - forward * distance * cos(pitch) + Vector3.UP * distance * sin(pitch)
 		_cam.look_at(center)
 		var hidden := (4 if forward.x < -0.2 else (2 if forward.x > 0.2 else 0)) | (8 if forward.z < -0.2 else (16 if forward.z > 0.2 else 0))
-		_cam.cull_mask = (1984 & ~(hidden * 64)) if _space != "gallery" else (31 & ~hidden)
+		if _space == "arch":
+			hidden = (4 if forward.x < -0.2 else (2 if forward.x > 0.2 else 0)) | (16 if forward.z < -0.2 else 8)
+		_cam.cull_mask = _cutaway_mask((1984 & ~(hidden * 64)) if _space == "far" else (31 & ~hidden), fade)
 		if _view_label:
 			_view_label.text = "WASD · Click art · " + ("West wall" if forward.x < -0.5 else ("East wall" if forward.x > 0.5 else ("Far wall" if forward.z < -0.5 else "Arch wall")))
 		return
-	_cam.cull_mask = 1984 if _space != "gallery" else 63
+	_cam.cull_mask = _cutaway_mask(1984 if _space == "far" else 63, fade)
 	_cam.fov = 58.0
 	if _view_label:
 		_view_label.text = "WASD · Click art"
@@ -1708,13 +2151,7 @@ func _approach(p: Dictionary) -> void:
 	if _generated_visitor:
 		_motion_heading = -p.normal
 		_kid.pose(get_process_delta_time() if _rigged_visitor else 0.0, false, 0.0, _motion_heading, view_yaw if view_mode != 2 else _yaw)
-		if _rigged_visitor:
-			while absf(wrapf(_kid.rotation.y - atan2(_motion_heading.x, _motion_heading.z), -PI, PI)) > 0.015:
-				await get_tree().process_frame
-				if _action != mine or not _open.is_empty():
-					return
-		_kid.play_gesture("wave")
-		while _kid.gesture != "":
+		while absf(wrapf(_kid.rotation.y - atan2(_motion_heading.x, _motion_heading.z), -PI, PI)) > 0.015:
 			await get_tree().process_frame
 			if _action != mine or not _open.is_empty():
 				return
