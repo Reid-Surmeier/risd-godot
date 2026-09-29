@@ -333,6 +333,14 @@ func _build_room() -> void:
 	# long walls, subdivided so the occlusion and the affine texturing hold
 	_panel(Vector3(-X, 0, 0), Vector3(0, 0, -L), Vector3(0, H, 0), _wall_ps(), 0.5, LAYER_WEST)
 	_panel(Vector3(X, 0, -L), Vector3(0, 0, L), Vector3(0, H, 0), _wall_ps(), 0.5, LAYER_EAST)
+	# #176 photo-visible wall panel joins and high ventilation slots.
+	for side in [-1.0, 1.0]:
+		for z in [-4.0, -13.0, -22.0]:
+			_box(Vector3(side * (X - 0.012), 5.10, z), Vector3(0.018, 0.15, 1.14), Color("#647587"))
+			var vent := _box(Vector3(side * (X - 0.024), 5.10, z), Vector3(0.018, 0.11, 1.08), Color("#25313a"))
+			vent.set_meta("wall_vent", true)
+		for z in [-7.0, -16.0, -24.0]:
+			_box(Vector3(side * (X - 0.004), 2.90, z), Vector3(0.008, 5.20, 0.006), Color("#5f738f"))
 	_arch_end()
 	_far_end()
 	# skirting and cornice
@@ -442,12 +450,34 @@ func _build_room() -> void:
 		_vp.add_child(bs)
 		_bench_cushion(bz)
 		for rail_x in [-0.39, 0.39]:
-			_box(Vector3(rail_x, 0.265, bz), Vector3(0.035, 0.05, 2.82), Color("#242325"))
+			_box(Vector3(rail_x, 0.225, bz), Vector3(0.055, 0.07, 2.82), Color("#242325"))
 		for rail_z in [-1.39, 1.39]:
-			_box(Vector3(0, 0.265, bz + rail_z), Vector3(0.81, 0.05, 0.035), Color("#242325"))
+			_box(Vector3(0, 0.225, bz + rail_z), Vector3(0.81, 0.07, 0.055), Color("#242325"))
 		for lx in [-0.38, 0.38]:
-			for lz in [-1.38, 1.38]:
-				_box(Vector3(lx, 0.13, bz + lz), Vector3(0.038, 0.26, 0.038), Color("#242325"))
+			for lz in [-1.38, -0.46, 0.46, 1.38]:
+				# Four supports per long side and turned collars are visible in gallery-2456.
+				var leg := MeshInstance3D.new()
+				var shaft := CylinderMesh.new()
+				shaft.top_radius = 0.026
+				shaft.bottom_radius = 0.019
+				shaft.height = 0.23
+				shaft.radial_segments = 12
+				leg.mesh = shaft
+				leg.position = Vector3(lx, 0.115, bz + lz)
+				leg.material_override = ps(null, Color("#242325"))
+				leg.set_meta("bench_leg", true)
+				_vp.add_child(leg)
+				for y in [0.18, 0.22]:
+					var collar := MeshInstance3D.new()
+					var ring := SphereMesh.new()
+					ring.radius = 0.034
+					ring.height = 0.025
+					ring.radial_segments = 12
+					ring.rings = 6
+					collar.mesh = ring
+					collar.position = Vector3(lx, y, bz + lz)
+					collar.material_override = leg.material_override
+					_vp.add_child(collar)
 
 
 # Source-led upholstery: rounded edges and paired button depressions, same bounds.
@@ -458,7 +488,7 @@ func _bench_surface(x: float, z: float) -> Vector3:
 		x = signf(x) * (0.385 + corner.x)
 		z = signf(z) * (1.41 + corner.y)
 	var edge := minf(0.475 - absf(x), 1.5 - absf(z))
-	var height := 0.355 + 0.065 * sin(clampf(edge / 0.13, 0, 1) * PI / 2)
+	var height := 0.39 + 0.07 * sin(clampf(edge / 0.13, 0, 1) * PI / 2)
 	for bx in [-0.19, 0.19]:
 		for bz in [-1.05, -0.63, -0.21, 0.21, 0.63, 1.05]:
 			var distance := Vector2(x - bx, z - bz).length_squared()
@@ -480,7 +510,7 @@ func _bench_cushion(z: float) -> void:
 				st.set_normal(dz.cross(dx).normalized())
 				# Authored cavity occlusion follows the modeled tuft depth, not painted buttons.
 				var edge := minf(0.475 - absf(point.x), 1.5 - absf(point.z))
-				var crown := 0.355 + 0.065 * sin(clampf(edge / 0.13, 0, 1) * PI / 2)
+				var crown := 0.39 + 0.07 * sin(clampf(edge / 0.13, 0, 1) * PI / 2)
 				st.set_color(Color.WHITE * lerpf(1.0, 0.75, clampf((crown - point.y) / 0.035, 0, 1)))
 				st.set_uv(Vector2(point.x, point.z) * 1.8)
 				st.add_vertex(point + Vector3(0, 0, z))
@@ -501,7 +531,7 @@ func _bench_cushion(z: float) -> void:
 			for spec in [Vector2(0, level), Vector2(1, level), Vector2(1, level + 1), Vector2(0, level + 1)]:
 				var point := a if spec.x == 0 else b
 				var inset := 0.025 * (1 - cos(spec.y / 4 * PI / 2))
-				quad.append(Vector3(point.x - signf(point.x) * inset, lerpf(point.y, 0.30, sin(spec.y / 4 * PI / 2)), point.z - signf(point.z) * inset))
+				quad.append(Vector3(point.x - signf(point.x) * inset, lerpf(point.y, 0.25, sin(spec.y / 4 * PI / 2)), point.z - signf(point.z) * inset))
 			for index in [0, 2, 1, 0, 3, 2]:
 				var point := quad[index]
 				var outward := Vector2(point.x - clampf(point.x, -0.385, 0.385), point.z - clampf(point.z, -1.41, 1.41)).normalized()
@@ -887,20 +917,20 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 	for side in [-1.0, 1.0]:
 		# Backing courses and stepped impost support the three photographed shafts.
 		for row in 6:
-			block.call(Vector3(side * (radius + 0.41), (row + 0.5) * spring / 6, front + 0.02), Vector3(0.80, spring / 6, 0.32))
-		block.call(Vector3(side * (radius + 0.41), 0.11, front + 0.16), Vector3(0.84, 0.22, 0.58))
+			block.call(Vector3(side * (radius + 0.55), (row + 0.5) * spring / 6, front + 0.02), Vector3(1.08, spring / 6 - 0.006, 0.32))
+		block.call(Vector3(side * (radius + 0.55), 0.11, front + 0.16), Vector3(1.14, 0.22, 0.64))
 		# Source photos resolve the stepped impost above each shaft. Separate
 		# surfaces keep real depth changes from stretching a strip across them.
 		for section in 3:
-			var section_width: float = [0.38, 0.232, 0.58][section]
-			var center_x: float = side * (radius + [0.14, 0.37, 0.59][section])
+			var section_width: float = [0.38, 0.232, 0.84][section]
+			var center_x: float = side * (radius + [0.14, 0.37, 0.72][section])
 			var face_z := front + 0.35 + section * 0.11
 			var depth := face_z - (front - 0.12)
 			block.call(Vector3(center_x, spring - 0.075, face_z - depth / 2), Vector3(section_width, 0.19, depth))
 			builder.current = capital_st
 			var frieze := func(u: float, v: float) -> Vector3:
 				var x := center_x + (u - 0.5) * section_width
-				var photo_u: float = (x - (side * (radius + 0.41) - 0.435)) / 0.87
+				var photo_u: float = (x - (side * (radius + 0.55) - 0.59)) / 1.18
 				var field: Array = relief.bands[0 if side < 0 else 1]
 				var sample := _portal_relief_sample(field, int(relief.band_width), int(relief.band_height), photo_u, 1.0 - v)
 				var relief_depth := 0.040 * sample
@@ -1235,6 +1265,16 @@ func _place(tag: String, rec: Dictionary, node: Node3D, at: Vector3, rot: float)
 	pool.position = Vector3(0, 0.25, 0.004)
 	node.add_child(pool)
 	node.move_child(pool, 0)
+	# Small neutral caption plates are visible beside the source paintings.
+	# Their photographed text is unresolved; do not invent museum wording.
+	var caption := MeshInstance3D.new()
+	var plate := BoxMesh.new()
+	plate.size = Vector3(0.12, 0.17, 0.006)
+	caption.mesh = plate
+	caption.material_override = ps(null, Color("#a3afb8"))
+	caption.position = Vector3(outer.x / 2.0 + 0.105, 1.45 - at.y, 0.014)
+	caption.set_meta("caption_plate", true)
+	node.add_child(caption)
 	var layer := LAYER_EAST if at.x > W / 2.0 - 0.1 or (absf(at.z) < 0.1 and at.x > 0) else LAYER_WEST
 	for c in node.get_children():
 		(c as VisualInstance3D).layers = layer

@@ -142,3 +142,7 @@ Current architecture source comes from build c9d2985c; see its architecture-167 
 ## Native wall and skylight candidate #168
 
 See docs/evidence/surfaces-168-current/README.md. Wall now uses native matte #6f83a3 with no image dependency. Skylight SVG is authored vector source, SHA256 fe3627efa8da494eaeba99fbd9c9e1182c023dc640cfd491be348950093ae50b, source-led from the recorded Site Specific gallery2447/2456 photos; 8×8 thin pale grid, square UV scale, stepped modeled surround. Provider none/count0/USD0 for this group. Floor macro texture dependency removed. Candidates remain unselected pending separate saved-bake native/browser visual gates.
+
+## Final integrated fidelity corrections (#176, candidate)
+
+Existing gallery-2456 and grand-gallery-v2 source photographs resolve the previously understated bench cushion/rail, four supports per long side, broad portal backing/base, ventilation slots, panel joints and caption plates. Native geometry reuses existing cloth/stone/wall materials; no new generated imagery or paid calls. `docs/evidence/world-176/source-notes.md` records scope and measurement limits. Caption plates deliberately contain no invented wording. Candidate requires a fresh bake and independent visual selection.
