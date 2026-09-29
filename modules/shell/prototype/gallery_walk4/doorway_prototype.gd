@@ -45,6 +45,9 @@ func _ready() -> void:
 						if image.get_pixelv(pixel).get_luminance() > 0.04:
 							clear += 1
 				print("DOORWAY_FLOOR clear_samples=", clear, "/9")
+		var floor_view = JavaScriptBridge.eval("new URLSearchParams(location.search).get('floor_view')")
+		if floor_view != null:
+			set_floor_pose(walk, int(floor_view))
 		print("DOORWAY_GAMEPLAY_READY")
 		return
 	var room: Node = load("res://modules/shell/prototype/gallery_walk4/baked/room.tscn").instantiate()
@@ -83,3 +86,33 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		set_view(view + 1)
 	if event.is_action_pressed("ui_left"):
 		set_view(view - 1)
+
+static func set_floor_pose(walk: Control, index: int) -> void:
+	walk._new_action()
+	walk._entrance_active = false
+	walk._entrance_waiting = false
+	walk._target = null
+	walk._pos = Vector3(0, 0, -17.0)
+	walk.view_mode = 1
+	walk.view_yaw = 0.0
+	walk._kid.hide()
+	walk._shadow.hide()
+	for shadow in walk._sole_shadows:
+		shadow.hide()
+	walk._update_camera(1.0)
+	if index == 1:
+		walk.set_process(false)
+		walk._cam.position = Vector3(0.8, 1.75, -14.0)
+		walk._cam.look_at(Vector3(0.2, 0.0, -18.5))
+		walk._cam.fov = 55.0
+	elif index == 2:
+		walk.set_process(false)
+		walk._cam.position = Vector3(1.4, 1.7, -12.0)
+		walk._cam.look_at(Vector3(-5.0, 2.4, -14.0))
+		walk._cam.fov = 62.0
+	elif index == 3:
+		walk.set_process(false)
+		walk._cam.cull_mask = 63  # the normal floor view hides the skylight layer
+		walk._cam.position = Vector3(0.0, 1.8, -12.0)
+		walk._cam.look_at(Vector3(0.0, 5.8, -19.0))
+		walk._cam.fov = 66.0

@@ -19,7 +19,7 @@ const SKY_W := 4.2
 const WHITE := Color("#e9e6de")
 const CASING := 0.28
 const GAP := 0.75  # default gap between frames; measured gaps in gaps.json
-const PLANK := Vector2(0.84, 0.18)
+const PLANK := Vector2(1.9, 0.36)  # #168 source-relative visual scale, not survey dimensions
 # The two doorways differ: the arch door (to the medieval gallery) has a cornice head and a shallow reveal onto
 # the wide lit room; the far door has a plain casing and a deep vestibule with a second door at its end.
 const DOORS := {
@@ -308,8 +308,8 @@ func _box(c: Vector3, size: Vector3, col: Color, layer := 1, m: Material = null)
 
 
 func _wall_ps(extra := Color.WHITE) -> ShaderMaterial:
-	# Broad pigment patches, one repeat per four metres; no fine grain to crawl.
-	return ps(load(DIR + "textures/wall-muse.webp"), extra, Vector2(0.25, 0.25), true)
+	# #168: native matte paint, visually calibrated against the recorded gallery photos.
+	return ps(null, extra * Color("#6f83a3"), Vector2.ONE, true)
 
 
 const LAYER_WEST := 2
@@ -364,6 +364,8 @@ func _build_room() -> void:
 	var segs := 36
 	var vault := Color("#e2dccd")
 	var arc := 0.0
+	var glass_edge := Vector3.ZERO
+	var skylight_section := [Vector2(0, 0), Vector2(0, 0.035), Vector2(0.045, 0.035), Vector2(0.045, 0.075), Vector2(0.12, 0.075), Vector2(0.12, 0.045), Vector2(0.22, 0.045), Vector2(0.22, 0)]
 	for i in segs:
 		var a0 := PI * i / segs
 		var a1 := PI * (i + 1) / segs
@@ -377,11 +379,14 @@ func _build_room() -> void:
 			var u0 := arc / SKY_W
 			var u1 := (arc + seg_len) / SKY_W
 			var q := [p0 + Vector3(0, 0, z0), p1 + Vector3(0, 0, z0), p1 + Vector3(0, 0, z1), p0 + Vector3(0, 0, z1)]
-			var qu := [Vector2(u0, 0), Vector2(u1, 0), Vector2(u1, (z0 - z1) / (SKY_W * 2.0)), Vector2(u0, (z0 - z1) / (SKY_W * 2.0))]
+			var qu := [Vector2(u0, 0), Vector2(u1, 0), Vector2(u1, (z0 - z1) / SKY_W), Vector2(u0, (z0 - z1) / SKY_W)]
 			for k in [0, 1, 2, 0, 2, 3]:
 				gl.set_uv(qu[k])
 				gl.add_vertex(q[k])
 			arc += seg_len
+			glass_edge = p1
+			for end in [z0, z1]:
+				_trim_profile(p0 + Vector3(0, -0.01, end), Vector3(0, 0, 1 if end == z0 else -1), p1 - p0, skylight_section, cornice, Vector3.DOWN)
 			# the frame of the glazing at both ends
 			for zz in [0.0, -L]:
 				var zi := -0.9 if zz == 0.0 else -L + 0.9
@@ -404,6 +409,8 @@ func _build_room() -> void:
 				lunette.reverse()
 			for v in lunette:
 				st.add_vertex(v)
+	for side in [-1.0, 1.0]:
+		_trim_profile(Vector3(side * glass_edge.x, glass_edge.y - 0.01, -0.9), Vector3(side, 0, 0), Vector3(0, 0, -L + 1.8), skylight_section, cornice, Vector3.DOWN)
 	var vmi := MeshInstance3D.new()
 	vmi.mesh = st.commit()
 	vmi.set_meta("vault", true)
@@ -411,7 +418,7 @@ func _build_room() -> void:
 	_vp.add_child(vmi)
 	var gmi := MeshInstance3D.new()
 	gmi.mesh = gl.commit()
-	gmi.material_override = ps(load(DIR + "textures/skylight.png"), Color(1.08, 1.1, 1.14))
+	gmi.material_override = ps(load(DIR + "textures/skylight-grid-168.svg"), Color.WHITE)
 	_vp.add_child(gmi)
 	# track lamps along both edges of the glazing, aimed at the walls
 	var edge_y := H + VAULT_RISE * sqrt(maxf(0.0, 1.0 - pow(SKY_W / 2.0 / X, 2))) - 0.12
@@ -542,34 +549,66 @@ func _build_floor() -> void:
 	var reach := (L + W) * 0.75
 	var n := int(reach / b)
 	var m := int(reach / a) + 1
+	var edge_pad := 0.5 * (a + b) / sqrt(2.0) + 0.05
 	for j in range(-m, m + 1):
 		for k in range(-n, n + 1):
 			var o := Vector2(k * b + j * a, k * b - j * a)
 			for vert in [false, true]:
 				var r := Rect2(o, Vector2(a, b)) if not vert else Rect2(o + Vector2(0, b), Vector2(b, a))
 				var c := rot * r.get_center()
-				if absf(c.x) > W / 2 + 0.4 or c.y > 0.4 or c.y < -L - 0.4:
+				if absf(c.x) > W / 2 + edge_pad or c.y > edge_pad or c.y < -L - edge_pad:
 					continue
 				var p := [r.position, Vector2(r.end.x, r.position.y), r.end, Vector2(r.position.x, r.end.y)]
-				# One grain length per plank; vary its vertical strip without wrapping.
-				var v0 := rng.randf_range(0.0, 2.0 / 3.0)
-				var uv := [Vector2(0, v0), Vector2(1, v0), Vector2(1, v0 + 1.0 / 3.0), Vector2(0, v0 + 1.0 / 3.0)]
+				# Local board UV lets the baked oak shader stay inside one source
+				# board; alpha carries a stable random crop for this modeled plank.
+				var uv := [Vector2(0, 0), Vector2(1, 0), Vector2(1, 1), Vector2(0, 1)]
 				var uv2 := [Vector2(0, 0), Vector2(a, 0), Vector2(a, b), Vector2(0, b)]
 				if vert:
 					uv = [uv[3], uv[0], uv[1], uv[2]]
 					uv2 = [Vector2(0, b), Vector2(0, 0), Vector2(a, 0), Vector2(a, b)]
-				var tone := rng.randf_range(0.9, 1.06)
+				# The source crop has narrow board-to-board variation; retain the
+				# authored lattice, UVs and grain but quiet the orange stripe effect.
+				var tone := rng.randf_range(0.97, 1.03)
+				var warmth := rng.randf_range(-0.018, 0.018)
+				var crop_seed := rng.randf()
 				for i in [0, 1, 2, 0, 2, 3]:
 					var q: Vector2 = rot * p[i]
 					var w := Vector3(q.x, 0, q.y)
 					var o2 := _ao(w, false) * tone
-					st.set_color(Color(o2, o2 * 0.99, o2 * 0.97))
+					st.set_color(Color(o2 * (1.0 + warmth), o2, o2 * (1.0 - warmth), crop_seed))
 					st.set_normal(Vector3.UP)
 					st.set_uv(uv[i])
 					st.set_uv2(uv2[i])
 					st.add_vertex(w)
-	var mat := ps(load(DIR + "textures/oak-muse.webp"), Color.WHITE, Vector2.ONE, true)
+	# The renovation photographs show straight-laid boards framing both long
+	# sides of the herringbone field. This is an isolated geometry trial, not a
+	# measured reconstruction; each overlay board still gets a distinct atlas
+	# face and authored baked contact.
+	for side in [-1, 1]:
+		for border_row in range(2):
+			var x0 := -W / 2.0 + border_row * b if side < 0 else W / 2.0 - (border_row + 1) * b
+			var x1 := x0 + b
+			for segment in range(ceili(L / a)):
+				var z0 := -L + segment * a
+				var z1 := minf(z0 + a, 0.0)
+				var board_length := z1 - z0
+				var border_tone := rng.randf_range(0.97, 1.03)
+				var border_seed := rng.randf()
+				var points := [Vector3(x0, 0.002, z0), Vector3(x0, 0.002, z1),
+					Vector3(x1, 0.002, z1), Vector3(x1, 0.002, z0)]
+				var board_uv := [Vector2(0, 0), Vector2(1, 0), Vector2(1, 1), Vector2(0, 1)]
+				var board_uv2 := [Vector2(0, 0), Vector2(board_length, 0),
+					Vector2(board_length, b), Vector2(0, b)]
+				for i in [0, 1, 2, 0, 2, 3]:
+					var shade := _ao(points[i], false) * border_tone
+					st.set_color(Color(shade, shade, shade, border_seed))
+					st.set_normal(Vector3.UP)
+					st.set_uv(board_uv[i])
+					st.set_uv2(board_uv2[i])
+					st.add_vertex(points[i])
+	var mat := ps(load(DIR + "textures/oak-board-atlas-168-v3.webp"), Color(1.18, 1.16, 1.14), Vector2.ONE, true)
 	mat.set_shader_parameter("plank_seams", true)
+	mat.set_shader_parameter("oak_atlas", true)
 	mat.set_shader_parameter("jitter", 0.0)  # herringbone has T-junctions: snapped corners would open cracks
 	mat.set_shader_parameter("plank", PLANK)
 	var mi := MeshInstance3D.new()

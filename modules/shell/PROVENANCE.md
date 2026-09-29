@@ -50,3 +50,12 @@ Additional authored source hashes for the selected architecture:
 | `textures/ivory-trim.svg` | `89a3ccde5dfb4d78c4023e35e1ae9b3cc457ecb240b67994ba3af7612951c776` |
 | `textures/exit-sign.svg` | `7f15231b789fb9539d2affcb90fcc593735f446191877a9427179ddfec9a1e07` |
 | `portal_sculpt_relief_prepare.gd` | `88b95549164040aae8758c34ed79286b39fdf0ce8112247a6941c9bd2395bbeb` |
+
+
+## Surface update #168
+
+Current architecture source comes from build c9d2985c; see its architecture-167 records for unchanged portal, cornice, bench and visitor sources. Reconciled floor aa144f72/7f0d9f6c failed fresh close-detail review. One new OpenRouter meta/muse-image source-guided atlas request: run3d3e631edf2e83b935bb12cb, count1, actual recorded USD0.01, counted spent despite spendStateunknown; neverresubmit. Ordered Site Specific gallery2456/2447 reference URLs/hashes retained in image-work/floor-168-board-v2/README.md, new prompt/plan/receipt in image-work/floor-168-board-v3. Native atlas2240×1120 SHA25665ba2455f048c900562678cc42dcc55d89b608deef763e5e35e7d708e3d8a9ff, runtime textures/oak-board-atlas-168-v3.webp byte-identical. Unequal rows handled in UV crop, no edited image pixels. Final saved-bake native/browser floor review PASS at720/1600; exact records in docs/evidence/surfaces-168-current. Selected for build integration after source macro dependency removal.
+
+## Native wall and skylight candidate #168
+
+See docs/evidence/surfaces-168-current/README.md. Wall now uses native matte #6f83a3 with no image dependency. Skylight SVG is authored vector source, SHA256 fe3627efa8da494eaeba99fbd9c9e1182c023dc640cfd491be348950093ae50b, source-led from the recorded Site Specific gallery2447/2456 photos; 8×8 thin pale grid, square UV scale, stepped modeled surround. Provider none/count0/USD0 for this group. Floor macro texture dependency removed. All three separate saved-bake native/browser visual gates PASS at720/1600; recorded caveats remain in docs/evidence/surfaces-168-current.

@@ -56,7 +56,8 @@ func _prepare() -> void:
 					var world: Vector3 = source.global_transform * vertices[i]
 					uv2.append(Vector2((world.x + 3.0) / 6.0, world.z / float(source.get_meta("portal_floor_end"))) if portal_floor else Vector2((world.x + 5.5) / 11.0, (0.5 - world.z) / 27.3))
 					if floor_mesh and not colors.is_empty():
-						colors[i] /= maxf(walk._ao(world, false), 0.01)
+						var ao := maxf(walk._ao(world, false), 0.01)
+						colors[i] = Color(colors[i].r / ao, colors[i].g / ao, colors[i].b / ao, colors[i].a)
 				arrays[Mesh.ARRAY_TEX_UV2] = uv2
 			elif not colors.is_empty() and not stone_mesh and not portal_floor and not upholstery:
 				# Keep intrinsic material colour; drop the old room-light multiplier.
@@ -112,7 +113,7 @@ func _prepare() -> void:
 		instance.material_override = material
 		if floor_mesh or portal_floor:
 			var oak := ShaderMaterial.new()
-			oak.shader = load(DIR + "oak.gdshader")
+			oak.shader = load(DIR + ("floor_oak.gdshader" if floor_mesh else "oak.gdshader"))
 			oak.set_shader_parameter("oak", material.albedo_texture)
 			if portal_floor:
 				oak.set_shader_parameter("floor_z_limits", Vector2(0, source.get_meta("portal_floor_end")))
@@ -126,9 +127,10 @@ func _prepare() -> void:
 			# invisible light blocker over the modeled recess's rear wall.
 			instance.gi_mode = GeometryInstance3D.GI_MODE_DISABLED
 			instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		if material.albedo_texture and material.albedo_texture.resource_path.ends_with("/skylight.png"):
+		if material.albedo_texture and material.albedo_texture.resource_path.ends_with("/skylight-grid-168.svg"):
 			instance.gi_mode = GeometryInstance3D.GI_MODE_DISABLED  # omit glazing from bake ray geometry
 			material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+			material.albedo_color = Color.WHITE
 			instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		room.add_child(instance)
 		instance.owner = room
