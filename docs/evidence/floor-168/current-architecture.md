@@ -15,3 +15,9 @@ Godot 4.7.2 bake returned exit 0, 127 users, 333.56 seconds. Its editor logged a
 - `room.tscn` SHA256 `4f88dd6f63b4d0988676370d84dbaafebc3753236c93444f6d14f3a280affaaf`
 - `room.exr` SHA256 `dcf72860e9192a049e0e5bb143ffaedebfe8c8df4e5ec8f761acada813e3b5b3`
 - `room.lmbake` SHA256 `c5bd899fe946ddbaa47df032f8dbd98b9d7e6111b2c2c162057c7f3f31e8cc97`
+
+## Current outcome: rejected
+
+Both native sizes and exported-browser sizes completed; browser errors were empty for before and after. The independent image-only review failed close-detail grain; matching browser-before images preserve frame identity, while native-before import/capture discrepancy remains unresolved. Exact review and all images are in [current-architecture/](current-architecture/). No build integration or issue closure. The earlier floor pass does not override this current review.
+
+Next bounded repair: inspect a source-backed board input with irregular grain/pores and localized variation before another bake. Repeating broad colour/UV tuning on this fine-line atlas is not sufficient evidence. Resolve the native control difference with the same import settings before attributing any painting regression. No new paid request in this continuation.
