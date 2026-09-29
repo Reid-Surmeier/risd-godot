@@ -1,0 +1,7 @@
+TimeoutError: Waiting failed: 240000ms exceeded
+    at new WaitTask (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/common/WaitTask.js:46:34)
+    at IsolatedWorld.waitForFunction (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/api/Realm.js:49:26)
+    at CdpFrame.waitForFunction (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/api/Frame.js:585:43)
+    at CdpFrame.<anonymous> (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/util/decorators.js:101:27)
+    at CdpPage.waitForFunction (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/api/Page.js:1537:37)
+    at /home/reidsurmeier/orca/workspaces/risd-godot/integrate-square-164/modules/shell/playtest/collection_fit_browser.cjs:13:14
