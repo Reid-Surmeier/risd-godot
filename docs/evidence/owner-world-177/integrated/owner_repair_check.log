@@ -1,0 +1,459 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+WARNING: 'res://modules/shell/prototype/gallery_walk4/visitor159/inputs/character.glb': In external resource #0, invalid UID: 'uid://bc3oa2klh02co' - using text path instead: 'res://modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-hair36-source-tinted.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _ready (res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gd:183)
+         [1] _build_kid (res://modules/shell/prototype/gallery_walk4/walk4.gd:1646)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:118)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: 'res://modules/shell/prototype/gallery_walk4/visitor159/inputs/character.glb': In external resource #1, invalid UID: 'uid://cq2iinyfr7qjr' - using text path instead: 'res://modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-eye-baked.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _ready (res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gd:183)
+         [1] _build_kid (res://modules/shell/prototype/gallery_walk4/walk4.gd:1646)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:118)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: 'res://modules/shell/prototype/gallery_walk4/visitor159/inputs/character.glb': In external resource #2, invalid UID: 'uid://b3ulaeir8bu8d' - using text path instead: 'res://modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-mouth-baked.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _ready (res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gd:183)
+         [1] _build_kid (res://modules/shell/prototype/gallery_walk4/walk4.gd:1646)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:118)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: 'res://modules/shell/prototype/gallery_walk4/visitor159/inputs/character.glb': In external resource #3, invalid UID: 'uid://j3flyxcosy4s' - using text path instead: 'res://modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-shirt-baked.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _ready (res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gd:183)
+         [1] _build_kid (res://modules/shell/prototype/gallery_walk4/walk4.gd:1646)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:118)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+REST bounds=0.18734590709209..17.0174369812012 soles=194
+WARNING: 'res://modules/shell/prototype/gallery_walk4/visitor159/inputs/donor.glb': In external resource #0, invalid UID: 'uid://dibdsg1yhqgng' - using text path instead: 'res://modules/shell/prototype/gallery_walk4/visitor159/inputs/donor_rogue_texture.png'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _ready (res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gd:223)
+         [1] _build_kid (res://modules/shell/prototype/gallery_walk4/walk4.gd:1646)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:118)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+CLIP Idle length=1.06666672229767
+CLIP Walking_A length=1.06666672229767
+CLIP Interact length=1.29999995231628
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:3 - ext_resource, invalid UID: uid://dbwvkm3w83671 - using text path instead: res://modules/shell/prototype/gallery_walk4/oak.gdshader
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:4 - ext_resource, invalid UID: uid://dkm7emp04hogo - using text path instead: res://modules/shell/prototype/gallery_walk4/textures/oak-muse.webp
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:5 - ext_resource, invalid UID: uid://bwey73iuihcx6 - using text path instead: res://modules/shell/prototype/gallery_walk4/textures/stone.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:6 - ext_resource, invalid UID: uid://dj4r0ugufmt72 - using text path instead: res://modules/shell/prototype/gallery_walk4/textures/door-arch.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:7 - ext_resource, invalid UID: uid://xqrutqtytm6y - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/W1.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:8 - ext_resource, invalid UID: uid://dc6q0vw570usr - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/W1.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:9 - ext_resource, invalid UID: uid://d0ver0dyrmv4m - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/W2.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:10 - ext_resource, invalid UID: uid://tweeq1u1ngrc - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/W2.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:11 - ext_resource, invalid UID: uid://p160qqw557w6 - using text path instead: res://modules/shell/prototype/gallery_walk4/textures/skylight-grid-168.svg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:12 - ext_resource, invalid UID: uid://bnbju7v3pjkqy - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/W3.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:13 - ext_resource, invalid UID: uid://ddvbnbmmixd6u - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/W3.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:14 - ext_resource, invalid UID: uid://dw406vx47mth5 - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/W4.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:15 - ext_resource, invalid UID: uid://106dnsp8i38n - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/W4.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:16 - ext_resource, invalid UID: uid://b24w201aa75nd - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/W5.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:17 - ext_resource, invalid UID: uid://bv7cs3jhalvhh - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/W5.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:18 - ext_resource, invalid UID: uid://bgnyy0j4yw6bo - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/W6-shaped.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:19 - ext_resource, invalid UID: uid://dx57qkd2017le - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/W7.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:20 - ext_resource, invalid UID: uid://dtyexk6rbnfag - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/W7.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:21 - ext_resource, invalid UID: uid://c8t6c5jl12p58 - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/W8.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:22 - ext_resource, invalid UID: uid://dfm7n4wmlcsaf - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/W8.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:23 - ext_resource, invalid UID: uid://xgie53v8vt8w - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/W9.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:24 - ext_resource, invalid UID: uid://g05qfcstrp3r - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/W9.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:25 - ext_resource, invalid UID: uid://crrhgrsb3ucmv - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/W10.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:26 - ext_resource, invalid UID: uid://ckm88s8sxtjg6 - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/W10.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:27 - ext_resource, invalid UID: uid://ctxy7tq38krgo - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/E1.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:28 - ext_resource, invalid UID: uid://m07xp2xj5a4w - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/E1.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:29 - ext_resource, invalid UID: uid://bjf62p1of20lp - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/E2.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:30 - ext_resource, invalid UID: uid://c6w71n6m68j7q - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/E2.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:31 - ext_resource, invalid UID: uid://dr0i5ca8axu2s - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/E3.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:32 - ext_resource, invalid UID: uid://c0hb1yy0bb556 - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/E3.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:33 - ext_resource, invalid UID: uid://bpqkrc2806626 - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/E4.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:34 - ext_resource, invalid UID: uid://dpg4dcmplja05 - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/E4.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:35 - ext_resource, invalid UID: uid://ngh3i5sqcxtr - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/E5.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:36 - ext_resource, invalid UID: uid://dqjafvyffpb34 - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/E5.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:37 - ext_resource, invalid UID: uid://hxt5r4fqjh25 - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/E6.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:38 - ext_resource, invalid UID: uid://b7a6pu380v4tm - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/E6.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:39 - ext_resource, invalid UID: uid://dnej8cyui1b7f - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/E7.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:40 - ext_resource, invalid UID: uid://dtgb3f2s48gne - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/E7.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:41 - ext_resource, invalid UID: uid://cpg8e3u1qtadp - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/E8.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:42 - ext_resource, invalid UID: uid://d101fomc34bmd - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/E8.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:43 - ext_resource, invalid UID: uid://duwxwgtv2fns2 - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/E9.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:44 - ext_resource, invalid UID: uid://bigt7qesnexo - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/E9.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:45 - ext_resource, invalid UID: uid://bklreay1etoba - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/S1.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:46 - ext_resource, invalid UID: uid://c6itwit75awig - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/S1.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:47 - ext_resource, invalid UID: uid://dt5vq1a08nlin - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/S2.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:48 - ext_resource, invalid UID: uid://c1akehplt176o - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/S2.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:49 - ext_resource, invalid UID: uid://b0tjx4p0ye8s8 - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/N1.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:50 - ext_resource, invalid UID: uid://c5ijna7lotfpv - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/N1.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:51 - ext_resource, invalid UID: uid://b1rukgpgvaox1 - using text path instead: res://modules/shell/prototype/gallery_walk4/frames/N2.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:52 - ext_resource, invalid UID: uid://b8spd76mdlgsn - using text path instead: res://modules/shell/prototype/gallery_walk4/canvas/N2.jpg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:53 - ext_resource, invalid UID: uid://c5fc5f4ctsmmc - using text path instead: res://modules/shell/prototype/gallery_walk4/textures/exit-sign.svg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:54 - ext_resource, invalid UID: uid://ckbxgj5hifwcl - using text path instead: res://modules/shell/prototype/gallery_walk4/textures/cornice-ivory.svg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:55 - ext_resource, invalid UID: uid://c56ii65sx0vlo - using text path instead: res://modules/shell/prototype/gallery_walk4/textures/bench-cloth-muse.webp
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:56 - ext_resource, invalid UID: uid://cesc874sfhk2l - using text path instead: res://modules/shell/prototype/gallery_walk4/textures/ivory-trim.svg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:57 - ext_resource, invalid UID: uid://2q1hh2avju6l - using text path instead: res://modules/shell/prototype/gallery_walk4/textures/oak.png
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:58 - ext_resource, invalid UID: uid://cvk3jh1w014f6 - using text path instead: res://modules/shell/prototype/gallery_walk4/textures/wall-muse.webp
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:59 - ext_resource, invalid UID: uid://dlbh10wmb6hxp - using text path instead: res://modules/shell/prototype/gallery_walk4/baked/room.lmbake
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: 'res://modules/shell/prototype/gallery_walk4/baked/room.lmbake': In external resource #0, invalid UID: 'uid://hscau4kwcxcf' - using text path instead: 'res://modules/shell/prototype/gallery_walk4/baked/room.exr'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1497)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+WARNING: 'res://modules/shell/prototype/gallery_walk4/baked/white.lmbake': In external resource #0, invalid UID: 'uid://cyrw0oqg7crgt' - using text path instead: 'res://modules/shell/prototype/gallery_walk4/baked/white.exr'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1518)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1399)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] run (res://modules/shell/prototype/gallery_walk4/owner_repair_check.gd:9)
+OWNER_REPAIR vault inward faces=164 mixed merge triangles=13
+OWNER_REPAIR source: camera mode/FOV continuity and tufted cushion bounds PASS

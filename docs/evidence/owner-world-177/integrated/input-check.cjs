@@ -1,0 +1,11 @@
+const fs=require('fs'),assert=require('assert/strict'),p=require('/home/reidsurmeier/promo-lab/node_modules/puppeteer-core');
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+(async()=>{const[url,out]=process.argv.slice(2);fs.mkdirSync(out,{recursive:true});const b=await p.launch({executablePath:'/usr/bin/google-chrome',headless:true,protocolTimeout:300000,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+try{const page=await b.newPage(),errors=[];await page.setViewport({width:800,height:600});page.on('pageerror',e=>errors.push(String(e)));await page.goto(url+'?qa-crt=1&render_qa=1',{waitUntil:'domcontentloaded',timeout:120000});await page.waitForFunction(()=>window.galleryRenderCommand&&window.shellCrtQa?.shell.active===4&&!window.shellCrtQa.shell.switching&&!document.getElementById('status'),{timeout:240000});
+await page.setViewport({width:1080,height:1080});await wait(1500);
+const command=async action=>page.evaluate(action=>window.galleryRenderCommand(JSON.stringify(action)),action);
+const state=async()=>{await command({action:'state'});return page.evaluate(()=>window.galleryRenderState)};
+await command({action:'pose',scene:'warm'});await command({action:'release'});await wait(250);const before=await state();await page.screenshot({path:out+'/before.png'});
+await page.keyboard.down('s');await wait(850);const held=await state();await page.keyboard.up('s');await wait(700);const released=await state();await wait(400);const stopped=await state();await page.screenshot({path:out+'/after.png'});
+const distance=(a,b)=>Math.hypot(...a.position.map((v,i)=>v-b.position[i]));assert(distance(before,held)>.2,'real key did not move visitor');assert(distance(released,stopped)<.01,'visitor continued after release');assert.equal(before.camera_fov,held.camera_fov);assert.equal(before.visitor.identity,held.visitor.identity);assert.equal(stopped.paintings,23);assert.deepEqual(errors,[]);fs.writeFileSync(out+'/input.json',JSON.stringify({before,held,released,stopped,errors},null,2));console.log('FULL_APP_INPUT PASS actual key movement, release, fixed FOV, Hair36, 23 paintings');
+}finally{await b.close()}})().catch(e=>{console.error(e);process.exitCode=1});
