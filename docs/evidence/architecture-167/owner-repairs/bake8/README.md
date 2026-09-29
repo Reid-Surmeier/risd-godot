@@ -1,0 +1,1 @@
+Bench8 source7e9cee01. Bake exited0,127users; import, source camera/vault/merge/cushion checks and repository baseline pass. Native720/1600 captures complete. Independent native review pending; browser/export/traversal pending. Not integrated. No paid generation.
