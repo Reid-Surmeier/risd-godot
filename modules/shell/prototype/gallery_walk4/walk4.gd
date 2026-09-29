@@ -55,7 +55,7 @@ var _source_meshes: Array[Node] = []
 var _baked_room: Node3D
 var _portal_floor_material: ShaderMaterial
 var _cutaway_materials := {}
-var _cutaway_alpha := {2: 1.0, 4: 1.0, 8: 1.0, 16: 1.0}
+var _cutaway_alpha := {8: 1.0}
 var _white_capture: LightmapGI
 var _baked_lighting := true
 var _lighting_choice: CheckButton
@@ -1854,12 +1854,15 @@ func _clamp(p: Vector3) -> Vector3:
 func _cutaway_mask(target: int, blend: float) -> int:
 	if not _baked_lighting or _space == "far":
 		return target
+	# Orbit cutaways must not draw translucent walls across the visitor.
+	if absf(_view_turn_remaining) > 0.001 or _orbit_dragged:
+		blend = 1.0
 	var mask := target
 	for layer in _cutaway_alpha:
 		var alpha := move_toward(float(_cutaway_alpha[layer]), 1.0 if target & layer else 0.0, blend)
 		_cutaway_alpha[layer] = alpha
 		for entry in _cutaway_materials.get(layer, []):
-			entry.material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA if alpha < 1.0 else entry.mode
+			entry.material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_HASH if alpha < 1.0 else entry.mode
 			entry.material.albedo_color.a = entry.alpha * alpha
 		if alpha > 0.0:
 			mask |= layer
@@ -1919,7 +1922,7 @@ func _update_camera(k: float) -> void:
 		_cam.look_at(center)
 		var hidden := (4 if forward.x < -0.2 else (2 if forward.x > 0.2 else 0)) | (8 if forward.z < -0.2 else (16 if forward.z > 0.2 else 0))
 		if _space == "arch":
-			hidden = (4 if forward.x < -0.2 else (2 if forward.x > 0.2 else 0)) | (16 if forward.z < -0.2 else (8 if forward.z > 0.2 else 0))
+			hidden = (4 if forward.x < -0.2 else (2 if forward.x > 0.2 else 0)) | (16 if forward.z < -0.2 else 8)
 		_cam.cull_mask = _cutaway_mask((1984 & ~(hidden * 64)) if _space == "far" else (31 & ~hidden), fade)
 		if _view_label:
 			_view_label.text = "WASD · Click art · " + ("West wall" if forward.x < -0.5 else ("East wall" if forward.x > 0.5 else ("Far wall" if forward.z < -0.5 else "Arch wall")))

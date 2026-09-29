@@ -33,5 +33,11 @@ func run() -> void:
 	assert(transitioning & 8, "Wall disappeared before fading")
 	assert(is_equal_approx(walk._cutaway_alpha[8], 0.75), "Wall fade jumped")
 	assert(is_equal_approx(walk._portal_floor_material.get_shader_parameter("cutaway"), 0.25), "Floor lighting did not follow wall fade")
+	walk._view_turn_remaining = 0.5
+	assert((walk._cutaway_mask(23, 0.1) & 8) == 0, "Orbit left a ghost wall")
+	walk.view_mode = 0
+	walk.view_yaw = PI / 2
+	walk._update_camera(1)
+	assert((walk._cam.cull_mask & 8) == 0, "Side view restored occluding doorway")
 	print("CUTAWAY_FLOOR PASS")
 	quit()
