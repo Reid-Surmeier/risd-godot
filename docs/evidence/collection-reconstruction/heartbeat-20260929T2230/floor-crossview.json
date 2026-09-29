@@ -1,0 +1,416 @@
+{
+  "source": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/floor-patches-v2/result.json",
+  "inputs_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/floor-patches-v2/result.json": "c07daf8485ec7499e5962f1bc93ac741ddbc037376a919bfb7847d8d81fb2378",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/points3D.bin": "ff15dc3d1bb58558872f154600379602559a3e298acfb495c46baf772c3b1f52",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/frames.bin": "90107a240db7e611bfa77756dd756413c98d0a71d509e7e6d1aa93a2931bcb00",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/images.bin": "993ffee5847b9dbe29bfc308b43b82fc4b6712b4d872b1ef3ce2b4852e3cfe55",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/cameras.bin": "c22290a859d9aa5e77db9f6e1901174514188945285355ebfa45a16360f69717",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/stereo/depth_maps/IMG_6380/000505.jpg.geometric.bin": "fc12843b87a106a6119961b9ca0998f469b3ec2ed0c4991a36b90a241ad6b2a8",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/images/IMG_6380/000505.jpg": "403ab1fa27b0ca1aa52a9d0a1226c33fc837682ca49521c45dfdd9a6242610e4",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/stereo/depth_maps/IMG_6380_exit6fps/000010.jpg.geometric.bin": "5a35c31454a9a8902cc2c58524e9f94b5d0430e74e4e6c47e71c1630f0867259",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/images/IMG_6380_exit6fps/000010.jpg": "f434440c54e3a455efd42be427fe22460c09d8c75f9ab24a1e67196b4541a394",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/stereo/depth_maps/IMG_6380_exit6fps/000014.jpg.geometric.bin": "fc12843b87a106a6119961b9ca0998f469b3ec2ed0c4991a36b90a241ad6b2a8",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/images/IMG_6380_exit6fps/000014.jpg": "403ab1fa27b0ca1aa52a9d0a1226c33fc837682ca49521c45dfdd9a6242610e4",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/stereo/depth_maps/IMG_6380_exit6fps/000018.jpg.geometric.bin": "64ac25806e5ea1552e2abd35e7201f3a6ea506c6780fe98ceca1698bc61771c3",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/images/IMG_6380_exit6fps/000018.jpg": "a4583a86bb0fb5da3efaf58de8b3927fc4decf83ed886db840ad1567ffb86785",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/stereo/depth_maps/IMG_6380_exit6fps/000022.jpg.geometric.bin": "87980938b72b87309ad419233b9853f9206390af92018d0c091b811daa82dc20",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/images/IMG_6380_exit6fps/000022.jpg": "0bfaad65c9d03ee0e8ff4c28e40a7ddfb87b44ef431dd1a05a44d7cb21788ce7",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/stereo/depth_maps/IMG_6380_exit6fps/000026.jpg.geometric.bin": "e99db66a81d57dd58049e209baa6daa97d15db37a0d523415811826bf1261366",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/images/IMG_6380_exit6fps/000026.jpg": "903f2612ed30d64b1621628b5eba1bea5b8b66ee3d74d1af3081ee8802b6dc3f"
+  },
+  "targets": [
+    "IMG_6380/000505.jpg",
+    "IMG_6380_exit6fps/000010.jpg",
+    "IMG_6380_exit6fps/000014.jpg",
+    "IMG_6380_exit6fps/000018.jpg",
+    "IMG_6380_exit6fps/000022.jpg",
+    "IMG_6380_exit6fps/000026.jpg"
+  ],
+  "rows": [
+    {
+      "view": "IMG_6380/000505.jpg",
+      "patch": "near",
+      "source_control": false,
+      "projected_polygon": [
+        [
+          43.936331049812964,
+          430.7624495748399
+        ],
+        [
+          229.43579012389336,
+          412.65127600040483
+        ],
+        [
+          254.22450018825427,
+          487.0164407970704
+        ],
+        [
+          33.37846680407813,
+          519.6539227123636
+        ]
+      ],
+      "visible_mask_pixels": 16830,
+      "valid_depth_samples": 640,
+      "valid_depth_fraction": 0.038027332144979206,
+      "support_25mm": 0.4203125,
+      "signed_p10_p50_p90_m": [
+        -0.0961991406668491,
+        -0.028003470522033537,
+        0.008962504726052794
+      ],
+      "absolute_p50_p90_m": [
+        0.03004741178438705,
+        0.09619914066684912
+      ],
+      "sparse_point_ids": []
+    },
+    {
+      "view": "IMG_6380/000505.jpg",
+      "patch": "far",
+      "source_control": false,
+      "projected_polygon": [
+        [
+          100.57015961828199,
+          325.3839855725628
+        ],
+        [
+          173.73081337410977,
+          322.9564701277915
+        ],
+        [
+          195.9061077227923,
+          367.2775079242792
+        ],
+        [
+          79.3887769962663,
+          374.1067620409163
+        ]
+      ],
+      "visible_mask_pixels": 4458,
+      "valid_depth_samples": 4410,
+      "valid_depth_fraction": 0.9892328398384926,
+      "support_25mm": 0.7165532879818595,
+      "signed_p10_p50_p90_m": [
+        -0.02962473801591812,
+        -0.0005188605905064935,
+        0.03072293115085524
+      ],
+      "absolute_p50_p90_m": [
+        0.014796346564357226,
+        0.03979982571278938
+      ],
+      "sparse_point_ids": [
+        26507
+      ],
+      "sparse_signed_p10_p50_p90_m": [
+        -0.06333205340933588,
+        -0.06333205340933588,
+        -0.06333205340933588
+      ]
+    },
+    {
+      "view": "IMG_6380_exit6fps/000010.jpg",
+      "patch": "near",
+      "source_control": false,
+      "projected_polygon": [
+        [
+          -80.27100712272699,
+          433.1813340260329
+        ],
+        [
+          117.20143055719117,
+          380.60850705790097
+        ],
+        [
+          138.81689129611414,
+          429.19673942470604
+        ],
+        [
+          -74.51285485645826,
+          508.49045006444373
+        ]
+      ],
+      "visible_mask_pixels": 8003,
+      "valid_depth_samples": 1487,
+      "valid_depth_fraction": 0.18580532300387353,
+      "support_25mm": 0.22999327505043712,
+      "signed_p10_p50_p90_m": [
+        -0.14510148308131046,
+        -0.05847570001582095,
+        0.005382735156684676
+      ],
+      "absolute_p50_p90_m": [
+        0.059556246355244286,
+        0.14510148308131052
+      ],
+      "sparse_point_ids": []
+    },
+    {
+      "view": "IMG_6380_exit6fps/000010.jpg",
+      "patch": "far",
+      "source_control": false,
+      "projected_polygon": [
+        [
+          -27.2308879527136,
+          321.60039236643723
+        ],
+        [
+          58.45814920953137,
+          311.64003406600096
+        ],
+        [
+          84.4533583383552,
+          349.06513856632415
+        ],
+        [
+          -45.55900261419663,
+          372.868093695399
+        ]
+      ],
+      "visible_mask_pixels": 3132,
+      "valid_depth_samples": 2989,
+      "valid_depth_fraction": 0.9543422733077905,
+      "support_25mm": 0.5276012044161927,
+      "signed_p10_p50_p90_m": [
+        -0.04818499517702091,
+        -0.0038273825457885964,
+        0.03938183441277978
+      ],
+      "absolute_p50_p90_m": [
+        0.023437145615824856,
+        0.05659434194128614
+      ],
+      "sparse_point_ids": []
+    },
+    {
+      "view": "IMG_6380_exit6fps/000014.jpg",
+      "duplicate_of": "IMG_6380/000505.jpg",
+      "status": "identical image and depth; not counted again"
+    },
+    {
+      "view": "IMG_6380_exit6fps/000018.jpg",
+      "patch": "near",
+      "source_control": true,
+      "projected_polygon": [
+        [
+          60.0,
+          469.9999999999999
+        ],
+        [
+          290.0,
+          470.0
+        ],
+        [
+          335.0000000000001,
+          620.0000000000002
+        ],
+        [
+          20.0,
+          620.0
+        ]
+      ],
+      "visible_mask_pixels": 41291,
+      "valid_depth_samples": 27451,
+      "valid_depth_fraction": 0.6648179990797026,
+      "support_25mm": 0.5281410513278205,
+      "signed_p10_p50_p90_m": [
+        -0.05646089418585497,
+        -0.0017603968531739148,
+        0.043590092549045514
+      ],
+      "absolute_p50_p90_m": [
+        0.02324962849507037,
+        0.06958404295234931
+      ],
+      "sparse_point_ids": []
+    },
+    {
+      "view": "IMG_6380_exit6fps/000018.jpg",
+      "patch": "far",
+      "source_control": true,
+      "projected_polygon": [
+        [
+          140.00000000000003,
+          335.0
+        ],
+        [
+          220.00000000000006,
+          335.0
+        ],
+        [
+          244.99999999999994,
+          395.00000000000006
+        ],
+        [
+          110.00000000000009,
+          395.0
+        ]
+      ],
+      "visible_mask_pixels": 6601,
+      "valid_depth_samples": 6567,
+      "valid_depth_fraction": 0.994849265262839,
+      "support_25mm": 0.7039744175422568,
+      "signed_p10_p50_p90_m": [
+        -0.02973043396493917,
+        0.001673084311323362,
+        0.03285467370473187
+      ],
+      "absolute_p50_p90_m": [
+        0.01593474709200187,
+        0.04163526168429581
+      ],
+      "sparse_point_ids": [
+        26507
+      ],
+      "sparse_signed_p10_p50_p90_m": [
+        -0.06333205340933588,
+        -0.06333205340933588,
+        -0.06333205340933588
+      ]
+    },
+    {
+      "view": "IMG_6380_exit6fps/000022.jpg",
+      "patch": "near",
+      "source_control": false,
+      "projected_polygon": [
+        [
+          -8.16315936635823,
+          578.2706235563419
+        ],
+        [
+          325.73375025903954,
+          581.2950444170076
+        ],
+        [
+          481.0775321155197,
+          1049.5835334632395
+        ],
+        [
+          -173.95984255889186,
+          1037.591348638039
+        ]
+      ],
+      "visible_mask_pixels": 20183,
+      "valid_depth_samples": 978,
+      "valid_depth_fraction": 0.04845662190952782,
+      "support_25mm": 0.6012269938650306,
+      "signed_p10_p50_p90_m": [
+        -0.0751352105427894,
+        -0.015825914584728262,
+        0.01764815156293135
+      ],
+      "absolute_p50_p90_m": [
+        0.0207416210404656,
+        0.07513521054278943
+      ],
+      "sparse_point_ids": []
+    },
+    {
+      "view": "IMG_6380_exit6fps/000022.jpg",
+      "patch": "far",
+      "source_control": false,
+      "projected_polygon": [
+        [
+          123.26108211368455,
+          352.29206098396656
+        ],
+        [
+          215.79347970485455,
+          351.8850900299338
+        ],
+        [
+          250.21937564353755,
+          439.334558064137
+        ],
+        [
+          78.82835339651956,
+          440.8871518894899
+        ]
+      ],
+      "visible_mask_pixels": 11747,
+      "valid_depth_samples": 11392,
+      "valid_depth_fraction": 0.9697795181748532,
+      "support_25mm": 0.6314957865168539,
+      "signed_p10_p50_p90_m": [
+        -0.04408903074859454,
+        -0.00832977942700168,
+        0.026343981651499714
+      ],
+      "absolute_p50_p90_m": [
+        0.018679644120177044,
+        0.04885903659103042
+      ],
+      "sparse_point_ids": [
+        25654,
+        27203,
+        28121
+      ],
+      "sparse_signed_p10_p50_p90_m": [
+        -0.09691418811117045,
+        -0.08043825091903772,
+        -0.04061440059508901
+      ]
+    },
+    {
+      "view": "IMG_6380_exit6fps/000026.jpg",
+      "patch": "near",
+      "status": "patch crosses camera plane; not evaluated"
+    },
+    {
+      "view": "IMG_6380_exit6fps/000026.jpg",
+      "patch": "far",
+      "source_control": false,
+      "projected_polygon": [
+        [
+          120.30173989017487,
+          368.73240175521727
+        ],
+        [
+          229.73396999254675,
+          368.3926644433177
+        ],
+        [
+          279.11960354080725,
+          510.41426882325527
+        ],
+        [
+          46.966654029215306,
+          507.00601690977226
+        ]
+      ],
+      "visible_mask_pixels": 24094,
+      "valid_depth_samples": 19440,
+      "valid_depth_fraction": 0.8068398771478377,
+      "support_25mm": 0.46219135802469136,
+      "signed_p10_p50_p90_m": [
+        -0.07190287322808527,
+        -0.0213303790876586,
+        0.021279350220968444
+      ],
+      "absolute_p50_p90_m": [
+        0.02737597275002633,
+        0.07330222629362179
+      ],
+      "sparse_point_ids": [
+        24363,
+        24749,
+        25141,
+        25287,
+        25289,
+        25574,
+        27203,
+        27745
+      ],
+      "sparse_signed_p10_p50_p90_m": [
+        -0.10439777707094297,
+        -0.03998245459084687,
+        0.04467854075223183
+      ]
+    }
+  ],
+  "provisional_m_per_unit": 2.6266704457139363,
+  "navigation_accepted": false,
+  "caveat": "Frozen planes and patch extents; no target refit or residual-based rejection. Shared multiview stereo inputs are correlated, not independent held-out captures. Projected polygons require visual occlusion review. 25mm is an exploratory diagnostic, not the owner quality contract. Absolute scale remains provisional."
+}

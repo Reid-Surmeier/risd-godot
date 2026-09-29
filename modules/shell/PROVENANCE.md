@@ -73,3 +73,15 @@ near-floor depth in the original view. A reviewed later view improves near
 coverage to 66.5%, but the two normals differ 3.96 degrees and extrapolated
 levels disagree. These are diagnostic images, not runtime surfaces or accepted
 collisions. Bookcase scale, sculpture rear coverage and lighting remain open.
+
+## Collection floor cross-view check — September 29, 22:30 UTC heartbeat
+
+Local NumPy/pycolmap/Pillow on cached CUDA depth; **$0**, zero paid calls.
+Generator: `prototype/collection_reconstruction/floor_crossview.py`.
+[Sources, hashes and evidence](../../docs/evidence/collection-reconstruction/heartbeat-20260929T2230/provenance.json)
+record frozen frame-18 plane projection into four distinct other depth views;
+one duplicate image/depth pair is explicitly excluded. All overlays inspected.
+Near-floor coverage remains 3.8–18.6% in other usable views, with no sparse
+floor points in those footprints. Far-floor discrepancies reach 7.3 provisional
+cm at the 90th percentile. This does not accept collisions, a step, a slope,
+metric scale or room navigation. No new paid generation or CUDA sweep.

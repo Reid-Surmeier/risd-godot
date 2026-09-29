@@ -1,0 +1,53 @@
+{
+  "provider": "local NumPy/pycolmap/Pillow; existing COLMAP CUDA depth",
+  "cost_usd": 0,
+  "paid_calls": 0,
+  "input_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/floor-patches-v2/result.json": "c07daf8485ec7499e5962f1bc93ac741ddbc037376a919bfb7847d8d81fb2378",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/points3D.bin": "ff15dc3d1bb58558872f154600379602559a3e298acfb495c46baf772c3b1f52",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/frames.bin": "90107a240db7e611bfa77756dd756413c98d0a71d509e7e6d1aa93a2931bcb00",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/images.bin": "993ffee5847b9dbe29bfc308b43b82fc4b6712b4d872b1ef3ce2b4852e3cfe55",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/cameras.bin": "c22290a859d9aa5e77db9f6e1901174514188945285355ebfa45a16360f69717",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/stereo/depth_maps/IMG_6380/000505.jpg.geometric.bin": "fc12843b87a106a6119961b9ca0998f469b3ec2ed0c4991a36b90a241ad6b2a8",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/images/IMG_6380/000505.jpg": "403ab1fa27b0ca1aa52a9d0a1226c33fc837682ca49521c45dfdd9a6242610e4",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/stereo/depth_maps/IMG_6380_exit6fps/000010.jpg.geometric.bin": "5a35c31454a9a8902cc2c58524e9f94b5d0430e74e4e6c47e71c1630f0867259",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/images/IMG_6380_exit6fps/000010.jpg": "f434440c54e3a455efd42be427fe22460c09d8c75f9ab24a1e67196b4541a394",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/stereo/depth_maps/IMG_6380_exit6fps/000014.jpg.geometric.bin": "fc12843b87a106a6119961b9ca0998f469b3ec2ed0c4991a36b90a241ad6b2a8",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/images/IMG_6380_exit6fps/000014.jpg": "403ab1fa27b0ca1aa52a9d0a1226c33fc837682ca49521c45dfdd9a6242610e4",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/stereo/depth_maps/IMG_6380_exit6fps/000018.jpg.geometric.bin": "64ac25806e5ea1552e2abd35e7201f3a6ea506c6780fe98ceca1698bc61771c3",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/images/IMG_6380_exit6fps/000018.jpg": "a4583a86bb0fb5da3efaf58de8b3927fc4decf83ed886db840ad1567ffb86785",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/stereo/depth_maps/IMG_6380_exit6fps/000022.jpg.geometric.bin": "87980938b72b87309ad419233b9853f9206390af92018d0c091b811daa82dc20",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/images/IMG_6380_exit6fps/000022.jpg": "0bfaad65c9d03ee0e8ff4c28e40a7ddfb87b44ef431dd1a05a44d7cb21788ce7",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/stereo/depth_maps/IMG_6380_exit6fps/000026.jpg.geometric.bin": "e99db66a81d57dd58049e209baa6daa97d15db37a0d523415811826bf1261366",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/images/IMG_6380_exit6fps/000026.jpg": "903f2612ed30d64b1621628b5eba1bea5b8b66ee3d74d1af3081ee8802b6dc3f"
+  },
+  "generator_sha256": {
+    "modules/shell/prototype/collection_reconstruction/floor_crossview.py": "50b5852185f8eed029baa4e62f727984604caba7ecc403a62ff150fe6e90f6af"
+  },
+  "artifact_sha256": {
+    "IMG_6380-000505.jpg.png": "7594ea63752434a156ef7bbe719e982f58b68b001c480ff285a032273e993750",
+    "IMG_6380_exit6fps-000010.jpg.png": "8ab753e9ac8201d63f439b7cf355535043efde511a96a8470ce04b73f64799c4",
+    "IMG_6380_exit6fps-000018.jpg.png": "e39cd502e08d1cdb0e8dd58742e739241d47ac59377340f67eca58033fd22d57",
+    "IMG_6380_exit6fps-000022.jpg.png": "b8651abf7f0d14c9da2453cc781c8b4e59657321453b850da04a1eca593f1b48",
+    "IMG_6380_exit6fps-000026.jpg.png": "bcccdaca67e8a6dd949ddeea30c92c84bd6211287ac0ef5633aaf56e2057aadd",
+    "browser.json": "4d97f03adebe8514397d2846c378ca7fb6f01e10894ed4c258178ce455c0915e",
+    "browser.png": "64e878cb12528169a72a4549ca559f998b56129418a22c0d98e8af42ef4aa404",
+    "floor-crossview.json": "b2f13e15d6a0a36914d11bc28f275ece6a709898207399c2346b23fc11fa22fb",
+    "index.html": "cde4b459c1587ab66ae28ef882ca358a7544ad22c6bfc0686f5bfd376c48cc95",
+    "repository-check.log": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e",
+    "shell-playtest.log": "82d14f803e84b4b6b139cc9544c4ded7bdaa3909adf3b02d5633d748c3a21ffe",
+    "shell-resized.png": "f5489e0038c4f9e69a276f229dcca753b723d654de5f4d456686525beff09a56"
+  },
+  "navigation_accepted": false,
+  "checks": {
+    "projection_roundtrip": "passed",
+    "plane_intersection": "passed",
+    "displaced_plane_negative_control": "passed",
+    "frozen_sparse_hashes": "match existing heldout audit",
+    "repository": "passed; eight ObjectDB leak warning instances",
+    "shell": "failed; same seven failed check names as previous tick",
+    "browser": "HTTP 200 page and five images; favicon.ico 404; screenshot inspected"
+  },
+  "note": "Diagnostic only. No new CUDA feature/matching/depth or paid generation. Original logs remain in ingestion; copied log trailing whitespace normalized."
+}
