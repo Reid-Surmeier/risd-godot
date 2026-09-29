@@ -1,0 +1,16 @@
+Failed to load resource: the server responded with a status of 404 (File not found)
+WARNING: 2D MSAA is not yet supported for GLES3.
+   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)
+WARNING: 2D MSAA is not yet supported for GLES3.
+   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)
+{"gpu":"ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)","expected_gpu":"hardware"}
+{"preflight_changed_pixels":197664}
+{"label":"A","mode":"bypass","width":720,"scene":"warm","viewport":[695,465],"space_after":"gallery","median_ms":16.700000000004366,"p95_ms":33.400000000001455,"samples":352}
+{"label":"A","mode":"bypass","width":720,"scene":"art","viewport":[695,465],"space_after":"gallery","median_ms":16.700000000004366,"p95_ms":33.400000000001455,"samples":374}
+{"label":"A","mode":"bypass","width":720,"scene":"white","viewport":[695,465],"space_after":"far","median_ms":16.69999999999709,"p95_ms":33.30000000000291,"samples":452}
+{"label":"B","mode":"copy-full","width":720,"scene":"warm","viewport":[695,465],"space_after":"gallery","median_ms":16.69999999999709,"p95_ms":33.400000000001455,"samples":366}
+{"label":"B","mode":"copy-full","width":720,"scene":"art","viewport":[695,465],"space_after":"gallery","median_ms":16.69999999999709,"p95_ms":33.39999999999418,"samples":379}
+{"label":"B","mode":"copy-full","width":720,"scene":"white","viewport":[695,465],"space_after":"far","median_ms":16.69999999999709,"p95_ms":33.30000000000291,"samples":438}
+{"label":"C","mode":"current","width":720,"scene":"warm","viewport":[695,465],"space_after":"gallery","median_ms":16.69999999999709,"p95_ms":33.40000000000873,"samples":360}
+{"label":"C","mode":"current","width":720,"scene":"art","viewport":[695,465],"space_after":"gallery","median_ms":16.69999999999709,"p95_ms":33.39999999999418,"samples":368}
+{"label":"C","mode":"current","width":720,"scene":"white","viewport":[695,465],"space_after":"far","median_ms":16.69999999999709,"p95_ms":33.39999999999418,"samples":436}

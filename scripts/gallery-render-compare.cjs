@@ -64,11 +64,20 @@ const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
        if(!window.renderTracing)return;
        const s=window.galleryRenderState;
        if(s?.replaying && s.tick!==lastTick){window.renderTrace.push(JSON.parse(JSON.stringify(s)));lastTick=s.tick;}
-       if(lastTime && s?.replaying)window.renderDeltas.push(t-lastTime);
+       if(lastTime && (s?.replaying || window.renderLiveInput))window.renderDeltas.push(t-lastTime);
        lastTime=t;requestAnimationFrame(record);
       }requestAnimationFrame(record);
      });
      const video=await page.screencast({path:prefix+'.webm',fps:30});
+     if(process.env.RENDER_REAL_INPUT==='1') {
+      await command({action:'release'});
+      await page.evaluate(()=>window.renderLiveInput=true);
+      for(const [key,ms] of [['a',2000],['d',2000],['a',1000],['d',1000]]) {
+       await page.keyboard.down(key);await pause(ms);await page.keyboard.up(key);
+      }
+      await pause(2000);await command({action:'state'});
+      await page.evaluate(()=>window.renderLiveInput=false);
+     } else {
      await command({action:'replay',scene});
      const replayStarted=Date.now();
      try {
@@ -77,6 +86,7 @@ const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
       const failure=await page.evaluate(()=>({state:window.galleryRenderState,trace:window.renderTrace,deltas:window.renderDeltas}));
       fs.writeFileSync(prefix+'-failure.json',JSON.stringify({...failure,wall_ms:Date.now()-replayStarted,errors},null,2));
       await video.stop();throw error;
+     }
      }
      await video.stop();
      const evidence=await page.evaluate(()=>{window.renderTracing=false;return {trace:window.renderTrace,deltas:window.renderDeltas,final:window.galleryRenderState,dpr:devicePixelRatio};});

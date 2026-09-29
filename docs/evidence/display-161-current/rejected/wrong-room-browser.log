@@ -1,0 +1,47 @@
+Failed to load resource: the server responded with a status of 404 (File not found)
+WARNING: 2D MSAA is not yet supported for GLES3.
+   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)
+WARNING: 2D MSAA is not yet supported for GLES3.
+   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)
+{"gpu":"ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)","expected_gpu":"hardware"}
+{"preflight_changed_pixels":197664}
+{"label":"A","mode":"bypass","width":720,"scene":"warm","viewport":[695,465],"space_after":"gallery","median_ms":16.700000000004366,"p95_ms":33.400000000001455,"samples":479}
+{"label":"A","mode":"bypass","width":720,"scene":"art","viewport":[695,465],"space_after":"gallery","median_ms":16.700000000004366,"p95_ms":33.400000000001455,"samples":479}
+{"label":"A","mode":"bypass","width":720,"scene":"white","viewport":[695,465],"space_after":"gallery","median_ms":16.700000000004366,"p95_ms":33.400000000001455,"samples":479}
+{"label":"B","mode":"copy-full","width":720,"scene":"warm","viewport":[695,465],"space_after":"gallery","median_ms":16.69999999999709,"p95_ms":33.40000000000873,"samples":479}
+{"label":"B","mode":"copy-full","width":720,"scene":"art","viewport":[695,465],"space_after":"gallery","median_ms":16.69999999999709,"p95_ms":33.40000000000873,"samples":479}
+{"label":"B","mode":"copy-full","width":720,"scene":"white","viewport":[695,465],"space_after":"gallery","median_ms":16.69999999999709,"p95_ms":33.40000000000873,"samples":479}
+{"label":"C","mode":"current","width":720,"scene":"warm","viewport":[695,465],"space_after":"gallery","median_ms":16.69999999999709,"p95_ms":33.40000000000873,"samples":479}
+{"label":"C","mode":"current","width":720,"scene":"art","viewport":[695,465],"space_after":"gallery","median_ms":16.69999999999709,"p95_ms":33.40000000000873,"samples":479}
+{"label":"C","mode":"current","width":720,"scene":"white","viewport":[695,465],"space_after":"gallery","median_ms":16.70000000001164,"p95_ms":33.39999999999418,"samples":479}
+{"label":"A","mode":"bypass","width":1600,"scene":"warm","viewport":[695,465],"space_after":"gallery","median_ms":33.29999999998836,"p95_ms":33.40000000002328,"samples":479}
+{"label":"A","mode":"bypass","width":1600,"scene":"art","viewport":[695,465],"space_after":"gallery","median_ms":16.70000000001164,"p95_ms":33.39999999999418,"samples":479}
+file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/common/CallbackRegistry.js:88
+            this._reject(callback, new TargetCloseError('Target closed'));
+                                   ^
+
+TargetCloseError: Protocol error (Page.screencastFrameAck): Target closed
+    at CallbackRegistry.clear (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/common/CallbackRegistry.js:88:36)
+    at CdpCDPSession.onClosed (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/cdp/CdpSession.js:121:25)
+    at #onClose (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/cdp/Connection.js:217:21)
+    at WebSocket.<anonymous> (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/node/NodeWebSocketTransport.js:54:30)
+    at callListener (/home/reidsurmeier/promo-lab/node_modules/ws/lib/event-target.js:290:14)
+    at WebSocket.onClose (/home/reidsurmeier/promo-lab/node_modules/ws/lib/event-target.js:220:9)
+    at WebSocket.emit (node:events:519:28)
+    at WebSocket.emitClose (/home/reidsurmeier/promo-lab/node_modules/ws/lib/websocket.js:279:10)
+    at Receiver.receiverOnFinish (/home/reidsurmeier/promo-lab/node_modules/ws/lib/websocket.js:1228:20)
+    at Receiver.emit (node:events:519:28) {
+  cause: ProtocolError
+      at <instance_members_initializer> (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/common/CallbackRegistry.js:108:14)
+      at new Callback (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/common/CallbackRegistry.js:112:16)
+      at CallbackRegistry.create (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/common/CallbackRegistry.js:27:26)
+      at Connection._rawSend (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/cdp/Connection.js:125:26)
+      at CdpCDPSession.send (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/cdp/CdpSession.js:72:14)
+      at Object.next (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/node/ScreenRecorder.js:198:29)
+      at file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/third_party/rxjs/rxjs.js:2823:74
+      at OperatorSubscriber2._this._next (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/third_party/rxjs/rxjs.js:1001:9)
+      at Subscriber2.next (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/third_party/rxjs/rxjs.js:704:12)
+      at listener (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/common/util.js:337:24)
+}
+
+Node.js v22.23.3
