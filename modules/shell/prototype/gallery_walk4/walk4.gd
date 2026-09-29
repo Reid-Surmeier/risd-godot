@@ -308,8 +308,8 @@ func _box(c: Vector3, size: Vector3, col: Color, layer := 1, m: Material = null)
 
 
 func _wall_ps(extra := Color.WHITE) -> ShaderMaterial:
-	# Broad pigment patches, one repeat per four metres; no fine grain to crawl.
-	return ps(load(DIR + "textures/wall-muse.webp"), extra, Vector2(0.25, 0.25), true)
+	# #168: native matte paint, visually calibrated against the recorded gallery photos.
+	return ps(null, extra * Color("#6f83a3"), Vector2.ONE, true)
 
 
 const LAYER_WEST := 2
@@ -364,6 +364,8 @@ func _build_room() -> void:
 	var segs := 36
 	var vault := Color("#e2dccd")
 	var arc := 0.0
+	var glass_edge := Vector3.ZERO
+	var skylight_section := [Vector2(0, 0), Vector2(0, 0.035), Vector2(0.045, 0.035), Vector2(0.045, 0.075), Vector2(0.12, 0.075), Vector2(0.12, 0.045), Vector2(0.22, 0.045), Vector2(0.22, 0)]
 	for i in segs:
 		var a0 := PI * i / segs
 		var a1 := PI * (i + 1) / segs
@@ -377,11 +379,14 @@ func _build_room() -> void:
 			var u0 := arc / SKY_W
 			var u1 := (arc + seg_len) / SKY_W
 			var q := [p0 + Vector3(0, 0, z0), p1 + Vector3(0, 0, z0), p1 + Vector3(0, 0, z1), p0 + Vector3(0, 0, z1)]
-			var qu := [Vector2(u0, 0), Vector2(u1, 0), Vector2(u1, (z0 - z1) / (SKY_W * 2.0)), Vector2(u0, (z0 - z1) / (SKY_W * 2.0))]
+			var qu := [Vector2(u0, 0), Vector2(u1, 0), Vector2(u1, (z0 - z1) / SKY_W), Vector2(u0, (z0 - z1) / SKY_W)]
 			for k in [0, 1, 2, 0, 2, 3]:
 				gl.set_uv(qu[k])
 				gl.add_vertex(q[k])
 			arc += seg_len
+			glass_edge = p1
+			for end in [z0, z1]:
+				_trim_profile(p0 + Vector3(0, -0.01, end), Vector3(0, 0, 1 if end == z0 else -1), p1 - p0, skylight_section, cornice, Vector3.DOWN)
 			# the frame of the glazing at both ends
 			for zz in [0.0, -L]:
 				var zi := -0.9 if zz == 0.0 else -L + 0.9
@@ -404,6 +409,8 @@ func _build_room() -> void:
 				lunette.reverse()
 			for v in lunette:
 				st.add_vertex(v)
+	for side in [-1.0, 1.0]:
+		_trim_profile(Vector3(side * glass_edge.x, glass_edge.y - 0.01, -0.9), Vector3(side, 0, 0), Vector3(0, 0, -L + 1.8), skylight_section, cornice, Vector3.DOWN)
 	var vmi := MeshInstance3D.new()
 	vmi.mesh = st.commit()
 	vmi.set_meta("vault", true)
@@ -411,7 +418,7 @@ func _build_room() -> void:
 	_vp.add_child(vmi)
 	var gmi := MeshInstance3D.new()
 	gmi.mesh = gl.commit()
-	gmi.material_override = ps(load(DIR + "textures/skylight.png"), Color(1.08, 1.1, 1.14))
+	gmi.material_override = ps(load(DIR + "textures/skylight-grid-168.svg"), Color.WHITE)
 	_vp.add_child(gmi)
 	# track lamps along both edges of the glazing, aimed at the walls
 	var edge_y := H + VAULT_RISE * sqrt(maxf(0.0, 1.0 - pow(SKY_W / 2.0 / X, 2))) - 0.12

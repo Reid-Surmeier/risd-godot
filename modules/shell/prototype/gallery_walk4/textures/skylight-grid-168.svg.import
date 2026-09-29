@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1vrpko21e7xl"
-path.s3tc="res://.godot/imported/oak-board-atlas-168-v3.webp-f7ce919a4c31370a940a2b9a7f2e790f.s3tc.ctex"
-path.etc2="res://.godot/imported/oak-board-atlas-168-v3.webp-f7ce919a4c31370a940a2b9a7f2e790f.etc2.ctex"
+uid="uid://p160qqw557w6"
+path.s3tc="res://.godot/imported/skylight-grid-168.svg-47b7c8f0732e664e1ee9f10be620bbcb.s3tc.ctex"
+path.etc2="res://.godot/imported/skylight-grid-168.svg-47b7c8f0732e664e1ee9f10be620bbcb.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://modules/shell/prototype/gallery_walk4/textures/oak-board-atlas-168-v3.webp"
-dest_files=["res://.godot/imported/oak-board-atlas-168-v3.webp-f7ce919a4c31370a940a2b9a7f2e790f.s3tc.ctex", "res://.godot/imported/oak-board-atlas-168-v3.webp-f7ce919a4c31370a940a2b9a7f2e790f.etc2.ctex"]
+source_file="res://modules/shell/prototype/gallery_walk4/textures/skylight-grid-168.svg"
+dest_files=["res://.godot/imported/skylight-grid-168.svg-47b7c8f0732e664e1ee9f10be620bbcb.s3tc.ctex", "res://.godot/imported/skylight-grid-168.svg-47b7c8f0732e664e1ee9f10be620bbcb.etc2.ctex"]
 
 [params]
 
@@ -40,3 +40,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -138,3 +138,7 @@ the current build retains the previous floor.
 ## Floor grain continuation #168 — 2026-09-29
 
 Current architecture source comes from build c9d2985c; see its architecture-167 records for unchanged portal, cornice, bench and visitor sources. Reconciled floor aa144f72/7f0d9f6c failed fresh close-detail review. One new OpenRouter meta/muse-image source-guided atlas request: run3d3e631edf2e83b935bb12cb, count1, actual recorded USD0.01, counted spent despite spendStateunknown; neverresubmit. Ordered Site Specific gallery2456/2447 reference URLs/hashes retained in image-work/floor-168-board-v2/README.md, new prompt/plan/receipt in image-work/floor-168-board-v3. Native atlas2240×1120 SHA25665ba2455f048c900562678cc42dcc55d89b608deef763e5e35e7d708e3d8a9ff, runtime textures/oak-board-atlas-168-v3.webp byte-identical. Unequal rows handled in UV crop, no edited image pixels. Input-only independent pass; no rendered acceptance or build integration yet.
+
+## Native wall and skylight candidate #168
+
+See docs/evidence/surfaces-168-current/README.md. Wall now uses native matte #6f83a3 with no image dependency. Skylight SVG is authored vector source, SHA256 1c66ebd1f20cebb97e0f54e6e61396b2d46493d8329ad3453572afa0f5158098, source-led from the recorded Site Specific gallery2447/2456 photos; 8×8 thin pale grid, square UV scale, stepped modeled surround. Provider none/count0/USD0 for this group. Floor macro texture dependency removed. Candidates remain unselected pending separate saved-bake native/browser visual gates.
