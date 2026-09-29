@@ -1,0 +1,40 @@
+{
+  "provider": "local NumPy/pycolmap/Pillow; cached COLMAP CUDA depth",
+  "cost_usd": 0,
+  "paid_calls": 0,
+  "source_paths": {
+    "doorway-aperture.json": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-aperture-v1/result.json",
+    "doorway-heldout.png": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-aperture-v1/IMG_6380_exit6fps-000015.jpg.png",
+    "floor-original.json": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/floor-patches-v1/result.json",
+    "floor-original.png": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/floor-patches-v1/patches.png",
+    "floor-revisit.json": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/floor-patches-v2/result.json",
+    "floor-revisit.png": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/floor-patches-v2/patches.png",
+    "shell-resized.png": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/heartbeat-20260929T2200/shell/09-resized.png",
+    "repository-check.log": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/heartbeat-20260929T2200/repository-check.log",
+    "shell-playtest.log": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/heartbeat-20260929T2200/shell-playtest.log"
+  },
+  "input_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-geometry-v1/geometry.json": "a81aac50e8672d1e31680a26d7430a8c04297427d167bb056f6c8aa42f4ae9df",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-triangulation-v1/result.json": "848d75e8289a37a98d588ed8477ff43ca1437875e54d63cde2329f3868829c95",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/heldout-calibrated-v1/audit.json": "3133af036bb76f9f99f8db61b5b7354910d171c0bb4dadbba19ca8ae515e9847",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-aperture-v1/annotations.json": "723e4ed8eab3a8bd616c610a39de94bb03a73e20694f4c0548860c32bf4fe6ef",
+    "modules/shell/prototype/collection_reconstruction/floor_patches.py": "8ded34833c93e36c4f7c0d86fb6f2de5751d435d83fb4c1de9dde9359edbf642",
+    "modules/shell/prototype/collection_reconstruction/doorway_aperture.py": "e56752c5ff463bae693042f47971fee4e884ac4ac64068bb4e26bce33e86456d",
+    "modules/shell/prototype/collection_reconstruction/measurements.py": "32773fa308512df3288ae28571da7071269bbdbc89c46f32aca68c153c55c01a"
+  },
+  "artifact_sha256": {
+    "floor-revisit.png": "2dbec93f36fa74cecea9c7b6fb656c1df3f5081b2cf938b5cac6b3085f09921c",
+    "floor-original.png": "1f378d412a5aa8057c2aaa35f6a715cb6af9f18f2185956dc583d63dd9067b86",
+    "floor-revisit.json": "c07daf8485ec7499e5962f1bc93ac741ddbc037376a919bfb7847d8d81fb2378",
+    "shell-resized.png": "f5489e0038c4f9e69a276f229dcca753b723d654de5f4d456686525beff09a56",
+    "repository-check.log": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e",
+    "doorway-heldout.png": "b4b8754185e30a1f196e4b807f3dd2f9835000e05501131adee52c7fc49fc4c9",
+    "shell-playtest.log": "24d5a329b3a8339786d4966b4f26b2c294f663a18496f18f3e1372debff9d054",
+    "doorway-aperture.json": "54745a22a7a5921b74bf50a4658420d10860d1c073dc479d6bcfeab3ed1eae3f",
+    "index.html": "8af15f1e8c5570d740eb48faeca41b8ac3f0b1fb080fdd2b03481c9fec09c0d0",
+    "floor-original.json": "c2cfc2ef9cb255de10119b935ea14a53c19120bf007b7771d359c625bb26ff3e"
+  },
+  "navigation_accepted": false,
+  "note": "Aperture recovered from interrupted 21:30 tick; cached pose/measurement rerun only. Floor diagnostic newly generated; no new CUDA/depth or paid generation.",
+  "log_normalization": "Trailing whitespace removed from copied Shell log; raw original remains in ingestion."
+}

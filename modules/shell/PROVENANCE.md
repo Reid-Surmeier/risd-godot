@@ -57,3 +57,19 @@ Bookcase extrema predict all four reserved pixels within **3.85 px**, with width
 and height scale estimates **1.76%** apart. Scale remains provisional. Neither
 trial accepts collisions, room topology, runtime geometry or final quality
 criteria. Existing paid appearance trials and their provenance remain unchanged.
+
+## Collection aperture and floor patches — September 29, 22:00 UTC heartbeat
+
+Local NumPy/pycolmap/Pillow calculations on cached CUDA depth; **$0**, no paid
+calls and no new depth sweep. Recovered the interrupted 21:30 aperture trial,
+verified its frozen source hashes and reran cached pose/measurement assertions.
+New floor-patch generator: `prototype/collection_reconstruction/floor_patches.py`.
+[Inputs, outputs and hashes](../../docs/evidence/collection-reconstruction/heartbeat-20260929T2200/provenance.json)
+include the reserved doorway overlay and both floor coverage images.
+
+Four aperture corners predict the new reserved frame within 4.11 px; the older
+9.18 px failure remains. Separating near/far floor masks exposes only 0.4%
+near-floor depth in the original view. A reviewed later view improves near
+coverage to 66.5%, but the two normals differ 3.96 degrees and extrapolated
+levels disagree. These are diagnostic images, not runtime surfaces or accepted
+collisions. Bookcase scale, sculpture rear coverage and lighting remain open.
