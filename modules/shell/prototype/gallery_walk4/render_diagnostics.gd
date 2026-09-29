@@ -117,6 +117,20 @@ func _pose(scene: String) -> void:
 	view._process(0.0)
 	view._update_camera(1.0)
 
+	# #162 close-detail evidence inside the actual framed Collection viewport.
+	var details := {
+		"bench": [Vector3(2.5, 2.2, -6.3), Vector3(0, 0.24, -9), 48.0],
+		"skylight": [Vector3(0, 1.8, -12), Vector3(0, 5.8, -19), 66.0],
+		"wall": [Vector3(1.4, 1.7, -12), Vector3(-5, 2.4, -14), 62.0],
+		"portal": [Vector3(0, 2.1, 6.5), Vector3(0, 2.1, 1.6), 54.0],
+		"floor": [Vector3(0.8, 1.75, -14), Vector3(0.2, 0, -18.5), 55.0],
+	}
+	if details.has(scene):
+		view._cam.cull_mask = view._cutaway_mask(63, 1.0)
+		view._cam.position = details[scene][0]
+		view._cam.look_at(details[scene][1])
+		view._cam.fov = details[scene][2]
+
 func _process(_delta: float) -> void:
 	_frame_delta_ms = _delta * 1000.0
 	if not _replay:

@@ -29,6 +29,9 @@ func run():
 		else: assert(first_trace == trace, "matched replay movement pose changed")
 	probe._pose("white")
 	assert(walk._space == "far", "white fixture landed in gallery")
+	for detail in ["bench", "skylight", "wall", "portal", "floor"]:
+		probe._pose(detail)
+		assert(walk._cam.cull_mask == 63 and walk._cam.fov >= 48.0, "detail capture fixture invalid")
 	print("DISPLAY_REPLAY Hair36 reset pose parity and white room PASS")
 	probe.free()
 	walk.free()
