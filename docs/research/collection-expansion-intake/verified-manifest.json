@@ -1,0 +1,371 @@
+[
+  {
+    "file": "IMG_6381.MOV",
+    "path": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6381.MOV",
+    "bytes": 177199140,
+    "sha256": "12df06479e7d2a7121d1647c8b14a5feba6a61362b0449c252fe9ae00fe5468d",
+    "remote_sha1_match": true,
+    "metadata": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "hevc",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p10le",
+          "side_data_list": [
+            {},
+            {}
+          ]
+        }
+      ],
+      "format": {
+        "duration": "99.120000"
+      }
+    },
+    "timestamps": [
+      5.51,
+      16.52,
+      27.53,
+      38.55,
+      49.56,
+      60.57,
+      71.59,
+      82.6,
+      93.61
+    ],
+    "decoding": "NVIDIA CUDA/NVDEC; scale_cuda GPU resize; CPU JPEG/contact-sheet assembly"
+  },
+  {
+    "file": "IMG_6378.MOV",
+    "path": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6378.MOV",
+    "bytes": 386879912,
+    "sha256": "a79c9a65e82293d43a46d1f54034ba398bce135b839a402dcbadbf33e3ec5e52",
+    "remote_sha1_match": true,
+    "metadata": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "hevc",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p10le",
+          "side_data_list": [
+            {}
+          ]
+        }
+      ],
+      "format": {
+        "duration": "179.968333"
+      }
+    },
+    "timestamps": [
+      10.0,
+      29.99,
+      49.99,
+      69.99,
+      89.98,
+      109.98,
+      129.98,
+      149.97,
+      169.97
+    ],
+    "decoding": "NVIDIA CUDA/NVDEC; scale_cuda GPU resize; CPU JPEG/contact-sheet assembly"
+  },
+  {
+    "file": "IMG_6379.MOV",
+    "path": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6379.MOV",
+    "bytes": 199480923,
+    "sha256": "abc4922925e560966d5987cc3208b9a819f743b7ac7bbdc8c40741a4eab38e34",
+    "remote_sha1_match": true,
+    "metadata": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "hevc",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p10le",
+          "side_data_list": [
+            {},
+            {}
+          ]
+        }
+      ],
+      "format": {
+        "duration": "182.553333"
+      }
+    },
+    "timestamps": [
+      10.14,
+      30.43,
+      50.71,
+      70.99,
+      91.28,
+      111.56,
+      131.84,
+      152.13,
+      172.41
+    ],
+    "decoding": "NVIDIA CUDA/NVDEC; scale_cuda GPU resize; CPU JPEG/contact-sheet assembly"
+  },
+  {
+    "file": "IMG_6380.MOV",
+    "path": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6380.MOV",
+    "bytes": 462407873,
+    "sha256": "eaf7a7853b6cc5610517631b44aa83de1006ac6caa5aa673038f1f067cafd3d4",
+    "remote_sha1_match": true,
+    "metadata": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "hevc",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p10le",
+          "side_data_list": [
+            {},
+            {}
+          ]
+        }
+      ],
+      "format": {
+        "duration": "260.536700"
+      }
+    },
+    "timestamps": [
+      14.47,
+      43.42,
+      72.37,
+      101.32,
+      130.27,
+      159.22,
+      188.17,
+      217.11,
+      246.06
+    ],
+    "decoding": "NVIDIA CUDA/NVDEC; scale_cuda GPU resize; CPU JPEG/contact-sheet assembly"
+  },
+  {
+    "file": "IMG_6382.MOV",
+    "path": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6382.MOV",
+    "bytes": 242950032,
+    "sha256": "415467db2d2216363fbccb41801851180f48bbdb3304c95861f90f3f5767020e",
+    "remote_sha1_match": true,
+    "metadata": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "hevc",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p10le",
+          "side_data_list": [
+            {},
+            {}
+          ]
+        }
+      ],
+      "format": {
+        "duration": "113.243333"
+      }
+    },
+    "timestamps": [
+      6.29,
+      18.87,
+      31.46,
+      44.04,
+      56.62,
+      69.2,
+      81.79,
+      94.37,
+      106.95
+    ],
+    "decoding": "NVIDIA CUDA/NVDEC; scale_cuda GPU resize; CPU JPEG/contact-sheet assembly"
+  },
+  {
+    "file": "IMG_6383.MOV",
+    "path": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV",
+    "bytes": 144702365,
+    "sha256": "8cfd089e769000369419f577f28a1bfc68b09f8cc7cda4cbe93d840194e6eeef",
+    "remote_sha1_match": true,
+    "metadata": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "hevc",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p10le",
+          "side_data_list": [
+            {},
+            {}
+          ]
+        }
+      ],
+      "format": {
+        "duration": "73.705000"
+      }
+    },
+    "timestamps": [
+      4.09,
+      12.28,
+      20.47,
+      28.66,
+      36.85,
+      45.04,
+      53.23,
+      61.42,
+      69.61
+    ],
+    "decoding": "NVIDIA CUDA/NVDEC; scale_cuda GPU resize; CPU JPEG/contact-sheet assembly"
+  },
+  {
+    "file": "IMG_6387.MOV",
+    "path": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6387.MOV",
+    "bytes": 163821728,
+    "sha256": "75c4892c1a37e1c83dd7103187d1c284e13fd0ac458710f4e8fd6e14daf1c7af",
+    "remote_sha1_match": true,
+    "metadata": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "hevc",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p10le",
+          "side_data_list": [
+            {},
+            {}
+          ]
+        }
+      ],
+      "format": {
+        "duration": "85.538333"
+      }
+    },
+    "timestamps": [
+      4.75,
+      14.26,
+      23.76,
+      33.26,
+      42.77,
+      52.27,
+      61.78,
+      71.28,
+      80.79
+    ],
+    "decoding": "NVIDIA CUDA/NVDEC; scale_cuda GPU resize; CPU JPEG/contact-sheet assembly"
+  },
+  {
+    "file": "IMG_6385.MOV",
+    "path": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6385.MOV",
+    "bytes": 69210448,
+    "sha256": "a15a2e90b2ae6152727ab1afd3c205d31f0405215e606adf678be3f5c1cf01a2",
+    "remote_sha1_match": true,
+    "metadata": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "hevc",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p10le",
+          "side_data_list": [
+            {},
+            {}
+          ]
+        }
+      ],
+      "format": {
+        "duration": "37.416667"
+      }
+    },
+    "timestamps": [
+      2.08,
+      6.24,
+      10.39,
+      14.55,
+      18.71,
+      22.87,
+      27.02,
+      31.18,
+      35.34
+    ],
+    "decoding": "NVIDIA CUDA/NVDEC; scale_cuda GPU resize; CPU JPEG/contact-sheet assembly"
+  },
+  {
+    "file": "IMG_6386.MOV",
+    "path": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6386.MOV",
+    "bytes": 198583583,
+    "sha256": "3112391373f03128f0b1a4deac345e7d30c1ed27c4d9d0d850da37d25c97351f",
+    "remote_sha1_match": true,
+    "metadata": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "hevc",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p10le",
+          "side_data_list": [
+            {},
+            {}
+          ]
+        }
+      ],
+      "format": {
+        "duration": "106.713333"
+      }
+    },
+    "timestamps": [
+      5.93,
+      17.79,
+      29.64,
+      41.5,
+      53.36,
+      65.21,
+      77.07,
+      88.93,
+      100.78
+    ],
+    "decoding": "NVIDIA CUDA/NVDEC; scale_cuda GPU resize; CPU JPEG/contact-sheet assembly"
+  },
+  {
+    "file": "IMG_6384.MOV",
+    "path": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6384.MOV",
+    "bytes": 198544074,
+    "sha256": "0a2255c4fbcbbb44c48202e617b3978abfed4832633c6a21c73b5861570a0530",
+    "remote_sha1_match": true,
+    "metadata": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "hevc",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p10le",
+          "side_data_list": [
+            {},
+            {}
+          ]
+        }
+      ],
+      "format": {
+        "duration": "104.625000"
+      }
+    },
+    "timestamps": [
+      5.81,
+      17.44,
+      29.06,
+      40.69,
+      52.31,
+      63.94,
+      75.56,
+      87.19,
+      98.81
+    ],
+    "decoding": "NVIDIA CUDA/NVDEC; scale_cuda GPU resize; CPU JPEG/contact-sheet assembly"
+  }
+]
