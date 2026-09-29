@@ -11,7 +11,7 @@ func capture() -> void:
 	DirAccess.make_dir_recursive_absolute(output)
 	for width in [1600, 720]:
 		root.size = Vector2i(width, width)
-		for view in [8, 9, 10]:
+		for view in ([11, 12, 13, 14, 15] if "--owner-repairs" in OS.get_cmdline_user_args() else [8, 9, 10]):
 			scene.set_view(view)
 			for frame in 8:
 				await process_frame

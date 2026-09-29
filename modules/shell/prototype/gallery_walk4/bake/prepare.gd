@@ -71,6 +71,8 @@ func _prepare() -> void:
 			var texel := 0.025 if fine_trim else 0.12
 			if source.get_meta("portal_capital", false):
 				texel = 0.004
+			if source_albedo and source_albedo.resource_path.ends_with("/bench-cloth-muse.webp"):
+				texel = 0.012  # resolve the small modeled upholstery depressions
 			var error := mesh.lightmap_unwrap(source.global_transform, texel)
 			if error != OK:
 				push_error("UV unwrap failed for " + str(index))

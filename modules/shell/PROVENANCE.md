@@ -174,3 +174,7 @@ Existing official portal references guide the outer fan-carved band and connecte
 | `portal-capital-relief.json` | `25c7f5b414e6f519d81c29a2d6c0434a4a683a5b72dfb222b323a7af1574ec1b` |
 | `portal_sculpt_relief_prepare.gd` | `88b95549164040aae8758c34ed79286b39fdf0ce8112247a6941c9bd2395bbeb` |
 | `walk4.gd` | `af8f81bb121de29cecdc5d9a40a7a5057786cfa8107c739669a519341eb7211f` |
+
+## #167 owner bench correction — September 29, 2026
+
+Prototype-only `gallery_walk4/textures/bench-cloth-muse.webp`: OpenRouter `meta/muse-image`, one image, run `run-88c6ecd80fdd005ff1c6ce34`. Reported cost/reservation $0.010000, spend reconciliation unknown, no resubmission. SHA256 `4e87afbd59fec5004a36506934a30b62cc0f58500e07829572a9007ac13ffe51`. Ordered museum still and owner screenshot, hashes, prompt, recipe and review: `image-work/architecture-167/bench-material/`. Generated cloth pixels unchanged. Rounded/tufted cushion and slender open frame are authored geometry using inherited proportions, not measured reconstruction. Awaiting full-room and independent visual review; absent from build branch.

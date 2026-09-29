@@ -9,7 +9,9 @@
     "modules/sketchbook/assets/paintbox/watercolor-brush.png",
     "modules/sketchbook/assets/paintbox/cat-brush-rest.png",
     "image-work/grand-gallery-v2/source/arch-outside.png",
-    "image-work/grand-gallery-v2/references/style-grand-gallery-final.png"
+    "image-work/grand-gallery-v2/references/style-grand-gallery-final.png",
+    "image-work/grand-gallery-v2/source/wide-north-bench.png",
+    "image-work/architecture-167/bench-material/unfinished-bench.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -57,6 +59,30 @@
     },
     {
       "id": "muse-24c11b5671cff67806e8",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1024"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-6ee1c6e38bef7fea548d",
       "version": "1",
       "mode": "muse-image",
       "provider": "openrouter",

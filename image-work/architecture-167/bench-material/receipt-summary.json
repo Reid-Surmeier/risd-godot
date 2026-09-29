@@ -1,0 +1,14 @@
+{
+  "result": [
+    {
+      "path": "/home/reidsurmeier/risd-godot-prototype-167/artifacts/image-generation/runs/run-88c6ecd80fdd005ff1c6ce34/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "4e87afbd59fec5004a36506934a30b62cc0f58500e07829572a9007ac13ffe51"
+    }
+  ],
+  "cost": "0.010000",
+  "runId": "run-88c6ecd80fdd005ff1c6ce34",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "fullRecord": "/home/reidsurmeier/risd-godot-prototype-167/artifacts/image-generation/runs/run-88c6ecd80fdd005ff1c6ce34"
+}

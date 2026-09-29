@@ -14,7 +14,8 @@ const puppeteer = require(path.join(require('os').homedir(), 'promo-lab/node_mod
       page.on('response', r => {if (r.status() >= 400 && !r.url().endsWith('/favicon.ico')) errors.push(`${r.status()} ${r.url()}`);});
       await page.goto(`${process.argv[2]}?view=${view}`, {waitUntil: 'load', timeout: 120000});
       await page.waitForFunction(() => [...document.querySelectorAll('canvas')].some(c => c.width > 0 && c.height > 0), {timeout: 120000});
-      await new Promise(r => setTimeout(r, 2500));
+      await page.waitForFunction(() => !document.getElementById('status'), {timeout: 180000});
+      await new Promise(r => setTimeout(r, 500));
       await page.screenshot({path: path.join(out, `${width}-view-${view}.png`)});
       results.push({width, view, errors}); await page.close();
     }

@@ -371,10 +371,10 @@ func _build_room() -> void:
 		var z0 := -0.9 if glass else 0.0
 		var z1 := -L + 0.9 if glass else -L
 		if glass:  # the glazing: its own strip, its grid following the curve
-			var u0 := arc / 0.7
-			var u1 := (arc + seg_len) / 0.7
+			var u0 := arc / SKY_W
+			var u1 := (arc + seg_len) / SKY_W
 			var q := [p0 + Vector3(0, 0, z0), p1 + Vector3(0, 0, z0), p1 + Vector3(0, 0, z1), p0 + Vector3(0, 0, z1)]
-			var qu := [Vector2(u0, 0), Vector2(u1, 0), Vector2(u1, (z0 - z1) / 0.7), Vector2(u0, (z0 - z1) / 0.7)]
+			var qu := [Vector2(u0, 0), Vector2(u1, 0), Vector2(u1, (z0 - z1) / (SKY_W * 2.0)), Vector2(u0, (z0 - z1) / (SKY_W * 2.0))]
 			for k in [0, 1, 2, 0, 2, 3]:
 				gl.set_uv(qu[k])
 				gl.add_vertex(q[k])
@@ -424,42 +424,71 @@ func _build_room() -> void:
 		bs.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		_vp.add_child(bs)
 		_bench_cushion(bz)
-		_box(Vector3(0, 0.26, bz), Vector3(0.85, 0.08, 2.9), Color("#1d2433"))
+		for rail_x in [-0.39, 0.39]:
+			_box(Vector3(rail_x, 0.265, bz), Vector3(0.035, 0.05, 2.82), Color("#242325"))
+		for rail_z in [-1.39, 1.39]:
+			_box(Vector3(0, 0.265, bz + rail_z), Vector3(0.81, 0.05, 0.035), Color("#242325"))
 		for lx in [-0.38, 0.38]:
 			for lz in [-1.38, 1.38]:
-				_box(Vector3(lx, 0.11, bz + lz), Vector3(0.06, 0.22, 0.06), Color("#141414"))
+				_box(Vector3(lx, 0.13, bz + lz), Vector3(0.038, 0.26, 0.038), Color("#242325"))
 
 
-# Same bench bounds, with bevelled upholstery edges that the lightmap can describe.
+# Source-led upholstery: rounded edges and paired button depressions, same bounds.
+func _bench_surface(x: float, z: float) -> Vector3:
+	var corner := Vector2(maxf(absf(x) - 0.385, 0), maxf(absf(z) - 1.41, 0))
+	if corner.length() > 0.09:
+		corner = corner.normalized() * 0.09
+		x = signf(x) * (0.385 + corner.x)
+		z = signf(z) * (1.41 + corner.y)
+	var edge := minf(0.475 - absf(x), 1.5 - absf(z))
+	var height := 0.38 + 0.04 * sin(clampf(edge / 0.075, 0, 1) * PI / 2)
+	for bx in [-0.19, 0.19]:
+		for bz in [-1.05, -0.63, -0.21, 0.21, 0.63, 1.05]:
+			var distance := Vector2(x - bx, z - bz).length_squared()
+			height -= 0.027 * exp(-distance / 0.004)
+	return Vector3(x, height, z)
+
 func _bench_cushion(z: float) -> void:
-	var outline := [Vector2(-0.40, -1.5), Vector2(0.40, -1.5), Vector2(0.475, -1.425), Vector2(0.475, 1.425), Vector2(0.40, 1.5), Vector2(-0.40, 1.5), Vector2(-0.475, 1.425), Vector2(-0.475, -1.425)]
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var rings: Array = []
-	for height in [0.30, 0.38, 0.42]:
-		var ring: Array = []
-		for point in outline:
-			var inset := Vector2(signf(point.x), signf(point.y)) * (0.035 if height == 0.42 else 0.0)
-			ring.append(Vector3(point.x - inset.x, height, point.y - inset.y + z))
-		rings.append(ring)
-	for level in 2:
-		for i in 8:
-			var next := (i + 1) % 8
-			var q := [rings[level][i], rings[level][next], rings[level + 1][next], rings[level + 1][i]]
-			var normal: Vector3 = (q[3] - q[0]).cross(q[1] - q[0]).normalized()
-			for corner in [0, 1, 2, 0, 2, 3]:
+	for row in 96:
+		for column in 32:
+			var quad: Array[Vector3] = []
+			for offset in [Vector2(0, 0), Vector2(1, 0), Vector2(1, 1), Vector2(0, 1)]:
+				quad.append(_bench_surface(-0.475 + (column + offset.x) * 0.95 / 32, -1.5 + (row + offset.y) * 3.0 / 96))
+			for i in [0, 1, 2, 0, 2, 3]:
+				var point := quad[i]
+				var dx := _bench_surface(point.x + 0.001, point.z) - _bench_surface(point.x - 0.001, point.z)
+				var dz := _bench_surface(point.x, point.z + 0.001) - _bench_surface(point.x, point.z - 0.001)
+				st.set_normal(dz.cross(dx).normalized())
+				st.set_uv(Vector2(point.x, point.z) * 1.8)
+				st.add_vertex(point + Vector3(0, 0, z))
+	# Match the sampled top edge with a rounded lower welt, without box corners.
+	var perimeter: Array[Vector3] = []
+	for edge in 4:
+		var count := 32 if edge % 2 == 0 else 96
+		for i in count:
+			var t := float(i) / count
+			var point := Vector2(-0.475 + t * 0.95, -1.5) if edge == 0 else (Vector2(0.475, -1.5 + t * 3) if edge == 1 else (Vector2(0.475 - t * 0.95, 1.5) if edge == 2 else Vector2(-0.475, 1.5 - t * 3)))
+			perimeter.append(_bench_surface(point.x, point.y))
+	for i in perimeter.size():
+		var a := perimeter[i]
+		var b := perimeter[(i + 1) % perimeter.size()]
+		for level in 4:
+			var quad: Array[Vector3] = []
+			for spec in [Vector2(0, level), Vector2(1, level), Vector2(1, level + 1), Vector2(0, level + 1)]:
+				var point := a if spec.x == 0 else b
+				var inset := 0.025 * (1 - cos(spec.y / 4 * PI / 2))
+				quad.append(Vector3(point.x - signf(point.x) * inset, 0.38 - spec.y * 0.02, point.z - signf(point.z) * inset))
+			var normal := (quad[1] - quad[0]).cross(quad[3] - quad[0]).normalized()
+			for index in [0, 2, 1, 0, 3, 2]:
 				st.set_normal(normal)
-				st.add_vertex(q[corner])
-	for level in [0, 2]:
-		for i in 8:
-			st.set_normal(Vector3.UP if level == 2 else Vector3.DOWN)
-			var first := i if level == 2 else (i + 1) % 8
-			var second := (i + 1) % 8 if level == 2 else i
-			for point in [Vector3(0, 0.42 if level == 2 else 0.30, z), rings[level][first], rings[level][second]]:
-				st.add_vertex(point)
+				st.set_uv(Vector2(float(i) / perimeter.size() * 7.8, quad[index].y) * 1.8)
+				st.add_vertex(quad[index] + Vector3(0, 0, z))
 	var seat := MeshInstance3D.new()
 	seat.mesh = st.commit()
-	seat.material_override = ps(null, Color("#2f3a52"))
+	seat.material_override = ps(load(DIR + "textures/bench-cloth-muse.webp"), Color(1.1, 1.1, 1.1))
+	seat.set_meta("bench_cushion", true)
 	_vp.add_child(seat)
 
 
@@ -536,12 +565,17 @@ func _arch_end() -> void:
 	_panel(Vector3(X, 0, 0), Vector3(-side, 0, 0), Vector3(0, H, 0), _wall_ps(), 0.5, 1)
 	_panel(Vector3(-dw, 0, 0), Vector3(-side, 0, 0), Vector3(0, H, 0), _wall_ps(), 0.5, 1)
 	_panel(Vector3(dw, ds.y, 0), Vector3(-ds.x, 0, 0), Vector3(0, H - ds.y, 0), _wall_ps(), 0.5, 1)
+	# Same source-led plaster moulding construction as the opposite doorway.
+	var casing := [Vector2(0, 0), Vector2(0, 0.10), Vector2(0.018, 0.125), Vector2(0.042, 0.125), Vector2(0.06, 0.105), Vector2(0.075, 0.075), Vector2(0.27, 0.075), Vector2(0.285, 0.09), Vector2(0.305, 0.09), Vector2(0.32, 0.06), Vector2(0.32, 0)]
+	var skirting := [Vector2(0, 0), Vector2(0, 0.07), Vector2(0.035, 0.07), Vector2(0.05, 0.055), Vector2(0.18, 0.055), Vector2(0.20, 0.067), Vector2(0.225, 0.065), Vector2(0.24, 0.035), Vector2(0.24, 0)]
 	for s in [-1.0, 1.0]:
-		_box(Vector3(s * (dw + side / 2), 0.09, -0.015), Vector3(side, 0.18, 0.03), WHITE, 1, white)
-		_box(Vector3(s * (dw + 0.17), ds.y / 2 + 0.1, -0.04), Vector3(0.3, ds.y + 0.2, 0.08), WHITE, 1, white)
-		_box(Vector3(s * (dw + 0.04), ds.y / 2, -0.07), Vector3(0.08, ds.y, 0.14), WHITE, 1, white)
-	_box(Vector3(0, ds.y + 0.19, -0.04), Vector3(ds.x + 0.64, 0.3, 0.08), WHITE, 1, white)
-	_box(Vector3(0, ds.y + 0.36, -0.08), Vector3(ds.x + 0.8, 0.07, 0.16), WHITE, 1, white)
+		_trim_profile(Vector3(s * (dw + 0.36), 0, 0), Vector3.UP, Vector3(s * (side - 0.36), 0, 0), skirting, white, Vector3.FORWARD)
+		_trim_profile(Vector3(s * dw, 0.26, 0), Vector3(s, 0, 0), Vector3(0, ds.y - 0.26, 0), casing, white, Vector3.FORWARD)
+		var plinth := [Vector2(0, 0), Vector2(0, 0.12), Vector2(0.02, 0.14), Vector2(0.34, 0.14), Vector2(0.36, 0.12), Vector2(0.36, 0)]
+		_trim_profile(Vector3(s * dw, 0, 0), Vector3(s, 0, 0), Vector3(0, 0.26, 0), plinth, white, Vector3.FORWARD)
+	_trim_profile(Vector3(-dw - 0.32, ds.y, 0), Vector3.UP, Vector3(ds.x + 0.64, 0, 0), casing, white, Vector3.FORWARD)
+	var crown := [Vector2(0, 0), Vector2(0, 0.065), Vector2(0.025, 0.09), Vector2(0.055, 0.14), Vector2(0.075, 0.15), Vector2(0.10, 0.15), Vector2(0.10, 0)]
+	_trim_profile(Vector3(-dw - 0.38, ds.y + 0.32, 0), Vector3.UP, Vector3(ds.x + 0.76, 0, 0), crown, white, Vector3.FORWARD)
 	_panel(Vector3(0.17, ds.y + 0.55, -0.071), Vector3(-0.34, 0, 0), Vector3(0, 0.15, 0), ps(load(DIR + "textures/exit-sign.svg"), Color.WHITE, Vector2(1.0 / 0.34, 1.0 / 0.15)))
 	# the wall's plaster reveal
 	var zr := 0.45
@@ -1185,8 +1219,16 @@ func _partition_surfaces() -> void:
 	for mi in _vp.find_children("*", "MeshInstance3D", true, false):
 		var bounds: AABB = mi.global_transform * mi.mesh.get_aabb()
 		var center := bounds.get_center()
-		if center.y > H - 0.6:
+		if bounds.size.y < 0.05 and absf(center.y) < 0.05:
+			mi.layers = 1  # floors remain visible when the near wall is cut away
+		elif center.y > H - 0.6 or (bounds.size.y < 0.05 and center.y > 4.0):
 			mi.layers = 32
+		elif bounds.position.z >= -0.01 and bounds.size.x < 0.1 and center.x < -2.9:
+			mi.layers = 2
+		elif bounds.position.z >= -0.01 and bounds.size.x < 0.1 and center.x > 2.9:
+			mi.layers = 4
+		elif bounds.position.z > 6.5:
+			mi.layers = 16
 		elif bounds.end.x < -W / 2.0 + 0.5:
 			mi.layers = 2
 		elif bounds.position.x > W / 2.0 - 0.5:
@@ -1791,9 +1833,9 @@ func _update_camera(k: float) -> void:
 			contact.material_override.albedo_color.a = 0.85 if support[index] else 0.22 * clampf(1.0 - height / 0.25, 0.0, 1.0)
 	if not _rigged_visitor:
 		_kid.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y if view_mode == 2 else BaseMaterial3D.BILLBOARD_ENABLED
-	# The recess has a real roof: the gallery's elevated cutaway eye cannot
-	# see through it. Follow at visitor height throughout approach and passage.
-	if _space == "arch" or (_space == "gallery" and _pos.z > -4.0 and absf(_pos.x) < 1.4):
+	# Preserve the selected view at the doorway; only the original follow view
+	# needs its camera constrained inside the positive-z recess.
+	if view_mode == 2 and _space == "arch":
 		var heading := _yaw if view_mode == 2 else view_yaw
 		var forward := Vector3(-sin(heading), 0, -cos(heading))
 		var eye := _pos - forward * 3.1 + Vector3(0, 2.45, 0)
@@ -1817,11 +1859,13 @@ func _update_camera(k: float) -> void:
 		_cam.position = center - forward * distance * cos(pitch) + Vector3.UP * distance * sin(pitch)
 		_cam.look_at(center)
 		var hidden := (4 if forward.x < -0.2 else (2 if forward.x > 0.2 else 0)) | (8 if forward.z < -0.2 else (16 if forward.z > 0.2 else 0))
-		_cam.cull_mask = (1984 & ~(hidden * 64)) if _space != "gallery" else (31 & ~hidden)
+		if _space == "arch":
+			hidden = (4 if forward.x < -0.2 else (2 if forward.x > 0.2 else 0)) | (16 if forward.z < -0.2 else (8 if forward.z > 0.2 else 0))
+		_cam.cull_mask = (1984 & ~(hidden * 64)) if _space == "far" else (31 & ~hidden)
 		if _view_label:
 			_view_label.text = "WASD · Click art · " + ("West wall" if forward.x < -0.5 else ("East wall" if forward.x > 0.5 else ("Far wall" if forward.z < -0.5 else "Arch wall")))
 		return
-	_cam.cull_mask = 1984 if _space != "gallery" else 63
+	_cam.cull_mask = 1984 if _space == "far" else 63
 	_cam.fov = 58.0
 	if _view_label:
 		_view_label.text = "WASD · Click art"

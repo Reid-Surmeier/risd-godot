@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "cloth-001",
+      "prompt": "image-work/architecture-167/bench-material/prompt.txt",
+      "promptSha256": "25423d01b1fdb85a6ea94e45fa82984b227ee5d987dd77382e3783d5ef8831d9",
+      "size": "1024x1024",
+      "inputs": [
+        {
+          "path": "image-work/grand-gallery-v2/source/wide-north-bench.png",
+          "sha256": "c428fecb268a6181eeeef519f69a1b8d9f4bc3e634b74938897df8aaeb283783"
+        },
+        {
+          "path": "image-work/architecture-167/bench-material/unfinished-bench.png",
+          "sha256": "e4dbba3e691c2b7bcd37bed1dff7cf63008670fde8b8678a8d145664d15cefc7"
+        }
+      ]
+    }
+  ]
+}
