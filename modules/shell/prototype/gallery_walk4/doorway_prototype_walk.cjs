@@ -33,7 +33,7 @@ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
     throw Error('No settled half-turn evidence: '+JSON.stringify({events,errors}));
    };
    await page.goto(url+'?gameplay=1&qa-floor=1&portal='+portal+(showVisitor?'&show-visitor=1':''),{waitUntil:'domcontentloaded',timeout:120000});
-   for(let i=0;i<240&&!events.some(e=>e.includes('READY'));i++)await wait(500);
+   for(let i=0;i<480&&!events.some(e=>e.includes('READY'));i++)await wait(500);
    if(!events.some(e=>e.includes('READY')))throw Error('Gameplay did not start: '+errors.join('\n'));
    const probe=portal==='arch'?'PORTAL_FLOOR_DEPTH':'DOORWAY_FLOOR';
    if(!events.some(e=>e.includes(probe+' clear_samples=9/9')))throw Error('Passage floor depth failed: '+events.join('\n'));

@@ -69,6 +69,8 @@ func _prepare() -> void:
 			# Both plaster profiles need multiple texels across their narrow relief.
 			var fine_trim := cornice_mesh or (source_albedo and (source_albedo.resource_path.ends_with("/ivory-trim.svg") or source_albedo.resource_path.ends_with("/stone.png")))
 			var texel := 0.025 if fine_trim else 0.12
+			if source.get_meta("vault", false):
+				texel = 0.035
 			if source.get_meta("portal_capital", false):
 				texel = 0.004
 			if source_albedo and source_albedo.resource_path.ends_with("/bench-cloth-muse.webp"):

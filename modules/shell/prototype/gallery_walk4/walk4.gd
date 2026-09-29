@@ -382,7 +382,10 @@ func _build_room() -> void:
 			# the frame of the glazing at both ends
 			for zz in [0.0, -L]:
 				var zi := -0.9 if zz == 0.0 else -L + 0.9
-				for v in [p0 + Vector3(0, 0, zz), p1 + Vector3(0, 0, zz), p1 + Vector3(0, 0, zi), p0 + Vector3(0, 0, zz), p1 + Vector3(0, 0, zi), p0 + Vector3(0, 0, zi)]:
+				var cap := [p0 + Vector3(0, 0, zz), p1 + Vector3(0, 0, zz), p1 + Vector3(0, 0, zi), p0 + Vector3(0, 0, zz), p1 + Vector3(0, 0, zi), p0 + Vector3(0, 0, zi)]
+				if zz < 0:
+					cap.reverse()  # both end strips face into the gallery
+				for v in cap:
 					st.set_color(vault * Color(0.85, 0.85, 0.85))
 					st.add_vertex(v)
 		else:
@@ -393,10 +396,14 @@ func _build_room() -> void:
 				st.add_vertex(v)
 		st.set_color(vault * Color(0.82, 0.82, 0.8))
 		for z in [0.0, -L]:  # the end lunettes
-			for v in [Vector3(0, H, z), p0 + Vector3(0, 0, z), p1 + Vector3(0, 0, z)]:
+			var lunette := [Vector3(0, H, z), p0 + Vector3(0, 0, z), p1 + Vector3(0, 0, z)]
+			if z == 0:
+				lunette.reverse()
+			for v in lunette:
 				st.add_vertex(v)
 	var vmi := MeshInstance3D.new()
 	vmi.mesh = st.commit()
+	vmi.set_meta("vault", true)
 	vmi.material_override = ps(null, Color.WHITE, Vector2.ONE, true)
 	_vp.add_child(vmi)
 	var gmi := MeshInstance3D.new()
@@ -441,11 +448,11 @@ func _bench_surface(x: float, z: float) -> Vector3:
 		x = signf(x) * (0.385 + corner.x)
 		z = signf(z) * (1.41 + corner.y)
 	var edge := minf(0.475 - absf(x), 1.5 - absf(z))
-	var height := 0.38 + 0.04 * sin(clampf(edge / 0.075, 0, 1) * PI / 2)
+	var height := 0.355 + 0.065 * sin(clampf(edge / 0.13, 0, 1) * PI / 2)
 	for bx in [-0.19, 0.19]:
 		for bz in [-1.05, -0.63, -0.21, 0.21, 0.63, 1.05]:
 			var distance := Vector2(x - bx, z - bz).length_squared()
-			height -= 0.027 * exp(-distance / 0.004)
+			height -= 0.065 * exp(-distance / 0.012)
 	return Vector3(x, height, z)
 
 func _bench_cushion(z: float) -> void:
@@ -479,10 +486,12 @@ func _bench_cushion(z: float) -> void:
 			for spec in [Vector2(0, level), Vector2(1, level), Vector2(1, level + 1), Vector2(0, level + 1)]:
 				var point := a if spec.x == 0 else b
 				var inset := 0.025 * (1 - cos(spec.y / 4 * PI / 2))
-				quad.append(Vector3(point.x - signf(point.x) * inset, 0.38 - spec.y * 0.02, point.z - signf(point.z) * inset))
-			var normal := (quad[1] - quad[0]).cross(quad[3] - quad[0]).normalized()
+				quad.append(Vector3(point.x - signf(point.x) * inset, lerpf(point.y, 0.30, sin(spec.y / 4 * PI / 2)), point.z - signf(point.z) * inset))
 			for index in [0, 2, 1, 0, 3, 2]:
-				st.set_normal(normal)
+				var point := quad[index]
+				var outward := Vector2(point.x - clampf(point.x, -0.385, 0.385), point.z - clampf(point.z, -1.41, 1.41)).normalized()
+				var angle := float(level + (1 if index >= 2 else 0)) / 4 * PI / 2
+				st.set_normal(Vector3(outward.x * cos(angle), -sin(angle), outward.y * cos(angle)))
 				st.set_uv(Vector2(float(i) / perimeter.size() * 7.8, quad[index].y) * 1.8)
 				st.add_vertex(quad[index] + Vector3(0, 0, z))
 	var seat := MeshInstance3D.new()
@@ -495,13 +504,13 @@ func _bench_cushion(z: float) -> void:
 		for bz in [-1.05, -0.63, -0.21, 0.21, 0.63, 1.05]:
 			var button := MeshInstance3D.new()
 			var dome := SphereMesh.new()
-			dome.radius = 0.013
-			dome.height = 0.009
+			dome.radius = 0.007
+			dome.height = 0.004
 			dome.radial_segments = 12
 			dome.rings = 6
 			button.mesh = dome
 			button.position = _bench_surface(bx, bz) + Vector3(0, 0.003, z)
-			button.material_override = ps(load(DIR + "textures/bench-cloth-muse.webp"), Color(0.45, 0.45, 0.45))
+			button.material_override = ps(load(DIR + "textures/bench-cloth-muse.webp"), Color(1.1, 1.1, 1.1))
 			_vp.add_child(button)
 
 
@@ -1496,7 +1505,7 @@ func _merge_static() -> void:
 		var mi := n as MeshInstance3D
 		# Offline capital relief owns finer lighting UVs than the arch stone.
 		# Keep its authoring metadata intact rather than merging it into the arch.
-		if mi.get_meta("portal_capital", false):
+		if mi.get_meta("portal_capital", false) or mi.get_meta("vault", false):
 			continue
 		var m := mi.material_override
 		var key := ""
@@ -1511,7 +1520,9 @@ func _merge_static() -> void:
 			key = "std|%s|%s|%s|%s" % [st3.albedo_texture.get_rid().get_id() if st3.albedo_texture else 0, st3.albedo_color, st3.blend_mode, st3.transparency]
 		else:
 			continue
-		key += "|layer:%s" % mi.layers
+		# SurfaceTool cannot mix indexed primitives with unindexed triangle lists:
+		# doing so leaves the latter vertices unreferenced (e.g. upholstered seats).
+		key += "|layer:%s|indexed:%s" % [mi.layers, mi.mesh.surface_get_arrays(0)[Mesh.ARRAY_INDEX] != null]
 		if not groups.has(key):
 			groups[key] = []
 		groups[key].append(mi)
