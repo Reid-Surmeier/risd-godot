@@ -63,3 +63,7 @@ See docs/evidence/surfaces-168-current/README.md. Wall now uses native matte #6f
 ## #176 final world correction (2026-09-29)
 
 Source candidate2670002d corrects portal supports/joins, bench upholstery/underframes and photo-visible wall vents, joints and caption plates. Uses the existing recorded gallery photographs and accepted textures; no generation or additional spend. Rounded bench geometry and correct side UVs; flush wall divisions; closed portal relief edges and circular collar transitions. Both benches retain their locations; all23paintings and traversable openings retained. Third saved bake137users. Separate independent Astra medium image-only re-reviews: bench/walls PASS on secondcandidate, portalPASS onthird. Exact records and remaining fidelity limits in docs/evidence/world-176. No museum measurement or final owner approval is implied.
+
+## #177 owner-selected appearance restoration (2026-09-29)
+
+Owner-uploaded screenshot exactly matches6bdf721c architecture-167/owner-repairs/bake8/browser-12.png (SHA25624b88e74f55d557735c31b0df77f67ecba369539fac48ebbf6d1a96acbbeb969). Restore existing oak-muse.webp and wall-muse.webp with that floor mapping/plank size and slimmer cushion crown/rails. Existing bench-cloth-muse.webp retained; no new generation or spend. Later UV/rim correctness, portal/cutaway, character and containment repairs retained. Owner visual selection supersedes the later agent-selected floor/wall/cushion appearance.

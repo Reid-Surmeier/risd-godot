@@ -40,7 +40,7 @@ func run() -> void:
 	for x in 33:
 		for z in 97:
 			var p: Vector3 = walk._bench_surface(-0.475 + x * 0.95 / 32, -1.5 + z * 3.0 / 96)
-			assert(absf(p.x) <= 0.476 and absf(p.z) <= 1.501 and p.y >= 0.30 and p.y <= 0.461, "Cushion envelope changed")
+			assert(absf(p.x) <= 0.476 and absf(p.z) <= 1.501 and p.y >= 0.30 and p.y <= 0.421, "Cushion envelope changed")
 	var vault_faces := 0
 	for mesh in walk._source_meshes:
 		if not mesh.get_meta("vault", false):

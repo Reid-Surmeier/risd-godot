@@ -19,7 +19,7 @@ const SKY_W := 4.2
 const WHITE := Color("#e9e6de")
 const CASING := 0.28
 const GAP := 0.75  # default gap between frames; measured gaps in gaps.json
-const PLANK := Vector2(1.9, 0.36)  # #168 source-relative visual scale, not survey dimensions
+const PLANK := Vector2(0.84, 0.18)  # #177 owner-selected appearance from6bdf721c
 # The two doorways differ: the arch door (to the medieval gallery) has a cornice head and a shallow reveal onto
 # the wide lit room; the far door has a plain casing and a deep vestibule with a second door at its end.
 const DOORS := {
@@ -308,8 +308,8 @@ func _box(c: Vector3, size: Vector3, col: Color, layer := 1, m: Material = null)
 
 
 func _wall_ps(extra := Color.WHITE) -> ShaderMaterial:
-	# #168: native matte paint, visually calibrated against the recorded gallery photos.
-	return ps(null, extra * Color("#6f83a3"), Vector2.ONE, true)
+	# #177: restore the textured wall in the owner-selected screenshot.
+	return ps(load(DIR + "textures/wall-muse.webp"), extra, Vector2(0.25, 0.25), true)
 
 
 const LAYER_WEST := 2
@@ -454,9 +454,9 @@ func _build_room() -> void:
 		_vp.add_child(bs)
 		_bench_cushion(bz)
 		for rail_x in [-0.39, 0.39]:
-			_box(Vector3(rail_x, 0.225, bz), Vector3(0.055, 0.07, 2.82), Color("#242325"))
+			_box(Vector3(rail_x, 0.265, bz), Vector3(0.035, 0.05, 2.82), Color("#242325"))
 		for rail_z in [-1.39, 1.39]:
-			_box(Vector3(0, 0.225, bz + rail_z), Vector3(0.81, 0.07, 0.055), Color("#242325"))
+			_box(Vector3(0, 0.265, bz + rail_z), Vector3(0.81, 0.05, 0.035), Color("#242325"))
 		for lx in [-0.38, 0.38]:
 			for lz in [-1.38, -0.46, 0.46, 1.38]:
 				# Four supports per long side and turned collars are visible in gallery-2456.
@@ -464,10 +464,10 @@ func _build_room() -> void:
 				var shaft := CylinderMesh.new()
 				shaft.top_radius = 0.026
 				shaft.bottom_radius = 0.019
-				shaft.height = 0.23
+				shaft.height = 0.26
 				shaft.radial_segments = 12
 				leg.mesh = shaft
-				leg.position = Vector3(lx, 0.115, bz + lz)
+				leg.position = Vector3(lx, 0.13, bz + lz)
 				leg.material_override = ps(null, Color("#242325"))
 				leg.set_meta("bench_leg", true)
 				_vp.add_child(leg)
@@ -488,8 +488,8 @@ func _build_room() -> void:
 func _bench_crown(x: float, z: float) -> float:
 	var q := Vector2(absf(x) - 0.385, absf(z) - 1.41)
 	var edge := 0.09 - q.max(Vector2.ZERO).length() - minf(maxf(q.x, q.y), 0.0)
-	var t := clampf(edge / 0.12, 0.0, 1.0)
-	return 0.35 + 0.11 * sqrt(maxf(0.0, 1.0 - (1.0 - t) * (1.0 - t)))
+	var t := clampf(edge / 0.13, 0.0, 1.0)
+	return 0.355 + 0.065 * sin(t * PI / 2.0)
 
 # Source-led upholstery: rounded edges and paired button depressions, same bounds.
 func _bench_surface(x: float, z: float) -> Vector3:
@@ -540,7 +540,7 @@ func _bench_cushion(z: float) -> void:
 			for spec in [Vector2(0, level), Vector2(1, level), Vector2(1, level + 1), Vector2(0, level + 1)]:
 				var point := a if spec.x == 0 else b
 				var inset := 0.025 * (1 - cos(spec.y / 12 * PI / 2))
-				quad.append(Vector3(point.x - signf(point.x) * inset, lerpf(point.y, 0.25, sin(spec.y / 12 * PI / 2)), point.z - signf(point.z) * inset))
+				quad.append(Vector3(point.x - signf(point.x) * inset, lerpf(point.y, 0.30, sin(spec.y / 12 * PI / 2)), point.z - signf(point.z) * inset))
 			for index in [0, 2, 1, 0, 3, 2]:
 				var point := quad[index]
 				var outward := Vector2(point.x - clampf(point.x, -0.385, 0.385), point.z - clampf(point.z, -1.41, 1.41)).normalized()
@@ -588,66 +588,34 @@ func _build_floor() -> void:
 	var reach := (L + W) * 0.75
 	var n := int(reach / b)
 	var m := int(reach / a) + 1
-	var edge_pad := 0.5 * (a + b) / sqrt(2.0) + 0.05
 	for j in range(-m, m + 1):
 		for k in range(-n, n + 1):
 			var o := Vector2(k * b + j * a, k * b - j * a)
 			for vert in [false, true]:
 				var r := Rect2(o, Vector2(a, b)) if not vert else Rect2(o + Vector2(0, b), Vector2(b, a))
 				var c := rot * r.get_center()
-				if absf(c.x) > W / 2 + edge_pad or c.y > edge_pad or c.y < -L - edge_pad:
+				if absf(c.x) > W / 2 + 0.4 or c.y > 0.4 or c.y < -L - 0.4:
 					continue
 				var p := [r.position, Vector2(r.end.x, r.position.y), r.end, Vector2(r.position.x, r.end.y)]
-				# Local board UV lets the baked oak shader stay inside one source
-				# board; alpha carries a stable random crop for this modeled plank.
-				var uv := [Vector2(0, 0), Vector2(1, 0), Vector2(1, 1), Vector2(0, 1)]
+				# One grain length per plank; vary its vertical strip without wrapping.
+				var v0 := rng.randf_range(0.0, 2.0 / 3.0)
+				var uv := [Vector2(0, v0), Vector2(1, v0), Vector2(1, v0 + 1.0 / 3.0), Vector2(0, v0 + 1.0 / 3.0)]
 				var uv2 := [Vector2(0, 0), Vector2(a, 0), Vector2(a, b), Vector2(0, b)]
 				if vert:
 					uv = [uv[3], uv[0], uv[1], uv[2]]
 					uv2 = [Vector2(0, b), Vector2(0, 0), Vector2(a, 0), Vector2(a, b)]
-				# The source crop has narrow board-to-board variation; retain the
-				# authored lattice, UVs and grain but quiet the orange stripe effect.
-				var tone := rng.randf_range(0.97, 1.03)
-				var warmth := rng.randf_range(-0.018, 0.018)
-				var crop_seed := rng.randf()
+				var tone := rng.randf_range(0.9, 1.06)
 				for i in [0, 1, 2, 0, 2, 3]:
 					var q: Vector2 = rot * p[i]
 					var w := Vector3(q.x, 0, q.y)
 					var o2 := _ao(w, false) * tone
-					st.set_color(Color(o2 * (1.0 + warmth), o2, o2 * (1.0 - warmth), crop_seed))
+					st.set_color(Color(o2, o2 * 0.99, o2 * 0.97))
 					st.set_normal(Vector3.UP)
 					st.set_uv(uv[i])
 					st.set_uv2(uv2[i])
 					st.add_vertex(w)
-	# The renovation photographs show straight-laid boards framing both long
-	# sides of the herringbone field. This is an isolated geometry trial, not a
-	# measured reconstruction; each overlay board still gets a distinct atlas
-	# face and authored baked contact.
-	for side in [-1, 1]:
-		for border_row in range(2):
-			var x0 := -W / 2.0 + border_row * b if side < 0 else W / 2.0 - (border_row + 1) * b
-			var x1 := x0 + b
-			for segment in range(ceili(L / a)):
-				var z0 := -L + segment * a
-				var z1 := minf(z0 + a, 0.0)
-				var board_length := z1 - z0
-				var border_tone := rng.randf_range(0.97, 1.03)
-				var border_seed := rng.randf()
-				var points := [Vector3(x0, 0.002, z0), Vector3(x0, 0.002, z1),
-					Vector3(x1, 0.002, z1), Vector3(x1, 0.002, z0)]
-				var board_uv := [Vector2(0, 0), Vector2(1, 0), Vector2(1, 1), Vector2(0, 1)]
-				var board_uv2 := [Vector2(0, 0), Vector2(board_length, 0),
-					Vector2(board_length, b), Vector2(0, b)]
-				for i in [0, 1, 2, 0, 2, 3]:
-					var shade := _ao(points[i], false) * border_tone
-					st.set_color(Color(shade, shade, shade, border_seed))
-					st.set_normal(Vector3.UP)
-					st.set_uv(board_uv[i])
-					st.set_uv2(board_uv2[i])
-					st.add_vertex(points[i])
-	var mat := ps(load(DIR + "textures/oak-board-atlas-168-v3.webp"), Color(1.18, 1.16, 1.14), Vector2.ONE, true)
+	var mat := ps(load(DIR + "textures/oak-muse.webp"), Color.WHITE, Vector2.ONE, true)
 	mat.set_shader_parameter("plank_seams", true)
-	mat.set_shader_parameter("oak_atlas", true)
 	mat.set_shader_parameter("jitter", 0.0)  # herringbone has T-junctions: snapped corners would open cracks
 	mat.set_shader_parameter("plank", PLANK)
 	var mi := MeshInstance3D.new()
