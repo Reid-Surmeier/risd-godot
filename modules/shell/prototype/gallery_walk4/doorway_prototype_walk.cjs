@@ -4,6 +4,7 @@ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 (async()=>{
  const [url,out]=process.argv.slice(2); fs.mkdirSync(out,{recursive:true});
  const portal=process.argv[4]||'far';
+ const showVisitor=process.argv.includes('--show-visitor');
  const browser=await puppeteer.launch({executablePath:'/usr/bin/google-chrome',headless:true,args:['--no-sandbox','--use-gl=angle','--use-angle=gl-egl','--ignore-gpu-blocklist']});
  const results=[];
  try {
@@ -31,11 +32,13 @@ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
     }
     throw Error('No settled half-turn evidence: '+JSON.stringify({events,errors}));
    };
-   await page.goto(url+'?gameplay=1&qa-floor=1&portal='+portal,{waitUntil:'domcontentloaded',timeout:120000});
+   await page.goto(url+'?gameplay=1&qa-floor=1&portal='+portal+(showVisitor?'&show-visitor=1':''),{waitUntil:'domcontentloaded',timeout:120000});
    for(let i=0;i<240&&!events.some(e=>e.includes('READY'));i++)await wait(500);
    if(!events.some(e=>e.includes('READY')))throw Error('Gameplay did not start: '+errors.join('\n'));
    const probe=portal==='arch'?'PORTAL_FLOOR_DEPTH':'DOORWAY_FLOOR';
    if(!events.some(e=>e.includes(probe+' clear_samples=9/9')))throw Error('Passage floor depth failed: '+events.join('\n'));
+   await page.waitForFunction(()=>!document.getElementById('status'),{timeout:180000});
+   if(showVisitor)await page.evaluate(()=>{window.__cameraSamples=[];window.__cameraTimer=setInterval(()=>{if(window.__portalQA)window.__cameraSamples.push({...window.__portalQA,time:performance.now()});},50);});
    await wait(1000);
    const video=await page.screencast({path:`${out}/${width}-roundtrip.webm`,fps:20});
    await page.screenshot({path:`${out}/${width}-approach.png`});
@@ -56,7 +59,10 @@ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
      await halfTurn();
     }
    }
-   await video.stop(); results.push({width,events,errors}); await page.close();
+   await video.stop();
+   const camera=showVisitor?await page.evaluate(()=>{clearInterval(window.__cameraTimer);return window.__cameraSamples;}):[];
+   if(showVisitor&&(!camera.length||camera.some(s=>s.view!==0||s.fov!==23||!s.visitor_visible)))throw Error('Camera mode/FOV/visitor changed during actual input traversal');
+   results.push({width,events,errors,camera}); await page.close();
   }
   fs.writeFileSync(`${out}/browser.json`,JSON.stringify(results,null,2));
   if(results.some(r=>r.errors.length))throw Error('Browser runtime errors');

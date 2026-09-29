@@ -490,6 +490,19 @@ func _bench_cushion(z: float) -> void:
 	seat.material_override = ps(load(DIR + "textures/bench-cloth-muse.webp"), Color(1.1, 1.1, 1.1))
 	seat.set_meta("bench_cushion", true)
 	_vp.add_child(seat)
+	# Fabric-covered buttons sit inside the modeled depressions in the source bench.
+	for bx in [-0.19, 0.19]:
+		for bz in [-1.05, -0.63, -0.21, 0.21, 0.63, 1.05]:
+			var button := MeshInstance3D.new()
+			var dome := SphereMesh.new()
+			dome.radius = 0.013
+			dome.height = 0.009
+			dome.radial_segments = 12
+			dome.rings = 6
+			button.mesh = dome
+			button.position = _bench_surface(bx, bz) + Vector3(0, 0.003, z)
+			button.material_override = ps(load(DIR + "textures/bench-cloth-muse.webp"), Color(0.45, 0.45, 0.45))
+			_vp.add_child(button)
 
 
 func _rect_floor() -> void:  # under the planks, never seen: only there so nothing shows through

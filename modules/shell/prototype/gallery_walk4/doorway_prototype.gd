@@ -15,10 +15,13 @@ func _ready() -> void:
 		var arch: bool = JavaScriptBridge.eval("new URLSearchParams(location.search).get('portal') === 'arch'")
 		walk._pos = Vector3(0, 0, -2.6 if arch else -walk.L + 2.6)
 		walk.view_yaw = PI if arch else 0
-		walk._kid.hide()
-		walk._shadow.hide()
-		for shadow in walk._sole_shadows:
-			shadow.hide()
+		if not JavaScriptBridge.eval("new URLSearchParams(location.search).has('show-visitor')"):
+			walk._kid.hide()
+			walk._shadow.hide()
+			for shadow in walk._sole_shadows:
+				shadow.hide()
+		else:
+			walk._pos.z = -5.0 if arch else walk._pos.z
 		walk._update_camera(1.0)
 		if JavaScriptBridge.eval("new URLSearchParams(location.search).has('qa-floor')"):
 			# Read-only exported-runtime observation; browser still drives real keys.
@@ -26,7 +29,7 @@ func _ready() -> void:
 			get_tree().process_frame.connect(func() -> void:
 				frames[0] += 1
 				if frames[0] % 10 == 0:
-					JavaScriptBridge.eval("window.__portalQA=" + JSON.stringify({"space": walk._space, "position": [walk._pos.x, walk._pos.z], "mask": walk._cam.cull_mask}))
+					JavaScriptBridge.eval("window.__portalQA=" + JSON.stringify({"space": walk._space, "position": [walk._pos.x, walk._pos.z], "mask": walk._cam.cull_mask, "view": walk.view_mode, "fov": walk._cam.fov, "camera": [walk._cam.position.x, walk._cam.position.y, walk._cam.position.z], "visitor_visible": walk._kid.is_visible_in_tree()}))
 			)
 			for frame in 6:
 				await get_tree().process_frame
@@ -67,10 +70,10 @@ func _ready() -> void:
 	set_view(view)
 func set_view(index: int) -> void:
 	view = posmod(index, 16)
-	var positions := [Vector3(0, 2.1, -20), Vector3(2.9, 1.3, -23), Vector3(1.8, 0.65, -25), Vector3(-2.5, 2.6, -22), Vector3(0, 3, -9), Vector3(0, 3.2, -13), Vector3(0, 3.2, -23), Vector3(0, 3.2, -4), Vector3(0, 2.0, -5), Vector3(0, 2.1, 6.5), Vector3(2.2, 1.8, 4.1), Vector3(2.5, 2.2, -6.3), Vector3(0.75, 0.8, -7.3), Vector3(0, 2, -13), Vector3(3.7, 2.1, -1.8), Vector3(1.8, 2.4, -3)]
-	var targets := [Vector3(0, 1.7, -26.3), Vector3(0.9, 1.2, -26.3), Vector3(1.15, 0.3, -26.3), Vector3(0, 1.65, -26.3), Vector3(0, 2.4, -26.3), Vector3(-5, 5.75, -13), Vector3(-5, 5.75, -26.3), Vector3(-5, 5.75, 0), Vector3(0, 1.9, 0), Vector3(0, 2.1, 1.6), Vector3(0.95, 1.8, 1.6), Vector3(0, 0.24, -9), Vector3(0, 0.24, -8.3), Vector3(0.1, 7.0, -13.5), Vector3(3.7, 0, -0.5), Vector3(0.9, 2.0, 0)]
+	var positions := [Vector3(0, 2.1, -20), Vector3(2.9, 1.3, -23), Vector3(1.8, 0.65, -25), Vector3(-2.5, 2.6, -22), Vector3(0, 3, -9), Vector3(0, 3.2, -13), Vector3(0, 3.2, -23), Vector3(0, 3.2, -4), Vector3(0, 2.0, -5), Vector3(0, 2.1, 6.5), Vector3(2.2, 1.8, 4.1), Vector3(2.5, 2.2, -6.3), Vector3(0.75, 0.8, -7.3), Vector3(0, 1.7, -4), Vector3(3.7, 2.1, -1.8), Vector3(1.8, 2.4, -3)]
+	var targets := [Vector3(0, 1.7, -26.3), Vector3(0.9, 1.2, -26.3), Vector3(1.15, 0.3, -26.3), Vector3(0, 1.65, -26.3), Vector3(0, 2.4, -26.3), Vector3(-5, 5.75, -13), Vector3(-5, 5.75, -26.3), Vector3(-5, 5.75, 0), Vector3(0, 1.9, 0), Vector3(0, 2.1, 1.6), Vector3(0.95, 1.8, 1.6), Vector3(0, 0.24, -9), Vector3(0, 0.24, -8.3), Vector3(0, 4.2, -20), Vector3(3.7, 0, -0.5), Vector3(0.9, 2.0, 0)]
 	camera.position = positions[view]
-	camera.fov = 54 if view == 9 else 48
+	camera.fov = 66 if view == 13 else (54 if view == 9 else 48)
 	camera.look_at(targets[view])
 	print("DOORWAY_PROTOTYPE view=", view)
 func _unhandled_key_input(event: InputEvent) -> void:

@@ -50,11 +50,11 @@ func _prepare() -> void:
 				arrays[Mesh.ARRAY_INDEX] = indices
 			var colors: PackedColorArray = arrays[Mesh.ARRAY_COLOR] if arrays[Mesh.ARRAY_COLOR] != null else PackedColorArray()
 			var uv2 := PackedVector2Array()
-			if floor_mesh:
+			if floor_mesh or portal_floor:
 				for i in vertices.size():
 					var world: Vector3 = source.global_transform * vertices[i]
-					uv2.append(Vector2((world.x + 5.5) / 11.0, (0.5 - world.z) / 27.3))
-					if not colors.is_empty():
+					uv2.append(Vector2((world.x + 3.0) / 6.0, world.z / float(source.get_meta("portal_floor_end"))) if portal_floor else Vector2((world.x + 5.5) / 11.0, (0.5 - world.z) / 27.3))
+					if floor_mesh and not colors.is_empty():
 						colors[i] /= maxf(walk._ao(world, false), 0.01)
 				arrays[Mesh.ARRAY_TEX_UV2] = uv2
 			elif not colors.is_empty() and not stone_mesh and not portal_floor:
@@ -63,7 +63,7 @@ func _prepare() -> void:
 					colors[i] = Color.WHITE
 			arrays[Mesh.ARRAY_COLOR] = colors if not colors.is_empty() else null
 			mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-		if floor_mesh:
+		if floor_mesh or portal_floor:
 			mesh.lightmap_size_hint = Vector2i(512, 1024)
 		else:
 			# Both plaster profiles need multiple texels across their narrow relief.
@@ -117,7 +117,7 @@ func _prepare() -> void:
 		instance.transform = source.global_transform
 		instance.layers = source.layers
 		instance.gi_mode = GeometryInstance3D.GI_MODE_STATIC
-		instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
+		instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF if floor_mesh or portal_floor else GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
 		if material.albedo_texture and material.albedo_texture.resource_path.ends_with("/door-arch.jpg"):
 			# Gameplay hides this inherited reference card. It must not remain an
 			# invisible light blocker over the modeled recess's rear wall.
