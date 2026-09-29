@@ -59,3 +59,8 @@ uses a seamless 256×256 FastNoiseLite texture, a 0.45-pixel displacement and he
 3 FPS frames. F9 toggles it independently without changing F8, the Shell or a Tenant.
 
 Collection artwork preview (#189) temporarily hides the outer game frame and fits only the selected painting and its own frame to the Page. X or Escape restores the original frame and visitor position. The shared header uses native browser/window fullscreen; the square desktop scales uniformly. Dollhouse framing brings the visitor closer. Main-gallery white baseboards receive the same material-fill treatment as the cornice, without changing baked geometry or lightmaps. `playtest/collection_preview_check.gd` exercises the private composition with real clicks.
+
+
+## Proportional windows (#193)
+
+The Collection frame has a corner grip that scales the complete frame uniformly. Opening an artwork temporarily restores full Page scale; closing it restores the chosen frame scale. CRT remains visible over Collection, and Squigglevision starts enabled. F8 and F9 still toggle the effects independently. Private input and shader checks live in `docs/evidence/window-effects-193/`; the frozen historical layout fixtures are unchanged.

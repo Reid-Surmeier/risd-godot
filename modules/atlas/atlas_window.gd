@@ -59,7 +59,6 @@ var locked := false
 var collapsed := false
 var expanded_size := Vector2.ZERO
 var action := ""
-var edges := Vector2i.ZERO
 var start_pointer := Vector2.ZERO
 var start_rect := Rect2()
 
@@ -136,6 +135,8 @@ func _ready() -> void:
 	resized.connect(_fit_window)
 	_fit_window()
 	viewport.add_child(map)
+	for window in panels.values() + [frame, artwork_window]:
+		_add_scale_grip(window)
 
 
 func _build_artwork_window() -> void:
@@ -215,6 +216,12 @@ func _draw_artwork_frame() -> void:
 ## left panels, its bottom its gap above the chat, while its top and right run to the page edge
 ## minus the desktop's own native margin (FRAME_FAR_GAP). Re-laid out on every resize.
 func _fit_window() -> void:
+	if get_meta("windows_adjusted", false):
+		set_meta("scaling", false)
+		for window in panels.values() + [frame, artwork_window]:
+			window.scale = Vector2.ONE * minf(window.scale.x, minf(size.x / window.size.x, size.y / window.size.y))
+			window.position = window.position.clamp(Vector2.ZERO, (size - window.size * window.scale).max(Vector2.ZERO))
+		return
 	# Compact Pages use the selected #164 heading in place of the baked clock.
 	minimap_heading.visible = size.x * DESKTOP_SIZE.y < size.y * DESKTOP_SIZE.x
 	action = ""
@@ -270,7 +277,7 @@ func _top_window_at(pointer: Vector2) -> Control:
 	var windows := get_children()
 	windows.reverse()
 	for window in windows:
-		if window is Control and window.get_rect().has_point(pointer):
+		if window is Control and window.is_visible_in_tree() and Rect2(window.position, window.size * window.scale).has_point(pointer):
 			return window
 	return null
 
@@ -281,6 +288,13 @@ func _top_window_at(pointer: Vector2) -> Control:
 ## the SubViewportContainer to forward to the map (pan, zoom); the keys always are.
 func _input(event: InputEvent) -> void:
 	inputs += 1
+	if get_meta("scaling", false):
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		for window in panels.values() + [frame, artwork_window]:
+			var grip := window.get_node_or_null("ProportionalResize") as Control
+			if grip != null and grip.is_visible_in_tree() and grip.get_global_rect().has_point(event.position):
+				return
 	if event is InputEventMouse and event.device == -1:
 		return
 	if event is InputEventMouseButton and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
@@ -306,9 +320,9 @@ func _input(event: InputEvent) -> void:
 		if target == null:
 			return
 		move_child(target, get_child_count() - 1)
-		var rect := target.get_rect()
+		var rect := Rect2(target.position, target.size * target.scale)
 		if target == artwork_window:
-			var artwork_local := pointer - rect.position
+			var artwork_local := (pointer - rect.position) / target.scale
 			if artwork_local.y < roundf(94 * ARTWORK_SCALE):
 				action = "drag"
 			else:
@@ -316,13 +330,9 @@ func _input(event: InputEvent) -> void:
 		elif target == frame:
 			if locked:
 				return
-			var local := pointer - rect.position
-			edges = Vector2i(-1 if local.x < 10 else (1 if local.x > rect.size.x - 10 else 0),
-					-1 if local.y < 10 else (1 if local.y > rect.size.y - 10 else 0))
-			if edges != Vector2i.ZERO and not collapsed:
-				action = "resize"
-			elif local.y >= 30 * chrome_scale and local.y < 94 * chrome_scale \
-					and local.x > 90 * chrome_scale and local.x < rect.size.x - 100 * chrome_scale:
+			var local := (pointer - rect.position) / target.scale
+			if local.y >= 30 * chrome_scale and local.y < 94 * chrome_scale \
+					and local.x > 90 * chrome_scale and local.x < target.size.x - 100 * chrome_scale:
 				action = "drag"
 			else:
 				return
@@ -339,18 +349,7 @@ func _input(event: InputEvent) -> void:
 	elif motion and not action.is_empty():
 		var delta := pointer - start_pointer
 		if action == "drag":
-			moving_window.position = (start_rect.position + delta).clamp(Vector2(-offset_left, 0), (size - moving_window.size).max(Vector2.ZERO))
-		else:
-			var low := start_rect.position
-			var high := start_rect.end
-			var minimum := Vector2(300 + roundf(FRAME_EXTRA.x * chrome_scale), 280).min(size)
-			for axis in [0, 1]:
-				if edges[axis] < 0:
-					low[axis] = clampf(low[axis] + delta[axis], 0, high[axis] - minimum[axis])
-				if edges[axis] > 0:
-					high[axis] = clampf(high[axis] + delta[axis], low[axis] + minimum[axis], size[axis])
-			frame.position = low
-			frame.size = high - low
+			moving_window.position = (start_rect.position + delta).clamp(Vector2(-offset_left, 0), (size - moving_window.size * moving_window.scale).max(Vector2.ZERO))
 		_layout()
 	else:
 		return
@@ -405,3 +404,46 @@ func state() -> Dictionary:
 			"panels": panel_rects, "stack": stack,
 			"moving_window": str(moving_window.name) if moving_window != null else ""})
 	return Errors.ok(s)
+
+
+# Resize the complete window with one scale, preserving content and input coordinates.
+func _add_scale_grip(window: Control) -> void:
+	var grip := Control.new()
+	grip.name = "ProportionalResize"
+	grip.size = Vector2(32, 32)
+	grip.mouse_default_cursor_shape = Control.CURSOR_FDIAGSIZE
+	grip.tooltip_text = "Drag to resize proportionally"
+	grip.draw.connect(func():
+		grip.draw_rect(Rect2(Vector2.ZERO, grip.size), Color(0.3, 0.3, 0.3, 0.8))
+		for inset in [10, 17, 24]:
+			grip.draw_line(Vector2(inset, 28), Vector2(28, inset), Color.WHITE, 2.0))
+	window.add_child(grip)
+	var fit := func(): grip.position = window.size - grip.size
+	window.resized.connect(fit)
+	fit.call()
+	var gesture := {"active": false, "start": Vector2.ZERO, "scale": 1.0}
+	get_window().focus_exited.connect(func():
+		gesture.active = false
+		set_meta("scaling", false))
+	window.visibility_changed.connect(func():
+		gesture.active = false
+		set_meta("scaling", false))
+	grip.gui_input.connect(func(event):
+		if window == frame and (locked or collapsed):
+			return
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+			gesture.active = event.pressed
+			set_meta("scaling", event.pressed)
+			if event.pressed:
+				gesture.start = window.get_parent().make_canvas_position_local(event.global_position)
+				gesture.scale = window.scale.x
+				set_meta("windows_adjusted", true)
+				window.get_parent().move_child(window, -1)
+			grip.accept_event()
+		elif event is InputEventMouseMotion and gesture.active and get_meta("scaling", false):
+			var delta: Vector2 = window.get_parent().make_canvas_position_local(event.global_position) - gesture.start
+			var available: Vector2 = window.get_parent().size - window.position
+			var maximum := minf(available.x / window.size.x, available.y / window.size.y)
+			var factor: float = gesture.scale + delta.dot(window.size) / window.size.length_squared()
+			window.scale = Vector2.ONE * clampf(factor, minf(0.35, maximum), maximum)
+			grip.accept_event())

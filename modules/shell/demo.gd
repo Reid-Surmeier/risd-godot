@@ -39,7 +39,10 @@ func _ready() -> void:
 		return
 	var data: Variant = data_result.value
 	var collection_factory := func(_deps: Dictionary) -> Dictionary:  # the frame and clock, filling the Page's height
+		var host := Control.new()
+		host.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		var page := TextureRect.new()
+		host.add_child(page)
 		page.name = "CollectionFrame"
 		page.texture = load(COLLECTION_PICTURE)
 		page.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -62,10 +65,16 @@ func _ready() -> void:
 			walk.position = (origin + Vector2(458, 521) * s).round()
 			walk.size = (Vector2(2110, 1412) * s).round()
 		page.resized.connect(fit)
+		host.ready.connect(func(): _add_scale_grip(page))
+		var frame_scale := [Vector2.ONE]
 		walk.detail_changed.connect(func(open: bool) -> void:
+			if open:
+				frame_scale[0] = page.scale
+			page.scale = Vector2.ONE if open else frame_scale[0]
+			page.get_node("ProportionalResize").visible = not open
 			page.self_modulate.a = 0.0 if open else 1.0
 			fit.call())
-		return {"ok": true, "value": page, "error": null}
+		return {"ok": true, "value": host, "error": null}
 	var sketchbook_factory := func(deps: Dictionary) -> Dictionary:
 		var page_deps := deps.duplicate()
 		page_deps.collection_data = data
@@ -102,3 +111,44 @@ func _ready() -> void:
 		if not result.ok:
 			push_error("Playground Search: %s" % result.error)
 	add_child(chrome)
+
+
+# Resize the complete window with one scale, preserving content and input coordinates.
+func _add_scale_grip(window: Control) -> void:
+	var grip := Control.new()
+	grip.name = "ProportionalResize"
+	grip.size = Vector2(32, 32)
+	grip.mouse_default_cursor_shape = Control.CURSOR_FDIAGSIZE
+	grip.tooltip_text = "Drag to resize proportionally"
+	grip.draw.connect(func():
+		grip.draw_rect(Rect2(Vector2.ZERO, grip.size), Color(0.3, 0.3, 0.3, 0.8))
+		for inset in [10, 17, 24]:
+			grip.draw_line(Vector2(inset, 28), Vector2(28, inset), Color.WHITE, 2.0))
+	window.add_child(grip)
+	var fit := func(): grip.position = window.size - grip.size
+	window.resized.connect(fit)
+	fit.call()
+	var gesture := {"active": false, "start": Vector2.ZERO, "scale": 1.0}
+	get_window().focus_exited.connect(func():
+		gesture.active = false
+		set_meta("scaling", false))
+	window.visibility_changed.connect(func():
+		gesture.active = false
+		set_meta("scaling", false))
+	grip.gui_input.connect(func(event):
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+			gesture.active = event.pressed
+			set_meta("scaling", event.pressed)
+			if event.pressed:
+				gesture.start = window.get_parent().make_canvas_position_local(event.global_position)
+				gesture.scale = window.scale.x
+				set_meta("windows_adjusted", true)
+				window.get_parent().move_child(window, -1)
+			grip.accept_event()
+		elif event is InputEventMouseMotion and gesture.active and get_meta("scaling", false):
+			var delta: Vector2 = window.get_parent().make_canvas_position_local(event.global_position) - gesture.start
+			var available: Vector2 = window.get_parent().size - window.position
+			var maximum := minf(available.x / window.size.x, available.y / window.size.y)
+			var factor: float = gesture.scale + delta.dot(window.size) / window.size.length_squared()
+			window.scale = Vector2.ONE * clampf(factor, minf(0.35, maximum), maximum)
+			grip.accept_event())

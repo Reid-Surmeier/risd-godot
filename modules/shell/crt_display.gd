@@ -5,7 +5,7 @@ const SquiggleShader := preload("res://modules/shell/squiggle_screen.gdshader")
 const HazeShader := preload("res://modules/shell/haze_screen.gdshader")
 
 var enabled := true
-var squiggle_enabled := false  # off by default: its 3 steps a second read as flicker (owner, 2026-09-23); F9 turns it on
+var squiggle_enabled := true  # owner restored the CRT + Squigglevision presentation
 var _qa_elapsed := 0.0
 var _qa_enabled := false
 var _mouse_inside := false
@@ -162,7 +162,7 @@ func _process(delta: float) -> void:
 			var extent := Vector2($Desktop.size)
 			quiet = Vector4(rect.position.x / extent.x, rect.position.y / extent.y, rect.end.x / extent.x, rect.end.y / extent.y)
 			break
-	crt_material.set_shader_parameter("quiet_rect", quiet)
+	crt_material.set_shader_parameter("quiet_rect", Vector4.ZERO)  # keep CRT present over the gallery too
 	haze.material.set_shader_parameter("quiet_rect", quiet)
 	haze.material.set_shader_parameter("desktop_aspect", float($Desktop.size.y) / float($Desktop.size.x))
 	haze.material.set_shader_parameter("desktop_curve", crt_material.get_shader_parameter("curve") if enabled else 0.0)
@@ -191,7 +191,15 @@ func _process(delta: float) -> void:
 				if tenant[key] is Rect2:
 					var rect: Rect2 = tenant[key]
 					tenant[key] = [rect.position.x, rect.position.y, rect.size.x, rect.size.y]
-	JavaScriptBridge.eval("window.shellCrtQa = " + JSON.stringify({"shell": state, "tenant": tenant,
+	var window_grips := []
+	for grip in find_children("ProportionalResize", "Control", true, false):
+		if not grip.is_visible_in_tree(): continue
+		var window: Control = grip.get_parent()
+		var r: Rect2 = window.get_global_rect()
+		var g: Rect2 = grip.get_global_rect()
+		window_grips.append({"name": str(window.name), "rect": [r.position.x, r.position.y, r.size.x, r.size.y],
+			"grip": [g.position.x, g.position.y, g.size.x, g.size.y], "scale": [window.scale.x, window.scale.y]})
+	JavaScriptBridge.eval("window.shellCrtQa = " + JSON.stringify({"shell": state, "tenant": tenant, "window_grips": window_grips,
 			"logical_size": [$Desktop.size.x, $Desktop.size.y], "display_size": [size.x, size.y], "stage_rect": [stage_rect.position.x, stage_rect.position.y, stage_rect.size.x, stage_rect.size.y]}))
 
 func _mouse_exited() -> void:

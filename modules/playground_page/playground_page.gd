@@ -209,9 +209,17 @@ func _ready() -> void:
 	resized.connect(_fit)
 	_fit()
 	_refresh_saved()
+	for window in interactive_windows:
+		_add_scale_grip(window)
 
 
 func _fit() -> void:
+	if get_meta("windows_adjusted", false):
+		set_meta("scaling", false)
+		for window in interactive_windows:
+			window.scale = Vector2.ONE * minf(window.scale.x, minf(size.x / window.size.x, size.y / window.size.y))
+			window.position = window.position.clamp(Vector2.ZERO, (size - window.size * window.scale).max(Vector2.ZERO))
+		return
 	action = ""
 	factor = minf(size.x / DESKTOP.x, size.y / DESKTOP.y)
 	var s := factor
@@ -727,6 +735,13 @@ func _draw_fengshui(window: Control, texture: Texture2D) -> void:
 ## A press raises the topmost window under the pointer; on its title bar it starts a drag.
 func _input(event: InputEvent) -> void:
 	inputs += 1
+	if get_meta("scaling", false):
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		for window in interactive_windows:
+			var grip := window.get_node_or_null("ProportionalResize") as Control
+			if grip != null and grip.is_visible_in_tree() and grip.get_global_rect().has_point(event.position):
+				return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		var pointer := make_canvas_position_local(event.position)
 		if not event.pressed:
@@ -737,14 +752,14 @@ func _input(event: InputEvent) -> void:
 		else:
 			_active = null
 			for window in interactive_windows:
-				if window.get_rect().has_point(pointer) and (_active == null or window.get_index() > _active.get_index()):
+				if Rect2(window.position, window.size * window.scale).has_point(pointer) and (_active == null or window.get_index() > _active.get_index()):
 					_active = window
 			if _active == null:
 				return
 			move_child(_active, -1)
-			if _active == sketchbook and sketchbook.title_button_at(pointer - _active.position):
+			if _active == sketchbook and sketchbook.title_button_at((pointer - _active.position) / _active.scale):
 				return
-			if pointer.y - _active.position.y >= float(_active.get_meta("drag_height")):
+			if (pointer.y - _active.position.y) / _active.scale.y >= float(_active.get_meta("drag_height")):
 				return
 			action = "drag"
 			_start_pointer = pointer
@@ -752,7 +767,7 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseMotion and not action.is_empty():
 		var delta: Vector2 = make_canvas_position_local(event.position) - _start_pointer
-		_active.position = (_start_position + delta).clamp(Vector2(-offset_left, 0), (size - _active.size).max(Vector2.ZERO))
+		_active.position = (_start_position + delta).clamp(Vector2(-offset_left, 0), (size - _active.size * _active.scale).max(Vector2.ZERO))
 		get_viewport().set_input_as_handled()
 
 
@@ -798,3 +813,44 @@ func state() -> Dictionary:
 		for button in browsing.navigation.get_children():
 			result.navigation[String(button.name)] = button.get_global_rect()
 	return Errors.ok(result)
+
+
+# Resize the complete window with one scale, preserving content and input coordinates.
+func _add_scale_grip(window: Control) -> void:
+	var grip := Control.new()
+	grip.name = "ProportionalResize"
+	grip.size = Vector2(32, 32)
+	grip.mouse_default_cursor_shape = Control.CURSOR_FDIAGSIZE
+	grip.tooltip_text = "Drag to resize proportionally"
+	grip.draw.connect(func():
+		grip.draw_rect(Rect2(Vector2.ZERO, grip.size), Color(0.3, 0.3, 0.3, 0.8))
+		for inset in [10, 17, 24]:
+			grip.draw_line(Vector2(inset, 28), Vector2(28, inset), Color.WHITE, 2.0))
+	window.add_child(grip)
+	var fit := func(): grip.position = window.size - grip.size
+	window.resized.connect(fit)
+	fit.call()
+	var gesture := {"active": false, "start": Vector2.ZERO, "scale": 1.0}
+	get_window().focus_exited.connect(func():
+		gesture.active = false
+		set_meta("scaling", false))
+	window.visibility_changed.connect(func():
+		gesture.active = false
+		set_meta("scaling", false))
+	grip.gui_input.connect(func(event):
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+			gesture.active = event.pressed
+			set_meta("scaling", event.pressed)
+			if event.pressed:
+				gesture.start = window.get_parent().make_canvas_position_local(event.global_position)
+				gesture.scale = window.scale.x
+				set_meta("windows_adjusted", true)
+				window.get_parent().move_child(window, -1)
+			grip.accept_event()
+		elif event is InputEventMouseMotion and gesture.active and get_meta("scaling", false):
+			var delta: Vector2 = window.get_parent().make_canvas_position_local(event.global_position) - gesture.start
+			var available: Vector2 = window.get_parent().size - window.position
+			var maximum := minf(available.x / window.size.x, available.y / window.size.y)
+			var factor: float = gesture.scale + delta.dot(window.size) / window.size.length_squared()
+			window.scale = Vector2.ONE * clampf(factor, minf(0.35, maximum), maximum)
+			grip.accept_event())
