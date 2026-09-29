@@ -141,4 +141,4 @@ Current architecture source comes from build c9d2985c; see its architecture-167 
 
 ## Native wall and skylight candidate #168
 
-See docs/evidence/surfaces-168-current/README.md. Wall now uses native matte #6f83a3 with no image dependency. Skylight SVG is authored vector source, SHA256 1c66ebd1f20cebb97e0f54e6e61396b2d46493d8329ad3453572afa0f5158098, source-led from the recorded Site Specific gallery2447/2456 photos; 8×8 thin pale grid, square UV scale, stepped modeled surround. Provider none/count0/USD0 for this group. Floor macro texture dependency removed. Candidates remain unselected pending separate saved-bake native/browser visual gates.
+See docs/evidence/surfaces-168-current/README.md. Wall now uses native matte #6f83a3 with no image dependency. Skylight SVG is authored vector source, SHA256 fe3627efa8da494eaeba99fbd9c9e1182c023dc640cfd491be348950093ae50b, source-led from the recorded Site Specific gallery2447/2456 photos; 8×8 thin pale grid, square UV scale, stepped modeled surround. Provider none/count0/USD0 for this group. Floor macro texture dependency removed. Candidates remain unselected pending separate saved-bake native/browser visual gates.
