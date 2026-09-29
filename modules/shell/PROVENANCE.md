@@ -67,3 +67,8 @@ Source candidate2670002d corrects portal supports/joins, bench upholstery/underf
 ## #177 owner-selected appearance restoration (2026-09-29)
 
 Owner-uploaded screenshot exactly matches6bdf721c architecture-167/owner-repairs/bake8/browser-12.png (SHA25624b88e74f55d557735c31b0df77f67ecba369539fac48ebbf6d1a96acbbeb969). Restore existing oak-muse.webp and wall-muse.webp with that floor mapping/plank size and slimmer cushion crown/rails. Existing bench-cloth-muse.webp retained; no new generation or spend. Later UV/rim correctness, portal/cutaway, character and containment repairs retained. Owner visual selection supersedes the later agent-selected floor/wall/cushion appearance.
+
+
+## #177 browser floor edge repair — 2026-09-29
+
+The restored warm parquet had rasterization holes at plank T-junctions. A magenta-background Web control exposed the same floor pixels as background. Each authored plank now has matching split edges, with shared lattice vertices quantized to 0.1 mm before world rotation. The saved floor ArrayMesh alone was retessellated; interpolated source colors, texture UVs and lightmap UVs remain. The existing lightmap, materials, source textures and scan hashes are unchanged. No rebake, provider request or spend. `floor_edges_check.gd` rejects the old mesh (6062 unmatched interior edges) and passes the repaired mesh (0). Browser/native matched close-ups and independent image review are recorded under `docs/evidence/owner-world-177/floor-repair/`.

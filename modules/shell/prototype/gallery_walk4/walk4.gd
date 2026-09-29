@@ -619,10 +619,55 @@ func _build_floor() -> void:
 	mat.set_shader_parameter("jitter", 0.0)  # herringbone has T-junctions: snapped corners would open cracks
 	mat.set_shader_parameter("plank", PLANK)
 	var mi := MeshInstance3D.new()
-	mi.mesh = st.commit()
+	mi.mesh = _conform_floor_edges(st.commit())
 	mi.material_override = mat
 	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_vp.add_child(mi)
+
+
+## Split each plank at its neighbors' corners: Web rasterization exposes T-junctions.
+## Preserve interpolated texture, color and lighting UVs, including in saved bakes.
+static func _conform_floor_edges(mesh: ArrayMesh) -> ArrayMesh:
+	var arrays := mesh.surface_get_arrays(0)
+	var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+	assert(vertices.size() % 6 == 0)
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var lattice := Transform2D(PI / 4, Vector2(0, -L / 2))
+	var inverse := lattice.affine_inverse()
+	for start in range(0, vertices.size(), 6):
+		var corners := [start, start + 1, start + 2, start + 5]
+		var perimeter: Array[Vector4] = []
+		for edge in 4:
+			var weights := Vector4.ZERO
+			weights[edge] = 1.0
+			perimeter.append(weights)
+			var next := (edge + 1) % 4
+			if vertices[corners[edge]].distance_to(vertices[corners[next]]) > PLANK.y * 1.5:
+				var fraction := (PLANK.x - PLANK.y) / PLANK.x if edge % 2 == 0 else PLANK.y / PLANK.x
+				weights[edge] = 1.0 - fraction
+				weights[next] = fraction
+				perimeter.append(weights)
+		for edge in perimeter.size():
+			for weights in [Vector4(0.25, 0.25, 0.25, 0.25), perimeter[edge], perimeter[(edge + 1) % perimeter.size()]]:
+				var position := Vector3.ZERO
+				var uv := Vector2.ZERO
+				var uv2 := Vector2.ZERO
+				var color := Color(0, 0, 0, 0)
+				for corner in 4:
+					var index: int = corners[corner]
+					position += vertices[index] * weights[corner]
+					uv += arrays[Mesh.ARRAY_TEX_UV][index] * weights[corner]
+					uv2 += arrays[Mesh.ARRAY_TEX_UV2][index] * weights[corner]
+					color += arrays[Mesh.ARRAY_COLOR][index] * weights[corner]
+				st.set_normal(Vector3.UP)
+				st.set_uv(uv)
+				st.set_uv2(uv2)
+				st.set_color(color)
+				# Identical lattice points must survive float arithmetic identically.
+				var planar := lattice * (inverse * Vector2(position.x, position.z)).snapped(Vector2.ONE * 0.0001)
+				st.add_vertex(Vector3(planar.x, position.y, planar.y))
+	return st.commit()
 
 
 # The arch end, as in the video: one white-cased door in the gallery wall; behind its plaster reveal the Romanesque
