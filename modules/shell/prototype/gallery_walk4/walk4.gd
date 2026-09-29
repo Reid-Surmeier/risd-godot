@@ -54,6 +54,8 @@ var _velocity := Vector3.ZERO
 var _source_meshes: Array[Node] = []
 var _baked_room: Node3D
 var _portal_floor_material: ShaderMaterial
+var _cutaway_materials := {}
+var _cutaway_alpha := {2: 1.0, 4: 1.0, 8: 1.0, 16: 1.0}
 var _white_capture: LightmapGI
 var _baked_lighting := true
 var _lighting_choice: CheckButton
@@ -1429,6 +1431,13 @@ func _set_lighting(enabled: bool) -> void:
 	if enabled and _baked_room == null:
 		_baked_room = load(DIR + "baked/room.tscn").instantiate()
 		_vp.add_child(_baked_room)
+		for mesh in _baked_room.find_children("*", "MeshInstance3D", true, false):
+			if mesh.layers in _cutaway_alpha and mesh.material_override is StandardMaterial3D:
+				var material: StandardMaterial3D = mesh.material_override.duplicate()
+				mesh.material_override = material
+				if not _cutaway_materials.has(mesh.layers):
+					_cutaway_materials[mesh.layers] = []
+				_cutaway_materials[mesh.layers].append({"material": material, "mode": material.transparency, "alpha": material.albedo_color.a})
 	if _baked_room:
 		_baked_room.visible = enabled
 	if _white_capture == null and ResourceLoader.exists(DIR + "baked/white.lmbake"):
@@ -1842,10 +1851,25 @@ func _clamp(p: Vector3) -> Vector3:
 
 # The camera follows behind the kid but never leaves the room: the line from the kid's head to where the camera
 # wants to be is cut where it would cross a wall.
-func _update_camera(k: float) -> void:
+func _cutaway_mask(target: int, blend: float) -> int:
+	if not _baked_lighting or _space == "far":
+		return target
+	var mask := target
+	for layer in _cutaway_alpha:
+		var alpha := move_toward(float(_cutaway_alpha[layer]), 1.0 if target & layer else 0.0, blend)
+		_cutaway_alpha[layer] = alpha
+		for entry in _cutaway_materials.get(layer, []):
+			entry.material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA if alpha < 1.0 else entry.mode
+			entry.material.albedo_color.a = entry.alpha * alpha
+		if alpha > 0.0:
+			mask |= layer
 	if _portal_floor_material:
-		# Hidden portal masonry cannot leave its baked footprint on the exposed floor.
-		_portal_floor_material.set_shader_parameter("cutaway", false)
+		_portal_floor_material.set_shader_parameter("cutaway", 1.0 - float(_cutaway_alpha[8]))
+	return mask
+
+func _update_camera(k: float) -> void:
+	# Fade visibility changes; the camera's angle, distance and FOV stay fixed.
+	var fade := minf(0.2, get_process_delta_time() * 2.5) if is_processing() else 1.0
 	if _baked_room:
 		_baked_room.get_node("Lightmap").visible = _space != "far"
 	if _white_capture:
@@ -1881,7 +1905,7 @@ func _update_camera(k: float) -> void:
 		eye.z = minf(eye.z, 6.3)
 		_cam.position = eye
 		_cam.fov = 58.0
-		_cam.cull_mask = 31
+		_cam.cull_mask = _cutaway_mask(31, fade)
 		_cam.look_at(_pos + forward * 2.0 + Vector3(0, 1.1, 0))
 		return
 	if view_mode != 2:
@@ -1896,13 +1920,11 @@ func _update_camera(k: float) -> void:
 		var hidden := (4 if forward.x < -0.2 else (2 if forward.x > 0.2 else 0)) | (8 if forward.z < -0.2 else (16 if forward.z > 0.2 else 0))
 		if _space == "arch":
 			hidden = (4 if forward.x < -0.2 else (2 if forward.x > 0.2 else 0)) | (16 if forward.z < -0.2 else (8 if forward.z > 0.2 else 0))
-		_cam.cull_mask = (1984 & ~(hidden * 64)) if _space == "far" else (31 & ~hidden)
-		if _portal_floor_material:
-			_portal_floor_material.set_shader_parameter("cutaway", _space != "far" and (_cam.cull_mask & 8) == 0)
+		_cam.cull_mask = _cutaway_mask((1984 & ~(hidden * 64)) if _space == "far" else (31 & ~hidden), fade)
 		if _view_label:
 			_view_label.text = "WASD · Click art · " + ("West wall" if forward.x < -0.5 else ("East wall" if forward.x > 0.5 else ("Far wall" if forward.z < -0.5 else "Arch wall")))
 		return
-	_cam.cull_mask = 1984 if _space == "far" else 63
+	_cam.cull_mask = _cutaway_mask(1984 if _space == "far" else 63, fade)
 	_cam.fov = 58.0
 	if _view_label:
 		_view_label.text = "WASD · Click art"

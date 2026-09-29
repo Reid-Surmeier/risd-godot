@@ -29,5 +29,9 @@ func run() -> void:
 	walk.view_mode = 2
 	walk._update_camera(1)
 	assert(not walk._portal_floor_material.get_shader_parameter("cutaway"), "Follow view lost baked floor lighting")
+	var transitioning: int = walk._cutaway_mask(23, 0.25)
+	assert(transitioning & 8, "Wall disappeared before fading")
+	assert(is_equal_approx(walk._cutaway_alpha[8], 0.75), "Wall fade jumped")
+	assert(is_equal_approx(walk._portal_floor_material.get_shader_parameter("cutaway"), 0.25), "Floor lighting did not follow wall fade")
 	print("CUTAWAY_FLOOR PASS")
 	quit()
