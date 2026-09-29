@@ -1,0 +1,21 @@
+<!doctype html><meta charset="utf-8"><title>Collection reconstruction study</title>
+<style>body{margin:0;background:#11171d;color:#edf3f7;font:16px system-ui}header{padding:20px 28px}h1{margin:0 0 8px;font-size:24px}p{margin:8px 0;color:#a9bac8}select,button{font:inherit;padding:7px;background:#263642;color:white;border:1px solid #5c7384}canvas{display:block;width:100%;height:75vh;touch-action:none}#status{font-variant-numeric:tabular-nums}</style>
+<header><h1>Collection museum · reconstruction study</h1><p>Measured sparse points and camera positions. No invented connecting geometry. Scale and world-up are unresolved.</p><label>Reconstruction <select id="models"></select></label> <button id="reset">Reset view</button><p id="status"></p><p>Drag to orbit · wheel to zoom · cyan points are recovered camera positions</p></header>
+<canvas id="scene" aria-label="Interactive sparse reconstruction; drag to orbit"></canvas>
+<script>
+const canvas=document.querySelector('canvas'),gl=canvas.getContext('webgl');
+if(!gl)throw Error('WebGL unavailable');
+function shader(type,source){const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s}
+const program=gl.createProgram();
+gl.attachShader(program,shader(gl.VERTEX_SHADER,`attribute vec3 p;attribute vec3 c;attribute float size;uniform vec4 view;varying vec3 color;void main(){float a=view.x,b=view.y;vec3 q=vec3(cos(a)*p.x+sin(a)*p.z,p.y,-sin(a)*p.x+cos(a)*p.z);q=vec3(q.x,cos(b)*q.y-sin(b)*q.z,sin(b)*q.y+cos(b)*q.z);gl_Position=vec4(q.x*view.z/view.w,-q.y*view.z,q.z*.15,1.);gl_PointSize=size;color=c;}`));
+gl.attachShader(program,shader(gl.FRAGMENT_SHADER,`precision mediump float;varying vec3 color;void main(){gl_FragColor=vec4(color,1.);}`));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));gl.useProgram(program);
+const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+for(const [name,n,offset] of [['p',3,0],['c',3,12],['size',1,24]]){const a=gl.getAttribLocation(program,name);gl.enableVertexAttribArray(a);gl.vertexAttribPointer(a,n,gl.FLOAT,false,28,offset)}
+let data,count=0,yaw=.3,pitch=.3,zoom=.8;
+function draw(){canvas.width=canvas.clientWidth*devicePixelRatio;canvas.height=canvas.clientHeight*devicePixelRatio;gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(.055,.078,.1,1);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.enable(gl.DEPTH_TEST);gl.uniform4f(gl.getUniformLocation(program,'view'),yaw,pitch,zoom,canvas.width/canvas.height);gl.drawArrays(gl.POINTS,0,count)}
+function choose(){const m=data[document.querySelector('select').value];gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(m.vertices),gl.STATIC_DRAW);count=m.vertices.length/7;document.querySelector('#status').textContent=`${m.images} recovered views · ${m.points} reconstructed points · ${m.error === null ? "depth quality not scored" : "fitted reprojection error "+m.error.toFixed(2)+" px"} · ${m.clips.join(', ')}`;draw();window.reconstructionReady=true}
+fetch('scene.json').then(r=>r.json()).then(d=>{data=d;d.forEach((m,i)=>document.querySelector('select').add(new Option(m.label,i)));choose()});
+document.querySelector('select').onchange=choose;document.querySelector('#reset').onclick=()=>{yaw=.3;pitch=.3;zoom=.8;draw()};
+canvas.onpointerdown=e=>canvas.setPointerCapture(e.pointerId);canvas.onpointermove=e=>{if(canvas.hasPointerCapture(e.pointerId)){yaw+=e.movementX*.008;pitch+=e.movementY*.008;draw()}};canvas.onpointerup=e=>canvas.releasePointerCapture(e.pointerId);
+canvas.onwheel=e=>{e.preventDefault();zoom=Math.max(.1,Math.min(8,zoom*Math.exp(-e.deltaY*.001)));draw()};window.onresize=draw;
+</script>
