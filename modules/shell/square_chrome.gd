@@ -15,6 +15,8 @@ var start_menu: PopupMenu
 var title_label: Label
 var tab_buttons: Array[Button] = []
 var search_requested: Callable
+var fullscreen_button: Button
+var _fullscreen_callback: JavaScriptObject
 
 
 func _ready() -> void:
@@ -56,6 +58,17 @@ func _ready() -> void:
 	inset.set_content_margin_all(6)
 	for state_name in ["normal", "hover", "pressed", "focus"]:
 		search.add_theme_stylebox_override(state_name, inset)
+	fullscreen_button = _button(header, "Full screen", Rect2(872, 8, 190, 38), "", _toggle_fullscreen)
+	fullscreen_button.name = "Fullscreen"
+	fullscreen_button.tooltip_text = "Expand to full screen; proportions stay unchanged"
+	get_window().size_changed.connect(_sync_fullscreen)
+	if OS.has_feature("web"):
+		fullscreen_button.disabled = not JavaScriptBridge.eval("!!document.fullscreenEnabled")
+		if fullscreen_button.disabled:
+			fullscreen_button.tooltip_text = "Open this page in a browser window to use full screen."
+		_fullscreen_callback = JavaScriptBridge.create_callback(func(_args: Array) -> void: _sync_fullscreen())
+		JavaScriptBridge.get_interface("document").addEventListener("fullscreenchange", _fullscreen_callback)
+	_sync_fullscreen()
 	strip.size = Vector2(BAND_WIDTH, 186)
 	var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(COMPACT + "layout.json"))
 	_raster(strip, COMPACT + "bar_stripes.png", Rect2(0, 0, BAND_WIDTH, 186))
@@ -182,3 +195,28 @@ func _search() -> void:
 func _open_start() -> void:
 	start_menu.position = Vector2i(0, int(1026 - start_menu.get_contents_minimum_size().y))
 	start_menu.popup()
+
+
+func _is_fullscreen() -> bool:
+	if OS.has_feature("web"):
+		return JavaScriptBridge.eval("!!document.fullscreenElement")
+	return get_window().mode in [Window.MODE_FULLSCREEN, Window.MODE_EXCLUSIVE_FULLSCREEN]
+
+
+func _sync_fullscreen() -> void:
+	fullscreen_button.text = "Exit full screen" if _is_fullscreen() else "Full screen"
+	if OS.has_feature("web") and JavaScriptBridge.eval("!!window.risdFullscreenError"):
+		fullscreen_button.tooltip_text = "Your browser blocked full screen in this window."
+
+
+func _toggle_fullscreen() -> void:
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.risdFullscreenError = false; (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()).catch(() => { window.risdFullscreenError = true; document.dispatchEvent(new Event('fullscreenchange')); })")
+	else:
+		get_window().mode = Window.MODE_WINDOWED if _is_fullscreen() else Window.MODE_FULLSCREEN
+	_sync_fullscreen()
+
+
+func _exit_tree() -> void:
+	if _fullscreen_callback != null:
+		JavaScriptBridge.get_interface("document").removeEventListener("fullscreenchange", _fullscreen_callback)

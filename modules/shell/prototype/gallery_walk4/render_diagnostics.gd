@@ -86,8 +86,7 @@ func _pose(scene: String) -> void:
 	view.set_process(false)
 	view._entrance_waiting = false
 	view._entrance_active = false
-	view._detail.hide()
-	view._open.clear()
+	view._close_detail()
 	view._view_panel.hide()
 	view._enter_space("far" if scene == "white" else "gallery")
 	view._portal_flash.modulate.a = 0.0
@@ -179,6 +178,26 @@ func _publish() -> void:
 	for bone in view._kid.target.get_bone_count():
 		poses.append(view._kid.target.get_bone_pose(bone))
 	state["visitor"] = {"identity": "Hair36", "phase": view._kid.phase, "idle_time": view._kid._clock, "yaw": view._kid.rotation.y, "pose_hash": hash(poses)}
+	state["preview"] = {"tag": view._open.get("tag", ""), "visible": view._detail.visible, "zoom": view._zoom, "pan": [view._zoom_root.position.x, view._zoom_root.position.y],
+		"outer_frame_visible": view.get_parent() is TextureRect and view.get_parent().self_modulate.a > 0.0}
+	var picture: TextureRect = view._zoom_root.get_node("Painting")
+	state["preview"]["picture_size"] = [picture.size.x, picture.size.y]
+	state["preview"]["source_size"] = [picture.texture.get_width(), picture.texture.get_height()] if picture.texture else [0, 0]
+	var close_rect: Rect2 = view._detail.get_node("Close").get_global_rect()
+	state["preview"]["close"] = [close_rect.get_center().x / desktop_size.x, close_rect.get_center().y / desktop_size.y]
+	var targets := []
+	for painting in view._paintings:
+		if not view._painting_shown(painting): continue
+		var outline: PackedVector2Array = view._visible_outline(painting.corners)
+		var clipped := Geometry2D.intersect_polygons(outline, PackedVector2Array([Vector2.ZERO, Vector2(view.size.x, 0), view.size, Vector2(0, view.size.y)]))
+		if clipped.is_empty(): continue
+		outline = clipped[0]
+		if outline.size() < 3: continue
+		var point := Vector2.ZERO
+		for vertex in outline: point += vertex / outline.size()
+		point = (view.global_position + point) / desktop_size
+		targets.append({"tag": painting.tag, "point": [point.x, point.y]})
+	state["visible_paintings"] = targets
 	state["godot_delta_ms"] = _frame_delta_ms
 	state["godot_process_ms"] = Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0
 	state["godot_post_draw_interval_ms"] = _draw_interval_ms

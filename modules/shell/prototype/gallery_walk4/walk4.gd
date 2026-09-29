@@ -8,6 +8,8 @@
 ## pan, double-click to zoom in, Esc or a click outside the painting to close.
 extends Control
 
+signal detail_changed(open: bool)
+
 const PaintingAsset := preload("res://modules/shell/prototype/gallery_walk4/painting_asset.gd")
 const DIR := "res://modules/shell/prototype/gallery_walk4/"
 const LOW_RES := Vector2i(480, 320)
@@ -121,6 +123,7 @@ func _ready() -> void:
 	_cam.near = 0.05
 	_vp.add_child(_cam)
 	_build_detail()
+	resized.connect(_fit_detail)
 	_build_sounds()
 	_build_view_controls()
 	_pos = Vector3(0, 0, -0.35)
@@ -364,8 +367,8 @@ func _build_room() -> void:
 		Vector2(0.46, 0.205), Vector2(0.48, 0.16), Vector2(0.50, 0),
 	]
 	for s in [-1.0, 1.0]:
-		_box(Vector3(s * (X - 0.04), 0.12, -L / 2), Vector3(0.08, 0.24, L), WHITE, 1, white)
-		_box(Vector3(s * (X - 0.06), 0.255, -L / 2), Vector3(0.12, 0.05, L), WHITE, 1, white)
+		_box(Vector3(s * (X - 0.04), 0.12, -L / 2), Vector3(0.08, 0.24, L), WHITE, 1, white).set_meta("baseboard", true)
+		_box(Vector3(s * (X - 0.06), 0.255, -L / 2), Vector3(0.12, 0.05, L), WHITE, 1, white).set_meta("baseboard", true)
 		_trim_profile(Vector3(s * X, H - 0.50, 0), Vector3.UP, Vector3(0, 0, -L), cornice_section, cornice, Vector3(-s, 0, 0))
 	for z in [0.0, -L]:
 		_trim_profile(Vector3(-X, H - 0.50, z), Vector3.UP, Vector3(W, 0, 0), cornice_section, cornice, Vector3(0, 0, -1 if z == 0.0 else 1))
@@ -1692,6 +1695,7 @@ func _merge_static() -> void:
 			continue
 		# SurfaceTool cannot mix indexed primitives with unindexed triangle lists:
 		# doing so leaves the latter vertices unreferenced (e.g. upholstered seats).
+		key += "|baseboard:%s" % mi.get_meta("baseboard", false)
 		key += "|layer:%s|indexed:%s" % [mi.layers, mi.mesh.surface_get_arrays(0)[Mesh.ARRAY_INDEX] != null]
 		if not groups.has(key):
 			groups[key] = []
@@ -1707,6 +1711,7 @@ func _merge_static() -> void:
 				st.append_from(mi.mesh, surf, xf)
 		var merged := MeshInstance3D.new()
 		merged.mesh = st.commit()
+		merged.set_meta("baseboard", list[0].get_meta("baseboard", false))
 		merged.layers = list[0].layers
 		merged.material_override = list[0].material_override
 		merged.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
@@ -1767,6 +1772,7 @@ func _build_detail() -> void:
 	_zoom_root.add_child(pic)
 	var close := TextureButton.new()  # the game's own tab close icon, drawn at twice its size
 	close.name = "Close"
+	close.tooltip_text = "Close artwork · Escape"
 	close.texture_normal = load("res://modules/tab_strip/assets/icon_close.png")
 	close.texture_pressed = load("res://modules/tab_strip/assets/icon_close_pressed.png")
 	close.ignore_texture_size = true
@@ -1786,9 +1792,24 @@ func _build_detail() -> void:
 
 
 func _open_detail(p: Dictionary) -> void:
+	_open = p
 	_view_panel.hide()
 	get_node("OtherWall").hide()
 	_velocity = Vector3.ZERO
+	_held.clear()
+	_detail.visible = true
+	_detail.modulate.a = 1.0
+	detail_changed.emit(true)
+	_fit_detail()
+	_detail.get_node("Close").grab_focus()
+	_play("menu_open")
+	get_tree().create_timer(0.18).timeout.connect(func() -> void: _play("pickup"))
+
+
+func _fit_detail() -> void:
+	if _open.is_empty() or _zoom_root == null:
+		return
+	var p: Dictionary = _open
 	var rec: Dictionary = p.rec
 	var pic: TextureRect = _zoom_root.get_node("Painting")
 	var frame: NinePatchRect = _zoom_root.get_node("Frame")
@@ -1817,24 +1838,18 @@ func _open_detail(p: Dictionary) -> void:
 	_zoom = 1.0
 	_zoom_root.scale = Vector2.ONE
 	_zoom_root.position = (size - Vector2(pw, ph)) / 2.0
-	_open = p
-	_held.clear()
-	_play("menu_open")
-	get_tree().create_timer(0.18).timeout.connect(func() -> void: _play("pickup"))
-	_detail.visible = true
-	var t := create_tween()
-	t.tween_property(_detail, "modulate:a", 1.0, 0.4)
 
 
 func _close_detail() -> void:
+	if _open.is_empty():
+		return
 	_view_panel.hide()
 	_play("menu_close")
-	var t := create_tween()
-	t.tween_property(_detail, "modulate:a", 0.0, 0.3)
-	await t.finished
-	_detail.visible = false
 	_open = {}
+	detail_changed.emit(false)
+	_detail.visible = false
 	get_node("OtherWall").show()
+	grab_focus()
 
 
 func _zoom_at(point: Vector2, factor: float) -> void:
@@ -2051,10 +2066,10 @@ func _update_camera(k: float) -> void:
 		return
 	if view_mode != 2:
 		var pitch := deg_to_rad(42.0 if view_mode == 0 else 35.0)
-		var distance := 14.2 if view_mode == 0 else 9.3
+		var distance := 11.0 if view_mode == 0 else 9.3
 		_cam.fov = 23.0 if view_mode == 0 else 30.0
 		var forward := Vector3(-sin(view_yaw), 0, -cos(view_yaw))
-		var center := _pos + forward * 0.7 + Vector3(0, 1.85 if view_mode == 0 else 1.55, 0)
+		var center := _pos + forward * 0.7 + Vector3(0, 1.25 if view_mode == 0 else 1.55, 0)
 		# Follow the kid along the gallery; the cutaway lets the eye sit outside it.
 		_cam.position = center - forward * distance * cos(pitch) + Vector3.UP * distance * sin(pitch)
 		_cam.look_at(center)

@@ -203,8 +203,15 @@ func _initialize() -> void:
 		var wanted := atan2(painting.normal.x, painting.normal.z)
 		await _face(wanted)
 		await create_timer(0.2).timeout
-		var point: Vector2 = walk._cam.unproject_position(painting.center) / Vector2(walk._vp.size) * walk.size
-		_require(Rect2(Vector2.ZERO, walk.size).has_point(point), "painting center outside view: " + painting.tag)
+		# #189 closer framing can crop tall artwork; click its visible portion.
+		var outline: PackedVector2Array = walk._visible_outline(painting.corners)
+		var clipped := Geometry2D.intersect_polygons(outline, PackedVector2Array([Vector2.ZERO, Vector2(walk.size.x, 0), walk.size, Vector2(0, walk.size.y)]))
+		if not clipped.is_empty():
+			outline = clipped[0]
+		_require(outline.size() >= 3, "painting entirely outside view: " + painting.tag)
+		var point := Vector2.ZERO
+		for vertex in outline:
+			point += vertex / outline.size()
 		await _click(walk.global_position + point, painting.tag)
 		for i in 100:
 			if not walk._open.is_empty():

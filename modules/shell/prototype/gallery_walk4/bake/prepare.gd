@@ -85,10 +85,10 @@ func _prepare() -> void:
 		var material := StandardMaterial3D.new()
 		material.albedo_color = original.get_shader_parameter("tint") if original.get_shader_parameter("tint") != null else Color.WHITE
 		material.albedo_texture = original.get_shader_parameter("albedo")
-		if cornice_mesh:
+		if cornice_mesh or source.get_meta("baseboard", false):
 			# Local neutral fill keeps plaster distinct from the warm vault bake.
 			material.emission_enabled = true
-			material.emission = Color(0.35, 0.35, 0.35)
+			material.emission = Color(0.55, 0.55, 0.55) if source.get_meta("baseboard", false) else Color(0.35, 0.35, 0.35)
 		var uv_scale = original.get_shader_parameter("uv_scale")
 		if uv_scale != null:
 			material.uv1_scale = Vector3(uv_scale.x, uv_scale.y, 1)

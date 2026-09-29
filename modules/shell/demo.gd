@@ -51,12 +51,20 @@ func _ready() -> void:
 		var walk: Control = load("res://modules/shell/prototype/gallery_walk4/walk4.gd").new()
 		walk.name = "GalleryWalk"
 		page.add_child(walk)
-		page.resized.connect(func() -> void:
+		var fit := func() -> void:
+			if not walk._open.is_empty():
+				walk.position = Vector2(24, 12)
+				walk.size = page.size - Vector2(48, 24)
+				return
 			var tex_size: Vector2 = page.texture.get_size()
 			var s := minf(page.size.x / tex_size.x, page.size.y / tex_size.y)
 			var origin := (page.size - tex_size * s) / 2
 			walk.position = (origin + Vector2(458, 521) * s).round()
-			walk.size = (Vector2(2110, 1412) * s).round())
+			walk.size = (Vector2(2110, 1412) * s).round()
+		page.resized.connect(fit)
+		walk.detail_changed.connect(func(open: bool) -> void:
+			page.self_modulate.a = 0.0 if open else 1.0
+			fit.call())
 		return {"ok": true, "value": page, "error": null}
 	var sketchbook_factory := func(deps: Dictionary) -> Dictionary:
 		var page_deps := deps.duplicate()

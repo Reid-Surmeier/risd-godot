@@ -57,3 +57,5 @@ The logical desktop is 1080×1080. It scales uniformly by the smaller browser di
 The tentabrobpy CC0 Squigglevision shader is the final screen pass after that CRT. It
 uses a seamless 256×256 FastNoiseLite texture, a 0.45-pixel displacement and held
 3 FPS frames. F9 toggles it independently without changing F8, the Shell or a Tenant.
+
+Collection artwork preview (#189) temporarily hides the outer game frame and fits only the selected painting and its own frame to the Page. X or Escape restores the original frame and visitor position. The shared header uses native browser/window fullscreen; the square desktop scales uniformly. Dollhouse framing brings the visitor closer. Main-gallery white baseboards receive the same material-fill treatment as the cornice, without changing baked geometry or lightmaps. `playtest/collection_preview_check.gd` exercises the private composition with real clicks.
