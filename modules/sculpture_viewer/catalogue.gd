@@ -71,7 +71,7 @@ var detail_labels: Dictionary = {}
 
 func _ready() -> void:
 	size = Vector2(1050, 1680)
-	mouse_filter = Control.MOUSE_FILTER_STOP
+	mouse_filter = Control.MOUSE_FILTER_PASS
 	mouse_exited.connect(func() -> void:
 		hovered = -1
 		tick = 0.0
