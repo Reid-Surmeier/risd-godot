@@ -1433,11 +1433,19 @@ func _set_lighting(enabled: bool) -> void:
 		_vp.add_child(_baked_room)
 		for mesh in _baked_room.find_children("*", "MeshInstance3D", true, false):
 			if mesh.layers in _cutaway_alpha and mesh.material_override is StandardMaterial3D:
-				var material: StandardMaterial3D = mesh.material_override.duplicate()
-				mesh.material_override = material
+				var original: StandardMaterial3D = mesh.material_override
+				var material := ShaderMaterial.new()
+				material.shader = load(DIR + "cutaway.gdshader")
+				material.set_shader_parameter("textured", original.albedo_texture != null)
+				material.set_shader_parameter("tex", original.albedo_texture)
+				material.set_shader_parameter("tint", original.albedo_color)
+				material.set_shader_parameter("uv_scale", original.uv1_scale)
+				material.set_shader_parameter("vertex_tint", original.vertex_color_use_as_albedo)
+				material.set_shader_parameter("unshaded", original.shading_mode == BaseMaterial3D.SHADING_MODE_UNSHADED)
+				material.set_shader_parameter("scissor", original.alpha_scissor_threshold if original.transparency == BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR else 0.0)
 				if not _cutaway_materials.has(mesh.layers):
 					_cutaway_materials[mesh.layers] = []
-				_cutaway_materials[mesh.layers].append({"material": material, "mode": material.transparency, "alpha": material.albedo_color.a})
+				_cutaway_materials[mesh.layers].append({"mesh": mesh, "material": material, "original": original})
 	if _baked_room:
 		_baked_room.visible = enabled
 	if _white_capture == null and ResourceLoader.exists(DIR + "baked/white.lmbake"):
@@ -1862,8 +1870,8 @@ func _cutaway_mask(target: int, blend: float) -> int:
 		var alpha := move_toward(float(_cutaway_alpha[layer]), 1.0 if target & layer else 0.0, blend)
 		_cutaway_alpha[layer] = alpha
 		for entry in _cutaway_materials.get(layer, []):
-			entry.material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_HASH if alpha < 1.0 else entry.mode
-			entry.material.albedo_color.a = entry.alpha * alpha
+			entry.mesh.material_override = entry.material if alpha < 1.0 else entry.original
+			entry.material.set_shader_parameter("cutaway_opacity", alpha)
 		if alpha > 0.0:
 			mask |= layer
 	if _portal_floor_material:
