@@ -13,3 +13,5 @@ FAIL for source fidelity. Fabric weave and rounded corners improve the rejected 
 ## Technical evidence
 
 Bake completed BAKE_OK users=124, import and export completed. Repository check, floor coverage (9/9 samples), portal topology and static camera/FOV/cushion assertions passed. These checks do not override the visual FAIL. Browser runs tracked separately. No build integration or issue closure.
+
+Browser addendum: all ten static captures completed at720/1600 with zero page errors. Independent image-only bench review confirms native/browser parity and maintains FAIL for weak tufting, flat cushion and black button spots. Export PCK SHA256 `8a36d95a7e3c269a7504768100106117a92a517b6b831d4668d90332906b72e6`; room.exr SHA256 `ecf39423b03cc728b071e1d5ab0b112d44c88867b4a140f8f66dfbaa91c2fb37`.
