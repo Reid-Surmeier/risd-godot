@@ -21,10 +21,12 @@ void fragment() {
 	float face = min(floor(COLOR.a * 8.0), 7.0);
 	float row = floor(face * 0.5);
 	float column = mod(face, 2.0);
+	float row_start = vec4(0.0, 0.276, 0.525, 0.753)[int(row)];
+	float row_end = vec4(0.276, 0.525, 0.753, 1.0)[int(row)];
 	vec2 grain_uv = vec2((column + 0.04 + UV.x * 0.92) * 0.5,
-		(row + 0.06 + UV.y * 0.88) * 0.25);
+		mix(row_start, row_end, 0.06 + UV.y * 0.88));
 	vec3 grain = textureGrad(oak, grain_uv, dFdx(grain_uv), dFdy(grain_uv)).rgb;
-	vec3 grain_origin = textureLod(oak, vec2((column + 0.5) * 0.5, (row + 0.5) * 0.25), 6.0).rgb;
+	vec3 grain_origin = textureLod(oak, vec2((column + 0.5) * 0.5, mix(row_start, row_end, 0.5)), 6.0).rgb;
 	vec3 grain_detail = clamp((grain - grain_origin) * 1.0, vec3(-0.10), vec3(0.10));
 	// The full floor image has a second herringbone; its 4x4 mip only supplies
 	// broad photo-guided colour patches, never a visible structural overlay.

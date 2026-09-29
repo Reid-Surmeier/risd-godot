@@ -134,3 +134,7 @@ review with minor sheen/grain and scene-wide native-softness reservations.
 This is the selected floor visual candidate, pending navigation and build
 integration checks; it is not acceptance of the wall or skylight batches.
 the current build retains the previous floor.
+
+## Floor grain continuation #168 — 2026-09-29
+
+Current architecture source comes from build c9d2985c; see its architecture-167 records for unchanged portal, cornice, bench and visitor sources. Reconciled floor aa144f72/7f0d9f6c failed fresh close-detail review. One new OpenRouter meta/muse-image source-guided atlas request: run3d3e631edf2e83b935bb12cb, count1, actual recorded USD0.01, counted spent despite spendStateunknown; neverresubmit. Ordered Site Specific gallery2456/2447 reference URLs/hashes retained in image-work/floor-168-board-v2/README.md, new prompt/plan/receipt in image-work/floor-168-board-v3. Native atlas2240×1120 SHA25665ba2455f048c900562678cc42dcc55d89b608deef763e5e35e7d708e3d8a9ff, runtime textures/oak-board-atlas-168-v3.webp byte-identical. Unequal rows handled in UV crop, no edited image pixels. Input-only independent pass; no rendered acceptance or build integration yet.

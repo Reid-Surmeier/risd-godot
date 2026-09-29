@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dkm7emp04hogo" path="res://modules/shell/prototype/gallery_walk4/textures/oak-muse.webp" id="1_yn1v0"]
 [ext_resource type="Texture2D" uid="uid://cvk3jh1w014f6" path="res://modules/shell/prototype/gallery_walk4/textures/wall-muse.webp" id="2_yksqi"]
 [ext_resource type="Texture2D" uid="uid://bwey73iuihcx6" path="res://modules/shell/prototype/gallery_walk4/textures/stone.png" id="2_yn1v0"]
-[ext_resource type="Texture2D" uid="uid://bcky6cqxb8ois" path="res://modules/shell/prototype/gallery_walk4/textures/oak-board-atlas-168-v2.webp" id="2_yxtfc"]
+[ext_resource type="Texture2D" path="res://modules/shell/prototype/gallery_walk4/textures/oak-board-atlas-168-v3.webp" id="2_yxtfc"]
 [ext_resource type="Texture2D" uid="uid://bjfes7qglxfya" path="res://modules/shell/prototype/gallery_walk4/textures/floor.png" id="3_0637x"]
 [ext_resource type="Texture2D" uid="uid://dj4r0ugufmt72" path="res://modules/shell/prototype/gallery_walk4/textures/door-arch.jpg" id="3_yksqi"]
 [ext_resource type="Texture2D" uid="uid://ckd1bnhtgoog" path="res://modules/shell/prototype/gallery_walk4/textures/skylight.png" id="5_2g0w5"]

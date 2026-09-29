@@ -29,8 +29,10 @@ void fragment() {
 		float face = min(floor(COLOR.a * 8.0), 7.0);
 		float row = floor(face * 0.5);
 		float column = mod(face, 2.0);
+		float row_start = vec4(0.0, 0.276, 0.525, 0.753)[int(row)];
+		float row_end = vec4(0.276, 0.525, 0.753, 1.0)[int(row)];
 		image_uv = vec2((column + 0.04 + UV.x * 0.92) * 0.5,
-			(row + 0.06 + UV.y * 0.88) * 0.25);
+			mix(row_start, row_end, 0.06 + UV.y * 0.88));
 	}
 	vec4 c = use_texture ? texture(albedo, image_uv) : vec4(1.0);
 	c *= tint;

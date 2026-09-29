@@ -599,7 +599,7 @@ func _build_floor() -> void:
 					st.set_uv(board_uv[i])
 					st.set_uv2(board_uv2[i])
 					st.add_vertex(points[i])
-	var mat := ps(load(DIR + "textures/oak-board-atlas-168-v2.webp"), Color(1.18, 1.16, 1.14), Vector2.ONE, true)
+	var mat := ps(load(DIR + "textures/oak-board-atlas-168-v3.webp"), Color(1.18, 1.16, 1.14), Vector2.ONE, true)
 	mat.set_shader_parameter("plank_seams", true)
 	mat.set_shader_parameter("oak_atlas", true)
 	mat.set_shader_parameter("jitter", 0.0)  # herringbone has T-junctions: snapped corners would open cracks
