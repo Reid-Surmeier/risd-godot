@@ -146,3 +146,7 @@ See docs/evidence/surfaces-168-current/README.md. Wall now uses native matte #6f
 ## Final integrated fidelity corrections (#176, candidate)
 
 Existing gallery-2456 and grand-gallery-v2 source photographs resolve the previously understated bench cushion/rail, four supports per long side, broad portal backing/base, ventilation slots, panel joints and caption plates. Native geometry reuses existing cloth/stone/wall materials; no new generated imagery or paid calls. `docs/evidence/world-176/source-notes.md` records scope and measurement limits. Caption plates deliberately contain no invented wording. Candidate requires a fresh bake and independent visual selection.
+
+## #177 owner-selected appearance restoration (2026-09-29)
+
+Owner-uploaded screenshot exactly matches6bdf721c architecture-167/owner-repairs/bake8/browser-12.png (SHA25624b88e74f55d557735c31b0df77f67ecba369539fac48ebbf6d1a96acbbeb969). Restore existing oak-muse.webp and wall-muse.webp with that floor mapping/plank size and slimmer cushion crown/rails. Existing bench-cloth-muse.webp retained; no new generation or spend. Later UV/rim correctness, portal/cutaway, character and containment repairs retained. Owner visual selection supersedes the later agent-selected floor/wall/cushion appearance.

@@ -25,10 +25,10 @@ func run() -> void:
 			var side_start := 96 * 32 * 6
 			assert(absf(uv[side_start].x - uv[side_start + 1].x) > 0.001, "side quad stretches a single texture column")
 			var bounds: AABB = mesh.mesh.get_aabb()
-			assert(bounds.size.y > 0.20 and bounds.end.y <= 0.461, "thin or oversized cushion")
+			assert(bounds.size.y > 0.11 and bounds.end.y <= 0.421, "owner-selected cushion envelope changed")
 	assert(legs == 16 and vents == 6 and captions == 23 and cushions == 2)
 	assert(walk._paintings.size() == 23)
 	walk._vp.free()
 	walk.free()
-	print("WORLD176 source: 16 turned supports, 2 thick cushions, 6 vents, 23 caption plates PASS")
+	print("WORLD176 source: 16 turned supports, 2 owner-selected cushions, 6 vents, 23 caption plates PASS")
 	quit()
