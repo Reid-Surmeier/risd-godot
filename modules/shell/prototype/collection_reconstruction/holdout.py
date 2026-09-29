@@ -1,4 +1,5 @@
 """Localize withheld photographs against a frozen sparse model; never refit it."""
+import argparse
 import collections
 import json
 import pathlib
@@ -9,9 +10,14 @@ import numpy as np
 import pycolmap
 
 root = pathlib.Path('/home/reidsurmeier/risd-godot-ingestion/collection-expansion')
-source = root/'sfm-galleries-v3'
-all_references = '--all-references' in sys.argv
-output = root/('heldout-v2' if all_references else 'heldout-v1')
+parser=argparse.ArgumentParser()
+parser.add_argument('--source',default='sfm-galleries-v3')
+parser.add_argument('--output')
+parser.add_argument('--all-references',action='store_true')
+args=parser.parse_args()
+source = root/args.source
+all_references = args.all_references
+output = root/(args.output or ('heldout-v2' if all_references else 'heldout-v1'))
 output.mkdir(exist_ok=True)
 database = output/'database.db'
 assert not database.exists(), 'Use a new trial directory; preserve previous evaluation'
