@@ -7,3 +7,11 @@ The prior floor candidate is af3eb976. Its existing capture-tool changes were pr
 Current architecture source, hashes, provider/cost and reviews remain recorded at [c9d2985c](https://github.com/Reid-Surmeier/risd-godot/tree/c9d2985c/docs/evidence/architecture-167). The floor atlas provenance and prior visual review remain in this directory and image-work/floor-168-board-v2. No new generated image or paid call.
 
 Import, scripts/check.sh and owner_repair_check.gd passed before baking. A fresh bake and native/Web image-only review remain required. The wall and skylight gates remain open.
+
+## Rebake and initial checks
+
+Godot 4.7.2 bake returned exit 0, 127 users, 333.56 seconds. Its editor logged a list erase condition and get_node outside-tree error during shutdown; a subsequent fresh import, native capture and export completed without errors. Repository checks and whitespace passed after bake. This is technical evidence only; independent review and browser checks are pending.
+
+- `room.tscn` SHA256 `4f88dd6f63b4d0988676370d84dbaafebc3753236c93444f6d14f3a280affaaf`
+- `room.exr` SHA256 `dcf72860e9192a049e0e5bb143ffaedebfe8c8df4e5ec8f761acada813e3b5b3`
+- `room.lmbake` SHA256 `c5bd899fe946ddbaa47df032f8dbd98b9d7e6111b2c2c162057c7f3f31e8cc97`
