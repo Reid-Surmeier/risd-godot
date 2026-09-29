@@ -111,3 +111,7 @@ Godot 4.7.2 extracts each embedded JPEG beside its GLB during import (no texture
 | `proton-scan-20260811122415_20260811122415.jpg` | `11ce6c3272d41248fbe51b4a0d347a575fd3d1ec2842470577fe246104af4725` |
 | `proton-scan-20260811123051_20260811123051.jpg` | `07f3925095dee7f29c7480758075255fa6689a3e038e2bbffa2cfd6087c25e48` |
 | `proton-scan-20260820133334_20260820133334.jpg` | `ac0a8420ff16e964554d45fbebd2801b262dc7c942f971303ccfa8d5ab58cc88` |
+
+## Independent chat/friends windows (#192)
+
+Existing setup raster `panel-2x.png` (SHA256 `d6cdb4c2c3ff042ea3380868184d297ea608f733bd377723cc71fd792f5b99d5`) reused with runtime AtlasTexture crops; source pixels unchanged. Logical source rectangles: setup `(0,0,1050,1320)`, chat `(15,1320,665,315)`, friends `(700,1320,330,315)`; multiply by2 for source pixels. UI corner grips are native Godot controls. Provider none, count0, USD0; no generated assets or scan changes.
