@@ -468,6 +468,10 @@ func _bench_cushion(z: float) -> void:
 				var dx := _bench_surface(point.x + 0.001, point.z) - _bench_surface(point.x - 0.001, point.z)
 				var dz := _bench_surface(point.x, point.z + 0.001) - _bench_surface(point.x, point.z - 0.001)
 				st.set_normal(dz.cross(dx).normalized())
+				# Authored cavity occlusion follows the modeled tuft depth, not painted buttons.
+				var edge := minf(0.475 - absf(point.x), 1.5 - absf(point.z))
+				var crown := 0.355 + 0.065 * sin(clampf(edge / 0.13, 0, 1) * PI / 2)
+				st.set_color(Color.WHITE * lerpf(1.0, 0.55, clampf((crown - point.y) / 0.065, 0, 1)))
 				st.set_uv(Vector2(point.x, point.z) * 1.8)
 				st.add_vertex(point + Vector3(0, 0, z))
 	# Match the sampled top edge with a rounded lower welt, without box corners.
@@ -478,6 +482,7 @@ func _bench_cushion(z: float) -> void:
 			var t := float(i) / count
 			var point := Vector2(-0.475 + t * 0.95, -1.5) if edge == 0 else (Vector2(0.475, -1.5 + t * 3) if edge == 1 else (Vector2(0.475 - t * 0.95, 1.5) if edge == 2 else Vector2(-0.475, 1.5 - t * 3)))
 			perimeter.append(_bench_surface(point.x, point.y))
+	st.set_color(Color.WHITE)
 	for i in perimeter.size():
 		var a := perimeter[i]
 		var b := perimeter[(i + 1) % perimeter.size()]
@@ -496,7 +501,7 @@ func _bench_cushion(z: float) -> void:
 				st.add_vertex(quad[index] + Vector3(0, 0, z))
 	var seat := MeshInstance3D.new()
 	seat.mesh = st.commit()
-	seat.material_override = ps(load(DIR + "textures/bench-cloth-muse.webp"), Color(1.1, 1.1, 1.1))
+	seat.material_override = ps(load(DIR + "textures/bench-cloth-muse.webp"), Color(1.1, 1.1, 1.1), Vector2.ONE, true)
 	seat.set_meta("bench_cushion", true)
 	_vp.add_child(seat)
 	# Fabric-covered buttons sit inside the modeled depressions in the source bench.

@@ -25,6 +25,7 @@ func _prepare() -> void:
 		var floor_mesh: bool = original.get_shader_parameter("plank_seams") == true
 		var source_albedo: Texture2D = original.get_shader_parameter("albedo")
 		var stone_mesh := source_albedo != null and source_albedo.resource_path.ends_with("/stone.png")
+		var upholstery := source_albedo != null and source_albedo.resource_path.ends_with("/bench-cloth-muse.webp")
 		var portal_floor: bool = source.get_meta("portal_floor", false)
 		var cornice_mesh := source_albedo != null and source_albedo.resource_path.ends_with("/cornice-ivory.svg")
 		for surface in source.mesh.get_surface_count():
@@ -57,7 +58,7 @@ func _prepare() -> void:
 					if floor_mesh and not colors.is_empty():
 						colors[i] /= maxf(walk._ao(world, false), 0.01)
 				arrays[Mesh.ARRAY_TEX_UV2] = uv2
-			elif not colors.is_empty() and not stone_mesh and not portal_floor:
+			elif not colors.is_empty() and not stone_mesh and not portal_floor and not upholstery:
 				# Keep intrinsic material colour; drop the old room-light multiplier.
 				for i in colors.size():
 					colors[i] = Color.WHITE
@@ -90,7 +91,7 @@ func _prepare() -> void:
 		var uv_scale = original.get_shader_parameter("uv_scale")
 		if uv_scale != null:
 			material.uv1_scale = Vector3(uv_scale.x, uv_scale.y, 1)
-		material.vertex_color_use_as_albedo = floor_mesh or stone_mesh or portal_floor
+		material.vertex_color_use_as_albedo = floor_mesh or stone_mesh or portal_floor or upholstery
 		material.specular_mode = BaseMaterial3D.SPECULAR_DISABLED
 		material.disable_ambient_light = false  # Compatibility gates lightmaps with ambient lighting
 		material.cull_mode = BaseMaterial3D.CULL_DISABLED
