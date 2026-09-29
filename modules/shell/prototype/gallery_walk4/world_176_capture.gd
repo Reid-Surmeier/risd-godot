@@ -11,7 +11,7 @@ func capture() -> void:
 	DirAccess.make_dir_recursive_absolute(output)
 	for width in [1600, 720]:
 		root.size = Vector2i(width, width)
-		for view in [5, 9, 10, 11, 12, 13, 16]:
+		for view in [5, 9, 10, 11, 12, 13, 16, 17]:
 			scene.set_view(view)
 			for frame in 8:
 				await process_frame
