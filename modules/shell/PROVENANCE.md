@@ -42,3 +42,18 @@ metre corner/floor discrepancy. Images are diagnostic evidence, not runtime
 textures, accepted geometry, collision surfaces or a completed museum map.
 Bookcase scale remains provisional; the independent canvas trial found no
 supported views. Existing Muse receipts and never-resubmit flags are unchanged.
+
+## Collection multiview measurements — September 29, 21:00 UTC heartbeat
+
+Local NumPy / pycolmap CPU pose and ray calculations; zero paid calls, **$0**.
+Source: unchanged calibrated sparse model, cached withheld-frame matches and
+Proton video pixels. No additional CUDA feature/matching/depth run was needed.
+[Evidence provenance](../../docs/evidence/collection-reconstruction/heartbeat-20260929T2100/provenance.json)
+records generator, input and artifact hashes; the adjacent doorway/bookcase
+reports retain the exact manual annotations and source-model/image hashes.
+
+Doorway held-out errors **2.22 / 9.18 px** fail the exploratory 8 px diagnostic.
+Bookcase extrema predict all four reserved pixels within **3.85 px**, with width
+and height scale estimates **1.76%** apart. Scale remains provisional. Neither
+trial accepts collisions, room topology, runtime geometry or final quality
+criteria. Existing paid appearance trials and their provenance remain unchanged.

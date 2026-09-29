@@ -1,0 +1,40 @@
+{
+  "date_utc": "2026-09-29T21:00:29Z",
+  "scope": "Collection #178 / #182 prototype measurements only",
+  "provider": "local NumPy / pycolmap",
+  "paid_calls": 0,
+  "cost_usd": 0,
+  "compute": "CPU ray intersection and cached-match pose estimation; no new CUDA extraction/matching/depth sweep needed",
+  "scripts_sha256": {
+    "modules/shell/prototype/collection_reconstruction/doorway_triangulation.py": "ca64159120fd63008ca9d03f4b35d06fd79304bb4d38f019b1f88a95ae93d357",
+    "modules/shell/prototype/collection_reconstruction/bookcase_extents.py": "ae125cbc2137dd68004d39366677f0898d13b99994fd1cce632959033ba327ad",
+    "modules/shell/prototype/collection_reconstruction/measurements.py": "32773fa308512df3288ae28571da7071269bbdbc89c46f32aca68c153c55c01a"
+  },
+  "inputs_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/heldout-calibrated-v1/audit.json": "3133af036bb76f9f99f8db61b5b7354910d171c0bb4dadbba19ca8ae515e9847",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-geometry-v1/geometry.json": "a81aac50e8672d1e31680a26d7430a8c04297427d167bb056f6c8aa42f4ae9df",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/scale-bookcase-v1/result.json": "0a7e3ed1b1e9b86f43cfa037ee81a2c08786bc6f5e055ffcf26aec29f2e166d3",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/decorative-anchor/bookcase-api.json": "b1b8963bfd19dfa0ed2ff49a82cffe01225b2cf38a9eb3321784ae78781f0ca3"
+  },
+  "artifacts_sha256": {
+    "shell-resized.png": "f5489e0038c4f9e69a276f229dcca753b723d654de5f4d456686525beff09a56",
+    "repository-check.log": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e",
+    "review-page.png": "bea098563d813e3380052e369212632e314b4273bfd5c3c04fae79d13a35361a",
+    "shell-playtest.log": "c9284670419a929a9bade067d00529963e2df6d148840e9e58ce7e12ac0b86fa",
+    "index.html": "c796aabe2adab8fd62f173ac5cb1716c4da27a2620e2e216e680bdf12166c340",
+    "browser.json": "a0004384da620db165b5d003ee0dc326e61a31d452c1fde8c4791160e6e6ec97",
+    "bookcase/000297.png": "10e4d19d49d783dafe7fd48595ce81c050431e61baf7feb5c6fd5590cd415976",
+    "bookcase/result.json": "0b2df0ae88b7e199c4a3039346eec5be523aed87c3a76678c2f7f05f8c2181f5",
+    "bookcase/000296.png": "b1a2b79f305b96f385b1c9dfc66a160de0787eb0006f5f5df4ee57fd20de743d",
+    "bookcase/000292.png": "d8b7893c318ec9959b19cac342fbcedb51dd41b1d25a4ecf931d101514933e32",
+    "doorway/IMG_6380_exit6fps-000018.jpg.png": "bc8d72959d0341c02c5694e66261c22596c969efa5ce920823ad294502a647f8",
+    "doorway/IMG_6380-000505.jpg.png": "cba9ae0060e35fcf30e41b1f70550493f98d1bed31608c2163676aa11830e852",
+    "doorway/result.json": "848d75e8289a37a98d588ed8477ff43ca1437875e54d63cde2329f3868829c95",
+    "doorway/IMG_6380_exit6fps-000013.jpg.png": "4ca12792dcb2a05e956862d6d478ae3659396d4b8c7659e67da766ff3ee984af",
+    "doorway/IMG_6380-000506.jpg.png": "dc7f38a1b04160a7bf391118aa8a73e497f322b6cff63e6b1f5312101645a67a"
+  },
+  "log_normalization": {
+    "shell-playtest.log": "Trailing whitespace removed; raw original retained in ingestion heartbeat-20260929T2100/shell-playtest.log",
+    "raw_sha256": "b599400e2f103ddf922901d55ef12c3534ea1659ef9bdb9f005b28e89e823324"
+  }
+}
