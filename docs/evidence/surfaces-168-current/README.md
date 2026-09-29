@@ -11,3 +11,5 @@ SVG SHA256 `fe3627efa8da494eaeba99fbd9c9e1182c023dc640cfd491be348950093ae50b`. A
 Before native/browser 720/1600 poses2/3 are retained here. Source/import/repository checks passed before the combined bake. Final after captures, separate independent floor/wall/skylight reviews, navigation and build integration are pending.
 
 Native capture rejected the first SVG because Godot imported its pattern fill as transparent black. Replaced it with explicit rect/path primitives; imported center pixel changed from RGBA(0,0,0,0) to (0.9373,0.9373,0.9373,1), and the saved-scene capture now shows the white grid. Glass is excluded from GI and shadows, so this texture-only repair does not change the saved lightmap. Final independent reviews remain pending.
+
+All three fresh independent image-only reviews PASS at native/browser720/1600. Browser errors[] in both surface and floor capture runs; baseline, owner repair, navigation23paintings and cutaway coverage50.06% PASS. Build integration and integrated browser checks remain outstanding.
