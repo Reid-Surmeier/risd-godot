@@ -170,7 +170,7 @@ func _create_tenant(f: Dictionary) -> void:
 		return
 	f.tenant = result.value
 	f.page.add_child(f.tenant)
-	if f.key != "playground":
+	if f.key not in ["playground", "collection"]:
 		DesktopIcons.insert(f.tenant)
 		WindowShadows.attach(f.tenant)
 	if f.key == "sketchbook":  # prototype: the hover glow on every button of the Sketchbook Page first
