@@ -228,13 +228,13 @@ func _render(preserve_scroll: bool = false) -> void:
 	if page == "search":
 		top = _search_controls()
 	elif page == "all":
-		_put(_button("✓ Saved on this browser" if saved_only else "Show saved on this browser", func():
+		_put(_button("Saved on this browser" if saved_only else "Show saved on this browser", func():
 			saved_only = not saved_only
 			_render()), Rect2(0, 68 if compact else 52, 225, 39))
 		_put(_label("Public Are.na blocks + RISD works", 13, MUTED), Rect2(0, 112, content_width, 30) if compact else Rect2(240, 56, 500, 30))
 		top = 152 if compact else 111
 	elif not channel.is_empty():
-		_put(_button("← Channels", func(): show_page("channels")), Rect2(0, 68 if compact else 46, 130, 32))
+		_put(_button("Back to Channels", func(): show_page("channels")), Rect2(0, 68 if compact else 46, 130, 32))
 		top = 114 if compact else 98
 	var height := 397.0 if page == "explore" else 346.0
 	var columns := 1 if compact else 3
@@ -298,7 +298,7 @@ func _card(record: Dictionary, position: Vector2) -> void:
 	var by := _label(byline, 13, MUTED)
 	by.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	_put(by, Rect2(0, byline_top, width, 22), card)
-	var save := _button("✓ Saved here" if str(record.id) in saved_ids else "+ Save here", func(): _save(record), 12)
+	var save := _button("Saved here" if str(record.id) in saved_ids else "+ Save here", func(): _save(record), 12)
 	save.name = "Save_" + str(record.id).replace(":", "_")
 	_put(save, Rect2(0, byline_top + 30, 101, 28), card)
 
@@ -325,7 +325,7 @@ func _search_controls() -> float:
 	_put(field, Rect2(0, 68 if compact else 52, content_width if compact else 742, 46))
 	field.grab_focus.call_deferred()
 	_put(_button("Search", search, 16), Rect2(0, 122, 80, 40) if compact else Rect2(756, 55, 80, 40))
-	_put(_button("Random object ↗", func(): _detail(works.pick_random()), 16), Rect2(96, 122, 158, 40) if compact else Rect2(850, 55, 158, 40))
+	_put(_button("Random object", func(): _detail(works.pick_random()), 16), Rect2(96, 122, 158, 40) if compact else Rect2(850, 55, 158, 40))
 	var materials := ["All materials"]
 	for record in works:
 		if record.materials not in materials:
@@ -336,7 +336,7 @@ func _search_controls() -> float:
 	_put(_choice(["Title A–Z", "Oldest first", "Newest first"], sort_order, func(index):
 		sort_order = index
 		_render()), Rect2(0, 222, 147, 40) if compact else Rect2(444, 112, 147, 40))
-	_put(_button(("☑" if images_only else "☐") + " Has images", func():
+	_put(_button("Images: " + ("yes" if images_only else "any"), func():
 		images_only = not images_only
 		_render(), 14, true), Rect2(162, 222, 124, 40) if compact else Rect2(606, 112, 124, 40))
 	_put(_button("Clear", func():
@@ -430,7 +430,7 @@ func _detail(record: Dictionary) -> void:
 	_put(_label(byline, 16), Rect2(26, panel.size.y - 146, width - 52, 28), panel)
 	_put(_label(record.get("materials", "Public Are.na block"), 14, MUTED), Rect2(26, panel.size.y - 113, width - 52, 26), panel)
 	var url: String = record.get("source_url", record.get("source", ""))
-	_put(_button("Open museum record ↗" if record.has("makers") else "Open Are.na block ↗", func(): OS.shell_open(url), 16), Rect2(26, panel.size.y - 65, 240, 38), panel)
+	_put(_button("Open museum record" if record.has("makers") else "Open Are.na block", func(): OS.shell_open(url), 16), Rect2(26, panel.size.y - 65, 240, 38), panel)
 
 
 func _load_public_saves() -> void:
