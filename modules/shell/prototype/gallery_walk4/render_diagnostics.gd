@@ -89,7 +89,7 @@ func _pose(scene: String) -> void:
 	view._detail.hide()
 	view._open.clear()
 	view._view_panel.hide()
-	view._enter_space("arch" if scene == "white" else "gallery")
+	view._enter_space("far" if scene == "white" else "gallery")
 	view._portal_flash.modulate.a = 0.0
 	view._target = null
 	view._target_yaw = null
@@ -101,7 +101,7 @@ func _pose(scene: String) -> void:
 	view.view_mode = 0
 	view.view_yaw = PI / 2.0 if scene == "art" else PI
 	view._yaw = view.view_yaw
-	view._pos = {"entry": Vector3(0, 0, -0.35), "warm": Vector3(2.0, 0, -4.0), "art": Vector3(-3.3, 0, -12.0), "white": Vector3(0, 0, 3.0)}.get(scene, Vector3(2.0, 0, -4.0))
+	view._pos = {"entry": Vector3(0, 0, -0.35), "warm": Vector3(2.0, 0, -4.0), "art": Vector3(-3.3, 0, -12.0), "white": Vector3(0, 0, -3.0)}.get(scene, Vector3(2.0, 0, -4.0))
 	view._last_pos = view._pos
 	view._motion_heading = Vector3.FORWARD
 	# #161 reset the selected Hair36 rig before every matched replay.

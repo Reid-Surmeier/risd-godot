@@ -55,7 +55,7 @@ const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
      await page.screenshot({path:prefix+'.png'});
      const initial=await page.evaluate(()=>window.galleryRenderState);
      if(initial.paintings!==23)throw new Error('Artwork count changed');
-     if(initial.space!==(scene==='white'?'arch':'gallery'))throw new Error('Fixture landed in wrong room: '+scene+' '+initial.space);
+     if(initial.space!==(scene==='white'?'far':'gallery'))throw new Error('Fixture landed in wrong room: '+scene+' '+initial.space);
      if(scene==='warm') {await pause(500);await page.screenshot({path:prefix+'-held.png'});}
      await page.evaluate(()=>{
       window.renderTrace=[];window.renderDeltas=[];window.renderTracing=true;
