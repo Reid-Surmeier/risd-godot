@@ -27,7 +27,9 @@ func run():
    trace.append([walk._pos,walk._kid.rotation.y,hash(tick_pose)])
   if repeat == 0: first_trace = trace
   else: assert(first_trace == trace, "matched replay movement pose changed")
- print("DISPLAY_REPLAY Hair36 reset pose parity PASS")
+ probe._pose("white")
+ assert(walk._space == "arch", "white fixture landed in gallery")
+ print("DISPLAY_REPLAY Hair36 reset pose parity and white room PASS")
  probe.free()
  walk.free()
  call_deferred("quit")
