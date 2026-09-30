@@ -32,8 +32,14 @@ func _ready() -> void:
 		push_error("collection data: could not create storage adapter")
 		return
 	_storage = storage_result.value
-	var data_result := CollectionData.create({"search": http.dispatch, "load_saves": _storage.load_saves,
-			"save_if_absent": _storage.save_if_absent, "now_ms": func() -> int: return int(Time.get_unix_time_from_system() * 1000.0)})
+	var data_result := CollectionData.create(
+		{
+			"search": http.dispatch,
+			"load_saves": _storage.load_saves,
+			"save_if_absent": _storage.save_if_absent,
+			"now_ms": func() -> int: return int(Time.get_unix_time_from_system() * 1000.0)
+		}
+	)
 	if not data_result.ok:
 		push_error("collection data: could not create shared handle")
 		return
@@ -68,13 +74,15 @@ func _ready() -> void:
 		page.resized.connect(fit)
 		host.ready.connect(func(): _add_scale_grip(page))
 		var frame_scale := [Vector2.ONE]
-		walk.detail_changed.connect(func(open: bool) -> void:
-			if open:
-				frame_scale[0] = page.scale
-			page.scale = Vector2.ONE if open else frame_scale[0]
-			page.get_node("ProportionalResize").visible = not open
-			page.self_modulate.a = 0.0 if open else 1.0
-			fit.call())
+		walk.detail_changed.connect(
+			func(open: bool) -> void:
+				if open:
+					frame_scale[0] = page.scale
+				page.scale = Vector2.ONE if open else frame_scale[0]
+				page.get_node("ProportionalResize").visible = not open
+				page.self_modulate.a = 0.0 if open else 1.0
+				fit.call()
+		)
 		return {"ok": true, "value": host, "error": null}
 	var sketchbook_factory := func(deps: Dictionary) -> Dictionary:
 		var page_deps := deps.duplicate()
@@ -92,8 +100,17 @@ func _ready() -> void:
 		if result.ok:
 			_playground = result.value
 		return result
-	var created := Shell.create({"map": Atlas, "sketchbook": sketchbook_factory, "3d_viewer": SculptureViewer,
-			"video_player": VideoPlayer, "collection": collection_factory, "playground": playground_factory, "flowers": FlowersPage})
+	var created := Shell.create(
+		{
+			"map": Atlas,
+			"sketchbook": sketchbook_factory,
+			"3d_viewer": SculptureViewer,
+			"video_player": VideoPlayer,
+			"collection": collection_factory,
+			"playground": playground_factory,
+			"flowers": FlowersPage
+		}
+	)
 	if not created.ok:
 		push_error("shell: %s" % created.error.code)
 		return
@@ -121,34 +138,49 @@ func _add_scale_grip(window: Control) -> void:
 	grip.size = Vector2(32, 32)
 	grip.mouse_default_cursor_shape = Control.CURSOR_FDIAGSIZE
 	grip.tooltip_text = "Drag to resize proportionally"
-	grip.draw.connect(func():
-		grip.draw_rect(Rect2(Vector2.ZERO, grip.size), Color(0.3, 0.3, 0.3, 0.8))
-		for inset in [10, 17, 24]:
-			grip.draw_line(Vector2(inset, 28), Vector2(28, inset), Color.WHITE, 2.0))
+	grip.draw.connect(
+		func():
+			grip.draw_rect(Rect2(Vector2.ZERO, grip.size), Color(0.3, 0.3, 0.3, 0.8))
+			for inset in [10, 17, 24]:
+				grip.draw_line(Vector2(inset, 28), Vector2(28, inset), Color.WHITE, 2.0)
+	)
 	window.add_child(grip)
 	var fit := func(): grip.position = window.size - grip.size
 	window.resized.connect(fit)
 	fit.call()
 	var gesture := {"active": false, "start": Vector2.ZERO, "scale": 1.0}
-	get_window().focus_exited.connect(func():
-		gesture.active = false
-		set_meta("scaling", false))
-	window.visibility_changed.connect(func():
-		gesture.active = false
-		set_meta("scaling", false))
-	grip.gui_input.connect(func(event):
-		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-			gesture.active = event.pressed
-			set_meta("scaling", event.pressed)
-			if event.pressed:
-				gesture.start = window.get_parent().make_canvas_position_local(event.global_position)
-				gesture.scale = window.scale.x
-				window.get_parent().move_child(window, -1)
-			grip.accept_event()
-		elif event is InputEventMouseMotion and gesture.active and get_meta("scaling", false):
-			var delta: Vector2 = window.get_parent().make_canvas_position_local(event.global_position) - gesture.start
-			var available: Vector2 = window.get_parent().size - window.position
-			var maximum := minf(available.x / window.size.x, available.y / window.size.y)
-			var factor: float = gesture.scale + delta.dot(window.size) / window.size.length_squared()
-			window.scale = Vector2.ONE * clampf(factor, minf(0.35, maximum), maximum)
-			grip.accept_event())
+	get_window().focus_exited.connect(
+		func():
+			gesture.active = false
+			set_meta("scaling", false)
+	)
+	window.visibility_changed.connect(
+		func():
+			gesture.active = false
+			set_meta("scaling", false)
+	)
+	grip.gui_input.connect(
+		func(event):
+			if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+				gesture.active = event.pressed
+				set_meta("scaling", event.pressed)
+				if event.pressed:
+					gesture.start = window.get_parent().make_canvas_position_local(
+						event.global_position
+					)
+					gesture.scale = window.scale.x
+					window.get_parent().move_child(window, -1)
+				grip.accept_event()
+			elif event is InputEventMouseMotion and gesture.active and get_meta("scaling", false):
+				var delta: Vector2 = (
+					window.get_parent().make_canvas_position_local(event.global_position)
+					- gesture.start
+				)
+				var available: Vector2 = window.get_parent().size - window.position
+				var maximum := minf(available.x / window.size.x, available.y / window.size.y)
+				var factor: float = (
+					gesture.scale + delta.dot(window.size) / window.size.length_squared()
+				)
+				window.scale = Vector2.ONE * clampf(factor, minf(0.35, maximum), maximum)
+				grip.accept_event()
+	)

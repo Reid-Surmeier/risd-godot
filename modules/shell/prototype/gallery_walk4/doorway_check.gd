@@ -2,15 +2,21 @@
 extends "res://testing/harness_base.gd"
 var failures := 0
 var control_shaders: Array[Shader] = []
+
+
 func require(ok: bool, message: String) -> void:
 	if not ok:
 		failures += 1
 		push_error(message)
+
+
 func _initialize() -> void:
 	if "--negative" in OS.get_cmdline_user_args():
 		# In-memory missing-clip regression, no production switch or changed assets.
 		for name in ["oak", "ps1"]:
-			var shader: Shader = load("res://modules/shell/prototype/gallery_walk4/" + name + ".gdshader")
+			var shader: Shader = load(
+				"res://modules/shell/prototype/gallery_walk4/" + name + ".gdshader"
+			)
 			var lines := PackedStringArray()
 			for line in shader.code.split("\n"):
 				if not (line.contains("floor_world_z") and line.contains("discard")):
@@ -18,6 +24,8 @@ func _initialize() -> void:
 			shader.code = "\n".join(lines)
 			control_shaders.append(shader)
 	call_deferred("run")
+
+
 func run() -> void:
 	var walk = load("res://modules/shell/prototype/gallery_walk4/walk4.gd").new()
 	walk.size = Vector2(1152, 720)
@@ -52,10 +60,23 @@ func run() -> void:
 				var label := "%s-%s-%s" % [dimensions.x, "baked" if baked else "original", door]
 				await _shot(out, label + ".png")
 				if door == "arch":
-					var probe: Dictionary = await load("res://modules/shell/prototype/gallery_walk4/portal_floor_probe.gd").sample(walk)
+					var probe: Dictionary = await (
+						load("res://modules/shell/prototype/gallery_walk4/portal_floor_probe.gd")
+						. sample(walk)
+					)
 					probe.image.save_png(out.path_join(label + "-depth-id.png"))
-					print("PORTAL_FLOOR_DEPTH ", label, " clear_samples=", probe.clear, "/9 meshes=", probe.meshes)
-					require(probe.clear == 9 and probe.meshes > 0, "modeled arch floor is depth-occluded: " + label)
+					print(
+						"PORTAL_FLOOR_DEPTH ",
+						label,
+						" clear_samples=",
+						probe.clear,
+						"/9 meshes=",
+						probe.meshes
+					)
+					require(
+						probe.clear == 9 and probe.meshes > 0,
+						"modeled arch floor is depth-occluded: " + label
+					)
 					continue
 				var image: Image = walk._vp.get_texture().get_image()
 				var clear := 0
@@ -66,7 +87,7 @@ func run() -> void:
 						var color := image.get_pixelv(pixel)
 						if color.get_luminance() > 0.04:
 							clear += 1
-				print("DOORWAY_FLOOR ",label," clear_samples=",clear,"/9")
+				print("DOORWAY_FLOOR ", label, " clear_samples=", clear, "/9")
 				require(clear == 9, "passage floor is obscured or missing: " + label)
 	print("DOORWAY_FAILURES ", failures)
 	quit(1 if failures else 0)

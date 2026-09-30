@@ -67,7 +67,9 @@ func _key(keycode: Key, what: String) -> void:
 		ev.pressed = pressed
 		Input.parse_input_event(ev)
 		await process_frame
-	_log.append({"t_ms": _ms(), "event": "key", "what": what, "keycode": OS.get_keycode_string(keycode)})
+	_log.append(
+		{"t_ms": _ms(), "event": "key", "what": what, "keycode": OS.get_keycode_string(keycode)}
+	)
 
 
 func _rect(r: Rect2) -> Dictionary:

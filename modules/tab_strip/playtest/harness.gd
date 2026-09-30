@@ -11,13 +11,34 @@ func _state(strip: Control, label: String) -> Dictionary:
 	var s: Dictionary = TabStrip.state(strip).value
 	var tabs := []
 	for t in s.tabs:
-		tabs.append({"label": t.label, "x": t.rect.position.x, "y": t.rect.position.y,
-				"w": t.rect.size.x, "h": t.rect.size.y, "page_visible": t.page_visible, "fixed": t.fixed,
-				"truncated": t.truncated, "tint": t.tint,
-				"close_rect": {"position": {"x": t.close_rect.position.x, "y": t.close_rect.position.y},
-						"size": {"x": t.close_rect.size.x, "y": t.close_rect.size.y}}})
-	var entry := {"t_ms": _ms(), "event": "state", "label": label, "count": s.count, "active": s.active,
-			"opening": s.opening, "tabs": tabs, "bar_width": s.bar_width}
+		tabs.append(
+			{
+				"label": t.label,
+				"x": t.rect.position.x,
+				"y": t.rect.position.y,
+				"w": t.rect.size.x,
+				"h": t.rect.size.y,
+				"page_visible": t.page_visible,
+				"fixed": t.fixed,
+				"truncated": t.truncated,
+				"tint": t.tint,
+				"close_rect":
+				{
+					"position": {"x": t.close_rect.position.x, "y": t.close_rect.position.y},
+					"size": {"x": t.close_rect.size.x, "y": t.close_rect.size.y}
+				}
+			}
+		)
+	var entry := {
+		"t_ms": _ms(),
+		"event": "state",
+		"label": label,
+		"count": s.count,
+		"active": s.active,
+		"opening": s.opening,
+		"tabs": tabs,
+		"bar_width": s.bar_width
+	}
 	_log.append(entry)
 	return entry
 
@@ -25,8 +46,16 @@ func _state(strip: Control, label: String) -> Dictionary:
 ## Every frame's tints, so the verifier can time the active tint's fade (Issue #45).
 func _tints(strip: Control, film: String) -> void:
 	var s: Dictionary = TabStrip.state(strip).value
-	_log.append({"t_ms": _ms(), "event": "tint", "film": film, "active": s.active,
-			"dt": get_root().get_process_delta_time(), "tints": s.tabs.map(func(t): return t.tint)})
+	_log.append(
+		{
+			"t_ms": _ms(),
+			"event": "tint",
+			"film": film,
+			"active": s.active,
+			"dt": get_root().get_process_delta_time(),
+			"tints": s.tabs.map(func(t): return t.tint)
+		}
+	)
 
 
 ## The film of a selection: every rendered frame for `ms`, with the tints of each frame logged.
@@ -48,7 +77,10 @@ func _initialize() -> void:
 	var out_dir := await _mount(demo, Vector2i(1920, 420), "/tmp/tab_strip-playtest")
 	var strip: Control = demo.get_node("TabStrip")
 	for sig in ["tab_opened", "tab_settled", "tab_titled", "tab_selected", "tab_closed"]:
-		strip.connect(sig, func(i: int): _log.append({"t_ms": _ms(), "event": "signal", "signal": sig, "index": i}))
+		strip.connect(
+			sig,
+			func(i: int): _log.append({"t_ms": _ms(), "event": "signal", "signal": sig, "index": i})
+		)
 
 	await create_timer(0.3).timeout  # the first tab's tint has faded in
 	_state(strip, "initial")
@@ -69,17 +101,17 @@ func _initialize() -> void:
 		_log.append({"t_ms": _ms(), "event": "frame", "n": frame})
 		_tints(strip, "frames")
 		frame += 1
-		if not mid_done and _ms() - t_click >= 250:      # 0.1 s press + ~0.15 s into the 0.4 s grow
+		if not mid_done and _ms() - t_click >= 250:  # 0.1 s press + ~0.15 s into the 0.4 s grow
 			mid_done = true
 			_state(strip, "mid-grow")
 			img.save_png(out_dir.path_join("02-mid-grow.png"))
 			_log.append({"t_ms": _ms(), "event": "screenshot", "file": "02-mid-grow.png"})
-		if not conn_done and _ms() - t_click >= 700:     # grow finished, label "Connecting..."
+		if not conn_done and _ms() - t_click >= 700:  # grow finished, label "Connecting..."
 			conn_done = true
 			_state(strip, "connecting")
 			img.save_png(out_dir.path_join("03-connecting.png"))
 			_log.append({"t_ms": _ms(), "event": "screenshot", "file": "03-connecting.png"})
-	_state(strip, "blank-page")                          # label swapped to "Blank Page"
+	_state(strip, "blank-page")  # label swapped to "Blank Page"
 	await _shot(out_dir, "04-blank-page.png")
 
 	# 2. click the first tab, then the second: pages must follow
@@ -120,7 +152,7 @@ func _initialize() -> void:
 	await _click(_center(strip, st.tabs[st.active].close_rect), "close button of active tab")
 	var t_close := _ms()
 	var cf := 0
-	while _ms() - t_close < 900:            # 0.3 s fold + 0.2 s slide, plus settle: the film of the close
+	while _ms() - t_close < 900:  # 0.3 s fold + 0.2 s slide, plus settle: the film of the close
 		await process_frame
 		root.get_texture().get_image().save_png(out_dir.path_join("close-frames/f%04d.png" % cf))
 		_tints(strip, "close-frames")
@@ -140,7 +172,9 @@ func _initialize() -> void:
 		st = TabStrip.state(strip).value
 		if st.count == 0:
 			break
-		await _click(_center(strip, st.tabs[st.count - 1].close_rect), "close button (empty the row)")
+		await _click(
+			_center(strip, st.tabs[st.count - 1].close_rect), "close button (empty the row)"
+		)
 		await create_timer(0.7).timeout
 	_state(strip, "all-closed")
 	await _shot(out_dir, "11-all-closed.png")
@@ -155,25 +189,48 @@ func _initialize() -> void:
 	page.color = Color.WHITE
 	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var fixed: Dictionary = TabStrip.open_fixed_tab(strip, "map", page)
-	_log.append({"t_ms": _ms(), "event": "fixed_open", "ok": fixed.ok, "index": fixed.value,
-			"page_in_stack": page.get_parent() == demo.get_node("PageStack")})
+	_log.append(
+		{
+			"t_ms": _ms(),
+			"event": "fixed_open",
+			"ok": fixed.ok,
+			"index": fixed.value,
+			"page_in_stack": page.get_parent() == demo.get_node("PageStack")
+		}
+	)
 	TabStrip.select_tab(strip, fixed.value)
 	await _film(strip, out_dir, "select-fixed-frames", 400)
 	_state(strip, "fixed-open")
 	await _shot(out_dir, "13-fixed-open.png")
 	st = TabStrip.state(strip).value
 	var r: Rect2 = st.tabs[fixed.value].rect
-	await _click(_center(strip, Rect2(r.position + Vector2(r.size.x - 80 - 22, 24 + 22), Vector2(22, 22))),
-			"where the close button of the fixed tab would be")
+	await _click(
+		_center(strip, Rect2(r.position + Vector2(r.size.x - 80 - 22, 24 + 22), Vector2(22, 22))),
+		"where the close button of the fixed tab would be"
+	)
 	await create_timer(0.9).timeout
 	var kept: Dictionary = TabStrip.close_tab(strip, fixed.value)
-	_log.append({"t_ms": _ms(), "event": "fixed_close", "ok": kept.ok,
-			"code": kept.error.code if not kept.ok else ""})
+	_log.append(
+		{
+			"t_ms": _ms(),
+			"event": "fixed_close",
+			"ok": kept.ok,
+			"code": kept.error.code if not kept.ok else ""
+		}
+	)
 	await create_timer(0.9).timeout
 	_state(strip, "fixed-kept")
 	await _shot(out_dir, "14-fixed-kept.png")
 	var phone: Dictionary = TabStrip.open_fixed_tab(strip, "phone", ColorRect.new())  # no label pixels yet (#34)
-	_log.append({"t_ms": _ms(), "event": "fixed_open", "ok": phone.ok, "index": phone.value, "page_in_stack": true})
+	_log.append(
+		{
+			"t_ms": _ms(),
+			"event": "fixed_open",
+			"ok": phone.ok,
+			"index": phone.value,
+			"page_in_stack": true
+		}
+	)
 	await _click(_center(strip, TabStrip.stub_rect(strip)), "new-tab stub (after fixed)")
 	await create_timer(1.8).timeout
 	_state(strip, "after-fixed-stub")

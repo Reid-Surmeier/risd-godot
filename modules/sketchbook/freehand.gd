@@ -40,6 +40,7 @@ var src_count := 0
 var left: PackedVector2Array
 var right: PackedVector2Array
 
+
 ## tldraw `simulatePressureSettings`: a mouse "draw" stroke.
 static func draw_options(stroke_width: float, last: bool) -> Dictionary:
 	return {
@@ -51,11 +52,14 @@ static func draw_options(stroke_width: float, last: bool) -> Dictionary:
 		"last": last,
 	}
 
+
 static func _modulate(value: float, a0: float, a1: float, b0: float, b1: float) -> float:
 	return b0 + (b1 - b0) * clampf((value - a0) / (a1 - a0), 0.0, 1.0)
 
+
 static func _ease_out_sine(t: float) -> float:
 	return sin(t * PI / 2.0)
+
 
 ## The filled ink polygons for raw input points (x, y, pressure).
 func ink_polygons(raw: Array, options: Dictionary) -> Array[PackedVector2Array]:
@@ -67,9 +71,18 @@ func ink_polygons(raw: Array, options: Dictionary) -> Array[PackedVector2Array]:
 	_partition_at_elbows(options, polygons)
 	return polygons
 
+
 func _resize_pipeline(n: int) -> void:
-	pt_x.resize(n); pt_y.resize(n); in_x.resize(n); in_y.resize(n); in_z.resize(n)
-	press.resize(n); dists.resize(n); runs.resize(n); rads.resize(n)
+	pt_x.resize(n)
+	pt_y.resize(n)
+	in_x.resize(n)
+	in_y.resize(n)
+	in_z.resize(n)
+	press.resize(n)
+	dists.resize(n)
+	runs.resize(n)
+	rads.resize(n)
+
 
 func ingest(raw: Array, options: Dictionary) -> void:
 	var streamline: float = options.get("streamline", 0.5)
@@ -81,8 +94,12 @@ func ingest(raw: Array, options: Dictionary) -> void:
 	if raw_len == 0:
 		return
 	var t := 0.15 + (1.0 - streamline) * 0.85
-	var st_x := PackedFloat64Array(); var st_y := PackedFloat64Array(); var st_z := PackedFloat64Array()
-	st_x.resize(raw_len + 8); st_y.resize(raw_len + 8); st_z.resize(raw_len + 8)
+	var st_x := PackedFloat64Array()
+	var st_y := PackedFloat64Array()
+	var st_z := PackedFloat64Array()
+	st_x.resize(raw_len + 8)
+	st_y.resize(raw_len + 8)
+	st_z.resize(raw_len + 8)
 	_resize_pipeline(raw_len + 8)
 	var min_dist2 := pow(size / 3.0, 2)
 	var clamp_z := not simulate_pressure
@@ -97,11 +114,15 @@ func ingest(raw: Array, options: Dictionary) -> void:
 			break
 		first_z = maxf(first_z, _z_of(pt, clamp_z))
 		start_idx += 1
-	st_x[0] = first.x; st_y[0] = first.y; st_z[0] = first_z
+	st_x[0] = first.x
+	st_y[0] = first.y
+	st_z[0] = first_z
 	var m := 1
 	for i in range(start_idx, raw_len):
 		var pt: Vector3 = raw[i]
-		st_x[m] = pt.x; st_y[m] = pt.y; st_z[m] = _z_of(pt, clamp_z)
+		st_x[m] = pt.x
+		st_y[m] = pt.y
+		st_z[m] = _z_of(pt, clamp_z)
 		m += 1
 	var removed_near_end := 0
 	if m > 1:
@@ -116,27 +137,46 @@ func ingest(raw: Array, options: Dictionary) -> void:
 			j -= 1
 			removed_near_end += 1
 		if j < m - 2:
-			st_x[j + 1] = last_x; st_y[j + 1] = last_y; st_z[j + 1] = st_z[m - 1]
+			st_x[j + 1] = last_x
+			st_y[j + 1] = last_y
+			st_z[j + 1] = st_z[m - 1]
 			m = j + 2
-	var is_complete := is_last or not simulate_pressure \
-		or (m > 1 and pow(st_x[m - 1] - st_x[m - 2], 2) + pow(st_y[m - 1] - st_y[m - 2], 2) < size * size) \
+	var is_complete := (
+		is_last
+		or not simulate_pressure
+		or (
+			m > 1
+			and pow(st_x[m - 1] - st_x[m - 2], 2) + pow(st_y[m - 1] - st_y[m - 2], 2) < size * size
+		)
 		or removed_near_end > 0
+	)
 	if m == 2 and simulate_pressure:
-		var x0 := st_x[0]; var y0 := st_y[0]; var z0 := st_z[0]
-		var x1 := st_x[1]; var y1 := st_y[1]; var z1 := st_z[1]
+		var x0 := st_x[0]
+		var y0 := st_y[0]
+		var z0 := st_z[0]
+		var x1 := st_x[1]
+		var y1 := st_y[1]
+		var z1 := st_z[1]
 		for i in range(1, 5):
 			var u2 := i / 4.0
 			st_x[i] = x0 + (x1 - x0) * u2
 			st_y[i] = y0 + (y1 - y0) * u2
 			st_z[i] = (z0 + (z1 - z0)) * i / 4.0
 		m = 5
-	pt_x[0] = st_x[0]; pt_y[0] = st_y[0]
-	in_x[0] = st_x[0]; in_y[0] = st_y[0]; in_z[0] = st_z[0]
+	pt_x[0] = st_x[0]
+	pt_y[0] = st_y[0]
+	in_x[0] = st_x[0]
+	in_y[0] = st_y[0]
+	in_z[0] = st_z[0]
 	press[0] = 0.5 if simulate_pressure else st_z[0]
-	dists[0] = 0.0; runs[0] = 0.0; rads[0] = 1.0
+	dists[0] = 0.0
+	runs[0] = 0.0
+	rads[0] = 1.0
 	var count := 1
 	if is_complete and streamline > 0.0:
-		st_x[m] = st_x[m - 1]; st_y[m] = st_y[m - 1]; st_z[m] = st_z[m - 1]
+		st_x[m] = st_x[m - 1]
+		st_y[m] = st_y[m - 1]
+		st_z[m] = st_z[m - 1]
 		m += 1
 	var total_length := 0.0
 	var prev_x := st_x[0]
@@ -146,7 +186,8 @@ func ingest(raw: Array, options: Dictionary) -> void:
 		var x: float
 		var y: float
 		if t == 0.0 or (is_last and i == m - 1):
-			x = st_x[i]; y = st_y[i]
+			x = st_x[i]
+			y = st_y[i]
 		else:
 			x = st_x[i] + (prev_x - st_x[i]) * u
 			y = st_y[i] + (prev_y - st_y[i]) * u
@@ -156,12 +197,18 @@ func ingest(raw: Array, options: Dictionary) -> void:
 		total_length += distance
 		if i < 4 and total_length < size:
 			continue
-		pt_x[count] = x; pt_y[count] = y
-		in_x[count] = st_x[i]; in_y[count] = st_y[i]; in_z[count] = st_z[i]
+		pt_x[count] = x
+		pt_y[count] = y
+		in_x[count] = st_x[i]
+		in_y[count] = st_y[i]
+		in_z[count] = st_z[i]
 		press[count] = 0.5 if simulate_pressure else st_z[i]
-		dists[count] = distance; runs[count] = total_length; rads[count] = 1.0
+		dists[count] = distance
+		runs[count] = total_length
+		rads[count] = 1.0
 		count += 1
-		prev_x = x; prev_y = y
+		prev_x = x
+		prev_y = y
 	if total_length < 1.0:
 		var max_p := 0.5
 		for i in range(count):
@@ -170,9 +217,11 @@ func ingest(raw: Array, options: Dictionary) -> void:
 			press[i] = max_p
 	point_count = count
 
+
 func _z_of(p: Vector3, clamp_z: bool) -> float:
 	var z := p.z
 	return MIN_PRESSURE if clamp_z and z < MIN_PRESSURE else z
+
 
 func compute_radii(options: Dictionary) -> void:
 	var size: float = options.get("size", 16.0)
@@ -207,14 +256,19 @@ func compute_radii(options: Dictionary) -> void:
 			var sp := minf(1.0, dists[i] / size)
 			if simulate_pressure:
 				var rp := minf(1.0, 1.0 - sp)
-				pressure = minf(1.0, prev_pressure + (rp - prev_pressure) * (sp * RATE_OF_PRESSURE_CHANGE))
+				pressure = minf(
+					1.0, prev_pressure + (rp - prev_pressure) * (sp * RATE_OF_PRESSURE_CHANGE)
+				)
 			else:
-				pressure = minf(1.0, prev_pressure + (pressure - prev_pressure) * (sp * RATE_OF_PRESSURE_CHANGE))
+				pressure = minf(
+					1.0, prev_pressure + (pressure - prev_pressure) * (sp * RATE_OF_PRESSURE_CHANGE)
+				)
 			radius = size * _ease_out_sine(0.5 - thinning * (0.5 - pressure))
 			prev_pressure = pressure
 		else:
 			radius = size / 2.0
 		rads[i] = radius
+
 
 func _partition_at_elbows(options: Dictionary, out: Array[PackedVector2Array]) -> void:
 	var n := point_count
@@ -244,7 +298,9 @@ func _partition_at_elbows(options: Dictionary, out: Array[PackedVector2Array]) -
 		prev_vx = next_vx
 		prev_vy = next_vy
 		if dpr < -0.8:
-			_finish_partition(a, a_elbow, i, true, false, has_anchor, anchor_x, anchor_y, options, out)
+			_finish_partition(
+				a, a_elbow, i, true, false, has_anchor, anchor_x, anchor_y, options, out
+			)
 			a = i
 			a_elbow = true
 			has_anchor = true
@@ -259,14 +315,28 @@ func _partition_at_elbows(options: Dictionary, out: Array[PackedVector2Array]) -
 		var ndy := pt_y[i + 1] - pt_y[i]
 		var mean_radius := (rads[i - 1] + rads[i] + rads[i + 1]) / 3.0
 		if (pdx * pdx + pdy * pdy + ndx * ndx + ndy * ndy) / (mean_radius * mean_radius) < 1.5:
-			_finish_partition(a, a_elbow, i, false, true, has_anchor, anchor_x, anchor_y, options, out)
+			_finish_partition(
+				a, a_elbow, i, false, true, has_anchor, anchor_x, anchor_y, options, out
+			)
 			a = i
 			a_elbow = false
 			has_anchor = false
 			continue
 	_finish_partition(a, a_elbow, n - 1, false, false, has_anchor, anchor_x, anchor_y, options, out)
 
-func _finish_partition(a: int, a_elbow: bool, b: int, b_elbow: bool, b_dup: bool, has_anchor: bool, anchor_x: float, anchor_y: float, options: Dictionary, out: Array[PackedVector2Array]) -> void:
+
+func _finish_partition(
+	a: int,
+	a_elbow: bool,
+	b: int,
+	b_elbow: bool,
+	b_dup: bool,
+	has_anchor: bool,
+	anchor_x: float,
+	anchor_y: float,
+	options: Dictionary,
+	out: Array[PackedVector2Array]
+) -> void:
 	var length := b - a + 1 + (1 if b_dup else 0)
 	var s := 0
 	var e := 0
@@ -300,34 +370,63 @@ func _finish_partition(a: int, a_elbow: bool, b: int, b_elbow: bool, b_dup: bool
 	_load_src_partition(a, a_elbow, inner_start, inner_end, b, b_elbow, b_dup and e == 0)
 	_render_partition(options, has_anchor, anchor_x, anchor_y, out)
 
+
 func _resize_src(n: int) -> void:
-	sx.resize(n); sy.resize(n); six.resize(n); siy.resize(n); sr.resize(n); srl.resize(n); scap.resize(n)
+	sx.resize(n)
+	sy.resize(n)
+	six.resize(n)
+	siy.resize(n)
+	sr.resize(n)
+	srl.resize(n)
+	scap.resize(n)
+
 
 func _load_src_from_pipeline() -> void:
 	var n := point_count
 	_resize_src(n)
 	for i in range(n):
-		sx[i] = pt_x[i]; sy[i] = pt_y[i]; six[i] = in_x[i]; siy[i] = in_y[i]
-		sr[i] = rads[i]; srl[i] = runs[i]
+		sx[i] = pt_x[i]
+		sy[i] = pt_y[i]
+		six[i] = in_x[i]
+		siy[i] = in_y[i]
+		sr[i] = rads[i]
+		srl[i] = runs[i]
 		scap[i] = 1 if (i == 0 or i == n - 1) else 0
 	src_count = n
 
-func _load_src_partition(a: int, a_elbow: bool, inner_start: int, inner_end: int, b: int, b_elbow: bool, dup_quirk: bool) -> void:
+
+func _load_src_partition(
+	a: int, a_elbow: bool, inner_start: int, inner_end: int, b: int, b_elbow: bool, dup_quirk: bool
+) -> void:
 	_resize_src(maxi(inner_end - inner_start, 0) + 3)
 	sx[0] = in_x[a] if a_elbow else pt_x[a]
 	sy[0] = in_y[a] if a_elbow else pt_y[a]
-	six[0] = in_x[a]; siy[0] = in_y[a]; sr[0] = rads[a]; srl[0] = runs[a]; scap[0] = 1
+	six[0] = in_x[a]
+	siy[0] = in_y[a]
+	sr[0] = rads[a]
+	srl[0] = runs[a]
+	scap[0] = 1
 	var w := 1
 	for i in range(inner_start, inner_end + 1):
-		sx[w] = pt_x[i]; sy[w] = pt_y[i]; six[w] = in_x[i]; siy[w] = in_y[i]
-		sr[w] = rads[i]; srl[w] = runs[i]; scap[w] = 0
+		sx[w] = pt_x[i]
+		sy[w] = pt_y[i]
+		six[w] = in_x[i]
+		siy[w] = in_y[i]
+		sr[w] = rads[i]
+		srl[w] = runs[i]
+		scap[w] = 0
 		w += 1
 	if dup_quirk:
 		scap[w - 1] = 1
 	sx[w] = in_x[b] if b_elbow else pt_x[b]
 	sy[w] = in_y[b] if b_elbow else pt_y[b]
-	six[w] = in_x[b]; siy[w] = in_y[b]; sr[w] = rads[b]; srl[w] = runs[b]; scap[w] = 1
+	six[w] = in_x[b]
+	siy[w] = in_y[b]
+	sr[w] = rads[b]
+	srl[w] = runs[b]
+	scap[w] = 1
 	src_count = w + 1
+
 
 func _simplify_track(track: PackedVector2Array, tol: float) -> PackedVector2Array:
 	var length := track.size()
@@ -356,6 +455,7 @@ func _simplify_track(track: PackedVector2Array, tol: float) -> PackedVector2Arra
 		out.append(track[best])
 		anchor = best
 	return out
+
 
 func _build_tracks(options: Dictionary, has_anchor: bool, anchor_x: float, anchor_y: float) -> void:
 	var size: float = options.get("size", 16.0)
@@ -396,10 +496,13 @@ func _build_tracks(options: Dictionary, has_anchor: bool, anchor_x: float, ancho
 				var offset := prev_vec * radius
 				var cpr := prev_vec.x * next_vec.y - prev_vec.y * next_vec.x
 				if cpr < 0.0:
-					tl = point + offset; tr = point - offset
+					tl = point + offset
+					tr = point - offset
 				else:
-					tl = point - offset; tr = point + offset
-				left.append(tl); right.append(tr)
+					tl = point - offset
+					tr = point + offset
+				left.append(tl)
+				right.append(tr)
 			else:
 				var input := Vector2(six[i], siy[i])
 				var d := Vector2(-prev_vec.y * radius, prev_vec.x * radius)
@@ -407,13 +510,24 @@ func _build_tracks(options: Dictionary, has_anchor: bool, anchor_x: float, ancho
 				var t := 0.0
 				while t < 1.0:
 					var angle := FIXED_PI * t
-					tl = input + Vector2(d.x * cos(angle) - d.y * sin(angle), d.x * sin(angle) + d.y * cos(angle))
+					tl = (
+						input
+						+ Vector2(
+							d.x * cos(angle) - d.y * sin(angle), d.x * sin(angle) + d.y * cos(angle)
+						)
+					)
 					left.append(tl)
 					angle = FIXED_PI + FIXED_PI * -t
-					tr = input + Vector2(d.x * cos(angle) - d.y * sin(angle), d.x * sin(angle) + d.y * cos(angle))
+					tr = (
+						input
+						+ Vector2(
+							d.x * cos(angle) - d.y * sin(angle), d.x * sin(angle) + d.y * cos(angle)
+						)
+					)
 					right.append(tr)
 					t += step
-			pl = tl; pr = tr
+			pl = tl
+			pr = tr
 			if next_sharp:
 				prev_sharp = true
 			continue
@@ -438,10 +552,17 @@ func _build_tracks(options: Dictionary, has_anchor: bool, anchor_x: float, ancho
 	left = _simplify_track(left, tolerance)
 	right = _simplify_track(right, tolerance)
 
+
 ## Appends the polygon for the current source partition, mirroring tldraw's svgInk path:
 ## M left[0], smooth quadratics through left midpoints, a round end cap, back along the right
 ## track, and a round start cap.
-func _render_partition(options: Dictionary, has_anchor: bool, anchor_x: float, anchor_y: float, out: Array[PackedVector2Array]) -> void:
+func _render_partition(
+	options: Dictionary,
+	has_anchor: bool,
+	anchor_x: float,
+	anchor_y: float,
+	out: Array[PackedVector2Array]
+) -> void:
 	var n := src_count
 	if n == 0:
 		return
@@ -474,12 +595,14 @@ func _render_partition(options: Dictionary, has_anchor: bool, anchor_x: float, a
 	_arc(poly, first, first + perp0, PI)
 	out.append(poly)
 
+
 func _circle(center: Vector2, radius: float) -> PackedVector2Array:
 	var poly := PackedVector2Array()
 	for i in range(16):
 		var angle := TAU * i / 16.0
 		poly.append(center + Vector2(cos(angle), sin(angle)) * radius)
 	return poly
+
 
 func _arc(poly: PackedVector2Array, center: Vector2, from: Vector2, sweep: float) -> void:
 	var start := (from - center).angle()
@@ -489,25 +612,31 @@ func _arc(poly: PackedVector2Array, center: Vector2, from: Vector2, sweep: float
 		var angle := start + sweep * i / steps
 		poly.append(center + Vector2(cos(angle), sin(angle)) * radius)
 
+
 ## SVG "t" semantics: each smooth quadratic reflects the previous control point.
 class _SmoothPen:
 	var poly: PackedVector2Array
 	var current := Vector2.ZERO
 	var control := Vector2.ZERO
 	var has_control := false
+
 	func _init(target: PackedVector2Array) -> void:
 		poly = target
+
 	func move_to(p: Vector2) -> void:
 		poly.append(p)
 		current = p
 		has_control = false
+
 	func line_to(p: Vector2) -> void:
 		poly.append(p)
 		current = p
 		has_control = false
+
 	func reset_control() -> void:
 		current = poly[poly.size() - 1]
 		has_control = false
+
 	func smooth_to(p: Vector2) -> void:
 		var c := (current * 2.0 - control) if has_control else current
 		for i in range(1, CURVE_STEPS + 1):

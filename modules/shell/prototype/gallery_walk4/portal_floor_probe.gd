@@ -1,6 +1,8 @@
 ## Private depth/occlusion diagnostic. Temporary flat ID material preserves
 ## every triangle and depth buffer; normal-material screenshots remain required.
 extends RefCounted
+
+
 static func sample(walk: Control) -> Dictionary:
 	var replacements := {}
 	var marker := StandardMaterial3D.new()
@@ -8,7 +10,13 @@ static func sample(walk: Control) -> Dictionary:
 	marker.albedo_color = Color(1, 0, 1)
 	for mesh in walk._vp.find_children("*", "MeshInstance3D", true, false):
 		var bounds: AABB = mesh.global_transform * mesh.mesh.get_aabb()
-		if mesh.is_visible_in_tree() and bounds.position.z >= -0.01 and bounds.end.z > 1.0 and bounds.size.y < 0.01 and absf(bounds.position.y) < 0.01:
+		if (
+			mesh.is_visible_in_tree()
+			and bounds.position.z >= -0.01
+			and bounds.end.z > 1.0
+			and bounds.size.y < 0.01
+			and absf(bounds.position.y) < 0.01
+		):
 			replacements[mesh] = mesh.material_override
 			mesh.material_override = marker
 	var kid_visible: bool = walk._kid.visible

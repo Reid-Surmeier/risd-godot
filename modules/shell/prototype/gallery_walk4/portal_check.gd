@@ -1,8 +1,10 @@
 ## Private #167 saved-scene diagnostic, not a visual acceptance substitute.
 extends SceneTree
 
+
 func _initialize() -> void:
 	call_deferred("run")
+
 
 func run() -> void:
 	var source_mode := "--source" in OS.get_cmdline_user_args()
@@ -25,9 +27,19 @@ func run() -> void:
 			continue
 		var material: Material = instance.material_override
 		relief_winding += int(instance.get_meta("portal_relief_winding_failures", 0))
-		if instance.get_meta("portal_floor", false) or (material is ShaderMaterial and material.get_shader_parameter("floor_z_limits") == Vector2(0, 6.65)):
+		if (
+			instance.get_meta("portal_floor", false)
+			or (
+				material is ShaderMaterial
+				and material.get_shader_parameter("floor_z_limits") == Vector2(0, 6.65)
+			)
+		):
 			passage += 1
-		var texture = material.albedo_texture if material is StandardMaterial3D else (material.get_shader_parameter("albedo") if material is ShaderMaterial else null)
+		var texture = (
+			material.albedo_texture
+			if material is StandardMaterial3D
+			else (material.get_shader_parameter("albedo") if material is ShaderMaterial else null)
+		)
 		if not texture or not texture.resource_path.ends_with("/stone.png"):
 			continue
 		stones += 1
@@ -35,7 +47,11 @@ func run() -> void:
 			var arrays: Array = instance.mesh.surface_get_arrays(surface)
 			var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
 			var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
-			var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX] if arrays[Mesh.ARRAY_INDEX] != null else PackedInt32Array(range(vertices.size()))
+			var indices: PackedInt32Array = (
+				arrays[Mesh.ARRAY_INDEX]
+				if arrays[Mesh.ARRAY_INDEX] != null
+				else PackedInt32Array(range(vertices.size()))
+			)
 			for index in range(0, indices.size(), 3):
 				var a := indices[index]
 				var b := indices[index + 1]
@@ -47,5 +63,15 @@ func run() -> void:
 		walk.free()
 	else:
 		scene.free()
-	print("PORTAL_SOURCE" if source_mode else "PORTAL_BAKE", " stone_meshes=", stones, " reversed_triangles=", reversed, " relief_winding=", relief_winding, " passage_floor=", passage)
+	print(
+		"PORTAL_SOURCE" if source_mode else "PORTAL_BAKE",
+		" stone_meshes=",
+		stones,
+		" reversed_triangles=",
+		reversed,
+		" relief_winding=",
+		relief_winding,
+		" passage_floor=",
+		passage
+	)
 	quit(0 if stones == 2 and reversed == 0 and relief_winding == 0 and passage == 1 else 1)

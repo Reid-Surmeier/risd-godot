@@ -5,8 +5,12 @@ const Shell := preload("res://modules/shell/interface.gd")
 const COMPACT := "res://modules/tab_strip/assets/compact/"
 const BAND_WIDTH := 4348.0
 const ASSETS := "res://modules/shell/assets/square_chrome/"
-const KEYS := ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground", "flowers"]
-const NAMES := ["Map", "Sketchbook", "3D Viewer", "Video Player", "Collection", "Playground", "Flowers"]
+const KEYS := [
+	"map", "sketchbook", "3d_viewer", "video_player", "collection", "playground", "flowers"
+]
+const NAMES := [
+	"Map", "Sketchbook", "3D Viewer", "Video Player", "Collection", "Playground", "Flowers"
+]
 var shell: Control
 var pages: Control
 var header: Control
@@ -58,7 +62,9 @@ func _ready() -> void:
 	inset.set_content_margin_all(6)
 	for state_name in ["normal", "hover", "pressed", "focus"]:
 		search.add_theme_stylebox_override(state_name, inset)
-	fullscreen_button = _button(header, "Full screen", Rect2(872, 8, 190, 38), "", _toggle_fullscreen)
+	fullscreen_button = _button(
+		header, "Full screen", Rect2(872, 8, 190, 38), "", _toggle_fullscreen
+	)
 	fullscreen_button.name = "Fullscreen"
 	fullscreen_button.tooltip_text = "Expand to full screen; proportions stay unchanged"
 	get_window().size_changed.connect(_sync_fullscreen)
@@ -66,11 +72,17 @@ func _ready() -> void:
 		fullscreen_button.disabled = not JavaScriptBridge.eval("!!document.fullscreenEnabled")
 		if fullscreen_button.disabled:
 			fullscreen_button.tooltip_text = "Open this page in a browser window to use full screen."
-		_fullscreen_callback = JavaScriptBridge.create_callback(func(_args: Array) -> void: _sync_fullscreen())
-		JavaScriptBridge.get_interface("document").addEventListener("fullscreenchange", _fullscreen_callback)
+		_fullscreen_callback = JavaScriptBridge.create_callback(
+			func(_args: Array) -> void: _sync_fullscreen()
+		)
+		JavaScriptBridge.get_interface("document").addEventListener(
+			"fullscreenchange", _fullscreen_callback
+		)
 	_sync_fullscreen()
 	strip.size = Vector2(BAND_WIDTH, 186)
-	var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(COMPACT + "layout.json"))
+	var layout: Dictionary = JSON.parse_string(
+		FileAccess.get_file_as_string(COMPACT + "layout.json")
+	)
 	_raster(strip, COMPACT + "bar_stripes.png", Rect2(0, 0, BAND_WIDTH, 186))
 	_raster(strip, COMPACT + "stars.png", Rect2(0, 0, 307, 186))
 	_band_button("Start", Rect2(0, 0, 307, 186), _open_start)
@@ -125,7 +137,9 @@ func _band_button(label: String, rect: Rect2, callback: Callable) -> Button:
 	return button
 
 
-func _button(parent: Control, text: String, rect: Rect2, icon: String, callback: Callable) -> Button:
+func _button(
+	parent: Control, text: String, rect: Rect2, icon: String, callback: Callable
+) -> Button:
 	var button := Button.new()
 	button.text = text
 	button.position = rect.position
@@ -133,7 +147,9 @@ func _button(parent: Control, text: String, rect: Rect2, icon: String, callback:
 	button.add_theme_font_size_override("font_size", 15)
 	for state_name in ["normal", "hover", "pressed", "hover_pressed", "disabled", "focus"]:
 		button.add_theme_stylebox_override(state_name, StyleBoxEmpty.new())
-	for state_name in ["font_color", "font_hover_color", "font_pressed_color", "font_hover_pressed_color"]:
+	for state_name in [
+		"font_color", "font_hover_color", "font_pressed_color", "font_hover_pressed_color"
+	]:
 		button.add_theme_color_override(state_name, Color("#18232b"))
 	var focus := StyleBoxFlat.new()
 	focus.bg_color = Color.TRANSPARENT
@@ -144,9 +160,15 @@ func _button(parent: Control, text: String, rect: Rect2, icon: String, callback:
 		button.icon = load(ASSETS + icon + ".png")
 		button.expand_icon = true
 		button.add_theme_constant_override("icon_max_width", 25)
-	button.gui_input.connect(func(event: InputEvent) -> void:
-		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			button.release_focus())
+	button.gui_input.connect(
+		func(event: InputEvent) -> void:
+			if (
+				event is InputEventMouseButton
+				and event.button_index == MOUSE_BUTTON_LEFT
+				and event.pressed
+			):
+				button.release_focus()
+	)
 	button.pressed.connect(callback)
 	parent.add_child(button)
 	return button
@@ -177,7 +199,9 @@ func _sync_tabs() -> void:
 	var active := _active()
 	for i in tab_buttons.size():
 		tab_buttons[i].button_pressed = i == active
-		strip.get_node("Selected%d" % i).modulate = Color(0.911, 0.911, 0.911) if i == active else Color.WHITE
+		strip.get_node("Selected%d" % i).modulate = (
+			Color(0.911, 0.911, 0.911) if i == active else Color.WHITE
+		)
 	title_label.text = NAMES[active] if active >= 0 else "Loading"
 
 
@@ -214,7 +238,12 @@ func _sync_fullscreen() -> void:
 
 func _toggle_fullscreen() -> void:
 	if OS.has_feature("web"):
-		JavaScriptBridge.eval("window.risdFullscreenError = false; (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()).catch(() => { window.risdFullscreenError = true; document.dispatchEvent(new Event('fullscreenchange')); })")
+		(
+			JavaScriptBridge
+			. eval(
+				"window.risdFullscreenError = false; (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()).catch(() => { window.risdFullscreenError = true; document.dispatchEvent(new Event('fullscreenchange')); })"
+			)
+		)
 	else:
 		get_window().mode = Window.MODE_WINDOWED if _is_fullscreen() else Window.MODE_FULLSCREEN
 	_sync_fullscreen()
@@ -222,4 +251,6 @@ func _toggle_fullscreen() -> void:
 
 func _exit_tree() -> void:
 	if _fullscreen_callback != null:
-		JavaScriptBridge.get_interface("document").removeEventListener("fullscreenchange", _fullscreen_callback)
+		JavaScriptBridge.get_interface("document").removeEventListener(
+			"fullscreenchange", _fullscreen_callback
+		)

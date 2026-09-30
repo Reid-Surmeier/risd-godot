@@ -3,6 +3,7 @@ extends "res://testing/harness_base.gd"
 
 const Scene := preload("res://modules/shell/demo.tscn")
 
+
 func _initialize() -> void:
 	call_deferred("_run")
 
@@ -44,7 +45,9 @@ func _run() -> void:
 	await _frames(18)
 	assert(gallery._kid._clip == "Idle")
 	assert(not gallery._kid.play_gesture("wave") and not gallery._kid.play_gesture("look"))
-	print("PASS #174 captures: Collection front/profile/back, straight/diagonal walk, stop, 23 paintings, gestures disabled")
+	print(
+		"PASS #174 captures: Collection front/profile/back, straight/diagonal walk, stop, 23 paintings, gestures disabled"
+	)
 	_finish(out)
 
 

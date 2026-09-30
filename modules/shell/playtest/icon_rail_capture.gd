@@ -52,9 +52,19 @@ func _run() -> void:
 		var tenant: Control = page.get_child(0)
 		for icon in rail.get_children():
 			var rect: Rect2 = icon.get_global_rect()
-			var fits: bool = rect.position.x >= page.global_position.x and rect.end.x <= tenant.global_position.x
-			_log.append({"event": "rail", "tab": chrome.KEYS[index], "icon": icon.name,
-				"rect": _rect(rect), "tenant_left": tenant.global_position.x, "fits": fits})
+			var fits: bool = (
+				rect.position.x >= page.global_position.x and rect.end.x <= tenant.global_position.x
+			)
+			_log.append(
+				{
+					"event": "rail",
+					"tab": chrome.KEYS[index],
+					"icon": icon.name,
+					"rect": _rect(rect),
+					"tenant_left": tenant.global_position.x,
+					"fits": fits
+				}
+			)
 			if not fits:
 				failures += 1
 		await _shot(out, chrome.KEYS[index] + ".png")
@@ -67,7 +77,14 @@ func _run() -> void:
 		assert(rail._selected == icon, "Icon click must still select")
 		await _press(icon.get_global_rect().get_center(), true)
 		assert(opened.back() == "downloads", "Double click must still open")
-		_log.append({"event": "input", "tab": chrome.KEYS[index], "selected": icon.name, "opened": opened.back()})
+		_log.append(
+			{
+				"event": "input",
+				"tab": chrome.KEYS[index],
+				"selected": icon.name,
+				"opened": opened.back()
+			}
+		)
 	print("RAIL_OVERLAP_FAILURES=", failures)
 	_finish(out)
 	if failures:

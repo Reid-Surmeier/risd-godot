@@ -113,9 +113,11 @@ func _ready() -> void:
 	minimize.pressed.connect(_collapse)
 	lock_button.ignore_texture_size = true
 	lock_button.tooltip_text = "Lock / unlock window position and size"
-	lock_button.pressed.connect(func():
-		locked = not locked
-		lock_button.tooltip_text = "Unlock window" if locked else "Lock window")
+	lock_button.pressed.connect(
+		func():
+			locked = not locked
+			lock_button.tooltip_text = "Unlock window" if locked else "Lock window"
+	)
 	container.stretch = true
 	container.clip_contents = true
 	frame.add_child(container)
@@ -175,7 +177,9 @@ func _build_artwork_window() -> void:
 func _show_artwork(item: Dictionary, marker: int) -> void:
 	var image: Texture2D = load(ROOT + item.image_path)
 	artwork_image.texture = image
-	artwork_image.custom_minimum_size = Vector2(artwork_page.size.x, artwork_page.size.x * image.get_height() / image.get_width())
+	artwork_image.custom_minimum_size = Vector2(
+		artwork_page.size.x, artwork_page.size.x * image.get_height() / image.get_width()
+	)
 	artwork_bubble.text = "%s\n%s\nMarker %d" % [item.title, item.maker, marker]
 	artwork_page.scroll_vertical = 0
 	artwork_window.position = Vector2(size.x - artwork_window.size.x - 24, 28).max(Vector2(12, 12))
@@ -206,7 +210,9 @@ func _draw_artwork_frame() -> void:
 	_artwork_patch(Rect2(0, 94, 36, 1268), Rect2(0, top, side, h - top - corner_height))
 	_artwork_patch(Rect2(1688, 94, 36, 1268), Rect2(w - side, top, side, h - top - corner_height))
 	_artwork_patch(Rect2(0, 1362, 56, 62), Rect2(0, h - corner_height, corner, corner_height))
-	_artwork_patch(Rect2(1668, 1362, 56, 62), Rect2(w - corner, h - corner_height, corner, corner_height))
+	_artwork_patch(
+		Rect2(1668, 1362, 56, 62), Rect2(w - corner, h - corner_height, corner, corner_height)
+	)
 	_artwork_patch(Rect2(56, 1382, 1612, 42), Rect2(corner, h - bottom, w - corner * 2, bottom))
 
 
@@ -219,8 +225,13 @@ func _fit_window() -> void:
 	if get_meta("windows_adjusted", false):
 		set_meta("scaling", false)
 		for window in panels.values() + [frame, artwork_window]:
-			window.scale = Vector2.ONE * minf(window.scale.x, minf(size.x / window.size.x, size.y / window.size.y))
-			window.position = window.position.clamp(Vector2.ZERO, (size - window.size * window.scale).max(Vector2.ZERO))
+			window.scale = (
+				Vector2.ONE
+				* minf(window.scale.x, minf(size.x / window.size.x, size.y / window.size.y))
+			)
+			window.position = window.position.clamp(
+				Vector2.ZERO, (size - window.size * window.scale).max(Vector2.ZERO)
+			)
 		return
 	# Compact Pages use the selected #164 heading in place of the baked clock.
 	minimap_heading.visible = size.x * DESKTOP_SIZE.y < size.y * DESKTOP_SIZE.x
@@ -252,7 +263,9 @@ func _fit_window() -> void:
 func _layout() -> void:
 	minimize.position = (Vector2(44, 42) * chrome_scale).round()
 	minimize.size = (Vector2(44, 44) * chrome_scale).round()
-	lock_button.position = Vector2(frame.size.x - roundf(86 * chrome_scale), roundf(42 * chrome_scale))
+	lock_button.position = Vector2(
+		frame.size.x - roundf(86 * chrome_scale), roundf(42 * chrome_scale)
+	)
 	lock_button.size = minimize.size
 	container.position = (INSET * chrome_scale).round()
 	if not collapsed:
@@ -277,7 +290,11 @@ func _top_window_at(pointer: Vector2) -> Control:
 	var windows := get_children()
 	windows.reverse()
 	for window in windows:
-		if window is Control and window.is_visible_in_tree() and Rect2(window.position, window.size * window.scale).has_point(pointer):
+		if (
+			window is Control
+			and window.is_visible_in_tree()
+			and Rect2(window.position, window.size * window.scale).has_point(pointer)
+		):
 			return window
 	return null
 
@@ -293,11 +310,18 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		for window in panels.values() + [frame, artwork_window]:
 			var grip := window.get_node_or_null("ProportionalResize") as Control
-			if grip != null and grip.is_visible_in_tree() and grip.get_global_rect().has_point(event.position):
+			if (
+				grip != null
+				and grip.is_visible_in_tree()
+				and grip.get_global_rect().has_point(event.position)
+			):
 				return
 	if event is InputEventMouse and event.device == -1:
 		return
-	if event is InputEventMouseButton and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
+	if (
+		event is InputEventMouseButton
+		and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]
+	):
 		var over := _top_window_at(make_canvas_position_local(event.position))
 		if over != null and over != frame and over != artwork_window:
 			get_viewport().set_input_as_handled()
@@ -331,8 +355,12 @@ func _input(event: InputEvent) -> void:
 			if locked:
 				return
 			var local := (pointer - rect.position) / target.scale
-			if local.y >= 30 * chrome_scale and local.y < 94 * chrome_scale \
-					and local.x > 90 * chrome_scale and local.x < target.size.x - 100 * chrome_scale:
+			if (
+				local.y >= 30 * chrome_scale
+				and local.y < 94 * chrome_scale
+				and local.x > 90 * chrome_scale
+				and local.x < target.size.x - 100 * chrome_scale
+			):
 				action = "drag"
 			else:
 				return
@@ -349,7 +377,10 @@ func _input(event: InputEvent) -> void:
 	elif motion and not action.is_empty():
 		var delta := pointer - start_pointer
 		if action == "drag":
-			moving_window.position = (start_rect.position + delta).clamp(Vector2(-offset_left, 0), (size - moving_window.size * moving_window.scale).max(Vector2.ZERO))
+			moving_window.position = (start_rect.position + delta).clamp(
+				Vector2(-offset_left, 0),
+				(size - moving_window.size * moving_window.scale).max(Vector2.ZERO)
+			)
 		_layout()
 	else:
 		return
@@ -378,8 +409,14 @@ func _draw_frame() -> void:
 	_patch(Rect2(0, 94, 36, 1268), Rect2(0, top, side, h - top - corner_height))
 	_patch(Rect2(1688, 94, 36, 1268), Rect2(w - side, top, side, h - top - corner_height))
 	var source_height := 42 if collapsed else 62
-	_patch(Rect2(0, 1424 - source_height, 56, source_height), Rect2(0, h - corner_height, corner, corner_height))
-	_patch(Rect2(1668, 1424 - source_height, 56, source_height), Rect2(w - corner, h - corner_height, corner, corner_height))
+	_patch(
+		Rect2(0, 1424 - source_height, 56, source_height),
+		Rect2(0, h - corner_height, corner, corner_height)
+	)
+	_patch(
+		Rect2(1668, 1424 - source_height, 56, source_height),
+		Rect2(w - corner, h - corner_height, corner, corner_height)
+	)
 	_patch(Rect2(56, 1382, 1612, 42), Rect2(corner, h - bottom, w - corner * 2, bottom))
 
 
@@ -395,14 +432,28 @@ func state() -> Dictionary:
 		panel_rects[id] = panels[id].get_rect()
 	var stack: Array = []
 	for window in get_children():
-		if window == artwork_window: continue
+		if window == artwork_window:
+			continue
 		stack.append(str(window.name))
-	s.merge({"key": key, "ticks": ticks, "inputs": inputs, "size": size, "frame": frame.get_rect(),
+	s.merge(
+		{
+			"key": key,
+			"ticks": ticks,
+			"inputs": inputs,
+			"size": size,
+			"frame": frame.get_rect(),
 			"frame_global": frame.get_global_rect(),
-			"map_rect": container.get_global_rect(), "chrome_scale": chrome_scale, "locked": locked,
-			"collapsed": collapsed, "action": action, "viewport_update_mode": viewport.render_target_update_mode,
-			"panels": panel_rects, "stack": stack,
-			"moving_window": str(moving_window.name) if moving_window != null else ""})
+			"map_rect": container.get_global_rect(),
+			"chrome_scale": chrome_scale,
+			"locked": locked,
+			"collapsed": collapsed,
+			"action": action,
+			"viewport_update_mode": viewport.render_target_update_mode,
+			"panels": panel_rects,
+			"stack": stack,
+			"moving_window": str(moving_window.name) if moving_window != null else ""
+		}
+	)
 	return Errors.ok(s)
 
 
@@ -413,37 +464,52 @@ func _add_scale_grip(window: Control) -> void:
 	grip.size = Vector2(32, 32)
 	grip.mouse_default_cursor_shape = Control.CURSOR_FDIAGSIZE
 	grip.tooltip_text = "Drag to resize proportionally"
-	grip.draw.connect(func():
-		grip.draw_rect(Rect2(Vector2.ZERO, grip.size), Color(0.3, 0.3, 0.3, 0.8))
-		for inset in [10, 17, 24]:
-			grip.draw_line(Vector2(inset, 28), Vector2(28, inset), Color.WHITE, 2.0))
+	grip.draw.connect(
+		func():
+			grip.draw_rect(Rect2(Vector2.ZERO, grip.size), Color(0.3, 0.3, 0.3, 0.8))
+			for inset in [10, 17, 24]:
+				grip.draw_line(Vector2(inset, 28), Vector2(28, inset), Color.WHITE, 2.0)
+	)
 	window.add_child(grip)
 	var fit := func(): grip.position = window.size - grip.size
 	window.resized.connect(fit)
 	fit.call()
 	var gesture := {"active": false, "start": Vector2.ZERO, "scale": 1.0}
-	get_window().focus_exited.connect(func():
-		gesture.active = false
-		set_meta("scaling", false))
-	window.visibility_changed.connect(func():
-		gesture.active = false
-		set_meta("scaling", false))
-	grip.gui_input.connect(func(event):
-		if window == frame and (locked or collapsed):
-			return
-		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-			gesture.active = event.pressed
-			set_meta("scaling", event.pressed)
-			if event.pressed:
-				gesture.start = window.get_parent().make_canvas_position_local(event.global_position)
-				gesture.scale = window.scale.x
-				set_meta("windows_adjusted", true)
-				window.get_parent().move_child(window, -1)
-			grip.accept_event()
-		elif event is InputEventMouseMotion and gesture.active and get_meta("scaling", false):
-			var delta: Vector2 = window.get_parent().make_canvas_position_local(event.global_position) - gesture.start
-			var available: Vector2 = window.get_parent().size - window.position
-			var maximum := minf(available.x / window.size.x, available.y / window.size.y)
-			var factor: float = gesture.scale + delta.dot(window.size) / window.size.length_squared()
-			window.scale = Vector2.ONE * clampf(factor, minf(0.35, maximum), maximum)
-			grip.accept_event())
+	get_window().focus_exited.connect(
+		func():
+			gesture.active = false
+			set_meta("scaling", false)
+	)
+	window.visibility_changed.connect(
+		func():
+			gesture.active = false
+			set_meta("scaling", false)
+	)
+	grip.gui_input.connect(
+		func(event):
+			if window == frame and (locked or collapsed):
+				return
+			if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+				gesture.active = event.pressed
+				set_meta("scaling", event.pressed)
+				if event.pressed:
+					gesture.start = window.get_parent().make_canvas_position_local(
+						event.global_position
+					)
+					gesture.scale = window.scale.x
+					set_meta("windows_adjusted", true)
+					window.get_parent().move_child(window, -1)
+				grip.accept_event()
+			elif event is InputEventMouseMotion and gesture.active and get_meta("scaling", false):
+				var delta: Vector2 = (
+					window.get_parent().make_canvas_position_local(event.global_position)
+					- gesture.start
+				)
+				var available: Vector2 = window.get_parent().size - window.position
+				var maximum := minf(available.x / window.size.x, available.y / window.size.y)
+				var factor: float = (
+					gesture.scale + delta.dot(window.size) / window.size.length_squared()
+				)
+				window.scale = Vector2.ONE * clampf(factor, minf(0.35, maximum), maximum)
+				grip.accept_event()
+	)

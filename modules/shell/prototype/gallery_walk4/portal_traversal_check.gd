@@ -1,12 +1,18 @@
 ## Private #167 continuous-world regression; screenshots are the visual gate.
 extends "res://testing/harness_base.gd"
 var failures := 0
+
+
 func require(ok: bool, message: String) -> void:
 	if not ok:
 		failures += 1
 		push_error(message)
+
+
 func _initialize() -> void:
 	call_deferred("run")
+
+
 func run() -> void:
 	var walk = load("res://modules/shell/prototype/gallery_walk4/walk4.gd").new()
 	walk.size = Vector2(720, 540)
@@ -39,7 +45,10 @@ func run() -> void:
 		require(walk._space == "arch", "arch was not entered")
 		require(walk._pos.z > 2.0, "arch entry teleported to QA room or stopped at threshold")
 		require(walk._cam.cull_mask < 64, "arch camera still shows QA room layers")
-		require(walk._baked_room.get_node("Lightmap").visible, "modeled portal lighting hidden after entry")
+		require(
+			walk._baked_room.get_node("Lightmap").visible,
+			"modeled portal lighting hidden after entry"
+		)
 		await _frames(4)
 		await _shot(out, "%s-inside.png" % width)
 		walk._held.clear()
@@ -57,7 +66,16 @@ func run() -> void:
 		require(walk._space == "gallery" and walk._pos.z < -1.0, "continuous arch return failed")
 		await _frames(4)
 		await _shot(out, "%s-return.png" % width)
-		print("PORTAL_CONTINUITY width=",width," position=",walk._pos," mask=",walk._cam.cull_mask," failures=",failures)
+		print(
+			"PORTAL_CONTINUITY width=",
+			width,
+			" position=",
+			walk._pos,
+			" mask=",
+			walk._cam.cull_mask,
+			" failures=",
+			failures
+		)
 	walk._space = "arch"
 	walk._pos = Vector3(0.4, 0, 2.0)
 	walk._move_to(Vector3(2.0, 0, 2.3))

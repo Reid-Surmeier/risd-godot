@@ -1,17 +1,31 @@
 extends SceneTree
+
+
 func _initialize() -> void:
 	call_deferred("capture")
+
+
 func capture() -> void:
-	var scene = load("res://modules/shell/prototype/gallery_walk4/doorway_prototype.tscn").instantiate()
+	var scene = (
+		load("res://modules/shell/prototype/gallery_walk4/doorway_prototype.tscn").instantiate()
+	)
 	root.add_child(scene)
 	var output := OS.get_cmdline_user_args()[0]
 	var failures := 0
 	for mesh in scene.find_children("*", "MeshInstance3D", true, false):
 		var material = mesh.material_override
-		if material is StandardMaterial3D and material.albedo_texture and material.albedo_texture.resource_path.ends_with("door-far.jpg"):
+		if (
+			material is StandardMaterial3D
+			and material.albedo_texture
+			and material.albedo_texture.resource_path.ends_with("door-far.jpg")
+		):
 			push_error("Far vestibule still contains its photographic backplate")
 			failures += 1
-		if material is StandardMaterial3D and material.albedo_texture and material.albedo_texture.resource_path.ends_with("ivory-trim.svg"):
+		if (
+			material is StandardMaterial3D
+			and material.albedo_texture
+			and material.albedo_texture.resource_path.ends_with("ivory-trim.svg")
+		):
 			for surface in mesh.mesh.get_surface_count():
 				var arrays: Array = mesh.mesh.surface_get_arrays(surface)
 				var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
@@ -19,7 +33,9 @@ func capture() -> void:
 				var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
 				for index in range(0, indices.size(), 3):
 					var a := indices[index]
-					var geometric := (vertices[indices[index + 2]] - vertices[a]).cross(vertices[indices[index + 1]] - vertices[a])
+					var geometric := (vertices[indices[index + 2]] - vertices[a]).cross(
+						vertices[indices[index + 1]] - vertices[a]
+					)
 					if geometric.dot(normals[a]) < -0.000001:
 						push_error("Baked ivory winding opposes its face normal")
 						failures += 1
@@ -34,7 +50,9 @@ func capture() -> void:
 			frame.save_png(output.path_join("%s-view-%s.png" % [width, index]))
 			if index == 0:
 				for side in [-1, 1]:
-					var pixel := Vector2i(scene.camera.unproject_position(Vector3(side * 1.12, 1.4, -26.22)))
+					var pixel := Vector2i(
+						scene.camera.unproject_position(Vector3(side * 1.12, 1.4, -26.22))
+					)
 					var lit := frame.get_pixelv(pixel).get_luminance()
 					if lit < 0.08:
 						push_error("Mirrored trim is dark: " + str(side) + " luminance=" + str(lit))

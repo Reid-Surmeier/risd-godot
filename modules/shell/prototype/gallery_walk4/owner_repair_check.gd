@@ -1,7 +1,11 @@
 ## Private #167 owner corrections: view continuity and source upholstery envelope.
 extends SceneTree
+
+
 func _initialize() -> void:
 	call_deferred("run")
+
+
 func run() -> void:
 	root.size = Vector2i(1080, 1080)
 	var walk = load("res://modules/shell/prototype/gallery_walk4/walk4.gd").new()
@@ -35,12 +39,25 @@ func run() -> void:
 				assert(walk._kid.is_visible_in_tree(), "Review character hidden")
 				for frame in 8:
 					await process_frame
-				assert(root.get_texture().get_image().save_png(args[0].path_join("mode-%s-z-%s.png" % [mode, position])) == OK)
-	assert(walk._bench_surface(0.19, 0.21).y < walk._bench_surface(0, 0).y - 0.02, "Missing tuft depression")
+				assert(
+					(
+						root.get_texture().get_image().save_png(
+							args[0].path_join("mode-%s-z-%s.png" % [mode, position])
+						)
+						== OK
+					)
+				)
+	assert(
+		walk._bench_surface(0.19, 0.21).y < walk._bench_surface(0, 0).y - 0.02,
+		"Missing tuft depression"
+	)
 	for x in 33:
 		for z in 97:
 			var p: Vector3 = walk._bench_surface(-0.475 + x * 0.95 / 32, -1.5 + z * 3.0 / 96)
-			assert(absf(p.x) <= 0.476 and absf(p.z) <= 1.501 and p.y >= 0.30 and p.y <= 0.421, "Cushion envelope changed")
+			assert(
+				absf(p.x) <= 0.476 and absf(p.z) <= 1.501 and p.y >= 0.30 and p.y <= 0.421,
+				"Cushion envelope changed"
+			)
 	var vault_faces := 0
 	for mesh in walk._source_meshes:
 		if not mesh.get_meta("vault", false):
@@ -52,7 +69,10 @@ func run() -> void:
 			var c := vertices[triangle + 2]
 			var normal := (c - a).cross(b - a).normalized()
 			if is_equal_approx(a.z, b.z) and is_equal_approx(b.z, c.z):
-				assert(normal.z < 0 if is_zero_approx(a.z) else normal.z > 0, "Lunette faces away from room")
+				assert(
+					normal.z < 0 if is_zero_approx(a.z) else normal.z > 0,
+					"Lunette faces away from room"
+				)
 			else:
 				assert(normal.y < 0, "Vault strip faces away from room")
 			vault_faces += 1
@@ -75,7 +95,14 @@ func run() -> void:
 	var triangles := 0
 	for mesh in walk._vp.get_children():
 		var arrays: Array = mesh.mesh.surface_get_arrays(0)
-		triangles += (arrays[Mesh.ARRAY_INDEX].size() if arrays[Mesh.ARRAY_INDEX] != null else arrays[Mesh.ARRAY_VERTEX].size()) / 3
+		triangles += (
+			(
+				arrays[Mesh.ARRAY_INDEX].size()
+				if arrays[Mesh.ARRAY_INDEX] != null
+				else arrays[Mesh.ARRAY_VERTEX].size()
+			)
+			/ 3
+		)
 	assert(triangles == 13, "Static merge discarded triangles")
 	print("OWNER_REPAIR vault inward faces=", vault_faces, " mixed merge triangles=", triangles)
 	print("OWNER_REPAIR source: camera mode/FOV continuity and tufted cushion bounds PASS")

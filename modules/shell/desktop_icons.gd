@@ -7,7 +7,9 @@ extends Control
 signal opened(key: String)
 
 const ROOT := "res://modules/shell/assets/desktop_icons/"
-const ICONS: Array[String] = ["downloads", "documents", "websurfer2", "nextrooms", "wastebin", "screensavers", "do_not_open"]
+const ICONS: Array[String] = [
+	"downloads", "documents", "websurfer2", "nextrooms", "wastebin", "screensavers", "do_not_open"
+]
 const SIDE := "left"  # "left" or "right"
 const MARGIN := 14.0  # page px from the page's edge and top
 const INSET := 115.0  # widest icon and baked caption (87 px), plus both 14 px margins
@@ -44,7 +46,11 @@ static func window_holder(tenant: Control) -> Control:
 	while descended:
 		descended = false
 		for c in holder.get_children():
-			if c.get_class() == "Control" and c.visible and (_full(c, tenant) or (c.get_index() == 0 and _backdrop_in(c, tenant) >= 0)):
+			if (
+				c.get_class() == "Control"
+				and c.visible
+				and (_full(c, tenant) or (c.get_index() == 0 and _backdrop_in(c, tenant) >= 0))
+			):
 				holder = c
 				descended = true
 				break
@@ -67,8 +73,20 @@ static func _backdrop_in(holder: Node, tenant: Control) -> int:
 
 
 static func _full(c: Control, tenant: Control) -> bool:  # anchored to fill, or already laid out filling
-	var anchored := c.anchor_left == 0.0 and c.anchor_top == 0.0 and c.anchor_right == 1.0 and c.anchor_bottom == 1.0
-	return anchored or (tenant.size.x > 0.0 and c.size.distance_to(tenant.size) < 2.0 and c.position.length() < 2.0)
+	var anchored := (
+		c.anchor_left == 0.0
+		and c.anchor_top == 0.0
+		and c.anchor_right == 1.0
+		and c.anchor_bottom == 1.0
+	)
+	return (
+		anchored
+		or (
+			tenant.size.x > 0.0
+			and c.size.distance_to(tenant.size) < 2.0
+			and c.position.length() < 2.0
+		)
+	)
 
 
 func _ready() -> void:
@@ -120,7 +138,9 @@ func _page() -> Control:  # the Shell's Page this column's Tenant sits on
 
 
 func _on_icon_input(event: InputEvent, icon: TextureRect) -> void:
-	if not (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+	if not (
+		event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT
+	):
 		return
 	_select(icon)
 	if event.double_click:
@@ -144,6 +164,11 @@ func _select(icon: TextureRect) -> void:
 
 
 func _input(event: InputEvent) -> void:  # a click anywhere off the icons clears the selection
-	if _selected != null and is_visible_in_tree() and event is InputEventMouseButton and event.pressed \
-			and not _selected.get_global_rect().has_point(get_global_mouse_position()):
+	if (
+		_selected != null
+		and is_visible_in_tree()
+		and event is InputEventMouseButton
+		and event.pressed
+		and not _selected.get_global_rect().has_point(get_global_mouse_position())
+	):
 		_select(null)

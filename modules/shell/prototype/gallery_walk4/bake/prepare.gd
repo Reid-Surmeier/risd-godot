@@ -3,8 +3,10 @@ extends SceneTree
 
 const DIR := "res://modules/shell/prototype/gallery_walk4/"
 
+
 func _initialize() -> void:
 	call_deferred("_prepare")
+
 
 func _prepare() -> void:
 	var walk = load(DIR + "walk4.gd").new()
@@ -24,14 +26,25 @@ func _prepare() -> void:
 		var mesh := ArrayMesh.new()
 		var floor_mesh: bool = original.get_shader_parameter("plank_seams") == true
 		var source_albedo: Texture2D = original.get_shader_parameter("albedo")
-		var stone_mesh := source_albedo != null and source_albedo.resource_path.ends_with("/stone.png")
-		var upholstery := source_albedo != null and source_albedo.resource_path.ends_with("/bench-cloth-muse.webp")
+		var stone_mesh := (
+			source_albedo != null and source_albedo.resource_path.ends_with("/stone.png")
+		)
+		var upholstery := (
+			source_albedo != null
+			and source_albedo.resource_path.ends_with("/bench-cloth-muse.webp")
+		)
 		var portal_floor: bool = source.get_meta("portal_floor", false)
-		var cornice_mesh := source_albedo != null and source_albedo.resource_path.ends_with("/cornice-ivory.svg")
+		var cornice_mesh := (
+			source_albedo != null and source_albedo.resource_path.ends_with("/cornice-ivory.svg")
+		)
 		for surface in source.mesh.get_surface_count():
 			var arrays = source.mesh.surface_get_arrays(surface)
 			var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
-			var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL] if arrays[Mesh.ARRAY_NORMAL] != null else PackedVector3Array()
+			var normals: PackedVector3Array = (
+				arrays[Mesh.ARRAY_NORMAL]
+				if arrays[Mesh.ARRAY_NORMAL] != null
+				else PackedVector3Array()
+			)
 			if normals.is_empty():
 				var builder := SurfaceTool.new()
 				builder.create_from(source.mesh, surface)
@@ -40,24 +53,43 @@ func _prepare() -> void:
 			if cornice_mesh:
 				# Profile caps can face opposite their supplied normals.
 				# Keep the cornice bake winding consistent with its shaded faces.
-				var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX] if arrays[Mesh.ARRAY_INDEX] != null else PackedInt32Array(range(vertices.size()))
+				var indices: PackedInt32Array = (
+					arrays[Mesh.ARRAY_INDEX]
+					if arrays[Mesh.ARRAY_INDEX] != null
+					else PackedInt32Array(range(vertices.size()))
+				)
 				for triangle in range(0, indices.size(), 3):
 					var a := indices[triangle]
-					var geometric := (vertices[indices[triangle + 2]] - vertices[a]).cross(vertices[indices[triangle + 1]] - vertices[a])
+					var geometric := (vertices[indices[triangle + 2]] - vertices[a]).cross(
+						vertices[indices[triangle + 1]] - vertices[a]
+					)
 					if geometric.dot(normals[a]) < 0:
 						var b := indices[triangle + 1]
 						indices[triangle + 1] = indices[triangle + 2]
 						indices[triangle + 2] = b
 				arrays[Mesh.ARRAY_INDEX] = indices
-			var colors: PackedColorArray = arrays[Mesh.ARRAY_COLOR] if arrays[Mesh.ARRAY_COLOR] != null else PackedColorArray()
+			var colors: PackedColorArray = (
+				arrays[Mesh.ARRAY_COLOR] if arrays[Mesh.ARRAY_COLOR] != null else PackedColorArray()
+			)
 			var uv2 := PackedVector2Array()
 			if floor_mesh or portal_floor:
 				for i in vertices.size():
 					var world: Vector3 = source.global_transform * vertices[i]
-					uv2.append(Vector2((world.x + 3.0) / 6.0, world.z / float(source.get_meta("portal_floor_end"))) if portal_floor else Vector2((world.x + 5.5) / 11.0, (0.5 - world.z) / 27.3))
+					uv2.append(
+						(
+							Vector2(
+								(world.x + 3.0) / 6.0,
+								world.z / float(source.get_meta("portal_floor_end"))
+							)
+							if portal_floor
+							else Vector2((world.x + 5.5) / 11.0, (0.5 - world.z) / 27.3)
+						)
+					)
 					if floor_mesh and not colors.is_empty():
 						var ao := maxf(walk._ao(world, false), 0.01)
-						colors[i] = Color(colors[i].r / ao, colors[i].g / ao, colors[i].b / ao, colors[i].a)
+						colors[i] = Color(
+							colors[i].r / ao, colors[i].g / ao, colors[i].b / ao, colors[i].a
+						)
 				arrays[Mesh.ARRAY_TEX_UV2] = uv2
 			elif not colors.is_empty() and not stone_mesh and not portal_floor and not upholstery:
 				# Keep intrinsic material colour; drop the old room-light multiplier.
@@ -69,7 +101,16 @@ func _prepare() -> void:
 			mesh.lightmap_size_hint = Vector2i(512, 1024)
 		else:
 			# Both plaster profiles need multiple texels across their narrow relief.
-			var fine_trim := cornice_mesh or (source_albedo and (source_albedo.resource_path.ends_with("/ivory-trim.svg") or source_albedo.resource_path.ends_with("/stone.png")))
+			var fine_trim := (
+				cornice_mesh
+				or (
+					source_albedo
+					and (
+						source_albedo.resource_path.ends_with("/ivory-trim.svg")
+						or source_albedo.resource_path.ends_with("/stone.png")
+					)
+				)
+			)
 			var texel := 0.025 if fine_trim else 0.12
 			if source.get_meta("vault", false):
 				texel = 0.035
@@ -83,12 +124,20 @@ func _prepare() -> void:
 				quit(1)
 				return
 		var material := StandardMaterial3D.new()
-		material.albedo_color = original.get_shader_parameter("tint") if original.get_shader_parameter("tint") != null else Color.WHITE
+		material.albedo_color = (
+			original.get_shader_parameter("tint")
+			if original.get_shader_parameter("tint") != null
+			else Color.WHITE
+		)
 		material.albedo_texture = original.get_shader_parameter("albedo")
 		if cornice_mesh or source.get_meta("baseboard", false):
 			# Local neutral fill keeps plaster distinct from the warm vault bake.
 			material.emission_enabled = true
-			material.emission = Color(0.55, 0.55, 0.55) if source.get_meta("baseboard", false) else Color(0.35, 0.35, 0.35)
+			material.emission = (
+				Color(0.55, 0.55, 0.55)
+				if source.get_meta("baseboard", false)
+				else Color(0.35, 0.35, 0.35)
+			)
 		var uv_scale = original.get_shader_parameter("uv_scale")
 		if uv_scale != null:
 			material.uv1_scale = Vector3(uv_scale.x, uv_scale.y, 1)
@@ -97,7 +146,10 @@ func _prepare() -> void:
 		material.disable_ambient_light = false  # Compatibility gates lightmaps with ambient lighting
 		material.cull_mode = BaseMaterial3D.CULL_DISABLED
 		material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
-		if original.get_shader_parameter("alpha_cut") != null and original.get_shader_parameter("alpha_cut") > 0:
+		if (
+			original.get_shader_parameter("alpha_cut") != null
+			and original.get_shader_parameter("alpha_cut") > 0
+		):
 			material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
 			material.alpha_scissor_threshold = original.get_shader_parameter("alpha_cut")
 		# Preserve artwork/painted frame colours; they still occlude the surrounding light.
@@ -109,25 +161,39 @@ func _prepare() -> void:
 		instance.name = "Surface%03d" % index
 		instance.mesh = mesh
 		if source.has_meta("portal_relief_winding_failures"):
-			instance.set_meta("portal_relief_winding_failures", source.get_meta("portal_relief_winding_failures"))
+			instance.set_meta(
+				"portal_relief_winding_failures", source.get_meta("portal_relief_winding_failures")
+			)
 		instance.material_override = material
 		if floor_mesh or portal_floor:
 			var oak := ShaderMaterial.new()
 			oak.shader = load(DIR + ("floor_oak.gdshader" if floor_mesh else "oak.gdshader"))  # #186 selected gallery floor; retained passage
 			oak.set_shader_parameter("oak", material.albedo_texture)
 			if portal_floor:
-				oak.set_shader_parameter("floor_z_limits", Vector2(0, source.get_meta("portal_floor_end")))
+				oak.set_shader_parameter(
+					"floor_z_limits", Vector2(0, source.get_meta("portal_floor_end"))
+				)
 			instance.material_override = oak
 		instance.transform = source.global_transform
 		instance.layers = source.layers
 		instance.gi_mode = GeometryInstance3D.GI_MODE_STATIC
-		instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF if floor_mesh or portal_floor else GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
-		if material.albedo_texture and material.albedo_texture.resource_path.ends_with("/door-arch.jpg"):
+		instance.cast_shadow = (
+			GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			if floor_mesh or portal_floor
+			else GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
+		)
+		if (
+			material.albedo_texture
+			and material.albedo_texture.resource_path.ends_with("/door-arch.jpg")
+		):
 			# Gameplay hides this inherited reference card. It must not remain an
 			# invisible light blocker over the modeled recess's rear wall.
 			instance.gi_mode = GeometryInstance3D.GI_MODE_DISABLED
 			instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		if material.albedo_texture and material.albedo_texture.resource_path.ends_with("/skylight-grid-168.svg"):
+		if (
+			material.albedo_texture
+			and material.albedo_texture.resource_path.ends_with("/skylight-grid-168.svg")
+		):
 			instance.gi_mode = GeometryInstance3D.GI_MODE_DISABLED  # omit glazing from bake ray geometry
 			material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 			material.albedo_color = Color.WHITE

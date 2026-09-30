@@ -39,7 +39,9 @@ const Errors := preload("res://modules/shell/errors.gd")
 const _Impl := preload("res://modules/shell/shell.gd")
 
 ## The fixed Tabs in launch order; the key is the tab_strip label key and the registry key.
-const FIXED_TABS: Array[String] = ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground", "flowers"]
+const FIXED_TABS: Array[String] = [
+	"map", "sketchbook", "3d_viewer", "video_player", "collection", "playground", "flowers"
+]
 const LAUNCH_TAB := "collection"
 ## The page cross-fade, in seconds. The value every acceptance test asserts against.
 const FADE_SECONDS := 0.2
@@ -84,7 +86,6 @@ static func tenant_state(shell: Control, key: String) -> Dictionary:
 ## visible then); `bar_rect` is where the strip sits.
 static func state(shell: Control) -> Dictionary:
 	return shell.state()
-
 
 ## Signals on the Shell node:
 ##   tenant_created(key: String)  — the Tenant for `key` now lives in its Page

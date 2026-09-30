@@ -101,7 +101,6 @@ static func state(strip: Control) -> Dictionary:
 static func stub_rect(strip: Control) -> Rect2:
 	return strip.stub_rect()
 
-
 ## Signals on the strip node (connect to them on the returned node):
 ##   tab_opened(index: int)       — the new tab exists and its grow has started (grow_tab: the replay started)
 ##   tab_settled(index: int)      — grow finished, label is "Connecting..."

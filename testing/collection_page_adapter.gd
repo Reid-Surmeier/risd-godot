@@ -13,15 +13,34 @@ var delay_image := false
 func dispatch(query: Dictionary, done: Callable) -> Dictionary:
 	calls.append(query.duplicate(true))
 	var delay := 0.80 if query.q == "slow" else 0.03
-	get_tree().create_timer(delay).timeout.connect(func() -> void:
-		if query.q == "fail":
-			done.call({"ok": false, "value": null, "error": {"code": "collection_data.unavailable", "detail": "fixture unavailable"}})
-			return
-		if query.q == "expire" and not expired_once:
-			expired_once = true
-			done.call({"ok": false, "value": null, "error": {"code": "collection_data.snapshot_expired", "detail": "fixture snapshot expired"}})
-			return
-		done.call(_result(query)))
+	get_tree().create_timer(delay).timeout.connect(
+		func() -> void:
+			if query.q == "fail":
+				done.call(
+					{
+						"ok": false,
+						"value": null,
+						"error":
+						{"code": "collection_data.unavailable", "detail": "fixture unavailable"}
+					}
+				)
+				return
+			if query.q == "expire" and not expired_once:
+				expired_once = true
+				done.call(
+					{
+						"ok": false,
+						"value": null,
+						"error":
+						{
+							"code": "collection_data.snapshot_expired",
+							"detail": "fixture snapshot expired"
+						}
+					}
+				)
+				return
+			done.call(_result(query))
+	)
 	return {"ok": true, "value": null, "error": null}
 
 
@@ -31,7 +50,11 @@ func webp_hash() -> String:
 
 func fetch_image(sha256: String, done: Callable) -> Dictionary:
 	if sha256 != WEBP_SHA:
-		return {"ok": false, "value": null, "error": {"code": "testing.image_missing", "detail": "Unknown fixture image"}}
+		return {
+			"ok": false,
+			"value": null,
+			"error": {"code": "testing.image_missing", "detail": "Unknown fixture image"}
+		}
 	var result := {"ok": true, "value": FileAccess.get_file_as_bytes(WEBP), "error": null}
 	if delay_image:
 		get_tree().create_timer(0.5).timeout.connect(func() -> void: done.call(result))
@@ -66,22 +89,41 @@ func _result(query: Dictionary) -> Dictionary:
 			clone.id = "risd:" + clone.web_id
 			records.append(clone)
 	elif term not in ["", "slow"]:
-		records = records.filter(func(record: Dictionary) -> bool: return term in JSON.stringify(record).to_lower())
+		records = records.filter(
+			func(record: Dictionary) -> bool: return term in JSON.stringify(record).to_lower()
+		)
 	if query.category != "All":
-		records = records.filter(func(record: Dictionary) -> bool: return record.category == query.category)
+		records = records.filter(
+			func(record: Dictionary) -> bool: return record.category == query.category
+		)
 	if query.has_image:
 		records = records.filter(func(record: Dictionary) -> bool: return record.image != null)
-	records.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
-		var key := "title" if query.sort.begins_with("title") else "year_from"
-		var av: Variant = a[key] if a[key] != null else 999999
-		var bv: Variant = b[key] if b[key] != null else 999999
-		return av < bv if query.sort.ends_with("asc") else av > bv)
+	records.sort_custom(
+		func(a: Dictionary, b: Dictionary) -> bool:
+			var key := "title" if query.sort.begins_with("title") else "year_from"
+			var av: Variant = a[key] if a[key] != null else 999999
+			var bv: Variant = b[key] if b[key] != null else 999999
+			return av < bv if query.sort.ends_with("asc") else av > bv
+	)
 	var snapshot := FileAccess.get_sha256(CORPUS)
 	var total: int = records.size()
 	var first: int = (query.page - 1) * 20
 	var page_items: Array = records.slice(first, mini(first + 20, total)) if first < total else []
-	var value := {"query": query.duplicate(true), "query_id": snapshot, "corpus": {"snapshot": snapshot,
-		"count": maxi(corpus.records.size(), total), "coverage": corpus.coverage, "fetched_at": corpus.fetched_at,
-		"upstream_status": corpus.upstream_status}, "total": total, "page": query.page,
-		"page_size": 20, "categories": ["Painting", "Photographs", "Drawings and Watercolors"], "items": page_items}
+	var value := {
+		"query": query.duplicate(true),
+		"query_id": snapshot,
+		"corpus":
+		{
+			"snapshot": snapshot,
+			"count": maxi(corpus.records.size(), total),
+			"coverage": corpus.coverage,
+			"fetched_at": corpus.fetched_at,
+			"upstream_status": corpus.upstream_status
+		},
+		"total": total,
+		"page": query.page,
+		"page_size": 20,
+		"categories": ["Painting", "Photographs", "Drawings and Watercolors"],
+		"items": page_items
+	}
 	return {"ok": true, "value": value, "error": null}

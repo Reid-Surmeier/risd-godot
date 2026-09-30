@@ -62,15 +62,48 @@ func _initialize() -> void:
 		await _frames(2)
 		var after := get_root().get_texture().get_image()
 		var restored := _differs(_pixels(before, r), _pixels(after, r))
-		var ok: bool = peak_frame == cell.frames - 1 and others_still and changed > 2.0 and cell.frame == 0 and restored == 0.0
+		var ok: bool = (
+			peak_frame == cell.frames - 1
+			and others_still
+			and changed > 2.0
+			and cell.frame == 0
+			and restored == 0.0
+		)
 		failed += 0 if ok else 1
-		results.append({"cell": String(cell.name), "rect": _rect(r), "frames": cell.frames, "peak_frame": peak_frame,
-				"screen_change_on_hover": snappedf(changed, 0.01), "others_still": others_still,
-				"frame_after_leave": cell.frame, "screen_change_after_leave": snappedf(restored, 0.001), "pass": ok})
-		print("%s  %-22s peak %d/%d  screen change %.2f  back to frame %d, residual %.3f" % [
-				"PASS" if ok else "FAIL", cell.name, peak_frame, cell.frames - 1, changed, cell.frame, restored])
+		results.append(
+			{
+				"cell": String(cell.name),
+				"rect": _rect(r),
+				"frames": cell.frames,
+				"peak_frame": peak_frame,
+				"screen_change_on_hover": snappedf(changed, 0.01),
+				"others_still": others_still,
+				"frame_after_leave": cell.frame,
+				"screen_change_after_leave": snappedf(restored, 0.001),
+				"pass": ok
+			}
+		)
+		print(
+			(
+				"%s  %-22s peak %d/%d  screen change %.2f  back to frame %d, residual %.3f"
+				% [
+					"PASS" if ok else "FAIL",
+					cell.name,
+					peak_frame,
+					cell.frames - 1,
+					changed,
+					cell.frame,
+					restored
+				]
+			)
+		)
 	var f := FileAccess.open(out_dir.path_join("hover-turn.json"), FileAccess.WRITE)
 	f.store_string(JSON.stringify({"cells": results, "failed": failed}, " "))
 	f.close()
-	print("VERDICT %s  %d cells, %d failed" % ["PASS" if failed == 0 and cells.size() == 18 else "FAIL", cells.size(), failed])
+	print(
+		(
+			"VERDICT %s  %d cells, %d failed"
+			% ["PASS" if failed == 0 and cells.size() == 18 else "FAIL", cells.size(), failed]
+		)
+	)
 	quit(0 if failed == 0 and cells.size() == 18 else 1)

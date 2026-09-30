@@ -47,7 +47,9 @@ func _ready() -> void:
 
 
 func _layout() -> void:
-	factor = clampf(minf((size.x - 2.0 * MARGIN) / GAME.x, (size.y - 2.0 * MARGIN) / GAME.y), 0.1, MAX_FACTOR)
+	factor = clampf(
+		minf((size.x - 2.0 * MARGIN) / GAME.x, (size.y - 2.0 * MARGIN) / GAME.y), 0.1, MAX_FACTOR
+	)
 	window.size = (GAME * factor).round()
 	window.position = ((size - window.size) / 2.0).round()
 
@@ -60,7 +62,9 @@ func _place() -> void:
 	if is_visible_in_tree():
 		var r: Rect2 = get_global_transform_with_canvas() * window.get_rect()
 		var view := get_viewport_rect().size
-		placement = JSON.stringify({"rect": [r.position.x, r.position.y, r.size.x, r.size.y], "view": [view.x, view.y]})
+		placement = JSON.stringify(
+			{"rect": [r.position.x, r.position.y, r.size.x, r.size.y], "view": [view.x, view.y]}
+		)
 	if placement != placed:
 		placed = placement
 		JavaScriptBridge.eval("window.flowersEmbed(%s)" % placement)
@@ -72,5 +76,13 @@ func _process(_delta: float) -> void:
 
 
 func state() -> Dictionary:
-	return Errors.ok({"key": key, "ticks": ticks, "window": window.get_rect(), "factor": factor,
-			"web": OS.has_feature("web"), "placement": placed if placed != "" else "null"})
+	return Errors.ok(
+		{
+			"key": key,
+			"ticks": ticks,
+			"window": window.get_rect(),
+			"factor": factor,
+			"web": OS.has_feature("web"),
+			"placement": placed if placed != "" else "null"
+		}
+	)

@@ -23,6 +23,7 @@ var ticks := 0
 var floor_shadow: GradientTexture2D
 var window_style := StyleBoxFlat.new()
 
+
 static func create() -> Dictionary:
 	var catalog_path := SOURCE + "paintings.json"
 	if not FileAccess.file_exists(catalog_path):
@@ -47,6 +48,7 @@ static func create() -> Dictionary:
 	var window = load("res://modules/sketchbook/painting_flow.gd").new()
 	window.textures = images
 	return Errors.ok(window)
+
 
 func _ready() -> void:
 	custom_minimum_size = Vector2(420, 260)
@@ -104,6 +106,7 @@ func _ready() -> void:
 	visibility_changed.connect(func(): dragging = false)
 	_layout()
 
+
 func _layout() -> void:
 	frame.size = size / frame.scale
 	title_bar.position = Vector2(10, 3)
@@ -115,13 +118,16 @@ func _layout() -> void:
 	queue_redraw()
 	stage.queue_redraw()
 
+
 func _draw() -> void:
 	draw_style_box(window_style, Rect2(Vector2(3, 3), size - Vector2(6, 6)))
+
 
 func _select(index: int) -> void:
 	selected = clampi(index, 0, textures.size() - 1)
 	slider.set_value_no_signal(selected)
 	stage.queue_redraw()
+
 
 func _process(delta: float) -> void:
 	ticks += 1
@@ -134,19 +140,28 @@ func _process(delta: float) -> void:
 	velocity = (velocity - 18.0 * (velocity + 18.0 * difference) * dt) * decay
 	stage.queue_redraw()
 
+
 func _project(index: int, u: float, v: float) -> Vector2:
 	var texture := textures[index]
-	var factor := minf(stage.size.x * 0.42 / texture.get_width(), (stage.size.y - 38) / texture.get_height())
+	var factor := minf(
+		stage.size.x * 0.42 / texture.get_width(), (stage.size.y - 38) / texture.get_height()
+	)
 	var dimensions := texture.get_size() * factor
 	var distance := index - location
 	var turn := minf(1.0, absf(distance))
-	var x := signf(distance) * (stage.size.x * 0.31 * turn + maxf(0, absf(distance) - 1) * stage.size.x * 0.078)
+	var x := (
+		signf(distance)
+		* (stage.size.x * 0.31 * turn + maxf(0, absf(distance) - 1) * stage.size.x * 0.078)
+	)
 	var angle := deg_to_rad(-signf(distance) * 62 * turn)
 	var local_x := (u - 0.5) * dimensions.x
 	var depth := -local_x * sin(angle) - 120 * turn
 	var perspective := 1500.0 / (1500.0 - depth)
-	return Vector2(stage.size.x / 2 + (x + local_x * cos(angle)) * perspective,
-		stage.size.y - 26 + (v - 1) * dimensions.y * perspective)
+	return Vector2(
+		stage.size.x / 2 + (x + local_x * cos(angle)) * perspective,
+		stage.size.y - 26 + (v - 1) * dimensions.y * perspective
+	)
+
 
 func _draw_stage() -> void:
 	cards.clear()
@@ -154,24 +169,45 @@ func _draw_stage() -> void:
 		return
 	if enlarged:
 		var texture := textures[selected]
-		var factor := minf((stage.size.x - 20) / texture.get_width(), (stage.size.y - 8) / texture.get_height())
+		var factor := minf(
+			(stage.size.x - 20) / texture.get_width(), (stage.size.y - 8) / texture.get_height()
+		)
 		var dimensions := texture.get_size() * factor
 		stage.draw_texture_rect(texture, Rect2((stage.size - dimensions) / 2, dimensions), false)
 		return
 	var order := range(textures.size())
 	order.sort_custom(func(a, b): return absf(a - location) > absf(b - location))
 	for index in order:
-		var quad := PackedVector2Array([_project(index, 0, 0), _project(index, 1, 0), _project(index, 1, 1), _project(index, 0, 1)])
+		var quad := PackedVector2Array(
+			[
+				_project(index, 0, 0),
+				_project(index, 1, 0),
+				_project(index, 1, 1),
+				_project(index, 0, 1)
+			]
+		)
 		cards.append({"index": index, "quad": quad})
 		var left := quad[3]
 		var right := quad[2]
-		stage.draw_texture_rect(floor_shadow, Rect2(left.x - 18, left.y - 7, right.x - left.x + 36, 34), false)
+		stage.draw_texture_rect(
+			floor_shadow, Rect2(left.x - 18, left.y - 7, right.x - left.x + 36, 34), false
+		)
 		for strip in STRIPS:
 			var u0 := float(strip) / STRIPS
 			var u1 := float(strip + 1) / STRIPS
-			var points := PackedVector2Array([_project(index, u0, 0), _project(index, u1, 0), _project(index, u1, 1), _project(index, u0, 1)])
-			var uv := PackedVector2Array([Vector2(u0, 0), Vector2(u1, 0), Vector2(u1, 1), Vector2(u0, 1)])
+			var points := PackedVector2Array(
+				[
+					_project(index, u0, 0),
+					_project(index, u1, 0),
+					_project(index, u1, 1),
+					_project(index, u0, 1)
+				]
+			)
+			var uv := PackedVector2Array(
+				[Vector2(u0, 0), Vector2(u1, 0), Vector2(u1, 1), Vector2(u0, 1)]
+			)
 			stage.draw_polygon(points, PackedColorArray([Color.WHITE]), uv, textures[index])
+
 
 func _hit(point: Vector2) -> int:
 	for i in range(cards.size() - 1, -1, -1):
@@ -179,11 +215,32 @@ func _hit(point: Vector2) -> int:
 			return cards[i].index
 	return -1
 
+
 func _stage_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN, MOUSE_BUTTON_WHEEL_LEFT, MOUSE_BUTTON_WHEEL_RIGHT]:
+		if (
+			event.pressed
+			and (
+				event.button_index
+				in [
+					MOUSE_BUTTON_WHEEL_UP,
+					MOUSE_BUTTON_WHEEL_DOWN,
+					MOUSE_BUTTON_WHEEL_LEFT,
+					MOUSE_BUTTON_WHEEL_RIGHT
+				]
+			)
+		):
 			# Godot Web maps positive DOM deltaX to WHEEL_LEFT (content moves left).
-			_select(selected + (1 if event.button_index in [MOUSE_BUTTON_WHEEL_DOWN, MOUSE_BUTTON_WHEEL_LEFT] else -1))
+			_select(
+				(
+					selected
+					+ (
+						1
+						if event.button_index in [MOUSE_BUTTON_WHEEL_DOWN, MOUSE_BUTTON_WHEEL_LEFT]
+						else -1
+					)
+				)
+			)
 		elif event.button_index == MOUSE_BUTTON_LEFT:
 			stage.grab_focus()
 			if event.pressed:
@@ -209,21 +266,33 @@ func _stage_input(event: InputEvent) -> void:
 		if event.position.distance_to(anchor) > 6:
 			moved = true
 		if moved:
-			location = clampf(start_location + (anchor.x - event.position.x) / (stage.size.x * 0.31), 0, textures.size() - 1)
+			location = clampf(
+				start_location + (anchor.x - event.position.x) / (stage.size.x * 0.31),
+				0,
+				textures.size() - 1
+			)
 			velocity = 0
 			stage.queue_redraw()
 		stage.accept_event()
 	elif event is InputEventKey and event.pressed:
 		match event.keycode:
-			KEY_LEFT: _select(selected - 1)
-			KEY_RIGHT: _select(selected + 1)
-			KEY_HOME: _select(0)
-			KEY_END: _select(textures.size() - 1)
-			KEY_ENTER, KEY_SPACE: enlarged = not enlarged
-			KEY_ESCAPE: enlarged = false
-			_: return
+			KEY_LEFT:
+				_select(selected - 1)
+			KEY_RIGHT:
+				_select(selected + 1)
+			KEY_HOME:
+				_select(0)
+			KEY_END:
+				_select(textures.size() - 1)
+			KEY_ENTER, KEY_SPACE:
+				enlarged = not enlarged
+			KEY_ESCAPE:
+				enlarged = false
+			_:
+				return
 		stage.queue_redraw()
 		stage.accept_event()
+
 
 func qa_state() -> Dictionary:
 	var hits := []
@@ -235,5 +304,12 @@ func qa_state() -> Dictionary:
 			points.append([global.x, global.y])
 		hits.append({"index": card.index, "points": points})
 	var rect := slider.get_global_rect()
-	return {"selected": selected, "position": location, "enlarged": enlarged, "ticks": ticks,
-		"count": textures.size(), "cards": hits, "slider": [rect.position.x, rect.position.y, rect.size.x, rect.size.y]}
+	return {
+		"selected": selected,
+		"position": location,
+		"enlarged": enlarged,
+		"ticks": ticks,
+		"count": textures.size(),
+		"cards": hits,
+		"slider": [rect.position.x, rect.position.y, rect.size.x, rect.size.y]
+	}

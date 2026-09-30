@@ -23,7 +23,9 @@ const FADE_SECONDS := 0.2
 # Placeholder top header (the owner's menu-bar screenshot, 2026-09-23) above every Tab's Page,
 # fitted to the window's width.
 const HEADER_TEXTURE := "res://modules/shell/assets/top-header-placeholder.png"
-const FIXED_TABS: Array[String] = ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground", "flowers"]
+const FIXED_TABS: Array[String] = [
+	"map", "sketchbook", "3d_viewer", "video_player", "collection", "playground", "flowers"
+]
 const LAUNCH_TAB := "collection"
 
 var _registry: Dictionary = {}
@@ -90,9 +92,13 @@ func _ready() -> void:
 	var launch := FIXED_TABS.find(LAUNCH_TAB)
 	var grown: Dictionary = TabStrip.grow_tab(_strip, launch)
 	if grown.ok:  # on settle, unless a click already chose a tab while the grow ran
-		_strip.connect("tab_settled", func(_index: int):
-			if TabStrip.state(_strip).value.active == -1:
-				select_tab(launch), CONNECT_ONE_SHOT)
+		_strip.connect(
+			"tab_settled",
+			func(_index: int):
+				if TabStrip.state(_strip).value.active == -1:
+					select_tab(launch),
+			CONNECT_ONE_SHOT
+		)
 	else:
 		select_tab(launch)
 
@@ -138,15 +144,17 @@ func _on_tab_selected(index: int) -> void:
 	_fade.tween_property(target, "modulate:a", 1.0, FADE_SECONDS)
 	for p in outgoing:
 		_fade.tween_property(p, "modulate:a", 0.0, FADE_SECONDS)
-	_fade.chain().tween_callback(func():
-		for p in outgoing:
-			if is_instance_valid(p):
-				p.visible = false
-				p.modulate.a = 1.0
-		_shown = [target]
-		_switching = false
-		_apply_freeze()
-		emit_signal("switch_settled", index))
+	_fade.chain().tween_callback(
+		func():
+			for p in outgoing:
+				if is_instance_valid(p):
+					p.visible = false
+					p.modulate.a = 1.0
+			_shown = [target]
+			_switching = false
+			_apply_freeze()
+			emit_signal("switch_settled", index)
+	)
 
 
 ## The Shell's show/hide rule: the visible Page runs, every hidden Page is frozen and holds no focus.
@@ -154,7 +162,9 @@ func _apply_freeze() -> void:
 	var focus: Control = get_viewport().gui_get_focus_owner() if is_inside_tree() else null
 	for child in _pages.get_children():
 		var page := child as Control
-		page.process_mode = Node.PROCESS_MODE_INHERIT if page.visible else Node.PROCESS_MODE_DISABLED
+		page.process_mode = (
+			Node.PROCESS_MODE_INHERIT if page.visible else Node.PROCESS_MODE_DISABLED
+		)
 		if not page.visible and focus != null and page.is_ancestor_of(focus):
 			focus.release_focus()
 
@@ -179,6 +189,7 @@ func _create_tenant(f: Dictionary) -> void:
 
 
 # --- interface -------------------------------------------------------------------
+
 
 func select_tab(index: int) -> Dictionary:
 	return TabStrip.select_tab(_strip, index)
@@ -209,10 +220,33 @@ func state() -> Dictionary:
 		var t: Dictionary = s.tabs[i]
 		var f: Dictionary = _fixed[i] if i < _fixed.size() else {}
 		var page: Control = f.page if not f.is_empty() else null
-		tabs.append({"key": f.get("key", ""), "label": t.label, "fixed": t.fixed, "page_visible": t.page_visible,
+		tabs.append(
+			{
+				"key": f.get("key", ""),
+				"label": t.label,
+				"fixed": t.fixed,
+				"page_visible": t.page_visible,
 				"frozen": page != null and page.process_mode == Node.PROCESS_MODE_DISABLED,
-				"tenant": null if f.is_empty() else (f.error if f.error != "" else ("ok" if f.tenant != null else null)),
-				"rect": xf * t.rect, "close_rect": xf * t.close_rect if t.close_rect.size.x > 0 else Rect2()})
-	return Errors.ok({"count": s.count, "active": s.active, "opening": s.opening, "pressed": s.pressed,
-			"switching": _switching, "fixed_count": _fixed.size(), "bar_rect": Rect2(_strip.position, _strip.size * _strip.scale),
-			"stub_rect": xf * TabStrip.stub_rect(_strip), "tabs": tabs})
+				"tenant":
+				(
+					null
+					if f.is_empty()
+					else (f.error if f.error != "" else ("ok" if f.tenant != null else null))
+				),
+				"rect": xf * t.rect,
+				"close_rect": xf * t.close_rect if t.close_rect.size.x > 0 else Rect2()
+			}
+		)
+	return Errors.ok(
+		{
+			"count": s.count,
+			"active": s.active,
+			"opening": s.opening,
+			"pressed": s.pressed,
+			"switching": _switching,
+			"fixed_count": _fixed.size(),
+			"bar_rect": Rect2(_strip.position, _strip.size * _strip.scale),
+			"stub_rect": xf * TabStrip.stub_rect(_strip),
+			"tabs": tabs
+		}
+	)

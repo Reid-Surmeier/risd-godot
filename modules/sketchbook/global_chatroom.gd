@@ -30,9 +30,13 @@ func _ready() -> void:
 	add_child(body)
 	messages.add_theme_constant_override("separation", 1)
 	body.add_child(messages)
-	for line in [["Sebas*: A Dürer print!", Color("009740")], ["SakumaRiri: The Large Horse?", Color("1837e4")],
-			["ANRI: At RISD? Nice!", Color("17264f")], ["Show_A: Love the detail!", Color("be1622")],
-			["Viewing RISD's collection.", Color("ef0b0b")]]:
+	for line in [
+		["Sebas*: A Dürer print!", Color("009740")],
+		["SakumaRiri: The Large Horse?", Color("1837e4")],
+		["ANRI: At RISD? Nice!", Color("17264f")],
+		["Show_A: Love the detail!", Color("be1622")],
+		["Viewing RISD's collection.", Color("ef0b0b")]
+	]:
 		_add_text(line[0], line[1], false)
 	input.name = "MessageInput"
 	input.add_theme_font_override("font", FONT)
@@ -69,7 +73,9 @@ func _ready() -> void:
 
 func _exit_tree() -> void:
 	if OS.has_feature("web") and not _web_callback_name.is_empty():
-		JavaScriptBridge.eval("document.getElementById(%s)?.remove()" % JSON.stringify(_web_picker_id))
+		JavaScriptBridge.eval(
+			"document.getElementById(%s)?.remove()" % JSON.stringify(_web_picker_id)
+		)
 		JavaScriptBridge.get_interface("window")[_web_callback_name] = null
 
 
@@ -117,12 +123,16 @@ func _add_text(value: String, color: Color, scroll_to_end := true) -> void:
 func _pick_image() -> void:
 	picker_requests += 1
 	if OS.has_feature("web"):
-		JavaScriptBridge.eval("document.getElementById(%s)?.click()" % JSON.stringify(_web_picker_id))
+		JavaScriptBridge.eval(
+			"document.getElementById(%s)?.click()" % JSON.stringify(_web_picker_id)
+		)
 		return
 	var dialog := FileDialog.new()
 	dialog.access = FileDialog.ACCESS_FILESYSTEM
 	dialog.file_mode = FileDialog.FILE_MODE_OPEN_FILE
-	dialog.filters = PackedStringArray(["*.png,*.jpg,*.jpeg,*.webp;Images;image/png,image/jpeg,image/webp"])
+	dialog.filters = PackedStringArray(
+		["*.png,*.jpg,*.jpeg,*.webp;Images;image/png,image/jpeg,image/webp"]
+	)
 	dialog.file_selected.connect(_on_native_image)
 	dialog.canceled.connect(dialog.queue_free)
 	add_child(dialog)
@@ -132,7 +142,11 @@ func _pick_image() -> void:
 func _setup_web_picker() -> void:
 	var picker := JSON.stringify(_web_picker_id)
 	var callback := JSON.stringify(_web_callback_name)
-	JavaScriptBridge.eval("""(() => {
+	(
+		JavaScriptBridge
+		. eval(
+			(
+				"""(() => {
 		const old = document.getElementById(%s);
 		if (old) old.remove();
 		const input = document.createElement('input');
@@ -152,7 +166,11 @@ func _setup_web_picker() -> void:
 			reader.readAsDataURL(file);
 		};
 		document.body.appendChild(input);
-	})()""" % [picker, picker, MAX_IMAGE_BYTES, callback, callback, callback])
+	})()"""
+				% [picker, picker, MAX_IMAGE_BYTES, callback, callback, callback]
+			)
+		)
+	)
 	call_deferred("_sync_web_picker")
 
 
@@ -161,7 +179,11 @@ func _sync_web_picker() -> void:
 		return
 	var rect: Rect2 = attach.get_global_transform() * Rect2(Vector2.ZERO, attach.size)
 	var viewport_size := get_viewport_rect().size
-	JavaScriptBridge.eval("""(() => {
+	(
+		JavaScriptBridge
+		. eval(
+			(
+				"""(() => {
 		const input = document.getElementById(%s);
 		const canvas = document.querySelector('canvas');
 		if (!input || !canvas) return;
@@ -171,9 +193,22 @@ func _sync_web_picker() -> void:
 		input.style.top = `${box.top + %f / %f * box.height}px`;
 		input.style.width = `${%f / %f * box.width}px`;
 		input.style.height = `${%f / %f * box.height}px`;
-	})()""" % [JSON.stringify(_web_picker_id), "true" if is_visible_in_tree() else "false",
-			rect.position.x, viewport_size.x, rect.position.y, viewport_size.y,
-			rect.size.x, viewport_size.x, rect.size.y, viewport_size.y])
+	})()"""
+				% [
+					JSON.stringify(_web_picker_id),
+					"true" if is_visible_in_tree() else "false",
+					rect.position.x,
+					viewport_size.x,
+					rect.position.y,
+					viewport_size.y,
+					rect.size.x,
+					viewport_size.x,
+					rect.size.y,
+					viewport_size.y
+				]
+			)
+		)
+	)
 
 
 func _on_web_image(args: Array) -> void:
@@ -187,7 +222,9 @@ func _on_web_image(args: Array) -> void:
 	if not data_url.begins_with("data:image/") or semicolon < 5 or comma <= semicolon:
 		_reject("Unsupported image")
 		return
-	_post_image_bytes(Marshalls.base64_to_raw(data_url.substr(comma + 1)), data_url.substr(5, semicolon - 5))
+	_post_image_bytes(
+		Marshalls.base64_to_raw(data_url.substr(comma + 1)), data_url.substr(5, semicolon - 5)
+	)
 
 
 func _on_native_image(path: String) -> void:
@@ -195,17 +232,32 @@ func _on_native_image(path: String) -> void:
 	if file == null or file.get_length() > MAX_IMAGE_BYTES:
 		_reject("Image is over 8 MiB" if file != null else "Could not read image")
 		return
-	var mime: String = {"png": "image/png", "jpg": "image/jpeg", "jpeg": "image/jpeg", "webp": "image/webp"}.get(path.get_extension().to_lower(), "")
+	var mime: String = (
+		{"png": "image/png", "jpg": "image/jpeg", "jpeg": "image/jpeg", "webp": "image/webp"}
+		. get(path.get_extension().to_lower(), "")
+	)
 	_post_image_bytes(file.get_buffer(file.get_length()), mime)
 	file.close()
 
 
 func _post_image_bytes(bytes: PackedByteArray, mime: String) -> void:
-	if bytes.is_empty() or bytes.size() > MAX_IMAGE_BYTES or mime not in ["image/png", "image/jpeg", "image/webp"]:
+	if (
+		bytes.is_empty()
+		or bytes.size() > MAX_IMAGE_BYTES
+		or mime not in ["image/png", "image/jpeg", "image/webp"]
+	):
 		_reject("Unsupported image")
 		return
 	var decoded := Image.new()
-	var status := decoded.load_png_from_buffer(bytes) if mime == "image/png" else (decoded.load_jpg_from_buffer(bytes) if mime == "image/jpeg" else decoded.load_webp_from_buffer(bytes))
+	var status := (
+		decoded.load_png_from_buffer(bytes)
+		if mime == "image/png"
+		else (
+			decoded.load_jpg_from_buffer(bytes)
+			if mime == "image/jpeg"
+			else decoded.load_webp_from_buffer(bytes)
+		)
+	)
 	if status != OK:
 		_reject("Unsupported image")
 		return
@@ -237,11 +289,15 @@ func _scroll_bottom() -> void:
 
 
 func qa_state() -> Dictionary:
-	return {"text_posts": text_posts, "image_posts": image_posts, "message_count": messages.get_child_count(),
-			"picker_requests": picker_requests,
-			"input_rect": input.get_global_transform() * Rect2(Vector2.ZERO, input.size),
-			"attach_rect": attach.get_global_transform() * Rect2(Vector2.ZERO, attach.size),
-			"send_rect": send.get_global_transform() * Rect2(Vector2.ZERO, send.size)}
+	return {
+		"text_posts": text_posts,
+		"image_posts": image_posts,
+		"message_count": messages.get_child_count(),
+		"picker_requests": picker_requests,
+		"input_rect": input.get_global_transform() * Rect2(Vector2.ZERO, input.size),
+		"attach_rect": attach.get_global_transform() * Rect2(Vector2.ZERO, attach.size),
+		"send_rect": send.get_global_transform() * Rect2(Vector2.ZERO, send.size)
+	}
 
 
 static func _flat(color: Color) -> StyleBoxFlat:

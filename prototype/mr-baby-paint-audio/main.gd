@@ -31,10 +31,12 @@ var status := Label.new()
 var status_text := "Nothing playing"
 var variant := "A"
 
+
 func _ready() -> void:
 	variant = _variant_from_url()
 	add_child(player)
 	_build_page()
+
 
 func _build_page() -> void:
 	for child in get_children():
@@ -87,10 +89,14 @@ func _build_page() -> void:
 	scroll.add_child(content)
 
 	match variant:
-		"B": _build_alphabetical()
-		"C": _build_tabs()
-		_: _build_grouped()
+		"B":
+			_build_alphabetical()
+		"C":
+			_build_tabs()
+		_:
+			_build_grouped()
 	_build_switcher()
+
 
 func _build_grouped() -> void:
 	for group in GROUPS:
@@ -112,6 +118,7 @@ func _build_grouped() -> void:
 		section.add_child(flow)
 		content.add_child(panel)
 
+
 func _build_alphabetical() -> void:
 	content.add_child(_heading("Alphabetical lab", 22))
 	var paths := _all_sounds()
@@ -129,6 +136,7 @@ func _build_alphabetical() -> void:
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row.add_child(button)
 		content.add_child(row)
+
 
 func _build_tabs() -> void:
 	var tabs := TabContainer.new()
@@ -151,6 +159,7 @@ func _build_tabs() -> void:
 		tab.add_child(flow)
 		tabs.add_child(tab)
 	content.add_child(tabs)
+
 
 func _build_switcher() -> void:
 	var bar := HBoxContainer.new()
@@ -178,6 +187,7 @@ func _build_switcher() -> void:
 	next.pressed.connect(func(): _switch_variant(1))
 	bar.add_child(next)
 
+
 func _sound_button(path: String, compact: bool) -> Button:
 	var button := Button.new()
 	button.text = "▶  " + _display_name(path)
@@ -188,6 +198,7 @@ func _sound_button(path: String, compact: bool) -> Button:
 	button.pressed.connect(func(): _play(path))
 	return button
 
+
 func _play(path: String) -> void:
 	player.stop()
 	player.stream = load(path)
@@ -195,10 +206,12 @@ func _play(path: String) -> void:
 	status_text = "Playing · %s  —  %s" % [_display_name(path), _group_for(path)]
 	status.text = status_text
 
+
 func _stop() -> void:
 	player.stop()
 	status_text = "Stopped"
 	status.text = status_text
+
 
 func _all_sounds() -> Array[String]:
 	var paths: Array[String] = []
@@ -206,6 +219,7 @@ func _all_sounds() -> Array[String]:
 		if name.ends_with(".res"):
 			paths.append("res://sounds/" + name)
 	return paths
+
 
 func _sounds_in(group: String) -> Array[String]:
 	var matches: Array[String] = []
@@ -215,25 +229,43 @@ func _sounds_in(group: String) -> Array[String]:
 	matches.sort()
 	return matches
 
+
 func _group_for(path: String) -> String:
 	var name := path.get_file().to_lower()
 	if name.begins_with("fill") or name.begins_with("stop_fill") or name.begins_with("pour_sand"):
 		return "Fill and sand"
 	if name.begins_with("draw"):
 		return "Drawing gestures"
-	if name.begins_with("empty_canvas") or name.begins_with("undo") or name.begins_with("redo") or name.begins_with("no_undo"):
+	if (
+		name.begins_with("empty_canvas")
+		or name.begins_with("undo")
+		or name.begins_with("redo")
+		or name.begins_with("no_undo")
+	):
 		return "Canvas and history"
 	if name.begins_with("screenshot") or name.begins_with("splash_screen"):
 		return "Capture and startup"
-	if name.begins_with("close_") or name.begins_with("open_") or name.begins_with("modal_") or name.begins_with("mute"):
+	if (
+		name.begins_with("close_")
+		or name.begins_with("open_")
+		or name.begins_with("modal_")
+		or name.begins_with("mute")
+	):
 		return "Windows and modals"
-	if name.begins_with("brush_") or name.begins_with("color_") or name.begins_with("pick_") or name.begins_with("place_"):
+	if (
+		name.begins_with("brush_")
+		or name.begins_with("color_")
+		or name.begins_with("pick_")
+		or name.begins_with("place_")
+	):
 		return "Tools and materials"
 	return "Interface feedback"
+
 
 func _display_name(path: String) -> String:
 	var name := path.get_file().trim_suffix(".res").trim_suffix(".wav").replace("_", " ")
 	return name.capitalize()
+
 
 func _heading(text: String, size: int) -> Label:
 	var label := Label.new()
@@ -241,6 +273,7 @@ func _heading(text: String, size: int) -> Label:
 	label.add_theme_font_size_override("font_size", size)
 	label.add_theme_color_override("font_color", Color("#222222"))
 	return label
+
 
 func _panel_style(fill: Color, border: Color) -> StyleBoxFlat:
 	var style := StyleBoxFlat.new()
@@ -254,12 +287,16 @@ func _panel_style(fill: Color, border: Color) -> StyleBoxFlat:
 	style.content_margin_bottom = 12
 	return style
 
+
 func _variant_from_url() -> String:
 	if OS.has_feature("web"):
-		var value = JavaScriptBridge.eval("new URLSearchParams(window.location.search).get('variant') || 'A'")
+		var value = JavaScriptBridge.eval(
+			"new URLSearchParams(window.location.search).get('variant') || 'A'"
+		)
 		if value in VARIANTS:
 			return value
 	return "A"
+
 
 func _switch_variant(direction: int) -> void:
 	var index := wrapi(VARIANTS.find(variant) + direction, 0, VARIANTS.size())
@@ -267,6 +304,7 @@ func _switch_variant(direction: int) -> void:
 	if OS.has_feature("web"):
 		JavaScriptBridge.eval("history.replaceState(null, '', '?variant=%s')" % variant)
 	_build_page()
+
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.pressed and event.keycode == KEY_LEFT:

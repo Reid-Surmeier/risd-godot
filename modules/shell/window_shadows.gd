@@ -37,7 +37,9 @@ static func attach(tenant: Control) -> void:
 func _process(delta: float) -> void:
 	for c in _holder.get_children():
 		if c is Control and not _shadows.has(c) and _is_window(c):
-			_shadows[c] = {"node": _make(c), "last": c.position, "lift": 0.0, "dragged": false, "key": ""}
+			_shadows[c] = {
+				"node": _make(c), "last": c.position, "lift": 0.0, "dragged": false, "key": ""
+			}
 	for window in _shadows.keys():
 		var e: Dictionary = _shadows[window]
 		if not is_instance_valid(window) or window.get_parent() != _holder:
@@ -68,9 +70,13 @@ func _make(window: Control) -> Control:
 	var material := ShaderMaterial.new()
 	material.shader = SHADER
 	node.material = material
-	node.draw.connect(func():
-		if node.has_meta("mask"):
-			node.draw_texture_rect(node.get_meta("mask"), node.get_meta("draw_rect", Rect2()), false))
+	node.draw.connect(
+		func():
+			if node.has_meta("mask"):
+				node.draw_texture_rect(
+					node.get_meta("mask"), node.get_meta("draw_rect", Rect2()), false
+				)
+	)
 	_holder.add_child(node)
 	return node
 
@@ -80,7 +86,10 @@ func _sync(window: Control, e: Dictionary) -> void:
 	node.visible = window.is_visible_in_tree() and window.modulate.a > 0.01
 	if not node.visible:
 		return
-	var key := "%s|%s|%d" % [window.size, window.get_global_transform().get_scale(), window.get_child_count()]
+	var key := (
+		"%s|%s|%d"
+		% [window.size, window.get_global_transform().get_scale(), window.get_child_count()]
+	)
 	if e.key != key:
 		e.key = key
 		_build(window, _pieces(window), e)
@@ -100,7 +109,10 @@ func _sync(window: Control, e: Dictionary) -> void:
 	m.set_shader_parameter("strength", lerpf(STRENGTH[0], STRENGTH[1], t))
 	node.modulate.a = window.modulate.a
 	if node.get_index() != window.get_index() - 1:  # just below its window, wherever it was raised to
-		_holder.move_child(node, window.get_index() if node.get_index() > window.get_index() else window.get_index() - 1)
+		_holder.move_child(
+			node,
+			window.get_index() if node.get_index() > window.get_index() else window.get_index() - 1
+		)
 
 
 ## Every piece the window draws, as [kind, control]: pictures by their alpha, flat pieces as rectangles.
@@ -109,13 +121,20 @@ func _pieces(window: Control) -> Array:
 	var stack: Array = [window]
 	while not stack.is_empty():
 		var c = stack.pop_back()
-		if not (c is Control) or not c.visible or c.name in SKIP or c.get_meta("window_shadow", false):
+		if (
+			not (c is Control)
+			or not c.visible
+			or c.name in SKIP
+			or c.get_meta("window_shadow", false)
+		):
 			continue
 		if c is TextureRect and c.texture != null:
 			out.append(["tex", c])
 		elif c is TextureButton and c.texture_normal != null:
 			out.append(["tex", c])
-		elif (c is ColorRect and c.color.a > 0.05) or c is SubViewportContainer or c is NinePatchRect:
+		elif (
+			(c is ColorRect and c.color.a > 0.05) or c is SubViewportContainer or c is NinePatchRect
+		):
 			out.append(["rect", c])
 		elif c is Panel or c is PanelContainer:
 			var box = c.get_theme_stylebox("panel")
@@ -158,9 +177,14 @@ func _build(window: Control, pieces: Array, e: Dictionary) -> void:
 			continue
 		var img := alpha.duplicate()
 		var mode: int = c.stretch_mode if c is TextureRect else TextureRect.STRETCH_SCALE
-		if mode == TextureRect.STRETCH_KEEP_ASPECT_CENTERED or mode == TextureRect.STRETCH_KEEP_ASPECT:
+		if (
+			mode == TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			or mode == TextureRect.STRETCH_KEEP_ASPECT
+		):
 			var k := minf(float(span.x) / tex.get_width(), float(span.y) / tex.get_height())
-			var fit := Vector2i(maxi(1, roundi(tex.get_width() * k)), maxi(1, roundi(tex.get_height() * k)))
+			var fit := Vector2i(
+				maxi(1, roundi(tex.get_width() * k)), maxi(1, roundi(tex.get_height() * k))
+			)
 			if mode == TextureRect.STRETCH_KEEP_ASPECT_CENTERED:
 				at += (span - fit) / 2
 			span = fit
@@ -202,6 +226,10 @@ static func _alpha_of(tex: Texture2D) -> Image:
 	if img != null:
 		img = img.get_region(region) if region.size.x > 0 else img.duplicate()
 		var k := minf(1.0, 256.0 / maxf(img.get_width(), img.get_height()))
-		img.resize(maxi(1, roundi(img.get_width() * k)), maxi(1, roundi(img.get_height() * k)), Image.INTERPOLATE_BILINEAR)
+		img.resize(
+			maxi(1, roundi(img.get_width() * k)),
+			maxi(1, roundi(img.get_height() * k)),
+			Image.INTERPOLATE_BILINEAR
+		)
 	_alpha_cache[tex] = img
 	return img

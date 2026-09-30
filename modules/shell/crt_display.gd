@@ -16,6 +16,7 @@ var squiggle: ColorRect
 var haze: ColorRect  # F10 or ?haze=0 turns it off, to compare
 @onready var crt_material: ShaderMaterial = $Screen.material
 
+
 func _ready() -> void:
 	if not OS.has_feature("web"):
 		get_window().size = Vector2i(1080, 1080)
@@ -27,10 +28,19 @@ func _ready() -> void:
 	_resize_desktop()
 	get_window().mouse_exited.connect(_mouse_exited)
 	if OS.has_feature("web"):
-		enabled = not JavaScriptBridge.eval("new URLSearchParams(location.search).get('crt') === '0' || new URLSearchParams(location.search).has('qa-viewer')")
+		enabled = not (
+			JavaScriptBridge
+			. eval(
+				"new URLSearchParams(location.search).get('crt') === '0' || new URLSearchParams(location.search).has('qa-viewer')"
+			)
+		)
 	_publish_state()
 	_publish_squiggle_state()
-	_qa_enabled = OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).has('qa-crt')")
+	_qa_enabled = (
+		OS.has_feature("web")
+		and JavaScriptBridge.eval("new URLSearchParams(location.search).has('qa-crt')")
+	)
+
 
 func _create_squiggle() -> void:
 	var layer := CanvasLayer.new()
@@ -54,6 +64,7 @@ func _create_squiggle() -> void:
 	squiggle.visible = squiggle_enabled
 	layer.add_child(squiggle)
 
+
 func _create_haze() -> void:
 	var layer := CanvasLayer.new()
 	layer.name = "HazeLayer"
@@ -65,8 +76,12 @@ func _create_haze() -> void:
 	haze.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
 	haze.material = ShaderMaterial.new()
 	haze.material.shader = HazeShader
-	haze.visible = not (OS.has_feature("web") and JavaScriptBridge.eval("new URLSearchParams(location.search).get('haze') === '0'"))
+	haze.visible = not (
+		OS.has_feature("web")
+		and JavaScriptBridge.eval("new URLSearchParams(location.search).get('haze') === '0'")
+	)
 	layer.add_child(haze)
+
 
 func _resize_desktop() -> void:
 	# One uniform fit for pixels, effects and every pointer event.
@@ -77,6 +92,7 @@ func _resize_desktop() -> void:
 		surface.position = stage_rect.position
 		surface.size = stage_rect.size
 	_publish_state()
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F8:
@@ -89,7 +105,12 @@ func _input(event: InputEvent) -> void:
 	elif event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F10:
 		haze.visible = not haze.visible
 	else:
-		if event is InputEventMouse or event is InputEventGesture or event is InputEventScreenTouch or event is InputEventScreenDrag:
+		if (
+			event is InputEventMouse
+			or event is InputEventGesture
+			or event is InputEventScreenTouch
+			or event is InputEventScreenDrag
+		):
 			var inside := stage_rect.has_point(event.position)
 			var finishing := false
 			if event is InputEventMouseButton:
@@ -117,7 +138,9 @@ func _input(event: InputEvent) -> void:
 			mapped.position = _screen_to_desktop(event.position)
 			mapped.global_position = mapped.position
 			if event is InputEventMouseMotion:
-				mapped.relative = mapped.position - _screen_to_desktop(event.position - event.relative)
+				mapped.relative = (
+					mapped.position - _screen_to_desktop(event.position - event.relative)
+				)
 		elif event is InputEventGesture:
 			mapped.position = _screen_to_desktop(event.position)
 			if event is InputEventPanGesture:
@@ -125,9 +148,12 @@ func _input(event: InputEvent) -> void:
 		elif event is InputEventScreenTouch or event is InputEventScreenDrag:
 			mapped.position = _screen_to_desktop(event.position)
 			if event is InputEventScreenDrag:
-				mapped.relative = mapped.position - _screen_to_desktop(event.position - event.relative)
+				mapped.relative = (
+					mapped.position - _screen_to_desktop(event.position - event.relative)
+				)
 		$Desktop.push_input(mapped, true)
 	get_viewport().set_input_as_handled()
+
 
 func _screen_to_desktop(point: Vector2) -> Vector2:
 	point = (point - stage_rect.position) / stage_rect.size
@@ -143,15 +169,40 @@ func _screen_to_desktop(point: Vector2) -> Vector2:
 	uv.x *= aspect
 	return (uv + Vector2(0.5, 0.5)) * logical_size
 
+
 func _publish_state() -> void:
 	$Screen.material = crt_material if enabled else null
 	if OS.has_feature("web"):
-		JavaScriptBridge.eval("window.crtQaState = " + JSON.stringify({"enabled": enabled, "curve": crt_material.get_shader_parameter("curve"), "screen_scale": crt_material.get_shader_parameter("screen_scale"), "stage_rect": [stage_rect.position.x, stage_rect.position.y, stage_rect.size.x, stage_rect.size.y]}))
+		JavaScriptBridge.eval(
+			(
+				"window.crtQaState = "
+				+ JSON.stringify(
+					{
+						"enabled": enabled,
+						"curve": crt_material.get_shader_parameter("curve"),
+						"screen_scale": crt_material.get_shader_parameter("screen_scale"),
+						"stage_rect":
+						[
+							stage_rect.position.x,
+							stage_rect.position.y,
+							stage_rect.size.x,
+							stage_rect.size.y
+						]
+					}
+				)
+			)
+		)
+
 
 func _publish_squiggle_state() -> void:
 	if OS.has_feature("web"):
-		JavaScriptBridge.eval("window.squiggleQaState = " + JSON.stringify({"enabled": squiggle_enabled,
-				"strength_pixels": 0.45, "fps": 3.0}))
+		JavaScriptBridge.eval(
+			(
+				"window.squiggleQaState = "
+				+ JSON.stringify({"enabled": squiggle_enabled, "strength_pixels": 0.45, "fps": 3.0})
+			)
+		)
+
 
 # Keep render coordinates current; only browser evidence is throttled.
 func _process(delta: float) -> void:
@@ -160,13 +211,24 @@ func _process(delta: float) -> void:
 		if view.is_visible_in_tree():
 			var rect: Rect2 = view.get_global_rect()
 			var extent := Vector2($Desktop.size)
-			quiet = Vector4(rect.position.x / extent.x, rect.position.y / extent.y, rect.end.x / extent.x, rect.end.y / extent.y)
+			quiet = Vector4(
+				rect.position.x / extent.x,
+				rect.position.y / extent.y,
+				rect.end.x / extent.x,
+				rect.end.y / extent.y
+			)
 			break
 	crt_material.set_shader_parameter("quiet_rect", Vector4.ZERO)  # keep CRT present over the gallery too
 	haze.material.set_shader_parameter("quiet_rect", quiet)
-	haze.material.set_shader_parameter("desktop_aspect", float($Desktop.size.y) / float($Desktop.size.x))
-	haze.material.set_shader_parameter("desktop_curve", crt_material.get_shader_parameter("curve") if enabled else 0.0)
-	haze.material.set_shader_parameter("desktop_scale", crt_material.get_shader_parameter("screen_scale") if enabled else 1.0)
+	haze.material.set_shader_parameter(
+		"desktop_aspect", float($Desktop.size.y) / float($Desktop.size.x)
+	)
+	haze.material.set_shader_parameter(
+		"desktop_curve", crt_material.get_shader_parameter("curve") if enabled else 0.0
+	)
+	haze.material.set_shader_parameter(
+		"desktop_scale", crt_material.get_shader_parameter("screen_scale") if enabled else 1.0
+	)
 	if not _qa_enabled:
 		return
 	_qa_elapsed += delta
@@ -193,14 +255,41 @@ func _process(delta: float) -> void:
 					tenant[key] = [rect.position.x, rect.position.y, rect.size.x, rect.size.y]
 	var window_grips := []
 	for grip in find_children("ProportionalResize", "Control", true, false):
-		if not grip.is_visible_in_tree(): continue
+		if not grip.is_visible_in_tree():
+			continue
 		var window: Control = grip.get_parent()
 		var r: Rect2 = window.get_global_rect()
 		var g: Rect2 = grip.get_global_rect()
-		window_grips.append({"name": str(window.name), "rect": [r.position.x, r.position.y, r.size.x, r.size.y],
-			"grip": [g.position.x, g.position.y, g.size.x, g.size.y], "scale": [window.scale.x, window.scale.y]})
-	JavaScriptBridge.eval("window.shellCrtQa = " + JSON.stringify({"shell": state, "tenant": tenant, "window_grips": window_grips,
-			"logical_size": [$Desktop.size.x, $Desktop.size.y], "display_size": [size.x, size.y], "stage_rect": [stage_rect.position.x, stage_rect.position.y, stage_rect.size.x, stage_rect.size.y]}))
+		window_grips.append(
+			{
+				"name": str(window.name),
+				"rect": [r.position.x, r.position.y, r.size.x, r.size.y],
+				"grip": [g.position.x, g.position.y, g.size.x, g.size.y],
+				"scale": [window.scale.x, window.scale.y]
+			}
+		)
+	JavaScriptBridge.eval(
+		(
+			"window.shellCrtQa = "
+			+ JSON.stringify(
+				{
+					"shell": state,
+					"tenant": tenant,
+					"window_grips": window_grips,
+					"logical_size": [$Desktop.size.x, $Desktop.size.y],
+					"display_size": [size.x, size.y],
+					"stage_rect":
+					[
+						stage_rect.position.x,
+						stage_rect.position.y,
+						stage_rect.size.x,
+						stage_rect.size.y
+					]
+				}
+			)
+		)
+	)
+
 
 func _mouse_exited() -> void:
 	if _mouse_inside:

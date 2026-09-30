@@ -1,8 +1,10 @@
 ## Private #167 form-only feedback loop; not a saved-room or visual release gate.
 extends SceneTree
 
+
 func _initialize() -> void:
 	call_deferred("capture")
+
 
 func capture() -> void:
 	var args := OS.get_cmdline_user_args()
@@ -23,7 +25,13 @@ func capture() -> void:
 		var texture = source.material_override.get_shader_parameter("albedo")
 		if bench:
 			var bounds: AABB = source.global_transform * source.mesh.get_aabb()
-			if bounds.position.y < -0.001 or bounds.end.y > 0.45 or bounds.position.z < walk.BENCHES[1] - 1.51 or bounds.end.z > walk.BENCHES[0] + 1.51 or bounds.size.x > 1.0:
+			if (
+				bounds.position.y < -0.001
+				or bounds.end.y > 0.45
+				or bounds.position.z < walk.BENCHES[1] - 1.51
+				or bounds.end.z > walk.BENCHES[0] + 1.51
+				or bounds.size.x > 1.0
+			):
 				continue
 		else:
 			if not texture or not texture.resource_path.ends_with("/stone.png"):
@@ -35,7 +43,9 @@ func capture() -> void:
 		material.albedo_color = Color("#c7bca6")
 		if "--textured" in args:
 			material.albedo_texture = texture
-			material.albedo_color = source.material_override.get_shader_parameter("tint") if bench else Color.WHITE
+			material.albedo_color = (
+				source.material_override.get_shader_parameter("tint") if bench else Color.WHITE
+			)
 			material.vertex_color_use_as_albedo = not bench
 		material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 		material.roughness = 1.0
@@ -70,7 +80,11 @@ func capture() -> void:
 			camera.fov = 54 if view == 9 else 48
 			camera.look_at(Vector3(0, 2.1, 1.6) if view == 9 else Vector3(0.95, 1.8, 1.6))
 			if bench:
-				camera.position = Vector3(2.5, 2.2, walk.BENCHES[0] + 2.7) if view == 9 else Vector3(0.75, 0.8, walk.BENCHES[0] + 1.7)
+				camera.position = (
+					Vector3(2.5, 2.2, walk.BENCHES[0] + 2.7)
+					if view == 9
+					else Vector3(0.75, 0.8, walk.BENCHES[0] + 1.7)
+				)
 				camera.fov = 48
 				camera.look_at(Vector3(0, 0.24, walk.BENCHES[0] + (0.7 if view == 10 else 0)))
 			for frame in 4:

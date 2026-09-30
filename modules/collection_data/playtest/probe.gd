@@ -7,6 +7,7 @@ var image_base_url := "http://127.0.0.1:8128/"
 var pending_images := 0
 var finished := false
 
+
 func _ready() -> void:
 	var background := ColorRect.new()
 	background.color = Color("e7e9ee")
@@ -25,9 +26,20 @@ func _ready() -> void:
 	image_base_url = adapter.base_url
 	add_child(adapter)
 	var storage: Variant = Data.storage_adapter().value
-	var handle: Variant = Data.create({"search": adapter.dispatch, "load_saves": storage.load_saves,
-			"save_if_absent": storage.save_if_absent, "now_ms": func() -> int: return 0}).value
+	var handle: Variant = (
+		Data
+		. create(
+			{
+				"search": adapter.dispatch,
+				"load_saves": storage.load_saves,
+				"save_if_absent": storage.save_if_absent,
+				"now_ms": func() -> int: return 0
+			}
+		)
+		. value
+	)
 	Data.search(handle, {"q": "Monet", "category": "Painting"}, _received)
+
 
 func _label(value: String, font_size: int = 20) -> void:
 	var label := Label.new()
@@ -36,13 +48,22 @@ func _label(value: String, font_size: int = 20) -> void:
 	label.add_theme_color_override("font_color", Color("17253b"))
 	output.add_child(label)
 
+
 func _received(result: Dictionary) -> void:
 	report.search = result
 	if not result.ok:
 		_label(result.error.detail)
 	else:
 		_label(result.value.corpus.coverage, 18)
-		_label("Upstream: " + result.value.corpus.upstream_status + " • " + result.value.corpus.fetched_at, 18)
+		_label(
+			(
+				"Upstream: "
+				+ result.value.corpus.upstream_status
+				+ " • "
+				+ result.value.corpus.fetched_at
+			),
+			18
+		)
 		var row := HBoxContainer.new()
 		row.add_theme_constant_override("separation", 24)
 		output.add_child(row)
@@ -66,29 +87,32 @@ func _received(result: Dictionary) -> void:
 				_load_image(artwork.image, texture)
 	_maybe_finish()
 
+
 func _load_image(manifest: Dictionary, target: TextureRect) -> void:
 	var request := HTTPRequest.new()
 	request.timeout = 15.0
 	request.body_size_limit = 20 * 1024 * 1024
 	add_child(request)
-	request.request_completed.connect(func(status: int, code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
-		request.queue_free()
-		if status == HTTPRequest.RESULT_SUCCESS and code == 200:
-			var context := HashingContext.new()
-			context.start(HashingContext.HASH_SHA256)
-			context.update(body)
-			var hash := context.finish().hex_encode()
-			var decoded := Image.new()
-			if hash == manifest.sha256 and decoded.load_jpg_from_buffer(body) == OK:
-				target.texture = ImageTexture.create_from_image(decoded)
-				report.rendered_hashes.append(hash)
-		pending_images -= 1
-		_maybe_finish()
+	request.request_completed.connect(
+		func(status: int, code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+			request.queue_free()
+			if status == HTTPRequest.RESULT_SUCCESS and code == 200:
+				var context := HashingContext.new()
+				context.start(HashingContext.HASH_SHA256)
+				context.update(body)
+				var hash := context.finish().hex_encode()
+				var decoded := Image.new()
+				if hash == manifest.sha256 and decoded.load_jpg_from_buffer(body) == OK:
+					target.texture = ImageTexture.create_from_image(decoded)
+					report.rendered_hashes.append(hash)
+			pending_images -= 1
+			_maybe_finish()
 	)
 	if request.request(image_base_url + "api/collection/image/" + manifest.sha256) != OK:
 		request.queue_free()
 		pending_images -= 1
 		_maybe_finish()
+
 
 func _maybe_finish() -> void:
 	if finished or pending_images > 0 or report.search.is_empty():

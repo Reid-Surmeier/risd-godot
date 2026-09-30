@@ -9,9 +9,9 @@ const Shell := preload("res://modules/shell/interface.gd")
 const Book := preload("res://modules/sketchbook/interface.gd")
 const Data := preload("res://modules/collection_data/interface.gd")
 const BAR_RATIO := 161.0 / 4180.0  # the strip's height per pixel of width
-const WELL_A := 9    # row 0: a warm well
-const WELL_B := 21   # row 1: a blue well
-const TRAY := 1      # the top-middle mixing tray
+const WELL_A := 9  # row 0: a warm well
+const WELL_B := 21  # row 1: a blue well
+const TRAY := 1  # the top-middle mixing tray
 
 
 func _move(pos: Vector2) -> void:
@@ -37,28 +37,61 @@ func _drag(from: Vector2, step: Vector2, steps: int, what: String) -> void:
 		Input.parse_input_event(ev)
 		await process_frame
 	await _button(pos, MOUSE_BUTTON_LEFT, false)
-	_log.append({"t_ms": _ms(), "event": "drag", "what": what, "from": [from.x, from.y], "to": [pos.x, pos.y],
-			"relative_total": [step.x * steps, step.y * steps], "steps": steps})
+	_log.append(
+		{
+			"t_ms": _ms(),
+			"event": "drag",
+			"what": what,
+			"from": [from.x, from.y],
+			"to": [pos.x, pos.y],
+			"relative_total": [step.x * steps, step.y * steps],
+			"steps": steps
+		}
+	)
 
 
 func _draw_calls() -> int:
-	return RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME)
+	return RenderingServer.get_rendering_info(
+		RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME
+	)
 
 
 func _state(shell: Control, label: String) -> Dictionary:
 	var s: Dictionary = Shell.state(shell).value
 	var tabs := []
 	for t in s.tabs:
-		tabs.append({"key": t.key, "page_visible": t.page_visible, "frozen": t.frozen, "tenant": t.tenant, "rect": _rect(t.rect)})
-	var entry := {"t_ms": _ms(), "event": "state", "label": label, "count": s.count, "active": s.active, "tabs": tabs,
-			"window": [shell.size.x, shell.size.y], "draw_calls": _draw_calls()}
+		tabs.append(
+			{
+				"key": t.key,
+				"page_visible": t.page_visible,
+				"frozen": t.frozen,
+				"tenant": t.tenant,
+				"rect": _rect(t.rect)
+			}
+		)
+	var entry := {
+		"t_ms": _ms(),
+		"event": "state",
+		"label": label,
+		"count": s.count,
+		"active": s.active,
+		"tabs": tabs,
+		"window": [shell.size.x, shell.size.y],
+		"draw_calls": _draw_calls()
+	}
 	_log.append(entry)
 	return entry
 
 
 func _book(shell: Control, label: String) -> Dictionary:
 	var r: Dictionary = Shell.tenant_state(shell, "sketchbook")
-	var entry := {"t_ms": _ms(), "event": "book", "label": label, "ok": r.ok, "code": r.error.code if not r.ok else ""}
+	var entry := {
+		"t_ms": _ms(),
+		"event": "book",
+		"label": label,
+		"ok": r.ok,
+		"code": r.error.code if not r.ok else ""
+	}
 	if r.ok:
 		var v: Dictionary = r.value
 		var wells := []
@@ -67,23 +100,56 @@ func _book(shell: Control, label: String) -> Dictionary:
 		var trays := []
 		for t in v.trays:
 			trays.append(_rect(t))
-		entry.merge({"ticks": v.ticks, "inputs": v.inputs, "size": [v.size.x, v.size.y], "desktop_scale": v.desktop_scale,
+		entry.merge(
+			{
+				"ticks": v.ticks,
+				"inputs": v.inputs,
+				"size": [v.size.x, v.size.y],
+				"desktop_scale": v.desktop_scale,
 				"desktop_logical": [v.desktop_logical.x, v.desktop_logical.y],
-				"front_window": String(v.front_window), "dragging": v.dragging, "window_rect": _rect(v.window_rect),
-				"reference_rect": _rect(v.reference_rect), "saved_ids": v.saved_ids, "selected_reference": v.selected_reference,
-				"title_rect": _rect(v.title_rect), "page_rect": _rect(v.page_rect), "window_visible": v.window_visible,
-				"controls": {"previous": _rect(v.controls.previous), "next": _rect(v.controls.next)},
-				"spread": v.spread, "strokes": v.strokes, "turning": v.turning, "turn_progress": v.turn_progress,
-				"last_turn_ms": v.last_turn_ms, "previous_disabled": v.previous_disabled, "drawing": v.drawing,
-				"hovering": v.hovering, "last_stroke_points": v.last_stroke_points, "ink_color": v.ink_color,
-				"last_stroke_color": v.last_stroke_color, "brush_cursor_visible": v.brush_cursor_visible,
-				"static_update_mode": v.static_update_mode, "face_update_mode": v.face_update_mode,
-				"paintbox_rect": _rect(v.paintbox_rect), "paintbox_title_rect": _rect(v.paintbox_title_rect),
-				"palette_rect": _rect(v.palette_rect), "wells": wells, "trays": trays,
-				"rest_rect": _rect(v.rest_rect), "parked_brush_rect": _rect(v.parked_brush_rect),
-				"brush_parked": v.brush_parked, "brush_color": v.brush_color, "brush_tip_color": v.brush_tip_color,
-				"palette_hovering": v.palette_hovering, "palette_cursor_visible": v.palette_cursor_visible,
-				"mix_count": v.mix_count, "paint_pixels": v.paint_pixels, "smear_variant": v.smear_variant, "mixbox": v.mixbox})
+				"front_window": String(v.front_window),
+				"dragging": v.dragging,
+				"window_rect": _rect(v.window_rect),
+				"reference_rect": _rect(v.reference_rect),
+				"saved_ids": v.saved_ids,
+				"selected_reference": v.selected_reference,
+				"title_rect": _rect(v.title_rect),
+				"page_rect": _rect(v.page_rect),
+				"window_visible": v.window_visible,
+				"controls":
+				{"previous": _rect(v.controls.previous), "next": _rect(v.controls.next)},
+				"spread": v.spread,
+				"strokes": v.strokes,
+				"turning": v.turning,
+				"turn_progress": v.turn_progress,
+				"last_turn_ms": v.last_turn_ms,
+				"previous_disabled": v.previous_disabled,
+				"drawing": v.drawing,
+				"hovering": v.hovering,
+				"last_stroke_points": v.last_stroke_points,
+				"ink_color": v.ink_color,
+				"last_stroke_color": v.last_stroke_color,
+				"brush_cursor_visible": v.brush_cursor_visible,
+				"static_update_mode": v.static_update_mode,
+				"face_update_mode": v.face_update_mode,
+				"paintbox_rect": _rect(v.paintbox_rect),
+				"paintbox_title_rect": _rect(v.paintbox_title_rect),
+				"palette_rect": _rect(v.palette_rect),
+				"wells": wells,
+				"trays": trays,
+				"rest_rect": _rect(v.rest_rect),
+				"parked_brush_rect": _rect(v.parked_brush_rect),
+				"brush_parked": v.brush_parked,
+				"brush_color": v.brush_color,
+				"brush_tip_color": v.brush_tip_color,
+				"palette_hovering": v.palette_hovering,
+				"palette_cursor_visible": v.palette_cursor_visible,
+				"mix_count": v.mix_count,
+				"paint_pixels": v.paint_pixels,
+				"smear_variant": v.smear_variant,
+				"mixbox": v.mixbox
+			}
+		)
 	_log.append(entry)
 	return entry
 
@@ -108,7 +174,9 @@ func _settle_turn(shell: Control, label: String) -> Dictionary:
 
 
 ## Size the window so the page above the strip is `page` (the strip's height follows the width).
-func _page_size(shell: Control, page: Vector2i, label: String, shot: String, out_dir: String) -> void:
+func _page_size(
+	shell: Control, page: Vector2i, label: String, shot: String, out_dir: String
+) -> void:
 	get_root().size = Vector2i(page.x, roundi(page.y + page.x * BAR_RATIO))
 	await _frames(6)
 	_state(shell, label)
@@ -119,14 +187,47 @@ func _page_size(shell: Control, page: Vector2i, label: String, shot: String, out
 func _initialize() -> void:
 	var root := get_root()
 	var storage: Variant = Data.storage_adapter().value
-	var data: Variant = Data.create({"search": func(_query: Dictionary, _done: Callable) -> Dictionary:
-		return {"ok": false, "value": null, "error": {"code": "collection_data.unavailable", "detail": "unused"}},
-		"load_saves": storage.load_saves, "save_if_absent": storage.save_if_absent, "now_ms": func() -> int: return 0}).value
+	var data: Variant = (
+		Data
+		. create(
+			{
+				"search":
+				func(_query: Dictionary, _done: Callable) -> Dictionary:
+## Playtest harness for sketchbook as the Sketchbook Tenant: builds the Shell with it in the
+## Sketchbook Tab and nothing in the other Tabs, then plays it the way a person does — real
+## InputEventMouseButton / InputEventMouseMotion events through Input.parse_input_event — and
+## reports what it did and what the Shell's probe said. The desktop is reached through the Shell
+## only (state, tenant_state). Args: --out-dir=<path>. Writes numbered screenshots and report.json.
+
+## Move there, press, move in `steps` motions of `step` each, release: one drag as a mouse makes it.
+
+## A point on the left page, a quarter in and halfway down.
+
+## Wait for a paper turn to land (bounded), logging its end.
+
+## Size the window so the page above the strip is `page` (the strip's height follows the width).
+
+					return {
+						"ok": false,
+						"value": null,
+						"error": {"code": "collection_data.unavailable", "detail": "unused"}
+					},
+				"load_saves": storage.load_saves,
+				"save_if_absent": storage.save_if_absent,
+				"now_ms": func() -> int: return 0
+			}
+		)
+		. value
+	)
 	var factory := func(deps: Dictionary) -> Dictionary:
 		var page_deps := deps.duplicate()
 		page_deps.collection_data = data
 		page_deps.image_fetch = func(_sha: String, _done: Callable) -> Dictionary:
-			return {"ok": false, "value": null, "error": {"code": "collection_data.unavailable", "detail": "unused"}}
+			return {
+				"ok": false,
+				"value": null,
+				"error": {"code": "collection_data.unavailable", "detail": "unused"}
+			}
 		return Book.create(page_deps)
 	var shell: Control = Shell.create({"sketchbook": factory}).value
 	var out_dir := await _mount(shell, Vector2i(1920, 1080), "/tmp/sketchbook-playtest")
@@ -149,7 +250,9 @@ func _initialize() -> void:
 	await _shot(out_dir, "01-desktop.png")
 
 	# 3. the fill rule at two page sizes, then back
-	await _page_size(shell, Vector2i(1920, 1000), "fill-1920x1000", "02-fill-1920x1000.png", out_dir)
+	await _page_size(
+		shell, Vector2i(1920, 1000), "fill-1920x1000", "02-fill-1920x1000.png", out_dir
+	)
 	await _page_size(shell, Vector2i(1440, 820), "fill-1440x820", "03-fill-1440x820.png", out_dir)
 	root.size = Vector2i(1920, 1080)
 	await _frames(6)
@@ -161,7 +264,12 @@ func _initialize() -> void:
 	await _frames(2)
 	_book(shell, "well-a")
 	var tray: Dictionary = b.trays[TRAY]
-	await _drag(Vector2(tray.x + tray.w * 0.15, tray.y + tray.h * 0.5), Vector2(tray.w * 0.7 / 14.0, 0), 14, "smear A across the tray")
+	await _drag(
+		Vector2(tray.x + tray.w * 0.15, tray.y + tray.h * 0.5),
+		Vector2(tray.w * 0.7 / 14.0, 0),
+		14,
+		"smear A across the tray"
+	)
 	await _frames(2)
 	_book(shell, "tray-a")
 	await _shot(out_dir, "04-tray-a.png")
@@ -171,7 +279,12 @@ func _initialize() -> void:
 	await _click(_mid(b.wells[WELL_B]), "well B")
 	await _frames(2)
 	_book(shell, "well-b")
-	await _drag(Vector2(tray.x + tray.w * 0.5, tray.y + tray.h * 0.1), Vector2(0, tray.h * 0.8 / 12.0), 12, "drag B through A")
+	await _drag(
+		Vector2(tray.x + tray.w * 0.5, tray.y + tray.h * 0.1),
+		Vector2(0, tray.h * 0.8 / 12.0),
+		12,
+		"drag B through A"
+	)
 	await _frames(2)
 	_book(shell, "mixed")
 	await _shot(out_dir, "05-mixed.png")

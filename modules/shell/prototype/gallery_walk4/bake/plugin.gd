@@ -3,8 +3,10 @@ extends EditorPlugin
 
 const DIR := "res://modules/shell/prototype/gallery_walk4/baked/"
 
+
 func _enter_tree() -> void:
 	call_deferred("_bake_room")
+
 
 func _bake_room() -> void:
 	await get_tree().create_timer(2).timeout
@@ -30,7 +32,13 @@ func _bake_room() -> void:
 			for dialog in button.find_children("*", "EditorFileDialog", true, false):
 				if dialog.visible:
 					dialog.hide()
-					dialog.file_selected.emit(DIR + str(ProjectSettings.get_setting("gallery_bake/scene", "room")) + ".lmbake")
+					dialog.file_selected.emit(
+						(
+							DIR
+							+ str(ProjectSettings.get_setting("gallery_bake/scene", "room"))
+							+ ".lmbake"
+						)
+					)
 			await get_tree().create_timer(2).timeout
 			if lightmap.light_data == null or lightmap.light_data.get_user_count() == 0:
 				push_error("Gallery bake produced no lightmap users")

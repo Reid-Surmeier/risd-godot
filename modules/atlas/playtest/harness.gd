@@ -14,7 +14,17 @@ func _wheel(pos: Vector2, up: bool, count: int, what: String) -> void:
 	for i in count:
 		for pressed in [true, false]:
 			await _button(pos, MOUSE_BUTTON_WHEEL_UP if up else MOUSE_BUTTON_WHEEL_DOWN, pressed)
-	_log.append({"t_ms": _ms(), "event": "wheel", "what": what, "x": pos.x, "y": pos.y, "up": up, "count": count})
+	_log.append(
+		{
+			"t_ms": _ms(),
+			"event": "wheel",
+			"what": what,
+			"x": pos.x,
+			"y": pos.y,
+			"up": up,
+			"count": count
+		}
+	)
 
 
 ## Press, move in `steps` motions of `step` each, release: one drag as a mouse makes it.
@@ -31,46 +41,99 @@ func _drag(from: Vector2, step: Vector2, steps: int, what: String) -> void:
 		Input.parse_input_event(ev)
 		await process_frame
 	await _button(pos, MOUSE_BUTTON_LEFT, false)
-	_log.append({"t_ms": _ms(), "event": "drag", "what": what, "from": [from.x, from.y], "to": [pos.x, pos.y],
-			"relative_total": [step.x * steps, step.y * steps], "steps": steps})
-
+	_log.append(
+		{
+			"t_ms": _ms(),
+			"event": "drag",
+			"what": what,
+			"from": [from.x, from.y],
+			"to": [pos.x, pos.y],
+			"relative_total": [step.x * steps, step.y * steps],
+			"steps": steps
+		}
+	)
 
 
 func _draw_calls() -> int:
-	return RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME)
+	return RenderingServer.get_rendering_info(
+		RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME
+	)
 
 
 func _state(shell: Control, label: String) -> Dictionary:
 	var s: Dictionary = Shell.state(shell).value
 	var tabs := []
 	for t in s.tabs:
-		tabs.append({"key": t.key, "page_visible": t.page_visible, "frozen": t.frozen, "tenant": t.tenant, "rect": _rect(t.rect)})
-	var entry := {"t_ms": _ms(), "event": "state", "label": label, "count": s.count, "active": s.active, "tabs": tabs,
-			"window": [shell.size.x, shell.size.y], "draw_calls": _draw_calls()}
+		tabs.append(
+			{
+				"key": t.key,
+				"page_visible": t.page_visible,
+				"frozen": t.frozen,
+				"tenant": t.tenant,
+				"rect": _rect(t.rect)
+			}
+		)
+	var entry := {
+		"t_ms": _ms(),
+		"event": "state",
+		"label": label,
+		"count": s.count,
+		"active": s.active,
+		"tabs": tabs,
+		"window": [shell.size.x, shell.size.y],
+		"draw_calls": _draw_calls()
+	}
 	_log.append(entry)
 	return entry
 
 
 func _atlas(shell: Control, label: String) -> Dictionary:
 	var r: Dictionary = Shell.tenant_state(shell, "map")
-	var entry := {"t_ms": _ms(), "event": "atlas", "label": label, "ok": r.ok, "code": r.error.code if not r.ok else ""}
+	var entry := {
+		"t_ms": _ms(),
+		"event": "atlas",
+		"label": label,
+		"ok": r.ok,
+		"code": r.error.code if not r.ok else ""
+	}
 	if r.ok:
 		var v: Dictionary = r.value
-		entry.merge({"ticks": v.ticks, "inputs": v.inputs, "size": [v.size.x, v.size.y], "frame": _rect(v.frame), "frame_global": _rect(v.frame_global),
-				"map_rect": _rect(v.map_rect), "chrome_scale": v.chrome_scale, "locked": v.locked, "collapsed": v.collapsed,
-				"action": v.action, "viewport_update_mode": v.viewport_update_mode, "mode": v.mode, "region": v.region,
-				"zoom": v.zoom, "zoom_ratio": v.zoom_ratio, "zoom_min": v.zoom_min, "zoom_max": v.zoom_max,
-				"position": v.position, "viewport": v.viewport, "visible_cities": v.visible_cities,
-				"visible_close_cities": v.visible_close_cities, "visible_labels": v.visible_labels,
-				"terrain_tiles": v.terrain_tiles, "vertical_pan_locked": v.vertical_pan_locked,
-				"stack": v.stack, "moving_window": v.moving_window})
+		entry.merge(
+			{
+				"ticks": v.ticks,
+				"inputs": v.inputs,
+				"size": [v.size.x, v.size.y],
+				"frame": _rect(v.frame),
+				"frame_global": _rect(v.frame_global),
+				"map_rect": _rect(v.map_rect),
+				"chrome_scale": v.chrome_scale,
+				"locked": v.locked,
+				"collapsed": v.collapsed,
+				"action": v.action,
+				"viewport_update_mode": v.viewport_update_mode,
+				"mode": v.mode,
+				"region": v.region,
+				"zoom": v.zoom,
+				"zoom_ratio": v.zoom_ratio,
+				"zoom_min": v.zoom_min,
+				"zoom_max": v.zoom_max,
+				"position": v.position,
+				"viewport": v.viewport,
+				"visible_cities": v.visible_cities,
+				"visible_close_cities": v.visible_close_cities,
+				"visible_labels": v.visible_labels,
+				"terrain_tiles": v.terrain_tiles,
+				"vertical_pan_locked": v.vertical_pan_locked,
+				"stack": v.stack,
+				"moving_window": v.moving_window
+			}
+		)
 		var panels := {}
 		for id in v.panels:
 			panels[id] = _rect(v.panels[id])
 		entry["panels"] = panels
 	_log.append(entry)
 	return entry
-
 
 
 ## The global centre of one of the frame's two buttons, from the probe's frame rects
@@ -85,11 +148,16 @@ func _frame_button(a: Dictionary, which: String) -> Vector2:
 ## (frame_global - frame gives where the tenant's pixels start on the root).
 func _panel_center(a: Dictionary, id: String) -> Vector2:
 	var p: Dictionary = a.panels[id]
-	return Vector2(a.frame_global.x - a.frame.x + p.x + p.w / 2.0, a.frame_global.y - a.frame.y + p.y + p.h / 2.0)
+	return Vector2(
+		a.frame_global.x - a.frame.x + p.x + p.w / 2.0,
+		a.frame_global.y - a.frame.y + p.y + p.h / 2.0
+	)
 
 
 func _title_bar(a: Dictionary) -> Vector2:
-	return Vector2(a.frame_global.x + a.frame_global.w / 2.0, a.frame_global.y + 60.0 * a.chrome_scale)
+	return Vector2(
+		a.frame_global.x + a.frame_global.w / 2.0, a.frame_global.y + 60.0 * a.chrome_scale
+	)
 
 
 func _map_center(a: Dictionary) -> Vector2:
@@ -139,11 +207,18 @@ func _initialize() -> void:
 	# 3. the desktop panels: drag the notification from the bottom-right corner onto the map body —
 	#    the panel moves by the drag and comes to the top of the stack, the frame and the view stay;
 	#    then a wheel over the panel does not zoom the map beneath it
-	await _drag(_panel_center(a, "notification"), Vector2(-140, -140), 5, "drag the notification panel onto the map")
+	await _drag(
+		_panel_center(a, "notification"),
+		Vector2(-140, -140),
+		5,
+		"drag the notification panel onto the map"
+	)
 	await _frames(3)
 	var pn := _atlas(shell, "panel-moved")
 	await _shot(out_dir, "02-panel-moved.png")
-	await _wheel(_panel_center(pn, "notification"), true, 3, "wheel up x3 over the notification panel")
+	await _wheel(
+		_panel_center(pn, "notification"), true, 3, "wheel up x3 over the notification panel"
+	)
 	await _frames(3)
 	_atlas(shell, "wheel-over-panel")
 
@@ -168,13 +243,20 @@ func _initialize() -> void:
 	_state(shell, "window-moved")
 
 	# 7. drag the title bar far past the page's bottom-right corner: the frame stops at the page's edge
-	await _drag(_title_bar(d), Vector2(300, 200), 6, "drag the title bar past the page's bottom-right corner")
+	await _drag(
+		_title_bar(d),
+		Vector2(300, 200),
+		6,
+		"drag the title bar past the page's bottom-right corner"
+	)
 	await _frames(3)
 	var cl := _atlas(shell, "window-clamped")
 	await _shot(out_dir, "06-window-clamped.png")
 
 	# 8. drag the frame's bottom-right corner inward: the frame shrinks in place and the map body follows
-	var corner := Vector2(cl.frame_global.x + cl.frame_global.w - 4.0, cl.frame_global.y + cl.frame_global.h - 4.0)
+	var corner := Vector2(
+		cl.frame_global.x + cl.frame_global.w - 4.0, cl.frame_global.y + cl.frame_global.h - 4.0
+	)
 	await _drag(corner, Vector2(-30, -20), 5, "drag the frame's bottom-right corner inward")
 	await _frames(3)
 	var rz := _atlas(shell, "window-resized")

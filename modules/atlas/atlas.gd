@@ -7,8 +7,18 @@ extends Node2D
 const ROOT := "res://modules/atlas/"
 ## Prototype question: does a small artwork card make numbered map badges feel discoverable?
 const DEMO_ARTWORKS := {
-	8: {"title": "A Walk in the Meadows at Argenteuil", "maker": "Claude Monet · 1873", "image_path": "assets/demo-marker-8.jpg"},
-	14: {"title": "The Seine Near its Estuary, Honfleur", "maker": "Claude Monet · ca. 1868", "image_path": "assets/demo-marker-14.jpg"},
+	8:
+	{
+		"title": "A Walk in the Meadows at Argenteuil",
+		"maker": "Claude Monet · 1873",
+		"image_path": "assets/demo-marker-8.jpg"
+	},
+	14:
+	{
+		"title": "The Seine Near its Estuary, Honfleur",
+		"maker": "Claude Monet · ca. 1868",
+		"image_path": "assets/demo-marker-14.jpg"
+	},
 }
 
 const WIDTH := 4480.0
@@ -54,6 +64,7 @@ var city_groups: Array = []
 var badges: Array = []
 var artwork_requested := Callable()
 
+
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	add_child(world_root)
@@ -70,7 +81,8 @@ func _ready() -> void:
 	for city in JSON.parse_string(FileAccess.get_file_as_string(ROOT + "close-cities.json")):
 		city.at = Vector2(city.at[0], city.at[1])
 		var key := Vector2i(floori(city.at.x / 64), floori(city.at.y / 64))
-		if not close_grid.has(key): close_grid[key] = []
+		if not close_grid.has(key):
+			close_grid[key] = []
 		close_grid[key].append(city)
 	add_child(sheet)
 	sheet.visible = false
@@ -79,14 +91,18 @@ func _ready() -> void:
 		_sprite(world_root, "terrain", shift, Vector2.ONE)
 	var world_symbols: Texture2D = load(ROOT + "assets/world-badges.png")
 	for badge in atlas.world_badges:
-		var rect := Rect2(badge.rectangle[0], badge.rectangle[1], badge.rectangle[2], badge.rectangle[3])
+		var rect := Rect2(
+			badge.rectangle[0], badge.rectangle[1], badge.rectangle[2], badge.rectangle[3]
+		)
 		var texture := AtlasTexture.new()
 		texture.atlas = world_symbols
 		texture.region = rect
 		var sprite := Sprite2D.new()
 		sprite.texture = texture
 		overview_badges.add_child(sprite)
-		overview_icons.append({"sprite": sprite, "at": rect.get_center(), "size": rect.size, "number": badge.number})
+		overview_icons.append(
+			{"sprite": sprite, "at": rect.get_center(), "size": rect.size, "number": badge.number}
+		)
 	for region in atlas.regions:
 		var labels_texture: Texture2D = load(ROOT + "assets/" + region.id + "-labels.png")
 		var symbols_texture: Texture2D = load(ROOT + "assets/" + region.id + "-annotations.png")
@@ -97,23 +113,50 @@ func _ready() -> void:
 			texture.region = Rect2(group.rect[0], group.rect[1], group.rect[2], group.rect[3])
 			sprite.texture = texture
 			detail_root.add_child(sprite)
-			annotations.append({"sprite": sprite, "at": Vector2(group.at[0], group.at[1]), "detail_at": Vector2(group.get("detail_at", group.at)[0], group.get("detail_at", group.at)[1]), "kind": group.kind, "region": region.id, "city_id": str(region.id) + str(group.get("city_id", -1)), "rank": group.get("rank", 0), "min_zoom": group.get("min_zoom", 4.0), "name": group.get("name", ""), "offset": Vector2(group.get("offset", [0, 0])[0], group.get("offset", [0, 0])[1]), "size": Vector2(group.rect[2], group.rect[3]), "scale": 10.0 / group.rect[3] if group.kind == "city" else 1.0})
+			annotations.append(
+				{
+					"sprite": sprite,
+					"at": Vector2(group.at[0], group.at[1]),
+					"detail_at":
+					Vector2(
+						group.get("detail_at", group.at)[0], group.get("detail_at", group.at)[1]
+					),
+					"kind": group.kind,
+					"region": region.id,
+					"city_id": str(region.id) + str(group.get("city_id", -1)),
+					"rank": group.get("rank", 0),
+					"min_zoom": group.get("min_zoom", 4.0),
+					"name": group.get("name", ""),
+					"offset":
+					Vector2(group.get("offset", [0, 0])[0], group.get("offset", [0, 0])[1]),
+					"size": Vector2(group.rect[2], group.rect[3]),
+					"scale": 10.0 / group.rect[3] if group.kind == "city" else 1.0
+				}
+			)
 	# ponytail: one-time scan for ten sheets; index by city_id if the catalog grows.
 	for item in annotations:
-		if item.kind == "badge": badges.append(item)
-		if item.kind != "city": continue
+		if item.kind == "badge":
+			badges.append(item)
+		if item.kind != "city":
+			continue
 		var labels: Array = []
 		for label in annotations:
-			if label.kind == "label" and label.city_id == item.city_id: labels.append(label)
-		if not labels.is_empty(): city_groups.append({"dot": item, "labels": labels})
-	city_groups.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
-		if a.dot.min_zoom != b.dot.min_zoom: return a.dot.min_zoom < b.dot.min_zoom
-		return a.dot.rank < b.dot.rank)
+			if label.kind == "label" and label.city_id == item.city_id:
+				labels.append(label)
+		if not labels.is_empty():
+			city_groups.append({"dot": item, "labels": labels})
+	city_groups.sort_custom(
+		func(a: Dictionary, b: Dictionary) -> bool:
+			if a.dot.min_zoom != b.dot.min_zoom:
+				return a.dot.min_zoom < b.dot.min_zoom
+			return a.dot.rank < b.dot.rank
+	)
 	add_child(camera)
 	camera.position_smoothing_enabled = false
 	_build_ui()
 	get_viewport().size_changed.connect(_resize)
 	_reset()
+
 
 func _sprite(parent: Node, id: String, at: Vector2, size_scale: Vector2) -> void:
 	var sprite := Sprite2D.new()
@@ -122,6 +165,7 @@ func _sprite(parent: Node, id: String, at: Vector2, size_scale: Vector2) -> void
 	sprite.position = at
 	sprite.scale = size_scale
 	parent.add_child(sprite)
+
 
 func _build_ui() -> void:
 	var canvas := CanvasLayer.new()
@@ -148,8 +192,11 @@ func _build_ui() -> void:
 	picker.add_item("Jump to region")
 	for region in atlas.regions:
 		picker.add_item(region.name)
-	picker.item_selected.connect(func(index: int):
-		if index > 0: _focus_region(atlas.regions[index - 1].id))
+	picker.item_selected.connect(
+		func(index: int):
+			if index > 0:
+				_focus_region(atlas.regions[index - 1].id)
+	)
 	hud.add_child(picker)
 	sheet_button = _button("Full sheet", _toggle_sheet)
 	_button("−", func(): _zoom_at(1.0 / 1.3, _viewport_size() / 2))
@@ -166,16 +213,19 @@ func _build_ui() -> void:
 	canvas.add_child(notice)
 	_resize()
 
+
 func _badge_at(pointer: Vector2) -> Dictionary:
 	for badge in overview_icons:
 		if badge.sprite.visible and pointer.distance_to(_to_screen(_wrap_x(badge.at))) <= 18:
 			return badge
 	return {}
 
+
 func _show_artwork(badge: Dictionary) -> void:
 	if artwork_requested.is_valid():
 		var marker := int(badge.number)
 		artwork_requested.call(DEMO_ARTWORKS.get(marker, DEMO_ARTWORKS[8]), marker)
+
 
 func _button(text: String, action: Callable) -> Button:
 	var button := Button.new()
@@ -187,12 +237,15 @@ func _button(text: String, action: Callable) -> Button:
 	buttons[text] = button
 	return button
 
+
 func _viewport_size() -> Vector2:
 	return get_viewport_rect().size
+
 
 func _fit_zoom() -> float:
 	var size := _viewport_size() - Vector2(24, 120)
 	return maxf(size.x / WIDTH, _viewport_size().y / SOUTH_LIMIT)
+
 
 func _reset() -> void:
 	mode = "atlas"
@@ -207,19 +260,26 @@ func _reset() -> void:
 	_constrain()
 	picker.selected = 0
 
+
 func _focus_region(id: String) -> void:
-	if mode == "sheet": _toggle_sheet()
+	if mode == "sheet":
+		_toggle_sheet()
 	selected = id
 	var region := _region(id)
 	camera.position = Vector2(region.focus[0], region.focus[1])
-	var fit := minf((_viewport_size().x - 60) / region.size[0], (_viewport_size().y - 160) / region.size[1])
+	var fit := minf(
+		(_viewport_size().x - 60) / region.size[0], (_viewport_size().y - 160) / region.size[1]
+	)
 	camera.zoom = Vector2.ONE * clampf(fit * 1.4, 0.9, 1.6)
 	_constrain()
 
+
 func _region(id: String) -> Dictionary:
 	for region in atlas.regions:
-		if region.id == id: return region
+		if region.id == id:
+			return region
 	return atlas.regions[0]
+
 
 func _toggle_sheet() -> void:
 	if mode == "atlas":
@@ -233,7 +293,13 @@ func _toggle_sheet() -> void:
 		overview_badges.visible = false
 		detail_root.visible = false
 		camera.position = sheet.texture.get_size() / 2
-		camera.zoom = Vector2.ONE * minf((_viewport_size().x - 32) / sheet.texture.get_width(), (_viewport_size().y - 140) / sheet.texture.get_height())
+		camera.zoom = (
+			Vector2.ONE
+			* minf(
+				(_viewport_size().x - 32) / sheet.texture.get_width(),
+				(_viewport_size().y - 140) / sheet.texture.get_height()
+			)
+		)
 		sheet_button.text = "Back to atlas"
 	else:
 		mode = "atlas"
@@ -246,10 +312,12 @@ func _toggle_sheet() -> void:
 		sheet_button.text = "Full sheet"
 	_resize()
 
+
 func _resize() -> void:
 	sheet_button.visible = _viewport_size().x >= 360
 	layout_position = Vector2.INF
-	if camera.is_inside_tree(): _constrain()
+	if camera.is_inside_tree():
+		_constrain()
 	notice.position = Vector2(18, _viewport_size().y - 28)
 	if _viewport_size().x < 750:
 		hud.get_child(0).visible = false
@@ -263,12 +331,14 @@ func _resize() -> void:
 		sheet_button.text = "Full sheet" if mode == "atlas" else "Back to atlas"
 		notice.text = "Drag to move · Scroll / pinch to zoom · Double-click to explore · Home to reset"
 
+
 func _zoom_at(factor: float, anchor: Vector2) -> void:
 	var before := camera.position + (anchor - _viewport_size() / 2) / camera.zoom.x
 	var next := clampf(camera.zoom.x * factor, _fit_zoom(), MAX_ZOOM)
 	camera.zoom = Vector2.ONE * next
 	camera.position = before - (anchor - _viewport_size() / 2) / next
 	_constrain()
+
 
 func _constrain() -> void:
 	if mode == "atlas":
@@ -277,15 +347,23 @@ func _constrain() -> void:
 		# Stop within the Antarctic ice, before the projection stretches toward the pole.
 		var half_height := _viewport_size().y / (2.0 * camera.zoom.x)
 		var south_limit := SOUTH_LIMIT - half_height
-		camera.position.y = SOUTH_LIMIT / 2 if half_height >= SOUTH_LIMIT / 2 else clampf(camera.position.y, half_height, south_limit)
+		camera.position.y = (
+			SOUTH_LIMIT / 2
+			if half_height >= SOUTH_LIMIT / 2
+			else clampf(camera.position.y, half_height, south_limit)
+		)
 	else:
 		camera.position = camera.position.clamp(Vector2.ZERO, sheet.texture.get_size())
 
+
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouse and event.device == -1: return
+	if event is InputEventMouse and event.device == -1:
+		return
 	if event is InputEventMouseButton:
-		if event.pressed and event.button_index == MOUSE_BUTTON_WHEEL_UP: _zoom_at(1.18, event.position)
-		elif event.pressed and event.button_index == MOUSE_BUTTON_WHEEL_DOWN: _zoom_at(1 / 1.18, event.position)
+		if event.pressed and event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			_zoom_at(1.18, event.position)
+		elif event.pressed and event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			_zoom_at(1 / 1.18, event.position)
 		elif event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_MIDDLE]:
 			if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 				var badge := _badge_at(event.position)
@@ -293,38 +371,55 @@ func _unhandled_input(event: InputEvent) -> void:
 					_show_artwork(badge)
 					return
 			dragging = event.pressed
-			if event.double_click and event.pressed: _zoom_at(2.0, event.position)
+			if event.double_click and event.pressed:
+				_zoom_at(2.0, event.position)
 	elif event is InputEventMouseMotion:
 		if dragging:
 			camera.position -= event.relative / camera.zoom.x
 			_constrain()
 	elif event is InputEventKey and event.pressed:
 		match event.keycode:
-			KEY_HOME, KEY_ESCAPE: _reset()
-			KEY_PLUS, KEY_EQUAL, KEY_KP_ADD: _zoom_at(1.3, _viewport_size() / 2)
-			KEY_MINUS, KEY_KP_SUBTRACT: _zoom_at(1 / 1.3, _viewport_size() / 2)
-			KEY_LEFT: camera.position.x -= 100 / camera.zoom.x
-			KEY_RIGHT: camera.position.x += 100 / camera.zoom.x
-			KEY_UP: camera.position.y -= 100 / camera.zoom.x
-			KEY_DOWN: camera.position.y += 100 / camera.zoom.x
-			KEY_F: _toggle_sheet()
+			KEY_HOME, KEY_ESCAPE:
+				_reset()
+			KEY_PLUS, KEY_EQUAL, KEY_KP_ADD:
+				_zoom_at(1.3, _viewport_size() / 2)
+			KEY_MINUS, KEY_KP_SUBTRACT:
+				_zoom_at(1 / 1.3, _viewport_size() / 2)
+			KEY_LEFT:
+				camera.position.x -= 100 / camera.zoom.x
+			KEY_RIGHT:
+				camera.position.x += 100 / camera.zoom.x
+			KEY_UP:
+				camera.position.y -= 100 / camera.zoom.x
+			KEY_DOWN:
+				camera.position.y += 100 / camera.zoom.x
+			KEY_F:
+				_toggle_sheet()
 		_constrain()
+
 
 ## The world copy of `point` nearest the camera (the atlas wraps east-west).
 func _wrap_x(point: Vector2) -> Vector2:
-	point.x = camera.position.x + fposmod(point.x - camera.position.x + WIDTH / 2, WIDTH) - WIDTH / 2
+	point.x = (
+		camera.position.x + fposmod(point.x - camera.position.x + WIDTH / 2, WIDTH) - WIDTH / 2
+	)
 	return point
+
 
 func _to_screen(point: Vector2) -> Vector2:
 	return (point - camera.position) * camera.zoom.x + _viewport_size() / 2
 
+
 func _collides(box: Rect2, occupied: Array[Rect2]) -> bool:
 	for previous in occupied:
-		if box.intersects(previous): return true
+		if box.intersects(previous):
+			return true
 	return false
+
 
 func _city_scale() -> float:
 	return 0.65 if camera.zoom.x < 0.65 else 1.0 + smoothstep(2.0, 80.0, camera.zoom.x)
+
 
 func _layout_annotations() -> void:
 	layout_position = camera.position
@@ -336,16 +431,19 @@ func _layout_annotations() -> void:
 	visible_cities = 0
 	visible_labels = 0
 	shown_cities.clear()
-	for item in annotations: item.sprite.visible = false
+	for item in annotations:
+		item.sprite.visible = false
 	# Overview numbers keep their original pixels and a readable 22px screen height.
 	for badge in overview_icons:
 		badge.sprite.visible = false
-		if overview_badges.modulate.a <= 0: continue
+		if overview_badges.modulate.a <= 0:
+			continue
 		var point := _wrap_x(badge.at)
 		var screen := _to_screen(point)
 		var badge_scale: float = 22.0 / badge.size.y
 		var box := Rect2(screen - badge.size * badge_scale / 2, badge.size * badge_scale)
-		if not view.encloses(box): continue
+		if not view.encloses(box):
+			continue
 		badge.sprite.position = point
 		badge.sprite.scale = Vector2.ONE * badge_scale / camera.zoom.x
 		badge.sprite.visible = true
@@ -353,15 +451,22 @@ func _layout_annotations() -> void:
 	# Accept a complete dot/name pair as one unit, including screen-edge clipping.
 	for group in city_groups:
 		var dot: Dictionary = group.dot
-		if camera.zoom.x < dot.min_zoom: continue
+		if camera.zoom.x < dot.min_zoom:
+			continue
 		var point := _wrap_x(dot.at.lerp(dot.detail_at, terrain_detail))
 		var screen := _to_screen(point)
 		var box := Rect2(screen - Vector2(6, 6) * label_scale, Vector2(12, 12) * label_scale)
 		for label in group.labels:
-			box = box.merge(Rect2(screen + (label.offset - label.size / 2) * label_scale, label.size * label_scale))
-		if not view.encloses(box): continue
+			box = box.merge(
+				Rect2(
+					screen + (label.offset - label.size / 2) * label_scale, label.size * label_scale
+				)
+			)
+		if not view.encloses(box):
+			continue
 		var padded := box.grow(18 if camera.zoom.x < 0.65 else 12)
-		if _collides(padded, occupied): continue
+		if _collides(padded, occupied):
+			continue
 		occupied.append(padded)
 		dot.sprite.position = point
 		dot.sprite.scale = Vector2.ONE * dot.scale * label_scale / camera.zoom.x
@@ -372,15 +477,25 @@ func _layout_annotations() -> void:
 			label.sprite.visible = true
 			visible_labels += 1
 		visible_cities += 1
-		shown_cities.append({"id": dot.city_id, "name": dot.name, "at": [point.x, point.y], "screen": [screen.x, screen.y], "labels": group.labels.size()})
+		shown_cities.append(
+			{
+				"id": dot.city_id,
+				"name": dot.name,
+				"at": [point.x, point.y],
+				"screen": [screen.x, screen.y],
+				"labels": group.labels.size()
+			}
+		)
 	_layout_close_cities(view, occupied)
 	# Regional badges remain intact, outside accepted dot/name pairs.
 	if camera.zoom.x >= 0.65:
 		for badge in badges:
 			var point := _wrap_x(badge.at)
 			var box := Rect2(_to_screen(point) - badge.size / 2, badge.size).grow(3)
-			if not view.encloses(box): continue
-			if _collides(box, occupied): continue
+			if not view.encloses(box):
+				continue
+			if _collides(box, occupied):
+				continue
 			occupied.append(box)
 			badge.sprite.position = point
 			badge.sprite.scale = Vector2.ONE / camera.zoom.x
@@ -388,43 +503,80 @@ func _layout_annotations() -> void:
 			visible_annotations += 1
 	visible_annotations += visible_cities + visible_labels
 
+
 func _layout_close_cities(view: Rect2, occupied: Array[Rect2]) -> void:
 	close_draw.clear()
 	visible_close_cities = 0
 	close_layer.visible = mode == "atlas"
 	close_layer.queue_redraw()
-	if mode != "atlas" or camera.zoom.x < 1.8: return
+	if mode != "atlas" or camera.zoom.x < 1.8:
+		return
 	var label_scale := _city_scale()
 	var half := _viewport_size() / (2 * camera.zoom.x)
 	var candidates: Array = []
 	# Bucket the catalog so each movement only considers nearby places.
-	for row in range(floori((camera.position.y - half.y) / 64), ceili((camera.position.y + half.y) / 64)):
-		for col in range(floori((camera.position.x - half.x) / 64), ceili((camera.position.x + half.x) / 64)):
+	for row in range(
+		floori((camera.position.y - half.y) / 64), ceili((camera.position.y + half.y) / 64)
+	):
+		for col in range(
+			floori((camera.position.x - half.x) / 64), ceili((camera.position.x + half.x) / 64)
+		):
 			for city in close_grid.get(Vector2i(posmod(col, 70), row), []):
-				if camera.zoom.x >= city.min_zoom: candidates.append(city)
-	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return a.population > b.population)
+				if camera.zoom.x >= city.min_zoom:
+					candidates.append(city)
+	candidates.sort_custom(
+		func(a: Dictionary, b: Dictionary) -> bool: return a.population > b.population
+	)
 	for city in candidates:
 		var point := _wrap_x(city.at)
 		var screen := _to_screen(point)
-		if not view.has_point(screen): continue
-		var size := close_font.get_string_size(city.name, HORIZONTAL_ALIGNMENT_LEFT, -1, CLOSE_FONT_SIZE)
-		var box := Rect2(screen - Vector2(5, 5) * label_scale, Vector2(10, 10) * label_scale).merge(Rect2(screen + Vector2(9, 5 - close_font.get_ascent(CLOSE_FONT_SIZE)) * label_scale, size * label_scale))
-		if not view.encloses(box): continue
+		if not view.has_point(screen):
+			continue
+		var size := close_font.get_string_size(
+			city.name, HORIZONTAL_ALIGNMENT_LEFT, -1, CLOSE_FONT_SIZE
+		)
+		var box := Rect2(screen - Vector2(5, 5) * label_scale, Vector2(10, 10) * label_scale).merge(
+			Rect2(
+				screen + Vector2(9, 5 - close_font.get_ascent(CLOSE_FONT_SIZE)) * label_scale,
+				size * label_scale
+			)
+		)
+		if not view.encloses(box):
+			continue
 		var padded := box.grow(60)
-		if _collides(padded, occupied): continue
+		if _collides(padded, occupied):
+			continue
 		occupied.append(padded)
 		close_draw.append({"at": point, "name": city.name})
-		shown_cities.append({"id": "geonames" + str(city.id), "name": city.name, "at": [point.x, point.y], "screen": [screen.x, screen.y], "labels": 1})
+		shown_cities.append(
+			{
+				"id": "geonames" + str(city.id),
+				"name": city.name,
+				"at": [point.x, point.y],
+				"screen": [screen.x, screen.y],
+				"labels": 1
+			}
+		)
 		visible_close_cities += 1
 		visible_cities += 1
 		visible_labels += 1
+
 
 func _draw_close_cities() -> void:
 	# Dot and complete name are drawn from the same accepted record.
 	for city in close_draw:
 		close_layer.draw_set_transform(city.at, 0, Vector2.ONE * _city_scale() / camera.zoom.x)
 		close_layer.draw_circle(Vector2.ZERO, 5, Color("cc3333"))
-		close_layer.draw_string(close_font, Vector2(9, 5), city.name, HORIZONTAL_ALIGNMENT_LEFT, -1, CLOSE_FONT_SIZE, Color.BLACK)
+		close_layer.draw_string(
+			close_font,
+			Vector2(9, 5),
+			city.name,
+			HORIZONTAL_ALIGNMENT_LEFT,
+			-1,
+			CLOSE_FONT_SIZE,
+			Color.BLACK
+		)
+
 
 func _layout_geography() -> void:
 	geography.visible = mode == "atlas"
@@ -434,13 +586,22 @@ func _layout_geography() -> void:
 	var wanted: Dictionary = {}
 	if terrain_detail > 0:
 		var half := _viewport_size() / (2 * camera.zoom.x)
-		for row in range(maxi(0, floori((camera.position.y - half.y) / 524)), mini(6, ceili((camera.position.y + half.y) / 524))):
-			for col in range(floori((camera.position.x - half.x) / 560), ceili((camera.position.x + half.x) / 560)):
+		for row in range(
+			maxi(0, floori((camera.position.y - half.y) / 524)),
+			mini(6, ceili((camera.position.y + half.y) / 524))
+		):
+			for col in range(
+				floori((camera.position.x - half.x) / 560),
+				ceili((camera.position.x + half.x) / 560)
+			):
 				var key := Vector2i(col, row)
 				wanted[key] = true
-				if geography_tiles.has(key): continue
+				if geography_tiles.has(key):
+					continue
 				var tile := Sprite2D.new()
-				tile.texture = load(ROOT + "assets/geography/%d-%d-field.png" % [posmod(col, 8), row])
+				tile.texture = load(
+					ROOT + "assets/geography/%d-%d-field.png" % [posmod(col, 8), row]
+				)
 				tile.material = geography.material
 				tile.centered = false
 				tile.position = Vector2(col * 560, row * 524)
@@ -452,6 +613,7 @@ func _layout_geography() -> void:
 			geography_tiles[key].queue_free()
 			geography_tiles.erase(key)
 
+
 func _process(_delta: float) -> void:
 	detail_alpha = 1.0 if camera.zoom.x >= 0.65 else 0.0
 	# Keep the numbered artwork markers clickable at every zoom tier.
@@ -459,14 +621,36 @@ func _process(_delta: float) -> void:
 	if mode == "atlas":
 		var distance := INF
 		for region in atlas.regions:
-			var d := camera.position.distance_squared_to(_wrap_x(Vector2(region.focus[0], region.focus[1])))
+			var d := camera.position.distance_squared_to(
+				_wrap_x(Vector2(region.focus[0], region.focus[1]))
+			)
 			if d < distance:
 				distance = d
 				selected = region.id
 	if camera.position != layout_position or camera.zoom.x != layout_zoom:
 		_layout_geography()
 		_layout_annotations()
-	status.text = "%s · %s · %.1f×" % [("Antarctica" if camera.position.y > 2300 and mode == "atlas" else _region(selected).name) if camera.zoom.x > 0.4 else "World", "Full sheet" if mode == "sheet" else ("Regional detail" if detail_alpha > 0.8 else "Overview"), camera.zoom.x / _fit_zoom()]
+	status.text = (
+		"%s · %s · %.1f×"
+		% [
+			(
+				(
+					"Antarctica"
+					if camera.position.y > 2300 and mode == "atlas"
+					else _region(selected).name
+				)
+				if camera.zoom.x > 0.4
+				else "World"
+			),
+			(
+				"Full sheet"
+				if mode == "sheet"
+				else ("Regional detail" if detail_alpha > 0.8 else "Overview")
+			),
+			camera.zoom.x / _fit_zoom()
+		]
+	)
+
 
 ## The map's state for the window's state() probe (was the web playtest's window.atlasState).
 func snapshot() -> Dictionary:
@@ -477,12 +661,27 @@ func snapshot() -> Dictionary:
 	var pick := picker.get_global_rect()
 	controls["regions"] = [pick.position.x, pick.position.y, pick.size.x, pick.size.y]
 	var popup := picker.get_popup()
-	return {"mode": mode, "region": selected, "zoom": camera.zoom.x, "zoom_ratio": camera.zoom.x / _fit_zoom(),
-			"position": [camera.position.x, camera.position.y], "zoom_min": _fit_zoom(), "zoom_max": MAX_ZOOM,
-			"viewport": [_viewport_size().x, _viewport_size().y],
-			"vertical_pan_locked": _viewport_size().y / camera.zoom.x >= SOUTH_LIMIT - 0.01,
-			"visible_annotations": visible_annotations, "visible_cities": visible_cities,
-			"visible_close_cities": visible_close_cities, "visible_labels": visible_labels,
-			"shown_cities": shown_cities, "terrain_tiles": geography_tiles.size(), "controls": controls,
-			"popup": {"visible": popup.visible, "position": [popup.position.x, popup.position.y],
-					"size": [popup.size.x, popup.size.y]}}
+	return {
+		"mode": mode,
+		"region": selected,
+		"zoom": camera.zoom.x,
+		"zoom_ratio": camera.zoom.x / _fit_zoom(),
+		"position": [camera.position.x, camera.position.y],
+		"zoom_min": _fit_zoom(),
+		"zoom_max": MAX_ZOOM,
+		"viewport": [_viewport_size().x, _viewport_size().y],
+		"vertical_pan_locked": _viewport_size().y / camera.zoom.x >= SOUTH_LIMIT - 0.01,
+		"visible_annotations": visible_annotations,
+		"visible_cities": visible_cities,
+		"visible_close_cities": visible_close_cities,
+		"visible_labels": visible_labels,
+		"shown_cities": shown_cities,
+		"terrain_tiles": geography_tiles.size(),
+		"controls": controls,
+		"popup":
+		{
+			"visible": popup.visible,
+			"position": [popup.position.x, popup.position.y],
+			"size": [popup.size.x, popup.size.y]
+		}
+	}

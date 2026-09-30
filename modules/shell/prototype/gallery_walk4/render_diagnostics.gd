@@ -15,14 +15,23 @@ var _measure_gpu := false
 var _last_draw_us := 0
 var _draw_interval_ms := 0.0
 var _chart: TextureRect
-const MODES := {"current": [2, 0.5], "copy-none": [2, 0.0], "copy-full": [2, 1.0], "rgb6-plain": [1, 0.5], "bypass": [0, 0.0]}
+const MODES := {
+	"current": [2, 0.5],
+	"copy-none": [2, 0.0],
+	"copy-full": [2, 1.0],
+	"rgb6-plain": [1, 0.5],
+	"bypass": [0, 0.0]
+}
+
 
 func _ready() -> void:
 	view = get_parent()
 	_window = JavaScriptBridge.get_interface("window")
 	_callback = JavaScriptBridge.create_callback(_command)
 	_window.galleryRenderCommand = _callback
-	_measure_gpu = JavaScriptBridge.eval("new URLSearchParams(location.search).has('render_gpu_times')")
+	_measure_gpu = JavaScriptBridge.eval(
+		"new URLSearchParams(location.search).has('render_gpu_times')"
+	)
 	if _measure_gpu:
 		for viewport: Viewport in [view._vp, view.get_viewport(), get_tree().root]:
 			if viewport not in _render_viewports:
@@ -32,11 +41,13 @@ func _ready() -> void:
 	set_process(false)
 	_publish()
 
+
 func _drawn() -> void:
 	var now := Time.get_ticks_usec()
 	if _last_draw_us:
 		_draw_interval_ms = (now - _last_draw_us) / 1000.0
 	_last_draw_us = now
+
 
 func _command(args: Array) -> void:
 	var request = JSON.parse_string(str(args[0]))
@@ -67,12 +78,15 @@ func _command(args: Array) -> void:
 			view.set_process(true)
 	_publish()
 
+
 func _chart_visible(enabled: bool) -> void:
 	if _chart == null:
 		var image := Image.create(64, 64, false, Image.FORMAT_RGBA8)
 		for y in 64:
 			for x in 64:
-				image.set_pixel(x, y, Color(float(x) / 63.0, float(y % 8) / 7.0, float((x + y) % 16) / 15.0))
+				image.set_pixel(
+					x, y, Color(float(x) / 63.0, float(y % 8) / 7.0, float((x + y) % 16) / 15.0)
+				)
 		_chart = TextureRect.new()
 		_chart.texture = ImageTexture.create_from_image(image)
 		_chart.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -80,6 +94,7 @@ func _chart_visible(enabled: bool) -> void:
 		view._vp.add_child(_chart)
 	_chart.size = Vector2(view._vp.size)
 	_chart.visible = enabled
+
 
 func _pose(scene: String) -> void:
 	_scene = scene
@@ -100,7 +115,15 @@ func _pose(scene: String) -> void:
 	view.view_mode = 0
 	view.view_yaw = PI / 2.0 if scene == "art" else PI
 	view._yaw = view.view_yaw
-	view._pos = {"entry": Vector3(0, 0, -0.35), "warm": Vector3(2.0, 0, -4.0), "art": Vector3(-3.3, 0, -12.0), "white": Vector3(0, 0, -3.0)}.get(scene, Vector3(2.0, 0, -4.0))
+	view._pos = (
+		{
+			"entry": Vector3(0, 0, -0.35),
+			"warm": Vector3(2.0, 0, -4.0),
+			"art": Vector3(-3.3, 0, -12.0),
+			"white": Vector3(0, 0, -3.0)
+		}
+		. get(scene, Vector3(2.0, 0, -4.0))
+	)
 	view._last_pos = view._pos
 	view._motion_heading = Vector3.FORWARD
 	# #161 reset the selected Hair36 rig before every matched replay.
@@ -130,6 +153,7 @@ func _pose(scene: String) -> void:
 		view._cam.look_at(details[scene][1])
 		view._cam.fov = details[scene][2]
 
+
 func _process(_delta: float) -> void:
 	_frame_delta_ms = _delta * 1000.0
 	if not _replay:
@@ -152,6 +176,7 @@ func _process(_delta: float) -> void:
 		set_process(false)
 	_publish()
 
+
 func _publish() -> void:
 	var camera: Camera3D = view._cam
 	var transform := camera.global_transform
@@ -161,40 +186,96 @@ func _publish() -> void:
 	var timings := []
 	for viewport in _render_viewports:
 		var rid := viewport.get_viewport_rid()
-		timings.append({"viewport": str(viewport.get_path()), "cpu_ms": RenderingServer.viewport_get_measured_render_time_cpu(rid), "gpu_ms": RenderingServer.viewport_get_measured_render_time_gpu(rid)})
-	var state := {"mode": _mode, "scene": _scene, "tick": _tick, "replaying": _replay,
-		"viewport": [view._vp.size.x, view._vp.size.y], "msaa_3d": view._vp.msaa_3d,
-		"backend": RenderingServer.get_current_rendering_method(), "engine": Engine.get_version_info().string,
-		"container": [view.size.x, view.size.y], "space": view._space,
-		"position": [view._pos.x, view._pos.y, view._pos.z], "camera_transform": values,
-		"camera_fov": camera.fov, "camera_yaw": view.view_yaw, "paintings": view._paintings.size()}
+		timings.append(
+			{
+				"viewport": str(viewport.get_path()),
+				"cpu_ms": RenderingServer.viewport_get_measured_render_time_cpu(rid),
+				"gpu_ms": RenderingServer.viewport_get_measured_render_time_gpu(rid)
+			}
+		)
+	var state := {
+		"mode": _mode,
+		"scene": _scene,
+		"tick": _tick,
+		"replaying": _replay,
+		"viewport": [view._vp.size.x, view._vp.size.y],
+		"msaa_3d": view._vp.msaa_3d,
+		"backend": RenderingServer.get_current_rendering_method(),
+		"engine": Engine.get_version_info().string,
+		"container": [view.size.x, view.size.y],
+		"space": view._space,
+		"position": [view._pos.x, view._pos.y, view._pos.z],
+		"camera_transform": values,
+		"camera_fov": camera.fov,
+		"camera_yaw": view.view_yaw,
+		"paintings": view._paintings.size()
+	}
 	var box: SubViewportContainer = view._vp.get_parent()
 	var finish: ShaderMaterial = box.material
 	var display_rect: Rect2 = view.get_global_rect()
 	var desktop_size: Vector2 = Vector2(view.get_viewport().size)
-	state["display_rect_normalized"] = [display_rect.position.x / desktop_size.x, display_rect.position.y / desktop_size.y, display_rect.end.x / desktop_size.x, display_rect.end.y / desktop_size.y]
-	state["display_material"] = {"node": str(box.get_path()), "class": box.get_class(), "visible": box.is_visible_in_tree(), "use_parent_material": box.use_parent_material, "instance": finish.get_instance_id(), "shader": finish.shader.resource_path, "copy_filter": finish.get_shader_parameter("copy_filter"), "quantization_mode": finish.get_shader_parameter("quantization_mode")}
+	state["display_rect_normalized"] = [
+		display_rect.position.x / desktop_size.x,
+		display_rect.position.y / desktop_size.y,
+		display_rect.end.x / desktop_size.x,
+		display_rect.end.y / desktop_size.y
+	]
+	state["display_material"] = {
+		"node": str(box.get_path()),
+		"class": box.get_class(),
+		"visible": box.is_visible_in_tree(),
+		"use_parent_material": box.use_parent_material,
+		"instance": finish.get_instance_id(),
+		"shader": finish.shader.resource_path,
+		"copy_filter": finish.get_shader_parameter("copy_filter"),
+		"quantization_mode": finish.get_shader_parameter("quantization_mode")
+	}
 	var poses := []
 	for bone in view._kid.target.get_bone_count():
 		poses.append(view._kid.target.get_bone_pose(bone))
-	state["visitor"] = {"identity": "Hair36", "phase": view._kid.phase, "idle_time": view._kid._clock, "yaw": view._kid.rotation.y, "pose_hash": hash(poses)}
-	state["preview"] = {"tag": view._open.get("tag", ""), "visible": view._detail.visible, "zoom": view._zoom, "pan": [view._zoom_root.position.x, view._zoom_root.position.y],
-		"outer_frame_visible": view.get_parent() is TextureRect and view.get_parent().self_modulate.a > 0.0}
+	state["visitor"] = {
+		"identity": "Hair36",
+		"phase": view._kid.phase,
+		"idle_time": view._kid._clock,
+		"yaw": view._kid.rotation.y,
+		"pose_hash": hash(poses)
+	}
+	state["preview"] = {
+		"tag": view._open.get("tag", ""),
+		"visible": view._detail.visible,
+		"zoom": view._zoom,
+		"pan": [view._zoom_root.position.x, view._zoom_root.position.y],
+		"outer_frame_visible":
+		view.get_parent() is TextureRect and view.get_parent().self_modulate.a > 0.0
+	}
 	var picture: TextureRect = view._zoom_root.get_node("Painting")
 	state["preview"]["picture_size"] = [picture.size.x, picture.size.y]
-	state["preview"]["source_size"] = [picture.texture.get_width(), picture.texture.get_height()] if picture.texture else [0, 0]
+	state["preview"]["source_size"] = (
+		[picture.texture.get_width(), picture.texture.get_height()] if picture.texture else [0, 0]
+	)
 	var close_rect: Rect2 = view._detail.get_node("Close").get_global_rect()
-	state["preview"]["close"] = [close_rect.get_center().x / desktop_size.x, close_rect.get_center().y / desktop_size.y]
+	state["preview"]["close"] = [
+		close_rect.get_center().x / desktop_size.x, close_rect.get_center().y / desktop_size.y
+	]
 	var targets := []
 	for painting in view._paintings:
-		if not view._painting_shown(painting): continue
+		if not view._painting_shown(painting):
+			continue
 		var outline: PackedVector2Array = view._visible_outline(painting.corners)
-		var clipped := Geometry2D.intersect_polygons(outline, PackedVector2Array([Vector2.ZERO, Vector2(view.size.x, 0), view.size, Vector2(0, view.size.y)]))
-		if clipped.is_empty(): continue
+		var clipped := Geometry2D.intersect_polygons(
+			outline,
+			PackedVector2Array(
+				[Vector2.ZERO, Vector2(view.size.x, 0), view.size, Vector2(0, view.size.y)]
+			)
+		)
+		if clipped.is_empty():
+			continue
 		outline = clipped[0]
-		if outline.size() < 3: continue
+		if outline.size() < 3:
+			continue
 		var point := Vector2.ZERO
-		for vertex in outline: point += vertex / outline.size()
+		for vertex in outline:
+			point += vertex / outline.size()
 		point = (view.global_position + point) / desktop_size
 		targets.append({"tag": painting.tag, "point": [point.x, point.y]})
 	state["visible_paintings"] = targets

@@ -71,8 +71,21 @@ void fragment() {
 }
 """
 	window_material.shader = shader
-	window_material.set_shader_parameter("content_rect", Vector4(CONTENT_RECT.position.x, CONTENT_RECT.position.y, CONTENT_RECT.size.x, CONTENT_RECT.size.y))
-	window_material.set_shader_parameter("scroll_rect", Vector4(SCROLL_RECT.position.x, SCROLL_RECT.position.y, SCROLL_RECT.size.x, SCROLL_RECT.size.y))
+	window_material.set_shader_parameter(
+		"content_rect",
+		Vector4(
+			CONTENT_RECT.position.x,
+			CONTENT_RECT.position.y,
+			CONTENT_RECT.size.x,
+			CONTENT_RECT.size.y
+		)
+	)
+	window_material.set_shader_parameter(
+		"scroll_rect",
+		Vector4(
+			SCROLL_RECT.position.x, SCROLL_RECT.position.y, SCROLL_RECT.size.x, SCROLL_RECT.size.y
+		)
+	)
 	window_material.set_shader_parameter("content_scroll", MAX_CONTENT_SCROLL)
 	image = TextureRect.new()
 	image.texture = preload("res://modules/playground_page/assets/websurfer-window.webp")
@@ -125,7 +138,9 @@ func _layout_input() -> void:
 
 
 func _press_button(rect: Rect2) -> void:
-	window_material.set_shader_parameter("pressed_rect", Vector4(rect.position.x, rect.position.y, rect.size.x, rect.size.y))
+	window_material.set_shader_parameter(
+		"pressed_rect", Vector4(rect.position.x, rect.position.y, rect.size.x, rect.size.y)
+	)
 	window_material.set_shader_parameter("press_offset", 3.0)
 
 
@@ -169,7 +184,9 @@ func _on_resize_input(event: InputEvent) -> void:
 		var dy: float = delta.y / VISIBLE_SIZE.y
 		var scale_delta: float = dx if absf(dx) > absf(dy) else dy
 		var page: Control = get_parent() as Control
-		var max_scale: float = minf((page.size.x - position.x) / VISIBLE_SIZE.x, (page.size.y - position.y) / VISIBLE_SIZE.y)
+		var max_scale: float = minf(
+			(page.size.x - position.x) / VISIBLE_SIZE.x, (page.size.y - position.y) / VISIBLE_SIZE.y
+		)
 		var next_scale: float = clampf(resize_start_scale + scale_delta, 0.25, max_scale)
 		size = VISIBLE_SIZE * next_scale
 		accept_event()

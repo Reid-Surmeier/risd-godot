@@ -55,9 +55,12 @@ var motion_targets: Dictionary = {}
 var motion_frames: Dictionary = {}
 var scrubber_dragging := false
 const MOTION_SIZES := {
-	"previous": Vector2(122, 160), "next": Vector2(122, 160),
-	"play-pause": Vector2(58, 46), "audio": Vector2(64, 46),
-	"menu": Vector2(115, 46), "scrubber": Vector2(34, 34),
+	"previous": Vector2(122, 160),
+	"next": Vector2(122, 160),
+	"play-pause": Vector2(58, 46),
+	"audio": Vector2(64, 46),
+	"menu": Vector2(115, 46),
+	"scrubber": Vector2(34, 34),
 }
 const MOTION_HOVER := 7.0
 const MOTION_PRESS := 14.0
@@ -81,6 +84,7 @@ var scrubber_thumb: TextureRect
 var scrubber_fill: TextureRect
 var last_pointer_position := Vector2.ZERO
 
+
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	focus_mode = Control.FOCUS_ALL
@@ -100,7 +104,9 @@ func _ready() -> void:
 	_update_camera()
 	grab_focus()
 
+
 var _spin_frame := 0
+
 
 func _process(delta: float) -> void:
 	if preview_only:
@@ -118,13 +124,19 @@ func _process(delta: float) -> void:
 		_update_camera(_spin_frame % 2 == 0)
 	_step_control_motion(delta)
 
+
 func _build_surface() -> void:
-	var base := _add_source_component("background", Rect2(Vector2.ZERO, CANVAS_SIZE), TextureRect.STRETCH_SCALE)
+	var base := _add_source_component(
+		"background", Rect2(Vector2.ZERO, CANVAS_SIZE), TextureRect.STRETCH_SCALE
+	)
 	var material := ShaderMaterial.new()
 	material.shader = load("res://modules/sculpture_viewer/shaders/player_base.gdshader")
 	base.material = material
 
-func _add_source_component(asset_id: String, rect: Rect2, stretch_mode := TextureRect.STRETCH_KEEP) -> TextureRect:
+
+func _add_source_component(
+	asset_id: String, rect: Rect2, stretch_mode := TextureRect.STRETCH_KEEP
+) -> TextureRect:
 	var texture := TextureRect.new()
 	texture.name = "visual-%s" % asset_id
 	texture.position = rect.position
@@ -139,6 +151,7 @@ func _add_source_component(asset_id: String, rect: Rect2, stretch_mode := Textur
 	visual_components[asset_id] = texture
 	add_child(texture)
 	return texture
+
 
 func _build_3d_viewport() -> void:
 	viewport_container = SubViewportContainer.new()
@@ -155,7 +168,7 @@ func _build_3d_viewport() -> void:
 	viewport.name = "render-surface"
 	viewport.own_world_3d = true
 	viewport.size = Vector2i(529, 486)
-	viewport.render_target_update_mode = SubViewport.UPDATE_ONCE # re-armed on every camera change
+	viewport.render_target_update_mode = SubViewport.UPDATE_ONCE  # re-armed on every camera change
 	viewport.handle_input_locally = false
 	viewport_container.add_child(viewport)
 
@@ -220,6 +233,7 @@ func _build_3d_viewport() -> void:
 	unavailable.hide()
 	add_child(unavailable)
 
+
 func _load_proton_model(root: Node3D) -> void:
 	if not ResourceLoader.exists(MODEL_PATH):
 		push_error("Verified Proton-derived model is missing: %s" % MODEL_PATH)
@@ -233,7 +247,9 @@ func _load_proton_model(root: Node3D) -> void:
 	root.add_child(model)
 	var gold_texture := load(MODEL_TEXTURE_PATH) as Texture2D
 	if gold_texture == null:
-		push_error("Verified gold texture beside the Proton OBJ is missing: %s" % MODEL_TEXTURE_PATH)
+		push_error(
+			"Verified gold texture beside the Proton OBJ is missing: %s" % MODEL_TEXTURE_PATH
+		)
 		return
 	var gold := StandardMaterial3D.new()
 	gold.albedo_texture = gold_texture
@@ -244,6 +260,7 @@ func _load_proton_model(root: Node3D) -> void:
 	_apply_model_material(model, gold)
 	model_texture_loaded = true
 	model_loaded = true
+
 
 ## Internal selection shared by the main player and enlarged hover renderer.
 func show_scan(id: String) -> void:
@@ -259,7 +276,11 @@ func show_scan(id: String) -> void:
 		if packed != null:
 			sculpture.add_child(packed.instantiate())
 			sculpture.rotation_degrees.y = DEFAULT_YAW if id == "20260811121459" else 47.52
-			camera_target = Vector3(0, 1.8665 if id == "20260811121459" else 2.173 if id == "20260811123051" else 2.25, 0)
+			camera_target = Vector3(
+				0,
+				1.8665 if id == "20260811121459" else 2.173 if id == "20260811123051" else 2.25,
+				0
+			)
 			model_loaded = true
 			model_texture_loaded = true
 	unavailable.visible = not model_loaded and not preview_only
@@ -272,11 +293,13 @@ func show_scan(id: String) -> void:
 		_update_scrubber_thumb()
 	_update_camera()
 
+
 func _apply_model_material(node: Node, material: StandardMaterial3D) -> void:
 	if node is MeshInstance3D:
 		(node as MeshInstance3D).material_override = material
 	for child in node.get_children():
 		_apply_model_material(child, material)
+
 
 func _build_navigation() -> void:
 	_add_control_visual("previous", Rect2(0, 225, 122, 168))
@@ -287,6 +310,7 @@ func _build_navigation() -> void:
 	next_button = _make_button("next", "", Rect2(663, 225, 137, 168))
 	next_button.tooltip_text = "Next view"
 	next_button.pressed.connect(func(): _rotate_by(30.0))
+
 
 func _build_transport() -> void:
 	_add_control_visual("play-pause", Rect2(36, 591, 48, 40))
@@ -309,7 +333,9 @@ func _build_transport() -> void:
 	rail_material.set_shader_parameter("display_size", track.size)
 	rail_material.set_shader_parameter("inset", Vector4(0, 8, 0, 16))
 	rail_material.set_shader_parameter("face_kind", 2)
-	rail_material.set_shader_parameter("fill_texture", load("res://modules/sculpture_viewer/assets/control-motion/track-fill.png"))
+	rail_material.set_shader_parameter(
+		"fill_texture", load("res://modules/sculpture_viewer/assets/control-motion/track-fill.png")
+	)
 	track.material = rail_material
 	add_child(track)
 	scrubber_fill = track
@@ -330,8 +356,12 @@ func _build_transport() -> void:
 	progress_slider.mouse_exited.connect(func(): _on_control_hover_changed("scrubber", false))
 	progress_slider.add_theme_icon_override("grabber", _slider_thumb(Color(1, 1, 1, 0)))
 	progress_slider.add_theme_icon_override("grabber_highlight", _slider_thumb(Color(1, 1, 1, 0)))
-	progress_slider.add_theme_stylebox_override("slider", _style(Color(1, 1, 1, 0), Color(1, 1, 1, 0), 0, 0))
-	progress_slider.add_theme_stylebox_override("grabber_area", _style(Color(1, 1, 1, 0), Color(1, 1, 1, 0), 0, 0))
+	progress_slider.add_theme_stylebox_override(
+		"slider", _style(Color(1, 1, 1, 0), Color(1, 1, 1, 0), 0, 0)
+	)
+	progress_slider.add_theme_stylebox_override(
+		"grabber_area", _style(Color(1, 1, 1, 0), Color(1, 1, 1, 0), 0, 0)
+	)
 	add_child(progress_slider)
 
 	scrubber_thumb = _add_control_visual("scrubber", Rect2(138, TRANSPORT_Y + 6, 34, 34))
@@ -377,6 +407,7 @@ func _build_transport() -> void:
 	menu_button.add_theme_color_override("font_hover_color", Color("#35434c"))
 	menu_button.add_theme_color_override("font_pressed_color", Color("#26333b"))
 
+
 func _build_menu() -> void:
 	menu_panel = PanelContainer.new()
 	menu_panel.name = "menu-panel"
@@ -385,6 +416,7 @@ func _build_menu() -> void:
 	menu_panel.visible = false
 	menu_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(menu_panel)
+
 
 func _add_control_visual(control_id: String, rect: Rect2) -> TextureRect:
 	var texture := TextureRect.new()
@@ -402,10 +434,14 @@ func _add_control_visual(control_id: String, rect: Rect2) -> TextureRect:
 		material.set_shader_parameter("display_size", rect.size)
 		if control_id in ["previous", "next"]:
 			material.set_shader_parameter("face_kind", 1)
-			material.set_shader_parameter("circle_center_x", 34.0 if control_id == "previous" else 88.0)
+			material.set_shader_parameter(
+				"circle_center_x", 34.0 if control_id == "previous" else 88.0
+			)
 		else:
 			# Complete generated buttons, excluding donor gutters and neighbours.
-			material.set_shader_parameter("inset", Vector4(0, 0, 0, 6) if control_id == "menu" else Vector4(0, 0, 9, 0))
+			material.set_shader_parameter(
+				"inset", Vector4(0, 0, 0, 6) if control_id == "menu" else Vector4(0, 0, 9, 0)
+			)
 		texture.material = material
 	visual_components[control_id] = texture
 	control_hovered[control_id] = false
@@ -413,6 +449,7 @@ func _add_control_visual(control_id: String, rect: Rect2) -> TextureRect:
 	add_child(texture)
 	_refresh_control_visual(control_id)
 	return texture
+
 
 func _make_button(node_name: String, copy: String, rect: Rect2) -> Button:
 	var button := Button.new()
@@ -423,7 +460,9 @@ func _make_button(node_name: String, copy: String, rect: Rect2) -> Button:
 	button.focus_mode = Control.FOCUS_ALL
 	button.add_theme_stylebox_override("normal", _style(Color(1, 1, 1, 0), Color(1, 1, 1, 0), 0, 0))
 	button.add_theme_stylebox_override("hover", _style(Color(1, 1, 1, 0), Color(1, 1, 1, 0), 0, 0))
-	button.add_theme_stylebox_override("pressed", _style(Color(1, 1, 1, 0), Color(1, 1, 1, 0), 0, 0))
+	button.add_theme_stylebox_override(
+		"pressed", _style(Color(1, 1, 1, 0), Color(1, 1, 1, 0), 0, 0)
+	)
 	button.add_theme_color_override("font_color", Color(1, 1, 1, 0))
 	button.mouse_entered.connect(func(): _on_control_hover_changed(node_name, true))
 	button.mouse_exited.connect(func(): _on_control_hover_changed(node_name, false))
@@ -433,10 +472,12 @@ func _make_button(node_name: String, copy: String, rect: Rect2) -> Button:
 	add_child(button)
 	return button
 
+
 func _set_control_visual_state(control_id: String, state_name: String) -> void:
 	control_visual_states[control_id] = state_name
 	motion_targets[control_id] = {"idle": 0.0, "hover": MOTION_HOVER, "active": MOTION_PRESS}[state_name]
 	_show_motion_frame(control_id)
+
 
 func _load_motion_assets() -> void:
 	for control_id in MOTION_SIZES:
@@ -452,6 +493,7 @@ func _load_motion_assets() -> void:
 		motion_frames[control_id] = 0
 		motion_targets[control_id] = 0.0
 
+
 func _show_motion_frame(control_id: String) -> void:
 	var visual := visual_components.get(control_id) as TextureRect
 	var atlas := motion_textures.get(control_id) as AtlasTexture
@@ -465,10 +507,15 @@ func _show_motion_frame(control_id: String) -> void:
 		if control_id in ["play-pause", "audio"]:
 			# The take moves these faces down 5 source pixels during depression.
 			# Register the complete face, excluding the matte below the idle frame.
-			var depression := clampf((frame - 6.0) / 8.0, 0.0, 1.0) if frame <= 14 else (23.0 - frame) / 9.0
-			visual.material.set_shader_parameter("inset", Vector4(0, 5.0 * depression, 9, 7.0 * (1.0 - depression)))
+			var depression := (
+				clampf((frame - 6.0) / 8.0, 0.0, 1.0) if frame <= 14 else (23.0 - frame) / 9.0
+			)
+			visual.material.set_shader_parameter(
+				"inset", Vector4(0, 5.0 * depression, 9, 7.0 * (1.0 - depression))
+			)
 	visual.texture = atlas
 	motion_frames[control_id] = frame
+
 
 func _step_control_motion(delta: float) -> void:
 	for control_id in motion_textures:
@@ -483,12 +530,17 @@ func _step_control_motion(delta: float) -> void:
 			_refresh_control_visual(control_id)
 		_show_motion_frame(control_id)
 
+
 func _control_is_toggled(control_id: String) -> bool:
 	match control_id:
-		"play-pause": return playing
-		"audio": return muted
-		"menu": return menu_open
+		"play-pause":
+			return playing
+		"audio":
+			return muted
+		"menu":
+			return menu_open
 	return false
+
 
 func _refresh_control_visual(control_id: String) -> void:
 	var visual := visual_components.get(control_id) as TextureRect
@@ -503,10 +555,12 @@ func _refresh_control_visual(control_id: String) -> void:
 	else:
 		_set_control_visual_state(control_id, "idle")
 
+
 func _on_control_hover_changed(control_id: String, hovered: bool) -> void:
 	control_hovered[control_id] = hovered
 	if not control_feedback_active.get(control_id, false):
 		_refresh_control_visual(control_id)
+
 
 func _on_control_button_down(control_id: String) -> void:
 	control_pressed[control_id] = true
@@ -515,17 +569,21 @@ func _on_control_button_down(control_id: String) -> void:
 		motion_phase[control_id] = 0.0
 	_set_control_visual_state(control_id, "active")
 
+
 func _on_control_button_up(control_id: String) -> void:
 	control_pressed[control_id] = false
 	_animate_control(control_id)
+
 
 func _on_scrubber_drag_started() -> void:
 	scrubber_dragging = true
 	_on_control_button_down("scrubber")
 
+
 func _on_scrubber_drag_ended(_value_changed: bool) -> void:
 	scrubber_dragging = false
 	_on_control_button_up("scrubber")
+
 
 func _style(background: Color, border_color: Color, border_width: int, radius: int) -> StyleBoxFlat:
 	var box := StyleBoxFlat.new()
@@ -539,6 +597,7 @@ func _style(background: Color, border_color: Color, border_width: int, radius: i
 	box.content_margin_bottom = 4
 	return box
 
+
 func _slider_thumb(color: Color) -> GradientTexture2D:
 	var gradient := Gradient.new()
 	gradient.colors = PackedColorArray([color, color])
@@ -547,6 +606,7 @@ func _slider_thumb(color: Color) -> GradientTexture2D:
 	texture.width = 34
 	texture.height = 34
 	return texture
+
 
 func _on_viewport_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -570,6 +630,7 @@ func _on_viewport_input(event: InputEvent) -> void:
 		interaction_count += 1
 		_update_camera()
 
+
 func _rotate_by(amount: float) -> void:
 	_animate_control("next" if amount > 0.0 else "previous")
 	yaw_degrees = wrapf(yaw_degrees + amount, -180.0, 180.0)
@@ -580,10 +641,12 @@ func _rotate_by(amount: float) -> void:
 	interaction_count += 1
 	_update_camera()
 
+
 func _zoom_by(amount: float) -> void:
 	camera_distance = clampf(camera_distance + amount, 2.8, 10.5)
 	interaction_count += 1
 	_update_camera()
+
 
 func _set_progress(value: float) -> void:
 	playback_progress = clampf(value / 100.0, 0.0, 1.0)
@@ -592,17 +655,20 @@ func _set_progress(value: float) -> void:
 	_update_scrubber_thumb()
 	_update_camera()
 
+
 func _toggle_playback() -> void:
 	playing = not playing
 	_animate_control("play-pause")
 	_refresh_control_visual("play-pause")
 	interaction_count += 1
 
+
 func _toggle_mute() -> void:
 	muted = not muted
 	_animate_control("audio")
 	_refresh_control_visual("audio")
 	interaction_count += 1
+
 
 func _toggle_menu() -> void:
 	_animate_control("menu")
@@ -614,12 +680,14 @@ func _toggle_menu() -> void:
 	grab_focus()
 	interaction_count += 1
 
+
 func _animate_control(control_id: String) -> void:
 	last_animated_control = control_id
 	animation_count += 1
 	control_feedback_active[control_id] = not _control_is_toggled(control_id)
 	motion_phase[control_id] = MOTION_PRESS
 	_set_control_visual_state(control_id, "active")
+
 
 func _reset_view() -> void:
 	yaw_degrees = DEFAULT_YAW
@@ -637,42 +705,54 @@ func _reset_view() -> void:
 	interaction_count += 1
 	_update_camera()
 
+
 func _update_scrubber_thumb() -> void:
 	if scrubber_thumb == null:
 		return
 	scrubber_thumb.position.x = 106.0 + playback_progress * 316.0
 	if scrubber_fill != null:
-		scrubber_fill.material.set_shader_parameter("fill_width", scrubber_thumb.position.x - 106.0 + 17.0)
+		scrubber_fill.material.set_shader_parameter(
+			"fill_width", scrubber_thumb.position.x - 106.0 + 17.0
+		)
+
 
 func _update_camera(rerender := true) -> void:
 	if camera == null:
 		return
 	var yaw := deg_to_rad(yaw_degrees)
 	var pitch := deg_to_rad(pitch_degrees)
-	var offset := Vector3(
-		sin(yaw) * cos(pitch),
-		sin(pitch),
-		cos(yaw) * cos(pitch)
-	) * camera_distance
+	var offset := (
+		Vector3(sin(yaw) * cos(pitch), sin(pitch), cos(yaw) * cos(pitch)) * camera_distance
+	)
 	camera.position = camera_target + offset
 	camera.look_at(camera_target)
 	var viewport := camera.get_viewport()
 	if rerender and viewport is SubViewport:
 		viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 
+
 func _unhandled_key_input(event: InputEvent) -> void:
 	if not event is InputEventKey or not event.pressed or event.echo:
 		return
 	match event.keycode:
-		KEY_LEFT: _rotate_by(-30.0)
-		KEY_RIGHT: _rotate_by(30.0)
-		KEY_UP: _zoom_by(-0.45)
-		KEY_DOWN: _zoom_by(0.45)
-		KEY_SPACE: _toggle_playback()
-		KEY_M: _toggle_mute()
-		KEY_HOME: _reset_view()
+		KEY_LEFT:
+			_rotate_by(-30.0)
+		KEY_RIGHT:
+			_rotate_by(30.0)
+		KEY_UP:
+			_zoom_by(-0.45)
+		KEY_DOWN:
+			_zoom_by(0.45)
+		KEY_SPACE:
+			_toggle_playback()
+		KEY_M:
+			_toggle_mute()
+		KEY_HOME:
+			_reset_view()
 		KEY_ESCAPE:
-			if menu_open: _toggle_menu()
+			if menu_open:
+				_toggle_menu()
+
 
 func qa_state() -> Dictionary:
 	return {

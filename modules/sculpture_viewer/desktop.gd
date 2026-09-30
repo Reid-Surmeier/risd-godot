@@ -28,12 +28,21 @@ const VIEWER_SIZE := Vector2(800, 680)
 const VIEWER_AT := Vector2(-36, 25)  # the viewer on the left, over the icon strip (owner layout 2026-09-25)
 const VIEWER_SCALE := 1357.0 / 800.0
 const REQUIRED := [
-	"assets/setup/panel-2x.png", "assets/clean-ui/background.png", "assets/clean-ui/timer-source.png",
-	"assets/control-motion/previous.png", "assets/control-motion/next.png", "assets/control-motion/play-pause.png",
-	"assets/control-motion/audio.png", "assets/control-motion/menu.png", "assets/control-motion/scrubber.png",
-	"assets/control-motion/track-empty.png", "assets/control-motion/track-fill.png",
-	"assets/models/proton-buddha-3124123123.glb", "assets/models/3124123123.jpg",
-	"shaders/player_base.gdshader", "shaders/control_face.gdshader",
+	"assets/setup/panel-2x.png",
+	"assets/clean-ui/background.png",
+	"assets/clean-ui/timer-source.png",
+	"assets/control-motion/previous.png",
+	"assets/control-motion/next.png",
+	"assets/control-motion/play-pause.png",
+	"assets/control-motion/audio.png",
+	"assets/control-motion/menu.png",
+	"assets/control-motion/scrubber.png",
+	"assets/control-motion/track-empty.png",
+	"assets/control-motion/track-fill.png",
+	"assets/models/proton-buddha-3124123123.glb",
+	"assets/models/3124123123.jpg",
+	"shaders/player_base.gdshader",
+	"shaders/control_face.gdshader",
 ]
 
 var key := ""
@@ -106,7 +115,9 @@ func _ready() -> void:
 	catalogue.add_child(cards_view)
 	cards_view.position = Vector2.ZERO
 	cards_view.size = PANEL_SIZE
-	for entry in [["chat-window", Rect2(15, 1320, 665, 315)], ["friends-window", Rect2(700, 1320, 330, 315)]]:
+	for entry in [
+		["chat-window", Rect2(15, 1320, 665, 315)], ["friends-window", Rect2(700, 1320, 330, 315)]
+	]:
 		var rect: Rect2 = entry[1]
 		var window := _window(entry[0], CATALOGUE_AT + rect.position, rect.size)
 		window.set_meta("setup_offset", rect.position)
@@ -138,11 +149,13 @@ func _ready() -> void:
 	hover_viewer.scale = Vector2.ONE * 0.72
 	hover_viewer.hide()
 	hover_viewer.set_process(false)
-	cards_view.hover_changed.connect(func(id: String):
-		hover_viewer.visible = not id.is_empty()
-		hover_viewer.set_process(not id.is_empty())
-		if not id.is_empty():
-			hover_viewer.show_scan(id))
+	cards_view.hover_changed.connect(
+		func(id: String):
+			hover_viewer.visible = not id.is_empty()
+			hover_viewer.set_process(not id.is_empty())
+			if not id.is_empty():
+				hover_viewer.show_scan(id)
+	)
 	# These strips never cover the sculpture, arrow buttons or transport controls.
 	for rect in [Rect2(12, 4, 776, 32), Rect2(12, 644, 776, 28)]:
 		var handle := Control.new()
@@ -155,20 +168,30 @@ func _ready() -> void:
 	for window in windows:
 		var grip := Button.new()
 		grip.name = "ResizeGrip"
-		grip.draw.connect(func():
-			for inset in [16, 24, 32]:
-				grip.draw_line(Vector2(inset, 40), Vector2(40, inset), Color("#dddddd"), 2.0, true))
+		grip.draw.connect(
+			func():
+				for inset in [16, 24, 32]:
+					grip.draw_line(
+						Vector2(inset, 40), Vector2(40, inset), Color("#dddddd"), 2.0, true
+					)
+		)
 		grip.position = window.size - Vector2(48, 48)
 		grip.size = Vector2(48, 48)
 		grip.mouse_default_cursor_shape = Control.CURSOR_FDIAGSIZE
 		grip.tooltip_text = "Drag to resize proportionally"
-		grip.gui_input.connect(func(event):
-			if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-				resized_window = window
-				resize_start = desktop.make_canvas_position_local(event.global_position)
-				resize_scale = window.scale.x
-				window.set_meta("adjusted", true)
-				grip.accept_event())
+		grip.gui_input.connect(
+			func(event):
+				if (
+					event is InputEventMouseButton
+					and event.button_index == MOUSE_BUTTON_LEFT
+					and event.pressed
+				):
+					resized_window = window
+					resize_start = desktop.make_canvas_position_local(event.global_position)
+					resize_scale = window.scale.x
+					window.set_meta("adjusted", true)
+					grip.accept_event()
+		)
 		window.add_child(grip)
 	resized.connect(_fit)
 	_fit()
@@ -188,14 +211,26 @@ func _fit() -> void:
 	desktop.position = Vector2.ZERO
 	desktop.size = size / s
 	if not catalogue.get_meta("adjusted", false):
-		catalogue.position = Vector2(desktop.size.x - PANEL_SIZE.x - CATALOGUE_RIGHT_GAP, CATALOGUE_AT.y)
+		catalogue.position = Vector2(
+			desktop.size.x - PANEL_SIZE.x - CATALOGUE_RIGHT_GAP, CATALOGUE_AT.y
+		)
 	if not viewer_window.get_meta("adjusted", false):
 		viewer_window.position = Vector2(maxf(0, VIEWER_AT.x), VIEWER_AT.y)
 	for window in windows:
 		if window.has_meta("setup_offset") and not window.get_meta("adjusted", false):
-			window.position = Vector2(desktop.size.x - PANEL_SIZE.x - CATALOGUE_RIGHT_GAP, CATALOGUE_AT.y) + window.get_meta("setup_offset")
-		window.scale = Vector2.ONE * minf(window.scale.x, minf(desktop.size.x / window.size.x, desktop.size.y / window.size.y))
-		window.position = window.position.clamp(Vector2.ZERO, (desktop.size - window.size * window.scale).max(Vector2.ZERO))
+			window.position = (
+				Vector2(desktop.size.x - PANEL_SIZE.x - CATALOGUE_RIGHT_GAP, CATALOGUE_AT.y)
+				+ window.get_meta("setup_offset")
+			)
+		window.scale = (
+			Vector2.ONE
+			* minf(
+				window.scale.x, minf(desktop.size.x / window.size.x, desktop.size.y / window.size.y)
+			)
+		)
+		window.position = window.position.clamp(
+			Vector2.ZERO, (desktop.size - window.size * window.scale).max(Vector2.ZERO)
+		)
 
 
 func _window(window_name: String, origin: Vector2, dimensions: Vector2) -> Control:
@@ -233,16 +268,29 @@ func _input(event: InputEvent) -> void:
 			var factor := resize_scale + delta.dot(dimensions) / dimensions.length_squared()
 			resized_window.scale = Vector2.ONE * clampf(factor, minf(0.5, maximum), maximum)
 			get_viewport().set_input_as_handled()
-		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		elif (
+			event is InputEventMouseButton
+			and event.button_index == MOUSE_BUTTON_LEFT
+			and not event.pressed
+		):
 			resized_window = null
 			get_viewport().set_input_as_handled()
 		return
 	if dragged_window != null:
 		if event is InputEventMouseMotion:
-			var limit := (desktop.size - dragged_window.size * dragged_window.scale).max(Vector2.ZERO)
-			dragged_window.position = (desktop.make_canvas_position_local(event.position) - drag_offset).clamp(_margin_low(), limit)
+			var limit := (desktop.size - dragged_window.size * dragged_window.scale).max(
+				Vector2.ZERO
+			)
+			dragged_window.position = (
+				(desktop.make_canvas_position_local(event.position) - drag_offset)
+				. clamp(_margin_low(), limit)
+			)
 			get_viewport().set_input_as_handled()
-		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		elif (
+			event is InputEventMouseButton
+			and event.button_index == MOUSE_BUTTON_LEFT
+			and not event.pressed
+		):
 			dragged_window = null
 			get_viewport().set_input_as_handled()
 		return
@@ -258,7 +306,10 @@ func _input(event: InputEvent) -> void:
 
 
 func _notification(what: int) -> void:
-	if what in [NOTIFICATION_WM_WINDOW_FOCUS_OUT, NOTIFICATION_APPLICATION_FOCUS_OUT] or (what == NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree()):
+	if (
+		what in [NOTIFICATION_WM_WINDOW_FOCUS_OUT, NOTIFICATION_APPLICATION_FOCUS_OUT]
+		or (what == NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree())
+	):
 		dragged_window = null
 		resized_window = null
 
@@ -272,14 +323,32 @@ static func _global_rect(c: Control) -> Rect2:
 func state() -> Dictionary:
 	var s: Dictionary = viewer.qa_state()
 	var controls := {}
-	for entry in [["previous", viewer.previous_button], ["next", viewer.next_button], ["play-pause", viewer.play_button],
-			["scrubber", viewer.progress_slider], ["audio", viewer.audio_button], ["menu", viewer.menu_button]]:
+	for entry in [
+		["previous", viewer.previous_button],
+		["next", viewer.next_button],
+		["play-pause", viewer.play_button],
+		["scrubber", viewer.progress_slider],
+		["audio", viewer.audio_button],
+		["menu", viewer.menu_button]
+	]:
 		controls[entry[0]] = _global_rect(entry[1])
-	s.merge({"key": key, "ticks": ticks, "inputs": inputs, "size": size, "desktop_scale": desktop.scale.x,
-			"pointer_scale": desktop.scale.x * viewer_window.scale.x, "front_window": windows.back().name, "dragging": dragged_window != null,
-			"catalogue_rect": _global_rect(catalogue), "viewer_rect": _global_rect(viewer_window),
-			"viewport_rect": _global_rect(viewer.viewport_container), "controls": controls,
-			"viewport_update_mode": viewer.viewport_container.get_child(0).render_target_update_mode})
+	s.merge(
+		{
+			"key": key,
+			"ticks": ticks,
+			"inputs": inputs,
+			"size": size,
+			"desktop_scale": desktop.scale.x,
+			"pointer_scale": desktop.scale.x * viewer_window.scale.x,
+			"front_window": windows.back().name,
+			"dragging": dragged_window != null,
+			"catalogue_rect": _global_rect(catalogue),
+			"viewer_rect": _global_rect(viewer_window),
+			"viewport_rect": _global_rect(viewer.viewport_container),
+			"controls": controls,
+			"viewport_update_mode": viewer.viewport_container.get_child(0).render_target_update_mode
+		}
+	)
 	var catalogue_data: Dictionary = cards_view.catalogue_state()
 	s.merge(catalogue_data)
 	s["3d_preview_available"] = viewer.model_loaded and not viewer.scan_id.is_empty()
@@ -289,9 +358,16 @@ func state() -> Dictionary:
 	var cards := []
 	for i in 20:
 		cards.append(cards_view.get_global_transform() * cards_view._card_rect(i))
-	s.merge({"cards": cards, "rows": 5, "columns": 4,
-		"selected_name": cards_view.APPEARANCE[cards_view.selected],
-		"department": "unverified", "hover_tick": cards_view.tick})
+	s.merge(
+		{
+			"cards": cards,
+			"rows": 5,
+			"columns": 4,
+			"selected_name": cards_view.APPEARANCE[cards_view.selected],
+			"department": "unverified",
+			"hover_tick": cards_view.tick
+		}
+	)
 	return Errors.ok(s)
 
 

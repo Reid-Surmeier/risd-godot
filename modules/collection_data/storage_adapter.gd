@@ -149,14 +149,29 @@ func save_if_absent(artwork: Dictionary, saved_at_ms: int, done: Callable) -> Di
 	if not OS.has_feature("web"):
 		for item in _memory.items:
 			if item.artwork.id == artwork.id:
-				done.call(_ok({"record": item.duplicate(true), "inserted": false, "revision": _memory.revision}))
+				done.call(
+					_ok(
+						{
+							"record": item.duplicate(true),
+							"inserted": false,
+							"revision": _memory.revision
+						}
+					)
+				)
 				return _ok()
 		var record := {"artwork": artwork.duplicate(true), "saved_at_ms": saved_at_ms}
 		_memory.items.append(record)
-		_memory.items.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
-			return a.saved_at_ms > b.saved_at_ms or (a.saved_at_ms == b.saved_at_ms and a.artwork.id < b.artwork.id))
+		_memory.items.sort_custom(
+			func(a: Dictionary, b: Dictionary) -> bool:
+				return (
+					a.saved_at_ms > b.saved_at_ms
+					or (a.saved_at_ms == b.saved_at_ms and a.artwork.id < b.artwork.id)
+				)
+		)
 		_memory.revision += 1
-		done.call(_ok({"record": record.duplicate(true), "inserted": true, "revision": _memory.revision}))
+		done.call(
+			_ok({"record": record.duplicate(true), "inserted": true, "revision": _memory.revision})
+		)
 		return _ok()
 	_bridge.saveIfAbsent(JSON.stringify(artwork), saved_at_ms, _callback(done))
 	return _ok()
@@ -165,10 +180,18 @@ func save_if_absent(artwork: Dictionary, saved_at_ms: int, done: Callable) -> Di
 func _callback(done: Callable) -> Variant:
 	var id := _next_callback
 	_next_callback += 1
-	var callback = JavaScriptBridge.create_callback(func(args: Array) -> void:
-		_callbacks.erase(id)
-		var parsed: Variant = JSON.parse_string(str(args[0])) if not args.is_empty() else null
-		done.call(parsed if parsed is Dictionary else _err("collection_data.storage_corrupt", "Storage returned invalid data")))
+	var callback = JavaScriptBridge.create_callback(
+		func(args: Array) -> void:
+			_callbacks.erase(id)
+			var parsed: Variant = JSON.parse_string(str(args[0])) if not args.is_empty() else null
+			done.call(
+				(
+					parsed
+					if parsed is Dictionary
+					else _err("collection_data.storage_corrupt", "Storage returned invalid data")
+				)
+			)
+	)
 	_callbacks[id] = callback
 	return callback
 

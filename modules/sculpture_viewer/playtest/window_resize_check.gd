@@ -1,5 +1,6 @@
 extends "res://testing/harness_base.gd"
 
+
 func drag(from: Vector2, to: Vector2) -> void:
 	await _button(from, MOUSE_BUTTON_LEFT, true)
 	for i in range(1, 9):
@@ -12,8 +13,10 @@ func drag(from: Vector2, to: Vector2) -> void:
 		await process_frame
 	await _button(to, MOUSE_BUTTON_LEFT, false)
 
+
 func point(control: Control, local: Vector2) -> Vector2:
 	return control.get_global_transform() * local
+
 
 func _initialize() -> void:
 	var page: Control = load("res://modules/sculpture_viewer/interface.gd").create({}).value
@@ -39,7 +42,9 @@ func _initialize() -> void:
 		assert(is_equal_approx(window.scale.x, window.scale.y))
 	await _shot(out, "resized.png")
 	# Card selection and model orbit still receive pointer input after uniform scaling.
-	await _click(point(page.cards_view, page.cards_view._card_rect(1).get_center()), "select second scan")
+	await _click(
+		point(page.cards_view, page.cards_view._card_rect(1).get_center()), "select second scan"
+	)
 	assert(page.viewer.scan_id == page.cards_view.IDS[1])
 	assert(page.dragged_window == null)
 	var yaw: float = page.viewer.qa_state().yaw
@@ -54,7 +59,10 @@ func _initialize() -> void:
 	page.show()
 	root.size = Vector2i(1200, 1000)
 	await _frames(4)
-	assert(page.viewer_window.position == position and page.viewer_window.scale == scale, "resize/hide must preserve adjustments")
+	assert(
+		page.viewer_window.position == position and page.viewer_window.scale == scale,
+		"resize/hide must preserve adjustments"
+	)
 	await _shot(out, "after-page-resize.png")
 	var grip: Control = page.viewer_window.get_node("ResizeGrip")
 	await _button(point(grip, grip.size / 2), MOUSE_BUTTON_LEFT, true)
@@ -62,5 +70,7 @@ func _initialize() -> void:
 	page.notification(Control.NOTIFICATION_APPLICATION_FOCUS_OUT)
 	assert(page.resized_window == null and page.dragged_window == null)
 	await _button(point(grip, grip.size / 2), MOUSE_BUTTON_LEFT, false)
-	print("WINDOW192 four windows drag/raise, shrink/grow, uniform aspect, selection, orbit and retained placement PASS")
+	print(
+		"WINDOW192 four windows drag/raise, shrink/grow, uniform aspect, selection, orbit and retained placement PASS"
+	)
 	quit()

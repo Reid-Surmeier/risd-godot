@@ -1,11 +1,15 @@
 ## #176 final source comparison cameras.
 extends SceneTree
 
+
 func _initialize() -> void:
 	call_deferred("capture")
 
+
 func capture() -> void:
-	var scene = load("res://modules/shell/prototype/gallery_walk4/doorway_prototype.tscn").instantiate()
+	var scene = (
+		load("res://modules/shell/prototype/gallery_walk4/doorway_prototype.tscn").instantiate()
+	)
 	root.add_child(scene)
 	var output := OS.get_cmdline_user_args()[0]
 	DirAccess.make_dir_recursive_absolute(output)

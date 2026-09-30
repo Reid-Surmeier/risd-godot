@@ -10,27 +10,35 @@ const Freehand := preload("res://modules/sketchbook/freehand.gd")
 signal strokes_changed
 signal pointer_changed
 
-const DEFAULT_INK := Color("#4465e9") # tldraw light theme, blue
-const STROKE_WIDTH := 4.5 # tldraw size m: theme stroke 2 * 1.75, plus 1
-const CURVE_SCALE := 12.0 # the web filter's feDisplacementMap scale
+const DEFAULT_INK := Color("#4465e9")  # tldraw light theme, blue
+const STROKE_WIDTH := 4.5  # tldraw size m: theme stroke 2 * 1.75, plus 1
+const CURVE_SCALE := 12.0  # the web filter's feDisplacementMap scale
 # The web curve map: (x fraction, green channel / 255).
-const CURVE_STOPS := [[0.0, 0.502], [0.36, 0.502], [0.47, 0.839], [0.5, 1.0], [0.53, 0.839], [0.64, 0.502], [1.0, 0.502]]
+const CURVE_STOPS := [
+	[0.0, 0.502],
+	[0.36, 0.502],
+	[0.47, 0.839],
+	[0.5, 1.0],
+	[0.53, 0.839],
+	[0.64, 0.502],
+	[1.0, 0.502]
+]
 const PENCIL_HEIGHT := 120.0
 const PENCIL_TIP := Vector2(0.02, 0.02)
 const BRUSH := preload("res://modules/sketchbook/assets/paintbox/watercolor-brush.png")
 const BRUSH_SHADER := preload("res://modules/sketchbook/assets/paintbox/brush-tip.gdshader")
 
 var spread := 1
-var spreads: Dictionary = {} # spread -> Array[Dictionary{points, width, polygons}]
+var spreads: Dictionary = {}  # spread -> Array[Dictionary{points, width, polygons}]
 var ink_color := DEFAULT_INK
 var stroke_width := STROKE_WIDTH
 var stroke_opacity := 1.0
 var tool := "draw"
 var interactive := true
-var render_spread := 0 # 0: the open spread; otherwise draw that spread (page-turn sheets)
+var render_spread := 0  # 0: the open spread; otherwise draw that spread (page-turn sheets)
 var freehand := Freehand.new()
 var active: Dictionary = {}
-var redo_strokes: Dictionary = {} # spread -> strokes removed by the prototype undo action
+var redo_strokes: Dictionary = {}  # spread -> strokes removed by the prototype undo action
 var pencil: TextureRect
 var pencil_time := 0.0
 var pen_down := false
@@ -41,10 +49,11 @@ var _static_dirty := true
 var _static_viewport: SubViewport
 var _static_ink: Control
 var _static_view: TextureRect
-var perf_rebuild_us := 0 # accumulated since last perf read
+var perf_rebuild_us := 0  # accumulated since last perf read
 var perf_draw_us := 0
 var perf_draws := 0
 static var _blank_cursor: ImageTexture
+
 
 func _ready() -> void:
 	mouse_filter = MOUSE_FILTER_STOP if interactive else MOUSE_FILTER_IGNORE
@@ -94,6 +103,7 @@ func _ready() -> void:
 		add_child(pencil)
 	resized.connect(_on_resized)
 
+
 ## The page changed proportion: existing ink follows it (x and y scale independently).
 func _on_resized() -> void:
 	if interactive and _last_size.x > 0.0 and _last_size.y > 0.0 and size != _last_size:
@@ -111,6 +121,7 @@ func _on_resized() -> void:
 				stroke.erase("render")
 	_last_size = size
 	_invalidate_static()
+
 
 func _process(delta: float) -> void:
 	if _dirty and not active.is_empty():
@@ -131,12 +142,13 @@ func _process(delta: float) -> void:
 		pencil.rotation_degrees = 2.75 + 0.75 * sin(pencil_time * TAU / 1.35 - PI / 2.0)
 		pencil.scale = pencil.scale.lerp(Vector2.ONE, 0.35)
 
+
 func _notification(what: int) -> void:
 	if not interactive:
 		return
 	if what == NOTIFICATION_MOUSE_ENTER:
 		hovering = true
-		_place_pencil(get_local_mouse_position()) # never show it where it last was
+		_place_pencil(get_local_mouse_position())  # never show it where it last was
 		pencil.rotation_degrees = 2.75
 		pencil.scale = Vector2.ONE
 		pencil.visible = true
@@ -152,6 +164,7 @@ func _notification(what: int) -> void:
 		if pen_down:
 			_end_stroke()
 		pointer_changed.emit()
+
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -170,22 +183,31 @@ func _gui_input(event: InputEvent) -> void:
 			_extend_stroke(event.position)
 		accept_event()
 
+
 func _place_pencil(at: Vector2) -> void:
 	if pencil != null:
 		pencil.position = at - pencil.pivot_offset
+
 
 func _begin_stroke(at: Vector2) -> void:
 	pen_down = true
 	pointer_changed.emit()
 	var color := ink_color
 	color.a *= stroke_opacity
-	active = {"points": [Vector3(at.x, at.y, 0.5)], "width": stroke_width + _jitter() * stroke_width / 6.0, "polygons": [], "color": color}
+	active = {
+		"points": [Vector3(at.x, at.y, 0.5)],
+		"width": stroke_width + _jitter() * stroke_width / 6.0,
+		"polygons": [],
+		"color": color
+	}
 	_rebuild(active, false)
 	queue_redraw()
+
 
 func _extend_stroke(at: Vector2) -> void:
 	active.points.append(Vector3(at.x, at.y, 0.5))
 	_dirty = true
+
 
 func _end_stroke() -> void:
 	if not pen_down:
@@ -201,12 +223,16 @@ func _end_stroke() -> void:
 	_invalidate_static()
 	strokes_changed.emit()
 
+
 func _jitter() -> float:
 	# tldraw adds rng(shape.id) * sw / 6 per shape; seed by stroke count so it is deterministic.
 	return fmod(float(stroke_count() * 7919 % 1000) / 1000.0, 1.0)
 
+
 func _rebuild(stroke: Dictionary, last: bool) -> void:
-	stroke.polygons = freehand.ink_polygons(stroke.points, Freehand.draw_options(stroke.width, last))
+	stroke.polygons = freehand.ink_polygons(
+		stroke.points, Freehand.draw_options(stroke.width, last)
+	)
 	# The streamlined centreline and radii: the robust fill when an outline self-intersects.
 	var centers := PackedVector2Array()
 	var radii := PackedFloat32Array()
@@ -216,6 +242,7 @@ func _rebuild(stroke: Dictionary, last: bool) -> void:
 	stroke.centers = centers
 	stroke.radii = radii
 	stroke.erase("render")
+
 
 func _strokes_of(index: int) -> Array:
 	if not spreads.has(index):
@@ -268,14 +295,17 @@ func can_undo() -> bool:
 func can_redo() -> bool:
 	return not _redo_of(spread).is_empty()
 
+
 func stroke_count(index: int = 0) -> int:
 	return _strokes_of(index if index > 0 else spread).size()
+
 
 func show_spread(index: int) -> void:
 	if pen_down:
 		_end_stroke()
 	spread = maxi(1, index)
 	_invalidate_static()
+
 
 func _invalidate_static() -> void:
 	_static_dirty = true
@@ -286,6 +316,7 @@ func _invalidate_static() -> void:
 		_static_ink.queue_redraw()
 		_static_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 	queue_redraw()
+
 
 ## The web filter bows the ink toward the spine: y shifts up by CURVE_SCALE * (green - 0.5).
 func _curve(p: Vector2) -> Vector2:
@@ -299,11 +330,13 @@ func _curve(p: Vector2) -> Vector2:
 			break
 	return Vector2(p.x, p.y - CURVE_SCALE * (g - 0.5))
 
+
 func _draw() -> void:
 	var t0 := Time.get_ticks_usec()
 	_draw_ink_layers()
 	perf_draw_us += Time.get_ticks_usec() - t0
 	perf_draws += 1
+
 
 func _draw_ink_layers() -> void:
 	if not interactive:
@@ -314,19 +347,24 @@ func _draw_ink_layers() -> void:
 	if not active.is_empty():
 		_draw_stroke(self, active)
 
+
 ## The finished strokes of the open spread, drawn into the static texture.
 func _draw_static_ink() -> void:
 	for stroke in _strokes_of(spread):
 		_draw_stroke(_static_ink, stroke)
 
+
 func _draw_stroke(target: CanvasItem, stroke: Dictionary) -> void:
 	var color: Color = stroke.get("color", DEFAULT_INK)
 	var render: Dictionary = _render_of(stroke)
 	for piece in render.fills:
-		RenderingServer.canvas_item_add_triangle_array(target.get_canvas_item(), piece.indices, piece.points, piece.colors)
+		RenderingServer.canvas_item_add_triangle_array(
+			target.get_canvas_item(), piece.indices, piece.points, piece.colors
+		)
 		target.draw_polyline(piece.rim, color, 1.0, true)
 	if render.capsules:
 		_draw_capsules(target, stroke)
+
 
 ## Curved outline, triangulation and rim, computed once per stroke revision (finished strokes are
 ## static; the active stroke changes once per frame).
@@ -357,6 +395,7 @@ func _render_of(stroke: Dictionary) -> Dictionary:
 	stroke.render = render
 	return render
 
+
 ## tldraw fills its outline with the nonzero rule, so self-intersections are solid ink. Godot's
 ## triangulation cannot, so such strokes are drawn as the union of their pressure circles and the
 ## quads between them, which is the same envelope.
@@ -371,11 +410,22 @@ func _draw_capsules(target: CanvasItem, stroke: Dictionary) -> void:
 		target.draw_circle(c, radii[i], color, true, -1.0, not live)
 		if i + 1 < centers.size():
 			var n := _curve(centers[i + 1])
-			var dir := (n - c)
+			var dir := n - c
 			if dir.length() < radii[i] * 0.5:
 				continue
 			var perp := Vector2(-dir.y, dir.x).normalized()
-			target.draw_colored_polygon(PackedVector2Array([c + perp * radii[i], n + perp * radii[i + 1], n - perp * radii[i + 1], c - perp * radii[i]]), color)
+			target.draw_colored_polygon(
+				PackedVector2Array(
+					[
+						c + perp * radii[i],
+						n + perp * radii[i + 1],
+						n - perp * radii[i + 1],
+						c - perp * radii[i]
+					]
+				),
+				color
+			)
+
 
 func set_ink_color(color: Color) -> void:
 	ink_color = color
@@ -387,12 +437,26 @@ func set_pen_style(width: float, opacity: float) -> void:
 	stroke_width = width
 	stroke_opacity = opacity
 
+
 func qa_state() -> Dictionary:
 	var strokes := _strokes_of(spread)
 	var last_points: int = 0 if strokes.is_empty() else strokes.back().points.size()
-	return {"spread": spread, "strokes": stroke_count(), "drawing": pen_down, "hovering": hovering,
-		"last_stroke_points": last_points, "ink_color": ink_color.to_html(false),
+	return {
+		"spread": spread,
+		"strokes": stroke_count(),
+		"drawing": pen_down,
+		"hovering": hovering,
+		"last_stroke_points": last_points,
+		"ink_color": ink_color.to_html(false),
 		"cursor": "pigment-brush" if tool == "draw" else tool,
-		"tool": tool, "can_undo": can_undo(), "can_redo": can_redo(),
-		"last_stroke_color": DEFAULT_INK.to_html(false) if strokes.is_empty() else Color(strokes.back().get("color", DEFAULT_INK)).to_html(false),
-		"accumulated_input": Input.use_accumulated_input}
+		"tool": tool,
+		"can_undo": can_undo(),
+		"can_redo": can_redo(),
+		"last_stroke_color":
+		(
+			DEFAULT_INK.to_html(false)
+			if strokes.is_empty()
+			else Color(strokes.back().get("color", DEFAULT_INK)).to_html(false)
+		),
+		"accumulated_input": Input.use_accumulated_input
+	}

@@ -4,13 +4,19 @@ extends SceneTree
 const Walk = preload("res://modules/shell/prototype/gallery_walk4/walk4.gd")
 const Doorway = preload("res://modules/shell/prototype/gallery_walk4/doorway_prototype.gd")
 
+
 func _initialize() -> void:
 	call_deferred("capture")
+
 
 func capture() -> void:
 	var output := OS.get_cmdline_user_args()[0]
 	DirAccess.make_dir_recursive_absolute(output)
-	var views := [2, 3] if OS.get_cmdline_user_args().size() > 1 and OS.get_cmdline_user_args()[1] == "surfaces" else [0, 1]
+	var views := (
+		[2, 3]
+		if OS.get_cmdline_user_args().size() > 1 and OS.get_cmdline_user_args()[1] == "surfaces"
+		else [0, 1]
+	)
 	for width in [720, 1600]:
 		root.size = Vector2i(width, width)
 		for index in views:

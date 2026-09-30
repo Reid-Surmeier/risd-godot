@@ -4,16 +4,25 @@ extends Node3D
 ## These are not Nintendo clips or a claim of #171's current visual acceptance.
 const HOME := "res://modules/shell/prototype/gallery_walk4/visitor159/"
 const MAP := {
-	"Armature_Spine_1": "hips", "Armature_Waist": "hips",
-	"Armature_Spine_2": "spine", "Armature_Spine_3": "chest",
+	"Armature_Spine_1": "hips",
+	"Armature_Waist": "hips",
+	"Armature_Spine_2": "spine",
+	"Armature_Spine_3": "chest",
 	"Armature_Head_2": "head",
-	"Armature_Arm_1_L": "upperarm.l", "Armature_Arm_2_L": "lowerarm.l",
-	"Armature_Wrist_L": "hand.l", "Armature_Arm_1_R": "upperarm.r",
-	"Armature_Arm_2_R": "lowerarm.r", "Armature_Wrist_R": "hand.r",
-	"Armature_Leg_1_L_2": "upperleg.l", "Armature_Leg_2_L": "lowerleg.l",
-	"Armature_Ankle_L": "foot.l", "Armature_Toe_L": "toes.l",
-	"Armature_Leg_1_R_2": "upperleg.r", "Armature_Leg_2_R": "lowerleg.r",
-	"Armature_Ankle_R": "foot.r", "Armature_Toe_R": "toes.r",
+	"Armature_Arm_1_L": "upperarm.l",
+	"Armature_Arm_2_L": "lowerarm.l",
+	"Armature_Wrist_L": "hand.l",
+	"Armature_Arm_1_R": "upperarm.r",
+	"Armature_Arm_2_R": "lowerarm.r",
+	"Armature_Wrist_R": "hand.r",
+	"Armature_Leg_1_L_2": "upperleg.l",
+	"Armature_Leg_2_L": "lowerleg.l",
+	"Armature_Ankle_L": "foot.l",
+	"Armature_Toe_L": "toes.l",
+	"Armature_Leg_1_R_2": "upperleg.r",
+	"Armature_Leg_2_R": "lowerleg.r",
+	"Armature_Ankle_R": "foot.r",
+	"Armature_Toe_R": "toes.r",
 }
 
 var target: Skeleton3D
@@ -49,6 +58,7 @@ var _blend_start := 0.0
 var _from := []
 var _stationary_weight := 0.0
 
+
 # Adapted from the already accepted KayKit gallery visitor's two-bone solver.
 func solve_leg(foot: Dictionary, point: Vector3) -> void:
 	var upper := target.get_bone_global_pose(foot.upper)
@@ -69,18 +79,33 @@ func solve_leg(foot: Dictionary, point: Vector3) -> void:
 		pole = Vector3.FORWARD
 	var along := (a * a - b * b + distance * distance) / (2.0 * distance)
 	var knee := upper.origin + direction * along + pole * sqrt(maxf(0, a * a - along * along))
-	upper.basis = Basis(Quaternion((lower.origin - upper.origin).normalized(), (knee - upper.origin).normalized())) * upper.basis
+	upper.basis = (
+		Basis(
+			Quaternion(
+				(lower.origin - upper.origin).normalized(), (knee - upper.origin).normalized()
+			)
+		)
+		* upper.basis
+	)
 	target.set_bone_global_pose(foot.upper, upper)
 	target.force_update_all_bone_transforms()
 	lower = target.get_bone_global_pose(foot.lower)
 	end = target.get_bone_global_pose(foot.ankle)
-	lower.basis = Basis(Quaternion((end.origin - lower.origin).normalized(), (ankle - lower.origin).normalized())) * lower.basis
+	lower.basis = (
+		Basis(
+			Quaternion(
+				(end.origin - lower.origin).normalized(), (ankle - lower.origin).normalized()
+			)
+		)
+		* lower.basis
+	)
 	target.set_bone_global_pose(foot.lower, lower)
 	target.force_update_all_bone_transforms()
 	end = target.get_bone_global_pose(foot.ankle)
 	end.basis = foot.flat
 	target.set_bone_global_pose(foot.ankle, end)
 	target.force_update_all_bone_transforms()
+
 
 func solve_contacts(phase: float, moving: bool, settling: bool = false) -> void:
 	var goals := []
@@ -90,16 +115,22 @@ func solve_contacts(phase: float, moving: bool, settling: bool = false) -> void:
 			foot.locked = false
 		target.set_bone_pose(foot.toe, target.get_bone_rest(foot.toe))
 		target.force_update_all_bone_transforms()
-		var planted := (phase >= 0.11 and phase < 0.46) if i == 0 else (phase >= 0.61 and phase < 0.96)
+		var planted := (
+			(phase >= 0.11 and phase < 0.46) if i == 0 else (phase >= 0.61 and phase < 0.96)
+		)
 		planted = planted if moving else true
-		var point: Vector3 = target.global_transform * (target.get_bone_global_pose(foot.ankle) * foot.sole)
+		var point: Vector3 = (
+			target.global_transform * (target.get_bone_global_pose(foot.ankle) * foot.sole)
+		)
 		if not moving:
 			# The donor's idle/interact stance is not a target-body stance. Settle
 			# toward the sourced rig's neutral sole locations, not its retargeted
 			# ankle sample, so a turn/interaction cannot leave crossed resting feet.
 			point = target.global_transform * foot.neutral
 			if settling:
-				point = foot.settle_from.lerp(point, smoothstep(0, 1, clampf((_clock - _blend_start) / 0.2, 0, 1)))
+				point = foot.settle_from.lerp(
+					point, smoothstep(0, 1, clampf((_clock - _blend_start) / 0.2, 0, 1))
+				)
 		if planted and not foot.locked:
 			if moving:
 				contacts += 1
@@ -107,7 +138,9 @@ func solve_contacts(phase: float, moving: bool, settling: bool = false) -> void:
 			foot.anchor_basis = target.global_basis * foot.rest_flat
 		foot.locked = planted
 		foot.flat = target.global_basis.inverse() * foot.anchor_basis if planted else foot.rest_flat
-		var goal: Vector3 = foot.anchor if planted else Vector3(point.x, maxf(point.y, 0.015), point.z)
+		var goal: Vector3 = (
+			foot.anchor if planted else Vector3(point.x, maxf(point.y, 0.015), point.z)
+		)
 		goals.append(target.global_transform.affine_inverse() * goal)
 	# Acceleration / reversal can leave a planted ankle beyond the new idle hip's
 	# reach. Lower the pose root only as far as necessary before the two leg solves.
@@ -133,20 +166,34 @@ func solve_contacts(phase: float, moving: bool, settling: bool = false) -> void:
 		if settling:
 			feet[i].locked = false
 
+
 func skin_points(mesh: MeshInstance3D) -> PackedVector3Array:
 	var arrays := mesh.mesh.surface_get_arrays(0)
 	var transforms := []
 	for bind in mesh.skin.get_bind_count():
 		var bone := target.find_bone(mesh.skin.get_bind_name(bind))
 		assert(bone >= 0)
-		transforms.append(target.global_transform * target.get_bone_global_pose(bone) * mesh.skin.get_bind_pose(bind))
+		transforms.append(
+			(
+				target.global_transform
+				* target.get_bone_global_pose(bone)
+				* mesh.skin.get_bind_pose(bind)
+			)
+		)
 	var points := PackedVector3Array()
 	for vertex in arrays[Mesh.ARRAY_VERTEX].size():
 		var point := Vector3.ZERO
 		for k in 4:
-			point += (transforms[arrays[Mesh.ARRAY_BONES][vertex * 4 + k]] * arrays[Mesh.ARRAY_VERTEX][vertex]) * arrays[Mesh.ARRAY_WEIGHTS][vertex * 4 + k]
+			point += (
+				(
+					transforms[arrays[Mesh.ARRAY_BONES][vertex * 4 + k]]
+					* arrays[Mesh.ARRAY_VERTEX][vertex]
+				)
+				* arrays[Mesh.ARRAY_WEIGHTS][vertex * 4 + k]
+			)
 		points.append(point)
 	return points
+
 
 func sample(clip: String, time: float) -> Array:
 	player.play(clip)
@@ -159,6 +206,7 @@ func sample(clip: String, time: float) -> Array:
 		globals.append(donor.get_bone_global_pose(i))
 	return globals
 
+
 func transfer(poses: Array) -> void:
 	var current := []
 	for i in target.get_bone_count():
@@ -167,12 +215,18 @@ func transfer(poses: Array) -> void:
 		var parent_pose: Transform3D = current[parent] if parent >= 0 else Transform3D.IDENTITY
 		if pairs.has(i):
 			var source: int = pairs[i]
-			var delta: Basis = poses[source].basis * donor.get_bone_global_rest(source).basis.inverse()
+			var delta: Basis = (
+				poses[source].basis * donor.get_bone_global_rest(source).basis.inverse()
+			)
 			var wanted := delta * target.get_bone_global_rest(i).basis
 			local.basis = parent_pose.basis.inverse() * wanted
 		if parent < 0:
 			var hips := donor.find_bone("hips")
-			local.origin += (poses[hips].origin - donor.get_bone_global_rest(hips).origin) * hip_ratio * (1.0 - _stationary_weight)
+			local.origin += (
+				(poses[hips].origin - donor.get_bone_global_rest(hips).origin)
+				* hip_ratio
+				* (1.0 - _stationary_weight)
+			)
 			local.origin.y -= lerpf(0.30, 0.03, _stationary_weight)
 		target.set_bone_pose(i, local)
 		current.append(parent_pose * local)
@@ -213,12 +267,22 @@ func _ready() -> void:
 		sole /= count
 		sole.y = min_y
 		sole.y -= 4.84
-		feet.append({"upper": target.find_bone("Armature_Leg_1_" + side + "_2"),
-			"lower": target.find_bone("Armature_Leg_2_" + side), "ankle": ankle,
-			"toe": target.find_bone("Armature_Toe_" + side), "flat": ankle_rest.basis, "rest_flat": ankle_rest.basis,
-			"anchor_basis": Basis.IDENTITY,
-			"sole": ankle_rest.affine_inverse() * sole, "neutral": sole,
-			"settle_from": Vector3.ZERO, "locked": false, "anchor": Vector3.ZERO})
+		feet.append(
+			{
+				"upper": target.find_bone("Armature_Leg_1_" + side + "_2"),
+				"lower": target.find_bone("Armature_Leg_2_" + side),
+				"ankle": ankle,
+				"toe": target.find_bone("Armature_Toe_" + side),
+				"flat": ankle_rest.basis,
+				"rest_flat": ankle_rest.basis,
+				"anchor_basis": Basis.IDENTITY,
+				"sole": ankle_rest.affine_inverse() * sole,
+				"neutral": sole,
+				"settle_from": Vector3.ZERO,
+				"locked": false,
+				"anchor": Vector3.ZERO
+			}
+		)
 	print("REST bounds=", min_y, "..", max_y, " soles=", sole_indices.size())
 	var source: Node3D = load(HOME + "inputs/donor.glb").instantiate()
 	add_child(source)
@@ -256,27 +320,37 @@ func _ready() -> void:
 				mesh.set_surface_override_material(surface, lit)
 	pose(0, false, 0, Vector3.FORWARD, 0)
 
+
 func reset_contacts() -> void:
 	_has_previous = false
 	for foot in feet:
 		foot.locked = false
 
+
 func footprint_position() -> Vector3:
 	return model.global_position
+
 
 func sole_positions() -> Array:
 	var points := []
 	for foot in feet:
-		points.append(target.global_transform * (target.get_bone_global_pose(foot.ankle) * foot.sole))
+		points.append(
+			target.global_transform * (target.get_bone_global_pose(foot.ankle) * foot.sole)
+		)
 	return points
+
 
 func sole_support() -> Array:
 	return feet.map(func(foot): return foot.locked)
 
+
 func play_gesture(_name: String) -> bool:
 	return false
 
-func pose(delta: float, moving: bool, _legacy_phase: float, heading: Vector3, _camera_yaw: float) -> void:
+
+func pose(
+	delta: float, moving: bool, _legacy_phase: float, heading: Vector3, _camera_yaw: float
+) -> void:
 	if not player:
 		return
 	contacts = 0
@@ -290,7 +364,11 @@ func pose(delta: float, moving: bool, _legacy_phase: float, heading: Vector3, _c
 	var old_yaw := rotation.y
 	if heading.length_squared() > 0.1:
 		var wanted := atan2(heading.x, heading.z)
-		rotation.y = wanted if delta == 0 else rotate_toward(rotation.y, wanted, (5.5 if moving else 3.0) * delta)
+		rotation.y = (
+			wanted
+			if delta == 0
+			else rotate_toward(rotation.y, wanted, (5.5 if moving else 3.0) * delta)
+		)
 		# The inherited approach controller considers <0.015 rad aligned and
 		# starts Interact. Finish that residual rotation before it starts, so the
 		# next pose does not classify the final fraction of a degree as walking.
@@ -314,7 +392,11 @@ func pose(delta: float, moving: bool, _legacy_phase: float, heading: Vector3, _c
 		for i in poses.size():
 			poses[i] = _from[i].interpolate_with(poses[i], blend)
 	mapped_before = poses
-	_stationary_weight = move_toward(_stationary_weight, 0.0 if stepping else 1.0, delta / 0.2) if delta > 0 else (0.0 if stepping else 1.0)
+	_stationary_weight = (
+		move_toward(_stationary_weight, 0.0 if stepping else 1.0, delta / 0.2)
+		if delta > 0
+		else (0.0 if stepping else 1.0)
+	)
 	transfer(poses)
 	phase = fmod(_gait / player.get_animation("Walking_A").length, 1.0)
 	# As in #171: feet finish their short walk-to-idle settling before planting.

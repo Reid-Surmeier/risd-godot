@@ -16,10 +16,32 @@ func _initialize() -> void:
 	get_root().content_scale_size = Vector2i.ZERO
 	get_root().mode = Window.MODE_WINDOWED
 	var storage: Variant = Data.storage_adapter().value
-	var unused := func(_query, _done): return {"ok": false, "value": null, "error": {"code": "collection_data.unavailable", "detail": "unused"}}
-	var handle: Variant = Data.create({"search": unused, "load_saves": storage.load_saves,
-		"save_if_absent": storage.save_if_absent, "now_ms": func(): return 1000}).value
-	var made := Page.create({"key": "playground", "collection_data": handle, "image_fetch": unused, "square_pages": true})
+	var unused := func(_query, _done):
+		return {
+			"ok": false,
+			"value": null,
+			"error": {"code": "collection_data.unavailable", "detail": "unused"}
+		}
+	var handle: Variant = (
+		Data
+		. create(
+			{
+				"search": unused,
+				"load_saves": storage.load_saves,
+				"save_if_absent": storage.save_if_absent,
+				"now_ms": func(): return 1000
+			}
+		)
+		. value
+	)
+	var made := Page.create(
+		{
+			"key": "playground",
+			"collection_data": handle,
+			"image_fetch": unused,
+			"square_pages": true
+		}
+	)
 	assert(made.ok, str(made.error))
 	var tenant: Control = made.value
 	var output := await _mount(tenant, Vector2i(1080, 1080), "/tmp/playground-square-164")
@@ -40,9 +62,16 @@ func _initialize() -> void:
 	assert(Page.state(tenant).value.page == "channels")
 	await _shot(output, "Channels.png")
 	await _press_named(tenant, "Channel_0")
-	assert(Page.state(tenant).value.channel == "Public connections" and Page.state(tenant).value.results.size() == 12)
+	assert(
+		(
+			Page.state(tenant).value.channel == "Public connections"
+			and Page.state(tenant).value.results.size() == 12
+		)
+	)
 	await _press_named(tenant, "Page_search")
-	assert(Page.state(tenant).value.page == "search" and Page.state(tenant).value.results.size() == 25)
+	assert(
+		Page.state(tenant).value.page == "search" and Page.state(tenant).value.results.size() == 25
+	)
 	await _shot(output, "Search.png")
 	var field: Control = tenant.find_child("SearchQuery", true, false)
 	await _click(field.get_global_rect().get_center(), "search field")
@@ -63,7 +92,21 @@ func _initialize() -> void:
 	var collection: Array = []
 	Data.saved(handle, func(result): collection.append(result))
 	assert(collection[0].ok and collection[0].value.items[0].artwork.id == saved_id)
-	_log.append({"event": "acceptance", "result": "pass", "pages": 4,
-		"checks": ["chronology", "unknown-page", "real navigation", "channels", "real search", "shared save"]})
+	_log.append(
+		{
+			"event": "acceptance",
+			"result": "pass",
+			"pages": 4,
+			"checks":
+			[
+				"chronology",
+				"unknown-page",
+				"real navigation",
+				"channels",
+				"real search",
+				"shared save"
+			]
+		}
+	)
 	print("square Playground acceptance passed")
 	_finish(output)

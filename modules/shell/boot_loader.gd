@@ -15,21 +15,26 @@ extends Control
 
 const MAIN_SCENE := "res://modules/shell/demo.tscn"
 const TapeShader := preload("res://modules/shell/tape_screen.gdshader")
-const COLORS := [Color(0.98, 0.92, 0.58), Color(0.99, 0.65, 0.63), Color(0.67, 0.79, 0.96), Color(0.83, 0.93, 0.63)]
+const COLORS := [
+	Color(0.98, 0.92, 0.58),
+	Color(0.99, 0.65, 0.63),
+	Color(0.67, 0.79, 0.96),
+	Color(0.83, 0.93, 0.63)
+]
 const WHITE := Color(0.996, 0.996, 0.996)
 const EXIT_SECONDS := 1.8
 const GAME_PACK := "/tmp/game.pck"  # written by web/loading_shell.html (engine.preloadFile)
 const SHELL_INTERFACE := "res://modules/shell/interface.gd"  # loaded after the pack is mounted: not in the boot pack
 const MIN_SECONDS := 4.0  # the bar fills at a steady pace, never faster than empty-to-full in this
-                          # long, so a quick load still reads as loading (same pace as the HTML page)
+# long, so a quick load still reads as loading (same pace as the HTML page)
 
 @export var pixel_reduction := 1.25  # the tape is the window divided by this (same in the page)
 
 var drawing := not OS.has_feature("web")  # on the Web the page draws the loading screen
 var clock := 0.0
-var progress := 0.0       # 0..1 shown by the bar (eases toward target)
+var progress := 0.0  # 0..1 shown by the bar (eases toward target)
 var target := 0.0
-var exit := -1.0          # < 0 while loading, then 0..1
+var exit := -1.0  # < 0 while loading, then 0..1
 var exit_clock := 0.0
 var stage_rect := Rect2()
 var tape: SubViewport
@@ -89,7 +94,12 @@ func _build_screen() -> void:
 ## For modules/shell/playtest/perf_web.py: a named moment of the load, and the bar's value.
 func _mark(name: String) -> void:
 	if OS.has_feature("web"):
-		JavaScriptBridge.eval("(window.loadPerf = window.loadPerf || []).push({name: '%s', t: performance.now()})" % name)
+		JavaScriptBridge.eval(
+			(
+				"(window.loadPerf = window.loadPerf || []).push({name: '%s', t: performance.now()})"
+				% name
+			)
+		)
 
 
 func _fit_tape() -> void:
@@ -152,7 +162,9 @@ func _draw_stage() -> void:
 	var fill := track.duplicate() as StyleBoxFlat
 	fill.bg_color = Color(0.885, 0.885, 0.885, fade)
 	fill.set_border_width_all(0)
-	stage.draw_style_box(fill, Rect2(bar.position, Vector2(bar.size.x * lerpf(0.04, 1.0, progress), bar.size.y)))
+	stage.draw_style_box(
+		fill, Rect2(bar.position, Vector2(bar.size.x * lerpf(0.04, 1.0, progress), bar.size.y))
+	)
 
 
 ## One soft ring, the HTML loader's profile: strongest at 0.0096 of the height, paler in the

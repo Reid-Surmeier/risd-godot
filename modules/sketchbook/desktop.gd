@@ -33,12 +33,28 @@ const ANRI_PAINTBOX_SLOT := Rect2(8, 28, 360, 360.0 * 3072.0 / 1484.0)
 const FRAMED_PAINTING_SLOT := Rect2(397, 520, 228.0, 276.0)
 const BOOK_SLOT := Rect2(640, 494, 630, 555)  # accepted #129 proportions beside the painting
 const REQUIRED := [
-	"ro-top-left.png", "ro-top-mid.png", "ro-top-right.png", "ro-left.png", "ro-right.png", "ro-bottom-left.png",
-	"ro-bottom-mid.png", "ro-bottom-right.png", "ro-btn-prev.png", "ro-btn-prev-disabled.png", "ro-btn-next.png",
-	"sketchbook-page-v005-soft-384.png", "paintbox/palette-white.png", "paintbox/watercolor-brush.png",
-	"paintbox/cat-brush-rest.png", "paintbox/brush-tip.gdshader", "paintbox/anri-interior-muse.webp",
-	"paintbox/anri-title-reference.png", "tldraw-controls/button-normal-muse.png",
-	"tldraw-controls/button-hover-muse.png", "tldraw-controls/button-selected-muse.png", "tldraw-controls/titlebar-muse.png",
+	"ro-top-left.png",
+	"ro-top-mid.png",
+	"ro-top-right.png",
+	"ro-left.png",
+	"ro-right.png",
+	"ro-bottom-left.png",
+	"ro-bottom-mid.png",
+	"ro-bottom-right.png",
+	"ro-btn-prev.png",
+	"ro-btn-prev-disabled.png",
+	"ro-btn-next.png",
+	"sketchbook-page-v005-soft-384.png",
+	"paintbox/palette-white.png",
+	"paintbox/watercolor-brush.png",
+	"paintbox/cat-brush-rest.png",
+	"paintbox/brush-tip.gdshader",
+	"paintbox/anri-interior-muse.webp",
+	"paintbox/anri-title-reference.png",
+	"tldraw-controls/button-normal-muse.png",
+	"tldraw-controls/button-hover-muse.png",
+	"tldraw-controls/button-selected-muse.png",
+	"tldraw-controls/titlebar-muse.png",
 ]
 
 var key := ""
@@ -176,7 +192,15 @@ func _sync_brush_rest() -> void:
 func _on_visibility_changed() -> void:
 	if is_visible_in_tree():
 		return
-	Input.set_custom_mouse_cursor((Engine.get_meta("arrow_cursor") if Engine.has_meta("arrow_cursor") else null), Input.CURSOR_ARROW, Engine.get_meta("arrow_cursor").get_meta("tip") if Engine.has_meta("arrow_cursor") else Vector2.ZERO)  # hover-glow prototype
+	Input.set_custom_mouse_cursor(
+		Engine.get_meta("arrow_cursor") if Engine.has_meta("arrow_cursor") else null,
+		Input.CURSOR_ARROW,
+		(
+			Engine.get_meta("arrow_cursor").get_meta("tip")
+			if Engine.has_meta("arrow_cursor")
+			else Vector2.ZERO
+		)
+	)  # hover-glow prototype
 	if paintbox.hovering:
 		paintbox.hovering = false
 		paintbox.brush_cursor.visible = false
@@ -200,8 +224,16 @@ func _fit() -> void:
 	if get_meta("windows_adjusted", false):
 		set_meta("scaling", false)
 		for window in windows:
-			window.scale = Vector2.ONE * minf(window.scale.x, minf(desktop.size.x / window.size.x, desktop.size.y / window.size.y))
-			window.position = window.position.clamp(Vector2.ZERO, (desktop.size - window.size * window.scale).max(Vector2.ZERO))
+			window.scale = (
+				Vector2.ONE
+				* minf(
+					window.scale.x,
+					minf(desktop.size.x / window.size.x, desktop.size.y / window.size.y)
+				)
+			)
+			window.position = window.position.clamp(
+				Vector2.ZERO, (desktop.size - window.size * window.scale).max(Vector2.ZERO)
+			)
 		return
 	_place(paintbox, ANRI_PAINTBOX_SLOT if anri_prototype else PAINTBOX_SLOT)
 	_place(sketchbook, Rect2(BOOK_SLOT.position, BOOK_SLOT.size + Vector2(extra.x * 0.25, 0)))
@@ -251,13 +283,15 @@ func _framed_painting() -> Control:
 	holder.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	holder.add_child(painting)
 	holder.add_child(frame)
-	holder.resized.connect(func() -> void:
-		var k := holder.size.y / GOLD_FRAME_SIZE.y
-		var near := Vector2(143, 130) * k
-		painting.position = near
-		painting.size = Vector2(323, 472) * k
-		frame.position = Vector2.ZERO
-		frame.size = GOLD_FRAME_SIZE * k)
+	holder.resized.connect(
+		func() -> void:
+			var k := holder.size.y / GOLD_FRAME_SIZE.y
+			var near := Vector2(143, 130) * k
+			painting.position = near
+			painting.size = Vector2(323, 472) * k
+			frame.position = Vector2.ZERO
+			frame.size = GOLD_FRAME_SIZE * k
+	)
 	return holder
 
 
@@ -267,24 +301,33 @@ func _refresh_references() -> void:
 	refresh_generation += 1
 	var current := refresh_generation
 	storage_status = "loading"
-	var started := Data.saved(data_handle, func(result: Dictionary) -> void:
-		if current != refresh_generation or not is_visible_in_tree() or not is_instance_valid(reference_list):
-			return
-		for child in reference_list.get_children():
-			child.queue_free()
-		saved_ids.clear()
-		if not result.ok:
-			storage_status = "error"
-			reference_list.add_child(_reference_label("Saved references unavailable"))
-			return
-		storage_status = "ready"
-		reference_panel.visible = true
-		if result.value.items.is_empty():
-			reference_list.add_child(_reference_label("Save a RISD artwork in Collection to use it as a reference"))
-			return
-		for item in result.value.items:
-			saved_ids.append(item.artwork.id)
-			reference_list.add_child(_reference_card(item.artwork)))
+	var started := Data.saved(
+		data_handle,
+		func(result: Dictionary) -> void:
+			if (
+				current != refresh_generation
+				or not is_visible_in_tree()
+				or not is_instance_valid(reference_list)
+			):
+				return
+			for child in reference_list.get_children():
+				child.queue_free()
+			saved_ids.clear()
+			if not result.ok:
+				storage_status = "error"
+				reference_list.add_child(_reference_label("Saved references unavailable"))
+				return
+			storage_status = "ready"
+			reference_panel.visible = true
+			if result.value.items.is_empty():
+				reference_list.add_child(
+					_reference_label("Save a RISD artwork in Collection to use it as a reference")
+				)
+				return
+			for item in result.value.items:
+				saved_ids.append(item.artwork.id)
+				reference_list.add_child(_reference_card(item.artwork))
+	)
 	if not started.ok and current == refresh_generation and is_visible_in_tree():
 		storage_status = "error"
 
@@ -302,7 +345,10 @@ func _reference_card(artwork: Dictionary) -> Control:
 	card.set_meta("artwork_id", artwork.id)
 	card.custom_minimum_size = Vector2(270, 145)
 	card.mouse_filter = Control.MOUSE_FILTER_STOP
-	card.add_theme_stylebox_override("panel", _reference_style(Color("dcecff") if artwork.id == selected_reference else Color.WHITE))
+	card.add_theme_stylebox_override(
+		"panel",
+		_reference_style(Color("dcecff") if artwork.id == selected_reference else Color.WHITE)
+	)
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 8)
 	card.add_child(row)
@@ -320,14 +366,22 @@ func _reference_card(artwork: Dictionary) -> Control:
 	unavailable.add_theme_font_size_override("font_size", 11)
 	image_column.add_child(unavailable)
 	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
-	var label := _reference_label("%s\n%s\n%s" % [artwork.title if artwork.title != "" else "Untitled", maker, artwork.id])
+	var label := _reference_label(
+		"%s\n%s\n%s" % [artwork.title if artwork.title != "" else "Untitled", maker, artwork.id]
+	)
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(label)
-	card.gui_input.connect(func(event: InputEvent) -> void:
-		if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			selected_reference = artwork.id
-			_refresh_references())
+	card.gui_input.connect(
+		func(event: InputEvent) -> void:
+			if (
+				event is InputEventMouseButton
+				and event.pressed
+				and event.button_index == MOUSE_BUTTON_LEFT
+			):
+				selected_reference = artwork.id
+				_refresh_references()
+	)
 	if artwork.image != null:
 		_load_reference_image(artwork.image, image, unavailable)
 	else:
@@ -339,27 +393,43 @@ func _load_reference_image(manifest: Dictionary, target: TextureRect, unavailabl
 	var page_id := get_instance_id()
 	var target_id := target.get_instance_id()
 	var unavailable_id := unavailable.get_instance_id()
-	image_fetch.call(manifest.sha256, func(result: Dictionary) -> void:
-		var live_page := instance_from_id(page_id) as Control
-		var live_target := instance_from_id(target_id) as TextureRect
-		var live_unavailable := instance_from_id(unavailable_id) as Label
-		if live_page == null or not live_page.is_visible_in_tree() or live_target == null or live_unavailable == null:
-			return
-		if not result.ok:
-			live_unavailable.visible = true
-			return
-		var context := HashingContext.new()
-		context.start(HashingContext.HASH_SHA256)
-		context.update(result.value)
-		if context.finish().hex_encode() != manifest.sha256:
-			live_unavailable.visible = true
-			return
-		var decoded := Image.new()
-		var status := decoded.load_jpg_from_buffer(result.value) if manifest.mime == "image/jpeg" else (decoded.load_png_from_buffer(result.value) if manifest.mime == "image/png" else decoded.load_webp_from_buffer(result.value))
-		if status == OK:
-			live_target.texture = ImageTexture.create_from_image(decoded)
-		else:
-			live_unavailable.visible = true)
+	image_fetch.call(
+		manifest.sha256,
+		func(result: Dictionary) -> void:
+			var live_page := instance_from_id(page_id) as Control
+			var live_target := instance_from_id(target_id) as TextureRect
+			var live_unavailable := instance_from_id(unavailable_id) as Label
+			if (
+				live_page == null
+				or not live_page.is_visible_in_tree()
+				or live_target == null
+				or live_unavailable == null
+			):
+				return
+			if not result.ok:
+				live_unavailable.visible = true
+				return
+			var context := HashingContext.new()
+			context.start(HashingContext.HASH_SHA256)
+			context.update(result.value)
+			if context.finish().hex_encode() != manifest.sha256:
+				live_unavailable.visible = true
+				return
+			var decoded := Image.new()
+			var status := (
+				decoded.load_jpg_from_buffer(result.value)
+				if manifest.mime == "image/jpeg"
+				else (
+					decoded.load_png_from_buffer(result.value)
+					if manifest.mime == "image/png"
+					else decoded.load_webp_from_buffer(result.value)
+				)
+			)
+			if status == OK:
+				live_target.texture = ImageTexture.create_from_image(decoded)
+			else:
+				live_unavailable.visible = true
+	)
 
 
 func _place(window: Control, slot: Rect2) -> void:
@@ -370,7 +440,9 @@ func _place(window: Control, slot: Rect2) -> void:
 		grown = window.size - _slots[window].size
 	_slots[window] = slot
 	window.size = (slot.size + grown).max(window.custom_minimum_size)
-	window.position = (slot.position + moved).clamp(_margin_low(), (desktop.size - window.size).max(Vector2.ZERO))
+	window.position = (slot.position + moved).clamp(
+		_margin_low(), (desktop.size - window.size).max(Vector2.ZERO)
+	)
 
 
 func _drag_handle_input(event: InputEvent, window: Control) -> void:
@@ -391,10 +463,19 @@ func _input(event: InputEvent) -> void:
 	inputs += 1
 	if dragged_window != null:
 		if event is InputEventMouseMotion:
-			var limit := (desktop.size - dragged_window.size * dragged_window.scale).max(Vector2.ZERO)
-			dragged_window.position = (desktop.make_canvas_position_local(event.position) - drag_offset).clamp(_margin_low(), limit)
+			var limit := (desktop.size - dragged_window.size * dragged_window.scale).max(
+				Vector2.ZERO
+			)
+			dragged_window.position = (
+				(desktop.make_canvas_position_local(event.position) - drag_offset)
+				. clamp(_margin_low(), limit)
+			)
 			get_viewport().set_input_as_handled()
-		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		elif (
+			event is InputEventMouseButton
+			and event.button_index == MOUSE_BUTTON_LEFT
+			and not event.pressed
+		):
 			dragged_window = null
 			get_viewport().set_input_as_handled()
 		return
@@ -402,7 +483,10 @@ func _input(event: InputEvent) -> void:
 		var pointer := desktop.make_canvas_position_local(event.position)
 		for index in range(windows.size() - 1, -1, -1):
 			var window := windows[index]
-			if window.visible and Rect2(window.position, window.size * window.scale).has_point(pointer):
+			if (
+				window.visible
+				and Rect2(window.position, window.size * window.scale).has_point(pointer)
+			):
 				desktop.move_child(window, -1)
 				windows.erase(window)
 				windows.append(window)
@@ -441,45 +525,90 @@ func state() -> Dictionary:
 	var pointer: Dictionary = s.pointer
 	var page: Rect2 = sketchbook.page_rect()
 	var p: Dictionary = paintbox.qa_state()
-	var chat: Dictionary = global_chatroom.qa_state() if global_chatroom != null and global_chatroom.has_method("qa_state") else {}
+	var chat: Dictionary = (
+		global_chatroom.qa_state()
+		if global_chatroom != null and global_chatroom.has_method("qa_state")
+		else {}
+	)
 	var reference_cards := []
 	for child in reference_list.get_children():
 		if child is PanelContainer and child.has_meta("artwork_id"):
 			var reference_image := child.find_child("ReferenceImage", true, false) as TextureRect
 			var unavailable := child.find_child("ReferenceImageUnavailable", true, false) as Label
-			reference_cards.append({"id": child.get_meta("artwork_id"), "rect": _global_rect(child),
+			reference_cards.append(
+				{
+					"id": child.get_meta("artwork_id"),
+					"rect": _global_rect(child),
 					"has_texture": reference_image != null and reference_image.texture != null,
-					"image_unavailable": unavailable != null and unavailable.visible})
+					"image_unavailable": unavailable != null and unavailable.visible
+				}
+			)
 	s.erase("pointer")
 	s.erase("page_rect")
-	s.merge({"key": key, "ticks": ticks, "inputs": inputs, "size": size, "desktop_scale": desktop.scale.x,
-			"desktop_logical": desktop.size, "front_window": windows.back().name, "dragging": dragged_window != null,
-			"window_rect": _global_rect(sketchbook), "title_rect": _global_rect(sketchbook.title_bar),
-			"page_rect": sketchbook.get_global_transform() * page, "window_visible": sketchbook.visible,
-			"controls": {"previous": _global_rect(sketchbook.previous_button), "next": _global_rect(sketchbook.next_button)},
-			"drawing": pointer.drawing, "hovering": pointer.hovering, "last_stroke_points": pointer.last_stroke_points,
-			"ink_color": pointer.ink_color, "last_stroke_color": pointer.last_stroke_color,
+	s.merge(
+		{
+			"key": key,
+			"ticks": ticks,
+			"inputs": inputs,
+			"size": size,
+			"desktop_scale": desktop.scale.x,
+			"desktop_logical": desktop.size,
+			"front_window": windows.back().name,
+			"dragging": dragged_window != null,
+			"window_rect": _global_rect(sketchbook),
+			"title_rect": _global_rect(sketchbook.title_bar),
+			"page_rect": sketchbook.get_global_transform() * page,
+			"window_visible": sketchbook.visible,
+			"controls":
+			{
+				"previous": _global_rect(sketchbook.previous_button),
+				"next": _global_rect(sketchbook.next_button)
+			},
+			"drawing": pointer.drawing,
+			"hovering": pointer.hovering,
+			"last_stroke_points": pointer.last_stroke_points,
+			"ink_color": pointer.ink_color,
+			"last_stroke_color": pointer.last_stroke_color,
 			"brush_cursor_visible": sketchbook.surface.pencil.visible,
 			"static_update_mode": sketchbook.surface._static_viewport.render_target_update_mode,
 			"face_update_mode": sketchbook.face_viewport.render_target_update_mode,
-			"paintbox_rect": _global_rect(paintbox), "paintbox_title_rect": _global_rect(paintbox.title_bar),
-			"rest_rect": _global_rect(paintbox.brush_rest), "parked_brush_rect": _global_rect(paintbox.parked_brush),
-			"brush_parked": p.brush_parked, "brush_color": p.brush_color, "brush_tip_color": p.brush_tip_color,
-			"palette_hovering": p.hovering, "palette_cursor_visible": paintbox.brush_cursor.visible,
-			"mix_count": p.mix_count, "paint_pixels": p.paint_pixels, "smear_variant": p.smear_variant, "mixbox": p.mixbox,
-			"saved_ids": saved_ids.duplicate(), "selected_reference": selected_reference,
-			"storage_status": storage_status, "reference_rect": _global_rect(reference_panel),
-			"reference_cards": reference_cards, "reference_visible": reference_panel.visible,
-			"saved_cards_visible": reference_list.visible, "framed_painting_rect": _global_rect(reference_panel),
-			"framed_painting_asset": REFERENCE_PAINTING.resource_path, "gold_frame_asset": GOLD_FRAME.resource_path,
-			"palette_asset": paintbox.ANRI_INTERIOR.resource_path, "drawing_tool": sketchbook.surface.tool,
+			"paintbox_rect": _global_rect(paintbox),
+			"paintbox_title_rect": _global_rect(paintbox.title_bar),
+			"rest_rect": _global_rect(paintbox.brush_rest),
+			"parked_brush_rect": _global_rect(paintbox.parked_brush),
+			"brush_parked": p.brush_parked,
+			"brush_color": p.brush_color,
+			"brush_tip_color": p.brush_tip_color,
+			"palette_hovering": p.hovering,
+			"palette_cursor_visible": paintbox.brush_cursor.visible,
+			"mix_count": p.mix_count,
+			"paint_pixels": p.paint_pixels,
+			"smear_variant": p.smear_variant,
+			"mixbox": p.mixbox,
+			"saved_ids": saved_ids.duplicate(),
+			"selected_reference": selected_reference,
+			"storage_status": storage_status,
+			"reference_rect": _global_rect(reference_panel),
+			"reference_cards": reference_cards,
+			"reference_visible": reference_panel.visible,
+			"saved_cards_visible": reference_list.visible,
+			"framed_painting_rect": _global_rect(reference_panel),
+			"framed_painting_asset": REFERENCE_PAINTING.resource_path,
+			"gold_frame_asset": GOLD_FRAME.resource_path,
+			"palette_asset": paintbox.ANRI_INTERIOR.resource_path,
+			"drawing_tool": sketchbook.surface.tool,
 			"painting_viewer": painting_flow.qa_state(),
 			"painting_viewer_rect": _global_rect(painting_flow),
 			"painting_title_rect": _global_rect(painting_flow.title_bar),
-			"chat_text_posts": chat.get("text_posts", 0), "chat_image_posts": chat.get("image_posts", 0),
+			"chat_text_posts": chat.get("text_posts", 0),
+			"chat_image_posts": chat.get("image_posts", 0),
 			"chat_picker_requests": chat.get("picker_requests", 0),
-			"chat_message_count": chat.get("message_count", 0), "chat_input_rect": chat.get("input_rect", Rect2()),
-			"chat_attach_rect": chat.get("attach_rect", Rect2()), "chat_send_rect": chat.get("send_rect", Rect2())})
+			"chat_message_count": chat.get("message_count", 0),
+			"chat_input_rect": chat.get("input_rect", Rect2()),
+			"chat_attach_rect": chat.get("attach_rect", Rect2()),
+			"chat_send_rect": chat.get("send_rect", Rect2())
+		}
+	)
 	s.merge(_paintbox_rects())
 	return Errors.ok(s)
 
@@ -497,10 +626,12 @@ func _add_scale_grip(window: Control) -> void:
 	grip.size = Vector2(32, 32)
 	grip.mouse_default_cursor_shape = Control.CURSOR_FDIAGSIZE
 	grip.tooltip_text = "Drag to resize proportionally"
-	grip.draw.connect(func():
-		grip.draw_rect(Rect2(Vector2.ZERO, grip.size), Color(0.3, 0.3, 0.3, 0.8))
-		for inset in [10, 17, 24]:
-			grip.draw_line(Vector2(inset, 28), Vector2(28, inset), Color.WHITE, 2.0))
+	grip.draw.connect(
+		func():
+			grip.draw_rect(Rect2(Vector2.ZERO, grip.size), Color(0.3, 0.3, 0.3, 0.8))
+			for inset in [10, 17, 24]:
+				grip.draw_line(Vector2(inset, 28), Vector2(28, inset), Color.WHITE, 2.0)
+	)
 	# Containers otherwise stretch the grip across the painting/tool panel.
 	grip.top_level = window is Container
 	window.add_child(grip)
@@ -515,27 +646,40 @@ func _add_scale_grip(window: Control) -> void:
 	window.get_parent().item_rect_changed.connect(fit)
 	fit.call()
 	var gesture := {"active": false, "start": Vector2.ZERO, "scale": 1.0}
-	get_window().focus_exited.connect(func():
-		gesture.active = false
-		set_meta("scaling", false))
-	window.visibility_changed.connect(func():
-		gesture.active = false
-		set_meta("scaling", false))
-	grip.gui_input.connect(func(event):
-		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-			gesture.active = event.pressed
-			set_meta("scaling", event.pressed)
-			if event.pressed:
-				gesture.start = window.get_parent().make_canvas_position_local(event.global_position)
-				gesture.scale = window.scale.x
-				set_meta("windows_adjusted", true)
-				window.get_parent().move_child(window, -1)
-			grip.accept_event()
-		elif event is InputEventMouseMotion and gesture.active and get_meta("scaling", false):
-			var delta: Vector2 = window.get_parent().make_canvas_position_local(event.global_position) - gesture.start
-			var available: Vector2 = window.get_parent().size - window.position
-			var maximum := minf(available.x / window.size.x, available.y / window.size.y)
-			var factor: float = gesture.scale + delta.dot(window.size) / window.size.length_squared()
-			window.scale = Vector2.ONE * clampf(factor, minf(0.35, maximum), maximum)
-			fit.call()
-			grip.accept_event())
+	get_window().focus_exited.connect(
+		func():
+			gesture.active = false
+			set_meta("scaling", false)
+	)
+	window.visibility_changed.connect(
+		func():
+			gesture.active = false
+			set_meta("scaling", false)
+	)
+	grip.gui_input.connect(
+		func(event):
+			if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+				gesture.active = event.pressed
+				set_meta("scaling", event.pressed)
+				if event.pressed:
+					gesture.start = window.get_parent().make_canvas_position_local(
+						event.global_position
+					)
+					gesture.scale = window.scale.x
+					set_meta("windows_adjusted", true)
+					window.get_parent().move_child(window, -1)
+				grip.accept_event()
+			elif event is InputEventMouseMotion and gesture.active and get_meta("scaling", false):
+				var delta: Vector2 = (
+					window.get_parent().make_canvas_position_local(event.global_position)
+					- gesture.start
+				)
+				var available: Vector2 = window.get_parent().size - window.position
+				var maximum := minf(available.x / window.size.x, available.y / window.size.y)
+				var factor: float = (
+					gesture.scale + delta.dot(window.size) / window.size.length_squared()
+				)
+				window.scale = Vector2.ONE * clampf(factor, minf(0.35, maximum), maximum)
+				fit.call()
+				grip.accept_event()
+	)

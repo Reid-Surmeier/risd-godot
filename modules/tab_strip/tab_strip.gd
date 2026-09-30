@@ -64,15 +64,31 @@ static func create(page_stack: Control, windows_live_tab: bool = true) -> Dictio
 
 func _load_assets() -> Dictionary:
 	if OS.has_feature("web"):
-		_reduce_motion = bool(JavaScriptBridge.eval("matchMedia('(prefers-reduced-motion: reduce)').matches"))
+		_reduce_motion = bool(
+			JavaScriptBridge.eval("matchMedia('(prefers-reduced-motion: reduce)').matches")
+		)
 	var f := FileAccess.open(ASSETS + "layout.json", FileAccess.READ)
 	if f == null:
 		return Errors.err(Errors.ASSET_MISSING, "layout.json")
 	_layout = JSON.parse_string(f.get_as_text())
-	for name in ["bar_stripes", "stars", "right_cluster", "tab_left", "tab_mid", "tab_right",
-			"stub_idle", "stub_pressed", "icon_windows_flag", "icon_page", "icon_close",
-			"icon_close_pressed", "label_windows_live", "label_connecting", "label_blank_page",
-			"label_dots"]:
+	for name in [
+		"bar_stripes",
+		"stars",
+		"right_cluster",
+		"tab_left",
+		"tab_mid",
+		"tab_right",
+		"stub_idle",
+		"stub_pressed",
+		"icon_windows_flag",
+		"icon_page",
+		"icon_close",
+		"icon_close_pressed",
+		"label_windows_live",
+		"label_connecting",
+		"label_blank_page",
+		"label_dots"
+	]:
 		var t = load(ASSETS + name + ".png")
 		if t == null:
 			return Errors.err(Errors.ASSET_MISSING, name)
@@ -96,7 +112,16 @@ func _load_compact() -> Dictionary:
 	var compact: Dictionary = JSON.parse_string(f.get_as_text())
 	for key in compact:
 		_layout[key] = compact[key]
-	var names := ["bar_stripes", "stars", "right_cluster", "tab_left", "tab_mid", "tab_right", "stub_idle", "stub_pressed"]
+	var names := [
+		"bar_stripes",
+		"stars",
+		"right_cluster",
+		"tab_left",
+		"tab_mid",
+		"tab_right",
+		"stub_idle",
+		"stub_pressed"
+	]
 	for key in _layout.place:
 		names.append("icon_" + key)
 		names.append("label_" + key)
@@ -172,7 +197,11 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	node.clip_contents = false  # the opening sits just below the node; labels clip in LabelClip
 	var left := _piece(node, _tex.tab_left, TextureRect.STRETCH_KEEP)
 	# the compact middle carries the dotted baseline, which must repeat rather than stretch
-	var mid := _piece(node, _tex.tab_mid, TextureRect.STRETCH_TILE if _compact_fixed_shell else TextureRect.STRETCH_SCALE)
+	var mid := _piece(
+		node,
+		_tex.tab_mid,
+		TextureRect.STRETCH_TILE if _compact_fixed_shell else TextureRect.STRETCH_SCALE
+	)
 	mid.position = Vector2(t.left_w, 0)
 	var right := _piece(node, _tex.tab_right, TextureRect.STRETCH_KEEP)
 	var icon := _piece(node, null, TextureRect.STRETCH_KEEP)
@@ -194,17 +223,34 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	close.size = Vector2(_layout.close.w, _layout.close.h)
 	node.add_child(close)
 	var index := _tabs.size()
-	node.gui_input.connect(func(ev: InputEvent):
-		if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT:
-			_press(_tabs.find(_tab_of(node)))
-			select_tab(_tabs.find(_tab_of(node))))
+	node.gui_input.connect(
+		func(ev: InputEvent):
+			if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT:
+				_press(_tabs.find(_tab_of(node)))
+				select_tab(_tabs.find(_tab_of(node)))
+	)
 	close.pressed.connect(func(): close_tab(_tabs.find(_tab_of(node))))
 	add_child(node)
 	if not _tabs.is_empty():
 		move_child(node, _tabs[-1].node.get_index())  # behind its left neighbour: one clean join
-	var tab := {"node": node, "left": left, "mid": mid, "right": right, "icon": icon, "clip": clip, "label": label,
-			"dots": dots, "close": close, "label_key": "", "width": width, "page": null, "fixed": false,
-			"tint": 0.0, "tint_to": 0.0, "fade": null}
+	var tab := {
+		"node": node,
+		"left": left,
+		"mid": mid,
+		"right": right,
+		"icon": icon,
+		"clip": clip,
+		"label": label,
+		"dots": dots,
+		"close": close,
+		"label_key": "",
+		"width": width,
+		"page": null,
+		"fixed": false,
+		"tint": 0.0,
+		"tint_to": 0.0,
+		"fade": null
+	}
 	_tabs.append(tab)
 	_set_label(tab, label_key)
 	_set_tab_width(tab, width)
@@ -244,7 +290,9 @@ func _fade(tab: Dictionary, to: float) -> void:
 		_set_tint(tab, to)
 		return
 	tab.fade = create_tween()
-	tab.fade.tween_method(func(v: float): _set_tint(tab, v), tab.tint, to, FADE_SECONDS * absf(to - tab.tint))
+	tab.fade.tween_method(
+		func(v: float): _set_tint(tab, v), tab.tint, to, FADE_SECONDS * absf(to - tab.tint)
+	)
 
 
 func _set_tint(tab: Dictionary, v: float) -> void:
@@ -313,7 +361,9 @@ func _set_label(tab: Dictionary, key: String) -> void:
 			tab.icon.position = Vector2(_layout.page_icon[0], _layout.page_icon[1])
 			tab.label.texture = _tex.get("label_" + key)
 			if tab.label.texture == null:
-				push_warning("tab_strip: no label pixels for '%s', showing the page icon alone" % key)
+				push_warning(
+					"tab_strip: no label pixels for '%s', showing the page icon alone" % key
+				)
 	_fit_label(tab)
 	if _compact_fixed_shell:
 		_set_tint(tab, tab.tint)  # the glyphs' white follows the face from the first frame
@@ -328,7 +378,9 @@ func _fit_label(tab: Dictionary) -> void:
 	var t: Dictionary = _layout.tab
 	var label_x: float = _layout.label_windows_live[0]
 	var close_x: float = tab.width - _layout.close.margin_right - _layout.close.w
-	tab.close.position = Vector2(close_x, _layout.label_windows_live[1] + (66 - _layout.close.h) / 2.0)
+	tab.close.position = Vector2(
+		close_x, _layout.label_windows_live[1] + (66 - _layout.close.h) / 2.0
+	)
 	var room: float = close_x - 12 - label_x
 	var full: float = tab.label.texture.get_width() if tab.label.texture else 0.0
 	var dots_w: float = tab.dots.texture.get_width()
@@ -361,9 +413,13 @@ func _fit_compact(tab: Dictionary) -> void:
 		tab.clip.position = Vector2(p.label[0], p.label[1])
 	else:
 		var iy: float = _layout.row_mid - icon_size.y / 2.0
-		tab.icon.position = Vector2(_layout.edge_line[0] * iy + _layout.edge_line[1] + _layout.icon_pad, iy)
+		tab.icon.position = Vector2(
+			_layout.edge_line[0] * iy + _layout.edge_line[1] + _layout.icon_pad, iy
+		)
 		# the legacy glyph's baseline (row 55 of 66) on the new labels' baseline
-		tab.clip.position = Vector2(tab.icon.position.x + icon_size.x + _layout.label_gap, _layout.label_baseline - 55.0 * s)
+		tab.clip.position = Vector2(
+			tab.icon.position.x + icon_size.x + _layout.label_gap, _layout.label_baseline - 55.0 * s
+		)
 	var end: float = tab.width - t.right_w
 	if not tab.fixed:
 		tab.close.position = Vector2(end - _layout.close.w, _layout.row_mid - _layout.close.h / 2.0)
@@ -397,16 +453,29 @@ func _set_tab_width(tab: Dictionary, width: float) -> void:
 func _fitted_width(count: int) -> float:
 	var t: Dictionary = _layout.tab
 	var overlap: float = t.full_width - _layout.tab_pitch
-	var room: float = _tabs_max_right() - t.first_tab_x - _layout.stub.w + _layout.stub.gap_from_tab_right * -1.0
+	var room: float = (
+		_tabs_max_right() - t.first_tab_x - _layout.stub.w + _layout.stub.gap_from_tab_right * -1.0
+	)
 	var w: float = (room + overlap * (count - 1)) / count
 	return min(t.full_width, w)
 
 
 func _layout_tabs() -> void:
 	if _tabs.is_empty():
-		_stub.position = Vector2(_layout.tab.first_tab_x + (_layout.tab.full_width - _layout.tab_pitch) + _layout.stub.gap_from_tab_right, _layout.stub.y)
+		_stub.position = Vector2(
+			(
+				_layout.tab.first_tab_x
+				+ (_layout.tab.full_width - _layout.tab_pitch)
+				+ _layout.stub.gap_from_tab_right
+			),
+			_layout.stub.y
+		)
 		return
-	var w: float = min(_layout.fixed_tab_width, _fitted_width(_tabs.size())) if _compact_fixed_shell else _fitted_width(_tabs.size())
+	var w: float = (
+		min(_layout.fixed_tab_width, _fitted_width(_tabs.size()))
+		if _compact_fixed_shell
+		else _fitted_width(_tabs.size())
+	)
 	var x: float = _layout.tab.first_tab_x
 	for tab in _tabs:
 		if not _opening or tab != _tabs[-1]:
@@ -421,7 +490,9 @@ func _layout_stub() -> void:
 		_layout_tabs()
 		return
 	var last: Dictionary = _tabs[-1]
-	_stub.position = Vector2(last.node.position.x + last.width + _layout.stub.gap_from_tab_right, _layout.stub.y)
+	_stub.position = Vector2(
+		last.node.position.x + last.width + _layout.stub.gap_from_tab_right, _layout.stub.y
+	)
 
 
 func _add_page(tab: Dictionary, key: String) -> void:
@@ -446,6 +517,7 @@ func _own_page(tab: Dictionary, page: Control) -> void:
 
 # --- interface -------------------------------------------------------------------
 
+
 func open_new_tab() -> Dictionary:
 	if _opening:
 		return Errors.err(Errors.OPEN_IN_PROGRESS)
@@ -466,17 +538,25 @@ func open_new_tab() -> Dictionary:
 	_tween = create_tween()
 	_tween.tween_interval(PRESS_SECONDS)
 	_tween.tween_callback(func(): _stub.visible = true)
-	_tween.tween_method(func(s: float): _grow(tab, final_w, s), 0.0, 1.0, GROW_SECONDS) \
-		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	_tween.tween_callback(func():
-		_opening = false
-		_layout_tabs()
-		select_tab(index)
-		emit_signal("tab_settled", index))
+	(
+		_tween
+		. tween_method(func(s: float): _grow(tab, final_w, s), 0.0, 1.0, GROW_SECONDS)
+		. set_trans(Tween.TRANS_CUBIC)
+		. set_ease(Tween.EASE_OUT)
+	)
+	_tween.tween_callback(
+		func():
+			_opening = false
+			_layout_tabs()
+			select_tab(index)
+			emit_signal("tab_settled", index)
+	)
 	_tween.tween_interval(CONNECTING_SECONDS)
-	_tween.tween_callback(func():
-		_set_label(tab, "blank_page")
-		emit_signal("tab_titled", index))
+	_tween.tween_callback(
+		func():
+			_set_label(tab, "blank_page")
+			emit_signal("tab_titled", index)
+	)
 	return Errors.ok(index)
 
 
@@ -516,16 +596,25 @@ func grow_tab(index: int) -> Dictionary:
 	if DisplayServer.get_name() != "headless":
 		_tween.pause()
 		var held := _tween
-		RenderingServer.frame_post_draw.connect(func():
-			if held.is_valid():
-				held.play(), CONNECT_ONE_SHOT)
+		RenderingServer.frame_post_draw.connect(
+			func():
+				if held.is_valid():
+					held.play(),
+			CONNECT_ONE_SHOT
+		)
 	_tween.tween_interval(PRESS_SECONDS)
-	_tween.tween_method(func(s: float): _grow(tab, final_w, s), 0.0, 1.0, GROW_SECONDS) \
-		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	_tween.tween_callback(func():
-		_opening = false
-		_layout_tabs()
-		emit_signal("tab_settled", index))
+	(
+		_tween
+		. tween_method(func(s: float): _grow(tab, final_w, s), 0.0, 1.0, GROW_SECONDS)
+		. set_trans(Tween.TRANS_CUBIC)
+		. set_ease(Tween.EASE_OUT)
+	)
+	_tween.tween_callback(
+		func():
+			_opening = false
+			_layout_tabs()
+			emit_signal("tab_settled", index)
+	)
 	return Errors.ok(index)
 
 
@@ -573,24 +662,30 @@ func close_tab(index: int) -> Dictionary:
 	_fade(tab, 0.0)  # the tint leaves with the tab; the neighbour's fades in when it is selected below
 	_tween = create_tween()
 	# the tab folds back into a stub where it stands: contents fade, then width/height/tint reverse the grow
-	_tween.tween_method(func(s: float): _shrink(tab, from_w, s), 1.0, 0.0, CLOSE_SECONDS) \
-		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-	_tween.tween_callback(func():
-		_tabs.remove_at(index)
-		if tab.fade != null and tab.fade.is_valid():
-			tab.fade.kill()
-		tab.page.queue_free()
-		tab.node.queue_free()
-		for i in _tabs.size():
-			_tabs[i].node.name = "Tab%d" % i
-			if not _tabs[i].fixed:  # a fixed tab's page is the caller's node; its name is theirs
-				_tabs[i].page.name = "Page%d" % i
-		_slide_row_closed()
-		emit_signal("tab_closed", index)
-		if _tabs.is_empty():
-			_active = -1
-		else:
-			select_tab(clamp(index - 1 if index > 0 else 0, 0, _tabs.size() - 1)))
+	(
+		_tween
+		. tween_method(func(s: float): _shrink(tab, from_w, s), 1.0, 0.0, CLOSE_SECONDS)
+		. set_trans(Tween.TRANS_CUBIC)
+		. set_ease(Tween.EASE_IN)
+	)
+	_tween.tween_callback(
+		func():
+			_tabs.remove_at(index)
+			if tab.fade != null and tab.fade.is_valid():
+				tab.fade.kill()
+			tab.page.queue_free()
+			tab.node.queue_free()
+			for i in _tabs.size():
+				_tabs[i].node.name = "Tab%d" % i
+				if not _tabs[i].fixed:  # a fixed tab's page is the caller's node; its name is theirs
+					_tabs[i].page.name = "Page%d" % i
+			_slide_row_closed()
+			emit_signal("tab_closed", index)
+			if _tabs.is_empty():
+				_active = -1
+			else:
+				select_tab(clamp(index - 1 if index > 0 else 0, 0, _tabs.size() - 1))
+	)
 	return Errors.ok(_tabs.size() - 1)
 
 
@@ -615,28 +710,65 @@ func _slide_row_closed() -> void:
 	var x: float = _layout.tab.first_tab_x
 	var slide := create_tween().set_parallel(true)
 	for tab in _tabs:
-		slide.tween_method(func(v: float): _set_tab_width(tab, v), tab.width, w, SLIDE_SECONDS) \
-			.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-		slide.tween_property(tab.node, "position:x", x, SLIDE_SECONDS) \
-			.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		(
+			slide
+			. tween_method(func(v: float): _set_tab_width(tab, v), tab.width, w, SLIDE_SECONDS)
+			. set_trans(Tween.TRANS_CUBIC)
+			. set_ease(Tween.EASE_OUT)
+		)
+		(
+			slide
+			. tween_property(tab.node, "position:x", x, SLIDE_SECONDS)
+			. set_trans(Tween.TRANS_CUBIC)
+			. set_ease(Tween.EASE_OUT)
+		)
 		x += w - (_layout.tab.full_width - _layout.tab_pitch)
-	var stub_x: float = x - (w - (_layout.tab.full_width - _layout.tab_pitch)) + w + _layout.stub.gap_from_tab_right
-	slide.tween_property(_stub, "position:x", stub_x, SLIDE_SECONDS) \
-		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	slide.chain().tween_callback(func():
-		_opening = false
-		_layout_tabs())
+	var stub_x: float = (
+		x - (w - (_layout.tab.full_width - _layout.tab_pitch)) + w + _layout.stub.gap_from_tab_right
+	)
+	(
+		slide
+		. tween_property(_stub, "position:x", stub_x, SLIDE_SECONDS)
+		. set_trans(Tween.TRANS_CUBIC)
+		. set_ease(Tween.EASE_OUT)
+	)
+	slide.chain().tween_callback(
+		func():
+			_opening = false
+			_layout_tabs()
+	)
 
 
 func state() -> Dictionary:
 	var tabs := []
 	for tab in _tabs:
-		tabs.append({"label": tab.label_key, "rect": Rect2(tab.node.position, tab.node.size * tab.node.scale),
-				"page_visible": tab.page.visible, "fixed": tab.fixed, "tint": tab.tint,
-				"truncated": tab.clip.size.x < (tab.label.texture.get_width() if tab.label.texture else 0.0),
-				"close_rect": Rect2() if tab.fixed else Rect2(tab.node.position + tab.close.position, tab.close.size)})
-	return Errors.ok({"count": _tabs.size(), "active": _active, "tabs": tabs, "opening": _opening,
-			"pressed": _pressed, "bar_width": size.x})
+		tabs.append(
+			{
+				"label": tab.label_key,
+				"rect": Rect2(tab.node.position, tab.node.size * tab.node.scale),
+				"page_visible": tab.page.visible,
+				"fixed": tab.fixed,
+				"tint": tab.tint,
+				"truncated":
+				tab.clip.size.x < (tab.label.texture.get_width() if tab.label.texture else 0.0),
+				"close_rect":
+				(
+					Rect2()
+					if tab.fixed
+					else Rect2(tab.node.position + tab.close.position, tab.close.size)
+				)
+			}
+		)
+	return Errors.ok(
+		{
+			"count": _tabs.size(),
+			"active": _active,
+			"tabs": tabs,
+			"opening": _opening,
+			"pressed": _pressed,
+			"bar_width": size.x
+		}
+	)
 
 
 func stub_rect() -> Rect2:
