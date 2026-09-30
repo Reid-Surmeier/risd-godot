@@ -1,14 +1,14 @@
 ## Standalone ephemeral booth composition.
 extends "interface.gd"
 
-const PHOTO = preload("assets/photo-fixture.png")
-const PORTRAIT = preload("assets/sample-portrait.webp")
 const CAMERA_FRAME = preload("assets/camera-frame.png")
 const GLOVES = preload("assets/glove-frame.png")
 const MOTION = preload("assets/fuse-explosion.ogv")
 const MATTE_SHADER = preload("assets/matte.gdshader")
 const EXPRESSION_SHADER = preload("assets/expression.gdshader")
 const LOADING_SHADER = preload("assets/loading.gdshader")
+const FRAME_SHADER = preload("assets/camera-frame.gdshader")
+const PREVIEW_SHADER = preload("assets/preview.gdshader")
 
 var state := "camera"
 var source := "none"
@@ -19,9 +19,10 @@ var captured: Texture2D
 var background: TextureRect
 var picture: TextureRect
 var caption: Label
-var capture_button: Button
-var fixture_button: Button
-var camera_button: Button
+var camera_button: TextureButton
+var frame_material: ShaderMaterial
+var matte_material: ShaderMaterial
+var preview_material: ShaderMaterial
 var cancel_button: Button
 var loader: ColorRect
 var motion: VideoStreamPlayer
@@ -35,8 +36,14 @@ var generation_error := ""
 
 func _ready() -> void:
 	entered_at = _now()
+	picture = _picture(null, Rect2(113, 65, 805, 438))
 	background = _picture(CAMERA_FRAME, Rect2(0, 0, 1024, 650))
-	picture = _picture(null, Rect2(135, 235, 755, 285))
+	frame_material = ShaderMaterial.new()
+	frame_material.shader = FRAME_SHADER
+	matte_material = ShaderMaterial.new()
+	matte_material.shader = MATTE_SHADER
+	preview_material = ShaderMaterial.new()
+	preview_material.shader = PREVIEW_SHADER
 	expression_material = ShaderMaterial.new()
 	expression_material.shader = EXPRESSION_SHADER
 	loader = ColorRect.new()
@@ -51,8 +58,8 @@ func _ready() -> void:
 	motion.size = Vector2(1024, 650)
 	motion.expand = true
 	motion.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	motion.material = ShaderMaterial.new()
-	motion.material.shader = MATTE_SHADER
+	motion.material = matte_material
+	motion.finished.connect(reset)
 	add_child(motion)
 	caption = Label.new()
 	caption.position = Vector2(30, 653)
@@ -60,9 +67,19 @@ func _ready() -> void:
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	caption.add_theme_color_override("font_color", Color(0.18, 0.18, 0.18))
 	add_child(caption)
-	camera_button = _button("Enable camera", Vector2(245, 590), _enable_camera)
-	fixture_button = _button("Try sample photo", Vector2(420, 590), _use_fixture)
-	capture_button = _button("Take picture", Vector2(620, 590), capture)
+	camera_button = TextureButton.new()
+	var icon := AtlasTexture.new()
+	icon.atlas = CAMERA_FRAME
+	icon.region = Rect2(491, 536, 48, 49)
+	camera_button.texture_normal = icon
+	camera_button.position = Vector2(491, 536)
+	camera_button.pressed.connect(func():
+		if source == "camera":
+			capture()
+		else:
+			_enable_camera()
+	)
+	add_child(camera_button)
 	cancel_button = _button("Return to camera", Vector2(790, 590), reset)
 	_sync()
 
@@ -92,7 +109,7 @@ func _button(text: String, pos: Vector2, action: Callable) -> Button:
 func _enable_camera() -> void:
 	generation_error = ""
 	if not OS.has_feature("web"):
-		caption.text = "Open the Web build to enable your camera, or try the sample photo."
+		caption.text = "Open the Web build to enable your camera."
 		return
 	picture.texture = null
 	live_texture = null
@@ -101,17 +118,8 @@ func _enable_camera() -> void:
 	_sync()
 
 
-func _use_fixture() -> void:
-	generation_error = ""
-	if OS.has_feature("web"):
-		JavaScriptBridge.eval("window.booth.stop()")
-	source = "fixture"
-	picture.texture = PHOTO
-	_sync()
-
-
 func capture() -> Dictionary:
-	if state != "camera" or source not in ["fixture", "camera"] or picture.texture == null:
+	if state != "camera" or source != "camera" or picture.texture == null:
 		return {"ok": false, "value": null, "error": "invalid_capture"}
 	captured = picture.texture
 	generation_error = ""
@@ -131,13 +139,13 @@ func reset() -> Dictionary:
 	tracking_mode = "idle"
 	expression_value = Vector4.ZERO
 	pose_value = Vector3.ZERO
-	picture.material = null
+	picture.material = preview_material
 	motion.stop()
 	state = "camera"
 	entered_at = _now()
 	elapsed = 0.0
 	captured = null
-	picture.texture = PHOTO if source == "fixture" else live_texture
+	picture.texture = live_texture
 	_sync()
 	return {"ok": true, "value": null, "error": null}
 
@@ -148,8 +156,6 @@ func _process(delta: float) -> void:
 		match action:
 			"camera":
 				_enable_camera()
-			"fixture":
-				_use_fixture()
 			"capture":
 				capture()
 			"reset":
@@ -157,9 +163,7 @@ func _process(delta: float) -> void:
 	elapsed = _now() - entered_at
 	loader.material.set_shader_parameter("progress", minf(elapsed / 4.0, 1.0))
 	if state == "loading":
-		if source == "fixture" and elapsed >= 4.0:
-			_show_portrait(PORTRAIT)
-		elif source == "camera" and OS.has_feature("web"):
+		if source == "camera" and OS.has_feature("web"):
 			var result = JSON.parse_string(JavaScriptBridge.eval("window.booth.generated()"))
 			if result.mode == "idle":
 				reset()
@@ -178,7 +182,7 @@ func _process(delta: float) -> void:
 				caption.text = generation_error
 	elif state == "portrait":
 		_update_expression(delta)
-		if elapsed >= 10.0:
+		if motion.stream_position >= 10.0:
 			if OS.has_feature("web"):
 				JavaScriptBridge.eval("window.booth.stopTracking()")
 			state = "explosion"
@@ -187,15 +191,13 @@ func _process(delta: float) -> void:
 			picture.texture = null
 			captured = null
 			_sync()
-	elif state == "explosion" and elapsed >= 1.0:
-		reset()
 	if state == "camera" and OS.has_feature("web") and source in ["requesting", "camera"]:
 		frame_clock += delta
 		if frame_clock >= 0.1:
 			frame_clock = 0.0
 			_poll_camera()
 	if OS.has_feature("web"):
-		JavaScriptBridge.eval("window.boothState = %s" % JSON.stringify({"state": state, "source": source, "elapsed": elapsed, "has_capture": captured != null, "fixture_generation": source == "fixture", "message": caption.text, "tracking": tracking_mode, "expression": [expression_value.x, expression_value.y, expression_value.z, expression_value.w]}))
+		JavaScriptBridge.eval("window.boothState = %s" % JSON.stringify({"state": state, "source": source, "elapsed": elapsed, "has_capture": captured != null, "motion_time": motion.stream_position, "motion_playing": motion.is_playing(), "message": caption.text, "tracking": tracking_mode, "expression": [expression_value.x, expression_value.y, expression_value.z, expression_value.w]}))
 
 
 
@@ -258,7 +260,7 @@ func _poll_camera() -> void:
 		live_texture = null
 		picture.texture = null
 		_sync()
-		caption.text = "Camera unavailable (%s). Try again or use the sample photo." % status.error
+		caption.text = "Camera unavailable (%s). Try again." % status.error
 	elif status.mode == "camera":
 		var encoded = JavaScriptBridge.eval("window.booth.frame()")
 		if encoded is String and not encoded.is_empty():
@@ -279,28 +281,29 @@ func _sync() -> void:
 	caption.visible = native
 	loader.visible = state == "loading"
 	camera_button.visible = camera and native
-	fixture_button.visible = camera and native
-	capture_button.visible = camera and native
-	capture_button.disabled = source not in ["fixture", "camera"] or picture.texture == null
+	camera_button.disabled = source == "requesting"
 	cancel_button.visible = not camera and native
 	motion.visible = state in ["portrait", "explosion"]
 	background.visible = state not in ["loading", "explosion"]
 	background.texture = CAMERA_FRAME if camera else GLOVES
+	background.material = frame_material if camera else matte_material
 	picture.visible = state not in ["loading", "explosion"]
-	picture.position = Vector2(135, 235) if camera else Vector2(283, 124)
-	picture.size = Vector2(755, 285) if camera else Vector2(448, 409)
-	picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED if camera else TextureRect.STRETCH_SCALE
-	caption.text = "Compose your picture, then create an ephemeral portrait."
+	picture.position = Vector2(113, 65) if camera else Vector2(283, 124)
+	picture.size = Vector2(805, 438) if camera else Vector2(448, 409)
+	picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED if camera else TextureRect.STRETCH_SCALE
+	if camera:
+		picture.material = preview_material
+	caption.text = "Compose your picture, then press the blue button."
 	if source == "none":
-		caption.text = "Enable your camera or try the sample photo."
+		caption.text = "Press the blue button to enable your camera."
 	elif source == "requesting":
 		caption.text = "Waiting for camera permission…"
 	if camera and not generation_error.is_empty():
 		caption.text = generation_error
 	if state == "loading":
-		caption.text = "Preparing the sample portrait…" if source == "fixture" else "Creating your portrait…"
+		caption.text = "Creating your portrait…"
 	elif state == "portrait":
-		caption.text = "Sample-photo portrait — ten seconds." if source == "fixture" else "Your portrait — ten seconds."
+		caption.text = "Your portrait — ten seconds."
 	elif state == "explosion":
 		caption.text = "Poof! Returning to camera…"
 

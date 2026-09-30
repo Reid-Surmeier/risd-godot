@@ -7,6 +7,7 @@ if rg -n 'ERROR|SCRIPT ERROR' build/import.log; then exit 1; fi
 godot --headless --path . --export-release Web build/web/index.html > build/export.log 2>&1
 if rg -n 'ERROR|SCRIPT ERROR' build/export.log; then exit 1; fi
 cp camera.js controls.js build/web/
+cp assets/camera-frame.png build/web/camera-frame.png
 cp tracking-worker.js build/web/tracking-worker.js
 mkdir -p build/web/tracking
 cp tracking/vision_bundle.js tracking/face_landmarker.task tracking/LICENSE tracking/pins.json build/web/tracking/

@@ -93,7 +93,7 @@ window.booth = (() => {
   function tracking(){return JSON.stringify({...trackingState,face:trackingState.face&&performance.now()-(trackingState.timestamp??0)<500});}
   window.addEventListener('pagehide',()=>{cancelGeneration();stopTracking()});
   let pendingAction='';
-  function action(value){if(['camera','fixture','capture','reset'].includes(value))pendingAction=value;}
+  function action(value){if(['camera','capture','reset'].includes(value))pendingAction=value;}
   function consumeAction(){const value=pendingAction;pendingAction='';return value;}
   return {action, consumeAction, start, stop, frame, status, generate, generated, cancelGeneration, startTracking, stopTracking, tracking};
 })();

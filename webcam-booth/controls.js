@@ -1,13 +1,11 @@
-// Native browser controls keep keyboard access and touch targets usable around the Godot canvas.
+// The original blue icon is the accessible shutter, aligned with the Godot artwork.
 window.addEventListener('DOMContentLoaded',()=>{
- const canvas=document.getElementById('canvas');const display=document.createElement('main');display.id='booth-display';display.setAttribute('aria-label','Webcam portrait booth');canvas.replaceWith(display);display.append(canvas);
- const footer=document.createElement('footer');footer.id='booth-controls';
- const message=document.createElement('p');message.id='booth-message';message.setAttribute('role','status');message.setAttribute('aria-live','polite');message.setAttribute('aria-atomic','true');message.textContent='Loading the booth…';footer.append(message);
+ const canvas=document.getElementById('canvas'),display=document.createElement('main');display.id='booth-display';display.setAttribute('aria-label','Webcam portrait booth');canvas.replaceWith(display);display.append(canvas);
+ const shutter=document.createElement('button');shutter.id='booth-shutter';shutter.type='button';shutter.disabled=true;shutter.setAttribute('aria-label','Enable camera');const icon=document.createElement('span');icon.setAttribute('aria-hidden','true');shutter.append(icon);display.append(shutter);
+ const footer=document.createElement('footer');footer.id='booth-controls';const message=document.createElement('p');message.id='booth-message';message.setAttribute('role','status');message.setAttribute('aria-live','polite');message.textContent='Loading the booth…';footer.append(message);
  const note=document.createElement('p');note.id='booth-photo-note';note.hidden=true;note.textContent='Only the picture you take is sent to OpenRouter. Preview and expression tracking stay on your device.';footer.append(note);
- const row=document.createElement('div');row.className='booth-buttons';footer.append(row);document.body.append(footer);
- const buttons={};for(const [action,label] of [['camera','Enable camera'],['fixture','Try sample photo'],['capture','Take picture'],['reset','Return to camera']]){
-  const button=document.createElement('button');button.type='button';button.textContent=label;button.disabled=true;button.onclick=()=>window.booth.action(action);row.append(button);buttons[action]=button;
- }
+ const cancel=document.createElement('button');cancel.type='button';cancel.textContent='Return to camera';cancel.hidden=true;cancel.onclick=()=>window.booth.action('reset');footer.append(cancel);document.body.append(footer);
+ shutter.onclick=()=>window.booth.action(window.boothState?.source==='camera'?'capture':'camera');
  const style=document.createElement('style');style.textContent=`
  html,body{width:100%;height:100%;background:#fff;color:#292929}
  body{display:grid;grid-template-rows:minmax(0,1fr) auto;grid-template-columns:minmax(0,1fr);justify-items:center;height:100dvh;overflow:auto;touch-action:auto;font-family:Arial,sans-serif}
@@ -16,17 +14,16 @@ window.addEventListener('DOMContentLoaded',()=>{
  #booth-controls{box-sizing:border-box;width:min(100%,900px);padding:0 16px 12px;text-align:center}
  #booth-message{font-size:17px;line-height:1.35;margin:4px 0 12px;min-height:24px}
  #booth-photo-note{font-size:13px;line-height:1.4;margin:0 0 10px;color:#555}
- .booth-buttons{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
- .booth-buttons button{min-width:150px;min-height:44px;padding:10px 16px;font:600 16px Arial,sans-serif;color:#292929;background:linear-gradient(#fff,#eee);border:1px solid #888;border-radius:5px;cursor:pointer;touch-action:manipulation}
- .booth-buttons button:hover{background:#f9ecff}.booth-buttons button:focus-visible{outline:3px solid #7848b8;outline-offset:3px}
- .booth-buttons button:disabled{opacity:.5;cursor:default}.booth-buttons button[hidden]{display:none}
- @media(max-height:420px){#booth-message{font-size:15px;margin:2px 0 6px}.booth-buttons button{min-width:130px}}
+ button{cursor:pointer;touch-action:manipulation}button:focus-visible{outline:3px solid #7848b8;outline-offset:3px}button[hidden]{display:none!important}button:disabled{cursor:default}
+ #booth-shutter{position:absolute;width:48px;height:49px;min-width:44px;min-height:44px;transform:translate(-50%,-50%);border:0;padding:0;background:transparent;border-radius:50%;display:grid;place-items:center}
+ #booth-shutter span{width:48px;height:49px;background:url(camera-frame.png) -491px -536px;clip-path:circle(48%);transform:scale(var(--icon-scale,1));transition:transform .12s,filter .12s;pointer-events:none}
+ #booth-shutter:hover:not(:disabled) span{transform:scale(calc(var(--icon-scale,1)*1.12));filter:brightness(1.12)}
+ #booth-shutter:active:not(:disabled) span{transform:scale(calc(var(--icon-scale,1)*.88))}#booth-shutter:disabled span{opacity:.5}
+ #booth-controls button{min-width:150px;min-height:44px;padding:10px 16px;font:600 16px Arial,sans-serif;color:#292929;background:linear-gradient(#fff,#eee);border:1px solid #888;border-radius:5px}
+ @media(prefers-reduced-motion:reduce){#booth-shutter span{transition:none}}
+ @media(max-height:420px){#booth-message{font-size:15px;margin:2px 0 6px}}
  `;document.head.append(style);
- setInterval(()=>{
-  const state=window.boothState;if(!state)return;
-  const camera=state.state==='camera';note.hidden=!(camera&&state.source==='camera');
-  for(const [action,button] of Object.entries(buttons)){button.hidden=action==='reset'?camera:!camera;button.disabled=false;}
-  buttons.capture.disabled=!['camera','fixture'].includes(state.source);buttons.camera.disabled=state.source==='requesting';
-  if(message.textContent!==state.message)message.textContent=state.message;
- },100);
+ function position(){const width=canvas.clientWidth,height=canvas.clientHeight,scale=Math.min(width/1024,height/700);shutter.style.left=((width-1024*scale)/2+515*scale)+'px';shutter.style.top=((height-700*scale)/2+560.5*scale)+'px';shutter.style.setProperty('--icon-scale',scale);shutter.style.width=Math.max(44,48*scale)+'px';shutter.style.height=Math.max(44,49*scale)+'px'}
+ new ResizeObserver(position).observe(canvas);position();
+ setInterval(()=>{const state=window.boothState;if(!state)return;const camera=state.state==='camera';shutter.hidden=!camera;cancel.hidden=camera;shutter.disabled=state.source==='requesting';shutter.setAttribute('aria-label',state.source==='camera'?'Take picture':'Enable camera');note.hidden=!(camera&&state.source==='camera');if(message.textContent!==state.message)message.textContent=state.message},100);
 });

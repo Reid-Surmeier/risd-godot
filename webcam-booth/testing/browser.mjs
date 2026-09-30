@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
 import {readFile, mkdir, writeFile} from 'node:fs/promises';
 import {resolve, extname} from 'node:path';
+import {execFileSync} from 'node:child_process';
 import {chromium} from '/home/reidsurmeier/.npm-global/lib/node_modules/playwright/index.mjs';
 
 const root = resolve(import.meta.dirname, '../build/web');
@@ -43,16 +44,20 @@ page.on('pageerror',e=>errors.push(e.message));
 page.on('console',m=>{if(/SCRIPT ERROR|^ERROR:/.test(m.text()))errors.push(m.text());});
 const waitState = state=>page.waitForFunction(s=>window.boothState?.state===s,state,{timeout:30000});
 const snapshot = async name=>page.screenshot({path:resolve(evidence,name+'.png')});
-const click=x=>page.getByRole('button',{name:({320:'Enable camera',490:'Try sample photo',690:'Take picture',870:'Return to camera'})[x],exact:true}).click();
+const click=x=>page.getByRole('button',{name:({320:'Enable camera',690:'Take picture',870:'Return to camera'})[x],exact:true}).click();
 const results = [];
 try {
   await page.goto(origin);
   await waitState('camera');
   await snapshot('00-camera-start');
-  await click(490);
-  await page.waitForFunction(()=>window.boothState.source==='fixture');
-  await snapshot('01-camera-fixture');
+  await click(320);
+  await page.waitForFunction(()=>window.boothState.source==='camera');
+  await page.evaluate(()=>{const frame=window.booth.frame,generate=window.booth.generate;window.booth.frame=()=>{window.__rawFrame=frame();return window.__rawFrame};window.booth.generate=image=>{window.__captured={image,raw:window.__rawFrame};return generate(image)}});
+  await snapshot('01-camera-preview');
+  assert.equal(await page.getByRole('button',{name:/sample|demo/i}).count(),0);
+  const session=await context.newCDPSession(page);
   for (let i=0;i<2;i++) {
+    if(i===1)await session.send('Emulation.setCPUThrottlingRate',{rate:4});
     await click(690);
     await waitState('loading');
     await page.evaluate(()=>window.booth.action('capture')); // repeated capture must not start another cycle
@@ -62,25 +67,33 @@ try {
     if(i===0)await snapshot('03-portrait');
     await waitState('explosion');
     const duration=await page.evaluate(start=>performance.now()-start,started);
-    assert(duration >= 9700 && duration <= 10700,`fuse duration ${duration}`);
+    const motionTime=await page.evaluate(()=>window.boothState.motion_time);
+    assert(motionTime>=10&&motionTime<11,`Burst must follow media clock: ${motionTime}`);
+    assert(duration>=9000,`Fuse must finish before cutting: ${duration}`);
     if(i===0){await page.waitForTimeout(350);await snapshot('04-explosion');}
     assert.equal(await page.evaluate(()=>window.boothState.has_capture),false);
     await waitState('camera');
-    assert.equal(await page.evaluate(()=>window.boothState.source),'fixture');
-    results.push({check:'complete fixture loop',iteration:i+1,fuse_ms:duration});
+    assert.equal(await page.evaluate(()=>window.boothState.source),'camera');
+    assert.equal(await page.evaluate(()=>window.boothState.motion_playing),false);
+    results.push({check:'camera loop synchronized to native video, including throttled CPU',iteration:i+1,fuse_ms:duration,burst_media_seconds:motionTime});
   }
+  await session.send('Emulation.setCPUThrottlingRate',{rate:1});
+  const captured=await page.evaluate(()=>window.__captured);
+  await writeFile(resolve(evidence,'capture.png'),Buffer.from(captured.image.split(',')[1],'base64'));
+  await writeFile(resolve(evidence,'capture-raw.jpg'),Buffer.from(captured.raw,'base64'));
+  execFileSync('python3',['-c','from PIL import Image;import sys; a=Image.open(sys.argv[1]).convert("RGB");b=Image.open(sys.argv[2]).convert("RGB");assert a.size==b.size and a.tobytes()==b.tobytes(),"Preview effects must not alter submitted pixels"',resolve(evidence,'capture.png'),resolve(evidence,'capture-raw.jpg')]);
+  results.push({check:'Submitted source pixels equal decoded raw camera frame; retro effect display only',passed:true});
   await snapshot('05-reset');
   await click(690); await waitState('loading'); await click(870); await waitState('camera');
   await page.waitForTimeout(4200);
   assert.equal(await page.evaluate(()=>window.boothState.state),'camera');
   results.push({check:'cancel loading does not revive portrait',passed:true});
-  await click(320);
   await page.waitForFunction(()=>window.boothState.source==='camera',null,{timeout:20000});
   assert.equal(await page.evaluate(()=>JSON.parse(window.booth.status()).mode),'camera');
   await snapshot('06-synthetic-camera');
   await click(690); await waitState('loading'); await waitState('portrait');
   const liveStart=await page.evaluate(()=>performance.now());await waitState('explosion');
-  const liveDuration=await page.evaluate(start=>performance.now()-start,liveStart);assert(liveDuration>=9700&&liveDuration<=10700,`live portrait duration ${liveDuration}`);
+  const liveDuration=await page.evaluate(start=>performance.now()-start,liveStart);assert(liveDuration>=9000&&await page.evaluate(()=>window.boothState.motion_time>=10),`live portrait media synchronization ${liveDuration}`);
   await waitState('camera');
   await page.waitForFunction(()=>window.boothState.source==='camera');
   results.push({check:'synthetic getUserMedia frame transferred into exported Godot; capture/reset',passed:true});
@@ -130,6 +143,6 @@ try {
   results.push({check:'permission denial is recoverable',status:JSON.parse(await deniedPage.evaluate(()=>window.booth.status()))});
   await denied.close();
   assert.deepEqual(errors,[]);
-  await writeFile(resolve(evidence,'browser.json'),JSON.stringify({passed:true,fixture_generation:true,physical_webcam_tested:false,paid_generation_tested:false,explosion_art_pending:false,results,errors},null,2)+'\n');
+  await writeFile(resolve(evidence,'browser.json'),JSON.stringify({passed:true,intercepted_camera_generation:true,physical_webcam_tested:false,paid_generation_tested:false,explosion_art_pending:false,results,errors},null,2)+'\n');
   console.log(JSON.stringify({passed:true,checks:results.length,evidence}));
 } finally {await browser.close();await new Promise(r=>server.close(r));}
