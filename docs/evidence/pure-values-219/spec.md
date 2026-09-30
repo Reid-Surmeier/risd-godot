@@ -31,4 +31,3 @@ Changes to initializer expressions/function bodies/names/public interfaces/error
 ## Verification and authorization
 
 Continuing owner map149 implementation authority, existing integrate-square-164 worktree, one build writer and PR166. Start only after current #217 exact Web/picture/private publication/readback is finished. This named scope replaces #217's exact-initializer-sequence constraint only for independently proven pure-value interleaving; the original evidence remains historical.
-
