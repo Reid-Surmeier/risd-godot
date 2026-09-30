@@ -26,6 +26,8 @@ var trials := [
 	["left_clearance_reverse", Vector3(-0.5, 0.25, -0.8), Vector3(-0.5, 0, 0.32), false],
 	["right_clearance_forward", Vector3(0.5, 0.25, 0.32), Vector3(0.5, 0, -0.8), false],
 	["right_clearance_reverse", Vector3(0.5, 0.25, -0.8), Vector3(0.5, 0, 0.32), false],
+	["outer_toe_floor_forward", Vector3(-0.8, 0.25, 0.4), Vector3(-0.8, 0, 0.5), false],
+	["outer_toe_floor_reverse", Vector3(-0.8, 0.25, 0.5), Vector3(-0.8, 0, 0.4), false],
 ]
 
 func _ready() -> void:

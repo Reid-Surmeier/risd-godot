@@ -1,0 +1,123 @@
+[
+  {
+    "image": "IMG_6380/000490.jpg",
+    "keypoints": 686,
+    "correspondences": 57,
+    "matched_references": [
+      {
+        "ref": "IMG_6380/000484.jpg",
+        "matches": 154
+      },
+      {
+        "ref": "IMG_6380_exit6fps/000027.jpg",
+        "matches": 22
+      },
+      {
+        "ref": "IMG_6380/000511.jpg",
+        "matches": 18
+      },
+      {
+        "ref": "IMG_6380_exit6fps/000032.jpg",
+        "matches": 18
+      },
+      {
+        "ref": "IMG_6380/000509.jpg",
+        "matches": 17
+      },
+      {
+        "ref": "IMG_6380_exit6fps/000026.jpg",
+        "matches": 17
+      },
+      {
+        "ref": "IMG_6386/000142.jpg",
+        "matches": 16
+      },
+      {
+        "ref": "IMG_6380_exit6fps/000061.jpg",
+        "matches": 16
+      },
+      {
+        "ref": "IMG_6380/000329.jpg",
+        "matches": 15
+      },
+      {
+        "ref": "IMG_6380/000402.jpg",
+        "matches": 15
+      },
+      {
+        "ref": "IMG_6380/000247.jpg",
+        "matches": 15
+      }
+    ]
+  },
+  {
+    "image": "IMG_6380/000495.jpg",
+    "keypoints": 900,
+    "correspondences": 56,
+    "matched_references": [
+      {
+        "ref": "IMG_6380/000484.jpg",
+        "matches": 49
+      },
+      {
+        "ref": "IMG_6380_exit6fps/000022.jpg",
+        "matches": 17
+      },
+      {
+        "ref": "IMG_6380_exit6fps/000036.jpg",
+        "matches": 16
+      },
+      {
+        "ref": "IMG_6386/000159.jpg",
+        "matches": 16
+      },
+      {
+        "ref": "IMG_6380/000453.jpg",
+        "matches": 15
+      },
+      {
+        "ref": "IMG_6386/000144.jpg",
+        "matches": 15
+      },
+      {
+        "ref": "IMG_6386/000162.jpg",
+        "matches": 15
+      },
+      {
+        "ref": "IMG_6380_exit6fps/000031.jpg",
+        "matches": 15
+      }
+    ]
+  },
+  {
+    "image": "IMG_6380/000492.jpg",
+    "keypoints": 868,
+    "correspondences": 32,
+    "matched_references": [
+      {
+        "ref": "IMG_6380/000484.jpg",
+        "matches": 115
+      },
+      {
+        "ref": "IMG_6380/000357.jpg",
+        "matches": 15
+      },
+      {
+        "ref": "IMG_6380/000287.jpg",
+        "matches": 15
+      },
+      {
+        "ref": "IMG_6380/000415.jpg",
+        "matches": 15
+      },
+      {
+        "ref": "IMG_6380/000453.jpg",
+        "matches": 15
+      },
+      {
+        "ref": "IMG_6380_exit6fps/000030.jpg",
+        "matches": 15
+      }
+    ]
+  }
+]

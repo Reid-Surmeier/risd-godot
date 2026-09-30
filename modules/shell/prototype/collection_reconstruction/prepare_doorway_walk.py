@@ -11,7 +11,9 @@ from PIL import Image, ImageDraw
 
 parser = argparse.ArgumentParser()
 parser.add_argument('output', type=Path)
-out = parser.parse_args().output
+parser.add_argument('--corridor-extents', action='store_true')
+args = parser.parse_args()
+out = args.output
 out.mkdir(parents=True, exist_ok=False)
 root = Path('/home/reidsurmeier/risd-godot-ingestion/collection-expansion')
 repo = Path(__file__).resolve().parents[4]
@@ -64,6 +66,18 @@ patches = [dict(label='near measured support', color='76658c', vertices=local(ne
            dict(label='threshold interpolation', color='cba96c', vertices=local([outer[0], outer[1], inner[1], inner[0]]).tolist()),
            dict(label='near toe fill', color='cba96c', vertices=local([outer[0], near['support_world'][1], outer[1]]).tolist()),
            dict(label='far visible floor interpolation', color='608b8c', vertices=local([inner[0], inner[1], far_corners[1], far_corners[0]]).tolist())]
+if args.corridor_extents:
+    extents = read('corridor-extents-v1/result.json')
+    assert extents['diagnostic_pass'] and extents['provisional_m_per_unit'] == scale
+    # Keep the frozen floor; project the new left outer toe onto it. The 2cm
+    # measured offset remains in the report rather than inventing a physical step.
+    toe = level_at(np.array(extents['points_world'])[:1], near)[0]
+    polygon = [near['support_world'][0], near['support_world'][1], near['support_world'][2], toe]
+    vertices = local(polygon)
+    edges = np.roll(vertices[:, [0, 2]], -1, axis=0)-vertices[:, [0, 2]]
+    turns = edges[:, 0]*np.roll(edges[:, 1], -1)-edges[:, 1]*np.roll(edges[:, 0], -1)
+    assert np.all(turns > 0) or np.all(turns < 0), 'Fan triangulation requires a convex measured polygon'
+    patches[0] = dict(label='corridor support plus reserved-pixel casing toe', color='76658c', vertices=vertices.tolist())
 geometry = dict(patches=patches, aperture=aperture['opening_local_m'],
     source_sha256=inputs, provisional_m_per_unit=scale, navigation_accepted=False,
     caveat='Bounded doorway traversal only. Gold floor interpolates uncertain levels. '

@@ -131,3 +131,21 @@ provisional scale and visitor remain unchanged. These are bounded prototype
 checks, not whole-room or runtime acceptance. Initial trial failures and an X
 interruption remain recorded; final native/browser checks pass. Existing Muse
 receipts and failed sculpture meshes are unchanged.
+
+
+## Collection casing support — September 30, 04:30 UTC heartbeat
+
+Local COLMAP CUDA / NumPy / Pillow / Godot 4.7.2 / Chrome 154, **$0**, no paid
+calls. RTX 4070 SUPER matching/rendering; pose fitting CPU. Generator:
+`prototype/collection_reconstruction/corridor_extents.py`.
+[Source, annotations, outputs and hashes](../../docs/evidence/collection-reconstruction/heartbeat-20260930T0430/provenance.json)
+include the reserved image, before/after floor plan and inspected GPU renders.
+
+Two decorative doorway outer toes predict reserved pixels within 2.25px.
+Only a small casing-side floor extension is added to the isolated study,
+using the frozen corridor plane; measured toe offsets remain 2–4 provisional
+cm. All 24 native/browser movement and camera checks plus real WASD round
+trips pass. This is bounded study evidence, not complete rooms or surveyed
+floors. Three opposite-door poses fail the unchanged support gate even after
+targeted CUDA matching; they are excluded from geometry. Existing Muse
+receipts and rejected sculpture meshes are unchanged.

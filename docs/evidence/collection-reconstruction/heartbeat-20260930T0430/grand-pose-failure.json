@@ -1,0 +1,22 @@
+{
+  "failed_images": [
+    "IMG_6380/000490.jpg",
+    "IMG_6380/000495.jpg",
+    "IMG_6380/000492.jpg"
+  ],
+  "localized_pose_inliers": {},
+  "requirement": "At least 20 odd-point pose inliers, excluding 20px around landmarks.",
+  "diagnostic_pass": false,
+  "navigation_accepted": false,
+  "source_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/images/IMG_6380/000490.jpg": "8ae8c8b8830b6b5f5e92a5650d3b45b15114524e04484181f9742fcdb88ba26e",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/images/IMG_6380/000495.jpg": "a65d44a791f9c1fbbe143db9c31980331e51b26a6aecdfc9f29822484837ab1c",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/images/IMG_6380/000492.jpg": "04fc80706ba41869e7ad124683d2889c86bf914317cbc63cab103e94e91aef69"
+  },
+  "decision": "Do not triangulate or extend collision from unsupported poses; preserve cached matching."
+}
