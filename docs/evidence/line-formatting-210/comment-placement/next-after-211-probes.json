@@ -1,0 +1,46 @@
+[
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "baseline": "9864f723",
+    "candidate_sha256": "b00c55a049f1d376a46331f7548cec6ce762e98dbd67529c8c4c179d83f0eaff",
+    "normalized_tree": "PASS",
+    "exact_ordered_comments": true,
+    "native_exit": 0,
+    "native_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n",
+    "lint_output": "/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:1056: Error: Max allowed file lines num (1000) exceeded (max-file-lines)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:81: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:82: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:83: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:84: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:85: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:86: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:87: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:88: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:89: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:90: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:91: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:92: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:93: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:94: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:95: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:96: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:97: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:98: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:99: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:100: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:101: Error: Definition out of order in global scope (class-definitions-order)\n/tmp/risd-210-next-native/modules/playground_page/playground_page.gd:102: Error: Definition out of order in global scope (class-definitions-order)\nFailure: 23 problems found\n",
+    "source_applied": false
+  },
+  {
+    "file": "modules/playground_page/playtest/harness.gd",
+    "baseline": "9864f723",
+    "candidate_sha256": "96621a16b41612b274f1433ef5ba4f163b4feaca6aacfaff1a33befb7c6f3ece",
+    "normalized_tree": "PASS",
+    "exact_ordered_comments": false,
+    "native_exit": 0,
+    "native_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n",
+    "lint_output": "Success: no problems found\n",
+    "source_applied": false
+  },
+  {
+    "file": "modules/sketchbook/playtest/harness.gd",
+    "baseline": "9864f723",
+    "candidate_sha256": "af90c6c02ba8652aba46ce82a33d3f453726e8b6965b336acc4a4147e3785aaf",
+    "normalized_tree": "PASS",
+    "exact_ordered_comments": false,
+    "native_exit": 0,
+    "native_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n",
+    "lint_output": "Success: no problems found\n",
+    "source_applied": false
+  },
+  {
+    "file": "modules/playground_page/square_pages.gd",
+    "baseline": "9864f723",
+    "candidate_sha256": "8745697828b9149493d5520fd48a76c7c84bdb900c166225022f556c4682540a",
+    "normalized_tree": "PASS",
+    "exact_ordered_comments": true,
+    "native_exit": 1,
+    "native_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSCRIPT ERROR: Parse Error: Unindent doesn't match the previous indentation level.\n          at: GDScript::reload (/tmp/risd-210-next-native/modules/playground_page/square_pages.gd:276)\nERROR: Failed to load script \"/tmp/risd-210-next-native/modules/playground_page/square_pages.gd\" with error \"Parse error\".\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\n",
+    "lint_output": "Success: no problems found\n",
+    "source_applied": false
+  }
+]
