@@ -1,0 +1,219 @@
+{
+  "source_url": "https://www.youtube.com/watch?v=EwwW4Rk1wMU",
+  "title": "Animal Crossing [57] GameCube Longplay pt.1",
+  "channel": "Mutch Games",
+  "copyright": "Nintendo game imagery; Mutch Games gameplay upload",
+  "source_encoded_size": [
+    1280,
+    720
+  ],
+  "source_encoded_fps": 30,
+  "scratch_source_clip": "/tmp/acgc-youtube-mutch-1005-1035.mp4",
+  "source_time_range": [
+    1005,
+    1035
+  ],
+  "clip_sha256": "061a0c922b359d60e0c4d51afc22a854427b5c5290ec0705febb87f1aece4026",
+  "exact_game_region_revision": null,
+  "star_hat_match": false,
+  "animation_state_verified": false,
+  "recommended_view_windows": [
+    {
+      "name": "front",
+      "absolute_seconds": [
+        1015.0,
+        1015.8
+      ],
+      "clear_front_core_seconds": [
+        1015.2,
+        1015.6
+      ],
+      "limitations": [
+        "initial tree occlusion",
+        "turn at end",
+        "not a0.8second fixed-yaw cycle"
+      ]
+    },
+    {
+      "name": "profile",
+      "absolute_seconds": [
+        1016.15,
+        1016.95
+      ],
+      "near_profile_core_seconds": [
+        1016.3,
+        1016.45
+      ],
+      "limitations": [
+        "entry and exit turns",
+        "not a0.8second fixed-yaw cycle",
+        "game camera elevation near45degrees, not the15degree prototype profile"
+      ]
+    }
+  ],
+  "selected_frames": [
+    {
+      "name": "front-1015.200",
+      "source_seconds": 1015.2,
+      "source_native_frame_index": 30456,
+      "crop_xyxy_px": [
+        790,
+        95,
+        1050,
+        355
+      ],
+      "manual_silhouette_bbox_xyxy_px": [
+        825,
+        142,
+        993,
+        295
+      ],
+      "bbox_uncertainty_px": 6,
+      "crop_file": "/tmp/acgc-youtube-comparison/front-1015.200.png",
+      "source_frame_file": "/tmp/acgc-youtube-frames/exact-side/frame-007.png",
+      "note": "Original1280x720 pixels; screen-space rectangle, no aspect correction or AI transformation. Profile turning; bbox approximate, source has motion ghosting."
+    },
+    {
+      "name": "front-1015.400",
+      "source_seconds": 1015.4,
+      "source_native_frame_index": 30462,
+      "crop_xyxy_px": [
+        800,
+        235,
+        1060,
+        495
+      ],
+      "manual_silhouette_bbox_xyxy_px": [
+        835,
+        270,
+        1008,
+        408
+      ],
+      "bbox_uncertainty_px": 6,
+      "crop_file": "/tmp/acgc-youtube-comparison/front-1015.400.png",
+      "source_frame_file": "/tmp/acgc-youtube-frames/exact-side/frame-013.png",
+      "note": "Original1280x720 pixels; screen-space rectangle, no aspect correction or AI transformation. Profile turning; bbox approximate, source has motion ghosting."
+    },
+    {
+      "name": "front-1015.600",
+      "source_seconds": 1015.6,
+      "source_native_frame_index": 30468,
+      "crop_xyxy_px": [
+        810,
+        320,
+        1070,
+        580
+      ],
+      "manual_silhouette_bbox_xyxy_px": [
+        845,
+        355,
+        1025,
+        500
+      ],
+      "bbox_uncertainty_px": 6,
+      "crop_file": "/tmp/acgc-youtube-comparison/front-1015.600.png",
+      "source_frame_file": "/tmp/acgc-youtube-frames/exact-side/frame-019.png",
+      "note": "Original1280x720 pixels; screen-space rectangle, no aspect correction or AI transformation. Profile turning; bbox approximate, source has motion ghosting."
+    },
+    {
+      "name": "profile-1016.300",
+      "source_seconds": 1016.3,
+      "source_native_frame_index": 30489,
+      "crop_xyxy_px": [
+        410,
+        250,
+        670,
+        510
+      ],
+      "manual_silhouette_bbox_xyxy_px": [
+        465,
+        281,
+        621,
+        445
+      ],
+      "bbox_uncertainty_px": 6,
+      "crop_file": "/tmp/acgc-youtube-comparison/profile-1016.300.png",
+      "source_frame_file": "/tmp/acgc-youtube-frames/exact-side/frame-040.png",
+      "note": "Original1280x720 pixels; screen-space rectangle, no aspect correction or AI transformation. Profile turning; bbox approximate, source has motion ghosting."
+    },
+    {
+      "name": "profile-1016.433",
+      "source_seconds": 1016.4333333333333,
+      "source_native_frame_index": 30493,
+      "crop_xyxy_px": [
+        410,
+        240,
+        670,
+        500
+      ],
+      "manual_silhouette_bbox_xyxy_px": [
+        465,
+        274,
+        617,
+        426
+      ],
+      "bbox_uncertainty_px": 6,
+      "crop_file": "/tmp/acgc-youtube-comparison/profile-1016.433.png",
+      "source_frame_file": "/tmp/acgc-youtube-frames/exact-side/frame-044.png",
+      "note": "Original1280x720 pixels; screen-space rectangle, no aspect correction or AI transformation. Profile turning; bbox approximate, source has motion ghosting."
+    },
+    {
+      "name": "profile-1016.567",
+      "source_seconds": 1016.5666666666667,
+      "source_native_frame_index": 30497,
+      "crop_xyxy_px": [
+        485,
+        220,
+        745,
+        480
+      ],
+      "manual_silhouette_bbox_xyxy_px": [
+        527,
+        255,
+        693,
+        405
+      ],
+      "bbox_uncertainty_px": 6,
+      "crop_file": "/tmp/acgc-youtube-comparison/profile-1016.567.png",
+      "source_frame_file": "/tmp/acgc-youtube-frames/exact-side/frame-048.png",
+      "note": "Original1280x720 pixels; screen-space rectangle, no aspect correction or AI transformation. Profile turning; bbox approximate, source has motion ghosting."
+    }
+  ],
+  "empirical_cadence": {
+    "new_dust_puff_appearance_seconds": [
+      1016.2,
+      1016.4333333333333,
+      1016.6666666666666
+    ],
+    "timestamp_uncertainty_seconds": 0.03333333333333333,
+    "alternating_event_interval_seconds": 0.23333333333333334,
+    "full_cycle_estimate_seconds": 0.4666666666666667,
+    "conservative_full_cycle_range_seconds": [
+      0.4,
+      0.5333333333333333
+    ],
+    "front_same_screen_shoe_pose_times_seconds": [
+      1015.2666666666667,
+      1015.6666666666666
+    ],
+    "front_estimate_seconds": 0.4,
+    "front_confidence": "low; changing yaw, blurred small shoes",
+    "method": "Manual native30fps frame inspection, not an automated fit. Dust appearance is a contact-event proxy; old puffs persist and source capture has visible motion ghosting.",
+    "not_verified": [
+      "anatomicalfootlabel",
+      "exactsolecontact",
+      "underlyinggameFPS",
+      "WALK_RUN_DASHenum"
+    ]
+  },
+  "source_reference_events": {
+    "walk_run_authored_effect_phases": {
+      "Left": 0,
+      "Right": 0.5
+    },
+    "walk_run_on_normal_grass": "no generic dust",
+    "dash_normal_spring_grass": "eEC_EFFECT_DUST",
+    "derived_target_contact_names": "must use measured target contacts if retarget flips minimumsole foot; do not reinterpret source handedness"
+  },
+  "source_camera_recommendation": "45degreesdown20degreeverticalFOVsourceinitializer; profilepreviewshoulduse45ratherthan15down; original4:3vscapture16:9maydistortprojection;compareheightnormalizedanddiscloselimits"
+}
