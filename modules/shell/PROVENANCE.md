@@ -287,3 +287,23 @@ Isolated Shell retains four prior failures; repository checks pass with eight
 ObjectDB leak warnings. Ten originals and completed models/holdouts preserved.
 Muse receipts and rejected sculpture meshes unchanged. No runtime/Viewer edit,
 production integration, paid generation or ticket closure.
+
+## Collection withheld floor transfer — September 30, 12:30 UTC heartbeat
+
+Local NumPy/pycolmap/Pillow CPU diagnostics and Godot 4.7.2 / Chrome 154
+on D3D12 RTX 4070 SUPER; **$0**, zero paid calls or new reconstruction sweeps.
+[Sources, results and hashes](../../docs/evidence/collection-reconstruction/heartbeat-20260930T1230/provenance.json).
+Recovered the interrupted 09:00 strict-model cross-view/withheld-point evidence;
+its original files and frozen source models remain unchanged. New generator
+option: `floor_holdout.py --photometric`, preserving the upper-image-only pose
+and reserved floor-feature exclusions.
+
+Far-plane image transfer in reserved 246 distinguishes the fixed ±5% camera-depth
+normal offsets, but the near patch has no common visible pixels there. Reserved
+506 has weaker discrimination: shifted controls score better for both patches.
+No plane optimization, retuning, collision extension or physical acceptance.
+Subpixel sampling, plane projection assertions and exact previous-result replay
+pass. Historical bounded native/browser walk passes all 24 engine checks and
+real WASD round trips; Shell retains four known failures. Museum topology, scale,
+whole-room collisions, sculpture coverage and bake remain open. No runtime/Viewer
+edit, production integration, ticket closure or new paid generation.

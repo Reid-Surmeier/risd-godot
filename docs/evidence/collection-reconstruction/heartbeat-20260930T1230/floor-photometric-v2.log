@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/floor_holdout.py", line 153, in <module>
+    assert common.sum() >= 100, str((name, patch['patch'], qc.width, qc.height,
+           ^^^^^^^^^^^^^^^^^^^
+AssertionError: ('IMG_6380/000246.jpg', 'near', 1280, 720, [(0.0, 145), (-0.01, 287), (0.01, 47), (-0.05, 1128), (0.05, 0)], array([1269.19958208, -431.71020764]), array([2257.55338537,  942.05946815]))

@@ -1,0 +1,18 @@
+{
+  "baseline_replay_identical": true,
+  "photometric_pose_floor_results_identical": true,
+  "frozen_inputs_intact": true,
+  "python_syntax": true,
+  "viewer_diff_empty": true,
+  "paid_calls": 0,
+  "shell_failures": [
+    "launch_page_area_white",
+    "tenant_fills_page_area",
+    "flowers_page_is_the_grey_tenant",
+    "resize_refits_bar_and_tenant"
+  ],
+  "repository_check_pass": true,
+  "native_walk_pass": true,
+  "browser_walk_pass": true,
+  "original_video_hashes_verified": 10
+}

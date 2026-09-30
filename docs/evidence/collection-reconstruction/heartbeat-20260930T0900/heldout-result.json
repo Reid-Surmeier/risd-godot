@@ -1,0 +1,115 @@
+{
+  "rows": [
+    {
+      "image": "IMG_6380/000246.jpg",
+      "pose_fit_features": 220,
+      "patches": [
+        {
+          "patch": "near",
+          "observations": 0,
+          "unique_points": 0,
+          "point_ids": [],
+          "errors_px": []
+        },
+        {
+          "patch": "far",
+          "observations": 1,
+          "unique_points": 1,
+          "point_ids": [
+            12318
+          ],
+          "errors_px": [
+            1.6334161021687568
+          ],
+          "p50_p90_px": [
+            1.6334161021687568,
+            1.6334161021687568
+          ],
+          "fraction_below8px": 1.0
+        }
+      ],
+      "supported": false,
+      "pose_inliers": 186,
+      "status": "diagnostic only; report all floor matches without outlier trimming"
+    },
+    {
+      "image": "IMG_6380/000506.jpg",
+      "pose_fit_features": 134,
+      "patches": [
+        {
+          "patch": "near",
+          "observations": 0,
+          "unique_points": 0,
+          "point_ids": [],
+          "errors_px": []
+        },
+        {
+          "patch": "far",
+          "observations": 2,
+          "unique_points": 2,
+          "point_ids": [
+            12318,
+            14326
+          ],
+          "errors_px": [
+            0.8241809304364269,
+            2.7823619100805472
+          ],
+          "p50_p90_px": [
+            1.8032714202584872,
+            2.586543812116135
+          ],
+          "fraction_below8px": 1.0
+        }
+      ],
+      "supported": false,
+      "pose_inliers": 116,
+      "status": "diagnostic only; report all floor matches without outlier trimming"
+    },
+    {
+      "image": "IMG_6380/000516.jpg",
+      "pose_fit_features": 38,
+      "patches": [
+        {
+          "patch": "near",
+          "observations": 0,
+          "unique_points": 0,
+          "point_ids": [],
+          "errors_px": []
+        },
+        {
+          "patch": "far",
+          "observations": 0,
+          "unique_points": 0,
+          "point_ids": [],
+          "errors_px": []
+        }
+      ],
+      "supported": false,
+      "pose_inliers": 28,
+      "status": "diagnostic only; report all floor matches without outlier trimming"
+    }
+  ],
+  "inputs_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/strict-depth-floor-v1/result.json": "38ca8ac91e4651654ce095d85c5ad1785e184002294a0b4c6a4c6efdab724b30",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-strict-floor-v1/sparse/points3D.bin": "b64d839f491979704208eaa5500509b1520ba3b15263774aaf93d30cf491ab9b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-strict-floor-v1/sparse/frames.bin": "d28dd29b8c4934a8f3544f940574501f10141a22e918751921c39f2c77297fdb",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-strict-floor-v1/sparse/images.bin": "04a6aa6136bf2042718e18b2ea2b8bebe23a285bb33f443b4c089a0e7f0e70bc",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-strict-floor-v1/sparse/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-strict-floor-v1/sparse/cameras.bin": "c22290a859d9aa5e77db9f6e1901174514188945285355ebfa45a16360f69717",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/survey-2fps/IMG_6380/000246.jpg": "f2b05eb8ce1694279c37df8ae5497e88546f572364e269b422f6566f74fe0dfd",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/survey-2fps/IMG_6380/000506.jpg": "8a0af3a848e6ee0a90f72d99eb5dc35cf2fffea61ad61ae8ef456f5f4f576bfd",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/survey-2fps/IMG_6380/000516.jpg": "f804468d6430ede24735db99b91345301387bf228f885aa5f37105ebf4f61564"
+  },
+  "navigation_accepted": false,
+  "cost_usd": 0,
+  "pose_fit_upright_y_below": 450,
+  "pose_fit_point_parity": "odd",
+  "floor_check_point_parity": "even",
+  "caveat": "Withheld query pixels and floor features excluded from pose fit. Plane fixed from training depth; no query floor refit. Cached tentative matches are not verified identity. Same-video cameras, shared reconstruction and inherited intrinsics remain correlated. 8px is a prior diagnostic gate, not physical planarity, scale or collision acceptance."
+}
