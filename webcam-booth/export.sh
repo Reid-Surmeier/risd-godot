@@ -15,6 +15,6 @@ python3 - <<'PY'
 from pathlib import Path
 p=Path('build/web/index.html')
 text=p.read_text().replace('</head>', '<script src="camera.js"></script><script src="controls.js"></script></head>')
-text=text.replace('canvasResizePolicy":2','canvasResizePolicy":1').replace('user-scalable=no, ','')
+text=text.replace('user-scalable=no, ','')
 p.write_text(text)
 PY

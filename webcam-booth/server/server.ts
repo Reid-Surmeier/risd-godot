@@ -39,7 +39,6 @@ async function provider(capture:Capture):Promise<Portrait>{
   await writeFile(join(home,'recipe.json'),JSON.stringify({procedure:'edit',plan:`${relative}/plan.json`,attempt:'001'}));
   const call=async(args:string[])=>JSON.parse((await execute(tool,args,{maxBuffer:4_000_000,timeout:660_000})).stdout);
   const prepared=await call(['prepare','--application',root,'--recipe',`${relative}/recipe.json`,'--unit-cost','0.01','--budget','0.01']);
-  await call(['image','--application',root,'--objective',prepared.objective]);
   const cents=(cost:unknown)=>typeof cost==='string'&&/^\d+(?:\.\d+)?$/.test(cost)?Math.ceil(Number(cost)*100):undefined;
   let result;
   try{result=await call(['image','--application',root,'--objective',prepared.objective,'--execute']);}
