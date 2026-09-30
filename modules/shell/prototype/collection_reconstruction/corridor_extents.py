@@ -1,4 +1,4 @@
-"""Throwaway #182: reserve two far doorway toes before triangulating corridor extent."""
+"""Throwaway #182: reserve casing pixels before triangulating local landmarks."""
 import argparse
 import hashlib
 import json
@@ -17,6 +17,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--grand', action='store_true')
 parser.add_argument('--grand-registered', action='store_true')
 parser.add_argument('--grand-return', action='store_true')
+parser.add_argument('--grand-header', action='store_true')
 args = parser.parse_args()
 OUT = ROOT/('corridor-grand-extents-v1' if args.grand else 'corridor-extents-v1')
 # Upright 720x1280 source pixels. Query marks are frozen before any projection.
@@ -51,6 +52,15 @@ if args.grand_return:
         'IMG_6380/000210.jpg': [[197, 1039]],
     }
     LABELS = ['grand-white-exterior-casing-toe']
+if args.grand_header:
+    assert not (args.grand or args.grand_registered or args.grand_return)
+    OUT = ROOT/'grand-casing-header-v1'
+    PICKS = {
+        'IMG_6380/000202.jpg': [[533, 406]],
+        'IMG_6380/000205.jpg': [[122, 105]],
+        'IMG_6380/000203.jpg': [[445, 243]],
+    }
+    LABELS = ['grand-white-inner-header-left']
 TRAIN = list(PICKS)[:2]
 QUERY = list(PICKS)[2]
 
@@ -160,6 +170,11 @@ if args.grand_registered or args.grand_return:
         'shows the opposite casing face and is excluded rather than asserted to match. '
         'One toe cannot define an aperture, floor polygon or collision extension. '
         'This is the corridor casing at the Grand Gallery end, not the adjacent blue-room doorway.')
+if args.grand_header:
+    report['caveat'] = ('Inner header corner only; no opposite jamb or full aperture. '
+        'Query pixels withheld from triangulation, but camera poses are correlated in the same video. '
+        'Plane distance is a header diagnostic, not a floor measurement. '
+        'Pick sensitivity omits pose/scale error. Do not tune evaluated pixels or extend collision.')
 assert all(sha(Path(p)) == digest for p, digest in inputs.items())
 (OUT/'result.json').write_text(json.dumps(report, indent=2)+'\n')
 print(json.dumps(report, indent=2))

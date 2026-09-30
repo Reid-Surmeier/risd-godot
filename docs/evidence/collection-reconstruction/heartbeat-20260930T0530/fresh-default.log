@@ -1,0 +1,89 @@
+I20260930 01:35:21.562975 133209530562240 feature_extraction.cc:498] === Feature extraction ===
+I20260930 01:35:21.563738 133209455027904 sift.cc:758] Creating SIFT GPU feature extractor
+I20260930 01:35:21.780092 133209446635200 feature_extraction.cc:270] Processed file [1/3]
+I20260930 01:35:21.780125 133209446635200 feature_extraction.cc:273]   Name:            IMG_6380/grandreturn-000024.jpg
+I20260930 01:35:21.780128 133209446635200 feature_extraction.cc:282]   Dimensions:      1280 x 720
+I20260930 01:35:21.780130 133209446635200 feature_extraction.cc:285]   Camera:          #9 - SIMPLE_RADIAL
+I20260930 01:35:21.780133 133209446635200 feature_extraction.cc:289]   Focal Length:    1536.00px
+I20260930 01:35:21.780140 133209446635200 feature_extraction.cc:294]   Features:        187 (SIFT)
+I20260930 01:35:21.794546 133209446635200 feature_extraction.cc:270] Processed file [2/3]
+I20260930 01:35:21.794565 133209446635200 feature_extraction.cc:273]   Name:            IMG_6380/grandreturn-000026.jpg
+I20260930 01:35:21.794568 133209446635200 feature_extraction.cc:282]   Dimensions:      1280 x 720
+I20260930 01:35:21.794570 133209446635200 feature_extraction.cc:285]   Camera:          #9 - SIMPLE_RADIAL
+I20260930 01:35:21.794573 133209446635200 feature_extraction.cc:289]   Focal Length:    1536.00px
+I20260930 01:35:21.794578 133209446635200 feature_extraction.cc:294]   Features:        132 (SIFT)
+I20260930 01:35:21.810229 133209446635200 feature_extraction.cc:270] Processed file [3/3]
+I20260930 01:35:21.810245 133209446635200 feature_extraction.cc:273]   Name:            IMG_6380/grandreturn-000028.jpg
+I20260930 01:35:21.810248 133209446635200 feature_extraction.cc:282]   Dimensions:      1280 x 720
+I20260930 01:35:21.810250 133209446635200 feature_extraction.cc:285]   Camera:          #9 - SIMPLE_RADIAL
+I20260930 01:35:21.810253 133209446635200 feature_extraction.cc:289]   Focal Length:    1536.00px
+I20260930 01:35:21.810257 133209446635200 feature_extraction.cc:294]   Features:        323 (SIFT)
+I20260930 01:35:21.821527 133209530562240 timer.cc:90] Elapsed time: 0.004 [minutes]
+I20260930 01:35:21.865596 133209530562240 feature_matching.cc:196] === Feature matching & geometric verification ===
+I20260930 01:35:21.865706 133209446635200 feature_matching_utils.cc:79] Bind FeatureMatcherWorker to GPU device 0
+I20260930 01:35:21.869515 133209446635200 sift.cc:1679] Creating SIFT GPU feature matcher
+I20260930 01:35:21.872366 133209530562240 pairing.cc:905] Importing image pairs...
+I20260930 01:35:21.873910 133209530562240 pairing.cc:938] Processing block [1/2]
+I20260930 01:35:22.255675 133209530562240 feature_matching.cc:218] in 0.382s
+I20260930 01:35:22.255707 133209530562240 pairing.cc:938] Processing block [2/2]
+I20260930 01:35:22.302503 133209530562240 feature_matching.cc:218] in 0.047s
+I20260930 01:35:22.302530 133209530562240 timer.cc:90] Elapsed time: 0.007 [minutes]
+{
+  "rows": [
+    {
+      "image": "IMG_6380/grandreturn-000024.jpg",
+      "unique_tracked_points": 0,
+      "supported": false,
+      "rejection": "IMG_6380/grandreturn-000024.jpg: insufficient pose-fit correspondences"
+    },
+    {
+      "image": "IMG_6380/grandreturn-000026.jpg",
+      "unique_tracked_points": 0,
+      "supported": false,
+      "rejection": "IMG_6380/grandreturn-000026.jpg: insufficient pose-fit correspondences"
+    },
+    {
+      "image": "IMG_6380/grandreturn-000028.jpg",
+      "unique_tracked_points": 5,
+      "supported": false,
+      "rejection": "IMG_6380/grandreturn-000028.jpg: insufficient pose-fit correspondences"
+    }
+  ],
+  "source_sha256": {
+    "sparse/0/points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "sparse/0/frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "sparse/0/images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "annotations": {
+    "picks": {
+      "24": [
+        312,
+        1021
+      ],
+      "26": [
+        548,
+        1036
+      ],
+      "28": [
+        0,
+        0
+      ]
+    },
+    "reserved": 26,
+    "training": [
+      203,
+      24
+    ],
+    "excluded_from_triangulation": [
+      28
+    ],
+    "caveat": "Blurred toe picks; frame 28 turns toward adjacent blue room."
+  },
+  "provider": "local COLMAP CUDA RTX4070SUPER; absolute pose CPU",
+  "cost_usd": 0,
+  "geometry_accepted": false,
+  "navigation_accepted": false,
+  "caveat": "Same-video reference diagnostics; frozen model/holdout unchanged. No new floor or collision."
+}

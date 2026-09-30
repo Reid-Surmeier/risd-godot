@@ -1,0 +1,59 @@
+{
+  "rows": [
+    {
+      "image": "IMG_6380/grandreturn-000024.jpg",
+      "unique_tracked_points": 0,
+      "supported": false,
+      "rejection": "IMG_6380/grandreturn-000024.jpg: insufficient pose-fit correspondences"
+    },
+    {
+      "image": "IMG_6380/grandreturn-000026.jpg",
+      "unique_tracked_points": 0,
+      "supported": false,
+      "rejection": "IMG_6380/grandreturn-000026.jpg: insufficient pose-fit correspondences"
+    },
+    {
+      "image": "IMG_6380/grandreturn-000028.jpg",
+      "unique_tracked_points": 5,
+      "supported": false,
+      "rejection": "IMG_6380/grandreturn-000028.jpg: insufficient pose-fit correspondences"
+    }
+  ],
+  "source_sha256": {
+    "sparse/0/points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "sparse/0/frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "sparse/0/images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "annotations": {
+    "picks": {
+      "24": [
+        312,
+        1021
+      ],
+      "26": [
+        548,
+        1036
+      ],
+      "28": [
+        0,
+        0
+      ]
+    },
+    "reserved": 26,
+    "training": [
+      203,
+      24
+    ],
+    "excluded_from_triangulation": [
+      28
+    ],
+    "caveat": "Blurred toe picks; frame 28 turns toward adjacent blue room."
+  },
+  "provider": "local COLMAP CUDA RTX4070SUPER; absolute pose CPU",
+  "cost_usd": 0,
+  "geometry_accepted": false,
+  "navigation_accepted": false,
+  "caveat": "Same-video reference diagnostics; frozen model/holdout unchanged. No new floor or collision."
+}

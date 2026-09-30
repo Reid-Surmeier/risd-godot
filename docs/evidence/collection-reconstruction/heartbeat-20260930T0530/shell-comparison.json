@@ -1,0 +1,19 @@
+{
+  "previous": [
+    "launch_page_area_white",
+    "clicked_tab_shows_pressed_tint_within_100ms",
+    "dip_reported_then_released",
+    "tenant_fills_page_area",
+    "flowers_page_is_the_grey_tenant",
+    "resize_refits_bar_and_tenant"
+  ],
+  "current": [
+    "launch_page_area_white",
+    "tenant_fills_page_area",
+    "flowers_page_is_the_grey_tenant",
+    "collection_tab_dips_on_click",
+    "resize_refits_bar_and_tenant"
+  ],
+  "new_to_earlier_failure_names": [],
+  "runtime_files_changed": false
+}

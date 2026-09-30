@@ -1,0 +1,25 @@
+{
+  "picks": {
+    "24": [
+      312,
+      1021
+    ],
+    "26": [
+      548,
+      1036
+    ],
+    "28": [
+      0,
+      0
+    ]
+  },
+  "reserved": 26,
+  "training": [
+    203,
+    24
+  ],
+  "excluded_from_triangulation": [
+    28
+  ],
+  "caveat": "Blurred toe picks; frame 28 turns toward adjacent blue room."
+}

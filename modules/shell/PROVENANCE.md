@@ -165,3 +165,18 @@ GPU reference samples are prepared, with the original withheld-time exclusion.
 Existing bounded traversal passes all 24 native/Chrome checks and real WASD
 round trips. Shell remains failing (six GPU checks, prior failure names).
 Existing Muse receipts and rejected sculpture meshes are unchanged.
+
+## Collection Grand-return rejection — September 30, 05:30 UTC heartbeat
+
+Local COLMAP CUDA / NumPy / Pillow / Godot 4.7.2 / Chrome 154; **$0**, no paid
+calls. RTX 4070 SUPER matching/native/browser rendering; absolute pose CPU.
+[Sources, annotations, outputs and hashes](../../docs/evidence/collection-reconstruction/heartbeat-20260930T0530/provenance.json).
+
+Fresh return samples 24/26/28 remain unsupported (0/0/5 tracked points), even
+with verified frozen camera #5 at 594.33px. Default-camera and assertion-failed
+trials remain recorded. AUTO camera mode preserves the existing calibration;
+PER_FOLDER replaces it. New header corner predicts reserved pixels at 8.230px
+and fails the unchanged 8px gate. No geometry or collision extension accepted.
+All 24 native/Chrome doorway checks and real WASD round trips pass; Shell has
+five previously observed failures. Native timings excluded due to overlap.
+Existing Muse receipts and rejected sculpture meshes remain unchanged.
