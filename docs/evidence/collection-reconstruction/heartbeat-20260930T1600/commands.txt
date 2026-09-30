@@ -1,0 +1,13 @@
+# From this prototype checkout; completed native outputs reject overwrite.
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/floor_holdout.py --output strict-floor-wall-poses-native-v1 --queries IMG_6380/000246.jpg IMG_6380/000506.jpg --serialize-poses
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/native_floor_tracks.py docs/evidence/collection-reconstruction/heartbeat-20260930T1600/native-selection.json /home/reidsurmeier/risd-godot-ingestion/collection-expansion/native-floor-tracks-v1
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python docs/evidence/collection-reconstruction/heartbeat-20260930T1600/check_native.py
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/floor_holdout.py --output strict-floor-native-combined-v1 --queries IMG_6380/000246.jpg IMG_6380/000506.jpg --triangle docs/evidence/collection-reconstruction/heartbeat-20260930T1600/combined-triangle.json --photometric --serialize-poses
+# Native images reused from previous full-stream NVDEC/scale_cuda run, not decoded again.
+# Pose/source/image hashes in wall-poses.json, result.json, combined-result.json and provenance.json.
+mkdir -p /tmp/collection-doorway-native-20260930T1600
+env -u LIBGL_ALWAYS_SOFTWARE DISPLAY=:0 GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA godot --path /home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-walk-v7 --display-driver x11 --rendering-method gl_compatibility -- --selfcheck --out=/tmp/collection-doorway-native-20260930T1600
+env -u LIBGL_ALWAYS_SOFTWARE GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA node modules/shell/prototype/collection_reconstruction/doorway_walk_browser.cjs https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T0430/walk/ /tmp/collection-doorway-browser-20260930T1600 1100
+env -u LIBGL_ALWAYS_SOFTWARE DISPLAY=:0 GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA scripts/check.sh
+env -u LIBGL_ALWAYS_SOFTWARE GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA GODOT_DISPLAY=:0 scripts/playtest.sh shell /tmp/collection-shell-20260930T1600
+git diff --check

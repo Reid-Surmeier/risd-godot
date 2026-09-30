@@ -1,0 +1,20 @@
+
+
+## Collection native floor coverage — September 30, 16:00 UTC heartbeat
+
+Local pycolmap CUDA / NumPy / Pillow / Godot 4.7.2 / Chrome 154 on RTX 4070 SUPER;
+**$0**, no paid calls. Four existing native frames, frozen strict sparse model
+and upper-wall-only reserved poses; CPU pose/ray algebra. Generator:
+`prototype/collection_reconstruction/native_floor_tracks.py`.
+[Inputs, commands, outputs and hashes](../../docs/evidence/collection-reconstruction/heartbeat-20260930T1600/provenance.json).
+
+One native interior-floor candidate predicts reserved 506 at 6.330px; no match
+in 246. Identity remains tentative. Combining it with frozen threshold tracks
+has 15.975-degree p95 normal sensitivity; shifted controls still score better
+in 506. No plane, metric scale or collision acceptance. Reserved views reused,
+not independent capture. Supported cameras serialize opt-in without changing
+default diagnostic results; exact replay and negative controls pass.
+All 24 native/RTX Chrome bounded-walk checks and real WASD round trip pass;
+Shell retains five prior failures. Original inputs/pending work preserved;
+Muse receipts and rejected head meshes unchanged. No runtime/Viewer edit,
+production integration, paid retry or ticket closure.

@@ -17,6 +17,7 @@ parser.add_argument('--photometric', action='store_true', help='Transfer fixed f
 parser.add_argument('--triangle', type=Path, help='Frozen corrected-model triangle replacing only the near-plane hypothesis')
 parser.add_argument('--queries', nargs='+', help='Reserved image names; source separation and pose gates remain enforced')
 parser.add_argument('--pose-ceiling', type=int, default=450, help='Source-reviewed upper-image cutoff, frozen before fitting')
+parser.add_argument('--serialize-poses', action='store_true', help='Record supported wall-only cameras for separate pixel checks')
 args = parser.parse_args()
 assert 0 < args.pose_ceiling <= 1280
 OUT = ROOT/args.output
@@ -136,7 +137,7 @@ with pycolmap.Database.open(scratch_database) as db:
             row['status'] = 'upper-image pose lacks unused-point support'
             rows.append(row)
             continue
-        if args.pose_ceiling != 450:
+        if args.pose_ceiling != 450 or args.serialize_poses:
             row['cam_from_world'] = estimated['cam_from_world'].matrix().tolist()
             row['camera'] = dict(model=str(qc.model).split('.')[-1], width=qc.width,
                 height=qc.height, params=qc.params.tolist())

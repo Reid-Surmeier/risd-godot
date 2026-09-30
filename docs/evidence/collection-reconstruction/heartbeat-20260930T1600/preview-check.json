@@ -1,0 +1,39 @@
+{
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1600/",
+  "status": 200,
+  "images": [
+    {
+      "src": "000244-native-matches.png",
+      "loaded": true
+    },
+    {
+      "src": "000505-native-matches.png",
+      "loaded": true
+    },
+    {
+      "src": "000506-native-matches.png",
+      "loaded": true
+    },
+    {
+      "src": "000246-native-matches.png",
+      "loaded": true
+    },
+    {
+      "src": "combined-000506-near-photometric.png",
+      "loaded": true
+    },
+    {
+      "src": "combined-000506-transfer.png",
+      "loaded": true
+    },
+    {
+      "src": "browser-forward.png",
+      "loaded": true
+    },
+    {
+      "src": "browser-reverse.png",
+      "loaded": true
+    }
+  ],
+  "errors": []
+}

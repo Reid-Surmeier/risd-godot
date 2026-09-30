@@ -1,0 +1,54 @@
+{
+  "selection": {
+    "training": [
+      "IMG_6380_exit6fps/000013.jpg",
+      "IMG_6380_exit6fps/000019.jpg",
+      "IMG_6380/000244.jpg",
+      "IMG_6380/000505.jpg"
+    ],
+    "reserved": [
+      "IMG_6380/000246.jpg",
+      "IMG_6380/000506.jpg"
+    ],
+    "point_ids": [
+      13116,
+      13515,
+      "native-candidate-0"
+    ],
+    "reason": "Only native source candidate plus two previously frozen floor tracks; no query-residual selection."
+  },
+  "points_world": [
+    [
+      0.5090730695358644,
+      1.895903708146622,
+      1.3109652442817028
+    ],
+    [
+      0.5175451596295587,
+      1.9809532618736596,
+      1.310361292640563
+    ],
+    [
+      0.602230618682082,
+      2.0105834202651662,
+      0.8974470258568106
+    ]
+  ],
+  "candidate_normal_world": [
+    -0.9764272814034022,
+    0.09589221250486683,
+    -0.19337644042665272
+  ],
+  "source_sha256": {
+    "points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "normal_change_p95_degrees": 15.97521811002146,
+  "sensitivity_note": "Threshold picks +/-2 at 720px; native picks +/-2 at1080px. Camera uncertainty omitted.",
+  "navigation_accepted": false,
+  "cost_usd": 0,
+  "caveat": "Exploratory reuse of old reserved views, correlated cameras and unverified native identity. Three points define a hypothesis, not physical planarity, metric scale, extent or collision acceptance."
+}

@@ -1,0 +1,41 @@
+I20260930 12:05:06.224362 134337798338240 feature_extraction.cc:498] === Feature extraction ===
+I20260930 12:05:06.225118 134337508927168 sift.cc:758] Creating SIFT GPU feature extractor
+I20260930 12:05:06.485236 134337500534464 feature_extraction.cc:270] Processed file [1/4]
+I20260930 12:05:06.485277 134337500534464 feature_extraction.cc:273]   Name:            IMG_6380/000244.jpg
+I20260930 12:05:06.485280 134337500534464 feature_extraction.cc:282]   Dimensions:      1920 x 1080
+I20260930 12:05:06.485283 134337500534464 feature_extraction.cc:285]   Camera:          #1 - SIMPLE_RADIAL
+I20260930 12:05:06.485287 134337500534464 feature_extraction.cc:289]   Focal Length:    2304.00px
+I20260930 12:05:06.485296 134337500534464 feature_extraction.cc:294]   Features:        753 (SIFT)
+I20260930 12:05:06.510988 134337500534464 feature_extraction.cc:270] Processed file [2/4]
+I20260930 12:05:06.511024 134337500534464 feature_extraction.cc:273]   Name:            IMG_6380/000246.jpg
+I20260930 12:05:06.511027 134337500534464 feature_extraction.cc:282]   Dimensions:      1920 x 1080
+I20260930 12:05:06.511029 134337500534464 feature_extraction.cc:285]   Camera:          #1 - SIMPLE_RADIAL
+I20260930 12:05:06.511032 134337500534464 feature_extraction.cc:289]   Focal Length:    2304.00px
+I20260930 12:05:06.511040 134337500534464 feature_extraction.cc:294]   Features:        2083 (SIFT)
+I20260930 12:05:06.534109 134337500534464 feature_extraction.cc:270] Processed file [3/4]
+I20260930 12:05:06.534136 134337500534464 feature_extraction.cc:273]   Name:            IMG_6380/000505.jpg
+I20260930 12:05:06.534139 134337500534464 feature_extraction.cc:282]   Dimensions:      1920 x 1080
+I20260930 12:05:06.534141 134337500534464 feature_extraction.cc:285]   Camera:          #1 - SIMPLE_RADIAL
+I20260930 12:05:06.534144 134337500534464 feature_extraction.cc:289]   Focal Length:    2304.00px
+I20260930 12:05:06.534150 134337500534464 feature_extraction.cc:294]   Features:        1208 (SIFT)
+I20260930 12:05:06.557638 134337500534464 feature_extraction.cc:270] Processed file [4/4]
+I20260930 12:05:06.557666 134337500534464 feature_extraction.cc:273]   Name:            IMG_6380/000506.jpg
+I20260930 12:05:06.557669 134337500534464 feature_extraction.cc:282]   Dimensions:      1920 x 1080
+I20260930 12:05:06.557671 134337500534464 feature_extraction.cc:285]   Camera:          #1 - SIMPLE_RADIAL
+I20260930 12:05:06.557675 134337500534464 feature_extraction.cc:289]   Focal Length:    2304.00px
+I20260930 12:05:06.557681 134337500534464 feature_extraction.cc:294]   Features:        1434 (SIFT)
+I20260930 12:05:06.574152 134337798338240 timer.cc:90] Elapsed time: 0.006 [minutes]
+I20260930 12:05:06.578406 134337798338240 feature_matching.cc:196] === Feature matching & geometric verification ===
+I20260930 12:05:06.578519 134337500534464 feature_matching_utils.cc:79] Bind FeatureMatcherWorker to GPU device 0
+I20260930 12:05:06.578566 134337500534464 sift.cc:1679] Creating SIFT GPU feature matcher
+I20260930 12:05:06.579671 134337798338240 pairing.cc:905] Importing image pairs...
+I20260930 12:05:06.580039 134337798338240 pairing.cc:938] Processing block [1/1]
+I20260930 12:05:06.594320 134337798338240 feature_matching.cc:218] in 0.014s
+I20260930 12:05:06.594337 134337798338240 timer.cc:90] Elapsed time: 0.000 [minutes]
+{
+  "source_candidates": 1,
+  "reserved_observations": {
+    "IMG_6380/000246.jpg": 0,
+    "IMG_6380/000506.jpg": 1
+  }
+}
