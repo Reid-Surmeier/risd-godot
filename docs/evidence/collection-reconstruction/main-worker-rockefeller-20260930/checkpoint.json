@@ -1,0 +1,35 @@
+{
+  "date_utc": "2026-09-30T22:15:24.038761+00:00",
+  "direction": "Low polygon Muse assets, official RISD API/photo matching, latest Main Hall lighting/frame/shaders; no point-cloud presentation",
+  "source_output": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/lowpoly-room-v12",
+  "private_preview": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/rockefeller-remodel/",
+  "native_checks": 18,
+  "browser_checks": 18,
+  "keyboard_round_trip": true,
+  "first_ready_ms": 3479,
+  "native_p95_ms": 22.2222222222222,
+  "browser_p95_ms": 22.2222222222222,
+  "browser_renderer": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+  "native_lightmap_users": 149,
+  "bake_backend": "software Vulkan lavapipe, 16.20 s, saved native UV2 LightmapGI",
+  "bake_editor_exit_diagnostics": "Godot list.erase and outside-active-scene get_node errors after BAKE_OK; saved bake loads, native/browser render and checks pass",
+  "repo_checks": "passed, pre-existing 8 ObjectDB exit leaks",
+  "shell_known_failures": [
+    "launch_page_area_white",
+    "tenant_fills_page_area",
+    "flowers_page_is_the_grey_tenant",
+    "resize_refits_bar_and_tenant"
+  ],
+  "new_muse_outputs": 6,
+  "new_recorded_spend_usd": "0.060000",
+  "map_recorded_total_usd": "0.110000",
+  "automation_enabled": false,
+  "production_integrated": false,
+  "full_map_complete": false,
+  "blockers": [
+    "Fixed-jamb cross-source metric checks disagree by up to 0.7 m; room extents and corridor width provisional",
+    "Sofa portrait, bust and bookcase porcelain identities unverified; remaining rooms not inventoried",
+    "Hidden backs, carved side channels and tureen rear form are approximations; partner chair .7.2 photo not separately verified"
+  ],
+  "next_action": "Match the bookcase porcelain groups and bust to official RISD API/gallery photos; make distinct smallest Muse passes and model their depth. Recheck fixed door casing against video context before extending the bounded corridor."
+}

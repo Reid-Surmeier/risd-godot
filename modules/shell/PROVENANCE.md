@@ -421,3 +421,29 @@ Owner correction: authored low polygon rooms with Muse assets; captured spacing 
 Low polygon shelf/cabinet/leg geometry, mirrored outline extrusion, walls/trim, boards and provisional furniture assembled in a standalone two-room walk. Existing approved frame/authentic painting and Main Hall visitor159 reused; visitor inputs/code/provenance unchanged, private only. Native Muse rasters untouched; keyed transparent RGB receives neutral edge padding. Rejected wall intersections, integer-collapsed solids, repeated atlas bands and trim occlusion corrected. Placements, mirror pair/scale, hidden profiles, sofa/vessels, remaining artwork and offline UV2 room bake are unverified.
 
 Final native/Chrome RTX4070 SUPER walk: 12/12 checks each, real W/S round trip, five inspected native asset/room views; p95 native17.70ms/browser16.67ms. Repo/diff checks pass; isolated Shell retains four known failures. Evidence/hash manifest: `docs/evidence/collection-reconstruction/main-worker-remodel-20260930T2023/manifest.json`; dated checkpoint: `docs/research/collection-room-remodel-20260930.md`. Prior pending files preserved; Collection automation disabled. No Viewer changes, production integration, ticket closure or full-map claim.
+
+## Collection Rockefeller room trials — 2026-09-30, #182/#183
+
+Six additional one-output OpenRouter `meta/muse-image` passes: catalogue-matched
+settee 2017.74.5, chairs 2017.74.7.1 and 2017.74.12, mirror 2017.74.4.2,
+tureen 2017.74.39.18a-c and source-rectified frame for Constable 58.197.
+Each actual receipt records **$0.010000**; new recorded spend **$0.060000**,
+map cumulative **$0.110000**. All retain unknown spend / never-resubmit.
+Prompt, ordered references, original provider pixels, receipt/run IDs, SHA256
+and agent visual verdicts: `image-work/collection-room-remodel/review.json`;
+complete sanitized run archive: `trial/muse-rockefeller-runs.tar.gz` there.
+Untouched official API/catalogue photos and their hashes: `catalogue/`.
+Mrs. Edwards canvas remains the authentic catalogue image, separate from Muse
+frame carving. Catalogue credit: Courtesy of the RISD Museum, Providence, RI.
+Private prototype trials; rights flags retained, no runtime acceptance implied.
+
+Exact latest inspected Main Hall page/clock, screen/floor shaders, selected
+floor atlas, wall-grain source and painting helper are recorded by source SHA256
+in `presentation-reuse.json`. Ivory wall paint derives deterministically from
+that grain to match this gallery video. UV2/native LightmapGI bake and dynamic
+actor probes reuse the Hall workflow; preview RTX, bake software Vulkan in WSL.
+Source transforms, asset geometry limitations and object match evidence:
+[room research](../../docs/research/collection-rockefeller-remodel.md).
+Visual/checkpoint evidence: `docs/evidence/collection-reconstruction/`
+`main-worker-rockefeller-20260930/`. Hidden profiles, remaining porcelain,
+room metrics and full connected museum remain unfinished; no 3D Viewer change.

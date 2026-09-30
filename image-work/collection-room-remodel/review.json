@@ -47,15 +47,85 @@
       "mapped onto provisional authored sofa, no source room photograph used as a wall/furniture billboard"
     ],
     "unverified": [
-      "exact ornament/panel fidelity",
-      "hidden bookcase sides and castor geometry",
-      "paired mirror identity, physical dimensions and pierced side walls",
-      "sofa/chair and ceramic object geometry",
-      "full room extents and remaining painting inventory",
-      "offline UV2 room-lightmap bake",
+      "precise room extents and fixed-jamb metric placement",
+      "sofa portrait identity, bust and remaining ceramics inventory",
+      "hidden asset backs, pierced side channels and carved geometry",
       "full connected museum and production integration"
     ],
     "no_blind_retry": true,
-    "map_recorded_total_usd": "0.050000"
+    "map_recorded_total_usd": "0.110000",
+    "new_recorded_spend_usd": "0.060000"
+  },
+  "settee": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-dddfd112059307f1dc912485",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "7983946b822af0d0468147a4c40de8e8099d313754a69783eac37b49ca26fcc9",
+    "visual_verdict": "agent-inspected usable prototype trial; owner acceptance pending",
+    "observations": "Floral upholstery, carved front and cabriole legs retained; hidden back neutral authored wood."
+  },
+  "armchair": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-43f854a1a77099aa31577443",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "31342904bafa642bff6030d1e905a3091bdec2bcb4add8b55a3d080187015822",
+    "visual_verdict": "agent-inspected usable prototype trial; owner acceptance pending",
+    "observations": "Pierced wavy back and floral seat match .7.1; .7.2 partner uses same representative pass, not separately photo-verified."
+  },
+  "tureen": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-9878c7ae9fa7085d29c52eae",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "30939bfd34e57184c3cea0bcd0c0fb3e9f50f70f3f72b2b29bc3d892744cd7ed",
+    "visual_verdict": "agent-inspected usable prototype trial; owner acceptance pending",
+    "observations": "Pink medallions, floral compartments and gilt trim retained; 16-sided elliptical body is an inferred approximation, rear motifs projected."
+  },
+  "edwards-frame": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-8db769b4f091203cc66eaa94",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "026c7637bdd4a30683c80b71c994f80712aab59ef7f82ea8309f48fb22e92f7c",
+    "visual_verdict": "agent-inspected usable prototype trial; owner acceptance pending",
+    "observations": "Source rectification and original accepted frame prompt reused; authentic Constable canvas kept separate. Blurred source corners limit ornament fidelity."
+  },
+  "pair-mirror": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-5a2e4e488cb53ec8162ff670",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "c71a211906c85c6d8ba2a6a0f98349bbfbc467ea4931380e36fbdb176c678395",
+    "visual_verdict": "agent-inspected usable prototype trial; owner acceptance pending",
+    "observations": "Opposite central scroll matches .4.2 official photo; keyed foreground cropped before applying metric dimensions."
+  },
+  "entrance-chair": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-6ba18dda1bf9d2ffc93a79d6",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "9eb6fc6e12c49c78dbe651e3a826a032f909928bb2e64647409ded9ae1a94707",
+    "visual_verdict": "agent-inspected usable prototype trial; owner acceptance pending",
+    "observations": "Three overlapping back loops, dark wood, blue floral seat and carved front legs match .12. Side holes are front-alpha relief, not complete carved 3D channels."
   }
 }

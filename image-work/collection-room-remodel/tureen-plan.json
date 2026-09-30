@@ -1,0 +1,24 @@
+{
+  "attempts": [
+    {
+      "id": "tureen-001",
+      "prompt": "tureen-prompt.txt",
+      "promptSha256": "1bae8492582c0ff3e2ff8af32a6e6d4c971b67f374883abd59b6dda8d5cd675c",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "references/tureen-catalogue-0.png",
+          "sha256": "25e6ce893b9818e754c1db6112f391e50eabb25799bba198c06114d3e001f1b2"
+        },
+        {
+          "path": "references/tureen-catalogue-1.png",
+          "sha256": "57a01f5913da02811dc942620591009f8920a9c979a762554ff32b109d1f6c91"
+        },
+        {
+          "path": "references/main-hall-style.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe"
+        }
+      ]
+    }
+  ]
+}

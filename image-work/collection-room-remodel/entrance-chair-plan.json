@@ -1,0 +1,24 @@
+{
+  "attempts": [
+    {
+      "id": "entrance-chair-001",
+      "prompt": "entrance-chair-prompt.txt",
+      "promptSha256": "f0ad26f82c5ace749a4a7d6173c0c792f2ca79655141f9469079cc0718454768",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "references/entrance-chair-catalogue-0.png",
+          "sha256": "9852777cb234c88231b15e19a58b2527ff75eecce0e4135c0efeec51481e9d30"
+        },
+        {
+          "path": "references/entrance-chair-catalogue-1.png",
+          "sha256": "b6e826a47b2162847134acfff98e1613c98d4c3ca3b23536b8f6b92e0335ac9d"
+        },
+        {
+          "path": "references/main-hall-style.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe"
+        }
+      ]
+    }
+  ]
+}

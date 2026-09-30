@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "edwards-frame-001",
+      "prompt": "edwards-frame-prompt.txt",
+      "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "references/edwards-frame-photo.png",
+          "sha256": "4a1025459937ea911f89666364fc07f0d05a5be713a2f677c944828c823ab2a2"
+        }
+      ]
+    }
+  ]
+}

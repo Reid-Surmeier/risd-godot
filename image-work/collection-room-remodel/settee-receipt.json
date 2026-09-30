@@ -1,0 +1,26 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/references/settee-catalogue-0.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/references/settee-catalogue-1.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/references/main-hall-style.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-dddfd112059307f1dc912485/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "7983946b822af0d0468147a4c40de8e8099d313754a69783eac37b49ca26fcc9"
+    }
+  ],
+  "changesRequested": "Reference photographs show RISD object 2017.74.5, the only authority for its design and proportions. Final reference is the existing Main Hall game style: clean low polygon planar forms, soft painted shading, restrained surface detail, warm palette. Generate one orthographic straight-on FRONT view of this exact settee, alone, isolated on flat pure magenta #FF00FF, generous margin, full object and every leg / handle / lid intact. Keep the reference ornament, actual silhouette, upholstery floral pattern and wood color or painted porcelain motifs. Make the finish a clean low polygon museum game asset, no photographic noise. Do not invent ornament, letters, floor, walls, other objects, shadow outside the silhouette or perspective tilt. No contact sheet. This supplies UV texture for separately modeled three-dimensional geometry, not a whole-room picture.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-dddfd112059307f1dc912485",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-dddfd112059307f1dc912485"
+}
