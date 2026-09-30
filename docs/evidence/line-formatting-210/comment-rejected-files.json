@@ -1,0 +1,14 @@
+[
+  {
+    "path": "modules/playground_page/playtest/harness.gd",
+    "reason": "formatter duplicated header/function comments inside lambda; violates exact ordered comment preservation",
+    "trial_sha256": "b87f66c99a0f3a00f13048f236242716c1c1398f2abd97a271ba2a32f850d665",
+    "restored_sha256": "95bd180e65cd34d05e2954fe86e8e13e081912f2309c4d19d3b6eb57f6720bd2"
+  },
+  {
+    "path": "modules/sketchbook/playtest/harness.gd",
+    "reason": "formatter duplicated header/function comments inside lambda; violates exact ordered comment preservation",
+    "trial_sha256": "fb2f6d23de721f37d85c5d206bc9c3d63e623b6996bd4772dd4949bc8c4f98ca",
+    "restored_sha256": "9b04a4fe17525eaa445a7ac88926578b62504f43556503823e974898ee0d7f94"
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-format-current-01a0f078/",
+  "runtime": "ba6b3c05",
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "sha256": "3fa2383b08b61656df9ec575d9eb8493e2694906a2bc1116f6b9ab3646a352dd",
+      "match": true
+    },
+    {
+      "file": "ba6b3c05.html",
+      "status": 200,
+      "sha256": "c976635b5a8ce47c9e7312259448689a8d38b0b7a83e77f658a1e609a93bb0a8",
+      "match": true
+    },
+    {
+      "file": "ba6b3c05.pck.gz",
+      "status": 200,
+      "sha256": "e6994a0f21aaee42a8e3f7e1f6fdfedc2da3a64b91dcb95687d2f89c9d80ae32",
+      "match": true
+    },
+    {
+      "file": "ba6b3c05.game.pck.gz",
+      "status": 200,
+      "sha256": "0b0883d606aedd6dd7d669ada665c8a1483a6ca5bfcf69158ea76ad6d83ba471",
+      "match": true
+    },
+    {
+      "file": "ba6b3c05.wasm.gz",
+      "status": 200,
+      "sha256": "d2c8a33747194a608ac19552c97139b2b627661c9e9fa984487638cef09a3175",
+      "match": true
+    }
+  ]
+}

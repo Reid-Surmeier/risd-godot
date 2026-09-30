@@ -1,0 +1,1230 @@
+{
+  "fixed_point": "04eb31a9",
+  "tool": "gdtoolkit4.5.0",
+  "files": [
+    "docs/evidence/display-161-current/capture-native.gd",
+    "docs/evidence/floor-selection-186/native_capture.gd",
+    "docs/evidence/floor-selection-186/restore.gd",
+    "docs/evidence/gallery-camera-pitch/corner_pose.gd",
+    "docs/evidence/gallery-cutaway-diagnosis/background_trial.gd",
+    "docs/evidence/keyboard-focus-206/focus_check.gd",
+    "docs/evidence/owner-world-177/passage-current/edges.gd",
+    "docs/evidence/owner-world-177/passage-current/native.gd",
+    "docs/evidence/owner-world-177/passage-current/probe.gd",
+    "docs/evidence/owner-world-177/passage-current/repair.gd",
+    "docs/evidence/room-transition-185/probe.gd",
+    "docs/evidence/warm-room-187/check.gd",
+    "docs/evidence/window-effects-193/input_check.gd",
+    "modules/atlas/atlas.gd",
+    "modules/atlas/atlas_window.gd",
+    "modules/atlas/errors.gd",
+    "modules/atlas/interface.gd",
+    "modules/atlas/playtest/harness.gd",
+    "modules/collection_data/data.gd",
+    "modules/collection_data/http_adapter.gd",
+    "modules/collection_data/playtest/probe.gd",
+    "modules/collection_data/storage_adapter.gd",
+    "modules/flowers_page/errors.gd",
+    "modules/flowers_page/flowers_embed.gd",
+    "modules/flowers_page/flowers_page.gd",
+    "modules/flowers_page/interface.gd",
+    "modules/playground_page/arena_embed.gd",
+    "modules/playground_page/embedded_check.gd",
+    "modules/playground_page/interface.gd",
+    "modules/playground_page/journal_paper_turn.gd",
+    "modules/playground_page/journal_window.gd",
+    "modules/playground_page/playground_page.gd",
+    "modules/playground_page/playtest/harness.gd",
+    "modules/playground_page/playtest/square_harness.gd",
+    "modules/playground_page/square_pages.gd",
+    "modules/playground_page/websurfer_window.gd",
+    "modules/sculpture_viewer/catalogue.gd",
+    "modules/sculpture_viewer/desktop.gd",
+    "modules/sculpture_viewer/playtest/hover_turn.gd",
+    "modules/sculpture_viewer/playtest/record_selection.gd",
+    "modules/sculpture_viewer/playtest/window_resize_check.gd",
+    "modules/sculpture_viewer/viewer.gd",
+    "modules/shell/boot_loader.gd",
+    "modules/shell/crt_display.gd",
+    "modules/shell/demo.gd",
+    "modules/shell/desktop_icons.gd",
+    "modules/shell/hover_glow.gd",
+    "modules/shell/interface.gd",
+    "modules/shell/playtest/collection_fit_check.gd",
+    "modules/shell/playtest/collection_preview_check.gd",
+    "modules/shell/playtest/containment.gd",
+    "modules/shell/playtest/dummy_tenant.gd",
+    "modules/shell/playtest/harness.gd",
+    "modules/shell/playtest/icon_rail_capture.gd",
+    "modules/shell/playtest/visitor174_capture.gd",
+    "modules/shell/playtest/visitor174_check.gd",
+    "modules/shell/prototype/gallery_walk4/architecture_167_capture.gd",
+    "modules/shell/prototype/gallery_walk4/bake/plugin.gd",
+    "modules/shell/prototype/gallery_walk4/bake/prepare.gd",
+    "modules/shell/prototype/gallery_walk4/cornice_check.gd",
+    "modules/shell/prototype/gallery_walk4/cutaway_floor_check.gd",
+    "modules/shell/prototype/gallery_walk4/dbg_tmp.gd",
+    "modules/shell/prototype/gallery_walk4/dollhouse_shot.gd",
+    "modules/shell/prototype/gallery_walk4/doorway_check.gd",
+    "modules/shell/prototype/gallery_walk4/doorway_prototype.gd",
+    "modules/shell/prototype/gallery_walk4/doorway_prototype_capture.gd",
+    "modules/shell/prototype/gallery_walk4/final_render_check.gd",
+    "modules/shell/prototype/gallery_walk4/floor_edges_check.gd",
+    "modules/shell/prototype/gallery_walk4/floor_prototype_capture.gd",
+    "modules/shell/prototype/gallery_walk4/identity/native_render_check.gd",
+    "modules/shell/prototype/gallery_walk4/navigation_check.gd",
+    "modules/shell/prototype/gallery_walk4/owner_repair_check.gd",
+    "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+    "modules/shell/prototype/gallery_walk4/performance_probe.gd",
+    "modules/shell/prototype/gallery_walk4/portal_167_capture.gd",
+    "modules/shell/prototype/gallery_walk4/portal_check.gd",
+    "modules/shell/prototype/gallery_walk4/portal_floor_probe.gd",
+    "modules/shell/prototype/gallery_walk4/portal_relief_prepare.gd",
+    "modules/shell/prototype/gallery_walk4/portal_sculpt_relief_prepare.gd",
+    "modules/shell/prototype/gallery_walk4/portal_sculpture_probe.gd",
+    "modules/shell/prototype/gallery_walk4/portal_traversal_check.gd",
+    "modules/shell/prototype/gallery_walk4/render_diagnostics.gd",
+    "modules/shell/prototype/gallery_walk4/render_diagnostics_check.gd",
+    "modules/shell/prototype/gallery_walk4/rig/check.gd",
+    "modules/shell/prototype/gallery_walk4/rig/contact_check.gd",
+    "modules/shell/prototype/gallery_walk4/rig/render_check.gd",
+    "modules/shell/prototype/gallery_walk4/rig/visitor.gd",
+    "modules/shell/prototype/gallery_walk4/shot.gd",
+    "modules/shell/prototype/gallery_walk4/visitor159/visitor.gd",
+    "modules/shell/prototype/gallery_walk4/visitor_check.gd",
+    "modules/shell/prototype/gallery_walk4/walk4.gd",
+    "modules/shell/prototype/gallery_walk4/world_176_capture.gd",
+    "modules/shell/prototype/gallery_walk4/world_176_check.gd",
+    "modules/shell/shell.gd",
+    "modules/shell/square_chrome.gd",
+    "modules/shell/window_shadows.gd",
+    "modules/sketchbook/desktop.gd",
+    "modules/sketchbook/drawing_surface.gd",
+    "modules/sketchbook/errors.gd",
+    "modules/sketchbook/freehand.gd",
+    "modules/sketchbook/global_chatroom.gd",
+    "modules/sketchbook/interface.gd",
+    "modules/sketchbook/paintbox.gd",
+    "modules/sketchbook/painting_flow.gd",
+    "modules/sketchbook/paper_turn.gd",
+    "modules/sketchbook/playtest/anri_palette_check.gd",
+    "modules/sketchbook/playtest/harness.gd",
+    "modules/sketchbook/playtest/tldraw_controls_check.gd",
+    "modules/sketchbook/sketchbook_window.gd",
+    "modules/sketchbook/tldraw_controls_prototype.gd",
+    "modules/sound_cues/playtest/check.gd",
+    "modules/tab_strip/interface.gd",
+    "modules/tab_strip/playtest/harness.gd",
+    "modules/tab_strip/tab_strip.gd",
+    "modules/video_player/errors.gd",
+    "modules/video_player/playtest/harness.gd",
+    "modules/video_player/video_player.gd",
+    "prototype/mr-baby-paint-audio/main.gd",
+    "testing/collection_data_test.gd",
+    "testing/collection_page_adapter.gd",
+    "testing/harness_base.gd",
+    "testing/saved_destinations_test.gd"
+  ],
+  "formatter_exit": 0,
+  "remaining_line_findings": 374,
+  "safety": "native gdformat without --fast checks normalized parse tree, stability and comment persistence",
+  "records": [
+    {
+      "file": "docs/evidence/display-161-current/capture-native.gd",
+      "before_sha256": "be19c4a1e7dc228a674c6929b3799b3772dc49a02bc504dfc68d06f70b7384a3",
+      "after_sha256": "c0fc3b9e029c129a59c84b74ad1462cbd4503cb240e773f1acf1fcc696cfb3d5",
+      "changed": true,
+      "current_sha256": "c0fc3b9e029c129a59c84b74ad1462cbd4503cb240e773f1acf1fcc696cfb3d5",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "docs/evidence/floor-selection-186/native_capture.gd",
+      "before_sha256": "ce640ee620053ddcfddae5c242246486f5f6cb313492e36908956f6364d0a191",
+      "after_sha256": "d5cd1e399b1e53a8f631ae8f76db4c5112ca62b12334e8191963378129a4c374",
+      "changed": true,
+      "current_sha256": "d5cd1e399b1e53a8f631ae8f76db4c5112ca62b12334e8191963378129a4c374",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "docs/evidence/floor-selection-186/restore.gd",
+      "before_sha256": "0b0c1dd7db1400edbae190453ff52d5120f6b8c801e213ce89974160b2185222",
+      "after_sha256": "3d6bd43d2ce113f385cfcff071360ef434811b2cddce4177d5db9507b20888ad",
+      "changed": true,
+      "current_sha256": "3d6bd43d2ce113f385cfcff071360ef434811b2cddce4177d5db9507b20888ad",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "docs/evidence/gallery-camera-pitch/corner_pose.gd",
+      "before_sha256": "179700d06c572d5bfa94b720a2af5a66c9ddeb5d8de66139c13d062d5b869dfe",
+      "after_sha256": "35489d2dd7ae1ccbfc37bb6cb973778f1c69a1e926b3b8ed1f98ee3221fd7856",
+      "changed": true,
+      "current_sha256": "35489d2dd7ae1ccbfc37bb6cb973778f1c69a1e926b3b8ed1f98ee3221fd7856",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "docs/evidence/gallery-cutaway-diagnosis/background_trial.gd",
+      "before_sha256": "ee9fe549490495a9b4c8e736334b22cd780c51e5be5d6908adc1065abb1369b8",
+      "after_sha256": "fdae345adc5e728d8513e0c7c62ce1f26c0e2a9d93bd04b1cabd7c6736e2f151",
+      "changed": true,
+      "current_sha256": "fdae345adc5e728d8513e0c7c62ce1f26c0e2a9d93bd04b1cabd7c6736e2f151",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "docs/evidence/keyboard-focus-206/focus_check.gd",
+      "before_sha256": "f2c898ac2a42da120e298ac3cf4efefb31dfed534dc20dbe7b3cd95348ee3b5a",
+      "after_sha256": "0484f23e4d975092002b9ddcaa7c8ce0f83a820f32a1165cd44b2dac78982a78",
+      "changed": true,
+      "current_sha256": "0484f23e4d975092002b9ddcaa7c8ce0f83a820f32a1165cd44b2dac78982a78",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "docs/evidence/owner-world-177/passage-current/edges.gd",
+      "before_sha256": "0046caf14929106b6d6ba2531b9b415adc3d11eec17971e5148283d7370bb923",
+      "after_sha256": "7e34394bbf85ebcd17d9355bcac3a4965f11f44fdcdba29cd8ed92b295c0500d",
+      "changed": true,
+      "current_sha256": "7e34394bbf85ebcd17d9355bcac3a4965f11f44fdcdba29cd8ed92b295c0500d",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "docs/evidence/owner-world-177/passage-current/native.gd",
+      "before_sha256": "de14a201100f46171b115b428a73100299c630f4d2ce65dd4c7995081d4de997",
+      "after_sha256": "b749fd2e459026d00365b96d721f93fd73e039ad69152466d9d5cb3d254586eb",
+      "changed": true,
+      "current_sha256": "b749fd2e459026d00365b96d721f93fd73e039ad69152466d9d5cb3d254586eb",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "docs/evidence/owner-world-177/passage-current/probe.gd",
+      "before_sha256": "f271663030b62f13e57aa483c76ae394f97c8205852a620b0c651f10d097cc70",
+      "after_sha256": "112d74d6a7405f29e26cc05a0cf2d835f9b1676b6cc35629420d1c59c7cd3ac2",
+      "changed": true,
+      "current_sha256": "112d74d6a7405f29e26cc05a0cf2d835f9b1676b6cc35629420d1c59c7cd3ac2",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "docs/evidence/owner-world-177/passage-current/repair.gd",
+      "before_sha256": "327ade79c6c72266889ad9fd50110f7a431f8a7f0d8d59e4739106e675bfded4",
+      "after_sha256": "d11190d5a34e481cf8d299a4bd17311da5d5ea5f5b5e03de7916e5974ed4a898",
+      "changed": true,
+      "current_sha256": "d11190d5a34e481cf8d299a4bd17311da5d5ea5f5b5e03de7916e5974ed4a898",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "docs/evidence/room-transition-185/probe.gd",
+      "before_sha256": "ea2bdad420acec6845be6478ac32869ef977d714d1c85ed83940efac0bd8d2d0",
+      "after_sha256": "c73f462f40b2d80977f046a4a9c85cfb62bd84fafef7596259ec785e8daad551",
+      "changed": true,
+      "current_sha256": "c73f462f40b2d80977f046a4a9c85cfb62bd84fafef7596259ec785e8daad551",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "docs/evidence/warm-room-187/check.gd",
+      "before_sha256": "eb429e62660fea7c14bd8e2c132a277b1802f7e3ef6fa4405cccb20cd4ed80f7",
+      "after_sha256": "2e45c4bec2930d14585563d52c370103386c5790bdf994f982ca7187f4bb1146",
+      "changed": true,
+      "current_sha256": "2e45c4bec2930d14585563d52c370103386c5790bdf994f982ca7187f4bb1146",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "docs/evidence/window-effects-193/input_check.gd",
+      "before_sha256": "bde430c33716876fcc61413dee6da3b4567c47c363c97d9b5101264fb2663c42",
+      "after_sha256": "13d18c2414b0173b81e596c378edd581501696d2fb7725d9c2c08345b04644df",
+      "changed": true,
+      "current_sha256": "13d18c2414b0173b81e596c378edd581501696d2fb7725d9c2c08345b04644df",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/atlas/atlas.gd",
+      "before_sha256": "7c8fdb8a0a34d4f3a27706ab9e5dfc74da23b1b1a8f0e2046701644983b45d44",
+      "after_sha256": "df04ac1ddd8faa9565b5f61ee43dda2a58de6b591c1bb00f28d1be8b2ea88c5a",
+      "changed": true,
+      "current_sha256": "df04ac1ddd8faa9565b5f61ee43dda2a58de6b591c1bb00f28d1be8b2ea88c5a",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/atlas/atlas_window.gd",
+      "before_sha256": "3474bc058da112fc5409beb3becbe359c1acfef465274d10c64e6ebeb12b1564",
+      "after_sha256": "22209b3727273c2d73c0489ec754f23d3c59fd9a1d3507e70a9db9056a199540",
+      "changed": true,
+      "current_sha256": "22209b3727273c2d73c0489ec754f23d3c59fd9a1d3507e70a9db9056a199540",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/atlas/errors.gd",
+      "before_sha256": "42332ea23c929fc6d0415b144577179e30caaac63f1dff5790f08fbc642591e5",
+      "after_sha256": "42332ea23c929fc6d0415b144577179e30caaac63f1dff5790f08fbc642591e5",
+      "changed": false,
+      "current_sha256": "42332ea23c929fc6d0415b144577179e30caaac63f1dff5790f08fbc642591e5",
+      "disposition": "unchanged"
+    },
+    {
+      "file": "modules/atlas/interface.gd",
+      "before_sha256": "2ae6b4993a291e4641a286d308069c71ee70d62e5d4c252c0468d073e217df2b",
+      "after_sha256": "2ae6b4993a291e4641a286d308069c71ee70d62e5d4c252c0468d073e217df2b",
+      "changed": false,
+      "current_sha256": "2ae6b4993a291e4641a286d308069c71ee70d62e5d4c252c0468d073e217df2b",
+      "disposition": "unchanged"
+    },
+    {
+      "file": "modules/atlas/playtest/harness.gd",
+      "before_sha256": "b6ed855dc5eb56b3a9e7ab5299ee7c423a5b5b8c6a2f72452f6b4294205b62cf",
+      "after_sha256": "b42d33a68b0acf6f2fcb91fdb531202f5e392dacd962db2d340f7062885a106f",
+      "changed": true,
+      "current_sha256": "b42d33a68b0acf6f2fcb91fdb531202f5e392dacd962db2d340f7062885a106f",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/collection_data/data.gd",
+      "before_sha256": "1ebfffe04ba92cf62a26778024f4b8e1ddd2e70e4bd6d3d76e88fc1df2eccf39",
+      "after_sha256": "c063cb50f833a20d9c66838466779385375532ae7c9f0c74379fd7e257326f0b",
+      "changed": true,
+      "current_sha256": "c063cb50f833a20d9c66838466779385375532ae7c9f0c74379fd7e257326f0b",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/collection_data/http_adapter.gd",
+      "before_sha256": "e13b9f96b081b351a057e7efe830156e0d69599dee7f16d42e8a2a0622c756fd",
+      "after_sha256": "f59f4f41de6c749f0986d257adf38d55076506c82094fa65153aba6da6743c1d",
+      "changed": true,
+      "current_sha256": "f59f4f41de6c749f0986d257adf38d55076506c82094fa65153aba6da6743c1d",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/collection_data/playtest/probe.gd",
+      "before_sha256": "4b8994c72c92eb0c4010f717df16d3e371cdf9226e682ba178eb9e71b8fb26e7",
+      "after_sha256": "8fb5f083e447c1f256f3dfeb769973161be1437b8a6b68ba193cabe8206326d5",
+      "changed": true,
+      "current_sha256": "8fb5f083e447c1f256f3dfeb769973161be1437b8a6b68ba193cabe8206326d5",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "before_sha256": "9d82abffcffc207e17b524577743c9fe4df0c402451e5386ab20b72a679dc794",
+      "after_sha256": "904178d4f809639d67850e15c48e68338dbf497e9c977160ee5f85f5a7f33e56",
+      "changed": true,
+      "current_sha256": "904178d4f809639d67850e15c48e68338dbf497e9c977160ee5f85f5a7f33e56",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/flowers_page/errors.gd",
+      "before_sha256": "646c777e189651be6ad71ff8436cd3f55dbece06e2161e5af38d3896b198b9ca",
+      "after_sha256": "646c777e189651be6ad71ff8436cd3f55dbece06e2161e5af38d3896b198b9ca",
+      "changed": false,
+      "current_sha256": "646c777e189651be6ad71ff8436cd3f55dbece06e2161e5af38d3896b198b9ca",
+      "disposition": "unchanged"
+    },
+    {
+      "file": "modules/flowers_page/flowers_embed.gd",
+      "before_sha256": "d0fa4d44e16ffd3d2e5b4eac134bea62ef85928888113c1338f94e62b5623ddb",
+      "after_sha256": "d0fa4d44e16ffd3d2e5b4eac134bea62ef85928888113c1338f94e62b5623ddb",
+      "changed": false,
+      "current_sha256": "d0fa4d44e16ffd3d2e5b4eac134bea62ef85928888113c1338f94e62b5623ddb",
+      "disposition": "unchanged"
+    },
+    {
+      "file": "modules/flowers_page/flowers_page.gd",
+      "before_sha256": "3b07a22e3635b20aead189f6541a9a7a20117ff5aae6374fa60d792f642e5202",
+      "after_sha256": "386e359466cdfce4710983cdb418229c9a31ac052102b2036ac107cb1f433317",
+      "changed": true,
+      "current_sha256": "386e359466cdfce4710983cdb418229c9a31ac052102b2036ac107cb1f433317",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/flowers_page/interface.gd",
+      "before_sha256": "7d6effdf2da7730ba78650d0338aa5a744357a047ccb50ad19200ab3afbbf005",
+      "after_sha256": "7d6effdf2da7730ba78650d0338aa5a744357a047ccb50ad19200ab3afbbf005",
+      "changed": false,
+      "current_sha256": "7d6effdf2da7730ba78650d0338aa5a744357a047ccb50ad19200ab3afbbf005",
+      "disposition": "unchanged"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "before_sha256": "453a6f783e045fe71301cce4d669547f401cdf527b5b28fbe164e2bae288b98b",
+      "after_sha256": "453a6f783e045fe71301cce4d669547f401cdf527b5b28fbe164e2bae288b98b",
+      "changed": false,
+      "current_sha256": "453a6f783e045fe71301cce4d669547f401cdf527b5b28fbe164e2bae288b98b",
+      "disposition": "unchanged"
+    },
+    {
+      "file": "modules/playground_page/embedded_check.gd",
+      "before_sha256": "ddf957e9a9b680bb61b6b13bae89b6522f7431849c039a9d15b2787c9899b2c7",
+      "after_sha256": "95331a1a18656bd7f8ff6266f1a88195d98a092636a5cdd60f7997b6a591966a",
+      "changed": true,
+      "current_sha256": "95331a1a18656bd7f8ff6266f1a88195d98a092636a5cdd60f7997b6a591966a",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/playground_page/interface.gd",
+      "before_sha256": "ca83d72d65247a693e875152efb641b0cdfc79b4b28e19d726c8882e94468f12",
+      "after_sha256": "ca83d72d65247a693e875152efb641b0cdfc79b4b28e19d726c8882e94468f12",
+      "changed": false,
+      "current_sha256": "ca83d72d65247a693e875152efb641b0cdfc79b4b28e19d726c8882e94468f12",
+      "disposition": "unchanged"
+    },
+    {
+      "file": "modules/playground_page/journal_paper_turn.gd",
+      "before_sha256": "c0a5bcfad170a8c7928efb1e3b317853f4a6ba795cf6d6db8b0ce869f28db562",
+      "after_sha256": "61c2c0854b7d776240daeecb7c0131b688b1afa4222aa30baa130e6584f7663a",
+      "changed": true,
+      "current_sha256": "61c2c0854b7d776240daeecb7c0131b688b1afa4222aa30baa130e6584f7663a",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/playground_page/journal_window.gd",
+      "before_sha256": "8b4fdc68e55298a2896450fdff73e544b1bc6ad664465a5c23b7e62a45e6e8f7",
+      "after_sha256": "d13a61f021a16c783a5b059843b699c50c116589ea95bbd71987c41865167586",
+      "changed": true,
+      "current_sha256": "d13a61f021a16c783a5b059843b699c50c116589ea95bbd71987c41865167586",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "before_sha256": "60fbe0a40adeaff5105128b01e8eb67cb4d14f54c9db4cd8f2c009c71addda4f",
+      "after_sha256": "d295bcbc43bc1bcc2eb85b5142188bb7650e5b754b09002c0558a8545496d199",
+      "changed": true,
+      "current_sha256": "60fbe0a40adeaff5105128b01e8eb67cb4d14f54c9db4cd8f2c009c71addda4f",
+      "disposition": "rejected; original restored; see rejection records"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "before_sha256": "95bd180e65cd34d05e2954fe86e8e13e081912f2309c4d19d3b6eb57f6720bd2",
+      "after_sha256": "b87f66c99a0f3a00f13048f236242716c1c1398f2abd97a271ba2a32f850d665",
+      "changed": true,
+      "current_sha256": "95bd180e65cd34d05e2954fe86e8e13e081912f2309c4d19d3b6eb57f6720bd2",
+      "disposition": "rejected; original restored; see rejection records"
+    },
+    {
+      "file": "modules/playground_page/playtest/square_harness.gd",
+      "before_sha256": "bb0911efc8bcef4a6c0a0b03b6d0df2cfa5a2723a7e29303e5c7890a3acebc7f",
+      "after_sha256": "a960d006584902b98a31ab5c7b4b4b139c5a58de15b3c535904627cb4e857d1c",
+      "changed": true,
+      "current_sha256": "a960d006584902b98a31ab5c7b4b4b139c5a58de15b3c535904627cb4e857d1c",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "before_sha256": "558a0fa62260fec76e481a7a23e499933fd693f733a1d668776ad3598ee8b443",
+      "after_sha256": "8745697828b9149493d5520fd48a76c7c84bdb900c166225022f556c4682540a",
+      "changed": true,
+      "current_sha256": "558a0fa62260fec76e481a7a23e499933fd693f733a1d668776ad3598ee8b443",
+      "disposition": "rejected; original restored; see rejection records"
+    },
+    {
+      "file": "modules/playground_page/websurfer_window.gd",
+      "before_sha256": "0e690bb3450e67e2e815570b588afb7a38cf1735ea81611a18f91ca36d8ff9c6",
+      "after_sha256": "747040b7c89560e1c0e38e7802b7514b5e22ec0a5b7ab8250b836f9a45d8d072",
+      "changed": true,
+      "current_sha256": "747040b7c89560e1c0e38e7802b7514b5e22ec0a5b7ab8250b836f9a45d8d072",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sculpture_viewer/catalogue.gd",
+      "before_sha256": "8af51d306dc9464a69458a7d8744083dce1adcff5f5399e5f2b59bded495f224",
+      "after_sha256": "5ab430d0826eec3161b4b8810954a6a58ebc27faa019f517769a5a7018bb0c2f",
+      "changed": true,
+      "current_sha256": "5ab430d0826eec3161b4b8810954a6a58ebc27faa019f517769a5a7018bb0c2f",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sculpture_viewer/desktop.gd",
+      "before_sha256": "f69ad377301e51737ad45003bce346923afd1c40416f767f5ac2df0a289a254e",
+      "after_sha256": "1da1e37ed1c2efbfb5a816324b3237a837cd58efdb809a0c182d9b6602470afe",
+      "changed": true,
+      "current_sha256": "1da1e37ed1c2efbfb5a816324b3237a837cd58efdb809a0c182d9b6602470afe",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sculpture_viewer/playtest/hover_turn.gd",
+      "before_sha256": "79107a7f273e456420b76210b7bf709844ffb6d89f552ce55161bcc021f93f0f",
+      "after_sha256": "ff6960a79e62e95f2f1dd83ae7acdabca9cee45248805212951e30b5f7545e5a",
+      "changed": true,
+      "current_sha256": "ff6960a79e62e95f2f1dd83ae7acdabca9cee45248805212951e30b5f7545e5a",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sculpture_viewer/playtest/record_selection.gd",
+      "before_sha256": "5feb8d1c105830b60952251dd08dbb654e791f4b844f7c4d73dba7743645d8be",
+      "after_sha256": "a84416891ddfe29222954c48ccc00fa97f0c16ac2c2bc2011ca5a4f72d879ae6",
+      "changed": true,
+      "current_sha256": "a84416891ddfe29222954c48ccc00fa97f0c16ac2c2bc2011ca5a4f72d879ae6",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sculpture_viewer/playtest/window_resize_check.gd",
+      "before_sha256": "e78ba0c5cda56ba5bb15694ea4a8ff55c36b5e0ddba020c35af51968a7608289",
+      "after_sha256": "67beea0e83b0e90de31bee9dd02960fda8614a41038a496897fc54da917bea01",
+      "changed": true,
+      "current_sha256": "67beea0e83b0e90de31bee9dd02960fda8614a41038a496897fc54da917bea01",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sculpture_viewer/viewer.gd",
+      "before_sha256": "a96e72c38096f7d96e6269255610004a6f4ce4aef691aab7b9188020753f5b1f",
+      "after_sha256": "c0c10f8f1650ac1f2b9ee1fe609284ae74fd23e99f2f8a66d19cc64eacf3ab4a",
+      "changed": true,
+      "current_sha256": "c0c10f8f1650ac1f2b9ee1fe609284ae74fd23e99f2f8a66d19cc64eacf3ab4a",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/boot_loader.gd",
+      "before_sha256": "eebb97600cbfac0a852590772e342c5d991fba47cbd58d2423c6bc6decb62f15",
+      "after_sha256": "1b2194b5cf3d4627469fcee66e637632dcd70dc93c7d1299df3a6421498a06ec",
+      "changed": true,
+      "current_sha256": "1b2194b5cf3d4627469fcee66e637632dcd70dc93c7d1299df3a6421498a06ec",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/crt_display.gd",
+      "before_sha256": "29dc0d30cffbae562c4ceed78e30d7c58a4399d15e684b3b320f11fe18d98460",
+      "after_sha256": "80f75aa5ede3f913e9cb8f5ac7df176c3ec2168563b7845dd204765cb6c6c5be",
+      "changed": true,
+      "current_sha256": "80f75aa5ede3f913e9cb8f5ac7df176c3ec2168563b7845dd204765cb6c6c5be",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/demo.gd",
+      "before_sha256": "310780313301256913d703c0dc04118f43db247c3eb4fffaee6c568472349d8c",
+      "after_sha256": "b4834b976528c4d451088ec1e96816da883b9b06adb792d449a3c6252a270fd4",
+      "changed": true,
+      "current_sha256": "b4834b976528c4d451088ec1e96816da883b9b06adb792d449a3c6252a270fd4",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/desktop_icons.gd",
+      "before_sha256": "8351cec53bcf90987c5b53c4413f34b018448a7e1a551d7cf6f7122647f3f3de",
+      "after_sha256": "fcd8251b688ab45580b46ae7cf44794551ee4f508782ab76fcf4950cd20a7557",
+      "changed": true,
+      "current_sha256": "fcd8251b688ab45580b46ae7cf44794551ee4f508782ab76fcf4950cd20a7557",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/hover_glow.gd",
+      "before_sha256": "c762f077ae5531d6792376ae1d99d0a11e0f0c391de8ea6fc08dd0c0c3503809",
+      "after_sha256": "25e2f8456d0e67fb9baa978daf5b0480ceb7c334b6c538b22605950632515e57",
+      "changed": true,
+      "current_sha256": "25e2f8456d0e67fb9baa978daf5b0480ceb7c334b6c538b22605950632515e57",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/interface.gd",
+      "before_sha256": "75449a9677b33446d81a6c9b7eccc5acdc06815ba125c1512cf73552ab1ff52b",
+      "after_sha256": "13929b849695d4e05561488ba8e896921b1ac88002a356871750b0a9d039f60e",
+      "changed": true,
+      "current_sha256": "13929b849695d4e05561488ba8e896921b1ac88002a356871750b0a9d039f60e",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/playtest/collection_fit_check.gd",
+      "before_sha256": "fc38589d499ed81044274fde942b1877041899ece21784f4c94c83d66a63652f",
+      "after_sha256": "c88a25872b304482532a25fa844a2a75d7c0dcd4a9275ebdfe722df54e23db59",
+      "changed": true,
+      "current_sha256": "c88a25872b304482532a25fa844a2a75d7c0dcd4a9275ebdfe722df54e23db59",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/playtest/collection_preview_check.gd",
+      "before_sha256": "ea7c36e806b67d1d0b454c517fe3e178e622e7193db8a8b2c06855076e9d20a2",
+      "after_sha256": "f49c8b34c870655dc357754129a75c1d6f6570bfa5e703d8668d942a06e4f18c",
+      "changed": true,
+      "current_sha256": "f49c8b34c870655dc357754129a75c1d6f6570bfa5e703d8668d942a06e4f18c",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/playtest/containment.gd",
+      "before_sha256": "528acb5c4812147a00af0e515f49736e6566093fc5622004a60bf3b39a3131a1",
+      "after_sha256": "6c0e528612e15a6dde5b0ca2ff03106c94297a0ecf50f92b075c00dff709766d",
+      "changed": true,
+      "current_sha256": "6c0e528612e15a6dde5b0ca2ff03106c94297a0ecf50f92b075c00dff709766d",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/playtest/dummy_tenant.gd",
+      "before_sha256": "0eac25139601da3676ab9391adde92649f65200a36a3e4dc3db1b24b81d88a44",
+      "after_sha256": "fbc24d40e430445e041cd043ba9ca1dee735bf912d64a25835898648db3b85cb",
+      "changed": true,
+      "current_sha256": "fbc24d40e430445e041cd043ba9ca1dee735bf912d64a25835898648db3b85cb",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/playtest/harness.gd",
+      "before_sha256": "9937bb4e8ea84582d5893ecda24b93ae24f9c8ace6fb97a2cf35080b54f9a82a",
+      "after_sha256": "d41ef8edb6aa308c4549cf6bbec80c9da27177818fe92630dd1fbe1c618d429b",
+      "changed": true,
+      "current_sha256": "d41ef8edb6aa308c4549cf6bbec80c9da27177818fe92630dd1fbe1c618d429b",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/playtest/icon_rail_capture.gd",
+      "before_sha256": "5ef1e7467f270eaaa053b886c1f9f5661828ed109ed5c1b68a5219376a391a6f",
+      "after_sha256": "b336279cef4f940df85c3d1857dd42b6532c0c768feca9fa4dafbfe72556652f",
+      "changed": true,
+      "current_sha256": "b336279cef4f940df85c3d1857dd42b6532c0c768feca9fa4dafbfe72556652f",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/playtest/visitor174_capture.gd",
+      "before_sha256": "4a486c6344cd51f66ba1a68afa3fd51f27667d77fa976e0f4407783938f3ee1f",
+      "after_sha256": "a3ac8b492432221aa9ded47cb20d63247e51a228b0750f92df4cd94a7b024871",
+      "changed": true,
+      "current_sha256": "a3ac8b492432221aa9ded47cb20d63247e51a228b0750f92df4cd94a7b024871",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/playtest/visitor174_check.gd",
+      "before_sha256": "09e2604f3efcea2ad5265b28d12ee15945900ffd50a8bedf4553b01398fcfd85",
+      "after_sha256": "7048b5ffcc8a76860b85ea243a9e53387c2e787629bfce5bb03b6d02bf6767d9",
+      "changed": true,
+      "current_sha256": "7048b5ffcc8a76860b85ea243a9e53387c2e787629bfce5bb03b6d02bf6767d9",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/architecture_167_capture.gd",
+      "before_sha256": "6f95f838fa2c68542ba1e344aab05a845ec21521fd7b4e5f64bc858d27ad9bd1",
+      "after_sha256": "735b01e6ecd93eca7ff3cce92fa10ebeb907d8d99b27cb3bd87766bdd342f132",
+      "changed": true,
+      "current_sha256": "735b01e6ecd93eca7ff3cce92fa10ebeb907d8d99b27cb3bd87766bdd342f132",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/bake/plugin.gd",
+      "before_sha256": "94a0611cfabd457178807afb3ad42a4de91baf6f0ecd25830801f9107dc25cc1",
+      "after_sha256": "f723734994b92c193cce373617549b0f582b560206c8755321aceb25e524d280",
+      "changed": true,
+      "current_sha256": "f723734994b92c193cce373617549b0f582b560206c8755321aceb25e524d280",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/bake/prepare.gd",
+      "before_sha256": "66c401bfe8d62dbd6cd308348f8575c9c966e3480a1200a34dd41e0aafdddf94",
+      "after_sha256": "b9ce70dce19f8a5a2878c1be70ce51709a4a7e3f0ae36b5b6414dc3e407e4014",
+      "changed": true,
+      "current_sha256": "b9ce70dce19f8a5a2878c1be70ce51709a4a7e3f0ae36b5b6414dc3e407e4014",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/cornice_check.gd",
+      "before_sha256": "7af6d62f558794dc1f84ba95a2aea6ae6d4b84a9429dda5c1adedec7971b6b93",
+      "after_sha256": "00d31f24ce597a3d944817a1db2ec3ccf1cedda3c454969013ed1a4dd945b489",
+      "changed": true,
+      "current_sha256": "00d31f24ce597a3d944817a1db2ec3ccf1cedda3c454969013ed1a4dd945b489",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/cutaway_floor_check.gd",
+      "before_sha256": "80b240087868070905e2308476cbd757bc440e3bb9affb3f24ee0169462c19be",
+      "after_sha256": "c8f3055cd80aa0b1d22a10c4d6274ceffbef50e13333eebf4fa3b8f389de936a",
+      "changed": true,
+      "current_sha256": "c8f3055cd80aa0b1d22a10c4d6274ceffbef50e13333eebf4fa3b8f389de936a",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/dbg_tmp.gd",
+      "before_sha256": "f07d6005ac465ea649fcb88ea11e94310759b71d48c909eba4a912948ae83777",
+      "after_sha256": "282fbaed10ab5097f4b93ec78d7762facb852f13afb379dddcc635b1d750a6f0",
+      "changed": true,
+      "current_sha256": "282fbaed10ab5097f4b93ec78d7762facb852f13afb379dddcc635b1d750a6f0",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/dollhouse_shot.gd",
+      "before_sha256": "260e096d0cc69e74f73eaa40d7438717b53d3fdfd561a5b75a2e112ca8bd7a12",
+      "after_sha256": "198bde72221a05cb8de29b21a83ee9b26fda1d4f39b9c1da8a7b3d35ff414a8d",
+      "changed": true,
+      "current_sha256": "198bde72221a05cb8de29b21a83ee9b26fda1d4f39b9c1da8a7b3d35ff414a8d",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/doorway_check.gd",
+      "before_sha256": "90299da382f2044c31282ddfcede1ec364de6bf136a874486f92ddbadc8810ff",
+      "after_sha256": "225d61b925c8145d2e33090d6a2a2006a95c74f98a448ac3adcf6bd33a4e93df",
+      "changed": true,
+      "current_sha256": "225d61b925c8145d2e33090d6a2a2006a95c74f98a448ac3adcf6bd33a4e93df",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/doorway_prototype.gd",
+      "before_sha256": "2e298475bfba9c55073f838b9a25d30a139202ea785b0caf83183b8232eb8412",
+      "after_sha256": "3183f5ec20be286c9eb45731f3cc7d2a1a6f153e359d36990a025d310a5685e9",
+      "changed": true,
+      "current_sha256": "3183f5ec20be286c9eb45731f3cc7d2a1a6f153e359d36990a025d310a5685e9",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/doorway_prototype_capture.gd",
+      "before_sha256": "760d13067e6eec6ca8643ebc55c0ac114ae55c8b64092ced801b7193d7308f79",
+      "after_sha256": "6c01f7d687c67802be5a917cbc800841cc0ac4f4f5bcf3e89c085dafaabae1ee",
+      "changed": true,
+      "current_sha256": "6c01f7d687c67802be5a917cbc800841cc0ac4f4f5bcf3e89c085dafaabae1ee",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/final_render_check.gd",
+      "before_sha256": "8fc31faeeddf9b513c430d4b73e936b1b9a06b12349dcf2cd88b454fb69fb731",
+      "after_sha256": "60ccb8014a8dd2d1c47fcebbf809b264ebdd06c1aace84137b9efeb0a8e923c1",
+      "changed": true,
+      "current_sha256": "60ccb8014a8dd2d1c47fcebbf809b264ebdd06c1aace84137b9efeb0a8e923c1",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/floor_edges_check.gd",
+      "before_sha256": "e4fddbedbd3cea48f8a56e1d3874667a0317cb12502fd720d48cb91083b785cf",
+      "after_sha256": "46c43c2fd09d429d252e1670edbc5c790e91c71f2fe0b45337d851b361fd7e37",
+      "changed": true,
+      "current_sha256": "46c43c2fd09d429d252e1670edbc5c790e91c71f2fe0b45337d851b361fd7e37",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/floor_prototype_capture.gd",
+      "before_sha256": "27df4c01c854a3e1c827d52f44b9b5f8c032c00375f1a65d6c55a3eb7cefbe4b",
+      "after_sha256": "814676a00a93499bae9322429ea9dd41c3f0797c627edf19db2d2bef326bb670",
+      "changed": true,
+      "current_sha256": "814676a00a93499bae9322429ea9dd41c3f0797c627edf19db2d2bef326bb670",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/identity/native_render_check.gd",
+      "before_sha256": "0f4fe8a295629f7464d27d47a024c8750ebf0871613d0fbe9db41affa8350554",
+      "after_sha256": "4393c5ee253106c083781ea74b73402e94b1717afe4513df5fb82eacc52e2d8d",
+      "changed": true,
+      "current_sha256": "4393c5ee253106c083781ea74b73402e94b1717afe4513df5fb82eacc52e2d8d",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/navigation_check.gd",
+      "before_sha256": "e9c7622366ffdcc3b0d4ddc3f5b7c7bb02fbc1e1b6864277f8b5597847c0f600",
+      "after_sha256": "e4b49dac72c86deb1ff91b1f3410c2bf3854fc23b99886eb62d62897f7ffecdd",
+      "changed": true,
+      "current_sha256": "e4b49dac72c86deb1ff91b1f3410c2bf3854fc23b99886eb62d62897f7ffecdd",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/owner_repair_check.gd",
+      "before_sha256": "e07e0fccb4deb42d9cc71eed105a55eebcc6f5bd863700378f756940de119981",
+      "after_sha256": "c81ba2c944c18d7b872a9711c2f367013829c63db6418b69bf8b8dc922a2f267",
+      "changed": true,
+      "current_sha256": "c81ba2c944c18d7b872a9711c2f367013829c63db6418b69bf8b8dc922a2f267",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+      "before_sha256": "3141d33359efd0f8004dcc535f3d5f850eccfb09a1400891e37c5ab5b17030a7",
+      "after_sha256": "f11df86e9b4225a5827bf9c4d01723f5eea956538b5f7d0e167f04ab8c3fd95e",
+      "changed": true,
+      "current_sha256": "f11df86e9b4225a5827bf9c4d01723f5eea956538b5f7d0e167f04ab8c3fd95e",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/performance_probe.gd",
+      "before_sha256": "bb29f3964f1514049455f5a795f5e3f2cc87a0d0c5e5b0d3200bf732df7813fe",
+      "after_sha256": "d80db27bef3bb2bfad47a8aa96f3bca436e9a318582d29a17a006a18f06fd6d6",
+      "changed": true,
+      "current_sha256": "d80db27bef3bb2bfad47a8aa96f3bca436e9a318582d29a17a006a18f06fd6d6",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/portal_167_capture.gd",
+      "before_sha256": "155f998062f7037504635b12f00557086e848036878839996f9476bd77b9e24a",
+      "after_sha256": "22f676d63b6f8553394229aab25406c9d2cfd039d4bc27312c25fcaf1dc5eca1",
+      "changed": true,
+      "current_sha256": "22f676d63b6f8553394229aab25406c9d2cfd039d4bc27312c25fcaf1dc5eca1",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/portal_check.gd",
+      "before_sha256": "f3b93dc765679bed6fb2801f5b325db0ed3316766e04b77c5c63b849faad187a",
+      "after_sha256": "1e975260b80c44ebd6e1a14f93b592c27705b2f6543bbfeef0c61f7cf5413916",
+      "changed": true,
+      "current_sha256": "1e975260b80c44ebd6e1a14f93b592c27705b2f6543bbfeef0c61f7cf5413916",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/portal_floor_probe.gd",
+      "before_sha256": "136c0a85ce3b5c71552cef7246cd087855e1030bb87a1b92c5eeabe720cfebbe",
+      "after_sha256": "d44133ae7e5386af51622f69a092aa2634aeac86d7218d0ef733d631b1808b12",
+      "changed": true,
+      "current_sha256": "d44133ae7e5386af51622f69a092aa2634aeac86d7218d0ef733d631b1808b12",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/portal_relief_prepare.gd",
+      "before_sha256": "a84b4bdca5fa986b3002991832d7d051b008f707f19db59f7f56716d0166c1a5",
+      "after_sha256": "ea21275f5bf32e67100a68b5054e9f854ff650aa04ab1c51f78b8b5a0523456b",
+      "changed": true,
+      "current_sha256": "ea21275f5bf32e67100a68b5054e9f854ff650aa04ab1c51f78b8b5a0523456b",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/portal_sculpt_relief_prepare.gd",
+      "before_sha256": "88b95549164040aae8758c34ed79286b39fdf0ce8112247a6941c9bd2395bbeb",
+      "after_sha256": "accad947ea36d4eb252b5da4faf8b16915211785fde0f77770ec81d14c9a3c58",
+      "changed": true,
+      "current_sha256": "accad947ea36d4eb252b5da4faf8b16915211785fde0f77770ec81d14c9a3c58",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/portal_sculpture_probe.gd",
+      "before_sha256": "5a5899d7cff4b313fd0ab0ccca1e19067430ceb039650c93c65db7c7ba1f4304",
+      "after_sha256": "98ecfd7fd8cfa0349140df14378ce735aa8ec9db488a5e2361018bbae466bf27",
+      "changed": true,
+      "current_sha256": "98ecfd7fd8cfa0349140df14378ce735aa8ec9db488a5e2361018bbae466bf27",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/portal_traversal_check.gd",
+      "before_sha256": "cd7e7eb448325b4ed194bdf4f6857460c6e5ee8435883e8f7703ca742da80116",
+      "after_sha256": "f254f17d87317f091479d51e44dddc0d19bd82e8c04363f4cd2d4c1536c11c0f",
+      "changed": true,
+      "current_sha256": "f254f17d87317f091479d51e44dddc0d19bd82e8c04363f4cd2d4c1536c11c0f",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/render_diagnostics.gd",
+      "before_sha256": "75e8b450206fd46a40e106d1597f1c31f897026b64e89d0e9b5927f284e5aa13",
+      "after_sha256": "4fd59cd142e7f4bbc0e1254aed2cd137ff56f673f91863679a67ee1e0fafcaa6",
+      "changed": true,
+      "current_sha256": "4fd59cd142e7f4bbc0e1254aed2cd137ff56f673f91863679a67ee1e0fafcaa6",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/render_diagnostics_check.gd",
+      "before_sha256": "45377c94dd448ee51b73c4e3ac0f17a1da9787eaaf15164bf10652032a23ebec",
+      "after_sha256": "9b9dbf79ed9534bcef9c33ffb070485032099a50b606b18b1e90693f40802229",
+      "changed": true,
+      "current_sha256": "9b9dbf79ed9534bcef9c33ffb070485032099a50b606b18b1e90693f40802229",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/rig/check.gd",
+      "before_sha256": "aafc0028a74e8f3d919d2bd33ddc71e93a705b013dc640f24b2727994f9684d5",
+      "after_sha256": "01b2d357b7c4c903ac93b2fe2ff5ff6beddd171c0dfb20d4769fd93b7cb3db90",
+      "changed": true,
+      "current_sha256": "01b2d357b7c4c903ac93b2fe2ff5ff6beddd171c0dfb20d4769fd93b7cb3db90",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/rig/contact_check.gd",
+      "before_sha256": "562149473f9153e688f0bef8508bcbdd059fa6c6f506d964d5702d3f831046fd",
+      "after_sha256": "74c44e94278406110523488cb46b803376b8e2b25d4a80f38541f1f2f721d9f7",
+      "changed": true,
+      "current_sha256": "74c44e94278406110523488cb46b803376b8e2b25d4a80f38541f1f2f721d9f7",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/rig/render_check.gd",
+      "before_sha256": "84e671cee5aff7c45d192320da8b60d2fb675193f7427d6f4ace3e6f98ac63de",
+      "after_sha256": "0ac92a814216ed091a1ce11a2546b1d9217ce5638c5a106413f8b255fdd253dc",
+      "changed": true,
+      "current_sha256": "0ac92a814216ed091a1ce11a2546b1d9217ce5638c5a106413f8b255fdd253dc",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/rig/visitor.gd",
+      "before_sha256": "fa9d537599a9c21d3b35f5ec90b452e6daccddc6de165697e8cf387e026cbc4b",
+      "after_sha256": "e3122e3710d39875d164499bbcd736104301e12a04380d92cbc331a470ea0802",
+      "changed": true,
+      "current_sha256": "e3122e3710d39875d164499bbcd736104301e12a04380d92cbc331a470ea0802",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/shot.gd",
+      "before_sha256": "a77710c8a5573157e3e228ba558e59be1e9096386ec9bd673642cb6600af0eff",
+      "after_sha256": "698d0109bac05709f5abad7c1df3cbab7951cf2bc476d5085e51dda5cd4b124a",
+      "changed": true,
+      "current_sha256": "698d0109bac05709f5abad7c1df3cbab7951cf2bc476d5085e51dda5cd4b124a",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/visitor.gd",
+      "before_sha256": "201cc2f84a8ec4074953f5fb536e8176afd3e44f9694d599ea2a0dc77caf3834",
+      "after_sha256": "f351a4ea09c43f03ea44d3e181d512770fb5a028aabeb9cb619e2fff15e97f4a",
+      "changed": true,
+      "current_sha256": "f351a4ea09c43f03ea44d3e181d512770fb5a028aabeb9cb619e2fff15e97f4a",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor_check.gd",
+      "before_sha256": "6a00e3350ec3c53707b32e846de2b5c2ddcb6952876157d330fd01a121c0af10",
+      "after_sha256": "4c4c3a7b11813eab93bcdf5539c7c4907bb30cf8a913cef0ca8bf209e7459660",
+      "changed": true,
+      "current_sha256": "4c4c3a7b11813eab93bcdf5539c7c4907bb30cf8a913cef0ca8bf209e7459660",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "before_sha256": "8760bd57c075629c3065bad9356d981542a928be638f8a345255e03697543861",
+      "after_sha256": "c3ccc51983b5153935f718b1498cc4d0f0fa1a496a237096ec41a8fd3a5be5a7",
+      "changed": true,
+      "current_sha256": "c3ccc51983b5153935f718b1498cc4d0f0fa1a496a237096ec41a8fd3a5be5a7",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/world_176_capture.gd",
+      "before_sha256": "3cf3ed5ac7b5a8add32fb2a5bf85fbc92c7316efcef27775cd54cbf74c339fc2",
+      "after_sha256": "db940b0ddb34f515c1b1d03e180a441f0bdb1dd133d6c6a0eca342ed539a7094",
+      "changed": true,
+      "current_sha256": "db940b0ddb34f515c1b1d03e180a441f0bdb1dd133d6c6a0eca342ed539a7094",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/world_176_check.gd",
+      "before_sha256": "fd23c0fcded4fd015713fd71e8525adbef10ca2ef8261e7872298a8c480e4b58",
+      "after_sha256": "182337b9adf9008741211a3e2ef260240cde75a6477f32fd05d1fa14b0710bea",
+      "changed": true,
+      "current_sha256": "182337b9adf9008741211a3e2ef260240cde75a6477f32fd05d1fa14b0710bea",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/shell.gd",
+      "before_sha256": "5098a663708568620300aa4890ef6814bd05cdf6404fa1a69dc5f0ee788be578",
+      "after_sha256": "21b78f64aec42692e125905dbcc4ad8fde77462e050a79c618915a5e1cfdec85",
+      "changed": true,
+      "current_sha256": "21b78f64aec42692e125905dbcc4ad8fde77462e050a79c618915a5e1cfdec85",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/square_chrome.gd",
+      "before_sha256": "9a3baccc1910925e05053876dc478fe87cd45c843c6a71bc8ed8c7bfd29e137f",
+      "after_sha256": "ba4bde6ce99f86c25b00fb1ecd542524e1d1c758d8955f8626ab2dc62d3dd0a0",
+      "changed": true,
+      "current_sha256": "ba4bde6ce99f86c25b00fb1ecd542524e1d1c758d8955f8626ab2dc62d3dd0a0",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/shell/window_shadows.gd",
+      "before_sha256": "386f56276a229625d6eff1b7885f4446c34a692f1b6a008b1c23232644cfdeea",
+      "after_sha256": "ce73f20fc1f05b6317cb5776827f71e35ca542f2803aaadcd91ad30ae1ec0cce",
+      "changed": true,
+      "current_sha256": "ce73f20fc1f05b6317cb5776827f71e35ca542f2803aaadcd91ad30ae1ec0cce",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "before_sha256": "2ff2b46890986a6be3b8a50583934b284dc657037efba61ced8f84e2a397a7a6",
+      "after_sha256": "eb0a960832d611c229f376d3c70b96dbbcae3f44c7920ccc90d1c766fc7c2b9b",
+      "changed": true,
+      "current_sha256": "eb0a960832d611c229f376d3c70b96dbbcae3f44c7920ccc90d1c766fc7c2b9b",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sketchbook/drawing_surface.gd",
+      "before_sha256": "14f46c33a0330f2057083606559b06a78f3b93557601546dd0e956be2e151895",
+      "after_sha256": "a18a464924987f40cc9f91257759c5e71c479728fc0edb5280a542e6161d5b59",
+      "changed": true,
+      "current_sha256": "a18a464924987f40cc9f91257759c5e71c479728fc0edb5280a542e6161d5b59",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sketchbook/errors.gd",
+      "before_sha256": "cd4bda44413df9d86548ad804a419432308fbcd7f6f6de831fa166ed8fec6a7b",
+      "after_sha256": "cd4bda44413df9d86548ad804a419432308fbcd7f6f6de831fa166ed8fec6a7b",
+      "changed": false,
+      "current_sha256": "cd4bda44413df9d86548ad804a419432308fbcd7f6f6de831fa166ed8fec6a7b",
+      "disposition": "unchanged"
+    },
+    {
+      "file": "modules/sketchbook/freehand.gd",
+      "before_sha256": "d97e6e019f519accfb7cc8bbec046e9c8a9ffe91bbcf463e4d41b2d76bad819a",
+      "after_sha256": "198b2b4d04f7e4eb288c23db358a4a5735c6ae60b61057b5ed9ba4c55b67ec0b",
+      "changed": true,
+      "current_sha256": "198b2b4d04f7e4eb288c23db358a4a5735c6ae60b61057b5ed9ba4c55b67ec0b",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sketchbook/global_chatroom.gd",
+      "before_sha256": "38b33c22bb68986eaccaaf8492212f41d8c5db44aa872ab35e3539017377610f",
+      "after_sha256": "6e5e7dc215dc0b2d55ed6ffe8fe4a6a5184d49e8831c466549ead1970ea16d92",
+      "changed": true,
+      "current_sha256": "6e5e7dc215dc0b2d55ed6ffe8fe4a6a5184d49e8831c466549ead1970ea16d92",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sketchbook/interface.gd",
+      "before_sha256": "ef5a51c917be7b9f95651f13d29ba491314d5e8e24b93de79b1ef9861ad54cf7",
+      "after_sha256": "ef5a51c917be7b9f95651f13d29ba491314d5e8e24b93de79b1ef9861ad54cf7",
+      "changed": false,
+      "current_sha256": "ef5a51c917be7b9f95651f13d29ba491314d5e8e24b93de79b1ef9861ad54cf7",
+      "disposition": "unchanged"
+    },
+    {
+      "file": "modules/sketchbook/paintbox.gd",
+      "before_sha256": "7c3027a7153cfd937ea48457880298d1d66c65322d1c70c5bf3606836cdd2e97",
+      "after_sha256": "fb2b0111c427861385e316a008c12eb0fb0635af7c430402ce9e7a98f15a55a1",
+      "changed": true,
+      "current_sha256": "fb2b0111c427861385e316a008c12eb0fb0635af7c430402ce9e7a98f15a55a1",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sketchbook/painting_flow.gd",
+      "before_sha256": "01522088eedf3fd46cf4efaf3a4f3227f837fd1d0b11b155bfda7e2e8c1ec3f3",
+      "after_sha256": "c0b2fd013c57ae760e73b6e1689790da3af4c6934b9ec423e4d641b0ded17a3c",
+      "changed": true,
+      "current_sha256": "c0b2fd013c57ae760e73b6e1689790da3af4c6934b9ec423e4d641b0ded17a3c",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sketchbook/paper_turn.gd",
+      "before_sha256": "d0ec7531ce764f3c9ce94e16c7fdf94e02dd1711e4213210ed200bc8dbd5d6f6",
+      "after_sha256": "6cacec6ac420a611225a6894e2ee9c85ca4e32c415dbf8e16ac2d0b69dbcfa65",
+      "changed": true,
+      "current_sha256": "6cacec6ac420a611225a6894e2ee9c85ca4e32c415dbf8e16ac2d0b69dbcfa65",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sketchbook/playtest/anri_palette_check.gd",
+      "before_sha256": "530fbcdf67e660863ab4b2104eec9c5249dbf7a29379220ad3f51d635055c0ef",
+      "after_sha256": "880dbaebdf77c1a4e16d402ec75d3e6432791ab39b9deac9031cac0aa565b126",
+      "changed": true,
+      "current_sha256": "880dbaebdf77c1a4e16d402ec75d3e6432791ab39b9deac9031cac0aa565b126",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "before_sha256": "9b04a4fe17525eaa445a7ac88926578b62504f43556503823e974898ee0d7f94",
+      "after_sha256": "fb2f6d23de721f37d85c5d206bc9c3d63e623b6996bd4772dd4949bc8c4f98ca",
+      "changed": true,
+      "current_sha256": "9b04a4fe17525eaa445a7ac88926578b62504f43556503823e974898ee0d7f94",
+      "disposition": "rejected; original restored; see rejection records"
+    },
+    {
+      "file": "modules/sketchbook/playtest/tldraw_controls_check.gd",
+      "before_sha256": "6d6efd8651c9d1d73810846a8d8941181855f429b2726b51aa7f9dfdd9e0589a",
+      "after_sha256": "a72f89c4409d8f41edf54ce595e167687c406895f0b18e0bea5b7e463c85cb58",
+      "changed": true,
+      "current_sha256": "a72f89c4409d8f41edf54ce595e167687c406895f0b18e0bea5b7e463c85cb58",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sketchbook/sketchbook_window.gd",
+      "before_sha256": "0f2d8390f7f50467c5ebcb9668ce01dad6bb40e5bd51359942c3761d6032af20",
+      "after_sha256": "710f1044b68880507753f67e2a14f152f09c920634798b64114d78e76be8b60e",
+      "changed": true,
+      "current_sha256": "710f1044b68880507753f67e2a14f152f09c920634798b64114d78e76be8b60e",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sketchbook/tldraw_controls_prototype.gd",
+      "before_sha256": "f614d4c938f4d51d0feb6927c0e278885c49d08d4ade9ddcb99213cac4b23073",
+      "after_sha256": "c24a48da2280f0624153c25e2d8b823e0d462d1aae4785a86591dc96614848ba",
+      "changed": true,
+      "current_sha256": "c24a48da2280f0624153c25e2d8b823e0d462d1aae4785a86591dc96614848ba",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/sound_cues/playtest/check.gd",
+      "before_sha256": "f2ec7cc45c62a9fed6278095e7b6b147d1b8f9cef909e717b9595c09e9f34e3b",
+      "after_sha256": "438222c21bbd296e1f9c75baa149fcf43fc5ba7cf5bed8632b16c957774e7ab2",
+      "changed": true,
+      "current_sha256": "438222c21bbd296e1f9c75baa149fcf43fc5ba7cf5bed8632b16c957774e7ab2",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/tab_strip/interface.gd",
+      "before_sha256": "c1fd42d005981778d15dbd8ca7e2b46b3dfe8647eb40fb3b607aa49d5f5dac0c",
+      "after_sha256": "3e1788a414ad29bc5ecd859e012ee64ac109c7ece15876e559cb9eaee1d1707b",
+      "changed": true,
+      "current_sha256": "3e1788a414ad29bc5ecd859e012ee64ac109c7ece15876e559cb9eaee1d1707b",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/tab_strip/playtest/harness.gd",
+      "before_sha256": "334ea1236e60aa5d4018f45cc897782c2138f4598d4cbc3774c4437ef17e33ae",
+      "after_sha256": "b7e4206b496d2f58f42a508b207ff284e0fb0ed1b99809fa6f2226a21d0f93f0",
+      "changed": true,
+      "current_sha256": "b7e4206b496d2f58f42a508b207ff284e0fb0ed1b99809fa6f2226a21d0f93f0",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "before_sha256": "2291efc6058a238229156b396b49630b6927621524b5b479a8487d1ca94320b8",
+      "after_sha256": "d5d353d1d9a56a010b973d46656b3c040a9fc41bbb1eea0ff9466cc1b35be72e",
+      "changed": true,
+      "current_sha256": "d5d353d1d9a56a010b973d46656b3c040a9fc41bbb1eea0ff9466cc1b35be72e",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/video_player/errors.gd",
+      "before_sha256": "a1d49c162db47d58dced716a2431829bbc3667f6616b15b12ce002ac875b073b",
+      "after_sha256": "a1d49c162db47d58dced716a2431829bbc3667f6616b15b12ce002ac875b073b",
+      "changed": false,
+      "current_sha256": "a1d49c162db47d58dced716a2431829bbc3667f6616b15b12ce002ac875b073b",
+      "disposition": "unchanged"
+    },
+    {
+      "file": "modules/video_player/playtest/harness.gd",
+      "before_sha256": "36f9f22369c4dc193a32a460252c0f2929a69a974224cd1ea2ec18b6f3eddd2d",
+      "after_sha256": "67613ca2fc2465e54857cd77197c34c1209f17cb3ab64ea8295e5bcda03ec151",
+      "changed": true,
+      "current_sha256": "67613ca2fc2465e54857cd77197c34c1209f17cb3ab64ea8295e5bcda03ec151",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "modules/video_player/video_player.gd",
+      "before_sha256": "61d4550fe2476132580441d432c3fa6e354057987c8ea645925fd6ad273a7642",
+      "after_sha256": "f0a988d771b9742048ce4a2a81650361a3ec9eb65c2ff82842cbada228680718",
+      "changed": true,
+      "current_sha256": "f0a988d771b9742048ce4a2a81650361a3ec9eb65c2ff82842cbada228680718",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "prototype/mr-baby-paint-audio/main.gd",
+      "before_sha256": "d61696003c5b1abe44dad24c7e15fc176a408bbdb742b8596b58ff13f480f5f9",
+      "after_sha256": "7f40995a07596cf885ba0d29c2535fbbdca852eb71f98729eb17b5dcc9e965dc",
+      "changed": true,
+      "current_sha256": "7f40995a07596cf885ba0d29c2535fbbdca852eb71f98729eb17b5dcc9e965dc",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "testing/collection_data_test.gd",
+      "before_sha256": "3aa3f8e42896100411c95a86b54fdc07b7558bc1d3b95b74c400f510036c5d47",
+      "after_sha256": "592f21f8e2c912b5585d3be96c5167fe2cb7e3dd74e89dfb5b9792b51c4ec329",
+      "changed": true,
+      "current_sha256": "592f21f8e2c912b5585d3be96c5167fe2cb7e3dd74e89dfb5b9792b51c4ec329",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "testing/collection_page_adapter.gd",
+      "before_sha256": "13a16fa2bf49e031b3f09843f8a3bebc902e2003852157b4bf5b123ad27f0d8a",
+      "after_sha256": "c69c2efa9e250fbb5a25cf7db49ab5ac571fc3d6aea678268104bc77d9c8bc51",
+      "changed": true,
+      "current_sha256": "c69c2efa9e250fbb5a25cf7db49ab5ac571fc3d6aea678268104bc77d9c8bc51",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "testing/harness_base.gd",
+      "before_sha256": "e710a07dc7d5833abf7c2a972399ab1b04a5fc1b1e4da2f4639c255b4d859844",
+      "after_sha256": "805bfd4ecbc1581361cd0e3f10521de9df0aaaac402545e3efdc320b53187b90",
+      "changed": true,
+      "current_sha256": "805bfd4ecbc1581361cd0e3f10521de9df0aaaac402545e3efdc320b53187b90",
+      "disposition": "accepted native formatter and Godot parse"
+    },
+    {
+      "file": "testing/saved_destinations_test.gd",
+      "before_sha256": "9561616ae80bf75ea0cae5b1e887f8c4cb681f655f3e0f36db395ca1365396c2",
+      "after_sha256": "c8f51f3b117ea37c30e5811cabb0894e13856860de34c5d0b5fbd75bc2189c8b",
+      "changed": true,
+      "current_sha256": "c8f51f3b117ea37c30e5811cabb0894e13856860de34c5d0b5fbd75bc2189c8b",
+      "disposition": "accepted native formatter and Godot parse"
+    }
+  ],
+  "issue": 210,
+  "final_accepted_files": [
+    "docs/evidence/display-161-current/capture-native.gd",
+    "docs/evidence/floor-selection-186/native_capture.gd",
+    "docs/evidence/floor-selection-186/restore.gd",
+    "docs/evidence/gallery-camera-pitch/corner_pose.gd",
+    "docs/evidence/gallery-cutaway-diagnosis/background_trial.gd",
+    "docs/evidence/keyboard-focus-206/focus_check.gd",
+    "docs/evidence/owner-world-177/passage-current/edges.gd",
+    "docs/evidence/owner-world-177/passage-current/native.gd",
+    "docs/evidence/owner-world-177/passage-current/probe.gd",
+    "docs/evidence/owner-world-177/passage-current/repair.gd",
+    "docs/evidence/room-transition-185/probe.gd",
+    "docs/evidence/warm-room-187/check.gd",
+    "docs/evidence/window-effects-193/input_check.gd",
+    "modules/atlas/atlas.gd",
+    "modules/atlas/atlas_window.gd",
+    "modules/atlas/playtest/harness.gd",
+    "modules/collection_data/data.gd",
+    "modules/collection_data/http_adapter.gd",
+    "modules/collection_data/playtest/probe.gd",
+    "modules/collection_data/storage_adapter.gd",
+    "modules/flowers_page/flowers_page.gd",
+    "modules/playground_page/embedded_check.gd",
+    "modules/playground_page/journal_paper_turn.gd",
+    "modules/playground_page/journal_window.gd",
+    "modules/playground_page/playtest/square_harness.gd",
+    "modules/playground_page/websurfer_window.gd",
+    "modules/sculpture_viewer/catalogue.gd",
+    "modules/sculpture_viewer/desktop.gd",
+    "modules/sculpture_viewer/playtest/hover_turn.gd",
+    "modules/sculpture_viewer/playtest/record_selection.gd",
+    "modules/sculpture_viewer/playtest/window_resize_check.gd",
+    "modules/sculpture_viewer/viewer.gd",
+    "modules/shell/boot_loader.gd",
+    "modules/shell/crt_display.gd",
+    "modules/shell/demo.gd",
+    "modules/shell/desktop_icons.gd",
+    "modules/shell/hover_glow.gd",
+    "modules/shell/interface.gd",
+    "modules/shell/playtest/collection_fit_check.gd",
+    "modules/shell/playtest/collection_preview_check.gd",
+    "modules/shell/playtest/containment.gd",
+    "modules/shell/playtest/dummy_tenant.gd",
+    "modules/shell/playtest/harness.gd",
+    "modules/shell/playtest/icon_rail_capture.gd",
+    "modules/shell/playtest/visitor174_capture.gd",
+    "modules/shell/playtest/visitor174_check.gd",
+    "modules/shell/prototype/gallery_walk4/architecture_167_capture.gd",
+    "modules/shell/prototype/gallery_walk4/bake/plugin.gd",
+    "modules/shell/prototype/gallery_walk4/bake/prepare.gd",
+    "modules/shell/prototype/gallery_walk4/cornice_check.gd",
+    "modules/shell/prototype/gallery_walk4/cutaway_floor_check.gd",
+    "modules/shell/prototype/gallery_walk4/dbg_tmp.gd",
+    "modules/shell/prototype/gallery_walk4/dollhouse_shot.gd",
+    "modules/shell/prototype/gallery_walk4/doorway_check.gd",
+    "modules/shell/prototype/gallery_walk4/doorway_prototype.gd",
+    "modules/shell/prototype/gallery_walk4/doorway_prototype_capture.gd",
+    "modules/shell/prototype/gallery_walk4/final_render_check.gd",
+    "modules/shell/prototype/gallery_walk4/floor_edges_check.gd",
+    "modules/shell/prototype/gallery_walk4/floor_prototype_capture.gd",
+    "modules/shell/prototype/gallery_walk4/identity/native_render_check.gd",
+    "modules/shell/prototype/gallery_walk4/navigation_check.gd",
+    "modules/shell/prototype/gallery_walk4/owner_repair_check.gd",
+    "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+    "modules/shell/prototype/gallery_walk4/performance_probe.gd",
+    "modules/shell/prototype/gallery_walk4/portal_167_capture.gd",
+    "modules/shell/prototype/gallery_walk4/portal_check.gd",
+    "modules/shell/prototype/gallery_walk4/portal_floor_probe.gd",
+    "modules/shell/prototype/gallery_walk4/portal_relief_prepare.gd",
+    "modules/shell/prototype/gallery_walk4/portal_sculpt_relief_prepare.gd",
+    "modules/shell/prototype/gallery_walk4/portal_sculpture_probe.gd",
+    "modules/shell/prototype/gallery_walk4/portal_traversal_check.gd",
+    "modules/shell/prototype/gallery_walk4/render_diagnostics.gd",
+    "modules/shell/prototype/gallery_walk4/render_diagnostics_check.gd",
+    "modules/shell/prototype/gallery_walk4/rig/check.gd",
+    "modules/shell/prototype/gallery_walk4/rig/contact_check.gd",
+    "modules/shell/prototype/gallery_walk4/rig/render_check.gd",
+    "modules/shell/prototype/gallery_walk4/rig/visitor.gd",
+    "modules/shell/prototype/gallery_walk4/shot.gd",
+    "modules/shell/prototype/gallery_walk4/visitor159/visitor.gd",
+    "modules/shell/prototype/gallery_walk4/visitor_check.gd",
+    "modules/shell/prototype/gallery_walk4/walk4.gd",
+    "modules/shell/prototype/gallery_walk4/world_176_capture.gd",
+    "modules/shell/prototype/gallery_walk4/world_176_check.gd",
+    "modules/shell/shell.gd",
+    "modules/shell/square_chrome.gd",
+    "modules/shell/window_shadows.gd",
+    "modules/sketchbook/desktop.gd",
+    "modules/sketchbook/drawing_surface.gd",
+    "modules/sketchbook/freehand.gd",
+    "modules/sketchbook/global_chatroom.gd",
+    "modules/sketchbook/paintbox.gd",
+    "modules/sketchbook/painting_flow.gd",
+    "modules/sketchbook/paper_turn.gd",
+    "modules/sketchbook/playtest/anri_palette_check.gd",
+    "modules/sketchbook/playtest/tldraw_controls_check.gd",
+    "modules/sketchbook/sketchbook_window.gd",
+    "modules/sketchbook/tldraw_controls_prototype.gd",
+    "modules/sound_cues/playtest/check.gd",
+    "modules/tab_strip/interface.gd",
+    "modules/tab_strip/playtest/harness.gd",
+    "modules/tab_strip/tab_strip.gd",
+    "modules/video_player/playtest/harness.gd",
+    "modules/video_player/video_player.gd",
+    "prototype/mr-baby-paint-audio/main.gd",
+    "testing/collection_data_test.gd",
+    "testing/collection_page_adapter.gd",
+    "testing/harness_base.gd",
+    "testing/saved_destinations_test.gd"
+  ],
+  "final_accepted_count": 108,
+  "final_restored_files": [
+    "modules/playground_page/playground_page.gd",
+    "modules/playground_page/playtest/harness.gd",
+    "modules/playground_page/square_pages.gd",
+    "modules/sketchbook/playtest/harness.gd"
+  ],
+  "current_tracked_lint_findings": 485,
+  "trial_changed_files": 112,
+  "final_runtime_commit": "ba6b3c05cdc2db9d653c60fac7c668f24bd05b67"
+}

@@ -1,0 +1,6 @@
+{
+  "reason": "Reject formatting that introduces max-file-lines findings; retain original owned source",
+  "files": [
+    "modules/playground_page/playground_page.gd"
+  ]
+}

@@ -2,7 +2,7 @@
 
 verdict: needs-work
 
-Current runtime: `36cb27af`, September 30, 2026. Acceptance: map149 and later owner173/174/177/187/189/192/193, with scoped follow-through199/206 and scoped208. Independent Standards/Spec/Ponytail source review covered `main`55e7c3b7 to0a58dc7e, then the193 delta through1dc3deac and focused199 corrections. Current blind reviewers used GPT-6 Astra at medium with fresh image-only context. [Current evidence and exact review limits](../../evidence/final-review-162/current-f2b5453a/README.md). Prior candidate review is preserved in current-0a58dc7e/source-review.md.
+Current runtime: `ba6b3c05`, September 30, 2026. Acceptance: map149 and later owner173/174/177/187/189/192/193, with scoped follow-through199/206 and scoped208. Independent Standards/Spec/Ponytail source review covered `main`55e7c3b7 to0a58dc7e, then the193 delta through1dc3deac and focused199 corrections. Current blind reviewers used GPT-6 Astra at medium with fresh image-only context. [Current evidence and exact review limits](../../evidence/final-review-162/current-f2b5453a/README.md). Prior candidate review is preserved in current-0a58dc7e/source-review.md.
 
 ## Standards
 
@@ -53,3 +53,9 @@ The first gallery close-ups were invalid because releasing the evidence camera r
 ## Verification follow-through
 
 Hosted Verify ondc8555f6 reportsfailure before steps, emptyrunner/no log; prior125927da same. Check-rollupAPI403, causeunverified. Prior local check falsely passed because discovery exits141 and skipped lint.209 one-line find-print-quit repair is RED/GREEN proven with900files and failure propagation; installedgdtoolkit4.5.0 now FAILs1273 trackedfindings, identical source findings onpre208125927da/current. Fourlonglines in new208privatefixture fixed with native14PASSagain; no added lintfinding remains. Directplayer26samefindings. Independent209 source reviewers found no implementationdefect; initial evidence gaps corrected. Real CI/lint acceptance remains unresolved; no all-CI-pass or ship claim.
+
+## Authorized formatting follow-through —ba6b3c05
+
+[Exact210 evidence](../../evidence/line-formatting-210/README.md). Explicit122-file layout-only authority includes named frozen files. Native formatter trial112; four rejected whole-file outputs restored exact04eb (Godot lambda indentation, new file-length lint, duplicated comments in two harnesses). Final108 retain normalized code trees and exact ordered comments; native parsing passes. Independent Standards/Spec/Ponytail finding resolved, no logic/API/asset change. Tracked lint1273-to485 with374 remaining line-length findings is partial remediation, still FAIL. Native Godot/seams pass13warnings; CollectionData/Saved/Sound assertions pass with shutdown resource diagnostics retained. Final owner and historical whole-review gates remain unresolved; verdict remains needs-work.
+
+Exactba6b3c05 full Web18window/input and33state sevenTab/fourScan/fivefit capture PASSerrors[], HTTPSarchivebytesMATCH. Installed-tool fullcheck FAIL488(485tracked+3originaluntracked). Fresh Astra medium image-only review PASSes visible sevenTabs/fourScan-main-catalogue-preview/square/gallery-frame-visitor; small-format text legibility remains FAIL, continuous motion/owner acceptance NEEDS-EVIDENCE. Source equivalence does not clear inherited readability/bench/continuous quality or owner approval.
