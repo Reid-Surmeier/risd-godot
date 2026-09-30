@@ -1,0 +1,41 @@
+{
+  "checks": {
+    "forward": true,
+    "jamb_blocked": true,
+    "reverse": true
+  },
+  "frame_time_p50_ms": 5.55555555555555,
+  "frame_time_p95_ms": 8.33333333333333,
+  "navigation_accepted": false,
+  "render_frames": 1528,
+  "renderer": "D3D12 (NVIDIA GeForce RTX 4070 SUPER)",
+  "samples": [
+    {
+      "on_floor": true,
+      "phase": 0,
+      "position": [
+        0.00636056577786803,
+        0.0516308099031448,
+        -1.27611470222473
+      ]
+    },
+    {
+      "on_floor": true,
+      "phase": 1,
+      "position": [
+        0.540850281715393,
+        -0.00636019790545106,
+        0.714806258678436
+      ]
+    },
+    {
+      "on_floor": true,
+      "phase": 2,
+      "position": [
+        0.930816769599915,
+        -0.00151245051529258,
+        0.246386080980301
+      ]
+    }
+  ]
+}

@@ -100,3 +100,21 @@ produces a 21.05-degree 95th-percentile normal deviation. These are nearby
 same-video checks. Narrow threshold measurements do not accept a level floor,
 a physical step, room collisions, metric scale or navigation. Existing Muse
 receipts and failed sculpture meshes remain unchanged.
+
+## Collection bounded doorway traversal — September 30, 00:00 UTC heartbeat
+
+Local Godot 4.7.2, pycolmap/NumPy and Chrome on RTX 4070 SUPER; **$0**, no paid
+calls. Recovered the interrupted `corridor-floor-v2` result and preserved its
+source. The new narrower-baseline wall-floor comparison is retained as weaker
+evidence, not substituted for that measurement.
+
+[Source, input and output hashes](../../docs/evidence/collection-reconstruction/heartbeat-20260930T0000/provenance.json)
+cover the isolated doorway scene, original visitor, measured aperture, floor
+patches, browser export and screenshots. Native and real browser keyboard
+round trips pass; the right jamb blocks the capsule. Casing visuals cut away
+when they obstruct the visitor, while collision stays active.
+
+This accepts only the bounded experimental traversal checks. Floor interpolation,
+metric scale, room extents, whole-room collisions, final camera behavior and
+baking remain unresolved. Existing Muse receipts and failed sculpture meshes
+are unchanged. No production integration or 3D Viewer changes.
