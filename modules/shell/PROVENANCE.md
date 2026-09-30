@@ -247,3 +247,21 @@ walk checks pass on historical provisional surfaces; Shell retains six
 previous failure names. Visuals inspected, fresh cloud exported without old
 dense geometry. No runtime/Viewer edits, integration, paid generation or closure.
 Existing Muse receipts and rejected sculpture meshes remain unchanged.
+
+
+## Collection native threshold diagnosis — September 30, 08:00 UTC heartbeat
+
+Local ffmpeg CUDA NVDEC/scale_cuda, NumPy/pycolmap CPU diagnostics, Godot 4.7.2
+and Chrome 154 D3D12 RTX4070SUPER; **$0**, no paid calls.
+[Source marks, commands, outputs and raw logs](../../docs/evidence/collection-reconstruction/heartbeat-20260930T0800/provenance.json).
+
+New native threshold splice/casing crease fail reserved pixels at 8.274/8.414px
+under the unchanged 8px gate; neither retuned. Two-view cached-track diagnosis
+has 157/157 below 8px (median 1.066px); alternate disjoint-point pose does not
+rescue manual marks. Two threshold features remain potential anchors; cabinet/
+pedestal shadow candidates are insufficient to define a floor plane. No floor,
+collision, metric scale or camera accepted. Historical/fresh models, ten originals
+and completed holdouts verified unchanged. Existing historical bounded walk passes
+24 native/browser checks and real WASD round trip. Shell has four prior failures;
+repository/pose/diff checks pass. Existing Muse receipts and rejected meshes
+preserved. No runtime/Viewer edit, paid generation, integration or ticket closure.

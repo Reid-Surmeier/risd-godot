@@ -1,0 +1,103 @@
+{
+  "annotations": {
+    "labels": [
+      "threshold-splice-rear-left",
+      "left-casing-inner-crease-top"
+    ],
+    "picks": {
+      "IMG_6380_exit6fps/000013.jpg": [
+        [
+          208,
+          1149
+        ],
+        [
+          117,
+          1118
+        ]
+      ],
+      "IMG_6380_exit6fps/000019.jpg": [
+        [
+          318,
+          1280
+        ],
+        [
+          213,
+          1228
+        ]
+      ],
+      "IMG_6380_exit6fps/000023.jpg": [
+        [
+          211,
+          1464
+        ],
+        [
+          59,
+          1395
+        ]
+      ]
+    },
+    "training": [
+      "IMG_6380_exit6fps/000013.jpg",
+      "IMG_6380_exit6fps/000019.jpg"
+    ],
+    "reserved": "IMG_6380_exit6fps/000023.jpg",
+    "photo_sha256": {
+      "IMG_6380_exit6fps/000013.jpg": "ddf5b627f964f4f7fc0773955888943300874c50d49a89b1f32cada205200d46",
+      "IMG_6380_exit6fps/000019.jpg": "8dff52caaa5bcf15ea4922ca06d7bf645bf134addb7f28293b47f39c06409d12",
+      "IMG_6380_exit6fps/000023.jpg": "27488810a467290830767950d7f37f6a26db559f980178fc8fda773f1525a303"
+    },
+    "scope": "New physical endpoints; native manual marks frozen before viewing predictions; casing crease elevated; not aperture toes."
+  },
+  "annotations_sha256": "3b1cb375430aa5046a05144863c35865e2e05df8548a7257d28f44c32ce4c71f",
+  "source_sha256": {
+    "points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "points_world": [
+    [
+      0.49662044043683284,
+      1.8898628193713976,
+      1.3158705263333839
+    ],
+    [
+      0.4583780863797057,
+      1.7840999649904326,
+      1.2706555677902123
+    ]
+  ],
+  "ray_angles_degrees": [
+    9.21025592803147,
+    9.226605217440952
+  ],
+  "errors_px": {
+    "IMG_6380_exit6fps/000013.jpg": [
+      0.07669190909065743,
+      0.8656011171300086
+    ],
+    "IMG_6380_exit6fps/000019.jpg": [
+      0.09426752125166239,
+      1.0327850187015641
+    ],
+    "IMG_6380_exit6fps/000023.jpg": [
+      8.273911486485812,
+      8.414310321567621
+    ]
+  },
+  "threshold_px": 8,
+  "minimum_ray_angle_degrees": 1,
+  "diagnostic_pass": [
+    false,
+    false
+  ],
+  "manual_pick_p95_world_units": [
+    0.03196571883463604,
+    0.028799867213750587
+  ],
+  "sensitivity_native_pixel_radius": 3,
+  "navigation_accepted": false,
+  "cost_usd": 0,
+  "caveat": "New marks frozen before prediction. Reserved pixels unused in triangulation; its camera is already fitted. Same-video correlated views with inherited intrinsics, not independent survey. Only the splice is a floor point; casing crease is elevated. No plane, scale, opening or collision inferred."
+}
