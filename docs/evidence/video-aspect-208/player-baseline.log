@@ -2,10 +2,10 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
      at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
 OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
-PASS five_preview_videos_match_manifest 
+PASS five_preview_videos_match_manifest
 PASS screenshots_present ['01-shown.png', '02-playing.png', '03-tile-3.png', '04-paused.png', '05-paused-20.png', '06-seeked.png', '07-fullscreen.png', '08-windowed.png', '09-viewer-moved.png', '10-before-hidden.png', '11-hidden.png', '12-resumed.png', '13-resized.png', '14-fill-1440x820.png', '14-fill-1920x1000.png']
 PASS shown_screenshot_is_1920x1080 (1080, 1920, 3)
-PASS no_video_tenant_at_launch 
+PASS no_video_tenant_at_launch
 PASS click_video_tab_creates_and_shows_player {'frozen': False, 'key': 'video_player', 'page_visible': True, 'rect': {'h': 49.153076171875, 'w': 201.325622558594, 'x': 639.663330078125, 'y': 1028.82690429688}, 'tenant': 'ok'}
 FAIL tenant_fills_page_area [1805.0, 979.999816894531]
 FAIL pair_fills_page_side_by_side side scale 0.7446: fly {'h': 944.257263183594, 'w': 1046.95959472656, 'x': 132.871292114258, 'y': 55.2518157958984} info {'h': 944.257263183594, 'w': 698.469482421875, 'x': 1203.6591796875, 'y': 55.2518157958984}
@@ -14,41 +14,41 @@ PASS eight_tiles_five_enabled_in_a_row [{'h': 81.9100952148438, 'w': 81.91003417
 PASS controls_inside_their_windows {'fullscreen': {'h': 29.7854766845703, 'w': 36.4871826171875, 'x': 1825.43103027344, 'y': 120.035278320312}, 'info_title_bar': {'h': 35.7425689697266, 'w': 683.576782226562, 'x': 1211.10559082031, 'y': 58.2303619384766}, 'minimize': {'h': 26.0622901916504, 'w': 23.828369140625, 'x': 1141.10974121094, 'y': 61.9535484313965}, 'mute': {'h': 30.5301208496094, 'w': 31.2747802734375, 'x': 1780.75280761719, 'y': 120.035278320312}, 'play': {'h': 36.4872131347656, 'w': 70.740478515625, 'x': 1235.67858886719, 'y': 115.567443847656}, 'save': {'h': 37.9765014648438, 'w': 106.483032226562, 'x': 1759.15844726562, 'y': 814.839111328125}, 'seek': {'h': 23.083740234375, 'w': 278.494262695312, 'x': 1309.39770507812, 'y': 124.503051757812}, 'seek_knob': {'h': 23.083740234375, 'w': 21.594482421875, 'x': 1310.09130859375, 'y': 124.503051757812}, 'timer': {'h': 24.5730133056641, 'w': 62.549560546875, 'x': 1602.78466796875, 'y': 120.779907226562}, 'title_bar': {'h': 37.2318496704102, 'w': 986.643920898438, 'x': 146.274749755859, 'y': 55.996452331543}, 'volume': {'h': 28.2962036132812, 'w': 87.12255859375, 'x': 1694.375, 'y': 120.035278320312}, 'volume_knob': {'h': 28.2962036132812, 'w': 17.126708984375, 'x': 1764.37084960938, 'y': 120.035278320312}}
 PASS first_video_autoplays_from_start 1191767929 at 0.60/218.6
 PASS position_advances_while_playing 0.60 -> 1.32 over 31 ticks
-PASS tile_click_lands_on_tile_3 
+PASS tile_click_lands_on_tile_3
 PASS tile_3_plays_its_mapped_video_from_start 1014865523 0.04 -> 0.64
 PASS video_body_pixels_change_between_positions mean abs diff 120.1
-PASS pause_click_lands_on_play_control 
+PASS pause_click_lands_on_play_control
 PASS pause_holds_position 0.783 -> 0.783 over 21 ticks
 PASS video_body_pixels_hold_while_paused mean abs diff 0.000
-PASS pause_again_resumes 
+PASS pause_again_resumes
 PASS seek_drag_starts_on_the_knob from [1321.60791015625, 136.044921875] knob {'h': 23.083740234375, 'w': 21.594482421875, 'x': 1310.81066894531, 'y': 124.503051757812}
 PASS seek_drag_moves_position_to_the_knob expected 0.239, got 0.239 (34.9 s)
-PASS mute_click_lands_on_mute_control 
-PASS mute_silences 
-PASS volume_drag_starts_on_the_knob 
+PASS mute_click_lands_on_mute_control
+PASS mute_silences
+PASS volume_drag_starts_on_the_knob
 PASS volume_drag_sets_gain_and_unmutes expected 0.571, got 0.571
-PASS fullscreen_click_lands_on_its_control 
+PASS fullscreen_click_lands_on_its_control
 FAIL fullscreen_fills_the_page {'h': 979.999816894531, 'w': 1805.0, 'x': 115.0, 'y': 37.3805313110352}
 PASS fullscreen_keeps_playing 35.36 -> 35.91
 FAIL fullscreen_pixels_cover_the_page_under_the_strip white fraction 0.119, strip diff 14.374
 PASS f_key_restores_the_viewer {'h': 545.07421875, 'w': 1017.17407226562, 'x': 146.274749755859, 'y': 267.502166748047}
 FAIL white_desktop_around_and_between_the_windows top 240.7 gap 255.0
 PASS letterbox_matches_light_grey_header mean 240.0
-PASS space_pauses_and_resumes 
+PASS space_pauses_and_resumes
 PASS right_seeks_five_seconds 36.11 -> 41.17
 PASS key_2_picks_the_second_tile 1187745268 0.06/180
-PASS save_click_toggles_session_state 
-PASS title_drag_starts_on_title_bar 
+PASS save_click_toggles_session_state
+PASS title_drag_starts_on_title_bar
 PASS title_drag_moves_viewer_by_the_drag [17.8712863922119, 17.8712863922119] -> [87.8712768554688, 2.87128448486328] by [70.0, -15.0]
 FAIL viewer_drag_clamps_to_keep_title_bar_reachable title bar {'h': 37.2318725585938, 'w': 986.64404296875, 'x': 1720.0, 'y': 980.148498535156} page [1805.0, 979.999816894531]
 PASS information_drags_by_its_own_title_bar [1088.6591796875, 17.8712863922119] -> [1028.6591796875, 47.8712844848633] by [-60.0, 30.0]
-PASS map_tab_hides_and_freezes_video_page 
-PASS hidden_page_pauses_video 
+PASS map_tab_hides_and_freezes_video_page
+PASS hidden_page_pauses_video
 PASS hidden_page_ignores_keys_and_click ticks 246 -> 246, position 1.021 -> 1.021
 PASS hidden_page_shows_plain_white_map mean 254.25
 PASS video_tab_again_resumes_playing 1.02 -> 1.58 -> 1.98
 FAIL resize_lays_the_pair_out_again scale 0.5466 fly {'h': 798.76220703125, 'w': 768.543701171875, 'x': 128.118804931641, 'y': 41.1542091369629}
-PASS restore_lays_the_pair_out_as_at_launch 
+PASS restore_lays_the_pair_out_as_at_launch
 FAIL fill-1920x1000_page_size [1805.0, 973.999816894531]
 FAIL fill-1920x1000_side_by_side_fly_through_left_and_larger fly {'h': 938.257263183594, 'w': 1046.95959472656, 'x': 132.871292114258, 'y': 55.2518157958984} info {'h': 938.257263183594, 'w': 698.469482421875, 'x': 1203.6591796875, 'y': 55.2518157958984}
 FAIL fill-1920x1000_pair_spans_page_both_axes gaps l/t/r/b [132.9, 55.3, -97.1, -19.5], native margin x s 17.9

@@ -15,4 +15,3 @@ Current window retains the original controls:
 The3:2 movie also fits its own source dimensions:
 
 ![Current3:2 source window](https://github.com/user-attachments/assets/1def9f5c-7032-4384-81b7-f19b5e7c498b)
-
