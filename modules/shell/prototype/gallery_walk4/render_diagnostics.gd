@@ -1,6 +1,13 @@
 ## #140 opt-in browser evidence adapter. Never mounted without ?render_qa=1.
 ## Fixed-step replay drives the real gallery process/navigation; pose is fixture setup.
 extends Node
+const MODES := {
+	"current": [2, 0.5],
+	"copy-none": [2, 0.0],
+	"copy-full": [2, 1.0],
+	"rgb6-plain": [1, 0.5],
+	"bypass": [0, 0.0]
+}
 
 var view: Control
 var _callback: JavaScriptObject
@@ -15,13 +22,6 @@ var _measure_gpu := false
 var _last_draw_us := 0
 var _draw_interval_ms := 0.0
 var _chart: TextureRect
-const MODES := {
-	"current": [2, 0.5],
-	"copy-none": [2, 0.0],
-	"copy-full": [2, 1.0],
-	"rgb6-plain": [1, 0.5],
-	"bypass": [0, 0.0]
-}
 
 
 func _ready() -> void:

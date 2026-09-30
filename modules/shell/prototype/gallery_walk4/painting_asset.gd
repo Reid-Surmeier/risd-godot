@@ -10,9 +10,9 @@ extends Node3D
 const DEPTH := 0.09
 const INSET := 0.035
 
-var outer := Vector2.ZERO  # the framed size in metres, for picking
-
 static var _shader: Shader
+
+var outer := Vector2.ZERO  # the framed size in metres, for picking
 
 
 # The room's PS1 surface shader, lit (paintings cast and receive the skylight's

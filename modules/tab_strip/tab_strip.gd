@@ -6,15 +6,15 @@
 ## pinstripes fill the middle, and tabs live between them.
 extends Control
 
-const Errors := preload("res://modules/tab_strip/errors.gd")
-const SoundCues := preload("res://modules/sound_cues/interface.gd")
-const ASSETS := "res://modules/tab_strip/assets/"
-
 signal tab_opened(index: int)
 signal tab_settled(index: int)
 signal tab_titled(index: int)
 signal tab_selected(index: int)
 signal tab_closed(index: int)
+
+const Errors := preload("res://modules/tab_strip/errors.gd")
+const SoundCues := preload("res://modules/sound_cues/interface.gd")
+const ASSETS := "res://modules/tab_strip/assets/"
 
 const PRESS_SECONDS := 0.1
 const GROW_SECONDS := 0.4

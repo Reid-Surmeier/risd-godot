@@ -8,14 +8,14 @@
 ## freeze rule is applied once the fade has settled.
 extends Control
 
+signal tenant_created(key: String)
+signal switch_settled(index: int)
+
 const Errors := preload("res://modules/shell/errors.gd")
 const TabStrip := preload("res://modules/tab_strip/interface.gd")
 const HoverGlow := preload("res://modules/shell/hover_glow.gd")
 const DesktopIcons := preload("res://modules/shell/desktop_icons.gd")
 const WindowShadows := preload("res://modules/shell/window_shadows.gd")
-
-signal tenant_created(key: String)
-signal switch_settled(index: int)
 
 const SOURCE_WIDTH := 5703.0  # the rebuilt taskbar (tab_strip compact layout, Issue #113)
 const BAR_HEIGHT := 186.0

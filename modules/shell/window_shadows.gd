@@ -20,12 +20,17 @@ const DS := 4.0  # page px per silhouette texel
 const PAD := 64.0  # page px of room around the silhouette for the blur and the fall
 const MIN_SIZE := Vector2(40, 30)  # smaller children are not windows
 const SKIP := ["HoverGlow", "DesktopIcons"]
+static var _alpha_cache := {}  # texture -> its alpha, at most 256 px on the long side
+
+
+## A picture (a region of an atlas included) at most 256 px on its
+## long side; only its alpha is used.
+static var _atlas_cache := {}  # source texture -> its full image, decompressed
 
 var _tenant: Control
 var _holder: Control
 # window -> {node, last, lift, dragged, key, rect (page px, relative to the window's origin)}
 var _shadows := {}
-static var _alpha_cache := {}  # texture -> its alpha, at most 256 px on the long side
 
 
 static func attach(tenant: Control) -> void:
@@ -204,11 +209,6 @@ func _build(window: Control, pieces: Array, e: Dictionary) -> void:
 	else:
 		e.node.set_meta("mask", ImageTexture.create_from_image(mask))
 	e.node.queue_redraw()
-
-
-## A picture (a region of an atlas included) at most 256 px on its
-## long side; only its alpha is used.
-static var _atlas_cache := {}  # source texture -> its full image, decompressed
 
 
 static func _alpha_of(tex: Texture2D) -> Image:

@@ -25,6 +25,17 @@ const TRANSPORT_Y := 592.0
 const SOURCE_ASSET_PATHS := {
 	"background": "res://modules/sculpture_viewer/assets/clean-ui/background.png",
 }
+const MOTION_SIZES := {
+	"previous": Vector2(122, 160),
+	"next": Vector2(122, 160),
+	"play-pause": Vector2(58, 46),
+	"audio": Vector2(64, 46),
+	"menu": Vector2(115, 46),
+	"scrubber": Vector2(34, 34),
+}
+const MOTION_HOVER := 7.0
+const MOTION_PRESS := 14.0
+const MOTION_END := 23.0
 
 var preview_only := false
 var scan_id := ""
@@ -55,17 +66,6 @@ var motion_phase: Dictionary = {}
 var motion_targets: Dictionary = {}
 var motion_frames: Dictionary = {}
 var scrubber_dragging := false
-const MOTION_SIZES := {
-	"previous": Vector2(122, 160),
-	"next": Vector2(122, 160),
-	"play-pause": Vector2(58, 46),
-	"audio": Vector2(64, 46),
-	"menu": Vector2(115, 46),
-	"scrubber": Vector2(34, 34),
-}
-const MOTION_HOVER := 7.0
-const MOTION_PRESS := 14.0
-const MOTION_END := 23.0
 var model_loaded := false
 var model_texture_loaded := false
 
@@ -86,6 +86,9 @@ var scrubber_fill: TextureRect
 var last_pointer_position := Vector2.ZERO
 
 
+var _spin_frame := 0
+
+
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	focus_mode = Control.FOCUS_ALL
@@ -104,9 +107,6 @@ func _ready() -> void:
 	_update_scrubber_thumb()
 	_update_camera()
 	grab_focus()
-
-
-var _spin_frame := 0
 
 
 func _process(delta: float) -> void:

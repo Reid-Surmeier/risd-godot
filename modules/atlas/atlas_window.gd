@@ -30,6 +30,8 @@ const PANEL_RECTS := {
 ## right, the desktop's own right margin (the notification ends 4 px from it); bottom, the native
 ## gap that keeps it clear of the chat below.
 const FRAME_FAR_GAP := Vector2(4, 268)
+const ARTWORK_POPUP_SIZE := Vector2(800, 600)
+const ARTWORK_SCALE := 0.5
 
 var key := ""
 var ticks := 0
@@ -45,8 +47,6 @@ var viewport := SubViewport.new()
 var map: Node2D
 var panels: Dictionary = {}
 var minimap_heading := ColorRect.new()
-const ARTWORK_POPUP_SIZE := Vector2(800, 600)
-const ARTWORK_SCALE := 0.5
 
 var artwork_window := Control.new()
 var artwork_chrome := Control.new()

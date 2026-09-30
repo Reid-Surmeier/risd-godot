@@ -63,11 +63,32 @@ const TURN_HELD_DPS := 40.0
 const TURN_TAP_DPS := 75.0
 const HOLD_S := 0.25
 const KID_H := 1.75
+# First 16 held frames: visible alternate contacts at 0 and 8, reviewed in bake/README.
+const CONTACT_FRAMES := [0, 8]
+const WALK_FRAMES := 16
 
-var _vp: SubViewport
+
+const LAYER_WEST := 2
+const LAYER_EAST := 4
+const LAYER_UNLIT := 8
+
+
+# The arch end, as in the video: one white-cased door in the gallery wall; behind
+# its plaster reveal the Romanesque
+# stone portal of the medieval gallery is the same opening (its round arch shows
+# at the top of the door), a deep
+# stone tunnel, then the medieval room: blue-grey walls, herringbone floor, the crucifix lit warm.
+const PORTAL_DEPTH := 1.2
+
+
+static var _ps1_shader: Shader
+static var _soft_rect: ImageTexture
+static var _pool_tex: ImageTexture
 # PROTOTYPE #132: fixed dollhouse, lower gallery view, and original camera.
 var view_mode := 0
 var view_yaw := PI
+
+var _vp: SubViewport
 var _view_turn_remaining := 0.0
 var _orbit_from = null
 var _orbit_dragged := false
@@ -116,9 +137,6 @@ var _last_pos := Vector3.ZERO
 var _sfx := {}
 var _step_i := 0
 var _hover_tag := ""
-# First 16 held frames: visible alternate contacts at 0 and 8, reviewed in bake/README.
-const CONTACT_FRAMES := [0, 8]
-const WALK_FRAMES := 16
 
 
 func _ready() -> void:
@@ -213,11 +231,6 @@ void fragment() {
 	var m := ShaderMaterial.new()
 	m.shader = sh
 	return m
-
-
-static var _ps1_shader: Shader
-static var _soft_rect: ImageTexture
-static var _pool_tex: ImageTexture
 
 
 func _pool_mat() -> StandardMaterial3D:
@@ -361,11 +374,6 @@ func _box(c: Vector3, size: Vector3, col: Color, layer := 1, m: Material = null)
 func _wall_ps(extra := Color.WHITE) -> ShaderMaterial:
 	# #177: restore the textured wall in the owner-selected screenshot.
 	return ps(load(DIR + "textures/wall-muse.webp"), extra, Vector2(0.25, 0.25), true)
-
-
-const LAYER_WEST := 2
-const LAYER_EAST := 4
-const LAYER_UNLIT := 8
 
 
 func _build_room() -> void:
@@ -1014,14 +1022,6 @@ static func _conform_portal_edges(mesh: ArrayMesh) -> ArrayMesh:
 				st.set_color(color)
 				st.add_vertex(sample[0])
 	return st.commit()
-
-
-# The arch end, as in the video: one white-cased door in the gallery wall; behind
-# its plaster reveal the Romanesque
-# stone portal of the medieval gallery is the same opening (its round arch shows
-# at the top of the door), a deep
-# stone tunnel, then the medieval room: blue-grey walls, herringbone floor, the crucifix lit warm.
-const PORTAL_DEPTH := 1.2
 
 
 func _arch_end() -> void:

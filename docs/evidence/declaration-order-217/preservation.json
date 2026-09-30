@@ -1,0 +1,75 @@
+{
+  "baseline": "6fe79b3a",
+  "files": [
+    {
+      "file": "modules/atlas/atlas_window.gd",
+      "declarations_bodies_comments_values_order": "PASS",
+      "native_parse": "PASS"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "declarations_bodies_comments_values_order": "PASS",
+      "native_parse": "PASS"
+    },
+    {
+      "file": "modules/sculpture_viewer/viewer.gd",
+      "declarations_bodies_comments_values_order": "PASS",
+      "native_parse": "PASS"
+    },
+    {
+      "file": "modules/shell/crt_display.gd",
+      "declarations_bodies_comments_values_order": "PASS",
+      "native_parse": "PASS"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+      "declarations_bodies_comments_values_order": "PASS",
+      "native_parse": "PASS"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/render_diagnostics.gd",
+      "declarations_bodies_comments_values_order": "PASS",
+      "native_parse": "PASS"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "declarations_bodies_comments_values_order": "PASS",
+      "native_parse": "PASS"
+    },
+    {
+      "file": "modules/shell/shell.gd",
+      "declarations_bodies_comments_values_order": "PASS",
+      "native_parse": "PASS"
+    },
+    {
+      "file": "modules/shell/window_shadows.gd",
+      "declarations_bodies_comments_values_order": "PASS",
+      "native_parse": "PASS"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "declarations_bodies_comments_values_order": "PASS",
+      "native_parse": "PASS"
+    },
+    {
+      "file": "modules/sketchbook/drawing_surface.gd",
+      "declarations_bodies_comments_values_order": "PASS",
+      "native_parse": "PASS"
+    },
+    {
+      "file": "modules/sketchbook/paintbox.gd",
+      "declarations_bodies_comments_values_order": "PASS",
+      "native_parse": "PASS"
+    },
+    {
+      "file": "modules/sketchbook/sketchbook_window.gd",
+      "declarations_bodies_comments_values_order": "PASS",
+      "native_parse": "PASS"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "declarations_bodies_comments_values_order": "PASS",
+      "native_parse": "PASS"
+    }
+  ]
+}

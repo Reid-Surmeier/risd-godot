@@ -1,4 +1,7 @@
 extends Control
+
+signal strokes_changed
+signal pointer_changed
 ## Native drawing page: tldraw-equivalent ink (Freehand port) in tldraw's size-m draw style,
 ## one stroke list per spread, the prototype's spine curvature applied to the rendered ink,
 ## and the pigment-loaded watercolor brush cursor.
@@ -8,9 +11,6 @@ extends Control
 ## Reach it through interface.gd only.
 
 const Freehand := preload("res://modules/sketchbook/freehand.gd")
-
-signal strokes_changed
-signal pointer_changed
 
 const DEFAULT_INK := Color("#4465e9")  # tldraw light theme, blue
 const STROKE_WIDTH := 4.5  # tldraw size m: theme stroke 2 * 1.75, plus 1
@@ -29,6 +29,7 @@ const PENCIL_HEIGHT := 120.0
 const PENCIL_TIP := Vector2(0.02, 0.02)
 const BRUSH := preload("res://modules/sketchbook/assets/paintbox/watercolor-brush.png")
 const BRUSH_SHADER := preload("res://modules/sketchbook/assets/paintbox/brush-tip.gdshader")
+static var _blank_cursor: ImageTexture
 
 var spread := 1
 var spreads: Dictionary = {}  # spread -> Array[Dictionary{points, width, polygons}]
@@ -54,7 +55,6 @@ var _static_view: TextureRect
 var perf_rebuild_us := 0  # accumulated since last perf read
 var perf_draw_us := 0
 var perf_draws := 0
-static var _blank_cursor: ImageTexture
 
 
 func _ready() -> void:

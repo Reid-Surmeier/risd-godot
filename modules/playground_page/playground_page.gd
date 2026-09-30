@@ -75,26 +75,26 @@ var inputs := 0
 var factor := 1.0
 var action := ""
 var windows: Array[Control] = []
-var _active: Control
-var _start_pointer := Vector2.ZERO
-var _start_position := Vector2.ZERO
 var data_handle: Variant
 var image_fetch: Callable
-var saved_body := ColorRect.new()
 var saved_list: Control
 var gallery_scroll: ScrollContainer
 var gallery_overlay: ColorRect
+var websurfer: Control
+var sketchbook: Control
+var fengshui: Control
+var browsing: Control
+var _active: Control
+var _start_pointer := Vector2.ZERO
+var _start_position := Vector2.ZERO
+var saved_body := ColorRect.new()
 var saved_ids: Array = []
 var storage_status := "loading"
 var refresh_generation := 0
 var show_websurfer := false
 var show_gallery := false
 var show_sketchbook := false
-var websurfer: Control
-var sketchbook: Control
 var show_fengshui := false
-var fengshui: Control
-var browsing: Control
 var interactive_windows: Array[Control] = []
 var saved_scroll := ScrollContainer.new()
 var saved_query := LineEdit.new()

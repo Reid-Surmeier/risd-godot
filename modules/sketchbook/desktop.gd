@@ -72,16 +72,16 @@ var sketchbook: Control
 var paintbox: Control
 var dragged_window: Control
 var drag_offset := Vector2.ZERO
-var _slots := {}  # window -> the Rect2 the last _fit gave it
 var data_handle: Variant
 var image_fetch: Callable
-var reference_panel := PanelContainer.new()
-var reference_list := HBoxContainer.new()
 var reference_art: Control
-var viewer_host := Control.new()
 var global_chatroom: Control
 var tldraw_controls: Control
 var painting_flow: Control
+var _slots := {}  # window -> the Rect2 the last _fit gave it
+var reference_panel := PanelContainer.new()
+var reference_list := HBoxContainer.new()
+var viewer_host := Control.new()
 var saved_ids: Array = []
 var selected_reference := ""
 var storage_status := "loading"

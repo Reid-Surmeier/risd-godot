@@ -1,11 +1,11 @@
 extends Control
+
+signal layout_changed
 ## Original open-book texture and its baked edge shadow, with drawing and page turns.
 ## The transparent top paper margin is the drag handle; there is no surrounding frame.
 
 const SketchbookDrawingSurface := preload("res://modules/sketchbook/drawing_surface.gd")
 const PaperTurn := preload("res://modules/sketchbook/paper_turn.gd")
-
-signal layout_changed
 
 const FOOTER := 44
 const BUTTON_SIZE := Vector2(61, 32)  # the 84x44 reference button, reduced

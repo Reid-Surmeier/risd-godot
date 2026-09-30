@@ -60,6 +60,7 @@ const ANRI_TRAYS := [
 		Vector2(372, 91) / ANRI_PALETTE_SOURCE.size
 	),
 ]
+static var _blank_cursor: ImageTexture
 
 var brush_color := Color("#00458f")
 var title_bar: Control
@@ -67,6 +68,10 @@ var tool_reference: TextureRect
 var image_rect := Rect2()
 var smear_variant := "A"
 var mix_count := 0
+var brush_cursor: TextureRect
+var brush_stage: ColorRect
+var brush_rest: TextureRect
+var parked_brush: TextureRect
 var _palette_image: Image
 var _tray_images: Array[Image] = []
 var _tray_textures: Array[ImageTexture] = []
@@ -80,12 +85,7 @@ var _stamp_index := 0
 var hovering := false
 var _pointer := Vector2(-100000, -100000)
 var brush_active := false
-var brush_cursor: TextureRect
-var brush_stage: ColorRect
-var brush_rest: TextureRect
-var parked_brush: TextureRect
 var anri_mode := false
-static var _blank_cursor: ImageTexture
 
 
 func set_anri_mode(enabled: bool) -> void:
