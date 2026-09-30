@@ -1,0 +1,63 @@
+"""Build the isolated #231 playtest; no runtime project or paid provider is touched."""
+from pathlib import Path
+import hashlib,json,shutil,subprocess
+
+HERE=Path(__file__).resolve().parent
+ROOT=HERE.parents[2]
+models={"walk":"authored-walk-v5","fast":"authored-fast-v6"}
+sources={key:HERE.parent/'iterations/video-match'/name/'footplant-candidate.glb' for key,name in models.items()}
+digest=lambda path:hashlib.sha256(path.read_bytes()).hexdigest()
+stamp=hashlib.sha256((digest(HERE/'demo.gd')+digest(HERE/'build.py')+''.join(digest(p) for p in sources.values())).encode()).hexdigest()[:12]
+out=ROOT/'build/character-playtest'/stamp
+project=out/'project';site=out/'site'
+project.mkdir(parents=True,exist_ok=True);site.mkdir(exist_ok=True)
+shutil.copy2(HERE/'demo.gd',project/'demo.gd')
+for name,path in sources.items():shutil.copy2(path,project/(name+'.glb'))
+(project/'main.tscn').write_text('[gd_scene load_steps=2 format=3]\n[ext_resource type="Script" path="res://demo.gd" id="1"]\n[node name="CharacterPlaytest" type="Node3D"]\nscript = ExtResource("1")\n')
+(project/'project.godot').write_text('''config_version=5
+[application]
+config/name="Character playtest"
+run/main_scene="res://main.tscn"
+boot_splash/show_image=false
+[display]
+window/size/viewport_width=960
+window/size/viewport_height=720
+window/stretch/mode="disabled"
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+textures/vram_compression/import_etc2_astc=true
+''')
+(project/'export_presets.cfg').write_text('''[preset.0]
+name="Web"
+platform="Web"
+runnable=true
+export_filter="all_resources"
+export_path=""
+include_filter=""
+exclude_filter=""
+[preset.0.options]
+variant/extensions_support=false
+variant/thread_support=false
+vram_texture_compression/for_desktop=true
+vram_texture_compression/for_mobile=true
+html/export_icon=false
+html/canvas_resize_policy=2
+html/focus_canvas_on_start=true
+''')
+godot='/home/reidsurmeier/bin/godot'
+def run(name,args):
+    with (out/name).open('w') as log:subprocess.run([godot,'--headless','--path',str(project),*args],stdout=log,stderr=subprocess.STDOUT,check=True,timeout=240)
+    assert 'SCRIPT ERROR' not in (out/name).read_text(),(out/name).read_text()[-2000:]
+run('import.log',['--editor','--import','--quit'])
+for path in project.glob('*.glb.import'):
+    text=path.read_text().replace('animation/fps=30','animation/fps=240').replace('_subresources={}','_subresources={"nodes":{"PATH:AnimationPlayer":{"optimizer/enabled":false}}}')
+    assert 'animation/fps=240' in text and 'optimizer/enabled' in text
+    path.write_text(text)
+    for cached in (project/'.godot/imported').glob(path.name.removesuffix('.import')+'-*'):cached.unlink()
+run('precise-import.log',['--editor','--import','--quit'])
+run('export.log',['--export-release','Web',str(site/'index.html')])
+assert all((site/('index'+ext)).exists() for ext in ['.html','.js','.wasm','.pck'])
+(out/'provenance.json').write_text(json.dumps({'issue':231,'models':{k:{'trial':models[k],'sha256':digest(p)} for k,p in sources.items()},'import_fps':240,'animation_optimizer':False,'additional_api_cost_usd':0,'stamp':stamp,'standalone_prototype':True},indent=2)+'\n')
+print(site)

@@ -1,0 +1,88 @@
+{
+  "keyboard": {
+    "initial": {
+      "bones": 24,
+      "effects": 0,
+      "state": "Idle",
+      "view": 0,
+      "x": 0,
+      "yaw": 0,
+      "z": 0
+    },
+    "walk": {
+      "bones": 24,
+      "effects": 0,
+      "state": "Walk",
+      "view": 0,
+      "x": 0,
+      "yaw": -3.14159202575684,
+      "z": -1.0149998664856
+    },
+    "turn": {
+      "bones": 24,
+      "effects": 0,
+      "state": "Walk",
+      "view": 0,
+      "x": 0.665000021457672,
+      "yaw": -4.71232414245605,
+      "z": -1.20749962329865
+    },
+    "sprint": {
+      "bones": 24,
+      "effects": 1,
+      "state": "Dash",
+      "view": 0,
+      "x": 0.73499995470047,
+      "yaw": -6.27545404434204,
+      "z": -0.607499480247498
+    },
+    "stopped": {
+      "bones": 24,
+      "effects": 2,
+      "state": "Idle",
+      "view": 0,
+      "x": 0.73499995470047,
+      "yaw": -6.28304195404053,
+      "z": -0.157499387860298
+    },
+    "reset": {
+      "bones": 24,
+      "effects": 2,
+      "state": "Idle",
+      "view": 0,
+      "x": 0,
+      "yaw": 0,
+      "z": 0
+    },
+    "changed_view": {
+      "bones": 24,
+      "effects": 2,
+      "state": "Idle",
+      "view": 1,
+      "x": 0,
+      "yaw": 0,
+      "z": 0
+    }
+  },
+  "touch": {
+    "moving": {
+      "bones": 24,
+      "effects": 4,
+      "state": "Dash",
+      "view": 0,
+      "x": 0,
+      "yaw": -3.14159226417542,
+      "z": -2.03999972343445
+    },
+    "stopped": {
+      "bones": 24,
+      "effects": 6,
+      "state": "Idle",
+      "view": 0,
+      "x": 0,
+      "yaw": -3.14159226417542,
+      "z": -2.57999897003174
+    }
+  },
+  "errors": []
+}

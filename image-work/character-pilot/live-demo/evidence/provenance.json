@@ -1,0 +1,41 @@
+{
+  "issue": 231,
+  "models": {
+    "walk": {
+      "trial": "authored-walk-v5",
+      "sha256": "8eb7fff2ed7ce8b07417c7fa3300a050a610f11a999484e50f3ecfff5b87fc84"
+    },
+    "fast": {
+      "trial": "authored-fast-v6",
+      "sha256": "9153b2c29799677d5d93a6cddc46a147b751987c77bdfd9669fe9ff4c5767f20"
+    }
+  },
+  "import_fps": 240,
+  "animation_optimizer": false,
+  "additional_api_cost_usd": 0,
+  "stamp": "870709bbbd60",
+  "standalone_prototype": true,
+  "url": "https://windows-wsl.taile06c45.ts.net/character-walk-01a0f3a2/",
+  "retention": "3d owner review",
+  "browser_check": "browser.json",
+  "viewport_checks": [
+    [
+      960,
+      720
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "keyboard_and_multitouch_passed": true,
+  "exact_visual_match": false,
+  "world_stance_lock_verified": false,
+  "aggregate_liability_usd": 1.54,
+  "site_bytes": 41749964,
+  "sources": {
+    "demo.gd": "87e4ac897697eab8e590af3a06d60b8a3b97422000d0519440df0b4faff1b2d2",
+    "build.py": "c809cf654fa083b5215a42b98ecebdff26d644fc0fc1b65b982a6a22bbdd0db9",
+    "browser_check.cjs": "735c0b7f23e25b764230669e8f4530612ce8144991b08825446a5eda6f82ecd7"
+  }
+}

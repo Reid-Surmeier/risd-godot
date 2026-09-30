@@ -123,5 +123,24 @@
       }
     },
     "profile_description_erratum": "v8/v9 reference_fit says geometry/UV coordinates scaled. Actual exports scale geometry only: UV, atlas, weights and topology bytes equal their selected baseline. check.py verifies this."
+  },
+  "live_playtest": {
+    "issue": 231,
+    "models": {
+      "walk": {
+        "trial": "authored-walk-v5",
+        "sha256": "8eb7fff2ed7ce8b07417c7fa3300a050a610f11a999484e50f3ecfff5b87fc84"
+      },
+      "fast": {
+        "trial": "authored-fast-v6",
+        "sha256": "9153b2c29799677d5d93a6cddc46a147b751987c77bdfd9669fe9ff4c5767f20"
+      }
+    },
+    "source": "live-demo/demo.gd",
+    "proof": "live-demo/evidence/provenance.json",
+    "additional_provider_calls": 0,
+    "additional_api_cost_usd": 0,
+    "runtime_assets_changed": false,
+    "exact_visual_match": false
   }
 }

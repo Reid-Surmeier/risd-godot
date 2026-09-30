@@ -21,3 +21,7 @@ Additional provider calls and API cost:0. Liability remains$1.54 of the authoriz
 ## Foot-reference follow-up
 
 Five additional actual-MCP local trials test a standing Foot reference,60% boots, and80% boots plus that reference. None replaces WALKv5/Fastv6. Native257-pose checks and exported-buffer comparisons passed;60% boots restore WALK contact order at a visible proportion cost. UV, texture, weights and topology bytes remain equal to the corresponding selected model; only972 exported positions change in the scaling trials. Original provider files remain untouched. Added API cost$0; aggregate liability$1.54. The report records rejected alternatives, source limitations and the profile-description erratum.
+
+## Live walk-around playtest
+
+`live-demo/` reuses selected WALKv5/Fastv6 in an isolated browser project with keyboard/touch movement, turning, idle/walk/dash blending, reset, camera choices, simple collisions and dash contact effects. Actual keyboard and simultaneous direction/sprint touches passed in Chrome at960×720 and390×844; saved screenshots were inspected. Exported artifacts remain ignored under `build/character-playtest/`; no runtime/frozen files changed. Added provider calls/API cost$0; aggregate liability$1.54. See `live-demo/README.md` and SHA-bound browser evidence. Turning/world stance/terrain and exact likeness are not accepted by this playtest.
