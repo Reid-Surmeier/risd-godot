@@ -8,9 +8,7 @@
   "spec": {
     "implementation_findings": 0,
     "exact_original_cases": 74,
-    "pending": [
-      "final publication/readback"
-    ],
+    "pending": [],
     "technical_evidence_gaps": 0,
     "verified": [
       "installed119tracked/122full FAIL:74removed",
@@ -19,7 +17,8 @@
       "tenPRattachments readback",
       "private10images/finite6.867splayingclip"
     ],
-    "final_independent_review": "Actual counts, exact private/current browser proof and live ten GitHub image references verified by read-only Spec reviewer"
+    "final_independent_review": "Actual counts, exact private/current browser proof and live ten GitHub image references verified by read-only Spec reviewer",
+    "publication": "5a213901 pushed; PR166 head/body and map149 open-body exact readback; checkpoint refreshed"
   },
   "ponytail": {
     "findings": 0,
