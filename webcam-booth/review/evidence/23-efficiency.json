@@ -130,5 +130,143 @@
     "no_face_neutral": true,
     "reset_stops_worker": true,
     "limit": "bounded2D UV deformation; no3D reconstruction or new teeth/eyelids"
+  },
+  "publicBefore": {
+    "url": "https://homework.reidsurmeier.wtf/",
+    "readyMs": 12396,
+    "networkMbps": 10,
+    "wasm": {
+      "name": "https://homework.reidsurmeier.wtf/index.wasm",
+      "entryType": "resource",
+      "startTime": 415.40000000037253,
+      "duration": 11215.299999999814,
+      "navigationId": 3389,
+      "initiatorType": "fetch",
+      "deliveryType": "",
+      "nextHopProtocol": "h3",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "",
+      "contentEncoding": "gzip",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 415.40000000037253,
+      "domainLookupStart": 415.40000000037253,
+      "domainLookupEnd": 415.40000000037253,
+      "connectStart": 415.40000000037253,
+      "secureConnectionStart": 415.40000000037253,
+      "connectEnd": 415.40000000037253,
+      "requestStart": 417.20000000018626,
+      "responseStart": 484.40000000037253,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 484.40000000037253,
+      "responseEnd": 11630.700000000186,
+      "transferSize": 10055058,
+      "encodedBodySize": 10054758,
+      "decodedBodySize": 39514754,
+      "responseStatus": 200,
+      "serverTiming": [
+        {
+          "name": "cfExtPri",
+          "duration": 0,
+          "description": ""
+        }
+      ]
+    },
+    "paidRequests": 0,
+    "sampleLoop": true
+  },
+  "publicAfter": {
+    "url": "https://homework.reidsurmeier.wtf/",
+    "readyMs": 11507,
+    "networkMbps": 10,
+    "wasm": {
+      "name": "https://homework.reidsurmeier.wtf/index.wasm",
+      "entryType": "resource",
+      "startTime": 424.6000000005588,
+      "duration": 10191,
+      "navigationId": 1064,
+      "initiatorType": "fetch",
+      "deliveryType": "",
+      "nextHopProtocol": "h3",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "",
+      "contentEncoding": "gzip",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 424.6000000005588,
+      "domainLookupStart": 424.6000000005588,
+      "domainLookupEnd": 424.6000000005588,
+      "connectStart": 424.6000000005588,
+      "secureConnectionStart": 424.6000000005588,
+      "connectEnd": 424.6000000005588,
+      "requestStart": 426.20000000018626,
+      "responseStart": 471.6000000005588,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 471.6000000005588,
+      "responseEnd": 10615.600000000559,
+      "transferSize": 10055058,
+      "encodedBodySize": 10054758,
+      "decodedBodySize": 39514754,
+      "responseStatus": 200,
+      "serverTiming": [
+        {
+          "name": "cfExtPri",
+          "duration": 0,
+          "description": ""
+        }
+      ]
+    },
+    "paidRequests": 0,
+    "sampleLoop": true
+  },
+  "responsive": {
+    "passed": true,
+    "provider_calls": 0,
+    "results": [
+      {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "keyboard": true,
+        "touch_minimum_px": 44,
+        "fixture_loop": true,
+        "https": true
+      },
+      {
+        "viewport": {
+          "width": 844,
+          "height": 390
+        },
+        "keyboard": true,
+        "touch_minimum_px": 44,
+        "fixture_loop": true,
+        "https": true
+      },
+      {
+        "viewport": {
+          "width": 1024,
+          "height": 700
+        },
+        "keyboard": true,
+        "touch_minimum_px": 44,
+        "fixture_loop": true,
+        "https": true
+      }
+    ]
+  },
+  "hostReconciliation": {
+    "components": 45,
+    "issues": 0
   }
 }

@@ -51,3 +51,7 @@ Current cumulative actual spend: $2.62195, seven one-cent Muse images plus one $
 ## Public timeout validation — 2026-09-30, Issue214
 
 Review evidence22-public-timeout-fixed.png/json: one deliberate OpenRouter meta/muse-image portrait using the declared assets/photo-fixture.png through the real browser capture bridge, input pixel equality checked before submission. Runrun-ded2660c3e9d6b9d319f33af. One image,$0.01reservation, actual spend unknown; inputSHA256c93d04f8758ac2004b33b9e55d0fc079c057948a058972602788dab19917a5b6, outputSHA256670973ea5e0995acc40faabf269b1232c2af14c32e9361738ab03d14ba2f7bfb. Public capture took55.742seconds; portrait/explosion/reset passed. Review screenshot is evidence only, not a runtime dependency or owner webcam recording. Native receipt/hash/cost records remain; image payloads deleted.
+
+## Efficiency proof — 2026-09-30, Issue218
+
+Review evidence24-efficient-public-muse.png/json: one deliberate source-pixel-verified fixture capture through public HTTPS, OpenRouter meta/muse-image,1image,$0.01reserved; actual spend unknown. Runrun-ac1efe05828e395543c22e06, inputSHA256c93d04f8758ac2004b33b9e55d0fc079c057948a058972602788dab19917a5b6, outputSHA256799e744277c2eaf75af25e551e7adf7de176b122baebd80a69b912a529335f3d. Capture51.722seconds,49short polls, portrait/explosion/reset passed; screenshot inspected. Physical webcam untested. Receipt and hashes retained; native image payload cleanup verified. Evidence is not a runtime dependency.
