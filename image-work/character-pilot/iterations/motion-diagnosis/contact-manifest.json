@@ -1,0 +1,44 @@
+{
+  "source_sha256": "0f609ee4dfd7d0e645a15dbd8b47625dd95b0c13c4b59b624deecdd2eddeb487",
+  "candidate_sha256": "536fb839572228d485fc27027a58506944f8285fcfef72f2f8a421e9d73214d9",
+  "bones": 24,
+  "period_seconds": 1.0666666666666667,
+  "controller_speed_mps": 0.52,
+  "contacts": [
+    {
+      "time": 0.26666666666666666,
+      "foot": "Left"
+    },
+    {
+      "time": 0.8,
+      "foot": "Right"
+    }
+  ],
+  "sampled_planar_contact_verified": true,
+  "terrain_turning_blending_verified": false,
+  "idle_event_count_expected": 0,
+  "walk_events_per_loop_expected": 2,
+  "contact_probe": {
+    "idle": {
+      "seconds": 4.03333330154419,
+      "sample_count": 257,
+      "stance_floor_error_max_m": 6.00870371272322e-05,
+      "stance_xz_drift_max_m": 0.0001293420791620009,
+      "endpoint_vertex_error_max_m": 3.58867481509151e-07,
+      "one_millisecond_velocity_jump_max_mps": 0.000307195325149223,
+      "planar_contact_gate": "PASS",
+      "visual_acceptance": "pending"
+    },
+    "walk": {
+      "seconds": 1.06666672229767,
+      "sample_count": 257,
+      "stance_floor_error_max_m": 0.000493609171826392,
+      "stance_xz_drift_max_m": 0.0003106585890034763,
+      "endpoint_vertex_error_max_m": 9.99600260342959e-08,
+      "one_millisecond_velocity_jump_max_mps": 0.00939379632472992,
+      "planar_contact_gate": "PASS",
+      "visual_acceptance": "pending"
+    }
+  },
+  "cost_usd": 0
+}

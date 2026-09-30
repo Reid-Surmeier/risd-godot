@@ -8,9 +8,18 @@ from mcp.client.stdio import stdio_client
 HERE=Path(__file__).resolve().parent
 normalizing='--normalize-idle' in sys.argv
 stage=str(HERE/('normalize_idle.py' if normalizing else 'bake_stage.py'))
+custom='--stage' in sys.argv
+if custom:
+ stage=str(Path(sys.argv[sys.argv.index('--stage')+1]).resolve())
+ assert Path(stage).is_relative_to(HERE/'iterations') and Path(stage).is_file()
+launch_path=Path(stage).with_suffix('.mcp-launch.json') if custom else HERE/('target-mcp-normalization-launch.json' if normalizing else 'target-mcp-launch.json')
+completion=str(Path(stage).with_suffix('.json')) if custom else ('target-idle-normalization.json' if normalizing else 'target-bake-completion.json')
+if '--completion' in sys.argv:
+ completion=str(Path(sys.argv[sys.argv.index('--completion')+1]).resolve())
+ assert custom and Path(completion).is_relative_to(HERE/'iterations')
 code=f"""import subprocess, json
 path={stage!r}
-log={str(HERE/('normalize-native.log' if normalizing else 'bake-native.log'))!r}
+log={str(Path(stage).with_suffix('.native.log') if custom else HERE/('normalize-native.log' if normalizing else 'bake-native.log'))!r}
 command=['/home/reidsurmeier/.local/opt/blender-4.3.2/blender','--background','--factory-startup','--threads','1','--python-exit-code','1','--python',path]
 process=subprocess.Popen(command,cwd={str(HERE.parents[1])!r},stdout=open(log,'w'),stderr=subprocess.STDOUT,start_new_session=True)
 print('TARGET_BAKE_SCHEDULED='+json.dumps({{'native_pid':process.pid,'saved_stage':path,'log':log}}))
@@ -27,7 +36,7 @@ async def main():
    result=await session.call_tool('execute_blender_code',{'code':code,'user_prompt':'$wayfinder $prototype and start charting this map along with doing $research tickets. and start some of the subissues.'})
    output='\n'.join(c.text for c in result.content if hasattr(c,'text'))
    assert not result.isError and 'TARGET_BAKE_SCHEDULED' in output,output
-   proof={'timestamp':datetime.now(timezone.utc).isoformat(),'successfully_scheduled':True,'transport':'actual MCP stdio','server':init.serverInfo.name,'protocol':init.protocolVersion,'addon_protocol':addon['protocol_version'],'blender':addon['blender_version'],'saved_stage':Path(stage).name,'native_launch':json.loads(output.split('TARGET_BAKE_SCHEDULED=',1)[1].strip()),'telemetry_consent':addon.get('telemetry_consent'),'paid_calls':0,'completion_file':'target-idle-normalization.json' if normalizing else 'target-bake-completion.json','completion_not_inferred_from_scheduling':True}
-   (HERE/('target-mcp-normalization-launch.json' if normalizing else 'target-mcp-launch.json')).write_text(json.dumps(proof,indent=2)+'\n')
+   proof={'timestamp':datetime.now(timezone.utc).isoformat(),'successfully_scheduled':True,'transport':'actual MCP stdio','server':init.serverInfo.name,'protocol':init.protocolVersion,'addon_protocol':addon['protocol_version'],'blender':addon['blender_version'],'saved_stage':Path(stage).name,'native_launch':json.loads(output.split('TARGET_BAKE_SCHEDULED=',1)[1].strip()),'telemetry_consent':addon.get('telemetry_consent'),'paid_calls':0,'completion_file':completion,'completion_not_inferred_from_scheduling':True}
+   launch_path.write_text(json.dumps(proof,indent=2)+'\n')
    print(json.dumps(proof))
 asyncio.run(main())

@@ -1,5 +1,7 @@
 # What the character pilot proved
 
+**Updated after owner feedback:** [Pose, rig, animation and effects iterations](character-pilot-iterations.md) now provide the corrected game-angle loops, measured planted walk, grounded idle, contact effects and rejected Muse projection trials. The original pilot findings below are retained as the before evidence.
+
 [Wayfinder map](https://github.com/Reid-Surmeier/risd-godot/issues/226) · September 30, 2026. Research and prototypes are for owner review; no specification or runtime character replacement was made.
 
 ![Proposed Muse turnaround](../../image-work/character-pilot/turnaround.png)

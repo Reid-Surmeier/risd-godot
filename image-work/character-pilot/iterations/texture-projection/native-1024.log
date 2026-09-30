@@ -1,0 +1,368 @@
+16:56:10 | INFO: Data are loaded, start creating Blender stuff
+16:56:10 | INFO: Blender create Mesh node char1
+16:56:10 | INFO: glTF import finished in 0.04s
+Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 01:31:14)
+Fra:1 Mem:20.55M (Peak 20.55M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | char1
+Fra:1 Mem:23.23M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:21.35M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:21.35M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:21.35M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:21.35M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:21.44M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:21.44M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:21.44M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:21.44M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:21.44M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:21.44M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:21.44M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:21.44M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:21.44M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:21.44M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:21.55M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:21.73M (Peak 23.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:21.73M (Peak 23.63M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:21.73M (Peak 23.63M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:21.73M (Peak 23.63M) | Time:00:00.00 | Mem:0.41M, Peak:0.41M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:21.73M (Peak 23.63M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:21.73M (Peak 23.63M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:22.05M (Peak 23.63M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:22.05M (Peak 23.63M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:22.05M (Peak 23.63M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:22.05M (Peak 23.63M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:22.05M (Peak 23.63M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images | Loading before-atlas1024.png
+Fra:1 Mem:26.06M (Peak 26.06M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:26.06M (Peak 26.06M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:26.06M (Peak 26.06M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:26.06M (Peak 26.06M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:27.50M (Peak 28.45M) | Time:00:00.05 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:27.50M (Peak 28.45M) | Time:00:00.05 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:27.51M (Peak 28.45M) | Time:00:00.05 | Mem:6.46M, Peak:6.54M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:27.51M (Peak 28.45M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:27.51M (Peak 28.45M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:27.51M (Peak 28.45M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Sample 0/8
+Fra:1 Mem:47.76M (Peak 47.76M) | Time:00:00.16 | Remaining:00:00.76 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 1/8
+Fra:1 Mem:56.76M (Peak 74.76M) | Time:00:01.02 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 8/8
+Fra:1 Mem:56.76M (Peak 74.76M) | Time:00:01.02 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Finished
+Saved: '/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/texture-projection/atlas1024/before-face.png'
+Time: 00:01.06 (Saving: 00:00.03)
+
+Fra:1 Mem:22.76M (Peak 22.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | char1
+Fra:1 Mem:23.23M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:21.35M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:21.35M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:21.35M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:21.35M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:21.55M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:21.73M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:21.73M (Peak 23.76M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:21.73M (Peak 23.76M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:21.73M (Peak 23.76M) | Time:00:00.00 | Mem:0.41M, Peak:0.41M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:21.73M (Peak 23.76M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:21.73M (Peak 23.76M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:22.05M (Peak 23.76M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:22.05M (Peak 23.76M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:22.05M (Peak 23.76M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:22.05M (Peak 23.76M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:22.05M (Peak 23.76M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images | Loading before-atlas1024.png
+Fra:1 Mem:26.06M (Peak 26.06M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:26.06M (Peak 26.06M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:26.06M (Peak 26.06M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:26.06M (Peak 26.06M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:27.50M (Peak 28.45M) | Time:00:00.04 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:27.50M (Peak 28.45M) | Time:00:00.04 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:27.51M (Peak 28.45M) | Time:00:00.04 | Mem:6.46M, Peak:6.54M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:27.51M (Peak 28.45M) | Time:00:00.04 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:27.51M (Peak 28.45M) | Time:00:00.04 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:27.51M (Peak 28.45M) | Time:00:00.04 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Sample 0/8
+Fra:1 Mem:47.76M (Peak 47.76M) | Time:00:00.14 | Remaining:00:00.67 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 1/8
+Fra:1 Mem:56.76M (Peak 74.76M) | Time:00:00.98 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 8/8
+Fra:1 Mem:56.76M (Peak 74.76M) | Time:00:00.98 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Finished
+Saved: '/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/texture-projection/atlas1024/before-profile.png'
+Time: 00:01.02 (Saving: 00:00.04)
+
+Fra:1 Mem:22.76M (Peak 22.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | char1
+Fra:1 Mem:23.23M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:21.35M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:21.35M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:21.35M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:21.35M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:21.44M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:21.55M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:21.73M (Peak 23.76M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:21.73M (Peak 23.76M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:21.73M (Peak 23.76M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:21.73M (Peak 23.76M) | Time:00:00.00 | Mem:0.41M, Peak:0.41M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:21.73M (Peak 23.76M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:21.73M (Peak 23.76M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:22.05M (Peak 23.76M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:22.05M (Peak 23.76M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:22.05M (Peak 23.76M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:22.05M (Peak 23.76M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:22.05M (Peak 23.76M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images | Loading before-atlas1024.png
+Fra:1 Mem:26.06M (Peak 26.06M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:26.06M (Peak 26.06M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:26.06M (Peak 26.06M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:26.06M (Peak 26.06M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:27.50M (Peak 28.45M) | Time:00:00.05 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:27.50M (Peak 28.45M) | Time:00:00.05 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:27.51M (Peak 28.45M) | Time:00:00.05 | Mem:6.46M, Peak:6.54M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:27.51M (Peak 28.45M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:27.51M (Peak 28.45M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:27.51M (Peak 28.45M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Sample 0/8
+Fra:1 Mem:47.76M (Peak 47.76M) | Time:00:00.17 | Remaining:00:00.84 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 1/8
+Fra:1 Mem:56.76M (Peak 74.76M) | Time:00:01.13 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 8/8
+Fra:1 Mem:56.76M (Peak 74.76M) | Time:00:01.13 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Finished
+Saved: '/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/texture-projection/atlas1024/before-back.png'
+Time: 00:01.17 (Saving: 00:00.04)
+
+Fra:1 Mem:89.00M (Peak 89.00M) | Time:00:01.29 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | char1
+Fra:1 Mem:89.48M (Peak 90.01M) | Time:00:01.29 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:89.47M (Peak 90.01M) | Time:00:01.29 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading projected face pixels
+Fra:1 Mem:93.02M (Peak 237.41M) | Time:00:01.78 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | char1
+Fra:1 Mem:93.85M (Peak 237.41M) | Time:00:01.78 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:93.84M (Peak 237.41M) | Time:00:01.78 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading front coverage
+Fra:1 Mem:26.84M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | char1
+Fra:1 Mem:27.32M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:25.44M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:25.44M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:25.44M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:25.44M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:25.52M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:25.52M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:25.52M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:25.52M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:25.52M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:25.52M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:25.52M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:25.52M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:25.52M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:25.52M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:25.64M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:25.82M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:25.82M (Peak 32.93M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:25.82M (Peak 32.93M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:25.82M (Peak 32.93M) | Time:00:00.00 | Mem:0.41M, Peak:0.41M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:25.82M (Peak 32.93M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:25.82M (Peak 32.93M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:26.14M (Peak 32.93M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:26.14M (Peak 32.93M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:26.14M (Peak 32.93M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:26.14M (Peak 32.93M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:26.14M (Peak 32.93M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images | Loading projected-albedo1024.png
+Fra:1 Mem:30.15M (Peak 32.93M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:30.15M (Peak 32.93M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:30.15M (Peak 32.93M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:30.15M (Peak 32.93M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:31.59M (Peak 32.93M) | Time:00:00.05 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:31.59M (Peak 32.93M) | Time:00:00.05 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:31.59M (Peak 32.93M) | Time:00:00.05 | Mem:6.46M, Peak:6.54M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:31.59M (Peak 32.93M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:31.59M (Peak 32.93M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:31.59M (Peak 32.93M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Sample 0/8
+Fra:1 Mem:51.85M (Peak 51.85M) | Time:00:00.17 | Remaining:00:00.87 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 1/8
+Fra:1 Mem:60.85M (Peak 78.85M) | Time:00:01.13 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 8/8
+Fra:1 Mem:60.85M (Peak 78.85M) | Time:00:01.13 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Finished
+Saved: '/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/texture-projection/atlas1024/after-face.png'
+Time: 00:01.17 (Saving: 00:00.04)
+
+Fra:1 Mem:26.84M (Peak 26.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | char1
+Fra:1 Mem:27.32M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:25.64M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.41M, Peak:0.41M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images | Loading projected-albedo1024.png
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.46M, Peak:6.54M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Sample 0/8
+Fra:1 Mem:51.85M (Peak 51.85M) | Time:00:00.16 | Remaining:00:00.78 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 1/8
+Fra:1 Mem:60.85M (Peak 78.85M) | Time:00:01.03 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 8/8
+Fra:1 Mem:60.85M (Peak 78.85M) | Time:00:01.03 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Finished
+Saved: '/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/texture-projection/atlas1024/after-profile.png'
+Time: 00:01.07 (Saving: 00:00.04)
+
+Fra:1 Mem:26.84M (Peak 26.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | char1
+Fra:1 Mem:27.32M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:25.64M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.41M, Peak:0.41M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images | Loading projected-albedo1024.png
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.46M, Peak:6.54M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Sample 0/8
+Fra:1 Mem:51.85M (Peak 51.85M) | Time:00:00.17 | Remaining:00:00.85 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 1/8
+Fra:1 Mem:60.85M (Peak 78.85M) | Time:00:01.11 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 8/8
+Fra:1 Mem:60.85M (Peak 78.85M) | Time:00:01.11 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Finished
+Saved: '/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/texture-projection/atlas1024/after-back.png'
+Time: 00:01.17 (Saving: 00:00.05)
+
+Fra:1 Mem:26.84M (Peak 26.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | char1
+Fra:1 Mem:27.32M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:25.64M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.41M, Peak:0.41M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images | Loading projected-albedo1024.png
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.46M, Peak:6.54M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Sample 0/8
+Fra:1 Mem:51.85M (Peak 51.85M) | Time:00:00.13 | Remaining:00:00.59 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 1/8
+Fra:1 Mem:60.85M (Peak 78.85M) | Time:00:00.83 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 8/8
+Fra:1 Mem:60.85M (Peak 78.85M) | Time:00:00.83 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Finished
+Saved: '/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/texture-projection/atlas1024/after-quarter-gameview.png'
+Time: 00:00.87 (Saving: 00:00.04)
+
+Fra:1 Mem:26.84M (Peak 26.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | char1
+Fra:1 Mem:27.32M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:25.44M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:25.52M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:25.64M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.18M, Peak:0.18M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.41M, Peak:0.41M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:25.82M (Peak 27.84M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:0.70M, Peak:0.93M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:26.14M (Peak 27.84M) | Time:00:00.00 | Mem:1.02M, Peak:1.02M | Scene, ViewLayer | Updating Images | Loading before-atlas1024.png
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.02M, Peak:5.02M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:30.15M (Peak 30.15M) | Time:00:00.02 | Mem:5.10M, Peak:5.10M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.54M, Peak:6.54M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.46M, Peak:6.54M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:31.59M (Peak 32.53M) | Time:00:00.05 | Mem:6.55M, Peak:6.55M | Scene, ViewLayer | Sample 0/8
+Fra:1 Mem:51.85M (Peak 51.85M) | Time:00:00.14 | Remaining:00:00.60 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 1/8
+Fra:1 Mem:60.85M (Peak 78.85M) | Time:00:00.84 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Sample 8/8
+Fra:1 Mem:60.85M (Peak 78.85M) | Time:00:00.84 | Mem:26.81M, Peak:26.81M | Scene, ViewLayer | Finished
+Saved: '/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/texture-projection/atlas1024/before-quarter-gameview.png'
+Time: 00:00.88 (Saving: 00:00.04)
+
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Saved "face-projection-review.blend"
+FACE_PROJECTION_COMPLETE 40171
+
+Blender quit

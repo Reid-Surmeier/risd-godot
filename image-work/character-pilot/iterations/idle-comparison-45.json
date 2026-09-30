@@ -1,0 +1,18 @@
+{
+  "models": [
+    {
+      "source": "../target-baked-normalized-idle.glb",
+      "label": "Before: raw foot motion"
+    },
+    {
+      "source": "motion-diagnosis/footplant-candidate.glb",
+      "label": "After: planted feet + rigid head"
+    }
+  ],
+  "clip": "idle",
+  "angle": 45,
+  "cycles": 1,
+  "effects": true,
+  "contacts": [],
+  "controller_speed_m_s": 0
+}
