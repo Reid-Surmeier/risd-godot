@@ -1,0 +1,9 @@
+# Collection checkpoint — 2026-09-30 17:00 UTC, main worker
+
+1. Owner stopped scheduled Collection heartbeat. Automation99695359-522b-46ce-bb00-078657d105ea disabled and read back false; this session is the main worker. Other worktrees/automations untouched.
+2. Existing holdout already completed:59/69 localized,49 supported under its original gate; prior audit found temporal/capture correlation. No rerun or independent-validation claim.
+3. Frozen IMG_6384 source207/209 left jamb/floor contact:1.57/1.54px fit residuals,4.16-degree ray angle. Wall700 reserved206 pose:72 fit inliers,77 unused points below4px; initialwall450 failure retained. Approximate same-worker visual residual5.48px; not blind annotation. Source-mark2px perturbation p95=11.29% camera distance. No floor/width/collision acceptance.
+4. Full-stream native fps2 samples restore survey correspondence >0.999; nominal-time seek mismatch retained as rejected.24 native/Chrome checks and real WASD round trip pass on RTX4070SUPER. Repository/diff pass; GPU Shell retains four previously seen failures (initial software run had eight). Initial software/X display/driver trials and one failed native cleanup retained; their timings do not establish GPU performance.
+5. Next: find a separated source view of this same opening with both jamb bottoms visible, then freeze marks before checking another reserved camera. Blockers: independent scale/floor/room extents, topology/quality decision181, sculpture holes and UV/bake coverage. Pending work and frozen models preserved; 3D Viewer untouched. No production integration, closure or paid generation; this work$0, prior Muse total$0.02.
+
+Evidence: `docs/evidence/collection-reconstruction/heartbeat-20260930T1700/`.

@@ -1,0 +1,84 @@
+{
+  "rows": [
+    {
+      "image": "IMG_6384/000206.jpg",
+      "pose_fit_features": 121,
+      "patches": [
+        {
+          "patch": "near",
+          "observations": 0,
+          "unique_points": 0,
+          "point_ids": [],
+          "errors_px": []
+        },
+        {
+          "patch": "far",
+          "observations": 0,
+          "unique_points": 0,
+          "point_ids": [],
+          "errors_px": []
+        }
+      ],
+      "pose_supported": true,
+      "pose_inliers": 72,
+      "pose_test_features": 110,
+      "pose_test_below4px": 77,
+      "cam_from_world": [
+        [
+          0.9729682613737001,
+          -0.19028091215918896,
+          0.1308661026672158,
+          0.1017518124317506
+        ],
+        [
+          0.10759296606077412,
+          -0.12791851076143312,
+          -0.9859313405399092,
+          0.45748664750833645
+        ],
+        [
+          0.2043441117666089,
+          0.9733601743817363,
+          -0.10398776328910797,
+          -0.6791844244203391
+        ]
+      ],
+      "camera": {
+        "model": "SIMPLE_RADIAL",
+        "width": 1280,
+        "height": 720,
+        "params": [
+          594.3251305595769,
+          640.0,
+          360.0,
+          0.002137679000087821
+        ]
+      },
+      "status": "diagnostic only; report all floor matches without outlier trimming"
+    }
+  ],
+  "inputs_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/strict-depth-floor-v1/result.json": "38ca8ac91e4651654ce095d85c5ad1785e184002294a0b4c6a4c6efdab724b30",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/heldout-calibrated-v1/database.db": "29c049388699de6887daabb592df9d57e510730d93b9eadca3f3a28892dc4804",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-strict-floor-v1/sparse/points3D.bin": "b64d839f491979704208eaa5500509b1520ba3b15263774aaf93d30cf491ab9b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-strict-floor-v1/sparse/frames.bin": "d28dd29b8c4934a8f3544f940574501f10141a22e918751921c39f2c77297fdb",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-strict-floor-v1/sparse/images.bin": "04a6aa6136bf2042718e18b2ea2b8bebe23a285bb33f443b4c089a0e7f0e70bc",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-strict-floor-v1/sparse/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-strict-floor-v1/sparse/cameras.bin": "c22290a859d9aa5e77db9f6e1901174514188945285355ebfa45a16360f69717",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-strict-floor-v1/images/IMG_6380_exit6fps/000019.jpg": "fb15aa5bf797c77b7d09da3368bd2eb2a356d2f17094571ede49bfd9f7fb530a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/survey-2fps/IMG_6384/000206.jpg": "4458877217b1d9aeb6ffc0caa5167076cdee019760e3941ac5a63ab2ea05c1dd"
+  },
+  "navigation_accepted": false,
+  "cost_usd": 0,
+  "photometric": false,
+  "pose_fit_upright_y_below": 700,
+  "pose_fit_point_parity": "odd",
+  "floor_check_point_parity": "even",
+  "all_floor_query_features_excluded_from_pose": true,
+  "caveat": "Withheld query pixels and floor features excluded from pose fit. Plane fixed from training depth; no query floor refit. Cached tentative matches are not verified identity. Same-video cameras, shared reconstruction and inherited intrinsics remain correlated. Photometric controls use fixed normal offsets and common visible pixels; repeated wood, occlusion, exposure and short baseline can hide errors. No score implies acceptance. 8px is a prior diagnostic gate, not physical planarity, scale or collision acceptance."
+}

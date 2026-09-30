@@ -1,0 +1,61 @@
+{
+  "id": "9eb6afdd-ad8e-408c-900c-05f72abf1e81",
+  "ok": true,
+  "result": {
+    "automation": {
+      "id": "99695359-522b-46ce-bb00-078657d105ea",
+      "name": "RISD Collection reconstruction heartbeat",
+      "prompt": "Run one 25-minute heartbeat advancing the RISD Collection reconstruction. Owner explicitly requested this every 30 minutes so work continues without repeated continue prompts. Scope: Collection page connected museum map only; NEVER change 3D Viewer. Read live git/files/processes, AGENTS.md, MODULES.md, module docs, wayfinder map https://github.com/Reid-Surmeier/risd-godot/issues/178 and tickets 181/182/183. Follow heartbeat skill within this scope. Resume existing authorized prototype work in this workspace; preserve all uncommitted work. Check active sessions first; never edit concurrently with another worker. Use this reused session, no nested agents or heartbeat loops. End each tick within 25 minutes, checkpoint evidence and next action; subsequent scheduled tick resumes. Disable this automation once the requested work is verified complete or owner stops it.\n\nCurrent evidence to verify: ingestion root /home/reidsurmeier/risd-godot-ingestion/collection-expansion. Ten verified Proton videos and survey-2fps are already downloaded. Latest sfm-calibrated-doorway-v1/result.json reports 475 registered views, 43253 points, reprojection 0.639588px; needs independent held-out validation. Next concrete action: inspect and run modules/shell/prototype/collection_reconstruction/holdout.py --source sfm-calibrated-doorway-v1 --output heldout-calibrated-v1 --all-references with ingestion .venv/bin/python, only if not already running or completed. CUDA feature/matching/depth uses RTX4070SUPER; Ceres optimization CPU fallback is known. Continue geometry, connected walkable room prototype, collisions and visual validation from evidence. Bookcase scale is provisional due to stepped nonplanar geometry. Muse frame is owner-approved; sculpture Muse front/rear sheet generated, combined recorded cost $0.02. Head meshes v1/v2 failed holes/back coverage; do not mark finished, do not blindly retry paid generation. Review local image-work and PROVENANCE. Authorised Muse work follows saved pipeline/OpenRouter and project spend rules. User retracted floor complaint. Existing private preview https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/; raw GitHub image links 404 because repo private.\n\nDo concrete work, not status-only responses. Inspect visuals, run owning playtest and scripts/check.sh plus git diff --check for changes. Preserve provenance, checkpoint only task changes on this prototype branch, follow issue-defined integration scope; do not prematurely close tickets or claim full map complete. No permission requests for authorized reversible work. Write concise dated checkpoint with next action and real blockers. No unrelated repo work.",
+      "precheck": null,
+      "agentId": "codex",
+      "runContext": {
+        "kind": "workspace-run",
+        "projectId": "github:reid-surmeier/risd-godot",
+        "hostId": "local",
+        "projectHostSetupId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+        "repoId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+        "path": "/home/reidsurmeier/risd-godot"
+      },
+      "sourceContext": {
+        "kind": "task-source",
+        "provider": "github",
+        "projectId": "github:reid-surmeier/risd-godot",
+        "hostId": "local",
+        "projectHostSetupId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+        "repoId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+        "providerIdentity": {
+          "provider": "github",
+          "owner": "Reid-Surmeier",
+          "repo": "risd-godot"
+        },
+        "accountLabel": null
+      },
+      "projectId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+      "executionTargetType": "local",
+      "executionTargetId": "local",
+      "schedulerOwner": "local_host_service",
+      "workspaceMode": "existing",
+      "workspaceId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction",
+      "baseBranch": null,
+      "reuseSession": true,
+      "timezone": "America/New_York",
+      "rrule": "*/30 * * * *",
+      "dtstart": 1790714119243,
+      "enabled": false,
+      "nextRunAt": 1790789400000,
+      "missedRunPolicy": "run_once_within_grace",
+      "missedRunGraceMinutes": 720,
+      "createdAt": 1790714119284,
+      "updatedAt": 1790787801682,
+      "lastRunAt": 1790787622299
+    },
+    "owner": {
+      "selector": {
+        "kind": "self"
+      }
+    }
+  },
+  "_meta": {
+    "runtimeId": "836751f2-da21-4536-bf86-780bd8c3bcdf"
+  }
+}

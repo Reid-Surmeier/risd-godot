@@ -379,3 +379,23 @@ real WASD round trip pass; repository passes, Shell has eight previously observe
 failure names. Earlier pending work and frozen inputs preserved. Muse sheet and
 rejected head-v2 remain unchanged. No runtime/Viewer edit, collision extension,
 production integration, paid retry or ticket closure.
+
+
+## Collection supplemental doorway contact — September 30, 17:00 UTC main worker
+
+Local ffmpeg CUDA NVDEC / scale_cuda, pycolmap / NumPy CPU ray and camera algebra,
+Godot4.7.2 / Chrome154 D3D12 RTX4070SUPER; **$0**, no paid calls.
+[Inputs, outputs, commands and hashes](../../docs/evidence/collection-reconstruction/heartbeat-20260930T1700/provenance.json).
+
+Owner stopped scheduled Collection heartbeat; disabled receipt verified. Existing
+holdout retained. Two source-visible left jamb/floor marks yield1.57/1.54px fit
+residuals,4.16-degree viewing angle. Reserved206 wall-only pose has72 fit inliers
+and77 unused points below4px. Approximate same-worker visual residual5.48px is
+not blind annotation or an independent capture. Depth perturbation p95=11.29%
+of camera distance; no floor, metric scale, opening width or collision acceptance.
+Nominal-time native seeks rejected; full-stream fps2 restores survey correspondence.
+24 native/Chrome bounded-walk checks and real WASD round trip pass on RTX4070SUPER;
+repository/diff pass, GPU Shell retains four known failures. Initial software and
+failed cleanup trials retained. Pending work/frozen models preserved. Muse sheet
+and rejected head-v2 inspected, unchanged. No runtime/Viewer edit, production
+integration, paid retry or ticket closure. Next: separated opening views.

@@ -1,0 +1,1 @@
+207-native.jpg and 209-native.jpg used nominal output times and do not match survey source frames. Rejected before triangulation. Corrected source-native-01/02.jpg use identical full-stream fps=2 selection; >0.999 grayscale correlation to survey. Source marks were frozen on survey photographs; no geometry fitted to rejected native frames.
