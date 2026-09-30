@@ -12,6 +12,7 @@
   },
   "interrupted_native_runs": "Legacy and dense v2 runs lost WSLg X connection. Fresh native legacy/v3 and final browser runs completed.",
   "files_sha256": {
+    "pending-preserved.json": "c78fdee0965966cc54086f542d6892f82fc56444ca0b6b34ffc1d5796f4ad0ec",
     "bookcase-extrema-v2-000292.png": "e803fdd9ca9f6cb0b1999259cf81b9dd800e15ce28cc1360b8d9705070bfe576",
     "head-render.log": "58bc960b48beed6e68799017c4867d03e3c1937a67d24d8ce4bb5498f9a10094",
     "head-checks.json": "3b5a7ba7e0e745c8e4570b2f15ee37b19ef5d0fc8f3fa3c920985670b933dd72",
@@ -29,11 +30,12 @@
     "bookcase-extrema-v2-annotations.json": "84b3d77e6e2c39e2e48a3c73757e9f46363d93aedfb0da79cf5e4eb1a26e850a",
     "room-native-phase-4.png": "9469a9e4b7199e783dfd8e1ac1e5aa86c621aa9a6bedbd1f24ff6d83073565b5",
     "legacy-native-walk-result.json": "f0fba04ca430f44c3f7ab8280a2e15bed60449714d592c50b9fab7109bb7ed37",
+    "automation-disabled.json": "02d7e1139336af2c152dffdfbfd8041ed193bc24daac9ad613baabcf0b64afb5",
     "bookcase-extrema-v1-000297.png": "e23ee04a7dcda40144bd4276165eb5a460e68a7dae5d8f745f1124b8301add36",
     "legacy-native-phase-4.png": "4201fb076471f0271177515ae9c7353c9ea0faff53ade8101cc736983f746966",
     "repo-check.log": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e",
     "room-browser-browser-forward.png": "c0ecc0dfbcd60ac58671de5f0c76eadd54d89961e0ab722566a01b572388ff27",
-    "shell-playtest.log": "61c87f8ed861a8a8736a927f44e810e60f7a3988aff318e6be10901c056dd513",
+    "shell-playtest.log": "cbf966b74e3403bb187c02a35f92ae99ee5411534c0f0c095d339b15db6da39d",
     "room-browser-browser-result.json": "7b8250cd97d5d27d7aaeb058af91dc83fd7a95b937b7b9cd1b394c58c569086e",
     "room-native-walk.log": "05add8d39245063870d16560e4d6d140e2e13a33fff5eb46abb004e198c13eb6",
     "bookcase-extrema-v1-result.json": "0d4102129f27fb9f2ab24cec1bb52a7f2a1612e43d43ea61e2387c5677c5666e",
@@ -41,5 +43,13 @@
     "room-geometry.json": "d8f9b8e288a529a9d235ccc7ffab33fc836f8f28e464566fcea287df224c6890",
     "legacy-native-walk.log": "9529454553e35ec1b2516d67cc737830ee4df20b4c4ad3d3a2fcf3f5b52d5550",
     "head-oblique.png": "5934dbc76ebdf1351fc2798c93e72c3044dd58ea8f58d511ca9b1f0f75bd4589"
-  }
+  },
+  "raw_log_sha256": {
+    "head-render.log": "58bc960b48beed6e68799017c4867d03e3c1937a67d24d8ce4bb5498f9a10094",
+    "repo-check.log": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e",
+    "shell-playtest.log": "61c87f8ed861a8a8736a927f44e810e60f7a3988aff318e6be10901c056dd513",
+    "room-native-walk.log": "05add8d39245063870d16560e4d6d140e2e13a33fff5eb46abb004e198c13eb6",
+    "legacy-native-walk.log": "9529454553e35ec1b2516d67cc737830ee4df20b4c4ad3d3a2fcf3f5b52d5550"
+  },
+  "log_normalization": "Trailing whitespace removed in archived logs; original command output retained externally and raw hashes recorded."
 }
