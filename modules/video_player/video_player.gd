@@ -77,6 +77,9 @@ var info_top: Control
 var info_bottom: Control
 var info_drag: Control
 var video: VideoStreamPlayer
+var movie_fit: AspectRatioContainer
+var movie_image: TextureRect
+var movie_letterbox: ColorRect
 var transport: Control
 var play_button: TextureButton
 var mute_button: TextureButton
@@ -342,6 +345,22 @@ func _build_surface() -> void:
 	video.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	video.finished.connect(_on_video_finished)
 	surface.add_child(video)
+	# Keep the playback/input rect; native container fits the decoded movie inside it (#208).
+	video.self_modulate = Color(1, 1, 1, 0)
+	movie_letterbox = ColorRect.new()
+	movie_letterbox.color = Color("#f0f0f0")
+	movie_letterbox.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	video.add_child(movie_letterbox)
+	movie_letterbox.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	movie_fit = AspectRatioContainer.new()
+	movie_fit.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	video.add_child(movie_fit)
+	movie_fit.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	movie_image = TextureRect.new()
+	movie_image.name = "movie-image"
+	movie_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	movie_image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	movie_fit.add_child(movie_image)
 
 	loading_overlay = ColorRect.new()  # the loading dots over the video while it downloads (Web only)
 	loading_overlay.name = "video-loading"
@@ -499,6 +518,9 @@ func _select_video(index: int) -> void:
 	else:
 		loading_overlay.visible = false
 		video.stream = stream
+		movie_image.texture = video.get_video_texture()
+		if movie_image.texture != null and movie_image.texture.get_height() > 0:
+			movie_fit.ratio = movie_image.texture.get_size().aspect()
 		video.paused = false
 		video.play()
 		video.stream_position = 0.0
@@ -591,6 +613,7 @@ func _toggle_mute() -> void:
 ## of everything and takes the pointer so nothing under it is clicked; back restores its place.
 func _toggle_fullscreen() -> void:
 	fullscreen = not fullscreen
+	movie_letterbox.color = Color.BLACK if fullscreen else Color("#f0f0f0")
 	if fullscreen:
 		surface.move_child(video, -1)
 		video.top_level = true
