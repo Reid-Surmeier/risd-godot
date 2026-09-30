@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "sofa-cloth-001",
+      "prompt": "sofa-cloth-prompt.txt",
+      "promptSha256": "f68a7dd349924628f4d62c61102fd11fdd2d8225820de8b504e9efb075578095",
+      "size": "1024x1024",
+      "inputs": [
+        {
+          "path": "references/sofa-video.png",
+          "sha256": "79577eae2d70488e959b96a766cf82d9dc70842ad2bb90d034c0b3dfc5e49b6b"
+        },
+        {
+          "path": "references/main-hall-style.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "bookcase": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-b1e1ad0da068a60b9efb2e1c",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "86b8babf21fb3a53fac0f319a08922ae449948a4a42c9c41265592b36ee5512e",
+    "visual_verdict": "usable representative prototype; owner acceptance pending"
+  },
+  "mirror": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-7f48d4e0ebbbd57322027ab4",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "00846e59bf5074910066e579708a7c436ce92e8a1190471105dc419c9cefae93",
+    "visual_verdict": "usable representative prototype; owner acceptance pending"
+  },
+  "sofa-cloth": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-67fccbf9443c506cfaa4bcac",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "aace66201d1fae3ccada9c1ce32abeb5a3093293f57bebcb6cdd289649f4dfde",
+    "visual_verdict": "usable representative prototype; owner acceptance pending"
+  },
+  "review": {
+    "bookcase_pass": [
+      "three shelf columns, three tiers, six drawer fronts and four distinct oval panels retained",
+      "recessed authored shelf solids and cabinet depth visible in detail and oblique renders",
+      "collapsed solids rejected by runtime assertion; magenta edge fringe removed by keyed-alpha workflow"
+    ],
+    "mirror_pass": [
+      "two-lobe glass and tall asymmetric gilt silhouette retained",
+      "outline extrusion and alpha cut visible at walking/detail views"
+    ],
+    "sofa_cloth_pass": [
+      "olive/beige floral palette and blue/red accents retained",
+      "mapped onto provisional authored sofa, no source room photograph used as a wall/furniture billboard"
+    ],
+    "unverified": [
+      "exact ornament/panel fidelity",
+      "hidden bookcase sides and castor geometry",
+      "paired mirror identity, physical dimensions and pierced side walls",
+      "sofa/chair and ceramic object geometry",
+      "full room extents and remaining painting inventory",
+      "offline UV2 room-lightmap bake",
+      "full connected museum and production integration"
+    ],
+    "no_blind_retry": true,
+    "map_recorded_total_usd": "0.050000"
+  }
+}

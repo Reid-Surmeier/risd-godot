@@ -99,9 +99,7 @@ func _ready() -> void:
 	collider.position.y = 0.95
 	body.add_child(collider)
 	add_child(body)
-	visitor = load("res://modules/shell/prototype/gallery_walk4/rig/visitor.gd").new()
-	visitor.identity = true
-	visitor.world_height = 1.75 * 1.17
+	visitor = make_visitor()
 	add_child(visitor)
 	camera = Camera3D.new()
 	camera.fov = 30
@@ -116,6 +114,12 @@ func _ready() -> void:
 	label.add_theme_constant_override("outline_size", 6)
 	layer.add_child(label)
 	reset(start_at)
+
+func make_visitor() -> Node3D:
+	var actor = load("res://modules/shell/prototype/gallery_walk4/rig/visitor.gd").new()
+	actor.identity = true
+	actor.world_height = 1.75 * 1.17
+	return actor
 
 func observed_points() -> void:
 	var data := FileAccess.get_file_as_bytes("res://points.bin").to_float32_array()

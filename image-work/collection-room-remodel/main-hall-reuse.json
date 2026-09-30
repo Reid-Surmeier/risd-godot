@@ -1,0 +1,17 @@
+{
+  "source_branch": "build/v0.1.0 via integrate-square-164",
+  "inspected_tip": "2b0b015a",
+  "source_directory": "/home/reidsurmeier/orca/workspaces/risd-godot/integrate-square-164/modules/shell/prototype/gallery_walk4/visitor159",
+  "files_sha256": {
+    "PROVENANCE.md": "9c118a01af3489d1330b63cf2f49655c90b8a82d8cccf3b87463c601556f343c",
+    "visitor.gd": "f351a4ea09c43f03ea44d3e181d512770fb5a028aabeb9cb619e2fff15e97f4a",
+    "inputs/donor.glb": "e825437cd4d2ee9c1960b517a74a69101e33eb409ae7fa8cedc7134a998fbb7d",
+    "inputs/character.glb": "a2e6e0948dafb5b0ac10ffdc7359c64fbe04371038f0265d9cb1e1af390e54c4",
+    "inputs/character_risd-163-shirt-baked.png": "98088aa8132b11367d6f249b29d6e936438e7dd4e1bca29345e72fcf003737a2",
+    "inputs/character_risd-163-hair36-source-tinted.png": "3343dfb6121696acf2e684ffd24b5a1f3bc7553721ca01ccb774ba407cb3499c",
+    "inputs/donor_rogue_texture.png": "a4032e877c3b91939f5cdbb630349c1998fdbc3211bbd587c111125500fe4cc5",
+    "inputs/character_risd-163-mouth-baked.png": "c0df1123ec60316f19af09ca7c77018b35f149c52e4c4f7372d2fb138169f0b1",
+    "inputs/character_risd-163-eye-baked.png": "76c7f742c5762955f20ec2b73b6e3e8cd67be16b5d60544e51de457ba5aa233e"
+  },
+  "scope": "Exact current Main Hall character/retargeter copied into isolated prototype only, unchanged; no Viewer or character reauthoring"
+}

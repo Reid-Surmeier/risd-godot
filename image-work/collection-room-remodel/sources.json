@@ -1,0 +1,33 @@
+[
+  {
+    "path": "references/bookcase-front.png",
+    "source": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/decorative-anchor/bookcase-0.jpg",
+    "source_sha256": "df5689359dbb8418b9f730b6b38608de1583ffe5864dc550774d49299442fbad",
+    "sha256": "03ad70ccdaefc8312dfd058be573e9552e8c49785dc79f21fa5bfa260b2f2009"
+  },
+  {
+    "path": "references/bookcase-oblique.png",
+    "source": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/decorative-anchor/bookcase-4.jpg",
+    "source_sha256": "56eb351e922826beb84f90508e0b4d54bd4181ae0b6893fa111d9e1b2e206418",
+    "sha256": "d66f5b0a5d887fb05268bc1d6531a18f64ffebb2deae0b6890e056e0ba537711"
+  },
+  {
+    "path": "references/mirror-video.png",
+    "source": "/tmp/collection-main-doorway-source/6380-313.png",
+    "source_sha256": "f82685ee1716e24eb4ff65cf66c0b0aca10be0bd639e2a7c1408cba88864dbe7",
+    "sha256": "f82685ee1716e24eb4ff65cf66c0b0aca10be0bd639e2a7c1408cba88864dbe7"
+  },
+  {
+    "path": "references/main-hall-style.png",
+    "source": "/home/reidsurmeier/orca/workspaces/risd-godot/integrate-square-164/docs/evidence/warm-room-187/after-view-17.png",
+    "source_sha256": "254a7fa0cd2e3d02c4dbf580798a64b71e917851d6ba8a5c3d60f4f3728df3ac",
+    "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe"
+  },
+  {
+    "path": "references/sofa-video.png",
+    "source": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/survey-2fps/IMG_6380/000283.jpg",
+    "source_sha256": "366d7b65ccf5eca8b2a33000f90ed59a6d31fbd722f79f328d60772fa525cf80",
+    "sha256": "79577eae2d70488e959b96a766cf82d9dc70842ad2bb90d034c0b3dfc5e49b6b",
+    "operation": "rotate original 270 degrees, no content retouching"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "date_utc": "2026-09-30",
+  "direction": "Owner-requested low polygon remodel with Muse assets; captured geometry only a spacing guide",
+  "private_preview": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/lowpoly-room-remodel/",
+  "native_checks": 12,
+  "browser_checks": 12,
+  "keyboard_round_trip": true,
+  "browser_p95_ms": 16.6666666666667,
+  "native_p95_ms": 17.6956666666667,
+  "first_ready_ms": 5861,
+  "renderer": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+  "recorded_new_spend_usd": "0.030000",
+  "recorded_map_total_usd": "0.050000",
+  "automation_enabled": false,
+  "production_integrated": false,
+  "full_map_complete": false,
+  "next_action": "Source-specific portrait/frame inventory and shaped sofa/chair asset passes; then Main Hall UV2 offline room lighting bake. No more point-cloud presentation or SfM-led render refinement."
+}
