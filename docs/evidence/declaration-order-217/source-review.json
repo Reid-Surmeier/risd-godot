@@ -7,9 +7,7 @@
   },
   "spec": {
     "implementation_findings": 0,
-    "evidence_pending": [
-      "final build/PR166/map149 publication/readback"
-    ],
+    "evidence_pending": [],
     "retained_scope": 30,
     "closure": "OPEN",
     "verified": [
@@ -17,7 +15,9 @@
       "fiveHTTPSfilesSHA256MATCH",
       "tenfreshGitHubuploads/APIreadback",
       "private10pictures/finite6.867splayingclip"
-    ]
+    ],
+    "final_independent_review": "18 browser inputs/33 states, asset/museum/square bytes, private delivery, ten live attachment refs, PR166/map149, checkpoint and enabled/reused automation independently verified.",
+    "publication": "04ffdac4 pushed; exact PR166/map149 body/head readback"
   },
   "ponytail": {
     "findings": 0,
