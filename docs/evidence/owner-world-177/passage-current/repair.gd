@@ -1,0 +1,28 @@
+extends SceneTree
+func _initialize() -> void:
+ var path := "res://modules/shell/prototype/gallery_walk4/baked/room.tscn"
+ var room = load("/tmp/risd-passage-177-current/source-room.tscn").instantiate()
+ var floor_mesh: MeshInstance3D = room.get_node("Surface010")
+ assert(floor_mesh.material_override.get_shader_parameter("floor_z_limits").x == 0)
+ var old_mesh: ArrayMesh = floor_mesh.mesh
+ var started := Time.get_ticks_usec()
+ var replacement: ArrayMesh = load("res://modules/shell/prototype/gallery_walk4/walk4.gd")._conform_portal_edges(old_mesh)
+ print("PASSAGE conform microseconds=", Time.get_ticks_usec() - started)
+ assert(old_mesh.get_aabb().position.distance_to(replacement.get_aabb().position) < 0.0001)
+ assert(old_mesh.get_aabb().size.distance_to(replacement.get_aabb().size) < 0.0002)
+ old_mesh.clear_surfaces()
+ old_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, replacement.surface_get_arrays(0))
+ var original_text := FileAccess.get_file_as_string("/tmp/risd-passage-177-current/source-room.tscn")
+ var packed := PackedScene.new()
+ assert(packed.pack(room) == OK)
+ assert(ResourceSaver.save(packed, path) == OK)
+ var pattern := RegEx.new()
+ var serialized := FileAccess.get_file_as_string(path)
+ assert(pattern.compile('(?s)\\[sub_resource type="ArrayMesh" id="ArrayMesh_7eugj"\\].*?(?=\\n\\[sub_resource)') == OK)
+ var replacement_block := pattern.search(serialized).get_string()
+ var original_block := pattern.search(original_text)
+ var retained := original_text.substr(0, original_block.get_start()) + replacement_block + original_text.substr(original_block.get_end())
+ FileAccess.open(path, FileAccess.WRITE).store_string(retained)
+ room.free()
+ print("PASSAGE_ONLY repaired shared edges, interpolated UV/color/UV2; original material/lightmap retained")
+ quit()

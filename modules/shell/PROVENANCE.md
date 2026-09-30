@@ -95,3 +95,10 @@ Local Godot 4.7.2 offline bake on llvmpipe: 333.80 seconds, 137 lightmap users, 
 ## #189 white baseboard visibility (2026-09-29)
 
 Owner screenshot `Screenshot 2026-09-29 at 3.39.58 PM.png` showed the left wall baseboard disappearing into shadow. Existing board geometry retained; its two saved merged materials now receive neutral emission fill (0.55), matching the cornice treatment. Source recipe remains in bake/prepare.gd, keyed by baseboard metadata. Saved room SHA256 `cec2c8fc7c555b46115c40a4752ae03bb1f40ff23129b8770dfd27c4c1f027a1`. All139 mesh geometry/normal/UV arrays and transforms match #187; EXR/LMBake unchanged. No generation, provider, spend or rebake. Native left-board luminance rises from0.272 to0.605; visual evidence in docs/evidence/collection-interaction-189.
+
+
+### #177 passage-floor shared edges — September30
+
+The current saved passage Surface010 had two visible interior Web pixels that changed from dark to magenta with only the background changed. Native edge check measured989 unmatched interior edges. Shared endpoint canonicalization/subdivision reduces that to0; the720/1600 Web background comparisons have0 interior background pixels. New source generation uses the same local passage helper; it preserves UV/color/UV2 interpolation. Only four serialized ArrayMesh data lines change, retaining all other scene bytes, materials/textures and saved EXR/LMBake hashes. No new generation, provider action, bake or spend (USD0).
+
+Current `baked/room.tscn` SHA256 `0fe3d246ec52d848d3ba8a686b12dc831dabc85da4f85216dcb5254f93b1a9a8`. Source input is build477b34b5; reproducible source-geometry/private checks, rejected first repair and fixture-packaging failure are recorded under `docs/evidence/owner-world-177/passage-current/`. The passage-only quadratic scan measured200536µs in a native invocation; this is not a startup-performance acceptance. Full-app review and final hands-on owner approval remain required.

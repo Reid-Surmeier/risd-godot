@@ -706,6 +706,63 @@ static func _conform_floor_edges(mesh: ArrayMesh) -> ArrayMesh:
 	return st.commit()
 
 
+## #177: clipped passage planks need shared endpoints, including partial triangles.
+## Keep UV/color/lightmap interpolation; no material or bake changes.
+## ponytail: passage-only quadratic edge scan; spatial buckets if geometry grows.
+static func _conform_portal_edges(mesh: ArrayMesh) -> ArrayMesh:
+	var arrays := mesh.surface_get_arrays(0)
+	var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+	var points := {}
+	for index in vertices.size():
+		var position := vertices[index].snapped(Vector3.ONE * 0.0001)
+		for existing: Vector3 in points:
+			if position.distance_to(existing) < 0.00015:
+				position = existing
+				break
+		vertices[index] = position
+		points[position] = true
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for start in range(0, vertices.size(), 3):
+		if (vertices[start + 1] - vertices[start]).cross(vertices[start + 2] - vertices[start]).length_squared() < 0.0000000001:
+			continue
+		var perimeter := []
+		for edge in 3:
+			var next := (edge + 1) % 3
+			var a := vertices[start + edge].snapped(Vector3.ONE * 0.0001)
+			var b := vertices[start + next].snapped(Vector3.ONE * 0.0001)
+			var direction := b - a
+			var cuts := []
+			if direction.length_squared() == 0.0:
+				continue
+			for point: Vector3 in points:
+				var fraction := (point - a).dot(direction) / direction.length_squared()
+				if fraction >= 0.0 and fraction < 1.0 and point.distance_to(a + direction * fraction) < 0.00011:
+					var weights := Vector3.ZERO
+					weights[edge] = 1.0 - fraction
+					weights[next] = fraction
+					cuts.append([point, weights, fraction])
+			cuts.sort_custom(func(a, b): return a[2] < b[2])
+			perimeter.append_array(cuts)
+		var center := (vertices[start] + vertices[start + 1] + vertices[start + 2]) / 3.0
+		for edge in perimeter.size():
+			for sample in [[center, Vector3.ONE / 3.0], perimeter[edge], perimeter[(edge + 1) % perimeter.size()]]:
+				var uv := Vector2.ZERO
+				var uv2 := Vector2.ZERO
+				var color := Color(0, 0, 0, 0)
+				for corner in 3:
+					uv += arrays[Mesh.ARRAY_TEX_UV][start + corner] * sample[1][corner]
+					color += arrays[Mesh.ARRAY_COLOR][start + corner] * sample[1][corner]
+					if arrays[Mesh.ARRAY_TEX_UV2] != null:
+						uv2 += arrays[Mesh.ARRAY_TEX_UV2][start + corner] * sample[1][corner]
+				st.set_normal(Vector3.UP)
+				st.set_uv(uv)
+				st.set_uv2(uv2)
+				st.set_color(color)
+				st.add_vertex(sample[0])
+	return st.commit()
+
+
 # The arch end, as in the video: one white-cased door in the gallery wall; behind its plaster reveal the Romanesque
 # stone portal of the medieval gallery is the same opening (its round arch shows at the top of the door), a deep
 # stone tunnel, then the medieval room: blue-grey walls, herringbone floor, the crucifix lit warm.
@@ -812,7 +869,7 @@ func _portal_floor(end: float) -> void:
 						st.set_color(Color(tone, tone * 0.99, tone * 0.97))
 						st.add_vertex(Vector3(p.x, -0.002, p.y))
 	var mesh := MeshInstance3D.new()
-	mesh.mesh = st.commit()
+	mesh.mesh = _conform_portal_edges(st.commit())
 	mesh.material_override = ps(load(DIR + "textures/oak-muse.webp"), Color.WHITE, Vector2.ONE, true)
 	mesh.set_meta("portal_floor", true)
 	mesh.set_meta("portal_floor_end", end)

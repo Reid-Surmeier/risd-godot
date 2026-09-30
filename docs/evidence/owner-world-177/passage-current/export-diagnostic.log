@@ -1,0 +1,218 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | Reopening scenes...[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | Loading central editor layout...[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | Loading plugin window layout...[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | Editor layout ready.[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1msavepack[22m | Started Packing (102 steps)[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-9f9c7cecb0859d7e420b1b1908e09153-probe.scn[39m[0m
+[   2% ] [90m[1msavepack[22m | Storing File: res://docs/evidence/owner-world-177/passage-current/probe.gdc[39m[0m
+[   4% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-c3e3c5173d5ab415c4f0d2133f7a793e-room.scn[39m[0m
+[   5% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/floor_oak.gdshader[39m[0m
+[   7% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/oak.gdshader[39m[0m
+[   8% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/oak-muse.webp-61be9fa16fdf8ab46025bc8d38bebbd8.s3tc.ctex[39m[0m
+[   8% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/oak-muse.webp-61be9fa16fdf8ab46025bc8d38bebbd8.etc2.ctex[39m[0m
+[   8% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/oak-muse.webp.import[39m[0m
+[  10% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/stone.png-df21f01aba0fdd9fdaf5a729990aa6d0.s3tc.ctex[39m[0m
+[  10% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/stone.png-df21f01aba0fdd9fdaf5a729990aa6d0.etc2.ctex[39m[0m
+[  10% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/stone.png.import[39m[0m
+[  12% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/oak-board-atlas-168-v3.webp-f7ce919a4c31370a940a2b9a7f2e790f.s3tc.ctex[39m[0m
+[  12% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/oak-board-atlas-168-v3.webp-f7ce919a4c31370a940a2b9a7f2e790f.etc2.ctex[39m[0m
+[  12% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/oak-board-atlas-168-v3.webp.import[39m[0m
+[  13% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/door-arch.jpg-f2c8df6c363fbd5488632ec76fd44813.s3tc.ctex[39m[0m
+[  13% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/door-arch.jpg-f2c8df6c363fbd5488632ec76fd44813.etc2.ctex[39m[0m
+[  13% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/door-arch.jpg.import[39m[0m
+[  15% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W1.png-7058a54890645ca183f6170adef98e8d.s3tc.ctex[39m[0m
+[  15% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W1.png-7058a54890645ca183f6170adef98e8d.etc2.ctex[39m[0m
+[  15% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W1.png.import[39m[0m
+[  16% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W1.jpg-839637172a083a2dd609d0007fb4a2ef.s3tc.ctex[39m[0m
+[  16% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W1.jpg-839637172a083a2dd609d0007fb4a2ef.etc2.ctex[39m[0m
+[  16% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W1.jpg.import[39m[0m
+[  18% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W2.png-a8001e5693bee4ca8765bb68bdd4eca2.s3tc.ctex[39m[0m
+[  18% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W2.png-a8001e5693bee4ca8765bb68bdd4eca2.etc2.ctex[39m[0m
+[  18% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W2.png.import[39m[0m
+[  20% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W2.jpg-3d2b1066e11aed9b7029fa640f011dae.s3tc.ctex[39m[0m
+[  20% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W2.jpg-3d2b1066e11aed9b7029fa640f011dae.etc2.ctex[39m[0m
+[  20% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W2.jpg.import[39m[0m
+[  21% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/skylight-grid-168.svg-47b7c8f0732e664e1ee9f10be620bbcb.s3tc.ctex[39m[0m
+[  21% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/skylight-grid-168.svg-47b7c8f0732e664e1ee9f10be620bbcb.etc2.ctex[39m[0m
+[  21% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/skylight-grid-168.svg.import[39m[0m
+[  23% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W3.png-4eca9a06ddf001b63fc519e5269e704e.s3tc.ctex[39m[0m
+[  23% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W3.png-4eca9a06ddf001b63fc519e5269e704e.etc2.ctex[39m[0m
+[  23% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W3.png.import[39m[0m
+[  24% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W3.jpg-110d65ed16e824fdfd97faea2a987ac2.s3tc.ctex[39m[0m
+[  24% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W3.jpg-110d65ed16e824fdfd97faea2a987ac2.etc2.ctex[39m[0m
+[  24% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W3.jpg.import[39m[0m
+[  26% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W4.png-2a6632b56a86de0824ff7022d021e468.s3tc.ctex[39m[0m
+[  26% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W4.png-2a6632b56a86de0824ff7022d021e468.etc2.ctex[39m[0m
+[  26% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W4.png.import[39m[0m
+[  27% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W4.jpg-80382ff55a2b3353c9de3318fbdd3cca.s3tc.ctex[39m[0m
+[  27% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W4.jpg-80382ff55a2b3353c9de3318fbdd3cca.etc2.ctex[39m[0m
+[  27% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W4.jpg.import[39m[0m
+[  29% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W5.png-8b446398982ed45cf9ec83b8b2d5fe05.s3tc.ctex[39m[0m
+[  29% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W5.png-8b446398982ed45cf9ec83b8b2d5fe05.etc2.ctex[39m[0m
+[  29% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W5.png.import[39m[0m
+[  31% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W5.jpg-1c2deb33d22eb0ca56622ad9e2eef339.s3tc.ctex[39m[0m
+[  31% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W5.jpg-1c2deb33d22eb0ca56622ad9e2eef339.etc2.ctex[39m[0m
+[  31% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W5.jpg.import[39m[0m
+[  32% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W6-shaped.png-6f0bfe9b1cda35421452448ab55b5430.s3tc.ctex[39m[0m
+[  32% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W6-shaped.png-6f0bfe9b1cda35421452448ab55b5430.etc2.ctex[39m[0m
+[  32% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W6-shaped.png.import[39m[0m
+[  33% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W7.png-6fe691eb3ee3872e5b4209562e89015d.s3tc.ctex[39m[0m
+[  33% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W7.png-6fe691eb3ee3872e5b4209562e89015d.etc2.ctex[39m[0m
+[  33% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W7.png.import[39m[0m
+[  34% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W7.jpg-d8cbff156a568ea36aef974f3332089a.s3tc.ctex[39m[0m
+[  34% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W7.jpg-d8cbff156a568ea36aef974f3332089a.etc2.ctex[39m[0m
+[  34% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W7.jpg.import[39m[0m
+[  36% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W8.png-4c5ec5fca3faa367d23a207c4b324d00.s3tc.ctex[39m[0m
+[  36% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W8.png-4c5ec5fca3faa367d23a207c4b324d00.etc2.ctex[39m[0m
+[  36% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W8.png.import[39m[0m
+[  38% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W8.jpg-ea88f51e1e7aef6a1ba1d594eb6eeebe.s3tc.ctex[39m[0m
+[  38% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W8.jpg-ea88f51e1e7aef6a1ba1d594eb6eeebe.etc2.ctex[39m[0m
+[  38% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W8.jpg.import[39m[0m
+[  39% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W9.png-723a1a61f7314844815dbffef1c73f3b.s3tc.ctex[39m[0m
+[  39% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W9.png-723a1a61f7314844815dbffef1c73f3b.etc2.ctex[39m[0m
+[  39% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W9.png.import[39m[0m
+[  41% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W9.jpg-e03f3ae30b0ca44cb1f29d9973d2811f.s3tc.ctex[39m[0m
+[  41% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W9.jpg-e03f3ae30b0ca44cb1f29d9973d2811f.etc2.ctex[39m[0m
+[  41% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W9.jpg.import[39m[0m
+[  42% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W10.png-31575cc7771cb5266f4a6603b719b23c.s3tc.ctex[39m[0m
+[  42% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W10.png-31575cc7771cb5266f4a6603b719b23c.etc2.ctex[39m[0m
+[  42% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W10.png.import[39m[0m
+[  44% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W10.jpg-da6ac9c7419b459c42785dc683e0b294.s3tc.ctex[39m[0m
+[  44% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W10.jpg-da6ac9c7419b459c42785dc683e0b294.etc2.ctex[39m[0m
+[  44% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W10.jpg.import[39m[0m
+[  46% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E1.png-33f7881a80e009a211f80eb7f9c22224.s3tc.ctex[39m[0m
+[  46% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E1.png-33f7881a80e009a211f80eb7f9c22224.etc2.ctex[39m[0m
+[  46% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E1.png.import[39m[0m
+[  47% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E1.jpg-b486284ea2d4890f7cb33a36037e9976.s3tc.ctex[39m[0m
+[  47% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E1.jpg-b486284ea2d4890f7cb33a36037e9976.etc2.ctex[39m[0m
+[  47% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E1.jpg.import[39m[0m
+[  49% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E2.png-351724124ff2c7a3628432f43bd66a80.s3tc.ctex[39m[0m
+[  49% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E2.png-351724124ff2c7a3628432f43bd66a80.etc2.ctex[39m[0m
+[  49% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E2.png.import[39m[0m
+[  50% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E2.jpg-4e60336ccfd9806b072eb503e4dd1d7c.s3tc.ctex[39m[0m
+[  50% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E2.jpg-4e60336ccfd9806b072eb503e4dd1d7c.etc2.ctex[39m[0m
+[  50% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E2.jpg.import[39m[0m
+[  52% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E3.png-5ce4528fb94210ca3bcd5465a0b54b5c.s3tc.ctex[39m[0m
+[  52% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E3.png-5ce4528fb94210ca3bcd5465a0b54b5c.etc2.ctex[39m[0m
+[  52% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E3.png.import[39m[0m
+[  53% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E3.jpg-f8a461190775844501075ec736bdf8c4.s3tc.ctex[39m[0m
+[  53% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E3.jpg-f8a461190775844501075ec736bdf8c4.etc2.ctex[39m[0m
+[  53% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E3.jpg.import[39m[0m
+[  55% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E4.png-9b640e1f133fc4271f22205894f801a9.s3tc.ctex[39m[0m
+[  55% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E4.png-9b640e1f133fc4271f22205894f801a9.etc2.ctex[39m[0m
+[  55% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E4.png.import[39m[0m
+[  57% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E4.jpg-04e766f9caa3d7bee21ca465f73f5c7b.s3tc.ctex[39m[0m
+[  57% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E4.jpg-04e766f9caa3d7bee21ca465f73f5c7b.etc2.ctex[39m[0m
+[  57% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E4.jpg.import[39m[0m
+[  58% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E5.png-f5ced63db48e89b8754c5504b492d044.s3tc.ctex[39m[0m
+[  58% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E5.png-f5ced63db48e89b8754c5504b492d044.etc2.ctex[39m[0m
+[  58% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E5.png.import[39m[0m
+[  60% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E5.jpg-3e9d50436d4ca6b91b164a824108a77f.s3tc.ctex[39m[0m
+[  60% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E5.jpg-3e9d50436d4ca6b91b164a824108a77f.etc2.ctex[39m[0m
+[  60% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E5.jpg.import[39m[0m
+[  61% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E6.png-41248d0f3fe6dfbe2a85711fd781f724.s3tc.ctex[39m[0m
+[  61% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E6.png-41248d0f3fe6dfbe2a85711fd781f724.etc2.ctex[39m[0m
+[  61% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E6.png.import[39m[0m
+[  63% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E6.jpg-c3d7bda6d9628e0dcac6e8a0de38bb73.s3tc.ctex[39m[0m
+[  63% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E6.jpg-c3d7bda6d9628e0dcac6e8a0de38bb73.etc2.ctex[39m[0m
+[  63% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E6.jpg.import[39m[0m
+[  65% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E7.png-b16ed1f8384f6f0b8f7ec9d336ff33b7.s3tc.ctex[39m[0m
+[  65% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E7.png-b16ed1f8384f6f0b8f7ec9d336ff33b7.etc2.ctex[39m[0m
+[  65% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E7.png.import[39m[0m
+[  66% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E7.jpg-e39febefd43278d6d093e1ed869f619b.s3tc.ctex[39m[0m
+[  66% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E7.jpg-e39febefd43278d6d093e1ed869f619b.etc2.ctex[39m[0m
+[  66% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E7.jpg.import[39m[0m
+[  67% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E8.png-51ade24cd8d1af29a39868bc8d943947.s3tc.ctex[39m[0m
+[  67% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E8.png-51ade24cd8d1af29a39868bc8d943947.etc2.ctex[39m[0m
+[  67% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E8.png.import[39m[0m
+[  68% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E8.jpg-d916aaaf70507fd95bc50b187737b824.s3tc.ctex[39m[0m
+[  68% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E8.jpg-d916aaaf70507fd95bc50b187737b824.etc2.ctex[39m[0m
+[  68% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E8.jpg.import[39m[0m
+[  70% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E9.png-756f39c7b0b2953679b619a547aef8a8.s3tc.ctex[39m[0m
+[  70% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E9.png-756f39c7b0b2953679b619a547aef8a8.etc2.ctex[39m[0m
+[  70% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E9.png.import[39m[0m
+[  72% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E9.jpg-fab4fb5caca648067cedda4cd62b82fa.s3tc.ctex[39m[0m
+[  72% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E9.jpg-fab4fb5caca648067cedda4cd62b82fa.etc2.ctex[39m[0m
+[  72% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E9.jpg.import[39m[0m
+[  73% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/S1.png-a91e1b801d922d0c182f62822520bda8.s3tc.ctex[39m[0m
+[  73% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/S1.png-a91e1b801d922d0c182f62822520bda8.etc2.ctex[39m[0m
+[  73% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/S1.png.import[39m[0m
+[  75% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/S1.jpg-5de8cff95e6e84a6ac334ed8e473dc9a.s3tc.ctex[39m[0m
+[  75% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/S1.jpg-5de8cff95e6e84a6ac334ed8e473dc9a.etc2.ctex[39m[0m
+[  75% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/S1.jpg.import[39m[0m
+[  76% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/S2.png-999395982a4fce3139fe37def185e870.s3tc.ctex[39m[0m
+[  76% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/S2.png-999395982a4fce3139fe37def185e870.etc2.ctex[39m[0m
+[  76% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/S2.png.import[39m[0m
+[  78% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/S2.jpg-42d359fa68135f9394c173b8253b3481.s3tc.ctex[39m[0m
+[  78% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/S2.jpg-42d359fa68135f9394c173b8253b3481.etc2.ctex[39m[0m
+[  78% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/S2.jpg.import[39m[0m
+[  79% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/N1.png-ff2c267b785a769604f341e12eb29f38.s3tc.ctex[39m[0m
+[  79% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/N1.png-ff2c267b785a769604f341e12eb29f38.etc2.ctex[39m[0m
+[  79% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/N1.png.import[39m[0m
+[  81% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/N1.jpg-d45addc852aff56d48f736da1699ea03.s3tc.ctex[39m[0m
+[  81% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/N1.jpg-d45addc852aff56d48f736da1699ea03.etc2.ctex[39m[0m
+[  81% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/N1.jpg.import[39m[0m
+[  83% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/N2.png-8f5d5b9b4f60c6de4344ffe61a061048.s3tc.ctex[39m[0m
+[  83% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/N2.png-8f5d5b9b4f60c6de4344ffe61a061048.etc2.ctex[39m[0m
+[  83% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/N2.png.import[39m[0m
+[  84% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/N2.jpg-584a8a46e3c786b60f08dad04ee7fff0.s3tc.ctex[39m[0m
+[  84% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/N2.jpg-584a8a46e3c786b60f08dad04ee7fff0.etc2.ctex[39m[0m
+[  84% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/N2.jpg.import[39m[0m
+[  86% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/exit-sign.svg-e0d9f53c50e60d5c4571e7565919c2e2.s3tc.ctex[39m[0m
+[  86% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/exit-sign.svg-e0d9f53c50e60d5c4571e7565919c2e2.etc2.ctex[39m[0m
+[  86% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/exit-sign.svg.import[39m[0m
+[  87% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/cornice-ivory.svg-360a9aaada0e7cf2185b5c66984ff3da.s3tc.ctex[39m[0m
+[  87% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/cornice-ivory.svg-360a9aaada0e7cf2185b5c66984ff3da.etc2.ctex[39m[0m
+[  87% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/cornice-ivory.svg.import[39m[0m
+[  89% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/bench-cloth-muse.webp-ac64b8ee080e763cf079910d13155b13.s3tc.ctex[39m[0m
+[  89% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/bench-cloth-muse.webp-ac64b8ee080e763cf079910d13155b13.etc2.ctex[39m[0m
+[  89% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/bench-cloth-muse.webp.import[39m[0m
+[  91% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/ivory-trim.svg-358a46dc19deab8a6d70eeff018254ff.s3tc.ctex[39m[0m
+[  91% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/ivory-trim.svg-358a46dc19deab8a6d70eeff018254ff.etc2.ctex[39m[0m
+[  91% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/ivory-trim.svg.import[39m[0m
+[  92% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/oak.png-b9b1b852d74c9124d4d6624912978c21.s3tc.ctex[39m[0m
+[  92% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/oak.png-b9b1b852d74c9124d4d6624912978c21.etc2.ctex[39m[0m
+[  92% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/oak.png.import[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/wall-muse.webp-9ab8856f456b1281683061f64c05a88a.s3tc.ctex[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/wall-muse.webp-9ab8856f456b1281683061f64c05a88a.etc2.ctex[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/wall-muse.webp.import[39m[0m
+[  95% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/baked/room.lmbake[39m[0m
+[  97% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/room.exr-5510312a4ecf7ead78330478c6c0ad75.bptc.ctexarray[39m[0m
+[  97% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/room.exr-5510312a4ecf7ead78330478c6c0ad75.astc.ctexarray[39m[0m
+[  97% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/baked/room.exr.import[39m[0m
+[  97% ] [90m[1msavepack[22m | Storing File: res://docs/evidence/owner-world-177/passage-current/probe.tscn.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | Storing File: res://docs/evidence/owner-world-177/passage-current/probe.gd.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/baked/room.tscn.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | Storing File: res://.godot/global_script_class_cache.cfg[39m[0m
+[  97% ] [90m[1msavepack[22m | Storing File: res://.godot/uid_cache.bin[39m[0m
+[  97% ] [90m[1msavepack[22m | Storing File: res://project.binary[39m[0m
+[92m[ DONE ][39m [1msavepack[22m
+[0m
+RESTORED project.godot/export_presets.cfg original bytes

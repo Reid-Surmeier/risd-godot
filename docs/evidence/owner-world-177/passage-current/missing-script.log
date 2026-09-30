@@ -1,0 +1,16 @@
+error Failed to load resource: the server responded with a status of 404 (File not found)
+log Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+log OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL
+log Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support.
+error ERROR: Attempt to open script 'res://docs/evidence/owner-world-177/passage-current/probe.gd' resulted in error 'File not found'.
+error    at: load_source_code (modules/gdscript/gdscript.cpp:1139)
+error ERROR: Failed loading resource: res://docs/evidence/owner-world-177/passage-current/probe.gd.
+error    at: _load (core/io/resource_loader.cpp:317)
+STATE {}
+TimeoutError: Waiting failed: 30000ms exceeded
+    at new WaitTask (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/common/WaitTask.js:46:34)
+    at IsolatedWorld.waitForFunction (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/api/Realm.js:49:26)
+    at CdpFrame.waitForFunction (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/api/Frame.js:585:43)
+    at CdpFrame.<anonymous> (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/util/decorators.js:101:27)
+    at CdpPage.waitForFunction (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/api/Page.js:1537:37)
+    at /tmp/risd-passage-177-current/capture.cjs:2:879
