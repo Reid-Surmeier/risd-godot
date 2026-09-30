@@ -39,3 +39,6 @@ intrinsics round-trip checked. Historical doorway walk geometry is unchanged.
 https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1500/
 
 Inspect wider anchors, the supported entry mask and rejected floor transfer.
+
+Git automatic repack reported a damaged index in the unrelated homepage-prototype
+worktree; checkpoint commit succeeded. No repair attempted within this scope.
