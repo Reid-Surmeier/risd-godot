@@ -21,3 +21,8 @@ ponytail: 2 findings, 2 fixed, 0 accepted
 Removed the three superseded Sketchbook framed-painting resize variables, old input handler and old independent-axis resize branch. Bound the existing drag handler directly. Removed unread Collection `windows_adjusted` metadata. Independent follow-up verified both deletions and found no new cleanup issue. No dependency added.
 
 The older complete-map review's two cleanup dispositions remain historical/open and are not silently erased by this narrower delta. No owner approval, release authorization, public asset rights or whole-app motion acceptance follows from these checks.
+
+
+## Grip correction found by fresh UI image review
+
+The new blind UI review found two detached Sketchbook grips. Actual browser geometry confirmed the two Container windows changed scale while their top-level grip rects remained identical. A focused real-pointer native corner-end assertion fails twice on the old runtime and passes all18 windows after explicitly calling the existing fit closure after scaling. The same corner-end assertion now runs after each browser shrink. No other grip implementation, drawing behavior, art, module seam or frozen acceptance file changed. #199 explicitly names this follow-through.

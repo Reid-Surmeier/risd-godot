@@ -50,6 +50,7 @@ func run() -> void:
 			await drag(grip.get_global_rect().get_center(), Vector2(25, 20))
 			check(window.scale.x > small and is_equal_approx(window.scale.x, window.scale.y), str(index) + ": " + window.name + " grow")
 			check(window.size == original_size, "unchanged internal layout")
+			check(grip.get_global_rect().end.is_equal_approx(window.get_global_rect().end), "grip follows resized corner")
 			if index == 4:
 				check(window.get_global_rect().get_center().is_equal_approx(window.get_parent().get_global_rect().get_center()), "resized Collection centered")
 			count += 1

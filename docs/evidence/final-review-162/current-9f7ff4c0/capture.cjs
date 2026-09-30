@@ -8,12 +8,12 @@ function screen([x,y],s){const[ox,oy,dw,dh]=s.stage_rect,qx=x/1080-.5,qy=y/1080-
 async function click(r){await page.mouse.click(...screen(center(r),await state()));await wait(700)}
 async function tab(i){await click((await state()).shell.tabs[i].rect);await page.waitForFunction(i=>window.shellCrtQa.shell.active===i&&!window.shellCrtQa.shell.switching,{},i);await wait(900)}
 async function shot(name){await page.screenshot({path:`${out}/${name}.png`});states.push({name,state:await state()})}
-for(let i=0;i<7;i++){await tab(i);await page.mouse.move(10,40);await shot(`tab-${i}`)}
+for(let i=0;i<7;i++){await tab(i);if(i===6){await page.waitForFunction(()=>document.querySelector("#flowers-game ruffle-player")?.metadata,{timeout:120000});await wait(4000)}await page.mouse.move(10,40);await shot(`tab-${i}`)}
 await tab(2);for(let i=0;i<4;i++){await click((await state()).tenant.cards[i]);let t=(await state()).tenant;assert.equal(t.model_loaded,true);await shot(`viewer-${i}-preview`);await page.mouse.move(10,40);await wait(700);await shot(`viewer-${i}`)}
 await tab(5);const nav=(await state()).tenant.navigation;for(const[name,r]of Object.entries(nav)){await click(r);await page.mouse.move(10,40);await wait(700);await shot(`playground-${(await state()).tenant.page}`)}
 await tab(4);
 const command=action=>page.evaluate(action=>window.galleryRenderCommand(JSON.stringify(action)),action);
-for(const scene of ['bench','floor','skylight','portal','warm']){await command({action:'pose',scene});await command({action:'release'});await wait(700);await shot(`gallery-${scene}`)}
+for(const scene of ['bench','floor','skylight','portal','warm']){await command({action:'pose',scene});await wait(700);await shot(`gallery-${scene}`)}
 for(const [w,h]of[[1080,1080],[1920,1080],[1080,1920],[720,486],[486,720]]){
  await page.setViewport({width:w,height:h});await wait(700);const s=await state(),d=Math.min(w,h);
  assert.deepEqual(s.stage_rect,[(w-d)/2,(h-d)/2,d,d]);await shot(`fit-${w}x${h}`);

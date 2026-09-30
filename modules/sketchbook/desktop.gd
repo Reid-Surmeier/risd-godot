@@ -537,4 +537,5 @@ func _add_scale_grip(window: Control) -> void:
 			var maximum := minf(available.x / window.size.x, available.y / window.size.y)
 			var factor: float = gesture.scale + delta.dot(window.size) / window.size.length_squared()
 			window.scale = Vector2.ONE * clampf(factor, minf(0.35, maximum), maximum)
+			fit.call()
 			grip.accept_event())
