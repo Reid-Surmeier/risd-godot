@@ -1,0 +1,20 @@
+{
+  "source_joint_lengths_original_units": {
+    "thigh": 450,
+    "shin": 400,
+    "upper_arm": 626,
+    "forearm_to_hand_end": 625,
+    "hip_width": 700,
+    "shoulder_width": 900,
+    "arm_leg_ratio": 1.4717647058823529
+  },
+  "target_inverse_bind_joint_lengths_asset_units": {
+    "leg": 0.39910174906253815,
+    "arm": 0.40761221945285797,
+    "arm_leg_ratio": 1.0213240618722177,
+    "hip_width": 0.18336299061775208,
+    "shoulder_width": 0.44237905740737915
+  },
+  "warning": "source feel joint is emotion/feel anchor, not verified head-top vertex; skeletal lengths do not establish geometry height or visible projected length; target skeleton includes scaled ancestors and rest-basis differences",
+  "target_sha256": "0f609ee4dfd7d0e645a15dbd8b47625dd95b0c13c4b59b624deecdd2eddeb487"
+}
