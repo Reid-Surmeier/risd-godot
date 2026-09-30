@@ -1,0 +1,10 @@
+{
+  "source": "browser/video-playback.webm",
+  "source_sha256": "87587ae3e0daaba25cd7b2e3afcb767b03252a043d3af6ce887f1f2629c401e9",
+  "served": "video-playback-review.webm",
+  "served_sha256": "52043b189a77aafe10d15db1edfd0f6d3c8561dcfee98724da12ffce9f05b32a",
+  "method": "ffmpeg -map 0 -c copy; finite duration/cues, no re-encoding",
+  "duration": 7.567,
+  "provider": null,
+  "cost_usd": 0
+}

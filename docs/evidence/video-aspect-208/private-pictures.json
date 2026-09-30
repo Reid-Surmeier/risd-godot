@@ -1,0 +1,61 @@
+{
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-video-pictures-01a0f078/",
+  "images": [
+    {
+      "file": "before-fullscreen.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "source-0-window.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "source-4-window.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "video-fullscreen.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "video-paused-return.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "window-portrait-return.png",
+      "width": 486,
+      "height": 720
+    },
+    {
+      "file": "tab-2.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "gallery-portal.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "gallery-bench.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "fit-1080x1920.png",
+      "width": 1080,
+      "height": 1920
+    }
+  ],
+  "video": {
+    "ready": 4,
+    "duration": 7.567,
+    "width": 1080,
+    "height": 1080
+  }
+}

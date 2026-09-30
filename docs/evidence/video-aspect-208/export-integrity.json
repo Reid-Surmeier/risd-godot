@@ -1,0 +1,30 @@
+{
+  "runtime": "36cb27af",
+  "base": "https://windows-wsl.taile06c45.ts.net/risd-video-current-01a0f078/",
+  "files": [
+    {
+      "file": "36cb27af.html",
+      "status": 200,
+      "sha256": "1c0f9cfe779447a4873129e8763d0c3a1978ef27dd34d315f01e37240038cea1",
+      "match": true
+    },
+    {
+      "file": "36cb27af.pck.gz",
+      "status": 200,
+      "sha256": "e46afe8ea9878793cf83cb95d2afcaa64ed3ec72cf043eaacfd1b2657f0f9ded",
+      "match": true
+    },
+    {
+      "file": "36cb27af.game.pck.gz",
+      "status": 200,
+      "sha256": "6bd1fa94df4e7e4ea99368ec9053e72e6de24788a57b0c4f8941672a2193b177",
+      "match": true
+    },
+    {
+      "file": "36cb27af.wasm.gz",
+      "status": 200,
+      "sha256": "b29044f0888033f4b68eb5d0831038056397d71d3d182baa0ef9ae10db84443b",
+      "match": true
+    }
+  ]
+}
