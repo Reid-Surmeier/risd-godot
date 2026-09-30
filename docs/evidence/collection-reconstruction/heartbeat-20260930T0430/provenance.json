@@ -29,7 +29,7 @@
     "browser-forward.png": "50c6644153a401177e2f5df58ea00f18a7251b20940c4b93989f4aa555dd693b",
     "shell-verify.json": "a1a59f282f43b2e308befe74871b8d643077c543069665ffa1076cd327c231b3",
     "shell-comparison.json": "4d23ff4d16ebabe21db397dd76e68f1db9f5b6b322d67a3fc5beadc641a787d7",
-    "shell-gpu.log": "42b9faf7bf30dd22f71c046ddef94c4f81ba1db6ee74f3c3b4ee64d9db4f9982",
+    "shell-gpu.log": "68b2c66972d76bb61e5bcf0d8bb0b813571488135cab6b52f3f3a845561ab64d",
     "browser-result.json": "a16358c60f4a0027acdfdbc8d51dccc9e08e75899b56e865d83943475e5bc102",
     "geometry.json": "477610f8f2905c081271bd913ba9970ed3a21ebd4006b4bd24083ae3ddb61692",
     "browser-return-jamb.png": "984cb7baa3431a4c5f21a43a42af54823190410fbe36f66c111fceffc9a3620a",
@@ -50,7 +50,7 @@
     "plan-before.png": "63e5046f010a79752b81ee66e3cae2e2b309ec5a54174e1c901230c71d807403",
     "extents-result.json": "24a3f91f54f1bae59bac3c2a87c0564631325f99ee0b25570ea15f4d130677b0",
     "shell-resize.png": "f83804f1ff82987077f3b5e2ad7623a8d7cdd0d4e22fb076cc582095cfd5fd99",
-    "shell-interrupted.log": "d385f376971fdec9e23204d7f2f134f87ccc2b50d64001c25c61fcab1ec028ca",
+    "shell-interrupted.log": "786270ed10b012d305ebc072ccdb47d7156f2f908b14aeece450b51091ffd871",
     "native-toe.png": "bac5b82421bb31b520a930ce97778e4c29a0abb6f5fd8357750902901b6ed25b",
     "web/index.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
     "web/index.pck": "c5d7cdad162eec67a8bf253badb6579ea5e43cec0a0d5d52a254dd6be8c35285",
@@ -58,10 +58,13 @@
     "web/index.png": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
     "web/index.wasm": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
     "web/index.js": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
-    "web/index.html": "55d0d6247313f62003d148397638105b6fe1472a6393e528aaec4440a4211877"
+    "web/index.html": "55d0d6247313f62003d148397638105b6fe1472a6393e528aaec4440a4211877",
+    "shell-gpu.log.gz": "7708f04c57ac34638402909b9d3eb7d42f184a42d49438eeb521669349086f42",
+    "shell-interrupted.log.gz": "d92cfffbea2fcf83e7d389a4ac7bef94c30cbe38412d54be2531e6337d8b1802"
   },
   "prototype_only": true,
   "source_sparse_model_unchanged": true,
   "uncommitted_asset_work_preserved": true,
-  "navigation_accepted": false
+  "navigation_accepted": false,
+  "log_storage": "Shell .log files normalize whitespace for git; .log.gz preserves exact raw bytes."
 }
