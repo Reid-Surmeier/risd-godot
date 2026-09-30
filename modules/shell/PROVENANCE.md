@@ -180,3 +180,17 @@ and fails the unchanged 8px gate. No geometry or collision extension accepted.
 All 24 native/Chrome doorway checks and real WASD round trips pass; Shell has
 five previously observed failures. Native timings excluded due to overlap.
 Existing Muse receipts and rejected sculpture meshes remain unchanged.
+
+## Collection right-casing diagnostic — September 30, 06:00 UTC heartbeat
+
+Local COLMAP CUDA / NumPy / Pillow / Godot 4.7.2 / Chrome 154; **$0**, no paid
+calls. RTX 4070 SUPER feature/matching/native/browser rendering; pose CPU.
+[Sources, frozen annotations, output hashes and evidence](../../docs/evidence/collection-reconstruction/heartbeat-20260930T0600/provenance.json).
+
+Two new samples have 36/79 pose inliers and pass unused-point checks, but the
+reserved right-toe error is 19.963px: rejected by the unchanged 8px gate.
+Exterior toe separation is not accepted opening width. Camera-report enum/
+array serialization fixed; no matching retry, geometry or collision extension.
+All 24 native/RTX Chrome doorway checks and real WASD round trips pass. Initial
+llvmpipe browser result retained; Shell has six previously observed failures.
+Existing Muse receipts and rejected sculpture meshes remain unchanged.

@@ -1,0 +1,136 @@
+{
+  "rows": [
+    {
+      "image": "IMG_6380/grandreturn-000012.jpg",
+      "unique_tracked_points": 159,
+      "supported": true,
+      "pose_inliers": 36,
+      "camera": {
+        "model": "SIMPLE_RADIAL",
+        "camera_id": 5,
+        "width": 1280,
+        "height": 720,
+        "params": [
+          594.3251305595769,
+          640.0,
+          360.0,
+          0.002137679000087821
+        ]
+      },
+      "pose": [
+        [
+          0.9013904927398941,
+          -0.08744682153082999,
+          0.4240851718726866,
+          -0.836862535513367
+        ],
+        [
+          0.03597648951942077,
+          -0.9608843683259289,
+          -0.27460320993888654,
+          2.655027759535066
+        ],
+        [
+          0.4315099903825982,
+          0.262781818455989,
+          -0.8629860045730606,
+          2.533386294849827
+        ]
+      ]
+    },
+    {
+      "image": "IMG_6380/grandreturn-000014.jpg",
+      "unique_tracked_points": 274,
+      "supported": true,
+      "pose_inliers": 79,
+      "camera": {
+        "model": "SIMPLE_RADIAL",
+        "camera_id": 5,
+        "width": 1280,
+        "height": 720,
+        "params": [
+          594.3251305595769,
+          640.0,
+          360.0,
+          0.002137679000087821
+        ]
+      },
+      "pose": [
+        [
+          0.8903260602978634,
+          -0.09516358133688327,
+          0.4452677836332018,
+          -0.8824472026729893
+        ],
+        [
+          0.03480036212730691,
+          -0.9608326470199868,
+          -0.27493555466031505,
+          2.712051033825139
+        ],
+        [
+          0.45399167519932976,
+          0.2602777693305849,
+          -0.8521426181350176,
+          2.4559246467753795
+        ]
+      ]
+    }
+  ],
+  "source_sha256": {
+    "sparse/0/points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "sparse/0/frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "sparse/0/images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "annotations": {
+    "picks": {
+      "12": [
+        568,
+        1060
+      ],
+      "14": [
+        506,
+        1095
+      ]
+    },
+    "reserved": "IMG_6380/000206.jpg",
+    "reserved_pixel": [
+      626,
+      1043
+    ],
+    "training": [
+      12,
+      14
+    ],
+    "caveat": "Right exterior white casing toe only, not the inner aperture. Nearby same-video views; frozen query pixels, original 102.5s exclusion retained."
+  },
+  "query_camera_id": 5,
+  "query_camera_params": [
+    594.3251305595769,
+    640.0,
+    360.0,
+    0.002137679000087821
+  ],
+  "provider": "local COLMAP CUDA RTX4070SUPER; absolute pose CPU",
+  "cost_usd": 0,
+  "geometry_accepted": false,
+  "navigation_accepted": false,
+  "caveat": "Same-video reference diagnostics; frozen model/holdout unchanged. No new floor or collision.",
+  "toe": {
+    "point_world": [
+      0.08027223426442506,
+      2.0739309768949163,
+      3.037510268121442
+    ],
+    "ray_angle_degrees": 6.08874121902415,
+    "reserved_pose_inliers": 89,
+    "reserved_error_px": 19.962606883996006,
+    "diagnostic_pass": false,
+    "provisional_m_per_unit": 2.6266704457139363,
+    "exterior_toe_distance_m": 1.737534512608815,
+    "pick_sensitivity_p95_displacement_m": 0.09578235347023739,
+    "caveat": "Exterior casing separation is not inner opening width. Pick sensitivity excludes pose/scale error. No full aperture, floor, collision or navigation accepted."
+  }
+}

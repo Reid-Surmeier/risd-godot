@@ -1,0 +1,41 @@
+I20260930 02:06:54.179477 126149189433024 feature_extraction.cc:498] === Feature extraction ===
+I20260930 02:06:54.180189 126149040514752 sift.cc:758] Creating SIFT GPU feature extractor
+I20260930 02:06:54.378600 126148759516864 feature_extraction.cc:270] Processed file [1/2]
+I20260930 02:06:54.378641 126148759516864 feature_extraction.cc:273]   Name:            IMG_6380/grandreturn-000012.jpg
+I20260930 02:06:54.378644 126148759516864 feature_extraction.cc:282]   Dimensions:      1280 x 720
+I20260930 02:06:54.378646 126148759516864 feature_extraction.cc:285]   Camera:          #5 - SIMPLE_RADIAL
+I20260930 02:06:54.378650 126148759516864 feature_extraction.cc:289]   Focal Length:    594.33px
+I20260930 02:06:54.378656 126148759516864 feature_extraction.cc:294]   Features:        243 (SIFT)
+I20260930 02:06:54.394407 126148759516864 feature_extraction.cc:270] Processed file [2/2]
+I20260930 02:06:54.394428 126148759516864 feature_extraction.cc:273]   Name:            IMG_6380/grandreturn-000014.jpg
+I20260930 02:06:54.394431 126148759516864 feature_extraction.cc:282]   Dimensions:      1280 x 720
+I20260930 02:06:54.394433 126148759516864 feature_extraction.cc:285]   Camera:          #5 - SIMPLE_RADIAL
+I20260930 02:06:54.394436 126148759516864 feature_extraction.cc:289]   Focal Length:    594.33px
+I20260930 02:06:54.394442 126148759516864 feature_extraction.cc:294]   Features:        432 (SIFT)
+I20260930 02:06:54.406455 126149189433024 timer.cc:90] Elapsed time: 0.004 [minutes]
+I20260930 02:06:54.434238 126149189433024 feature_matching.cc:196] === Feature matching & geometric verification ===
+I20260930 02:06:54.434336 126148759516864 feature_matching_utils.cc:79] Bind FeatureMatcherWorker to GPU device 0
+I20260930 02:06:54.437424 126148759516864 sift.cc:1679] Creating SIFT GPU feature matcher
+I20260930 02:06:54.440419 126149189433024 pairing.cc:905] Importing image pairs...
+I20260930 02:06:54.441917 126149189433024 pairing.cc:938] Processing block [1/1]
+I20260930 02:06:54.817233 126149189433024 feature_matching.cc:218] in 0.375s
+I20260930 02:06:54.817263 126149189433024 timer.cc:90] Elapsed time: 0.006 [minutes]
+Traceback (most recent call last):
+  File "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/grand_return.py", line 160, in <module>
+    (OUT/'result.json').write_text(json.dumps(report, indent=2)+'\n')
+                                   ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/reidsurmeier/.local/share/uv/python/cpython-3.14.7-linux-x86_64-gnu/lib/python3.14/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/home/reidsurmeier/.local/share/uv/python/cpython-3.14.7-linux-x86_64-gnu/lib/python3.14/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/home/reidsurmeier/.local/share/uv/python/cpython-3.14.7-linux-x86_64-gnu/lib/python3.14/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "/home/reidsurmeier/.local/share/uv/python/cpython-3.14.7-linux-x86_64-gnu/lib/python3.14/json/encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type CameraModelId is not JSON serializable
+when serializing dict item 'model'
+when serializing dict item 'camera'
+when serializing list item 0
+when serializing dict item 'rows'
