@@ -1,0 +1,8 @@
+{
+  "check_exit": 0,
+  "lint_called": true,
+  "lint_argument_count": 900,
+  "stdout": "checks passed\n",
+  "stderr": ""
+}
+lint invocation and error propagation PASS

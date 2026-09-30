@@ -34,3 +34,7 @@ First browser navigation failed ERR_CERT_VERIFIER_CHANGED before app startup; TL
 Source1014865523 has tiny non-square sample-aspect metadata (41663:41640): decoded480×244 fitting differs from original display aspect by approximately0.055%. No exact original SAR claim.
 
 Private only. No generation/provider/bake/spend. All18 current Web window/grip checks and actual painting/X/Escape, fullscreen, tab retention, movement/release/Hair36/23paintings/F8/F9 PASS. GitHub CLI2.101 uploaded four before/after images into PR166 comment5905980239; authenticated API body readback contains asset URLs. Anonymous and bearer-token asset GET return404 (private assets need browser-session access), so authenticated browser rendering remains unverified. Private picture gallery supplies an independently tested image/video route. Final149/162/173/174/177 owner approval and earlier readability/Sketchbook/bench/motion/performance/rights findings remain open; whole review stays needs-work. Automation stays enabled.
+
+## CI follow-through
+
+Hosted Verify run36682358949 failed before steps with no runner or log, as prior125927da did. Check-rollup access403; underlying cause unverified. Local workflow-equivalent check with installed gdtoolkit4.5.0 passes13warnings, but investigation proves discovery pipeline exits141 and silently skips lint. Direct player lintFAIL26, identical source findings before/after208. No new208 lint defect. This verification gap remains separate; no cloud CI pass or full release readiness claim.

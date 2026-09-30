@@ -22,7 +22,7 @@ while IFS= read -r f; do
 done < <(find . -name '*.gd' -not -path "./.git/*" 2>/dev/null)
 
 # 3. GDScript lint, when the toolchain is present and there is anything to lint.
-if command -v gdlint >/dev/null 2>&1 && find . -name '*.gd' -not -path "./.git/*" | grep -q .; then
+if command -v gdlint >/dev/null 2>&1 && [ -n "$(find . -name '*.gd' -not -path './.git/*' -print -quit)" ]; then
   gdlint $(find . -name '*.gd' -not -path "./.git/*")
 fi
 

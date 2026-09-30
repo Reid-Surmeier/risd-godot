@@ -12,13 +12,20 @@ func screen(point: Vector2) -> Vector2:
 func movie_rect() -> Rect2:
 	# Inspect the actual native movie-drawing Control; old VideoStreamPlayer expands directly.
 	var image = player.find_child("movie-image", true, false)
-	return image.get_global_rect() if image else Shell.tenant_state(shell, "video_player").value.video_rect
+	return (
+		image.get_global_rect()
+		if image else Shell.tenant_state(shell, "video_player").value.video_rect
+	)
 func check_aspect(label: String) -> void:
 	var source: Vector2 = player.find_child("video", true, false).get_video_texture().get_size()
 	var rect := movie_rect()
-	var ratio_ok: bool = source.x > 0 and source.y > 0 and abs(rect.size.aspect() - source.aspect()) < 0.002
+	var ratio_ok: bool = (
+		source.x > 0 and source.y > 0 and abs(rect.size.aspect() - source.aspect()) < 0.002
+	)
 	var state: Dictionary = Shell.tenant_state(shell, "video_player").value
-	observations.append({"label": label, "pass": ratio_ok, "source": source, "image_rect": rect, "state": state})
+	observations.append({
+		"label": label, "pass": ratio_ok, "source": source, "image_rect": rect, "state": state
+	})
 	print("PASS " if ratio_ok else "FAIL ", label, " image=", rect, " source=", source)
 	if not ratio_ok: failures += 1
 func run() -> void:
@@ -58,6 +65,8 @@ func run() -> void:
 	await _key(KEY_F, "return after resized fullscreen")
 	check_aspect("window-return")
 	await _shot(out,"window-return.png")
-	FileAccess.open(out.path_join("observations.json"),FileAccess.WRITE).store_string(JSON.stringify(observations,"  "))
+	FileAccess.open(out.path_join("observations.json"),FileAccess.WRITE).store_string(
+		JSON.stringify(observations,"  ")
+	)
 	print("ASPECT208 failures=",failures)
 	quit(1 if failures else 0)
