@@ -1,0 +1,335 @@
+{
+ "pass": false,
+ "checks": {
+  "screenshots_present": {
+   "pass": true,
+   "detail": "['01-map.png', '02-panel-moved.png', '03-zoomed.png', '04-panned.png', '05-window-moved.png', '06-window-clamped.png', '07-window-resized.png', '08-collapsed.png', '09-key-home.png', '10-before-hidden.png', '11-hidden.png', '12-resumed.png', '13-resized.png', '14-restored.png', '15-fill-1440x820.png', '15-fill-1920x1000.png']"
+  },
+  "map_screenshot_is_1920x1080": {
+   "pass": true,
+   "detail": "(1080, 1920, 3)"
+  },
+  "no_map_tenant_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "click_map_creates_and_shows_atlas": {
+   "pass": true,
+   "detail": "{'frozen': False, 'key': 'map', 'page_visible': True, 'rect': {'h': 49.153076171875, 'w': 201.325622558594, 'x': 103.356132507324, 'y': 1028.82690429688}, 'tenant': 'ok'}"
+  },
+  "tenant_fills_page_area": {
+   "pass": false,
+   "detail": "[1805.0, 979.999816894531]"
+  },
+  "window_at_reference_rect": {
+   "pass": true,
+   "detail": "frame {'h': 731.0, 'w': 1457.0, 'x': 345.0, 'y': 44.0} expected {'x': 345, 'y': 44, 'w': 1457, 'h': 731}"
+  },
+  "chrome_scale_from_desktop_scale": {
+   "pass": true,
+   "detail": "0.51426542015474"
+  },
+  "four_panels_at_reference_composition": {
+   "pass": true,
+   "detail": "{'chat': {'h': 192.0, 'w': 413.0, 'x': 8.0, 'y': 787.0}, 'itinerary': {'h': 423.0, 'w': 304.0, 'x': 14.0, 'y': 341.0}, 'minimap': {'h': 284.0, 'w': 316.0, 'x': 8.0, 'y': 55.0}, 'notification': {'h': 60.0, 'w': 208.0, 'x': 1594.0, 'y': 919.0}}"
+  },
+  "minimap_over_itinerary_over_chat_at_left_map_at_right_notification_bottom_right": {
+   "pass": true,
+   "detail": ""
+  },
+  "nothing_overlaps_at_launch": {
+   "pass": true,
+   "detail": ""
+  },
+  "stack_opens_with_map_on_top": {
+   "pass": false,
+   "detail": "['DesktopIcons', 'Shadow_minimap', 'minimap', 'Shadow_itinerary', 'itinerary', 'Shadow_chat', 'chat', 'Shadow_notification', 'notification', 'Shadow_map', 'map', 'WindowShadows', 'Shadow_artwork']"
+  },
+  "map_body_inside_frame_above_bar": {
+   "pass": true,
+   "detail": "map {'h': 661.0, 'w': 1420.0, 'x': 479.0, 'y': 129.380523681641} frame {'h': 731.0, 'w': 1457.0, 'x': 460.0, 'y': 81.3805313110352} viewport [1420.0, 661.0]"
+  },
+  "atlas_opens_on_world_view": {
+   "pass": false,
+   "detail": "zoom 0.337276786565781 min 0.311607142857143"
+  },
+  "panel_drag_starts_on_the_panel": {
+   "pass": true,
+   "detail": "from [1813.0, 986.380554199219] panel {'x': 1709.0, 'y': 956.3805313110352, 'w': 208.0, 'h': 60.0}"
+  },
+  "panel_drag_moves_it_by_the_drag": {
+   "pass": true,
+   "detail": "{'h': 60.0, 'w': 208.0, 'x': 1594.0, 'y': 919.0} -> {'h': 60.0, 'w': 208.0, 'x': 894.0, 'y': 219.0} by [-700.0, -700.0]"
+  },
+  "panel_drag_moves_nothing_else": {
+   "pass": true,
+   "detail": ""
+  },
+  "pressed_panel_comes_to_the_top": {
+   "pass": false,
+   "detail": "['DesktopIcons', 'Shadow_minimap', 'minimap', 'Shadow_itinerary', 'itinerary', 'Shadow_chat', 'chat', 'Shadow_map', 'map', 'WindowShadows', 'Shadow_artwork', 'Shadow_notification', 'notification']"
+  },
+  "moved_panel_lies_over_the_map_body": {
+   "pass": true,
+   "detail": "panel {'x': 1009.0, 'y': 256.3805313110352, 'w': 208.0, 'h': 60.0} map {'h': 661.0, 'w': 1420.0, 'x': 479.0, 'y': 129.380523681641}"
+  },
+  "wheel_over_panel_lands_on_it": {
+   "pass": true,
+   "detail": ""
+  },
+  "wheel_over_panel_does_not_zoom_map": {
+   "pass": true,
+   "detail": "zoom 0.337276786565781 -> 0.337276786565781"
+  },
+  "wheel_lands_inside_map": {
+   "pass": true,
+   "detail": ""
+  },
+  "wheel_zooms_in_at_centre": {
+   "pass": true,
+   "detail": "zoom 0.3373 -> 0.5542 (x1.643), position [2240.0, 1350.0] -> [2240.0, 1350.0]"
+  },
+  "zoom_leaves_vertical_pan_unlocked": {
+   "pass": true,
+   "detail": ""
+  },
+  "drag_pans_camera_by_drag_over_zoom": {
+   "pass": true,
+   "detail": "expected [2528.7, 1566.5], got [2528.7, 1566.5]"
+  },
+  "title_drag_starts_on_title_bar": {
+   "pass": true,
+   "detail": "from [1188.5, 112.236457824707] frame {'h': 731.0, 'w': 1457.0, 'x': 460.0, 'y': 81.3805313110352}"
+  },
+  "title_drag_moves_window": {
+   "pass": true,
+   "detail": "{'h': 731.0, 'w': 1457.0, 'x': 345.0, 'y': 44.0} -> {'h': 731.0, 'w': 1457.0, 'x': 275.0, 'y': 59.0} by [-70.0, 15.0], stack ['DesktopIcons', 'Shadow_minimap', 'minimap', 'Shadow_itinerary', 'itinerary', 'Shadow_chat', 'chat', 'WindowShadows', 'Shadow_artwork', 'Shadow_notification', 'notification', 'Shadow_map', 'map']"
+  },
+  "still_on_map_tab_after_window_drag": {
+   "pass": true,
+   "detail": ""
+  },
+  "window_drag_clamps_to_page_edge": {
+   "pass": true,
+   "detail": "page [1805.0, 979.999816894531], frame {'h': 731.0, 'w': 1457.0, 'x': 348.0, 'y': 248.999816894531}"
+  },
+  "corner_drag_resizes_frame_in_place": {
+   "pass": false,
+   "detail": "{'h': 731.0, 'w': 1457.0, 'x': 348.0, 'y': 248.999816894531} -> {'h': 650.766906738281, 'w': 1297.08264160156, 'x': 348.0, 'y': 248.999816894531} by [-150.0, -100.0]"
+  },
+  "map_body_follows_the_resize": {
+   "pass": false,
+   "detail": "map {'h': 588.450012207031, 'w': 1264.14367675781, 'x': 479.914611816406, 'y': 329.111968994141} viewport [1420.0, 661.0]"
+  },
+  "collapse_click_lands_on_left_button": {
+   "pass": true,
+   "detail": ""
+  },
+  "collapse_folds_window_to_title_bar": {
+   "pass": false,
+   "detail": "{'h': 62.3169441223145, 'w': 1297.08264160156, 'x': 348.0, 'y': 248.999816894531}"
+  },
+  "collapse_again_expands_to_former_size": {
+   "pass": true,
+   "detail": ""
+  },
+  "lock_click_lands_on_right_button": {
+   "pass": true,
+   "detail": ""
+  },
+  "lock_holds_window_under_title_drag": {
+   "pass": true,
+   "detail": "{'h': 650.766906738281, 'w': 1297.08264160156, 'x': 348.0, 'y': 248.999816894531}"
+  },
+  "lock_again_unlocks": {
+   "pass": true,
+   "detail": ""
+  },
+  "keys_sent_with_map_active": {
+   "pass": true,
+   "detail": ""
+  },
+  "plus_key_zooms_in": {
+   "pass": true,
+   "detail": "zoom 0.5542 -> 0.7204"
+  },
+  "right_key_pans_east": {
+   "pass": true,
+   "detail": "dx 138.81 expected 138.81"
+  },
+  "f_key_shows_sheet_and_again_returns": {
+   "pass": true,
+   "detail": "sheet -> atlas"
+  },
+  "home_key_resets_to_world_view": {
+   "pass": true,
+   "detail": "zoom 0.311607152223587 min 0.311607142857143 position [2240.0, 1350.0]"
+  },
+  "wheel_after_home_leaves_a_zoomed_view": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_map_page_frozen": {
+   "pass": true,
+   "detail": ""
+  },
+  "hidden_tenant_process_stops": {
+   "pass": true,
+   "detail": "ticks 163 -> 163 over 20 frames"
+  },
+  "hidden_tenant_gets_no_input": {
+   "pass": true,
+   "detail": "inputs 79 -> 79"
+  },
+  "hidden_events_change_nothing": {
+   "pass": true,
+   "detail": "0.433881789445877 [2240.0, 1350.0] {'h': 650.766906738281, 'w': 1297.08264160156, 'x': 348.0, 'y': 248.999816894531}"
+  },
+  "hidden_keys_change_nothing": {
+   "pass": true,
+   "detail": "[('atlas', 0.4339), ('atlas', 0.4339), ('atlas', 0.4339), ('atlas', 0.4339), ('atlas', 0.4339)]"
+  },
+  "hidden_subviewport_update_disabled": {
+   "pass": true,
+   "detail": "modes shown 4 hidden 0"
+  },
+  "hidden_subviewport_renders_nothing": {
+   "pass": true,
+   "detail": "draw calls: white page 41, map shown 91, map hidden 41"
+  },
+  "map_resumes_with_state_intact": {
+   "pass": true,
+   "detail": "ticks frozen 163, resumed 167 -> 204"
+  },
+  "resumed_subviewport_updates_again": {
+   "pass": true,
+   "detail": ""
+  },
+  "resize_refits_tenant_and_window": {
+   "pass": false,
+   "detail": "tenant [1325.0, 824.999816894531], frame {'h': 650.766906738281, 'w': 1297.08264160156, 'x': 27.9173583984375, 'y': 174.23291015625} expected {'x': 290, 'y': 37, 'w': 1032, 'h': 615}"
+  },
+  "resize_refits_panels_to_reference_composition": {
+   "pass": false,
+   "detail": "{'chat': {'h': 192.0, 'w': 413.0, 'x': 8.0, 'y': 632.999816894531}, 'itinerary': {'h': 423.0, 'w': 304.0, 'x': 14.0, 'y': 341.0}, 'minimap': {'h': 284.0, 'w': 316.0, 'x': 8.0, 'y': 55.0}, 'notification': {'h': 60.0, 'w': 208.0, 'x': 894.0, 'y': 219.0}}"
+  },
+  "resized_screenshot_is_1440x900": {
+   "pass": true,
+   "detail": "(900, 1440, 3)"
+  },
+  "restore_refits_back": {
+   "pass": false,
+   "detail": ""
+  },
+  "map_body_shows_sea_and_land": {
+   "pass": true,
+   "detail": "cyan 572150 pink 279282 of 930312"
+  },
+  "frame_title_bar_drawn": {
+   "pass": true,
+   "detail": "dark px 896"
+  },
+  "panels_drawn_with_their_raster_art": {
+   "pass": true,
+   "detail": "dark px {'minimap': 2587, 'itinerary': 9874, 'chat': 1806, 'notification': 530}, non-white fraction {'minimap': 0.546, 'itinerary': 0.726, 'chat': 0.261, 'notification': 0.354}"
+  },
+  "page_above_window_is_white": {
+   "pass": false,
+   "detail": "mean 247.34"
+  },
+  "moved_panel_draws_over_the_map": {
+   "pass": true,
+   "detail": "dark px where it landed: before 0, after 557"
+  },
+  "zoom_changes_map_pixels": {
+   "pass": true,
+   "detail": ""
+  },
+  "pan_changes_map_pixels": {
+   "pass": true,
+   "detail": ""
+  },
+  "window_drag_changes_page_pixels": {
+   "pass": true,
+   "detail": ""
+  },
+  "clamped_window_touches_page_corner": {
+   "pass": false,
+   "detail": "frame ends at 1920.0, 1017.380340576172"
+  },
+  "resize_frees_white_page_below_window": {
+   "pass": false,
+   "detail": "mean 252.86"
+  },
+  "collapsed_window_leaves_white_below_its_bar": {
+   "pass": true,
+   "detail": "mean 254.69"
+  },
+  "hidden_page_shows_plain_white_sketchbook": {
+   "pass": true,
+   "detail": "mean 254.25"
+  },
+  "resumed_pixels_identical_to_before_hiding": {
+   "pass": true,
+   "detail": "mean abs diff 0.096"
+  },
+  "fill-1920x1000_page_size": {
+   "pass": false,
+   "detail": "[1805.0, 973.999816894531]"
+  },
+  "fill-1920x1000_desktop_spans_page_both_axes": {
+   "pass": false,
+   "detail": "gaps l/t/r/b [8.0, 55.0, 480.0, 149.0], native margins x s [7.6, 44.1, 3.0, 0.8]"
+  },
+  "fill-1920x1000_map_window_at_least_native_times_scale": {
+   "pass": false,
+   "detail": "frame {'h': 650.766906738281, 'w': 1297.08264160156, 'x': 27.9173583984375, 'y': 174.23291015625} native x s 881x726"
+  },
+  "fill-1920x1000_layout_is_the_fill_rule": {
+   "pass": false,
+   "detail": "{'chat': {'h': 192.0, 'w': 413.0, 'x': 8.0, 'y': 632.999816894531}, 'itinerary': {'h': 423.0, 'w': 304.0, 'x': 14.0, 'y': 341.0}, 'minimap': {'h': 284.0, 'w': 316.0, 'x': 8.0, 'y': 55.0}, 'notification': {'h': 60.0, 'w': 208.0, 'x': 894.0, 'y': 219.0}}"
+  },
+  "fill-1920x1000_map_body_follows_the_window": {
+   "pass": false,
+   "detail": "{'h': 588.450012207031, 'w': 1264.14367675781, 'x': 159.831954956055, 'y': 254.34504699707}"
+  },
+  "fill-1440x820_page_size": {
+   "pass": false,
+   "detail": "[1325.0, 799.999816894531]"
+  },
+  "fill-1440x820_desktop_spans_page_both_axes": {
+   "pass": false,
+   "detail": "gaps l/t/r/b [8.0, 55.0, 0.0, 0.0], native margins x s [6.2, 36.2, 2.5, 0.6]"
+  },
+  "fill-1440x820_map_window_at_least_native_times_scale": {
+   "pass": true,
+   "detail": "frame {'h': 650.766906738281, 'w': 1297.08264160156, 'x': 27.9173583984375, 'y': 149.23291015625} native x s 724x596"
+  },
+  "fill-1440x820_layout_is_the_fill_rule": {
+   "pass": false,
+   "detail": "{'chat': {'h': 192.0, 'w': 413.0, 'x': 8.0, 'y': 607.999816894531}, 'itinerary': {'h': 423.0, 'w': 304.0, 'x': 14.0, 'y': 341.0}, 'minimap': {'h': 284.0, 'w': 316.0, 'x': 8.0, 'y': 55.0}, 'notification': {'h': 60.0, 'w': 208.0, 'x': 894.0, 'y': 219.0}}"
+  },
+  "fill-1440x820_map_body_follows_the_window": {
+   "pass": false,
+   "detail": "{'h': 588.450012207031, 'w': 1264.14367675781, 'x': 159.831954956055, 'y': 219.999923706055}"
+  }
+ },
+ "sha256": {
+  "01-map.png": "f46e6712f4cf327a69287b42e66855855470226d80f2a709d9783eb65510c355",
+  "02-panel-moved.png": "e358a711eab26754b0ad336705fc7384aeca66e2d6249518c9ad6cf74db984f1",
+  "03-zoomed.png": "117c70e31752d5b8ef1411d86eb67207b0831080429b16a58247489baee660be",
+  "04-panned.png": "bc834c52a826f7e1395e135e6d147ba3e75de703a89059f2750c63121cf04af4",
+  "05-window-moved.png": "b1758c57b492672845e2d0b6b878afbf80a227e4fcf164db6986090e52189a16",
+  "06-window-clamped.png": "bebedb826d88b480aa6c9528b81766919ace5423b4e05744b6367e791cfdd3bd",
+  "07-window-resized.png": "49d06e17fac419d3000a63142f83be3bd416b564c832d06468f6f44d5f82b5b8",
+  "08-collapsed.png": "5eac626ad01e655f962fa951ad6a0c8ada2e85330d5bf66b4d778dc7e88ea5d0",
+  "09-key-home.png": "0725a1db55ea24562d7e60c0bd97fb8a3db344c08e95e598ee3ecfdd4b806237",
+  "10-before-hidden.png": "62f189811d9d503c3c448afac33d53bde7d342da6813746238542a1fbc77b561",
+  "11-hidden.png": "3b625a5a35eae18a74b4489f360069fffed27f7fdeb27dda0337fab4aaf943c9",
+  "12-resumed.png": "1bb6ec15c9a8bffd7814b45157271f82383185575d6ced67aa03a55566b313ae",
+  "13-resized.png": "fd2c7b47cee6c046f71de4db08c7cbcc686ad094624c0495c19135090ca4edbc",
+  "14-restored.png": "2cdb294049e396dcfbf1b161e2b96fb29ddf8a94e591c22f8afe3f0dca263a8a",
+  "15-fill-1920x1000.png": "ccc03e3136b5a54235ccef090bbded2a62963525eb824ce72a1cb9a326d79ae9",
+  "15-fill-1440x820.png": "d16eb509113ca0e030f2feb6c855a1972e71466729d9a5173d76a57b5d8c9503"
+ }
+}

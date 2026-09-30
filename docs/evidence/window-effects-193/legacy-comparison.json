@@ -1,0 +1,99 @@
+{
+  "atlas": {
+    "baseline_failures": [
+      "atlas_opens_on_world_view",
+      "clamped_window_touches_page_corner",
+      "fill-1440x820_page_size",
+      "fill-1920x1000_page_size",
+      "page_above_window_is_white",
+      "pressed_panel_comes_to_the_top",
+      "resize_frees_white_page_below_window",
+      "resize_refits_tenant_and_window",
+      "stack_opens_with_map_on_top",
+      "tenant_fills_page_area"
+    ],
+    "current_failures": [
+      "atlas_opens_on_world_view",
+      "clamped_window_touches_page_corner",
+      "collapse_folds_window_to_title_bar",
+      "corner_drag_resizes_frame_in_place",
+      "fill-1440x820_desktop_spans_page_both_axes",
+      "fill-1440x820_layout_is_the_fill_rule",
+      "fill-1440x820_map_body_follows_the_window",
+      "fill-1440x820_page_size",
+      "fill-1920x1000_desktop_spans_page_both_axes",
+      "fill-1920x1000_layout_is_the_fill_rule",
+      "fill-1920x1000_map_body_follows_the_window",
+      "fill-1920x1000_map_window_at_least_native_times_scale",
+      "fill-1920x1000_page_size",
+      "map_body_follows_the_resize",
+      "page_above_window_is_white",
+      "pressed_panel_comes_to_the_top",
+      "resize_frees_white_page_below_window",
+      "resize_refits_panels_to_reference_composition",
+      "resize_refits_tenant_and_window",
+      "restore_refits_back",
+      "stack_opens_with_map_on_top",
+      "tenant_fills_page_area"
+    ],
+    "additional_failures": [
+      "collapse_folds_window_to_title_bar",
+      "corner_drag_resizes_frame_in_place",
+      "fill-1440x820_desktop_spans_page_both_axes",
+      "fill-1440x820_layout_is_the_fill_rule",
+      "fill-1440x820_map_body_follows_the_window",
+      "fill-1920x1000_desktop_spans_page_both_axes",
+      "fill-1920x1000_layout_is_the_fill_rule",
+      "fill-1920x1000_map_body_follows_the_window",
+      "fill-1920x1000_map_window_at_least_native_times_scale",
+      "map_body_follows_the_resize",
+      "resize_refits_panels_to_reference_composition",
+      "restore_refits_back"
+    ],
+    "baseline_passed": 68,
+    "current_passed": 56,
+    "total": 78
+  },
+  "sketchbook": {
+    "baseline_failures": [
+      "fill_1440x820_book_takes_the_leftover_width",
+      "fill_rule_book-shown",
+      "fill_rule_fill-1440x820",
+      "fill_rule_fill-1920x1000",
+      "paint_moves_with_the_window",
+      "resize_refits_desktop",
+      "tenant_fills_page_area",
+      "tray_pixels_show_a_third_colour"
+    ],
+    "current_failures": [
+      "fill_1440x820_book_takes_the_leftover_width",
+      "fill_rule_book-shown",
+      "fill_rule_fill-1440x820",
+      "fill_rule_fill-1920x1000",
+      "paint_moves_with_the_window",
+      "resize_refits_desktop",
+      "tenant_fills_page_area",
+      "tray_pixels_show_a_third_colour"
+    ],
+    "additional_failures": [],
+    "baseline_passed": 39,
+    "current_passed": 39,
+    "total": 47
+  },
+  "playground_page": {
+    "baseline_failures": [
+      "page_1440x820_page_size",
+      "page_1920x1000_page_size",
+      "six_fixed_tabs_no_phone"
+    ],
+    "current_failures": [
+      "page_1440x820_page_size",
+      "page_1920x1000_page_size",
+      "six_fixed_tabs_no_phone"
+    ],
+    "additional_failures": [],
+    "baseline_passed": 49,
+    "current_passed": 49,
+    "total": 52
+  }
+}
