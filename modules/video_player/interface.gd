@@ -22,7 +22,7 @@ class_name VideoPlayerInterface
 extends RefCounted
 
 const Errors := preload("res://modules/video_player/errors.gd")
-const _Impl := preload("res://modules/video_player/video_player.gd")
+const _IMPL := preload("res://modules/video_player/video_player.gd")
 
 
 ## Build the Video Player Tenant. `deps` is what the Shell passes, { "key": String }; the key is
@@ -30,7 +30,7 @@ const _Impl := preload("res://modules/video_player/video_player.gd")
 ## ok(Control) or err(MEDIA_MISSING | ASSET_MISSING, path). The first video is playing when the
 ## Control enters the tree.
 static func create(deps: Dictionary) -> Dictionary:
-	return _Impl.create(deps)
+	return _IMPL.create(deps)
 
 
 ## The harness probe. Rects are global (root viewport pixels) unless said otherwise:

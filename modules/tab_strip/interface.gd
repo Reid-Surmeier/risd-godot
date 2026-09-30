@@ -25,7 +25,7 @@ class_name TabStripInterface
 extends RefCounted
 
 const Errors := preload("res://modules/tab_strip/errors.gd")
-const _Impl := preload("res://modules/tab_strip/tab_strip.gd")
+const _IMPL := preload("res://modules/tab_strip/tab_strip.gd")
 
 ## Label keys the strip has source pixels for.
 const LABEL_WINDOWS_LIVE := "windows_live"
@@ -45,7 +45,7 @@ const CONNECTING_SECONDS := 0.95
 ## caller that opens its own fixed tabs (the Shell). Returns
 ## ok(TabStrip node) or err(ASSET_MISSING).
 static func create(page_stack: Control, windows_live_tab: bool = true) -> Dictionary:
-	return _Impl.create(page_stack, windows_live_tab)
+	return _IMPL.create(page_stack, windows_live_tab)
 
 
 ## Open a new tab exactly as a click on the stub does (animation included) and open its page.

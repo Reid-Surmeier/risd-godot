@@ -386,7 +386,7 @@ func _build_room() -> void:
 	var we := WorldEnvironment.new()
 	we.environment = env
 	_vp.add_child(we)
-	var X := W / 2.0
+	var x := W / 2.0
 	# (no base plane under the planks: 3 mm below them it z-fought through at a distance)
 	_build_floor()
 	# Flush panel joints share the wall plane; raised slivers aliased and self-shadowed.
@@ -396,7 +396,7 @@ func _build_room() -> void:
 			var start: float = divisions[section]
 			var end: float = divisions[section + 1]
 			var tint := Color(0.93, 0.93, 0.93) if section % 2 else Color.WHITE
-			var corner := Vector3(side * X, 0, -start if side < 0 else -end)
+			var corner := Vector3(side * x, 0, -start if side < 0 else -end)
 			_panel(
 				corner,
 				Vector3(0, 0, (end - start) * side),
@@ -408,9 +408,9 @@ func _build_room() -> void:
 	# #176 photo-visible wall panel joins and high ventilation slots.
 	for side in [-1.0, 1.0]:
 		for z in [-4.0, -13.0, -22.0]:
-			_box(Vector3(side * (X - 0.012), 5.10, z), Vector3(0.018, 0.15, 1.14), Color("#647587"))
+			_box(Vector3(side * (x - 0.012), 5.10, z), Vector3(0.018, 0.15, 1.14), Color("#647587"))
 			var vent := _box(
-				Vector3(side * (X - 0.024), 5.10, z), Vector3(0.018, 0.11, 1.08), Color("#25313a")
+				Vector3(side * (x - 0.024), 5.10, z), Vector3(0.018, 0.11, 1.08), Color("#25313a")
 			)
 			vent.set_meta("wall_vent", true)
 	_arch_end()
@@ -449,15 +449,15 @@ func _build_room() -> void:
 	]
 	for s in [-1.0, 1.0]:
 		(
-			_box(Vector3(s * (X - 0.04), 0.12, -L / 2), Vector3(0.08, 0.24, L), WHITE, 1, white)
+			_box(Vector3(s * (x - 0.04), 0.12, -L / 2), Vector3(0.08, 0.24, L), WHITE, 1, white)
 			. set_meta("baseboard", true)
 		)
 		(
-			_box(Vector3(s * (X - 0.06), 0.255, -L / 2), Vector3(0.12, 0.05, L), WHITE, 1, white)
+			_box(Vector3(s * (x - 0.06), 0.255, -L / 2), Vector3(0.12, 0.05, L), WHITE, 1, white)
 			. set_meta("baseboard", true)
 		)
 		_trim_profile(
-			Vector3(s * X, H - 0.50, 0),
+			Vector3(s * x, H - 0.50, 0),
 			Vector3.UP,
 			Vector3(0, 0, -L),
 			cornice_section,
@@ -466,7 +466,7 @@ func _build_room() -> void:
 		)
 	for z in [0.0, -L]:
 		_trim_profile(
-			Vector3(-X, H - 0.50, z),
+			Vector3(-x, H - 0.50, z),
 			Vector3.UP,
 			Vector3(W, 0, 0),
 			cornice_section,
@@ -496,8 +496,8 @@ func _build_room() -> void:
 	for i in segs:
 		var a0 := PI * i / segs
 		var a1 := PI * (i + 1) / segs
-		var p0 := Vector3(-cos(a0) * X, H + sin(a0) * VAULT_RISE, 0)
-		var p1 := Vector3(-cos(a1) * X, H + sin(a1) * VAULT_RISE, 0)
+		var p0 := Vector3(-cos(a0) * x, H + sin(a0) * VAULT_RISE, 0)
+		var p1 := Vector3(-cos(a1) * x, H + sin(a1) * VAULT_RISE, 0)
 		var seg_len := p0.distance_to(p1)
 		var glass := absf((p0.x + p1.x) / 2.0) < SKY_W / 2.0
 		var z0 := -0.9 if glass else 0.0
@@ -582,7 +582,7 @@ func _build_room() -> void:
 	gmi.material_override = ps(load(DIR + "textures/skylight-grid-168.svg"), Color.WHITE)
 	_vp.add_child(gmi)
 	# track lamps along both edges of the glazing, aimed at the walls
-	var edge_y := H + VAULT_RISE * sqrt(maxf(0.0, 1.0 - pow(SKY_W / 2.0 / X, 2))) - 0.12
+	var edge_y := H + VAULT_RISE * sqrt(maxf(0.0, 1.0 - pow(SKY_W / 2.0 / x, 2))) - 0.12
 	var lamp := ps(null, Color("#2a2a2a"))
 	var z := -1.6
 	while z > -L + 1.2:
@@ -1025,13 +1025,13 @@ static func _conform_portal_edges(mesh: ArrayMesh) -> ArrayMesh:
 
 
 func _arch_end() -> void:
-	var X := W / 2.0
+	var x := W / 2.0
 	var door: Dictionary = DOORS.arch
 	var ds: Vector2 = door.size
 	var dw := ds.x / 2.0
-	var side := X - dw
+	var side := x - dw
 	var white := ps(load(DIR + "textures/ivory-trim.svg"), Color.WHITE, Vector2(0.7, 0.7), true)
-	_panel(Vector3(X, 0, 0), Vector3(-side, 0, 0), Vector3(0, H, 0), _wall_ps(), 0.5, 1)
+	_panel(Vector3(x, 0, 0), Vector3(-side, 0, 0), Vector3(0, H, 0), _wall_ps(), 0.5, 1)
 	_panel(Vector3(-dw, 0, 0), Vector3(-side, 0, 0), Vector3(0, H, 0), _wall_ps(), 0.5, 1)
 	_panel(Vector3(dw, ds.y, 0), Vector3(-ds.x, 0, 0), Vector3(0, H - ds.y, 0), _wall_ps(), 0.5, 1)
 	# Same source-led plaster moulding construction as the opposite doorway.
@@ -1724,11 +1724,11 @@ func _far_end() -> void:
 	var door: Dictionary = DOORS.far
 	var z := -L
 	var ds: Vector2 = door.size
-	var X := W / 2.0
+	var x := W / 2.0
 	var dw := ds.x / 2.0
-	var side := X - dw
+	var side := x - dw
 	var reference_blue := _wall_ps(Color(0.76, 0.84, 0.96))
-	_panel(Vector3(-X, 0, z), Vector3(side, 0, 0), Vector3(0, H, 0), reference_blue, 0.5, 1)
+	_panel(Vector3(-x, 0, z), Vector3(side, 0, 0), Vector3(0, H, 0), reference_blue, 0.5, 1)
 	_panel(Vector3(dw, 0, z), Vector3(side, 0, 0), Vector3(0, H, 0), reference_blue, 0.5, 1)
 	_panel(
 		Vector3(-dw, ds.y, z), Vector3(ds.x, 0, 0), Vector3(0, H - ds.y, 0), reference_blue, 0.5, 1
@@ -1954,19 +1954,19 @@ func _build_paintings() -> void:
 				r.margins_px
 			)
 		assets[r.tag] = node
-	var X := W / 2.0
+	var x := W / 2.0
 	# long walls: even gaps, in the researched order. West runs arch end -> far end;
 	# east runs far end -> arch end.
 	for wall in [
 		{
 			"tags": ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10"],
-			"x": -X,
+			"x": -x,
 			"rot": PI / 2,
 			"from_far": false
 		},
 		{
 			"tags": ["E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8", "E9"],
-			"x": X,
+			"x": x,
 			"rot": -PI / 2,
 			"from_far": true
 		}
@@ -1988,8 +1988,8 @@ func _build_paintings() -> void:
 			_place(t, by[t], assets[t], Vector3(wall.x, 0, z), wall.rot)
 			d += w
 	# end walls: one painting centred on each side of the door
-	var ma := (DOORS.arch.size.x / 2.0 + CASING + X) / 2.0
-	var mf := (DOORS.far.size.x / 2.0 + CASING + X) / 2.0
+	var ma := (DOORS.arch.size.x / 2.0 + CASING + x) / 2.0
+	var mf := (DOORS.far.size.x / 2.0 + CASING + x) / 2.0
 	_place("S1", by.S1, assets.S1, Vector3(ma, 0, 0), PI)  # arch end, east of the door
 	_place("S2", by.S2, assets.S2, Vector3(-ma, 0, 0), PI)
 	_place("N1", by.N1, assets.N1, Vector3(-mf, 0, -L), 0.0)  # far end, west of the door

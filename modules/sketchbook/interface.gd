@@ -26,7 +26,7 @@ class_name SketchbookInterface
 extends RefCounted
 
 const Errors := preload("res://modules/sketchbook/errors.gd")
-const _Impl := preload("res://modules/sketchbook/desktop.gd")
+const _IMPL := preload("res://modules/sketchbook/desktop.gd")
 const Data := preload("res://modules/collection_data/interface.gd")
 
 
@@ -38,7 +38,7 @@ static func create(deps: Dictionary) -> Dictionary:
 		return Errors.err(Errors.INVALID_DEPENDENCY, "A collection_data handle is required")
 	if not deps.get("image_fetch") is Callable or not deps.image_fetch.is_valid():
 		return Errors.err(Errors.INVALID_DEPENDENCY, "An image fetch operation is required")
-	return _Impl.create(deps)
+	return _IMPL.create(deps)
 
 
 ## The harness probe. Rects are global pixels:

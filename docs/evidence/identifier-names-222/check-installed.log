@@ -1,0 +1,12 @@
+./prototype/mr-baby-paint-audio/main.gd:263: Error: Function "_group_for" has more than 6 return statements (max-returns)
+./modules/shell/prototype/gallery_walk4/final_render_check.gd:177: Error: duplicated loading of "res://modules/shell/crt_luminance.gdshader" (duplicated-load)
+./modules/shell/prototype/gallery_walk4/final_render_check.gd:295: Error: duplicated loading of "res://modules/shell/prototype/gallery_walk4/gamecube.gdshader" (duplicated-load)
+./modules/shell/prototype/gallery_walk4/walk4.gd:3362: Error: Function "_unhandled_key_input" has more than 6 return statements (max-returns)
+./modules/shell/prototype/gallery_walk4/walk4.gd:3371: Error: Max allowed file lines num (1000) exceeded (max-file-lines)
+./modules/atlas/atlas_window.gd:386: Error: Function "_input" has more than 6 return statements (max-returns)
+./modules/sculpture_viewer/viewer.gd:379: Error: duplicated loading of "res://modules/sculpture_viewer/shaders/control_face.gdshader" (duplicated-load)
+./modules/sculpture_viewer/viewer.gd:433: Error: duplicated loading of "res://modules/sculpture_viewer/shaders/control_face.gdshader" (duplicated-load)
+./docs/evidence/proportional-windows-pending/windows_check.gd:34: Error: Max allowed line length (100) exceeded (max-line-length)
+./docs/evidence/proportional-windows-pending/windows_check.gd:42: Error: Max allowed line length (100) exceeded (max-line-length)
+./docs/evidence/proportional-windows-pending/windows_check.gd:44: Error: Max allowed line length (100) exceeded (max-line-length)
+Failure: 11 problems found

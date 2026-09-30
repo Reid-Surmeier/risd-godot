@@ -6,18 +6,18 @@ class_name SculptureViewerInterface
 extends RefCounted
 
 const Errors := preload("res://modules/sculpture_viewer/errors.gd")
-const _Impl := preload("res://modules/sculpture_viewer/desktop.gd")
+const _IMPL := preload("res://modules/sculpture_viewer/desktop.gd")
 
 
 ## Build the five-row, four-column catalogue Tenant, recording deps.key.
 static func create(deps: Dictionary) -> Dictionary:
-	return _Impl.create(deps)
+	return _IMPL.create(deps)
 
 
 ## Unchanged live Buddha viewer for the approved embedding host (Sketchbook).
 ## This diagnostic model is separate from the twenty catalogue selections.
 static func embedded_viewer() -> Dictionary:
-	return _Impl.embedded_viewer()
+	return _IMPL.embedded_viewer()
 
 
 ## ok({ key, ticks, inputs, size: Vector2, desktop_scale,

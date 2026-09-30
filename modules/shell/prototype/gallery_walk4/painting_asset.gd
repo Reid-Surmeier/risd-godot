@@ -96,20 +96,20 @@ func build_framed(
 	# outer sides: a strip from just inside each outer edge, run back to the wall
 	var eu := 12.0 / ts.x
 	var ev := 12.0 / ts.y
-	var X0: float = xs[0]
-	var X1: float = xs[3]
-	var Y0: float = ys[3]
-	var Y1: float = ys[0]
+	var x0: float = xs[0]
+	var x1: float = xs[3]
+	var y0: float = ys[3]
+	var y1: float = ys[0]
 	_mesh(
 		func(st: SurfaceTool) -> void:
 			quad(
 				st,
-				[Vector3(X0, Y1, 0), Vector3(X1, Y1, 0), Vector3(X1, Y1, z), Vector3(X0, Y1, z)],
+				[Vector3(x0, y1, 0), Vector3(x1, y1, 0), Vector3(x1, y1, z), Vector3(x0, y1, z)],
 				[Vector2(0.1, ev), Vector2(0.9, ev), Vector2(0.9, ev * 2), Vector2(0.1, ev * 2)]
 			)
 			quad(
 				st,
-				[Vector3(X0, Y0, z), Vector3(X1, Y0, z), Vector3(X1, Y0, 0), Vector3(X0, Y0, 0)],
+				[Vector3(x0, y0, z), Vector3(x1, y0, z), Vector3(x1, y0, 0), Vector3(x0, y0, 0)],
 				[
 					Vector2(0.1, 1 - ev * 2),
 					Vector2(0.9, 1 - ev * 2),
@@ -119,12 +119,12 @@ func build_framed(
 			)
 			quad(
 				st,
-				[Vector3(X0, Y0, 0), Vector3(X0, Y0, z), Vector3(X0, Y1, z), Vector3(X0, Y1, 0)],
+				[Vector3(x0, y0, 0), Vector3(x0, y0, z), Vector3(x0, y1, z), Vector3(x0, y1, 0)],
 				[Vector2(eu, 0.9), Vector2(eu * 2, 0.9), Vector2(eu * 2, 0.1), Vector2(eu, 0.1)]
 			)
 			quad(
 				st,
-				[Vector3(X1, Y0, z), Vector3(X1, Y0, 0), Vector3(X1, Y1, 0), Vector3(X1, Y1, z)],
+				[Vector3(x1, y0, z), Vector3(x1, y0, 0), Vector3(x1, y1, 0), Vector3(x1, y1, z)],
 				[
 					Vector2(1 - eu * 2, 0.9),
 					Vector2(1 - eu, 0.9),

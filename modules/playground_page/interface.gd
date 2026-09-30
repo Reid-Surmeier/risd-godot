@@ -29,7 +29,7 @@ class_name PlaygroundPageInterface
 extends RefCounted
 
 const Errors := preload("res://modules/playground_page/errors.gd")
-const _Impl := preload("res://modules/playground_page/playground_page.gd")
+const _IMPL := preload("res://modules/playground_page/playground_page.gd")
 const Data := preload("res://modules/collection_data/interface.gd")
 
 
@@ -43,7 +43,7 @@ static func create(deps: Dictionary) -> Dictionary:
 		return Errors.err(Errors.INVALID_DEPENDENCY, "An image fetch operation is required")
 	if deps.get("square_pages", false):
 		return preload("res://modules/playground_page/square_pages.gd").create(deps)
-	return _Impl.create(deps)
+	return _IMPL.create(deps)
 
 
 ## Issue #164: select a square Playground page; unknown pages leave the current page intact.

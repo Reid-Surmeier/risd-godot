@@ -19,12 +19,12 @@ class_name FlowersPageInterface
 extends RefCounted
 
 const Errors := preload("res://modules/flowers_page/errors.gd")
-const _Impl := preload("res://modules/flowers_page/flowers_page.gd")
+const _IMPL := preload("res://modules/flowers_page/flowers_page.gd")
 
 
 ## Build the Page. `deps` is the Shell's { key }. Returns ok(Control) or err(ASSET_MISSING, path).
 static func create(deps: Dictionary) -> Dictionary:
-	return _Impl.create(deps)
+	return _IMPL.create(deps)
 
 
 ## The harness probe: ok({ key, ticks, window: Rect2, factor, web: bool, placement: String }),

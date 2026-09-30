@@ -24,7 +24,7 @@ class_name AtlasInterface
 extends RefCounted
 
 const Errors := preload("res://modules/atlas/errors.gd")
-const _Impl := preload("res://modules/atlas/atlas_window.gd")
+const _IMPL := preload("res://modules/atlas/atlas_window.gd")
 
 
 ## Build the Map Tenant. `deps` is what the Shell passes, { "key": String }; the key is recorded.
@@ -32,7 +32,7 @@ const _Impl := preload("res://modules/atlas/atlas_window.gd")
 ## err(ASSET_MISSING, path). A missing pixel sheet, font or shader is reported by load() as it is
 ## reached.
 static func create(deps: Dictionary) -> Dictionary:
-	return _Impl.create(deps)
+	return _IMPL.create(deps)
 
 
 ## The harness probe, in the Tenant's own pixels unless said otherwise:

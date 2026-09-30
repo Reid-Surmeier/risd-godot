@@ -36,7 +36,7 @@ class_name ShellInterface
 extends RefCounted
 
 const Errors := preload("res://modules/shell/errors.gd")
-const _Impl := preload("res://modules/shell/shell.gd")
+const _IMPL := preload("res://modules/shell/shell.gd")
 
 ## The fixed Tabs in launch order; the key is the tab_strip label key and the registry key.
 const FIXED_TABS: Array[String] = [
@@ -54,7 +54,7 @@ const FADE_SECONDS := 0.2
 ## create(deps) builds it, or a Callable with the same signature. A key with no entry shows a
 ## plain white Page. Returns ok(Shell node) or the tab_strip error that stopped it.
 static func create(registry: Dictionary) -> Dictionary:
-	return _Impl.create(registry)
+	return _IMPL.create(registry)
 
 
 ## Make Tab `index` active and show its Page (cross-fade, no dip), creating its Tenant on the first

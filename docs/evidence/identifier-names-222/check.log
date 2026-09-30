@@ -1,0 +1,12 @@
+modules/atlas/interface.gd: exact token/byte preservation and native parse PASS
+modules/flowers_page/interface.gd: exact token/byte preservation and native parse PASS
+modules/playground_page/interface.gd: exact token/byte preservation and native parse PASS
+modules/sculpture_viewer/interface.gd: exact token/byte preservation and native parse PASS
+modules/shell/interface.gd: exact token/byte preservation and native parse PASS
+modules/sketchbook/interface.gd: exact token/byte preservation and native parse PASS
+modules/sound_cues/interface.gd: exact token/byte preservation and native parse PASS
+modules/tab_strip/interface.gd: exact token/byte preservation and native parse PASS
+modules/video_player/interface.gd: exact token/byte preservation and native parse PASS
+modules/shell/prototype/gallery_walk4/painting_asset.gd: exact token/byte preservation and native parse PASS
+modules/shell/prototype/gallery_walk4/walk4.gd: exact token/byte preservation and native parse PASS
+IDENTIFIERS222 PASS: 11 native parses; 12 assets, museum records and square173 preserved
