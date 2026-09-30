@@ -229,3 +229,21 @@ before fitting/matching or overwriting reports; 473-image reconstruction
 allowlist prepared. Final bounded native/browser walk passes all 24 checks;
 Shell has four previously observed failures. No production or Viewer change.
 Existing Muse receipts and rejected sculpture meshes remain unchanged.
+
+## Collection exclusion-corrected model — September 30, 07:30 UTC heartbeat
+
+Local pycolmap 4.2.1 from cached CUDA matches; Ceres CPU fallback recorded;
+Godot 4.7.2 / Chrome 154 D3D12 RTX4070SUPER. **$0**, no paid calls.
+[Inputs, outputs, raw logs and preservation checks](../../docs/evidence/collection-reconstruction/heartbeat-20260930T0730/provenance.json).
+
+Fresh allowlist reconstruction: 473 views, 43,042 points, 0.640691px fitted
+error, no old points/poses seed. Video intrinsics remain provisional.
+45/69 nearby withheld views pass disjoint-point diagnostics; this is not
+independent capture/metric validation. Old reports/models preserved.
+Original casing picks pass; opening loses sufficient ray separation.
+New bottom toes fail reserved pixels (14.342/9.428px); no picks retuned,
+floor/collision extension or full opening accepted. Native/browser bounded
+walk checks pass on historical provisional surfaces; Shell retains six
+previous failure names. Visuals inspected, fresh cloud exported without old
+dense geometry. No runtime/Viewer edits, integration, paid generation or closure.
+Existing Muse receipts and rejected sculpture meshes remain unchanged.

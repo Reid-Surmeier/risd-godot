@@ -1,0 +1,346 @@
+{
+  "source_sha256": {
+    "points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "trials": [
+    {
+      "trial": "doorway-aperture-v1",
+      "annotations": {
+        "IMG_6380/000505.jpg": [
+          [
+            110,
+            778
+          ],
+          [
+            469,
+            760
+          ],
+          [
+            62,
+            199
+          ],
+          [
+            514,
+            237
+          ]
+        ],
+        "IMG_6380_exit6fps/000013.jpg": [
+          [
+            84,
+            770
+          ],
+          [
+            431,
+            746
+          ],
+          [
+            24,
+            195
+          ],
+          [
+            470,
+            244
+          ]
+        ],
+        "IMG_6380_exit6fps/000018.jpg": [
+          [
+            166,
+            827
+          ],
+          [
+            586,
+            832
+          ],
+          [
+            102,
+            156
+          ],
+          [
+            680,
+            161
+          ]
+        ],
+        "IMG_6380_exit6fps/000015.jpg": [
+          [
+            134,
+            791
+          ],
+          [
+            504,
+            783
+          ],
+          [
+            85,
+            202
+          ],
+          [
+            557,
+            224
+          ]
+        ]
+      },
+      "training": [
+        "IMG_6380/000505.jpg",
+        "IMG_6380_exit6fps/000013.jpg"
+      ],
+      "reserved": "IMG_6380_exit6fps/000015.jpg",
+      "omitted_training": [
+        "IMG_6380_exit6fps/000018.jpg"
+      ],
+      "points_world": [
+        [
+          0.45189693345663856,
+          1.80173706339177,
+          1.36193059036839
+        ],
+        [
+          0.7688116295091948,
+          2.6605062339828915,
+          1.063032505136625
+        ],
+        [
+          -0.4508075305251857,
+          1.8151603554359004,
+          0.9926627828678247
+        ],
+        [
+          -0.4292480921535403,
+          2.5641212399338635,
+          1.156982562223411
+        ]
+      ],
+      "ray_angles_degrees": [
+        1.4128195113640993,
+        0.5866426623124456,
+        1.216786504120927,
+        0.7187941353719433
+      ],
+      "errors_px": {
+        "IMG_6380/000505.jpg": [
+          1.0616530167323064,
+          0.7432598479009916,
+          0.3461061132526569,
+          0.8625020440798222
+        ],
+        "IMG_6380_exit6fps/000013.jpg": [
+          1.0456454327218268,
+          0.7117147796400214,
+          0.3406379653624386,
+          0.8074807267542081
+        ],
+        "IMG_6380_exit6fps/000015.jpg": [
+          4.120057420810814,
+          6.473382341251081,
+          3.464589616152635,
+          2.6550852638195472
+        ]
+      },
+      "diagnostic_pass": false,
+      "threshold_px": 8,
+      "old_query_errors_px": [
+        1.4308726924434818,
+        1.7203607344703336,
+        4.108144421915506,
+        3.2025678994370628
+      ],
+      "input_sha256": "54745a22a7a5921b74bf50a4658420d10860d1c073dc479d6bcfeab3ed1eae3f"
+    },
+    {
+      "trial": "corridor-extents-v1",
+      "annotations": {
+        "IMG_6380/000238.jpg": [
+          [
+            250,
+            681
+          ],
+          [
+            560,
+            701
+          ]
+        ],
+        "IMG_6380/000244.jpg": [
+          [
+            60,
+            925
+          ],
+          [
+            640,
+            896
+          ]
+        ],
+        "IMG_6380/000239.jpg": [
+          [
+            48,
+            736
+          ],
+          [
+            390,
+            716
+          ]
+        ]
+      },
+      "training": [
+        "IMG_6380/000238.jpg",
+        "IMG_6380/000244.jpg"
+      ],
+      "reserved": "IMG_6380/000239.jpg",
+      "omitted_training": [],
+      "points_world": [
+        [
+          0.48381059217622197,
+          1.733295327764921,
+          1.4395102562895232
+        ],
+        [
+          0.48553609016982685,
+          2.4962962867234086,
+          1.5582598847272735
+        ]
+      ],
+      "ray_angles_degrees": [
+        18.05512958612776,
+        25.699124072886192
+      ],
+      "errors_px": {
+        "IMG_6380/000238.jpg": [
+          0.7853580813622504,
+          0.04439451884226002
+        ],
+        "IMG_6380/000244.jpg": [
+          1.742453673597597,
+          0.07582848998117726
+        ],
+        "IMG_6380/000239.jpg": [
+          1.7663289003353997,
+          2.2340274672830907
+        ]
+      },
+      "diagnostic_pass": true,
+      "threshold_px": 8,
+      "old_query_errors_px": [
+        1.9953327153088347,
+        2.2428739647685574
+      ],
+      "input_sha256": "24a3f91f54f1bae59bac3c2a87c0564631325f99ee0b25570ea15f4d130677b0"
+    },
+    {
+      "trial": "grand-casing-registered-v1",
+      "annotations": {
+        "IMG_6380/000203.jpg": [
+          [
+            421,
+            857
+          ]
+        ],
+        "IMG_6380/000205.jpg": [
+          [
+            149,
+            964
+          ]
+        ],
+        "IMG_6380/000204.jpg": [
+          [
+            310,
+            871
+          ]
+        ]
+      },
+      "training": [
+        "IMG_6380/000203.jpg",
+        "IMG_6380/000205.jpg"
+      ],
+      "reserved": "IMG_6380/000204.jpg",
+      "omitted_training": [],
+      "points_world": [
+        [
+          0.23246620319019407,
+          1.598395618010014,
+          2.8523272378850475
+        ]
+      ],
+      "ray_angles_degrees": [
+        11.837737677593944
+      ],
+      "errors_px": {
+        "IMG_6380/000203.jpg": [
+          0.41131319134593286
+        ],
+        "IMG_6380/000205.jpg": [
+          0.5257687065616863
+        ],
+        "IMG_6380/000204.jpg": [
+          0.5554734738841662
+        ]
+      },
+      "diagnostic_pass": true,
+      "threshold_px": 8,
+      "old_query_errors_px": [
+        0.7991951455845512
+      ],
+      "input_sha256": "194696fe8f2b55ba694f6b44ff020533573779db5f16a1505337cf95639a8568"
+    },
+    {
+      "trial": "grand-casing-plinth-v1",
+      "annotations": {
+        "IMG_6380/000202.jpg": [
+          [
+            505.5,
+            919
+          ]
+        ],
+        "IMG_6380/000204.jpg": [
+          [
+            296.5,
+            833
+          ]
+        ],
+        "IMG_6380/000203.jpg": [
+          [
+            411,
+            815
+          ]
+        ]
+      },
+      "training": [
+        "IMG_6380/000202.jpg",
+        "IMG_6380/000204.jpg"
+      ],
+      "reserved": "IMG_6380/000203.jpg",
+      "omitted_training": [],
+      "points_world": [
+        [
+          0.16356597691059344,
+          1.581820146185752,
+          2.8513556976431174
+        ]
+      ],
+      "ray_angles_degrees": [
+        8.085498197666997
+      ],
+      "errors_px": {
+        "IMG_6380/000202.jpg": [
+          3.1741773704087404
+        ],
+        "IMG_6380/000204.jpg": [
+          3.241127704414976
+        ],
+        "IMG_6380/000203.jpg": [
+          4.418733448624135
+        ]
+      },
+      "diagnostic_pass": true,
+      "threshold_px": 8,
+      "old_query_errors_px": [
+        4.677367014186685
+      ],
+      "input_sha256": "54cf35986f5c115ea2d21c7273e004c18c86ca4dd4c8fa5096716e58db4cd6eb"
+    }
+  ],
+  "navigation_accepted": false,
+  "cost_usd": 0,
+  "caveat": "Old picks frozen; camera poses/points rebuilt without exit6fps 18/48. Reserved manual pixels excluded from triangulation, not independent captures. Threshold/floor anchors previously fitted with excluded frame 18 must be remeasured. No inherited world-coordinate floor/collision transplant or independent scale acceptance."
+}

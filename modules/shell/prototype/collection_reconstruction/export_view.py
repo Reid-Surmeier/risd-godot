@@ -33,7 +33,7 @@ for folder in sorted((root / 'sparse').iterdir()):
                       clips=sorted({i.name.split('/')[0] for i in cameras})))
 scene.sort(key=lambda m: m['images'], reverse=True)
 cloud = root.parent/'dense-connected-v1/fused.ply'
-if cloud.exists():
+if cloud.exists() and '--sparse-only' not in sys.argv[3:]:
     dense = pycolmap.Reconstruction()
     dense.import_PLY(str(cloud))
     points = list(dense.points3D.values())
