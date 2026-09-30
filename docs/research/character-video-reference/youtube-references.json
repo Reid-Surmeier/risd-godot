@@ -1,0 +1,81 @@
+{
+  "date": "2026-09-30",
+  "references": [
+    {
+      "reference": "mutch-indoor",
+      "url": "https://www.youtube.com/watch?v=EwwW4Rk1wMU",
+      "title": "Animal Crossing [57] GameCube Longplay pt.1",
+      "channel": "Mutch Games",
+      "upload_date": "20200316",
+      "uploader_platform_claim": "GameCube per title",
+      "exact_region_revision_verified": false,
+      "source_time_range_seconds": [
+        980,
+        1005
+      ],
+      "scratch_clip": "/tmp/acgc-youtube-mutch-980-1005.mp4",
+      "sha256": "4607664db82da6e1e442dd0d432e507a23730708f83150d29706ef67d8b474ac",
+      "download_method": "ordinary public yt-dlp --download-sections; no account/cookies/access bypass",
+      "video_format": "1280x720 30fps",
+      "clear_movement_ranges_seconds": [
+        [
+          985,
+          988
+        ]
+      ],
+      "animation_state_verified": false,
+      "star_hat_match": false
+    },
+    {
+      "reference": "mutch-outdoor",
+      "url": "https://www.youtube.com/watch?v=EwwW4Rk1wMU",
+      "title": "Animal Crossing [57] GameCube Longplay pt.1",
+      "channel": "Mutch Games",
+      "upload_date": "20200316",
+      "uploader_platform_claim": "GameCube per title",
+      "exact_region_revision_verified": false,
+      "source_time_range_seconds": [
+        1005,
+        1035
+      ],
+      "scratch_clip": "/tmp/acgc-youtube-mutch-1005-1035.mp4",
+      "sha256": "061a0c922b359d60e0c4d51afc22a854427b5c5290ec0705febb87f1aece4026",
+      "download_method": "ordinary public yt-dlp --download-sections; no account/cookies/access bypass",
+      "video_format": "1280x720 30fps",
+      "clear_movement_ranges_seconds": [
+        [
+          1010,
+          1018
+        ]
+      ],
+      "animation_state_verified": false,
+      "star_hat_match": false
+    },
+    {
+      "reference": "longplay-arrival",
+      "url": "https://www.youtube.com/watch?v=9eYi6FugU0k",
+      "title": "Longplay of Animal Crossing/Doubutsu no Mori e-Plus",
+      "channel": "LongplayArchive",
+      "upload_date": "20181113",
+      "uploader_platform_claim": "GameCube; LongplayArchive additionally claims NTSC2002, but e-Plus title mismatch retained",
+      "exact_region_revision_verified": false,
+      "source_time_range_seconds": [
+        345,
+        375
+      ],
+      "scratch_clip": "/tmp/acgc-youtube-longplay-345-375.mp4",
+      "sha256": "e6a2db84d1a4e5fe213819d0f2693280085911f8bd4af28cd381389049f55a69",
+      "download_method": "ordinary public yt-dlp --download-sections; no account/cookies/access bypass",
+      "video_format": "480x360 30fps",
+      "clear_movement_ranges_seconds": [
+        [
+          369,
+          370
+        ]
+      ],
+      "animation_state_verified": false,
+      "star_hat_match": false
+    }
+  ],
+  "notes": "clips stay in /tmp and are not committed; screenshots are attributed analysis evidence; encoded30fps does not establish game update frequency; Mutch Games encoded16:9 display versus original camera initializer4:3, so exact projected shape requires aspect handling"
+}

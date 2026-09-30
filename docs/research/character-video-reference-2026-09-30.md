@@ -8,6 +8,21 @@ Research for character pilot issue 231, 2026-09-30. The strongest next reference
 
 The supplied character's star-pattern hat was **not found in this video**. The indoor boy has a different green/white horned hat. This is a body/motion reference, not an identity match. No exact matching character video was located in this research pass.
 
+### Owner-requested YouTube references
+
+The primary uploader/watch-page search located two public gameplay uploads; ordinary unauthenticated `yt-dlp --download-sections` downloads succeeded for short excerpts. Clips remain in `/tmp`; they are not committed or republished.
+
+| Uploader and title | Timestamp link | Visually checked movement |
+|---|---|---|
+| Mutch Games — *Animal Crossing [57] GameCube Longplay pt.1*, uploaded 2020-03-16 | [16:25](https://www.youtube.com/watch?v=EwwW4Rk1wMU&t=985s) and [16:50](https://www.youtube.com/watch?v=EwwW4Rk1wMU&t=1010s) | Horned boy moving indoors 16:25–16:28; outdoors 16:50–16:58, with dust and changing direction. Outdoor body is briefly hidden by trees; the frames near 16:56 show the shoes/body more clearly. |
+| LongplayArchive — *Longplay of Animal Crossing/Doubutsu no Mori e-Plus*, uploaded 2018-11-13 | [6:09](https://www.youtube.com/watch?v=9eYi6FugU0k&t=369s) | Horned boy moving briefly on the station platform 6:09–6:10; usable alternate angle, not a long clean cycle. |
+
+Mutch Games identifies GameCube in the title. LongplayArchive's description identifies NTSC GameCube/2002, while its title also mentions e-Plus: retain that mismatch, rather than asserting an exact revision. Neither excerpt establishes the animation-state enum or controller input. Neither boy's hat matches the supplied star pattern. Encoded playback is 30 fps; this does not establish simulation frequency. The Mutch Games excerpt is encoded 1280×720, 16:9, whereas the original camera initializer uses 4:3, so account for capture aspect before judging exact silhouette proportions.
+
+![Mutch Games gameplay at approximately 16:56, GameCube horned boy](character-video-reference/youtube-mutch-1016.png)
+
+Attribution: footage uploaded by Mutch Games; game imagery Nintendo. [Reference provenance](character-video-reference/youtube-references.json) records URLs, titles, upload dates, selected ranges, successful download method, local scratch paths, and hashes. Usable scratch clips: `/tmp/acgc-youtube-mutch-980-1005.mp4`, `/tmp/acgc-youtube-mutch-1005-1035.mp4`, and `/tmp/acgc-youtube-longplay-345-375.mp4`. Timestamp links are the owner-accessible references; the original star-hat identity remains unmatched after the bounded YouTube alternatives search.
+
 Manual native-frame inspection gives these observations, with uncertainty retained:
 
 | Segment | Observation | Conservative interpretation |
@@ -56,6 +71,10 @@ The source's normal [GAME_FRAME is 1](https://github.com/ACreTeam/ac-decomp/blob
 Under that model, the fastest WALK1 cycle is about `16 / (60 * sqrt(.048 * 3.525)) = 0.648 s`; RUN spans approximately 0.551–0.648 s. At 50 updates/second those become about 0.778 s and 0.662–0.778 s. Consequently, the observed ~0.40 s footage recurrence is more plausibly faster locomotion than WALK1, or affected by an unverified capture/runtime difference. A 0.40 s WALK1 trial is a style/timing experiment, not a recovered original walk state. Do not convert the source frame count with the trailer's 25 fps.
 
 [Walk effects](https://github.com/ACreTeam/ac-decomp/blob/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/game/m_player_main_walk.c_inc#L108) are triggered for the left/right foot at source frames 1/9, normalized phases 0/0.5, using each foot's position, angle, and ground attribute. RUN shares this schedule; DASH selects a different effect type. Align phase origin to this source before assigning events. Our earlier 0.25/0.75 contacts are a different authored phase origin and cannot simply be mixed into a source-driven clip.
+
+Source handedness was checked against the [draw callbacks](https://github.com/ACreTeam/ac-decomp/blob/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/game/m_player_draw.c_inc#L73): joint 5 (`Lfoot3`) writes `left_foot_pos`, joint 9 (`Rfoot3`) writes `right_foot_pos`. There is no source-side swap in this route. Reconstructed shoe-joint world-Y positions are Left 160.86 / Right 324.93 at phase zero and Left 308.93 / Right 161.14 at phase one-half. These are joint origins, not shoe sole minima. If the retargeted target's lower foot is reversed, source event names must not override measured target contacts; that is a derived asset discrepancy to diagnose and disclose.
+
+**Ordinary grass WALK/RUN does not produce the generic white dust shown in the faster footage.** [`ef_walk_asimoto.c`](https://github.com/ACreTeam/ac-decomp/blob/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/effect/ef_walk_asimoto.c) applies bush-leaf and seasonal bush-snow effects; its own effect has timer zero and empty movement/draw handlers. In contrast, [`ef_dash_asimoto.c`](https://github.com/ACreTeam/ac-decomp/blob/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/effect/ef_dash_asimoto.c#L125) routes ordinary surfaces to `eEC_EFFECT_DUST` during spring/summer/autumn, with separate sand, water, bush, and floor behavior. White dust therefore supports a DASH-style comparison, although it does not independently prove the exact trailer state. Our dust-on-every-derived-walk-contact proof is a stylized effect test, not a verified recreation of source WALK/RUN surface behavior.
 
 ## Proportions and the smallest next comparison
 
