@@ -14,7 +14,11 @@ ROOT = Path('/home/reidsurmeier/risd-godot-ingestion/collection-expansion')
 parser = argparse.ArgumentParser()
 parser.add_argument('--output', default='strict-floor-holdout-v1')
 parser.add_argument('--photometric', action='store_true', help='Transfer fixed floor pixels, with shifted-plane controls')
+parser.add_argument('--triangle', type=Path, help='Frozen corrected-model triangle replacing only the near-plane hypothesis')
+parser.add_argument('--queries', nargs='+', help='Reserved image names; source separation and pose gates remain enforced')
+parser.add_argument('--pose-ceiling', type=int, default=450, help='Source-reviewed upper-image cutoff, frozen before fitting')
 args = parser.parse_args()
+assert 0 < args.pose_ceiling <= 1280
 OUT = ROOT/args.output
 OUT.mkdir(exist_ok=False)
 SOURCE = ROOT/'strict-depth-floor-v1/result.json'
@@ -28,7 +32,7 @@ dense_view = next(v for v in dense.images.values() if v.name == view.name)
 dense_camera = dense.cameras[dense_view.camera_id]
 assert np.max(abs(view.cam_from_world().matrix()-dense_view.cam_from_world().matrix())) < 1e-8
 selection = json.loads((ROOT/'sampling-timing-v1/strict-training-selection.json').read_text())
-queries = ['IMG_6380/000246.jpg', 'IMG_6380/000506.jpg', 'IMG_6380/000516.jpg']
+queries = args.queries or ['IMG_6380/000246.jpg', 'IMG_6380/000506.jpg', 'IMG_6380/000516.jpg']
 assert set(queries) <= set(selection['heldout_names'])
 assert not set(queries) & {v.name for v in refs}
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
@@ -37,6 +41,18 @@ database = ROOT/'heldout-calibrated-v1/database.db'
 inputs[str(database)] = sha(database)
 inputs.update({str(p): sha(p) for folder in ['sfm-strict-doorway-v1/sparse/0', 'dense-strict-floor-v1/sparse']
     for p in (ROOT/folder).glob('*.bin')})
+if args.triangle:
+    triangle = json.loads(args.triangle.read_text())
+    assert triangle['source_sha256'] == {p.name: sha(p) for p in (ROOT/'sfm-strict-doorway-v1/sparse/0').glob('*.bin')}
+    assert not set(queries) & set(triangle['selection']['training']), 'Query used in triangle fit'
+    points = np.array(triangle['points_world'], dtype=float)
+    normal = np.array(triangle['candidate_normal_world'], dtype=float)
+    assert points.shape == (3, 3) and normal.shape == (3,) and np.isfinite(points).all()
+    assert np.isfinite(normal).all() and abs(np.linalg.norm(normal)-1) < 1e-8
+    assert max(abs((points-points.mean(0))@normal)) < 1e-8
+    near = next(p for p in source['patches'] if p['patch'] == 'near')
+    near.update(center_world=points.mean(0).tolist(), normal_world=normal.tolist())
+    inputs[str(args.triangle)] = sha(args.triangle)
 masks = {}
 for patch in source['patches']:
     mask = Image.new('1', (360, 640))
@@ -90,9 +106,9 @@ with pycolmap.Database.open(scratch_database) as db:
         xyz = np.array([model.points3D[int(i)].xyz for i in point_ids])
         direct = db.read_matches(q.image_id, view.image_id)
         floor_query_ids = {int(a) for a, b in direct if int(b) in floor_features}
-        # Raw x is upright y. Freeze upper 450/1280 pixels before evaluating floor.
+        # Raw x is upright y. Freeze the source-reviewed cutoff before evaluating floor.
         not_floor = np.array([i not in floor_query_ids for i in ids])
-        fit = (point_ids % 2 == 1) & (xy[:, 0] < 450) & not_floor
+        fit = (point_ids % 2 == 1) & (xy[:, 0] < args.pose_ceiling) & not_floor
         fit_query_ids = set(np.array(ids)[fit].tolist())
         row = dict(image=name, pose_fit_features=int(fit.sum()), patches=[], pose_supported=False)
         if fit.sum() < 20:
@@ -109,7 +125,7 @@ with pycolmap.Database.open(scratch_database) as db:
             rows.append(row)
             continue
         row['pose_inliers'] = int(estimated['num_inliers'])
-        test = (point_ids % 2 == 0) & (xy[:, 0] < 450) & not_floor
+        test = (point_ids % 2 == 0) & (xy[:, 0] < args.pose_ceiling) & not_floor
         test_camera_xyz = estimated['cam_from_world']*xyz[test]
         test_errors = np.linalg.norm(qc.img_from_cam(test_camera_xyz)-xy[test], axis=1)
         good = np.isfinite(test_errors) & (test_errors < 4) & (test_camera_xyz[:, 2] > 0)
@@ -120,6 +136,10 @@ with pycolmap.Database.open(scratch_database) as db:
             row['status'] = 'upper-image pose lacks unused-point support'
             rows.append(row)
             continue
+        if args.pose_ceiling != 450:
+            row['cam_from_world'] = estimated['cam_from_world'].matrix().tolist()
+            row['camera'] = dict(model=str(qc.model).split('.')[-1], width=qc.width,
+                height=qc.height, params=qc.params.tolist())
         image_path = ROOT/'survey-2fps'/name
         inputs[str(image_path)] = sha(image_path)
         picture = Image.open(image_path).transpose(Image.Transpose.ROTATE_270).convert('RGB')
@@ -225,7 +245,8 @@ with pycolmap.Database.open(scratch_database) as db:
                 draw.ellipse((x-4, y-4, x+4, y+4), outline='lime' if error <= 8 else 'orange', width=2)
                 draw.line((x, y, 719-pred[1], pred[0]), fill='red', width=2)
         draw.rectangle((0, 0, 720, 45), fill='black')
-        draw.text((8, 5), name+' WITHHELD pixels; frozen depth planes', fill='white')
+        label = 'frozen triangle/depth planes' if args.triangle else 'frozen depth planes'
+        draw.text((8, 5), name+' WITHHELD pixels; '+label, fill='white')
         draw.text((8, 24), 'Upper-image pose only; green <=8px, orange larger', fill='white')
         picture.save(OUT/(Path(name).stem+'-transfer.png'))
         row['status'] = 'diagnostic only; report all floor matches without outlier trimming'
@@ -233,7 +254,7 @@ with pycolmap.Database.open(scratch_database) as db:
 assert all(sha(Path(p)) == h for p, h in inputs.items())
 report = dict(rows=rows, inputs_sha256=inputs, navigation_accepted=False, cost_usd=0,
     photometric=args.photometric,
-    pose_fit_upright_y_below=450, pose_fit_point_parity='odd', floor_check_point_parity='even',
+    pose_fit_upright_y_below=args.pose_ceiling, pose_fit_point_parity='odd', floor_check_point_parity='even',
     all_floor_query_features_excluded_from_pose=True,
     caveat='Withheld query pixels and floor features excluded from pose fit. Plane fixed from '
     'training depth; no query floor refit. Cached tentative matches are not verified identity. '
@@ -241,5 +262,9 @@ report = dict(rows=rows, inputs_sha256=inputs, navigation_accepted=False, cost_u
     'Photometric controls use fixed normal offsets and common visible pixels; repeated wood, '
     'occlusion, exposure and short baseline can hide errors. No score implies acceptance. '
     '8px is a prior diagnostic gate, not physical planarity, scale or collision acceptance.')
+if args.triangle:
+    report['near_plane_triangle'] = str(args.triangle)
+    report['caveat'] = report['caveat'].replace('Plane fixed from training depth',
+        'Near plane fixed from the supplied training triangle; far plane fixed from training depth')
 (OUT/'result.json').write_text(json.dumps(report, indent=2)+'\n')
 print(json.dumps(rows, indent=2))

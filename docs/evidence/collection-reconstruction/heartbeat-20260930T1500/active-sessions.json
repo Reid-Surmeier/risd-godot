@@ -1,0 +1,28 @@
+[
+  {
+    "path": "/home/reidsurmeier/risd-godot",
+    "status": "working",
+    "agents": [
+      {
+        "paneKey": "c87472bb-f138-4b19-98d7-ed31b6c55557:cfacd998-ec9f-4d31-a581-8bbc87ff2095",
+        "parentPaneKey": null,
+        "state": "working",
+        "agentType": "codex",
+        "prompt": "Continue the existing RISD session toward full implementation of Wayfinder map 149. Read /home/reidsurmeier/.local/state/risd-wayfinder-heartbeat/checkpoint.md and live Git/issues. Latest owner direct",
+        "taskTitle": null,
+        "displayName": null,
+        "lastAssistantMessage": "https://windows-wsl.taile06c45.ts.net/webcam-booth-live-01a0f059/\nThe webcam lowpoly booth. Server restored; HTTPS and sample portrait verified. Open with Tailscale connected, then select \u201cEnable camera.\u201d",
+        "toolName": "Bash",
+        "toolInput": "python3 - <<'PY' import hashlib,json,pathlib,subprocess out=pathlib.Path('docs/evidence/collection-reconstruction/heartbeat-20260930T1500') files=subprocess.che",
+        "interrupted": false,
+        "stateStartedAt": 1790780506583,
+        "updatedAt": 1790780538065
+      }
+    ]
+  },
+  {
+    "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction",
+    "status": "active",
+    "agents": []
+  }
+]

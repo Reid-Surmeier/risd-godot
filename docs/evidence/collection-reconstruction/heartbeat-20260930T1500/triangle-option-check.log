@@ -1,0 +1,1 @@
+PASS: exact default replay; wrong model and query-trained triangle rejected before database copy.

@@ -307,3 +307,19 @@ pass. Historical bounded native/browser walk passes all 24 engine checks and
 real WASD round trips; Shell retains four known failures. Museum topology, scale,
 whole-room collisions, sculpture coverage and bake remain open. No runtime/Viewer
 edit, production integration, ticket closure or new paid generation.
+
+
+## Collection wider-floor and entry-pose diagnostic — September 30, 15:00 UTC heartbeat
+
+Local NumPy/pycolmap/Pillow/Godot 4.7.2/Chrome 154; **$0**, no paid calls or
+new reconstruction sweep. RTX 4070 SUPER native/browser rendering; poses CPU.
+[Selections, inputs, outputs and hashes](../../docs/evidence/collection-reconstruction/heartbeat-20260930T1500/provenance.json).
+
+Wider floor triangle has missing reserved anchors and 13.79-degree p95 normal
+sensitivity. Reverse queries remain unsupported. Source-reviewed entry206 wall
+mask passes 68 fit inliers and 59 unused points; original cutoff failure retained.
+Shifted floor controls still score better; no floor/collision acceptance.
+Native/browser bounded walk checks pass; Shell has seven previously seen failures.
+Default replay, rejection guards and camera serialization pass; ten originals and
+prior pending work preserved. Existing Muse receipts and rejected sculpture meshes
+unchanged. No runtime/Viewer edit, production integration or ticket closure.
