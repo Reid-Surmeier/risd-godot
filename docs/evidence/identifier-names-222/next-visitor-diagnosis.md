@@ -19,7 +19,7 @@ Continue in integrate-square-164/buildv0.1.0 with one writer. Diagnostic evidenc
 1. Preserve the initial222/Astra finding,56%to28% pinned torso signal, identical15source files/character imported resources, fresh clean A/B pair, and initial-black/later-clean Tab replay as evidence. One runnable bounded replay reports timing, real readiness/pose/material state and identical framing, and catches the black/fragmented torso condition without asserting ordinary pose pixel changes are defects.
 2. Run multiple baseline and candidate captures with the same renderer/settings and controlled inputs. Change one variable per causal probe; distinguish a screenshot-readiness defect from actual gameplay rendering. Report unknowns rather than repairing unchanged assets speculatively.
 3. After a proven correction, rerun the original full sequence and native174 character checks, actual installed scripts/check.sh, git diff --check,18composed inputs/33states and source/hash/square173 protection. Preserve8tracked+3originaluntracked lint findings unless separately scoped.
-4. Fresh independent GPT-6 Astra medium image/motion review of the affected group, current PR166 pictures and working private build, exact build/PR/map/checkpoint readback before scoped closure. Full162/149/173/174/177 and hands-on owner approval stay open; keep automation enabled until verified complete map.
+4. Fresh independent GPT-6 Astra medium image/motion review of the affected group, current PR166 pictures and working private build, exact build/PR/map/checkpoint readback before scoped closure. Full162/149/173/174/177 and hands-on owner approval stay open; owner stopped the heartbeat at18:34UTC; keep it disabled and do not resume unattended work without a new owner instruction.
 
 ## Out of Scope
 
@@ -28,3 +28,5 @@ Generated/provider/spend/bake/release/public redistribution, Nintendo-animation 
 ## Further Notes
 
 Owner149 continuation authority; source and current exported evidence: docs/evidence/identifier-names-222. This diagnoses a real observed failure while leaving its cause unproven. Issue222 is the scoped17identifier-style correction; this follow-up and174/162 own the visitor visual finding.
+
+Owner stop at18:34UTC supersedes the earlier unattended continuation direction. Issue is a preserved future scope, no work started; heartbeat liveenabled=false.

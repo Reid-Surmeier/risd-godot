@@ -10,4 +10,6 @@ Fresh GPT-6 Astra medium image-only review inspected33matched pairs plus ownerla
 
 Next diagnosis: https://github.com/Reid-Surmeier/risd-godot/issues/224
 
-This Issue closes only the namedidentifier findings after exactpublication/readback. Whole162/149/173/174/177 and hands-on ownerapproval remain open; automation enabled/reuseSessiontrue. No provider/generation/spend/bake/release/publicredistribution/ownerapproval. Other worktrees/main and owneruntracked files preserved.
+This Issue closes only the namedidentifier findings after exactpublication/readback. Whole162/149/173/174/177 and hands-on ownerapproval remain open; automation disabled by the owner at18:34UTC; liveenabled=false, no further unattendedwork. No provider/generation/spend/bake/release/publicredistribution/ownerapproval. Other worktrees/main and owneruntracked files preserved.
+
+Ownerstop correction: final publication review verified the privatefiles/images/clip/head/body at55f0a734 and caught stale automationON claims. Corrected records follow;222remainsOPEN pending finalcorrectedreadback/handoff, not wholemap acceptance. No224implementation started.
