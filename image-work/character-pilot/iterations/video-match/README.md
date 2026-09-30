@@ -23,3 +23,11 @@ python3 image-work/character-pilot/iterations/video-match/check.py
 Validation imports at240fps with the optimizer disabled and samples257poses. It checks penetration/endpoints and reports retained velocity changes; it does not assert world stance lock. Preview uses30FPS native playback and actual method keys. `check.py` binds native receipts, movies, reference clips, unchanged source hashes and the$1.54 aggregate liability. `independent-review/` holds mathematical and visual audits; `import-floor-failures/` preserves failed import/timing observations.
 
 Storage: keep full short MP4s and representative poses. Replay recreates full frame sequences in disposable projects. Removed36MB of redundant new frames; no unrelated cleanup. Additional paid calls:$0.
+
+Independent arm replay (no weight mutation):
+
+```bash
+/home/reidsurmeier/.local/opt/blender-4.3.2/blender --background --factory-startup --threads 1 --python-exit-code 1 --python image-work/character-pilot/iterations/video-match/independent-review/arms/audit_pair.py -- image-work/character-pilot/iterations/video-match/authored-fast-v4/footplant-candidate.glb image-work/character-pilot/iterations/video-match/authored-fast-v6/footplant-candidate.glb image-work/character-pilot/iterations/video-match/arm-weight-mask.json /tmp/character-arm-check.json
+```
+
+This checks original region identity/weights,24bones/7,719triangles,129normalized poses per clip, and less than2% principal extent contraction in the selected model. It does not certify mesh volume or exact source likeness.
