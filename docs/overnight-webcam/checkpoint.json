@@ -10,21 +10,29 @@
   "spent_usd": 0.01,
   "unknown_liability_usd": 0.01,
   "completed": [
-    "reference intake",
-    "browser research",
-    "generation research",
-    "standalone fixture export",
-    "six browser checks"
+    "resolved map195",
+    "research196/197",
+    "prototype198",
+    "eight browser checks",
+    "real Muse sample $0.01",
+    "spec200 and tickets201\u2013204"
   ],
   "next": "Resolve prototype map decision, publish spec and four end-to-end tickets; implement safe live generation, reference assets, expression tracking and final acceptance.",
   "limits": [
     "physical webcam unverified",
-    "paid portrait generation unverified",
+    "live visitor generation pending",
     "explosion animation pending",
     "expression tracking after basic flow"
   ],
   "automation_id": "01aae171-57ee-455c-93b8-eef25631f529",
   "liability_note": "One successful image output; tool actualCostUsd=0.010000 and spendState=unknown. These describe the SAME pilot, counted once as $0.01 against ceiling; never resubmit this Run.",
   "pilot_run": "run-c7bee15e9bbcf76387025838",
-  "owner_instruction": "2026-09-30: finish map, create spec and tracer-bullet tickets, complete all tickets overnight without questions"
+  "owner_instruction": "2026-09-30: finish map, create spec and tracer-bullet tickets, complete all tickets overnight without questions",
+  "spec": "https://github.com/Reid-Surmeier/risd-godot/issues/200",
+  "tickets": [
+    201,
+    202,
+    203,
+    204
+  ]
 }
