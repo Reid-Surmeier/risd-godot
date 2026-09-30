@@ -28,7 +28,7 @@
         "type": "frame",
         "token": 1,
         "face": true,
-        "timestamp": 1540.6000000005588,
+        "timestamp": 1550.9000000003725,
         "values": {
           "blinkL": 0.108187235891819,
           "blinkR": 0.16777217388153076,
@@ -46,13 +46,13 @@
         "type": "frame",
         "token": 1,
         "face": false,
-        "timestamp": 1592.1000000005588
+        "timestamp": 1600.1000000014901
       },
       {
         "type": "frame",
         "token": 1,
         "face": true,
-        "timestamp": 1624.6000000005588,
+        "timestamp": 1643,
         "values": {
           "blinkL": 0.108187235891819,
           "blinkR": 0.16777217388153076,

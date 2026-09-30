@@ -1,8 +1,8 @@
 {
   "passed": true,
   "submissions": 1,
-  "run": "run-a1d8f3344390bd9375b41e65",
-  "source": "Synthetic-camera live loop; original fixture injection was not pixel-verified and is superseded by final-loop-verified-source",
+  "run": "run-016a639a0576f9e86c6b9c1d",
+  "source": "Chromium synthetic camera (fixture injection size mismatch prevented update)",
   "physical_webcam_tested": false,
   "provider": "openrouter",
   "model": "meta/muse-image",

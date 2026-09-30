@@ -4,7 +4,7 @@ const clamp=n=>Math.max(0,Math.min(1,Number.isFinite(n)?n:0));
 self.onmessage=async({data})=>{
  try{
   if(data.type==='portrait'){
-   if(!tracker){importScripts(new URL('vision_bundle.js',data.base).href);tracker=await Vision.FaceLandmarker.createFromOptions(await Vision.FilesetResolver.forVisionTasks(new URL('wasm/',data.base).href),{baseOptions:{modelAssetPath:new URL('face_landmarker.task',data.base).href,delegate:'CPU'},runningMode:'IMAGE',numFaces:1,outputFaceBlendshapes:true,outputFacialTransformationMatrixes:true});}
+   if(!tracker){importScripts(new URL('vision_bundle.js',data.base).href);tracker=await Vision.FaceLandmarker.createFromOptions(await Vision.FilesetResolver.forVisionTasks(new URL('wasm/',data.base).href),{baseOptions:{modelAssetPath:new URL('face_landmarker.task',data.base).href,delegate:'CPU'},runningMode:'IMAGE',numFaces:1,outputFaceBlendshapes:true});}
    else await tracker.setOptions({runningMode:'IMAGE'});
    const bitmap=await createImageBitmap(await (await fetch(data.image)).blob());let result;
    try{result=tracker.detect(bitmap)}finally{bitmap.close()}

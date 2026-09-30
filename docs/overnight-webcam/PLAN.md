@@ -1,19 +1,11 @@
 # Webcam booth continuation
 
-Completed planning map: [Map: build an isolated retro webcam portrait booth](https://github.com/Reid-Surmeier/risd-godot/issues/195), live issues/Git state and `checkpoint.json`. The standalone prototype has its own `webcam-booth/project.godot`; this worktree is based on main commit `55e7c3b7`. Owner authorized autonomous decisions, ephemeral portrait/explosion/reset, then expression tracking, and $10 aggregate OpenRouter spend. Use gpt-6.1-sol/high for independent review agents.
+Canonical spec: https://github.com/Reid-Surmeier/risd-godot/issues/200; child tickets201–205. Work only in the separate webcam-booth-195 Orca tree. Owner delegates decisions and asks no questions; OpenRouter-only aggregate$10; gpt-6.1-sol/high reviewers. Main remains unchanged.
 
-The heartbeat skill is applied with owner-authorized overrides: only this map/worktree, OpenRouter spend within the recorded ceiling, and no human decision gates. Its old Claude-only/global-build defaults do not fit this task. The shared skill itself is unchanged.
+Capture/generation, four-glove frame, ten-second fuse/explosion, pinned local expression tracking and responsive controls are implemented. Eleven browser checks, tracking/expression/responsive tests, native money tests, strict TypeScript and root baseline pass. Pixel-verified real Muse proof is final-loop-verified-source.json. Earlier paid proof slots retain their accurate limitations and must never be repeated. Native Seedance Run remains failed; separately accepted deterministic assembly is the runtime asset.
 
-The fallback Orca automation is `01aae171-57ee-455c-93b8-eef25631f529`, every 30 minutes in this existing workspace. Its precheck skips a live lease, a completed effort, or any start at/after 2026-09-30 08:00 America/New_York. Renew the lease for 40 minutes before a tick; work at most 25 minutes; release it after the checkpoint. Existing scheduler state records creation and enabled status; a successful run has not yet been observed. The precheck has an executable self-check. Do not launch a nested heartbeat.
+Live state wins: inspect Git, current Issues, checkpoint.json, private ledger and Run records. SPEND.json records the known snapshot; additional owner captures may increase live spend. Never reset the ledger or blindly recover paid.lock. Systemd user service webcam-booth-195.service serves same-origin generation. Owner HTTPS preview is in HANDOFF.md.
 
-1. Verify the research and browser evidence; record precise unresolved provider and art claims.
-2. Verify the Muse route using safe authenticated capability/price reads. Capture + style are exactly two ordered references. Author the prompt/recipe, reserve the price durably and submit one output through the maintained pipeline. Keep unknown liabilities beside receipts; no blind retry.
-3. Find and lock a genuine fuse/explosion donor, then produce one reusable clip through OpenRouter Seedance. Replace the declared fixture portrait and empty explosion placeholder only with inspected/certified results. Transparent glove artwork needs actual decoded alpha evidence.
-4. Re-run the complete-loop export/browser checks and inspect screenshots. Keep device-camera evidence separate from Chromium simulation. Add expression tracking only after the basic generated loop works.
-5. Write the morning handoff and disable the automation at or after 07:30. Precheck blocks starts after 08:00 even if disable fails.
+Finish exact-SHA Standards/Spec/Ponytail review, resolve findings, close remaining tickets and spec, push the isolated branch and disable automation01aae171-57ee-455c-93b8-eef25631f529. Preserve the owner-requested overnight share for3days and stop the old static prototype share.
 
-No primary-checkout files, other maps, frozen RISD interfaces, builds or release branches belong to this effort. Push research/context branches if necessary to make tracker pointers durable; preserve the separate experiment branch. No merging into the RISD release.
-
-## Active implementation
-
-Authoritative [spec](https://github.com/Reid-Surmeier/risd-godot/issues/200), sequential frontier: 201 live generation → 202 reference assets/motion → 203 expression tracking → 204 acceptance/handoff. Complete all autonomously; do not repeat the successful Muse pilot. Planning map and prototype are closed. Keep parent lease renewed while its session is working.
+Heartbeat fallback uses this existing workspace only. Precheck skips a live lease, completed work or deadline12:00UTC. No nested automation/global repository work. The parent owns the future lease while finishing; on completion set checkpoint complete and disable automation.

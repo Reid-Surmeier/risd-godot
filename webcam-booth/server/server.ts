@@ -11,7 +11,8 @@ import type { Capture, Portrait } from './interface.ts';
 const execute=promisify(execFile);
 const root=resolve(fileURLToPath(new URL('../',import.meta.url)));
 const tool='/home/reidsurmeier/Image-generation-pipline/bin/image-pipeline';
-const privateRoot=join(root,'build/private');
+const privateRoot=process.env.BOOTH_LEDGER_ROOT??join(root,'build/private');
+try{await readFile(join(privateRoot,'ledger.json'),'utf8')}catch{throw Error('Spending ledger missing; restore recorded reservations before serving generation.')}
 const hash=(data:Buffer|string)=>createHash('sha256').update(data).digest('hex');
 async function validate(capture:Capture){
  const bytes=Buffer.from(capture.image.split(',')[1],'base64');
@@ -24,6 +25,7 @@ async function provider(capture:Capture):Promise<Portrait>{
  if(!process.env.OPENROUTER_API_KEY)throw Error('No server credential');
  const relative=`build/private/captures/${capture.id}`;const home=join(root,relative);
  await mkdir(home,{recursive:true,mode:0o700});
+ let recordedRun:string|undefined;
  try{
   // Canonical PNG input is transient and excluded from the Web export and Git.
   const encoded=Buffer.from(capture.image.split(',')[1],'base64');await writeFile(join(home,'input'),encoded,{mode:0o600});
@@ -37,19 +39,30 @@ async function provider(capture:Capture):Promise<Portrait>{
   const call=async(args:string[])=>JSON.parse((await execute(tool,args,{maxBuffer:4_000_000,timeout:660_000})).stdout);
   const prepared=await call(['prepare','--application',root,'--recipe',`${relative}/recipe.json`,'--unit-cost','0.01','--budget','0.01']);
   await call(['image','--application',root,'--objective',prepared.objective]);
-  const result=await call(['image','--application',root,'--objective',prepared.objective,'--execute']);
-  if(result.result?.length!==1||!result.runId)throw Error('No recorded output');
+  const cents=(cost:unknown)=>typeof cost==='string'&&/^\d+(?:\.\d+)?$/.test(cost)?Math.ceil(Number(cost)*100):undefined;
+  let result;
+  try{result=await call(['image','--application',root,'--objective',prepared.objective,'--execute']);}
+  catch(error){let costCents;try{const failed=JSON.parse((error as {stdout:string}).stdout);costCents=cents(failed.cost);recordedRun=failed.runId;}catch{};throw {costCents};}
+  recordedRun=result.runId;
+  if(result.result?.length!==1||!result.runId)throw {costCents:cents(result.cost)};
   const output=resolve(result.result[0].path);
   if(!output.startsWith(join(root,'artifacts/image-generation/runs')+sep))throw Error('Output outside recorded run');
   const image=await readFile(output);
   // The immutable receipt keeps source hashes/cost, while capture/result payloads are ephemeral.
-  await writeFile(join(privateRoot,`${capture.id}-receipt.json`),JSON.stringify({run:result.runId,cost:result.cost,spendState:result.spendState,inputSha256:hash(subject),outputSha256:hash(image),model:'meta/muse-image',provider:'openrouter'}));
-  const portrait={image:`data:${result.result[0].mediaType};base64,${image.toString('base64')}`,run:result.runId};
-  await rm(join(root,'artifacts/image-generation/runs',result.runId),{recursive:true,force:true});
+  await writeFile(join(privateRoot,`${capture.id}-receipt.json`),JSON.stringify({run:result.runId,cost:result.cost,spendState:result.spendState,inputSha256:hash(subject),outputSha256:hash(image),model:'meta/muse-image',provider:'openrouter',count:1,at:new Date().toISOString()}));
+  const portrait={image:`data:${result.result[0].mediaType};base64,${image.toString('base64')}`,run:result.runId,costCents:cents(result.cost)};
   return portrait;
- }finally{await rm(home,{recursive:true,force:true})}
+ }finally{
+  await rm(home,{recursive:true,force:true});
+  if(recordedRun&&/^run-[a-f0-9]{24}$/.test(recordedRun)){
+   // Preserve immutable money/hash records while deleting ephemeral portrait payloads, even on failure.
+   const runRoot=join(root,'artifacts/image-generation/runs',recordedRun);
+   for(const file of ['provider-response.json','outputs','materialized'])await rm(join(runRoot,file),{recursive:true,force:true});
+   await writeFile(join(runRoot,'ephemeral-cleanup.json'),JSON.stringify({run:recordedRun,deletedPayloads:['provider-response.json','outputs','materialized'],retained:'state/request/events carry hashes and cost; no image bytes',at:new Date().toISOString()}));
+  }
+ }
 }
-const generate=Effect.runSync(createGeneration({root:privateRoot,provider,validate}));
+const generate=Effect.runSync(createGeneration({root:privateRoot,provider,validate,requireLedger:true}));
 const mime:Record<string,string>={'.html':'text/html','.js':'text/javascript','.wasm':'application/wasm','.pck':'application/octet-stream','.png':'image/png','.webp':'image/webp','.json':'application/json','.mp4':'video/mp4','.task':'application/octet-stream'};
 const server=createServer(async(request,response)=>{
  const send=(status:number,data:unknown)=>{response.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});response.end(JSON.stringify(data));};

@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "submissions": 1,
+  "submitted_source_pixels_verified": true,
+  "run": "run-12716948540ebcf3a56007a4",
+  "source": "declared Figma fixture photo injected through real browser capture bridge",
+  "physical_webcam_tested": false,
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "reserved_usd": 0.01
+}

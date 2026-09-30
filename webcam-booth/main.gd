@@ -145,6 +145,17 @@ func reset() -> Dictionary:
 
 
 func _process(delta: float) -> void:
+	if OS.has_feature("web"):
+		var action = JavaScriptBridge.eval("window.booth.consumeAction()")
+		match action:
+			"camera":
+				_enable_camera()
+			"fixture":
+				_use_fixture()
+			"capture":
+				capture()
+			"reset":
+				reset()
 	elapsed = _now() - entered_at
 	loader.material.set_shader_parameter("progress", minf(elapsed / 4.0, 1.0))
 	if state == "loading":
@@ -193,8 +204,6 @@ func _process(delta: float) -> void:
 
 func _show_portrait(texture: Texture2D) -> void:
 	state = "portrait"
-	entered_at = _now()
-	elapsed = 0.0
 	picture.texture = texture
 	expression_value = Vector4.ZERO
 	pose_value = Vector3.ZERO
@@ -208,6 +217,8 @@ func _show_portrait(texture: Texture2D) -> void:
 		var encoded := "data:image/png;base64," + Marshalls.raw_to_base64(image.save_png_to_buffer())
 		JavaScriptBridge.eval("window.booth.startTracking(%s)" % JSON.stringify(encoded))
 	motion.play()
+	entered_at = _now()
+	elapsed = 0.0
 	_sync()
 
 
@@ -267,12 +278,14 @@ func _poll_camera() -> void:
 
 func _sync() -> void:
 	var camera := state == "camera"
+	var native := not OS.has_feature("web")
+	caption.visible = native
 	loader.visible = state == "loading"
-	camera_button.visible = camera
-	fixture_button.visible = camera
-	capture_button.visible = camera
+	camera_button.visible = camera and native
+	fixture_button.visible = camera and native
+	capture_button.visible = camera and native
 	capture_button.disabled = source not in ["fixture", "camera"] or picture.texture == null
-	cancel_button.visible = not camera
+	cancel_button.visible = not camera and native
 	motion.visible = state in ["portrait", "explosion"]
 	background.visible = state not in ["loading", "explosion"]
 	background.texture = CAMERA_FRAME if camera else GLOVES

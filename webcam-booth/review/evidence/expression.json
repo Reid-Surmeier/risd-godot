@@ -21,7 +21,7 @@
       ],
       "mouthWidth": 0.10271203517913818
     },
-    "timestamp": 2454.4000000003725,
+    "timestamp": 2721.800000000745,
     "values": {
       "blinkL": 0,
       "blinkR": 0,
@@ -36,8 +36,22 @@
     "landmarks": 478
   },
   "simulated_expression_geometry": {
-    "eye_pixels": 2454,
-    "mouth_pixels": 4155
+    "eye_pixels": 1891,
+    "mouth_pixels": 3053
+  },
+  "observed_regions": {
+    "eyes": [
+      450,
+      229,
+      562,
+      272
+    ],
+    "mouth": [
+      459,
+      285,
+      562,
+      349
+    ]
   },
   "no_face_neutral": true,
   "reset_stops_worker": true,

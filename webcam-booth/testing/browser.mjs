@@ -43,7 +43,7 @@ page.on('pageerror',e=>errors.push(e.message));
 page.on('console',m=>{if(/SCRIPT ERROR|^ERROR:/.test(m.text()))errors.push(m.text());});
 const waitState = state=>page.waitForFunction(s=>window.boothState?.state===s,state,{timeout:30000});
 const snapshot = async name=>page.screenshot({path:resolve(evidence,name+'.png')});
-const click = x=>page.mouse.click(x,609);
+const click=x=>page.getByRole('button',{name:({320:'Enable camera',490:'Try sample photo',690:'Take picture',870:'Return to camera'})[x],exact:true}).click();
 const results = [];
 try {
   await page.goto(origin);
@@ -55,7 +55,7 @@ try {
   for (let i=0;i<2;i++) {
     await click(690);
     await waitState('loading');
-    await click(690); // hidden Capture location must not start a second cycle
+    await page.evaluate(()=>window.booth.action('capture')); // repeated capture must not start another cycle
     if(i===0)await snapshot('02-loading');
     await waitState('portrait');
     const started=await page.evaluate(()=>performance.now());
@@ -79,7 +79,9 @@ try {
   assert.equal(await page.evaluate(()=>JSON.parse(window.booth.status()).mode),'camera');
   await snapshot('06-synthetic-camera');
   await click(690); await waitState('loading'); await waitState('portrait');
-  await click(870); await waitState('camera');
+  const liveStart=await page.evaluate(()=>performance.now());await waitState('explosion');
+  const liveDuration=await page.evaluate(start=>performance.now()-start,liveStart);assert(liveDuration>=9700&&liveDuration<=10700,`live portrait duration ${liveDuration}`);
+  await waitState('camera');
   await page.waitForFunction(()=>window.boothState.source==='camera');
   results.push({check:'synthetic getUserMedia frame transferred into exported Godot; capture/reset',passed:true});
   apiMode='failure';await click(690);await waitState('loading');await waitState('camera');
@@ -96,14 +98,14 @@ try {
   apiMode='success';await click(320);await page.waitForFunction(()=>window.boothState.source==='camera');
   await page.evaluate(()=>window.__cameraStreams.at(-1).getTracks().forEach(track=>track.stop()));
   await page.waitForFunction(()=>window.boothState.source==='denied');
-  await click(690);
+  await page.evaluate(()=>window.booth.action('capture'));
   assert.equal(await page.evaluate(()=>window.boothState.state),'camera');
   assert.equal(JSON.parse(await page.evaluate(()=>window.booth.status())).error,'CameraEnded');
   results.push({check:'ended camera track disables stale capture and allows retry',passed:true});
   await click(320); await page.waitForFunction(()=>window.boothState.source==='camera');
   await page.evaluate(()=>window.dispatchEvent(new Event("pagehide")));
   await page.waitForFunction(()=>window.boothState.source==='none');
-  await click(690);
+  await page.evaluate(()=>window.booth.action('capture'));
   assert.equal(await page.evaluate(()=>window.boothState.state),'camera');
   results.push({check:'pagehide releases camera and disables stale capture on return',passed:true});
   // A camera request resolving after cancellation must release its stream.
@@ -122,7 +124,7 @@ try {
   const denied=await browser.newContext({viewport:{width:1024,height:700}});
   const deniedPage=await denied.newPage();
   await deniedPage.goto(origin);await deniedPage.waitForFunction(()=>window.boothState?.state==='camera');
-  await deniedPage.mouse.click(320,609);
+  await deniedPage.getByRole('button',{name:'Enable camera',exact:true}).click();
   await deniedPage.waitForFunction(()=>window.boothState.source==='denied',null,{timeout:20000});
   await deniedPage.screenshot({path:resolve(evidence,'07-camera-denied.png')});
   results.push({check:'permission denial is recoverable',status:JSON.parse(await deniedPage.evaluate(()=>window.booth.status()))});

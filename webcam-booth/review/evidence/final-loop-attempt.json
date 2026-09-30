@@ -1,0 +1,10 @@
+{
+  "status": "failed-timing-check-after-paid-portrait",
+  "tag": "final-loop",
+  "at": "2026-09-30T05:23:56.519Z",
+  "run": "run-71837aecf9650b6d5b7d4319",
+  "actual_cost_usd": "0.010000",
+  "source": "Chromium synthetic camera (later source audit found fixture injection size mismatch)",
+  "physical_webcam_tested": false,
+  "reason": "Timer measurement started after screenshot/assertion work; preserved as failed validation, paid run completed, do not repeat same slot."
+}
