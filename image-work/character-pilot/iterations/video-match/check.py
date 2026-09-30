@@ -1,12 +1,13 @@
 """Small receipt check for selected native models, reference movies and the spend ceiling."""
 from pathlib import Path
-import hashlib, json, subprocess
+import hashlib, json, subprocess, struct
 
 HERE=Path(__file__).resolve().parent
 read=lambda path:json.loads(path.read_text())
 digest=lambda path:hashlib.sha256(path.read_bytes()).hexdigest()
 result={'additional_paid_calls':0,'additional_cost_usd':0,'exact_visual_match':False,'models':{}}
-for name in ['authored-walk-v5','authored-fast-v5','authored-fast-v6']:
+trials=['authored-walk-v7','authored-walk-v8','authored-fast-v8','authored-walk-v9','authored-fast-v9']
+for name in ['authored-walk-v5','authored-fast-v5','authored-fast-v6',*trials]:
     folder=HERE/name;sha=digest(folder/'footplant-candidate.glb')
     correction=read(folder/'correction.json');contact=read(folder/'contact-manifest.json');launch=read(folder/'mcp-launch.json')
     assert sha==correction['output_sha256']==contact['candidate_sha256']
@@ -20,6 +21,34 @@ for name in ['authored-walk-v5','authored-fast-v5','authored-fast-v6']:
         assert read(folder/f'candidate-proof/{clip}.json')['source_sha256']==sha
     assert not contact['sampled_planar_contact_verified']
     result['models'][name]={'sha256':sha,'native_probe':contact['contact_probe']}
+
+# Read the actual exported buffers; a successful floor probe alone cannot accept a shoe edit.
+def glb(name):
+    raw=(HERE/name/'footplant-candidate.glb').read_bytes();size=struct.unpack_from('<I',raw,12)[0]
+    return json.loads(raw[20:20+size]),raw[28+size:]
+def view(document,binary,index):
+    v=document['bufferViews'][index];start=v.get('byteOffset',0)
+    return binary[start:start+v['byteLength']]
+result['foot_trials']={}
+for name in trials:
+    baseline='authored-fast-v6' if 'fast' in name else 'authored-walk-v5'
+    a,old=glb(baseline);b,new=glb(name)
+    ap=a['meshes'][0]['primitives'][0];bp=b['meshes'][0]['primitives'][0]
+    assert len(a['meshes'][0]['primitives'])==len(b['meshes'][0]['primitives'])==1
+    for key in ['TEXCOORD_0','JOINTS_0','WEIGHTS_0']:
+        assert view(a,old,a['accessors'][ap['attributes'][key]]['bufferView'])==view(b,new,b['accessors'][bp['attributes'][key]]['bufferView']),key
+    assert view(a,old,a['accessors'][ap['indices']]['bufferView'])==view(b,new,b['accessors'][bp['indices']]['bufferView'])
+    assert view(a,old,a['images'][0]['bufferView'])==view(b,new,b['images'][0]['bufferView'])
+    av=list(struct.iter_unpack('<fff',view(a,old,a['accessors'][ap['attributes']['POSITION']]['bufferView'])))
+    bv=list(struct.iter_unpack('<fff',view(b,new,b['accessors'][bp['attributes']['POSITION']]['bufferView'])))
+    assert len(av)==len(bv)==5640
+    changed=[x for x,y in zip(av,bv) if x!=y]
+    assert len(changed)==(0 if name.endswith('v7') else 972)
+    assert all(x[1]<=.200001 for x in changed),'Shoe trial moved geometry outside its original mask'
+    contacts=read(HERE/name/'contact-manifest.json')['contacts']
+    expected=['Right','Left'] if name in ['authored-walk-v7','authored-walk-v9'] else ['Left','Right']
+    assert [c['foot'] for c in contacts]==expected
+    result['foot_trials'][name]={'geometry_vertices_changed':len(changed),'source_contact_order_matches':expected==['Left','Right'],'uv_texture_skin_topology_bytes_unchanged':True,'selected':False}
 for view,cycles in [('game',4),('profile',2)]:
     folder=HERE.parent/f'video-match-{view}-fast-v6';config=read(folder/'config.json');evidence=read(folder/'evidence.json')
     assert config['models'][0]['sha256']==result['models']['authored-fast-v6']['sha256']
@@ -43,4 +72,4 @@ for name in ['front.png','mesh-output-model_glb.glb','rig-output-rigged_characte
 spend=read(pilot/'spend.json');result['aggregate_liability_usd']=round(sum(e['liability_usd'] for e in spend['entries']),2)
 assert result['aggregate_liability_usd']==1.54 and spend['ceiling_usd']==4
 (HERE/'checked.json').write_text(json.dumps(result,indent=2)+'\n')
-print('PASS: MCP completion, dense native floor/endpoints, effect timing, source movies and $1.54 liability')
+print('PASS: MCP completion, dense native probes, rejected shoe trials, effect timing, source movies and $1.54 liability')

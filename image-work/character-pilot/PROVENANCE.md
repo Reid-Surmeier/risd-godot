@@ -17,3 +17,7 @@ Trial for [Prototype: Muse-to-3D proof of the supplied horned character](https:/
 ## GameCube video refinement, 2026-09-30
 
 Additional provider calls and API cost:0. Liability remains$1.54 of the authorized$4. [Source/video comparison and measured limits](../../docs/research/character-video-matched-iterations.md) records the selected source-curve WALKv5 and DASHv6, exact source commit, inspected 287-vertex jaw extension,739-vertex arm weight correction, actual Blender MCP completion, dense native sampling, source short-clip hashes, and failed import/effect attempts. `PROVENANCE.json` binds selected GLBs and masks. No source textures/provider files were changed. This is research evidence; exact likeness, world stance lock, terrain/turning/transitions and runtime acceptance remain open.
+
+## Foot-reference follow-up
+
+Five additional actual-MCP local trials test a standing Foot reference,60% boots, and80% boots plus that reference. None replaces WALKv5/Fastv6. Native257-pose checks and exported-buffer comparisons passed;60% boots restore WALK contact order at a visible proportion cost. UV, texture, weights and topology bytes remain equal to the corresponding selected model; only972 exported positions change in the scaling trials. Original provider files remain untouched. Added API cost$0; aggregate liability$1.54. The report records rejected alternatives, source limitations and the profile-description erratum.

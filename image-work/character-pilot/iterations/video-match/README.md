@@ -4,6 +4,8 @@ Start with `youtube-front-v6/comparison.gif` and `youtube-profile-v6/comparison.
 
 Selected: `authored-walk-v5/` (0.8s WALK), `authored-fast-v6/` (14/30s DASH). `authored-fast-v5/` retains the0.4s comparison. Each GLB temporarily stores fast motion in its `walk` clip slot; source/profile names distinguish the trials. No runtime naming contract is implied. Current baked mesh has24bones/7,719triangles and original textures.
 
+Follow-up foot trials: `authored-walk-v7` changes only the standing Foot reference; v8 scales boots to60%; v9 combines80% boots with that reference. None replaces the selected models. See `../video-match-shoes-walk-v8/loop.gif`, `../video-match-shoes-walk-v9/loop.gif` and `../video-match-shoes-profile-v9/comparison.gif`. The native contact-order change in v8 comes with a visible proportion change. Details and failed alternatives are in the report's foot-trial section. `check.py` now verifies these actual exports and native receipts too. Replay the same commands with the trial profile name; intermediate Blender files were removed to save space.
+
 Actual MCP replay, with the temporary Blender bridge available:
 
 ```bash

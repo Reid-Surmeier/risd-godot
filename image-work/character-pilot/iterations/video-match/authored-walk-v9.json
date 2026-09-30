@@ -1,0 +1,19 @@
+{
+  "forward_idle": true,
+  "stable_head": true,
+  "jaw_mask": "jaw-mask.json",
+  "symmetric_arms": true,
+  "authored_legs": true,
+  "preserve_reference_seam": true,
+  "source_units_to_m": 0.0004695,
+  "controller_speed_mps": 1.05,
+  "reference_fit": "experimental standing Foot functional rest plus .8 shoe extent; source sole basis/likeness not verified",
+  "period_seconds": 0.8,
+  "source_curves": "walk-reference-curves.json",
+  "swing_lift_m": 0.06,
+  "anatomical_axes": true,
+  "bake_fps": 240,
+  "arm_weight_mask": "arm-weight-mask.json",
+  "shoe_scale": 0.8,
+  "standing_foot_reference": "standing-foot-reference.json"
+}

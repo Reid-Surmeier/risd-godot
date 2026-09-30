@@ -63,5 +63,65 @@
     "report": "docs/research/character-video-matched-iterations.md",
     "arm_mask_sha256": "2027b01dd2a778567ad72f3150f91949688a8ad8b232dd970ddb9541600a4d03",
     "jaw_mask_sha256": "342b6da96714908aa538dfb073808b5e9fc0b878972cfa4f9dda74a2acc57947"
+  },
+  "foot_reference_trials": {
+    "issue": 231,
+    "provider_calls_added": 0,
+    "cost_usd_added": 0,
+    "selected_models_unchanged": true,
+    "standing_reference_sha256": "64f9e9d81f6e2f6fd3f0f5542d8a0035032df2acc878bbd86f35e1a6317ee534",
+    "trials": {
+      "authored-walk-v7": {
+        "sha256": "5006878bba36715986e311b5b8876f886e5a6876372457f745923a9250c4c281",
+        "selected": false,
+        "native_contact_order": [
+          "Right",
+          "Left"
+        ],
+        "floor_penetration_max_m": 6.8283079599496e-05,
+        "profile": "iterations/video-match/authored-walk-v7.json"
+      },
+      "authored-walk-v8": {
+        "sha256": "5cbb8ed012eaf44f7ddae27dbc312c4ac55cf913429f19f019e9659b60664b48",
+        "selected": false,
+        "native_contact_order": [
+          "Left",
+          "Right"
+        ],
+        "floor_penetration_max_m": 3.88336156902369e-05,
+        "profile": "iterations/video-match/authored-walk-v8.json"
+      },
+      "authored-fast-v8": {
+        "sha256": "a99701f9d5e30065b9860fcdfff028918fbfb6a1a0527fd92da9abd9a3f3aefb",
+        "selected": false,
+        "native_contact_order": [
+          "Left",
+          "Right"
+        ],
+        "floor_penetration_max_m": 0.000270721910055727,
+        "profile": "iterations/video-match/authored-fast-v8.json"
+      },
+      "authored-walk-v9": {
+        "sha256": "33749bcea656023d609d6de64167a4496cce40db67bbe067ebad35024e58cce3",
+        "selected": false,
+        "native_contact_order": [
+          "Right",
+          "Left"
+        ],
+        "floor_penetration_max_m": 6.04915621806867e-05,
+        "profile": "iterations/video-match/authored-walk-v9.json"
+      },
+      "authored-fast-v9": {
+        "sha256": "23d4b1bad4349eac138344a107447002e5adc1563c542be6cef535565978c385",
+        "selected": false,
+        "native_contact_order": [
+          "Left",
+          "Right"
+        ],
+        "floor_penetration_max_m": 0.000288510316750035,
+        "profile": "iterations/video-match/authored-fast-v9.json"
+      }
+    },
+    "profile_description_erratum": "v8/v9 reference_fit says geometry/UV coordinates scaled. Actual exports scale geometry only: UV, atlas, weights and topology bytes equal their selected baseline. check.py verifies this."
   }
 }

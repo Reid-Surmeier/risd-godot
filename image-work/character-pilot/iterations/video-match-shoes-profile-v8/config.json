@@ -1,0 +1,20 @@
+{
+  "models": [
+    {
+      "source": "video-match/authored-walk-v8/footplant-candidate.glb",
+      "label": ".6 boots; structural Foot",
+      "sha256": "5cbb8ed012eaf44f7ddae27dbc312c4ac55cf913429f19f019e9659b60664b48"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 2,
+  "effects": false,
+  "controller_speed_m_s": 1.05,
+  "contacts": [],
+  "width": 480,
+  "height": 640,
+  "camera_distance": 10.5,
+  "import_fps": 240,
+  "camera_yaw": 90
+}

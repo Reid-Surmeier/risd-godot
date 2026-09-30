@@ -1,0 +1,46 @@
+{
+  "camera": {
+    "depression_degrees": 45.0,
+    "distance_m": 10.5,
+    "vertical_fov_degrees": 20,
+    "viewport_pixels": [
+      960,
+      640
+    ]
+  },
+  "clip": "walk",
+  "cost_usd": 0,
+  "effects": {
+    "calls": 0,
+    "contacts_per_loop": 0,
+    "cycles": 2,
+    "idle_added_calls": 0,
+    "idle_control": false,
+    "kind": "native Animation method keys trigger contact-timed mesh dust puffs",
+    "native_method_track_tested": false,
+    "suppressed_outgoing_walk_keys_in_idle": 0
+  },
+  "fps": 30,
+  "frames_per_cycle": 24,
+  "models": [
+    {
+      "bones": 24,
+      "contact_events": [],
+      "label": ".6 boots; structural Foot",
+      "maximum_blend_root_lift_m": 0,
+      "minimum_sole_y_m": -1.48010249176878e-05,
+      "unclamped_minimum_sole_y_m": -1.48010249176878e-05
+    },
+    {
+      "bones": 24,
+      "contact_events": [],
+      "label": ".8 boots; standing Foot trial",
+      "maximum_blend_root_lift_m": 0,
+      "minimum_sole_y_m": -1.78718564711744e-05,
+      "unclamped_minimum_sole_y_m": -1.78718564711744e-05
+    }
+  ],
+  "seconds": 0.800000011920929,
+  "godot_animation_optimizer_enabled": false,
+  "animation_import_fps": 240
+}

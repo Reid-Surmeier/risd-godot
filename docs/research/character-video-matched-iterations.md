@@ -47,3 +47,27 @@ Root grounding does **not** lock a stance foot to a world position. The former c
 Storage is constrained: the host had22GB free at98% usage. Removed36MB of redundant newly generated PNGs, retaining complete short movies and representative poses. Intermediate GLBs and audit receipts preserve useful failures; duplicate intermediate Blender files are dispensable because the saved stages regenerate them. No owner files or unrelated caches were removed.
 
 Replay and the small receipt assertion are documented in [the trial README](../../image-work/character-pilot/iterations/video-match/README.md). The open next research target is a supported shoe/sole calibration plus original proportions and phase/view alignment; this result is **not exact** and does not close visual acceptance.
+
+## Foot-reference follow-up: five controlled trials
+
+The original WALKv5 and Fastv6 remain selected. A smaller sole can pass the contact test while making the character look worse; none of these trials establishes an exact visual match.
+
+| Actual MCP trial | Change | Native WALK-slot contact order | Maximum penetration,257poses | Decision |
+| --- | --- | --- | --- | --- |
+| WALKv7 | Standing Foot reference; original geometry | Right then Left |0.068mm| Does not fix the reversal |
+| WALKv8 |60% boot extent; structural Foot reference | Left then Right |0.039mm| Restores source order but visibly changes proportions |
+| Fastv8 |60% boot extent | Left then Right |0.271mm| Smaller boots; no reason to replace selected Fastv6 |
+| WALKv9 |80% boot extent plus standing Foot reference | Right then Left |0.060mm| Milder visual change still fails the order test |
+| Fastv9 |80% boots plus standing Foot reference | Left then Right |0.289mm| Contact already passed before; no exactness gain established |
+
+Read the [original-versus60% WALK movie](../../image-work/character-pilot/iterations/video-match-shoes-walk-v8/loop.gif), [60%-versus80% WALK movie](../../image-work/character-pilot/iterations/video-match-shoes-walk-v9/loop.gif), and [profile comparison](../../image-work/character-pilot/iterations/video-match-shoes-profile-v9/comparison.gif). Full30FPS movies and four evenly spaced poses per trial are retained. Front/profile poses were visually inspected. Boot reduction is obvious and no gross new head or arm tear was seen in the inspected poses; this is not an exhaustive seam acceptance.
+
+`standing-foot-reference.json` records source `wait1` at frame1, decoded with the same Hermite evaluator used by `decode_walk.py`, then quantized to binary angles and accumulated as parent*Rz*Ry*Rx. It retains all local rotations and the two resulting global Foot rotations. Source: [pinned player animation table](https://github.com/ACreTeam/ac-decomp/blob/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/data/model/player_anim.c). Input SHA256 is96867776dd870deb666f8c46aaead96da9c5b92c6358fb6f8485b1e41aa639c7. Treating that animated standing pose as a shoe rest reference is an experimental inference, not proof of the original sole plane.
+
+The [pinned model source](https://github.com/ACreTeam/ac-decomp/blob/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/data/model/boy_model.c) references `assets/boy_1_v.inc` for its vertex data. The corresponding public raw include returned404 when checked; we did not recover original sole geometry or extract a ROM. Therefore the source skeleton alone does not establish the original shoe-to-joint basis.
+
+The native receipts bind the exact exports to actual MCP completion. All five retain24bones and7,719triangles; endpoint vertex differences stay below0.5µm. The exported UV, embedded atlas, skin weights and triangle-index bytes match their selected baseline exactly. WALKv7 leaves positions identical. Scaling trials change972 exported positions, all from the original shoe region below0.20m; ankle bind matrices remain unchanged. **Erratum:** preserved v8/v9 profile descriptions say “geometry/UV coordinates scaled”; actual UV coordinates are unchanged, as verified by `check.py`. The generated foot shape changes.
+
+No world stance-lock result follows from these floor/contact checks. No turning/terrain/transition or new effects claim is made for these candidates. Native source-pose velocity discontinuities remain. The next useful refinement is an explicit anatomical shoe/sole definition and retargeting reference, judged alongside gameplay proportions; a smaller shoe is not sufficient evidence.
+
+No additional paid call; liability remains$1.54. Removed29,927,382bytes of this follow-up's duplicate PNG frames and intermediate Blender files after movies were produced. GLBs, stages and receipts retain the experiments. Host live free space is117GB at89% use; the complete retained pilot is about234MiB. The earlier22GB/98% measurement remains historical, not current.

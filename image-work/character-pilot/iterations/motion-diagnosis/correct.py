@@ -44,10 +44,16 @@ if profile.get('jaw_mask'):
  for group in mesh.vertex_groups:group.remove(jawids)
  mesh.vertex_groups['Head'].add(jawids,1,'REPLACE')
 shoeids={s:[i for i,v in enumerate(restverts) if v.z<=.20 and (v.x>0 if s=='Left' else v.x<=0)] for s in ['Left','Right']}
-# Deliberately narrow, target-specific shoe repair; preserve positions, faces, atlas.
+# Target-specific rigid shoe weights. Experimental profiles may also scale positions.
 for side,ids in shoeids.items():
  for group in mesh.vertex_groups:group.remove(ids)
  mesh.vertex_groups[side+'Foot'].add(ids,1,'REPLACE')
+ if profile.get('shoe_scale'):
+  factor=profile['shoe_scale'];assert .5<=factor<=1
+  pivot=(rig.matrix_world@rests[side+'Foot']).translation
+  for index in ids:
+   restverts[index]=pivot+(restverts[index]-pivot)*factor
+   mesh.data.vertices[index].co=mesh.matrix_world.inverted()@restverts[index]
 mesh.data.update();mesh.update_tag(refresh={'OBJECT','DATA'})
 restworld={n:rig.matrix_world@m for n,m in rests.items()}
 reference=None
@@ -64,6 +70,12 @@ if profile.get('source_curves'):
   parent=joint['parent'];neutral[joint['index']]=rotation if parent is None else neutral[parent]@rotation
  mapping={'Hips':'base','Spine02':'chest','Spine01':'chest','Spine':'chest','LeftShoulder':'LeftShoulderBase','LeftArm':'LeftUpperArm','LeftForeArm':'LeftForearm','LeftHand':'LeftForearm','RightShoulder':'RightShoulderBase','RightArm':'RightUpperArm','RightForeArm':'RightForearm','RightHand':'RightForearm','neck':'HeadBase','Head':'head','LeftUpLeg':'LeftThigh','LeftLeg':'LeftKnee','LeftFoot':'LeftShoe','LeftToeBase':'LeftShoe','RightUpLeg':'RightThigh','RightLeg':'RightKnee','RightFoot':'RightShoe','RightToeBase':'RightShoe'}
  # Parent first even though the source and target have different extra spine/hand joints.
+ if profile.get('standing_foot_reference'):
+  stand=json.loads((profile_path.parent/profile['standing_foot_reference']).read_text())
+  assert stand['source_commit']==reference['source_commit'] and stand['animation']=='wait1' and stand['source_frame']==1
+  assert stand['player_anim_sha256']==reference['source_inputs'][0]['sha256']
+  assert set(stand['source_world_foot_rotation'])=={'LeftShoe','RightShoe'}
+  for name,rotation in stand['source_world_foot_rotation'].items():neutral[indices[name]]=Matrix(rotation)
  order=sorted(mapping,key=lambda n:len(rig.data.bones[n].parent_recursive))
  calibration={name:Quaternion() for name in mapping}
  if profile.get('anatomical_axes',False):
