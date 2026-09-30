@@ -41,9 +41,15 @@ window.booth = (() => {
   let generation = {mode:'idle'}, generationTicket=0, controller;
   async function generate(image) {
     const own=++generationTicket;controller?.abort();controller=new AbortController();generation={mode:'loading'};
-    const timeout=setTimeout(()=>controller.abort(),120000);
+    const timeout=setTimeout(()=>controller.abort(),700000);
+    const id=crypto.randomUUID();const signal=controller.signal;
     try {
-      const response=await fetch(new URL('api/portrait',document.baseURI),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:crypto.randomUUID(),image}),signal:controller.signal});
+      let response=await fetch(new URL('api/portrait',document.baseURI),{method:'POST',headers:{'Content-Type':'application/json',Prefer:'respond-async'},body:JSON.stringify({id,image}),signal});
+      while(response.status===202){
+        await new Promise(resolve=>setTimeout(resolve,1000));
+        if(own!==generationTicket)return;
+        response=await fetch(new URL('api/portrait/status',document.baseURI),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id}),signal});
+      }
       const result=await response.json();
       if(!response.ok)throw Error(result.error||'Generation unavailable.');
       if(own===generationTicket)generation={mode:'ready',image:result.image,run:result.run};

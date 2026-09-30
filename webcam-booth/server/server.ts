@@ -65,18 +65,39 @@ async function provider(capture:Capture):Promise<Portrait>{
  }catch{throw {costCents:recordedCostCents};}
 }
 const generate=Effect.runSync(createGeneration({root:privateRoot,provider,validate,requireLedger:true}));
+type Outcome={_tag:'Left';left:import('./errors.ts').GenerationError}|{_tag:'Right';right:Portrait};
+const jobs=new Map<string,{hash:string;outcome?:Outcome;delivered?:boolean}>();
 const mime:Record<string,string>={'.html':'text/html','.js':'text/javascript','.wasm':'application/wasm','.pck':'application/octet-stream','.png':'image/png','.webp':'image/webp','.json':'application/json','.mp4':'video/mp4','.task':'application/octet-stream'};
 const server=createServer(async(request,response)=>{
  const send=(status:number,data:unknown)=>{response.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});response.end(JSON.stringify(data));};
  try{
   const path=new URL(request.url??'/', 'http://booth.invalid').pathname;
-  if(path==='/api/portrait'&&request.method==='POST'){
+  if((path==='/api/portrait'||path==='/api/portrait/status')&&request.method==='POST'){
    const origin=request.headers.origin;
    const forwarded=request.headers['x-forwarded-host'];const host=typeof forwarded==='string'?forwarded:request.headers.host;
    if(!origin||new URL(origin).host!==host){send(403,{error:'Same-origin request required.'});return;}
    let length=0;const chunks:Buffer[]=[];
    for await(const chunk of request){length+=chunk.length;if(length>2_000_100){send(413,{error:'Capture too large.'});return;}chunks.push(chunk);}
+   if(path==='/api/portrait/status'){
+    let id;try{id=JSON.parse(Buffer.concat(chunks).toString('utf8')).id;}catch{send(400,{error:'Invalid capture.'});return;}
+    const job=typeof id==='string'?jobs.get(id):undefined;
+    if(!job){send(404,{error:'Capture result is unavailable. Take a new picture deliberately.'});return;}
+    if(!job.outcome){send(202,{pending:true});return;}
+    if(!job.delivered){job.delivered=true;setTimeout(()=>{if(jobs.get(id)===job)jobs.delete(id)},15_000).unref();}
+    const outcome=job.outcome;
+    if(outcome._tag==='Left'){send(outcome.left.code==='invalid'?400:outcome.left.code==='busy'?409:503,{error:outcome.left.message,code:outcome.left.code});return;}
+    send(200,outcome.right);return;
+   }
    let capture:Capture;try{capture=JSON.parse(Buffer.concat(chunks).toString('utf8'));if(!capture||typeof capture.id!=='string'||typeof capture.image!=='string')throw Error();}catch{send(400,{error:'Invalid capture.'});return;}
+   if(request.headers.prefer==='respond-async'){
+    if(!/^[0-9a-f-]{36}$/.test(capture.id)||capture.image.length>2_000_000){send(400,{error:'Invalid capture.'});return;}
+    const captureHash=hash(capture.image);const prior=jobs.get(capture.id);
+    if(prior){send(prior.hash===captureHash?202:400,prior.hash===captureHash?{pending:true}:{error:'Capture identity already used.'});return;}
+    if([...jobs.values()].some(job=>!job.outcome)){send(409,{error:'Another portrait is being prepared.'});return;}
+    const job:{hash:string;outcome?:Outcome;delivered?:boolean}={hash:captureHash};jobs.set(capture.id,job);
+    void Effect.runPromise(Effect.either(generate(capture))).then(outcome=>{job.outcome=outcome;setTimeout(()=>{if(jobs.get(capture.id)===job)jobs.delete(capture.id)},60_000).unref();});
+    send(202,{pending:true});return;
+   }
    const outcome=await Effect.runPromise(Effect.either(generate(capture)));
    if(outcome._tag==='Left'){send(outcome.left.code==='invalid'?400:outcome.left.code==='busy'?409:503,{error:outcome.left.message,code:outcome.left.code});return;}
    send(200,outcome.right);return;

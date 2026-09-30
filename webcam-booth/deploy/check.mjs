@@ -5,7 +5,9 @@ import {chromium} from '/home/reidsurmeier/.npm-global/lib/node_modules/playwrig
 const url=process.argv[2];
 assert(url?.startsWith('https://'),'Pass the deployed HTTPS URL.');
 const evidence=process.env.BOOTH_DEPLOY_EVIDENCE??'/tmp/webcam-deployment';
-const browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',headless:true,args:['--no-sandbox','--enable-unsafe-swiftshader']});
+const args=['--no-sandbox','--enable-unsafe-swiftshader'];
+if(process.env.BOOTH_DEPLOY_RESOLVE)args.push('--host-resolver-rules=MAP '+process.env.BOOTH_DEPLOY_RESOLVE);
+const browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',headless:true,args});
 try {
  const page=await browser.newPage({viewport:{width:1024,height:700}});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
