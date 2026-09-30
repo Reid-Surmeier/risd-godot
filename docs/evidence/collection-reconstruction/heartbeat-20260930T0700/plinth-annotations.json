@@ -1,0 +1,30 @@
+{
+  "picks": {
+    "IMG_6380/000202.jpg": [
+      [
+        505.5,
+        919
+      ]
+    ],
+    "IMG_6380/000204.jpg": [
+      [
+        296.5,
+        833
+      ]
+    ],
+    "IMG_6380/000203.jpg": [
+      [
+        411,
+        815
+      ]
+    ]
+  },
+  "training": [
+    "IMG_6380/000202.jpg",
+    "IMG_6380/000204.jpg"
+  ],
+  "reserved": "IMG_6380/000203.jpg",
+  "labels": [
+    "grand-white-front-left-plinth-shoulder"
+  ]
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "revisit": "000002.jpg",
+    "survey": "000203.jpg",
+    "nominal_seconds": 101.16666666666667,
+    "survey_nominal_seconds": 101.0,
+    "offset_seconds": -0.1666666666666714
+  },
+  {
+    "revisit": "000005.jpg",
+    "survey": "000204.jpg",
+    "nominal_seconds": 101.66666666666667,
+    "survey_nominal_seconds": 101.5,
+    "offset_seconds": -0.1666666666666714
+  },
+  {
+    "revisit": "000008.jpg",
+    "survey": "000205.jpg",
+    "nominal_seconds": 102.16666666666667,
+    "survey_nominal_seconds": 102.0,
+    "offset_seconds": -0.1666666666666714
+  },
+  {
+    "revisit": "000011.jpg",
+    "survey": "000206.jpg",
+    "nominal_seconds": 102.66666666666667,
+    "survey_nominal_seconds": 102.5,
+    "offset_seconds": -0.1666666666666714
+  },
+  {
+    "revisit": "000014.jpg",
+    "survey": "000207.jpg",
+    "nominal_seconds": 103.16666666666667,
+    "survey_nominal_seconds": 103.0,
+    "offset_seconds": -0.1666666666666714
+  },
+  {
+    "revisit": "000017.jpg",
+    "survey": "000208.jpg",
+    "nominal_seconds": 103.66666666666667,
+    "survey_nominal_seconds": 103.5,
+    "offset_seconds": -0.1666666666666714
+  },
+  {
+    "revisit": "000020.jpg",
+    "survey": "000209.jpg",
+    "nominal_seconds": 104.16666666666667,
+    "survey_nominal_seconds": 104.0,
+    "offset_seconds": -0.1666666666666714
+  },
+  {
+    "revisit": "000023.jpg",
+    "survey": "000210.jpg",
+    "nominal_seconds": 104.66666666666667,
+    "survey_nominal_seconds": 104.5,
+    "offset_seconds": -0.1666666666666714
+  },
+  {
+    "revisit": "000026.jpg",
+    "survey": "000211.jpg",
+    "nominal_seconds": 105.16666666666667,
+    "survey_nominal_seconds": 105.0,
+    "offset_seconds": -0.1666666666666714
+  },
+  {
+    "revisit": "000029.jpg",
+    "survey": "000212.jpg",
+    "nominal_seconds": 105.66666666666667,
+    "survey_nominal_seconds": 105.5,
+    "offset_seconds": -0.1666666666666714
+  },
+  {
+    "revisit": "000032.jpg",
+    "survey": "000213.jpg",
+    "nominal_seconds": 106.16666666666667,
+    "survey_nominal_seconds": 106.0,
+    "offset_seconds": -0.1666666666666714
+  },
+  {
+    "revisit": "000035.jpg",
+    "survey": "000214.jpg",
+    "nominal_seconds": 106.66666666666667,
+    "survey_nominal_seconds": 106.5,
+    "offset_seconds": -0.1666666666666714
+  }
+]

@@ -19,10 +19,17 @@ OUT = ROOT/'grand-return-fresh-calibrated-v3'
 PICKS = {24: [312, 1021], 26: [548, 1036], 28: [0, 0]}
 parser = argparse.ArgumentParser()
 parser.add_argument('--right-toe', action='store_true')
+parser.add_argument('--right-plinth', action='store_true')
 args = parser.parse_args()
+assert not (args.right_toe and args.right_plinth)
+if args.right_plinth:
+    args.right_toe = True  # Reuse cached pose and disjoint-point diagnostics.
 if args.right_toe:
     OUT = ROOT/'grand-right-toe-v1'
     PICKS = {12: [568, 1060], 14: [506, 1095]}
+if args.right_plinth:
+    OUT = ROOT/'grand-right-plinth-v1'
+    PICKS = {12: [578, 1008], 14: [553, 1044]}
 OUT.mkdir(exist_ok=True)
 
 
@@ -36,6 +43,11 @@ if args.right_toe:
     annotations = dict(picks=PICKS, reserved='IMG_6380/000206.jpg', reserved_pixel=[626, 1043],
         training=[12, 14], caveat='Right exterior white casing toe only, not the inner aperture. '
         'Nearby same-video views; frozen query pixels, original 102.5s exclusion retained.')
+if args.right_plinth:
+    annotations['reserved_pixel'] = [646, 995]
+    annotations['caveat'] = ('New front-right rib/plinth shoulder above floor; blurred photographs. '
+        'Cached poses/matches only, unchanged withheld time and pixel diagnostic. '
+        'Same-video evidence; not an aperture or independent survey.')
 text = json.dumps(annotations, indent=2)+'\n'
 if (OUT/'annotations.json').exists():
     assert (OUT/'annotations.json').read_text() == text, 'Changed picks need a new trial.'
@@ -52,9 +64,19 @@ provenance = json.loads((FRAMES/'provenance.json').read_text())
 for f in PICKS:
     assert sha(FRAMES/f'{f:06}.jpg') == provenance['frames_sha256'][f'{f:06}.jpg']
     if args.right_toe:
-        assert abs(101+(f-1)/6-102.5) > .2
+        timing = json.loads((ROOT/'sampling-timing-v1/result.json').read_text())
+        assert timing['source_sha256'] == audit['source_sha256']
+        if not timing['grand_reference_exclusion_passed']:
+            (OUT/'sampling-rejection.json').write_text(json.dumps(dict(
+                reason='Decoded source samples violate the 0.2s exclusion; nominal fps times are insufficient.',
+                samples=timing['grand_reference_samples'], geometry_accepted=False,
+                navigation_accepted=False), indent=2)+'\n')
+            raise SystemExit('Sampling rejected before pose fitting/matching. Preserve historical trials.')
 database = OUT/'database.db'
-if not (OUT/'matches-complete.json').exists():
+if args.right_plinth:
+    database = ROOT/'grand-right-toe-v1/database.db'
+    assert (database.parent/'matches-complete.json').exists(), 'Do not rerun completed matching.'
+if not args.right_plinth and not (OUT/'matches-complete.json').exists():
     assert not database.exists(), 'Inspect interrupted matching; never retry blindly.'
     shutil.copyfile(SOURCE/'database.db', database)
     with pycolmap.Database.open(database) as db:
@@ -163,12 +185,12 @@ if args.right_toe and all(r['supported'] for r in rows):
     assert np.linalg.norm(predicted-(np.array(annotations['reserved_pixel'])+[50, 0])) > 8
     aperture = json.loads((ROOT/'doorway-aperture-v1/result.json').read_text())
     scale = aperture['provisional_m_per_unit']
-    left = json.loads((ROOT/'grand-casing-registered-v1/result.json').read_text())
+    left = json.loads((ROOT/('grand-casing-plinth-v1' if args.right_plinth else 'grand-casing-registered-v1')/'result.json').read_text())
     rng = np.random.default_rng(182)
     samples = np.array([triangulate(cameras, poses,
         {name: np.array(pixel)+rng.uniform(-3, 3, 2) for name, pixel in observations.items()})[0]
         for _ in range(300)])
-    report['toe'] = dict(point_world=point.tolist(), ray_angle_degrees=angle,
+    report['plinth' if args.right_plinth else 'toe'] = dict(point_world=point.tolist(), ray_angle_degrees=angle,
         reserved_pose_inliers=inliers, reserved_error_px=error,
         diagnostic_pass=error <= 8 and angle >= 1 and all(r['unused_point_audit']['supported'] for r in rows),
         provisional_m_per_unit=scale,
@@ -176,6 +198,10 @@ if args.right_toe and all(r['supported'] for r in rows):
         pick_sensitivity_p95_displacement_m=float(np.percentile(np.linalg.norm(samples-point, axis=1)*scale, 95)),
         caveat='Exterior casing separation is not inner opening width. Pick sensitivity excludes pose/scale error. '
         'No full aperture, floor, collision or navigation accepted.')
+    if args.right_plinth:
+        report['plinth']['caveat'] = ('Exterior plinth shoulder separation, not opening width. '
+            'Blur and same-video pose errors remain; pick sensitivity excludes pose/scale. '
+            'No floor/collision extension or navigation acceptance.')
     for name, pixel in {**observations, query: annotations['reserved_pixel']}.items():
         path = ROOT/'survey-2fps'/name if name == query else FRAMES/f'{queries[name]:06}.jpg'
         im = Image.open(path).transpose(Image.Transpose.ROTATE_270).convert('RGB')

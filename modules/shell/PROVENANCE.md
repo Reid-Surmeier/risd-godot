@@ -211,3 +211,21 @@ Final native/RTX Chrome walk passes all 24 checks and real keyboard round trips;
 initial failed capture invocation and integrated-GPU browser run retained.
 Shell has seven previously observed failure names. Existing Muse receipts and
 rejected sculpture meshes unchanged; no production integration or Viewer edit.
+
+
+## Collection decoded sampling correction — September 30, 07:00 UTC heartbeat
+
+Local ffmpeg CUDA NVDEC/scale_cuda, NumPy/pycolmap CPU diagnostics, Godot 4.7.2
+and Chrome 154 D3D12 RTX 4070 SUPER; **$0**, no paid calls.
+[Commands, raw decoder logs, source/output hashes and guard checks](../../docs/evidence/collection-reconstruction/heartbeat-20260930T0700/provenance.json).
+
+New left plinth shoulder predicts reserved pixels at 4.677px; opposite shoulder
+fails at 10.118px. No floor/collision extension accepted. Actual source-sample
+checks reveal registered exit references 18/48 inside the declared held-out
+0.2s exclusion. Historical 49/69 and 46/69 reports remain preserved; 44/69 after
+excluding affected queries is conservative accounting, not a rebuilt result.
+Entry reference 12 also violates actual separation. Guards stop affected trials
+before fitting/matching or overwriting reports; 473-image reconstruction
+allowlist prepared. Final bounded native/browser walk passes all 24 checks;
+Shell has four previously observed failures. No production or Viewer change.
+Existing Muse receipts and rejected sculpture meshes remain unchanged.

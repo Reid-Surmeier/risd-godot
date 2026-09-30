@@ -1,0 +1,33 @@
+{
+  "checks": [
+    {
+      "script": "grand_return.py",
+      "args": [
+        "--right-plinth"
+      ],
+      "exit_code": 1,
+      "output": "Sampling rejected before pose fitting/matching. Preserve historical trials.\n"
+    },
+    {
+      "script": "grand_return.py",
+      "args": [
+        "--right-toe"
+      ],
+      "exit_code": 1,
+      "output": "Sampling rejected before pose fitting/matching. Preserve historical trials.\n"
+    },
+    {
+      "script": "calibrated_audit.py",
+      "args": [],
+      "exit_code": 1,
+      "output": "Traceback (most recent call last):\n  File \"/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/calibrated_audit.py\", line 21, in <module>\n    assert timing['temporal_exclusion_passed'], 'Decoded samples violate exclusion; preserve historical audit, inspect sampling-timing-v1.'\n           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Decoded samples violate exclusion; preserve historical audit, inspect sampling-timing-v1.\n"
+    }
+  ],
+  "historical_reports_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/heldout-calibrated-v1/result.json": "247c5a83429e23dff31f0eed70468fa5dbdde5728ffc430a4255df2f2b82c3da",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/heldout-calibrated-v1/audit.json": "3133af036bb76f9f99f8db61b5b7354910d171c0bb4dadbba19ca8ae515e9847",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/grand-right-toe-v1/result.json": "048ccedefe961e2c1bda6872ffb6e10c5ffc8959e0407536ad29daee22c23ca6",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/grand-right-plinth-v1/result.json": "66226cd1089299465755f519bd5c9010821a0125970f82deee7d83b6b75222e3"
+  },
+  "preserved": true
+}

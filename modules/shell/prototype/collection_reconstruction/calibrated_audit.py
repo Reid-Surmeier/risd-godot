@@ -16,6 +16,9 @@ references = list(model.images.values())
 rows = json.loads((OUT/'result.json').read_text())
 hashes = {str(p.relative_to(SOURCE)): hashlib.sha256(p.read_bytes()).hexdigest()
           for p in (SOURCE/'sparse/0').glob('*.bin')}
+timing = json.loads((ROOT/'sampling-timing-v1/result.json').read_text())
+assert timing['source_sha256'] == hashes
+assert timing['temporal_exclusion_passed'], 'Decoded samples violate exclusion; preserve historical audit, inspect sampling-timing-v1.'
 assert hashes and not ({r['image'] for r in rows} & {i.name for i in references})
 # Extra doorway samples must also exclude the same nominal held-out timestamps.
 extra = [250+(int(pathlib.Path(i.name).stem)-1)/6 for i in references

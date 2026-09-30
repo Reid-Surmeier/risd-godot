@@ -19,6 +19,7 @@ parser.add_argument('--grand-registered', action='store_true')
 parser.add_argument('--grand-return', action='store_true')
 parser.add_argument('--grand-header', action='store_true')
 parser.add_argument('--grand-outer-header', action='store_true')
+parser.add_argument('--grand-plinth', action='store_true')
 args = parser.parse_args()
 OUT = ROOT/('corridor-grand-extents-v1' if args.grand else 'corridor-extents-v1')
 # Upright 720x1280 source pixels. Query marks are frozen before any projection.
@@ -71,6 +72,17 @@ if args.grand_outer_header:
         'IMG_6380/000203.jpg': [[420, 204]],
     }
     LABELS = ['grand-white-outer-mitre-left']
+if args.grand_plinth:
+    assert not (args.grand or args.grand_registered or args.grand_return or args.grand_header or args.grand_outer_header)
+    OUT = ROOT/'grand-casing-plinth-v1'
+    # New physical endpoint: front-left vertical rib meets the plinth's top
+    # shoulder, above the floor toe. Inspected in native crops before fitting.
+    PICKS = {
+        'IMG_6380/000202.jpg': [[505.5, 919]],
+        'IMG_6380/000204.jpg': [[296.5, 833]],
+        'IMG_6380/000203.jpg': [[411, 815]],
+    }
+    LABELS = ['grand-white-front-left-plinth-shoulder']
 TRAIN = list(PICKS)[:2]
 QUERY = list(PICKS)[2]
 
@@ -186,6 +198,12 @@ if args.grand_header or args.grand_outer_header:
         'Query pixels withheld from triangulation, but camera poses are correlated in the same video. '
         'Plane distance is a header diagnostic, not a floor measurement. '
         'Pick sensitivity omits pose/scale error. Do not tune evaluated pixels or extend collision.')
+if args.grand_plinth:
+    report['caveat'] = ('Plinth shoulder above the floor, not a toe or aperture. '
+        'Native-resolution crops identify a new endpoint; query pixels excluded from triangulation. '
+        'All poses contributed to the same-video SfM; not independent capture validation. '
+        'Blurred shoulder and provisional scale remain. Plane distance is not floor height. '
+        'Do not tune evaluated picks or extend collision from one endpoint.')
 assert all(sha(Path(p)) == digest for p, digest in inputs.items())
 (OUT/'result.json').write_text(json.dumps(report, indent=2)+'\n')
 print(json.dumps(report, indent=2))
