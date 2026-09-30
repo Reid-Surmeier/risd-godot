@@ -1,0 +1,17 @@
+{
+  "original_sha256": "d0f245397f2a3425ec44758a82106b4c8b5227f2dc5ed6dafd0a0cdf73468bcc",
+  "serving_sha256": "fecfb487a4914849570a9de6b454cfdd238cf4304adab2665655a77a903d0e01",
+  "operation": "ffmpeg -c copy; remux without re-encoding for finite-duration seeking",
+  "probe": {
+    "programs": [],
+    "streams": [
+      {
+        "width": 1080,
+        "height": 1080
+      }
+    ],
+    "format": {
+      "duration": "6.833000"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "tool": "gdtoolkit4.5.0",
+  "tracked_exit": 1,
+  "tracked": {
+    "max-line-length": 170,
+    "max-returns": 3,
+    "class-definitions-order": 85,
+    "load-constant-name": 9,
+    "duplicated-load": 4,
+    "function-variable-name": 8,
+    "max-file-lines": 1,
+    "constant-name": 1
+  },
+  "tracked_total": 281,
+  "full_total": 284,
+  "prior_tracked_total": 447
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "file": "modules/playground_page/playtest/harness.gd",
+    "result": "REJECT",
+    "reason": "FormattingStabilityViolation(diff=\"--- \n\n+++ \n\n@@ -130,7 +130,23 @@\n\n \t\t. create(\n \t\t\t{\n \t\t\t\t\"search\":\n+\t\t\t\t## Playtest harness for the Playground desktop (ticket #62; the fill rule of ticket #63): builds the Shell\n+\t\t\t\t## with it in the Playground Tab and nothing in the other Tabs, then plays it the way a person does \u2014\n+\t\t\t\t## real InputEventMouseButton / InputEventMouseMotion events through Input.parse_input_event on the tabs\n+\t\t\t\t## and the windows' title bars \u2014 resizes the window to the fill"
+  },
+  {
+    "file": "modules/sketchbook/playtest/harness.gd",
+    "result": "REJECT",
+    "reason": "FormattingStabilityViolation(diff=\"--- \n\n+++ \n\n@@ -192,7 +192,30 @@\n\n \t\t. create(\n \t\t\t{\n \t\t\t\t\"search\":\n+\t\t\t\t## Playtest harness for sketchbook as the Sketchbook Tenant: builds the Shell with it in the\n+\t\t\t\t## Sketchbook Tab and nothing in the other Tabs, then plays it the way a person does \u2014 real\n+\t\t\t\t## InputEventMouseButton / InputEventMouseMotion events through Input.parse_input_event \u2014 and\n+\t\t\t\t## reports what it did and what the Shell's probe said. The desktop is reached through the Shell\n+"
+  }
+]

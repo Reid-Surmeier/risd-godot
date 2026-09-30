@@ -1,0 +1,212 @@
+[
+  {
+    "file": "modules/atlas/errors.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/atlas/interface.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/atlas/playtest/harness.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/flowers_page/errors.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/flowers_page/flowers_embed.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/flowers_page/interface.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/playground_page/arena_embed.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/playground_page/interface.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/playground_page/journal_paper_turn.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/playground_page/playtest/harness.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/sculpture_viewer/desktop.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/sculpture_viewer/playtest/hover_turn.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/sculpture_viewer/viewer.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/shell/boot_loader.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/shell/demo.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/shell/desktop_icons.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/shell/hover_glow.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/shell/interface.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/shell/playtest/harness.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/dollhouse_shot.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/identity/native_render_check.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/navigation_check.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/shot.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/visitor_check.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/shell/shell.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/shell/window_shadows.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/sketchbook/desktop.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/sketchbook/drawing_surface.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/sketchbook/errors.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/sketchbook/freehand.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/sketchbook/interface.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/sketchbook/paintbox.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/sketchbook/paper_turn.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/sketchbook/playtest/harness.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/sketchbook/sketchbook_window.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/tab_strip/interface.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/tab_strip/tab_strip.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/video_player/errors.gd",
+    "exit": 0,
+    "script_errors": false
+  },
+  {
+    "file": "modules/video_player/video_player.gd",
+    "exit": 0,
+    "script_errors": false
+  }
+]
