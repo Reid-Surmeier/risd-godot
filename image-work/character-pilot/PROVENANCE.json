@@ -41,5 +41,27 @@
     "planned_textured_mesh_usd": 1.2,
     "planned_rig_idle_usd": 0.32,
     "aggregate_liability_usd": 1.54
+  },
+  "video_reference_refinement": {
+    "date": "2026-09-30",
+    "issue": 231,
+    "provider_calls_added": 0,
+    "cost_usd_added": 0,
+    "aggregate_liability_usd": 1.54,
+    "native_tools": {
+      "Blender": "4.3.2",
+      "Godot": "4.7.2",
+      "MCP": "mcp-for-blender==2.0.0 / addon protocol7"
+    },
+    "source_video": "https://www.youtube.com/watch?v=EwwW4Rk1wMU&t=1015s",
+    "authored_reference_commit": "09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c",
+    "selected_walk": "8eb7fff2ed7ce8b07417c7fa3300a050a610f11a999484e50f3ecfff5b87fc84",
+    "selected_fast": "9153b2c29799677d5d93a6cddc46a147b751987c77bdfd9669fe9ff4c5767f20",
+    "fast_period_seconds": 0.4666666666666667,
+    "exact_visual_match": false,
+    "world_stance_lock_verified": false,
+    "report": "docs/research/character-video-matched-iterations.md",
+    "arm_mask_sha256": "2027b01dd2a778567ad72f3150f91949688a8ad8b232dd970ddb9541600a4d03",
+    "jaw_mask_sha256": "342b6da96714908aa538dfb073808b5e9fc0b878972cfa4f9dda74a2acc57947"
   }
 }

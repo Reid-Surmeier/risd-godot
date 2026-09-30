@@ -1,0 +1,16 @@
+{
+  "kind": "transcribed observed native callback times before microsecond seed; after repair re-rendered and asserted",
+  "period_seconds": 0.4666666666666667,
+  "before_callback_times_s": [
+    0,
+    0.233333333333333,
+    0.5,
+    0.7,
+    0.966666666666667,
+    1.16666666666667,
+    1.43333333333333,
+    1.63333333333333
+  ],
+  "maximum_defer_seconds": 0.03333333333333333,
+  "source_glb_sha256": "9153b2c29799677d5d93a6cddc46a147b751987c77bdfd9669fe9ff4c5767f20"
+}

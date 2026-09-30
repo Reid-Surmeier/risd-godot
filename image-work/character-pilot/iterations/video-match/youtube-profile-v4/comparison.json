@@ -1,0 +1,25 @@
+{
+  "source": "https://www.youtube.com/watch?v=EwwW4Rk1wMU",
+  "source_window": {
+    "name": "profile",
+    "absolute_seconds": [
+      1016.15,
+      1016.95
+    ],
+    "near_profile_core_seconds": [
+      1016.3,
+      1016.45
+    ],
+    "limitations": [
+      "entryexitturns",
+      "not0.8sfixedyaw",
+      "cameraelevationisgame45degnotpreview15deg"
+    ]
+  },
+  "target_config": "video-match-profile-fast-v4/config.json",
+  "fps": 30,
+  "frames": 24,
+  "source_tracking": "manual crop anchors, linear interpolation; not anatomical landmark fit",
+  "exact_fit": false,
+  "cost_usd": 0
+}

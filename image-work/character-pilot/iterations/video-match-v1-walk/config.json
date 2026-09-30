@@ -1,0 +1,19 @@
+{
+  "models": [
+    {
+      "source": "motion-diagnosis/footplant-candidate.glb",
+      "label": "Before: generated walk",
+      "sha256": "536fb839572228d485fc27027a58506944f8285fcfef72f2f8a421e9d73214d9"
+    },
+    {
+      "source": "video-match/arms-idle-v1/footplant-candidate.glb",
+      "label": "Trial: forward idle, paired arms",
+      "sha256": "ed8971245cd6558f051ebc432f178ac4253375d8475f37a4b3128483f8859ae1"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 1,
+  "effects": false,
+  "controller_speed_m_s": 0.52
+}

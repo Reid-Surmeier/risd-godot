@@ -22,6 +22,7 @@ with tempfile.TemporaryDirectory(prefix='character231-continuous-') as scratch:
    for i in range(len(config['models'])):
     metadata=project/f'model-{i}.glb.import'
     text=metadata.read_text()
+    text=text.replace('animation/fps=30','animation/fps='+str(config.get('import_fps',30)))
     text,count=re.subn(r'^_subresources=.*?(?=^\w|\Z)','_subresources={"nodes":{"PATH:AnimationPlayer":{"optimizer/enabled":false}}}\n',text,flags=re.M|re.S)
     assert count==1,'AnimationPlayer import settings missing'
     metadata.write_text(text)
@@ -30,9 +31,11 @@ with tempfile.TemporaryDirectory(prefix='character231-continuous-') as scratch:
    subprocess.run(['/home/reidsurmeier/bin/godot','--path',scratch,*args],env={**os.environ,'DISPLAY':':99'},stdout=log,stderr=subprocess.STDOUT,timeout=240,check=True)
  evidence=json.loads((project/'evidence.json').read_text())
  evidence['godot_animation_optimizer_enabled']=False
+ evidence['animation_import_fps']=config.get('import_fps',30)
  assert evidence['fps']==30 and all(m['bones']==24 for m in evidence['models'])
  for name in ['comparison.png','effects.png','evidence.json']:
   shutil.copy2(project/name,dest/name)
+ (dest/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
  subprocess.run(['ffmpeg','-loglevel','error','-y','-framerate','30','-i',str(project/'frame-%03d.png'),'-c:v','libx264','-pix_fmt','yuv420p','-movflags','+faststart',str(dest/'loop.mp4')],check=True)
  # Keep one full cycle for independently replayable proof; movie contains every frame of all cycles.
  keep=range(124) if config.get('transition') else range(evidence['frames_per_cycle'])

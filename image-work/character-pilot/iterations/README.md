@@ -1,5 +1,7 @@
 # Throwaway character iteration #231
 
+The newest pass compares YouTube GameCube footage with source-curve WALK/DASH trials: start with [video-match/README.md](video-match/README.md) and [the measured report](../../../docs/research/character-video-matched-iterations.md). The older contact-solved result below remains a separate proof; its world-foot-lock claims do not apply to the newer source-pose trials.
+
 Review `gameview-final-45/loop.gif` first, then `walk-comparison-45/loop.mp4` for the full30FPS before/after film. Movies evaluate every frame; the GIF previews use15FPS. Representative PNGs and full movies are retained; replay regenerates all frames. Original eight-pose footage stays in the earlier proof folder.
 
 Selected rig/motion: `motion-diagnosis/footplant-candidate.glb` and compressed editable `.blend`. `motion-diagnosis/contact-manifest.json` owns the0.52m/s walk, contact phases and native sampled gates. `rigid-head.glb` is the preceding head-only repair. `rig-diagnosis/review-rest-{front,side,back}.png` shows the T-pose. The private provider source files are unchanged.

@@ -13,3 +13,7 @@ Trial for [Prototype: Muse-to-3D proof of the supplied horned character](https:/
 ## Iteration after owner feedback
 
 `iterations/` preserves the head-weight diagnosis,1.05/1.0m mask comparison, analytic planted-foot bake, cubic/quintic and idle-tangent comparisons, precise Godot import, three game camera angles, actual contact-method effects, blend-floor correction, and rejected512/1024 Muse projections. Original provider files and the baseline above stay intact. The selected derived idle/walk GLB SHA256 is `536fb839572228d485fc27027a58506944f8285fcfef72f2f8a421e9d73214d9`; actual MCP reproduced it byte-for-byte. No new paid call; aggregate liability remains$1.54. Read `docs/research/character-pilot-iterations.md` for current results and limits; older grounding failures above describe the retained baseline.
+
+## GameCube video refinement, 2026-09-30
+
+Additional provider calls and API cost:0. Liability remains$1.54 of the authorized$4. [Source/video comparison and measured limits](../../docs/research/character-video-matched-iterations.md) records the selected source-curve WALKv5 and DASHv6, exact source commit, inspected 287-vertex jaw extension,739-vertex arm weight correction, actual Blender MCP completion, dense native sampling, source short-clip hashes, and failed import/effect attempts. `PROVENANCE.json` binds selected GLBs and masks. No source textures/provider files were changed. This is research evidence; exact likeness, world stance lock, terrain/turning/transitions and runtime acceptance remain open.

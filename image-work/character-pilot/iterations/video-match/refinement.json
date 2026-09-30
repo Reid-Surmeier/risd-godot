@@ -1,0 +1,32 @@
+{
+  "issue": 231,
+  "additional_paid_calls": 0,
+  "additional_cost_usd": 0,
+  "aggregate_liability_usd": 1.54,
+  "budget_ceiling_usd": 4,
+  "source_video_note": "YouTube original GameCube uploader and Nintendo official trailer; outfits and exact executable state differ",
+  "failures": [
+    {
+      "trial": "v3 bake60/import30",
+      "walk_floor_penetration_m": 0.00355429644696414,
+      "fast_floor_penetration_m": 0.0153798768296838
+    },
+    {
+      "trial": "v3 bake60/import60",
+      "walk_floor_penetration_m": 0.000945434556342661,
+      "fast_floor_penetration_m": 0.00527885882183909
+    }
+  ],
+  "v4_bake_import_fps": 240,
+  "v4_dense_samples_per_clip": 257,
+  "exact_visual_match": false,
+  "source_velocity_seam_preserved_not_smoothed": true,
+  "world_planar_stance_lock_verified": false,
+  "additional_duplicate_png_bytes_removed": 20019908,
+  "selected_profiles": [
+    "authored-walk-v5",
+    "authored-fast-v6"
+  ],
+  "alternative_fast_profile": "authored-fast-v5",
+  "source_mode": "authored curves adapted to generated mesh; exact-fit open"
+}

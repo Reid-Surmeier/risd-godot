@@ -128,10 +128,11 @@ func run() -> void:
 		for puff_index in 5:
 			var puff := MeshInstance3D.new()
 			var sphere := SphereMesh.new()
-			sphere.radius = 0.045
-			sphere.height = 0.09
+			sphere.radius = config.get("dust_radius",0.045)
+			sphere.height = sphere.radius*2
 			puff.mesh = sphere
-			var dust_color := material(Color(0.63,0.58,0.48))
+			var color: Array = config.get("dust_color",[0.63,0.58,0.48])
+			var dust_color := material(Color(color[0],color[1],color[2]))
 			dust_color.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 			puff.material_override = dust_color
 			puff.visible = false
@@ -140,7 +141,7 @@ func run() -> void:
 		dust.append(puffs)
 		report.models.append({"label":entry.label,"bones":24,"minimum_sole_y_m":INF,"unclamped_minimum_sole_y_m":INF,"maximum_blend_root_lift_m":0,"contact_events":[]})
 	await process_frame
-	var duration: float = players[0].get_animation(config.clip).length
+	var duration: float = players[-1].get_animation(config.clip).length
 	var frames: int = roundi(duration*30)
 	assert(abs(frames/30.0-duration)<0.00001)
 	report["clip"] = config.clip
@@ -168,8 +169,9 @@ func run() -> void:
 				players[index].advance(1.0/30.0)
 			elif index==models.size()-1 and contact_events!=null:
 				contact_events.elapsed = t
-				players[index].advance(0 if frame==0 else 1.0/30.0)
-			else:players[index].seek(phase,true)
+				# Start just after zero so float accumulation cannot defer wrap keys a whole video frame.
+				players[index].advance(0.000001 if frame==0 else 1.0/30.0)
+			else:players[index].seek(fmod(t,players[index].get_animation(config.clip).length),true)
 			skeletons[index].force_update_all_bone_transforms()
 			var bounds := skin_bounds(models[index],skeletons[index])
 			report.models[index].unclamped_minimum_sole_y_m = min(report.models[index].unclamped_minimum_sole_y_m,bounds.position.y)
@@ -186,17 +188,22 @@ func run() -> void:
 				for event in contact_events.calls:
 					var age := t-float(event.time)
 					if age>=0 and age<0.24:
-						var bone: int = skeletons[index].find_bone(event.foot+"Foot")
-						var foot: Vector3 = skeletons[index].global_transform*skeletons[index].get_bone_global_pose(bone).origin
+						if not event.has("world_origin"):
+							var bone: int = skeletons[index].find_bone(event.foot+"Foot")
+							var foot: Vector3 = skeletons[index].global_transform*skeletons[index].get_bone_global_pose(bone).origin
+							var outer_edge := 0.13 if event.foot=="Left" else -0.13
+							event["world_origin"] = [foot.x+outer_edge,0.025,foot.z+float(config.get("dust_forward_offset",0.07))]
+						var origin: Array = event.world_origin
+						var anchor := Vector3(origin[0],origin[1],origin[2])
 						for p in dust[index].size():
 							var puff: MeshInstance3D = dust[index][p]
 							puff.visible = true
 							var direction := Vector3(cos(p*2.4),0,sin(p*2.4))
-							var outer_edge := 0.13 if event.foot=="Left" else -0.13
-							puff.position = Vector3(foot.x+outer_edge,0.025,foot.z+0.07)+direction*age*0.85+Vector3.UP*sin(age/0.24*PI)*0.09
+							puff.position = anchor+direction*age*0.85+Vector3.UP*sin(age/0.24*PI)*0.09
 							puff.scale = Vector3.ONE*(1-age/0.24)
 		var target := Vector3(0,0.85,speed*travel_time)
-		camera.position = target+Vector3(0,sin(angle),cos(angle))*float(config.get("camera_distance",10.5))
+		var yaw: float = deg_to_rad(config.get("camera_yaw",0))
+		camera.position = target+Vector3(sin(yaw)*cos(angle),sin(angle),cos(yaw)*cos(angle))*float(config.get("camera_distance",10.5))
 		camera.look_at(target)
 		await capture("frame-%03d" % frame)
 		if frame==8:
@@ -205,6 +212,7 @@ func run() -> void:
 			root.get_texture().get_image().save_png("res://effects.png")
 	if contact_events!=null:
 		effect_calls = contact_events.calls.size()
+		for event in contact_events.calls:assert(event.has("world_origin"),"contact did not capture a world-space effect anchor")
 		report.models[-1].contact_events = contact_events.calls.duplicate()
 		contact_events.active = false
 		players[-1].play("idle",0.2)
@@ -212,6 +220,10 @@ func run() -> void:
 		assert(contact_events.calls.size()==effect_calls,"idle added a footstep")
 	assert(config.clip!="idle" or effect_calls==0,"idle emitted dust")
 	if config.get("effects",false):assert(effect_calls==stance_events.size()*cycles,"contact events not periodic")
+	if contact_events!=null and not transition:
+		for index in contact_events.calls.size():
+			var expected: float = floori(index/stance_events.size())*duration+float(stance_events[index%stance_events.size()].time)
+			assert(abs(float(contact_events.calls[index].time)-expected)<0.00001,"contact callback deferred to a later frame")
 	if transition:
 		report["transition"]={"sequence":"idle 1s → walk 2loops → idle 1s","blend_seconds":0.2,"floor_gate":"PASS" if report.models[-1].minimum_sole_y_m > -0.01 else "FAIL","stance_lock_during_blend_tested":false}
 	report.effects={"kind":"native Animation method keys trigger contact-timed mesh dust puffs","calls":effect_calls,"idle_control":config.clip=="idle","idle_added_calls":0,"suppressed_outgoing_walk_keys_in_idle":contact_events.suppressed_idle_calls if contact_events!=null else 0,"native_method_track_tested":contact_events!=null,"contacts_per_loop":stance_events.size(),"cycles":cycles}
