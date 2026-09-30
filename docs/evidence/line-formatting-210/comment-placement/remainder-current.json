@@ -1,0 +1,2366 @@
+{
+  "runtime": "78001be1",
+  "count": 336,
+  "kinds": {
+    "long-single-literal": 14,
+    "comment-only": 166,
+    "multiline-literal": 60,
+    "code-layout": 86,
+    "inline-comment": 2,
+    "outside-scope": 8
+  },
+  "rows": [
+    {
+      "file": "docs/evidence/floor-selection-186/restore.gd",
+      "line": 43,
+      "length": 103,
+      "kind": "long-single-literal",
+      "source": "\t\t\"FLOOR186 selected mesh/material restored, shared edges conformed, world-space lightmap UVs verified\""
+    },
+    {
+      "file": "docs/evidence/owner-world-177/passage-current/repair.gd",
+      "line": 48,
+      "length": 102,
+      "kind": "long-single-literal",
+      "source": "\t\t\"PASSAGE_ONLY repaired shared edges, interpolated UV/color/UV2; original material/lightmap retained\""
+    },
+    {
+      "file": "modules/atlas/errors.gd",
+      "line": 5,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## A pixel sheet, data file, font or shader the atlas loads is not in the project (detail: its path)."
+    },
+    {
+      "file": "modules/atlas/interface.gd",
+      "line": 39,
+      "length": 112,
+      "kind": "comment-only",
+      "source": "## ok({ key, ticks, inputs, size: Vector2, frame: Rect2, frame_global: Rect2 (global), map_rect: Rect2 (global),"
+    },
+    {
+      "file": "modules/atlas/interface.gd",
+      "line": 43,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "##      mode: \"atlas\" | \"sheet\", region, zoom, zoom_ratio, zoom_min, zoom_max, position: [x, y] (world),"
+    },
+    {
+      "file": "modules/atlas/interface.gd",
+      "line": 44,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "##      viewport: [w, h] (the SubViewport), vertical_pan_locked, visible_cities, visible_close_cities,"
+    },
+    {
+      "file": "modules/atlas/interface.gd",
+      "line": 47,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## `controls` and `popup` are in the SubViewport's own global pixels (the map's HUD), not the Page's;"
+    },
+    {
+      "file": "modules/atlas/playtest/harness.gd",
+      "line": 3,
+      "length": 147,
+      "kind": "comment-only",
+      "source": "## desktop panels and the map window) and reports what it did and what the Shell's probe said. Real InputEventMouseButton / InputEventMouseMotion /"
+    },
+    {
+      "file": "modules/atlas/playtest/harness.gd",
+      "line": 140,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "## (atlas_window.gd _layout: collapse at (44, 42) x chrome_scale, lock at (w - 86, 42), 44 px square)."
+    },
+    {
+      "file": "modules/atlas/playtest/harness.gd",
+      "line": 256,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "\t# 8. drag the frame's bottom-right corner inward: the frame shrinks in place and the map body follows"
+    },
+    {
+      "file": "modules/atlas/playtest/harness.gd",
+      "line": 286,
+      "length": 103,
+      "kind": "comment-only",
+      "source": "\t#     Home resets to the world view; then two wheel notches so the view left behind is not the default"
+    },
+    {
+      "file": "modules/atlas/playtest/harness.gd",
+      "line": 321,
+      "length": 106,
+      "kind": "comment-only",
+      "source": "\t# 14. resize the window to the 1440x900 minimum: the tenant fills the smaller page and re-fits its window"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 18,
+      "length": 121,
+      "kind": "multiline-literal",
+      "source": "    && ![...value].some(char => { const n = char.charCodeAt(0); return n < 32 && ![9,10,13].includes(n) || n === 127; });"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 31,
+      "length": 107,
+      "kind": "multiline-literal",
+      "source": "    && ![...a.web_id].some(char => char.trim() === '' || '/?#'.includes(char) || char.charCodeAt(0) === 92)"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 38,
+      "length": 112,
+      "kind": "multiline-literal",
+      "source": "    && (a.image === null || (a.image && typeof a.image === 'object' && text(a.image.id) && a.image.id.length > 0"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 40,
+      "length": 112,
+      "kind": "multiline-literal",
+      "source": "      && /^[a-f0-9]{64}$/.test(a.image.sha256) && ['image/jpeg','image/png','image/webp'].includes(a.image.mime)"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 41,
+      "length": 127,
+      "kind": "multiline-literal",
+      "source": "      && Number.isSafeInteger(a.image.width) && a.image.width > 0 && Number.isSafeInteger(a.image.height) && a.image.height > 0"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 42,
+      "length": 101,
+      "kind": "multiline-literal",
+      "source": "      && time(a.image.verified_at) && rights(a.image.rights) && a.image.rights.status !== 'unknown'))"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 46,
+      "length": 144,
+      "kind": "multiline-literal",
+      "source": "    if (doc.schema_version !== VERSION) return Number.isSafeInteger(doc.schema_version) && doc.schema_version > VERSION ? 'version' : 'corrupt';"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 47,
+      "length": 138,
+      "kind": "multiline-literal",
+      "source": "    if (!Number.isSafeInteger(doc.revision) || doc.revision < 0 || !Array.isArray(doc.items) || doc.items.length > 1000) return 'corrupt';"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 50,
+      "length": 155,
+      "kind": "multiline-literal",
+      "source": "      if (!item || !artwork(item.artwork) || !Number.isSafeInteger(item.saved_at_ms) || item.saved_at_ms < 0 || ids.has(item.artwork.id)) return 'corrupt';"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 57,
+      "length": 135,
+      "kind": "multiline-literal",
+      "source": "    request.onupgradeneeded = () => { if (!request.result.objectStoreNames.contains(STORE)) request.result.createObjectStore(STORE); };"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 60,
+      "length": 104,
+      "kind": "multiline-literal",
+      "source": "    request.onblocked = () => reject(new DOMException('Database upgrade blocked', 'InvalidStateError'));"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 62,
+      "length": 107,
+      "kind": "multiline-literal",
+      "source": "  const once = done => { let sent = false; return value => { if (!sent) { sent = true; done(value); } }; };"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 76,
+      "length": 111,
+      "kind": "multiline-literal",
+      "source": "        send(invalid === 'version' ? fail('collection_data.storage_version', 'Saved data uses a newer version')"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 77,
+      "length": 116,
+      "kind": "multiline-literal",
+      "source": "          : invalid ? fail('collection_data.storage_corrupt', 'Saved data is corrupt') : envelope(true, doc, null));"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 82,
+      "length": 154,
+      "kind": "multiline-literal",
+      "source": "      try { incoming = JSON.parse(artworkJson); } catch (_) { send(fail('collection_data.storage_write_failed', 'Artwork could not be stored')); return; }"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 96,
+      "length": 106,
+      "kind": "multiline-literal",
+      "source": "          if (existing) { outcome = {record: existing, inserted: false, revision: doc.revision}; return; }"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 99,
+      "length": 111,
+      "kind": "multiline-literal",
+      "source": "          next.items.sort((a, b) => b.saved_at_ms - a.saved_at_ms || a.artwork.id.localeCompare(b.artwork.id));"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 101,
+      "length": 116,
+      "kind": "multiline-literal",
+      "source": "          if (next.items.length > 1000 || new TextEncoder().encode(JSON.stringify(next)).length > 4 * 1024 * 1024) {"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 105,
+      "length": 128,
+      "kind": "multiline-literal",
+      "source": "          outcome = {record: next.items.find(item => item.artwork.id === incoming.id), inserted: true, revision: next.revision};"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 110,
+      "length": 114,
+      "kind": "multiline-literal",
+      "source": "        tx.onabort = () => { if (!outcome) reject(tx.error || new DOMException('Write aborted', 'AbortError')); };"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 112,
+      "length": 123,
+      "kind": "multiline-literal",
+      "source": "        if (error?.storage === 'version') send(fail('collection_data.storage_version', 'Saved data uses a newer version'));"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 113,
+      "length": 118,
+      "kind": "multiline-literal",
+      "source": "        else if (error?.storage === 'corrupt') send(fail('collection_data.storage_corrupt', 'Saved data is corrupt'));"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "line": 114,
+      "length": 132,
+      "kind": "multiline-literal",
+      "source": "        else send(fail(error?.storage === 'write' ? 'collection_data.storage_write_failed' : code(error), 'Artwork was not saved'));"
+    },
+    {
+      "file": "modules/flowers_page/errors.gd",
+      "line": 5,
+      "length": 107,
+      "kind": "comment-only",
+      "source": "## The window picture (assets/title.png, PROVENANCE in MODULE.md) is not in the project (detail: its path)."
+    },
+    {
+      "file": "modules/flowers_page/flowers_embed.gd",
+      "line": 10,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "##   flowersread.php?sample=999  a random sample from web/samples.txt, replies captured from the site"
+    },
+    {
+      "file": "modules/flowers_page/flowers_embed.gd",
+      "line": 24,
+      "length": 104,
+      "kind": "multiline-literal",
+      "source": "\t\tget: (k) => { try { return localStorage.getItem(KEY + k); } catch (e) { return memory[k] || null; } },"
+    },
+    {
+      "file": "modules/flowers_page/flowers_embed.gd",
+      "line": 29,
+      "length": 152,
+      "kind": "multiline-literal",
+      "source": "\tconst reply = (text) => { window.flowersLog.push(text.slice(-40)); return new Response(text, {status: 200, headers: {'Content-Type': 'text/html'}}); };"
+    },
+    {
+      "file": "modules/flowers_page/flowers_embed.gd",
+      "line": 44,
+      "length": 141,
+      "kind": "multiline-literal",
+      "source": "\t\t\t\tif (!samples) samples = (await (await window.flowersFetch(BASE + 'samples.txt')).text()).split(String.fromCharCode(10)).filter((l) => l);"
+    },
+    {
+      "file": "modules/flowers_page/flowers_embed.gd",
+      "line": 62,
+      "length": 127,
+      "kind": "multiline-literal",
+      "source": "\t\t\tif (url.href.startsWith(BASE) && (url.pathname.endsWith('/flowersread.php') || url.pathname.endsWith('/flowersmake.php'))) {"
+    },
+    {
+      "file": "modules/flowers_page/flowers_embed.gd",
+      "line": 63,
+      "length": 105,
+      "kind": "multiline-literal",
+      "source": "\t\t\t\tif (input instanceof Request && !init) return input.text().then((text) => answer(url, {body: text}));"
+    },
+    {
+      "file": "modules/flowers_page/flowers_embed.gd",
+      "line": 79,
+      "length": 101,
+      "kind": "multiline-literal",
+      "source": "\t\t\tplayer.load({url: BASE + 'flowers.swf', base: BASE, backgroundColor: '#FFFFFF', quality: 'high'});"
+    },
+    {
+      "file": "modules/flowers_page/flowers_embed.gd",
+      "line": 101,
+      "length": 104,
+      "kind": "multiline-literal",
+      "source": "\t\t\tfor (let i = 0; i < 8; i++) { const s = warp(d[0], d[1]); d[0] += t[0] - s[0]; d[1] += t[1] - s[1]; }"
+    },
+    {
+      "file": "modules/flowers_page/flowers_embed.gd",
+      "line": 103,
+      "length": 109,
+      "kind": "multiline-literal",
+      "source": "\t\t\treturn [box.left + (box.width - side) / 2 + d[0] * side, box.top + (box.height - side) / 2 + d[1] * side];"
+    },
+    {
+      "file": "modules/flowers_page/flowers_embed.gd",
+      "line": 107,
+      "length": 133,
+      "kind": "multiline-literal",
+      "source": "\t\tObject.assign(frame.style, {display: 'block', left: x0 + 'px', top: y0 + 'px', width: (x1 - x0) + 'px', height: (y1 - y0) + 'px'});"
+    },
+    {
+      "file": "modules/flowers_page/interface.gd",
+      "line": 5,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## Ruffle build the site uses, self-hosted beside the Web export (web/, copied to <build>/flowers/ by"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 8,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## carried through the inverse of that warp. The profile is laid out at LAYOUT px and scaled down, as"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 28,
+      "length": 130,
+      "kind": "multiline-literal",
+      "source": "\t\tcol.append(el('div', 'color:#999;font-size:13px;padding-bottom:8px;margin-bottom:12px;border-bottom:1px solid #e6e6e6', label));"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 29,
+      "length": 185,
+      "kind": "multiline-literal",
+      "source": "\t\tfor (const item of items) col.append(el('div', 'font-size:13px;line-height:21px;font-weight:bold;color:' + (item === chosen ? '#000' : '#666'), (item === chosen ? '\u2022 ' : '') + item));"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 56,
+      "length": 146,
+      "kind": "multiline-literal",
+      "source": "\t\ta.href = b.type === 'Channel' ? 'https://www.are.na/' + (b.owner && b.owner.slug || 'SLUG') + '/' + b.slug : 'https://www.are.na/block/' + b.id;"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 58,
+      "length": 133,
+      "kind": "multiline-literal",
+      "source": "\t\tconst box = el('div', 'height:320px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-sizing:border-box');"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 65,
+      "length": 168,
+      "kind": "multiline-literal",
+      "source": "\t\t\tbox.style.cssText += ';border:1px solid #e6e6e6;align-items:flex-start;justify-content:flex-start;padding:16px;font-size:13px;line-height:19px;white-space:pre-line';"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 66,
+      "length": 102,
+      "kind": "multiline-literal",
+      "source": "\t\t\tbox.textContent = String(b.content && (b.content.plain || b.content.markdown) || '').slice(0, 700);"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 68,
+      "length": 137,
+      "kind": "multiline-literal",
+      "source": "\t\t\tbox.style.cssText += ';border:1px solid #e6e6e6;flex-direction:column;font-size:15px;font-weight:bold;text-align:center;padding:16px';"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 70,
+      "length": 140,
+      "kind": "multiline-literal",
+      "source": "\t\t\tif (b.counts) box.append(el('div', 'color:#999;font-size:12px;font-weight:normal;margin-top:6px', (b.counts.contents || 0) + ' blocks'));"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 72,
+      "length": 193,
+      "kind": "multiline-literal",
+      "source": "\t\ta.append(box, el('div', 'margin-top:10px;font-size:12px;color:#999;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis', b.type === 'Channel' ? '' : (b.title || '')));"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 76,
+      "length": 140,
+      "kind": "multiline-literal",
+      "source": "\t\tframe = el('div', 'position:fixed;z-index:1;box-sizing:border-box;padding:40px 64px 64px;background:#fff;color:#000;color-scheme:light;' +"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 77,
+      "length": 121,
+      "kind": "multiline-literal",
+      "source": "\t\t\t'font-family:Arial,Helvetica,sans-serif;overflow-x:hidden;overflow-y:auto;scrollbar-width:none;transform-origin:0 0');"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 81,
+      "length": 101,
+      "kind": "multiline-literal",
+      "source": "\t\thead.append(el('span', 'color:#999', 'Are.na'), el('span', 'color:#ccc;margin:0 12px', '/'), name);"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 83,
+      "length": 132,
+      "kind": "multiline-literal",
+      "source": "\t\tinfo.append(el('div', 'color:#999;font-size:13px;padding-bottom:8px;margin-bottom:12px;border-bottom:1px solid #e6e6e6', 'Info'));"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 86,
+      "length": 158,
+      "kind": "multiline-literal",
+      "source": "\t\t\tlist('Order', ['Relevance', 'Updated recently', 'Newest first', 'Oldest first', 'Alphabetical by title', 'No. of connections', 'Random'], 'Newest first'));"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 87,
+      "length": 101,
+      "kind": "multiline-literal",
+      "source": "\t\tconst grid = el('div', 'display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px 40px');"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 88,
+      "length": 158,
+      "kind": "multiline-literal",
+      "source": "\t\tconst more = el('a', 'display:block;margin:56px 0 0;text-align:center;font-size:13px;font-weight:bold;color:#000;text-decoration:none', 'More on Are.na \u2192');"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 98,
+      "length": 106,
+      "kind": "multiline-literal",
+      "source": "\t\t}).catch(() => grid.append(el('div', 'color:#999;font-size:13px', 'Are.na is unavailable right now.')));"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 114,
+      "length": 104,
+      "kind": "multiline-literal",
+      "source": "\t\t\tfor (let i = 0; i < 8; i++) { const s = warp(d[0], d[1]); d[0] += t[0] - s[0]; d[1] += t[1] - s[1]; }"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 122,
+      "length": 119,
+      "kind": "multiline-literal",
+      "source": "\t\t\treturn [Math.max(0, (a - x0) / z), Math.max(0, (b - y0) / z), Math.min(w, (c - x0) / z), Math.min(h, (d - y0) / z)];"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 132,
+      "length": 115,
+      "kind": "multiline-literal",
+      "source": "\t\tObject.assign(frame.style, {display: 'block', left: x0 + 'px', top: y0 + 'px', width: w + 'px', height: h + 'px',"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "line": 133,
+      "length": 130,
+      "kind": "multiline-literal",
+      "source": "\t\t\ttransform: `scale(${z})`, clipPath: holes.length ? `path('${path || 'M0 0'}')` : '', pointerEvents: p.drag ? 'none' : 'auto'});"
+    },
+    {
+      "file": "modules/playground_page/interface.gd",
+      "line": 14,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## Layout (ticket #63). The desktop is `desktop` px natively. From the Page's size S the art scale is"
+    },
+    {
+      "file": "modules/playground_page/interface.gd",
+      "line": 15,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "## factor = min(S.x / desktop.x, S.y / desktop.y), uniform for every window. The leftover on the other"
+    },
+    {
+      "file": "modules/playground_page/interface.gd",
+      "line": 58,
+      "length": 127,
+      "kind": "comment-only",
+      "source": "##      saved_ids, storage_status, windows: [{ name, rect: Rect2, drag_height (-1: the whole surface), order }] }), the windows"
+    },
+    {
+      "file": "modules/playground_page/journal_paper_turn.gd",
+      "line": 9,
+      "length": 105,
+      "kind": "comment-only",
+      "source": "## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c."
+    },
+    {
+      "file": "modules/playground_page/journal_window.gd",
+      "line": 12,
+      "length": 270,
+      "kind": "long-single-literal",
+      "source": "const ORIGINAL_ENTRY := \"DEAR DIARY !! I LOOOVE THIS THING HAHAHAHAHAHAHA!! i decorated my room and and and my ROOMIE IS JUST SO CUTE !!!!!!!!!!\\n\\ni dont think my dad knew how much i would use this thing but nextrooms with my friends is like hanging with them 24/7 lol\""
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 5,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## whole surface), raised by a press, stopped at the Page's edge. Reach it through interface.gd only."
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 11,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## drawn in bands at the uniform scale, only a flat one-pixel column per band and one flat row of its"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 13,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "## viewer's chrome). The middle column and the phone anchor to the right edge; the chat window anchors"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 23,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "# The owner's Feng Shui layout (2026-09-23, docs/evidence/playground-fengshui/layout-reference.png): its"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 34,
+      "length": 103,
+      "kind": "comment-only",
+      "source": "# Between them only the side borders of row FS_ROW (just under the toolbar, the same frame as the title"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 45,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "# The PostPet picture's bands (source rows) and the column each band stretches at: a column where the"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 220,
+      "length": 106,
+      "kind": "code-layout",
+      "source": "\t\t\twindow.scale = Vector2.ONE * minf(window.scale.x, minf(size.x / window.size.x, size.y / window.size.y))"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 221,
+      "length": 111,
+      "kind": "code-layout",
+      "source": "\t\t\twindow.position = window.position.clamp(Vector2.ZERO, (size - window.size * window.scale).max(Vector2.ZERO))"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 241,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "\t# the main window takes the leftover: to the middle column on the right, to the margin at the bottom"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 251,
+      "length": 109,
+      "kind": "code-layout",
+      "source": "\tsaved_body.size = (postpet.size - saved_body.position - lower_right_inset * postpet_scale).max(Vector2.ZERO)"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 269,
+      "length": 105,
+      "kind": "code-layout",
+      "source": "\t\twebsurfer.position = Vector2(size.x - websurfer.size.x - MARGIN * s, (size.y - websurfer.size.y) * 0.5)"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 273,
+      "length": 113,
+      "kind": "code-layout",
+      "source": "\t\tsketchbook.position = Vector2(size.x - sketchbook.size.x - MARGIN * s, size.y - sketchbook.size.y - MARGIN * s)"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 297,
+      "length": 109,
+      "kind": "code-layout",
+      "source": "\t\treturn Rect2(size.x - (REF.x - rect.position.x) * s, rect.position.y * s, rect.size.x * s, rect.size.y * s)"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 318,
+      "length": 105,
+      "kind": "code-layout",
+      "source": "\tfengshui.set_meta(\"embed\", Rect2(FS_CLIENT_LEFT * k, FS_TOP * k, (FS_CLIENT_RIGHT - FS_CLIENT_LEFT) * k,"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 425,
+      "length": 124,
+      "kind": "code-layout",
+      "source": "\tcell.set_meta(\"aspect\", maxf(0.2, float(artwork.image.get(\"width\", 1)) / maxf(1.0, float(artwork.image.get(\"height\", 1)))))"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 442,
+      "length": 103,
+      "kind": "code-layout",
+      "source": "\tvar caption := _saved_label(\"%s\\n%s%s\" % [artwork.title if artwork.title != \"\" else \"Untitled\", maker,"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 480,
+      "length": 114,
+      "kind": "code-layout",
+      "source": "\tsaved_list.custom_minimum_size = Vector2(gallery_scroll.size.x, heights.max() if not heights.is_empty() else 0.0)"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 506,
+      "length": 120,
+      "kind": "code-layout",
+      "source": "\tvar caption := _saved_label(\"%s \u2014 %s%s\\nClick to close\" % [artwork.title if artwork.title != \"\" else \"Untitled\", maker,"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 547,
+      "length": 111,
+      "kind": "code-layout",
+      "source": "\tbutton.set_meta(\"search_text\", (artwork.title + \" \" + \" \".join(artwork.makers) + \" \" + artwork.id).to_lower())"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 549,
+      "length": 117,
+      "kind": "code-layout",
+      "source": "\t\tartwork_detail.text = \"%s\\n\\n%s\\n%s\\n\\n%s\" % [artwork.title, \", \".join(artwork.makers), artwork.id, artwork.credit]"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 575,
+      "length": 107,
+      "kind": "code-layout",
+      "source": "\tvar label := _saved_label(\"%s\\n%s\\n%s\\n%s\" % [artwork.title if artwork.title != \"\" else \"Untitled\", maker,"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 679,
+      "length": 138,
+      "kind": "code-layout",
+      "source": "\t\tif live_page == null or not live_page.is_visible_in_tree() or live_target == null or (unavailable_id != 0 and live_unavailable == null):"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 693,
+      "length": 222,
+      "kind": "code-layout",
+      "source": "\t\tvar status := decoded.load_jpg_from_buffer(result.value) if manifest.mime == \"image/jpeg\" else (decoded.load_png_from_buffer(result.value) if manifest.mime == \"image/png\" else decoded.load_webp_from_buffer(result.value))"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 700,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "## The PostPet picture band by band at the uniform scale; in each band only its one-pixel column takes"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 715,
+      "length": 108,
+      "kind": "code-layout",
+      "source": "\t\t\twindow.draw_texture_rect_region(texture, Rect2(dx, dy, w, h), Rect2(xs[i], top, xs[i + 1] - xs[i], rows))"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 727,
+      "length": 109,
+      "kind": "code-layout",
+      "source": "\twindow.draw_texture_rect_region(texture, Rect2(0, 0, window.size.x, FS_TOP * k), Rect2(0, 0, src.x, FS_TOP))"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 728,
+      "length": 135,
+      "kind": "code-layout",
+      "source": "\twindow.draw_texture_rect_region(texture, Rect2(0, middle.end.y, window.size.x, bottom), Rect2(0, FS_BOTTOM, src.x, src.y - FS_BOTTOM))"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 729,
+      "length": 142,
+      "kind": "code-layout",
+      "source": "\twindow.draw_texture_rect_region(texture, Rect2(0, middle.position.y, FS_CLIENT_LEFT * k, middle.size.y), Rect2(0, FS_ROW, FS_CLIENT_LEFT, 1))"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 730,
+      "length": 140,
+      "kind": "code-layout",
+      "source": "\twindow.draw_texture_rect_region(texture, Rect2(FS_CLIENT_RIGHT * k, middle.position.y, window.size.x - FS_CLIENT_RIGHT * k, middle.size.y),"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 732,
+      "length": 131,
+      "kind": "code-layout",
+      "source": "\twindow.draw_rect(Rect2(FS_CLIENT_LEFT * k, middle.position.y, (FS_CLIENT_RIGHT - FS_CLIENT_LEFT) * k, middle.size.y), Color.WHITE)"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 743,
+      "length": 102,
+      "kind": "code-layout",
+      "source": "\t\t\tif grip != null and grip.is_visible_in_tree() and grip.get_global_rect().has_point(event.position):"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 755,
+      "length": 143,
+      "kind": "code-layout",
+      "source": "\t\t\t\tif Rect2(window.position, window.size * window.scale).has_point(pointer) and (_active == null or window.get_index() > _active.get_index()):"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 760,
+      "length": 105,
+      "kind": "code-layout",
+      "source": "\t\t\tif _active == sketchbook and sketchbook.title_button_at((pointer - _active.position) / _active.scale):"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 770,
+      "length": 135,
+      "kind": "code-layout",
+      "source": "\t\t_active.position = (_start_position + delta).clamp(Vector2(-offset_left, 0), (size - _active.size * _active.scale).max(Vector2.ZERO))"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 851,
+      "length": 109,
+      "kind": "code-layout",
+      "source": "\t\t\tvar delta: Vector2 = window.get_parent().make_canvas_position_local(event.global_position) - gesture.start"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 1,
+      "length": 106,
+      "kind": "comment-only",
+      "source": "## Playtest harness for the Playground desktop (ticket #62; the fill rule of ticket #63): builds the Shell"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 2,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## with it in the Playground Tab and nothing in the other Tabs, then plays it the way a person does \u2014"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 3,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## real InputEventMouseButton / InputEventMouseMotion events through Input.parse_input_event on the tabs"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 4,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "## and the windows' title bars \u2014 resizes the window to the fill rule's page sizes, and reports what it"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 5,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## did and what the interfaces said. The desktop is reached through ShellInterface.tenant_state only."
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 29,
+      "length": 107,
+      "kind": "code-layout",
+      "source": "\t_log.append({\"t_ms\": _ms(), \"event\": \"drag\", \"what\": what, \"from\": [from.x, from.y], \"to\": [pos.x, pos.y],"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 37,
+      "length": 124,
+      "kind": "code-layout",
+      "source": "\t\ttabs.append({\"key\": t.key, \"page_visible\": t.page_visible, \"frozen\": t.frozen, \"tenant\": t.tenant, \"rect\": _rect(t.rect)})"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 38,
+      "length": 101,
+      "kind": "code-layout",
+      "source": "\tvar entry := {\"t_ms\": _ms(), \"event\": \"shell\", \"label\": label, \"active\": s.active, \"count\": s.count,"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 39,
+      "length": 113,
+      "kind": "code-layout",
+      "source": "\t\t\t\"switching\": s.switching, \"bar_rect\": _rect(s.bar_rect), \"tabs\": tabs, \"window\": [shell.size.x, shell.size.y]}"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 46,
+      "length": 116,
+      "kind": "code-layout",
+      "source": "\tvar entry := {\"t_ms\": _ms(), \"event\": \"page\", \"label\": label, \"ok\": r.ok, \"code\": r.error.code if not r.ok else \"\"}"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 51,
+      "length": 106,
+      "kind": "code-layout",
+      "source": "\t\t\twindows.append({\"name\": w.name, \"rect\": _rect(w.rect), \"drag_height\": w.drag_height, \"order\": w.order})"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 53,
+      "length": 102,
+      "kind": "code-layout",
+      "source": "\t\tentry.merge({\"ticks\": v.ticks, \"inputs\": v.inputs, \"size\": [v.size.x, v.size.y], \"factor\": v.factor,"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 54,
+      "length": 102,
+      "kind": "code-layout",
+      "source": "\t\t\t\t\"desktop\": [v.desktop.x, v.desktop.y], \"margin\": v.margin, \"action\": v.action, \"windows\": windows,"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 79,
+      "length": 108,
+      "kind": "code-layout",
+      "source": "\t\treturn {\"ok\": false, \"value\": null, \"error\": {\"code\": \"collection_data.unavailable\", \"detail\": \"unused\"}},"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 80,
+      "length": 119,
+      "kind": "code-layout",
+      "source": "\t\t\"load_saves\": storage.load_saves, \"save_if_absent\": storage.save_if_absent, \"now_ms\": func() -> int: return 0}).value"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 85,
+      "length": 108,
+      "kind": "code-layout",
+      "source": "\t\t\treturn {\"ok\": false, \"value\": null, \"error\": {\"code\": \"collection_data.unavailable\", \"detail\": \"unused\"}}"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 95,
+      "length": 105,
+      "kind": "comment-only",
+      "source": "\t# 2. click the Playground tab: the desktop is created on first show, every window at its reference place"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 107,
+      "length": 109,
+      "kind": "code-layout",
+      "source": "\tawait _drag(page.get_global_transform() * Vector2(tr.rect.x + 120.0, tr.rect.y + 10.0), Vector2(-12, 10), 6,"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 115,
+      "length": 117,
+      "kind": "code-layout",
+      "source": "\tawait _drag(page.get_global_transform() * Vector2(op.rect.x + 100.0, op.rect.y + op.rect.h * 0.7), Vector2(6, 4), 5,"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 127,
+      "length": 118,
+      "kind": "code-layout",
+      "source": "\tawait _drag(page.get_global_transform() * Vector2(ph.rect.x + ph.rect.w / 2.0, ph.rect.y + 40.0), Vector2(-10, 6), 5,"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "line": 145,
+      "length": 103,
+      "kind": "comment-only",
+      "source": "\t# 7. the fill rule at two page sizes (1920x1000 and 1440x820 below the bar), then the 1440x900 minimum"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 7,
+      "length": 102,
+      "kind": "code-layout",
+      "source": "const PAGES := {\"explore\": \"Explore\", \"all\": \"All Blocks\", \"channels\": \"Channels\", \"search\": \"Search\"}"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 42,
+      "length": 104,
+      "kind": "code-layout",
+      "source": "\tif not catalog is Dictionary or not catalog.get(\"arena\") is Array or not catalog.get(\"works\") is Array:"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 62,
+      "length": 111,
+      "kind": "code-layout",
+      "source": "\ttheme.default_font = load(\"res://modules/playground_page/assets/fonts/LiberationSans-Regular.ttf\").duplicate()"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 63,
+      "length": 105,
+      "kind": "code-layout",
+      "source": "\ttheme.default_font.fallbacks = [load(\"res://modules/playground_page/assets/fonts/WenQuanYi-Hangul.ttf\")]"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 174,
+      "length": 118,
+      "kind": "code-layout",
+      "source": "\tbutton.add_theme_stylebox_override(\"normal\", StyleBoxEmpty.new() if flat else _box(Color.WHITE, Color(\"d1d1d1\"), 12))"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 175,
+      "length": 107,
+      "kind": "code-layout",
+      "source": "\tbutton.add_theme_stylebox_override(\"hover\", StyleBoxEmpty.new() if flat else _box(Color.WHITE, GREEN, 12))"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 234,
+      "length": 136,
+      "kind": "code-layout",
+      "source": "\t\t_put(_label(\"Public Are.na blocks + RISD works\", 13, MUTED), Rect2(0, 112, content_width, 30) if compact else Rect2(240, 56, 500, 30))"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 237,
+      "length": 108,
+      "kind": "code-layout",
+      "source": "\t\t_put(_button(\"Back to Channels\", func(): show_page(\"channels\")), Rect2(0, 68 if compact else 46, 130, 32))"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 244,
+      "length": 199,
+      "kind": "code-layout",
+      "source": "\t\tvar message := \"No works match this search. Try an artist, object, title, or clear the filters.\" if page == \"search\" else \"Nothing here yet. Save a block from Explore or Search to collect it here.\""
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 246,
+      "length": 101,
+      "kind": "code-layout",
+      "source": "\tcontent.custom_minimum_size.y = top + maxf(100, ceil(float(results.size()) / columns) * height) + 24"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 250,
+      "length": 119,
+      "kind": "code-layout",
+      "source": "\tvar list: Array = arena.duplicate() if page == \"explore\" else works.duplicate() if page == \"search\" else arena + works"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 258,
+      "length": 133,
+      "kind": "code-layout",
+      "source": "\t\t\tvar haystack: String = (record.title + \" \" + \" \".join(record.makers) + \" \" + record.materials + \" \" + record.accession).to_lower()"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 262,
+      "length": 133,
+      "kind": "code-layout",
+      "source": "\t\t\treturn (material_filter.is_empty() or record.materials == material_filter) and (not images_only or not record.texture.is_empty()))"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 277,
+      "length": 136,
+      "kind": "code-layout",
+      "source": "\t\tvar connection := \"%s connected\\nto %s \u00b7 Sep %d, %02d:%02d UTC\" % [record.connector, record.channel, date.day, date.hour, date.minute]"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 295,
+      "length": 124,
+      "kind": "code-layout",
+      "source": "\tvar byline: String = \", \".join(record.makers) + \" \u00b7 \" + str(int(record.year_from)) if record.has(\"makers\") else record.type"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 301,
+      "length": 111,
+      "kind": "code-layout",
+      "source": "\tvar save := _button(\"Saved here\" if str(record.id) in saved_ids else \"+ Save here\", func(): _save(record), 12)"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 310,
+      "length": 130,
+      "kind": "code-layout",
+      "source": "\timage.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED if record.source_width < 200 else TextureRect.STRETCH_KEEP_ASPECT_CENTERED"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 328,
+      "length": 138,
+      "kind": "code-layout",
+      "source": "\t_put(_button(\"Random object\", func(): _detail(works.pick_random()), 16), Rect2(96, 122, 158, 40) if compact else Rect2(850, 55, 158, 40))"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 333,
+      "length": 107,
+      "kind": "code-layout",
+      "source": "\t_put(_choice(materials, 0 if material_filter.is_empty() else materials.find(material_filter), func(index):"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 348,
+      "length": 121,
+      "kind": "code-layout",
+      "source": "\tvar note := _label(\"Search sample: 25 verified public-domain paintings. Museum records open from each work.\", 13, MUTED)"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 375,
+      "length": 106,
+      "kind": "code-layout",
+      "source": "\tvar landscape := RegEx.create_from_string(\"(?i)landscape|tenby|sea|coast|river|sunset|venice|land|water\")"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 404,
+      "length": 135,
+      "kind": "code-layout",
+      "source": "\t\tvar source := \"Source channel by Rin Lee\" if index == 0 else \"Collected by you \u00b7 this browser\" if index == 3 else \"RISD Museum works\""
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 405,
+      "length": 132,
+      "kind": "code-layout",
+      "source": "\t\tvar meta := _label(source + \"\\n%d blocks \u00b7 %s\" % [list.size(), \"browser-local\" if index == 3 else \"snapshot Sep 2026\"], 12, MUTED)"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 431,
+      "length": 126,
+      "kind": "code-layout",
+      "source": "\t_put(_label(record.get(\"materials\", \"Public Are.na block\"), 14, MUTED), Rect2(26, panel.size.y - 113, width - 52, 26), panel)"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "line": 433,
+      "length": 163,
+      "kind": "code-layout",
+      "source": "\t_put(_button(\"Open museum record\" if record.has(\"makers\") else \"Open Are.na block\", func(): OS.shell_open(url), 16), Rect2(26, panel.size.y - 65, 240, 38), panel)"
+    },
+    {
+      "file": "modules/playground_page/websurfer_window.gd",
+      "line": 58,
+      "length": 174,
+      "kind": "multiline-literal",
+      "source": "\tif (press_offset > 0.0 && pixel.x >= pressed_rect.x && pixel.x < pressed_rect.x + pressed_rect.z && pixel.y >= pressed_rect.y && pixel.y < pressed_rect.y + pressed_rect.w) {"
+    },
+    {
+      "file": "modules/playground_page/websurfer_window.gd",
+      "line": 59,
+      "length": 104,
+      "kind": "multiline-literal",
+      "source": "\t\tsample_pixel.y = clamp(pixel.y - press_offset, pressed_rect.y, pressed_rect.y + pressed_rect.w - 1.0);"
+    },
+    {
+      "file": "modules/playground_page/websurfer_window.gd",
+      "line": 61,
+      "length": 180,
+      "kind": "multiline-literal",
+      "source": "\tif (scroll_progress > 0.0001 && pixel.x >= content_rect.x && pixel.x < content_rect.x + content_rect.z && pixel.y >= content_rect.y && pixel.y < content_rect.y + content_rect.w) {"
+    },
+    {
+      "file": "modules/playground_page/websurfer_window.gd",
+      "line": 63,
+      "length": 110,
+      "kind": "multiline-literal",
+      "source": "\t\tsample_pixel = shifted_y < content_rect.y + content_rect.w ? vec2(pixel.x, shifted_y) : vec2(1400.0, 700.0);"
+    },
+    {
+      "file": "modules/playground_page/websurfer_window.gd",
+      "line": 65,
+      "length": 174,
+      "kind": "multiline-literal",
+      "source": "\tif (scroll_progress > 0.0001 && pixel.x >= scroll_rect.x && pixel.x < scroll_rect.x + scroll_rect.z && pixel.y >= scroll_rect.y && pixel.y < scroll_rect.y + scroll_rect.w) {"
+    },
+    {
+      "file": "modules/playground_page/websurfer_window.gd",
+      "line": 68,
+      "length": 119,
+      "kind": "multiline-literal",
+      "source": "\t\tsample_pixel.y = pixel.y >= new_top && pixel.y < new_top + thumb_height ? scroll_rect.y + pixel.y - new_top : 1100.0;"
+    },
+    {
+      "file": "modules/sculpture_viewer/catalogue.gd",
+      "line": 76,
+      "length": 127,
+      "kind": "long-single-literal",
+      "source": "\t\t\"Roman marble portrait head, made around 130 CE for insertion into a separate bust. Its damaged portions remain unrestored.\","
+    },
+    {
+      "file": "modules/sculpture_viewer/desktop.gd",
+      "line": 2,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## the setup panel window (the approved raster: header, the 40-object grid, form, Global Chatroom and"
+    },
+    {
+      "file": "modules/sculpture_viewer/desktop.gd",
+      "line": 4,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "## (viewer.gd) with the live Buddha scan where the screen's mock-up viewer stood \u2014 filling the Page at"
+    },
+    {
+      "file": "modules/sculpture_viewer/desktop.gd",
+      "line": 5,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## one uniform scale (#63). Windows drag by their handles, raise on click and stack. Reach it through"
+    },
+    {
+      "file": "modules/sculpture_viewer/playtest/hover_turn.gd",
+      "line": 1,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## Playtest for the setup grid's hover turn (Issue #110): builds the Shell with this Tenant in the 3D"
+    },
+    {
+      "file": "modules/sculpture_viewer/playtest/hover_turn.gd",
+      "line": 2,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## Viewer Tab, opens the Tab by a real click, then for every turning cell moves the real pointer onto"
+    },
+    {
+      "file": "modules/sculpture_viewer/playtest/record_selection.gd",
+      "line": 39,
+      "length": 126,
+      "kind": "long-single-literal",
+      "source": "\t\t\"Roman marble portrait head, made around 130 CE for insertion into a separate bust. Its damaged portions remain unrestored.\""
+    },
+    {
+      "file": "modules/sculpture_viewer/playtest/record_selection.gd",
+      "line": 121,
+      "length": 106,
+      "kind": "long-single-literal",
+      "source": "\t\t\"PASS: 20 native selections; exact displayed metadata; 16 explicit unknowns; 5x4 order; four live scans\""
+    },
+    {
+      "file": "modules/sculpture_viewer/playtest/window_resize_check.gd",
+      "line": 74,
+      "length": 112,
+      "kind": "long-single-literal",
+      "source": "\t\t\"WINDOW192 four windows drag/raise, shrink/grow, uniform aspect, selection, orbit and retained placement PASS\""
+    },
+    {
+      "file": "modules/sculpture_viewer/viewer.gd",
+      "line": 2,
+      "length": 132,
+      "kind": "comment-only",
+      "source": "## the selected scan (Buddha by default in Sketchbook); drag orbits, the wheel zooms, previous / next, play / pause, scrubber, audio"
+    },
+    {
+      "file": "modules/sculpture_viewer/viewer.gd",
+      "line": 478,
+      "length": 102,
+      "kind": "code-layout",
+      "source": "\tmotion_targets[control_id] = {\"idle\": 0.0, \"hover\": MOTION_HOVER, \"active\": MOTION_PRESS}[state_name]"
+    },
+    {
+      "file": "modules/shell/boot_loader.gd",
+      "line": 12,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## reduction), tape_screen.gdshader for a light colour bleed and edge halo; at the end the dots drift"
+    },
+    {
+      "file": "modules/shell/crt_display.gd",
+      "line": 34,
+      "length": 118,
+      "kind": "long-single-literal",
+      "source": "\t\t\t\t\"new URLSearchParams(location.search).get('crt') === '0' || new URLSearchParams(location.search).has('qa-viewer')\""
+    },
+    {
+      "file": "modules/shell/demo.gd",
+      "line": 3,
+      "length": 119,
+      "kind": "comment-only",
+      "source": "## 3D Viewer Tenants, video_player the Video Player Tenant, the owner's framed page (2026-09-25) the Collection Tenant,"
+    },
+    {
+      "file": "modules/shell/demo.gd",
+      "line": 4,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "## playground_page the Playground desktop (the Phone Tab folded into it, ticket #62), flowers_page the"
+    },
+    {
+      "file": "modules/shell/demo.gd",
+      "line": 61,
+      "length": 117,
+      "kind": "comment-only",
+      "source": "\t\t# PROTOTYPE (2026-09-26): the Grand Gallery 3D walk fills the frame's white opening (458,521 2110x1412 in page.png)"
+    },
+    {
+      "file": "modules/shell/desktop_icons.gd",
+      "line": 26,
+      "length": 123,
+      "kind": "comment-only",
+      "source": "## page or hold its backdrop (the Sketchbook's and 3D Viewer's `desktop`) to the node that holds the windows, then sit just"
+    },
+    {
+      "file": "modules/shell/desktop_icons.gd",
+      "line": 66,
+      "length": 114,
+      "kind": "comment-only",
+      "source": "## The index of the last full-page ColorRect/TextureRect among `holder`'s children (the paper, the ground), or -1."
+    },
+    {
+      "file": "modules/shell/desktop_icons.gd",
+      "line": 118,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "\t# the column is placed in Page pixels, out in the strip the Tenant gave up (this layer does not clip)"
+    },
+    {
+      "file": "modules/shell/hover_glow.gd",
+      "line": 2,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## A hovered button or tab gives off soft white light: the control's drawn pixels (every PNG piece it is"
+    },
+    {
+      "file": "modules/shell/hover_glow.gd",
+      "line": 3,
+      "length": 107,
+      "kind": "comment-only",
+      "source": "## built from, at the size and stretch it is drawn with) are gathered into one silhouette, blurred REACH_PX"
+    },
+    {
+      "file": "modules/shell/hover_glow.gd",
+      "line": 4,
+      "length": 106,
+      "kind": "comment-only",
+      "source": "## screen pixels out into the scene and faded in over FADE_IN, out over FADE_OUT. The light is computed on"
+    },
+    {
+      "file": "modules/shell/hover_glow.gd",
+      "line": 5,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## first hover and kept until the control resizes. The arrow cursor switches to its hover state over it."
+    },
+    {
+      "file": "modules/shell/hover_glow.gd",
+      "line": 21,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## The owner-supplied cursor pair, when present: each scaled down by a whole factor to at most CURSOR_PX"
+    },
+    {
+      "file": "modules/shell/hover_glow.gd",
+      "line": 22,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## tall (pixel art stays crisp), its hotspot at the arrow's tip (the top-left-most solid pixel). Without"
+    },
+    {
+      "file": "modules/shell/hover_glow.gd",
+      "line": 183,
+      "length": 107,
+      "kind": "comment-only",
+      "source": "## White light: the silhouette's alpha blurred (three box passes each way, near a gaussian) and brightened;"
+    },
+    {
+      "file": "modules/shell/interface.gd",
+      "line": 67,
+      "length": 109,
+      "kind": "comment-only",
+      "source": "## Returns ok(remaining count) or err(TAB_FIXED | tab_strip.index_out_of_range | tab_strip.open_in_progress)."
+    },
+    {
+      "file": "modules/shell/interface.gd",
+      "line": 92,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "##   switch_settled(index: int)   \u2014 the cross-fade to Tab `index` is done and the freeze rule applied"
+    },
+    {
+      "file": "modules/shell/playtest/harness.gd",
+      "line": 3,
+      "length": 107,
+      "kind": "comment-only",
+      "source": "## cross-fade is visible in pixels), nothing in video_player or playground \u2014 seven fixed Tabs since Flowers"
+    },
+    {
+      "file": "modules/shell/playtest/harness.gd",
+      "line": 4,
+      "length": 136,
+      "kind": "comment-only",
+      "source": "## joined after Playground (2026-09-25; six since the Phone Tab folded into Playground, ticket #62); and plays it the way a person does,"
+    },
+    {
+      "file": "modules/shell/playtest/harness.gd",
+      "line": 136,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "\t# 1. launch: the Collection tab grows in like a stub-opened tab, then its page fades in; seven fixed"
+    },
+    {
+      "file": "modules/shell/playtest/harness.gd",
+      "line": 144,
+      "length": 108,
+      "kind": "comment-only",
+      "source": "\t# 2. click the Map tab: the tab dips, the page cross-fades in, its tenant is created on first show and runs"
+    },
+    {
+      "file": "modules/shell/playtest/harness.gd",
+      "line": 154,
+      "length": 116,
+      "kind": "comment-only",
+      "source": "\t# 3. click the Sketchbook tab: after the fade the Map page is frozen (its _process and input stop), Sketchbook runs"
+    },
+    {
+      "file": "modules/shell/playtest/harness.gd",
+      "line": 228,
+      "length": 116,
+      "kind": "comment-only",
+      "source": "\t# 9. resize the window to the 1440x900 minimum: the bar re-fits along the bottom, the visible tenant fills its page"
+    },
+    {
+      "file": "modules/shell/playtest/visitor174_capture.gd",
+      "line": 49,
+      "length": 116,
+      "kind": "long-single-literal",
+      "source": "\t\t\"PASS #174 captures: Collection front/profile/back, straight/diagonal walk, stop, 23 paintings, gestures disabled\""
+    },
+    {
+      "file": "modules/shell/playtest/visitor174_check.gd",
+      "line": 109,
+      "length": 139,
+      "kind": "long-single-literal",
+      "source": "\t\t\"PASS #174: Hair36 body, 42-bone rig, 23 paintings, start/walk/stop/reversal, 90/180-degree turns, planted feet/floor, gestures disabled\""
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/dollhouse_shot.gd",
+      "line": 2,
+      "length": 129,
+      "kind": "comment-only",
+      "source": "## Run: godot --rendering-method gl_compatibility --path . --script res://modules/shell/prototype/gallery_walk4/dollhouse_shot.gd"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/identity/native_render_check.gd",
+      "line": 3,
+      "length": 138,
+      "kind": "comment-only",
+      "source": "## godot --rendering-method gl_compatibility --path . --script res://modules/shell/prototype/gallery_walk4/identity/native_render_check.gd"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/navigation_check.gd",
+      "line": 2,
+      "length": 126,
+      "kind": "comment-only",
+      "source": "## godot --rendering-method gl_compatibility --path . --script res://modules/shell/prototype/gallery_walk4/navigation_check.gd"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+      "line": 1,
+      "length": 118,
+      "kind": "comment-only",
+      "source": "## PROTOTYPE (map #116): one real painting as geometry. Local space: x right, y up, z out of the wall (wall at z = 0),"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+      "line": 2,
+      "length": 107,
+      "kind": "comment-only",
+      "source": "## centred on the canvas. The frame is a 3D nine-slice of its Muse texture: every band keeps its real width"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+      "line": 3,
+      "length": 118,
+      "kind": "comment-only",
+      "source": "## (band pixels scaled by the canvas's metres per opening pixel), a front face DEPTH off the wall, outer sides back to"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+      "line": 15,
+      "length": 117,
+      "kind": "comment-only",
+      "source": "# The room's PS1 surface shader, lit (paintings cast and receive the skylight's shadows); no affine warp on a canvas."
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+      "line": 48,
+      "length": 112,
+      "kind": "comment-only",
+      "source": "## canvas: canvas size in metres. margins: the frame texture's band widths in pixels (left, top, right, bottom)."
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+      "line": 218,
+      "length": 114,
+      "kind": "comment-only",
+      "source": "## A shaped work: a closed slab following its real outline (points in 0..1 of the texture, y down): a triangulated"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/shot.gd",
+      "line": 1,
+      "length": 110,
+      "kind": "comment-only",
+      "source": "## Evidence for map #116 (prototype 4): all four walls, a walk, a painting approach, the zoomable detail view,"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/shot.gd",
+      "line": 3,
+      "length": 103,
+      "kind": "comment-only",
+      "source": "## Run: godot --path . --script res://modules/shell/prototype/gallery_walk4/shot.gd -- --out-dir=<path>"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor_check.gd",
+      "line": 2,
+      "length": 134,
+      "kind": "comment-only",
+      "source": "## godot --headless --rendering-method gl_compatibility --path . --script res://modules/shell/prototype/gallery_walk4/visitor_check.gd"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 1,
+      "length": 113,
+      "kind": "comment-only",
+      "source": "## PROTOTYPE 4, throwaway (2026-09-26, map #116): the RISD Grand Gallery with all 23 paintings modelled in place."
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 2,
+      "length": 109,
+      "kind": "comment-only",
+      "source": "## Order, canvas sizes and heights: docs/research/grand-gallery-hang.md (branch research/grand-gallery-hang)."
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 3,
+      "length": 108,
+      "kind": "comment-only",
+      "source": "## Paintings: RISD's own photograph (Wikimedia Commons, CC0) as the canvas inside a Muse frame built as a 3D"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 4,
+      "length": 110,
+      "kind": "comment-only",
+      "source": "## nine-slice (painting_asset.gd); the angel is its keyed Muse cut-out. Surfaces and the two views through the"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 6,
+      "length": 112,
+      "kind": "comment-only",
+      "source": "## Keys: Up/W step (hold to walk), Down/S step back, Left/A Right/D turn (hold to keep turning). Click the floor"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 7,
+      "length": 111,
+      "kind": "comment-only",
+      "source": "## to walk there, a painting to walk up to it and open it. In the detail view: scroll or pinch to zoom, drag to"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 16,
+      "length": 118,
+      "kind": "inline-comment",
+      "source": "const L := 26.3  # room length, arch end (z = 0) to far end (z = -L): paintings + measured gaps (see _build_paintings)"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 25,
+      "length": 111,
+      "kind": "comment-only",
+      "source": "# The two doorways differ: the arch door (to the medieval gallery) has a cornice head and a shallow reveal onto"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 26,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "# the wide lit room; the far door has a plain casing and a deep vestibule with a second door at its end."
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 238,
+      "length": 110,
+      "kind": "comment-only",
+      "source": "# A soft dark rectangle (its edges fade over a fifth of each side): the baked shadow under frames and benches."
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 258,
+      "length": 107,
+      "kind": "comment-only",
+      "source": "# A room material: the PS1 surface shader, lit, optionally textured, with baked occlusion in vertex colour."
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 293,
+      "length": 107,
+      "kind": "comment-only",
+      "source": "\t\t# the skylight's pool: brighter down the middle, falling off toward the walls and the ends, with the soft"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 304,
+      "length": 106,
+      "kind": "comment-only",
+      "source": "# A subdivided flat panel from corner c along u and v (cells about `cell` metres), occlusion in its vertex"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 454,
+      "length": 108,
+      "kind": "comment-only",
+      "source": "\t# barrel vault from the cornice, end lunettes, and the long skylight curving with it, lamps along its edges"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 775,
+      "length": 115,
+      "kind": "comment-only",
+      "source": "# Herringbone oak as geometry: planks PLANK long and wide, each a random stretch of the Muse oak grain with its own"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 776,
+      "length": 114,
+      "kind": "comment-only",
+      "source": "# tone and the room's occlusion, laid on the lattice (b, b), (a, -a) turned 45 degrees so the zigzag runs down the"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 1002,
+      "length": 115,
+      "kind": "comment-only",
+      "source": "# The arch end, as in the video: one white-cased door in the gallery wall; behind its plaster reveal the Romanesque"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 1003,
+      "length": 112,
+      "kind": "comment-only",
+      "source": "# stone portal of the medieval gallery is the same opening (its round arch shows at the top of the door), a deep"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 1633,
+      "length": 113,
+      "kind": "comment-only",
+      "source": "# The far end: a plain rectangular door with a stepped white casing, a deep cream vestibule lit from its far end,"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 1938,
+      "length": 112,
+      "kind": "comment-only",
+      "source": "\t# long walls: even gaps, in the researched order. West runs arch end -> far end; east runs far end -> arch end."
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 2344,
+      "length": 103,
+      "kind": "long-single-literal",
+      "source": "\t\t\t\t\t\"var u=new URL(location.href);u.searchParams.set('lighting','%s');history.replaceState(null,'',u)\""
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 2369,
+      "length": 102,
+      "kind": "long-single-literal",
+      "source": "\t\t\t\t\t\"var u=new URL(location.href);u.searchParams.set('variant','%s');history.replaceState(null,'',u)\""
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 2413,
+      "length": 115,
+      "kind": "comment-only",
+      "source": "# Every static mesh that shares a look (same shader, texture, tint, flags) becomes one mesh: a few dozen draw calls"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 2818,
+      "length": 111,
+      "kind": "comment-only",
+      "source": "# The camera follows behind the kid but never leaves the room: the line from the kid's head to where the camera"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 2964,
+      "length": 107,
+      "kind": "comment-only",
+      "source": "# Walk to p. Every leg is checked against each bench's rectangle (grown by the kid's clearance); a leg that"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 2965,
+      "length": 105,
+      "kind": "comment-only",
+      "source": "# crosses one is replaced by a detour down the side lane nearer the start, past both of the bench's ends."
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 3049,
+      "length": 106,
+      "kind": "comment-only",
+      "source": "# A painting's outline on screen, cut where it passes behind the camera (so a painting half out of view is"
+    },
+    {
+      "file": "modules/shell/shell.gd",
+      "line": 86,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "\t# prototype: the hover glow on the strip's buttons and the seven tabs, and the two-state arrow cursor"
+    },
+    {
+      "file": "modules/shell/shell.gd",
+      "line": 121,
+      "length": 103,
+      "kind": "comment-only",
+      "source": "## FADE_SECONDS while the Page(s) on screen fade out; the freeze rule is applied when the fade settles."
+    },
+    {
+      "file": "modules/shell/shell.gd",
+      "line": 161,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## The Shell's show/hide rule: the visible Page runs, every hidden Page is frozen and holds no focus."
+    },
+    {
+      "file": "modules/shell/square_chrome.gd",
+      "line": 244,
+      "length": 252,
+      "kind": "long-single-literal",
+      "source": "\t\t\t\t\"window.risdFullscreenError = false; (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()).catch(() => { window.risdFullscreenError = true; document.dispatchEvent(new Event('fullscreenchange')); })\""
+    },
+    {
+      "file": "modules/shell/window_shadows.gd",
+      "line": 5,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "## The silhouette is built on the CPU at a quarter of page resolution when the window's size or pieces"
+    },
+    {
+      "file": "modules/shell/window_shadows.gd",
+      "line": 51,
+      "length": 105,
+      "kind": "comment-only",
+      "source": "\t\t# lifted from the first move under a held button until the button is let go (a drag, however it pauses)"
+    },
+    {
+      "file": "modules/shell/window_shadows.gd",
+      "line": 119,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## Every piece the window draws, as [kind, control]: pictures by their alpha, flat pieces as rectangles."
+    },
+    {
+      "file": "modules/shell/window_shadows.gd",
+      "line": 206,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## A picture (a region of an atlas included) at most 256 px on its long side; only its alpha is used."
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 4,
+      "length": 103,
+      "kind": "comment-only",
+      "source": "## their title bars and raise on click; the brush leaves the rest while the pointer is over the palette"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 8,
+      "length": 103,
+      "kind": "comment-only",
+      "source": "## viewer-godot/scripts/desktop.gd (enable_paint_prototype(\"A\"), _sync_brush_rest, the drag and raise)."
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 25,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## The native composition: variant A's windows (paintbox 170,345 550x575; book 750,365 630x545 on the"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 26,
+      "length": 103,
+      "kind": "comment-only",
+      "source": "## prototype's 1440x972 canvas) moved in to the prototype's right/bottom margins, the book 10 px taller"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 27,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## so both windows share the bottom edge and the composition's margin is NATIVE_MARGIN on every side."
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 213,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## goes to the book window (wider or taller pages) while the paintbox keeps its native size, anchored"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 462,
+      "length": 103,
+      "kind": "comment-only",
+      "source": "## Window drag and raise, by the mouse, in the desktop's own pixels (the prototype's desktop.gd _input,"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 508,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## The paintbox's palette-space rects in global pixels: the image, the 32 wells' hit boxes, the 4 trays."
+    },
+    {
+      "file": "modules/sketchbook/drawing_surface.gd",
+      "line": 5,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ d2faa30"
+    },
+    {
+      "file": "modules/sketchbook/drawing_surface.gd",
+      "line": 6,
+      "length": 134,
+      "kind": "comment-only",
+      "source": "## viewer-godot/scripts/drawing_surface.gd (the global class_name dropped, the pixel paths moved). Reach it through interface.gd only."
+    },
+    {
+      "file": "modules/sketchbook/errors.gd",
+      "line": 7,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## A file the sketchbook loads \u2014 a frame slice, an arrow button, the page, a paintbox picture, the brush"
+    },
+    {
+      "file": "modules/sketchbook/freehand.gd",
+      "line": 7,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c"
+    },
+    {
+      "file": "modules/sketchbook/freehand.gd",
+      "line": 8,
+      "length": 128,
+      "kind": "comment-only",
+      "source": "## viewer-godot/scripts/freehand.gd (the global class_name dropped; the module preloads it). Reach it through interface.gd only."
+    },
+    {
+      "file": "modules/sketchbook/global_chatroom.gd",
+      "line": 158,
+      "length": 107,
+      "kind": "multiline-literal",
+      "source": "\t\tObject.assign(input.style, { position: 'fixed', opacity: '0', zIndex: '2147483647', cursor: 'pointer' });"
+    },
+    {
+      "file": "modules/sketchbook/interface.gd",
+      "line": 4,
+      "length": 103,
+      "kind": "comment-only",
+      "source": "## (modules/shell/interface.gd): create(deps) returns a full-rect Control that lays itself out from its"
+    },
+    {
+      "file": "modules/sketchbook/interface.gd",
+      "line": 6,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "## desktop at d2faa30 (tickets #48, #49 \u2014 the owner put the Mixbox paintbox back): the paintbox window"
+    },
+    {
+      "file": "modules/sketchbook/interface.gd",
+      "line": 9,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## palette, where the brush lies, tip in the carried pigment, whenever the pointer is off the palette"
+    },
+    {
+      "file": "modules/sketchbook/interface.gd",
+      "line": 10,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## and the page; and the native sketchbook window \u2014 the owner's Ragnarok-style chrome, tldraw's freehand"
+    },
+    {
+      "file": "modules/sketchbook/interface.gd",
+      "line": 11,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## ink ported line by line in the carried pigment, one stroke list per spread, the 520 ms perspective"
+    },
+    {
+      "file": "modules/sketchbook/interface.gd",
+      "line": 12,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## paper turn, the pigment-loaded brush cursor over the page. It lays out by the fill rule (ticket #63):"
+    },
+    {
+      "file": "modules/sketchbook/interface.gd",
+      "line": 14,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## book window takes the leftover axis. Both windows drag by their title bars; a hidden Page freezes it."
+    },
+    {
+      "file": "modules/sketchbook/interface.gd",
+      "line": 38,
+      "length": 108,
+      "kind": "comment-only",
+      "source": "## ok({ key, ticks, inputs, size: Vector2 (the Tenant), desktop_scale (s), desktop_logical: Vector2 (S / s),"
+    },
+    {
+      "file": "modules/sketchbook/interface.gd",
+      "line": 39,
+      "length": 107,
+      "kind": "comment-only",
+      "source": "##      front_window, dragging, window_rect: Rect2 (the book window), page_rect: Rect2 (the drawable page),"
+    },
+    {
+      "file": "modules/sketchbook/interface.gd",
+      "line": 40,
+      "length": 108,
+      "kind": "comment-only",
+      "source": "##      title_rect: Rect2, controls: { previous, next: Rect2 }, window_visible, spread, strokes (on the open"
+    },
+    {
+      "file": "modules/sketchbook/interface.gd",
+      "line": 41,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "##      spread), turning: \"\" | \"forward\" | \"backward\", turn_progress, last_turn_ms, previous_disabled,"
+    },
+    {
+      "file": "modules/sketchbook/mixbox/mixbox.gd",
+      "line": 117,
+      "length": 105,
+      "kind": "outside-scope",
+      "source": "\tw = (1.0-tx)*(1.0-ty)*(1.0-tz); c0 += w*lut[xyz+ 192]; c1 += w*lut[xyz+262336]; c2 += w*lut[xyz+524480];"
+    },
+    {
+      "file": "modules/sketchbook/mixbox/mixbox.gd",
+      "line": 118,
+      "length": 105,
+      "kind": "outside-scope",
+      "source": "\tw = (    tx)*(1.0-ty)*(1.0-tz); c0 += w*lut[xyz+ 193]; c1 += w*lut[xyz+262337]; c2 += w*lut[xyz+524481];"
+    },
+    {
+      "file": "modules/sketchbook/mixbox/mixbox.gd",
+      "line": 119,
+      "length": 105,
+      "kind": "outside-scope",
+      "source": "\tw = (1.0-tx)*(    ty)*(1.0-tz); c0 += w*lut[xyz+ 256]; c1 += w*lut[xyz+262400]; c2 += w*lut[xyz+524544];"
+    },
+    {
+      "file": "modules/sketchbook/mixbox/mixbox.gd",
+      "line": 120,
+      "length": 105,
+      "kind": "outside-scope",
+      "source": "\tw = (    tx)*(    ty)*(1.0-tz); c0 += w*lut[xyz+ 257]; c1 += w*lut[xyz+262401]; c2 += w*lut[xyz+524545];"
+    },
+    {
+      "file": "modules/sketchbook/mixbox/mixbox.gd",
+      "line": 121,
+      "length": 105,
+      "kind": "outside-scope",
+      "source": "\tw = (1.0-tx)*(1.0-ty)*(    tz); c0 += w*lut[xyz+4288]; c1 += w*lut[xyz+266432]; c2 += w*lut[xyz+528576];"
+    },
+    {
+      "file": "modules/sketchbook/mixbox/mixbox.gd",
+      "line": 122,
+      "length": 105,
+      "kind": "outside-scope",
+      "source": "\tw = (    tx)*(1.0-ty)*(    tz); c0 += w*lut[xyz+4289]; c1 += w*lut[xyz+266433]; c2 += w*lut[xyz+528577];"
+    },
+    {
+      "file": "modules/sketchbook/mixbox/mixbox.gd",
+      "line": 123,
+      "length": 105,
+      "kind": "outside-scope",
+      "source": "\tw = (1.0-tx)*(    ty)*(    tz); c0 += w*lut[xyz+4352]; c1 += w*lut[xyz+266496]; c2 += w*lut[xyz+528640];"
+    },
+    {
+      "file": "modules/sketchbook/mixbox/mixbox.gd",
+      "line": 124,
+      "length": 105,
+      "kind": "outside-scope",
+      "source": "\tw = (    tx)*(    ty)*(    tz); c0 += w*lut[xyz+4353]; c1 += w*lut[xyz+266497]; c2 += w*lut[xyz+528641];"
+    },
+    {
+      "file": "modules/sketchbook/paintbox.gd",
+      "line": 5,
+      "length": 109,
+      "kind": "comment-only",
+      "source": "## viewer-godot/scripts/paint_palette_prototype.gd: the global class_name dropped, the pixel and Mixbox paths"
+    },
+    {
+      "file": "modules/sketchbook/paintbox.gd",
+      "line": 6,
+      "length": 158,
+      "kind": "comment-only",
+      "source": "## moved into this module, the hover pointer taken from mouse events (see _input). The desktop fixes smear variant A (the `?variant=` switcher stayed behind)."
+    },
+    {
+      "file": "modules/sketchbook/painting_flow.gd",
+      "line": 71,
+      "length": 104,
+      "kind": "code-layout",
+      "source": "\tstage.tooltip_text = \"Click a painting to select it; click again to enlarge. Drag or scroll to browse.\""
+    },
+    {
+      "file": "modules/sketchbook/painting_flow.gd",
+      "line": 89,
+      "length": 118,
+      "kind": "long-single-literal",
+      "source": "\tshader.code = \"shader_type canvas_item; void fragment(){if(COLOR.r>0.5 && COLOR.b>0.5 && COLOR.g<0.4){COLOR.a=0.0;}}\""
+    },
+    {
+      "file": "modules/sketchbook/paper_turn.gd",
+      "line": 8,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c"
+    },
+    {
+      "file": "modules/sketchbook/paper_turn.gd",
+      "line": 9,
+      "length": 130,
+      "kind": "comment-only",
+      "source": "## viewer-godot/scripts/paper_turn.gd (the global class_name dropped; the module preloads it). Reach it through interface.gd only."
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 40,
+      "length": 107,
+      "kind": "code-layout",
+      "source": "\t_log.append({\"t_ms\": _ms(), \"event\": \"drag\", \"what\": what, \"from\": [from.x, from.y], \"to\": [pos.x, pos.y],"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 52,
+      "length": 124,
+      "kind": "code-layout",
+      "source": "\t\ttabs.append({\"key\": t.key, \"page_visible\": t.page_visible, \"frozen\": t.frozen, \"tenant\": t.tenant, \"rect\": _rect(t.rect)})"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 53,
+      "length": 115,
+      "kind": "code-layout",
+      "source": "\tvar entry := {\"t_ms\": _ms(), \"event\": \"state\", \"label\": label, \"count\": s.count, \"active\": s.active, \"tabs\": tabs,"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 61,
+      "length": 116,
+      "kind": "code-layout",
+      "source": "\tvar entry := {\"t_ms\": _ms(), \"event\": \"book\", \"label\": label, \"ok\": r.ok, \"code\": r.error.code if not r.ok else \"\"}"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 70,
+      "length": 116,
+      "kind": "code-layout",
+      "source": "\t\tentry.merge({\"ticks\": v.ticks, \"inputs\": v.inputs, \"size\": [v.size.x, v.size.y], \"desktop_scale\": v.desktop_scale,"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 72,
+      "length": 104,
+      "kind": "code-layout",
+      "source": "\t\t\t\t\"front_window\": String(v.front_window), \"dragging\": v.dragging, \"window_rect\": _rect(v.window_rect),"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 73,
+      "length": 116,
+      "kind": "code-layout",
+      "source": "\t\t\t\t\"reference_rect\": _rect(v.reference_rect), \"saved_ids\": v.saved_ids, \"selected_reference\": v.selected_reference,"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 74,
+      "length": 107,
+      "kind": "code-layout",
+      "source": "\t\t\t\t\"title_rect\": _rect(v.title_rect), \"page_rect\": _rect(v.page_rect), \"window_visible\": v.window_visible,"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 76,
+      "length": 101,
+      "kind": "code-layout",
+      "source": "\t\t\t\t\"spread\": v.spread, \"strokes\": v.strokes, \"turning\": v.turning, \"turn_progress\": v.turn_progress,"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 84,
+      "length": 103,
+      "kind": "code-layout",
+      "source": "\t\t\t\t\"brush_parked\": v.brush_parked, \"brush_color\": v.brush_color, \"brush_tip_color\": v.brush_tip_color,"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 86,
+      "length": 116,
+      "kind": "code-layout",
+      "source": "\t\t\t\t\"mix_count\": v.mix_count, \"paint_pixels\": v.paint_pixels, \"smear_variant\": v.smear_variant, \"mixbox\": v.mixbox})"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 111,
+      "length": 102,
+      "kind": "code-layout",
+      "source": "func _page_size(shell: Control, page: Vector2i, label: String, shot: String, out_dir: String) -> void:"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 123,
+      "length": 108,
+      "kind": "code-layout",
+      "source": "\t\treturn {\"ok\": false, \"value\": null, \"error\": {\"code\": \"collection_data.unavailable\", \"detail\": \"unused\"}},"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 124,
+      "length": 119,
+      "kind": "code-layout",
+      "source": "\t\t\"load_saves\": storage.load_saves, \"save_if_absent\": storage.save_if_absent, \"now_ms\": func() -> int: return 0}).value"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 129,
+      "length": 108,
+      "kind": "code-layout",
+      "source": "\t\t\treturn {\"ok\": false, \"value\": null, \"error\": {\"code\": \"collection_data.unavailable\", \"detail\": \"unused\"}}"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 141,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "\t# 2. click the Sketchbook tab: the desktop is created on first show \u2014 paintbox, rest, book, spread 1"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 164,
+      "length": 132,
+      "kind": "code-layout",
+      "source": "\tawait _drag(Vector2(tray.x + tray.w * 0.15, tray.y + tray.h * 0.5), Vector2(tray.w * 0.7 / 14.0, 0), 14, \"smear A across the tray\")"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "line": 174,
+      "length": 124,
+      "kind": "code-layout",
+      "source": "\tawait _drag(Vector2(tray.x + tray.w * 0.5, tray.y + tray.h * 0.1), Vector2(0, tray.h * 0.8 / 12.0), 12, \"drag B through A\")"
+    },
+    {
+      "file": "modules/sketchbook/sketchbook_window.gd",
+      "line": 230,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "## The web gutter: multiply gradient, transparent -> (112,84,53) 18% -> (76,55,34) 26% -> transparent."
+    },
+    {
+      "file": "modules/tab_strip/interface.gd",
+      "line": 13,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## fades in over 0.2 s when a tab becomes active. In the Shell's compact fixed-tab mode (Issue #113) the"
+    },
+    {
+      "file": "modules/tab_strip/interface.gd",
+      "line": 14,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## bar is the rebuilt Muse taskbar (assets/compact/), each fixed tab carries its own icon and label, and"
+    },
+    {
+      "file": "modules/tab_strip/interface.gd",
+      "line": 15,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## the active tab's face switches at once to the new-tab stub's grey (a static endpoint, as the reviewed"
+    },
+    {
+      "file": "modules/tab_strip/interface.gd",
+      "line": 16,
+      "length": 110,
+      "kind": "comment-only",
+      "source": "## blue still was); the dip and the grow use the same grey family. Icon, label and close glyphs stay as drawn."
+    },
+    {
+      "file": "modules/tab_strip/interface.gd",
+      "line": 41,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## caller that opens its own fixed tabs (the Shell). Returns ok(TabStrip node) or err(ASSET_MISSING)."
+    },
+    {
+      "file": "modules/tab_strip/interface.gd",
+      "line": 56,
+      "length": 106,
+      "kind": "comment-only",
+      "source": "## button and close_tab on it returns TAB_FIXED. Returns ok(new index) or err(OPEN_IN_PROGRESS | NO_ROOM)."
+    },
+    {
+      "file": "modules/tab_strip/interface.gd",
+      "line": 68,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## PRESS_SECONDS, then the grow to its own width over GROW_SECONDS; neighbours and the stub stay put;"
+    },
+    {
+      "file": "modules/tab_strip/interface.gd",
+      "line": 70,
+      "length": 111,
+      "kind": "comment-only",
+      "source": "## open_fixed_tab and close_tab until settled. Returns ok(index) or err(INDEX_OUT_OF_RANGE | OPEN_IN_PROGRESS)."
+    },
+    {
+      "file": "modules/tab_strip/interface.gd",
+      "line": 90,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "## fixed, whether its label is truncated with \"...\", its close button rect (empty on a fixed tab), and"
+    },
+    {
+      "file": "modules/tab_strip/interface.gd",
+      "line": 91,
+      "length": 105,
+      "kind": "comment-only",
+      "source": "## `tint`, active-state progress (0 inactive, 1 active; ordinary tabs fade to the sea blue at 12 percent,"
+    },
+    {
+      "file": "modules/tab_strip/interface.gd",
+      "line": 94,
+      "length": 105,
+      "kind": "comment-only",
+      "source": "## Returns ok({ count, active, tabs: [{ label, rect, page_visible, fixed, truncated, close_rect, tint }],"
+    },
+    {
+      "file": "modules/tab_strip/interface.gd",
+      "line": 100,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "## The stub's rectangle in the strip's coordinates, so a harness can click it with a real mouse event."
+    },
+    {
+      "file": "modules/tab_strip/interface.gd",
+      "line": 105,
+      "length": 110,
+      "kind": "comment-only",
+      "source": "##   tab_opened(index: int)       \u2014 the new tab exists and its grow has started (grow_tab: the replay started)"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 42,
+      "length": 135,
+      "kind": "inline-comment",
+      "source": "var _tabs: Array = []  # [{node, left, mid, right, icon, clip, label, dots, close, label_key, width, page, fixed, tint, tint_to, fade}]"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 109,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## The Shell's bar (Issue #113): the rebuilt taskbar's pieces and geometry replace the legacy toolbar's;"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 263,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## The click dip: the clicked tab drops DIP_PX with the stub's pressed tint for PRESS_SECONDS, then sits"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 280,
+      "length": 102,
+      "kind": "comment-only",
+      "source": "## The active tint: the tab's face slices fade to `to` (1 = ACTIVE_TINT of the sea blue, 0 = white) at"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 281,
+      "length": 103,
+      "kind": "comment-only",
+      "source": "## FADE_SECONDS for the whole way, so a reversed fade takes only the distance left. It multiplies every"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 282,
+      "length": 105,
+      "kind": "comment-only",
+      "source": "## piece of the tab (slices, icon, label, dots, close): the icon and label pixels are opaque on white, so"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 283,
+      "length": 108,
+      "kind": "comment-only",
+      "source": "## their white must take the tint with the face; dark glyphs and the grey outline move a few levels at most."
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 284,
+      "length": 107,
+      "kind": "comment-only",
+      "source": "## Compact mode (Issue #113): the face slices switch at once to the stub's grey instead (a static endpoint,"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 285,
+      "length": 108,
+      "kind": "comment-only",
+      "source": "## as the reviewed blue still was); the icons and labels are cut-outs there, so they keep their own colours."
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 404,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## Compact mode: a fixed tab's icon and label sit where the rebuilt taskbar put them (layout `place`); a"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 405,
+      "length": 106,
+      "kind": "comment-only",
+      "source": "## stub-opened tab puts the legacy page icon and label, scaled to the new cap height, on the same row, the"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 582,
+      "length": 101,
+      "kind": "comment-only",
+      "source": "## Replay the open gesture on an existing tab, in place (the Shell's launch tab): stub-sized with the"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 583,
+      "length": 103,
+      "kind": "comment-only",
+      "source": "## pressed tint for PRESS_SECONDS, then the grow to its own width over GROW_SECONDS; its neighbours and"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 597,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "\t# the launch replays this on the first frame, whose texture uploads can outlast PRESS_SECONDS: hold the"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 599,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "\t# ponytail: headless Godot aborts with this hold in place (cause not traced), so the check run skips it"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 668,
+      "length": 105,
+      "kind": "comment-only",
+      "source": "\t# the tab folds back into a stub where it stands: contents fade, then width/height/tint reverse the grow"
+    },
+    {
+      "file": "modules/video_player/errors.gd",
+      "line": 5,
+      "length": 104,
+      "kind": "comment-only",
+      "source": "## A pixel file, a control manifest or a font the player loads is not in the project (detail: its path)."
+    },
+    {
+      "file": "modules/video_player/video_player.gd",
+      "line": 10,
+      "length": 111,
+      "kind": "comment-only",
+      "source": "## the viewer is scaled to fit the Page and centred, again on every resize (#63; the prototype scaled its whole"
+    },
+    {
+      "file": "modules/video_player/video_player.gd",
+      "line": 572,
+      "length": 103,
+      "kind": "comment-only",
+      "source": "## The video's stream: from the project on desktop, from WEB_MEDIA_DIR on the Web (null until fetched)."
+    },
+    {
+      "file": "modules/video_player/video_player.gd",
+      "line": 810,
+      "length": 107,
+      "kind": "comment-only",
+      "source": "## The grabber of a source slider, where HSlider draws it: ratio * (track - grabber) along, centred across."
+    },
+    {
+      "file": "prototype/mr-baby-paint-audio/main.gd",
+      "line": 64,
+      "length": 102,
+      "kind": "code-layout",
+      "source": "\tintro.text = \"77 original game streams \u00b7 inferred groups, exact filenames \u00b7 tap any sound to compare\""
+    }
+  ]
+}

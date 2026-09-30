@@ -1,0 +1,15 @@
+{
+  "baseline": "c47c61e9",
+  "runtime": "78001be1",
+  "files": 17,
+  "comment_moves": 38,
+  "normalized_tree_pass": 17,
+  "ordered_comment_pass": 17,
+  "native_parse_pass": 17,
+  "standards_findings": 0,
+  "spec_findings": 0,
+  "ponytail_findings": 0,
+  "four_previous_rejects_untouched": true,
+  "review": "independent read-only standards_current/spec_focus_current/ponytail_current; composed exact-build proof supplied subsequently",
+  "composed_proof": "current18windows+33states PASSerrors[]; see browser-input/results.json and browser-integrated/states.json"
+}

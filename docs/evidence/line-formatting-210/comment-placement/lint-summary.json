@@ -1,0 +1,24 @@
+{
+  "baseline": "c47c61e9",
+  "tracked_before": 485,
+  "tracked_after": 447,
+  "line_before": 374,
+  "line_after": 336,
+  "introduced_non_line_findings": 0,
+  "tool": "gdtoolkit4.5.0",
+  "runtime": "78001be1",
+  "tracked_exit": 1,
+  "tracked_counts": {
+    "max-line-length": 336,
+    "max-returns": 3,
+    "class-definitions-order": 85,
+    "load-constant-name": 9,
+    "duplicated-load": 4,
+    "function-variable-name": 8,
+    "max-file-lines": 1,
+    "constant-name": 1
+  },
+  "full_count": 450,
+  "full_exit": 1,
+  "original_untracked_findings": 3
+}

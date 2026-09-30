@@ -1,0 +1,8 @@
+{
+  "reference_commit": "1a1fd69c",
+  "source_file": "docs/evidence/sculpture-viewer/01-viewer.png",
+  "export": "historical-scan-list-stale-at-1a1fd69c.png",
+  "sha256": "1f3c268639f79b57925cccb10418ba9def050faf195825ef32825cab155f186c",
+  "initial_wrong_reference": "docs/evidence/v0.1.0/browser/1920x1080/w06-3d-viewer.png",
+  "correction": "Historical screenshot is stale relative to intended retained setup composition. Use original panel-2x.png artwork, identical git blob ba7e1a0ce726b4c19cc7ffbca3623249fe4b1e21 at1a1fd69c/current, for sidebar/header/chat visual review."
+}

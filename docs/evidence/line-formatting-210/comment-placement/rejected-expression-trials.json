@@ -1,0 +1,29 @@
+[
+  {
+    "file": "modules/sculpture_viewer/viewer.gd",
+    "before_sha256": "c0c10f8f1650ac1f2b9ee1fe609284ae74fd23e99f2f8a66d19cc64eacf3ab4a",
+    "after_sha256": "78a6f03552feda47df639e8c14d81c5d7ce7b92ceb8734b643f7cf049d9bb739",
+    "result": "no improvement",
+    "formatter": "reformatted /tmp/risd-210-expression-probe/modules/sculpture_viewer/viewer.gd\n1 file reformatted, 0 files left unchanged.\n",
+    "before_line_findings": 2,
+    "after_line_findings": 2
+  },
+  {
+    "file": "modules/sketchbook/painting_flow.gd",
+    "before_sha256": "c0b2fd013c57ae760e73b6e1689790da3af4c6934b9ec423e4d641b0ded17a3c",
+    "after_sha256": "e3045b54fca05631a274ad7c4562470b1d4b786f493d31524e658337af35f6b8",
+    "result": "no improvement",
+    "formatter": "reformatted /tmp/risd-210-expression-probe/modules/sketchbook/painting_flow.gd\n1 file reformatted, 0 files left unchanged.\n",
+    "before_line_findings": 2,
+    "after_line_findings": 2
+  },
+  {
+    "file": "prototype/mr-baby-paint-audio/main.gd",
+    "before_sha256": "7f40995a07596cf885ba0d29c2535fbbdca852eb71f98729eb17b5dcc9e965dc",
+    "after_sha256": "a395a34ff25feedbfeb5c7c3f173743c3880f7b4e5d4d7d6f93c675cdd294a3d",
+    "result": "no improvement",
+    "formatter": "reformatted /tmp/risd-210-expression-probe/prototype/mr-baby-paint-audio/main.gd\n1 file reformatted, 0 files left unchanged.\n",
+    "before_line_findings": 1,
+    "after_line_findings": 1
+  }
+]

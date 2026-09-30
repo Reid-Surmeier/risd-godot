@@ -2,7 +2,7 @@
 
 verdict: needs-work
 
-Current runtime: `ba6b3c05`, September 30, 2026. Acceptance: map149 and later owner173/174/177/187/189/192/193, with scoped follow-through199/206 and scoped208. Independent Standards/Spec/Ponytail source review covered `main`55e7c3b7 to0a58dc7e, then the193 delta through1dc3deac and focused199 corrections. Current blind reviewers used GPT-6 Astra at medium with fresh image-only context. [Current evidence and exact review limits](../../evidence/final-review-162/current-f2b5453a/README.md). Prior candidate review is preserved in current-0a58dc7e/source-review.md.
+Current runtime: `78001be1`, September 30, 2026. Acceptance: map149 and later owner173/174/177/187/189/192/193, with scoped follow-through199/206 and scoped208. Independent Standards/Spec/Ponytail source review covered `main`55e7c3b7 to0a58dc7e, then the193 delta through1dc3deac and focused199 corrections. Current blind reviewers used GPT-6 Astra at medium with fresh image-only context. [Current evidence and exact review limits](../../evidence/final-review-162/current-f2b5453a/README.md). Prior candidate review is preserved in current-0a58dc7e/source-review.md.
 
 ## Standards
 
@@ -61,3 +61,7 @@ Hosted Verify ondc8555f6 reportsfailure before steps, emptyrunner/no log; prior1
 Exactba6b3c05 full Web18window/input and33state sevenTab/fourScan/fivefit capture PASSerrors[], HTTPSarchivebytesMATCH. Installed-tool fullcheck FAIL488(485tracked+3originaluntracked). Fresh Astra medium image-only review PASSes visible sevenTabs/fourScan-main-catalogue-preview/square/gallery-frame-visitor; small-format text legibility remains FAIL, continuous motion/owner acceptance NEEDS-EVIDENCE. Source equivalence does not clear inherited readability/bench/continuous quality or owner approval.
 
 PR166 readback confirms17 direct image attachments; private picture-gallery10images/ready4/finite6.9s clip PASS. Hosted Verifyc9bf7cba run36691214596/job109808624726 FAILzero steps/emptyrunner; causeunknown. No retries/settings/spend.
+
+## Unchanged-comment follow-through —78001be1
+
+[Exact210 source/native/Web/pictures](../../evidence/line-formatting-210/comment-placement/README.md). Seventeen authorized files move38 unchanged comments beside statements; normalized trees/ordered comments/native17 pass, independent source findings0, four prior rejected files untouched. Fresh exact Web18windows/input and33state sevenTab/fourmain-hoverScan/fivefit capture PASSerrors[], current native Godot/seams PASS13warnings;12assets and museummetadata preserved, HTTPSarchiveMATCH. Installed-tool check FAIL450 (447tracked including336line +3originaluntracked);111nonline unchanged. This is partial remediation, no rule exception. Fresh Astra medium image-only review passes Viewer/sidebar/chat/sevenTabs/fourScans/square/gallery; initial stale scan-list reference corrected using original setup artwork, finding retained. Readability FAIL and temporal/owner NEEDS-EVIDENCE remain. Ten-picture/finite7s clip gallery passes actual Chrome checks. Prior hosted c47 job109810018593 FAILzero steps/runner_id0/details403, cause unverified; no manual retry/settings/spend. Verdict remains needs-work.
