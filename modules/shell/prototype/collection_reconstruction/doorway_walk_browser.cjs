@@ -3,21 +3,24 @@ const fs = require('fs'), path = require('path');
 const puppeteer = require(path.join(require('os').homedir(), 'promo-lab/node_modules/puppeteer-core'));
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 (async () => {
-  const [url, out] = process.argv.slice(2);
+  const [url, out, width = '1100'] = process.argv.slice(2);
   fs.mkdirSync(out, {recursive: true});
   const browser = await puppeteer.launch({executablePath: '/usr/bin/google-chrome', headless: 'new',
     args: ['--no-sandbox', '--use-gl=angle', '--use-angle=gl-egl', '--ignore-gpu-blocklist']});
   const errors = [], report = {url, errors};
   try {
     const page = await browser.newPage();
-    await page.setViewport({width: 1100, height: 760});
+    report.viewport = {width: Number(width), height: 760};
+    await page.setViewport(report.viewport);
     page.on('pageerror', error => errors.push(String(error)));
     page.on('console', message => { if (/SCRIPT ERROR|RuntimeError|Failed loading/.test(message.text())) errors.push(message.text()); });
     const start = Date.now();
     await page.goto(url + '?qa=1', {waitUntil: 'load', timeout: 90000});
     await page.waitForFunction(() => window.doorwayState, {timeout: 90000});
     report.first_ready_ms = Date.now() - start;
-    await page.waitForFunction(() => window.doorwayResult, {timeout: 30000});
+    await page.waitForFunction(() => window.doorwayState.phase === 4 && window.doorwayState.elapsed > 2.6, {timeout: 30000});
+    await page.screenshot({path: path.join(out, 'browser-return-jamb.png')});
+    await page.waitForFunction(() => window.doorwayResult, {timeout: 60000});
     report.engine = await page.evaluate(() => window.doorwayResult);
     await page.screenshot({path: path.join(out, 'browser-jamb.png')});
     await page.goto(url, {waitUntil: 'load', timeout: 90000});

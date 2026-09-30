@@ -13,6 +13,20 @@ var results: Dictionary = {}
 var out_dir := ""
 var frame_times: Array = []
 var casings: Array[StaticBody3D] = []
+var camera_clear := true
+var casing_contact := false
+var trials := [
+	["forward", Vector3(0.55, 0.25, 0.75), Vector3(0, 0, -1.3), false],
+	["reverse", Vector3(0, 0.25, -1.3), Vector3(0.55, 0, 0.75), false],
+	["right_near_blocked", Vector3(0.93, 0.25, 0.75), Vector3(0.93, 0, -0.5), true],
+	["left_near_blocked", Vector3(-0.82, 0.25, 0.34), Vector3(-0.82, 0, -0.5), true],
+	["right_far_blocked", Vector3(0.5, 0.25, -0.4), Vector3(1.09, 0, -0.06), true],
+	["left_far_blocked", Vector3(-0.82, 0.25, -0.35), Vector3(-0.82, 0, 0.4), true],
+	["left_clearance_forward", Vector3(-0.5, 0.25, 0.32), Vector3(-0.5, 0, -0.8), false],
+	["left_clearance_reverse", Vector3(-0.5, 0.25, -0.8), Vector3(-0.5, 0, 0.32), false],
+	["right_clearance_forward", Vector3(0.5, 0.25, 0.32), Vector3(0.5, 0, -0.8), false],
+	["right_clearance_reverse", Vector3(0.5, 0.25, -0.8), Vector3(0.5, 0, 0.32), false],
+]
 
 func _ready() -> void:
 	qa = "--selfcheck" in OS.get_cmdline_user_args()
@@ -118,24 +132,30 @@ func reset(at: Vector3) -> void:
 func _physics_process(delta: float) -> void:
 	elapsed += delta
 	var direction := Vector3.ZERO
-	if qa and phase < 3:
-		var targets := [Vector3(0, 0, -1.3), Vector3(0.55, 0, 0.75), Vector3(0.93, 0, -0.5)]
+	if qa and phase < trials.size():
+		var trial: Array = trials[phase]
+		var target: Vector3 = trial[2]
 		if elapsed > 0.5:
-			direction = targets[phase] - body.position
+			direction = target - body.position
 			direction.y = 0
 			if direction.length() > 0.04:
 				direction = direction.normalized()
 			else:
 				direction = Vector3.ZERO
 		if elapsed > 3.0:
-			results[["forward", "reverse", "jamb_blocked"][phase]] = (body.position.z < -1.15 if phase == 0 else (body.position.z > 0.65 if phase == 1 else body.position.z > 0.18)) and body.is_on_floor()
-			samples.append({"phase": phase, "position": [body.position.x, body.position.y, body.position.z], "on_floor": body.is_on_floor()})
+			var same_side: bool = body.position.z * trial[1].z > 0.0
+			var distance := Vector2(body.position.x - target.x, body.position.z - target.z).length()
+			results[trial[0]] = (same_side and distance > 0.2 and casing_contact if trial[3] else distance < 0.06) and body.is_on_floor()
+			results[trial[0] + "_camera"] = camera_clear
+			samples.append({"trial": trial[0], "position": [body.position.x, body.position.y, body.position.z], "on_floor": body.is_on_floor(), "casing_contact": casing_contact, "camera_clear": camera_clear, "hidden_casings": casings.filter(func(c): return not c.get_child(1).visible).size()})
 			capture("phase-%s.png" % phase)
 			phase += 1
 			elapsed = 0
-			if phase == 2:
-				reset(Vector3(0.93, 0.25, 0.75))
-			if phase == 3:
+			if phase < trials.size():
+				reset(trials[phase][1])
+				camera_clear = true
+				casing_contact = false
+			else:
 				finish()
 	elif not qa:
 		direction = Vector3(float(Input.is_physical_key_pressed(KEY_D)) - float(Input.is_physical_key_pressed(KEY_A)), 0, float(Input.is_physical_key_pressed(KEY_S)) - float(Input.is_physical_key_pressed(KEY_W))).normalized()
@@ -145,34 +165,43 @@ func _physics_process(delta: float) -> void:
 	body.velocity.z = direction.z * 1.25
 	body.velocity.y -= 9.8 * delta
 	body.move_and_slide()
+	if qa:
+		for i in body.get_slide_collision_count():
+			casing_contact = casing_contact or body.get_slide_collision(i).get_collider() in casings
 	visitor.position = body.position
 	visitor.pose(delta, direction.length() > 0.01, 0.0, direction if direction.length() > 0.01 else Vector3.FORWARD, 0.0)
 	var center := body.position + Vector3(0, 1.55, -0.7)
 	camera.position = center + Vector3(0, 9.3 * sin(deg_to_rad(35)), 9.3 * cos(deg_to_rad(35)))
 	camera.look_at(center)
 	# Same cutaway intent as the gallery camera: keep collision, hide the
-	# casing visual only when it blocks the line to the visitor's head.
+	# casing visual when it blocks the visitor's centre or shoulder rays.
 	for casing in casings:
 		casing.get_child(1).visible = true
-	for height in [0.5, 1.0, 1.5, 2.0]:
-		var ray := PhysicsRayQueryParameters3D.create(camera.position, body.position + Vector3(0, height, 0))
-		ray.exclude = [body.get_rid()]
-		for i in 3:
-			var hit := get_world_3d().direct_space_state.intersect_ray(ray)
-			if hit.is_empty() or hit.collider not in casings:
-				break
-			hit.collider.get_child(1).visible = false
-			var excluded := ray.exclude
-			excluded.append(hit.rid)
-			ray.exclude = excluded
-	label.text = "Collection doorway study · WASD move · Space reset\nProvisional scale and floors; coloured edges are study limits.\nExisting visitor / 35° gallery camera. No room walls or final bake.\n" + (JSON.stringify(results) if qa else "")
+	for offset in [-0.45, -0.225, 0.0, 0.225, 0.45]:
+		for height in [0.5, 1.0, 1.5, 2.0]:
+			var subject := body.position + Vector3(offset, height, 0)
+			if qa and elapsed > 0.5:
+				camera_clear = camera_clear and not camera.is_position_behind(subject) and get_viewport().get_visible_rect().has_point(camera.unproject_position(subject))
+			var ray := PhysicsRayQueryParameters3D.create(camera.position, subject)
+			ray.exclude = [body.get_rid()]
+			for i in 3:
+				var hit := get_world_3d().direct_space_state.intersect_ray(ray)
+				if hit.is_empty() or hit.collider not in casings:
+					if qa and elapsed > 0.5 and not hit.is_empty():
+						camera_clear = false
+					break
+				hit.collider.get_child(1).visible = false
+				var excluded := ray.exclude
+				excluded.append(hit.rid)
+				ray.exclude = excluded
+	label.text = "Collection doorway study · WASD move · Space reset\nProvisional scale/floors; patch edges are study limits.\nExisting visitor / 35° gallery camera. No final bake.\n" + (str(phase) + "/" + str(trials.size()) + " checks" if qa else "")
 	if OS.has_feature("web"):
-		JavaScriptBridge.eval("window.doorwayState=" + JSON.stringify({"position": [body.position.x, body.position.y, body.position.z], "on_floor": body.is_on_floor()}))
+		JavaScriptBridge.eval("window.doorwayState=" + JSON.stringify({"position": [body.position.x, body.position.y, body.position.z], "on_floor": body.is_on_floor(), "phase": phase, "elapsed": elapsed}))
 	if body.position.y < -2 and not qa:
 		reset(Vector3(0.55, 0.25, 0.75))
 
 func _process(delta: float) -> void:
-	if qa and phase < 3:
+	if qa and phase < trials.size():
 		frame_times.append(delta * 1000.0)
 
 func capture(filename: String) -> void:

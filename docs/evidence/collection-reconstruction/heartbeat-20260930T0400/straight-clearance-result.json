@@ -1,0 +1,141 @@
+{
+  "checks": {
+    "forward": true,
+    "forward_camera": true,
+    "left_clearance_forward": true,
+    "left_clearance_forward_camera": true,
+    "left_clearance_reverse": true,
+    "left_clearance_reverse_camera": true,
+    "left_far_blocked": true,
+    "left_far_blocked_camera": true,
+    "left_near_blocked": true,
+    "left_near_blocked_camera": true,
+    "reverse": true,
+    "reverse_camera": true,
+    "right_clearance_forward": true,
+    "right_clearance_forward_camera": true,
+    "right_clearance_reverse": true,
+    "right_clearance_reverse_camera": true,
+    "right_far_blocked": false,
+    "right_far_blocked_camera": true,
+    "right_near_blocked": true,
+    "right_near_blocked_camera": true
+  },
+  "frame_time_p50_ms": 8.33333333333333,
+  "frame_time_p95_ms": 10.6060606060606,
+  "navigation_accepted": false,
+  "render_frames": 3647,
+  "renderer": "D3D12 (NVIDIA GeForce RTX 4070 SUPER)",
+  "samples": [
+    {
+      "camera_clear": true,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        0.00636056577786803,
+        0.0516308099031448,
+        -1.27611470222473
+      ],
+      "trial": "forward"
+    },
+    {
+      "camera_clear": true,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        0.545169174671173,
+        -0.00610899832099676,
+        0.731162548065186
+      ],
+      "trial": "reverse"
+    },
+    {
+      "camera_clear": true,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        0.930816769599915,
+        -0.00151245051529258,
+        0.246386080980301
+      ],
+      "trial": "right_near_blocked"
+    },
+    {
+      "camera_clear": true,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -0.818375587463379,
+        0.0222515966743231,
+        0.348138839006424
+      ],
+      "trial": "left_near_blocked"
+    },
+    {
+      "camera_clear": true,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        0.815465211868286,
+        -0.0232567898929119,
+        0.373130261898041
+      ],
+      "trial": "right_far_blocked"
+    },
+    {
+      "camera_clear": true,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -0.820040762424469,
+        0.0494513027369976,
+        -0.266712665557861
+      ],
+      "trial": "left_far_blocked"
+    },
+    {
+      "camera_clear": true,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        -0.500043630599976,
+        0.0506525933742523,
+        -0.770603120326996
+      ],
+      "trial": "left_clearance_forward"
+    },
+    {
+      "camera_clear": true,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -0.499955534934998,
+        0.01293736230582,
+        0.283194690942764
+      ],
+      "trial": "left_clearance_reverse"
+    },
+    {
+      "camera_clear": true,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        0.499958068132401,
+        0.0563151389360428,
+        -0.774388492107391
+      ],
+      "trial": "right_clearance_forward"
+    },
+    {
+      "camera_clear": true,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        0.499977111816406,
+        -0.0058890338987112,
+        0.283518254756927
+      ],
+      "trial": "right_clearance_reverse"
+    }
+  ]
+}

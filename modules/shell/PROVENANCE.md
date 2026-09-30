@@ -118,3 +118,16 @@ This accepts only the bounded experimental traversal checks. Floor interpolation
 metric scale, room extents, whole-room collisions, final camera behavior and
 baking remain unresolved. Existing Muse receipts and failed sculpture meshes
 are unchanged. No production integration or 3D Viewer changes.
+
+## Collection doorway clearance/camera — September 30, 04:00 UTC heartbeat
+
+Local Godot 4.7.2 / Chrome 154 on RTX 4070 SUPER; **$0**, no paid calls.
+[Source, input and output hashes](../../docs/evidence/collection-reconstruction/heartbeat-20260930T0400/provenance.json)
+cover ten movement trials, camera sampling and real browser keyboard round trips
+at 720px and 1100px. Both jambs block from both sides; clear paths cross and
+return. Inspected before/after shows the intermediate shoulder-ray cutaway
+removing casing overlap while collision stays active. Existing floor geometry,
+provisional scale and visitor remain unchanged. These are bounded prototype
+checks, not whole-room or runtime acceptance. Initial trial failures and an X
+interruption remain recorded; final native/browser checks pass. Existing Muse
+receipts and failed sculpture meshes are unchanged.

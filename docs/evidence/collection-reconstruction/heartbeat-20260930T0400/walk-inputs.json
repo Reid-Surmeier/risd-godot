@@ -1,0 +1,17 @@
+{
+  "inputs_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-aperture-v1/result.json": "54745a22a7a5921b74bf50a4658420d10860d1c073dc479d6bcfeab3ed1eae3f",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/corridor-floor-v2/result.json": "e2c842dbeb77a766062c3028ff1fd141b3897e48eba57e72495a7f8163daf93e",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/floor-patches-v2/result.json": "c07daf8485ec7499e5962f1bc93ac741ddbc037376a919bfb7847d8d81fb2378",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/points3D.bin": "ff15dc3d1bb58558872f154600379602559a3e298acfb495c46baf772c3b1f52",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/frames.bin": "90107a240db7e611bfa77756dd756413c98d0a71d509e7e6d1aa93a2931bcb00",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/images.bin": "993ffee5847b9dbe29bfc308b43b82fc4b6712b4d872b1ef3ce2b4852e3cfe55",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/cameras.bin": "c22290a859d9aa5e77db9f6e1901174514188945285355ebfa45a16360f69717",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/threshold-landmarks-v1/result.json": "e340ca6397cf5c643c6590aacf5363c85224c1f1bae11241cf91398373ebeaf4",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/rig/visitor.gd": "fa9d537599a9c21d3b35f5ec90b452e6daccddc6de165697e8cf387e026cbc4b",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/identity/visitor_identity.glb": "8ae841b87653190979e198e43c7cc4aec45c8c6d66d43746d023cc03be1afe5c"
+  },
+  "provider": "local Godot/NumPy/pycolmap",
+  "cost_usd": 0
+}
