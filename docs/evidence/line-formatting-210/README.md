@@ -21,3 +21,7 @@ Fresh [Astra medium image-only review](visual-review.md) passes visible seven Ta
 
 https://windows-wsl.taile06c45.ts.net/risd-format-pictures-01a0f078/
 View the exact current capture, with the review limits above.
+
+Current picture check PASS: ten loaded images, readyState4,1080² finite6.9s remuxed visitor clip. Initial reuse of the older movie-gallery check rejected this shorter clip solely for its old >7s duration threshold; that failed packet is retained. Current QA checks the six-second movement sequence (>6s) without changing capture or runtime. Direct PR166 attachment upload/readback verifies17 image references; signed-out host cannot establish authenticated GitHub attachment rendering.
+
+Hosted Verify at build c9bf7cba: run36691214596/job109808624726 FAIL, steps[], runner empty. This is observed hosted failure; cause remains unknown. No retry, billing/settings or provider action performed.
