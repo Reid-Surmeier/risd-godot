@@ -29,3 +29,5 @@ DISPLAY=:99 godot --path . --script docs/evidence/keyboard-focus-206/focus_check
 source /home/reidsurmeier/promo-lab/gpu-env.sh
 node docs/evidence/keyboard-focus-206/browser_check.cjs https://windows-wsl.taile06c45.ts.net/risd-focus-current-01a0f078/63a1d94d.html /tmp/risd-focus-web
 ```
+
+Private picture gallery: https://windows-wsl.taile06c45.ts.net/risd-focus-pictures-01a0f078/ . Actual browser verifies allfive1080px images and playable1080×1080 clip readyState4/duration7.533s. Original screencast lacks duration metadata; serving-only ffmpeg copy remux adds cues/duration, with original preserved and hashes recorded in picture-clip-provenance.json. No re-encode/provider/spend. Authenticated GitHub Contents API verifies the pinned movie image; inline PR rendering remains unverified.

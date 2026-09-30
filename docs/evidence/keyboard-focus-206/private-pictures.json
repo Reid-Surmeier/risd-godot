@@ -1,0 +1,35 @@
+{
+  "images": [
+    {
+      "src": "https://windows-wsl.taile06c45.ts.net/risd-focus-pictures-01a0f078/video-playing.png",
+      "complete": true,
+      "width": 1080
+    },
+    {
+      "src": "https://windows-wsl.taile06c45.ts.net/risd-focus-pictures-01a0f078/keyboard-focus.png",
+      "complete": true,
+      "width": 1080
+    },
+    {
+      "src": "https://windows-wsl.taile06c45.ts.net/risd-focus-pictures-01a0f078/video-fullscreen.png",
+      "complete": true,
+      "width": 1080
+    },
+    {
+      "src": "https://windows-wsl.taile06c45.ts.net/risd-focus-pictures-01a0f078/viewer.png",
+      "complete": true,
+      "width": 1080
+    },
+    {
+      "src": "https://windows-wsl.taile06c45.ts.net/risd-focus-pictures-01a0f078/gallery.png",
+      "complete": true,
+      "width": 1080
+    }
+  ],
+  "video": {
+    "ready": 4,
+    "duration": 7.533,
+    "width": 1080,
+    "height": 1080
+  }
+}
