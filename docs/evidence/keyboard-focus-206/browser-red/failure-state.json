@@ -1,0 +1,235 @@
+{
+  "state": {
+    "display_size": [
+      1080,
+      1080
+    ],
+    "logical_size": [
+      1080,
+      1080
+    ],
+    "shell": {
+      "active": 3,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": [
+            76.2557525634766,
+            1042.24475097656,
+            136.614532470703,
+            36.264949798584
+          ],
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": [
+            212.87028503418,
+            1042.24475097656,
+            136.614532470703,
+            36.264949798584
+          ],
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": [
+            349.484832763672,
+            1042.24475097656,
+            136.614532470703,
+            36.264949798584
+          ],
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": true,
+          "rect": [
+            486.099365234375,
+            1042.24475097656,
+            136.614532470703,
+            36.264949798584
+          ],
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": [
+            622.7138671875,
+            1042.24475097656,
+            136.614532470703,
+            36.264949798584
+          ],
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": [
+            759.328430175781,
+            1042.24475097656,
+            136.614532470703,
+            36.264949798584
+          ],
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": [
+            895.942932128906,
+            1042.24475097656,
+            136.614532470703,
+            36.264949798584
+          ],
+          "tenant": null
+        }
+      ]
+    },
+    "stage_rect": [
+      0,
+      0,
+      1080,
+      1080
+    ],
+    "tenant": {
+      "arrangement": "stacked",
+      "controls": {
+        "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+        "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+        "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+        "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+        "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+        "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+        "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+        "seek_knob": "[P: (393.9604, 654.2416), S: (18.30389, 19.56622)]",
+        "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+        "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+        "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+        "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+      },
+      "drag_intent_count": 0,
+      "dragging_viewer": false,
+      "fullscreen": false,
+      "generated_motion_controls": 9,
+      "hidden_paused": false,
+      "information": {
+        "position": "(186.4818, 541.5428)",
+        "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+      },
+      "interaction_count": 4,
+      "key": "video_player",
+      "last_action": "playing",
+      "linked_video_count": 5,
+      "motion_play_count": 2,
+      "muted": false,
+      "paused": false,
+      "playing": true,
+      "saved": false,
+      "selected_video": 0,
+      "size": "(965.0, 972.0)",
+      "stream_length": 218.605333333333,
+      "stream_position": 2.88833333333333,
+      "thumbnail_count": 8,
+      "ticks": 243,
+      "tiles": [
+        {
+          "enabled": true,
+          "index": 0,
+          "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 1,
+          "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 3,
+          "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 4,
+          "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 5,
+          "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 6,
+          "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 7,
+          "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+        }
+      ],
+      "title": "The Observer",
+      "video_id": "1191767929",
+      "video_rect": [
+        165.149337768555,
+        101.96883392334,
+        862.176574707031,
+        462.015594482422
+      ],
+      "viewer": {
+        "position": "(15.14805, 15.14805)",
+        "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+        "scale": 0.631168831168831
+      },
+      "volume": 1
+    },
+    "window_grips": []
+  },
+  "states": [],
+  "errors": []
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "viewport": [
+      1920,
+      1080
+    ],
+    "nonwhite_exterior": 0
+  },
+  {
+    "viewport": [
+      1080,
+      1920
+    ],
+    "nonwhite_exterior": 0
+  },
+  {
+    "viewport": [
+      720,
+      486
+    ],
+    "nonwhite_exterior": 0
+  },
+  {
+    "viewport": [
+      486,
+      720
+    ],
+    "nonwhite_exterior": 0
+  }
+]

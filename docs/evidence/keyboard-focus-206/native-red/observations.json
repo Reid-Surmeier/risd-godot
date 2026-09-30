@@ -1,0 +1,2930 @@
+[
+  {
+    "check": "mouse opens Video",
+    "focus": "/root/CRTDesktop/Desktop/Content/SquareChrome/BottomTabStrip/VideoPlayer",
+    "pass": true,
+    "shell": {
+      "active": 3,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": true,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (391.957, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": false,
+        "generated_motion_controls": 9,
+        "hidden_paused": false,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 1,
+        "key": "video_player",
+        "last_action": "selected video 1",
+        "linked_video_count": 5,
+        "motion_play_count": 0,
+        "muted": false,
+        "paused": false,
+        "playing": true,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 0.879003666666666,
+        "thumbnail_count": 8,
+        "ticks": 34,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  },
+  {
+    "check": "mouse Shell control releases focus",
+    "focus": "/root/CRTDesktop/Desktop/Content/SquareChrome/BottomTabStrip/VideoPlayer",
+    "pass": false,
+    "shell": {
+      "active": 3,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": true,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (391.957, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": false,
+        "generated_motion_controls": 9,
+        "hidden_paused": false,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 1,
+        "key": "video_player",
+        "last_action": "selected video 1",
+        "linked_video_count": 5,
+        "motion_play_count": 0,
+        "muted": false,
+        "paused": false,
+        "playing": true,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 0.879003666666666,
+        "thumbnail_count": 8,
+        "ticks": 34,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  },
+  {
+    "check": "Right seeks after mouse selection",
+    "focus": "/root/CRTDesktop/Desktop/Content/SquareChrome/BottomTabStrip/Collection",
+    "pass": false,
+    "shell": {
+      "active": 3,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": true,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (392.2619, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": false,
+        "generated_motion_controls": 9,
+        "hidden_paused": false,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 1,
+        "key": "video_player",
+        "last_action": "selected video 1",
+        "linked_video_count": 5,
+        "motion_play_count": 0,
+        "muted": false,
+        "paused": false,
+        "playing": true,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 1.178088,
+        "thumbnail_count": 8,
+        "ticks": 46,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  },
+  {
+    "check": "Left seeks after mouse selection",
+    "focus": "/root/CRTDesktop/Desktop/Content/SquareChrome/BottomTabStrip/VideoPlayer",
+    "pass": true,
+    "shell": {
+      "active": 3,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": true,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (392.545, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": false,
+        "generated_motion_controls": 9,
+        "hidden_paused": false,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 1,
+        "key": "video_player",
+        "last_action": "selected video 1",
+        "linked_video_count": 5,
+        "motion_play_count": 0,
+        "muted": false,
+        "paused": false,
+        "playing": true,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 1.45810633333333,
+        "thumbnail_count": 8,
+        "ticks": 57,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  },
+  {
+    "check": "Space pauses Video without selecting another Tab",
+    "focus": "/root/CRTDesktop/Desktop/Content/SquareChrome/BottomTabStrip/VideoPlayer",
+    "pass": true,
+    "shell": {
+      "active": 3,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": true,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (392.545, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": false,
+        "generated_motion_controls": 9,
+        "hidden_paused": false,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 2,
+        "key": "video_player",
+        "last_action": "paused",
+        "linked_video_count": 5,
+        "motion_play_count": 1,
+        "muted": false,
+        "paused": true,
+        "playing": false,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 1.45810633333333,
+        "thumbnail_count": 8,
+        "ticks": 69,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  },
+  {
+    "check": "paused position remains fixed",
+    "focus": "/root/CRTDesktop/Desktop/Content/SquareChrome/BottomTabStrip/VideoPlayer",
+    "pass": true,
+    "shell": {
+      "active": 3,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": true,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (392.545, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": false,
+        "generated_motion_controls": 9,
+        "hidden_paused": false,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 2,
+        "key": "video_player",
+        "last_action": "paused",
+        "linked_video_count": 5,
+        "motion_play_count": 1,
+        "muted": false,
+        "paused": true,
+        "playing": false,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 1.45810633333333,
+        "thumbnail_count": 8,
+        "ticks": 91,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  },
+  {
+    "check": "Space resumes Video",
+    "focus": "/root/CRTDesktop/Desktop/Content/SquareChrome/BottomTabStrip/VideoPlayer",
+    "pass": true,
+    "shell": {
+      "active": 3,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": true,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (393.0676, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": false,
+        "generated_motion_controls": 9,
+        "hidden_paused": false,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 3,
+        "key": "video_player",
+        "last_action": "playing",
+        "linked_video_count": 5,
+        "motion_play_count": 2,
+        "muted": false,
+        "paused": false,
+        "playing": true,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 1.98181676190476,
+        "thumbnail_count": 8,
+        "ticks": 113,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  },
+  {
+    "check": "F enters Video fullscreen",
+    "focus": "/root/CRTDesktop/Desktop/Content/SquareChrome/BottomTabStrip/VideoPlayer",
+    "pass": true,
+    "shell": {
+      "active": 3,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": true,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (393.0894, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": true,
+        "generated_motion_controls": 9,
+        "hidden_paused": false,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 4,
+        "key": "video_player",
+        "last_action": "fullscreen",
+        "linked_video_count": 5,
+        "motion_play_count": 3,
+        "muted": false,
+        "paused": false,
+        "playing": true,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 2.00562628571428,
+        "thumbnail_count": 8,
+        "ticks": 114,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (115.0, 54.0), S: (965.0, 972.0)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  },
+  {
+    "check": "F returns from Video fullscreen",
+    "focus": "/root/CRTDesktop/Desktop/Content/SquareChrome/BottomTabStrip/VideoPlayer",
+    "pass": true,
+    "shell": {
+      "active": 3,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": true,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (393.1547, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": false,
+        "generated_motion_controls": 9,
+        "hidden_paused": false,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 5,
+        "key": "video_player",
+        "last_action": "windowed",
+        "linked_video_count": 5,
+        "motion_play_count": 4,
+        "muted": false,
+        "paused": false,
+        "playing": true,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 2.169912,
+        "thumbnail_count": 8,
+        "ticks": 117,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  },
+  {
+    "check": "Space pauses after fullscreen return",
+    "focus": "/root/CRTDesktop/Desktop/Content/SquareChrome/BottomTabStrip/VideoPlayer",
+    "pass": true,
+    "shell": {
+      "active": 3,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": true,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": true,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (393.2635, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": false,
+        "generated_motion_controls": 9,
+        "hidden_paused": false,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 6,
+        "key": "video_player",
+        "last_action": "paused",
+        "linked_video_count": 5,
+        "motion_play_count": 5,
+        "muted": false,
+        "paused": true,
+        "playing": false,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 2.20324533333333,
+        "thumbnail_count": 8,
+        "ticks": 119,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  },
+  {
+    "check": "paused Video survives hide and return",
+    "focus": "/root/CRTDesktop/Desktop/Content/SquareChrome/BottomTabStrip/VideoPlayer",
+    "pass": true,
+    "shell": {
+      "active": 3,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": true,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (393.2635, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": false,
+        "generated_motion_controls": 9,
+        "hidden_paused": false,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 6,
+        "key": "video_player",
+        "last_action": "paused",
+        "linked_video_count": 5,
+        "motion_play_count": 5,
+        "muted": false,
+        "paused": true,
+        "playing": false,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 2.20324533333333,
+        "thumbnail_count": 8,
+        "ticks": 142,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  },
+  {
+    "check": "Tab reaches a Shell header Button",
+    "focus": "/root/CRTDesktop/Desktop/Content/SquareChrome/SharedTopBar/@Button@50",
+    "pass": true,
+    "shell": {
+      "active": 3,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": true,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (393.2635, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": false,
+        "generated_motion_controls": 9,
+        "hidden_paused": false,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 6,
+        "key": "video_player",
+        "last_action": "paused",
+        "linked_video_count": 5,
+        "motion_play_count": 5,
+        "muted": false,
+        "paused": true,
+        "playing": false,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 2.20324533333333,
+        "thumbnail_count": 8,
+        "ticks": 156,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  },
+  {
+    "check": "keyboard focus remains indicated",
+    "focus": "/root/CRTDesktop/Desktop/Content/SquareChrome/SharedTopBar/@Button@50",
+    "pass": true,
+    "shell": {
+      "active": 3,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": true,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (393.2635, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": false,
+        "generated_motion_controls": 9,
+        "hidden_paused": false,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 6,
+        "key": "video_player",
+        "last_action": "paused",
+        "linked_video_count": 5,
+        "motion_play_count": 5,
+        "muted": false,
+        "paused": true,
+        "playing": false,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 2.20324533333333,
+        "thumbnail_count": 8,
+        "ticks": 156,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  },
+  {
+    "check": "Space activates keyboard-focused Shell control",
+    "focus": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_3d_viewer/SculptureViewer/desktop/viewer-window/viewer",
+    "pass": true,
+    "shell": {
+      "active": 2,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": true,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (393.5466, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": false,
+        "generated_motion_controls": 9,
+        "hidden_paused": true,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 7,
+        "key": "video_player",
+        "last_action": "paused by hide",
+        "linked_video_count": 5,
+        "motion_play_count": 6,
+        "muted": false,
+        "paused": true,
+        "playing": false,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 2.56943433333333,
+        "thumbnail_count": 8,
+        "ticks": 161,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  },
+  {
+    "check": "Tab returns to Shell after Tenant creation",
+    "focus": "/root/CRTDesktop/Desktop/Content/SquareChrome/SharedTopBar/@Button@50",
+    "pass": true,
+    "shell": {
+      "active": 2,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": true,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (393.5466, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": false,
+        "generated_motion_controls": 9,
+        "hidden_paused": true,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 7,
+        "key": "video_player",
+        "last_action": "paused by hide",
+        "linked_video_count": 5,
+        "motion_play_count": 6,
+        "muted": false,
+        "paused": true,
+        "playing": false,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 2.56943433333333,
+        "thumbnail_count": 8,
+        "ticks": 161,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  },
+  {
+    "check": "Enter activates keyboard-focused Shell control",
+    "focus": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_sketchbook/Sketchbook/desktop/embedded-3d-viewer-window/embedded-3d-viewer",
+    "pass": true,
+    "shell": {
+      "active": 1,
+      "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+      "count": 7,
+      "fixed_count": 7,
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+      "switching": false,
+      "tabs": [
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": "[P: (58.13782, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": false,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": true,
+          "rect": "[P: (158.6954, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": "[P: (259.253, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": "[P: (359.8106, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": "[P: (460.3682, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": "ok"
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": "[P: (560.9258, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        },
+        {
+          "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": "[P: (661.4835, 1051.215), S: (113.2457, 27.64856)]",
+          "tenant": null
+        }
+      ]
+    },
+    "video": {
+      "error": null,
+      "ok": true,
+      "value": {
+        "arrangement": "stacked",
+        "controls": {
+          "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+          "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+          "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+          "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+          "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+          "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+          "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+          "seek_knob": "[P: (393.5466, 654.2416), S: (18.30389, 19.56622)]",
+          "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+          "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+          "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+          "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+        },
+        "drag_intent_count": 0,
+        "dragging_viewer": false,
+        "fullscreen": false,
+        "generated_motion_controls": 9,
+        "hidden_paused": true,
+        "information": {
+          "position": "(186.4818, 541.5428)",
+          "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+        },
+        "interaction_count": 7,
+        "key": "video_player",
+        "last_action": "paused by hide",
+        "linked_video_count": 5,
+        "motion_play_count": 6,
+        "muted": false,
+        "paused": true,
+        "playing": false,
+        "saved": false,
+        "selected_video": 0,
+        "size": "(965.0, 972.0)",
+        "stream_length": 218.605333333333,
+        "stream_position": 2.56943433333333,
+        "thumbnail_count": 8,
+        "ticks": 161,
+        "tiles": [
+          {
+            "enabled": true,
+            "index": 0,
+            "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 1,
+            "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 2,
+            "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 3,
+            "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": true,
+            "index": 4,
+            "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 5,
+            "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 6,
+            "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+          },
+          {
+            "enabled": false,
+            "index": 7,
+            "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+          }
+        ],
+        "title": "The Observer",
+        "video_id": "1191767929",
+        "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+        "viewer": {
+          "position": "(15.14805, 15.14805)",
+          "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+          "scale": 0.631168831168831
+        },
+        "volume": 1.0
+      }
+    }
+  }
+]

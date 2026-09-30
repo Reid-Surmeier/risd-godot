@@ -1,0 +1,14 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ undefined
+- false
+
+    at /tmp/risd-passage-177-current/video-capture.cjs:21:95 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: undefined,
+  expected: false,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

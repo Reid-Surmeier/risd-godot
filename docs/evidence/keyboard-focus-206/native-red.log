@@ -1,0 +1,41 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Vulkan 1.4.318 - Forward+ - Using Device #0: Unknown - llvmpipe (LLVM 20.1.2, 256 bits)
+
+REST bounds=0.18734590709209..17.0174369812012 soles=194
+CLIP Idle length=1.06666672229767
+CLIP Walking_A length=1.06666672229767
+CLIP Interact length=1.29999995231628
+PASS mouse opens Video
+FAIL mouse Shell control releases focus
+FAIL Right seeks after mouse selection
+PASS Left seeks after mouse selection
+PASS Space pauses Video without selecting another Tab
+PASS paused position remains fixed
+PASS Space resumes Video
+PASS F enters Video fullscreen
+PASS F returns from Video fullscreen
+PASS Space pauses after fullscreen return
+ENTRY_COMPLETE (0.0, 0.0, -2.573446)
+PASS paused Video survives hide and return
+PASS Tab reaches a Shell header Button
+PASS keyboard focus remains indicated
+PASS Space activates keyboard-focused Shell control
+PASS Tab returns to Shell after Tenant creation
+PASS Enter activates keyboard-focused Shell control
+FOCUS206 failures=2
