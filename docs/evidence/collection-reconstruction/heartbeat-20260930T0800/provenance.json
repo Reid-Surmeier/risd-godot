@@ -71,10 +71,10 @@
     "19-right-feature-crop.png": "23b13b306b7835598c11ec9bf3c03c309361f6bd0155d4795480e578b27fa742",
     "native-phase-9.png": "952e72a880d1c0fdd8bf54aa25840296a95983d60848ffbe24530f8b0ad98b54",
     "native-phase-6.png": "3f1e55f5734582c00f12dbd5a838c194555239ab2fc85a503b60d3324426c0d8",
-    "shell-godot.log": "42b9faf7bf30dd22f71c046ddef94c4f81ba1db6ee74f3c3b4ee64d9db4f9982",
+    "shell-godot.log": "68b2c66972d76bb61e5bcf0d8bb0b813571488135cab6b52f3f3a845561ab64d",
     "native.log.gz": "1b15d6b8359e10257c0c7e7b70180f90a732fa6162014f4d7f9f3ac07e8e182d",
     "pose-check.log.gz": "075b263b62e736291c0a172b93045dd15bbfcd1a2e9e136d60561d5c4ef66c0a",
-    "shell-playtest.log": "62a67340b768c76e854e9ae0ab0b641262992a20bd5c4604d9e68b2edf98b206",
+    "shell-playtest.log": "918b19d0c6c205e4db837cf076ada2ae6ce376b9f1ff3de5a3cfbfc0864f5dd3",
     "result.json": "26d08f9aa94f3ed316f90d946152ee6cc1bfbbbfa16a2005a0a60e4996a04fbc",
     "23-right-feature-crop.png": "17da9cae41bbcb0939a15bf67656eb550e8922983b48dc3032d12b23c8c9e542",
     "track-audit-depth-checked.json": "fbf7bbf87ceb9722069d9c7a32697c416a5e858273dd10b639bc657312cb340b",
@@ -94,5 +94,6 @@
     "track-audit.json": "fbf7bbf87ceb9722069d9c7a32697c416a5e858273dd10b639bc657312cb340b",
     "13-source-candidates.png": "59aa2df4b359be273ea91013cf8c93fb5d0adc12aa92e6436c919c995aaa802c"
   },
-  "caveat": "Frozen source/query marks and rejected candidates retained. Original holdout/reconstruction jobs not rerun. Same-video camera diagnostics are correlated; no floor/navigation acceptance or production integration."
+  "caveat": "Frozen source/query marks and rejected candidates retained. Original holdout/reconstruction jobs not rerun. Same-video camera diagnostics are correlated; no floor/navigation acceptance or production integration.",
+  "raw_log_note": "Original bytes retained in .log.gz; readable copies trim trailing whitespace and blank EOF lines."
 }
