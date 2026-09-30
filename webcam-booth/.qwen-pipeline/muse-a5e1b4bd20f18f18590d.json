@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-a5e1b4bd20f18f18590d",
+  "summary": "Create one isolated low-poly retro game asset: a large ornate gold rectangular painting frame held by four chunky white cartoon museum gloves. Follow the attached museum-photo reference placement of gloves, but use flat Nintendo 3D polygon facets and creamy white lighting. Only the frame and gloves. The central painting opening and all space outside frame/gloves must be perfectly flat vivid green RGB 0,255,0 for chroma keying. No painting, person, face, text, shadows on the green, ground, perspective or background objects. Symmetric front-facing frame, landscape composition 1024x768; frame fits inside canvas with margins, central opening large enough for a portrait. Green remains unmixed and flat.\n",
+  "procedureId": "muse-a5e1b4bd20f18f18590d",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "assets/glove-frame-reference.png",
+      "sha256": "c7f00e420806f12f679c3cd5e5b2afb8353577b4296c8c321c94b97b1c313af8",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "image-work/frame-recipe.json",
+      "sha256": "a5e1b4bd20f18f18590ddbf00d48a69215d6c25dd2da60971624f6db68077b45"
+    },
+    {
+      "applicationPath": "image-work/frame-plan.json",
+      "sha256": "1ae70cf0bed9998de3e60e913345344f2ec60530a173bada97851105f44fe6f4"
+    },
+    {
+      "applicationPath": "image-work/frame-prompt.txt",
+      "sha256": "068b6c087f4d4abd066750ccc7e62ba5271d5df4c4cdb214518a5f76df2757f9"
+    }
+  ]
+}

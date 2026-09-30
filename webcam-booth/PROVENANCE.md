@@ -25,3 +25,11 @@ The four PNGs are Figma MCP visual exports, reduced by the MCP service from uplo
 ## Live-generation proof
 
 Explicit paid browser proof used the supplied source photo through the real camera capture bridge (synthetic permission/stream, physical hardware unavailable). Run `run-a1d8f3344390bd9375b41e65`, OpenRouter `meta/muse-image`, one image, actual receipt $0.010000; diagnostic spendState unknown is the same counted liability. Captured PNG hash d22a370ce2829ffbbd9b51ce52019b522443a5843acf9b40a61a27edcc2ff339; output hash c0f322b05da2bc8da92f03db1f969ac5874b6693b8ced3cb6011db20ba7397c7. Runtime request/result bytes were deleted after delivery; only hashes/run/cost are retained in the private receipt. Provider retention is not controlled by this deletion. Evidence: review/evidence/paid-loop.json and 09/10 screenshots.
+
+## Reference frame and fuse anchors
+
+OpenRouter Muse generated one frame donor (`run-5910233e53d2706dc83b67d2`, actual $0.01, donor SHA256 9124408c885ecfbe90066b54ca9aa01a32442d956c583c730697e5665bcb4009) from the board glove/frame reference. Four faceted white gloves, ornate gold frame, no source painting. `image-work/key-frame.py` mechanically removes the green matte; actual PNG alpha and empty center are asserted. Native alpha was not claimed. Source prompt/recipe/plan and donor are retained in image-work; runtime uses only assets/glove-frame.png.
+
+A second $0.01 Muse anchor (`run-ffd94d1e215418ca04e46b1a`, donor SHA256 e89a5e33225c0f3d8d7001ad06fbaf2bbbdccfe5031fde1943bde19f37be5499) adapts the inspected lavender Wario-head fuse. Original gameplay URL/timing and historical limits are in motion research. Opening still and plain-green end anchor are mechanically normalized to1280×720 for a single Seedance2.5 eleven-second request: ten seconds fuse, then burst/clear. Motion Run run-16c6dd84b5c249fa0282d930 has $2.55 held pending; do not resubmit.
+
+All application visual acceptance is owner-delegated, humanReviewed=false. Generated art is not evidence of an original game animation.

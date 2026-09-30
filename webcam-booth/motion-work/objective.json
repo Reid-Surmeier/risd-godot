@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1",
+  "id": "booth-fuse-explosion-v1-objective",
+  "summary": "Animate these first and last anchors as a reusable chroma-keyed 11-second retro game overlay. Hold the lower-left lavender-outline Wario-head bomb fixed. Burn horizontal fuse from RIGHT to LEFT with a small orange-yellow spark. After ten full seconds, an opaque faceted comic explosion spreads from lower left across the whole canvas then clears completely to green. Eleven seconds total. 0.0-0.4 hold. 0.4-9.7 consume fuse steadily right to left. 9.7-10.0 final spark reaches bomb. No explosion before10.0. 10.0-10.6 explosion expands to cover whole canvas. 10.6-11.0 clears completely to flat green. Static camera and perfectly flat RGB0,255,0 matte. Only fuse/spark/explosion move. No face, character body, hands, frame, gloves, scenery, text or camera movement. Burst may cover entire portrait area. Keep exact green matte throughout; no gradients, shadows or green spill. Crisp low-poly Nintendo polygon style and pale lavender fuse. Silent. Final frame exactly plain green.",
+  "procedureId": "booth-fuse-explosion-v1",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "2.55",
+  "videoPlan": {
+    "assembly": {
+      "required": false,
+      "pixelOwnership": "none-authoritative"
+    },
+    "expectedMedia": {
+      "width": 1280,
+      "height": 720,
+      "durationSeconds": 11,
+      "audioExpected": false
+    }
+  },
+  "references": [
+    {
+      "slot": "first-frame",
+      "path": "motion-work/references/fuse-first.png",
+      "sha256": "397270e52f5c2d4efb25fac51f811d43a76efb05883e52ede86a6faa24cba4c1",
+      "kind": "image",
+      "payloadDestination": "/input_references/0/image_url/url",
+      "authorityReason": "inferred-motion/v1:{\"provenance\":\"Owner-delegated booth, Figma node1:5 and inspected Rayque3 Rude Awakening gameplay provide appearance. Muse run-ffd94d1e215418ca04e46b1a supplies opening anchor. Full-portrait explosion and eleven-second clip are an authored adaptation; original source was a short lower-left starburst.\",\"behavior\":\"Hold the lower-left lavender-outline Wario-head bomb fixed. Burn horizontal fuse from RIGHT to LEFT with a small orange-yellow spark. After ten full seconds, an opaque faceted comic explosion spreads from lower left across the whole canvas then clears completely to green.\",\"timing\":\"Eleven seconds total. 0.0-0.4 hold. 0.4-9.7 consume fuse steadily right to left. 9.7-10.0 final spark reaches bomb. No explosion before10.0. 10.0-10.6 explosion expands to cover whole canvas. 10.6-11.0 clears completely to flat green.\",\"spatialPermissions\":\"Static camera and perfectly flat RGB0,255,0 matte. Only fuse/spark/explosion move. No face, character body, hands, frame, gloves, scenery, text or camera movement. Burst may cover entire portrait area.\",\"cancelRestart\":\"Runtime cancellation hides overlay and discards portrait. Reset returns camera. Each completed portrait restarts this same reusable clip; late provider results never restart old portrait.\",\"historicalFidelity\":false}",
+      "declaredMedia": {
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "slot": "last-frame",
+      "path": "motion-work/references/fuse-last.png",
+      "sha256": "0204d1855079a5af78f7f82c500b0a21a7841eb1218ee7df7c8a57cb7d70ec16",
+      "kind": "image",
+      "payloadDestination": "/input_references/1/image_url/url",
+      "authorityReason": "inferred-motion/v1:{\"provenance\":\"Owner-delegated booth, Figma node1:5 and inspected Rayque3 Rude Awakening gameplay provide appearance. Muse run-ffd94d1e215418ca04e46b1a supplies opening anchor. Full-portrait explosion and eleven-second clip are an authored adaptation; original source was a short lower-left starburst.\",\"behavior\":\"Hold the lower-left lavender-outline Wario-head bomb fixed. Burn horizontal fuse from RIGHT to LEFT with a small orange-yellow spark. After ten full seconds, an opaque faceted comic explosion spreads from lower left across the whole canvas then clears completely to green.\",\"timing\":\"Eleven seconds total. 0.0-0.4 hold. 0.4-9.7 consume fuse steadily right to left. 9.7-10.0 final spark reaches bomb. No explosion before10.0. 10.0-10.6 explosion expands to cover whole canvas. 10.6-11.0 clears completely to flat green.\",\"spatialPermissions\":\"Static camera and perfectly flat RGB0,255,0 matte. Only fuse/spark/explosion move. No face, character body, hands, frame, gloves, scenery, text or camera movement. Burst may cover entire portrait area.\",\"cancelRestart\":\"Runtime cancellation hides overlay and discards portrait. Reset returns camera. Each completed portrait restarts this same reusable clip; late provider results never restart old portrait.\",\"historicalFidelity\":false}",
+      "declaredMedia": {
+        "width": 1280,
+        "height": 720
+      }
+    }
+  ]
+}

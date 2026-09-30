@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-c4d73f68d5ed7c974a61",
+  "summary": "Create a single isolated retro low-poly game fuse overlay using the attached WarioWare appearance reference only. Canvas landscape 1280x720. Background perfectly flat RGB 0,255,0 green. At lower left place a SMALL white/lavender outline bomb shaped like the Wario head silhouette, roughly 110px tall, with no filled character portrait. From the bomb run one long thin pale horizontal fuse to the right, ending near the lower-right edge in a small orange/yellow burning spark. Keep all objects within bottom 25 percent of the canvas; upper 75 percent is plain green. No face portrait, hand, sun, scenery, text, digits, frame or gloves. Crisp flat Nintendo game facets. The green matte is unmixed for later chroma-key compositing. This still is the opening frame of an authored ten-second fuse/explosion overlay.\n",
+  "procedureId": "muse-c4d73f68d5ed7c974a61",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "assets/portrait-fixture.png",
+      "sha256": "35d354cc27f11c9cc1b6f6d6a40c45b00eb12168320e5d7873d1603d98e955f9",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "image-work/fuse-recipe.json",
+      "sha256": "c4d73f68d5ed7c974a610501ea64e61af1636a60dad7f0d39e4588288201e053"
+    },
+    {
+      "applicationPath": "image-work/fuse-plan.json",
+      "sha256": "0b88deaa034dbeb79d860dd2f841c199713900b198fa859af81789d6cfb199fe"
+    },
+    {
+      "applicationPath": "image-work/fuse-prompt.txt",
+      "sha256": "04b938ec47a408037ab270dccf66a4d1f719ab1fda5b809957ee76b71a3fcb2b"
+    }
+  ]
+}

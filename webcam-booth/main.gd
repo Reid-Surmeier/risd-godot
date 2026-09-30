@@ -4,7 +4,7 @@ extends "interface.gd"
 const PHOTO = preload("assets/photo-fixture.png")
 const PORTRAIT = preload("assets/sample-portrait.webp")
 const CAMERA_FRAME = preload("assets/camera-frame.png")
-const GLOVES = preload("assets/glove-frame-reference.png")
+const GLOVES = preload("assets/glove-frame.png")
 const LOADING_SHADER = preload("assets/loading.gdshader")
 
 var state := "camera"
@@ -218,8 +218,9 @@ func _sync() -> void:
 	background.visible = state not in ["loading", "explosion"]
 	background.texture = CAMERA_FRAME if camera else GLOVES
 	picture.visible = state not in ["loading", "explosion"]
-	picture.position = Vector2(135, 235) if camera else Vector2(235, 95)
-	picture.size = Vector2(755, 285) if camera else Vector2(550, 410)
+	picture.position = Vector2(135, 235) if camera else Vector2(283, 124)
+	picture.size = Vector2(755, 285) if camera else Vector2(448, 409)
+	picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED if camera else TextureRect.STRETCH_SCALE
 	caption.text = "Compose your picture, then create an ephemeral portrait."
 	if source == "none":
 		caption.text = "Enable your camera or try the sample photo."

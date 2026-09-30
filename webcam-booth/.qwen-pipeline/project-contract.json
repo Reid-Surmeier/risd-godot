@@ -4,7 +4,11 @@
   "artifactRoot": "artifacts/image-generation",
   "referenceRoots": [
     "assets/photo-fixture.png",
-    "assets/portrait-fixture.png"
+    "assets/portrait-fixture.png",
+    "build/private/captures/9935f8e9-a3d2-4915-b1ff-5d0c8b867c45/subject.png",
+    "assets/glove-frame-reference.png",
+    "motion-work/references/fuse-first.png",
+    "motion-work/references/fuse-last.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -30,6 +34,89 @@
         },
         {
           "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-e5e627e17404b70f16c7",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1024"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-a5e1b4bd20f18f18590d",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x768"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-c4d73f68d5ed7c974a61",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1280x720"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "booth-fuse-explosion-v1",
+      "version": "1",
+      "mode": "seedance-video",
+      "provider": "openrouter",
+      "model": "bytedance/seedance-2.5",
+      "maximumCount": 1,
+      "unitCostUsd": "2.55",
+      "referenceRequirements": [
+        {
+          "slot": "first-frame",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "last-frame",
           "kind": "image",
           "payloadDestination": "/input_references/1/image_url/url"
         }
