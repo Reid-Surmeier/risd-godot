@@ -15,15 +15,15 @@ window.addEventListener('DOMContentLoaded',()=>{
  #booth-message{font-size:17px;line-height:1.35;margin:4px 0 12px;min-height:24px}
  #booth-photo-note{font-size:13px;line-height:1.4;margin:0 0 10px;color:#555}
  button{cursor:pointer;touch-action:manipulation}button:focus-visible{outline:3px solid #7848b8;outline-offset:3px}button[hidden]{display:none!important}button:disabled{cursor:default}
- #booth-shutter{position:absolute;width:48px;height:49px;min-width:44px;min-height:44px;transform:translate(-50%,-50%);border:0;padding:0;background:transparent;border-radius:50%;display:grid;place-items:center}
- #booth-shutter span{width:48px;height:49px;background:url(camera-frame.png) -491px -536px;clip-path:circle(48%);transform:scale(var(--icon-scale,1));transition:transform .12s,filter .12s;pointer-events:none}
+ #booth-shutter{position:absolute;z-index:2;width:48px;height:49px;min-width:44px;min-height:44px;transform:translate(-50%,-50%);border:0;padding:0;background:transparent;border-radius:50%;display:grid;place-items:center}
+ #booth-shutter span{display:block;width:48px;height:49px;background:url(camera-frame.png) -491px -536px;clip-path:circle(48%);transform:scale(var(--icon-scale,1));transition:transform .12s,filter .12s;pointer-events:none}
  #booth-shutter:hover:not(:disabled) span{transform:scale(calc(var(--icon-scale,1)*1.12));filter:brightness(1.12)}
  #booth-shutter:active:not(:disabled) span{transform:scale(calc(var(--icon-scale,1)*.88))}#booth-shutter:disabled span{opacity:.5}
  #booth-controls button{min-width:150px;min-height:44px;padding:10px 16px;font:600 16px Arial,sans-serif;color:#292929;background:linear-gradient(#fff,#eee);border:1px solid #888;border-radius:5px}
  @media(prefers-reduced-motion:reduce){#booth-shutter span{transition:none}}
  @media(max-height:420px){#booth-message{font-size:15px;margin:2px 0 6px}}
  `;document.head.append(style);
- function position(){const width=canvas.clientWidth,height=canvas.clientHeight,scale=Math.min(width/1024,height/700);shutter.style.left=((width-1024*scale)/2+515*scale)+'px';shutter.style.top=((height-700*scale)/2+560.5*scale)+'px';shutter.style.setProperty('--icon-scale',scale);shutter.style.width=Math.max(44,48*scale)+'px';shutter.style.height=Math.max(44,49*scale)+'px'}
+ function position(){const width=canvas.clientWidth,height=canvas.clientHeight,scale=Math.min(width/1024,height/700);shutter.style.left=((width-1024*scale)/2+515*scale)+'px';shutter.style.top=((height-700*scale)/2+560.5*scale)+'px';shutter.style.setProperty('--icon-scale',Math.max(44/48,scale));shutter.style.width=Math.max(44,48*scale)+'px';shutter.style.height=Math.max(44,49*scale)+'px'}
  new ResizeObserver(position).observe(canvas);position();
  setInterval(()=>{const state=window.boothState;if(!state)return;const camera=state.state==='camera';shutter.hidden=!camera;cancel.hidden=camera;shutter.disabled=state.source==='requesting';shutter.setAttribute('aria-label',state.source==='camera'?'Take picture':'Enable camera');note.hidden=!(camera&&state.source==='camera');if(message.textContent!==state.message)message.textContent=state.message},100);
 });

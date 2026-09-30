@@ -14,8 +14,10 @@ cp tracking/vision_bundle.js tracking/face_landmarker.task tracking/LICENSE trac
 cp -r tracking/wasm build/web/tracking/
 python3 - <<'PY'
 from pathlib import Path
+from hashlib import sha256
 p=Path('build/web/index.html')
-text=p.read_text().replace('</head>', '<script src="camera.js"></script><script src="controls.js"></script></head>')
+controls_version=sha256(Path('controls.js').read_bytes()).hexdigest()[:12]
+text=p.read_text().replace('</head>', f'<script src="camera.js"></script><script src="controls.js?v={controls_version}"></script></head>')
 text=text.replace('user-scalable=no, ','')
 p.write_text(text)
 PY

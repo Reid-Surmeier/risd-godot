@@ -8,7 +8,6 @@ const MATTE_SHADER = preload("assets/matte.gdshader")
 const EXPRESSION_SHADER = preload("assets/expression.gdshader")
 const LOADING_SHADER = preload("assets/loading.gdshader")
 const FRAME_SHADER = preload("assets/camera-frame.gdshader")
-const PREVIEW_SHADER = preload("assets/preview.gdshader")
 
 var state := "camera"
 var source := "none"
@@ -22,7 +21,6 @@ var caption: Label
 var camera_button: TextureButton
 var frame_material: ShaderMaterial
 var matte_material: ShaderMaterial
-var preview_material: ShaderMaterial
 var cancel_button: Button
 var loader: ColorRect
 var motion: VideoStreamPlayer
@@ -42,8 +40,6 @@ func _ready() -> void:
 	frame_material.shader = FRAME_SHADER
 	matte_material = ShaderMaterial.new()
 	matte_material.shader = MATTE_SHADER
-	preview_material = ShaderMaterial.new()
-	preview_material.shader = PREVIEW_SHADER
 	expression_material = ShaderMaterial.new()
 	expression_material.shader = EXPRESSION_SHADER
 	loader = ColorRect.new()
@@ -139,7 +135,7 @@ func reset() -> Dictionary:
 	tracking_mode = "idle"
 	expression_value = Vector4.ZERO
 	pose_value = Vector3.ZERO
-	picture.material = preview_material
+	picture.material = null
 	motion.stop()
 	state = "camera"
 	entered_at = _now()
@@ -292,7 +288,7 @@ func _sync() -> void:
 	picture.size = Vector2(805, 438) if camera else Vector2(448, 409)
 	picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED if camera else TextureRect.STRETCH_SCALE
 	if camera:
-		picture.material = preview_material
+		picture.material = null
 	caption.text = "Compose your picture, then press the blue button."
 	if source == "none":
 		caption.text = "Press the blue button to enable your camera."

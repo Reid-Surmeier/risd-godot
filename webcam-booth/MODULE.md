@@ -9,3 +9,5 @@ Generation has its own [MODULE.md](server/MODULE.md), the standalone TypeScript/
 Testing/review are standalone workflow support folders; evidence is not a runtime dependency. Ephemeral capture bytes are transient private files; the browser has no gallery, saved result or download flow. Ledger retains only hashes, run identity and costs. OpenRouter's retention is not a deletion guarantee.
 
 Issue220 explicitly scopes camera-only acceptance updates and `testing/presentation.mjs`: full preview opening below the original hat, retro display with unchanged source pixels, one animated blue shutter, native media-clock fuse/end synchronization and no sample runtime assets. Generation interface/errors/accounting and existing tracking/expression acceptance remain unchanged.
+
+Issue221 supersedes the CRT-style part of Issue220: existing low-resolution JPEG bridge only, no preview shader. It explicitly scopes updated presentation/responsive acceptance for uniform exposure, original blue icon fallback and actual44px-visible shutter pixels/actions. Other acceptance/interfaces/errors remain unchanged.

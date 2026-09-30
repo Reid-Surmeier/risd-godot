@@ -9,9 +9,5 @@ void fragment() {
    pixel.a *= 1.0 - smoothstep(0.97, 0.985, min(pixel.r, min(pixel.g, pixel.b)));
   }
  }
- // The original icon is drawn by the interactive shutter on top of this bar.
- if (p.x >= 491.0 && p.x < 539.0 && p.y >= 536.0 && p.y < 585.0) {
-  pixel = texture(TEXTURE, vec2(565.0 / 1024.0, UV.y));
- }
  COLOR = pixel;
 }
