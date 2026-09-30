@@ -61,7 +61,8 @@ func _build_page() -> void:
 	page.add_child(title)
 
 	var intro := Label.new()
-	intro.text = "77 original game streams · inferred groups, exact filenames · tap any sound to compare"
+	intro.text = \
+		"77 original game streams · inferred groups, exact filenames · tap any sound to compare"
 	intro.add_theme_font_size_override("font_size", 16)
 	intro.add_theme_color_override("font_color", Color("#665f53"))
 	page.add_child(intro)

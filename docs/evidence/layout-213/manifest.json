@@ -1,0 +1,97 @@
+{
+  "issue": 213,
+  "baseline": "9864f723",
+  "cases": 88,
+  "files": [
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "before_sha256": "9177d468d4cd52e47d98f1198b4ca91448d6eb81d363523c5a0a4f02e383a9a5",
+      "after_sha256": "a85e38cbef0d7c8d3e0846d1df8ead8a23f5eca152190cf79c9a3bac812f60cc",
+      "lines_before": 864,
+      "lines_after": 892,
+      "preservation": "PASS",
+      "native_exit": 0,
+      "native_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "before_sha256": "7725727e1a6b90a67b5f1754ec599955668da6b47c1ffd3000e865abc425a719",
+      "after_sha256": "c0ea58976582d05c9c745347e7d1c3110556b468eb14c920e647367ddbed40f4",
+      "lines_before": 158,
+      "lines_after": 172,
+      "preservation": "PASS",
+      "native_exit": 0,
+      "native_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "before_sha256": "558a0fa62260fec76e481a7a23e499933fd693f733a1d668776ad3598ee8b443",
+      "after_sha256": "6fdc6f688055002519fbd13a583cadc2ca7c176749c900b81c0118cced979641",
+      "lines_before": 489,
+      "lines_after": 516,
+      "preservation": "PASS",
+      "native_exit": 0,
+      "native_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    },
+    {
+      "file": "modules/sculpture_viewer/viewer.gd",
+      "before_sha256": "990e64ddcf3bd3ac64a2b482e18bed57423b06d290000a49aec5c47090c3d9cb",
+      "after_sha256": "c6ebe1de54fdcf23417eebcb8ba2cd681c3dcf13b7965a13f6fd5b0f69e8e9be",
+      "lines_before": 772,
+      "lines_after": 773,
+      "preservation": "PASS",
+      "native_exit": 0,
+      "native_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "before_sha256": "2b5bc8d9764656b1c94d3aff5a0c3b4454eda7016df525a425c2ee9e57cf71e8",
+      "after_sha256": "ec70145b21f97a562bc4ed0976f0e49327f0801b138fd178533cf1e8f93cbbec",
+      "lines_before": 3363,
+      "lines_after": 3365,
+      "preservation": "PASS",
+      "native_exit": 0,
+      "native_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    },
+    {
+      "file": "modules/sketchbook/painting_flow.gd",
+      "before_sha256": "c0b2fd013c57ae760e73b6e1689790da3af4c6934b9ec423e4d641b0ded17a3c",
+      "after_sha256": "c4ad47b9267769211b00b3530201ddac611720a1fe178987a365688ddac28674",
+      "lines_before": 315,
+      "lines_after": 316,
+      "preservation": "PASS",
+      "native_exit": 0,
+      "native_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "before_sha256": "9ac85eb1fab1bca18e6a94b75e5decc4b69d3e3ed6c626a940c0bc9f6f187e76",
+      "after_sha256": "2f5c94c9e27f8062ed27a147528013abe382745b679293fadb55db1977fe2415",
+      "lines_before": 253,
+      "lines_after": 270,
+      "preservation": "PASS",
+      "native_exit": 0,
+      "native_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "before_sha256": "750f2e8836640d9bb64d2b754640f756c387925eaed600b82f79fa03c0e1916c",
+      "after_sha256": "509b8e42b200f91fa8ee9e2d2fe94185d8b18687b2378859ae0aee5915c242c1",
+      "lines_before": 794,
+      "lines_after": 796,
+      "preservation": "PASS",
+      "native_exit": 0,
+      "native_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    },
+    {
+      "file": "prototype/mr-baby-paint-audio/main.gd",
+      "before_sha256": "7f40995a07596cf885ba0d29c2535fbbdca852eb71f98729eb17b5dcc9e965dc",
+      "after_sha256": "beabf6262c5a635b7f843b4b71e2d68c3f9bad2355c26de42f888c83ba53fda8",
+      "lines_before": 313,
+      "lines_after": 314,
+      "preservation": "PASS",
+      "native_exit": 0,
+      "native_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    }
+  ]
+}

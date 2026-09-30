@@ -19,7 +19,9 @@ signal detail_changed(open: bool)
 const PaintingAsset := preload("res://modules/shell/prototype/gallery_walk4/painting_asset.gd")
 const DIR := "res://modules/shell/prototype/gallery_walk4/"
 const LOW_RES := Vector2i(480, 320)
-const L := 26.3  # room length, arch end (z = 0) to far end (z = -L): paintings + measured gaps (see _build_paintings)
+# room length, arch end (z = 0) to far end (z = -L): paintings + measured gaps (see
+# _build_paintings)
+const L := 26.3
 const W := 10.0  # room width, west wall x = -W/2 (the arch-end wall in the Jan 2026 photo)
 const H := 6.0  # wall height to the cornice
 const VAULT_RISE := 3.0

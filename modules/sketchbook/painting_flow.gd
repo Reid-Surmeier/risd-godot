@@ -68,7 +68,8 @@ func _ready() -> void:
 	stage.clip_contents = true
 	stage.focus_mode = FOCUS_ALL
 	stage.mouse_default_cursor_shape = CURSOR_POINTING_HAND
-	stage.tooltip_text = "Click a painting to select it; click again to enlarge. Drag or scroll to browse."
+	stage.tooltip_text = \
+		"Click a painting to select it; click again to enlarge. Drag or scroll to browse."
 	stage.draw.connect(_draw_stage)
 	stage.gui_input.connect(_stage_input)
 	add_child(stage)

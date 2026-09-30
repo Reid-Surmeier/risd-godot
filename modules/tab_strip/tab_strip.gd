@@ -39,7 +39,9 @@ const DIP_PX := 6.0  # how far a clicked tab drops while it shows the pressed ti
 
 var _layout: Dictionary = {}
 var _tex: Dictionary = {}
-var _tabs: Array = []  # [{node, left, mid, right, icon, clip, label, dots, close, label_key, width, page, fixed, tint, tint_to, fade}]
+# [{node, left, mid, right, icon, clip, label, dots, close, label_key, width, page, fixed, tint,
+# tint_to, fade}]
+var _tabs: Array = []
 var _stub: TextureButton
 var _right_cluster: TextureRect
 var _stripes: TextureRect

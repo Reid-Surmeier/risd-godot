@@ -223,8 +223,10 @@ func _fit() -> void:
 	if get_meta("windows_adjusted", false):
 		set_meta("scaling", false)
 		for window in interactive_windows:
-			window.scale = Vector2.ONE * minf(window.scale.x, minf(size.x / window.size.x, size.y / window.size.y))
-			window.position = window.position.clamp(Vector2.ZERO, (size - window.size * window.scale).max(Vector2.ZERO))
+			window.scale = Vector2.ONE * minf(window.scale.x, minf(size.x / window.size.x, \
+				size.y / window.size.y))
+			window.position = window.position.clamp(Vector2.ZERO, \
+				(size - window.size * window.scale).max(Vector2.ZERO))
 		return
 	action = ""
 	factor = minf(size.x / DESKTOP.x, size.y / DESKTOP.y)
@@ -255,7 +257,8 @@ func _fit() -> void:
 	var postpet_source: Vector2 = postpet.get_meta("native")
 	saved_body.position = POSTPET_BODY.position * postpet_scale
 	var lower_right_inset := postpet_source - POSTPET_BODY.end
-	saved_body.size = (postpet.size - saved_body.position - lower_right_inset * postpet_scale).max(Vector2.ZERO)
+	saved_body.size = (postpet.size - saved_body.position - lower_right_inset * postpet_scale).max( \
+		Vector2.ZERO)
 	if show_gallery:
 		gallery_scroll.position = Vector2(10 * s, 8 * s)
 		gallery_scroll.size = saved_body.size - Vector2(20 * s, 16 * s)
@@ -273,11 +276,13 @@ func _fit() -> void:
 	if websurfer != null:
 		var websurfer_height := minf(780.0, size.y * 0.78)
 		websurfer.size = Vector2(websurfer_height * 1616.0 / 1407.0, websurfer_height)
-		websurfer.position = Vector2(size.x - websurfer.size.x - MARGIN * s, (size.y - websurfer.size.y) * 0.5)
+		websurfer.position = Vector2(size.x - websurfer.size.x - MARGIN * s, \
+			(size.y - websurfer.size.y) * 0.5)
 	if sketchbook != null:
 		var sketchbook_height := minf(620.0, size.y * 0.62)
 		sketchbook.size = Vector2(sketchbook_height * 1138.0 / 864.0, sketchbook_height)
-		sketchbook.position = Vector2(size.x - sketchbook.size.x - MARGIN * s, size.y - sketchbook.size.y - MARGIN * s)
+		sketchbook.position = Vector2(size.x - sketchbook.size.x - MARGIN * s, \
+			size.y - sketchbook.size.y - MARGIN * s)
 
 
 ## Window `index` of WINDOWS at `rect`, with its title height and cleared interior scaled to match.
@@ -301,7 +306,8 @@ func _place_window(index: int, rect: Rect2) -> void:
 func _fit_fengshui() -> void:
 	var s := minf(size.x / REF.x, size.y / REF.y)
 	var right := func(rect: Rect2) -> Rect2:
-		return Rect2(size.x - (REF.x - rect.position.x) * s, rect.position.y * s, rect.size.x * s, rect.size.y * s)
+		return Rect2(size.x - (REF.x - rect.position.x) * s, rect.position.y * s, rect.size.x * s, \
+			rect.size.y * s)
 	_place_window(5, right.call(REF_PHONE))
 	var chat: Rect2 = right.call(REF_CHAT)
 	chat.position.y = size.y - (REF.y - REF_CHAT.position.y) * s
@@ -322,7 +328,8 @@ func _fit_fengshui() -> void:
 	fengshui.position = Vector2(margin, margin)
 	fengshui.size = Vector2(source.x * k, available.y)
 	fengshui.set_meta("drag_height", FS_TITLE * k)
-	fengshui.set_meta("embed", Rect2(FS_CLIENT_LEFT * k, FS_TOP * k, (FS_CLIENT_RIGHT - FS_CLIENT_LEFT) * k,
+	fengshui.set_meta("embed", Rect2(FS_CLIENT_LEFT * k, FS_TOP * k, \
+		(FS_CLIENT_RIGHT - FS_CLIENT_LEFT) * k,
 			fengshui.size.y - (FS_TOP + source.y - FS_BOTTOM) * k))
 	var embed: Rect2 = fengshui.get_meta("embed")
 	browsing.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
@@ -429,7 +436,8 @@ func _gallery_image(artwork: Dictionary) -> Control:
 	surface.bg_color = Color.WHITE
 	cell.add_theme_stylebox_override("panel", surface)
 	cell.set_meta("artwork", artwork)
-	cell.set_meta("aspect", maxf(0.2, float(artwork.image.get("width", 1)) / maxf(1.0, float(artwork.image.get("height", 1)))))
+	cell.set_meta("aspect", maxf(0.2, float(artwork.image.get("width", 1)) / maxf(1.0, \
+		float(artwork.image.get("height", 1)))))
 	var image := TextureRect.new()
 	image.name = "SavedImage"
 	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -446,7 +454,8 @@ func _gallery_image(artwork: Dictionary) -> Control:
 	hover.visible = false
 	cell.add_child(hover)
 	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
-	var caption := _saved_label("%s\n%s%s" % [artwork.title if artwork.title != "" else "Untitled", maker,
+	var caption := _saved_label("%s\n%s%s" % [artwork.title if artwork.title != "" else "Untitled", \
+		maker,
 		" · " + artwork.dating if artwork.dating != "" else ""])
 	caption.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, 8)
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -484,7 +493,8 @@ func _fit_gallery_tiles() -> void:
 		child.size = Vector2(width, height)
 		child.custom_minimum_size = child.size
 		heights[column] += height + gap
-	saved_list.custom_minimum_size = Vector2(gallery_scroll.size.x, heights.max() if not heights.is_empty() else 0.0)
+	saved_list.custom_minimum_size = Vector2(gallery_scroll.size.x, \
+		heights.max() if not heights.is_empty() else 0.0)
 
 
 func _build_gallery_overlay() -> void:
@@ -510,7 +520,8 @@ func _expand_gallery_artwork(artwork: Dictionary) -> void:
 	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	gallery_overlay.add_child(image)
 	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
-	var caption := _saved_label("%s — %s%s\nClick to close" % [artwork.title if artwork.title != "" else "Untitled", maker,
+	var caption := _saved_label("%s — %s%s\nClick to close" % [artwork.title if artwork.title != "" \
+		else "Untitled", maker,
 		" · " + artwork.dating if artwork.dating != "" else ""])
 	caption.name = "ExpandedCaption"
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -551,9 +562,11 @@ func _saved_card(artwork: Dictionary) -> Control:
 	button.tooltip_text = "View " + artwork.title
 	button.custom_minimum_size.y = 114
 	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	button.set_meta("search_text", (artwork.title + " " + " ".join(artwork.makers) + " " + artwork.id).to_lower())
+	button.set_meta("search_text", (artwork.title + " " + " ".join(artwork.makers) + " " + \
+		artwork.id).to_lower())
 	button.pressed.connect(func() -> void:
-		artwork_detail.text = "%s\n\n%s\n%s\n\n%s" % [artwork.title, ", ".join(artwork.makers), artwork.id, artwork.credit]
+		artwork_detail.text = "%s\n\n%s\n%s\n\n%s" % [artwork.title, ", ".join(artwork.makers), \
+			artwork.id, artwork.credit]
 		move_child(windows[3], -1))
 	var row := HBoxContainer.new()
 	button.add_child(row)
@@ -579,7 +592,8 @@ func _saved_card(artwork: Dictionary) -> Control:
 	unavailable.add_theme_font_size_override("font_size", 11)
 	image_column.add_child(unavailable)
 	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
-	var label := _saved_label("%s\n%s\n%s\n%s" % [artwork.title if artwork.title != "" else "Untitled", maker,
+	var label := _saved_label("%s\n%s\n%s\n%s" % [artwork.title if artwork.title != "" else \
+		"Untitled", maker,
 			artwork.id, artwork.credit if artwork.credit != "" else "Credit unavailable"])
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -683,7 +697,8 @@ func _load_saved_image(manifest: Dictionary, target: TextureRect, unavailable: L
 		var live_page := instance_from_id(page_id) as Control
 		var live_target := instance_from_id(target_id) as TextureRect
 		var live_unavailable := instance_from_id(unavailable_id) as Label
-		if live_page == null or not live_page.is_visible_in_tree() or live_target == null or (unavailable_id != 0 and live_unavailable == null):
+		if live_page == null or not live_page.is_visible_in_tree() or live_target == null or ( \
+			unavailable_id != 0 and live_unavailable == null):
 			return
 		if not result.ok:
 			if live_unavailable != null:
@@ -697,7 +712,9 @@ func _load_saved_image(manifest: Dictionary, target: TextureRect, unavailable: L
 				live_unavailable.visible = true
 			return
 		var decoded := Image.new()
-		var status := decoded.load_jpg_from_buffer(result.value) if manifest.mime == "image/jpeg" else (decoded.load_png_from_buffer(result.value) if manifest.mime == "image/png" else decoded.load_webp_from_buffer(result.value))
+		var status := decoded.load_jpg_from_buffer(result.value) if manifest.mime == "image/jpeg" else \
+			(decoded.load_png_from_buffer(result.value) if manifest.mime == "image/png" else \
+			decoded.load_webp_from_buffer(result.value))
 		if status == OK:
 			live_target.texture = ImageTexture.create_from_image(decoded)
 		elif live_unavailable != null:
@@ -720,7 +737,8 @@ func _draw_postpet(window: Control, texture: Texture2D) -> void:
 		var dx := 0.0
 		for i in 3:
 			var w: float = (xs[i + 1] - xs[i]) * k + (extra.x if i == 1 else 0.0)
-			window.draw_texture_rect_region(texture, Rect2(dx, dy, w, h), Rect2(xs[i], top, xs[i + 1] - xs[i], rows))
+			window.draw_texture_rect_region(texture, Rect2(dx, dy, w, h), Rect2(xs[i], top, \
+				xs[i + 1] - xs[i], rows))
 			dx += w
 		dy += h
 
@@ -732,12 +750,17 @@ func _draw_fengshui(window: Control, texture: Texture2D) -> void:
 	var k := window.size.x / src.x
 	var bottom := (src.y - FS_BOTTOM) * k
 	var middle := Rect2(0, FS_TOP * k, window.size.x, window.size.y - bottom - FS_TOP * k)
-	window.draw_texture_rect_region(texture, Rect2(0, 0, window.size.x, FS_TOP * k), Rect2(0, 0, src.x, FS_TOP))
-	window.draw_texture_rect_region(texture, Rect2(0, middle.end.y, window.size.x, bottom), Rect2(0, FS_BOTTOM, src.x, src.y - FS_BOTTOM))
-	window.draw_texture_rect_region(texture, Rect2(0, middle.position.y, FS_CLIENT_LEFT * k, middle.size.y), Rect2(0, FS_ROW, FS_CLIENT_LEFT, 1))
-	window.draw_texture_rect_region(texture, Rect2(FS_CLIENT_RIGHT * k, middle.position.y, window.size.x - FS_CLIENT_RIGHT * k, middle.size.y),
+	window.draw_texture_rect_region(texture, Rect2(0, 0, window.size.x, FS_TOP * k), Rect2(0, 0, \
+		src.x, FS_TOP))
+	window.draw_texture_rect_region(texture, Rect2(0, middle.end.y, window.size.x, bottom), \
+		Rect2(0, FS_BOTTOM, src.x, src.y - FS_BOTTOM))
+	window.draw_texture_rect_region(texture, Rect2(0, middle.position.y, FS_CLIENT_LEFT * k, \
+		middle.size.y), Rect2(0, FS_ROW, FS_CLIENT_LEFT, 1))
+	window.draw_texture_rect_region(texture, Rect2(FS_CLIENT_RIGHT * k, middle.position.y, \
+		window.size.x - FS_CLIENT_RIGHT * k, middle.size.y),
 			Rect2(FS_CLIENT_RIGHT, FS_ROW, src.x - FS_CLIENT_RIGHT, 1))
-	window.draw_rect(Rect2(FS_CLIENT_LEFT * k, middle.position.y, (FS_CLIENT_RIGHT - FS_CLIENT_LEFT) * k, middle.size.y), Color.WHITE)
+	window.draw_rect(Rect2(FS_CLIENT_LEFT * k, middle.position.y, \
+		(FS_CLIENT_RIGHT - FS_CLIENT_LEFT) * k, middle.size.y), Color.WHITE)
 
 
 ## A press raises the topmost window under the pointer; on its title bar it starts a drag.
@@ -748,7 +771,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		for window in interactive_windows:
 			var grip := window.get_node_or_null("ProportionalResize") as Control
-			if grip != null and grip.is_visible_in_tree() and grip.get_global_rect().has_point(event.position):
+			if grip != null and grip.is_visible_in_tree() and grip.get_global_rect().has_point( \
+				event.position):
 				return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		var pointer := make_canvas_position_local(event.position)
@@ -760,12 +784,14 @@ func _input(event: InputEvent) -> void:
 		else:
 			_active = null
 			for window in interactive_windows:
-				if Rect2(window.position, window.size * window.scale).has_point(pointer) and (_active == null or window.get_index() > _active.get_index()):
+				if Rect2(window.position, window.size * window.scale).has_point(pointer) and (_active == \
+					null or window.get_index() > _active.get_index()):
 					_active = window
 			if _active == null:
 				return
 			move_child(_active, -1)
-			if _active == sketchbook and sketchbook.title_button_at((pointer - _active.position) / _active.scale):
+			if _active == sketchbook and sketchbook.title_button_at((pointer - _active.position) / \
+				_active.scale):
 				return
 			if (pointer.y - _active.position.y) / _active.scale.y >= float(_active.get_meta("drag_height")):
 				return
@@ -775,7 +801,8 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseMotion and not action.is_empty():
 		var delta: Vector2 = make_canvas_position_local(event.position) - _start_pointer
-		_active.position = (_start_position + delta).clamp(Vector2(-offset_left, 0), (size - _active.size * _active.scale).max(Vector2.ZERO))
+		_active.position = (_start_position + delta).clamp(Vector2(-offset_left, 0), \
+			(size - _active.size * _active.scale).max(Vector2.ZERO))
 		get_viewport().set_input_as_handled()
 
 
@@ -856,7 +883,8 @@ func _add_scale_grip(window: Control) -> void:
 				window.get_parent().move_child(window, -1)
 			grip.accept_event()
 		elif event is InputEventMouseMotion and gesture.active and get_meta("scaling", false):
-			var delta: Vector2 = window.get_parent().make_canvas_position_local(event.global_position) - gesture.start
+			var delta: Vector2 = window.get_parent().make_canvas_position_local(event.global_position) - \
+				gesture.start
 			var available: Vector2 = window.get_parent().size - window.position
 			var maximum := minf(available.x / window.size.x, available.y / window.size.y)
 			var factor: float = gesture.scale + delta.dot(window.size) / window.size.length_squared()

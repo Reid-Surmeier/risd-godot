@@ -476,7 +476,8 @@ func _make_button(node_name: String, copy: String, rect: Rect2) -> Button:
 
 func _set_control_visual_state(control_id: String, state_name: String) -> void:
 	control_visual_states[control_id] = state_name
-	motion_targets[control_id] = {"idle": 0.0, "hover": MOTION_HOVER, "active": MOTION_PRESS}[state_name]
+	motion_targets[control_id] = {"idle": 0.0, "hover": MOTION_HOVER, \
+		"active": MOTION_PRESS}[state_name]
 	_show_motion_frame(control_id)
 
 

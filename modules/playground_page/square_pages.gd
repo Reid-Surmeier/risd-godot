@@ -4,7 +4,8 @@ extends Control
 const Errors := preload("res://modules/playground_page/errors.gd")
 const Data := preload("res://modules/collection_data/interface.gd")
 const CATALOG := "res://modules/playground_page/assets/square/catalog.json"
-const PAGES := {"explore": "Explore", "all": "All Blocks", "channels": "Channels", "search": "Search"}
+const PAGES := {"explore": "Explore", "all": "All Blocks", "channels": "Channels", \
+	"search": "Search"}
 const INK := Color("232323")
 const MUTED := Color("686868")
 const GREEN := Color("00854c")
@@ -39,7 +40,8 @@ static func create(deps: Dictionary) -> Dictionary:
 	if not FileAccess.file_exists(CATALOG):
 		return Errors.err(Errors.ASSET_MISSING, CATALOG)
 	var catalog: Variant = JSON.parse_string(FileAccess.get_file_as_string(CATALOG))
-	if not catalog is Dictionary or not catalog.get("arena") is Array or not catalog.get("works") is Array:
+	if not catalog is Dictionary or not catalog.get("arena") is Array or not catalog.get("works") \
+		is Array:
 		return Errors.err(Errors.ASSET_MISSING, CATALOG)
 	for record in catalog.arena + catalog.works:
 		if not ResourceLoader.exists(record.texture):
@@ -59,8 +61,10 @@ func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	var theme := Theme.new()
 	theme.default_font_size = 16
-	theme.default_font = load("res://modules/playground_page/assets/fonts/LiberationSans-Regular.ttf").duplicate()
-	theme.default_font.fallbacks = [load("res://modules/playground_page/assets/fonts/WenQuanYi-Hangul.ttf")]
+	theme.default_font = load( \
+		"res://modules/playground_page/assets/fonts/LiberationSans-Regular.ttf").duplicate()
+	theme.default_font.fallbacks = [load( \
+		"res://modules/playground_page/assets/fonts/WenQuanYi-Hangul.ttf")]
 	theme.set_color("font_color", "Label", INK)
 	theme.set_color("font_color", "LineEdit", INK)
 	theme.set_color("font_placeholder_color", "LineEdit", MUTED)
@@ -171,8 +175,10 @@ func _button(text: String, action: Callable, font_size: int = 14, flat: bool = f
 	button.add_theme_color_override("font_color", INK)
 	button.add_theme_color_override("font_hover_color", GREEN)
 	button.add_theme_color_override("font_pressed_color", GREEN)
-	button.add_theme_stylebox_override("normal", StyleBoxEmpty.new() if flat else _box(Color.WHITE, Color("d1d1d1"), 12))
-	button.add_theme_stylebox_override("hover", StyleBoxEmpty.new() if flat else _box(Color.WHITE, GREEN, 12))
+	button.add_theme_stylebox_override("normal", StyleBoxEmpty.new() if flat else _box(Color.WHITE, \
+		Color("d1d1d1"), 12))
+	button.add_theme_stylebox_override("hover", StyleBoxEmpty.new() if flat else _box(Color.WHITE, \
+		GREEN, 12))
 	button.add_theme_stylebox_override("pressed", _box(Color("eeeeee"), GREEN, 12))
 	button.add_theme_stylebox_override("focus", _box(Color(0, 0, 0, 0), GREEN, 0))
 	button.pressed.connect(action)
@@ -231,23 +237,29 @@ func _render(preserve_scroll: bool = false) -> void:
 		_put(_button("Saved on this browser" if saved_only else "Show saved on this browser", func():
 			saved_only = not saved_only
 			_render()), Rect2(0, 68 if compact else 52, 225, 39))
-		_put(_label("Public Are.na blocks + RISD works", 13, MUTED), Rect2(0, 112, content_width, 30) if compact else Rect2(240, 56, 500, 30))
+		_put(_label("Public Are.na blocks + RISD works", 13, MUTED), Rect2(0, 112, content_width, \
+			30) if compact else Rect2(240, 56, 500, 30))
 		top = 152 if compact else 111
 	elif not channel.is_empty():
-		_put(_button("Back to Channels", func(): show_page("channels")), Rect2(0, 68 if compact else 46, 130, 32))
+		_put(_button("Back to Channels", func(): show_page("channels")), Rect2(0, \
+			68 if compact else 46, 130, 32))
 		top = 114 if compact else 98
 	var height := 397.0 if page == "explore" else 346.0
 	var columns := 1 if compact else 3
 	for i in results.size():
 		_card(results[i], Vector2((i % columns) * 345, top + (i / columns) * height))
 	if results.is_empty():
-		var message := "No works match this search. Try an artist, object, title, or clear the filters." if page == "search" else "Nothing here yet. Save a block from Explore or Search to collect it here."
+		var message := \
+			"No works match this search. Try an artist, object, title, or clear the filters." if page == \
+			"search" else "Nothing here yet. Save a block from Explore or Search to collect it here."
 		_put(_label(message, 16, MUTED), Rect2(0, top + 30, content_width, 70))
-	content.custom_minimum_size.y = top + maxf(100, ceil(float(results.size()) / columns) * height) + 24
+	content.custom_minimum_size.y = top + maxf(100, \
+		ceil(float(results.size()) / columns) * height) + 24
 
 
 func _filtered() -> Array:
-	var list: Array = arena.duplicate() if page == "explore" else works.duplicate() if page == "search" else arena + works
+	var list: Array = arena.duplicate() if page == "explore" else works.duplicate() if page == \
+		"search" else arena + works
 	if not channel.is_empty():
 		list = _groups()[channel]
 	if page == "all" and saved_only:
@@ -255,11 +267,13 @@ func _filtered() -> Array:
 	if page == "search":
 		var terms := query.to_lower().split(" ", false)
 		list = list.filter(func(record):
-			var haystack: String = (record.title + " " + " ".join(record.makers) + " " + record.materials + " " + record.accession).to_lower()
+			var haystack: String = (record.title + " " + " ".join(record.makers) + " " + record.materials \
+				+ " " + record.accession).to_lower()
 			for term in terms:
 				if not haystack.contains(term):
 					return false
-			return (material_filter.is_empty() or record.materials == material_filter) and (not images_only or not record.texture.is_empty()))
+			return (material_filter.is_empty() or record.materials == material_filter) and (not \
+				images_only or not record.texture.is_empty()))
 		list.sort_custom(func(a, b):
 			if sort_order == 0:
 				return a.title.naturalnocasecmp_to(b.title) < 0
@@ -274,7 +288,8 @@ func _card(record: Dictionary, position: Vector2) -> void:
 	var top := 0.0
 	if page == "explore":
 		var date := Time.get_datetime_dict_from_datetime_string(record.connected_at, false)
-		var connection := "%s connected\nto %s · Sep %d, %02d:%02d UTC" % [record.connector, record.channel, date.day, date.hour, date.minute]
+		var connection := "%s connected\nto %s · Sep %d, %02d:%02d UTC" % [record.connector, \
+			record.channel, date.day, date.hour, date.minute]
 		_put(_label(connection, 12, MUTED), Rect2(0, 0, width, 42), card)
 		top = 51
 	var art := _button("", func(): _detail(record))
@@ -292,13 +307,15 @@ func _card(record: Dictionary, position: Vector2) -> void:
 	caption.max_lines_visible = 2
 	caption.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	var byline_top := top + 262
-	var byline: String = ", ".join(record.makers) + " · " + str(int(record.year_from)) if record.has("makers") else record.type
+	var byline: String = ", ".join(record.makers) + " · " + str(int(record.year_from)) if \
+		record.has("makers") else record.type
 	if record.source_width < 200:
 		byline += " · Low-res source"
 	var by := _label(byline, 13, MUTED)
 	by.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	_put(by, Rect2(0, byline_top, width, 22), card)
-	var save := _button("Saved here" if str(record.id) in saved_ids else "+ Save here", func(): _save(record), 12)
+	var save := _button("Saved here" if str(record.id) in saved_ids else "+ Save here", \
+		func(): _save(record), 12)
 	save.name = "Save_" + str(record.id).replace(":", "_")
 	_put(save, Rect2(0, byline_top + 30, 101, 28), card)
 
@@ -307,7 +324,8 @@ func _image(record: Dictionary) -> TextureRect:
 	var image := TextureRect.new()
 	image.texture = load(record.texture)
 	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	image.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED if record.source_width < 200 else TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	image.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED if record.source_width < 200 else \
+		TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return image
 
@@ -325,12 +343,14 @@ func _search_controls() -> float:
 	_put(field, Rect2(0, 68 if compact else 52, content_width if compact else 742, 46))
 	field.grab_focus.call_deferred()
 	_put(_button("Search", search, 16), Rect2(0, 122, 80, 40) if compact else Rect2(756, 55, 80, 40))
-	_put(_button("Random object", func(): _detail(works.pick_random()), 16), Rect2(96, 122, 158, 40) if compact else Rect2(850, 55, 158, 40))
+	_put(_button("Random object", func(): _detail(works.pick_random()), 16), Rect2(96, 122, 158, \
+		40) if compact else Rect2(850, 55, 158, 40))
 	var materials := ["All materials"]
 	for record in works:
 		if record.materials not in materials:
 			materials.append(record.materials)
-	_put(_choice(materials, 0 if material_filter.is_empty() else materials.find(material_filter), func(index):
+	_put(_choice(materials, 0 if material_filter.is_empty() else materials.find(material_filter), \
+		func(index):
 		material_filter = "" if index == 0 else materials[index]
 		_render()), Rect2(0, 172, content_width, 40) if compact else Rect2(0, 112, 430, 40))
 	_put(_choice(["Title A–Z", "Oldest first", "Newest first"], sort_order, func(index):
@@ -345,7 +365,9 @@ func _search_controls() -> float:
 		sort_order = 0
 		images_only = true
 		_render(), 16), Rect2(304, 222, 69, 40) if compact else Rect2(744, 112, 69, 40))
-	var note := _label("Search sample: 25 verified public-domain paintings. Museum records open from each work.", 13, MUTED)
+	var note := _label( \
+		"Search sample: 25 verified public-domain paintings. Museum records open from each work.", 13, \
+		MUTED)
 	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_put(note, Rect2(0, 274 if compact else 168, content_width, 42))
 	return 330 if compact else 207
@@ -372,7 +394,8 @@ func _choice(items: Array, selected: int, action: Callable) -> OptionButton:
 
 
 func _groups() -> Dictionary:
-	var landscape := RegEx.create_from_string("(?i)landscape|tenby|sea|coast|river|sunset|venice|land|water")
+	var landscape := RegEx.create_from_string( \
+		"(?i)landscape|tenby|sea|coast|river|sunset|venice|land|water")
 	var figures := RegEx.create_from_string("(?i)portrait|woman|girl|man|lady|boy")
 	return {"Public connections": arena,
 		"Land & water": works.filter(func(record): return landscape.search(record.title) != null),
@@ -401,8 +424,10 @@ func _channels() -> void:
 		_put(heading, Rect2(8, 20, width - 16, 36), button)
 		for i in mini(3, list.size()):
 			_put(_image(list[i]), Rect2((width - 274) / 2 + i * 94, 70, 86, 88), button)
-		var source := "Source channel by Rin Lee" if index == 0 else "Collected by you · this browser" if index == 3 else "RISD Museum works"
-		var meta := _label(source + "\n%d blocks · %s" % [list.size(), "browser-local" if index == 3 else "snapshot Sep 2026"], 12, MUTED)
+		var source := "Source channel by Rin Lee" if index == 0 else "Collected by you · this browser" \
+			if index == 3 else "RISD Museum works"
+		var meta := _label(source + "\n%d blocks · %s" % [list.size(), \
+			"browser-local" if index == 3 else "snapshot Sep 2026"], 12, MUTED)
 		meta.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		_put(meta, Rect2(8, 178, width - 16, 45), button)
 		index += 1
@@ -428,9 +453,11 @@ func _detail(record: Dictionary) -> void:
 	_put(_image(record), Rect2(26, 128, width - 52, maxf(40, panel.size.y - 300)), panel)
 	var byline: String = ", ".join(record.makers) if record.has("makers") else record.connector
 	_put(_label(byline, 16), Rect2(26, panel.size.y - 146, width - 52, 28), panel)
-	_put(_label(record.get("materials", "Public Are.na block"), 14, MUTED), Rect2(26, panel.size.y - 113, width - 52, 26), panel)
+	_put(_label(record.get("materials", "Public Are.na block"), 14, MUTED), Rect2(26, \
+		panel.size.y - 113, width - 52, 26), panel)
 	var url: String = record.get("source_url", record.get("source", ""))
-	_put(_button("Open museum record" if record.has("makers") else "Open Are.na block", func(): OS.shell_open(url), 16), Rect2(26, panel.size.y - 65, 240, 38), panel)
+	_put(_button("Open museum record" if record.has("makers") else "Open Are.na block", \
+		func(): OS.shell_open(url), 16), Rect2(26, panel.size.y - 65, 240, 38), panel)
 
 
 func _load_public_saves() -> void:
