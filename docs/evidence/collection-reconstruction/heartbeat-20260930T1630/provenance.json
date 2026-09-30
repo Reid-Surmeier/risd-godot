@@ -78,7 +78,7 @@
     "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/000019-floor-detections.png": "12a36691af855d4c04e37fed7943850a6793fa53b0f0dce867f9aea9a346beb6",
     "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/native-floor.log.gz": "372621a5d2ac9d2321fc30f254e14b663f629ca945f8f25e875accf5eaa6dfd5",
     "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/browser-jamb.png": "9c037342f53d2d395ae438eaeef419637d0a0021299cd46f1504e407b4187902",
-    "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/checkpoint.md": "5c95557c22a813d39025c4cdf1ce485f0026aa7f3999e61db1dd46549d249db4",
+    "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/checkpoint.md": "73eb3f9fcaae9b21f87784675b54376c1b859aa9ada8607fb9bb61e51933ab49",
     "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/6384-000205-source.png": "ed3a70a596fe9e8bd98f0afaef99d03d8f7dc94dc9039be9faf322e2c6e1f357",
     "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/native-check.log": "64df908fe7cecc9a181f674d7261944e2eb2e4f4149be22b25ec5b8abb4cc98e",
     "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/diff-check.log.gz": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
@@ -99,6 +99,7 @@
     "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/preview-check.log": "3b80d5ae45f55a07210bd01a5455c1d204a6cf58efb5e61a2c8368baf11758ef",
     "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/other-clip-source-selection.json": "cf2b43907f5b22c454632770fc69dcbd12975fd33362756b1171c500dce80d14",
     "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/shell-playtest.log": "5f3de1a7ab862c07e57f6c7135ab16e1178e191de6350c70eab1a9f9cbb8fabf",
+    "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/commit-warning.txt": "38c00f424ea2b57db9fa11bccd0ca7ff8e9f34abbea2ef27399afd3a12035862",
     "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/source_floor.py": "47954d291774611c6b77d29aa89a8b357824faf475263c0600c08f7043b42929",
     "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/000019-native-matches-caption-corrected.png": "86e0d9bee836102282af84a9e3274b1cdc3b8ddb79531d3654b817b86d54fb66",
     "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/checks.json": "49d2cf5fa5a5043bba9792e1e6681c54ad27fdac86a630446f1ba49e32c22edc",
@@ -120,5 +121,6 @@
   },
   "navigation_accepted": false,
   "trial_only": true,
-  "log_storage": "Gzip files retain exact raw command output; plain text copies strip trailing whitespace for repository checks."
+  "log_storage": "Gzip files retain exact raw command output; plain text copies strip trailing whitespace for repository checks.",
+  "checkpoint_commit": "775e59af"
 }

@@ -39,3 +39,7 @@ Historical walk still uses provisional geometry; full rooms remain unaccepted.
 https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1630/
 
 Inspect the floor coverage limit, supplemental source views and bounded walk.
+
+Checkpoint commit `775e59af` succeeded. Git automatic packing reported an
+unrelated damaged `homepage-prototype/index` (index file smaller than expected);
+repack failed. Existing warning retained; no repair of that other worktree.
