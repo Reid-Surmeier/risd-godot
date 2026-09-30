@@ -144,6 +144,9 @@ func _button(parent: Control, text: String, rect: Rect2, icon: String, callback:
 		button.icon = load(ASSETS + icon + ".png")
 		button.expand_icon = true
 		button.add_theme_constant_override("icon_max_width", 25)
+	button.gui_input.connect(func(event: InputEvent) -> void:
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			button.release_focus())
 	button.pressed.connect(callback)
 	parent.add_child(button)
 	return button
