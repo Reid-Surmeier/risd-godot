@@ -3,7 +3,7 @@ const fs = require('fs'), path = require('path');
 const puppeteer = require(path.join(require('os').homedir(), 'promo-lab/node_modules/puppeteer-core'));
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 (async () => {
-  const [url, out, width = '1100'] = process.argv.slice(2);
+  const [url, out, width = '1100', mode = 'doorway'] = process.argv.slice(2);
   fs.mkdirSync(out, {recursive: true});
   const browser = await puppeteer.launch({executablePath: '/usr/bin/google-chrome', headless: 'new',
     args: ['--no-sandbox', '--use-gl=angle', '--use-angle=gl-egl', '--ignore-gpu-blocklist']});
@@ -33,12 +33,12 @@ const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
       for (const key of keys) await page.keyboard.up(key);
       await wait(200);
     };
-    await hold(['w', 'a'], 560);
-    await hold(['w'], 1150);
+    if (mode !== 'room') await hold(['w', 'a'], 560);
+    await hold(['w'], mode === 'room' ? 2000 : 1150);
     report.keyboard_forward = await page.evaluate(() => window.doorwayState);
     await page.screenshot({path: path.join(out, 'browser-forward.png')});
-    await hold(['s'], 1150);
-    await hold(['s', 'd'], 560);
+    await hold(['s'], mode === 'room' ? 2000 : 1150);
+    if (mode !== 'room') await hold(['s', 'd'], 560);
     report.keyboard_reverse = await page.evaluate(() => window.doorwayState);
     await page.screenshot({path: path.join(out, 'browser-reverse.png')});
     report.browser = await browser.version();

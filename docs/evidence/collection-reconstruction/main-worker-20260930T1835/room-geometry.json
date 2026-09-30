@@ -1,0 +1,308 @@
+{
+  "patches": [
+    {
+      "label": "decorative room study support",
+      "color": "81735c",
+      "vertices": [
+        [
+          -1.9,
+          0,
+          -5.21162217389505
+        ],
+        [
+          2.8,
+          0,
+          -5.21162217389505
+        ],
+        [
+          2.8,
+          0,
+          -0.2
+        ],
+        [
+          -1.9,
+          0,
+          -0.2
+        ]
+      ]
+    },
+    {
+      "label": "uncertain threshold",
+      "color": "ad8952",
+      "vertices": [
+        [
+          -0.6984475604135941,
+          0,
+          -0.2
+        ],
+        [
+          1.0916383538764654,
+          0,
+          -0.2
+        ],
+        [
+          1.0916383538764654,
+          0,
+          0.2
+        ],
+        [
+          -0.6984475604135941,
+          0,
+          0.2
+        ]
+      ]
+    },
+    {
+      "label": "painting gallery study support",
+      "color": "7d7d72",
+      "vertices": [
+        [
+          -2,
+          0,
+          0.2
+        ],
+        [
+          3.2,
+          0,
+          0.2
+        ],
+        [
+          3.2,
+          0,
+          5.78837782610495
+        ],
+        [
+          -2,
+          0,
+          5.78837782610495
+        ]
+      ]
+    }
+  ],
+  "boxes": [
+    {
+      "center": [
+        -0.8084475604135941,
+        1.6,
+        0
+      ],
+      "size": [
+        0.22,
+        3.2,
+        0.4
+      ]
+    },
+    {
+      "center": [
+        1.2016383538764654,
+        1.6,
+        0
+      ],
+      "size": [
+        0.22,
+        3.2,
+        0.4
+      ]
+    }
+  ],
+  "trials": [
+    [
+      "forward",
+      [
+        0.1965953967314356,
+        0.25,
+        1.2
+      ],
+      [
+        0.1965953967314356,
+        0,
+        -1.2
+      ],
+      false
+    ],
+    [
+      "reverse",
+      [
+        0.1965953967314356,
+        0.25,
+        -1.2
+      ],
+      [
+        0.1965953967314356,
+        0,
+        1.2
+      ],
+      false
+    ],
+    [
+      "left_blocked",
+      [
+        -0.7984475604135941,
+        0.25,
+        0.75
+      ],
+      [
+        -0.7984475604135941,
+        0,
+        -0.5
+      ],
+      true
+    ],
+    [
+      "right_blocked",
+      [
+        1.1916383538764654,
+        0.25,
+        0.75
+      ],
+      [
+        1.1916383538764654,
+        0,
+        -0.5
+      ],
+      true
+    ],
+    [
+      "decorative_room",
+      [
+        0.1965953967314356,
+        0.25,
+        -1.2
+      ],
+      [
+        0.1965953967314356,
+        0,
+        -3.2
+      ],
+      false
+    ],
+    [
+      "painting_gallery",
+      [
+        0.1965953967314356,
+        0.25,
+        1.2
+      ],
+      [
+        0.1965953967314356,
+        0,
+        3.2
+      ],
+      false
+    ]
+  ],
+  "trial_seconds": 3.5,
+  "start": [
+    0.1965953967314356,
+    0.25,
+    1.2
+  ],
+  "caption": "Collection two-room route \u00b7 WASD move \u00b7 Space reset\nObserved sparse context; gold threshold / jambs are provisional.\nFloor edges are study limits. Full room walls and bake remain unfinished.\n",
+  "navigation_accepted": false,
+  "scale_accepted": false,
+  "source_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/bookcase-extrema-v2/result.json": "c1a247b834351dc07497925eaa6baf50251b7d90e62bedf4a096ffd3fe904747",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/fused.ply": "ca8f574724b7d1b92b57dd63bdf147aeb862aa059a1496437198dc0c95624acb",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/sparse/points3D.bin": "24fb21b7c0debcadbff20d561e803c5cc3f7a57dd21b09267e4c24704858497a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/sparse/frames.bin": "a64259d3e48c3383b0d1fc7619bf5eff35a81e788aedf88cc7ebf907fd34c20f",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/sparse/images.bin": "edf1343bef4991b96de5db356d285053b97df06b017d128c3f4fe16b99437c0f",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/sparse/rigs.bin": "da94f6b31be42bb077e1fbf2f64a4c2701992af19cfe7363897c3deaf7af2007",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/sparse/cameras.bin": "b21dea72a1f52258c99c5702da1617c18848c14120044645a2a14b3c6fa5cd5e"
+  },
+  "scale_m_per_unit": 2.645457021092277,
+  "basis_rows": [
+    [
+      -0.13761778199976868,
+      -0.08690366038169016,
+      0.9866656474661151
+    ],
+    [
+      -0.9902721281012479,
+      0.032742977447458986,
+      -0.1352368652908712
+    ],
+    [
+      -0.020553792430843272,
+      -0.9956784878865966,
+      -0.09056428863835217
+    ]
+  ],
+  "floor_origin_world": [
+    0.737013755833696,
+    4.0396399588776575,
+    0.16531616880851294
+  ],
+  "doorway_candidate": {
+    "source": "IMG_6384/000207.jpg",
+    "pixels": [
+      [
+        176,
+        921
+      ],
+      [
+        461,
+        1073
+      ]
+    ],
+    "contacts_local_m": [
+      [
+        -0.6984475604135941,
+        4.161863332296093e-16,
+        5.880355154291801
+      ],
+      [
+        1.0916383538764654,
+        1.9016708228242625e-16,
+        6.542889193498298
+      ]
+    ],
+    "z_origin_m": 6.21162217389505
+  },
+  "floor": {
+    "fit_odd_points": 86,
+    "fit_support": 67,
+    "unused_even_points": 81,
+    "unused_residual_p50_p90_m": [
+      0.010160416084906592,
+      0.03501383151025916
+    ]
+  },
+  "caveat": "Observed decorative room and painting gallery share this visible opening; corridor opening is distinct. Provisional scale from bookcase front endpoints. Split wood points support floor orientation locally; flat floor extension, threshold levels and ray-derived jamb boxes are hypotheses. No full room extents, unseen connectors, physical collision acceptance or production integration.",
+  "visual_cloud_alignment": {
+    "fit_views": 125,
+    "unused_views": 100,
+    "unused_camera_residual_p50_p95_m": [
+      0.0030442235027874232,
+      0.008730767976588057
+    ],
+    "similarity_scale": 0.26279792473676417,
+    "rotation": [
+      [
+        0.9528139874021538,
+        0.15943399257490884,
+        0.25831435775510725
+      ],
+      [
+        -0.3009223173390986,
+        0.3842733568457463,
+        0.8727999462338257
+      ],
+      [
+        0.039890654771216394,
+        -0.9093485521130641,
+        0.41411827589687245
+      ]
+    ],
+    "translation": [
+      0.04614339662608929,
+      2.661214365098052,
+      0.556771568977367
+    ],
+    "caveat": "Cached older dense reconstruction is visual context only; it includes prior correlated training views and must not enter held-out geometry checks or physical collision acceptance."
+  }
+}

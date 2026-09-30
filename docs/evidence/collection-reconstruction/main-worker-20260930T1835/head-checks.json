@@ -1,0 +1,27 @@
+{
+  "vertices": 6146,
+  "triangles": 12288,
+  "edge_use_counts": [
+    2
+  ],
+  "euler_characteristic": 2,
+  "closed_position_mesh": true,
+  "signed_volume_m3": 0.09053332471181345,
+  "dimensions_m": [
+    0.508,
+    0.813,
+    0.508
+  ],
+  "texture_sha256": "0325b88fba070b85c957a6991623c843c1515b83c508b37dc09cc43b8906064f",
+  "provider": "local NumPy geometry; existing OpenRouter meta/muse-image appearance",
+  "new_cost_usd": 0,
+  "source_appearance_cost_usd": 0.01,
+  "source_spend_state": "unknown / never-resubmit",
+  "complete_scan": false,
+  "visual_accepted": false,
+  "uv_chroma_sample_count": 184320,
+  "uv_chroma_samples_remaining": 0,
+  "uv_inset_adjusted_triangles": 12,
+  "initial_uv_chroma_samples": 37,
+  "caveat": "Closed silhouette loft with inferred side, top, underside, nose and depth. Catalogue envelope axes are inferred and do not validate shape. Existing Muse front/rear appearance has baked shading and unverified crack/carving preservation. Rear uses its own texture; no frontal face on the back. Neither watertight topology nor dimensions mean faithful geometry. Pedestal, global placement, video silhouette comparison and final bake remain unverified."
+}

@@ -15,6 +15,9 @@ var frame_times: Array = []
 var casings: Array[StaticBody3D] = []
 var camera_clear := true
 var casing_contact := false
+var start_at := Vector3(0.55, 0.25, 0.75)
+var trial_seconds := 3.0
+var caption := "Collection doorway study · WASD move · Space reset\nProvisional scale/floors; patch edges are study limits.\nExisting visitor / 35° gallery camera. No final bake.\n"
 var trials := [
 	["forward", Vector3(0.55, 0.25, 0.75), Vector3(0, 0, -1.3), false],
 	["reverse", Vector3(0, 0.25, -1.3), Vector3(0.55, 0, 0.75), false],
@@ -38,6 +41,13 @@ func _ready() -> void:
 	if OS.has_feature("web"):
 		qa = JavaScriptBridge.eval("new URLSearchParams(location.search).has('qa')")
 	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://geometry.json"))
+	start_at = vec(data.get("start", [0.55, 0.25, 0.75]))
+	trial_seconds = data.get("trial_seconds", 3.0)
+	caption = data.get("caption", caption)
+	if data.has("trials"):
+		trials = []
+		for row in data.trials:
+			trials.append([row[0], vec(row[1]), vec(row[2]), row[3]])
 	for patch in data.patches:
 		var mesh := ArrayMesh.new()
 		var vertices := PackedVector3Array()
@@ -57,11 +67,17 @@ func _ready() -> void:
 		instance.material_override = material(Color(patch.color))
 		add_child(instance)
 		instance.create_trimesh_collision()
-	for i in 2:
-		var bottom := vec(data.aperture[i])
-		var top := vec(data.aperture[i + 2])
-		box((bottom + top) * 0.5 + Vector3(-0.11 if i == 0 else 0.11, 0, 0), Vector3(0.22, top.y - bottom.y, 0.18))
-	box((vec(data.aperture[2]) + vec(data.aperture[3])) * 0.5 + Vector3(0, 0.10, 0), Vector3(2.1, 0.20, 0.18))
+	if data.has("boxes"):
+		for row in data.boxes:
+			box(vec(row.center), vec(row.size))
+	else:
+		for i in 2:
+			var bottom := vec(data.aperture[i])
+			var top := vec(data.aperture[i + 2])
+			box((bottom + top) * 0.5 + Vector3(-0.11 if i == 0 else 0.11, 0, 0), Vector3(0.22, top.y - bottom.y, 0.18))
+		box((vec(data.aperture[2]) + vec(data.aperture[3])) * 0.5 + Vector3(0, 0.10, 0), Vector3(2.1, 0.20, 0.18))
+	if FileAccess.file_exists("res://points.bin"):
+		observed_points()
 	var environment := WorldEnvironment.new()
 	environment.environment = Environment.new()
 	environment.environment.background_mode = Environment.BG_COLOR
@@ -96,8 +112,34 @@ func _ready() -> void:
 	label = Label.new()
 	label.position = Vector2(20, 18)
 	label.add_theme_font_size_override("font_size", 18)
+	label.add_theme_color_override("font_outline_color", Color("202934"))
+	label.add_theme_constant_override("outline_size", 6)
 	layer.add_child(label)
-	reset(Vector3(0.55, 0.25, 0.75))
+	reset(start_at)
+
+func observed_points() -> void:
+	var data := FileAccess.get_file_as_bytes("res://points.bin").to_float32_array()
+	assert(data.size() % 6 == 0)
+	var vertices := PackedVector3Array()
+	var colors := PackedColorArray()
+	for i in range(0, data.size(), 6):
+		vertices.append(Vector3(data[i], data[i + 1], data[i + 2]))
+		colors.append(Color(data[i + 3], data[i + 4], data[i + 5]))
+	var arrays := []
+	arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX] = vertices
+	arrays[Mesh.ARRAY_COLOR] = colors
+	var mesh := ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_POINTS, arrays)
+	var instance := MeshInstance3D.new()
+	instance.mesh = mesh
+	var look := StandardMaterial3D.new()
+	look.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	look.vertex_color_use_as_albedo = true
+	look.use_point_size = true
+	look.point_size = 3.0
+	instance.material_override = look
+	add_child(instance)
 
 func vec(a: Array) -> Vector3:
 	return Vector3(a[0], a[1], a[2])
@@ -144,7 +186,7 @@ func _physics_process(delta: float) -> void:
 				direction = direction.normalized()
 			else:
 				direction = Vector3.ZERO
-		if elapsed > 3.0:
+		if elapsed > trial_seconds:
 			var same_side: bool = body.position.z * trial[1].z > 0.0
 			var distance := Vector2(body.position.x - target.x, body.position.z - target.z).length()
 			results[trial[0]] = (same_side and distance > 0.2 and casing_contact if trial[3] else distance < 0.06) and body.is_on_floor()
@@ -162,7 +204,7 @@ func _physics_process(delta: float) -> void:
 	elif not qa:
 		direction = Vector3(float(Input.is_physical_key_pressed(KEY_D)) - float(Input.is_physical_key_pressed(KEY_A)), 0, float(Input.is_physical_key_pressed(KEY_S)) - float(Input.is_physical_key_pressed(KEY_W))).normalized()
 		if Input.is_physical_key_pressed(KEY_SPACE):
-			reset(Vector3(0.55, 0.25, 0.75))
+			reset(start_at)
 	body.velocity.x = direction.x * 1.25
 	body.velocity.z = direction.z * 1.25
 	body.velocity.y -= 9.8 * delta
@@ -196,11 +238,11 @@ func _physics_process(delta: float) -> void:
 				var excluded := ray.exclude
 				excluded.append(hit.rid)
 				ray.exclude = excluded
-	label.text = "Collection doorway study · WASD move · Space reset\nProvisional scale/floors; patch edges are study limits.\nExisting visitor / 35° gallery camera. No final bake.\n" + (str(phase) + "/" + str(trials.size()) + " checks" if qa else "")
+	label.text = caption + (str(phase) + "/" + str(trials.size()) + " checks" if qa else "")
 	if OS.has_feature("web"):
 		JavaScriptBridge.eval("window.doorwayState=" + JSON.stringify({"position": [body.position.x, body.position.y, body.position.z], "on_floor": body.is_on_floor(), "phase": phase, "elapsed": elapsed}))
 	if body.position.y < -2 and not qa:
-		reset(Vector3(0.55, 0.25, 0.75))
+		reset(start_at)
 
 func _process(delta: float) -> void:
 	if qa and phase < trials.size():

@@ -399,3 +399,10 @@ repository/diff pass, GPU Shell retains four known failures. Initial software an
 failed cleanup trials retained. Pending work/frozen models preserved. Muse sheet
 and rejected head-v2 inspected, unchanged. No runtime/Viewer edit, production
 integration, paid retry or ticket closure. Next: separated opening views.
+
+### 2026-09-30 — main worker room route and inferred head closure (#182/#183)
+
+- Sources: hash-pinned strict sparse model, two IMG_6380 bookcase views plus a third manual-pixel check, cached CUDA depth `dense-expanded-v1`, and the unchanged Muse front/rear sheet SHA256 `0325b88fba070b85c957a6991623c843c1515b83c508b37dc09cc43b8906064f`.
+- Provider: local NumPy/pycolmap geometry, Godot 4.7.2 and Chrome on RTX4070 SUPER. Appearance reuses OpenRouter `meta/muse-image`, run `run-5ac877552e2b1979a8edb87c`, source cost $0.01, unknown reservation / never-resubmit. No new paid calls; map total recorded $0.02.
+- Outputs: isolated `room-route-walk-v3` and inferred `head-closure-v6`, under ingestion root; generated screenshots, source/result hashes and checks in `docs/evidence/collection-reconstruction/main-worker-20260930T1835/manifest.json`. Neither is a runtime dependency.
+- Review: room native/browser checks and keyboard round trip pass; model scale, floor/door proxies and full room limits remain unaccepted. Head position mesh closed and UV background sampled clean; front/rear profile seam and inferred side/top/underside remain unaccepted. Not a complete scan or map.
