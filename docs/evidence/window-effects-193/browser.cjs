@@ -6,7 +6,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
  try{
  const page=await browser.newPage(),errors=[],records={url,windows:[]};await page.setViewport({width:800,height:600});
  page.on('pageerror',e=>errors.push(String(e)));
- await page.goto(url+'?qa-crt=1',{waitUntil:'domcontentloaded',timeout:120000});
+ await page.goto(url+'?qa-crt=1&render_qa=1',{waitUntil:'domcontentloaded',timeout:120000});
  await page.waitForFunction(()=>window.shellCrtQa?.shell.active===4&&!document.getElementById('status'),{timeout:240000});
  console.log('Loaded');
  const state=()=>page.evaluate(()=>window.shellCrtQa);
@@ -32,8 +32,32 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
    records.windows.push({index,name,before,after:g});console.log('PASS',index,name);
   }
   await page.mouse.move(5,5);await page.screenshot({path:out+`/page-${index}-after.png`});
+  const saved=(await state()).window_grips;await tab(index===0?1:0);await tab(index);assert.deepEqual((await state()).window_grips,saved,"window scales/positions retained on tab return");
  }
  const retained=(await state()).window_grips;await tab(0);await tab(4);assert.deepEqual((await state()).window_grips,retained);
+ const command=action=>page.evaluate(action=>window.galleryRenderCommand(JSON.stringify(action)),action);
+ const gallery=async()=>{await command({action:'state'});return page.evaluate(()=>window.galleryRenderState)};
+ await command({action:'pose',scene:'art'});await command({action:'release'});await wait(500);
+ const openPainting=async()=>{
+  const s=await gallery(),r=s.display_rect_normalized,c=[(r[0]+r[2])/2,r[1]+(r[3]-r[1])*.2];
+  const targets=s.visible_paintings.sort((a,b)=>Math.hypot(a.point[0]-c[0],a.point[1]-c[1])-Math.hypot(b.point[0]-c[0],b.point[1]-c[1]));assert(targets.length);
+  await click(targets[0].point.map(v=>v*1080));
+  await page.waitForFunction(()=>{window.galleryRenderCommand(JSON.stringify({action:'state'}));return !!window.galleryRenderState.preview.tag},{timeout:20000});await wait(500);
+  assert.equal((await gallery()).preview.tag,targets[0].tag);
+ };
+ await openPainting();await page.screenshot({path:out+'/preview-click.png'});
+ await click((await gallery()).preview.close.map(v=>v*1080));await wait(600);
+ assert(!(await gallery()).preview.tag);assert.deepEqual((await state()).window_grips,retained,'X restores chosen centered frame');
+ await openPainting();await page.keyboard.press('Escape');await wait(600);
+ assert(!(await gallery()).preview.tag);assert.deepEqual((await state()).window_grips,retained,'Escape restores chosen centered frame');
+ await page.screenshot({path:out+'/preview-return.png'});
+ await click([966,27]);await page.waitForFunction(()=>!!document.fullscreenElement,{timeout:5000});
+ await page.setViewport({width:1600,height:1000});await wait(700);assert.deepEqual((await state()).window_grips,retained);
+ await page.screenshot({path:out+'/fullscreen.png'});
+ await click([966,27]);await page.waitForFunction(()=>!document.fullscreenElement,{timeout:5000});
+ const before=await gallery();await page.keyboard.down('s');await wait(700);await page.keyboard.up('s');await wait(400);const stopped=await gallery();await wait(300);const still=await gallery();
+ assert(Math.hypot(...before.position.map((v,i)=>v-stopped.position[i]))>.2);assert.deepEqual(still.position,stopped.position);assert.equal(stopped.paintings,23);assert.equal(stopped.visitor.identity,'Hair36');
+ records.collection={before,stopped,still};
  await page.keyboard.press('F9');await wait(500);assert.equal(await page.evaluate(()=>window.squiggleQaState.enabled),false);
  await page.keyboard.press('F9');await wait(500);assert.equal(await page.evaluate(()=>window.squiggleQaState.enabled),true);
  await page.keyboard.press('F8');await wait(500);assert.equal(await page.evaluate(()=>window.crtQaState.enabled),false);
