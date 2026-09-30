@@ -1,0 +1,16 @@
+{
+  "tested": "room-route-walk-v4",
+  "published": "room-route-walk-v5",
+  "identical_physical_fields": [
+    "patches",
+    "boxes",
+    "trials",
+    "trial_seconds",
+    "start",
+    "scale_m_per_unit",
+    "basis_rows",
+    "floor_origin_world"
+  ],
+  "identical_renderer_and_points": true,
+  "changed": "Annotations/captions identify left source mark as an open leaf edge; screenshot rechecked on RTX."
+}

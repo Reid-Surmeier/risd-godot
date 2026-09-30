@@ -13,18 +13,21 @@ from measurements import raw
 ROOT = Path('/home/reidsurmeier/risd-godot-ingestion/collection-expansion')
 parser = argparse.ArgumentParser()
 parser.add_argument('output', type=Path)
+parser.add_argument('--source', default='sfm-strict-doorway-v1')
+parser.add_argument('--anchor', default='bookcase-extrema-v2')
+parser.add_argument('--capture-poses', type=Path, help='Independent capture pose diagnostics; no query geometry enters mapping')
 parser.add_argument('--dense-context', action='store_true', help='Reproject cached observed depth as visual context only')
 args = parser.parse_args()
 out = args.output
 out.mkdir(parents=True, exist_ok=False)
 repo = Path(__file__).resolve().parents[4]
 source = Path(__file__).resolve().parent
-scale_path = ROOT/'bookcase-extrema-v2/result.json'
+scale_path = ROOT/args.anchor/'result.json'
 anchor = json.loads(scale_path.read_text())
 basis = np.array(anchor['basis_rows'])
 origin = np.array(anchor['origin_world'])
 scale = anchor['height_scale_m_per_unit']
-sparse = ROOT/'sfm-strict-doorway-v1/sparse/0'
+sparse = ROOT/args.source/'sparse/0'
 inputs = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in [scale_path, *sparse.glob('*.bin')]}
 model = pycolmap.Reconstruction(sparse)
 views = {v.name: v for v in model.images.values()}
@@ -75,13 +78,25 @@ scale = 1.515/np.mean([(np.array(anchor['points_world'][a])-anchor['points_world
 floor_center = center@np.array(anchor['basis_rows'])/anchor['height_scale_m_per_unit']+origin
 origin -= up*((origin-floor_center)@up)
 xyz = (world-origin)@basis.T*scale
-# Ray/floor contacts are a hypothesis, NOT accepted doorway survey measurements.
+# The left pixel is the open leaf free edge, not a stationary jamb or surveyed floor contact.
+# Rays intersect the candidate floor only to place conservative clearance proxies.
 name = 'IMG_6384/000207.jpg'
-view = views[name]
-camera = model.cameras[view.camera_id]
+if name in views:
+    view = views[name]
+    camera = model.cameras[view.camera_id]
+    pose = view.cam_from_world()
+else:
+    assert args.capture_poses, 'An excluded capture requires a separately supported pose'
+    capture = json.loads(args.capture_poses.read_text())
+    row = next(r for r in capture['rows'] if r['image']==name)
+    assert row['supported'] and capture['whole_capture_excluded_from_mapping']
+    camera = pycolmap.Camera(row['camera'])
+    matrix = np.array(row['cam_from_world'])
+    pose = pycolmap.Rigid3d(pycolmap.Rotation3d(matrix[:,:3]),matrix[:,3])
+    inputs[str(args.capture_poses)] = hashlib.sha256(args.capture_poses.read_bytes()).hexdigest()
 pixels = [[176, 921], [461, 1073]]
-rays = np.c_[camera.cam_from_img(raw(pixels)), np.ones(2)]@view.cam_from_world().rotation.matrix()
-eye = view.cam_from_world().inverse().translation
+rays = np.c_[camera.cam_from_img(raw(pixels)), np.ones(2)]@pose.rotation.matrix()
+eye = pose.inverse().translation
 distances = ((origin-eye)@up)/(rays@up)
 assert np.all(distances > 0)
 contacts = (eye+rays*distances[:, None]-origin)@basis.T*scale
@@ -101,15 +116,15 @@ trials = [['forward',[mid,.25,1.2],[mid,0,-1.2],False],['reverse',[mid,.25,-1.2]
     ['decorative_room',[mid,.25,-1.2],[mid,0,-3.2],False],
     ['painting_gallery',[mid,.25,1.2],[mid,0,3.2],False]]
 geometry = dict(patches=patches, boxes=boxes, trials=trials, trial_seconds=3.5, start=[mid,.25,1.2],
-    caption='Collection two-room route · WASD move · Space reset\nObserved sparse context; gold threshold / jambs are provisional.\nFloor edges are study limits. Full room walls and bake remain unfinished.\n',
+    caption='Collection two-room route · WASD move · Space reset\nObserved sparse context; gold threshold / door-clearance proxies are provisional.\nFloor edges are study limits. Full room walls and bake remain unfinished.\n',
     navigation_accepted=False, scale_accepted=False, source_sha256=inputs,
-    scale_m_per_unit=scale, basis_rows=basis.tolist(), floor_origin_world=origin.tolist(),
-    doorway_candidate=dict(source=name,pixels=pixels,contacts_local_m=contacts.tolist(),z_origin_m=z0),
-    floor=dict(fit_odd_points=len(fit),fit_support=int(best.sum()),unused_even_points=len(test),
+    scale_m_per_unit=scale, basis_rows=basis.tolist(), floor_origin_world=origin.tolist(), source_model=args.source,
+    doorway_candidate=dict(source=name,pixels=pixels,floor_ray_intersections_local_m=contacts.tolist(),pixel_roles=['open leaf lower free edge, not a stationary jamb','unverified right opening edge'],z_origin_m=z0),
+    floor=dict(candidate_point_ids=point_ids[mask].tolist(),fit_odd_points=len(fit),fit_support=int(best.sum()),unused_even_points=len(test),
         unused_residual_p50_p90_m=np.percentile(abs((test-center)@normal),[50,90]).tolist()),
     caveat='Observed decorative room and painting gallery share this visible opening; corridor opening is distinct. '
            'Provisional scale from bookcase front endpoints. Split wood points support floor orientation locally; '
-           'flat floor extension, threshold levels and ray-derived jamb boxes are hypotheses. '
+           'flat floor extension, threshold levels and ray-derived clearance boxes are hypotheses. Left input is an open leaf edge, not fixed architecture. '
            'No full room extents, unseen connectors, physical collision acceptance or production integration.')
 (out/'geometry.json').write_text(json.dumps(geometry,indent=2)+'\n')
 sparse_xyz, sparse_colors = xyz.copy(), colors.copy()
@@ -169,8 +184,8 @@ for p,c in zip(xyz[visible],colors[visible]):
 for box in boxes:
     x,y=pixel(box['center']);draw.rectangle((x-8,y-13,x+8,y+13),fill='white')
 draw.text((20,20),'Observed two-room route. Floor edges are study limits, NOT complete museum walls.',fill='white')
-draw.text((20,40),'Scale, flat floor extension and doorway collision boxes remain hypotheses.',fill='white')
+draw.text((20,40),'Scale/floors/clearance boxes are hypotheses. Left pixel is an open leaf edge.',fill='white')
 im.save(out/'plan.png')
 assert all(hashlib.sha256(Path(p).read_bytes()).hexdigest()==h for p,h in inputs.items())
 assert np.allclose(basis@basis.T,np.eye(3)) and np.isfinite(xyz).all()
-print(json.dumps(dict(floor=geometry['floor'],doorway=geometry['doorway_candidate'],visual_points=int(visible.sum()),scale=scale)))
+print(json.dumps(dict(floor={k:v for k,v in geometry['floor'].items() if k!='candidate_point_ids'},doorway=geometry['doorway_candidate'],visual_points=int(visible.sum()),scale=scale)))

@@ -37,6 +37,7 @@ def frame(points):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', required=True, type=Path)
+    parser.add_argument('--source', default='sfm-strict-doorway-v1')
     parser.add_argument('--selection', type=Path, help='Frozen source and reserved manual observations')
     args = parser.parse_args()
     args.output.mkdir(exist_ok=False, parents=True)
@@ -44,7 +45,7 @@ def main():
     names, picks = selection['source_views'], selection['picks']
     assert all(len(p) == len(names) for p in picks.values())
     assert not set(names) & set(selection['reserved'])
-    sparse = ROOT / 'sfm-strict-doorway-v1/sparse/0'
+    sparse = ROOT / args.source / 'sparse/0'
     files = list(sparse.glob('*.bin')) + [ROOT / 'survey-2fps' / n for n in names + list(selection['reserved'])]
     pins = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
     (args.output / 'annotations.json').write_text(json.dumps(selection, indent=2) + '\n')

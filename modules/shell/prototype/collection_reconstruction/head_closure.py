@@ -78,57 +78,62 @@ assert volume>0 and np.isfinite(vertices).all()
 assert np.allclose(np.ptp(vertices,axis=0),[.508,.813,.508])
 # One front hemisphere and one rear hemisphere, each mapped to its own sheet panel.
 # UV seams duplicate render vertices while the canonical position mesh remains closed.
-face_uv=[]
-for face in triangles:
-    cosines=[np.cos(-np.pi/2+(i%sides)*2*np.pi/sides) for i in face if i<rings*sides]
-    front=np.mean(cosines)>=0
+weights=np.array([[a/4,b/4,1-(a+b)/4] for a in range(5) for b in range(5-a)])
+def hemisphere_uv(front):
     view=views[0 if front else 1]
     uv=[]
-    for index in face:
-        if index>=rings*sides:
-            fraction=.5/rings if index==rings*sides else 1-.5/rings;horizontal=0
-        else:
-            fraction=(index//sides+.5)/rings
-            horizontal=np.sin(-np.pi/2+(index%sides)*2*np.pi/sides)*(1 if front else -1)
-        row=min(len(view['bounds'])-1,int(fraction*len(view['bounds'])))
-        left,right=view['bounds'][row]
-        uv.append([(left+(right-left)*(horizontal+1)/2)/w,
-                   (view['top']+fraction*(view['bottom']-view['top']))/h])
-    face_uv.append(uv)
-# Check the raster sampled between UV corners, not merely the corners themselves.
-weights=np.array([[a/4,b/4,1-(a+b)/4] for a in range(5) for b in range(5-a)])
-uv_array=np.array(face_uv)
-def chroma_samples(uv):
-    samples=np.einsum('sj,tjk->tsk',weights,uv)
-    px=np.minimum(w-1,(samples[:,:,0]*w).astype(int));py=np.minimum(h-1,(samples[:,:,1]*h).astype(int))
-    sampled=picture[py,px].astype(int)
-    return (sampled[:,:,0]-sampled[:,:,1]>80)&(sampled[:,:,2]-sampled[:,:,1]>80)&(sampled[:,:,0]>180)&(sampled[:,:,2]>180)
-initial_bleed=int(chroma_samples(uv_array).sum())
-adjusted=set()
-for _ in range(50):
-    bad=np.flatnonzero(chroma_samples(uv_array).any(axis=1))
-    if not len(bad):break
-    for index in bad:
-        adjusted.add(int(index))
-        panel=views[0 if uv_array[index,:,0].mean()<.5 else 1]
-        row=np.clip((uv_array[index,:,1]*h-panel['top']).astype(int),0,len(panel['bounds'])-1)
-        centers=panel['bounds'][row].mean(axis=1)/w
-        uv_array[index,:,0]=centers+.9*(uv_array[index,:,0]-centers)
-assert not chroma_samples(uv_array).any(), 'UV interpolation still crosses the chroma background'
-face_uv=uv_array.tolist()
-assert np.isfinite(face_uv).all() and np.min(face_uv)>=0 and np.max(face_uv)<=1
-(out/'mesh.json').write_text(json.dumps(dict(vertices=vertices.tolist(),triangles=triangles.tolist(),face_uv=face_uv),separators=(',',':')))
+    for face in triangles:
+        corners=[]
+        for index in face:
+            if index>=rings*sides:
+                fraction=.5/rings if index==rings*sides else 1-.5/rings
+                horizontal=0
+            else:
+                fraction=(index//sides+.5)/rings
+                horizontal=np.sin(-np.pi/2+(index%sides)*2*np.pi/sides)*(1 if front else -1)
+            row=min(len(view['bounds'])-1,int(fraction*len(view['bounds'])))
+            left,right=view['bounds'][row]
+            corners.append([(left+(right-left)*(horizontal+1)/2)/w,
+                (view['top']+fraction*(view['bottom']-view['top']))/h])
+        uv.append(corners)
+    uv=np.array(uv)
+    def chroma_samples():
+        samples=np.einsum('sj,tjk->tsk',weights,uv)
+        px=np.minimum(w-1,(samples[:,:,0]*w).astype(int));py=np.minimum(h-1,(samples[:,:,1]*h).astype(int))
+        sampled=picture[py,px].astype(int)
+        return (sampled[:,:,0]-sampled[:,:,1]>80)&(sampled[:,:,2]-sampled[:,:,1]>80)&(sampled[:,:,0]>180)&(sampled[:,:,2]>180)
+    initial=int(chroma_samples().sum())
+    adjusted=set()
+    for _ in range(50):
+        bad=np.flatnonzero(chroma_samples().any(axis=1))
+        if not len(bad):break
+        for index in bad:
+            adjusted.add(int(index))
+            row=np.clip((uv[index,:,1]*h-view['top']).astype(int),0,len(view['bounds'])-1)
+            centers=view['bounds'][row].mean(axis=1)/w
+            uv[index,:,0]=centers+.9*(uv[index,:,0]-centers)
+    assert not chroma_samples().any(), 'UV interpolation crosses the chroma background'
+    assert np.isfinite(uv).all() and uv.min()>=0 and uv.max()<=1
+    return uv.tolist(),initial,len(adjusted)
+front_uv,front_bleed,front_adjusted=hemisphere_uv(True)
+rear_uv,rear_bleed,rear_adjusted=hemisphere_uv(False)
+blend=[float(np.clip((np.cos(-np.pi/2+(i%sides)*2*np.pi/sides)+.20)/.40,0,1))
+    if i<rings*sides else .5 for i in range(len(vertices))]
+assert np.allclose(np.array(blend)[np.arange(rings)*sides+sides//4],1)
+assert np.allclose(np.array(blend)[np.arange(rings)*sides+3*sides//4],0)
+(out/'mesh.json').write_text(json.dumps(dict(vertices=vertices.tolist(),triangles=triangles.tolist(),
+    face_uv_front=front_uv,face_uv_rear=rear_uv,front_weight=blend),separators=(',',':')))
 shutil.copyfile(texture,out/'appearance.webp')
 report=dict(vertices=len(vertices),triangles=len(triangles),edge_use_counts=sorted(set(edges.values())),
     euler_characteristic=2,closed_position_mesh=True,signed_volume_m3=float(volume),
     dimensions_m=np.ptp(vertices,axis=0).tolist(),texture_sha256=hashlib.sha256(texture.read_bytes()).hexdigest(),
     provider='local NumPy geometry; existing OpenRouter meta/muse-image appearance',new_cost_usd=0,
     source_appearance_cost_usd=.01,source_spend_state='unknown / never-resubmit',
-    complete_scan=False,visual_accepted=False,uv_chroma_sample_count=int(len(triangles)*len(weights)),
-    uv_chroma_samples_remaining=0,uv_inset_adjusted_triangles=len(adjusted),initial_uv_chroma_samples=initial_bleed,
+    complete_scan=False,visual_accepted=False,uv_chroma_sample_count=int(2*len(triangles)*len(weights)),
+    uv_chroma_samples_remaining=0,uv_inset_adjusted_triangles=front_adjusted+rear_adjusted,initial_uv_chroma_samples=front_bleed+rear_bleed,
     caveat='Closed silhouette loft with inferred side, top, underside, nose and depth. Catalogue '
            'envelope axes are inferred and do not validate shape. Existing Muse front/rear appearance '
-           'has baked shading and unverified crack/carving preservation. Rear uses its own texture; '
+           'has baked shading and unverified crack/carving preservation. Side UVs blend the two appearances; '
            'no frontal face on the back. Neither watertight topology nor dimensions mean faithful geometry. '
            'Pedestal, global placement, video silhouette comparison and final bake remain unverified.')
 (out/'checks.json').write_text(json.dumps(report,indent=2)+'\n')

@@ -14,15 +14,20 @@ func run() -> void:
 		for corner in [2, 1, 0]:
 			var index: int = data.triangles[i][corner]
 			var p: Array = data.vertices[index]
-			var uv: Array = data.face_uv[i][corner]
+			var uv: Array = data.face_uv_front[i][corner]
+			var rear_uv: Array = data.face_uv_rear[i][corner]
 			tool.set_uv(Vector2(uv[0], uv[1]))
+			tool.set_uv2(Vector2(rear_uv[0], rear_uv[1]))
+			tool.set_color(Color(data.front_weight[index], 0, 0))
 			tool.add_vertex(Vector3(p[0], p[1], p[2]))
 	tool.generate_normals()
 	var sculpture := MeshInstance3D.new()
 	sculpture.mesh = tool.commit()
-	var material := StandardMaterial3D.new()
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.albedo_texture = ImageTexture.create_from_image(Image.load_from_file(folder.path_join("appearance.webp")))
+	var material := ShaderMaterial.new()
+	var shader := Shader.new()
+	shader.code = "shader_type spatial; render_mode unshaded; uniform sampler2D appearance: source_color, filter_linear_mipmap, repeat_disable; void fragment(){ALBEDO=mix(texture(appearance,UV2).rgb,texture(appearance,UV).rgb,COLOR.r);}"
+	material.shader = shader
+	material.set_shader_parameter("appearance", ImageTexture.create_from_image(Image.load_from_file(folder.path_join("appearance.webp"))))
 	sculpture.material_override = material
 	root.add_child(sculpture)
 	var environment := WorldEnvironment.new()

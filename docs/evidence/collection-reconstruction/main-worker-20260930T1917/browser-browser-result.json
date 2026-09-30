@@ -1,0 +1,132 @@
+{
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/main-worker-room-route/walk/",
+  "errors": [],
+  "viewport": {
+    "width": 1100,
+    "height": 760
+  },
+  "first_ready_ms": 3100,
+  "engine": {
+    "checks": {
+      "decorative_room": true,
+      "decorative_room_camera": true,
+      "forward": true,
+      "forward_camera": true,
+      "left_blocked": true,
+      "left_blocked_camera": true,
+      "painting_gallery": true,
+      "painting_gallery_camera": true,
+      "reverse": true,
+      "reverse_camera": true,
+      "right_blocked": true,
+      "right_blocked_camera": true
+    },
+    "frame_time_p50_ms": 16.6666666666667,
+    "frame_time_p95_ms": 16.6666666666667,
+    "navigation_accepted": false,
+    "render_frames": 1250,
+    "renderer": "WebKit WebGL",
+    "samples": [
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          0.277448147535324,
+          0.000838130654301494,
+          -1.17494523525238
+        ],
+        "trial": "forward"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          0.277448207139969,
+          0.000839706568513066,
+          1.17500805854797
+        ],
+        "trial": "reverse"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": true,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          -0.724084436893463,
+          0.000705829006619751,
+          0.421142548322678
+        ],
+        "trial": "left_blocked"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": true,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          1.27898097038269,
+          -0.000190141799976118,
+          0.421198010444641
+        ],
+        "trial": "right_blocked"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          0.27744734287262,
+          0.000835640239529312,
+          -3.17915534973145
+        ],
+        "trial": "decorative_room"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          0.2774478495121,
+          0.00083813932724297,
+          3.17917585372925
+        ],
+        "trial": "painting_gallery"
+      }
+    ]
+  },
+  "keyboard_forward": {
+    "elapsed": 2.98333333333333,
+    "on_floor": true,
+    "phase": 0,
+    "position": [
+      0.277442336082458,
+      0.000837172497995198,
+      -1.29996371269226
+    ]
+  },
+  "keyboard_reverse": {
+    "elapsed": 5.31666666666665,
+    "on_floor": true,
+    "phase": 0,
+    "position": [
+      0.277439177036285,
+      0.000839710759464651,
+      1.22091484069824
+    ]
+  },
+  "browser": "Chrome/154.0.8037.57",
+  "webgl_renderer": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+  "memory": {
+    "used_js_heap_bytes": 72763377,
+    "total_js_heap_bytes": 77443977,
+    "caveat": "JS heap only; excludes complete process, GPU and WASM allocation accounting"
+  },
+  "pass": true
+}

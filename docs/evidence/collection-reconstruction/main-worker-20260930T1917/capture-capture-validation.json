@@ -1,0 +1,154 @@
+{
+  "rows": [
+    {
+      "image": "IMG_6384/000196.jpg",
+      "correspondences": 0,
+      "supported": false
+    },
+    {
+      "image": "IMG_6384/000206.jpg",
+      "correspondences": 201,
+      "supported": true,
+      "fit_features": 87,
+      "unused_features": 85,
+      "fit_inliers": 53,
+      "unused_below4px": 52,
+      "unused_fraction": 0.611764705882353,
+      "unused_errors_p50_p90_px": [
+        1.5138608414365013,
+        381.0706787558993
+      ],
+      "camera": {
+        "model": "SIMPLE_RADIAL",
+        "width": 1280,
+        "height": 720,
+        "params": [
+          593.9122561860538,
+          640.0,
+          360.0,
+          0.002004066953869205
+        ]
+      },
+      "cam_from_world": [
+        [
+          0.9924694549470594,
+          -0.034029538012502095,
+          0.11767060609915482,
+          -1.1965177437654257
+        ],
+        [
+          0.10677619287424579,
+          0.7110976868039631,
+          -0.6949380723901479,
+          -1.4778746872352289
+        ],
+        [
+          -0.06002687425119384,
+          0.702269229259483,
+          0.7093762781506885,
+          7.909463565007836
+        ]
+      ]
+    },
+    {
+      "image": "IMG_6384/000207.jpg",
+      "correspondences": 120,
+      "supported": true,
+      "fit_features": 52,
+      "unused_features": 46,
+      "fit_inliers": 34,
+      "unused_below4px": 36,
+      "unused_fraction": 0.782608695652174,
+      "unused_errors_p50_p90_px": [
+        1.2807450003670708,
+        174.93438777298667
+      ],
+      "camera": {
+        "model": "SIMPLE_RADIAL",
+        "width": 1280,
+        "height": 720,
+        "params": [
+          593.9122561860538,
+          640.0,
+          360.0,
+          0.002004066953869205
+        ]
+      },
+      "cam_from_world": [
+        [
+          0.9760846923225025,
+          0.04671149976476979,
+          0.21231276269553728,
+          0.013669049811686132
+        ],
+        [
+          0.13857390683287737,
+          0.6188071198523137,
+          -0.7732237844021339,
+          -2.498798517733205
+        ],
+        [
+          -0.16749909181472789,
+          0.7841529086918,
+          0.5975351621715923,
+          7.993144039616458
+        ]
+      ]
+    },
+    {
+      "image": "IMG_6384/000209.jpg",
+      "correspondences": 381,
+      "supported": true,
+      "fit_features": 149,
+      "unused_features": 168,
+      "fit_inliers": 103,
+      "unused_below4px": 118,
+      "unused_fraction": 0.7023809523809523,
+      "unused_errors_p50_p90_px": [
+        1.1818584978296482,
+        196.24193533222817
+      ],
+      "camera": {
+        "model": "SIMPLE_RADIAL",
+        "width": 1280,
+        "height": 720,
+        "params": [
+          593.9122561860538,
+          640.0,
+          360.0,
+          0.002004066953869205
+        ]
+      },
+      "cam_from_world": [
+        [
+          0.96517453993834,
+          -0.016277036485098054,
+          0.26109991485650963,
+          0.014320159044197313
+        ],
+        [
+          0.23931056531969108,
+          0.4581222525009616,
+          -0.8560691882609814,
+          -4.504425379188592
+        ],
+        [
+          -0.10568141171078127,
+          0.8887401531644155,
+          0.44606320109610964,
+          6.903313249188457
+        ]
+      ]
+    }
+  ],
+  "training_capture": "IMG_6380",
+  "heldout_capture": "IMG_6384",
+  "whole_capture_excluded_from_mapping": true,
+  "nominal_intrinsics_refined_on_training_only": true,
+  "upper_pose_cutoff": 700,
+  "fit_ids": "odd",
+  "unused_ids": "even",
+  "navigation_accepted": false,
+  "cost_usd": 0,
+  "caveat": "Different capture absent from fresh mapping and calibration. Pose fits upper query pixels only; evaluates unused point IDs without trimming. Tentative match identity and catalogue scale remain unverified; source depth, floor planarity and physical collision acceptance are separate gates."
+}
