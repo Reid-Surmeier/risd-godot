@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-09-30T20:23:11.912023+00:00",
+  "successfully_scheduled": true,
+  "transport": "actual MCP stdio",
+  "server": "BlenderMCP",
+  "protocol": "2025-11-25",
+  "addon_protocol": 7,
+  "blender": "4.3.2",
+  "saved_stage": "bake_stage.py",
+  "native_launch": {
+    "native_pid": 650043,
+    "saved_stage": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/bake_stage.py",
+    "log": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/bake-native.log"
+  },
+  "telemetry_consent": false,
+  "paid_calls": 0,
+  "completion_file": "target-bake-completion.json",
+  "completion_not_inferred_from_scheduling": true,
+  "owned_gui_stopped_after_test": true,
+  "loopback_listener_absent_at_handoff": true
+}

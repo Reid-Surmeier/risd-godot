@@ -1,0 +1,45 @@
+{
+  "issue": 231,
+  "source": {
+    "owner_supplied": true,
+    "sha256": "7c67a2f601f120426928eb7af350b193822aa244401a3ae2cb00c0cb7e82f07c"
+  },
+  "crop": {
+    "rect": [
+      380,
+      276,
+      502,
+      422
+    ],
+    "scale": 4,
+    "resample": "nearest",
+    "sha256": "54552e7926b6f8127bbb5492135dbfe5497c719eb60766b471146581bcb7a252"
+  },
+  "tool_lock_upgrade": {
+    "previous": {
+      "release": "v0.3.0",
+      "commit": "21fb5c514b1e4623e36523031ec95dd5624d33eb",
+      "artifactSha256": "391f712d72495b9b48442c427d34e4f95c5dff69846bb2e0c3648df8e9ea6cde",
+      "procedureVersion": "1",
+      "runSchemaVersion": "3",
+      "adapterProtocolVersion": "1"
+    },
+    "current": {
+      "release": "v0.3.0",
+      "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+      "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+      "procedureVersion": "1",
+      "runSchemaVersion": "3",
+      "adapterProtocolVersion": "1"
+    }
+  },
+  "visual_acceptance": "pending owner review",
+  "budget": {
+    "ceiling_usd": 4,
+    "authorization": "Owner: Allow fal pilot, $4 total",
+    "reserved_muse_usd": 0.02,
+    "planned_textured_mesh_usd": 1.2,
+    "planned_rig_idle_usd": 0.32,
+    "aggregate_liability_usd": 1.54
+  }
+}

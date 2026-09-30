@@ -1,0 +1,80 @@
+{
+  "success": true,
+  "derived_only": true,
+  "source": "target-baked.glb",
+  "source_sha256": "1098ec57c311f2a12186b44f2cd6ffd798f45352d020285dcf0e0a65dca305ff",
+  "output": "target-baked-normalized-idle.glb",
+  "output_sha256": "9d566ae7413d209f9986b1ff53d486ba3535a59f498d686f169d7257e21cc804",
+  "clip": "idle",
+  "changed_channel": "pose.bones[\"Hips\"].scale",
+  "before_key_value_min": 1.1764706373214722,
+  "before_key_value_max": 1.1764708757400513,
+  "after_key_value": 1.0,
+  "curves_changed": 3,
+  "key_points_changed": 6,
+  "rest_bounds": {
+    "low": [
+      -0.8007545471191406,
+      -0.48832982778549194,
+      2.4744426951883725e-08
+    ],
+    "high": [
+      0.8007538914680481,
+      0.4883325397968292,
+      1.8980634212493896
+    ],
+    "height": 1.8980633965049627
+  },
+  "raw_idle_bounds": {
+    "low": [
+      -0.8408329486846924,
+      -0.6875438690185547,
+      -0.010106857866048813
+    ],
+    "high": [
+      0.7203399538993835,
+      0.3698335886001587,
+      2.055197238922119
+    ],
+    "height": 2.065304096788168
+  },
+  "normalized_idle_bounds": {
+    "low": [
+      -0.709003210067749,
+      -0.5807257890701294,
+      0.07625410705804825
+    ],
+    "high": [
+      0.6179936528205872,
+      0.3180452883243561,
+      1.831762671470642
+    ],
+    "height": 1.7555085644125938
+  },
+  "walk_frame8_bounds": {
+    "low": [
+      -0.5675187706947327,
+      -0.5072070360183716,
+      -0.08069629222154617
+    ],
+    "high": [
+      0.7770016193389893,
+      0.4753737449645996,
+      1.8248101472854614
+    ],
+    "height": 1.9055064395070076
+  },
+  "bones": 24,
+  "triangles": 7719,
+  "clip_names": [
+    "Armature|clip0|baselayer",
+    "idle",
+    "run",
+    "walk"
+  ],
+  "material_and_atlas_preserved": true,
+  "raw_file_unchanged": true,
+  "walk_contact_not_fixed": true,
+  "blender": "4.3.2",
+  "cost_usd": 0
+}

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Throwaway character bake fixture</title>
+<style>body{font:17px/1.5 system-ui;max-width:1100px;margin:40px auto;padding:0 20px;color:#252322;background:#faf9f6}img,video{max-width:100%;height:auto}figure{margin:20px 0}figcaption{font-size:15px;color:#605952}.maps{display:flex;flex-wrap:wrap;gap:24px}.maps img{width:256px}.badge{background:#f6e4b8;padding:12px}a{color:#6a353a}</style>
+<h1>Can a baked texture, rig and clips survive the round trip?</h1>
+<p class="badge">Throwaway tool fixture for decision review. This is the existing authored visitor, not the supplied horned Animal Crossing character.</p>
+<p>The CPU bake and GLB reimport kept 41 joints, 76 clips and two embedded 512² maps. A separate actual Blender MCP session selected the walking clip and frame 8. No generation spend; no runtime asset replaced.</p>
+<figure><img src="pose-proof.png" alt="Baked fixture in T-pose, idle and walk"><figcaption>Rest pose, imported idle, imported walk. Review the painted shirt and whether the segmented limbs behave acceptably as a tool fixture.</figcaption></figure>
+<figure><video controls loop muted playsinline poster="walk.png" src="walk.mp4"></video><figcaption>One second of the imported Walking_A clip, sampled at 8 FPS. Native Blender render; no Godot gameplay proof.</figcaption></figure>
+<figure><img src="motion-proof.png" alt="Eight sampled walking poses"><figcaption>The walking pose changes across the saved samples; passing counts alone would not show this.</figcaption></figure>
+<div class="maps"><figure><img src="shirt-source.png" alt="Grayscale authored source texture"><figcaption>256² authored color modulation input.</figcaption></figure><figure><img src="shirt-baked.png" alt="Colored baked shirt atlas"><figcaption>512² color bake includes the material stripes.</figcaption></figure><figure><img src="shirt-ao.png" alt="Separate ambient occlusion atlas"><figcaption>512² AO remains a separate map.</figcaption></figure></div>
+<p>The source image is not a finished UV atlas, so these maps are different stages, not an image-quality before/after. This proof does not settle the new character's identity, topology, soft joint deformation, gait or effects.</p>
+<p><a href="fixture.glb">Baked GLB</a> · <a href="fixture.blend">Saved Blender fixture</a> · <a href="evidence.json">Native transfer evidence</a> · <a href="mcp-smoke.json">Actual MCP proof</a> · <a href="README.md">Commands and limits</a> · <a href="PROVENANCE.md">Sources and hashes</a></p>
+</html>

@@ -1,0 +1,20 @@
+{
+  "runs": [
+    {
+      "run_id": "run-2a3947beb386aff3259c1e88",
+      "objective": ".qwen-pipeline/muse-76433501979eb985cadb.json",
+      "output": "front.png",
+      "reported_cost_usd": 0.01
+    },
+    {
+      "run_id": "run-a5cc3c928d772fd172ddc5c7",
+      "objective": ".qwen-pipeline/muse-1c6014a3db0ff164f012.json",
+      "output": "turnaround.png",
+      "reported_cost_usd": 0.01
+    }
+  ],
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "full_records": "artifacts/image-generation/runs/ (local, gitignored)",
+  "dispatch_retry": "never-resubmit same Run"
+}

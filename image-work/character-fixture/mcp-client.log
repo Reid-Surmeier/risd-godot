@@ -1,0 +1,67 @@
+2026-09-30 15:48:08,816 - BlenderMCPServer - INFO - BlenderMCP server starting up
+2026-09-30 15:48:08,817 - BlenderMCPServer - INFO - Blender addon on disk is current (protocol 7).
+2026-09-30 15:48:08,817 - blender-mcp-telemetry - WARNING - Telemetry disabled via environment variable
+2026-09-30 15:48:08,818 - BlenderMCPServer - INFO - Connected to Blender at localhost:9876
+2026-09-30 15:48:08,818 - BlenderMCPServer - INFO - Created new persistent connection to Blender
+2026-09-30 15:48:08,818 - BlenderMCPServer - INFO - Sending command: get_addon_info with params: None
+2026-09-30 15:48:08,818 - BlenderMCPServer - INFO - Command sent, waiting for response...
+2026-09-30 15:48:08,849 - BlenderMCPServer - INFO - Received complete response (394 bytes)
+2026-09-30 15:48:08,849 - BlenderMCPServer - INFO - Received 394 bytes of data
+2026-09-30 15:48:08,849 - BlenderMCPServer - INFO - Response parsed, status: success
+2026-09-30 15:48:08,849 - BlenderMCPServer - INFO - Blender addon up to date (protocol 7, addon [1, 7], Blender 4.3.2)
+2026-09-30 15:48:08,849 - BlenderMCPServer - INFO - Successfully connected to Blender on startup
+2026-09-30 15:48:08,851 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-09-30 15:48:08,854 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-09-30 15:48:08,854 - BlenderMCPServer - INFO - Sending command: get_addon_info with params: None
+2026-09-30 15:48:08,854 - BlenderMCPServer - INFO - Command sent, waiting for response...
+2026-09-30 15:48:08,899 - BlenderMCPServer - INFO - Received complete response (394 bytes)
+2026-09-30 15:48:08,899 - BlenderMCPServer - INFO - Received 394 bytes of data
+2026-09-30 15:48:08,899 - BlenderMCPServer - INFO - Response parsed, status: success
+2026-09-30 15:48:08,899 - BlenderMCPServer - INFO - Blender addon up to date (protocol 7, addon [1, 7], Blender 4.3.2)
+2026-09-30 15:48:08,900 - BlenderMCPServer - INFO - Sending command: get_telemetry_consent with params: None
+2026-09-30 15:48:08,900 - BlenderMCPServer - INFO - Command sent, waiting for response...
+2026-09-30 15:48:08,950 - BlenderMCPServer - INFO - Received complete response (51 bytes)
+2026-09-30 15:48:08,950 - BlenderMCPServer - INFO - Received 51 bytes of data
+2026-09-30 15:48:08,950 - BlenderMCPServer - INFO - Response parsed, status: success
+2026-09-30 15:48:08,953 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-09-30 15:48:08,953 - BlenderMCPServer - INFO - Sending command: execute_code with params: {'code': "import bpy, json\nrig=next(o for o in bpy.context.scene.objects if o.type=='ARMATURE')\nassert len(rig.data.bones)==41 and len(bpy.data.actions)==76\nrig.animation_data.action=bpy.data.actions['Walking_A_Rig']\nfor track in rig.animation_data.nla_tracks: track.mute=True\nbpy.context.scene.frame_set(8)\nprint('FIXTURE_MCP_QUERY='+json.dumps({'blender':bpy.app.version_string,'background':bpy.app.background,'file':bpy.data.filepath,'bones':len(rig.data.bones),'clips':len(bpy.data.actions),'frame':bpy.context.scene.frame_current,'active_clip':rig.animation_data.action.name,'mesh_armature':bpy.data.objects['Original visitor skin'].find_armature().name}))\n"}
+2026-09-30 15:48:08,953 - BlenderMCPServer - INFO - Command sent, waiting for response...
+2026-09-30 15:48:09,013 - BlenderMCPServer - INFO - Received complete response (370 bytes)
+2026-09-30 15:48:09,013 - BlenderMCPServer - INFO - Received 370 bytes of data
+2026-09-30 15:48:09,013 - BlenderMCPServer - INFO - Response parsed, status: success
+2026-09-30 15:48:09,015 - BlenderMCPServer - INFO - Disconnecting from Blender on shutdown
+2026-09-30 15:48:09,015 - BlenderMCPServer - INFO - BlenderMCP server shut down
+{
+  "timestamp": "2026-09-30T19:48:09.014940+00:00",
+  "success": true,
+  "transport": "actual MCP stdio client -> mcp-for-blender2.0.0 -> loopback socket -> Blender GUI",
+  "server_name": "BlenderMCP",
+  "mcp_protocol": "2025-11-25",
+  "tool_count": 31,
+  "addon_status": {
+    "up_to_date": true,
+    "protocol_version": 7,
+    "expected_protocol_version": 7,
+    "addon_version": [
+      1,
+      7
+    ],
+    "blender_version": "4.3.2",
+    "telemetry_consent": false
+  },
+  "query": {
+    "blender": "4.3.2",
+    "background": false,
+    "file": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-fixture/fixture.blend",
+    "bones": 41,
+    "clips": 76,
+    "frame": 8,
+    "active_clip": "Walking_A_Rig",
+    "mesh_armature": "Rig"
+  },
+  "paid_calls": 0,
+  "global_config_changed": false,
+  "codex_session_tools_loaded": false,
+  "gui_display": ":99",
+  "owned_gui_stopped_after_test": false
+}

@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "turnaround",
+      "prompt": "image-work/character-pilot/turnaround-prompt.txt",
+      "promptSha256": "77bf533e565a073003b2bcd6b2813a512be7faf22b848dea625e9bf7c4e8491b",
+      "size": "2048x1024",
+      "inputs": [
+        {
+          "path": "image-work/character-pilot/front.png",
+          "sha256": "ca71b989a123c59f302221cf994d8e7ee11aa3d65bf44d2f0babecfc5a1ae56f"
+        },
+        {
+          "path": "image-work/character-pilot/character-crop.png",
+          "sha256": "54552e7926b6f8127bbb5492135dbfe5497c719eb60766b471146581bcb7a252"
+        }
+      ]
+    }
+  ]
+}

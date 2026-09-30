@@ -89,3 +89,11 @@ Recommended budget arithmetic: one Muse edit $0.01 + one Meshy textured standard
 5. Keep the visual prototype decision open until the owner reacts; a completed research issue answers what to test, not whether the new character is accepted. Runtime assets and frozen interfaces remain unchanged.
 
 The broad [Muse-to-3D workflow note](2026-09-30-muse-character-3d-pipeline.md) supplies the Blender bake, rig, motion/effects and Godot gates. The next evidence is an actual front image, three-view mesh capture and deformation proof, not another model catalog comparison.
+
+## Owner follow-up: Meshy subscription economics
+
+Verified September 30 after the owner asked about the 50% offer: Pro is $20/month with 1,000 monthly credits and API access; new subscribers get 50% off their first month ($10). Monthly credits do not roll over. API calls use the shared credit balance. [Current plan comparison](https://help.meshy.ai/en/articles/12062933-which-meshy-plan-is-right-for-you-free-vs-pro-vs-premium-vs-ultra), [credits](https://help.meshy.ai/en/articles/9991981-how-do-meshy-credits-work).
+
+The direct API lists textured Meshy-7 at30 credits, rigging5 and one animation3:38 credits, about26 such attempts per1,000 credits. Effective allocation is $0.38 first month/$0.76 later if the allowance is used; actual cash commitment is $10/$20 regardless of number used. A separately requested remesh adds5 credits:43 total, about23 attempts and allocated $0.43/$0.86. Extra clips are3 credits each. The docs still label the model family Meshy-7: this arithmetic is conditional on the actual7.1 checkout/task rate matching that family, and is not a submitted billing receipt. [API credit costs](https://help.meshy.ai/en/articles/16815622-how-many-credits-does-each-meshy-api-task-cost).
+
+For one small trial fal has lower upfront cost; for repeated attempts direct subscription pricing can be lower. Meshy subscription credits cannot pay fal's requests. The approved $4 exception names fal only; no direct Meshy purchase or paid call was authorized or made. Include this provider choice before to-spec if the owner chooses ongoing volume.

@@ -1,0 +1,34 @@
+2026-09-30 16:23:11,726 - BlenderMCPServer - INFO - BlenderMCP server starting up
+2026-09-30 16:23:11,727 - BlenderMCPServer - INFO - Blender addon on disk is current (protocol 7).
+2026-09-30 16:23:11,728 - blender-mcp-telemetry - WARNING - Telemetry disabled via environment variable
+2026-09-30 16:23:11,729 - BlenderMCPServer - INFO - Connected to Blender at localhost:9876
+2026-09-30 16:23:11,729 - BlenderMCPServer - INFO - Created new persistent connection to Blender
+2026-09-30 16:23:11,729 - BlenderMCPServer - INFO - Sending command: get_addon_info with params: None
+2026-09-30 16:23:11,729 - BlenderMCPServer - INFO - Command sent, waiting for response...
+2026-09-30 16:23:11,757 - BlenderMCPServer - INFO - Received complete response (394 bytes)
+2026-09-30 16:23:11,757 - BlenderMCPServer - INFO - Received 394 bytes of data
+2026-09-30 16:23:11,757 - BlenderMCPServer - INFO - Response parsed, status: success
+2026-09-30 16:23:11,757 - BlenderMCPServer - INFO - Blender addon up to date (protocol 7, addon [1, 7], Blender 4.3.2)
+2026-09-30 16:23:11,757 - BlenderMCPServer - INFO - Successfully connected to Blender on startup
+2026-09-30 16:23:11,761 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-09-30 16:23:11,761 - BlenderMCPServer - INFO - Sending command: get_addon_info with params: None
+2026-09-30 16:23:11,761 - BlenderMCPServer - INFO - Command sent, waiting for response...
+2026-09-30 16:23:11,808 - BlenderMCPServer - INFO - Received complete response (394 bytes)
+2026-09-30 16:23:11,808 - BlenderMCPServer - INFO - Received 394 bytes of data
+2026-09-30 16:23:11,808 - BlenderMCPServer - INFO - Response parsed, status: success
+2026-09-30 16:23:11,808 - BlenderMCPServer - INFO - Blender addon up to date (protocol 7, addon [1, 7], Blender 4.3.2)
+2026-09-30 16:23:11,808 - BlenderMCPServer - INFO - Sending command: get_telemetry_consent with params: None
+2026-09-30 16:23:11,808 - BlenderMCPServer - INFO - Command sent, waiting for response...
+2026-09-30 16:23:11,859 - BlenderMCPServer - INFO - Received complete response (51 bytes)
+2026-09-30 16:23:11,859 - BlenderMCPServer - INFO - Received 51 bytes of data
+2026-09-30 16:23:11,859 - BlenderMCPServer - INFO - Response parsed, status: success
+2026-09-30 16:23:11,860 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-09-30 16:23:11,864 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-09-30 16:23:11,865 - BlenderMCPServer - INFO - Sending command: execute_code with params: {'code': "import subprocess, json\npath='/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/bake_stage.py'\nlog='/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/bake-native.log'\ncommand=['/home/reidsurmeier/.local/opt/blender-4.3.2/blender','--background','--factory-startup','--threads','1','--python-exit-code','1','--python',path]\nprocess=subprocess.Popen(command,cwd='/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype',stdout=open(log,'w'),stderr=subprocess.STDOUT,start_new_session=True)\nprint('TARGET_BAKE_SCHEDULED='+json.dumps({'native_pid':process.pid,'saved_stage':path,'log':log}))\n"}
+2026-09-30 16:23:11,865 - BlenderMCPServer - INFO - Command sent, waiting for response...
+2026-09-30 16:23:11,910 - BlenderMCPServer - INFO - Received complete response (377 bytes)
+2026-09-30 16:23:11,910 - BlenderMCPServer - INFO - Received 377 bytes of data
+2026-09-30 16:23:11,910 - BlenderMCPServer - INFO - Response parsed, status: success
+2026-09-30 16:23:11,912 - BlenderMCPServer - INFO - Disconnecting from Blender on shutdown
+2026-09-30 16:23:11,912 - BlenderMCPServer - INFO - BlenderMCP server shut down
+{"timestamp": "2026-09-30T20:23:11.912023+00:00", "successfully_scheduled": true, "transport": "actual MCP stdio", "server": "BlenderMCP", "protocol": "2025-11-25", "addon_protocol": 7, "blender": "4.3.2", "saved_stage": "bake_stage.py", "native_launch": {"native_pid": 650043, "saved_stage": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/bake_stage.py", "log": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/bake-native.log"}, "telemetry_consent": false, "paid_calls": 0, "completion_file": "target-bake-completion.json", "completion_not_inferred_from_scheduling": true}

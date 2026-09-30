@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "front",
+      "prompt": "image-work/character-pilot/prompt.txt",
+      "promptSha256": "f48f4ea533c36495df43f3eecb5101ebcc06c2d7677747092d27ccc43c1e1fb6",
+      "size": "1024x1024",
+      "inputs": [
+        {
+          "path": "image-work/character-pilot/character-crop.png",
+          "sha256": "54552e7926b6f8127bbb5492135dbfe5497c719eb60766b471146581bcb7a252"
+        },
+        {
+          "path": "image-work/character-pilot/source.png",
+          "sha256": "7c67a2f601f120426928eb7af350b193822aa244401a3ae2cb00c0cb7e82f07c"
+        }
+      ]
+    }
+  ]
+}

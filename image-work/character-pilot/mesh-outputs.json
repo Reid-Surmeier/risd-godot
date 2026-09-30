@@ -1,0 +1,28 @@
+{
+  "request_id": "01a0f3d6-de32-7c50-a904-80e323754570",
+  "outputs": [
+    {
+      "path": "mesh-output-model_glb.glb",
+      "sha256": "51226206e7126e73444116e3597f7a800a5db28f40cd270a39e09b0b31ceac3b",
+      "bytes": 2473588
+    },
+    {
+      "path": "mesh-output-thumbnail.png",
+      "sha256": "fa14b8ed1645f349c5eeba0137d9613e1c0853b05ef3f4d6da5b8396d267aa9a",
+      "bytes": 120018
+    },
+    {
+      "path": "mesh-output-model_urls-glb.glb",
+      "sha256": "51226206e7126e73444116e3597f7a800a5db28f40cd270a39e09b0b31ceac3b",
+      "bytes": 2473588
+    },
+    {
+      "path": "mesh-output-texture_urls-0-base_color.png",
+      "sha256": "2e0d530a53775ec9c4991469a6d76771cd4a35a9c8fa0cb599849f4131e5505d",
+      "bytes": 3491918
+    }
+  ],
+  "seed": 1856174788,
+  "actual_cost_usd": null,
+  "price_basis": "Listed selected-option rate retained as liability"
+}

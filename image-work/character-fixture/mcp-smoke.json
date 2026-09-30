@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-09-30T19:48:09.014940+00:00",
+  "success": true,
+  "transport": "actual MCP stdio client -> mcp-for-blender2.0.0 -> loopback socket -> Blender GUI",
+  "server_name": "BlenderMCP",
+  "mcp_protocol": "2025-11-25",
+  "tool_count": 31,
+  "addon_status": {
+    "up_to_date": true,
+    "protocol_version": 7,
+    "expected_protocol_version": 7,
+    "addon_version": [
+      1,
+      7
+    ],
+    "blender_version": "4.3.2",
+    "telemetry_consent": false
+  },
+  "query": {
+    "blender": "4.3.2",
+    "background": false,
+    "file": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-fixture/fixture.blend",
+    "bones": 41,
+    "clips": 76,
+    "frame": 8,
+    "active_clip": "Walking_A_Rig",
+    "mesh_armature": "Rig"
+  },
+  "paid_calls": 0,
+  "global_config_changed": false,
+  "codex_session_tools_loaded": false,
+  "gui_display": ":99",
+  "owned_gui_stopped_after_test": true
+}
