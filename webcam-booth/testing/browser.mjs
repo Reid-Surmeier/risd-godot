@@ -63,7 +63,7 @@ try {
     await waitState('explosion');
     const duration=await page.evaluate(start=>performance.now()-start,started);
     assert(duration >= 9700 && duration <= 10700,`fuse duration ${duration}`);
-    if(i===0)await snapshot('04-explosion-placeholder');
+    if(i===0){await page.waitForTimeout(350);await snapshot('04-explosion');}
     assert.equal(await page.evaluate(()=>window.boothState.has_capture),false);
     await waitState('camera');
     assert.equal(await page.evaluate(()=>window.boothState.source),'fixture');
@@ -128,6 +128,6 @@ try {
   results.push({check:'permission denial is recoverable',status:JSON.parse(await deniedPage.evaluate(()=>window.booth.status()))});
   await denied.close();
   assert.deepEqual(errors,[]);
-  await writeFile(resolve(evidence,'browser.json'),JSON.stringify({passed:true,fixture_generation:true,physical_webcam_tested:false,paid_generation_tested:false,explosion_art_pending:true,results,errors},null,2)+'\n');
+  await writeFile(resolve(evidence,'browser.json'),JSON.stringify({passed:true,fixture_generation:true,physical_webcam_tested:false,paid_generation_tested:false,explosion_art_pending:false,results,errors},null,2)+'\n');
   console.log(JSON.stringify({passed:true,checks:results.length,evidence}));
 } finally {await browser.close();await new Promise(r=>server.close(r));}

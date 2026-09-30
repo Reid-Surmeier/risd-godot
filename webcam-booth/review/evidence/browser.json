@@ -3,17 +3,17 @@
   "fixture_generation": true,
   "physical_webcam_tested": false,
   "paid_generation_tested": false,
-  "explosion_art_pending": true,
+  "explosion_art_pending": false,
   "results": [
     {
       "check": "complete fixture loop",
       "iteration": 1,
-      "fuse_ms": 9998.299999999814
+      "fuse_ms": 9727.300000000745
     },
     {
       "check": "complete fixture loop",
       "iteration": 2,
-      "fuse_ms": 10000.899999999441
+      "fuse_ms": 9825.199999999255
     },
     {
       "check": "cancel loading does not revive portrait",

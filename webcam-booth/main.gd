@@ -5,6 +5,9 @@ const PHOTO = preload("assets/photo-fixture.png")
 const PORTRAIT = preload("assets/sample-portrait.webp")
 const CAMERA_FRAME = preload("assets/camera-frame.png")
 const GLOVES = preload("assets/glove-frame.png")
+const MOTION = preload("assets/fuse-explosion.ogv")
+const MATTE_SHADER = preload("assets/matte.gdshader")
+const EXPRESSION_SHADER = preload("assets/expression.gdshader")
 const LOADING_SHADER = preload("assets/loading.gdshader")
 
 var state := "camera"
@@ -20,8 +23,12 @@ var capture_button: Button
 var fixture_button: Button
 var camera_button: Button
 var cancel_button: Button
-var countdown: ProgressBar
 var loader: ColorRect
+var motion: VideoStreamPlayer
+var expression_material: ShaderMaterial
+var expression_value := Vector4.ZERO
+var pose_value := Vector3.ZERO
+var tracking_mode := "idle"
 var entered_at := 0.0
 var generation_error := ""
 var generated_texture: ImageTexture
@@ -31,12 +38,23 @@ func _ready() -> void:
 	entered_at = _now()
 	background = _picture(CAMERA_FRAME, Rect2(0, 0, 1024, 650))
 	picture = _picture(null, Rect2(135, 235, 755, 285))
+	expression_material = ShaderMaterial.new()
+	expression_material.shader = EXPRESSION_SHADER
 	loader = ColorRect.new()
 	loader.size = Vector2(1024, 650)
 	loader.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	loader.material = ShaderMaterial.new()
 	loader.material.shader = LOADING_SHADER
 	add_child(loader)
+	motion = VideoStreamPlayer.new()
+	motion.stream = MOTION
+	motion.position = Vector2.ZERO
+	motion.size = Vector2(1024, 650)
+	motion.expand = true
+	motion.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	motion.material = ShaderMaterial.new()
+	motion.material.shader = MATTE_SHADER
+	add_child(motion)
 	caption = Label.new()
 	caption.position = Vector2(30, 653)
 	caption.size = Vector2(964, 42)
@@ -47,11 +65,6 @@ func _ready() -> void:
 	fixture_button = _button("Try sample photo", Vector2(420, 590), _use_fixture)
 	capture_button = _button("Take picture", Vector2(620, 590), capture)
 	cancel_button = _button("Return to camera", Vector2(790, 590), reset)
-	countdown = ProgressBar.new()
-	countdown.position = Vector2(160, 550)
-	countdown.size = Vector2(704, 18)
-	countdown.show_percentage = false
-	add_child(countdown)
 	_sync()
 
 
@@ -115,8 +128,13 @@ func capture() -> Dictionary:
 
 func reset() -> Dictionary:
 	if OS.has_feature("web"):
-		JavaScriptBridge.eval("window.booth.cancelGeneration()")
+		JavaScriptBridge.eval("window.booth.cancelGeneration(); window.booth.stopTracking()")
 	generated_texture = null
+	tracking_mode = "idle"
+	expression_value = Vector4.ZERO
+	pose_value = Vector3.ZERO
+	picture.material = null
+	motion.stop()
 	state = "camera"
 	entered_at = _now()
 	elapsed = 0.0
@@ -151,15 +169,17 @@ func _process(delta: float) -> void:
 				reset()
 				caption.text = generation_error
 	elif state == "portrait":
-		countdown.value = maxf(0.0, 100.0 * (1.0 - elapsed / 10.0))
+		_update_expression(delta)
 		if elapsed >= 10.0:
+			if OS.has_feature("web"):
+				JavaScriptBridge.eval("window.booth.stopTracking()")
 			state = "explosion"
 			entered_at = _now()
 			elapsed = 0.0
 			picture.texture = null
 			captured = null
 			_sync()
-	elif state == "explosion" and elapsed >= 0.6:
+	elif state == "explosion" and elapsed >= 1.0:
 		reset()
 	if state == "camera" and OS.has_feature("web") and source in ["requesting", "camera"]:
 		frame_clock += delta
@@ -167,7 +187,7 @@ func _process(delta: float) -> void:
 			frame_clock = 0.0
 			_poll_camera()
 	if OS.has_feature("web"):
-		JavaScriptBridge.eval("window.boothState = %s" % JSON.stringify({"state": state, "source": source, "elapsed": elapsed, "has_capture": captured != null, "fixture_generation": source == "fixture", "message": caption.text}))
+		JavaScriptBridge.eval("window.boothState = %s" % JSON.stringify({"state": state, "source": source, "elapsed": elapsed, "has_capture": captured != null, "fixture_generation": source == "fixture", "message": caption.text, "tracking": tracking_mode, "expression": [expression_value.x, expression_value.y, expression_value.z, expression_value.w]}))
 
 
 
@@ -176,7 +196,46 @@ func _show_portrait(texture: Texture2D) -> void:
 	entered_at = _now()
 	elapsed = 0.0
 	picture.texture = texture
+	expression_value = Vector4.ZERO
+	pose_value = Vector3.ZERO
+	picture.material = expression_material
+	expression_material.set_shader_parameter("expression", expression_value)
+	expression_material.set_shader_parameter("pose", pose_value)
+	if OS.has_feature("web"):
+		var image := texture.get_image()
+		if image.is_compressed():
+			image.decompress()
+		var encoded := "data:image/png;base64," + Marshalls.raw_to_base64(image.save_png_to_buffer())
+		JavaScriptBridge.eval("window.booth.startTracking(%s)" % JSON.stringify(encoded))
+	motion.play()
 	_sync()
+
+
+func _update_expression(delta: float) -> void:
+	if not OS.has_feature("web"):
+		return
+	var result = JSON.parse_string(JavaScriptBridge.eval("window.booth.tracking()"))
+	tracking_mode = result.mode
+	var target := Vector4.ZERO
+	var pose_target := Vector3.ZERO
+	if result.mode == "ready" and result.has("anchors"):
+		var anchors = result.anchors
+		expression_material.set_shader_parameter("eye_left", Vector2(anchors.left[0], anchors.left[1]))
+		expression_material.set_shader_parameter("eye_right", Vector2(anchors.right[0], anchors.right[1]))
+		expression_material.set_shader_parameter("mouth", Vector2(anchors.mouth[0], anchors.mouth[1]))
+		expression_material.set_shader_parameter("mouth_width", anchors.mouthWidth)
+		if result.face and result.has("values"):
+			var values = result.values
+			target = Vector4(values.blinkL, values.blinkR, values.smile, values.jaw)
+			pose_target = Vector3(result.pose.x, result.pose.y, result.pose.angle)
+	expression_value = expression_value.lerp(target, minf(delta * 12.0, 1.0))
+	pose_value = pose_value.lerp(pose_target, minf(delta * 12.0, 1.0))
+	expression_material.set_shader_parameter("expression", expression_value)
+	expression_material.set_shader_parameter("pose", pose_value)
+	if source == "camera":
+		caption.text = "Your portrait — smile or blink. Ten seconds."
+		if tracking_mode == "unavailable":
+			caption.text = "Your portrait — ten seconds. Animation unavailable."
 
 
 func _poll_camera() -> void:
@@ -214,7 +273,7 @@ func _sync() -> void:
 	capture_button.visible = camera
 	capture_button.disabled = source not in ["fixture", "camera"] or picture.texture == null
 	cancel_button.visible = not camera
-	countdown.visible = state == "portrait"
+	motion.visible = state in ["portrait", "explosion"]
 	background.visible = state not in ["loading", "explosion"]
 	background.texture = CAMERA_FRAME if camera else GLOVES
 	picture.visible = state not in ["loading", "explosion"]
@@ -231,10 +290,9 @@ func _sync() -> void:
 	if state == "loading":
 		caption.text = "Preparing the sample portrait…" if source == "fixture" else "Creating your portrait…"
 	elif state == "portrait":
-		countdown.value = 100.0
 		caption.text = "Sample-photo portrait — ten seconds." if source == "fixture" else "Your portrait — ten seconds."
 	elif state == "explosion":
-		caption.text = "Poof! Returning to camera… (animation pending)"
+		caption.text = "Poof! Returning to camera…"
 
 
 func _now() -> float:

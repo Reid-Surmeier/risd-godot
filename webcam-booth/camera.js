@@ -52,6 +52,39 @@ window.booth = (() => {
   }
   function cancelGeneration(){++generationTicket;controller?.abort();controller=null;generation={mode:'idle'};}
   function generated(){return JSON.stringify(generation);}
-  window.addEventListener('pagehide',cancelGeneration);
-  return {start, stop, frame, status, generate, generated, cancelGeneration};
+  let worker, trackingTimer, trackingToken=0, trackingBusy=false, trackingState={mode:'idle',face:false}, baseline;
+  function stopTracking(){++trackingToken;clearInterval(trackingTimer);worker?.terminate();worker=null;trackingBusy=false;baseline=null;trackingState={mode:'idle',face:false};}
+  function startTracking(image){
+    stopTracking();const token=trackingToken;trackingState={mode:'loading',face:false};
+    worker=new Worker(new URL('tracking-worker.js',document.baseURI));
+    worker.onerror=()=>{if(token!==trackingToken)return;trackingBusy=false;trackingState={mode:'unavailable',face:false};clearInterval(trackingTimer)};
+    worker.onmessage=({data})=>{
+      if(data.token!==trackingToken)return;
+      trackingBusy=false;
+      if(data.type==='ready')trackingState={mode:'ready',face:false,anchors:data.anchors};
+      else if(data.type==='unavailable'){trackingState={mode:'unavailable',face:false};clearInterval(trackingTimer);}
+      else if(data.type==='frame'){
+        if(!data.face){trackingState={...trackingState,face:false,timestamp:data.timestamp};return;}
+        baseline??={values:data.values,pose:data.pose};
+        const values=Object.fromEntries(Object.entries(data.values).map(([key,value])=>[key,Math.max(0,Math.min(1,(value-baseline.values[key])/Math.max(0.1,1-baseline.values[key])))]));
+        const bound=(n,min,max)=>Math.max(min,Math.min(max,n));
+        trackingState={...trackingState,face:true,timestamp:data.timestamp,values,pose:{x:bound((data.pose.x-baseline.pose.x)*0.3,-0.025,0.025),y:bound((data.pose.y-baseline.pose.y)*0.3,-0.025,0.025),angle:bound(data.pose.angle-baseline.pose.angle,-0.12,0.12)},landmarks:data.landmarks};
+      }
+    };
+    worker.postMessage({type:'portrait',token,image,base:new URL('tracking/',document.baseURI).href});
+    trackingTimer=setInterval(async()=>{
+      status();
+      if(!video||mode!=='camera'){trackingState={...trackingState,face:false};return;}
+      if(trackingBusy||trackingState.mode!=='ready'||video.readyState<2)return;
+      trackingBusy=true;
+      try{
+        const bitmap=await createImageBitmap(video);
+        if(token!==trackingToken){bitmap.close();return;}
+        worker.postMessage({type:'frame',token,bitmap,timestamp:performance.now()},[bitmap]);
+      }catch{if(token===trackingToken){trackingBusy=false;trackingState={...trackingState,face:false};}}
+    },100);
+  }
+  function tracking(){return JSON.stringify({...trackingState,face:trackingState.face&&performance.now()-(trackingState.timestamp??0)<500});}
+  window.addEventListener('pagehide',()=>{cancelGeneration();stopTracking()});
+  return {start, stop, frame, status, generate, generated, cancelGeneration, startTracking, stopTracking, tracking};
 })();
