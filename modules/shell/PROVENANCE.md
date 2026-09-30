@@ -149,3 +149,19 @@ trips pass. This is bounded study evidence, not complete rooms or surveyed
 floors. Three opposite-door poses fail the unchanged support gate even after
 targeted CUDA matching; they are excluded from geometry. Existing Muse
 receipts and rejected sculpture meshes are unchanged.
+
+## Collection Grand-end casing diagnostic — September 30, 05:00 UTC heartbeat
+
+Local pycolmap/NumPy/Pillow, COLMAP CUDA, ffmpeg NVDEC/scale_cuda, Godot 4.7.2
+and Chrome 154 on RTX 4070 SUPER; **$0**, no paid calls. Pose fitting CPU.
+[Annotations, source/output hashes and evidence](../../docs/evidence/collection-reconstruction/heartbeat-20260930T0500/provenance.json).
+
+One exterior casing toe predicts reserved frame 204 within 0.80px; ±3px picking
+sensitivity reaches 7.87 provisional cm. Reverse casing face is excluded.
+This does not define an aperture or new collision geometry. Return poses with
+zero/two tracked points fail support; the empty-match helper crash is fixed
+and verified with supported and rejected cached queries. Thirty-six fresh
+GPU reference samples are prepared, with the original withheld-time exclusion.
+Existing bounded traversal passes all 24 native/Chrome checks and real WASD
+round trips. Shell remains failing (six GPU checks, prior failure names).
+Existing Muse receipts and rejected sculpture meshes are unchanged.

@@ -1,0 +1,26 @@
+I20260930 01:08:25.126437 129848936756928 feature_extraction.cc:498] === Feature extraction ===
+I20260930 01:08:25.127137 129848647337664 sift.cc:758] Creating SIFT GPU feature extractor
+I20260930 01:08:25.264115 129848638944960 feature_extraction.cc:270] Processed file [1/2]
+I20260930 01:08:25.264147 129848638944960 feature_extraction.cc:273]   Name:            IMG_6380/000210.jpg
+W20260930 01:08:25.264150 129848638944960 feature_extraction.cc:277] IMG_6380/000210.jpg IMAGE_EXISTS: Features for image were already extracted.
+I20260930 01:08:25.264241 129848638944960 feature_extraction.cc:270] Processed file [2/2]
+I20260930 01:08:25.264244 129848638944960 feature_extraction.cc:273]   Name:            IMG_6380/000211.jpg
+W20260930 01:08:25.264246 129848638944960 feature_extraction.cc:277] IMG_6380/000211.jpg IMAGE_EXISTS: Features for image were already extracted.
+I20260930 01:08:25.264690 129848936756928 timer.cc:90] Elapsed time: 0.002 [minutes]
+I20260930 01:08:25.278065 129848936756928 feature_matching.cc:196] === Feature matching & geometric verification ===
+I20260930 01:08:25.278280 129848638944960 feature_matching_utils.cc:79] Bind FeatureMatcherWorker to GPU device 0
+I20260930 01:08:25.283377 129848638944960 sift.cc:1679] Creating SIFT GPU feature matcher
+I20260930 01:08:25.286311 129848936756928 pairing.cc:905] Importing image pairs...
+I20260930 01:08:25.288562 129848936756928 pairing.cc:938] Processing block [1/1]
+I20260930 01:08:25.327211 129848936756928 feature_matching.cc:218] in 0.039s
+I20260930 01:08:25.327230 129848936756928 timer.cc:90] Elapsed time: 0.001 [minutes]
+Traceback (most recent call last):
+  File "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/corridor_extents.py", line 103, in <module>
+    cameras[name], poses[name], pose_inliers[name] = heldout_pose(model, database, name, PICKS[name])
+                                                     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/measurements.py", line 61, in heldout_pose
+    result = pycolmap.estimate_and_refine_absolute_pose(xy[fit], xyz[fit], camera, estimation_options=options)
+TypeError: estimate_and_refine_absolute_pose(): incompatible function arguments. The following argument types are supported:
+    1. (points2D: typing.Annotated[numpy.typing.ArrayLike, numpy.float64, "[m, 2]"], points3D: typing.Annotated[numpy.typing.ArrayLike, numpy.float64, "[m, 3]"], camera: pycolmap._core.Camera, estimation_options: pycolmap._core.AbsolutePoseEstimationOptions = AbsolutePoseEstimationOptions(), refinement_options: pycolmap._core.AbsolutePoseRefinementOptions = AbsolutePoseRefinementOptions(), return_covariance: bool = False) -> dict | None
+
+Invoked with: array([], shape=(0, 2), dtype=float64), array([], dtype=float64), Camera(camera_id=5, model=SIMPLE_RADIAL, width=1280, height=720, params=[594.32513055957691, 640, 360, 0.0021376790000878212] (f, cx, cy, k)); kwargs: estimation_options=AbsolutePoseEstimationOptions(estimate_focal_length=False, ransac=RANSACOptions(max_error=4.0, min_inlier_ratio=0.1, confidence=0.99999, dyn_num_trials_multiplier=3.0, min_num_trials=100, max_num_trials=10000, random_seed=182, num_threads=1))

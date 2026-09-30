@@ -15,6 +15,8 @@ ROOT = Path('/home/reidsurmeier/risd-godot-ingestion/collection-expansion')
 SOURCE = ROOT/'sfm-calibrated-doorway-v1'
 parser = argparse.ArgumentParser()
 parser.add_argument('--grand', action='store_true')
+parser.add_argument('--grand-registered', action='store_true')
+parser.add_argument('--grand-return', action='store_true')
 args = parser.parse_args()
 OUT = ROOT/('corridor-grand-extents-v1' if args.grand else 'corridor-extents-v1')
 # Upright 720x1280 source pixels. Query marks are frozen before any projection.
@@ -31,6 +33,24 @@ if args.grand:
         'IMG_6380/000492.jpg': [[95, 800], [522, 805]],
     }
     LABELS = ['grand-purple-outer-toe', 'grand-black-outer-toe']
+if args.grand_registered:
+    assert not args.grand and not args.grand_return
+    OUT = ROOT/'grand-casing-registered-v1'
+    PICKS = {
+        'IMG_6380/000203.jpg': [[421, 857]],
+        'IMG_6380/000205.jpg': [[149, 964]],
+        'IMG_6380/000204.jpg': [[310, 871]],
+    }
+    LABELS = ['grand-white-exterior-casing-toe']
+if args.grand_return:
+    assert not args.grand
+    OUT = ROOT/'grand-casing-return-v1'
+    PICKS = {
+        'IMG_6380/000203.jpg': [[421, 857]],
+        'IMG_6380/000211.jpg': [[548, 1035]],
+        'IMG_6380/000210.jpg': [[197, 1039]],
+    }
+    LABELS = ['grand-white-exterior-casing-toe']
 TRAIN = list(PICKS)[:2]
 QUERY = list(PICKS)[2]
 
@@ -91,7 +111,7 @@ if missing:
         (OUT/'pose-failure.json').write_text(json.dumps(report, indent=2)+'\n')
         print(json.dumps(report, indent=2))
         sys.exit(1)
-points, angles = zip(*(triangulate(cameras, poses, {n: PICKS[n][k] for n in TRAIN}) for k in range(2)))
+points, angles = zip(*(triangulate(cameras, poses, {n: PICKS[n][k] for n in TRAIN}) for k in range(len(LABELS))))
 points = np.array(points)
 assert np.isfinite(points).all()
 assert all(np.all((poses[n]*points)[:, 2] > 0) for n in PICKS)
@@ -109,7 +129,7 @@ basis = np.array(aperture['basis_rows'])
 local = (points-aperture['origin_world'])@basis.T*scale
 distances = (points-near['center_world'])@np.array(near['normal_world'])*scale
 rng = np.random.default_rng(182)
-samples = np.array([[triangulate(cameras, poses, {n: np.array(PICKS[n][k])+rng.uniform(-3, 3, 2) for n in TRAIN})[0] for k in range(2)] for _ in range(300)])
+samples = np.array([[triangulate(cameras, poses, {n: np.array(PICKS[n][k])+rng.uniform(-3, 3, 2) for n in TRAIN})[0] for k in range(len(LABELS))] for _ in range(300)])
 for name in PICKS:
     im = Image.open(SOURCE/'images'/name).transpose(Image.Transpose.ROTATE_270).convert('RGB')
     draw = ImageDraw.Draw(im)
@@ -131,10 +151,15 @@ report = dict(labels=LABELS, annotations=PICKS, training=TRAIN, reserved=QUERY,
     distance_to_frozen_corridor_plane_m=distances.tolist(),
     pick_sensitivity_p95_displacement_m=np.percentile(np.linalg.norm(samples-points, axis=2)*scale, 95, axis=0).tolist(),
     diagnostic_pass=bool(max(errors[QUERY]) <= 8 and min(angles) >= 1), navigation_accepted=False,
-    caveat='Two visible outer toes at one corridor connection, not a complete room shell. '
+    caveat='Visible casing toes at one corridor connection, not a complete room shell. '
            'Manual query pixels withheld from triangulation; query pose already in SfM and same video. '
            'No gravity/scale acceptance. Plane distances are extrapolation diagnostics, not evidence of steps. '
            'Pick sensitivity omits pose and scale errors; do not tune evaluated pixels.')
+if args.grand_registered or args.grand_return:
+    report['caveat'] += (' Grand casing trial measures one exterior white toe only; reverse frame 484 '
+        'shows the opposite casing face and is excluded rather than asserted to match. '
+        'One toe cannot define an aperture, floor polygon or collision extension. '
+        'This is the corridor casing at the Grand Gallery end, not the adjacent blue-room doorway.')
 assert all(sha(Path(p)) == digest for p, digest in inputs.items())
 (OUT/'result.json').write_text(json.dumps(report, indent=2)+'\n')
 print(json.dumps(report, indent=2))

@@ -53,6 +53,7 @@ def heldout_pose(model, database, name, excluded_pixels):
         # Match the earlier audit: fit only odd IDs, never nearby annotated corners.
         fit = point_ids % 2 == 1
         fit &= np.min(np.linalg.norm(xy[:, None]-raw(excluded_pixels)[None], axis=2), axis=1) > 20
+        assert np.count_nonzero(fit) >= 20, f'{name}: insufficient pose-fit correspondences'
         ref = next(i for i in references if i.name.split('/')[0] == name.split('/')[0])
         camera = pycolmap.Camera(model.cameras[ref.camera_id].todict())
         options = pycolmap.AbsolutePoseEstimationOptions()
@@ -61,3 +62,19 @@ def heldout_pose(model, database, name, excluded_pixels):
         result = pycolmap.estimate_and_refine_absolute_pose(xy[fit], xyz[fit], camera, estimation_options=options)
         assert result is not None and result['num_inliers'] >= 20
         return camera, result['cam_from_world'], int(result['num_inliers'])
+
+
+if __name__ == '__main__':
+    from pathlib import Path
+    root = Path('/home/reidsurmeier/risd-godot-ingestion/collection-expansion')
+    model = pycolmap.Reconstruction(root/'sfm-calibrated-doorway-v1/sparse/0')
+    assert heldout_pose(model, root/'heldout-calibrated-v1/database.db',
+                        'IMG_6380/000206.jpg', [[0, 0]])[2] >= 20
+    for name in ['IMG_6380/000210.jpg', 'IMG_6380/000211.jpg']:
+        try:
+            heldout_pose(model, root/'grand-casing-return-v1/database.db', name, [[0, 0]])
+        except AssertionError as error:
+            assert 'insufficient pose-fit correspondences' in str(error)
+        else:
+            raise AssertionError(f'{name}: unsupported pose accepted')
+    print('Pose checks pass: supported withheld frame; two sparse/empty queries rejected.')
