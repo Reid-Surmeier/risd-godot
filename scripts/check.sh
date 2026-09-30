@@ -23,7 +23,8 @@ done < <(find . -name '*.gd' -not -path "./.git/*" 2>/dev/null)
 
 # 3. GDScript lint, when the toolchain is present and there is anything to lint.
 if command -v gdlint >/dev/null 2>&1 && [ -n "$(find . -name '*.gd' -not -path './.git/*' -print -quit)" ]; then
-  gdlint $(find . -name '*.gd' -not -path "./.git/*")
+  # Keep the unchanged upstream Mixbox SDK outside authored-style lint (#216).
+  gdlint $(find . -name '*.gd' -not -path "./.git/*" -not -path "./modules/sketchbook/mixbox/mixbox.gd")
 fi
 
 # 4. Godot headless tests, when a project exists.

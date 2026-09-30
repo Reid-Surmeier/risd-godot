@@ -1,0 +1,26 @@
+{
+  "before_targets": 153,
+  "after_targets": 152,
+  "only_removed": [
+    "./modules/sketchbook/mixbox/mixbox.gd"
+  ],
+  "sdk_records": [
+    {
+      "file": "modules/sketchbook/mixbox/mixbox.gd",
+      "sha256": "5d10a98ffb8fab237fea7dbd03e2bb0bf95edca5357fa75429097776a8eb0a14",
+      "main_provenance_match": true
+    },
+    {
+      "file": "modules/sketchbook/mixbox/mixbox.res",
+      "sha256": "930c0ee996d7a4aaecbfd53476573a3a0f95947a672e4897132b8883066763bb",
+      "main_provenance_match": true
+    },
+    {
+      "file": "modules/sketchbook/mixbox/LICENSE",
+      "sha256": "4e4b6a193eee2fce7429988137b143b3be38cdd1e6fb9cfdca4507aa182254f3",
+      "main_provenance_match": true
+    }
+  ],
+  "native_sdk": "PASS",
+  "native_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+}
