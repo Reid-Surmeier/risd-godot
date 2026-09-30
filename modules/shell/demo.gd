@@ -55,6 +55,7 @@ func _ready() -> void:
 		walk.name = "GalleryWalk"
 		page.add_child(walk)
 		var fit := func() -> void:
+			page.pivot_offset = page.size / 2
 			if not walk._open.is_empty():
 				walk.position = Vector2(24, 12)
 				walk.size = page.size - Vector2(48, 24)
@@ -142,7 +143,6 @@ func _add_scale_grip(window: Control) -> void:
 			if event.pressed:
 				gesture.start = window.get_parent().make_canvas_position_local(event.global_position)
 				gesture.scale = window.scale.x
-				set_meta("windows_adjusted", true)
 				window.get_parent().move_child(window, -1)
 			grip.accept_event()
 		elif event is InputEventMouseMotion and gesture.active and get_meta("scaling", false):

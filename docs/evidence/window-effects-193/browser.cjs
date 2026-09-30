@@ -28,6 +28,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
    assert(Math.abs(g.scale[0]-g.scale[1])<.0001);
    const small=g;await drag(center(g.grip),[25,20]);g=(await state()).window_grips.find(g=>g.name===name);
    assert(g.scale[0]>small.scale[0],`${name} grow`);assert(Math.abs(g.rect[2]/g.rect[3]-before.rect[2]/before.rect[3])<.0001);
+   if(index===4){const r=g.rect;assert(Math.abs(r[0]+r[2]/2-540)<.01&&Math.abs(r[1]+r[3]/2-540)<.01,"resized Collection centered")}
    records.windows.push({index,name,before,after:g});console.log('PASS',index,name);
   }
   await page.mouse.move(5,5);await page.screenshot({path:out+`/page-${index}-after.png`});

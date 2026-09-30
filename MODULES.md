@@ -20,3 +20,5 @@ Runtime modules use Godot 4.7.2 and GDScript. Their public functions return `{ o
 | [`review`](review/MODULE.md) | Support contract for SHA-bound release review records | `review/MODULE.md`, `docs/releases/<version>/REVIEW.md` | — |
 
 Ten runtime modules and two support modules. `modules/shell/demo.gd` is the composition root: it creates shared collection-data and sound-cue adapters, then registers the seven fixed Tenants. `shell.gd` itself knows only the `tab_strip` seam. The Collection Page is currently composed directly in `demo.gd`; it is not presented as a separate module.
+
+Issue #199 scopes the Shell’s opt-in `qa-crt=1` geometry adapter across composed Tenant Controls for private browser review. This diagnostic seam exception adds no functional module dependency; public interfaces and frozen tests remain unchanged.

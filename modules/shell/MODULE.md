@@ -64,3 +64,7 @@ Collection artwork preview (#189) temporarily hides the outer game frame and fit
 ## Proportional windows (#193)
 
 The Collection frame has a corner grip that scales the complete frame uniformly. Opening an artwork temporarily restores full Page scale; closing it restores the chosen frame scale. CRT remains visible over Collection, and Squigglevision starts enabled. F8 and F9 still toggle the effects independently. Private input and shader checks live in `docs/evidence/window-effects-193/`; the frozen historical layout fixtures are unchanged.
+
+## Private review adapter (#199)
+
+With `qa-crt=1` only, `crt_display.gd` inspects visible generic `ProportionalResize` Controls and their parent rect/scale to publish browser pointer-check geometry. #199 explicitly scopes this diagnostic seam exception across the composed Tenants; it supplies no production behavior, and no Tenant interface/error/acceptance file changes. Ordinary gameplay returns before traversal. Collection uniform scaling uses its center as the pivot, including artwork-preview return.

@@ -60,9 +60,6 @@ var viewer_host := Control.new()
 var global_chatroom: Control
 var tldraw_controls: Control
 var painting_flow: Control
-var resizing_reference := false
-var reference_resize_origin := Vector2.ZERO
-var reference_resize_size := Vector2.ZERO
 var saved_ids: Array = []
 var selected_reference := ""
 var storage_status := "loading"
@@ -147,7 +144,7 @@ func _ready() -> void:
 	reference_panel.name = "framed-painting-window"
 	reference_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	reference_panel.clip_contents = false
-	reference_panel.gui_input.connect(func(event): _reference_input(event))
+	reference_panel.gui_input.connect(_drag_handle_input.bind(reference_panel))
 	reference_panel.add_theme_stylebox_override("panel", _reference_style(Color(1, 1, 1, 0)))
 	desktop.add_child(reference_panel)
 	reference_art = _framed_painting()
@@ -262,17 +259,6 @@ func _framed_painting() -> Control:
 		frame.position = Vector2.ZERO
 		frame.size = GOLD_FRAME_SIZE * k)
 	return holder
-
-
-func _reference_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and event.position.x > reference_panel.size.x - 28 and event.position.y > reference_panel.size.y - 28:
-		resizing_reference = true
-		reference_resize_origin = desktop.make_canvas_position_local(event.global_position)
-		reference_resize_size = reference_panel.size
-		desktop.move_child(reference_panel, -1)
-		reference_panel.accept_event()
-		return
-	_drag_handle_input(event, reference_panel)
 
 
 func _refresh_references() -> void:
@@ -403,18 +389,6 @@ func _process(_delta: float) -> void:
 ## less the variant key cycling).
 func _input(event: InputEvent) -> void:
 	inputs += 1
-	if resizing_reference:
-		if event is InputEventMouseMotion:
-			var delta := desktop.make_canvas_position_local(event.position) - reference_resize_origin
-			var desired := reference_resize_size + delta
-			var scale := maxf(maxf(desired.x / GOLD_FRAME_SIZE.x, desired.y / GOLD_FRAME_SIZE.y), 0.35)
-			reference_panel.size = GOLD_FRAME_SIZE * scale
-			reference_list.size = reference_panel.size - Vector2(24, 24)
-			get_viewport().set_input_as_handled()
-		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
-			resizing_reference = false
-			get_viewport().set_input_as_handled()
-		return
 	if dragged_window != null:
 		if event is InputEventMouseMotion:
 			var limit := (desktop.size - dragged_window.size * dragged_window.scale).max(Vector2.ZERO)
