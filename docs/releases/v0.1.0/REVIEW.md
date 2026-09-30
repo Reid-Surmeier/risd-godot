@@ -2,7 +2,7 @@
 
 verdict: needs-work
 
-Current runtime: `f2b5453a`, September 30, 2026. Acceptance: map149 and later owner173/174/177/187/189/192/193, with scoped follow-through199. Independent Standards/Spec/Ponytail source review covered `main`55e7c3b7 to0a58dc7e, then the193 delta through1dc3deac and focused199 corrections. Current blind reviewers used GPT-6 Astra at medium with fresh image-only context. [Current evidence and exact review limits](../../evidence/final-review-162/current-f2b5453a/README.md). Prior candidate review is preserved in current-0a58dc7e/source-review.md.
+Current runtime: `6b41f770`, September 30, 2026. Acceptance: map149 and later owner173/174/177/187/189/192/193, with scoped follow-through199. Independent Standards/Spec/Ponytail source review covered `main`55e7c3b7 to0a58dc7e, then the193 delta through1dc3deac and focused199 corrections. Current blind reviewers used GPT-6 Astra at medium with fresh image-only context. [Current evidence and exact review limits](../../evidence/final-review-162/current-f2b5453a/README.md). Prior candidate review is preserved in current-0a58dc7e/source-review.md.
 
 ## Standards
 
@@ -19,7 +19,7 @@ Fresh blind inventory covers seven Tabs, allfour live scans/hover previews, gall
 1. **FAIL — smaller-size text and inherited Sketchbook proportions/control crowding.** Source-preserving square fit173 and requested CRT/Squigglevision193 remain binding;147's approved book geometry overrides stale source-ratio wording. Do not silently reflow/redraw it to erase this finding. Owner art direction remains required.
 2. **FAIL — near-bench photographic proportions; NEEDS-EVIDENCE — far bench detail.** Current thin bench matches the owner's177 selected render. That scope decision does not turn photographic mismatch into PASS. Current visible contacts pass; unseen details/traversal are not covered.
 3. **NEEDS-EVIDENCE — continuous temporal quality.** New clip passes sampled starts, turns, reversal, walking, stops and sustained idle. Four-per-second image review cannot clear between-sample jitter/sliding, smoothness or pacing. Video stills likewise do not establish playback.
-4. **Owner approval remains outstanding.**149 requires Reid personally use and approve the integrated shared build. Keep162/173/174/149 and automation open. The177 passage-floor speckle report is not cleared by main-floor or current visible-join still review;185 transition remains diagnosis/design, not implemented runtime behavior.
+4. **Owner approval remains outstanding.**149 requires Reid personally use and approve the integrated shared build. Keep162/173/174/149 and automation open. The reproduced177 passage-floor gaps are now repaired with background-only red/green proof,989-to0 edge checks and fresh native/Web/square image review. Strict renderer contrast parity remains different; flicker/unseen coverage is not established by stills.177 final owner gate remains open;185 transition remains diagnosis/design, not implemented runtime behavior.
 
 #141 matched startup/Mac acceptance,184 GPU baking and historical rights/release findings remain unresolved separate records. Functional captures are not performance evidence.
 
@@ -33,6 +33,11 @@ Fixed: deleted superseded Sketchbook framed-reference independent-axis resize va
 
 `scripts/check.sh` passes with13 existing ObjectDB shutdown warnings. `git diff --check` passes. All18 native/browser proportional windows pass actual resize and grip-end assertions. Isolated480×480 Sketchbook Page fit and drawing pass; no speculative transform handler was added. Actual painting click/X/Escape, centered preview return, fullscreen/resize/return, tab retention, movement/release/Hair36/23paintings and F8/F9 pass. Seven-tab/four-scan/four-Playground/six-gallery-detail/five-shape capture reports errors[]. Four letterboxed sizes have zero non-white exterior samples.
 
-Exact runtimef2b5453a HTML/boot/game/wasm HTTPS hashes verified at the durable private share; exported game gzip SHA256 `a7574a04c2e8927a5a7cd55477ea62ada482913156700b278084b3143b49e32e`. Browser renderer is ANGLE D3D12/NVIDIA RTX4070 SUPER; no GPU-bake claim. Current source review is targeted, not exhaustive line-by-line coverage of generated meshes/bulk evidence. Legacy Shell timing/layout fixture failures reproduced on unchanged baseline remain recorded under187. No reviewer made a ship claim.
+Current runtime6b41f770 HTML/boot/game/wasm HTTPS hashes verified at the durable private share; exported game gzip SHA256 `36fc522dd95c4aecc4412e41dce287b9eb072f743900791b94257a9ee0e69cdb`. Browser renderer is ANGLE D3D12/NVIDIA RTX4070 SUPER; no GPU-bake claim. Current source review is targeted, not exhaustive line-by-line coverage of generated meshes/bulk evidence. Legacy Shell timing/layout fixture failures reproduced on unchanged baseline remain recorded under187. No reviewer made a ship claim.
 
 The first gallery close-ups were invalid because releasing the evidence camera reset their pose; early Flowers capture preceded readiness. Those failed packets remain documented. Fresh distinct detail cameras and loaded Flowers replace the coverage, with no speculative runtime-content change.
+
+
+## Passage follow-through —6b41f770
+
+[Exact177 source/geometry/pixel/fullapp/visual evidence](../../evidence/owner-world-177/passage-current/README.md). Independent source reviewers found no new Standards/Spec/Ponytail finding; only four saved passage-mesh lines and local source-builder edge handling changed. All other scene bytes, material/texture and EXR/LMBake hashes remain intact. Native/Web720/1600 interior floor pixels2-to0, edges989-to0, mainfloor/world/owner checks and repository baseline pass. Fresh fullapp input and capture pass; HTTPS hashes match durable current share. Independent changed-group square floor appearance passes, preserving existing Web chevrons/threshold transition; strict native/Web shading parity fails as an existing difference. No new generation/bake/spend. Earlier full-map failed/needs-evidence findings and final hands-on approval remain binding; verdict stays needs-work.

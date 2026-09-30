@@ -34,3 +34,8 @@ The independent Standards/Spec/Ponytail source review is recorded in `docs/relea
 ## Latest integrated runtime — f2b5453a, September30
 
 [Fresh complete evidence and independent group dispositions](current-f2b5453a/README.md).199 corrects Collection centering and stale Sketchbook Container grips;193 restored requested filters and proportional windows. Independent Astra medium review now covers allseven Tabs, four scans/hover previews, distinct gallery details and visitor starts/turns/stops/sustained idle. Current release review remains needs-work; smaller text/inherited Sketchbook, photographic bench mismatch/far-bench and continuous quality limits remain explicit. Final hands-on owner approval remains open. Earlier records above are historical. Current visible floor-contact PASS does not clear the separate177 passage finding.
+
+
+## Passage follow-through —6b41f770
+
+[Confirmed background-gap diagnosis, narrow repair and fresh current whole-app evidence](../owner-world-177/passage-current/README.md). Two interior background pixels and989 unmatched edges now reduce to0; only saved passage mesh/source edge handling change. Fresh Astra native/Web/square visible floor review passes, with existing strict renderer shading differences and temporal/unseen limits recorded. Earlier passage reports above remain historical. Final map/owner review stays open.

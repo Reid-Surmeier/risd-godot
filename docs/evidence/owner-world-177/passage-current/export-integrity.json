@@ -1,0 +1,65 @@
+{
+  "runtime": "6b41f770",
+  "files": [
+    {
+      "file": "6b41f770.audio.position.worklet.js",
+      "size": 2973,
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+    },
+    {
+      "file": "6b41f770.audio.worklet.js",
+      "size": 7298,
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+    },
+    {
+      "file": "6b41f770.game.pck",
+      "size": 281653844,
+      "sha256": "f3ce1a1633fb1b31be9a2ac35217877ec0c9e4f46d8cde1beea7f566ab7b13ed"
+    },
+    {
+      "file": "6b41f770.game.pck.gz",
+      "size": 185123154,
+      "sha256": "36fc522dd95c4aecc4412e41dce287b9eb072f743900791b94257a9ee0e69cdb",
+      "https_verified": true
+    },
+    {
+      "file": "6b41f770.html",
+      "size": 17473,
+      "sha256": "3f624651d9448c2ced4753ec39ce00027b356ed9414120179ae434703636fc75",
+      "https_verified": true
+    },
+    {
+      "file": "6b41f770.js",
+      "size": 279815,
+      "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba"
+    },
+    {
+      "file": "6b41f770.pck",
+      "size": 11484,
+      "sha256": "a8a4b4f39f41e437a1dfcad372559de4a6cbcecef48b515e41ed882c38e481e3"
+    },
+    {
+      "file": "6b41f770.pck.gz",
+      "size": 9612,
+      "sha256": "35b85fe389a82886c3e0afce810a68bf468297a9641860a5e17540c119123147",
+      "https_verified": true
+    },
+    {
+      "file": "6b41f770.png",
+      "size": 21443,
+      "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+    },
+    {
+      "file": "6b41f770.wasm",
+      "size": 39514754,
+      "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
+    },
+    {
+      "file": "6b41f770.wasm.gz",
+      "size": 10084300,
+      "sha256": "e97bf39c99ee66a0ef516a3c3c3a6e16c793acb55de4b4122193d96d53f366ca",
+      "https_verified": true
+    }
+  ],
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-passage-current-01a0f078/"
+}
