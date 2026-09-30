@@ -13,3 +13,5 @@ Physical webcam fidelity remains unverified on the SSH host. Tracking uses bound
 Actual spend $2.62195 of$10; rounded durable reservation $2.63. Seven Muse images and one Seedance submission; no ambiguous retries. Preserve build/private/ledger.json and paid Run records. A missing/corrupt ledger refuses further generation. Captured payloads are removed locally; provider retention is not controlled. See SPEND.json and PROVENANCE.md.
 
 Final independent review and exact candidate SHA are recorded in REVIEW.md and the completion ticket. The scoped heartbeat is disabled at handoff.
+
+Code candidate38574b940b0b3933f72330d24118b539fd888af5 received ship on all three independent axes. Completion-only metadata is rechecked at the final pushed tip in Issue204. The heartbeat was disabled and the old static prototype share stopped; the live kept share remains for the owner’s overnight review.

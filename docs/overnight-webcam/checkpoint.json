@@ -3,23 +3,24 @@
   "worktree": "/home/reidsurmeier/orca/workspaces/risd-godot/webcam-booth-195",
   "branch": "Reid-Surmeier/webcam-booth-195",
   "base": "55e7c3b7f048a5a7a27b71fc962c040e7aa5893e",
-  "status": "active",
-  "lease_until_utc": "2026-09-30T07:00:00Z",
+  "status": "complete",
+  "lease_until_utc": null,
   "deadline_utc": "2026-09-30T12:00:00Z",
   "spend_ceiling_usd": 10,
   "spent_usd": 2.62195,
   "completed": [
-    "resolved map195",
-    "research196/197",
-    "prototype198",
-    "eight browser checks",
-    "real Muse sample $0.01",
-    "spec200 and tickets201\u2013204",
-    "live generation201",
-    "reference art/motion202",
-    "203 localworker and deformation evidence"
+    "map195 and research196/197/prototype198",
+    "spec200 and tickets201\u2013205 implemented",
+    "capture and actual source-verified Muse generation",
+    "four-glove frame, accepted ten-second fuse and explosion",
+    "local pinned worker expression deformation",
+    "responsive accessible controls",
+    "budget failure-path fixes and four native checks",
+    "browser11/strictTS/tracking/expression/responsive/root/diff checks",
+    "three independent gpt-6.1-sol/high reviews: ship",
+    "scoped heartbeat disabled; live share kept three days"
   ],
-  "next": "Exact-SHA Standards/Spec/Ponytail review; close203/205/204/200; push complete isolated branch; disable scoped heartbeat.",
+  "next": "Owner reviews the live booth; all implementation and final review work is complete.",
   "limits": [
     "physical webcam unverified",
     "bounded2D deformation rather than reconstructed3D"
@@ -38,5 +39,7 @@
   ],
   "preview": "https://windows-wsl.taile06c45.ts.net/webcam-booth-live-01a0f059/",
   "reserved_or_received_ceiling_usd": 2.63,
-  "unknown_cost_usd": 0
+  "unknown_cost_usd": 0,
+  "automation_enabled": false,
+  "reviewed_candidate": "38574b940b0b3933f72330d24118b539fd888af5"
 }
