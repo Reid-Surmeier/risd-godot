@@ -106,7 +106,10 @@ func _run() -> void:
 	gallery.queue_free()
 	await process_frame
 	print(
-		"PASS #174: Hair36 body, 42-bone rig, 23 paintings, start/walk/stop/reversal, 90/180-degree turns, planted feet/floor, gestures disabled"
+		(
+			"PASS #174: Hair36 body, 42-bone rig, 23 paintings, start/walk/stop/reversal, " +
+			"90/180-degree turns, planted feet/floor, gestures disabled"
+		)
 	)
 	quit()
 

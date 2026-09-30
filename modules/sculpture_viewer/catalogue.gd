@@ -73,7 +73,10 @@ const RECORDS := {
 		"title": "Portrait of Hadrian",
 		"accession": "59.050",
 		"description":
-		"Roman marble portrait head, made around 130 CE for insertion into a separate bust. Its damaged portions remain unrestored.",
+		(
+			"Roman marble portrait head, made around 130 CE for insertion into a separate " +
+			"bust. Its damaged portions remain unrestored."
+		),
 		"url": "https://risdmuseum.org/art-design/collection/portrait-hadrian-59050",
 	},
 	"panel-cell:11":

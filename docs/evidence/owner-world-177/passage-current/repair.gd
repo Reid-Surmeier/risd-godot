@@ -45,6 +45,9 @@ func _initialize() -> void:
 	FileAccess.open(path, FileAccess.WRITE).store_string(retained)
 	room.free()
 	print(
-		"PASSAGE_ONLY repaired shared edges, interpolated UV/color/UV2; original material/lightmap retained"
+		(
+			"PASSAGE_ONLY repaired shared edges, interpolated UV/color/UV2; original " +
+			"material/lightmap retained"
+		)
 	)
 	quit()

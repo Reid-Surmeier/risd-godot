@@ -87,7 +87,10 @@ func _ready() -> void:
 	frame.scale = Vector2(0.3, 0.3)
 	frame.mouse_filter = MOUSE_FILTER_IGNORE
 	var shader := Shader.new()
-	shader.code = "shader_type canvas_item; void fragment(){if(COLOR.r>0.5 && COLOR.b>0.5 && COLOR.g<0.4){COLOR.a=0.0;}}"
+	shader.code = (
+		"shader_type canvas_item; void fragment(){if(COLOR.r>0.5 && COLOR.b>0.5 && " +
+		"COLOR.g<0.4){COLOR.a=0.0;}}"
+	)
 	var material := ShaderMaterial.new()
 	material.shader = shader
 	frame.material = material

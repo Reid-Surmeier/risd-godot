@@ -9,7 +9,12 @@ const CONTENT_RECT := Rect2(560, 258, 525, 415)
 const RINGS_RECT := Rect2(400, 194, 155, 616)
 const RAIL_RECT := Rect2(24, 194, 288, 615)
 const BLANK_PIXEL := Vector2(1070, 690)
-const ORIGINAL_ENTRY := "DEAR DIARY !! I LOOOVE THIS THING HAHAHAHAHAHAHA!! i decorated my room and and and my ROOMIE IS JUST SO CUTE !!!!!!!!!!\n\ni dont think my dad knew how much i would use this thing but nextrooms with my friends is like hanging with them 24/7 lol"
+const ORIGINAL_ENTRY := (
+	"DEAR DIARY !! I LOOOVE THIS THING HAHAHAHAHAHAHA!! i decorated my room and " +
+	"and and my ROOMIE IS JUST SO CUTE !!!!!!!!!!\n\ni dont think my dad knew how " +
+	"much i would use this thing but nextrooms with my friends is like hanging " +
+	"with them 24/7 lol"
+)
 const ICON_RECT := Rect2(7, 5, 43, 43)
 const CLOSE_RECT := Rect2(1090, 3, 42, 45)
 const PREVIOUS_RECT := Rect2(672, 730, 68, 82)

@@ -36,7 +36,10 @@ const EXPECTED_RECORDS := {
 	[
 		"59.050",
 		"https://risdmuseum.org/art-design/collection/portrait-hadrian-59050",
-		"Roman marble portrait head, made around 130 CE for insertion into a separate bust. Its damaged portions remain unrestored."
+		(
+			"Roman marble portrait head, made around 130 CE for insertion into a separate " +
+			"bust. Its damaged portions remain unrestored."
+		)
 	],
 	9:
 	[
@@ -118,6 +121,9 @@ func _run() -> void:
 		_log.append({"event": "detail", "index": i, "id": id, "displayed": details})
 		await _shot(out, "card-%02d.png" % (i + 1))
 	print(
-		"PASS: 20 native selections; exact displayed metadata; 16 explicit unknowns; 5x4 order; four live scans"
+		(
+			"PASS: 20 native selections; exact displayed metadata; 16 explicit unknowns; " +
+			"5x4 order; four live scans"
+		)
 	)
 	_finish(out)

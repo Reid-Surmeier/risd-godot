@@ -2362,7 +2362,10 @@ func _set_lighting(enabled: bool) -> void:
 			JavaScriptBridge
 			. eval(
 				(
-					"var u=new URL(location.href);u.searchParams.set('lighting','%s');history.replaceState(null,'',u)"
+					(
+						"var u=new URL(location.href);u.searchParams.set('lighting','%s');history.repl" +
+						"aceState(null,'',u)"
+					)
 					% ("baked" if enabled else "original")
 				)
 			)
@@ -2387,7 +2390,10 @@ func _set_view(mode: int) -> void:
 			JavaScriptBridge
 			. eval(
 				(
-					"var u=new URL(location.href);u.searchParams.set('variant','%s');history.replaceState(null,'',u)"
+					(
+						"var u=new URL(location.href);u.searchParams.set('variant','%s');history.repla" +
+						"ceState(null,'',u)"
+					)
 					% ["dollhouse", "gallery", "original"][mode]
 				)
 			)

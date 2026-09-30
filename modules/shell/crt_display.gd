@@ -31,7 +31,10 @@ func _ready() -> void:
 		enabled = not (
 			JavaScriptBridge
 			. eval(
-				"new URLSearchParams(location.search).get('crt') === '0' || new URLSearchParams(location.search).has('qa-viewer')"
+				(
+					"new URLSearchParams(location.search).get('crt') === '0' || new " +
+					"URLSearchParams(location.search).has('qa-viewer')"
+				)
 			)
 		)
 	_publish_state()

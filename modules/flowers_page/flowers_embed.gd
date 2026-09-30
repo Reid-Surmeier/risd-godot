@@ -14,19 +14,22 @@
 ## No e-mail is sent: that needs a mail server.
 extends RefCounted
 
-const JS := """
+const JS := (
+	"""
 window.flowersEmbed = (() => {
 	const BASE = new URL('flowers/', document.baseURI).href;
 	let frame = null;
 	const KEY = 'orisinal-flowers:';
 	const memory = {};  // when localStorage is unavailable
 	const store = {
-		get: (k) => { try { return localStorage.getItem(KEY + k); } catch (e) { return memory[k] || null; } },
+		get: (k) => { try { return localStorage.getItem(KEY + k); } catch (e) { """ +
+	"""return memory[k] || null; } },
 		set: (k, v) => { try { localStorage.setItem(KEY + k, v); } catch (e) { memory[k] = v; } },
 	};
 	let samples = null;
 	window.flowersLog = [];  // what the stand-in answered, for the playtest
-	const reply = (text) => { window.flowersLog.push(text.slice(-40)); return new Response(text, {status: 200, headers: {'Content-Type': 'text/html'}}); };
+	const reply = (text) => { window.flowersLog.push(text.slice(-40)); return """ +
+	"""new Response(text, {status: 200, headers: {'Content-Type': 'text/html'}}); };
 	const bouquet = (data) => {  // url_full -> the reply flowersread.php gives for a number
 		const f = data.split('|');
 		if (f.length < 6) return null;
@@ -41,7 +44,8 @@ window.flowersEmbed = (() => {
 	const answer = async (url, init) => {
 		if (url.pathname.endsWith('/flowersread.php')) {
 			if (url.searchParams.get('sample') !== null) {
-				if (!samples) samples = (await (await window.flowersFetch(BASE + 'samples.txt')).text()).split(String.fromCharCode(10)).filter((l) => l);
+				if (!samples) samples = (await (await window.flowersFetch(BASE + """ +
+	"""'samples.txt')).text()).split(String.fromCharCode(10)).filter((l) => l);
 				return reply(samples[Math.floor(Math.random() * samples.length)]);
 			}
 			return reply(store.get(url.searchParams.get('code') || '') || '&reply=2');
@@ -59,8 +63,11 @@ window.flowersEmbed = (() => {
 		window.flowersFetch = window.fetch.bind(window);
 		window.fetch = (input, init) => {
 			const url = new URL(input instanceof Request ? input.url : String(input), document.baseURI);
-			if (url.href.startsWith(BASE) && (url.pathname.endsWith('/flowersread.php') || url.pathname.endsWith('/flowersmake.php'))) {
-				if (input instanceof Request && !init) return input.text().then((text) => answer(url, {body: text}));
+			if (url.href.startsWith(BASE) && """ +
+	"""(url.pathname.endsWith('/flowersread.php') || """ +
+	"""url.pathname.endsWith('/flowersmake.php'))) {
+				if (input instanceof Request && !init) return input.text().then((text) => """ +
+	"""answer(url, {body: text}));
 				return answer(url, init);
 			}
 			return window.flowersFetch(input, init);
@@ -76,7 +83,8 @@ window.flowersEmbed = (() => {
 			const player = window.RufflePlayer.newest().createPlayer();
 			player.style.cssText = 'width:100%;height:100%;display:block';
 			frame.append(player);
-			player.load({url: BASE + 'flowers.swf', base: BASE, backgroundColor: '#FFFFFF', quality: 'high'});
+			player.load({url: BASE + 'flowers.swf', base: BASE, backgroundColor: """ +
+	"""'#FFFFFF', quality: 'high'});
 		};
 		if (window.RufflePlayer && window.RufflePlayer.newest) return start();
 		const s = document.createElement('script');
@@ -98,13 +106,17 @@ window.flowersEmbed = (() => {
 		};
 		const toPage = (x, y) => {
 			const t = [x / vw, y / vh], d = [t[0], t[1]];
-			for (let i = 0; i < 8; i++) { const s = warp(d[0], d[1]); d[0] += t[0] - s[0]; d[1] += t[1] - s[1]; }
+			for (let i = 0; i < 8; i++) { const s = warp(d[0], d[1]); d[0] += t[0] - """ +
+	"""s[0]; d[1] += t[1] - s[1]; }
 			const side = Math.min(box.width, box.height);
-			return [box.left + (box.width - side) / 2 + d[0] * side, box.top + (box.height - side) / 2 + d[1] * side];
+			return [box.left + (box.width - side) / 2 + d[0] * side, box.top + """ +
+	"""(box.height - side) / 2 + d[1] * side];
 		};
 		const [x0, y0] = toPage(p.rect[0], p.rect[1]);
 		const [x1, y1] = toPage(p.rect[0] + p.rect[2], p.rect[1] + p.rect[3]);
-		Object.assign(frame.style, {display: 'block', left: x0 + 'px', top: y0 + 'px', width: (x1 - x0) + 'px', height: (y1 - y0) + 'px'});
+		Object.assign(frame.style, {display: 'block', left: x0 + 'px', top: y0 + """ +
+	"""'px', width: (x1 - x0) + 'px', height: (y1 - y0) + 'px'});
 	};
 })();
 """
+)

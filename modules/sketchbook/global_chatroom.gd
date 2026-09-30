@@ -146,7 +146,8 @@ func _setup_web_picker() -> void:
 		JavaScriptBridge
 		. eval(
 			(
-				"""(() => {
+				(
+					"""(() => {
 		const old = document.getElementById(%s);
 		if (old) old.remove();
 		const input = document.createElement('input');
@@ -155,7 +156,8 @@ func _setup_web_picker() -> void:
 		input.accept = 'image/png,image/jpeg,image/webp';
 		input.setAttribute('aria-label', 'Post an image');
 		input.title = 'Post an image';
-		Object.assign(input.style, { position: 'fixed', opacity: '0', zIndex: '2147483647', cursor: 'pointer' });
+		Object.assign(input.style, { position: 'fixed', opacity: '0', zIndex: """ +
+					"""'2147483647', cursor: 'pointer' });
 		input.onchange = () => {
 			const file = input.files && input.files[0];
 			if (!file) return;
@@ -167,6 +169,7 @@ func _setup_web_picker() -> void:
 		};
 		document.body.appendChild(input);
 	})()"""
+				)
 				% [picker, picker, MAX_IMAGE_BYTES, callback, callback, callback]
 			)
 		)

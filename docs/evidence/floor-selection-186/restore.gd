@@ -40,6 +40,9 @@ func _initialize() -> void:
 	room.free()
 	donor.free()
 	print(
-		"FLOOR186 selected mesh/material restored, shared edges conformed, world-space lightmap UVs verified"
+		(
+			"FLOOR186 selected mesh/material restored, shared edges conformed, world-space " +
+			"lightmap UVs verified"
+		)
 	)
 	quit()

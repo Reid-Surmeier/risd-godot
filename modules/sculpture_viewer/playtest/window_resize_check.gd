@@ -71,6 +71,9 @@ func _initialize() -> void:
 	assert(page.resized_window == null and page.dragged_window == null)
 	await _button(point(grip, grip.size / 2), MOUSE_BUTTON_LEFT, false)
 	print(
-		"WINDOW192 four windows drag/raise, shrink/grow, uniform aspect, selection, orbit and retained placement PASS"
+		(
+			"WINDOW192 four windows drag/raise, shrink/grow, uniform aspect, selection, " +
+			"orbit and retained placement PASS"
+		)
 	)
 	quit()

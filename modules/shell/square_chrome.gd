@@ -241,7 +241,12 @@ func _toggle_fullscreen() -> void:
 		(
 			JavaScriptBridge
 			. eval(
-				"window.risdFullscreenError = false; (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()).catch(() => { window.risdFullscreenError = true; document.dispatchEvent(new Event('fullscreenchange')); })"
+				(
+					"window.risdFullscreenError = false; (document.fullscreenElement ? " +
+					"document.exitFullscreen() : document.documentElement.requestFullscreen()).cat" +
+					"ch(() => { window.risdFullscreenError = true; document.dispatchEvent(new " +
+					"Event('fullscreenchange')); })"
+				)
 			)
 		)
 	else:

@@ -46,7 +46,10 @@ func _run() -> void:
 	assert(gallery._kid._clip == "Idle")
 	assert(not gallery._kid.play_gesture("wave") and not gallery._kid.play_gesture("look"))
 	print(
-		"PASS #174 captures: Collection front/profile/back, straight/diagonal walk, stop, 23 paintings, gestures disabled"
+		(
+			"PASS #174 captures: Collection front/profile/back, straight/diagonal walk, " +
+			"stop, 23 paintings, gestures disabled"
+		)
 	)
 	_finish(out)
 
