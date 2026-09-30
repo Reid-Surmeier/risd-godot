@@ -1,0 +1,27 @@
+{
+  "map": "https://github.com/Reid-Surmeier/risd-godot/issues/195",
+  "worktree": "/home/reidsurmeier/orca/workspaces/risd-godot/webcam-booth-195",
+  "branch": "Reid-Surmeier/webcam-booth-195",
+  "base": "55e7c3b7f048a5a7a27b71fc962c040e7aa5893e",
+  "status": "active",
+  "lease_until_utc": "2026-09-30T05:30:00Z",
+  "deadline_utc": "2026-09-30T12:00:00Z",
+  "spend_ceiling_usd": 10,
+  "spent_usd": 0,
+  "unknown_liability_usd": 0,
+  "completed": [
+    "reference intake",
+    "browser research",
+    "generation research",
+    "standalone fixture export",
+    "six browser checks"
+  ],
+  "next": "Review exact prototype; confirm Muse two-reference route; identify authentic fuse/explosion donor; then record and reserve one paid portrait experiment.",
+  "limits": [
+    "physical webcam unverified",
+    "paid portrait generation unverified",
+    "explosion animation pending",
+    "expression tracking after basic flow"
+  ],
+  "automation_id": "01aae171-57ee-455c-93b8-eef25631f529"
+}

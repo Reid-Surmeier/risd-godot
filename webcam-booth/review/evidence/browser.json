@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "fixture_generation": true,
+  "physical_webcam_tested": false,
+  "paid_generation_tested": false,
+  "explosion_art_pending": true,
+  "results": [
+    {
+      "check": "complete fixture loop",
+      "iteration": 1,
+      "fuse_ms": 9996.700000000186
+    },
+    {
+      "check": "complete fixture loop",
+      "iteration": 2,
+      "fuse_ms": 10016.699999999953
+    },
+    {
+      "check": "cancel loading does not revive portrait",
+      "passed": true
+    },
+    {
+      "check": "synthetic getUserMedia frame transferred into exported Godot; capture/reset",
+      "passed": true
+    },
+    {
+      "check": "late camera permission result releases stale stream",
+      "passed": true
+    },
+    {
+      "check": "permission denial is recoverable",
+      "status": {
+        "mode": "denied",
+        "error": "NotAllowedError"
+      }
+    }
+  ],
+  "errors": []
+}
