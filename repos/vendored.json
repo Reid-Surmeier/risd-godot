@@ -12,6 +12,16 @@
       "pins": null
     },
     {
+      "name": "mediapipe",
+      "url": "/tmp/webcam-mediapipe-published",
+      "prefix": "repos/mediapipe",
+      "ref": "tasks-vision@1.0.1",
+      "commit": "96af43b8ea7bef36d764dd3d606a6c2ee3c1c12a",
+      "vendored_at": "2026-09-30T04:43:24.311Z",
+      "size_mb": 37,
+      "pins": null
+    },
+    {
       "name": "tldraw",
       "url": "https://github.com/tldraw/tldraw",
       "prefix": "repos/tldraw",

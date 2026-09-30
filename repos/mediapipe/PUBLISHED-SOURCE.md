@@ -1,0 +1,1 @@
+Exact npm-published @mediapipe/tasks-vision1.0.1 payload and source-map content. Archive SHA256 ee318eaa3d42230aa10910d114faf2a488c577c4e4d33c7cb04126924aca505f. Google publisher supplies no gitHead/source tag in package metadata. This snapshot is the actual shipped source, not a guessed upstream ref. Never import this reference checkout.
