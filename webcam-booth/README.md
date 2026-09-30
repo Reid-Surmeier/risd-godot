@@ -31,7 +31,7 @@ The exported page lives in `build/web`. Same-origin generation requires `server/
 /home/reidsurmeier/.codex/skills/access-bitwarden-secrets/scripts/stored_bws.sh run OPENROUTER_API_KEY OPENROUTER_API_KEY -- /usr/bin/node --experimental-strip-types webcam-booth/server/server.ts
 ```
 
-The durable `build/private/ledger.json` must exist. Restore its recorded reservations before restarting if it is missing; never initialize a fresh allowance. Total budget is $10 including generated assets and validation. Unknown submissions retain their reservation and are never retried automatically. A surviving `paid.lock` requires inspecting the existing Run before recovery.
+The durable `build/private/ledger.json` must exist. Restore its recorded reservations before restarting if it is missing; never initialize a fresh allowance. Total budget is $10 including generated assets and validation. Unknown submissions retain their reservation and are never retried automatically. A surviving `paid.lock` requires inspecting the existing Run and persisting its reconciled charge before recovery. A failed post-payment ledger save deliberately retains that lock.
 
 The overnight instance runs as user service `webcam-booth-195.service` with restart-on-failure. Inspect with `systemctl --user status webcam-booth-195.service`. The owner’s HTTPS tailnet preview is recorded in [HANDOFF.md](review/HANDOFF.md); a tailnet connection is required.
 

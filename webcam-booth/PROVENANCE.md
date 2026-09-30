@@ -28,7 +28,7 @@ Initial paid browser proof traversed the actual camera capture bridge with Chrom
 
 ## Reference frame and fuse anchors
 
-OpenRouter Muse generated one frame donor (`run-5910233e53d2706dc83b67d2`, actual $0.01, donor SHA256 9124408c885ecfbe90066b54ca9aa01a32442d956c583c730697e5665bcb4009) from the board glove/frame reference. Four faceted white gloves, ornate gold frame, no source painting. `image-work/key-frame.py` mechanically removes the green matte; actual PNG alpha and empty center are asserted. Native alpha was not claimed. Source prompt/recipe/plan and donor are retained in image-work; runtime uses only assets/glove-frame.png.
+OpenRouter Muse generated one frame donor (`run-5910233e53d2706dc83b67d2`, actual $0.01, donor SHA256 9124408c885ecfbe90066b54ca9aa01a32442d956c583c730697e5665bcb4009) from the board glove/frame reference. Four faceted white gloves, ornate gold frame, no source painting. `image-work/key-frame.py` mechanically removes the green matte; actual PNG alpha and empty center are asserted. Native alpha was not claimed. Source prompt/recipe/plan and donor are retained in image-work; runtime uses only assets/glove-frame.png, SHA256 ef7d6135dcde264daf41beca7e56f24a5f3ef4892ddd4979006360f4a6737544.
 
 A second $0.01 Muse anchor (`run-ffd94d1e215418ca04e46b1a`, donor SHA256 e89a5e33225c0f3d8d7001ad06fbaf2bbbdccfe5031fde1943bde19f37be5499) adapts the inspected lavender Wario-head fuse. Original gameplay URL/timing and historical limits are in motion research. Opening still and plain-green end anchor are mechanically normalized to1280×720 for a single Seedance2.5 eleven-second request: ten seconds fuse, then burst/clear. Motion Run run-16c6dd84b5c249fa0282d930 has a known $2.55195 receipt; do not resubmit.
 

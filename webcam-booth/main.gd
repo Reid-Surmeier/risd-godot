@@ -31,7 +31,6 @@ var pose_value := Vector3.ZERO
 var tracking_mode := "idle"
 var entered_at := 0.0
 var generation_error := ""
-var generated_texture: ImageTexture
 
 
 func _ready() -> void:
@@ -129,7 +128,6 @@ func capture() -> Dictionary:
 func reset() -> Dictionary:
 	if OS.has_feature("web"):
 		JavaScriptBridge.eval("window.booth.cancelGeneration(); window.booth.stopTracking()")
-	generated_texture = null
 	tracking_mode = "idle"
 	expression_value = Vector4.ZERO
 	pose_value = Vector3.ZERO
@@ -170,8 +168,7 @@ func _process(delta: float) -> void:
 				var bytes := Marshalls.base64_to_raw(result.image.split(",")[1])
 				var code := image.load_webp_from_buffer(bytes) if result.image.begins_with("data:image/webp") else image.load_png_from_buffer(bytes)
 				if code == OK:
-					generated_texture = ImageTexture.create_from_image(image)
-					_show_portrait(generated_texture)
+					_show_portrait(ImageTexture.create_from_image(image))
 				else:
 					generation_error = "The portrait could not be displayed. Take another picture."
 					reset()

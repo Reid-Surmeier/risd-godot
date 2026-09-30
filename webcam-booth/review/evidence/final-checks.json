@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "browser_checks": 11,
+  "native_generation_checks": 4,
+  "strict_typescript": true,
+  "worker_photo_no_face_recovery": true,
+  "expression_godot_and_reset": true,
+  "https_responsive_keyboard_touch": true,
+  "source_verified_paid_loop": "final-loop-verified-source.json",
+  "root_baseline": "scripts/check.sh passed (existing ObjectDB exit warning)",
+  "diff_check": true,
+  "physical_webcam_tested": false,
+  "additional_paid_calls_for_review_fixes": 0
+}

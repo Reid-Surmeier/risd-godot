@@ -17,7 +17,7 @@ export const createGeneration=(options:Options):Effect.Effect<Generation> => Eff
   if(busy)throw failure('busy','Another portrait is being prepared.');
   busy=true;
   const promise=(async()=>{
-   let locked=false;
+   let locked=false;let releaseLock=true;
    try{
     await options.validate(capture);
     await mkdir(options.root,{recursive:true,mode:0o700});
@@ -30,11 +30,11 @@ export const createGeneration=(options:Options):Effect.Effect<Generation> => Eff
     if(spent+1>(options.ceilingCents??1000))throw failure('budget','The booth generation allowance is exhausted.');
     ledger.entries[capture.id]={hash,reservedCents:1,state:'reserved'};
     const save=async()=>{await writeFile(path+'.tmp',JSON.stringify(ledger,null,2)+'\n',{mode:0o600});await rename(path+'.tmp',path);};
-    await save();
+    await save();releaseLock=false;
     const reconcile=(cost:unknown)=>{if(typeof cost==='number'&&Number.isSafeInteger(cost)&&cost>=0)ledger.entries[capture.id].reservedCents=Math.max(1,cost);};
-    try{const portrait=await options.provider(capture);reconcile(portrait.costCents);ledger.entries[capture.id].state='received';ledger.entries[capture.id].run=portrait.run;await save();return portrait;}
-    catch(error){if(error&&typeof error==='object'&&'costCents'in error)reconcile(error.costCents);ledger.entries[capture.id].state='uncertain';await save();throw failure('uncertain','Generation did not finish. Its reserved cost is retained; this capture will not be retried.');}
-   }finally{if(locked)await rm(join(options.root,'paid.lock'));busy=false;setTimeout(()=>requests.delete(capture.id),15_000).unref();}
+    try{const portrait=await options.provider(capture);reconcile(portrait.costCents);ledger.entries[capture.id].state='received';ledger.entries[capture.id].run=portrait.run;await save();releaseLock=true;return portrait;}
+    catch(error){if(error&&typeof error==='object'&&'costCents'in error)reconcile(error.costCents);ledger.entries[capture.id].state='uncertain';await save();releaseLock=true;throw failure('uncertain','Generation did not finish. Its reserved cost is retained; this capture will not be retried.');}
+   }finally{if(locked&&releaseLock)await rm(join(options.root,'paid.lock'));busy=false;setTimeout(()=>requests.delete(capture.id),15_000).unref();}
   })();
   requests.set(capture.id,{hash,promise});return promise;
  },catch:e=> e&&typeof e==='object'&&'code'in e&&['invalid','busy','budget','uncertain','unavailable'].includes(String(e.code)) ? e as GenerationError : failure('unavailable','Generation is unavailable.')});

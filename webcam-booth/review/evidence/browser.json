@@ -8,12 +8,12 @@
     {
       "check": "complete fixture loop",
       "iteration": 1,
-      "fuse_ms": 9917.900000000373
+      "fuse_ms": 9940.099999999627
     },
     {
       "check": "complete fixture loop",
       "iteration": 2,
-      "fuse_ms": 10006.700000001118
+      "fuse_ms": 10009.199999999255
     },
     {
       "check": "cancel loading does not revive portrait",
