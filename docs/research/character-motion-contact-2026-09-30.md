@@ -44,7 +44,7 @@ A geometric seam test measures maximum/RMS skinned displacement and all joint tr
 
 ## Verified candidate and import precision requirement
 
-The final candidate is `footplant-candidate.glb`, SHA-256 `c827ab8bb681c4e4d146c6f4407802b36dbf67dc61150f72d16faffdc254d96f`, generated from root rigid-head source `0f609ee4dfd7d0e645a15dbd8b47625dd95b0c13c4b59b624deecdd2eddeb487`. `correct.py` reproduces it in Blender4.3.2 and saves a compressed editable `.blend`; `validate.py` reproduces the portable Godot measurements. The numerical result is:
+The final candidate is `footplant-candidate.glb`, SHA-256 `536fb839572228d485fc27027a58506944f8285fcfef72f2f8a421e9d73214d9`, generated from root rigid-head source `0f609ee4dfd7d0e645a15dbd8b47625dd95b0c13c4b59b624deecdd2eddeb487`. `correct.py` reproduces it in Blender4.3.2 and saves a compressed editable `.blend`; `validate.py` reproduces the portable Godot measurements. The numerical result is:
 
 | Gate | Idle | Walk |
 | --- | --- | --- |
@@ -52,7 +52,9 @@ The final candidate is `footplant-candidate.glb`, SHA-256 `c827ab8bb681c4e4d146c
 | Sampled stance sole error, max | 0.060 mm | 0.494 mm |
 | Sampled stance world X/Z drift, max | 0.129 mm | 0.311 mm |
 | Endpoint skinned displacement, max | 0.359 µm | 0.100 µm |
-| Maximum joint velocity difference, one-sided 1 ms intervals | 0.0249 m/s | 0.00939 m/s |
+| Maximum joint velocity difference, one-sided 1 ms intervals | 0.000307 m/s | 0.00939 m/s |
+
+The earlier derived idle had a real velocity discontinuity:0.02486m/s stayed approximately constant as the delta shrank. A bounded reuse of the same localT/Q/S tangent repair at generic neighbors2 andframes−2 removed it. Final idle differences are0.000070,0.000146,0.000307,0.000940m/s at10,3,1,0.3ms; their tiny inverse-delta growth is consistent with float-difference noise, rather than the prior constant hitch. Both257pose foot gates and the idle4.0333333s period remain unchanged. `idle-seam-comparison.json` preserves before/after hashes and evidence.
 
 The shrinking-delta final walk velocity check gives0.09451,0.02835,0.00939,0.00300m/s maximum joint difference for10,3,1,0.3ms respectively, supporting a matched loop tangent. A bounded cubic→quintic swing comparison reduced contact-boundary ankle velocity changes from0.196/0.201 to0.0701/0.0670m/s under native30fps interpolation while preserving stance gates. The final swing lift is `64 * height * u³ * (1−u)³`, retaining its8cm peak and zero endpoint velocity/acceleration. `quintic-comparison.json` preserves both candidate SHAs and metrics; native45degree poses were inspected without obvious new joint detachment in the shown views. These sampled pictures do not replace continuous visual acceptance. Do not claim every contact derivative is smooth from the loop test.
 
