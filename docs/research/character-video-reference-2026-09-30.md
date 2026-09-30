@@ -23,6 +23,14 @@ Mutch Games identifies GameCube in the title. LongplayArchive's description iden
 
 Attribution: footage uploaded by Mutch Games; game imagery Nintendo. [Reference provenance](character-video-reference/youtube-references.json) records URLs, titles, upload dates, selected ranges, successful download method, local scratch paths, and hashes. Usable scratch clips: `/tmp/acgc-youtube-mutch-980-1005.mp4`, `/tmp/acgc-youtube-mutch-1005-1035.mp4`, and `/tmp/acgc-youtube-longplay-345-375.mp4`. Timestamp links are the owner-accessible references; the original star-hat identity remains unmatched after the bounded YouTube alternatives search.
 
+Native 30 fps review refined the comparison choices: front window **16:55.000–16:55.800**, with the clearest front-facing core **16:55.200–16:55.600**; profile window **16:56.150–16:56.950**, with the closest image-left-facing profile **16:56.300–16:56.450**. The windows are 0.8 seconds, but the player turns and the first front frames have tree occlusion: neither is a fixed-yaw full-cycle reference. The earlier indoor 16:25–16:28 range is predominantly rear/turning and should not be presented as pure front-facing motion.
+
+![Selected YouTube source crops with absolute timestamps](character-video-reference/youtube-selected-crops.png)
+
+[Exact crop/frame provenance](character-video-reference/youtube-comparison.json) records original 1280×720 pixel rectangles, absolute times, approximate silhouette boxes (±6 pixels), and scratch paths. The six crops are untouched source pixels with no aspect correction, isolated for inspection; the third profile crop is already turning away. Native-frame dust appearances near absolute 1016.200, 1016.433, and 1016.667 seconds give an alternating interval of 7/30 seconds and full-cycle estimate **14/30 = 0.467 seconds**. Allow one encoded frame of event uncertainty, giving a conservative full-cycle range **0.40–0.533 seconds**. Front shoe-pose recurrence near 1015.267/1015.667 suggests roughly 0.40 seconds, but has lower confidence because of ghosting and yaw changes. Foot labels and exact sole-contact times remain unverified. These estimates are for this upload, distinct from the rougher official-trailer observations below.
+
+For a view comparison, use the GameCube-style ~45° downward camera for both source/profile presentation; a 15° downward prototype profile exposes substantially more body and is not matched to these source frames. The source boy faces image-left during the profile core. Comparison clips remain in `/tmp/acgc-youtube-comparison/front-1015.0-1015.8.mp4` and `profile-1016.15-1016.95.mp4`; no additional videos were downloaded for this refinement.
+
 Manual native-frame inspection gives these observations, with uncertainty retained:
 
 | Segment | Observation | Conservative interpretation |
