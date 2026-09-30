@@ -23,17 +23,24 @@ sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 model_path = root/'sfm-strict-doorway-v1/sparse/0'
 model = pycolmap.Reconstruction(model_path)
 views = {v.name: v for v in model.images.values() if v.has_pose}
-pose_path = root/selection['pose_source']
-pose_report = json.loads(pose_path.read_text())
-assert pose_report['all_floor_query_features_excluded_from_pose']
-assert pose_report['pose_fit_upright_y_below'] == 450
-inputs = {str(p): sha(p) for p in [args.selection, pose_path, *model_path.glob('*.bin')]}
-for p, h in pose_report['inputs_sha256'].items():
-    assert sha(Path(p)) == h
+registered_queries = [n for n in reserved if n in views]
+assert not registered_queries or selection.get('allow_registered_reserved') is True, 'Registered cameras require explicit correlated-diagnostic scope'
+inputs = {str(p): sha(p) for p in [args.selection, *model_path.glob('*.bin')]}
+if len(registered_queries) < len(reserved):
+    pose_path = root/selection['pose_source']
+    pose_report = json.loads(pose_path.read_text())
+    assert pose_report['all_floor_query_features_excluded_from_pose']
+    assert pose_report['pose_fit_upright_y_below'] == 450
+    inputs[str(pose_path)] = sha(pose_path)
+    for p, h in pose_report['inputs_sha256'].items():
+        assert sha(Path(p)) == h
 cameras = {n: model.cameras[views[n].camera_id] for n in training}
 poses = {n: views[n].cam_from_world() for n in training}
 for name in reserved:
-    assert name not in views
+    if name in views:
+        cameras[name] = model.cameras[views[name].camera_id]
+        poses[name] = views[name].cam_from_world()
+        continue
     row = next(r for r in pose_report['rows'] if r['image'] == name)
     assert row['pose_supported']
     cameras[name] = pycolmap.Camera(row['camera'])
@@ -119,7 +126,8 @@ for n, photo in photos.items():
     draw = ImageDraw.Draw(photo)
     draw.rectangle((0, 0, 1080, 45), fill='black')
     draw.text((8, 5), n+'; ALL native floor candidates; identities UNVERIFIED', fill='white')
-    draw.text((8, 24), 'Reserved wall-only poses; no plane/scale/collision acceptance', fill='white')
+    pose_note = 'Globally fitted query cameras' if registered_queries else 'Reserved wall-only poses'
+    draw.text((8, 24), pose_note+'; no plane/scale/collision acceptance', fill='white')
     photo.save(out/(Path(n).stem+'-native-matches.png'))
 assert all(sha(Path(p)) == h for p, h in inputs.items())
 for n in training+reserved:
@@ -128,9 +136,11 @@ for n in training+reserved:
     assert np.linalg.norm(raw(project(cameras[n], poses[n], point[None])[0])-expected) < 1e-8
 report = dict(selection=selection, candidates=candidates, inputs_sha256=inputs,
     source_sha256={p.name: sha(p) for p in model_path.glob('*.bin')},
-    floor_pixels_used_for_query_pose=False, navigation_accepted=False, cost_usd=0,
+    floor_pixels_used_for_query_pose=bool(registered_queries), registered_query_cameras=registered_queries,
+    navigation_accepted=False, cost_usd=0,
     caveat='All source floor matches retained; repeated wood may produce false identities. '
-        'Native coordinates scaled 1.5 to frozen 1280x720 cameras. Same-video/calibration correlation; '
+        'Native coordinates scaled 1.5 to frozen 1280x720 cameras. Registered query cameras, if listed, '
+        'were globally fitted with cached tracks and are not held-out poses. Same-video/calibration correlation; '
         'no plane fit, physical scale or collision acceptance. CUDA extraction/matching; CPU ray algebra.')
 (out/'result.json').write_text(json.dumps(report, indent=2)+'\n')
 print(json.dumps(dict(source_candidates=len(candidates), reserved_observations={q:

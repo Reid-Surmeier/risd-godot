@@ -360,3 +360,22 @@ All 24 native/RTX Chrome bounded-walk checks and real WASD round trip pass;
 Shell retains five prior failures. Original inputs/pending work preserved;
 Muse receipts and rejected head meshes unchanged. No runtime/Viewer edit,
 production integration, paid retry or ticket closure.
+
+## Collection near-floor coverage limit — September 30, 16:30 UTC heartbeat
+
+Local pycolmap CUDA / ffmpeg NVDEC / NumPy / Pillow / Godot4.7.2 / Chrome154
+on RTX4070SUPER; **$0**, zero paid calls; CPU pose/ray algebra.
+[Sources, commands, checks and hashes](../../docs/evidence/collection-reconstruction/heartbeat-20260930T1630/provenance.json).
+
+Frozen exit 13/19 near-floor masks contain zero shared sparse or native SIFT
+matches (54/91 floor detections,318 raw source-pair matches). No triangle fitted.
+Explicitly opted-in registered 21/25 query cameras are globally fitted diagnostics;
+original wall-only setup remains checked. Source freeze, camera round trips,
+registered-scope and overwrite guards pass. Legacy raw image caption is corrected
+only in derived evidence; original outputs preserved. Existing floor anchors have
+no cross-clip tracks. Supplemental IMG_6384 doorway source context inspected, without
+new connection or surface acceptance. All 24 native/Chrome bounded-walk checks and
+real WASD round trip pass; repository passes, Shell has eight previously observed
+failure names. Earlier pending work and frozen inputs preserved. Muse sheet and
+rejected head-v2 remain unchanged. No runtime/Viewer edit, collision extension,
+production integration, paid retry or ticket closure.
