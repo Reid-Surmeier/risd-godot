@@ -1,0 +1,17 @@
+{
+  "id": 5916596927,
+  "url": "https://github.com/Reid-Surmeier/risd-godot/pull/166#issuecomment-5916596927",
+  "body": "Current runtime6d126dbb preserves the two-window Viewer, four scans/hover preview, selected visitor and gallery. Thirty remaining declaration-order cases now have identical native initial values, including114instance+2staticfields. Exact18inputs/33states pass; full check still fails25authored+3originaluntracked findings. Final hands-on owner approval stays open. Private review only.\n\n![Current Viewer and hover](https://github.com/user-attachments/assets/e07b9880-3302-4bc4-a407-fa9c76c216fe)\n\n![Current gallery and visitor](https://github.com/user-attachments/assets/12f5546b-1970-425d-b459-13768addfc47)\n\n![Current contained portrait](https://github.com/user-attachments/assets/d3e2e755-d19d-4269-8bbd-bc73ac693cb7)\n\n![Current Map](https://github.com/user-attachments/assets/27209c32-7293-41bf-a7cd-df69225da11c)\n\n![Current Sketchbook](https://github.com/user-attachments/assets/2f245bc7-a151-4822-87e0-7ad52b827905)\n\n![Current four-scan Viewer](https://github.com/user-attachments/assets/d3d65193-d31b-4c17-8871-f411a243e05c)\n\n![Current Video Player](https://github.com/user-attachments/assets/72a2b2af-0e67-4cd9-80a3-56c41a97b29d)\n\n![Current Playground](https://github.com/user-attachments/assets/1604c3d0-b821-4c75-b6d9-9a993bc13a4a)\n\n![Current Flowers](https://github.com/user-attachments/assets/9967ac83-530f-47ed-b22d-fd14b55e1518)\n\n![Current gallery portal](https://github.com/user-attachments/assets/e08881f2-60d6-4005-a7c5-6f8549800823)",
+  "images": [
+    "https://github.com/user-attachments/assets/e07b9880-3302-4bc4-a407-fa9c76c216fe",
+    "https://github.com/user-attachments/assets/12f5546b-1970-425d-b459-13768addfc47",
+    "https://github.com/user-attachments/assets/d3e2e755-d19d-4269-8bbd-bc73ac693cb7",
+    "https://github.com/user-attachments/assets/27209c32-7293-41bf-a7cd-df69225da11c",
+    "https://github.com/user-attachments/assets/2f245bc7-a151-4822-87e0-7ad52b827905",
+    "https://github.com/user-attachments/assets/d3d65193-d31b-4c17-8871-f411a243e05c",
+    "https://github.com/user-attachments/assets/72a2b2af-0e67-4cd9-80a3-56c41a97b29d",
+    "https://github.com/user-attachments/assets/1604c3d0-b821-4c75-b6d9-9a993bc13a4a",
+    "https://github.com/user-attachments/assets/9967ac83-530f-47ed-b22d-fd14b55e1518",
+    "https://github.com/user-attachments/assets/e08881f2-60d6-4005-a7c5-6f8549800823"
+  ]
+}

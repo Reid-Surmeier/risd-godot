@@ -1,0 +1,36 @@
+{
+  "runtime": "6d126dbb",
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-values-current-01a0f35e/",
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "sha256": "f3095ef51a0de0bf33949fc3480044f57baa3979d5813a41e1af0eee9bfda63b",
+      "match": true
+    },
+    {
+      "file": "6d126dbb.html",
+      "status": 200,
+      "sha256": "7abb53d5fc2445fe90e7e77970d690780b27cec4766fc76b73d4ff8ee0a3579d",
+      "match": true
+    },
+    {
+      "file": "6d126dbb.pck.gz",
+      "status": 200,
+      "sha256": "756c8aaf64f504567d3a30b376963c6f4b97402400198577f2f442fa24e5e2f1",
+      "match": true
+    },
+    {
+      "file": "6d126dbb.game.pck.gz",
+      "status": 200,
+      "sha256": "660deae5cb6dc8ebfc9ec1c5fc171f8388bf4a5ebb9ca356917ea1f2ca885057",
+      "match": true
+    },
+    {
+      "file": "6d126dbb.wasm.gz",
+      "status": 200,
+      "sha256": "482488391dfc3ced7a3bd383035aa11ed5ce635d33b542d4281469f187e98242",
+      "match": true
+    }
+  ]
+}

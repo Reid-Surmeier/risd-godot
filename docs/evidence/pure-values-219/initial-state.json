@@ -1,0 +1,1182 @@
+{
+  "result": "PASS",
+  "every_field_equal": true,
+  "before": {
+    "modules/playground_page/playground_page.gd": {
+      "instance": {
+        "class": "ColorRect",
+        "fields": {
+          "_active": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "_start_pointer": {
+            "type": "Vector2",
+            "value": "Vector2(0, 0)"
+          },
+          "_start_position": {
+            "type": "Vector2",
+            "value": "Vector2(0, 0)"
+          },
+          "action": {
+            "type": "String",
+            "value": "\"\""
+          },
+          "artwork_detail": {
+            "class": "Label",
+            "fields": {}
+          },
+          "browsing": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "data_handle": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "factor": {
+            "type": "float",
+            "value": "1.0"
+          },
+          "fengshui": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "filter_count": {
+            "class": "Label",
+            "fields": {}
+          },
+          "gallery_overlay": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "gallery_scroll": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "image_fetch": {
+            "type": "Callable",
+            "value": "Callable()"
+          },
+          "inputs": {
+            "type": "int",
+            "value": "0"
+          },
+          "interactive_windows": {
+            "entries": [],
+            "type": "Array"
+          },
+          "key": {
+            "type": "String",
+            "value": "\"\""
+          },
+          "refresh_generation": {
+            "type": "int",
+            "value": "0"
+          },
+          "saved_body": {
+            "class": "ColorRect",
+            "fields": {}
+          },
+          "saved_ids": {
+            "entries": [],
+            "type": "Array"
+          },
+          "saved_list": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "saved_query": {
+            "class": "LineEdit",
+            "fields": {}
+          },
+          "saved_scroll": {
+            "class": "ScrollContainer",
+            "fields": {}
+          },
+          "show_fengshui": {
+            "type": "bool",
+            "value": "false"
+          },
+          "show_gallery": {
+            "type": "bool",
+            "value": "false"
+          },
+          "show_sketchbook": {
+            "type": "bool",
+            "value": "false"
+          },
+          "show_websurfer": {
+            "type": "bool",
+            "value": "false"
+          },
+          "sketchbook": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "storage_status": {
+            "type": "String",
+            "value": "\"loading\""
+          },
+          "ticks": {
+            "type": "int",
+            "value": "0"
+          },
+          "websurfer": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "windows": {
+            "entries": [],
+            "type": "Array"
+          }
+        }
+      },
+      "static": {}
+    },
+    "modules/shell/crt_display.gd": {
+      "instance": {
+        "class": "Control",
+        "fields": {
+          "_mouse_inside": {
+            "type": "bool",
+            "value": "false"
+          },
+          "_qa_elapsed": {
+            "type": "float",
+            "value": "0.0"
+          },
+          "_qa_enabled": {
+            "type": "bool",
+            "value": "false"
+          },
+          "crt_material": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "enabled": {
+            "type": "bool",
+            "value": "true"
+          },
+          "haze": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "pointer_buttons": {
+            "entries": {},
+            "type": "Dictionary"
+          },
+          "squiggle": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "squiggle_enabled": {
+            "type": "bool",
+            "value": "true"
+          },
+          "stage_rect": {
+            "type": "Rect2",
+            "value": "Rect2(0, 0, 0, 0)"
+          },
+          "touches": {
+            "entries": {},
+            "type": "Dictionary"
+          }
+        }
+      },
+      "static": {}
+    },
+    "modules/sketchbook/desktop.gd": {
+      "instance": {
+        "class": "Control",
+        "fields": {
+          "_slots": {
+            "entries": {},
+            "type": "Dictionary"
+          },
+          "anri_prototype": {
+            "type": "bool",
+            "value": "true"
+          },
+          "data_handle": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "desktop": {
+            "class": "Control",
+            "fields": {}
+          },
+          "drag_offset": {
+            "type": "Vector2",
+            "value": "Vector2(0, 0)"
+          },
+          "dragged_window": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "global_chatroom": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "image_fetch": {
+            "type": "Callable",
+            "value": "Callable()"
+          },
+          "inputs": {
+            "type": "int",
+            "value": "0"
+          },
+          "key": {
+            "type": "String",
+            "value": "\"\""
+          },
+          "paintbox": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "painting_flow": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "reference_art": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "reference_list": {
+            "class": "HBoxContainer",
+            "fields": {}
+          },
+          "reference_panel": {
+            "class": "PanelContainer",
+            "fields": {}
+          },
+          "refresh_generation": {
+            "type": "int",
+            "value": "0"
+          },
+          "saved_ids": {
+            "entries": [],
+            "type": "Array"
+          },
+          "selected_reference": {
+            "type": "String",
+            "value": "\"\""
+          },
+          "sketchbook": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "storage_status": {
+            "type": "String",
+            "value": "\"loading\""
+          },
+          "ticks": {
+            "type": "int",
+            "value": "0"
+          },
+          "tldraw_controls": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "viewer_host": {
+            "class": "Control",
+            "fields": {}
+          },
+          "windows": {
+            "entries": [],
+            "type": "Array"
+          }
+        }
+      },
+      "static": {}
+    },
+    "modules/sketchbook/drawing_surface.gd": {
+      "instance": {
+        "class": "Control",
+        "fields": {
+          "_dirty": {
+            "type": "bool",
+            "value": "false"
+          },
+          "_last_size": {
+            "type": "Vector2",
+            "value": "Vector2(0, 0)"
+          },
+          "_static_dirty": {
+            "type": "bool",
+            "value": "true"
+          },
+          "_static_ink": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "_static_view": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "_static_viewport": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "active": {
+            "entries": {},
+            "type": "Dictionary"
+          },
+          "freehand": {
+            "class": "RefCounted",
+            "fields": {
+              "dists": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "in_x": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "in_y": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "in_z": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "left": {
+                "type": "PackedVector2Array",
+                "value": "PackedVector2Array()"
+              },
+              "point_count": {
+                "type": "int",
+                "value": "0"
+              },
+              "press": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "pt_x": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "pt_y": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "rads": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "right": {
+                "type": "PackedVector2Array",
+                "value": "PackedVector2Array()"
+              },
+              "runs": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "scap": {
+                "type": "PackedByteArray",
+                "value": "PackedByteArray()"
+              },
+              "six": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "siy": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "sr": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "src_count": {
+                "type": "int",
+                "value": "0"
+              },
+              "srl": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "sx": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "sy": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              }
+            }
+          },
+          "hovering": {
+            "type": "bool",
+            "value": "false"
+          },
+          "ink_color": {
+            "type": "Color",
+            "value": "Color(0.26666668, 0.39607844, 0.9137255, 1)"
+          },
+          "interactive": {
+            "type": "bool",
+            "value": "true"
+          },
+          "pen_down": {
+            "type": "bool",
+            "value": "false"
+          },
+          "pencil": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "pencil_time": {
+            "type": "float",
+            "value": "0.0"
+          },
+          "perf_draw_us": {
+            "type": "int",
+            "value": "0"
+          },
+          "perf_draws": {
+            "type": "int",
+            "value": "0"
+          },
+          "perf_rebuild_us": {
+            "type": "int",
+            "value": "0"
+          },
+          "redo_strokes": {
+            "entries": {},
+            "type": "Dictionary"
+          },
+          "render_spread": {
+            "type": "int",
+            "value": "0"
+          },
+          "spread": {
+            "type": "int",
+            "value": "1"
+          },
+          "spreads": {
+            "entries": {},
+            "type": "Dictionary"
+          },
+          "stroke_opacity": {
+            "type": "float",
+            "value": "1.0"
+          },
+          "stroke_width": {
+            "type": "float",
+            "value": "4.5"
+          },
+          "tool": {
+            "type": "String",
+            "value": "\"draw\""
+          }
+        }
+      },
+      "static": {
+        "_blank_cursor": {
+          "type": "Nil",
+          "value": "null"
+        }
+      }
+    },
+    "modules/sketchbook/paintbox.gd": {
+      "instance": {
+        "class": "Control",
+        "fields": {
+          "_drag_pigment": {
+            "type": "Color",
+            "value": "Color(0, 0.27058825, 0.56078434, 1)"
+          },
+          "_hover_uv": {
+            "type": "Vector2",
+            "value": "Vector2(-1, -1)"
+          },
+          "_last_deposit": {
+            "type": "Vector2",
+            "value": "Vector2(-10, -10)"
+          },
+          "_mix_cue_elapsed": {
+            "type": "float",
+            "value": "0.0"
+          },
+          "_mixing": {
+            "type": "bool",
+            "value": "false"
+          },
+          "_paint_pixels": {
+            "type": "int",
+            "value": "0"
+          },
+          "_palette_image": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "_pointer": {
+            "type": "Vector2",
+            "value": "Vector2(-100000, -100000)"
+          },
+          "_stamp_index": {
+            "type": "int",
+            "value": "0"
+          },
+          "_tray_images": {
+            "entries": [],
+            "type": "Array"
+          },
+          "_tray_textures": {
+            "entries": [],
+            "type": "Array"
+          },
+          "anri_mode": {
+            "type": "bool",
+            "value": "false"
+          },
+          "brush_active": {
+            "type": "bool",
+            "value": "false"
+          },
+          "brush_color": {
+            "type": "Color",
+            "value": "Color(0, 0.27058825, 0.56078434, 1)"
+          },
+          "brush_cursor": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "brush_rest": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "brush_stage": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "hovering": {
+            "type": "bool",
+            "value": "false"
+          },
+          "image_rect": {
+            "type": "Rect2",
+            "value": "Rect2(0, 0, 0, 0)"
+          },
+          "mix_count": {
+            "type": "int",
+            "value": "0"
+          },
+          "parked_brush": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "smear_variant": {
+            "type": "String",
+            "value": "\"A\""
+          },
+          "title_bar": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "tool_reference": {
+            "type": "Nil",
+            "value": "null"
+          }
+        }
+      },
+      "static": {
+        "_blank_cursor": {
+          "type": "Nil",
+          "value": "null"
+        }
+      }
+    }
+  },
+  "after": {
+    "modules/playground_page/playground_page.gd": {
+      "instance": {
+        "class": "ColorRect",
+        "fields": {
+          "_active": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "_start_pointer": {
+            "type": "Vector2",
+            "value": "Vector2(0, 0)"
+          },
+          "_start_position": {
+            "type": "Vector2",
+            "value": "Vector2(0, 0)"
+          },
+          "action": {
+            "type": "String",
+            "value": "\"\""
+          },
+          "artwork_detail": {
+            "class": "Label",
+            "fields": {}
+          },
+          "browsing": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "data_handle": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "factor": {
+            "type": "float",
+            "value": "1.0"
+          },
+          "fengshui": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "filter_count": {
+            "class": "Label",
+            "fields": {}
+          },
+          "gallery_overlay": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "gallery_scroll": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "image_fetch": {
+            "type": "Callable",
+            "value": "Callable()"
+          },
+          "inputs": {
+            "type": "int",
+            "value": "0"
+          },
+          "interactive_windows": {
+            "entries": [],
+            "type": "Array"
+          },
+          "key": {
+            "type": "String",
+            "value": "\"\""
+          },
+          "refresh_generation": {
+            "type": "int",
+            "value": "0"
+          },
+          "saved_body": {
+            "class": "ColorRect",
+            "fields": {}
+          },
+          "saved_ids": {
+            "entries": [],
+            "type": "Array"
+          },
+          "saved_list": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "saved_query": {
+            "class": "LineEdit",
+            "fields": {}
+          },
+          "saved_scroll": {
+            "class": "ScrollContainer",
+            "fields": {}
+          },
+          "show_fengshui": {
+            "type": "bool",
+            "value": "false"
+          },
+          "show_gallery": {
+            "type": "bool",
+            "value": "false"
+          },
+          "show_sketchbook": {
+            "type": "bool",
+            "value": "false"
+          },
+          "show_websurfer": {
+            "type": "bool",
+            "value": "false"
+          },
+          "sketchbook": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "storage_status": {
+            "type": "String",
+            "value": "\"loading\""
+          },
+          "ticks": {
+            "type": "int",
+            "value": "0"
+          },
+          "websurfer": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "windows": {
+            "entries": [],
+            "type": "Array"
+          }
+        }
+      },
+      "static": {}
+    },
+    "modules/shell/crt_display.gd": {
+      "instance": {
+        "class": "Control",
+        "fields": {
+          "_mouse_inside": {
+            "type": "bool",
+            "value": "false"
+          },
+          "_qa_elapsed": {
+            "type": "float",
+            "value": "0.0"
+          },
+          "_qa_enabled": {
+            "type": "bool",
+            "value": "false"
+          },
+          "crt_material": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "enabled": {
+            "type": "bool",
+            "value": "true"
+          },
+          "haze": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "pointer_buttons": {
+            "entries": {},
+            "type": "Dictionary"
+          },
+          "squiggle": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "squiggle_enabled": {
+            "type": "bool",
+            "value": "true"
+          },
+          "stage_rect": {
+            "type": "Rect2",
+            "value": "Rect2(0, 0, 0, 0)"
+          },
+          "touches": {
+            "entries": {},
+            "type": "Dictionary"
+          }
+        }
+      },
+      "static": {}
+    },
+    "modules/sketchbook/desktop.gd": {
+      "instance": {
+        "class": "Control",
+        "fields": {
+          "_slots": {
+            "entries": {},
+            "type": "Dictionary"
+          },
+          "anri_prototype": {
+            "type": "bool",
+            "value": "true"
+          },
+          "data_handle": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "desktop": {
+            "class": "Control",
+            "fields": {}
+          },
+          "drag_offset": {
+            "type": "Vector2",
+            "value": "Vector2(0, 0)"
+          },
+          "dragged_window": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "global_chatroom": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "image_fetch": {
+            "type": "Callable",
+            "value": "Callable()"
+          },
+          "inputs": {
+            "type": "int",
+            "value": "0"
+          },
+          "key": {
+            "type": "String",
+            "value": "\"\""
+          },
+          "paintbox": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "painting_flow": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "reference_art": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "reference_list": {
+            "class": "HBoxContainer",
+            "fields": {}
+          },
+          "reference_panel": {
+            "class": "PanelContainer",
+            "fields": {}
+          },
+          "refresh_generation": {
+            "type": "int",
+            "value": "0"
+          },
+          "saved_ids": {
+            "entries": [],
+            "type": "Array"
+          },
+          "selected_reference": {
+            "type": "String",
+            "value": "\"\""
+          },
+          "sketchbook": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "storage_status": {
+            "type": "String",
+            "value": "\"loading\""
+          },
+          "ticks": {
+            "type": "int",
+            "value": "0"
+          },
+          "tldraw_controls": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "viewer_host": {
+            "class": "Control",
+            "fields": {}
+          },
+          "windows": {
+            "entries": [],
+            "type": "Array"
+          }
+        }
+      },
+      "static": {}
+    },
+    "modules/sketchbook/drawing_surface.gd": {
+      "instance": {
+        "class": "Control",
+        "fields": {
+          "_dirty": {
+            "type": "bool",
+            "value": "false"
+          },
+          "_last_size": {
+            "type": "Vector2",
+            "value": "Vector2(0, 0)"
+          },
+          "_static_dirty": {
+            "type": "bool",
+            "value": "true"
+          },
+          "_static_ink": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "_static_view": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "_static_viewport": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "active": {
+            "entries": {},
+            "type": "Dictionary"
+          },
+          "freehand": {
+            "class": "RefCounted",
+            "fields": {
+              "dists": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "in_x": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "in_y": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "in_z": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "left": {
+                "type": "PackedVector2Array",
+                "value": "PackedVector2Array()"
+              },
+              "point_count": {
+                "type": "int",
+                "value": "0"
+              },
+              "press": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "pt_x": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "pt_y": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "rads": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "right": {
+                "type": "PackedVector2Array",
+                "value": "PackedVector2Array()"
+              },
+              "runs": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "scap": {
+                "type": "PackedByteArray",
+                "value": "PackedByteArray()"
+              },
+              "six": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "siy": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "sr": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "src_count": {
+                "type": "int",
+                "value": "0"
+              },
+              "srl": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "sx": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              },
+              "sy": {
+                "type": "PackedFloat64Array",
+                "value": "PackedFloat64Array()"
+              }
+            }
+          },
+          "hovering": {
+            "type": "bool",
+            "value": "false"
+          },
+          "ink_color": {
+            "type": "Color",
+            "value": "Color(0.26666668, 0.39607844, 0.9137255, 1)"
+          },
+          "interactive": {
+            "type": "bool",
+            "value": "true"
+          },
+          "pen_down": {
+            "type": "bool",
+            "value": "false"
+          },
+          "pencil": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "pencil_time": {
+            "type": "float",
+            "value": "0.0"
+          },
+          "perf_draw_us": {
+            "type": "int",
+            "value": "0"
+          },
+          "perf_draws": {
+            "type": "int",
+            "value": "0"
+          },
+          "perf_rebuild_us": {
+            "type": "int",
+            "value": "0"
+          },
+          "redo_strokes": {
+            "entries": {},
+            "type": "Dictionary"
+          },
+          "render_spread": {
+            "type": "int",
+            "value": "0"
+          },
+          "spread": {
+            "type": "int",
+            "value": "1"
+          },
+          "spreads": {
+            "entries": {},
+            "type": "Dictionary"
+          },
+          "stroke_opacity": {
+            "type": "float",
+            "value": "1.0"
+          },
+          "stroke_width": {
+            "type": "float",
+            "value": "4.5"
+          },
+          "tool": {
+            "type": "String",
+            "value": "\"draw\""
+          }
+        }
+      },
+      "static": {
+        "_blank_cursor": {
+          "type": "Nil",
+          "value": "null"
+        }
+      }
+    },
+    "modules/sketchbook/paintbox.gd": {
+      "instance": {
+        "class": "Control",
+        "fields": {
+          "_drag_pigment": {
+            "type": "Color",
+            "value": "Color(0, 0.27058825, 0.56078434, 1)"
+          },
+          "_hover_uv": {
+            "type": "Vector2",
+            "value": "Vector2(-1, -1)"
+          },
+          "_last_deposit": {
+            "type": "Vector2",
+            "value": "Vector2(-10, -10)"
+          },
+          "_mix_cue_elapsed": {
+            "type": "float",
+            "value": "0.0"
+          },
+          "_mixing": {
+            "type": "bool",
+            "value": "false"
+          },
+          "_paint_pixels": {
+            "type": "int",
+            "value": "0"
+          },
+          "_palette_image": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "_pointer": {
+            "type": "Vector2",
+            "value": "Vector2(-100000, -100000)"
+          },
+          "_stamp_index": {
+            "type": "int",
+            "value": "0"
+          },
+          "_tray_images": {
+            "entries": [],
+            "type": "Array"
+          },
+          "_tray_textures": {
+            "entries": [],
+            "type": "Array"
+          },
+          "anri_mode": {
+            "type": "bool",
+            "value": "false"
+          },
+          "brush_active": {
+            "type": "bool",
+            "value": "false"
+          },
+          "brush_color": {
+            "type": "Color",
+            "value": "Color(0, 0.27058825, 0.56078434, 1)"
+          },
+          "brush_cursor": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "brush_rest": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "brush_stage": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "hovering": {
+            "type": "bool",
+            "value": "false"
+          },
+          "image_rect": {
+            "type": "Rect2",
+            "value": "Rect2(0, 0, 0, 0)"
+          },
+          "mix_count": {
+            "type": "int",
+            "value": "0"
+          },
+          "parked_brush": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "smear_variant": {
+            "type": "String",
+            "value": "\"A\""
+          },
+          "title_bar": {
+            "type": "Nil",
+            "value": "null"
+          },
+          "tool_reference": {
+            "type": "Nil",
+            "value": "null"
+          }
+        }
+      },
+      "static": {
+        "_blank_cursor": {
+          "type": "Nil",
+          "value": "null"
+        }
+      }
+    }
+  }
+}

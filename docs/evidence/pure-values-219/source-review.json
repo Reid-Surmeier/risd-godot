@@ -1,0 +1,27 @@
+{
+  "baseline": "e6de6a21",
+  "runtime": "6d126dbb",
+  "standards": {
+    "findings": 0
+  },
+  "spec": {
+    "implementation_findings": 0,
+    "evidence_finding": "native static fields omitted in initial proof",
+    "fixed": "Exact baseline/current114instance+2staticfields and declared-field coverage asserted; independent re-review resolved",
+    "publication_pending": false,
+    "checks": [
+      "114instance+2staticfields/native5parses",
+      "exact18inputs/33states errors[]",
+      "12assets/museum/square173",
+      "fiveHTTPSsha256",
+      "tenfreshPRpicturesAPI",
+      "privategallery10images+finiteplayingclip"
+    ]
+  },
+  "ponytail": {
+    "findings": 0,
+    "fixed": 0,
+    "accepted": 0,
+    "result": "Lean already. Ship."
+  }
+}
