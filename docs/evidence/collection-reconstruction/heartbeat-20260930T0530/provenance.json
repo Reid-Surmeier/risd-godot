@@ -46,7 +46,7 @@
     "browser-reverse.png": "9e72fa2ac27fcb62b1e3831331c84362c9a0f3ebeb6307a61c62a7d170288d1c",
     "fresh-camera-assertion-failure.log": "e38b50f0a9b5f969da2c6f9ef92f3820909ab00dc5e0d02bbdccf058dff66aaf",
     "fresh-default-match-diagnostics.json": "5297b3fb4dc20a2dbe274a01a6a9fb9bb486c3d43b20667023d573b259477136",
-    "shell-rtx.log": "8d0e56b627617400a9c22feb6400329f8c0c0f7af30b301d7f7081a71adf0025",
+    "shell-rtx.log": "ae38160f7d2b685e8aa59cce51112173691e8bab55bebd9be118400966a62947",
     "header-annotations.json": "9ab45cd8dd194560ca6e8ec7cea9deaf8452c9f7724b7835dc7addb9aa10a287",
     "fresh-default.log.gz": "89f6e84292023b63858a4dfdcb786425698c8666d1cf5f57123bd60bd0ca1809",
     "shell-initial-crash.log.gz": "7b084fd7c6cf38d4e0e67c033498df602f40b6ed5074de52949f73d29f1e7110",
@@ -68,5 +68,6 @@
     "grand-return-fresh-v1",
     "grand-return-fresh-calibrated-v2",
     "grand-return-fresh-calibrated-v3"
-  ]
+  ],
+  "log_format": "Text logs trim trailing whitespace; gzip logs preserve exact original bytes."
 }

@@ -50,3 +50,7 @@ Evidence and hashes: docs/evidence/collection-reconstruction/heartbeat-20260930T
 https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T0530/
 
 Rejected measurements, calibrated matching proof and existing playable study.
+
+Git checkpoint succeeded; automatic GC reported a corrupt index in the unrelated
+`homepage-prototype` worktree. Left that checkout untouched; this is a host
+maintenance warning, not evidence that reconstruction or Shell passes.
