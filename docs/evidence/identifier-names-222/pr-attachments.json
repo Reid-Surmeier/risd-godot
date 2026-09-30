@@ -1,0 +1,16 @@
+{
+  "url": "https://github.com/Reid-Surmeier/risd-godot/pull/166#issuecomment-5917082916",
+  "body": "Current runtime2208eaba retains the older Viewer player/sidebar, four scans and enlarged hover preview, selected visitor and gallery. Seventeen identifier-style findings removed; exact token/byte/native/source checks pass. Eighteen browser inputs and33states pass errors[]. Full check still fails8tracked+3originaluntracked findings. Final full review and hands-on owner approval remain open. Private review only.\n\n![Current Viewer and hover](https://github.com/user-attachments/assets/be5357f3-6150-4799-ab19-d2dcb8da65d1)\n\n![Current gallery and visitor](https://github.com/user-attachments/assets/6b5bb42f-2da5-44a4-8ea8-14955ccdd85a)\n\n![Current contained portrait](https://github.com/user-attachments/assets/6e857c93-84b9-48c1-80c9-4ac88967d194)\n\n![Current Map](https://github.com/user-attachments/assets/b4e53539-b012-4767-adae-ff921b451d8f)\n\n![Current Sketchbook](https://github.com/user-attachments/assets/4565b929-f45a-4042-8cbc-ae06b3c920ee)\n\n![Current four-scan Viewer](https://github.com/user-attachments/assets/381fe18e-6ccd-46ec-9fe6-6e700095be29)\n\n![Current Video Player](https://github.com/user-attachments/assets/52fd647e-c599-4e6c-a042-1c31fe051aae)\n\n![Current Playground](https://github.com/user-attachments/assets/555f6752-fddf-49cb-9b62-91fbe28310f3)\n\n![Current Flowers](https://github.com/user-attachments/assets/c83634bf-26de-4dcc-a805-7751a9d883f3)\n\n![Current gallery portal](https://github.com/user-attachments/assets/e4f4d80e-3dcf-414d-be41-aa3140cf9341)",
+  "images": [
+    "https://github.com/user-attachments/assets/be5357f3-6150-4799-ab19-d2dcb8da65d1",
+    "https://github.com/user-attachments/assets/6b5bb42f-2da5-44a4-8ea8-14955ccdd85a",
+    "https://github.com/user-attachments/assets/6e857c93-84b9-48c1-80c9-4ac88967d194",
+    "https://github.com/user-attachments/assets/b4e53539-b012-4767-adae-ff921b451d8f",
+    "https://github.com/user-attachments/assets/4565b929-f45a-4042-8cbc-ae06b3c920ee",
+    "https://github.com/user-attachments/assets/381fe18e-6ccd-46ec-9fe6-6e700095be29",
+    "https://github.com/user-attachments/assets/52fd647e-c599-4e6c-a042-1c31fe051aae",
+    "https://github.com/user-attachments/assets/555f6752-fddf-49cb-9b62-91fbe28310f3",
+    "https://github.com/user-attachments/assets/c83634bf-26de-4dcc-a805-7751a9d883f3",
+    "https://github.com/user-attachments/assets/e4f4d80e-3dcf-414d-be41-aa3140cf9341"
+  ]
+}

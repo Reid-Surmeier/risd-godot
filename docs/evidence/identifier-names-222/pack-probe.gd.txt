@@ -1,0 +1,17 @@
+extends SceneTree
+func _initialize() -> void:
+ var result := []
+ for pack in OS.get_cmdline_user_args():
+  assert(ProjectSettings.load_resource_pack(pack, true))
+  var files := {}
+  var dir := "res://modules/shell/prototype/gallery_walk4/visitor159/inputs/"
+  for name in ["character.glb", "character_risd-163-shirt-baked.png", "character_risd-163-eye-baked.png", "character_risd-163-hair36-source-tinted.png", "character_risd-163-mouth-baked.png"]:
+   var config := ConfigFile.new()
+   var path: String = dir + name + ".import"
+   assert(config.load(path) == OK, path)
+   var imported: String = config.get_value("remap", "path")
+   files[path] = FileAccess.get_sha256(path)
+   files[imported] = FileAccess.get_sha256(imported)
+  result.append({"pack": pack, "files": files})
+ print("PACK_PROBE222 ", JSON.stringify(result))
+ quit()
