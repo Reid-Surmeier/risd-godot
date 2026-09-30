@@ -41,7 +41,8 @@ var detail_root := Node2D.new()
 var sheet := Sprite2D.new()
 var status := Label.new()
 var picker := OptionButton.new()
-var sheet_button: Button  # built by _build_ui (the prototype made a spare Button here that leaked at exit)
+# built by _build_ui (the prototype made a spare Button here that leaked at exit)
+var sheet_button: Button
 var hud := HBoxContainer.new()
 var detail_alpha := 0.0
 var dragging := false

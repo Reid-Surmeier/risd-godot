@@ -27,7 +27,8 @@ const GOLD_FRAME_SIZE := Vector2(605, 732)
 ## so both windows share the bottom edge and the composition's margin is NATIVE_MARGIN on every side.
 const NATIVE_MARGIN := Vector2(60, 52)
 const DESKTOP_SIZE := Vector2(1330, 1060)  # tall enough for the owner's arrangement of 2026-09-25
-const REFERENCE_SLOT := Rect2(397, 25, 620, 446)  # owner layout 2026-09-25: the framed painting large, top middle
+# owner layout 2026-09-25: the framed painting large, top middle
+const REFERENCE_SLOT := Rect2(397, 25, 620, 446)
 const PAINTBOX_SLOT := Rect2(60, 235, 360, 575)
 const ANRI_PAINTBOX_SLOT := Rect2(8, 28, 360, 360.0 * 3072.0 / 1484.0)
 const FRAMED_PAINTING_SLOT := Rect2(397, 520, 228.0, 276.0)
@@ -250,7 +251,8 @@ func _fit() -> void:
 	reference_list.position = Vector2(12, 12)
 	reference_list.size = reference_panel.size - Vector2(24, 24)
 	_place(painting_flow, REFERENCE_SLOT)
-	_place(tldraw_controls, Rect2(14, 865, 310, 178) if anri_prototype else Rect2(90, 70, 250, 184))  # bottom left
+	# bottom left
+	_place(tldraw_controls, Rect2(14, 865, 310, 178) if anri_prototype else Rect2(90, 70, 250, 184))
 
 
 func _reference_style(color: Color) -> StyleBoxFlat:

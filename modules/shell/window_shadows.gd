@@ -22,7 +22,8 @@ const SKIP := ["HoverGlow", "DesktopIcons"]
 
 var _tenant: Control
 var _holder: Control
-var _shadows := {}  # window -> {node, last, lift, dragged, key, rect (page px, relative to the window's origin)}
+# window -> {node, last, lift, dragged, key, rect (page px, relative to the window's origin)}
+var _shadows := {}
 static var _alpha_cache := {}  # texture -> its alpha, at most 256 px on the long side
 
 

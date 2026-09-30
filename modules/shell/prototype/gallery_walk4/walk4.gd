@@ -45,7 +45,8 @@ const DOORS := {
 	},
 }
 const BENCHES := [-9.0, -17.0]
-const BENCH_CLEAR := Vector2(0.78, 1.8)  # the kid's clearance round a bench (half-size x, z): collision and route planning share it
+# the kid's clearance round a bench (half-size x, z): collision and route planning share it
+const BENCH_CLEAR := Vector2(0.78, 1.8)
 const WALK_MPS := 1.2
 const STEP_M := 1.0
 const TURN_HELD_DPS := 40.0
@@ -124,9 +125,11 @@ func _ready() -> void:
 	add_child(box)
 	_vp = SubViewport.new()
 	_vp.own_world_3d = true
-	_vp.msaa_3d = Viewport.MSAA_2X  # steadies polygon edges at the low resolution; all light is baked, so this is cheap
+	# steadies polygon edges at the low resolution; all light is baked, so this is cheap
+	_vp.msaa_3d = Viewport.MSAA_2X
 	box.add_child(_vp)
-	resized.connect(func() -> void: box.stretch_shrink = maxi(1, roundi(size.x / LOW_RES.x)))  # render at ~LOW_RES wide
+	# render at ~LOW_RES wide
+	resized.connect(func() -> void: box.stretch_shrink = maxi(1, roundi(size.x / LOW_RES.x)))
 	_build_room()
 	_build_paintings()
 	_partition_surfaces()
@@ -522,7 +525,8 @@ func _build_room() -> void:
 					st.set_color(vault * Color(0.85, 0.85, 0.85))
 					st.add_vertex(v)
 		else:
-			var up := 0.5 + 0.5 * sin((a0 + a1) / 2.0)  # the cove darkens toward the cornice, brightens toward the light
+			# the cove darkens toward the cornice, brightens toward the light
+			var up := 0.5 + 0.5 * sin((a0 + a1) / 2.0)
 			var shade := lerpf(0.66, 1.02, up)
 			st.set_color(vault * Color(shade, shade, shade))
 			for v in [
@@ -859,7 +863,8 @@ func _build_floor() -> void:
 	)
 	mat.set_shader_parameter("plank_seams", true)
 	mat.set_shader_parameter("oak_atlas", true)
-	mat.set_shader_parameter("jitter", 0.0)  # herringbone has T-junctions: snapped corners would open cracks
+	# herringbone has T-junctions: snapped corners would open cracks
+	mat.set_shader_parameter("jitter", 0.0)
 	mat.set_shader_parameter("plank", PLANK)
 	var mi := MeshInstance3D.new()
 	mi.mesh = _conform_floor_edges(st.commit())
@@ -2935,14 +2940,16 @@ func _update_camera(k: float) -> void:
 		elif d[axis] < -0.0001:
 			t = minf(t, (lo - head[axis]) / d[axis])
 	t = clampf(t, 0.0, 1.0)
-	want = head + d * t + Vector3(0, (1.0 - t) * 0.9, 0)  # blocked by a wall: rise over the kid instead
+	# blocked by a wall: rise over the kid instead
+	want = head + d * t + Vector3(0, (1.0 - t) * 0.9, 0)
 	_cam.position = _cam.position.lerp(want, k) if k < 1.0 else want
 	_cam.look_at(_pos + _fwd() * 4.0 + Vector3(0, 1.1, 0))
 
 
 func _step(dir: float) -> void:
 	_new_action()
-	_target = _clamp(_pos + _fwd() * STEP_M * dir)  # from where the kid stands: a key replaces any click walk
+	# from where the kid stands: a key replaces any click walk
+	_target = _clamp(_pos + _fwd() * STEP_M * dir)
 
 
 func _new_action() -> void:
@@ -3230,7 +3237,8 @@ func _detail_input(event: InputEvent) -> void:
 		_zoom_root.position -= event.delta * 8.0
 
 
-func _input(event: InputEvent) -> void:  # Esc closes the detail view before anything else can take the key
+# Esc closes the detail view before anything else can take the key
+func _input(event: InputEvent) -> void:
 	if (
 		event is InputEventKey
 		and event.pressed

@@ -24,7 +24,8 @@ const COLORS := [
 const WHITE := Color(0.996, 0.996, 0.996)
 const EXIT_SECONDS := 1.8
 const GAME_PACK := "/tmp/game.pck"  # written by web/loading_shell.html (engine.preloadFile)
-const SHELL_INTERFACE := "res://modules/shell/interface.gd"  # loaded after the pack is mounted: not in the boot pack
+# loaded after the pack is mounted: not in the boot pack
+const SHELL_INTERFACE := "res://modules/shell/interface.gd"
 const MIN_SECONDS := 4.0  # the bar fills at a steady pace, never faster than empty-to-full in this
 # long, so a quick load still reads as loading (same pace as the HTML page)
 
@@ -52,7 +53,8 @@ func _ready() -> void:
 	noise.frequency = 1.0
 	ring = _bake_ring()
 	_mark("godot-ready")
-	var start_progress := 0.85 if OS.has_feature("web") else 0.0  # the page's downloads are the first 85%
+	# the page's downloads are the first 85%
+	var start_progress := 0.85 if OS.has_feature("web") else 0.0
 	progress = start_progress
 	target = start_progress
 	if drawing:
@@ -140,7 +142,8 @@ func _noise01(x: float) -> float:
 func _draw_stage() -> void:
 	var h := stage_rect.size.y
 	var fade := 1.0 - smoothstep(0.15, 0.85, maxf(exit, 0.0))
-	var spread := 1.0 + 2.2 * (1.0 - pow(1.0 - maxf(exit, 0.0), 2.0))  # ease-out: the orbit slowly widens
+	# ease-out: the orbit slowly widens
+	var spread := 1.0 + 2.2 * (1.0 - pow(1.0 - maxf(exit, 0.0), 2.0))
 	var dot_alpha := 1.0 - smoothstep(0.2, 1.0, maxf(exit, 0.0))
 	stage.draw_rect(stage_rect, Color(WHITE, fade))
 	var center := Vector2(0.0, 0.064)
@@ -225,7 +228,8 @@ func _poll_load() -> void:
 func _warm_up() -> void:
 	var Shell: Script = load(SHELL_INTERFACE)
 	var shell: Control = game.get_node_or_null("Desktop/Content/Shell")
-	if shell == null or DisplayServer.get_name() == "headless":  # headless draws nothing: nothing to warm
+	# headless draws nothing: nothing to warm
+	if shell == null or DisplayServer.get_name() == "headless":
 		warm = true
 		_set_target(1.0)
 		return

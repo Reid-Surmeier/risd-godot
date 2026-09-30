@@ -167,7 +167,8 @@ func _prepare() -> void:
 		instance.material_override = material
 		if floor_mesh or portal_floor:
 			var oak := ShaderMaterial.new()
-			oak.shader = load(DIR + ("floor_oak.gdshader" if floor_mesh else "oak.gdshader"))  # #186 selected gallery floor; retained passage
+			# #186 selected gallery floor; retained passage
+			oak.shader = load(DIR + ("floor_oak.gdshader" if floor_mesh else "oak.gdshader"))
 			oak.set_shader_parameter("oak", material.albedo_texture)
 			if portal_floor:
 				oak.set_shader_parameter(
@@ -229,7 +230,8 @@ func _prepare() -> void:
 		spot.light_bake_mode = Light3D.BAKE_STATIC
 		spot.shadow_enabled = true
 	var daylight := DirectionalLight3D.new()
-	daylight.rotation_degrees = Vector3(-60, -75, 0)  # across the gallery, avoiding a hard far-lunette shadow
+	# across the gallery, avoiding a hard far-lunette shadow
+	daylight.rotation_degrees = Vector3(-60, -75, 0)
 	daylight.light_color = Color("#eff5ff")
 	daylight.light_energy = 0.35
 	daylight.light_angular_distance = 6.0

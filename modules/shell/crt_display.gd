@@ -218,7 +218,8 @@ func _process(delta: float) -> void:
 				rect.end.y / extent.y
 			)
 			break
-	crt_material.set_shader_parameter("quiet_rect", Vector4.ZERO)  # keep CRT present over the gallery too
+	# keep CRT present over the gallery too
+	crt_material.set_shader_parameter("quiet_rect", Vector4.ZERO)
 	haze.material.set_shader_parameter("quiet_rect", quiet)
 	haze.material.set_shader_parameter(
 		"desktop_aspect", float($Desktop.size.y) / float($Desktop.size.x)

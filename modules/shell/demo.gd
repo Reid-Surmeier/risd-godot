@@ -14,7 +14,8 @@ const CollectionData := preload("res://modules/collection_data/interface.gd")
 const PlaygroundPage := preload("res://modules/playground_page/interface.gd")
 const FlowersPage := preload("res://modules/flowers_page/interface.gd")
 const SoundCues := preload("res://modules/sound_cues/interface.gd")
-const COLLECTION_PICTURE := "res://modules/shell/assets/collection_frame/page.png"  # image-work/collection-frame
+# image-work/collection-frame
+const COLLECTION_PICTURE := "res://modules/shell/assets/collection_frame/page.png"
 
 var _storage: Variant
 var _playground: Control
@@ -44,7 +45,8 @@ func _ready() -> void:
 		push_error("collection data: could not create shared handle")
 		return
 	var data: Variant = data_result.value
-	var collection_factory := func(_deps: Dictionary) -> Dictionary:  # the frame and clock, filling the Page's height
+	# the frame and clock, filling the Page's height
+	var collection_factory := func(_deps: Dictionary) -> Dictionary:
 		var host := Control.new()
 		host.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		var page := TextureRect.new()

@@ -221,7 +221,8 @@ func _initialize() -> void:
 	await create_timer(0.9).timeout
 	_state(strip, "fixed-kept")
 	await _shot(out_dir, "14-fixed-kept.png")
-	var phone: Dictionary = TabStrip.open_fixed_tab(strip, "phone", ColorRect.new())  # no label pixels yet (#34)
+	# no label pixels yet (#34)
+	var phone: Dictionary = TabStrip.open_fixed_tab(strip, "phone", ColorRect.new())
 	_log.append(
 		{
 			"t_ms": _ms(),

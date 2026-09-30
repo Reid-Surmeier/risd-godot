@@ -234,7 +234,8 @@ func build_shaped(tex: Texture2D, size: Vector2, outline: Array, edge_color: Col
 				st.add_vertex(Vector3(pts[i].x, pts[i].y, d)),
 		mat(tex)
 	)
-	var edge := mat(null)  # the gilt edge's own colour: the texture's outline pixels would sample the keyed matte
+	# the gilt edge's own colour: the texture's outline pixels would sample the keyed matte
+	var edge := mat(null)
 	edge.set_shader_parameter("tint", edge_color * Color(0.7, 0.7, 0.7))
 	_mesh(
 		func(st: SurfaceTool) -> void:

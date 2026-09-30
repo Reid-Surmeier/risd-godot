@@ -18,7 +18,8 @@ extends Control
 const Errors := preload("res://modules/video_player/errors.gd")
 
 const ROOT := "res://modules/video_player/"
-const CANVAS_SIZE := Vector2(1536, 1632)  # the owner's plate; controls keep their canvas coordinates
+# the owner's plate; controls keep their canvas coordinates
+const CANVAS_SIZE := Vector2(1536, 1632)
 ## The plate's two windows (#63), cut with their own chrome and shadow: Fly Through (the video) and
 ## Information (transport, title, Save, tiles). The Information window grows in height by one
 ## plain white row of its body (INFO_STRETCH_Y); Fly Through grows both ways by its straight frame
@@ -108,7 +109,8 @@ static func create(deps: Dictionary) -> Dictionary:
 	for v in VIDEOS:
 		if not OS.has_feature("web") and not FileAccess.file_exists(ROOT + "media/%s.ogv" % v.id):
 			return Errors.err(Errors.MEDIA_MISSING, ROOT + "media/%s.ogv" % v.id)
-	if not ResourceLoader.exists(ROOT + "assets/fly-through-v7.png"):  # an imported texture: only its .ctex is in an export
+	# an imported texture: only its .ctex is in an export
+	if not ResourceLoader.exists(ROOT + "assets/fly-through-v7.png"):
 		return Errors.err(Errors.ASSET_MISSING, ROOT + "assets/fly-through-v7.png")
 	for path in [
 		"assets/source-controls/manifest.json",

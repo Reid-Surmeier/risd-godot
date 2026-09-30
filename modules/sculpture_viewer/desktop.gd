@@ -21,11 +21,13 @@ const ROOT := "res://modules/sculpture_viewer/"
 ## paintbox-3d-risd-five-rows-text-refined-2x-v12.png halved).
 const DESKTOP_SIZE := Vector2(2540, 1680)
 const CATALOGUE_RIGHT_GAP := 87.0  # owner layout 2026-09-25
-const CATALOGUE_AT := Vector2(2540 - 1050, 31)  # owner layout 2026-09-25: the setup window flush right (DESKTOP_SIZE.x - PANEL_SIZE.x)
+# owner layout 2026-09-25: the setup window flush right (DESKTOP_SIZE.x - PANEL_SIZE.x)
+const CATALOGUE_AT := Vector2(2540 - 1050, 31)
 const PANEL_SIZE := Vector2(1050, 1320)  # assets/setup/panel-2x.png, the raster's x 0..2100 at 2x
 const VIEWER_SIZE := Vector2(800, 680)
 ## The mock-up viewer's frame in that raster: x 2143..4857, y 78.. at 2x.
-const VIEWER_AT := Vector2(-36, 25)  # the viewer on the left, over the icon strip (owner layout 2026-09-25)
+# the viewer on the left, over the icon strip (owner layout 2026-09-25)
+const VIEWER_AT := Vector2(-36, 25)
 const VIEWER_SCALE := 1357.0 / 800.0
 const REQUIRED := [
 	"assets/setup/panel-2x.png",

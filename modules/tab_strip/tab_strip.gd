@@ -22,7 +22,8 @@ const CONNECTING_SECONDS := 0.95
 const CLOSE_SECONDS := 0.3
 const SLIDE_SECONDS := 0.2
 const FADE_SECONDS := 0.2  # the legacy active tint fade; reviewed fixed-tab stills switch at once
-const SEA_BLUE := Color8(131, 229, 247)  # #83e5f7, the atlas world map's ocean (modules/atlas/assets/terrain.png)
+# #83e5f7, the atlas world map's ocean (modules/atlas/assets/terrain.png)
+const SEA_BLUE := Color8(131, 229, 247)
 const ACTIVE_TINT := 0.12  # how much of the sea blue the active tab's face carries (Issue #45)
 const STUB_PINK := Color8(247, 239, 244)
 const STUB_PRESSED := Color8(228, 218, 226)
@@ -30,8 +31,10 @@ const STUB_PRESSED := Color8(228, 218, 226)
 const COMPACT := ASSETS + "compact/"
 const STUB_GREY := Color(0.911, 0.911, 0.911)  # the new-tab stub's grey over the white tab face
 const PRESSED_GREY := Color(0.85, 0.85, 0.85)  # a tab dipping under a click
-const LEGACY_GLYPH_SCALE := 0.86  # Connecting.../Blank Page/page icon pixels to the new labels' cap height
-const LEGACY_WHITE_TO_FACE := Color(0.969, 0.969, 0.969)  # those glyphs are opaque on 255 white; the face is 247
+# Connecting.../Blank Page/page icon pixels to the new labels' cap height
+const LEGACY_GLYPH_SCALE := 0.86
+# those glyphs are opaque on 255 white; the face is 247
+const LEGACY_WHITE_TO_FACE := Color(0.969, 0.969, 0.969)
 const DIP_PX := 6.0  # how far a clicked tab drops while it shows the pressed tint
 
 var _layout: Dictionary = {}
@@ -286,7 +289,8 @@ func _fade(tab: Dictionary, to: float) -> void:
 	tab.tint_to = to
 	if tab.fade != null and tab.fade.is_valid():
 		tab.fade.kill()
-	if _reduce_motion or _compact_fixed_shell:  # compact: the selected grey is a static endpoint, as the blue still was
+	# compact: the selected grey is a static endpoint, as the blue still was
+	if _reduce_motion or _compact_fixed_shell:
 		_set_tint(tab, to)
 		return
 	tab.fade = create_tween()

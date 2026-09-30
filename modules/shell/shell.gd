@@ -43,7 +43,8 @@ static func create(registry: Dictionary) -> Dictionary:
 	shell._registry = registry
 	shell._pages = Control.new()
 	shell._pages.name = "PageStack"
-	var created: Dictionary = TabStrip.create(shell._pages, false)  # no "Windows Live" tab: the seven are ours
+	# no "Windows Live" tab: the seven are ours
+	var created: Dictionary = TabStrip.create(shell._pages, false)
 	if not created.ok:
 		return created
 	shell._strip = created.value

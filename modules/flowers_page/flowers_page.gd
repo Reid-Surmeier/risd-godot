@@ -2,7 +2,8 @@
 extends Control
 
 const Errors := preload("res://modules/flowers_page/errors.gd")
-const TITLE := "res://modules/flowers_page/assets/title.png"  # the game's title frame, captured from Ruffle at 2x
+# the game's title frame, captured from Ruffle at 2x
+const TITLE := "res://modules/flowers_page/assets/title.png"
 const GAME := Vector2(750, 422)  # the <embed> size on ferryhalim.com/orisinal/flowers/
 const MARGIN := 48.0  # page px around the window at most
 const MAX_FACTOR := 2.0

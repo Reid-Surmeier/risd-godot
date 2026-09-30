@@ -7,7 +7,8 @@
 extends RefCounted
 
 const REACH_PX := 90.0  # how far the light spreads past the edge, in screen pixels
-const DOWNSAMPLE := 4  # the blur runs on a quarter-size silhouette; the light is scaled back up smoothly
+# the blur runs on a quarter-size silhouette; the light is scaled back up smoothly
+const DOWNSAMPLE := 4
 const GAIN := 3.2  # extreme (owner's variation): full white well past the edge before it falls off
 const INNER := 0.0  # none on the control itself: only the area around it lights up
 const FADE_IN := 0.22
