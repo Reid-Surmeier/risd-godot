@@ -1,5 +1,5 @@
 import { createServer } from 'node:http';
-import { readFile, writeFile, mkdir, rm, stat } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, rm, stat, readdir } from 'node:fs/promises';
 import { resolve, join, extname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
@@ -21,7 +21,7 @@ async function validate(capture:Capture){
   child.once('error',reject);child.once('exit',code=>code===0?resolve():reject({code:'invalid',message:'The capture is not a valid supported image.'}));child.stdin.on('error',()=>{});child.stdin.end(bytes);
  });
 }
-async function provider(capture:Capture):Promise<Portrait>{
+async function provider(capture:Capture,onPrepared:()=>void=()=>{}):Promise<Portrait>{
  if(!process.env.OPENROUTER_API_KEY)throw Error('No server credential');
  const relative=`build/private/captures/${capture.id}`;const home=join(root,relative);
  await mkdir(home,{recursive:true,mode:0o700});
@@ -39,6 +39,7 @@ async function provider(capture:Capture):Promise<Portrait>{
   await writeFile(join(home,'recipe.json'),JSON.stringify({procedure:'edit',plan:`${relative}/plan.json`,attempt:'001'}));
   const call=async(args:string[])=>JSON.parse((await execute(tool,args,{maxBuffer:4_000_000,timeout:660_000})).stdout);
   const prepared=await call(['prepare','--application',root,'--recipe',`${relative}/recipe.json`,'--unit-cost','0.01','--budget','0.01']);
+  onPrepared();
   const cents=(cost:unknown)=>typeof cost==='string'&&/^\d+(?:\.\d+)?$/.test(cost)?Math.ceil(Number(cost)*100):undefined;
   let result;
   try{result=await call(['image','--application',root,'--objective',prepared.objective,'--execute']);}
@@ -63,9 +64,30 @@ async function provider(capture:Capture):Promise<Portrait>{
  }
  }catch{throw {costCents:recordedCostCents};}
 }
-const generate=Effect.runSync(createGeneration({root:privateRoot,provider,validate,requireLedger:true}));
+const generate=Effect.runSync(createGeneration({root:privateRoot,provider:capture=>provider(capture,()=>{const job=jobs.get(capture.id);if(job)job.completed=1;}),validate,requireLedger:true}));
 type Outcome={_tag:'Left';left:import('./errors.ts').GenerationError}|{_tag:'Right';right:Portrait};
-const jobs=new Map<string,{hash:string;outcome?:Outcome;delivered?:boolean}>();
+type Job={hash:string;outcome?:Outcome;delivered?:boolean;completed:number;runsBefore:Set<string>;run?:string};
+const jobs=new Map<string,Job>();
+const runsRoot=join(root,'artifacts/image-generation/runs');
+async function progress(id:string,job:Job){
+ try{
+  if(!job.run){
+   for(const run of await readdir(runsRoot)){
+    if(job.runsBefore.has(run)||!/^run-[a-f0-9]{24}$/.test(run))continue;
+    const request=JSON.parse(await readFile(join(runsRoot,run,'request.json'),'utf8'));
+    if(Array.isArray(request.references)&&request.references.some((ref:{applicationPath?:unknown})=>ref?.applicationPath===`build/private/captures/${id}/subject.png`)){job.run=run;break;}
+   }
+  }
+  if(job.run){
+   const state=JSON.parse(await readFile(join(runsRoot,job.run,'state.json'),'utf8'));
+   if(state.runId===job.run){
+    if(state.phase==='submission_may_have_started')job.completed=Math.max(job.completed,2);
+    if(['provider_evidence_received','generated_outputs_received','awaiting_donor_choice','donor_selected','assembly_completed','verified_candidate'].includes(state.phase))job.completed=Math.max(job.completed,3);
+   }
+  }
+ }catch{} // Optional UI telemetry never changes generation or spending; retry incomplete file writes next poll.
+ return {completed:job.completed,total:4};
+}
 const mime:Record<string,string>={'.html':'text/html','.js':'text/javascript','.wasm':'application/wasm','.pck':'application/octet-stream','.png':'image/png','.webp':'image/webp','.json':'application/json','.mp4':'video/mp4','.task':'application/octet-stream'};
 const server=createServer(async(request,response)=>{
  const send=(status:number,data:unknown)=>{response.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});response.end(JSON.stringify(data));};
@@ -81,7 +103,7 @@ const server=createServer(async(request,response)=>{
     let id;try{id=JSON.parse(Buffer.concat(chunks).toString('utf8')).id;}catch{send(400,{error:'Invalid capture.'});return;}
     const job=typeof id==='string'?jobs.get(id):undefined;
     if(!job){send(404,{error:'Capture result is unavailable. Take a new picture deliberately.'});return;}
-    if(!job.outcome){send(202,{pending:true});return;}
+    if(!job.outcome){send(202,{pending:true,progress:await progress(id,job)});return;}
     if(!job.delivered){job.delivered=true;setTimeout(()=>{if(jobs.get(id)===job)jobs.delete(id)},15_000).unref();}
     const outcome=job.outcome;
     if(outcome._tag==='Left'){send(outcome.left.code==='invalid'?400:outcome.left.code==='busy'?409:503,{error:outcome.left.message,code:outcome.left.code});return;}
@@ -91,11 +113,12 @@ const server=createServer(async(request,response)=>{
    if(request.headers.prefer==='respond-async'){
     if(!/^[0-9a-f-]{36}$/.test(capture.id)||capture.image.length>2_000_000){send(400,{error:'Invalid capture.'});return;}
     const captureHash=hash(capture.image);const prior=jobs.get(capture.id);
-    if(prior){send(prior.hash===captureHash?202:400,prior.hash===captureHash?{pending:true}:{error:'Capture identity already used.'});return;}
+    if(prior){send(prior.hash===captureHash?202:400,prior.hash===captureHash?{pending:true,progress:await progress(capture.id,prior)}:{error:'Capture identity already used.'});return;}
     if([...jobs.values()].some(job=>!job.outcome)){send(409,{error:'Another portrait is being prepared.'});return;}
-    const job:{hash:string;outcome?:Outcome;delivered?:boolean}={hash:captureHash};jobs.set(capture.id,job);
+    const job:Job={hash:captureHash,completed:0,runsBefore:new Set()};jobs.set(capture.id,job);
+    job.runsBefore=new Set(await readdir(runsRoot).catch(()=>[]));
     void Effect.runPromise(Effect.either(generate(capture))).then(outcome=>{job.outcome=outcome;setTimeout(()=>{if(jobs.get(capture.id)===job)jobs.delete(capture.id)},60_000).unref();});
-    send(202,{pending:true});return;
+    send(202,{pending:true,progress:await progress(capture.id,job)});return;
    }
    const outcome=await Effect.runPromise(Effect.either(generate(capture)));
    if(outcome._tag==='Left'){send(outcome.left.code==='invalid'?400:outcome.left.code==='busy'?409:503,{error:outcome.left.message,code:outcome.left.code});return;}

@@ -30,6 +30,7 @@ var pose_value := Vector3.ZERO
 var tracking_mode := "idle"
 var entered_at := 0.0
 var generation_error := ""
+var loading_completed := 0
 
 
 func _ready() -> void:
@@ -77,6 +78,8 @@ func _ready() -> void:
 	)
 	add_child(camera_button)
 	cancel_button = _button("Return to camera", Vector2(790, 590), reset)
+	if OS.has_feature("web"):
+		source = "requesting"
 	_sync()
 
 
@@ -122,6 +125,7 @@ func capture() -> Dictionary:
 	if source == "camera" and OS.has_feature("web"):
 		var encoded := "data:image/png;base64," + Marshalls.raw_to_base64(captured.get_image().save_png_to_buffer())
 		JavaScriptBridge.eval("window.booth.generate(%s)" % JSON.stringify(encoded))
+	loading_completed = 0
 	state = "loading"
 	entered_at = _now()
 	elapsed = 0.0
@@ -157,10 +161,11 @@ func _process(delta: float) -> void:
 			"reset":
 				reset()
 	elapsed = _now() - entered_at
-	loader.material.set_shader_parameter("progress", minf(elapsed / 4.0, 1.0))
 	if state == "loading":
 		if source == "camera" and OS.has_feature("web"):
 			var result = JSON.parse_string(JavaScriptBridge.eval("window.booth.generated()"))
+			loading_completed = clampi(int(result.get("completed", 0)), 0, 4)
+			loader.material.set_shader_parameter("progress", float(loading_completed) / 4.0)
 			if result.mode == "idle":
 				reset()
 			elif result.mode == "ready":
@@ -193,7 +198,7 @@ func _process(delta: float) -> void:
 			frame_clock = 0.0
 			_poll_camera()
 	if OS.has_feature("web"):
-		JavaScriptBridge.eval("window.boothState = %s" % JSON.stringify({"state": state, "source": source, "elapsed": elapsed, "has_capture": captured != null, "motion_time": motion.stream_position, "motion_playing": motion.is_playing(), "message": caption.text, "tracking": tracking_mode, "expression": [expression_value.x, expression_value.y, expression_value.z, expression_value.w]}))
+		JavaScriptBridge.eval("window.boothState = %s" % JSON.stringify({"state": state, "source": source, "elapsed": elapsed, "has_capture": captured != null, "loading_completed": loading_completed, "motion_time": motion.stream_position, "motion_playing": motion.is_playing(), "message": caption.text, "tracking": tracking_mode, "expression": [expression_value.x, expression_value.y, expression_value.z, expression_value.w]}))
 
 
 

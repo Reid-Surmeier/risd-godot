@@ -18,7 +18,7 @@ try{
  await page.route('**/api/portrait',async route=>{const body=route.request().postDataJSON();const pixels=execFileSync('/usr/bin/python3',['-c','from PIL import Image;import io,sys;i=Image.open(io.BytesIO(sys.stdin.buffer.read())).convert("RGB");assert i.size==(320,240);print(i.tobytes().hex())'],{input:Buffer.from(body.image.split(',')[1],'base64')}).toString().trim();assert.equal(pixels,expected,'Actual submitted source must match injected photo pixels');sourceVerified=true;await route.continue()});
  page.on('request',r=>{if(r.url().endsWith('/api/portrait')&&r.method()==='POST')submissions++;});
  await page.goto(process.env.BOOTH_TEST_URL??'http://127.0.0.1:8129/');
- await page.waitForFunction(()=>window.boothState?.state==='camera');await page.getByRole('button',{name:'Enable camera',exact:true}).click();
+ await page.waitForFunction(()=>window.boothState?.state==='camera');
  await page.waitForFunction(()=>window.boothState.source==='camera');
  // Physical hardware is unavailable: feed the declared source photo through the same capture bridge.
  await page.evaluate(jpeg=>{window.booth.frame=()=>jpeg},jpeg);
@@ -28,7 +28,7 @@ try{
  await page.screenshot({path:resolve(home,`review/evidence/${tag==='paid-loop'?'09-paid-loading':tag==='final-loop'?'16-final-loading':'19-final-loading'}.png`)});
  await page.waitForFunction(()=>window.boothState.state==='portrait',null,{timeout:150000});
  const started=Date.now();
- assert.equal(sourceVerified,true);assert.equal(submissions,1);assert.equal(await page.evaluate(()=>window.boothState.fixture_generation),false);
+ assert.equal(sourceVerified,true);assert.equal(submissions,1);assert.equal(await page.evaluate(()=>window.boothState.source),'camera');
  const generated=await page.evaluate(()=>JSON.parse(window.booth.generated()));assert.match(generated.run,/^run-/);
  await page.screenshot({path:resolve(home,`review/evidence/${tag==='paid-loop'?'10-paid-portrait':tag==='final-loop'?'17-final-portrait':'20-final-portrait'}.png`)});
  await page.waitForFunction(()=>window.boothState.state==='explosion');

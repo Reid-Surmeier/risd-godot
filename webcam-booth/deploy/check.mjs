@@ -22,7 +22,6 @@ try {
  const readyMs=Math.round(performance.now()-started);
  const wasm=await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.endsWith('/index.wasm')).toJSON());
  assert(await page.evaluate(()=>window.isSecureContext));
- await page.getByRole('button',{name:'Enable camera',exact:true}).click();
  await page.waitForFunction(()=>window.boothState.source==='camera');
  await page.screenshot({path:evidence+'-camera.png'});
  await page.getByRole('button',{name:'Take picture',exact:true}).click();

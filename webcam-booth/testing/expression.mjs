@@ -20,7 +20,7 @@ try{
  },photo);
  await page.route('**/api/portrait',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({image:portrait,run:'unpaid-expression-acceptance'})}));
  await page.goto(process.env.BOOTH_TEST_URL??'http://127.0.0.1:8129/');
- await page.waitForFunction(()=>window.boothState?.state==='camera');await page.getByRole('button',{name:'Enable camera',exact:true}).click();
+ await page.waitForFunction(()=>window.boothState?.state==='camera');
  await page.waitForFunction(()=>window.boothState.source==='camera');await page.getByRole('button',{name:'Take picture',exact:true}).click();
  await page.waitForFunction(()=>window.boothState.state==='portrait');
  await page.waitForFunction(()=>JSON.parse(window.booth.tracking()).face,null,{timeout:20000});
@@ -39,7 +39,7 @@ try{
  assert(changed.eye_pixels>100&&changed.mouth_pixels>100);
  await page.evaluate(()=>{window.booth.tracking=window.__originalTracking;const c=window.__trackingCanvas.getContext('2d');c.fillStyle='white';c.fillRect(0,0,640,480);});
  await page.waitForFunction(()=>!JSON.parse(window.booth.tracking()).face&&window.boothState.expression.every(v=>v<.05));
- await page.getByRole('button',{name:'Return to camera',exact:true}).click();await page.waitForFunction(()=>window.boothState.state==='camera');
+ await page.keyboard.press('Escape');await page.waitForFunction(()=>window.boothState.state==='camera');
  assert.equal(await page.evaluate(()=>JSON.parse(window.booth.tracking()).mode),'idle');
  await page.waitForTimeout(700);assert.equal(await page.evaluate(()=>window.boothState.state),'camera');
  await writeFile(resolve(evidence,'expression.json'),JSON.stringify({passed:true,provider_calls:0,physical_webcam_tested:false,source:'fixture canvas through real browser video stream',live_worker_measurement:measured,simulated_expression_geometry:changed,observed_regions:regions,no_face_neutral:true,reset_stops_worker:true,limit:'bounded2D UV deformation; no3D reconstruction or new teeth/eyelids'},null,2)+'\n');

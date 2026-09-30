@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "provider_calls": 0,
+  "physical_webcam_tested": false,
+  "source": "fixture canvas through real browser video stream",
+  "live_worker_measurement": {
+    "mode": "ready",
+    "face": true,
+    "anchors": {
+      "left": [
+        0.42925840616226196,
+        0.40779444575309753
+      ],
+      "right": [
+        0.5669743120670319,
+        0.4070504903793335
+      ],
+      "mouth": [
+        0.49989181756973267,
+        0.5499030351638794
+      ],
+      "mouthWidth": 0.10271203517913818
+    },
+    "timestamp": 2824.9000000003725,
+    "values": {
+      "blinkL": 0,
+      "blinkR": 0,
+      "smile": 0,
+      "jaw": 0
+    },
+    "pose": {
+      "x": 0,
+      "y": 0,
+      "angle": 0
+    },
+    "landmarks": 478
+  },
+  "simulated_expression_geometry": {
+    "eye_pixels": 2471,
+    "mouth_pixels": 4194
+  },
+  "observed_regions": {
+    "eyes": [
+      440,
+      265,
+      570,
+      315
+    ],
+    "mouth": [
+      450,
+      330,
+      570,
+      405
+    ]
+  },
+  "no_face_neutral": true,
+  "reset_stops_worker": true,
+  "limit": "bounded2D UV deformation; no3D reconstruction or new teeth/eyelids"
+}

@@ -1,5 +1,5 @@
 // The web loading screen's dots and bar (web/loading_shell.html), ported to a Godot canvas_item
-// shader for the video download overlay. progress is the download's 0..1.
+// shader for generation. progress is completed recorded stages / 4, never elapsed time.
 shader_type canvas_item;
 
 uniform float progress = 0.0;
@@ -35,7 +35,7 @@ void fragment() {
 		col = mix(col, colors[i], exp(-pow((d - 0.0096) / 0.0112, 2.0)));
 	}
 
-	float p = mix(0.04, 1.0, clamp(progress, 0.0, 1.0));
+	float p = clamp(progress, 0.0, 1.0);
 	vec2 bar_half = vec2(0.07, 0.0075);
 	vec2 b = st - vec2(-0.010, -0.410);
 	float track = sd_pill(b, bar_half);
@@ -44,6 +44,12 @@ void fragment() {
 	float glow = 0.0045;
 	col = mix(col, vec3(0.975), exp(-pow(max(track, 0.0) / glow, 2.0)));
 	col = mix(col, vec3(0.885), exp(-pow(max(fill, 0.0) / glow, 2.0)));
+	// Activity moves within the current unfinished stage; completed fill holds until a real event.
+	if (p < 1.0) {
+		float cursor = p + 0.04 + 0.18 * (sin(TIME * 2.0) * 0.5 + 0.5);
+		float activity = sd_pill(b - vec2((2.0 * cursor - 1.0) * bar_half.x, 0.0), vec2(bar_half.x * 0.035, bar_half.y));
+		col = mix(col, vec3(0.80), exp(-pow(max(activity, 0.0) / glow, 2.0)));
+	}
 	col = mix(col, vec3(0.92), exp(-pow(track / (glow * 0.5), 2.0)) * 0.5);
 
 	COLOR = vec4(col, 1.0);

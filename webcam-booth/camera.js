@@ -40,19 +40,22 @@ window.booth = (() => {
   window.addEventListener('pagehide', stop);
   let generation = {mode:'idle'}, generationTicket=0, controller;
   async function generate(image) {
-    const own=++generationTicket;controller?.abort();controller=new AbortController();generation={mode:'loading'};
+    const own=++generationTicket;controller?.abort();controller=new AbortController();generation={mode:'loading',completed:0};
     const timeout=setTimeout(()=>controller.abort(),700000);
     const id=crypto.randomUUID();const signal=controller.signal;
     try {
       let response=await fetch(new URL('api/portrait',document.baseURI),{method:'POST',headers:{'Content-Type':'application/json',Prefer:'respond-async'},body:JSON.stringify({id,image}),signal});
       while(response.status===202){
+        const pending=await response.json();if(own!==generationTicket)return;
+        const completed=pending.progress?.completed;
+        if(pending.progress?.total===4&&Number.isInteger(completed)&&completed>=0&&completed<4)generation={mode:'loading',completed:Math.max(generation.completed??0,completed)};
         await new Promise(resolve=>setTimeout(resolve,1000));
         if(own!==generationTicket)return;
         response=await fetch(new URL('api/portrait/status',document.baseURI),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id}),signal});
       }
       const result=await response.json();
       if(!response.ok)throw Error(result.error||'Generation unavailable.');
-      if(own===generationTicket)generation={mode:'ready',image:result.image,run:result.run};
+      if(own===generationTicket)generation={mode:'ready',image:result.image,run:result.run,completed:4};
     }catch(e){if(own===generationTicket)generation={mode:'error',error:e.name==='AbortError'?'Generation timed out. This capture will not be retried automatically.':e.message};}
     finally {clearTimeout(timeout);}
   }

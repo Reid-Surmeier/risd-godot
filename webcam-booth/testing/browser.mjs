@@ -44,13 +44,12 @@ page.on('pageerror',e=>errors.push(e.message));
 page.on('console',m=>{if(/SCRIPT ERROR|^ERROR:/.test(m.text()))errors.push(m.text());});
 const waitState = state=>page.waitForFunction(s=>window.boothState?.state===s,state,{timeout:30000});
 const snapshot = async name=>page.screenshot({path:resolve(evidence,name+'.png')});
-const click=x=>page.getByRole('button',{name:({320:'Enable camera',690:'Take picture',870:'Return to camera'})[x],exact:true}).click();
+const click=x=>x===870?page.keyboard.press('Escape'):page.getByRole('button',{name:({320:'Enable camera',690:'Take picture'})[x],exact:true}).click();
 const results = [];
 try {
   await page.goto(origin);
   await waitState('camera');
   await snapshot('00-camera-start');
-  await click(320);
   await page.waitForFunction(()=>window.boothState.source==='camera');
   await page.evaluate(()=>{const frame=window.booth.frame,generate=window.booth.generate;window.booth.frame=()=>{window.__rawFrame=frame();return window.__rawFrame};window.booth.generate=image=>{window.__captured={image,raw:window.__rawFrame};return generate(image)}});
   await snapshot('01-camera-preview');
@@ -137,7 +136,6 @@ try {
   const denied=await browser.newContext({viewport:{width:1024,height:700}});
   const deniedPage=await denied.newPage();
   await deniedPage.goto(origin);await deniedPage.waitForFunction(()=>window.boothState?.state==='camera');
-  await deniedPage.getByRole('button',{name:'Enable camera',exact:true}).click();
   await deniedPage.waitForFunction(()=>window.boothState.source==='denied',null,{timeout:20000});
   await deniedPage.screenshot({path:resolve(evidence,'07-camera-denied.png')});
   results.push({check:'permission denial is recoverable',status:JSON.parse(await deniedPage.evaluate(()=>window.booth.status()))});
