@@ -8,12 +8,12 @@ var enabled := true
 var squiggle_enabled := true  # owner restored the CRT + Squigglevision presentation
 var squiggle: ColorRect
 var haze: ColorRect  # F10 or ?haze=0 turns it off, to compare
-var _qa_elapsed := 0.0
-var _qa_enabled := false
-var _mouse_inside := false
 var stage_rect := Rect2()
 var pointer_buttons := {}
 var touches := {}
+var _qa_elapsed := 0.0
+var _qa_enabled := false
+var _mouse_inside := false
 @onready var crt_material: ShaderMaterial = $Screen.material
 
 

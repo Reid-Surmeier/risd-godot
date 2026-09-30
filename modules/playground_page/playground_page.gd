@@ -84,9 +84,6 @@ var websurfer: Control
 var sketchbook: Control
 var fengshui: Control
 var browsing: Control
-var _active: Control
-var _start_pointer := Vector2.ZERO
-var _start_position := Vector2.ZERO
 var saved_body := ColorRect.new()
 var saved_ids: Array = []
 var storage_status := "loading"
@@ -100,6 +97,9 @@ var saved_scroll := ScrollContainer.new()
 var saved_query := LineEdit.new()
 var artwork_detail := Label.new()
 var filter_count := Label.new()
+var _active: Control
+var _start_pointer := Vector2.ZERO
+var _start_position := Vector2.ZERO
 
 
 static func create(deps: Dictionary) -> Dictionary:

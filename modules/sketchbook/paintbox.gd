@@ -72,6 +72,9 @@ var brush_cursor: TextureRect
 var brush_stage: ColorRect
 var brush_rest: TextureRect
 var parked_brush: TextureRect
+var hovering := false
+var brush_active := false
+var anri_mode := false
 var _palette_image: Image
 var _tray_images: Array[Image] = []
 var _tray_textures: Array[ImageTexture] = []
@@ -82,10 +85,7 @@ var _drag_pigment := brush_color
 var _last_deposit := Vector2(-10, -10)
 var _hover_uv := Vector2(-1, -1)
 var _stamp_index := 0
-var hovering := false
 var _pointer := Vector2(-100000, -100000)
-var brush_active := false
-var anri_mode := false
 
 
 func set_anri_mode(enabled: bool) -> void:

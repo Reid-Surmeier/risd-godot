@@ -78,7 +78,6 @@ var reference_art: Control
 var global_chatroom: Control
 var tldraw_controls: Control
 var painting_flow: Control
-var _slots := {}  # window -> the Rect2 the last _fit gave it
 var reference_panel := PanelContainer.new()
 var reference_list := HBoxContainer.new()
 var viewer_host := Control.new()
@@ -87,6 +86,7 @@ var selected_reference := ""
 var storage_status := "loading"
 var refresh_generation := 0
 var anri_prototype := true
+var _slots := {}  # window -> the Rect2 the last _fit gave it
 
 
 static func create(deps: Dictionary) -> Dictionary:

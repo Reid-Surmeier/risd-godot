@@ -46,15 +46,15 @@ var pencil: TextureRect
 var pencil_time := 0.0
 var pen_down := false
 var hovering := false
+var perf_rebuild_us := 0  # accumulated since last perf read
+var perf_draw_us := 0
+var perf_draws := 0
 var _last_size := Vector2.ZERO
 var _dirty := false
 var _static_dirty := true
 var _static_viewport: SubViewport
 var _static_ink: Control
 var _static_view: TextureRect
-var perf_rebuild_us := 0  # accumulated since last perf read
-var perf_draw_us := 0
-var perf_draws := 0
 
 
 func _ready() -> void:
