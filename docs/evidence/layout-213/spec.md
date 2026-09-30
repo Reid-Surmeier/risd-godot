@@ -41,4 +41,3 @@ Existing integrate-square-164 build/v0.1.0 only, under the owner's full map149 i
 
 ## Dependencies and approvals
 Follow-through of209/210 after scoped211 completed. Reversible unpaid layout work is authorized by the existing continuation; no repeated permission prompt. Owner must personally approve the final integrated build; no approval inferred from silence or source checks. Whole162 remains needs-work.
-
