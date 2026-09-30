@@ -1,0 +1,16 @@
+{
+  "tool": "gdtoolkit4.5.0",
+  "tracked_owned_exit": 1,
+  "tracked_owned": {
+    "max-returns": 3,
+    "class-definitions-order": 85,
+    "load-constant-name": 9,
+    "duplicated-load": 4,
+    "function-variable-name": 8,
+    "max-file-lines": 1
+  },
+  "tracked_owned_total": 110,
+  "full_total": 113,
+  "excluded_upstream_findings": 9,
+  "previous_all_tracked_total": 119
+}
