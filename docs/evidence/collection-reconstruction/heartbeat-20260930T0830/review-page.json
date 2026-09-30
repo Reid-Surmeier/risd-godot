@@ -1,0 +1,39 @@
+{
+  "status": 200,
+  "images": [
+    {
+      "src": "13-floor-training-broad.png",
+      "loaded": true
+    },
+    {
+      "src": "revisit-000245-triangle.png",
+      "loaded": true
+    },
+    {
+      "src": "000021-triangle.png",
+      "loaded": true
+    },
+    {
+      "src": "000025-triangle.png",
+      "loaded": true
+    },
+    {
+      "src": "depth-source-masks.png",
+      "loaded": true
+    },
+    {
+      "src": "depth-valid-depth.png",
+      "loaded": true
+    },
+    {
+      "src": "browser-forward.png",
+      "loaded": true
+    },
+    {
+      "src": "browser-reverse.png",
+      "loaded": true
+    }
+  ],
+  "errors": [],
+  "initial_attempt": "ERR_CERT_VERIFIER_CHANGED; retry with normal certificate verification"
+}

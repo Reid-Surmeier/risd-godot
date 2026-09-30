@@ -1,0 +1,109 @@
+{
+  "selection": {
+    "point_ids": [
+      13116,
+      13515,
+      14326
+    ],
+    "training": [
+      "IMG_6380_exit6fps/000013.jpg",
+      "IMG_6380_exit6fps/000019.jpg"
+    ],
+    "reserved": [
+      "IMG_6380_exit6fps/000021.jpg",
+      "IMG_6380_exit6fps/000025.jpg"
+    ],
+    "reason": "First two threshold features source-reviewed in prior tick. Third14326 is an interior wood-floor feature in training views, away from cabinet/pedestal contact. Selected before reserved track lookup/projection. No floor/collision acceptance."
+  },
+  "selection_sha256": "c8517971125fa490da71e0f2ac8477dc6962141e3f70b15042a6211d2d1c54c8",
+  "source_sha256": {
+    "points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "points_world": [
+    [
+      0.5090730695358644,
+      1.895903708146622,
+      1.3109652442817028
+    ],
+    [
+      0.5175451596295587,
+      1.9809532618736596,
+      1.310361292640563
+    ],
+    [
+      0.558261871370416,
+      2.0056949317736277,
+      0.9756427696786982
+    ]
+  ],
+  "ray_angles_degrees": [
+    9.132108124786011,
+    8.65266213886574,
+    5.513704113339278
+  ],
+  "views": [
+    {
+      "image": "IMG_6380_exit6fps/000013.jpg",
+      "errors_px": {
+        "13116": 0.037171313180805715,
+        "13515": 1.3631757597385425,
+        "14326": 1.2480454884131569
+      },
+      "missing_ids": [],
+      "diagnostic_pass": true
+    },
+    {
+      "image": "IMG_6380_exit6fps/000019.jpg",
+      "errors_px": {
+        "13116": 0.04566791130330769,
+        "13515": 1.7018142252115596,
+        "14326": 1.4607332003890594
+      },
+      "missing_ids": [],
+      "diagnostic_pass": true
+    },
+    {
+      "image": "IMG_6380_exit6fps/000021.jpg",
+      "errors_px": {
+        "13116": 1.178227965464322,
+        "14326": 4.860644140561252
+      },
+      "missing_ids": [
+        13515
+      ],
+      "diagnostic_pass": false
+    },
+    {
+      "image": "IMG_6380_exit6fps/000025.jpg",
+      "errors_px": {
+        "13116": 3.893285708883157,
+        "13515": 6.1193448777213675
+      },
+      "missing_ids": [
+        14326
+      ],
+      "diagnostic_pass": false
+    }
+  ],
+  "candidate_normal_world": [
+    -0.9887740417960879,
+    0.09769247377813664,
+    -0.11305783846039281
+  ],
+  "edges_world_units": [
+    0.08547261349291235,
+    0.3380924288684966,
+    0.35625105331116796
+  ],
+  "minimum_altitude_world_units": 0.08077380647749638,
+  "pick_sensitivity_camera_pixel_radius": 2,
+  "normal_change_p95_degrees": 17.932454540301052,
+  "threshold_px": 8,
+  "navigation_accepted": false,
+  "cost_usd": 0,
+  "caveat": "Reserved observations excluded from point triangulation, but cameras are globally fitted using these tracks. Same-video correlated diagnostic, not independent validation. Three points define a candidate plane, not physical planarity, metric scale, floor extent or collision approval."
+}

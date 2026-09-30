@@ -1,0 +1,13 @@
+{
+  "training": [
+    "IMG_6380_exit6fps/000013.jpg",
+    "IMG_6380_exit6fps/000019.jpg",
+    "IMG_6380_exit6fps/000020.jpg"
+  ],
+  "excluded": [
+    "IMG_6380_exit6fps/000021.jpg",
+    "IMG_6380_exit6fps/000023.jpg",
+    "IMG_6380_exit6fps/000025.jpg"
+  ],
+  "reason": "All corrected-model exit cameras observing the same frozen three point IDs, excluding both reserved views and prior selection witness. Candidate floor triangle only."
+}

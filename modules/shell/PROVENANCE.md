@@ -265,3 +265,25 @@ and completed holdouts verified unchanged. Existing historical bounded walk pass
 24 native/browser checks and real WASD round trip. Shell has four prior failures;
 repository/pose/diff checks pass. Existing Muse receipts and rejected meshes
 preserved. No runtime/Viewer edit, paid generation, integration or ticket closure.
+
+
+## Collection corrected-model floor hypothesis — September 30, 08:30 UTC heartbeat
+
+Local pycolmap CUDA / NumPy / Pillow / Godot 4.7.2 / Chrome 154; **$0**.
+[Source selections, frozen floor masks, raw logs and hashes](../../docs/evidence/collection-reconstruction/heartbeat-20260930T0830/provenance.json).
+
+Three source-visible floor features from corrected cameras 13/19; reserved 21/25
+each lack one track. Earlier visit 245 predicts all three within 0.63/1.64/4.95px,
+an exploratory same-video diagnostic. Triangle-normal pixel sensitivity p95
+17.93 degrees: no collision acceptance. New six-view RTX 4070SUPER CUDA depth
+excludes reserved 21/25; near/far valid fractions 38.62/87.48 percent, candidate
+normal difference 3.16 degrees. No old scale or floor geometry transplanted.
+Block residuals are correlated and expressed in world units; cross-view depth
+checks remain outstanding. Planar/negative/camera-round-trip checks pass.
+Existing historical bounded walk passes 24 native/Chrome checks and real WASD
+round trip; timings excluded from acceptance due to overlapping work. Initial
+missing native capture directory error retained, corrected run inspected.
+Isolated Shell retains four prior failures; repository checks pass with eight
+ObjectDB leak warnings. Ten originals and completed models/holdouts preserved.
+Muse receipts and rejected sculpture meshes unchanged. No runtime/Viewer edit,
+production integration, paid generation or ticket closure.
