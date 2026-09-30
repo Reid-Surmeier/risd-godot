@@ -6,7 +6,8 @@ extends Control
 ## keyframe segment, drop-shadow (5,1,7,.16) -> (18,4,14,.28) -> (-5,1,7,.12), a cream underlay
 ## revealing from 40% to 100% by 55%, faces with backface-visibility hidden. The sheet is a
 ## flat cream card carrying the outgoing half's ink (rendered to a SubViewport texture).
-## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c.
+## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline
+## prototype/painting-tool-mixbox @ 7ee5e9c.
 
 const PERSPECTIVE := 1800.0
 const STRIPS := 32

@@ -1,8 +1,12 @@
 ## Prototype (owner's references: the kiiikiii.kr hover glow, the nodate.club two-state cursor).
-## A hovered button or tab gives off soft white light: the control's drawn pixels (every PNG piece it is
-## built from, at the size and stretch it is drawn with) are gathered into one silhouette, blurred REACH_PX
-## screen pixels out into the scene and faded in over FADE_IN, out over FADE_OUT. The light is computed on
-## first hover and kept until the control resizes. The arrow cursor switches to its hover state over it.
+## A hovered button or tab gives off soft white light: the control's
+## drawn pixels (every PNG piece it is
+## built from, at the size and stretch it is drawn with) are gathered into
+## one silhouette, blurred REACH_PX
+## screen pixels out into the scene and faded in over FADE_IN, out over
+## FADE_OUT. The light is computed on
+## first hover and kept until the control resizes. The arrow cursor
+## switches to its hover state over it.
 ## White only (owner's call): on white paper the light has nothing to brighten, by design.
 extends RefCounted
 
@@ -18,8 +22,10 @@ const ARROW_HOVER := "res://assets/cursor/arrow-hover.png"
 const CURSOR_PX := 32
 
 
-## The owner-supplied cursor pair, when present: each scaled down by a whole factor to at most CURSOR_PX
-## tall (pixel art stays crisp), its hotspot at the arrow's tip (the top-left-most solid pixel). Without
+## The owner-supplied cursor pair, when present: each scaled down by a
+## whole factor to at most CURSOR_PX
+## tall (pixel art stays crisp), its hotspot at the arrow's tip (the
+## top-left-most solid pixel). Without
 ## the files the system arrow stays.
 static func use_cursor() -> void:
 	for pair in [[ARROW, Input.CURSOR_ARROW], [ARROW_HOVER, Input.CURSOR_POINTING_HAND]]:
@@ -180,7 +186,8 @@ static func _silhouette(target: Control, s: float) -> Image:
 	return mask
 
 
-## White light: the silhouette's alpha blurred (three box passes each way, near a gaussian) and brightened;
+## White light: the silhouette's alpha blurred (three box passes each way,
+## near a gaussian) and brightened;
 ## cut out where the control draws (INNER of it left there), so the control keeps its own look.
 static func _glow(mask: Image) -> Image:
 	var full := mask.get_size()

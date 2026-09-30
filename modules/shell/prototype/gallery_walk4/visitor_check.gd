@@ -1,5 +1,6 @@
 ## Source-content and actual playback regression, including empty/static negative controls.
-## godot --headless --rendering-method gl_compatibility --path . --script res://modules/shell/prototype/gallery_walk4/visitor_check.gd
+## godot --headless --rendering-method gl_compatibility --path . --script
+## res://modules/shell/prototype/gallery_walk4/visitor_check.gd
 extends SceneTree
 
 var failures := 0

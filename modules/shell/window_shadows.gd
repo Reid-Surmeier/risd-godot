@@ -2,7 +2,8 @@
 ## `filter: drop-shadow(0 4px 2px #00000080)`; tuned with the owner: soft, light, minimal): a drop
 ## shadow under every window of every Page, in the shape the window actually draws (its pictures,
 ## buttons, panels and viewports; never its bare bounding box), lifting while the window is dragged.
-## The silhouette is built on the CPU at a quarter of page resolution when the window's size or pieces
+## The silhouette is built on the CPU at a quarter of page resolution
+## when the window's size or pieces
 ## change; the blur and the lift are GPU work every frame (window_shadow.gdshader).
 ## One zero-size node per window, just below it: nothing to click, so no Tenant's window picking
 ## ever finds it; it follows the window's place, visibility and stacking every frame.
@@ -48,7 +49,8 @@ func _process(delta: float) -> void:
 				e.node.queue_free()
 			_shadows.erase(window)
 			continue
-		# lifted from the first move under a held button until the button is let go (a drag, however it pauses)
+		# lifted from the first move under a held button until the button is let
+		# go (a drag, however it pauses)
 		var held := Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
 		e.dragged = held and (e.dragged or window.position != e.last)
 		e.last = window.position
@@ -116,7 +118,8 @@ func _sync(window: Control, e: Dictionary) -> void:
 		)
 
 
-## Every piece the window draws, as [kind, control]: pictures by their alpha, flat pieces as rectangles.
+## Every piece the window draws, as [kind, control]: pictures by their
+## alpha, flat pieces as rectangles.
 func _pieces(window: Control) -> Array:
 	var out := []
 	var stack: Array = [window]
@@ -203,7 +206,8 @@ func _build(window: Control, pieces: Array, e: Dictionary) -> void:
 	e.node.queue_redraw()
 
 
-## A picture (a region of an atlas included) at most 256 px on its long side; only its alpha is used.
+## A picture (a region of an atlas included) at most 256 px on its
+## long side; only its alpha is used.
 static var _atlas_cache := {}  # source texture -> its full image, decompressed
 
 

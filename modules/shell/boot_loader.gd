@@ -9,7 +9,8 @@
 ##
 ## On desktop there is no page, so this scene draws the same loading screen itself: the four
 ## noise-driven dots and the bar in a SubViewport slightly smaller than the window (a subtle pixel
-## reduction), tape_screen.gdshader for a light colour bleed and edge halo; at the end the dots drift
+## reduction), tape_screen.gdshader for a light colour bleed and edge
+## halo; at the end the dots drift
 ## slowly outward and fade with the white.
 extends Control
 

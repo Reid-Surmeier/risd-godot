@@ -1,5 +1,6 @@
 ## #135 native navigation regression; uses delivered input events, not replacement motion logic.
-## godot --rendering-method gl_compatibility --path . --script res://modules/shell/prototype/gallery_walk4/navigation_check.gd
+## godot --rendering-method gl_compatibility --path . --script
+## res://modules/shell/prototype/gallery_walk4/navigation_check.gd
 extends "res://testing/harness_base.gd"
 
 var failures := 0

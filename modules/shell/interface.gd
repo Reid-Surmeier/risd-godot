@@ -64,7 +64,8 @@ static func select_tab(shell: Control, index: int) -> Dictionary:
 
 
 ## Close a stub-opened Tab exactly as its close button does. A fixed Tab refuses with TAB_FIXED.
-## Returns ok(remaining count) or err(TAB_FIXED | tab_strip.index_out_of_range | tab_strip.open_in_progress).
+## Returns ok(remaining count) or err(TAB_FIXED | tab_strip.index_out_of_range |
+## tab_strip.open_in_progress).
 static func close_tab(shell: Control, index: int) -> Dictionary:
 	return shell.close_tab(index)
 
@@ -89,5 +90,5 @@ static func state(shell: Control) -> Dictionary:
 
 ## Signals on the Shell node:
 ##   tenant_created(key: String)  — the Tenant for `key` now lives in its Page
-##   switch_settled(index: int)   — the cross-fade to Tab `index` is done and the freeze rule applied
+## switch_settled(index: int) — the cross-fade to Tab `index` is done and the freeze rule applied
 ## The strip's own signals (tab_selected and the rest) are on the strip and are not re-emitted.

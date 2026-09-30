@@ -1,6 +1,7 @@
 ## Playtest harness for the atlas desktop as the Map Tenant: builds the Shell with the atlas in
 ## the Map Tab and nothing in the other Tabs, then plays it the way a person does (the four
-## desktop panels and the map window) and reports what it did and what the Shell's probe said. Real InputEventMouseButton / InputEventMouseMotion /
+## desktop panels and the map window) and reports what it did and what the Shell's probe said. Real
+## InputEventMouseButton / InputEventMouseMotion /
 ## InputEventKey events through Input.parse_input_event for every gesture; the interface is called
 ## only for what the Shell's caller would call (state, tenant_state). The atlas is reached through
 ## the Shell only. Args: --out-dir=<path>. Writes numbered screenshots and report.json.
@@ -137,7 +138,8 @@ func _atlas(shell: Control, label: String) -> Dictionary:
 
 
 ## The global centre of one of the frame's two buttons, from the probe's frame rects
-## (atlas_window.gd _layout: collapse at (44, 42) x chrome_scale, lock at (w - 86, 42), 44 px square).
+## (atlas_window.gd _layout: collapse at (44, 42) x chrome_scale, lock
+## at (w - 86, 42), 44 px square).
 func _frame_button(a: Dictionary, which: String) -> Vector2:
 	var cs: float = a.chrome_scale
 	var x: float = 44.0 * cs if which == "collapse" else a.frame.w - 86.0 * cs
@@ -253,7 +255,8 @@ func _initialize() -> void:
 	var cl := _atlas(shell, "window-clamped")
 	await _shot(out_dir, "06-window-clamped.png")
 
-	# 8. drag the frame's bottom-right corner inward: the frame shrinks in place and the map body follows
+	# 8. drag the frame's bottom-right corner inward: the frame shrinks in
+	# place and the map body follows
 	var corner := Vector2(
 		cl.frame_global.x + cl.frame_global.w - 4.0, cl.frame_global.y + cl.frame_global.h - 4.0
 	)
@@ -283,7 +286,8 @@ func _initialize() -> void:
 	_atlas(shell, "unlocked")
 
 	# 11. the keys with Map active: + zooms, Right pans, F shows the region's sheet and comes back,
-	#     Home resets to the world view; then two wheel notches so the view left behind is not the default
+	# Home resets to the world view; then two wheel notches so the view
+	# left behind is not the default
 	_atlas(shell, "pre-keys")
 	await _keys(shell, "")
 	await _shot(out_dir, "09-key-home.png")
@@ -318,7 +322,8 @@ func _initialize() -> void:
 	_atlas(shell, "map-resumed-after-20-frames")
 	await _shot(out_dir, "12-resumed.png")
 
-	# 14. resize the window to the 1440x900 minimum: the tenant fills the smaller page and re-fits its window
+	# 14. resize the window to the 1440x900 minimum: the tenant fills the
+	# smaller page and re-fits its window
 	root.size = Vector2i(1440, 900)
 	await _frames(4)
 	_state(shell, "resized")

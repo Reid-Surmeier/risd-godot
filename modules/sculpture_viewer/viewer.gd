@@ -1,5 +1,6 @@
 ## The 800x680 3D sculpture viewer window: the clean media-player chrome over a SubViewport with
-## the selected scan (Buddha by default in Sketchbook); drag orbits, the wheel zooms, previous / next, play / pause, scrubber, audio
+## the selected scan (Buddha by default in Sketchbook); drag orbits, the wheel zooms, previous /
+## next, play / pause, scrubber, audio
 ## and menu with their Muse + Seedance motion frames. Lives inside desktop.gd; reach it through
 ## interface.gd only.
 ##

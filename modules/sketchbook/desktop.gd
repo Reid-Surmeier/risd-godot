@@ -1,11 +1,13 @@
 ## The Sketchbook Tenant: the painting-tool prototype's desktop (variant A, "Sidecar studio") — the
 ## Mixbox paintbox window with its cat brush rest on the left, the native sketchbook window on the
 ## right — laid out from the Tenant's own size by the fill rule of ticket #63. Both windows drag by
-## their title bars and raise on click; the brush leaves the rest while the pointer is over the palette
+## their title bars and raise on click; the brush leaves the rest while
+## the pointer is over the palette
 ## or the page and goes back to it otherwise. Reach it through interface.gd only.
 ##
 ## Ported from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ d2faa30
-## viewer-godot/scripts/desktop.gd (enable_paint_prototype("A"), _sync_brush_rest, the drag and raise).
+## viewer-godot/scripts/desktop.gd (enable_paint_prototype("A"),
+## _sync_brush_rest, the drag and raise).
 ## Left behind: the catalogue and viewer windows (the 3D Viewer Tenant), the A/B/C switcher and its
 ## Left / Right key cycling, the ?variant / ?perf / ?turn-seconds levers, the perf telemetry and the
 ## JavaScriptBridge publishes. Changed: the composition is cropped to the two windows with the
@@ -22,9 +24,12 @@ const ROOT := "res://modules/sketchbook/"
 const GOLD_FRAME := preload("res://modules/sketchbook/assets/gold-frame/frame.png")
 const REFERENCE_PAINTING := preload("res://modules/sketchbook/assets/monet-reference.png")
 const GOLD_FRAME_SIZE := Vector2(605, 732)
-## The native composition: variant A's windows (paintbox 170,345 550x575; book 750,365 630x545 on the
-## prototype's 1440x972 canvas) moved in to the prototype's right/bottom margins, the book 10 px taller
-## so both windows share the bottom edge and the composition's margin is NATIVE_MARGIN on every side.
+## The native composition: variant A's windows (paintbox 170,345
+## 550x575; book 750,365 630x545 on the
+## prototype's 1440x972 canvas) moved in to the prototype's right/bottom
+## margins, the book 10 px taller
+## so both windows share the bottom edge and the composition's margin
+## is NATIVE_MARGIN on every side.
 const NATIVE_MARGIN := Vector2(60, 52)
 const DESKTOP_SIZE := Vector2(1330, 1060)  # tall enough for the owner's arrangement of 2026-09-25
 # owner layout 2026-09-25: the framed painting large, top middle
@@ -210,7 +215,8 @@ func _on_visibility_changed() -> void:
 
 ## The fill rule (ticket #63). S is this Tenant's size, D the native composition. All art scales by
 ## s = min(S.x / D.x, S.y / D.y); the desktop's logical size becomes S / s, so the leftover axis E
-## goes to the book window (wider or taller pages) while the paintbox keeps its native size, anchored
+## goes to the book window (wider or taller pages) while the paintbox
+## keeps its native size, anchored
 ## to the top-left corner beside it. A window the user dragged or resized keeps that change
 ## relative to its slot, clamped inside the desktop.
 func _fit() -> void:
@@ -459,7 +465,8 @@ func _process(_delta: float) -> void:
 	ticks += 1
 
 
-## Window drag and raise, by the mouse, in the desktop's own pixels (the prototype's desktop.gd _input,
+## Window drag and raise, by the mouse, in the desktop's own pixels (the
+## prototype's desktop.gd _input,
 ## less the variant key cycling).
 func _input(event: InputEvent) -> void:
 	inputs += 1
@@ -505,7 +512,8 @@ static func _global_rect(c: Control) -> Rect2:
 	return c.get_global_transform() * Rect2(Vector2.ZERO, c.size)
 
 
-## The paintbox's palette-space rects in global pixels: the image, the 32 wells' hit boxes, the 4 trays.
+## The paintbox's palette-space rects in global pixels: the image, the 32
+## wells' hit boxes, the 4 trays.
 func _paintbox_rects() -> Dictionary:
 	var xf: Transform2D = paintbox.get_global_transform()
 	var img: Rect2 = paintbox.image_rect

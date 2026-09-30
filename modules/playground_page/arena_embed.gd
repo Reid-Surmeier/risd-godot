@@ -5,7 +5,8 @@
 ##
 ## window.playgroundArena(placement | null) places the one element in page px. The canvas shows the
 ## view through crt_display.gd's barrel warp (published as window.crtQaState), so each corner is
-## carried through the inverse of that warp. The profile is laid out at LAYOUT px and scaled down, as
+## carried through the inverse of that warp. The profile is laid out
+## at LAYOUT px and scaled down, as
 ## in the owner's picture. Covered parts are cut out of a clip path made of the uncovered cells of a
 ## grid on the holes' edges; during a window drag it ignores the pointer.
 extends RefCounted

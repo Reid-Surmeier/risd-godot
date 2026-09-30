@@ -2,7 +2,8 @@
 class_name AtlasErrors
 extends RefCounted
 
-## A pixel sheet, data file, font or shader the atlas loads is not in the project (detail: its path).
+## A pixel sheet, data file, font or shader the atlas loads is not in
+## the project (detail: its path).
 const ASSET_MISSING := "atlas.asset_missing"
 
 

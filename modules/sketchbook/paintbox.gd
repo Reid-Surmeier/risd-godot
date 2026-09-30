@@ -2,8 +2,10 @@ extends Control
 ## THROWAWAY UI PROTOTYPE: three desktop arrangements are selected by `?variant=A|B|C`.
 ## Paint wells load pigment; dragging through a white tray mixes visible puddles with Mixbox.
 ## Ported from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ d2faa30
-## viewer-godot/scripts/paint_palette_prototype.gd: the global class_name dropped, the pixel and Mixbox paths
-## moved into this module, the hover pointer taken from mouse events (see _input). The desktop fixes smear variant A (the `?variant=` switcher stayed behind).
+## viewer-godot/scripts/paint_palette_prototype.gd: the global class_name
+## dropped, the pixel and Mixbox paths
+## moved into this module, the hover pointer taken from mouse events (see _input). The desktop fixes
+## smear variant A (the `?variant=` switcher stayed behind).
 ## Reach it through interface.gd only.
 
 signal color_changed(color: Color)

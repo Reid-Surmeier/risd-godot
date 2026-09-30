@@ -227,7 +227,8 @@ func _build_turn() -> void:
 	add_child(turn)
 
 
-## The web gutter: multiply gradient, transparent -> (112,84,53) 18% -> (76,55,34) 26% -> transparent.
+## The web gutter: multiply gradient, transparent -> (112,84,53) 18% ->
+## (76,55,34) 26% -> transparent.
 func _gutter_texture() -> GradientTexture2D:
 	var gradient := Gradient.new()
 	gradient.offsets = PackedFloat32Array([0.0, 0.42, 0.5, 0.58, 1.0])

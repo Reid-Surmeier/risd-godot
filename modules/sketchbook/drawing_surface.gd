@@ -2,8 +2,10 @@ extends Control
 ## Native drawing page: tldraw-equivalent ink (Freehand port) in tldraw's size-m draw style,
 ## one stroke list per spread, the prototype's spine curvature applied to the rendered ink,
 ## and the pigment-loaded watercolor brush cursor.
-## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ d2faa30
-## viewer-godot/scripts/drawing_surface.gd (the global class_name dropped, the pixel paths moved). Reach it through interface.gd only.
+## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline
+## prototype/painting-tool-mixbox @ d2faa30
+## viewer-godot/scripts/drawing_surface.gd (the global class_name dropped, the pixel paths moved).
+## Reach it through interface.gd only.
 
 const Freehand := preload("res://modules/sketchbook/freehand.gd")
 

@@ -23,7 +23,8 @@ var _flash: Tween
 
 
 ## Put the column inside `tenant`, under its windows: descend through plain containers that fill the
-## page or hold its backdrop (the Sketchbook's and 3D Viewer's `desktop`) to the node that holds the windows, then sit just
+## page or hold its backdrop (the Sketchbook's and 3D Viewer's `desktop`) to the node that
+## holds the windows, then sit just
 ## above any full-page backdrop there (the paper, the ground), below everything else.
 static func insert(tenant: Control) -> Control:
 	var holder := window_holder(tenant)
@@ -63,7 +64,8 @@ static func is_backdrop(c: Node, tenant: Control) -> bool:
 	return (c is ColorRect or c is TextureRect) and _full(c, tenant)
 
 
-## The index of the last full-page ColorRect/TextureRect among `holder`'s children (the paper, the ground), or -1.
+## The index of the last full-page ColorRect/TextureRect among `holder`'s children
+## (the paper, the ground), or -1.
 static func _backdrop_in(holder: Node, tenant: Control) -> int:
 	var at := -1
 	for i in holder.get_child_count():
@@ -115,7 +117,8 @@ func _fit() -> void:
 	var k := get_global_transform().get_scale().x
 	if k <= 0.0:
 		return
-	# the column is placed in Page pixels, out in the strip the Tenant gave up (this layer does not clip)
+	# the column is placed in Page pixels, out in the strip the Tenant
+	# gave up (this layer does not clip)
 	var page := _page()
 	if page == null:
 		return

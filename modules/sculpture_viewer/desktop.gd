@@ -1,8 +1,11 @@
 ## The 3D Viewer Tenant: the RISD Museum setup screen (Issue #110) — a white 2540x1680 ground with
-## the setup panel window (the approved raster: header, the 40-object grid, form, Global Chatroom and
+## the setup panel window (the approved raster: header, the 40-object
+## grid, form, Global Chatroom and
 ## friends list, drag only) whose animated objects turn on hover, and the 800x680 viewer window
-## (viewer.gd) with the live Buddha scan where the screen's mock-up viewer stood — filling the Page at
-## one uniform scale (#63). Windows drag by their handles, raise on click and stack. Reach it through
+## (viewer.gd) with the live Buddha scan where the screen's mock-up
+## viewer stood — filling the Page at
+## one uniform scale (#63). Windows drag by their handles, raise on
+## click and stack. Reach it through
 ## interface.gd only.
 ##
 ## Ported from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c

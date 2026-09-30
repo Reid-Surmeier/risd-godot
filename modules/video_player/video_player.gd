@@ -7,7 +7,8 @@
 ## prototypes/video-player-usability/main.gd. Left behind: the A/B/C variant remnants, the
 ## hidden state strip, the command-line capture and reference-check paths, the JavaScriptBridge
 ## publishes (now state()), the unused thumbnails/ files. Changed for the Page seam (#24, #31):
-## the viewer is scaled to fit the Page and centred, again on every resize (#63; the prototype scaled its whole
+## the viewer is scaled to fit the Page and centred, again on every resize (#63;
+## the prototype scaled its whole
 ## window the same way, 1536x1632 shown at 768x816); fullscreen fills the Page instead of the
 ## OS window; the video pauses while the Page is hidden and resumes on show; the rendering is
 ## linear-filtered as the prototype's project was; the media are the checked-in 480-wide
@@ -569,7 +570,8 @@ func _select_video(index: int) -> void:
 	_update_thumbnail_frames()
 
 
-## The video's stream: from the project on desktop, from WEB_MEDIA_DIR on the Web (null until fetched).
+## The video's stream: from the project on desktop, from WEB_MEDIA_DIR
+## on the Web (null until fetched).
 func _video_stream(id: String) -> VideoStream:
 	if not OS.has_feature("web"):
 		return load(ROOT + "media/%s.ogv" % id) as VideoStream
@@ -807,7 +809,8 @@ func _grect(c: Control) -> Rect2:
 	return c.get_global_transform() * Rect2(Vector2.ZERO, c.size)
 
 
-## The grabber of a source slider, where HSlider draws it: ratio * (track - grabber) along, centred across.
+## The grabber of a source slider, where HSlider draws it: ratio * (track -
+## grabber) along, centred across.
 func _knob_rect(slider: HSlider) -> Rect2:
 	var icon: Texture2D = source_faces[slider.name]
 	var gs := icon.get_size()

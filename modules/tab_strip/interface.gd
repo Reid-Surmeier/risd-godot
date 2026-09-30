@@ -10,10 +10,14 @@
 ## tab dips it: the stub's pressed tint and a 6 px drop for PRESS_SECONDS, then it sits back;
 ## grow_tab replays the open gesture on a tab already in the row (the Shell's launch tab).
 ## The active tab's face carries the atlas sea blue (#83e5f7) at 12 percent (Issue #45): the tint
-## fades in over 0.2 s when a tab becomes active. In the Shell's compact fixed-tab mode (Issue #113) the
-## bar is the rebuilt Muse taskbar (assets/compact/), each fixed tab carries its own icon and label, and
-## the active tab's face switches at once to the new-tab stub's grey (a static endpoint, as the reviewed
-## blue still was); the dip and the grow use the same grey family. Icon, label and close glyphs stay as drawn.
+## fades in over 0.2 s when a tab becomes active. In the Shell's compact
+## fixed-tab mode (Issue #113) the
+## bar is the rebuilt Muse taskbar (assets/compact/), each fixed tab
+## carries its own icon and label, and
+## the active tab's face switches at once to the new-tab stub's grey (a
+## static endpoint, as the reviewed
+## blue still was); the dip and the grow use the same grey family. Icon, label
+## and close glyphs stay as drawn.
 ##
 ## Every public function returns { ok: bool, value: Variant, error: Variant }.
 ## Errors are the values in errors.gd. The strip raises nothing across this seam.
@@ -38,7 +42,8 @@ const CONNECTING_SECONDS := 0.95
 ## `page_stack` is the Control that receives one page child per tab; the caller owns it
 ## and passes it in (dependencies are passed, never constructed inside). With
 ## `windows_live_tab` false the strip starts with the stub alone at the first tab's place, for a
-## caller that opens its own fixed tabs (the Shell). Returns ok(TabStrip node) or err(ASSET_MISSING).
+## caller that opens its own fixed tabs (the Shell). Returns
+## ok(TabStrip node) or err(ASSET_MISSING).
 static func create(page_stack: Control, windows_live_tab: bool = true) -> Dictionary:
 	return _Impl.create(page_stack, windows_live_tab)
 
@@ -53,7 +58,8 @@ static func open_new_tab(strip: Control) -> Dictionary:
 ## `label_<label_key>.png` from the `labels` map in layout.json; a key with no label (phone,
 ## until #34) shows the page icon alone and logs it. The tab owns `page`, the caller's Control
 ## (added hidden to the PageStack, full-rect, shown by select_tab); a fixed tab has no close
-## button and close_tab on it returns TAB_FIXED. Returns ok(new index) or err(OPEN_IN_PROGRESS | NO_ROOM).
+## button and close_tab on it returns TAB_FIXED. Returns ok(new index) or
+## err(OPEN_IN_PROGRESS | NO_ROOM).
 static func open_fixed_tab(strip: Control, label_key: String, page: Control) -> Dictionary:
 	return strip.open_fixed_tab(label_key, page)
 
@@ -65,9 +71,11 @@ static func select_tab(strip: Control, index: int) -> Dictionary:
 
 
 ## Replay the open gesture on tab `index` where it stands: stub-sized with the pressed tint for
-## PRESS_SECONDS, then the grow to its own width over GROW_SECONDS; neighbours and the stub stay put;
+## PRESS_SECONDS, then the grow to its own width over GROW_SECONDS;
+## neighbours and the stub stay put;
 ## tab_opened then tab_settled are emitted; the active tab does not change. Blocks open_new_tab,
-## open_fixed_tab and close_tab until settled. Returns ok(index) or err(INDEX_OUT_OF_RANGE | OPEN_IN_PROGRESS).
+## open_fixed_tab and close_tab until settled. Returns ok(index) or
+## err(INDEX_OUT_OF_RANGE | OPEN_IN_PROGRESS).
 static func grow_tab(strip: Control, index: int) -> Dictionary:
 	return strip.grow_tab(index)
 
@@ -87,22 +95,27 @@ static func set_bar_width(strip: Control, width: float) -> void:
 
 
 ## Number of tabs, the active index, and each tab's current label key, pixel rect, whether it is
-## fixed, whether its label is truncated with "...", its close button rect (empty on a fixed tab), and
-## `tint`, active-state progress (0 inactive, 1 active; ordinary tabs fade to the sea blue at 12 percent,
+## fixed, whether its label is truncated with "...", its close button
+## rect (empty on a fixed tab), and
+## `tint`, active-state progress (0 inactive, 1 active; ordinary tabs fade
+## to the sea blue at 12 percent,
 ## compact-mode tabs to the stub's grey).
 ## `pressed` is the index of the tab dipping under a click, or -1.
-## Returns ok({ count, active, tabs: [{ label, rect, page_visible, fixed, truncated, close_rect, tint }],
+## Returns ok({ count, active, tabs: [{ label, rect, page_visible, fixed,
+## truncated, close_rect, tint }],
 ## opening: bool, pressed: int, bar_width }).
 static func state(strip: Control) -> Dictionary:
 	return strip.state()
 
 
-## The stub's rectangle in the strip's coordinates, so a harness can click it with a real mouse event.
+## The stub's rectangle in the strip's coordinates, so a harness can
+## click it with a real mouse event.
 static func stub_rect(strip: Control) -> Rect2:
 	return strip.stub_rect()
 
 ## Signals on the strip node (connect to them on the returned node):
-##   tab_opened(index: int)       — the new tab exists and its grow has started (grow_tab: the replay started)
+## tab_opened(index: int) — the new tab exists and its grow has started
+## (grow_tab: the replay started)
 ##   tab_settled(index: int)      — grow finished, label is "Connecting..."
 ##   tab_titled(index: int)       — label swapped to "Blank Page"
 ##   tab_selected(index: int)     — active tab changed; its page is visible

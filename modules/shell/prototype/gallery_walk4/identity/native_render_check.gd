@@ -1,6 +1,7 @@
 extends SceneTree
 
-## godot --rendering-method gl_compatibility --path . --script res://modules/shell/prototype/gallery_walk4/identity/native_render_check.gd
+## godot --rendering-method gl_compatibility --path . --script
+## res://modules/shell/prototype/gallery_walk4/identity/native_render_check.gd
 const HOME := "res://modules/shell/prototype/gallery_walk4/identity/"
 
 

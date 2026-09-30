@@ -83,7 +83,8 @@ func _ready() -> void:
 			continue
 		_fixed.append({"key": key, "page": page, "tenant": null, "error": ""})
 	_apply_freeze()  # every Page starts hidden and frozen
-	# prototype: the hover glow on the strip's buttons and the seven tabs, and the two-state arrow cursor
+	# prototype: the hover glow on the strip's buttons and the seven tabs,
+	# and the two-state arrow cursor
 	HoverGlow.use_cursor()
 	HoverGlow.attach_all(_strip)
 	for tab in _strip.get_children():
@@ -118,7 +119,8 @@ func _fit() -> void:
 
 
 ## A selection: the Tenant is created on the first show, then the new Page cross-fades in over
-## FADE_SECONDS while the Page(s) on screen fade out; the freeze rule is applied when the fade settles.
+## FADE_SECONDS while the Page(s) on screen fade out; the freeze rule is
+## applied when the fade settles.
 func _on_tab_selected(index: int) -> void:
 	if index < _fixed.size() and _fixed[index].tenant == null and _fixed[index].error == "":
 		_create_tenant(_fixed[index])
@@ -158,7 +160,8 @@ func _on_tab_selected(index: int) -> void:
 	)
 
 
-## The Shell's show/hide rule: the visible Page runs, every hidden Page is frozen and holds no focus.
+## The Shell's show/hide rule: the visible Page runs, every hidden
+## Page is frozen and holds no focus.
 func _apply_freeze() -> void:
 	var focus: Control = get_viewport().gui_get_focus_owner() if is_inside_tree() else null
 	for child in _pages.get_children():

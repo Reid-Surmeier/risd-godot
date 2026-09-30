@@ -1,5 +1,6 @@
 ## Behaviour checks for #132, driven through the viewer's existing controls and input.
-## Run: godot --rendering-method gl_compatibility --path . --script res://modules/shell/prototype/gallery_walk4/dollhouse_shot.gd
+## Run: godot --rendering-method gl_compatibility --path . --script
+## res://modules/shell/prototype/gallery_walk4/dollhouse_shot.gd
 extends "res://testing/harness_base.gd"
 
 var failures := 0

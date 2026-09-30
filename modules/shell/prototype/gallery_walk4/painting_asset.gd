@@ -1,6 +1,9 @@
-## PROTOTYPE (map #116): one real painting as geometry. Local space: x right, y up, z out of the wall (wall at z = 0),
-## centred on the canvas. The frame is a 3D nine-slice of its Muse texture: every band keeps its real width
-## (band pixels scaled by the canvas's metres per opening pixel), a front face DEPTH off the wall, outer sides back to
+## PROTOTYPE (map #116): one real painting as geometry. Local space: x right, y up, z
+## out of the wall (wall at z = 0),
+## centred on the canvas. The frame is a 3D nine-slice of its Muse texture:
+## every band keeps its real width
+## (band pixels scaled by the canvas's metres per opening pixel), a front face DEPTH
+## off the wall, outer sides back to
 ## the wall, inner reveals down to the canvas, which sits INSET behind the frame's face.
 extends Node3D
 
@@ -12,7 +15,8 @@ var outer := Vector2.ZERO  # the framed size in metres, for picking
 static var _shader: Shader
 
 
-# The room's PS1 surface shader, lit (paintings cast and receive the skylight's shadows); no affine warp on a canvas.
+# The room's PS1 surface shader, lit (paintings cast and receive the skylight's
+# shadows); no affine warp on a canvas.
 static func mat(tex: Texture2D, shade := 1.0, cut := false) -> ShaderMaterial:
 	if _shader == null:
 		_shader = load("res://modules/shell/prototype/gallery_walk4/ps1.gdshader")
@@ -45,7 +49,8 @@ func _mesh(build: Callable, m: Material) -> void:
 	add_child(mi)
 
 
-## canvas: canvas size in metres. margins: the frame texture's band widths in pixels (left, top, right, bottom).
+## canvas: canvas size in metres. margins: the frame texture's band widths in
+## pixels (left, top, right, bottom).
 func build_framed(
 	frame_tex: Texture2D, canvas_tex: Texture2D, canvas: Vector2, margins: Array
 ) -> void:
@@ -215,7 +220,8 @@ func build_framed(
 	)
 
 
-## A shaped work: a closed slab following its real outline (points in 0..1 of the texture, y down): a triangulated
+## A shaped work: a closed slab following its real outline (points in 0..1 of the
+## texture, y down): a triangulated
 ## front face textured with its keyed Muse cut-out, and continuous side faces back to the wall.
 func build_shaped(tex: Texture2D, size: Vector2, outline: Array, edge_color: Color) -> void:
 	outer = size

@@ -1,10 +1,16 @@
-## PROTOTYPE 4, throwaway (2026-09-26, map #116): the RISD Grand Gallery with all 23 paintings modelled in place.
-## Order, canvas sizes and heights: docs/research/grand-gallery-hang.md (branch research/grand-gallery-hang).
-## Paintings: RISD's own photograph (Wikimedia Commons, CC0) as the canvas inside a Muse frame built as a 3D
-## nine-slice (painting_asset.gd); the angel is its keyed Muse cut-out. Surfaces and the two views through the
+## PROTOTYPE 4, throwaway (2026-09-26, map #116): the RISD Grand Gallery with all
+## 23 paintings modelled in place.
+## Order, canvas sizes and heights: docs/research/grand-gallery-hang.md (branch
+## research/grand-gallery-hang).
+## Paintings: RISD's own photograph (Wikimedia Commons, CC0) as the canvas
+## inside a Muse frame built as a 3D
+## nine-slice (painting_asset.gd); the angel is its keyed Muse cut-out.
+## Surfaces and the two views through the
 ## doorways are Muse passes (image-work/grand-gallery-v4). Video pixels are measurement only.
-## Keys: Up/W step (hold to walk), Down/S step back, Left/A Right/D turn (hold to keep turning). Click the floor
-## to walk there, a painting to walk up to it and open it. In the detail view: scroll or pinch to zoom, drag to
+## Keys: Up/W step (hold to walk), Down/S step back, Left/A Right/D turn (hold to
+## keep turning). Click the floor
+## to walk there, a painting to walk up to it and open it. In the detail view:
+## scroll or pinch to zoom, drag to
 ## pan, double-click to zoom in, Esc or a click outside the painting to close.
 extends Control
 
@@ -22,8 +28,10 @@ const WHITE := Color("#e9e6de")
 const CASING := 0.28
 const GAP := 0.75  # default gap between frames; measured gaps in gaps.json
 const PLANK := Vector2(1.9, 0.36)  # #186 exact owner-selected floor from c614b5ed
-# The two doorways differ: the arch door (to the medieval gallery) has a cornice head and a shallow reveal onto
-# the wide lit room; the far door has a plain casing and a deep vestibule with a second door at its end.
+# The two doorways differ: the arch door (to the medieval gallery) has a cornice
+# head and a shallow reveal onto
+# the wide lit room; the far door has a plain casing and a deep vestibule
+# with a second door at its end.
 const DOORS := {
 	"arch":
 	{
@@ -235,7 +243,8 @@ func _pool_mat() -> StandardMaterial3D:
 	return m
 
 
-# A soft dark rectangle (its edges fade over a fifth of each side): the baked shadow under frames and benches.
+# A soft dark rectangle (its edges fade over a fifth of each side): the baked
+# shadow under frames and benches.
 func _shadow_mat(strength: float) -> StandardMaterial3D:
 	if _soft_rect == null:
 		var n := 64
@@ -255,7 +264,8 @@ func _shadow_mat(strength: float) -> StandardMaterial3D:
 	return m
 
 
-# A room material: the PS1 surface shader, lit, optionally textured, with baked occlusion in vertex colour.
+# A room material: the PS1 surface shader, lit, optionally textured, with
+# baked occlusion in vertex colour.
 static func ps(
 	tex: Texture2D, tint := Color.WHITE, uv := Vector2.ONE, vcol := false, glow := 0.0, cut := 0.0
 ) -> ShaderMaterial:
@@ -290,7 +300,8 @@ func _ao(p: Vector3, vertical: bool) -> float:
 			var dx := maxf(absf(p.x) - 0.48, 0.0)
 			var dz := maxf(absf(p.z - bz) - 1.5, 0.0)
 			ao *= t.call(Vector2(dx, dz).length(), 0.35, 0.45)
-		# the skylight's pool: brighter down the middle, falling off toward the walls and the ends, with the soft
+		# the skylight's pool: brighter down the middle, falling off toward the
+		# walls and the ends, with the soft
 		# lighter/darker patches of daylight on satin oak
 		var pool := 0.74 + 0.36 * exp(-pow(p.x / 2.7, 2.0))
 		pool *= 0.9 + 0.1 * smoothstep(0.0, 3.0, minf(-p.z, p.z + L))
@@ -301,7 +312,8 @@ func _ao(p: Vector3, vertical: bool) -> float:
 	return ao
 
 
-# A subdivided flat panel from corner c along u and v (cells about `cell` metres), occlusion in its vertex
+# A subdivided flat panel from corner c along u and v (cells about `cell`
+# metres), occlusion in its vertex
 # colours, UVs in metres times uv_per_m. layer: which skylight lights it.
 func _panel(
 	c: Vector3, u: Vector3, v: Vector3, m: Material, cell := 0.5, layer := 1, ao := Callable()
@@ -451,7 +463,8 @@ func _build_room() -> void:
 			cornice,
 			Vector3(0, 0, -1 if z == 0.0 else 1)
 		)
-	# barrel vault from the cornice, end lunettes, and the long skylight curving with it, lamps along its edges
+	# barrel vault from the cornice, end lunettes, and the long skylight curving
+	# with it, lamps along its edges
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var gl := SurfaceTool.new()
@@ -772,8 +785,10 @@ func _rect_floor() -> void:  # under the planks, never seen: only there so nothi
 	f.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 
 
-# Herringbone oak as geometry: planks PLANK long and wide, each a random stretch of the Muse oak grain with its own
-# tone and the room's occlusion, laid on the lattice (b, b), (a, -a) turned 45 degrees so the zigzag runs down the
+# Herringbone oak as geometry: planks PLANK long and wide, each a random stretch of
+# the Muse oak grain with its own
+# tone and the room's occlusion, laid on the lattice (b, b), (a, -a) turned 45
+# degrees so the zigzag runs down the
 # room. The seams are drawn by the shader from UV2 (position inside the plank), anti-aliased.
 func _build_floor() -> void:
 	var a := PLANK.x
@@ -999,8 +1014,10 @@ static func _conform_portal_edges(mesh: ArrayMesh) -> ArrayMesh:
 	return st.commit()
 
 
-# The arch end, as in the video: one white-cased door in the gallery wall; behind its plaster reveal the Romanesque
-# stone portal of the medieval gallery is the same opening (its round arch shows at the top of the door), a deep
+# The arch end, as in the video: one white-cased door in the gallery wall; behind
+# its plaster reveal the Romanesque
+# stone portal of the medieval gallery is the same opening (its round arch shows
+# at the top of the door), a deep
 # stone tunnel, then the medieval room: blue-grey walls, herringbone floor, the crucifix lit warm.
 const PORTAL_DEPTH := 1.2
 
@@ -1630,7 +1647,8 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 	_vp.add_child(capitals)
 
 
-# The far end: a plain rectangular door with a stepped white casing, a deep cream vestibule lit from its far end,
+# The far end: a plain rectangular door with a stepped white casing, a deep cream
+# vestibule lit from its far end,
 # and the second door and bright room at its back.
 func _trim_profile(
 	origin: Vector3,
@@ -1935,7 +1953,8 @@ func _build_paintings() -> void:
 			)
 		assets[r.tag] = node
 	var X := W / 2.0
-	# long walls: even gaps, in the researched order. West runs arch end -> far end; east runs far end -> arch end.
+	# long walls: even gaps, in the researched order. West runs arch end -> far end;
+	# east runs far end -> arch end.
 	for wall in [
 		{
 			"tags": ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10"],
@@ -2410,7 +2429,8 @@ func _painting_shown(p: Dictionary) -> bool:
 	return p.normal.dot(forward) < 0.1
 
 
-# Every static mesh that shares a look (same shader, texture, tint, flags) becomes one mesh: a few dozen draw calls
+# Every static mesh that shares a look (same shader, texture, tint, flags) becomes
+# one mesh: a few dozen draw calls
 # instead of ~350, which is what held the frame rate down in the browser.
 func _merge_static() -> void:
 	var groups := {}
@@ -2815,7 +2835,8 @@ func _clamp(p: Vector3) -> Vector3:
 	return p
 
 
-# The camera follows behind the kid but never leaves the room: the line from the kid's head to where the camera
+# The camera follows behind the kid but never leaves the room: the line from the
+# kid's head to where the camera
 # wants to be is cut where it would cross a wall.
 func _cutaway_mask(target: int, blend: float) -> int:
 	if not _baked_lighting or _space == "far":
@@ -2961,8 +2982,10 @@ func _new_action() -> void:
 	_path.clear()
 
 
-# Walk to p. Every leg is checked against each bench's rectangle (grown by the kid's clearance); a leg that
-# crosses one is replaced by a detour down the side lane nearer the start, past both of the bench's ends.
+# Walk to p. Every leg is checked against each bench's rectangle (grown by
+# the kid's clearance); a leg that
+# crosses one is replaced by a detour down the side lane nearer the start,
+# past both of the bench's ends.
 func _walk_to(p: Vector3) -> void:
 	_velocity = Vector3.ZERO
 	_new_action()
@@ -3046,7 +3069,8 @@ func _to_screen(p: Vector3) -> Vector2:
 	return _cam.unproject_position(p) / Vector2(_vp.size) * size
 
 
-# A painting's outline on screen, cut where it passes behind the camera (so a painting half out of view is
+# A painting's outline on screen, cut where it passes behind the camera (so
+# a painting half out of view is
 # still clickable by what shows, and a corner behind the camera never flips across the screen).
 func _visible_outline(corners: Array) -> PackedVector2Array:
 	var fwd := -_cam.global_transform.basis.z

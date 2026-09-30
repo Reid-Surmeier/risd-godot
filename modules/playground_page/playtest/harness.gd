@@ -1,8 +1,13 @@
-## Playtest harness for the Playground desktop (ticket #62; the fill rule of ticket #63): builds the Shell
-## with it in the Playground Tab and nothing in the other Tabs, then plays it the way a person does —
-## real InputEventMouseButton / InputEventMouseMotion events through Input.parse_input_event on the tabs
-## and the windows' title bars — resizes the window to the fill rule's page sizes, and reports what it
-## did and what the interfaces said. The desktop is reached through ShellInterface.tenant_state only.
+## Playtest harness for the Playground desktop (ticket #62; the fill rule
+## of ticket #63): builds the Shell
+## with it in the Playground Tab and nothing in the other Tabs, then
+## plays it the way a person does —
+## real InputEventMouseButton / InputEventMouseMotion events through
+## Input.parse_input_event on the tabs
+## and the windows' title bars — resizes the window to the fill rule's
+## page sizes, and reports what it
+## did and what the interfaces said. The desktop is reached through
+## ShellInterface.tenant_state only.
 ## Args: --out-dir=<path>. Writes numbered screenshots and report.json there.
 extends "res://testing/harness_base.gd"
 
@@ -92,7 +97,8 @@ func _initialize() -> void:
 	var st := _shell_state(shell, "launch")
 	_page(shell, "launch")
 
-	# 2. click the Playground tab: the desktop is created on first show, every window at its reference place
+	# 2. click the Playground tab: the desktop is created on first show,
+	# every window at its reference place
 	await _click(_center(shell, st.tabs[INDEX].rect), "playground tab")
 	await create_timer(0.45).timeout
 	_shell_state(shell, "shown")
@@ -142,7 +148,8 @@ func _initialize() -> void:
 	_page(shell, "resumed-after-20-frames")
 	await _shot(out_dir, "04-resumed.png")
 
-	# 7. the fill rule at two page sizes (1920x1000 and 1440x820 below the bar), then the 1440x900 minimum
+	# 7. the fill rule at two page sizes (1920x1000 and 1440x820 below the
+	# bar), then the 1440x900 minimum
 	await _resize(shell, Vector2i(1920, 1074), "page-1920x1000", "05-page-1920x1000.png", out_dir)
 	await _resize(shell, Vector2i(1440, 876), "page-1440x820", "06-page-1440x820.png", out_dir)
 	await _resize(shell, Vector2i(1440, 900), "window-1440x900", "07-window-1440x900.png", out_dir)

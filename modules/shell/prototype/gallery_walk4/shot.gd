@@ -1,6 +1,8 @@
-## Evidence for map #116 (prototype 4): all four walls, a walk, a painting approach, the zoomable detail view,
+## Evidence for map #116 (prototype 4): all four walls, a walk, a painting
+## approach, the zoomable detail view,
 ## the camera against a wall, in the real game's Collection tab.
-## Run: godot --path . --script res://modules/shell/prototype/gallery_walk4/shot.gd -- --out-dir=<path>
+## Run: godot --path . --script
+## res://modules/shell/prototype/gallery_walk4/shot.gd -- --out-dir=<path>
 extends "res://testing/harness_base.gd"
 
 var walk: Control

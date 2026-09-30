@@ -7,7 +7,7 @@
 ##
 ## The site's two PHP scripts are answered in the page (window.fetch, which Ruffle's loadVariables
 ## uses), in the site's own reply format (docs/research/flowers-tab.md, from the SWFs' actions):
-##   flowersread.php?sample=999  a random sample from web/samples.txt, replies captured from the site
+## flowersread.php?sample=999 a random sample from web/samples.txt, replies captured from the site
 ##   flowersmake.php (POST)      stores the bouquet (url_full, "s|se|r|re|bgpt|m|" + six fields per
 ##                               flower) in localStorage under a new 12-digit number; reply=<number>
 ##   flowersread.php?code=N      that bouquet (reply=1), or reply=2 for an unknown number

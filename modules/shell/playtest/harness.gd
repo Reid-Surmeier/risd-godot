@@ -1,7 +1,9 @@
 ## Playtest harness for the shell: builds the Shell the way the game's main scene does — with its
 ## own registry: the dummy tenant in four Tabs, a grey Callable-built tenant in flowers (so a page
-## cross-fade is visible in pixels), nothing in video_player or playground — seven fixed Tabs since Flowers
-## joined after Playground (2026-09-25; six since the Phone Tab folded into Playground, ticket #62); and plays it the way a person does,
+## cross-fade is visible in pixels), nothing in video_player or playground —
+## seven fixed Tabs since Flowers
+## joined after Playground (2026-09-25; six since the Phone Tab folded into Playground, ticket #62);
+## and plays it the way a person does,
 ## reporting what it did, what happened, and whether the interface responded. Real
 ## InputEventMouseButton and InputEventKey events through Input.parse_input_event — never a direct
 ## call into the strip for the gestures; the interface is called only for what the Shell's caller
@@ -133,7 +135,8 @@ func _initialize() -> void:
 	var out_dir := await _mount(shell, Vector2i(1920, 1080), "/tmp/shell-playtest")
 	DirAccess.make_dir_recursive_absolute(out_dir.path_join("frames"))
 
-	# 1. launch: the Collection tab grows in like a stub-opened tab, then its page fades in; seven fixed
+	# 1. launch: the Collection tab grows in like a stub-opened tab, then
+	# its page fades in; seven fixed
 	#    tabs in order along the bottom, Collection active and its tenant created, the rest waiting
 	await _film(shell, out_dir, "launch", 1000, 4)
 	_state(shell, "launch")
@@ -141,7 +144,8 @@ func _initialize() -> void:
 		_tenant(shell, key, "launch")
 	await _shot(out_dir, "01-launch.png")
 
-	# 2. click the Map tab: the tab dips, the page cross-fades in, its tenant is created on first show and runs
+	# 2. click the Map tab: the tab dips, the page cross-fades in, its tenant is
+	# created on first show and runs
 	var st: Dictionary = _state(shell, "pre-map")
 	await _click(_center(shell, st.tabs[0].rect), "map tab")
 	await _film(shell, out_dir, "map", 350, 0)
@@ -151,7 +155,8 @@ func _initialize() -> void:
 	var b := _tenant(shell, "map", "map-after-20-frames")
 	await _shot(out_dir, "02-map.png")
 
-	# 3. click the Sketchbook tab: after the fade the Map page is frozen (its _process and input stop), Sketchbook runs
+	# 3. click the Sketchbook tab: after the fade the Map page is frozen (its _process
+	# and input stop), Sketchbook runs
 	await _click(_center(shell, st.tabs[1].rect), "sketchbook tab")
 	await create_timer(0.45).timeout
 	_state(shell, "sketchbook")
@@ -225,7 +230,8 @@ func _initialize() -> void:
 	_tenant(shell, "video_player", "untenanted-shown")
 	await _shot(out_dir, "08-untenanted.png")
 
-	# 9. resize the window to the 1440x900 minimum: the bar re-fits along the bottom, the visible tenant fills its page
+	# 9. resize the window to the 1440x900 minimum: the bar re-fits along the bottom,
+	# the visible tenant fills its page
 	await _click(_center(shell, st.tabs[4].rect), "collection tab (again)")
 	await create_timer(0.45).timeout
 	root.size = Vector2i(1440, 900)

@@ -138,7 +138,8 @@ func _initialize() -> void:
 	_state(shell, "launch")
 	_book(shell, "launch")
 
-	# 2. click the Sketchbook tab: the desktop is created on first show — paintbox, rest, book, spread 1
+	# 2. click the Sketchbook tab: the desktop is created on first show —
+	# paintbox, rest, book, spread 1
 	var st: Dictionary = _state(shell, "pre-book")
 	await _click(_center(shell, st.tabs[1].rect), "sketchbook tab")
 	await create_timer(0.45).timeout  # the page cross-fade

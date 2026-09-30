@@ -4,8 +4,10 @@ extends RefCounted
 ## tracks with rounded corners, round caps and midpoint-quadratic smoothing. Returns filled outline
 ## polygons in the caller's coordinate space. Ported from tldraw 5.3.2 (node_modules, risd-godot
 ## kidpix-tldraw prototype); numbers and branches follow the source line by line.
-## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c
-## viewer-godot/scripts/freehand.gd (the global class_name dropped; the module preloads it). Reach it through interface.gd only.
+## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline
+## prototype/painting-tool-mixbox @ 7ee5e9c
+## viewer-godot/scripts/freehand.gd (the global class_name dropped; the module preloads it). Reach
+## it through interface.gd only.
 
 const MIN_PRESSURE := 0.025
 const RATE_OF_PRESSURE_CHANGE := 0.275

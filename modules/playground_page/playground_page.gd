@@ -2,15 +2,18 @@
 ## working page. Left, the Digital Playground (PostPet) window; a middle column of the options,
 ## Search filters and trade windows with the Global Chatroom at the bottom; right, the Nokia phone.
 ## Every window is a raster (assets/, PROVENANCE.md), draggable by its title bar (the phone by its
-## whole surface), raised by a press, stopped at the Page's edge. Reach it through interface.gd only.
+## whole surface), raised by a press, stopped at the Page's edge.
+## Reach it through interface.gd only.
 ##
 ## Layout (ticket #63): the desktop is DESKTOP px natively (the layout picture's windows plus a
 ## MARGIN on every side, measured by template-matching each asset into the picture). The Page's size
 ## S gives s = min(S.x / D.x, S.y / D.y) for all art. The leftover on the other axis goes to the
 ## PostPet window: its rect runs to the middle column (right) and to the bottom margin, and it is
-## drawn in bands at the uniform scale, only a flat one-pixel column per band and one flat row of its
+## drawn in bands at the uniform scale, only a flat one-pixel column
+## per band and one flat row of its
 ## picture drawn wider or taller to fill (the same patch technique as the Collection
-## viewer's chrome). The middle column and the phone anchor to the right edge; the chat window anchors
+## viewer's chrome). The middle column and the phone anchor to the
+## right edge; the chat window anchors
 ## to the bottom edge, the rest to the top. Re-laid out on every resize.
 extends ColorRect
 
@@ -20,7 +23,8 @@ const ROOT := "res://modules/playground_page/"
 const WEBSURFER_ASSET := ROOT + "assets/websurfer-window.webp"
 const SKETCHBOOK_ASSET := ROOT + "assets/sketchbook-journal.png"
 const FENGSHUI_ASSET := ROOT + "assets/fengshui.png"
-# The owner's Feng Shui layout (2026-09-23, docs/evidence/playground-fengshui/layout-reference.png): its
+# The owner's Feng Shui layout (2026-09-23,
+# docs/evidence/playground-fengshui/layout-reference.png): its
 # windows measured in that picture's px on a REF page, tidied to a 24 px margin and even gaps. The
 # right column anchors right, the chat window bottom; the Feng Shui window takes the rest. Options,
 # filters, trade and PostPet are hidden: in the picture they only peeked out from under the others.
@@ -31,7 +35,8 @@ const REF_WEBSURFER := Rect2(1070, 453, 577, 502)
 const REF_PHONE := Rect2(1488, 24, 318, 635)
 const REF_CHAT := Rect2(1072, 1033, 471, 218)
 # assets/fengshui.png rows: title, menu and toolbar above FS_TOP, the element panels from FS_BOTTOM.
-# Between them only the side borders of row FS_ROW (just under the toolbar, the same frame as the title
+# Between them only the side borders of row FS_ROW (just under the
+# toolbar, the same frame as the title
 # bar, both inner dark lines included) are drawn, taller, and the Are.na page fills the
 # client columns FS_CLIENT_LEFT..FS_CLIENT_RIGHT. FS_TITLE rows drag the window.
 const FS_TOP := 134.0
@@ -42,7 +47,8 @@ const FS_CLIENT_RIGHT := 1392.0
 const FS_TITLE := 50.0
 const DESKTOP := Vector2(2171, 1185)
 const MARGIN := 24.0
-# The PostPet picture's bands (source rows) and the column each band stretches at: a column where the
+# The PostPet picture's bands (source rows) and the column each band
+# stretches at: a column where the
 # band has no horizontal step at all (title bar, balloons, the panel right of the stickers, the info
 # box right of its text), so every band grows by the same width and the edges stay aligned. Row
 # STRETCH_Y (band 3, one pixel, max horizontal-neighbour step 14 across the width) takes the height.
@@ -238,7 +244,8 @@ func _fit() -> void:
 			"right_bottom":
 				position_now = Vector2(size.x - (DESKTOP.x - at.x) * s, size.y - (DESKTOP.y - at.y) * s)
 		_place_window(index, Rect2(position_now, native * s))
-	# the main window takes the leftover: to the middle column on the right, to the margin at the bottom
+	# the main window takes the leftover: to the middle column on the
+	# right, to the margin at the bottom
 	var postpet := windows[0]
 	var right := size.x - (DESKTOP.x - right_of_postpet) * s
 	var bottom := size.y - MARGIN * s
@@ -697,7 +704,8 @@ func _load_saved_image(manifest: Dictionary, target: TextureRect, unavailable: L
 			live_unavailable.visible = true)
 
 
-## The PostPet picture band by band at the uniform scale; in each band only its one-pixel column takes
+## The PostPet picture band by band at the uniform scale; in each band
+## only its one-pixel column takes
 ## the extra width, and only the one-pixel band STRETCH_Y_BAND takes the extra height.
 func _draw_postpet(window: Control, texture: Texture2D) -> void:
 	var src: Vector2 = texture.get_size()

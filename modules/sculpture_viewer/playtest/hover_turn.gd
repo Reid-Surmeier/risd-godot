@@ -1,5 +1,7 @@
-## Playtest for the setup grid's hover turn (Issue #110): builds the Shell with this Tenant in the 3D
-## Viewer Tab, opens the Tab by a real click, then for every turning cell moves the real pointer onto
+## Playtest for the setup grid's hover turn (Issue #110): builds the
+## Shell with this Tenant in the 3D
+## Viewer Tab, opens the Tab by a real click, then for every turning
+## cell moves the real pointer onto
 ## it (Input.parse_input_event), waits, and checks the cell reached its last frame, that the screen
 ## pixels under it changed, and that no other cell moved; then moves the pointer off and checks the
 ## cell is back on frame 0 with the screen pixel-identical to before. Args: --out-dir=<path>.

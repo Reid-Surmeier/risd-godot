@@ -106,7 +106,8 @@ func _load_assets() -> Dictionary:
 	return Errors.ok()
 
 
-## The Shell's bar (Issue #113): the rebuilt taskbar's pieces and geometry replace the legacy toolbar's;
+## The Shell's bar (Issue #113): the rebuilt taskbar's pieces and
+## geometry replace the legacy toolbar's;
 ## the Connecting.../Blank Page/page icon/close/dots glyphs stay the legacy ones.
 func _load_compact() -> Dictionary:
 	var f := FileAccess.open(COMPACT + "layout.json", FileAccess.READ)
@@ -260,7 +261,8 @@ func _make_tab(label_key: String, x: float, width: float) -> Dictionary:
 	return tab
 
 
-## The click dip: the clicked tab drops DIP_PX with the stub's pressed tint for PRESS_SECONDS, then sits
+## The click dip: the clicked tab drops DIP_PX with the stub's pressed
+## tint for PRESS_SECONDS, then sits
 ## back. Not while a grow or fold runs (those own the tab's position and tint).
 func _press(index: int) -> void:
 	if _opening or index < 0 or index >= _tabs.size():
@@ -277,12 +279,18 @@ func _press(index: int) -> void:
 	_press_tween.tween_callback(_unpress)
 
 
-## The active tint: the tab's face slices fade to `to` (1 = ACTIVE_TINT of the sea blue, 0 = white) at
-## FADE_SECONDS for the whole way, so a reversed fade takes only the distance left. It multiplies every
-## piece of the tab (slices, icon, label, dots, close): the icon and label pixels are opaque on white, so
-## their white must take the tint with the face; dark glyphs and the grey outline move a few levels at most.
-## Compact mode (Issue #113): the face slices switch at once to the stub's grey instead (a static endpoint,
-## as the reviewed blue still was); the icons and labels are cut-outs there, so they keep their own colours.
+## The active tint: the tab's face slices fade to `to` (1 = ACTIVE_TINT
+## of the sea blue, 0 = white) at
+## FADE_SECONDS for the whole way, so a reversed fade takes only the
+## distance left. It multiplies every
+## piece of the tab (slices, icon, label, dots, close): the icon and label
+## pixels are opaque on white, so
+## their white must take the tint with the face; dark glyphs and the grey
+## outline move a few levels at most.
+## Compact mode (Issue #113): the face slices switch at once to the stub's
+## grey instead (a static endpoint,
+## as the reviewed blue still was); the icons and labels are cut-outs there,
+## so they keep their own colours.
 func _fade(tab: Dictionary, to: float) -> void:
 	if tab.tint_to == to:
 		return
@@ -401,8 +409,10 @@ func _fit_label(tab: Dictionary) -> void:
 		tab.dots.visible = cut > 0
 
 
-## Compact mode: a fixed tab's icon and label sit where the rebuilt taskbar put them (layout `place`); a
-## stub-opened tab puts the legacy page icon and label, scaled to the new cap height, on the same row, the
+## Compact mode: a fixed tab's icon and label sit where the rebuilt
+## taskbar put them (layout `place`); a
+## stub-opened tab puts the legacy page icon and label, scaled to the new
+## cap height, on the same row, the
 ## icon just right of the slanted edge. Truncation is the IE7 one above, in scaled pixels.
 func _fit_compact(tab: Dictionary) -> void:
 	var t: Dictionary = _layout.tab
@@ -579,8 +589,10 @@ func open_fixed_tab(label_key: String, page: Control) -> Dictionary:
 	return Errors.ok(_tabs.size() - 1)
 
 
-## Replay the open gesture on an existing tab, in place (the Shell's launch tab): stub-sized with the
-## pressed tint for PRESS_SECONDS, then the grow to its own width over GROW_SECONDS; its neighbours and
+## Replay the open gesture on an existing tab, in place (the Shell's
+## launch tab): stub-sized with the
+## pressed tint for PRESS_SECONDS, then the grow to its own width over
+## GROW_SECONDS; its neighbours and
 ## the stub stay put. Emits tab_opened, then tab_settled; selects nothing.
 func grow_tab(index: int) -> Dictionary:
 	if index < 0 or index >= _tabs.size():
@@ -594,9 +606,11 @@ func grow_tab(index: int) -> Dictionary:
 	tab.node.modulate = _pressed_color()
 	emit_signal("tab_opened", index)
 	_tween = create_tween()
-	# the launch replays this on the first frame, whose texture uploads can outlast PRESS_SECONDS: hold the
+	# the launch replays this on the first frame, whose texture uploads can
+	# outlast PRESS_SECONDS: hold the
 	# tween until that frame is on screen, so the pressed stub is always seen
-	# ponytail: headless Godot aborts with this hold in place (cause not traced), so the check run skips it
+	# ponytail: headless Godot aborts with this hold in place (cause not
+	# traced), so the check run skips it
 	if DisplayServer.get_name() != "headless":
 		_tween.pause()
 		var held := _tween
@@ -665,7 +679,8 @@ func close_tab(index: int) -> Dictionary:
 	tab.close.visible = false
 	_fade(tab, 0.0)  # the tint leaves with the tab; the neighbour's fades in when it is selected below
 	_tween = create_tween()
-	# the tab folds back into a stub where it stands: contents fade, then width/height/tint reverse the grow
+	# the tab folds back into a stub where it stands: contents fade, then
+	# width/height/tint reverse the grow
 	(
 		_tween
 		. tween_method(func(s: float): _shrink(tab, from_w, s), 1.0, 0.0, CLOSE_SECONDS)

@@ -1,7 +1,9 @@
 ## The game's main scene: the Shell with the six fixed tabs, every Tab's Tenant registered:
 ## the Pixel Atlas desktop is the Map Tenant, sketchbook and sculpture_viewer the Sketchbook and
-## 3D Viewer Tenants, video_player the Video Player Tenant, the owner's framed page (2026-09-25) the Collection Tenant,
-## playground_page the Playground desktop (the Phone Tab folded into it, ticket #62), flowers_page the
+## 3D Viewer Tenants, video_player the Video Player Tenant, the owner's framed page
+## (2026-09-25) the Collection Tenant,
+## playground_page the Playground desktop (the Phone Tab folded into
+## it, ticket #62), flowers_page the
 ## Flowers Tab (Orisinal Flowers on the site's own Ruffle build, 2026-09-25).
 extends Control
 
@@ -58,7 +60,8 @@ func _ready() -> void:
 		page.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		page.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-		# PROTOTYPE (2026-09-26): the Grand Gallery 3D walk fills the frame's white opening (458,521 2110x1412 in page.png)
+		# PROTOTYPE (2026-09-26): the Grand Gallery 3D walk fills the frame's white opening
+		# (458,521 2110x1412 in page.png)
 		var walk: Control = load("res://modules/shell/prototype/gallery_walk4/walk4.gd").new()
 		walk.name = "GalleryWalk"
 		page.add_child(walk)
