@@ -28,6 +28,16 @@ await page.addInitScript(() => {
     const stream = await original(constraints); window.__cameraStreams.push(stream); return stream;
   };
 });
+const sample=await readFile(resolve(root,'../../assets/sample-portrait.webp'));
+await page.route('**/api/portrait',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({image:'data:image/webp;base64,'+sample.toString('base64'),run:'unpaid-adapter-fixture'})}));
+let apiMode='success';
+await page.unroute('**/api/portrait');
+await page.route('**/api/portrait',async route=>{
+ const response={status:200,contentType:'application/json',body:JSON.stringify({image:'data:image/webp;base64,'+sample.toString('base64'),run:'unpaid-adapter-fixture'})};
+ if(apiMode==='delayed')await new Promise(r=>setTimeout(r,1800));
+ if(apiMode==='failure')response.status=503,response.body=JSON.stringify({error:'Generation unavailable.'});
+ try{await route.fulfill(response)}catch{} // cancelled request is expected
+});
 const errors = [];
 page.on('pageerror',e=>errors.push(e.message));
 page.on('console',m=>{if(/SCRIPT ERROR|^ERROR:/.test(m.text()))errors.push(m.text());});
@@ -72,6 +82,18 @@ try {
   await click(870); await waitState('camera');
   await page.waitForFunction(()=>window.boothState.source==='camera');
   results.push({check:'synthetic getUserMedia frame transferred into exported Godot; capture/reset',passed:true});
+  apiMode='failure';await click(690);await waitState('loading');await waitState('camera');
+  assert.equal(await page.evaluate(()=>window.boothState.has_capture),false);
+  await page.waitForTimeout(600);assert.equal(await page.evaluate(()=>window.boothState.message),'Generation unavailable.');
+  results.push({check:'real-generation HTTP failure recovers camera with persistent message',passed:true});
+  apiMode='delayed';await click(690);await waitState('loading');await click(870);await waitState('camera');
+  await page.waitForTimeout(2000);assert.equal(await page.evaluate(()=>window.boothState.state),'camera');
+  results.push({check:'cancel delayed real-generation result never revives portrait',passed:true});
+  await click(690);await waitState('loading');await page.evaluate(()=>window.dispatchEvent(new Event('pagehide')));
+  await waitState('camera');await page.waitForFunction(()=>window.boothState.source==='none');
+  await page.waitForTimeout(2000);assert.equal(await page.evaluate(()=>window.boothState.state),'camera');
+  results.push({check:'pagehide during real generation resets loading and discards late result',passed:true});
+  apiMode='success';await click(320);await page.waitForFunction(()=>window.boothState.source==='camera');
   await page.evaluate(()=>window.__cameraStreams.at(-1).getTracks().forEach(track=>track.stop()));
   await page.waitForFunction(()=>window.boothState.source==='denied');
   await click(690);

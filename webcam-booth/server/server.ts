@@ -1,0 +1,78 @@
+import { createServer } from 'node:http';
+import { readFile, writeFile, mkdir, rm, stat } from 'node:fs/promises';
+import { resolve, join, extname, sep } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { promisify } from 'node:util';
+import { execFile, spawn } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { Effect } from 'effect';
+import { createGeneration } from './generation.ts';
+import type { Capture, Portrait } from './interface.ts';
+const execute=promisify(execFile);
+const root=resolve(fileURLToPath(new URL('../',import.meta.url)));
+const tool='/home/reidsurmeier/Image-generation-pipline/bin/image-pipeline';
+const privateRoot=join(root,'build/private');
+const hash=(data:Buffer|string)=>createHash('sha256').update(data).digest('hex');
+async function validate(capture:Capture){
+ const bytes=Buffer.from(capture.image.split(',')[1],'base64');
+ await new Promise<void>((resolve,reject)=>{
+  const child=spawn('/usr/bin/python3',['-c','import sys,io; from PIL import Image; i=Image.open(io.BytesIO(sys.stdin.buffer.read())); assert i.format in ("PNG","JPEG") and 64<=i.width<=2048 and 64<=i.height<=2048; i.verify()'],{stdio:['pipe','ignore','ignore']});
+  child.once('error',reject);child.once('exit',code=>code===0?resolve():reject({code:'invalid',message:'The capture is not a valid supported image.'}));child.stdin.on('error',()=>{});child.stdin.end(bytes);
+ });
+}
+async function provider(capture:Capture):Promise<Portrait>{
+ if(!process.env.OPENROUTER_API_KEY)throw Error('No server credential');
+ const relative=`build/private/captures/${capture.id}`;const home=join(root,relative);
+ await mkdir(home,{recursive:true,mode:0o700});
+ try{
+  // Canonical PNG input is transient and excluded from the Web export and Git.
+  const encoded=Buffer.from(capture.image.split(',')[1],'base64');await writeFile(join(home,'input'),encoded,{mode:0o600});
+  await execute('/usr/bin/python3',['-c','from PIL import Image; import sys; Image.open(sys.argv[1]).convert("RGB").save(sys.argv[2])',join(home,'input'),join(home,'subject.png')]);
+  const subject=await readFile(join(home,'subject.png'));
+  const prompt='Create one recognizable portrait of the person in image one. Image two supplies only early Nintendo 3D low-poly flat facets, pastel blue gradient and yellow spiral sun. Preserve the photographed identity, hairstyle, skin tone, clothing, neck and shoulders reaching the bottom edge. Face the camera. No Wario hat, goggles, moustache, slapping hand, desk, text, watermark, frame, glove, bomb or fuse. Single finished square portrait.\n';
+  await writeFile(join(home,'prompt.txt'),prompt);
+  const style=await readFile(join(root,'assets/portrait-fixture.png'));
+  await writeFile(join(home,'plan.json'),JSON.stringify({attempts:[{id:'001',prompt:`${relative}/prompt.txt`,promptSha256:hash(prompt),size:'1024x1024',inputs:[{path:`${relative}/subject.png`,sha256:hash(subject)},{path:'assets/portrait-fixture.png',sha256:hash(style)}]}]}));
+  await writeFile(join(home,'recipe.json'),JSON.stringify({procedure:'edit',plan:`${relative}/plan.json`,attempt:'001'}));
+  const call=async(args:string[])=>JSON.parse((await execute(tool,args,{maxBuffer:4_000_000,timeout:660_000})).stdout);
+  const prepared=await call(['prepare','--application',root,'--recipe',`${relative}/recipe.json`,'--unit-cost','0.01','--budget','0.01']);
+  await call(['image','--application',root,'--objective',prepared.objective]);
+  const result=await call(['image','--application',root,'--objective',prepared.objective,'--execute']);
+  if(result.result?.length!==1||!result.runId)throw Error('No recorded output');
+  const output=resolve(result.result[0].path);
+  if(!output.startsWith(join(root,'artifacts/image-generation/runs')+sep))throw Error('Output outside recorded run');
+  const image=await readFile(output);
+  // The immutable receipt keeps source hashes/cost, while capture/result payloads are ephemeral.
+  await writeFile(join(privateRoot,`${capture.id}-receipt.json`),JSON.stringify({run:result.runId,cost:result.cost,spendState:result.spendState,inputSha256:hash(subject),outputSha256:hash(image),model:'meta/muse-image',provider:'openrouter'}));
+  const portrait={image:`data:${result.result[0].mediaType};base64,${image.toString('base64')}`,run:result.runId};
+  await rm(join(root,'artifacts/image-generation/runs',result.runId),{recursive:true,force:true});
+  return portrait;
+ }finally{await rm(home,{recursive:true,force:true})}
+}
+const generate=Effect.runSync(createGeneration({root:privateRoot,provider,validate}));
+const mime:Record<string,string>={'.html':'text/html','.js':'text/javascript','.wasm':'application/wasm','.pck':'application/octet-stream','.png':'image/png','.webp':'image/webp','.json':'application/json','.mp4':'video/mp4','.task':'application/octet-stream'};
+const server=createServer(async(request,response)=>{
+ const send=(status:number,data:unknown)=>{response.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});response.end(JSON.stringify(data));};
+ try{
+  const path=new URL(request.url??'/', 'http://booth.invalid').pathname;
+  if(path==='/api/portrait'&&request.method==='POST'){
+   const origin=request.headers.origin;
+   const forwarded=request.headers['x-forwarded-host'];const host=typeof forwarded==='string'?forwarded:request.headers.host;
+   if(!origin||new URL(origin).host!==host){send(403,{error:'Same-origin request required.'});return;}
+   let length=0;const chunks:Buffer[]=[];
+   for await(const chunk of request){length+=chunk.length;if(length>2_000_100){send(413,{error:'Capture too large.'});return;}chunks.push(chunk);}
+   let capture:Capture;try{capture=JSON.parse(Buffer.concat(chunks).toString('utf8'));if(!capture||typeof capture.id!=='string'||typeof capture.image!=='string')throw Error();}catch{send(400,{error:'Invalid capture.'});return;}
+   const outcome=await Effect.runPromise(Effect.either(generate(capture)));
+   if(outcome._tag==='Left'){send(outcome.left.code==='invalid'?400:outcome.left.code==='busy'?409:503,{error:outcome.left.message,code:outcome.left.code});return;}
+   send(200,outcome.right);return;
+  }
+  if(request.method!=='GET'&&request.method!=='HEAD'){send(405,{error:'Method not supported.'});return;}
+  const publicRoot=join(root,'build/web');const file=resolve(publicRoot,'.'+decodeURIComponent(path==='/'?'/index.html':path));
+  if(!file.startsWith(publicRoot+sep)){send(403,{error:'Unavailable.'});return;}
+  const info=await stat(file);if(!info.isFile()){send(404,{error:'Unavailable.'});return;}
+  response.writeHead(200,{'Content-Type':mime[extname(file)]??'application/octet-stream','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});
+  response.end(request.method==='HEAD'?undefined:await readFile(file));
+ }catch{if(!response.headersSent)send(400,{error:'Request unavailable.'});else response.end();}
+});
+server.requestTimeout=700_000;
+server.listen(Number(process.env.BOOTH_PORT??8129),'127.0.0.1',()=>console.log('Booth adapter listening; provider key stays in process environment.'));

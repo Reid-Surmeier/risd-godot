@@ -8,12 +8,12 @@
     {
       "check": "complete fixture loop",
       "iteration": 1,
-      "fuse_ms": 10005.900000000373
+      "fuse_ms": 9998.299999999814
     },
     {
       "check": "complete fixture loop",
       "iteration": 2,
-      "fuse_ms": 10014.399999999907
+      "fuse_ms": 10000.899999999441
     },
     {
       "check": "cancel loading does not revive portrait",
@@ -21,6 +21,18 @@
     },
     {
       "check": "synthetic getUserMedia frame transferred into exported Godot; capture/reset",
+      "passed": true
+    },
+    {
+      "check": "real-generation HTTP failure recovers camera with persistent message",
+      "passed": true
+    },
+    {
+      "check": "cancel delayed real-generation result never revives portrait",
+      "passed": true
+    },
+    {
+      "check": "pagehide during real generation resets loading and discards late result",
       "passed": true
     },
     {

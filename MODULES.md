@@ -17,6 +17,7 @@ Runtime modules use Godot 4.7.2 and GDScript. Their public functions return `{ o
 | [`playground_page`](modules/playground_page/MODULE.md) | The Playground Tab's retained windows, saved RISD works, journal, and WebSurfer | `modules/playground_page/interface.gd` | `collection_data` |
 | [`flowers_page`](modules/flowers_page/MODULE.md) | The Flowers Tab's self-hosted Ruffle presentation | `modules/flowers_page/interface.gd` | — |
 | [`collection_data`](modules/collection_data/MODULE.md) | Validated artwork search plus browser-local saved works shared by Playground and Sketchbook | `modules/collection_data/interface.gd` | — |
+| [`booth`](webcam-booth/MODULE.md) | Independent ephemeral webcam booth in its own Godot project; Generation HTTP adapter | `webcam-booth/interface.gd`, `webcam-booth/server/interface.ts` | Browser camera/Generation adapters supplied by standalone composition |
 | [`review`](review/MODULE.md) | Support contract for SHA-bound release review records | `review/MODULE.md`, `docs/releases/<version>/REVIEW.md` | — |
 
 Ten runtime modules and two support modules. `modules/shell/demo.gd` is the composition root: it creates shared collection-data and sound-cue adapters, then registers the seven fixed Tenants. `shell.gd` itself knows only the `tab_strip` seam. The Collection Page is currently composed directly in `demo.gd`; it is not presented as a separate module.

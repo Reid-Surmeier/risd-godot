@@ -1,5 +1,5 @@
-## Throwaway standalone complete-loop prototype. Generation and explosion art are fixtures.
-extends Control
+## Standalone ephemeral booth composition.
+extends "interface.gd"
 
 const PHOTO = preload("assets/photo-fixture.png")
 const PORTRAIT = preload("assets/sample-portrait.webp")
@@ -23,6 +23,8 @@ var cancel_button: Button
 var countdown: ProgressBar
 var loader: ColorRect
 var entered_at := 0.0
+var generation_error := ""
+var generated_texture: ImageTexture
 
 
 func _ready() -> void:
@@ -76,6 +78,7 @@ func _button(text: String, pos: Vector2, action: Callable) -> Button:
 
 
 func _enable_camera() -> void:
+	generation_error = ""
 	if not OS.has_feature("web"):
 		caption.text = "Open the Web build to enable your camera, or try the sample photo."
 		return
@@ -87,6 +90,7 @@ func _enable_camera() -> void:
 
 
 func _use_fixture() -> void:
+	generation_error = ""
 	if OS.has_feature("web"):
 		JavaScriptBridge.eval("window.booth.stop()")
 	source = "fixture"
@@ -94,34 +98,58 @@ func _use_fixture() -> void:
 	_sync()
 
 
-func capture() -> void:
+func capture() -> Dictionary:
 	if state != "camera" or source not in ["fixture", "camera"] or picture.texture == null:
-		return
+		return {"ok": false, "value": null, "error": "invalid_capture"}
 	captured = picture.texture
+	generation_error = ""
+	if source == "camera" and OS.has_feature("web"):
+		var encoded := "data:image/png;base64," + Marshalls.raw_to_base64(captured.get_image().save_png_to_buffer())
+		JavaScriptBridge.eval("window.booth.generate(%s)" % JSON.stringify(encoded))
 	state = "loading"
 	entered_at = _now()
 	elapsed = 0.0
 	_sync()
+	return {"ok": true, "value": null, "error": null}
 
 
-func reset() -> void:
+func reset() -> Dictionary:
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.booth.cancelGeneration()")
+	generated_texture = null
 	state = "camera"
 	entered_at = _now()
 	elapsed = 0.0
 	captured = null
 	picture.texture = PHOTO if source == "fixture" else live_texture
 	_sync()
+	return {"ok": true, "value": null, "error": null}
 
 
 func _process(delta: float) -> void:
 	elapsed = _now() - entered_at
 	loader.material.set_shader_parameter("progress", minf(elapsed / 4.0, 1.0))
-	if state == "loading" and elapsed >= 4.0:
-		state = "portrait"
-		entered_at = _now()
-		elapsed = 0.0
-		picture.texture = PORTRAIT
-		_sync()
+	if state == "loading":
+		if source == "fixture" and elapsed >= 4.0:
+			_show_portrait(PORTRAIT)
+		elif source == "camera" and OS.has_feature("web"):
+			var result = JSON.parse_string(JavaScriptBridge.eval("window.booth.generated()"))
+			if result.mode == "idle":
+				reset()
+			elif result.mode == "ready":
+				var image := Image.new()
+				var bytes := Marshalls.base64_to_raw(result.image.split(",")[1])
+				var code := image.load_webp_from_buffer(bytes) if result.image.begins_with("data:image/webp") else image.load_png_from_buffer(bytes)
+				if code == OK:
+					generated_texture = ImageTexture.create_from_image(image)
+					_show_portrait(generated_texture)
+				else:
+					generation_error = "The portrait could not be displayed. Take another picture."
+					reset()
+			elif result.mode == "error":
+				generation_error = result.error
+				reset()
+				caption.text = generation_error
 	elif state == "portrait":
 		countdown.value = maxf(0.0, 100.0 * (1.0 - elapsed / 10.0))
 		if elapsed >= 10.0:
@@ -139,8 +167,16 @@ func _process(delta: float) -> void:
 			frame_clock = 0.0
 			_poll_camera()
 	if OS.has_feature("web"):
-		JavaScriptBridge.eval("window.boothState = %s" % JSON.stringify({"state": state, "source": source, "elapsed": elapsed, "has_capture": captured != null, "fixture_generation": true}))
+		JavaScriptBridge.eval("window.boothState = %s" % JSON.stringify({"state": state, "source": source, "elapsed": elapsed, "has_capture": captured != null, "fixture_generation": source == "fixture", "message": caption.text}))
 
+
+
+func _show_portrait(texture: Texture2D) -> void:
+	state = "portrait"
+	entered_at = _now()
+	elapsed = 0.0
+	picture.texture = texture
+	_sync()
 
 
 func _poll_camera() -> void:
@@ -184,16 +220,18 @@ func _sync() -> void:
 	picture.visible = state not in ["loading", "explosion"]
 	picture.position = Vector2(135, 235) if camera else Vector2(235, 95)
 	picture.size = Vector2(755, 285) if camera else Vector2(550, 410)
-	caption.text = "Sample preview — generated portrait and explosion artwork are pending."
+	caption.text = "Compose your picture, then create an ephemeral portrait."
 	if source == "none":
 		caption.text = "Enable your camera or try the sample photo."
 	elif source == "requesting":
 		caption.text = "Waiting for camera permission…"
+	if camera and not generation_error.is_empty():
+		caption.text = generation_error
 	if state == "loading":
-		caption.text = "Preparing the sample portrait…"
+		caption.text = "Preparing the sample portrait…" if source == "fixture" else "Creating your portrait…"
 	elif state == "portrait":
 		countdown.value = 100.0
-		caption.text = "Sample-photo portrait — live captures are not generated yet."
+		caption.text = "Sample-photo portrait — ten seconds." if source == "fixture" else "Your portrait — ten seconds."
 	elif state == "explosion":
 		caption.text = "Poof! Returning to camera… (animation pending)"
 

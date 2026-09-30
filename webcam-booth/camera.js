@@ -1,4 +1,4 @@
-// Browser adapter. No provider keys, uploads or persistence in this unpaid prototype.
+// Browser camera and ephemeral generation adapter. Provider keys stay on the server.
 window.booth = (() => {
   let video, stream, error = '', mode = 'none', ticket = 0;
   const canvas = document.createElement('canvas');
@@ -38,5 +38,20 @@ window.booth = (() => {
     catch (e) { error = e.name; mode = 'denied'; stopTracks(); return ''; }
   }
   window.addEventListener('pagehide', stop);
-  return {start, stop, frame, status};
+  let generation = {mode:'idle'}, generationTicket=0, controller;
+  async function generate(image) {
+    const own=++generationTicket;controller?.abort();controller=new AbortController();generation={mode:'loading'};
+    const timeout=setTimeout(()=>controller.abort(),120000);
+    try {
+      const response=await fetch(new URL('api/portrait',document.baseURI),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:crypto.randomUUID(),image}),signal:controller.signal});
+      const result=await response.json();
+      if(!response.ok)throw Error(result.error||'Generation unavailable.');
+      if(own===generationTicket)generation={mode:'ready',image:result.image,run:result.run};
+    }catch(e){if(own===generationTicket)generation={mode:'error',error:e.name==='AbortError'?'Generation timed out. This capture will not be retried automatically.':e.message};}
+    finally {clearTimeout(timeout);}
+  }
+  function cancelGeneration(){++generationTicket;controller?.abort();controller=null;generation={mode:'idle'};}
+  function generated(){return JSON.stringify(generation);}
+  window.addEventListener('pagehide',cancelGeneration);
+  return {start, stop, frame, status, generate, generated, cancelGeneration};
 })();
