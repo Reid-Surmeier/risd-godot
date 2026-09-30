@@ -33,6 +33,8 @@ Architecture is source-led authored geometry, not a scan or surveyed reconstruct
 - Bake8: 127 lightmap users; runner exited0. Both bench/native browser batches accepted at720/1600. Vault end normals face inward; no additional image generation. Final evidence in `docs/evidence/architecture-167/owner-repairs/bake8/`.
 - Doorway camera retains selected perspective/FOV. A transient opaque dissolve avoids Compatibility renderer Alpha Hash failure; original materials return at full opacity. Private rendered regression checks actual background coverage. Floor cutaway removes baked shadows belonging to culled stone. No source texture/lightmap modified by this repair.
 
+Historical #167 assets at that integration (later updates below supersede the room files):
+
 | Runtime asset | SHA-256 |
 | --- | --- |
 | `baked/room.tscn` | `fa1bd9ad9c1ef89279225e91bfcfb30990c9fc5d85949e37d4256cd5a514923c` |
@@ -80,6 +82,15 @@ Owner screenshot SHA256488e207d35b839603ee3d35cf1630f62a23bc800f4a03eadba61c8622
 ## #187 warm floor and room light (2026-09-29)
 
 Owner requested the older honey tone on the accepted #186 grain/layout, warmer lamp light and less skylight. Existing atlas pixels and 1.9×0.36 plank layout retained; floor shader tint adjusted, baked daylight reduced from 0.8 to 0.35, fill warmed and increased from 0.4 to 0.55, painting spots from 6.0 to 6.8. Doorway reveal and passage-facing normals corrected; shared panel winding now agrees with supplied normals. New offline lightmap is authored from this geometry and lighting. No image generation/provider calls or spend. Evidence and bake device/timing: `docs/evidence/warm-room-187/`.
+
+Current #187 saved lightmap hashes (unchanged by #189):
+
+| Runtime asset | SHA-256 |
+| --- | --- |
+| `baked/room.exr` | `e68c711f84cf22d1563475686d5359bc6b8d676aa9a7bf6e9288e9bcaab3eea2` |
+| `baked/room.lmbake` | `6679c1971971046501aa48dcfd82aea7e4038d1897ace19226f3af5dc7de1bdf` |
+
+Local Godot 4.7.2 offline bake on llvmpipe: 333.80 seconds, 137 lightmap users, provider none, USD0. Source geometry/lighting is recorded in runtime `dbfe2393` and `docs/evidence/warm-room-187/bake-final.log`.
 
 ## #189 white baseboard visibility (2026-09-29)
 
