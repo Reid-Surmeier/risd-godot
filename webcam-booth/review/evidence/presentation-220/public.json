@@ -1,0 +1,50 @@
+{
+  "url": "https://homework.reidsurmeier.wtf/",
+  "readyMs": 11012,
+  "networkMbps": 10,
+  "wasm": {
+    "name": "https://homework.reidsurmeier.wtf/index.wasm",
+    "entryType": "resource",
+    "startTime": 401.2999999988824,
+    "duration": 9909.5,
+    "navigationId": 4444,
+    "initiatorType": "fetch",
+    "deliveryType": "",
+    "nextHopProtocol": "h3",
+    "renderBlockingStatus": "non-blocking",
+    "contentType": "",
+    "contentEncoding": "gzip",
+    "workerStart": 0,
+    "workerRouterEvaluationStart": 0,
+    "workerCacheLookupStart": 0,
+    "workerMatchedSourceType": "",
+    "workerFinalSourceType": "",
+    "redirectStart": 0,
+    "redirectEnd": 0,
+    "fetchStart": 401.2999999988824,
+    "domainLookupStart": 401.2999999988824,
+    "domainLookupEnd": 401.2999999988824,
+    "connectStart": 401.2999999988824,
+    "secureConnectionStart": 401.2999999988824,
+    "connectEnd": 401.2999999988824,
+    "requestStart": 403.19999999925494,
+    "responseStart": 441.5,
+    "firstInterimResponseStart": 0,
+    "finalResponseHeadersStart": 441.5,
+    "responseEnd": 10310.799999998882,
+    "transferSize": 10084586,
+    "encodedBodySize": 10084286,
+    "decodedBodySize": 39514754,
+    "responseStatus": 200,
+    "serverTiming": [
+      {
+        "name": "cfExtPri",
+        "duration": 0,
+        "description": ""
+      }
+    ]
+  },
+  "paidRequests": 0,
+  "interceptedRequests": 1,
+  "cameraLoop": true
+}

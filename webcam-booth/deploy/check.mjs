@@ -11,6 +11,8 @@ const browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',hea
 try {
  const page=await browser.newPage({viewport:{width:1024,height:700},permissions:['camera']});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ const photo='data:image/png;base64,'+(await readFile(new URL('../assets/photo-fixture.png',import.meta.url))).toString('base64');
+ await page.addInitScript(photo=>{navigator.mediaDevices.getUserMedia=async()=>{const canvas=document.createElement('canvas');canvas.width=640;canvas.height=480;const image=new Image();image.src=photo;await image.decode();canvas.getContext('2d').drawImage(image,0,0,640,480);return canvas.captureStream(10)}},photo);
  let interceptedRequests=0;const sample=await readFile(new URL('../assets/sample-portrait.webp',import.meta.url));await page.route('**/api/portrait',route=>{interceptedRequests++;return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({image:'data:image/webp;base64,'+sample.toString('base64'),run:'unpaid-deploy-check'})});});
  const session=await page.context().newCDPSession(page);
  await session.send('Network.enable');
