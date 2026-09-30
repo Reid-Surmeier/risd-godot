@@ -1,0 +1,29 @@
+{
+  "repository_pass": true,
+  "diagnostic_replay": {
+    "exact_replay": true,
+    "completed_output_rejected": true,
+    "scratch_removed": true,
+    "mask_edge_and_camera_roundtrip_assertions": true,
+    "diagnostic_only": true
+  },
+  "native_checks": 24,
+  "native_pass": true,
+  "browser_pass": true,
+  "browser_checks": 24,
+  "shell_failures": [
+    "launch_page_area_white",
+    "tenant_fills_page_area",
+    "flowers_page_is_the_grey_tenant",
+    "resize_refits_bar_and_tenant"
+  ],
+  "initial_native_failure": "X connection to :0 broken",
+  "pinned_pending_files": 50,
+  "prior_pending_bytes_preserved": true,
+  "viewer_changes": false,
+  "new_geometry_accepted": false,
+  "new_paid_calls": 0,
+  "diff_check_pass": true,
+  "preview_http_200": true,
+  "preview_images_decoded": 10
+}
