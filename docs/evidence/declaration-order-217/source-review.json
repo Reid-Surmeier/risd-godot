@@ -1,0 +1,33 @@
+{
+  "baseline": "6fe79b3a",
+  "candidate": "6cb7e87e",
+  "standards": {
+    "new_findings": 0,
+    "verified": "14declarations/functionsource/values/sequences/comments/hash/frozenpathscope"
+  },
+  "spec": {
+    "implementation_findings": 0,
+    "evidence_pending": [
+      "final build/PR166/map149 publication/readback"
+    ],
+    "retained_scope": 30,
+    "closure": "OPEN",
+    "verified": [
+      "exact18Webinputs/33states/errors[]",
+      "fiveHTTPSfilesSHA256MATCH",
+      "tenfreshGitHubuploads/APIreadback",
+      "private10pictures/finite6.867splayingclip"
+    ]
+  },
+  "ponytail": {
+    "findings": 0,
+    "fixed": 0,
+    "accepted": 0,
+    "result": "Lean already. Ship."
+  },
+  "whitespace": {
+    "finding": "saved spec trailing blank at EOF",
+    "fix": "Removed trailing blank without runtime edit",
+    "working_range_check": "PASS"
+  }
+}

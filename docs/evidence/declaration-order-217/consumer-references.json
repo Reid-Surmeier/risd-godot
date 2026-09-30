@@ -1,0 +1,109 @@
+[
+  {
+    "file": "modules/atlas/atlas_window.gd",
+    "consumer_references": [
+      "modules/atlas/interface.gd:27:const _Impl := preload(\"res://modules/atlas/atlas_window.gd\")",
+      "modules/atlas/PROVENANCE.md:34:| `modules/atlas/atlas_window.gd` | `benchmarks/atlas-prototype/godot/atlas_window.gd` | `8be8599588651a61d69af495942470a0806657cdb16e38805e8db667c37e1352` | ported (edited; see the script header) |"
+    ]
+  },
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "consumer_references": [
+      "modules/playground_page/interface.gd:32:const _Impl := preload(\"res://modules/playground_page/playground_page.gd\")"
+    ]
+  },
+  {
+    "file": "modules/sculpture_viewer/viewer.gd",
+    "consumer_references": [
+      "modules/sculpture_viewer/PROVENANCE.md:39:| `modules/sculpture_viewer/viewer.gd` | `viewer-godot/scripts/main.gd` | `c000424bf86b82883beea0517a4ce05e4afa2971550622cfd511b52306a3fce2` | ported (edited; see the script header) |"
+    ]
+  },
+  {
+    "file": "modules/shell/crt_display.gd",
+    "consumer_references": [
+      "modules/shell/demo.tscn:3:[ext_resource path=\"res://modules/shell/crt_display.gd\" type=\"Script\" id=\"1\"]",
+      "modules/shell/prototype/gallery_walk4/final_render_check.gd:169:\tvar host = load(\"res://modules/shell/crt_display.gd\").new()"
+    ]
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+    "consumer_references": [
+      "modules/shell/prototype/gallery_walk4/walk4.gd:19:const PaintingAsset := preload(\"res://modules/shell/prototype/gallery_walk4/painting_asset.gd\")"
+    ]
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/render_diagnostics.gd",
+    "consumer_references": [
+      "modules/shell/prototype/gallery_walk4/render_diagnostics_check.gd:14:\tvar probe = load(\"res://modules/shell/prototype/gallery_walk4/render_diagnostics.gd\").new()"
+    ]
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+    "consumer_references": [
+      "modules/shell/playtest/visitor174_check.gd:32:\tvar gallery = load(\"res://modules/shell/prototype/gallery_walk4/walk4.gd\").new()",
+      "modules/shell/demo.gd:65:\t\tvar walk: Control = load(\"res://modules/shell/prototype/gallery_walk4/walk4.gd\").new()",
+      "modules/shell/prototype/gallery_walk4/portal_check.gd:14:\t\twalk = load(\"res://modules/shell/prototype/gallery_walk4/walk4.gd\").new()",
+      "modules/shell/prototype/gallery_walk4/cutaway_floor_check.gd:11:\tvar walk = load(\"res://modules/shell/prototype/gallery_walk4/walk4.gd\").new()",
+      "modules/shell/prototype/gallery_walk4/doorway_prototype.gd:12:\t\tvar walk = load(\"res://modules/shell/prototype/gallery_walk4/walk4.gd\").new()",
+      "modules/shell/prototype/gallery_walk4/doorway_check.gd:30:\tvar walk = load(\"res://modules/shell/prototype/gallery_walk4/walk4.gd\").new()",
+      "modules/shell/prototype/gallery_walk4/render_diagnostics_check.gd:10:\tvar walk = load(\"res://modules/shell/prototype/gallery_walk4/walk4.gd\").new()",
+      "modules/shell/prototype/gallery_walk4/floor_prototype_capture.gd:4:const Walk = preload(\"res://modules/shell/prototype/gallery_walk4/walk4.gd\")",
+      "modules/shell/prototype/gallery_walk4/navigation_check.gd:45:\twalk = load(\"res://modules/shell/prototype/gallery_walk4/walk4.gd\").new()",
+      "modules/shell/prototype/gallery_walk4/owner_repair_check.gd:11:\tvar walk = load(\"res://modules/shell/prototype/gallery_walk4/walk4.gd\").new()",
+      "modules/shell/prototype/gallery_walk4/world_176_check.gd:16:\t\t\t\telse \"res://modules/shell/prototype/gallery_walk4/walk4.gd\"",
+      "modules/shell/prototype/gallery_walk4/portal_traversal_check.gd:17:\tvar walk = load(\"res://modules/shell/prototype/gallery_walk4/walk4.gd\").new()",
+      "modules/shell/prototype/gallery_walk4/portal_sculpture_probe.gd:15:\tvar walk = load(\"res://modules/shell/prototype/gallery_walk4/walk4.gd\").new()",
+      "modules/shell/prototype/gallery_walk4/rig/render_check.gd:17:\twalk = load(\"res://modules/shell/prototype/gallery_walk4/walk4.gd\").new()",
+      "modules/shell/prototype/gallery_walk4/rig/contact_check.gd:40:\twalk = load(\"res://modules/shell/prototype/gallery_walk4/walk4.gd\").new()"
+    ]
+  },
+  {
+    "file": "modules/shell/shell.gd",
+    "consumer_references": [
+      "modules/shell/interface.gd:39:const _Impl := preload(\"res://modules/shell/shell.gd\")",
+      "modules/shell/shell.gd:42:\tvar shell = load(\"res://modules/shell/shell.gd\").new()"
+    ]
+  },
+  {
+    "file": "modules/shell/window_shadows.gd",
+    "consumer_references": [
+      "modules/shell/window_shadows.gd:37:\tvar s = load(\"res://modules/shell/window_shadows.gd\").new()",
+      "modules/shell/shell.gd:18:const WindowShadows := preload(\"res://modules/shell/window_shadows.gd\")"
+    ]
+  },
+  {
+    "file": "modules/sketchbook/desktop.gd",
+    "consumer_references": [
+      "modules/sketchbook/PROVENANCE.md:57:| `modules/sketchbook/desktop.gd` | `viewer-godot/scripts/desktop.gd` | `9c1670970975209be36f3494644731ca6127e4a949372e95922599a096adcbe0` | ported (edited: variant A fixed, the fill rule, the probe; see the header) |",
+      "modules/sketchbook/interface.gd:29:const _Impl := preload(\"res://modules/sketchbook/desktop.gd\")"
+    ]
+  },
+  {
+    "file": "modules/sketchbook/drawing_surface.gd",
+    "consumer_references": [
+      "modules/sketchbook/playtest/tldraw_controls_check.gd:3:const Surface := preload(\"res://modules/sketchbook/drawing_surface.gd\")",
+      "modules/sketchbook/PROVENANCE.md:60:| `modules/sketchbook/drawing_surface.gd` | `viewer-godot/scripts/drawing_surface.gd` | `2c0a286045fcaad96a8dcc7afdd5aadaf1cfb7e7ca2942e86ab227e6d013b1e3` | ported (class_name dropped, paths; see the header) |",
+      "modules/sketchbook/sketchbook_window.gd:7:const SketchbookDrawingSurface := preload(\"res://modules/sketchbook/drawing_surface.gd\")"
+    ]
+  },
+  {
+    "file": "modules/sketchbook/paintbox.gd",
+    "consumer_references": [
+      "modules/sketchbook/PROVENANCE.md:58:| `modules/sketchbook/paintbox.gd` | `viewer-godot/scripts/paint_palette_prototype.gd` | `52aa9ae244749cd1f8a5005c2ae800e1f337fef94c4402f3ecd47c89af8eba2f` | ported (class_name dropped, paths, hover from mouse events; see the header) |",
+      "modules/sketchbook/playtest/anri_palette_check.gd:40:\tvar box: Control = load(\"res://modules/sketchbook/paintbox.gd\").new()"
+    ]
+  },
+  {
+    "file": "modules/sketchbook/sketchbook_window.gd",
+    "consumer_references": [
+      "modules/sketchbook/PROVENANCE.md:59:| `modules/sketchbook/sketchbook_window.gd` | `viewer-godot/scripts/sketchbook_window.gd` | `d146e0adc407d9ee0d074db1364712e173e198c1fc1c5bfc6c98c40bb26df4e5` | ported (class_names dropped, paths, resize delta; see the header) |"
+    ]
+  },
+  {
+    "file": "modules/tab_strip/tab_strip.gd",
+    "consumer_references": [
+      "modules/tab_strip/tab_strip.gd:60:\tvar strip = load(\"res://modules/tab_strip/tab_strip.gd\").new()",
+      "modules/tab_strip/interface.gd:28:const _Impl := preload(\"res://modules/tab_strip/tab_strip.gd\")"
+    ]
+  }
+]
