@@ -2,7 +2,7 @@ const fs=require('fs'),assert=require('assert/strict'),puppeteer=require('/home/
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
 (async()=>{
  const [url,out]=process.argv.slice(2);fs.mkdirSync(out,{recursive:true});
- const browser=await puppeteer.launch({executablePath:'/usr/bin/google-chrome',headless:true,protocolTimeout:300000,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+ const browser=await puppeteer.launch({executablePath:'/usr/bin/google-chrome',headless:true,protocolTimeout:300000,args:process.env.GALLIUM_DRIVER?['--no-sandbox','--use-gl=angle','--use-angle=gl-egl','--ignore-gpu-blocklist','--autoplay-policy=no-user-gesture-required']:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader','--autoplay-policy=no-user-gesture-required']});
  try{
  const page=await browser.newPage(),errors=[],records={url,windows:[]};await page.setViewport({width:800,height:600});
  page.on('pageerror',e=>errors.push(String(e)));

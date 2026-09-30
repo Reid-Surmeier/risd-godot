@@ -71,6 +71,15 @@ func run() -> void:
 			await _button(screen(atlas.container.get_global_rect().get_center()), MOUSE_BUTTON_WHEEL_UP, false)
 			check(atlas.map.camera.zoom.x > zoom, "map wheel zoom after resize")
 		if index == 1:
+			var tenant = stage.find_child("Sketchbook", true, false)
+			var fitted_size: Vector2 = tenant.size
+			tenant.size = Vector2(480, 480)
+			await _frames(3)
+			for grip in grips:
+				if grip.is_visible_in_tree():
+					check(grip.get_global_rect().end.is_equal_approx(grip.get_parent().get_global_rect().end), "page-fit grip follows corner")
+			tenant.size = fitted_size
+			await _frames(3)
 			var book = stage.find_child("sketchbook-window", true, false)
 			await _click(screen(book.title_bar.get_global_rect().get_center()), "raise resized book")
 			var strokes: int = book.surface.stroke_count()
