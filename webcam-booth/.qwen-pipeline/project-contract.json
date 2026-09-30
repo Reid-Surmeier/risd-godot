@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1",
+  "applicationId": "app-91a1aa4f67da",
+  "artifactRoot": "artifacts/image-generation",
+  "referenceRoots": [
+    "assets/photo-fixture.png",
+    "assets/portrait-fixture.png"
+  ],
+  "outputRoot": "generated",
+  "maximumCount": 1,
+  "maximumBudgetUsd": "10.00",
+  "maximumCorrectionRuns": 0,
+  "procedures": [
+    {
+      "id": "muse-d4ff89ccf2b4ed8bdae3",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1024"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    }
+  ]
+}

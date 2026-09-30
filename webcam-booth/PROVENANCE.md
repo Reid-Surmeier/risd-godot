@@ -1,6 +1,6 @@
 # Prototype asset provenance
 
-No generated runtime assets have been accepted. Spend: $0.
+Generated sample portrait accepted only for this prototype under owner-delegated application review. One OpenRouter Muse output; $0.01 counted once. No final full-booth asset acceptance is implied.
 
 The four PNGs are Figma MCP visual exports, reduced by the MCP service from uploaded board nodes. Original-source download URLs returned empty bodies; those bodies were discarded. They are review/fixture art, not certified final artwork. Node mapping: camera-frame=1:4, photo-fixture=1:399, portrait-fixture=1:5, glove-frame-reference=1:398. Source: https://www.figma.com/board/T3TSj0MQ2a26sdSLDB6l7A/Untitled?node-id=1-623. The portrait fixture still contains the reference character/hand; the glove/frame image still contains its original painting and background. No identity preservation or transparent frame is claimed.
 
@@ -13,3 +13,11 @@ The four PNGs are Figma MCP visual exports, reduced by the MCP service from uplo
 | camera-frame.png | `41501d6814a33e44be6e07503273a75e1c0a0f6312fa3bf1bd7e34219cc82a06` |
 | photo-fixture.png | `1265c94186f7b11d019060b819ad486d9ae2a8fc909acd0b70226fd5532fc395` |
 | loading.gdshader | `872e26851dbad2f27776b001732cd3be4613818791aa7821e09efb18ed15858f` |
+
+## Muse sample-photo pilot
+
+- Provider/model/count: OpenRouter / meta/muse-image / 1. Exact ordered references are photo-fixture.png (identity) then portrait-fixture.png (style). Prompt, recipe, reference hashes and immutable Objective live in image-work/ and .qwen-pipeline/.
+- Run: run-c7bee15e9bbcf76387025838. Materialized native image: WebP, 1600×1600, SHA-256 `3001131179a4d8b5270024864ab79ef5aab75b7831f267d728a88423204d11b7`. Requested size was 1024×1024; actual dimensions are provider output.
+- Receipt actualCostUsd=0.010000, costState=actual; retained tool spendState=unknown and retryState=never-resubmit. These describe one pilot, counted once as $0.01 against the $10 ceiling. Receipt and Run remain under artifacts/image-generation/runs/. No receipt is edited and no retry is permitted.
+- Review: independent gpt-6.1-sol/high visually compared both exact references and the exact output hash; accepted recognizable supplied adult, red shirt, neck/shoulders, polygon facets, blue gradient and spiral sun, with the Wario character/hand/text excluded. Stylized facial proportions and clipped sun rays are recorded limitations. humanReviewed=false; this is owner-delegated application-level prototype acceptance. Tool human-review flags remain unchanged.
+- Live captures do not receive this as their generated likeness; the interface explicitly labels it as the pre-generated sample-photo portrait. Runtime generation is a later implementation ticket.

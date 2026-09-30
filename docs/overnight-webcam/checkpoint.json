@@ -4,11 +4,11 @@
   "branch": "Reid-Surmeier/webcam-booth-195",
   "base": "55e7c3b7f048a5a7a27b71fc962c040e7aa5893e",
   "status": "active",
-  "lease_until_utc": "2026-09-30T05:30:00Z",
+  "lease_until_utc": "2026-09-30T06:30:00Z",
   "deadline_utc": "2026-09-30T12:00:00Z",
   "spend_ceiling_usd": 10,
-  "spent_usd": 0,
-  "unknown_liability_usd": 0,
+  "spent_usd": 0.01,
+  "unknown_liability_usd": 0.01,
   "completed": [
     "reference intake",
     "browser research",
@@ -16,12 +16,15 @@
     "standalone fixture export",
     "six browser checks"
   ],
-  "next": "Review exact prototype; confirm Muse two-reference route; identify authentic fuse/explosion donor; then record and reserve one paid portrait experiment.",
+  "next": "Resolve prototype map decision, publish spec and four end-to-end tickets; implement safe live generation, reference assets, expression tracking and final acceptance.",
   "limits": [
     "physical webcam unverified",
     "paid portrait generation unverified",
     "explosion animation pending",
     "expression tracking after basic flow"
   ],
-  "automation_id": "01aae171-57ee-455c-93b8-eef25631f529"
+  "automation_id": "01aae171-57ee-455c-93b8-eef25631f529",
+  "liability_note": "One successful image output; tool actualCostUsd=0.010000 and spendState=unknown. These describe the SAME pilot, counted once as $0.01 against ceiling; never resubmit this Run.",
+  "pilot_run": "run-c7bee15e9bbcf76387025838",
+  "owner_instruction": "2026-09-30: finish map, create spec and tracer-bullet tickets, complete all tickets overnight without questions"
 }

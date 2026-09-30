@@ -21,6 +21,13 @@ const origin = `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({executablePath: '/usr/bin/google-chrome',headless:true,args:['--no-sandbox','--use-fake-device-for-media-stream','--enable-unsafe-swiftshader']});
 const context = await browser.newContext({viewport:{width:1024,height:700},permissions:['camera']});
 const page = await context.newPage();
+await page.addInitScript(() => {
+  const original = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+  window.__cameraStreams = [];
+  navigator.mediaDevices.getUserMedia = async constraints => {
+    const stream = await original(constraints); window.__cameraStreams.push(stream); return stream;
+  };
+});
 const errors = [];
 page.on('pageerror',e=>errors.push(e.message));
 page.on('console',m=>{if(/SCRIPT ERROR|^ERROR:/.test(m.text()))errors.push(m.text());});
@@ -65,7 +72,18 @@ try {
   await click(870); await waitState('camera');
   await page.waitForFunction(()=>window.boothState.source==='camera');
   results.push({check:'synthetic getUserMedia frame transferred into exported Godot; capture/reset',passed:true});
-  await page.evaluate(()=>window.booth.stop());
+  await page.evaluate(()=>window.__cameraStreams.at(-1).getTracks().forEach(track=>track.stop()));
+  await page.waitForFunction(()=>window.boothState.source==='denied');
+  await click(690);
+  assert.equal(await page.evaluate(()=>window.boothState.state),'camera');
+  assert.equal(JSON.parse(await page.evaluate(()=>window.booth.status())).error,'CameraEnded');
+  results.push({check:'ended camera track disables stale capture and allows retry',passed:true});
+  await click(320); await page.waitForFunction(()=>window.boothState.source==='camera');
+  await page.evaluate(()=>window.dispatchEvent(new Event("pagehide")));
+  await page.waitForFunction(()=>window.boothState.source==='none');
+  await click(690);
+  assert.equal(await page.evaluate(()=>window.boothState.state),'camera');
+  results.push({check:'pagehide releases camera and disables stale capture on return',passed:true});
   // A camera request resolving after cancellation must release its stream.
   assert.equal(await page.evaluate(async()=>{
     const original = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);

@@ -92,3 +92,7 @@ These are procedural source assets, not a pre-rendered movie or image sequence. 
 ## Unresolved facts and next concrete check
 
 The exact Muse `/images` endpoint's two-reference acceptance, size interpretation, native alpha and final charge remain unverified. Seedance generation quality, fuse/explosion timing and public donor accessibility also remain unverified until a real plan/output is inspected. The next unpaid check is resolving Muse's missing dedicated endpoint metadata and obtaining a genuine explosion donor or an explicitly recorded inferred-motion contract. Preserve the model selection and proceed with the unpaid booth loop while these provider capabilities are unresolved.
+
+## Follow-up pilot, 2026-09-30
+
+The authenticated dedicated metadata read still returned zero endpoints, but one explicitly funded maintained-tool submission succeeded. Run `run-c7bee15e9bbcf76387025838` records exactly two ordered hashed references and one OpenRouter Muse image. Native output is a 1600×1600 WebP despite requested 1024×1024. The receipt records actual cost $0.01 while tool spendState remains unknown/never-resubmit; count that same liability once and preserve the receipt. Independent gpt-6.1-sol/high review accepts the image as the supplied-photo prototype sample only. This verifies that route's two-image submission, not native alpha, live-visitor generation or expression-driven geometry. [Pilot provenance](../../webcam-booth/PROVENANCE.md).

@@ -2,7 +2,7 @@
 extends Control
 
 const PHOTO = preload("assets/photo-fixture.png")
-const PORTRAIT = preload("assets/portrait-fixture.png")
+const PORTRAIT = preload("assets/sample-portrait.webp")
 const CAMERA_FRAME = preload("assets/camera-frame.png")
 const GLOVES = preload("assets/glove-frame-reference.png")
 const LOADING_SHADER = preload("assets/loading.gdshader")
@@ -21,7 +21,6 @@ var fixture_button: Button
 var camera_button: Button
 var cancel_button: Button
 var countdown: ProgressBar
-var fail_next := false
 var loader: ColorRect
 var entered_at := 0.0
 
@@ -80,6 +79,8 @@ func _enable_camera() -> void:
 	if not OS.has_feature("web"):
 		caption.text = "Open the Web build to enable your camera, or try the sample photo."
 		return
+	picture.texture = null
+	live_texture = null
 	source = "requesting"
 	JavaScriptBridge.eval("window.booth.start()")
 	_sync()
@@ -116,16 +117,11 @@ func _process(delta: float) -> void:
 	elapsed = _now() - entered_at
 	loader.material.set_shader_parameter("progress", minf(elapsed / 4.0, 1.0))
 	if state == "loading" and elapsed >= 4.0:
-		if fail_next:
-			fail_next = false
-			reset()
-			caption.text = "Portrait failed. Your camera is ready to try again."
-		else:
-			state = "portrait"
-			entered_at = _now()
-			elapsed = 0.0
-			picture.texture = PORTRAIT
-			_sync()
+		state = "portrait"
+		entered_at = _now()
+		elapsed = 0.0
+		picture.texture = PORTRAIT
+		_sync()
 	elif state == "portrait":
 		countdown.value = maxf(0.0, 100.0 * (1.0 - elapsed / 10.0))
 		if elapsed >= 10.0:
@@ -149,7 +145,12 @@ func _process(delta: float) -> void:
 
 func _poll_camera() -> void:
 	var status = JSON.parse_string(JavaScriptBridge.eval("window.booth.status()"))
-	if status.mode == "denied":
+	if status.mode == "none":
+		source = "none"
+		live_texture = null
+		picture.texture = null
+		_sync()
+	elif status.mode == "denied":
 		source = "denied"
 		live_texture = null
 		picture.texture = null
@@ -192,7 +193,7 @@ func _sync() -> void:
 		caption.text = "Preparing the sample portrait…"
 	elif state == "portrait":
 		countdown.value = 100.0
-		caption.text = "Sample portrait — ten seconds until it disappears."
+		caption.text = "Sample-photo portrait — live captures are not generated yet."
 	elif state == "explosion":
 		caption.text = "Poof! Returning to camera… (animation pending)"
 

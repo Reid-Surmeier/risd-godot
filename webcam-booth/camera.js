@@ -25,11 +25,18 @@ window.booth = (() => {
   }
   function stopTracks() { stream?.getTracks().forEach(t => t.stop()); stream = null; video = null; }
   function stop() { ++ticket; stopTracks(); mode = 'none'; error = ''; }
+  function status() {
+    if (mode === 'camera' && !stream?.getVideoTracks().some(t => t.readyState === 'live')) {
+      stopTracks(); error = 'CameraEnded'; mode = 'denied';
+    }
+    return JSON.stringify({mode, error});
+  }
   function frame() {
+    status();
     if (mode !== 'camera' || !video || video.readyState < 2) return '';
     try { context.drawImage(video, 0, 0, 320, 240); return canvas.toDataURL('image/jpeg', 0.55).split(',')[1]; }
     catch (e) { error = e.name; mode = 'denied'; stopTracks(); return ''; }
   }
   window.addEventListener('pagehide', stop);
-  return {start, stop, frame, status: () => JSON.stringify({mode, error})};
+  return {start, stop, frame, status};
 })();
