@@ -18,6 +18,7 @@ parser.add_argument('--grand', action='store_true')
 parser.add_argument('--grand-registered', action='store_true')
 parser.add_argument('--grand-return', action='store_true')
 parser.add_argument('--grand-header', action='store_true')
+parser.add_argument('--grand-outer-header', action='store_true')
 args = parser.parse_args()
 OUT = ROOT/('corridor-grand-extents-v1' if args.grand else 'corridor-extents-v1')
 # Upright 720x1280 source pixels. Query marks are frozen before any projection.
@@ -61,6 +62,15 @@ if args.grand_header:
         'IMG_6380/000203.jpg': [[445, 243]],
     }
     LABELS = ['grand-white-inner-header-left']
+if args.grand_outer_header:
+    assert not (args.grand or args.grand_registered or args.grand_return or args.grand_header)
+    OUT = ROOT/'grand-casing-outer-header-v1'
+    PICKS = {
+        'IMG_6380/000202.jpg': [[503, 375]],
+        'IMG_6380/000204.jpg': [[278, 100]],
+        'IMG_6380/000203.jpg': [[420, 204]],
+    }
+    LABELS = ['grand-white-outer-mitre-left']
 TRAIN = list(PICKS)[:2]
 QUERY = list(PICKS)[2]
 
@@ -170,8 +180,9 @@ if args.grand_registered or args.grand_return:
         'shows the opposite casing face and is excluded rather than asserted to match. '
         'One toe cannot define an aperture, floor polygon or collision extension. '
         'This is the corridor casing at the Grand Gallery end, not the adjacent blue-room doorway.')
-if args.grand_header:
-    report['caveat'] = ('Inner header corner only; no opposite jamb or full aperture. '
+if args.grand_header or args.grand_outer_header:
+    report['caveat'] = (('Outer mitre' if args.grand_outer_header else 'Inner header') +
+        ' corner only; no opposite jamb or full aperture. '
         'Query pixels withheld from triangulation, but camera poses are correlated in the same video. '
         'Plane distance is a header diagnostic, not a floor measurement. '
         'Pick sensitivity omits pose/scale error. Do not tune evaluated pixels or extend collision.')

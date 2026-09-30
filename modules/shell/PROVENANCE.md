@@ -194,3 +194,20 @@ array serialization fixed; no matching retry, geometry or collision extension.
 All 24 native/RTX Chrome doorway checks and real WASD round trips pass. Initial
 llvmpipe browser result retained; Shell has six previously observed failures.
 Existing Muse receipts and rejected sculpture meshes remain unchanged.
+
+## Collection native casing coverage — September 30, 06:30 UTC heartbeat
+
+Local ffmpeg NVDEC/scale_cuda / pycolmap / NumPy / Pillow / Godot 4.7.2 / Chrome
+154; **$0**, no paid calls. RTX 4070 SUPER decode/final rendering; no new
+feature matching, reconstruction or optimization.
+[Sources, original marks, outputs and hashes](../../docs/evidence/collection-reconstruction/heartbeat-20260930T0630/provenance.json).
+
+Separate outer-mitre candidate fails its reserved view at 14.895px under the
+unchanged 8px gate. Inspected marks may identify different bevel endpoints;
+failed trial retained, no retuning or new floor/collision. Only one fitted
+track is shared near the three marks; this is local coverage evidence, not
+independent corner accuracy. Eight native frames use full-stream fps indexing.
+Final native/RTX Chrome walk passes all 24 checks and real keyboard round trips;
+initial failed capture invocation and integrated-GPU browser run retained.
+Shell has seven previously observed failure names. Existing Muse receipts and
+rejected sculpture meshes unchanged; no production integration or Viewer edit.
