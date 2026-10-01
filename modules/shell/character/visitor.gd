@@ -10,6 +10,9 @@ const REST_HEIGHT := 1.877
 # Re-measure if the clip changes; visitor174_check.gd fails on a wrong step cadence.
 const LIFT := 0.035
 const PLANT := 0.01
+# The captured steps peak at -29 to -38 dBFS; the museum's other sounds peak near -3 dBFS and
+# its previous steps played at -8 dB. This puts the captured steps at that same loudness.
+const MUSEUM_GAIN_DB := 20.0
 # A render layer no museum camera or surface uses: only the visitor's own light reaches it.
 const FILL_LAYER := 1 << 19
 
@@ -215,12 +218,15 @@ func pose(
 
 
 func _step(side: String, gait: String) -> void:
-	# Same cue selection and levels as the accepted playtest's captured-house profile (#235).
+	# Same cue selection and relative gait levels as the accepted playtest's captured-house
+	# profile (#235), raised as a whole to the museum's loudness.
 	# ponytail: one voice. Walk steps last 185 ms and land about 430 ms apart; running or
 	# dashing here would need the playtest's polyphonic player so tails are not cut.
 	var cue: Dictionary = _kit.sounds.step("Indoor", gait, side, true)
 	_speaker.stream = cue.stream
-	_speaker.volume_db = -14 + linear_to_db(cue.gain) + cue.get("gain_offset_db", 0)
+	_speaker.volume_db = (
+		-14 + linear_to_db(cue.gain) + cue.get("gain_offset_db", 0) + MUSEUM_GAIN_DB
+	)
 	_speaker.pitch_scale = cue.pitch
 	_speaker.play(cue.get("start_offset", 0))
 
