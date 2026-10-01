@@ -267,6 +267,9 @@ assert image.size==(1440,1760),'Door UV regions require review when native pixel
 for index,box in enumerate([(523,258,921,632),(523,708,921,1086),(523,1150,921,1526)]):
     image.crop(box).save(out/'assets'/f'white-panel-door-{index}.png')
 inputs[str(door)]=hashlib.sha256(door.read_bytes()).hexdigest()
+for index in range(2):
+    copy(app/'trial'/f'european-two-panel-door-{index}.png','assets/'+f'european-two-panel-door-{index}.png')
+copy(app/'european-two-panel-door-geometry.json','assets/european-two-panel-door-geometry.json')
 for kind in ['fetti-frame','goltzius-frame','romanesque-portal','tracery-arch','ionic-capital']:
     for suffix in ['.png','-geometry.json']:
         copy(app/'trial'/(kind+suffix),'assets/'+kind+suffix)
@@ -302,6 +305,7 @@ geometry['start']=[-.55,.25,-1.3]
 geometry['trials']=[['gallery_door_out',[-.55,.25,-1.3],[-.55,0,1.6],False],['gallery_door_back',[-.55,.25,1.6],[-.55,0,-1.3],False],['sofa_wall_blocked',[-1.3,.25,-2.5],[-3.3,0,-2.5],True],['right_wall_blocked',[3.0,.25,-3.2],[4.5,0,-3.2],True],['decorative_room',[1.65,.25,-2.0],[1.65,0,-5.4],False],['adjacent_gallery',[-.55,.25,3],[-.55,0,6],False],['right_door_out',[3.0,.25,-2.0],[4.8,0,-2.0],False],['right_door_back',[4.8,.25,-2.0],[3.0,0,-2.0],False],['central_display_blocked',[.45,.25,-2.3],[.45,0,-4.2],True]]
 geometry['trial_seconds']=3.5
 geometry['trials'] += [['far_gallery_door_out',[-.55,.25,18],[-.55,0,19.7],False],['far_gallery_door_back',[-.55,.25,19.7],[-.55,0,18],False]]
+geometry['trials'] += [['renaissance_left_leaf_blocked',[-1.20,.25,19.33],[-1.85,0,19.33],True],['renaissance_right_leaf_blocked',[.10,.25,19.33],[.75,0,19.33],True]]
 geometry['trials'] += [['gold_service_base_blocked',[2.05,.25,-3.8],[3.25,0,-3.8],True]]
 geometry['trials'] += [['purple_grey_out',[7.6,.25,-2],[9.3,0,-2],False],['purple_grey_back',[9.3,.25,-2],[7.6,0,-2],False],['grey_grand_out',[10.15,.25,1],[10.15,0,2.65],False],['grey_grand_back',[10.15,.25,2.65],[10.15,0,1],False],['grey_piano_out',[10.15,.25,-5],[10.15,0,-6.6],False],['grey_piano_back',[10.15,.25,-6.6],[10.15,0,-5],False],['grey_ionic_out',[14.85,.25,-2],[16.5,0,-2],False],['grey_ionic_back',[16.5,.25,-2],[14.85,0,-2],False]]
 for a,side,b,opposite in [(6,'east',7,'west'),(7,'east',8,'west'),(7,'north',9,'south'),(7,'south',10,'north')]:

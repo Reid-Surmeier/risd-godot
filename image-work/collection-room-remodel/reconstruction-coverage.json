@@ -147,7 +147,7 @@
       "state": "submission_unreconciled; max $0.01 possibly spent; never resubmit blindly"
     }
   ],
-  "current_preview": "lowpoly-room-v34",
+  "current_preview": "lowpoly-room-v35",
   "gallery_inventory": "european-gallery-inventory.json",
   "sculpture_inventory": "sculpture-room-inventory.json",
   "survey_summary": {
@@ -157,5 +157,13 @@
     "reconstruction_complete": false
   },
   "hall_stairs_inventory": "hall-stairs-inventory.json",
-  "ionic_capitals": "Muse front installed in source-positioned pair; constant-depth closed silhouette, side/rear and exact dimensions unaccepted; entablature still plain"
+  "ionic_capitals": "Muse front installed in source-positioned pair; constant-depth closed silhouette, side/rear and exact dimensions unaccepted; entablature still plain",
+  "european_renaissance_door_correction": {
+    "source": "IMG_6386:102.75/104.75s",
+    "panels": 2,
+    "unequal": true,
+    "swing_into": "Renaissance",
+    "previous_error": "three equal panels, swung backwards into European gallery",
+    "accepted": false
+  }
 }

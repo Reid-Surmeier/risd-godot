@@ -679,12 +679,37 @@ func build_adjacent_gallery() -> void:
 		var foot:=solid(Vector3(2.25,.065,z),Vector3(.55,.13,1.06),look(Color("f1ede2")))
 		foot.reparent(pier)
 	inventory["gallery_piers"]=2
-	# Far doorway crossed in IMG_6386 98.75..106.25s; three-panel open leaves.
+	# IMG_6386 102.75/104.75s: two unequal panels, leaves swing into Renaissance.
+	# ponytail: right-angle swing and leaf dimensions remain provisional; wall relationship is observed.
 	for x in [-1.59,.49]:
-		var leaf:=solid(Vector3(x,1.3,18.41),Vector3(.05,2.6,.88),look(Color("eee7d5")),true)
-		for y in [.52,1.3,2.08]:
-			var inset:=solid(Vector3(x+.03, y,18.41),Vector3(.012,.62,.7),look(Color("e2dac9")))
-			inset.reparent(leaf)
+		var ivory:=look(Color("eee9de"))
+		var leaf:=solid(Vector3(x,1.38,19.33),Vector3(.07,2.7,.96),ivory,true)
+		for index in 2:
+			var y:float=[1.73,.43][index]
+			var height:float=[1.66,.60][index]
+			for side in [-1,1]:
+				var face:float=x+side*.042
+				panel(leaf,[Vector3(face-x,y-height/2-1.38,-.36),Vector3(face-x,y-height/2-1.38,.36),Vector3(face-x,y+height/2-1.38,.36),Vector3(face-x,y+height/2-1.38,-.36)],
+					[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)],look(Color.WHITE,"res://assets/european-two-panel-door-%d.png"%index))
+				for edge in [-1,1]:
+					var stile:=solid(Vector3(x+side*.050,y,19.33+edge*.36),Vector3(.014,height+.03,.03),ivory)
+					stile.reparent(leaf)
+					var rail:=solid(Vector3(x+side*.050,y+edge*height/2,19.33),Vector3(.014,.03,.75),ivory)
+					rail.reparent(leaf)
+		for side in [-1,1]:
+			var knob:=MeshInstance3D.new()
+			var sphere:=SphereMesh.new()
+			sphere.radius=.025
+			sphere.height=.05
+			sphere.radial_segments=8
+			sphere.rings=4
+			knob.mesh=sphere
+			knob.material_override=look(Color("514831"))
+			knob.position=Vector3(x+side*.070,.88,19.74)
+			add_child(knob)
+			knob.reparent(leaf)
+	inventory["european_door_panels_per_leaf"]=2
+	inventory["european_door_swing_into_renaissance"]=true
 	inventory["far_doorway_threshold"]=1
 	var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/goltzius-frame-geometry.json"))
 	var goltzius:=Painting.new()

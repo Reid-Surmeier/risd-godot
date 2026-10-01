@@ -64,6 +64,8 @@ func run() -> void:
 		["fetti-in-room",Vector3(-1.65,1.8,8.8),Vector3(-3.48,1.8,8.8)],
 		["gallery-piers",Vector3(.0,1.65,1.2),Vector3(2.28,1.75,8.4)],
 		["gallery-far-door",Vector3(-.55,1.65,16.3),Vector3(-.55,1.6,19.7)],
+		["european-door-reverse",Vector3(-.55,1.65,21),Vector3(-.55,1.5,18.85)],
+		["european-door-detail",Vector3(-.10,1.55,19.45),Vector3(-1.59,1.38,19.33)],
 		["goltzius-in-room",Vector3(-1.65,1.75,14.7),Vector3(-3.48,1.75,14.7)],
 		["renaissance-wide",Vector3(-2,1.65,24),Vector3(.8,1.8,19.7)],
 		["tracery-front",Vector3(-.3,2.6,22.515),Vector3(2.5,2.8,22.515)],
