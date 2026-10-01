@@ -1,0 +1,35 @@
+{
+  "blender": "4.3.2",
+  "kind": "mesh",
+  "source": "mesh-output-model_glb.glb",
+  "triangles": 7719,
+  "vertices": 5624,
+  "mesh_objects": 1,
+  "all_meshes_uv": true,
+  "textures": [
+    {
+      "name": "Image_0",
+      "size": [
+        2048,
+        2048
+      ]
+    }
+  ],
+  "bounds_blender_z_up": [
+    [
+      -0.8009269833564758,
+      -0.49057507514953613,
+      -0.9516531229019165
+    ],
+    [
+      0.8005809783935547,
+      0.4861120283603668,
+      0.9464101195335388
+    ]
+  ],
+  "height_meters": 1.8980632424354553,
+  "rigs": 0,
+  "bones": [],
+  "actions": [],
+  "visual_acceptance": "pending owner review"
+}

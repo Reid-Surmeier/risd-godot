@@ -1,0 +1,8 @@
+# Unpaid fixture provenance
+
+- Source rig and animation: existing KayKit Adventurers Rogue fixture, `modules/shell/prototype/gallery_walk4/identity/Rogue.source.glb`, SHA-256 `e825437cd4d2ee9c1960b517a74a69101e33eb409ae7fa8cedc7134a998fbb7d`. Existing [license file](../../modules/shell/prototype/gallery_walk4/identity/KayKit-LICENSE.txt) states CC0.
+- Authored low-poly geometry/recipe: existing `build.py` at [0f690ea63245c633b04cb2dbb35ac28ff0bb710e](https://github.com/Reid-Surmeier/risd-godot/blob/0f690ea63245c633b04cb2dbb35ac28ff0bb710e/modules/shell/prototype/gallery_walk4/identity/build.py); current prototype isolates outputs, checks RGB, pins CPU and explicit Actions export, and saves Blender source. Original imported Rogue mesh is deleted by this recipe; its rig/animation remain.
+- Texture input: deterministic local256² modulation image authored in the copied recipe; color stripes/tints are authored materials. Baking: Blender4.3.2 CyclesCPU, 16samples, 8px margin, Emission color and separate AO512². Renders: same BlenderCPU, 8samples. Film: ffmpeg H.264384², 8frames/8FPS,1second.
+- Provider: local installed Blender/ffmpeg; model: none; generation API requests:0; cost:$0. No Muse or fal call produced these fixture assets.
+- Actual MCP smoke: pinned mcp-for-blender2.0.0, installed add-on protocol7, BlenderGUI4.3.2 on existingDISPLAY:99, local socket only; paid calls0 and no global configuration change. See `mcp-smoke.json`.
+- Per-file SHA-256 values: `hashes.json`; machine-readable transfer/source/output inventory: `evidence.json`. These are throwaway review artifacts and do not become runtime dependencies.

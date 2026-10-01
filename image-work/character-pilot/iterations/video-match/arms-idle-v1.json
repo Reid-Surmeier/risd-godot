@@ -1,0 +1,13 @@
+{
+  "period_seconds": 1.0666666666666667,
+  "controller_speed_mps": 0.52,
+  "swing_lift_m": 0.06,
+  "forward_idle": true,
+  "stable_head": true,
+  "head_pitch_degrees": 1,
+  "symmetric_arms": true,
+  "arm_swing_m": 0.14,
+  "arm_reach_m": 0.35,
+  "arm_outward_m": 0.07,
+  "reference_fit": "trial, not measured animation equivalence"
+}

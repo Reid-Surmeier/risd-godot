@@ -1,0 +1,200 @@
+{
+  "cubic_before": {
+    "source_sha256": "0f609ee4dfd7d0e645a15dbd8b47625dd95b0c13c4b59b624deecdd2eddeb487",
+    "candidate_sha256": "624cff7867a4b6435ad3a09c92458874f1a0791bfe19ba8ec0d1c96882dfd1d6",
+    "bones": 24,
+    "period_seconds": 1.0666666666666667,
+    "controller_speed_mps": 0.52,
+    "contacts": [
+      {
+        "time": 0.26666666666666666,
+        "foot": "Left"
+      },
+      {
+        "time": 0.8,
+        "foot": "Right"
+      }
+    ],
+    "sampled_planar_contact_verified": true,
+    "terrain_turning_blending_verified": false,
+    "idle_event_count_expected": 0,
+    "walk_events_per_loop_expected": 2,
+    "contact_probe": {
+      "idle": {
+        "seconds": 4.03333330154419,
+        "sample_count": 257,
+        "stance_floor_error_max_m": 6.00870371272322e-05,
+        "stance_xz_drift_max_m": 0.0001293420791620009,
+        "endpoint_vertex_error_max_m": 3.58867481509151e-07,
+        "one_millisecond_velocity_jump_max_mps": 0.0248628742992878,
+        "planar_contact_gate": "PASS",
+        "visual_acceptance": "pending"
+      },
+      "walk": {
+        "seconds": 1.06666672229767,
+        "sample_count": 257,
+        "stance_floor_error_max_m": 0.000493609171826392,
+        "stance_xz_drift_max_m": 0.0003106585890034763,
+        "endpoint_vertex_error_max_m": 9.99600260342959e-08,
+        "one_millisecond_velocity_jump_max_mps": 0.0062738130800426,
+        "planar_contact_gate": "PASS",
+        "visual_acceptance": "pending"
+      }
+    },
+    "cost_usd": 0,
+    "contact_boundary_velocities": [
+      {
+        "foot": "Left",
+        "incoming_world_velocity_mps": [
+          0.00575184775516391,
+          -0.0696182250976562,
+          0.185163468122482
+        ],
+        "jump_mps": 0.19569157063961,
+        "outgoing_world_velocity_mps": [
+          -0.00484287738800049,
+          -0.0426620207726955,
+          -0.00837284326553345
+        ],
+        "time": 0.266666680574417
+      },
+      {
+        "foot": "Right",
+        "incoming_world_velocity_mps": [
+          -0.000834464968647808,
+          -0.0722706317901611,
+          0.187361389398575
+        ],
+        "jump_mps": 0.201297581195831,
+        "outgoing_world_velocity_mps": [
+          0.00208616256713867,
+          -0.0385046005249023,
+          -0.0110625028610229
+        ],
+        "time": 0.800000041723251
+      }
+    ],
+    "velocity_convergence": [
+      {
+        "delta_seconds": 0.01,
+        "maximum_joint_velocity_jump_mps": 0.0621278248727322,
+        "worst_bone": "LeftHand"
+      },
+      {
+        "delta_seconds": 0.003,
+        "maximum_joint_velocity_jump_mps": 0.0186355970799923,
+        "worst_bone": "LeftHand"
+      },
+      {
+        "delta_seconds": 0.001,
+        "maximum_joint_velocity_jump_mps": 0.0062738130800426,
+        "worst_bone": "LeftHand"
+      },
+      {
+        "delta_seconds": 0.0003,
+        "maximum_joint_velocity_jump_mps": 0.00197452260181308,
+        "worst_bone": "LeftHand"
+      }
+    ]
+  },
+  "quintic_after": {
+    "source_sha256": "0f609ee4dfd7d0e645a15dbd8b47625dd95b0c13c4b59b624deecdd2eddeb487",
+    "candidate_sha256": "c827ab8bb681c4e4d146c6f4407802b36dbf67dc61150f72d16faffdc254d96f",
+    "bones": 24,
+    "period_seconds": 1.0666666666666667,
+    "controller_speed_mps": 0.52,
+    "contacts": [
+      {
+        "time": 0.26666666666666666,
+        "foot": "Left"
+      },
+      {
+        "time": 0.8,
+        "foot": "Right"
+      }
+    ],
+    "sampled_planar_contact_verified": true,
+    "terrain_turning_blending_verified": false,
+    "idle_event_count_expected": 0,
+    "walk_events_per_loop_expected": 2,
+    "contact_probe": {
+      "idle": {
+        "seconds": 4.03333330154419,
+        "sample_count": 257,
+        "stance_floor_error_max_m": 6.00870371272322e-05,
+        "stance_xz_drift_max_m": 0.0001293420791620009,
+        "endpoint_vertex_error_max_m": 3.58867481509151e-07,
+        "one_millisecond_velocity_jump_max_mps": 0.0248628742992878,
+        "planar_contact_gate": "PASS",
+        "visual_acceptance": "pending"
+      },
+      "walk": {
+        "seconds": 1.06666672229767,
+        "sample_count": 257,
+        "stance_floor_error_max_m": 0.000493609171826392,
+        "stance_xz_drift_max_m": 0.0003106585890034763,
+        "endpoint_vertex_error_max_m": 9.99600260342959e-08,
+        "one_millisecond_velocity_jump_max_mps": 0.00939379632472992,
+        "planar_contact_gate": "PASS",
+        "visual_acceptance": "pending"
+      }
+    },
+    "cost_usd": 0,
+    "contact_boundary_velocities": [
+      {
+        "foot": "Left",
+        "incoming_world_velocity_mps": [
+          0.0121444454416633,
+          0.00583380414173007,
+          0.0393481552600861
+        ],
+        "jump_mps": 0.0701263695955276,
+        "outgoing_world_velocity_mps": [
+          -0.00484287738800049,
+          -0.0426620207726955,
+          -0.00837284326553345
+        ],
+        "time": 0.266666680574417
+      },
+      {
+        "foot": "Right",
+        "incoming_world_velocity_mps": [
+          -0.00274181342683733,
+          0.00216066837310791,
+          0.0420154631137848
+        ],
+        "jump_mps": 0.0670391246676445,
+        "outgoing_world_velocity_mps": [
+          0.00208616256713867,
+          -0.0385046005249023,
+          -0.0110625028610229
+        ],
+        "time": 0.800000041723251
+      }
+    ],
+    "velocity_convergence": [
+      {
+        "delta_seconds": 0.01,
+        "maximum_joint_velocity_jump_mps": 0.0945142656564713,
+        "worst_bone": "LeftToeBase"
+      },
+      {
+        "delta_seconds": 0.003,
+        "maximum_joint_velocity_jump_mps": 0.0283450689166784,
+        "worst_bone": "LeftToeBase"
+      },
+      {
+        "delta_seconds": 0.001,
+        "maximum_joint_velocity_jump_mps": 0.00939379632472992,
+        "worst_bone": "LeftToeBase"
+      },
+      {
+        "delta_seconds": 0.0003,
+        "maximum_joint_velocity_jump_mps": 0.00299982912838459,
+        "worst_bone": "LeftToeBase"
+      }
+    ]
+  },
+  "chosen": "quintic",
+  "visual_check": "Native45degree idle and sampledwalk inspected; no obvious new jointdetachment in shownviews; inherited sideframing cropped, not fullbodyacceptance."
+}

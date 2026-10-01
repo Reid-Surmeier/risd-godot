@@ -1,0 +1,35 @@
+{
+  "models": [
+    {
+      "source": "video-match/canonical-run/footplant-candidate.glb",
+      "label": "Canonical rig + source RUN; normal cadence candidate",
+      "sha256": "fceb9b9fd19accd7bb3c4b6d43dacd64d07c4f94ab61b57bebc755e4c83a4527"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 2,
+  "effects": false,
+  "controller_speed_m_s": 3.15,
+  "contacts": [
+    {
+      "time": 0,
+      "foot": "Left"
+    },
+    {
+      "time": 0.23333333333333334,
+      "foot": "Right"
+    }
+  ],
+  "width": 886,
+  "height": 664,
+  "camera_distance": 17,
+  "import_fps": 240,
+  "dust_color": [
+    0.96,
+    0.97,
+    1
+  ],
+  "dust_radius": 0.065,
+  "dust_forward_offset": -0.1
+}

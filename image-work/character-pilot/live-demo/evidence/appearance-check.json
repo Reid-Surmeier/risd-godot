@@ -1,0 +1,29 @@
+{
+  "blink_levels": [
+    0.0,
+    0.104,
+    0.352,
+    0.648,
+    0.896,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    0.896,
+    0.648,
+    0.352,
+    0.104,
+    0.0,
+    0.0
+  ],
+  "same_pose_same_light_comparison": true,
+  "source_material": {
+    "albedo_color": "(1.0, 1.0, 1.0, 1.0)",
+    "emission": "(0.0, 0.0, 0.0, 1.0)",
+    "emission_enabled": false,
+    "metallic": 0.0,
+    "roughness": 1.0,
+    "shading_mode": 1
+  }
+}

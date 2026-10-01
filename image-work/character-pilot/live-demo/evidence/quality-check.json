@@ -1,0 +1,446 @@
+{
+  "arm_clearance": {
+    "body_triangles": 878,
+    "distal_vertices": 1347,
+    "interior_vertices": 0,
+    "maximum_penetration": 0.0,
+    "minimum_gap": 0.125611573457718,
+    "model_space_surface_hits": 2695
+  },
+  "audio": {
+    "Grass": {
+      "gain": 0.8,
+      "id": 16897,
+      "peak": 12450,
+      "samples": 2205,
+      "tail": 264
+    },
+    "Indoor": {
+      "gain": 0.72,
+      "id": 16900,
+      "peak": 12450,
+      "samples": 2866,
+      "tail": 115
+    },
+    "Leaves": {
+      "gain": 0.8,
+      "id": 16921,
+      "peak": 12450,
+      "samples": 3087,
+      "tail": 517
+    },
+    "Path": {
+      "gain": 0.8,
+      "id": 16898,
+      "peak": 12450,
+      "samples": 1764,
+      "tail": 102
+    },
+    "Sand": {
+      "gain": 0.8,
+      "id": 16904,
+      "peak": 12450,
+      "samples": 2646,
+      "tail": 101
+    },
+    "Snow": {
+      "gain": 0.8,
+      "id": 16922,
+      "peak": 12450,
+      "samples": 2866,
+      "tail": 206
+    },
+    "Water": {
+      "gain": 0.8,
+      "id": 16905,
+      "peak": 12450,
+      "samples": 3528,
+      "tail": 450
+    }
+  },
+  "contact_depth": {
+    "minimum_root_y": -0.00000000745058059692383
+  },
+  "exact_original_waveforms": false,
+  "idle_silent": true,
+  "jump_transition": {
+    "relative_wrist_error_degrees": 0.0395646811852521,
+    "updates": 100
+  },
+  "landing_continuity": [
+    {
+      "input_delay_ticks": 0,
+      "maximum_vertical_head_acceleration": 0.0303849577903748
+    },
+    {
+      "input_delay_ticks": 1,
+      "maximum_vertical_head_acceleration": 0.030234158039093
+    },
+    {
+      "input_delay_ticks": 2,
+      "maximum_vertical_head_acceleration": 0.030234158039093
+    },
+    {
+      "input_delay_ticks": 3,
+      "maximum_vertical_head_acceleration": 0.0328000783920288
+    },
+    {
+      "input_delay_ticks": 4,
+      "maximum_vertical_head_acceleration": 0.030234158039093
+    },
+    {
+      "input_delay_ticks": 5,
+      "maximum_vertical_head_acceleration": 0.030234158039093
+    },
+    {
+      "input_delay_ticks": 6,
+      "maximum_vertical_head_acceleration": 0.030234158039093
+    },
+    {
+      "input_delay_ticks": 7,
+      "maximum_vertical_head_acceleration": 0.030234158039093
+    },
+    {
+      "input_delay_ticks": 8,
+      "maximum_vertical_head_acceleration": 0.030234158039093
+    }
+  ],
+  "mixed_input": {
+    "apex": {
+      "descent_pose_monotonic": true,
+      "flat_hop_impact": 0.996296670701769,
+      "maximum_descent_land_hand_step": 0.0588730983436108,
+      "maximum_head_hips_step": 0.0326646938920021,
+      "maximum_landing_drop": 0.0363366603851318
+    },
+    "contact": {
+      "descent_pose_monotonic": true,
+      "flat_hop_impact": 0.996296670701769,
+      "maximum_descent_land_hand_step": 0.04603211581707,
+      "maximum_head_hips_step": 0.03038489818573,
+      "maximum_landing_drop": 0.026488184928894
+    },
+    "press": {
+      "descent_pose_monotonic": true,
+      "flat_hop_impact": 0.996296670701769,
+      "maximum_descent_land_hand_step": 0.064899243414402,
+      "maximum_head_hips_step": 0.0319299697875977,
+      "maximum_landing_drop": 0.0530286133289337
+    }
+  },
+  "moving_jump": {
+    "Axe": {
+      "first_update_palm_displacement": 0.00393364997580647,
+      "launch_tick": 0,
+      "maximum_horizontal_speed_change": 0.0,
+      "recovered_gait": "Run",
+      "updates": 100
+    },
+    "Net": {
+      "first_update_palm_displacement": 0.0000000600685012841495,
+      "launch_tick": 0,
+      "maximum_horizontal_speed_change": 0.0,
+      "recovered_gait": "Run",
+      "updates": 100
+    },
+    "None": {
+      "first_update_palm_displacement": 0.0,
+      "launch_tick": 0,
+      "maximum_horizontal_speed_change": 0.0,
+      "recovered_gait": "Run",
+      "updates": 100
+    }
+  },
+  "palms": {
+    "Left": {
+      "reach_m": 0.145000025629997,
+      "thumb_projection_m": 0.0500822961330414,
+      "vertices": 658
+    },
+    "Right": {
+      "reach_m": 0.14500729739666,
+      "thumb_projection_m": 0.0517358854413033,
+      "vertices": 543
+    }
+  },
+  "quieter_idle": {
+    "head": {
+      "current_range": 0.00822410583496103,
+      "ratio": 0.516489624210021,
+      "source_range": 0.015923080444336
+    },
+    "hip": {
+      "current_range": 0.00774635314941408,
+      "ratio": 0.500001231129858,
+      "source_range": 0.0154926681518555
+    }
+  },
+  "sprint_jump": {
+    "maximum_head_step": 0.0517012439668179,
+    "maximum_lean_step_degrees": 2.0000006248375
+  },
+  "stop_clearance": [
+    {
+      "clearance": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.142297655344009,
+        "model_space_surface_hits": 1903
+      },
+      "gait": "walk",
+      "tick": 0
+    },
+    {
+      "clearance": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.145660787820816,
+        "model_space_surface_hits": 1648
+      },
+      "gait": "walk",
+      "tick": 6
+    },
+    {
+      "clearance": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.128909826278687,
+        "model_space_surface_hits": 2697
+      },
+      "gait": "walk",
+      "tick": 12
+    },
+    {
+      "clearance": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.113010168075562,
+        "model_space_surface_hits": 2694
+      },
+      "gait": "walk",
+      "tick": 29
+    },
+    {
+      "clearance": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.0948405861854553,
+        "model_space_surface_hits": 2862
+      },
+      "gait": "walk",
+      "tick": 45
+    },
+    {
+      "clearance": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.137252390384674,
+        "model_space_surface_hits": 1966
+      },
+      "gait": "run",
+      "tick": 0
+    },
+    {
+      "clearance": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.140503793954849,
+        "model_space_surface_hits": 2645
+      },
+      "gait": "run",
+      "tick": 6
+    },
+    {
+      "clearance": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.140997886657715,
+        "model_space_surface_hits": 2753
+      },
+      "gait": "run",
+      "tick": 12
+    },
+    {
+      "clearance": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.125198841094971,
+        "model_space_surface_hits": 2694
+      },
+      "gait": "run",
+      "tick": 29
+    },
+    {
+      "clearance": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.0994037687778473,
+        "model_space_surface_hits": 2844
+      },
+      "gait": "run",
+      "tick": 45
+    },
+    {
+      "clearance": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.200160950422287,
+        "model_space_surface_hits": 929
+      },
+      "gait": "dash",
+      "tick": 0
+    },
+    {
+      "clearance": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.197253286838531,
+        "model_space_surface_hits": 1845
+      },
+      "gait": "dash",
+      "tick": 6
+    },
+    {
+      "clearance": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.151551604270935,
+        "model_space_surface_hits": 2118
+      },
+      "gait": "dash",
+      "tick": 12
+    },
+    {
+      "clearance": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.131602346897125,
+        "model_space_surface_hits": 2698
+      },
+      "gait": "dash",
+      "tick": 29
+    },
+    {
+      "clearance": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.113010168075562,
+        "model_space_surface_hits": 2694
+      },
+      "gait": "dash",
+      "tick": 45
+    }
+  ],
+  "tool_clearance": {
+    "Axe": {
+      "body_triangles": 878,
+      "distal_vertices": 1347,
+      "interior_vertices": 0,
+      "maximum_penetration": 0.0,
+      "minimum_gap": 0.0397080779075623,
+      "model_space_surface_hits": 1973
+    },
+    "Net": {
+      "body_triangles": 878,
+      "distal_vertices": 1347,
+      "interior_vertices": 0,
+      "maximum_penetration": 0.0,
+      "minimum_gap": 0.128115892410278,
+      "model_space_surface_hits": 1496
+    }
+  },
+  "transitions": {
+    "Axe": {
+      "relative_wrist_error_degrees": 0.0,
+      "settled_base_arm_error_degrees": 0.0,
+      "states": [
+        "Idle",
+        "Walk",
+        "Run",
+        "Dash",
+        "Skid"
+      ],
+      "updates": 150
+    },
+    "Net": {
+      "relative_wrist_error_degrees": 0.0395646811852521,
+      "settled_base_arm_error_degrees": 0.0,
+      "states": [
+        "Idle",
+        "Walk",
+        "Run",
+        "Dash",
+        "Skid"
+      ],
+      "updates": 150
+    },
+    "None": {
+      "relative_wrist_error_degrees": 0.0,
+      "settled_base_arm_error_degrees": 0.0395646811852521,
+      "states": [
+        "Idle",
+        "Walk",
+        "Run",
+        "Dash",
+        "Skid"
+      ],
+      "updates": 150
+    }
+  },
+  "wrists": {
+    "dash": {
+      "relative_wrist_error_degrees": 0.0,
+      "samples": 65
+    },
+    "idle": {
+      "relative_wrist_error_degrees": 0.0,
+      "samples": 65
+    },
+    "jump": {
+      "relative_wrist_error_degrees": 0.0,
+      "samples": 65
+    },
+    "run": {
+      "relative_wrist_error_degrees": 0.0,
+      "samples": 65
+    },
+    "skid": {
+      "relative_wrist_error_degrees": 0.0,
+      "samples": 65
+    },
+    "walk": {
+      "relative_wrist_error_degrees": 0.0,
+      "samples": 65
+    }
+  }
+}

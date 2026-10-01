@@ -1,0 +1,5 @@
+12:42:18 | INFO: Data are loaded, start creating Blender stuff
+12:42:18 | INFO: Blender create Mesh node char1
+12:42:18 | INFO: glTF import finished in 0.02s
+Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 01:31:14)
+HAND_ATLAS {"source_sha256": "adad550dfbc07244a5665da1a6bc35bf4b2a733464bd8617050ef925bce5d33a", "output_sha256": "61a76e1d580c23a2b3c357ca544051a55c26bf8ae00d0fc332431f7329c45517", "uv_coordinates_unchanged": true, "gutter_pixels": 16, "source_hand_texels": 7554, "use": "separate hand-only shader sampler; body/head still use original shared atlas", "cost_usd": 0}

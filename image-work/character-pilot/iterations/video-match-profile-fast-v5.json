@@ -1,0 +1,35 @@
+{
+  "models": [
+    {
+      "source": "video-match/authored-fast-v5/footplant-candidate.glb",
+      "label": "Source DASH 0.400s + repaired arm weights"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 2,
+  "effects": true,
+  "controller_speed_m_s": 1.05,
+  "contacts": [
+    {
+      "time": 0,
+      "foot": "Left"
+    },
+    {
+      "time": 0.2,
+      "foot": "Right"
+    }
+  ],
+  "width": 886,
+  "height": 664,
+  "camera_distance": 17,
+  "camera_yaw": 90,
+  "import_fps": 240,
+  "dust_color": [
+    0.96,
+    0.97,
+    1
+  ],
+  "dust_radius": 0.065,
+  "dust_forward_offset": -0.1
+}

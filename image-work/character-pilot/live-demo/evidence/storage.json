@@ -1,0 +1,32 @@
+{
+  "removed_own_regenerable_bytes": 4427675737,
+  "latest_cleanup": [
+    {
+      "path": "/tmp/pose-review-round7",
+      "pattern": "frame-*.png",
+      "files": 1920,
+      "bytes": 229490664,
+      "retained": "compressed movie, contact sheet, scripts and metrics"
+    },
+    {
+      "path": "/tmp/character-land-followup/visual",
+      "pattern": "before-*.png",
+      "files": 100,
+      "bytes": 9631869,
+      "retained": "compressed movie, contact sheet, scripts and metrics"
+    },
+    {
+      "path": "/tmp/character-land-followup/visual",
+      "pattern": "after-*.png",
+      "files": 100,
+      "bytes": 9634631,
+      "retained": "compressed movie, contact sheet, scripts and metrics"
+    }
+  ],
+  "retained_final_build": "1ade974755c5",
+  "retained_share": "https://windows-wsl.taile06c45.ts.net/character-walk-01a0f3a2/",
+  "source_provider_files_deleted": false,
+  "unrelated_project_files_touched": false,
+  "reference_audio_bytes": 68528,
+  "new_decoded_bank_audio_bytes": 0
+}

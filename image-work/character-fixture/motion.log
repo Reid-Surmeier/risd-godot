@@ -1,0 +1,50 @@
+ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers
+  built with gcc 13 (Ubuntu 13.2.0-23ubuntu3)
+  configuration: --prefix=/usr --extra-version=3ubuntu5 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --disable-omx --enable-gnutls --enable-libaom --enable-libass --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libglslang --enable-libgme --enable-libgsm --enable-libharfbuzz --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-openal --enable-opencl --enable-opengl --disable-sndio --enable-libvpl --disable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-ladspa --enable-libbluray --enable-libjack --enable-libpulse --enable-librabbitmq --enable-librist --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libx264 --enable-libzmq --enable-libzvbi --enable-lv2 --enable-sdl2 --enable-libplacebo --enable-librav1e --enable-pocketsphinx --enable-librsvg --enable-libjxl --enable-shared
+  libavutil      58. 29.100 / 58. 29.100
+  libavcodec     60. 31.102 / 60. 31.102
+  libavformat    60. 16.100 / 60. 16.100
+  libavdevice    60.  3.100 / 60.  3.100
+  libavfilter     9. 12.100 /  9. 12.100
+  libswscale      7.  5.100 /  7.  5.100
+  libswresample   4. 12.100 /  4. 12.100
+  libpostproc    57.  3.100 / 57.  3.100
+Input #0, image2, from 'image-work/character-fixture/frames/walk-*.png':
+  Duration: 00:00:01.00, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: png, rgba(pc, gbr/unknown/unknown), 384x384 [SAR 2834:2834 DAR 1:1], 8 fps, 8 tbr, 8 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (png (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[libx264 @ 0x5ad2566bb880] using SAR=1/1
+[libx264 @ 0x5ad2566bb880] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2 AVX512
+[libx264 @ 0x5ad2566bb880] profile High, level 2.1, 4:2:0, 8-bit
+[libx264 @ 0x5ad2566bb880] 264 - core 164 r3108 31e19f9 - H.264/MPEG-4 AVC codec - Copyleft 2003-2023 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=12 lookahead_threads=2 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=8 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'image-work/character-fixture/walk.mp4':
+  Metadata:
+    encoder         : Lavf60.16.100
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, progressive), 384x384 [SAR 1:1 DAR 1:1], q=2-31, 8 fps, 16384 tbn
+    Metadata:
+      encoder         : Lavc60.31.102 libx264
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=    0 fps=0.0 q=0.0 size=       0kB time=N/A bitrate=N/A speed=N/A    [mp4 @ 0x5ad2566bef00] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 0x5ad2566bb140] video:45kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 2.071960%
+frame=    8 fps=0.0 q=-1.0 Lsize=      46kB time=00:00:00.62 bitrate= 607.9kbits/s speed=14.3x    
+[libx264 @ 0x5ad2566bb880] frame I:1     Avg QP:17.66  size: 12731
+[libx264 @ 0x5ad2566bb880] frame P:2     Avg QP:21.08  size:  6314
+[libx264 @ 0x5ad2566bb880] frame B:5     Avg QP:22.50  size:  4096
+[libx264 @ 0x5ad2566bb880] consecutive B-frames: 12.5%  0.0% 37.5% 50.0%
+[libx264 @ 0x5ad2566bb880] mb I  I16..4: 32.6% 42.9% 24.5%
+[libx264 @ 0x5ad2566bb880] mb P  I16..4:  1.3%  7.2%  3.6%  P16..4: 22.9% 13.1%  6.3%  0.0%  0.0%    skip:45.5%
+[libx264 @ 0x5ad2566bb880] mb B  I16..4:  0.2%  1.8%  1.4%  B16..8: 23.0%  8.0%  4.0%  direct: 5.3%  skip:56.2%  L0:44.7% L1:41.6% BI:13.7%
+[libx264 @ 0x5ad2566bb880] 8x8 transform intra:46.9% inter:37.7%
+[libx264 @ 0x5ad2566bb880] coded y,uvDC,uvAC intra: 77.8% 43.7% 28.5% inter: 18.6% 5.7% 0.2%
+[libx264 @ 0x5ad2566bb880] i16 v,h,dc,p:  3% 35%  6% 56%
+[libx264 @ 0x5ad2566bb880] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu:  7% 24% 30%  5%  5%  3% 11%  5% 10%
+[libx264 @ 0x5ad2566bb880] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 11% 21% 21%  8%  7%  7% 10%  7%  8%
+[libx264 @ 0x5ad2566bb880] i8c dc,h,v,p: 65% 18% 11%  5%
+[libx264 @ 0x5ad2566bb880] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 0x5ad2566bb880] ref P L0: 58.5%  2.2% 14.8% 24.5%
+[libx264 @ 0x5ad2566bb880] ref B L0: 87.9% 11.1%  0.9%
+[libx264 @ 0x5ad2566bb880] ref B L1: 94.9%  5.1%
+[libx264 @ 0x5ad2566bb880] kb/s:366.70

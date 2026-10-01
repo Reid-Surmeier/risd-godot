@@ -1,0 +1,50 @@
+{
+  "camera": {
+    "depression_degrees": 45.0,
+    "distance_m": 10.5,
+    "vertical_fov_degrees": 20,
+    "viewport_pixels": [
+      960,
+      640
+    ]
+  },
+  "clip": "walk",
+  "cost_usd": 0,
+  "effects": {
+    "calls": 0,
+    "contacts_per_loop": 0,
+    "cycles": 3,
+    "idle_added_calls": 0,
+    "idle_control": false,
+    "kind": "native Animation method keys trigger contact-timed mesh dust puffs",
+    "native_method_track_tested": false,
+    "suppressed_outgoing_walk_keys_in_idle": 0
+  },
+  "fps": 30,
+  "frames_per_cycle": 32,
+  "models": [
+    {
+      "bones": 24,
+      "contact_events": [],
+      "label": "Before: raw foot motion",
+      "maximum_blend_root_lift_m": 0,
+      "minimum_sole_y_m": -0.0917797759175301,
+      "unclamped_minimum_sole_y_m": -0.0917797759175301
+    },
+    {
+      "bones": 24,
+      "contact_events": [],
+      "label": "After: corrected clips + blend grounding",
+      "maximum_blend_root_lift_m": 0.0162161197513342,
+      "minimum_sole_y_m": -0.00000156730880007672,
+      "unclamped_minimum_sole_y_m": -0.0162161197513342
+    }
+  ],
+  "seconds": 1.06666672229767,
+  "transition": {
+    "blend_seconds": 0.2,
+    "floor_gate": "PASS",
+    "sequence": "idle 1s → walk 2loops → idle 1s",
+    "stance_lock_during_blend_tested": false
+  }
+}

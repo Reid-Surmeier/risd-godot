@@ -1,0 +1,12 @@
+{
+  "head_test_poses": 632,
+  "regrip_poses": 1920,
+  "regrip_scenarios": 48,
+  "maximum_regrip_hand_step": 0.04314723753547345,
+  "regrip_failures": [],
+  "poses": 2552,
+  "surface_queries": 1634,
+  "minimum_gap": 0.04337889003890352,
+  "inside_queries": 0,
+  "failures": []
+}

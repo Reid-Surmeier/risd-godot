@@ -1,0 +1,30 @@
+{
+  "Muse": {
+    "identity": "Recognizable horned cap, large face and blue shoes retained. Hidden shirt/back design inferred; not exact reconstruction.",
+    "limbs": "Hands and feet separated; held tool removed.",
+    "pose": "Arms slope downward: near T-pose, not strict horizontal. Meshy explicit t-pose setting will be tested.",
+    "decision": "Usable experimental input; owner acceptance pending.",
+    "cost_usd": "0.010000",
+    "spendState": "unknown per saved Run; retain full liability.",
+    "sha256": "c07fd7e6903fe5cf0ed35d7ec6a56eb962f08b816d81fff419d0d589a7494b42"
+  },
+  "Meshy": {
+    "identity": "Recognizable front and silhouette; source back is unobserved.",
+    "geometry": "Separate arms/legs visible, no held tool, pose straightened toT-pose; shoulders and weights need deformation proof.",
+    "texture": "Flat painted look retained; inferred backside repeats the belt buckle and cap markings are smeared on top.",
+    "orientation": "Front camera is Blender-Y, matching GLB+Z after native import.",
+    "decision": "Usable rigging experiment, not owner-accepted asset."
+  },
+  "MuseTurnaround": {
+    "identity": "Coherent front/side/back hypothesis; back buckle no longer repeated.",
+    "pose": "Arms still angled down despite strictT-pose request. Not accepted as exactT-pose sheet.",
+    "view_coherence": "Side is nearprofile rather than exactorthographic; proposedbackmarkings andthumbbacks need review.",
+    "decision": "Showowner; do not feedcollage or unreviewed extractedviews to3D."
+  },
+  "ProviderRig": {
+    "bones": 24,
+    "clips": "Idle, basicwalk/basicrun delivered",
+    "failure": "IdleHips scale1.176471 vsWalk1.0; sharedrest identical. Walk sole3.6\u20136cm belowrestfloor.",
+    "decision": "Raw clips fail sharedscale/contact gate; localderivedrepair being evaluated."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "blocked_phase_feedback": true,
+  "dash_cycle_seconds": 0.444444,
+  "normal_acceleration_trace": [
+    0.60899997,
+    1.21799994,
+    1.82699991,
+    2.43599988,
+    3.04499985,
+    3.65399982,
+    4.26299979,
+    4.87199976,
+    4.875
+  ],
+  "normal_braking_updates": 15,
+  "normal_cycle_seconds": 0.551266,
+  "partial_input_walk": true,
+  "phase_preserved": true,
+  "reversal_skid": true
+}

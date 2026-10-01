@@ -1,0 +1,76 @@
+{
+  "selected_sha256": "536fb839572228d485fc27027a58506944f8285fcfef72f2f8a421e9d73214d9",
+  "native_contact": {
+    "idle": {
+      "seconds": 4.03333330154419,
+      "sample_count": 257,
+      "stance_floor_error_max_m": 6.00870371272322e-05,
+      "stance_xz_drift_max_m": 0.0001293420791620009,
+      "endpoint_vertex_error_max_m": 3.58867481509151e-07,
+      "one_millisecond_velocity_jump_max_mps": 0.000307195325149223,
+      "planar_contact_gate": "PASS",
+      "visual_acceptance": "pending"
+    },
+    "walk": {
+      "seconds": 1.06666672229767,
+      "sample_count": 257,
+      "stance_floor_error_max_m": 0.000493609171826392,
+      "stance_xz_drift_max_m": 0.0003106585890034763,
+      "endpoint_vertex_error_max_m": 9.99600260342959e-08,
+      "one_millisecond_velocity_jump_max_mps": 0.00939379632472992,
+      "planar_contact_gate": "PASS",
+      "visual_acceptance": "pending"
+    }
+  },
+  "effects": {
+    "calls": 6,
+    "contacts_per_loop": 2,
+    "cycles": 3,
+    "idle_added_calls": 0,
+    "idle_control": false,
+    "kind": "native Animation method keys trigger contact-timed mesh dust puffs",
+    "native_method_track_tested": true,
+    "suppressed_outgoing_walk_keys_in_idle": 2
+  },
+  "media": {
+    "walk-comparison-35": {
+      "sha256": "bed182af59fa59c3741edc27e6adc7d709c7a996d43e039a6d89823b99985d08",
+      "fps": 30,
+      "frames": 96
+    },
+    "walk-comparison-45": {
+      "sha256": "4e55b231e20c5c0bfc00d2f434866adb4337dbd91167ff3b775a76521996366e",
+      "fps": 30,
+      "frames": 96
+    },
+    "walk-comparison-55": {
+      "sha256": "c99ebfccf87a95193ce1ccc63c7ea668ff3acc11032991618e92154b81282fac",
+      "fps": 30,
+      "frames": 96
+    },
+    "idle-comparison-45": {
+      "sha256": "e9c3059e295cb4dbc9c0c7f77763f93f3801b5a1bf67891cd607354ed7ee374b",
+      "fps": 30,
+      "frames": 121
+    },
+    "effects-control-45": {
+      "sha256": "c5e9b3c5ed10e6e5b03bc78393a5fc698621c55c962367df5cc0ed23ded8496a",
+      "fps": 30,
+      "frames": 96
+    },
+    "gameview-final-45": {
+      "sha256": "a3b8e8bf2356ba2481371a92e2ffd0ad8539e889e7e3739ae94ba96402ee14ce",
+      "fps": 30,
+      "frames": 96
+    },
+    "transition-grounded-45": {
+      "sha256": "5a4e93f9d73921034a08adae395ceba9678de75f9014a85daadb80130fa644c5",
+      "fps": 30,
+      "frames": 124
+    }
+  },
+  "additional_paid_calls": 0,
+  "liability_usd": 1.54,
+  "ceiling_usd": 4,
+  "scope": "target-specific planar idle/walk prototype; owner visual acceptance pending"
+}

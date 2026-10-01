@@ -1,0 +1,24 @@
+{
+  "models": [
+    {
+      "source": "video-match/authored-fast-v8/footplant-candidate.glb",
+      "label": ".6 boots; structural Foot",
+      "sha256": "a99701f9d5e30065b9860fcdfff028918fbfb6a1a0527fd92da9abd9a3f3aefb"
+    },
+    {
+      "source": "video-match/authored-fast-v9/footplant-candidate.glb",
+      "label": ".8 boots; standing Foot trial",
+      "sha256": "23d4b1bad4349eac138344a107447002e5adc1563c542be6cef535565978c385"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 2,
+  "effects": false,
+  "controller_speed_m_s": 1.05,
+  "contacts": [],
+  "width": 960,
+  "height": 640,
+  "camera_distance": 10.5,
+  "import_fps": 240
+}

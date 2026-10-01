@@ -1,0 +1,61 @@
+{
+  "candidate_build": "1ade974755c5",
+  "scene_sha256": "4823db4641ee5e8db5a7b79faf1cc26b517740ffb7dd89133be874e647183b8d",
+  "before_build": "dbe77dfe4d0f",
+  "before_maximum_vertical_head_acceleration": 0.0463932156562805,
+  "after_maximum_vertical_head_acceleration": 0.0328000783920288,
+  "threshold_metres_per_tick_squared": 0.033,
+  "before_result": "FAIL",
+  "after_result": "PASS",
+  "cases": [
+    {
+      "delay": 0,
+      "before": 0.0303848385810852,
+      "after": 0.0303849577903748
+    },
+    {
+      "delay": 1,
+      "before": 0.030234158039093,
+      "after": 0.030234158039093
+    },
+    {
+      "delay": 2,
+      "before": 0.033017098903656,
+      "after": 0.030234158039093
+    },
+    {
+      "delay": 3,
+      "before": 0.0463932156562805,
+      "after": 0.0328000783920288
+    },
+    {
+      "delay": 4,
+      "before": 0.0422332286834717,
+      "after": 0.030234158039093
+    },
+    {
+      "delay": 5,
+      "before": 0.0318125486373901,
+      "after": 0.030234158039093
+    },
+    {
+      "delay": 6,
+      "before": 0.030234158039093,
+      "after": 0.030234158039093
+    },
+    {
+      "delay": 7,
+      "before": 0.030234158039093,
+      "after": 0.030234158039093
+    },
+    {
+      "delay": 8,
+      "before": 0.030234158039093,
+      "after": 0.030234158039093
+    }
+  ],
+  "rejected_trials": {
+    "carry_only": 0.04392474889755,
+    "shortened_blend": 0.05679923295975
+  }
+}

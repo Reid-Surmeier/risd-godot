@@ -1,0 +1,17 @@
+{
+  "bake_mcp.py": "3a91b4902ccd6f4fc927be17dd768bd667343a8642d0c7351cdeb499ca01d799",
+  "bake_stage.py": "58b0700f72a0a19d4dc425502f964a516a40801e6ab78abf73ea607fa50eb1e1",
+  "normalize_idle.py": "471c569f95a01a9a3962895ac12006907183d76df02e9cdb9d3a5049fd7ed673",
+  "rig-output-rigged_character_glb.glb": "fd081e46243f152cedbb2218d891fe120735e0b8fc01a98df8da4d0e1397d63c",
+  "rig-output-animations-0-animation_glb.glb": "9fc699a58cc96a67d903dfb3e3f59ade38311af4ea4d680d95655bf73c93f410",
+  "rig-output-basic_animations-walking_armature_glb.glb": "d5a155640cf0b7b525cad0075788612b3c016ea641b612e3cdc972ea12483a34",
+  "rig-output-basic_animations-running_armature_glb.glb": "2b4ddfa440ae051c21579f2eccd902ecb7cfc95fbd610a4d16d05831065debe6",
+  "target-baked.glb": "1098ec57c311f2a12186b44f2cd6ffd798f45352d020285dcf0e0a65dca305ff",
+  "target-baked-normalized-idle.glb": "9d566ae7413d209f9986b1ff53d486ba3535a59f498d686f169d7257e21cc804",
+  "target-baked.blend": "088dcf42f5e0f2ddebf29e38d38d5cff6cfb9cd6a8c3d4eee4f04b415c50f9d4",
+  "target-albedo512.png": "d120d4892da4072e59984cea5ccc05bb1f0c31a7c5e792d4e1015a3cd2a9a46e",
+  "baked-rest.png": "b3435b8ac2b69e523acfefa2e7ecfaed0548e0e4a938473f2446693b8e838eab",
+  "baked-walk.png": "44f5619652390f53153cc36b8e69e5c684a7da58101240f2165c47245d7087d2",
+  "baked-idle-raw.png": "157efa396b4d9e58e03092741d2c71fb34fcc295b7f9116eb600a8ac78eb3eb8",
+  "baked-idle-normalized.png": "b1ff54c1774da9ce95dd2c76083bce0f7321dd5b3fe9deb2244098217681fae2"
+}

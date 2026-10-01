@@ -1,0 +1,14 @@
+16:48:08 | INFO: Data are loaded, start creating Blender stuff
+16:48:08 | INFO: Blender create Mesh node char1
+16:48:08 | INFO: glTF import finished in 0.04s
+INFO Draco mesh compression is available, use library at /home/reidsurmeier/.local/opt/blender-4.3.2/4.3/python/lib/python3.11/site-packages/libextern_draco.so
+16:48:08 | INFO: Starting glTF 2.0 export
+16:48:08 | INFO: Extracting primitive: char1
+16:48:08 | INFO: Primitives created: 1
+16:48:08 | INFO: Finished glTF 2.0 export in 0.1517329216003418 s
+
+Info: Saved "rigid-head.blend"
+RIGID_HEAD_PASS {"success": true, "source_sha256": "9d566ae7413d209f9986b1ff53d486ba3535a59f498d686f169d7257e21cc804", "output_sha256": "0f609ee4dfd7d0e645a15dbd8b47625dd95b0c13c4b59b624deecdd2eddeb487", "head_world_z_threshold_m": 1.05, "head_vertices": 1442, "head_rigid_fit_rms_max_m": 7.448521477842977e-06, "sample_count": 32, "uv_and_geometry_unchanged": true, "bones": 24, "triangles": 7719, "cost_usd": 0, "scope": "head/cap/horn skin repair; foot contacts separate"}
+Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 01:31:14)
+
+Blender quit

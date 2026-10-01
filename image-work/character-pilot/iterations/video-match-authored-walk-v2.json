@@ -1,0 +1,18 @@
+{
+  "models": [
+    {
+      "source": "motion-diagnosis/footplant-candidate.glb",
+      "label": "Before: generic planted gait"
+    },
+    {
+      "source": "video-match/authored-walk-v2/footplant-candidate.glb",
+      "label": "Source curves: WALK1"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 2,
+  "effects": false,
+  "controller_speed_m_s": 1.05,
+  "contacts": []
+}

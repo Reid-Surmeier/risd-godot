@@ -1,0 +1,18 @@
+{
+  "models": [
+    {
+      "source": "video-match/authored-walk-v2/footplant-candidate.glb",
+      "label": "Source poses: bind-angle bias"
+    },
+    {
+      "source": "video-match/authored-walk-v3/footplant-candidate.glb",
+      "label": "Source poses: calibrated limb axes"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 2,
+  "effects": false,
+  "controller_speed_m_s": 1.05,
+  "contacts": []
+}

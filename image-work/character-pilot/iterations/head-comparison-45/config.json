@@ -1,0 +1,18 @@
+{
+  "models": [
+    {
+      "source": "../target-baked-normalized-idle.glb",
+      "label": "Before: provider skin",
+      "sha256": "9d566ae7413d209f9986b1ff53d486ba3535a59f498d686f169d7257e21cc804"
+    },
+    {
+      "source": "rigid-head.glb",
+      "label": "After: rigid chibi head",
+      "sha256": "0f609ee4dfd7d0e645a15dbd8b47625dd95b0c13c4b59b624deecdd2eddeb487"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 3,
+  "effects": false
+}

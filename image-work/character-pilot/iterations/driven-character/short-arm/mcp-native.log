@@ -1,0 +1,14 @@
+20:52:09 | INFO: Data are loaded, start creating Blender stuff
+20:52:09 | INFO: Blender create Mesh node char1
+20:52:09 | INFO: glTF import finished in 0.04s
+INFO Draco mesh compression is available, use library at /home/reidsurmeier/.local/opt/blender-4.3.2/4.3/python/lib/python3.11/site-packages/libextern_draco.so
+20:52:09 | INFO: Starting glTF 2.0 export
+20:52:09 | INFO: Extracting primitive: char1
+20:52:09 | INFO: Primitives created: 1
+20:52:09 | INFO: Finished glTF 2.0 export in 0.025594234466552734 s
+
+Info: Saved "canonical-rest.blend"
+CANONICAL_RIG {"arm_leg": 1.0596707848731366, "hip_shoulder": 0.7777737586224456, "leg": 0.3990976464640007, "arm": 0.42291211626952924}
+Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 01:31:14)
+
+Blender quit

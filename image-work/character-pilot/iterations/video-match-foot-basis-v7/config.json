@@ -1,0 +1,21 @@
+{
+  "models": [
+    {
+      "source": "video-match/authored-walk-v5/footplant-candidate.glb",
+      "label": "Structural Foot basis",
+      "sha256": "8eb7fff2ed7ce8b07417c7fa3300a050a610f11a999484e50f3ecfff5b87fc84"
+    },
+    {
+      "source": "video-match/authored-walk-v7/footplant-candidate.glb",
+      "label": "Standing Foot basis: experimental",
+      "sha256": "5006878bba36715986e311b5b8876f886e5a6876372457f745923a9250c4c281"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 2,
+  "effects": false,
+  "controller_speed_m_s": 1.05,
+  "contacts": [],
+  "import_fps": 240
+}

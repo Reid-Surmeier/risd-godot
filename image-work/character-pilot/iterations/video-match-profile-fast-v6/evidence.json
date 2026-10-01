@@ -1,0 +1,75 @@
+{
+  "camera": {
+    "depression_degrees": 45.0,
+    "distance_m": 17.0,
+    "vertical_fov_degrees": 20,
+    "viewport_pixels": [
+      886,
+      664
+    ]
+  },
+  "clip": "walk",
+  "cost_usd": 0,
+  "effects": {
+    "calls": 4,
+    "contacts_per_loop": 2,
+    "cycles": 2,
+    "idle_added_calls": 0,
+    "idle_control": false,
+    "kind": "native Animation method keys trigger contact-timed mesh dust puffs",
+    "native_method_track_tested": true,
+    "suppressed_outgoing_walk_keys_in_idle": 1
+  },
+  "fps": 30,
+  "frames_per_cycle": 14,
+  "models": [
+    {
+      "bones": 24,
+      "contact_events": [
+        {
+          "foot": "Left",
+          "time": 0.0,
+          "world_origin": [
+            0.230938744843006,
+            0.025,
+            -0.056590510904789
+          ]
+        },
+        {
+          "foot": "Right",
+          "time": 0.233333333333333,
+          "world_origin": [
+            -0.220959310531616,
+            0.025,
+            0.158052408695221
+          ]
+        },
+        {
+          "foot": "Left",
+          "time": 0.466666666666667,
+          "world_origin": [
+            0.230938744843006,
+            0.025,
+            0.433409535884857
+          ]
+        },
+        {
+          "foot": "Right",
+          "time": 0.7,
+          "world_origin": [
+            -0.220959317982197,
+            0.025,
+            0.648052358627319
+          ]
+        }
+      ],
+      "label": "Source DASH 0.467s + repaired arm weights",
+      "maximum_blend_root_lift_m": 0,
+      "minimum_sole_y_m": -4.08172581956023e-06,
+      "unclamped_minimum_sole_y_m": -4.08172581956023e-06
+    }
+  ],
+  "seconds": 0.466666668653488,
+  "godot_animation_optimizer_enabled": false,
+  "animation_import_fps": 240
+}

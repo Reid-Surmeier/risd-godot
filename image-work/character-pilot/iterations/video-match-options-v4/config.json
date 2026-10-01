@@ -1,0 +1,38 @@
+{
+  "models": [
+    {
+      "source": "motion-diagnosis/footplant-candidate.glb",
+      "label": "Earlier contact-solved walk",
+      "sha256": "536fb839572228d485fc27027a58506944f8285fcfef72f2f8a421e9d73214d9"
+    },
+    {
+      "source": "video-match/authored-walk-v4/footplant-candidate.glb",
+      "label": "Authored WALK .8s",
+      "sha256": "45c618c9f8c75aa9af85f198e02f1205a925f4486a589a6fc8479bb7a5285e2e"
+    },
+    {
+      "source": "video-match/authored-fast-v4/footplant-candidate.glb",
+      "label": "Authored DASH .4s",
+      "sha256": "49c6c0b63814f74497898f0fc9966095fc17c9c0b8149d1b4d59aeb9d17dcc45"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 4,
+  "effects": true,
+  "controller_speed_m_s": 1.05,
+  "contacts": [
+    {
+      "time": 0,
+      "foot": "Left"
+    },
+    {
+      "time": 0.2,
+      "foot": "Right"
+    }
+  ],
+  "width": 1200,
+  "height": 664,
+  "camera_distance": 12,
+  "import_fps": 240
+}

@@ -1,0 +1,1653 @@
+{
+  "keyboard": {
+    "initial": {
+      "animation_rate": 1,
+      "blink_index": -1,
+      "blinks": 0,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 0,
+      "effects": 0,
+      "floor_error": 0,
+      "footsteps": 0,
+      "indoor": false,
+      "interaction": "",
+      "jump_stage": "Ground",
+      "jump_time": -1,
+      "jumps": 0,
+      "landings": 0,
+      "lean": 0,
+      "phase": 0,
+      "phase_step": 0.22,
+      "physics_time": 3.753,
+      "rain": false,
+      "source_velocity": 0,
+      "speed_mps": 0,
+      "state": "Idle",
+      "steps": [],
+      "surface": "Path",
+      "tool": "None",
+      "travel_heading": 0,
+      "view": 0,
+      "x": 0,
+      "y": 0,
+      "yaw": 0,
+      "z": 0
+    },
+    "jump": {
+      "animation_rate": 1,
+      "blink_index": -1,
+      "blinks": 0,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 0,
+      "effects": 0,
+      "floor_error": 0,
+      "footsteps": 0,
+      "indoor": false,
+      "interaction": "",
+      "jump_stage": "Ascend",
+      "jump_time": 0.183333333333333,
+      "jumps": 1,
+      "landings": 0,
+      "lean": 0,
+      "phase": 0,
+      "phase_step": 0.22,
+      "physics_time": 4.246,
+      "rain": false,
+      "source_velocity": 0,
+      "speed_mps": 0,
+      "state": "Jump",
+      "steps": [],
+      "surface": "Path",
+      "tool": "None",
+      "travel_heading": 0,
+      "view": 0,
+      "x": 0,
+      "y": 0.418326824903488,
+      "yaw": 0,
+      "z": 0
+    },
+    "axe": {
+      "animation_rate": 1,
+      "blink_index": -1,
+      "blinks": 1,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 0,
+      "effects": 0,
+      "floor_error": 0,
+      "footsteps": 0,
+      "indoor": false,
+      "interaction": "",
+      "jump_stage": "Ground",
+      "jump_time": -1,
+      "jumps": 1,
+      "landings": 1,
+      "lean": 0,
+      "phase": 0,
+      "phase_step": 0.22,
+      "physics_time": 5.405,
+      "rain": false,
+      "source_velocity": 0,
+      "speed_mps": 0,
+      "state": "Idle",
+      "steps": [],
+      "surface": "Path",
+      "tool": "Axe",
+      "travel_heading": 0,
+      "view": 0,
+      "x": 0,
+      "y": 0.0000465116463601589,
+      "yaw": 0,
+      "z": 0
+    },
+    "net": {
+      "animation_rate": 1,
+      "blink_index": -1,
+      "blinks": 1,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 0,
+      "effects": 0,
+      "floor_error": 0,
+      "footsteps": 0,
+      "indoor": false,
+      "interaction": "",
+      "jump_stage": "Ground",
+      "jump_time": -1,
+      "jumps": 1,
+      "landings": 1,
+      "lean": 0,
+      "phase": 0,
+      "phase_step": 0.22,
+      "physics_time": 5.898,
+      "rain": false,
+      "source_velocity": 0,
+      "speed_mps": 0,
+      "state": "Idle",
+      "steps": [],
+      "surface": "Path",
+      "tool": "Net",
+      "travel_heading": 0,
+      "view": 0,
+      "x": 0,
+      "y": 0.0000465116463601589,
+      "yaw": 0,
+      "z": 0
+    },
+    "walk": {
+      "animation_rate": 1.45120632648468,
+      "blink_index": -1,
+      "blinks": 1,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 0,
+      "effects": 0,
+      "floor_error": 8.14907252788544e-10,
+      "footsteps": 1,
+      "indoor": false,
+      "interaction": "",
+      "jump_stage": "Ground",
+      "jump_time": -1,
+      "jumps": 1,
+      "landings": 1,
+      "lean": 0.0260935857151043,
+      "phase": 0.779074170970321,
+      "phase_step": 0.483735432648882,
+      "physics_time": 7.061,
+      "rain": false,
+      "source_velocity": 4.875,
+      "speed_mps": 3.15000057220459,
+      "state": "Run",
+      "steps": [
+        {
+          "foot": "Left",
+          "phase": 0.506972990105325,
+          "position": [
+            -0.286033987998962,
+            0.000827764684800059,
+            -0.621517956256866
+          ],
+          "surface": "Path"
+        }
+      ],
+      "surface": "Path",
+      "tool": "None",
+      "travel_heading": -3.14159265358979,
+      "view": 0,
+      "x": -0.123425967991352,
+      "y": 0.000836051418446004,
+      "yaw": -3.14159274101257,
+      "z": -1.23919975757599
+    },
+    "turn": {
+      "animation_rate": 1.45120632648468,
+      "blink_index": 2,
+      "blinks": 2,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 0,
+      "effects": 0,
+      "floor_error": 8.14907252788544e-10,
+      "footsteps": 3,
+      "indoor": false,
+      "interaction": "",
+      "jump_stage": "Ground",
+      "jump_time": -1,
+      "jumps": 1,
+      "landings": 1,
+      "lean": 0.0258111420979536,
+      "phase": 0.82518759680512,
+      "phase_step": 0.483735432648882,
+      "physics_time": 7.618,
+      "rain": false,
+      "source_velocity": 4.875,
+      "speed_mps": 3.1499969959259,
+      "state": "Run",
+      "steps": [
+        {
+          "foot": "Left",
+          "phase": 0.506972990105325,
+          "position": [
+            -0.286033987998962,
+            0.000827764684800059,
+            -0.621517956256866
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0209418872947613,
+          "position": [
+            0.0329670235514641,
+            0.000832072051707655,
+            -1.54135012626648
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.522896525963363,
+          "position": [
+            0.143845573067665,
+            0.000829109398182482,
+            -2.39180684089661
+          ],
+          "surface": "Path"
+        }
+      ],
+      "surface": "Path",
+      "tool": "None",
+      "travel_heading": -4.71238898038469,
+      "view": 0,
+      "x": 0.793121933937073,
+      "y": 0.00082941708387807,
+      "yaw": -4.71238899230957,
+      "z": -2.24315905570984
+    },
+    "sprint": {
+      "animation_rate": 1.79999995231628,
+      "blink_index": -1,
+      "blinks": 2,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 0,
+      "effects": 2,
+      "floor_error": 3.02679836750031e-9,
+      "footsteps": 6,
+      "indoor": false,
+      "interaction": "",
+      "jump_stage": "Ground",
+      "jump_time": -1,
+      "jumps": 1,
+      "landings": 1,
+      "lean": 0.344340218708399,
+      "phase": 0.00491091336229332,
+      "phase_step": 0.59999996,
+      "physics_time": 8.304,
+      "rain": false,
+      "source_velocity": 7.5,
+      "speed_mps": 4.84615445137024,
+      "state": "Dash",
+      "steps": [
+        {
+          "foot": "Left",
+          "phase": 0.506972990105325,
+          "position": [
+            -0.286033987998962,
+            0.000827764684800059,
+            -0.621517956256866
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0209418872947613,
+          "position": [
+            0.0329670235514641,
+            0.000832072051707655,
+            -1.54135012626648
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.522896525963363,
+          "position": [
+            0.143845573067665,
+            0.000829109398182482,
+            -2.39180684089661
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.00555916408307389,
+          "position": [
+            0.953976452350616,
+            0.00083957938477397,
+            -2.09063959121704
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.517416966974396,
+          "position": [
+            1.28973639011383,
+            0.000793114071711898,
+            -1.48347246646881
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.00491091336229332,
+          "position": [
+            1.62901329994202,
+            -0.0017881435342133,
+            -0.37177449464798
+          ],
+          "surface": "Path"
+        }
+      ],
+      "surface": "Path",
+      "tool": "None",
+      "travel_heading": -6.28318530717959,
+      "view": 0,
+      "x": 1.45721447467804,
+      "y": -0.0017881435342133,
+      "yaw": -6.28318548202515,
+      "z": -0.439299643039703
+    },
+    "stopped": {
+      "animation_rate": 1,
+      "blink_index": -1,
+      "blinks": 2,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 0,
+      "effects": 3,
+      "floor_error": 3.02679836750031e-9,
+      "footsteps": 8,
+      "indoor": false,
+      "interaction": "",
+      "jump_stage": "Ground",
+      "jump_time": -1,
+      "jumps": 1,
+      "landings": 1,
+      "lean": 0.0000189829874069295,
+      "phase": 0.130804542837039,
+      "phase_step": 0.22,
+      "physics_time": 9.36,
+      "rain": false,
+      "source_velocity": 0,
+      "speed_mps": 0,
+      "state": "Idle",
+      "steps": [
+        {
+          "foot": "Left",
+          "phase": 0.506972990105325,
+          "position": [
+            -0.286033987998962,
+            0.000827764684800059,
+            -0.621517956256866
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0209418872947613,
+          "position": [
+            0.0329670235514641,
+            0.000832072051707655,
+            -1.54135012626648
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.522896525963363,
+          "position": [
+            0.143845573067665,
+            0.000829109398182482,
+            -2.39180684089661
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.00555916408307389,
+          "position": [
+            0.953976452350616,
+            0.00083957938477397,
+            -2.09063959121704
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.517416966974396,
+          "position": [
+            1.28973639011383,
+            0.000793114071711898,
+            -1.48347246646881
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.00491091336229332,
+          "position": [
+            1.62901329994202,
+            -0.0017881435342133,
+            -0.37177449464798
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.52991087236635,
+          "position": [
+            1.29419779777527,
+            0.000830623728688806,
+            0.672440230846405
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0166501383265618,
+          "position": [
+            1.31595301628113,
+            0.00076632562559098,
+            1.35784649848938
+          ],
+          "surface": "Path"
+        }
+      ],
+      "surface": "Path",
+      "tool": "None",
+      "travel_heading": -6.28318530717959,
+      "view": 0,
+      "x": 1.45721447467804,
+      "y": -0.00113879423588514,
+      "yaw": -6.28318548202515,
+      "z": 1.66025590896606
+    },
+    "reset": {
+      "animation_rate": 1,
+      "blink_index": 10,
+      "blinks": 3,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 0,
+      "effects": 3,
+      "floor_error": 3.02679836750031e-9,
+      "footsteps": 8,
+      "indoor": false,
+      "interaction": "",
+      "jump_stage": "Ground",
+      "jump_time": -1,
+      "jumps": 1,
+      "landings": 1,
+      "lean": 0,
+      "phase": 0,
+      "phase_step": 0.22,
+      "physics_time": 10.3,
+      "rain": false,
+      "source_velocity": 0,
+      "speed_mps": 0,
+      "state": "Idle",
+      "steps": [
+        {
+          "foot": "Left",
+          "phase": 0.506972990105325,
+          "position": [
+            -0.286033987998962,
+            0.000827764684800059,
+            -0.621517956256866
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0209418872947613,
+          "position": [
+            0.0329670235514641,
+            0.000832072051707655,
+            -1.54135012626648
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.522896525963363,
+          "position": [
+            0.143845573067665,
+            0.000829109398182482,
+            -2.39180684089661
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.00555916408307389,
+          "position": [
+            0.953976452350616,
+            0.00083957938477397,
+            -2.09063959121704
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.517416966974396,
+          "position": [
+            1.28973639011383,
+            0.000793114071711898,
+            -1.48347246646881
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.00491091336229332,
+          "position": [
+            1.62901329994202,
+            -0.0017881435342133,
+            -0.37177449464798
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.52991087236635,
+          "position": [
+            1.29419779777527,
+            0.000830623728688806,
+            0.672440230846405
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0166501383265618,
+          "position": [
+            1.31595301628113,
+            0.00076632562559098,
+            1.35784649848938
+          ],
+          "surface": "Path"
+        }
+      ],
+      "surface": "Path",
+      "tool": "None",
+      "travel_heading": 0,
+      "view": 0,
+      "x": 0,
+      "y": 0,
+      "yaw": 0,
+      "z": 0
+    },
+    "partial_walk": {
+      "animation_rate": 0.973122239112854,
+      "blink_index": 0,
+      "blinks": 3,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 0,
+      "effects": 3,
+      "floor_error": 3.02679836750031e-9,
+      "footsteps": 9,
+      "indoor": false,
+      "interaction": "",
+      "jump_stage": "Ground",
+      "jump_time": -1,
+      "jumps": 1,
+      "landings": 1,
+      "lean": 0.000212054444002534,
+      "phase": 0.582066735241848,
+      "phase_step": 0.324374067147743,
+      "physics_time": 11.005,
+      "rain": false,
+      "source_velocity": 2.19205311389808,
+      "speed_mps": 1.41640428453684,
+      "state": "Walk",
+      "steps": [
+        {
+          "foot": "Left",
+          "phase": 0.506972990105325,
+          "position": [
+            -0.286033987998962,
+            0.000827764684800059,
+            -0.621517956256866
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0209418872947613,
+          "position": [
+            0.0329670235514641,
+            0.000832072051707655,
+            -1.54135012626648
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.522896525963363,
+          "position": [
+            0.143845573067665,
+            0.000829109398182482,
+            -2.39180684089661
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.00555916408307389,
+          "position": [
+            0.953976452350616,
+            0.00083957938477397,
+            -2.09063959121704
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.517416966974396,
+          "position": [
+            1.28973639011383,
+            0.000793114071711898,
+            -1.48347246646881
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.00491091336229332,
+          "position": [
+            1.62901329994202,
+            -0.0017881435342133,
+            -0.37177449464798
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.52991087236635,
+          "position": [
+            1.29419779777527,
+            0.000830623728688806,
+            0.672440230846405
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0166501383265618,
+          "position": [
+            1.31595301628113,
+            0.00076632562559098,
+            1.35784649848938
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.500988775535844,
+          "position": [
+            -0.328950464725494,
+            0.00082912010839209,
+            -0.361795991659164
+          ],
+          "surface": "Path"
+        }
+      ],
+      "surface": "Path",
+      "tool": "None",
+      "travel_heading": -3.10225863276959,
+      "view": 0,
+      "x": -0.172385200858116,
+      "y": 0.000825825321953744,
+      "yaw": -3.10225868225098,
+      "z": -0.566936314105988
+    },
+    "door_entry": {
+      "animation_rate": 1,
+      "blink_index": -1,
+      "blinks": 4,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 1,
+      "effects": 3,
+      "floor_error": 3.02679836750031e-9,
+      "footsteps": 17,
+      "indoor": true,
+      "interaction": "Door",
+      "jump_stage": "Ground",
+      "jump_time": -1,
+      "jumps": 1,
+      "landings": 1,
+      "lean": 0,
+      "phase": 0,
+      "phase_step": 0.22,
+      "physics_time": 14.72,
+      "rain": false,
+      "source_velocity": 0,
+      "speed_mps": 0,
+      "state": "Idle",
+      "steps": [
+        {
+          "foot": "Left",
+          "phase": 0.506972990105325,
+          "position": [
+            -0.286033987998962,
+            0.000827764684800059,
+            -0.621517956256866
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0209418872947613,
+          "position": [
+            0.0329670235514641,
+            0.000832072051707655,
+            -1.54135012626648
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.522896525963363,
+          "position": [
+            0.143845573067665,
+            0.000829109398182482,
+            -2.39180684089661
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.00555916408307389,
+          "position": [
+            0.953976452350616,
+            0.00083957938477397,
+            -2.09063959121704
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.517416966974396,
+          "position": [
+            1.28973639011383,
+            0.000793114071711898,
+            -1.48347246646881
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.00491091336229332,
+          "position": [
+            1.62901329994202,
+            -0.0017881435342133,
+            -0.37177449464798
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.52991087236635,
+          "position": [
+            1.29419779777527,
+            0.000830623728688806,
+            0.672440230846405
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0166501383265618,
+          "position": [
+            1.31595301628113,
+            0.00076632562559098,
+            1.35784649848938
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.500988775535844,
+          "position": [
+            -0.328950464725494,
+            0.00082912010839209,
+            -0.361795991659164
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.506972990434961,
+          "position": [
+            -0.286033987998962,
+            0.000830665347166359,
+            -0.621518015861511
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0209418407137425,
+          "position": [
+            0.0329669862985611,
+            0.000839774322230369,
+            -1.54135000705719
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.504677010205155,
+          "position": [
+            -0.285371363162994,
+            0.000839256448671222,
+            -2.3495945930481
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.018645907394591,
+          "position": [
+            0.0324990153312683,
+            0.000839216460008174,
+            -3.26919388771057
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.502381273682015,
+          "position": [
+            -0.284667193889618,
+            0.000839703076053411,
+            -4.07736110687256
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0163495072568705,
+          "position": [
+            0.0319999903440475,
+            0.00083960109623149,
+            -4.9970531463623
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.500084541737004,
+          "position": [
+            -0.283931076526642,
+            0.000839695334434509,
+            -5.80514860153198
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0129878065208717,
+          "position": [
+            0.0165045261383057,
+            0.00083481112960726,
+            -6.59786462783813
+          ],
+          "surface": "Path"
+        }
+      ],
+      "surface": "Path",
+      "tool": "None",
+      "travel_heading": 0,
+      "view": 0,
+      "x": 40,
+      "y": 0,
+      "yaw": 0,
+      "z": -2.5
+    },
+    "door_exit": {
+      "animation_rate": 1,
+      "blink_index": -1,
+      "blinks": 5,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 2,
+      "effects": 3,
+      "floor_error": 3.02679836750031e-9,
+      "footsteps": 19,
+      "indoor": false,
+      "interaction": "Door",
+      "jump_stage": "Ground",
+      "jump_time": -1,
+      "jumps": 1,
+      "landings": 1,
+      "lean": 0,
+      "phase": 0,
+      "phase_step": 0.22,
+      "physics_time": 16.805,
+      "rain": false,
+      "source_velocity": 0,
+      "speed_mps": 0,
+      "state": "Idle",
+      "steps": [
+        {
+          "foot": "Left",
+          "phase": 0.506972990105325,
+          "position": [
+            -0.286033987998962,
+            0.000827764684800059,
+            -0.621517956256866
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0209418872947613,
+          "position": [
+            0.0329670235514641,
+            0.000832072051707655,
+            -1.54135012626648
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.522896525963363,
+          "position": [
+            0.143845573067665,
+            0.000829109398182482,
+            -2.39180684089661
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.00555916408307389,
+          "position": [
+            0.953976452350616,
+            0.00083957938477397,
+            -2.09063959121704
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.517416966974396,
+          "position": [
+            1.28973639011383,
+            0.000793114071711898,
+            -1.48347246646881
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.00491091336229332,
+          "position": [
+            1.62901329994202,
+            -0.0017881435342133,
+            -0.37177449464798
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.52991087236635,
+          "position": [
+            1.29419779777527,
+            0.000830623728688806,
+            0.672440230846405
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0166501383265618,
+          "position": [
+            1.31595301628113,
+            0.00076632562559098,
+            1.35784649848938
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.500988775535844,
+          "position": [
+            -0.328950464725494,
+            0.00082912010839209,
+            -0.361795991659164
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.506972990434961,
+          "position": [
+            -0.286033987998962,
+            0.000830665347166359,
+            -0.621518015861511
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0209418407137425,
+          "position": [
+            0.0329669862985611,
+            0.000839774322230369,
+            -1.54135000705719
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.504677010205155,
+          "position": [
+            -0.285371363162994,
+            0.000839256448671222,
+            -2.3495945930481
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.018645907394591,
+          "position": [
+            0.0324990153312683,
+            0.000839216460008174,
+            -3.26919388771057
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.502381273682015,
+          "position": [
+            -0.284667193889618,
+            0.000839703076053411,
+            -4.07736110687256
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0163495072568705,
+          "position": [
+            0.0319999903440475,
+            0.00083960109623149,
+            -4.9970531463623
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.500084541737004,
+          "position": [
+            -0.283931076526642,
+            0.000839695334434509,
+            -5.80514860153198
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0129878065208717,
+          "position": [
+            0.0165045261383057,
+            0.00083481112960726,
+            -6.59786462783813
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.506969370984717,
+          "position": [
+            39.7139739990234,
+            0.000833550468087196,
+            -3.12151050567627
+          ],
+          "surface": "Indoor"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0127806186559953,
+          "position": [
+            40.0313873291016,
+            0.000832400924991816,
+            -3.87749028205872
+          ],
+          "surface": "Indoor"
+        }
+      ],
+      "surface": "Path",
+      "tool": "None",
+      "travel_heading": 0,
+      "view": 0,
+      "x": 0,
+      "y": 0,
+      "yaw": 0,
+      "z": -6
+    },
+    "changed_view": {
+      "animation_rate": 1,
+      "blink_index": -1,
+      "blinks": 7,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 2,
+      "effects": 3,
+      "floor_error": 3.02679836750031e-9,
+      "footsteps": 19,
+      "indoor": false,
+      "interaction": "",
+      "jump_stage": "Ground",
+      "jump_time": -1,
+      "jumps": 1,
+      "landings": 1,
+      "lean": 0,
+      "phase": 0,
+      "phase_step": 0.22,
+      "physics_time": 20.185,
+      "rain": false,
+      "source_velocity": 0,
+      "speed_mps": 0,
+      "state": "Idle",
+      "steps": [
+        {
+          "foot": "Left",
+          "phase": 0.506972990105325,
+          "position": [
+            -0.286033987998962,
+            0.000827764684800059,
+            -0.621517956256866
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0209418872947613,
+          "position": [
+            0.0329670235514641,
+            0.000832072051707655,
+            -1.54135012626648
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.522896525963363,
+          "position": [
+            0.143845573067665,
+            0.000829109398182482,
+            -2.39180684089661
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.00555916408307389,
+          "position": [
+            0.953976452350616,
+            0.00083957938477397,
+            -2.09063959121704
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.517416966974396,
+          "position": [
+            1.28973639011383,
+            0.000793114071711898,
+            -1.48347246646881
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.00491091336229332,
+          "position": [
+            1.62901329994202,
+            -0.0017881435342133,
+            -0.37177449464798
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.52991087236635,
+          "position": [
+            1.29419779777527,
+            0.000830623728688806,
+            0.672440230846405
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0166501383265618,
+          "position": [
+            1.31595301628113,
+            0.00076632562559098,
+            1.35784649848938
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.500988775535844,
+          "position": [
+            -0.328950464725494,
+            0.00082912010839209,
+            -0.361795991659164
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.506972990434961,
+          "position": [
+            -0.286033987998962,
+            0.000830665347166359,
+            -0.621518015861511
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0209418407137425,
+          "position": [
+            0.0329669862985611,
+            0.000839774322230369,
+            -1.54135000705719
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.504677010205155,
+          "position": [
+            -0.285371363162994,
+            0.000839256448671222,
+            -2.3495945930481
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.018645907394591,
+          "position": [
+            0.0324990153312683,
+            0.000839216460008174,
+            -3.26919388771057
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.502381273682015,
+          "position": [
+            -0.284667193889618,
+            0.000839703076053411,
+            -4.07736110687256
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0163495072568705,
+          "position": [
+            0.0319999903440475,
+            0.00083960109623149,
+            -4.9970531463623
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.500084541737004,
+          "position": [
+            -0.283931076526642,
+            0.000839695334434509,
+            -5.80514860153198
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0129878065208717,
+          "position": [
+            0.0165045261383057,
+            0.00083481112960726,
+            -6.59786462783813
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.506969370984717,
+          "position": [
+            39.7139739990234,
+            0.000833550468087196,
+            -3.12151050567627
+          ],
+          "surface": "Indoor"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.0127806186559953,
+          "position": [
+            40.0313873291016,
+            0.000832400924991816,
+            -3.87749028205872
+          ],
+          "surface": "Indoor"
+        }
+      ],
+      "surface": "Path",
+      "tool": "None",
+      "travel_heading": 0,
+      "view": 1,
+      "x": 0,
+      "y": 0,
+      "yaw": 0,
+      "z": 0
+    }
+  },
+  "touch": {
+    "moving": {
+      "animation_rate": 1.79999995231628,
+      "blink_index": -1,
+      "blinks": 1,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 0,
+      "effects": 5,
+      "floor_error": 3.72529029846191e-9,
+      "footsteps": 5,
+      "indoor": false,
+      "interaction": "",
+      "jump_stage": "Ground",
+      "jump_time": -1,
+      "jumps": 0,
+      "landings": 0,
+      "lean": 0.349062815580537,
+      "phase": 0.865594162466452,
+      "phase_step": 0.59999996,
+      "physics_time": 3.394,
+      "rain": false,
+      "source_velocity": 7.5,
+      "speed_mps": 4.84617233276367,
+      "state": "Dash",
+      "steps": [
+        {
+          "foot": "Right",
+          "phase": 0.503095238320558,
+          "position": [
+            0.029527336359024,
+            0.000830178672913462,
+            -0.916074335575104
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.0280950967252707,
+          "position": [
+            -0.307148844003677,
+            0.000836360675748438,
+            -2.0020444393158
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.515595064225271,
+          "position": [
+            0.0286935865879059,
+            0.000840325257740915,
+            -3.07049107551575
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.00309495054938869,
+          "position": [
+            -0.306987941265106,
+            0.000838679610751569,
+            -4.17876577377319
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.528094428494097,
+          "position": [
+            0.0279516726732254,
+            0.000836855673696846,
+            -5.22067546844482
+          ],
+          "surface": "Path"
+        }
+      ],
+      "surface": "Path",
+      "tool": "None",
+      "travel_heading": -3.14159265358979,
+      "view": 0,
+      "x": -0.135262742638588,
+      "y": 0.000838742649648339,
+      "yaw": -3.14159274101257,
+      "z": -5.9627833366394
+    },
+    "jump": {
+      "animation_rate": 1,
+      "blink_index": -1,
+      "blinks": 1,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 0,
+      "effects": 7,
+      "floor_error": 3.72529029846191e-9,
+      "footsteps": 7,
+      "indoor": false,
+      "interaction": "",
+      "jump_stage": "Ascend",
+      "jump_time": 0.3,
+      "jumps": 1,
+      "landings": 0,
+      "lean": 0.0000464471072541821,
+      "phase": 0.0493420502838133,
+      "phase_step": 0.22,
+      "physics_time": 4.434,
+      "rain": false,
+      "source_velocity": 0,
+      "speed_mps": 0,
+      "state": "Jump",
+      "steps": [
+        {
+          "foot": "Right",
+          "phase": 0.503095238320558,
+          "position": [
+            0.029527336359024,
+            0.000830178672913462,
+            -0.916074335575104
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.0280950967252707,
+          "position": [
+            -0.307148844003677,
+            0.000836360675748438,
+            -2.0020444393158
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.515595064225271,
+          "position": [
+            0.0286935865879059,
+            0.000840325257740915,
+            -3.07049107551575
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.00309495054938869,
+          "position": [
+            -0.306987941265106,
+            0.000838679610751569,
+            -4.17876577377319
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.528094428494097,
+          "position": [
+            0.0279516726732254,
+            0.000836855673696846,
+            -5.22067546844482
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.0155940712905698,
+          "position": [
+            -0.307275474071503,
+            0.000839694985188544,
+            -6.32062101364136
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.503093714087042,
+          "position": [
+            0.0296437740325928,
+            0.000834909151308239,
+            -7.38433074951172
+          ],
+          "surface": "Path"
+        }
+      ],
+      "surface": "Path",
+      "tool": "None",
+      "travel_heading": -3.14159265358979,
+      "view": 0,
+      "x": -0.135262742638588,
+      "y": 0.603659152984619,
+      "yaw": -3.14159274101257,
+      "z": -7.75906419754028
+    },
+    "stopped": {
+      "animation_rate": 1,
+      "blink_index": 0,
+      "blinks": 2,
+      "bones": 24,
+      "dialogue": 0,
+      "door_transitions": 0,
+      "effects": 7,
+      "floor_error": 3.72529029846191e-9,
+      "footsteps": 7,
+      "indoor": false,
+      "interaction": "",
+      "jump_stage": "Ground",
+      "jump_time": -1,
+      "jumps": 1,
+      "landings": 1,
+      "lean": 8.28644083267473e-10,
+      "phase": 0.0493420502838133,
+      "phase_step": 0.22,
+      "physics_time": 5.279,
+      "rain": false,
+      "source_velocity": 0,
+      "speed_mps": 0,
+      "state": "Idle",
+      "steps": [
+        {
+          "foot": "Right",
+          "phase": 0.503095238320558,
+          "position": [
+            0.029527336359024,
+            0.000830178672913462,
+            -0.916074335575104
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.0280950967252707,
+          "position": [
+            -0.307148844003677,
+            0.000836360675748438,
+            -2.0020444393158
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.515595064225271,
+          "position": [
+            0.0286935865879059,
+            0.000840325257740915,
+            -3.07049107551575
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.00309495054938869,
+          "position": [
+            -0.306987941265106,
+            0.000838679610751569,
+            -4.17876577377319
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.528094428494097,
+          "position": [
+            0.0279516726732254,
+            0.000836855673696846,
+            -5.22067546844482
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Left",
+          "phase": 0.0155940712905698,
+          "position": [
+            -0.307275474071503,
+            0.000839694985188544,
+            -6.32062101364136
+          ],
+          "surface": "Path"
+        },
+        {
+          "foot": "Right",
+          "phase": 0.503093714087042,
+          "position": [
+            0.0296437740325928,
+            0.000834909151308239,
+            -7.38433074951172
+          ],
+          "surface": "Path"
+        }
+      ],
+      "surface": "Path",
+      "tool": "None",
+      "travel_heading": -3.14159265358979,
+      "view": 0,
+      "x": -0.135262742638588,
+      "y": 0.000106052029877901,
+      "yaw": -3.14159274101257,
+      "z": -7.75906419754028
+    }
+  },
+  "errors": []
+}

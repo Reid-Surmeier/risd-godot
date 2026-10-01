@@ -1,0 +1,19 @@
+{
+  "models": [
+    {
+      "source": "video-match/authored-walk-v5/footplant-candidate.glb",
+      "label": "Source WALK .8s + repaired arm weights; no grass dust",
+      "sha256": "8eb7fff2ed7ce8b07417c7fa3300a050a610f11a999484e50f3ecfff5b87fc84"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 2,
+  "effects": false,
+  "controller_speed_m_s": 1.05,
+  "contacts": [],
+  "width": 886,
+  "height": 664,
+  "camera_distance": 17,
+  "import_fps": 240
+}

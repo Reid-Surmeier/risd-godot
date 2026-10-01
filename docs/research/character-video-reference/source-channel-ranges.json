@@ -1,0 +1,3426 @@
+{
+  "source_commit": "09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c",
+  "source_inputs": [
+    {
+      "path": "src/data/model/player_anim.c",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/data/model/player_anim.c",
+      "sha256": "96867776dd870deb666f8c46aaead96da9c5b92c6358fb6f8485b1e41aa639c7"
+    },
+    {
+      "path": "src/data/model/boy_model.c",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/data/model/boy_model.c",
+      "sha256": "97a790cd5593fe118bfe046d5c6de167ca002b25b2a255663d8010a4036571cd"
+    }
+  ],
+  "status": "source reconstruction, not footage",
+  "clips": {
+    "walk": [
+      {
+        "label": "root_translation_X",
+        "animated": true,
+        "range": [
+          0,
+          0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "root_translation_Y",
+        "animated": true,
+        "range": [
+          1000,
+          1125
+        ],
+        "phase_0_quarter_half_threequarters": [
+          1000,
+          1125,
+          1000,
+          1125
+        ]
+      },
+      {
+        "label": "root_translation_Z",
+        "animated": true,
+        "range": [
+          0,
+          0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "root_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "root_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "root_Z",
+        "animated": false,
+        "range": [
+          90.0,
+          90.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          90.0,
+          90.0,
+          90.0,
+          90.0
+        ]
+      },
+      {
+        "label": "base_X",
+        "animated": true,
+        "range": [
+          -7.9,
+          8.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          8.0,
+          0.0,
+          -7.9
+        ]
+      },
+      {
+        "label": "base_Y",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "base_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftHipBase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftHipBase_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftHipBase_Z",
+        "animated": false,
+        "range": [
+          180.0,
+          180.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          180.0,
+          180.0,
+          180.0,
+          180.0
+        ]
+      },
+      {
+        "label": "LeftThigh_X",
+        "animated": true,
+        "range": [
+          -14.9,
+          -4.9
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -10.3,
+          -4.9,
+          -9.9,
+          -14.9
+        ]
+      },
+      {
+        "label": "LeftThigh_Y",
+        "animated": true,
+        "range": [
+          -39.9,
+          30.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          7.7,
+          27.0,
+          -17.8,
+          -36.7
+        ]
+      },
+      {
+        "label": "LeftThigh_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          10.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          5.0,
+          0.0,
+          5.0,
+          10.0
+        ]
+      },
+      {
+        "label": "LeftKnee_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftKnee_Y",
+        "animated": true,
+        "range": [
+          0.0,
+          70.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          24.6,
+          67.0,
+          22.1
+        ]
+      },
+      {
+        "label": "LeftKnee_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftShoe_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftShoe_Y",
+        "animated": true,
+        "range": [
+          -9.9,
+          15.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -2.2,
+          14.1,
+          7.1,
+          -8.8
+        ]
+      },
+      {
+        "label": "LeftShoe_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightHipBase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightHipBase_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightHipBase_Z",
+        "animated": false,
+        "range": [
+          180.0,
+          180.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          180.0,
+          180.0,
+          180.0,
+          180.0
+        ]
+      },
+      {
+        "label": "RightThigh_X",
+        "animated": true,
+        "range": [
+          5.0,
+          15.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          10.3,
+          15.0,
+          10.0,
+          5.0
+        ]
+      },
+      {
+        "label": "RightThigh_Y",
+        "animated": true,
+        "range": [
+          -39.9,
+          30.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -17.8,
+          -36.9,
+          7.9,
+          26.7
+        ]
+      },
+      {
+        "label": "RightThigh_Z",
+        "animated": true,
+        "range": [
+          -9.9,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -5.0,
+          -9.9,
+          -4.9,
+          0.0
+        ]
+      },
+      {
+        "label": "RightKnee_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightKnee_Y",
+        "animated": true,
+        "range": [
+          0.0,
+          70.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          70.0,
+          27.5,
+          0.0,
+          24.6
+        ]
+      },
+      {
+        "label": "RightKnee_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightShoe_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightShoe_Y",
+        "animated": true,
+        "range": [
+          -9.9,
+          15.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          7.0,
+          -8.9,
+          -2.0,
+          13.9
+        ]
+      },
+      {
+        "label": "RightShoe_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tailbase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tailbase_Y",
+        "animated": false,
+        "range": [
+          90.0,
+          90.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          90.0,
+          90.0,
+          90.0,
+          90.0
+        ]
+      },
+      {
+        "label": "tailbase_Z",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tail1_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tail1_Y",
+        "animated": true,
+        "range": [
+          1.7,
+          1.7
+        ],
+        "phase_0_quarter_half_threequarters": [
+          1.7,
+          1.7,
+          1.7,
+          1.7
+        ]
+      },
+      {
+        "label": "tail1_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tail2_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tail2_Y",
+        "animated": true,
+        "range": [
+          -5.0,
+          -4.9
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -5.0,
+          -4.9,
+          -4.9,
+          -4.9
+        ]
+      },
+      {
+        "label": "tail2_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "chest_X",
+        "animated": true,
+        "range": [
+          -14.9,
+          15.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          -14.9,
+          0.0,
+          15.0
+        ]
+      },
+      {
+        "label": "chest_Y",
+        "animated": true,
+        "range": [
+          0.6,
+          5.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.6,
+          4.5,
+          0.6,
+          4.5
+        ]
+      },
+      {
+        "label": "chest_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftShoulderBase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftShoulderBase_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftShoulderBase_Z",
+        "animated": false,
+        "range": [
+          -90.0,
+          -90.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -90.0,
+          -90.0,
+          -90.0,
+          -90.0
+        ]
+      },
+      {
+        "label": "LeftUpperArm_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftUpperArm_Y",
+        "animated": true,
+        "range": [
+          -19.9,
+          30.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          5.8,
+          -19.9,
+          6.0,
+          30.0
+        ]
+      },
+      {
+        "label": "LeftUpperArm_Z",
+        "animated": true,
+        "range": [
+          -40.0,
+          -39.9
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -40.0,
+          -39.9,
+          -39.9,
+          -39.9
+        ]
+      },
+      {
+        "label": "LeftForearm_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftForearm_Y",
+        "animated": true,
+        "range": [
+          -44.9,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          -18.7,
+          -43.4,
+          -27.2
+        ]
+      },
+      {
+        "label": "LeftForearm_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightShoulderBase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightShoulderBase_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightShoulderBase_Z",
+        "animated": false,
+        "range": [
+          90.0,
+          90.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          90.0,
+          90.0,
+          90.0,
+          90.0
+        ]
+      },
+      {
+        "label": "RightUpperArm_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightUpperArm_Y",
+        "animated": true,
+        "range": [
+          -19.9,
+          30.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          5.5,
+          30.0,
+          6.0,
+          -19.9
+        ]
+      },
+      {
+        "label": "RightUpperArm_Z",
+        "animated": true,
+        "range": [
+          40.0,
+          40.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          40.0,
+          40.0,
+          40.0,
+          40.0
+        ]
+      },
+      {
+        "label": "RightForearm_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightForearm_Y",
+        "animated": true,
+        "range": [
+          -44.9,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -42.5,
+          -8.9,
+          -5.6,
+          -33.2
+        ]
+      },
+      {
+        "label": "RightForearm_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "hand_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "hand_Y",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "hand_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "HeadBase_X",
+        "animated": true,
+        "range": [
+          -4.9,
+          5.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          5.0,
+          0.0,
+          -4.9
+        ]
+      },
+      {
+        "label": "HeadBase_Y",
+        "animated": true,
+        "range": [
+          -2.9,
+          3.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -2.1,
+          2.1,
+          -2.0,
+          2.1
+        ]
+      },
+      {
+        "label": "HeadBase_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "mouthbase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "mouthbase_Y",
+        "animated": false,
+        "range": [
+          -90.0,
+          -90.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -90.0,
+          -90.0,
+          -90.0,
+          -90.0
+        ]
+      },
+      {
+        "label": "mouthbase_Z",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "mouth_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "mouth_Y",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "mouth_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "head_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "head_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "head_Z",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "feel_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "feel_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "feel_Z",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "run": [
+      {
+        "label": "root_translation_X",
+        "animated": true,
+        "range": [
+          0,
+          0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "root_translation_Y",
+        "animated": true,
+        "range": [
+          1000,
+          1175
+        ],
+        "phase_0_quarter_half_threequarters": [
+          1027,
+          1148,
+          1027,
+          1148
+        ]
+      },
+      {
+        "label": "root_translation_Z",
+        "animated": true,
+        "range": [
+          0,
+          0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "root_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "root_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "root_Z",
+        "animated": false,
+        "range": [
+          90.0,
+          90.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          90.0,
+          90.0,
+          90.0,
+          90.0
+        ]
+      },
+      {
+        "label": "base_X",
+        "animated": true,
+        "range": [
+          -14.9,
+          15.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -5.5,
+          13.7,
+          5.5,
+          -13.6
+        ]
+      },
+      {
+        "label": "base_Y",
+        "animated": true,
+        "range": [
+          -5.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -5.0,
+          0.0,
+          -4.9,
+          0.0
+        ]
+      },
+      {
+        "label": "base_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftHipBase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftHipBase_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftHipBase_Z",
+        "animated": false,
+        "range": [
+          180.0,
+          180.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          180.0,
+          180.0,
+          180.0,
+          180.0
+        ]
+      },
+      {
+        "label": "LeftThigh_X",
+        "animated": true,
+        "range": [
+          -19.9,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -2.0,
+          0.0,
+          0.0,
+          -16.8
+        ]
+      },
+      {
+        "label": "LeftThigh_Y",
+        "animated": true,
+        "range": [
+          -49.9,
+          25.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -12.5,
+          25.0,
+          -12.9,
+          -49.9
+        ]
+      },
+      {
+        "label": "LeftThigh_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          20.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          2.0,
+          0.0,
+          0.0,
+          16.9
+        ]
+      },
+      {
+        "label": "LeftKnee_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftKnee_Y",
+        "animated": true,
+        "range": [
+          0.0,
+          60.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          30.0,
+          60.0,
+          30.0
+        ]
+      },
+      {
+        "label": "LeftKnee_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftShoe_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftShoe_Y",
+        "animated": true,
+        "range": [
+          -10.0,
+          15.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -6.5,
+          10.9,
+          11.1,
+          -6.1
+        ]
+      },
+      {
+        "label": "LeftShoe_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightHipBase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightHipBase_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightHipBase_Z",
+        "animated": false,
+        "range": [
+          180.0,
+          180.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          180.0,
+          180.0,
+          180.0,
+          180.0
+        ]
+      },
+      {
+        "label": "RightThigh_X",
+        "animated": true,
+        "range": [
+          0.0,
+          20.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          16.9,
+          3.1,
+          0.0
+        ]
+      },
+      {
+        "label": "RightThigh_Y",
+        "animated": true,
+        "range": [
+          -49.9,
+          25.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -12.5,
+          -49.9,
+          -12.4,
+          25.0
+        ]
+      },
+      {
+        "label": "RightThigh_Z",
+        "animated": true,
+        "range": [
+          -19.9,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          -16.8,
+          -3.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightKnee_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightKnee_Y",
+        "animated": true,
+        "range": [
+          0.0,
+          60.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          60.0,
+          30.0,
+          0.0,
+          30.0
+        ]
+      },
+      {
+        "label": "RightKnee_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightShoe_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightShoe_Y",
+        "animated": true,
+        "range": [
+          -10.0,
+          15.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          11.0,
+          -6.2,
+          -6.1,
+          11.1
+        ]
+      },
+      {
+        "label": "RightShoe_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tailbase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tailbase_Y",
+        "animated": false,
+        "range": [
+          90.0,
+          90.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          90.0,
+          90.0,
+          90.0,
+          90.0
+        ]
+      },
+      {
+        "label": "tailbase_Z",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tail1_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tail1_Y",
+        "animated": true,
+        "range": [
+          -5.3,
+          -5.2
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -5.3,
+          -5.2,
+          -5.2,
+          -5.2
+        ]
+      },
+      {
+        "label": "tail1_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tail2_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tail2_Y",
+        "animated": true,
+        "range": [
+          -27.5,
+          -27.4
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -27.5,
+          -27.4,
+          -27.4,
+          -27.4
+        ]
+      },
+      {
+        "label": "tail2_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "chest_X",
+        "animated": true,
+        "range": [
+          -14.9,
+          15.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          5.5,
+          -13.7,
+          -5.4,
+          13.7
+        ]
+      },
+      {
+        "label": "chest_Y",
+        "animated": true,
+        "range": [
+          0.5,
+          10.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          5.0,
+          5.3,
+          5.3,
+          5.3
+        ]
+      },
+      {
+        "label": "chest_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftShoulderBase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftShoulderBase_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftShoulderBase_Z",
+        "animated": false,
+        "range": [
+          -90.0,
+          -90.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -90.0,
+          -90.0,
+          -90.0,
+          -90.0
+        ]
+      },
+      {
+        "label": "LeftUpperArm_X",
+        "animated": true,
+        "range": [
+          -5.9,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -3.0,
+          -2.9,
+          -2.9,
+          -2.9
+        ]
+      },
+      {
+        "label": "LeftUpperArm_Y",
+        "animated": true,
+        "range": [
+          20.0,
+          40.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          30.0,
+          20.0,
+          30.0,
+          40.0
+        ]
+      },
+      {
+        "label": "LeftUpperArm_Z",
+        "animated": true,
+        "range": [
+          -39.9,
+          -24.9
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -27.5,
+          -32.4,
+          -34.9,
+          -29.9
+        ]
+      },
+      {
+        "label": "LeftForearm_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftForearm_Y",
+        "animated": true,
+        "range": [
+          -24.9,
+          -14.9
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -16.4,
+          -23.3,
+          -23.3,
+          -16.5
+        ]
+      },
+      {
+        "label": "LeftForearm_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightShoulderBase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightShoulderBase_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightShoulderBase_Z",
+        "animated": false,
+        "range": [
+          90.0,
+          90.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          90.0,
+          90.0,
+          90.0,
+          90.0
+        ]
+      },
+      {
+        "label": "RightUpperArm_X",
+        "animated": true,
+        "range": [
+          0.0,
+          6.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          3.0,
+          3.0,
+          3.0,
+          3.0
+        ]
+      },
+      {
+        "label": "RightUpperArm_Y",
+        "animated": true,
+        "range": [
+          20.0,
+          40.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          30.0,
+          40.0,
+          30.0,
+          20.0
+        ]
+      },
+      {
+        "label": "RightUpperArm_Z",
+        "animated": true,
+        "range": [
+          25.0,
+          40.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          35.0,
+          30.0,
+          27.5,
+          32.5
+        ]
+      },
+      {
+        "label": "RightForearm_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightForearm_Y",
+        "animated": true,
+        "range": [
+          -24.9,
+          -14.9
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -22.0,
+          -15.6,
+          -16.5,
+          -23.3
+        ]
+      },
+      {
+        "label": "RightForearm_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "hand_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "hand_Y",
+        "animated": true,
+        "range": [
+          15.0,
+          35.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          15.8,
+          28.1,
+          34.1,
+          21.3
+        ]
+      },
+      {
+        "label": "hand_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "HeadBase_X",
+        "animated": true,
+        "range": [
+          -4.9,
+          6.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -1.5,
+          5.7,
+          2.5,
+          -4.4
+        ]
+      },
+      {
+        "label": "HeadBase_Y",
+        "animated": true,
+        "range": [
+          1.0,
+          12.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          6.8,
+          6.5,
+          6.5,
+          6.5
+        ]
+      },
+      {
+        "label": "HeadBase_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "mouthbase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "mouthbase_Y",
+        "animated": false,
+        "range": [
+          -90.0,
+          -90.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -90.0,
+          -90.0,
+          -90.0,
+          -90.0
+        ]
+      },
+      {
+        "label": "mouthbase_Z",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "mouth_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "mouth_Y",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "mouth_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "head_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "head_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "head_Z",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "feel_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "feel_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "feel_Z",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "dash": [
+      {
+        "label": "root_translation_X",
+        "animated": true,
+        "range": [
+          0,
+          0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "root_translation_Y",
+        "animated": true,
+        "range": [
+          1000,
+          1175
+        ],
+        "phase_0_quarter_half_threequarters": [
+          1027,
+          1148,
+          1027,
+          1148
+        ]
+      },
+      {
+        "label": "root_translation_Z",
+        "animated": true,
+        "range": [
+          0,
+          0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "root_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "root_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "root_Z",
+        "animated": false,
+        "range": [
+          90.0,
+          90.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          90.0,
+          90.0,
+          90.0,
+          90.0
+        ]
+      },
+      {
+        "label": "base_X",
+        "animated": true,
+        "range": [
+          -14.9,
+          15.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -5.5,
+          13.7,
+          5.5,
+          -13.6
+        ]
+      },
+      {
+        "label": "base_Y",
+        "animated": true,
+        "range": [
+          -5.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -5.0,
+          0.0,
+          -4.9,
+          0.0
+        ]
+      },
+      {
+        "label": "base_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftHipBase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftHipBase_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftHipBase_Z",
+        "animated": false,
+        "range": [
+          180.0,
+          180.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          180.0,
+          180.0,
+          180.0,
+          180.0
+        ]
+      },
+      {
+        "label": "LeftThigh_X",
+        "animated": true,
+        "range": [
+          -19.9,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -2.0,
+          0.0,
+          0.0,
+          -19.9
+        ]
+      },
+      {
+        "label": "LeftThigh_Y",
+        "animated": true,
+        "range": [
+          -69.9,
+          50.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -14.3,
+          50.0,
+          -24.8,
+          -69.9
+        ]
+      },
+      {
+        "label": "LeftThigh_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          20.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          2.0,
+          0.0,
+          0.0,
+          20.0
+        ]
+      },
+      {
+        "label": "LeftKnee_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftKnee_Y",
+        "animated": true,
+        "range": [
+          0.0,
+          100.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          10.4,
+          100.0,
+          50.0
+        ]
+      },
+      {
+        "label": "LeftKnee_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftShoe_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftShoe_Y",
+        "animated": true,
+        "range": [
+          -10.0,
+          15.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -6.5,
+          10.9,
+          11.1,
+          -6.1
+        ]
+      },
+      {
+        "label": "LeftShoe_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightHipBase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightHipBase_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightHipBase_Z",
+        "animated": false,
+        "range": [
+          180.0,
+          180.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          180.0,
+          180.0,
+          180.0,
+          180.0
+        ]
+      },
+      {
+        "label": "RightThigh_X",
+        "animated": true,
+        "range": [
+          0.0,
+          20.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          20.0,
+          2.1,
+          0.0
+        ]
+      },
+      {
+        "label": "RightThigh_Y",
+        "animated": true,
+        "range": [
+          -69.9,
+          50.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -26.5,
+          -69.9,
+          -9.9,
+          50.0
+        ]
+      },
+      {
+        "label": "RightThigh_Z",
+        "animated": true,
+        "range": [
+          -19.9,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          -19.9,
+          -2.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightKnee_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightKnee_Y",
+        "animated": true,
+        "range": [
+          0.0,
+          100.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          100.0,
+          50.0,
+          0.0,
+          10.4
+        ]
+      },
+      {
+        "label": "RightKnee_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightShoe_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightShoe_Y",
+        "animated": true,
+        "range": [
+          -10.0,
+          15.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          11.0,
+          -6.2,
+          -6.1,
+          11.1
+        ]
+      },
+      {
+        "label": "RightShoe_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tailbase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tailbase_Y",
+        "animated": false,
+        "range": [
+          90.0,
+          90.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          90.0,
+          90.0,
+          90.0,
+          90.0
+        ]
+      },
+      {
+        "label": "tailbase_Z",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tail1_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tail1_Y",
+        "animated": true,
+        "range": [
+          -5.3,
+          -5.2
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -5.3,
+          -5.2,
+          -5.2,
+          -5.2
+        ]
+      },
+      {
+        "label": "tail1_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tail2_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "tail2_Y",
+        "animated": true,
+        "range": [
+          -27.5,
+          -27.4
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -27.5,
+          -27.4,
+          -27.4,
+          -27.4
+        ]
+      },
+      {
+        "label": "tail2_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "chest_X",
+        "animated": true,
+        "range": [
+          -29.9,
+          30.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          10.8,
+          -27.3,
+          -10.9,
+          27.4
+        ]
+      },
+      {
+        "label": "chest_Y",
+        "animated": true,
+        "range": [
+          0.5,
+          10.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          5.0,
+          5.3,
+          5.3,
+          5.3
+        ]
+      },
+      {
+        "label": "chest_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftShoulderBase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftShoulderBase_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftShoulderBase_Z",
+        "animated": false,
+        "range": [
+          -90.0,
+          -90.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -90.0,
+          -90.0,
+          -90.0,
+          -90.0
+        ]
+      },
+      {
+        "label": "LeftUpperArm_X",
+        "animated": true,
+        "range": [
+          -14.9,
+          15.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          -14.9,
+          0.0,
+          15.0
+        ]
+      },
+      {
+        "label": "LeftUpperArm_Y",
+        "animated": true,
+        "range": [
+          -29.9,
+          60.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          15.0,
+          -29.9,
+          15.0,
+          60.0
+        ]
+      },
+      {
+        "label": "LeftUpperArm_Z",
+        "animated": true,
+        "range": [
+          -24.9,
+          -19.9
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -20.0,
+          -22.4,
+          -24.9,
+          -22.4
+        ]
+      },
+      {
+        "label": "LeftForearm_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "LeftForearm_Y",
+        "animated": true,
+        "range": [
+          -99.9,
+          -44.9
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -48.0,
+          -83.1,
+          -97.5,
+          -62.3
+        ]
+      },
+      {
+        "label": "LeftForearm_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightShoulderBase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightShoulderBase_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightShoulderBase_Z",
+        "animated": false,
+        "range": [
+          90.0,
+          90.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          90.0,
+          90.0,
+          90.0,
+          90.0
+        ]
+      },
+      {
+        "label": "RightUpperArm_X",
+        "animated": true,
+        "range": [
+          -14.9,
+          15.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          -14.9,
+          0.0,
+          15.0
+        ]
+      },
+      {
+        "label": "RightUpperArm_Y",
+        "animated": true,
+        "range": [
+          -29.9,
+          60.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          15.0,
+          60.0,
+          15.0,
+          -29.9
+        ]
+      },
+      {
+        "label": "RightUpperArm_Z",
+        "animated": true,
+        "range": [
+          20.0,
+          25.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          25.0,
+          22.5,
+          20.0,
+          22.5
+        ]
+      },
+      {
+        "label": "RightForearm_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "RightForearm_Y",
+        "animated": true,
+        "range": [
+          -99.9,
+          -44.9
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -97.1,
+          -61.2,
+          -47.3,
+          -82.5
+        ]
+      },
+      {
+        "label": "RightForearm_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "hand_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "hand_Y",
+        "animated": true,
+        "range": [
+          15.0,
+          35.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          15.8,
+          28.1,
+          34.1,
+          21.3
+        ]
+      },
+      {
+        "label": "hand_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "HeadBase_X",
+        "animated": true,
+        "range": [
+          -14.9,
+          15.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -5.8,
+          13.7,
+          5.5,
+          -13.6
+        ]
+      },
+      {
+        "label": "HeadBase_Y",
+        "animated": true,
+        "range": [
+          3.0,
+          10.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          6.8,
+          6.5,
+          6.5,
+          6.5
+        ]
+      },
+      {
+        "label": "HeadBase_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "mouthbase_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "mouthbase_Y",
+        "animated": false,
+        "range": [
+          -90.0,
+          -90.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          -90.0,
+          -90.0,
+          -90.0,
+          -90.0
+        ]
+      },
+      {
+        "label": "mouthbase_Z",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "mouth_X",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "mouth_Y",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "mouth_Z",
+        "animated": true,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "head_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "head_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "head_Z",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "feel_X",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "feel_Y",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "label": "feel_Z",
+        "animated": false,
+        "range": [
+          0.0,
+          0.0
+        ],
+        "phase_0_quarter_half_threequarters": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  }
+}

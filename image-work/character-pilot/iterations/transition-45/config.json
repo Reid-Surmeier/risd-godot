@@ -1,0 +1,21 @@
+{
+  "models": [
+    {
+      "source": "../target-baked-normalized-idle.glb",
+      "label": "Before: raw foot motion",
+      "sha256": "9d566ae7413d209f9986b1ff53d486ba3535a59f498d686f169d7257e21cc804"
+    },
+    {
+      "source": "motion-diagnosis/footplant-candidate.glb",
+      "label": "After: planted feet + rigid head",
+      "sha256": "558c6730c61720a67511f5e3ced4adc3a98b49b7359803398c29b1813a88b0d5"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 3,
+  "effects": false,
+  "contacts": [],
+  "controller_speed_m_s": 0.52,
+  "transition": true
+}

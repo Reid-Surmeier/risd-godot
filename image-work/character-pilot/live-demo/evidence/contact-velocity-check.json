@@ -1,0 +1,5636 @@
+{
+  "candidate_build": "1ade974755c5",
+  "scene_sha256": "4823db4641ee5e8db5a7b79faf1cc26b517740ffb7dd89133be874e647183b8d",
+  "case_count": 200,
+  "runs": [
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.009933827444911,
+      "last_three_air_pose_step": 0.009933827444911,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000764944357797503,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993384886533022,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993378460407257,
+      "last_three_air_pose_step": 0.00993378460407257,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240868609398603,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0196607653051615,
+      "last_three_air_pose_step": 0.00993379764258862,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0402613319456577,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.00073638220783323,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0982006564736366,
+      "last_three_air_pose_step": 0.00993388332426548,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.144555896520615,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 4.65116463601589e-05,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.148289129137993,
+      "last_three_air_pose_step": 0.00993385631591082,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237486232072115,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000823905284050852,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0120679792016745,
+      "last_three_air_pose_step": 0.00993384141474962,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0116520542651415,
+      "last_three_air_pose_step": 0.00993380229920149,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.023975258693099,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0177803300321102,
+      "last_three_air_pose_step": 0.00993384048342705,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.109370410442352,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000786401971708983,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.148289129137993,
+      "last_three_air_pose_step": 0.00993385631591082,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000763776595704257,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.009933827444911,
+      "last_three_air_pose_step": 0.009933827444911,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.011733029037714,
+      "last_three_air_pose_step": 0.00993379950523376,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0239753257483244,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0179847292602062,
+      "last_three_air_pose_step": 0.00993381999433041,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.109370477497578,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000786401971708983,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.150619208812714,
+      "last_three_air_pose_step": 0.00993383396416903,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000811102683655918,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.009933827444911,
+      "last_three_air_pose_step": 0.009933827444911,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000800683337729424,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993386190384626,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237952750176191,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000736381742171943,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0121994474902749,
+      "last_three_air_pose_step": 0.00993386842310429,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0417073965072632,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000814988918136805,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.103141874074936,
+      "last_three_air_pose_step": 0.00993381906300783,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993378460407257,
+      "last_three_air_pose_step": 0.00993378460407257,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000800683337729424,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993387773633003,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237952768802643,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000800683337729424,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0122924260795116,
+      "last_three_air_pose_step": 0.00993378181010485,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0417074672877789,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000814988918136805,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.104749649763107,
+      "last_three_air_pose_step": 0.00993386190384626,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993378460407257,
+      "last_three_air_pose_step": 0.00993378460407257,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0239128451794386,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000823905284050852,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0127496458590031,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0259488727897406,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000793530722148716,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0369823426008224,
+      "last_three_air_pose_step": 0.00993388798087835,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.144555896520615,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000786401971708983,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.148289129137993,
+      "last_three_air_pose_step": 0.00993385631591082,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237486232072115,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000823905284050852,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0120679792016745,
+      "last_three_air_pose_step": 0.00993384141474962,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0239129159599543,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.01285435911268,
+      "last_three_air_pose_step": 0.00993380602449179,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0259488858282566,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000793530722148716,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0375194437801838,
+      "last_three_air_pose_step": 0.00993386842310429,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.144555956125259,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000786401971708983,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.150619208812714,
+      "last_three_air_pose_step": 0.00993383396416903,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237486232072115,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000823905284050852,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0120679792016745,
+      "last_three_air_pose_step": 0.00993384141474962,
+      "lead": 40,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000818898435682058,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993384886533022,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -6.98491930961609e-09,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240868628025055,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000801827700342983,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0196607653051615,
+      "last_three_air_pose_step": 0.00993387959897518,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0402614064514637,
+      "contact_pose_step": 0.0237414836883545,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0982006713747978,
+      "last_three_air_pose_step": 0.00993388332426548,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.144555896520615,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.148289129137993,
+      "last_three_air_pose_step": 0.00993385631591082,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237486846745014,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0120679782703519,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0116520542651415,
+      "last_three_air_pose_step": 0.00993388518691063,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0239753201603889,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000740339979529381,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0177803300321102,
+      "last_three_air_pose_step": 0.0099338460713625,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.109370410442352,
+      "contact_pose_step": 0.0237414836883545,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.148289129137993,
+      "last_three_air_pose_step": 0.00993385724723339,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993384886533022,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.011733147315681,
+      "last_three_air_pose_step": 0.00993392430245876,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0239752754569054,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0179847292602062,
+      "last_three_air_pose_step": 0.00993381999433041,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.109370477497578,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.150619193911552,
+      "last_three_air_pose_step": 0.00993382185697556,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993386190384626,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237953327596188,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0121994642540812,
+      "last_three_air_pose_step": 0.00993386842310429,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0417074486613274,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 1.30012631416321e-06,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.103141874074936,
+      "last_three_air_pose_step": 0.00993381906300783,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -6.98491930961609e-09,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993386190384626,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237952768802643,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000818898901343346,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0122924260795116,
+      "last_three_air_pose_step": 0.00993378181010485,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0417074076831341,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 3.18977981805801e-07,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.104749649763107,
+      "last_three_air_pose_step": 0.00993386190384626,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -6.98491930961609e-09,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0239129047840834,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0127496467903256,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0259488821029663,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000760819704737514,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0369823426008224,
+      "last_three_air_pose_step": 0.00993383023887873,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.144555926322937,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.148289129137993,
+      "last_three_air_pose_step": 0.00993385631591082,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237486846745014,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0120679782703519,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0239129159599543,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0128543758764863,
+      "last_three_air_pose_step": 0.00993380602449179,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0259488914161921,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.037519421428442,
+      "last_three_air_pose_step": 0.00993378646671772,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.144555985927582,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.150619208812714,
+      "last_three_air_pose_step": 0.00993383396416903,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237486846745014,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0120679782703519,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.370000004768372,
+        0.109999999403954
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000779249414335936,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993384886533022,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240868628025055,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0196607727557421,
+      "last_three_air_pose_step": 0.00993379577994347,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.040261372923851,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -6.98491930961609e-09,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0982006713747978,
+      "last_three_air_pose_step": 0.00993388332426548,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.144555911421776,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 5.47207891941071e-05,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.148289114236832,
+      "last_three_air_pose_step": 0.00993386656045914,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237486846745014,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0120679540559649,
+      "last_three_air_pose_step": 0.00993386376649141,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000736381742171943,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0116520542651415,
+      "last_three_air_pose_step": 0.0099338460713625,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0239753276109695,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000764944823458791,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0177803300321102,
+      "last_three_air_pose_step": 0.0099338386207819,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.109370447695255,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000779249414335936,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.148289114236832,
+      "last_three_air_pose_step": 0.00993386656045914,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0117330532521009,
+      "last_three_air_pose_step": 0.00993382092565298,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0239753276109695,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 3.34810465574265e-07,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0179847422987223,
+      "last_three_air_pose_step": 0.0099338311702013,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.109370462596416,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000736381742171943,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.150619208812714,
+      "last_three_air_pose_step": 0.00993383396416903,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993384886533022,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000750663049984723,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993386190384626,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237952787429094,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0121994474902749,
+      "last_three_air_pose_step": 0.00993384700268507,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0417074151337147,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.00073638220783323,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.103141874074936,
+      "last_three_air_pose_step": 0.0099338423460722,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000793530722148716,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993386190384626,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237953364849091,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0122924437746406,
+      "last_three_air_pose_step": 0.00993378460407257,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0417074672877789,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.104749642312527,
+      "last_three_air_pose_step": 0.00993385072797537,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0239128489047289,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000750663049984723,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0127496104687452,
+      "last_three_air_pose_step": 0.00993382558226585,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0259489361196756,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0369823426008224,
+      "last_three_air_pose_step": 0.00993388798087835,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.144555896520615,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000793530722148716,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.148289114236832,
+      "last_three_air_pose_step": 0.00993386656045914,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237486846745014,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0120679540559649,
+      "last_three_air_pose_step": 0.00993386376649141,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.023912912234664,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0128543758764863,
+      "last_three_air_pose_step": 0.00993380602449179,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0259489566087723,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0375194698572159,
+      "last_three_air_pose_step": 0.00993387959897518,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.144555956125259,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.150619208812714,
+      "last_three_air_pose_step": 0.00993383396416903,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237486846745014,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0120679540559649,
+      "last_three_air_pose_step": 0.00993386376649141,
+      "lead": 40,
+      "start": [
+        -0.529999971389771,
+        0.28999999165535
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000801827700342983,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.009933827444911,
+      "last_three_air_pose_step": 0.009933827444911,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000818898435682058,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993384886533022,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414836883545,
+      "contact_pose_step": 0.0237414836883545,
+      "contact_vy": 0.0,
+      "contact_y": 0.000767686171457171,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993384886533022,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993384886533022,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240868683904409,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000740339513868093,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0196607653051615,
+      "last_three_air_pose_step": 0.0099339010193944,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0402614139020443,
+      "contact_pose_step": 0.0237414836883545,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0982006937265396,
+      "last_three_air_pose_step": 0.00993388332426548,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.144555911421776,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 5.22518530488014e-06,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.148289129137993,
+      "last_three_air_pose_step": 0.00993385631591082,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237486883997917,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0120679792016745,
+      "last_three_air_pose_step": 0.00993380602449179,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000824024493340403,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0116520542651415,
+      "last_three_air_pose_step": 0.00993388518691063,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0239752624183893,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000818898901343346,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0177803300321102,
+      "last_three_air_pose_step": 0.00993384048342705,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.109370425343513,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000767662364523858,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.148289129137993,
+      "last_three_air_pose_step": 0.00993384514003992,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.009933827444911,
+      "last_three_air_pose_step": 0.009933827444911,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0117330988869071,
+      "last_three_air_pose_step": 0.00993388146162033,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0239752661436796,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.00080182816600427,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0179847236722708,
+      "last_three_air_pose_step": 0.00993381626904011,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.109370425343513,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.150619208812714,
+      "last_three_air_pose_step": 0.0099338386207819,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.0007416513399221,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 3.18977981805801e-07,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993387773633003,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237953346222639,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000740339979529381,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0121995154768229,
+      "last_three_air_pose_step": 0.00993386842310429,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0417074672877789,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.103141851723194,
+      "last_three_air_pose_step": 0.00993381906300783,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993384886533022,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.00993386190384626,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237953420728445,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0122924605384469,
+      "last_three_air_pose_step": 0.00993380602449179,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0417074114084244,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.104749672114849,
+      "last_three_air_pose_step": 0.00993387307971716,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 24,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "down",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 44,
+      "last_three_air_hand_step": 0.00993384886533022,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0239129047840834,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0127496458590031,
+      "last_three_air_pose_step": 0.00993384886533022,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0259488727897406,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0369823724031448,
+      "last_three_air_pose_step": 0.00993380788713694,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.144555896520615,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 3.18977981805801e-07,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.148289129137993,
+      "last_three_air_pose_step": 0.00993385631591082,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237486883997917,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0120679792016745,
+      "last_three_air_pose_step": 0.00993380602449179,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0239129140973091,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.01285435911268,
+      "last_three_air_pose_step": 0.00993380602449179,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0259488988667727,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0375193916261196,
+      "last_three_air_pose_step": 0.00993376318365335,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "apex+6"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.144555941224098,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.150619193911552,
+      "last_three_air_pose_step": 0.00993382558226585,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "pre5"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 25,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237486883997917,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up",
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "",
+      "impact": 0.996296670701769,
+      "kind": "stand",
+      "land": 45,
+      "last_three_air_hand_step": 0.0120679792016745,
+      "last_three_air_pose_step": 0.00993380602449179,
+      "lead": 40,
+      "start": [
+        0.209999993443489,
+        -0.469999998807907
+      ],
+      "when": "none_slow"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0255315322428942,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0218330360949039,
+      "last_three_air_pose_step": 0.00993384700268507,
+      "lead": 30,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0255315154790878,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0215595122426748,
+      "last_three_air_pose_step": 0.00993382651358843,
+      "lead": 30,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0319412089884281,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0381277911365032,
+      "last_three_air_pose_step": 0.00993391219526529,
+      "lead": 30,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000767734250985086,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 30,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0255315322428942,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000734903616830707,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0218330360949039,
+      "last_three_air_pose_step": 0.00993384700268507,
+      "lead": 33,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0255315154790878,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000734903616830707,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0215595122426748,
+      "last_three_air_pose_step": 0.00993382651358843,
+      "lead": 33,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0319412089884281,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0381277911365032,
+      "last_three_air_pose_step": 0.00993391219526529,
+      "lead": 33,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000734904082491994,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 33,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0255315322428942,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.00079584342893213,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0218330360949039,
+      "last_three_air_pose_step": 0.00993384700268507,
+      "lead": 36,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0255314614623785,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.00079584342893213,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0215595122426748,
+      "last_three_air_pose_step": 0.00993382651358843,
+      "lead": 36,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0319412536919117,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": -7.45058059692383e-09,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0381277911365032,
+      "last_three_air_pose_step": 0.00993383023887873,
+      "lead": 36,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000742676551453769,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 36,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0255314726382494,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000737383146770298,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0218330509960651,
+      "last_three_air_pose_step": 0.00993385631591082,
+      "lead": 39,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0255314614623785,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000737383146770298,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0215594973415136,
+      "last_three_air_pose_step": 0.00993386190384626,
+      "lead": 39,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0319412089884281,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000737383146770298,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0381277911365032,
+      "last_three_air_pose_step": 0.00993375666439533,
+      "lead": 39,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000811579520814121,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 39,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0255314726382494,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000823857611976564,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0218330509960651,
+      "last_three_air_pose_step": 0.00993385631591082,
+      "lead": 42,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0255314577370882,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000823857611976564,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0215594973415136,
+      "last_three_air_pose_step": 0.00993382651358843,
+      "lead": 42,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0319412536919117,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735165784135461,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0381277911365032,
+      "last_three_air_pose_step": 0.00993375666439533,
+      "lead": 42,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000807574077043682,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993387121707201,
+      "last_three_air_pose_step": 0.00993387121707201,
+      "lead": 42,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0255314819514751,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000823857611976564,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0218330211937428,
+      "last_three_air_pose_step": 0.00993384420871735,
+      "lead": 45,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0255315154790878,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000823857611976564,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.021559527143836,
+      "last_three_air_pose_step": 0.00993382651358843,
+      "lead": 45,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0319412089884281,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": -6.98491930961609e-09,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.0381277911365032,
+      "last_three_air_pose_step": 0.00993383023887873,
+      "lead": 45,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000814774306491017,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "walk",
+      "impact": 0.996296670701769,
+      "kind": "walk",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993378460407257,
+      "last_three_air_pose_step": 0.00993378460407257,
+      "lead": 45,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000807621283456683,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.011733029037714,
+      "last_three_air_pose_step": 0.00993379764258862,
+      "lead": 30,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000807621283456683,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.0116520533338189,
+      "last_three_air_pose_step": 0.00993380043655634,
+      "lead": 30,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240868274122477,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735428126063198,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.0196609310805798,
+      "last_three_air_pose_step": 0.00993394386023283,
+      "lead": 30,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000749876315239817,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993378460407257,
+      "last_three_air_pose_step": 0.00993378460407257,
+      "lead": 30,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000807621283456683,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.011733029037714,
+      "last_three_air_pose_step": 0.00993379764258862,
+      "lead": 33,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735404260922223,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.0116520533338189,
+      "last_three_air_pose_step": 0.00993380043655634,
+      "lead": 33,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240868274122477,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000814845378044993,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.0196609310805798,
+      "last_three_air_pose_step": 0.00993394386023283,
+      "lead": 33,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000757076544687152,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993378460407257,
+      "last_three_air_pose_step": 0.00993378460407257,
+      "lead": 33,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735404260922223,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.011733029037714,
+      "last_three_air_pose_step": 0.00993380509316921,
+      "lead": 36,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735404260922223,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.0116520542651415,
+      "last_three_air_pose_step": 0.00993380881845951,
+      "lead": 36,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240868274122477,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735404260922223,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.0196609310805798,
+      "last_three_air_pose_step": 0.00993394386023283,
+      "lead": 36,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000749852450098842,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993378460407257,
+      "last_three_air_pose_step": 0.00993378460407257,
+      "lead": 36,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735404260922223,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.0117330988869071,
+      "last_three_air_pose_step": 0.00993388704955578,
+      "lead": 39,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735404260922223,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.0116520542651415,
+      "last_three_air_pose_step": 0.00993389077484608,
+      "lead": 39,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240868274122477,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735404260922223,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.0196609310805798,
+      "last_three_air_pose_step": 0.00993394386023283,
+      "lead": 39,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735404260922223,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993378460407257,
+      "last_three_air_pose_step": 0.00993378460407257,
+      "lead": 39,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000757076544687152,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.0117330988869071,
+      "last_three_air_pose_step": 0.00993387959897518,
+      "lead": 42,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000757076544687152,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.0116520533338189,
+      "last_three_air_pose_step": 0.00993387494236231,
+      "lead": 42,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240868274122477,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735428126063198,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.0196609310805798,
+      "last_three_air_pose_step": 0.00993394386023283,
+      "lead": 42,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735428126063198,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993395689874887,
+      "last_three_air_pose_step": 0.00993395689874887,
+      "lead": 42,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000800397188868374,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.011733029037714,
+      "last_three_air_pose_step": 0.00993379764258862,
+      "lead": 45,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000800397188868374,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.0116520533338189,
+      "last_three_air_pose_step": 0.00993379205465317,
+      "lead": 45,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240868274122477,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735404260922223,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.0196609310805798,
+      "last_three_air_pose_step": 0.00993394386023283,
+      "lead": 45,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735428126063198,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "run",
+      "impact": 0.996296670701769,
+      "kind": "run",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993395689874887,
+      "last_three_air_pose_step": 0.00993395689874887,
+      "lead": 45,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735761946998537,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0117331119254231,
+      "last_three_air_pose_step": 0.0099338898435235,
+      "lead": 30,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735761946998537,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0116520542651415,
+      "last_three_air_pose_step": 0.00993389263749123,
+      "lead": 30,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240869615226984,
+      "contact_pose_step": 0.0237414836883545,
+      "contact_vy": 0.0,
+      "contact_y": 0.000750162405893207,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": -1.0,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0198998972773552,
+      "last_three_air_pose_step": 0.00993387587368488,
+      "lead": 30,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735761946998537,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993391592055559,
+      "last_three_air_pose_step": 0.00993391592055559,
+      "lead": 30,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000793268496636301,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0117331119254231,
+      "last_three_air_pose_step": 0.0099338898435235,
+      "lead": 33,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000793268496636301,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0116520542651415,
+      "last_three_air_pose_step": 0.00993389263749123,
+      "lead": 33,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240869019180536,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735642679501325,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": -1.0,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0198998972773552,
+      "last_three_air_pose_step": 0.00993387587368488,
+      "lead": 33,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735642679501325,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993391592055559,
+      "last_three_air_pose_step": 0.00993391592055559,
+      "lead": 33,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000786115939263254,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0117331119254231,
+      "last_three_air_pose_step": 0.00993388146162033,
+      "lead": 36,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000786115939263254,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0116520551964641,
+      "last_three_air_pose_step": 0.00993389263749123,
+      "lead": 36,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240869019180536,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735761946998537,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": -1.0,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0198998972773552,
+      "last_three_air_pose_step": 0.00993387587368488,
+      "lead": 36,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735761946998537,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993391592055559,
+      "last_three_air_pose_step": 0.00993391592055559,
+      "lead": 36,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735738140065223,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0117331119254231,
+      "last_three_air_pose_step": 0.00993388146162033,
+      "lead": 39,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735738140065223,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0116520533338189,
+      "last_three_air_pose_step": 0.00993389263749123,
+      "lead": 39,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240869615226984,
+      "contact_pose_step": 0.0237414836883545,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735738140065223,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": -1.0,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0198998972773552,
+      "last_three_air_pose_step": 0.00993387587368488,
+      "lead": 39,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735738140065223,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993391592055559,
+      "last_three_air_pose_step": 0.00993391592055559,
+      "lead": 39,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735666544642299,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0117331119254231,
+      "last_three_air_pose_step": 0.00993388146162033,
+      "lead": 42,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413048744202,
+      "contact_pose_step": 0.0237413048744202,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735666544642299,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0116520533338189,
+      "last_three_air_pose_step": 0.00993389263749123,
+      "lead": 42,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240869019180536,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735666544642299,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": -1.0,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0198998972773552,
+      "last_three_air_pose_step": 0.00993387587368488,
+      "lead": 42,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735666544642299,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993391592055559,
+      "last_three_air_pose_step": 0.00993391592055559,
+      "lead": 42,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000757267291191965,
+      "dir": [
+        "right"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0117331119254231,
+      "last_three_air_pose_step": 0.00993388146162033,
+      "lead": 45,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237413644790649,
+      "contact_pose_step": 0.0237413644790649,
+      "contact_vy": 0.0,
+      "contact_y": 0.000757267291191965,
+      "dir": [
+        "left"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0116520533338189,
+      "last_three_air_pose_step": 0.00993389263749123,
+      "lead": 45,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0240869019180536,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.000735666544642299,
+      "dir": [
+        "up"
+      ],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": -1.0,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.0198998972773552,
+      "last_three_air_pose_step": 0.00993387587368488,
+      "lead": 45,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "apex"
+    },
+    {
+      "air": 43,
+      "air_at_floor": 0,
+      "apex": 23,
+      "cap_nocontact": 0,
+      "contact_hand_step": 0.0237414240837097,
+      "contact_pose_step": 0.0237414240837097,
+      "contact_vy": 0.0,
+      "contact_y": 0.0007644675206393,
+      "dir": [],
+      "flight_back": 0,
+      "flight_back_size": 0.0,
+      "gain": 0.996296670701769,
+      "gait": "dash",
+      "impact": 0.996296670701769,
+      "kind": "dash",
+      "land": 43,
+      "last_three_air_hand_step": 0.00993391592055559,
+      "last_three_air_pose_step": 0.00993391592055559,
+      "lead": 45,
+      "start": [
+        0.0,
+        0.0
+      ],
+      "when": "none"
+    }
+  ],
+  "failures": []
+}

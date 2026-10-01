@@ -1,0 +1,44 @@
+{
+  "ceiling_usd": 4,
+  "authorization": "Owner: Allow fal pilot, $4 total",
+  "entries": [
+    {
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "count": 1,
+      "liability_usd": 0.01,
+      "reported_cost_usd": 0.01,
+      "state": "unknown receipt; image delivered"
+    },
+    {
+      "kind": "mesh",
+      "provider": "fal",
+      "model": "meshy/v7.1/image-to-3d",
+      "count": 1,
+      "liability_usd": 1.2,
+      "actual_cost_usd": null,
+      "state": "completed; billed cost unverified",
+      "request_id": "01a0f3d6-de32-7c50-a904-80e323754570"
+    },
+    {
+      "kind": "rig",
+      "provider": "fal",
+      "model": "fal-ai/meshy/rigging/multi-animation",
+      "count": 1,
+      "liability_usd": 0.32,
+      "actual_cost_usd": null,
+      "state": "completed; billed cost unverified",
+      "request_id": "01a0f3de-78f2-79e3-a3bc-672a3c3e8a56"
+    },
+    {
+      "kind": "turnaround",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "count": 1,
+      "liability_usd": 0.01,
+      "state": "unknown; image delivered",
+      "reported_cost_usd": 0.01,
+      "run_id": "run-a5cc3c928d772fd172ddc5c7"
+    }
+  ]
+}

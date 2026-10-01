@@ -1,0 +1,174 @@
+{
+  "captured_date": "2026-09-30",
+  "note": "Source creators own uploads; Nintendo game imagery. Encoded frame rate is not simulation rate. Controller input, exact executable revision, capture enhancements unknown. No full video or ROM downloaded. Clips kept only in scratch; compact attributed images are inspection evidence.",
+  "references": [
+    {
+      "id": "o7pRJ3Vhu7s",
+      "url": "https://www.youtube.com/watch?v=o7pRJ3Vhu7s",
+      "uploader": "MaloDogfish",
+      "title": "Animal Crossing GCN - Week 1 - No Commentary Longplay",
+      "upload_date": "20211130",
+      "source_duration_seconds": 18206,
+      "source_section_seconds": [
+        642,
+        654
+      ],
+      "selected_frame_times_seconds": [
+        644,
+        645,
+        646,
+        647,
+        650,
+        653
+      ],
+      "scratch_clip": "/tmp/character-fidelity-footage/malo-direct-642-654.mp4",
+      "clip_sha256": "9424d6b86c05ba466e8f6404d02dbeed6089dc85b8c1c3a212045564d685e61c",
+      "clip_probe": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 334,
+            "sample_aspect_ratio": "1:1",
+            "display_aspect_ratio": "320:167",
+            "avg_frame_rate": "30/1",
+            "nb_frames": "360"
+          }
+        ],
+        "format": {
+          "duration": "12.000000",
+          "size": "831393"
+        }
+      },
+      "contact_sheet": "malo-selected.jpg",
+      "contact_sheet_sha256": "8f0f73a48add8d3e653b012bee4e638bf84c6914cbcf21fd5abf33d15cc9b455",
+      "method": "yt-dlp --no-playlist --no-warnings -f 134 --download-sections *642-654 --force-keyframes-at-cuts; ffmpeg seeks exact local times; original frame aspect retained in thumbnails"
+    },
+    {
+      "id": "Fd0g57lSedA",
+      "url": "https://www.youtube.com/watch?v=Fd0g57lSedA",
+      "uploader": "EmuRetro Gameplays",
+      "title": "Animal Crossing - Gameplay - Part 1 - English - Gamecube",
+      "upload_date": "20150901",
+      "source_duration_seconds": 870,
+      "source_section_seconds": [
+        601,
+        613
+      ],
+      "selected_frame_times_seconds": [
+        601,
+        602,
+        604,
+        606,
+        607,
+        608
+      ],
+      "scratch_clip": "/tmp/character-fidelity-footage/emu-direct-601-613.mp4",
+      "clip_sha256": "57c6e50c11a11de2100bf7b8d5b87f761e9d952a7d76f1ef1b4c9570baa1ce1a",
+      "clip_probe": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 360,
+            "sample_aspect_ratio": "1:1",
+            "display_aspect_ratio": "16:9",
+            "avg_frame_rate": "30/1",
+            "nb_frames": "360"
+          }
+        ],
+        "format": {
+          "duration": "12.000000",
+          "size": "882807"
+        }
+      },
+      "contact_sheet": "emu-selected.jpg",
+      "contact_sheet_sha256": "a090a6ec390b893b0181f2fbe3fd1405f2ffa382ff3d8c871a71dda5acbc8a2b",
+      "method": "yt-dlp --no-playlist --no-warnings -f 134 --download-sections *601-613 --force-keyframes-at-cuts; ffmpeg seeks exact local times; original frame aspect retained in thumbnails"
+    },
+    {
+      "id": "OUMNiEiR1As",
+      "url": "https://www.youtube.com/watch?v=OUMNiEiR1As",
+      "uploader": "Nintendo Utopia",
+      "title": "Animal Crossing for GameCube \u2074\u1d37 Full Playthrough (All Debts)",
+      "upload_date": "20240321",
+      "source_duration_seconds": 9740,
+      "source_section_seconds": [
+        1500,
+        1512
+      ],
+      "selected_frame_times_seconds": [
+        1501,
+        1503,
+        1504,
+        1505,
+        1507,
+        1508
+      ],
+      "scratch_clip": "/tmp/character-fidelity-footage/utopia-direct-1500-1512.mp4",
+      "clip_sha256": "1133145fb5f1ec854a004ce839d94d35dd159e9ffcd15fff14e3fa9570ec9d94",
+      "clip_probe": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 854,
+            "height": 480,
+            "sample_aspect_ratio": "1:1",
+            "display_aspect_ratio": "427:240",
+            "avg_frame_rate": "30/1",
+            "nb_frames": "360"
+          }
+        ],
+        "format": {
+          "duration": "12.000000",
+          "size": "1873651"
+        }
+      },
+      "contact_sheet": "utopia-selected.jpg",
+      "contact_sheet_sha256": "d5d49f9b1fd69a54afd7f2b07c01d7a7ef1664715dd614ed1fd1488456504f06",
+      "method": "yt-dlp --no-playlist --no-warnings -f 135 --download-sections *1500-1512 --force-keyframes-at-cuts; ffmpeg seeks exact local times; original frame aspect retained in thumbnails"
+    },
+    {
+      "id": "RwWURstn4eQ",
+      "url": "https://www.youtube.com/watch?v=RwWURstn4eQ",
+      "uploader": "PBGGameplay",
+      "title": "Visiting my Original Childhood Animal Crossing Town!",
+      "upload_date": "20190504",
+      "source_duration_seconds": 1677,
+      "source_section_seconds": [
+        402,
+        414
+      ],
+      "selected_frame_times_seconds": [
+        408,
+        409,
+        410,
+        411,
+        412,
+        413
+      ],
+      "scratch_clip": "/tmp/character-fidelity-footage/pbg-direct-402-414.mp4",
+      "clip_sha256": "13040b453a97434dbc7b39b3609e1e6e24b8c6d63bfe836665a111a9fce99cc8",
+      "clip_probe": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 360,
+            "sample_aspect_ratio": "1:1",
+            "display_aspect_ratio": "16:9",
+            "avg_frame_rate": "30/1",
+            "nb_frames": "360"
+          }
+        ],
+        "format": {
+          "duration": "12.000000",
+          "size": "623526"
+        }
+      },
+      "contact_sheet": "pbg-selected.jpg",
+      "contact_sheet_sha256": "83184f3922bc15c6982fa663a2d4c12b861112b5781eb9c5f1007b5ae2a7bb68",
+      "method": "yt-dlp --no-playlist --no-warnings -f 134 --download-sections *402-414 --force-keyframes-at-cuts; ffmpeg seeks exact local times; original frame aspect retained in thumbnails"
+    }
+  ]
+}

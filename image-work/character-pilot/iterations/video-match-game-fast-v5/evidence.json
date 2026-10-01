@@ -1,0 +1,111 @@
+{
+  "camera": {
+    "depression_degrees": 45.0,
+    "distance_m": 17.0,
+    "vertical_fov_degrees": 20,
+    "viewport_pixels": [
+      886,
+      664
+    ]
+  },
+  "clip": "walk",
+  "cost_usd": 0,
+  "effects": {
+    "calls": 8,
+    "contacts_per_loop": 2,
+    "cycles": 4,
+    "idle_added_calls": 0,
+    "idle_control": false,
+    "kind": "native Animation method keys trigger contact-timed mesh dust puffs",
+    "native_method_track_tested": true,
+    "suppressed_outgoing_walk_keys_in_idle": 1
+  },
+  "fps": 30,
+  "frames_per_cycle": 12,
+  "models": [
+    {
+      "bones": 24,
+      "contact_events": [
+        {
+          "foot": "Left",
+          "time": 0.0,
+          "world_origin": [
+            0.230938774645329,
+            0.025,
+            -0.0565916061401367
+          ]
+        },
+        {
+          "foot": "Right",
+          "time": 0.2,
+          "world_origin": [
+            -0.220959288179874,
+            0.025,
+            0.123051488399506
+          ]
+        },
+        {
+          "foot": "Left",
+          "time": 0.4,
+          "world_origin": [
+            0.230938767194748,
+            0.025,
+            0.363408440351486
+          ]
+        },
+        {
+          "foot": "Right",
+          "time": 0.6,
+          "world_origin": [
+            -0.220959310531616,
+            0.025,
+            0.543051505088806
+          ]
+        },
+        {
+          "foot": "Left",
+          "time": 0.8,
+          "world_origin": [
+            0.230938767194748,
+            0.025,
+            0.783408486843109
+          ]
+        },
+        {
+          "foot": "Right",
+          "time": 1.0,
+          "world_origin": [
+            -0.220959288179874,
+            0.025,
+            0.963051581382751
+          ]
+        },
+        {
+          "foot": "Left",
+          "time": 1.2,
+          "world_origin": [
+            0.230938767194748,
+            0.025,
+            1.20340850353241
+          ]
+        },
+        {
+          "foot": "Right",
+          "time": 1.4,
+          "world_origin": [
+            -0.220959310531616,
+            0.025,
+            1.3830516576767
+          ]
+        }
+      ],
+      "label": "Source DASH 0.400s + repaired arm weights",
+      "maximum_blend_root_lift_m": 0,
+      "minimum_sole_y_m": -1.22261044452898e-05,
+      "unclamped_minimum_sole_y_m": -1.22261044452898e-05
+    }
+  ],
+  "seconds": 0.400000005960464,
+  "godot_animation_optimizer_enabled": false,
+  "animation_import_fps": 240
+}

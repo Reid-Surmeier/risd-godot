@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-76433501979eb985cadb",
+  "summary": "Create one full-body, perfectly straight-on front orthographic character reference in a neutral T-pose for image-to-3D reconstruction. Use the supplied gameplay image and enlarged character crop as the identity reference. Reconstruct only the small human player avatar: an oversized round tan face with large friendly brown oval eyes, a tiny red triangular nose, very short chibi torso and legs, blue shoes, and the distinctive white horned helmet/cap with green and red markings and two dark navy curved horns. Preserve the simple early Animal Crossing low-poly game style and painted facial features. Infer hidden anatomy consistently and conservatively. Arms extend horizontally to each side, elbows straight, simple mitten hands open, feet separated and pointing forward. Remove the held tool completely, leaving both hands empty. Clean limb separation, visible neck and shoulder joins, symmetrical neutral posture. Entire character and horn tips visible with generous margin. White background, neutral flat diffuse lighting, no cast shadow, no scenery, no text, no ground, no HUD. One character, one view only; do not create a turnaround sheet or multiple poses. This is a reconstruction hypothesis from a tiny reference, not an exact recovered game model.\n",
+  "procedureId": "muse-76433501979eb985cadb",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "image-work/character-pilot/character-crop.png",
+      "sha256": "54552e7926b6f8127bbb5492135dbfe5497c719eb60766b471146581bcb7a252",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "image-work/character-pilot/source.png",
+      "sha256": "7c67a2f601f120426928eb7af350b193822aa244401a3ae2cb00c0cb7e82f07c",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "image-work/character-pilot/recipe.json",
+      "sha256": "76433501979eb985cadb66fe4aff4a4e0af1b1c9c24a410bca4a9f9beb4e48ae"
+    },
+    {
+      "applicationPath": "image-work/character-pilot/generation-preflight.json",
+      "sha256": "15c1c64ef8e222b7e3617df750b8fcea1863733c0fc42c0abb0498beb8a8e144"
+    },
+    {
+      "applicationPath": "image-work/character-pilot/prompt.txt",
+      "sha256": "f48f4ea533c36495df43f3eecb5101ebcc06c2d7677747092d27ccc43c1e1fb6"
+    }
+  ]
+}

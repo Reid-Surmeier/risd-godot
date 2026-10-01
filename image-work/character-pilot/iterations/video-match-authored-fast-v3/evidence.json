@@ -1,0 +1,117 @@
+{
+  "camera": {
+    "depression_degrees": 45.0,
+    "distance_m": 10.5,
+    "vertical_fov_degrees": 20,
+    "viewport_pixels": [
+      960,
+      640
+    ]
+  },
+  "clip": "walk",
+  "cost_usd": 0,
+  "effects": {
+    "calls": 8,
+    "contacts_per_loop": 2,
+    "cycles": 4,
+    "idle_added_calls": 0,
+    "idle_control": false,
+    "kind": "native Animation method keys trigger contact-timed mesh dust puffs",
+    "native_method_track_tested": true,
+    "suppressed_outgoing_walk_keys_in_idle": 1
+  },
+  "fps": 30,
+  "frames_per_cycle": 12,
+  "models": [
+    {
+      "bones": 24,
+      "contact_events": [],
+      "label": "Source poses: bind-angle bias",
+      "maximum_blend_root_lift_m": 0,
+      "minimum_sole_y_m": -0.0000127744669953245,
+      "unclamped_minimum_sole_y_m": -0.0000127744669953245
+    },
+    {
+      "bones": 24,
+      "contact_events": [
+        {
+          "foot": "Left",
+          "time": 0.0,
+          "world_origin": [
+            1.38093853473663,
+            0.025,
+            0.113416075408459
+          ]
+        },
+        {
+          "foot": "Right",
+          "time": 0.2,
+          "world_origin": [
+            0.929040546417236,
+            0.025,
+            0.293057985305786
+          ]
+        },
+        {
+          "foot": "Left",
+          "time": 0.433333333333333,
+          "world_origin": [
+            1.37410545825958,
+            0.025,
+            0.344282097816467
+          ]
+        },
+        {
+          "foot": "Right",
+          "time": 0.6,
+          "world_origin": [
+            0.929040546417236,
+            0.025,
+            0.713058001995087
+          ]
+        },
+        {
+          "foot": "Left",
+          "time": 0.833333333333333,
+          "world_origin": [
+            1.37410545825958,
+            0.025,
+            0.764282054901123
+          ]
+        },
+        {
+          "foot": "Right",
+          "time": 1.0,
+          "world_origin": [
+            0.929040546417236,
+            0.025,
+            1.13305801868439
+          ]
+        },
+        {
+          "foot": "Left",
+          "time": 1.23333333333333,
+          "world_origin": [
+            1.37410545825958,
+            0.025,
+            1.18428201198578
+          ]
+        },
+        {
+          "foot": "Right",
+          "time": 1.4,
+          "world_origin": [
+            0.929040546417236,
+            0.025,
+            1.55305809497833
+          ]
+        }
+      ],
+      "label": "Source poses: calibrated limb axes",
+      "maximum_blend_root_lift_m": 0,
+      "minimum_sole_y_m": -0.0000121021266750176,
+      "unclamped_minimum_sole_y_m": -0.0000121021266750176
+    }
+  ],
+  "seconds": 0.400000005960464
+}

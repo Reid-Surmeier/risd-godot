@@ -1,0 +1,6 @@
+Godot initial fresh-worktree check failed because import cache was missing.
+Prepared cache with godot --headless --editor --import --path .
+Reran scripts/check.sh: exit0, checks passed.
+Existing ObjectDB exit warnings remain.
+git diff --check: passed.
+No runtime replacement or frozen-file edits.

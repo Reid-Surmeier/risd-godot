@@ -1,0 +1,27 @@
+{
+  "source": "https://www.youtube.com/watch?v=EwwW4Rk1wMU",
+  "source_window": {
+    "name": "front",
+    "absolute_seconds": [
+      1015.0,
+      1015.8
+    ],
+    "clear_front_core_seconds": [
+      1015.2,
+      1015.6
+    ],
+    "limitations": [
+      "initialtreeocclusion",
+      "turnatend",
+      "not0.8sfixedyaw"
+    ]
+  },
+  "target_config": "video-match-game-fast-v6/config.json",
+  "fps": 30,
+  "frames": 24,
+  "source_tracking": "manual crop anchors, linear interpolation; not anatomical landmark fit",
+  "aspect_ratio_preserved": true,
+  "resize": "uniform nearest-neighbor with letterboxing; no aspect correction of encoded source",
+  "exact_fit": false,
+  "cost_usd": 0
+}

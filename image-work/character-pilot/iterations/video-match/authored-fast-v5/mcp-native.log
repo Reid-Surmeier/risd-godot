@@ -1,0 +1,14 @@
+19:16:08 | INFO: Data are loaded, start creating Blender stuff
+19:16:08 | INFO: Blender create Mesh node char1
+19:16:08 | INFO: glTF import finished in 0.03s
+INFO Draco mesh compression is available, use library at /home/reidsurmeier/.local/opt/blender-4.3.2/4.3/python/lib/python3.11/site-packages/libextern_draco.so
+19:16:16 | INFO: Starting glTF 2.0 export
+19:16:16 | INFO: Extracting primitive: char1
+19:16:16 | INFO: Primitives created: 1
+19:16:17 | INFO: Finished glTF 2.0 export in 0.8049476146697998 s
+
+Info: Saved "footplant-candidate.blend"
+CONTACT_CANDIDATE {"source_sha256": "0f609ee4dfd7d0e645a15dbd8b47625dd95b0c13c4b59b624deecdd2eddeb487", "output_sha256": "960fbb79be603898140a6bf0c75cf0611228623fda24258deebd127f1c985ee6", "bones": 24, "rest_signature_unchanged": true, "shoe_repair_threshold_m": 0.2, "shoe_vertices": {"Left": 460, "Right": 512}, "shoe_assignment": "one Foot joint; target-specific rest-height classifier, owner review pending", "controller_speed_mps": 1.05, "walk_period_seconds": 0.4, "bake_fps": 240, "stance_phase": null, "dust_event_phases": [0, 0.5], "swing_lift_m": 0.06, "contact_accepted": false, "export_animations": ["idle", "walk"], "cost_usd": 0, "profile": {"forward_idle": true, "stable_head": true, "jaw_mask": "jaw-mask.json", "symmetric_arms": true, "authored_legs": true, "preserve_reference_seam": true, "source_units_to_m": 0.0004695, "controller_speed_mps": 1.05, "reference_fit": "source rotations with neutral limb-axis calibration; target-specific grounding, not identical game geometry; dense native import floor check required", "period_seconds": 0.4, "source_curves": "dash-reference-curves.json", "swing_lift_m": 0.06, "anatomical_axes": true, "bake_fps": 240, "arm_weight_mask": "arm-weight-mask.json"}, "source_commit": "09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c", "source_animation": "dash-reference-curves.json", "anatomical_axis_correction_degrees": {"LeftShoulder": 0.1312212074681015, "LeftArm": 14.948610074097852, "LeftForeArm": 5.01201244974922, "RightShoulder": 0.17245846124184028, "RightArm": 10.332534299024163, "RightForeArm": 10.593737808358375, "LeftUpLeg": 15.354369414573506, "LeftLeg": 14.255938392252057, "RightUpLeg": 15.776837105306306, "RightLeg": 15.946874664693773}, "planar_stance_lock_verified": false}
+Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 01:31:14)
+
+Blender quit

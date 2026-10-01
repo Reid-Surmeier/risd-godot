@@ -1,0 +1,19 @@
+{
+  "bones": 41,
+  "browser_tested": false,
+  "contact_quality_tested": false,
+  "cost_usd": 0,
+  "effect_event_calls": 1,
+  "effect_event_seconds": 0.333333333333333,
+  "effect_idle_control_calls": 1,
+  "effect_kind": "one authored method key emits a one-shot CPUParticles3D burst",
+  "effect_shoe_point": "(0.170945, 0.134003, -0.163988)",
+  "godot": "4.7.2-stable (official)",
+  "idle_seconds": 1.04166662693024,
+  "idle_to_walk_changes_foot": true,
+  "imported_animations": 76,
+  "visual_acceptance": "pending",
+  "walk_changes_foot": true,
+  "walk_seconds": 1.04166662693024,
+  "fixture_sha256": "fa54ab61b5577476975a0e7d13bcd50125ff04ce1324a31c4bf8e747ecf8c352"
+}

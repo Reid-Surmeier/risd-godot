@@ -1,0 +1,13 @@
+{
+  "model_type": "standard",
+  "geometry_resolution": "standard",
+  "pose_mode": "t-pose",
+  "should_remesh": true,
+  "topology": "quad",
+  "target_polycount": 4000,
+  "should_texture": true,
+  "enable_pbr": false,
+  "enable_rigging": false,
+  "enable_animation": false,
+  "enable_safety_checker": true
+}

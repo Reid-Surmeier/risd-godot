@@ -1,0 +1,90 @@
+{
+  "source_sha256": "0f609ee4dfd7d0e645a15dbd8b47625dd95b0c13c4b59b624deecdd2eddeb487",
+  "candidate_sha256": "45c618c9f8c75aa9af85f198e02f1205a925f4486a589a6fc8479bb7a5285e2e",
+  "bones": 24,
+  "period_seconds": 0.8,
+  "controller_speed_mps": 1.05,
+  "contacts": [
+    {
+      "time": 0.0,
+      "foot": "Right"
+    },
+    {
+      "time": 0.400000005960464,
+      "foot": "Left"
+    }
+  ],
+  "sampled_planar_contact_verified": false,
+  "terrain_turning_blending_verified": false,
+  "idle_event_count_expected": 0,
+  "walk_events_per_loop_expected": 2,
+  "contact_probe": {
+    "idle": {
+      "seconds": 4.03333330154419,
+      "sample_count": 257,
+      "endpoint_vertex_error_max_m": 9.09459245690414e-08,
+      "floor_penetration_max_m": 4.66369073137685e-07,
+      "authored_event_sole_height_m": {},
+      "velocity_convergence": [
+        {
+          "delta_seconds": 0.01,
+          "maximum_joint_velocity_jump_mps": 0.103757932782173,
+          "worst_bone": "LeftToeBase"
+        },
+        {
+          "delta_seconds": 0.003,
+          "maximum_joint_velocity_jump_mps": 0.119803607463837,
+          "worst_bone": "LeftToeBase"
+        },
+        {
+          "delta_seconds": 0.001,
+          "maximum_joint_velocity_jump_mps": 0.040006335824728,
+          "worst_bone": "LeftToeBase"
+        },
+        {
+          "delta_seconds": 0.0003,
+          "maximum_joint_velocity_jump_mps": 0.012073241174221,
+          "worst_bone": "LeftToeBase"
+        }
+      ],
+      "planar_stance_lock_verified": false
+    },
+    "walk": {
+      "seconds": 0.800000011920929,
+      "sample_count": 257,
+      "endpoint_vertex_error_max_m": 4.19620505454077e-07,
+      "floor_penetration_max_m": 6.70623776386492e-05,
+      "authored_event_sole_height_m": {
+        "Right": 9.53674259562831e-08,
+        "Left": 4.76837129781416e-08
+      },
+      "velocity_convergence": [
+        {
+          "delta_seconds": 0.01,
+          "maximum_joint_velocity_jump_mps": 0.601897835731506,
+          "worst_bone": "head_end"
+        },
+        {
+          "delta_seconds": 0.003,
+          "maximum_joint_velocity_jump_mps": 0.58274507522583,
+          "worst_bone": "head_end"
+        },
+        {
+          "delta_seconds": 0.001,
+          "maximum_joint_velocity_jump_mps": 0.582672297954559,
+          "worst_bone": "head_end"
+        },
+        {
+          "delta_seconds": 0.0003,
+          "maximum_joint_velocity_jump_mps": 0.582158327102661,
+          "worst_bone": "head_end"
+        }
+      ],
+      "planar_stance_lock_verified": false
+    }
+  },
+  "cost_usd": 0,
+  "source_reference_mode": true,
+  "import_fps": 240,
+  "contact_assignment": "target minimum sole at phases0/.5; this may differ from source side labels"
+}

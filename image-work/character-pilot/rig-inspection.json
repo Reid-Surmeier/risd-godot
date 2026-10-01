@@ -1,0 +1,39 @@
+{
+  "blender": "4.3.2",
+  "kind": "rig",
+  "source": "rig-output-rigged_character_glb.glb",
+  "triangles": 7799,
+  "vertices": 5675,
+  "mesh_objects": 2,
+  "all_meshes_uv": true,
+  "textures": [
+    {
+      "name": "texture_0",
+      "size": [
+        2048,
+        2048
+      ]
+    }
+  ],
+  "bounds_blender_z_up": [
+    [
+      -0.9510578513145447,
+      -0.9999999403953552,
+      -1.0
+    ],
+    [
+      0.9510578513145447,
+      0.9999999403953552,
+      1.8980636596679688
+    ]
+  ],
+  "height_meters": 2.8980636596679688,
+  "rigs": 1,
+  "bones": [
+    24
+  ],
+  "actions": [
+    "Armature|clip0|baselayer_Armature"
+  ],
+  "visual_acceptance": "pending owner review"
+}
