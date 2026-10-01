@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "villon-frame-001",
+      "prompt": "villon-frame-prompt.txt",
+      "promptSha256": "9f8bc9f17e5090fcf231fa818689717919ff770b3c4232778f5807de222f7bcb",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/villon-frame-video-0.png",
+          "sha256": "4652f0789480730100a01dc6dc3770ea608b4a89c9ffc4f28f8cc6fb0062f3f2"
+        }
+      ]
+    }
+  ]
+}

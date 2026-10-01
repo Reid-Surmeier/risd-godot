@@ -1,0 +1,95 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{
+  "asset": "modules/shell/prototype/collection_reconstruction/seated_woman_asset.gd",
+  "case": {
+    "bounds_m": [
+      0.680000007152557,
+      1.70000004768372,
+      0.669999957084656
+    ],
+    "closed_shells": 9,
+    "deck_top_m": 0.92,
+    "head_top_m": 1.63100004196167,
+    "hood_top_m": 1.7,
+    "meets_wall": true,
+    "reaches_floor": true,
+    "triangles": 108
+  },
+  "failures": [],
+  "figure": {
+    "bounds_m": [
+      0.202999994158745,
+      0.711000025272369,
+      0.24099999666214
+    ],
+    "catalogue_m": [
+      0.202999994158745,
+      0.711000025272369,
+      0.24099999666214
+    ],
+    "closed_shells": 14,
+    "parts": {
+      "base": {
+        "triangles": 12,
+        "volume_cm3": 2935.4
+      },
+      "base step": {
+        "triangles": 12,
+        "volume_cm3": 220.3
+      },
+      "crossing shin": {
+        "triangles": 26,
+        "volume_cm3": 261.3
+      },
+      "crossing thigh": {
+        "triangles": 44,
+        "volume_cm3": 948.3
+      },
+      "hanging foot": {
+        "triangles": 12,
+        "volume_cm3": 38.2
+      },
+      "head": {
+        "triangles": 56,
+        "volume_cm3": 454.3
+      },
+      "left forearm": {
+        "triangles": 12,
+        "volume_cm3": 214.5
+      },
+      "left upper arm": {
+        "triangles": 12,
+        "volume_cm3": 225.4
+      },
+      "lower shin": {
+        "triangles": 26,
+        "volume_cm3": 347.8
+      },
+      "lower thigh": {
+        "triangles": 32,
+        "volume_cm3": 564.2
+      },
+      "right arm": {
+        "triangles": 20,
+        "volume_cm3": 383.1
+      },
+      "seat post": {
+        "triangles": 12,
+        "volume_cm3": 1807.2
+      },
+      "tiptoe foot": {
+        "triangles": 12,
+        "volume_cm3": 36.3
+      },
+      "torso": {
+        "triangles": 56,
+        "volume_cm3": 2261.8
+      }
+    },
+    "triangles": 344
+  },
+  "godot": "4.7.2-stable (official)",
+  "gpu_used": false,
+  "passed": true
+}

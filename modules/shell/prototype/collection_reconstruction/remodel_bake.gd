@@ -127,7 +127,7 @@ func prepare() -> void:
 		spot.shadow_enabled=true
 
 	#6387 neutral ceiling-track fill below the modern ceiling, separate from Hall lighting.
-	for position in [Vector3(13.35,3.8,30.1),Vector3(14.4,3.8,34.2),Vector3(18.55,3.25,24.4),Vector3(18.55,3.25,27),Vector3(18.55,3.25,29.6)]:
+	for position in [Vector3(13.35,3.8,30.1),Vector3(14.4,3.8,34.2),Vector3(19.05,3.25,30.0),Vector3(19.05,3.25,31.9),Vector3(19.05,3.25,33.8)]:
 		var light:=OmniLight3D.new()
 		light.position=position
 		light.omni_range=7
@@ -139,7 +139,7 @@ func prepare() -> void:
 		light.shadow_enabled=true
 		room.add_child(light)
 		light.owner=room
-	for spec in [[Vector3(17.7,1.65,31.02),Vector3.FORWARD],[Vector3(19.45,1.65,31.02),Vector3.FORWARD],[Vector3(17.45,1.65,23.28),Vector3.BACK],[Vector3(19.35,1.65,23.28),Vector3.BACK]]:
+	for spec in [[Vector3(16.23,1.65,32.4),Vector3.RIGHT],[Vector3(16.23,1.65,33.75),Vector3.RIGHT],[Vector3(21.87,1.65,30.2),Vector3.LEFT],[Vector3(21.87,1.65,31.85),Vector3.LEFT],[Vector3(19.5,1.65,28.98),Vector3.BACK]]:
 		var spot:=SpotLight3D.new()
 		room.add_child(spot)
 		spot.owner=room
@@ -165,8 +165,8 @@ func prepare() -> void:
 	lion_spot.light_size=.2
 	lion_spot.light_bake_mode=Light3D.BAKE_STATIC
 	lion_spot.shadow_enabled=true
-	for x in [14.4,18.5,20.1]:
-		for z in [24.4,27,29.6]:
+	for x in [14.4,17.6,20.5]:
+		for z in [30.0,31.9,33.8]:
 			for y in [.3,1.1,2.0]:
 				var probe:=LightmapProbe.new()
 				probe.position=Vector3(x,y,z)

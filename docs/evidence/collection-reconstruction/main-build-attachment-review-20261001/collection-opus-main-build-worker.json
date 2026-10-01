@@ -1,0 +1,221 @@
+{
+  "id": "37a36189-33c7-4076-8afa-f4fd3c8c9c6c",
+  "ok": true,
+  "result": {
+    "dispatch": {
+      "id": "ctx_48d59714fd80",
+      "runId": "run_d82552b6d124",
+      "taskId": "task_8d4a96f67bec",
+      "task_id": "task_8d4a96f67bec",
+      "contractVersion": 1,
+      "assigneeHandle": "term_73a8444e-4374-4de7-b712-a10ba266b7a1",
+      "assigneePaneKey": "a893053e-1bb6-40bd-aeb8-73f510557208:cac0ddcc-9bb1-43bb-a716-79f52aa2df86",
+      "processIncarnation": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-main-build-review@@3a6c9fbf:95e3e86e-57db-4915-827c-08ee9f5bc064",
+      "retryOfDispatchId": null,
+      "creatorDispatchId": null,
+      "hostScope": {
+        "kind": "local",
+        "hostId": "local"
+      },
+      "status": "dispatched",
+      "failureCount": 0,
+      "lastFailure": null,
+      "terminationReason": null,
+      "depth": 1,
+      "dispatchedAt": "2026-10-01 12:48:35",
+      "completedAt": null,
+      "createdAt": "2026-10-01 12:48:35",
+      "lastHeartbeatAt": "2026-10-01T12:52:11Z"
+    },
+    "worker": {
+      "dispatchId": "ctx_48d59714fd80",
+      "runtimeEpoch": "dbd51943-5aff-4aac-9ef7-31547ed940cd",
+      "state": "ready",
+      "stage": "input_accepted",
+      "worktreeId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-main-build-review",
+      "agentTerminalHandle": "term_73a8444e-4374-4de7-b712-a10ba266b7a1",
+      "setupState": "not_configured",
+      "effects": [
+        {
+          "kind": "worktree",
+          "action": "created_child",
+          "id": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-main-build-review"
+        },
+        {
+          "kind": "terminal",
+          "role": "agent",
+          "action": "created",
+          "id": "term_73a8444e-4374-4de7-b712-a10ba266b7a1",
+          "tabId": "a893053e-1bb6-40bd-aeb8-73f510557208",
+          "leafId": "cac0ddcc-9bb1-43bb-a716-79f52aa2df86"
+        },
+        {
+          "kind": "setup",
+          "action": "skip",
+          "requested": "skip",
+          "effective": "skip",
+          "source": "explicit_request",
+          "hookFound": false,
+          "startupPolicy": "start-immediately",
+          "state": "not_configured"
+        },
+        {
+          "kind": "dispatch_input",
+          "role": "agent",
+          "id": "term_73a8444e-4374-4de7-b712-a10ba266b7a1",
+          "state": "accepted"
+        }
+      ],
+      "residualResources": [
+        {
+          "kind": "worktree",
+          "action": "created_child",
+          "id": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-main-build-review"
+        },
+        {
+          "kind": "terminal",
+          "role": "agent",
+          "action": "created",
+          "id": "term_73a8444e-4374-4de7-b712-a10ba266b7a1",
+          "tabId": "a893053e-1bb6-40bd-aeb8-73f510557208",
+          "leafId": "cac0ddcc-9bb1-43bb-a716-79f52aa2df86"
+        }
+      ],
+      "startOptions": {
+        "worktree": "new-child",
+        "mode": {
+          "mode": "terminal",
+          "preferred": "terminal",
+          "reason": "user_default",
+          "detail": "Started a terminal agent worker, the default for new agent tabs in your settings."
+        },
+        "resolvedWorktreeId": null,
+        "name": "collection-opus-main-build-review",
+        "repo": "id:4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+        "baseBranch": "Reid-Surmeier/collection-reconstruction",
+        "terminal": null,
+        "agent": "claude",
+        "launch": {
+          "requested": {
+            "agent": "claude",
+            "model": "claude-opus-5-5",
+            "effort": null
+          },
+          "effective": {
+            "agent": "claude",
+            "model": "claude-opus-5-5",
+            "effort": null
+          }
+        },
+        "timeoutMs": 50000,
+        "setup": "skip",
+        "setupSource": "explicit_request"
+      },
+      "lastError": null,
+      "createdAt": "2026-10-01 12:48:35",
+      "updatedAt": "2026-10-01 12:48:49"
+    },
+    "projection": {
+      "id": "ctx_48d59714fd80",
+      "dispatchId": "ctx_48d59714fd80",
+      "taskId": "task_8d4a96f67bec",
+      "runId": "run_d82552b6d124",
+      "role": "worker",
+      "parent": null,
+      "provider": {
+        "id": "claude",
+        "model": null
+      },
+      "host": {
+        "kind": "local",
+        "id": "local"
+      },
+      "workspace": {
+        "id": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-main-build-review",
+        "kind": "folder_or_worktree"
+      },
+      "stage": {
+        "worker": "ready",
+        "dispatch": "dispatched",
+        "detail": "input_accepted",
+        "activity": "working"
+      },
+      "outcome": "in_progress",
+      "liveness": {
+        "verdict": "live",
+        "observedAt": 1790859155510,
+        "source": "agent_status"
+      },
+      "evidence": {
+        "durable": true,
+        "liveStatus": "fresh",
+        "lastObservedAt": 1790859155510
+      },
+      "resource": {
+        "state": "owned",
+        "id": "wtr_cdcfd901c09c",
+        "ownerDispatchId": "ctx_48d59714fd80",
+        "releaseState": "not_requested",
+        "terminalState": "active"
+      },
+      "nextAction": {
+        "kind": "none",
+        "argv": []
+      },
+      "attention": {
+        "categories": [],
+        "requiresAction": false
+      }
+    },
+    "terminal": {
+      "handle": "term_73a8444e-4374-4de7-b712-a10ba266b7a1",
+      "ptyId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-main-build-review@@3a6c9fbf",
+      "incarnationId": "95e3e86e-57db-4915-827c-08ee9f5bc064",
+      "orphaned": false,
+      "worktreeId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-main-build-review",
+      "worktreePath": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-main-build-review",
+      "branch": "refs/heads/Reid-Surmeier/collection-opus-main-build-review",
+      "tabId": "a893053e-1bb6-40bd-aeb8-73f510557208",
+      "leafId": "cac0ddcc-9bb1-43bb-a716-79f52aa2df86",
+      "title": "\u25d0 Collection reconstruction main build review",
+      "connected": true,
+      "writable": true,
+      "lastOutputAt": 1790859241713,
+      "preview": "*\u00a0Hyperspacing\u2026  5m 9s \u00b7 \u2193 28.4k tokens)",
+      "executionHostId": "local",
+      "agentIdentity": "claude",
+      "paneRuntimeId": -1,
+      "rendererGraphEpoch": 0,
+      "agentWait": null
+    },
+    "observation": {
+      "status": "live",
+      "exactWorker": true,
+      "agentWait": null
+    },
+    "terminalResource": {
+      "id": "wtr_cdcfd901c09c",
+      "ownershipState": "owned",
+      "releaseState": "not_requested",
+      "retainedReason": null,
+      "terminalHandle": "term_73a8444e-4374-4de7-b712-a10ba266b7a1",
+      "worktreeId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-main-build-review",
+      "endpointId": "dbd51943-5aff-4aac-9ef7-31547ed940cd",
+      "endpointIncarnation": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-main-build-review@@3a6c9fbf:95e3e86e-57db-4915-827c-08ee9f5bc064",
+      "originDispatchId": "ctx_48d59714fd80",
+      "ownerDispatchId": "ctx_48d59714fd80",
+      "releaseRequestedAt": null,
+      "releaseCompletedAt": null,
+      "releaseError": null,
+      "recoveryAttemptCount": 0,
+      "lastRecoveryAt": null,
+      "archive": {
+        "source": null,
+        "status": null
+      }
+    }
+  },
+  "_meta": {
+    "runtimeId": "dbd51943-5aff-4aac-9ef7-31547ed940cd"
+  }
+}

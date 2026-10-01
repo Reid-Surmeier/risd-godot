@@ -485,8 +485,20 @@
           "id": "large-figurative-painting",
           "source_frames": "6387:92-102,153-164",
           "observed": "Large crowded figurative composition, left of entry",
-          "status": "source-inventoried; native asset/metric fit unfinished",
-          "catalogue_match": null
+          "status": "Original museum image installed with dedicated Muse frame; exact frame and placement unaccepted",
+          "catalogue_match": {
+            "accession": "1995.043",
+            "title": "Mountaineers Attacked by Bears",
+            "maker": "Henri Victor Gabriel Le Fauconnier",
+            "id": "1557106",
+            "dimensions_cm": [
+              239.6,
+              305.4,
+              4.4
+            ],
+            "record_file": "inventory-catalogue/fauconnier-mountaineers.json",
+            "evidence": "IMG_6387 native80.25s matched official photograph; original installed separately from Muse frame"
+          }
         },
         {
           "id": "pumpkin-still-life",
@@ -564,7 +576,7 @@
           "id": "gold-figurine",
           "source_frames": "6387:121-138",
           "observed": "Gold stylized SEATED female figure with crossed/interlocking legs in glass case between windows; source129-133 corrects preliminary standing description",
-          "status": "Source/API/two official photographs identity matched; third image is a line silhouette, no rear photograph; native asset/case/metric fit unfinished",
+          "status": "Low-polygon closed sculpture and floor-standing case installed as trial; official dimensions checked; rear and pose/depth fidelity unaccepted",
           "catalogue_match": {
             "id": "1552686",
             "accession": "67.089",
@@ -647,7 +659,14 @@
         ],
         "record_file": "inventory-catalogue/fauconnier-mountaineers.json"
       },
-      "lighting_v47": "Four painting spots energy1.2,angle40; pools reduced in inspected bake, exact source intensity unaccepted"
+      "lighting_v47": "Four painting spots energy1.2,angle40; pools reduced in inspected bake, exact source intensity unaccepted",
+      "main_build_attachment_v50": {
+        "actual_main_tip": "317b8f3b8dac0f9811d396bcb0260c7187f93f11",
+        "native_fullapp_capture_passed": true,
+        "browser_verified": false,
+        "separate_addition_bake_complete": false,
+        "source_layout_correction_in_progress": true
+      }
     },
     "Metcalf_Auditorium": {
       "official_source": "https://risdmuseum.org/rent-museum",

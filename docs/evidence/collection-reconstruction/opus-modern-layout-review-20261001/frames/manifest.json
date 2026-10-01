@@ -1,0 +1,69 @@
+{
+  "video": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6387.MOV",
+  "video_sha256": "75c4892c1a37e1c83dd7103187d1c284e13fd0ac458710f4e8fd6e14daf1c7af",
+  "command": "ffmpeg -noautorotate -ss 42 -t 43.5 -i IMG_6387.MOV -vf fps=2,transpose=clock f-%03d.png",
+  "gpu_used": false,
+  "frame_time_s": "42 + (n-1)*0.5, nearest decoded frame",
+  "frames": [
+    {
+      "seconds": 46.5,
+      "file": "frames/IMG_6387-46.5s.jpg",
+      "sha256": "4b03a7716e06dfb9ff523e63514a660a3647bf00edcf7e3c61c32d1c90c8b2c6"
+    },
+    {
+      "seconds": 47.5,
+      "file": "frames/IMG_6387-47.5s.jpg",
+      "sha256": "543cae3d8fb0eb36fb86667b244e0d861e6d1fb4473b08666c6a12e8a4bf3ddf"
+    },
+    {
+      "seconds": 51.0,
+      "file": "frames/IMG_6387-51.0s.jpg",
+      "sha256": "6bec40bdacac4750b4650dc041423eb136260dfd83b8bd89d2b407d834e90830"
+    },
+    {
+      "seconds": 52.0,
+      "file": "frames/IMG_6387-52.0s.jpg",
+      "sha256": "d86c6bfa7084707c920a1350e09c56fcccb39968688ddff361a57481c4a2c596"
+    },
+    {
+      "seconds": 58.5,
+      "file": "frames/IMG_6387-58.5s.jpg",
+      "sha256": "405db760240f11d2b99e42b59d764a34cba8df2434224cd327821f1de80e8527"
+    },
+    {
+      "seconds": 63.0,
+      "file": "frames/IMG_6387-63.0s.jpg",
+      "sha256": "f2ab7f103dedfee3f2019843fc0e6dd3de56aa23b9dd8c7b46884c272e492f7a"
+    },
+    {
+      "seconds": 67.5,
+      "file": "frames/IMG_6387-67.5s.jpg",
+      "sha256": "d096e4536a6b79136372be377cd63af05e66cea1d94dfac9cf621eb8888af2c0"
+    },
+    {
+      "seconds": 68.5,
+      "file": "frames/IMG_6387-68.5s.jpg",
+      "sha256": "fe9c92cdd45df8b4f7f360452a0cedef83881b3bbb4da18c88488c99b0aa1d2e"
+    },
+    {
+      "seconds": 69.5,
+      "file": "frames/IMG_6387-69.5s.jpg",
+      "sha256": "fc3f58c14d3fb4a7d653230a17c57918066ac034fdad021f0bc4e3f435fd4caa"
+    },
+    {
+      "seconds": 75.0,
+      "file": "frames/IMG_6387-75.0s.jpg",
+      "sha256": "ba57755b627209807b10fa624602d4538ee1388f9fda020bc5379d2aea835e42"
+    },
+    {
+      "seconds": 82.0,
+      "file": "frames/IMG_6387-82.0s.jpg",
+      "sha256": "866779b6b1f18771740ef6b352dc245cbf1a5d99c65d6361248ab9094d609cc4"
+    },
+    {
+      "seconds": 83.5,
+      "file": "frames/IMG_6387-83.5s.jpg",
+      "sha256": "7c7719afe631298722c18fb34a396f04281018f61bdd84099d0b80e7d3743ef8"
+    }
+  ]
+}

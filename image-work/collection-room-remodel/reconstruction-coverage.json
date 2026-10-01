@@ -442,5 +442,24 @@
     "all_objects_complete": false,
     "evidence": "docs/evidence/collection-reconstruction/main-worker-lion-plaster-20261001T1220",
     "next": "Generate/capture Duchamp-Villon Seated Woman67.089 and its case from inspected catalogue/video; install verified Le Fauconnier Mountaineers1995.043 with source frame and dedicate Matisse/Villon frame passes; verify landing roof/stair void, source stair curve/rails/destinations and held-out room/object offsets; continue remaining rooms, case contents and auditorium."
+  },
+  "main_build_attachment_v50": {
+    "date_utc": "2026-10-01T13:40:00Z",
+    "actual_main_tip": "317b8f3b8dac0f9811d396bcb0260c7187f93f11",
+    "main_hall_rebuilt": false,
+    "hall_files_unchanged": 362,
+    "native_fullapp_capture_passed": true,
+    "headless_adapter_legs": 19,
+    "older_trials_agree": 78,
+    "older_trials_total": 87,
+    "browser_verified": false,
+    "separate_addition_bake_complete": false,
+    "rtx_failure_unresolved": true,
+    "cumulative_actual_usd": "0.85",
+    "cumulative_conservative_usd": "0.86",
+    "all_objects_complete": false,
+    "evidence": "docs/evidence/collection-reconstruction/main-build-attachment-review-20261001",
+    "report_url": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/main-build-review-v49/",
+    "next": "Apply Opus wide-angle modern layout correction; bake additions separately, inspect actual full-app native, export and verify browser controls/traversal; continue remaining video coverage."
   }
 }

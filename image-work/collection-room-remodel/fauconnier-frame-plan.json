@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "fauconnier-frame-001",
+      "prompt": "fauconnier-frame-prompt.txt",
+      "promptSha256": "bb025fd5a6be8dcf951c899760f314c59c936fb13186bdc27ef5dffe414a96f1",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/fauconnier-frame-video-0.png",
+          "sha256": "ccaef6e136f346a76ba1b0a55d7844c592ad257d444ade59660b5812ab297cca"
+        },
+        {
+          "path": "inventory-references/fauconnier-frame-video-1.png",
+          "sha256": "836004bb8a39752edbbdfcc81f9c86a300942e4850e8e9828c2228c5c7d6ebde"
+        }
+      ]
+    }
+  ]
+}

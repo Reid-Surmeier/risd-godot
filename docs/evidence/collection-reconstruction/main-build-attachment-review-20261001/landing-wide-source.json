@@ -1,0 +1,21 @@
+{
+  "video": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6387.MOV",
+  "video_sha256": "75c4892c1a37e1c83dd7103187d1c284e13fd0ac458710f4e8fd6e14daf1c7af",
+  "frames": [
+    {
+      "time_s": 9.5,
+      "file": "landing-source-9.5s.jpg",
+      "sha256": "f575063d65bdadcf6af3399c553121a6d4fea8e82f2491effddd8ccfa957aa2d"
+    },
+    {
+      "time_s": 42.5,
+      "file": "landing-source-42.5s.jpg",
+      "sha256": "9c5a416cf73ea26062249933e0d68c20f70272305fb4cb71e6c1951476233c46"
+    },
+    {
+      "time_s": 43.5,
+      "file": "landing-source-43.5s.jpg",
+      "sha256": "9c260e52c437bd8ba795f9e2b1879cd5d7f0dd074fd446e2816cd3618a20e3af"
+    }
+  ]
+}

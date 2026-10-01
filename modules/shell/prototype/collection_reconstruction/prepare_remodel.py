@@ -262,7 +262,7 @@ catalogue_objects['instances'].append({'asset':'lion-panel','position':[18.02,1.
 inputs[str(app/'video-inventory.json')]=hashlib.sha256((app/'video-inventory.json').read_bytes()).hexdigest()
 
 # Reuse the accepted frame preparation for both video-matched portraits.
-for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.762,.952], '2009.9'), ('courbet', [.733,.597], '43.571'), ('corot', [.460,.319], '24.089'), ('bertin', [.651,.489], '56.214'), ('perugino', [.391,.575], '16.236'), ('braque', [.721,.464], '48.248'), ('cezanne', [.737,.610], '43.255')]:
+for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.762,.952], '2009.9'), ('courbet', [.733,.597], '43.571'), ('corot', [.460,.319], '24.089'), ('bertin', [.651,.489], '56.214'), ('perugino', [.391,.575], '16.236'), ('braque', [.721,.464], '48.248'), ('cezanne', [.737,.610], '43.255'), ('fauconnier', [3.054,2.396], '1995.043'), ('matisse', [.645,.800], '57.037'), ('villon', [.460,.548], '70.058')]:
     frame_path=app/'trial'/f'{kind}-frame-original.webp'
     a=np.array(Image.open(frame_path).convert('RGBA'));hsv=cv2.cvtColor(a[:,:,:3],cv2.COLOR_RGB2HSV)
     chroma=(hsv[:,:,0]>=125)&(hsv[:,:,0]<=175)&(hsv[:,:,1]>70)&(hsv[:,:,2]>35)
@@ -275,41 +275,62 @@ for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.
     y,x=np.where(a[:,:,3]>0);a=a[y.min():y.max()+1,x.min():x.max()+1]
     white=(np.min(a[:,:,:3],axis=2)>245).astype('uint8');count,labels,stats,centers=cv2.connectedComponentsWithStats(white)
     h,w=white.shape;label=int(labels[h//2,w//2]);assert label>0
-    x0,y0,ww,hh=map(int,stats[label,:4]);assert ww>500 and hh>350
+    x0,y0,ww,hh=map(int,stats[label,:4]);assert ww>(250 if kind=='villon' else 500) and hh>350
     fit=None
-    if kind in ['courbet','corot','bertin','perugino','braque','cezanne']:
-        fit_path=app/('modern-frames-source-fit.json' if kind in ['braque','cezanne'] else 'perugino-frame-source-fit.json' if kind=='perugino' else 'grey-frames-source-fit.json')
+    if kind in ['courbet','corot','bertin','perugino','braque','cezanne','fauconnier','matisse','villon']:
+        fit_path=app/('modern-frames-source-fit.json' if kind in ['braque','cezanne','fauconnier','matisse','villon'] else 'perugino-frame-source-fit.json' if kind=='perugino' else 'grey-frames-source-fit.json')
         fit=json.loads(fit_path.read_text())[kind]
         inputs[str(fit_path)]=hashlib.sha256(fit_path.read_bytes()).hexdigest()
         margins=[round(m*hh/canvas[1]) for m in fit['target_margins_m']]
         left,top,right,bottom=margins
-        resized=Image.new('RGBA',(left+ww+right,top+hh+bottom))
+        # Villon's opening is an oval drawn narrower than its canvas; widen that piece to the catalogue aspect.
+        cw=round(hh*canvas[0]/canvas[1]) if kind=='villon' else ww
+        resized=Image.new('RGBA',(left+cw+right,top+hh+bottom))
         old_x=[0,x0,x0+ww,w];old_y=[0,y0,y0+hh,h]
-        new_x=[0,left,left+ww,left+ww+right];new_y=[0,top,top+hh,top+hh+bottom]
+        new_x=[0,left,left+cw,left+cw+right];new_y=[0,top,top+hh,top+hh+bottom]
         native=Image.fromarray(a)
         for j in range(3):
             for i in range(3):
                 piece=native.crop((old_x[i],old_y[j],old_x[i+1],old_y[j+1]))
                 resized.paste(piece.resize((new_x[i+1]-new_x[i],new_y[j+1]-new_y[j]),Image.Resampling.LANCZOS),(new_x[i],new_y[j]))
-        assert np.array_equal(np.array(resized)[top:top+hh,left:left+ww],a[y0:y0+hh,x0:x0+ww])
-        a=np.array(resized);h,w=a.shape[:2];x0,y0=left,top
+        assert cw!=ww or np.array_equal(np.array(resized)[top:top+hh,left:left+ww],a[y0:y0+hh,x0:x0+ww])
+        if kind=='villon':
+            # Re-lay the Muse dark rim and its soft shadow along the widened oval at native thickness: each texel
+            # takes the Muse texel at the same angle and the same distance outside the oval. No pixel is drawn here.
+            Y,X=np.indices((top+hh+bottom,left+cw+right)).astype('float32');X-=left+cw/2-.5;Y-=top+hh/2-.5
+            gx,gy=X/(cw/2)**2,Y/(hh/2)**2;gn=np.hypot(gx,gy)+1e-9
+            d=((X*2/cw)**2+(Y*2/hh)**2-1)/(2*gn)  # px outside the widened oval, first order
+            t=np.arctan2((Y-d*gy/gn)*2/hh,(X-d*gx/gn)*2/cw)
+            nx,ny=np.cos(t)/ww,np.sin(t)/hh;nn=np.hypot(nx,ny)
+            ring=cv2.remap(a,x0+ww/2-.5+ww/2*np.cos(t)+d*nx/nn,y0+hh/2-.5+hh/2*np.sin(t)+d*ny/nn,cv2.INTER_LINEAR)
+            keep=(np.clip((44-d)/24,0,1)*(d>-12))[...,None]  # white lip and whole rim, then its shadow fades into the backing
+            resized=Image.fromarray((ring*keep+np.array(resized)*(1-keep)).round().astype('uint8'))
+        a=np.array(resized);h,w=a.shape[:2];x0,y0,ww=left,top,cw
     Image.fromarray(a).save(out/'assets'/f'{kind}-frame.png')
-    (out/'assets'/f'{kind}-frame-geometry.json').write_text(json.dumps({'canvas_m':canvas,'margins_px':[x0,y0,w-x0-ww,h-y0-hh],'opening_aspect':ww/hh,'catalogue_aspect':canvas[0]/canvas[1],'profile':'native Muse bands; 9cm inferred depth; aspect corrected by existing nine-slice geometry','source_fit':fit},indent=2)+'\n')
+    (out/'assets'/f'{kind}-frame-geometry.json').write_text(json.dumps({'canvas_m':canvas,'margins_px':[x0,y0,w-x0-ww,h-y0-hh],'opening_aspect':ww/hh,'catalogue_aspect':canvas[0]/canvas[1],'profile':'Muse box face with its rim re-laid to the catalogue oval; flat 5cm slab, box recess painted not modelled' if kind=='villon' else 'native Muse bands; 9cm inferred depth; aspect corrected by existing nine-slice geometry','source_fit':fit},indent=2)+'\n')
     if kind in ['courbet','corot','bertin','perugino']:
         painting_path=app/'inventory-catalogue'/({'courbet':'courbet-jura','corot':'corot-river','bertin':'bertin-tivoli','perugino':'perugino-madonna'}[kind]+'-zoom-0.jpg')
         image=Image.open(painting_path)
         image.crop({'courbet':(19,18,1305,1059),'corot':(18,18,1306,911),'bertin':(5,5,1317,966),'perugino':(29,29,1295,1902)}[kind]).save(out/'assets'/f'painting-{painting}.jpg',quality=95)
         inputs[str(painting_path)]=hashlib.sha256(painting_path.read_bytes()).hexdigest()
-    elif kind in ['braque','cezanne']:
-        copy(app/'inventory-catalogue'/('braque-still-life-zoom-0.jpg' if kind=='braque' else 'cezanne-banks-river-zoom-0.jpg'),'assets/painting-'+painting+'.jpg')
+    elif kind in ['braque','cezanne','fauconnier','matisse']:
+        copy(app/'inventory-catalogue'/({'braque':'braque-still-life','cezanne':'cezanne-banks-river','fauconnier':'fauconnier-mountaineers','matisse':'matisse-green-pumpkin'}[kind]+'-zoom-0.jpg'),'assets/painting-'+painting+'.jpg')
+    elif kind=='villon':
+        copy(app/'inventory-catalogue/villon-head-woman-zoom-0.jpg','assets/villon-official-original.jpg')
     else:
         painting_path=app/'catalogue/painting-58.197.jpg' if kind=='edwards' else app/'inventory-catalogue/romany-0.jpg'
         copy(painting_path,'assets/painting-'+painting+'.jpg')
     inputs[str(frame_path)]=hashlib.sha256(frame_path.read_bytes()).hexdigest()
 
-copy(app/'inventory-catalogue/matisse-green-pumpkin-zoom-0.jpg','assets/painting-57.037.jpg')
 villon=app/'inventory-catalogue/villon-head-woman-zoom-0.jpg'
-Image.open(villon).crop((50,12,1280,1477)).save(out/'assets/painting-70.058.jpg',quality=95)
+# Catalogue-aspect ellipse inside the photographed black rim: neither that rim nor the backing is shown as artwork.
+crop=(67,58,1242,1458)
+oval=np.array(Image.open(villon).convert('RGB').crop(crop))
+yy,xx=np.indices(oval.shape[:2]);inside=((xx+.5-oval.shape[1]/2)/(oval.shape[1]/2))**2+((yy+.5-oval.shape[0]/2)/(oval.shape[0]/2))**2<=1
+canvas=oval.copy();canvas[~inside]=[255,255,255]
+assert np.array_equal(canvas[inside],oval[inside])
+Image.fromarray(canvas).save(out/'assets/painting-70.058.png')
+(out/'assets/villon-oval-source-proof.json').write_text(json.dumps({'crop_px':crop,'inside_ellipse_changed_pixels':int(np.any(canvas[inside]!=oval[inside],axis=1).sum()),'outside_ellipse':'White backing; original museum JPEG copied byte-identically','oval_crop_alignment_accepted':False},indent=2)+'\n')
 inputs[str(villon)]=hashlib.sha256(villon.read_bytes()).hexdigest()
 
 copy(app/'trial/magdalene-frame-fitted.png','assets/magdalene-frame.png')
@@ -460,11 +481,13 @@ geometry['trials'] += [['iron_grille_blocks_visitor',[8.45,.25,29.75],[8.45,0,28
 
 #6387 reciprocal wides: modern door opposite medieval, lion to its right,
 # white sculpture gallery on adjoining wall. Flight geometry/room metres provisional.
+#6387 46.0..47.5/52.0..84.5s: the entry is in the Braque/Villon wall, so the modern room lies
+# south of that door behind the lion wall; two windows; second doorway in the Cezanne wall.
 geometry['rooms'][5]={'label':'lion stair landing','bounds':[10.55,16.15,28.1,35.9], 'height':4.1,'floor':'basket-weave','floor_void':[10.55,13.55,32.0,35.9],'openings':{'west':[29.2,30.9],'east':[29.2,30.9],'south':[13.9,15.9]}}
 geometry['rooms'] += [
-    {'label':'modern painting gallery','bounds':[16.15,20.95,23.2,31.1],'height':3.5,'boards_across':True,'openings':{'west':[29.2,30.9],'east':[23.5,25.1]}},
+    {'label':'modern painting gallery','bounds':[16.15,21.95,28.9,34.9],'height':3.5,'boards_across':True,'openings':{'west':[29.2,30.9],'east':[33.3,34.6]}},
     {'label':'white sculpture gallery threshold study limit','bounds':[13.9,15.9,35.9,37.4],'openings':{'north':[13.9,15.9]}},
-    {'label':'modern adjoining gallery threshold study limit','bounds':[20.95,22.55,23.5,25.1],'openings':{'west':[23.5,25.1]}}
+    {'label':'modern adjoining gallery threshold study limit','bounds':[21.95,23.55,33.3,34.6],'openings':{'west':[33.3,34.6]}}
 ]
 for a,side,b,other in [(3,'east',5,'west'),(5,'east',10,'west'),(5,'south',11,'north'),(10,'east',12,'west')]:
     assert geometry['rooms'][a]['openings'][side]==geometry['rooms'][b]['openings'][other]
@@ -477,12 +500,12 @@ for label,b in [('landing north floor',[10.55,16.15,28.1,32.0]),('landing east f
     geometry['patches'].append({'label':label,'color':'81735c','vertices':[[b[0],0,b[2]],[b[1],0,b[2]],[b[1],0,b[3]],[b[0],0,b[3]]]})
 for label,x,rise in [('ascending stair study',10.70,3.2),('descending stair study',12.20,-3.2)]:
     geometry['patches'].append({'label':label,'color':'b9b7b0','vertices':[[x,0,32],[x+1.1,0,32],[x+1.1,rise,35.8],[x,rise,35.8]]})
-geometry['lion_modern_layout']={'source':'IMG_6387 native2.25..84.25s; reciprocal6382 stair view','door_order':'Medieval west; modern east opposite, lion right of modern; white sculpture gallery on adjacent south wall','modern_wall_groups':'Large painting/entry west; three windows/sculpture/deeper opening east; Braque/Villon south beside entry; pumpkin/landscape north','metric_accepted':False,'stair_curve_and_destinations_complete':False,'white_sculpture_room_interior_complete':False,'adjoining_room_interior_complete':False}
-geometry['trials'] += [['landing_to_modern',[14.5,.25,30.05],[17.7,0,30.05],False],['modern_to_landing',[17.7,.25,30.05],[14.5,0,30.05],False],['landing_white_out',[14.9,.25,34.7],[14.9,0,36.75],False],['landing_white_back',[14.9,.25,36.75],[14.9,0,34.7],False],['modern_far_opening_out',[20,.25,24.3],[21.8,0,24.3],False],['modern_far_opening_back',[21.8,.25,24.3],[20,0,24.3],False],['modern_bench_blocked',[18.5,.25,28.45],[18.5,0,26.2],True],['landing_guard_blocked',[13.9,.25,33.7],[12.9,0,33.7],True]]
+geometry['lion_modern_layout']={'source':'IMG_6387 native2.25..84.25s; reciprocal6382 stair view','door_order':'Medieval west; modern east opposite, lion right of modern; white sculpture gallery on adjacent south wall','modern_wall_groups':'Entry/Braque/Villon west; large painting north off the entry jamb; pumpkin/landscape/second doorway east; two windows and sculpture case south','source_review':'docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001','entry_reveal_depth_modelled':False,'metric_accepted':False,'stair_curve_and_destinations_complete':False,'white_sculpture_room_interior_complete':False,'adjoining_room_interior_complete':False}
+geometry['trials'] += [['landing_to_modern',[14.5,.25,30.05],[17.7,0,30.05],False],['modern_to_landing',[17.7,.25,30.05],[14.5,0,30.05],False],['landing_white_out',[14.9,.25,34.7],[14.9,0,36.75],False],['landing_white_back',[14.9,.25,36.75],[14.9,0,34.7],False],['modern_far_opening_out',[21.0,.25,33.95],[22.8,0,33.95],False],['modern_far_opening_back',[22.8,.25,33.95],[21.0,0,33.95],False],['modern_bench_blocked',[18.9,.25,33.3],[18.9,0,30.6],True],['landing_guard_blocked',[13.9,.25,33.7],[12.9,0,33.7],True]]
 
 (out/'geometry.json').write_text(json.dumps(geometry,indent=2)+'\n')
 inputs[str(ingestion/'room-route-walk-v5/geometry.json')] = hashlib.sha256((ingestion/'room-route-walk-v5/geometry.json').read_bytes()).hexdigest()
-for name in ['doorway_walk.gd','remodel_room.gd','remodel_review.gd','remodel_presenter.gd','remodel_bake.gd','connected_hall.gd']:
+for name in ['doorway_walk.gd','remodel_room.gd','remodel_review.gd','remodel_presenter.gd','remodel_bake.gd','connected_hall.gd','seated_woman_asset.gd']:
     copy(source/name,name)
 hall_source=repo/'modules/shell/prototype/gallery_walk4'
 for name in ['walk4.gd','works.json','gaps.json']:
@@ -500,6 +523,7 @@ for name in ['painting_asset.gd','ps1.gdshader']:
 for name in ['oak-muse.webp']:
     copy(repo/'modules/shell/prototype/gallery_walk4/textures'/name,'textures/'+name)
 copy(app/'trial/sofa-cloth-original.webp','assets/sofa-cloth.webp')
+copy(app/'trial/seated-woman-bronze-original.webp','assets/seated-woman-bronze.webp')
 copy(app/'wide-camera-fit.json','assets/wide-camera-fit.json')
 for name in ['floor_oak.gdshader','gamecube.gdshader','crt_luminance.gdshader','squiggle_screen.gdshader','haze_screen.gdshader','page.png','wall-muse.webp','oak-board-atlas-168-v3.webp']:
     copy(app/'main-hall-presentation'/name, 'presentation/'+name)

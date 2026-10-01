@@ -1,0 +1,16 @@
+{
+  "geometry": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/lowpoly-room-v48b-modern-frames/geometry.json",
+  "proposed_problems": [],
+  "passed": true,
+  "authored_rooms_against_proposed_items": [
+    "modern gallery is stretched: 4.80 x 7.90 m against a near-square source room",
+    "west wall: villon_70.058 and corner overlap or touch (-2.96 m apart)",
+    "south wall: window_2 and corner overlap or touch (-0.52 m apart)",
+    "matisse_57.037 is not hung on the east wall line",
+    "cezanne_43.255 is not hung on the east wall line",
+    "east wall order ['adjoining_doorway', 'matisse_57.037', 'cezanne_43.255'] differs from the pan",
+    "east wall: cezanne_43.255 and corner overlap or touch (-1.22 m apart)",
+    "fauconnier_1995.043 is not hung on the north wall line",
+    "north wall: fauconnier_1995.043 and corner overlap or touch (-0.11 m apart)"
+  ]
+}

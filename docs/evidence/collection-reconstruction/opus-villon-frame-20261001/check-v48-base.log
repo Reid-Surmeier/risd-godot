@@ -1,0 +1,22 @@
+PASS official museum JPEG is the hashed catalogue source, byte-identical | b272d80d04182e6d67ef36ae8ba6a229cd9f8e7330bab0c9a0e116621fe62509
+PASS artwork texture is the official crop, no resampling | 1230x1465 from crop [50, 12, 1280, 1477]
+PASS every pixel inside the oval equals the official photograph | 0 changed of 1415250
+PASS outside the oval the texture is plain white backing
+PASS the drawn 48-sided oval shows only official pixels | 1411206 texels shown, 99.7143% of the ellipse
+PASS oval artwork is not stretched onto its catalogue canvas | aspect error +0.0208%
+FAIL photographed rim and backing stay outside the oval at every probed angle | 645 angles; rim starts -40..3 px outside the oval, median -12
+PASS box texture is opaque edge to edge: no opening is cut
+FAIL oval opening has the catalogue aspect and is centred | opening 332x735px, margins [114, 115, 114, 115]
+PASS dark rim is one closed ring: a single dark piece with a single hole | 1 dark pieces, 1 holes
+FAIL rim follows the oval at an even, thin width all the way round | width 2..12 px (=1.5..8.9 mm), starts -3..1 px from the oval
+PASS opening under the artwork is clean Muse white | darkest value 246
+PASS no straight dark border line around the opening | longest dark run 13.9% of width, 24.8% of height
+FAIL room code no longer builds the Villon as a framed rectangle
+PASS headless Godot built the room and found one 70.058 work
+PASS work is two closed slabs: 2 front faces and 2 side walls | 2 fronts, 2 side sets
+FAIL box face is one unbroken rectangle the size of the whole frame: nothing is cut out of it | 2 triangles, 0.25208 m2 of 0.45327 m2
+FAIL artwork face is a 48-sided oval of the catalogue size | 16 triangles, 0.20114 m2 of 0.19742 m2
+FAIL artwork stands just proud of the backing | 35.0 mm
+FAIL every side wall is either the box outer edge or the oval edge: no rectangular inner reveal exists | 8 outer-box triangles, 0 oval triangles, 8 other
+FAIL no vertex sits on the old rectangular canvas corners | 48 vertices
+VILLON_FRAME_FAILED ["photographed rim and backing stay outside the oval at every probed angle", "oval opening has the catalogue aspect and is centred", "rim follows the oval at an even, thin width all the way round", "room code no longer builds the Villon as a framed rectangle", "box face is one unbroken rectangle the size of the whole frame: nothing is cut out of it", "artwork face is a 48-sided oval of the catalogue size", "artwork stands just proud of the backing", "every side wall is either the box outer edge or the oval edge: no rectangular inner reveal exists", "no vertex sits on the old rectangular canvas corners"]

@@ -3,6 +3,7 @@
 extends "doorway_walk.gd"
 
 const Painting := preload("res://modules/shell/prototype/gallery_walk4/painting_asset.gd")
+const SeatedWoman := preload("res://seated_woman_asset.gd")
 var inventory := {"point_clouds":0,"bookcase":1,"mirrors":2,"settee":1,"armchairs":3}
 var contact_shadow:MeshInstance3D
 var ceiling_details:Array[MeshInstance3D]=[]
@@ -1069,31 +1070,33 @@ func build_lion_modern_rooms() -> void:
 				var bar:=solid(Vector3.ZERO,Vector3(.66,.045,.04),metal)
 				bar.reparent(leaf,false)
 				bar.position=Vector3(0,-.37,face*.072)
-	# Windows/blinds/radiator bases belong to the east wall so cutaway follows that wall.
-	var east:StaticBody3D
+	#6387 58.0..68.0s: two windows on the wall right of the entry, the case between them.
+	# Windows/blinds/radiator bases belong to that south wall so cutaway follows it.
+	var south:StaticBody3D
 	for wall in casings:
-		if wall.get_meta("room_wall","")=="modern painting gallery:east" and wall.position.z>25.1:east=wall
-	assert(east!=null,"Modern windows must share their source wall")
-	for z in [26.0,28.0,30.0]:
-		var window:=solid(Vector3(20.874,1.98,z),Vector3(.018,1.78,1.20),look(Color("f3f4ef"),"",true))
-		window.reparent(east.get_child(1))
+		if wall.get_meta("room_wall","")=="modern painting gallery:south":south=wall
+	assert(south!=null,"Modern windows must share their source wall")
+	for x in [17.5,20.8]:
+		var window:=solid(Vector3(x,1.98,34.824),Vector3(1.20,1.78,.018),look(Color("f3f4ef"),"",true))
+		window.reparent(south.get_child(1))
+		window.set_meta("modern_window",true)
 		for side in [-1,1]:
-			var stile:=solid(Vector3(20.85,1.98,z+side*.63),Vector3(.075,1.94,.075),ivory)
+			var stile:=solid(Vector3(x+side*.63,1.98,34.80),Vector3(.075,1.94,.075),ivory)
 			stile.reparent(window)
-			var rail:=solid(Vector3(20.85,1.98+side*.94,z),Vector3(.075,.075,1.34),ivory)
+			var rail:=solid(Vector3(x,1.98+side*.94,34.80),Vector3(1.34,.075,.075),ivory)
 			rail.reparent(window)
 		for j in 25:
-			var slat:=solid(Vector3(20.837,1.19+j*.066,z),Vector3(.022,.025,1.19),look(Color("dddcd4")))
+			var slat:=solid(Vector3(x,1.19+j*.066,34.787),Vector3(1.19,.025,.022),look(Color("dddcd4")))
 			slat.reparent(window)
-		var radiator:=solid(Vector3(20.83,.45,z),Vector3(.18,.52,1.20),ivory,true)
+		var radiator:=solid(Vector3(x,.45,34.78),Vector3(1.20,.52,.18),ivory,true)
 		radiator.reparent(window)
 		for j in 12:
-			var vent:=solid(Vector3(20.73,.23+j*.013,z),Vector3(.025,.006,1.12),metal)
+			var vent:=solid(Vector3(x,.23+j*.013,34.68),Vector3(1.12,.006,.025),metal)
 			vent.reparent(radiator)
-	# Central bench, separate from the painting and window walls.
-	var bench:=solid(Vector3(18.55,.40,26.9),Vector3(.80,.13,2.20),look(Color("343130")),true)
-	for x in [18.23,18.87]:
-		for z in [26.03,27.77]:
+	# Central bench, long side along the large-painting wall (50.5/51.0s).
+	var bench:=solid(Vector3(18.9,.40,31.9),Vector3(2.20,.13,.80),look(Color("343130")),true)
+	for x in [18.03,19.77]:
+		for z in [31.58,32.22]:
 			var leg:=solid(Vector3(x,.17,z),Vector3(.06,.34,.06),look(Color("343130")))
 			leg.reparent(bench)
 	# RISD originals remain separate from generated frame texture. Metres supplied by catalogue.
@@ -1101,40 +1104,64 @@ func build_lion_modern_rooms() -> void:
 	var braque:=Painting.new()
 	add_child(braque)
 	braque.build_framed(load("res://assets/braque-frame.png"),load("res://assets/painting-48.248.jpg"),Vector2(.721,.464),frame.margins_px)
-	braque.position=Vector3(17.7,1.65,31.02)
-	braque.rotation.y=PI
-	#57.037 replaces the incorrect41.012 candidate. This frame is a reuse study, not its final frame.
+	#6387 83.0..83.5s: on the entry wall, beyond the door; Villon beyond it toward the windows.
+	braque.position=Vector3(16.23,1.65,32.4)
+	braque.rotation.y=PI/2
+	braque.set_meta("catalogue_accession","48.248")
+	#57.037 retains its original museum image with its own source-led Muse frame.
 	var pumpkin:=Painting.new()
 	add_child(pumpkin)
-	pumpkin.build_framed(load("res://assets/braque-frame.png"),load("res://assets/painting-57.037.jpg"),Vector2(.645,.800),frame.margins_px.map(func(px):return round(px*.464/.800*.055/.080)))
-	pumpkin.position=Vector3(17.45,1.65,23.28)
+	var pumpkin_frame:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/matisse-frame-geometry.json"))
+	pumpkin.build_framed(load("res://assets/matisse-frame.png"),load("res://assets/painting-57.037.jpg"),Vector2(.645,.800),pumpkin_frame.margins_px)
+	pumpkin.position=Vector3(21.87,1.65,30.2)
+	pumpkin.rotation.y=-PI/2
+	pumpkin.set_meta("catalogue_accession","57.037")
 	var landscape:=Painting.new()
 	add_child(landscape)
 	var landscape_frame:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/cezanne-frame-geometry.json"))
 	landscape.build_framed(load("res://assets/cezanne-frame.png"),load("res://assets/painting-43.255.jpg"),Vector2(.737,.610),landscape_frame.margins_px)
-	landscape.position=Vector3(19.35,1.65,23.28)
+	landscape.position=Vector3(21.87,1.65,31.85)
+	landscape.rotation.y=-PI/2
+	landscape.set_meta("catalogue_accession","43.255")
 	var villon:=Painting.new()
 	add_child(villon)
+	var villon_frame:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/villon-frame-geometry.json"))
+	# White box: one unbroken Muse face carrying the backing and dark oval rim; no opening is cut, so no reveals.
+	var villon_box:Texture2D=load("res://assets/villon-frame.png")
+	villon.build_shaped(villon_box,villon_box.get_size()*.548/(villon_box.get_height()-villon_frame.margins_px[1]-villon_frame.margins_px[3]),[[0,0],[1,0],[1,1],[0,1]],Color.WHITE)
+	villon.position=Vector3(16.23,1.65,33.75)
+	villon.rotation.y=PI/2
+	villon.set_meta("catalogue_accession","70.058")
+	# Official pixels only inside the oval, standing 4mm proud of the backing within that rim.
+	var villon_art:=Painting.new()
+	villon.add_child(villon_art)
 	var oval:Array=[]
 	for i in 48:oval.append([.5+.5*cos(i*TAU/48),.5+.5*sin(i*TAU/48)])
-	villon.build_shaped(load("res://assets/painting-70.058.jpg"),Vector2(.460,.548),oval,Color("e5e3d8"))
-	villon.position=Vector3(19.45,1.65,31.02)
-	villon.rotation.y=PI
-	var surround:=look(Color.WHITE,"res://presentation/neutral-plaster.png")
-	solid(Vector3(19.45,1.65,31.025),Vector3(.63,.72,.025),surround)
-	for side in [-1,1]:
-		solid(Vector3(19.45+side*.294,1.65,30.992),Vector3(.045,.72,.045),surround)
-		solid(Vector3(19.45,1.65+side*.338,30.992),Vector3(.63,.045,.045),surround)
-	# The oval photograph supplies the aperture; white surround is an unaccepted frame study.
+	villon_art.build_shaped(load("res://assets/painting-70.058.png"),Vector2(.460,.548),oval,Color("5a5a5a"))
+	villon_art.position.z=.004
+	#6387 46.0..47.5/82.0s: large original on the wall running off the entry's left jamb.
+	var mountaineers:=Painting.new()
+	add_child(mountaineers)
+	var large_frame:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/fauconnier-frame-geometry.json"))
+	mountaineers.build_framed(load("res://assets/fauconnier-frame.png"),load("res://assets/painting-1995.043.jpg"),Vector2(3.054,2.396),large_frame.margins_px)
+	mountaineers.position=Vector3(19.5,1.65,28.98)
+	mountaineers.set_meta("catalogue_accession","1995.043")
 	# Source track grid, repeated low polygon fixtures; bake supplies its light.
-	for x in [17.05,18.55,20.05]:
-		var track:=solid(Vector3(x,3.34,27.0),Vector3(.025,.025,6.8),ivory)
+	for z in [30.4,31.9,33.4]:
+		var track:=solid(Vector3(19.05,3.34,z),Vector3(5.0,.025,.025),ivory)
 		ceiling_details.append(track)
-		for z in [24.4,26.1,27.8,29.5]:
+		for x in [17.2,18.45,19.65,20.9]:
 			var fixture:=solid(Vector3(x,3.24,z),Vector3(.10,.16,.10),ivory)
 			fixture.reparent(track)
 	inventory["lion_landing"]={"doors":3,"floor_void":true,"flights":2,"metric_accepted":false,"curve_destinations_complete":false,"lion_relief_complete":false,"lion_panel_front_installed":true,"lion_generated_damage_accepted":false}
-	inventory["modern_gallery"]={"windows":3,"catalogue_paintings":["48.248","57.037","70.058","43.255"],"bench":true,"deeper_opening":true,"all_objects_complete":false,"placement_accepted":false,"source_frame_reuse_accepted":false}
+	#6387 63.5..65.5s: floor-standing case against the pier between windows, facing into the room.
+	# ponytail: by-eye offset on the pier, nearer the second window; label side toward the first.
+	var seated:StaticBody3D=SeatedWoman.build(look(Color.WHITE,"res://presentation/landing-plaster.png"),ivory,look(Color.WHITE,"res://assets/seated-woman-bronze.webp"))
+	seated.position=Vector3(19.4,0,34.84)
+	seated.rotation.y=PI
+	add_child(seated)
+	casings.append(seated)
+	inventory["modern_gallery"]={"windows":2,"window_wall":"south","entry_wall":"west","large_painting_wall":"north","catalogue_paintings":["48.248","57.037","70.058","43.255","1995.043"],"dedicated_muse_frames":5,"seated_woman_accession":"67.089","seated_woman_rear_observed":false,"seated_woman_case_metres_accepted":false,"bench":true,"deeper_opening":true,"all_objects_complete":false,"placement_accepted":false,"fine_frame_fidelity_accepted":false}
 
 func build_medieval_stair_door() -> void:
 	# Native6382 18.25/20.75/24.75s: leaves open into landing, push bars, closers and black hinges.

@@ -1,0 +1,24 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/matisse-frame-video-0.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-deb3fa4494d2aa2914b50c96/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "f49b40e2f1b3849366617c04d652b20c18121c57cb34671a586c37d21be1aab0"
+    }
+  ],
+  "changesRequested": "Create one complete orthographic FRONT view of only the exact frame in reference1 around RISD Matisse The Green Pumpkin57.037. Preserve the source rectangular golden frame, narrow worn outer gilded rail with repeated diagonal rope/leaf impressions, dark recessed groove, broad quieter gold middle rail and thin ivory liner closest to the painting. Keep straight mitred corners, no crest or floral inventions. Simplify into restrained low polygon facets consistent with existing Main Hall game frames. Portrait painting aperture aspect64.5:80.0. Remove painting, wall, label, cast shadow and perspective. Interior aperture pure solid white and surrounding background pure magenta#FF00FF. Complete frame with margins; real museum image stays separate.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-deb3fa4494d2aa2914b50c96",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-deb3fa4494d2aa2914b50c96"
+}

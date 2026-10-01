@@ -1,0 +1,24 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/villon-frame-video-0.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-ba6714836ba8a52640c99be9/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "bf97aec0c0ab01c74a307966c69fbef7b450bbd694ad862f266ddeb99dece9ae"
+    }
+  ],
+  "changesRequested": "Create one complete orthographic FRONT view of only the original ivory white box frame in reference1 around RISD Villon Head of a Woman70.058. Preserve its thin square outer white rim, recessed broad quiet white backing around a vertical oval, and thin dark grey oval edging. Empty oval opening aspect46.0:54.8. No gold, carvings, wooden texture, ornate border, extra beads or invented patterns. Plain matte white, restrained low polygon facets and tiny edge shading consistent with Main Hall museum game materials. Remove the painting entirely, replace oval opening with pure solid white. Outside the complete square white box is pure magenta#FF00FF. Remove wall, label, cast shadows and perspective; show all four corners with margins. Original oval artwork is inserted separately by deterministic native geometry.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-ba6714836ba8a52640c99be9",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-ba6714836ba8a52640c99be9"
+}

@@ -1,0 +1,75 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-5364f0078039ea1f7236",
+      "objective": "Create one complete orthographic FRONT view of only the exact frame in reference1 around RISD Matisse The Green Pumpkin57.037. Preserve the source rectangular golden frame, narrow worn outer gilded rail with repeated diagonal rope/leaf impressions, dark recessed groove, broad quieter gold middle rail and thin ivory liner closest to the painting. Keep straight mitred corners, no crest or floral inventions. Simplify into restrained low polygon facets consistent with existing Main Hall game frames. Portrait painting aperture aspect64.5:80.0. Remove painting, wall, label, cast shadow and perspective. Interior aperture pure solid white and surrounding background pure magenta#FF00FF. Complete frame with margins; real museum image stays separate.\n",
+      "procedureId": "muse-5364f0078039ea1f7236",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "matisse-frame-recipe.json",
+          "sha256": "5364f0078039ea1f723660d05d9d80b7547f4c59014098b8c080fc2501cf821d"
+        },
+        {
+          "applicationPath": "matisse-frame-plan.json",
+          "sha256": "5f15708fef2a90b8cee0d87984d7e67d0a8d4041a434f0c79e879f5662efc2ee"
+        },
+        {
+          "applicationPath": "matisse-frame-prompt.txt",
+          "sha256": "c70fd1b588112392f079389e7a515afee98d9e398dbad1bfcd3bc6907e771b48"
+        }
+      ],
+      "museParameters": {
+        "size": "1760x1440"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/matisse-frame-video-0.png",
+          "sha256": "44f51a336dc774f4a3506e998a9db8a7058d8422bcaca56cc0da8e15cc4e3401",
+          "byteLength": 740613,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 795,
+            "height": 1010
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1760x1440\"},\"objective\":\"Create one complete orthographic FRONT view of only the exact frame in reference1 around RISD Matisse The Green Pumpkin57.037. Preserve the source rectangular golden frame, narrow worn outer gilded rail with repeated diagonal rope/leaf impressions, dark recessed groove, broad quieter gold middle rail and thin ivory liner closest to the painting. Keep straight mitred corners, no crest or floral inventions. Simplify into restrained low polygon facets consistent with existing Main Hall game frames. Portrait painting aperture aspect64.5:80.0. Remove painting, wall, label, cast shadow and perspective. Interior aperture pure solid white and surrounding background pure magenta#FF00FF. Complete frame with margins; real museum image stays separate.\\n\",\"objectiveId\":\"muse-5364f0078039ea1f7236\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-5364f0078039ea1f7236\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/matisse-frame-video-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":740613,\"inspectedMedia\":{\"height\":1010,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":795},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"44f51a336dc774f4a3506e998a9db8a7058d8422bcaca56cc0da8e15cc4e3401\",\"slot\":\"reference-000\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"matisse-frame-recipe.json\",\"sha256\":\"5364f0078039ea1f723660d05d9d80b7547f4c59014098b8c080fc2501cf821d\"},{\"applicationPath\":\"matisse-frame-plan.json\",\"sha256\":\"5f15708fef2a90b8cee0d87984d7e67d0a8d4041a434f0c79e879f5662efc2ee\"},{\"applicationPath\":\"matisse-frame-prompt.txt\",\"sha256\":\"c70fd1b588112392f079389e7a515afee98d9e398dbad1bfcd3bc6907e771b48\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "deb3fa4494d2aa2914b50c9699fc3303df62922d71b2b55973ded17a7c19f157"
+  },
+  "normalView": {
+    "objective": "Create one complete orthographic FRONT view of only the exact frame in reference1 around RISD Matisse The Green Pumpkin57.037. Preserve the source rectangular golden frame, narrow worn outer gilded rail with repeated diagonal rope/leaf impressions, dark recessed groove, broad quieter gold middle rail and thin ivory liner closest to the painting. Keep straight mitred corners, no crest or floral inventions. Simplify into restrained low polygon facets consistent with existing Main Hall game frames. Portrait painting aperture aspect64.5:80.0. Remove painting, wall, label, cast shadow and perspective. Interior aperture pure solid white and surrounding background pure magenta#FF00FF. Complete frame with margins; real museum image stays separate.\n",
+    "evidence": "1 authoritative reference matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

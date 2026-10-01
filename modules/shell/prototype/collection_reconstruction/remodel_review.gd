@@ -16,6 +16,20 @@ func run() -> void:
 	var lion_proof:=FileAccess.open("res://evidence/lion-installed-position.json",FileAccess.WRITE)
 	assert(lion_proof!=null)
 	lion_proof.store_string(JSON.stringify({"position":[lion[0].position.x,lion[0].position.y,lion[0].position.z],"yaw":lion[0].rotation.y,"catalogue_front_size_m":[2.286,1.041],"depth_m_provisional":.08,"closed_slab_triangles":12,"generated_damage_accepted":false,"original_front_retained":true,"individual_brick_relief_complete":false},"\t")+"\n")
+	var modern_proof:Array=[]
+	for spec in [["1995.043",Vector3(19.5,1.65,28.98),0.0],["57.037",Vector3(21.87,1.65,30.2),-PI/2],["43.255",Vector3(21.87,1.65,31.85),-PI/2],["48.248",Vector3(16.23,1.65,32.4),PI/2],["70.058",Vector3(16.23,1.65,33.75),PI/2]]:
+		var work:Array=scene.get_children().filter(func(node):return node is Node3D and node.get_meta("catalogue_accession","")==spec[0])
+		assert(work.size()==1 and work[0].position.distance_to(spec[1])<.00001 and abs(work[0].rotation.y-spec[2])<.00001,"Catalogue painting must keep its assigned source wall")
+		modern_proof.append({"accession":spec[0],"position":[work[0].position.x,work[0].position.y,work[0].position.z],"yaw":work[0].rotation.y,"frame_outer_size_m":[work[0].outer.x,work[0].outer.y],"metric_accepted":false})
+	var seated:StaticBody3D=scene.get_node("SeatedWomanCase")
+	assert(seated.position.distance_to(Vector3(19.4,0,34.84))<.00001 and abs(seated.rotation.y-PI)<.00001)
+	var windows:Array=scene.find_children("*","MeshInstance3D",true,false).filter(func(node):return node.has_meta("modern_window"))
+	assert(windows.size()==2 and windows.all(func(node):return abs(node.global_position.z-34.824)<.00001),"Two windows share the wall right of the entry")
+	var figure:MeshInstance3D=seated.get_child(3)
+	assert(figure.get_meta("catalogue_accession")=="67.089" and figure.mesh.get_aabb().size.distance_to(Vector3(.203,.711,.241))<.0005,"Seated Woman catalogue bounds changed")
+	var modern_file:=FileAccess.open("res://evidence/modern-installed-positions.json",FileAccess.WRITE)
+	assert(modern_file!=null)
+	modern_file.store_string(JSON.stringify(modern_proof,"\t")+"\n")
 	for view in [["modern-walk",Vector3(18.0,.25,30.1)],["landing-walk",Vector3(14.6,.25,30.05)],["room",Vector3(.45,.25,-4.6)],["gallery",Vector3(-.55,.25,3)],["grey-walk",Vector3(11.3,.25,-2)],["hall-walk",Vector3(7,.25,11)],["hall-portal-walk",Vector3(5.55,.25,23)],["medieval-walk",Vector3(6.5,.25,22.4)],["renaissance-walk",Vector3(-.55,.25,21.5)]]:
 		scene.reset(moved(view[0],view[1]))
 		for i in 30:
@@ -104,18 +118,23 @@ func run() -> void:
 		["medieval-wide",Vector3(3.3,1.65,24.1),Vector3(7.5,1.8,20.5)],
 		["medieval-portal-wall-wide",Vector3(6.5,1.65,24.05),Vector3(6.5,1.65,18.85)],
 		["landing-lion-front",Vector3(13.0,1.7005,33.15),Vector3(16.0,1.7005,33.15)],
+		["modern-large-front",Vector3(19.5,1.65,32.9),Vector3(19.5,1.65,28.98)],
+		["modern-large-oblique",Vector3(16.7,1.65,31.0),Vector3(19.5,1.65,28.98)],
 		["landing-lion-oblique",Vector3(13.5,1.65,31.7),Vector3(16.0,1.7005,33.15)],
 		["landing-lion-wide",Vector3(12.6,1.65,31.2),Vector3(16.05,1.70,32.5)],
 		["landing-medieval-reverse",Vector3(15.3,1.65,30.05),Vector3(10.55,1.65,30.05)],
 		["landing-modern-door",Vector3(11.4,1.65,30.05),Vector3(16.15,1.65,30.05)],
 		["landing-white-door",Vector3(14.9,1.65,32.6),Vector3(14.9,1.65,35.9)],
 		["landing-stair-void",Vector3(15.4,1.65,33.8),Vector3(11.4,.6,33.6)],
-		["modern-entry-wide",Vector3(17.4,1.65,29.8),Vector3(18.4,1.55,23.7)],
-		["modern-windows-wide",Vector3(17.2,1.65,24.9),Vector3(20.9,1.65,27.6)],
-		["modern-braque",Vector3(17.7,1.65,29.1),Vector3(17.7,1.65,31.02)],
-		["modern-villon",Vector3(19.45,1.65,29.3),Vector3(19.45,1.65,31.02)],
-		["modern-pumpkin",Vector3(17.45,1.65,25.3),Vector3(17.45,1.65,23.28)],
-		["modern-cezanne",Vector3(19.35,1.65,25.3),Vector3(19.35,1.65,23.28)],
+		["modern-entry-wide",Vector3(16.9,1.65,30.05),Vector3(21.9,1.55,30.6)],
+		["modern-windows-wide",Vector3(16.9,1.65,30.0),Vector3(20.2,1.65,34.9)],
+		["modern-doorway-corner",Vector3(18.6,1.65,31.2),Vector3(21.95,1.5,34.0)],
+		["modern-seated-woman",Vector3(19.4,1.32,32.65),Vector3(19.4,1.25,34.52)],
+		["modern-seated-woman-oblique",Vector3(18.3,1.55,33.05),Vector3(19.4,1.25,34.52)],
+		["modern-braque",Vector3(18.15,1.65,32.4),Vector3(16.23,1.65,32.4)],
+		["modern-villon",Vector3(17.95,1.65,33.75),Vector3(16.23,1.65,33.75)],
+		["modern-pumpkin",Vector3(19.85,1.65,30.2),Vector3(21.87,1.65,30.2)],
+		["modern-cezanne",Vector3(19.85,1.65,31.85),Vector3(21.87,1.65,31.85)],
 		["medieval-stair-wall-wide",Vector3(6.3,1.65,21.9),Vector3(10.45,1.65,20.8)],
 		["medieval-apostle-left",Vector3(8.6,1.45,19.50),Vector3(10.38,1.453,19.50)],
 		["medieval-apostle-right",Vector3(8.6,1.47,22.25),Vector3(10.38,1.472,22.25)],
@@ -139,7 +158,7 @@ func run() -> void:
 		["hall-wide-far",Vector3(5.55,1.65,7),Vector3(5.55,1.8,-.4)],
 		["hall-west-paintings",Vector3(6.3,1.65,13),Vector3(.55,1.8,13)],
 		["bust-asset",Vector3(-.9,1.65,-5.87),Vector3(-2.2,1.60,-5.87)]]:
-		scene.camera.fov=82 if view[0] in ["medieval-portal-wall-wide","medieval-grille-front"] else 55 if view[0]=="medieval-grille-oblique" else 70 if view[0] in ["landing-lion-wide","renaissance-wide","medieval-wide","medieval-stair-wall-wide","landing-stair-void","modern-entry-wide","modern-windows-wide"] else 45
+		scene.camera.fov=82 if view[0] in ["medieval-portal-wall-wide","medieval-grille-front"] else 55 if view[0]=="medieval-grille-oblique" else 70 if view[0] in ["landing-lion-wide","renaissance-wide","medieval-wide","medieval-stair-wall-wide","landing-stair-void","modern-entry-wide","modern-windows-wide","modern-doorway-corner"] else 45
 		scene.camera.position=moved(view[0],view[1])
 		scene.camera.look_at(moved(view[0],view[2]))
 		scene.update_baked_visibility()

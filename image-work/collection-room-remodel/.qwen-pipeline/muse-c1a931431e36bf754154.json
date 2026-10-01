@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-c1a931431e36bf754154",
+  "summary": "Create one complete orthographic FRONT view of only the original ivory white box frame in reference1 around RISD Villon Head of a Woman70.058. Preserve its thin square outer white rim, recessed broad quiet white backing around a vertical oval, and thin dark grey oval edging. Empty oval opening aspect46.0:54.8. No gold, carvings, wooden texture, ornate border, extra beads or invented patterns. Plain matte white, restrained low polygon facets and tiny edge shading consistent with Main Hall museum game materials. Remove the painting entirely, replace oval opening with pure solid white. Outside the complete square white box is pure magenta#FF00FF. Remove wall, label, cast shadows and perspective; show all four corners with margins. Original oval artwork is inserted separately by deterministic native geometry.\n",
+  "procedureId": "muse-c1a931431e36bf754154",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/villon-frame-video-0.png",
+      "sha256": "4652f0789480730100a01dc6dc3770ea608b4a89c9ffc4f28f8cc6fb0062f3f2",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "villon-frame-recipe.json",
+      "sha256": "c1a931431e36bf7541549d09a701713bfd958a8cc38d368e0657a9a7cd6e96a4"
+    },
+    {
+      "applicationPath": "villon-frame-plan.json",
+      "sha256": "5d3cc86387a63c0abb399e8d65533f0790313b4d6d1a135f1390b72f16e43c47"
+    },
+    {
+      "applicationPath": "villon-frame-prompt.txt",
+      "sha256": "9f8bc9f17e5090fcf231fa818689717919ff770b3c4232778f5807de222f7bcb"
+    }
+  ]
+}

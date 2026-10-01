@@ -18,5 +18,35 @@
     ],
     "source": "Native6387:72.25 rail ratios; rightmost outer edge not fully in reference crop, symmetric reconstruction inferred",
     "metric_accepted": false
+  },
+  "fauconnier": {
+    "target_margins_m": [
+      0.035,
+      0.035,
+      0.035,
+      0.035
+    ],
+    "source": "Native6387 47.25/80.25s; thin dark rail/inner lip, width provisional",
+    "metric_accepted": false
+  },
+  "matisse": {
+    "target_margins_m": [
+      0.055,
+      0.055,
+      0.055,
+      0.055
+    ],
+    "source": "Native6387 74.25s; gold rails/ivory liner, width provisional",
+    "metric_accepted": false
+  },
+  "villon": {
+    "target_margins_m": [
+      0.085,
+      0.086,
+      0.085,
+      0.086
+    ],
+    "source": "Native6387 56.25s; recessed white box/oval, margins provisional",
+    "metric_accepted": false
   }
 }

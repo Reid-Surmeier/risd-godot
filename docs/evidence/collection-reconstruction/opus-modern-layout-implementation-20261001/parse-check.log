@@ -1,0 +1,5 @@
+parse remodel_room.gd exit=0 script_errors=0
+parse remodel_review.gd exit=0 script_errors=0
+parse remodel_bake.gd exit=0 script_errors=0
+parse seated_woman_asset.gd exit=0 script_errors=0
+parse prepare_remodel.py ok (ast)

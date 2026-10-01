@@ -1,0 +1,70 @@
+[
+	{
+		"cull_mask": 2063,
+		"name": "hall",
+		"position": [
+			1.45000004768372,
+			0.0,
+			-13.0
+		],
+		"space": "gallery",
+		"state": {
+			"attached": true,
+			"blocks": 46,
+			"cutaway_bodies": 128,
+			"rooms": 12,
+			"space": "gallery"
+		}
+	},
+	{
+		"cull_mask": 2071,
+		"name": "medieval",
+		"position": [
+			0.0,
+			0.0,
+			3.0
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 46,
+			"cutaway_bodies": 128,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 2071,
+		"name": "modern-old-layout",
+		"position": [
+			12.3999996185303,
+			0.0,
+			1.70000004768372
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 46,
+			"cutaway_bodies": 128,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 5056,
+		"name": "grey",
+		"position": [
+			0.0,
+			0.0,
+			-30.1000003814697
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 46,
+			"cutaway_bodies": 128,
+			"rooms": 12,
+			"space": "far"
+		}
+	}
+]
