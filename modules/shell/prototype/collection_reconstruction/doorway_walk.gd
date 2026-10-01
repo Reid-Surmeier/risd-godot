@@ -12,6 +12,7 @@ var samples: Array = []
 var results: Dictionary = {}
 var out_dir := ""
 var frame_times: Array = []
+var started_without_reset := false
 var casings: Array[StaticBody3D] = []
 var camera_clear := true
 var casing_contact := false
@@ -195,12 +196,14 @@ func _physics_process(delta: float) -> void:
 			var distance := Vector2(body.position.x - target.x, body.position.z - target.z).length()
 			results[trial[0]] = (same_side and distance > 0.2 and casing_contact if trial[3] else distance < 0.06) and body.is_on_floor()
 			results[trial[0] + "_camera"] = camera_clear
-			samples.append({"trial": trial[0], "position": [body.position.x, body.position.y, body.position.z], "on_floor": body.is_on_floor(), "casing_contact": casing_contact, "camera_clear": camera_clear, "hidden_casings": casings.filter(func(c): return not c.get_child(1).visible).size()})
+			samples.append({"trial": trial[0], "started_without_reset":started_without_reset, "position": [body.position.x, body.position.y, body.position.z], "on_floor": body.is_on_floor(), "casing_contact": casing_contact, "camera_clear": camera_clear, "hidden_casings": casings.filter(func(c): return not c.get_child(1).visible).size()})
 			capture("phase-%s.png" % phase)
 			phase += 1
 			elapsed = 0
 			if phase < trials.size():
-				reset(trials[phase][1])
+				var next_start:Vector3=trials[phase][1]
+				started_without_reset=Vector2(body.position.x-next_start.x,body.position.z-next_start.z).length()<.06 and Vector2(target.x-next_start.x,target.z-next_start.z).length()<.001
+				if not started_without_reset:reset(next_start)
 				camera_clear = true
 				casing_contact = false
 			else:

@@ -6,7 +6,7 @@ const Painting := preload("res://modules/shell/prototype/gallery_walk4/painting_
 var inventory := {"point_clouds":0,"bookcase":1,"mirrors":2,"settee":1,"armchairs":3}
 var contact_shadow:MeshInstance3D
 var ceiling_details:Array[MeshInstance3D]=[]
-var views := [Vector3(.45, .25, -4.6), Vector3(-.55, .25, 3)]
+var views := [Vector3(-1.50, .25, -4.6), Vector3(-2.50, .25, 3)]
 
 func make_visitor() -> Node3D:
 	var actor=load("res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gd").new()
@@ -27,14 +27,19 @@ func _ready() -> void:
 			child.light_color = Color("fff1d9")
 			child.light_energy = .65
 	build_rooms()
+	var first:=get_child_count()
 	build_bookcase()
 	build_mirrors()
 	build_displays()
 	build_furniture()
 	build_catalogue_objects()
 	build_adjacent_gallery()
+	shift_new(first,Vector3(-1.95,0,0))
+	first=get_child_count()
 	build_sculpture_rooms()
+	shift_new(first,Vector3(0,0,9.25))
 	build_grey_gallery()
+	build_connected_hall()
 	var index:=0
 	for surface in find_children("*","MeshInstance3D",true,false):
 		if not visitor.is_ancestor_of(surface):
@@ -46,6 +51,74 @@ func _ready() -> void:
 		JavaScriptBridge.eval("window.remodelInventory=" + JSON.stringify(inventory))
 	assert(not FileAccess.file_exists("res://points.bin"))
 	print("REMODEL_READY " + JSON.stringify(inventory))
+
+func shift_new(first:int,offset:Vector3) -> void:
+	for node in get_children().slice(first):
+		if node is Node3D:node.position+=offset
+
+func build_connected_hall() -> void:
+	# Reuse reviewed Main Hall assets, vault and frame shader; no photo doorway cards.
+	var builder=load("res://connected_hall.gd").new()
+	var scratch:=SubViewport.new()
+	add_child(scratch)
+	builder._vp=scratch
+	builder._build_room()
+	builder._build_paintings()
+	assert(builder._paintings.size()==23,"All existing Main Hall paintings must survive integration")
+	var hall:=Node3D.new()
+	hall.name="ConnectedHall"
+	hall.position=Vector3(5.55,0,28.1)
+	hall.set_meta("painting_lights",builder._paintings)
+	add_child(hall)
+	for node in scratch.get_children():
+		if node is WorldEnvironment:
+			node.free()
+			continue
+		node.reparent(hall,false)
+		if node is MeshInstance3D:
+			node.layers=1
+			if node.material_override is ShaderMaterial:
+				var texture=node.material_override.get_shader_parameter("albedo")
+				if texture is Texture2D and texture.resource_path.ends_with("/skylight.png"):
+					node.set_meta("skylight",true)
+					node.material_override.set_shader_parameter("glow",1.0)
+			var bounds:AABB=node.mesh.get_aabb()
+			if bounds.size.z>26 and bounds.size.y>5.9 and bounds.size.x<.01:
+				var side:String="west" if bounds.get_center().x<0 else "east"
+				for wall in casings:
+					if wall.get_meta("room_wall","")=="Grand Gallery:"+side:
+						wall.get_child(1).free()
+						node.reparent(wall)
+						wall.move_child(node,1)
+			if (node.global_transform*node.mesh.get_aabb()).position.y>5.4:ceiling_details.append(node)
+		for visual in node.find_children("*","VisualInstance3D",true,false):visual.layers=1
+	builder.free()
+	scratch.free()
+	for z in [11.1,19.1]:
+		var bench:=solid(Vector3(5.55,.23,z),Vector3(.95,.46,3),look(Color("2f3a52")),true)
+		bench.get_child(1).mesh=ArrayMesh.new()
+		bench.set_meta("collision_only",true)
+	# Hall177.50s shows a white rectangular casing, not the medieval carved facade.
+	# Keep the Muse stone front in medieval; cover its unverified printed reverse here.
+	var blue:=look(Color.WHITE,"res://modules/shell/prototype/gallery_walk4/textures/wall-muse.webp")
+	for side in [-1,1]:
+		var back:=solid(Vector3(5.55+side*(1.9/2+(4.229-1.9)/4),3.861/2,27.857),Vector3((4.229-1.9)/2,3.861,.02),blue,true)
+		back.set_meta("room_wall","Grand Gallery:portal-mask")
+		wall_face(back,(4.229-1.9)/2,3.861,false,-1)
+		var trim:=moulding(.20,3.1,"door-architrave",true)
+		trim.position=Vector3(5.55+side*1.05,1.55,27.835)
+		trim.rotation.y=PI
+		trim.reparent(back)
+	var head:=solid(Vector3(5.55,(3.861+3.1)/2,27.857),Vector3(1.9,3.861-3.1,.02),blue,true)
+	head.set_meta("room_wall","Grand Gallery:portal-mask-header")
+	wall_face(head,1.9,3.861-3.1,false,-1)
+	var top:=moulding(.24,2.3,"door-architrave",true)
+	top.rotation=Vector3(0,PI,PI/2)
+	top.position=Vector3(5.55,3.18,27.835)
+	top.reparent(head)
+	inventory["main_hall_verified_paintings"]=23
+	inventory["connected_museum_loop"]=true
+	inventory["museum_metric_accepted"]=false
 
 func build_contact_shadow() -> void:
 	# Reuse the Main Hall's radial contact card, outside static lightmap ownership.
@@ -75,7 +148,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		elif event.keycode == KEY_2:
 			reset(views[1])
 		elif event.keycode == KEY_3:
-			reset(Vector3(11.3,.25,-2))
+			reset(Vector3(6.7,.25,-2))
 
 func look(color: Color, texture_path := "", unlit := false) -> StandardMaterial3D:
 	var m := material(color)
@@ -140,7 +213,7 @@ func build_rooms() -> void:
 		var wall:=look(Color.WHITE,"res://presentation/purple-plaster.png") if area.label.begins_with("purple") else look(Color.WHITE,"res://presentation/wall-plaster.png")
 		if area.label=="dark medieval room":wall=look(Color("53545b"),"res://presentation/neutral-plaster.png")
 		if area.label.begins_with("Main Hall"):wall=look(Color("7c8ca3"))
-		if area.label.begins_with("Grand Gallery"):wall=look(Color("7c8ca3"))
+		if area.label.begins_with("Grand Gallery"):wall=look(Color.WHITE,"res://modules/shell/prototype/gallery_walk4/textures/wall-muse.webp")
 		if area.label=="grey French gallery":wall=look(Color("b6b4ad"),"res://presentation/neutral-plaster.png")
 		if area.label=="light Renaissance room":wall=look(Color("e3e2de"),"res://presentation/neutral-plaster.png")
 		var height:float=area.get("height",3.5)
@@ -188,6 +261,7 @@ func build_rooms() -> void:
 			assert(height>clear_height,"Opening must leave a positive header above its source-fitted head")
 			var header_y:float=(height+clear_height)/2
 			var header:=solid(Vector3(fixed,header_y,middle) if vertical else Vector3(middle,header_y,fixed),Vector3(.38,height-clear_height,width) if vertical else Vector3(width,height-clear_height,.38),wall,true)
+			header.set_meta("room_wall",area.label+":"+side+":header")
 			wall_face(header,width,height-clear_height,vertical,1.0 if side in ["west","north"] else -1.0)
 			if stone or side in area.get("column_sides",[]):continue
 			for edge in opening:
@@ -206,14 +280,14 @@ func build_rooms() -> void:
 				top.position=Vector3(fixed+face*.20,2.73,middle) if vertical else Vector3(middle,2.73,fixed+face*.20)
 				top.reparent(header)
 	# Ceiling rails and vents follow the wide views; omit opaque ceiling for the gallery camera.
-	for x in [-1.7,.4,2.5]:
+	for x in [-3.65,-1.55,.55]:
 		for z in [-5.5,-3.5,-1.5]:
 			var rail:=solid(Vector3(x,3.43,z),Vector3(1.65,.025,.035),ivory)
 			ceiling_details.append(rail)
 			for offset in [-.5,.5]:
 				var fixture:=solid(Vector3(x+offset,3.33,z),Vector3(.08,.15,.08),ivory)
 				fixture.reparent(rail)
-	for spec in [[Vector3(-.55,3.04,-.61),0.0],[Vector3(3.43,3.04,-2),PI/2]]:
+	for spec in [[Vector3(-2.5,3.04,-.61),0.0],[Vector3(1.48,3.04,-2),PI/2]]:
 		var vent:=solid(spec[0],Vector3(1.85,.07,.018),look(Color("746f64")))
 		vent.rotation.y=spec[1]
 		ceiling_details.append(vent)
@@ -231,10 +305,10 @@ func build_grey_gallery() -> void:
 			assert(south==null,"Purple south wall must have one owner")
 			south=wall
 	assert(south!=null,"Black panel faces must belong to the purple south wall")
-	for x in [4.4,5.4,6.4,7.4]:
+	for x in [1.98,2.50,3.02,3.54]:
 		var face:=MeshInstance3D.new()
 		var quad:=QuadMesh.new()
-		quad.size=Vector2(.97,2.9)
+		quad.size=Vector2(.49,2.9)
 		face.mesh=quad
 		face.material_override=black
 		face.position=Vector3(x,1.45,-1.27)
@@ -242,14 +316,15 @@ func build_grey_gallery() -> void:
 		add_child(face)
 		face.reparent(south)
 	# Closed elevator pair: a wall feature, not an invented walkable connection.
-	for x in [5.2,5.7]:solid(Vector3(x,1.35,-2.73),Vector3(.49,2.7,.045),ivory)
+	for x in [2.40,2.90]:solid(Vector3(x,1.35,-2.73),Vector3(.49,2.7,.045),ivory)
 	var number:=Label3D.new()
 	number.text="5"
 	number.font_size=100
 	number.pixel_size=.005
 	number.modulate=Color("27252a")
-	number.position=Vector3(5.45,2.05,-2.69)
+	number.position=Vector3(2.65,2.05,-2.69)
 	add_child(number)
+	var first:=get_child_count()
 	# Wide column opening faces the purple connector, rather than a door at the far end of a tube.
 	for z in [-4.2,.2]:
 		var column:=StaticBody3D.new()
@@ -303,6 +378,7 @@ func build_grey_gallery() -> void:
 					var face:float=x+side*.035
 					panel(self,[Vector3(face,y-height/2,leaf.position.z-.37),Vector3(face,y-height/2,leaf.position.z+.37),Vector3(face,y+height/2,leaf.position.z+.37),Vector3(face,y+height/2,leaf.position.z-.37)],
 						[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)],look(Color.WHITE,"res://assets/white-panel-door-%d.png"%index))
+	shift_new(first,Vector3(-4.6,0,0))
 	inventory["grey_gallery_verified_paintings"]=3
 	inventory["grey_gallery_objects_complete"]=false
 	inventory["grey_gallery_metric_accepted"]=false
@@ -317,35 +393,46 @@ func wall_face(body:Node3D,width:float,height:float,vertical:bool,inward:float) 
 	visual.mesh=quad
 	visual.position=Vector3(inward*.061,0,0) if vertical else Vector3(0,0,inward*.061)
 	visual.rotation.y=inward*PI/2 if vertical else 0.0 if inward==1.0 else PI
+	if str(body.get_meta("room_wall","")).begins_with("Grand Gallery"):
+		visual.material_override=visual.material_override.duplicate()
+		visual.material_override.uv1_scale=Vector3(width/4,height/4,1)
+		if not vertical:visual.position.z=inward*.001
 
 func build_parquet(b:Array,oak:Material) -> void:
 	# Reuse the Main Hall's 45-degree herringbone lattice; clip each plank to this room.
-	var rot:=Transform2D(PI/4,Vector2((b[0]+b[1])/2,(b[2]+b[3])/2))
+	var center:=Vector2((b[0]+b[1])/2,(b[2]+b[3])/2)
+	var rot:=Transform2D(PI/4,Vector2.ZERO)
 	var inverse:=rot.affine_inverse()
-	var bounds:=PackedVector2Array([Vector2(b[0],b[2]),Vector2(b[1],b[2]),Vector2(b[1],b[3]),Vector2(b[0],b[3])])
+	var bounds:=PackedVector2Array([Vector2(b[0],b[2])-center,Vector2(b[1],b[2])-center,Vector2(b[1],b[3])-center,Vector2(b[0],b[3])-center])
 	var st:=SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var covered_area:=0.0
-	for j in range(-12,13):
-		for k in range(-65,66):
+	var j_reach:=0
+	var k_reach:=0
+	for corner in bounds:
+		var q:Vector2=inverse*corner
+		j_reach=max(j_reach,int(ceil(abs(q.x-q.y)/(2*.84)))+2)
+		k_reach=max(k_reach,int(ceil(abs(q.x+q.y)/(2*.14)))+5) # whole planks span4 lattice rows
+	for j in range(-j_reach,j_reach+1):
+		for k in range(-k_reach,k_reach+1):
 			var origin:=Vector2(k*.14+j*.84,k*.14-j*.84)
 			for vertical in [false,true]:
 				var r:=Rect2(origin,Vector2(.84,.14)) if not vertical else Rect2(origin+Vector2(0,.14),Vector2(.14,.84))
 				var poly:=PackedVector2Array([rot*r.position,rot*Vector2(r.end.x,r.position.y),rot*r.end,rot*Vector2(r.position.x,r.end.y)])
 				for clipped in Geometry2D.intersect_polygons(poly,bounds):
 					var area:=0.0
-					for index in clipped.size():area+=clipped[index].cross(clipped[(index+1)%clipped.size()])
+					for index in clipped.size():area+=(clipped[index]-clipped[0]).cross(clipped[(index+1)%clipped.size()]-clipped[0])
 					covered_area+=abs(area)/2
 					for index in Geometry2D.triangulate_polygon(clipped):
 						var q:Vector2=clipped[index]
-						assert(q.x>=b[0]-.0001 and q.x<=b[1]+.0001 and q.y>=b[2]-.0001 and q.y<=b[3]+.0001)
+						assert(q.x+center.x>=b[0]-.0001 and q.x+center.x<=b[1]+.0001 and q.y+center.y>=b[2]-.0001 and q.y+center.y<=b[3]+.0001)
 						var uv:Vector2=(inverse*q-r.position)/r.size
 						if vertical:uv=Vector2(uv.y,1-uv.x)
 						st.set_color(Color(1,1,1,fposmod((k*7+j*3)*.131,1.0)))
 						st.set_normal(Vector3.UP)
 						st.set_uv(uv)
-						st.add_vertex(Vector3(q.x,.003,q.y))
-	assert(abs(covered_area-(b[1]-b[0])*(b[3]-b[2]))<.03,"Parquet must cover the room once without gaps/overlap")
+						st.add_vertex(Vector3(q.x+center.x,.003,q.y+center.y))
+	assert(abs(covered_area-(b[1]-b[0])*(b[3]-b[2]))<.03,"Parquet area %s /%s bounds%s lattice%s,%s"%[covered_area,(b[1]-b[0])*(b[3]-b[2]),b,j_reach,k_reach])
 	var floor:=MeshInstance3D.new()
 	floor.mesh=st.commit()
 	floor.material_override=oak
@@ -686,7 +773,7 @@ func build_adjacent_gallery() -> void:
 	# ponytail: right-angle swing and leaf dimensions remain provisional; wall relationship is observed.
 	for x in [-1.59,.49]:
 		var ivory:=look(Color("eee9de"))
-		var leaf:=solid(Vector3(x,1.38,19.33),Vector3(.07,2.7,.96),ivory,true)
+		var leaf:=solid(Vector3(x,1.38,28.58),Vector3(.07,2.7,.96),ivory,true)
 		for index in 2:
 			var y:float=[1.73,.43][index]
 			var height:float=[1.66,.60][index]
@@ -695,9 +782,9 @@ func build_adjacent_gallery() -> void:
 				panel(leaf,[Vector3(face-x,y-height/2-1.38,-.36),Vector3(face-x,y-height/2-1.38,.36),Vector3(face-x,y+height/2-1.38,.36),Vector3(face-x,y+height/2-1.38,-.36)],
 					[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)],look(Color.WHITE,"res://assets/european-two-panel-door-%d.png"%index))
 				for edge in [-1,1]:
-					var stile:=solid(Vector3(x+side*.050,y,19.33+edge*.36),Vector3(.014,height+.03,.03),ivory)
+					var stile:=solid(Vector3(x+side*.050,y,28.58+edge*.36),Vector3(.014,height+.03,.03),ivory)
 					stile.reparent(leaf)
-					var rail:=solid(Vector3(x+side*.050,y+edge*height/2,19.33),Vector3(.014,.03,.75),ivory)
+					var rail:=solid(Vector3(x+side*.050,y+edge*height/2,28.58),Vector3(.014,.03,.75),ivory)
 					rail.reparent(leaf)
 		for side in [-1,1]:
 			var knob:=MeshInstance3D.new()
@@ -708,7 +795,7 @@ func build_adjacent_gallery() -> void:
 			sphere.rings=4
 			knob.mesh=sphere
 			knob.material_override=look(Color("514831"))
-			knob.position=Vector3(x+side*.070,.88,19.74)
+			knob.position=Vector3(x+side*.070,.88,28.99)
 			add_child(knob)
 			knob.reparent(leaf)
 	inventory["european_door_panels_per_leaf"]=2
@@ -753,6 +840,14 @@ func stone_asset(kind:String,at:Vector3,yaw:float) -> void:
 	visual.mesh=mesh
 	visual.material_override=look(Color.WHITE,"res://assets/"+kind+".png")
 	body.add_child(visual)
+	if kind=="romanesque-portal":
+		# The source carving belongs to the medieval front; reverse/depth remain unverified.
+		visual.mesh=stone_mesh(data,data.faces.filter(func(q):return q.all(func(p):return int(p[2])==1)),data.size_m[2])
+		# Existing quad winding needs two-sided rendering; the closed plain reverse occludes it.
+		var reverse:=MeshInstance3D.new()
+		reverse.mesh=stone_mesh(data,data.faces.filter(func(q):return not q.all(func(p):return int(p[2])==1)),data.size_m[2])
+		reverse.material_override=look(Color("b8ad94"))
+		body.add_child(reverse)
 	# Solid wall outside the arch, with a different inward face for each adjacent room.
 	var front:Array=[]
 	var back:Array=[]
@@ -777,15 +872,15 @@ func build_sculpture_rooms() -> void:
 	var perugino:=Painting.new()
 	add_child(perugino)
 	perugino.build_framed(load("res://assets/perugino-frame.png"),load("res://assets/painting-16.236.jpg"),Vector2(.391,.575),frame.margins_px)
-	perugino.position=Vector3(1.48,1.55,18.93)
+	perugino.position=Vector3(-.47,1.55,18.93)
 	inventory["renaissance_verified_paintings"]=1
 	# Reciprocal wides show a shallow horizontal ventilation grille above the north door.
-	var grille:=solid(Vector3(-.55,3.20,18.94),Vector3(1.10,.18,.025),look(Color("474742")))
+	var grille:=solid(Vector3(-2.5,3.20,18.94),Vector3(1.10,.18,.025),look(Color("474742")))
 	for y in [-.06,-.03,0,.03,.06]:
-		var slat:=solid(Vector3(-.55,3.20+y,18.963),Vector3(1.08,.008,.012),look(Color("77766d")))
+		var slat:=solid(Vector3(-2.5,3.20+y,18.963),Vector3(1.08,.008,.012),look(Color("77766d")))
 		slat.reparent(grille)
 	stone_asset("romanesque-portal",Vector3(5.55,0,18.85),0)
-	stone_asset("tracery-arch",Vector3(2.5,2.25,22.515),-PI/2)
+	stone_asset("tracery-arch",Vector3(.55,2.25,22.515),-PI/2)
 	# The API size is the top fragment; installed engaged shafts are separately provisional.
 	for side in [-1,1]:
 		for offset in [-.045,0,.045]:
@@ -797,22 +892,22 @@ func build_sculpture_rooms() -> void:
 			cylinder.radial_segments=6
 			cylinder.rings=1
 			shaft.mesh=cylinder
-			shaft.position=Vector3(2.44+offset,1.125,22.515+side*.62)
+			shaft.position=Vector3(.49+offset,1.125,22.515+side*.62)
 			shaft.material_override=look(Color("b8ad94"))
 			add_child(shaft)
 	# IMG_6383 61.25..64.75s: black central bench; dimensions unmeasured.
-	var bench:=solid(Vector3(-.8,.43,22.4),Vector3(1.65,.16,.55),look(Color("282526")),true)
-	for x in [-1.45,-.15]:
+	var bench:=solid(Vector3(-2.75,.43,22.4),Vector3(1.65,.16,.55),look(Color("282526")),true)
+	for x in [-3.4,-2.1]:
 		for z in [22.18,22.62]:
 			var leg:=solid(Vector3(x,.2,z),Vector3(.07,.4,.07),look(Color("29231e")))
 			leg.reparent(bench)
 	# Shuttered west window and raised textile-wall plinth are visible in reciprocal wides.
 	var white:=look(Color("f0eeea"))
-	solid(Vector3(-3.52,2.1,22.7),Vector3(.08,2.0,1.25),white)
-	solid(Vector3(-3.48,1.09,22.7),Vector3(.20,.12,1.45),white)
-	solid(Vector3(-.55,.27,24.78),Vector3(5.85,.54,.30),white,true)
-	for origin in [Vector3(-.55,3.43,22),Vector3(7,4.18,22)]:
-		var rail:=solid(origin,Vector3(7.6 if origin.y>4 else 4.7,.025,.04),white)
+	solid(Vector3(-5.47,2.1,22.7),Vector3(.08,2.0,1.25),white)
+	solid(Vector3(-5.43,1.09,22.7),Vector3(.20,.12,1.45),white)
+	solid(Vector3(-2.5,.27,24.78),Vector3(5.85,.54,.30),white,true)
+	for origin in [Vector3(-2.5,3.43,22),Vector3(5.55,4.18,22)]:
+		var rail:=solid(origin,Vector3(8.6 if origin.y>4 else 4.7,.025,.04),white)
 		ceiling_details.append(rail)
 		for offset in [-1.6,0,1.6]:
 			var fixture:=solid(origin+Vector3(offset,-.09,0),Vector3(.09,.16,.09),white)
@@ -823,8 +918,8 @@ func build_sculpture_rooms() -> void:
 	# ponytail: source-relative arrangement only; replace metric offsets after wide-view fitting.
 	var grey:=look(Color("666763"))
 	var glass:=look(Color(.82,.90,.91,.10),"",true)
-	for spec in [[Vector3(6.4,0,22.7),Vector2(2.0,1.15),.88,.30],
-		[Vector3(9,0,21.65),Vector2(1.05,.90),.88,1.05]]:
+	for spec in [[Vector3(5.45,0,22.7),Vector2(2.0,1.15),.88,.30],
+		[Vector3(8.05,0,21.65),Vector2(1.05,.90),.88,1.05]]:
 		var at:Vector3=spec[0]
 		var footprint:Vector2=spec[1]
 		var base_height:float=spec[2]

@@ -18,7 +18,7 @@ func prepare() -> void:
 	var floor_names:=[]
 	var floor_material:Material
 	for source in walk.find_children("*","MeshInstance3D",true,false):
-		if walk.visitor.is_ancestor_of(source) or source.has_meta("contact_shadow") or not source.is_visible_in_tree():continue
+		if walk.visitor.is_ancestor_of(source) or source.has_meta("contact_shadow") or not source.is_visible_in_tree() or source.mesh.get_surface_count()==0 or source.has_meta("skylight"):continue
 		if source.material_override is StandardMaterial3D and source.material_override.transparency==BaseMaterial3D.TRANSPARENCY_ALPHA:continue
 		if source.material_override is ShaderMaterial and source.material_override.shader.resource_path.ends_with("floor_oak.gdshader"):
 			floors.append_from(source.mesh,0,source.global_transform)
@@ -28,12 +28,35 @@ func prepare() -> void:
 		var st:=SurfaceTool.new()
 		for surface in source.mesh.get_surface_count():st.append_from(source.mesh,surface,Transform3D.IDENTITY)
 		var mesh:=st.commit()
+		var normals=mesh.surface_get_arrays(0)[Mesh.ARRAY_NORMAL]
+		if normals==null or normals.is_empty():
+			st.generate_normals()
+			mesh=st.commit()
 		var result:=mesh.lightmap_unwrap(source.global_transform,.14)
 		assert(result==OK,"Native UV2 unwrap failed")
 		var instance:=MeshInstance3D.new()
 		instance.name="Surface%03d"%index
 		instance.mesh=mesh
 		instance.material_override=source.material_override
+		# Reuse gallery_walk4/bake/prepare.gd's native PS1-to-bake material handling.
+		if source.material_override is ShaderMaterial and source.material_override.shader.resource_path.ends_with("/ps1.gdshader"):
+			var original:ShaderMaterial=source.material_override
+			var material:=StandardMaterial3D.new()
+			var tint=original.get_shader_parameter("tint")
+			material.albedo_color=tint if tint!=null else Color.WHITE
+			material.albedo_texture=original.get_shader_parameter("albedo")
+			var scale_uv=original.get_shader_parameter("uv_scale")
+			if scale_uv!=null:material.uv1_scale=Vector3(scale_uv.x,scale_uv.y,1)
+			material.specular_mode=BaseMaterial3D.SPECULAR_DISABLED
+			material.cull_mode=BaseMaterial3D.CULL_DISABLED
+			material.texture_filter=BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+			var alpha=original.get_shader_parameter("alpha_cut")
+			if alpha!=null and alpha>0:
+				material.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+				material.alpha_scissor_threshold=alpha
+			if material.albedo_texture and not "/textures/" in material.albedo_texture.resource_path:material.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
+			if source.get_parent().name=="ConnectedHall" and source.mesh.get_aabb().position.y>=6 and source.mesh.get_aabb().size.y>1:material.albedo_color=Color("e2dccd")
+			instance.material_override=material
 		instance.transform=source.global_transform
 		instance.gi_mode=GeometryInstance3D.GI_MODE_STATIC
 		instance.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
@@ -66,7 +89,7 @@ func prepare() -> void:
 	index+=1
 	for position in [Vector3(.45,3.25,-5.5),Vector3(.45,3.25,-2),Vector3(4.6,3.25,-2),Vector3(-.55,3.25,2),Vector3(-.55,3.25,6),Vector3(-.55,3.25,10),Vector3(-.55,3.25,14),Vector3(-.55,3.25,17),Vector3(-.55,3.25,22),Vector3(7,4.0,21),Vector3(7,4.0,24),Vector3(12.2,3.25,20.8),Vector3(6.5,3.25,-2),Vector3(10.5,3.25,-2),Vector3(13.5,3.25,-2),Vector3(16.5,3.25,-2)]:
 		var light:=OmniLight3D.new()
-		light.position=position
+		light.position=corrected(position)
 		light.omni_range=8
 		light.omni_attenuation=.65
 		light.light_energy=.55
@@ -84,9 +107,9 @@ func prepare() -> void:
 		var spot:=SpotLight3D.new()
 		room.add_child(spot)
 		spot.owner=room
-		spot.position=spec[0]+spec[1]*2.2
+		spot.position=corrected(spec[0])+spec[1]*2.2
 		spot.position.y=3.2
-		spot.look_at_from_position(spot.position,spec[0],Vector3.UP)
+		spot.look_at_from_position(spot.position,corrected(spec[0]),Vector3.UP)
 		spot.spot_range=7
 		spot.spot_angle=25
 		spot.spot_angle_attenuation=1.5
@@ -96,10 +119,46 @@ func prepare() -> void:
 		spot.light_bake_mode=Light3D.BAKE_STATIC
 		spot.shadow_enabled=true
 
+	# Retain the reviewed Hall's5 diffuse sources and23 warm painting spots.
+	for z in [25.1,20.1,15.1,10.1,5.1]:
+		var light:=OmniLight3D.new()
+		light.position=Vector3(5.55,5.7,z)
+		light.omni_range=13
+		light.omni_attenuation=.65
+		light.light_energy=.4
+		light.light_color=Color("fff1d9")
+		light.light_size=2.5
+		light.light_bake_mode=Light3D.BAKE_STATIC
+		light.shadow_enabled=true
+		room.add_child(light)
+		light.owner=room
+	var hall:Node3D=walk.get_node("ConnectedHall")
+	for painting in hall.get_meta("painting_lights"):
+		var spot:=SpotLight3D.new()
+		room.add_child(spot)
+		spot.owner=room
+		var target:Vector3=painting.center+hall.position
+		spot.position=target+painting.normal*2.2+Vector3.UP*3.1
+		spot.look_at_from_position(spot.position,target,Vector3.UP)
+		spot.spot_range=7
+		spot.spot_angle=25
+		spot.spot_angle_attenuation=1.5
+		spot.light_color=Color("ffd391")
+		spot.light_energy=6
+		spot.light_size=.35
+		spot.light_bake_mode=Light3D.BAKE_STATIC
+		spot.shadow_enabled=true
+	for z in [2.3,5.1,10.1,15.1,20.1,25.1,28.0]:
+		for x in [1.35,3.55,5.55,7.55,9.75]:
+			for y in [.3,1.1,2]:
+				var probe:=LightmapProbe.new()
+				probe.position=Vector3(x,y,z)
+				room.add_child(probe)
+				probe.owner=room
 	var daylight:=DirectionalLight3D.new()
 	daylight.rotation_degrees=Vector3(-60,-75,0)
 	daylight.light_color=Color("eff5ff")
-	daylight.light_energy=.35
+	daylight.light_energy=.8 # same strength as the saved Main Hall native bake
 	daylight.light_angular_distance=6
 	daylight.light_bake_mode=Light3D.BAKE_STATIC
 	daylight.shadow_enabled=true
@@ -121,12 +180,12 @@ func prepare() -> void:
 		for x in ([-2,.0,2] if z>=0 else [-2,.0,2,5] if z==-2 else [-2,.0,2]):
 			for y in [.3,1.1,2]:
 				var probe:=LightmapProbe.new()
-				probe.position=Vector3(x,y,z)
+				probe.position=corrected(Vector3(x,y,z))
 				room.add_child(probe)
 				probe.owner=room
 	for position in [Vector3(-.55,1.1,22),Vector3(2,1.1,22.5),Vector3(3.1,1.1,22.5),Vector3(5.55,1.1,20),Vector3(5.55,1.1,24),Vector3(10.8,1.1,22),Vector3(5.55,1.1,18),Vector3(12.2,1.1,20.8),Vector3(6.5,1.1,-2),Vector3(10.5,1.1,-2),Vector3(13.5,1.1,-2),Vector3(16.5,1.1,-2)]:
 		var probe:=LightmapProbe.new()
-		probe.position=position
+		probe.position=corrected(position)
 		room.add_child(probe)
 		probe.owner=room
 	var packed:=PackedScene.new()
@@ -137,3 +196,10 @@ func prepare() -> void:
 	await process_frame
 	print("BAKE_PREPARE surfaces=",index)
 	quit()
+
+func corrected(p:Vector3) -> Vector3:
+	if p.z>16:
+		return p+Vector3(-1.95 if p.x<3.4 else -.95 if p.x>11.5 else 0,0,9.25)
+	if p.x>=8.45:return p+Vector3(-4.6,0,0)
+	if p.x>3.65:return Vector3(1.7+(p.x-3.65)*2.15/4.8,p.y,p.z)
+	return p+Vector3(-1.95,0,0)

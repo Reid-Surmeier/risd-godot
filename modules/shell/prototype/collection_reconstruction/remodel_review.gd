@@ -10,8 +10,8 @@ func run() -> void:
 	root.add_child(presentation)
 	var scene=presentation.scene
 	await process_frame
-	for view in [["room",Vector3(.45,.25,-4.6)],["gallery",Vector3(-.55,.25,3)],["grey-walk",Vector3(11.3,.25,-2)]]:
-		scene.reset(view[1])
+	for view in [["room",Vector3(.45,.25,-4.6)],["gallery",Vector3(-.55,.25,3)],["grey-walk",Vector3(11.3,.25,-2)],["hall-walk",Vector3(7,.25,11)],["hall-portal-walk",Vector3(5.55,.25,23)]]:
+		scene.reset(moved(view[0],view[1]))
 		for i in 30:
 			await physics_frame
 		await RenderingServer.frame_post_draw
@@ -33,8 +33,8 @@ func run() -> void:
 		["door-sconce-detail",Vector3(-.55,2.1,-3.2),Vector3(-.55,1.9,-.4)],
 		["perugino-walking",Vector3(-.55,1.65,22.8),Vector3(.55,1.55,18.93)]]:
 		scene.camera.fov=45
-		scene.camera.position=view[1]
-		scene.camera.look_at(view[2])
+		scene.camera.position=moved(view[0],view[1])
+		scene.camera.look_at(moved(view[0],view[2]))
 		scene.update_baked_visibility()
 		await process_frame
 		await RenderingServer.frame_post_draw
@@ -77,23 +77,38 @@ func run() -> void:
 		["tracery-front",Vector3(-.3,2.6,22.515),Vector3(2.5,2.8,22.515)],
 		["tracery-angle",Vector3(.7,2.6,23.7),Vector3(2.5,2.8,22.515)],
 		["medieval-wide",Vector3(3.3,1.65,24.1),Vector3(7.5,1.8,20.5)],
+		["medieval-portal-wall-wide",Vector3(6.5,1.65,24.05),Vector3(6.5,1.65,18.85)],
 		["medieval-cases-east",Vector3(3.5,1.65,22.4),Vector3(9,1.2,21.9)],
 		["medieval-cases-portal",Vector3(7.6,1.65,24.2),Vector3(5.55,1.5,18.85)],
 		["portal-front",Vector3(5.55,2.1,24),Vector3(5.55,1.93,18.85)],
 		["portal-angle",Vector3(7.4,2.1,22),Vector3(5.55,1.93,18.85)],
+		["hall-portal-join",Vector3(5.55,1.65,23),Vector3(5.55,1.9,29)],
+		["hall-grey-join",Vector3(5.55,1.65,2),Vector3(5.55,1.6,-4)],
+		["hall-wide-arch",Vector3(5.55,1.65,16),Vector3(5.55,1.8,25.9)],
+		["hall-wide-far",Vector3(5.55,1.65,7),Vector3(5.55,1.8,-.4)],
+		["hall-west-paintings",Vector3(6.3,1.65,13),Vector3(.55,1.8,13)],
 		["bust-asset",Vector3(-.9,1.65,-5.87),Vector3(-2.2,1.60,-5.87)]]:
-		scene.camera.fov=70 if view[0] in ["renaissance-wide","medieval-wide"] else 45
-		scene.camera.position=view[1]
-		scene.camera.look_at(view[2])
+		scene.camera.fov=82 if view[0]=="medieval-portal-wall-wide" else 70 if view[0] in ["renaissance-wide","medieval-wide"] else 45
+		scene.camera.position=moved(view[0],view[1])
+		scene.camera.look_at(moved(view[0],view[2]))
 		scene.update_baked_visibility()
 		await process_frame
 		await RenderingServer.frame_post_draw
 		assert(native_view.get_texture().get_image().save_png("res://evidence/"+view[0]+".png")==OK)
+	# Hall177.50 portrait: approximate eye/tilt for source comparison, not a calibrated camera.
+	native_view.size=Vector2i(540,960)
+	scene.camera.fov=84.2
+	scene.camera.position=Vector3(5.4,1.65,9.3)
+	scene.camera.look_at(Vector3(5.55,-1.2,28.1))
+	scene.update_baked_visibility()
+	await process_frame
+	await RenderingServer.frame_post_draw
+	assert(native_view.get_texture().get_image().save_png("res://evidence/hall-source-camera.png")==OK)
 	var fit:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/wide-camera-fit.json"))
 	native_view.size=Vector2i(540,960)
 	scene.camera.fov=fit.vertical_fov_degrees
-	scene.camera.position=scene.vec(fit.position)
-	scene.camera.look_at(scene.vec(fit.target),scene.vec(fit.up))
+	scene.camera.position=scene.vec(fit.position)+Vector3(-1.95,0,0)
+	scene.camera.look_at(scene.vec(fit.target)+Vector3(-1.95,0,0),scene.vec(fit.up))
 	scene.update_baked_visibility()
 	await process_frame
 	await RenderingServer.frame_post_draw
@@ -104,11 +119,30 @@ func run() -> void:
 	for view in [["bust-front-uv",Vector3(-.9,1.62,-5.87)],
 		["bust-rear-uv",Vector3(-2.63,1.62,-5.87)],
 		["bust-side-uv",Vector3(-2.2,1.62,-4.8)]]:
-		scene.camera.position=view[1]
-		scene.camera.look_at(Vector3(-2.2,1.62,-5.87))
+		scene.camera.position=moved(view[0],view[1])
+		scene.camera.look_at(Vector3(-4.15,1.62,-5.87))
 		scene.update_baked_visibility()
 		await process_frame
 		await RenderingServer.frame_post_draw
 		assert(native_view.get_texture().get_image().save_png("res://evidence/"+view[0]+".png")==OK)
-	print("REMODEL_VISUAL_PROOF: two walking, nine detail/oblique, nineteen native-resolution asset/room views, one source-camera fit and three bust UV views")
+	native_view.size=Vector2i(800,1200)
+	scene.camera.size=43
+	scene.camera.position=Vector3(3.55,45,13.3)
+	scene.camera.look_at(Vector3(3.55,0,13.3),Vector3.FORWARD)
+	scene.update_baked_visibility()
+	await process_frame
+	await RenderingServer.frame_post_draw
+	assert(native_view.get_texture().get_image().save_png("res://evidence/loop-overview.png")==OK)
+	print("REMODEL_VISUAL_PROOF: connected Hall, authored room comparisons, walking views and object details")
 	quit()
+
+func moved(name:String,p:Vector3) -> Vector3:
+	if name.begins_with("hall-"):return p+Vector3(0,0,2.2)
+	if name=="grey-purple-reverse" and p.x<8.45:return p+Vector3(-1.95,0,0)
+	if name.begins_with("grey-") or name.begins_with("ionic-") or name.begins_with("courbet-") or name.begins_with("corot-") or name.begins_with("bertin-"):return p+Vector3(-4.6,0,0)
+	if name.begins_with("purple-"):
+		return Vector3(1.7+(p.x-3.65)*2.15/4.8,p.y,p.z) if p.x<8.45 else p+Vector3(-4.6,0,0)
+	if name.begins_with("portal-"):return p+Vector3(0,0,9.25)
+	if name.begins_with("medieval-"):return p+Vector3(-.95,0,9.25)
+	if name.begins_with("renaissance-") or name.begins_with("perugino-") or name.begins_with("tracery-") or name.begins_with("european-door") or name=="gallery-far-door":return p+Vector3(-1.95,0,9.25)
+	return p+Vector3(-1.95,0,0)

@@ -1,0 +1,1166 @@
+{
+  "checks": {
+    "adjacent_gallery": true,
+    "adjacent_gallery_camera": true,
+    "central_display_blocked": true,
+    "central_display_blocked_camera": true,
+    "decorative_room": true,
+    "decorative_room_camera": true,
+    "far_gallery_door_back": true,
+    "far_gallery_door_back_camera": true,
+    "far_gallery_door_out": true,
+    "far_gallery_door_out_camera": true,
+    "gallery_door_back": true,
+    "gallery_door_back_camera": true,
+    "gallery_door_out": true,
+    "gallery_door_out_camera": true,
+    "gold_service_base_blocked": true,
+    "gold_service_base_blocked_camera": true,
+    "grey_grand_back": true,
+    "grey_grand_back_camera": true,
+    "grey_grand_out": true,
+    "grey_grand_out_camera": true,
+    "grey_ionic_back": true,
+    "grey_ionic_back_camera": true,
+    "grey_ionic_out": true,
+    "grey_ionic_out_camera": true,
+    "grey_piano_back": true,
+    "grey_piano_back_camera": true,
+    "grey_piano_out": true,
+    "grey_piano_out_camera": true,
+    "hall_aisle_12": true,
+    "hall_aisle_12_camera": true,
+    "hall_aisle_15.4": true,
+    "hall_aisle_15.4_camera": true,
+    "hall_aisle_18.8": true,
+    "hall_aisle_18.8_camera": true,
+    "hall_aisle_2.2": true,
+    "hall_aisle_2.2_camera": true,
+    "hall_aisle_22.2": true,
+    "hall_aisle_22.2_camera": true,
+    "hall_aisle_25.6": true,
+    "hall_aisle_25.6_camera": true,
+    "hall_aisle_5.2": true,
+    "hall_aisle_5.2_camera": true,
+    "hall_aisle_8.6": true,
+    "hall_aisle_8.6_camera": true,
+    "hall_back_to_grey": true,
+    "hall_back_to_grey_camera": true,
+    "hall_bench_blocked": true,
+    "hall_bench_blocked_camera": true,
+    "hall_grey_return": true,
+    "hall_grey_return_camera": true,
+    "loop_00": true,
+    "loop_00_camera": true,
+    "loop_01": true,
+    "loop_01_camera": true,
+    "loop_02": true,
+    "loop_02_camera": true,
+    "loop_03": true,
+    "loop_03_camera": true,
+    "loop_04": true,
+    "loop_04_camera": true,
+    "loop_05": true,
+    "loop_05_camera": true,
+    "loop_06": true,
+    "loop_06_camera": true,
+    "loop_07": true,
+    "loop_07_camera": true,
+    "loop_08": true,
+    "loop_08_camera": true,
+    "loop_09": true,
+    "loop_09_camera": true,
+    "loop_10": true,
+    "loop_10_camera": true,
+    "loop_11": true,
+    "loop_11_camera": true,
+    "loop_12": true,
+    "loop_12_camera": true,
+    "loop_13": true,
+    "loop_13_camera": true,
+    "loop_14": true,
+    "loop_14_camera": true,
+    "loop_15": true,
+    "loop_15_camera": true,
+    "loop_16": true,
+    "loop_16_camera": true,
+    "loop_17": true,
+    "loop_17_camera": true,
+    "loop_18": true,
+    "loop_18_camera": true,
+    "loop_19": true,
+    "loop_19_camera": true,
+    "loop_20": true,
+    "loop_20_camera": true,
+    "loop_21": true,
+    "loop_21_camera": true,
+    "loop_22": true,
+    "loop_22_camera": true,
+    "loop_23": true,
+    "loop_23_camera": true,
+    "loop_24": true,
+    "loop_24_camera": true,
+    "loop_25": true,
+    "loop_25_camera": true,
+    "loop_26": true,
+    "loop_26_camera": true,
+    "loop_27": true,
+    "loop_27_camera": true,
+    "loop_28": true,
+    "loop_28_camera": true,
+    "loop_29": true,
+    "loop_29_camera": true,
+    "loop_30": true,
+    "loop_30_camera": true,
+    "loop_31": true,
+    "loop_31_camera": true,
+    "loop_32": true,
+    "loop_32_camera": true,
+    "medieval_between_cases_clear": true,
+    "medieval_between_cases_clear_camera": true,
+    "medieval_low_case_blocked": true,
+    "medieval_low_case_blocked_camera": true,
+    "medieval_stairs_aisle_clear": true,
+    "medieval_stairs_aisle_clear_camera": true,
+    "medieval_tall_case_blocked": true,
+    "medieval_tall_case_blocked_camera": true,
+    "purple_grey_back": true,
+    "purple_grey_back_camera": true,
+    "purple_grey_out": true,
+    "purple_grey_out_camera": true,
+    "renaissance_bench_blocked": true,
+    "renaissance_bench_blocked_camera": true,
+    "renaissance_left_leaf_blocked": true,
+    "renaissance_left_leaf_blocked_camera": true,
+    "renaissance_right_leaf_blocked": true,
+    "renaissance_right_leaf_blocked_camera": true,
+    "right_door_back": true,
+    "right_door_back_camera": true,
+    "right_door_out": true,
+    "right_door_out_camera": true,
+    "right_wall_blocked": true,
+    "right_wall_blocked_camera": true,
+    "sofa_wall_blocked": true,
+    "sofa_wall_blocked_camera": true,
+    "stairs_door_back": true,
+    "stairs_door_back_camera": true,
+    "stairs_door_out": true,
+    "stairs_door_out_camera": true,
+    "stone_portal_back": true,
+    "stone_portal_back_camera": true,
+    "stone_portal_out": true,
+    "stone_portal_out_camera": true,
+    "tracery_back": true,
+    "tracery_back_camera": true,
+    "tracery_out": true,
+    "tracery_out_camera": true
+  },
+  "frame_time_p50_ms": 23.3333333333333,
+  "frame_time_p95_ms": 31.4814814814815,
+  "navigation_accepted": false,
+  "render_frames": 11176,
+  "renderer": "D3D12 (NVIDIA GeForce RTX 4070 SUPER)",
+  "samples": [
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -2.5,
+        0.00083813100354746,
+        1.57499098777771
+      ],
+      "started_without_reset": false,
+      "trial": "gallery_door_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        -2.5,
+        0.00005831487942487,
+        -1.27916669845581
+      ],
+      "started_without_reset": true,
+      "trial": "gallery_door_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 4,
+      "on_floor": true,
+      "position": [
+        -3.55282950401306,
+        -0.00123215140774846,
+        -2.5
+      ],
+      "started_without_reset": false,
+      "trial": "sofa_wall_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 6,
+      "on_floor": true,
+      "position": [
+        1.45466947555542,
+        -0.0000118287716759369,
+        -2.67905712127686
+      ],
+      "started_without_reset": false,
+      "trial": "right_wall_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -0.299795120954514,
+        0.000835066486615688,
+        -5.36305904388428
+      ],
+      "started_without_reset": false,
+      "trial": "decorative_room"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -2.5,
+        0.000834983657114208,
+        5.97916984558105
+      ],
+      "started_without_reset": false,
+      "trial": "adjacent_gallery"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        2.1797034740448,
+        0.000830622971989214,
+        -2.00000023841858
+      ],
+      "started_without_reset": false,
+      "trial": "right_door_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 3,
+      "on_floor": true,
+      "position": [
+        1.42972218990326,
+        0.000840325956232846,
+        -2.00000023841858
+      ],
+      "started_without_reset": true,
+      "trial": "right_door_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 4,
+      "on_floor": true,
+      "position": [
+        -1.5,
+        -0.00051020534010604,
+        -3.30000066757202
+      ],
+      "started_without_reset": false,
+      "trial": "central_display_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -2.5,
+        0.00083715992514044,
+        28.916711807251
+      ],
+      "started_without_reset": false,
+      "trial": "far_gallery_door_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -2.5,
+        0.000832072459161282,
+        27.2708568572998
+      ],
+      "started_without_reset": true,
+      "trial": "far_gallery_door_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        -3.28157997131348,
+        -0.00185104599222541,
+        28.5799999237061
+      ],
+      "started_without_reset": false,
+      "trial": "renaissance_left_leaf_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        -1.71858370304108,
+        0.000131967011839151,
+        28.5799999237061
+      ],
+      "started_without_reset": false,
+      "trial": "renaissance_right_leaf_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        0.377249896526337,
+        -0.00172877940349281,
+        -3.79999995231628
+      ],
+      "started_without_reset": false,
+      "trial": "gold_service_base_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        4.6666841506958,
+        0.000838141539134085,
+        -2.0
+      ],
+      "started_without_reset": false,
+      "trial": "purple_grey_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        3.02085638046265,
+        0.0008209886145778,
+        -2.0
+      ],
+      "started_without_reset": true,
+      "trial": "purple_grey_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        5.55000019073486,
+        0.000723826116882265,
+        2.62498784065247
+      ],
+      "started_without_reset": false,
+      "trial": "grey_grand_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        5.55000019073486,
+        0.000833148253150284,
+        1.02083802223206
+      ],
+      "started_without_reset": true,
+      "trial": "grey_grand_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        5.55000019073486,
+        0.000831141718663275,
+        -6.56250953674316
+      ],
+      "started_without_reset": false,
+      "trial": "grey_piano_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        5.55000019073486,
+        0.000840324268210679,
+        -5.02085828781128
+      ],
+      "started_without_reset": true,
+      "trial": "grey_piano_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        11.8750152587891,
+        0.000826070900075138,
+        -1.99999928474426
+      ],
+      "started_without_reset": false,
+      "trial": "grey_ionic_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        10.2708463668823,
+        0.00082890345947817,
+        -1.99999988079071
+      ],
+      "started_without_reset": true,
+      "trial": "grey_ionic_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        1.3750137090683,
+        0.000836581457406282,
+        31.7649993896484
+      ],
+      "started_without_reset": false,
+      "trial": "tracery_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        -0.22910512983799,
+        0.00083659088704735,
+        31.7649993896484
+      ],
+      "started_without_reset": true,
+      "trial": "tracery_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        5.55000019073486,
+        0.000836968014482409,
+        27.12087059021
+      ],
+      "started_without_reset": false,
+      "trial": "stone_portal_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        5.55000019073486,
+        -0.000479081645607948,
+        28.8291530609131
+      ],
+      "started_without_reset": true,
+      "trial": "stone_portal_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        11.2708463668823,
+        0.000858808401972055,
+        30.0500030517578
+      ],
+      "started_without_reset": false,
+      "trial": "stairs_door_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        9.77083492279053,
+        0.000801037240307778,
+        30.0500030517578
+      ],
+      "started_without_reset": true,
+      "trial": "stairs_door_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        -2.75001382827759,
+        0.000837164756376296,
+        31.154203414917
+      ],
+      "started_without_reset": false,
+      "trial": "renaissance_bench_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        5.44999933242798,
+        0.000320120714604855,
+        31.1525802612305
+      ],
+      "started_without_reset": false,
+      "trial": "medieval_low_case_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        8.05000019073486,
+        -0.000240366294747218,
+        30.2274875640869
+      ],
+      "started_without_reset": false,
+      "trial": "medieval_tall_case_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        6.84999895095825,
+        0.000836584600619972,
+        29.5792083740234
+      ],
+      "started_without_reset": false,
+      "trial": "medieval_between_cases_clear"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        9.5166711807251,
+        -0.000181812443770468,
+        29.4500007629395
+      ],
+      "started_without_reset": false,
+      "trial": "medieval_stairs_aisle_clear"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        7.0,
+        -0.000766582204960287,
+        5.17916679382324
+      ],
+      "started_without_reset": false,
+      "trial": "hall_aisle_2.2"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        7.0,
+        -0.000777665234636515,
+        8.57498073577881
+      ],
+      "started_without_reset": true,
+      "trial": "hall_aisle_5.2"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        7.0,
+        -0.000669949455186725,
+        11.9708108901978
+      ],
+      "started_without_reset": true,
+      "trial": "hall_aisle_8.6"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        7.0,
+        -0.000618789345026016,
+        15.366641998291
+      ],
+      "started_without_reset": true,
+      "trial": "hall_aisle_12"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        7.00002861022949,
+        0.000920645776204765,
+        18.7624359130859
+      ],
+      "started_without_reset": true,
+      "trial": "hall_aisle_15.4"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        6.99999904632568,
+        0.000839644635561854,
+        22.179126739502
+      ],
+      "started_without_reset": true,
+      "trial": "hall_aisle_18.8"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 4,
+      "on_floor": true,
+      "position": [
+        6.99999904632568,
+        0.000835442508105189,
+        25.5749950408936
+      ],
+      "started_without_reset": true,
+      "trial": "hall_aisle_22.2"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        6.99999904632568,
+        0.000837538100313395,
+        27.179162979126
+      ],
+      "started_without_reset": true,
+      "trial": "hall_aisle_25.6"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        5.55000019073486,
+        -0.0013490857090801,
+        17.3775691986084
+      ],
+      "started_without_reset": false,
+      "trial": "hall_bench_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        5.55000019073486,
+        -0.000365501968190074,
+        1.02500772476196
+      ],
+      "started_without_reset": false,
+      "trial": "hall_back_to_grey"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        5.55000019073486,
+        -0.00113794510252774,
+        2.87916398048401
+      ],
+      "started_without_reset": true,
+      "trial": "hall_grey_return"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -2.5,
+        0.000838131934870034,
+        0.966680407524109
+      ],
+      "started_without_reset": false,
+      "trial": "loop_00"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -2.5,
+        0.00083500862820074,
+        4.36251735687256
+      ],
+      "started_without_reset": true,
+      "trial": "loop_01"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -2.5,
+        0.000788706005550921,
+        7.77918243408203
+      ],
+      "started_without_reset": true,
+      "trial": "loop_02"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -2.5,
+        -0.000519089517183602,
+        11.1750183105469
+      ],
+      "started_without_reset": true,
+      "trial": "loop_03"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -2.50000429153442,
+        -0.00180308613926172,
+        14.5708646774292
+      ],
+      "started_without_reset": true,
+      "trial": "loop_04"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -2.50000071525574,
+        0.000834306527394801,
+        17.9666976928711
+      ],
+      "started_without_reset": true,
+      "trial": "loop_05"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -2.50000071525574,
+        0.000835868704598397,
+        21.3625411987305
+      ],
+      "started_without_reset": true,
+      "trial": "loop_06"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        -2.50000047683716,
+        0.000835238955914974,
+        24.7792091369629
+      ],
+      "started_without_reset": true,
+      "trial": "loop_07"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        -2.50000047683716,
+        0.000832105812150985,
+        26.6750202178955
+      ],
+      "started_without_reset": true,
+      "trial": "loop_08"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -2.50000047683716,
+        0.000838146661408246,
+        28.5708866119385
+      ],
+      "started_without_reset": true,
+      "trial": "loop_09"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -2.50000047683716,
+        0.000835079059470445,
+        29.9667263031006
+      ],
+      "started_without_reset": true,
+      "trial": "loop_10"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -0.229406252503395,
+        0.000839704705867916,
+        29.9995765686035
+      ],
+      "started_without_reset": true,
+      "trial": "loop_11"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        -0.200607925653458,
+        0.000836593913845718,
+        31.7285022735596
+      ],
+      "started_without_reset": true,
+      "trial": "loop_12"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        1.21562528610229,
+        0.000835615210235119,
+        31.7641353607178
+      ],
+      "started_without_reset": true,
+      "trial": "loop_13"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        3.17396879196167,
+        0.000838137464597821,
+        31.7649879455566
+      ],
+      "started_without_reset": true,
+      "trial": "loop_14"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        3.19976139068604,
+        -0.00178659474477172,
+        29.2234725952148
+      ],
+      "started_without_reset": true,
+      "trial": "loop_15"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        5.51213932037354,
+        -0.0000155180459842086,
+        29.2003765106201
+      ],
+      "started_without_reset": true,
+      "trial": "loop_16"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        5.54967498779297,
+        0.00083620409714058,
+        26.7214908599854
+      ],
+      "started_without_reset": true,
+      "trial": "loop_17"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        6.96618986129761,
+        0.000835678016301244,
+        26.7005004882812
+      ],
+      "started_without_reset": true,
+      "trial": "loop_18"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        6.99974584579468,
+        0.000839086540509015,
+        23.3256053924561
+      ],
+      "started_without_reset": true,
+      "trial": "loop_19"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        6.99999713897705,
+        0.000833477068226784,
+        19.9297676086426
+      ],
+      "started_without_reset": true,
+      "trial": "loop_20"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        6.99999904632568,
+        -0.000588220427744091,
+        16.5339336395264
+      ],
+      "started_without_reset": true,
+      "trial": "loop_21"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        6.99999904632568,
+        -0.000637537217698991,
+        13.1381158828735
+      ],
+      "started_without_reset": true,
+      "trial": "loop_22"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        6.99999952316284,
+        -0.000693407491780818,
+        9.72148609161377
+      ],
+      "started_without_reset": true,
+      "trial": "loop_23"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        6.99999952316284,
+        -0.00072096788790077,
+        6.32566833496094
+      ],
+      "started_without_reset": true,
+      "trial": "loop_24"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        6.99999952316284,
+        -0.000492722552735358,
+        2.92984199523926
+      ],
+      "started_without_reset": true,
+      "trial": "loop_25"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        5.58363008499146,
+        0.0000891629606485367,
+        2.90069174766541
+      ],
+      "started_without_reset": true,
+      "trial": "loop_26"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        5.55046033859253,
+        0.000834734411910176,
+        1.02597177028656
+      ],
+      "started_without_reset": true,
+      "trial": "loop_27"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        5.55000352859497,
+        0.0000743074342608452,
+        -1.97402775287628
+      ],
+      "started_without_reset": true,
+      "trial": "loop_28"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        3.07097506523132,
+        0.000817560008727014,
+        -1.9997820854187
+      ],
+      "started_without_reset": true,
+      "trial": "loop_29"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 3,
+      "on_floor": true,
+      "position": [
+        1.13347625732422,
+        0.000840325490571558,
+        -1.99999606609344
+      ],
+      "started_without_reset": true,
+      "trial": "loop_30"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 5,
+      "on_floor": true,
+      "position": [
+        -1.17902398109436,
+        0.000839704589452595,
+        -1.99999976158142
+      ],
+      "started_without_reset": true,
+      "trial": "loop_31"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -2.47989654541016,
+        0.000834132311865687,
+        -1.21217501163483
+      ],
+      "started_without_reset": true,
+      "trial": "loop_32"
+    }
+  ]
+}

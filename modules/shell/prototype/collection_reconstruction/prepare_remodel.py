@@ -323,10 +323,73 @@ geometry['trials'] += [['medieval_low_case_blocked',[6.4,.25,21.5],[6.4,0,23.0],
 assert geometry['rooms'][2]['openings']['east']==geometry['rooms'][3]['openings']['west']
 geometry['room_geometry']='Wide-shot wall relationships replace v15 layout; authored metric extents and distal gallery limit provisional. No point cloud in renderer.'
 
+# Coupled authored loop: the north-wall gold panels precede the portal in6382:85..88s.
+# The projecting black display is not the room corner. Keep both Hall doors centred.
+# ponytail:10x26.3m Hall retained from the reviewed prototype; exact survey metrics remain open.
+for index,area in enumerate(geometry['rooms']):
+    dx=-1.95 if index in [0,1,2] else -.95 if index==5 else -4.6 if index>=7 else 0
+    dz=9.25 if index in [2,3,4,5] else 0
+    for k in [0,1]:area['bounds'][k]+=dx
+    for k in [2,3]:area['bounds'][k]+=dz
+    for side,opening in area['openings'].items():
+        area['openings'][side]=[v+(dz if side in ['west','east'] else dx) for v in opening]
+geometry['rooms'][0]['openings']['east']=[-2.8,-1.2]
+geometry['rooms'][1]['bounds'][3]+=9.25
+geometry['rooms'][3]['bounds'][0]=.55
+geometry['rooms'][3]['bounds'][1]=10.55
+geometry['rooms'][6]={'label':'purple elevator-5 connector','bounds':[1.7,3.85,-2.8,-1.2], 'openings':{'west':[-2.8,-1.2],'east':[-2.8,-1.2]}}
+geometry['rooms'][4]={'label':'Grand Gallery','bounds':[.55,10.55,1.8,28.1], 'height':6., 'floor':'herringbone','openings':{'north':[4.55,6.55],'south':[3.4355,7.6645]},'stone_sides':['south']}
+geometry['rooms'].pop(10)
+geometry['start'][0]-=1.95
+for trial in geometry['trials']:
+    name=trial[0]
+    for point in trial[1:3]:
+        if name.startswith(('purple_grey','grey_')):
+            point[0]-=4.6
+        elif name.startswith('right_door'):
+            point[0]=(point[0]-3.65)*(2.15/4.8)+1.7
+        elif name.startswith(('stone_portal','medieval')):
+            if name.startswith('medieval'):point[0]-=.95
+            point[2]+=9.25
+        elif name.startswith('stairs_door'):
+            point[0]-=.95;point[2]+=9.25
+        else:
+            point[0]-=1.95
+            if name.startswith(('tracery','renaissance','far_gallery')):point[2]+=9.25
+# Real loop connections and bench clearance, checked by the capsule in both native and Web.
+for a,b in [(2.2,5.2),(5.2,8.6),(8.6,12),(12,15.4),(15.4,18.8),(18.8,22.2),(22.2,25.6),(25.6,27.2)]:
+    geometry['trials'].append([f'hall_aisle_{a:g}',[7,.25,a],[7,0,b],False])
+geometry['trials'] += [['hall_bench_blocked',[5.55,.25,17.1],[5.55,0,19.2],True],['hall_back_to_grey',[5.55,.25,2.9],[5.55,0,1],False],['hall_grey_return',[5.55,.25,1],[5.55,0,2.9],False]]
+# Source-connected full circuit, avoiding the central benches and display cases.
+route=[[-2.5,-1.2],[-2.5,1],[-2.5,4.4],[-2.5,7.8],[-2.5,11.2],[-2.5,14.6],[-2.5,18],[-2.5,21.4],[-2.5,24.8],[-2.5,26.7],[-2.5,28.6],[-2.5,30],[-.2,30],[-.2,31.765],[1.25,31.765],[3.2,31.765],[3.2,29.2],[5.55,29.2],[5.55,26.7],[7,26.7],[7,23.3],[7,19.9],[7,16.5],[7,13.1],[7,9.7],[7,6.3],[7,2.9],[5.55,2.9],[5.55,1],[5.55,-2],[3.05,-2],[1.1,-2],[-1.2,-2],[-2.5,-1.2]]
+for i,(a,b) in enumerate(zip(route,route[1:])):
+    assert (sum((x-y)**2 for x,y in zip(a,b)))**.5<=3.5
+    geometry['trials'].append([f'loop_{i:02d}',[a[0],.25,a[1]],[b[0],0,b[1]],False])
+geometry['continuous_loop_waypoints']=route
+# Shared openings must agree, rooms must not overlap in plan, and the long sides meet.
+for a,side,b,other in [(0,'south',1,'north'),(1,'south',2,'north'),(2,'east',3,'west'),(3,'north',4,'south'),(3,'east',5,'west'),(0,'east',6,'west'),(6,'east',7,'west'),(7,'east',8,'west'),(7,'north',9,'south'),(7,'south',4,'north')]:
+    assert all(abs(x-y)<1e-8 for x,y in zip(geometry['rooms'][a]['openings'][side],geometry['rooms'][b]['openings'][other]))
+for i,a in enumerate(geometry['rooms']):
+    for b in geometry['rooms'][i+1:]:
+        aa,bb=a['bounds'],b['bounds']
+        assert min(aa[1],bb[1])-max(aa[0],bb[0])<1e-8 or min(aa[3],bb[3])-max(aa[2],bb[2])<1e-8,(a['label'],b['label'])
+assert abs(geometry['rooms'][1]['bounds'][3]-geometry['rooms'][4]['bounds'][3])<1e-8
+geometry['patches']=[{'label':r['label'],'color':'81735c','vertices':[[r['bounds'][0],0,r['bounds'][2]],[r['bounds'][1],0,r['bounds'][2]],[r['bounds'][1],0,r['bounds'][3]],[r['bounds'][0],0,r['bounds'][3]]]} for r in geometry['rooms']]
+geometry['far_connection']['extent']='Connected complete Main Hall shell and23 reused paintings; room metrics and remaining object coverage unaccepted.'
+geometry['grey_gallery_connections']['extent']='Connected walkable museum loop through the Main Hall, medieval, Renaissance, European, Rockefeller and grey rooms; stairs remain threshold studies.'
+geometry['loop_fit']={'source':'6382:64..89.25;6344:177.5;official floor5 topology', 'correction':'North-wall paintings lie left of projecting display and portal; do not mistake display edge for northwest corner. Extend parallel long galleries, align Hall end doors, preserve relative object placements.', 'metric_accepted':False,'connector_length_accepted':False,'hall_length_m':26.3,'hall_width_m':10.,'medieval_wall_width_m':10.}
+
 (out/'geometry.json').write_text(json.dumps(geometry,indent=2)+'\n')
 inputs[str(ingestion/'room-route-walk-v5/geometry.json')] = hashlib.sha256((ingestion/'room-route-walk-v5/geometry.json').read_bytes()).hexdigest()
-for name in ['doorway_walk.gd','remodel_room.gd','remodel_review.gd','remodel_presenter.gd','remodel_bake.gd']:
+for name in ['doorway_walk.gd','remodel_room.gd','remodel_review.gd','remodel_presenter.gd','remodel_bake.gd','connected_hall.gd']:
     copy(source/name,name)
+hall_source=repo/'modules/shell/prototype/gallery_walk4'
+for name in ['walk4.gd','works.json','gaps.json']:
+    copy(hall_source/name,'modules/shell/prototype/gallery_walk4/'+name)
+for folder in ['frames','canvas','textures']:
+    for path in (hall_source/folder).rglob('*'):
+        if path.is_file() and not path.name.endswith('.import'):
+            copy(path,'modules/shell/prototype/gallery_walk4/'+str(path.relative_to(hall_source)))
 visitor_source = repo/'image-work/collection-room-remodel/main-hall-visitor159'
 for path in visitor_source.rglob('*'):
     if path.is_file():
@@ -372,8 +435,9 @@ for name, origin in [('frame.png','trial/frame.png'),('frame-geometry.json','tri
 (out/'remodel_presenter.tscn').write_text('[gd_scene load_steps=2 format=3]\n[ext_resource type="Script" path="res://remodel_presenter.gd" id="1"]\n[node name="CollectionPresentation" type="Control"]\nlayout_mode=3\nanchors_preset=15\nanchor_right=1.0\nanchor_bottom=1.0\ngrow_horizontal=2\ngrow_vertical=2\nscript = ExtResource("1")\n')
 (out/'project.godot').write_text('config_version=5\n[application]\nconfig/name="Collection low polygon rooms"\nrun/main_scene="res://remodel_presenter.tscn"\n[display]\nwindow/size/viewport_width=1100\nwindow/size/viewport_height=760\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n')
 (out/'export_presets.cfg').write_text('[preset.0]\nname="Web"\nplatform="Web"\nrunnable=true\nexport_filter="all_resources"\ninclude_filter="geometry.json,assets/*.json"\nexclude_filter="web/*,evidence/*,manifest.json"\nexport_path="web/index.html"\n[preset.0.options]\nvariant/thread_support=false\nhtml/export_icon=false\nhtml/canvas_resize_policy=2\n')
+inputs[str(source/'prepare_remodel.py')]=hashlib.sha256((source/'prepare_remodel.py').read_bytes()).hexdigest()
 (out/'manifest.json').write_text(json.dumps(dict(source_sha256=inputs,point_cloud_render=False,
-    room_extents='wide-shot corrected gallery doorway perpendicular to sofa wall; metric dimensions and distal long-gallery limit provisional',
+    room_extents='coupled authored parallel galleries and end-room connections; exact metrics provisional',
     catalogue_objects=len(catalogue_objects['instances']),
     object_coverage=json.loads((app/'video-inventory.json').read_text()),
     bookcase_dimensions_m=[1.1,1.515,.33],mirror_dimensions_m=[.914,2.311],

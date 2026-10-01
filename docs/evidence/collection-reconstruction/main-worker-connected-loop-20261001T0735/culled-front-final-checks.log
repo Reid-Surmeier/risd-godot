@@ -1,0 +1,9 @@
+visual complete
+native complete
+export complete
+Browser exit: 1
+Traceback (most recent call last):
+  File "/tmp/collection-v40-final-checks.py", line 8, in <module>
+    r=subprocess.run(['python3','/tmp/collection-v40-browser-with-server.py'],env=rtx);assert r.returncode==0
+                                                                                              ^^^^^^^^^^^^^^^
+AssertionError
