@@ -279,7 +279,7 @@
       "wrist-before.log": "984380314769a58263444ef8e49a9f133160badaefe10cabdc9d6e01d31e8ed6",
       "appearance-hands-before-after.jpg": "d22b068d29866dce27abd69ee3eed10132ac40400ddc9900505009eae6b49df9",
       "audio-sand.wav": "19b15934697fb9147912a853361bf54ed336e810de705065c50a1f19ddf143b2",
-      "verification.json": "26516fa3d70c22753726cc99f996d7eaed123421462f1d97958f65bf9a79bbff",
+      "verification.json": "002af4c956120a8879039a52216a7cdbade30a8ec48c8b5a2f95bb6bee2165e4",
       "native-face-half.png": "d14ba1fd01630f03ac79bedd0e77d9c84fdcca7ad6bc7b778f626b5322096551",
       "appearance-check.json": "dd27afe9831cade25069813ba5f3d6825ccad16b7c6781725bca21c57a6980ce",
       "registered-pose-poses.jpg": "6917a5915d1fec593aa548cbd45b622748aaefbcb37c7f7d0ddb8091f7f9d032",
@@ -313,6 +313,7 @@
       "audio-indoor.wav": "c2c9ea6d85dd1d2a15733b35327aa0fd8d46795e9c575413914c2f033bc03a97",
       "audio-skid.wav": "702da8d1f15547a2177c2b9081336cbe8a92e75dc3653c1ce68c4bc16d741f2f",
       "phone-idle.png": "20d83baa7335ee8b007ef0bebd803a0a90d3feb2eeacef47cc7960d57075d4c1",
+      "index.html": "fc4e0a2081eb66296d5e426ae31b2cc0c77d3ce40a244f794b8241e486be39b2",
       "browser.json": "25a1af7f43583301e1d77f2922b306a9758750e9d4de3bdb02494e6d8180cbde",
       "canonical-rejected/registered-pose.gif": "8f45a849fe00f82470c9416c2de08888553613aca949ce0ec7af0c244f23ff3f",
       "canonical-rejected/registered-pose-poses.jpg": "04afa334d794742a27347459302e1d5eb6b0b55f4513166b73e27b437a2f4cf9",
@@ -459,7 +460,8 @@
       "retained_share": "https://windows-wsl.taile06c45.ts.net/character-walk-01a0f3a2/",
       "reference_audio_bytes": 465713,
       "source_provider_files_deleted": false
-    }
+    },
+    "evidence_url": "https://windows-wsl.taile06c45.ts.net/character-evidence-01a0f3a2/"
   },
   "fidelity_audit": {
     "date": "2026-09-30",

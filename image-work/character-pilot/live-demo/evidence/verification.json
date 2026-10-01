@@ -23,5 +23,6 @@
   "originals_against_previous_commit": "PASS",
   "before_regressions_reproduced": true,
   "final_build_stamp": "094e9d943dbb",
-  "storage_own_regenerable_removed_bytes": 344421572
+  "storage_own_regenerable_removed_bytes": 344421572,
+  "private_review_images_media_phone": "PASS"
 }
