@@ -35,20 +35,49 @@ func run() -> void:
 		assert(palms[side].size()>200 and absf(tip-.145)<.001 and absf(thumb+.12)<.001 and edge-thumb>.035,"Palm shape "+side)
 		shapes[side]={"vertices":palms[side].size(),"reach_m":tip,"thumb_projection_m":edge-thumb}
 	var wrists := {}
-	for clip in ["walk","run","dash","skid"]:
+	for clip in ["idle","walk","run","dash","skid","jump"]:
 		demo.player.play(clip)
 		var maximum := 0.0
 		for i in 65:
 			demo.player.seek(demo.player.get_animation(clip).length*i/64.0,true)
 			demo.skeleton.force_update_all_bone_transforms()
-			for side in ["Left","Right"]:
-				var fore: int=demo.skeleton.find_bone(side+"ForeArm")
-				var hand: int=demo.skeleton.find_bone(side+"Hand")
-				var actual: Basis=demo.skeleton.get_bone_global_pose(fore).basis.inverse()*demo.skeleton.get_bone_global_pose(hand).basis
-				var rest: Basis=demo.skeleton.get_bone_global_rest(fore).basis.inverse()*demo.skeleton.get_bone_global_rest(hand).basis
-				maximum=maxf(maximum,rad_to_deg(actual.orthonormalized().get_rotation_quaternion().angle_to(rest.orthonormalized().get_rotation_quaternion())))
+			maximum=maxf(maximum,wrist_error())
 		assert(maximum<.1,"Wrist counter-rotation: "+clip+" "+str(maximum))
 		wrists[clip]={"samples":65,"relative_wrist_error_degrees":maximum}
+	var transitions := {}
+	demo.reset()
+	for tool in ["None","Axe","Net","None"]:
+		demo.tool=tool
+		var maximum := 0.0
+		var states := []
+		var arm_maximum := 0.0
+		var stable_ticks := 0
+		var previous_clip := ""
+		for input in [Vector2.ZERO,Vector2(0,.45),Vector2.DOWN,Vector2.UP,Vector2.ZERO]:
+			Input.action_release("sprint")
+			if input.length()>.99:Input.action_press("sprint")
+			Input.action_release("down");Input.action_release("up")
+			if input.y>0:Input.action_press("down",input.y)
+			if input.y<0:Input.action_press("up",-input.y)
+			for tick in 30:
+				demo._physics_process(1.0/60)
+				maximum=maxf(maximum,wrist_error())
+				stable_ticks=stable_ticks+1 if previous_clip==demo.player.current_animation else 0
+				previous_clip=demo.player.current_animation
+				if tool=="None" and stable_ticks>=20:
+					arm_maximum=maxf(arm_maximum,arm_animation_error())
+				if demo.state not in states:states.append(demo.state)
+		assert(maximum<.1,"Blended wrist counter-rotation: "+tool+" "+str(maximum))
+		assert(arm_maximum<.1,"Stale base arm pose after clip/tool transition: "+str(arm_maximum))
+		transitions[tool]={"updates":150,"relative_wrist_error_degrees":maximum,"states":states,"settled_base_arm_error_degrees":arm_maximum}
+	demo.reset();demo.tool="None"
+	for tick in 3:demo._physics_process(1.0/60)
+	demo.jump()
+	var jump_maximum := 0.0
+	for tick in 72:
+		demo._physics_process(1.0/60)
+		jump_maximum=maxf(jump_maximum,wrist_error())
+	assert(jump_maximum<.1,"Jump transition wrist alignment")
 	var audio := {}
 	var samples := []
 	for ground in ["Grass","Path","Snow","Sand","Water","Leaves","Indoor"]:
@@ -75,6 +104,28 @@ func run() -> void:
 	var start: int=demo.audio_history.size();demo.state="Idle";demo.footstep("Right")
 	assert(demo.audio_history.size()==start)
 	demo.sounds.streams[demo.sounds.key("Skid",false,0)].save_to_wav("res://audio-skid.wav")
-	FileAccess.open("res://quality-check.json",FileAccess.WRITE).store_string(JSON.stringify({"palms":shapes,"wrists":wrists,"audio":audio,"idle_silent":true,"exact_original_waveforms":false},"  "))
+	FileAccess.open("res://quality-check.json",FileAccess.WRITE).store_string(JSON.stringify({"palms":shapes,"wrists":wrists,"transitions":transitions,"jump_transition":{"updates":72,"relative_wrist_error_degrees":jump_maximum},"audio":audio,"idle_silent":true,"exact_original_waveforms":false},"  "))
 	print("PASS exported wrist alignment and distinct audio banks/variants/gains/envelopes/idle silence")
 	quit()
+
+func wrist_error() -> float:
+	demo.skeleton.force_update_all_bone_transforms()
+	var maximum := 0.0
+	for side in ["Left","Right"]:
+		var fore: int=demo.skeleton.find_bone(side+"ForeArm")
+		var hand: int=demo.skeleton.find_bone(side+"Hand")
+		var actual: Basis=demo.skeleton.get_bone_global_pose(fore).basis.inverse()*demo.skeleton.get_bone_global_pose(hand).basis
+		var rest: Basis=demo.skeleton.get_bone_global_rest(fore).basis.inverse()*demo.skeleton.get_bone_global_rest(hand).basis
+		maximum=maxf(maximum,rad_to_deg(actual.orthonormalized().get_rotation_quaternion().angle_to(rest.orthonormalized().get_rotation_quaternion())))
+	return maximum
+
+func arm_animation_error() -> float:
+	var animation: Animation=demo.player.get_animation(demo.player.current_animation)
+	var maximum := 0.0
+	for bone in demo.tool_rotations.Axe:
+		var expected: Quaternion=demo.skeleton.get_bone_rest(bone).basis.orthonormalized().get_rotation_quaternion()
+		for track in animation.get_track_count():
+			if animation.track_get_type(track)==Animation.TYPE_ROTATION_3D and str(animation.track_get_path(track)).split(":")[-1]==demo.skeleton.get_bone_name(bone):
+				expected=animation.rotation_track_interpolate(track,demo.player.current_animation_position)
+		maximum=maxf(maximum,rad_to_deg(expected.normalized().angle_to(demo.skeleton.get_bone_pose_rotation(bone).normalized())))
+	return maximum

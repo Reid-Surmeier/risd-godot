@@ -1,7 +1,7 @@
 extends RefCounted
 ## Verified source dispatch; locally synthesized timbres remain an adaptation.
 const BASES = {"Grass":0x4201,"Path":0x4202,"Stone":0x4203,"Wood":0x4204,"Leaves":0x4205,"Snow":0x4206,"Sand":0x4208,"Water":0x4209,"Bridge":0x420a,"Indoor":0x4204}
-const SHAPES = {"Grass":[150.0,.10,.025,.12],"Path":[195.0,.08,.012,.08],"Stone":[360.0,.075,.008,.035],"Wood":[240.0,.13,.008,.025],"Leaves":[130.0,.14,.045,.32],"Snow":[100.0,.13,.035,.20],"Sand":[115.0,.12,.025,.15],"Water":[420.0,.16,.045,.35],"Bridge":[220.0,.14,.01,.03],"Indoor":[240.0,.13,.008,.025],"Skid":[600.0,.24,.10,.40],"DoorLatch":[900.0,.075,.012,.12],"DoorCreak":[180.0,.24,.05,.09],"DoorShut":[95.0,.16,.025,.13]}
+const SHAPES = {"Grass":[150.0,.10,.025,.12],"Path":[195.0,.08,.012,.08],"Stone":[360.0,.075,.008,.035],"Wood":[240.0,.13,.008,.025],"Leaves":[130.0,.14,.045,.32],"Snow":[100.0,.13,.035,.20],"Sand":[115.0,.12,.025,.15],"Water":[420.0,.16,.045,.35],"Bridge":[220.0,.14,.01,.03],"Indoor":[240.0,.13,.008,.025],"Landing":[130.0,.10,.028,.30],"Skid":[600.0,.24,.10,.40],"DoorLatch":[900.0,.075,.012,.12],"DoorCreak":[180.0,.24,.05,.09],"DoorShut":[95.0,.16,.025,.13]}
 var streams := {}
 var rng := RandomNumberGenerator.new()
 var previous_special := false
@@ -20,12 +20,18 @@ func synthesize(ground: String, dash: bool, variant: int) -> AudioStreamWAV:
 	var low := 0.0
 	for i in count:
 		var t := float(i)/rate
-		low=lerpf(low,rng.randf_range(-1,1),.12 if ground!="Water" else .3)
+		var noise := rng.randf_range(-1,1)
+		low=lerpf(low,noise,.12 if ground!="Water" else .3)
 		var attack := minf(1,t/.002)
 		var body := sin(TAU*(float(shape[0])*(1+variant*.025)*t-50*t*t))*exp(-t/(duration*.21))
-		var detail := low*exp(-t/float(shape[2]))*float(shape[3])
-		var value := attack*(body*.32+detail)*(1.12 if dash else 1.0)
+		var detail := (low*1.4+(noise-low)*.35)*exp(-t/float(shape[2]))*(float(shape[3])+.20)
+		if dash:detail+=noise*.10*exp(-t/.028)
+		var value := attack*(body*.14+detail)*(1.12 if dash else 1.0)
 		data.encode_s16(i*2,int(clampf(value,-.95,.95)*32767))
+	# Keep audition loudness stable when changing timbre; gait gain remains separate.
+	var peak := 1
+	for i in count:peak=maxi(peak,absi(data.decode_s16(i*2)))
+	for i in count:data.encode_s16(i*2,int(data.decode_s16(i*2)*12450.0/peak))
 	var stream := AudioStreamWAV.new();stream.format=AudioStreamWAV.FORMAT_16_BITS;stream.mix_rate=rate;stream.data=data
 	return stream
 func step(ground: String, gait: String, foot: String, inside: bool) -> Dictionary:

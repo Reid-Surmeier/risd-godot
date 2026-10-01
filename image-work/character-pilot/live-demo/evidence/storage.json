@@ -1,14 +1,20 @@
 {
-  "removed_own_regenerable_bytes": 344421572,
+  "removed_own_regenerable_bytes": 829085130,
   "removed_own_trial_exports": [
-    "a9b14e593a62",
-    "ef23e8a84775",
-    "f36d6b7bd36e",
-    "6e04f3e952ce",
-    "2fba3ea2499a"
+    "094e9d943dbb",
+    "51f7e3723fd0",
+    "a47f12766a71",
+    "c5a0b73d91cf",
+    "d242dc979a1b",
+    "2305156c76fc",
+    "4354e3661fa2",
+    "629d04564b40",
+    "7223ba1ba1c4"
   ],
-  "retained_final_build": "094e9d943dbb",
+  "removed_final_raw_frame_count": 462,
+  "retained_final_build": "d0a45b4e85fe",
   "retained_share": "https://windows-wsl.taile06c45.ts.net/character-walk-01a0f3a2/",
-  "reference_audio_bytes": 465713,
+  "reference_audio_bytes": 68528,
+  "new_decoded_bank_audio_bytes": 0,
   "source_provider_files_deleted": false
 }

@@ -15032,7 +15032,7 @@
         "velocity_jump_mps": 0.266496449708939
       }
     ],
-    "rms_vertex_displacement_m": 2.80702964862279e-06
+    "rms_vertex_displacement_m": 2.80750695910405e-06
   },
   "seconds": 0.800000011920929,
   "sole_definition": "vertices with >99.99% Foot weight; minimum of their skinned bounds, not a ground/contact sensor",
@@ -15282,15 +15282,6 @@
     },
     {
       "first_time": 0.0,
-      "interpolation": 0,
-      "keys": 193,
-      "last_time": 0.800000011920929,
-      "loop_wrap": true,
-      "path": "Armature/Skeleton3D:LeftHand",
-      "type": 2
-    },
-    {
-      "first_time": 0.0,
       "interpolation": 1,
       "keys": 193,
       "last_time": 0.800000011920929,
@@ -15360,15 +15351,6 @@
       "loop_wrap": true,
       "path": "Armature/Skeleton3D:RightHand",
       "type": 1
-    },
-    {
-      "first_time": 0.0,
-      "interpolation": 0,
-      "keys": 193,
-      "last_time": 0.800000011920929,
-      "loop_wrap": true,
-      "path": "Armature/Skeleton3D:RightHand",
-      "type": 2
     },
     {
       "first_time": 0.0,
@@ -15438,5 +15420,5 @@
       "worst_bone": "LeftHand"
     }
   ],
-  "source_sha256": "af7397e82376e09d329abba7fcdf9a7727842cb9696232eeb0d782b3d0a06d0b"
+  "source_sha256": "459b72d0d4f69b59c3107a2d44449252e8786752464e9b5c10beda6dccd5792f"
 }

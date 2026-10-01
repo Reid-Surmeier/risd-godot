@@ -4,5 +4,14 @@
   "distinct_blink_levels": 6,
   "outside_face_changed_pixels": 0,
   "closed_eye_blue_bleed_pixels": 0,
-  "native_render_compared_to_original_material": true
+  "native_render_compared_to_original_material": true,
+  "dust_visible_pixels": [
+    427,
+    20,
+    126,
+    722,
+    14,
+    1935,
+    118
+  ]
 }

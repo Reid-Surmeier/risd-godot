@@ -37,7 +37,7 @@ runnable=true
 export_filter="all_resources"
 export_path=""
 include_filter=""
-exclude_filter="appearance-*,audio-*,*-check.json,record-*,hand-rest-*,*_check.gd,record.gd"
+exclude_filter="appearance-*,audio-*,*-check.json,record-*,jump-record*,effects-record*,hand-rest-*,*_check.gd,record.gd"
 [preset.0.options]
 variant/extensions_support=false
 variant/thread_support=false
@@ -62,7 +62,7 @@ run('precise-import.log',['--editor','--import','--quit'])
 run('controller-check.log',['--script','res://controller_check.gd'])
 run('driven-check.log',['--script','res://driven_check.gd'])
 run('quality-check.log',['--script','res://quality_check.gd'])
-run('appearance-check.log',['--script','res://appearance_check.gd'],rendered=True)
+run('appearance-check.log',['--fixed-fps','60','--script','res://appearance_check.gd'],rendered=True)
 with (out/'appearance-pixel-check.log').open('w') as log:subprocess.run([sys.executable,str(HERE/'appearance_check.py'),str(project)],stdout=log,stderr=subprocess.STDOUT,check=True)
 run('export.log',['--export-release','Web',str(site/'index.html')])
 assert all((site/('index'+ext)).exists() for ext in ['.html','.js','.wasm','.pck'])

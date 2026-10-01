@@ -1,0 +1,4 @@
+Native Godot 4.7.2, previous exported build 094e9d943dbb
+quality_check.gd extended to include idle before solver fix
+Assertion failed: Wrist counter-rotation: idle 25.6935409499236
+Additional native transition repro: static skid speed_scale=0 stalled blending; settled arm error 77.221497 degrees in intermediate build4354e3661fa2. Restoring base before seek and advancing the static clip permits the blend to finish.

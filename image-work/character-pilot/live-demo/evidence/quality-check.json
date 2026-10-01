@@ -3,55 +3,59 @@
     "Grass": {
       "gain": 0.8,
       "id": 16897,
-      "peak": 8975,
+      "peak": 12450,
       "samples": 2205,
-      "tail": 116
+      "tail": 264
     },
     "Indoor": {
       "gain": 0.72,
-      "id": 16900,
-      "peak": 9232,
+      "id": 16920,
+      "peak": 12450,
       "samples": 2866,
-      "tail": 98
+      "tail": 85
     },
     "Leaves": {
       "gain": 0.8,
       "id": 16901,
-      "peak": 11628,
+      "peak": 12450,
       "samples": 3087,
-      "tail": 141
+      "tail": 360
     },
     "Path": {
       "gain": 0.8,
-      "id": 16918,
-      "peak": 8871,
+      "id": 16898,
+      "peak": 12450,
       "samples": 1764,
-      "tail": 114
+      "tail": 102
     },
     "Sand": {
       "gain": 0.8,
       "id": 16904,
-      "peak": 10646,
+      "peak": 12450,
       "samples": 2646,
-      "tail": 106
+      "tail": 101
     },
     "Snow": {
       "gain": 0.8,
       "id": 16902,
-      "peak": 11513,
+      "peak": 12450,
       "samples": 2866,
-      "tail": 110
+      "tail": 237
     },
     "Water": {
       "gain": 0.8,
-      "id": 16925,
-      "peak": 15324,
+      "id": 16905,
+      "peak": 12450,
       "samples": 3528,
-      "tail": 224
+      "tail": 450
     }
   },
   "exact_original_waveforms": false,
   "idle_silent": true,
+  "jump_transition": {
+    "relative_wrist_error_degrees": 0.0,
+    "updates": 72
+  },
   "palms": {
     "Left": {
       "reach_m": 0.145000025629997,
@@ -64,13 +68,59 @@
       "vertices": 543
     }
   },
+  "transitions": {
+    "Axe": {
+      "relative_wrist_error_degrees": 0.0,
+      "settled_base_arm_error_degrees": 0.0,
+      "states": [
+        "Idle",
+        "Walk",
+        "Run",
+        "Dash",
+        "Skid"
+      ],
+      "updates": 150
+    },
+    "Net": {
+      "relative_wrist_error_degrees": 0.0,
+      "settled_base_arm_error_degrees": 0.0,
+      "states": [
+        "Idle",
+        "Walk",
+        "Run",
+        "Dash",
+        "Skid"
+      ],
+      "updates": 150
+    },
+    "None": {
+      "relative_wrist_error_degrees": 0.0,
+      "settled_base_arm_error_degrees": 0.0395646811852521,
+      "states": [
+        "Idle",
+        "Walk",
+        "Run",
+        "Dash",
+        "Skid"
+      ],
+      "updates": 150
+    }
+  },
   "wrists": {
     "dash": {
-      "relative_wrist_error_degrees": 0.0395646811852521,
+      "relative_wrist_error_degrees": 0.0,
+      "samples": 65
+    },
+    "idle": {
+      "relative_wrist_error_degrees": 0.0,
+      "samples": 65
+    },
+    "jump": {
+      "relative_wrist_error_degrees": 0.0,
       "samples": 65
     },
     "run": {
-      "relative_wrist_error_degrees": 0.0395646811852521,
+      "relative_wrist_error_degrees": 0.0,
       "samples": 65
     },
     "skid": {
@@ -78,7 +128,7 @@
       "samples": 65
     },
     "walk": {
-      "relative_wrist_error_degrees": 0.0395646811852521,
+      "relative_wrist_error_degrees": 0.0,
       "samples": 65
     }
   }

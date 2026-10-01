@@ -73,7 +73,7 @@ if profile.get('source_curves'):
   for axis,angle in zip('ZYX',reversed(angles)):rotation=rotation@Matrix.Rotation(math.radians(angle),3,axis)
   parent=joint['parent'];neutral[joint['index']]=rotation if parent is None else neutral[parent]@rotation
  mapping={'Hips':'base','Spine02':'chest','Spine01':'chest','Spine':'chest','LeftShoulder':'LeftShoulderBase','LeftArm':'LeftUpperArm','LeftForeArm':'LeftForearm','LeftHand':'LeftForearm','RightShoulder':'RightShoulderBase','RightArm':'RightUpperArm','RightForeArm':'RightForearm','RightHand':'RightForearm','neck':'HeadBase','Head':'head','LeftUpLeg':'LeftThigh','LeftLeg':'LeftKnee','LeftFoot':'LeftShoe','LeftToeBase':'LeftShoe','RightUpLeg':'RightThigh','RightLeg':'RightKnee','RightFoot':'RightShoe','RightToeBase':'RightShoe'}
- if profile.get('tool_pose'):mapping['RightHand']='hand'
+ # Source 'hand' is the tool attachment joint; its axes must not rotate the palm.
  # Parent first even though the source and target have different extra spine/hand joints.
  if profile.get('standing_foot_reference'):
   stand=json.loads((profile_path.parent/profile['standing_foot_reference']).read_text())
@@ -253,7 +253,8 @@ for kind,source in sources.items():
      delta=(restend-reststart).normalized().rotation_difference((end-start).normalized())
      pose=(delta@restworld[bone.name].to_quaternion()).to_matrix().to_4x4()@Matrix.Diagonal(Vector((.01,.01,.01,1)))
      pose.translation=start;bone.matrix=rig.matrix_world.inverted()@pose;bpy.context.view_layer.update()
-    delta=(a0-restworld[side+'Arm'].translation).normalized().rotation_difference(direction)
+    # Preserve the wrist's rest orientation relative to the solved forearm.
+    delta=(a0-k0).normalized().rotation_difference((target-elbow).normalized())
     pose=(delta@restworld[side+'Hand'].to_quaternion()).to_matrix().to_4x4()@Matrix.Diagonal(Vector((.01,.01,.01,1)))
     pose.translation=target;hand.matrix=rig.matrix_world.inverted()@pose;bpy.context.view_layer.update()
     errors[side+'Hand']=((rig.matrix_world@hand.matrix).translation-target).length

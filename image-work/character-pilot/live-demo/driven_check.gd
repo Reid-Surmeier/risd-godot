@@ -13,6 +13,39 @@ func run() -> void:
 	assert(demo.camera!=null and demo.soles.size()>500)
 	assert(demo.tool_rotations.Axe.size()==8 and demo.tool_rotations.Net.size()==4)
 	assert(demo.tool_meshes.Axe.global_basis.get_scale().distance_to(Vector3.ONE)<.0001)
+	assert(demo.has_method("jump"),"Missing playable jump animation")
+	var steps_before: int=demo.footprint_count
+	demo.jump();await frames(22)
+	assert(demo.body.position.y>.4 and not demo.body.is_on_floor())
+	var jumps_before: int=demo.jumps
+	demo.jump();assert(demo.jumps==jumps_before,"Midair jump repeated")
+	assert(demo.footprint_count==steps_before)
+	await frames(50)
+	assert(demo.body.is_on_floor() and demo.jump_time<0 and demo.landings==1)
+	evidence.jump={"grounded_launch":true,"midair_retrigger_blocked":true,"airborne_steps":0,"landings":demo.landings,"authored_adaptation":true}
+	demo.set_physics_process(false)
+	demo.reset();demo.surface="Grass";demo.state="Dash";demo.body.velocity=Vector3(0,0,1)
+	demo.footstep("Right")
+	assert(demo.dust.size()==1,"Dry DASH must emit one puff per foot")
+	var puff: Dictionary=demo.dust[0]
+	assert(puff.node.mesh.size==Vector2(.75,.75) and demo.dust_textures[0].get_width()==16)
+	for i in 8:demo._physics_process(1.0/60)
+	assert(is_equal_approx(puff.node.material_override.albedo_color.a,200/255.0))
+	assert(puff.node.scale==Vector3.ONE)
+	var expected: Vector3=puff.origin+(puff.velocity*8+puff.acceleration*36)*puff.source_unit
+	assert(puff.node.position.distance_to(expected)<.00001,"Dust motion must use source update order")
+	for i in 8:demo._physics_process(1.0/60)
+	assert(puff.node.material_override.albedo_color.a==0)
+	for i in 2:demo._physics_process(1.0/60)
+	assert(demo.dust.is_empty(),"Dust persists after 18 updates")
+	var payloads := []
+	for ground in ["Water","Leaves","Snow","Sand"]:
+		var bytes: PackedByteArray=demo.surface_textures[ground].get_image().get_data()
+		for other in payloads:assert(bytes!=other,"Terrain effect silhouettes reused")
+		payloads.append(bytes)
+	evidence.dust={"puffs_per_dry_contact":1,"duration_updates":18,"invisible_at_update":16,"source_motion_and_alpha":true,"authored_masks":true,"distinct_terrain_payloads":4,"quad_size_m":.75}
+	demo.reset();demo.set_physics_process(true)
+
 	Input.action_press("down")
 	await frames(30)
 	assert(demo.state=="Run")

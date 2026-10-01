@@ -1,6 +1,6 @@
 {
   "source_sha256": "adad550dfbc07244a5665da1a6bc35bf4b2a733464bd8617050ef925bce5d33a",
-  "candidate_sha256": "af7397e82376e09d329abba7fcdf9a7727842cb9696232eeb0d782b3d0a06d0b",
+  "candidate_sha256": "459b72d0d4f69b59c3107a2d44449252e8786752464e9b5c10beda6dccd5792f",
   "bones": 24,
   "period_seconds": 0.8,
   "controller_speed_mps": 1.05,

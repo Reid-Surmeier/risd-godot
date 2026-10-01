@@ -22,7 +22,13 @@
   "exported_palm_wrist_audio_checks": "PASS",
   "originals_against_previous_commit": "PASS",
   "before_regressions_reproduced": true,
-  "final_build_stamp": "094e9d943dbb",
-  "storage_own_regenerable_removed_bytes": 344421572,
-  "private_review_images_media_phone": "PASS"
+  "final_build_stamp": "d0a45b4e85fe",
+  "storage_own_regenerable_removed_bytes": 829085130,
+  "private_review_images_media_phone": "PASS",
+  "originals_against_starting_commit": "PASS ae160441",
+  "jump_native_and_browser": "PASS grounded, no air retrigger/steps, one landing; Space and touch",
+  "dust_source_and_rendered_visibility": "PASS one dry puff, discrete motion/alpha/18 updates; 5 of 7 rendered phases visible",
+  "gallery_media_hashes": "PASS 13 linked visual/audio artifacts",
+  "repo_baseline_log_sha256": "be9ea6c8aafd4cee67970e33b3c7bcae91ecf56183cc44ff4a9a8768109f32c3",
+  "browser_log_sha256": "a2daedaa65f54c7d99f971cf5d52553fa0682b3651d21fae2a597fa986854491"
 }

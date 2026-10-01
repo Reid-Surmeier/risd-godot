@@ -63,6 +63,12 @@ for name,sha in provenance['evidence_hashes'].items():assert digest(HERE/'eviden
 browser=read(HERE/'evidence/browser.json');assert not browser['errors']
 assert browser['keyboard']['partial_walk']['state']=='Walk' and browser['keyboard']['door_exit']['door_transitions']==2
 assert browser['touch']['moving']['state']=='Dash'
+assert browser['keyboard']['jump']['y']>.4 and browser['keyboard']['jump']['state']=='Jump'
+assert browser['touch']['jump']['y']>.4 and browser['touch']['jump']['state']=='Jump'
+native=read(HERE/'evidence/driven-check.json')
+assert native['jump']['midair_retrigger_blocked'] and native['jump']['airborne_steps']==0 and native['jump']['landings']==1
+assert native['dust']['puffs_per_dry_contact']==1 and native['dust']['duration_updates']==18 and native['dust']['invisible_at_update']==16
+assert native['dust']['source_motion_and_alpha'] and native['dust']['authored_masks']
 trace=read(HERE/'evidence/record.json');assert trace['whole_viewport'] and len(trace['frames'])==240 and trace['fps']==30
 assert {'Run','Dash','Skid','Idle'}<=set(f['state'] for f in trace['frames'])
 for folder in [HERE/'evidence',HERE/'evidence/walk-alternative']:
@@ -78,8 +84,13 @@ stamp=hashlib.sha256((''.join(digest(p) for p in sorted(HERE.glob('*.gd')))+dige
 assert provenance['stamp']==stamp and provenance['additional_api_cost_usd']==0
 appearance=read(HERE/'evidence/appearance-metrics.json')
 assert appearance['mean_material_color_error_255']<1 and appearance['maximum_blink_level_jump']<.35
+assert max(appearance['dust_visible_pixels'])>50 and sum(n>50 for n in appearance['dust_visible_pixels'])>=3
 assert appearance['outside_face_changed_pixels']==0 and appearance['closed_eye_blue_bleed_pixels']==0
 quality=read(HERE/'evidence/quality-check.json')
+assert set(quality['wrists'])=={'idle','walk','run','dash','skid','jump'}
+assert quality['jump_transition']['updates']==72 and quality['jump_transition']['relative_wrist_error_degrees']<.1
+assert set(quality['transitions'])=={'None','Axe','Net'}
+assert all(p['relative_wrist_error_degrees']<.1 and p['settled_base_arm_error_degrees']<.1 and p['updates']==150 for p in quality['transitions'].values())
 assert all(p['relative_wrist_error_degrees']<.1 and p['samples']==65 for p in quality['wrists'].values())
 assert all(abs(p['reach_m']-.145)<.001 and p['thumb_projection_m']>.035 for p in quality['palms'].values())
 assert quality['idle_silent'] and not quality['exact_original_waveforms']

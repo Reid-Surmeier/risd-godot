@@ -14648,7 +14648,7 @@
       {
         "bone": "LeftHand",
         "position_m": 0.0,
-        "rotation_deg": 0.0559529096807445
+        "rotation_deg": 0.0
       },
       {
         "bone": "RightShoulder",
@@ -14692,7 +14692,7 @@
       }
     ],
     "maximum_bone_position_m": 9.31322574615479e-09,
-    "maximum_bone_rotation_deg": 0.0559529096807445,
+    "maximum_bone_rotation_deg": 0.0395646811852521,
     "maximum_vertex_displacement_m": 1.19209289550781e-07,
     "one_sided_velocities": [
       {
@@ -15282,15 +15282,6 @@
     },
     {
       "first_time": 0.0,
-      "interpolation": 0,
-      "keys": 969,
-      "last_time": 4.03333330154419,
-      "loop_wrap": true,
-      "path": "Armature/Skeleton3D:LeftHand",
-      "type": 2
-    },
-    {
-      "first_time": 0.0,
       "interpolation": 1,
       "keys": 969,
       "last_time": 4.03333330154419,
@@ -15360,15 +15351,6 @@
       "loop_wrap": true,
       "path": "Armature/Skeleton3D:RightHand",
       "type": 1
-    },
-    {
-      "first_time": 0.0,
-      "interpolation": 0,
-      "keys": 969,
-      "last_time": 4.03333330154419,
-      "loop_wrap": true,
-      "path": "Armature/Skeleton3D:RightHand",
-      "type": 2
     },
     {
       "first_time": 0.0,
@@ -15438,5 +15420,5 @@
       "worst_bone": "RightHand"
     }
   ],
-  "source_sha256": "abbbba117b4803aa3222e74e0f37d0fedc81ad183b7823b30b747fa89779cf5f"
+  "source_sha256": "f08e18f315f2dbe37309f556c684e5f804950ea7e29759dea1c62f861fdc9a2c"
 }

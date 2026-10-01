@@ -1,6 +1,6 @@
 {
   "source_sha256": "adad550dfbc07244a5665da1a6bc35bf4b2a733464bd8617050ef925bce5d33a",
-  "candidate_sha256": "1e066acad7b97465d540f6857f974bbe0cad701041b71ba81adc24aab43b74aa",
+  "candidate_sha256": "7b932ba5d9f8664398e965c12e308f102058895cf59916da2de588ecea7e547b",
   "bones": 24,
   "period_seconds": 0.8,
   "controller_speed_mps": 1.05,
@@ -52,7 +52,7 @@
     "walk": {
       "seconds": 0.800000011920929,
       "sample_count": 257,
-      "endpoint_vertex_error_max_m": 4.6541267693101e-06,
+      "endpoint_vertex_error_max_m": 4.65612993139075e-06,
       "floor_penetration_max_m": 7.07912404322997e-05,
       "authored_event_sole_height_m": {
         "Right": -1.04904174236253e-07,

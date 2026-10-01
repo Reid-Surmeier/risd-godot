@@ -1,10 +1,19 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Character regression review</title>
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wrist, jump and running effects</title>
 <style>body{max-width:960px;margin:24px auto;padding:0 16px;font:17px/1.5 system-ui;color:#202020;background:#faf8f1}img,video{max-width:100%;height:auto}figure{margin:24px 0}audio{width:100%}a{color:#135a8b}</style>
-<h1>Character regression review</h1>
-<p><a href="https://windows-wsl.taile06c45.ts.net/character-walk-01a0f3a2/">Walk around in the live demo</a> · <a href="https://github.com/Reid-Surmeier/risd-godot/issues/231#issuecomment-5923073399">Issue and test results</a></p>
+<h1>Wrist, jump and running effects</h1>
+<figure><img src="idle-wrist-before-after.jpg" alt="Same oblique idle view before and after fixing the bent wrist"><figcaption>Reported idle fold: 25.69-degree wrist error before; palm now follows the forearm. Idle, gaits, jump and tool transitions are checked.</figcaption></figure>
+<h2>Try the jump</h2><video controls loop playsinline preload="metadata" src="jump-review.mp4"></video><p>Space or touch Jump. Authored prototype addition: anticipation, tuck and landing; one grounded launch and one landing cue.</p>
+<figure><img src="jump-poses.jpg" alt="Takeoff, airborne, landing and recovery poses"></figure>
+<h2>Running effects</h2><figure><img src="dust-camera-before-after.jpg" alt="Matching game-camera dust before and after visibility calibration"><figcaption>The rendered check caught hidden puffs. Cloud size is visually calibrated; original artwork and quad width remain unavailable.</figcaption></figure><video controls loop playsinline preload="metadata" src="effects-review.mp4"></video><p>One dry sprint puff per footfall, source motion and 18-update lifetime. Cloud masks are authored approximations. Water, leaves, snow and sand use separate payloads.</p>
+<figure><img src="effects-poses.jpg" alt="Dry sprint footfalls and animated cloud puffs"></figure>
+<h2>Sound comparison</h2><p>Original-game excerpt, with music mixed in:</p><audio controls preload="metadata" src="audio-original-mixed-excerpt.wav"></audio>
+<p>Previous local synthesis:</p><audio controls preload="metadata" src="audio-before-review.wav"></audio>
+<p>Current local synthesis: grass, path, snow, sand, water, leaves, indoor, skid, twice each. Source banks/cadence are checked; exact original timbres remain open.</p><audio controls preload="metadata" src="audio-review.wav"></audio>
+<h2>Earlier appearance refinement</h2>
+<p><a href="https://windows-wsl.taile06c45.ts.net/character-walk-01a0f3a2/">Walk around in the live demo</a> · <a href="https://github.com/Reid-Surmeier/risd-godot/issues/231">Issue and test results</a></p>
 <figure><img src="appearance-hands-before-after.jpg" alt="Color, blink and walking hands: before on the left, after on the right"><figcaption>Before and after: material colors, eyelid coverage and walking hands.</figcaption></figure>
 <figure><img src="blink-slow-review.gif" alt="Sixteen native blink updates shown about four times slower"><figcaption>Blink review at about one-quarter native speed.</figcaption></figure>
 <figure><img src="hand-rest-front.png" alt="Close view of repaired mitten palm and thumb"><figcaption>Repaired palm and thumb contour.</figcaption></figure>
 <h2>Original-game comparison</h2><video controls loop playsinline preload="metadata" src="whole-view.mp4"></video><p>Full view retained; original input and capture settings are uncertain. Exact likeness remains open.</p>
-<h2>Sound audition</h2><audio controls preload="metadata" src="audio-review.wav"></audio><p>Grass, path, snow, sand, water, leaves, indoor, then skid; each twice. These are locally synthesized cues. Exact original sounds, voice, ambience and original reverb remain open.</p>
+
 </html>

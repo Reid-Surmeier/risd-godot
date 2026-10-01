@@ -1,27 +1,27 @@
 {
   "Grass": {
     "effect_events": 3,
-    "footsteps": 11
+    "footsteps": 12
   },
   "Indoor": {
     "effect_events": 0,
-    "footsteps": 14
+    "footsteps": 15
   },
   "Leaves": {
     "effect_events": 3,
-    "footsteps": 26
+    "footsteps": 27
   },
   "Sand": {
     "effect_events": 3,
-    "footsteps": 23
+    "footsteps": 24
   },
   "Snow": {
     "effect_events": 3,
-    "footsteps": 17
+    "footsteps": 18
   },
   "Water": {
     "effect_events": 3,
-    "footsteps": 20
+    "footsteps": 21
   },
   "analog": {
     "gait": "Walk",
@@ -37,7 +37,7 @@
     "world_stance_lock": false
   },
   "dash": {
-    "effects": 2,
+    "effects": 3,
     "speed": 4.84615421295166
   },
   "dialogue": {
@@ -48,6 +48,15 @@
   "door": {
     "enter_exit": true,
     "transition_count": 2
+  },
+  "dust": {
+    "authored_masks": true,
+    "distinct_terrain_payloads": 4,
+    "duration_updates": 18,
+    "invisible_at_update": 16,
+    "puffs_per_dry_contact": 1,
+    "quad_size_m": 0.75,
+    "source_motion_and_alpha": true
   },
   "foot_order": {
     "Dash": [
@@ -62,6 +71,13 @@
       "Right",
       "Left"
     ]
+  },
+  "jump": {
+    "airborne_steps": 0,
+    "authored_adaptation": true,
+    "grounded_launch": true,
+    "landings": 1,
+    "midair_retrigger_blocked": true
   },
   "normal": {
     "animation_rate": 1.45120632648468,
@@ -79,7 +95,7 @@
   "tools": {
     "axe_bones": 8,
     "net_bones": 4,
-    "world_scale": "(0.999993, 1.0, 0.999997)"
+    "world_scale": "(0.999999, 0.999998, 0.999993)"
   },
   "wall": {
     "effects_stopped": true,

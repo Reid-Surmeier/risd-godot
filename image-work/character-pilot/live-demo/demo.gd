@@ -23,6 +23,7 @@ var obstruction := 1.0
 var tool := "None"
 var tool_rotations := {}
 var previous_arm_pose := {}
+var animated_arm_pose := {}
 var overlay_from := {}
 var last_overlay := "None"
 var overlay_time := 1.0
@@ -46,9 +47,15 @@ var blink_updates := 0.0
 var random := RandomNumberGenerator.new()
 var footprint_count := 0
 var foot_audio: AudioStreamPlayer
-var dust_texture: ImageTexture
+var dust_textures := []
+var surface_textures := {}
 var calibration := 0
 var slow := false
+var jump_time := -1.0
+var jump_launched := false
+var jump_landed := false
+var jumps := 0
+var landings := 0
 var step_history := []
 var foot_order := {}
 var face_blinks := 0
@@ -83,7 +90,7 @@ func block(position: Vector3, size: Vector3, color: Color, solid := false) -> No
 	return node
 
 func _ready() -> void:
-	var keys: Dictionary = {"left":[KEY_A,KEY_LEFT],"right":[KEY_D,KEY_RIGHT],"up":[KEY_W,KEY_UP],"down":[KEY_S,KEY_DOWN],"sprint":[KEY_SHIFT],"slow":[KEY_CTRL],"interact":[KEY_E]}
+	var keys: Dictionary = {"left":[KEY_A,KEY_LEFT],"right":[KEY_D,KEY_RIGHT],"up":[KEY_W,KEY_UP],"down":[KEY_S,KEY_DOWN],"sprint":[KEY_SHIFT],"slow":[KEY_CTRL],"interact":[KEY_E],"jump":[KEY_SPACE]}
 	for action in keys:
 		InputMap.add_action(action)
 		for key in keys[action]:
@@ -146,6 +153,11 @@ func _ready() -> void:
 		var animation: Animation = source_player.get_animation("walk").duplicate()
 		if name in ["axe","net"]:
 			tool_rotations[name.capitalize()] = {}
+			# Constant rest channels can be omitted on import; retain the actual bone rest pose.
+			for side in (["Right"] if name=="net" else ["Left","Right"]):
+				for part in ["Shoulder","Arm","ForeArm","Hand"]:
+					var bone: int=skeleton.find_bone(side+part)
+					tool_rotations[name.capitalize()][bone]=skeleton.get_bone_rest(bone).basis.orthonormalized().get_rotation_quaternion()
 			for track in animation.get_track_count():
 				if animation.track_get_type(track)!=Animation.TYPE_ROTATION_3D: continue
 				var bone_name := str(animation.track_get_path(track)).split(":")[-1]
@@ -157,6 +169,7 @@ func _ready() -> void:
 	player.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
 	player.play("idle")
 	player.advance(0)
+	make_jump_animation()
 	make_tools()
 	make_face()
 	make_interactions()
@@ -206,17 +219,18 @@ func make_ui() -> void:
 	status.text = "Character playtest · Idle"
 	lines.add_child(status)
 	var hint := Label.new()
-	hint.text = "WASD / arrows · Shift sprint · Ctrl walk\nE interact · R reset · touch arrows + Sprint"
+	hint.text = "WASD / arrows · Shift sprint · Ctrl walk\nE interact · R reset · Space jump"
 	lines.add_child(hint)
 	var controls := HBoxContainer.new()
 	lines.add_child(controls)
-	for title in ["View","Reset","Interact"]:
+	for title in ["View","Reset","Interact","Jump"]:
 		var button := Button.new()
 		button.text = title
 		button.focus_mode = Control.FOCUS_NONE
 		controls.add_child(button)
 		if title=="Reset": button.pressed.connect(reset)
 		elif title=="Interact": button.pressed.connect(interact)
+		elif title=="Jump": button.pressed.connect(jump)
 		else: button.pressed.connect(func(): camera_view = (camera_view+1)%3)
 	var options := HBoxContainer.new()
 	lines.add_child(options)
@@ -260,7 +274,7 @@ void fragment(){
 	layer.add_child(touch)
 	var texture := Image.create(62,62,false,Image.FORMAT_RGBA8)
 	texture.fill(Color(0.12,0.25,0.19,0.85))
-	for item in [["left","<",Vector2(0,64)],["up","^",Vector2(64,0)],["down","v",Vector2(64,128)],["right",">",Vector2(128,64)],["sprint","Sprint",Vector2(218,128)]]:
+	for item in [["left","<",Vector2(0,64)],["up","^",Vector2(64,0)],["down","v",Vector2(64,128)],["right",">",Vector2(128,64)],["sprint","Sprint",Vector2(218,128)],["jump","Jump",Vector2(218,64)]]:
 		var button := TouchScreenButton.new()
 		button.action = item[0]
 		button.texture_normal = ImageTexture.create_from_image(texture)
@@ -271,13 +285,14 @@ void fragment(){
 		label.position = Vector2(3,15)
 		label.size = Vector2(56,32)
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		if item[0]!="sprint": label.add_theme_font_size_override("font_size",26)
+		if item[0] not in ["sprint","jump"]: label.add_theme_font_size_override("font_size",26)
 		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		button.add_child(label)
 	get_viewport().size_changed.connect(func(): touch.position = Vector2(14,get_viewport().get_visible_rect().size.y-212))
 	touch.position = Vector2(14,get_viewport().get_visible_rect().size.y-212)
 
 func reset() -> void:
+	jump_time=-1; jump_launched=false; jump_landed=false
 	body.position = Vector3.ZERO
 	body.velocity = Vector3.ZERO
 	movement.reset()
@@ -335,7 +350,10 @@ func make_tools() -> void:
 			for offset in [-.1,0,.1]:
 				var strand := BoxMesh.new();strand.size=Vector3(.29,.006,.006)
 				primitive(prop,strand,Vector3(0,.68+offset,0),Color("e4d5c0"))
-		prop.rotation_degrees=Vector3(0,0,-90)
+		# Preserve the source tool socket on the prop, without rotating the palm.
+		# Offsets: original fitted tool Hand channel relative to the shared rest Hand.
+		var socket: Quaternion={"Axe":Quaternion(-.248413606,.694114696,.202865733,.644469521),"Net":Quaternion(-.080665449,.360625453,-.301986787,.878775482)}[name]
+		prop.quaternion=socket*Quaternion.from_euler(Vector3(0,0,-PI/2))
 
 func make_face() -> void:
 	random.seed=231
@@ -434,12 +452,41 @@ func interact() -> void:
 func make_effects() -> void:
 	foot_audio=AudioStreamPlayer.new();add_child(foot_audio)
 	effect_audio=AudioStreamPlayer.new();effect_audio.volume_db=-14;add_child(effect_audio)
-	var texture := Image.create(32,32,false,Image.FORMAT_RGBA8)
-	for y in 32:
-		for x in 32:
-			var distance := Vector2(x-15.5,y-15.5).length()/15.5
-			texture.set_pixel(x,y,Color(1,1,1,clampf(1-distance*distance,0,1)))
-	dust_texture=ImageTexture.create_from_image(texture)
+	# Original masks are unavailable: four authored I4 cloud silhouettes, source timing.
+	var masks := []
+	for frame in 4:
+		var image := Image.create(16,16,false,Image.FORMAT_RGBA8)
+		for y in 16:
+			for x in 16:
+				var point := Vector2(x-7.5,y-8.5)
+				var distance := INF
+				for lobe in [[Vector2(-3,-1),3.1],[Vector2(0,-3),3.7],[Vector2(3,-1),3.0],[Vector2(0,1.7),3.6]]:
+					var expansion: float=1+frame*.10
+					distance=minf(distance,point.distance_to(lobe[0]*expansion)-lobe[1]*(1-frame*.07))
+				var alpha := clampf(.75-distance,0,1)
+				if frame>=2:alpha*=smoothstep(1.0,3.5,point.length())
+				image.set_pixel(x,y,Color(1,1,1,roundf(alpha*15)/15))
+		masks.append(image)
+	for counter in 9:
+		var pair: Array=[[0,0],[0,1],[1,1],[1,2],[2,2],[2,3],[3,3],[3,3],[3,3]][counter]
+		var fraction: float=[0,128,255,128,0,128,255,128,0][counter]/255.0
+		var image: Image=masks[pair[0]].duplicate()
+		for y in 16:
+			for x in 16:image.set_pixel(x,y,masks[pair[0]].get_pixel(x,y).lerp(masks[pair[1]].get_pixel(x,y),fraction))
+		dust_textures.append(ImageTexture.create_from_image(image))
+	# Separate authored payloads for splash droplets, leaf chips, snow and sand grains.
+	for ground in ["Water","Leaves","Snow","Sand"]:
+		var image := Image.create(16,16,false,Image.FORMAT_RGBA8)
+		for y in 16:
+			for x in 16:
+				var point := Vector2(x-7.5,y-7.5)/7.5
+				var radius := Vector2(point.x*1.8,point.y).length() if ground in ["Water","Leaves"] else point.length()
+				var alpha := 1-smoothstep(.65,.95,radius)
+				if ground=="Leaves":alpha*=1-smoothstep(.08,.22,absf(point.x+point.y*.35))*.35
+				if ground=="Snow":alpha*=1-smoothstep(.25,.4,minf(absf(point.x),absf(point.y)))
+				if ground=="Sand":alpha=1.0 if absf(point.x)<.45 and absf(point.y)<.45 else 0.0
+				image.set_pixel(x,y,Color(1,1,1,alpha))
+		surface_textures[ground]=ImageTexture.create_from_image(image)
 
 func effect_sound(bank: String, source_id: int) -> void:
 	effect_audio.stream=sounds.streams[sounds.key(bank,false,0)];effect_audio.play()
@@ -447,7 +494,7 @@ func effect_sound(bank: String, source_id: int) -> void:
 	if audio_history.size()>64:audio_history.pop_front()
 
 func footstep(foot: String) -> void:
-	if state=="Idle" or dialogue>0 or interaction=="Door" or Vector2(body.velocity.x,body.velocity.z).length()<.08:return
+	if jump_time>=0 or not body.is_on_floor() or state=="Idle" or dialogue>0 or interaction=="Door" or Vector2(body.velocity.x,body.velocity.z).length()<.08:return
 	skeleton.force_update_all_bone_transforms()
 	var ankle := skeleton.global_transform*skeleton.get_bone_global_pose(skeleton.find_bone(foot+"Foot")).origin
 	footprint_count+=1
@@ -461,22 +508,31 @@ func footstep(foot: String) -> void:
 	step_history.append({"foot":foot,"surface":ground,"position":[ankle.x,body.position.y,ankle.z],"phase":movement.phase})
 	if step_history.size()>24:step_history.pop_front()
 	if ground=="Indoor" or (state!="Dash" and state!="Skid" and ground in ["Grass","Path","Sand"]):return
-	var colors := {"Path":Color("f5f7ff"),"Grass":Color("f5f7ff"),"Sand":Color("d9c698"),"Water":Color("b9dbea"),"Snow":Color.WHITE,"Leaves":Color("588936")}
-	for i in 3:
+	var colors := {"Path":Color.WHITE,"Grass":Color.WHITE,"Sand":Color("d9c698"),"Water":Color("b9dbea"),"Snow":Color.WHITE,"Leaves":Color("588936")}
+	for i in (1 if ground in ["Grass","Path"] else 3):
 		var puff := MeshInstance3D.new()
-		var quad := QuadMesh.new();quad.size=Vector2(.16,.16)
+		var dry := ground in ["Grass","Path"]
+		var quad := QuadMesh.new();quad.size=Vector2(.75,.75) if dry else {"Water":Vector2(.09,.16),"Leaves":Vector2(.13,.20),"Snow":Vector2(.10,.10),"Sand":Vector2(.065,.065)}[ground]
 		puff.mesh=quad
-		var mat := material(colors.get(ground,Color.WHITE));mat.albedo_texture=dust_texture
+		var mat := material(colors.get(ground,Color.WHITE));mat.albedo_texture=dust_textures[0] if dry else surface_textures[ground]
 		mat.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA;mat.billboard_mode=BaseMaterial3D.BILLBOARD_ENABLED;mat.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
 		puff.material_override=mat
 		add_child(puff)
 		var origin := Vector3(ankle.x,body.position.y+.04,ankle.z)
 		var backward := -Vector3(sin(movement.heading),0,cos(movement.heading))
-		dust.append({"node":puff,"age":0.0,"origin":origin,"direction":backward*(.3+i*.15)+Vector3((i-1)*.15,0,0)})
+		var side := Vector3(backward.z,0,-backward.x)
+		var velocity := Vector3.UP+backward*2 if dry else (Vector3.UP*(1.5+i*.2)+backward*.3+side*(i-1)*.7)/60
+		dust.append({"node":puff,"age":0.0,"origin":origin,"velocity":velocity,"acceleration":Vector3.DOWN*.05-backward*.075 if dry else Vector3.DOWN*5/3600,"source_unit":movement.travel_gain/30.0 if dry else 1.0,"dry":dry,"lifetime":.3 if dry else .4})
 	emitted+=1
 
 func _physics_process(delta: float) -> void:
 	if player==null:return
+	if Input.is_action_just_pressed("jump"):jump()
+	if jump_time>=0:
+		jump_time+=delta
+		if jump_time>=.1 and not jump_launched:
+			body.velocity.y=3.6; jump_launched=true
+		if jump_time>=1:jump_time=-1
 	ground_material.albedo_color={"Path":Color("50914a"),"Grass":Color("50914a"),"Sand":Color("bdae82"),"Water":Color("397d99"),"Snow":Color("dedfdf"),"Leaves":Color("796936"),"Indoor":Color("a48665")}[surface]
 	for node in path_nodes:node.visible=surface=="Path"
 	var input := Input.get_vector("left","right","up","down",0)
@@ -494,6 +550,9 @@ func _physics_process(delta: float) -> void:
 	var commanded: Vector3=movement.step(input,Input.is_action_pressed("sprint"),delta,obstruction)
 	body.velocity=Vector3(commanded.x,body.velocity.y-9.8*delta,commanded.z)
 	body.move_and_slide()
+	if jump_time>=0 and jump_launched and not jump_landed and body.is_on_floor():
+		jump_landed=true;landings+=1
+		effect_sound("Landing",-1) # Authored hop cue, not an original-game sound ID.
 	var actual := Vector2(body.position.x-before.x,body.position.z-before.z).length()/delta
 	obstruction=clampf(actual/maxf(commanded.length(),.001),0,1)
 	model.rotation.y=movement.shape_heading
@@ -503,12 +562,15 @@ func _physics_process(delta: float) -> void:
 	if commanded.length()>.1 and actual<.02 and not movement.skidding:target_state="Idle"
 	if dialogue>0 or interaction=="Door":target_state="Idle"
 	var clip: String={"Idle":"idle","Walk":"walk","Run":"run","Dash":"dash","Skid":"skid"}[target_state]
+	if jump_time>=0:target_state="Jump";clip="jump"
 	var entered_skid := target_state=="Skid" and state!="Skid"
+	# Restore the unmodified base before applying another overlay, including omitted tracks.
+	for bone in animated_arm_pose:skeleton.set_bone_pose_rotation(bone,animated_arm_pose[bone])
 	if target_state!=state:
 		state=target_state
 		player.play(clip,.167)
-		if state!="Idle":player.seek(fposmod(previous_phase,1)*player.get_animation(clip).length,true)
-	player.speed_scale=1 if state=="Idle" else (0 if state=="Skid" else player.get_animation(clip).length*movement.phase_step*60/16)
+		if state not in ["Idle","Jump"]:player.seek(fposmod(previous_phase,1)*player.get_animation(clip).length,true)
+	player.speed_scale=1 if state in ["Idle","Jump","Skid"] else player.get_animation(clip).length*movement.phase_step*60/16
 	player.advance(delta)
 	var overlay := "Net" if interaction=="Receive" else tool
 	if overlay!=last_overlay:
@@ -516,6 +578,7 @@ func _physics_process(delta: float) -> void:
 	overlay_time=minf(.167,overlay_time+delta)
 	for bone in tool_rotations.Axe:
 		var animated := skeleton.get_bone_pose_rotation(bone)
+		animated_arm_pose[bone]=animated
 		var desired: Quaternion=tool_rotations[overlay].get(bone,animated) if overlay!="None" else animated
 		var start: Quaternion=overlay_from.get(bone,animated)
 		skeleton.set_bone_pose_rotation(bone,start.slerp(desired,overlay_time/.167))
@@ -540,11 +603,15 @@ func _physics_process(delta: float) -> void:
 				footstep(foot)
 	for i in range(dust.size()-1,-1,-1):
 		var puff: Dictionary=dust[i];puff.age+=delta
-		if puff.age>=.3:puff.node.queue_free();dust.remove_at(i)
+		if puff.age>=puff.lifetime:puff.node.queue_free();dust.remove_at(i)
 		else:
-			puff.node.position=puff.origin+puff.direction*puff.age+Vector3.UP*(.8*puff.age-1.5*puff.age*puff.age)
-			puff.node.scale=Vector3.ONE*(1+puff.age)
-			puff.node.material_override.albedo_color.a=1-puff.age/.3
+			var ticks := floorf(puff.age*60+.00001)
+			puff.node.position=puff.origin+(puff.velocity*ticks+puff.acceleration*ticks*(ticks+1)/2)*puff.source_unit
+			if puff.dry:
+				var counter := mini(8,int(ticks)/2)
+				puff.node.material_override.albedo_texture=dust_textures[counter]
+				puff.node.material_override.albedo_color.a=[255,200,200,200,200,200,200,200,0][counter]/255.0
+			else:puff.node.material_override.albedo_color.a=1-puff.age/puff.lifetime
 	blink_clock-=delta
 	if blink_index<0 and blink_clock<=0:
 		blink_index=15;blink_updates=0;blink_repeat=random.randi_range(0,3);face_blinks+=1
@@ -572,7 +639,7 @@ func _physics_process(delta: float) -> void:
 			indoor=not indoor;body.position=Vector3(40,0,-2.5) if indoor else Vector3(0,0,-6)
 			body.velocity=Vector3.ZERO;movement.reset();door_transitions+=1
 		if interaction_timer>=.7:interaction="";fade.material.set_shader_parameter("amount",0)
-	var target := body.position+Vector3.UP*.85
+	var target := Vector3(body.position.x,.85,body.position.z)
 	var angle := deg_to_rad(25 if camera_view==2 else 45)
 	camera.position=target+Vector3(sin(yaw)*cos(angle),sin(angle),cos(yaw)*cos(angle))*(19 if dialogue>0 else (22 if camera_view==0 else 17))
 	camera.look_at(target)
@@ -580,4 +647,46 @@ func _physics_process(delta: float) -> void:
 	bridge_time+=delta
 	if OS.has_feature("web") and bridge_time>.1:
 		bridge_time=0
-		JavaScriptBridge.eval("window.characterPlaytest="+JSON.stringify({"state":state,"x":body.position.x,"z":body.position.z,"yaw":model.rotation.y,"travel_heading":movement.heading,"lean":movement.lean,"phase":movement.phase,"phase_step":movement.phase_step,"effects":emitted,"view":camera_view,"bones":skeleton.get_bone_count(),"physics_time":Time.get_ticks_msec()/1000.0,"speed_mps":actual,"source_velocity":movement.velocity,"animation_rate":player.get_playing_speed(),"tool":tool,"surface":surface,"rain":raining,"indoor":indoor,"dialogue":dialogue,"interaction":interaction,"footsteps":footprint_count,"steps":step_history,"blinks":face_blinks,"blink_index":blink_index,"door_transitions":door_transitions,"floor_error":max_floor_error}))
+		JavaScriptBridge.eval("window.characterPlaytest="+JSON.stringify({"state":state,"y":body.position.y,"jump_time":jump_time,"jumps":jumps,"landings":landings,"x":body.position.x,"z":body.position.z,"yaw":model.rotation.y,"travel_heading":movement.heading,"lean":movement.lean,"phase":movement.phase,"phase_step":movement.phase_step,"effects":emitted,"view":camera_view,"bones":skeleton.get_bone_count(),"physics_time":Time.get_ticks_msec()/1000.0,"speed_mps":actual,"source_velocity":movement.velocity,"animation_rate":player.get_playing_speed(),"tool":tool,"surface":surface,"rain":raining,"indoor":indoor,"dialogue":dialogue,"interaction":interaction,"footsteps":footprint_count,"steps":step_history,"blinks":face_blinks,"blink_index":blink_index,"door_transitions":door_transitions,"floor_error":max_floor_error}))
+
+func jump() -> void:
+	if jump_time>=0 or not body.is_on_floor() or dialogue>0 or interaction!="":return
+	jump_time=0; jump_launched=false; jump_landed=false; jumps+=1
+
+func make_jump_animation() -> void:
+	var animation := Animation.new();animation.length=1.0
+	var base := []
+	for bone in skeleton.get_bone_count():
+		base.append({"position":skeleton.get_bone_pose_position(bone),"rotation":skeleton.get_bone_pose_rotation(bone),"scale":skeleton.get_bone_pose_scale(bone)})
+	var path: NodePath=player.get_node(player.root_node).get_path_to(skeleton)
+	var tracks := []
+	for bone in skeleton.get_bone_count():
+		var channels := []
+		for type in [Animation.TYPE_POSITION_3D,Animation.TYPE_ROTATION_3D,Animation.TYPE_SCALE_3D]:
+			var track := animation.add_track(type)
+			animation.track_set_path(track,NodePath(str(path)+":"+skeleton.get_bone_name(bone)))
+			channels.append(track)
+		tracks.append(channels)
+	# time, upper leg pitch, knee flex, upper arm pitch, forearm flex, degrees.
+	for pose in [[0,0,0,0,0],[.08,-16,32,12,-10],[.18,8,14,-22,-10],[.45,-24,52,-30,-22],[.72,0,0,-10,0],[.84,-16,32,10,-10],[1.0,0,0,0,0]]:
+		for bone in skeleton.get_bone_count():
+			skeleton.set_bone_pose_position(bone,base[bone].position)
+			skeleton.set_bone_pose_rotation(bone,base[bone].rotation)
+			skeleton.set_bone_pose_scale(bone,base[bone].scale)
+		skeleton.force_update_all_bone_transforms()
+		var globals := []
+		for bone in skeleton.get_bone_count():globals.append(skeleton.get_bone_global_pose(bone).basis)
+		for side in ["Left","Right"]:
+			for part in [["UpLeg",pose[1]],["Leg",pose[1]+pose[2]],["Arm",pose[3]],["ForeArm",pose[3]+pose[4]]]:
+				var bone: int=skeleton.find_bone(side+part[0])
+				var target: Basis=Basis(Vector3.RIGHT,deg_to_rad(part[1]))*globals[bone]
+				var parent: int=skeleton.get_bone_parent(bone)
+				var relative: Basis=skeleton.get_bone_global_pose(parent).basis.inverse()*target
+				skeleton.set_bone_pose_rotation(bone,relative.orthonormalized().get_rotation_quaternion())
+				skeleton.force_update_all_bone_transforms()
+		for bone in skeleton.get_bone_count():
+			animation.position_track_insert_key(tracks[bone][0],pose[0],skeleton.get_bone_pose_position(bone))
+			animation.rotation_track_insert_key(tracks[bone][1],pose[0],skeleton.get_bone_pose_rotation(bone))
+			animation.scale_track_insert_key(tracks[bone][2],pose[0],skeleton.get_bone_pose_scale(bone))
+	for bone in skeleton.get_bone_count():skeleton.set_bone_pose_rotation(bone,base[bone].rotation)
+	player.get_animation_library("").add_animation("jump",animation)
