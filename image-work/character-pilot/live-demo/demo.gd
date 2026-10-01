@@ -2,7 +2,11 @@ extends Node3D
 ## THROWAWAY #231: source-informed movement and interaction review.
 # Travel gain remains a playtest calibration, not recovered game meters.
 const Locomotion = preload("res://locomotion.gd")
+const Sounds = preload("res://sound.gd")
 var movement := Locomotion.new()
+var sounds := Sounds.new()
+var audio_history := []
+var effect_audio: AudioStreamPlayer
 var body: CharacterBody3D
 var model: Node3D
 var player: AnimationPlayer
@@ -49,6 +53,7 @@ var step_history := []
 var foot_order := {}
 var face_blinks := 0
 var door_transitions := 0
+var door_entering := true
 var max_floor_error := 0.0
 var ground_material: StandardMaterial3D
 var path_nodes := []
@@ -336,21 +341,51 @@ func make_face() -> void:
 	random.seed=231
 	var shader := Shader.new()
 	shader.code = """shader_type spatial;
-render_mode unshaded;
-uniform sampler2D atlas : source_color, filter_nearest;
+render_mode diffuse_burley, specular_schlick_ggx;
+uniform sampler2D atlas : source_color, filter_linear_mipmap;
 uniform float blink=0.0;
 void fragment(){
  ALBEDO=texture(atlas,UV).rgb;
+ ROUGHNESS=1.0;
+ SPECULAR=.5;
  vec2 centers[4]=vec2[4](vec2(.578,.564),vec2(.736,.564),vec2(.18,.086),vec2(.869,.094));
+ // Atlas-specific skin patches; horizontal probes cross clothing/island edges.
+ vec2 skin_top[4]=vec2[4](vec2(.578,.514),vec2(.736,.514),vec2(.18,.035),vec2(.869,.144));
+ vec2 skin_bottom[4]=vec2[4](vec2(.578,.615),vec2(.736,.615),vec2(.18,.035),vec2(.869,.144));
  for(int i=0;i<4;i++){
-  vec2 d=(UV-centers[i])/vec2(.042,.04);
-  if(blink>0.0 && dot(d,d)<1.0 && d.y<(-1.0+2.0*blink)){
-   ALBEDO=texture(atlas,vec2(.64,.55)).rgb;
-   if(blink>.9 && abs(d.y)<.08 && abs(d.x)<.72)ALBEDO=vec3(.24,.16,.12);
+  vec2 radius=vec2(.049,.047);
+  vec2 d=(UV-centers[i])/radius;
+  if(blink>0.0 && COLOR.a>.5 && dot(d,d)<1.0){
+   float opening=max(.025,1.0-blink);
+   vec3 lid=mix(textureLod(atlas,skin_top[i],0.0).rgb,textureLod(atlas,skin_bottom[i],0.0).rgb,clamp((d.y+1.0)*.5,0.0,1.0));
+   vec2 iris_uv=centers[i]+vec2(d.x,clamp(d.y/opening,-1.0,1.0))*radius;
+   float exposed=1.0-smoothstep(opening-.045,opening+.045,abs(d.y));
+   vec3 closing=mix(lid,textureLod(atlas,iris_uv,0.0).rgb,exposed);
+   float line=(1.0-smoothstep(.025,.075,abs(d.y-.08*d.x*d.x)))*(1.0-smoothstep(.65,.85,abs(d.x)))*smoothstep(.8,1.0,blink);
+   closing=mix(closing,vec3(.15,.09,.07),line);
+   ALBEDO=mix(ALBEDO,closing,(1.0-smoothstep(.97,1.0,length(d)))*smoothstep(0.0,.125,blink));
   }
  }
 }"""
 	for mesh in model.find_children("*","MeshInstance3D",true,false):
+		# Immutable skin assignment gates the face effect; UV islands alone overlap clothes.
+		if mesh.skin==null:continue
+		var face_mesh := ArrayMesh.new()
+		for index in mesh.mesh.get_surface_count():
+			var arrays: Array=mesh.mesh.surface_get_arrays(index)
+			var colors := PackedColorArray()
+			for vertex in arrays[Mesh.ARRAY_VERTEX].size():
+				var head_weight := 0.0
+				for influence in 4:
+					var bind: int=arrays[Mesh.ARRAY_BONES][vertex*4+influence]
+					var bone: int=mesh.skin.get_bind_bone(bind)
+					if bone<0:bone=skeleton.find_bone(mesh.skin.get_bind_name(bind))
+					if skeleton.get_bone_name(bone)=="Head":head_weight+=arrays[Mesh.ARRAY_WEIGHTS][vertex*4+influence]
+				colors.append(Color(1,1,1,1 if head_weight>.9 else 0))
+			arrays[Mesh.ARRAY_COLOR]=colors
+			face_mesh.add_surface_from_arrays(mesh.mesh.surface_get_primitive_type(index),arrays)
+			face_mesh.surface_set_material(index,mesh.get_active_material(index))
+		mesh.mesh=face_mesh
 		for index in mesh.mesh.get_surface_count():
 			var source: Material = mesh.get_active_material(index)
 			if source is StandardMaterial3D and source.albedo_texture:
@@ -358,6 +393,11 @@ void fragment(){
 				face_material.shader=shader
 				face_material.set_shader_parameter("atlas",source.albedo_texture)
 				mesh.set_surface_override_material(index,face_material)
+
+func blink_amount() -> float:
+	if blink_index<0:return 0.0
+	var age := 15.0-blink_index+blink_updates
+	return smoothstep(0.0,1.0,clampf(minf((age-1)/5.0,(15-age)/5.0),0,1))
 
 func make_interactions() -> void:
 	block(door_point+Vector3(0,1.7,-.5),Vector3(4,3.4,1),Color("bd9565"),true)
@@ -392,13 +432,8 @@ func interact() -> void:
 	else:message.text="Move closer to the neighbour or door"
 
 func make_effects() -> void:
-	foot_audio=AudioStreamPlayer.new();foot_audio.volume_db=-18;add_child(foot_audio)
-	var stream := AudioStreamWAV.new();stream.format=AudioStreamWAV.FORMAT_16_BITS;stream.mix_rate=16000
-	var samples := PackedByteArray();samples.resize(1280*2)
-	for i in 1280:
-		var value := int(random.randf_range(-1,1)*pow(1-i/1280.0,3)*5000)
-		samples.encode_s16(i*2,value)
-	stream.data=samples;foot_audio.stream=stream
+	foot_audio=AudioStreamPlayer.new();add_child(foot_audio)
+	effect_audio=AudioStreamPlayer.new();effect_audio.volume_db=-14;add_child(effect_audio)
 	var texture := Image.create(32,32,false,Image.FORMAT_RGBA8)
 	for y in 32:
 		for x in 32:
@@ -406,14 +441,23 @@ func make_effects() -> void:
 			texture.set_pixel(x,y,Color(1,1,1,clampf(1-distance*distance,0,1)))
 	dust_texture=ImageTexture.create_from_image(texture)
 
+func effect_sound(bank: String, source_id: int) -> void:
+	effect_audio.stream=sounds.streams[sounds.key(bank,false,0)];effect_audio.play()
+	audio_history.append({"bank":bank,"id":source_id,"pitch":1.0})
+	if audio_history.size()>64:audio_history.pop_front()
+
 func footstep(foot: String) -> void:
 	if state=="Idle" or dialogue>0 or interaction=="Door" or Vector2(body.velocity.x,body.velocity.z).length()<.08:return
 	skeleton.force_update_all_bone_transforms()
 	var ankle := skeleton.global_transform*skeleton.get_bone_global_pose(skeleton.find_bone(foot+"Foot")).origin
 	footprint_count+=1
-	foot_audio.pitch_scale=.7 if state=="Skid" else {"Water":1.3,"Snow":.8,"Sand":.85,"Leaves":1.2,"Indoor":.9}.get(surface,1.0)
-	foot_audio.play()
 	var ground := "Indoor" if indoor else ("Water" if raining and surface!="Indoor" else surface)
+	if state!="Skid":
+		var cue := sounds.step(ground,state,foot,indoor or ground=="Indoor")
+		foot_audio.stream=cue.stream;foot_audio.pitch_scale=1.0
+		foot_audio.volume_db=-14+linear_to_db(cue.gain);foot_audio.play()
+		cue.erase("stream");audio_history.append(cue)
+		if audio_history.size()>64:audio_history.pop_front()
 	step_history.append({"foot":foot,"surface":ground,"position":[ankle.x,body.position.y,ankle.z],"phase":movement.phase})
 	if step_history.size()>24:step_history.pop_front()
 	if ground=="Indoor" or (state!="Dash" and state!="Skid" and ground in ["Grass","Path","Sand"]):return
@@ -443,7 +487,7 @@ func _physics_process(delta: float) -> void:
 	if interaction=="DoorApproach":
 		var approach := (Vector3(40,0,-4.2) if indoor else Vector3(0,0,-7.2))-body.position
 		if Vector2(approach.x,approach.z).length()<.08:
-			interaction="Door";interaction_timer=0;movement.velocity=0;input=Vector2.ZERO
+			interaction="Door";interaction_timer=0;door_entering=not indoor;movement.velocity=0;input=Vector2.ZERO
 		else:input=Vector2(approach.x,approach.z).normalized()*.45
 	if dialogue>0 or interaction=="Door":input=Vector2.ZERO
 	var before := body.position
@@ -484,7 +528,8 @@ func _physics_process(delta: float) -> void:
 	for sole in soles:low=minf(low,(skeleton.global_transform*(skeleton.get_bone_global_pose(sole.bone)*sole.point)).y-body.position.y)
 	model.position.y=-low
 	max_floor_error=maxf(max_floor_error,absf(low+model.position.y))
-	if entered_skid and actual>.08:footstep("Right")
+	if entered_skid and actual>.08:
+		effect_sound("Skid",0x4129);footstep("Right")
 	if state in ["Walk","Run","Dash"] and actual>.08:
 		var current := movement.phase
 		for offset in [0.0,.5]:
@@ -510,12 +555,18 @@ func _physics_process(delta: float) -> void:
 		if blink_index<0:
 			if blink_repeat>0:blink_repeat-=1;blink_index=15
 			else:blink_clock=random.randf_range(1,2)
-	if face_material:face_material.set_shader_parameter("blink",[0,0,0,0,.5,.5,1,1,1,1,1,1,.5,.5,0,0][blink_index] if blink_index>=0 else 0)
+	if face_material:face_material.set_shader_parameter("blink",blink_amount())
 	if interaction=="Receive":
 		interaction_timer-=delta
 		if interaction_timer<=0:interaction="Talk"
 	elif interaction=="Door":
+		var prior := interaction_timer
 		interaction_timer+=delta
+		var cue_frames := [2,8,33,40] if door_entering else [10,14,35,50]
+		var last_frame := 40.0 if door_entering else 50.0
+		for i in 4:
+			var at: float=cue_frames[i]/last_frame*.7
+			if prior<at and interaction_timer>=at:effect_sound(["DoorLatch","DoorCreak","DoorShut","DoorLatch"][i],6+i)
 		fade.material.set_shader_parameter("amount",clampf(1-absf(interaction_timer-.35)/.35,0,1))
 		if interaction_timer>=.35 and interaction_timer-delta<.35:
 			indoor=not indoor;body.position=Vector3(40,0,-2.5) if indoor else Vector3(0,0,-6)

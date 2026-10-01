@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-01T00:53:48.096369+00:00",
+  "timestamp": "2026-10-01T01:39:20.388475+00:00",
   "successfully_scheduled": true,
   "transport": "actual MCP stdio",
   "server": "BlenderMCP",
@@ -8,7 +8,7 @@
   "blender": "4.3.2",
   "saved_stage": "refine.py",
   "native_launch": {
-    "native_pid": 315508,
+    "native_pid": 434871,
     "saved_stage": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/video-match/refine.py",
     "log": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/video-match/fitted-axe/mcp-native.log"
   },

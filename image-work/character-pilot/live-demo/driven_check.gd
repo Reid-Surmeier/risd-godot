@@ -26,13 +26,15 @@ func run() -> void:
 	await frames(2)
 	assert(demo.state=="Skid" and demo.body.velocity.z>0)
 	assert(demo.emitted>skid_births)
+	assert(demo.audio_history[-1].id==0x4129 and demo.audio_history[-1].bank=="Skid")
 	evidence.reversal={"state":demo.state,"travel_heading":demo.movement.heading,"shape_heading":demo.movement.shape_heading}
 	Input.action_release("up");Input.action_release("sprint")
 	await frames(100)
 	assert(demo.state=="Idle")
 	var births: int=demo.emitted
+	var sounds: int=demo.audio_history.size()
 	await frames(40)
-	assert(demo.emitted==births)
+	assert(demo.emitted==births and demo.audio_history.size()==sounds)
 	demo.reset()
 	var analog := InputEventJoypadMotion.new();analog.axis=JOY_AXIS_LEFT_Y;analog.axis_value=.45
 	Input.parse_input_event(analog);await frames(25)
@@ -67,8 +69,10 @@ func run() -> void:
 	demo.body.position=Vector3(0,0,-6.5);demo.interact()
 	await frames(100)
 	assert(demo.indoor and demo.door_transitions==1)
+	assert(demo.audio_history.slice(-4).map(func(cue):return cue.id)==[6,7,8,9])
 	demo.body.position=Vector3(40,0,-3);demo.interact();await frames(110)
 	assert(not demo.indoor and demo.door_transitions==2)
+	assert(demo.audio_history.slice(-4).map(func(cue):return cue.id)==[6,7,8,9])
 	evidence.door={"enter_exit":true,"transition_count":demo.door_transitions}
 	for ground in ["Grass","Indoor","Snow","Water","Sand","Leaves"]:
 		demo.reset();demo.surface=ground

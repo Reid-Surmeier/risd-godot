@@ -7,7 +7,7 @@
   "selected_dense_walk_run_dash": "PASS",
   "shared_exported_rig_and_head_correspondence": "PASS",
   "published_content_hashes": "PASS",
-  "secret_scan": "PASS after verifying two SHA256-manifest false positives",
+  "secret_scan": "PASS: only two independently verified SHA256 manifest false positives",
   "verified_secret_scan_false_positive_paths": [
     "iterations/motion-diagnosis/blender-api-evidence.json",
     "iterations/motion-diagnosis/blender-api.log"
@@ -17,5 +17,11 @@
     "Godot ObjectDB: 13 instances leaked at exit in repository check"
   ],
   "additional_paid_calls": 0,
-  "additional_api_cost_usd": 0
+  "additional_api_cost_usd": 0,
+  "appearance_pixel_checks": "PASS",
+  "exported_palm_wrist_audio_checks": "PASS",
+  "originals_against_previous_commit": "PASS",
+  "before_regressions_reproduced": true,
+  "final_build_stamp": "094e9d943dbb",
+  "storage_own_regenerable_removed_bytes": 344421572
 }

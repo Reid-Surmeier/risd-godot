@@ -3,33 +3,33 @@
   "models": {
     "walk": {
       "trial": "fitted-walk",
-      "sha256": "4f7a69e8203dfb4b689ed13846cee4fead2690a5e39111c99ce7df17b4366b3e"
+      "sha256": "abbbba117b4803aa3222e74e0f37d0fedc81ad183b7823b30b747fa89779cf5f"
     },
     "run": {
       "trial": "fitted-run",
-      "sha256": "853671f9c83c266cfca84a9b900d9dbb61d4c881d7d90ce110807068ba663e11"
+      "sha256": "1e066acad7b97465d540f6857f974bbe0cad701041b71ba81adc24aab43b74aa"
     },
     "dash": {
       "trial": "fitted-dash",
-      "sha256": "a3cb5d7fcb41edb6ab0f3c2e08d8660db649ebc065d77fb040cdc3c3030a5bbc"
+      "sha256": "af7397e82376e09d329abba7fcdf9a7727842cb9696232eeb0d782b3d0a06d0b"
     },
     "skid": {
       "trial": "fitted-skid",
-      "sha256": "b79f7b49be6a5b48429158dab353619e4f1da586653bc10ff5531ca754ac9ab4"
+      "sha256": "83a0df017c0ae322faabe43b312baf494c340c7fc26573835b7faa83b737a658"
     },
     "axe": {
       "trial": "fitted-axe",
-      "sha256": "3a8cedee9726faaf142e991bd12fcce29c754e09efdd80226300623f9d35f274"
+      "sha256": "7ff521c1e0d33ddb83fca327c2b23bd18f9dbf7cccb4ba0e6eceab395efa991d"
     },
     "net": {
       "trial": "fitted-net",
-      "sha256": "f67d9c6fa621aa52f48760cc5c69fb2d675613bf5a789345caf4ab2188fe1e0d"
+      "sha256": "0da3783add1293b6b4027eb46b4a722fc0c2b43ce51cdf02227d4bef51f2a3cf"
     }
   },
   "import_fps": 240,
   "animation_optimizer": false,
   "additional_api_cost_usd": 0,
-  "stamp": "ef23e8a84775",
+  "stamp": "094e9d943dbb",
   "standalone_prototype": true,
   "url": "https://windows-wsl.taile06c45.ts.net/character-walk-01a0f3a2/",
   "retention": "3d owner review",
@@ -48,26 +48,81 @@
   "exact_visual_match": false,
   "world_stance_lock_verified": false,
   "aggregate_liability_usd": 1.54,
-  "site_bytes": 45952340,
+  "site_bytes": 46040208,
   "sources": {
-    "compare_reference.py": "35a88203f7b00741856b528360887abc3fefa41452e9c2e3b4c2a0d6eb8c65bc",
-    "demo.gd": "61292a8a338e46d6e60efb5a75cfa2626ea1f2b4636eb6a240f2876109f48cba",
+    "compare_reference.py": "682c61595163b90290b73fc7ef7281fb059d2af751db9a6706c984b4eb6fb764",
+    "appearance_check.py": "7d18f356a799614002d4fdced0041238f7166fc3343538ea48d414fb62812cd8",
+    "sound.gd": "21be13852e8b2f96ff6b2e9a1823842cb9a4a83a199fdb21bd3002a0dee86fc9",
+    "demo.gd": "cd0648023406b2501aea658fde1a75088a89493427d9127cf018afd2eeaa5303",
+    "check.py": "3f4d0e405708e676b14872517d001d22c16e1fc27a3382f2b8e8074c4f9c8417",
     "controller_check.gd": "ac0b93a55410d46ea7a033b2735660010d30f94d955b3d6eac5d167598ef27fb",
+    "appearance_check.gd": "0dccd8804c282dba8166ea416eab1d887d6990ddba50923b6b970a73904d1061",
     "browser_check.cjs": "f21fdde1bf5130cab8d2a35f7a29d8fb5994b4c58ffbd22e6e4ee1602539d6a0",
-    "driven_check.gd": "ec15bb3b8f007686dad94f59365516a60382292f15c1ae7dca6c6d2816622e07",
+    "driven_check.gd": "07c6190473cde35203744ff4025750180fa5a510d5ea07f6a09c23a9e8005f3f",
     "locomotion.gd": "722745a0557673d1d3fe600ca33087311fb75eb276b3f65341ed39af777baeaa",
-    "build.py": "8dd9a6177b21ee3ca2fa39330e042819e58a9d14fc98b2e4147a44d3a3660896",
+    "quality_check.gd": "a20b8b1bb4f2b8a2009a6b8b1d23d2f3e0a63c78ebcfa9f6a4907d102ce8ca3b",
+    "build.py": "1fe0c051884458a34f8eb74f5a8edccc45e5b20813f80d6760320bb50c3ff86b",
     "record.gd": "706bca0294ae93cc8a3c33e27c469ac124f4faaa81ad65a804b9e619a48e7776",
-    "check.py": "7aad1021d85154d3601877c6450cd34fa655ad9bd0f2fb395a639d0fb73efe06"
+    "../iterations/hand-repair/repair.py": "4f7bf9280b556a952a73d801e91592c467089990aeab64ca3abcb9ace1b7c97f",
+    "../iterations/hand-repair/view.gd": "b1a80cb537ad026b2f5ed763ec418fe191f74f5b4df1817af06631c5f9f9cc68",
+    "../iterations/motion-diagnosis/correct.py": "5456a1343c931c514489f03e6474919dc7587e310287fc9446bd1fb77e20a1fb"
   },
   "geometry": {
-    "selected_rest": "iterations/driven-character/short-arm/canonical-rest.glb",
+    "selected_rest": "iterations/hand-repair/canonical-rest.glb",
     "arm_visual_scale": 0.72,
     "arm_leg_ratio": 1.0596707848731366,
     "hip_shoulder_ratio": 0.7777737586224456,
     "shoe_scale": 0.8,
     "source_joint_ratio_candidate_rejected_as_visible_fit": true,
-    "rigid_head_uv_correspondence_max_error_units": 1.7378944903612137e-05
+    "rigid_head_uv_correspondence_max_error_units": 1.7378944903612137e-05,
+    "existing_uvs_preserved": true,
+    "thumb_uvs_interpolated": true,
+    "hand_repair": {
+      "source_sha256": "2b18637a0537ad3bad3f636da76df70d5b753948559326daa44cddf1bcdb8010",
+      "output_sha256": "adad550dfbc07244a5665da1a6bc35bf4b2a733464bd8617050ef925bce5d33a",
+      "palms": {
+        "Left": {
+          "vertices": 694,
+          "distal_length_before_m": 0.179534912109375,
+          "bounds_after_m": [
+            [
+              -0.08911314964294434,
+              -0.008529794216156007,
+              -0.12000000953674317
+            ],
+            [
+              0.08771952629089355,
+              0.14499998092651367,
+              0.06614525318145752
+            ]
+          ],
+          "length_factor": 0.8076423593404726,
+          "thumb_projection_m": 0.0500823974609375
+        },
+        "Right": {
+          "vertices": 599,
+          "distal_length_before_m": 0.21139923095703125,
+          "bounds_after_m": [
+            [
+              -0.08810070991516114,
+              -0.010408207178115844,
+              -0.1200000286102295
+            ],
+            [
+              0.08835350036621094,
+              0.14499988555908203,
+              0.07103135108947754
+            ]
+          ],
+          "length_factor": 0.6859059957009613,
+          "thumb_projection_m": 0.05173580646514893
+        }
+      },
+      "original_uv_coordinates_preserved": true,
+      "thumb_uvs_interpolated": true,
+      "bones": 24,
+      "cost_usd": 0
+    }
   },
   "movement": {
     "normal_units_per_second": 3.15,
@@ -81,48 +136,202 @@
   "source_commit": "09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c",
   "report": "docs/research/character-driven-implementation-2026-09-30.md",
   "evidence_hashes": {
-    "desktop-axe.png": "5e21a418ec63748d19f0511f32fb884fbd8b9b1e92f2a1e34ffc0d41298e93a8",
+    "appearance-pixel-check.log": "bfd4baa32ccd8fc78f844d531159c7ec4d80847115f754cb0bc7d76492b309ab",
+    "audio-snow.wav": "90f029f8dd0807d781f9c1958f543d33e8859dd2aba8d8e9641ab7a2fd515939",
+    "desktop-axe.png": "e8e2a36971410d7fb7a1728735feaa0a4c282240b29133ac5feb1565e9a789e6",
     "driven-check.log": "bb29c19d1bf8962eda1cecda6f2e409dcf54886015bfa1ad129f1df47ae45be0",
-    "native-blink.png": "4fa059c64dbf62fc6fca385042541acc9ec83141289255ec49f12ab7220c4d7e",
-    "record.json": "9b88d554fcf59e01f63624541ab9241f869301f1cf80b8ad12d7a194e5d68fc0",
-    "registered-pose.gif": "be1e84b882a66f5bb7f236cf0d61c2ad67229312f026ff072b3acab5e2e2f1ce",
-    "desktop-walk.png": "51d35d706432cfaaa1f530a8f0fefbce53c3f05fcfaef0dc072aef1cf9650fdc",
-    "published-check.json": "5856350cee12954874a3d9fc826c4525d77784a1da8d7e2b9f2439d8ac322e47",
-    "verification.json": "881b2221593caa88465afdbc0ae24b88d02fe6727ce76fb6d145ccffb366dcc2",
-    "registered-pose-poses.jpg": "62924d2a504f1434c547787292f9929b625a43b1a29f33d364131c00699632e5",
-    "whole-view.mp4": "cce9d3f26838fed8ee2695657afb2d8615d87239f67efd90cb2c6a38a371aaf7",
-    "desktop-net.png": "f601e2c126367d63d3491924e1434d46d30993cfb36981f260405a7ec95b8f8d",
-    "desktop-room.png": "5b712ed5f6c08928ed45eda61e53fc6ad54b245f89608d2b24d4398bd56a8766",
+    "quality-check.json": "3ddc08c10d74a144cc33a8306a48e0e5ccb90619b4c8c214cf5eb03e0d5238be",
+    "native-blink.png": "065e0095e256e07ffb76cb35aefb6003c94b05b6284d20551d709369da1b1abe",
+    "blink-slow-review.gif": "f10705bff7234ca68a074332faadb0c9901b8bf8690f8eca576a49c1c18c50a4",
+    "storage.json": "cba4304142d32f27e8734e112044c095506e7aba0a6e92af7ba1c6ed2ec52c75",
+    "audio-water.wav": "44f7605cadef5024c329b8f67e12465b4d8eb00c62361f883d7ed867f110ee09",
+    "audio-grass.wav": "b2484040a07dda165efc89bfb3040fa71ed9ad1138b0ab0a01a5b0968369fa46",
+    "record.json": "0fc0efc320c031d7f734b54e5d4cd288aafc0509e602789599545eb0a9f25d80",
+    "registered-pose.gif": "ec9e30ce01d3ff7632c3ada0946a2f8b83b4cdfe59b1384c7374b6a3066ae309",
+    "desktop-walk.png": "a2f24b2a89095906b4a73f9827e55c7576da651e7c3f1a37a9b539b78aec72b8",
+    "published-check.json": "9200c72fd9cc79ef8ca0d6645b6f7d41840f7785b3dc59874916199e423119ff",
+    "wrist-before.log": "984380314769a58263444ef8e49a9f133160badaefe10cabdc9d6e01d31e8ed6",
+    "appearance-hands-before-after.jpg": "d22b068d29866dce27abd69ee3eed10132ac40400ddc9900505009eae6b49df9",
+    "audio-sand.wav": "19b15934697fb9147912a853361bf54ed336e810de705065c50a1f19ddf143b2",
+    "verification.json": "26516fa3d70c22753726cc99f996d7eaed123421462f1d97958f65bf9a79bbff",
+    "native-face-half.png": "d14ba1fd01630f03ac79bedd0e77d9c84fdcca7ad6bc7b778f626b5322096551",
+    "appearance-check.json": "dd27afe9831cade25069813ba5f3d6825ccad16b7c6781725bca21c57a6980ce",
+    "registered-pose-poses.jpg": "6917a5915d1fec593aa548cbd45b622748aaefbcb37c7f7d0ddb8091f7f9d032",
+    "whole-view.mp4": "f92b03530041ea9833ec2b2aa43be8229e3ff6dab3cf09479546bfc1b39fbe28",
+    "audio-review.wav": "1c0881e8cda06f67ce50c99dfd53e13b2ae4c1175d06f231244a447074d6c2b4",
+    "appearance-metrics.json": "69bcfb9bf2095cf39e7987be37d5ee809d43d1f59a964eba097c7ce26f0cbb21",
+    "hand-rest-front.png": "72ad0b0fe37eb456d17ac9b0afc3e8591df326d3b8c00e32ffd8292c8a3c926d",
+    "desktop-net.png": "c9ccce3e3aeea4fb7a03d65052a6ac893cf6f4390cce76a63bf58f1561ed25ba",
+    "desktop-room.png": "fa6402b27a0f118e4eb5f10bb1931c6b176a2ddf10977ae56de6957e1342e1da",
     "controller-check.log": "10d8fd6e4846f0ecd7e85597d2fec62353e8cc8299c2092d6af1ca6c1fc233b9",
-    "comparison.json": "ab833f4fd2705645a202848f675ebebaacb574b125c4aaafa76e09591ec26227",
-    "phone-sprint.png": "c61e00cc29ddda07ca91746a29f1622282f51fa7a525876fe5294c17768de78b",
-    "interactions.mp4": "9349f2bc33315aa109fa498dab51420e38426815ce3baf9267b892e367294f32",
-    "whole-view.gif": "da964e2693d8e77b44fda2732860cda10f085adf93477b4486150a72db4e92ed",
-    "whole-view-poses.jpg": "cf8d4d5b9efb07320f4dcb5760e5a7fb00ca5a98dd158040d5223116c11725fa",
-    "interactions.jpg": "9d40c7b20f2f5c4fe314b644e14a5bc297d29a64bc5233c9d6386c097e1b60d4",
-    "registered-pose.mp4": "0cf84fc3f0f29401f19d07347221922e3f4f0c73766a54e5dcfd7f1cd816bd26",
-    "desktop-blink.png": "b6271864cc12608dd957c0e13ef1d96df8b50796a5cb6aa34ba36e69dd25f43c",
+    "comparison.json": "c3f5fa4738b416c141919beb215de8ce0363b11b96f775337b2a251f0e1a40b0",
+    "phone-sprint.png": "bcad3b5736ef20c6e4c5f1c44451b7b4ad72d404092d14936126fc9bdb5f7026",
+    "interactions.mp4": "a9fa10bd8f71b35c9fdfd620d85b384a1300b90e4b2b09e3f53a18285c38db74",
+    "audio-path.wav": "bbb517a12a8491f5fd152772298fd23faca09c69c8f783c3d8ce784e94f25b0d",
+    "whole-view.gif": "80858b94aaad2e07df87c432e1ff4ae5214c7fe8be75ecfe81f95da7c528834f",
+    "whole-view-poses.jpg": "96e823dc4261245e3ccb2a87bab8ecbec46f173afb5180d5379648e6431bf7bb",
+    "interactions.jpg": "a1a1d59fea0bc732800605e9e38add7d723212471c994c19e074b41f63f3fe98",
+    "registered-pose.mp4": "2370a2c3b9247030fcd040b25b121aab483aad23cf08dfe49cf794c22a596dfe",
+    "desktop-blink.png": "616474a023cd0c40a94181566741f08f5a37c541f841b09a1897beab35408926",
+    "appearance-check.log": "8e6f2ab274703bbbe8c47919e9d6a9c58eda3cce7425715fb6a903abd9d45c9c",
+    "appearance-before.json": "22e18bd842ec9cd87a65b777fffc558121c280022663239c8f77d0e48ea4c455",
     "source-ground-track.json": "fc08802a4296470efc7f00edea730bcfbdd1ac1e85d7d2a93e039160253631f1",
-    "desktop-idle.png": "439e084161857137025f79bdfe0789dbbf02dcb20e757aa59effb3cff454e8d1",
+    "desktop-idle.png": "6c603684259c66bef36900d062bed5dc286d8523bc6b38edd669522c25236998",
     "controller-check.json": "8f74819ce37aa23297880c96623bfc0f7031e77bc24d607bc6e52dfac6a49cc4",
-    "desktop-sprint.png": "2fba22435319c163704e5dd1e11fbdf11d3b242ff541198f713e3f8141e1e9c0",
-    "driven-check.json": "10fe052c6ea6653ad18da067480d0a6499f466c89c393f13eceae941f8039aba",
+    "native-face-open.png": "4f12f1e3522e928e4fe9dce8a0f95ffc9c5c363e0907e82e20bc531bfa7ac57d",
+    "desktop-sprint.png": "9facd4db9adb5dc956d8b5a696ed24ef956971ffaac72a6d25442e7530c3bfd0",
+    "quality-check.log": "5285f23d4689bb2a2d9be5e3144a83b2d886a65504cf4dcee2494dfefd144585",
+    "driven-check.json": "97b140d53bdd30ae85cb6d69a7edefdea883e84363d9d806846444d03ee831b7",
     "source-ground-start.jpg": "fce1fe7400e377fbc954816a5837f2bc834b47619bccfc9638a5fcd9b0e5ceff",
-    "phone-idle.png": "ea8b5108f36e40bd4dc3420fe57862e1c0724f7960e86faf8280cb6ae786b13f",
-    "browser.json": "70bd0f6565805084536bf94cde4485c9b614be8deb0cf5c43156376c6ad8dbb6",
+    "audio-leaves.wav": "4c7dfeb5891c7a77623f6adea37fbf9fa4a3bc8fec4d4606c8cada5defbefa0d",
+    "audio-indoor.wav": "c2c9ea6d85dd1d2a15733b35327aa0fd8d46795e9c575413914c2f033bc03a97",
+    "audio-skid.wav": "702da8d1f15547a2177c2b9081336cbe8a92e75dc3653c1ce68c4bc16d741f2f",
+    "phone-idle.png": "20d83baa7335ee8b007ef0bebd803a0a90d3feb2eeacef47cc7960d57075d4c1",
+    "browser.json": "25a1af7f43583301e1d77f2922b306a9758750e9d4de3bdb02494e6d8180cbde",
     "canonical-rejected/registered-pose.gif": "8f45a849fe00f82470c9416c2de08888553613aca949ce0ec7af0c244f23ff3f",
     "canonical-rejected/registered-pose-poses.jpg": "04afa334d794742a27347459302e1d5eb6b0b55f4513166b73e27b437a2f4cf9",
     "canonical-rejected/comparison.json": "27709ae38be83c68cec85ad5b2aab67931fe268dbc004acf0fc252b472fe13b5",
     "walk-alternative/record.json": "4760c8415cec7f733e0639de6310c196e9be24a76ab5c8ba26940e4a15b210ea",
-    "walk-alternative/registered-pose.gif": "f417af0003ad083f062b35e5bba84059d20286af4ec71214e6d9816ef642db36",
-    "walk-alternative/registered-pose-poses.jpg": "bea44dea71e0f350ad7f2267abbd86853f23eefa61c2bd5f90f71265b175e9f6",
-    "walk-alternative/whole-view.mp4": "a5118f3cb100148e2579079ef7ac0b65d6d64e851b5af88b4648681489ef3d43",
-    "walk-alternative/comparison.json": "1a065ecdb86a9cde7d2dd7a0328cc4f65b015faee4c712968cb4436d08085252",
-    "walk-alternative/whole-view.gif": "1ee6f89ce5fea55eaff39eba8939cb5895f167459831990d71379290bb3614d9",
-    "walk-alternative/whole-view-poses.jpg": "97bc661f9b27fbb34c4d1d92669580d0d1d1e90c80b4438ec1b6839713f86695",
-    "walk-alternative/registered-pose.mp4": "a2de6f9e00e48ba64a0ac68d185ac89b468da00434af66fb275c1b67f7b52287",
+    "walk-alternative/registered-pose.gif": "45d53bbf7909c1e21b090bcd9d88a654c98a538d783ddb09a0685e8232efcf37",
+    "walk-alternative/registered-pose-poses.jpg": "44ea6177e24b2bee86f41a283a8a658d084e3a5626edf0122038413fb0f2532c",
+    "walk-alternative/whole-view.mp4": "4c2452fda6a3ff1adc0f91b823a5706cf28101db93f3dabf5b1255889d2ff8c5",
+    "walk-alternative/comparison.json": "7551cc7e9bbc8e2e09ab4ac9a63a5569a4d168ea4f1d463abe10f247bc4297cd",
+    "walk-alternative/whole-view.gif": "a5f7333078e3b144b731caacb2c86c70168b7251202e84bc009afb39b1598e55",
+    "walk-alternative/whole-view-poses.jpg": "d4b536baa1cf589d4dc2e1601c5c808b229f565dc6ae8284a526615939926fab",
+    "walk-alternative/registered-pose.mp4": "6f37cb8b9e51d4d438555fdf9a11202fba21eb55c4ecb14b6a8f707e9137b710",
     "canonical-rejected/walk-alternative/registered-pose.gif": "b018d79268e1e3051aea374c7663fb6162976ada5737c9d0755182c2ac73c5c8",
     "canonical-rejected/walk-alternative/registered-pose-poses.jpg": "493962ed5b825397fa63fea22f61cb7198ff45c8882e701bf2bb4b3902ec8adf",
     "canonical-rejected/walk-alternative/comparison.json": "38c3b156f4732d38d5e66ce06efef290f3101325536fd3cbe9f18dc74307e27b"
+  },
+  "appearance": {
+    "mean_material_color_error_255": 0.001875,
+    "maximum_blink_level_jump": 0.29600000000000004,
+    "distinct_blink_levels": 6,
+    "outside_face_changed_pixels": 0,
+    "closed_eye_blue_bleed_pixels": 0,
+    "native_render_compared_to_original_material": true
+  },
+  "quality": {
+    "audio": {
+      "Grass": {
+        "gain": 0.8,
+        "id": 16897,
+        "peak": 8975,
+        "samples": 2205,
+        "tail": 116
+      },
+      "Indoor": {
+        "gain": 0.72,
+        "id": 16900,
+        "peak": 9232,
+        "samples": 2866,
+        "tail": 98
+      },
+      "Leaves": {
+        "gain": 0.8,
+        "id": 16901,
+        "peak": 11628,
+        "samples": 3087,
+        "tail": 141
+      },
+      "Path": {
+        "gain": 0.8,
+        "id": 16918,
+        "peak": 8871,
+        "samples": 1764,
+        "tail": 114
+      },
+      "Sand": {
+        "gain": 0.8,
+        "id": 16904,
+        "peak": 10646,
+        "samples": 2646,
+        "tail": 106
+      },
+      "Snow": {
+        "gain": 0.8,
+        "id": 16902,
+        "peak": 11513,
+        "samples": 2866,
+        "tail": 110
+      },
+      "Water": {
+        "gain": 0.8,
+        "id": 16925,
+        "peak": 15324,
+        "samples": 3528,
+        "tail": 224
+      }
+    },
+    "exact_original_waveforms": false,
+    "idle_silent": true,
+    "palms": {
+      "Left": {
+        "reach_m": 0.145000025629997,
+        "thumb_projection_m": 0.0500822961330414,
+        "vertices": 658
+      },
+      "Right": {
+        "reach_m": 0.14500729739666,
+        "thumb_projection_m": 0.0517358854413033,
+        "vertices": 543
+      }
+    },
+    "wrists": {
+      "dash": {
+        "relative_wrist_error_degrees": 0.0395646811852521,
+        "samples": 65
+      },
+      "run": {
+        "relative_wrist_error_degrees": 0.0395646811852521,
+        "samples": 65
+      },
+      "skid": {
+        "relative_wrist_error_degrees": 0.0,
+        "samples": 65
+      },
+      "walk": {
+        "relative_wrist_error_degrees": 0.0395646811852521,
+        "samples": 65
+      }
+    }
+  },
+  "audio": {
+    "provider": "local deterministic Godot synthesis",
+    "source": "live-demo/sound.gd",
+    "cost_usd": 0,
+    "exact_original_waveforms": false,
+    "voice_ambience_reverb_implemented": false,
+    "research": "docs/research/character-audio-correction-2026-09-30.md",
+    "reference_receipt_sha256": "016df3ec6e053561055f7e0ee3a787ef378b72a82f28de1be0503a43c5607236",
+    "audition_order": [
+      "grass",
+      "path",
+      "snow",
+      "sand",
+      "water",
+      "leaves",
+      "indoor",
+      "skid"
+    ]
+  },
+  "blink_review": {
+    "file": "blink-slow-review.gif",
+    "native_update_hz": 60,
+    "gif_review_speed": "about one-quarter native speed"
+  },
+  "storage": {
+    "removed_own_regenerable_bytes": 344421572,
+    "removed_own_trial_exports": [
+      "a9b14e593a62",
+      "ef23e8a84775",
+      "f36d6b7bd36e",
+      "6e04f3e952ce",
+      "2fba3ea2499a"
+    ],
+    "retained_final_build": "094e9d943dbb",
+    "retained_share": "https://windows-wsl.taile06c45.ts.net/character-walk-01a0f3a2/",
+    "reference_audio_bytes": 465713,
+    "source_provider_files_deleted": false
   }
 }

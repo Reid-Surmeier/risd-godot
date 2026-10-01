@@ -79,7 +79,7 @@
   "tools": {
     "axe_bones": 8,
     "net_bones": 4,
-    "world_scale": "(0.99999, 0.999999, 0.999997)"
+    "world_scale": "(0.999993, 1.0, 0.999997)"
   },
   "wall": {
     "effects_stopped": true,

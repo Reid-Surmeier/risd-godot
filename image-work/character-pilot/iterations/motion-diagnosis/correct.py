@@ -91,6 +91,9 @@ if profile.get('source_curves'):
     own=(restworld[side+child].translation-restworld[name].translation).normalized()
     canonical=(conversion@neutral[j]@Vector((1,0,0))).normalized()
     calibration[name]=own.rotation_difference(canonical)
+   # Both bones use the same source forearm rotation. Keep the rest wrist angle;
+   # leaving Hand uncalibrated counter-rotates it against the corrected forearm.
+   calibration[side+'Hand']=calibration[side+'ForeArm'].copy()
 soleoffset={s:restworld[s+'Foot'].translation.z-min(restverts[i].z for i in ids) for s,ids in shoeids.items()}
 rig.data.pose_position='POSE'
 length=profile.get('period_seconds',32/30);speed=profile.get('controller_speed_mps',.52);stance=.5;swinglift=profile.get('swing_lift_m',.08)

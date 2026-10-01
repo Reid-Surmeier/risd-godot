@@ -67,10 +67,20 @@ trace=read(HERE/'evidence/record.json');assert trace['whole_viewport'] and len(t
 assert {'Run','Dash','Skid','Idle'}<=set(f['state'] for f in trace['frames'])
 for folder in [HERE/'evidence',HERE/'evidence/walk-alternative']:
  receipt=read(folder/'comparison.json')
+ assert receipt['target_build_stamp']==provenance['stamp'] and receipt['target_scene_sha256']==digest(HERE/'demo.gd')
+ assert receipt['target_models']=={name:value['sha256'] for name,value in provenance['models'].items()}
  assert not receipt['exact_match'] and not receipt['fixed_registration']['per_frame_warp']
  assert len(receipt['ground_tracks'])==61 and max(t['inlier_rms_px'] for t in receipt['ground_tracks'])<2
  for name,sha in receipt['artifact_hashes'].items():assert digest(folder/name)==sha
  probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-select_streams','v:0','-show_entries','stream=nb_frames,avg_frame_rate','-of','json',str(folder/'whole-view.mp4')]))['streams'][0]
  assert probe['nb_frames']=='60' and probe['avg_frame_rate']=='30/1'
-assert provenance['stamp']=='ef23e8a84775' and provenance['additional_api_cost_usd']==0
+stamp=hashlib.sha256((''.join(digest(p) for p in sorted(HERE.glob('*.gd')))+digest(HERE/'build.py')+digest(HERE/'appearance_check.py')+''.join(value['sha256'] for value in provenance['models'].values())).encode()).hexdigest()[:12]
+assert provenance['stamp']==stamp and provenance['additional_api_cost_usd']==0
+appearance=read(HERE/'evidence/appearance-metrics.json')
+assert appearance['mean_material_color_error_255']<1 and appearance['maximum_blink_level_jump']<.35
+assert appearance['outside_face_changed_pixels']==0 and appearance['closed_eye_blue_bleed_pixels']==0
+quality=read(HERE/'evidence/quality-check.json')
+assert all(p['relative_wrist_error_degrees']<.1 and p['samples']==65 for p in quality['wrists'].values())
+assert all(abs(p['reach_m']-.145)<.001 and p['thumb_projection_m']>.035 for p in quality['palms'].values())
+assert quality['idle_silent'] and not quality['exact_original_waveforms']
 print('PASS: six completed MCP clips, shared exported rig/appearance, dense native receipts, browser/whole-view evidence and $1.54 original liability')

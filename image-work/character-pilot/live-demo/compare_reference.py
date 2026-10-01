@@ -76,5 +76,8 @@ with tempfile.TemporaryDirectory(prefix='character-fixed-reference-') as tempora
   sheet.save(out/(name+'-poses.jpg'))
 receipt['artifact_hashes']={name:hashlib.sha256((out/name).read_bytes()).hexdigest() for name in ['whole-view.mp4','whole-view.gif','whole-view-poses.jpg','registered-pose.mp4','registered-pose.gif','registered-pose-poses.jpg']}
 receipt['target_gait']=gait
+receipt['target_build_stamp']=project.parent.name
+receipt['target_scene_sha256']=hashlib.sha256((project/'demo.gd').read_bytes()).hexdigest()
+receipt['target_models']={name:hashlib.sha256((project/(name+'.glb')).read_bytes()).hexdigest() for name in ['walk','run','dash','skid','axe','net']}
 (out/'comparison.json').write_text(json.dumps(receipt,indent=2)+'\n')
 print('PASS fixed-aspect/scale registration, whole viewport and',len(tracks),'source ground fits; exact fidelity open')

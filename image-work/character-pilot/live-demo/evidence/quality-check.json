@@ -1,0 +1,85 @@
+{
+  "audio": {
+    "Grass": {
+      "gain": 0.8,
+      "id": 16897,
+      "peak": 8975,
+      "samples": 2205,
+      "tail": 116
+    },
+    "Indoor": {
+      "gain": 0.72,
+      "id": 16900,
+      "peak": 9232,
+      "samples": 2866,
+      "tail": 98
+    },
+    "Leaves": {
+      "gain": 0.8,
+      "id": 16901,
+      "peak": 11628,
+      "samples": 3087,
+      "tail": 141
+    },
+    "Path": {
+      "gain": 0.8,
+      "id": 16918,
+      "peak": 8871,
+      "samples": 1764,
+      "tail": 114
+    },
+    "Sand": {
+      "gain": 0.8,
+      "id": 16904,
+      "peak": 10646,
+      "samples": 2646,
+      "tail": 106
+    },
+    "Snow": {
+      "gain": 0.8,
+      "id": 16902,
+      "peak": 11513,
+      "samples": 2866,
+      "tail": 110
+    },
+    "Water": {
+      "gain": 0.8,
+      "id": 16925,
+      "peak": 15324,
+      "samples": 3528,
+      "tail": 224
+    }
+  },
+  "exact_original_waveforms": false,
+  "idle_silent": true,
+  "palms": {
+    "Left": {
+      "reach_m": 0.145000025629997,
+      "thumb_projection_m": 0.0500822961330414,
+      "vertices": 658
+    },
+    "Right": {
+      "reach_m": 0.14500729739666,
+      "thumb_projection_m": 0.0517358854413033,
+      "vertices": 543
+    }
+  },
+  "wrists": {
+    "dash": {
+      "relative_wrist_error_degrees": 0.0395646811852521,
+      "samples": 65
+    },
+    "run": {
+      "relative_wrist_error_degrees": 0.0395646811852521,
+      "samples": 65
+    },
+    "skid": {
+      "relative_wrist_error_degrees": 0.0,
+      "samples": 65
+    },
+    "walk": {
+      "relative_wrist_error_degrees": 0.0395646811852521,
+      "samples": 65
+    }
+  }
+}

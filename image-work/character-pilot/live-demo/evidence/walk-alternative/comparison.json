@@ -1868,12 +1868,22 @@
   "exact_match": false,
   "paid_calls": 0,
   "artifact_hashes": {
-    "whole-view.mp4": "a5118f3cb100148e2579079ef7ac0b65d6d64e851b5af88b4648681489ef3d43",
-    "whole-view.gif": "1ee6f89ce5fea55eaff39eba8939cb5895f167459831990d71379290bb3614d9",
-    "whole-view-poses.jpg": "97bc661f9b27fbb34c4d1d92669580d0d1d1e90c80b4438ec1b6839713f86695",
-    "registered-pose.mp4": "a2de6f9e00e48ba64a0ac68d185ac89b468da00434af66fb275c1b67f7b52287",
-    "registered-pose.gif": "f417af0003ad083f062b35e5bba84059d20286af4ec71214e6d9816ef642db36",
-    "registered-pose-poses.jpg": "bea44dea71e0f350ad7f2267abbd86853f23eefa61c2bd5f90f71265b175e9f6"
+    "whole-view.mp4": "4c2452fda6a3ff1adc0f91b823a5706cf28101db93f3dabf5b1255889d2ff8c5",
+    "whole-view.gif": "a5f7333078e3b144b731caacb2c86c70168b7251202e84bc009afb39b1598e55",
+    "whole-view-poses.jpg": "d4b536baa1cf589d4dc2e1601c5c808b229f565dc6ae8284a526615939926fab",
+    "registered-pose.mp4": "6f37cb8b9e51d4d438555fdf9a11202fba21eb55c4ecb14b6a8f707e9137b710",
+    "registered-pose.gif": "45d53bbf7909c1e21b090bcd9d88a654c98a538d783ddb09a0685e8232efcf37",
+    "registered-pose-poses.jpg": "44ea6177e24b2bee86f41a283a8a658d084e3a5626edf0122038413fb0f2532c"
   },
-  "target_gait": "WALK partial input, speed x2.18"
+  "target_gait": "WALK partial input, speed x2.18",
+  "target_build_stamp": "094e9d943dbb",
+  "target_scene_sha256": "cd0648023406b2501aea658fde1a75088a89493427d9127cf018afd2eeaa5303",
+  "target_models": {
+    "walk": "abbbba117b4803aa3222e74e0f37d0fedc81ad183b7823b30b747fa89779cf5f",
+    "run": "1e066acad7b97465d540f6857f974bbe0cad701041b71ba81adc24aab43b74aa",
+    "dash": "af7397e82376e09d329abba7fcdf9a7727842cb9696232eeb0d782b3d0a06d0b",
+    "skid": "83a0df017c0ae322faabe43b312baf494c340c7fc26573835b7faa83b737a658",
+    "axe": "7ff521c1e0d33ddb83fca327c2b23bd18f9dbf7cccb4ba0e6eceab395efa991d",
+    "net": "0da3783add1293b6b4027eb46b4a722fc0c2b43ce51cdf02227d4bef51f2a3cf"
+  }
 }

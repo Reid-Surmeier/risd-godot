@@ -1,14 +1,14 @@
-20:53:26 | INFO: Data are loaded, start creating Blender stuff
-20:53:26 | INFO: Blender create Mesh node char1
-20:53:26 | INFO: glTF import finished in 0.02s
+21:38:36 | INFO: Data are loaded, start creating Blender stuff
+21:38:36 | INFO: Blender create Mesh node char1
+21:38:36 | INFO: glTF import finished in 0.02s
 INFO Draco mesh compression is available, use library at /home/reidsurmeier/.local/opt/blender-4.3.2/4.3/python/lib/python3.11/site-packages/libextern_draco.so
-20:53:34 | INFO: Starting glTF 2.0 export
-20:53:34 | INFO: Extracting primitive: char1
-20:53:34 | INFO: Primitives created: 1
-20:53:35 | INFO: Finished glTF 2.0 export in 0.9142210483551025 s
+21:38:45 | INFO: Starting glTF 2.0 export
+21:38:45 | INFO: Extracting primitive: char1
+21:38:45 | INFO: Primitives created: 1
+21:38:46 | INFO: Finished glTF 2.0 export in 0.9262957572937012 s
 
 Info: Saved "footplant-candidate.blend"
-CONTACT_CANDIDATE {"source_sha256": "2b18637a0537ad3bad3f636da76df70d5b753948559326daa44cddf1bcdb8010", "output_sha256": "4f7a69e8203dfb4b689ed13846cee4fead2690a5e39111c99ce7df17b4366b3e", "bones": 24, "rest_signature_unchanged": true, "shoe_repair_threshold_m": 0.2, "shoe_vertices": {"Left": 460, "Right": 512}, "shoe_assignment": "one Foot joint; target-specific rest-height classifier, owner review pending", "controller_speed_mps": 1.05, "walk_period_seconds": 0.8, "bake_fps": 240, "stance_phase": null, "dust_event_phases": [0, 0.5], "swing_lift_m": 0.06, "contact_accepted": false, "export_animations": ["idle", "walk"], "cost_usd": 0, "profile": {"source_glb": "../driven-character/short-arm/canonical-rest.glb", "forward_idle": true, "stable_head": true, "symmetric_arms": true, "authored_legs": true, "preserve_reference_seam": true, "source_units_to_m": 0.0004695, "controller_speed_mps": 1.05, "period_seconds": 0.8, "source_curves": "walk-reference-curves.json", "swing_lift_m": 0.06, "anatomical_axes": true, "bake_fps": 240, "arm_reach_m": 0.4, "arm_outward_m": 0.08, "reference_fit": "shorter visible-arm candidate; .72 canonical arm scale, source hip widths, rotations and target grounding; visual fit adaptation"}, "source_commit": "09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c", "source_animation": "walk-reference-curves.json", "anatomical_axis_correction_degrees": {"LeftShoulder": 0.1312212074681015, "LeftArm": 14.948347111814806, "LeftForeArm": 5.01201244974922, "RightShoulder": 0.17245846124184028, "RightArm": 10.332458313169646, "RightForeArm": 10.593590105517572, "LeftUpLeg": 15.354266961735958, "LeftLeg": 14.255883750738697, "RightUpLeg": 15.776886624177788, "RightLeg": 15.947170070375376}, "planar_stance_lock_verified": false}
+CONTACT_CANDIDATE {"source_sha256": "adad550dfbc07244a5665da1a6bc35bf4b2a733464bd8617050ef925bce5d33a", "output_sha256": "abbbba117b4803aa3222e74e0f37d0fedc81ad183b7823b30b747fa89779cf5f", "bones": 24, "rest_signature_unchanged": true, "shoe_repair_threshold_m": 0.2, "shoe_vertices": {"Left": 460, "Right": 512}, "shoe_assignment": "one Foot joint; target-specific rest-height classifier, owner review pending", "controller_speed_mps": 1.05, "walk_period_seconds": 0.8, "bake_fps": 240, "stance_phase": null, "dust_event_phases": [0, 0.5], "swing_lift_m": 0.06, "contact_accepted": false, "export_animations": ["idle", "walk"], "cost_usd": 0, "profile": {"source_glb": "../hand-repair/canonical-rest.glb", "forward_idle": true, "stable_head": true, "symmetric_arms": true, "authored_legs": true, "preserve_reference_seam": true, "source_units_to_m": 0.0004695, "controller_speed_mps": 1.05, "period_seconds": 0.8, "source_curves": "walk-reference-curves.json", "swing_lift_m": 0.06, "anatomical_axes": true, "bake_fps": 240, "arm_reach_m": 0.4, "arm_outward_m": 0.08, "reference_fit": ".72 source-arm-chain visible fit; compact palms and inherited anatomical wrist alignment; UV/head preserved"}, "source_commit": "09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c", "source_animation": "walk-reference-curves.json", "anatomical_axis_correction_degrees": {"LeftShoulder": 0.1312212074681015, "LeftArm": 14.948137083497828, "LeftForeArm": 5.012324930903748, "LeftHand": 5.012324930903748, "RightShoulder": 0.17245846124184028, "RightArm": 10.332610284878678, "RightForeArm": 10.593515827210348, "RightHand": 10.593515827210348, "LeftUpLeg": 15.354420640992283, "LeftLeg": 14.256158665852789, "RightUpLeg": 15.77678587888753, "RightLeg": 15.946971994889445}, "planar_stance_lock_verified": false}
 Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 01:31:14)
 
 Blender quit

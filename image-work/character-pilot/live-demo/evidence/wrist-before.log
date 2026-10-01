@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+CHARACTER_PLAYTEST_READY
+SCRIPT ERROR: Assertion failed: Wrist counter-rotation: walk 10.593586690423
+          at: run (res://quality_check.gd:23)
+          GDScript backtrace (most recent call first):
+              [0] run (res://quality_check.gd:23)

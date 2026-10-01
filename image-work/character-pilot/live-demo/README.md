@@ -22,7 +22,7 @@ Build and exercise the isolated project:
 python3 image-work/character-pilot/live-demo/build.py
 ```
 
-The command imports at 240fps with animation optimization disabled, runs `controller_check.gd` and `driven_check.gd`, then exports under ignored `build/character-playtest/<content-hash>/site`. It changes no shipped runtime module. Publish and check the generated site:
+The command imports at 240fps with animation optimization disabled, runs controller/integration checks, the exported-palm/wrist/audio checks, and native render/pixel checks before exporting under ignored `build/character-playtest/<content-hash>/site`. It changes no shipped runtime module. Publish and check the generated site:
 
 ```bash
 python3 ~/agentic-workflow/scripts/share.py <printed-site-folder> --label character-walk --reason 'Owner-requested refined character demo, issue231' --keep 3d
@@ -44,3 +44,19 @@ The native record advances two 60Hz updates per 30fps image. The comparison pres
 The pure source joint-ratio candidate looked too long in the arms. The selected `fitted-*` clips use 72% of that arm-chain length, source hip/shoulder widths, 80% boots, unchanged UVs and the retained head-weight repair. This is a visible-fit adaptation; the public source omits original vertex assets. Both rejected and selected candidates remain reproducible. Read [the implementation report](../../../docs/research/character-driven-implementation-2026-09-30.md) for comparisons, failures and source limits.
 
 Exact likeness, original tool/effect assets, source world scale, stance drift on turns and non-flat terrain remain unaccepted. The reference footage has unknown input/gait, different clothing and uncertain capture settings. The web export requires WebGL2; [Godot web export documentation](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html). No additional provider calls or API cost; aggregate pilot liability remains $1.54 of the authorized $4.
+
+## Appearance, hands and audio regression pass
+
+The blink shader now preserves the original material’s lighting, roughness, color handling and filtering. It closes and opens over five eased updates rather than switching among three images. Calibrated skin patches prevent unrelated atlas colors from entering the eyelid. A head-weight mask prevents UV overlap from blinking the sleeves or palms. This remains an atlas-specific pilot effect, not a reusable arbitrary-character eyelid generator.
+
+Hand repair uses the existing mesh, a small amount of local thumb subdivision, interpolated thumb UVs, short matched palms and rigid distal weights. The forearm anatomical correction is inherited by Hand; the old omission produced about 10.59 degrees of unwanted wrist counter-rotation. The original head coordinates/UV correspondence and all other shared-rig checks remain guarded. These are stylized mittens with a thumb, not articulated fingers.
+
+`sound.gd` selects distinct terrain, side, variant and sprint samples at pitch 1, with the researched gait gains. Skidding has a separate cue. Four door events use the source-frame proportions within the existing prototype transition. Waveforms are local synthesis: exact original effects, voice, ambience and original reverb remain open. [Audio evidence and sources](../../../docs/research/character-audio-correction-2026-09-30.md).
+
+The build now runs these failure-capable checks before Web export:
+
+- `appearance_check.gd` + `appearance_check.py`: same-pose render against the original material, 16 timed blink updates, no repaint outside the face and no blue eyelid bleed. The old build fails color equivalence and blink continuity.
+- `quality_check.gd`: actual imported palm reach/thumb contour, 65 poses per WALK/RUN/DASH/skid checking relative wrist alignment, distinct PCM waveforms, terrain/side/sprint bank IDs, gait gains, decay/no clipping and idle silence.
+- `driven_check.gd`: real moving/stopped audio, separate skid and all four entry/exit door cues, alongside the existing gait/tool/collision/interaction checks.
+
+Render proof contains open, intermediate and closed blink frames and front/side hand views at four gait phases. A physical gamepad and exact original-game likeness remain unaccepted. Every selected clip must continue to share the same exported mesh, atlas, skin and rest rig.
