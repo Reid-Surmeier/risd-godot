@@ -267,7 +267,7 @@ assert image.size==(1440,1760),'Door UV regions require review when native pixel
 for index,box in enumerate([(523,258,921,632),(523,708,921,1086),(523,1150,921,1526)]):
     image.crop(box).save(out/'assets'/f'white-panel-door-{index}.png')
 inputs[str(door)]=hashlib.sha256(door.read_bytes()).hexdigest()
-for kind in ['fetti-frame','goltzius-frame','romanesque-portal','tracery-arch']:
+for kind in ['fetti-frame','goltzius-frame','romanesque-portal','tracery-arch','ionic-capital']:
     for suffix in ['.png','-geometry.json']:
         copy(app/'trial'/(kind+suffix),'assets/'+kind+suffix)
 copy(app/'inventory-catalogue/goltzius-cold-stone-zoom-0.jpg','assets/painting-61.006.jpg')
@@ -291,8 +291,8 @@ geometry['rooms']=[
     {'label':'Main Hall portal threshold study limit','bounds':[3.4355,7.6645,17.25,18.85], 'height':4.25, 'openings':{'south':[3.4355,7.6645]}, 'stone_sides':['south']},
     {'label':'stairs landing threshold study limit','bounds':[11.5,12.9,19.95,21.65], 'openings':{'west':[19.95,21.65]}},
     {'label':'purple elevator-5 connector','bounds':[3.65,8.45,-2.8,-1.2], 'openings':{'west':[-2.8,-1.2],'east':[-2.8,-1.2]}},
-    {'label':'grey French gallery','bounds':[8.45,15.65,-5.8,1.8], 'floor':'herringbone', 'openings':{'west':[-2.8,-1.2],'east':[-5.8,1.8],'north':[9.15,11.15],'south':[9.15,11.15]}},
-    {'label':'Ionic marble-stair threshold study limit','bounds':[15.65,17.25,-5.8,1.8], 'openings':{'west':[-5.8,1.8]}},
+    {'label':'grey French gallery','bounds':[8.45,15.65,-5.8,1.8], 'floor':'herringbone', 'column_sides':['east'], 'clear_heights':{'east':3.12}, 'openings':{'west':[-2.8,-1.2],'east':[-5.8,1.8],'north':[9.15,11.15],'south':[9.15,11.15]}},
+    {'label':'Ionic marble-stair threshold study limit','bounds':[15.65,17.25,-5.8,1.8], 'column_sides':['west'], 'clear_heights':{'west':3.12}, 'openings':{'west':[-5.8,1.8]}},
     {'label':'piano-stair threshold study limit','bounds':[9.15,11.15,-7.4,-5.8], 'openings':{'south':[9.15,11.15]}},
     {'label':'Grand Gallery grey-entry threshold study limit','bounds':[9.15,11.15,1.8,3.4], 'height':6.0, 'openings':{'north':[9.15,11.15]}}]
 geometry['grey_gallery_connections']={'source_frames':'6380:29-36,73-80,196-210,493-501','observed':'Purple connector faces Ionic opening across grey room; piano door on adjoining wall; Grand Gallery door perpendicular beside connector. Earlier opposite-ends claim removed.','metric_acceptance':False,'extent':'Authored grey room plus three threshold limits; full Grand Gallery/stairs and museum-loop metric fit unfinished'}

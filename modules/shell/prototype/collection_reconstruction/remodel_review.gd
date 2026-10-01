@@ -53,6 +53,8 @@ func run() -> void:
 		["purple-grey-wide",Vector3(4.1,1.65,-2),Vector3(15.65,1.5,-2)],
 		["grey-purple-reverse",Vector3(14.8,1.65,-2),Vector3(3.1,1.5,-2)],
 		["grey-gallery-wide",Vector3(8.9,1.65,-2),Vector3(15.65,1.5,-2)],
+		["ionic-capital-front",Vector3(13.9,2.9,-4.2),Vector3(15.65,2.9,-4.2)],
+		["ionic-capital-oblique",Vector3(14.4,2.95,-3.15),Vector3(15.65,2.9,-4.2)],
 		["grey-door-corner",Vector3(13.5,1.65,-3),Vector3(8.9,1.5,.5)],
 		["courbet-in-room",Vector3(10.2,1.8,-4.35),Vector3(8.53,1.8,-4.35)],
 		["corot-in-room",Vector3(14.8,1.8,-3.9),Vector3(14.8,1.8,-5.72)],

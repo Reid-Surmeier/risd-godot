@@ -1,0 +1,26 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/ionic-capital-selected-0.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/ionic-capital-selected-1.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/ionic-capital-selected-2.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-db146fcf707e6f70e45cd014/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "a05e91afda0907daf0b737a0c767d4a9f6fd9f18e5ade9d8e445d663e8f55481"
+    }
+  ],
+  "changesRequested": "Generate ONE complete FRONT ORTHOGRAPHIC low polygon Ionic column CAPITAL matching the white-painted historic RISD grey-gallery column top in reference1 and its architectural context in reference2. Preserve the paired downward-curling spiral volutes left and right, shallow curved band between them, short round neck beneath, and thin rectangular square abacus above. The actual shaft is smooth and unfluted; include only a very short neck, not a whole column. Warm off-white painted plaster, restrained facet shading consistent with reference3 museum game, simple shallow moulding relief. Complete silhouette and all scrolls, generous magenta #FF00FF outside background. One capital only, no entablature, shaft, base, wall, floor, people, labels, detached parts or cast shadow outside silhouette. Frontal orthographic view, no perspective. Do not add Corinthian leaves, heads, statues or gilding. Native closed geometry will supply depth; preserve the characteristic twin-scroll silhouette.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-db146fcf707e6f70e45cd014",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-db146fcf707e6f70e45cd014"
+}

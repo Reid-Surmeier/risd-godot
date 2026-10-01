@@ -183,10 +183,12 @@ func build_rooms() -> void:
 			var middle:float=(opening[0]+opening[1])/2
 			var stone:bool=side in area.get("stone_sides",[])
 			var clear_height:float=(3.342 if vertical else 3.861) if stone else 2.74
+			clear_height=float(area.get("clear_heights",{}).get(side,clear_height))
+			assert(height>clear_height,"Opening must leave a positive header above its source-fitted head")
 			var header_y:float=(height+clear_height)/2
 			var header:=solid(Vector3(fixed,header_y,middle) if vertical else Vector3(middle,header_y,fixed),Vector3(.38,height-clear_height,width) if vertical else Vector3(width,height-clear_height,.38),wall,true)
 			wall_face(header,width,height-clear_height,vertical,1.0 if side in ["west","north"] else -1.0)
-			if stone:continue
+			if stone or side in area.get("column_sides",[]):continue
 			for edge in opening:
 				# Deep painted reveals are visible in both reciprocal doorway shots.
 				var jamb:=solid(Vector3(fixed,1.35,edge) if vertical else Vector3(edge,1.35,fixed),Vector3(.38,2.7,.08) if vertical else Vector3(.08,2.7,.38),ivory)
@@ -214,7 +216,7 @@ func build_rooms() -> void:
 		var vent:=solid(spec[0],Vector3(1.85,.07,.018),look(Color("746f64")))
 		vent.rotation.y=spec[1]
 		ceiling_details.append(vent)
-	inventory["muse_architecture_assets"]=5
+	inventory["muse_architecture_assets"]=6
 
 func build_grey_gallery() -> void:
 	# Reciprocal source views establish wall relationships; all metric offsets are provisional.
@@ -269,10 +271,18 @@ func build_grey_gallery() -> void:
 		column.add_child(visual)
 		add_child(column)
 		casings.append(column)
-		for y in [.08,2.88]:
-			var band:=solid(Vector3(15.65,y,z),Vector3(.46,.16,.46),ivory)
-			band.reparent(column)
-	# Ionic capitals/entablature still need their own source-reviewed Muse pass.
+		var base:=solid(Vector3(15.65,.08,z),Vector3(.46,.16,.46),ivory)
+		base.reparent(column)
+		var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/ionic-capital-geometry.json"))
+		assert(data.edge_pair_counts.size()==1 and int(data.edge_pair_counts[0])==2,"Capital must be a closed low polygon solid")
+		var capital:=MeshInstance3D.new()
+		capital.mesh=stone_mesh(data,data.faces,data.size_m[2])
+		capital.material_override=look(Color.WHITE,"res://assets/ionic-capital.png")
+		capital.position=Vector3(15.65,2.7,z)
+		capital.rotation.y=-PI/2
+		add_child(capital)
+		capital.reparent(column)
+	# Capital side/rear relief and entablature are still unaccepted.
 	for spec in [["courbet","43.571",Vector3(8.53,1.8,-4.35),PI/2],["corot","24.089",Vector3(14.8,1.8,-5.72),0.0]]:
 		var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/"+spec[0]+"-frame-geometry.json"))
 		var painting:=Painting.new()

@@ -17,7 +17,7 @@ def closed_faces(mask):
  assert set(edges.values())=={2},'Stone extrusion is not closed'
  return faces,len(edges)
 
-for kind,size,columns in [('romanesque-portal',[4.229,3.861,.45],64),('tracery-arch',[1.410,1.092,.273],96)]:
+for kind,size,columns in [('romanesque-portal',[4.229,3.861,.45],64),('tracery-arch',[1.410,1.092,.273],96),('ionic-capital',[.72,.40,.32],32)]:
  native=app/'trial'/f'{kind}-original.webp';a=np.array(Image.open(native).convert('RGBA'))
  hsv=cv2.cvtColor(a[:,:,:3],cv2.COLOR_RGB2HSV);key=(hsv[:,:,0]>=125)&(hsv[:,:,0]<=175)&(hsv[:,:,1]>70)
  a[key,3]=0
@@ -35,10 +35,10 @@ for kind,size,columns in [('romanesque-portal',[4.229,3.861,.45],64),('tracery-a
     cells=[(yy+j,xx+i) for j in range(2) for i in range(2) if not square[j,i]]
     iy,ix=max(cells,key=lambda p:small[p]);mask[iy,ix]=True
  faces,edge_count=closed_faces(mask)
- assert not mask[rows-1,columns//2] and not mask[rows//2,columns//2], 'Walk-through opening sealed'
+ if kind!='ionic-capital':assert not mask[rows-1,columns//2] and not mask[rows//2,columns//2], 'Walk-through opening sealed'
  # Front/back share authentic Muse colours; rear/profile fidelity remains unverified.
  data=dict(size_m=size,grid=[columns,rows],faces=faces,triangles=len(faces)*2,closed_quad_edges=edge_count,edge_pair_counts=[2],
- source_sha256=hashlib.sha256(native.read_bytes()).hexdigest(),depth_basis='catalogue' if kind=='tracery-arch' else 'provisional .45m; catalogue gives height/width only',
+ source_sha256=hashlib.sha256(native.read_bytes()).hexdigest(),depth_basis='provisional source-fit; width/height/depth unmeasured' if kind=='ionic-capital' else 'catalogue' if kind=='tracery-arch' else 'provisional .45m; catalogue gives height/width only',
  limitations='Constant-depth silhouette extrusion, not fully modelled engaged columns or carved capitals. Rear appearance inferred; whole architectural acceptance incomplete.')
  infill=np.zeros_like(mask)
  for yy in range(rows):

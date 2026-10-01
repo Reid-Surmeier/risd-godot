@@ -1,0 +1,32 @@
+{
+  "date_utc": "2026-10-01",
+  "accepted": false,
+  "scope": "Existing study layout versus saved Main Hall authored constraints; not a surveyed metric map",
+  "grey_grand_door_center_xz": [
+    10.15,
+    1.8
+  ],
+  "medieval_portal_center_xz": [
+    5.550000000000001,
+    18.85
+  ],
+  "lateral_offset_m": -4.6,
+  "axial_separation_m": 17.05,
+  "center_distance_m": 17.659629101427925,
+  "saved_main_hall": {
+    "length_m": 26.3,
+    "width_m": 10.0,
+    "height_m": 6.0,
+    "end_doors_centered_on_same_axis": true,
+    "far_reveal_m": 2.6,
+    "arch_reveal_m": 0.45,
+    "source": "modules/shell/prototype/gallery_walk4/walk4.gd; authored values, not independent survey"
+  },
+  "observed_topology": [
+    "6380 frames193\u2013216 (96.25\u2013107.75s): grey entrance and purple connector perpendicular adjoining wall",
+    "6382 frames1\u201324 (0.25\u201311.75s): portal opens directly into blue Grand Gallery; opposite doorway visible",
+    "6382 frames153\u2013168 (76.25\u201383.75s): portal adjacent to east stair doorway, opposite Renaissance tracery doorway"
+  ],
+  "official_map_limitation": "Floor5 schematic supports a parallel European strip and Grand Gallery; no common pixel scale assumed. It cannot establish exact room dimensions.",
+  "next_action": "Fit European length and Renaissance/medieval corner/portal offsets from source planes and reciprocal wide views before reusing full Main Hall. Do not connect the two threshold stubs with an invented corridor or deform the Hall to current guessed coordinates."
+}

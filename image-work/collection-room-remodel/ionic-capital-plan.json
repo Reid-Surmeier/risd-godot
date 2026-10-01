@@ -1,0 +1,24 @@
+{
+  "attempts": [
+    {
+      "id": "ionic-capital-001",
+      "prompt": "ionic-capital-prompt.txt",
+      "promptSha256": "c0674b8e71c9e1b1a3dc37786c034cc211cbc3afc6b9fa034165175d80f228d9",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/ionic-capital-selected-0.png",
+          "sha256": "110eba8774838c282d14b303de3ffb72c1c8fb3a5f7c60f900502f51bc74ff0f"
+        },
+        {
+          "path": "inventory-references/ionic-capital-selected-1.png",
+          "sha256": "29335bc280b870c4179042ba65fab9d66a0faf00c9633a09070a3cbad8f40bcf"
+        },
+        {
+          "path": "inventory-references/ionic-capital-selected-2.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe"
+        }
+      ]
+    }
+  ]
+}
