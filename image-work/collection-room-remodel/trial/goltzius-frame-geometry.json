@@ -4,14 +4,14 @@
     0.51
   ],
   "margins_px": [
-    299,
-    337,
-    299,
-    333
+    95,
+    111,
+    112,
+    88
   ],
   "texture_size": [
-    1110,
-    1439
+    719,
+    968
   ],
   "opening_aspect": 0.6657997399219766,
   "catalogue_aspect": 0.676470588235294,
@@ -19,5 +19,23 @@
   "canvas_inset_m": 0.035,
   "depth_note": "Existing Main Hall profile depth reused, unmeasured",
   "geometry": "native nine-slice preserves band thickness and corrects opening aspect; no room placement yet",
-  "source_sha256": "4ec50fbf65f473b9fda5b27d57dd87fa97863c6451c1c9955845f084361f105e"
+  "source_sha256": "4ec50fbf65f473b9fda5b27d57dd87fa97863c6451c1c9955845f084361f105e",
+  "source_fit": {
+    "video": "IMG_6386",
+    "selected_time_seconds": 19.25,
+    "crosscheck_time_seconds": 18.25,
+    "target_margins_m": [
+      0.06311795115470886,
+      0.07374365627765656,
+      0.07416972517967224,
+      0.05829513072967529
+    ],
+    "crossframe_margin_difference_m": [
+      0.013476036489009857,
+      0.006192192435264587,
+      0.028347134590148926,
+      0.00016248226165771484
+    ],
+    "note": "Opening pixels unchanged; each Muse band compressed independently. Manual planar corner fit is provisional because the frame is stepped/nonplanar."
+  }
 }

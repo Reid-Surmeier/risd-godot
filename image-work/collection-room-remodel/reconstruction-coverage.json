@@ -56,7 +56,7 @@
       "sha256": "415467db2d2216363fbccb41801851180f48bbdb3304c95861f90f3f5767020e",
       "available_2fps_frames": 226,
       "wide_contact_sheet": "video-wide/IMG_6382.jpg",
-      "survey_review": "20 evenly spaced source frames inspected; detailed object inventory and held-out reconstruction incomplete",
+      "survey_review": "All available 2fps frames reviewed through 17 ordered contact sheets covering373 frames; room/wall relationships and lower-bound inventory recorded. Reconstruction incomplete.",
       "regions_seen": [
         "medieval stone portal, iron grille, Christ head and reliefs",
         "Madonna sculptures/paintings and centre cases"
@@ -68,7 +68,7 @@
       "sha256": "8cfd089e769000369419f577f28a1bfc68b09f8cc7cda4cbe93d840194e6eeef",
       "available_2fps_frames": 147,
       "wide_contact_sheet": "video-wide/IMG_6383.jpg",
-      "survey_review": "20 evenly spaced source frames inspected; detailed object inventory and held-out reconstruction incomplete",
+      "survey_review": "All available 2fps frames reviewed through 17 ordered contact sheets covering373 frames; room/wall relationships and lower-bound inventory recorded. Reconstruction incomplete.",
       "regions_seen": [
         "Renaissance gallery: tapestries, paintings, triptych, ceramics/book cases, bronze sculpture"
       ],
@@ -122,7 +122,7 @@
       "complete": false
     }
   ],
-  "built_study": "Rockefeller, adjoining long European gallery and observed far doorway threshold; v21 under validation. Sculpture successor beyond 1.6m threshold unfinished.",
+  "built_study": "Rockefeller, adjoining long European gallery, separate light Renaissance and dark medieval room shells. Portal/stairs threshold limits; contents, room metric fits and actual Main Hall integration unfinished.",
   "acceptance_remaining": [
     "every observed room and connection inventoried",
     "every visible object source/API matched or explicitly unresolved",
@@ -139,10 +139,11 @@
     }
   ],
   "current_preview": {
-    "path": "lowpoly-room-v21",
+    "path": "lowpoly-room-v25",
     "wallpaper": "34.912 matched/installed, placement provisional",
     "bust": "37.201 separate front/rear UVs and connected socle, side profile unverified",
-    "next_frame_trial": "61.006 matched, one Muse pass inspected; bands too wide, deterministic correction pending"
+    "next_frame_trial": "61.006 saved frame bands compressed from native19.25s planar corners, crosschecked18.25s; installed in provisional wall order, profile/gold faceting unaccepted."
   },
-  "gallery_inventory": "european-gallery-inventory.json"
+  "gallery_inventory": "european-gallery-inventory.json",
+  "sculpture_inventory": "sculpture-room-inventory.json"
 }

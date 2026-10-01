@@ -1,0 +1,282 @@
+{
+  "date_utc": "2026-10-01",
+  "scope": "All 373 survey frames reviewed; ordered lower-bound inventory, not final object/metric acceptance",
+  "source_counts": {
+    "IMG_6382": 226,
+    "IMG_6383": 147
+  },
+  "total_frames": 373,
+  "method": "17 portrait-rotated contact sheets reviewed in order; reciprocal wide shots establish corners and connections. No point cloud reconstruction.",
+  "orientation": "Local prototype axes only, not museum compass bearings",
+  "connections": [
+    {
+      "from_room": "long European gallery",
+      "to_room": "light Renaissance room",
+      "wall": "Renaissance north",
+      "source": "6383:127-130;6386:194-213"
+    },
+    {
+      "from_room": "light Renaissance room",
+      "to_room": "dark medieval room",
+      "wall": "Renaissance east / medieval west",
+      "source": "6383:130-134;6382:165-168"
+    },
+    {
+      "from_room": "dark medieval room",
+      "to_room": "Main Hall",
+      "wall": "medieval north",
+      "source": "6382:1-24;153-160;175-180"
+    },
+    {
+      "from_room": "dark medieval room",
+      "to_room": "stairs landing study limit",
+      "wall": "medieval east, opposite tracery west",
+      "source": "6382:37-48;155-159"
+    }
+  ],
+  "rooms": {
+    "renaissance": {
+      "wall_groups": [
+        {
+          "id": "triptych",
+          "wall": "north",
+          "title": "Open gold triptych in wall glass case",
+          "survey_frames": "6383:55-63",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "madonna-architecture",
+          "wall": "north",
+          "title": "Madonna and Child, gilded architectural pediment frame",
+          "survey_frames": "6383:68-79",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "books-portraits-case",
+          "wall": "east",
+          "title": "Six visible objects: two portraits, ivory narrative plaque, bronze bucket, open printed book, blue/gold drug jar",
+          "survey_frames": "6383:82-104",
+          "status": "unmatched/unplaced",
+          "minimum_objects": 6
+        },
+        {
+          "id": "majolica-medals-case",
+          "wall": "east",
+          "title": "Two plates, two round medallions, rectangular relief plaque",
+          "survey_frames": "6383:108-116",
+          "status": "unmatched/unplaced",
+          "minimum_objects": 5
+        },
+        {
+          "id": "burgundy-textile",
+          "wall": "south",
+          "title": "Burgundy repeated floral textile in white mount",
+          "survey_frames": "6383:11-17",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "hunting-tapestry",
+          "wall": "south",
+          "title": "Green hunting tapestry: riders and foliage",
+          "survey_frames": "6383:18-26",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "holy-family",
+          "wall": "west",
+          "title": "Holy Family with female attendants, outdoor setting",
+          "survey_frames": "6383:29-33",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "bronze-knight",
+          "wall": "west",
+          "title": "Bronze young knight with hat/cape, rock base, large glass case",
+          "survey_frames": "6383:34-45",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "bronze-pieta",
+          "wall": "west",
+          "title": "Virgin seated, dead Christ at her side, small wall glass case",
+          "survey_frames": "6383:46-52",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "bench",
+          "wall": "centre",
+          "title": "Black upholstered bench with four legs",
+          "survey_frames": "6383:123-130",
+          "status": "unmatched/unplaced"
+        }
+      ],
+      "floor": "straight pale oak planks",
+      "walls": "warm light grey",
+      "architecture": "shuttered white window on west; raised plinths south/east; overhead white tracks; north doorway vent"
+    },
+    "medieval": {
+      "wall_groups": [
+        {
+          "id": "portal",
+          "wall": "north",
+          "title": "Romanesque Portal",
+          "survey_frames": "6382:1-24;175-180",
+          "status": "Official photo/video matched; one Muse pass and closed native extrusion installed; profile/rear fidelity and placement incomplete",
+          "catalogue_id": "1588546",
+          "accession": "40.014",
+          "dimensions_m": [
+            4.229,
+            3.861
+          ]
+        },
+        {
+          "id": "iron-grille",
+          "wall": "north",
+          "title": "Tall iron scroll grille on white plinth, right of portal",
+          "survey_frames": "6382:25-28",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "stone-fragment-a",
+          "wall": "east",
+          "title": "Small stone figure fragment, bracket left of stair door",
+          "survey_frames": "6382:29-36",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "stone-fragment-b",
+          "wall": "east",
+          "title": "Second small stone figure fragment, bracket right of stair door",
+          "survey_frames": "6382:49-55",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "christ-head",
+          "wall": "south",
+          "title": "Head of Christ, wide-eyed bearded sculpture",
+          "survey_frames": "6382:58-68",
+          "status": "Existing failed Muse v1/v2; incomplete, no blind retry",
+          "accession": "59.131"
+        },
+        {
+          "id": "madonna-relief",
+          "wall": "south",
+          "title": "Virgin and Child, rectangular stone architectural relief",
+          "survey_frames": "6382:70-75",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "crucified-christ",
+          "wall": "south",
+          "title": "Crucified Christ, outstretched arms, flaking skirt, no cross behind",
+          "survey_frames": "6382:77-88",
+          "status": "unmatched/unplaced",
+          "candidate_accession": "43.195"
+        },
+        {
+          "id": "apostle-bust",
+          "wall": "south",
+          "title": "Bearded male bust, hand near neck, grey pedestal",
+          "survey_frames": "6382:90-105",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "christ-majesty",
+          "wall": "south",
+          "title": "Seated Christ in Majesty, gilded gabled frame, red kneeling donor",
+          "survey_frames": "6382:108-117",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "standing-virgin",
+          "wall": "west",
+          "title": "Polychrome standing Virgin, green/red gown, corner pedestal",
+          "survey_frames": "6382:119-124",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "tracery",
+          "wall": "west",
+          "title": "Tracery Arch over Renaissance doorway",
+          "survey_frames": "6382:125-130;6383:132-134",
+          "status": "Official photo/video matched; one Muse pass and closed native extrusion installed; profile/rear fidelity and placement incomplete",
+          "catalogue_id": "1428171",
+          "accession": "40.156.1",
+          "dimensions_m": [
+            1.41,
+            1.092,
+            0.273
+          ]
+        },
+        {
+          "id": "madonna-gold",
+          "wall": "west",
+          "title": "Madonna and Child, gold ground rectangular panel",
+          "survey_frames": "6382:132-138",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "annunciation",
+          "wall": "west",
+          "title": "Small arch-topped Annunciation candidate, pink Mary/green angel",
+          "survey_frames": "6382:139-142",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "madonna-gabled",
+          "wall": "west",
+          "title": "Small gabled Madonna panel, red ground and robe",
+          "survey_frames": "6382:143-147",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "gold-narrative",
+          "wall": "west",
+          "title": "Horizontal gold narrative panel, figures outside architecture",
+          "survey_frames": "6382:149-153",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "flat-reliefs-case",
+          "wall": "centre",
+          "title": "Low display case containing two large narrative relief plaques",
+          "survey_frames": "6382:193-198",
+          "status": "unmatched/unplaced",
+          "minimum_objects": 2
+        },
+        {
+          "id": "tall-mixed-case",
+          "wall": "centre",
+          "title": "Tall case: Madonna, framed medallion, two ornate spires and small objects",
+          "survey_frames": "6382:201-226",
+          "status": "unmatched/unplaced",
+          "minimum_objects": 4
+        }
+      ],
+      "floor": "pale oak herringbone",
+      "walls": "dark charcoal grey",
+      "architecture": "white ceiling tracks, stone round portal, pointed tracery above rectangular doorway; long axis between west tracery and east stair door, as reciprocal wide6382:155-168 shows"
+    }
+  },
+  "metric_acceptance": false,
+  "remaining": "Every room extent and object offset still provisional; catalogue matching incomplete, display groups only lower bounds. Never merge light Renaissance and dark medieval rooms into one axial successor.",
+  "contact_sheet_sha256": {
+    "IMG_6382-001-024.jpg": "066896f9692dff3688c72de717a62cfee8d272e81b597a7efb630549c85feb03",
+    "IMG_6382-025-048.jpg": "efcc9e9c51a7bfebb85b7e65950e3668ce7b47194d541c5405b759a38f23df23",
+    "IMG_6382-049-072.jpg": "c4e4021e1d8bbe5a5a7bef6d4a0e15942a4de3337455169ff6d27f75f3bbc4b2",
+    "IMG_6382-073-096.jpg": "4e25163ab924ef90d8ddcfdf7ada16635930f97a0036117ad08ccc004d64a4ae",
+    "IMG_6382-097-120.jpg": "c48ad547fca5f8b9e7c6d0433a15b93c103139949279aac485b9ab80b3b14e06",
+    "IMG_6382-121-144.jpg": "71202522e13b6c61be90b545719411a6a7c476f409f9519c83627951613fe0d8",
+    "IMG_6382-145-168.jpg": "81ad3e5ad4f80bbb9e8477351eb9ade3f9613e556dffea77ee0c803c4b6eec36",
+    "IMG_6382-169-192.jpg": "6ce5be45ffc990da48885096c7228430a8caa25d497a3bed62df3e25160df5e6",
+    "IMG_6382-193-216.jpg": "40317538b3186dae79a4e2ad736d6d41214600f1c6385d49c931b9ea7725928a",
+    "IMG_6382-217-226.jpg": "4fda96b3a508d233abc3f8272207a0153bbb90e32f4f309cd5af9eddc2b176c7",
+    "IMG_6383-001-024.jpg": "a87c11194b36152704fb5b4dd28730b50d927296d7c90dbe039eef2671eabe6e",
+    "IMG_6383-025-048.jpg": "7cb10775fbc572364bbc19280d2d8fb8da6e41889a70d92331640946fb7a7f13",
+    "IMG_6383-049-072.jpg": "fa8cc53e94e2b9f384adab16fc68e16c6da47d68f81179f9df6740207bcd6967",
+    "IMG_6383-073-096.jpg": "0197b716b240aa3464e91bec771ce33dd8b2f786a6bcb26f0e93ed1f59416b36",
+    "IMG_6383-097-120.jpg": "96ebb55374d7a7742c7525def6c76fef05c60ed7f9dead8b5f8c3fb9edc1076b",
+    "IMG_6383-121-144.jpg": "1e90bde428383df6aee1ed6b50c45d713d0c1940cfc52b6dc607808f227f178e",
+    "IMG_6383-145-147.jpg": "4b15fc2f259c1ed7dda2fd2eb46111141021c0d9e08a5bfaed041badcd7671f0"
+  }
+}

@@ -62,7 +62,7 @@ func prepare() -> void:
 	room.add_child(floor_instance)
 	floor_instance.owner=room
 	index+=1
-	for position in [Vector3(.45,3.25,-5.5),Vector3(.45,3.25,-2),Vector3(4.6,3.25,-2),Vector3(-.55,3.25,2),Vector3(-.55,3.25,6),Vector3(-.55,3.25,10),Vector3(-.55,3.25,14),Vector3(-.55,3.25,17)]:
+	for position in [Vector3(.45,3.25,-5.5),Vector3(.45,3.25,-2),Vector3(4.6,3.25,-2),Vector3(-.55,3.25,2),Vector3(-.55,3.25,6),Vector3(-.55,3.25,10),Vector3(-.55,3.25,14),Vector3(-.55,3.25,17),Vector3(-.55,3.25,22),Vector3(7,4.0,21),Vector3(7,4.0,24),Vector3(12.2,3.25,20.8)]:
 		var light:=OmniLight3D.new()
 		light.position=position
 		light.omni_range=8
@@ -118,6 +118,11 @@ func prepare() -> void:
 				probe.position=Vector3(x,y,z)
 				room.add_child(probe)
 				probe.owner=room
+	for position in [Vector3(-.55,1.1,22),Vector3(2,1.1,22.5),Vector3(3.1,1.1,22.5),Vector3(5.55,1.1,20),Vector3(5.55,1.1,24),Vector3(10.8,1.1,22),Vector3(5.55,1.1,18),Vector3(12.2,1.1,20.8)]:
+		var probe:=LightmapProbe.new()
+		probe.position=position
+		room.add_child(probe)
+		probe.owner=room
 	var packed:=PackedScene.new()
 	assert(packed.pack(room)==OK)
 	assert(ResourceSaver.save(packed,"res://modules/shell/prototype/gallery_walk4/baked/room.tscn")==OK)

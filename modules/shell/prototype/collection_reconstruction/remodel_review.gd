@@ -53,7 +53,15 @@ func run() -> void:
 		["fetti-in-room",Vector3(-1.65,1.8,8.8),Vector3(-3.48,1.8,8.8)],
 		["gallery-piers",Vector3(.0,1.65,1.2),Vector3(2.28,1.75,8.4)],
 		["gallery-far-door",Vector3(-.55,1.65,16.3),Vector3(-.55,1.6,19.7)],
+		["goltzius-in-room",Vector3(-1.65,1.75,14.7),Vector3(-3.48,1.75,14.7)],
+		["renaissance-wide",Vector3(-2,1.65,24),Vector3(.8,1.8,19.7)],
+		["tracery-front",Vector3(-.3,2.6,22.515),Vector3(2.5,2.8,22.515)],
+		["tracery-angle",Vector3(.7,2.6,23.7),Vector3(2.5,2.8,22.515)],
+		["medieval-wide",Vector3(3.3,1.65,24.1),Vector3(7.5,1.8,20.5)],
+		["portal-front",Vector3(5.55,2.1,24),Vector3(5.55,1.93,18.85)],
+		["portal-angle",Vector3(7.4,2.1,22),Vector3(5.55,1.93,18.85)],
 		["bust-asset",Vector3(-.9,1.65,-5.87),Vector3(-2.2,1.60,-5.87)]]:
+		scene.camera.fov=70 if view[0] in ["renaissance-wide","medieval-wide"] else 45
 		scene.camera.position=view[1]
 		scene.camera.look_at(view[2])
 		scene.update_baked_visibility()
@@ -81,5 +89,5 @@ func run() -> void:
 		await process_frame
 		await RenderingServer.frame_post_draw
 		assert(native_view.get_texture().get_image().save_png("res://evidence/"+view[0]+".png")==OK)
-	print("REMODEL_VISUAL_PROOF: two walking, nine detail/oblique, eleven native-resolution asset views, one source-camera fit and three bust UV views")
+	print("REMODEL_VISUAL_PROOF: two walking, nine detail/oblique, nineteen native-resolution asset/room views, one source-camera fit and three bust UV views")
 	quit()

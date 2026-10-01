@@ -591,10 +591,10 @@
     "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
   },
   "inventory_pass_spend": {
-    "successful_count": 51,
-    "actual_usd": "0.510000",
+    "successful_count": 53,
+    "actual_usd": "0.530000",
     "map_prior_usd": ".11",
-    "map_cumulative_actual_usd": "0.620000",
+    "map_cumulative_actual_usd": "0.640000",
     "possibly_spent": [
       {
         "kind": "river-deities",
@@ -603,7 +603,7 @@
         "state": "submission_unreconciled; no resubmission"
       }
     ],
-    "map_conservative_ceiling_usd": "0.630000"
+    "map_conservative_ceiling_usd": "0.650000"
   },
   "architecture_review": {
     "ivory-plaster": "Native Muse faceting inspected; deterministic contrast restraint and mirrored-edge assembly create matching texture borders. Smooth plaster material scale remains provisional.",
@@ -612,7 +612,7 @@
     "source_use": "video used for reference/camera/profile measurement only; never room albedo",
     "layout": "v15 same-wall gallery door and sofa rejected by owner/wide shots; v17 doorway/cases/furniture corrected from wide source camera; not complete map"
   },
-  "remaining": "Full all-ten-video map incomplete. Gallery ordered lower-bound inventory: 24 wall groups and nine display/furniture groups from all 497 frames. Far room contents, cases/paintings/prints/textiles, metric placement and independent visual acceptance pending. Goltzius frame proportions rejected; central deities run unreconciled, no blind retry.",
+  "remaining": "All-ten-video reconstruction incomplete. Full870 frames reviewed across five gallery/sculpture videos;27 sculpture-room display/artwork groups recorded, mostly unresolved/unplaced. Corrected room connectivity and Muse architecture are prototypes; per-object position, geometry profiles, Main Hall integration and performance acceptance pending. Central deities record unreconciled; no retry.",
   "runtime_review_v19": {
     "date_utc": "2026-10-01T01:35:16.194253+00:00",
     "recamier": "Saved front/rear Muse rasters mapped to separate UV hemispheres; 320 closed outward-wound triangles, 480 edge pairs; front/rear inspected in Godot. Side profile/UV seam still provisional. Authored connected marble socle; catalogue total height retained. No paid call.",
@@ -646,8 +646,8 @@
     "catalogue_id": "1552761",
     "accession": "61.006",
     "source_video": "IMG_6386 18.25s",
-    "visual_review": "Black stepped bands and gold design matched qualitatively, but generated band widths and gold facets exaggerate the source. Native assembly outside size .742 x .954m vs catalogue canvas .345 x .510m; reject current band proportions, retain trial. No paid retry. Deterministic band compression needs source fit and visual check. Three native trial views inspected.",
-    "runtime_integrated": false
+    "visual_review": "Saved bands compressed independently using native19.25s planar corners, crosscheck18.25s differs by up to28.35mm in inferred margins. Blank opening pixels unchanged; original Muse hash unchanged; official painting preserved. Native trial proportion improved; exaggerated gold facets/depth and provisional z14.7 placement not final acceptance.",
+    "runtime_integrated": true
   },
   "runtime_review_v21": {
     "date_utc": "2026-10-01T02:05:00Z",
@@ -657,5 +657,66 @@
     "bake": "333 users, native LightmapGI with CPU software Vulkan; render/native/browser RTX",
     "performance": "Not 60fps acceptance",
     "layout": "Two gallery piers, observed far doorway/open panelled leaves and only1.6m threshold. Full sculpture room and precise gallery dimensions unverified. Fetti4th painting installed in observed wall order."
+  },
+  "romanesque-portal": {
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "cost_usd": "0.010000",
+    "run_id": "run-02d8d914fc368baa9f3889da",
+    "native_sha256": "a66a3fb3f663b619a165df5e672225c005c4643528e06e0775a2af36f2738ccd",
+    "catalogue": {
+      "catalogue_id": "1588546",
+      "accession": "40.014",
+      "source_video": "IMG_6382",
+      "source_time_seconds": 3.75,
+      "catalogue_dimensions_m": [
+        4.229,
+        3.861
+      ],
+      "dimensions_note": "Portal whole object; tracery top fragment only, shafts and placement are separately inferred",
+      "source_role": "shape/material reference, not room albedo",
+      "runtime_integrated": false
+    },
+    "triangles": 9280,
+    "closed_edges": 9280,
+    "visual_review": "Native Muse image compared with official photo and source video. Constant-depth closed silhouette extrusion; real holes and collision. Carving depth, column roundness, edge stepping and rear/profile appearance incomplete.",
+    "runtime_integrated": true
+  },
+  "tracery-arch": {
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "cost_usd": "0.010000",
+    "run_id": "run-113954426fe4ae8221b77d16",
+    "native_sha256": "394384a5c0bb3094fa91b58db948f000b274270752f464a94c5b085b50a08805",
+    "catalogue": {
+      "catalogue_id": "1428171",
+      "accession": "40.156.1",
+      "source_video": "IMG_6383",
+      "source_time_seconds": 66.25,
+      "catalogue_dimensions_m": [
+        1.41,
+        1.092,
+        0.273
+      ],
+      "dimensions_note": "Portal whole object; tracery top fragment only, shafts and placement are separately inferred",
+      "source_role": "shape/material reference, not room albedo",
+      "runtime_integrated": false
+    },
+    "triangles": 12356,
+    "closed_edges": 12356,
+    "visual_review": "Native Muse image compared with official photo and source video. Constant-depth closed silhouette extrusion; real holes and collision. Carving depth, column roundness, edge stepping and rear/profile appearance incomplete.",
+    "runtime_integrated": true
+  },
+  "runtime_review_v25": {
+    "date_utc": "2026-10-01T02:35:00Z",
+    "native_checks": "36/36; final p9530.771ms; RTX4070SUPER",
+    "browser_checks": "36/36 plus real S/W keyboard round trip; p9529.630ms; zero JS/runtime errors; Chrome154 RTX ANGLE",
+    "shell_checks": "44/50 twice; four existing layout/pixel failures plus pressed/dip timing failures; Shell/Tab files unchanged",
+    "bake": "417 users; native LightmapGI software-Vulkan CPU,31.93s; known editor quit errors after BAKE_OK; native/runtime checks clean",
+    "layout": "Renaissance north gallery doorway and perpendicular east Gothic doorway; medieval long axis west Gothic to east stairs, north stone portal and south sculpture wall. Authored metric extents and positions still provisional. Main Hall/stairs only short threshold limits.",
+    "visual_review": "Native frontal/oblique/wide views inspected. Portal/Gothic holes genuinely open, closed silhouette extrusions, wall infill. Stepped outlines, constant-depth carving and shafts/rear incomplete; most room contents missing. Goltzius5th authentic painting installed with compressed bands; gold facet/depth/pose acceptance incomplete. Existing high-wall vents now follow ceiling cutaway after browser inspection; native/browser rerun passed.",
+    "performance": "Not60fps acceptance"
   }
 }

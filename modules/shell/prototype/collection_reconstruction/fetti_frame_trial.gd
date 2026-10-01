@@ -32,6 +32,8 @@ func run() -> void:
 	camera.current=true
 	camera.fov=55
 	var output:="res://docs/evidence/collection-reconstruction/main-worker-gallery-20260930T2200/" if kind=="goltzius" else "res://docs/evidence/collection-reconstruction/main-worker-wide-20260930T2140/"
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--out="):output=arg.trim_prefix("--out=").trim_suffix("/")+"/"
 	DirAccess.make_dir_recursive_absolute(output)
 	for view in [["detail",Vector3(0,0,1.65)],["angle",Vector3(.8,.2,1.5)],["walking",Vector3(.4,0,3.0)]]:
 		camera.position=view[1]

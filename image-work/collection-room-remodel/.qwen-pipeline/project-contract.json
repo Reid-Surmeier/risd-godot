@@ -79,7 +79,11 @@
     "architecture-references/baseboard-source.png",
     "inventory-references/fetti-frame-selected-0.png",
     "inventory-references/fetti-frame-selected-1.png",
-    "inventory-references/goltzius-frame-selected-0.png"
+    "inventory-references/goltzius-frame-selected-0.png",
+    "inventory-references/romanesque-portal-selected-0.png",
+    "inventory-references/romanesque-portal-selected-1.png",
+    "inventory-references/tracery-arch-selected-0.png",
+    "inventory-references/tracery-arch-selected-1.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -1357,6 +1361,54 @@
           "slot": "reference-000",
           "kind": "image",
           "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-e2920b93d0497f94c565",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1440"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-44339c825d50e317f54e",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1440"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
         }
       ]
     }

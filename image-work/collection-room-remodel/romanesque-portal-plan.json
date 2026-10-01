@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "romanesque-portal-001",
+      "prompt": "romanesque-portal-prompt.txt",
+      "promptSha256": "4945e3c48cd2fdc6da52cbbc5122a9e69963f1c62daf38b7963b6f103df2095d",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/romanesque-portal-selected-0.png",
+          "sha256": "f509c721fe0d6679b7254f79251a2d6a2e0c15caa686313c06abb5d912264e7e"
+        },
+        {
+          "path": "inventory-references/romanesque-portal-selected-1.png",
+          "sha256": "2b38d97a4b9036d9815ec9ce0dfc0f352e80cc34826ba7305cfec0b0485d0513"
+        }
+      ]
+    }
+  ]
+}

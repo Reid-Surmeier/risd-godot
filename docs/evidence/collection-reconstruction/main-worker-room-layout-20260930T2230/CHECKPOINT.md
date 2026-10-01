@@ -1,0 +1,9 @@
+# Collection reconstruction checkpoint · 2026-10-01T02:46:55.806318+00:00
+
+1. Reviewed all373 frames/17 sheets from IMG_6382/6383; recorded27 lower-bound display/artwork groups. Source wide shots distinguish light Renaissance and dark medieval rooms, perpendicular gallery/Gothic doors, and the medieval long axis between Gothic and stair doors.
+2. Built separate native room shells, source-confirmed openings, bench/window/plinth/lighting details and closed Muse portal/tracery volumes. Added native herringbone floor with area coverage assertion, shared-wall inward faces and overhead vent cutaway. Metric extents/object offsets, carved profiles/rear, most displays and actual Main Hall/stairs integration remain unfinished.
+3. Two distinct OpenRouter Muse outputs cost$0.02; map actual$0.64/conservative$0.65. Saved Goltzius frame compressed from two video views without another paid call; authentic painting preserved. Original pending work and Viewer untouched; no ticket closure/integration.
+4. Native36/36, p9530.771ms; Chrome154/RTX36/36 plus real keyboard round trip, p9529.630ms, zero JS/runtime errors. Bake417 users, CPU software Vulkan31.93s. Repository check/diff check passed. Shell44/50 twice: four known layout/pixel plus pressed/dip timing failures. Performance below60fps acceptance. Failed transient browser-server attempt and known bake-editor quit errors retained.
+5. Next: complete the full521-frame IMG_6380 survey to establish Main Hall/purple/Rockefeller connections and object positions; then catalogue-match Renaissance case/textile/triptych groups and run targeted Muse assets. Five other full-video inventories, all-object placement/geometry/visual acceptance and performance remain incomplete. Central-deities run unreconciled; failed head v1/v2 not retried. Goal active; heartbeat disabled; sole main worker.
+
+https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/progress/

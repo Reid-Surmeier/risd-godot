@@ -238,8 +238,11 @@ for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.
 
 copy(app/'inventory-catalogue/arabesque-wallpaper-zoom-0.jpg','assets/wallpaper-34.912.jpg')
 copy(app/'inventory-catalogue/arabesque-wallpaper.json','assets/wallpaper-34.912.json')
-for name in ['fetti-frame.png','fetti-frame-geometry.json']:
-    copy(app/'trial'/name,'assets/'+name)
+for kind in ['fetti-frame','goltzius-frame','romanesque-portal','tracery-arch']:
+    for suffix in ['.png','-geometry.json']:
+        copy(app/'trial'/(kind+suffix),'assets/'+kind+suffix)
+copy(app/'inventory-catalogue/goltzius-cold-stone-zoom-0.jpg','assets/painting-61.006.jpg')
+copy(app/'sculpture-room-inventory.json','assets/sculpture-room-inventory.json')
 # The official photograph includes the inner gilt edge; exclude it from the canvas.
 fetti=app/'inventory-catalogue/fetti-angels-zoom-0.jpg'
 canvas=Image.open(fetti).crop((38,28,1289,1469))
@@ -254,7 +257,10 @@ geometry['doorway_correction'] = {'sources':['IMG_6380/000247.jpg','IMG_6380/000
 geometry['rooms']=[
     {'label':'Rockefeller','bounds':[-2.75,3.65,-7.2,-.4], 'openings':{'south':[-1.55,.45], 'east':[-2.8,-1.2]}},
     {'label':'adjacent gallery','bounds':[-3.6,2.5,-.4,18.85], 'openings':{'north':[-1.55,.45], 'south':[-1.55,.45]}},
-    {'label':'far sculpture doorway threshold study limit','bounds':[-3.6,2.5,18.85,20.45], 'openings':{'north':[-1.55,.45]}},
+    {'label':'light Renaissance room','bounds':[-3.6,2.5,18.85,24.95], 'openings':{'north':[-1.55,.45], 'east':[21.95,23.08]}, 'stone_sides':['east']},
+    {'label':'dark medieval room','bounds':[2.5,11.5,18.85,24.95], 'height':4.25, 'openings':{'west':[21.95,23.08], 'north':[3.4355,7.6645], 'east':[19.95,21.65]}, 'stone_sides':['west','north']},
+    {'label':'Main Hall portal threshold study limit','bounds':[3.4355,7.6645,17.25,18.85], 'height':4.25, 'openings':{'south':[3.4355,7.6645]}, 'stone_sides':['south']},
+    {'label':'stairs landing threshold study limit','bounds':[11.5,12.9,19.95,21.65], 'openings':{'west':[19.95,21.65]}},
     {'label':'purple corridor study limit','bounds':[3.65,5.6,-2.8,-1.2], 'openings':{'west':[-2.8,-1.2]}}]
 geometry['patches']=[{'label':r['label'],'color':'81735c','vertices':[[r['bounds'][0],0,r['bounds'][2]],[r['bounds'][1],0,r['bounds'][2]],[r['bounds'][1],0,r['bounds'][3]],[r['bounds'][0],0,r['bounds'][3]]]} for r in geometry['rooms']]
 geometry['boxes']=[]
@@ -262,7 +268,9 @@ geometry['start']=[-.55,.25,-1.3]
 geometry['trials']=[['gallery_door_out',[-.55,.25,-1.3],[-.55,0,1.6],False],['gallery_door_back',[-.55,.25,1.6],[-.55,0,-1.3],False],['sofa_wall_blocked',[-1.3,.25,-2.5],[-3.3,0,-2.5],True],['right_wall_blocked',[3.0,.25,-3.2],[4.5,0,-3.2],True],['decorative_room',[1.65,.25,-2.0],[1.65,0,-5.4],False],['adjacent_gallery',[-.55,.25,3],[-.55,0,6],False],['right_door_out',[3.0,.25,-2.0],[4.8,0,-2.0],False],['right_door_back',[4.8,.25,-2.0],[3.0,0,-2.0],False],['central_display_blocked',[.45,.25,-2.3],[.45,0,-4.2],True]]
 geometry['trial_seconds']=3.5
 geometry['trials'] += [['far_gallery_door_out',[-.55,.25,18],[-.55,0,19.7],False],['far_gallery_door_back',[-.55,.25,19.7],[-.55,0,18],False]]
-geometry['far_connection']={'sources':['IMG_6384/000037.jpg','IMG_6386/000194.jpg','IMG_6386/000213.jpg'],'observed':'walk through far end doorway into sculpture room','extent':'Only a 1.6m threshold study is modeled beyond this door; successor room geometry and contents remain unfinished. Door metric position unmeasured.'}
+geometry['trials'] += [['tracery_out',[1.7,.25,22.515],[3.35,0,22.515],False],['tracery_back',[3.35,.25,22.515],[1.7,0,22.515],False],['stone_portal_out',[5.55,.25,19.6],[5.55,0,17.85],False],['stone_portal_back',[5.55,.25,17.85],[5.55,0,19.6],False],['stairs_door_out',[10.7,.25,20.8],[12.25,0,20.8],False],['stairs_door_back',[12.25,.25,20.8],[10.7,0,20.8],False],['renaissance_bench_blocked',[-.8,.25,20.8],[-.8,0,22.4],True]]
+geometry['far_connection']={'sources':['IMG_6383/000127.jpg','IMG_6383/000134.jpg','IMG_6382/000166.jpg'], 'observed':'Long gallery enters light Renaissance room; its perpendicular east doorway leads into dark medieval room. Medieval round portal and stairs door are on different walls.', 'extent':'Two room shells and portal/stairs thresholds; object contents and all room metrics incomplete. Main Hall has not been integrated.'}
+assert geometry['rooms'][2]['openings']['east']==geometry['rooms'][3]['openings']['west']
 geometry['room_geometry']='Wide-shot wall relationships replace v15 layout; authored metric extents and distal gallery limit provisional. No point cloud in renderer.'
 
 (out/'geometry.json').write_text(json.dumps(geometry,indent=2)+'\n')
