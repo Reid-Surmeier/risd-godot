@@ -1,6 +1,6 @@
 {
-  "candidate_build": "dbe77dfe4d0f",
-  "scene_sha256": "688cf0669220b0e43c0f8667479d5cc0a3a532b29c28c8d9bbe394a5b62f4533",
+  "candidate_build": "1ade974755c5",
+  "scene_sha256": "4823db4641ee5e8db5a7b79faf1cc26b517740ffb7dd89133be874e647183b8d",
   "case_count": 200,
   "runs": [
     {
@@ -5632,6 +5632,5 @@
       "when": "none"
     }
   ],
-  "failures": [],
-  "step_measurement": "Pose removes intentional actor heading; world values retained."
+  "failures": []
 }

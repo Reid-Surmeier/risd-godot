@@ -1,11 +1,11 @@
 extends SceneTree
 ## Round-4 reviewer sweep of the descent velocity cap: does the root park on the floor without contact (flight pose
 ## regresses, impact lost)? Stand jumps steered at varied times/directions/start points; gait jumps with turns.
-## Writes /tmp/root5-cap/cap.json. Run with --fixed-fps 60.
+## Writes /tmp/root7-cap/cap.json. Run with --fixed-fps 60.
 var demo: Node3D
 var rows := []
 func _initialize() -> void:
-	DirAccess.make_dir_recursive_absolute("/tmp/root5-cap/");create_timer(2400).timeout.connect(func():quit(2));call_deferred("run")
+	DirAccess.make_dir_recursive_absolute("/tmp/root7-cap/");create_timer(2400).timeout.connect(func():quit(2));call_deferred("run")
 func release_all() -> void:
 	for a in ["down","up","left","right","sprint","slow"]:Input.action_release(a)
 func run() -> void:
@@ -20,7 +20,7 @@ func run() -> void:
 		for lead in [30,33,36,39,42,45]:
 			for d in [["right"],["left"],["up"],[]]:
 				one(g,Vector3.ZERO,g,d,"apex" if d.size()>0 else "none",lead)
-	FileAccess.open("/tmp/root5-cap/cap.json",FileAccess.WRITE).store_string(JSON.stringify(rows))
+	FileAccess.open("/tmp/root7-cap/cap.json",FileAccess.WRITE).store_string(JSON.stringify(rows))
 	var bad := rows.filter(func(r):return r.cap_nocontact>0)
 	print("ROOT5CAP DONE runs=",rows.size()," cap_without_contact_runs=",bad.size())
 	quit()

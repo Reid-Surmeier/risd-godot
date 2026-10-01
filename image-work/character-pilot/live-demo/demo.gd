@@ -724,8 +724,9 @@ func _physics_process(delta: float) -> void:
 	last_landing_drop=0
 	if jump_time>=0 and (not jump_launched or jump_landed):
 		var drop: float=.032*sin(PI*clampf(jump_time/.05,0,1)) if not jump_launched else (.065 if jump_moving else .085)*jump_impact*landing_envelope(jump_landing_time)
-		if jump_landed and jump_moving:drop=maxf(0,drop-landing_carried_drop*(1-clampf(landing_carried_age/.167,0,1)))
-		last_landing_drop=drop
+		if jump_landed and jump_moving:drop-=landing_carried_drop*(1-clampf(landing_carried_age/.167,0,1))
+		# The native blend already carries compression; cancel that share and remember the total.
+		last_landing_drop=drop+(landing_carried_drop*(1-clampf(landing_carried_age/.167,0,1)) if jump_landed and jump_moving else 0.0)
 		var hip: int=skeleton.find_bone("Hips")
 		var pelvis: Transform3D=skeleton.get_bone_global_pose(hip)
 		pelvis.origin.y-=drop/skeleton.global_basis.get_scale().y

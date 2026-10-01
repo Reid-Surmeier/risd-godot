@@ -24,10 +24,10 @@
     },
     "Leaves": {
       "gain": 0.8,
-      "id": 16901,
+      "id": 16921,
       "peak": 12450,
       "samples": 3087,
-      "tail": 360
+      "tail": 517
     },
     "Path": {
       "gain": 0.8,
@@ -45,10 +45,10 @@
     },
     "Snow": {
       "gain": 0.8,
-      "id": 16902,
+      "id": 16922,
       "peak": 12450,
       "samples": 2866,
-      "tail": 237
+      "tail": 206
     },
     "Water": {
       "gain": 0.8,
@@ -67,6 +67,44 @@
     "relative_wrist_error_degrees": 0.0395646811852521,
     "updates": 100
   },
+  "landing_continuity": [
+    {
+      "input_delay_ticks": 0,
+      "maximum_vertical_head_acceleration": 0.0303849577903748
+    },
+    {
+      "input_delay_ticks": 1,
+      "maximum_vertical_head_acceleration": 0.030234158039093
+    },
+    {
+      "input_delay_ticks": 2,
+      "maximum_vertical_head_acceleration": 0.030234158039093
+    },
+    {
+      "input_delay_ticks": 3,
+      "maximum_vertical_head_acceleration": 0.0328000783920288
+    },
+    {
+      "input_delay_ticks": 4,
+      "maximum_vertical_head_acceleration": 0.030234158039093
+    },
+    {
+      "input_delay_ticks": 5,
+      "maximum_vertical_head_acceleration": 0.030234158039093
+    },
+    {
+      "input_delay_ticks": 6,
+      "maximum_vertical_head_acceleration": 0.030234158039093
+    },
+    {
+      "input_delay_ticks": 7,
+      "maximum_vertical_head_acceleration": 0.030234158039093
+    },
+    {
+      "input_delay_ticks": 8,
+      "maximum_vertical_head_acceleration": 0.030234158039093
+    }
+  ],
   "mixed_input": {
     "apex": {
       "descent_pose_monotonic": true,
@@ -78,9 +116,9 @@
     "contact": {
       "descent_pose_monotonic": true,
       "flat_hop_impact": 0.996296670701769,
-      "maximum_descent_land_hand_step": 0.0465080589056015,
+      "maximum_descent_land_hand_step": 0.04603211581707,
       "maximum_head_hips_step": 0.03038489818573,
-      "maximum_landing_drop": 0.0366138815879822
+      "maximum_landing_drop": 0.026488184928894
     },
     "press": {
       "descent_pose_monotonic": true,

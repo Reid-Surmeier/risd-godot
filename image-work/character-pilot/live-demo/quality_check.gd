@@ -199,6 +199,25 @@ func run() -> void:
 		assert(demo.jump_time<0 and demo.state=="Run","Moving jump did not recover")
 		moving_jump[tool]={"updates":100,"maximum_horizontal_speed_change":speed_step,"launch_tick":launch_tick,"first_update_palm_displacement":palm_step,"recovered_gait":demo.state}
 	# Regression cases from the independent review: input can change throughout a hop.
+	var landing_continuity := []
+	for delay in range(9):
+		demo.reset();demo.tool="None"
+		for action in ["down","up","left","right","slow","sprint"]:Input.action_release(action)
+		for tick in 30:demo._physics_process(1.0/60)
+		demo.jump()
+		var land_tick := -1;var heads := [];var maximum_jerk := 0.0
+		for tick in 100:
+			if demo.jump_landed:land_tick+=1
+			if land_tick==delay:Input.action_press("down")
+			demo._physics_process(1.0/60)
+			var head: Vector3=demo.skeleton.global_transform*demo.skeleton.get_bone_global_pose(demo.skeleton.find_bone("Head")).origin-demo.body.global_position
+			heads.append(head)
+			if land_tick>=0 and land_tick<=18 and heads.size()>=3:
+				var acceleration: Vector3=heads[-1]-2*heads[-2]+heads[-3]
+				maximum_jerk=maxf(maximum_jerk,absf(acceleration.y))
+		assert(maximum_jerk<=.033,"Landing gait change jerks head: "+str(delay)+" "+str(maximum_jerk))
+		landing_continuity.append({"input_delay_ticks":delay,"maximum_vertical_head_acceleration":maximum_jerk})
+		Input.action_release("down")
 	demo.reset();demo.body.position=Vector3(.21,0,-.47)
 	for tick in 30:demo._physics_process(1.0/60)
 	for action in ["slow","up","left"]:Input.action_press(action)
@@ -286,7 +305,7 @@ func run() -> void:
 	var start: int=demo.audio_history.size();demo.state="Idle";demo.footstep("Right")
 	assert(demo.audio_history.size()==start)
 	demo.sounds.streams[demo.sounds.key("Skid",false,0)].save_to_wav("res://audio-skid.wav")
-	FileAccess.open("res://quality-check.json",FileAccess.WRITE).store_string(JSON.stringify({"contact_depth":{"minimum_root_y":contact_depth},"quieter_idle":quieter_idle,"palms":shapes,"wrists":wrists,"transitions":transitions,"arm_clearance":clearance,"tool_clearance":tool_clearance,"stop_clearance":stop_clearance,"moving_jump":moving_jump,"mixed_input":mixed_input,"sprint_jump":{"maximum_lean_step_degrees":rad_to_deg(lean_step),"maximum_head_step":head_step},"jump_transition":{"updates":100,"relative_wrist_error_degrees":jump_maximum},"audio":audio,"idle_silent":true,"exact_original_waveforms":false},"  "))
+	FileAccess.open("res://quality-check.json",FileAccess.WRITE).store_string(JSON.stringify({"landing_continuity":landing_continuity,"contact_depth":{"minimum_root_y":contact_depth},"quieter_idle":quieter_idle,"palms":shapes,"wrists":wrists,"transitions":transitions,"arm_clearance":clearance,"tool_clearance":tool_clearance,"stop_clearance":stop_clearance,"moving_jump":moving_jump,"mixed_input":mixed_input,"sprint_jump":{"maximum_lean_step_degrees":rad_to_deg(lean_step),"maximum_head_step":head_step},"jump_transition":{"updates":100,"relative_wrist_error_degrees":jump_maximum},"audio":audio,"idle_silent":true,"exact_original_waveforms":false},"  "))
 	print("PASS exported wrist alignment and distinct audio banks/variants/gains/envelopes/idle silence")
 	quit()
 

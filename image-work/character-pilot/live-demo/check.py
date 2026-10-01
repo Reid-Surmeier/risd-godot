@@ -96,6 +96,7 @@ assert contact_sweep['candidate_build']==provenance['stamp'] and contact_sweep['
 assert all(not r['cap_nocontact'] and not r['flight_back'] and not r['air_at_floor'] and r['impact']>.99 and r['last_three_air_pose_step']<=.06 for r in contact_sweep['runs'])
 quality=read(HERE/'evidence/quality-check.json')
 assert all(.40<v['ratio']<.65 for v in quality['quieter_idle'].values())
+assert len(quality['landing_continuity'])==9 and all(r['maximum_vertical_head_acceleration']<=.033 for r in quality['landing_continuity'])
 assert quality['contact_depth']['minimum_root_y']>=-.0025
 assert all(v['descent_pose_monotonic'] and v['flat_hop_impact']>.8 and v['maximum_descent_land_hand_step']<=.07 for v in quality['mixed_input'].values())
 assert set(quality['wrists'])=={'idle','walk','run','dash','skid','jump'}
