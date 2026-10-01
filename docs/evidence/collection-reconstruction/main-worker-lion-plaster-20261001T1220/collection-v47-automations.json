@@ -1,0 +1,620 @@
+{
+  "id": "0e614a49-5d6f-49a2-a74a-800877f29ef4",
+  "ok": true,
+  "result": {
+    "automations": [
+      {
+        "id": "283bf0fc-59d8-4e5b-8ecb-20bfc8a2d13c",
+        "name": "Grand Gallery overnight wayfinder heartbeat",
+        "prompt": "You are one 30-minute Orca heartbeat for the Grand Gallery overnight goal, scoped to existing wayfinder map https://github.com/Reid-Surmeier/risd-godot/issues/116 and research tickets 136,137,138. Read AGENTS.md, docs/overnight-gallery/PLAN.md, checkpoint.json, current issue statuses and git/worktree state first. Owner requested ALL tasks: grounded lit animated 3D mesh; W/second-key/diagonal motion glitch; cold load and random frame lag on Mac M3; GameCube dithering/shader driven by primary research; blind comparison against live Animal Crossing references. Research report for rendering is a prerequisite to implementation. Do not assert previous sprite or RTX4070 60fps meets objective.\nEach tick: check what agents/commits/reports actually changed. If work is active, do not modify their files; advance an independent unclaimed decision or verify evidence. If stalled, take one concrete next step from research into an isolated Orca worktree, record source/measurements and update the map/ticket. Never overwrite/clean/reset another worktree, push, merge, release, spend on models, or launch nested heartbeat. Use Bitwarden wrapper for GitHub and verify Reid-Surmeier. Remain within prior authorization. Keep tick under 25min so next run does not overlap. Write one dated <=10-line progress note to docs/overnight-gallery/heartbeat-log.md and update checkpoint.json atomically if compatible with active owner; say what moved, what is blocked, what happens next. On a genuine block note it and work on another unblocked decision. Stop when scheduled tick time ends; automation handles next wake.\n\nFor the tick at or after 07:30 America/New_York September 27, write the morning report and disable this Orca automation using automation id 283bf0fc-59d8-4e5b-8ecb-20bfc8a2d13c. The precheck prevents token-consuming runs at or after 08:00 even if disabling fails.\n",
+        "precheck": {
+          "command": "test \"$(date -u +%Y%m%d%H%M)\" -lt 202609271200",
+          "timeoutSeconds": 60
+        },
+        "agentId": "codex",
+        "runContext": {
+          "kind": "workspace-run",
+          "projectId": "github:reid-surmeier/risd-godot",
+          "hostId": "local",
+          "projectHostSetupId": "a954f83d-c1a4-4a31-b077-f9845ba99cde",
+          "repoId": "a954f83d-c1a4-4a31-b077-f9845ba99cde",
+          "path": "/home/reidsurmeier/risd-godot"
+        },
+        "sourceContext": {
+          "kind": "task-source",
+          "provider": "github",
+          "projectId": "github:reid-surmeier/risd-godot",
+          "hostId": "local",
+          "projectHostSetupId": "a954f83d-c1a4-4a31-b077-f9845ba99cde",
+          "repoId": "a954f83d-c1a4-4a31-b077-f9845ba99cde",
+          "providerIdentity": {
+            "provider": "github",
+            "owner": "Reid-Surmeier",
+            "repo": "risd-godot"
+          },
+          "accountLabel": null
+        },
+        "projectId": "a954f83d-c1a4-4a31-b077-f9845ba99cde",
+        "executionTargetType": "local",
+        "executionTargetId": "local",
+        "schedulerOwner": "local_host_service",
+        "workspaceMode": "existing",
+        "workspaceId": "a954f83d-c1a4-4a31-b077-f9845ba99cde::/home/reidsurmeier/risd-godot-worktrees/gallery-walk-prototype",
+        "baseBranch": null,
+        "reuseSession": true,
+        "timezone": "America/New_York",
+        "rrule": "*/30 * * * *",
+        "dtstart": 1790474514725,
+        "enabled": false,
+        "nextRunAt": 1790510400000,
+        "missedRunPolicy": "run_once_within_grace",
+        "missedRunGraceMinutes": 720,
+        "createdAt": 1790474514756,
+        "updatedAt": 1790508656597,
+        "lastRunAt": 1790508610123
+      },
+      {
+        "id": "ade26ac4-9e2f-4948-ae97-b1a885628e8a",
+        "name": "Idle-only Pugnet Orca updates",
+        "prompt": "This reporter is intentionally gated off by the idle-only Orca update precheck. Do not run commands or use tools.",
+        "precheck": {
+          "command": "cd /home/reidsurmeier/src/workspace-operations && PYTHONPATH=src python3 -m workspace_ops.orca_update dispatch; update_status=$?; if [ \"$update_status\" -eq 0 ]; then exit 20; fi; exit \"$update_status\"",
+          "timeoutSeconds": 30
+        },
+        "agentId": "codex",
+        "runContext": {
+          "kind": "workspace-run",
+          "projectId": "github:reidsurmeier/workspace-operations",
+          "hostId": "local",
+          "projectHostSetupId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "repoId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "path": "/home/reidsurmeier/src/workspace-operations"
+        },
+        "sourceContext": {
+          "kind": "task-source",
+          "provider": "github",
+          "projectId": "github:reidsurmeier/workspace-operations",
+          "hostId": "local",
+          "projectHostSetupId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "repoId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "providerIdentity": {
+            "provider": "github",
+            "owner": "ReidSurmeier",
+            "repo": "workspace-operations"
+          },
+          "accountLabel": null
+        },
+        "projectId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+        "executionTargetType": "local",
+        "executionTargetId": "local",
+        "schedulerOwner": "local_host_service",
+        "workspaceMode": "existing",
+        "workspaceId": "5501a44b-4326-4f7d-866f-2da72b34e0b7::/home/reidsurmeier/src/workspace-operations",
+        "baseBranch": null,
+        "reuseSession": false,
+        "timezone": "America/New_York",
+        "rrule": "FREQ=DAILY;BYHOUR=4;BYMINUTE=0",
+        "dtstart": 1785881154262,
+        "enabled": true,
+        "nextRunAt": 1790928000000,
+        "missedRunPolicy": "run_once_within_grace",
+        "missedRunGraceMinutes": 180,
+        "createdAt": 1785881023534,
+        "updatedAt": 1790841646299,
+        "lastRunAt": 1790841646299
+      },
+      {
+        "id": "107373fb-27e8-4392-8d50-6779efbd2cb7",
+        "name": "Isolated weekday repo audit",
+        "prompt": "Audit Workspace Operations repository health in an isolated fresh worktree. Read AGENTS.md, START-HERE.md, PROJECT.md, and CONTEXT.md before checking anything. Keep the audit read-only: do not edit files, install or update dependencies, commit, push, create issues, deploy, restart services, or alter external state. Inspect Git status and current branch state; check recent GitHub Actions failures and dependency or security update signals through read-only commands; run the repository documented unit, integration, compile, systemd verification, and index-only GitNexus checks when existing tools are available. Do not run live, stress, deployment, destructive, or credential-requiring checks. If a dependency or permission is missing, report it rather than installing or changing configuration. Finish with a concise severity-ranked report containing exact evidence, checks that passed, checks that could not run, and one recommended next action. Do not modify the canonical checkout.",
+        "precheck": null,
+        "agentId": "codex",
+        "runContext": {
+          "kind": "workspace-run",
+          "projectId": "github:reidsurmeier/workspace-operations",
+          "hostId": "local",
+          "projectHostSetupId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "repoId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "path": "/home/reidsurmeier/src/workspace-operations"
+        },
+        "sourceContext": {
+          "kind": "task-source",
+          "provider": "github",
+          "projectId": "github:reidsurmeier/workspace-operations",
+          "hostId": "local",
+          "projectHostSetupId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "repoId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "providerIdentity": {
+            "provider": "github",
+            "owner": "ReidSurmeier",
+            "repo": "workspace-operations"
+          },
+          "accountLabel": null
+        },
+        "projectId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+        "executionTargetType": "local",
+        "executionTargetId": "local",
+        "schedulerOwner": "local_host_service",
+        "workspaceMode": "new_per_run",
+        "workspaceId": null,
+        "baseBranch": null,
+        "reuseSession": false,
+        "timezone": "America/New_York",
+        "rrule": "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=14;BYMINUTE=0",
+        "dtstart": 1785881079471,
+        "enabled": false,
+        "nextRunAt": 1790013600000,
+        "missedRunPolicy": "run_once_within_grace",
+        "missedRunGraceMinutes": 180,
+        "createdAt": 1785880650246,
+        "updatedAt": 1789756116706,
+        "lastRunAt": 1789754422332
+      },
+      {
+        "id": "923b01a2-a41e-4bbf-aade-fedaaa480214",
+        "name": "LumenPnP completion heartbeat — Astra + Opus 5.5",
+        "prompt": "Run the heartbeat skill for this repository every 30 minutes until all remaining digital work is complete and a reviewed new release is published. The owner explicitly authorized completion, commits, PRs, merges and release publication on 2026-09-26. Astra drives implementation (configured Codex model gpt-6-astra); use Claude Opus 5.5 (claude-opus-5-5 via the existing Claude subscription) for independent exact-revision reviews. Resume live GitHub issues, Git state and actual files. Resume checkpoint /home/reidsurmeier/lpm-106/.tools/heartbeat-state.md, verifying live state. #108 merged in PR #110. Remaining queue: #106 / PR #109 in /home/reidsurmeier/lpm-106, #86 head-harness evidence, then release/delivery issue #111. The checkpoint records the active job. The original continuation is intentionally stopped; lpm-106-final-gates now waits for the corrected full harness sweep (log heartbeat-harness-full-cap.log) and runs final gates. Inspect current processes and logs before starting CAD work. Do not duplicate that writer. Inspect active sessions first; keep one CAD writer and skip a tick if another session is advancing this same work. Preserve existing dirty work and prototypes. Repository AGENTS.md overrides the heartbeat skill: reviewed short-lived PRs merge to main. Verify npm run check, git diff --check, native/STEP/print evidence and CI on the integrated exact revision before merge/release. Keep #46 physical checks open; never invent measurements or actuate hardware. Record progress and actual blockers in heartbeat issue #10. Do not stop for routine approvals. When the digital release and delivery links are verified, disable this automation and report the remaining owner bench work. If a tick hits its 25-minute budget, preserve a concrete checkpoint and continue next tick; do not claim completion.",
+        "precheck": null,
+        "agentId": "codex",
+        "runContext": {
+          "kind": "workspace-run",
+          "projectId": "github:reid-surmeier/lumenpnp-painting-machine",
+          "hostId": "local",
+          "projectHostSetupId": "b3163bc0-7963-4f5d-a2a4-fed82a3a48ad",
+          "repoId": "b3163bc0-7963-4f5d-a2a4-fed82a3a48ad",
+          "path": "/home/reidsurmeier/lumenpnp-painting-machine"
+        },
+        "sourceContext": {
+          "kind": "task-source",
+          "provider": "github",
+          "projectId": "github:reid-surmeier/lumenpnp-painting-machine",
+          "hostId": "local",
+          "projectHostSetupId": "b3163bc0-7963-4f5d-a2a4-fed82a3a48ad",
+          "repoId": "b3163bc0-7963-4f5d-a2a4-fed82a3a48ad",
+          "providerIdentity": {
+            "provider": "github",
+            "owner": "Reid-Surmeier",
+            "repo": "lumenpnp-painting-machine"
+          },
+          "accountLabel": null
+        },
+        "projectId": "b3163bc0-7963-4f5d-a2a4-fed82a3a48ad",
+        "executionTargetType": "local",
+        "executionTargetId": "local",
+        "schedulerOwner": "local_host_service",
+        "workspaceMode": "existing",
+        "workspaceId": "b3163bc0-7963-4f5d-a2a4-fed82a3a48ad::/home/reidsurmeier/lumenpnp-painting-machine",
+        "baseBranch": null,
+        "reuseSession": true,
+        "timezone": "America/New_York",
+        "rrule": "*/30 * * * *",
+        "dtstart": 1790440555021,
+        "enabled": false,
+        "nextRunAt": 1790451000000,
+        "missedRunPolicy": "run_once_within_grace",
+        "missedRunGraceMinutes": 720,
+        "createdAt": 1790440555148,
+        "updatedAt": 1790449940671,
+        "lastRunAt": 1790449208966
+      },
+      {
+        "id": "7b2e0eeb-bf5f-44bd-a14e-26a781f6585c",
+        "name": "Proton Drive Back Up",
+        "prompt": "Back up current project files that are not otherwise recoverable.\n\n  Use /home/reidsurmeier/src/workspace-operations/registry/projects.toml to find owned, non-archived projects. For each project, determine what is already safely recoverable from GitHub. Privately\n  back up only valuable material that is not accounted for there, including:\n\n  - untracked or ignored project inputs and outputs\n  - local datasets, databases, media, models, scans, and generated artifacts\n  - uncommitted changes\n  - commits or branches that have not been pushed\n  - non-Git project material needed to resume or restore the work\n\n  Do not back up regenerable dependencies or caches such as .git, node_modules, .venv, __pycache__, build caches, package caches, or temporary files. Never include .env files, passwords, tokens,\n  private keys, credential stores, browser profiles, Bitwarden data, Proton sessions, or other secrets. Reject symlinks and anything whose safety is uncertain; report uncertain items instead of\n  uploading them.\n\n  Create content-addressed archives with manifests and SHA-256 checksums. Upload them privately to:\n\n  /my-files/Backups/projects-unaccounted/<project>/<manifest-digest>/\n\n  Use the existing Proton Drive CLI session stored in pass by setting PROTON_DRIVE_CREDENTIALS_STORE=pass. Never print or request credentials.\n\n  Reuse existing archives when their manifest has not changed. Verify every new upload by downloading it to a temporary location and checking the archive, manifest, file list, sizes, and hashes.\n  Do not delete, move, overwrite, publish, or modify source project files or existing backups.\n\n  You may update the explicit Workspace Operations backup registry when a newly discovered candidate clearly passes these rules. Do not automatically approve ambiguous files.\n\n  Finish with a non-technical summary listing:\n\n  - projects checked\n  - newly backed-up material\n  - unchanged backups skipped\n  - total files and size\n  - excluded regenerable material\n  - uncertain material requiring review\n  - verification results",
+        "precheck": null,
+        "agentId": "codex",
+        "runContext": {
+          "kind": "workspace-run",
+          "projectId": "github:reidsurmeier/workspace-operations",
+          "hostId": "runtime:0843883b-07b0-4ff0-8cdb-5b495668f2d5",
+          "projectHostSetupId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "repoId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "path": "/home/reidsurmeier/src/workspace-operations"
+        },
+        "sourceContext": {
+          "kind": "task-source",
+          "provider": "github",
+          "projectId": "github:reidsurmeier/workspace-operations",
+          "hostId": "local",
+          "projectHostSetupId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "repoId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "providerIdentity": {
+            "provider": "github",
+            "owner": "ReidSurmeier",
+            "repo": "workspace-operations"
+          },
+          "accountLabel": null
+        },
+        "projectId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+        "executionTargetType": "local",
+        "executionTargetId": "local",
+        "schedulerOwner": "local_host_service",
+        "workspaceMode": "existing",
+        "workspaceId": "5501a44b-4326-4f7d-866f-2da72b34e0b7::/home/reidsurmeier/src/workspace-operations",
+        "baseBranch": null,
+        "reuseSession": false,
+        "timezone": "America/New_York",
+        "rrule": "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=9;BYMINUTE=0",
+        "dtstart": 1785880110674,
+        "enabled": true,
+        "nextRunAt": 1790859600000,
+        "missedRunPolicy": "run_once_within_grace",
+        "missedRunGraceMinutes": 720,
+        "createdAt": 1785880110766,
+        "updatedAt": 1790773228017,
+        "lastRunAt": 1790773228017
+      },
+      {
+        "id": "99695359-522b-46ce-bb00-078657d105ea",
+        "name": "RISD Collection reconstruction heartbeat",
+        "prompt": "Run one 25-minute heartbeat advancing the RISD Collection reconstruction. Owner explicitly requested this every 30 minutes so work continues without repeated continue prompts. Scope: Collection page connected museum map only; NEVER change 3D Viewer. Read live git/files/processes, AGENTS.md, MODULES.md, module docs, wayfinder map https://github.com/Reid-Surmeier/risd-godot/issues/178 and tickets 181/182/183. Follow heartbeat skill within this scope. Resume existing authorized prototype work in this workspace; preserve all uncommitted work. Check active sessions first; never edit concurrently with another worker. Use this reused session, no nested agents or heartbeat loops. End each tick within 25 minutes, checkpoint evidence and next action; subsequent scheduled tick resumes. Disable this automation once the requested work is verified complete or owner stops it.\n\nCurrent evidence to verify: ingestion root /home/reidsurmeier/risd-godot-ingestion/collection-expansion. Ten verified Proton videos and survey-2fps are already downloaded. Latest sfm-calibrated-doorway-v1/result.json reports 475 registered views, 43253 points, reprojection 0.639588px; needs independent held-out validation. Next concrete action: inspect and run modules/shell/prototype/collection_reconstruction/holdout.py --source sfm-calibrated-doorway-v1 --output heldout-calibrated-v1 --all-references with ingestion .venv/bin/python, only if not already running or completed. CUDA feature/matching/depth uses RTX4070SUPER; Ceres optimization CPU fallback is known. Continue geometry, connected walkable room prototype, collisions and visual validation from evidence. Bookcase scale is provisional due to stepped nonplanar geometry. Muse frame is owner-approved; sculpture Muse front/rear sheet generated, combined recorded cost $0.02. Head meshes v1/v2 failed holes/back coverage; do not mark finished, do not blindly retry paid generation. Review local image-work and PROVENANCE. Authorised Muse work follows saved pipeline/OpenRouter and project spend rules. User retracted floor complaint. Existing private preview https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/; raw GitHub image links 404 because repo private.\n\nDo concrete work, not status-only responses. Inspect visuals, run owning playtest and scripts/check.sh plus git diff --check for changes. Preserve provenance, checkpoint only task changes on this prototype branch, follow issue-defined integration scope; do not prematurely close tickets or claim full map complete. No permission requests for authorized reversible work. Write concise dated checkpoint with next action and real blockers. No unrelated repo work.",
+        "precheck": null,
+        "agentId": "codex",
+        "runContext": {
+          "kind": "workspace-run",
+          "projectId": "github:reid-surmeier/risd-godot",
+          "hostId": "local",
+          "projectHostSetupId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+          "repoId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+          "path": "/home/reidsurmeier/risd-godot"
+        },
+        "sourceContext": {
+          "kind": "task-source",
+          "provider": "github",
+          "projectId": "github:reid-surmeier/risd-godot",
+          "hostId": "local",
+          "projectHostSetupId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+          "repoId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+          "providerIdentity": {
+            "provider": "github",
+            "owner": "Reid-Surmeier",
+            "repo": "risd-godot"
+          },
+          "accountLabel": null
+        },
+        "projectId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+        "executionTargetType": "local",
+        "executionTargetId": "local",
+        "schedulerOwner": "local_host_service",
+        "workspaceMode": "existing",
+        "workspaceId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction",
+        "baseBranch": null,
+        "reuseSession": true,
+        "timezone": "America/New_York",
+        "rrule": "*/30 * * * *",
+        "dtstart": 1790714119243,
+        "enabled": false,
+        "nextRunAt": 1790789400000,
+        "missedRunPolicy": "run_once_within_grace",
+        "missedRunGraceMinutes": 720,
+        "createdAt": 1790714119284,
+        "updatedAt": 1790787922325,
+        "lastRunAt": 1790787922325
+      },
+      {
+        "id": "a1be0f89-1291-42d6-9a69-a52b950b80d6",
+        "name": "RISD map completion — continue owner session",
+        "prompt": "Continue the existing RISD session toward full implementation of Wayfinder map 149. Read /home/reidsurmeier/.local/state/risd-wayfinder-heartbeat/checkpoint.md and live Git/issues. Latest owner direction: restore the older two-window 3D Viewer layout; put all four current scans in its main player and original sidebar; retain the enlarged hover preview as the only UI addition. Owner explicitly accepted existing scan condition for now, superseding the earlier visual-quality block on 154/157. Preserve verified museum metadata and source hashes. Continue in existing integrate-square-164 build worktree; preserve square-containment-173 and do not start duplicate writers. Character and real world assets remain in scope. Final integrated build still requires hands-on owner approval. Finish current Viewer correction and evidence, then 167 architecture, 168 surfaces, 161 finish, 162 full review. Update build/v0.1.0 and PR166 with checks, pictures and a working private shared build before closing issues. Keep checkpoint current; disable this automation only after verified complete map. Honor rights, provider and spend rules.",
+        "precheck": {
+          "command": "python3 /home/reidsurmeier/.local/state/risd-wayfinder-heartbeat/wake.py",
+          "timeoutSeconds": 60
+        },
+        "agentId": "codex",
+        "runContext": {
+          "kind": "workspace-run",
+          "projectId": "github:reid-surmeier/risd-godot",
+          "hostId": "local",
+          "projectHostSetupId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+          "repoId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+          "path": "/home/reidsurmeier/risd-godot"
+        },
+        "sourceContext": {
+          "kind": "task-source",
+          "provider": "github",
+          "projectId": "github:reid-surmeier/risd-godot",
+          "hostId": "local",
+          "projectHostSetupId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+          "repoId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+          "providerIdentity": {
+            "provider": "github",
+            "owner": "Reid-Surmeier",
+            "repo": "risd-godot"
+          },
+          "accountLabel": null
+        },
+        "projectId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+        "executionTargetType": "local",
+        "executionTargetId": "local",
+        "schedulerOwner": "local_host_service",
+        "workspaceMode": "existing",
+        "workspaceId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/risd-godot",
+        "baseBranch": null,
+        "reuseSession": true,
+        "timezone": "America/New_York",
+        "rrule": "*/30 * * * *",
+        "dtstart": 1790621845500,
+        "enabled": false,
+        "nextRunAt": 1790794800000,
+        "missedRunPolicy": "run_once_within_grace",
+        "missedRunGraceMinutes": 720,
+        "createdAt": 1790541246559,
+        "updatedAt": 1790793322480,
+        "lastRunAt": 1790793322480
+      },
+      {
+        "id": "01aae171-57ee-455c-93b8-eef25631f529",
+        "name": "Webcam booth overnight fallback heartbeat",
+        "prompt": "Use heartbeat only for spec https://github.com/Reid-Surmeier/risd-godot/issues/200 and its native child tickets201–204 in this existing isolated worktree. Read AGENTS.md, docs/overnight-webcam/PLAN.md and checkpoint.json, live git/issues and paid Run records. Owner authorizes completing every ticket autonomously without questions, OpenRouter-only aggregate10USD, ephemeral explode/reset then expression tracking, gpt-6.1-sol/high review agents. Do not repeat completed pilot or paid-loop acceptance. Ticket201 is closed and verified. Motion run-16c6dd84b5c249fa0282d930 produced video but tool verification failed for one extra frame; preserve failed state and actual cost2.55195, no resubmit. Native application timing/codec assembly must be independently verified. Global ledger in webcam-booth/build/private/ledger.json counts all asset/visitor calls, uncertain costs hold reservation. Maintain server-only credentials through BWS. Respect future lease: if live, exit untouched; otherwise claim40minute lease and work at most25minutes, preserving this scope only. Complete202 visual-motion acceptance, then203 real pinned-worker expression deformation, then204 browser/root/typecheck/fault acceptance, exact-SHA independent review and durable owner-accessible tailnet handoff. No physical webcam claim from fixture/synthetic proof. Main and existing RISD frozen interfaces remain unchanged. No nested automation. Update checkpoint and release lease after tick. Disable automation on completed task; if morning deadline arrives with incomplete criteria, report them honestly and preserve continuation rather than closing incomplete tickets.",
+        "precheck": {
+          "command": "python3 /home/reidsurmeier/orca/workspaces/risd-godot/webcam-booth-195/docs/overnight-webcam/precheck.py",
+          "timeoutSeconds": 60
+        },
+        "agentId": "codex",
+        "runContext": {
+          "kind": "workspace-run",
+          "projectId": "github:reid-surmeier/risd-godot",
+          "hostId": "local",
+          "projectHostSetupId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+          "repoId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+          "path": "/home/reidsurmeier/risd-godot"
+        },
+        "sourceContext": {
+          "kind": "task-source",
+          "provider": "github",
+          "projectId": "github:reid-surmeier/risd-godot",
+          "hostId": "local",
+          "projectHostSetupId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+          "repoId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+          "providerIdentity": {
+            "provider": "github",
+            "owner": "Reid-Surmeier",
+            "repo": "risd-godot"
+          },
+          "accountLabel": null
+        },
+        "projectId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+        "executionTargetType": "local",
+        "executionTargetId": "local",
+        "schedulerOwner": "local_host_service",
+        "workspaceMode": "existing",
+        "workspaceId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/webcam-booth-195",
+        "baseBranch": null,
+        "reuseSession": true,
+        "timezone": "America/New_York",
+        "rrule": "*/30 * * * *",
+        "dtstart": 1790740293981,
+        "enabled": false,
+        "nextRunAt": 1790749800000,
+        "missedRunPolicy": "run_once_within_grace",
+        "missedRunGraceMinutes": 20,
+        "createdAt": 1790740294025,
+        "updatedAt": 1790748217312,
+        "lastRunAt": 1790748036252
+      },
+      {
+        "id": "8d678f70-1bba-4e66-9d08-38ab51bd29e6",
+        "name": "Weekly Proton project backups",
+        "prompt": "This reporter is intentionally gated off by the backup precheck. Do not run commands or use tools.",
+        "precheck": {
+          "command": "cd /home/reidsurmeier/src/workspace-operations && PYTHONPATH=src python3 -m workspace_ops backups run --registry registry/project-backups.toml --json; backup_status=$?; if [ \"$backup_status\" -eq 0 ]; then exit 20; fi; exit \"$backup_status\"",
+          "timeoutSeconds": 600
+        },
+        "agentId": "codex",
+        "runContext": {
+          "kind": "workspace-run",
+          "projectId": "github:reidsurmeier/workspace-operations",
+          "hostId": "local",
+          "projectHostSetupId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "repoId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "path": "/home/reidsurmeier/src/workspace-operations"
+        },
+        "sourceContext": {
+          "kind": "task-source",
+          "provider": "github",
+          "projectId": "github:reidsurmeier/workspace-operations",
+          "hostId": "local",
+          "projectHostSetupId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "repoId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+          "providerIdentity": {
+            "provider": "github",
+            "owner": "ReidSurmeier",
+            "repo": "workspace-operations"
+          },
+          "accountLabel": null
+        },
+        "projectId": "5501a44b-4326-4f7d-866f-2da72b34e0b7",
+        "executionTargetType": "local",
+        "executionTargetId": "local",
+        "schedulerOwner": "local_host_service",
+        "workspaceMode": "existing",
+        "workspaceId": "5501a44b-4326-4f7d-866f-2da72b34e0b7::/home/reidsurmeier/src/workspace-operations",
+        "baseBranch": null,
+        "reuseSession": false,
+        "timezone": "America/New_York",
+        "rrule": "FREQ=WEEKLY;BYDAY=SU;BYHOUR=3;BYMINUTE=0",
+        "dtstart": 1785719917988,
+        "enabled": true,
+        "nextRunAt": 1791097200000,
+        "missedRunPolicy": "run_once_within_grace",
+        "missedRunGraceMinutes": 720,
+        "createdAt": 1785718621361,
+        "updatedAt": 1790492407750,
+        "lastRunAt": 1790492407946
+      }
+    ],
+    "items": [
+      {
+        "automationId": "283bf0fc-59d8-4e5b-8ecb-20bfc8a2d13c",
+        "selector": {
+          "kind": "orphan",
+          "issue": "Its project no longer exists, so its host cannot be resolved."
+        },
+        "usageSummary": {
+          "knownRuns": 0,
+          "unavailableRuns": 20,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheTokens": 0,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 0,
+          "estimatedCostUsd": null,
+          "lastRunStatus": "completed",
+          "lastRunAt": 1790508608099
+        }
+      },
+      {
+        "automationId": "ade26ac4-9e2f-4948-ae97-b1a885628e8a",
+        "selector": {
+          "kind": "orphan",
+          "issue": "Its project no longer exists, so its host cannot be resolved."
+        },
+        "usageSummary": {
+          "knownRuns": 0,
+          "unavailableRuns": 36,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheTokens": 0,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 0,
+          "estimatedCostUsd": null,
+          "lastRunStatus": "skipped_unavailable",
+          "lastRunAt": 1790755229031
+        }
+      },
+      {
+        "automationId": "107373fb-27e8-4392-8d50-6779efbd2cb7",
+        "selector": {
+          "kind": "orphan",
+          "issue": "Its project no longer exists, so its host cannot be resolved."
+        },
+        "usageSummary": {
+          "knownRuns": 0,
+          "unavailableRuns": 23,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheTokens": 0,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 0,
+          "estimatedCostUsd": null,
+          "lastRunStatus": "skipped_unavailable",
+          "lastRunAt": 1788544845007
+        }
+      },
+      {
+        "automationId": "923b01a2-a41e-4bbf-aade-fedaaa480214",
+        "selector": {
+          "kind": "orphan",
+          "issue": "Its project no longer exists, so its host cannot be resolved."
+        },
+        "usageSummary": {
+          "knownRuns": 0,
+          "unavailableRuns": 5,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheTokens": 0,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 0,
+          "estimatedCostUsd": null,
+          "lastRunStatus": "completed",
+          "lastRunAt": 1790449206929
+        }
+      },
+      {
+        "automationId": "7b2e0eeb-bf5f-44bd-a14e-26a781f6585c",
+        "selector": {
+          "kind": "orphan",
+          "issue": "Its project no longer exists, so its host cannot be resolved."
+        },
+        "usageSummary": {
+          "knownRuns": 0,
+          "unavailableRuns": 24,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheTokens": 0,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 0,
+          "estimatedCostUsd": null,
+          "lastRunStatus": "skipped_unavailable",
+          "lastRunAt": 1788786005839
+        }
+      },
+      {
+        "automationId": "99695359-522b-46ce-bb00-078657d105ea",
+        "selector": {
+          "kind": "self"
+        },
+        "usageSummary": {
+          "knownRuns": 0,
+          "unavailableRuns": 30,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheTokens": 0,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 0,
+          "estimatedCostUsd": null,
+          "lastRunStatus": "dispatch_failed",
+          "lastRunAt": 1790787622299
+        }
+      },
+      {
+        "automationId": "a1be0f89-1291-42d6-9a69-a52b950b80d6",
+        "selector": {
+          "kind": "self"
+        },
+        "usageSummary": {
+          "knownRuns": 0,
+          "unavailableRuns": 100,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheTokens": 0,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 0,
+          "estimatedCostUsd": null,
+          "lastRunStatus": "dispatch_failed",
+          "lastRunAt": 1790793022460
+        }
+      },
+      {
+        "automationId": "01aae171-57ee-455c-93b8-eef25631f529",
+        "selector": {
+          "kind": "self"
+        },
+        "usageSummary": {
+          "knownRuns": 0,
+          "unavailableRuns": 5,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheTokens": 0,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 0,
+          "estimatedCostUsd": null,
+          "lastRunStatus": "skipped_precheck",
+          "lastRunAt": 1790748036252
+        }
+      },
+      {
+        "automationId": "8d678f70-1bba-4e66-9d08-38ab51bd29e6",
+        "selector": {
+          "kind": "orphan",
+          "issue": "Its project no longer exists, so its host cannot be resolved."
+        },
+        "usageSummary": {
+          "knownRuns": 0,
+          "unavailableRuns": 11,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cacheTokens": 0,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 0,
+          "estimatedCostUsd": null,
+          "lastRunStatus": "skipped_unavailable",
+          "lastRunAt": 1788678004628
+        }
+      }
+    ],
+    "orphanCount": 6
+  },
+  "_meta": {
+    "runtimeId": "dbd51943-5aff-4aac-9ef7-31547ed940cd"
+  }
+}

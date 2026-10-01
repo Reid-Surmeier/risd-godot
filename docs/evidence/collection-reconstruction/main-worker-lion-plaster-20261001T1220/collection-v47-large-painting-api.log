@@ -1,0 +1,16 @@
+[2026-10-01 07:55:19] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=La+Fresnaye&items_per_page=25> (referer: https://www.google.com/)
+La Fresnaye []
+[2026-10-01 07:55:19] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Gromaire&items_per_page=25> (referer: https://www.google.com/)
+Gromaire []
+[2026-10-01 07:55:19] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Beckmann&items_per_page=25> (referer: https://www.google.com/)
+Beckmann []
+[2026-10-01 07:55:20] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Blanchard&items_per_page=25> (referer: https://www.google.com/)
+Blanchard []
+[2026-10-01 07:55:21] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Goerg&items_per_page=25> (referer: https://www.google.com/)
+Goerg []
+[2026-10-01 07:55:23] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Bissiere&items_per_page=25> (referer: https://www.google.com/)
+Bissiere []
+[2026-10-01 07:55:24] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=L%C3%A9ger&items_per_page=25> (referer: https://www.google.com/)
+Léger [{"id": "1538791", "primaryMaker": "Fernand L\u00e9ger", "title": "Flowers (Les Fleurs)", "objectNumber": "81.097", "medium": ["Oil on canvas"], "dimensions": "92.2 x 65.4 cm (36 5/16 x 25 3/4 inches)", "url": "https://risdmuseum.org/art-design/collection/flowers-les-fleurs-81097"}]
+[2026-10-01 07:55:24] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Max+Weber&items_per_page=25> (referer: https://www.google.com/)
+Max Weber []

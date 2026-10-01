@@ -425,7 +425,7 @@
           "id": "blue-brick-lion",
           "source_frames": "6387:1-30,71-91",
           "observed": "Long blue/gold brick lion relief between modern and medieval doorways",
-          "status": "Source/catalogue visual match; asset generation and room placement unfinished",
+          "status": "Original museum front installed; Muse generated front rejected for aspect/damage; inferred side/back and slab depth unaccepted",
           "catalogue_match": {
             "id": "1410181",
             "accession": "34.652",
@@ -461,6 +461,22 @@
           "white ancient sculpture room",
           "modern adjoining light gallery"
         ]
+      },
+      "layout_v47": {
+        "installed_world_position": [
+          16.07,
+          1.18,
+          33.15
+        ],
+        "lion_front_original": true,
+        "lion_brick_relief_complete": false,
+        "new_muse_plaster": true,
+        "vent_bracket_studies": true,
+        "metric_accepted": false,
+        "missing_objects": [
+          "chair rack"
+        ],
+        "landing_roof_complete": false
       }
     },
     "modern_painting_gallery": {
@@ -616,7 +632,22 @@
           "C\u00e9zanne fine frame ornament",
           "modern painting spotlight pools too bright compared with source; lighting still needs refinement"
         ]
-      }
+      },
+      "large_painting_v47": {
+        "accession": "1995.043",
+        "title": "Mountaineers Attacked by Bears",
+        "maker": "Henri Victor Gabriel Le Fauconnier",
+        "catalogue_id": "1557106",
+        "source_match_verified": true,
+        "installed": false,
+        "dimensions_cm": [
+          239.6,
+          305.4,
+          4.4
+        ],
+        "record_file": "inventory-catalogue/fauconnier-mountaineers.json"
+      },
+      "lighting_v47": "Four painting spots energy1.2,angle40; pools reduced in inspected bake, exact source intensity unaccepted"
     },
     "Metcalf_Auditorium": {
       "official_source": "https://risdmuseum.org/rent-museum",

@@ -1,0 +1,91 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-b19f8a1990a70fc1ed22",
+      "objective": "Using reference1 for the museum wall paint and reference2 for the restrained low-polygon visual direction, generate one seamless square albedo texture of only the smooth warm-grey painted plaster visible around the doorway. Even flat diffuse lighting: do not bake sunlight, spotlights, shadows, corners, ceiling, doorway, mouldings, floor, sculpture, labels, grain, stains or cracks into the texture. Tiny restrained broad low-polygon tone changes only, less than three percent contrast; no visible triangular patchwork, polygons outlined as triangles, mottled clouds, marble, stone pattern or beige parchment. The museum walls are quiet matte grey plaster. Fill the entire canvas, edge-to-edge, no margin or text. Colours should stay close to the smooth neutral warm grey of reference1, uniformly lit. The application supplies the existing museum lighting and shaders, so this texture must contain no lighting gradients.\n",
+      "procedureId": "muse-b19f8a1990a70fc1ed22",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "landing-plaster-recipe.json",
+          "sha256": "b19f8a1990a70fc1ed22463730bbfc603119831b771f7d5774e53793891144d0"
+        },
+        {
+          "applicationPath": "landing-plaster-plan.json",
+          "sha256": "45f2df4d859a0894d4fee3b6b3894da2ad7b4c48168829be21b07506a71bc8c7"
+        },
+        {
+          "applicationPath": "landing-plaster-prompt.txt",
+          "sha256": "9b8c94b950e4828630c2fa0c350d1e248859f2f09c1e2364b2962c3d043c5fc8"
+        }
+      ],
+      "museParameters": {
+        "size": "1760x1440"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/landing-plaster-video-native.png",
+          "sha256": "6ee3b6096b682b06e6a4e0ca20a35fd4155920554d88ab315f06fba46e67c3f5",
+          "byteLength": 1179223,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/landing-plaster-style-main-hall.png",
+          "sha256": "517ea4ae2f4109fcef975c7b91612c17dd2bb720317f2398d080e7dbae405964",
+          "byteLength": 302090,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1600,
+            "height": 1600
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1760x1440\"},\"objective\":\"Using reference1 for the museum wall paint and reference2 for the restrained low-polygon visual direction, generate one seamless square albedo texture of only the smooth warm-grey painted plaster visible around the doorway. Even flat diffuse lighting: do not bake sunlight, spotlights, shadows, corners, ceiling, doorway, mouldings, floor, sculpture, labels, grain, stains or cracks into the texture. Tiny restrained broad low-polygon tone changes only, less than three percent contrast; no visible triangular patchwork, polygons outlined as triangles, mottled clouds, marble, stone pattern or beige parchment. The museum walls are quiet matte grey plaster. Fill the entire canvas, edge-to-edge, no margin or text. Colours should stay close to the smooth neutral warm grey of reference1, uniformly lit. The application supplies the existing museum lighting and shaders, so this texture must contain no lighting gradients.\\n\",\"objectiveId\":\"muse-b19f8a1990a70fc1ed22\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-b19f8a1990a70fc1ed22\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/landing-plaster-video-native.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1179223,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"6ee3b6096b682b06e6a4e0ca20a35fd4155920554d88ab315f06fba46e67c3f5\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/landing-plaster-style-main-hall.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":302090,\"inspectedMedia\":{\"height\":1600,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1600},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"517ea4ae2f4109fcef975c7b91612c17dd2bb720317f2398d080e7dbae405964\",\"slot\":\"reference-001\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"landing-plaster-recipe.json\",\"sha256\":\"b19f8a1990a70fc1ed22463730bbfc603119831b771f7d5774e53793891144d0\"},{\"applicationPath\":\"landing-plaster-plan.json\",\"sha256\":\"45f2df4d859a0894d4fee3b6b3894da2ad7b4c48168829be21b07506a71bc8c7\"},{\"applicationPath\":\"landing-plaster-prompt.txt\",\"sha256\":\"9b8c94b950e4828630c2fa0c350d1e248859f2f09c1e2364b2962c3d043c5fc8\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "20fa6fddf9fc645f616f83351cb356b2897e7e835b644632e836f44a1682ae1c"
+  },
+  "normalView": {
+    "objective": "Using reference1 for the museum wall paint and reference2 for the restrained low-polygon visual direction, generate one seamless square albedo texture of only the smooth warm-grey painted plaster visible around the doorway. Even flat diffuse lighting: do not bake sunlight, spotlights, shadows, corners, ceiling, doorway, mouldings, floor, sculpture, labels, grain, stains or cracks into the texture. Tiny restrained broad low-polygon tone changes only, less than three percent contrast; no visible triangular patchwork, polygons outlined as triangles, mottled clouds, marble, stone pattern or beige parchment. The museum walls are quiet matte grey plaster. Fill the entire canvas, edge-to-edge, no margin or text. Colours should stay close to the smooth neutral warm grey of reference1, uniformly lit. The application supplies the existing museum lighting and shaders, so this texture must contain no lighting gradients.\n",
+    "evidence": "2 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

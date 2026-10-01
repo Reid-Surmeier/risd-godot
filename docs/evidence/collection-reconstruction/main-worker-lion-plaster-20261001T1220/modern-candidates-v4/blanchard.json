@@ -1,0 +1,2552 @@
+[
+  {
+    "id": "1589091",
+    "collection": "",
+    "credit": "Gift of Mrs. Gustav Radeke",
+    "culture": "Egyptian",
+    "dating": "",
+    "datingYearFrom": "1895",
+    "datingYearTo": "1905",
+    "description": "<p>Brooch</p>\n",
+    "dimensions": "Length: 11.1 cm (4 3/8 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Ralph Huntington Blanchard ",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Blanchard\u2019s Egyptian Museum",
+        "risdAffiliation": null,
+        "years": "early to mid-1900s",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Gold with chrysocolla chalcedony"
+    ],
+    "mediumTechnique": "gold",
+    "objectNumber": "11.036",
+    "onView": true,
+    "place": "",
+    "primaryMaker": "Ralph Huntington Blanchard ",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Gold with chrysocolla chalcedony"
+    ],
+    "title": "Brooch",
+    "type": [
+      "Jewelry"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/brooch-11036"
+  },
+  {
+    "id": "1565291",
+    "collection": "",
+    "credit": "Gift of Mrs. John D. Rockefeller, Jr.",
+    "culture": "",
+    "dating": "Edo Period",
+    "datingYearFrom": "1830",
+    "datingYearTo": "1839",
+    "description": "<p>Parrot on a Flowering Branch</p>\n",
+    "dimensions": "\u014ctanzakuban: 37.5 x 16.7 cm (14 3/4 x 6 9/16 inches)",
+    "edition": "Early impression on thick paper; unusual use of orange pigment on feathers of bird; Bogel notes this second edition of the same design in Rockefeller Collection published by Sanoya Kihei (ex coll. Blanchard, sold American Art Galleries, 1916)",
+    "inscription": "Signature: \u5ee3\u91cd\u7b46 Hiroshige hitsu  (Brushed by Hiroshige)\nSeals: Publisher's seal: \u4f50\u91ce\u559c \u677f Sanoki han (Sanoya Kihei); Censor's seal: \u6975 kiwame",
+    "makers": [
+      {
+        "name": "Sanoya Kihei \u4f50\u91ce\u5c4b\u559c\u5175\u885b",
+        "risdAffiliation": null,
+        "years": "1717\u20131875, b. in Edo, Japan",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Utagawa Hiroshige \u6b4c\u5ddd\u5e83\u91cd",
+        "risdAffiliation": null,
+        "years": "1797\u20131858, b. in Edo, Japan",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Polychrome woodblock print (nishiki-e)"
+    ],
+    "mediumTechnique": "ink and color",
+    "objectNumber": "34.275.1",
+    "onView": false,
+    "place": "Place Made: Japan; Place Made: Edo (Japanese period)",
+    "primaryMaker": "Utagawa Hiroshige \u6b4c\u5ddd\u5e83\u91cd",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1565296"
+    ],
+    "state": "",
+    "support": [
+      "paper"
+    ],
+    "technique": [
+      "Polychrome woodblock print (nishiki-e)"
+    ],
+    "title": "Parrot on a Flowering Branch",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/parrot-flowering-branch-342751"
+  },
+  {
+    "id": "1565296",
+    "collection": "",
+    "credit": "Gift of Mrs. John D. Rockefeller, Jr.",
+    "culture": "",
+    "dating": "Edo Period",
+    "datingYearFrom": "1830",
+    "datingYearTo": "1839",
+    "description": "<p>Parrot on a Flowering Branch (Kaid\u00f4 ni inko)</p>\n",
+    "dimensions": "Image: 38.9 x 17.5 cm (15 5/16 x 6 7/8 inches)",
+    "edition": "Early impression on thick paper; unusual use of orange pigment on feathers of bird; Bogel notes a second edition of the same design in Rockefeller Collection published by Sanoya Kihei (ex coll. Blanchard, sold American Art Galleries, 1916)",
+    "inscription": "Signature: Signed at lower left | Hiroshige hitsu\nSeals: Publisher's seal | Wakasaya Yoichi (Jakurind\u00f4 han); censor's seal | kiwame",
+    "makers": [
+      {
+        "name": "Wakasaya Yoichi \u82e5\u72ed\u5c4b\u4e0e\u5e02",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Utagawa Hiroshige \u6b4c\u5ddd\u5e83\u91cd",
+        "risdAffiliation": null,
+        "years": "1797\u20131858, b. in Edo, Japan",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "polychrome woodblock print"
+    ],
+    "mediumTechnique": "color, ink",
+    "objectNumber": "34.275.2",
+    "onView": false,
+    "place": "Place Made: Japan; Place Made: Edo (location)",
+    "primaryMaker": "Utagawa Hiroshige \u6b4c\u5ddd\u5e83\u91cd",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1565291"
+    ],
+    "state": "",
+    "support": [
+      "paper"
+    ],
+    "technique": [
+      "Polychrome woodblock print"
+    ],
+    "title": "Parrot on a Flowering Branch (Kaid\u00f4 ni inko)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/parrot-flowering-branch-kaido-ni-inko-342752"
+  },
+  {
+    "id": "1228196",
+    "collection": "",
+    "credit": "Gift of Mr. and Mrs. Bates Lowry",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1896",
+    "datingYearTo": "1896",
+    "description": "<p>Je Suis Toujours la Grande Isis! Nul n' a Encore Soulev\u00e9 mon Voile! Mon Fruit est le Soleil! (I am still the Great Isis! No body has ever lifted my veil! My fruit is the Sun!)<br>Tentation de Saint-Antoine (Temptation of Saint Anthony)</p>\n",
+    "dimensions": "Plate: 28.1 x 20.3 cm (11 1/16 x 8 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Blanchard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Odilon Redon",
+        "risdAffiliation": null,
+        "years": "1840-1916",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "68.003",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Odilon Redon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "Mellerio no. 149",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Light weight Oriental tissue paper mounted on heavy weight cream wove paper (chine coll\u00e9)"
+    ],
+    "technique": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "title": "Je Suis Toujours la Grande Isis! Nul n&#039; a Encore Soulev\u00e9 mon Voile! Mon Fruit est le Soleil! (I am still the Great Isis! No body has ever lifted my veil! My fruit is the Sun!)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/je-suis-toujours-la-grande-isis-nul-n-encore-souleve-mon-voile-mon-fruit-est"
+  },
+  {
+    "id": "1427691",
+    "collection": "",
+    "credit": "Museum Works of Art Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1900",
+    "datingYearTo": "1900",
+    "description": "<p>Portrait du peintre \u00c9douard Vuillard (Portrait of the French Painter Edward Vuillard)</p>\n",
+    "dimensions": "20.2 x 16.4 cm (7 15/16 x 6 7/16 inches) (plate)",
+    "edition": "",
+    "inscription": "Lettered: LR: \"OdR.\"",
+    "makers": [
+      {
+        "name": "Blanchard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Odilon Redon",
+        "risdAffiliation": null,
+        "years": "1840-1916",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "52.077",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Odilon Redon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "Mellerio no. 190",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Light weight Oriental tissue paper laid down on medium weight cream wove paper (chine coll\u00e9)"
+    ],
+    "technique": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "title": "Portrait du peintre \u00c9douard Vuillard (Portrait of the French Painter Edward Vuillard)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/portrait-du-peintre-edouard-vuillard-portrait-french-painter-edward-vuillard"
+  },
+  {
+    "id": "1565601",
+    "collection": "",
+    "credit": "Gift of Peter and Bonnie DiCristofaro",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "",
+    "datingYearTo": "",
+    "description": "<p>Cup</p>\n",
+    "dimensions": "",
+    "edition": "",
+    "inscription": "stamped: [lion] [anchor] G / COIN / 49\nengraved: Caroline D. Blanchard from Aunt Caroline",
+    "makers": [
+      {
+        "name": "Gorham Manufacturing Company",
+        "risdAffiliation": null,
+        "years": "1831-present",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Silver with gilding"
+    ],
+    "mediumTechnique": "",
+    "objectNumber": "2022.25.6",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Gorham Manufacturing Company",
+    "publicDomain": false,
+    "recentAcquisition": true,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Silver with gilding"
+    ],
+    "title": "Cup",
+    "type": [
+      "Metalwork"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/cup-2022256"
+  },
+  {
+    "id": "1585796",
+    "collection": "",
+    "credit": "Gift of Murray S. Danforth, Jr.",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1896",
+    "datingYearTo": "1896",
+    "description": "<p>Vieux Chevalier (Old Knight)<br>Album des Peintres-Graveurs</p>\n",
+    "dimensions": "30 x 23.5 cm (11 13/16 x 9 1/4 inches) (plate)",
+    "edition": "",
+    "inscription": "Lettered: LR: \"Od. R.\"",
+    "makers": [
+      {
+        "name": "Ambroise Vollard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Blanchard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Odilon Redon",
+        "risdAffiliation": null,
+        "years": "1840-1916",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "50.357",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Odilon Redon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "Mellerio 158",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Light weight cream Oriental tissue paper laid down on heavy weight wove paper (chine coll\u00e9)"
+    ],
+    "technique": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "title": "Vieux Chevalier (Old Knight)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/vieux-chevalier-old-knight-50357"
+  },
+  {
+    "id": "1192431",
+    "collection": "",
+    "credit": "Gift of Professor and Mrs. A. David Kossoff",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1896",
+    "datingYearTo": "1896",
+    "description": "<p>Et il Distingue une Plaine Aride et Mamelonneuse (And he discerns an arid, knoll-covered plain)<br>Tentation de Saint-Antoine (Temptation of Saint Anthony)</p>\n",
+    "dimensions": "24.5 x 19.5 cm (9 5/8 x 7 11/16 inches) (plate)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Blanchard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Odilon Redon",
+        "risdAffiliation": null,
+        "years": "1840-1916",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "81.183",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Odilon Redon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "Mellerio no.140",
+    "relatedObjects": [],
+    "state": "50",
+    "support": [
+      "Light weight Oriental tissue paper mounted on heavy weight cream wove paper (chine coll\u00e9)"
+    ],
+    "technique": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "title": "Et il Distingue une Plaine Aride et Mamelonneuse (And he discerns an arid, knoll-covered plain)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/et-il-distingue-une-plaine-aride-et-mamelonneuse-and-he-discerns-arid-knoll"
+  },
+  {
+    "id": "1194191",
+    "collection": "",
+    "credit": "Gift of Alice G. Taft, Marianna Taft, Hope Smith and Brockholst M. Smith",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1837",
+    "datingYearTo": "1847",
+    "description": "<p>Portrait of Murillo</p>\n",
+    "dimensions": "",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Auguste Jean Baptiste Marie Blanchard II",
+        "risdAffiliation": null,
+        "years": "1792-1849",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Bartolom\u00e9 Esteban Murillo",
+        "risdAffiliation": null,
+        "years": "1617-1682",
+        "nationality": [
+          "Spanish"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "engraving"
+    ],
+    "mediumTechnique": "engraving",
+    "objectNumber": "45.113.62",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Auguste Jean Baptiste Marie Blanchard II",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "engraving"
+    ],
+    "title": "Portrait of Murillo",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/portrait-murillo-4511362"
+  },
+  {
+    "id": "1225546",
+    "collection": "",
+    "credit": "Gift of Murray S. Danforth, Jr.",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1899",
+    "datingYearTo": "1899",
+    "description": "<p>C'est moi, Jean, qui ai vu et qui ai ou\u00ef ces choses (And I, John, saw these things and I heard them)<br>Apocalypse de Saint Jean</p>\n",
+    "dimensions": "26 x 18.4 cm (10 1/4 x 7 1/4 inches) (plate) image",
+    "edition": "",
+    "inscription": "Lettered: LR Monogram: \"OR\"; Below image L: \"C'est moi, Jean, qui ai vu et qui ai ou\u00ef ces choses.\"",
+    "makers": [
+      {
+        "name": "Ambroise Vollard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Blanchard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Odilon Redon",
+        "risdAffiliation": null,
+        "years": "1840-1916",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "50.371.12",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Odilon Redon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "Mellerio 185",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Light weight Oriental beige paper on heavy weight white wove paper (chine coll\u00e9)"
+    ],
+    "technique": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "title": "C&#039;est moi, Jean, qui ai vu et qui ai ou\u00ef ces choses (And I, John, saw these things and I heard them)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/cest-moi-jean-qui-ai-vu-et-qui-ai-oui-ces-choses-and-i-john-saw-these-things"
+  },
+  {
+    "id": "1226731",
+    "collection": "",
+    "credit": "Gift of Murray S. Danforth, Jr.",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1899",
+    "datingYearTo": "1899",
+    "description": "<p>Et un autre ange sortit du temple qui est au ciel, ayant lui aussi une faucille tranchante (And another angel came out of the temple which is heaven, and he also had a sharp sickle)<br>Apocalypse de Saint Jean</p>\n",
+    "dimensions": "32.5 x 21.3 cm (12 13/16 x 8 3/8 inches) (plate)",
+    "edition": "",
+    "inscription": "Lettered: LR: \"OR\"; Below image: R: \"Et un autre ange sortit du temple qui est au ciel, ayant lui aussi une faucille tranchante.\"",
+    "makers": [
+      {
+        "name": "Ambroise Vollard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Blanchard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Odilon Redon",
+        "risdAffiliation": null,
+        "years": "1840-1916",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "50.371.7",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Odilon Redon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "Mellerio 180",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Light weight cream Oriental tissue paper laid down on heavy weight white wove paper (chine coll\u00e9)"
+    ],
+    "technique": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "title": "Et un autre ange sortit du temple qui est au ciel, ayant lui aussi une faucille tranchante (And another angel came out of the temple which is heaven, and he also had a sharp sickle)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/et-un-autre-ange-sortit-du-temple-qui-est-au-ciel-ayant-lui-aussi-une"
+  },
+  {
+    "id": "1242786",
+    "collection": "",
+    "credit": "Gift of Murray S. Danforth, Jr.",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1899",
+    "datingYearTo": "1899",
+    "description": "<p>Et celui qui \u00e9tait mont\u00e9 dessus se nommait la Mort (And the rider was called Death)<br>Apocalypse de Saint Jean</p>\n",
+    "dimensions": "31 x 22.7 cm (12 3/16 x 8 15/16 inches) (plate) image",
+    "edition": "",
+    "inscription": "Lettered: LR Monogram: \"OR\"; Below image: \"...et celui qui \u00e9tait mont\u00e9 dessus se nommait la Mort,\"",
+    "makers": [
+      {
+        "name": "Ambroise Vollard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Blanchard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Odilon Redon",
+        "risdAffiliation": null,
+        "years": "1840-1916",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "50.371.3",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Odilon Redon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "Mellerio 176",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Light weight cream Oriental tissue paper laid down on heavy weight white wove paper (chine coll\u00e9)"
+    ],
+    "technique": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "title": "Et celui qui \u00e9tait mont\u00e9 dessus se nommait la Mort (And the rider was called Death)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/et-celui-qui-etait-monte-dessus-se-nommait-la-mort-and-rider-was-called-death"
+  },
+  {
+    "id": "1256901",
+    "collection": "",
+    "credit": "Museum Works of Art Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1834",
+    "datingYearTo": "1834",
+    "description": "<p>OEUVRES COMPL\u00c9TES D\u00c9 P.J. B\u00c9RENGER</p>\n",
+    "dimensions": "22.2 x 14.6 x 2.5 cm (8 3/4 x 5 3/4 x 1 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Evelyn Granville",
+        "risdAffiliation": null,
+        "years": "19th century",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Geoffrey Heath Wedgwood",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Jean Mathias Fontaine",
+        "risdAffiliation": null,
+        "years": "1791-1853",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Marcisse Lacomte",
+        "risdAffiliation": null,
+        "years": "1794-1882",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Pierre Pel\u00e9e",
+        "risdAffiliation": null,
+        "years": "1801-1871",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Auguste Sandol",
+        "risdAffiliation": null,
+        "years": "ca. 1750-1800",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Perrotin",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Auguste Jean Baptiste Marie Blanchard II",
+        "risdAffiliation": null,
+        "years": "1792-1849",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Jean Jacques Frilley",
+        "risdAffiliation": null,
+        "years": "b. 1797",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Fry",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Deschauvents",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Harry Ashby I",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Fran\u00e7ois Auguste Trichon",
+        "risdAffiliation": null,
+        "years": "b. 1814",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Tony Johannot",
+        "risdAffiliation": null,
+        "years": "1803-1852",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Theophile Evariste Hippolyte Etienne Fragonard",
+        "risdAffiliation": null,
+        "years": "1806-1876",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Alfred Johannot",
+        "risdAffiliation": null,
+        "years": "1800-1837",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "George Fran\u00e7ois Louis Jaquemot",
+        "risdAffiliation": null,
+        "years": "1806-1880",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Louis Candide Boulanger",
+        "risdAffiliation": null,
+        "years": "1806-1867",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Alfred Revel",
+        "risdAffiliation": null,
+        "years": "d. 1865",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Auguste Raffet",
+        "risdAffiliation": null,
+        "years": "1804-1860",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Eug\u00e8ne Isabey",
+        "risdAffiliation": null,
+        "years": "1803-1886",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Pierre Jean de Berenger",
+        "risdAffiliation": null,
+        "years": "1780-1857",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Charles Louis Auguste Cousin",
+        "risdAffiliation": null,
+        "years": "1807-1887",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Nicolas Toussaint Charlet",
+        "risdAffiliation": null,
+        "years": "1792-1845",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Eug\u00e8ne Dev\u00e9ria",
+        "risdAffiliation": null,
+        "years": "1805-1865",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Jean-Louis-Joseph-Camille Lacoste",
+        "risdAffiliation": null,
+        "years": "1809-1866",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Francois Grenier de Saint-Martin",
+        "risdAffiliation": null,
+        "years": "1793-1867",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Hippolyte Bellang\u00e9",
+        "risdAffiliation": null,
+        "years": "1800-1866",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "copper engraving"
+    ],
+    "mediumTechnique": "copper engraving",
+    "objectNumber": "71.012.4",
+    "onView": false,
+    "place": "Place Made: Paris; Place Made: France",
+    "primaryMaker": "Hippolyte Bellang\u00e9",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1338801",
+      "https://risdmuseum.org/api/v1/collection?id=1290026",
+      "https://risdmuseum.org/api/v1/collection?id=1290211",
+      "https://risdmuseum.org/api/v1/collection?id=1471831"
+    ],
+    "state": "Volume: IV",
+    "support": [
+      "Laid paper:medium (I) thickness."
+    ],
+    "technique": [
+      "copper engraving"
+    ],
+    "title": "OEUVRES COMPL\u00c9TES D\u00c9 P.J. B\u00c9RENGER",
+    "type": [
+      "Books"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/oeuvres-completes-de-pj-berenger-710124"
+  },
+  {
+    "id": "1259461",
+    "collection": "",
+    "credit": "Gift of Murray S. Danforth, Jr.",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1899",
+    "datingYearTo": "1899",
+    "description": "<p>Apr\u00e8s cela je vis descendre du ciel un ange qui avait la clef de l'ab\u00eeme... (And I saw an angel coming down from Heaven, having the key of the bottomless pit)<br>Apocalypse de Saint Jean</p>\n",
+    "dimensions": "30.3 x 23.3 cm (11 15/16 x 9 3/16 inches) (plate) image",
+    "edition": "",
+    "inscription": "Lettered: LC Monogram: \"OR\"; Below image: \"Apr\u00e8s cela je vis descendre du ciel un ange qui avait la clef de l'ab\u00eeme,\net une grande chaine en sa main;\"",
+    "makers": [
+      {
+        "name": "Ambroise Vollard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Blanchard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Odilon Redon",
+        "risdAffiliation": null,
+        "years": "1840-1916",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "50.371.8",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Odilon Redon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "Mellerio 181",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Light weight Oriental cream paper on heavy weight white wove paper (chine coll\u00e9)"
+    ],
+    "technique": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "title": "Apr\u00e8s cela je vis descendre du ciel un ange qui avait la clef de l&#039;ab\u00eeme... (And I saw an angel coming down from Heaven, having the key of the bottomless pit)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/apres-cela-je-vis-descendre-du-ciel-un-ange-qui-avait-la-clef-de-labime-and-i"
+  },
+  {
+    "id": "1290026",
+    "collection": "",
+    "credit": "Museum Works of Art Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1834",
+    "datingYearTo": "1834",
+    "description": "<p>OEUVRES COMPL\u00c8TES DE P.J. DE B\u00c9RENGER</p>\n",
+    "dimensions": "22.2 x 14.6 x 2.9 cm (8 3/4 x 5 3/4 x 1 1/8 inches)",
+    "edition": "",
+    "inscription": "Four page handwritten letter in pen and black ink to \"Mr. Joseph Berman.\"From, \"Berenger\" procedes title page.",
+    "makers": [
+      {
+        "name": "Evelyn Granville",
+        "risdAffiliation": null,
+        "years": "19th century",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Geoffrey Heath Wedgwood",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Jean Mathias Fontaine",
+        "risdAffiliation": null,
+        "years": "1791-1853",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Marcisse Lacomte",
+        "risdAffiliation": null,
+        "years": "1794-1882",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Pierre Pel\u00e9e",
+        "risdAffiliation": null,
+        "years": "1801-1871",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Auguste Sandol",
+        "risdAffiliation": null,
+        "years": "ca. 1750-1800",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Perrotin",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Auguste Jean Baptiste Marie Blanchard II",
+        "risdAffiliation": null,
+        "years": "1792-1849",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Jean Jacques Frilley",
+        "risdAffiliation": null,
+        "years": "b. 1797",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Fry",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Deschauvents",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Harry Ashby I",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Fran\u00e7ois Auguste Trichon",
+        "risdAffiliation": null,
+        "years": "b. 1814",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Tony Johannot",
+        "risdAffiliation": null,
+        "years": "1803-1852",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Theophile Evariste Hippolyte Etienne Fragonard",
+        "risdAffiliation": null,
+        "years": "1806-1876",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Alfred Johannot",
+        "risdAffiliation": null,
+        "years": "1800-1837",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "George Fran\u00e7ois Louis Jaquemot",
+        "risdAffiliation": null,
+        "years": "1806-1880",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Louis Candide Boulanger",
+        "risdAffiliation": null,
+        "years": "1806-1867",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Alfred Revel",
+        "risdAffiliation": null,
+        "years": "d. 1865",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Auguste Raffet",
+        "risdAffiliation": null,
+        "years": "1804-1860",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Eug\u00e8ne Isabey",
+        "risdAffiliation": null,
+        "years": "1803-1886",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Pierre Jean de Berenger",
+        "risdAffiliation": null,
+        "years": "1780-1857",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Charles Louis Auguste Cousin",
+        "risdAffiliation": null,
+        "years": "1807-1887",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Nicolas Toussaint Charlet",
+        "risdAffiliation": null,
+        "years": "1792-1845",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Eug\u00e8ne Dev\u00e9ria",
+        "risdAffiliation": null,
+        "years": "1805-1865",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Jean-Louis-Joseph-Camille Lacoste",
+        "risdAffiliation": null,
+        "years": "1809-1866",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Francois Grenier de Saint-Martin",
+        "risdAffiliation": null,
+        "years": "1793-1867",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Hippolyte Bellang\u00e9",
+        "risdAffiliation": null,
+        "years": "1800-1866",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "copper engraving"
+    ],
+    "mediumTechnique": "copper engraving",
+    "objectNumber": "71.012.1",
+    "onView": false,
+    "place": "Place Made: Paris; Place Made: France",
+    "primaryMaker": "Hippolyte Bellang\u00e9",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1256901",
+      "https://risdmuseum.org/api/v1/collection?id=1338801",
+      "https://risdmuseum.org/api/v1/collection?id=1290211",
+      "https://risdmuseum.org/api/v1/collection?id=1471831"
+    ],
+    "state": "",
+    "support": [
+      "Laid paper:medium (I) thickness."
+    ],
+    "technique": [
+      "copper engraving"
+    ],
+    "title": "OEUVRES COMPL\u00c8TES DE P.J. DE B\u00c9RENGER",
+    "type": [
+      "Books"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/oeuvres-completes-de-pj-de-berenger-710121"
+  },
+  {
+    "id": "1290211",
+    "collection": "",
+    "credit": "Museum Works of Art Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1834",
+    "datingYearTo": "1834",
+    "description": "<p>OEUVRES COMPL\u00c9TES DE P.J. DE B\u00c9RENGER</p>\n",
+    "dimensions": "22.2 x 14.6 x 3.2 cm (8 3/4 x 5 3/4 x 1 1/4 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Evelyn Granville",
+        "risdAffiliation": null,
+        "years": "19th century",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Geoffrey Heath Wedgwood",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Jean Mathias Fontaine",
+        "risdAffiliation": null,
+        "years": "1791-1853",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Marcisse Lacomte",
+        "risdAffiliation": null,
+        "years": "1794-1882",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Pierre Pel\u00e9e",
+        "risdAffiliation": null,
+        "years": "1801-1871",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Auguste Sandol",
+        "risdAffiliation": null,
+        "years": "ca. 1750-1800",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Perrotin",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "A. Champion",
+        "risdAffiliation": null,
+        "years": "ca. 1800-1850",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Jean Bein",
+        "risdAffiliation": null,
+        "years": "1789-1857",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Auguste Jean Baptiste Marie Blanchard II",
+        "risdAffiliation": null,
+        "years": "1792-1849",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Jean Fran\u00e7ois Pourvoyeur",
+        "risdAffiliation": null,
+        "years": "fl. 1831-1845",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Jean Jacques Frilley",
+        "risdAffiliation": null,
+        "years": "b. 1797",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Fry",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Jules Gabriel Levasseur",
+        "risdAffiliation": null,
+        "years": "b. 1823",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Deschauvents",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Harry Ashby I",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Louis Gudin",
+        "risdAffiliation": null,
+        "years": "1799-1823",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Charles-Louis-Victor Mauduit",
+        "risdAffiliation": null,
+        "years": "b. 1788",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Fran\u00e7ois Auguste Trichon",
+        "risdAffiliation": null,
+        "years": "b. 1814",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Auguste Dutillois",
+        "risdAffiliation": null,
+        "years": "fl. 1830-1850",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Tony Johannot",
+        "risdAffiliation": null,
+        "years": "1803-1852",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Theophile Evariste Hippolyte Etienne Fragonard",
+        "risdAffiliation": null,
+        "years": "1806-1876",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Eug\u00e8ne Delacroix",
+        "risdAffiliation": null,
+        "years": "1798-1863",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Alfred Johannot",
+        "risdAffiliation": null,
+        "years": "1800-1837",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Louis Dupre",
+        "risdAffiliation": null,
+        "years": "1789-1837",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Eug\u00e8ne Louis Lami",
+        "risdAffiliation": null,
+        "years": "1800-1890",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Achille D\u00e9sir\u00e9 Lef\u00e8vre",
+        "risdAffiliation": null,
+        "years": "1798-1864",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Henry Bonaventure Monnier",
+        "risdAffiliation": null,
+        "years": "1805-1877",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "George Fran\u00e7ois Louis Jaquemot",
+        "risdAffiliation": null,
+        "years": "1806-1880",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Alexandre-Gabriel Decamps",
+        "risdAffiliation": null,
+        "years": "1803-1860",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Louis Candide Boulanger",
+        "risdAffiliation": null,
+        "years": "1806-1867",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "John Romney",
+        "risdAffiliation": null,
+        "years": "1786-1863",
+        "nationality": [
+          "English"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Alfred Revel",
+        "risdAffiliation": null,
+        "years": "d. 1865",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Auguste Raffet",
+        "risdAffiliation": null,
+        "years": "1804-1860",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Pierre Roch Vigneron",
+        "risdAffiliation": null,
+        "years": "1789-1872",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Eug\u00e8ne Isabey",
+        "risdAffiliation": null,
+        "years": "1803-1886",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Jules Dupr\u00e9",
+        "risdAffiliation": null,
+        "years": "1811-1889",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Horace Vernet",
+        "risdAffiliation": null,
+        "years": "1789-1863",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Pierre Jean de Berenger",
+        "risdAffiliation": null,
+        "years": "1780-1857",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Charles Louis Auguste Cousin",
+        "risdAffiliation": null,
+        "years": "1807-1887",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Ary Scheffer",
+        "risdAffiliation": null,
+        "years": "1795-1858",
+        "nationality": [
+          "Dutch"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Louis L\u00e9opold Boilly",
+        "risdAffiliation": null,
+        "years": "1761-1845",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Nicolas Toussaint Charlet",
+        "risdAffiliation": null,
+        "years": "1792-1845",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Eug\u00e8ne Dev\u00e9ria",
+        "risdAffiliation": null,
+        "years": "1805-1865",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Jean-Louis-Joseph-Camille Lacoste",
+        "risdAffiliation": null,
+        "years": "1809-1866",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Francois Grenier de Saint-Martin",
+        "risdAffiliation": null,
+        "years": "1793-1867",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Hippolyte Bellang\u00e9",
+        "risdAffiliation": null,
+        "years": "1800-1866",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "copper engraving"
+    ],
+    "mediumTechnique": "copper engraving",
+    "objectNumber": "71.012.2",
+    "onView": false,
+    "place": "Place Made: Paris; Place Made: France",
+    "primaryMaker": "Hippolyte Bellang\u00e9",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1256901",
+      "https://risdmuseum.org/api/v1/collection?id=1338801",
+      "https://risdmuseum.org/api/v1/collection?id=1290026",
+      "https://risdmuseum.org/api/v1/collection?id=1471831"
+    ],
+    "state": "Volume: II",
+    "support": [
+      "Laid paper: medium (I) thickness."
+    ],
+    "technique": [
+      "copper engraving"
+    ],
+    "title": "OEUVRES COMPL\u00c9TES DE P.J. DE B\u00c9RENGER",
+    "type": [
+      "Books"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/oeuvres-completes-de-pj-de-berenger-710122"
+  },
+  {
+    "id": "1342186",
+    "collection": "",
+    "credit": "Gift of Murray S. Danforth, Jr.",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1899",
+    "datingYearTo": "1899",
+    "description": "<p>Et le diable, qui les s\u00e9duisait, fut jet\u00e9 dans l'\u00e9tang de feu et de soufre, o\u00f9 sont la b\u00eate et le faux proph\u00e8te (And the devil that decieived them was cast into the lake of fire and brimstone...)<br>Apocalypse de Saint Jean</p>\n",
+    "dimensions": "28.9 x 23.8 cm (11 3/8 x 9 3/8 inches) (plate)",
+    "edition": "",
+    "inscription": "Lettered: LC: \"Odilon Redon\"; Below image: \"Et le diable, qui les s\u00e9duisait, fut jet\u00e9 dans l'\u00e9tang de feu et de soufre, o\u00f9 sont la b\u00eate et le faux proph\u00e8te;\"",
+    "makers": [
+      {
+        "name": "Ambroise Vollard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Blanchard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Odilon Redon",
+        "risdAffiliation": null,
+        "years": "1840-1916",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "50.371.10",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Odilon Redon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "Mellerio 183",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Light weight cream Oriental tissue paper laid down on heavy weight white wove paper (chine coll\u00e9)"
+    ],
+    "technique": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "title": "Et le diable, qui les s\u00e9duisait, fut jet\u00e9 dans l&#039;\u00e9tang de feu et de soufre, o\u00f9 sont la b\u00eate et le faux proph\u00e8te (And the devil that decieived them was cast into the lake of fire and brimstone...)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/et-le-diable-qui-les-seduisait-fut-jete-dans-letang-de-feu-et-de-soufre-ou"
+  },
+  {
+    "id": "1342596",
+    "collection": "",
+    "credit": "Gift of Murray S. Danforth, Jr.",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1899",
+    "datingYearTo": "1899",
+    "description": "<p>et il tomba du ciel une grande \u00e9toile, ardente comme un flambeau. (and there fell from heaven a great star, burning as a torch)<br>Apocalypse de Saint Jean</p>\n",
+    "dimensions": "31.6 x 23 cm (12 7/16 x 9 1/16 inches) (plate) including inscription",
+    "edition": "",
+    "inscription": "Lettered in image: LR Monogram: \"OR\"; Below image L: \"et il tomba du ciel une grande \u00e9toile, ardente comme un flambeau.\"",
+    "makers": [
+      {
+        "name": "Ambroise Vollard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Blanchard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Odilon Redon",
+        "risdAffiliation": null,
+        "years": "1840-1916",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "50.371.5",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Odilon Redon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "Mellerio 178",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Light weight cream Oriental tissue paper laid down on heavy weight white wove paper (chine coll\u00e9)"
+    ],
+    "technique": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "title": "et il tomba du ciel une grande \u00e9toile, ardente comme un flambeau. (and there fell from heaven a great star, burning as a torch)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/et-il-tomba-du-ciel-une-grande-etoile-ardente-comme-un-flambeau-and-there"
+  },
+  {
+    "id": "1374431",
+    "collection": "",
+    "credit": "Gift in memory of the late William Babcock Weeden by his children",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "",
+    "datingYearTo": "",
+    "description": "<p>Portrait of Elizabeth de Bourbon</p>\n",
+    "dimensions": "",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Auguste Jean Baptiste Marie Blanchard II",
+        "risdAffiliation": null,
+        "years": "1792-1849",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Peter Paul Rubens",
+        "risdAffiliation": null,
+        "years": "1577-1640",
+        "nationality": [
+          "Flemish"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "engraving"
+    ],
+    "mediumTechnique": "engraving",
+    "objectNumber": "43.400.182",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Auguste Jean Baptiste Marie Blanchard II",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "engraving"
+    ],
+    "title": "Portrait of Elizabeth de Bourbon",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/portrait-elizabeth-de-bourbon-43400182"
+  },
+  {
+    "id": "1399241",
+    "collection": "",
+    "credit": "Gift of Jane Palmer Bodell in memory of Jessie Fearing Palmer",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1876",
+    "datingYearTo": "1876",
+    "description": "<p>hat</p>\n",
+    "dimensions": "25.4 cm (10 inches) (length)",
+    "edition": "",
+    "inscription": "Label: Mrs. K. H. BlanchardProvidence",
+    "makers": [
+      {
+        "name": "K.H. Blanchard",
+        "risdAffiliation": null,
+        "years": "19th century",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "cotton"
+    ],
+    "mediumTechnique": "cotton",
+    "objectNumber": "1986.026.3",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "K.H. Blanchard",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1214996",
+      "https://risdmuseum.org/api/v1/collection?id=1330706",
+      "https://risdmuseum.org/api/v1/collection?id=1364566"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "cotton"
+    ],
+    "title": "hat",
+    "type": [
+      "Costume Accessories"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/hat-19860263"
+  },
+  {
+    "id": "1408181",
+    "collection": "",
+    "credit": "Gift of Murray S. Danforth, Jr.",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1899",
+    "datingYearTo": "1899",
+    "description": "<p>Une femme rev\u00e8tue du Soleil (A Woman clothed with the Sun)<br>Apocalypse de Saint Jean</p>\n",
+    "dimensions": "28.6 x 23.2 cm (11 1/4 x 9 1/8 inches) (plate)",
+    "edition": "",
+    "inscription": "Lettered in image: \"OR\" monogram; Below image: L: \"..... une femme rev\u00eatue du Soleil, \"",
+    "makers": [
+      {
+        "name": "Ambroise Vollard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Blanchard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Odilon Redon",
+        "risdAffiliation": null,
+        "years": "1840-1916",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "50.371.6",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Odilon Redon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "Mellerio 179",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Light weight cream Oriental paper on heavy weight white wove paper (chine coll\u00e9)"
+    ],
+    "technique": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "title": "Une femme rev\u00e8tue du Soleil (A Woman clothed with the Sun)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/une-femme-revetue-du-soleil-woman-clothed-sun-503716"
+  },
+  {
+    "id": "1456671",
+    "collection": "",
+    "credit": "Museum Works of Art Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1630",
+    "datingYearTo": "1694",
+    "description": "<p>The Holy Family</p>\n",
+    "dimensions": "20.8 x 24.5 cm (8 3/16 x 9 5/8 inches) (plate) image",
+    "edition": "",
+    "inscription": "Original--Verso:in pencil, LL:10-2-69A-14/ Prout\u00e9In Plate--In LL:I. Blanchard inv./ A. Garnier. fec. ; in LR:A Paris Chez Ganiere ru\u00eb S. Iaque/ proche la fontaine S. Severin auec priuii/ du Roy\nMarks: Partial Watermark:Crest(?)",
+    "makers": [
+      {
+        "name": "Jean Gani\u00e9re",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Jacques Blanchard",
+        "risdAffiliation": null,
+        "years": "1600-1638",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Antoine Garnier",
+        "risdAffiliation": null,
+        "years": "1611-1694",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "etching"
+    ],
+    "mediumTechnique": "etching",
+    "objectNumber": "69.156",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Antoine Garnier",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Light weight cream laid paper"
+    ],
+    "technique": [
+      "etching"
+    ],
+    "title": "The Holy Family",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/holy-family-69156"
+  },
+  {
+    "id": "1457366",
+    "collection": "",
+    "credit": "Gift of Murray S. Danforth, Jr.",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1899",
+    "datingYearTo": "1899",
+    "description": "<p>Et le lia pour mille ans (And bound him a thousand years)<br>Apocalypse de Saint Jean</p>\n",
+    "dimensions": "30 x 21 cm (11 13/16 x 8 1/4 inches) (plate) image",
+    "edition": "",
+    "inscription": "Lettered below image: \"..... et le lia pour mille ans; \"",
+    "makers": [
+      {
+        "name": "Ambroise Vollard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Blanchard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Odilon Redon",
+        "risdAffiliation": null,
+        "years": "1840-1916",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "50.371.9",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Odilon Redon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "Mellerio 182",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Light weight Oriental cream paper on heavy weight white wove paper (chine coll\u00e9)"
+    ],
+    "technique": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "title": "Et le lia pour mille ans (And bound him a thousand years)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/et-le-lia-pour-mille-ans-and-bound-him-thousand-years-503719"
+  },
+  {
+    "id": "1457586",
+    "collection": "",
+    "credit": "Museum Works of Art Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1903",
+    "datingYearTo": "1903",
+    "description": "<p>Portrait du peintre Paul S\u00e9rusier (Portrait of the painter Paul Serusier)</p>\n",
+    "dimensions": "16.2 x 13.5 cm (6 3/8 x 5 5/16 inches) (plate)",
+    "edition": "",
+    "inscription": "Lettered in image: \"1903\" / \"Odilon Redon\"",
+    "makers": [
+      {
+        "name": "Blanchard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Odilon Redon",
+        "risdAffiliation": null,
+        "years": "1840-1916",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "52.076",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Odilon Redon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "Mellerio 192",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Light weight Oriental tissue paper laid down on heavy weight white wove paper (chine coll\u00e9)"
+    ],
+    "technique": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "title": "Portrait du peintre Paul S\u00e9rusier (Portrait of the painter Paul Serusier)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/portrait-du-peintre-paul-serusier-portrait-painter-paul-serusier-52076"
+  },
+  {
+    "id": "1458366",
+    "collection": "",
+    "credit": "Gift of Murray S. Danforth, Jr.",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1899",
+    "datingYearTo": "1899",
+    "description": "<p>Puis je vis dan la main droite de celui qui \u00e9tait assis sur le tr\u00f4ne, un livre... (Then I saw in the right hand of him that sat on the throne, a book...)<br>Apocalypse de Saint Jean</p>\n",
+    "dimensions": "32.2 x 24.1 cm (12 11/16 x 9 1/2 inches) (plate) image",
+    "edition": "",
+    "inscription": "Lettered in image: \"Odilon Redon\"; Below image: \"Puis je vis dans la main droite de celui qui \u00e9tait assis sur le tr\u00f4ne, un Livre \u00e9crit dedans et dehors, scell\u00e9 de sept sceaux.\"",
+    "makers": [
+      {
+        "name": "Ambroise Vollard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Blanchard",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Odilon Redon",
+        "risdAffiliation": null,
+        "years": "1840-1916",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "50.371.2",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Odilon Redon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "Mellerio no. 175",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Light weight Oriental cream paper on heavy weight white wove paper (chine coll\u00e9)"
+    ],
+    "technique": [
+      "lithograph on chine-coll\u00e9"
+    ],
+    "title": "Puis je vis dan la main droite de celui qui \u00e9tait assis sur le tr\u00f4ne, un livre... (Then I saw in the right hand of him that sat on the throne, a book...)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/puis-je-vis-dan-la-main-droite-de-celui-qui-etait-assis-sur-le-trone-un-livre"
+  }
+]

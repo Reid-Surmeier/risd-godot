@@ -115,7 +115,10 @@
     "inventory-references/apostle-41046-catalogue.png",
     "inventory-references/apostle-41045-catalogue.png",
     "inventory-references/braque-frame-video-native.png",
-    "inventory-references/cezanne-frame-video-native.png"
+    "inventory-references/cezanne-frame-video-native.png",
+    "inventory-references/lion-panel-official.png",
+    "inventory-references/landing-plaster-video-native.png",
+    "inventory-references/landing-plaster-style-main-hall.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -1859,6 +1862,49 @@
           "slot": "reference-000",
           "kind": "image",
           "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-9470d730d66d149c277d",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1440"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-b19f8a1990a70fc1ed22",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1440"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
         }
       ]
     }

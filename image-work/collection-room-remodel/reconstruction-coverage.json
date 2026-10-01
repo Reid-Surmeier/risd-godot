@@ -418,5 +418,29 @@
     "shell_total": 50,
     "evidence": "docs/evidence/collection-reconstruction/main-worker-connected-modern-20261001T1135",
     "next": "Generate/install source-preserving lion34.652; identify/capture large figurative painting; generate Duchamp-Villon Seated Woman67.089 from inspected official front/oblique photos and video, rear shape unverified, dedicated Matisse/Villon frames; refine source stair curve/rails/flight destinations, overly bright modern spotlight pools and held-out room/object offsets, then remaining rooms and auditorium."
+  },
+  "lion_plaster_v47": {
+    "official_lion_front_installed": true,
+    "generated_lion_front_accepted": false,
+    "individual_brick_relief_complete": false,
+    "metric_accepted": false,
+    "muse_runs": [
+      "run-49b57942e799e34216bc2687",
+      "run-20fa6fddf9fc645f616f8335"
+    ],
+    "paid_outputs": 2,
+    "cost_this_pass_usd": "0.02",
+    "cumulative_actual_usd": "0.81",
+    "cumulative_conservative_usd": "0.82",
+    "prepared_sources": 205,
+    "baked_surfaces": 1486,
+    "browser_checks": 174,
+    "browser_errors": [],
+    "browser_frame_p95_ms": 34.3666666666667,
+    "shell_passed": 46,
+    "shell_total": 50,
+    "all_objects_complete": false,
+    "evidence": "docs/evidence/collection-reconstruction/main-worker-lion-plaster-20261001T1220",
+    "next": "Generate/capture Duchamp-Villon Seated Woman67.089 and its case from inspected catalogue/video; install verified Le Fauconnier Mountaineers1995.043 with source frame and dedicate Matisse/Villon frame passes; verify landing roof/stair void, source stair curve/rails/destinations and held-out room/object offsets; continue remaining rooms, case contents and auditorium."
   }
 }

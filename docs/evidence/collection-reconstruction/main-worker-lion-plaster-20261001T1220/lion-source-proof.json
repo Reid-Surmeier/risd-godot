@@ -1,0 +1,21 @@
+{
+  "prepared_sources": 205,
+  "source_hashes_match": true,
+  "original_jpeg_byte_identical": true,
+  "source_front_atlas_changed_pixels": 0,
+  "closed_slab_triangles": 12,
+  "paired_edges": 18,
+  "signed_volume_m3": 0.19037807999999998,
+  "installed_position": [
+    16.0699996948242,
+    1.17999994754791,
+    33.1500015258789
+  ],
+  "correct_wall_after_group_shift": true,
+  "frame_between_door_and_corner": true,
+  "wall_texture_edges_identical": true,
+  "individual_brick_relief_complete": false,
+  "depth_placement_metric_accepted": false,
+  "generated_damage_accepted": false,
+  "runnable_check": "collection-v47-proof.py"
+}

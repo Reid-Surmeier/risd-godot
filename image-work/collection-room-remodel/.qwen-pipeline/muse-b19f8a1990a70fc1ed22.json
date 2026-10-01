@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-b19f8a1990a70fc1ed22",
+  "summary": "Using reference1 for the museum wall paint and reference2 for the restrained low-polygon visual direction, generate one seamless square albedo texture of only the smooth warm-grey painted plaster visible around the doorway. Even flat diffuse lighting: do not bake sunlight, spotlights, shadows, corners, ceiling, doorway, mouldings, floor, sculpture, labels, grain, stains or cracks into the texture. Tiny restrained broad low-polygon tone changes only, less than three percent contrast; no visible triangular patchwork, polygons outlined as triangles, mottled clouds, marble, stone pattern or beige parchment. The museum walls are quiet matte grey plaster. Fill the entire canvas, edge-to-edge, no margin or text. Colours should stay close to the smooth neutral warm grey of reference1, uniformly lit. The application supplies the existing museum lighting and shaders, so this texture must contain no lighting gradients.\n",
+  "procedureId": "muse-b19f8a1990a70fc1ed22",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/landing-plaster-video-native.png",
+      "sha256": "6ee3b6096b682b06e6a4e0ca20a35fd4155920554d88ab315f06fba46e67c3f5",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/landing-plaster-style-main-hall.png",
+      "sha256": "517ea4ae2f4109fcef975c7b91612c17dd2bb720317f2398d080e7dbae405964",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "landing-plaster-recipe.json",
+      "sha256": "b19f8a1990a70fc1ed22463730bbfc603119831b771f7d5774e53793891144d0"
+    },
+    {
+      "applicationPath": "landing-plaster-plan.json",
+      "sha256": "45f2df4d859a0894d4fee3b6b3894da2ad7b4c48168829be21b07506a71bc8c7"
+    },
+    {
+      "applicationPath": "landing-plaster-prompt.txt",
+      "sha256": "9b8c94b950e4828630c2fa0c350d1e248859f2f09c1e2364b2962c3d043c5fc8"
+    }
+  ]
+}
