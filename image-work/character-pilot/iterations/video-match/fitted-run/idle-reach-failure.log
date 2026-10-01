@@ -1,0 +1,18 @@
+20:52:21 | INFO: Data are loaded, start creating Blender stuff
+20:52:21 | INFO: Blender create Mesh node char1
+20:52:21 | INFO: glTF import finished in 0.02s
+Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 01:31:14)
+Traceback (most recent call last):
+  File "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/video-match/refine.py", line 9, in <module>
+    runpy.run_path(sys.argv[0], run_name='__main__')
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/motion-diagnosis/correct.py", line 245, in <module>
+    assert abs(l1-l2)+1e-5<d<l1+l2-1e-5,(kind,frame,side,'arm reach',d,l1,l2)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('idle', 0, 'Left', 'arm reach', 0.549999989196658, 0.21162592233677519, 0.2112890432363312)
+
+Error: script failed, file: '/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/video-match/refine.py', exiting.
+
+Blender quit

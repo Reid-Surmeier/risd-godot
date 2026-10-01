@@ -94,7 +94,6 @@ func run() -> void:
 		var entry: Dictionary = config.models[index]
 		var model: Node3D = load("res://model-%d.glb" % index).instantiate()
 		stage.add_child(model)
-		model.position.x = (index-(config.models.size()-1)/2.0)*2.3
 		models.append(model)
 		var player: AnimationPlayer = model.find_children("*","AnimationPlayer",true,false)[0]
 		var skeleton: Skeleton3D = model.find_children("*","Skeleton3D",true,false)[0]
@@ -161,7 +160,10 @@ func run() -> void:
 		var phase := (frame % frames)/30.0
 		var travel_time: float = clampf((frame-30)/30.0,0,64/30.0) if transition else t
 		for index in models.size():
-			models[index].position.z = speed*travel_time
+			var spacing_yaw := deg_to_rad(float(config.get("camera_yaw",0)))
+			var spacing_axis := Vector3(cos(spacing_yaw),0,-sin(spacing_yaw))
+			assert(absf(spacing_axis.dot(Vector3(sin(spacing_yaw),0,cos(spacing_yaw))))<.00001)
+			models[index].position = spacing_axis*(index-(models.size()-1)/2.0)*2.3+Vector3(0,0,speed*travel_time)
 			models[index].position.y = 0
 			if transition:
 				if frame==30:players[index].play("walk",0.2)

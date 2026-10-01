@@ -1,0 +1,19 @@
+{
+  "source_glb": "../driven-character/canonical-rest.glb",
+  "forward_idle": true,
+  "stable_head": true,
+  "symmetric_arms": true,
+  "authored_legs": true,
+  "preserve_reference_seam": true,
+  "source_units_to_m": 0.0004695,
+  "controller_speed_mps": 1.05,
+  "period_seconds": 0.8,
+  "source_curves": "axe-reference-curves.json",
+  "swing_lift_m": 0.06,
+  "anatomical_axes": true,
+  "bake_fps": 240,
+  "arm_reach_m": 0.55,
+  "arm_outward_m": 0.08,
+  "reference_fit": "canonical skeletal ratios; source rotations, target grounding; source-scale/capture calibration remains explicit",
+  "tool_pose": true
+}

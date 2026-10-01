@@ -1,0 +1,21 @@
+{
+  "repository_baseline": "PASS",
+  "diff_check": "PASS",
+  "controller_native": "PASS",
+  "driven_scene_native": "PASS",
+  "browser_keyboard_and_multitouch": "PASS",
+  "selected_dense_walk_run_dash": "PASS",
+  "shared_exported_rig_and_head_correspondence": "PASS",
+  "published_content_hashes": "PASS",
+  "secret_scan": "PASS after verifying two SHA256-manifest false positives",
+  "verified_secret_scan_false_positive_paths": [
+    "iterations/motion-diagnosis/blender-api-evidence.json",
+    "iterations/motion-diagnosis/blender-api.log"
+  ],
+  "new_secret_findings": 0,
+  "baseline_warnings": [
+    "Godot ObjectDB: 13 instances leaked at exit in repository check"
+  ],
+  "additional_paid_calls": 0,
+  "additional_api_cost_usd": 0
+}

@@ -4,14 +4,15 @@ import hashlib,json,shutil,subprocess
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
-models={"walk":"authored-walk-v5","fast":"authored-fast-v6"}
+models={name:"fitted-"+name for name in ['walk','run','dash','skid','axe','net']}
 sources={key:HERE.parent/'iterations/video-match'/name/'footplant-candidate.glb' for key,name in models.items()}
 digest=lambda path:hashlib.sha256(path.read_bytes()).hexdigest()
-stamp=hashlib.sha256((digest(HERE/'demo.gd')+digest(HERE/'build.py')+''.join(digest(p) for p in sources.values())).encode()).hexdigest()[:12]
+stamp=hashlib.sha256((''.join(digest(p) for p in sorted(HERE.glob('*.gd')))+digest(HERE/'build.py')+''.join(digest(p) for p in sources.values())).encode()).hexdigest()[:12]
 out=ROOT/'build/character-playtest'/stamp
 project=out/'project';site=out/'site'
 project.mkdir(parents=True,exist_ok=True);site.mkdir(exist_ok=True)
 shutil.copy2(HERE/'demo.gd',project/'demo.gd')
+for name in ['locomotion.gd','controller_check.gd','driven_check.gd','record.gd']:shutil.copy2(HERE/name,project/name)
 for name,path in sources.items():shutil.copy2(path,project/(name+'.glb'))
 (project/'main.tscn').write_text('[gd_scene load_steps=2 format=3]\n[ext_resource type="Script" path="res://demo.gd" id="1"]\n[node name="CharacterPlaytest" type="Node3D"]\nscript = ExtResource("1")\n')
 (project/'project.godot').write_text('''config_version=5
@@ -57,6 +58,8 @@ for path in project.glob('*.glb.import'):
     path.write_text(text)
     for cached in (project/'.godot/imported').glob(path.name.removesuffix('.import')+'-*'):cached.unlink()
 run('precise-import.log',['--editor','--import','--quit'])
+run('controller-check.log',['--script','res://controller_check.gd'])
+run('driven-check.log',['--script','res://driven_check.gd'])
 run('export.log',['--export-release','Web',str(site/'index.html')])
 assert all((site/('index'+ext)).exists() for ext in ['.html','.js','.wasm','.pck'])
 (out/'provenance.json').write_text(json.dumps({'issue':231,'models':{k:{'trial':models[k],'sha256':digest(p)} for k,p in sources.items()},'import_fps':240,'animation_optimizer':False,'additional_api_cost_usd':0,'stamp':stamp,'standalone_prototype':True},indent=2)+'\n')

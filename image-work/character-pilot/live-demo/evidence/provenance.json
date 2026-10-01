@@ -2,18 +2,34 @@
   "issue": 231,
   "models": {
     "walk": {
-      "trial": "authored-walk-v5",
-      "sha256": "8eb7fff2ed7ce8b07417c7fa3300a050a610f11a999484e50f3ecfff5b87fc84"
+      "trial": "fitted-walk",
+      "sha256": "4f7a69e8203dfb4b689ed13846cee4fead2690a5e39111c99ce7df17b4366b3e"
     },
-    "fast": {
-      "trial": "authored-fast-v6",
-      "sha256": "9153b2c29799677d5d93a6cddc46a147b751987c77bdfd9669fe9ff4c5767f20"
+    "run": {
+      "trial": "fitted-run",
+      "sha256": "853671f9c83c266cfca84a9b900d9dbb61d4c881d7d90ce110807068ba663e11"
+    },
+    "dash": {
+      "trial": "fitted-dash",
+      "sha256": "a3cb5d7fcb41edb6ab0f3c2e08d8660db649ebc065d77fb040cdc3c3030a5bbc"
+    },
+    "skid": {
+      "trial": "fitted-skid",
+      "sha256": "b79f7b49be6a5b48429158dab353619e4f1da586653bc10ff5531ca754ac9ab4"
+    },
+    "axe": {
+      "trial": "fitted-axe",
+      "sha256": "3a8cedee9726faaf142e991bd12fcce29c754e09efdd80226300623f9d35f274"
+    },
+    "net": {
+      "trial": "fitted-net",
+      "sha256": "f67d9c6fa621aa52f48760cc5c69fb2d675613bf5a789345caf4ab2188fe1e0d"
     }
   },
   "import_fps": 240,
   "animation_optimizer": false,
   "additional_api_cost_usd": 0,
-  "stamp": "f15161043b57",
+  "stamp": "ef23e8a84775",
   "standalone_prototype": true,
   "url": "https://windows-wsl.taile06c45.ts.net/character-walk-01a0f3a2/",
   "retention": "3d owner review",
@@ -32,18 +48,81 @@
   "exact_visual_match": false,
   "world_stance_lock_verified": false,
   "aggregate_liability_usd": 1.54,
-  "site_bytes": 41750300,
+  "site_bytes": 45952340,
   "sources": {
-    "demo.gd": "af313f9fa3457d0238740ac2c7f4bd5e31e47c5aea077503d4f7e9ec3d8e3b1e",
-    "build.py": "c809cf654fa083b5215a42b98ecebdff26d644fc0fc1b65b982a6a22bbdd0db9",
-    "browser_check.cjs": "3d9f7bb06feb2f878d67feab6b40fadd861da84e2dffe65d22e174a2d6d61017"
+    "compare_reference.py": "35a88203f7b00741856b528360887abc3fefa41452e9c2e3b4c2a0d6eb8c65bc",
+    "demo.gd": "61292a8a338e46d6e60efb5a75cfa2626ea1f2b4636eb6a240f2876109f48cba",
+    "controller_check.gd": "ac0b93a55410d46ea7a033b2735660010d30f94d955b3d6eac5d167598ef27fb",
+    "browser_check.cjs": "f21fdde1bf5130cab8d2a35f7a29d8fb5994b4c58ffbd22e6e4ee1602539d6a0",
+    "driven_check.gd": "ec15bb3b8f007686dad94f59365516a60382292f15c1ae7dca6c6d2816622e07",
+    "locomotion.gd": "722745a0557673d1d3fe600ca33087311fb75eb276b3f65341ed39af777baeaa",
+    "build.py": "8dd9a6177b21ee3ca2fa39330e042819e58a9d14fc98b2e4147a44d3a3660896",
+    "record.gd": "706bca0294ae93cc8a3c33e27c469ac124f4faaa81ad65a804b9e619a48e7776",
+    "check.py": "7aad1021d85154d3601877c6450cd34fa655ad9bd0f2fb395a639d0fb73efe06"
   },
-  "owner_speed_adjustment": {
-    "travel_multiplier": 3,
+  "geometry": {
+    "selected_rest": "iterations/driven-character/short-arm/canonical-rest.glb",
+    "arm_visual_scale": 0.72,
+    "arm_leg_ratio": 1.0596707848731366,
+    "hip_shoulder_ratio": 0.7777737586224456,
+    "shoe_scale": 0.8,
+    "source_joint_ratio_candidate_rejected_as_visible_fit": true,
+    "rigid_head_uv_correspondence_max_error_units": 1.7378944903612137e-05
+  },
+  "movement": {
     "normal_units_per_second": 3.15,
-    "dash_units_per_second": 5.4,
-    "normal_animation_rate": 1.25,
-    "normal_cycle_seconds": 0.64,
-    "source_speed_matched": false
+    "dash_units_per_second": 4.846153846153846,
+    "normal_cycle_seconds": 0.551266,
+    "dash_cycle_seconds": 0.4444444444444444,
+    "source_world_speed_matched": false,
+    "source_update_assumption_hz": 60
+  },
+  "physical_gamepad_tested": false,
+  "source_commit": "09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c",
+  "report": "docs/research/character-driven-implementation-2026-09-30.md",
+  "evidence_hashes": {
+    "desktop-axe.png": "5e21a418ec63748d19f0511f32fb884fbd8b9b1e92f2a1e34ffc0d41298e93a8",
+    "driven-check.log": "bb29c19d1bf8962eda1cecda6f2e409dcf54886015bfa1ad129f1df47ae45be0",
+    "native-blink.png": "4fa059c64dbf62fc6fca385042541acc9ec83141289255ec49f12ab7220c4d7e",
+    "record.json": "9b88d554fcf59e01f63624541ab9241f869301f1cf80b8ad12d7a194e5d68fc0",
+    "registered-pose.gif": "be1e84b882a66f5bb7f236cf0d61c2ad67229312f026ff072b3acab5e2e2f1ce",
+    "desktop-walk.png": "51d35d706432cfaaa1f530a8f0fefbce53c3f05fcfaef0dc072aef1cf9650fdc",
+    "published-check.json": "5856350cee12954874a3d9fc826c4525d77784a1da8d7e2b9f2439d8ac322e47",
+    "verification.json": "881b2221593caa88465afdbc0ae24b88d02fe6727ce76fb6d145ccffb366dcc2",
+    "registered-pose-poses.jpg": "62924d2a504f1434c547787292f9929b625a43b1a29f33d364131c00699632e5",
+    "whole-view.mp4": "cce9d3f26838fed8ee2695657afb2d8615d87239f67efd90cb2c6a38a371aaf7",
+    "desktop-net.png": "f601e2c126367d63d3491924e1434d46d30993cfb36981f260405a7ec95b8f8d",
+    "desktop-room.png": "5b712ed5f6c08928ed45eda61e53fc6ad54b245f89608d2b24d4398bd56a8766",
+    "controller-check.log": "10d8fd6e4846f0ecd7e85597d2fec62353e8cc8299c2092d6af1ca6c1fc233b9",
+    "comparison.json": "ab833f4fd2705645a202848f675ebebaacb574b125c4aaafa76e09591ec26227",
+    "phone-sprint.png": "c61e00cc29ddda07ca91746a29f1622282f51fa7a525876fe5294c17768de78b",
+    "interactions.mp4": "9349f2bc33315aa109fa498dab51420e38426815ce3baf9267b892e367294f32",
+    "whole-view.gif": "da964e2693d8e77b44fda2732860cda10f085adf93477b4486150a72db4e92ed",
+    "whole-view-poses.jpg": "cf8d4d5b9efb07320f4dcb5760e5a7fb00ca5a98dd158040d5223116c11725fa",
+    "interactions.jpg": "9d40c7b20f2f5c4fe314b644e14a5bc297d29a64bc5233c9d6386c097e1b60d4",
+    "registered-pose.mp4": "0cf84fc3f0f29401f19d07347221922e3f4f0c73766a54e5dcfd7f1cd816bd26",
+    "desktop-blink.png": "b6271864cc12608dd957c0e13ef1d96df8b50796a5cb6aa34ba36e69dd25f43c",
+    "source-ground-track.json": "fc08802a4296470efc7f00edea730bcfbdd1ac1e85d7d2a93e039160253631f1",
+    "desktop-idle.png": "439e084161857137025f79bdfe0789dbbf02dcb20e757aa59effb3cff454e8d1",
+    "controller-check.json": "8f74819ce37aa23297880c96623bfc0f7031e77bc24d607bc6e52dfac6a49cc4",
+    "desktop-sprint.png": "2fba22435319c163704e5dd1e11fbdf11d3b242ff541198f713e3f8141e1e9c0",
+    "driven-check.json": "10fe052c6ea6653ad18da067480d0a6499f466c89c393f13eceae941f8039aba",
+    "source-ground-start.jpg": "fce1fe7400e377fbc954816a5837f2bc834b47619bccfc9638a5fcd9b0e5ceff",
+    "phone-idle.png": "ea8b5108f36e40bd4dc3420fe57862e1c0724f7960e86faf8280cb6ae786b13f",
+    "browser.json": "70bd0f6565805084536bf94cde4485c9b614be8deb0cf5c43156376c6ad8dbb6",
+    "canonical-rejected/registered-pose.gif": "8f45a849fe00f82470c9416c2de08888553613aca949ce0ec7af0c244f23ff3f",
+    "canonical-rejected/registered-pose-poses.jpg": "04afa334d794742a27347459302e1d5eb6b0b55f4513166b73e27b437a2f4cf9",
+    "canonical-rejected/comparison.json": "27709ae38be83c68cec85ad5b2aab67931fe268dbc004acf0fc252b472fe13b5",
+    "walk-alternative/record.json": "4760c8415cec7f733e0639de6310c196e9be24a76ab5c8ba26940e4a15b210ea",
+    "walk-alternative/registered-pose.gif": "f417af0003ad083f062b35e5bba84059d20286af4ec71214e6d9816ef642db36",
+    "walk-alternative/registered-pose-poses.jpg": "bea44dea71e0f350ad7f2267abbd86853f23eefa61c2bd5f90f71265b175e9f6",
+    "walk-alternative/whole-view.mp4": "a5118f3cb100148e2579079ef7ac0b65d6d64e851b5af88b4648681489ef3d43",
+    "walk-alternative/comparison.json": "1a065ecdb86a9cde7d2dd7a0328cc4f65b015faee4c712968cb4436d08085252",
+    "walk-alternative/whole-view.gif": "1ee6f89ce5fea55eaff39eba8939cb5895f167459831990d71379290bb3614d9",
+    "walk-alternative/whole-view-poses.jpg": "97bc661f9b27fbb34c4d1d92669580d0d1d1e90c80b4438ec1b6839713f86695",
+    "walk-alternative/registered-pose.mp4": "a2de6f9e00e48ba64a0ac68d185ac89b468da00434af66fb275c1b67f7b52287",
+    "canonical-rejected/walk-alternative/registered-pose.gif": "b018d79268e1e3051aea374c7663fb6162976ada5737c9d0755182c2ac73c5c8",
+    "canonical-rejected/walk-alternative/registered-pose-poses.jpg": "493962ed5b825397fa63fea22f61cb7198ff45c8882e701bf2bb4b3902ec8adf",
+    "canonical-rejected/walk-alternative/comparison.json": "38c3b156f4732d38d5e66ce06efef290f3101325536fd3cbe9f18dc74307e27b"
   }
 }

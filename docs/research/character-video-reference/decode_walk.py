@@ -4,13 +4,19 @@ Source commit and reconstruction limitations are recorded in the output.
 Inputs remain in a temporary directory; this script does not fetch a ROM.
 """
 import re,json,math,argparse,hashlib
-p=argparse.ArgumentParser();p.add_argument('--source-dir',type=str,default='/tmp/acgc-motion-source');p.add_argument('--output',default='/tmp/acgc-motion-source/walk-transforms-129.json');p.add_argument('--animation',choices=['walk1','run1','dash1'],default='walk1');args=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--source-dir',type=str,default='/tmp/acgc-motion-source');p.add_argument('--output',default='/tmp/acgc-motion-source/walk-transforms-129.json');p.add_argument('--animation',choices=['walk1','run1','dash1','axe1','net1','run_slip1'],default='walk1');args=p.parse_args()
 from pathlib import Path
 s=(Path(args.source_dir)/'player_anim.c').read_text()
 def arr(n):
- a=re.search(r'\b'+n+r'\[\]\s*=\s*\{(.*?)\};',s,re.S).group(1)
+ match=re.search(r'\b'+n+r'\[\]\s*=\s*\{(.*?)\};',s,re.S)
+ if match is None:
+  assert args.animation in ['axe1','net1','run_slip1'] and n.startswith(('cKF_kn_','cKF_ds_'))
+  return [] # Source static poses explicitly use NULL animated-channel arrays.
+ a=match.group(1)
  return [int(x) for x in re.findall(r'-?\d+',a)]
 f=arr('cKF_ckcb_r_ply_1_'+args.animation+'_tbl');kn=arr('cKF_kn_ply_1_'+args.animation+'_tbl');d=arr('cKF_ds_ply_1_'+args.animation+'_tbl');fx=arr('cKF_c_ply_1_'+args.animation+'_tbl')
+static=args.animation in ['axe1','net1','run_slip1']
+assert not static or not kn and not d
 ni=di=fi=0; channels=[]; evaluators=[]
 def channel(label,animated,scale):
  global ni,di,fi
@@ -51,7 +57,7 @@ for i,(model,child,x,y,z) in enumerate(re.findall(r'\{\s*(\w+),\s*(\d+),\s*cKF_J
 assert len(joints)==26
 samples=[]
 for k in range(129):
- frame=1+k/8;values=[fn(frame) for fn in evaluators];local=[];world=[];rots=[]
+ frame=1+k/(128 if static else 8);values=[fn(frame) for fn in evaluators];local=[];world=[];rots=[]
  # Approximation note: quantize source s16 key result and binary angle, but
  # standard sin/cos rather than platform sin_s lookup and no actor callbacks.
  for j in joints:
@@ -67,5 +73,9 @@ for k in range(129):
 mapping={'Hips':['root','base'],'LeftUpLeg':['LeftHipBase','LeftThigh'],'LeftLeg':['LeftKnee'],'LeftFoot':['LeftShoe'],'RightUpLeg':['RightHipBase','RightThigh'],'RightLeg':['RightKnee'],'RightFoot':['RightShoe'],'Spine02':['chest'],'LeftShoulder':['LeftShoulderBase'],'LeftArm':['LeftUpperArm'],'LeftForeArm':['LeftForearm'],'RightShoulder':['RightShoulderBase'],'RightArm':['RightUpperArm'],'RightForeArm':['RightForearm'],'neck':['HeadBase'],'Head':['head']}
 output={'animation':args.animation,'source_commit':'09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c','status':'source reconstruction, not observed game state or exact runtime output','units':'original model units; local rotations degrees; source translations not meters','matrix_convention':'column vectors; local T*Rz*Ry*Rx; globals parent*local; row-major JSON layout','approximation':'source Hermite; s16 key trunc(value+0.5), binary-angle trunc; standard math sin/cos, no platform lookup/morph/rotation_diff/render callbacks; global actor transform omitted','authored_cycle_phase_intervals':16,'source_effect_phases':{'Left':0,'Right':0.5},'runtime_phase_speed_formula':'.59999996*sqrt(actor.speed*over_speed_normalize_NoneZero/7.5), collision adjustments','joint_hierarchy':joints,'channels':channels,'mapping_recommendation_not_verified':mapping,'unmapped_target_bones':['LeftToeBase','RightToeBase','Spine01','Spine','LeftHand','RightHand','head_end','headfront'],'samples':samples}
 output['source_inputs']=[{'path':path,'url':'https://raw.githubusercontent.com/ACreTeam/ac-decomp/'+output['source_commit']+'/'+path,'sha256':hashlib.sha256((Path(args.source_dir)/filename).read_bytes()).hexdigest()} for path,filename in [('src/data/model/player_anim.c','player_anim.c'),('src/data/model/boy_model.c','boy_model.c')]]
+if static:
+ output.update(static_pose=True,authored_cycle_phase_intervals=1,source_effect_phases=None,runtime_phase_speed_formula=None)
+ output['approximation']+='; static two-frame pose, repeated analysis samples carry no locomotion cadence'
+ assert all(sample['global_matrices_row_major']==samples[0]['global_matrices_row_major'] for sample in samples)
 Path(args.output).write_text(json.dumps(output,separators=(',',':'))+'\n')
 print(args.output)

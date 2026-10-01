@@ -1,0 +1,19 @@
+{
+  "before_sha256": "6aae23919d7c410bc48d75f7d844f8ec35a3cea6c3ddb6167c3b62fe4b045500",
+  "after_sha256": "944c95ec5fa9a34b9a82dd89e6e67a7b2266aea3d921ed99bfbe1a449657dd83",
+  "only_added": "source_inputs",
+  "all_motion_fields_equal": true,
+  "max_matrix_difference": 0,
+  "source_inputs": [
+    {
+      "path": "src/data/model/player_anim.c",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/data/model/player_anim.c",
+      "sha256": "96867776dd870deb666f8c46aaead96da9c5b92c6358fb6f8485b1e41aa639c7"
+    },
+    {
+      "path": "src/data/model/boy_model.c",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/data/model/boy_model.c",
+      "sha256": "97a790cd5593fe118bfe046d5c6de167ca002b25b2a255663d8010a4036571cd"
+    }
+  ]
+}

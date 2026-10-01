@@ -11,6 +11,9 @@ if '--profile' in sys.argv:
  profile_path=Path(sys.argv[sys.argv.index('--profile')+1]).resolve()
  assert profile_path.is_relative_to(HERE.parent/'video-match') and profile_path.is_file()
  profile=json.loads(profile_path.read_text())
+ if profile.get('source_glb'):
+  SOURCE=(profile_path.parent/profile['source_glb']).resolve()
+  assert SOURCE.is_relative_to(HERE.parent) and SOURCE.is_file()
  DEST=profile_path.parent/profile_path.stem;DEST.mkdir(exist_ok=True)
 else:DEST=HERE
 assert SOURCE.exists(),'root rigid-head candidate must exist first'
@@ -19,6 +22,7 @@ scene=bpy.context.scene;fps=profile.get('bake_fps',60);assert fps in [60,240];sc
 bpy.ops.import_scene.gltf(filepath=str(SOURCE))
 rig=next(o for o in scene.objects if o.type=='ARMATURE')
 mesh=next(o for o in scene.objects if o.type=='MESH' and o.find_armature()==rig)
+rig.animation_data_create()
 for track in rig.animation_data.nla_tracks:track.mute=True
 rig.data.pose_position='REST';bpy.context.view_layer.update()
 rests={b.name:b.matrix_local.copy() for b in rig.data.bones}
@@ -69,6 +73,7 @@ if profile.get('source_curves'):
   for axis,angle in zip('ZYX',reversed(angles)):rotation=rotation@Matrix.Rotation(math.radians(angle),3,axis)
   parent=joint['parent'];neutral[joint['index']]=rotation if parent is None else neutral[parent]@rotation
  mapping={'Hips':'base','Spine02':'chest','Spine01':'chest','Spine':'chest','LeftShoulder':'LeftShoulderBase','LeftArm':'LeftUpperArm','LeftForeArm':'LeftForearm','LeftHand':'LeftForearm','RightShoulder':'RightShoulderBase','RightArm':'RightUpperArm','RightForeArm':'RightForearm','RightHand':'RightForearm','neck':'HeadBase','Head':'head','LeftUpLeg':'LeftThigh','LeftLeg':'LeftKnee','LeftFoot':'LeftShoe','LeftToeBase':'LeftShoe','RightUpLeg':'RightThigh','RightLeg':'RightKnee','RightFoot':'RightShoe','RightToeBase':'RightShoe'}
+ if profile.get('tool_pose'):mapping['RightHand']='hand'
  # Parent first even though the source and target have different extra spine/hand joints.
  if profile.get('standing_foot_reference'):
   stand=json.loads((profile_path.parent/profile['standing_foot_reference']).read_text())
@@ -91,7 +96,11 @@ rig.data.pose_position='POSE'
 length=profile.get('period_seconds',32/30);speed=profile.get('controller_speed_mps',.52);stance=.5;swinglift=profile.get('swing_lift_m',.08)
 walkframes=round(length*fps)
 assert abs(walkframes/fps-length)<1e-6 and walkframes%2==0 and 0<speed<2 and 0<swinglift<.3
-sources={kind:next(t.strips[0].action for t in rig.animation_data.nla_tracks if t.name==kind) for kind in ['idle','walk']}
+if profile.get('source_glb'):
+ # Canonical rest source intentionally contains no provider animation or NLA.
+ seed=bpy.data.actions.new('canonical-rest')
+ sources={'idle':seed,'walk':seed}
+else:sources={kind:next(t.strips[0].action for t in rig.animation_data.nla_tracks if t.name==kind) for kind in ['idle','walk']}
 reports={};newactions={}
 for kind,source in sources.items():
  rig.animation_data.action=source

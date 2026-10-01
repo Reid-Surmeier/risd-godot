@@ -1,0 +1,88 @@
+{
+  "Grass": {
+    "effect_events": 3,
+    "footsteps": 11
+  },
+  "Indoor": {
+    "effect_events": 0,
+    "footsteps": 14
+  },
+  "Leaves": {
+    "effect_events": 3,
+    "footsteps": 26
+  },
+  "Sand": {
+    "effect_events": 3,
+    "footsteps": 23
+  },
+  "Snow": {
+    "effect_events": 3,
+    "footsteps": 17
+  },
+  "Water": {
+    "effect_events": 3,
+    "footsteps": 20
+  },
+  "analog": {
+    "gait": "Walk",
+    "input_magnitude": 0.45,
+    "velocity": 2.19374994188547
+  },
+  "blink": {
+    "events": 8,
+    "shader": true
+  },
+  "clearance": {
+    "maximum_error": 0.00000000302679836750031,
+    "world_stance_lock": false
+  },
+  "dash": {
+    "effects": 2,
+    "speed": 4.84615421295166
+  },
+  "dialogue": {
+    "faces_partner": true,
+    "movement_locked": true,
+    "receipt_pose": true
+  },
+  "door": {
+    "enter_exit": true,
+    "transition_count": 2
+  },
+  "foot_order": {
+    "Dash": [
+      "Left",
+      "Right"
+    ],
+    "Run": [
+      "Right",
+      "Left"
+    ],
+    "Walk": [
+      "Right",
+      "Left"
+    ]
+  },
+  "normal": {
+    "animation_rate": 1.45120632648468,
+    "phase": 0.84244387671208,
+    "speed": 3.15000009536743
+  },
+  "rain": {
+    "normal_gait_water_events": 3
+  },
+  "reversal": {
+    "shape_heading": 0.479368996214263,
+    "state": "Skid",
+    "travel_heading": 0.0
+  },
+  "tools": {
+    "axe_bones": 8,
+    "net_bones": 4,
+    "world_scale": "(0.99999, 0.999999, 0.999997)"
+  },
+  "wall": {
+    "effects_stopped": true,
+    "position": 15.5543127059937
+  }
+}
