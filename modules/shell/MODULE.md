@@ -68,3 +68,15 @@ The Collection frame has a corner grip that scales the complete frame uniformly.
 ## Private review adapter (#199)
 
 With `qa-crt=1` only, `crt_display.gd` inspects visible generic `ProportionalResize` Controls and their parent rect/scale to publish browser pointer-check geometry. #199 explicitly scopes this diagnostic seam exception across the composed Tenants; it supplies no production behavior, and no Tenant interface/error/acceptance file changes. Ordinary gameplay returns before traversal. Collection uniform scaling uses its center as the pivot, including artwork-preview return.
+
+## Accepted character package (#235)
+
+`character/` holds the owner-selected #231 horned visitor's six compatible rigged
+profiles, corrected hand atlas and module-local playtest code. It is prepared
+for replacing the Collection visitor; the current museum composition still
+loads `visitor159`. `scripts/character_package.py` imports only the accepted
+package, runs movement/pose/contact/audio checks and exports the Web playtest.
+Sound uses contact/action events and native polyphonic playback; original-sample
+identification and remaining sound limits are recorded in its provenance and
+the dated #235 research note. No Shell public interface/error/frozen acceptance
+file changes.

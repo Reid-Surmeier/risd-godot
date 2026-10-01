@@ -10,7 +10,7 @@ while IFS= read -r m; do
   if ! grep -q "($d/MODULE.md)" MODULES.md; then
     echo "MODULES.md is missing a row for $d"; fail=1
   fi
-done < <(find . -name MODULE.md -not -path "./.git/*" -not -name "MODULE.template.md")
+done < <(find . -name MODULE.md -not -path "./.git/*" -not -path "./build/*" -not -path "./.godot/*" -not -name "MODULE.template.md")
 
 # 2. Seams: a module may only reference another module through its interface.gd.
 while IFS= read -r f; do
@@ -19,12 +19,12 @@ while IFS= read -r f; do
      | grep -vE "res://(modules/)?$owner/" | grep -v 'interface\.gd'; then
     echo "seam violation in $f — reference another module only through its interface.gd"; fail=1
   fi
-done < <(find . -name '*.gd' -not -path "./.git/*" 2>/dev/null)
+done < <(find . -name '*.gd' -not -path "./.git/*" -not -path "./build/*" -not -path "./.godot/*" 2>/dev/null)
 
 # 3. GDScript lint, when the toolchain is present and there is anything to lint.
-if command -v gdlint >/dev/null 2>&1 && [ -n "$(find . -name '*.gd' -not -path './.git/*' -print -quit)" ]; then
+if command -v gdlint >/dev/null 2>&1 && [ -n "$(find . -name '*.gd' -not -path './.git/*' -not -path './build/*' -not -path './.godot/*' -print -quit)" ]; then
   # Keep the unchanged upstream Mixbox SDK outside authored-style lint (#216).
-  gdlint $(find . -name '*.gd' -not -path "./.git/*" -not -path "./modules/sketchbook/mixbox/mixbox.gd")
+  gdlint $(find . -name '*.gd' -not -path "./.git/*" -not -path "./build/*" -not -path "./.godot/*" -not -path "./modules/sketchbook/mixbox/mixbox.gd")
 fi
 
 # 4. Godot headless tests, when a project exists.
