@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-23bdfb99e581ba9a748c",
+  "summary": "Reference 1 is the sole authority for the rear anatomy; reference 2 gives only the already generated front style and palette. The references describe for RISD Museum Bust of Madame Récamier, accession 37.201. Produce ONE complete REAR view of this exact single object, facing away exactly as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional. Show the real rear hairstyle, bun, neck and shoulder/back shape from the official rear photograph. Do not turn the sculpture toward camera. Keep the rear complete and the base intact.\n",
+  "procedureId": "muse-23bdfb99e581ba9a748c",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/recamier-rear-selected-0.png",
+      "sha256": "e54f01350f63c0cb7e99aadb593f1989824bda7a489cc90e5a091c92b5c3ed7a",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/recamier-rear-selected-1.png",
+      "sha256": "1cf625135659f3a16c0fac91a476564967f900c1e54e3a4675b80ebdb32ac01a",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recamier-rear-recipe.json",
+      "sha256": "23bdfb99e581ba9a748c833d9f9094d859dda19b6cb495cd615491e875189513"
+    },
+    {
+      "applicationPath": "recamier-rear-plan.json",
+      "sha256": "efb29041bb58f410d531527a03d9a8c9048d076d17645fa39e44572d71201878"
+    },
+    {
+      "applicationPath": "recamier-rear-prompt.txt",
+      "sha256": "45c90cb1eacb6a6df0a50a7c793e412826595c6388f826b8f61d1cdec2fce5fb"
+    }
+  ]
+}

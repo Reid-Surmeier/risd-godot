@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "finch-pair-001",
+      "prompt": "finch-pair-prompt.txt",
+      "promptSha256": "c044c30534b92dd9caffaf7d8a0214a9fb7608e2726f5ccfee53e4faffe45545",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/finch-pair-selected-0.png",
+          "sha256": "a65653c591a36c8dc412433d976e464bf71da101d7806972f78968a715e625aa"
+        }
+      ]
+    }
+  ]
+}

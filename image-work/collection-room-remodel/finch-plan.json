@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "finch-001",
+      "prompt": "finch-prompt.txt",
+      "promptSha256": "4953327029868a7fdf4893d6d7ec545bd202393621ea53a0938b6ea8f1d2c092",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/finch-selected-0.png",
+          "sha256": "bd9c75cbd132b5effb08935e67e1ebdaae76bd55d8f36a5505c9567b0335eead"
+        }
+      ]
+    }
+  ]
+}

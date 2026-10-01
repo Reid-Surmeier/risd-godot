@@ -1,0 +1,91 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-97f7a0687f4ea99f0e99",
+      "objective": "The reference photographs are the sole authority for RISD Museum Dragons-in Compartments pattern compote, accession 2017.74.39.3. Produce ONE complete front view of this exact single object, facing as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\n",
+      "procedureId": "muse-97f7a0687f4ea99f0e99",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "pink-compote-recipe.json",
+          "sha256": "97f7a0687f4ea99f0e996c04c99964a4825da00cae928b33ba59f08bd4630228"
+        },
+        {
+          "applicationPath": "pink-compote-plan.json",
+          "sha256": "7397baa17fa119279230cc5c2565f645350bb93175c9b0050aa58867576c35e1"
+        },
+        {
+          "applicationPath": "pink-compote-prompt.txt",
+          "sha256": "3863f2fe0df11523e1da81faf77c542e1930d3c7e2a2deef5de0d3b393d893cf"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/pink-compote-selected-0.png",
+          "sha256": "f02a65d33ba63f22cd3f2d25998d9400c76e49ca3337f63b13c9bb36f8ad337d",
+          "byteLength": 954825,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 900
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/pink-compote-selected-1.png",
+          "sha256": "c4e0676a0e034522e8ac26d2005e735d8c66dbf12aaa0dac562aed166e8634ad",
+          "byteLength": 1927135,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 993
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"The reference photographs are the sole authority for RISD Museum Dragons-in Compartments pattern compote, accession 2017.74.39.3. Produce ONE complete front view of this exact single object, facing as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\\n\",\"objectiveId\":\"muse-97f7a0687f4ea99f0e99\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-97f7a0687f4ea99f0e99\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/pink-compote-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":954825,\"inspectedMedia\":{\"height\":900,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"f02a65d33ba63f22cd3f2d25998d9400c76e49ca3337f63b13c9bb36f8ad337d\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/pink-compote-selected-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1927135,\"inspectedMedia\":{\"height\":993,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"c4e0676a0e034522e8ac26d2005e735d8c66dbf12aaa0dac562aed166e8634ad\",\"slot\":\"reference-001\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"pink-compote-recipe.json\",\"sha256\":\"97f7a0687f4ea99f0e996c04c99964a4825da00cae928b33ba59f08bd4630228\"},{\"applicationPath\":\"pink-compote-plan.json\",\"sha256\":\"7397baa17fa119279230cc5c2565f645350bb93175c9b0050aa58867576c35e1\"},{\"applicationPath\":\"pink-compote-prompt.txt\",\"sha256\":\"3863f2fe0df11523e1da81faf77c542e1930d3c7e2a2deef5de0d3b393d893cf\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "fd8e8ded220e8503b794f5ca26b76e3dd244ef6dd13dceebf3a115969f12bdf1"
+  },
+  "normalView": {
+    "objective": "The reference photographs are the sole authority for RISD Museum Dragons-in Compartments pattern compote, accession 2017.74.39.3. Produce ONE complete front view of this exact single object, facing as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\n",
+    "evidence": "2 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

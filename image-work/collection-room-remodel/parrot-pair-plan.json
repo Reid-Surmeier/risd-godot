@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "parrot-pair-001",
+      "prompt": "parrot-pair-prompt.txt",
+      "promptSha256": "e434efccabf2873da4a9a2e105468c9c9e44f1e76916a03c61d986a6324049cd",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/parrot-pair-selected-0.png",
+          "sha256": "cc22a838513995d7473a748f3765b95623991fb1a471a8bbf14a18d347bdd464"
+        }
+      ]
+    }
+  ]
+}

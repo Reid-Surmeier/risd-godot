@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-83729abae9ecfbc7ae5c",
+  "summary": "Create ONE seamless tile of the real smooth warm ivory-grey painted museum plaster visible in the source crop, rendered as a restrained low polygon game material in the established Main Hall style. Flat orthographic albedo only, uniformly lit, subtle large planar tonal patches and tiny plaster grain. Match the observed light warm grey, no stones, no bricks, no cracks, no seams, no objects, no trim, no labels, no gradient, no border. Texture fills every pixel and wraps in both axes. No photograph pixels in the result.\n",
+  "procedureId": "muse-83729abae9ecfbc7ae5c",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "architecture-references/ivory-plaster-source.png",
+      "sha256": "0e2fba7e961c923009e51591f63d580ba238b76bdea6a1ce4f16cc16c1aede25",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "ivory-plaster-recipe.json",
+      "sha256": "83729abae9ecfbc7ae5c833ebcaeaceff35871897b6664a9e444ad2d173825c5"
+    },
+    {
+      "applicationPath": "ivory-plaster-plan.json",
+      "sha256": "eb372bb3c1c904eaa9c4becc9229741c3d29217ed5bf709761f5cfb1f5780bc7"
+    },
+    {
+      "applicationPath": "ivory-plaster-prompt.txt",
+      "sha256": "58ed061a6546928b8dbc2dad00bd379ae836fbee5407cb2f3933e589e9008dde"
+    }
+  ]
+}

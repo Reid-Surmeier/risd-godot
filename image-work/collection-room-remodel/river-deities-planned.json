@@ -1,0 +1,107 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-8e68b3d1f0a4928c3e27",
+      "objective": "References 1 and 2 are the official photographs of RISD Vincennes porcelain Neptune as River Deity 2017.74.31.1 and Amphitrite as River Deity 2017.74.31.2. Reference 3 shows the authentic pair together. These are the sole design authority. Produce ONE asset sheet split into TWO equally sized horizontal cells: Neptune alone on the LEFT and Amphitrite alone on the RIGHT. Each complete sculpture is centred in its cell and occupies 80 percent of the cell height, same real height, with pure magenta #FF00FF touching its silhouette and separating cells. Both face exactly as in the official front reference, with no perspective room and no pedestal. Transform these real figures into clean low polygon game sculptures: large planar facets, simplified readable relief and warm ivory glazed porcelain, restrained baked shadow details. Keep exact seated poses, limbs, shell/water bases, Neptune beard/laurel and Amphitrite hair and upraised arm. Do not merge the two sculptures or add ornaments. No letters, grid lines, cast shadows outside objects, wall or floor. Keep all extremities and bases with magenta margin. One sheet, two distinct complete front views. Hidden geometry will be separately authored with depth guided by the museum dimensions; do not invent a rear photo.\n",
+      "procedureId": "muse-8e68b3d1f0a4928c3e27",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "river-deities-recipe.json",
+          "sha256": "8e68b3d1f0a4928c3e27dba5bb75f8a6e540f11c92cca672775f907b28d1cb8b"
+        },
+        {
+          "applicationPath": "river-deities-plan.json",
+          "sha256": "558b9c9bbd9b127dab2f5c7e0f0327c5e14e7ea473d80d0f83734236c75470d3"
+        },
+        {
+          "applicationPath": "river-deities-prompt.txt",
+          "sha256": "711b3abb0e13927e475881a8ec41f33f2e3a9db121d024c354b7cd4fa819ce14"
+        }
+      ],
+      "museParameters": {
+        "size": "1760x1440"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/neptune-0.png",
+          "sha256": "962020e11aa090d1142db919531911038f1386a68d6e14d2765104df124546a4",
+          "byteLength": 1390119,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 1231
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/amphitrite-0.png",
+          "sha256": "164a602705a02c1116a7f7000b0e7709450ae56e98a1faf69f27838735356f12",
+          "byteLength": 1473456,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 1231
+          }
+        },
+        {
+          "slot": "reference-002",
+          "applicationPath": "inventory-references/neptune-2.png",
+          "sha256": "be48620381f64e15269cc77c3b865549a26cef28c980117cf2939b74c98b66f4",
+          "byteLength": 1212441,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/2/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 913
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1760x1440\"},\"objective\":\"References 1 and 2 are the official photographs of RISD Vincennes porcelain Neptune as River Deity 2017.74.31.1 and Amphitrite as River Deity 2017.74.31.2. Reference 3 shows the authentic pair together. These are the sole design authority. Produce ONE asset sheet split into TWO equally sized horizontal cells: Neptune alone on the LEFT and Amphitrite alone on the RIGHT. Each complete sculpture is centred in its cell and occupies 80 percent of the cell height, same real height, with pure magenta #FF00FF touching its silhouette and separating cells. Both face exactly as in the official front reference, with no perspective room and no pedestal. Transform these real figures into clean low polygon game sculptures: large planar facets, simplified readable relief and warm ivory glazed porcelain, restrained baked shadow details. Keep exact seated poses, limbs, shell/water bases, Neptune beard/laurel and Amphitrite hair and upraised arm. Do not merge the two sculptures or add ornaments. No letters, grid lines, cast shadows outside objects, wall or floor. Keep all extremities and bases with magenta margin. One sheet, two distinct complete front views. Hidden geometry will be separately authored with depth guided by the museum dimensions; do not invent a rear photo.\\n\",\"objectiveId\":\"muse-8e68b3d1f0a4928c3e27\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-8e68b3d1f0a4928c3e27\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/neptune-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1390119,\"inspectedMedia\":{\"height\":1231,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"962020e11aa090d1142db919531911038f1386a68d6e14d2765104df124546a4\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/amphitrite-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1473456,\"inspectedMedia\":{\"height\":1231,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"164a602705a02c1116a7f7000b0e7709450ae56e98a1faf69f27838735356f12\",\"slot\":\"reference-001\"},{\"applicationPath\":\"inventory-references/neptune-2.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1212441,\"inspectedMedia\":{\"height\":913,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/2/image_url/url\",\"sha256\":\"be48620381f64e15269cc77c3b865549a26cef28c980117cf2939b74c98b66f4\",\"slot\":\"reference-002\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"river-deities-recipe.json\",\"sha256\":\"8e68b3d1f0a4928c3e27dba5bb75f8a6e540f11c92cca672775f907b28d1cb8b\"},{\"applicationPath\":\"river-deities-plan.json\",\"sha256\":\"558b9c9bbd9b127dab2f5c7e0f0327c5e14e7ea473d80d0f83734236c75470d3\"},{\"applicationPath\":\"river-deities-prompt.txt\",\"sha256\":\"711b3abb0e13927e475881a8ec41f33f2e3a9db121d024c354b7cd4fa819ce14\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "7b018ec98c334a45ef16e68174509ebf01fb2b8a5ec1909eb6c25b1612b9547d"
+  },
+  "normalView": {
+    "objective": "References 1 and 2 are the official photographs of RISD Vincennes porcelain Neptune as River Deity 2017.74.31.1 and Amphitrite as River Deity 2017.74.31.2. Reference 3 shows the authentic pair together. These are the sole design authority. Produce ONE asset sheet split into TWO equally sized horizontal cells: Neptune alone on the LEFT and Amphitrite alone on the RIGHT. Each complete sculpture is centred in its cell and occupies 80 percent of the cell height, same real height, with pure magenta #FF00FF touching its silhouette and separating cells. Both face exactly as in the official front reference, with no perspective room and no pedestal. Transform these real figures into clean low polygon game sculptures: large planar facets, simplified readable relief and warm ivory glazed porcelain, restrained baked shadow details. Keep exact seated poses, limbs, shell/water bases, Neptune beard/laurel and Amphitrite hair and upraised arm. Do not merge the two sculptures or add ornaments. No letters, grid lines, cast shadows outside objects, wall or floor. Keep all extremities and bases with magenta margin. One sheet, two distinct complete front views. Hidden geometry will be separately authored with depth guided by the museum dimensions; do not invent a rear photo.\n",
+    "evidence": "3 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

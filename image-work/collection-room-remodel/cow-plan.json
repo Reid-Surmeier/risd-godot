@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "cow-001",
+      "prompt": "cow-prompt.txt",
+      "promptSha256": "46a3fe9e858a00d9a6d0552bf25faf3747bb8ab3e5a7f05581f9eaa843e25216",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/cow-catalogue.png",
+          "sha256": "58ada0f2a2f32b6ff60b155c50c0784d2656fd433209e33499742a1b489ad84a"
+        }
+      ]
+    }
+  ]
+}

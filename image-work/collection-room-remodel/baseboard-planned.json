@@ -1,0 +1,75 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-39cf4c497e0bd9622067",
+      "objective": "Create ONE horizontal section of the exact white-painted museum baseboard shown at the bottom of the reference. Front orthographic view isolated on flat pure magenta #FF00FF. Reconstruct the simple straight raised upper lip, broad flat fascia and narrow lower foot of this real low-profile painted wood skirting. Low polygon game asset, warm off-white paint and restrained shallow flat facets. Straight parallel horizontal edges and generous magenta margins, no wall, no floor, no wood grain, no cracks, no elaborate crown carving, no text. One strip only; native geometry supplies its shallow stepped profile.\n",
+      "procedureId": "muse-39cf4c497e0bd9622067",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "baseboard-recipe.json",
+          "sha256": "39cf4c497e0bd962206719cabfd62cb6373e3354e5248819e08b64a72d99ab83"
+        },
+        {
+          "applicationPath": "baseboard-plan.json",
+          "sha256": "a2e01a25a67de0d00934ed5f0bed8d28c9bd2a9831241cb58f9273a47e7bd5dc"
+        },
+        {
+          "applicationPath": "baseboard-prompt.txt",
+          "sha256": "6d6aa1f799b998b486bf05279656c61e8ee38321d8aa0ab04a95997e79a634c3"
+        }
+      ],
+      "museParameters": {
+        "size": "1760x1440"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "architecture-references/baseboard-source.png",
+          "sha256": "ed47da8c0b971f7025da45bd7f5afb5752e0b38772ba8e61ec304e98180f8c11",
+          "byteLength": 106352,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 485,
+            "height": 290
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1760x1440\"},\"objective\":\"Create ONE horizontal section of the exact white-painted museum baseboard shown at the bottom of the reference. Front orthographic view isolated on flat pure magenta #FF00FF. Reconstruct the simple straight raised upper lip, broad flat fascia and narrow lower foot of this real low-profile painted wood skirting. Low polygon game asset, warm off-white paint and restrained shallow flat facets. Straight parallel horizontal edges and generous magenta margins, no wall, no floor, no wood grain, no cracks, no elaborate crown carving, no text. One strip only; native geometry supplies its shallow stepped profile.\\n\",\"objectiveId\":\"muse-39cf4c497e0bd9622067\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-39cf4c497e0bd9622067\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"architecture-references/baseboard-source.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":106352,\"inspectedMedia\":{\"height\":290,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":485},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"ed47da8c0b971f7025da45bd7f5afb5752e0b38772ba8e61ec304e98180f8c11\",\"slot\":\"reference-000\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"baseboard-recipe.json\",\"sha256\":\"39cf4c497e0bd962206719cabfd62cb6373e3354e5248819e08b64a72d99ab83\"},{\"applicationPath\":\"baseboard-plan.json\",\"sha256\":\"a2e01a25a67de0d00934ed5f0bed8d28c9bd2a9831241cb58f9273a47e7bd5dc\"},{\"applicationPath\":\"baseboard-prompt.txt\",\"sha256\":\"6d6aa1f799b998b486bf05279656c61e8ee38321d8aa0ab04a95997e79a634c3\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "021badb0c47774d2ebce0d5a4acbd381cb944fc62a0b5b5aedfe8231e39add44"
+  },
+  "normalView": {
+    "objective": "Create ONE horizontal section of the exact white-painted museum baseboard shown at the bottom of the reference. Front orthographic view isolated on flat pure magenta #FF00FF. Reconstruct the simple straight raised upper lip, broad flat fascia and narrow lower foot of this real low-profile painted wood skirting. Low polygon game asset, warm off-white paint and restrained shallow flat facets. Straight parallel horizontal edges and generous magenta margins, no wall, no floor, no wood grain, no cracks, no elaborate crown carving, no text. One strip only; native geometry supplies its shallow stepped profile.\n",
+    "evidence": "1 authoritative reference matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

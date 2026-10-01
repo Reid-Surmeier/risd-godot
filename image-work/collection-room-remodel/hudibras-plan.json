@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "hudibras-001",
+      "prompt": "hudibras-prompt.txt",
+      "promptSha256": "0ab573fa812304d0d86b1cd859c7043e13d4e40a2e710638cee310b7af5e8b2b",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/hudibras-catalogue.png",
+          "sha256": "a76f9cc131f8dcc130b2fe4cbbfa8b63f00401958b9e1ab52156dea93d4c4879"
+        }
+      ]
+    }
+  ]
+}

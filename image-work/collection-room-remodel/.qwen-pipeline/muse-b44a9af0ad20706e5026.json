@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-b44a9af0ad20706e5026",
+  "summary": "Reference 1 is the official RISD Museum photograph of Figural Candlestick, accession 2017.74.28.2. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted ceramic texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep all limbs, feet, tails, hats, spouts and handles visible. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry; hidden profiles are guided by catalogue dimensions and remain provisional.\n",
+  "procedureId": "muse-b44a9af0ad20706e5026",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/candlestick-pair-catalogue.png",
+      "sha256": "f249ad074232b138e81a8be7564d77c1b43361c2f62dcaae9164469966d2f438",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "candlestick-pair-recipe.json",
+      "sha256": "b44a9af0ad20706e50262b2c3d1684805ab8989896862eca045e9e33c0283e23"
+    },
+    {
+      "applicationPath": "candlestick-pair-plan.json",
+      "sha256": "9186513e44f83c582f8faca836152bc72be1f24b594f481d60b8744110d5d4e6"
+    },
+    {
+      "applicationPath": "candlestick-pair-prompt.txt",
+      "sha256": "6fab2f26d435d80629f8ea72f7224e3006e49fdfd745821dbfb7f6606b3d07e4"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-bd7c517abd87c477a185",
+  "summary": "The reference photographs are the sole authority for RISD Museum Rockefeller Service Square Dish, accession 2017.74.38.12. Produce ONE complete orthographic top view of this exact single object, decoration oriented exactly as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\n",
+  "procedureId": "muse-bd7c517abd87c477a185",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/gold-square-b-selected-0.png",
+      "sha256": "1458b01a2da426de2326a1cd102799702746ce7d5bca371a4e7526f3f9cf6439",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "gold-square-b-recipe.json",
+      "sha256": "bd7c517abd87c477a185dcdfcb68881fd6b4f05e0208218c26aa96374cf181b7"
+    },
+    {
+      "applicationPath": "gold-square-b-plan.json",
+      "sha256": "1d5b1faae562e8a68f37390de8acd4c96d1d0000aa9e28366ada98d0ac01bc9a"
+    },
+    {
+      "applicationPath": "gold-square-b-prompt.txt",
+      "sha256": "8589ff6be3c8d19b23e8f5be214880c296ff7b2aedb9913fa22161a0f2a3638e"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "bagpiper-001",
+      "prompt": "bagpiper-prompt.txt",
+      "promptSha256": "e5fd37588ca484b5f592d550758361bfe86b1b433b9df46442be4db2d6b0d56b",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/bagpiper-catalogue.png",
+          "sha256": "145354148bb05fd2fce36132510598fcb186a86fbcacff0e4e940f4fbcd77364"
+        }
+      ]
+    }
+  ]
+}

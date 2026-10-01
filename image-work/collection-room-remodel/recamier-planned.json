@@ -1,0 +1,91 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-006282e9590625b4f8f2",
+      "objective": "Reference 1 is the official front photograph of RISD Joseph Chinard Bust of Madame Récamier, accession 37.201. Reference 2 is its official side profile. Produce ONE complete front view of this same ivory marble portrait bust including its small marble neck socle, isolated on pure magenta #FF00FF with generous margin. Remove the large black-and-white display stand beneath the marble bust; no pedestal, wall, floor or text. Preserve the downward gaze, oval face, wrapped headband, high stacked curled hair bun, shoulder outline, smooth bare upper chest, small neck socle and real proportions. Transform into a clean low polygon game sculpture with large flat planar facets, readable simplified curl relief, restrained warm ivory colour and soft baked creases. No photorealistic noise, no new jewellery, costume or head shape. No cast shadow outside silhouette. Single complete front view only, no sheet. Authored depth will be guided by the side photograph and catalogue 60.6 x 33.7 x 23.5 cm; the final mesh rear remains unverified.\n",
+      "procedureId": "muse-006282e9590625b4f8f2",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "recamier-recipe.json",
+          "sha256": "006282e9590625b4f8f29497fd23048b4f51db7acf4597b5fafc90dcd005acd7"
+        },
+        {
+          "applicationPath": "recamier-plan.json",
+          "sha256": "d93dfed1121e93d078ec67d8b2d5eb325c38a9f06c3f3ea344891c3ed8369e8b"
+        },
+        {
+          "applicationPath": "recamier-prompt.txt",
+          "sha256": "6226649522d4f8fc43d8e357e107183ff359c10df92b2d50a15585325fa5a036"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/recamier-front.png",
+          "sha256": "44bf8c97eb4be1f19fbdd4b92fe1ef223443b8364efd15078eb9c2175426ab4b",
+          "byteLength": 911461,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 1518
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/recamier-side.png",
+          "sha256": "b1600ca5b1e6ac6cf34d8927ca9afba07a053f2fa97cb451162bf7173a8bef88",
+          "byteLength": 2534208,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 1549
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"Reference 1 is the official front photograph of RISD Joseph Chinard Bust of Madame Récamier, accession 37.201. Reference 2 is its official side profile. Produce ONE complete front view of this same ivory marble portrait bust including its small marble neck socle, isolated on pure magenta #FF00FF with generous margin. Remove the large black-and-white display stand beneath the marble bust; no pedestal, wall, floor or text. Preserve the downward gaze, oval face, wrapped headband, high stacked curled hair bun, shoulder outline, smooth bare upper chest, small neck socle and real proportions. Transform into a clean low polygon game sculpture with large flat planar facets, readable simplified curl relief, restrained warm ivory colour and soft baked creases. No photorealistic noise, no new jewellery, costume or head shape. No cast shadow outside silhouette. Single complete front view only, no sheet. Authored depth will be guided by the side photograph and catalogue 60.6 x 33.7 x 23.5 cm; the final mesh rear remains unverified.\\n\",\"objectiveId\":\"muse-006282e9590625b4f8f2\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-006282e9590625b4f8f2\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/recamier-front.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":911461,\"inspectedMedia\":{\"height\":1518,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"44bf8c97eb4be1f19fbdd4b92fe1ef223443b8364efd15078eb9c2175426ab4b\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/recamier-side.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":2534208,\"inspectedMedia\":{\"height\":1549,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"b1600ca5b1e6ac6cf34d8927ca9afba07a053f2fa97cb451162bf7173a8bef88\",\"slot\":\"reference-001\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"recamier-recipe.json\",\"sha256\":\"006282e9590625b4f8f29497fd23048b4f51db7acf4597b5fafc90dcd005acd7\"},{\"applicationPath\":\"recamier-plan.json\",\"sha256\":\"d93dfed1121e93d078ec67d8b2d5eb325c38a9f06c3f3ea344891c3ed8369e8b\"},{\"applicationPath\":\"recamier-prompt.txt\",\"sha256\":\"6226649522d4f8fc43d8e357e107183ff359c10df92b2d50a15585325fa5a036\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "38d755fe4ca93ceef974a5b9b86f9af00817eb971fe25666dd4f90bf59f4a064"
+  },
+  "normalView": {
+    "objective": "Reference 1 is the official front photograph of RISD Joseph Chinard Bust of Madame Récamier, accession 37.201. Reference 2 is its official side profile. Produce ONE complete front view of this same ivory marble portrait bust including its small marble neck socle, isolated on pure magenta #FF00FF with generous margin. Remove the large black-and-white display stand beneath the marble bust; no pedestal, wall, floor or text. Preserve the downward gaze, oval face, wrapped headband, high stacked curled hair bun, shoulder outline, smooth bare upper chest, small neck socle and real proportions. Transform into a clean low polygon game sculpture with large flat planar facets, readable simplified curl relief, restrained warm ivory colour and soft baked creases. No photorealistic noise, no new jewellery, costume or head shape. No cast shadow outside silhouette. Single complete front view only, no sheet. Authored depth will be guided by the side photograph and catalogue 60.6 x 33.7 x 23.5 cm; the final mesh rear remains unverified.\n",
+    "evidence": "2 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

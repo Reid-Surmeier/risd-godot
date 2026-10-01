@@ -1,0 +1,75 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-bd7c517abd87c477a185",
+      "objective": "The reference photographs are the sole authority for RISD Museum Rockefeller Service Square Dish, accession 2017.74.38.12. Produce ONE complete orthographic top view of this exact single object, decoration oriented exactly as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\n",
+      "procedureId": "muse-bd7c517abd87c477a185",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "gold-square-b-recipe.json",
+          "sha256": "bd7c517abd87c477a185dcdfcb68881fd6b4f05e0208218c26aa96374cf181b7"
+        },
+        {
+          "applicationPath": "gold-square-b-plan.json",
+          "sha256": "1d5b1faae562e8a68f37390de8acd4c96d1d0000aa9e28366ada98d0ac01bc9a"
+        },
+        {
+          "applicationPath": "gold-square-b-prompt.txt",
+          "sha256": "8589ff6be3c8d19b23e8f5be214880c296ff7b2aedb9913fa22161a0f2a3638e"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/gold-square-b-selected-0.png",
+          "sha256": "1458b01a2da426de2326a1cd102799702746ce7d5bca371a4e7526f3f9cf6439",
+          "byteLength": 2944426,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 1324
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"The reference photographs are the sole authority for RISD Museum Rockefeller Service Square Dish, accession 2017.74.38.12. Produce ONE complete orthographic top view of this exact single object, decoration oriented exactly as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\\n\",\"objectiveId\":\"muse-bd7c517abd87c477a185\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-bd7c517abd87c477a185\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/gold-square-b-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":2944426,\"inspectedMedia\":{\"height\":1324,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"1458b01a2da426de2326a1cd102799702746ce7d5bca371a4e7526f3f9cf6439\",\"slot\":\"reference-000\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"gold-square-b-recipe.json\",\"sha256\":\"bd7c517abd87c477a185dcdfcb68881fd6b4f05e0208218c26aa96374cf181b7\"},{\"applicationPath\":\"gold-square-b-plan.json\",\"sha256\":\"1d5b1faae562e8a68f37390de8acd4c96d1d0000aa9e28366ada98d0ac01bc9a\"},{\"applicationPath\":\"gold-square-b-prompt.txt\",\"sha256\":\"8589ff6be3c8d19b23e8f5be214880c296ff7b2aedb9913fa22161a0f2a3638e\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "52229036dd9056824aaf9a1d2105ae8dab98efef16be55090960bb1ce9a26676"
+  },
+  "normalView": {
+    "objective": "The reference photographs are the sole authority for RISD Museum Rockefeller Service Square Dish, accession 2017.74.38.12. Produce ONE complete orthographic top view of this exact single object, decoration oriented exactly as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\n",
+    "evidence": "1 authoritative reference matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-58a59bbdaefe31e69640",
+  "summary": "The reference photographs are the sole authority for RISD Museum Writing Table, accession 2017.74.8. Produce ONE complete front view of this exact single object, facing as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\n",
+  "procedureId": "muse-58a59bbdaefe31e69640",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/writing-table-selected-0.png",
+      "sha256": "65a1b9b4dfb179f6dbcb27eebff543ff4482bff740234f08a391ea630e6bf24e",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/writing-table-selected-1.png",
+      "sha256": "aed34722ab3b3cf4bd1dc9996e0e115c53ebb43b7a212402c6d2c988e1c149dc",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "writing-table-recipe.json",
+      "sha256": "58a59bbdaefe31e696406da1595a7d4ec0ede38151d5eee6512d6816bb9e3448"
+    },
+    {
+      "applicationPath": "writing-table-plan.json",
+      "sha256": "317475a498d72942e90c1ff05357454965c9d454be9caabe198269f3a33fd91b"
+    },
+    {
+      "applicationPath": "writing-table-prompt.txt",
+      "sha256": "915ef40add7c8e37534a56ef716ae68bd7df8c3924e4c266a7b57648bdcd8c78"
+    }
+  ]
+}

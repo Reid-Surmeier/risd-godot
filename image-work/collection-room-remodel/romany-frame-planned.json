@@ -1,0 +1,75 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-7231d3545db3237adf5d",
+      "objective": "Reference image 1 is a straightened phone photo of a real antique picture frame hanging on a gallery wall at the RISD Museum; the painting inside has been blanked out to white. It is the sole authority for this frame: its exact outline and corners, the width of every side, its profile and moldings, every carved ornament and where it sits, its colour and finish.\n\nClean it up into a crisp, straight-on render of this same frame alone: perfectly square to the viewer with no perspective tilt, crisp readable relief rendered as a clean low-poly game model (large flat planar facets, crisp highlight bands, controlled dark creases), removing photo blur, glare, reflections and noise. Keep its real shape exactly: do not round its corners, do not simplify its carving into plain moldings, do not invent ornament it does not have, and keep the width of each side as in the photo.\n\nThe complete inner opening, edge to edge inside the innermost lip, is perfectly clean flat pure white (#FFFFFF). Everything outside the frame's outer edge is perfectly flat pure magenta (#FF00FF), touching the frame directly with no shadow and no wall. No text, no label. Return one complete image with no transparency.\n",
+      "procedureId": "muse-7231d3545db3237adf5d",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "romany-frame-recipe.json",
+          "sha256": "7231d3545db3237adf5d447e74ffbcf0dff2018447838e7bb7ac9769edb9e482"
+        },
+        {
+          "applicationPath": "romany-frame-plan.json",
+          "sha256": "e781d5edcdac43bad89c26107db242f9eaa9d3b743a5b8b71274cc66018db767"
+        },
+        {
+          "applicationPath": "romany-frame-prompt.txt",
+          "sha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/romany-frame-source.png",
+          "sha256": "83c455330f0d8c9debc94d0176abdc24fb4219fcaac641b3224672aaffb70424",
+          "byteLength": 624002,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1040,
+            "height": 1255
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"Reference image 1 is a straightened phone photo of a real antique picture frame hanging on a gallery wall at the RISD Museum; the painting inside has been blanked out to white. It is the sole authority for this frame: its exact outline and corners, the width of every side, its profile and moldings, every carved ornament and where it sits, its colour and finish.\\n\\nClean it up into a crisp, straight-on render of this same frame alone: perfectly square to the viewer with no perspective tilt, crisp readable relief rendered as a clean low-poly game model (large flat planar facets, crisp highlight bands, controlled dark creases), removing photo blur, glare, reflections and noise. Keep its real shape exactly: do not round its corners, do not simplify its carving into plain moldings, do not invent ornament it does not have, and keep the width of each side as in the photo.\\n\\nThe complete inner opening, edge to edge inside the innermost lip, is perfectly clean flat pure white (#FFFFFF). Everything outside the frame's outer edge is perfectly flat pure magenta (#FF00FF), touching the frame directly with no shadow and no wall. No text, no label. Return one complete image with no transparency.\\n\",\"objectiveId\":\"muse-7231d3545db3237adf5d\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-7231d3545db3237adf5d\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/romany-frame-source.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":624002,\"inspectedMedia\":{\"height\":1255,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1040},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"83c455330f0d8c9debc94d0176abdc24fb4219fcaac641b3224672aaffb70424\",\"slot\":\"reference-000\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"romany-frame-recipe.json\",\"sha256\":\"7231d3545db3237adf5d447e74ffbcf0dff2018447838e7bb7ac9769edb9e482\"},{\"applicationPath\":\"romany-frame-plan.json\",\"sha256\":\"e781d5edcdac43bad89c26107db242f9eaa9d3b743a5b8b71274cc66018db767\"},{\"applicationPath\":\"romany-frame-prompt.txt\",\"sha256\":\"8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "5354f1acbb61ae2e8fa99da63ae1a27f103ba4908262479aea5b0e9d136cad0c"
+  },
+  "normalView": {
+    "objective": "Reference image 1 is a straightened phone photo of a real antique picture frame hanging on a gallery wall at the RISD Museum; the painting inside has been blanked out to white. It is the sole authority for this frame: its exact outline and corners, the width of every side, its profile and moldings, every carved ornament and where it sits, its colour and finish.\n\nClean it up into a crisp, straight-on render of this same frame alone: perfectly square to the viewer with no perspective tilt, crisp readable relief rendered as a clean low-poly game model (large flat planar facets, crisp highlight bands, controlled dark creases), removing photo blur, glare, reflections and noise. Keep its real shape exactly: do not round its corners, do not simplify its carving into plain moldings, do not invent ornament it does not have, and keep the width of each side as in the photo.\n\nThe complete inner opening, edge to edge inside the innermost lip, is perfectly clean flat pure white (#FFFFFF). Everything outside the frame's outer edge is perfectly flat pure magenta (#FF00FF), touching the frame directly with no shadow and no wall. No text, no label. Return one complete image with no transparency.\n",
+    "evidence": "1 authoritative reference matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

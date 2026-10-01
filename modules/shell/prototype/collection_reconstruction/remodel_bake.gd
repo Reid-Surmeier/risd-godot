@@ -43,7 +43,11 @@ func prepare() -> void:
 	var merged:=floors.commit()
 	var arrays:=merged.surface_get_arrays(0)
 	var uv2:=PackedVector2Array()
-	for point in arrays[Mesh.ARRAY_VERTEX]:uv2.append(Vector2((point.x+2.75)/8.35,(point.z+7.2)/14.2))
+	var bounds:=merged.get_aabb()
+	for point in arrays[Mesh.ARRAY_VERTEX]:
+		var uv:=Vector2((point.x-bounds.position.x)/bounds.size.x,(point.z-bounds.position.z)/bounds.size.z)
+		assert(uv.x>=0 and uv.x<=1 and uv.y>=0 and uv.y<=1)
+		uv2.append(uv)
 	arrays[Mesh.ARRAY_TEX_UV2]=uv2
 	var floor_mesh:=ArrayMesh.new()
 	floor_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
@@ -58,9 +62,9 @@ func prepare() -> void:
 	room.add_child(floor_instance)
 	floor_instance.owner=room
 	index+=1
-	for z in [-5.5,-2,2,5.5]:
+	for position in [Vector3(.45,3.25,-5.5),Vector3(.45,3.25,-2),Vector3(4.6,3.25,-2),Vector3(-.55,3.25,2),Vector3(-.55,3.25,6),Vector3(-.55,3.25,10),Vector3(-.55,3.25,14),Vector3(-.55,3.25,17)]:
 		var light:=OmniLight3D.new()
-		light.position=Vector3(.45,3.25,z)
+		light.position=position
 		light.omni_range=8
 		light.omni_attenuation=.65
 		light.light_energy=.55
@@ -71,13 +75,13 @@ func prepare() -> void:
 		room.add_child(light)
 		light.owner=room
 	# Latest Main Hall's offline painting spots, placed below this room's lower ceiling.
-	for spec in [[Vector3(.55,2.43,-7.02),Vector3.BACK],[Vector3(-1.05,2.15,-7),Vector3.BACK],[Vector3(2.25,2.15,-7),Vector3.BACK],[Vector3(-2.67,2,-4.7),Vector3.RIGHT]]:
+	for spec in [[Vector3(.55,2.43,-7.02),Vector3.BACK],[Vector3(-1.05,2.15,-7),Vector3.BACK],[Vector3(2.25,2.15,-7),Vector3.BACK],[Vector3(-2.67,2,-4.7),Vector3.RIGHT],[Vector3(-3.48,1.75,2.15),Vector3.RIGHT]]:
 		var spot:=SpotLight3D.new()
 		room.add_child(spot)
 		spot.owner=room
 		spot.position=spec[0]+spec[1]*2.2
 		spot.position.y=3.2
-		spot.look_at(spec[0],Vector3.UP)
+		spot.look_at_from_position(spot.position,spec[0],Vector3.UP)
 		spot.spot_range=7
 		spot.spot_angle=25
 		spot.spot_angle_attenuation=1.5
@@ -107,8 +111,8 @@ func prepare() -> void:
 	lm.environment_custom_energy=.18
 	room.add_child(lm)
 	lm.owner=room
-	for x in [-2,0,2,3]:
-		for z in [-6.5,-4,-1,.2,2,5.5]:
+	for z in [-6.5,-4,-2,0,3,6,9,12,15,18]:
+		for x in ([-2,.0,2] if z>=0 else [-2,.0,2,5] if z==-2 else [-2,.0,2]):
 			for y in [.3,1.1,2]:
 				var probe:=LightmapProbe.new()
 				probe.position=Vector3(x,y,z)

@@ -1,0 +1,84 @@
+{
+  "authorization": "Owner requests more Muse passes and all video-observed objects; representative shepherd pass visually inspected first",
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "count": 15,
+  "maximum_declared_usd": 0.15,
+  "items": [
+    {
+      "kind": "horn-player",
+      "objective": ".qwen-pipeline/muse-480a6e8b4c0896a75ac9.json",
+      "catalogue": "2017.74.19"
+    },
+    {
+      "kind": "bagpiper",
+      "objective": ".qwen-pipeline/muse-aa4dc37c6c5ccbd92257.json",
+      "catalogue": "2017.74.21"
+    },
+    {
+      "kind": "flute-player",
+      "objective": ".qwen-pipeline/muse-bbec581f3579a566fbe5.json",
+      "catalogue": "2017.74.16"
+    },
+    {
+      "kind": "cow",
+      "objective": ".qwen-pipeline/muse-61bc4b8027a1a1c71db4.json",
+      "catalogue": "2017.74.29"
+    },
+    {
+      "kind": "fox",
+      "objective": ".qwen-pipeline/muse-80d9946b4db76ed4141f.json",
+      "catalogue": "2017.74.20"
+    },
+    {
+      "kind": "cream-jug",
+      "objective": ".qwen-pipeline/muse-70034b28e3d471e6a119.json",
+      "catalogue": "2017.74.25"
+    },
+    {
+      "kind": "agate-teapot",
+      "objective": ".qwen-pipeline/muse-24dc39057f2941ff2289.json",
+      "catalogue": "2017.74.24.ab"
+    },
+    {
+      "kind": "parrot",
+      "objective": ".qwen-pipeline/muse-6ab1df413e6f3f2d8b6f.json",
+      "catalogue": "2017.74.27.1"
+    },
+    {
+      "kind": "parrot-third",
+      "objective": ".qwen-pipeline/muse-14283deec9b9642be9f4.json",
+      "catalogue": "2017.74.26"
+    },
+    {
+      "kind": "candlestick",
+      "objective": ".qwen-pipeline/muse-d3b43bdc62697f68ac4b.json",
+      "catalogue": "2017.74.28.1"
+    },
+    {
+      "kind": "candlestick-pair",
+      "objective": ".qwen-pipeline/muse-b44a9af0ad20706e5026.json",
+      "catalogue": "2017.74.28.2"
+    },
+    {
+      "kind": "st-george",
+      "objective": ".qwen-pipeline/muse-9efbc6027075708cc1e8.json",
+      "catalogue": "2017.74.14"
+    },
+    {
+      "kind": "hudibras",
+      "objective": ".qwen-pipeline/muse-92439dd8a93b2b2a845a.json",
+      "catalogue": "2017.74.17"
+    },
+    {
+      "kind": "bear-jug",
+      "objective": ".qwen-pipeline/muse-86bf62616ceaa1231207.json",
+      "catalogue": "2017.74.18.ab"
+    },
+    {
+      "kind": "bear-jug-pair",
+      "objective": ".qwen-pipeline/muse-2f107e60445d328889bd.json",
+      "catalogue": "2017.74.22.ab"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-61bc4b8027a1a1c71db4",
+  "summary": "Reference 1 is the official RISD Museum photograph of Model of a Cow, accession 2017.74.29. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted ceramic texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep all limbs, feet, tails, hats, spouts and handles visible. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry; hidden profiles are guided by catalogue dimensions and remain provisional.\n",
+  "procedureId": "muse-61bc4b8027a1a1c71db4",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/cow-catalogue.png",
+      "sha256": "58ada0f2a2f32b6ff60b155c50c0784d2656fd433209e33499742a1b489ad84a",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "cow-recipe.json",
+      "sha256": "61bc4b8027a1a1c71db4182eb55739ebe0896824ead4fc8c940b055b45df634a"
+    },
+    {
+      "applicationPath": "cow-plan.json",
+      "sha256": "cf8b7a9f822c3025b63636361ba507e43fc7f3ae625b17b0b62b862e817236d7"
+    },
+    {
+      "applicationPath": "cow-prompt.txt",
+      "sha256": "46a3fe9e858a00d9a6d0552bf25faf3747bb8ab3e5a7f05581f9eaa843e25216"
+    }
+  ]
+}

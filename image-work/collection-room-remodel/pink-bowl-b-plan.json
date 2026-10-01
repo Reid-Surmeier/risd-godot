@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "pink-bowl-b-001",
+      "prompt": "pink-bowl-b-prompt.txt",
+      "promptSha256": "ec2dca585d6ec15e8caa83f759a4fe6b1ffdf125032c22fd8f1e2d2d508328d9",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/pink-bowl-b-selected-0.png",
+          "sha256": "4e84b1bc816eb38ecb195619c3243704cb0f63b03a3a5600b97c2d3c2f0e909b"
+        }
+      ]
+    }
+  ]
+}

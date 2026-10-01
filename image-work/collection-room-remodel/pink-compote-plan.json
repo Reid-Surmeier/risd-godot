@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "pink-compote-001",
+      "prompt": "pink-compote-prompt.txt",
+      "promptSha256": "3863f2fe0df11523e1da81faf77c542e1930d3c7e2a2deef5de0d3b393d893cf",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/pink-compote-selected-0.png",
+          "sha256": "f02a65d33ba63f22cd3f2d25998d9400c76e49ca3337f63b13c9bb36f8ad337d"
+        },
+        {
+          "path": "inventory-references/pink-compote-selected-1.png",
+          "sha256": "c4e0676a0e034522e8ac26d2005e735d8c66dbf12aaa0dac562aed166e8634ad"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-bbec581f3579a566fbe5",
+  "summary": "Reference 1 is the official RISD Museum photograph of The Flute Player, accession 2017.74.16. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted ceramic texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep all limbs, feet, tails, hats, spouts and handles visible. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry; hidden profiles are guided by catalogue dimensions and remain provisional.\n",
+  "procedureId": "muse-bbec581f3579a566fbe5",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/flute-player-catalogue.png",
+      "sha256": "d288376ce0fb30f69c5356c90c8bb5beebd73893dc3f81912819ce0b3646da00",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "flute-player-recipe.json",
+      "sha256": "bbec581f3579a566fbe5a5b6ce793bd1b84838b67383addfcd62ee2009096d8b"
+    },
+    {
+      "applicationPath": "flute-player-plan.json",
+      "sha256": "9caee05c02e943e5836e176e02b451dec2d26e0a70090ded8337f543c5caa1c1"
+    },
+    {
+      "applicationPath": "flute-player-prompt.txt",
+      "sha256": "5920cb5a44c76bc4118fa986e8cce4269bb6596715cdf1b005871e7c078ccd67"
+    }
+  ]
+}

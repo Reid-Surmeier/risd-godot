@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "pink-ladle-001",
+      "prompt": "pink-ladle-prompt.txt",
+      "promptSha256": "5831a99997b8d626433169474977ff816fefedece7e6eb19dbaa2711c963fda4",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/pink-ladle-selected-0.png",
+          "sha256": "62adef186caefdf8285fdf0d01e60b57a57017c5a139a7e9d20f3024ad594a3c"
+        }
+      ]
+    }
+  ]
+}

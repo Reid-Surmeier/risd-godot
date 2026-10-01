@@ -1,0 +1,7 @@
+{
+  "procedure": "edit",
+  "model": "meta/muse-image",
+  "objective": ".qwen-pipeline/muse-14283deec9b9642be9f4.json",
+  "paidRequests": 0,
+  "nextAction": "Run image with this objective to inspect the plan; add --execute only for authorized spending."
+}

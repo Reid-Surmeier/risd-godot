@@ -36,7 +36,8 @@
     "bookcase_pass": [
       "three shelf columns, three tiers, six drawer fronts and four distinct oval panels retained",
       "recessed authored shelf solids and cabinet depth visible in detail and oblique renders",
-      "collapsed solids rejected by runtime assertion; magenta edge fringe removed by keyed-alpha workflow"
+      "collapsed solids rejected by runtime assertion; magenta edge fringe removed by keyed-alpha workflow",
+      "20 piece-specific Muse trials placed at the four source shelf/top elevations"
     ],
     "mirror_pass": [
       "two-lobe glass and tall asymmetric gilt silhouette retained",
@@ -47,14 +48,23 @@
       "mapped onto provisional authored sofa, no source room photograph used as a wall/furniture billboard"
     ],
     "unverified": [
-      "precise room extents and fixed-jamb metric placement",
-      "sofa portrait identity, bust and remaining ceramics inventory",
-      "hidden asset backs, pierced side channels and carved geometry",
+      "precise room dimensions and distal long-gallery study limit",
+      "two central Vincennes figures: paired Muse run unreconciled",
+      "wall textiles, four framed prints and remaining adjoining gallery objects",
+      "full rear geometry, handle/limb holes and anatomy; front UV repeats on inferred depth",
       "full connected museum and production integration"
     ],
     "no_blind_retry": true,
-    "map_recorded_total_usd": "0.110000",
-    "new_recorded_spend_usd": "0.060000"
+    "map_recorded_total_usd": "0.560000",
+    "new_recorded_spend_usd": "0.450000",
+    "additional_unreconciled_maximum_usd": "0.010000",
+    "quality_findings": [
+      "Gold Ecuelle first trial retained paper tag; deliberate cleanup removes handwriting but a pale loop by handle remains.",
+      "Ewe/Lamb is video-referenced because API lacks photographs; Muse rotates the source pose toward camera.",
+      "Bear/Jug pair attribution uses the shared official pair photo and dimensions; underside not verified.",
+      "Agate Teapot catalogue 45.7cm width conflicts with shelf; provisional .19m source width.",
+      "Pink tureen catalogue heights conflict with photographed arrangement; provisional .32m video-fit."
+    ]
   },
   "settee": {
     "provider": "openrouter",
@@ -127,5 +137,480 @@
     "native_sha256": "9eb6fc6e12c49c78dbe651e3a826a032f909928bb2e64647409ded9ae1a94707",
     "visual_verdict": "agent-inspected usable prototype trial; owner acceptance pending",
     "observations": "Three overlapping back loops, dark wood, blue floral seat and carved front legs match .12. Side holes are front-alpha relief, not complete carved 3D channels."
-  }
+  },
+  "agate-teapot": {
+    "run_id": "run-b1eaa3a41a466901041a7fdb",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/agate-teapot-original.webp",
+    "native_sha256": "c5ad727b7f957c631f5cef94e3e571c3abf390faa886ab6b8853435162a4a4d1",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "bagpiper": {
+    "run_id": "run-c330057eda02b98bf5420472",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/bagpiper-original.webp",
+    "native_sha256": "fc69cfdcb22df58358ef84d2f745a8e8bc2f704baa08232100b76ac751195070",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "bear-jug-pair": {
+    "run_id": "run-68ac944f973d84845d2c6391",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/bear-jug-pair-original.webp",
+    "native_sha256": "2b380a50dfa1aaa0cbb2f12efb11822605d6e47c194feb0957d8edbe2059e7d0",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "bear-jug": {
+    "run_id": "run-816ba246ff4f5744f0aa47df",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/bear-jug-original.webp",
+    "native_sha256": "9b2c239fde26f9683aa3660aba4326bca32cf87eb6f41f007b78cf76f9008562",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "candlestick-pair": {
+    "run_id": "run-3743eff05289da7b4fe5bfe2",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/candlestick-pair-original.webp",
+    "native_sha256": "ed872cc910e2638569df3568c76f9f155718232e472cd11f3594b50bd3090023",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "candlestick": {
+    "run_id": "run-d478d29965253346f8840ce0",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/candlestick-original.webp",
+    "native_sha256": "b4cb551344a45e239c78dd8d2a4a56573dbb0a31cd1f422725563afeba328807",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "cow": {
+    "run_id": "run-4c576cbd886835d40a283515",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/cow-original.webp",
+    "native_sha256": "b4db6a7b59cb0b9df4ca36f1d9b369c174257cf662e73393939b17a435aa0e01",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "cream-jug": {
+    "run_id": "run-9b76bde33dada4b33897664a",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/cream-jug-original.webp",
+    "native_sha256": "6170368cb3a03f038b19b6dc708b06d58a39e8f454219e7e2c42b71c0e1c9824",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "ewe-lamb": {
+    "run_id": "run-95b31d36be1db0ad31d2fe57",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/ewe-lamb-original.webp",
+    "native_sha256": "159805847d18afa0baeb4e749028bba915e90896de2a78f414e7db8974285f44",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "finch-pair": {
+    "run_id": "run-68fea853ccc4408ad01e136c",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/finch-pair-original.webp",
+    "native_sha256": "79fa562d74ddcd459ec2a9b9e44b8ab142a635051075fbebbc8b816a4b081063",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "finch": {
+    "run_id": "run-9b8967d58adf3a4963da8073",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/finch-original.webp",
+    "native_sha256": "31970bf1963451a2b26eed581bf1e90cae6fa886a3c3e2936e6b7fc2406f2c0f",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "flute-player": {
+    "run_id": "run-5bebee2047ed901886e223ca",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/flute-player-original.webp",
+    "native_sha256": "49a83de14d1c714c582e6f92f7ac93aa93c8e6d44bb3bdd2a51e633c7e424388",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "fox": {
+    "run_id": "run-32c1097948ad21bbb520e9ae",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/fox-original.webp",
+    "native_sha256": "e57c46b3ca09908f9db4c95289d031ea5a9c89dac8619f88062b50b970de2c38",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-basket-a": {
+    "run_id": "run-156b3f4d893d5243a3abf476",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-basket-a-original.webp",
+    "native_sha256": "d38b679b50bcdd8fe6955bc3d7700d15a7de8898d6aedc13e4533f95336ef6dd",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-basket-b": {
+    "run_id": "run-e0d9e5e5c15b94367a6b5303",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-basket-b-original.webp",
+    "native_sha256": "ba7368b5a11b3df52b280a01bd076acb96fa1a95aa601e193347edf24dabac40",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-cup-a": {
+    "run_id": "run-33d2e9053d2ae813b434eb2f",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-cup-a-original.webp",
+    "native_sha256": "fe1ff10c92a29711452153bb89169a032bcf35b7f8c21f1d0ea19de6a571bf4e",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-cup-b": {
+    "run_id": "run-ed5168299e1d995ba3b39543",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-cup-b-original.webp",
+    "native_sha256": "c7c1b47de2b8e5bd2284c27c4fa4496e334e7134657c657d4df813ec8d13e0d2",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-ecuelle-clean": {
+    "run_id": "run-ccd76b68787719dbed006cca",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-ecuelle-clean-original.webp",
+    "native_sha256": "5b70590db6d48ff9eb3a56994b9891061b948d9c6aee38f1661f47df29cd6071",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-ecuelle": {
+    "run_id": "run-90b15d4d3bae0b4772d0a6ea",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-ecuelle-original.webp",
+    "native_sha256": "a6dfd5ed575591e2ceeaf7ed16cd083d561479a3e3f2b5dab633a69f613853f5",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-plate-a": {
+    "run_id": "run-5d8fe62956cd034221527876",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-plate-a-original.webp",
+    "native_sha256": "c6d764aadbec29fbe6fc7d7fbabb0f1d7425861e65352391bb1a8b7eb0869040",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-plate-b": {
+    "run_id": "run-4948bd9b69954f05ae67ec95",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-plate-b-original.webp",
+    "native_sha256": "b5e5093035640bc4fb5a1c6d5015651910a0195d7d58fe724d3c7f3bfc1c0e4b",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-saucer-a": {
+    "run_id": "run-fab30a3fcb46b7b87da9a2f8",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-saucer-a-original.webp",
+    "native_sha256": "1eee6a80004e35d94d634d19919ab9ee78dbfff35a6c6f2e092730c59da1e137",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-saucer-b": {
+    "run_id": "run-6b756452770367f5ec0ab143",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-saucer-b-original.webp",
+    "native_sha256": "72baf9bb4e6adad716be483aed8812f02c773f68c97558888044c5b3a295fde7",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-square-a": {
+    "run_id": "run-71742f9d5be60c895f7df8ed",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-square-a-original.webp",
+    "native_sha256": "e990ee0ec376de62fb6ab89d66a2ca45aedd57f13886193be80c56918f30ab27",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-square-b": {
+    "run_id": "run-52229036dd9056824aaf9a1d",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-square-b-original.webp",
+    "native_sha256": "bd41aada56aac5ab2fb4500a486b11afaf01ca0f44ef7360ad09a0f6a0462f6a",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-tureen": {
+    "run_id": "run-ea6153eee59b90a4404ce9e9",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-tureen-original.webp",
+    "native_sha256": "181ee7d703106e21367fe58e045ea6271a9c1452c1bb662c597765e12c9afd37",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "horn-player": {
+    "run_id": "run-cd8f4fd8620a60204c20bef1",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/horn-player-original.webp",
+    "native_sha256": "fcfa0cb3408c5aebe27ee7dde4e92dc431496b711753a7265c9e4e98e0a1c3ea",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "hudibras": {
+    "run_id": "run-907e7cb8bd921f228c1f4921",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/hudibras-original.webp",
+    "native_sha256": "8a53aeba54019473a7e8a8059e7fc6b273f289414d9aa10f273e820caa5d0bdf",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "parrot-pair": {
+    "run_id": "run-d78b46fd2420ff0596ac601b",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/parrot-pair-original.webp",
+    "native_sha256": "4c5a6608f2c93231e4c1ae1a98f59bec43572ffe4af00a5c5edac350c65d5b7e",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "parrot": {
+    "run_id": "run-ee423aba5f2a77b7ca526b9d",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/parrot-original.webp",
+    "native_sha256": "0043bd1f1c08cf0e1d5ffa5d9af51b83487abedba0264cc3efbcbe9ef8d845e6",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "parrot-third": {
+    "run_id": "run-228681cda786849a41330c44",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/parrot-third-original.webp",
+    "native_sha256": "80eb3794be0f73f5428816ba0c1f9af04ca266665e5c806dd51b21e8435ae8dd",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "pink-bowl-a": {
+    "run_id": "run-6bc4cdf62c71afe88df3c58d",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/pink-bowl-a-original.webp",
+    "native_sha256": "0aa73f9252371e04d42c90b4783e9ea7daf9dd4509873b5ce85ea0ad6a4ea56d",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "pink-bowl-b": {
+    "run_id": "run-b37048e1157cd21a8469df1d",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/pink-bowl-b-original.webp",
+    "native_sha256": "ba413ca43572c64921d66fa3358784f206312aa210eff462fef98da16e8a028a",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "pink-compote": {
+    "run_id": "run-fd8e8ded220e8503b794f5ca",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/pink-compote-original.webp",
+    "native_sha256": "bec46038fb9c91cac8d58cdf74e5810db5e62513c12e3c888f79070b427e24e7",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "pink-dish": {
+    "run_id": "run-dbba0166ae8d88fec188c57e",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/pink-dish-original.webp",
+    "native_sha256": "9d0d838ca526d34bb40f4bb431e4acc5b02f09c631a7ff514fdd67320404d454",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "pink-ladle": {
+    "run_id": "run-f92d26b009e08c3968a66962",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/pink-ladle-original.webp",
+    "native_sha256": "6166c76adab92f2805b4bce92bedc2d11eef63d9f1f46eb68aeeee092f891204",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "pink-small-tureen": {
+    "run_id": "run-6db90526ad4eb40afeb28055",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/pink-small-tureen-original.webp",
+    "native_sha256": "5de8f30fefb7596a7e64566009208fb361a0f9b585892a1b951808ffc8abd708",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "recamier": {
+    "run_id": "run-38d755fe4ca93ceef974a5b9",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/recamier-original.webp",
+    "native_sha256": "c57863a35e1b729ad23aff3042ff37897f1fd0e690edf450a05c6c5bf337ad35",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "river-deities": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 0,
+    "recorded_actual_cost_usd": "unknown",
+    "run_id": "run-7b018ec98c334a45ef16e681",
+    "spend_state": "possibly_spent",
+    "retry_state": "reconcile-only",
+    "native_sha256": null,
+    "visual_verdict": "blocked: unreconciled, possibly spent; no new submission"
+  },
+  "romany-frame": {
+    "run_id": "run-5354f1acbb61ae2e8fa99da6",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/romany-frame-original.webp",
+    "native_sha256": "d5ebdae7350201911db7f25a78b1db17bc5a9183d44fd73e597c435ef1256b96",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "sconce-left": {
+    "run_id": "run-8665726efb51a5c74df0ece2",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/sconce-left-original.webp",
+    "native_sha256": "f1656b69aa66bf8969ac2e19959ae3d1a39daf1494c7dff1e93802f6201c4f48",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "sconce-right": {
+    "run_id": "run-6585414f18874d74609942a2",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/sconce-right-original.webp",
+    "native_sha256": "4ed503f0504c83a7e211081e269adca9a9f1e8b3454cfb0323eae856761242a0",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "secretary": {
+    "run_id": "run-676050e215912088607a60d5",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/secretary-original.webp",
+    "native_sha256": "fd8e28cf1ced14b9372ae4e9c75941b2aab0978874f14fad921cfa4499112956",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "shepherd": {
+    "run_id": "run-b8cf3951c428e152d5d6cfd1",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/shepherd-original.webp",
+    "native_sha256": "6a95162e15524a6ea25ac55a7f3cd15b2946621036d1e7afb7d2c8501b716410",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "st-george": {
+    "run_id": "run-17b58b6c3670a45886b1867e",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/st-george-original.webp",
+    "native_sha256": "c529c8402bf4782e55361de2761c40e83b801d157159a8badad6bec028f21152",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "writing-table": {
+    "run_id": "run-66057f87b838cd5f74297367",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/writing-table-original.webp",
+    "native_sha256": "0c1b04da9e4bac4ad1dfb8e32c20ce6699ad51118f1cd79bbe6ce7ab4569e471",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "baseboard": {
+    "run_id": "run-021badb0c47774d2ebce0d5a",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/baseboard-original.webp",
+    "native_sha256": "da61e1b18260f22f95e044dd3b053ba35bbc6a065ce3e01dd85a8fdb757d9cad",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "door-architrave": {
+    "run_id": "run-85364264e9b9bda0a9698877",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/door-architrave-original.webp",
+    "native_sha256": "7375be52dffd4dc255dcf0d82d171c79271e57ff539443d3f89bba0e672e846a",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "ivory-plaster": {
+    "run_id": "run-10a73452865078589c766e67",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/ivory-plaster-original.webp",
+    "native_sha256": "d3686872b0da15f4bd6ede3dcb7c8991e7687ec90f0589fe5d1559737b46a8c8",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "recamier-rear": {
+    "run_id": "run-a3be59560920138107654d3c",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/recamier-rear-original.webp",
+    "native_sha256": "f2170c0124e6f44a4c8117bbb3c516d112981f17be5783819f968752be582511",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "inventory_pass_spend": {
+    "successful_count": 49,
+    "actual_usd": "0.490000",
+    "map_prior_usd": ".11",
+    "map_cumulative_actual_usd": "0.600000",
+    "possibly_spent": [
+      {
+        "kind": "river-deities",
+        "run_id": "run-7b018ec98c334a45ef16e681",
+        "maximum_reserved_usd": ".01",
+        "state": "submission_unreconciled; no resubmission"
+      }
+    ],
+    "map_conservative_ceiling_usd": "0.610000"
+  },
+  "architecture_review": {
+    "ivory-plaster": "Native Muse faceting inspected; deterministic contrast restraint and mirrored-edge assembly create matching texture borders. Smooth plaster material scale remains provisional.",
+    "door-architrave": "Parallel stepped bands inspected; native shallow profile/deep reveal authored from video relationship; exact cross-section unmeasured.",
+    "baseboard": "Raised lip and fascia inspected; native continuous shallow profile; corners and complete-gallery coverage unverified.",
+    "source_use": "video used for reference/camera/profile measurement only; never room albedo",
+    "layout": "v15 same-wall gallery door and sofa rejected by owner/wide shots; v17 doorway/cases/furniture corrected from wide source camera; not complete map"
+  },
+  "remaining": "All ten video rooms/objects still require full identity, Muse, geometry, connectivity and independent visual acceptance; central deities run blocked, no blind retry."
 }

@@ -4,6 +4,7 @@ const puppeteer = require(path.join(require('os').homedir(), 'promo-lab/node_mod
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 (async () => {
   const [url, out, width = '1100', mode = 'doorway'] = process.argv.slice(2);
+  const front = mode === 'room-front';
   fs.mkdirSync(out, {recursive: true});
   const browser = await puppeteer.launch({executablePath: '/usr/bin/google-chrome', headless: 'new',
     args: ['--no-sandbox', '--use-gl=angle', '--use-angle=gl-egl', '--ignore-gpu-blocklist']});
@@ -33,12 +34,12 @@ const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
       for (const key of keys) await page.keyboard.up(key);
       await wait(200);
     };
-    if (mode !== 'room') await hold(['w', 'a'], 560);
-    await hold(['w'], mode === 'room' ? 2000 : 1150);
+    if (mode !== 'room' && !front) await hold(['w', 'a'], 560);
+    await hold([front ? 's' : mode === 'room' ? 'a' : 'w'], mode === 'room' || front ? 1400 : 1150);
     report.keyboard_forward = await page.evaluate(() => window.doorwayState);
     await page.screenshot({path: path.join(out, 'browser-forward.png')});
-    await hold(['s'], mode === 'room' ? 2000 : 1150);
-    if (mode !== 'room') await hold(['s', 'd'], 560);
+    await hold([front ? 'w' : mode === 'room' ? 'd' : 's'], mode === 'room' || front ? 1400 : 1150);
+    if (mode !== 'room' && !front) await hold(['s', 'd'], 560);
     report.keyboard_reverse = await page.evaluate(() => window.doorwayState);
     await page.screenshot({path: path.join(out, 'browser-reverse.png')});
     report.browser = await browser.version();
@@ -53,8 +54,8 @@ const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
       caveat: 'JS heap only; excludes complete process, GPU and WASM allocation accounting'
     } : null);
     report.pass = Object.values(report.engine.checks).every(Boolean)
-      && report.keyboard_forward.position[2] < -1 && report.keyboard_forward.on_floor
-      && report.keyboard_reverse.position[2] > 0.5 && report.keyboard_reverse.on_floor
+      && (front ? report.keyboard_forward.position[2] > 0.0 : mode === 'room' ? report.keyboard_forward.position[0] < -3.0 : report.keyboard_forward.position[2] < -1) && report.keyboard_forward.on_floor
+      && (front ? report.keyboard_reverse.position[2] < -.8 : mode === 'room' ? report.keyboard_reverse.position[0] > -2.4 : report.keyboard_reverse.position[2] > 0.5) && report.keyboard_reverse.on_floor
       && errors.length === 0;
     fs.writeFileSync(path.join(out, 'browser-result.json'), JSON.stringify(report, null, 2));
     console.log(JSON.stringify(report));

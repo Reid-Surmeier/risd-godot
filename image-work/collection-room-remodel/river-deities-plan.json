@@ -1,0 +1,24 @@
+{
+  "attempts": [
+    {
+      "id": "river-deities-001",
+      "prompt": "river-deities-prompt.txt",
+      "promptSha256": "711b3abb0e13927e475881a8ec41f33f2e3a9db121d024c354b7cd4fa819ce14",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/neptune-0.png",
+          "sha256": "962020e11aa090d1142db919531911038f1386a68d6e14d2765104df124546a4"
+        },
+        {
+          "path": "inventory-references/amphitrite-0.png",
+          "sha256": "164a602705a02c1116a7f7000b0e7709450ae56e98a1faf69f27838735356f12"
+        },
+        {
+          "path": "inventory-references/neptune-2.png",
+          "sha256": "be48620381f64e15269cc77c3b865549a26cef28c980117cf2939b74c98b66f4"
+        }
+      ]
+    }
+  ]
+}

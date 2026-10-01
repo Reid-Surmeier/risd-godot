@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "candlestick-pair-001",
+      "prompt": "candlestick-pair-prompt.txt",
+      "promptSha256": "6fab2f26d435d80629f8ea72f7224e3006e49fdfd745821dbfb7f6606b3d07e4",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/candlestick-pair-catalogue.png",
+          "sha256": "f249ad074232b138e81a8be7564d77c1b43361c2f62dcaae9164469966d2f438"
+        }
+      ]
+    }
+  ]
+}

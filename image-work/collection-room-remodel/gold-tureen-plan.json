@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "gold-tureen-001",
+      "prompt": "gold-tureen-prompt.txt",
+      "promptSha256": "c393849d07c47b4d3c71fd8ece6cd6e4ac8a1d9e7f64f75cae06d7da12ee5d23",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/gold-tureen-selected-0.png",
+          "sha256": "b4827a94c5487cfae20920aadd9d18f36457778a2bc096b1410ea381325310da"
+        },
+        {
+          "path": "inventory-references/gold-tureen-selected-1.png",
+          "sha256": "546388d490b812f62a8ee63186df24c7c702ad94693420f54268f1e44dcb9e63"
+        }
+      ]
+    }
+  ]
+}

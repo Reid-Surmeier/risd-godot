@@ -1,0 +1,75 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-86bf62616ceaa1231207",
+      "objective": "Reference 1 is the official RISD Museum photograph of Brown Bear Jug and Cover, accession 2017.74.18.ab. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted ceramic texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep all limbs, feet, tails, hats, spouts and handles visible. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry; hidden profiles are guided by catalogue dimensions and remain provisional.\n",
+      "procedureId": "muse-86bf62616ceaa1231207",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "bear-jug-recipe.json",
+          "sha256": "86bf62616ceaa1231207c0ae904cfae636628afd11ff3b045bb3101bdf5b4ee8"
+        },
+        {
+          "applicationPath": "bear-jug-plan.json",
+          "sha256": "fc540013e93c6079175f6ab3df5808f8ee0d614e1c41ca1decc25e8657e13014"
+        },
+        {
+          "applicationPath": "bear-jug-prompt.txt",
+          "sha256": "417b89fa335dbe614d9dcec319d9cec2d31c472fd5d2655b629e7ec59e68f57a"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/bear-jug-catalogue.png",
+          "sha256": "ef39d6db5ebc387cf37b6873b3e6739db02e8e2db1bdedf6af2f81a2a50ac37c",
+          "byteLength": 548183,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 662,
+            "height": 1247
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"Reference 1 is the official RISD Museum photograph of Brown Bear Jug and Cover, accession 2017.74.18.ab. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted ceramic texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep all limbs, feet, tails, hats, spouts and handles visible. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry; hidden profiles are guided by catalogue dimensions and remain provisional.\\n\",\"objectiveId\":\"muse-86bf62616ceaa1231207\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-86bf62616ceaa1231207\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/bear-jug-catalogue.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":548183,\"inspectedMedia\":{\"height\":1247,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":662},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"ef39d6db5ebc387cf37b6873b3e6739db02e8e2db1bdedf6af2f81a2a50ac37c\",\"slot\":\"reference-000\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"bear-jug-recipe.json\",\"sha256\":\"86bf62616ceaa1231207c0ae904cfae636628afd11ff3b045bb3101bdf5b4ee8\"},{\"applicationPath\":\"bear-jug-plan.json\",\"sha256\":\"fc540013e93c6079175f6ab3df5808f8ee0d614e1c41ca1decc25e8657e13014\"},{\"applicationPath\":\"bear-jug-prompt.txt\",\"sha256\":\"417b89fa335dbe614d9dcec319d9cec2d31c472fd5d2655b629e7ec59e68f57a\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "816ba246ff4f5744f0aa47df33a9016719e3bb7e244daaa5b819433f7db116a9"
+  },
+  "normalView": {
+    "objective": "Reference 1 is the official RISD Museum photograph of Brown Bear Jug and Cover, accession 2017.74.18.ab. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted ceramic texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep all limbs, feet, tails, hats, spouts and handles visible. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry; hidden profiles are guided by catalogue dimensions and remain provisional.\n",
+    "evidence": "1 authoritative reference matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

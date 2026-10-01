@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "candlestick-001",
+      "prompt": "candlestick-prompt.txt",
+      "promptSha256": "567e3ba5a7c1cfbfe1c55d9ad09f49535791bcf222767b366c7bdc73b4be4491",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/candlestick-catalogue.png",
+          "sha256": "5e300c71705fc1b6c15de29b994b9faf687c58c56f871edc476878434eab3430"
+        }
+      ]
+    }
+  ]
+}

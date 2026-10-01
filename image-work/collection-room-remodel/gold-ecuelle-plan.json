@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "gold-ecuelle-001",
+      "prompt": "gold-ecuelle-prompt.txt",
+      "promptSha256": "de260e2c004c9978cbe003f1a387725efe5cb25ff7171b88964b4b8cf608f8da",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/gold-ecuelle-selected-0.png",
+          "sha256": "da1ca80cff13c47ad03c57cc9f64483c5d65c3e663ac563438feb193d0ffcceb"
+        }
+      ]
+    }
+  ]
+}

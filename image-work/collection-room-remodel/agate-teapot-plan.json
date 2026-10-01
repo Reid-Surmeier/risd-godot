@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "agate-teapot-001",
+      "prompt": "agate-teapot-prompt.txt",
+      "promptSha256": "48f2c1169133fb6f520599398146083f79324f3db251a542854054a39e854fb3",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/agate-teapot-catalogue.png",
+          "sha256": "fc5e5212ef221142c6b5c3f8a74dce607a72bfbc317dc710b68ac1ce20a79621"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-10a7c890eb2915f70252",
+  "summary": "The reference photographs are the sole authority for RISD Museum Wall Sconce, accession 2017.74.6.3. Produce ONE complete front view of this exact single object, facing as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\n",
+  "procedureId": "muse-10a7c890eb2915f70252",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/sconce-left-selected-0.png",
+      "sha256": "0e672cb759aabf58f3918fdb648ee091ee7b029c09f23fa1a1073e354e7b9ba4",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "sconce-left-recipe.json",
+      "sha256": "10a7c890eb2915f70252e2bec50d9d75d101de354e6a2dc47bd73b55c8dd3812"
+    },
+    {
+      "applicationPath": "sconce-left-plan.json",
+      "sha256": "a4fd8fee96d41b3d74331794f147e6aeb53d13e78336d20f865cfdeaf00ab106"
+    },
+    {
+      "applicationPath": "sconce-left-prompt.txt",
+      "sha256": "f10970df15809c3178c38a9e51dc61629a1209a2eecdc3601926638a23c0e295"
+    }
+  ]
+}

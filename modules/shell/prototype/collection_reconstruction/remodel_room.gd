@@ -3,9 +3,10 @@
 extends "doorway_walk.gd"
 
 const Painting := preload("res://modules/shell/prototype/gallery_walk4/painting_asset.gd")
-var inventory := {"point_clouds": 0, "bookcase": 1, "mirrors": 2, "approved_frames": 1, "muse_upholstery": 1, "settee": 1, "armchairs": 3, "catalogue_tureens": 1}
+var inventory := {"point_clouds":0,"bookcase":1,"mirrors":2,"settee":1,"armchairs":3}
 var contact_shadow:MeshInstance3D
-var views := [Vector3(.45, .25, -4.6), Vector3(.45, .25, 2.8)]
+var ceiling_details:Array[MeshInstance3D]=[]
+var views := [Vector3(.45, .25, -4.6), Vector3(-.55, .25, 3)]
 
 func make_visitor() -> Node3D:
 	var actor=load("res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gd").new()
@@ -30,6 +31,8 @@ func _ready() -> void:
 	build_mirrors()
 	build_displays()
 	build_furniture()
+	build_catalogue_objects()
+	build_adjacent_gallery()
 	var index:=0
 	for surface in find_children("*","MeshInstance3D",true,false):
 		if not visitor.is_ancestor_of(surface):
@@ -117,74 +120,93 @@ func panel(parent: Node3D, corners: Array, uvs: Array, m: Material, tone := Colo
 	parent.add_child(mesh)
 
 func build_rooms() -> void:
-	var wall := look(Color.WHITE, "res://presentation/wall-plaster.png")
 	var ivory := look(Color("e9e4d8"))
-	ivory.emission_enabled=true
-	ivory.emission=Color(.55,.55,.55)
 	var oak := ShaderMaterial.new()
 	oak.shader=load("res://presentation/floor_oak.gdshader")
 	oak.set_shader_parameter("oak",load("res://presentation/oak-board-atlas-168-v3.webp"))
-	oak.set_shader_parameter("floor_z_limits",Vector2(-7.3,7.1))
-	for area in [[-2.75, 3.65, -7.20, -.2], [-2.75, 3.65, .2, 7.0]]:
-		var x0: float = area[0]
-		var x1: float = area[1]
-		var z0: float = area[2]
-		var z1: float = area[3]
-		var width := x1 - x0
-		var depth := z1 - z0
-		# Straight oak boards in these source rooms, not the Hall's herringbone layout.
-		for i in int(ceil(width / .14)):
-			var xa: float = x0 + i * .14
-			var xb: float = min(x1, xa + .14)
-			for j in int(ceil(depth / 1.8)) + 1:
-				var za: float = max(z0, z0 + j * 1.8 - (i % 3) * .6)
-				var zb: float = min(z1, z0 + (j + 1) * 1.8 - (i % 3) * .6)
-				if zb <= za:
-					continue
-				var band: float = .05 + (i % 6) * .07
-				panel(self, [Vector3(xa,.003,za),Vector3(xb,.003,za),Vector3(xb,.003,zb),Vector3(xa,.003,zb)],
-					[Vector2.ZERO,Vector2.DOWN,Vector2.ONE,Vector2.RIGHT], oak,Color(1,1,1,fmod((i*7+j*3)*.131,1.0)))
-		for side in [x0, x1]:
-			# Source IMG_6380/245 enters through the right wall from the purple corridor.
-			var spans:Array=[Vector2(z0,z1)]
-			if side==x1 and z0<0:spans=[Vector2(z0,-2.8),Vector2(-1.2,z1)]
+	var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://geometry.json"))
+	var floor_limits:=Vector2(INF,-INF)
+	for area in data.rooms:
+		floor_limits.x=min(floor_limits.x,area.bounds[2]-.1)
+		floor_limits.y=max(floor_limits.y,area.bounds[3]+.1)
+	assert(floor_limits.x<floor_limits.y)
+	oak.set_shader_parameter("floor_z_limits",floor_limits)
+	for area in data.rooms:
+		var b:Array=area.bounds
+		var wall:=look(Color("7c7187")) if area.label.begins_with("purple") else look(Color.WHITE,"res://presentation/wall-plaster.png")
+		for i in int(ceil((b[1]-b[0])/.14)):
+			var xa:float=b[0]+i*.14
+			var xb:float=min(b[1],xa+.14)
+			for j in int(ceil((b[3]-b[2])/1.8))+1:
+				var za:float=max(b[2],b[2]+j*1.8-(i%3)*.6)
+				var zb:float=min(b[3],b[2]+(j+1)*1.8-(i%3)*.6)
+				if zb<=za:continue
+				panel(self,[Vector3(xa,.003,za),Vector3(xb,.003,za),Vector3(xb,.003,zb),Vector3(xa,.003,zb)],
+					[Vector2.ZERO,Vector2.DOWN,Vector2.ONE,Vector2.RIGHT],oak,Color(1,1,1,fmod((i*7+j*3)*.131,1.0)))
+		for side in ["west","east","north","south"]:
+			var vertical:bool=side in ["west","east"]
+			var fixed:float=b[0] if side=="west" else b[1] if side=="east" else b[2] if side=="north" else b[3]
+			var lo:float=b[2] if vertical else b[0]
+			var hi:float=b[3] if vertical else b[1]
+			var opening:Array=area.openings.get(side,[])
+			var spans:Array=[[lo,hi]] if opening.is_empty() else [[lo,opening[0]],[opening[1],hi]]
 			for span in spans:
-				var w:=solid(Vector3(side,1.75,(span.x+span.y)/2),Vector3(.12,3.5,span.y-span.x),wall,true)
-				for y in [.07,3.35]:
-					var trim:=solid(Vector3(side,y,(span.x+span.y)/2),Vector3(.17,.14,span.y-span.x),ivory)
-					trim.reparent(w)
+				if span[1]-span[0]<.001:continue
+				var center:=Vector3(fixed,1.75,(span[0]+span[1])/2) if vertical else Vector3((span[0]+span[1])/2,1.75,fixed)
+				var size:=Vector3(.12,3.5,span[1]-span[0]) if vertical else Vector3(span[1]-span[0],3.5,.12)
+				var casing:=solid(center,size,wall,true)
+				var trim:=moulding(span[1]-span[0],.16,"baseboard",false)
+				var inward:float=1.0 if side in ["west","north"] else -1.0
+				trim.position=Vector3(fixed+inward*.065,.08,(span[0]+span[1])/2) if vertical else Vector3((span[0]+span[1])/2,.08,fixed+inward*.065)
+				trim.rotation.y=inward*PI/2 if vertical else 0.0 if inward==1.0 else PI
+				trim.reparent(casing)
+			if opening.is_empty():continue
+			var width:float=opening[1]-opening[0]
+			var middle:float=(opening[0]+opening[1])/2
+			var header:=solid(Vector3(fixed,3.12,middle) if vertical else Vector3(middle,3.12,fixed),Vector3(.38,.76,width) if vertical else Vector3(width,.76,.38),wall,true)
+			for edge in opening:
+				# Deep painted reveals are visible in both reciprocal doorway shots.
+				var jamb:=solid(Vector3(fixed,1.35,edge) if vertical else Vector3(edge,1.35,fixed),Vector3(.38,2.7,.08) if vertical else Vector3(.08,2.7,.38),ivory)
+				jamb.reparent(header)
+				for face in [-1,1]:
+					var surround:=moulding(.16,2.7,"door-architrave",true)
+					surround.position=Vector3(fixed+face*.20,1.35,edge) if vertical else Vector3(edge,1.35,fixed+face*.20)
+					surround.rotation.y=face*PI/2 if vertical else 0.0 if face==1 else PI
+					surround.reparent(header)
+			for face in [-1,1]:
+				var top:=moulding(.16,width+.16,"door-architrave",true)
+				top.rotation.z=PI/2
+				top.rotation.y=face*PI/2 if vertical else 0.0 if face==1 else PI
+				top.position=Vector3(fixed+face*.20,2.73,middle) if vertical else Vector3(middle,2.73,fixed+face*.20)
+				top.reparent(header)
+	# Ceiling rails and vents follow the wide views; omit opaque ceiling for the gallery camera.
+	for x in [-1.7,.4,2.5]:
+		for z in [-5.5,-3.5,-1.5]:
+			var rail:=solid(Vector3(x,3.43,z),Vector3(1.65,.025,.035),ivory)
+			ceiling_details.append(rail)
+			for offset in [-.5,.5]:
+				var fixture:=solid(Vector3(x+offset,3.33,z),Vector3(.08,.15,.08),ivory)
+				fixture.reparent(rail)
+	for spec in [[Vector3(-.55,3.04,-.61),0.0],[Vector3(3.43,3.04,-2),PI/2]]:
+		var vent:=solid(spec[0],Vector3(1.85,.07,.018),look(Color("746f64")))
+		vent.rotation.y=spec[1]
+	inventory["muse_architecture_assets"]=3
 
-		var end: float = z0 if z0 < 0 else z1
-		var w := solid(Vector3((x0+x1)/2,1.75,end),Vector3(width,3.5,.12),wall,true)
-		for y in [.07,3.35]:
-			var trim := solid(Vector3((x0+x1)/2,y,end+.07),Vector3(width,.14,.15),ivory)
-			trim.reparent(w)
-	# The observed opening is shared by these rooms; no new connectors.
-	for span in [[-2.75,-.711604],[1.233235,3.65]]:
-		var width: float = span[1]-span[0]
-		solid(Vector3((span[0]+span[1])/2,1.75,0),Vector3(width,3.5,.25),wall,true)
-	var lintel:=solid(Vector3(.26082,3.12,0),Vector3(1.945,.76,.25),wall,true)
-	for i in 2:
-		var x: float = [-.711604,1.233235][i]
-		var trim:=solid(Vector3(x,1.35,.16),Vector3(.14,2.7,.13),ivory)
-		trim.reparent(lintel)
-	var trim:=solid(Vector3(.26082,2.73,.16),Vector3(2.1,.18,.16),ivory)
-	trim.reparent(lintel)
-	panel(self,[Vector3(-.711604,.004,-.2),Vector3(1.233235,.004,-.2),Vector3(1.233235,.004,.2),Vector3(-.711604,.004,.2)],
-		[Vector2.ZERO,Vector2.RIGHT,Vector2.ONE,Vector2.DOWN],oak)
-
-	# ponytail: bounded corridor stub; extend only after its next room is source-verified.
-	var purple:=look(Color("7c7187"))
-	var header:=solid(Vector3(3.65,3.12,-2.0),Vector3(.12,.76,1.6),wall,true)
-	for z in [-2.8,-1.2]:
-		var jamb:=solid(Vector3(3.57,1.35,z),Vector3(.17,2.7,.14),ivory)
-		jamb.reparent(header)
-	var top:=solid(Vector3(3.57,2.73,-2),Vector3(.17,.18,1.74),ivory)
-	top.reparent(header)
-	for z in [-2.8,-1.2]:solid(Vector3(4.62,1.75,z),Vector3(1.94,3.5,.12),purple,true)
-	solid(Vector3(5.6,1.75,-2),Vector3(.12,3.5,1.6),purple,true)
-	panel(self,[Vector3(3.65,.003,-2.8),Vector3(5.6,.003,-2.8),Vector3(5.6,.003,-1.2),Vector3(3.65,.003,-1.2)],
-		[Vector2.ZERO,Vector2.RIGHT,Vector2.ONE,Vector2.DOWN],oak)
+func moulding(width:float,height:float,kind:String,upright:bool) -> MeshInstance3D:
+	# ponytail: shallow faceted profile measured qualitatively; exact millimetres unverified.
+	var profile:Array=[[0,.008],[.10,.008],[.10,.018],[.23,.018],[.23,.028],[.43,.028],[.43,.014],[.65,.014],[.65,.038],[.86,.045],[1,.025]] if upright else [[0,.035],[.10,.035],[.10,.012],[.79,.012],[.94,.030],[1,.030]]
+	var st:=SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for i in profile.size()-1:
+		var a:Vector2=Vector2(profile[i][0],profile[i][1])
+		var b:Vector2=Vector2(profile[i+1][0],profile[i+1][1])
+		var corners:Array=[Vector3((a.x-.5)*width,-height/2,a.y),Vector3((b.x-.5)*width,-height/2,b.y),Vector3((b.x-.5)*width,height/2,b.y),Vector3((a.x-.5)*width,height/2,a.y)] if upright else [Vector3(-width/2,(a.x-.5)*height,a.y),Vector3(width/2,(a.x-.5)*height,a.y),Vector3(width/2,(b.x-.5)*height,b.y),Vector3(-width/2,(b.x-.5)*height,b.y)]
+		Painting.quad(st,corners,[Vector2(a.x,1),Vector2(b.x,1),Vector2(b.x,0),Vector2(a.x,0)] if upright else [Vector2(0,1-a.x),Vector2(1,1-a.x),Vector2(1,1-b.x),Vector2(0,1-b.x)])
+	var mesh:=MeshInstance3D.new()
+	mesh.mesh=st.commit()
+	mesh.material_override=look(Color.WHITE,"res://assets/"+kind+".png")
+	add_child(mesh)
+	return mesh
 
 func build_bookcase() -> void:
 	var node := Node3D.new()
@@ -250,50 +272,63 @@ func build_mirrors() -> void:
 		mirror.position=Vector3(x,2.15,-7.00)
 	# The two catalogue photographs show opposite central scrolls: .4.2 left, .4.1 right.
 
+func display_case(at:Vector3,size:Vector3) -> void:
+	var ivory:=look(Color("eeeae2"))
+	# Wide shots show a suspended tray, not a solid pedestal down to the floor.
+	solid(at+Vector3(0,1.04,0),Vector3(size.x,.12,size.z),ivory,true)
+	for x in [-size.x*.4,size.x*.4]:
+		for z in [-size.z*.36,size.z*.36]:
+			solid(at+Vector3(x,.49,z),Vector3(.025,.98,.025),ivory,true)
+	var glass:=look(Color(.78,.88,.89,.12),"",true)
+	for z in [-size.z/2,size.z/2]:solid(at+Vector3(0,1.5,z),Vector3(size.x,.8,.012),glass)
+	for x in [-size.x/2,size.x/2]:solid(at+Vector3(x,1.5,0),Vector3(.012,.8,size.z),glass)
+
 func build_displays() -> void:
 	var ivory:=look(Color("eeeae2"))
-	var wood:=look(Color("38281d"))
-	var cloth:=look(Color.WHITE,"res://assets/sofa-cloth.webp")
-	# Source-observed white furniture platforms, sofa, and ceramic display case.
 	solid(Vector3(.45,.065,-6.73),Vector3(5.8,.13,.95),ivory,true)
-	solid(Vector3(-2.23,.065,-4.0),Vector3(.85,.13,4.8),ivory,true)
-	# Furniture clearance boxes keep the visitor off museum platforms.
-	solid(Vector3(3.05,.55,-3.55),Vector3(.8,1.1,1.75),ivory,true)
-	var glass:=look(Color(.78,.88,.89,.16))
-	glass.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
-	glass.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
-	for z in [-4.43,-2.67]:
-		solid(Vector3(3.05,1.5,z),Vector3(.8,.80,.012),glass)
-	for x in [2.65,3.45]:
-		solid(Vector3(x,1.5,-3.55),Vector3(.012,.8,1.75),glass)
-	build_tureen(Vector3(3.05,1.10,-3.55))
-	var frame_data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/frame-geometry.json"))
-	var frame:=Painting.new()
-	add_child(frame)
-	frame.build_framed(load("res://assets/frame.png"),load("res://assets/painting-35.786.jpg"),Vector2(.651,.541),frame_data.margins_px)
-	frame.position=Vector3(-2.67,1.9,2.8)
-	frame.rotation.y=PI/2
-	var edwards_data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/edwards-frame-geometry.json"))
-	var edwards:=Painting.new()
-	add_child(edwards)
-	edwards.build_framed(load("res://assets/edwards-frame.png"),load("res://assets/painting-58.197.jpg"),Vector2(.637,.760),edwards_data.margins_px)
-	edwards.position=Vector3(.55,2.43,-7.02)
-	inventory["verified_portraits"]=1
-	# Sofa portrait and remaining artwork identities stay unfilled pending catalogue match.
+	solid(Vector3(-2.23,.065,-4.075),Vector3(.85,.13,6.25),ivory,true)
+	# Pink Worcester left of the gallery door; gold export service beside the purple door.
+	display_case(Vector3(1.85,0,-.95),Vector3(1.8,0,.88))
+	display_case(Vector3(3.05,0,-3.8),Vector3(1.0,0,1.8))
+	# Raised central stand for the gold tureen, visible in the reference video.
+	solid(Vector3(3.32,1.15,-3.8),Vector3(.32,.1,.40),ivory)
+	# The Vincennes pair occupies its own central pedestal.
+	solid(Vector3(.45,.55,-3.85),Vector3(1.1,1.1,.65),ivory,true)
+	# The photographed bust keeps its separate white plinth and black-and-white socle.
+	solid(Vector3(-2.2,.63,-5.87),Vector3(.48,1.0,.48),ivory,true)
+	solid(Vector3(-2.2,1.15,-5.87),Vector3(.34,.18,.34),look(Color("343332")))
+	for y in [1.05,1.27]:solid(Vector3(-2.2,y,-5.87),Vector3(.4,.06,.4),ivory)
+	var portraits=[["edwards","58.197",Vector2(.637,.760),Vector3(.55,2.43,-7.02),0.0],
+		["romany","2009.9",Vector2(.762,.952),Vector3(-2.67,2.12,-4.7),PI/2]]
+	for row in portraits:
+		var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/"+row[0]+"-frame-geometry.json"))
+		var painting:=Painting.new()
+		add_child(painting)
+		painting.build_framed(load("res://assets/"+row[0]+"-frame.png"),load("res://assets/painting-"+row[1]+".jpg"),row[2],data.margins_px)
+		painting.position=row[3]
+		painting.rotation.y=row[4]
+	inventory["verified_paintings"]=2
+	inventory["display_cases"]=2
+	inventory["central_pedestals"]=1
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	if contact_shadow:contact_shadow.position=Vector3(body.position.x,.012,body.position.z)
+	# Trim is part of its wall's camera cutaway, not a floating independent band.
+	for wall in casings:
+		for i in range(2,wall.get_child_count()):
+			wall.get_child(i).visible=wall.get_child(1).visible
+	update_baked_visibility()
+
+func update_baked_visibility() -> void:
+	for rail in ceiling_details:
+		rail.visible=not inventory.has("native_lightmap_users") or camera.global_position.y<3.4
 	var baked=get_node_or_null("BakedRoom")
 	if baked:
 		for surface in baked.get_children():
 			if surface is MeshInstance3D and surface.has_meta("live_cutaway"):
 				var target=surface.get_meta("live_cutaway")
-				surface.visible=target.get_parent().get_child(1).visible if target.get_parent() is StaticBody3D and target.get_parent() in casings else true
-	# Trim is part of its wall's camera cutaway, not a floating independent band.
-	for wall in casings:
-		for i in range(2,wall.get_child_count()):
-			wall.get_child(i).visible=wall.get_child(1).visible
+				surface.visible=target.get_parent().get_child(1).visible if target.get_parent() is StaticBody3D and target.get_parent() in casings else target.is_visible_in_tree()
 
 func load_bake() -> void:
 	if not ResourceLoader.exists("res://modules/shell/prototype/gallery_walk4/baked/room.lmbake"):
@@ -329,7 +364,7 @@ func load_bake() -> void:
 	inventory["native_lightmap_users"]=bake.get_node("Lightmap").light_data.get_user_count()
 
 func build_furniture() -> void:
-	for spec in [["settee",Vector3(-2.21,.13,-4.7),PI/2],["armchair",Vector3(2.8,.13,-6.65),0.0],["armchair",Vector3(-1.9,.13,-6.65),0.0],["entrance-chair",Vector3(-2.2,.13,-1.8),PI/2]]:
+	for spec in [["settee",Vector3(-2.21,.13,-5.2),PI/2],["armchair",Vector3(2.8,.13,-6.65),0.0],["armchair",Vector3(-1.9,.13,-6.65),0.0],["entrance-chair",Vector3(-2.2,.13,-1.95),PI/2]]:
 		var kind: String=spec[0]
 		var node:=Node3D.new()
 		add_child(node)
@@ -396,3 +431,60 @@ func build_tureen(at:Vector3) -> void:
 		ring.position=center
 		ring.material_override=gold
 		node.add_child(ring)
+
+func build_catalogue_objects() -> void:
+	var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/catalogue-objects.json"))
+	for row in data.instances:
+		var asset:Dictionary=data.meshes[row.asset]
+		if row.get("shape","") in ["cabinet","table"]:
+			build_front_furniture(row,asset)
+			continue
+		var st:=SurfaceTool.new()
+		st.begin(Mesh.PRIMITIVE_TRIANGLES)
+		for triangle in asset.triangles:
+			var a:=vec(asset.vertices[triangle[0]])
+			var b:=vec(asset.vertices[triangle[1]])
+			var c:=vec(asset.vertices[triangle[2]])
+			st.set_normal((b-a).cross(c-a).normalized())
+			for i in triangle:
+				st.set_uv(Vector2(asset.uv[i][0],asset.uv[i][1]))
+				st.add_vertex(vec(asset.vertices[i]))
+		var mesh:=MeshInstance3D.new()
+		mesh.mesh=st.commit()
+		mesh.material_override=Painting.mat(load("res://assets/"+row.asset+"-volume.png"),1.0,true)
+		mesh.position=vec(row.position)
+		mesh.rotation=Vector3(row.get("pitch",0.0),row.get("yaw",0.0),0)
+		add_child(mesh)
+	inventory["catalogue_volume_objects"]=data.instances.size()
+
+func build_front_furniture(row:Dictionary,asset:Dictionary) -> void:
+	var node:=Node3D.new()
+	add_child(node)
+	node.position=vec(row.position)
+	node.rotation.y=row.get("yaw",0.0)
+	var size:=vec(row.size_m)
+	var wood:=look(Color("583a25"))
+	var cabinet:bool=row.shape=="cabinet"
+	var body:=solid(Vector3(0,(size.y+.16)/2,0),Vector3(size.x*.96,size.y-.16,size.z*.94),wood) if cabinet else solid(Vector3(0,size.y-.025,0),Vector3(size.x,.05,size.z),wood)
+	body.reparent(node,false)
+	for x in [-size.x*.40,size.x*.40]:
+		for z in [-size.z*.35,size.z*.35]:
+			var height:float=.16 if cabinet else size.y-.05
+			var leg:=solid(Vector3(x,height/2,z),Vector3(.035,height,.035),wood)
+			leg.reparent(node,false)
+	var front:=Painting.new()
+	node.add_child(front)
+	front.build_shaped(load("res://assets/"+row.asset+"-volume.png"),Vector2(size.x,size.y),asset.outline,Color("583a25"))
+	front.position=Vector3(0,size.y/2,size.z/2)
+	# Muse carries the actual front ornament; source-observed box/table depth is native geometry.
+	# ponytail: plain wood reverse and square rear legs need side/rear source passes before acceptance.
+
+func build_adjacent_gallery() -> void:
+	# Placement follows the secretary/Delacroix sequence in IMG_6385, not the old axial stub.
+	var frame:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/frame-geometry.json"))
+	var painting:=Painting.new()
+	add_child(painting)
+	painting.build_framed(load("res://assets/frame.png"),load("res://assets/painting-35.786.jpg"),Vector2(.651,.541),frame.margins_px)
+	painting.position=Vector3(-3.48,1.75,2.15)
+	painting.rotation.y=PI/2
+	inventory["verified_paintings"]=3

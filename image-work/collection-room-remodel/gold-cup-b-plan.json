@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "gold-cup-b-001",
+      "prompt": "gold-cup-b-prompt.txt",
+      "promptSha256": "7ba6206142a74b17c858b1c5da111db624807ee12e5dfb97eabae311a4fbb3dc",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/gold-cup-b-selected-0.png",
+          "sha256": "c18ac57a0376a5647c21e2e045a4131c3a61bb6b075e861ab471c8d2b634e9e3"
+        }
+      ]
+    }
+  ]
+}

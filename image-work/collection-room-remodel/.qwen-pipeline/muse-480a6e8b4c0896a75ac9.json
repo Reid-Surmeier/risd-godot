@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-480a6e8b4c0896a75ac9",
+  "summary": "Reference 1 is the official RISD Museum photograph of Horn-Player, accession 2017.74.19. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted ceramic texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep all limbs, feet, tails, hats, spouts and handles visible. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry; hidden profiles are guided by catalogue dimensions and remain provisional.\n",
+  "procedureId": "muse-480a6e8b4c0896a75ac9",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/horn-player-catalogue.png",
+      "sha256": "5e4eb349bcc5b35d54383941be8629ea5b1eb1d15412e7ea98995e56937462fe",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "horn-player-recipe.json",
+      "sha256": "480a6e8b4c0896a75ac9247d76b76b453232cf7822e4c83f2b0619d47584110e"
+    },
+    {
+      "applicationPath": "horn-player-plan.json",
+      "sha256": "29b7bfada71c28d136b153d9e31a5ddd2111dbc4de9f0a4fc40bdc4611c2364a"
+    },
+    {
+      "applicationPath": "horn-player-prompt.txt",
+      "sha256": "7ab501ce28c6c8bf6b933d9d534a732cf185a460563870113a6dad6a27f36041"
+    }
+  ]
+}

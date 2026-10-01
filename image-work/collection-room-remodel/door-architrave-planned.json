@@ -1,0 +1,75 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-530c18c0ec57349d1b7d",
+      "objective": "Create ONE straight upright strip of the exact cream-painted layered doorway architrave from the reference. Isolate a front orthographic view on flat pure magenta #FF00FF. This is architectural painted wood: long simple parallel stepped bands, narrow raised bead, flat recessed band and broader outer bevel. Preserve the reference simple moulding sequence and warm ivory palette. Low polygon game material with readable flat facets and restrained baked relief, no carved ornament, no door, no wall, no shadow outside silhouette, no decorative gold frame, no text. Keep straight parallel vertical edges and generous magenta margins. One strip only; not a complete doorway. Its cross-section is authored separately.\n",
+      "procedureId": "muse-530c18c0ec57349d1b7d",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "door-architrave-recipe.json",
+          "sha256": "530c18c0ec57349d1b7dfd5e1c00313a530525c601e6481ad0b1bfca8cd9ae07"
+        },
+        {
+          "applicationPath": "door-architrave-plan.json",
+          "sha256": "17ad66b45b40991790a8322a4b0553997042cc11b9285b130ba0fb28e90eacdc"
+        },
+        {
+          "applicationPath": "door-architrave-prompt.txt",
+          "sha256": "022dfff6c1f47fd757adf6fe3e20f50af76b99ff7a77ade727897c2c5289d27d"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "architecture-references/door-architrave-source.png",
+          "sha256": "ee10a8a313cb8c6593811a0244de1725c19d218b0a2fffede8a408305c968dd9",
+          "byteLength": 229091,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 180,
+            "height": 1400
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"Create ONE straight upright strip of the exact cream-painted layered doorway architrave from the reference. Isolate a front orthographic view on flat pure magenta #FF00FF. This is architectural painted wood: long simple parallel stepped bands, narrow raised bead, flat recessed band and broader outer bevel. Preserve the reference simple moulding sequence and warm ivory palette. Low polygon game material with readable flat facets and restrained baked relief, no carved ornament, no door, no wall, no shadow outside silhouette, no decorative gold frame, no text. Keep straight parallel vertical edges and generous magenta margins. One strip only; not a complete doorway. Its cross-section is authored separately.\\n\",\"objectiveId\":\"muse-530c18c0ec57349d1b7d\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-530c18c0ec57349d1b7d\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"architecture-references/door-architrave-source.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":229091,\"inspectedMedia\":{\"height\":1400,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":180},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"ee10a8a313cb8c6593811a0244de1725c19d218b0a2fffede8a408305c968dd9\",\"slot\":\"reference-000\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"door-architrave-recipe.json\",\"sha256\":\"530c18c0ec57349d1b7dfd5e1c00313a530525c601e6481ad0b1bfca8cd9ae07\"},{\"applicationPath\":\"door-architrave-plan.json\",\"sha256\":\"17ad66b45b40991790a8322a4b0553997042cc11b9285b130ba0fb28e90eacdc\"},{\"applicationPath\":\"door-architrave-prompt.txt\",\"sha256\":\"022dfff6c1f47fd757adf6fe3e20f50af76b99ff7a77ade727897c2c5289d27d\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "85364264e9b9bda0a96988772f38828e7c87fda3b582a627e851e586d976b36d"
+  },
+  "normalView": {
+    "objective": "Create ONE straight upright strip of the exact cream-painted layered doorway architrave from the reference. Isolate a front orthographic view on flat pure magenta #FF00FF. This is architectural painted wood: long simple parallel stepped bands, narrow raised bead, flat recessed band and broader outer bevel. Preserve the reference simple moulding sequence and warm ivory palette. Low polygon game material with readable flat facets and restrained baked relief, no carved ornament, no door, no wall, no shadow outside silhouette, no decorative gold frame, no text. Keep straight parallel vertical edges and generous magenta margins. One strip only; not a complete doorway. Its cross-section is authored separately.\n",
+    "evidence": "1 authoritative reference matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}
