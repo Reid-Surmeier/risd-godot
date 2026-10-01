@@ -1,0 +1,24 @@
+{
+  "attempts": [
+    {
+      "id": "perugino-frame-001",
+      "prompt": "perugino-frame-prompt.txt",
+      "promptSha256": "f8c1093865e612fffe86e0281094ead44b59f5f05a132596c388631b05b0e7b7",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/perugino-frame-selected-0.png",
+          "sha256": "8fa8eb8a514bccbc350c38b253eed37d4ec28af7065f9a3c64b1e05a5ca21b30"
+        },
+        {
+          "path": "inventory-references/perugino-frame-selected-1.png",
+          "sha256": "c00a2a89902b6cbf8245e57aa363b4f67426f3eb31f22a56ae84a1d37205151a"
+        },
+        {
+          "path": "inventory-references/perugino-frame-selected-2.png",
+          "sha256": "517ea4ae2f4109fcef975c7b91612c17dd2bb720317f2398d080e7dbae405964"
+        }
+      ]
+    }
+  ]
+}

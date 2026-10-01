@@ -1,0 +1,26 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/perugino-frame-selected-0.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/perugino-frame-selected-1.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/perugino-frame-selected-2.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-f55959297094d15b07761914/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "c860540d122863589663a2892cde31b59153f0700eafdb4590823fe5e8b73f95"
+    }
+  ],
+  "changesRequested": "Generate ONE complete front orthographic low polygon architectural picture frame matching the real frame around Pietro Perugino Madonna and Child16.236 in the first two native RISD museum video references. Preserve its broad projecting straight top cornice with stepped cap, two straight flat brown aged-gilt vertical pilasters, narrow raised inner gold fillet, dark recessed band around the painting, and projecting stepped bottom plinth. Restrained worn brown gold, subtle carved straight profiles. Match the museum game frame material in the third reference. Perfectly blank white portrait rectangular opening, panel width39.1 height57.5cm. Flat magenta #FF00FF outside the entire frame silhouette. No painting, wall, labels, people, perspective, second frame, leaf or flower decoration, corner scrolls, pediment, or invented figures. Complete frame, top cornice and bottom plinth fully visible. One frame only.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-f55959297094d15b07761914",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-f55959297094d15b07761914"
+}

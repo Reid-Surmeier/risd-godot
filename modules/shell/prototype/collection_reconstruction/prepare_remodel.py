@@ -221,18 +221,23 @@ for row in json.loads((app/'video-inventory.json').read_text())['volume_instance
 inputs[str(app/'video-inventory.json')]=hashlib.sha256((app/'video-inventory.json').read_bytes()).hexdigest()
 
 # Reuse the accepted frame preparation for both video-matched portraits.
-for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.762,.952], '2009.9'), ('courbet', [.733,.597], '43.571'), ('corot', [.460,.319], '24.089'), ('bertin', [.651,.489], '56.214')]:
+for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.762,.952], '2009.9'), ('courbet', [.733,.597], '43.571'), ('corot', [.460,.319], '24.089'), ('bertin', [.651,.489], '56.214'), ('perugino', [.391,.575], '16.236')]:
     frame_path=app/'trial'/f'{kind}-frame-original.webp'
     a=np.array(Image.open(frame_path).convert('RGBA'));hsv=cv2.cvtColor(a[:,:,:3],cv2.COLOR_RGB2HSV)
     chroma=(hsv[:,:,0]>=125)&(hsv[:,:,0]<=175)&(hsv[:,:,1]>70)&(hsv[:,:,2]>35)
+    if kind=='perugino':
+        # Source frame recesses are brown; retain native value/facets, archive the blue trial.
+        blue=(hsv[:,:,0]>=95)&(hsv[:,:,0]<=125)&(hsv[:,:,1]>20)
+        hsv[blue,0]=17
+        a[blue,:3]=cv2.cvtColor(hsv,cv2.COLOR_HSV2RGB)[blue]
     a[chroma,3]=0;a[chroma,:3]=[162,124,55]
     y,x=np.where(a[:,:,3]>0);a=a[y.min():y.max()+1,x.min():x.max()+1]
     white=(np.min(a[:,:,:3],axis=2)>245).astype('uint8');count,labels,stats,centers=cv2.connectedComponentsWithStats(white)
     h,w=white.shape;label=int(labels[h//2,w//2]);assert label>0
     x0,y0,ww,hh=map(int,stats[label,:4]);assert ww>500 and hh>350
     fit=None
-    if kind in ['courbet','corot','bertin']:
-        fit_path=app/'grey-frames-source-fit.json'
+    if kind in ['courbet','corot','bertin','perugino']:
+        fit_path=app/('perugino-frame-source-fit.json' if kind=='perugino' else 'grey-frames-source-fit.json')
         fit=json.loads(fit_path.read_text())[kind]
         inputs[str(fit_path)]=hashlib.sha256(fit_path.read_bytes()).hexdigest()
         margins=[round(m*hh/canvas[1]) for m in fit['target_margins_m']]
@@ -249,10 +254,10 @@ for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.
         a=np.array(resized);h,w=a.shape[:2];x0,y0=left,top
     Image.fromarray(a).save(out/'assets'/f'{kind}-frame.png')
     (out/'assets'/f'{kind}-frame-geometry.json').write_text(json.dumps({'canvas_m':canvas,'margins_px':[x0,y0,w-x0-ww,h-y0-hh],'opening_aspect':ww/hh,'catalogue_aspect':canvas[0]/canvas[1],'profile':'native Muse bands; 9cm inferred depth; aspect corrected by existing nine-slice geometry','source_fit':fit},indent=2)+'\n')
-    if kind in ['courbet','corot','bertin']:
-        painting_path=app/'inventory-catalogue'/({'courbet':'courbet-jura','corot':'corot-river','bertin':'bertin-tivoli'}[kind]+'-zoom-0.jpg')
+    if kind in ['courbet','corot','bertin','perugino']:
+        painting_path=app/'inventory-catalogue'/({'courbet':'courbet-jura','corot':'corot-river','bertin':'bertin-tivoli','perugino':'perugino-madonna'}[kind]+'-zoom-0.jpg')
         image=Image.open(painting_path)
-        image.crop({'courbet':(19,18,1305,1059),'corot':(18,18,1306,911),'bertin':(5,5,1317,966)}[kind]).save(out/'assets'/f'painting-{painting}.jpg',quality=95)
+        image.crop({'courbet':(19,18,1305,1059),'corot':(18,18,1306,911),'bertin':(5,5,1317,966),'perugino':(29,29,1295,1902)}[kind]).save(out/'assets'/f'painting-{painting}.jpg',quality=95)
         inputs[str(painting_path)]=hashlib.sha256(painting_path.read_bytes()).hexdigest()
     else:
         painting_path=app/'catalogue/painting-58.197.jpg' if kind=='edwards' else app/'inventory-catalogue/romany-0.jpg'

@@ -142,6 +142,7 @@ func build_rooms() -> void:
 		if area.label.begins_with("Main Hall"):wall=look(Color("7c8ca3"))
 		if area.label.begins_with("Grand Gallery"):wall=look(Color("7c8ca3"))
 		if area.label=="grey French gallery":wall=look(Color("b6b4ad"),"res://presentation/neutral-plaster.png")
+		if area.label=="light Renaissance room":wall=look(Color("e3e2de"),"res://presentation/neutral-plaster.png")
 		var height:float=area.get("height",3.5)
 		if area.label=="dark medieval room" or area.get("floor","")=="herringbone":
 			build_parquet(b,oak)
@@ -503,6 +504,7 @@ func update_baked_visibility() -> void:
 				surface.visible=target.get_parent().get_child(1).visible if target.get_parent() is StaticBody3D and target.get_parent() in casings else target.is_visible_in_tree()
 
 func load_bake() -> void:
+	if has_meta("bake_preparing"):return
 	if not ResourceLoader.exists("res://modules/shell/prototype/gallery_walk4/baked/room.lmbake"):
 		return
 	var bake=load("res://modules/shell/prototype/gallery_walk4/baked/room.tscn").instantiate()
@@ -759,7 +761,7 @@ func stone_asset(kind:String,at:Vector3,yaw:float) -> void:
 		if q.all(func(p):return int(p[2])==1):front.append(q)
 		elif q.all(func(p):return int(p[2])==0):back.append(q)
 		else:sides.append(q)
-	for spec in [[front,look(Color("53545b"),"res://presentation/neutral-plaster.png") if kind=="romanesque-portal" else look(Color.WHITE,"res://presentation/wall-plaster.png")],[back,look(Color("7c8ca3")) if kind=="romanesque-portal" else look(Color("53545b"),"res://presentation/neutral-plaster.png")],[sides,look(Color("53545b"))]]:
+	for spec in [[front,look(Color("53545b"),"res://presentation/neutral-plaster.png") if kind=="romanesque-portal" else look(Color("e3e2de"),"res://presentation/neutral-plaster.png")],[back,look(Color("7c8ca3")) if kind=="romanesque-portal" else look(Color("53545b"),"res://presentation/neutral-plaster.png")],[sides,look(Color("53545b"))]]:
 		var fill:=MeshInstance3D.new()
 		fill.mesh=stone_mesh(data,spec[0],.13)
 		fill.material_override=spec[1]
@@ -769,6 +771,19 @@ func stone_asset(kind:String,at:Vector3,yaw:float) -> void:
 	inventory[kind+"_triangles"]=data.triangles
 
 func build_sculpture_rooms() -> void:
+	# Native6383 35.75/63.75/64.75s, RISD API1546096: right of the European doorway.
+	# ponytail: source-relative offset and 9cm frame profile; coupled room fit remains open.
+	var frame:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/perugino-frame-geometry.json"))
+	var perugino:=Painting.new()
+	add_child(perugino)
+	perugino.build_framed(load("res://assets/perugino-frame.png"),load("res://assets/painting-16.236.jpg"),Vector2(.391,.575),frame.margins_px)
+	perugino.position=Vector3(1.48,1.55,18.93)
+	inventory["renaissance_verified_paintings"]=1
+	# Reciprocal wides show a shallow horizontal ventilation grille above the north door.
+	var grille:=solid(Vector3(-.55,3.20,18.94),Vector3(1.10,.18,.025),look(Color("474742")))
+	for y in [-.06,-.03,0,.03,.06]:
+		var slat:=solid(Vector3(-.55,3.20+y,18.963),Vector3(1.08,.008,.012),look(Color("77766d")))
+		slat.reparent(grille)
 	stone_asset("romanesque-portal",Vector3(5.55,0,18.85),0)
 	stone_asset("tracery-arch",Vector3(2.5,2.25,22.515),-PI/2)
 	# The API size is the top fragment; installed engaged shafts are separately provisional.

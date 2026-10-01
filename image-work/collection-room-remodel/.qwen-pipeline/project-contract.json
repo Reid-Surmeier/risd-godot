@@ -102,7 +102,10 @@
     "inventory-references/bertin-frame-selected-0.png",
     "inventory-references/bertin-frame-selected-1.png",
     "inventory-references/bertin-frame-selected-2.png",
-    "inventory-references/bertin-frame-style.png"
+    "inventory-references/bertin-frame-style.png",
+    "inventory-references/perugino-frame-selected-0.png",
+    "inventory-references/perugino-frame-selected-1.png",
+    "inventory-references/perugino-frame-selected-2.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -1627,6 +1630,35 @@
       "model": "meta/muse-image",
       "parameters": {
         "size": "1760x1440"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        },
+        {
+          "slot": "reference-002",
+          "kind": "image",
+          "payloadDestination": "/input_references/2/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-d2371d25c12ab4ec0863",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1440x1760"
       },
       "maximumCount": 1,
       "unitCostUsd": "0.01",

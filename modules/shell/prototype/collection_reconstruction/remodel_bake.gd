@@ -6,8 +6,10 @@ func _initialize() -> void:
 
 func prepare() -> void:
 	var walk=load("res://remodel_room.tscn").instantiate()
+	walk.set_meta("bake_preparing",true)
 	root.add_child(walk)
 	await process_frame
+	assert(not walk.inventory.has("native_lightmap_users"),"Rebake must exclude the previous baked room")
 	walk.set_physics_process(false)
 	var room:=Node3D.new()
 	room.name="BakedRoom"
@@ -70,7 +72,7 @@ func prepare() -> void:
 		light.light_energy=.55
 		light.light_color=Color("ffe1b2")
 		# Native grey-room wides show neutral track-light fill; keep the warm painting spots.
-		if position.x>=9.0 or (position.x>2.5 and position.z>19.0):
+		if position.x>=9.0 or position.z>19.0:
 			light.light_color=Color("f2f0ea")
 		light.light_size=2.5
 		light.light_bake_mode=Light3D.BAKE_STATIC

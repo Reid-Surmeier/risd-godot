@@ -30,7 +30,8 @@ func run() -> void:
 		["bust-detail",Vector3(-.3,1.65,-6.15),Vector3(-2.2,1.60,-5.87)],
 		["gold-service-detail",Vector3(.8,1.7,-3.8),Vector3(3.05,1.27,-3.8)],
 		["pink-service-detail",Vector3(1.85,1.7,-3.2),Vector3(1.85,1.24,-.95)],
-		["door-sconce-detail",Vector3(-.55,2.1,-3.2),Vector3(-.55,1.9,-.4)]]:
+		["door-sconce-detail",Vector3(-.55,2.1,-3.2),Vector3(-.55,1.9,-.4)],
+		["perugino-walking",Vector3(-.55,1.65,22.8),Vector3(.55,1.55,18.93)]]:
 		scene.camera.fov=45
 		scene.camera.position=view[1]
 		scene.camera.look_at(view[2])
@@ -70,6 +71,9 @@ func run() -> void:
 		["european-door-detail",Vector3(-.10,1.55,19.45),Vector3(-1.59,1.38,19.33)],
 		["goltzius-in-room",Vector3(-1.65,1.75,14.7),Vector3(-3.48,1.75,14.7)],
 		["renaissance-wide",Vector3(-2,1.65,24),Vector3(.8,1.8,19.7)],
+		["perugino-in-room",Vector3(1.48,1.55,21),Vector3(1.48,1.55,18.93)],
+		["renaissance-door-wall",Vector3(-.55,1.65,22.8),Vector3(-.55,1.65,18.85)],
+		["renaissance-door-corner",Vector3(-.6,1.65,23.8),Vector3(1.05,1.65,18.85)],
 		["tracery-front",Vector3(-.3,2.6,22.515),Vector3(2.5,2.8,22.515)],
 		["tracery-angle",Vector3(.7,2.6,23.7),Vector3(2.5,2.8,22.515)],
 		["medieval-wide",Vector3(3.3,1.65,24.1),Vector3(7.5,1.8,20.5)],

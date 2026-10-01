@@ -1,0 +1,9 @@
+{
+  "page": "https://risdmuseum.org/visitor-guide/floor-5",
+  "image": "https://risdmuseum.org/sites/default/files/2020-12/Floor5-map-121420.png",
+  "retrieved_utc": "2026-10-01",
+  "sha256": "6ff181d5fd2eaede0480d3f10c281bb8c00a1ad1e8018ed76246963537075516",
+  "scope": "Topology only; schematic has no scale, date2020 in URL, current floor5 guide still links it. Physical extents must be validated against videos.",
+  "finding": "Grand Gallery and long European gallery parallel. End-room/elevator/stair groups explain a loop; present independent room extents need coupled fitting.",
+  "implemented_geometry_change": false
+}

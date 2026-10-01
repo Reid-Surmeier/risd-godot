@@ -47,9 +47,15 @@
         {
           "id": "madonna-architecture",
           "wall": "north",
-          "title": "Madonna and Child, gilded architectural pediment frame",
+          "title": "Pietro Perugino, Madonna and Child",
           "survey_frames": "6383:68-79",
-          "status": "unmatched/unplaced"
+          "status": "Official API/photo/video matched; one Muse architectural frame and authentic panel installed. Source-relative position; band widths/profile and whole room metrics unaccepted.",
+          "catalogue_id": "1546096",
+          "accession": "16.236",
+          "dimensions_m": [
+            0.391,
+            0.575
+          ]
         },
         {
           "id": "books-portraits-case",
