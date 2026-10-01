@@ -134,7 +134,7 @@ func build_rooms() -> void:
 	oak.set_shader_parameter("floor_z_limits",floor_limits)
 	for area in data.rooms:
 		var b:Array=area.bounds
-		var wall:=look(Color("7c7187")) if area.label.begins_with("purple") else look(Color.WHITE,"res://presentation/wall-plaster.png")
+		var wall:=look(Color.WHITE,"res://presentation/purple-plaster.png") if area.label.begins_with("purple") else look(Color.WHITE,"res://presentation/wall-plaster.png")
 		if area.label=="dark medieval room":wall=look(Color("53545b"),"res://presentation/wall-plaster.png")
 		if area.label.begins_with("Main Hall"):wall=look(Color("7c8ca3"))
 		var height:float=area.get("height",3.5)
@@ -204,7 +204,7 @@ func build_rooms() -> void:
 		var vent:=solid(spec[0],Vector3(1.85,.07,.018),look(Color("746f64")))
 		vent.rotation.y=spec[1]
 		ceiling_details.append(vent)
-	inventory["muse_architecture_assets"]=3
+	inventory["muse_architecture_assets"]=4
 
 func wall_face(body:Node3D,width:float,height:float,vertical:bool,inward:float) -> void:
 	# Each room owns its inward face; overlapping shared wall boxes caused colour flicker.
@@ -328,13 +328,17 @@ func build_mirrors() -> void:
 		mirror.position=Vector3(x,2.15,-7.00)
 	# The two catalogue photographs show opposite central scrolls: .4.2 left, .4.1 right.
 
-func display_case(at:Vector3,size:Vector3) -> void:
+func display_case(at:Vector3,size:Vector3,pedestal:=false) -> void:
 	var ivory:=look(Color("eeeae2"))
-	# Wide shots show a suspended tray, not a solid pedestal down to the floor.
-	solid(at+Vector3(0,1.04,0),Vector3(size.x,.12,size.z),ivory,true)
-	for x in [-size.x*.4,size.x*.4]:
-		for z in [-size.z*.36,size.z*.36]:
-			solid(at+Vector3(x,.49,z),Vector3(.025,.98,.025),ivory,true)
+	# IMG_6380: gold service has a solid base; pink Worcester has a tray on legs.
+	if pedestal:
+		var base:=solid(at+Vector3(0,.55,0),Vector3(size.x,1.1,size.z),ivory,true)
+		assert(is_equal_approx(base.position.y- base.get_child(0).shape.size.y/2,at.y))
+	else:
+		solid(at+Vector3(0,1.04,0),Vector3(size.x,.12,size.z),ivory,true)
+		for x in [-size.x*.4,size.x*.4]:
+			for z in [-size.z*.36,size.z*.36]:
+				solid(at+Vector3(x,.49,z),Vector3(.025,.98,.025),ivory,true)
 	var glass:=look(Color(.78,.88,.89,.12),"",true)
 	for z in [-size.z/2,size.z/2]:solid(at+Vector3(0,1.5,z),Vector3(size.x,.8,.012),glass)
 	for x in [-size.x/2,size.x/2]:solid(at+Vector3(x,1.5,0),Vector3(.012,.8,size.z),glass)
@@ -345,7 +349,7 @@ func build_displays() -> void:
 	solid(Vector3(-2.23,.065,-4.075),Vector3(.85,.13,6.25),ivory,true)
 	# Pink Worcester left of the gallery door; gold export service beside the purple door.
 	display_case(Vector3(1.85,0,-.95),Vector3(1.8,0,.88))
-	display_case(Vector3(3.05,0,-3.8),Vector3(1.0,0,1.8))
+	display_case(Vector3(3.05,0,-3.8),Vector3(1.0,0,1.8),true)
 	# Raised central stand for the gold tureen, visible in the reference video.
 	solid(Vector3(3.32,1.15,-3.8),Vector3(.32,.1,.40),ivory)
 	# The Vincennes pair occupies its own central pedestal.
@@ -430,7 +434,7 @@ func load_bake() -> void:
 	inventory["native_lightmap_users"]=bake.get_node("Lightmap").light_data.get_user_count()
 
 func build_furniture() -> void:
-	for spec in [["settee",Vector3(-2.21,.13,-5.2),PI/2],["armchair",Vector3(2.8,.13,-6.65),0.0],["armchair",Vector3(-1.9,.13,-6.65),0.0],["entrance-chair",Vector3(-2.2,.13,-1.95),PI/2]]:
+	for spec in [["settee",Vector3(-2.21,.13,-4.7),PI/2],["armchair",Vector3(2.8,.13,-6.65),0.0],["armchair",Vector3(-1.9,.13,-6.65),0.0],["entrance-chair",Vector3(-2.2,.13,-1.95),PI/2]]:
 		var kind: String=spec[0]
 		var node:=Node3D.new()
 		add_child(node)

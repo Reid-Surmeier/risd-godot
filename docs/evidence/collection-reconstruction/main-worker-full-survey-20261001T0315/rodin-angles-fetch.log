@@ -1,0 +1,5 @@
+[2026-09-30 23:10:43] INFO: Fetched (200) <GET https://risdmuseum.cdn.picturepark.com/v/HRtxDnZE/> (referer: https://www.google.com/)
+rodin-hand-god-zoom-1.jpg
+[2026-09-30 23:11:05] WARNING: Attempt 1 failed: Failed to perform, curl: (28) Operation timed out after 30001 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.. Retrying in 1 seconds...
+[2026-09-30 23:11:32] INFO: Fetched (200) <GET https://risdmuseum.cdn.picturepark.com/v/VN1HxOVr/> (referer: https://www.google.com/)
+rodin-hand-god-zoom-2.jpg

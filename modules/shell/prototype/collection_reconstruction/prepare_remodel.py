@@ -268,6 +268,8 @@ geometry['start']=[-.55,.25,-1.3]
 geometry['trials']=[['gallery_door_out',[-.55,.25,-1.3],[-.55,0,1.6],False],['gallery_door_back',[-.55,.25,1.6],[-.55,0,-1.3],False],['sofa_wall_blocked',[-1.3,.25,-2.5],[-3.3,0,-2.5],True],['right_wall_blocked',[3.0,.25,-3.2],[4.5,0,-3.2],True],['decorative_room',[1.65,.25,-2.0],[1.65,0,-5.4],False],['adjacent_gallery',[-.55,.25,3],[-.55,0,6],False],['right_door_out',[3.0,.25,-2.0],[4.8,0,-2.0],False],['right_door_back',[4.8,.25,-2.0],[3.0,0,-2.0],False],['central_display_blocked',[.45,.25,-2.3],[.45,0,-4.2],True]]
 geometry['trial_seconds']=3.5
 geometry['trials'] += [['far_gallery_door_out',[-.55,.25,18],[-.55,0,19.7],False],['far_gallery_door_back',[-.55,.25,19.7],[-.55,0,18],False]]
+geometry['trials'] += [['gold_service_base_blocked',[2.05,.25,-3.8],[3.25,0,-3.8],True]]
+geometry['object_placement_corrections']={'source':'IMG_6380:277-281,319-348,387-408', 'settee':'Aligned beneath Romany at z=-4.7; absolute offsets provisional', 'gold_service_case':'Solid pedestal to floor; pink Worcester retains tray and legs'}
 geometry['trials'] += [['tracery_out',[1.7,.25,22.515],[3.35,0,22.515],False],['tracery_back',[3.35,.25,22.515],[1.7,0,22.515],False],['stone_portal_out',[5.55,.25,19.6],[5.55,0,17.85],False],['stone_portal_back',[5.55,.25,17.85],[5.55,0,19.6],False],['stairs_door_out',[10.7,.25,20.8],[12.25,0,20.8],False],['stairs_door_back',[12.25,.25,20.8],[10.7,0,20.8],False],['renaissance_bench_blocked',[-.8,.25,20.8],[-.8,0,22.4],True]]
 geometry['far_connection']={'sources':['IMG_6383/000127.jpg','IMG_6383/000134.jpg','IMG_6382/000166.jpg'], 'observed':'Long gallery enters light Renaissance room; its perpendicular east doorway leads into dark medieval room. Medieval round portal and stairs door are on different walls.', 'extent':'Two room shells and portal/stairs thresholds; object contents and all room metrics incomplete. Main Hall has not been integrated.'}
 assert geometry['rooms'][2]['openings']['east']==geometry['rooms'][3]['openings']['west']
@@ -289,16 +291,17 @@ copy(app/'trial/sofa-cloth-original.webp','assets/sofa-cloth.webp')
 copy(app/'wide-camera-fit.json','assets/wide-camera-fit.json')
 for name in ['floor_oak.gdshader','gamecube.gdshader','crt_luminance.gdshader','squiggle_screen.gdshader','haze_screen.gdshader','page.png','wall-muse.webp','oak-board-atlas-168-v3.webp']:
     copy(app/'main-hall-presentation'/name, 'presentation/'+name)
-# New Muse plaster: retain native output; restrain its contrast to match smooth video walls.
-original=app/'trial/ivory-plaster-original.webp'
-wall=np.array(Image.open(original).convert('RGB').resize((256,256)),dtype=float)
-grain=(wall.mean(axis=2)-wall.mean())*.22
-quarter=np.clip(np.array([231,226,217])+grain[:,:,None],0,255).astype('uint8')
-plaster=np.concatenate([quarter,quarter[:,::-1]],axis=1)
-plaster=np.concatenate([plaster,plaster[::-1]],axis=0)
-assert np.array_equal(plaster[0],plaster[-1]) and np.array_equal(plaster[:,0],plaster[:,-1])
-Image.fromarray(plaster).save(out/'presentation/wall-plaster.png')
-inputs[str(original)]=hashlib.sha256(original.read_bytes()).hexdigest()
+# Retain native Muse outputs; restrain facet contrast to match smooth source walls.
+for kind,tone,contrast,target in [('ivory-plaster',[231,226,217],.22,'wall-plaster'),('purple-plaster',[126,99,147],.12,'purple-plaster')]:
+    original=app/'trial'/f'{kind}-original.webp'
+    wall=np.array(Image.open(original).convert('RGB').resize((256,256)),dtype=float)
+    grain=(wall.mean(axis=2)-wall.mean())*contrast
+    quarter=np.clip(np.array(tone)+grain[:,:,None],0,255).astype('uint8')
+    plaster=np.concatenate([quarter,quarter[:,::-1]],axis=1)
+    plaster=np.concatenate([plaster,plaster[::-1]],axis=0)
+    assert np.array_equal(plaster[0],plaster[-1]) and np.array_equal(plaster[:,0],plaster[:,-1])
+    Image.fromarray(plaster).save(out/'presentation'/f'{target}.png')
+    inputs[str(original)]=hashlib.sha256(original.read_bytes()).hexdigest()
 for kind in ['door-architrave','baseboard']:
     original=app/'trial'/f'{kind}-original.webp'
     image=np.array(Image.open(original).convert('RGB'));hsv=cv2.cvtColor(image,cv2.COLOR_RGB2HSV)

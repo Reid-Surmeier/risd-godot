@@ -83,7 +83,9 @@
     "inventory-references/romanesque-portal-selected-0.png",
     "inventory-references/romanesque-portal-selected-1.png",
     "inventory-references/tracery-arch-selected-0.png",
-    "inventory-references/tracery-arch-selected-1.png"
+    "inventory-references/tracery-arch-selected-1.png",
+    "inventory-references/purple-plaster-selected-0.png",
+    "inventory-references/purple-plaster-selected-1.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -1396,6 +1398,30 @@
       "model": "meta/muse-image",
       "parameters": {
         "size": "1760x1440"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-b135ab280d1bbe2d2aff",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1024"
       },
       "maximumCount": 1,
       "unitCostUsd": "0.01",

@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "purple-plaster-001",
+      "prompt": "purple-plaster-prompt.txt",
+      "promptSha256": "a78a1c1c656e17e4fc84acfa8eeeb6170ca187fd8c9077132fbe2d66b989b2fe",
+      "size": "1024x1024",
+      "inputs": [
+        {
+          "path": "inventory-references/purple-plaster-selected-0.png",
+          "sha256": "e7e0e20dfef86021bbef503992010e4668d16a29557e1fb6d6d9d5a64fabe38f"
+        },
+        {
+          "path": "inventory-references/purple-plaster-selected-1.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe"
+        }
+      ]
+    }
+  ]
+}

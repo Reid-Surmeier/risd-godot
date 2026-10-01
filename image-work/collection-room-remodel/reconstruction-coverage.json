@@ -7,119 +7,128 @@
       "sha256": "12df06479e7d2a7121d1647c8b14a5feba6a61362b0449c252fe9ae00fe5468d",
       "available_2fps_frames": 198,
       "wide_contact_sheet": "video-wide/IMG_6381.jpg",
-      "survey_review": "20 evenly spaced source frames inspected; detailed object inventory and held-out reconstruction incomplete",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
       "regions_seen": [
-        "Grand Hall stair lower flight, upper landing, chandelier, windows"
+        "Historic marble staircase, mirrored fireplace, curved flights, arched triple window, glass chandelier, upper case-gallery thresholds"
       ],
-      "complete": false
+      "complete": false,
+      "survey_complete": true
     },
     {
       "video": "IMG_6378.MOV",
       "sha256": "a79c9a65e82293d43a46d1f54034ba398bce135b839a402dcbadbf33e3ec5e52",
       "available_2fps_frames": 360,
       "wide_contact_sheet": "video-wide/IMG_6378.jpg",
-      "survey_review": "20 evenly spaced source frames inspected; detailed object inventory and held-out reconstruction incomplete",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
       "regions_seen": [
-        "auditorium seats, stage, lectern, acoustic wood panels and side stair"
+        "Metcalf Auditorium: fixed seating, stage, lectern, acoustic panels, side steps, rear ramp/benches, projection booth, exit threshold"
       ],
-      "complete": false
+      "complete": false,
+      "survey_complete": true
     },
     {
       "video": "IMG_6379.MOV",
       "sha256": "abc4922925e560966d5987cc3208b9a819f743b7ac7bbdc8c40741a4eab38e34",
       "available_2fps_frames": 365,
       "wide_contact_sheet": "video-wide/IMG_6379.jpg",
-      "survey_review": "20 evenly spaced source frames inspected; detailed object inventory and held-out reconstruction incomplete",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
       "regions_seen": [
-        "skylit stair hall, piano, curved iron railing, four modern wall works",
-        "upper landing to period-painting galleries"
+        "skylit piano stair hall, curved iron railing, five distinct modern wall works",
+        "upper landing opens into grey French painting gallery; lower level sign 4"
       ],
-      "complete": false
+      "complete": false,
+      "survey_complete": true
     },
     {
       "video": "IMG_6380.MOV",
       "sha256": "eaf7a7853b6cc5610517631b44aa83de1006ac6caa5aa673038f1f067cafd3d4",
       "available_2fps_frames": 521,
       "wide_contact_sheet": "video-wide/IMG_6380.jpg",
-      "survey_review": "20 evenly spaced source frames inspected; detailed object inventory and held-out reconstruction incomplete",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
       "regions_seen": [
-        "period-painting gallery",
-        "fireplace Grand Hall and stairs",
-        "purple connector",
-        "Rockefeller room",
-        "long European decorative-arts gallery"
+        "grey French gallery: two different stair-hall entrances and Grand Gallery door",
+        "historic marble stairs/mirrored fireplace",
+        "purple elevator-5 connector to Rockefeller",
+        "Rockefeller and long European gallery"
       ],
-      "complete": false
+      "complete": false,
+      "survey_complete": true
     },
     {
       "video": "IMG_6382.MOV",
       "sha256": "415467db2d2216363fbccb41801851180f48bbdb3304c95861f90f3f5767020e",
       "available_2fps_frames": 226,
       "wide_contact_sheet": "video-wide/IMG_6382.jpg",
-      "survey_review": "All available 2fps frames reviewed through 17 ordered contact sheets covering373 frames; room/wall relationships and lower-bound inventory recorded. Reconstruction incomplete.",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
       "regions_seen": [
         "medieval stone portal, iron grille, Christ head and reliefs",
         "Madonna sculptures/paintings and centre cases"
       ],
-      "complete": false
+      "complete": false,
+      "survey_complete": true
     },
     {
       "video": "IMG_6383.MOV",
       "sha256": "8cfd089e769000369419f577f28a1bfc68b09f8cc7cda4cbe93d840194e6eeef",
       "available_2fps_frames": 147,
       "wide_contact_sheet": "video-wide/IMG_6383.jpg",
-      "survey_review": "All available 2fps frames reviewed through 17 ordered contact sheets covering373 frames; room/wall relationships and lower-bound inventory recorded. Reconstruction incomplete.",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
       "regions_seen": [
         "Renaissance gallery: tapestries, paintings, triptych, ceramics/book cases, bronze sculpture"
       ],
-      "complete": false
+      "complete": false,
+      "survey_complete": true
     },
     {
       "video": "IMG_6387.MOV",
       "sha256": "75c4892c1a37e1c83dd7103187d1c284e13fd0ac458710f4e8fd6e14daf1c7af",
       "available_2fps_frames": 171,
       "wide_contact_sheet": "video-wide/IMG_6387.jpg",
-      "survey_review": "20 evenly spaced source frames inspected; detailed object inventory and held-out reconstruction incomplete",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
       "regions_seen": [
         "upper staircase landing, medieval-gallery doorway",
         "modern painting gallery, window niche"
       ],
-      "complete": false
+      "complete": false,
+      "survey_complete": true
     },
     {
       "video": "IMG_6385.MOV",
       "sha256": "a15a2e90b2ae6152727ab1afd3c205d31f0405215e606adf678be3f5c1cf01a2",
       "available_2fps_frames": 75,
       "wide_contact_sheet": "video-wide/IMG_6385.jpg",
-      "survey_review": "All available 2fps frames inspected through 21 ordered contact sheets covering 497 gallery frames; ordered lower-bound object inventory recorded. Reconstruction incomplete.",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
       "regions_seen": [
         "Rockefeller doorway reverse view",
         "European gallery dress, secretary, Delacroix painting, silver/porcelain case"
       ],
-      "complete": false
+      "complete": false,
+      "survey_complete": true
     },
     {
       "video": "IMG_6386.MOV",
       "sha256": "3112391373f03128f0b1a4deac345e7d30c1ed27c4d9d0d850da37d25c97351f",
       "available_2fps_frames": 213,
       "wide_contact_sheet": "video-wide/IMG_6386.jpg",
-      "survey_review": "All available 2fps frames inspected through 21 ordered contact sheets covering 497 gallery frames; ordered lower-bound object inventory recorded. Reconstruction incomplete.",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
       "regions_seen": [
         "European gallery: paintings, prints, textiles, four case groups, central furniture and dress"
       ],
-      "complete": false
+      "complete": false,
+      "survey_complete": true
     },
     {
       "video": "IMG_6384.MOV",
       "sha256": "0a2255c4fbcbbb44c48202e617b3978abfed4832633c6a21c73b5861570a0530",
       "available_2fps_frames": 209,
       "wide_contact_sheet": "video-wide/IMG_6384.jpg",
-      "survey_review": "All available 2fps frames inspected through 21 ordered contact sheets covering 497 gallery frames; ordered lower-bound object inventory recorded. Reconstruction incomplete.",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
       "regions_seen": [
         "long European gallery: cabinets, paintings, tapestries, hanging porcelain/cases",
         "Rockefeller doorway reverse view"
       ],
-      "complete": false
+      "complete": false,
+      "survey_complete": true
     }
   ],
   "built_study": "Rockefeller, adjoining long European gallery, separate light Renaissance and dark medieval room shells. Portal/stairs threshold limits; contents, room metric fits and actual Main Hall integration unfinished.",
@@ -139,11 +148,19 @@
     }
   ],
   "current_preview": {
-    "path": "lowpoly-room-v25",
+    "path": "lowpoly-room-v26",
     "wallpaper": "34.912 matched/installed, placement provisional",
     "bust": "37.201 separate front/rear UVs and connected socle, side profile unverified",
-    "next_frame_trial": "61.006 saved frame bands compressed from native19.25s planar corners, crosschecked18.25s; installed in provisional wall order, profile/gold faceting unaccepted."
+    "next_frame_trial": "61.006 saved frame bands compressed from native19.25s planar corners, crosschecked18.25s; installed in provisional wall order, profile/gold faceting unaccepted.",
+    "placement_corrections": "Settee aligned below2009.9 portrait; gold case solid pedestal, pink case tray/four legs. Muse purple wall at threshold; absolute offsets still provisional."
   },
   "gallery_inventory": "european-gallery-inventory.json",
-  "sculpture_inventory": "sculpture-room-inventory.json"
+  "sculpture_inventory": "sculpture-room-inventory.json",
+  "survey_summary": {
+    "videos": 10,
+    "reviewed_2fps_frames": 2485,
+    "coverage": "All extracted survey frames visually inspected; review sampling is 2fps, not every native video frame.",
+    "reconstruction_complete": false
+  },
+  "hall_stairs_inventory": "hall-stairs-inventory.json"
 }
