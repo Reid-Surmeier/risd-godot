@@ -69,6 +69,9 @@ func prepare() -> void:
 		light.omni_attenuation=.65
 		light.light_energy=.55
 		light.light_color=Color("ffe1b2")
+		# Native grey-room wides show neutral track-light fill; keep the warm painting spots.
+		if position.x>=9.0 or (position.x>2.5 and position.z>19.0):
+			light.light_color=Color("f2f0ea")
 		light.light_size=2.5
 		light.light_bake_mode=Light3D.BAKE_STATIC
 		light.shadow_enabled=true
@@ -107,8 +110,9 @@ func prepare() -> void:
 	lm.directional=false
 	lm.generate_probes_subdiv=LightmapGI.GENERATE_PROBES_SUBDIV_8
 	lm.environment_mode=LightmapGI.ENVIRONMENT_MODE_CUSTOM_COLOR
-	lm.environment_custom_color=Color("dfd6c7")
-	lm.environment_custom_energy=.18
+	# Reuse the Main Hall's cool diffuse fill rather than adding another amber cast.
+	lm.environment_custom_color=Color("cbd4e1")
+	lm.environment_custom_energy=.22
 	room.add_child(lm)
 	lm.owner=room
 	for z in [-6.5,-4,-2,0,3,6,9,12,15,18]:

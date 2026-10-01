@@ -1,0 +1,26 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/bertin-frame-selected-0.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/bertin-frame-selected-1.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/bertin-frame-style.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-6c7677a64b663135844fdbcb/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "5e82e83b9907e8bd32f110543265906e76dd1dbfe3911f56af0185e0712f9da1"
+    }
+  ],
+  "changesRequested": "Generate ONE complete front orthographic low polygon gilded frame matching the real frame around RISD Jean-Victor Bertin Tivoli56.214 in the first two native video references. Preserve its continuous carved laurel/foliate outer band on all four sides, small bead row outside, narrow raised inner gold fillet, slightly stepped squared mitred corners without projecting corner ornaments, aged restrained gold and soft relief shadows. Match the existing museum game presentation in the third reference. Complete any clipped left side by repeating the observed right-side band. Perfectly blank white rectangular opening, canvas width65.1 height48.9cm. Flat magenta #FF00FF outside the frame silhouette. No painting, wall, labels, people, perspective, multiple frames, or invented corner scrolls. One frame only.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-6c7677a64b663135844fdbcb",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-6c7677a64b663135844fdbcb"
+}

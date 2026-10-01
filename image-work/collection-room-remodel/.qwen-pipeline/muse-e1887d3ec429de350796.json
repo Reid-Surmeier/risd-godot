@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-e1887d3ec429de350796",
+  "summary": "Generate ONE complete front orthographic low polygon gilded frame matching the real frame around RISD Jean-Victor Bertin Tivoli56.214 in the first two native video references. Preserve its continuous carved laurel/foliate outer band on all four sides, small bead row outside, narrow raised inner gold fillet, slightly stepped squared mitred corners without projecting corner ornaments, aged restrained gold and soft relief shadows. Match the existing museum game presentation in the third reference. Complete any clipped left side by repeating the observed right-side band. Perfectly blank white rectangular opening, canvas width65.1 height48.9cm. Flat magenta #FF00FF outside the frame silhouette. No painting, wall, labels, people, perspective, multiple frames, or invented corner scrolls. One frame only.\n",
+  "procedureId": "muse-e1887d3ec429de350796",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/bertin-frame-selected-0.png",
+      "sha256": "3a2d91243cc435e96c0f60a0197603fe59de706676706bdc92faf1f5dcd02f6a",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/bertin-frame-selected-1.png",
+      "sha256": "0b3319d7a7251637ee3c9c495059262c7257f04c070589387898de6f075b8f47",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "inventory-references/bertin-frame-selected-2.png",
+      "sha256": "517ea4ae2f4109fcef975c7b91612c17dd2bb720317f2398d080e7dbae405964",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "bertin-frame-recipe.json",
+      "sha256": "e1887d3ec429de350796e7d496de96a02cb6ac0771db18dd861953c1f41e6565"
+    },
+    {
+      "applicationPath": "bertin-frame-plan.json",
+      "sha256": "12972286bfec46a51fa355155cfabe21bb58df3142d80741bf730a555f3b38b8"
+    },
+    {
+      "applicationPath": "bertin-frame-prompt.txt",
+      "sha256": "804e3d8e4277d6865928e7f0f25c96b43b8105950163cceb3122f11f706cb152"
+    }
+  ]
+}

@@ -138,10 +138,10 @@ func build_rooms() -> void:
 	for area in data.rooms:
 		var b:Array=area.bounds
 		var wall:=look(Color.WHITE,"res://presentation/purple-plaster.png") if area.label.begins_with("purple") else look(Color.WHITE,"res://presentation/wall-plaster.png")
-		if area.label=="dark medieval room":wall=look(Color("53545b"),"res://presentation/wall-plaster.png")
+		if area.label=="dark medieval room":wall=look(Color("53545b"),"res://presentation/neutral-plaster.png")
 		if area.label.begins_with("Main Hall"):wall=look(Color("7c8ca3"))
 		if area.label.begins_with("Grand Gallery"):wall=look(Color("7c8ca3"))
-		if area.label=="grey French gallery":wall=look(Color("b6b4ad"),"res://presentation/wall-plaster.png")
+		if area.label=="grey French gallery":wall=look(Color("b6b4ad"),"res://presentation/neutral-plaster.png")
 		var height:float=area.get("height",3.5)
 		if area.label=="dark medieval room" or area.get("floor","")=="herringbone":
 			build_parquet(b,oak)
@@ -283,7 +283,8 @@ func build_grey_gallery() -> void:
 		add_child(capital)
 		capital.reparent(column)
 	# Capital side/rear relief and entablature are still unaccepted.
-	for spec in [["courbet","43.571",Vector3(8.53,1.8,-4.35),PI/2],["corot","24.089",Vector3(14.8,1.8,-5.72),0.0]]:
+	# Bertin sits on the Hall-door wall between Villeneuve and Pannini; exact offsets remain provisional.
+	for spec in [["courbet","43.571",Vector3(8.53,1.8,-4.35),PI/2],["corot","24.089",Vector3(14.8,1.8,-5.72),0.0],["bertin","56.214",Vector3(13.3,1.75,1.72),PI]]:
 		var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/"+spec[0]+"-frame-geometry.json"))
 		var painting:=Painting.new()
 		add_child(painting)
@@ -301,7 +302,7 @@ func build_grey_gallery() -> void:
 					var face:float=x+side*.035
 					panel(self,[Vector3(face,y-height/2,leaf.position.z-.37),Vector3(face,y-height/2,leaf.position.z+.37),Vector3(face,y+height/2,leaf.position.z+.37),Vector3(face,y+height/2,leaf.position.z-.37)],
 						[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)],look(Color.WHITE,"res://assets/white-panel-door-%d.png"%index))
-	inventory["grey_gallery_verified_paintings"]=2
+	inventory["grey_gallery_verified_paintings"]=3
 	inventory["grey_gallery_objects_complete"]=false
 	inventory["grey_gallery_metric_accepted"]=false
 
@@ -758,7 +759,7 @@ func stone_asset(kind:String,at:Vector3,yaw:float) -> void:
 		if q.all(func(p):return int(p[2])==1):front.append(q)
 		elif q.all(func(p):return int(p[2])==0):back.append(q)
 		else:sides.append(q)
-	for spec in [[front,look(Color("53545b"),"res://presentation/wall-plaster.png") if kind=="romanesque-portal" else look(Color.WHITE,"res://presentation/wall-plaster.png")],[back,look(Color("7c8ca3")) if kind=="romanesque-portal" else look(Color("53545b"),"res://presentation/wall-plaster.png")],[sides,look(Color("53545b"))]]:
+	for spec in [[front,look(Color("53545b"),"res://presentation/neutral-plaster.png") if kind=="romanesque-portal" else look(Color.WHITE,"res://presentation/wall-plaster.png")],[back,look(Color("7c8ca3")) if kind=="romanesque-portal" else look(Color("53545b"),"res://presentation/neutral-plaster.png")],[sides,look(Color("53545b"))]]:
 		var fill:=MeshInstance3D.new()
 		fill.mesh=stone_mesh(data,spec[0],.13)
 		fill.material_override=spec[1]

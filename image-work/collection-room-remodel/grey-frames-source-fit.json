@@ -102,5 +102,21 @@
     ],
     "accepted": false,
     "note": "Manual planar approximation of a stepped frame; Courbet left ornament partly clipped. Camera distortion/nonplanar ornament prevent exact metric acceptance."
+  },
+  "bertin": {
+    "source": "inventory-references/bertin-frame-selected-0.png",
+    "sha256": "3a2d91243cc435e96c0f60a0197603fe59de706676706bdc92faf1f5dcd02f6a",
+    "canvas_m": [
+      0.651,
+      0.489
+    ],
+    "target_margins_m": [
+      0.055,
+      0.08,
+      0.055,
+      0.065
+    ],
+    "accepted": false,
+    "note": "Manual provisional band widths from clipped native91.25s: right canvas edge about520px high, band58px, top85px, bottom70px. Left inferred by symmetry; perspective/stepped moulding prevent metric acceptance."
   }
 }

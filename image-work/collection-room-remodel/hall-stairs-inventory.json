@@ -280,9 +280,17 @@
         {
           "id": "waterfall",
           "source_frames": "6380:180-188",
-          "observed": "Waterfall between cliffs and tree",
-          "status": "source-inventoried; native asset/metric fit unfinished",
-          "catalogue_match": null
+          "observed": "Tivoli: three waterfalls, cliff-top town, distant Roman bridge and pair of foreground figures",
+          "status": "Source/API visual match; authentic catalogue canvas and one Muse frame installed in v37. Exact metric placement/profile and frame fidelity unaccepted.",
+          "catalogue_match": {
+            "id": "1296426",
+            "accession": "56.214",
+            "title": "Tivoli",
+            "url": "https://risdmuseum.org/art-design/collection/tivoli-56214",
+            "dimensions": "48.9 x 65.1 cm (19 1/4 x 25 5/8 inches)",
+            "evidence": "Native6380 90.25/91.25s match three stepped left falls, distant narrow bridge, two right-side trees and two lower-right figures; label Jean-Victor Bertin agrees. Official first zoom inspected.",
+            "record_file": "inventory-catalogue/bertin-tivoli.json"
+          }
         },
         {
           "id": "colosseum",

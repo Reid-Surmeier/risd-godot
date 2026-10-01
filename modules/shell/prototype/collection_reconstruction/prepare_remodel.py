@@ -221,7 +221,7 @@ for row in json.loads((app/'video-inventory.json').read_text())['volume_instance
 inputs[str(app/'video-inventory.json')]=hashlib.sha256((app/'video-inventory.json').read_bytes()).hexdigest()
 
 # Reuse the accepted frame preparation for both video-matched portraits.
-for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.762,.952], '2009.9'), ('courbet', [.733,.597], '43.571'), ('corot', [.460,.319], '24.089')]:
+for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.762,.952], '2009.9'), ('courbet', [.733,.597], '43.571'), ('corot', [.460,.319], '24.089'), ('bertin', [.651,.489], '56.214')]:
     frame_path=app/'trial'/f'{kind}-frame-original.webp'
     a=np.array(Image.open(frame_path).convert('RGBA'));hsv=cv2.cvtColor(a[:,:,:3],cv2.COLOR_RGB2HSV)
     chroma=(hsv[:,:,0]>=125)&(hsv[:,:,0]<=175)&(hsv[:,:,1]>70)&(hsv[:,:,2]>35)
@@ -231,7 +231,7 @@ for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.
     h,w=white.shape;label=int(labels[h//2,w//2]);assert label>0
     x0,y0,ww,hh=map(int,stats[label,:4]);assert ww>500 and hh>350
     fit=None
-    if kind in ['courbet','corot']:
+    if kind in ['courbet','corot','bertin']:
         fit_path=app/'grey-frames-source-fit.json'
         fit=json.loads(fit_path.read_text())[kind]
         inputs[str(fit_path)]=hashlib.sha256(fit_path.read_bytes()).hexdigest()
@@ -249,10 +249,10 @@ for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.
         a=np.array(resized);h,w=a.shape[:2];x0,y0=left,top
     Image.fromarray(a).save(out/'assets'/f'{kind}-frame.png')
     (out/'assets'/f'{kind}-frame-geometry.json').write_text(json.dumps({'canvas_m':canvas,'margins_px':[x0,y0,w-x0-ww,h-y0-hh],'opening_aspect':ww/hh,'catalogue_aspect':canvas[0]/canvas[1],'profile':'native Muse bands; 9cm inferred depth; aspect corrected by existing nine-slice geometry','source_fit':fit},indent=2)+'\n')
-    if kind in ['courbet','corot']:
-        painting_path=app/'inventory-catalogue'/('courbet-jura-zoom-0.jpg' if kind=='courbet' else 'corot-river-zoom-0.jpg')
+    if kind in ['courbet','corot','bertin']:
+        painting_path=app/'inventory-catalogue'/({'courbet':'courbet-jura','corot':'corot-river','bertin':'bertin-tivoli'}[kind]+'-zoom-0.jpg')
         image=Image.open(painting_path)
-        image.crop((19,18,1305,1059) if kind=='courbet' else (18,18,1306,911)).save(out/'assets'/f'painting-{painting}.jpg',quality=95)
+        image.crop({'courbet':(19,18,1305,1059),'corot':(18,18,1306,911),'bertin':(5,5,1317,966)}[kind]).save(out/'assets'/f'painting-{painting}.jpg',quality=95)
         inputs[str(painting_path)]=hashlib.sha256(painting_path.read_bytes()).hexdigest()
     else:
         painting_path=app/'catalogue/painting-58.197.jpg' if kind=='edwards' else app/'inventory-catalogue/romany-0.jpg'
@@ -335,7 +335,7 @@ copy(app/'wide-camera-fit.json','assets/wide-camera-fit.json')
 for name in ['floor_oak.gdshader','gamecube.gdshader','crt_luminance.gdshader','squiggle_screen.gdshader','haze_screen.gdshader','page.png','wall-muse.webp','oak-board-atlas-168-v3.webp']:
     copy(app/'main-hall-presentation'/name, 'presentation/'+name)
 # Retain native Muse outputs; restrain facet contrast to match smooth source walls.
-for kind,tone,contrast,target in [('ivory-plaster',[231,226,217],.22,'wall-plaster'),('purple-plaster',[126,99,147],.12,'purple-plaster')]:
+for kind,tone,contrast,target in [('ivory-plaster',[231,226,217],.22,'wall-plaster'),('ivory-plaster',[228,228,228],.22,'neutral-plaster'),('purple-plaster',[126,99,147],.12,'purple-plaster')]:
     original=app/'trial'/f'{kind}-original.webp'
     wall=np.array(Image.open(original).convert('RGB').resize((256,256)),dtype=float)
     grain=(wall.mean(axis=2)-wall.mean())*contrast

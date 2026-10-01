@@ -1,0 +1,107 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-b4baba9916aad86a02e8",
+      "objective": "Generate ONE complete front orthographic low polygon gilded frame matching the real frame around RISD Jean-Victor Bertin Tivoli56.214 in the first two native video references. Preserve its continuous carved laurel/foliate outer band on all four sides, small bead row outside, narrow raised inner gold fillet, slightly stepped squared mitred corners without projecting corner ornaments, aged restrained gold and soft relief shadows. Match the existing museum game presentation in the third reference. Complete any clipped left side by repeating the observed right-side band. Perfectly blank white rectangular opening, canvas width65.1 height48.9cm. Flat magenta #FF00FF outside the frame silhouette. No painting, wall, labels, people, perspective, multiple frames, or invented corner scrolls. One frame only.\n",
+      "procedureId": "muse-b4baba9916aad86a02e8",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "bertin-frame-source-recipe.json",
+          "sha256": "b4baba9916aad86a02e826774de58ae4d2bba0aceedd627c489f2f9c42ecc7b9"
+        },
+        {
+          "applicationPath": "bertin-frame-source-plan.json",
+          "sha256": "ec557740102573ab6b173bab9d336c6a7085725245ab4d91e0b953768976cc96"
+        },
+        {
+          "applicationPath": "bertin-frame-prompt.txt",
+          "sha256": "804e3d8e4277d6865928e7f0f25c96b43b8105950163cceb3122f11f706cb152"
+        }
+      ],
+      "museParameters": {
+        "size": "1760x1440"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/bertin-frame-selected-0.png",
+          "sha256": "3a2d91243cc435e96c0f60a0197603fe59de706676706bdc92faf1f5dcd02f6a",
+          "byteLength": 1510459,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/bertin-frame-selected-1.png",
+          "sha256": "0b3319d7a7251637ee3c9c495059262c7257f04c070589387898de6f075b8f47",
+          "byteLength": 1842169,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        },
+        {
+          "slot": "reference-002",
+          "applicationPath": "inventory-references/bertin-frame-style.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+          "byteLength": 657879,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/2/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 720,
+            "height": 720
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1760x1440\"},\"objective\":\"Generate ONE complete front orthographic low polygon gilded frame matching the real frame around RISD Jean-Victor Bertin Tivoli56.214 in the first two native video references. Preserve its continuous carved laurel/foliate outer band on all four sides, small bead row outside, narrow raised inner gold fillet, slightly stepped squared mitred corners without projecting corner ornaments, aged restrained gold and soft relief shadows. Match the existing museum game presentation in the third reference. Complete any clipped left side by repeating the observed right-side band. Perfectly blank white rectangular opening, canvas width65.1 height48.9cm. Flat magenta #FF00FF outside the frame silhouette. No painting, wall, labels, people, perspective, multiple frames, or invented corner scrolls. One frame only.\\n\",\"objectiveId\":\"muse-b4baba9916aad86a02e8\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-b4baba9916aad86a02e8\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/bertin-frame-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1510459,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"3a2d91243cc435e96c0f60a0197603fe59de706676706bdc92faf1f5dcd02f6a\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/bertin-frame-selected-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1842169,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"0b3319d7a7251637ee3c9c495059262c7257f04c070589387898de6f075b8f47\",\"slot\":\"reference-001\"},{\"applicationPath\":\"inventory-references/bertin-frame-style.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":657879,\"inspectedMedia\":{\"height\":720,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":720},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/2/image_url/url\",\"sha256\":\"5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe\",\"slot\":\"reference-002\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"bertin-frame-source-recipe.json\",\"sha256\":\"b4baba9916aad86a02e826774de58ae4d2bba0aceedd627c489f2f9c42ecc7b9\"},{\"applicationPath\":\"bertin-frame-source-plan.json\",\"sha256\":\"ec557740102573ab6b173bab9d336c6a7085725245ab4d91e0b953768976cc96\"},{\"applicationPath\":\"bertin-frame-prompt.txt\",\"sha256\":\"804e3d8e4277d6865928e7f0f25c96b43b8105950163cceb3122f11f706cb152\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "6c7677a64b663135844fdbcb83d68aa0c445dba41b463efa5ff1efbd854cd0c5"
+  },
+  "normalView": {
+    "objective": "Generate ONE complete front orthographic low polygon gilded frame matching the real frame around RISD Jean-Victor Bertin Tivoli56.214 in the first two native video references. Preserve its continuous carved laurel/foliate outer band on all four sides, small bead row outside, narrow raised inner gold fillet, slightly stepped squared mitred corners without projecting corner ornaments, aged restrained gold and soft relief shadows. Match the existing museum game presentation in the third reference. Complete any clipped left side by repeating the observed right-side band. Perfectly blank white rectangular opening, canvas width65.1 height48.9cm. Flat magenta #FF00FF outside the frame silhouette. No painting, wall, labels, people, perspective, multiple frames, or invented corner scrolls. One frame only.\n",
+    "evidence": "3 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

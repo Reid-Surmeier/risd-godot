@@ -58,6 +58,8 @@ func run() -> void:
 		["grey-door-corner",Vector3(13.5,1.65,-3),Vector3(8.9,1.5,.5)],
 		["courbet-in-room",Vector3(10.2,1.8,-4.35),Vector3(8.53,1.8,-4.35)],
 		["corot-in-room",Vector3(14.8,1.8,-3.9),Vector3(14.8,1.8,-5.72)],
+		["bertin-in-room",Vector3(13.3,1.75,-.8),Vector3(13.3,1.75,1.72)],
+		["bertin-hall-wall",Vector3(15,1.65,-1.4),Vector3(12.4,1.7,1.8)],
 		["architecture-asset",Vector3(-.55,2.1,-3.5),Vector3(-.55,1.9,-.4)],
 		["wallpaper-asset",Vector3(1.6,2.1,-5.4),Vector3(3.59,2.1,-5.4)],
 		["gallery-wide",Vector3(-.55,1.65,.7),Vector3(-.3,1.5,12)],

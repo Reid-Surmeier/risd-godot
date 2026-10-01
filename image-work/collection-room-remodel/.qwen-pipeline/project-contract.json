@@ -98,7 +98,11 @@
     "inventory-references/ionic-capital-selected-2.png",
     "inventory-references/european-two-panel-door-selected-0.png",
     "inventory-references/european-two-panel-door-selected-1.png",
-    "inventory-references/european-two-panel-door-selected-2.png"
+    "inventory-references/european-two-panel-door-selected-2.png",
+    "inventory-references/bertin-frame-selected-0.png",
+    "inventory-references/bertin-frame-selected-1.png",
+    "inventory-references/bertin-frame-selected-2.png",
+    "inventory-references/bertin-frame-style.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -1565,6 +1569,64 @@
       "model": "meta/muse-image",
       "parameters": {
         "size": "1440x1760"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        },
+        {
+          "slot": "reference-002",
+          "kind": "image",
+          "payloadDestination": "/input_references/2/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-e1887d3ec429de350796",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1440"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        },
+        {
+          "slot": "reference-002",
+          "kind": "image",
+          "payloadDestination": "/input_references/2/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-b4baba9916aad86a02e8",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1440"
       },
       "maximumCount": 1,
       "unitCostUsd": "0.01",

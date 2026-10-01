@@ -1,0 +1,24 @@
+{
+  "attempts": [
+    {
+      "id": "bertin-frame-001",
+      "prompt": "bertin-frame-prompt.txt",
+      "promptSha256": "804e3d8e4277d6865928e7f0f25c96b43b8105950163cceb3122f11f706cb152",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/bertin-frame-selected-0.png",
+          "sha256": "3a2d91243cc435e96c0f60a0197603fe59de706676706bdc92faf1f5dcd02f6a"
+        },
+        {
+          "path": "inventory-references/bertin-frame-selected-1.png",
+          "sha256": "0b3319d7a7251637ee3c9c495059262c7257f04c070589387898de6f075b8f47"
+        },
+        {
+          "path": "inventory-references/bertin-frame-selected-2.png",
+          "sha256": "517ea4ae2f4109fcef975c7b91612c17dd2bb720317f2398d080e7dbae405964"
+        }
+      ]
+    }
+  ]
+}
