@@ -60,11 +60,9 @@
   "medieval-grille-prompt.txt": "bf6c014fd6d7848aceacd6b4b0e6ecb1aeea5a73eb5bc82c7f7cf6dcbf8444c9",
   "collection-v43-bake-prime-import.log": "0e9619b3491283555b643b1bdec015bda2ac1c8f308977064c61eb06e57c665d",
   "collection-v43-bake.log": "ee9782e86b79f31c7df9df036f07cb35502d79fe2a059a7f8d361f4d13c8385a",
-  "remodel_review.gd": "395ea7b67d7f36c410cdcab9d003598b9f961508368dfd5cefa548552d58746d",
   "collection-v43-export.log": "df3e62a053e2bd8ffee73d310962dc6b1e2061a687adad784c0b54f54fc9a09d",
   "renaissance-38.25-source.jpg": "d3dba90fe1a248ed8a1c24d8d214c94a678a47df63d1e85afa295485e32dced5",
   "medieval-grille-receipt.json": "4f0775e4a1f53894dd4a4d91f480f1ab4ccb411e9424d768af1aae07fbbbed7a",
-  "remodel_bake.gd": "20ddf709ce39fb2e30a9ed6ff2cf56c26e62f7f30a2e56d68b0e1befa65037da",
   "unbaked-renaissance-walk.png": "88614d824dfdb48744b2b45562bf58af00eadd5dd9417eb93195421094ad34f6",
   "ceiling-visibility.json": "d95ed3e01af9a60b3c301b7fd971936e91ec1958239c04df563df0fc22f13795",
   "medieval-grille-review.json": "1f696490c2239998170d8995266a03f5ba6d4c80f48295cba46ce2a3b38638b5",
@@ -86,6 +84,8 @@
   "muse-grille-run.tar.gz": "b2c3757d793ecc2036742c09494cb836be979e5aee1f1502fe4e2e1ade9f13e2",
   "medieval-frame-front.png": "a91594562527d238a2d6c16fb593a72270003df67e928746c7258375477d60e8",
   "unbaked-tracery-angle.png": "07d7314210440037ac54234d1b146349328e5b3b8ef3766a9cf26d7dd0fce13c",
-  "remodel_room.gd": "1c0043fdde448198c20b4217f20eb556b841ff249aaef4219d31b910ba2b44a0",
-  "renaissance-wide.png": "2d2344ac191acadf50efe9c24253cd959d6f2f8ab1c8f25329f0e3c56860f543"
+  "renaissance-wide.png": "2d2344ac191acadf50efe9c24253cd959d6f2f8ab1c8f25329f0e3c56860f543",
+  "remodel_room.gd.txt": "1c0043fdde448198c20b4217f20eb556b841ff249aaef4219d31b910ba2b44a0",
+  "remodel_review.gd.txt": "395ea7b67d7f36c410cdcab9d003598b9f961508368dfd5cefa548552d58746d",
+  "remodel_bake.gd.txt": "20ddf709ce39fb2e30a9ed6ff2cf56c26e62f7f30a2e56d68b0e1befa65037da"
 }

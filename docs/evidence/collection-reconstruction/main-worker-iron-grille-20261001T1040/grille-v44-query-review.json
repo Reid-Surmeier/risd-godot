@@ -1,0 +1,20 @@
+[
+  {
+    "query": "iron",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=iron&items_per_page=100",
+    "count": 0,
+    "candidates": []
+  },
+  {
+    "query": "gate",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=gate&items_per_page=100",
+    "count": 0,
+    "candidates": []
+  },
+  {
+    "query": "screen",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=screen&items_per_page=100",
+    "count": 0,
+    "candidates": []
+  }
+]

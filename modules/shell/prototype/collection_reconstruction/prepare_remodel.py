@@ -286,6 +286,8 @@ for kind in ['fetti-frame','goltzius-frame','romanesque-portal','tracery-arch','
         copy(app/'trial'/(kind+suffix),'assets/'+kind+suffix)
 copy(app/'inventory-catalogue/goltzius-cold-stone-zoom-0.jpg','assets/painting-61.006.jpg')
 copy(app/'sculpture-room-inventory.json','assets/sculpture-room-inventory.json')
+copy(app/'trial/medieval-grille-geometry.json','assets/medieval-grille-geometry.json')
+copy(app/'trial/medieval-grille-metal.png','assets/medieval-grille-metal.png')
 # The official photograph includes the inner gilt edge; exclude it from the canvas.
 fetti=app/'inventory-catalogue/fetti-angels-zoom-0.jpg'
 canvas=Image.open(fetti).crop((38,28,1289,1469))
@@ -406,6 +408,7 @@ geometry['patches']=[{'label':r['label'],'color':'81735c','vertices':[[r['bounds
 geometry['far_connection']['extent']='Connected complete Main Hall shell and23 reused paintings; room metrics and remaining object coverage unaccepted.'
 geometry['grey_gallery_connections']['extent']='Connected walkable museum loop through the Main Hall, medieval, Renaissance, European, Rockefeller and grey rooms; stairs remain threshold studies.'
 geometry['loop_fit']={'source':'6382:64..89.25;6344:177.5;official floor5 topology', 'correction':'North-wall paintings lie left of projecting display and portal; do not mistake display edge for northwest corner. Extend parallel long galleries, align Hall end doors, preserve relative object placements.', 'metric_accepted':False,'connector_length_accepted':False,'hall_length_m':26.3,'hall_width_m':10.,'medieval_wall_width_m':10.}
+geometry['trials'] += [['iron_grille_blocks_visitor',[8.45,.25,29.75],[8.45,0,28.44],True],['iron_grille_east_aisle_clear',[9.65,.25,29.65],[9.65,0,28.65],False]]
 
 (out/'geometry.json').write_text(json.dumps(geometry,indent=2)+'\n')
 inputs[str(ingestion/'room-route-walk-v5/geometry.json')] = hashlib.sha256((ingestion/'room-route-walk-v5/geometry.json').read_bytes()).hexdigest()

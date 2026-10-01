@@ -1,0 +1,27 @@
+[
+  {
+    "name": "known-id",
+    "url": "https://risdmuseum.org/api/v1/collection?id=1337886",
+    "count": 1
+  },
+  {
+    "name": "known-monet",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=monet&items_per_page=25",
+    "count": 21
+  },
+  {
+    "name": "iron-25",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=iron&items_per_page=25",
+    "count": 25
+  },
+  {
+    "name": "grille-25",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=grille&items_per_page=25",
+    "count": 11
+  },
+  {
+    "name": "screen-25",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=screen&items_per_page=25",
+    "count": 25
+  }
+]

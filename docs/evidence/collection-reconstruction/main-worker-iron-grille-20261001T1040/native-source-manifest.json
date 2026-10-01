@@ -1,0 +1,152 @@
+{
+  "video": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6382.MOV",
+  "video_sha256": "415467db2d2216363fbccb41801851180f48bbdb3304c95861f90f3f5767020e",
+  "cuda_decode": true,
+  "cpu_stages": "Orientation/PNG encoding",
+  "frames": [
+    {
+      "seconds": 10.5,
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-hwaccel",
+        "cuda",
+        "-noautorotate",
+        "-ss",
+        "10.5",
+        "-i",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6382.MOV",
+        "-frames:v",
+        "1",
+        "-vf",
+        "transpose=clock",
+        "-update",
+        "1",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-grille-native-v2/grille-10.50.png"
+      ],
+      "output": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-grille-native-v2/grille-10.50.png",
+      "sha256": "bc1ee3cd5e4107fee6c22e7e9d475898477e65bc4bdc087486b166b9c9c89fc4"
+    },
+    {
+      "seconds": 10.75,
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-hwaccel",
+        "cuda",
+        "-noautorotate",
+        "-ss",
+        "10.75",
+        "-i",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6382.MOV",
+        "-frames:v",
+        "1",
+        "-vf",
+        "transpose=clock",
+        "-update",
+        "1",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-grille-native-v2/grille-10.75.png"
+      ],
+      "output": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-grille-native-v2/grille-10.75.png",
+      "sha256": "b3751d9792b2a648a3d1192adc0eff1c387f0b527bfacb54e95bfc391da4b874"
+    },
+    {
+      "seconds": 11.0,
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-hwaccel",
+        "cuda",
+        "-noautorotate",
+        "-ss",
+        "11.0",
+        "-i",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6382.MOV",
+        "-frames:v",
+        "1",
+        "-vf",
+        "transpose=clock",
+        "-update",
+        "1",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-grille-native-v2/grille-11.00.png"
+      ],
+      "output": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-grille-native-v2/grille-11.00.png",
+      "sha256": "84d2cc44cd7b8ea2c0da9685dd401ff581ddb1ecb26612543de572a85a0a33d0"
+    },
+    {
+      "seconds": 11.25,
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-hwaccel",
+        "cuda",
+        "-noautorotate",
+        "-ss",
+        "11.25",
+        "-i",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6382.MOV",
+        "-frames:v",
+        "1",
+        "-vf",
+        "transpose=clock",
+        "-update",
+        "1",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-grille-native-v2/grille-11.25.png"
+      ],
+      "output": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-grille-native-v2/grille-11.25.png",
+      "sha256": "0e182631b60a00ccf0bae1df507dcfe1afcf5f0c824a23c21df0e1462dd8208b"
+    },
+    {
+      "seconds": 12.0,
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-hwaccel",
+        "cuda",
+        "-noautorotate",
+        "-ss",
+        "12.0",
+        "-i",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6382.MOV",
+        "-frames:v",
+        "1",
+        "-vf",
+        "transpose=clock",
+        "-update",
+        "1",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-grille-native-v2/grille-12.000.png"
+      ],
+      "output": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-grille-native-v2/grille-12.000.png",
+      "sha256": "6e53c86fdaf71e7c331309f27d0dd1604dd38a586ccaa911f2013d03c60f7ba4"
+    },
+    {
+      "seconds": 12.375,
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-hwaccel",
+        "cuda",
+        "-noautorotate",
+        "-ss",
+        "12.375",
+        "-i",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6382.MOV",
+        "-frames:v",
+        "1",
+        "-vf",
+        "transpose=clock",
+        "-update",
+        "1",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-grille-native-v2/grille-12.375.png"
+      ],
+      "output": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-grille-native-v2/grille-12.375.png",
+      "sha256": "4f5453471fa1eaedfbd2bcc49bd45d792090ab15fc1b0bd717af60ca68968cea"
+    }
+  ]
+}
