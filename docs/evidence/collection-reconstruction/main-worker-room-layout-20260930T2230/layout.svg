@@ -1,28 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 780"><rect width="780" height="780" fill="#faf7ef"/><text x="30" y="25" font-family="sans-serif" font-size="20">Source-confirmed connections · provisional room dimensions</text>
 <rect x="51.150000000000006" y="65.0" width="121.60000000000001" height="129.2" fill="#eee3cb" stroke="#686357" stroke-width="2"/>
-<text x="186.75" y="129.6" font-family="sans-serif" font-size="13">Rockefeller</text>
+<text x="111.95000000000002" y="125.6" text-anchor="middle" fill="#302b23" font-family="sans-serif" font-size="11">Rockefeller</text>
 <line x1="73.94999999999999" y1="194.2" x2="111.95" y2="194.2" stroke="#57936b" stroke-width="5"/>
 <line x1="172.75" y1="148.60000000000002" x2="172.75" y2="179.0" stroke="#57936b" stroke-width="5"/>
 <rect x="35.0" y="194.2" width="115.89999999999999" height="365.75" fill="#eee3cb" stroke="#686357" stroke-width="2"/>
-<text x="164.89999999999998" y="377.075" font-family="sans-serif" font-size="13">adjacent gallery</text>
+<text x="92.94999999999999" y="373.075" text-anchor="middle" fill="#302b23" font-family="sans-serif" font-size="11">European</text>
+<text x="92.94999999999999" y="385.075" text-anchor="middle" fill="#302b23" font-family="sans-serif" font-size="11">gallery</text>
 <line x1="73.94999999999999" y1="194.2" x2="111.95" y2="194.2" stroke="#57936b" stroke-width="5"/>
 <line x1="73.94999999999999" y1="559.95" x2="111.95" y2="559.95" stroke="#57936b" stroke-width="5"/>
 <rect x="35.0" y="559.95" width="115.89999999999999" height="115.89999999999996" fill="#eee3cb" stroke="#686357" stroke-width="2"/>
-<text x="164.89999999999998" y="617.9" font-family="sans-serif" font-size="13">light Renaissance room</text>
+<text x="92.94999999999999" y="613.9" text-anchor="middle" fill="#302b23" font-family="sans-serif" font-size="11">Light</text>
+<text x="92.94999999999999" y="625.9" text-anchor="middle" fill="#302b23" font-family="sans-serif" font-size="11">Renaissance</text>
 <line x1="73.94999999999999" y1="559.95" x2="111.95" y2="559.95" stroke="#57936b" stroke-width="5"/>
 <line x1="150.89999999999998" y1="618.85" x2="150.89999999999998" y2="640.3199999999999" stroke="#57936b" stroke-width="5"/>
 <rect x="150.89999999999998" y="559.95" width="171.0" height="115.89999999999996" fill="#575762" stroke="#686357" stroke-width="2"/>
-<text x="335.9" y="617.9" font-family="sans-serif" font-size="13">dark medieval room</text>
+<text x="236.39999999999998" y="613.9" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11">Dark</text>
+<text x="236.39999999999998" y="625.9" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11">medieval</text>
 <line x1="150.89999999999998" y1="618.85" x2="150.89999999999998" y2="640.3199999999999" stroke="#57936b" stroke-width="5"/>
 <line x1="168.67450000000002" y1="559.95" x2="249.0255" y2="559.95" stroke="#57936b" stroke-width="5"/>
 <line x1="321.9" y1="580.85" x2="321.9" y2="613.15" stroke="#57936b" stroke-width="5"/>
 <rect x="168.67450000000002" y="529.55" width="80.351" height="30.400000000000027" fill="#cbd4df" stroke="#686357" stroke-width="2"/>
-<text x="263.0255" y="544.75" font-family="sans-serif" font-size="13">Main Hall portal · limit</text>
+<text x="208.85000000000002" y="540.75" text-anchor="middle" fill="#302b23" font-family="sans-serif" font-size="8">Main Hall</text>
+<text x="208.85000000000002" y="552.75" text-anchor="middle" fill="#302b23" font-family="sans-serif" font-size="8">limit</text>
 <line x1="168.67450000000002" y1="559.95" x2="249.0255" y2="559.95" stroke="#57936b" stroke-width="5"/>
 <rect x="321.9" y="580.85" width="26.60000000000001" height="32.29999999999998" fill="#eee3cb" stroke="#686357" stroke-width="2"/>
-<text x="362.5" y="597.0" font-family="sans-serif" font-size="13">stairs landing · limit</text>
+<text x="335.2" y="593.0" text-anchor="middle" fill="#302b23" font-family="sans-serif" font-size="8">Stairs</text>
+<text x="335.2" y="605.0" text-anchor="middle" fill="#302b23" font-family="sans-serif" font-size="8">limit</text>
 <line x1="321.9" y1="580.85" x2="321.9" y2="613.15" stroke="#57936b" stroke-width="5"/>
 <rect x="172.75" y="148.60000000000002" width="37.05" height="30.4" fill="#eee3cb" stroke="#686357" stroke-width="2"/>
-<text x="223.8" y="163.8" font-family="sans-serif" font-size="13">purple corridor study limit</text>
+<text x="191.275" y="159.8" text-anchor="middle" fill="#302b23" font-family="sans-serif" font-size="8">Purple</text>
+<text x="191.275" y="171.8" text-anchor="middle" fill="#302b23" font-family="sans-serif" font-size="8">limit</text>
 <line x1="172.75" y1="148.60000000000002" x2="172.75" y2="179.0" stroke="#57936b" stroke-width="5"/>
 <text x="30" y="760" font-family="sans-serif" font-size="13">Green = observed opening. Local axes; no compass claim. Main Hall/stairs remain short study limits.</text></svg>

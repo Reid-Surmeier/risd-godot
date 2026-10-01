@@ -16,8 +16,11 @@ for area in geometry['rooms']:
  x0,x1,z0,z1=area['bounds'];x=35+(x0+3.6)*19;y=65+(z0+7.2)*19;w=(x1-x0)*19;h=(z1-z0)*19
  color='#575762' if area['label']=='dark medieval room' else '#cbd4df' if area['label'].startswith('Main Hall') else '#eee3cb'
  svg.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{color}" stroke="#686357" stroke-width="2"/>')
- label=area['label'].replace(' threshold study limit',' · limit').replace(' doorway threshold study limit',' · limit')
- svg.append(f'<text x="{x+w+14}" y="{y+h/2}" font-family="sans-serif" font-size="13">{html.escape(label)}</text>')
+ labels={'Rockefeller':['Rockefeller'],'adjacent gallery':['European','gallery'],'light Renaissance room':['Light','Renaissance'],'dark medieval room':['Dark','medieval'],'Main Hall portal threshold study limit':['Main Hall','limit'],'stairs landing threshold study limit':['Stairs','limit'],'purple corridor study limit':['Purple','limit']}
+ font=8 if 'limit' in labels[area['label']] else 11
+ ink='#fff' if area['label']=='dark medieval room' else '#302b23'
+ for i,label in enumerate(labels[area['label']]):
+  svg.append(f'<text x="{x+w/2}" y="{y+h/2-4+i*12}" text-anchor="middle" fill="{ink}" font-family="sans-serif" font-size="{font}">{html.escape(label)}</text>')
  for side,span in area['openings'].items():
   if side in ['east','west']:dx=35+((x1 if side=='east' else x0)+3.6)*19;ax,bx=dx,dx;ay=65+(span[0]+7.2)*19;by=65+(span[1]+7.2)*19
   else:dy=65+((z1 if side=='south' else z0)+7.2)*19;ay,by=dy,dy;ax=35+(span[0]+3.6)*19;bx=35+(span[1]+3.6)*19
