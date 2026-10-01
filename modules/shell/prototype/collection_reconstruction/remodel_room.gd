@@ -505,4 +505,24 @@ func build_adjacent_gallery() -> void:
 	painting.build_framed(load("res://assets/frame.png"),load("res://assets/painting-35.786.jpg"),Vector2(.651,.541),frame.margins_px)
 	painting.position=Vector3(-3.48,1.75,2.15)
 	painting.rotation.y=PI/2
-	inventory["verified_paintings"]=3
+	var fetti:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/fetti-frame-geometry.json"))
+	var angels:=Painting.new()
+	add_child(angels)
+	angels.build_framed(load("res://assets/fetti-frame.png"),load("res://assets/painting-36.003.jpg"),Vector2(.781,.895),fetti.margins_px)
+	angels.position=Vector3(-3.48,1.8,8.8)
+	angels.rotation.y=PI/2
+	# IMG_6386 44.25/67.75s: opposite-wall piers project into the gallery.
+	# ponytail: wall relationships observed; pier depth and spacing await metric fitting.
+	for z in [3.65,8.4]:
+		var pier:=solid(Vector3(2.28,1.75,z),Vector3(.44,3.5,.9),look(Color.WHITE,"res://presentation/wall-plaster.png"),true)
+		var foot:=solid(Vector3(2.25,.065,z),Vector3(.55,.13,1.06),look(Color("f1ede2")))
+		foot.reparent(pier)
+	inventory["gallery_piers"]=2
+	# Far doorway crossed in IMG_6386 98.75..106.25s; three-panel open leaves.
+	for x in [-1.59,.49]:
+		var leaf:=solid(Vector3(x,1.3,18.41),Vector3(.05,2.6,.88),look(Color("eee7d5")),true)
+		for y in [.52,1.3,2.08]:
+			var inset:=solid(Vector3(x+.03, y,18.41),Vector3(.012,.62,.7),look(Color("e2dac9")))
+			inset.reparent(leaf)
+	inventory["far_doorway_threshold"]=1
+	inventory["verified_paintings"]=4

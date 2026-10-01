@@ -91,7 +91,7 @@
       "sha256": "a15a2e90b2ae6152727ab1afd3c205d31f0405215e606adf678be3f5c1cf01a2",
       "available_2fps_frames": 75,
       "wide_contact_sheet": "video-wide/IMG_6385.jpg",
-      "survey_review": "20 evenly spaced source frames inspected; detailed object inventory and held-out reconstruction incomplete",
+      "survey_review": "All available 2fps frames inspected through 21 ordered contact sheets covering 497 gallery frames; ordered lower-bound object inventory recorded. Reconstruction incomplete.",
       "regions_seen": [
         "Rockefeller doorway reverse view",
         "European gallery dress, secretary, Delacroix painting, silver/porcelain case"
@@ -103,7 +103,7 @@
       "sha256": "3112391373f03128f0b1a4deac345e7d30c1ed27c4d9d0d850da37d25c97351f",
       "available_2fps_frames": 213,
       "wide_contact_sheet": "video-wide/IMG_6386.jpg",
-      "survey_review": "20 evenly spaced source frames inspected; detailed object inventory and held-out reconstruction incomplete",
+      "survey_review": "All available 2fps frames inspected through 21 ordered contact sheets covering 497 gallery frames; ordered lower-bound object inventory recorded. Reconstruction incomplete.",
       "regions_seen": [
         "European gallery: paintings, prints, textiles, four case groups, central furniture and dress"
       ],
@@ -114,7 +114,7 @@
       "sha256": "0a2255c4fbcbbb44c48202e617b3978abfed4832633c6a21c73b5861570a0530",
       "available_2fps_frames": 209,
       "wide_contact_sheet": "video-wide/IMG_6384.jpg",
-      "survey_review": "20 evenly spaced source frames inspected; detailed object inventory and held-out reconstruction incomplete",
+      "survey_review": "All available 2fps frames inspected through 21 ordered contact sheets covering 497 gallery frames; ordered lower-bound object inventory recorded. Reconstruction incomplete.",
       "regions_seen": [
         "long European gallery: cabinets, paintings, tapestries, hanging porcelain/cases",
         "Rockefeller doorway reverse view"
@@ -122,7 +122,7 @@
       "complete": false
     }
   ],
-  "built_study": "Rockefeller and adjoining long gallery; version16 layout correction under validation",
+  "built_study": "Rockefeller, adjoining long European gallery and observed far doorway threshold; v21 under validation. Sculpture successor beyond 1.6m threshold unfinished.",
   "acceptance_remaining": [
     "every observed room and connection inventoried",
     "every visible object source/API matched or explicitly unresolved",
@@ -139,9 +139,10 @@
     }
   ],
   "current_preview": {
-    "path": "lowpoly-room-v19",
+    "path": "lowpoly-room-v21",
     "wallpaper": "34.912 matched/installed, placement provisional",
     "bust": "37.201 separate front/rear UVs and connected socle, side profile unverified",
-    "next_frame_trial": "36.003 generated/inspected, crop/pose/bake not integrated"
-  }
+    "next_frame_trial": "61.006 matched, one Muse pass inspected; bands too wide, deterministic correction pending"
+  },
+  "gallery_inventory": "european-gallery-inventory.json"
 }

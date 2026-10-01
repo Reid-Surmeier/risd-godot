@@ -78,7 +78,8 @@
     "architecture-references/door-architrave-source.png",
     "architecture-references/baseboard-source.png",
     "inventory-references/fetti-frame-selected-0.png",
-    "inventory-references/fetti-frame-selected-1.png"
+    "inventory-references/fetti-frame-selected-1.png",
+    "inventory-references/goltzius-frame-selected-0.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -1337,6 +1338,25 @@
           "slot": "reference-001",
           "kind": "image",
           "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-ec24643406cbd7e3335c",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1440x1760"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
         }
       ]
     }

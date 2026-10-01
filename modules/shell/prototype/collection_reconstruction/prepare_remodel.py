@@ -238,6 +238,14 @@ for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.
 
 copy(app/'inventory-catalogue/arabesque-wallpaper-zoom-0.jpg','assets/wallpaper-34.912.jpg')
 copy(app/'inventory-catalogue/arabesque-wallpaper.json','assets/wallpaper-34.912.json')
+for name in ['fetti-frame.png','fetti-frame-geometry.json']:
+    copy(app/'trial'/name,'assets/'+name)
+# The official photograph includes the inner gilt edge; exclude it from the canvas.
+fetti=app/'inventory-catalogue/fetti-angels-zoom-0.jpg'
+canvas=Image.open(fetti).crop((38,28,1289,1469))
+assert abs(canvas.width/canvas.height-.781/.895)<.01
+canvas.save(out/'assets/painting-36.003.jpg',quality=95)
+inputs[str(fetti)]=hashlib.sha256(fetti.read_bytes()).hexdigest()
 
 geometry = json.loads((ingestion/'room-route-walk-v5/geometry.json').read_text())
 geometry['caption'] = 'Collection · WASD move · Space reset · 1/2 room views\nRoom prototype · placements and unfinished objects are provisional.\n'
@@ -245,13 +253,16 @@ geometry['point_cloud_render'] = False
 geometry['doorway_correction'] = {'sources':['IMG_6380/000247.jpg','IMG_6380/000449.jpg','IMG_6384/000209.jpg','IMG_6385/000005.jpg'], 'correction':'wide shots put the long-gallery doorway on the wall perpendicular to the sofa; purple doorway remains opposite the sofa wall. The v15 same-wall sofa/gallery-door arrangement was wrong.', 'confidence':'wall relationships visually corroborated; metric positions remain provisional pending matched wide renders'}
 geometry['rooms']=[
     {'label':'Rockefeller','bounds':[-2.75,3.65,-7.2,-.4], 'openings':{'south':[-1.55,.45], 'east':[-2.8,-1.2]}},
-    {'label':'adjacent gallery','bounds':[-3.6,2.5,-.4,18.85], 'openings':{'north':[-1.55,.45]}},
+    {'label':'adjacent gallery','bounds':[-3.6,2.5,-.4,18.85], 'openings':{'north':[-1.55,.45], 'south':[-1.55,.45]}},
+    {'label':'far sculpture doorway threshold study limit','bounds':[-3.6,2.5,18.85,20.45], 'openings':{'north':[-1.55,.45]}},
     {'label':'purple corridor study limit','bounds':[3.65,5.6,-2.8,-1.2], 'openings':{'west':[-2.8,-1.2]}}]
 geometry['patches']=[{'label':r['label'],'color':'81735c','vertices':[[r['bounds'][0],0,r['bounds'][2]],[r['bounds'][1],0,r['bounds'][2]],[r['bounds'][1],0,r['bounds'][3]],[r['bounds'][0],0,r['bounds'][3]]]} for r in geometry['rooms']]
 geometry['boxes']=[]
 geometry['start']=[-.55,.25,-1.3]
 geometry['trials']=[['gallery_door_out',[-.55,.25,-1.3],[-.55,0,1.6],False],['gallery_door_back',[-.55,.25,1.6],[-.55,0,-1.3],False],['sofa_wall_blocked',[-1.3,.25,-2.5],[-3.3,0,-2.5],True],['right_wall_blocked',[3.0,.25,-3.2],[4.5,0,-3.2],True],['decorative_room',[1.65,.25,-2.0],[1.65,0,-5.4],False],['adjacent_gallery',[-.55,.25,3],[-.55,0,6],False],['right_door_out',[3.0,.25,-2.0],[4.8,0,-2.0],False],['right_door_back',[4.8,.25,-2.0],[3.0,0,-2.0],False],['central_display_blocked',[.45,.25,-2.3],[.45,0,-4.2],True]]
 geometry['trial_seconds']=3.5
+geometry['trials'] += [['far_gallery_door_out',[-.55,.25,18],[-.55,0,19.7],False],['far_gallery_door_back',[-.55,.25,19.7],[-.55,0,18],False]]
+geometry['far_connection']={'sources':['IMG_6384/000037.jpg','IMG_6386/000194.jpg','IMG_6386/000213.jpg'],'observed':'walk through far end doorway into sculpture room','extent':'Only a 1.6m threshold study is modeled beyond this door; successor room geometry and contents remain unfinished. Door metric position unmeasured.'}
 geometry['room_geometry']='Wide-shot wall relationships replace v15 layout; authored metric extents and distal gallery limit provisional. No point cloud in renderer.'
 
 (out/'geometry.json').write_text(json.dumps(geometry,indent=2)+'\n')

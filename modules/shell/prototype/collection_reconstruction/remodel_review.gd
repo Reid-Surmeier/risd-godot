@@ -49,6 +49,10 @@ func run() -> void:
 		["wide-gallery-entry",Vector3(-.8,1.65,1.1),Vector3(.15,1.3,-6.2)],
 		["architecture-asset",Vector3(-.55,2.1,-3.5),Vector3(-.55,1.9,-.4)],
 		["wallpaper-asset",Vector3(1.6,2.1,-5.4),Vector3(3.59,2.1,-5.4)],
+		["gallery-wide",Vector3(-.55,1.65,.7),Vector3(-.3,1.5,12)],
+		["fetti-in-room",Vector3(-1.65,1.8,8.8),Vector3(-3.48,1.8,8.8)],
+		["gallery-piers",Vector3(.0,1.65,1.2),Vector3(2.28,1.75,8.4)],
+		["gallery-far-door",Vector3(-.55,1.65,16.3),Vector3(-.55,1.6,19.7)],
 		["bust-asset",Vector3(-.9,1.65,-5.87),Vector3(-2.2,1.60,-5.87)]]:
 		scene.camera.position=view[1]
 		scene.camera.look_at(view[2])
@@ -77,5 +81,5 @@ func run() -> void:
 		await process_frame
 		await RenderingServer.frame_post_draw
 		assert(native_view.get_texture().get_image().save_png("res://evidence/"+view[0]+".png")==OK)
-	print("REMODEL_VISUAL_PROOF: two walking, nine detail/oblique, eight native-resolution asset views, one source-camera fit and three bust UV views")
+	print("REMODEL_VISUAL_PROOF: two walking, nine detail/oblique, eleven native-resolution asset views, one source-camera fit and three bust UV views")
 	quit()

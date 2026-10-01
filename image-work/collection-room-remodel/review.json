@@ -591,10 +591,10 @@
     "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
   },
   "inventory_pass_spend": {
-    "successful_count": 50,
-    "actual_usd": "0.500000",
+    "successful_count": 51,
+    "actual_usd": "0.510000",
     "map_prior_usd": ".11",
-    "map_cumulative_actual_usd": "0.610000",
+    "map_cumulative_actual_usd": "0.620000",
     "possibly_spent": [
       {
         "kind": "river-deities",
@@ -603,7 +603,7 @@
         "state": "submission_unreconciled; no resubmission"
       }
     ],
-    "map_conservative_ceiling_usd": "0.620000"
+    "map_conservative_ceiling_usd": "0.630000"
   },
   "architecture_review": {
     "ivory-plaster": "Native Muse faceting inspected; deterministic contrast restraint and mirrored-edge assembly create matching texture borders. Smooth plaster material scale remains provisional.",
@@ -612,7 +612,7 @@
     "source_use": "video used for reference/camera/profile measurement only; never room albedo",
     "layout": "v15 same-wall gallery door and sofa rejected by owner/wide shots; v17 doorway/cases/furniture corrected from wide source camera; not complete map"
   },
-  "remaining": "All ten video rooms/objects still need full identity, Muse, geometry, connectivity and independent visual acceptance. Fetti frame generated/inspected but not room-integrated. Brown textile/four prints unresolved; central deities run unreconciled, no blind retry.",
+  "remaining": "Full all-ten-video map incomplete. Gallery ordered lower-bound inventory: 24 wall groups and nine display/furniture groups from all 497 frames. Far room contents, cases/paintings/prints/textiles, metric placement and independent visual acceptance pending. Goltzius frame proportions rejected; central deities run unreconciled, no blind retry.",
   "runtime_review_v19": {
     "date_utc": "2026-10-01T01:35:16.194253+00:00",
     "recamier": "Saved front/rear Muse rasters mapped to separate UV hemispheres; 320 closed outward-wound triangles, 480 edge pairs; front/rear inspected in Godot. Side profile/UV seam still provisional. Authored connected marble socle; catalogue total height retained. No paid call.",
@@ -633,7 +633,29 @@
     "catalogue_id": "1534546",
     "accession": "36.003",
     "source_video": "IMG_6386 32.25/33.75s",
-    "visual_review": "Fluted outer band and oval inner moulding compared with native source; four meshes and three Godot viewpoints inspected. Trial only; depth, baked lighting and room placement unverified. Uncropped authentic photo contains a narrow gilt edge; review canvas crop before integration.",
+    "visual_review": "Authentic official image cropped (38,28,1289,1469) to exclude its gilt edge; existing Main Hall native frame assembly placed on gallery west wall after source order review. v20 baked room detail inspected; exact pose and frame depth remain provisional.",
+    "runtime_integrated": true
+  },
+  "goltzius-frame": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "cost_usd": "0.010000",
+    "run_id": "run-d3202a36f847df0bc6a9c777",
+    "native_sha256": "4ec50fbf65f473b9fda5b27d57dd87fa97863c6451c1c9955845f084361f105e",
+    "catalogue_id": "1552761",
+    "accession": "61.006",
+    "source_video": "IMG_6386 18.25s",
+    "visual_review": "Black stepped bands and gold design matched qualitatively, but generated band widths and gold facets exaggerate the source. Native assembly outside size .742 x .954m vs catalogue canvas .345 x .510m; reject current band proportions, retain trial. No paid retry. Deterministic band compression needs source fit and visual check. Three native trial views inspected.",
     "runtime_integrated": false
+  },
+  "runtime_review_v21": {
+    "date_utc": "2026-10-01T02:05:00Z",
+    "native_checks": "22/22; p95 30.952ms; RTX4070 SUPER",
+    "browser_checks": "22/22 plus real keyboard round trip; p95 30.952ms; no JS/runtime errors; Chrome154 RTX ANGLE",
+    "shell_checks": "46/50; four existing layout/pixel failures; module doc says48 but current verifier emits50",
+    "bake": "333 users, native LightmapGI with CPU software Vulkan; render/native/browser RTX",
+    "performance": "Not 60fps acceptance",
+    "layout": "Two gallery piers, observed far doorway/open panelled leaves and only1.6m threshold. Full sculpture room and precise gallery dimensions unverified. Fetti4th painting installed in observed wall order."
   }
 }

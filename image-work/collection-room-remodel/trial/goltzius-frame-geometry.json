@@ -1,0 +1,23 @@
+{
+  "canvas_m": [
+    0.345,
+    0.51
+  ],
+  "margins_px": [
+    299,
+    337,
+    299,
+    333
+  ],
+  "texture_size": [
+    1110,
+    1439
+  ],
+  "opening_aspect": 0.6657997399219766,
+  "catalogue_aspect": 0.676470588235294,
+  "depth_m": 0.09,
+  "canvas_inset_m": 0.035,
+  "depth_note": "Existing Main Hall profile depth reused, unmeasured",
+  "geometry": "native nine-slice preserves band thickness and corrects opening aspect; no room placement yet",
+  "source_sha256": "4ec50fbf65f473b9fda5b27d57dd87fa97863c6451c1c9955845f084361f105e"
+}
