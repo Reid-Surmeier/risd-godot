@@ -16,7 +16,7 @@ In the full repository, open `res://modules/shell/character/playtest.tscn` for t
 
 ## Replacement handoff
 
-The package is stored in the Shell that owns the current Collection visitor. The current museum still loads its earlier `visitor159` implementation. This package does not change the museum composition automatically: its playtest scene contains the test arena/camera/UI. Use the package's model/animation/material logic when replacing that private adapter, preserve the museum's navigation/collision/camera and test the complete composed build before activating it. Do not mount the entire test arena into the Collection Page.
+The package is stored in the Shell that owns the current Collection visitor. The current museum still loads its earlier `visitor159` implementation. This package does not change the museum composition automatically: its playtest scene contains the test arena/camera/UI. Use the package's model/animation/material logic when replacing that private adapter, preserve the museum's navigation/collision/camera and test the complete composed build before activating it. Do not mount the entire test arena into the Collection Page. #236 did this: `visitor.gd` is that adapter, and the Collection now loads it.
 
 All runtime inputs are local to this folder. `provenance.json` binds their hashes to the accepted prototype. `PROVENANCE.md` records providers, acquisition, sound identification and remaining fidelity limits. The Blender source and provider originals remain on the accepted prototype branch rather than becoming runtime dependencies.
 

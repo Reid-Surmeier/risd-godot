@@ -73,10 +73,27 @@ With `qa-crt=1` only, `crt_display.gd` inspects visible generic `ProportionalRes
 
 `character/` holds the owner-selected #231 horned visitor's six compatible rigged
 profiles, corrected hand atlas and module-local playtest code. It is prepared
-for replacing the Collection visitor; the current museum composition still
-loads `visitor159`. `scripts/character_package.py` imports only the accepted
+for replacing the Collection visitor (done in #236, below).
+`scripts/character_package.py` imports only the accepted
 package, runs movement/pose/contact/audio checks and exports the Web playtest.
 Sound uses contact/action events and native polyphonic playback; original-sample
 identification and remaining sound limits are recorded in its provenance and
 the dated #235 research note. No Shell public interface/error/frozen acceptance
 file changes.
+
+## Collection visitor (#236)
+
+The Collection walks the accepted character. `character/visitor.gd` is a private
+adapter with the surface `walk4.gd` already drove (`world_height`, `layers`,
+`contacts`, `pose`, `reset_contacts`, `sole_positions`, `sole_support`,
+`play_gesture`); the museum still owns position, collision, navigation and camera.
+The adapter reuses the package's rig, idle and walk clips, face and hand material,
+blink, speed-to-cadence coupling and captured house footsteps, which play when a
+foot actually lands. It adds one light that reaches only the visitor and stays on
+the viewer's side, because the museum's baked light alone renders the character
+much darker than the accepted playtest. Sprint, jump, tools and doors remain
+playtest-only: the museum has no input for them. The accepted clips are not
+IK-locked, so the late-stance foot slide seen in the playtest is unchanged.
+`visitor159/` is no longer loaded. `playtest/visitor174_check.gd` and
+`visitor174_capture.gd` now assert this visitor. No Shell interface, error or
+frozen harness file changed.

@@ -2518,7 +2518,7 @@ func _merge_static() -> void:
 func _build_kid() -> void:
 	_generated_visitor = true
 	_rigged_visitor = true
-	_kid = load(DIR + "visitor159/visitor.gd").new()
+	_kid = load("res://modules/shell/character/visitor.gd").new()
 	_kid.world_height = KID_H
 	_vp.add_child(_kid)
 	var g := Gradient.new()
@@ -2783,10 +2783,6 @@ func _process(delta: float) -> void:
 			facing,
 			view_yaw if view_mode != 2 else _yaw
 		)
-	if _rigged_visitor:
-		for contact in _kid.contacts:
-			_step_i = (_step_i + 1) % 6
-			_play("step_wood_%02d" % (_step_i + 1))
 	_update_camera(minf(1.0, delta * 5.0))
 	_update_hover()
 	if orbit_settled:

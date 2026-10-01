@@ -43,7 +43,7 @@ func run():
 		assert(
 			walk._cam.cull_mask == 63 and walk._cam.fov >= 48.0, "detail capture fixture invalid"
 		)
-	print("DISPLAY_REPLAY Hair36 reset pose parity and white room PASS")
+	print("DISPLAY_REPLAY visitor reset pose parity and white room PASS")
 	probe.free()
 	walk.free()
 	call_deferred("quit")

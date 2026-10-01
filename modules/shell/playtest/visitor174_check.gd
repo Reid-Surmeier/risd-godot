@@ -6,27 +6,64 @@ func _initialize() -> void:
 
 
 func _run() -> void:
-	var visitor = load("res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gd").new()
+	# #236: the accepted #235 character replaced the Hair36 visitor behind the same surface.
+	var visitor = load("res://modules/shell/character/visitor.gd").new()
 	visitor.world_height = 1.75
 	root.add_child(visitor)
 	await process_frame
-	assert(visitor.target.get_bone_count() == 42, "selected Hair36 skeleton missing")
+	assert(visitor.target.get_bone_count() == 24, "accepted 24-bone rig missing")
 	assert(
-		visitor.player.has_animation("Idle") and visitor.player.has_animation("Walking_A"),
-		"fallback locomotion clips missing"
+		visitor.player.has_animation("idle") and visitor.player.has_animation("walk"),
+		"accepted locomotion clips missing"
 	)
 	assert(
 		not visitor.play_gesture("wave") and not visitor.play_gesture("look"),
 		"gestures must be disabled"
 	)
-	visitor.pose(0.2, true, 0.0, Vector3.FORWARD, 0.0)
-	assert(visitor._clip == "Walking_A", "walking did not select the accepted clip")
-	visitor.pose(0.2, false, 0.0, Vector3.FORWARD, 0.0)
-	assert(visitor._clip == "Idle", "stopping did not return to idle")
+	var lowest := INF
+	var highest := -INF
+	for mesh in visitor.meshes:
+		var arrays: Array = mesh.mesh.surface_get_arrays(0)
+		for vertex in arrays[Mesh.ARRAY_VERTEX].size():
+			var point := Vector3.ZERO
+			for k in 4:
+				var bind: int = arrays[Mesh.ARRAY_BONES][vertex * 4 + k]
+				var bone: int = mesh.skin.get_bind_bone(bind)
+				if bone < 0:
+					bone = visitor.target.find_bone(mesh.skin.get_bind_name(bind))
+				point += (
+					(
+						visitor.target.get_bone_global_rest(bone)
+						* (mesh.skin.get_bind_pose(bind) * arrays[Mesh.ARRAY_VERTEX][vertex])
+					)
+					* arrays[Mesh.ARRAY_WEIGHTS][vertex * 4 + k]
+				)
+			lowest = minf(lowest, point.y)
+			highest = maxf(highest, point.y)
+	var rest_height: float = (highest - lowest) * visitor.target.global_basis.get_scale().y
 	assert(
-		visitor.model.find_children("*", "MeshInstance3D", true, false).size() > 0,
-		"selected body has no meshes"
+		absf(rest_height / visitor.model.scale.y - visitor.REST_HEIGHT) < 0.01,
+		"REST_HEIGHT no longer matches walk.glb: %s" % (rest_height / visitor.model.scale.y)
 	)
+	var idle_steps := 0
+	for _tick in 120:
+		visitor.pose(1.0 / 60.0, false, 0.0, Vector3.FORWARD, 0.0)
+		idle_steps += visitor.contacts
+	assert(visitor._clip == "idle" and idle_steps == 0, "idle visitor stepped")
+	# Four seconds at the museum's 1.2 m/s: the accepted coupling gives ~1.16 cycles a second.
+	var steps := 0
+	for _tick in 240:
+		visitor.position.z -= 1.2 / 60.0
+		visitor.pose(1.0 / 60.0, true, 0.0, Vector3.FORWARD, 0.0)
+		steps += visitor.contacts
+		for sole in visitor.sole_positions():
+			assert(sole.y > -0.001, "sole went through the floor")
+		assert(visitor.sole_support().has(true), "both feet left the floor while walking")
+	assert(visitor._clip == "walk", "walking did not select the accepted clip")
+	assert(steps >= 8 and steps <= 10, "step cadence is not two contacts a cycle: %s" % steps)
+	for _tick in 30:
+		visitor.pose(1.0 / 60.0, false, 0.0, Vector3.FORWARD, 0.0)
+	assert(visitor._clip == "idle", "stopping did not return to idle")
 	visitor.queue_free()
 	await process_frame
 	var gallery = load("res://modules/shell/prototype/gallery_walk4/walk4.gd").new()
@@ -34,35 +71,22 @@ func _run() -> void:
 	await create_timer(3.0).timeout
 	assert(gallery._paintings.size() == 23, "gallery paintings missing")
 	assert(
-		gallery._kid.get_script().resource_path.ends_with("visitor159/visitor.gd"),
-		"runtime visitor is not Hair36"
+		gallery._kid.get_script().resource_path.ends_with("character/visitor.gd"),
+		"runtime visitor is not the accepted character"
 	)
 	var start: Vector3 = gallery._pos
 	_key(gallery, KEY_D, true)
 	await create_timer(0.7).timeout
 	assert(
-		gallery._kid._clip == "Walking_A" and gallery._pos.distance_to(start) > 0.2,
+		gallery._kid._clip == "walk" and gallery._pos.distance_to(start) > 0.2,
 		"runtime walk did not move"
 	)
-	var socks: PackedVector3Array = gallery._kid.skin_points(gallery._kid.skin_meshes[0])
-	var lowest_sole := INF
-	for index in gallery._kid.sole_indices:
-		lowest_sole = minf(lowest_sole, socks[index].y)
-	assert(lowest_sole >= -0.03, "shoe sole penetrated the gallery floor")
-	var planted_before: Array = gallery._kid.sole_positions()
-	var support_before: Array = gallery._kid.sole_support()
-	await create_timer(0.1).timeout
-	var planted_after: Array = gallery._kid.sole_positions()
-	var support_after: Array = gallery._kid.sole_support()
-	assert(support_after.has(true), "walk cycle never planted a foot")
-	for side in 2:
-		if support_before[side] and support_after[side]:
-			assert(
-				planted_before[side].distance_to(planted_after[side]) < 0.02, "planted foot drifted"
-			)
+	for sole in gallery._kid.sole_positions():
+		assert(sole.y >= -0.001, "shoe sole penetrated the gallery floor")
+	assert(gallery._kid.sole_support().has(true), "walk cycle never planted a foot")
 	_key(gallery, KEY_D, false)
 	await create_timer(0.5).timeout
-	assert(gallery._kid._clip == "Idle", "runtime stop did not return to idle")
+	assert(gallery._kid._clip == "idle", "runtime stop did not return to idle")
 	var forward_heading: float = gallery._kid.rotation.y
 	var reverse_start: Vector3 = gallery._pos
 	_key(gallery, KEY_A, true)
@@ -107,8 +131,8 @@ func _run() -> void:
 	await process_frame
 	print(
 		(
-			"PASS #174: Hair36 body, 42-bone rig, 23 paintings, start/walk/stop/reversal, " +
-			"90/180-degree turns, planted feet/floor, gestures disabled"
+			"PASS #236: accepted character, 24-bone rig, 23 paintings, start/walk/stop/reversal, " +
+			"90/180-degree turns, floor contact and step cadence, gestures disabled"
 		)
 	)
 	quit()

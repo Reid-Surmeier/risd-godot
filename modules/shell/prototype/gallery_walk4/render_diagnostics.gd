@@ -126,16 +126,8 @@ func _pose(scene: String) -> void:
 	)
 	view._last_pos = view._pos
 	view._motion_heading = Vector3.FORWARD
-	# #161 reset the selected Hair36 rig before every matched replay.
-	view._kid.reset_contacts()
-	view._kid._clock = 0.0
-	view._kid._gait = 0.0
-	view._kid._clip = "Idle"
-	view._kid._blend_start = -1.0
-	view._kid._from.clear()
-	view._kid._stationary_weight = 1.0
-	view._kid.rotation.y = 0.0
-	view._kid.target.reset_bone_poses()
+	# #161 reset the visitor before every matched replay (#236: the accepted character).
+	view._kid.reset()
 	view._process(0.0)
 	view._update_camera(1.0)
 
@@ -234,9 +226,9 @@ func _publish() -> void:
 	for bone in view._kid.target.get_bone_count():
 		poses.append(view._kid.target.get_bone_pose(bone))
 	state["visitor"] = {
-		"identity": "Hair36",
-		"phase": view._kid.phase,
-		"idle_time": view._kid._clock,
+		"identity": "accepted-character-235",
+		"clip": view._kid._clip,
+		"clip_time": view._kid.player.current_animation_position,
 		"yaw": view._kid.rotation.y,
 		"pose_hash": hash(poses)
 	}
