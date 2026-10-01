@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-01T20:21:04.369294+00:00",
+  "candidate": "main-build-rooms-v50u",
+  "extension": "main-build-extension-v49t",
+  "baked": false,
+  "held_tests": 16,
+  "target_tests": 12,
+  "failures": [],
+  "maximum_step_m": 0.0400009155273438,
+  "tap_input": "real root Input.parse_input_event delivered and released",
+  "click_input": "same floor-target planner; mouse ray picking not exercised",
+  "independent_review": "active actual Opus5.5 ctx_fa9b20c01976",
+  "all_geometry_placement_fidelity_flags": false
+}

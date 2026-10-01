@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-01T20:26:25.373885+00:00",
+  "run_id": "run-e9664c5bbab320779c1133e6",
+  "provider": "OpenRouter",
+  "model": "meta/muse-image",
+  "count": 1,
+  "reported_cost_usd": 0.01,
+  "native_dimensions": [
+    1600,
+    1600
+  ],
+  "requested_dimensions": [
+    1536,
+    1536
+  ],
+  "native_sha256": "ace672e922caa71f86c4c9b2b3429b3c0ffa6a2f67128a10c2bcaf68db7e541d",
+  "root_native_visual_review": "Matte brown moulding, four mitres and empty white center; native bands too wide, outer and inner bevel lighter than original video. Source shows only a thin light bead line. Generated inner bevel is too broad and gold-coloured. Frame remains a trial, not accepted.",
+  "fit": "Four generated frame strips fit source-read existing .018/.029/.030m band geometry; replay hash equality proved twice",
+  "installation": "pending native comparison, preserve original source-strip alternative",
+  "artwork_generated": false,
+  "frame_fidelity_accepted": false,
+  "dimensions_accepted": false,
+  "cumulative_reported_actual_usd": 0.91,
+  "cumulative_conservative_usd": 0.92,
+  "retry": "never-resubmit",
+  "spend_state": "unknown in tool summary; reported $.010000 with native provider result retained"
+}

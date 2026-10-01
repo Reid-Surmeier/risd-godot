@@ -1,0 +1,70 @@
+[
+	{
+		"cull_mask": 6167,
+		"name": "hall-reveal-dollhouse",
+		"position": [
+			0.0,
+			0.0,
+			-25.7999992370605
+		],
+		"space": "gallery",
+		"state": {
+			"attached": true,
+			"blocks": 45,
+			"cutaway_bodies": 131,
+			"rooms": 14,
+			"space": "gallery"
+		}
+	},
+	{
+		"cull_mask": 7135,
+		"name": "grey-reveal-dollhouse",
+		"position": [
+			0.0,
+			0.0,
+			-29.9600009918213
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 45,
+			"cutaway_bodies": 131,
+			"rooms": 14,
+			"space": "far"
+		}
+	},
+	{
+		"cull_mask": 6167,
+		"name": "hall-reveal-follow",
+		"position": [
+			0.0,
+			0.0,
+			-25.7999992370605
+		],
+		"space": "gallery",
+		"state": {
+			"attached": true,
+			"blocks": 45,
+			"cutaway_bodies": 131,
+			"rooms": 14,
+			"space": "gallery"
+		}
+	},
+	{
+		"cull_mask": 7135,
+		"name": "grey-reveal-follow",
+		"position": [
+			0.0,
+			0.0,
+			-29.9600009918213
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 45,
+			"cutaway_bodies": 131,
+			"rooms": 14,
+			"space": "far"
+		}
+	}
+]

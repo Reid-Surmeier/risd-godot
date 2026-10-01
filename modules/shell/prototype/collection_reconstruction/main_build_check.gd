@@ -13,6 +13,19 @@ func run() -> void:
 	assert(walk != null and walk.state().attached)
 	walk.set_process(false)
 	var failures: Array = []
+	var leaves := 0
+	for body in walk._rooms.get("casings"):
+		if not str(body.get_meta("room_wall", "")).begins_with("Grand Gallery reveal threshold:"):
+			continue
+		leaves += 1
+		var registered := false
+		for wall in walk._walls:
+			if wall.body == body:
+				registered = true
+		if not registered:
+			failures.append("Hall reveal leaf missing from camera cutaway")
+	if leaves != 2:
+		failures.append("Expected both Hall reveal leaves")
 	var removed := 0
 	for mesh in walk._baked_room.find_children("*", "MeshInstance3D", true, false):
 		if not mesh.has_meta("far_fixture_clipped"):
@@ -26,8 +39,17 @@ func run() -> void:
 	if removed == 0:
 		failures.append("No demo fixture removed")
 	var probes: Dictionary = walk._rooms.get_node("BakedRoom/Lightmap").light_data.get("probe_data")
-	if probes.points.size() != 352:
+	# v49v has 1358 users and 350 probes; relocation independently checks the complete probe dictionary.
+	if probes.points.size() != 350:
 		failures.append("Addition probes lost in full-app conversion")
+	var wall_art:=0
+	var case_art:=0
+	for node in walk._rooms.find_children("*","Node3D",true,false):
+		wall_art+=int(node.has_meta("renaissance_wall_object"))
+		case_art+=int(node.has_meta("renaissance_case_object"))
+	if wall_art!=3 or case_art!=11:failures.append("Renaissance art lost in full-app conversion")
+	# The revised south platform is furniture: its new depth must block walking.
+	if walk._walkable(Vector3(-8.65,0,5.565)):failures.append("Visitor can walk through textile platform")
 	for fixture in [[Vector3(1.45, 0, -13), "gallery", false], [Vector3(0, 0, -30.1), "far", true]]:
 		walk._pos = fixture[0]
 		walk._space = fixture[1]

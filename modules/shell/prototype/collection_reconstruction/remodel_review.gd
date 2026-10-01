@@ -214,14 +214,16 @@ func run() -> void:
 
 func moved(name:String,p:Vector3) -> Vector3:
 	if name.begins_with("landing-") or name.begins_with("modern-"):return p
+	# Hall reveal: views of Rockefeller, the connector and the grey gallery go north with those rooms.
+	var reveal:float=JSON.parse_string(FileAccess.get_file_as_string("res://geometry.json")).hall_reveal.wall_m
 	if name.begins_with("hall-"):return p+Vector3(0,0,2.2)
-	if name=="grey-purple-reverse" and p.x<8.45:return p+Vector3(-1.95,0,0)
-	if name.begins_with("grey-") or name.begins_with("ionic-") or name.begins_with("courbet-") or name.begins_with("corot-") or name.begins_with("bertin-"):return p+Vector3(-4.6,0,0)
+	if name=="grey-purple-reverse" and p.x<8.45:return p+Vector3(-1.95,0,-reveal)
+	if name.begins_with("grey-") or name.begins_with("ionic-") or name.begins_with("courbet-") or name.begins_with("corot-") or name.begins_with("bertin-"):return p+Vector3(-4.6,0,-reveal)
 	if name.begins_with("purple-"):
-		return Vector3(1.7+(p.x-3.65)*2.15/4.8,p.y,p.z) if p.x<8.45 else p+Vector3(-4.6,0,0)
+		return Vector3(1.7+(p.x-3.65)*2.15/4.8,p.y,p.z-reveal) if p.x<8.45 else p+Vector3(-4.6,0,-reveal)
 	if name.begins_with("portal-"):return p+Vector3(0,0,9.25)
 	if name.begins_with("medieval-"):return p+Vector3(-.95,0,9.25)
 	if name.begins_with("renaissance-") or name.begins_with("perugino-") or name.begins_with("tracery-") or name.begins_with("european-door") or name=="gallery-far-door":return p+Vector3(-1.95,0,9.25)
 	# Grey register: Rockefeller views move 2.2m with the room; European gallery views keep their z.
 	if name.begins_with("gallery") or name.begins_with("fetti-") or name.begins_with("goltzius-"):return p+Vector3(-1.95,0,0)
-	return p+Vector3(-1.95,0,2.2)
+	return p+Vector3(-1.95,0,2.2-reveal)

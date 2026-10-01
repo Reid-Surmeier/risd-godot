@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-01T20:38:32.286969+00:00",
+  "candidate": "v50v",
+  "numeric_camera_wall_tests": 6,
+  "numeric_failures": 0,
+  "negative_v50u_failed_views": 4,
+  "root_visually_inspected": [
+    "grey-near-south-facing-north",
+    "grey-door-facing-north",
+    "renaissance-west-facing-east"
+  ],
+  "accepted": false,
+  "reason": "Wall intersection removed but visitor hair fills much of the view in two wall-adjacent poses; do not install this camera proposal."
+}

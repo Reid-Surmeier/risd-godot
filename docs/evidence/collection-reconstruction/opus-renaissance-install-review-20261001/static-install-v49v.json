@@ -1,0 +1,82 @@
+{
+ "textures": {
+  "frame-58196-bottom.png": {
+   "worker": "c6206e620cae4a5f",
+   "in_v49v": "c6206e620cae4a5f",
+   "equal": true
+  },
+  "frame-58196-left.png": {
+   "worker": "bfab5a08f0418eb0",
+   "in_v49v": "bfab5a08f0418eb0",
+   "equal": true
+  },
+  "frame-58196-right.png": {
+   "worker": "ff9d2610da4ffadc",
+   "in_v49v": "ff9d2610da4ffadc",
+   "equal": true
+  },
+  "frame-58196-top.png": {
+   "worker": "ae8d98a29dbe427d",
+   "in_v49v": "ae8d98a29dbe427d",
+   "equal": true
+  },
+  "geometry.json": {
+   "worker": "5b06b3e002d4fa75",
+   "in_v49v": "5b06b3e002d4fa75",
+   "equal": true
+  },
+  "madonna-58196-front.png": {
+   "worker": "0ac0a18bb9895694",
+   "in_v49v": "0ac0a18bb9895694",
+   "equal": true
+  },
+  "velvet-23307x-front.png": {
+   "worker": "1aa8f1f4b4776ac6",
+   "in_v49v": "1aa8f1f4b4776ac6",
+   "equal": true
+  },
+  "velvet-23307x-rear.png": {
+   "worker": "4d3612e6bd4cdc99",
+   "in_v49v": "4d3612e6bd4cdc99",
+   "equal": true
+  },
+  "woodcutters-29280-front.png": {
+   "worker": "805160c3f3457ac6",
+   "in_v49v": "805160c3f3457ac6",
+   "equal": true
+  },
+  "woodcutters-29280-outline.png": {
+   "worker": "93347a258ccdc878",
+   "in_v49v": "93347a258ccdc878",
+   "equal": true
+  }
+ },
+ "worker_manifest": {
+  "entries": 43,
+  "present": 43,
+  "mismatch": []
+ },
+ "live_records": {
+  "1201986.json": {
+   "title": "The Woodcutters",
+   "dimensions": "152.4 x 94 cm (60 x 37 inches)",
+   "medium": [
+    "wool tapestry weave"
+   ]
+  },
+  "1202276.json": {
+   "title": "Velvet Cover",
+   "dimensions": "127 cm (50 inches) (length)",
+   "medium": [
+    "Silk-velvet ground with silver- and gilt-silver-wrapped silk\nthread embroidery (couching stitch)"
+   ]
+  },
+  "1591076.json": {
+   "title": "Madonna and Child with Saint Barbara and Saint Catherine",
+   "dimensions": "91.4 x 87 cm (36 x 34 1/4 inches)",
+   "medium": [
+    "Oil on panel"
+   ]
+  }
+ }
+}

@@ -8,10 +8,21 @@ const VirginChild := preload("res://virgin_child_asset.gd")
 const CaseMetal := preload("res://medieval_metal_assets.gd")
 const CasePair := preload("res://medieval_ceramic_ivory_assets.gd")
 const SaintRoch := preload("res://saint_roch_asset.gd")
+const Triptych := preload("res://triptych_asset.gd")
+const Pieta := preload("res://pieta_asset.gd")
+const RenaissanceA := preload("res://renaissance_case_a_assets.gd")
+const RenaissanceB := preload("res://renaissance_case_b_assets.gd")
+const RenaissanceWall := preload("res://renaissance_wall_assets.gd")
 var inventory := {"point_clouds":0,"bookcase":1,"mirrors":2,"settee":1,"armchairs":3}
 var contact_shadow:MeshInstance3D
 var ceiling_details:Array[MeshInstance3D]=[]
 var _renaissance_grille:Node3D
+var _renaissance_triptych_case:StaticBody3D
+var _renaissance_pieta_case:StaticBody3D
+var _renaissance_east_cases:Array[StaticBody3D]=[]
+var _renaissance_wall_art:Array[Node3D]=[]
+var hall_reveal:Dictionary # geometry.json's record: wall thickness, leaf width, panel fractions
+var reveals:={} # threshold room label -> bounds
 var views := [Vector3(-1.50, .25, -2.4), Vector3(-2.50, .25, 3)]
 
 func make_visitor() -> Node3D:
@@ -42,6 +53,8 @@ func _ready() -> void:
 	# Grey register (opus-grey-register-fit-20261001): Rockefeller and the secretary by its door
 	# move 2.2m with the room; the apostles and lion in the same catalogue file keep their z.
 	shift_new(first,Vector3(-1.95,0,2.2),1.0)
+	# Hall reveal: what now stands in Rockefeller goes north with it; the secretary stays in its gallery.
+	shift_new(first,Vector3(0,0,-hall_reveal.wall_m),1.8)
 	first=get_child_count()
 	build_adjacent_gallery()
 	shift_new(first,Vector3(-1.95,0,0))
@@ -55,6 +68,31 @@ func _ready() -> void:
 			north_header=wall
 	assert(north_header!=null and _renaissance_grille!=null)
 	_renaissance_grille.reparent(north_header)
+	for wall in casings:
+		if wall.get_meta("room_wall", "") == "light Renaissance room:north" and wall.position.x < -3.5:
+			assert(_renaissance_triptych_case!=null)
+			_renaissance_triptych_case.reparent(wall)
+			break
+	assert(_renaissance_triptych_case.get_parent().get_meta("room_wall", "") == "light Renaissance room:north")
+	for display in _renaissance_east_cases:
+		for wall in casings:
+			if wall.get_meta("room_wall", "") == "light Renaissance room:east" and abs(wall.position.z-display.position.z)<.1:
+				display.reparent(wall)
+				break
+		assert(display.get_parent().get_meta("room_wall", "") == "light Renaissance room:east")
+	for wall in casings:
+		if wall.get_meta("room_wall", "") == "light Renaissance room:west":
+			assert(_renaissance_pieta_case!=null)
+			_renaissance_pieta_case.reparent(wall)
+			break
+	assert(_renaissance_pieta_case.get_parent().get_meta("room_wall", "") == "light Renaissance room:west")
+	for art in _renaissance_wall_art:
+		var side:String=art.get_meta("wall_side")
+		for wall in casings:
+			if wall.get_meta("room_wall", "") == "light Renaissance room:"+side:
+				art.reparent(wall)
+				break
+		assert(art.get_parent().get_meta("room_wall", "") == "light Renaissance room:"+side)
 	build_grey_gallery()
 	build_connected_hall()
 	build_lion_modern_rooms()
@@ -233,6 +271,7 @@ func build_rooms() -> void:
 	oak.shader=load("res://presentation/floor_oak.gdshader")
 	oak.set_shader_parameter("oak",load("res://presentation/oak-board-atlas-168-v3.webp"))
 	var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://geometry.json"))
+	hall_reveal=data.hall_reveal
 	var floor_limits:=Vector2(INF,-INF)
 	for area in data.rooms:
 		floor_limits.x=min(floor_limits.x,area.bounds[2]-.1)
@@ -283,6 +322,10 @@ func build_rooms() -> void:
 					if across:corners=corners.map(func(p):return Vector3(p.z,p.y,p.x))
 					panel(self,corners,
 						[Vector2.ZERO,Vector2.DOWN,Vector2.ONE,Vector2.RIGHT],oak,Color(1,1,1,fmod((i*7+j*3)*.131,1.0)))
+		if area.get("reveal",false):
+			# A wall's thickness, not a room: build_reveal lines it.
+			reveals[area.label]=b
+			continue
 		for side in ["west","east","north","south"]:
 			var vertical:bool=side in ["west","east"]
 			var fixed:float=b[0] if side=="west" else b[1] if side=="east" else b[2] if side=="north" else b[3]
@@ -334,16 +377,17 @@ func build_rooms() -> void:
 				top.rotation.y=face*PI/2 if vertical else 0.0 if face==1 else PI
 				top.position=Vector3(fixed+face*.20,2.73,middle) if vertical else Vector3(middle,2.73,fixed+face*.20)
 				top.reparent(header)
-	# Ceiling rails and vents follow the wide views.
+	# Ceiling rails and vents follow the wide views, and Rockefeller north by the Hall reveal.
+	var north:=Vector3(0,0,-hall_reveal.wall_m)
 	for x in [-3.65,-1.55,.55]:
 		for z in [-3.3,-1.3,.7]:
-			var rail:=solid(Vector3(x,3.43,z),Vector3(1.65,.025,.035),ivory)
+			var rail:=solid(Vector3(x,3.43,z)+north,Vector3(1.65,.025,.035),ivory)
 			ceiling_details.append(rail)
 			for offset in [-.5,.5]:
-				var fixture:=solid(Vector3(x+offset,3.33,z),Vector3(.08,.15,.08),ivory)
+				var fixture:=solid(Vector3(x+offset,3.33,z)+north,Vector3(.08,.15,.08),ivory)
 				fixture.reparent(rail)
 	for spec in [[Vector3(-2.5,3.04,1.59),0.0],[Vector3(1.48,3.04,.58),PI/2]]:
-		var vent:=solid(spec[0],Vector3(1.85,.07,.018),look(Color("746f64")))
+		var vent:=solid(spec[0]+north,Vector3(1.85,.07,.018),look(Color("746f64")))
 		vent.rotation.y=spec[1]
 		ceiling_details.append(vent)
 	inventory["muse_architecture_assets"]=6
@@ -370,14 +414,14 @@ func build_grey_gallery() -> void:
 	quad.size=Vector2(2.15,3.5)
 	black_face.mesh=quad
 	black_face.material_override=black
-	black_face.position=Vector3(2.775,1.75,1.43)
+	black_face.position=Vector3(2.775,1.75,1.43-hall_reveal.wall_m)
 	black_face.rotation.y=PI
 	black_face.set_meta("continuous_black_connector",true)
 	add_child(black_face)
 	black_face.reparent(south)
 	# Closed elevator pair: a wall feature, not an invented walkable connection.
 	for x in [2.40,2.90]:
-		var lift:=solid(Vector3(x,1.35,-.27),Vector3(.49,2.7,.045),ivory)
+		var lift:=solid(Vector3(x,1.35,-.27-hall_reveal.wall_m),Vector3(.49,2.7,.045),ivory)
 		lift.set_meta("lift_panel",true)
 		lift.reparent(north)
 	var number:=Label3D.new()
@@ -385,7 +429,7 @@ func build_grey_gallery() -> void:
 	number.font_size=100
 	number.pixel_size=.005
 	number.modulate=Color("27252a")
-	number.position=Vector3(2.65,2.05,-.23)
+	number.position=Vector3(2.65,2.05,-.23-hall_reveal.wall_m)
 	add_child(number)
 	number.reparent(north)
 	var first:=get_child_count()
@@ -454,7 +498,7 @@ func build_grey_gallery() -> void:
 	for z in [-4.2,1.8]:
 		for x in [9.11,11.19]:
 			# 6380 14-15/100-107s: leaves fold into the reveals, never onto grey parquet.
-			# ponytail: Hall reveal belongs to the preserved Hall; omit protruding trial leaves.
+			# The Hall door's own leaves are hung in its reveal by build_reveal.
 			if z>0 or x<10:continue
 			var leaf:=solid(Vector3(x,1.35,z-.45),Vector3(.06,2.7,.95),ivory,true)
 			piano_leaf=leaf
@@ -466,13 +510,61 @@ func build_grey_gallery() -> void:
 					var face:float=side*.035
 					panel(leaf,[Vector3(face,y-height/2-1.35,-.37),Vector3(face,y-height/2-1.35,.37),Vector3(face,y+height/2-1.35,.37),Vector3(face,y+height/2-1.35,-.37)],
 						[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)],look(Color.WHITE,"res://assets/white-panel-door-%d.png"%index))
-	shift_new(first,Vector3(-4.6,0,0))
+	shift_new(first,Vector3(-4.6,0,-hall_reveal.wall_m))
 	assert(piano_leaf!=null)
 	piano_leaf.reparent(piano_wall)
+	build_reveal("Grand Gallery reveal threshold",true)
+	build_reveal("Rockefeller reveal threshold",false)
 	inventory["grey_gallery_verified_paintings"]=3
-	inventory["grey_gallery_hall_reveal_leaves_built"]=false
+	inventory["grey_gallery_hall_reveal_leaves_built"]=true
+	inventory["hall_reveal"]={"wall_m":hall_reveal.wall_m,"leaf_m":hall_reveal.leaf_m,"depth_measured":false,"opening_metres_accepted":false,"leaf_fidelity_accepted":false,"rockefeller_leaf_built":false}
 	inventory["grey_gallery_objects_complete"]=false
 	inventory["grey_gallery_metric_accepted"]=false
+
+func build_reveal(label:String,leaves:bool) -> void:
+	# 6343 0.5/35s, 6380 100/106.25s, 6385 0..2s: the wall's thickness is one panelled reveal. Each leaf
+	# folds flat on its side, hinged at the north frame with its knob at the south face.
+	# ponytail: depth, head and leaf metres are the pose in geometry.json, not a survey. The three Muse
+	# panels are re-laid to the observed heights, so their mouldings stretch; redraw only if that reads.
+	var b:Array=reveals[label]
+	var ivory:=look(Color("eeeae2"))
+	var proud:=.19 # every door frame here stands this far out of its wall
+	var north:float=b[2]-proud
+	var south:float=b[3] if leaves else b[3]+proud
+	var soffit:=solid(Vector3((b[0]+b[1])/2,2.76,(north+south)/2),Vector3(b[1]-b[0],.04,south-north),ivory)
+	soffit.set_meta("opaque_ceiling",label)
+	ceiling_details.append(soffit)
+	for side in [-1,1]:
+		var x:float=b[0] if side==-1 else b[1]
+		var wall:String=label+(":west" if side==-1 else ":east")
+		if not leaves:
+			# Only the gap between the two door frames; their own jambs line the rest.
+			var lining:=solid(Vector3(x,1.35,(b[2]+b[3])/2),Vector3(.08,2.7,b[3]-b[2]-2*proud),ivory,true)
+			lining.set_meta("room_wall",wall)
+			continue
+		var width:float=hall_reveal.leaf_m
+		var height:=2.72
+		var leaf:=solid(Vector3(x-side*.0225,height/2+.01,b[3]-width/2),Vector3(.045,height,width),ivory,true)
+		leaf.set_meta("room_wall",wall)
+		leaf.set_meta("hall_reveal_leaf",wall)
+		for index in 3:
+			var span:Array=hall_reveal.leaf_panels_from_top[index]
+			var top:float=height*(.5-span[0])
+			var bottom:float=height*(.5-span[1])
+			for face in [-.0235,.0235]:
+				panel(leaf,[Vector3(face,bottom,-.35*width),Vector3(face,bottom,.35*width),Vector3(face,top,.35*width),Vector3(face,top,-.35*width)],
+					[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)],look(Color.WHITE,"res://assets/white-panel-door-%d.png"%index))
+		var knob:=MeshInstance3D.new()
+		var sphere:=SphereMesh.new()
+		sphere.radius=.025
+		sphere.height=.05
+		sphere.radial_segments=8
+		sphere.rings=4
+		knob.mesh=sphere
+		knob.material_override=look(Color("514831"))
+		# Seen on the face turned to the opening; the hidden face lies on the reveal.
+		knob.position=Vector3(-side*.045,height*(.5-hall_reveal.knob_from_top),width/2-.07)
+		leaf.add_child(knob)
 
 func wall_face(body:Node3D,width:float,height:float,vertical:bool,inward:float) -> void:
 	# Each room owns its inward face; overlapping shared wall boxes caused colour flicker.
@@ -1040,13 +1132,26 @@ func build_sculpture_rooms() -> void:
 			leg.reparent(bench)
 	# Shuttered west window and raised textile-wall plinth are visible in reciprocal wides.
 	var white:=look(Color("f0eeea"))
-	solid(Vector3(-5.47,2.1,22.7),Vector3(.08,2.0,1.25),white)
-	solid(Vector3(-5.43,1.09,22.7),Vector3(.20,.12,1.45),white)
+	#6383 60.60s source-plane ratios: blind .63..3.00m, sill under it, ±6cm; no survey acceptance.
+	var blind:=solid(Vector3(-5.47,1.815,22.7),Vector3(.08,2.37,1.25),white)
+	blind.set_meta("renaissance_west_blind",true)
+	var sill:=solid(Vector3(-5.43,.57,22.7),Vector3(.20,.12,1.45),white)
+	sill.set_meta("renaissance_west_sill",true)
+	for part in [blind,sill]:
+		part.set_meta("wall_side","west")
+		_renaissance_wall_art.append(part)
 	# IMG_6383 18.3/62.0s: polychromed wood on a white floor plinth before this window.
 	# ponytail: plinth/hood metres and window-relative offset are by eye; replace after source fitting.
 	var roch_at:=Vector3(-4.86,0,22.7)
-	var roch_plinth:=solid(roch_at+Vector3(0,.34,0),Vector3(.70,.68,.70),white,true)
+	var roch_plinth:=solid(roch_at+Vector3(0,.30,0),Vector3(.70,.60,.70),white,true)
 	roch_plinth.set_meta("saint_roch_installation",true)
+	for spec in [["foot",.025,.05,.78],["cap",.62,.04,.80],["mount",.66,.04,.64]]:
+		var step:=solid(roch_at+Vector3(0,spec[1],0),Vector3(spec[3],spec[2],spec[3]),white)
+		step.set_meta("saint_roch_plinth_step",spec[0])
+		step.reparent(roch_plinth)
+	var roch_label:=solid(roch_at+Vector3(.401,.625,.10),Vector3(.003,.035,.11),look(Color("dedbd4")))
+	roch_label.set_meta("artwork_label_proxy",true)
+	roch_label.reparent(roch_plinth)
 	var roch:=SaintRoch.build() # Muse sheet rejected off-axis; keep the closed flat study.
 	add_child(roch)
 	roch.position=roch_at+Vector3(0,.68,0)
@@ -1054,14 +1159,65 @@ func build_sculpture_rooms() -> void:
 	roch.reparent(roch_plinth)
 	var roch_glass:=look(Color(.82,.90,.91,.10),"",true)
 	for side in [-1,1]:
-		var pane:=solid(roch_at+Vector3(side*.35,1.29,0),Vector3(.012,1.22,.70),roch_glass)
+		var pane:=solid(roch_at+Vector3(side*.35,1.365,0),Vector3(.012,1.45,.70),roch_glass)
 		pane.reparent(roch_plinth)
-		pane=solid(roch_at+Vector3(0,1.29,side*.35),Vector3(.70,1.22,.012),roch_glass)
+		pane=solid(roch_at+Vector3(0,1.365,side*.35),Vector3(.70,1.45,.012),roch_glass)
 		pane.reparent(roch_plinth)
-	var roch_lid:=solid(roch_at+Vector3(0,1.90,0),Vector3(.70,.012,.70),roch_glass)
+	var roch_lid:=solid(roch_at+Vector3(0,2.09,0),Vector3(.70,.012,.70),roch_glass)
 	roch_lid.reparent(roch_plinth)
 	inventory["saint_roch"]={"accession":"21.398","height_m":1.054,"closed_solid_prototype":true,"muse_sheet_used":false,"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
-	solid(Vector3(-2.5,.27,24.78),Vector3(5.85,.54,.30),white,true)
+	#6383 30.2/63.9s: three gabled panels in a wall-hung case, left of the north door.
+	# ponytail: case metres and offsets are by eye; the front/rear art stays official photography.
+	var triptych_at:=Vector3(-4.50,0,18.918)
+	var triptych_case:=solid(triptych_at+Vector3(0,1.025,.24),Vector3(.92,.11,.48),white,true)
+	triptych_case.set_meta("triptych_wall_case",true)
+	_renaissance_triptych_case=triptych_case
+	var triptych:=Triptych.build()
+	add_child(triptych)
+	triptych.position=triptych_at+Vector3(0,1.08,0)
+	triptych.reparent(triptych_case)
+	for spec in [[Vector3(-.46,1.50,.24),Vector3(.012,.84,.48)],[Vector3(.46,1.50,.24),Vector3(.012,.84,.48)],[Vector3(0,1.50,.48),Vector3(.92,.84,.012)],[Vector3(0,1.50,0),Vector3(.92,.84,.012)],[Vector3(0,1.92,.24),Vector3(.92,.012,.48)]]:
+		var pane:=solid(triptych_at+spec[0],spec[1],roch_glass)
+		pane.reparent(triptych_case)
+	var triptych_label:=solid(triptych_at+Vector3(0,1.03,.485),Vector3(.20,.05,.005),look(Color("dedbd4")))
+	triptych_label.set_meta("artwork_label_proxy",true)
+	triptych_label.reparent(triptych_case)
+	inventory["renaissance_triptych"]={"accession":"2021.131","panels":3,"source_rear_observed":true,"placement_accepted":false,"case_metres_accepted":false,"fine_frame_fidelity_accepted":false}
+	#6383 24.6/62.0s: the shallow linden-wood Pietà hangs north of the shuttered window.
+	# ponytail: white shelf/hood offsets are by eye; unobserved sculpture sides stay provisional.
+	var pieta_at:=Vector3(-5.29,0,20.55)
+	var pieta_case:=solid(pieta_at+Vector3(0,1.025,0),Vector3(.38,.11,.65),white,true)
+	pieta_case.set_meta("pieta_wall_case",true)
+	_renaissance_pieta_case=pieta_case
+	var pieta:=Pieta.build()
+	add_child(pieta)
+	pieta.position=pieta_at+Vector3(0,1.08,0)
+	pieta.rotation.y=PI/2
+	pieta.reparent(pieta_case)
+	for spec in [[Vector3(-.19,1.43,0),Vector3(.012,.70,.65)],[Vector3(.19,1.43,0),Vector3(.012,.70,.65)],[Vector3(0,1.43,-.325),Vector3(.38,.70,.012)],[Vector3(0,1.43,.325),Vector3(.38,.70,.012)],[Vector3(0,1.78,0),Vector3(.38,.012,.65)]]:
+		var pane:=solid(pieta_at+spec[0],spec[1],roch_glass)
+		pane.reparent(pieta_case)
+	var pieta_label:=solid(pieta_at+Vector3(.195,1.025,0),Vector3(.005,.06,.30),look(Color("dedbd4")))
+	pieta_label.rotation.z=-.3
+	pieta_label.set_meta("artwork_label_proxy",true)
+	pieta_label.reparent(pieta_case)
+	inventory["renaissance_pieta"]={"accession":"59.128","closed_parts":39,"source_rear_observed":false,"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
+	build_renaissance_east_cases()
+	# Original6383 24.6/30.2s: dark narrow top rails and corner seams, not a floor plinth.
+	for spec in [[triptych_case,triptych_at+Vector3(0,0,.24),Vector2(.92,.48),1.92],[pieta_case,pieta_at,Vector2(.38,.65),1.78]]:
+		var centre:Vector3=spec[1]
+		var size:Vector2=spec[2]
+		var top:float=spec[3]
+		for side in [-1,1]:
+			for rail in [[Vector3(side*size.x/2,top,0),Vector3(.008,.008,size.y)],[Vector3(0,top,side*size.y/2),Vector3(size.x,.008,.008)]]:
+				var edge:=solid(centre+rail[0],rail[1],look(Color("3c3a35")))
+				edge.set_meta("wall_case_top_rail",true)
+				edge.reparent(spec[0])
+
+	#6383 60.60/68.50s: the south platform is below bench height; placement and metres remain provisional.
+	var platform:=solid(Vector3(-3.10,.08,24.415),Vector3(4.30,.16,.95),white,true)
+	platform.set_meta("renaissance_textile_platform",true)
+	build_renaissance_wall_art()
 	for origin in [Vector3(-2.5,3.43,22),Vector3(5.55,4.18,22)]:
 		var rail:=solid(origin,Vector3(8.6 if origin.y>4 else 4.7,.025,.04),white)
 		ceiling_details.append(rail)
@@ -1487,3 +1643,105 @@ func build_gabled_frame() -> void:
 		var file:=FileAccess.open("res://evidence/magdalene-frame-native.json",FileAccess.WRITE)
 		file.store_string(JSON.stringify(proof,"  ")+"\n")
 	print("GABLED_FRAME_OK "+JSON.stringify(proof))
+
+#6383 41.2/49.8 and55.6/56.0s: two wall-hung cases on opposite sides of the east tracery door.
+# ponytail: case offsets, height, tilt and mount sizes are by eye; all placement/metric flags remain false.
+func build_renaissance_east_cases() -> void:
+	var white:=look(Color("f0eeea"))
+	var glass:=StandardMaterial3D.new()
+	glass.albedo_color=Color(.90,.95,.96,.055)
+	glass.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
+	glass.cull_mode=BaseMaterial3D.CULL_DISABLED
+	glass.roughness=.18
+	var images:=RenaissanceA.textures("res://assets/renaissance-case-a")
+	images["cleric_frame"]=load("res://assets/cleric-45042-frame-fitted.png")
+	for row in [["A",20.40],["B",24.015]]:
+		var anchor:=Vector3(.477,0,row[1])
+		var body:=solid(anchor+Vector3(-.28,1.025,0),Vector3(.56,.11,1.20),white,true)
+		body.set_meta("renaissance_wall_case",row[0])
+		_renaissance_east_cases.append(body)
+		var display:=Node3D.new()
+		add_child(display)
+		display.position=anchor
+		display.rotation.y=-PI/2
+		display.reparent(body)
+		for spec in [[Vector3(0,1.53,.006),Vector3(1.20,.90,.012)],[Vector3(0,1.98,.28),Vector3(1.20,.012,.56)],[Vector3(0,1.53,.56),Vector3(1.20,.90,.012)],[Vector3(-.60,1.53,.28),Vector3(.012,.90,.56)],[Vector3(.60,1.53,.28),Vector3(.012,.90,.56)]]:
+			var pane:=solid(Vector3.ZERO,spec[1],glass)
+			pane.reparent(display,false)
+			pane.position=spec[0]
+		var backing:=solid(Vector3.ZERO,Vector3(1.19,.90,.012),white)
+		backing.reparent(display,false)
+		backing.position=Vector3(0,1.53,.018)
+		for side in [-1,1]:
+			for rail in [[Vector3(side*.60,1.98,.28),Vector3(.008,.008,.56)],[Vector3(0,1.98,.28+side*.28),Vector3(1.20,.008,.008)]]:
+				var edge:=solid(Vector3.ZERO,rail[1],look(Color("3c3a35")))
+				edge.reparent(display,false)
+				edge.position=rail[0]
+				edge.set_meta("east_case_top_rail",true)
+		if row[0]=="A":
+			for spec in [["cleric",Vector3(-.26,1.58,.027)],["woman",Vector3(.16,1.58,.027)],["diptych",Vector3(-.40,1.08,.32)],["bookcover",Vector3(-.16,1.08,.35)],["emblem",Vector3(.12,1.08,.30)],["albarello",Vector3(.45,1.08,.30)]]:
+				var art:=RenaissanceA.on_display(spec[0],images,Painting.mat)
+				display.add_child(art)
+				art.position=spec[1]
+				art.set_meta("renaissance_case_object",spec[0])
+				if spec[0]=="cleric":art.set_meta("frame_texture","source-guided Muse study, source-band fit; provisional")
+				if spec[0]=="bookcover":art.rotation.y=.28
+		else:
+			for spec in [["plate_46391",Vector3(-.27,1.55,.027),0.0],["plate_57302",Vector3(.22,1.55,.027),0.0],["roundel_51105",Vector3(-.38,1.14,.34),-.95],["glass_201729",Vector3(0,1.20,.29),-.15],["plaque_34024",Vector3(.40,1.15,.34),-.72]]:
+				var art:=RenaissanceB.build(spec[0],"res://assets/renaissance-case-b/textures/")
+				display.add_child(art)
+				art.position=spec[1]
+				art.rotation.x=spec[2]
+				art.set_meta("renaissance_case_object",spec[0])
+				if spec[0] in ["roundel_51105","plaque_34024"]:
+					var mount:=solid(Vector3.ZERO,Vector3(.12,.018,.10),white)
+					mount.reparent(display,false)
+					mount.position=Vector3(spec[1].x,1.09,.34)
+					mount.rotation.x=-.28
+		for spec in [[-.40,.28],[-.16,.18],[.12,.24],[.45,.16]] if row[0]=="A" else [[-.38,.23],[0.0,.25],[.40,.22]]:
+			var label:=solid(Vector3.ZERO,Vector3(spec[1],.06,.005),look(Color("dedbd4")))
+			label.reparent(display,false)
+			label.position=Vector3(spec[0],1.025,.565)
+			label.rotation.x=.25
+			label.set_meta("artwork_label_proxy",true)
+	inventory["renaissance_case_objects"]={"case_a":6,"case_b":5,"probable":["34.024"],"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
+
+#6383 reciprocal wides: velvet east and tapestry west on south wall, framed Madonna south of west window.
+# ponytail: catalogue artwork sizes; all room offsets, hood depth and blank label stands remain provisional.
+func build_renaissance_wall_art() -> void:
+	var glass:=StandardMaterial3D.new()
+	glass.albedo_color=Color(.90,.95,.96,.045)
+	glass.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
+	glass.cull_mode=BaseMaterial3D.CULL_DISABLED
+	glass.roughness=.18
+	for row in [["velvet_23307x",Vector3(-1.775,1.31,24.867),PI,"south"],["woodcutters_29280",Vector3(-3.225,1.35,24.887),PI,"south"],["madonna_58196",Vector3(-5.478,1.22,24.10),PI/2,"west"]]:
+		var art:=RenaissanceWall.build(row[0])
+		add_child(art)
+		art.position=row[1]
+		art.rotation.y=row[2]
+		art.set_meta("renaissance_wall_object",row[0])
+		art.set_meta("wall_side",row[3])
+		_renaissance_wall_art.append(art)
+		if row[0]=="velvet_23307x":
+			# The hood extends beneath the board in the original close shot; five panes, no invented opaque back.
+			for pane in [[Vector3(.003,-.077,.066),Vector3(1.04,1.60,.006)],[Vector3(-.517,-.077,.026),Vector3(.006,1.60,.08)],[Vector3(.523,-.077,.026),Vector3(.006,1.60,.08)],[Vector3(.003,.723,.026),Vector3(1.04,.006,.08)],[Vector3(.003,-.877,.026),Vector3(1.04,.006,.08)]]:
+				var mesh:=solid(Vector3.ZERO,pane[1],glass)
+				mesh.reparent(art,false)
+				mesh.position=pane[0]
+				mesh.set_meta("velvet_hood_pane",true)
+		if row[3]=="south":
+			var stand:=solid(Vector3.ZERO,Vector3(.21,.15,.17),look(Color("eeeae3")))
+			stand.position=Vector3(row[1].x,.235,24.03)
+			stand.set_meta("artwork_label_proxy",true)
+			stand.set_meta("renaissance_textile_label",true)
+			var label:=solid(Vector3.ZERO,Vector3(.13,.006,.10),look(Color("dedbd4")))
+			label.reparent(stand,false)
+			label.position=Vector3(0,.079,0)
+			label.set_meta("artwork_label_proxy",true)
+		else:
+			var label:=solid(Vector3.ZERO,Vector3(.11,.07,.006),look(Color("dedbd4")))
+			label.reparent(art,false)
+			label.position=Vector3(.60,0,.016)
+			label.set_meta("artwork_label_proxy",true)
+	inventory["renaissance_verified_paintings"]=2
+	inventory["renaissance_wall_assets"]={"accessions":["23.307X","29.280","58.196"],"source_rear_observed":["23.307X"],"frame_texture":"source-video strips; Muse trial rejected for broad gold band","placement_accepted":false,"metres_accepted":false,"fine_fidelity_accepted":false}

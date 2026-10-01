@@ -1,0 +1,19 @@
+{
+ "v50p_files": 2371,
+ "v50r_files": 2371,
+ "different": [
+  "collection_rooms/addition_baked/room.tres",
+  "collection_rooms/main-build-adapter.json",
+  "modules/shell/prototype/collection_reconstruction/main_build_walk.gd",
+  "modules/shell/prototype/collection_reconstruction/main_build_walk.gd.uid"
+ ],
+ "hall_files": 362,
+ "hall_files_unequal_in_v50r": [],
+ "main_tip": "317b8f3b8dac0f9811d396bcb0260c7187f93f11",
+ "walk_in_v50r": "e617858e65e2d4e8bf7dd2609c03a1e16961b5df0159afdddd1f90137519bbbe",
+ "room_tres_equal_after_resource_id": true,
+ "room_exr_equal_to_v49q": true,
+ "geometry_equal_to_v49q": true,
+ "probes_in_room_tres": 350,
+ "users_in_room_tres": 1282
+}

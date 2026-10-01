@@ -1,0 +1,266 @@
+{
+ "inventory": "opus-renaissance-case-inventory-20261001 (root checkout, read only)",
+ "ledger_sha256": "5f6027a52a0ac07e4e0404a499b8f1361f6cdda0020e9300c99f9c315c55faad",
+ "textures": {
+  "plate-46391-front": {
+   "texture": "textures/plate-46391-front.png",
+   "texture_sha256": "bb6d630b88a6250911593d06a5c351ed127a1357e425d4cf387d115b9f6160b4",
+   "size_px": [
+    1052,
+    1037
+   ],
+   "source_photo": "photos/bella-donna-plate-46391-zoom-0.jpg",
+   "source_sha256": "f64275fd9cc55011f506de0462c1bc8e7497f8214b0a9fbec36eef7a7c1f94e6",
+   "crop_box_px": [
+    124,
+    55,
+    1176,
+    1092
+   ],
+   "bound_in_crop_px": {
+    "ellipse_centre": [
+     525.2,
+     518.4
+    ],
+    "ellipse_radii": [
+     518.2,
+     510.6
+    ]
+   },
+   "kept_fraction_of_bound": 0.985,
+   "kept_texels_identical_to_source": true,
+   "outside_kept_area": "nearest kept texel copied outward (edge padding); no backdrop or shadow pixel is kept",
+   "rim_median_rgb": "d29734",
+   "bound_method": "left, right and top are the outermost colour edge on 240 rays from the centre; bottom read by hand from pixel columns at the centre line (+-3 px)"
+  },
+  "plate-57302-front": {
+   "texture": "textures/plate-57302-front.png",
+   "texture_sha256": "025e5b96951f302439bcd95f82c375adc30457ce38021ffd6e82968c42d13b6f",
+   "size_px": [
+    977,
+    984
+   ],
+   "source_photo": "photos/bella-donna-plate-57302-zoom-0.jpg",
+   "source_sha256": "cd17b64e9f9002205238db9bf9237e28ff049cf6f5437e272fad65082f2b387e",
+   "crop_box_px": [
+    176,
+    152,
+    1153,
+    1136
+   ],
+   "bound_in_crop_px": {
+    "ellipse_centre": [
+     487.6,
+     491.5
+    ],
+    "ellipse_radii": [
+     480.6,
+     484.5
+    ]
+   },
+   "kept_fraction_of_bound": 0.985,
+   "kept_texels_identical_to_source": true,
+   "outside_kept_area": "nearest kept texel copied outward (edge padding); no backdrop or shadow pixel is kept",
+   "rim_median_rgb": "ba8429",
+   "bound_method": "left, right and top are the outermost colour edge on 240 rays from the centre; bottom read by hand from pixel columns at the centre line (+-3 px)"
+  },
+  "plate-57302-rear": {
+   "texture": "textures/plate-57302-rear.png",
+   "texture_sha256": "237663e381ea63b0e5ce9a31c969eab89d3784be29d135e4ee7b49b2c9409d29",
+   "size_px": [
+    940,
+    933
+   ],
+   "source_photo": "photos/bella-donna-plate-57302-zoom-1.jpg",
+   "source_sha256": "3a63f090e87bfb8b56b86106254d3586c4266ee206cc26beab49aa515793f3ef",
+   "crop_box_px": [
+    166,
+    213,
+    1106,
+    1146
+   ],
+   "bound_in_crop_px": {
+    "ellipse_centre": [
+     469.6,
+     466.4
+    ],
+    "ellipse_radii": [
+     461.7,
+     458.6
+    ]
+   },
+   "kept_fraction_of_bound": 0.985,
+   "kept_texels_identical_to_source": true,
+   "outside_kept_area": "nearest kept texel copied outward (edge padding); no backdrop or shadow pixel is kept",
+   "rim_median_rgb": "b3b1af",
+   "bound_method": "left, right and top are the outermost colour edge on 240 rays from the centre; bottom read by hand from pixel columns at the centre line (+-3 px)"
+  },
+  "roundel-51105-front": {
+   "texture": "textures/roundel-51105-front.png",
+   "texture_sha256": "fd49e2e4bb537ff1aa1376a7dc0240cebf196b2f624748c2503c3047d167ff1a",
+   "size_px": [
+    1163,
+    1171
+   ],
+   "source_photo": "photos/death-virgin-51105-zoom-0.jpg",
+   "source_sha256": "30752b62e105cfba2eff4e3cb8e60f1bdb0a30d50442c810e58364b2eefe2e97",
+   "crop_box_px": [
+    78,
+    88,
+    1241,
+    1259
+   ],
+   "bound_in_crop_px": {
+    "ellipse_centre": [
+     581.1,
+     584.8
+    ],
+    "ellipse_radii": [
+     573.6,
+     577.3
+    ]
+   },
+   "kept_fraction_of_bound": 0.985,
+   "kept_texels_identical_to_source": true,
+   "outside_kept_area": "nearest kept texel copied outward (edge padding); no backdrop or shadow pixel is kept",
+   "rim_median_rgb": "8a6c4f",
+   "bound_method": "cv2.fitEllipse over the outermost colour edge on 360 rays from the centre, then the axis-aligned extent of that ellipse"
+  },
+  "roundel-51105-rear": {
+   "texture": "textures/roundel-51105-rear.png",
+   "texture_sha256": "8c11dd8cc0861dd582088c4bd2fe1f59224266372ad89a6d74372a2e3a3e0807",
+   "size_px": [
+    1161,
+    1173
+   ],
+   "source_photo": "photos/death-virgin-51105-zoom-1.jpg",
+   "source_sha256": "60e2329acf37d64c1c063b23772b74511b068721e5290df338c0f5830ad353e3",
+   "crop_box_px": [
+    76,
+    90,
+    1237,
+    1263
+   ],
+   "bound_in_crop_px": {
+    "ellipse_centre": [
+     579.7,
+     586.0
+    ],
+    "ellipse_radii": [
+     572.3,
+     578.3
+    ]
+   },
+   "kept_fraction_of_bound": 0.985,
+   "kept_texels_identical_to_source": true,
+   "outside_kept_area": "nearest kept texel copied outward (edge padding); no backdrop or shadow pixel is kept",
+   "rim_median_rgb": "2a2422",
+   "bound_method": "cv2.fitEllipse over the outermost colour edge on 360 rays from the centre, then the axis-aligned extent of that ellipse"
+  },
+  "glass-201729-front": {
+   "texture": "textures/glass-201729-front.png",
+   "texture_sha256": "0b3a7e50fb8fc096afc9dba91e7328dc730f14f8574061759018c24d7d91028c",
+   "size_px": [
+    1070,
+    1052
+   ],
+   "source_photo": "photos/virgin-woman-apocalypse-201729-zoom-0.jpg",
+   "source_sha256": "44a4ed86c69f562264dcf89db3ed1bd576becc2258963b77c880a2c1c9adfed7",
+   "crop_box_px": [
+    120,
+    95,
+    1190,
+    1147
+   ],
+   "bound_in_crop_px": {
+    "ellipse_centre": [
+     534.6,
+     525.6
+    ],
+    "ellipse_radii": [
+     527.0,
+     517.9
+    ]
+   },
+   "kept_fraction_of_bound": 0.985,
+   "kept_texels_identical_to_source": true,
+   "outside_kept_area": "nearest kept texel copied outward (edge padding); no backdrop or shadow pixel is kept",
+   "rim_median_rgb": "3b3636",
+   "bound_method": "cv2.fitEllipse over the outermost colour edge on 360 rays from the centre, then the axis-aligned extent of that ellipse"
+  },
+  "glass-201729-rear": {
+   "texture": "textures/glass-201729-rear.png",
+   "texture_sha256": "03abee6afc12bf92603914eed931adfe7ad2498a5cea845fd09ffe6eb7f27716",
+   "size_px": [
+    1069,
+    1052
+   ],
+   "source_photo": "photos/virgin-woman-apocalypse-201729-zoom-1.jpg",
+   "source_sha256": "42daf7c6ca92303d7598d20ac5c3b53fd3a5367a076cfa6d8fff847a2f1e56b9",
+   "crop_box_px": [
+    127,
+    113,
+    1196,
+    1165
+   ],
+   "bound_in_crop_px": {
+    "ellipse_centre": [
+     534.0,
+     525.8
+    ],
+    "ellipse_radii": [
+     526.8,
+     518.1
+    ]
+   },
+   "kept_fraction_of_bound": 0.985,
+   "kept_texels_identical_to_source": true,
+   "outside_kept_area": "nearest kept texel copied outward (edge padding); no backdrop or shadow pixel is kept",
+   "rim_median_rgb": "413c3c",
+   "bound_method": "cv2.fitEllipse over the outermost colour edge on 360 rays from the centre, then the axis-aligned extent of that ellipse"
+  },
+  "plaque-34024-front": {
+   "texture": "textures/plaque-34024-front.png",
+   "texture_sha256": "9b4fbad3e30ae703e25bbedf2c6c034ead5b3fb463018f5d794487215982c938",
+   "size_px": [
+    985,
+    1171
+   ],
+   "source_photo": "photos/virgin-and-child-clerics-and-donors-34024-zoom-0.jpg",
+   "source_sha256": "3b6de13d2fa358394e6fb605c3d000488499b4fda2d1fce97413737417c802e6",
+   "crop_box_px": [
+    158,
+    70,
+    1143,
+    1241
+   ],
+   "bound_in_crop_px": {
+    "corners_tl_tr_br_bl": [
+     [
+      8,
+      13
+     ],
+     [
+      976,
+      8
+     ],
+     [
+      967,
+      1162
+     ],
+     [
+      26,
+      1160
+     ]
+    ]
+   },
+   "kept_fraction_of_bound": 0.985,
+   "kept_texels_identical_to_source": true,
+   "outside_kept_area": "nearest kept texel copied outward (edge padding); no backdrop or shadow pixel is kept",
+   "rim_median_rgb": "5a5a68",
+   "bound_method": "four outer corners read by hand from 3x enlargements (+-3 px)"
+  }
+ },
+ "cost_usd": 0,
+ "generated_pixels": 0
+}

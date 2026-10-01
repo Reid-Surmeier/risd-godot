@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-01T20:45:47.478124+00:00",
+  "project": "main-build-extension-v49v",
+  "baked_users": 1358,
+  "probes": 350,
+  "native_images": 6,
+  "root_inspected": [
+    "textiles-south-wide",
+    "velvet-front",
+    "textiles-platform",
+    "madonna-west-front",
+    "madonna-west-quarter",
+    "renaissance-south-west-wide"
+  ],
+  "source_height_finding_pending": "Textiles hang too high; awaiting independent sourcefit. Keep placementfalse.",
+  "capture_failure": "first outputfolder missing, image-saveassert suspended; ownfailedGodot stoppedSIGTERM143. Preservedlog; correctedscriptcreatesfolder. Secondnativeexportexit0.",
+  "capture_stdout_stale_word": "unbaked label from authoring script; actualloadedinventory reports1358bakedusers.",
+  "images": {
+    "textiles-south-wide.png": "778686165a0b761d6c0b4581710cbae408c0113f215481a22d0027345913da42",
+    "madonna-west-front.png": "14a7f86916822cc402b267ff52b7ccb5b471229edbe842286a5a7564ac3f7b50",
+    "velvet-front.png": "2b9a77651c0ce95bd42ebdeb526d52d0b5ba5a27ca4a56003a25a7d7e7e64754",
+    "renaissance-south-west-wide.png": "0e4e37c8e82c424f7897d5b2de325da355723e8ad2bc3bea0ff3cc20a2cebc2c",
+    "textiles-platform.png": "f72080f68a8fa3f06f5d53f79bdbac70a6277469c6a8a4d9eb7dfb7275f180e4",
+    "madonna-west-quarter.png": "b73d4e83dd274607edfefd136b474b32a62985a60625314d4a74f09b461142c1"
+  }
+}

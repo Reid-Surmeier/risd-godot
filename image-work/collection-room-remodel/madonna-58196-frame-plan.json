@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "madonna-58196-frame-001",
+      "prompt": "madonna-58196-frame-prompt.txt",
+      "promptSha256": "051bf632c9750925a9ddd45e895b04bc1bbc6fed9b0767be0431f9df995d1e0d",
+      "size": "1536x1536",
+      "inputs": [
+        {
+          "path": "inventory-references/frame-58196-rectified-15.10.png",
+          "sha256": "28099dd800d4138e1bf168131f8aa5e7f9dd97565f989a5ce6e1c608e4a12830"
+        },
+        {
+          "path": "inventory-references/frame-58196-corner-top-left-15.10.png",
+          "sha256": "2f59bc288ce2ca5c9f21479dcb7569dd2e166ed9a17c993208af20a411f2491b"
+        }
+      ]
+    }
+  ]
+}

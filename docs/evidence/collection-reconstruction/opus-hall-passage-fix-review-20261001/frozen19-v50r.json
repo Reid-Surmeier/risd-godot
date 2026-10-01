@@ -1,0 +1,192 @@
+[
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/architecture_check.gd",
+  "manifest": "fd2ad1acea44833fc85bbc1acee89c818c4944910de0f3c76bdde6248796013a",
+  "live_root": "fd2ad1acea44833fc85bbc1acee89c818c4944910de0f3c76bdde6248796013a",
+  "tarball": "fd2ad1acea44833fc85bbc1acee89c818c4944910de0f3c76bdde6248796013a",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/main_build_check.gd",
+  "manifest": "d4226250611f3ffedb6864447bfe858460f7954baff6cc8f50b621b1e8a3b2e7",
+  "live_root": "d4226250611f3ffedb6864447bfe858460f7954baff6cc8f50b621b1e8a3b2e7",
+  "tarball": "d4226250611f3ffedb6864447bfe858460f7954baff6cc8f50b621b1e8a3b2e7",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/main_build_walk.gd",
+  "manifest": "e617858e65e2d4e8bf7dd2609c03a1e16961b5df0159afdddd1f90137519bbbe",
+  "live_root": "e617858e65e2d4e8bf7dd2609c03a1e16961b5df0159afdddd1f90137519bbbe",
+  "tarball": "e617858e65e2d4e8bf7dd2609c03a1e16961b5df0159afdddd1f90137519bbbe",
+  "in_fullapp": "e617858e65e2d4e8bf7dd2609c03a1e16961b5df0159afdddd1f90137519bbbe",
+  "changed_from_v50p": true,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/remodel_room.gd",
+  "manifest": "b3ae7f99e71ebca7ca64c7608d1c6426465289ae252a7b2d7aa2f756a7efe4a1",
+  "live_root": "b3ae7f99e71ebca7ca64c7608d1c6426465289ae252a7b2d7aa2f756a7efe4a1",
+  "tarball": "b3ae7f99e71ebca7ca64c7608d1c6426465289ae252a7b2d7aa2f756a7efe4a1",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/remodel_bake.gd",
+  "manifest": "487276e7ea4f2211bf59eb7ae743ecd69b38f1be2e6f2079d8fd6cc4f26c14a4",
+  "live_root": "487276e7ea4f2211bf59eb7ae743ecd69b38f1be2e6f2079d8fd6cc4f26c14a4",
+  "tarball": "487276e7ea4f2211bf59eb7ae743ecd69b38f1be2e6f2079d8fd6cc4f26c14a4",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/remodel_review.gd",
+  "manifest": "66cec25dea22e9d8b959ab9d010ed021e2a4028961647906591b0545622b2ff8",
+  "live_root": "66cec25dea22e9d8b959ab9d010ed021e2a4028961647906591b0545622b2ff8",
+  "tarball": "66cec25dea22e9d8b959ab9d010ed021e2a4028961647906591b0545622b2ff8",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/prepare_remodel.py",
+  "manifest": "bd4f865c3574e3fe97f41bbda244f355d9d7d95b10d1983d9b8d5f70751d962a",
+  "live_root": "bd4f865c3574e3fe97f41bbda244f355d9d7d95b10d1983d9b8d5f70751d962a",
+  "tarball": "bd4f865c3574e3fe97f41bbda244f355d9d7d95b10d1983d9b8d5f70751d962a",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/prepare_main_build_extension.py",
+  "manifest": "e9b756f2b3a55e4b7a70e48a59de8d6503791a5c8e22e733126ecd9dea4d4f01",
+  "live_root": "e9b756f2b3a55e4b7a70e48a59de8d6503791a5c8e22e733126ecd9dea4d4f01",
+  "tarball": "e9b756f2b3a55e4b7a70e48a59de8d6503791a5c8e22e733126ecd9dea4d4f01",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/retained_hall_room.gd",
+  "manifest": "aaddae22e31781f35a95a0ab1991a2e15537d8cbd9a4c4afaf219012791e18b8",
+  "live_root": "aaddae22e31781f35a95a0ab1991a2e15537d8cbd9a4c4afaf219012791e18b8",
+  "tarball": "aaddae22e31781f35a95a0ab1991a2e15537d8cbd9a4c4afaf219012791e18b8",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/triptych_asset.gd",
+  "manifest": "c532165bc38b6cf9553fe40c05a368d3df70597655be9e99a8c25e8cf49d68e4",
+  "live_root": "c532165bc38b6cf9553fe40c05a368d3df70597655be9e99a8c25e8cf49d68e4",
+  "tarball": "c532165bc38b6cf9553fe40c05a368d3df70597655be9e99a8c25e8cf49d68e4",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/pieta_asset.gd",
+  "manifest": "39d5a68e06938b86178c0d9d99acaf64efb19ed69e715133358bae8b119be19f",
+  "live_root": "39d5a68e06938b86178c0d9d99acaf64efb19ed69e715133358bae8b119be19f",
+  "tarball": "39d5a68e06938b86178c0d9d99acaf64efb19ed69e715133358bae8b119be19f",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/saint_roch_asset.gd",
+  "manifest": "98d607557bd3ddec8e000ad320241cc0bc7337f05619ad605f35dfc8321a61cc",
+  "live_root": "98d607557bd3ddec8e000ad320241cc0bc7337f05619ad605f35dfc8321a61cc",
+  "tarball": "98d607557bd3ddec8e000ad320241cc0bc7337f05619ad605f35dfc8321a61cc",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/seated_woman_asset.gd",
+  "manifest": "7b17a507fe6c68d7d6dd834a3669d1888f4fe2f587304d1e6f269ec4ce010fa7",
+  "live_root": "7b17a507fe6c68d7d6dd834a3669d1888f4fe2f587304d1e6f269ec4ce010fa7",
+  "tarball": "7b17a507fe6c68d7d6dd834a3669d1888f4fe2f587304d1e6f269ec4ce010fa7",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "image-work/collection-room-remodel/sculpture-room-inventory.json",
+  "manifest": "87d110168eaa2396b9aee5cc6a10c8f03cb60cbcec4807b543373836bcd1848a",
+  "live_root": "87d110168eaa2396b9aee5cc6a10c8f03cb60cbcec4807b543373836bcd1848a",
+  "tarball": "87d110168eaa2396b9aee5cc6a10c8f03cb60cbcec4807b543373836bcd1848a",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "image-work/collection-room-remodel/triptych-2021131-geometry.json",
+  "manifest": "20ae60756c9f20e3009741eb73d25714d9d7f2a7a3d58c8285b4ba64651e25f9",
+  "live_root": "20ae60756c9f20e3009741eb73d25714d9d7f2a7a3d58c8285b4ba64651e25f9",
+  "tarball": "20ae60756c9f20e3009741eb73d25714d9d7f2a7a3d58c8285b4ba64651e25f9",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "image-work/collection-room-remodel/pieta-59128-source.json",
+  "manifest": "24e5a6fc126c5ece075f422942d443600572c4d8e497431c27338a9dc5feec21",
+  "live_root": "24e5a6fc126c5ece075f422942d443600572c4d8e497431c27338a9dc5feec21",
+  "tarball": "24e5a6fc126c5ece075f422942d443600572c4d8e497431c27338a9dc5feec21",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "image-work/collection-room-remodel/pieta-59128-installation.json",
+  "manifest": "478d6053fc5b9ee8bc8b9e60460e14fae0e6395e7bf0d01a6c9eaa6923e2afa6",
+  "live_root": "478d6053fc5b9ee8bc8b9e60460e14fae0e6395e7bf0d01a6c9eaa6923e2afa6",
+  "tarball": "478d6053fc5b9ee8bc8b9e60460e14fae0e6395e7bf0d01a6c9eaa6923e2afa6",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "image-work/collection-room-remodel/saint-roch-installation-refinement.json",
+  "manifest": "dc66adc60436d24246effcf8b5291f3c2c8005e349a73f52678c7a98c3ed675d",
+  "live_root": "dc66adc60436d24246effcf8b5291f3c2c8005e349a73f52678c7a98c3ed675d",
+  "tarball": "dc66adc60436d24246effcf8b5291f3c2c8005e349a73f52678c7a98c3ed675d",
+  "in_fullapp": null,
+  "changed_from_v50p": false,
+  "new_in_v50r": false,
+  "ok": true
+ },
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/passage_keyboard_check.gd",
+  "manifest": "54ca0566c73b6ed309d70fa0cb3a0968f7c20b07abff5ac45b9fbd0972290d76",
+  "live_root": "54ca0566c73b6ed309d70fa0cb3a0968f7c20b07abff5ac45b9fbd0972290d76",
+  "tarball": "54ca0566c73b6ed309d70fa0cb3a0968f7c20b07abff5ac45b9fbd0972290d76",
+  "in_fullapp": null,
+  "changed_from_v50p": true,
+  "new_in_v50r": true,
+  "ok": true
+ }
+]

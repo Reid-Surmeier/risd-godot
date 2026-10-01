@@ -1,0 +1,25 @@
+{
+  "status": "proposed by a worker; not executed; no request made",
+  "attempts": [
+    {
+      "id": "woman-frame-001",
+      "prompt": "muse-reference/woman-frame-prompt.proposed.txt",
+      "promptSha256": "fc84c892d2fcb7a864d0d10d3aaf080afd1888edb1aedc5225b85297997677d7",
+      "size": "1216x1760",
+      "inputs": [
+        {
+          "path": "textures/portrait-woman-34861-zoom-0.jpg",
+          "sha256": "7b4066ab077a2a341f3ec20b1641274b9828fce86694ab3f73890dad345e4e9f"
+        },
+        {
+          "path": "muse-reference/woman-frame-native-46.40.png",
+          "sha256": "1e622a6d31dbf4d588506486e3e9f3782adaeed589793f363b650337b7099a53"
+        },
+        {
+          "path": "muse-reference/woman-frame-native-41.20.png",
+          "sha256": "c4a2ac625a6882999307a251ccaaaa0ec4e3f7a666bf6aa48e5b22522ed42769"
+        }
+      ]
+    }
+  ]
+}

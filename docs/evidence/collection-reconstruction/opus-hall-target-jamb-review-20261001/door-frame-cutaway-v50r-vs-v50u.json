@@ -1,0 +1,479 @@
+{
+ "summary": {
+  "side_on_views": 23,
+  "side_on_with_piece_on_line": 19,
+  "side_on_v50r_piece_left_drawn": 18,
+  "side_on_v50u_piece_left_drawn": 0,
+  "head_on_views": 17,
+  "head_on_v50u_no_header_cut": 16,
+  "head_on_v50u_header_cut": [
+   "rockefeller-front-follow-north-at-passage-edge"
+  ],
+  "head_on_v50r_piece_left_drawn": [
+   "rockefeller-front-follow-north-at-passage-edge"
+  ],
+  "side_on_no_piece_on_line": [
+   "hall-hall-side-jamb-dollhouse-west",
+   "hall-hall-side-jamb-dollhouse-east",
+   "hall-hall-side-jamb-gallery-view-west",
+   "connector-door-dollhouse-north"
+  ]
+ },
+ "views": [
+  {
+   "name": "hall-grey-jamb-dollhouse-west",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 1,
+   "v50r_still_drawn": 1,
+   "v50u_pieces_on_line": 1,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "grey French gallery:south:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "hall-grey-jamb-dollhouse-east",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 6,
+   "v50r_still_drawn": 1,
+   "v50u_pieces_on_line": 6,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "grey French gallery:south:header",
+    "grey French gallery:west:header",
+    "purple elevator-5 connector:east:header"
+   ],
+   "v50r_headers_cut": [
+    "grey French gallery:west:header",
+    "purple elevator-5 connector:east:header"
+   ]
+  },
+  {
+   "name": "hall-grey-jamb-gallery-view-west",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 1,
+   "v50r_still_drawn": 1,
+   "v50u_pieces_on_line": 1,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "grey French gallery:south:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "hall-middle-dollhouse-west",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 1,
+   "v50r_still_drawn": 1,
+   "v50u_pieces_on_line": 1,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "grey French gallery:south:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "hall-middle-dollhouse-east",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 1,
+   "v50r_still_drawn": 1,
+   "v50u_pieces_on_line": 1,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "grey French gallery:south:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "hall-middle-gallery-view-west",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 1,
+   "v50r_still_drawn": 1,
+   "v50u_pieces_on_line": 1,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "grey French gallery:south:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "hall-hall-side-jamb-dollhouse-west",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "hall-hall-side-jamb-dollhouse-east",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "hall-hall-side-jamb-gallery-view-west",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "hall-front-follow-north-in-passage",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "hall-front-follow-south-in-passage",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "hall-front-follow-north-beyond-door",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "hall-front-follow-south-before-door",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "hall-front-follow-north-at-passage-edge",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "hall-front-dollhouse-north-in-passage",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "hall-front-dollhouse-south-in-passage",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "hall-front-dollhouse-south-visitor-in-room-beyond",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-grey-jamb-dollhouse-west",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 1,
+   "v50r_still_drawn": 1,
+   "v50u_pieces_on_line": 1,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "Rockefeller:south:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-grey-jamb-dollhouse-east",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 1,
+   "v50r_still_drawn": 1,
+   "v50u_pieces_on_line": 1,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "Rockefeller:south:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-grey-jamb-gallery-view-west",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 1,
+   "v50r_still_drawn": 1,
+   "v50u_pieces_on_line": 1,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "Rockefeller:south:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-middle-dollhouse-west",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 2,
+   "v50r_still_drawn": 2,
+   "v50u_pieces_on_line": 2,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "Rockefeller:south:header",
+    "adjacent gallery:north:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-middle-dollhouse-east",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 2,
+   "v50r_still_drawn": 2,
+   "v50u_pieces_on_line": 2,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "Rockefeller:south:header",
+    "adjacent gallery:north:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-middle-gallery-view-west",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 2,
+   "v50r_still_drawn": 2,
+   "v50u_pieces_on_line": 2,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "Rockefeller:south:header",
+    "adjacent gallery:north:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-hall-side-jamb-dollhouse-west",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 1,
+   "v50r_still_drawn": 1,
+   "v50u_pieces_on_line": 1,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "adjacent gallery:north:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-hall-side-jamb-dollhouse-east",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 1,
+   "v50r_still_drawn": 1,
+   "v50u_pieces_on_line": 1,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "adjacent gallery:north:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-hall-side-jamb-gallery-view-west",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 1,
+   "v50r_still_drawn": 1,
+   "v50u_pieces_on_line": 1,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "adjacent gallery:north:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-front-follow-north-in-passage",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-front-follow-south-in-passage",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-front-follow-north-beyond-door",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-front-follow-south-before-door",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-front-follow-north-at-passage-edge",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 2,
+   "v50r_still_drawn": 2,
+   "v50u_pieces_on_line": 2,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "adjacent gallery:north:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-front-dollhouse-north-in-passage",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-front-dollhouse-south-in-passage",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "rockefeller-front-dollhouse-south-visitor-in-room-beyond",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "renaissance-north-door-dollhouse-west",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 2,
+   "v50r_still_drawn": 2,
+   "v50u_pieces_on_line": 2,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "adjacent gallery:south:header",
+    "light Renaissance room:north:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "renaissance-north-door-dollhouse-east",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 2,
+   "v50r_still_drawn": 2,
+   "v50u_pieces_on_line": 2,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "adjacent gallery:south:header",
+    "light Renaissance room:north:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "renaissance-north-door-follow-north",
+   "kind": "head-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "piano-door-dollhouse-west",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 2,
+   "v50r_still_drawn": 2,
+   "v50u_pieces_on_line": 2,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "grey French gallery:north:header",
+    "piano-stair threshold study limit:south:header"
+   ],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "connector-door-dollhouse-north",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 0,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 0,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [],
+   "v50r_headers_cut": []
+  },
+  {
+   "name": "connector-door-dollhouse-south",
+   "kind": "side-on",
+   "v50r_pieces_on_line": 4,
+   "v50r_still_drawn": 0,
+   "v50u_pieces_on_line": 4,
+   "v50u_still_drawn": 0,
+   "v50u_headers_cut": [
+    "grey French gallery:west:header",
+    "purple elevator-5 connector:east:header"
+   ],
+   "v50r_headers_cut": [
+    "grey French gallery:west:header",
+    "purple elevator-5 connector:east:header"
+   ]
+  }
+ ]
+}

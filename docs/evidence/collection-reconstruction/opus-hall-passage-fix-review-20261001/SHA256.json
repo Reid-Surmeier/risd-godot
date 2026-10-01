@@ -1,0 +1,32 @@
+{
+ "task": "task_89fd685e55b6",
+ "dispatch": "ctx_d4dd2732818a",
+ "written_utc": "2026-10-01",
+ "all_metric_placement_map_fidelity_flags": false,
+ "reviewed": {
+  "frozen-root-sha256-v50r.json": "916c7371051117cfcec54a4659fd6fe9a11b350a256c83035de5d03a6ffedd66",
+  "frozen-source-v50r.tar.gz": "14b10e77978a59cdddf73dc0726933d77d0e0a8b94987d553e8cc95d86c33847",
+  "main_build_walk.gd v50r": "e617858e65e2d4e8bf7dd2609c03a1e16961b5df0159afdddd1f90137519bbbe",
+  "main_build_walk.gd v50p": "b0fdf4a4cd3a00a14e0d46311801d0260f318107576d7e300d3bdb5d44fa8e2a"
+ },
+ "files": {
+  "REPORT.md": "541176ba3518af96e1cecf16ced854887b05cea7fe553c41926fd0e5d1ca21c0",
+  "follow-and-history-v50r.jpg": "714a1113eba2cb98009428447c7eb8bf73cfb135a251a5354e852e52b98658b0",
+  "frozen19-v50r.json": "1ed37585ab7f76351a07e16c8b465cae14d7c375b9559b1168ca1710e3d55cf3",
+  "full-app-static-v50p-vs-v50r.json": "904e9c12ae150cc5387e15c4c46e5ce6b9def22d8162f3a01a771587d96d9259",
+  "native-passage-v50p.json": "3ff97befd78de34fdd4b4427200acdecae67ea799f6d97ee2f943af4f1f4a803",
+  "native-passage-v50r.json": "36f6cad4312403e92742c069c5dfb0f26e3d7884d6217cb78fb6744dd623db83",
+  "native-review-v50p.json": "172e04d0e9080555fbfabfbcfbecc8f78edf2e104ff02d1aa3902abab00d9cf2",
+  "native-review-v50r.json": "938454fb3a7eba9546f7b52545a31a9c6ffe67cf0dd6306720fd5aefa4a4ebe3",
+  "native-v50p-vs-v50r.json": "4842530b435f1373cad1a2997ef35e0c249699f33f2c446e556d999fddbd2a68",
+  "plot_paths.py": "1b8e6b367ed935d119539a82b1f697b55235bf001f36658b90900876195e357e",
+  "raw-captures-jpeg.tar.gz": "d092ff366ab2859f36460a9e67855773c597803726a25e701573e13fee43577c",
+  "raw-logs.tar.gz": "3381be117c02070fb299dcb992e6d6dc1ed73d00899d5f77c6ebdae8bb9a4075",
+  "review_passage.gd": "4a061f85b5a0dd0eac52856adaae9753e3dafaeb0c47e6e8f8dda8d3d4988ad4",
+  "review_v50o.gd": "cdc21ab77ae7ff6fc1f3b0e683c73af8796c4f98c6c0d6a5bec2febf632208ee",
+  "sheet.py": "a146b502692634c3bc3c322063a7fba1cc272f5f7fb9cae57c84966d9fa40491",
+  "side-on-cutaway-v50r.jpg": "6b36f3670ec08be46bd624f5073fbda7c83ac63e7bb639e20dafdc1e6e32ab18",
+  "visitor-at-walkable-edge-v50r.jpg": "07829a42cb9052ec96cc2ee29d22d4a131d5f67cf4b2da2cf2d137a50a3d0097",
+  "walk-paths-v50p-beside-v50r.png": "a23c43b7c635449ab8d546d95e8dd97e74336661f74309402e500b6cf42c65eb"
+ }
+}

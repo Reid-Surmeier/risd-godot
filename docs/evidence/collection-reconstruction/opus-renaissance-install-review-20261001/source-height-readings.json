@@ -1,0 +1,39 @@
+{
+ "tapestry_68.5s": {
+  "top": 516,
+  "bottom": 1196,
+  "platform_top": 1388,
+  "px_per_m": 446.2,
+  "gap_m": 0.43
+ },
+ "tapestry_68.4s": {
+  "top": 505,
+  "bottom": 1211,
+  "platform_top": 1412,
+  "px_per_m": 463.3,
+  "gap_m": 0.434
+ },
+ "velvet_board_6.1s": {
+  "velvet_top": 477,
+  "velvet_bottom": 1041,
+  "board_bottom": 1083,
+  "platform_top": 1264,
+  "px_per_m": 444.1,
+  "gap_m": 0.408
+ },
+ "madonna_15.1s": {
+  "frame_top": 567,
+  "frame_bottom": 1300,
+  "baseboard_top": 1677,
+  "floor": 1774,
+  "px_per_m": 691.5,
+  "gap_to_baseboard_top_m": 0.545,
+  "baseboard_m": 0.14
+ },
+ "built": {
+  "tapestry_bottom_above_platform_m": 0.853,
+  "board_bottom_above_platform_m": 0.899,
+  "frame_bottom_above_baseboard_top_m": 0.96
+ },
+ "method": "edge rows found as steps in the mean brightness of a column band on the native 1080x1920 frame; scale from the object own catalogue size in the same wall plane; camera tilt not corrected, about +-0.06 m"
+}

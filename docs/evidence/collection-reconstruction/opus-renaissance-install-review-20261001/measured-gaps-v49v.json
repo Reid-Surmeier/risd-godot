@@ -1,0 +1,34 @@
+{
+ "south_wall_face_z": 34.139,
+ "west_wall_face_x": -5.489,
+ "east_wall_face_x": 0.489,
+ "north_wall_face_z": 28.161,
+ "velvet_board_back_to_south_wall_m": 0.002,
+ "woodcutters_back_to_south_wall_m": 0.002,
+ "madonna_frame_back_to_west_wall_m": 0.001,
+ "east_case_back_to_east_wall_m": 0.008,
+ "triptych_case_back_to_north_wall_m": 0.001,
+ "pieta_case_back_to_west_wall_m": 0.043,
+ "velvet_board_to_tapestry_gap_m": 0.492,
+ "velvet_hood_to_tapestry_gap_m": 0.454,
+ "hood_below_board_m": 0.139,
+ "hood_above_board_m": 0.019,
+ "hood_proud_of_wall_m": 0.091,
+ "madonna_frame_to_window_sill_m": 0.072,
+ "madonna_frame_to_window_blind_m": 0.172,
+ "madonna_frame_to_south_wall_m": 0.386,
+ "case_b_to_south_wall_m": 0.268,
+ "case_a_to_door_m": 0.944,
+ "case_b_to_door_m": 0.329,
+ "platform": {
+  "x": [
+   -5.425,
+   0.425
+  ],
+  "height_m": 0.16,
+  "depth_m": 0.45,
+  "length_m": 5.85
+ },
+ "madonna_label_proxy_inside_window_sill": true,
+ "textile_label_proxies_inside_stands": true
+}

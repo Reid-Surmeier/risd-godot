@@ -1,0 +1,37 @@
+{
+  "note": "Pixel readings by eye on full-resolution frames, +-3 px. Ratios only. No metre is measured here; every metric, placement, map and fidelity flag stays false.",
+  "frame": {"master": "walkthrough/IMG_6343.MOV", "seconds": 0.5, "size_px": [1080, 1920], "file": "source-IMG_6343-0.5s.jpg"},
+  "observed_px": {
+    "casing_outer_left_x": 265, "casing_outer_top_y": 268,
+    "clear_opening_at_grey_face": {"x": [287, 800], "y": [290, 1160], "width": 513, "height": 870},
+    "clear_opening_at_hall_end": {"x": [322, 753], "y": [352, 1103], "width": 431, "height": 751},
+    "vanishing_point": [517, 736],
+    "grey_wall_top_y": 125
+  },
+  "observed_ratios": {
+    "clear_width_over_height_grey_side": 0.59,
+    "clear_width_over_height_hall_side_6344_25s": 0.58,
+    "near_over_far_height": 1.158,
+    "near_over_far_width": 1.19,
+    "width_lost_at_hall_end_to_two_leaf_thicknesses": "about 0.04 of the width",
+    "casing_width_over_clear_width": 0.043,
+    "door_head_over_grey_wall_height": 0.84
+  },
+  "observed_leaf": {
+    "pose": "both leaves folded flat on the reveal sides; hinge at the grey face, knob and free edge at the Hall end; each leaf covers its reveal side end to end; nothing on grey parquet or in the Hall",
+    "frames": ["IMG_6343 0.5 s", "IMG_6343 35 s", "verified/IMG_6380 100 s", "verified/IMG_6380 101 s", "verified/IMG_6380 106.25 s"],
+    "panels_from_top_as_fraction_of_leaf_height": {"small": [0.06, 0.15], "tall": [0.23, 0.63], "lower": [0.74, 0.90], "tolerance": 0.03},
+    "knob_from_top": 0.71,
+    "panel_readings": {"IMG_6343_0.5s_right_leaf": [[0.10, 0.18], [0.24, 0.65], [0.76, 0.91]], "IMG_6380_106.25s_left_leaf": [[0.04, 0.12], [0.23, 0.60], [0.70, 0.89]]},
+    "soffit": "panelled; built plain"
+  },
+  "inferred_not_measured": {
+    "reveal_depth_over_clear_width_from_perspective": {"lens_26mm_equivalent": 0.41, "lens_30mm_equivalent": 0.47, "method": "(near/far height - 1) * focal_px / near width px; focal 1324..1527 px for a 1080x1920 frame; lens setting not recorded in the file"},
+    "reveal_depth_over_clear_width_from_pose": 0.5,
+    "with_retained_hall_opening_1.9m": {"depth_range_m": [0.78, 0.95], "chosen_leaf_m": 0.95, "wall_plane_to_wall_plane_m": 0.76, "frame_already_proud_of_wall_m": 0.19},
+    "head_height_by_people_in_frame": "about 2 x a standing adult in three frames (IMG_6343 0.5 s, 35 s; IMG_6344 25 s): about 3.2 m against 2.8 m built on the Hall side and 2.74 m on the grey side. A prior on human height, not a measurement.",
+    "prior_review_range_m": [0.7, 1.0]
+  },
+  "same_construction_elsewhere": {"rockefeller_european_door": "verified/IMG_6385.MOV 0..2 s: deep panelled reveal with a leaf folded into it, knob at the European gallery end", "piano_door": "IMG_6343 30..32 s: its leaf has a different panel layout from the one built; EXIT sign on the grey face. Outside this task."},
+  "flags": {"depth_measured": false, "opening_metres_accepted": false, "leaf_fidelity_accepted": false, "placement_accepted": false, "map_accepted": false, "metric_accepted": false}
+}

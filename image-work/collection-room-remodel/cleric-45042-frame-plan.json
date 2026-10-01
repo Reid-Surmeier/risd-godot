@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "cleric-45042-frame-001",
+      "prompt": "cleric-45042-frame-prompt.txt",
+      "promptSha256": "c97758e07abbf4c077c068c3b4160aac9511f4fabe659a201f9369eeba1259f0",
+      "size": "1280x1664",
+      "inputs": [
+        {
+          "path": "inventory-references/cleric-frame-native-49.80-straightened.png",
+          "sha256": "871b6adff6ee552ddf45bd77835cbe2e96f1ac34a4c286ec32c949773d7d8303"
+        },
+        {
+          "path": "inventory-references/cleric-frame-native-49.80.png",
+          "sha256": "c874c5ae9ef015247f08f224e3770e2fa4b6c370397c5b0cff5153d39684bda2"
+        }
+      ]
+    }
+  ]
+}

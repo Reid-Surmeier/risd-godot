@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-01T21:04:05.388744+00:00",
+  "project": "main-build-rooms-v50x",
+  "native_capture_exit": 0,
+  "main_build_check_exit": 0,
+  "native_views": 5,
+  "root_inspected": "Hall and Renaissance full-app screenshots; Saint Roch, Pieta and triptych native Collection screenshots individually. Six final baked wall screenshots individually inspected.",
+  "platform_blocks_visitor": true,
+  "main_hall_source_files_unchanged": 362,
+  "users": 1358,
+  "probes": 350,
+  "adapter_sha256": "ca218f3e2a7f3aa15aa432f09e91c7fa840dc9648999a4e1882216e577dfaa86",
+  "movement_scope": "Exact independently reviewed v50u adapter; root 16 held and 12 tap/target checks retained from v50w. No final rerun because adapter unchanged. Mouse ray picking not covered.",
+  "warnings": "Scene UID fallback uses text paths; no ERROR/SCRIPT ERROR in these final two runs.",
+  "independent_review": "Opus5.5 accepted original-video relative layout on unbaked v49x; no independent final baked-lighting review.",
+  "metres_accepted": false,
+  "fine_fidelity_accepted": false,
+  "production_integrated": false,
+  "images": {
+    "saint-roch-room-collection.png": "ceeff451353a31b9ed94febf643b80362940eafc8642d15764b8e47dd8024e85",
+    "saint-roch-room-fullapp.png": "c2d93406f08466a66fd00ea10bb728811ed180de1bc22d10d8b7e7df0306b7cd",
+    "pieta-room-fullapp.png": "45c70b972189202016e12c355e57f1dcde114432a806da46c7f87e5c2b480f83",
+    "hall-collection.png": "da2d64ce05fd8f8a2477aa9d4f204bba15aa1fd23b3962cd0200f54b8912f0d6",
+    "native-views.json": "da4e3408aae9fcb85612f798ffa0ad62b1a5ce9ae18433576154543b5c190d91",
+    "triptych-room-collection.png": "037e87d2586042e5852761a65939361d6f9bdb6a4dd9738bbeb1e2d0f6adcd1a",
+    "hall-fullapp.png": "f628e8cef96cec62311cab1337e2164b98582ea1bcdec4b0972c610b5c047712",
+    "renaissance-room-fullapp.png": "b652648a2fbdca3269a2cb5a0d002ae45e43987a4c1e4d7129f3113859002e2c",
+    "triptych-room-fullapp.png": "ecdd4d7ce44da8fe077782b2345c461d69fdbce13bebc0ba92dc6db8bd61ee37",
+    "renaissance-room-collection.png": "a9f28d875ef8b8e0d917bfd186586e95e42e7aed2264e93da87a96616d27e217",
+    "pieta-room-collection.png": "81362e6cd68758f339da23ee30ba25996fa80277050847b873489420b3a52e00"
+  }
+}

@@ -1,0 +1,140 @@
+[
+	{
+		"camera": [
+			2.0,
+			2.25887084007263,
+			-27.2700004577637
+		],
+		"cull_mask": 8191,
+		"name": "grey-near-south-facing-north",
+		"opaque_walls_between_visitor_and_camera": [],
+		"position": [
+			2.0,
+			0.0,
+			-28.0
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 47,
+			"cutaway_bodies": 133,
+			"rooms": 14,
+			"space": "far"
+		}
+	},
+	{
+		"camera": [
+			-1.0,
+			2.24395132064819,
+			-27.4550018310547
+		],
+		"cull_mask": 8191,
+		"name": "grey-near-south-west-facing-north",
+		"opaque_walls_between_visitor_and_camera": [],
+		"position": [
+			-1.0,
+			0.0,
+			-28.0
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 47,
+			"cutaway_bodies": 133,
+			"rooms": 14,
+			"space": "far"
+		}
+	},
+	{
+		"camera": [
+			0.0,
+			2.45000004768372,
+			-24.8999996185303
+		],
+		"cull_mask": 8191,
+		"name": "grey-door-facing-north",
+		"opaque_walls_between_visitor_and_camera": [],
+		"position": [
+			0.0,
+			0.0,
+			-28.0
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 47,
+			"cutaway_bodies": 133,
+			"rooms": 14,
+			"space": "far"
+		}
+	},
+	{
+		"camera": [
+			-10.8899993896484,
+			2.25161266326904,
+			1.70000004768372
+		],
+		"cull_mask": 6175,
+		"name": "renaissance-west-facing-east",
+		"opaque_walls_between_visitor_and_camera": [],
+		"position": [
+			-10.25,
+			0.0,
+			1.70000004768372
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 47,
+			"cutaway_bodies": 133,
+			"rooms": 14,
+			"space": "arch"
+		}
+	},
+	{
+		"camera": [
+			-10.0500001907349,
+			2.28790330886841,
+			0.210000157356262
+		],
+		"cull_mask": 6175,
+		"name": "renaissance-north-facing-south",
+		"opaque_walls_between_visitor_and_camera": [],
+		"position": [
+			-10.0500001907349,
+			0.0,
+			1.29999995231628
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 47,
+			"cutaway_bodies": 133,
+			"rooms": 14,
+			"space": "arch"
+		}
+	},
+	{
+		"camera": [
+			2.0,
+			2.45000004768372,
+			-28.3999996185303
+		],
+		"cull_mask": 8191,
+		"name": "grey-interior-facing-north",
+		"opaque_walls_between_visitor_and_camera": [],
+		"position": [
+			2.0,
+			0.0,
+			-31.5
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 47,
+			"cutaway_bodies": 133,
+			"rooms": 14,
+			"space": "far"
+		}
+	}
+]

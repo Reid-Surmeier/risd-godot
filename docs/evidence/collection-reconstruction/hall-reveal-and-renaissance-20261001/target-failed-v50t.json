@@ -1,0 +1,430 @@
+{
+  "utc": "2026-10-01T20:17:57.285194+00:00",
+  "candidate": "main-build-rooms-v50t",
+  "target_tests": {
+    "failures": [
+      "tap-hall-grey",
+      "floor-target-hall-grey"
+    ],
+    "rows": [
+      {
+        "input": "real root key events",
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "name": "tap-grey-hall-near",
+        "passed": true,
+        "position": [
+          -1.17568358367354e-16,
+          -25.4199771881104
+        ],
+        "space": "gallery",
+        "space_changes": 1
+      },
+      {
+        "input": "real root key events",
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "name": "tap-grey-hall-edge",
+        "passed": true,
+        "position": [
+          6.20385459e-24,
+          -24.8199558258057
+        ],
+        "space": "gallery",
+        "space_changes": 1
+      },
+      {
+        "input": "real root key events",
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "name": "tap-grey-hall-deep",
+        "passed": true,
+        "position": [
+          1.17568358367354e-16,
+          -25.4199333190918
+        ],
+        "space": "gallery",
+        "space_changes": 1
+      },
+      {
+        "input": "real root key events",
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 1.12997055053711,
+        "name": "tap-hall-grey",
+        "passed": false,
+        "position": [
+          0.0,
+          -27.6900062561035
+        ],
+        "space": "far",
+        "space_changes": 1
+      },
+      {
+        "input": "real root key events",
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "name": "tap-rockefeller-west",
+        "passed": true,
+        "position": [
+          -8.05000019073486,
+          -25.4199333190918
+        ],
+        "space": "arch",
+        "space_changes": 1
+      },
+      {
+        "input": "real root key events",
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "name": "tap-west-rockefeller",
+        "passed": true,
+        "position": [
+          -8.05000019073486,
+          -27.8800659179688
+        ],
+        "space": "far",
+        "space_changes": 1
+      },
+      {
+        "input": "floor-click target planner",
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "name": "floor-target-grey-hall-near",
+        "passed": true,
+        "position": [
+          0.0,
+          -24.5399570465088
+        ],
+        "space": "gallery",
+        "space_changes": 1
+      },
+      {
+        "input": "floor-click target planner",
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "name": "floor-target-grey-hall-edge",
+        "passed": true,
+        "position": [
+          0.0,
+          -24.5399494171143
+        ],
+        "space": "gallery",
+        "space_changes": 1
+      },
+      {
+        "input": "floor-click target planner",
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "name": "floor-target-grey-hall-deep",
+        "passed": true,
+        "position": [
+          0.0,
+          -24.5399131774902
+        ],
+        "space": "gallery",
+        "space_changes": 1
+      },
+      {
+        "input": "floor-click target planner",
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 1.12997055053711,
+        "name": "floor-target-hall-grey",
+        "passed": false,
+        "position": [
+          0.0,
+          -29.0500373840332
+        ],
+        "space": "far",
+        "space_changes": 1
+      },
+      {
+        "input": "floor-click target planner",
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "name": "floor-target-rockefeller-west",
+        "passed": true,
+        "position": [
+          -8.05000019073486,
+          -24.5399131774902
+        ],
+        "space": "arch",
+        "space_changes": 1
+      },
+      {
+        "input": "floor-click target planner",
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "name": "floor-target-west-rockefeller",
+        "passed": true,
+        "position": [
+          -8.05000019073486,
+          -29.0800933837891
+        ],
+        "space": "far",
+        "space_changes": 1
+      }
+    ]
+  },
+  "held_tests": {
+    "failures": [
+      "hall-grey-forward",
+      "hall-grey-backward"
+    ],
+    "rows": [
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "mode": 2,
+        "passed": true,
+        "position": [
+          1.71450612301483e-16,
+          -25.5899543762207
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "grey-hall-forward"
+      },
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 1.11997222900391,
+        "mode": 2,
+        "passed": false,
+        "position": [
+          0.0,
+          -27.4099998474121
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "hall-grey-forward"
+      },
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "mode": 2,
+        "passed": true,
+        "position": [
+          -8.05000019073486,
+          -25.5899543762207
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "rockefeller-west-forward"
+      },
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "mode": 2,
+        "passed": true,
+        "position": [
+          -8.05000019073486,
+          -27.0100440979004
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "west-rockefeller-forward"
+      },
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "mode": 2,
+        "passed": true,
+        "position": [
+          -6.85804394734732e-17,
+          -25.5899543762207
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "grey-hall-backward"
+      },
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 1.11997222900391,
+        "mode": 2,
+        "passed": false,
+        "position": [
+          -6.07393496016217e-17,
+          -27.4099998474121
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "hall-grey-backward"
+      },
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "mode": 2,
+        "passed": true,
+        "position": [
+          -8.05000019073486,
+          -25.5899543762207
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "rockefeller-west-backward"
+      },
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0400009155273438,
+        "mode": 2,
+        "passed": true,
+        "position": [
+          -8.05000019073486,
+          -27.0100440979004
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "west-rockefeller-backward"
+      },
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0399998687207699,
+        "mode": 0,
+        "passed": true,
+        "position": [
+          -0.596989870071411,
+          -26.9685230255127
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "diagonal-0--1--1"
+      },
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0399998687207699,
+        "mode": 0,
+        "passed": true,
+        "position": [
+          -0.540421366691589,
+          -25.6368637084961
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "diagonal-0--1-1"
+      },
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0399998687207699,
+        "mode": 0,
+        "passed": true,
+        "position": [
+          0.596989870071411,
+          -26.9685230255127
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "diagonal-0-1--1"
+      },
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0399998687207699,
+        "mode": 0,
+        "passed": true,
+        "position": [
+          0.540421366691589,
+          -25.6368637084961
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "diagonal-0-1-1"
+      },
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0399998687207699,
+        "mode": 1,
+        "passed": true,
+        "position": [
+          -0.596989870071411,
+          -26.9685230255127
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "diagonal-1--1--1"
+      },
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0399998687207699,
+        "mode": 1,
+        "passed": true,
+        "position": [
+          -0.540421366691589,
+          -25.6368637084961
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "diagonal-1--1-1"
+      },
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0399998687207699,
+        "mode": 1,
+        "passed": true,
+        "position": [
+          0.596989870071411,
+          -26.9685230255127
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "diagonal-1-1--1"
+      },
+      {
+        "flash": 0.0,
+        "key_delivered": true,
+        "key_released": true,
+        "max_step_m": 0.0399998687207699,
+        "mode": 1,
+        "passed": true,
+        "position": [
+          0.540421366691589,
+          -25.6368637084961
+        ],
+        "reached": true,
+        "space_changes": 1,
+        "test": "diagonal-1-1-1"
+      }
+    ]
+  },
+  "root_cause": "Door strip walkability was restricted to far state; gallery-to-far crossing guard projected the per-frame position into the nearest added room, causing a 1.13 m jump. Door strip now shared by gallery and far state.",
+  "accepted": false
+}

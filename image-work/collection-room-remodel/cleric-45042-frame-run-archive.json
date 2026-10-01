@@ -1,0 +1,17 @@
+{
+  "run_id": "run-e9a0d2ad84fd2506632eb4b4",
+  "archive_sha256": "d23f26e5108efd85e5b2827e89becbc3b14de35600a0043a0ffef5cebc9b5b45",
+  "files": {
+    "events.jsonl": "b13c213071f9ca1897e5a63473cf8bd7b338a1d7749b29133e3636173f593b29",
+    "state.json": "5a88b19b28fd10668d912c4b77bd3bc5b8a308040b05dead34200e0fe75a4042",
+    "request.json": "e9a0d2ad84fd2506632eb4b48481619369248f552106d48babfc2ac7d4631fbf",
+    "provider-response.json": "e2d96367145b37dcd0cfba0c4d4dff044217b10d9558463e33d327cb44b45e6e",
+    "outputs/donor-01.rgba.json": "82f77cbc079ad29bfa6a26ee2fc3296d63dec6a66028e095e401463614435990",
+    ".event-frames/f0c34cd20c4d197a512688e0bf0ec45295799df00cdc9ca7ef0a9d720f494bcf.jsonl": "543063eb6ffbde6df14d1c1f698ae668fb5d17195c32429ae867724dd9f53351",
+    ".event-frames/fe4ff95ac0bfcec8b7617eb47c3ea31680e7dfdcc16f455a77204576371b5233.jsonl": "eb93890fc2c13f590449f2f2e151d02fbcf2da88f1e19b34d32bdfb4bcb23ede",
+    ".event-frames/2432f559b465d001270ba3009c32b88c26f63e3eb3c58135edfe11fddc3ade58.jsonl": "c42531a785b4163b74d8111a5fc731d27b3cf4ffe10a331e6ec16bb4ebdfc969",
+    ".event-frames/0f77f54cf3ac8898ff1a310da3a17b8655991548cf64393fa423269c0fb0cf60.jsonl": "2ab652c40dc46121a583d7bb3221abd8d56c7e9c348f2045e01ec8ce61c11466",
+    ".event-frames/bd67ef3cf356347c6083fc280a6f54a9755ce715efc2ef60096e74a11b75e906.jsonl": "0e499f5bda9e8ac65f9815539ea00655a33ff5b9ab9ecc56baf7c5557a1caa8f",
+    "materialized/image-01.webp": "06fd8563acabbecaf05704c5c1348d1ff05db36410f9faeeadc251b133efde2c"
+  }
+}

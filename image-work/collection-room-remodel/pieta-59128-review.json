@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-01T18:43:28.349516+00:00",
+  "provider": "OpenRouter",
+  "model": "meta/muse-image",
+  "count": 1,
+  "run_id": "run-0b38abf3159fe7bf6b3761b5",
+  "output_sha256": "378a734d84325fe2189675539814a9c6b8641b9973fa15e27b4f1b3c82a824b2",
+  "cost_usd": "0.010000",
+  "cost_state": "actual",
+  "spend_state": "unknown",
+  "retry_state": "never-resubmit",
+  "full_asset_accepted": false,
+  "rear_observed": false,
+  "accepted_for_modelling": [
+    "FRONT retains asymmetric Mary/Christ group and low-polygon wood form",
+    "ABOVE FRONT useful as inferred game-angle modelling study"
+  ],
+  "rejected": [
+    "LEFT THREE-QUARTER duplicates front and is not a left-side observation",
+    "RIGHT THREE-QUARTER is nearer a full side profile; cannot establish source-side fidelity"
+  ],
+  "next_action": "Opus builder derives closed shallow geometry from official bounds/source and usable Muse studies; inspect all game angles; no blind retry",
+  "cumulative_map_actual_usd": 0.89,
+  "cumulative_map_conservative_usd": 0.9
+}

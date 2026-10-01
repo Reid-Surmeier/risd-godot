@@ -1,0 +1,28 @@
+{
+  "provider": "OpenRouter",
+  "model": "meta/muse-image",
+  "count": 1,
+  "estimate_usd": 0.01,
+  "cumulative_actual_before": 0.9,
+  "cumulative_conservative_before": 0.91,
+  "map_ceiling_usd": 5,
+  "references": [
+    {
+      "path": "inventory-references/frame-58196-rectified-15.10.png",
+      "sha256": "28099dd800d4138e1bf168131f8aa5e7f9dd97565f989a5ce6e1c608e4a12830"
+    },
+    {
+      "path": "inventory-references/frame-58196-corner-top-left-15.10.png",
+      "sha256": "2f59bc288ce2ca5c9f21479dcb7569dd2e166ed9a17c993208af20a411f2491b"
+    }
+  ],
+  "source": "Verified original6383 15.10s; worker native crop and provisional rectification snapshot; museum catalogue photo lacks frame",
+  "painting_opening_catalogue_m": [
+    0.87,
+    0.914
+  ],
+  "frame_band_m_provisional": 0.077,
+  "dimensions_accepted": false,
+  "artwork_generated": false,
+  "fine_fidelity_accepted": false
+}

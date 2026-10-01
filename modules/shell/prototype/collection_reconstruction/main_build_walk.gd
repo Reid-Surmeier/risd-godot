@@ -22,6 +22,9 @@ const FAR_ROOMS := [
 	"grey French gallery",
 	"Ionic marble-stair threshold study limit",
 	"piano-stair threshold study limit",
+	# The thickness of the wall those rooms share with the Hall and the European gallery.
+	"Grand Gallery reveal threshold",
+	"Rockefeller reveal threshold",
 ]
 # Render layers above the parent's own (1..32 Hall, 64..1024 its far space).
 const NEAR_LAYER := 2048
@@ -145,7 +148,7 @@ func _attach_rooms(path: String) -> void:
 		if (
 			not is_instance_valid(body)
 			or body.get_child_count() < 2
-			or str(body.get_meta("room_wall", "")).begins_with(HALL_ROOM)
+			or str(body.get_meta("room_wall", "")).begins_with(HALL_ROOM + ":")
 		):
 			continue  # the room scene keeps the Hall's walls only as its own collision
 		var collider := body.get_child(0) as CollisionShape3D
@@ -162,7 +165,14 @@ func _attach_rooms(path: String) -> void:
 				Vector3(shape.radius * 2.0, shape.height, shape.radius * 2.0)
 			)
 		var box: AABB = body.global_transform * (collider.transform * local)
-		_walls.append({"body": body, "box": box, "layers": _layers_of(visual)})
+		var boxes:Array[AABB]=[box]
+		# Jambs belong to the header, whose collision box is above the doorway.
+		# Test their separate boxes so the empty opening still stays visible head-on.
+		if str(body.get_meta("room_wall","")).ends_with(":header"):
+			for part in body.get_children():
+				if part is MeshInstance3D and part.mesh!=null:
+					boxes.append(part.global_transform*part.get_aabb())
+		_walls.append({"body": body, "box": box, "boxes":boxes, "layers": _layers_of(visual)})
 		if (
 			not body.has_meta("room_wall")
 			and (shape is BoxShape3D or shape is CylinderShape3D)
@@ -313,7 +323,28 @@ func _process(delta: float) -> void:
 
 # Inside the Hall and its stone passage: the parent's rule, untouched. Outside: the room plan.
 func _clamp(p: Vector3) -> Vector3:
-	if _rooms == null or _space == "gallery":
+	if _rooms == null:
+		return super(p)
+	# A tap/click can target the other side before the per-frame step changes space.
+	# Validate that target through the same doorway, rather than an obsolete room box.
+	if _space in ["gallery", "far"] and (_pos.z + L) * (p.z + L) < 0.0:
+		var cross_x := lerpf(_pos.x, p.x, (-L - _pos.z) / (p.z - _pos.z))
+		if absf(cross_x) <= .4:
+			if _space == "gallery":
+				return _slide(p)
+			# Reuse the Hall's own walls and benches. This synchronous call has no input or camera work.
+			if p.z < -L + .55:
+				p.x = clampf(p.x, -.399, .399)
+			_space = "gallery"
+			var target: Vector3 = super(p)
+			_space = "far"
+			return target
+	if _space == "gallery":
+		# Keep lateral movement inside the doorway until clear of the north jambs.
+		# Otherwise walk4's wide-room clamp jumps z forward by its 0.55m wall margin.
+		if _pos.z < -L + .55 and absf(_pos.x) <= .4 and p.z < -L + .55:
+			# A Vector3 rounds .4 above the parent's exact .4 doorway test.
+			p.x=clampf(p.x,-.399,.399)
 		return super(p)
 	p.y = 0.0
 	if _space == "arch":
@@ -377,7 +408,7 @@ func _room_at(p: Vector3) -> int:
 
 func _walkable(p: Vector3) -> bool:
 	# The grey gallery's Hall door, as walk4's own doorway strip.
-	if _space == "far" and absf(p.x) <= 0.4 and p.z > -L - WALL_CLEAR and p.z <= -L + 0.2:
+	if _space in ["gallery", "far"] and absf(p.x) <= 0.4 and p.z > -L - WALL_CLEAR and p.z <= -L + .55:
 		return true
 	# The portal and the ground between its stone sides are the parent's.
 	if absf(p.x) < PORTAL_SIDE and p.z > -L and p.z < PORTAL_MOUTH:
@@ -451,8 +482,9 @@ func _update_camera(k: float) -> void:
 			for offset in [-0.45, 0.0, 0.45]:
 				for height in [0.5, 1.5]:
 					var subject: Vector3 = _pos + across * offset + Vector3(0, height, 0)
-					if (wall.box as AABB).intersects_segment(eye, subject) != null:
-						clear = false
+					for section in wall.boxes:
+						if (section as AABB).intersects_segment(eye, subject) != null:
+							clear = false
 		var body: Node = wall.body
 		for i in range(1, body.get_child_count()):
 			body.get_child(i).visible = clear

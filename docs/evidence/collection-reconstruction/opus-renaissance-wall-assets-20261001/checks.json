@@ -1,0 +1,260 @@
+{
+  "asset": "renaissance_wall_assets.gd",
+  "failures": [],
+  "godot": "4.7.2-stable (official)",
+  "negative_controls": {
+    "false_acceptance": [
+      "rear_accepted"
+    ],
+    "inverted": [
+      "inside-out or empty"
+    ],
+    "not_finite": [
+      "vertex not finite or beyond two metres"
+    ],
+    "opened": [
+      "open edge"
+    ],
+    "wrong_size": [
+      "madonna_58196 is 0.88740 m wide, catalogue says 0.870"
+    ]
+  },
+  "objects": {
+    "madonna_58196": {
+      "accession": "58.196",
+      "bounds_m": [
+        0.870000004768372,
+        0.913999974727631,
+        0.00999999977648258
+      ],
+      "catalogue_dimensions": "91.4 x 87 cm (36 x 34 1/4 inches)",
+      "catalogue_size_m": [
+        0.870000004768372,
+        0.913999974727631
+      ],
+      "closed_shells": 23,
+      "depth_provisional_m": 0.01,
+      "dimension_conflicts": [
+        "the studio photograph is 0.9403 wide for its height, the catalogue 0.9519: it keeps its proportion at the catalogue height and leaves 5 mm of panel bare each side, behind the frame",
+        "the video shows the photograph covering about 97.7 percent of the frame's opening each way, so the painted image here may be about 2 percent large",
+        "frame size is not catalogued: the 7.7 cm band is the mean of four video readings from 7.3 to 8.2 cm"
+      ],
+      "flags": [
+        [
+          "rear_accepted",
+          false
+        ],
+        [
+          "thickness_accepted",
+          false
+        ],
+        [
+          "mount_accepted",
+          false
+        ],
+        [
+          "frame_accepted",
+          false
+        ],
+        [
+          "placement_accepted",
+          false
+        ],
+        [
+          "fine_fidelity_accepted",
+          false
+        ],
+        [
+          "metric_accepted",
+          false
+        ],
+        [
+          "dimension_conflict_resolved",
+          false
+        ],
+        [
+          "whole_room_accepted",
+          false
+        ]
+      ],
+      "hardware": {
+        "band_m": 0.077,
+        "frame_outer_m": [
+          1.00547003746033,
+          1.05999994277954,
+          0.0549999997019768
+        ],
+        "panel_margin_not_in_photograph_m": 0.00526500238418581,
+        "photograph_m": [
+          0.85947,
+          0.914
+        ],
+        "sight_m": [
+          0.851469993591309,
+          0.905999958515167
+        ]
+      },
+      "mesh_triangles": {
+        "edge": 28,
+        "frame bottom": 10,
+        "frame edge": 160,
+        "frame left": 10,
+        "frame right": 10,
+        "frame top": 10,
+        "front": 2,
+        "hardware rear": 40,
+        "rear": 6
+      },
+      "source_rear_observed": false,
+      "triangles": 276,
+      "width_from_catalogue": true
+    },
+    "velvet_23307x": {
+      "accession": "23.307X",
+      "bounds_m": [
+        0.500303030014038,
+        1.26999998092651,
+        0.00300000002607703
+      ],
+      "catalogue_dimensions": "127 cm (50 inches) (length)",
+      "catalogue_size_m": [
+        0.0,
+        1.26999998092651
+      ],
+      "closed_shells": 2,
+      "depth_provisional_m": 0.003,
+      "dimension_conflicts": [
+        "width is not catalogued: 0.500 m is the photograph's proportion; two weak video fits against the tapestry gave 0.48 and 0.53 m",
+        "the catalogue length is read as including both fringes: the same fits gave 1.27 and 1.34 m overall, against 1.46 m if it meant the velvet alone"
+      ],
+      "flags": [
+        [
+          "rear_accepted",
+          false
+        ],
+        [
+          "thickness_accepted",
+          false
+        ],
+        [
+          "mount_accepted",
+          false
+        ],
+        [
+          "frame_accepted",
+          false
+        ],
+        [
+          "placement_accepted",
+          false
+        ],
+        [
+          "fine_fidelity_accepted",
+          false
+        ],
+        [
+          "metric_accepted",
+          false
+        ],
+        [
+          "dimension_conflict_resolved",
+          false
+        ],
+        [
+          "whole_room_accepted",
+          false
+        ]
+      ],
+      "hardware": {
+        "mount_m": [
+          0.971000015735626,
+          1.44799995422363,
+          0.0199999995529652
+        ],
+        "textile_margin_m": [
+          0.232348501682281,
+          0.238348484039307,
+          0.0719999670982361,
+          0.106000006198883
+        ]
+      },
+      "mesh_triangles": {
+        "edge": 244,
+        "front": 120,
+        "hardware rear": 2,
+        "mount": 10,
+        "rear": 120
+      },
+      "source_rear_observed": true,
+      "triangles": 496,
+      "width_from_catalogue": false
+    },
+    "woodcutters_29280": {
+      "accession": "29.280",
+      "bounds_m": [
+        0.939999997615814,
+        1.52400004863739,
+        0.00499999988824129
+      ],
+      "catalogue_dimensions": "152.4 x 94 cm (60 x 37 inches)",
+      "catalogue_size_m": [
+        0.939999997615814,
+        1.52400004863739
+      ],
+      "closed_shells": 1,
+      "depth_provisional_m": 0.005,
+      "dimension_conflicts": [
+        "the photograph is 0.6207 wide for its height, the catalogue 0.6168: it is stretched 0.6 percent taller to the catalogue size"
+      ],
+      "flags": [
+        [
+          "rear_accepted",
+          false
+        ],
+        [
+          "thickness_accepted",
+          false
+        ],
+        [
+          "mount_accepted",
+          false
+        ],
+        [
+          "frame_accepted",
+          false
+        ],
+        [
+          "placement_accepted",
+          false
+        ],
+        [
+          "fine_fidelity_accepted",
+          false
+        ],
+        [
+          "metric_accepted",
+          false
+        ],
+        [
+          "dimension_conflict_resolved",
+          false
+        ],
+        [
+          "whole_room_accepted",
+          false
+        ]
+      ],
+      "hardware": {},
+      "mesh_triangles": {
+        "edge": 28,
+        "front": 12,
+        "rear": 12
+      },
+      "source_rear_observed": false,
+      "triangles": 52,
+      "width_from_catalogue": true
+    }
+  },
+  "passed": true,
+  "renderer": "llvmpipe (LLVM 20.1.2, 256 bits)"
+}

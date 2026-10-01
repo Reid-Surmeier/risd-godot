@@ -1,0 +1,17 @@
+{
+  "docs/evidence/collection-reconstruction/opus-hall-passage-fix-review-20261001/plot_paths.py": {
+    "sha256": "1b8e6b367ed935d119539a82b1f697b55235bf001f36658b90900876195e357e",
+    "archive": "docs/evidence/collection-reconstruction/opus-hall-passage-fix-review-20261001/plot_paths.py.gz",
+    "reason": "Original delivered bytes retain whitespace; exact archive keeps independent proof unchanged and avoids diff whitespace violations. Original local file retained."
+  },
+  "docs/evidence/collection-reconstruction/opus-hall-target-jamb-review-20261001/plot_paths.py": {
+    "sha256": "1b8e6b367ed935d119539a82b1f697b55235bf001f36658b90900876195e357e",
+    "archive": "docs/evidence/collection-reconstruction/opus-hall-target-jamb-review-20261001/plot_paths.py.gz",
+    "reason": "Original delivered bytes retain whitespace; exact archive keeps independent proof unchanged and avoids diff whitespace violations. Original local file retained."
+  },
+  "docs/evidence/collection-reconstruction/opus-hall-reveal-builder-20261001/hall-reveal.patch": {
+    "sha256": "e6bf58c070c1e9f22ea7678ac9c9e901bfe4dcfc3390e3278d56080f32d95bf1",
+    "archive": "docs/evidence/collection-reconstruction/opus-hall-reveal-builder-20261001/hall-reveal.patch.gz",
+    "reason": "Original delivered bytes retain whitespace; exact archive keeps independent proof unchanged and avoids diff whitespace violations. Original local file retained."
+  }
+}

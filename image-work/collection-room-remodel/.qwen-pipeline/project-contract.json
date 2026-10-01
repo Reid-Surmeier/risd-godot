@@ -135,7 +135,13 @@
     "inventory-references/saint-roch-21398-official-0.png",
     "inventory-references/saint-roch-21398-official-1.png",
     "inventory-references/saint-roch-21398-official-2.png",
-    "inventory-references/saint-roch-21398-official-3.png"
+    "inventory-references/saint-roch-21398-official-3.png",
+    "inventory-references/pieta-59128-front.png",
+    "inventory-references/pieta-59128-video-24.6.png",
+    "inventory-references/cleric-frame-native-49.80-straightened.png",
+    "inventory-references/cleric-frame-native-49.80.png",
+    "inventory-references/frame-58196-rectified-15.10.png",
+    "inventory-references/frame-58196-corner-top-left-15.10.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -2105,6 +2111,78 @@
           "slot": "reference-003",
           "kind": "image",
           "payloadDestination": "/input_references/3/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-7d2d7443ae2dc62ff5d4",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1440"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-4974907922545e3f14f6",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1280x1664"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-58b9e7ea0d1e5b027b55",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1536x1536"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
         }
       ]
     }

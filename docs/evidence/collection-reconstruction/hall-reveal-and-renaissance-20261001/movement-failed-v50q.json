@@ -1,0 +1,9 @@
+{
+  "candidate": "v50q",
+  "follow_keys_pass": 8,
+  "diagonal_keys_fail": 8,
+  "old_v50p_negative_follow_fail": 2,
+  "old_negative_diagonal_fail": 8,
+  "root_cause": "Vector3 float32 x clamp at .4 rounds above native parent exact .4 doorway test, causing same-call .55m z clamp. Next adapter cap .399 remains inside exact doorway test. Strict .08m step limit unchanged.",
+  "next_candidate": "v50r"
+}

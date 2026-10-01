@@ -255,6 +255,8 @@ func corrected(p:Vector3) -> Vector3:
 		return p+Vector3(-1.95 if p.x<3.4 else -.95 if p.x>11.5 else 0,0,9.25)
 	# Grey register: grey fill follows the shorter room's centre (-2 to -1.2), the connector its new
 	# axis (-2 to .58), and Rockefeller with the gallery's door end moves 2.2m as in remodel_room.gd.
-	if p.x>=8.45:return p+Vector3(-4.6,0,.8)
-	if p.x>3.65:return Vector3(1.7+(p.x-3.65)*2.15/4.8,p.y,p.z+2.58)
-	return p+Vector3(-1.95,0,2.2 if p.z<1.0 else 0.0)
+	# Hall reveal: the three rooms north of the thick wall go north by its thickness as well.
+	var reveal:float=JSON.parse_string(FileAccess.get_file_as_string("res://geometry.json")).hall_reveal.wall_m
+	if p.x>=8.45:return p+Vector3(-4.6,0,.8-reveal)
+	if p.x>3.65:return Vector3(1.7+(p.x-3.65)*2.15/4.8,p.y,p.z+2.58-reveal)
+	return p+Vector3(-1.95,0,(2.2 if p.z<1.0 else 0.0)-(reveal if p.z<-.4 else 0.0))

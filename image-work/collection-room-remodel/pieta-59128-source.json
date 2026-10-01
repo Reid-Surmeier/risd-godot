@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-01T18:40:07.638220+00:00",
+  "catalogue_url": "https://risdmuseum.org/art-design/collection/pieta-59128",
+  "api_url": "https://risdmuseum.org/api/v1/collection?id=1312736",
+  "live_api_attempt": "urllib403 and web unavailable; retained previously fetched API record",
+  "cached_api_path": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/api/onview-pieta.json",
+  "cached_api_sha256": "9d7aec935f52ded3118e2b84a142e2e599bbf2ce38c9538a11d4a9dc72a3a10c",
+  "height_width_depth_m": [
+    0.457,
+    0.381,
+    0.132
+  ],
+  "medium": "linden wood",
+  "date_conflict": "API dating1480-1510; official page and filmed label ca1515-1525. Do not invent date label.",
+  "references": [
+    {
+      "path": "inventory-references/pieta-59128-front.png",
+      "sha256": "b588f5626558036c53e86badab122359dc581f83aa448395d08ea998a5fc0362",
+      "original": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/pieta-59128-zoom-0.jpg",
+      "original_sha256": "19772d5ae6903e712077efb8e21d5a2498f015d930584366e24170c264386ee4",
+      "observed": "official front colour photograph, not a rear"
+    },
+    {
+      "path": "inventory-references/pieta-59128-video-24.6.png",
+      "sha256": "d41a6b6dbbe1cfc1dd652481c644d45142fd760d71968e871cccd8105b6774c3",
+      "original": "verified/IMG_6383.MOV",
+      "seconds": 24.6,
+      "observed": "native installed front/quarter view, behind glass"
+    }
+  ],
+  "rear_observed": false,
+  "placement_accepted": false,
+  "fine_fidelity_accepted": false,
+  "authorized_call": {
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "estimate_usd": 0.01,
+    "cumulative_actual_before": 0.88,
+    "cumulative_conservative_before": 0.89,
+    "map_ceiling_usd": 5
+  }
+}

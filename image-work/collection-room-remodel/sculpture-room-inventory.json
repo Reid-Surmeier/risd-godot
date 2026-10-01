@@ -42,10 +42,15 @@
           "wall": "north",
           "title": "Madonna Enthroned, with Saints and Angels",
           "survey_frames": "6383:55-63",
-          "status": "Matched to official catalogue photographs and native video; asset and case still unbuilt; placement and metric acceptance false.",
+          "status": "Three closed gabled source-photo panels with observed rear installed as a prototype in a wall-hung case; wing angle/depth, placement/case metrics and fine frame fidelity unaccepted.",
           "accession": "2021.131",
           "catalogue_id": "1345606",
-          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md"
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md",
+          "prototype_panels": 3,
+          "source_rear_observed": true,
+          "placement_accepted": false,
+          "case_metres_accepted": false,
+          "fine_frame_fidelity_accepted": false
         },
         {
           "id": "madonna-architecture",
@@ -65,7 +70,7 @@
           "wall": "east",
           "title": "Six observed objects: two portraits, ivory diptych, silver book cover with chains, open printed emblem book, painted ceramic drug jar",
           "survey_frames": "6383:82-104",
-          "status": "All six identities researched; five image/video matches and emblem-book 2023.17 confirmed by case label and catalogue. Six assets and wall case unbuilt.",
+          "status": "Closed source-guided low polygon asset studies installed in a provisional wall-hung case; positions, depths, frames and fine fidelity unaccepted.",
           "minimum_objects": 6,
           "emblem_book": {
             "accession": "2023.17",
@@ -80,46 +85,73 @@
             "identity_status": "confirmed by label/catalogue; opening compared with different Glasgow library copy",
             "museum_photograph_available": false,
             "source": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/SOURCES.md",
-            "asset_built": false
-          }
+            "asset_built": true
+          },
+          "prototype_objects": 6,
+          "placement_accepted": false,
+          "case_metres_accepted": false,
+          "fine_fidelity_accepted": false
         },
         {
           "id": "majolica-medals-case",
           "wall": "east",
           "title": "Two Bella Donna plates, Death of the Virgin gilt roundel, stained-glass Apocalypse roundel, probable enamel plaque",
           "survey_frames": "6383:108-116",
-          "status": "Four catalogue/photo matches, one probable enamel plaque; five assets and wall case unbuilt.",
-          "minimum_objects": 5
+          "status": "Closed source-guided low polygon asset studies installed in a provisional wall-hung case; positions, depths, frames and fine fidelity unaccepted.",
+          "minimum_objects": 5,
+          "prototype_objects": 5,
+          "placement_accepted": false,
+          "case_metres_accepted": false,
+          "fine_fidelity_accepted": false
         },
         {
           "id": "burgundy-textile",
           "wall": "south",
           "title": "Velvet Cover",
           "survey_frames": "6383:11-17",
-          "status": "Matched to official catalogue photographs and native video; asset and case still unbuilt; placement and metric acceptance false.",
+          "status": "Closed catalogue-size source-photo study installed on its source wall in v49v; platform/hood/mount/frame profile/placement and whole-room metres unaccepted.",
           "accession": "23.307X",
           "catalogue_id": "1202276",
-          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md"
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md",
+          "prototype_built": true,
+          "placement_accepted": false,
+          "metric_accepted": false,
+          "fine_fidelity_accepted": false,
+          "model_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-wall-assets-20261001/REPORT.md",
+          "source_rear_observed": true
         },
         {
           "id": "hunting-tapestry",
           "wall": "south",
           "title": "The Woodcutters",
           "survey_frames": "6383:18-26",
-          "status": "Matched to official catalogue photographs and native video; asset and case still unbuilt; placement and metric acceptance false.",
+          "status": "Closed catalogue-size source-photo study installed on its source wall in v49v; platform/hood/mount/frame profile/placement and whole-room metres unaccepted.",
           "accession": "29.280",
           "catalogue_id": "1201986",
-          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md"
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md",
+          "prototype_built": true,
+          "placement_accepted": false,
+          "metric_accepted": false,
+          "fine_fidelity_accepted": false,
+          "model_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-wall-assets-20261001/REPORT.md",
+          "source_rear_observed": false
         },
         {
           "id": "holy-family",
           "wall": "west",
           "title": "Madonna and Child with Saint Barbara and Saint Catherine",
           "survey_frames": "6383:29-33",
-          "status": "Matched to official catalogue photographs and native video; asset and case still unbuilt; placement and metric acceptance false.",
+          "status": "Closed catalogue-size source-photo study installed on its source wall in v49v; platform/hood/mount/frame profile/placement and whole-room metres unaccepted.",
           "accession": "58.196",
           "catalogue_id": "1591076",
-          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md"
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md",
+          "prototype_built": true,
+          "placement_accepted": false,
+          "metric_accepted": false,
+          "fine_fidelity_accepted": false,
+          "model_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-wall-assets-20261001/REPORT.md",
+          "source_rear_observed": false,
+          "frame_texture": "Original video strips. One Muse trial retained and rejected for broad gold band; no repeat paid generation."
         },
         {
           "id": "bronze-knight",
@@ -141,10 +173,15 @@
           "wall": "west",
           "title": "Piet\u00e0",
           "survey_frames": "6383:46-52",
-          "status": "Matched to official catalogue photographs and native video; asset and case still unbuilt; placement and metric acceptance false.",
+          "status": "Closed flat-palette low-polygon block study and west-wall hung shelf/hood prototype; bounds match catalogue, width conflicts front-photo ratio, sides/rear inferred; likeness, placement and case metres unaccepted.",
           "accession": "59.128",
           "catalogue_id": "1312736",
-          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md"
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md",
+          "prototype_closed_parts": 39,
+          "source_rear_observed": false,
+          "placement_accepted": false,
+          "case_metres_accepted": false,
+          "fine_fidelity_accepted": false
         },
         {
           "id": "bench",

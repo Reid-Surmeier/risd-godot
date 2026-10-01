@@ -1,0 +1,805 @@
+{
+	"east_cases": {
+		"A": {
+			"all": {
+				"max": [
+					0.481,
+					1.986,
+					30.256
+				],
+				"min": [
+					-0.098,
+					0.97,
+					29.044
+				]
+			},
+			"objects": {
+				"albarello": {
+					"max": [
+						0.242,
+						1.321,
+						30.165
+					],
+					"min": [
+						0.112,
+						1.08,
+						30.035
+					]
+				},
+				"bookcover": {
+					"max": [
+						0.226,
+						1.295,
+						29.543
+					],
+					"min": [
+						0.111,
+						1.08,
+						29.413
+					]
+				},
+				"cleric": {
+					"max": [
+						0.45,
+						1.741,
+						29.507
+					],
+					"min": [
+						0.393,
+						1.419,
+						29.273
+					]
+				},
+				"diptych": {
+					"max": [
+						0.296,
+						1.204,
+						29.42
+					],
+					"min": [
+						0.018,
+						1.08,
+						29.08
+					]
+				},
+				"emblem": {
+					"max": [
+						0.344,
+						1.292,
+						29.904
+					],
+					"min": [
+						0.12,
+						1.08,
+						29.642
+					]
+				},
+				"woman": {
+					"max": [
+						0.45,
+						1.761,
+						29.934
+					],
+					"min": [
+						0.41,
+						1.399,
+						29.686
+					]
+				}
+			},
+			"owner": "light Renaissance room:east"
+		},
+		"B": {
+			"all": {
+				"max": [
+					0.481,
+					1.986,
+					33.871
+				],
+				"min": [
+					-0.098,
+					0.97,
+					32.659
+				]
+			},
+			"objects": {
+				"glass_201729": {
+					"max": [
+						0.203,
+						1.305,
+						33.36
+					],
+					"min": [
+						0.166,
+						1.106,
+						33.17
+					]
+				},
+				"plaque_34024": {
+					"max": [
+						0.18,
+						1.202,
+						33.719
+					],
+					"min": [
+						0.091,
+						1.102,
+						33.611
+					]
+				},
+				"plate_46391": {
+					"max": [
+						0.45,
+						1.662,
+						33.107
+					],
+					"min": [
+						0.41,
+						1.438,
+						32.882
+					]
+				},
+				"plate_57302": {
+					"max": [
+						0.45,
+						1.666,
+						33.601
+					],
+					"min": [
+						0.416,
+						1.434,
+						33.369
+					]
+				},
+				"roundel_51105": {
+					"max": [
+						0.182,
+						1.179,
+						32.94
+					],
+					"min": [
+						0.087,
+						1.108,
+						32.829
+					]
+				}
+			},
+			"owner": "light Renaissance room:east"
+		}
+	},
+	"inventory": {
+		"renaissance_case_objects": {
+			"case_a": 6,
+			"case_b": 5,
+			"case_metres_accepted": false,
+			"fine_fidelity_accepted": false,
+			"placement_accepted": false,
+			"probable": [
+				"34.024"
+			]
+		},
+		"renaissance_pieta": {
+			"accession": "59.128",
+			"case_metres_accepted": false,
+			"closed_parts": 39,
+			"fine_fidelity_accepted": false,
+			"placement_accepted": false,
+			"source_rear_observed": false
+		},
+		"renaissance_triptych": {
+			"accession": "2021.131",
+			"case_metres_accepted": false,
+			"fine_frame_fidelity_accepted": false,
+			"panels": 3,
+			"placement_accepted": false,
+			"source_rear_observed": true
+		},
+		"renaissance_verified_paintings": 2,
+		"renaissance_wall_assets": {
+			"accessions": [
+				"23.307X",
+				"29.280",
+				"58.196"
+			],
+			"fine_fidelity_accepted": false,
+			"frame_texture": "source-video strips; Muse trial rejected for broad gold band",
+			"metres_accepted": false,
+			"placement_accepted": false,
+			"source_rear_observed": [
+				"23.307X"
+			]
+		},
+		"saint_roch": {
+			"accession": "21.398",
+			"case_metres_accepted": false,
+			"closed_solid_prototype": true,
+			"fine_fidelity_accepted": false,
+			"height_m": 1.054,
+			"muse_sheet_used": false,
+			"placement_accepted": false
+		},
+		"top_level_flags": {
+			"grey_gallery_metric_accepted": false,
+			"grey_gallery_objects_complete": false,
+			"medieval_case_contents_complete": false,
+			"medieval_objects_complete": false,
+			"museum_metric_accepted": false,
+			"sculpture_room_objects_complete": false
+		}
+	},
+	"label_proxies": [],
+	"other": {
+		"pieta_wall_case": [
+			{
+				"box": {
+					"max": [
+						-5.044,
+						1.786,
+						30.131
+					],
+					"min": [
+						-5.446,
+						0.97,
+						29.469
+					]
+				},
+				"collides": true,
+				"owner": "light Renaissance room:west"
+			}
+		],
+		"renaissance_textile_label": [
+			{
+				"box": {
+					"max": [
+						-1.67,
+						0.31,
+						33.875
+					],
+					"min": [
+						-1.88,
+						0.16,
+						33.705
+					]
+				},
+				"collides": false,
+				"owner": "none"
+			},
+			{
+				"box": {
+					"max": [
+						-3.12,
+						0.31,
+						33.875
+					],
+					"min": [
+						-3.33,
+						0.16,
+						33.705
+					]
+				},
+				"collides": false,
+				"owner": "none"
+			}
+		],
+		"renaissance_textile_platform": [
+			{
+				"box": {
+					"max": [
+						0.425,
+						0.16,
+						34.14
+					],
+					"min": [
+						-5.425,
+						0.0,
+						33.69
+					]
+				},
+				"collides": true,
+				"owner": "none"
+			}
+		],
+		"saint_roch_installation": [
+			{
+				"box": {
+					"max": [
+						-4.457,
+						2.096,
+						32.35
+					],
+					"min": [
+						-5.26,
+						0.0,
+						31.55
+					]
+				},
+				"collides": true,
+				"owner": "none"
+			}
+		],
+		"triptych_wall_case": [
+			{
+				"box": {
+					"max": [
+						-4.034,
+						1.926,
+						28.656
+					],
+					"min": [
+						-4.966,
+						0.97,
+						28.162
+					]
+				},
+				"collides": true,
+				"owner": "light Renaissance room:north"
+			}
+		],
+		"west_window_pieces": [
+			{
+				"max": [
+					-5.43,
+					3.1,
+					32.575
+				],
+				"min": [
+					-5.51,
+					1.1,
+					31.325
+				]
+			},
+			{
+				"max": [
+					-5.33,
+					1.15,
+					32.675
+				],
+				"min": [
+					-5.53,
+					1.03,
+					31.225
+				]
+			}
+		]
+	},
+	"wall_objects": {
+		"madonna_58196": {
+			"flags": {
+				"dimension_conflict_resolved": false,
+				"fine_fidelity_accepted": false,
+				"frame_accepted": false,
+				"metric_accepted": false,
+				"mount_accepted": false,
+				"placement_accepted": false,
+				"rear_accepted": false,
+				"thickness_accepted": false,
+				"whole_room_accepted": false
+			},
+			"hood": null,
+			"origin": [
+				-5.47800016403198,
+				1.64999997615814,
+				33.25
+			],
+			"owner": "light Renaissance room:west",
+			"parts": {
+				"AuthoredSurface1166": {
+					"max": [
+						-5.468,
+						2.107,
+						33.685
+					],
+					"min": [
+						-5.478,
+						1.193,
+						32.815
+					]
+				},
+				"AuthoredSurface1167": {
+					"max": [
+						-5.478,
+						2.107,
+						33.685
+					],
+					"min": [
+						-5.478,
+						1.193,
+						32.815
+					]
+				},
+				"AuthoredSurface1168": {
+					"max": [
+						-5.468,
+						2.107,
+						33.68
+					],
+					"min": [
+						-5.468,
+						1.193,
+						32.82
+					]
+				},
+				"AuthoredSurface1169": {
+					"max": [
+						-5.49,
+						2.18,
+						33.753
+					],
+					"min": [
+						-5.49,
+						1.12,
+						32.747
+					]
+				},
+				"AuthoredSurface1170": {
+					"max": [
+						-5.435,
+						2.18,
+						33.753
+					],
+					"min": [
+						-5.49,
+						1.12,
+						32.747
+					]
+				},
+				"AuthoredSurface1171": {
+					"max": [
+						-5.435,
+						1.197,
+						33.753
+					],
+					"min": [
+						-5.46,
+						1.12,
+						32.747
+					]
+				},
+				"AuthoredSurface1172": {
+					"max": [
+						-5.435,
+						2.18,
+						32.824
+					],
+					"min": [
+						-5.46,
+						1.12,
+						32.747
+					]
+				},
+				"AuthoredSurface1173": {
+					"max": [
+						-5.435,
+						2.18,
+						33.753
+					],
+					"min": [
+						-5.46,
+						2.103,
+						32.747
+					]
+				},
+				"AuthoredSurface1174": {
+					"max": [
+						-5.435,
+						2.18,
+						33.753
+					],
+					"min": [
+						-5.46,
+						1.12,
+						33.676
+					]
+				},
+				"label proxy": {
+					"max": [
+						-5.459,
+						1.135,
+						32.705
+					],
+					"min": [
+						-5.465,
+						1.065,
+						32.595
+					]
+				}
+			},
+			"wall_behind_origin": 0.012
+		},
+		"velvet_23307x": {
+			"flags": {
+				"dimension_conflict_resolved": false,
+				"fine_fidelity_accepted": false,
+				"frame_accepted": false,
+				"metric_accepted": false,
+				"mount_accepted": false,
+				"placement_accepted": false,
+				"rear_accepted": false,
+				"thickness_accepted": false,
+				"whole_room_accepted": false
+			},
+			"hood": {
+				"max": [
+					-1.255,
+					2.526,
+					34.131
+				],
+				"min": [
+					-2.301,
+					0.92,
+					34.048
+				]
+			},
+			"origin": [
+				-1.77499997615814,
+				1.79999995231628,
+				34.117000579834
+			],
+			"owner": "light Renaissance room:south",
+			"parts": {
+				"AuthoredSurface1286": {
+					"max": [
+						-1.525,
+						2.435,
+						34.114
+					],
+					"min": [
+						-2.025,
+						1.165,
+						34.114
+					]
+				},
+				"AuthoredSurface1287": {
+					"max": [
+						-1.525,
+						2.435,
+						34.117
+					],
+					"min": [
+						-2.025,
+						1.165,
+						34.117
+					]
+				},
+				"AuthoredSurface1288": {
+					"max": [
+						-1.525,
+						2.435,
+						34.117
+					],
+					"min": [
+						-2.025,
+						1.165,
+						34.114
+					]
+				},
+				"AuthoredSurface1289": {
+					"max": [
+						-1.293,
+						2.507,
+						34.137
+					],
+					"min": [
+						-2.263,
+						1.059,
+						34.117
+					]
+				},
+				"AuthoredSurface1290": {
+					"max": [
+						-1.293,
+						2.507,
+						34.137
+					],
+					"min": [
+						-2.263,
+						1.059,
+						34.137
+					]
+				},
+				"label proxy": {
+					"max": [
+						-1.72,
+						0.335,
+						33.81
+					],
+					"min": [
+						-1.83,
+						0.265,
+						33.804
+					]
+				}
+			},
+			"wall_behind_origin": 0.02
+		},
+		"woodcutters_29280": {
+			"flags": {
+				"dimension_conflict_resolved": false,
+				"fine_fidelity_accepted": false,
+				"frame_accepted": false,
+				"metric_accepted": false,
+				"mount_accepted": false,
+				"placement_accepted": false,
+				"rear_accepted": false,
+				"thickness_accepted": false,
+				"whole_room_accepted": false
+			},
+			"hood": null,
+			"origin": [
+				-3.22499990463257,
+				1.77499997615814,
+				34.1370010375977
+			],
+			"owner": "light Renaissance room:south",
+			"parts": {
+				"AuthoredSurface1297": {
+					"max": [
+						-2.755,
+						2.537,
+						34.132
+					],
+					"min": [
+						-3.695,
+						1.013,
+						34.132
+					]
+				},
+				"AuthoredSurface1298": {
+					"max": [
+						-2.755,
+						2.537,
+						34.137
+					],
+					"min": [
+						-3.695,
+						1.013,
+						34.137
+					]
+				},
+				"AuthoredSurface1299": {
+					"max": [
+						-2.755,
+						2.537,
+						34.137
+					],
+					"min": [
+						-3.695,
+						1.013,
+						34.132
+					]
+				},
+				"label proxy": {
+					"max": [
+						-3.17,
+						0.31,
+						33.83
+					],
+					"min": [
+						-3.28,
+						0.24,
+						33.824
+					]
+				}
+			},
+			"wall_behind_origin": 0.0
+		}
+	},
+	"walls": {
+		"light Renaissance room:east": [
+			{
+				"children": 4,
+				"max": [
+					0.489,
+					3.5,
+					31.2
+				],
+				"min": [
+					0.489,
+					0.0,
+					28.1
+				]
+			},
+			{
+				"children": 4,
+				"max": [
+					0.489,
+					3.5,
+					34.2
+				],
+				"min": [
+					0.489,
+					0.0,
+					32.33
+				]
+			}
+		],
+		"light Renaissance room:east:header": [
+			{
+				"children": 2,
+				"max": [
+					0.489,
+					3.5,
+					32.33
+				],
+				"min": [
+					0.489,
+					3.342,
+					31.2
+				]
+			}
+		],
+		"light Renaissance room:north": [
+			{
+				"children": 4,
+				"max": [
+					-3.5,
+					3.5,
+					28.161
+				],
+				"min": [
+					-5.55,
+					0.0,
+					28.161
+				]
+			},
+			{
+				"children": 3,
+				"max": [
+					0.55,
+					3.5,
+					28.161
+				],
+				"min": [
+					-1.5,
+					0.0,
+					28.161
+				]
+			}
+		],
+		"light Renaissance room:north:header": [
+			{
+				"children": 8,
+				"max": [
+					-1.5,
+					3.5,
+					28.161
+				],
+				"min": [
+					-3.5,
+					2.74,
+					28.161
+				]
+			}
+		],
+		"light Renaissance room:south": [
+			{
+				"children": 5,
+				"max": [
+					0.55,
+					3.5,
+					34.139
+				],
+				"min": [
+					-5.55,
+					0.0,
+					34.139
+				]
+			}
+		],
+		"light Renaissance room:west": [
+			{
+				"children": 5,
+				"max": [
+					-5.489,
+					3.5,
+					34.2
+				],
+				"min": [
+					-5.489,
+					0.0,
+					28.1
+				]
+			}
+		]
+	}
+}

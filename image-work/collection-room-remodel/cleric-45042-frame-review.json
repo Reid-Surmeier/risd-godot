@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-01T19:41:28.646492+00:00",
+  "run_id": "run-e9a0d2ad84fd2506632eb4b4",
+  "provider": "OpenRouter",
+  "model": "meta/muse-image",
+  "count": 1,
+  "actual_cost_usd": 0.01,
+  "spend_state": "unknown",
+  "retry_state": "never-resubmit",
+  "native_sha256": "06fd8563acabbecaf05704c5c1348d1ff05db36410f9faeeadc251b133efde2c",
+  "prepared_texture_sha256": "c6f58a7ca666f0c4966f0e6b3eb509e4ec3fb564ae9a91046b372aaaca098a4b",
+  "crop": [
+    101,
+    118,
+    1178,
+    1550
+  ],
+  "visual_verdict": "usable provisional external frame study; frontal grey-brown stepped moulding and deeper sill; no portrait generated; broader facet pattern than source; field crop only",
+  "generated_opening_fraction": [
+    0.585886722376973,
+    0.6606145251396648
+  ],
+  "target_opening_fraction": [
+    0.5703125,
+    0.6686746987951807
+  ],
+  "fine_fidelity_accepted": false,
+  "metres_accepted": false,
+  "cumulative_actual_usd": 0.9,
+  "cumulative_conservative_usd": 0.91,
+  "subsequent_source_correction": {
+    "source": "actual Opus builder rechecks original IMG_6383 41.2 and49.8s; compare-cleric-registration.jpg",
+    "sides_m": 0.044,
+    "top_bottom_m": 0.05,
+    "outer_m": [
+      0.234,
+      0.322
+    ],
+    "sight_m": [
+      0.146,
+      0.222
+    ],
+    "method": "piecewise separable UV fit of saved generated frame moulding; preserve original native bytes, no new paid call",
+    "output_sha256": "03dadd3e6395644af35daa03ace7c04798f3acec85c39ef056369d71ca595386",
+    "opening_fraction": [
+      0.6239316239316238,
+      0.6894409937888198
+    ],
+    "woman_relative_scale_conflict_unresolved": true
+  }
+}

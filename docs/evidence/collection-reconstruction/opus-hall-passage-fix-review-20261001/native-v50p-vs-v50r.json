@@ -1,0 +1,440 @@
+{
+ "state_v50p": {
+  "attached": true,
+  "blocks": 45,
+  "cutaway_bodies": 131,
+  "rooms": 14,
+  "space": "gallery"
+ },
+ "state_v50r": {
+  "attached": true,
+  "blocks": 45,
+  "cutaway_bodies": 131,
+  "rooms": 14,
+  "space": "gallery"
+ },
+ "views": [
+  {
+   "name": "hall-passage-dollhouse-north",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 1e-05,
+   "identical": false
+  },
+  {
+   "name": "hall-passage-dollhouse-west",
+   "between_v50r": [
+    {
+     "still_drawn": false,
+     "tag": "Grand Gallery reveal threshold:east"
+    }
+   ],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 8e-05,
+   "identical": false
+  },
+  {
+   "name": "hall-passage-dollhouse-south",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 0.0001,
+   "identical": false
+  },
+  {
+   "name": "hall-passage-dollhouse-east",
+   "between_v50r": [
+    {
+     "still_drawn": false,
+     "tag": "Grand Gallery reveal threshold:west"
+    }
+   ],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 0.0001,
+   "identical": false
+  },
+  {
+   "name": "hall-passage-gallery-west",
+   "between_v50r": [
+    {
+     "still_drawn": false,
+     "tag": "Grand Gallery reveal threshold:east"
+    }
+   ],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 8e-05,
+   "identical": false
+  },
+  {
+   "name": "hall-passage-gallery-east",
+   "between_v50r": [
+    {
+     "still_drawn": false,
+     "tag": "Grand Gallery reveal threshold:west"
+    }
+   ],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 9e-05,
+   "identical": false
+  },
+  {
+   "name": "hall-passage-follow-north",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 4e-05,
+   "identical": false
+  },
+  {
+   "name": "hall-passage-follow-south",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 0.00011,
+   "identical": false
+  },
+  {
+   "name": "hall-side-of-door-dollhouse-north",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 0.0,
+   "identical": false
+  },
+  {
+   "name": "hall-side-of-door-follow-north",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 0.00024,
+   "identical": false
+  },
+  {
+   "name": "grey-side-of-door-dollhouse-south",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 0.0001,
+   "identical": false
+  },
+  {
+   "name": "grey-side-of-door-dollhouse-north",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 5e-05,
+   "identical": false
+  },
+  {
+   "name": "grey-side-of-door-follow-south",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 0.00023,
+   "identical": false
+  },
+  {
+   "name": "grey-near-south-wall-follow-north",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 0.0,
+   "identical": true
+  },
+  {
+   "name": "grey-near-south-wall-dollhouse-west",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 2e-05,
+   "identical": false
+  },
+  {
+   "name": "rockefeller-passage-dollhouse-north",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 6e-05,
+   "identical": false
+  },
+  {
+   "name": "rockefeller-passage-dollhouse-west",
+   "between_v50r": [
+    {
+     "still_drawn": false,
+     "tag": "Rockefeller reveal threshold:east"
+    }
+   ],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 8e-05,
+   "identical": false
+  },
+  {
+   "name": "rockefeller-passage-dollhouse-south",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 9e-05,
+   "identical": false
+  },
+  {
+   "name": "rockefeller-passage-dollhouse-east",
+   "between_v50r": [
+    {
+     "still_drawn": false,
+     "tag": "Rockefeller reveal threshold:west"
+    }
+   ],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 0.00011,
+   "identical": false
+  },
+  {
+   "name": "rockefeller-passage-gallery-east",
+   "between_v50r": [
+    {
+     "still_drawn": false,
+     "tag": "Rockefeller reveal threshold:west"
+    }
+   ],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 9e-05,
+   "identical": false
+  },
+  {
+   "name": "rockefeller-passage-follow-north",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 8e-05,
+   "identical": false
+  },
+  {
+   "name": "rockefeller-passage-follow-south",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 0.00015,
+   "identical": false
+  },
+  {
+   "name": "west-gallery-side-of-door-dollhouse-north",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 1e-05,
+   "identical": false
+  },
+  {
+   "name": "rockefeller-side-of-door-dollhouse-south",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 6e-05,
+   "identical": false
+  },
+  {
+   "name": "rockefeller-side-of-door-follow-south",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 0.00017,
+   "identical": false
+  },
+  {
+   "name": "west-gallery-side-of-door-follow-north",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 9e-05,
+   "identical": false
+  },
+  {
+   "name": "renaissance-dollhouse-north",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 4e-05,
+   "identical": false
+  },
+  {
+   "name": "renaissance-dollhouse-west",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 8e-05,
+   "identical": false
+  },
+  {
+   "name": "renaissance-dollhouse-south",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 0.00011,
+   "identical": false
+  },
+  {
+   "name": "renaissance-dollhouse-east",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 0.00011,
+   "identical": false
+  },
+  {
+   "name": "renaissance-gallery-west",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 8e-05,
+   "identical": false
+  },
+  {
+   "name": "renaissance-gallery-north",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 2e-05,
+   "identical": false
+  },
+  {
+   "name": "renaissance-follow-northwest",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 7e-05,
+   "identical": false
+  },
+  {
+   "name": "renaissance-follow-north",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 6e-05,
+   "identical": false
+  },
+  {
+   "name": "renaissance-follow-east-camera-behind-west-wall",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 0.00014,
+   "identical": false
+  },
+  {
+   "name": "renaissance-follow-south-camera-behind-north-wall",
+   "between_v50r": [],
+   "hidden_equal": true,
+   "camera_equal": true,
+   "cull_mask_equal": true,
+   "pixels_changed_share": 0.00023,
+   "identical": false
+  }
+ ],
+ "reveal_pieces_equal": true,
+ "cases_equal": true,
+ "top_level_flags_equal": true,
+ "probes_equal": true,
+ "history_after_hall_north_equal": true,
+ "inventory_hall_reveal_equal": true,
+ "held_table_traces_different": [
+  {
+   "name": "grey-to-hall-diagonal-from-east",
+   "v50p": {
+    "end": [
+     -1.17185914516449,
+     -24.9863300323486
+    ],
+    "reached": true,
+    "spaces": [
+     "far",
+     "gallery"
+    ],
+    "largest_step_m": 0.53145956993103
+   },
+   "v50r": {
+    "end": [
+     -1.19095957279205,
+     -24.9863300323486
+    ],
+    "reached": true,
+    "spaces": [
+     "far",
+     "gallery"
+    ],
+    "largest_step_m": 0.0399998873472214
+   }
+  },
+  {
+   "name": "follow-grey-to-hall",
+   "v50p": {
+    "end": [
+     2.20436592284008e-16,
+     -26.4999580383301
+    ],
+    "reached": false,
+    "spaces": [
+     "far"
+    ],
+    "largest_step_m": 0.0400009155273438
+   },
+   "v50r": {
+    "end": [
+     4.06583490918149e-16,
+     -24.979923248291
+    ],
+    "reached": true,
+    "spaces": [
+     "far",
+     "gallery"
+    ],
+    "largest_step_m": 0.0400009155273438
+   }
+  }
+ ],
+ "visitor_light_pictures_identical": 18,
+ "eye_level_pictures_identical": 16
+}

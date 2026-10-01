@@ -1,0 +1,21 @@
+{
+  "modules/shell/prototype/collection_reconstruction/architecture_check.gd": "fd2ad1acea44833fc85bbc1acee89c818c4944910de0f3c76bdde6248796013a",
+  "modules/shell/prototype/collection_reconstruction/main_build_check.gd": "d4226250611f3ffedb6864447bfe858460f7954baff6cc8f50b621b1e8a3b2e7",
+  "modules/shell/prototype/collection_reconstruction/main_build_walk.gd": "2f561c1a6e84f1ebc40964f130144d70fce72df6edec595e733451666167e3c8",
+  "modules/shell/prototype/collection_reconstruction/remodel_room.gd": "b3ae7f99e71ebca7ca64c7608d1c6426465289ae252a7b2d7aa2f756a7efe4a1",
+  "modules/shell/prototype/collection_reconstruction/remodel_bake.gd": "487276e7ea4f2211bf59eb7ae743ecd69b38f1be2e6f2079d8fd6cc4f26c14a4",
+  "modules/shell/prototype/collection_reconstruction/remodel_review.gd": "66cec25dea22e9d8b959ab9d010ed021e2a4028961647906591b0545622b2ff8",
+  "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "bd4f865c3574e3fe97f41bbda244f355d9d7d95b10d1983d9b8d5f70751d962a",
+  "modules/shell/prototype/collection_reconstruction/prepare_main_build_extension.py": "e9b756f2b3a55e4b7a70e48a59de8d6503791a5c8e22e733126ecd9dea4d4f01",
+  "modules/shell/prototype/collection_reconstruction/retained_hall_room.gd": "aaddae22e31781f35a95a0ab1991a2e15537d8cbd9a4c4afaf219012791e18b8",
+  "modules/shell/prototype/collection_reconstruction/triptych_asset.gd": "c532165bc38b6cf9553fe40c05a368d3df70597655be9e99a8c25e8cf49d68e4",
+  "modules/shell/prototype/collection_reconstruction/pieta_asset.gd": "39d5a68e06938b86178c0d9d99acaf64efb19ed69e715133358bae8b119be19f",
+  "modules/shell/prototype/collection_reconstruction/saint_roch_asset.gd": "98d607557bd3ddec8e000ad320241cc0bc7337f05619ad605f35dfc8321a61cc",
+  "modules/shell/prototype/collection_reconstruction/seated_woman_asset.gd": "7b17a507fe6c68d7d6dd834a3669d1888f4fe2f587304d1e6f269ec4ce010fa7",
+  "image-work/collection-room-remodel/sculpture-room-inventory.json": "87d110168eaa2396b9aee5cc6a10c8f03cb60cbcec4807b543373836bcd1848a",
+  "image-work/collection-room-remodel/triptych-2021131-geometry.json": "20ae60756c9f20e3009741eb73d25714d9d7f2a7a3d58c8285b4ba64651e25f9",
+  "image-work/collection-room-remodel/pieta-59128-source.json": "24e5a6fc126c5ece075f422942d443600572c4d8e497431c27338a9dc5feec21",
+  "image-work/collection-room-remodel/pieta-59128-installation.json": "478d6053fc5b9ee8bc8b9e60460e14fae0e6395e7bf0d01a6c9eaa6923e2afa6",
+  "image-work/collection-room-remodel/saint-roch-installation-refinement.json": "dc66adc60436d24246effcf8b5291f3c2c8005e349a73f52678c7a98c3ed675d",
+  "modules/shell/prototype/collection_reconstruction/passage_keyboard_check.gd": "54ca0566c73b6ed309d70fa0cb3a0968f7c20b07abff5ac45b9fbd0972290d76"
+}

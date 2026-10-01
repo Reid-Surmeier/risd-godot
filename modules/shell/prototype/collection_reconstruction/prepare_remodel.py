@@ -361,6 +361,20 @@ for kind in ['fetti-frame','goltzius-frame','romanesque-portal','tracery-arch','
         copy(app/'trial'/(kind+suffix),'assets/'+kind+suffix)
 copy(app/'inventory-catalogue/goltzius-cold-stone-zoom-0.jpg','assets/painting-61.006.jpg')
 copy(app/'sculpture-room-inventory.json','assets/sculpture-room-inventory.json')
+copy(app/'triptych-2021131-geometry.json','assets/triptych-2021131-geometry.json')
+for case in ['a','b']:
+    for original in sorted((app/f'renaissance-case-{case}').rglob('*')):
+        if original.is_file():
+            copy(original,Path('assets')/f'renaissance-case-{case}'/original.relative_to(app/f'renaissance-case-{case}'))
+copy(app/'trial/cleric-45042-frame-fitted.png','assets/cleric-45042-frame-fitted.png')
+copy(app/'renaissance-east-case-installation.json','assets/renaissance-east-case-installation.json')
+for original in sorted((app/'renaissance-wall').rglob('*')):
+    if original.is_file():
+        copy(original,Path('assets/renaissance-wall')/original.relative_to(app/'renaissance-wall'))
+for panel in ['left','centre','right']:
+    for face in ['front','back']:
+        name=f'triptych-2021131-{panel}-{face}.png'
+        copy(app/'trial'/name,'assets/'+name)
 copy(app/'trial/medieval-grille-geometry.json','assets/medieval-grille-geometry.json')
 copy(app/'trial/medieval-grille-metal.png','assets/medieval-grille-metal.png')
 # The official photograph includes the inner gilt edge; exclude it from the canvas.
@@ -447,19 +461,26 @@ geometry['rooms'][3]['bounds'][1]=10.55
 # wall takes the Hall's north-wall line, so the European gallery is the Hall's length.
 # ponytail: planar fit scaled by one catalogue canvas. Every metre provisional; connector length,
 # Rockefeller depth and column spacing unmeasured.
-door=[-.34,1.5]
-geometry['rooms'][0]['bounds'][2:]=[-5.,1.8]
+# Hall reveal, docs/evidence/collection-reconstruction/opus-hall-reveal-builder-20261001: both doors on
+# this wall line are deep panelled reveals with the leaves folded inside (6343 0.5/35s, 6380 100/106.25s,
+# 6385 0..2s). Rockefeller, connector, grey, Ionic and piano move north together by the wall's thickness.
+# ponytail: depth is one folded leaf, half the retained 1.9m Hall opening, less the .19 the door frame
+# already stands proud of a wall. A pose, not a measurement; refit when the door is surveyed.
+leaf=.95
+reveal=leaf-.19
+door=[-.34-reveal,1.5-reveal]
+geometry['rooms'][0]['bounds'][2:]=[-5.-reveal,1.8-reveal]
 geometry['rooms'][0]['openings']['east']=list(door)
 geometry['rooms'][1]['bounds'][2]=1.8
 geometry['rooms'][6]={'label':'purple elevator-5 connector','bounds':[1.7,3.85]+door, 'openings':{'west':list(door),'east':list(door)}}
-for index in [7,8]:geometry['rooms'][index]['bounds'][2]=-4.2
-geometry['rooms'][7]['openings'].update(west=list(door),east=[-4.2,1.8])
-geometry['rooms'][8]['openings']['west']=[-4.2,1.8]
-geometry['rooms'][9]['bounds'][2:]=[-5.8,-4.2]
+for index in [7,8]:geometry['rooms'][index]['bounds'][2:]=[-4.2-reveal,1.8-reveal]
+geometry['rooms'][7]['openings'].update(west=list(door),east=[-4.2-reveal,1.8-reveal])
+geometry['rooms'][8]['openings']['west']=[-4.2-reveal,1.8-reveal]
+geometry['rooms'][9]['bounds'][2:]=[-5.8-reveal,-4.2-reveal]
 geometry['rooms'][4]={'label':'Grand Gallery','bounds':[.55,10.55,1.8,28.1], 'height':6., 'floor':'herringbone','openings':{'north':[4.55,6.55],'south':[3.4355,7.6645]},'stone_sides':['south']}
 geometry['rooms'].pop(10)
 geometry['start'][0]-=1.95
-geometry['start'][2]+=2.2
+geometry['start'][2]+=2.2-reveal
 for trial in geometry['trials']:
     name=trial[0]
     for point in trial[1:3]:
@@ -467,9 +488,11 @@ for trial in geometry['trials']:
             point[0]-=4.6
             # Door axis; the piano door follows the north wall; the Ionic walk stays between the columns.
             point[2]+=2.58 if name.startswith('purple_grey') else 1.6 if name.startswith('grey_piano') else .8 if name.startswith('grey_ionic') else 0
+            # Only the grey end of a Hall-door trial moves; its Hall end stays in the Hall.
+            if point[2]<1.8:point[2]-=reveal
         elif name.startswith('right_door'):
             point[0]=(point[0]-3.65)*(2.15/4.8)+1.7
-            point[2]+=2.58
+            point[2]+=2.58-reveal
         elif name.startswith(('stone_portal','medieval')):
             if name.startswith('medieval'):point[0]-=.95
             point[2]+=9.25
@@ -479,14 +502,14 @@ for trial in geometry['trials']:
             point[0]-=1.95
             if name.startswith(('tracery','renaissance','far_gallery')):point[2]+=9.25
             # Rockefeller trials move with the room; the gallery aisle trial is already south of its door.
-            elif name!='adjacent_gallery':point[2]+=2.2
+            elif name!='adjacent_gallery':point[2]+=2.2-reveal
 # Real loop connections and bench clearance, checked by the capsule in both native and Web.
 for a,b in [(2.2,5.2),(5.2,8.6),(8.6,12),(12,15.4),(15.4,18.8),(18.8,22.2),(22.2,25.6),(25.6,27.2)]:
     geometry['trials'].append([f'hall_aisle_{a:g}',[7,.25,a],[7,0,b],False])
-geometry['trials'] += [['hall_bench_blocked',[5.55,.25,17.1],[5.55,0,19.2],True],['hall_back_to_grey',[5.55,.25,2.9],[5.55,0,1],False],['hall_grey_return',[5.55,.25,1],[5.55,0,2.9],False]]
+geometry['trials'] += [['hall_bench_blocked',[5.55,.25,17.1],[5.55,0,19.2],True],['hall_back_to_grey',[5.55,.25,2.9],[5.55,0,1-reveal],False],['hall_grey_return',[5.55,.25,1-reveal],[5.55,0,2.9],False]]
 # Source-connected full circuit, avoiding the central benches and display cases.
 # Rockefeller leg: in at the corner door on the connector axis, then north of the pink service case.
-route=[[-2.5,1.0],[-2.5,3.2],[-2.5,4.4],[-2.5,7.8],[-2.5,11.2],[-2.5,14.6],[-2.5,18],[-2.5,21.4],[-2.5,24.8],[-2.5,26.7],[-2.5,28.6],[-2.5,30],[-.2,30],[-.2,31.765],[1.25,31.765],[3.2,31.765],[3.2,29.2],[5.55,29.2],[5.55,26.7],[7,26.7],[7,23.3],[7,19.9],[7,16.5],[7,13.1],[7,9.7],[7,6.3],[7,2.9],[5.55,2.9],[5.55,1],[5.55,.58],[3.05,.58],[1.1,.2],[-1.2,.2],[-2.5,1.0]]
+route=[[-2.5,1.0-reveal],[-2.5,3.2],[-2.5,4.4],[-2.5,7.8],[-2.5,11.2],[-2.5,14.6],[-2.5,18],[-2.5,21.4],[-2.5,24.8],[-2.5,26.7],[-2.5,28.6],[-2.5,30],[-.2,30],[-.2,31.765],[1.25,31.765],[3.2,31.765],[3.2,29.2],[5.55,29.2],[5.55,26.7],[7,26.7],[7,23.3],[7,19.9],[7,16.5],[7,13.1],[7,9.7],[7,6.3],[7,2.9],[5.55,2.9],[5.55,1-reveal],[5.55,.58-reveal],[3.05,.58-reveal],[1.1,.2-reveal],[-1.2,.2-reveal],[-2.5,1.0-reveal]]
 for i,(a,b) in enumerate(zip(route,route[1:])):
     assert (sum((x-y)**2 for x,y in zip(a,b)))**.5<=3.5
     geometry['trials'].append([f'loop_{i:02d}',[a[0],.25,a[1]],[b[0],0,b[1]],False])
@@ -538,10 +561,24 @@ for label,x,rise in [('ascending stair study',10.70,3.2),('descending stair stud
 geometry['lion_modern_layout']={'source':'IMG_6387 native2.25..84.25s; reciprocal6382 stair view','stair_block':'Draft void, flights and guard translated +1.715 with the stair door; preserved shape, not a source measurement','door_order':'Medieval west on the tracery axis; modern north on the adjoining wall at one inside corner, lion right of modern on that wall; white sculpture gallery on the next east wall (z provisional); stairwell south','modern_wall_groups':'Entry/Braque/Villon south; large painting west off the entry jamb; pumpkin/landscape/second doorway north; two windows and sculpture case east','source_review':'docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001; wall order docs/evidence/collection-reconstruction/opus-landing-refit-20261001','entry_reveal_depth_modelled':False,'metric_accepted':False,'stair_curve_and_destinations_complete':False,'white_sculpture_room_interior_complete':False,'adjoining_room_interior_complete':False}
 geometry['trials'] += [['landing_to_modern',[11.85,.25,29.75],[11.85,0,26.55],False],['modern_to_landing',[11.85,.25,26.55],[11.85,0,29.75],False],['landing_white_out',[14.95,.25,30.5],[17.0,0,30.5],False],['landing_white_back',[17.0,.25,30.5],[14.95,0,30.5],False],['modern_far_opening_out',[15.75,.25,23.25],[15.75,0,21.45],False],['modern_far_opening_back',[15.75,.25,21.45],[15.75,0,23.25],False],['modern_bench_blocked',[15.1,.25,25.35],[12.4,0,25.35],True],['landing_guard_blocked',[13.9,.25,35.415],[12.9,0,35.415],True]]
 
+# The wall's thickness is walked as two threshold rooms; remodel_room.gd lines them and hangs the leaves.
+for label,x in [('Grand Gallery reveal threshold',[4.6,6.5]),('Rockefeller reveal threshold',[-3.5,-1.5])]:
+    area={'label':label,'reveal':True,'bounds':x+[1.8-reveal,1.8],'boards_across':True,'openings':{'north':list(x),'south':list(x)}}
+    for other in geometry['rooms']:
+        bb=other['bounds']
+        assert min(x[1],bb[1])-max(x[0],bb[0])<1e-8 or min(1.8,bb[3])-max(1.8-reveal,bb[2])<1e-8,(label,other['label'])
+    geometry['rooms'].append(area)
+    geometry['patches'].append({'label':label,'color':'81735c','vertices':[[x[0],0,1.8-reveal],[x[1],0,1.8-reveal],[x[1],0,1.8],[x[0],0,1.8]]})
+assert abs(geometry['rooms'][7]['bounds'][3]-geometry['rooms'][7]['bounds'][2]-6.)<1e-8,'The grey register keeps its 6.0m west wall'
+geometry['hall_reveal']={'source':'docs/evidence/collection-reconstruction/opus-hall-reveal-builder-20261001/REPORT.md','wall_m':reveal,'leaf_m':leaf,'leaf_panels_from_top':[[.06,.15],[.23,.63],[.74,.90]],'knob_from_top':.71,'hinge_side':'north','observed':'one cased opening, panelled soffit, both leaves folded flat on the reveal sides, free edge at the Hall; same construction at the Rockefeller door','depth_measured':False,'opening_metres_accepted':False,'leaf_fidelity_accepted':False,'rockefeller_leaf_built':False,'metric_accepted':False}
+
 (out/'geometry.json').write_text(json.dumps(geometry,indent=2)+'\n')
 inputs[str(ingestion/'room-route-walk-v5/geometry.json')] = hashlib.sha256((ingestion/'room-route-walk-v5/geometry.json').read_bytes()).hexdigest()
-for name in ['doorway_walk.gd','remodel_room.gd','remodel_review.gd','remodel_presenter.gd','remodel_bake.gd','connected_hall.gd','seated_woman_asset.gd','virgin_child_asset.gd','medieval_metal_assets.gd','medieval_ceramic_ivory_assets.gd','saint_roch_asset.gd']:
+for name in ['doorway_walk.gd','remodel_room.gd','remodel_review.gd','remodel_presenter.gd','remodel_bake.gd','connected_hall.gd','seated_woman_asset.gd','virgin_child_asset.gd','medieval_metal_assets.gd','medieval_ceramic_ivory_assets.gd','saint_roch_asset.gd','triptych_asset.gd','pieta_asset.gd','renaissance_case_a_assets.gd','renaissance_case_b_assets.gd','renaissance_wall_assets.gd']:
     copy(source/name,name)
+    if name in ['renaissance_case_b_assets.gd','renaissance_wall_assets.gd']:
+        target=out/name
+        target.write_text(target.read_text().replace('preload("../gallery_walk4/painting_asset.gd")','preload("res://modules/shell/prototype/gallery_walk4/painting_asset.gd")'))
 for name in ['decal-queens-roundel.png','decal-queens-boat.png','queens-decals-source.json','medieval-paper-L1.png','medieval-paper-L2.png']:
     copy(app/'trial'/name,'assets/'+name)
 copy(app/'medieval-case-inventory.json','assets/medieval-case-inventory.json')
