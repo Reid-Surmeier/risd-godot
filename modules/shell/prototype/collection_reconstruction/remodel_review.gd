@@ -71,6 +71,8 @@ func run() -> void:
 		["tracery-front",Vector3(-.3,2.6,22.515),Vector3(2.5,2.8,22.515)],
 		["tracery-angle",Vector3(.7,2.6,23.7),Vector3(2.5,2.8,22.515)],
 		["medieval-wide",Vector3(3.3,1.65,24.1),Vector3(7.5,1.8,20.5)],
+		["medieval-cases-east",Vector3(3.5,1.65,22.4),Vector3(9,1.2,21.9)],
+		["medieval-cases-portal",Vector3(7.6,1.65,24.2),Vector3(5.55,1.5,18.85)],
 		["portal-front",Vector3(5.55,2.1,24),Vector3(5.55,1.93,18.85)],
 		["portal-angle",Vector3(7.4,2.1,22),Vector3(5.55,1.93,18.85)],
 		["bust-asset",Vector3(-.9,1.65,-5.87),Vector3(-2.2,1.60,-5.87)]]:

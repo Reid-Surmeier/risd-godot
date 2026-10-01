@@ -803,3 +803,28 @@ func build_sculpture_rooms() -> void:
 			fixture.reparent(rail)
 	inventory["sculpture_room_shells"]=2
 	inventory["sculpture_room_objects_complete"]=false
+	# Reciprocal IMG_6382 78.25/88.75s: broad low case south-west of the tall stair-side case.
+	# ponytail: source-relative arrangement only; replace metric offsets after wide-view fitting.
+	var grey:=look(Color("666763"))
+	var glass:=look(Color(.82,.90,.91,.10),"",true)
+	for spec in [[Vector3(6.4,0,22.7),Vector2(2.0,1.15),.88,.30],
+		[Vector3(9,0,21.65),Vector2(1.05,.90),.88,1.05]]:
+		var at:Vector3=spec[0]
+		var footprint:Vector2=spec[1]
+		var base_height:float=spec[2]
+		var glass_height:float=spec[3]
+		var base:=solid(at+Vector3(0,base_height/2,0),Vector3(footprint.x,base_height,footprint.y),grey,true)
+		var tray:=solid(at+Vector3(0,base_height+.025,0),Vector3(footprint.x+.06,.05,footprint.y+.06),white)
+		tray.reparent(base)
+		var rim:=solid(at+Vector3(0,base_height-.025,0),Vector3(footprint.x+.08,.025,footprint.y+.08),grey)
+		rim.reparent(base)
+		for z in [-footprint.y/2,footprint.y/2]:
+			var pane:=solid(at+Vector3(0,base_height+.05+glass_height/2,z),Vector3(footprint.x,glass_height,.012),glass)
+			pane.reparent(base)
+		for x in [-footprint.x/2,footprint.x/2]:
+			var pane:=solid(at+Vector3(x,base_height+.05+glass_height/2,0),Vector3(.012,glass_height,footprint.y),glass)
+			pane.reparent(base)
+		var lid:=solid(at+Vector3(0,base_height+.05+glass_height,0),Vector3(footprint.x,.012,footprint.y),glass)
+		lid.reparent(base)
+	inventory["medieval_display_cases"]=2
+	inventory["medieval_case_contents_complete"]=false
