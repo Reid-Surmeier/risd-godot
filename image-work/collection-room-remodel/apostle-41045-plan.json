@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "apostle-41045-001",
+      "prompt": "apostle-41045-prompt.txt",
+      "promptSha256": "60025c8e10c0821c1b684ed6fe908aadac58d493b48a8f7461e20b7de4a60966",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/apostle-41045-catalogue.png",
+          "sha256": "25bc9564718bc742154c66788356d8c45bb1f5cd4ca1f266702ed2fb8e37f93a"
+        }
+      ]
+    }
+  ]
+}

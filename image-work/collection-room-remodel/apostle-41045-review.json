@@ -1,0 +1,19 @@
+{
+  "run_id": "run-54d9c9f23373622b070af56e",
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "count": 1,
+  "cost_usd": "0.010000",
+  "native_sha256": "76a5d6ff62429978cf4ace96658e89d02f5ed3fa528eb7cc4539528cf0e4abf0",
+  "accepted": false,
+  "visual_verdict": "Preserves general narrow slab, crossed hands and low feet, but reconstructs a projecting facial/head fragment and replaces pitted collar and worn robes with clean geometric ornament. Prompt requested damage preservation; this is not exact. Provisional native style/geometry study only, never finished/accepted. No blind paid retry.",
+  "catalogue_accession": "41.045",
+  "catalogue_size_m": [
+    0.254,
+    0.864
+  ],
+  "placement_source": "Right of medieval stair door; native6382 26.25s",
+  "new_paid_calls": 2,
+  "cumulative_actual_usd": "0.77",
+  "cumulative_conservative_usd": "0.78"
+}

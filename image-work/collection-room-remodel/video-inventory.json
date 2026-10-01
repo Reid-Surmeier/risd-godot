@@ -1037,6 +1037,46 @@
       ],
       "yaw": 1.5707963267948966,
       "shape": "cabinet"
+    },
+    {
+      "asset": "apostle-41046",
+      "accession": "41.046",
+      "title": "Apostle",
+      "size_m": [
+        0.267,
+        0.826,
+        0.12
+      ],
+      "dimension_basis": "Catalogue width/height;.12m relief depth provisional",
+      "position": [
+        12.33,
+        1.04,
+        28.75
+      ],
+      "yaw": -1.5707963267948966,
+      "source": "IMG_6382 native17.25/26.25s and RISD official front/side photos",
+      "status": "Official appearance matched; Muse/native geometry/damage fidelity and placement unaccepted",
+      "position_basis": "Author coordinate includes+1.95x compensated by existing catalogue group shift; desired installedx10.38"
+    },
+    {
+      "asset": "apostle-41045",
+      "accession": "41.045",
+      "title": "Apostle",
+      "size_m": [
+        0.254,
+        0.864,
+        0.12
+      ],
+      "dimension_basis": "Catalogue width/height;.12m relief depth provisional",
+      "position": [
+        12.33,
+        1.04,
+        31.5
+      ],
+      "yaw": -1.5707963267948966,
+      "source": "IMG_6382 native17.25/26.25s and RISD official front/side photos",
+      "status": "Official appearance matched; Muse/native geometry/damage fidelity and placement unaccepted",
+      "position_basis": "Author coordinate includes+1.95x compensated by existing catalogue group shift; desired installedx10.38"
     }
   ],
   "unfilled_observations": [

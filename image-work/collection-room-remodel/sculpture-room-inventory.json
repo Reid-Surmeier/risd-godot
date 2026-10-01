@@ -140,21 +140,37 @@
           "wall": "north",
           "title": "Tall iron scroll grille on white plinth, right of portal",
           "survey_frames": "6382:25-28",
-          "status": "unmatched/unplaced"
+          "status": "Seven-column native open prototype installed in v44; Muse material reused.17rows/scale/placement/pattern unaccepted,identityunmatched."
         },
         {
           "id": "stone-fragment-a",
           "wall": "east",
-          "title": "Small stone figure fragment, bracket left of stair door",
+          "title": "Apostle",
           "survey_frames": "6382:29-36",
-          "status": "unmatched/unplaced"
+          "status": "Official photo/video/API matched; Muse/native damage fidelity, depth and exact placement unaccepted",
+          "catalogue_id": "1395331",
+          "accession": "41.046",
+          "dimensions_m": [
+            0.826,
+            0.267
+          ],
+          "catalogue_url": "https://risdmuseum.org/art-design/collection/apostle-41046",
+          "identity_evidence": "Official front/side photos match left turned head/halo, diagonal arm and lower fracture; right missing face, crossed hands, folds and feet. Native6382 17.25/26.25s and reciprocal78.75s retain sides of stair door."
         },
         {
           "id": "stone-fragment-b",
           "wall": "east",
-          "title": "Second small stone figure fragment, bracket right of stair door",
+          "title": "Apostle",
           "survey_frames": "6382:49-55",
-          "status": "unmatched/unplaced"
+          "status": "Official photo/video/API matched; Muse/native damage fidelity, depth and exact placement unaccepted",
+          "catalogue_id": "1230381",
+          "accession": "41.045",
+          "dimensions_m": [
+            0.864,
+            0.254
+          ],
+          "catalogue_url": "https://risdmuseum.org/art-design/collection/apostle-41045",
+          "identity_evidence": "Official front/side photos match left turned head/halo, diagonal arm and lower fracture; right missing face, crossed hands, folds and feet. Native6382 17.25/26.25s and reciprocal78.75s retain sides of stair door."
         },
         {
           "id": "christ-head",

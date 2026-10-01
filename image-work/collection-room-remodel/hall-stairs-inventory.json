@@ -495,9 +495,18 @@
         {
           "id": "oval-cubist-portrait",
           "source_frames": "6387:103-120",
-          "observed": "Oval portrait composition within white square frame",
-          "status": "source-inventoried; native asset/metric fit unfinished",
-          "catalogue_match": null
+          "observed": "Jacques Villon, Head of a Woman70.058; vertical oval portrait within white square frame",
+          "status": "Source/catalogue visual match; native asset and room placement unfinished",
+          "catalogue_match": {
+            "id": "1539421",
+            "accession": "70.058",
+            "title": "Head of a Woman",
+            "maker": "Jacques Villon",
+            "url": "https://risdmuseum.org/art-design/collection/head-woman-70058",
+            "dimensions": "54.8 x 46 cm (21 9/16 x 18 1/8 inches)",
+            "evidence": "6387:113 rotated clockwise matches black/red background, yellow-white-green forehead, blue face, salmon diagonal neck planes and vertical oval inside white square frame",
+            "record_file": "inventory-catalogue/villon-head-woman.json"
+          }
         },
         {
           "id": "gold-figurine",
@@ -514,7 +523,30 @@
           "catalogue_match": null
         }
       ],
-      "architecture": "Straight pale oak planks, light walls, three multi-pane windows with white blinds and radiator/vent bases; deeper doorway on window wall. Source97-102 clearly has straight boards, not herringbone."
+      "architecture": "Straight pale oak planks, light walls, three multi-pane windows with white blinds and radiator/vent bases; deeper doorway on window wall. Source97-102 clearly has straight boards, not herringbone.",
+      "wide_review_v45": {
+        "source_frames": [
+          93,
+          97,
+          101,
+          105,
+          109,
+          113,
+          117,
+          121,
+          125,
+          129,
+          133,
+          137,
+          145,
+          153,
+          161
+        ],
+        "observed": "Entry shares long wall with the large crowded figurative painting. Braque/oval portrait are on adjoining short wall; three blinded windows and seated gold sculpture occupy opposite long wall, with a deeper opening on that wall. Straight boards and central bench retained as source constraints.",
+        "geometry_built": false,
+        "metric_accepted": false,
+        "next": "Establish landing-side doorway sequence and build source-constrained room/objects; do not invent connector to piano stairs or auditorium."
+      }
     },
     "Metcalf_Auditorium": {
       "official_source": "https://risdmuseum.org/rent-museum",

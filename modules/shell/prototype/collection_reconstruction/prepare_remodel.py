@@ -83,6 +83,7 @@ for kind, bounds, real_size, pieces, cloth_rect in [
 
 # ponytail: faceted rings keep catalogue depth; unobserved anatomy still needs review.
 def volume_asset(kind, size):
+    relief = kind.startswith("apostle-")
     original=app/'trial'/f'{kind}-original.webp'
     pixels=np.array(Image.open(original).convert('RGB'))
     paired = kind == 'recamier'
@@ -122,6 +123,12 @@ def volume_asset(kind, size):
         for side in range(8):
             angle=side*np.pi/4;xx=center+radius*np.cos(angle)
             vertices.append([(xx-.5)*size[0],(1-yy/(h-1))*size[1],np.sin(angle)*size[2]/2*min(1,max(.2,radius*3))])
+            if relief:
+                # ponytail: wall-backed slab with authored relief depth, not inferred full anatomy.
+                span=[1,1,.4,-.4,-1,-1,-.4,.4][side]
+                front=[0,1,1.15,1.15,1,0,0,0][side]
+                xx=center+radius*span
+                vertices[-1]=[(xx-.5)*size[0],(1-yy/(h-1))*size[1],front*size[2]]
             uv.append([float(xx),yy/(h-1)])
             if paired:
                 # Front/rear depth follows the official side photograph's neck,
@@ -149,6 +156,16 @@ def volume_asset(kind, size):
     inputs[str(original)]=hashlib.sha256(original.read_bytes()).hexdigest()
     outline=cv2.approxPolyDP(max(cv2.findContours(mask,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[0],key=cv2.contourArea),2,True)[:,0,:]/[w,h]
     asset={'vertices':vertices,'uv':uv,'triangles':triangles,'outline':outline.tolist(),'size_m':size,'closed_edges_checked':len(edges),'rear':'inferred catalogue-depth volume; frontal UV repeated; multi-view anatomy unverified'}
+    if relief:
+        # Existing front/side UV seam: plain Muse stone on slab sides avoids stretched facial bands.
+        atlas=Image.new('RGB',(1024,512),tuple(np.median(pixels[mask>0],axis=0).astype('uint8')))
+        atlas.paste(Image.fromarray(pixels).resize((512,512)),(0,0))
+        atlas.save(out/'assets'/f'{kind}-volume.png')
+        asset['triangle_uv']=[]
+        for index,t in enumerate(triangles):
+            front=index<19*16 and (index//2)%8 in [1,2,3]
+            asset['triangle_uv'].append([[uv[i][0]*.5,uv[i][1]] if front else [.75,.5] for i in t])
+        asset['rear']='Flat wall-backed slab;.12m relief depth provisional. Plain Muse stone sides/back; generated damage repairs unaccepted.'
     if paired:
         triangle_uv=[];hemispheres=[]
         for face in triangles:

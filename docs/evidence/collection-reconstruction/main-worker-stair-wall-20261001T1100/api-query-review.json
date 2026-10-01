@@ -1,0 +1,903 @@
+[
+  {
+    "query": "jamb",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=jamb&items_per_page=25",
+    "count": 5,
+    "results": [
+      {
+        "id": "1259191",
+        "objectNumber": "47.778.18",
+        "title": "L&#039;Homme Masqu\u00e9 aux Jambes Torses (The Masked Man with Crooked Legs)",
+        "medium": [
+          "etching"
+        ],
+        "dimensions": "Plate: 6.4 x 8.6 cm (2 1/2 x 3 3/8 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/lhomme-masque-aux-jambes-torses-masked-man-crooked-legs-4777818"
+      },
+      {
+        "id": "1375031",
+        "objectNumber": "47.778.5",
+        "title": "L&#039;Estropi\u00e9 \u00e0 la B\u00e9quille et \u00e0 la Jambe de Bois (The Cripple with a Crutch and a Wooden Leg)",
+        "medium": [
+          "etching",
+          "engraving"
+        ],
+        "dimensions": "6.2 x 8.6 cm (2 7/16 x 3 3/8 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/lestropie-la-bequille-et-la-jambe-de-bois-cripple-crutch-and-wooden-leg"
+      },
+      {
+        "id": "1263676",
+        "objectNumber": "45.110",
+        "title": "Eh! bien, ma Didine, avons-nous assez dans\u00e9? (Eh! my Didine, have we danced enough?)",
+        "medium": [
+          "Lithograph on medium weight cream wove paper"
+        ],
+        "dimensions": "Plate: 29.4 x 22.5 cm (11 9/16 x 8 7/8 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/eh-bien-ma-didine-avons-nous-assez-danse-eh-my-didine-have-we-danced-enough"
+      },
+      {
+        "id": "1384981",
+        "objectNumber": "36.203.89",
+        "title": "Architectural Drawing of Window Jamb, Richmond College",
+        "medium": [],
+        "dimensions": "91.5 x 78.5 cm (36 x 30 7/8 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/architectural-drawing-window-jamb-richmond-college-3620389"
+      },
+      {
+        "id": "1417651",
+        "objectNumber": "36.204.4",
+        "title": "Architectural Drawing, Door Jamb to Back Piazza from Front Hall, Charles Potter House",
+        "medium": [],
+        "dimensions": "49.2 x 65 cm (19 3/8 x 25 9/16 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/architectural-drawing-door-jamb-back-piazza-front-hall-charles-potter-house"
+      }
+    ]
+  },
+  {
+    "query": "apostle",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=apostle&items_per_page=25",
+    "count": 25,
+    "results": [
+      {
+        "id": "1230381",
+        "objectNumber": "41.045",
+        "title": "Apostle",
+        "medium": [
+          "limestone"
+        ],
+        "dimensions": "86.4 x 25.4 cm (34 x 10 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/apostle-41045"
+      },
+      {
+        "id": "1395331",
+        "objectNumber": "41.046",
+        "title": "Apostle",
+        "medium": [
+          "limestone"
+        ],
+        "dimensions": "82.6 x 26.7 cm (32 1/2 x 10 1/2 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/apostle-41046"
+      },
+      {
+        "id": "1326501",
+        "objectNumber": "29.208a-b",
+        "title": "Apostle Teapot",
+        "medium": [
+          "Salt-glazed stoneware"
+        ],
+        "dimensions": "Height: 18.7 cm (7 3/8 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/apostle-teapot-29208a-b"
+      },
+      {
+        "id": "1556821",
+        "objectNumber": "76.134",
+        "title": "Sketch for a Bending Apostle (Study for the Last Supper)",
+        "medium": [
+          "Black chalk on buff paper"
+        ],
+        "dimensions": "14.1 x 14.8 cm (5 9/16 x 5 13/16 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/sketch-bending-apostle-study-last-supper-76134"
+      },
+      {
+        "id": "1189086",
+        "objectNumber": "13.1522",
+        "title": "Abdul B\u00e1hav Medal",
+        "medium": [
+          "bronze"
+        ],
+        "dimensions": "7.6 cm (3 inches) (length)",
+        "url": "https://risdmuseum.org/art-design/collection/abdul-bahav-medal-131522"
+      },
+      {
+        "id": "1193416",
+        "objectNumber": "82.027.8D",
+        "title": "St. Andrew",
+        "medium": [
+          "engraving"
+        ],
+        "dimensions": "13 x 9.4 cm (5 1/8 x 3 11/16 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/st-andrew-820278d"
+      },
+      {
+        "id": "1210116",
+        "objectNumber": "82.027.8E",
+        "title": "St. John",
+        "medium": [
+          "engraving"
+        ],
+        "dimensions": "12.7 x 9.2 cm (5 x 3 5/8 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/st-john-820278e"
+      },
+      {
+        "id": "1210601",
+        "objectNumber": "82.027.8H",
+        "title": "St. Phillip",
+        "medium": [
+          "engraving"
+        ],
+        "dimensions": "13 x 9.2 cm (5 1/8 x 3 5/8 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/st-phillip-820278h"
+      },
+      {
+        "id": "1240721",
+        "objectNumber": "38.057",
+        "title": "Standing Apostle",
+        "medium": [
+          "sandstone"
+        ],
+        "dimensions": "104.8 cm (41 1/4 inches) (height)",
+        "url": "https://risdmuseum.org/art-design/collection/standing-apostle-38057"
+      },
+      {
+        "id": "1244306",
+        "objectNumber": "82.027.8",
+        "title": "Christ, St. Paul and the Twelve Apostles",
+        "medium": [
+          "engraving"
+        ],
+        "dimensions": "",
+        "url": "https://risdmuseum.org/art-design/collection/christ-st-paul-and-twelve-apostles-820278"
+      },
+      {
+        "id": "1261221",
+        "objectNumber": "82.027.8J",
+        "title": "St. Matthew",
+        "medium": [
+          "engraving"
+        ],
+        "dimensions": "13 x 9.2 cm (5 1/8 x 3 5/8 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/st-matthew-820278j"
+      },
+      {
+        "id": "1276221",
+        "objectNumber": "82.027.8B",
+        "title": "St. Peter",
+        "medium": [
+          "engraving"
+        ],
+        "dimensions": "13 x 9.1 cm (5 1/8 x 3 9/16 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/st-peter-820278b"
+      },
+      {
+        "id": "1308636",
+        "objectNumber": "82.027.8F",
+        "title": "St. Thomas",
+        "medium": [
+          "engraving"
+        ],
+        "dimensions": "13 x 9.2 cm (5 1/8 x 3 5/8 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/st-thomas-820278f"
+      },
+      {
+        "id": "1351841",
+        "objectNumber": "1991.126.566",
+        "title": "Apostle Spoons",
+        "medium": [],
+        "dimensions": "",
+        "url": "https://risdmuseum.org/art-design/collection/apostle-spoons-1991126566"
+      },
+      {
+        "id": "1358456",
+        "objectNumber": "82.027.8C",
+        "title": "St. Paul",
+        "medium": [
+          "engraving"
+        ],
+        "dimensions": "13 x 9.2 cm (5 1/8 x 3 5/8 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/st-paul-820278c"
+      },
+      {
+        "id": "1408916",
+        "objectNumber": "82.027.8I",
+        "title": "St. Bartholomew",
+        "medium": [
+          "engraving"
+        ],
+        "dimensions": "12.9 x 9.2 cm (5 1/16 x 3 5/8 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/st-bartholomew-820278i"
+      },
+      {
+        "id": "1421301",
+        "objectNumber": "17.369",
+        "title": "Apostle Saint Andrew",
+        "medium": [
+          "Oil on canvas"
+        ],
+        "dimensions": "74.9 x 58.4 cm (29 1/2 x 23 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/apostle-saint-andrew-17369"
+      },
+      {
+        "id": "1423556",
+        "objectNumber": "82.027.8L",
+        "title": "St. Matthias",
+        "medium": [
+          "engraving"
+        ],
+        "dimensions": "13 x 9.2 cm (5 1/8 x 3 5/8 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/st-matthias-820278l"
+      },
+      {
+        "id": "1424566",
+        "objectNumber": "82.027.8A",
+        "title": "Christ",
+        "medium": [
+          "engraving"
+        ],
+        "dimensions": "13 x 9.2 cm (5 1/8 x 3 5/8 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/christ-820278a"
+      },
+      {
+        "id": "1441251",
+        "objectNumber": "82.027.8G",
+        "title": "St. Jacob the Minor",
+        "medium": [
+          "engraving"
+        ],
+        "dimensions": "12.9 x 9.2 cm (5 1/16 x 3 5/8 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/st-jacob-minor-820278g"
+      },
+      {
+        "id": "1490771",
+        "objectNumber": "82.027.8K",
+        "title": "St. Simon",
+        "medium": [
+          "engraving"
+        ],
+        "dimensions": "12.9 x 9.2 cm (5 1/16 x 3 5/8 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/st-simon-820278k"
+      },
+      {
+        "id": "1508396",
+        "objectNumber": "42.009",
+        "title": "Figure of an Apostle",
+        "medium": [
+          "Wood with polychromy"
+        ],
+        "dimensions": "90.8 cm (35 3/4 inches) (height)",
+        "url": "https://risdmuseum.org/art-design/collection/figure-apostle-42009"
+      },
+      {
+        "id": "1578741",
+        "objectNumber": "1991.126.565",
+        "title": "Apostle Spoons",
+        "medium": [
+          "silver"
+        ],
+        "dimensions": "",
+        "url": "https://risdmuseum.org/art-design/collection/apostle-spoons-1991126565"
+      },
+      {
+        "id": "1193541",
+        "objectNumber": "68.094.4",
+        "title": "Study of an Apostle No. 1",
+        "medium": [
+          "etching"
+        ],
+        "dimensions": "4 x 3.5 cm (1 9/16 x 1 3/8 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/study-apostle-no-1-680944"
+      },
+      {
+        "id": "1340861",
+        "objectNumber": "43.400.25",
+        "title": "The Second Apostle Head",
+        "medium": [
+          "etching"
+        ],
+        "dimensions": "15.7 x 12.4 cm (6 3/16 x 4 7/8 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/second-apostle-head-4340025"
+      }
+    ]
+  },
+  {
+    "query": "stone figure",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=stone+figure&items_per_page=25",
+    "count": 8,
+    "results": [
+      {
+        "id": "1208426",
+        "objectNumber": "1989.008",
+        "title": "Figure Study",
+        "medium": [
+          "Black chalk on paper",
+          "mounted on two larger sheets"
+        ],
+        "dimensions": "Sheet: 12.7 x 9.7 cm (5 x 3 13/16 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/figure-study-1989008"
+      },
+      {
+        "id": "1281476",
+        "objectNumber": "50.268",
+        "title": "Landscape with Figures of Immortals",
+        "medium": [
+          "Carved Stone"
+        ],
+        "dimensions": "60.3 x 48 x 2.2 cm (23 3/4 x 18 7/8 x 7/8 inches) (Height is approx. of combined 2 pieces)",
+        "url": "https://risdmuseum.org/art-design/collection/landscape-figures-immortals-50268"
+      },
+      {
+        "id": "1392586",
+        "objectNumber": "80.266.27",
+        "title": "Elongated Figure",
+        "medium": [
+          "lithograph (retouched proof)"
+        ],
+        "dimensions": "51.1 x 66 cm (20 1/8 x 26 inches) (sheet)",
+        "url": "https://risdmuseum.org/art-design/collection/elongated-figure-8026627"
+      },
+      {
+        "id": "1405586",
+        "objectNumber": "75.116.15",
+        "title": "Figures by a Stone Pier",
+        "medium": [
+          "watercolor"
+        ],
+        "dimensions": "20 x 27.8 cm (7 7/8 x 10 15/16 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/figures-stone-pier-7511615"
+      },
+      {
+        "id": "1458736",
+        "objectNumber": "80.266.28",
+        "title": "Elongated Figure",
+        "medium": [
+          "lithograph"
+        ],
+        "dimensions": "51.1 x 66 cm (20 1/8 x 26 inches) (sheet)",
+        "url": "https://risdmuseum.org/art-design/collection/elongated-figure-8026628"
+      },
+      {
+        "id": "1306371",
+        "objectNumber": "47.404",
+        "title": "Seated figure",
+        "medium": [
+          "Stone"
+        ],
+        "dimensions": "15.2 x 11.4 x 8.9 cm (6 x 4 1/2 x 3 1/2 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/seated-figure-47404"
+      },
+      {
+        "id": "1338961",
+        "objectNumber": "35.011",
+        "title": "Female Figure",
+        "medium": [
+          "Stone"
+        ],
+        "dimensions": "94 x 71.1 x 24.1 cm (37 x 28 x 9 1/2 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/female-figure-35011"
+      },
+      {
+        "id": "1588966",
+        "objectNumber": "46.092",
+        "title": "Figure of Eskimo Woman",
+        "medium": [
+          "possibly Stone"
+        ],
+        "dimensions": "16.2 cm (6 3/8 inches) (height)",
+        "url": "https://risdmuseum.org/art-design/collection/figure-eskimo-woman-46092"
+      }
+    ]
+  },
+  {
+    "query": "saint peter",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=saint+peter&items_per_page=25",
+    "count": 13,
+    "results": [
+      {
+        "id": "1478031",
+        "objectNumber": "20.254",
+        "title": "Saint Peter",
+        "medium": [
+          "Limestone with traces of gesso and polychromy (colored paint)"
+        ],
+        "dimensions": "76.2 x 43.2 x 29.2 cm (30 x 17 x 11 1/2 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/saint-peter-20254"
+      },
+      {
+        "id": "1478291",
+        "objectNumber": "30.013",
+        "title": "Saint Peter",
+        "medium": [
+          "Cloisonn\u00e9 enamel and gold"
+        ],
+        "dimensions": "10.2 x 4.6 cm (4 x 1 13/16 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/saint-peter-30013"
+      },
+      {
+        "id": "1509941",
+        "objectNumber": "49.120",
+        "title": "The Infant Christ and Saint John Playing with the Lamb",
+        "medium": [
+          "Woodcut on paper"
+        ],
+        "dimensions": "Plate: 34 x 45.6 cm (13 3/8 x 17 15/16 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/infant-christ-and-saint-john-playing-lamb-49120"
+      },
+      {
+        "id": "1551311",
+        "objectNumber": "68.154",
+        "title": "The Supposed Finding of the Remains of Saint Peter and Saint Paul",
+        "medium": [
+          "etching"
+        ],
+        "dimensions": "",
+        "url": "https://risdmuseum.org/art-design/collection/supposed-finding-remains-saint-peter-and-saint-paul-68154"
+      },
+      {
+        "id": "1578776",
+        "objectNumber": "1991.126.565.3",
+        "title": "Saint Peter Spoon",
+        "medium": [
+          "silver"
+        ],
+        "dimensions": "16.5 x 3.5 x 1.8 cm (6 1/2 x 1 3/8 x 11/16 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/saint-peter-spoon-19911265653"
+      },
+      {
+        "id": "1210951",
+        "objectNumber": "2010.114.50",
+        "title": "The Four Saints",
+        "medium": [
+          "etching"
+        ],
+        "dimensions": "14.4 x 9.8 cm (5 11/16 x 3 7/8 inches) (sheet)",
+        "url": "https://risdmuseum.org/art-design/collection/four-saints-201011450"
+      },
+      {
+        "id": "1225976",
+        "objectNumber": "2010.114.59",
+        "title": "The Martyrdom of Two Saints",
+        "medium": [
+          "engraving",
+          "third state"
+        ],
+        "dimensions": "26 x 45.4 cm (10 1/4 x 17 7/8 inches) (image) Image/sheet height; Image/sheet width",
+        "url": "https://risdmuseum.org/art-design/collection/martyrdom-two-saints-201011459"
+      },
+      {
+        "id": "1311506",
+        "objectNumber": "2012.83.2",
+        "title": "Saint Peter&#039;s Square, Rome (descriptive)",
+        "medium": [
+          "two gelatin silver prints adhered to card stock"
+        ],
+        "dimensions": "8.2 x 17 cm (3 1/4 x 6 11/16 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/saint-peters-square-rome-descriptive-2012832"
+      },
+      {
+        "id": "1437186",
+        "objectNumber": "1991.126.566.3",
+        "title": "Saint Peter Spoon",
+        "medium": [
+          "sterling silver"
+        ],
+        "dimensions": "",
+        "url": "https://risdmuseum.org/art-design/collection/saint-peter-spoon-19911265663"
+      },
+      {
+        "id": "1461611",
+        "objectNumber": "22.047",
+        "title": "The Taking of Saint Peter",
+        "medium": [
+          "Tempera and gold on panel"
+        ],
+        "dimensions": "38.7 x 54 cm (15 1/4 x 21 1/4 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/taking-saint-peter-22047"
+      },
+      {
+        "id": "1461656",
+        "objectNumber": "2012.1",
+        "title": "Studies of a Head of a Man, Hands of Saint John for Christ Offering Saint Peter the Keys to Paradise, and Hooded Capuchin monk",
+        "medium": [
+          "Oil on canvas"
+        ],
+        "dimensions": "45.1 x 32.4 cm (17 3/4 x 12 3/4 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/studies-head-man-hands-saint-john-christ-offering-saint-peter-keys-paradise"
+      },
+      {
+        "id": "1371736",
+        "objectNumber": "75.053",
+        "title": "Saint Jerome",
+        "medium": [
+          "lead",
+          "gilding"
+        ],
+        "dimensions": "11.1 x 7 x 0.6 cm (4 3/8 x 2 3/4 x 1/4 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/saint-jerome-75053"
+      },
+      {
+        "id": "1506041",
+        "objectNumber": "84.198.1241",
+        "title": "Saint Veronica between Saints Peter and Paul",
+        "medium": [
+          "woodcut"
+        ],
+        "dimensions": "12.7 x 9.8 cm (5 x 3 7/8 inches) (plate) image",
+        "url": "https://risdmuseum.org/art-design/collection/saint-veronica-between-saints-peter-and-paul-841981241"
+      }
+    ]
+  },
+  {
+    "query": "saint paul",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=saint+paul&items_per_page=25",
+    "count": 10,
+    "results": [
+      {
+        "id": "1578756",
+        "objectNumber": "1991.126.565.6",
+        "title": "Saint Paul Spoon",
+        "medium": [
+          "silver"
+        ],
+        "dimensions": "16.3 x 3.5 x 2 cm (6 7/16 x 1 3/8 x 13/16 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/saint-paul-spoon-19911265656"
+      },
+      {
+        "id": "1509941",
+        "objectNumber": "49.120",
+        "title": "The Infant Christ and Saint John Playing with the Lamb",
+        "medium": [
+          "Woodcut on paper"
+        ],
+        "dimensions": "Plate: 34 x 45.6 cm (13 3/8 x 17 15/16 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/infant-christ-and-saint-john-playing-lamb-49120"
+      },
+      {
+        "id": "1551311",
+        "objectNumber": "68.154",
+        "title": "The Supposed Finding of the Remains of Saint Peter and Saint Paul",
+        "medium": [
+          "etching"
+        ],
+        "dimensions": "",
+        "url": "https://risdmuseum.org/art-design/collection/supposed-finding-remains-saint-peter-and-saint-paul-68154"
+      },
+      {
+        "id": "1192666",
+        "objectNumber": "47.396.5",
+        "title": "Holy Family and Four Saints",
+        "medium": [
+          "chiaroscuro woodcut"
+        ],
+        "dimensions": "55.6 x 39.4 cm (21 7/8 x 15 1/2 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/holy-family-and-four-saints-473965"
+      },
+      {
+        "id": "1256016",
+        "objectNumber": "1991.126.566.6",
+        "title": "Saint Paul Spoon",
+        "medium": [
+          "sterling silver"
+        ],
+        "dimensions": "",
+        "url": "https://risdmuseum.org/art-design/collection/saint-paul-spoon-19911265666"
+      },
+      {
+        "id": "1475031",
+        "objectNumber": "47.396.9",
+        "title": "The Virgin in the Clouds and Six Saints",
+        "medium": [
+          "chiaroscuro woodcut"
+        ],
+        "dimensions": "58.4 x 34.5 cm (23 x 13 9/16 inches) (plate)",
+        "url": "https://risdmuseum.org/art-design/collection/virgin-clouds-and-six-saints-473969"
+      },
+      {
+        "id": "1486216",
+        "objectNumber": "38.179",
+        "title": "Saint Pauls School Plate",
+        "medium": [],
+        "dimensions": "20 cm (7 7/8 inches) (diameter)",
+        "url": "https://risdmuseum.org/art-design/collection/saint-pauls-school-plate-38179"
+      },
+      {
+        "id": "1491611",
+        "objectNumber": "30.085",
+        "title": "Conversion of Saint Paul",
+        "medium": [
+          "Woodcut with hand-coloring on laid paper"
+        ],
+        "dimensions": "Image: 14.1 x 11 cm (5 9/16 x 4 5/16 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/conversion-saint-paul-30085"
+      },
+      {
+        "id": "1523401",
+        "objectNumber": "58.006",
+        "title": "Virgin and Child with Saints",
+        "medium": [
+          "Oil on canvas"
+        ],
+        "dimensions": "38.1 x 29.2 cm (15 x 11 1/2 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/virgin-and-child-saints-58006"
+      },
+      {
+        "id": "1506041",
+        "objectNumber": "84.198.1241",
+        "title": "Saint Veronica between Saints Peter and Paul",
+        "medium": [
+          "woodcut"
+        ],
+        "dimensions": "12.7 x 9.8 cm (5 x 3 7/8 inches) (plate) image",
+        "url": "https://risdmuseum.org/art-design/collection/saint-veronica-between-saints-peter-and-paul-841981241"
+      }
+    ]
+  },
+  {
+    "query": "relief",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=relief&items_per_page=25",
+    "count": 25,
+    "results": [
+      {
+        "id": "1554006",
+        "objectNumber": "2006.118.2",
+        "title": "Alphabeticum",
+        "medium": [
+          "relief prints on paper"
+        ],
+        "dimensions": "35.6 x 35.6 x 3.2 cm (14 x 14 x 1 1/4 inches) portfolio",
+        "url": "https://risdmuseum.org/art-design/collection/alphabeticum-20061182"
+      },
+      {
+        "id": "1534616",
+        "objectNumber": "2003.7",
+        "title": "The Flax (Het Vlas)",
+        "medium": [
+          "Relief print on wove paper"
+        ],
+        "dimensions": "25.1 x 17.8 x 0.3 cm (9 7/8 x 7 x 1/8 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/flax-het-vlas-20037"
+      },
+      {
+        "id": "1546936",
+        "objectNumber": "2015.112",
+        "title": "Assemblage Relief Vessel",
+        "medium": [
+          "glass"
+        ],
+        "dimensions": "44.4 x 17.8 x 19 cm (17 1/2 x 7 x 7 1/2 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/assemblage-relief-vessel-2015112"
+      },
+      {
+        "id": "1585276",
+        "objectNumber": "2016.110.105",
+        "title": "Silver Illusion of Peace",
+        "medium": [
+          "Relief etching on paper"
+        ],
+        "dimensions": "Image: 20 x 20 cm (7 7/8 x 7 7/8 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/silver-illusion-peace-2016110105"
+      },
+      {
+        "id": "1279016",
+        "objectNumber": "35.549",
+        "title": "Fragment of relief with captives",
+        "medium": [
+          "limestone"
+        ],
+        "dimensions": "29.8 x 31.1 x 5.4 cm (11 3/4 x 12 1/4 x 2 1/8 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/fragment-relief-captives-35549"
+      },
+      {
+        "id": "1281271",
+        "objectNumber": "2000.1.2",
+        "title": "Relief with Cuneiform",
+        "medium": [
+          "Stone"
+        ],
+        "dimensions": "37.8 x 69.2 x 3.8 cm (14 7/8 x 27 1/4 x 1 1/2 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/relief-cuneiform-200012"
+      },
+      {
+        "id": "1548241",
+        "objectNumber": "80.280",
+        "title": "Quilt",
+        "medium": [
+          "pieced",
+          "embroidered",
+          "and painted silk velvet and satin"
+        ],
+        "dimensions": "Length: 195.6 cm (77 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/quilt-80280"
+      },
+      {
+        "id": "1363376",
+        "objectNumber": "2010.114.83",
+        "title": "Page 24 from Volume 12 of Records of the Grand Historian (Shiji)",
+        "medium": [
+          "woodblock print"
+        ],
+        "dimensions": "29.7 x 42.1 cm (11 11/16 x 16 9/16 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/page-24-volume-12-records-grand-historian-shiji-201011483"
+      },
+      {
+        "id": "1405016",
+        "objectNumber": "83.215.8",
+        "title": "Betty Brown",
+        "medium": [
+          "bronze"
+        ],
+        "dimensions": "20.6 x 1 cm (8 1/8 x 3/8 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/betty-brown-832158"
+      },
+      {
+        "id": "1547856",
+        "objectNumber": "18.582",
+        "title": "Art War Relief Medal",
+        "medium": [
+          "bronze"
+        ],
+        "dimensions": "7.6 x 6 cm (3 x 2 3/8 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/art-war-relief-medal-18582"
+      },
+      {
+        "id": "1549061",
+        "objectNumber": "11.652",
+        "title": "Fragment of Relief -- Head of a Goddess",
+        "medium": [
+          "terracotta"
+        ],
+        "dimensions": "14 x 8.9 cm (5 1/2 x 3 1/2 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/fragment-relief-head-goddess-11652"
+      },
+      {
+        "id": "1181606",
+        "objectNumber": "2010.114.82",
+        "title": "Section of a Buddhist Sutra printed at a temple on Mt. Hie near Kyoto",
+        "medium": [
+          "relief printed",
+          "mounted on a card."
+        ],
+        "dimensions": "27.9 x 12.5 cm (11 x 4 15/16 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/section-buddhist-sutra-printed-temple-mt-hie-near-kyoto-201011482"
+      },
+      {
+        "id": "1190256",
+        "objectNumber": "50.251",
+        "title": "Relief Plaque",
+        "medium": [
+          "copper",
+          "gilt"
+        ],
+        "dimensions": "21 x 17.9 x 1.3 cm (8 1/4 x 7 1/16 x 1/2 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/relief-plaque-50251"
+      },
+      {
+        "id": "1192456",
+        "objectNumber": "2006.98.4",
+        "title": "Tree with Bullbrier Vine",
+        "medium": [
+          "photostatic transfer and relief"
+        ],
+        "dimensions": "34.9 x 27.9 cm (13 3/4 x 11 inches) (sheet)",
+        "url": "https://risdmuseum.org/art-design/collection/tree-bullbrier-vine-2006984"
+      },
+      {
+        "id": "1199676",
+        "objectNumber": "16.094",
+        "title": "relief",
+        "medium": [
+          "clay",
+          "gilding"
+        ],
+        "dimensions": "11.8 cm (4 5/8 inches) (height)",
+        "url": "https://risdmuseum.org/art-design/collection/relief-16094"
+      },
+      {
+        "id": "1204726",
+        "objectNumber": "2002.59.10",
+        "title": "Plaque",
+        "medium": [
+          "stoneware"
+        ],
+        "dimensions": "22.5 x 36.2 x 1.3 cm (8 7/8 x 14 1/4 x 1/2 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/plaque-20025910"
+      },
+      {
+        "id": "1211806",
+        "objectNumber": "2015.135.2",
+        "title": "Seascape",
+        "medium": [
+          "Color screenprint with embossing and relief on Magnani litho"
+        ],
+        "dimensions": "Image/sheet: 37.1 x 26.5 cm (14 5/8 x 10 7/16 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/seascape-20151352"
+      },
+      {
+        "id": "1212306",
+        "objectNumber": "2015.92.2",
+        "title": "Untitled",
+        "medium": [
+          "Relief print from rubber band matrix on Japan paper"
+        ],
+        "dimensions": "Sheet: 97.8 x 66 cm (38 1/2 x 26 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/untitled-2015922"
+      },
+      {
+        "id": "1214311",
+        "objectNumber": "2000.1.1",
+        "title": "Relief fragment",
+        "medium": [
+          "marble",
+          "?",
+          "pigment"
+        ],
+        "dimensions": "48.9 x 27.9 x 3.8 cm (19 1/4 x 11 x 1 1/2 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/relief-fragment-200011"
+      },
+      {
+        "id": "1214451",
+        "objectNumber": "76.065",
+        "title": "relief",
+        "medium": [],
+        "dimensions": "11.4 x 10.2 cm (4 1/2 x 4 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/relief-76065"
+      },
+      {
+        "id": "1216406",
+        "objectNumber": "1989.110.68B",
+        "title": "cover (closure)",
+        "medium": [
+          "jade"
+        ],
+        "dimensions": "21.9 cm (8 5/8 inches) (height)",
+        "url": "https://risdmuseum.org/art-design/collection/cover-closure-198911068b"
+      },
+      {
+        "id": "1223636",
+        "objectNumber": "24.047",
+        "title": "Wall relief on exterior wall, upper terrace, temple of Angkor-Wat, Cambodia: two Devatas",
+        "medium": [],
+        "dimensions": "74.9 x 45.7 cm (29 1/2 x 18 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/wall-relief-exterior-wall-upper-terrace-temple-angkor-wat-cambodia-two"
+      },
+      {
+        "id": "1223706",
+        "objectNumber": "83.215.6",
+        "title": "Relief",
+        "medium": [
+          "plaster"
+        ],
+        "dimensions": "22.2 x 29.7 x 2.5 cm (8 3/4 x 11 11/16 x 1 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/relief-832156"
+      },
+      {
+        "id": "1225426",
+        "objectNumber": "2006.98.13",
+        "title": "Paul Klee Meets the Human Genome",
+        "medium": [
+          "Relief and archival digital print"
+        ],
+        "dimensions": "27.9 x 35.6 cm (11 x 14 inches) (sheet)",
+        "url": "https://risdmuseum.org/art-design/collection/paul-klee-meets-human-genome-20069813"
+      },
+      {
+        "id": "1226586",
+        "objectNumber": "19.202",
+        "title": "Permanent Blind Relief War Fund",
+        "medium": [
+          "lithograph"
+        ],
+        "dimensions": "55.6 x 68.9 cm (21 7/8 x 27 1/8 inches) (sheet)",
+        "url": "https://risdmuseum.org/art-design/collection/permanent-blind-relief-war-fund-19202"
+      }
+    ]
+  }
+]

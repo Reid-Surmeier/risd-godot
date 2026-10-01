@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-c071e0c97f59fd77e5db",
+  "summary": "Reference1 is the official RISD Museum photograph of Apostle accession41.045, the damaged limestone relief RIGHT of the medieval stair door. Generate ONE complete straight-on FRONT view alone, isolated on flat pure magenta#FF00FF with generous margins. Match the source tall narrow broken slab outline, round halo and almost entirely MISSING ERODED FACE, the two crossed raised hands, irregular worn robe folds, low feet and deep square dark break above the feet. DO NOT restore the face: keep its head a worn broken almost featureless rough area with no invented eyes, mouth or nose. DO NOT reconstruct missing stone or smooth the irregular broken robe into a new decorative pattern. Translate the source into a low polygon game asset using broad planar facets and restrained mottled pale warm limestone; keep damaged silhouette and distinct original surviving shapes. No frame, platform, plinth, floor, shadow outside the silhouette, caption or other view. Source-specific damage is more important than attractive symmetry. This is a UV colour study for separately authored closed low polygon relief; catalogue gives width/height, hidden depth remains provisional.\n",
+  "procedureId": "muse-c071e0c97f59fd77e5db",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/apostle-41045-catalogue.png",
+      "sha256": "25bc9564718bc742154c66788356d8c45bb1f5cd4ca1f266702ed2fb8e37f93a",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "apostle-41045-recipe.json",
+      "sha256": "c071e0c97f59fd77e5db0810e48dfcd0fdb873ebcaabc4e8569c38652a6675eb"
+    },
+    {
+      "applicationPath": "apostle-41045-plan.json",
+      "sha256": "cb079d5ec858738e9552ae7c3a0efb759c0441a505285d09de3be90ebe2a4a8f"
+    },
+    {
+      "applicationPath": "apostle-41045-prompt.txt",
+      "sha256": "60025c8e10c0821c1b684ed6fe908aadac58d493b48a8f7461e20b7de4a60966"
+    }
+  ]
+}
