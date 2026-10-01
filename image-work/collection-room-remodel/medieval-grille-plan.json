@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "medieval-grille-001",
+      "prompt": "medieval-grille-prompt.txt",
+      "promptSha256": "bf6c014fd6d7848aceacd6b4b0e6ecb1aeea5a73eb5bc82c7f7cf6dcbf8444c9",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/medieval-grille-video-12.25.png",
+          "sha256": "9dfbad390a325bb5a293f22b94b350502959e3f012db89a91f37ecd8274ed259"
+        }
+      ]
+    }
+  ]
+}

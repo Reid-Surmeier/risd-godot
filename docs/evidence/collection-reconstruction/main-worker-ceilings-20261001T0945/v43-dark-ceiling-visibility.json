@@ -1,0 +1,14 @@
+[
+	{
+		"authored_ceilings": 2,
+		"baked_copies": 2,
+		"camera_height_m": 1.65,
+		"visible": true
+	},
+	{
+		"authored_ceilings": 2,
+		"baked_copies": 2,
+		"camera_height_m": 5.3,
+		"visible": false
+	}
+]
