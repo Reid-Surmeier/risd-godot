@@ -1,0 +1,595 @@
+{
+ "date": "2026-10-01",
+ "survey": "survey-2fps, 1280x720, frame N at (N-1)/2 s, rotated upright for viewing only",
+ "total_survey_frames": 2485,
+ "frames_looked_at": 875,
+ "limit": "This review sampled every second frame of 6380/6382/6383/6387 and every fourth to eighth frame of the rest. It is a check on topology and wall order, not a second full object inventory.",
+ "root_files_sha256": {
+  "reconstruction-coverage.json": "f4a63e73c58b5d449d0ca24485d055cae158e07537c974340ec97792c59433f7",
+  "video-inventory.json": "bc7db5a9a5a229becfe161fed52f87138a8b3206375c1c421a9c4f74fac9238c",
+  "european-gallery-inventory.json": "5da15280e86640404428221f7dcaa7965321a6788249ce4ab327e7cab8b89a5e",
+  "hall-stairs-inventory.json": "f28575016124928ab5db47a5207b432e9144db648fbdc265fc04d80a3420b7b1",
+  "sculpture-room-inventory.json": "865232ca21941cc55c7a546e9170492cf8081ad4e8c061012292266b62c84dfe",
+  "grey-frames-source-fit.json": "c8d776251a3c28698ae60002f9ee37f218d0eec0a61dc4cfc40cc0ce3f9117b7",
+  "modern-frames-source-fit.json": "ae9ccb6f7b49689fab575ddc692c47ee9b0a58b5575458dad9f6a9401bf154e9",
+  "medieval-panel-source-fit.json": "b948dfa9766bfd555b520e20cc3f024f57fc66590f6eb892b2b20dbc03aadc71",
+  "goltzius-source-fit.json": "a9a5c4a55059fa3fd9571ff0b20f48812364be795f7aad7f2d45553f9511c672",
+  "magdalene-frame-source-fit.json": "c729cb5fe0adb44ca462d4728452fbaf8583bf20cd81bc5feac43c537ee50b1a",
+  "perugino-frame-source-fit.json": "d2215bf1f56306b7e6b94e4841643520d2dbfbf36ded79fe76ff093947de9aa6"
+ },
+ "videos_without_any_source_fit_file": [
+  "IMG_6378.MOV",
+  "IMG_6379.MOV",
+  "IMG_6381.MOV",
+  "IMG_6384.MOV",
+  "IMG_6385.MOV"
+ ],
+ "videos": [
+  {
+   "video": "IMG_6378.MOV",
+   "sha256": "a79c9a65e82293d43a46d1f54034ba398bce135b839a402dcbadbf33e3ec5e52",
+   "seconds": 179.968333,
+   "survey_2fps_frames": 360,
+   "root_files": "hall-stairs-inventory.json",
+   "root_says_all_frames_reviewed": true,
+   "this_review": {
+    "frames_looked_at": 45,
+    "share_of_survey": 0.12,
+    "sheets": [
+     {
+      "file": "sheets/IMG_6378-001-233-step8.jpg",
+      "sha256": "0c5f19f116ff111a869efaf9c377518b0d89352abe285ffbfc7436d6641c6439"
+     },
+     {
+      "file": "sheets/IMG_6378-241-353-step8.jpg",
+      "sha256": "356d1272f264ec697fb503d5a1e2661c606db962dede9fd7fc20028301759e25"
+     }
+    ],
+    "enlarged_frames": [],
+    "enlarged_frame_sha256": {}
+   },
+   "rooms_seen": "Metcalf Auditorium only: raked seating, stage and lectern, side steps, rear ramp, booth, exit lobby.",
+   "reconciliation": "Agrees with root. No filmed connection to any other room; nothing to place in the loop.",
+   "built_in_v50b": "not built; no connection evidence"
+  },
+  {
+   "video": "IMG_6379.MOV",
+   "sha256": "abc4922925e560966d5987cc3208b9a819f743b7ac7bbdc8c40741a4eab38e34",
+   "seconds": 182.553333,
+   "survey_2fps_frames": 365,
+   "root_files": "hall-stairs-inventory.json",
+   "root_says_all_frames_reviewed": true,
+   "this_review": {
+    "frames_looked_at": 90,
+    "share_of_survey": 0.25,
+    "sheets": [
+     {
+      "file": "sheets/IMG_6379-001-175-step6.jpg",
+      "sha256": "febf6ac7f2aa507ffe5c506d9470a7cda04fc284c38b60f0e760640563e46aa0"
+     },
+     {
+      "file": "sheets/IMG_6379-181-355-step6.jpg",
+      "sha256": "c63b064dbd296a20c0025d55f7e0ac6f9dd7a63fc89de79acc54d9489d81e3ef"
+     },
+     {
+      "file": "sheets/IMG_6379-300-358-step2.jpg",
+      "sha256": "eda4baac874058be0af3c04723e515c7aa254acb18f23c886728fea392746700"
+     }
+    ],
+    "enlarged_frames": [
+     340,
+     344,
+     346
+    ],
+    "enlarged_frame_sha256": {
+     "000340.jpg": "dfdc3fc68ff383bc943884072aeefd9cae3a5885ffb5186fca644db21bccdf31",
+     "000344.jpg": "4b6b371f978b1130f62b90549f2be724056301c9c9fe218f74f0c7a943e56c21",
+     "000346.jpg": "949c2aeb574c0130a553ab6ce8d289a780c23df5def3fa1ae312bd0bac2fd819"
+    }
+   },
+   "rooms_seen": "Skylit piano stair hall: level 4 with piano and purple lift 4, flights up, wall works, upper landing, door into the grey gallery (162.5-178.5 s).",
+   "reconciliation": "Agrees with root. Adds: through the piano door the Grand Gallery doorway is on axis and the connector doorway is at the far end of the right wall (171.5 s) - see D3.",
+   "built_in_v50b": "threshold stub only"
+  },
+  {
+   "video": "IMG_6380.MOV",
+   "sha256": "eaf7a7853b6cc5610517631b44aa83de1006ac6caa5aa673038f1f067cafd3d4",
+   "seconds": 260.5367,
+   "survey_2fps_frames": 521,
+   "root_files": "hall-stairs-inventory.json + video-inventory.json + grey-frames-source-fit.json",
+   "root_says_all_frames_reviewed": true,
+   "this_review": {
+    "frames_looked_at": 261,
+    "share_of_survey": 0.5,
+    "sheets": [
+     {
+      "file": "sheets/IMG_6380-001-059-step2.jpg",
+      "sha256": "ab4349ec59a0a2e965af6c288d46848d6bc99d486b9f90dfbf03757442ac649f"
+     },
+     {
+      "file": "sheets/IMG_6380-061-119-step2.jpg",
+      "sha256": "51b10719bf1e2e4f1ea176db352e17801d9fbbb526e3b31dcdfe787f2eebccb9"
+     },
+     {
+      "file": "sheets/IMG_6380-121-179-step2.jpg",
+      "sha256": "328d793812c753c1782287c2d2606abfd9920f46ecdd8af3d1c117e7fef61495"
+     },
+     {
+      "file": "sheets/IMG_6380-181-239-step2.jpg",
+      "sha256": "b2669cfbcafe4a1f3a4cb57a1d05e977ab32effa83746b504c208939a068d119"
+     },
+     {
+      "file": "sheets/IMG_6380-241-299-step2.jpg",
+      "sha256": "5f8b0a1cc503185fcf464a56ddb73a7a080eaf40f30edf755b9ebd5c451db02e"
+     },
+     {
+      "file": "sheets/IMG_6380-301-359-step2.jpg",
+      "sha256": "fd3d37485308afa889f21c7e162f243d8782d69f49b3be762a28882b1e4730de"
+     },
+     {
+      "file": "sheets/IMG_6380-361-419-step2.jpg",
+      "sha256": "7e70bc9f848556b16b0b997da341cbbe6b5542a4e953b5060e3d0bc4300583b4"
+     },
+     {
+      "file": "sheets/IMG_6380-421-479-step2.jpg",
+      "sha256": "bdb8178ade9aa34ab85b0f0f3e2b00ea79c8f554ebef5277b6b1ddaafd99a632"
+     },
+     {
+      "file": "sheets/IMG_6380-481-521-step2.jpg",
+      "sha256": "d19e22ff3f507198a6b3e2c11f08e34f026447284fbf5b4fb5f864f39f1c79c5"
+     }
+    ],
+    "enlarged_frames": [
+     19,
+     29,
+     31,
+     33,
+     35,
+     37,
+     69,
+     71,
+     73,
+     75,
+     77,
+     79,
+     199,
+     203,
+     205,
+     207,
+     213,
+     217,
+     239,
+     243,
+     245,
+     247,
+     261,
+     267,
+     321,
+     337,
+     427,
+     449,
+     453,
+     457,
+     459,
+     471,
+     479,
+     493,
+     497,
+     499
+    ],
+    "enlarged_frame_sha256": {
+     "000019.jpg": "a72d67f722b2080f0505b2bf3b454932f127c5e5543437a07bf01f5767e0eef0",
+     "000029.jpg": "7a76674194430c24020bbd55cfc2579f727222e0f1193be48d785cf25e2f84eb",
+     "000031.jpg": "e99f898f4bb77f3882dd4dbb74791bfa4a7f2d6edbbb2a85009e2a482b47d4d4",
+     "000033.jpg": "b70c77fc9727e0273a3d05cf0ff4c0ff16deb367cf0d06bdd0f6e3ac3e75a416",
+     "000035.jpg": "68f5d9158c9a110f2a5e6c79bfc437cef04b84e0a90d40c8623d0f8d3ca101a5",
+     "000037.jpg": "ff7a4fc7f2c2b9ccdb10593bccfde3b77ea396fec2ca0709b576d149ca0a2454",
+     "000069.jpg": "ac2c1a076ad4ccc3f2d6658b3170002296404b6135e89b78a5b6b5d16f3ea6cf",
+     "000071.jpg": "2b849994cc413682b732fd192c69abc8b1505af642673247320e792276c459c5",
+     "000073.jpg": "ecccb00175e93ccc2c5bcd4d7bf24279559054d60f9debbb6ed619e28ca54b90",
+     "000075.jpg": "759cbdaa5eb4c31027d326bb753db7e35565249e47b3fcbf04a3356833ea1bd2",
+     "000077.jpg": "2d908cf74997c53c28662d2d05acd0a5fccb3ce22ffe0badb86694f441cef4e7",
+     "000079.jpg": "22bf436e57c415c899910962653e24912d02d8ef9ff4ad40e48024453d3d0c84",
+     "000199.jpg": "1ec2bfb4d5949714c596646ba497c6b284730415dfcea23f9f86ff1bff0076a1",
+     "000203.jpg": "54caed3a634c97945a1087164dc2499ca3b19bc55dc11231e7acc8f04d4fcd5c",
+     "000205.jpg": "d32f8177a3da41ffcbba7cc54ec40bd1efda31f46653c2f669649edfb6aeea5d",
+     "000207.jpg": "d3631bc3a89f91d1d28fd464437afcfca2536830adb5de4ab8c36b3e220d0743",
+     "000213.jpg": "1db74f2bba40c33d6feae2170ed5c06acf6d02dda46ac8cef41424b369b1bd35",
+     "000217.jpg": "4621f121332080ebe69b15bde3d8178b9b736a3e629484e51d2514802a9f4094",
+     "000239.jpg": "fbcb0416a571a4a757e4c78c4b457a5d3d675a1958a84135923bfc4302145668",
+     "000243.jpg": "39ecc7f306c20c27881ca7caf1674e80fcc973789c43f2d95607adcbc1d42822",
+     "000245.jpg": "748ebaee6a68f7f3236471e6a278e6aaa446f8491d728d38ea7c9c9468e94c12",
+     "000247.jpg": "f02fa4bbb75fa7f931de1334412f6e1df296d2b6aebfaf423ad65b6ce1ff122a",
+     "000261.jpg": "403835dfd6bc22a5655195a6d12d1728671049f58eed038c313d10d9dc451d31",
+     "000267.jpg": "3affa263a66febbe1ee75596663fb9fce014c1a5a85ac28836fc1b30bf10b8fc",
+     "000321.jpg": "4b872040cd87894373b7e8970cc7524fb3520d2f4d71c5ae035afbd2ac928c88",
+     "000337.jpg": "416f15ed700a4a0d309b24c5da8856b2a85430c9d95eda1bbb2716a234c761b8",
+     "000427.jpg": "991535d5d0f43c5e3a851070e8441e8f7ec6e18a529812ee255ed0025edba43f",
+     "000449.jpg": "f248071821a113bc8cf2672ae88ef43cb054cb07557bfd8bfd80382eddd1fa84",
+     "000453.jpg": "9de914b6b676c6f1992c6d593f4d7da5b1a50dbd76219adb10a234fac98018e3",
+     "000457.jpg": "be5ecd40b2eabb4198c8a951c7b3156c4d3b9a7a74387733e5cb98c1dda7c877",
+     "000459.jpg": "30f52347eddf67d714e04d2a23f493f4e0672a223175e4d968e14df6a5f27c21",
+     "000471.jpg": "f27715c828b7c7357d4f81886ae7acb13a2f796bc847ebf3e5c4555c4d8fdbe8",
+     "000479.jpg": "a0b7f2ed16c58b4948cf4225be665fc37053d61c944182a521a844de83640024",
+     "000493.jpg": "cd5489640212fd36d9f81749eb2d36dcb7697f0c92ea73bbe5a9a7fca825f729",
+     "000497.jpg": "828f9b44e16e5a2125ea7d806bcd9052fa4e2e2b06d189895147a5668bd7add6",
+     "000499.jpg": "01a3cedee776b5dc65844fc08052de0b9eef78f052e11c63be5fd171bf9bc607"
+    }
+   },
+   "rooms_seen": "Grey French gallery (0-49 s, 78-100 s), marble stair hall and fireplace (30-36 s, 43-78 s), Grand Gallery doorway (98-106 s), purple connector (101-103 s, 119-121 s, 240-250 s), Rockefeller (121-239 s), first look down the European gallery (258-260 s).",
+   "reconciliation": "Wall order agrees with root. Geometry does not: D3 (connector doorway position). Rockefeller wall assignment checked and matches the authored room.",
+   "built_in_v50b": "grey room, connector and Rockefeller built; marble stair is a stub"
+  },
+  {
+   "video": "IMG_6381.MOV",
+   "sha256": "12df06479e7d2a7121d1647c8b14a5feba6a61362b0449c252fe9ae00fe5468d",
+   "seconds": 99.12,
+   "survey_2fps_frames": 198,
+   "root_files": "hall-stairs-inventory.json",
+   "root_says_all_frames_reviewed": true,
+   "this_review": {
+    "frames_looked_at": 50,
+    "share_of_survey": 0.25,
+    "sheets": [
+     {
+      "file": "sheets/IMG_6381-001-117-step4.jpg",
+      "sha256": "d3b7a75fa37d9c2b3f21020677b14f6d7cbed360650c977dde783abcc0a1c829"
+     },
+     {
+      "file": "sheets/IMG_6381-121-197-step4.jpg",
+      "sha256": "ee70963ede6b28c034144eafc4f0759a067229ea2f00b22fa214a24f1a36d9e1"
+     }
+    ],
+    "enlarged_frames": [
+     169,
+     181,
+     185
+    ],
+    "enlarged_frame_sha256": {
+     "000169.jpg": "28e7cf2ae71f287e4736969ec718ea12eff02b31ce2939c99c5398beea938da8",
+     "000181.jpg": "0d712c3368dec1a92ba14cf23f862d9c4d7f52c3a2daf59ea4ca9ef7c5ace7c0",
+     "000185.jpg": "03fc3740f551c7e928109af3aad3a84701b0ebddf2fc9f56e97a6fb304b77e83"
+    }
+   },
+   "rooms_seen": "Marble stair from the hall beside the grey gallery up to an upper landing: chandelier, arched triple window, two doors to case galleries; back down to the Ionic opening (84-98 s).",
+   "reconciliation": "Agrees with root. Adds a fourth view of D3 from the stair (90.0 s). Upper level rooms are thresholds only and not connected to anything else filmed.",
+   "built_in_v50b": "stub only"
+  },
+  {
+   "video": "IMG_6382.MOV",
+   "sha256": "415467db2d2216363fbccb41801851180f48bbdb3304c95861f90f3f5767020e",
+   "seconds": 113.243333,
+   "survey_2fps_frames": 226,
+   "root_files": "sculpture-room-inventory.json + medieval-panel-source-fit.json + magdalene-frame-source-fit.json",
+   "root_says_all_frames_reviewed": true,
+   "this_review": {
+    "frames_looked_at": 113,
+    "share_of_survey": 0.5,
+    "sheets": [
+     {
+      "file": "sheets/IMG_6382-001-059-step2.jpg",
+      "sha256": "f5eb3ecafe7f5742424b69a4fc70b3442eaa0f54d77a22cd5e0d7d9c6d6642e4"
+     },
+     {
+      "file": "sheets/IMG_6382-061-119-step2.jpg",
+      "sha256": "36215457fce7dc281dee5c812ec7e7fc3482feede30193e1e5f7c43810fc73b5"
+     },
+     {
+      "file": "sheets/IMG_6382-121-179-step2.jpg",
+      "sha256": "201b40af765f43b87cddbf278bf7ddaf0f41210b3d9084646d23d9926f850834"
+     },
+     {
+      "file": "sheets/IMG_6382-181-225-step2.jpg",
+      "sha256": "cc30ed22c643f8929257576fb829c825e1d9d47c7b8389d4bddc5e60f94b1893"
+     }
+    ],
+    "enlarged_frames": [
+     1,
+     13,
+     27,
+     29,
+     33,
+     37,
+     41,
+     47,
+     49,
+     53,
+     57,
+     61,
+     155,
+     157,
+     159,
+     163,
+     165,
+     167
+    ],
+    "enlarged_frame_sha256": {
+     "000001.jpg": "49b5f8619a0d09531fb26d1f28eca7a42b30d8f5470fb015ac11cfa44acd7ea0",
+     "000013.jpg": "04534bf1deb82f0da181690ebdd15c7862a42dc03f710bc5c35ca86fc9d22b54",
+     "000027.jpg": "0967c1993c199f19c4a1cc759a5ec95de4be23a9d35e07b6cfbf7a3f6ea4c200",
+     "000029.jpg": "3beaa7111035c4c4748fb0a74cf23499c8738e36e6d0d78e80ef2e8ff326e294",
+     "000033.jpg": "8e1de733b00fc4f05585eda1efac88cf181bff2b5d0fe2c4024d7513b6aa4560",
+     "000037.jpg": "64ab2fedf66fec6948c1d793f9c3242c0fccbc5a98de985480b7234015651d38",
+     "000041.jpg": "f607f741b8fdad9ed89c4602376b48524920e14140feb0fb7deb595d2669e802",
+     "000047.jpg": "1f709ea3251980a74bdaac2d0e68ccbf689a332be9175e5185d0e85fc1d38fee",
+     "000049.jpg": "b375fd59d2f2f1cff3c224dfda02d0f532f7d894b3453711b1500c85a7583940",
+     "000053.jpg": "a3f433f0976ff01b54373e844563a2421795322420b6d3d570bf97e892eef7b4",
+     "000057.jpg": "79439c08f043d62f033596663219ba8f62868fa7b4c586e49c6a4bb81dff0b43",
+     "000061.jpg": "da53c3dbf51c0000621a0473914e668a42c81509d6395dd719dbefca79caf192",
+     "000155.jpg": "f02c2256ffd921d012f1ec41f8f1bdec414a0405f1b974a613bc61cac6f43810",
+     "000157.jpg": "1987b3d59f417341aa00c1e5291cde7f16dc004ab0030c7d9b97d15f12869368",
+     "000159.jpg": "c6c124fbae586e77dfc55fefcae37a34687ead6865086421a6348d081e20964b",
+     "000163.jpg": "7d026eb4196cf1bd2981b8e636349e686128da8e747268b488f19660ea749ab9",
+     "000165.jpg": "d947db1d97786ce1c4589f3b68ef34f554ee04d0644c64219455430a06613541",
+     "000167.jpg": "6a9766ec301cd1c2006fc12e2a34110b36179ba01dc992826508f07e90d441b6"
+    }
+   },
+   "rooms_seen": "Medieval room, complete circuit clockwise from the portal, then two wide pans (77-93 s) and the tall case (99-112 s).",
+   "reconciliation": "Wall assignment agrees with root. Geometry: D2 and D4. Eight wall or floor objects seen are not built (listed in REVIEW.md).",
+   "built_in_v50b": "shell, portal, grille, 4 panels, 2 apostles, 2 case shells built"
+  },
+  {
+   "video": "IMG_6383.MOV",
+   "sha256": "8cfd089e769000369419f577f28a1bfc68b09f8cc7cda4cbe93d840194e6eeef",
+   "seconds": 73.705,
+   "survey_2fps_frames": 147,
+   "root_files": "sculpture-room-inventory.json + perugino-frame-source-fit.json",
+   "root_says_all_frames_reviewed": true,
+   "this_review": {
+    "frames_looked_at": 76,
+    "share_of_survey": 0.52,
+    "sheets": [
+     {
+      "file": "sheets/IMG_6383-001-059-step2.jpg",
+      "sha256": "2125fa75cdc50c4f29546fe27e6d47015998d69229754d38c730182a53a27b13"
+     },
+     {
+      "file": "sheets/IMG_6383-061-119-step2.jpg",
+      "sha256": "5da880d23463293244e09c260d6789fbca5d31905621d39cf20076efe1f6ae18"
+     },
+     {
+      "file": "sheets/IMG_6383-121-147-step2.jpg",
+      "sha256": "8855d3cfbb0287593d691c6209a1a5d6b019cf3f0a263d4628a6fd11ea1644c0"
+     }
+    ],
+    "enlarged_frames": [
+     3,
+     121,
+     123,
+     125,
+     127,
+     129,
+     131,
+     132,
+     133,
+     134,
+     135,
+     139,
+     141,
+     145,
+     147
+    ],
+    "enlarged_frame_sha256": {
+     "000003.jpg": "40290d107e26938cfc7135cd838f46d99ebd7f88f1a2467738a4fc10d3514518",
+     "000121.jpg": "098295abe0d4c797fedc4933a5265532da64d610a65aedaa455624298f36a22e",
+     "000123.jpg": "368d62e54e13ee1969e6445cb48efa47faf6aaed7867af05038dcf714b2ee8d0",
+     "000125.jpg": "23e2584f77f4f87636ffe952e69631b19dce54bd834c6678f9baf6f5026021c6",
+     "000127.jpg": "347017c6ef6c80b2eace327e915f3cdd1daf7e95e4f604cd9ff85cb967736aba",
+     "000129.jpg": "7bf296b6ea564370591134a05c259d3009998681196bb99b6fa04dd22fd09590",
+     "000131.jpg": "888d4e75e40d349efc2b3a84158a7564f9e3349fae056b43fc13add2d1ba85b5",
+     "000132.jpg": "e2a9970a569fb45037816d1581e421bce7c44a4592f166710e084ef173e30cdd",
+     "000133.jpg": "661655146b151cc8ba610e62409f5393f103065226ac6526fe372bfadecf7c0b",
+     "000134.jpg": "3d3325e452a0503f2f0cbfaf18b7abbd8cba68f80181e220c4b5e5056ceb535b",
+     "000135.jpg": "02b0be3748883bb7d3b79524c2ddc1e00e2de97d6ec418c1061663613c864479",
+     "000139.jpg": "55c054dcab564f08f2a30dad417f96954458fff5b440011d31004b15ac3df9bd",
+     "000141.jpg": "72c6e66360fb422743683f75c5c63951df38f73afc27a33f58bfd5698cbc6fd1",
+     "000145.jpg": "22fb416866d94ad053aab0688c8941cc6634841141ba657f76478ee07f75a3b7",
+     "000147.jpg": "1193ef0631322cd507702262bd74d4f029a1cc76738924dd3416c664ee88bc4f"
+    }
+   },
+   "rooms_seen": "Renaissance room, complete circuit, then a full wide pan (60-73 s). Tracery doorway seen from this side at 1.0 and 66.0 s.",
+   "reconciliation": "Wall assignment agrees with root. Only the Perugino, bench, window, plinth and vent are built; nine object groups are not.",
+   "built_in_v50b": "shell built; objects mostly missing"
+  },
+  {
+   "video": "IMG_6384.MOV",
+   "sha256": "0a2255c4fbcbbb44c48202e617b3978abfed4832633c6a21c73b5861570a0530",
+   "seconds": 104.625,
+   "survey_2fps_frames": 209,
+   "root_files": "european-gallery-inventory.json",
+   "root_says_all_frames_reviewed": true,
+   "this_review": {
+    "frames_looked_at": 55,
+    "share_of_survey": 0.26,
+    "sheets": [
+     {
+      "file": "sheets/IMG_6384-001-117-step4.jpg",
+      "sha256": "0ae8eb7c0900cf8ee47eee455a41d8af05f2497979dbee7e8b0bb42e17858dc9"
+     },
+     {
+      "file": "sheets/IMG_6384-121-209-step4.jpg",
+      "sha256": "b9874193a040390d6f1fc8be883615530e8f34a509e305da7868ccb5cbc5870d"
+     }
+    ],
+    "enlarged_frames": [
+     25,
+     29,
+     33,
+     37,
+     43,
+     47
+    ],
+    "enlarged_frame_sha256": {
+     "000025.jpg": "ff5679d70afee4c5ed865bd98a8114ed8155a9e959b34c8cf8b338c8ee63511e",
+     "000029.jpg": "1cb045dab245cd36b635e058d749e4b1b049008ff37a3d13bbcf150be78b26e4",
+     "000033.jpg": "6f6be22c85b428e416db134f1da58b2f368a4c3ad3bd10db69a34b55c16aa981",
+     "000037.jpg": "06b1dcccd6d0849e9a70f03d9f14c912bd88333fb9a22056506d91d593f825cd",
+     "000043.jpg": "14beb55b26cc54c09d5b5dbb0a62cd98a6091320786519ab241ccb4e64c5e491",
+     "000047.jpg": "d1be2ab75760e35e523d50139ec5e156349c8742cfb9cf662b07686c3e8a116a"
+    }
+   },
+   "rooms_seen": "European gallery from the far (Renaissance) end back to the Rockefeller door: far end wall and both long walls.",
+   "reconciliation": "Wall order agrees except D5: two far-wall display groups have east and west swapped, and the Previtali is on the far end wall.",
+   "built_in_v50b": "shell and some objects built"
+  },
+  {
+   "video": "IMG_6385.MOV",
+   "sha256": "a15a2e90b2ae6152727ab1afd3c205d31f0405215e606adf678be3f5c1cf01a2",
+   "seconds": 37.416667,
+   "survey_2fps_frames": 75,
+   "root_files": "european-gallery-inventory.json + video-inventory.json",
+   "root_says_all_frames_reviewed": true,
+   "this_review": {
+    "frames_looked_at": 38,
+    "share_of_survey": 0.51,
+    "sheets": [
+     {
+      "file": "sheets/IMG_6385-001-059-step2.jpg",
+      "sha256": "21a969c4151d9071d9c0cbf063b6930e2476ebf1a660c7ad21083dae5394b779"
+     },
+     {
+      "file": "sheets/IMG_6385-061-075-step2.jpg",
+      "sha256": "c17f0283b36743f4a6e4851177f1e4ec0bce8add097191e7588d1403e9aa60e7"
+     }
+    ],
+    "enlarged_frames": [],
+    "enlarged_frame_sha256": {}
+   },
+   "rooms_seen": "European gallery from the Rockefeller door: dress case in the corner left of the door, print, secretary, prints, Delacroix, silver case.",
+   "reconciliation": "Agrees with root: these are on the west wall.",
+   "built_in_v50b": "secretary built"
+  },
+  {
+   "video": "IMG_6386.MOV",
+   "sha256": "3112391373f03128f0b1a4deac345e7d30c1ed27c4d9d0d850da37d25c97351f",
+   "seconds": 106.713333,
+   "survey_2fps_frames": 213,
+   "root_files": "european-gallery-inventory.json + goltzius-source-fit.json",
+   "root_says_all_frames_reviewed": true,
+   "this_review": {
+    "frames_looked_at": 54,
+    "share_of_survey": 0.25,
+    "sheets": [
+     {
+      "file": "sheets/IMG_6386-001-117-step4.jpg",
+      "sha256": "e682da005fa5e5cd740f55b8dada408a2270e7b3a52d38f500de4987e16eb826"
+     },
+     {
+      "file": "sheets/IMG_6386-121-213-step4.jpg",
+      "sha256": "5bd7218de2626f57a266a22b7887689191f69da1aff932552bf63e3ca715e339"
+     }
+    ],
+    "enlarged_frames": [
+     141,
+     153,
+     177,
+     197,
+     205,
+     209
+    ],
+    "enlarged_frame_sha256": {
+     "000141.jpg": "88fcc0e64bdff3eee09f5d98b2467e6055ac46a7adaa621983fc3e1c9e66bdb5",
+     "000153.jpg": "e163dd8a67776f15facab1c695dec49c30c51312d030e0636b22c905c7afebee",
+     "000177.jpg": "e981e1459d2c5858fcdef0e59f2537eaa4f453e2ff8dee5f94db075b7887acfb",
+     "000197.jpg": "4fa54b60d3a2d2c524a39959dfb9f410779cfbdbb4878241662f616dfc4f8789",
+     "000205.jpg": "2140073c6d43860c1e97b94f9bfbcef1e319fbf2ff38d497f7e945b4d3a1a916",
+     "000209.jpg": "0a49524051c0d1012c11e5bac556d9998d2363c1ff6f5833402d5732801cacac"
+    }
+   },
+   "rooms_seen": "European gallery west wall and cases, long views both ways (70-88 s), far doorway and the walk through into the Renaissance room (98-106 s).",
+   "reconciliation": "Agrees with root, including two door leaves opening into the Renaissance room.",
+   "built_in_v50b": "shell and some objects built"
+  },
+  {
+   "video": "IMG_6387.MOV",
+   "sha256": "75c4892c1a37e1c83dd7103187d1c284e13fd0ac458710f4e8fd6e14daf1c7af",
+   "seconds": 85.538333,
+   "survey_2fps_frames": 171,
+   "root_files": "hall-stairs-inventory.json + modern-frames-source-fit.json",
+   "root_says_all_frames_reviewed": true,
+   "this_review": {
+    "frames_looked_at": 93,
+    "share_of_survey": 0.54,
+    "sheets": [
+     {
+      "file": "sheets/IMG_6387-001-059-step2.jpg",
+      "sha256": "b3a7b35812e11b663462b561b9ce1b9c7dbd608660f0fb5dbad95c4b26a62d4e"
+     },
+     {
+      "file": "sheets/IMG_6387-061-119-step2.jpg",
+      "sha256": "e93d98a3d989fd5f8737eba3d8f9470c15cb70842c9540e05d7fa911db67fcdf"
+     },
+     {
+      "file": "sheets/IMG_6387-121-171-step2.jpg",
+      "sha256": "e9bd9d756970b5fa0ff22c30167bc565458a4c0299fbb854f9ed61779710d607"
+     }
+    ],
+    "enlarged_frames": [
+     7,
+     9,
+     11,
+     13,
+     15,
+     17,
+     19,
+     20,
+     21,
+     23,
+     27,
+     75,
+     79,
+     83,
+     85,
+     86,
+     87,
+     88,
+     89,
+     90,
+     91,
+     92,
+     93,
+     94,
+     95,
+     96,
+     165,
+     167,
+     171
+    ],
+    "enlarged_frame_sha256": {
+     "000007.jpg": "5a0902f1771f1e0fe730e905de10ebfe2724d18ae5638faf4eca6541d8163bcd",
+     "000009.jpg": "be6e4955d10e3a4776bda5cfc0052e1052ae150450e501228c19878764f72c81",
+     "000011.jpg": "9165a19bb342e0c49f762981c42bb9a3a915f178093cc1824f87cd9b2c98d358",
+     "000013.jpg": "e71c249940d9399432cf8b94c78be21d37a94ba25c9a11dd560240caa4a02131",
+     "000015.jpg": "8aa316d63bacfd00a4163470dc9392779c8416c2f1166e6c1a50f1c0cc6ccd56",
+     "000017.jpg": "353030ad12f7d3d2b2df87aaed05aee6cf1e7e90c3ac8e6f96681ade6a01f3a5",
+     "000019.jpg": "14f2c83cfd0b3acd161f090f510058c4005b0b2ec0a018265cbfea1f446c065e",
+     "000020.jpg": "d944e0da49fa884d217bbffcb649396f21be0141d3f445c63c4192a8a3181627",
+     "000021.jpg": "cc5596ccef879448385221ced7a100160826a4ddaa4544453c6797ad06b597dd",
+     "000023.jpg": "d99a2f425fef56f01887470725dc179b094f9320ab3d67f97a4166333e06f0cf",
+     "000027.jpg": "be4b1329a6beb6e03ab1f138ec8c4244dbfe6d6988ab5b1ea00f2025f60688c6",
+     "000075.jpg": "def7a36327be24d369049ff3ad5257210fac98947e66985d7ea191ba9c56a67d",
+     "000079.jpg": "4a79aafeb157fcc072eb3b7bad076de6e949fe984f40a79a8c84428d223395f8",
+     "000083.jpg": "98b1a2974fc09e31e622bfd62338ec853f7d3ac64e9b6e1c8a1e00b66b9e791e",
+     "000085.jpg": "350d3fbf6cad14daba6fbe125c4f9a5306a1ec53c45f3376e4d865b0e7eaefb6",
+     "000086.jpg": "f7761b37ebc6df4203f36846f665ddff7564451432e539fa95983bd23365f007",
+     "000087.jpg": "7fa096e4167e4f8a315868aac0c45c4ba19d11972dcd3638b092eb3e2d30995b",
+     "000088.jpg": "2d2971e9c136dafdd67d8eedef64e09585c4dd0606ff9397961f4a5c3262e3cf",
+     "000089.jpg": "9f3091af3c16aaea812aa13aec4dfa368d89029e61ba9165e5dbbb0358db005c",
+     "000090.jpg": "70138e5ca0f789947d50fdec5316d68c04eda2520d3f1a6ce6508c0b039f3d81",
+     "000091.jpg": "8b046584a9f41b2e75cd7f8414c70d97915b42eb517b63d1834cbec199c8efbe",
+     "000092.jpg": "0d76e8eeda627b218d110a8196d4cd5ac4a40e4f6160c67188ed2e787ee92aea",
+     "000093.jpg": "98d1d794af8c10356ff68582269210ae98316875b66328aa49754e79b469f1b3",
+     "000094.jpg": "b22c11f7551ab96544728e9db6a9788eca3d50406a4dfc92c2684d04a443ef56",
+     "000095.jpg": "51c7697a617f3a16fe250a80404d9c5c53af8d12386add273f390d7372a04818",
+     "000096.jpg": "0a6a2bbb83362ebe7a3191669cd4302b217eee1e99fb83fad36e71eb48616793",
+     "000165.jpg": "60f6d98399d1601683931b6fe81e76fc9c57838259b41682cf95bafcf98a3b5b",
+     "000167.jpg": "8b9347c0ea90327757c18c6a3a407789c5d98043824cefaae3190b505ff951b7",
+     "000171.jpg": "21ca17efb929705673da270369d5f18a6e14f1b9643577f27f832a5f67d7b767"
+    }
+   },
+   "rooms_seen": "Lion landing, two pans (1-11 s, 41-45 s), stairwell (13-34 s), sculpture door (35-39 s), walk into the modern gallery and a full pan (45.5-85 s).",
+   "reconciliation": "Does NOT agree with root: D1. Root has the modern door opposite the medieval door and the sculpture door on the adjoining south wall.",
+   "built_in_v50b": "landing and modern room built on the wrong walls; sculpture gallery is a stub"
+  }
+ ]
+}

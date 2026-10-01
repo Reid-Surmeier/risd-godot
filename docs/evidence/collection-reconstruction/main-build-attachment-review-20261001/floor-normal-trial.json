@@ -1,0 +1,9 @@
+{
+  "source": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50d",
+  "trial": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50d-floor-normal-trial",
+  "file": "collection_rooms/remodel_room.gd",
+  "before": "08ecb9dafa50f0c7c5f582a58f0f8a9f238fce35ec99404158c062a97bb6aaed",
+  "after": "7768a1768d8bb941fc91abc2fb1d14ab10fd8119be5021268aa74a241f27e823",
+  "change": "Only floor oak panels with downward normals reverse corners and UVs together; no Hall/helper/shader change",
+  "production": false
+}

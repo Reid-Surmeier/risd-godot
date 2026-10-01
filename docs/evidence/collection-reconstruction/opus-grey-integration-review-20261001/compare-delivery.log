@@ -1,0 +1,86 @@
+PASS  room 'grey French gallery' equals the plan
+PASS  room 'purple elevator-5 connector' equals the plan
+PASS  room 'Rockefeller' equals the plan
+PASS  room 'adjacent gallery' equals the plan
+PASS  room 'Ionic marble-stair threshold study limit' equals the plan
+PASS  room 'piano-stair threshold study limit' equals the plan
+PASS  room 'Grand Gallery' equals the plan
+PASS  the 6 rooms outside the register change are identical to the baseline
+PASS  every opening has exactly one partner on a shared wall line (26 paired openings, 13 pairs)
+PASS  no two rooms overlap in plan
+PASS  corner return to clear opening 0.30 m is inside the fit's range 0.15..0.45
+PASS  door clear width 1.84 m is inside the fit's range 1.60..2.10
+PASS  grey west wall length 6.00 m is inside the fit's range 5.40..6.60
+PASS  grey_register flags: every metric and loop flag is false
+PASS  every floor triangle (5390 in 1617 meshes) has an upward clockwise front and an upward stored normal
+PASS  negative control: the baseline floors fail that same test (48 wrong fronts, 3316 down or missing normals)
+PASS  retained Main Hall: 139 meshes; frame or canvas textures for all 23 works listed in its works.json are on retained meshes; 343 of 343 non-import source files hash-equal; same attachment point
+{
+ "Rockefeller": {
+  "wall or floor piece moved +2.20 z": 247,
+  "wall or floor piece rebuilt": 9,
+  "wall or floor piece moved +2.46 z": 2,
+  "wall or floor piece moved +2.70 z": 2,
+  "object moved +2.20 z": 226,
+  "object moved +2.58 z": 1
+ },
+ "European gallery": {
+  "wall or floor piece rebuilt": 110,
+  "wall or floor piece moved +2.20 z": 636,
+  "wall or floor piece moved +0.00 z": 27,
+  "object moved +2.20 z": 11,
+  "object moved +0.00 z": 31
+ },
+ "elsewhere (medieval, Renaissance, landing, modern)": {
+  "wall or floor piece moved +0.00 z": 807,
+  "object moved +0.00 z": 698
+ },
+ "connector": {
+  "wall or floor piece rebuilt": 13,
+  "wall or floor piece moved +2.46 z": 33,
+  "wall or floor piece moved +2.70 z": 15,
+  "object moved +2.46 z": 3
+ },
+ "grey gallery and thresholds": {
+  "wall or floor piece rebuilt": 39,
+  "wall or floor piece moved +1.60 z": 104,
+  "wall or floor piece moved +0.00 z": 18,
+  "wall or floor piece moved +2.46 z": 2,
+  "wall or floor piece moved +2.70 z": 2,
+  "object moved +1.60 z": 23,
+  "object moved +0.00 z": 23,
+  "object moved +1.29 z": 4
+ },
+ "Main Hall footprint (authored extras)": {
+  "wall or floor piece moved +0.00 z": 17,
+  "object moved +0.00 z": 5
+ }
+}
+PASS  nothing outside the four changed rooms moved (1505 nodes)
+PASS  authored extras inside the Hall footprint did not move (22 nodes)
+PASS  every Rockefeller object moved exactly +2.20 m with its room (226 objects); only the vent over the east door moved with the door (+2.58)
+PASS  Courbet 43.571 hangs on the west wall with its centre inside the fit's range -3.40..-2.75
+PASS  Courbet centre is 1.14 m from the north-west corner (fit 1.05..1.25)
+PASS  Corot 24.089 rides the moved north wall
+PASS  Bertin 56.214 stays on the Hall-door wall
+PASS  four black panels sit on the connector's south wall face
+PASS  lift doors and the '5' sit on the connector's north wall face, as in the baseline
+UNVER the '5' on the connector's north side is supported by IMG_6380 103.0 s (a large 5 on a pale surface on the purple side); the lift doors themselves are not seen in any frame reviewed here. The black south wall also carries a screen with a small 5, a black door, a fire pull and an extinguisher (101.6, 104.0, 240.3, 246.0 s), none of them built. Not part of this change.
+PASS  two free columns stand in the Ionic opening, clear of both ends
+UNVER column spacing: the delivery puts them at z [-2.6, 0.2] (1.6 m from each end of a 6.0 m opening). The fit did not measure it; nothing here does either.
+PASS  grey gallery door leaves: two at the piano door on the moved north wall, two at the Hall door
+PASS  the barn painting is not built and is flagged as not built
+PASS  a visitor walking the connector axis clears the Hall door's open west leaf (0.075 m)
+PASS  European gallery west wall keeps the source order from the Rockefeller door and everything is inside the room
+UNVER Fetti, both piers, Goltzius and the far door leaves keep their old z by the delivery's own choice; their distance from either end of the gallery is unmeasured in every source reviewed.
+PASS  nothing authored is left in the vacated connector slot or north of the moved Rockefeller and grey north walls
+UNVER sight lines: 10 of 20 wall points that are in plain view in the two source frames are hidden by a door leaf from the delivery's own source-view cameras (camera positions are approximations): [('grey-west-wall-source', 'Courbet north frame edge', '@StaticBody3D@2735 size (0.06, 2.7, 0.95) at (4.51, 1.35, -3.75)'), ('grey-west-wall-source', 'door south jamb', '@StaticBody3D@2753 size (0.06, 2.7, 0.95) at (4.51, 1.35, 1.35)'), ('grey-west-wall-source', 'north-west corner', '@StaticBody3D@2735 size (0.06, 2.7, 0.95) at (4.51, 1.35, -3.75)'), ('grey-west-wall-source', 'south-west corner return', '@StaticBody3D@2753 size (0.06, 2.7, 0.95) at (4.51, 1.35, 1.35)'), ('grey-west-wall-source', 'wall between Courbet and north-west corner', '@StaticBody3D@2735 size (0.06, 2.7, 0.95) at (4.51, 1.35, -3.75)'), ('grey-west-wall-stair', 'Courbet north frame edge', '@StaticBody3D@2735 size (0.06, 2.7, 0.95) at (4.51, 1.35, -3.75)'), ('grey-west-wall-stair', 'door south jamb', '@StaticBody3D@2753 size (0.06, 2.7, 0.95) at (4.51, 1.35, 1.35)'), ('grey-west-wall-stair', 'north-west corner', '@StaticBody3D@2735 size (0.06, 2.7, 0.95) at (4.51, 1.35, -3.75)'), ('grey-west-wall-stair', 'south-west corner return', '@StaticBody3D@2753 size (0.06, 2.7, 0.95) at (4.51, 1.35, 1.35)'), ('grey-west-wall-stair', 'wall between Courbet and north-west corner', '@StaticBody3D@2735 size (0.06, 2.7, 0.95) at (4.51, 1.35, -3.75)')]
+PASS  walk: no trial that passed on the baseline fails on the delivery (84 of 87 pass; 22 rows re-aimed)
+UNVER walk trials failing on the baseline and on the delivery alike (retained-Hall portal guard and similar): ['loop_16', 'medieval_between_cases_clear', 'medieval_stairs_aisle_clear']
+PASS  walk: connector, Rockefeller east door, piano door, Ionic opening, Hall door and European door pass both ways
+PASS  walk: every loop leg that passed on the baseline passes (32 of 33 legs pass)
+PASS  review cameras: each of the 37 changed or new views stands inside a room, outside every solid, with a clear first half of its sight line
+UNVER review cameras were placed by arithmetic here too; nothing was rendered, so framing and what each view shows are not checked
+PASS  bake lights: same count of every kind as the baseline, each inside a room and below its ceiling
+PASS  bake lights outside the changed rooms did not move
+{"passed": 38, "failed": 0, "unverified": 6}

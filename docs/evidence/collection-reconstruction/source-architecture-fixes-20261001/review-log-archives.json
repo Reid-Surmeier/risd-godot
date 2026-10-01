@@ -1,0 +1,17 @@
+{
+  "files": [
+    {
+      "raw": "docs/evidence/collection-reconstruction/opus-grey-integration-review-20261001/cross-ratio.txt",
+      "archive": "docs/evidence/collection-reconstruction/opus-grey-integration-review-20261001/cross-ratio.txt.gz",
+      "raw_sha256": "e50a45ac315aa37a6fa5f680a094232360f6943ff7e6d9c20ffdf637d576db07",
+      "archive_sha256": "29489f56e7b8b6e6fbb148c0dbd26b8cba135153f2c23f4d70a4ac3a541c2dd1"
+    },
+    {
+      "raw": "docs/evidence/collection-reconstruction/opus-grey-integration-review-20261001/followup-diff.log",
+      "archive": "docs/evidence/collection-reconstruction/opus-grey-integration-review-20261001/followup-diff.log.gz",
+      "raw_sha256": "8f59523c58a781e941f87948740196691aba2a1dd64cc9a032015a2d74ba1281",
+      "archive_sha256": "1ed2b04f89d72d7b7d02c1be8a1ee12fededd91deb43df2b377d9b90a70dfa67"
+    }
+  ],
+  "reason": "Raw bytes retained in gzip; decompress to reproduce worker hashes."
+}

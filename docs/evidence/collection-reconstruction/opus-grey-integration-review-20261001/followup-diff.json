@@ -1,0 +1,4255 @@
+{
+ "checks": {
+  "rooms equal": true,
+  "floor triangles all face up": true,
+  "Hall retained meshes, work tags and files equal": true,
+  "no walk trial regressed": true,
+  "same walk trials": true
+ },
+ "walk_regressions": [],
+ "walk_passed": [
+  171,
+  171,
+  174
+ ],
+ "floors": {
+  "meshes": 1617,
+  "triangles": 5390,
+  "front_faces_down": 0,
+  "stored_normal_down": 0,
+  "no_normals": 0
+ },
+ "hall": {
+  "files_listed": 362,
+  "inventory": {
+   "main_hall_native_meshes_retained": 133,
+   "main_hall_rebuilt": false,
+   "main_hall_verified_paintings": 23
+  },
+  "non_import_files": 343,
+  "non_import_files_hash_equal": 343,
+  "position": [
+   5.55000019073486,
+   0.0,
+   28.1000003814697
+  ],
+  "retained_meshes": 139,
+  "retained_work_tags": [
+   "E1",
+   "E2",
+   "E3",
+   "E4",
+   "E5",
+   "E6",
+   "E7",
+   "E8",
+   "E9",
+   "N1",
+   "N2",
+   "S1",
+   "S2",
+   "W1",
+   "W10",
+   "W2",
+   "W3",
+   "W4",
+   "W5",
+   "W6",
+   "W7",
+   "W8",
+   "W9"
+  ],
+  "script": "res://retained_hall_room.gd",
+  "source_tip": "317b8f3b8dac0f9811d396bcb0260c7187f93f11",
+  "works_json_tags": [
+   "E1",
+   "E2",
+   "E3",
+   "E4",
+   "E5",
+   "E6",
+   "E7",
+   "E8",
+   "E9",
+   "N1",
+   "N2",
+   "S1",
+   "S2",
+   "W1",
+   "W10",
+   "W2",
+   "W3",
+   "W4",
+   "W5",
+   "W6",
+   "W7",
+   "W8",
+   "W9"
+  ]
+ },
+ "unchanged_nodes": 2889,
+ "removed": [
+  {
+   "kind": "body",
+   "look": "",
+   "tag": "",
+   "box": [
+    4.48,
+    0.0,
+    -4.225,
+    4.54,
+    2.7,
+    -3.275
+   ]
+  },
+  {
+   "kind": "body",
+   "look": "",
+   "tag": "",
+   "box": [
+    4.48,
+    0.0,
+    0.875,
+    4.54,
+    2.7,
+    1.825
+   ]
+  },
+  {
+   "kind": "body",
+   "look": "",
+   "tag": "",
+   "box": [
+    6.56,
+    0.0,
+    -4.225,
+    6.62,
+    2.7,
+    -3.275
+   ]
+  },
+  {
+   "kind": "body",
+   "look": "",
+   "tag": "",
+   "box": [
+    6.56,
+    0.0,
+    0.875,
+    6.62,
+    2.7,
+    1.825
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "28262bff",
+   "tag": "wall=purple elevator-5 connector:south",
+   "box": [
+    1.735,
+    0.0,
+    1.43,
+    2.225,
+    2.9,
+    1.43
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "28262bff",
+   "tag": "wall=purple elevator-5 connector:south",
+   "box": [
+    2.255,
+    0.0,
+    1.43,
+    2.745,
+    2.9,
+    1.43
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "28262bff",
+   "tag": "wall=purple elevator-5 connector:south",
+   "box": [
+    2.775,
+    0.0,
+    1.43,
+    3.265,
+    2.9,
+    1.43
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "28262bff",
+   "tag": "wall=purple elevator-5 connector:south",
+   "box": [
+    3.295,
+    0.0,
+    1.43,
+    3.785,
+    2.9,
+    1.43
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "eeeae2ff",
+   "tag": "",
+   "box": [
+    4.48,
+    0.0,
+    -4.225,
+    4.54,
+    2.7,
+    -3.275
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "eeeae2ff",
+   "tag": "",
+   "box": [
+    4.48,
+    0.0,
+    0.875,
+    4.54,
+    2.7,
+    1.825
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "eeeae2ff",
+   "tag": "",
+   "box": [
+    6.56,
+    0.0,
+    -4.225,
+    6.62,
+    2.7,
+    -3.275
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "eeeae2ff",
+   "tag": "",
+   "box": [
+    6.56,
+    0.0,
+    0.875,
+    6.62,
+    2.7,
+    1.825
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|baseboard.png",
+   "tag": "wall=purple elevator-5 connector:north",
+   "box": [
+    1.7,
+    0.0,
+    -0.263,
+    3.85,
+    0.16,
+    -0.24
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|baseboard.png",
+   "tag": "wall=purple elevator-5 connector:south",
+   "box": [
+    1.7,
+    0.0,
+    1.4,
+    3.85,
+    0.16,
+    1.423
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:east:header",
+   "box": [
+    1.455,
+    0.0,
+    -0.42,
+    1.492,
+    2.7,
+    -0.26
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:east:header",
+   "box": [
+    1.455,
+    0.0,
+    1.42,
+    1.492,
+    2.7,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:east:header",
+   "box": [
+    1.455,
+    2.65,
+    -0.42,
+    1.492,
+    2.81,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:east:header",
+   "box": [
+    1.908,
+    0.0,
+    -0.42,
+    1.945,
+    2.7,
+    -0.26
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:east:header",
+   "box": [
+    1.908,
+    0.0,
+    1.42,
+    1.945,
+    2.7,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:east:header",
+   "box": [
+    1.908,
+    2.65,
+    -0.42,
+    1.945,
+    2.81,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:south:header",
+   "box": [
+    -3.58,
+    0.0,
+    1.555,
+    -3.42,
+    2.7,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:south:header",
+   "box": [
+    -3.58,
+    0.0,
+    2.008,
+    -3.42,
+    2.7,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:south:header",
+   "box": [
+    -3.58,
+    2.65,
+    1.555,
+    -1.42,
+    2.81,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:south:header",
+   "box": [
+    -3.58,
+    2.65,
+    2.008,
+    -1.42,
+    2.81,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:south:header",
+   "box": [
+    -1.58,
+    0.0,
+    1.555,
+    -1.42,
+    2.7,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:south:header",
+   "box": [
+    -1.58,
+    0.0,
+    2.008,
+    -1.42,
+    2.7,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:north:header",
+   "box": [
+    -3.58,
+    0.0,
+    1.555,
+    -3.42,
+    2.7,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:north:header",
+   "box": [
+    -3.58,
+    0.0,
+    2.008,
+    -3.42,
+    2.7,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:north:header",
+   "box": [
+    -3.58,
+    2.65,
+    1.555,
+    -1.42,
+    2.81,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:north:header",
+   "box": [
+    -3.58,
+    2.65,
+    2.008,
+    -1.42,
+    2.81,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:north:header",
+   "box": [
+    -1.58,
+    0.0,
+    1.555,
+    -1.42,
+    2.7,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:north:header",
+   "box": [
+    -1.58,
+    0.0,
+    2.008,
+    -1.42,
+    2.7,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:south:header",
+   "box": [
+    -3.58,
+    0.0,
+    27.855,
+    -3.42,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:south:header",
+   "box": [
+    -3.58,
+    0.0,
+    28.308,
+    -3.42,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:south:header",
+   "box": [
+    -3.58,
+    2.65,
+    27.855,
+    -1.42,
+    2.81,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:south:header",
+   "box": [
+    -3.58,
+    2.65,
+    28.308,
+    -1.42,
+    2.81,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:south:header",
+   "box": [
+    -1.58,
+    0.0,
+    27.855,
+    -1.42,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:south:header",
+   "box": [
+    -1.58,
+    0.0,
+    28.308,
+    -1.42,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=dark medieval room:east:header",
+   "box": [
+    10.305,
+    0.0,
+    30.835,
+    10.342,
+    2.7,
+    30.995
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=dark medieval room:east:header",
+   "box": [
+    10.305,
+    0.0,
+    32.535,
+    10.342,
+    2.7,
+    32.695
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=dark medieval room:east:header",
+   "box": [
+    10.305,
+    2.65,
+    30.835,
+    10.342,
+    2.81,
+    32.695
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=dark medieval room:east:header",
+   "box": [
+    10.758,
+    0.0,
+    30.835,
+    10.795,
+    2.7,
+    30.995
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=dark medieval room:east:header",
+   "box": [
+    10.758,
+    0.0,
+    32.535,
+    10.795,
+    2.7,
+    32.695
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=dark medieval room:east:header",
+   "box": [
+    10.758,
+    2.65,
+    30.835,
+    10.795,
+    2.81,
+    32.695
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:north:header",
+   "box": [
+    4.47,
+    0.0,
+    -4.445,
+    4.63,
+    2.7,
+    -4.408
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:north:header",
+   "box": [
+    4.47,
+    0.0,
+    -3.992,
+    4.63,
+    2.7,
+    -3.955
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:north:header",
+   "box": [
+    4.47,
+    2.65,
+    -4.445,
+    6.63,
+    2.81,
+    -4.408
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:north:header",
+   "box": [
+    4.47,
+    2.65,
+    -3.992,
+    6.63,
+    2.81,
+    -3.955
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:north:header",
+   "box": [
+    6.47,
+    0.0,
+    -4.445,
+    6.63,
+    2.7,
+    -4.408
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:north:header",
+   "box": [
+    6.47,
+    0.0,
+    -3.992,
+    6.63,
+    2.7,
+    -3.955
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:south:header",
+   "box": [
+    4.47,
+    0.0,
+    1.555,
+    4.63,
+    2.7,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:south:header",
+   "box": [
+    4.47,
+    0.0,
+    2.008,
+    4.63,
+    2.7,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:south:header",
+   "box": [
+    4.47,
+    2.65,
+    1.555,
+    6.63,
+    2.81,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:south:header",
+   "box": [
+    4.47,
+    2.65,
+    2.008,
+    6.63,
+    2.81,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:south:header",
+   "box": [
+    6.47,
+    0.0,
+    1.555,
+    6.63,
+    2.7,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:south:header",
+   "box": [
+    6.47,
+    0.0,
+    2.008,
+    6.63,
+    2.7,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:west:header",
+   "box": [
+    3.605,
+    0.0,
+    -0.42,
+    3.642,
+    2.7,
+    -0.26
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:west:header",
+   "box": [
+    3.605,
+    0.0,
+    1.42,
+    3.642,
+    2.7,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:west:header",
+   "box": [
+    3.605,
+    2.65,
+    -0.42,
+    3.642,
+    2.81,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:west:header",
+   "box": [
+    4.058,
+    0.0,
+    -0.42,
+    4.095,
+    2.7,
+    -0.26
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:west:header",
+   "box": [
+    4.058,
+    0.0,
+    1.42,
+    4.095,
+    2.7,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:west:header",
+   "box": [
+    4.058,
+    2.65,
+    -0.42,
+    4.095,
+    2.81,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=light Renaissance room:north:header",
+   "box": [
+    -3.58,
+    0.0,
+    27.855,
+    -3.42,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=light Renaissance room:north:header",
+   "box": [
+    -3.58,
+    0.0,
+    28.308,
+    -3.42,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=light Renaissance room:north:header",
+   "box": [
+    -3.58,
+    2.65,
+    27.855,
+    -1.42,
+    2.81,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=light Renaissance room:north:header",
+   "box": [
+    -3.58,
+    2.65,
+    28.308,
+    -1.42,
+    2.81,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=light Renaissance room:north:header",
+   "box": [
+    -1.58,
+    0.0,
+    27.855,
+    -1.42,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=light Renaissance room:north:header",
+   "box": [
+    -1.58,
+    0.0,
+    28.308,
+    -1.42,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:east:header",
+   "box": [
+    15.905,
+    0.0,
+    29.42,
+    15.942,
+    2.7,
+    29.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:east:header",
+   "box": [
+    15.905,
+    0.0,
+    31.42,
+    15.942,
+    2.7,
+    31.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:east:header",
+   "box": [
+    15.905,
+    2.65,
+    29.42,
+    15.942,
+    2.81,
+    31.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:east:header",
+   "box": [
+    16.358,
+    0.0,
+    29.42,
+    16.395,
+    2.7,
+    29.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:east:header",
+   "box": [
+    16.358,
+    0.0,
+    31.42,
+    16.395,
+    2.7,
+    31.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:east:header",
+   "box": [
+    16.358,
+    2.65,
+    29.42,
+    16.395,
+    2.81,
+    31.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:north:header",
+   "box": [
+    10.92,
+    0.0,
+    27.855,
+    11.08,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:north:header",
+   "box": [
+    10.92,
+    0.0,
+    28.308,
+    11.08,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:north:header",
+   "box": [
+    10.92,
+    2.65,
+    27.855,
+    12.78,
+    2.81,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:north:header",
+   "box": [
+    10.92,
+    2.65,
+    28.308,
+    12.78,
+    2.81,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:north:header",
+   "box": [
+    12.62,
+    0.0,
+    27.855,
+    12.78,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:north:header",
+   "box": [
+    12.62,
+    0.0,
+    28.308,
+    12.78,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:west:header",
+   "box": [
+    10.305,
+    0.0,
+    30.835,
+    10.342,
+    2.7,
+    30.995
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:west:header",
+   "box": [
+    10.305,
+    0.0,
+    32.535,
+    10.342,
+    2.7,
+    32.695
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:west:header",
+   "box": [
+    10.305,
+    2.65,
+    30.835,
+    10.342,
+    2.81,
+    32.695
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:west:header",
+   "box": [
+    10.758,
+    0.0,
+    30.835,
+    10.795,
+    2.7,
+    30.995
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:west:header",
+   "box": [
+    10.758,
+    0.0,
+    32.535,
+    10.795,
+    2.7,
+    32.695
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:west:header",
+   "box": [
+    10.758,
+    2.65,
+    30.835,
+    10.795,
+    2.81,
+    32.695
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern adjoining gallery threshold study limit:south:header",
+   "box": [
+    15.02,
+    0.0,
+    22.055,
+    15.18,
+    2.7,
+    22.092
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern adjoining gallery threshold study limit:south:header",
+   "box": [
+    15.02,
+    0.0,
+    22.508,
+    15.18,
+    2.7,
+    22.545
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern adjoining gallery threshold study limit:south:header",
+   "box": [
+    15.02,
+    2.65,
+    22.055,
+    16.48,
+    2.81,
+    22.092
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern adjoining gallery threshold study limit:south:header",
+   "box": [
+    15.02,
+    2.65,
+    22.508,
+    16.48,
+    2.81,
+    22.545
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern adjoining gallery threshold study limit:south:header",
+   "box": [
+    16.32,
+    0.0,
+    22.055,
+    16.48,
+    2.7,
+    22.092
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern adjoining gallery threshold study limit:south:header",
+   "box": [
+    16.32,
+    0.0,
+    22.508,
+    16.48,
+    2.7,
+    22.545
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:north:header",
+   "box": [
+    15.02,
+    0.0,
+    22.055,
+    15.18,
+    2.7,
+    22.092
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:north:header",
+   "box": [
+    15.02,
+    0.0,
+    22.508,
+    15.18,
+    2.7,
+    22.545
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:north:header",
+   "box": [
+    15.02,
+    2.65,
+    22.055,
+    16.48,
+    2.81,
+    22.092
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:north:header",
+   "box": [
+    15.02,
+    2.65,
+    22.508,
+    16.48,
+    2.81,
+    22.545
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:north:header",
+   "box": [
+    16.32,
+    0.0,
+    22.055,
+    16.48,
+    2.7,
+    22.092
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:north:header",
+   "box": [
+    16.32,
+    0.0,
+    22.508,
+    16.48,
+    2.7,
+    22.545
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:south:header",
+   "box": [
+    10.92,
+    0.0,
+    27.855,
+    11.08,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:south:header",
+   "box": [
+    10.92,
+    0.0,
+    28.308,
+    11.08,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:south:header",
+   "box": [
+    10.92,
+    2.65,
+    27.855,
+    12.78,
+    2.81,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:south:header",
+   "box": [
+    10.92,
+    2.65,
+    28.308,
+    12.78,
+    2.81,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:south:header",
+   "box": [
+    12.62,
+    0.0,
+    27.855,
+    12.78,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:south:header",
+   "box": [
+    12.62,
+    0.0,
+    28.308,
+    12.78,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=piano-stair threshold study limit:south:header",
+   "box": [
+    4.47,
+    0.0,
+    -4.445,
+    4.63,
+    2.7,
+    -4.408
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=piano-stair threshold study limit:south:header",
+   "box": [
+    4.47,
+    0.0,
+    -3.992,
+    4.63,
+    2.7,
+    -3.955
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=piano-stair threshold study limit:south:header",
+   "box": [
+    4.47,
+    2.65,
+    -4.445,
+    6.63,
+    2.81,
+    -4.408
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=piano-stair threshold study limit:south:header",
+   "box": [
+    4.47,
+    2.65,
+    -3.992,
+    6.63,
+    2.81,
+    -3.955
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=piano-stair threshold study limit:south:header",
+   "box": [
+    6.47,
+    0.0,
+    -4.445,
+    6.63,
+    2.7,
+    -4.408
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=piano-stair threshold study limit:south:header",
+   "box": [
+    6.47,
+    0.0,
+    -3.992,
+    6.63,
+    2.7,
+    -3.955
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:east:header",
+   "box": [
+    3.605,
+    0.0,
+    -0.42,
+    3.642,
+    2.7,
+    -0.26
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:east:header",
+   "box": [
+    3.605,
+    0.0,
+    1.42,
+    3.642,
+    2.7,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:east:header",
+   "box": [
+    3.605,
+    2.65,
+    -0.42,
+    3.642,
+    2.81,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:east:header",
+   "box": [
+    4.058,
+    0.0,
+    -0.42,
+    4.095,
+    2.7,
+    -0.26
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:east:header",
+   "box": [
+    4.058,
+    0.0,
+    1.42,
+    4.095,
+    2.7,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:east:header",
+   "box": [
+    4.058,
+    2.65,
+    -0.42,
+    4.095,
+    2.81,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:west:header",
+   "box": [
+    1.455,
+    0.0,
+    -0.42,
+    1.492,
+    2.7,
+    -0.26
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:west:header",
+   "box": [
+    1.455,
+    0.0,
+    1.42,
+    1.492,
+    2.7,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:west:header",
+   "box": [
+    1.455,
+    2.65,
+    -0.42,
+    1.492,
+    2.81,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:west:header",
+   "box": [
+    1.908,
+    0.0,
+    -0.42,
+    1.945,
+    2.7,
+    -0.26
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:west:header",
+   "box": [
+    1.908,
+    0.0,
+    1.42,
+    1.945,
+    2.7,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:west:header",
+   "box": [
+    1.908,
+    2.65,
+    -0.42,
+    1.945,
+    2.81,
+    1.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=white sculpture gallery threshold study limit:west:header",
+   "box": [
+    15.905,
+    0.0,
+    29.42,
+    15.942,
+    2.7,
+    29.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=white sculpture gallery threshold study limit:west:header",
+   "box": [
+    15.905,
+    0.0,
+    31.42,
+    15.942,
+    2.7,
+    31.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=white sculpture gallery threshold study limit:west:header",
+   "box": [
+    15.905,
+    2.65,
+    29.42,
+    15.942,
+    2.81,
+    31.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=white sculpture gallery threshold study limit:west:header",
+   "box": [
+    16.358,
+    0.0,
+    29.42,
+    16.395,
+    2.7,
+    29.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=white sculpture gallery threshold study limit:west:header",
+   "box": [
+    16.358,
+    0.0,
+    31.42,
+    16.395,
+    2.7,
+    31.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=white sculpture gallery threshold study limit:west:header",
+   "box": [
+    16.358,
+    2.65,
+    29.42,
+    16.395,
+    2.81,
+    31.58
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-0.png",
+   "tag": "",
+   "box": [
+    4.475,
+    1.575,
+    -4.12,
+    4.475,
+    2.525,
+    -3.38
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-0.png",
+   "tag": "",
+   "box": [
+    4.475,
+    1.575,
+    0.98,
+    4.475,
+    2.525,
+    1.72
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-0.png",
+   "tag": "",
+   "box": [
+    4.545,
+    1.575,
+    -4.12,
+    4.545,
+    2.525,
+    -3.38
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-0.png",
+   "tag": "",
+   "box": [
+    4.545,
+    1.575,
+    0.98,
+    4.545,
+    2.525,
+    1.72
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-0.png",
+   "tag": "",
+   "box": [
+    6.555,
+    1.575,
+    -4.12,
+    6.555,
+    2.525,
+    -3.38
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-0.png",
+   "tag": "",
+   "box": [
+    6.555,
+    1.575,
+    0.98,
+    6.555,
+    2.525,
+    1.72
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-0.png",
+   "tag": "",
+   "box": [
+    6.625,
+    1.575,
+    -4.12,
+    6.625,
+    2.525,
+    -3.38
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-0.png",
+   "tag": "",
+   "box": [
+    6.625,
+    1.575,
+    0.98,
+    6.625,
+    2.525,
+    1.72
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-1.png",
+   "tag": "",
+   "box": [
+    4.475,
+    0.69,
+    -4.12,
+    4.475,
+    1.39,
+    -3.38
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-1.png",
+   "tag": "",
+   "box": [
+    4.475,
+    0.69,
+    0.98,
+    4.475,
+    1.39,
+    1.72
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-1.png",
+   "tag": "",
+   "box": [
+    4.545,
+    0.69,
+    -4.12,
+    4.545,
+    1.39,
+    -3.38
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-1.png",
+   "tag": "",
+   "box": [
+    4.545,
+    0.69,
+    0.98,
+    4.545,
+    1.39,
+    1.72
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-1.png",
+   "tag": "",
+   "box": [
+    6.555,
+    0.69,
+    -4.12,
+    6.555,
+    1.39,
+    -3.38
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-1.png",
+   "tag": "",
+   "box": [
+    6.555,
+    0.69,
+    0.98,
+    6.555,
+    1.39,
+    1.72
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-1.png",
+   "tag": "",
+   "box": [
+    6.625,
+    0.69,
+    -4.12,
+    6.625,
+    1.39,
+    -3.38
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-1.png",
+   "tag": "",
+   "box": [
+    6.625,
+    0.69,
+    0.98,
+    6.625,
+    1.39,
+    1.72
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-2.png",
+   "tag": "",
+   "box": [
+    4.475,
+    0.17,
+    -4.12,
+    4.475,
+    0.59,
+    -3.38
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-2.png",
+   "tag": "",
+   "box": [
+    4.475,
+    0.17,
+    0.98,
+    4.475,
+    0.59,
+    1.72
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-2.png",
+   "tag": "",
+   "box": [
+    4.545,
+    0.17,
+    -4.12,
+    4.545,
+    0.59,
+    -3.38
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-2.png",
+   "tag": "",
+   "box": [
+    4.545,
+    0.17,
+    0.98,
+    4.545,
+    0.59,
+    1.72
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-2.png",
+   "tag": "",
+   "box": [
+    6.555,
+    0.17,
+    -4.12,
+    6.555,
+    0.59,
+    -3.38
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-2.png",
+   "tag": "",
+   "box": [
+    6.555,
+    0.17,
+    0.98,
+    6.555,
+    0.59,
+    1.72
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-2.png",
+   "tag": "",
+   "box": [
+    6.625,
+    0.17,
+    -4.12,
+    6.625,
+    0.59,
+    -3.38
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-2.png",
+   "tag": "",
+   "box": [
+    6.625,
+    0.17,
+    0.98,
+    6.625,
+    0.59,
+    1.72
+   ]
+  }
+ ],
+ "added": [
+  {
+   "kind": "body",
+   "look": "",
+   "tag": "",
+   "box": [
+    6.56,
+    0.0,
+    -5.125,
+    6.62,
+    2.7,
+    -4.175
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "15151bff",
+   "tag": "wall=purple elevator-5 connector:south",
+   "box": [
+    1.7,
+    0.0,
+    1.4,
+    3.85,
+    0.16,
+    1.423
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "28262bff",
+   "tag": "wall=purple elevator-5 connector:south",
+   "box": [
+    1.7,
+    0.0,
+    1.43,
+    3.85,
+    3.5,
+    1.43
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "283647ff",
+   "tag": "",
+   "box": [
+    8.308,
+    0.93,
+    31.713,
+    8.372,
+    0.989,
+    31.777
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "443d37ff",
+   "tag": "",
+   "box": [
+    7.715,
+    1.043,
+    31.487,
+    7.804,
+    1.134,
+    31.601
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "47604dff",
+   "tag": "",
+   "box": [
+    7.669,
+    1.151,
+    31.808,
+    7.792,
+    1.412,
+    31.983
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "4f5a69ff",
+   "tag": "",
+   "box": [
+    7.719,
+    1.067,
+    31.485,
+    7.801,
+    1.139,
+    31.582
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "54402dff",
+   "tag": "",
+   "box": [
+    7.674,
+    1.356,
+    31.835,
+    7.791,
+    1.514,
+    31.941
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "5b6f94ff",
+   "tag": "",
+   "box": [
+    7.671,
+    1.152,
+    31.812,
+    7.768,
+    1.435,
+    31.931
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "6f9bceff",
+   "tag": "",
+   "box": [
+    7.981,
+    1.068,
+    31.696,
+    8.119,
+    1.221,
+    31.834
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "70452fff",
+   "tag": "",
+   "box": [
+    7.66,
+    1.152,
+    31.833,
+    7.728,
+    1.384,
+    31.951
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "8a6a3eff",
+   "tag": "",
+   "box": [
+    7.71,
+    1.183,
+    31.78,
+    7.767,
+    1.496,
+    32.009
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "8d5a3cff",
+   "tag": "",
+   "box": [
+    7.668,
+    1.151,
+    31.792,
+    7.79,
+    1.427,
+    31.998
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "907951ff",
+   "tag": "",
+   "box": [
+    8.327,
+    0.949,
+    31.71,
+    8.353,
+    1.019,
+    31.783
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "9aa184ff",
+   "tag": "",
+   "box": [
+    7.668,
+    1.304,
+    31.834,
+    7.72,
+    1.391,
+    31.901
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "a58a64ff",
+   "tag": "",
+   "box": [
+    8.282,
+    0.93,
+    31.923,
+    8.458,
+    1.394,
+    32.047
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "a99d8cff",
+   "tag": "",
+   "box": [
+    7.668,
+    1.12,
+    31.794,
+    7.792,
+    1.296,
+    31.996
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "b6aa8eff",
+   "tag": "",
+   "box": [
+    7.978,
+    0.985,
+    31.693,
+    8.122,
+    1.315,
+    31.837
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "bd693cff",
+   "tag": "",
+   "box": [
+    7.74,
+    1.255,
+    31.801,
+    7.79,
+    1.367,
+    31.993
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "c28c55ff",
+   "tag": "",
+   "box": [
+    8.138,
+    0.949,
+    31.428,
+    8.202,
+    1.036,
+    31.575
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "c7c2aeff",
+   "tag": "",
+   "box": [
+    7.97,
+    1.019,
+    31.685,
+    8.13,
+    1.288,
+    31.845
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "c8c3baff",
+   "tag": "",
+   "box": [
+    7.73,
+    1.069,
+    31.483,
+    7.794,
+    1.133,
+    31.569
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "c9c9c4ff",
+   "tag": "",
+   "box": [
+    7.758,
+    0.93,
+    31.523,
+    7.762,
+    1.08,
+    31.527
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "cdb89eff",
+   "tag": "",
+   "box": [
+    7.668,
+    1.299,
+    31.816,
+    7.758,
+    1.494,
+    31.959
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "d2c0a6ff",
+   "tag": "",
+   "box": [
+    7.679,
+    1.317,
+    31.889,
+    7.724,
+    1.384,
+    31.947
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "d9d9d3ff",
+   "tag": "",
+   "box": [
+    8.373,
+    0.93,
+    31.488,
+    8.467,
+    1.07,
+    31.582
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ddddd3ff",
+   "tag": "",
+   "box": [
+    7.981,
+    1.078,
+    31.696,
+    8.119,
+    1.211,
+    31.834
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "eee8d7ff",
+   "tag": "",
+   "box": [
+    4.675,
+    0.93,
+    31.725,
+    5.225,
+    0.934,
+    32.175
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "eee8d7ff",
+   "tag": "",
+   "box": [
+    5.78,
+    0.93,
+    31.795,
+    6.12,
+    0.934,
+    32.105
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "eeeae2ff",
+   "tag": "",
+   "box": [
+    6.56,
+    0.0,
+    -5.125,
+    6.62,
+    2.7,
+    -4.175
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "eeeae2ff",
+   "tag": "",
+   "box": [
+    10.81,
+    2.72,
+    -4.2,
+    11.29,
+    3.5,
+    1.8
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "eeeae2ff",
+   "tag": "",
+   "box": [
+    10.9,
+    2.6,
+    -4.28,
+    11.2,
+    2.8,
+    -3.82
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "eeeae2ff",
+   "tag": "",
+   "box": [
+    10.9,
+    2.6,
+    1.42,
+    11.2,
+    2.8,
+    1.88
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "eeeae2ff",
+   "tag": "",
+   "box": [
+    10.97,
+    0.0,
+    -4.2,
+    11.13,
+    2.8,
+    -3.9
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "eeeae2ff",
+   "tag": "",
+   "box": [
+    10.97,
+    0.0,
+    1.5,
+    11.13,
+    2.8,
+    1.8
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "f0eeeaff",
+   "tag": "",
+   "box": [
+    7.59,
+    0.93,
+    31.745,
+    7.87,
+    1.12,
+    32.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "f0eeeaff",
+   "tag": "",
+   "box": [
+    7.945,
+    0.93,
+    31.66,
+    8.155,
+    0.986,
+    31.87
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "f0efeaff",
+   "tag": "",
+   "box": [
+    8.117,
+    0.93,
+    31.421,
+    8.223,
+    1.031,
+    31.589
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "f3f2edff",
+   "tag": "",
+   "box": [
+    3.969,
+    1.52,
+    -3.765,
+    3.971,
+    1.74,
+    -3.615
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "f3f2edff",
+   "tag": "",
+   "box": [
+    7.995,
+    1.47,
+    1.679,
+    8.145,
+    1.69,
+    1.681
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "f3f2edff",
+   "tag": "",
+   "box": [
+    10.755,
+    1.52,
+    -4.082,
+    10.905,
+    1.74,
+    -4.079
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|decal-queens-boat.png",
+   "tag": "",
+   "box": [
+    8.105,
+    1.068,
+    31.722,
+    8.12,
+    1.221,
+    31.808
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|decal-queens-roundel.png",
+   "tag": "",
+   "box": [
+    7.995,
+    1.068,
+    31.695,
+    8.105,
+    1.221,
+    31.722
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|decal-queens-roundel.png",
+   "tag": "",
+   "box": [
+    7.995,
+    1.068,
+    31.808,
+    8.105,
+    1.221,
+    31.835
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "",
+   "box": [
+    10.802,
+    3.32,
+    -4.2,
+    10.825,
+    3.48,
+    1.8
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:east:header",
+   "box": [
+    1.455,
+    0.0,
+    -0.39,
+    1.492,
+    2.7,
+    -0.29
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:east:header",
+   "box": [
+    1.455,
+    0.0,
+    1.45,
+    1.492,
+    2.7,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:east:header",
+   "box": [
+    1.455,
+    2.68,
+    -0.39,
+    1.492,
+    2.78,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:east:header",
+   "box": [
+    1.908,
+    0.0,
+    -0.39,
+    1.945,
+    2.7,
+    -0.29
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:east:header",
+   "box": [
+    1.908,
+    0.0,
+    1.45,
+    1.945,
+    2.7,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:east:header",
+   "box": [
+    1.908,
+    2.68,
+    -0.39,
+    1.945,
+    2.78,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:south:header",
+   "box": [
+    -3.55,
+    0.0,
+    1.555,
+    -3.45,
+    2.7,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:south:header",
+   "box": [
+    -3.55,
+    0.0,
+    2.008,
+    -3.45,
+    2.7,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:south:header",
+   "box": [
+    -3.55,
+    2.68,
+    1.555,
+    -1.45,
+    2.78,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:south:header",
+   "box": [
+    -3.55,
+    2.68,
+    2.008,
+    -1.45,
+    2.78,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:south:header",
+   "box": [
+    -1.55,
+    0.0,
+    1.555,
+    -1.45,
+    2.7,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=Rockefeller:south:header",
+   "box": [
+    -1.55,
+    0.0,
+    2.008,
+    -1.45,
+    2.7,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:north:header",
+   "box": [
+    -3.55,
+    0.0,
+    1.555,
+    -3.45,
+    2.7,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:north:header",
+   "box": [
+    -3.55,
+    0.0,
+    2.008,
+    -3.45,
+    2.7,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:north:header",
+   "box": [
+    -3.55,
+    2.68,
+    1.555,
+    -1.45,
+    2.78,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:north:header",
+   "box": [
+    -3.55,
+    2.68,
+    2.008,
+    -1.45,
+    2.78,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:north:header",
+   "box": [
+    -1.55,
+    0.0,
+    1.555,
+    -1.45,
+    2.7,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:north:header",
+   "box": [
+    -1.55,
+    0.0,
+    2.008,
+    -1.45,
+    2.7,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:south:header",
+   "box": [
+    -3.55,
+    0.0,
+    27.855,
+    -3.45,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:south:header",
+   "box": [
+    -3.55,
+    0.0,
+    28.308,
+    -3.45,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:south:header",
+   "box": [
+    -3.55,
+    2.68,
+    27.855,
+    -1.45,
+    2.78,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:south:header",
+   "box": [
+    -3.55,
+    2.68,
+    28.308,
+    -1.45,
+    2.78,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:south:header",
+   "box": [
+    -1.55,
+    0.0,
+    27.855,
+    -1.45,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=adjacent gallery:south:header",
+   "box": [
+    -1.55,
+    0.0,
+    28.308,
+    -1.45,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=dark medieval room:east:header",
+   "box": [
+    10.305,
+    0.0,
+    30.865,
+    10.342,
+    2.7,
+    30.965
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=dark medieval room:east:header",
+   "box": [
+    10.305,
+    0.0,
+    32.565,
+    10.342,
+    2.7,
+    32.665
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=dark medieval room:east:header",
+   "box": [
+    10.305,
+    2.68,
+    30.865,
+    10.342,
+    2.78,
+    32.665
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=dark medieval room:east:header",
+   "box": [
+    10.758,
+    0.0,
+    30.865,
+    10.795,
+    2.7,
+    30.965
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=dark medieval room:east:header",
+   "box": [
+    10.758,
+    0.0,
+    32.565,
+    10.795,
+    2.7,
+    32.665
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=dark medieval room:east:header",
+   "box": [
+    10.758,
+    2.68,
+    30.865,
+    10.795,
+    2.78,
+    32.665
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:north:header",
+   "box": [
+    4.5,
+    0.0,
+    -4.445,
+    4.6,
+    2.7,
+    -4.408
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:north:header",
+   "box": [
+    4.5,
+    0.0,
+    -3.992,
+    4.6,
+    2.7,
+    -3.955
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:north:header",
+   "box": [
+    4.5,
+    2.68,
+    -4.445,
+    6.6,
+    2.78,
+    -4.408
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:north:header",
+   "box": [
+    4.5,
+    2.68,
+    -3.992,
+    6.6,
+    2.78,
+    -3.955
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:north:header",
+   "box": [
+    6.5,
+    0.0,
+    -4.445,
+    6.6,
+    2.7,
+    -4.408
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:north:header",
+   "box": [
+    6.5,
+    0.0,
+    -3.992,
+    6.6,
+    2.7,
+    -3.955
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:south:header",
+   "box": [
+    4.5,
+    0.0,
+    1.555,
+    4.6,
+    2.7,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:south:header",
+   "box": [
+    4.5,
+    0.0,
+    2.008,
+    4.6,
+    2.7,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:south:header",
+   "box": [
+    4.5,
+    2.68,
+    1.555,
+    6.6,
+    2.78,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:south:header",
+   "box": [
+    4.5,
+    2.68,
+    2.008,
+    6.6,
+    2.78,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:south:header",
+   "box": [
+    6.5,
+    0.0,
+    1.555,
+    6.6,
+    2.7,
+    1.592
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:south:header",
+   "box": [
+    6.5,
+    0.0,
+    2.008,
+    6.6,
+    2.7,
+    2.045
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:west:header",
+   "box": [
+    3.605,
+    0.0,
+    -0.39,
+    3.642,
+    2.7,
+    -0.29
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:west:header",
+   "box": [
+    3.605,
+    0.0,
+    1.45,
+    3.642,
+    2.7,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:west:header",
+   "box": [
+    3.605,
+    2.68,
+    -0.39,
+    3.642,
+    2.78,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:west:header",
+   "box": [
+    4.058,
+    0.0,
+    -0.39,
+    4.095,
+    2.7,
+    -0.29
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:west:header",
+   "box": [
+    4.058,
+    0.0,
+    1.45,
+    4.095,
+    2.7,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=grey French gallery:west:header",
+   "box": [
+    4.058,
+    2.68,
+    -0.39,
+    4.095,
+    2.78,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=light Renaissance room:north:header",
+   "box": [
+    -3.55,
+    0.0,
+    27.855,
+    -3.45,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=light Renaissance room:north:header",
+   "box": [
+    -3.55,
+    0.0,
+    28.308,
+    -3.45,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=light Renaissance room:north:header",
+   "box": [
+    -3.55,
+    2.68,
+    27.855,
+    -1.45,
+    2.78,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=light Renaissance room:north:header",
+   "box": [
+    -3.55,
+    2.68,
+    28.308,
+    -1.45,
+    2.78,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=light Renaissance room:north:header",
+   "box": [
+    -1.55,
+    0.0,
+    27.855,
+    -1.45,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=light Renaissance room:north:header",
+   "box": [
+    -1.55,
+    0.0,
+    28.308,
+    -1.45,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:east:header",
+   "box": [
+    15.905,
+    0.0,
+    29.45,
+    15.942,
+    2.7,
+    29.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:east:header",
+   "box": [
+    15.905,
+    0.0,
+    31.45,
+    15.942,
+    2.7,
+    31.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:east:header",
+   "box": [
+    15.905,
+    2.68,
+    29.45,
+    15.942,
+    2.78,
+    31.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:east:header",
+   "box": [
+    16.358,
+    0.0,
+    29.45,
+    16.395,
+    2.7,
+    29.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:east:header",
+   "box": [
+    16.358,
+    0.0,
+    31.45,
+    16.395,
+    2.7,
+    31.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:east:header",
+   "box": [
+    16.358,
+    2.68,
+    29.45,
+    16.395,
+    2.78,
+    31.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:north:header",
+   "box": [
+    10.95,
+    0.0,
+    27.855,
+    11.05,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:north:header",
+   "box": [
+    10.95,
+    0.0,
+    28.308,
+    11.05,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:north:header",
+   "box": [
+    10.95,
+    2.68,
+    27.855,
+    12.75,
+    2.78,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:north:header",
+   "box": [
+    10.95,
+    2.68,
+    28.308,
+    12.75,
+    2.78,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:north:header",
+   "box": [
+    12.65,
+    0.0,
+    27.855,
+    12.75,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:north:header",
+   "box": [
+    12.65,
+    0.0,
+    28.308,
+    12.75,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:west:header",
+   "box": [
+    10.305,
+    0.0,
+    30.865,
+    10.342,
+    2.7,
+    30.965
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:west:header",
+   "box": [
+    10.305,
+    0.0,
+    32.565,
+    10.342,
+    2.7,
+    32.665
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:west:header",
+   "box": [
+    10.305,
+    2.68,
+    30.865,
+    10.342,
+    2.78,
+    32.665
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:west:header",
+   "box": [
+    10.758,
+    0.0,
+    30.865,
+    10.795,
+    2.7,
+    30.965
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:west:header",
+   "box": [
+    10.758,
+    0.0,
+    32.565,
+    10.795,
+    2.7,
+    32.665
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=lion stair landing:west:header",
+   "box": [
+    10.758,
+    2.68,
+    30.865,
+    10.795,
+    2.78,
+    32.665
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern adjoining gallery threshold study limit:south:header",
+   "box": [
+    15.05,
+    0.0,
+    22.055,
+    15.15,
+    2.7,
+    22.092
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern adjoining gallery threshold study limit:south:header",
+   "box": [
+    15.05,
+    0.0,
+    22.508,
+    15.15,
+    2.7,
+    22.545
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern adjoining gallery threshold study limit:south:header",
+   "box": [
+    15.05,
+    2.68,
+    22.055,
+    16.45,
+    2.78,
+    22.092
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern adjoining gallery threshold study limit:south:header",
+   "box": [
+    15.05,
+    2.68,
+    22.508,
+    16.45,
+    2.78,
+    22.545
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern adjoining gallery threshold study limit:south:header",
+   "box": [
+    16.35,
+    0.0,
+    22.055,
+    16.45,
+    2.7,
+    22.092
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern adjoining gallery threshold study limit:south:header",
+   "box": [
+    16.35,
+    0.0,
+    22.508,
+    16.45,
+    2.7,
+    22.545
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:north:header",
+   "box": [
+    15.05,
+    0.0,
+    22.055,
+    15.15,
+    2.7,
+    22.092
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:north:header",
+   "box": [
+    15.05,
+    0.0,
+    22.508,
+    15.15,
+    2.7,
+    22.545
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:north:header",
+   "box": [
+    15.05,
+    2.68,
+    22.055,
+    16.45,
+    2.78,
+    22.092
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:north:header",
+   "box": [
+    15.05,
+    2.68,
+    22.508,
+    16.45,
+    2.78,
+    22.545
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:north:header",
+   "box": [
+    16.35,
+    0.0,
+    22.055,
+    16.45,
+    2.7,
+    22.092
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:north:header",
+   "box": [
+    16.35,
+    0.0,
+    22.508,
+    16.45,
+    2.7,
+    22.545
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:south:header",
+   "box": [
+    10.95,
+    0.0,
+    27.855,
+    11.05,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:south:header",
+   "box": [
+    10.95,
+    0.0,
+    28.308,
+    11.05,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:south:header",
+   "box": [
+    10.95,
+    2.68,
+    27.855,
+    12.75,
+    2.78,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:south:header",
+   "box": [
+    10.95,
+    2.68,
+    28.308,
+    12.75,
+    2.78,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:south:header",
+   "box": [
+    12.65,
+    0.0,
+    27.855,
+    12.75,
+    2.7,
+    27.892
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=modern painting gallery:south:header",
+   "box": [
+    12.65,
+    0.0,
+    28.308,
+    12.75,
+    2.7,
+    28.345
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=piano-stair threshold study limit:south:header",
+   "box": [
+    4.5,
+    0.0,
+    -4.445,
+    4.6,
+    2.7,
+    -4.408
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=piano-stair threshold study limit:south:header",
+   "box": [
+    4.5,
+    0.0,
+    -3.992,
+    4.6,
+    2.7,
+    -3.955
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=piano-stair threshold study limit:south:header",
+   "box": [
+    4.5,
+    2.68,
+    -4.445,
+    6.6,
+    2.78,
+    -4.408
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=piano-stair threshold study limit:south:header",
+   "box": [
+    4.5,
+    2.68,
+    -3.992,
+    6.6,
+    2.78,
+    -3.955
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=piano-stair threshold study limit:south:header",
+   "box": [
+    6.5,
+    0.0,
+    -4.445,
+    6.6,
+    2.7,
+    -4.408
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=piano-stair threshold study limit:south:header",
+   "box": [
+    6.5,
+    0.0,
+    -3.992,
+    6.6,
+    2.7,
+    -3.955
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:east:header",
+   "box": [
+    3.605,
+    0.0,
+    -0.39,
+    3.642,
+    2.7,
+    -0.29
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:east:header",
+   "box": [
+    3.605,
+    0.0,
+    1.45,
+    3.642,
+    2.7,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:east:header",
+   "box": [
+    3.605,
+    2.68,
+    -0.39,
+    3.642,
+    2.78,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:east:header",
+   "box": [
+    4.058,
+    0.0,
+    -0.39,
+    4.095,
+    2.7,
+    -0.29
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:east:header",
+   "box": [
+    4.058,
+    0.0,
+    1.45,
+    4.095,
+    2.7,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:east:header",
+   "box": [
+    4.058,
+    2.68,
+    -0.39,
+    4.095,
+    2.78,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:west:header",
+   "box": [
+    1.455,
+    0.0,
+    -0.39,
+    1.492,
+    2.7,
+    -0.29
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:west:header",
+   "box": [
+    1.455,
+    0.0,
+    1.45,
+    1.492,
+    2.7,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:west:header",
+   "box": [
+    1.455,
+    2.68,
+    -0.39,
+    1.492,
+    2.78,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:west:header",
+   "box": [
+    1.908,
+    0.0,
+    -0.39,
+    1.945,
+    2.7,
+    -0.29
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:west:header",
+   "box": [
+    1.908,
+    0.0,
+    1.45,
+    1.945,
+    2.7,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=purple elevator-5 connector:west:header",
+   "box": [
+    1.908,
+    2.68,
+    -0.39,
+    1.945,
+    2.78,
+    1.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=white sculpture gallery threshold study limit:west:header",
+   "box": [
+    15.905,
+    0.0,
+    29.45,
+    15.942,
+    2.7,
+    29.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=white sculpture gallery threshold study limit:west:header",
+   "box": [
+    15.905,
+    0.0,
+    31.45,
+    15.942,
+    2.7,
+    31.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=white sculpture gallery threshold study limit:west:header",
+   "box": [
+    15.905,
+    2.68,
+    29.45,
+    15.942,
+    2.78,
+    31.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=white sculpture gallery threshold study limit:west:header",
+   "box": [
+    16.358,
+    0.0,
+    29.45,
+    16.395,
+    2.7,
+    29.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=white sculpture gallery threshold study limit:west:header",
+   "box": [
+    16.358,
+    0.0,
+    31.45,
+    16.395,
+    2.7,
+    31.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|door-architrave.png",
+   "tag": "wall=white sculpture gallery threshold study limit:west:header",
+   "box": [
+    16.358,
+    2.68,
+    29.45,
+    16.395,
+    2.78,
+    31.55
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|medieval-paper-L1.png",
+   "tag": "",
+   "box": [
+    5.915,
+    0.934,
+    31.905,
+    5.985,
+    0.935,
+    31.995
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|medieval-paper-L2.png",
+   "tag": "",
+   "box": [
+    4.815,
+    0.934,
+    31.87,
+    5.085,
+    0.935,
+    32.03
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|purple-plaster.png",
+   "tag": "wall=purple elevator-5 connector:north",
+   "box": [
+    1.7,
+    0.0,
+    -0.263,
+    3.85,
+    0.16,
+    -0.24
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-0.png",
+   "tag": "",
+   "box": [
+    6.555,
+    1.575,
+    -5.02,
+    6.555,
+    2.525,
+    -4.28
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-0.png",
+   "tag": "",
+   "box": [
+    6.625,
+    1.575,
+    -5.02,
+    6.625,
+    2.525,
+    -4.28
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-1.png",
+   "tag": "",
+   "box": [
+    6.555,
+    0.69,
+    -5.02,
+    6.555,
+    1.39,
+    -4.28
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-1.png",
+   "tag": "",
+   "box": [
+    6.625,
+    0.69,
+    -5.02,
+    6.625,
+    1.39,
+    -4.28
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-2.png",
+   "tag": "",
+   "box": [
+    6.555,
+    0.17,
+    -5.02,
+    6.555,
+    0.59,
+    -4.28
+   ]
+  },
+  {
+   "kind": "mesh",
+   "look": "ffffffff|white-panel-door-2.png",
+   "tag": "",
+   "box": [
+    6.625,
+    0.17,
+    -5.02,
+    6.625,
+    0.59,
+    -4.28
+   ]
+  }
+ ]
+}

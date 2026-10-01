@@ -1,0 +1,646 @@
+{
+  "note": "Hand-read anchors on native 1080x1920 frames (decode.sh), from 7-pixel-wide intensity profiles at the stated row or column and from 2x to 4x zooms. x right, y down, display orientation (B1 after a 180 degree turn). An optional third number on an anchor is its own sigma in pixels. Nothing here is a survey measurement.",
+  "ruler": {
+    "accession": "43.571",
+    "title": "Courbet, Jura Landscape",
+    "canvas_m": [
+      0.733,
+      0.597
+    ],
+    "source": "root hall-stairs-inventory.json catalogue_match 1539216; RISD record 59.7 x 73.3 cm",
+    "warning": "Catalogue size is the canvas, not the frame. The sight edge hides up to about 1 cm of canvas per side, so the ruler may read up to 3 percent long."
+  },
+  "camera": {
+    "principal_point_px": [
+      540,
+      960
+    ],
+    "focal_px": [
+      1150,
+      200
+    ],
+    "focal_basis": "Not established. Recovering the Courbet canvas height from its width favours about 1000 px in A1, 1150 to 1200 in C1 and 1300 or more in B1; the 0.5x lens would be near 770. The prior covers 770 to 1500 within two sigma. Positions along the wall with the width ruler do not change with this value at all; heights and the height ruler do, by a few percent."
+  },
+  "sigma_px": {
+    "station_x": 3.0,
+    "line": 1.5,
+    "canvas_y": 2.0
+  },
+  "frames": {
+    "A1": {
+      "file": "frames/A1-6380-038.300.png",
+      "video": "IMG_6380.MOV",
+      "seconds": 38.3,
+      "rot180": false,
+      "view": "From the east side of the grey gallery, panning north. South end of the west wall.",
+      "horizontals": {
+        "ceiling": [
+          [
+            300,
+            996.1
+          ],
+          [
+            1000,
+            904.7
+          ]
+        ],
+        "baseboard_top": [
+          [
+            560,
+            1484.9
+          ],
+          [
+            1040,
+            1530.3
+          ]
+        ],
+        "door_head_top": [
+          [
+            300,
+            1126.0
+          ],
+          [
+            500,
+            1111.4
+          ]
+        ]
+      },
+      "verticals": {
+        "casing_outer_left": [
+          [
+            283,
+            1160
+          ],
+          [
+            271,
+            1400
+          ]
+        ],
+        "casing_dark_left": [
+          [
+            306,
+            1160
+          ],
+          [
+            294.5,
+            1400
+          ]
+        ],
+        "casing_dark_right": [
+          [
+            492.5,
+            1160
+          ],
+          [
+            489.5,
+            1400
+          ]
+        ]
+      },
+      "stations": {
+        "swc": [
+          258,
+          1265,
+          5
+        ],
+        "casL": [
+          278.5,
+          1265
+        ],
+        "darkL": [
+          302.5,
+          1265
+        ],
+        "darkR": [
+          491.5,
+          1265
+        ],
+        "jamR": [
+          509.5,
+          1265
+        ],
+        "casR": [
+          521.5,
+          1265
+        ],
+        "barnF_L": [
+          599,
+          1265
+        ],
+        "barnC_L": [
+          616,
+          1265
+        ],
+        "barnC_R": [
+          726,
+          1265
+        ],
+        "barnF_R": [
+          748,
+          1265
+        ],
+        "barnLab_c": [
+          777.5,
+          1288
+        ],
+        "courF_L": [
+          845.5,
+          1265
+        ],
+        "courC_L": [
+          869.5,
+          1265
+        ],
+        "courC_R": [
+          1007.5,
+          1265
+        ],
+        "courF_R": [
+          1038.5,
+          1265
+        ]
+      },
+      "levels": {
+        "courC_top": [
+          940,
+          1206
+        ],
+        "courC_bot": [
+          940,
+          1316
+        ],
+        "courF_top": [
+          940,
+          1186
+        ],
+        "courF_bot": [
+          940,
+          1340.5
+        ],
+        "base_top": [
+          940,
+          1520.8
+        ],
+        "ceiling": [
+          940,
+          912.5
+        ]
+      }
+    },
+    "A2": {
+      "file": "frames/A2-6380-038.901.png",
+      "video": "IMG_6380.MOV",
+      "seconds": 38.901,
+      "rot180": false,
+      "view": "Same pan 0.6 s later, nearly square-on. North end of the west wall. Same camera position as A1, so not an independent view.",
+      "horizontals": {
+        "ceiling": [
+          [
+            330,
+            860.7
+          ],
+          [
+            700,
+            847.6
+          ]
+        ],
+        "baseboard_top": [
+          [
+            330,
+            1388.0
+          ],
+          [
+            700,
+            1379.8
+          ]
+        ]
+      },
+      "verticals": {
+        "casing_outer_right": [
+          [
+            192.7,
+            1020
+          ],
+          [
+            176.2,
+            1393
+          ]
+        ],
+        "nw_corner": [
+          [
+            750,
+            1000
+          ],
+          [
+            774,
+            1300
+          ]
+        ]
+      },
+      "stations": {
+        "darkR": [
+          146,
+          1160
+        ],
+        "jamR": [
+          172,
+          1160
+        ],
+        "casR": [
+          186.5,
+          1160
+        ],
+        "barnF_L": [
+          270,
+          1160
+        ],
+        "barnC_L": [
+          288,
+          1160
+        ],
+        "barnC_R": [
+          399.5,
+          1160
+        ],
+        "barnF_R": [
+          422,
+          1160
+        ],
+        "barnLab_c": [
+          445,
+          1185
+        ],
+        "courF_L": [
+          507.7,
+          1160
+        ],
+        "courC_L": [
+          528.5,
+          1160
+        ],
+        "courC_R": [
+          643,
+          1160
+        ],
+        "courF_R": [
+          665.5,
+          1160
+        ],
+        "courLab_c": [
+          693.5,
+          1185
+        ],
+        "nwc": [
+          764,
+          1160,
+          4
+        ]
+      },
+      "levels": {
+        "courC_top": [
+          580,
+          1112.0
+        ],
+        "courC_bot": [
+          580,
+          1207.1
+        ],
+        "courF_top": [
+          580,
+          1093.1
+        ],
+        "courF_bot": [
+          580,
+          1228.5
+        ],
+        "base_top": [
+          580,
+          1382.1
+        ],
+        "ceiling": [
+          580,
+          852.0
+        ]
+      }
+    },
+    "B1": {
+      "file": "frames/B1-6381-090.968.png",
+      "video": "IMG_6381.MOV",
+      "seconds": 90.968,
+      "rot180": true,
+      "view": "Held out. Other video, from the marble stair east of the columns, looking west and down. Phone was upside down; coordinates are after a 180 degree turn. A column hides the barn painting.",
+      "horizontals": {
+        "ceiling": [
+          [
+            400,
+            139.9
+          ],
+          [
+            930,
+            116.9
+          ]
+        ],
+        "baseboard_top": [
+          [
+            720,
+            535.5
+          ],
+          [
+            880,
+            544.0
+          ]
+        ],
+        "door_head_top": [
+          [
+            380,
+            277.9
+          ],
+          [
+            540,
+            276.3
+          ]
+        ]
+      },
+      "verticals": {
+        "casing_outer_left": [
+          [
+            373,
+            340
+          ],
+          [
+            385,
+            470
+          ]
+        ],
+        "casing_outer_right": [
+          [
+            553,
+            340
+          ],
+          [
+            553.5,
+            470
+          ]
+        ],
+        "nw_corner": [
+          [
+            916,
+            405
+          ],
+          [
+            896.5,
+            548
+          ]
+        ]
+      },
+      "stations": {
+        "swc": [
+          362,
+          405,
+          4
+        ],
+        "casL": [
+          379,
+          405
+        ],
+        "darkL": [
+          391.5,
+          405
+        ],
+        "darkR": [
+          537.5,
+          405
+        ],
+        "jamR": [
+          543,
+          405
+        ],
+        "casR": [
+          553,
+          405
+        ],
+        "barnLab_c": [
+          710.5,
+          405
+        ],
+        "courF_L": [
+          750.3,
+          405
+        ],
+        "courC_L": [
+          764,
+          405
+        ],
+        "courC_R": [
+          837.4,
+          405
+        ],
+        "courF_R": [
+          853.7,
+          405
+        ],
+        "nwc": [
+          916,
+          405,
+          4
+        ]
+      },
+      "levels": {
+        "courC_top": [
+          805,
+          364.7,
+          4
+        ],
+        "courC_bot": [
+          805,
+          428.4
+        ],
+        "courF_top": [
+          805,
+          349.7
+        ],
+        "courF_bot": [
+          805,
+          444.2
+        ],
+        "base_top": [
+          805,
+          540.0
+        ],
+        "ceiling": [
+          805,
+          122.2
+        ]
+      }
+    },
+    "C1": {
+      "file": "frames/C1-6380-001.600.png",
+      "video": "IMG_6380.MOV",
+      "seconds": 1.6,
+      "rot180": false,
+      "view": "Close and sharp, about two metres from the Courbet. Canvas is over 400 px wide. North-west corner read at the baseboard.",
+      "horizontals": {
+        "baseboard_top": [
+          [
+            20,
+            1409.1
+          ],
+          [
+            860,
+            1349.1
+          ]
+        ],
+        "canvas_top": [
+          [
+            154,
+            610.5
+          ],
+          [
+            570.5,
+            622
+          ]
+        ],
+        "canvas_bottom": [
+          [
+            180.5,
+            935.5
+          ],
+          [
+            558,
+            933
+          ]
+        ]
+      },
+      "verticals": {
+        "label_left": [
+          [
+            669,
+            803
+          ],
+          [
+            663,
+            927
+          ]
+        ],
+        "label_right": [
+          [
+            754,
+            804
+          ],
+          [
+            746.5,
+            926
+          ]
+        ],
+        "canvas_left": [
+          [
+            154,
+            610.5
+          ],
+          [
+            180.5,
+            935.5
+          ]
+        ],
+        "canvas_right": [
+          [
+            570.5,
+            622
+          ],
+          [
+            558,
+            933
+          ]
+        ]
+      },
+      "stations": {
+        "courF_L": [
+          83,
+          770
+        ],
+        "courC_L": [
+          167.2,
+          773
+        ],
+        "courC_R": [
+          564.2,
+          777.5
+        ],
+        "courF_R": [
+          639,
+          775
+        ],
+        "courLab_c": [
+          708,
+          865
+        ],
+        "nwc": [
+          880.5,
+          1348,
+          4
+        ]
+      },
+      "levels": {
+        "courC_top": [
+          362,
+          616
+        ],
+        "courC_bot": [
+          369,
+          934
+        ]
+      }
+    }
+  },
+  "ratio_frames": {
+    "D1": {
+      "file": "frames/D1-6380-101.601.png",
+      "video": "IMG_6380.MOV",
+      "seconds": 101.601,
+      "view": "Standing by the Grand Gallery door, about 2 m from the south-west corner. No ruler in frame, so widths are in units of the casing stile.",
+      "rows": {
+        "800": [
+          386,
+          474.5,
+          528
+        ],
+        "1000": [
+          396,
+          479,
+          530
+        ],
+        "1150": [
+          404,
+          483.5,
+          532
+        ]
+      },
+      "row_meaning": "x of: wall crease at the corner, outer edge of casing, edge of the dark opening"
+    },
+    "F1": {
+      "file": "frames/F1-6380-240.268.png",
+      "video": "IMG_6380.MOV",
+      "seconds": 240.268,
+      "view": "Inside Rockefeller looking east through the connector. South jamb of the Rockefeller-side opening, then the room's south-east corner.",
+      "rows": {
+        "900": [
+          822,
+          854
+        ],
+        "1400": [
+          786,
+          818
+        ]
+      },
+      "row_meaning": "x of: inner and outer edge of the stile face (the bright strip left of it is the jamb reveal)",
+      "corner_at_baseboard": [
+        896,
+        1486
+      ],
+      "stile_outer_at_baseboard": [
+        812,
+        1486
+      ]
+    }
+  }
+}

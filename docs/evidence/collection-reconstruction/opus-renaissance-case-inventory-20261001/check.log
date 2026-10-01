@@ -1,0 +1,7 @@
+ledger: ok
+self-test probable promoted: caught
+self-test label-only book given an accession: caught
+self-test wrong catalogue dimension: caught
+self-test object dropped from case A: caught
+self-test room marked complete: caught
+exit 0

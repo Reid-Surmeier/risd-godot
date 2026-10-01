@@ -1,0 +1,33 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+SCRIPT ERROR: Invalid type in utility function "lerp()". Cannot convert argument 2 from int to float.
+          at: prism (res://virgin_child_asset.gd:17)
+          GDScript backtrace (most recent call first):
+              [0] prism (res://virgin_child_asset.gd:17)
+              [1] parts (res://virgin_child_asset.gd:44)
+              [2] run (res://check.gd:26)
+SCRIPT ERROR: Invalid type in utility function "lerp()". Cannot convert argument 2 from float to int.
+          at: prism (res://virgin_child_asset.gd:17)
+          GDScript backtrace (most recent call first):
+              [0] prism (res://virgin_child_asset.gd:17)
+              [1] parts (res://virgin_child_asset.gd:63)
+              [2] run (res://check.gd:26)
+SCRIPT ERROR: Invalid type in utility function "lerp()". Cannot convert argument 2 from int to float.
+          at: prism (res://virgin_child_asset.gd:17)
+          GDScript backtrace (most recent call first):
+              [0] prism (res://virgin_child_asset.gd:17)
+              [1] parts (res://virgin_child_asset.gd:44)
+              [2] build (res://virgin_child_asset.gd:121)
+              [3] run (res://check.gd:62)
+SCRIPT ERROR: Invalid type in utility function "lerp()". Cannot convert argument 2 from float to int.
+          at: prism (res://virgin_child_asset.gd:17)
+          GDScript backtrace (most recent call first):
+              [0] prism (res://virgin_child_asset.gd:17)
+              [1] parts (res://virgin_child_asset.gd:63)
+              [2] build (res://virgin_child_asset.gd:121)
+              [3] run (res://check.gd:62)
+VIRGIN_CHECK {"closed_parts":50,"depth_m_provisional":0.136110782623291,"failures":["mantle: not a triangle shell","mantle: shell is inside out or has no volume (0.0 m3)","mantle: not a triangle shell","mantle: shell is inside out or has no volume (0.0 m3)"],"height_m":0.393999993801117,"parts_per_material":{"blue":5,"cover":4,"gold":3,"hair":5,"lining":4,"mantle":8,"orange":2,"paper":2,"skin":8,"stone":4,"tunic":5},"placement_accepted":false,"rear_accepted":false,"triangles":1012,"visual_fidelity_accepted":false,"width_m_provisional":0.229558259248734}
+exit=1

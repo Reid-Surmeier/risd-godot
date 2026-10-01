@@ -34,6 +34,12 @@ def copy(original, relative):
     shutil.copyfile(original, target)
     inputs[str(original)] = hashlib.sha256(original.read_bytes()).hexdigest()
 
+def painted_white(image):
+    # Source-relative trim comparison: preserve Muse relief, reduce yellow stripes.
+    pixels=np.asarray(image.convert('RGB'),dtype=float)
+    grain=(pixels.mean(axis=2)-pixels.mean())*.16
+    return Image.fromarray(np.clip([230,228,222]+grain[:,:,None],0,255).astype('uint8'))
+
 for kind in ['bookcase', 'mirror', 'pair-mirror', 'settee', 'armchair', 'entrance-chair', 'tureen']:
     path = app/'trial'/f'{kind}-original.webp'
     image = np.array(Image.open(path).convert('RGB'))
@@ -257,7 +263,7 @@ triangle_uv=[[[uv[i][0]*.5,uv[i][1]] for i in t] if n<2 else [[.75,.04]]*3 for n
 edges=Counter(tuple(sorted((t[i],t[(i+1)%3]))) for t in triangles for i in range(3));assert all(v==2 for v in edges.values())
 volume=sum(np.dot(vertices[t[0]],np.cross(vertices[t[1]],vertices[t[2]])) for t in triangles)/6;assert volume>0 and abs(volume-np.prod(size))<1e-8
 catalogue_objects['meshes']['lion-panel']={'vertices':vertices,'uv':uv,'triangles':triangles,'triangle_uv':triangle_uv,'size_m':size,'closed_edges_checked':len(edges),'signed_volume_m3':volume,'front':'Official photo; atlas region equals deterministic resized source exactly. Original JPEG also copied byte-identically.','rear':'Muse brick colours on inferred .08m wall-backed slab; damaged front generation rejected; brick relief/depth unaccepted'}
-catalogue_objects['instances'].append({'asset':'lion-panel','position':[18.02,1.18,33.15],'position_basis':'Includes+1.95x to compensate existing catalogue group shift; installedx16.07','yaw':-np.pi/2,'size_m':size,'accession':'34.652'})
+catalogue_objects['instances'].append({'asset':'lion-panel','position':[16.55,1.18,28.18],'position_basis':'Includes+1.95x to compensate existing catalogue group shift; installedx14.6 on the landing north wall','yaw':0.0,'size_m':size,'accession':'34.652'})
 (out/'assets/catalogue-objects.json').write_text(json.dumps(catalogue_objects,indent=2)+'\n')
 inputs[str(app/'video-inventory.json')]=hashlib.sha256((app/'video-inventory.json').read_bytes()).hexdigest()
 
@@ -345,7 +351,7 @@ door=app/'trial/white-panel-door-original.webp'
 image=Image.open(door).convert('RGB')
 assert image.size==(1440,1760),'Door UV regions require review when native pixels change'
 for index,box in enumerate([(523,258,921,632),(523,708,921,1086),(523,1150,921,1526)]):
-    image.crop(box).save(out/'assets'/f'white-panel-door-{index}.png')
+    painted_white(image.crop(box)).save(out/'assets'/f'white-panel-door-{index}.png')
 inputs[str(door)]=hashlib.sha256(door.read_bytes()).hexdigest()
 for index in range(2):
     copy(app/'trial'/f'european-two-panel-door-{index}.png','assets/'+f'european-two-panel-door-{index}.png')
@@ -415,10 +421,10 @@ geometry['trials'] += [['purple_grey_out',[7.6,.25,-2],[9.3,0,-2],False],['purpl
 for a,side,b,opposite in [(6,'east',7,'west'),(7,'east',8,'west'),(7,'north',9,'south'),(7,'south',10,'north')]:
     assert geometry['rooms'][a]['openings'][side]==geometry['rooms'][b]['openings'][opposite]
 geometry['object_placement_corrections']={'source':'IMG_6380:277-281,319-348,387-408', 'settee':'Aligned beneath Romany at z=-4.7; absolute offsets provisional', 'gold_service_case':'Solid pedestal to floor; pink Worcester retains tray and legs'}
-geometry['trials'] += [['tracery_out',[1.7,.25,22.515],[3.35,0,22.515],False],['tracery_back',[3.35,.25,22.515],[1.7,0,22.515],False],['stone_portal_out',[5.55,.25,19.6],[5.55,0,17.85],False],['stone_portal_back',[5.55,.25,17.85],[5.55,0,19.6],False],['stairs_door_out',[10.7,.25,20.8],[12.25,0,20.8],False],['stairs_door_back',[12.25,.25,20.8],[10.7,0,20.8],False],['renaissance_bench_blocked',[-.8,.25,20.8],[-.8,0,22.4],True]]
+geometry['trials'] += [['tracery_out',[1.7,.25,22.515],[3.35,0,22.515],False],['tracery_back',[3.35,.25,22.515],[1.7,0,22.515],False],['stone_portal_out',[5.55,.25,19.6],[5.55,0,17.85],False],['stone_portal_back',[5.55,.25,17.85],[5.55,0,19.6],False],['stairs_door_out',[10.7,.25,22.515],[12.25,0,22.515],False],['stairs_door_back',[12.25,.25,22.515],[10.7,0,22.515],False],['renaissance_bench_blocked',[-.8,.25,20.8],[-.8,0,22.4],True]]
 geometry['far_connection']={'sources':['IMG_6383/000127.jpg','IMG_6383/000134.jpg','IMG_6382/000166.jpg'], 'observed':'Long gallery enters light Renaissance room; its perpendicular east doorway leads into dark medieval room. Medieval round portal and stairs door are on different walls.', 'extent':'Two room shells and portal/stairs thresholds; object contents and all room metrics incomplete. Main Hall has not been integrated.'}
-geometry['medieval_case_layout']={'sources':['IMG_6382 78.25s','IMG_6382 88.75s'], 'observed':'Broad low relief case south-west of the smaller tall case near the stair doorway; different glass heights and solid grey bases.', 'metric_acceptance':False, 'contents_complete':False}
-geometry['trials'] += [['medieval_low_case_blocked',[6.4,.25,21.5],[6.4,0,23.0],True],['medieval_tall_case_blocked',[9,.25,20.45],[9,0,22.0],True],['medieval_between_cases_clear',[7.8,.25,23.6],[7.8,0,20.3],False],['medieval_stairs_aisle_clear',[7.8,.25,20.2],[10.5,0,20.2],False]]
+geometry['medieval_case_layout']={'sources':['IMG_6382 78.25s','IMG_6382 88.75s'], 'observed':'Broad low relief case west of the smaller tall case; tall case on the stair-door/tracery axis (6387 13.0/44.0s, 6383 66.5s); different glass heights and solid grey bases.', 'metric_acceptance':False, 'contents_complete':False}
+geometry['trials'] += [['medieval_low_case_blocked',[6.4,.25,21.5],[6.4,0,23.0],True],['medieval_tall_case_blocked',[9,.25,21.315],[9,0,22.865],True],['medieval_between_cases_clear',[7.8,.25,23.6],[7.8,0,20.3],False],['medieval_stairs_aisle_clear',[7.8,.25,20.2],[10.5,0,20.2],False]]
 assert geometry['rooms'][2]['openings']['east']==geometry['rooms'][3]['openings']['west']
 geometry['room_geometry']='Wide-shot wall relationships replace v15 layout; authored metric extents and distal gallery limit provisional. No point cloud in renderer.'
 
@@ -432,21 +438,38 @@ for index,area in enumerate(geometry['rooms']):
     for k in [2,3]:area['bounds'][k]+=dz
     for side,opening in area['openings'].items():
         area['openings'][side]=[v+(dz if side in ['west','east'] else dx) for v in opening]
-geometry['rooms'][0]['openings']['east']=[-2.8,-1.2]
 geometry['rooms'][1]['bounds'][3]+=9.25
 geometry['rooms'][3]['bounds'][0]=.55
 geometry['rooms'][3]['bounds'][1]=10.55
-geometry['rooms'][6]={'label':'purple elevator-5 connector','bounds':[1.7,3.85,-2.8,-1.2], 'openings':{'west':[-2.8,-1.2],'east':[-2.8,-1.2]}}
+# Grey register, docs/evidence/collection-reconstruction/opus-grey-register-fit-20261001: the connector
+# doorway is a corner door at both ends (6380 38.3/101.6/240.3s, held out 6381 91.0s) and the grey west
+# wall reads about 6.0m. Clear opening .30..2.14m from the grey south-west corner; Rockefeller's south
+# wall takes the Hall's north-wall line, so the European gallery is the Hall's length.
+# ponytail: planar fit scaled by one catalogue canvas. Every metre provisional; connector length,
+# Rockefeller depth and column spacing unmeasured.
+door=[-.34,1.5]
+geometry['rooms'][0]['bounds'][2:]=[-5.,1.8]
+geometry['rooms'][0]['openings']['east']=list(door)
+geometry['rooms'][1]['bounds'][2]=1.8
+geometry['rooms'][6]={'label':'purple elevator-5 connector','bounds':[1.7,3.85]+door, 'openings':{'west':list(door),'east':list(door)}}
+for index in [7,8]:geometry['rooms'][index]['bounds'][2]=-4.2
+geometry['rooms'][7]['openings'].update(west=list(door),east=[-4.2,1.8])
+geometry['rooms'][8]['openings']['west']=[-4.2,1.8]
+geometry['rooms'][9]['bounds'][2:]=[-5.8,-4.2]
 geometry['rooms'][4]={'label':'Grand Gallery','bounds':[.55,10.55,1.8,28.1], 'height':6., 'floor':'herringbone','openings':{'north':[4.55,6.55],'south':[3.4355,7.6645]},'stone_sides':['south']}
 geometry['rooms'].pop(10)
 geometry['start'][0]-=1.95
+geometry['start'][2]+=2.2
 for trial in geometry['trials']:
     name=trial[0]
     for point in trial[1:3]:
         if name.startswith(('purple_grey','grey_')):
             point[0]-=4.6
+            # Door axis; the piano door follows the north wall; the Ionic walk stays between the columns.
+            point[2]+=2.58 if name.startswith('purple_grey') else 1.6 if name.startswith('grey_piano') else .8 if name.startswith('grey_ionic') else 0
         elif name.startswith('right_door'):
             point[0]=(point[0]-3.65)*(2.15/4.8)+1.7
+            point[2]+=2.58
         elif name.startswith(('stone_portal','medieval')):
             if name.startswith('medieval'):point[0]-=.95
             point[2]+=9.25
@@ -455,12 +478,15 @@ for trial in geometry['trials']:
         else:
             point[0]-=1.95
             if name.startswith(('tracery','renaissance','far_gallery')):point[2]+=9.25
+            # Rockefeller trials move with the room; the gallery aisle trial is already south of its door.
+            elif name!='adjacent_gallery':point[2]+=2.2
 # Real loop connections and bench clearance, checked by the capsule in both native and Web.
 for a,b in [(2.2,5.2),(5.2,8.6),(8.6,12),(12,15.4),(15.4,18.8),(18.8,22.2),(22.2,25.6),(25.6,27.2)]:
     geometry['trials'].append([f'hall_aisle_{a:g}',[7,.25,a],[7,0,b],False])
 geometry['trials'] += [['hall_bench_blocked',[5.55,.25,17.1],[5.55,0,19.2],True],['hall_back_to_grey',[5.55,.25,2.9],[5.55,0,1],False],['hall_grey_return',[5.55,.25,1],[5.55,0,2.9],False]]
 # Source-connected full circuit, avoiding the central benches and display cases.
-route=[[-2.5,-1.2],[-2.5,1],[-2.5,4.4],[-2.5,7.8],[-2.5,11.2],[-2.5,14.6],[-2.5,18],[-2.5,21.4],[-2.5,24.8],[-2.5,26.7],[-2.5,28.6],[-2.5,30],[-.2,30],[-.2,31.765],[1.25,31.765],[3.2,31.765],[3.2,29.2],[5.55,29.2],[5.55,26.7],[7,26.7],[7,23.3],[7,19.9],[7,16.5],[7,13.1],[7,9.7],[7,6.3],[7,2.9],[5.55,2.9],[5.55,1],[5.55,-2],[3.05,-2],[1.1,-2],[-1.2,-2],[-2.5,-1.2]]
+# Rockefeller leg: in at the corner door on the connector axis, then north of the pink service case.
+route=[[-2.5,1.0],[-2.5,3.2],[-2.5,4.4],[-2.5,7.8],[-2.5,11.2],[-2.5,14.6],[-2.5,18],[-2.5,21.4],[-2.5,24.8],[-2.5,26.7],[-2.5,28.6],[-2.5,30],[-.2,30],[-.2,31.765],[1.25,31.765],[3.2,31.765],[3.2,29.2],[5.55,29.2],[5.55,26.7],[7,26.7],[7,23.3],[7,19.9],[7,16.5],[7,13.1],[7,9.7],[7,6.3],[7,2.9],[5.55,2.9],[5.55,1],[5.55,.58],[3.05,.58],[1.1,.2],[-1.2,.2],[-2.5,1.0]]
 for i,(a,b) in enumerate(zip(route,route[1:])):
     assert (sum((x-y)**2 for x,y in zip(a,b)))**.5<=3.5
     geometry['trials'].append([f'loop_{i:02d}',[a[0],.25,a[1]],[b[0],0,b[1]],False])
@@ -476,37 +502,50 @@ assert abs(geometry['rooms'][1]['bounds'][3]-geometry['rooms'][4]['bounds'][3])<
 geometry['patches']=[{'label':r['label'],'color':'81735c','vertices':[[r['bounds'][0],0,r['bounds'][2]],[r['bounds'][1],0,r['bounds'][2]],[r['bounds'][1],0,r['bounds'][3]],[r['bounds'][0],0,r['bounds'][3]]]} for r in geometry['rooms']]
 geometry['far_connection']['extent']='Connected complete Main Hall shell and23 reused paintings; room metrics and remaining object coverage unaccepted.'
 geometry['grey_gallery_connections']['extent']='Connected walkable museum loop through the Main Hall, medieval, Renaissance, European, Rockefeller and grey rooms; stairs remain threshold studies.'
+geometry['grey_register']={'source':'docs/evidence/collection-reconstruction/opus-grey-register-fit-20261001/REPORT.md and plan.json','door_clear_z':door,'grey_west_wall_m':6.0,'grey_west_wall_interval_m':[5.4,6.6],'rockefeller_shift_z_m':2.2,'european_gallery_m':26.3,'moved_with_rockefeller_door':'secretary and Delacroix35.786 (IMG_6385 from that door)','left_in_place_unaccepted':'Fetti36.003, both piers, Goltzius61.006 and the far door leaves keep their old z; their offsets from either end are unmeasured','columns':'south column unmoved, north column keeps1.6m from the moved north wall; spacing unmeasured','barn_painting_built':False,'metric_accepted':False,'calibrated_room_metric':False,'physical_loop_accepted':False,'connector_length_accepted':False}
 geometry['loop_fit']={'source':'6382:64..89.25;6344:177.5;official floor5 topology', 'correction':'North-wall paintings lie left of projecting display and portal; do not mistake display edge for northwest corner. Extend parallel long galleries, align Hall end doors, preserve relative object placements.', 'metric_accepted':False,'connector_length_accepted':False,'hall_length_m':26.3,'hall_width_m':10.,'medieval_wall_width_m':10.}
 geometry['trials'] += [['iron_grille_blocks_visitor',[8.45,.25,29.75],[8.45,0,28.44],True],['iron_grille_east_aisle_clear',[9.65,.25,29.65],[9.65,0,28.65],False]]
 
-#6387 reciprocal wides: modern door opposite medieval, lion to its right,
-# white sculpture gallery on adjoining wall. Flight geometry/room metres provisional.
+#6387 pans1.0..11.0/41.0..44.5s: medieval and modern doors are on two walls meeting at one inside
+# corner (9.5/43.5s); text panel then lion right of the modern door on that white north wall; white
+# sculpture gallery on the next (east) wall. Flight geometry/room metres provisional.
 #6387 46.0..47.5/52.0..84.5s: the entry is in the Braque/Villon wall, so the modern room lies
-# south of that door behind the lion wall; two windows; second doorway in the Cezanne wall.
-geometry['rooms'][5]={'label':'lion stair landing','bounds':[10.55,16.15,28.1,35.9], 'height':4.1,'floor':'basket-weave','floor_void':[10.55,13.55,32.0,35.9],'openings':{'west':[29.2,30.9],'east':[29.2,30.9],'south':[13.9,15.9]}}
+# north of that door behind the lion wall; two windows; second doorway in the Cezanne wall.
+# Accepted interior turned +PI/2 about the entry: old x,z -> (z-18.2,44.25-x).
+#6387 13.0/44.0s,6383 66.5s: stair door, tall case and tracery doorway share one axis (z31.765).
+# The stair door moves, not the tracery: the Bartolo and Virgin panels need the wall north of it.
+# The draft void/flights/guard keep their authored1.1m from the door's south edge, so the block and the
+# landing's south bound move +1.715 with it; a preserved draft shape, not a source measurement.
+geometry['rooms'][3]['openings']['east']=[30.915,32.615]
+geometry['rooms'][5]={'label':'lion stair landing','bounds':[10.55,16.15,28.1,37.615], 'height':4.1,'floor':'basket-weave','floor_void':[10.55,13.55,33.715,37.615],'openings':{'west':[30.915,32.615],'north':[11.0,12.7],'east':[29.5,31.5]}}
 geometry['rooms'] += [
-    {'label':'modern painting gallery','bounds':[16.15,21.95,28.9,34.9],'height':3.5,'boards_across':True,'openings':{'west':[29.2,30.9],'east':[33.3,34.6]}},
-    {'label':'white sculpture gallery threshold study limit','bounds':[13.9,15.9,35.9,37.4],'openings':{'north':[13.9,15.9]}},
-    {'label':'modern adjoining gallery threshold study limit','bounds':[21.95,23.55,33.3,34.6],'openings':{'west':[33.3,34.6]}}
+    {'label':'modern painting gallery','bounds':[10.70,16.70,22.30,28.10],'height':3.5,'boards_across':False,'openings':{'south':[11.0,12.7],'north':[15.10,16.40]}},
+    {'label':'white sculpture gallery threshold study limit','bounds':[16.15,17.65,29.5,31.5],'openings':{'west':[29.5,31.5]}},
+    {'label':'modern adjoining gallery threshold study limit','bounds':[15.10,16.40,20.70,22.30],'openings':{'south':[15.10,16.40]}}
 ]
-for a,side,b,other in [(3,'east',5,'west'),(5,'east',10,'west'),(5,'south',11,'north'),(10,'east',12,'west')]:
+assert sum(geometry['rooms'][3]['openings']['west'])==sum(geometry['rooms'][3]['openings']['east'])
+for a,side,b,other in [(3,'east',5,'west'),(5,'north',10,'south'),(5,'east',11,'west'),(10,'north',12,'south')]:
     assert geometry['rooms'][a]['openings'][side]==geometry['rooms'][b]['openings'][other]
 for i,a in enumerate(geometry['rooms']):
     for b in geometry['rooms'][i+1:]:
         aa,bb=a['bounds'],b['bounds']
         assert min(aa[1],bb[1])-max(aa[0],bb[0])<1e-8 or min(aa[3],bb[3])-max(aa[2],bb[2])<1e-8,(a['label'],b['label'])
 geometry['patches']=[p for p in geometry['patches'] if p['label']!='stairs landing threshold study limit']
-for label,b in [('landing north floor',[10.55,16.15,28.1,32.0]),('landing east floor',[13.55,16.15,32.0,35.9])]+[(r['label'],r['bounds']) for r in geometry['rooms'][10:]]:
+for label,b in [('landing north floor',[10.55,16.15,28.1,33.715]),('landing east floor',[13.55,16.15,33.715,37.615])]+[(r['label'],r['bounds']) for r in geometry['rooms'][10:]]:
     geometry['patches'].append({'label':label,'color':'81735c','vertices':[[b[0],0,b[2]],[b[1],0,b[2]],[b[1],0,b[3]],[b[0],0,b[3]]]})
 for label,x,rise in [('ascending stair study',10.70,3.2),('descending stair study',12.20,-3.2)]:
-    geometry['patches'].append({'label':label,'color':'b9b7b0','vertices':[[x,0,32],[x+1.1,0,32],[x+1.1,rise,35.8],[x,rise,35.8]]})
-geometry['lion_modern_layout']={'source':'IMG_6387 native2.25..84.25s; reciprocal6382 stair view','door_order':'Medieval west; modern east opposite, lion right of modern; white sculpture gallery on adjacent south wall','modern_wall_groups':'Entry/Braque/Villon west; large painting north off the entry jamb; pumpkin/landscape/second doorway east; two windows and sculpture case south','source_review':'docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001','entry_reveal_depth_modelled':False,'metric_accepted':False,'stair_curve_and_destinations_complete':False,'white_sculpture_room_interior_complete':False,'adjoining_room_interior_complete':False}
-geometry['trials'] += [['landing_to_modern',[14.5,.25,30.05],[17.7,0,30.05],False],['modern_to_landing',[17.7,.25,30.05],[14.5,0,30.05],False],['landing_white_out',[14.9,.25,34.7],[14.9,0,36.75],False],['landing_white_back',[14.9,.25,36.75],[14.9,0,34.7],False],['modern_far_opening_out',[21.0,.25,33.95],[22.8,0,33.95],False],['modern_far_opening_back',[22.8,.25,33.95],[21.0,0,33.95],False],['modern_bench_blocked',[18.9,.25,33.3],[18.9,0,30.6],True],['landing_guard_blocked',[13.9,.25,33.7],[12.9,0,33.7],True]]
+    geometry['patches'].append({'label':label,'color':'b9b7b0','vertices':[[x,0,33.715],[x+1.1,0,33.715],[x+1.1,rise,37.515],[x,rise,37.515]]})
+geometry['lion_modern_layout']={'source':'IMG_6387 native2.25..84.25s; reciprocal6382 stair view','stair_block':'Draft void, flights and guard translated +1.715 with the stair door; preserved shape, not a source measurement','door_order':'Medieval west on the tracery axis; modern north on the adjoining wall at one inside corner, lion right of modern on that wall; white sculpture gallery on the next east wall (z provisional); stairwell south','modern_wall_groups':'Entry/Braque/Villon south; large painting west off the entry jamb; pumpkin/landscape/second doorway north; two windows and sculpture case east','source_review':'docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001; wall order docs/evidence/collection-reconstruction/opus-landing-refit-20261001','entry_reveal_depth_modelled':False,'metric_accepted':False,'stair_curve_and_destinations_complete':False,'white_sculpture_room_interior_complete':False,'adjoining_room_interior_complete':False}
+geometry['trials'] += [['landing_to_modern',[11.85,.25,29.75],[11.85,0,26.55],False],['modern_to_landing',[11.85,.25,26.55],[11.85,0,29.75],False],['landing_white_out',[14.95,.25,30.5],[17.0,0,30.5],False],['landing_white_back',[17.0,.25,30.5],[14.95,0,30.5],False],['modern_far_opening_out',[15.75,.25,23.25],[15.75,0,21.45],False],['modern_far_opening_back',[15.75,.25,21.45],[15.75,0,23.25],False],['modern_bench_blocked',[15.1,.25,25.35],[12.4,0,25.35],True],['landing_guard_blocked',[13.9,.25,35.415],[12.9,0,35.415],True]]
 
 (out/'geometry.json').write_text(json.dumps(geometry,indent=2)+'\n')
 inputs[str(ingestion/'room-route-walk-v5/geometry.json')] = hashlib.sha256((ingestion/'room-route-walk-v5/geometry.json').read_bytes()).hexdigest()
-for name in ['doorway_walk.gd','remodel_room.gd','remodel_review.gd','remodel_presenter.gd','remodel_bake.gd','connected_hall.gd','seated_woman_asset.gd']:
+for name in ['doorway_walk.gd','remodel_room.gd','remodel_review.gd','remodel_presenter.gd','remodel_bake.gd','connected_hall.gd','seated_woman_asset.gd','virgin_child_asset.gd','medieval_metal_assets.gd','medieval_ceramic_ivory_assets.gd']:
     copy(source/name,name)
+for name in ['decal-queens-roundel.png','decal-queens-boat.png','queens-decals-source.json','medieval-paper-L1.png','medieval-paper-L2.png']:
+    copy(app/'trial'/name,'assets/'+name)
+copy(app/'medieval-case-inventory.json','assets/medieval-case-inventory.json')
+copy(app/'medieval-paper-source.json','assets/medieval-paper-source.json')
 hall_source=repo/'modules/shell/prototype/gallery_walk4'
 for name in ['walk4.gd','works.json','gaps.json']:
     copy(hall_source/name,'modules/shell/prototype/gallery_walk4/'+name)
@@ -548,7 +587,7 @@ for kind in ['door-architrave','baseboard']:
     # Sample the straight centre of each moulding, excluding generated end caps/margins.
     crop=image[y:y+h,x:x+w]
     strip=np.median(crop[h//4:3*h//4],axis=0).astype('uint8')[None,:,:] if kind=='door-architrave' else np.median(crop[:,w//4:3*w//4],axis=1).astype('uint8')[:,None,:]
-    Image.fromarray(strip).resize((256,256)).save(out/'assets'/f'{kind}.png')
+    painted_white(Image.fromarray(strip).resize((256,256))).save(out/'assets'/f'{kind}.png')
     inputs[str(original)]=hashlib.sha256(original.read_bytes()).hexdigest()
 copy(app/'main-hall-presentation/plugin.gd','bake/plugin.gd')
 (out/'bake/plugin.cfg').write_text('[plugin]\nname="Collection bake"\ndescription="Reuse Main Hall native LightmapGI editor bake"\nauthor="RISD"\nversion="1"\nscript="plugin.gd"\n')

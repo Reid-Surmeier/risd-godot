@@ -1,0 +1,6 @@
+## sabotage: height -> exit 1
+   failures: ['monstrance height 0.4539999961853 differs from catalogue 0.464']
+## sabotage: filled-chamber -> exit 1
+   failures: ['chamber must be open at (0.0, 0.23, 0.0), filled by cornice and spire', 'chamber must be open at (0.0, 0.31, 0.0), filled by cornice and spire']
+## sabotage: pyx-confirmed -> exit 1
+   failures: ['beaker and pyx identities must stay probable']

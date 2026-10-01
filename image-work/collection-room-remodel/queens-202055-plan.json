@@ -1,0 +1,24 @@
+{
+  "attempts": [
+    {
+      "id": "queens-202055-001",
+      "prompt": "queens-202055-prompt.txt",
+      "promptSha256": "0454eaac75f9b3fe8a8946ebaeb2980d0a6dd421fe9f9a786fbabda4d13ae658",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/queens-202055-official-0.png",
+          "sha256": "6cbda6dd2b7ee70630f2c6209b53002b529c518d85be47ff571413daba798dc2"
+        },
+        {
+          "path": "inventory-references/queens-202055-official-1.png",
+          "sha256": "50a8a6e6f7f93ec4d1d2207651f2f0ccadac938949c260d360727da7d8f2daf1"
+        },
+        {
+          "path": "inventory-references/queens-202055-official-2.png",
+          "sha256": "bcdfdfa53aee37255aee4f74ad91fec1f7621fd88843f82bba033ffb2df0f91f"
+        }
+      ]
+    }
+  ]
+}

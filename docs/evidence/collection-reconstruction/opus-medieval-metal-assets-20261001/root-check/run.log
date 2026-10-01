@@ -1,0 +1,173 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+views: front, left side, rear, three-quarter: { "monstrance": "views-monstrance.png", "beaker": "views-beaker.png", "pyx": "views-pyx.png", "pax": "views-pax.png", "pax_on_stand": "views-pax-on-stand.png" }
+{
+  "asset": "modules/shell/prototype/collection_reconstruction/medieval_metal_assets.gd",
+  "failures": [],
+  "godot": "4.7.2-stable (official)",
+  "negative_controls": {
+    "collapsed": [
+      "collapsed triangle",
+      "repeated directed edge",
+      "open edge",
+      "open edge"
+    ],
+    "flipped": [
+      "repeated directed edge",
+      "repeated directed edge",
+      "repeated directed edge",
+      "open edge",
+      "open edge",
+      "open edge"
+    ],
+    "inverted": [
+      "inside-out or empty"
+    ],
+    "opened": [
+      "open edge",
+      "open edge",
+      "open edge"
+    ]
+  },
+  "objects": {
+    "beaker": {
+      "bounds_m": [
+        0.0945999994874001,
+        0.140000000596046,
+        0.0945999994874001
+      ],
+      "catalogue_height_m": 0.14,
+      "checked_bounds_m": [
+        0.0945999994874001,
+        0.140000000596046,
+        0.0945999994874001
+      ],
+      "closed_shells": 1,
+      "identity": "probable",
+      "part_triangles": {
+        "beaker": 356
+      },
+      "triangles": 356
+    },
+    "monstrance": {
+      "bounds_m": [
+        0.175945460796356,
+        0.464000016450882,
+        0.123999990522861
+      ],
+      "catalogue_height_m": 0.464,
+      "checked_bounds_m": [
+        0.175945460796356,
+        0.464000016450882,
+        0.123999990522861
+      ],
+      "closed_shells": 36,
+      "identity": "matched",
+      "part_triangles": {
+        "cornice and spire": 56,
+        "finial": 56,
+        "foot": 476,
+        "lower arcade 0": 12,
+        "lower arcade 1": 12,
+        "lower arcade 2": 12,
+        "lower arcade 3": 12,
+        "lower arcade 4": 12,
+        "lower arcade 5": 12,
+        "lower post 0": 12,
+        "lower post 1": 12,
+        "lower post 2": 12,
+        "lower post 3": 12,
+        "lower post 4": 12,
+        "lower post 5": 12,
+        "pinnacle 0": 20,
+        "pinnacle 1": 20,
+        "pinnacle 2": 20,
+        "pinnacle 3": 20,
+        "pinnacle 4": 20,
+        "pinnacle 5": 20,
+        "platform": 44,
+        "stem and knops": 176,
+        "storey floor": 44,
+        "upper arcade 0": 12,
+        "upper arcade 1": 12,
+        "upper arcade 2": 12,
+        "upper arcade 3": 12,
+        "upper arcade 4": 12,
+        "upper arcade 5": 12,
+        "upper post 0": 12,
+        "upper post 1": 12,
+        "upper post 2": 12,
+        "upper post 3": 12,
+        "upper post 4": 12,
+        "upper post 5": 12
+      },
+      "triangles": 1260
+    },
+    "pax": {
+      "bounds_m": [
+        0.0889999940991402,
+        0.120999999344349,
+        0.0389980413019657
+      ],
+      "catalogue_height_m": 0.121,
+      "checked_bounds_m": [
+        0.0889999940991402,
+        0.120999999344349,
+        0.0219999998807907
+      ],
+      "closed_shells": 6,
+      "identity": "matched",
+      "part_triangles": {
+        "angel mass": 44,
+        "canopy mass": 12,
+        "handle": 28,
+        "mount": 40,
+        "shell ground": 84,
+        "virgin mass": 44
+      },
+      "triangles": 252
+    },
+    "pax_stand": {
+      "bounds_m": [
+        0.00346410181373358,
+        0.150000005960464,
+        0.00400000018998981
+      ],
+      "closed_shells": 1,
+      "part_triangles": {
+        "rod": 20
+      },
+      "triangles": 20
+    },
+    "pyx": {
+      "bounds_m": [
+        0.0644000023603439,
+        0.0889999940991402,
+        0.0728578865528107
+      ],
+      "catalogue_height_m": 0.089,
+      "checked_bounds_m": [
+        0.0644000023603439,
+        0.0889999940991402,
+        0.0728578865528107
+      ],
+      "closed_shells": 9,
+      "identity": "probable",
+      "part_triangles": {
+        "body": 44,
+        "clasp": 12,
+        "cross arms": 12,
+        "cross upright": 12,
+        "hasp": 12,
+        "hinge": 20,
+        "knob": 44,
+        "lid": 68,
+        "lid top": 44
+      },
+      "triangles": 268
+    }
+  },
+  "passed": true,
+  "renderer": "llvmpipe (LLVM 20.1.2, 256 bits)"
+}

@@ -1,0 +1,59 @@
+ok   base-source/ is root's four files as received
+FAIL root's four files still equal the recorded baseline  root has not edited them since
+ok   prepare_remodel.py parses and prepared the project
+ok   remodel_room.gd parses in Godot 4.7.2
+ok   remodel_review.gd parses in Godot 4.7.2
+ok   remodel_bake.gd parses in Godot 4.7.2
+ok   new: scene builds with no script error
+ok   base: scene builds with no script error
+ok   patched: no two rooms overlap in plan  []
+ok   patched: all openings paired with the adjoining room  26 opening sides paired []
+ok   patched: one doorway interval in four places
+ok   patched: south return .30 m beside the grey door
+ok   patched: Rockefeller z [-5, 1.8], on the Hall north line
+ok   patched: European gallery 26.3 m, the Hall's length
+ok   patched: grey west wall 6.0 m inside 5.4..6.6
+ok   patched: Ionic and piano thresholds on the grey north line
+ok   patched: Main Hall bounds and doors unchanged
+ok   patched: metric, calibration, physical-loop and connector-length flags false
+ok   root base: no two rooms overlap in plan  []
+ok   root base: all openings paired with the adjoining room  26 opening sides paired []
+ok   root base: one doorway interval in four places  negative control: must not hold on root base
+ok   root base: south return .30 m beside the grey door  negative control: must not hold on root base
+ok   root base: Rockefeller z [-5, 1.8], on the Hall north line  negative control: must not hold on root base
+ok   root base: European gallery 26.3 m, the Hall's length  negative control: must not hold on root base
+ok   root base: grey west wall 6.0 m inside 5.4..6.6  negative control: must not hold on root base
+ok   root base: Ionic and piano thresholds on the grey north line  negative control: must not hold on root base
+ok   medieval, Renaissance, Hall, landing, modern and their thresholds unchanged in geometry.json  ['light Renaissance room', 'dark medieval room', 'Grand Gallery', 'lion stair landing', 'modern painting gallery', 'white sculpture gallery threshold study limit', 'modern adjoining gallery threshold study limit']
+ok   built scene: same objects in the same order as root base  411 / 411 top-level objects
+ok   built scene: every object moved by exactly its expected shift, or not at all  moved by z {1.29: 5, 1.6: 28, 2.2: 280, 2.46: 3, 2.58: 1}; unmoved and exact 1353; walls of the six changed rooms 224; wrong []
+ok   built scene: no mesh, shape, rotation, texture or catalogue tag changed outside those walls  []
+ok   retained Hall: 139 native meshes, identical to root base  261 Hall nodes
+ok   built collision: grey French gallery:west leaves the doorway [-0.34, 1.5]  [[-4.2, -0.34], [1.5, 1.8]]
+ok   built collision: Rockefeller:east leaves the doorway [-0.34, 1.5]  [[-5.0, -0.34], [1.5, 1.8]]
+ok   built collision: both connector headers span the doorway
+ok   built collision: grey north wall, its door header and the piano threshold header at z -4.2  [-4.2, -4.2, -4.2, -4.2]
+ok   connector details inside the moved connector  black panels 4, elevator leaves 2, number 1
+ok   two columns: north one 1.6 m from the moved north wall, south one unmoved  [[11.05, 1.4, -2.6], [11.05, 1.4, 0.2]]
+ok   paintings at their expected places  []
+ok   Courbet centre 4.86 m from the south-west corner and 1.14 m from the north-west corner
+ok   apostles and lion present (their exactness is covered above)  [[14.6, 1.7005, 28.22], [10.311, 1.453, 30.4652], [10.311, 1.472, 33.2169]]
+ok   walk: patched build fails nothing that root base passes  240 results; failing in both, in the medieval room only: ['loop_16', 'loop_back_16', 'medieval_between_cases_clear', 'medieval_stairs_aisle_clear']
+ok   walk: connector, grey, piano, Ionic, Hall, European and Rockefeller joins pass both ways  32 results
+ok   walk: retained-Hall loop forward and back passes everywhere root base does  33 legs each way; the one leg failing in both builds crosses root's retained portal guard in the medieval room
+ok   walk: plain prototype project, every trial and the loop both ways  240 results, 0 failed
+ok   walk: cases, benches, leaves, grille and the stair void guard still block  ['central_display_blocked', 'gold_service_base_blocked', 'hall_bench_blocked', 'iron_grille_blocks_visitor', 'landing_guard_blocked', 'medieval_low_case_blocked', 'medieval_tall_case_blocked', 'modern_bench_blocked', 'renaissance_bench_blocked', 'renaissance_left_leaf_blocked', 'renaissance_right_leaf_blocked', 'right_wall_blocked', 'sofa_wall_blocked']
+ok   walk: landing, modern and medieval-door trials unchanged and passing  32 results
+ok   negative control: the patched trials cannot be walked in root base  41 more failures in root base: ['decorative_room', 'gold_service_base_blocked', 'loop_29', 'loop_30', 'loop_31', 'loop_32', 'loop_back_01', 'loop_back_02', 'loop_back_03', 'loop_back_04', 'loop_back_05', 'loop_back_06', 'loop_back_07', 'loop_back_08', 'loop_back_09', 'loop_back_10', 'loop_back_11', 'loop_back_12', 'loop_back_13', 'loop_back_14', 'loop_back_15', 'loop_back_17', 'loop_back_18', 'loop_back_19', 'loop_back_20', 'loop_back_21', 'loop_back_22', 'loop_back_23', 'loop_back_24', 'loop_back_25', 'loop_back_26', 'loop_back_27', 'loop_back_28', 'loop_back_29', 'loop_back_30', 'loop_back_31', 'loop_back_32', 'purple_grey_back', 'purple_grey_out', 'right_door_back', 'right_door_out']
+ok   floor normals up in the patched retained-Hall project (root's diagnostic)  1617 floor meshes, 0 wrong normals
+ok   floor normals up in the patched plain project (root's diagnostic)  1618 floor meshes, 0 wrong normals
+ok   negative control: root base fails the floor-normal diagnostic  1684 floor meshes, 9948 wrong normals
+ok   panel() is root's visually verified trial, line for line
+ok   bake prepare step runs and every fill light and probe it places is inside a room  278 lights and probes; outside any room: []; no lightmap was baked
+ok   retained Hall: all 362 source files hash-equal to the saved Hall as prepared
+ok   retained Hall: every non-import file still hash-equal after the runs  343 files; Godot may rewrite the other 19 .import files
+ok   retained Hall: 23 paintings in its own works.json
+ok   actual Main Hall worktree at the recorded tip, no tracked change  317b8f3b8dac
+
+55 of 56 checks passed
+exit=1

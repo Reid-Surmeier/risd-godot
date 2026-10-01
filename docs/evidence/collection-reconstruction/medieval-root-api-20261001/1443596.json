@@ -1,0 +1,48 @@
+[
+  {
+    "id": "1443596",
+    "collection": "",
+    "credit": "Mary B. Jackson Fund",
+    "culture": "Spanish",
+    "dating": "",
+    "datingYearFrom": "1500",
+    "datingYearTo": "1550",
+    "description": "<p>Monstrance</p>\n",
+    "dimensions": "Height: 46.4 cm (18 1/4 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Silver with gilding"
+    ],
+    "mediumTechnique": "silver",
+    "objectNumber": "40.002",
+    "onView": true,
+    "place": "Place Made: Barcelona, Spain",
+    "primaryMaker": "Unknown Maker, Spanish",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Silver with gilding"
+    ],
+    "title": "Monstrance",
+    "type": [
+      "Metalwork"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/monstrance-40002"
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "delivered_helper": {
+    "modules/shell/prototype/collection_reconstruction/virgin_child_asset.gd": "62045ef75ba6a238ec565a7f488a26ce7623e2795d5434c05af713fa703a701f"
+  },
+  "baseline_root_helper": {
+    "sha256": "f14b9d8cde8f13dc186814e92d20faacee8e5bc904b05fb9810e158e2e0239b8",
+    "still_unchanged_in_root": true
+  },
+  "reused_helper": {
+    "modules/shell/prototype/collection_reconstruction/seated_woman_asset.gd": "7b17a507fe6c68d7d6dd834a3669d1888f4fe2f587304d1e6f269ec4ce010fa7",
+    "identical_to_root": true
+  },
+  "read_only_sources": {
+    "official photo 0": "369b4cbafdb8700263017957035b5e34592ba6f77cff62158f13edbff79e3521",
+    "official photo 1": "4316f1ad4a906de5a7b6331e952947e4dd1a15523c9649387e218d7089690629",
+    "official photo 2": "555227555b752908e705300325520281545a0db35105982f7fa9a72552261d1e",
+    "official photo 3": "583485d8b2acd828cea3b2830c4805e204cc3a61fb119d8d7815ec464ac10eb0",
+    "video frame 105.70s": "deef5226eb015f5d4044c88e6b7e0f7bf01abd397f3e170b424e5dd3e7a6a250",
+    "muse image-01.webp (run-45b7430ae44f28051bb2b9a2, not resubmitted)": "a14ab275b107b2b8a2e97455ef9b150b68fc347eba4b06df6b694ea6b57c96fd"
+  },
+  "new_spend_usd": 0,
+  "evidence": {
+    "REPORT.md": "9319a719b4628a1cdd50ddf2dea59c0a5000662c45bcf72a3a2e8f91a8bd6c18",
+    "baseline-root-check.log": "c2d114348313284ba6979d28c0ae97de31f6cc094c68e1e7da72476bbfe667d0",
+    "baseline-root-virgin_child_asset.gd": "f14b9d8cde8f13dc186814e92d20faacee8e5bc904b05fb9810e158e2e0239b8",
+    "before-after.jpg": "11f714782c9180f9a42916284fe163231dacc4951baace38c5a0d89b4f048717",
+    "check.gd": "86800af4eada7972c40be987522f0b5e3d065c87f9d872683ff010c4ab3703fe",
+    "checks.json": "4149d75d5e46a060c62080734c8c5897c86b4bd006fb03a021ca1e0531c0c5b2",
+    "compare-front.jpg": "d0a93270d4cc7167c9733ca23ab3da6c3ff5cf3151f161c961f5548dd2fc9766",
+    "compare-left.jpg": "acd7af196d871bb95387477dac2f07286f7ebc16c9da1da6b313117feb31afef",
+    "compare-oblique.jpg": "d0ab7d8bbebad7ba76a58c66fc4954737453bf8b70a0f4ff1928b991d16a41e3",
+    "compare-rear.jpg": "4ed95b6dee9bb48cabc86f7170cabe1386e63a63801061b60d060dafb4271616",
+    "compare-right.jpg": "2006add46de6d7d69135c64b4d2c785b81d7ebf3e842ed0280c1be7e55cc8475",
+    "compare.py": "844ff7e7086c4f7239da76f57af1d34eb617913102e6451b84362070964f3625",
+    "front-high.png": "c8ff8cc39b757c7a07ca53d71b3a0ef813f420c2d6b51ebe6c7cdb214f3c852a",
+    "front.png": "ca187fb30e32099e670f9cd43dd498e1abf30b8f0a73cafea0bac210c2b7989a",
+    "left-high.png": "2dbc84a97f396cc868d08c6edd278787fae6babe43e035e443e48b5caf421743",
+    "left.png": "ea4598bb0ea58550973448cb7ea52a57d47095e2f7a220045ac2c5ec8845703e",
+    "native.log": "ba8e16aa85a1216a041562321a93303b0676f65a1803f2266379b41ea8cfb033",
+    "negative-control-open-shell.log": "d7eecb6e7caec30a4971e79ceaf8e1212d581c74d92b93348c9c74f2dd27fcf5",
+    "oblique-child.png": "77340cc8f1a3dd781f95d7a020b038d5d2fa242434c48fea1b8726a7a9451e77",
+    "oblique.png": "dc12506a4db78424a0dd20570fccd21351510098e42082a2bc50975f4924da8e",
+    "parse-check.log": "cff1a1da4a93fa9a6eb240da15ccbeb9fdc03b7434d730f400ac02a0290632ea",
+    "project.godot": "9aec671c3d11e3967a9042b418503268a1011bb8fc19f73565cf5b4e63777a7f",
+    "rear.png": "c49b281324cff631d9f21bf71f8d659a4bb02f02b0ea8f21f5ea5ea45676f067",
+    "repo-check.log": "364d2e8227c1eaee9b9b3a27b5788b60688ed80900b643aa06871a098e2f093e",
+    "right-high.png": "113ff18c668a7fe08d2e209f4741ff80de0d2cb84ace6696aecb065ef569116b",
+    "right.png": "f82321060dd81e3ad8b2d3d993b832e9730c0ceddce30f352cd9cc61580e58ae",
+    "seated_woman_asset.gd": "7b17a507fe6c68d7d6dd834a3669d1888f4fe2f587304d1e6f269ec4ce010fa7",
+    "silhouette-vs-official.json": "3be9448b142719c14e3fabd221a0f7a1607a58036dc8678596b1aaf595aee5aa",
+    "silhouette-vs-official.txt": "313b6409eb4aaef3afe9c32640d1114022d257c2899a34eac40d84c2b8fcce9b",
+    "silhouette.py": "9b5a6c3c0fc491e8a2c9f8ccae6bb65da035204c838935099a8e93f47cb10a22",
+    "trials/trial-1-first-run-broken-shells.log": "755c49e4425430617d22599e1da9e71e5b11aefc0b913145569911189f3212e5",
+    "trials/trial-1-views.png": "ba812c11f809394aa9d994dd2d86a96305188bc7a9aa35708ba0f7d78b1319b3",
+    "trials/trial-1-virgin_child_asset.gd": "c603263196d15ad7655107f70432a747b8486c89dcdaa5ae62d3ca77746f9bfa",
+    "trials/trial-2-compare-front.jpg": "9f1f558ea897ef230f93419ee933bc0795540b5d09c7a41611604f8852ec179b",
+    "trials/trial-2-compare-left.jpg": "f267251873c6845538f6ccbaa1c63a664b27bb6edb9d22370d5d043aca06b82e",
+    "trials/trial-2-compare-right.jpg": "7f73c8a5b83581da94dba9a71785bb5cd30c715ad4cc19400c120de9a6641d33",
+    "trials/trial-2-virgin_child_asset.gd": "1a0d5c6b10b5a1b73ca6a6a6bc758dcbbe7081d5d5fd75ea438a2efe2cf96f0d",
+    "trials/trial-3-compare-left.jpg": "2d2a2feb6f2fb0d4d286e32da20f5ded2e250bda8465b199c8968f8cd017d641",
+    "trials/trial-3-silhouette.json": "49011411ec6bd1db347cbbfe5055c24ab16bd1f8dbc24a97572b1eb919848495",
+    "trials/trial-3-virgin_child_asset.gd": "7a1c0d726bd750e449f4254316d6064bc27f4a5ab6f20abca19c391c0bc98f97",
+    "trials/trial-4-compare-oblique.jpg": "a58b1eebb51fcce2a7ede164cddb723fc64371f9ed8af3418b66256c5f985f6d",
+    "trials/trial-4-compare-rear.jpg": "d9bf844fcd42a8b6b87d01018ce540f371073afc54e6589aebeef735427121d2",
+    "trials/trial-4-virgin_child_asset.gd": "e05e9129af794a89f6105ca9137ae8d628e1ff31e060fd88165362ccff6fed95",
+    "virgin_child_asset.gd": "62045ef75ba6a238ec565a7f488a26ce7623e2795d5434c05af713fa703a701f"
+  }
+}

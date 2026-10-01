@@ -1,0 +1,11 @@
+{
+  "date_utc": "2026-10-01T14:33:00Z",
+  "objective": "muse-f06f51d1eeeb2f58f287",
+  "status": "credential_fetch_failed_before_provider",
+  "cause": "Bitwarden HTTP503 upstream connection timeout",
+  "paid_requests": 0,
+  "cost_usd": "0.00",
+  "generation_run_created": false,
+  "next": "Recover credential service, verify no reservation/provider receipt, then execute same objective once. Do not change prompt or resubmit an ambiguous provider request.",
+  "recovery": "Credential service recovered; one provider request completed in run-45b7430ae44f28051bb2b9a2, actual $0.01. Initial failed credential call remains recorded; no provider resubmission."
+}

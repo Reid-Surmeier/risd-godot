@@ -1,0 +1,90 @@
+[
+ {
+  "accession": "82.190.1",
+  "id": "1476306",
+  "page": "https://risdmuseum.org/art-design/collection/st-margaret-and-dragon-821901",
+  "page_sha256": "296e0bdb3605173134d9969c70ccf2593affea698891dfbde10b785265f54c64",
+  "carousel_photos": 1,
+  "photos": [
+   {
+    "file": "st-margaret-and-dragon-821901-zoom-0.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/xhr4D23J/",
+    "asset_copyright": "public",
+    "bytes": 4491785,
+    "sha256": "05df34c263ca96258a72bbecbcd104b5c9a3d7508af0fd8015b11787a53e7f3f"
+   }
+  ]
+ },
+ {
+  "accession": "82.190.2",
+  "id": "1505136",
+  "page": "https://risdmuseum.org/art-design/collection/penitent-magdalene-glory-821902",
+  "page_sha256": "b3781db4767fd861ee5ef65d8b68a0f177d02b89a71677283a5bb2be657f6f4d",
+  "carousel_photos": 1,
+  "photos": [
+   {
+    "file": "penitent-magdalene-glory-821902-zoom-0.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/mtaVfgL6/",
+    "asset_copyright": "public",
+    "bytes": 4249366,
+    "sha256": "31384ec442c4d0e5e3d500016d30297543b7f6cac5982d380a0e808ca9ccaec4"
+   }
+  ]
+ },
+ {
+  "accession": "51.020",
+  "id": "1214091",
+  "page": "https://risdmuseum.org/art-design/collection/mary-magdalene-51020",
+  "page_sha256": "93a197e3a3d3540360595e41272887646337d9c49b7760d62eea55a19d60c802",
+  "carousel_photos": 1,
+  "photos": [
+   {
+    "file": "mary-magdalene-51020-zoom-0.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/eF1oYxNo/",
+    "asset_copyright": "public",
+    "bytes": 3682246,
+    "sha256": "d17f39e2f9a57e46d72a4bfc8f29cfbffce59b9feb3e2d851f87a7f736f8b8e5"
+   }
+  ]
+ },
+ {
+  "accession": "84.198.1032",
+  "id": "1263731",
+  "page": "https://risdmuseum.org/art-design/collection/river-landscape-mercury-abducting-psyche-841981032",
+  "page_sha256": "3bc1055178043239ca260e20f59bb658925100e5bcc5f666843bc59f4caf8c35",
+  "carousel_photos": 1,
+  "photos": [
+   {
+    "file": "river-landscape-mercury-abducting-psyche-841981032-zoom-0.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/U2AiMcIB/",
+    "asset_copyright": "public",
+    "bytes": 1924107,
+    "sha256": "9ef177f8792cbc97606336cab13a1bc2ef7665bfe9d2877527a0401b3347b1fc"
+   }
+  ]
+ },
+ {
+  "accession": "47.025B",
+  "id": "1293771",
+  "page": "https://risdmuseum.org/art-design/collection/god-punishes-king-pharoah-delivering-jews-statute-labour-47025b",
+  "page_sha256": "cc44392ee0a3a12772765e310671b3dd70b9a84d8bbe8f35d428a20b4a52be94",
+  "carousel_photos": 1,
+  "photos": [
+   {
+    "file": "god-punishes-king-pharoah-delivering-jews-statute-labour-47025b-zoom-0.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/bFKSeFvv/",
+    "asset_copyright": "public",
+    "bytes": 4725717,
+    "sha256": "69b40be8b24f72c359481ece78f1785363c2f81e6c6e866ca4eb645c84ec33da"
+   }
+  ]
+ },
+ {
+  "accession": "2023.17",
+  "id": "1597546",
+  "page": "https://risdmuseum.org/art-design/collection/one-hundred-christian-emblems-emblematum-christianorum-centuria-202317",
+  "page_sha256": "8915e33b1d274866d1a167990a27d4eb1b4286de2af922af11d269d47779d92e",
+  "carousel_photos": 0,
+  "photos": []
+ }
+]

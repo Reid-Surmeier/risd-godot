@@ -40,9 +40,12 @@
         {
           "id": "triptych",
           "wall": "north",
-          "title": "Open gold triptych in wall glass case",
+          "title": "Madonna Enthroned, with Saints and Angels",
           "survey_frames": "6383:55-63",
-          "status": "unmatched/unplaced"
+          "status": "Matched to official catalogue photographs and native video; asset and case still unbuilt; placement and metric acceptance false.",
+          "accession": "2021.131",
+          "catalogue_id": "1345606",
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md"
         },
         {
           "id": "madonna-architecture",
@@ -60,60 +63,90 @@
         {
           "id": "books-portraits-case",
           "wall": "east",
-          "title": "Six visible objects: two portraits, ivory narrative plaque, bronze bucket, open printed book, blue/gold drug jar",
+          "title": "Six observed objects: two portraits, ivory diptych, silver book cover with chains, open printed emblem book, painted ceramic drug jar",
           "survey_frames": "6383:82-104",
-          "status": "unmatched/unplaced",
-          "minimum_objects": 6
+          "status": "All six identities researched; five image/video matches and emblem-book 2023.17 confirmed by case label and catalogue. Six assets and wall case unbuilt.",
+          "minimum_objects": 6,
+          "emblem_book": {
+            "accession": "2023.17",
+            "catalogue_id": "1597546",
+            "title": "One Hundred Christian Emblems (Emblematum Christianorum Centuria)",
+            "year": 1584,
+            "closed_page_size_m": [
+              0.147,
+              0.197
+            ],
+            "open_emblem": 15,
+            "identity_status": "confirmed by label/catalogue; opening compared with different Glasgow library copy",
+            "museum_photograph_available": false,
+            "source": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/SOURCES.md",
+            "asset_built": false
+          }
         },
         {
           "id": "majolica-medals-case",
           "wall": "east",
-          "title": "Two plates, two round medallions, rectangular relief plaque",
+          "title": "Two Bella Donna plates, Death of the Virgin gilt roundel, stained-glass Apocalypse roundel, probable enamel plaque",
           "survey_frames": "6383:108-116",
-          "status": "unmatched/unplaced",
+          "status": "Four catalogue/photo matches, one probable enamel plaque; five assets and wall case unbuilt.",
           "minimum_objects": 5
         },
         {
           "id": "burgundy-textile",
           "wall": "south",
-          "title": "Burgundy repeated floral textile in white mount",
+          "title": "Velvet Cover",
           "survey_frames": "6383:11-17",
-          "status": "unmatched/unplaced"
+          "status": "Matched to official catalogue photographs and native video; asset and case still unbuilt; placement and metric acceptance false.",
+          "accession": "23.307X",
+          "catalogue_id": "1202276",
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md"
         },
         {
           "id": "hunting-tapestry",
           "wall": "south",
-          "title": "Green hunting tapestry: riders and foliage",
+          "title": "The Woodcutters",
           "survey_frames": "6383:18-26",
-          "status": "unmatched/unplaced"
+          "status": "Matched to official catalogue photographs and native video; asset and case still unbuilt; placement and metric acceptance false.",
+          "accession": "29.280",
+          "catalogue_id": "1201986",
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md"
         },
         {
           "id": "holy-family",
           "wall": "west",
-          "title": "Holy Family with female attendants, outdoor setting",
+          "title": "Madonna and Child with Saint Barbara and Saint Catherine",
           "survey_frames": "6383:29-33",
-          "status": "unmatched/unplaced"
+          "status": "Matched to official catalogue photographs and native video; asset and case still unbuilt; placement and metric acceptance false.",
+          "accession": "58.196",
+          "catalogue_id": "1591076",
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md"
         },
         {
           "id": "bronze-knight",
           "wall": "west",
-          "title": "Bronze young knight with hat/cape, rock base, large glass case",
+          "title": "Saint Roch",
           "survey_frames": "6383:34-45",
-          "status": "unmatched/unplaced"
+          "status": "Matched to official catalogue photographs and native video; asset and case still unbuilt; placement and metric acceptance false.",
+          "accession": "21.398",
+          "catalogue_id": "1273471",
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md"
         },
         {
           "id": "bronze-pieta",
           "wall": "west",
-          "title": "Virgin seated, dead Christ at her side, small wall glass case",
+          "title": "Piet\u00e0",
           "survey_frames": "6383:46-52",
-          "status": "unmatched/unplaced"
+          "status": "Matched to official catalogue photographs and native video; asset and case still unbuilt; placement and metric acceptance false.",
+          "accession": "59.128",
+          "catalogue_id": "1312736",
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md"
         },
         {
           "id": "bench",
           "wall": "centre",
           "title": "Black upholstered bench with four legs",
           "survey_frames": "6383:123-130",
-          "status": "unmatched/unplaced"
+          "status": "Source-observed black upholstered bench built; dimensions and exact position provisional."
         }
       ],
       "floor": "straight pale oak planks",
@@ -293,18 +326,34 @@
         {
           "id": "flat-reliefs-case",
           "wall": "centre",
-          "title": "Low display case containing two large narrative relief plaques",
+          "title": "Two mounted paper works: probable Penitent Magdalene in Glory and Mary Magdalene",
           "survey_frames": "6382:193-198",
-          "status": "Source-relative empty native case shell installed in v36; contents unmatched/unplaced; metric size/offset unaccepted",
-          "minimum_objects": 2
+          "status": "Two thin mounted-paper proxies installed using tiny original filmed crops; identities, dimensions and image detail unaccepted.",
+          "minimum_objects": 2,
+          "identity_accepted": false,
+          "candidate_objects": [
+            {
+              "slot": "L1",
+              "accession": "82.190.2",
+              "catalogue_id": "1505136",
+              "identity_status": "probable; blurred colour-layout match only"
+            },
+            {
+              "slot": "L2",
+              "accession": "51.020",
+              "catalogue_id": "1214091",
+              "identity_status": "probable; blurred layout/tone match only"
+            }
+          ],
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/SOURCES.md"
         },
         {
           "id": "tall-mixed-case",
           "wall": "centre",
-          "title": "Tall case: Madonna, framed medallion, two ornate spires and small objects",
+          "title": "Seven objects: Virgin and Child, God Save the Queens, Monstrance, probable Communion Beaker, probable Pyx, probable Christ in Majesty on wedge, Pax on rod",
           "survey_frames": "6382:201-226",
-          "status": "Source-relative empty native case shell installed in v36; contents unmatched/unplaced; metric size/offset unaccepted",
-          "minimum_objects": 4
+          "status": "Seven low-polygon object prototypes installed; four strong catalogue matches, three probable. Case geometry check passes; mount/placement/hidden detail/fidelity unaccepted.",
+          "minimum_objects": 7
         }
       ],
       "floor": "pale oak herringbone",
@@ -332,5 +381,16 @@
     "IMG_6383-097-120.jpg": "96ebb55374d7a7742c7525def6c76fef05c60ed7f9dead8b5f8c3fb9edc1076b",
     "IMG_6383-121-144.jpg": "1e90bde428383df6aee1ed6b50c45d713d0c1940cfc52b6dc607808f227f178e",
     "IMG_6383-145-147.jpg": "4b15fc2f259c1ed7dda2fd2eb46111141021c0d9e08a5bfaed041badcd7671f0"
+  },
+  "renaissance_identification_review": {
+    "objects": 18,
+    "confirmed": 16,
+    "probable": 1,
+    "label_only": 0,
+    "already_built": 1,
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/ledger.json",
+    "all_assets_built": false,
+    "metric_accepted": false,
+    "followup_source": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/SOURCES.md"
   }
 }

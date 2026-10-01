@@ -1,0 +1,10 @@
+{
+  "source_sha256": {
+    "prepare_remodel.py": "2ac1eb0095e0bcced07b35b3043cd99a21a51182e61d9285b017604a4085cf05",
+    "remodel_room.gd": "24c41899ba14fc1b6844ae65c22f142c68205c2a6f3d9cba01f553b99d21a045",
+    "remodel_review.gd": "96892186deae035569cb404b945152f4446ecc84e0030be725002c631e5c6365",
+    "remodel_bake.gd": "228d60ec285044d0c3254adc51f778f0ac0787e6d2aa19b68c5673a7175746fa"
+  },
+  "delivery_sha256": "14a21e9006ebf3516cb97825c44d27582773cde90b7393bf04d95296fc4e0be6",
+  "source_worker_dispatch": "ctx_a25b622b0836"
+}

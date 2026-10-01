@@ -1,0 +1,17 @@
+{
+	"catalogue_front_size_m": [
+		2.286,
+		1.041
+	],
+	"closed_slab_triangles": 12,
+	"depth_m_provisional": 0.08,
+	"generated_damage_accepted": false,
+	"individual_brick_relief_complete": false,
+	"original_front_retained": true,
+	"position": [
+		14.5999994277954,
+		1.17999994754791,
+		28.1800003051758
+	],
+	"yaw": 0.0
+}

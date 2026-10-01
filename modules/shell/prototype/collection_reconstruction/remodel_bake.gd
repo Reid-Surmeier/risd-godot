@@ -87,7 +87,7 @@ func prepare() -> void:
 	room.add_child(floor_instance)
 	floor_instance.owner=room
 	index+=1
-	for position in [Vector3(.45,3.25,-5.5),Vector3(.45,3.25,-2),Vector3(4.6,3.25,-2),Vector3(-.55,3.25,2),Vector3(-.55,3.25,6),Vector3(-.55,3.25,10),Vector3(-.55,3.25,14),Vector3(-.55,3.25,17),Vector3(-.55,3.25,22),Vector3(7,4.0,21),Vector3(7,4.0,24),Vector3(12.2,3.25,20.8),Vector3(6.5,3.25,-2),Vector3(10.5,3.25,-2),Vector3(13.5,3.25,-2),Vector3(16.5,3.25,-2)]:
+	for position in [Vector3(.45,3.25,-5.5),Vector3(.45,3.25,-2),Vector3(4.6,3.25,-2),Vector3(-.55,3.25,2),Vector3(-.55,3.25,6),Vector3(-.55,3.25,10),Vector3(-.55,3.25,14),Vector3(-.55,3.25,17),Vector3(-.55,3.25,22),Vector3(7,4.0,21),Vector3(7,4.0,24),Vector3(12.2,3.25,22.515),Vector3(6.5,3.25,-2),Vector3(10.5,3.25,-2),Vector3(13.5,3.25,-2),Vector3(16.5,3.25,-2)]:
 		var light:=OmniLight3D.new()
 		light.position=corrected(position)
 		light.omni_range=8
@@ -109,7 +109,7 @@ func prepare() -> void:
 		room.add_child(light)
 		light.owner=room
 	# Latest Main Hall's offline painting spots, placed below this room's lower ceiling.
-	for spec in [[Vector3(.55,2.43,-7.02),Vector3.BACK],[Vector3(-1.05,2.15,-7),Vector3.BACK],[Vector3(2.25,2.15,-7),Vector3.BACK],[Vector3(-2.67,2,-4.7),Vector3.RIGHT],[Vector3(-3.48,1.75,2.15),Vector3.RIGHT],[Vector3(.70,1.55,30),Vector3.RIGHT,true],[Vector3(.70,1.55,28.78),Vector3.RIGHT,true],[Vector3(2.0,1.55,28.30),Vector3.BACK,true],[Vector3(1.18,1.55,28.30),Vector3.BACK,true]]:
+	for spec in [[Vector3(.55,2.43,-7.02),Vector3.BACK],[Vector3(-1.05,2.15,-7),Vector3.BACK],[Vector3(2.25,2.15,-7),Vector3.BACK],[Vector3(-2.67,2,-4.7),Vector3.RIGHT],[Vector3(-3.48,1.75,4.35),Vector3.RIGHT],[Vector3(.70,1.55,30),Vector3.RIGHT,true],[Vector3(.70,1.55,28.78),Vector3.RIGHT,true],[Vector3(2.0,1.55,28.30),Vector3.BACK,true],[Vector3(1.18,1.55,28.30),Vector3.BACK,true]]:
 		var spot:=SpotLight3D.new()
 		room.add_child(spot)
 		spot.owner=room
@@ -127,7 +127,7 @@ func prepare() -> void:
 		spot.shadow_enabled=true
 
 	#6387 neutral ceiling-track fill below the modern ceiling, separate from Hall lighting.
-	for position in [Vector3(13.35,3.8,30.1),Vector3(14.4,3.8,34.2),Vector3(19.05,3.25,30.0),Vector3(19.05,3.25,31.9),Vector3(19.05,3.25,33.8)]:
+	for position in [Vector3(13.35,3.8,30.1),Vector3(14.4,3.8,35.915),Vector3(11.8,3.25,25.2),Vector3(13.7,3.25,25.2),Vector3(15.6,3.25,25.2)]:
 		var light:=OmniLight3D.new()
 		light.position=position
 		light.omni_range=7
@@ -139,7 +139,7 @@ func prepare() -> void:
 		light.shadow_enabled=true
 		room.add_child(light)
 		light.owner=room
-	for spec in [[Vector3(16.23,1.65,32.4),Vector3.RIGHT],[Vector3(16.23,1.65,33.75),Vector3.RIGHT],[Vector3(21.87,1.65,30.2),Vector3.LEFT],[Vector3(21.87,1.65,31.85),Vector3.LEFT],[Vector3(19.5,1.65,28.98),Vector3.BACK]]:
+	for spec in [[Vector3(14.2,1.65,28.02),Vector3.FORWARD],[Vector3(15.55,1.65,28.02),Vector3.FORWARD],[Vector3(12.0,1.65,22.38),Vector3.BACK],[Vector3(13.65,1.65,22.38),Vector3.BACK],[Vector3(10.78,1.65,24.75),Vector3.RIGHT]]:
 		var spot:=SpotLight3D.new()
 		room.add_child(spot)
 		spot.owner=room
@@ -156,8 +156,8 @@ func prepare() -> void:
 	var lion_spot:=SpotLight3D.new()
 	room.add_child(lion_spot)
 	lion_spot.owner=room
-	lion_spot.position=Vector3(14.5,3.6,33.15)
-	lion_spot.look_at_from_position(lion_spot.position,Vector3(16.0,1.7,33.15),Vector3.UP)
+	lion_spot.position=Vector3(14.6,3.6,29.75)
+	lion_spot.look_at_from_position(lion_spot.position,Vector3(14.6,1.7,28.25),Vector3.UP)
 	lion_spot.spot_range=5
 	lion_spot.spot_angle=45
 	lion_spot.light_energy=1.0
@@ -165,8 +165,8 @@ func prepare() -> void:
 	lion_spot.light_size=.2
 	lion_spot.light_bake_mode=Light3D.BAKE_STATIC
 	lion_spot.shadow_enabled=true
-	for x in [14.4,17.6,20.5]:
-		for z in [30.0,31.9,33.8]:
+	for x in [14.4,11.8,13.7,15.6]:
+		for z in ([30.0,31.9,35.515] if x==14.4 else [26.65,23.75]):
 			for y in [.3,1.1,2.0]:
 				var probe:=LightmapProbe.new()
 				probe.position=Vector3(x,y,z)
@@ -236,7 +236,7 @@ func prepare() -> void:
 				probe.position=corrected(Vector3(x,y,z))
 				room.add_child(probe)
 				probe.owner=room
-	for position in [Vector3(-.55,1.1,22),Vector3(2,1.1,22.5),Vector3(3.1,1.1,22.5),Vector3(5.55,1.1,20),Vector3(5.55,1.1,24),Vector3(10.8,1.1,22),Vector3(5.55,1.1,18),Vector3(12.2,1.1,20.8),Vector3(6.5,1.1,-2),Vector3(10.5,1.1,-2),Vector3(13.5,1.1,-2),Vector3(16.5,1.1,-2)]:
+	for position in [Vector3(-.55,1.1,22),Vector3(2,1.1,22.5),Vector3(3.1,1.1,22.5),Vector3(5.55,1.1,20),Vector3(5.55,1.1,24),Vector3(10.8,1.1,22),Vector3(5.55,1.1,18),Vector3(12.2,1.1,22.515),Vector3(6.5,1.1,-2),Vector3(10.5,1.1,-2),Vector3(13.5,1.1,-2),Vector3(16.5,1.1,-2)]:
 		var probe:=LightmapProbe.new()
 		probe.position=corrected(position)
 		room.add_child(probe)
@@ -253,6 +253,8 @@ func prepare() -> void:
 func corrected(p:Vector3) -> Vector3:
 	if p.z>16:
 		return p+Vector3(-1.95 if p.x<3.4 else -.95 if p.x>11.5 else 0,0,9.25)
-	if p.x>=8.45:return p+Vector3(-4.6,0,0)
-	if p.x>3.65:return Vector3(1.7+(p.x-3.65)*2.15/4.8,p.y,p.z)
-	return p+Vector3(-1.95,0,0)
+	# Grey register: grey fill follows the shorter room's centre (-2 to -1.2), the connector its new
+	# axis (-2 to .58), and Rockefeller with the gallery's door end moves 2.2m as in remodel_room.gd.
+	if p.x>=8.45:return p+Vector3(-4.6,0,.8)
+	if p.x>3.65:return Vector3(1.7+(p.x-3.65)*2.15/4.8,p.y,p.z+2.58)
+	return p+Vector3(-1.95,0,2.2 if p.z<1.0 else 0.0)

@@ -287,7 +287,7 @@
     },
     {
       "id": "far-tabernacle",
-      "location": "Far end wall, east of doorway",
+      "location": "Far end wall, west of doorway",
       "frames": "6384:37-42;6386:194-202",
       "contents": "Carved pale rectangular stone shrine with dark rectangular opening on white pedestal; identity pending",
       "accession": "06.057",
@@ -301,7 +301,7 @@
     },
     {
       "id": "far-bronze-christ",
-      "location": "Far end wall, west of doorway",
+      "location": "Far end wall, east of doorway",
       "frames": "6384:1-6",
       "contents": "Bronze standing figure in wall glass case; identity pending"
     }
@@ -348,6 +348,20 @@
       0.26,
       0.292
     ],
-    "location": "Near far corner beside wall case; exact wall assignment and metric pose pending"
+    "location": "Far end wall, east of the bronze figure case and doorway; metric pose pending"
+  },
+  "far_wall_review": {
+    "date_utc": "2026-10-01T14:09:00Z",
+    "source": "IMG_6384 12.0/14.0/16.0/18.0s",
+    "evidence": "docs/evidence/collection-reconstruction/opus-remaining-architecture-review-20261001/evidence-sheet.jpg",
+    "order_facing_south": [
+      "Previtali16.237",
+      "bronze figure case",
+      "doorway",
+      "Tabernacle06.057",
+      "west corner"
+    ],
+    "metric_pose_accepted": false,
+    "objects_installed": false
   }
 }

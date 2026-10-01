@@ -4,10 +4,13 @@ extends "doorway_walk.gd"
 
 const Painting := preload("res://modules/shell/prototype/gallery_walk4/painting_asset.gd")
 const SeatedWoman := preload("res://seated_woman_asset.gd")
+const VirginChild := preload("res://virgin_child_asset.gd")
+const CaseMetal := preload("res://medieval_metal_assets.gd")
+const CasePair := preload("res://medieval_ceramic_ivory_assets.gd")
 var inventory := {"point_clouds":0,"bookcase":1,"mirrors":2,"settee":1,"armchairs":3}
 var contact_shadow:MeshInstance3D
 var ceiling_details:Array[MeshInstance3D]=[]
-var views := [Vector3(-1.50, .25, -4.6), Vector3(-2.50, .25, 3)]
+var views := [Vector3(-1.50, .25, -2.4), Vector3(-2.50, .25, 3)]
 
 func make_visitor() -> Node3D:
 	var actor=load("res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gd").new()
@@ -34,6 +37,10 @@ func _ready() -> void:
 	build_displays()
 	build_furniture()
 	build_catalogue_objects()
+	# Grey register (opus-grey-register-fit-20261001): Rockefeller and the secretary by its door
+	# move 2.2m with the room; the apostles and lion in the same catalogue file keep their z.
+	shift_new(first,Vector3(-1.95,0,2.2),1.0)
+	first=get_child_count()
 	build_adjacent_gallery()
 	shift_new(first,Vector3(-1.95,0,0))
 	first=get_child_count()
@@ -54,9 +61,10 @@ func _ready() -> void:
 	assert(not FileAccess.file_exists("res://points.bin"))
 	print("REMODEL_READY " + JSON.stringify(inventory))
 
-func shift_new(first:int,offset:Vector3) -> void:
+func shift_new(first:int,offset:Vector3,z_before:=INF) -> void:
+	# Nodes at or beyond z_before take the x shift only.
 	for node in get_children().slice(first):
-		if node is Node3D:node.position+=offset
+		if node is Node3D:node.position+=offset if node.position.z<z_before else Vector3(offset.x,offset.y,0)
 
 func build_connected_hall() -> void:
 	# Reuse reviewed Main Hall assets, vault and frame shader; no photo doorway cards.
@@ -150,9 +158,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		elif event.keycode == KEY_2:
 			reset(views[1])
 		elif event.keycode == KEY_3:
-			reset(Vector3(6.7,.25,-2))
+			reset(Vector3(6.7,.25,.58))
 		elif event.keycode == KEY_4:
-			reset(Vector3(18.0,.25,30.1))
+			reset(Vector3(11.9,.25,26.25))
 		elif event.keycode == KEY_5:
 			reset(Vector3(14.6,.25,30.05))
 
@@ -196,7 +204,15 @@ func panel(parent: Node3D, corners: Array, uvs: Array, m: Material, tone := Colo
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	st.set_color(tone)
+	var floor:bool=m is ShaderMaterial and m.get_shader_parameter("floor_z_limits") is Vector2
+	# A floor faces upward with Godot's clockwise winding, including transposed boards.
+	if floor and (corners[1]-corners[0]).cross(corners[3]-corners[0]).y>0:
+		corners=corners.duplicate()
+		uvs=uvs.duplicate()
+		corners.reverse()
+		uvs.reverse()
 	Painting.quad(st, corners, uvs)
+	if floor:st.generate_normals()
 	var mesh := MeshInstance3D.new()
 	mesh.mesh = st.commit()
 	mesh.material_override = m
@@ -238,7 +254,7 @@ func build_rooms() -> void:
 						var xb:float=min(b[1],xa+(.2 if (i+j)%2==0 else 1.0))
 						var za:float=b[2]+j if (i+j)%2==0 else b[2]+j+k*.2
 						var zb:float=min(b[3],za+(1.0 if (i+j)%2==0 else .2))
-						if xa<13.55:zb=min(zb,32.0)
+						if xa<13.55:zb=min(zb,33.715)
 						if zb<=za or xb<=xa:continue
 						panel(self,[Vector3(xa,.003,za),Vector3(xb,.003,za),Vector3(xb,.003,zb),Vector3(xa,.003,zb)],
 							[Vector2.ZERO,Vector2.DOWN,Vector2.ONE,Vector2.RIGHT] if (i+j)%2==0 else [Vector2.ZERO,Vector2.RIGHT,Vector2.ONE,Vector2.DOWN],oak,Color(1,1,1,fmod((i*7+j*3+k)*.131,1.0)))
@@ -274,6 +290,9 @@ func build_rooms() -> void:
 				var inward:float=1.0 if side in ["west","north"] else -1.0
 				wall_face(casing,span[1]-span[0],height,vertical,inward)
 				var trim:=moulding(span[1]-span[0],.16,"baseboard",false)
+				if area.label.begins_with("purple"):
+					trim.material_override=look(Color("15151b") if side=="south" else Color.WHITE,"" if side=="south" else "res://presentation/purple-plaster.png")
+					trim.set_meta("connector_baseboard",side)
 				trim.position=Vector3(fixed+inward*.065,.08,(span[0]+span[1])/2) if vertical else Vector3((span[0]+span[1])/2,.08,fixed+inward*.065)
 				trim.rotation.y=inward*PI/2 if vertical else 0.0 if inward==1.0 else PI
 				trim.reparent(casing)
@@ -294,25 +313,25 @@ func build_rooms() -> void:
 				var jamb:=solid(Vector3(fixed,1.35,edge) if vertical else Vector3(edge,1.35,fixed),Vector3(.38,2.7,.08) if vertical else Vector3(.08,2.7,.38),ivory)
 				jamb.reparent(header)
 				for face in [-1,1]:
-					var surround:=moulding(.16,2.7,"door-architrave",true)
+					var surround:=moulding(.10,2.7,"door-architrave",true)
 					surround.position=Vector3(fixed+face*.20,1.35,edge) if vertical else Vector3(edge,1.35,fixed+face*.20)
 					surround.rotation.y=face*PI/2 if vertical else 0.0 if face==1 else PI
 					surround.reparent(header)
 			for face in [-1,1]:
-				var top:=moulding(.16,width+.16,"door-architrave",true)
+				var top:=moulding(.10,width+.10,"door-architrave",true)
 				top.rotation.z=PI/2
 				top.rotation.y=face*PI/2 if vertical else 0.0 if face==1 else PI
 				top.position=Vector3(fixed+face*.20,2.73,middle) if vertical else Vector3(middle,2.73,fixed+face*.20)
 				top.reparent(header)
 	# Ceiling rails and vents follow the wide views.
 	for x in [-3.65,-1.55,.55]:
-		for z in [-5.5,-3.5,-1.5]:
+		for z in [-3.3,-1.3,.7]:
 			var rail:=solid(Vector3(x,3.43,z),Vector3(1.65,.025,.035),ivory)
 			ceiling_details.append(rail)
 			for offset in [-.5,.5]:
 				var fixture:=solid(Vector3(x+offset,3.33,z),Vector3(.08,.15,.08),ivory)
 				fixture.reparent(rail)
-	for spec in [[Vector3(-2.5,3.04,-.61),0.0],[Vector3(1.48,3.04,-2),PI/2]]:
+	for spec in [[Vector3(-2.5,3.04,1.59),0.0],[Vector3(1.48,3.04,.58),PI/2]]:
 		var vent:=solid(spec[0],Vector3(1.85,.07,.018),look(Color("746f64")))
 		vent.rotation.y=spec[1]
 		ceiling_details.append(vent)
@@ -330,28 +349,30 @@ func build_grey_gallery() -> void:
 			assert(south==null,"Purple south wall must have one owner")
 			south=wall
 	assert(south!=null,"Black panel faces must belong to the purple south wall")
-	for x in [1.98,2.50,3.02,3.54]:
-		var face:=MeshInstance3D.new()
-		var quad:=QuadMesh.new()
-		quad.size=Vector2(.49,2.9)
-		face.mesh=quad
-		face.material_override=black
-		face.position=Vector3(x,1.45,-1.27)
-		face.rotation.y=PI
-		add_child(face)
-		face.reparent(south)
+	var black_face:=MeshInstance3D.new()
+	var quad:=QuadMesh.new()
+	quad.size=Vector2(2.15,3.5)
+	black_face.mesh=quad
+	black_face.material_override=black
+	black_face.position=Vector3(2.775,1.75,1.43)
+	black_face.rotation.y=PI
+	black_face.set_meta("continuous_black_connector",true)
+	add_child(black_face)
+	black_face.reparent(south)
 	# Closed elevator pair: a wall feature, not an invented walkable connection.
-	for x in [2.40,2.90]:solid(Vector3(x,1.35,-2.73),Vector3(.49,2.7,.045),ivory)
+	for x in [2.40,2.90]:solid(Vector3(x,1.35,-.27),Vector3(.49,2.7,.045),ivory)
 	var number:=Label3D.new()
 	number.text="5"
 	number.font_size=100
 	number.pixel_size=.005
 	number.modulate=Color("27252a")
-	number.position=Vector3(2.65,2.05,-2.69)
+	number.position=Vector3(2.65,2.05,-.23)
 	add_child(number)
 	var first:=get_child_count()
 	# Wide column opening faces the purple connector, rather than a door at the far end of a tube.
-	for z in [-4.2,.2]:
+	# The north column keeps its authored 1.6m from the moved north wall (-4.2); 6380 247.5/248.5s
+	# has the south one near the connector axis, so it stays. Their spacing is unmeasured.
+	for z in [-2.6,.2]:
 		var column:=StaticBody3D.new()
 		column.position=Vector3(15.65,1.4,z)
 		var shape:=CollisionShape3D.new()
@@ -383,18 +404,38 @@ func build_grey_gallery() -> void:
 		capital.rotation.y=-PI/2
 		add_child(capital)
 		capital.reparent(column)
-	# Capital side/rear relief and entablature are still unaccepted.
+	# 6380 35.0/35.5s: smooth shafts, end pilasters and a cream beam; metres remain provisional.
+	var beam:=solid(Vector3(15.65,3.11,-1.2),Vector3(.48,.78,6.0),ivory)
+	beam.set_meta("column_beam",true)
+	var cornice:=moulding(6.0,.16,"door-architrave",false)
+	cornice.position=Vector3(15.39,3.40,-1.2)
+	cornice.rotation.y=PI/2
+	cornice.reparent(beam)
+	for z in [-4.05,1.65]:
+		var pilaster:=solid(Vector3(15.65,1.4,z),Vector3(.16,2.8,.30),ivory)
+		pilaster.set_meta("column_end_pilaster",true)
+		var cap:=solid(Vector3(15.65,2.70,z),Vector3(.30,.20,.46),ivory)
+		cap.reparent(pilaster)
+	# Capital side/rear relief, dentils and entablature dimensions are still unaccepted.
 	# Bertin sits on the Hall-door wall between Villeneuve and Pannini; exact offsets remain provisional.
-	for spec in [["courbet","43.571",Vector3(8.53,1.8,-4.35),PI/2],["corot","24.089",Vector3(14.8,1.8,-5.72),0.0],["bertin","56.214",Vector3(13.3,1.75,1.72),PI]]:
+	# Courbet centre 4.86m from the south-west corner (fit); Corot rides the north wall, offset along it unmeasured.
+	for spec in [["courbet","43.571",Vector3(8.53,1.8,-3.06),PI/2],["corot","24.089",Vector3(14.8,1.8,-4.12),0.0],["bertin","56.214",Vector3(13.3,1.75,1.72),PI]]:
 		var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/"+spec[0]+"-frame-geometry.json"))
 		var painting:=Painting.new()
 		add_child(painting)
 		painting.build_framed(load("res://assets/"+spec[0]+"-frame.png"),load("res://assets/painting-"+spec[1]+".jpg"),Vector2(data.canvas_m[0],data.canvas_m[1]),data.margins_px)
 		painting.position=spec[2]
 		painting.rotation.y=spec[3]
-	for z in [-5.8,1.8]:
+		var label:=solid(Vector3.ZERO,Vector3(.15,.22,.003),look(Color("f3f2ed")))
+		label.reparent(painting,false)
+		label.position=Vector3(.63,-.17,.04)
+		label.set_meta("artwork_label_proxy",true)
+	for z in [-4.2,1.8]:
 		for x in [9.11,11.19]:
-			var leaf:=solid(Vector3(x,1.35,z+(.45 if z==-5.8 else -.45)),Vector3(.06,2.7,.95),ivory,true)
+			# 6380 14-15/100-107s: leaves fold into the reveals, never onto grey parquet.
+			# ponytail: Hall reveal belongs to the preserved Hall; omit protruding trial leaves.
+			if z>0 or x<10:continue
+			var leaf:=solid(Vector3(x,1.35,z-.45),Vector3(.06,2.7,.95),ivory,true)
 			# Assemble the three Muse panels around native rails/stiles; generated extra jamb excluded.
 			for index in 3:
 				var y:float=[2.05,1.04,.38][index]
@@ -405,6 +446,7 @@ func build_grey_gallery() -> void:
 						[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)],look(Color.WHITE,"res://assets/white-panel-door-%d.png"%index))
 	shift_new(first,Vector3(-4.6,0,0))
 	inventory["grey_gallery_verified_paintings"]=3
+	inventory["grey_gallery_hall_reveal_leaves_built"]=false
 	inventory["grey_gallery_objects_complete"]=false
 	inventory["grey_gallery_metric_accepted"]=false
 
@@ -614,7 +656,7 @@ func update_baked_visibility() -> void:
 		for surface in baked.get_children():
 			if surface is MeshInstance3D and surface.has_meta("live_cutaway"):
 				var target=surface.get_meta("live_cutaway")
-				surface.visible=target.get_parent().get_child(1).visible if target.get_parent() is StaticBody3D and target.get_parent() in casings else target.is_visible_in_tree()
+				surface.visible=target.get_parent().get_child(1).is_visible_in_tree() if target.get_parent() is StaticBody3D and target.get_parent() in casings else target.is_visible_in_tree()
 
 func load_bake() -> void:
 	if has_meta("bake_preparing"):return
@@ -781,7 +823,10 @@ func build_adjacent_gallery() -> void:
 	var painting:=Painting.new()
 	add_child(painting)
 	painting.build_framed(load("res://assets/frame.png"),load("res://assets/painting-35.786.jpg"),Vector2(.651,.541),frame.margins_px)
-	painting.position=Vector3(-3.48,1.75,2.15)
+	# Delacroix follows the Rockefeller door it was filmed from (6385), as the secretary does.
+	# Fetti, the piers and Goltzius were read mid-gallery or from the far end (6386); their z is
+	# kept as authored and stays unaccepted until the gallery is fitted.
+	painting.position=Vector3(-3.48,1.75,4.35)
 	painting.rotation.y=PI/2
 	var fetti:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/fetti-frame-geometry.json"))
 	var angels:=Painting.new()
@@ -953,7 +998,8 @@ func build_sculpture_rooms() -> void:
 	build_iron_grille()
 	build_medieval_stair_door()
 	# Catalogue41.046 left /41.045 right; native6382 widesshow projecting brackets and grey backplates.
-	for z in [19.50,22.25]:
+	# Both keep their offsets from the stair door, which moved onto the tracery axis.
+	for z in [21.215,23.965]:
 		var bracket:=solid(Vector3(10.42,.95,z),Vector3(.32,.18,.36),look(Color("e2e1dd")),true)
 		var backplate:=solid(Vector3(10.48,1.43,z),Vector3(.025,1.52,.42),look(Color("74757b")))
 		backplate.reparent(bracket)
@@ -979,16 +1025,17 @@ func build_sculpture_rooms() -> void:
 			fixture.reparent(rail)
 	inventory["sculpture_room_shells"]=2
 	inventory["sculpture_room_objects_complete"]=false
-	# Reciprocal IMG_6382 78.25/88.75s: broad low case south-west of the tall stair-side case.
+	# Reciprocal IMG_6382 78.25/88.75s: broad low case west of the tall stair-side case.
+	#6387 13.0/44.0s,6383 66.5s: stair door, tall case and tracery doorway on one axis.
 	# ponytail: source-relative arrangement only; replace metric offsets after wide-view fitting.
 	var grey:=look(Color("666763"))
 	var glass:=look(Color(.82,.90,.91,.10),"",true)
-	for spec in [[Vector3(5.45,0,22.7),Vector2(2.0,1.15),.88,.30],
-		[Vector3(8.05,0,21.65),Vector2(1.05,.90),.88,1.05]]:
-		var at:Vector3=spec[0]
-		var footprint:Vector2=spec[1]
-		var base_height:float=spec[2]
-		var glass_height:float=spec[3]
+	for case_spec in [[Vector3(5.45,0,22.7),Vector2(2.0,1.15),.88,.30],
+		[Vector3(8.05,0,22.515),Vector2(1.05,.90),.88,1.05]]:
+		var at:Vector3=case_spec[0]
+		var footprint:Vector2=case_spec[1]
+		var base_height:float=case_spec[2]
+		var glass_height:float=case_spec[3]
 		var base:=solid(at+Vector3(0,base_height/2,0),Vector3(footprint.x,base_height,footprint.y),grey,true)
 		var tray:=solid(at+Vector3(0,base_height+.025,0),Vector3(footprint.x+.06,.05,footprint.y+.06),white)
 		tray.reparent(base)
@@ -1002,63 +1049,108 @@ func build_sculpture_rooms() -> void:
 			pane.reparent(base)
 		var lid:=solid(at+Vector3(0,base_height+.05+glass_height,0),Vector3(footprint.x,.012,footprint.y),glass)
 		lid.reparent(base)
+		# ponytail: by-eye deck positions; catalogue heights fixed, mounts/spacing await source fitting.
+		if footprint.x<1.5:
+			for spec in [[Vector3(-.32,1.025,.13),Vector3(.28,.19,.30)],
+				[Vector3(0,.958,0),Vector3(.21,.055,.21)]]:
+				var riser:=solid(at+spec[0],spec[1],white)
+				riser.reparent(base)
+			var decals:={"roundel":load("res://assets/decal-queens-roundel.png"),"boat":load("res://assets/decal-queens-boat.png")}
+			for spec in [[VirginChild.build(),Vector3(-.32,1.12,.13),-PI/2],
+				[CasePair.build("queens",decals),Vector3(0,.985,0),PI],
+				[CaseMetal.build("monstrance"),Vector3(.32,.93,.22),PI],
+				[CaseMetal.build("beaker"),Vector3(.37,.93,-.23),PI],
+				[CaseMetal.build("pyx"),Vector3(.29,.93,-.02),PI],
+				[CasePair.christ_on_wedge(),Vector3(.12,.93,-.26),PI],
+				[CaseMetal.pax_on_stand(),Vector3(-.29,.93,-.24),PI]]:
+				var object:Node3D=spec[0]
+				add_child(object)
+				object.position=at+spec[1]
+				object.rotation.y=spec[2]
+				object.set_meta("medieval_case_object",true)
+				object.reparent(base)
+		else:
+			for spec in [["L1",.50,Vector2(.34,.31),Vector2(.07,.09)],
+				["L2",-.50,Vector2(.55,.45),Vector2(.27,.16)]]:
+				var mount:=solid(at+Vector3(spec[1],.932,0),Vector3(spec[2].x,.004,spec[2].y),look(Color("eee8d7")))
+				mount.set_meta("unidentified_paper_slot",spec[0])
+				mount.reparent(base)
+				# Original tiny filmed image, on a thin flat paper; no generated subject or accession.
+				var art:=solid(at+Vector3(spec[1],.935,0),Vector3(spec[3].x,.001,spec[3].y),look(Color.WHITE,"res://assets/medieval-paper-"+spec[0]+".png",true))
+				art.reparent(base)
 	inventory["medieval_display_cases"]=2
+	inventory["medieval_case_object_prototypes"]={"tall":7,"low":2,"probable_accessions":["1992.051","30.011","2014.110"],"unidentified":["L1","L2"],"placement_accepted":false,"fine_fidelity_accepted":false}
 	inventory["medieval_case_contents_complete"]=false
 
 func build_lion_modern_rooms() -> void:
-	#6387 reciprocal door order and painting/window wall groups; authored metres unaccepted.
+	#6387 pan door order (medieval west, modern/lion north, white sculpture east) and
+	# painting/window wall groups; authored metres unaccepted.
 	var ivory:=look(Color("eeeae2"),"res://presentation/wall-plaster.png")
 	var metal:=look(Color("535657"))
 	var wood:=look(Color("716b60"),"res://textures/oak-muse.webp")
 	# The two flights occupy a real floor void. Native collision ramps sit below the visual treads.
+	#6387 8.0/44.5/83.0s: door casing, sign5, then rail and first steps. The draft block keeps its
+	# authored1.1m from the stair door's south edge (z33.715); a preserved shape, not a measurement.
 	for spec in [[10.70,3.2],[12.20,-3.2]]:
 		var x:float=spec[0]
 		var rise:float=spec[1]
 		for i in 18:
-			var tread:=solid(Vector3(x+.55,rise*(i+.5)/18-.03,32+(i+.5)*3.8/18),Vector3(1.1,.06,3.8/18+.015),wood)
-			var riser:=solid(Vector3(x+.55,rise*i/18,32+i*3.8/18),Vector3(1.1,abs(rise)/18,.04),ivory)
-			var z:float=32+(i+.5)*3.8/18
+			var tread:=solid(Vector3(x+.55,rise*(i+.5)/18-.03,33.715+(i+.5)*3.8/18),Vector3(1.1,.06,3.8/18+.015),wood)
+			var riser:=solid(Vector3(x+.55,rise*i/18,33.715+i*3.8/18),Vector3(1.1,abs(rise)/18,.04),ivory)
+			var z:float=33.715+(i+.5)*3.8/18
 			var y:float=rise*(i+.5)/18
 			var post:=solid(Vector3(x+1.12,y+.48,z),Vector3(.028,.96,.028),metal)
 			for dy in [.17,.47,.78]:
 				var collar:=solid(Vector3(x+1.12,y+dy,z),Vector3(.06,.065,.06),metal)
 				collar.reparent(post)
-		var rail:=solid(Vector3(x+1.12,rise/2+.98,33.9),Vector3(.075,.065,sqrt(3.8*3.8+rise*rise)),wood)
+		var rail:=solid(Vector3(x+1.12,rise/2+.98,35.615),Vector3(.075,.065,sqrt(3.8*3.8+rise*rise)),wood)
 		rail.rotation.x=-atan(rise/3.8)
 	# Safety collision belongs to observed landing balustrade, not a floor across the stair void.
-	var guard:=solid(Vector3(13.52,.52,33.95),Vector3(.09,1.04,3.9),metal,true)
+	var guard:=solid(Vector3(13.52,.52,35.665),Vector3(.09,1.04,3.9),metal,true)
 	guard.get_child(1).mesh=ArrayMesh.new()
 	for i in 17:
-		var z:float=32+i*3.9/16
+		var z:float=33.715+i*3.9/16
 		var post:=solid(Vector3(13.52,.47,z),Vector3(.035,.94,.035),metal)
 		for y in [.15,.45,.75]:
 			var collar:=solid(Vector3(13.52,y,z),Vector3(.065,.06,.065),metal)
 			collar.reparent(post)
-	solid(Vector3(13.52,.99,33.95),Vector3(.09,.075,3.9),wood)
-	#6387:2.25/42.25s: lion on the modern-door wall, to the right facing that door.
+	solid(Vector3(13.52,.99,35.665),Vector3(.09,.075,3.9),wood)
+	#6387:2.25/42.25s: lion on the modern-door (north) wall, to the right facing that door.
+	# 41.0/3.0s: label and a strip of white wall before the corner, so .35m left of the turned centre.
 	# Original front assembled on the closed low polygon catalogue slab; Muse damage trial unaccepted.
-	solid(Vector3(16.092,1.7005,33.15),Vector3(.035,1.201,2.446),look(Color("e9e8e2")),true)
+	# Wall-hung work belongs to its wall's visual, as the windows do, so a cut-away wall takes it along.
+	var hung:={}
+	for wall in casings:
+		var tag:String=wall.get_meta("room_wall","")
+		if tag=="lion stair landing:north" and wall.position.x<12.7:continue
+		if tag=="modern painting gallery:north" and wall.position.x>15.1:continue
+		hung[tag]=wall.get_child(1)
+	var lion_wall:Node3D=hung["lion stair landing:north"]
+	for node in get_children():
+		if node.get_meta("catalogue_asset","")=="lion-panel":node.reparent(lion_wall)
+	solid(Vector3(14.6,1.7005,28.158),Vector3(2.446,1.201,.035),look(Color("e9e8e2")),true).reparent(lion_wall)
 	for side in [-1,1]:
-		solid(Vector3(15.955,1.7005+side*.5605,33.15),Vector3(.045,.08,2.446),look(Color("eeeae2")))
-		solid(Vector3(15.955,1.7005,33.15+side*1.183),Vector3(.045,1.201,.08),look(Color("eeeae2")))
+		solid(Vector3(14.6,1.7005+side*.5605,28.295),Vector3(2.446,.08,.045),look(Color("eeeae2"))).reparent(lion_wall)
+		solid(Vector3(14.6+side*1.183,1.7005,28.295),Vector3(.08,1.201,.045),look(Color("eeeae2"))).reparent(lion_wall)
 	# Source grille above the lion, separate from its frame.
-	var lion_vent:=solid(Vector3(16.06,3.32,33.15),Vector3(.03,.18,1.65),look(Color("424341")))
+	var lion_vent:=solid(Vector3(14.6,3.32,28.19),Vector3(1.65,.18,.03),look(Color("424341")))
 	for i in 7:
-		var slat:=solid(Vector3(16.04,3.24+i*.026,33.15),Vector3(.02,.008,1.64),look(Color("74756f")))
+		var slat:=solid(Vector3(14.6,3.24+i*.026,28.21),Vector3(1.64,.008,.02),look(Color("74756f")))
 		slat.reparent(lion_vent)
+	lion_vent.reparent(lion_wall)
 	# Source landing cornice reuses the saved Muse moulding; no invented stair destinations.
-	for spec in [[Vector3(13.35,3.96,28.16),0.0,5.6],[Vector3(16.09,3.96,32.0),-PI/2,7.8]]:
+	for spec in [[Vector3(13.35,3.96,28.16),0.0,5.6],[Vector3(16.09,3.96,32.8575),-PI/2,9.515]]:
 		var cornice:=moulding(spec[2],.22,"door-architrave",false)
 		cornice.position=spec[0]
 		cornice.rotation.y=spec[1]
 		ceiling_details.append(cornice)
 	# Three distinct double-panel doors: medieval already built; modern and white-gallery leaves.
-	for spec in [[Vector3(16.15,0,30.05),false],[Vector3(14.9,0,35.9),true]]:
+	# Modern leaves stand open into the modern room (north), white-gallery leaves into that gallery (east).
+	for spec in [[Vector3(11.85,0,28.1),true,.85,-.45],[Vector3(16.15,0,30.5),false,1.0,.45]]:
 		var root_at:Vector3=spec[0]
 		var horizontal:bool=spec[1]
 		for side in [-1,1]:
-			var at:=root_at+Vector3(0,1.35,side*.85) if not horizontal else root_at+Vector3(side*1.0,1.35,0)
-			at+=Vector3(.45,0,0) if not horizontal else Vector3(0,0,.45)
+			var at:=root_at+Vector3(spec[3],1.35,side*spec[2]) if not horizontal else root_at+Vector3(side*spec[2],1.35,spec[3])
 			var leaf:=solid(at,Vector3(.90,2.70,.065),ivory,true)
 			if horizontal:leaf.rotation.y=PI/2
 			for face in [-1,1]:
@@ -1071,32 +1163,29 @@ func build_lion_modern_rooms() -> void:
 				bar.reparent(leaf,false)
 				bar.position=Vector3(0,-.37,face*.072)
 	#6387 58.0..68.0s: two windows on the wall right of the entry, the case between them.
-	# Windows/blinds/radiator bases belong to that south wall so cutaway follows it.
-	var south:StaticBody3D
-	for wall in casings:
-		if wall.get_meta("room_wall","")=="modern painting gallery:south":south=wall
-	assert(south!=null,"Modern windows must share their source wall")
-	for x in [17.5,20.8]:
-		var window:=solid(Vector3(x,1.98,34.824),Vector3(1.20,1.78,.018),look(Color("f3f4ef"),"",true))
-		window.reparent(south.get_child(1))
+	# Windows/blinds/radiator bases belong to that east wall so cutaway follows it.
+	var east:Node3D=hung["modern painting gallery:east"]
+	for z in [26.75,23.45]:
+		var window:=solid(Vector3(16.624,1.98,z),Vector3(.018,1.78,1.20),look(Color("f3f4ef"),"",true))
+		window.reparent(east)
 		window.set_meta("modern_window",true)
 		for side in [-1,1]:
-			var stile:=solid(Vector3(x+side*.63,1.98,34.80),Vector3(.075,1.94,.075),ivory)
+			var stile:=solid(Vector3(16.60,1.98,z+side*.63),Vector3(.075,1.94,.075),ivory)
 			stile.reparent(window)
-			var rail:=solid(Vector3(x,1.98+side*.94,34.80),Vector3(1.34,.075,.075),ivory)
+			var rail:=solid(Vector3(16.60,1.98+side*.94,z),Vector3(.075,.075,1.34),ivory)
 			rail.reparent(window)
 		for j in 25:
-			var slat:=solid(Vector3(x,1.19+j*.066,34.787),Vector3(1.19,.025,.022),look(Color("dddcd4")))
+			var slat:=solid(Vector3(16.587,1.19+j*.066,z),Vector3(.022,.025,1.19),look(Color("dddcd4")))
 			slat.reparent(window)
-		var radiator:=solid(Vector3(x,.45,34.78),Vector3(1.20,.52,.18),ivory,true)
+		var radiator:=solid(Vector3(16.58,.45,z),Vector3(.18,.52,1.20),ivory,true)
 		radiator.reparent(window)
 		for j in 12:
-			var vent:=solid(Vector3(x,.23+j*.013,34.68),Vector3(1.12,.006,.025),metal)
+			var vent:=solid(Vector3(16.48,.23+j*.013,z),Vector3(.025,.006,1.12),metal)
 			vent.reparent(radiator)
 	# Central bench, long side along the large-painting wall (50.5/51.0s).
-	var bench:=solid(Vector3(18.9,.40,31.9),Vector3(2.20,.13,.80),look(Color("343130")),true)
-	for x in [18.03,19.77]:
-		for z in [31.58,32.22]:
+	var bench:=solid(Vector3(13.7,.40,25.35),Vector3(.80,.13,2.20),look(Color("343130")),true)
+	for x in [13.38,14.02]:
+		for z in [24.48,26.22]:
 			var leg:=solid(Vector3(x,.17,z),Vector3(.06,.34,.06),look(Color("343130")))
 			leg.reparent(bench)
 	# RISD originals remain separate from generated frame texture. Metres supplied by catalogue.
@@ -1105,23 +1194,21 @@ func build_lion_modern_rooms() -> void:
 	add_child(braque)
 	braque.build_framed(load("res://assets/braque-frame.png"),load("res://assets/painting-48.248.jpg"),Vector2(.721,.464),frame.margins_px)
 	#6387 83.0..83.5s: on the entry wall, beyond the door; Villon beyond it toward the windows.
-	braque.position=Vector3(16.23,1.65,32.4)
-	braque.rotation.y=PI/2
+	braque.position=Vector3(14.2,1.65,28.02)
+	braque.rotation.y=PI
 	braque.set_meta("catalogue_accession","48.248")
 	#57.037 retains its original museum image with its own source-led Muse frame.
 	var pumpkin:=Painting.new()
 	add_child(pumpkin)
 	var pumpkin_frame:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/matisse-frame-geometry.json"))
 	pumpkin.build_framed(load("res://assets/matisse-frame.png"),load("res://assets/painting-57.037.jpg"),Vector2(.645,.800),pumpkin_frame.margins_px)
-	pumpkin.position=Vector3(21.87,1.65,30.2)
-	pumpkin.rotation.y=-PI/2
+	pumpkin.position=Vector3(12.0,1.65,22.38)
 	pumpkin.set_meta("catalogue_accession","57.037")
 	var landscape:=Painting.new()
 	add_child(landscape)
 	var landscape_frame:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/cezanne-frame-geometry.json"))
 	landscape.build_framed(load("res://assets/cezanne-frame.png"),load("res://assets/painting-43.255.jpg"),Vector2(.737,.610),landscape_frame.margins_px)
-	landscape.position=Vector3(21.87,1.65,31.85)
-	landscape.rotation.y=-PI/2
+	landscape.position=Vector3(13.65,1.65,22.38)
 	landscape.set_meta("catalogue_accession","43.255")
 	var villon:=Painting.new()
 	add_child(villon)
@@ -1129,8 +1216,8 @@ func build_lion_modern_rooms() -> void:
 	# White box: one unbroken Muse face carrying the backing and dark oval rim; no opening is cut, so no reveals.
 	var villon_box:Texture2D=load("res://assets/villon-frame.png")
 	villon.build_shaped(villon_box,villon_box.get_size()*.548/(villon_box.get_height()-villon_frame.margins_px[1]-villon_frame.margins_px[3]),[[0,0],[1,0],[1,1],[0,1]],Color.WHITE)
-	villon.position=Vector3(16.23,1.65,33.75)
-	villon.rotation.y=PI/2
+	villon.position=Vector3(15.55,1.65,28.02)
+	villon.rotation.y=PI
 	villon.set_meta("catalogue_accession","70.058")
 	# Official pixels only inside the oval, standing 4mm proud of the backing within that rim.
 	var villon_art:=Painting.new()
@@ -1144,31 +1231,35 @@ func build_lion_modern_rooms() -> void:
 	add_child(mountaineers)
 	var large_frame:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/fauconnier-frame-geometry.json"))
 	mountaineers.build_framed(load("res://assets/fauconnier-frame.png"),load("res://assets/painting-1995.043.jpg"),Vector2(3.054,2.396),large_frame.margins_px)
-	mountaineers.position=Vector3(19.5,1.65,28.98)
+	mountaineers.position=Vector3(10.78,1.65,24.75)
+	mountaineers.rotation.y=PI/2
 	mountaineers.set_meta("catalogue_accession","1995.043")
+	# Braque and Villon back onto the lion wall; its taller landing face is the one the walking camera cuts.
+	for spec in [[braque,"lion stair landing:north"],[villon,"lion stair landing:north"],[pumpkin,"modern painting gallery:north"],[landscape,"modern painting gallery:north"],[mountaineers,"modern painting gallery:west"]]:
+		spec[0].reparent(hung[spec[1]])
 	# Source track grid, repeated low polygon fixtures; bake supplies its light.
-	for z in [30.4,31.9,33.4]:
-		var track:=solid(Vector3(19.05,3.34,z),Vector3(5.0,.025,.025),ivory)
+	for x in [12.2,13.7,15.2]:
+		var track:=solid(Vector3(x,3.34,25.2),Vector3(.025,.025,5.0),ivory)
 		ceiling_details.append(track)
-		for x in [17.2,18.45,19.65,20.9]:
+		for z in [27.05,25.8,24.6,23.35]:
 			var fixture:=solid(Vector3(x,3.24,z),Vector3(.10,.16,.10),ivory)
 			fixture.reparent(track)
 	inventory["lion_landing"]={"doors":3,"floor_void":true,"flights":2,"metric_accepted":false,"curve_destinations_complete":false,"lion_relief_complete":false,"lion_panel_front_installed":true,"lion_generated_damage_accepted":false}
 	#6387 63.5..65.5s: floor-standing case against the pier between windows, facing into the room.
 	# ponytail: by-eye offset on the pier, nearer the second window; label side toward the first.
 	var seated:StaticBody3D=SeatedWoman.build(look(Color.WHITE,"res://presentation/landing-plaster.png"),ivory,look(Color.WHITE,"res://assets/seated-woman-bronze.webp"))
-	seated.position=Vector3(19.4,0,34.84)
-	seated.rotation.y=PI
+	seated.position=Vector3(16.64,0,24.85)
+	seated.rotation.y=-PI/2
 	add_child(seated)
 	casings.append(seated)
-	inventory["modern_gallery"]={"windows":2,"window_wall":"south","entry_wall":"west","large_painting_wall":"north","catalogue_paintings":["48.248","57.037","70.058","43.255","1995.043"],"dedicated_muse_frames":5,"seated_woman_accession":"67.089","seated_woman_rear_observed":false,"seated_woman_case_metres_accepted":false,"bench":true,"deeper_opening":true,"all_objects_complete":false,"placement_accepted":false,"fine_frame_fidelity_accepted":false}
+	inventory["modern_gallery"]={"windows":2,"window_wall":"east","entry_wall":"south","large_painting_wall":"west","catalogue_paintings":["48.248","57.037","70.058","43.255","1995.043"],"dedicated_muse_frames":5,"seated_woman_accession":"67.089","seated_woman_rear_observed":false,"seated_woman_case_metres_accepted":false,"bench":true,"deeper_opening":true,"all_objects_complete":false,"placement_accepted":false,"fine_frame_fidelity_accepted":false}
 
 func build_medieval_stair_door() -> void:
 	# Native6382 18.25/20.75/24.75s: leaves open into landing, push bars, closers and black hinges.
 	# ponytail: right-angle swing and hardware dimensions provisional; photographed doorway order retained.
 	var ivory:=look(Color("eee9de"))
 	var black:=look(Color("252526"))
-	for edge in [19.95,21.65]:
+	for edge in [21.665,23.365]:
 		var leaf:=solid(Vector3(11.0,1.35,edge),Vector3(.90,2.70,.065),ivory,true)
 		for side in [-1,1]:
 			for index in 2:
@@ -1196,14 +1287,14 @@ func build_medieval_stair_door() -> void:
 			var arm:=solid(spec[0],spec[1],black)
 			arm.reparent(leaf)
 	# Exact sign lettering is not legible in the video; keep the documented green EXIT only.
-	var sign:=solid(Vector3(10.45,3.17,20.8),Vector3(.05,.17,.40),look(Color("273a2d")))
+	var sign:=solid(Vector3(10.45,3.17,22.515),Vector3(.05,.17,.40),look(Color("273a2d")))
 	var lettering:=Label3D.new()
 	lettering.text="EXIT"
 	lettering.font_size=48
 	lettering.pixel_size=.0024
 	lettering.modulate=Color("70f89e")
 	lettering.no_depth_test=false
-	lettering.position=Vector3(10.416,3.17,20.8)
+	lettering.position=Vector3(10.416,3.17,22.515)
 	lettering.rotation.y=-PI/2
 	add_child(lettering)
 	lettering.reparent(sign)

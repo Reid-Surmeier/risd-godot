@@ -1,0 +1,29 @@
+{
+  "reason": "Exact raw logs preserved in gzip archives, including original trailing whitespace; decompress to obtain source paths named by existing SHA manifest. Working raw files remain unchanged.",
+  "logs": [
+    {
+      "source": "docs/evidence/collection-reconstruction/main-build-attachment-review-20261001/shell-followup-20261001/baseline/godot.log",
+      "archive": "docs/evidence/collection-reconstruction/main-build-attachment-review-20261001/shell-followup-20261001/baseline/godot.log.gz",
+      "source_sha256": "ea3176bf205350b0803d4a558a4b02c3a4dfae6d8db575751556b850b088cd6d",
+      "archive_sha256": "f9eaceb39941cd8ed5f981be973ccd9b7e0caaec4f8688ed50908e96c254f905"
+    },
+    {
+      "source": "docs/evidence/collection-reconstruction/main-build-attachment-review-20261001/shell-followup-20261001/baseline/verify.log",
+      "archive": "docs/evidence/collection-reconstruction/main-build-attachment-review-20261001/shell-followup-20261001/baseline/verify.log.gz",
+      "source_sha256": "1327f0eb1edd2948ddf85ee4b055e15214ff99687361db67682423ce1058e6a9",
+      "archive_sha256": "290d47f3c61d875f22c764b40351368558eabdb24a88e758302f6ffca66976a7"
+    },
+    {
+      "source": "docs/evidence/collection-reconstruction/main-build-attachment-review-20261001/shell-followup-20261001/godot.log",
+      "archive": "docs/evidence/collection-reconstruction/main-build-attachment-review-20261001/shell-followup-20261001/godot.log.gz",
+      "source_sha256": "ea3176bf205350b0803d4a558a4b02c3a4dfae6d8db575751556b850b088cd6d",
+      "archive_sha256": "f9eaceb39941cd8ed5f981be973ccd9b7e0caaec4f8688ed50908e96c254f905"
+    },
+    {
+      "source": "docs/evidence/collection-reconstruction/main-build-attachment-review-20261001/shell-followup-20261001/verify.log",
+      "archive": "docs/evidence/collection-reconstruction/main-build-attachment-review-20261001/shell-followup-20261001/verify.log.gz",
+      "source_sha256": "f59c0923a4d4767ac4aa74d4222d9fed91670e4e0b9c65d60f6ed831cb2418fe",
+      "archive_sha256": "1acdbf880c7bad1f0d00c1b197ccd6409843f4c09d2f4ef751b04c7f1f6e4de9"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "excluded_from_acceptance": "architecture-v50h/grey-doorway-*",
+  "reason": "Actor seed(-4,0,-29) is outside grey room; image shows Rockefeller; retained as failed review angle. Corrected camera seed(-0.5,0,-29) within grey room, yawPI uses doorway-v50h."
+}

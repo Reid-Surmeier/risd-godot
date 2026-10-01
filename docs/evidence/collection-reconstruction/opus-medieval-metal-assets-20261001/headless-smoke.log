@@ -1,0 +1,9 @@
+$ godot --headless --path <scratch> -s smoke.gd   # helpers build without any display
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Monstrance 1 meshes 40.002 matched
+Beaker 1 meshes 1992.051 probable
+Pyx 2 meshes 30.011 probable
+Pax 3 meshes 52.002 matched
+PaxOnStand children [&"stand", &"Pax"] pax origin (0.0, 0.136068, 0.039075)
+exit 0

@@ -1,0 +1,29 @@
+[
+ {
+  "video": "IMG_6387.MOV",
+  "video_sha256": "75c4892c1a37e1c83dd7103187d1c284e13fd0ac458710f4e8fd6e14daf1c7af",
+  "seconds": 8.0,
+  "png_sha256": "150ab02674d30c7dc5873a6bb10969aafdf2c870ffb988fa81faa78a098d8857",
+  "command": "ffmpeg -v error -hwaccel none -noautorotate -ss 8.0 -i /home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6387.MOV -frames:v 1 -vf transpose=clock -update 1 OUT.png",
+  "shows": "tall case seen through the stair door from the landing",
+  "kept": "cropped into sheets/adjacent-doorway-views.jpg (left to right)"
+ },
+ {
+  "video": "IMG_6387.MOV",
+  "video_sha256": "75c4892c1a37e1c83dd7103187d1c284e13fd0ac458710f4e8fd6e14daf1c7af",
+  "seconds": 13.0,
+  "png_sha256": "c1018dd88093f563954a0ef21ff2e010fa8ef9ebdd135ef30da08304b839cd10",
+  "command": "ffmpeg -v error -hwaccel none -noautorotate -ss 13.0 -i /home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6387.MOV -frames:v 1 -vf transpose=clock -update 1 OUT.png",
+  "shows": "medieval room through the stair door, case occluded by door frame",
+  "kept": "cropped into sheets/adjacent-doorway-views.jpg (left to right)"
+ },
+ {
+  "video": "IMG_6383.MOV",
+  "video_sha256": "8cfd089e769000369419f577f28a1bfc68b09f8cc7cda4cbe93d840194e6eeef",
+  "seconds": 66.0,
+  "png_sha256": "e28d3c52b1c26a7ffd9a5aa745eea6ec2f45a00e44545fc075b3825016f28805",
+  "command": "ffmpeg -v error -hwaccel none -noautorotate -ss 66.0 -i /home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV -frames:v 1 -vf transpose=clock -update 1 OUT.png",
+  "shows": "low case seen through the tracery doorway from the Renaissance room",
+  "kept": "cropped into sheets/adjacent-doorway-views.jpg (left to right)"
+ }
+]

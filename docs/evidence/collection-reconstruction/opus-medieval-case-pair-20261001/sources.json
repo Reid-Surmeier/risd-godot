@@ -1,0 +1,140 @@
+{
+ "root_helpers": [
+  {
+   "file": "modules/shell/prototype/collection_reconstruction/seated_woman_asset.gd",
+   "sha256": "7b17a507fe6c68d7d6dd834a3669d1888f4fe2f587304d1e6f269ec4ce010fa7"
+  },
+  {
+   "file": "modules/shell/prototype/collection_reconstruction/medieval_metal_assets.gd",
+   "sha256": "82aa8bcb55fb00d5898fcc6f20a100e761f49773c54da25398f5609502586ba1"
+  }
+ ],
+ "root_inventory": {
+  "file": "image-work/collection-room-remodel/medieval-case-inventory.json",
+  "sha256": "3e4a38fa46d0e929308ad2d5af057dfe601e1aaa65f4298736bd89fdd7eaeaac"
+ },
+ "review_folder": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001 (root checkout, read only)",
+ "official_photographs": [
+  {
+   "file": "photos/god-save-queens-202055-zoom-0.jpg",
+   "sha256": "6a2a8f8b9d4ed18f81dc22f1eaa91a253c2981480163a3f0f63831f0526a9dff",
+   "url": "https://risdmuseum.cdn.picturepark.com/v/KbpEh5DI/",
+   "asset_copyright": "in_copyright",
+   "verified": true,
+   "use": "reference for shape and median colours only; no pixels in the asset"
+  },
+  {
+   "file": "photos/god-save-queens-202055-zoom-1.jpg",
+   "sha256": "aab52815b724f10b9b12096b079f39477848f132a0564b0fe385ed1a7a0a4a23",
+   "url": "https://risdmuseum.cdn.picturepark.com/v/UfLZo9m5/",
+   "asset_copyright": "in_copyright",
+   "verified": true,
+   "use": "reference for shape and median colours only; no pixels in the asset"
+  },
+  {
+   "file": "photos/god-save-queens-202055-zoom-2.jpg",
+   "sha256": "1995e58e93603b530dbcfe1950acfb888a2a69c9cb8fb7dc1d7923b3df29ea70",
+   "url": "https://risdmuseum.cdn.picturepark.com/v/TodMxnqb/",
+   "asset_copyright": "in_copyright",
+   "verified": true,
+   "use": "reference for shape and median colours only; no pixels in the asset"
+  },
+  {
+   "file": "photos/god-save-queens-202055-zoom-3.jpg",
+   "sha256": "6cb6e578ccd8fb14b273f2d11991a19e0f2519c70cc6a5a943b9d4c7902392f6",
+   "url": "https://risdmuseum.cdn.picturepark.com/v/6Gr7alr6/",
+   "asset_copyright": "in_copyright",
+   "verified": true,
+   "use": "reference for shape and median colours only; no pixels in the asset"
+  },
+  {
+   "file": "photos/christ-majesty-2014110-zoom-0.jpg",
+   "sha256": "9fbb9aa6389a4395b30f0803822e28906c0056ac3f7fdb5b00df517337476dc7",
+   "url": "https://risdmuseum.cdn.picturepark.com/v/D9dXInu9/",
+   "asset_copyright": "public",
+   "verified": true,
+   "use": "reference for shape and median colours only; no pixels in the asset"
+  }
+ ],
+ "catalogue_records": {
+  "queens 2020.55": {
+   "file": "api/id-1557221.json",
+   "sha256": "1246004c93b2e2ec6e39651b19cf154d8f756b40b89bb076611bf65ece45026f",
+   "dimensions": "33 x 16 x 16 cm (13 x 6 5/16 x 6 5/16 inches)"
+  },
+  "christ 2014.110": {
+   "file": "api/id-1197491.json",
+   "sha256": "e6ab37ff314b7340061720a6fdf2935f8908490aeb856406bf967331f82ae863",
+   "dimensions": "15.9 x 6.4 cm (6 1/4 x 2 1/2 inches)"
+  }
+ },
+ "source_video": {
+  "file": "IMG_6382.MOV",
+  "sha256": "415467db2d2216363fbccb41801851180f48bbdb3304c95861f90f3f5767020e"
+ },
+ "source_frames": [
+  {
+   "file": "frames/IMG_6382-102.20.jpg",
+   "seconds": 102.2,
+   "decoded_png_sha256": "13ef283cbb4d2669250fac14109973ea3e1757897b33c421112d207b21e4aadc",
+   "viewing_copy_sha256": "e94180c9d498ad52cccb91f529d7e9685e1d3a4559c6c0d22420c294cf03dd3f"
+  },
+  {
+   "file": "frames/IMG_6382-103.70.jpg",
+   "seconds": 103.7,
+   "decoded_png_sha256": "de8ca12ce21459d582dfc5972b11f4078c52d2210a58bc547ed8432286534aae",
+   "viewing_copy_sha256": "0886b34f17db5ff36adc6350a38b11c81b458190bd93af28006f53ba400ed379"
+  },
+  {
+   "file": "frames/IMG_6382-105.70.jpg",
+   "seconds": 105.7,
+   "decoded_png_sha256": "494c0370dacc100435e7eb7c739a286d8f2c8a9b08cc8a639ae08e4ac4f2d03d",
+   "viewing_copy_sha256": "deef5226eb015f5d4044c88e6b7e0f7bf01abd397f3e170b424e5dd3e7a6a250"
+  },
+  {
+   "file": "frames/IMG_6382-110.50.jpg",
+   "seconds": 110.5,
+   "decoded_png_sha256": "11406e399986ce26f406ac5e52934cff2080d41d2475b6e74cac260a1e023029",
+   "viewing_copy_sha256": "aa37ddbfd6b0454654fb4019eb26772dd22496dfec5a0039a1c626a01b55f3a4"
+  }
+ ],
+ "muse_sheet": {
+  "file": "image-work/collection-room-remodel/artifacts/image-generation/runs/run-2ee4b0d0613d42f31ef80703/materialized/image-01.webp",
+  "sha256": "1e3cd72922649181dc3620f6f0160182cc0c04f01628ba97e056e132958ec8ab",
+  "verified": true,
+  "paid_by": "root, one Muse request, 0.01 USD; none by this worker",
+  "use": "two view crops as optional decals; the sheet REAR view and LEFT SIDE view are not used"
+ },
+ "decal_crops": {
+  "roundel": {
+   "file": "decal-queens-roundel.png",
+   "view": "FRONT view",
+   "box_ltrb": [
+    58,
+    522,
+    430,
+    994
+   ],
+   "size": [
+    372,
+    472
+   ],
+   "sha256": "1c20cc0c65d10e8c221f261766e7793b9adb2ce9121b1177081ba6485eb753a9"
+  },
+  "boat": {
+   "file": "decal-queens-boat.png",
+   "view": "RIGHT SIDE view",
+   "box_ltrb": [
+    488,
+    519,
+    850,
+    994
+   ],
+   "size": [
+    362,
+    475
+   ],
+   "sha256": "e9381019f3f3b73a720afafcecae8ee5a45c6d8e473890e465129573a429e3c3"
+  }
+ }
+}

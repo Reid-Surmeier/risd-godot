@@ -1,0 +1,97 @@
+"""Write SOURCES.md. The prose is fixed here; every hash, URL, catalogue field and count is read from the files beside it."""
+import glob, hashlib, json
+from pathlib import Path
+here = Path(__file__).parent
+sha = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
+rec = {}
+for f in sorted(glob.glob(str(here / 'api' / '*.json'))):
+    if not f.endswith('manifest.json'):
+        for x in json.loads(Path(f).read_text()): rec.setdefault(x['objectNumber'], (x, 'api/' + Path(f).name))
+api = json.loads((here / 'api/manifest.json').read_text()); apiu = {m['file']: m for m in api}
+web = json.loads((here / 'web/manifest.json').read_text()); webu = {w['file']: w for w in web if w['file']}
+photos = {e['accession']: e for e in json.loads((here / 'photos/manifest.json').read_text())}
+page = json.loads((here / 'official-page-fields.json').read_text())
+fm = json.loads((here / 'frames/manifest.json').read_text()); fr = {f['kept_file']: f for f in fm['frames']}
+def cat(a):
+    x, f = rec[a]; p = photos[a]['photos']
+    return (f"| {a} | {x['id']} | {x['title']} | {x['dimensions']} | [{x['url'].rsplit('/', 1)[1]}]({x['url']}) | `{f}` `{sha(here / f)[:12]}…` | "
+            + (f"`photos/{p[0]['file']}` `{p[0]['sha256'][:12]}…`, museum flag `{p[0]['asset_copyright']}`" if p else 'none on the page') + f" | `{x['publicDomain']}` |")
+L = []; w = L.append
+w('# Sources for the three unmatched paper objects\n')
+w('Worker research, 2026-10-01. Collection connected rooms only. No paid calls, no logins, no GPU, no source edits. Cost: 0 USD.\n')
+w('## Answer\n')
+w('| Object | Result | Status |')
+w('| --- | --- | --- |')
+w('| **R12**, emblem book, Renaissance case A | RISD **2023.17**, Georgette de Montenay and Pierre Woeiriot, *One Hundred Christian Emblems (Emblematum Christianorum Centuria)*, 1584. Open at emblem 15. | **Confirmed** by the case label and the catalogue. Edition and opening confirmed against a library facsimile. |')
+w('| **L2**, larger work, medieval low case | RISD **51.020**, Hendrick Goltzius, *Mary Magdalene*, chiaroscuro woodcut, 14 x 11.4 cm | **Probable.** Layout and tone match; the film is too blurred to call it confirmed. |')
+w('| **L1**, small work, medieval low case | RISD **82.190.2**, Flemish, *The Penitent Magdalene in Glory*, ink and tempera on vellum, 6.8 x 5.2 cm | **Probable.** Colour layout matches in a ten-frame average; no single frame resolves it. |\n')
+w('My earlier "unmatched" for R12 was a search error: I had filtered the API to records with images, and 2023.17 has no photograph. L1 and L2 remain identity-unaccepted until the root or the owner looks at the sheets. R18 (enamel plaque) is unchanged and still probable.\n')
+w('## R12: the emblem book\n')
+w('![opening](sheets/R12-opening-vs-glasgow-sm772.jpg)\n')
+w('**The museum\'s copy (specimen identity).**\n')
+x = rec['2023.17'][0]
+w(f"1. Catalogue record: RISD API id {x['id']}, accession 2023.17, type {x['type'][0]}, \"{x['title']}\", {x['datingYearFrom']}, {x['medium'][0]}, {x['dimensions']}, credit \"{x['credit']}\", `onView` true. Source: `{apiu['any-montenay.json']['url']}`, saved as `api/any-montenay.json`, sha256 `{apiu['any-montenay.json']['sha256']}`.")
+w(f"2. Catalogue page: {x['url']} (saved `photos/one-hundred-christian-emblems-emblematum-christianorum-centuria-202317.html.gz`). It has **no photograph**. It gives the exhibition history \"{page['one-hundred-christian-emblems-emblematum-christianorum-centuria-202317']['exhibition_history']}\" and the label copy that begins \"This is an emblem book, a literary genre popular in Europe during the 1500s and 1600s.\"")
+w('3. Film: IMG_6383 at 45.70 s (`sheets/R12-case-label.jpg`). The case label reads \"… de Montenay, author\", \"… Woeiriot, engraver\", \"One Hundred Christian Emblems (Emblematum Christianorum Centuria)\", and its text block begins with the same sentence as the catalogue label copy.')
+w('4. So the book in case A is the museum\'s own 2023.17, not a loan. Rights: API `publicDomain` is false; there is no museum image to reuse.\n')
+w('**Which edition (bibliographic identification, not specimen).**\n')
+w(f"5. The API record carries a pencilled collation: \"a-z(4) A-f(4) = 116 / [8], 100, [8] ff. / engr. portrait of author + 100 emblems\".")
+w(f"6. Glasgow University's bibliographical description of *Emblematum christianorum centuria / Cent emblemes chrestiennes*, **Zurich, Christoph Froschover, 1584**, gives the same collation: 4to, a-z4 A-F4, 116 leaves, numbered [8] 1-100 [8]; 100 emblems, each an opening with the French verse on the verso and the engraving with Latin verse on the recto; page height 199 mm. It cites entry F.438 in Adams, Rawles and Saunders, *A Bibliography of French Emblem Books* (Droz, 1999-2002). Source: `{webu['glasgow-FMOb-bibdesc.html']['url']}`, saved `web/glasgow-FMOb-bibdesc.html`, sha256 `{webu['glasgow-FMOb-bibdesc.html']['sha256']}`.")
+w('7. The date, the title, the collation and the page size (197 mm against 199 mm) all agree, so the edition is the Zurich 1584 one. I did not read F.438 itself, only Glasgow\'s summary of it.\n')
+w('**Which pages are open.**\n')
+w(f"8. Film: IMG_6383 at 46.40 s. The left page has an eight-line French verse beginning \"Comme les pots…\" and ending \"…par incredulité\"; the right page has an engraving of two round pots under a sun, with verse below.")
+w(f"9. Glasgow transcription of emblem 15, *HOC SERMO VERITATIS EST REPROBIS*: \"Comme les pots se sechent au soleil, / Aussi les coeurs des pervers s'endurcissent / … / Tresjustement par incredulité.\" Leaves f2v and f3r (folios 14v-15r). Source: `{webu['glasgow-FMOb015.html']['url']}`, sha256 `{webu['glasgow-FMOb015.html']['sha256']}`.")
+w(f"10. Glasgow facsimile pages of its own copy, shelfmark SM772: `web/glasgow-sm772_f2v.jpg` (sha256 `{webu['glasgow-sm772_f2v.jpg']['sha256']}`) and `web/glasgow-sm772_f3r.jpg` (sha256 `{webu['glasgow-sm772_f3r.jpg']['sha256']}`). Side by side with the film the verse block, the running headline, the engraving and the page layout are the same.")
+w('11. The Glasgow copy is a different specimen. It proves the edition and the opening, not anything about the condition or binding of the museum\'s copy. Glasgow\'s site states that copyright in its images is the University of Glasgow\'s and that no image may be reproduced without permission (`web/glasgow-copyright.html`).\n')
+w('Rejected on the way: emblem 76 *CONVERTE OCULOS* (I first misread the folio number; its verse and picture are a man digging a well), emblem 36 (a blind man with a torch), and emblems 84 and 85 (verses begin \"Comme la poule\" and \"Comme d\'oiseaux\").\n')
+w('## L2: the larger work in the low case\n')
+w('![L2](sheets/L2-vs-goltzius-51.020.jpg)\n')
+w('1. Film: IMG_6382 at 0.00 s, where the camera is close and on the far side of the case, and at 94.97 s from the label side. The picture was rectified from its four corners (`make_evidence.py`).')
+w('2. What the rectified frame shows: a dark upright mass at the left edge, a head with a pale ring round it at upper centre-right, dark hair falling down the right side, pale flesh at lower centre, all in an olive tone.')
+w('3. The official photograph of 51.020 has each of these in the same place: tree at left, haloed head, long hair down the right, bare chest and arm, olive tone blocks.')
+w('4. Shape: at 0.00 s the picture measures about 123 px across and 108 px deep. Depth can only be shortened by the viewing angle, so the true picture is at least 0.88 as tall as it is wide. That fits an upright 14 x 11.4 cm print and rules out any landscape print of 0.80.')
+w('5. Why only probable: the face, the hand and the monogram are not resolved, and the 94.97 s view is smeared by motion. The match is one of layout and tone.\n')
+w('## L1: the small work in the low case\n')
+w('![L1](sheets/L1-vs-miniatures.jpg)\n')
+w('1. Film: IMG_6382, the first ten native frames (0.00-0.30 s). Any single frame is washed out by glare, so the ten rectified frames were averaged, then contrast and colour were stretched. The boxes used are in `frames/L1-boxes.json`.')
+w('2. What the average shows: an orange upright form in the centre, gold-brown masses in the upper half, a dark patch at the right at mid height, white wedges in both lower corners, a pale band along the bottom and a dark border.')
+w('3. The official photograph of 82.190.2 has the same layout: the Magdalene covered in long orange hair at the centre, gold-winged angels above, a dark blue angel at the right at mid height, white-robed angels in both lower corners, pale water at the bottom, a dark painted border.')
+w('4. Size: at 0.00 s L1 is 51 px wide and L2 is 116 to 130 px wide, with L2 nearer the camera. That ratio of about 2.3 to 2.5 fits 11.4 cm against 5.2 cm (2.2).')
+w('5. Why only probable: this is a colour-layout match in an averaged, stretched image. Nothing in it is sharp, and the label is illegible.\n')
+w('**Circumstantial support for both, not proof.** Both catalogue pages say \"Now On View\", list \"European Galleries, Sep 02, 2017\", and carry label copy about Mary Magdalene. The Lippo Memmi *Mary Magdalene* panel (21.250) hangs in the same room. The low case has exactly two labels.\n')
+w('## Catalogue data for the matches\n')
+w('| Accession | Catalogue id | Title | Catalogue dimensions | Page | API record | Official photograph | API `publicDomain` |')
+w('| --- | --- | --- | --- | --- | --- | --- | --- |')
+for a in ('2023.17', '51.020', '82.190.2'): w(cat(a))
+w('\nRights, as found and not resolved here: the API flag is false for all three, the museum marks both photographs `public`, and the pages for 51.020 and 82.190.2 state \"This object is in the Public Domain and available under a CC0 1.0 Universal Public Domain Dedication\". The page for 2023.17 has no such sentence.\n')
+w('## Rejected candidates\n')
+w('| For | Candidate | Compared by | Why rejected |')
+w('| --- | --- | --- | --- |')
+w('| L1 | 82.190.1, *St. Margaret and the Dragon*, vellum, 6.7 x 5.1 cm | photograph, `sheets/L1-vs-miniatures.jpg` | Its centre is a dark blue figure over a green and orange dragon. The film shows an orange centre over white. Its page lists only a 2013 rotation. |')
+w('| L1 | 51.020 as the small work | photograph | Olive monochrome; the film shows orange, white and blue. |')
+w('| L2 | 84.198.1032, after Bruegel, *River Landscape with Mercury Abducting Psyche*, 27.6 x 34.6 cm | photograph, `sheets/L2-rejected-bruegel-84.198.1032.jpg`, and shape | A landscape print cannot produce the shape in point 4 above. Its own label copy says it hangs between two paintings. |')
+w('| L2 | 47.025B, Wolgemut, hand-coloured woodcut, 25.1 x 17.5 cm | photograph | Brightly coloured, many small figures; the film shows one olive figure. |')
+w('| L2 | 53.343, Rubens, *St. Catherine*, 29.1 x 19.8 cm | catalogue text only | Dated 1615-1621 and twice the height the size ratio allows. No photograph was compared. |\n')
+w('The two matches and the four other works above are every pre-1650 print, drawing or vellum work the API returned as on view for the terms searched (vellum, parchment, manuscript, engraving, etching, woodcut, drypoint, niello, and the names Schongauer, Dürer and Meckenem). A work catalogued under some other term would have been missed.\n')
+w('## Source frames\n')
+w(f"IMG_6382.MOV sha256 `{fm['videos']['IMG_6382.MOV']}`; IMG_6383.MOV sha256 `{fm['videos']['IMG_6383.MOV']}`. Decoded on the CPU; commands are in `frames/manifest.json`.\n")
+w('| Video | Seconds | Decoded PNG sha256 | Kept copy |')
+w('| --- | --- | --- | --- |')
+for f in fm['frames']: w(f"| {f['video']} | {f['seconds']:.2f} | `{f['png_sha256']}` | `frames/{f['kept_file']}` |")
+w('\nThe root named 0.00, 95.10, 96.94 and 97.70 s. I used 0.00-0.30 s and 94.97 s because they are the closest views; 96.94 and 97.70 s show both works at about 20 and 60 px wide and add nothing.\n')
+w('## Access notes\n')
+bad = [x for x in web if x['status'] != 200]
+w(f"- {len(api)} free RISD API requests and 6 RISD catalogue pages, through the existing Scrapling interpreter. All returned 200.")
+w(f"- {len(web)} plain fetches from the University of Glasgow emblem site. {len(bad)} failed: `{bad[0]['url']}` returned {bad[0]['status']} because I guessed the address; the right page is `bib-desc.php`." if bad else f"- {len(web)} plain fetches from the University of Glasgow emblem site, all 200.")
+w('- Not used: Gallica or BnF (the Glasgow facsimile was enough), the museum\'s Vimeo or Instagram, any login, any paid scraper.')
+w('- The earlier Renaissance and medieval evidence folders were read and not changed.\n')
+w('## Smallest next assets for the root\n')
+w('1. **L2 proxy:** swap the 97.70 s film crop for the official 51.020 photograph on a flat sheet 11.4 cm wide by 14 cm high, upright, with `identity: probable`.')
+w('2. **L1 proxy:** the official 82.190.2 photograph on a flat sheet 5.2 cm wide by 6.8 cm high, upright, with `identity: probable`.')
+w('3. Both lie flat on cream mounts facing the label side. Mount sizes are not catalogued or measured: L1\'s mount is about five picture-widths across, L2\'s about two.')
+w('4. **R12:** an open book, 19.7 x 14.7 cm when closed (catalogue), on a clear cradle, open at folios 14v-15r. The museum has no photograph of it, so the page texture has to come from the film crop or from a reference the owner chooses.')
+w('5. The ten owner films stay the authority for layout. None of this is measured.\n')
+w('Rebuild: `fetch_api.py`, `fetch_photos.py`, `fetch_web.py`, `make_evidence.py`, `write_sources.py`. File hashes: `SHA256.json`.')
+(here / 'SOURCES.md').write_text('\n'.join(L) + '\n')
+files = {str(p.relative_to(here)): sha(p) for p in sorted(here.rglob('*')) if p.is_file() and p.name != 'SHA256.json' and '__pycache__' not in p.parts}
+(here / 'SHA256.json').write_text(json.dumps(files, indent=1) + '\n'); print('SOURCES.md', len(L), 'lines;', len(files), 'files hashed')

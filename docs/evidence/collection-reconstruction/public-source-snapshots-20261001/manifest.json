@@ -1,0 +1,127 @@
+[
+  {
+    "url": "https://risdmuseum.org/groupvisits",
+    "http_status": 200,
+    "retrieved_utc": "2026-10-01T15:24:39.633844+00:00",
+    "archive": "museum-groupvisits.html.gz",
+    "source_sha256": "fc33b0191bac694e9fccf9a8ca255cfec6c4a301accee96022ed518ca5f595c7",
+    "archive_sha256": "618556015654554c0e02db870fb228f0291cb4feffa0d7ff625fc6b465ced675",
+    "method": "Scrapling Fetcher.get",
+    "limitation": "Source snapshot; media frames and visual claims require separate inspection."
+  },
+  {
+    "url": "https://risdmuseum.org/art-design/projects-publications/articles/object-lessons",
+    "http_status": 200,
+    "retrieved_utc": "2026-10-01T15:24:39.635003+00:00",
+    "archive": "museum-object-lessons.html.gz",
+    "source_sha256": "92a4c0fdab048f339268af53fc789fad0918e8bc3028cf1669567c9c09324dd0",
+    "archive_sha256": "51222ab0d82171adeb66b1829e05eb7771dff850a7106ba550f534a58870510d",
+    "method": "Scrapling Fetcher.get",
+    "limitation": "Source snapshot; media frames and visual claims require separate inspection."
+  },
+  {
+    "url": "https://risdmuseum.org/",
+    "http_status": 200,
+    "retrieved_utc": "2026-10-01T15:24:39.636978+00:00",
+    "archive": "museum-home.html.gz",
+    "source_sha256": "c534b4b34de24743b30086e9f4deab7fdfd4dca8c9495e01ade7c9e4d5dc189f",
+    "archive_sha256": "76730795932380c5eb7065bcd130aa1800f1fbbbefc85e2bd42c03cb7d0d40d1",
+    "method": "Scrapling Fetcher.get",
+    "limitation": "Source snapshot; media frames and visual claims require separate inspection."
+  },
+  {
+    "url": "https://play.nintendo.com/media/videos/animal-crossing-new-horizons-museum-scavenger-hunt/",
+    "http_status": 200,
+    "retrieved_utc": "2026-10-01T15:24:39.637590+00:00",
+    "archive": "nintendo-museum.html.gz",
+    "source_sha256": "c2a7fca5b48ef859e07df85139b697920c6be923c7a222552ea3ecfd69a8f7d9",
+    "archive_sha256": "d4d159b16686f2063d53a0be0169b08ba0d39009f38fb0c0c28d37e79ad2ff2a",
+    "method": "urllib.request.urlopen",
+    "limitation": "Source snapshot; media frames and visual claims require separate inspection."
+  },
+  {
+    "url": "https://docs.google.com/document/d/17SqgLM5IfST-DqI3izsUaIT__uaEdncwK6--UoYc5Fw/export?format=txt",
+    "http_status": 200,
+    "retrieved_utc": "2026-10-01T15:24:39.665440+00:00",
+    "archive": "on-view.txt.gz",
+    "source_sha256": "7c95815303aef9a5dfbc0ba737ee8b4d82d3635c411eed2fe78a8837b2b2d636",
+    "archive_sha256": "2f31c4869f80f27b448465f92204fe3a533c2aec10cb7dcbf3f4e1da7bdcb47d",
+    "method": "urllib.request.urlopen",
+    "limitation": "Historical spring2020 faculty document; live site link does not establish current installation."
+  },
+  {
+    "url": "https://risdmuseum.org/sites/default/files/styles/scaled_1324_w/public/2018-07/page_special%20event_20171005_Gala_v_03.jpg?itok=9V1nT-h0",
+    "http_status": 200,
+    "retrieved_utc": "2026-10-01T15:26:26.222620+00:00",
+    "file": "grand-gallery-event.jpg",
+    "sha256": "493d527f36b2fb8afecbf22e3790a664f94f3b05a705f8c5e7f7381bab5b96c2",
+    "limitation": "Event setup; image path 2018-07; filename indicates20171005 for Grand Gallery, date is inferred not verified. No current hang, metric or present lighting acceptance."
+  },
+  {
+    "url": "https://risdmuseum.org/sites/default/files/styles/scaled_1324_w/public/2018-07/page_special%20event_auditorium.jpg?itok=Fve3N1Ji",
+    "http_status": 200,
+    "retrieved_utc": "2026-10-01T15:26:26.365420+00:00",
+    "file": "metcalf-auditorium.jpg",
+    "sha256": "4ab20d70770207708a3cb5d432bf4209e624947c60c6c97f6e29b7fa30365540",
+    "limitation": "Event setup; image path 2018-07; filename indicates20171005 for Grand Gallery, date is inferred not verified. No current hang, metric or present lighting acceptance."
+  },
+  {
+    "url": "https://risdmuseum.org/rent-museum",
+    "archive": "museum-rent.html.gz",
+    "http_status": 200,
+    "retrieved_utc": "2026-10-01T15:26:26.366653+00:00",
+    "source_sha256": "d16a05adac0e30918ec8ea6ff02ea5850500cb4d86509bc6b9e9970f64eccac3",
+    "archive_sha256": "1eb5b4755a1f93be023c56cb3930fea31b99b81037a25c886d46c50ba04662fe"
+  },
+  {
+    "url": "https://risdmuseum.org/visitor-guide/floor-5",
+    "http_status": 200,
+    "retrieved_utc": "2026-10-01T15:42:01.323462+00:00",
+    "file": "museum-floor5.html.gz",
+    "source_sha256": "16f113ebc1ce381b179315a87493358afed5480b34c35871aa90411d9aa66b05",
+    "sha256": "7195f3992d88ef1b0fa7731474abda1e859f996dfd06e3459ef1a350a33d728c",
+    "method": "Scrapling Fetcher.get",
+    "limitation": "Floor5 map filename indicates December2020; architect archive depicts 2000-2008 Chace project, not present European hang. Visual inspection required."
+  },
+  {
+    "url": "https://risdmuseum.org/sites/default/files/2020-12/Floor5-map-121420.png",
+    "http_status": 200,
+    "retrieved_utc": "2026-10-01T15:42:01.446661+00:00",
+    "file": "museum-floor5-map.png",
+    "source_sha256": "6ff181d5fd2eaede0480d3f10c281bb8c00a1ad1e8018ed76246963537075516",
+    "sha256": "6ff181d5fd2eaede0480d3f10c281bb8c00a1ad1e8018ed76246963537075516",
+    "method": "Scrapling Fetcher.get",
+    "limitation": "Floor5 map filename indicates December2020; architect archive depicts 2000-2008 Chace project, not present European hang. Visual inspection required."
+  },
+  {
+    "url": "https://rafaelmoneo.com/en/projects/chase-center-rhode-island-school-of-design-providence/",
+    "http_status": 200,
+    "retrieved_utc": "2026-10-01T15:42:02.762613+00:00",
+    "file": "moneo-chace.html.gz",
+    "source_sha256": "8c8bb1bfcf2653329762dc4412a6950fac255fa1afa56f657880ea2b81f0e4d3",
+    "sha256": "4a40768ccee801135f65f0b08576ca228a0a1d5b66c8ed8ad588cbf602e24b57",
+    "method": "Scrapling Fetcher.get",
+    "limitation": "Floor5 map filename indicates December2020; architect archive depicts 2000-2008 Chace project, not present European hang. Visual inspection required."
+  },
+  {
+    "url": "https://rafaelmoneo.com/wp/wp-content/uploads/2016/10/MM-0909_03_web_port.jpg",
+    "http_status": 200,
+    "retrieved_utc": "2026-10-01T15:42:03.341903+00:00",
+    "file": "moneo-chace-photo.jpg",
+    "source_sha256": "9a426d7372342e082ad9816b1468f0099c2edf1413d8016147c09ee34ab34456",
+    "sha256": "9a426d7372342e082ad9816b1468f0099c2edf1413d8016147c09ee34ab34456",
+    "method": "Scrapling Fetcher.get",
+    "limitation": "Floor5 map filename indicates December2020; architect archive depicts 2000-2008 Chace project, not present European hang. Visual inspection required."
+  },
+  {
+    "url": "https://rafaelmoneo.com/wp/wp-content/uploads/2016/10/0909_17_web.jpg",
+    "http_status": 200,
+    "retrieved_utc": "2026-10-01T15:42:04.576155+00:00",
+    "file": "moneo-chace-shop-photo.jpg",
+    "source_sha256": "fc317f5ce579bd6db139ff0e5655a79d41fe207b279204d71e7e4138b88216b2",
+    "sha256": "fc317f5ce579bd6db139ff0e5655a79d41fe207b279204d71e7e4138b88216b2",
+    "method": "Scrapling Fetcher.get",
+    "limitation": "Floor5 map filename indicates December2020; architect archive depicts 2000-2008 Chace project, not present European hang. Visual inspection required.",
+    "visual_observation": "Museum shop interior photograph, not a drawing or European-gallery reference."
+  }
+]

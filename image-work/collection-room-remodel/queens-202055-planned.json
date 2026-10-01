@@ -1,0 +1,107 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-a7170b29bd58993107d7",
+      "objective": "Create one low-polygon 3D modelling reference sheet of this exact RISD Museum object God Save the Queens, accession2020.55, Leopold L.Foulem. FRONT, RIGHT SIDE, LEFT SIDE, REAR orthographic views in one horizontal row, equal full height, identical proportions. Neutral warm grey background, diffuse lighting without baked reflections/cast shadows. Ceramic cylindrical lidded vessel, full height33cm, width/depth16cm. Preserve blue-and-white Delft lattice, Christ head roundels in red robe with tiny GOD SAVE THE QUEENS lettering, side sailing boat panel, distinct metallic silver domed lid and ring finial, metallic spreading skirt underneath, four separate short scroll feet. Simplify silver details into closed faceted low-poly masses. Round metal lid must remain distinct from ceramic body. No chalice, teapot, goblet, added handles, crown, plinth or labels. Official front, side and three-quarter photos are references. Preserve small painted Christ face and blue sailing scene for recognizability and correct observed placement. Unobserved fourth face uses conservative repeated existing pattern, no new subject; rear remains provisional.\n",
+      "procedureId": "muse-a7170b29bd58993107d7",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "queens-202055-recipe.json",
+          "sha256": "a7170b29bd58993107d74705494cbc925509416a44bdd8192a5a428b06d01222"
+        },
+        {
+          "applicationPath": "queens-202055-plan.json",
+          "sha256": "a9ac8429f13e66e79d9734080d4cb8b1a58154959805ea42cace418d8ac49998"
+        },
+        {
+          "applicationPath": "queens-202055-prompt.txt",
+          "sha256": "0454eaac75f9b3fe8a8946ebaeb2980d0a6dd421fe9f9a786fbabda4d13ae658"
+        }
+      ],
+      "museParameters": {
+        "size": "1760x1440"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/queens-202055-official-0.png",
+          "sha256": "6cbda6dd2b7ee70630f2c6209b53002b529c518d85be47ff571413daba798dc2",
+          "byteLength": 2529496,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 2040
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/queens-202055-official-1.png",
+          "sha256": "50a8a6e6f7f93ec4d1d2207651f2f0ccadac938949c260d360727da7d8f2daf1",
+          "byteLength": 2563286,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 2040
+          }
+        },
+        {
+          "slot": "reference-002",
+          "applicationPath": "inventory-references/queens-202055-official-2.png",
+          "sha256": "bcdfdfa53aee37255aee4f74ad91fec1f7621fd88843f82bba033ffb2df0f91f",
+          "byteLength": 2518785,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/2/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 2040
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1760x1440\"},\"objective\":\"Create one low-polygon 3D modelling reference sheet of this exact RISD Museum object God Save the Queens, accession2020.55, Leopold L.Foulem. FRONT, RIGHT SIDE, LEFT SIDE, REAR orthographic views in one horizontal row, equal full height, identical proportions. Neutral warm grey background, diffuse lighting without baked reflections/cast shadows. Ceramic cylindrical lidded vessel, full height33cm, width/depth16cm. Preserve blue-and-white Delft lattice, Christ head roundels in red robe with tiny GOD SAVE THE QUEENS lettering, side sailing boat panel, distinct metallic silver domed lid and ring finial, metallic spreading skirt underneath, four separate short scroll feet. Simplify silver details into closed faceted low-poly masses. Round metal lid must remain distinct from ceramic body. No chalice, teapot, goblet, added handles, crown, plinth or labels. Official front, side and three-quarter photos are references. Preserve small painted Christ face and blue sailing scene for recognizability and correct observed placement. Unobserved fourth face uses conservative repeated existing pattern, no new subject; rear remains provisional.\\n\",\"objectiveId\":\"muse-a7170b29bd58993107d7\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-a7170b29bd58993107d7\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/queens-202055-official-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":2529496,\"inspectedMedia\":{\"height\":2040,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"6cbda6dd2b7ee70630f2c6209b53002b529c518d85be47ff571413daba798dc2\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/queens-202055-official-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":2563286,\"inspectedMedia\":{\"height\":2040,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"50a8a6e6f7f93ec4d1d2207651f2f0ccadac938949c260d360727da7d8f2daf1\",\"slot\":\"reference-001\"},{\"applicationPath\":\"inventory-references/queens-202055-official-2.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":2518785,\"inspectedMedia\":{\"height\":2040,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/2/image_url/url\",\"sha256\":\"bcdfdfa53aee37255aee4f74ad91fec1f7621fd88843f82bba033ffb2df0f91f\",\"slot\":\"reference-002\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"queens-202055-recipe.json\",\"sha256\":\"a7170b29bd58993107d74705494cbc925509416a44bdd8192a5a428b06d01222\"},{\"applicationPath\":\"queens-202055-plan.json\",\"sha256\":\"a9ac8429f13e66e79d9734080d4cb8b1a58154959805ea42cace418d8ac49998\"},{\"applicationPath\":\"queens-202055-prompt.txt\",\"sha256\":\"0454eaac75f9b3fe8a8946ebaeb2980d0a6dd421fe9f9a786fbabda4d13ae658\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "2ee4b0d0613d42f31ef80703414e9bad59f2399ed3adf38449d24cb8315896b8"
+  },
+  "normalView": {
+    "objective": "Create one low-polygon 3D modelling reference sheet of this exact RISD Museum object God Save the Queens, accession2020.55, Leopold L.Foulem. FRONT, RIGHT SIDE, LEFT SIDE, REAR orthographic views in one horizontal row, equal full height, identical proportions. Neutral warm grey background, diffuse lighting without baked reflections/cast shadows. Ceramic cylindrical lidded vessel, full height33cm, width/depth16cm. Preserve blue-and-white Delft lattice, Christ head roundels in red robe with tiny GOD SAVE THE QUEENS lettering, side sailing boat panel, distinct metallic silver domed lid and ring finial, metallic spreading skirt underneath, four separate short scroll feet. Simplify silver details into closed faceted low-poly masses. Round metal lid must remain distinct from ceramic body. No chalice, teapot, goblet, added handles, crown, plinth or labels. Official front, side and three-quarter photos are references. Preserve small painted Christ face and blue sailing scene for recognizability and correct observed placement. Unobserved fourth face uses conservative repeated existing pattern, no new subject; rear remains provisional.\n",
+    "evidence": "3 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

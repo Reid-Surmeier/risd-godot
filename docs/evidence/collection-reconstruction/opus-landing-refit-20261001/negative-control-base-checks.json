@@ -1,0 +1,798 @@
+{
+  "built": {
+    "apostles": {
+      "apostle-41045": {
+        "to_door_edge_m": 0.600000000000001,
+        "to_room_corner_m": 0.984999999999999,
+        "z": 33.215
+      },
+      "apostle-41046": {
+        "to_door_edge_m": 0.449999999999999,
+        "to_room_corner_m": 2.365,
+        "z": 30.465
+      }
+    },
+    "bake_mapping": "addition_baked/room.tscn not present; not checked",
+    "case": {
+      "position": [
+        19.3999996185303,
+        0.0,
+        34.8400001525879
+      ],
+      "yaw": 3.14159274101257
+    },
+    "cases": {
+      "aisle_between_m": 1.075,
+      "low_x": [
+        4.45,
+        6.45
+      ],
+      "low_z": [
+        31.375,
+        32.525
+      ],
+      "tall_to_stair_door_m": 1.975,
+      "tall_x": [
+        7.525,
+        8.575
+      ],
+      "tall_z": [
+        31.315,
+        32.215
+      ]
+    },
+    "hall": {
+      "script": "res://retained_hall_room.gd",
+      "source_tip": "317b8f3b8dac0f9811d396bcb0260c7187f93f11",
+      "unchanged_source_files": 343
+    },
+    "leaves": [
+      [
+        11.0,
+        29.2000007629395,
+        false
+      ],
+      [
+        11.0,
+        30.8999996185303,
+        false
+      ],
+      [
+        16.6000003814697,
+        29.1999988555908,
+        false
+      ],
+      [
+        16.6000003814697,
+        30.8999996185303,
+        false
+      ],
+      [
+        13.8999996185303,
+        36.3500022888184,
+        true
+      ],
+      [
+        15.8999996185303,
+        36.3500022888184,
+        true
+      ]
+    ],
+    "lion": {
+      "faces": "south",
+      "margin_to_corner_m": 0.0800003051757798,
+      "margin_to_door_m": 3.28999977111816,
+      "position": [
+        16.0699996948242,
+        1.17999994754791,
+        33.1500015258789
+      ],
+      "x_span": [
+        15.9899997711182,
+        16.0699996948242
+      ]
+    },
+    "paintings": {
+      "1995.043": {
+        "faces": [
+          1.0,
+          0.0
+        ],
+        "outer_m": [
+          3.12223219871521,
+          2.4642322063446
+        ],
+        "position": [
+          19.5,
+          1.64999997615814,
+          28.9799995422363
+        ]
+      },
+      "43.255": {
+        "faces": [
+          0.0,
+          1.0
+        ],
+        "outer_m": [
+          0.946552932262421,
+          0.819552958011627
+        ],
+        "position": [
+          21.8700008392334,
+          1.64999997615814,
+          31.8500003814697
+        ]
+      },
+      "48.248": {
+        "faces": [
+          0.0,
+          -1.0
+        ],
+        "outer_m": [
+          0.880846917629242,
+          0.623846888542175
+        ],
+        "position": [
+          16.2299995422363,
+          1.64999997615814,
+          32.4000015258789
+        ]
+      },
+      "57.037": {
+        "faces": [
+          0.0,
+          1.0
+        ],
+        "outer_m": [
+          0.755575895309448,
+          0.910575926303864
+        ],
+        "position": [
+          21.8700008392334,
+          1.64999997615814,
+          30.2000007629395
+        ]
+      },
+      "70.058": {
+        "faces": [
+          0.0,
+          -1.0
+        ],
+        "outer_m": [
+          0.630013585090637,
+          0.719483017921448
+        ],
+        "position": [
+          16.2299995422363,
+          1.64999997615814,
+          33.75
+        ]
+      }
+    },
+    "pan_clockwise": [
+      "1995.043",
+      "57.037",
+      "43.255",
+      "doorway",
+      "window",
+      "case",
+      "window",
+      "70.058",
+      "48.248",
+      "entry"
+    ],
+    "void": {
+      "basis": "authored 1.1 m gap kept; draft shape, not a measurement",
+      "door_south_edge_z": 32.615,
+      "gap_m": -0.615000000000002,
+      "starts_z": 32.0
+    },
+    "walks_not_judged": {
+      "reason": "blocked by retained_hall_room.gd portal guard, also on BASE",
+      "trials": [
+        "medieval_between_cases_clear",
+        "medieval_stairs_aisle_clear"
+      ]
+    },
+    "wall_spans": {
+      "lion stair landing:east": 2,
+      "lion stair landing:north": 1,
+      "lion stair landing:south": 2,
+      "lion stair landing:west": 2,
+      "modern painting gallery:east": 2,
+      "modern painting gallery:north": 1,
+      "modern painting gallery:south": 1,
+      "modern painting gallery:west": 2
+    },
+    "windows": [
+      [
+        17.5,
+        1.98000001907349,
+        34.8240013122559
+      ],
+      [
+        20.7999992370605,
+        1.98000001907349,
+        34.8240013122559
+      ]
+    ]
+  },
+  "failures": [
+    "lion stair landing bounds [10.55, 16.15, 28.1, 35.9], expected [10.55, 16.15, 28.1, 37.615]",
+    "lion stair landing openings { \"west\": [29.2, 30.9], \"east\": [29.2, 30.9], \"south\": [13.9, 15.9] }, expected { \"west\": [30.915, 32.615], \"north\": [11.0, 12.7], \"east\": [29.5, 31.5] }",
+    "dark medieval room openings { \"west\": [31.2, 32.33], \"north\": [3.4355, 7.6645], \"east\": [29.2, 30.9] }, expected { \"west\": [31.2, 32.33], \"north\": [3.4355, 7.6645], \"east\": [30.915, 32.615] }",
+    "modern painting gallery bounds [16.15, 21.95, 28.9, 34.9], expected [10.7, 16.7, 22.3, 28.1]",
+    "modern painting gallery openings { \"west\": [29.2, 30.9], \"east\": [33.3, 34.6] }, expected { \"south\": [11.0, 12.7], \"north\": [15.1, 16.4] }",
+    "white sculpture gallery threshold study limit bounds [13.9, 15.9, 35.9, 37.4], expected [16.15, 17.65, 29.5, 31.5]",
+    "white sculpture gallery threshold study limit openings { \"north\": [13.9, 15.9] }, expected { \"west\": [29.5, 31.5] }",
+    "modern adjoining gallery threshold study limit bounds [21.95, 23.55, 33.3, 34.6], expected [15.1, 16.4, 20.7, 22.3]",
+    "modern adjoining gallery threshold study limit openings { \"west\": [33.3, 34.6] }, expected { \"south\": [15.1, 16.4] }",
+    "tracery doorway and stair door are not on one axis",
+    "modern boards must not run across after the turn",
+    "stair void must begin a leaf's length after the stair door's south edge",
+    "draft stair flights changed shape or are not translated with the door",
+    "apostle inventory rows are not the two-row patch (z 30.465 and 33.215, catalogue sizes kept)",
+    "lion is at (16.07, 1.18, 33.15)",
+    "lion must face south into the landing, unmirrored",
+    "lion catalogue front 2.286 x 1.041 m or centre height changed",
+    "lion must sit right of the modern door with label/corner margin, proud of the wall",
+    "lion mount, four frame strips or vent are not with the lion",
+    "lion, mount, frame strips and vent must be owned by the landing north wall visual",
+    "no door leaf at [11.0, 27.65, true]",
+    "no door leaf at [12.7, 27.65, true]",
+    "no door leaf at [16.6, 29.5, false]",
+    "no door leaf at [16.6, 31.5, false]",
+    "no door leaf at [11.0, 30.915, false]",
+    "no door leaf at [11.0, 32.615, false]",
+    "EXIT sign is not over the stair door",
+    "tall case is not on the door axis, or the low case moved",
+    "apostle-41046, its bracket or backplate is not at z 30.465",
+    "apostle-41045, its bracket or backplate is not at z 33.215",
+    "draft flights or guard are not translated with the door",
+    "landing floor must reach past the moved door and stop at the void",
+    "1995.043 is at (19.5, 1.65, 28.98)",
+    "1995.043 does not face into the room",
+    "1995.043 is not owned by the modern painting gallery:west visual",
+    "57.037 is at (21.87, 1.65, 30.2)",
+    "57.037 does not face into the room",
+    "57.037 is not owned by the modern painting gallery:north visual",
+    "43.255 is at (21.87, 1.65, 31.85)",
+    "43.255 does not face into the room",
+    "43.255 is not owned by the modern painting gallery:north visual",
+    "48.248 is at (16.23, 1.65, 32.4)",
+    "48.248 does not face into the room",
+    "48.248 is not owned by the lion stair landing:north visual",
+    "70.058 is at (16.23, 1.65, 33.75)",
+    "70.058 does not face into the room",
+    "70.058 is not owned by the lion stair landing:north visual",
+    "expected two windows on one unbroken east wall, found 2 on 2",
+    "case is at (19.4, 0.0, 34.84) yaw 3.14159274101257",
+    "figure must face west into the room, as turned from the accepted layout",
+    "bench with four legs is not turned along the large-painting wall",
+    "three ceiling tracks must run along the large-painting wall inside the room",
+    "modern ceiling does not cover the turned room",
+    "modern boards must run north-south, away from the entry",
+    "wall spans { \"lion stair landing:west\": 2, \"lion stair landing:east\": 2, \"lion stair landing:north\": 1, \"lion stair landing:south\": 2, \"modern painting gallery:west\": 2, \"modern painting gallery:east\": 2, \"modern painting gallery:north\": 1, \"modern painting gallery:south\": 1 }",
+    "167 authored nodes remain in the old modern footprint or beyond the landing, e.g. [\"AuthoredSurface1696 (19.05, 3.52, 31.9)\", \"@StaticBody3D@2046 (21.95, 1.75, 31.1)\", \"AuthoredSurface1882 (21.889, 1.75, 31.1)\", \"AuthoredSurface1883 (21.885, 0.08, 31.1)\"]",
+    "inventory wall names or acceptance flag are wrong",
+    "stairs_door_out is not the expected walk",
+    "medieval_tall_case_blocked is not the expected walk",
+    "landing_to_modern is not the expected walk",
+    "landing_white_out is not the expected walk",
+    "landing_guard_blocked is not the expected walk",
+    "walk trial failed: old_stair_door_position_closed"
+  ],
+  "godot": "4.7.2-stable (official)",
+  "gpu_used": false,
+  "inventory_rows": {
+    "apostle-41045": [
+      12.33,
+      1.04,
+      31.5
+    ],
+    "apostle-41046": [
+      12.33,
+      1.04,
+      28.75
+    ],
+    "lion-panel": [
+      18.02,
+      1.18,
+      33.15
+    ]
+  },
+  "native_review_bake_browser": "not run here: no renderer; root owns them",
+  "opening_pairs": [
+    [
+      "Rockefeller",
+      "south",
+      "adjacent gallery",
+      [
+        -3.5,
+        -1.5
+      ]
+    ],
+    [
+      "Rockefeller",
+      "east",
+      "purple elevator-5 connector",
+      [
+        -2.8,
+        -1.2
+      ]
+    ],
+    [
+      "adjacent gallery",
+      "south",
+      "light Renaissance room",
+      [
+        -3.5,
+        -1.5
+      ]
+    ],
+    [
+      "dark medieval room",
+      "west",
+      "light Renaissance room",
+      [
+        31.2,
+        32.33
+      ]
+    ],
+    [
+      "dark medieval room",
+      "east",
+      "lion stair landing",
+      [
+        29.2,
+        30.9
+      ]
+    ],
+    [
+      "Grand Gallery",
+      "north",
+      "grey French gallery",
+      [
+        4.55,
+        6.55
+      ]
+    ],
+    [
+      "Grand Gallery",
+      "south",
+      "dark medieval room",
+      [
+        3.4355,
+        7.6645
+      ]
+    ],
+    [
+      "lion stair landing",
+      "east",
+      "modern painting gallery",
+      [
+        29.2,
+        30.9
+      ]
+    ],
+    [
+      "lion stair landing",
+      "south",
+      "white sculpture gallery threshold study limit",
+      [
+        13.9,
+        15.9
+      ]
+    ],
+    [
+      "grey French gallery",
+      "west",
+      "purple elevator-5 connector",
+      [
+        -2.8,
+        -1.2
+      ]
+    ],
+    [
+      "grey French gallery",
+      "north",
+      "piano-stair threshold study limit",
+      [
+        4.55,
+        6.55
+      ]
+    ],
+    [
+      "Ionic marble-stair threshold study limit",
+      "west",
+      "grey French gallery",
+      [
+        -5.8,
+        1.8
+      ]
+    ],
+    [
+      "modern adjoining gallery threshold study limit",
+      "west",
+      "modern painting gallery",
+      [
+        33.3,
+        34.6
+      ]
+    ]
+  ],
+  "passed": false,
+  "project": "/tmp/claude-1000/-home-reidsurmeier-orca-workspaces-risd-godot-collection-opus-seated-woman/5250fa0b-1bb6-47e5-bf77-9a12f151101b/scratchpad/ext-base/",
+  "renderer": "headless dummy; camera-clear flags from the walk are recorded, not judged",
+  "rooms": {
+    "dark medieval room": {
+      "bounds": [
+        0.55,
+        10.55,
+        28.1,
+        34.2
+      ],
+      "height": 4.25,
+      "label": "dark medieval room",
+      "openings": {
+        "east": [
+          29.2,
+          30.9
+        ],
+        "north": [
+          3.4355,
+          7.6645
+        ],
+        "west": [
+          31.2,
+          32.33
+        ]
+      },
+      "stone_sides": [
+        "west",
+        "north"
+      ]
+    },
+    "lion stair landing": {
+      "bounds": [
+        10.55,
+        16.15,
+        28.1,
+        35.9
+      ],
+      "floor": "basket-weave",
+      "floor_void": [
+        10.55,
+        13.55,
+        32.0,
+        35.9
+      ],
+      "height": 4.1,
+      "label": "lion stair landing",
+      "openings": {
+        "east": [
+          29.2,
+          30.9
+        ],
+        "south": [
+          13.9,
+          15.9
+        ],
+        "west": [
+          29.2,
+          30.9
+        ]
+      }
+    },
+    "modern adjoining gallery threshold study limit": {
+      "bounds": [
+        21.95,
+        23.55,
+        33.3,
+        34.6
+      ],
+      "label": "modern adjoining gallery threshold study limit",
+      "openings": {
+        "west": [
+          33.3,
+          34.6
+        ]
+      }
+    },
+    "modern painting gallery": {
+      "boards_across": true,
+      "bounds": [
+        16.15,
+        21.95,
+        28.9,
+        34.9
+      ],
+      "height": 3.5,
+      "label": "modern painting gallery",
+      "openings": {
+        "east": [
+          33.3,
+          34.6
+        ],
+        "west": [
+          29.2,
+          30.9
+        ]
+      }
+    },
+    "white sculpture gallery threshold study limit": {
+      "bounds": [
+        13.9,
+        15.9,
+        35.9,
+        37.4
+      ],
+      "label": "white sculpture gallery threshold study limit",
+      "openings": {
+        "north": [
+          13.9,
+          15.9
+        ]
+      }
+    }
+  },
+  "trial_samples": [
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        11.2708530426025,
+        0.000838143634609878,
+        30.0499992370605
+      ],
+      "started_without_reset": false,
+      "trial": "stairs_door_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        9.77085494995117,
+        0.000802670139819384,
+        30.0499992370605
+      ],
+      "started_without_reset": true,
+      "trial": "stairs_door_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        5.44999265670776,
+        -0.000424496683990583,
+        31.152587890625
+      ],
+      "started_without_reset": false,
+      "trial": "medieval_low_case_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 3,
+      "on_floor": true,
+      "position": [
+        8.05000019073486,
+        -0.000804923707619309,
+        30.2274875640869
+      ],
+      "started_without_reset": false,
+      "trial": "medieval_tall_case_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        6.84999799728394,
+        -0.000126685976283625,
+        30.5321273803711
+      ],
+      "started_without_reset": false,
+      "trial": "medieval_between_cases_clear"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        6.27905750274658,
+        0.000121801858767867,
+        29.4291667938232
+      ],
+      "started_without_reset": false,
+      "trial": "medieval_stairs_aisle_clear"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        17.6667003631592,
+        0.000840302731376141,
+        30.0500049591064
+      ],
+      "started_without_reset": false,
+      "trial": "landing_to_modern"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        14.5208501815796,
+        0.000835634302347898,
+        30.0500030517578
+      ],
+      "started_without_reset": true,
+      "trial": "modern_to_landing"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        14.8999948501587,
+        0.000837156432680786,
+        36.7207946777344
+      ],
+      "started_without_reset": false,
+      "trial": "landing_white_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 3,
+      "on_floor": true,
+      "position": [
+        14.8999977111816,
+        0.00083356536924839,
+        34.7208709716797
+      ],
+      "started_without_reset": true,
+      "trial": "landing_white_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        22.770788192749,
+        0.000873885583132505,
+        33.9500160217285
+      ],
+      "started_without_reset": false,
+      "trial": "modern_far_opening_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        21.0207748413086,
+        0.000926752982195467,
+        33.950008392334
+      ],
+      "started_without_reset": true,
+      "trial": "modern_far_opening_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        18.8999996185303,
+        -0.000424709287472069,
+        32.5227165222168
+      ],
+      "started_without_reset": false,
+      "trial": "modern_bench_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 5,
+      "on_floor": true,
+      "position": [
+        13.7893581390381,
+        0.0000845022732391953,
+        33.6814727783203
+      ],
+      "started_without_reset": false,
+      "trial": "landing_guard_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        11.2708587646484,
+        0.00083812401862815,
+        30.0500087738037
+      ],
+      "started_without_reset": false,
+      "trial": "old_stair_door_position_closed"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        14.8999910354614,
+        -0.000491644139401615,
+        37.115348815918
+      ],
+      "started_without_reset": false,
+      "trial": "landing_south_wall_closed"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        6.84999895095825,
+        0.000809945806395262,
+        30.8333778381348
+      ],
+      "started_without_reset": false,
+      "trial": "aisle_between_cases"
+    }
+  ],
+  "walk_trials": {
+    "aisle_between_cases": true,
+    "aisle_between_cases_camera": true,
+    "landing_guard_blocked": true,
+    "landing_guard_blocked_camera": true,
+    "landing_south_wall_closed": true,
+    "landing_south_wall_closed_camera": true,
+    "landing_to_modern": true,
+    "landing_to_modern_camera": true,
+    "landing_white_back": true,
+    "landing_white_back_camera": true,
+    "landing_white_out": true,
+    "landing_white_out_camera": true,
+    "medieval_between_cases_clear": false,
+    "medieval_between_cases_clear_camera": true,
+    "medieval_low_case_blocked": true,
+    "medieval_low_case_blocked_camera": true,
+    "medieval_stairs_aisle_clear": false,
+    "medieval_stairs_aisle_clear_camera": true,
+    "medieval_tall_case_blocked": true,
+    "medieval_tall_case_blocked_camera": true,
+    "modern_bench_blocked": true,
+    "modern_bench_blocked_camera": true,
+    "modern_far_opening_back": true,
+    "modern_far_opening_back_camera": true,
+    "modern_far_opening_out": true,
+    "modern_far_opening_out_camera": true,
+    "modern_to_landing": true,
+    "modern_to_landing_camera": true,
+    "old_stair_door_position_closed": false,
+    "old_stair_door_position_closed_camera": true,
+    "stairs_door_back": true,
+    "stairs_door_back_camera": true,
+    "stairs_door_out": true,
+    "stairs_door_out_camera": true
+  }
+}

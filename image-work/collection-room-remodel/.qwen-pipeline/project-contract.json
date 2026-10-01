@@ -124,7 +124,14 @@
     "inventory-references/matisse-frame-video-0.png",
     "inventory-references/villon-frame-video-0.png",
     "inventory-references/seated-woman-bronze-official-0.png",
-    "inventory-references/seated-woman-bronze-official-1.png"
+    "inventory-references/seated-woman-bronze-official-1.png",
+    "inventory-references/virgin-child-15108-official-0.png",
+    "inventory-references/virgin-child-15108-official-2.png",
+    "inventory-references/virgin-child-15108-official-3.png",
+    "inventory-references/virgin-child-15108-video-rear.png",
+    "inventory-references/queens-202055-official-0.png",
+    "inventory-references/queens-202055-official-1.png",
+    "inventory-references/queens-202055-official-2.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -1997,6 +2004,69 @@
           "slot": "reference-001",
           "kind": "image",
           "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-f06f51d1eeeb2f58f287",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1440"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        },
+        {
+          "slot": "reference-002",
+          "kind": "image",
+          "payloadDestination": "/input_references/2/image_url/url"
+        },
+        {
+          "slot": "reference-003",
+          "kind": "image",
+          "payloadDestination": "/input_references/3/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-a7170b29bd58993107d7",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1440"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        },
+        {
+          "slot": "reference-002",
+          "kind": "image",
+          "payloadDestination": "/input_references/2/image_url/url"
         }
       ]
     }

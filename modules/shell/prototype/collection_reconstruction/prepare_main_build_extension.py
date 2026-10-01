@@ -30,6 +30,11 @@ for relative, digest in main["source_sha256"].items():
         assert hashlib.sha256((reference / relative).read_bytes()).hexdigest() == digest, relative
 subprocess.run([sys.executable, str(source / "prepare_remodel.py"), str(out)], check=True)
 manifest = json.loads((out / "manifest.json").read_text())
+# The preserved Hall's review scripts extend this frozen support fixture; editor scans need it.
+harness = subprocess.check_output(["git", "-C", main["source_worktree"], "show", main["source_tip"] + ":testing/harness_base.gd"])
+(out / "testing").mkdir()
+(out / "testing/harness_base.gd").write_bytes(harness)
+manifest["copied_test_harness"] = {"source_tip": main["source_tip"], "sha256": hashlib.sha256(harness).hexdigest()}
 for relative, digest in main["source_sha256"].items():
     target = out / relative
     target.parent.mkdir(parents=True, exist_ok=True)

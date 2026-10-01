@@ -147,7 +147,7 @@
       "state": "submission_unreconciled; max $0.01 possibly spent; never resubmit blindly"
     }
   ],
-  "current_preview": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/architecture-review-v46/",
+  "current_preview": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/rockefeller-architecture-v47/",
   "gallery_inventory": "european-gallery-inventory.json",
   "sculpture_inventory": "sculpture-room-inventory.json",
   "survey_summary": {
@@ -455,11 +455,111 @@
     "browser_verified": false,
     "separate_addition_bake_complete": false,
     "rtx_failure_unresolved": true,
-    "cumulative_actual_usd": "0.85",
-    "cumulative_conservative_usd": "0.86",
+    "cumulative_actual_usd": "0.86",
+    "cumulative_conservative_usd": "0.87",
     "all_objects_complete": false,
     "evidence": "docs/evidence/collection-reconstruction/main-build-attachment-review-20261001",
     "report_url": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/main-build-review-v49/",
     "next": "Apply Opus wide-angle modern layout correction; bake additions separately, inspect actual full-app native, export and verify browser controls/traversal; continue remaining video coverage."
+  },
+  "medieval_case_contents_review": {
+    "date_utc": "2026-10-01T14:35:00Z",
+    "strong_matches": 4,
+    "probable_matches": 3,
+    "unidentified": 2,
+    "inventory": "medieval-case-inventory.json",
+    "source_frames_decoded": 16,
+    "all_objects_complete": false
+  },
+  "virgin_child_15108_muse": {
+    "date_utc": "2026-10-01T14:35:00Z",
+    "accession": "15.108",
+    "run_id": "run-45b7430ae44f28051bb2b9a2",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "cost_usd": "0.010000",
+    "provider_receipt_spend_state": "unknown",
+    "durable_state_cost": "0.010000",
+    "outputs": 1,
+    "native_sha256": "a14ab275b107b2b8a2e97455ef9b150b68fc347eba4b06df6b694ea6b57c96fd",
+    "visual_review": "inspected; usable preliminary low-poly front/side modelling guidance; fidelity not accepted",
+    "matches": [
+      "Seated Virgin; child on her right knee (front viewer left); open book",
+      "Blue bodice/skirt, green/orange-brown worn mantle, long hair/circlet",
+      "Stepped base and broad flattened back silhouette"
+    ],
+    "limits": [
+      "Rear hair segmentation and stepped paint areas partly inferred; native rear blurry",
+      "Separate views differ slightly in child/book silhouette",
+      "No meshes generated: sheet only",
+      "Catalogue height .394m; width/depth remain unmeasured"
+    ],
+    "geometry_installed": false,
+    "all_objects_complete": false,
+    "durable_state_cost_state": "actual"
+  },
+  "virgin_child_15108_geometry": {
+    "date_utc": "2026-10-01T14:40:00Z",
+    "evidence": "docs/evidence/collection-reconstruction/virgin-child-geometry-20261001",
+    "closed_parts": 32,
+    "triangles": 718,
+    "height_m": 0.394,
+    "native_check_passed": true,
+    "fidelity_accepted": false,
+    "room_installed": false,
+    "issues": [
+      "columnar mantle/seated-knee silhouette",
+      "unresolved face/hands/paint",
+      "first texture projection failed and removed"
+    ],
+    "next": "Independent Opus silhouette and material refinement before installation"
+  },
+  "current_preview_limitation": "Older standalone playable; latest attached fullapp bake/browser pending, not current construction",
+  "current_review_url": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/main-build-review-v49/",
+  "medieval_case_object_progress": {
+    "inventory": "medieval-case-inventory.json",
+    "primary_api_independently_verified": 7,
+    "strong_matches": 4,
+    "probable_matches": 3,
+    "low_case_objects_unidentified": 2,
+    "closed_prototypes": [
+      "15.108",
+      "40.002",
+      "1992.051 (probable)",
+      "30.011 (probable)",
+      "52.002"
+    ],
+    "virgin_geometry_parts": 53,
+    "virgin_geometry_triangles": 1240,
+    "case_installation_verified": false,
+    "fine_surface_fidelity_accepted": false,
+    "muse_new_sheets": [
+      "virgin-child-15108-review.json",
+      "queens-202055-review.json"
+    ],
+    "cumulative_actual_usd": "0.87",
+    "cumulative_conservative_usd": "0.88"
+  },
+  "floor_actual_main_trial": {
+    "negative_downward_vertices": 9948,
+    "positive_floor_meshes": 1684,
+    "positive_wrong_normals": 0,
+    "visually_inspected_rooms": [
+      "modern",
+      "landing",
+      "grey"
+    ],
+    "method": "Clockwise floor face winding plus SurfaceTool.generate_normals(); reversal alone was visual false-positive",
+    "shared_main_shader_changed": false,
+    "evidence": "docs/evidence/collection-reconstruction/main-build-attachment-review-20261001/floor-winding-native-proof",
+    "source_integration_verified": false,
+    "bake_browser_verified": false
+  },
+  "latest_qa": {
+    "shell_root": "42/50;8fail",
+    "shell_committed_baseline": "41/50;all8rootfailures reproduce, plus baseline timing",
+    "native_actual_keyboard_v50d": "6/6 paired-door crossings, actual root Input",
+    "fresh_browser_verified": false,
+    "rtx_driver_fault_resolved": false
   }
 }

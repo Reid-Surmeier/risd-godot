@@ -1,0 +1,121 @@
+
+A1  IMG_6380.MOV 38.3 s
+  courbet_canvas_w                     0.733  [0.733, 0.733]   height ruler   0.742
+  courbet_canvas_h                     0.590  [0.563, 0.617]   height ruler   0.597
+  courbet_frame_w                      1.024  [0.986, 1.063]   height ruler   1.037
+  stile_w                              0.090  [0.057, 0.122]   height ruler   0.091
+  casR_to_courbet_centre               2.609  [2.525, 2.695]   height ruler   2.641
+  corner_to_casing                     0.191  [0.135, 0.247]   height ruler   0.193
+  corner_to_clear_south                0.279  [0.215, 0.348]   height ruler   0.283
+  corner_to_clear_north                2.121  [2.038, 2.208]   height ruler   2.148
+  clear_width                          1.840  [1.758, 1.927]   height ruler   1.864
+  corner_to_casing_north               2.210  [2.124, 2.301]   height ruler   2.240
+  swc_to_courbet_centre                4.819  [4.663, 4.983]   height ruler   4.881
+  barn_frame_w                         0.974  [0.935, 1.016]   height ruler   0.986
+  barn_canvas_w                        0.721  [0.685, 0.755]   height ruler   0.729
+  barn_centre_to_courbet_centre        1.575  [1.523, 1.629]   height ruler   1.595
+  casR_to_barn_frame                   0.555  [0.521, 0.592]   height ruler   0.563
+  canvas_centre_above_baseboard        1.340  [1.286, 1.398]   height ruler   1.357
+  baseboard_top_to_ceiling             3.312  [3.187, 3.447]   height ruler   3.355
+
+A2  IMG_6380.MOV 38.901 s
+  courbet_canvas_w                     0.733  [0.733, 0.733]   height ruler   0.726
+  courbet_canvas_h                     0.603  [0.575, 0.633]   height ruler   0.597
+  courbet_frame_w                      1.011  [0.967, 1.061]   height ruler   1.001
+  stile_w                              0.096  [0.068, 0.124]   height ruler   0.095
+  casR_to_courbet_centre               2.586  [2.490, 2.692]   height ruler   2.562
+  barn_frame_w                         0.988  [0.943, 1.036]   height ruler   0.978
+  barn_canvas_w                        0.725  [0.687, 0.765]   height ruler   0.717
+  barn_centre_to_courbet_centre        1.561  [1.502, 1.627]   height ruler   1.545
+  casR_to_barn_frame                   0.547  [0.513, 0.583]   height ruler   0.542
+  courbet_centre_to_nwc                1.136  [1.088, 1.190]   height ruler   1.124
+  canvas_centre_above_baseboard        1.349  [1.298, 1.406]   height ruler   1.336
+  baseboard_top_to_ceiling             3.431  [3.304, 3.574]   height ruler   3.399
+
+B1  IMG_6381.MOV 90.968 s
+  courbet_canvas_w                     0.733  [0.733, 0.733]   height ruler   0.755
+  courbet_canvas_h                     0.579  [0.526, 0.636]   height ruler   0.597
+  courbet_frame_w                      1.032  [0.962, 1.110]   height ruler   1.066
+  stile_w                              0.114  [0.065, 0.162]   height ruler   0.118
+  casR_to_courbet_centre               2.626  [2.475, 2.797]   height ruler   2.712
+  corner_to_casing                     0.211  [0.148, 0.276]   height ruler   0.217
+  corner_to_clear_south                0.325  [0.241, 0.408]   height ruler   0.335
+  corner_to_clear_north                2.154  [2.011, 2.317]   height ruler   2.224
+  clear_width                          1.827  [1.693, 1.982]   height ruler   1.888
+  corner_to_casing_north               2.269  [2.115, 2.435]   height ruler   2.342
+  swc_to_courbet_centre                4.897  [4.606, 5.215]   height ruler   5.051
+  courbet_centre_to_nwc                1.124  [1.050, 1.204]   height ruler   1.159
+  wall_length                          6.016  [5.678, 6.405]   height ruler   6.209
+  canvas_centre_above_baseboard        1.375  [1.285, 1.482]   height ruler   1.422
+  baseboard_top_to_ceiling             3.629  [3.403, 3.894]   height ruler   3.748
+
+C1  IMG_6380.MOV 1.6 s
+  courbet_canvas_w                     0.733  [0.733, 0.733]   height ruler   0.734
+  courbet_canvas_h                     0.596  [0.584, 0.608]   height ruler   0.597
+  courbet_frame_w                      1.025  [1.012, 1.039]   height ruler   1.028
+  courbet_centre_to_nwc                1.198  [1.166, 1.235]   height ruler   1.202
+
+wall length: {'A1+A2': (5.956, [5.642, 6.311]), 'A1+C1': (6.018, [5.718, 6.372]), 'B1': (6.016, [5.364, 6.829])}
+held-out minus fit: {'corner_to_casing': 0.02, 'corner_to_clear_south': 0.046, 'clear_width': -0.013, 'corner_to_clear_north': 0.033, 'swc_to_courbet_centre': 0.078, 'courbet_frame_w': 0.008, 'courbet_centre_to_nwc': -0.012, 'courbet_centre_to_nwc_close_frame_C1': 0.062, 'wall_length': 0.06}
+ratios: {'grey_corner_to_casing_in_stiles_D1': [1.65, 1.63, 1.64], 'rockefeller_corner_to_casing_in_stiles_F1': 2.62, 'note': 'Image ratios of adjacent widths on one wall; no perspective correction and no metres.'}
+failure cases: {
+ "frame_taken_for_canvas": {
+  "courbet_frame_outer_width_m": 1.023,
+  "catalogue_canvas_width_m": 0.733,
+  "every_distance_scaled_by": 0.717,
+  "wall_length_would_read_m": 4.31,
+  "note": "Reading the gilt frame's outer edge as the 0.733 m canvas shrinks every distance by this factor."
+ },
+ "canvas_only_homography_C1": {
+  "courbet_centre_to_nwc_m": {
+   "median": 1.195,
+   "p16_p84": [
+    1.159,
+    1.233
+   ],
+   "p2.5_p97.5": [
+    1.126,
+    1.275
+   ]
+  },
+  "wall_line_fit_same_frame_m": {
+   "median": 1.198,
+   "p16_p84": [
+    1.166,
+    1.235
+   ],
+   "p2.5_p97.5": [
+    1.138,
+    1.275
+   ]
+  },
+  "note": "medieval-panel-fit.py pattern: four canvas corners alone, at 400 px across, reaching 0.85 m to the baseboard corner. Short reach, sharp frame: it holds."
+ },
+ "canvas_only_homography_A2": {
+  "casing_to_courbet_centre_m": {
+   "median": 2.582,
+   "p16_p84": [
+    2.25,
+    3.025
+   ],
+   "p2.5_p97.5": [
+    2.001,
+    3.661
+   ]
+  },
+  "wall_line_fit_same_frame_m": {
+   "median": 2.586,
+   "p16_p84": [
+    2.49,
+    2.692
+   ],
+   "p2.5_p97.5": [
+    2.4,
+    2.808
+   ]
+  },
+  "note": "Same pattern on a 115 px canvas reaching 2.6 m to the doorway: 2 px of corner noise becomes this spread. This is why the wall's own lines carry the perspective and the canvas only sets the scale."
+ }
+}
+
+CHECK PASSED: 6 groups

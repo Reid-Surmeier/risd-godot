@@ -1,0 +1,178 @@
+[
+ {
+  "file": "glasgow-FMOb.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/books.php?id=FMOb",
+  "status": 200,
+  "bytes": 12771,
+  "sha256": "d2fbcb67438884dd8c2463bcbe2fd2499f1019642144f87d71211543a4ac94ad",
+  "fetched_utc": "2026-10-01T15:38:12Z"
+ },
+ {
+  "file": "glasgow-FMOa.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/books.php?id=FMOa",
+  "status": 200,
+  "bytes": 12198,
+  "sha256": "fa28d7df702938f0ba44015f7de7360de39d846a1c7609ab77d317c63e63af2d",
+  "fetched_utc": "2026-10-01T15:38:14Z"
+ },
+ {
+  "file": "glasgow-FMOb-contents.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/contents.php?id=FMOb",
+  "status": 200,
+  "bytes": 33794,
+  "sha256": "38a6b980bcdd1e5026ec63866a67ce7f18c12be49d75faf1ce6f9dd0a3c7ef1e",
+  "fetched_utc": "2026-10-01T15:38:23Z"
+ },
+ {
+  "file": "glasgow-FMOb-description.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/description.php?id=FMOb",
+  "status": 404,
+  "bytes": 83800,
+  "sha256": "b39bdadd90378180927c19f1343682602e430b54f3fc7523c5ac4f46ffd67bc7",
+  "fetched_utc": "2026-10-01T15:38:25Z"
+ },
+ {
+  "file": "glasgow-FMOb076.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/emblem.php?id=FMOb076",
+  "status": 200,
+  "bytes": 10840,
+  "sha256": "e208d9154c14e54d95825afef425079c944bf49be8e1024f8797531c9ee06278",
+  "fetched_utc": "2026-10-01T15:38:36Z"
+ },
+ {
+  "file": "glasgow-FMOb075.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/emblem.php?id=FMOb075",
+  "status": 200,
+  "bytes": 10479,
+  "sha256": "2ada504d162fcaa27c4b86354bb0028e770561f6fa0d55821710e7166bb156c3",
+  "fetched_utc": "2026-10-01T15:38:37Z"
+ },
+ {
+  "file": "glasgow-FMOb-bibdesc.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/bib-desc.php?id=FMOb",
+  "status": 200,
+  "bytes": 8042,
+  "sha256": "d4e334a47799a81cfb74000a071d39c0a5ec29a33633acb98943f920077a43e9",
+  "fetched_utc": "2026-10-01T15:38:39Z"
+ },
+ {
+  "file": "glasgow-FMOb036.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/emblem.php?id=FMOb036",
+  "status": 200,
+  "bytes": 11455,
+  "sha256": "db49c7c2406c17e34cb7d8a4542a1abaa63411d6dcb9f025d9b6ae9e6fd07657",
+  "fetched_utc": "2026-10-01T15:38:51Z"
+ },
+ {
+  "file": "glasgow-FMOb036.jpg",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/images/pic_m/FMOb036.jpg",
+  "status": 200,
+  "bytes": 21227,
+  "sha256": "753de0f8aebbe52e9bd35cfac3f69bcfcdf5f21212c80054518e06a67bb06787",
+  "fetched_utc": "2026-10-01T15:38:53Z"
+ },
+ {
+  "file": "glasgow-search-form.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/search.php?book=FMOb",
+  "status": 200,
+  "bytes": 9358,
+  "sha256": "8cdb5715d68edfaaad18b321efd60d3204da65f565fc098d87347344b0178f82",
+  "fetched_utc": "2026-10-01T15:39:03Z"
+ },
+ {
+  "file": "glasgow-search-comme-les.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/search.php?sub=99&new=y&lang=0&text=Comme+les&names=&book%5B%5D=FMOb",
+  "status": 200,
+  "bytes": 5621,
+  "sha256": "88637f121689295724d17d57b36cb4eb47f7436fb0e880abc9c702ce9e4003fa",
+  "fetched_utc": "2026-10-01T15:39:12Z"
+ },
+ {
+  "file": "glasgow-FMOb015.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/emblem.php?id=FMOb015",
+  "status": 200,
+  "bytes": 11161,
+  "sha256": "a0d683a7f94c9c9ebbf200acc0bd2bab6fca4cc8de7cbbe26cd5d85b447f0a7e",
+  "fetched_utc": "2026-10-01T15:39:23Z"
+ },
+ {
+  "file": "glasgow-FMOb015.jpg",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/images/pic_m/FMOb015.jpg",
+  "status": 200,
+  "bytes": 21253,
+  "sha256": "16c82a319d085804b731f2ef1b9811fcf078d785543d1b5f3eb1734e9119beba",
+  "fetched_utc": "2026-10-01T15:39:25Z"
+ },
+ {
+  "file": "glasgow-FMOb084.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/emblem.php?id=FMOb084",
+  "status": 200,
+  "bytes": 11020,
+  "sha256": "00bbc6feed85a5ce45511aff21464b8fed971a344b381efd90d9dd98ac92b236",
+  "fetched_utc": "2026-10-01T15:39:26Z"
+ },
+ {
+  "file": "glasgow-FMOb084.jpg",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/images/pic_m/FMOb084.jpg",
+  "status": 200,
+  "bytes": 21994,
+  "sha256": "aa6bf46eb387eca6c3954725fcad785b6729553e821134fe03d7e19c2130a808",
+  "fetched_utc": "2026-10-01T15:39:27Z"
+ },
+ {
+  "file": "glasgow-FMOb085.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/emblem.php?id=FMOb085",
+  "status": 200,
+  "bytes": 12625,
+  "sha256": "cac378adbb3d82f9b50291081cabd7021c3b07bb565d96396b8d07925d47501d",
+  "fetched_utc": "2026-10-01T15:39:29Z"
+ },
+ {
+  "file": "glasgow-FMOb085.jpg",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/images/pic_m/FMOb085.jpg",
+  "status": 200,
+  "bytes": 23197,
+  "sha256": "ac23806dd0aa42f7698cf6632fb6b56606b450f105588aa756b7b54024f74b0c",
+  "fetched_utc": "2026-10-01T15:39:30Z"
+ },
+ {
+  "file": "glasgow-facsimile-sm772_f3r.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/facsimile.php?id=sm772_f3r",
+  "status": 200,
+  "bytes": 3268,
+  "sha256": "392864e51615911f28eee24ff19413d4397794a981031048f93526c8fe94c9a5",
+  "fetched_utc": "2026-10-01T15:39:43Z"
+ },
+ {
+  "file": "glasgow-facsimile-sm772_f2v.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/facsimile.php?id=sm772_f2v",
+  "status": 200,
+  "bytes": 3268,
+  "sha256": "c5e8834c487febae8ea10b6e05d0da5720c619fac65e444171dd6b7771627580",
+  "fetched_utc": "2026-10-01T15:39:44Z"
+ },
+ {
+  "file": "glasgow-sm772_f2v.jpg",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/images/facsimile/sm772_f2v.jpg",
+  "status": 200,
+  "bytes": 139459,
+  "sha256": "4c704cd1fc0dfabe15da98d34a00c57262e35c5305ad33417bab4abcdd335631",
+  "fetched_utc": "2026-10-01T15:39:57Z"
+ },
+ {
+  "file": "glasgow-sm772_f3r.jpg",
+  "url": "https://www.emblems.arts.gla.ac.uk/french/images/facsimile/sm772_f3r.jpg",
+  "status": 200,
+  "bytes": 184628,
+  "sha256": "48b99a5c1a8af1c8c14d355a65227a3a6b70288ca8981c147d2857f213754f6e",
+  "fetched_utc": "2026-10-01T15:39:59Z"
+ },
+ {
+  "file": "glasgow-copyright.html",
+  "url": "https://www.emblems.arts.gla.ac.uk/#copyright",
+  "status": 200,
+  "bytes": 14467,
+  "sha256": "ab07f2c56d4114d2a3951a20c491fce39c42c07248f6608a46dfdb2946622b8b",
+  "fetched_utc": "2026-10-01T15:40:00Z"
+ }
+]

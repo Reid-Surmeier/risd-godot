@@ -1,0 +1,24 @@
+{
+  "closed_parts": 53,
+  "depth_m_provisional": 0.132625579833984,
+  "failures": [],
+  "height_m": 0.393999993801117,
+  "parts_per_material": {
+    "blue": 5,
+    "cover": 4,
+    "gold": 3,
+    "hair": 5,
+    "lining": 4,
+    "mantle": 9,
+    "orange": 2,
+    "paper": 2,
+    "skin": 9,
+    "stone": 4,
+    "tunic": 6
+  },
+  "placement_accepted": false,
+  "rear_accepted": false,
+  "triangles": 1240,
+  "visual_fidelity_accepted": false,
+  "width_m_provisional": 0.22873842716217
+}
