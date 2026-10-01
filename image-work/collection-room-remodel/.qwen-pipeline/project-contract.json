@@ -105,7 +105,12 @@
     "inventory-references/bertin-frame-style.png",
     "inventory-references/perugino-frame-selected-0.png",
     "inventory-references/perugino-frame-selected-1.png",
-    "inventory-references/perugino-frame-selected-2.png"
+    "inventory-references/perugino-frame-selected-2.png",
+    "inventory-references/magdalene-frame-selected-0.png",
+    "inventory-references/magdalene-frame-selected-1.png",
+    "inventory-references/magdalene-frame-selected-2.png",
+    "inventory-references/magdalene-frame-guide-v2.png",
+    "inventory-references/magdalene-frame-style-v2.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -1677,6 +1682,83 @@
           "slot": "reference-002",
           "kind": "image",
           "payloadDestination": "/input_references/2/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-9d0a20ece5ba1f94400e",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1440x1760"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        },
+        {
+          "slot": "reference-002",
+          "kind": "image",
+          "payloadDestination": "/input_references/2/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-291ba69993369a7a48ba",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1440x1760"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-50f112b2b43e79f8ddd8",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1440x1760"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
         }
       ]
     }

@@ -287,6 +287,28 @@ assert abs(canvas.width/canvas.height-.781/.895)<.01
 canvas.save(out/'assets/painting-36.003.jpg',quality=95)
 inputs[str(fetti)]=hashlib.sha256(fetti.read_bytes()).hexdigest()
 
+# Medieval originals have integral gilt borders; do not add invented rectangular frames.
+for kind, accession, size, box in [('bartolo-madonna','20.207',[.635,.902],(63,20,1264,1730)),('virgin-annunciation','57.301',[.419,.737],None),('taking-peter','22.047',[.540,.387],(24,17,1293,929))]:
+    original=app/'inventory-catalogue'/f'{kind}-zoom-0.jpg'
+    image=np.array(Image.open(original).convert('RGB'))
+    if box:
+        image=image[box[1]:box[3],box[0]:box[2]]
+        outline=[[0,0],[1,0],[1,1],[0,1]]
+    else:
+        # White catalogue background is outside the curved wood panel, not painted gold.
+        hsv=cv2.cvtColor(image,cv2.COLOR_RGB2HSV)
+        contours,_=cv2.findContours((hsv[:,:,1]>30).astype('uint8'),cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+        contour=max(contours,key=cv2.contourArea)
+        x,y,w,h=cv2.boundingRect(contour)
+        shape=cv2.approxPolyDP(contour,5.0,True)[:,0,:]-[x,y]
+        outline=(shape/[w,h]).tolist()
+        image=image[y:y+h,x:x+w]
+        assert 20<len(outline)<150
+    assert abs(image.shape[1]/image.shape[0]-size[0]/size[1])<.025,(kind,'catalogue support aspect')
+    Image.fromarray(image).save(out/'assets'/f'painting-{accession}.jpg',quality=95)
+    (out/'assets'/f'panel-{accession}.json').write_text(json.dumps({'size_m':size,'outline':outline,'depth_m':.032 if kind=='virgin-annunciation' else .04,'depth_accepted':kind=='virgin-annunciation','source_sha256':hashlib.sha256(original.read_bytes()).hexdigest(),'source':'Official photograph; original painted image with its integral gilt border, not Muse-generated art','placement_accepted':False},indent=2)+'\n')
+    inputs[str(original)]=hashlib.sha256(original.read_bytes()).hexdigest()
+
 geometry = json.loads((ingestion/'room-route-walk-v5/geometry.json').read_text())
 geometry['caption'] = 'Collection · WASD move · Space reset · 1/2/3 room views\nRoom prototype · placements and unfinished objects are provisional.\n'
 geometry['point_cloud_render'] = False

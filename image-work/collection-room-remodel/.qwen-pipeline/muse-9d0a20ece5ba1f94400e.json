@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-9d0a20ece5ba1f94400e",
+  "summary": "Generate ONE complete front orthographic low polygon gilded Gothic picture frame for Lippo Memmi Mary Magdalene21.250, matching the first official catalogue photograph and second RISD museum video reference. Preserve the narrow very tall gabled silhouette, a steep triangular roof with small individual crockets on both slopes and a worn paired finial at its apex, two straight twisted rope columns with small ring capitals and bases, and a straight narrow dark brown-gold bottom sill. Restrained worn gold, modest faceted carved relief in the museum game material of reference3. Frame only: replace the entire painted interior including the triangular gold painted field with a perfectly blank white continuous pentagonal opening. The opening has a tall rectangular lower section and a steep triangular top, exactly like the actual source inner edge. No painted person, face, halo, hands, vessel, figures, wall, labels, perspective, extra frame, ornament invented beyond the source. Flat magenta #FF00FF outside the complete frame silhouette. Show the whole frame including the entire finial and bottom bases, no cropping. One frame only.\n",
+  "procedureId": "muse-9d0a20ece5ba1f94400e",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/magdalene-frame-selected-0.png",
+      "sha256": "353f0b55d8f3da644583bdd4a56166d6ec411d9106ec7dbb5ef3f5aec900c46d",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/magdalene-frame-selected-1.png",
+      "sha256": "20a3b9125d28e3431edd52a39572039dd7136304ce1b6ade158e096610686a81",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "inventory-references/magdalene-frame-selected-2.png",
+      "sha256": "b18e6b9910c83a687c9a90a9cf4b4a71377ff6a74f60156dac53b96e91bb2c61",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "magdalene-frame-recipe.json",
+      "sha256": "9d0a20ece5ba1f94400e920404093a2129e034e4d61d1103a65ea54c424ac448"
+    },
+    {
+      "applicationPath": "magdalene-frame-plan.json",
+      "sha256": "c63249a83ea612018e1293884bc868bf511fdcc7b4006d56055075f6fce6e4e3"
+    },
+    {
+      "applicationPath": "magdalene-frame-prompt.txt",
+      "sha256": "b999b25a5d57922766aa14e136bf360e54fd70baa850124ca75e715cdefcb650"
+    }
+  ]
+}

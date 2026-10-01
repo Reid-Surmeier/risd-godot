@@ -1,0 +1,26 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/magdalene-frame-selected-0.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/magdalene-frame-selected-1.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/magdalene-frame-selected-2.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-512ec3442058ba2c246e9eea/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "bd670d7b3ea010abbd34950260e075dfa29227612004ed5f295000501d550ad6"
+    }
+  ],
+  "changesRequested": "Generate ONE complete front orthographic low polygon gilded Gothic picture frame for Lippo Memmi Mary Magdalene21.250, matching the first official catalogue photograph and second RISD museum video reference. Preserve the narrow very tall gabled silhouette, a steep triangular roof with small individual crockets on both slopes and a worn paired finial at its apex, two straight twisted rope columns with small ring capitals and bases, and a straight narrow dark brown-gold bottom sill. Restrained worn gold, modest faceted carved relief in the museum game material of reference3. Frame only: replace the entire painted interior including the triangular gold painted field with a perfectly blank white continuous pentagonal opening. The opening has a tall rectangular lower section and a steep triangular top, exactly like the actual source inner edge. No painted person, face, halo, hands, vessel, figures, wall, labels, perspective, extra frame, ornament invented beyond the source. Flat magenta #FF00FF outside the complete frame silhouette. Show the whole frame including the entire finial and bottom bases, no cropping. One frame only.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-512ec3442058ba2c246e9eea",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-512ec3442058ba2c246e9eea"
+}

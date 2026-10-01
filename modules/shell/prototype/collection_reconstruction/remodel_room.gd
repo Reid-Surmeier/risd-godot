@@ -895,6 +895,35 @@ func build_sculpture_rooms() -> void:
 			shaft.position=Vector3(.49+offset,1.125,22.515+side*.62)
 			shaft.material_override=look(Color("b8ad94"))
 			add_child(shaft)
+	# The native close shots show exposed panel outlines on grey mounts, not added frames.
+	# ponytail: offsets follow reciprocal wides; absolute wall metres and mounting heights remain provisional.
+	for spec in [["20.207",Vector3(.70,1.55,20.75),PI/2],["57.301",Vector3(.70,1.55,19.53),PI/2],["22.047",Vector3(2.00,1.55,19.05),0.0]]:
+		var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/panel-"+spec[0]+".json"))
+		var mount:=Node3D.new()
+		mount.name="MedievalPanel"+str(spec[0]).replace(".","_")
+		mount.position=spec[1]
+		mount.rotation.y=spec[2]
+		add_child(mount)
+		var size:=Vector2(data.size_m[0],data.size_m[1])
+		var support:=solid(Vector3.ZERO,Vector3(size.x+.10,size.y+.10,.025),look(Color("959691")))
+		support.reparent(mount,false)
+		var art:=Painting.new()
+		mount.add_child(art)
+		art.position.z=.013
+		art.scale.z=float(data.depth_m)/.05
+		art.build_shaped(load("res://assets/painting-"+spec[0]+".jpg"),size,data.outline,Color("674d29"))
+		assert(art.get_child_count()==2 and art.outer==size)
+	# North-wall display projection and vents are visible in6382 85.25..87.25s.
+	var projection:=solid(Vector3(3.05,2.125,18.98),Vector3(.77,4.25,.22),look(Color("53545b")))
+	var screen:=solid(Vector3(3.05,2.8,19.104),Vector3(.44,.90,.015),look(Color("0a0a0b")))
+	screen.reparent(projection)
+	for spec in [[Vector3(1.75,3.82,19.06),Vector2(1.35,.16)],[Vector3(1.46,.45,19.06),Vector2(.48,.24)]]:
+		var north_grille:=solid(spec[0],Vector3(spec[1].x,spec[1].y,.02),look(Color("222426")))
+		for index in 6:
+			var slat:=solid(spec[0]+Vector3(0,(index/5.0-.5)*spec[1].y,.012),Vector3(spec[1].x,.008,.012),look(Color("75756d")))
+			slat.reparent(north_grille)
+	inventory["medieval_verified_panels"]=3
+	inventory["medieval_objects_complete"]=false
 	# IMG_6383 61.25..64.75s: black central bench; dimensions unmeasured.
 	var bench:=solid(Vector3(-2.75,.43,22.4),Vector3(1.65,.16,.55),look(Color("282526")),true)
 	for x in [-3.4,-2.1]:

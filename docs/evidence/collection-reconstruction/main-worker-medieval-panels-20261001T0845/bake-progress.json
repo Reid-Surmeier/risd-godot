@@ -1,0 +1,7 @@
+{
+  "time_utc": "2026-10-01T08:57:35.678863+00:00",
+  "pid": 1530671,
+  "stage": "Native editor: overall60%, integrate indirect lighting66%; live process926% CPU",
+  "command": "/home/reidsurmeier/.local/opt/godot-4.7.2/Godot_v4.7.2-stable_linux.x86_64 --path /home/reidsurmeier/risd-godot-ingestion/collection-expansion/lowpoly-room-v41d-panels --editor --rendering-method mobile ",
+  "source": "Direct Xvfb desktop capture; no secret environment read"
+}

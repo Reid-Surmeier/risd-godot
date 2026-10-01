@@ -103,17 +103,18 @@ func prepare() -> void:
 		room.add_child(light)
 		light.owner=room
 	# Latest Main Hall's offline painting spots, placed below this room's lower ceiling.
-	for spec in [[Vector3(.55,2.43,-7.02),Vector3.BACK],[Vector3(-1.05,2.15,-7),Vector3.BACK],[Vector3(2.25,2.15,-7),Vector3.BACK],[Vector3(-2.67,2,-4.7),Vector3.RIGHT],[Vector3(-3.48,1.75,2.15),Vector3.RIGHT]]:
+	for spec in [[Vector3(.55,2.43,-7.02),Vector3.BACK],[Vector3(-1.05,2.15,-7),Vector3.BACK],[Vector3(2.25,2.15,-7),Vector3.BACK],[Vector3(-2.67,2,-4.7),Vector3.RIGHT],[Vector3(-3.48,1.75,2.15),Vector3.RIGHT],[Vector3(.70,1.55,30),Vector3.RIGHT,true],[Vector3(.70,1.55,28.78),Vector3.RIGHT,true],[Vector3(2.0,1.55,28.30),Vector3.BACK,true]]:
 		var spot:=SpotLight3D.new()
 		room.add_child(spot)
 		spot.owner=room
-		spot.position=corrected(spec[0])+spec[1]*2.2
-		spot.position.y=3.2
-		spot.look_at_from_position(spot.position,corrected(spec[0]),Vector3.UP)
+		var target:Vector3=spec[0] if spec.size()==3 else corrected(spec[0])
+		spot.position=target+spec[1]*2.2
+		spot.position.y=3.8 if spec.size()==3 else 3.2
+		spot.look_at_from_position(spot.position,target,Vector3.UP)
 		spot.spot_range=7
 		spot.spot_angle=25
 		spot.spot_angle_attenuation=1.5
-		spot.light_color=Color("ffd391")
+		spot.light_color=Color("f2f0ea") if spec.size()==3 else Color("ffd391")
 		spot.light_energy=6.8
 		spot.light_size=.35
 		spot.light_bake_mode=Light3D.BAKE_STATIC
