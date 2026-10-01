@@ -59,8 +59,62 @@ for side,ids in shoeids.items():
    restverts[index]=pivot+(restverts[index]-pivot)*factor
    mesh.data.vertices[index].co=mesh.matrix_world.inverted()@restverts[index]
 mesh.data.update();mesh.update_tag(refresh={'OBJECT','DATA'})
+# Native atlas repair: preserve UVs/geometry and fill the hand island gutters.
+# Owner requested the Blender unwrap/bake workflow; no image-generation call.
+import numpy as np
+image=next(n.image for mat in mesh.data.materials for n in mat.node_tree.nodes if n.type=='TEX_IMAGE' and n.image)
+w,h=image.size
+pixels=np.array(image.pixels[:],dtype=np.float32).reshape(h,w,4)
+mask=np.zeros((h,w),dtype=bool);other=np.zeros_like(mask)
+uv_layer=mesh.data.uv_layers.active.data
+hand_groups={mesh.vertex_groups[s+'Hand'].index for s in ['Left','Right']}
+def fill_triangle(destination,coords):
+ a,b,c=coords
+ x0=max(0,int(min(a[0],b[0],c[0]))-1);x1=min(w-1,int(max(a[0],b[0],c[0]))+1)
+ y0=max(0,int(min(a[1],b[1],c[1]))-1);y1=min(h-1,int(max(a[1],b[1],c[1]))+1)
+ yy,xx=np.mgrid[y0:y1+1,x0:x1+1];p=np.stack((xx+.5,yy+.5),axis=-1)
+ den=(b[1]-c[1])*(a[0]-c[0])+(c[0]-b[0])*(a[1]-c[1])
+ if abs(den)<1e-8:return
+ u=((b[1]-c[1])*(p[:,:,0]-c[0])+(c[0]-b[0])*(p[:,:,1]-c[1]))/den
+ v=((c[1]-a[1])*(p[:,:,0]-c[0])+(a[0]-c[0])*(p[:,:,1]-c[1]))/den
+ destination[y0:y1+1,x0:x1+1]|=(u>=0)&(v>=0)&(u+v<=1)
+for poly in mesh.data.polygons:
+ is_hand=(any(sum(g.weight for g in mesh.data.vertices[i].groups if g.group in hand_groups)>.5 for i in poly.vertices) if profile.get('hand_atlas_only') else all(sum(g.weight for g in mesh.data.vertices[i].groups if g.group in hand_groups)>.9 for i in poly.vertices))
+ coords=[np.array(uv_layer[i].uv)*[w,h] for i in poly.loop_indices]
+ for i in range(1,len(coords)-1):fill_triangle(mask if is_hand else other,[coords[0],coords[i],coords[i+1]])
+# Keep skin detail. Only seam texels with saturated clothing colors lack valid skin.
+red=(pixels[:,:,0]>pixels[:,:,1]*1.5)&(pixels[:,:,0]>pixels[:,:,2]*1.5)
+known=mask&~red
+coverage=known.copy();repaired=0
+for step in range(12):
+ colors=np.zeros_like(pixels);counts=np.zeros_like(mask,dtype=np.float32)
+ for dy,dx in [(0,1),(0,-1),(1,0),(-1,0)]:
+  k=np.roll(coverage,(dy,dx),(0,1));colors+=np.roll(pixels,(dy,dx),(0,1))*k[:,:,None];counts+=k
+ fill=(~coverage)&(counts>0)&(~other|mask)
+ repaired+=int(fill.sum());pixels[fill]=colors[fill]/counts[fill,None];coverage|=fill
+image.pixels.foreach_set(pixels.ravel());image.update();image.pack()
+atlas_padding={'gutter_pixels':12,'hand_texels':int(mask.sum()),'filled_texels':repaired,'uv_coordinates_unchanged':True}
+if profile.get('hand_atlas_only'):
+ # A separate hand sampler can pad across neighboring clothing islands without repainting them.
+ # UVs and the shared skinned geometry stay exactly as exported.
+ coverage=known.copy()
+ for step in range(16):
+  colors=np.zeros_like(pixels);counts=np.zeros_like(mask,dtype=np.float32)
+  for dy,dx in [(0,1),(0,-1),(1,0),(-1,0)]:
+   k=np.roll(coverage,(dy,dx),(0,1));colors+=np.roll(pixels,(dy,dx),(0,1))*k[:,:,None];counts+=k
+  fill=(~coverage)&(counts>0);pixels[fill]=colors[fill]/counts[fill,None];coverage|=fill
+ hand=image.copy();hand.pixels.foreach_set(pixels.ravel());hand.update()
+ output=DEST/'hand-atlas.png';hand.filepath_raw=str(output);hand.file_format='PNG';hand.save()
+ report={'source_sha256':hashlib.sha256(SOURCE.read_bytes()).hexdigest(),'output_sha256':hashlib.sha256(output.read_bytes()).hexdigest(),'uv_coordinates_unchanged':True,'gutter_pixels':16,'source_hand_texels':int(mask.sum()),'use':'separate hand-only shader sampler; body/head still use original shared atlas','cost_usd':0}
+ (DEST/'hand-atlas.json').write_text(json.dumps(report,indent=2)+'\n');print('HAND_ATLAS',json.dumps(report))
+ raise SystemExit(0)
+
+
 restworld={n:rig.matrix_world@m for n,m in rests.items()}
 reference=None
+idle_reference=None
+if profile.get('idle_source_curves'):
+ idle_reference=json.loads((profile_path.parent/profile['idle_source_curves']).read_text())
 if profile.get('source_curves'):
  reference=json.loads((profile_path.parent/profile['source_curves']).read_text())
  assert len(reference['samples'])==129 and len(reference['joint_hierarchy'])==26
@@ -107,7 +161,7 @@ else:sources={kind:next(t.strips[0].action for t in rig.animation_data.nla_track
 reports={};newactions={}
 for kind,source in sources.items():
  rig.animation_data.action=source
- frames=walkframes if kind=='walk' else round(121/30*fps)
+ frames=walkframes if kind=='walk' else round((32/30 if idle_reference else 121/30)*fps)
  samples=[]
  boundary={}
  if kind=='walk':
@@ -150,9 +204,10 @@ for kind,source in sources.items():
      pitch=math.radians(profile.get('head_pitch_degrees',1))*math.sin(4*math.pi*frame/frames)
      pose=Quaternion(Vector((1,0,0)),pitch).to_matrix().to_4x4()@pose;pose.translation=position
     bone.matrix=rig.matrix_world.inverted()@pose;bpy.context.view_layer.update()
-  if reference is not None and kind=='walk':
+  if reference is not None and (kind=='walk' or idle_reference is not None):
+   active_reference=reference if kind=='walk' else idle_reference
    pos=frame/frames*128;index=min(127,int(pos));fraction=pos-index
-   a=reference['samples'][index];b=reference['samples'][index+1]
+   a=active_reference['samples'][index];b=active_reference['samples'][index+1]
    for name in order:
     j=indices[mapping[name]]
     qa=Matrix(a['global_matrices_row_major'][j]).to_quaternion();qb=Matrix(b['global_matrices_row_major'][j]).to_quaternion()
@@ -161,8 +216,20 @@ for kind,source in sources.items():
     if name=='Hips':
      y=a['global_joint_positions'][0][1]*(1-fraction)+b['global_joint_positions'][0][1]*fraction
      origin=restworld[name].translation.copy();origin.z+=(y-1000)*profile.get('source_units_to_m',.0004695)
+     if kind=='idle':
+      origin.z-=.035 # Room for the source bob without overextending the target's short legs.
+      z=a['global_joint_positions'][0][2]*(1-fraction)+b['global_joint_positions'][0][2]*fraction
+      origin.y-=z*profile.get('source_units_to_m',.0004695)
     pose=(rotation@calibration[name].to_matrix()@restworld[name].to_quaternion().to_matrix()).to_4x4()@Matrix.Diagonal(Vector((.01,.01,.01,1)))
     pose.translation=origin;bone.matrix=rig.matrix_world.inverted()@pose;bpy.context.view_layer.update()
+   if kind=='walk' and profile.get('pose_arm_spread_degrees',profile.get('tool_arm_spread_degrees')):
+    # Retargeted tool chains need clearance for this wider shirt; move each whole
+    # arm from its shoulder so the palm keeps its anatomical wrist orientation.
+    for side,sign in [('Left',1),('Right',-1)]:
+     bone=rig.pose.bones[side+'Arm'];pose=rig.matrix_world@bone.matrix
+     origin=pose.translation.copy()
+     pose=Matrix.Rotation(math.radians(profile.get('pose_arm_spread_degrees',profile.get('tool_arm_spread_degrees')))*sign,4,Vector((0,-1,0)))@pose
+     pose.translation=origin;bone.matrix=rig.matrix_world.inverted()@pose;bpy.context.view_layer.update()
   original={p.name:rig.matrix_world@p.matrix.copy() for p in rig.pose.bones}
   targets={};contact={}
   for side,phaseoffset in [('Left',.25),('Right',.75)]:
@@ -226,7 +293,7 @@ for kind,source in sources.items():
    pelvis=rig.matrix_world@rig.pose.bones['Hips'].matrix;pelvis.translation.z-=floor
    rig.pose.bones['Hips'].matrix=rig.matrix_world.inverted()@pelvis;bpy.context.view_layer.update()
    source_ground_shift=-floor
-  if profile.get('symmetric_arms',False) and not(reference is not None and kind=='walk'):
+  if profile.get('symmetric_arms',False) and not(reference is not None and (kind=='walk' or idle_reference is not None)):
    # Wrist paths are mirrored, using each arm's actual unequal segment lengths.
    # Mirroring rotations alone would preserve the provider's asymmetric hand paths.
    phase=2*math.pi*frame/frames
@@ -241,7 +308,7 @@ for kind,source in sources.items():
     k0=restworld[side+'ForeArm'].translation;a0=restworld[side+'Hand'].translation
     l1=(k0-restworld[side+'Arm'].translation).length;l2=(a0-k0).length
     forward=sign*amplitude*math.sin(phase)
-    dx=profile.get('arm_outward_m',.07)
+    dx=profile.get('idle_arm_outward_m',profile.get('arm_outward_m',.07)) if kind=='idle' else profile.get('arm_outward_m',.07)
     drop=math.sqrt(radius*radius-dx*dx-forward*forward)
     target=h+Vector((sign*dx,forward,-drop))
     direction=(target-h).normalized();d=(target-h).length
@@ -261,7 +328,7 @@ for kind,source in sources.items():
   samples.append({'frame':frame,'contact':contact,'targets':{s:list(t) for s,t in targets.items()},'ankle_error_m':errors,'hips_lowering_m':lower,'source_ground_shift_m':source_ground_shift,'poses':{p.name:(list(p.location),list(p.rotation_quaternion),list(p.scale)) for p in rig.pose.bones}})
  # Match local T/Q/S endpoint derivatives for every exported channel. The portable
  # importer samples30fps; neighbors2 andframes-2 are +/-one such interval at bake60fps.
- if kind in ['idle','walk'] and not(kind=='walk' and reference is not None and profile.get('preserve_reference_seam',False)):
+ if kind in ['idle','walk'] and not(reference is not None and profile.get('preserve_reference_seam',False) and (kind=='walk' or idle_reference is not None)):
   for name in samples[0]['poses']:
    loc0,rot0,scale0=samples[0]['poses'][name];q0=Quaternion(rot0)
    loc1,rot1,_=samples[2]['poses'][name];loc31,rot31,_=samples[frames-2]['poses'][name]
@@ -297,7 +364,7 @@ bpy.ops.export_scene.gltf(filepath=str(output),export_format='GLB',use_selection
 rig.animation_data.action=newactions['walk'];scene.frame_set(0);bpy.ops.wm.save_as_mainfile(filepath=str(DEST/'footplant-candidate.blend'),compress=True)
 raw=output.read_bytes();size=struct.unpack_from('<I',raw,12)[0];g=json.loads(raw[20:20+size])
 assert len(g['skins'][0]['joints'])==24
-report={'source_sha256':hashlib.sha256(SOURCE.read_bytes()).hexdigest(),'output_sha256':hashlib.sha256(raw).hexdigest(),'bones':24,'rest_signature_unchanged':True,'shoe_repair_threshold_m':.20,'shoe_vertices':{s:len(v) for s,v in shoeids.items()},'shoe_assignment':'one Foot joint; target-specific rest-height classifier, owner review pending','controller_speed_mps':speed,'walk_period_seconds':length,'bake_fps':fps,'stance_phase':{'Left':[.25,.75],'Right':[.75,1.25]},'dust_event_phases':[.25,.75],'swing_lift_m':swinglift,'contact_accepted':False,'export_animations':[a['name'] for a in g['animations']],'clips':reports,'cost_usd':0}
+report={'source_sha256':hashlib.sha256(SOURCE.read_bytes()).hexdigest(),'output_sha256':hashlib.sha256(raw).hexdigest(),'bones':24,'rest_signature_unchanged':True,'shoe_repair_threshold_m':.20,'shoe_vertices':{s:len(v) for s,v in shoeids.items()},'shoe_assignment':'one Foot joint; target-specific rest-height classifier, owner review pending','controller_speed_mps':speed,'walk_period_seconds':length,'idle_period_seconds':32/30 if idle_reference else 121/30,'bake_fps':fps,'stance_phase':{'Left':[.25,.75],'Right':[.75,1.25]},'dust_event_phases':[.25,.75],'swing_lift_m':swinglift,'contact_accepted':False,'export_animations':[a['name'] for a in g['animations']],'clips':reports,'cost_usd':0,'hand_atlas_padding':atlas_padding}
 if profile:
  report['profile']=profile
  if reference is not None:

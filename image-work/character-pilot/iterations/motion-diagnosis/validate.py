@@ -32,7 +32,7 @@ for kind in ['idle','walk']:
   evidence=json.loads((p/'evidence.json').read_text());evidence['source_sha256']=hashlib.sha256(SOURCE.read_bytes()).hexdigest()
   (dest/f'{kind}.json').write_text(json.dumps(evidence,indent=2)+'\n')
   assert evidence['bones']==24
-  assert abs(evidence['seconds']-(REPORT['walk_period_seconds'] if kind=='walk' else 121/30))<1e-6
+  assert abs(evidence['seconds']-(REPORT['walk_period_seconds'] if kind=='walk' else REPORT.get('idle_period_seconds',121/30)))<1e-6
   assert evidence['seam']['maximum_vertex_displacement_m']<.001
   convergence=evidence['velocity_convergence']
   if reference:

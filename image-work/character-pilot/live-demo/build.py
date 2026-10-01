@@ -6,13 +6,15 @@ HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
 models={name:"fitted-"+name for name in ['walk','run','dash','skid','axe','net']}
 sources={key:HERE.parent/'iterations/video-match'/name/'footplant-candidate.glb' for key,name in models.items()}
+hand_atlas=HERE.parent/'iterations/video-match/hand-atlas-profile/hand-atlas.png'
 digest=lambda path:hashlib.sha256(path.read_bytes()).hexdigest()
-stamp=hashlib.sha256((''.join(digest(p) for p in sorted(HERE.glob('*.gd')))+digest(HERE/'build.py')+digest(HERE/'appearance_check.py')+''.join(digest(p) for p in sources.values())).encode()).hexdigest()[:12]
+stamp=hashlib.sha256((''.join(digest(p) for p in sorted(HERE.glob('*.gd')))+digest(HERE/'build.py')+digest(HERE/'appearance_check.py')+digest(HERE/'tool_clearance_check.py')+digest(hand_atlas)+''.join(digest(p) for p in sources.values())).encode()).hexdigest()[:12]
 out=ROOT/'build/character-playtest'/stamp
 project=out/'project';site=out/'site'
 project.mkdir(parents=True,exist_ok=True);site.mkdir(exist_ok=True)
 shutil.copy2(HERE/'demo.gd',project/'demo.gd')
-for name in ['locomotion.gd','controller_check.gd','driven_check.gd','record.gd','sound.gd','appearance_check.gd','quality_check.gd']:shutil.copy2(HERE/name,project/name)
+shutil.copy2(hand_atlas,project/'hand-atlas.png')
+for name in ['locomotion.gd','controller_check.gd','driven_check.gd','record.gd','sound.gd','appearance_check.gd','quality_check.gd','tool_clearance_check.gd']:shutil.copy2(HERE/name,project/name)
 for name,path in sources.items():shutil.copy2(path,project/(name+'.glb'))
 (project/'main.tscn').write_text('[gd_scene load_steps=2 format=3]\n[ext_resource type="Script" path="res://demo.gd" id="1"]\n[node name="CharacterPlaytest" type="Node3D"]\nscript = ExtResource("1")\n')
 (project/'project.godot').write_text('''config_version=5
@@ -60,11 +62,14 @@ for path in project.glob('*.glb.import'):
     for cached in (project/'.godot/imported').glob(path.name.removesuffix('.import')+'-*'):cached.unlink()
 run('precise-import.log',['--editor','--import','--quit'])
 run('controller-check.log',['--script','res://controller_check.gd'])
-run('driven-check.log',['--script','res://driven_check.gd'])
-run('quality-check.log',['--script','res://quality_check.gd'])
+run('driven-check.log',['--fixed-fps','60','--script','res://driven_check.gd'])
+run('quality-check.log',['--fixed-fps','60','--script','res://quality_check.gd'])
+run('tool-clearance-check.log',['--fixed-fps','60','--script','res://tool_clearance_check.gd'])
+with (out/'tool-clearance-geometry.log').open('w') as log:subprocess.run([sys.executable,str(HERE/'tool_clearance_check.py'),str(project)],stdout=log,stderr=subprocess.STDOUT,check=True)
+shutil.rmtree(project/'tool-clearance')
 run('appearance-check.log',['--fixed-fps','60','--script','res://appearance_check.gd'],rendered=True)
 with (out/'appearance-pixel-check.log').open('w') as log:subprocess.run([sys.executable,str(HERE/'appearance_check.py'),str(project)],stdout=log,stderr=subprocess.STDOUT,check=True)
 run('export.log',['--export-release','Web',str(site/'index.html')])
 assert all((site/('index'+ext)).exists() for ext in ['.html','.js','.wasm','.pck'])
-(out/'provenance.json').write_text(json.dumps({'issue':231,'models':{k:{'trial':models[k],'sha256':digest(p)} for k,p in sources.items()},'import_fps':240,'animation_optimizer':False,'additional_api_cost_usd':0,'stamp':stamp,'standalone_prototype':True},indent=2)+'\n')
+(out/'provenance.json').write_text(json.dumps({'issue':231,'models':{k:{'trial':models[k],'sha256':digest(p)} for k,p in sources.items()},'hand_atlas_sha256':digest(hand_atlas),'import_fps':240,'animation_optimizer':False,'additional_api_cost_usd':0,'stamp':stamp,'standalone_prototype':True},indent=2)+'\n')
 print(site)

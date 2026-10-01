@@ -5,3 +5,5 @@ OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using De
 
 CHARACTER_PLAYTEST_READY
 APPEARANCE_CAPTURED actual material reference and blink ramp
+WARNING: 10 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)

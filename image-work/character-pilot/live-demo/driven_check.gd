@@ -20,9 +20,35 @@ func run() -> void:
 	var jumps_before: int=demo.jumps
 	demo.jump();assert(demo.jumps==jumps_before,"Midair jump repeated")
 	assert(demo.footprint_count==steps_before)
-	await frames(50)
+	await frames(60)
 	assert(demo.body.is_on_floor() and demo.jump_time<0 and demo.landings==1)
 	evidence.jump={"grounded_launch":true,"midair_retrigger_blocked":true,"airborne_steps":0,"landings":demo.landings,"authored_adaptation":true}
+	# Change floor height: landing posing must follow contact rather than the original clip clock.
+	var platform: Node3D=demo.block(Vector3(0,.4,0),Vector3(2,.8,2),Color("809769"),true)
+	demo.reset();demo.body.position=Vector3(0,.8,0);await frames(4)
+	assert(demo.body.is_on_floor())
+	demo.jump();await frames(22);demo.body.position.x=3
+	assert(not demo.body.is_on_floor() and demo.landings==1)
+	await frames(60)
+	assert(demo.body.is_on_floor() and demo.body.position.y<.005 and demo.landings==2 ,"Landing did not follow lower floor contact")
+	await frames(30)
+	assert(demo.jump_time<0 and demo.jump_stage=="Ground")
+	evidence.jump.different_height_landing=true
+	platform.queue_free()
+	await frames(2)
+	demo.reset()
+	var raised: Node3D=demo.block(Vector3(0,.225,2.5),Vector3(3,.45,1.8),Color("809769"),true)
+	Input.action_press("down");await frames(20)
+	demo.jump()
+	var contacted := false
+	for tick in 70:
+		await frames(1)
+		if demo.jump_landed and demo.body.position.y>.4:contacted=true
+	Input.action_release("down")
+	assert(contacted,"Missing elevated-platform contact")
+	evidence.jump.elevated_contact=true
+	raised.queue_free()
+	await frames(2)
 	demo.set_physics_process(false)
 	demo.reset();demo.surface="Grass";demo.state="Dash";demo.body.velocity=Vector3(0,0,1)
 	demo.footstep("Right")

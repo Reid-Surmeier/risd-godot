@@ -1,6 +1,6 @@
 {
   "source_sha256": "adad550dfbc07244a5665da1a6bc35bf4b2a733464bd8617050ef925bce5d33a",
-  "candidate_sha256": "459b72d0d4f69b59c3107a2d44449252e8786752464e9b5c10beda6dccd5792f",
+  "candidate_sha256": "85267be21c327998b4bd64a32c1a72d1282ce2c44c61a90bfbe098483ee743d0",
   "bones": 24,
   "period_seconds": 0.8,
   "controller_speed_mps": 1.05,
@@ -20,31 +20,31 @@
   "walk_events_per_loop_expected": 2,
   "contact_probe": {
     "idle": {
-      "seconds": 4.03333330154419,
+      "seconds": 1.06666672229767,
       "sample_count": 257,
-      "endpoint_vertex_error_max_m": 1.19209289550781e-07,
-      "floor_penetration_max_m": 8.01086400770146e-07,
+      "endpoint_vertex_error_max_m": 1.1944189282076e-07,
+      "floor_penetration_max_m": 2.59876259178782e-07,
       "authored_event_sole_height_m": {},
       "velocity_convergence": [
         {
           "delta_seconds": 0.01,
-          "maximum_joint_velocity_jump_mps": 0.00424431962892413,
+          "maximum_joint_velocity_jump_mps": 0.210777908563614,
           "worst_bone": "head_end"
         },
         {
           "delta_seconds": 0.003,
-          "maximum_joint_velocity_jump_mps": 7.97756074462086e-05,
+          "maximum_joint_velocity_jump_mps": 0.222776457667351,
           "worst_bone": "head_end"
         },
         {
           "delta_seconds": 0.001,
-          "maximum_joint_velocity_jump_mps": 0.000182434654561803,
-          "worst_bone": "LeftHand"
+          "maximum_joint_velocity_jump_mps": 0.222773417830467,
+          "worst_bone": "head_end"
         },
         {
           "delta_seconds": 0.0003,
-          "maximum_joint_velocity_jump_mps": 0.000411284388974309,
-          "worst_bone": "RightHand"
+          "maximum_joint_velocity_jump_mps": 0.222846508026123,
+          "worst_bone": "head_end"
         }
       ],
       "planar_stance_lock_verified": false
@@ -52,31 +52,31 @@
     "walk": {
       "seconds": 0.800000011920929,
       "sample_count": 257,
-      "endpoint_vertex_error_max_m": 3.57721773980302e-06,
-      "floor_penetration_max_m": 9.75036600721069e-05,
+      "endpoint_vertex_error_max_m": 2.92670347334933e-06,
+      "floor_penetration_max_m": 9.77134695858695e-05,
       "authored_event_sole_height_m": {
-        "Left": -6.67572024326546e-08,
-        "Right": 1.90734859017994e-08
+        "Left": -1.23977656585339e-07,
+        "Right": 1.52587887214395e-07
       },
       "velocity_convergence": [
         {
           "delta_seconds": 0.01,
-          "maximum_joint_velocity_jump_mps": 0.797664880752563,
+          "maximum_joint_velocity_jump_mps": 0.797699630260468,
           "worst_bone": "head_end"
         },
         {
           "delta_seconds": 0.003,
-          "maximum_joint_velocity_jump_mps": 0.534476280212402,
+          "maximum_joint_velocity_jump_mps": 0.534464478492737,
           "worst_bone": "LeftHand"
         },
         {
           "delta_seconds": 0.001,
-          "maximum_joint_velocity_jump_mps": 0.522173047065735,
+          "maximum_joint_velocity_jump_mps": 0.52214914560318,
           "worst_bone": "LeftHand"
         },
         {
           "delta_seconds": 0.0003,
-          "maximum_joint_velocity_jump_mps": 0.52436637878418,
+          "maximum_joint_velocity_jump_mps": 0.52432382106781,
           "worst_bone": "LeftHand"
         }
       ],

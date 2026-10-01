@@ -54,6 +54,26 @@ var slow := false
 var jump_time := -1.0
 var jump_launched := false
 var jump_landed := false
+var jump_landing_time := -1.0
+var jump_pose_time := 0.0
+var jump_stage := "Ground"
+var jump_heading := 0.0
+var jump_moving := false
+var release_palm := Vector3.ZERO
+var release_last := Vector3.ZERO
+var release_active := false
+var jump_impact := 0.0
+var jump_ground_offset := 0.0
+var landing_carried_drop := 0.0
+var landing_carried_age := 0.0
+var last_landing_drop := 0.0
+var jump_buffer := 0.0
+var grip_last := Vector3.ZERO
+var grip_time := 0.0
+var planted_feet := {}
+var procedural_base := []
+var actor_shadow: MeshInstance3D
+var shadow_scale := 1.0
 var jumps := 0
 var landings := 0
 var step_history := []
@@ -146,6 +166,8 @@ func _ready() -> void:
 	body.add_child(model)
 	player = model.find_children("*","AnimationPlayer",true,false)[0]
 	skeleton = model.find_children("*","Skeleton3D",true,false)[0]
+	var own_library: AnimationLibrary=player.get_animation_library("").duplicate(true)
+	player.remove_animation_library("");player.add_animation_library("",own_library)
 	assert(skeleton.get_bone_count()==24)
 	for name in ["run","dash","skid","axe","net"]:
 		var source: Node3D = load("res://"+name+".glb").instantiate()
@@ -166,6 +188,16 @@ func _ready() -> void:
 		else: player.get_animation_library("").add_animation(name,animation)
 		source.free()
 	for clip in ["idle","walk","run","dash","skid"]: player.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
+	# Owner prefers a quieter idle; retain the source loop and its starting pose.
+	var quieter_idle: Animation=player.get_animation("idle").duplicate()
+	for track in quieter_idle.get_track_count():
+		var kind: int=quieter_idle.track_get_type(track)
+		if kind not in [Animation.TYPE_POSITION_3D,Animation.TYPE_ROTATION_3D]:continue
+		var reference: Variant=quieter_idle.track_get_key_value(track,0)
+		for key in quieter_idle.track_get_key_count(track):
+			var value: Variant=quieter_idle.track_get_key_value(track,key)
+			quieter_idle.track_set_key_value(track,key,reference.slerp(value,.5) if kind==Animation.TYPE_ROTATION_3D else reference.lerp(value,.5))
+	player.get_animation_library("").add_animation("idle",quieter_idle)
 	player.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
 	player.play("idle")
 	player.advance(0)
@@ -174,6 +206,7 @@ func _ready() -> void:
 	make_face()
 	make_interactions()
 	make_effects()
+	make_actor_shadow()
 	# Cache only rigid Foot vertices using the existing proof's skin calculation.
 	for mesh in model.find_children("*","MeshInstance3D",true,false):
 		if mesh.skin==null:continue
@@ -292,7 +325,8 @@ void fragment(){
 	touch.position = Vector2(14,get_viewport().get_visible_rect().size.y-212)
 
 func reset() -> void:
-	jump_time=-1; jump_launched=false; jump_landed=false
+	jump_buffer=0;landing_carried_drop=0;landing_carried_age=0;last_landing_drop=0
+	jump_time=-1; jump_launched=false; jump_landed=false; jump_landing_time=-1; jump_stage="Ground";planted_feet.clear()
 	body.position = Vector3.ZERO
 	body.velocity = Vector3.ZERO
 	movement.reset()
@@ -337,6 +371,7 @@ func make_tools() -> void:
 		tool_attachment.add_child(prop)
 		prop.scale = Vector3.ONE*100 # BoneAttachment resets its transform; compensate on the prop.
 		tool_meshes[name] = prop
+		prop.visible=false
 		var shaft := CylinderMesh.new()
 		shaft.top_radius=.022;shaft.bottom_radius=.022;shaft.height=.65
 		primitive(prop,shaft,Vector3(0,.25,0),Color("94613b"))
@@ -354,6 +389,17 @@ func make_tools() -> void:
 		# Offsets: original fitted tool Hand channel relative to the shared rest Hand.
 		var socket: Quaternion={"Axe":Quaternion(-.248413606,.694114696,.202865733,.644469521),"Net":Quaternion(-.080665449,.360625453,-.301986787,.878775482)}[name]
 		prop.quaternion=socket*Quaternion.from_euler(Vector3(0,0,-PI/2))
+		if name=="Net":
+			var bases := []
+			for bone in skeleton.get_bone_count():
+				var local: Basis=skeleton.get_bone_rest(bone).basis
+				if tool_rotations.Net.has(bone):local=Basis(tool_rotations.Net[bone])
+				var parent: int=skeleton.get_bone_parent(bone)
+				bases.append(local if parent<0 else bases[parent]*local)
+			var hand_basis: Basis=bases[skeleton.find_bone("RightHand")]
+			var axis: Vector3=(hand_basis*prop.basis).y.normalized()
+			var outward := (axis+Vector3(-.9,0,0)).normalized()
+			prop.basis=hand_basis.inverse()*Basis(Quaternion(axis,outward))*hand_basis*prop.basis
 
 func make_face() -> void:
 	random.seed=231
@@ -361,9 +407,10 @@ func make_face() -> void:
 	shader.code = """shader_type spatial;
 render_mode diffuse_burley, specular_schlick_ggx;
 uniform sampler2D atlas : source_color, filter_linear_mipmap;
+uniform sampler2D hand_atlas : source_color, filter_linear;
 uniform float blink=0.0;
 void fragment(){
- ALBEDO=texture(atlas,UV).rgb;
+ ALBEDO=COLOR.r>.5 ? texture(hand_atlas,UV).rgb : texture(atlas,UV).rgb;
  ROUGHNESS=1.0;
  SPECULAR=.5;
  vec2 centers[4]=vec2[4](vec2(.578,.564),vec2(.736,.564),vec2(.18,.086),vec2(.869,.094));
@@ -394,12 +441,14 @@ void fragment(){
 			var colors := PackedColorArray()
 			for vertex in arrays[Mesh.ARRAY_VERTEX].size():
 				var head_weight := 0.0
+				var hand_weight := 0.0
 				for influence in 4:
 					var bind: int=arrays[Mesh.ARRAY_BONES][vertex*4+influence]
 					var bone: int=mesh.skin.get_bind_bone(bind)
 					if bone<0:bone=skeleton.find_bone(mesh.skin.get_bind_name(bind))
 					if skeleton.get_bone_name(bone)=="Head":head_weight+=arrays[Mesh.ARRAY_WEIGHTS][vertex*4+influence]
-				colors.append(Color(1,1,1,1 if head_weight>.9 else 0))
+					if skeleton.get_bone_name(bone).ends_with("Hand"):hand_weight+=arrays[Mesh.ARRAY_WEIGHTS][vertex*4+influence]
+				colors.append(Color(1 if hand_weight>.5 else 0,0,0,1 if head_weight>.9 else 0))
 			arrays[Mesh.ARRAY_COLOR]=colors
 			face_mesh.add_surface_from_arrays(mesh.mesh.surface_get_primitive_type(index),arrays)
 			face_mesh.surface_set_material(index,mesh.get_active_material(index))
@@ -410,6 +459,7 @@ void fragment(){
 				face_material = ShaderMaterial.new()
 				face_material.shader=shader
 				face_material.set_shader_parameter("atlas",source.albedo_texture)
+				face_material.set_shader_parameter("hand_atlas",load("res://hand-atlas.png"))
 				mesh.set_surface_override_material(index,face_material)
 
 func blink_amount() -> float:
@@ -488,13 +538,15 @@ func make_effects() -> void:
 				image.set_pixel(x,y,Color(1,1,1,alpha))
 		surface_textures[ground]=ImageTexture.create_from_image(image)
 
-func effect_sound(bank: String, source_id: int) -> void:
-	effect_audio.stream=sounds.streams[sounds.key(bank,false,0)];effect_audio.play()
-	audio_history.append({"bank":bank,"id":source_id,"pitch":1.0})
+func effect_sound(bank: String, source_id: int, gain := 1.0) -> void:
+	var variant := jumps%4 if bank in ["Jump","Landing"] else 0
+	effect_audio.stream=sounds.streams[sounds.key(bank,false,variant)]
+	effect_audio.volume_db=-14+linear_to_db(maxf(.01,gain));effect_audio.play()
+	audio_history.append({"bank":bank,"id":source_id,"pitch":1.0,"gain":gain,"variant":variant,"jump_time":jump_time,"stage":jump_stage,"surface":surface})
 	if audio_history.size()>64:audio_history.pop_front()
 
 func footstep(foot: String) -> void:
-	if jump_time>=0 or not body.is_on_floor() or state=="Idle" or dialogue>0 or interaction=="Door" or Vector2(body.velocity.x,body.velocity.z).length()<.08:return
+	if (jump_time>=0 and (not jump_landed or jump_landing_time<4.0/60)) or not body.is_on_floor() or state=="Idle" or dialogue>0 or interaction=="Door" or Vector2(body.velocity.x,body.velocity.z).length()<.08:return
 	skeleton.force_update_all_bone_transforms()
 	var ankle := skeleton.global_transform*skeleton.get_bone_global_pose(skeleton.find_bone(foot+"Foot")).origin
 	footprint_count+=1
@@ -527,12 +579,20 @@ func footstep(foot: String) -> void:
 
 func _physics_process(delta: float) -> void:
 	if player==null:return
+	var displayed := []
+	for bone in skeleton.get_bone_count():displayed.append([skeleton.get_bone_pose_position(bone),skeleton.get_bone_pose_rotation(bone),skeleton.get_bone_pose_scale(bone)])
+	jump_buffer=maxf(0,jump_buffer-delta)
+	if jump_buffer>0 and jump_landed and jump_landing_time>=.10-.000001 and body.is_on_floor():
+		jump_time=-1; jump_buffer=0; jump()
 	if Input.is_action_just_pressed("jump"):jump()
 	if jump_time>=0:
 		jump_time+=delta
-		if jump_time>=.1 and not jump_launched:
-			body.velocity.y=3.6; jump_launched=true
-		if jump_time>=1:jump_time=-1
+		if (jump_moving or jump_time>=.05-.000001) and not jump_launched:
+			body.velocity.y=3.6; jump_launched=true;jump_stage="Ascend"
+			effect_sound("Jump",-1,.7)
+		if jump_landed:
+			jump_landing_time+=delta
+			if jump_landing_time>=.23:jump_time=-1; jump_stage="Ground";planted_feet.clear()
 	ground_material.albedo_color={"Path":Color("50914a"),"Grass":Color("50914a"),"Sand":Color("bdae82"),"Water":Color("397d99"),"Snow":Color("dedfdf"),"Leaves":Color("796936"),"Indoor":Color("a48665")}[surface]
 	for node in path_nodes:node.visible=surface=="Path"
 	var input := Input.get_vector("left","right","up","down",0)
@@ -548,49 +608,166 @@ func _physics_process(delta: float) -> void:
 	if dialogue>0 or interaction=="Door":input=Vector2.ZERO
 	var before := body.position
 	var commanded: Vector3=movement.step(input,Input.is_action_pressed("sprint"),delta,obstruction)
+	if jump_time>=0 and commanded.length()>.2:jump_moving=true
 	body.velocity=Vector3(commanded.x,body.velocity.y-9.8*delta,commanded.z)
+	var impact_velocity := absf(body.velocity.y)
+	var swept_contact := false;var swept_floor := -INF
+	if jump_time>=0 and jump_launched and not jump_landed and body.velocity.y<0:
+		var next_root: Vector3=body.global_position+body.velocity*delta
+		var sweep := PhysicsRayQueryParameters3D.create(Vector3(next_root.x,body.global_position.y+.25,next_root.z),next_root-Vector3.UP*.01)
+		sweep.exclude=[body.get_rid()]
+		var hit := get_world_3d().direct_space_state.intersect_ray(sweep)
+		if not hit.is_empty() and hit.normal.dot(Vector3.UP)>=cos(body.floor_max_angle) and next_root.y<hit.position.y:
+			swept_contact=true;swept_floor=hit.position.y
+			body.velocity.y=maxf(body.velocity.y,(hit.position.y-body.global_position.y)/delta)
 	body.move_and_slide()
+	if swept_contact and not body.is_on_floor():
+		body.apply_floor_snap()
+		if body.is_on_floor():body.velocity.y=0;body.global_position.y=maxf(body.global_position.y,swept_floor)
 	if jump_time>=0 and jump_launched and not jump_landed and body.is_on_floor():
-		jump_landed=true;landings+=1
-		effect_sound("Landing",-1) # Authored hop cue, not an original-game sound ID.
+		jump_landed=true; jump_landing_time=0; landings+=1;jump_stage="Land"
+		jump_heading=movement.shape_heading
+		jump_moving=Vector2(body.velocity.x,body.velocity.z).length()>.2 or input.length()>.1
+		jump_impact=clampf(impact_velocity/3.6,.25,1.0)
+		capture_planted_feet()
+		effect_sound("Landing",-1,clampf(jump_impact,.35,1.0)) # Authored hop cue, not an original-game sound ID.
+	if jump_time>=0:
+		jump_stage="Land" if jump_landed else ("Anticipate" if not jump_launched else ("Ascend" if body.velocity.y>0 else "Descend"))
+		jump_pose_time=jump_landing_time if jump_landed else (minf(jump_time/.05*.11,.11) if not jump_launched else .60*clampf(1-body.velocity.y/3.6,0,2)/2)
 	var actual := Vector2(body.position.x-before.x,body.position.z-before.z).length()/delta
 	obstruction=clampf(actual/maxf(commanded.length(),.001),0,1)
 	model.rotation.y=movement.shape_heading
-	model.rotation.x=movement.lean
+	model.rotation.x=move_toward(model.rotation.x,0 if jump_time>=0 else movement.lean,deg_to_rad(120)*delta)
 	var previous_phase := movement.phase-movement.phase_step*delta*60/16
 	var target_state: String=movement.gait
 	if commanded.length()>.1 and actual<.02 and not movement.skidding:target_state="Idle"
 	if dialogue>0 or interaction=="Door":target_state="Idle"
 	var clip: String={"Idle":"idle","Walk":"walk","Run":"run","Dash":"dash","Skid":"skid"}[target_state]
-	if jump_time>=0:target_state="Jump";clip="jump"
+	if jump_time>=0 and not(jump_landed and jump_moving):target_state="Jump";clip="landing" if jump_landed else ("flight" if jump_launched else "jump")
 	var entered_skid := target_state=="Skid" and state!="Skid"
+	# Procedural contact IK never becomes the next animation's input.
+	for bone in procedural_base.size():
+		skeleton.set_bone_pose_position(bone,procedural_base[bone][0])
+		skeleton.set_bone_pose_rotation(bone,procedural_base[bone][1])
 	# Restore the unmodified base before applying another overlay, including omitted tracks.
 	for bone in animated_arm_pose:skeleton.set_bone_pose_rotation(bone,animated_arm_pose[bone])
-	if target_state!=state:
+	if target_state!=state or player.current_animation!=clip:
+		if state=="Jump" and target_state!="Jump" and tool=="Axe":last_overlay="None"
+		if jump_landed and jump_moving:
+			landing_carried_drop=last_landing_drop;landing_carried_age=0
 		state=target_state
-		player.play(clip,.167)
+		play_from_displayed(clip,.18 if state=="Jump" else .167,displayed)
 		if state not in ["Idle","Jump"]:player.seek(fposmod(previous_phase,1)*player.get_animation(clip).length,true)
 	player.speed_scale=1 if state in ["Idle","Jump","Skid"] else player.get_animation(clip).length*movement.phase_step*60/16
-	player.advance(delta)
-	var overlay := "Net" if interaction=="Receive" else tool
+	if state=="Jump" and not jump_landed:player.seek(maxf(0,jump_pose_time-delta),false);player.advance(delta)
+	else:player.advance(delta)
+	# Jump owns its arm drive; the prop stays attached and the holding pose returns on recovery.
+	var overlay := tool if state=="Jump" else ("Net" if interaction=="Receive" else tool)
 	if overlay!=last_overlay:
 		overlay_from=previous_arm_pose.duplicate();overlay_time=0;last_overlay=overlay
-	overlay_time=minf(.167,overlay_time+delta)
+		grip_time=0
+		grip_last=skeleton.get_bone_global_pose(skeleton.find_bone("LeftHand"))*Vector3(0,7,0)
+	overlay_time=minf(.30,overlay_time+delta)
 	for bone in tool_rotations.Axe:
 		var animated := skeleton.get_bone_pose_rotation(bone)
 		animated_arm_pose[bone]=animated
 		var desired: Quaternion=tool_rotations[overlay].get(bone,animated) if overlay!="None" else animated
+		if (overlay=="Axe" or state=="Jump") and skeleton.get_bone_name(bone).begins_with("Left"):desired=animated
 		var start: Quaternion=overlay_from.get(bone,animated)
-		skeleton.set_bone_pose_rotation(bone,start.slerp(desired,overlay_time/.167))
+		skeleton.set_bone_pose_rotation(bone,start.slerp(desired,overlay_time/.30))
 		previous_arm_pose[bone]=skeleton.get_bone_pose_rotation(bone)
 	for name in tool_meshes:tool_meshes[name].visible=name==tool
 	skeleton.force_update_all_bone_transforms()
-	model.position.y=0
+	if tool=="Axe" and jump_time>=0 and not jump_landed and release_active:
+		var left: int=skeleton.find_bone("LeftHand")
+		var alpha := smoothstep(0.0,.30,jump_time)
+		var destination: Vector3=skeleton.get_bone_global_pose(left)*Vector3(0,7,0)
+		var goal := release_palm.lerp(destination,alpha)
+		goal.z+=22*sin(PI*alpha)
+		goal=release_last.move_toward(goal,3);release_last=goal
+		if alpha>=1 and goal.distance_to(destination)<.5:release_active=false
+		for iteration in 4:
+			var current: Transform3D=skeleton.get_bone_global_pose(left)
+			var target := current;target.origin=goal-current.basis*Vector3(0,7,0)
+			var elbow: Vector3=skeleton.get_bone_global_pose(skeleton.find_bone("LeftForeArm")).origin
+			var shoulder: Vector3=skeleton.get_bone_global_pose(skeleton.find_bone("LeftArm")).origin
+			var pole := (elbow-shoulder).normalized().lerp(Vector3(.8,.2,1).normalized(),alpha)
+			solve_chain("LeftArm","LeftForeArm","LeftHand",target,pole,true)
+		for part in ["Arm","ForeArm","Hand"]:
+			var bone: int=skeleton.find_bone("Left"+part);previous_arm_pose[bone]=skeleton.get_bone_pose_rotation(bone)
+	if overlay=="Axe" and state!="Jump":
+		var left: int=skeleton.find_bone("LeftHand")
+		var current: Transform3D=skeleton.get_bone_global_pose(left)
+		var grip: Vector3=(skeleton.get_bone_global_pose(skeleton.find_bone("RightHand"))*tool_meshes.Axe.transform)*Vector3(0,-.02,0)
+		grip_time=minf(.50,grip_time+delta)
+		var alpha := grip_time/.50
+		var palm: Vector3=current*Vector3(0,7,0)
+		var safe := palm.lerp(grip,.5);safe.z=maxf(safe.z,60);safe.x=maxf(safe.x,42)
+		var goal := palm*(1-alpha)*(1-alpha)+safe*2*alpha*(1-alpha)+grip*alpha*alpha
+		goal=grip_last.move_toward(goal,3);grip_last=goal
+		# Solve the actual palm socket, preserving the anatomical wrist after each solve.
+		for iteration in 4:
+			current=skeleton.get_bone_global_pose(left)
+			var target: Transform3D=current
+			target.origin=goal-current.basis*Vector3(0,7,0)
+			var elbow: Vector3=skeleton.get_bone_global_pose(skeleton.find_bone("LeftForeArm")).origin
+			var shoulder: Vector3=skeleton.get_bone_global_pose(skeleton.find_bone("LeftArm")).origin
+			var pole := (elbow-shoulder).normalized().lerp(Vector3(.8,.2,2).normalized(),alpha)
+			solve_chain("LeftArm","LeftForeArm","LeftHand",target,pole,true)
+		previous_arm_pose[left]=skeleton.get_bone_pose_rotation(left)
+		previous_arm_pose[skeleton.find_bone("LeftForeArm")]=skeleton.get_bone_pose_rotation(skeleton.find_bone("LeftForeArm"))
+		previous_arm_pose[skeleton.find_bone("LeftArm")]=skeleton.get_bone_pose_rotation(skeleton.find_bone("LeftArm"))
+	procedural_base.clear()
+	for bone in skeleton.get_bone_count():procedural_base.append([skeleton.get_bone_pose_position(bone),skeleton.get_bone_pose_rotation(bone)])
+	model.position.y=jump_ground_offset*(1-smoothstep(.05,.17,jump_time)) if jump_time>=0 and jump_launched and not jump_landed else 0.0
+	landing_carried_age+=delta
+	last_landing_drop=0
+	if jump_time>=0 and (not jump_launched or jump_landed):
+		var drop: float=.032*sin(PI*clampf(jump_time/.05,0,1)) if not jump_launched else (.065 if jump_moving else .085)*jump_impact*landing_envelope(jump_landing_time)
+		if jump_landed and jump_moving:drop=maxf(0,drop-landing_carried_drop*(1-clampf(landing_carried_age/.167,0,1)))
+		last_landing_drop=drop
+		var hip: int=skeleton.find_bone("Hips")
+		var pelvis: Transform3D=skeleton.get_bone_global_pose(hip)
+		pelvis.origin.y-=drop/skeleton.global_basis.get_scale().y
+		set_jump_global(hip,pelvis)
+		if not jump_moving:
+			var reach_lowering := 0.0
+			for side in ["Left","Right"]:
+				var u: Vector3=skeleton.get_bone_global_pose(skeleton.find_bone(side+"UpLeg")).origin
+				var k: Vector3=skeleton.get_bone_global_pose(skeleton.find_bone(side+"Leg")).origin
+				var a: Vector3=skeleton.get_bone_global_pose(skeleton.find_bone(side+"Foot")).origin
+				var target: Vector3=(skeleton.global_transform.affine_inverse()*planted_feet[side]).origin
+				var distance := (u.distance_to(k)+k.distance_to(a))*.97
+				var horizontal := Vector2(u.x-target.x,u.z-target.z).length()
+				reach_lowering=maxf(reach_lowering,u.y-target.y-sqrt(maxf(0,distance*distance-horizontal*horizontal)))
+			reach_lowering=minf(reach_lowering,maxf(0,.10-drop)/skeleton.global_basis.get_scale().y)
+			last_landing_drop+=reach_lowering*skeleton.global_basis.get_scale().y
+			pelvis=skeleton.get_bone_global_pose(hip);pelvis.origin.y-=reach_lowering;set_jump_global(hip,pelvis)
+		for side in ["Left","Right"]:
+			var foot: int=skeleton.find_bone(side+"Foot")
+			var target: Transform3D=skeleton.global_transform*skeleton.get_bone_global_pose(foot)
+			if not jump_moving:target=planted_feet[side]
+			else:
+				# Moving landings retain the gait's foot paths instead of locking both feet behind the body.
+				var low_sole := INF
+				for sole in soles:
+					if sole.bone==foot:low_sole=minf(low_sole,(target*sole.point).y)
+				target.origin.y+=maxf(0,body.position.y-low_sole)
+			solve_chain(side+"UpLeg",side+"Leg",side+"Foot",skeleton.global_transform.affine_inverse()*target,Vector3.BACK)
+	update_actor_shadow()
 	# Correct the complete visual root after lean/blends; this is floor clearance, not stance IK.
 	var low := INF
 	for sole in soles:low=minf(low,(skeleton.global_transform*(skeleton.get_bone_global_pose(sole.bone)*sole.point)).y-body.position.y)
-	model.position.y=-low
-	max_floor_error=maxf(max_floor_error,absf(low+model.position.y))
+	# Sole normalization is only a grounded contact correction; never cancel an airborne tuck.
+	if state!="Jump" or not jump_launched or jump_landed:model.position.y=-low
+	elif body.velocity.y<0:
+		# Only prevent soles crossing the actual floor; retain the authored airborne pose.
+		var floor_ray := PhysicsRayQueryParameters3D.create(body.global_position+Vector3.UP*.25,body.global_position-Vector3.UP)
+		floor_ray.exclude=[body.get_rid()]
+		var floor_hit := get_world_3d().direct_space_state.intersect_ray(floor_ray)
+		if not floor_hit.is_empty():model.position.y+=maxf(0,floor_hit.position.y-body.position.y-low)
+	if body.is_on_floor():max_floor_error=maxf(max_floor_error,absf(low+model.position.y))
+	tool_attachment.on_skeleton_update()
 	if entered_skid and actual>.08:
 		effect_sound("Skid",0x4129);footstep("Right")
 	if state in ["Walk","Run","Dash"] and actual>.08:
@@ -647,17 +824,106 @@ func _physics_process(delta: float) -> void:
 	bridge_time+=delta
 	if OS.has_feature("web") and bridge_time>.1:
 		bridge_time=0
-		JavaScriptBridge.eval("window.characterPlaytest="+JSON.stringify({"state":state,"y":body.position.y,"jump_time":jump_time,"jumps":jumps,"landings":landings,"x":body.position.x,"z":body.position.z,"yaw":model.rotation.y,"travel_heading":movement.heading,"lean":movement.lean,"phase":movement.phase,"phase_step":movement.phase_step,"effects":emitted,"view":camera_view,"bones":skeleton.get_bone_count(),"physics_time":Time.get_ticks_msec()/1000.0,"speed_mps":actual,"source_velocity":movement.velocity,"animation_rate":player.get_playing_speed(),"tool":tool,"surface":surface,"rain":raining,"indoor":indoor,"dialogue":dialogue,"interaction":interaction,"footsteps":footprint_count,"steps":step_history,"blinks":face_blinks,"blink_index":blink_index,"door_transitions":door_transitions,"floor_error":max_floor_error}))
+		JavaScriptBridge.eval("window.characterPlaytest="+JSON.stringify({"state":state,"y":body.position.y,"jump_time":jump_time,"jump_stage":jump_stage,"jumps":jumps,"landings":landings,"x":body.position.x,"z":body.position.z,"yaw":model.rotation.y,"travel_heading":movement.heading,"lean":movement.lean,"phase":movement.phase,"phase_step":movement.phase_step,"effects":emitted,"view":camera_view,"bones":skeleton.get_bone_count(),"physics_time":Time.get_ticks_msec()/1000.0,"speed_mps":actual,"source_velocity":movement.velocity,"animation_rate":player.get_playing_speed(),"tool":tool,"surface":surface,"rain":raining,"indoor":indoor,"dialogue":dialogue,"interaction":interaction,"footsteps":footprint_count,"steps":step_history,"blinks":face_blinks,"blink_index":blink_index,"door_transitions":door_transitions,"floor_error":max_floor_error}))
 
 func jump() -> void:
-	if jump_time>=0 or not body.is_on_floor() or dialogue>0 or interaction!="":return
-	jump_time=0; jump_launched=false; jump_landed=false; jumps+=1
+	if jump_time>=0:
+		if jump_landed:jump_buffer=.12
+		return
+	if not body.is_on_floor() or dialogue>0 or interaction!="":return
+	landing_carried_drop=0;landing_carried_age=0;last_landing_drop=0
+	jump_time=0; jump_launched=false; jump_landed=false; jump_landing_time=-1; jumps+=1
+	jump_heading=movement.shape_heading
+	jump_ground_offset=model.position.y
+	release_palm=skeleton.get_bone_global_pose(skeleton.find_bone("LeftHand"))*Vector3(0,7,0)
+	release_last=release_palm;release_active=tool=="Axe"
+	jump_moving=Vector2(body.velocity.x,body.velocity.z).length()>.2
+	capture_planted_feet()
+
+func play_from_displayed(clip: String, duration: float, poses: Array) -> void:
+	# A constant native clip captures the visible blend, including interrupted transitions.
+	# AnimationPlayer otherwise blends from the former clip, losing a partly blended pose.
+	var snapshot: Animation=player.get_animation("jump").duplicate()
+	snapshot.length=duration+.1
+	for track in snapshot.get_track_count():
+		while snapshot.track_get_key_count(track)>0:snapshot.track_remove_key(track,0)
+		var bone: int=skeleton.find_bone(str(snapshot.track_get_path(track)).split(":")[-1])
+		snapshot.track_insert_key(track,0,poses[bone][track%3])
+	player.stop(true)
+	var library := player.get_animation_library("")
+	if library.has_animation("__pose"):library.remove_animation("__pose")
+	library.add_animation("__pose",snapshot)
+	player.play("__pose");player.advance(0);player.play(clip,duration)
+
+func landing_envelope(time: float) -> float:
+	return smoothstep(0.0,.067,time)*(1-smoothstep(.067,.23,time))
+
+func capture_planted_feet() -> void:
+	planted_feet.clear()
+	for side in ["Left","Right"]:
+		var foot: int=skeleton.find_bone(side+"Foot")
+		var target: Transform3D=skeleton.global_transform*skeleton.get_bone_global_pose(foot)
+		# Use the rest shoe orientation on the ground, not an airborne toe angle.
+		target.basis=(skeleton.global_transform*skeleton.get_bone_global_rest(foot)).basis
+		var lowest := INF
+		for sole in soles:
+			if sole.bone==foot:lowest=minf(lowest,(target*sole.point).y)
+		target.origin.y+=body.position.y-lowest
+		planted_feet[side]=target
+
+func solve_chain(upper_name: String, lower_name: String, end_name: String, target: Transform3D, pole_hint: Vector3, preserve_wrist := false) -> void:
+	var upper: int=skeleton.find_bone(upper_name)
+	var lower: int=skeleton.find_bone(lower_name)
+	var end: int=skeleton.find_bone(end_name)
+	var u: Transform3D=skeleton.get_bone_global_pose(upper)
+	var l: Transform3D=skeleton.get_bone_global_pose(lower)
+	var e: Transform3D=skeleton.get_bone_global_pose(end)
+	var l1 := u.origin.distance_to(l.origin);var l2 := l.origin.distance_to(e.origin)
+	var direction := (target.origin-u.origin).normalized()
+	var distance := clampf(target.origin.distance_to(u.origin),absf(l1-l2)+.001,(l1+l2)*.99 if preserve_wrist else l1+l2-.001)
+	var along := (l1*l1-l2*l2+distance*distance)/(2*distance)
+	var pole := (pole_hint-direction*pole_hint.dot(direction)).normalized()
+	var knee := u.origin+direction*along+pole*sqrt(maxf(0,l1*l1-along*along))
+	var clamped := u.origin+direction*distance
+	var solved_u := Transform3D(Basis(Quaternion((l.origin-u.origin).normalized(),(knee-u.origin).normalized()))*u.basis,u.origin)
+	var solved_l := Transform3D(Basis(Quaternion((e.origin-l.origin).normalized(),(clamped-knee).normalized()))*l.basis,knee)
+	set_jump_global(upper,solved_u);set_jump_global(lower,solved_l)
+	target.origin=clamped
+	if preserve_wrist:target.basis=solved_l.basis*skeleton.get_bone_rest(end).basis
+	set_jump_global(end,target)
+
+func make_actor_shadow() -> void:
+	actor_shadow=MeshInstance3D.new();add_child(actor_shadow)
+	var quad := QuadMesh.new();quad.size=Vector2(.65,.65);actor_shadow.mesh=quad
+	actor_shadow.rotation.x=-PI/2;actor_shadow.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var shader := Shader.new();shader.code="""shader_type spatial;
+render_mode unshaded, cull_disabled, depth_draw_never;
+uniform float opacity=.3;
+void fragment(){float circle=1.0-smoothstep(.40,.50,length(UV-vec2(.5)));ALBEDO=vec3(0.0);ALPHA=circle*opacity;}"""
+	var mat := ShaderMaterial.new();mat.shader=shader;actor_shadow.material_override=mat
+	for mesh in model.find_children("*","MeshInstance3D",true,false):mesh.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+
+func update_actor_shadow() -> void:
+	var query := PhysicsRayQueryParameters3D.create(body.position+Vector3.UP*.02,body.position+Vector3.DOWN*3)
+	query.exclude=[body.get_rid()]
+	var hit := get_world_3d().direct_space_state.intersect_ray(query)
+	actor_shadow.visible=not hit.is_empty()
+	if hit.is_empty():return
+	var altitude: float=maxf(0,body.position.y-hit.position.y)
+	# Original scale/alpha curve; 1m fade range is a target-world calibration.
+	var strength := clampf(1-altitude,0,1)
+	shadow_scale=.6+.4*strength
+	actor_shadow.scale=Vector3.ONE*shadow_scale
+	actor_shadow.position=hit.position+Vector3.UP*.012
+	actor_shadow.material_override.set_shader_parameter("opacity",strength*.30)
 
 func make_jump_animation() -> void:
-	var animation := Animation.new();animation.length=1.0
+	var animation := Animation.new();animation.length=1.20
 	var base := []
+	var globals := []
 	for bone in skeleton.get_bone_count():
 		base.append({"position":skeleton.get_bone_pose_position(bone),"rotation":skeleton.get_bone_pose_rotation(bone),"scale":skeleton.get_bone_pose_scale(bone)})
+		globals.append(skeleton.get_bone_global_pose(bone))
 	var path: NodePath=player.get_node(player.root_node).get_path_to(skeleton)
 	var tracks := []
 	for bone in skeleton.get_bone_count():
@@ -667,26 +933,85 @@ func make_jump_animation() -> void:
 			animation.track_set_path(track,NodePath(str(path)+":"+skeleton.get_bone_name(bone)))
 			channels.append(track)
 		tracks.append(channels)
-	# time, upper leg pitch, knee flex, upper arm pitch, forearm flex, degrees.
-	for pose in [[0,0,0,0,0],[.08,-16,32,12,-10],[.18,8,14,-22,-10],[.45,-24,52,-30,-22],[.72,0,0,-10,0],[.84,-16,32,10,-10],[1.0,0,0,0,0]]:
+	# time, planted pelvis drop, thigh pitch, knee flex, arm pitch, elbow flex, arm spread.
+	# Key poses are authored here; physics selects ascent/descent/contact, not a fixed flight clock.
+	for pose in [[0,0,0,0,0,0,0,0,0],[.11,0,0,0,30,0,8,10,5],[.16,0,0,0,-20,0,16,12,-3],[.20,-.055,-3,5,-35,0,20,14,-5],[.50,-.055,-3,5,-55,0,28,-10,15],[.80,-.04,-3,5,-18,0,15,3,8],[.84,0,0,0,-12,0,8,3,8],[.90,0,0,0,18,0,12,10,10],[1.00,0,0,0,5,0,4,3,3],[1.07,0,0,0,0,0,0,0,0],[1.20,0,0,0,0,0,0,0,0]]:
 		for bone in skeleton.get_bone_count():
 			skeleton.set_bone_pose_position(bone,base[bone].position)
 			skeleton.set_bone_pose_rotation(bone,base[bone].rotation)
 			skeleton.set_bone_pose_scale(bone,base[bone].scale)
 		skeleton.force_update_all_bone_transforms()
-		var globals := []
-		for bone in skeleton.get_bone_count():globals.append(skeleton.get_bone_global_pose(bone).basis)
+		var hip: int=skeleton.find_bone("Hips")
+		var pelvis: Transform3D=globals[hip]
+		pelvis.origin.y-=pose[1]/skeleton.global_basis.get_scale().y
+		set_jump_global(hip,pelvis)
+		for part in [["Spine",pose[7]/3.0],["Spine01",pose[7]/3.0],["Spine02",pose[7]/3.0],["Head",pose[8]]]:
+			var bone: int=skeleton.find_bone(part[0])
+			skeleton.set_bone_pose_rotation(bone,base[bone].rotation*Quaternion(Vector3.RIGHT,deg_to_rad(part[1])))
+			skeleton.force_update_all_bone_transforms()
 		for side in ["Left","Right"]:
-			for part in [["UpLeg",pose[1]],["Leg",pose[1]+pose[2]],["Arm",pose[3]],["ForeArm",pose[3]+pose[4]]]:
+			if pose[0]<=.16 or pose[0]>=.84:
+				# Feet stay planted as pelvis drops: solve the actual two-joint chain.
+				var upper: int=skeleton.find_bone(side+"UpLeg")
+				var lower: int=skeleton.find_bone(side+"Leg")
+				var foot: int=skeleton.find_bone(side+"Foot")
+				var h: Vector3=skeleton.get_bone_global_pose(upper).origin
+				var target: Vector3=globals[foot].origin
+				var l1: float=globals[upper].origin.distance_to(globals[lower].origin)
+				var l2: float=globals[lower].origin.distance_to(target)
+				var direction: Vector3=(target-h).normalized()
+				var d: float=target.distance_to(h)
+				var along: float=(l1*l1-l2*l2+d*d)/(2*d)
+				# This imported character faces +Z (Godot BACK); knees flex toward the toes.
+				var pole: Vector3=(Vector3.BACK-direction*Vector3.BACK.dot(direction)).normalized()
+				var knee: Vector3=h+direction*along+pole*sqrt(maxf(0,l1*l1-along*along))
+				for chain in [[upper,h,knee,globals[upper].origin,globals[lower].origin],[lower,knee,target,globals[lower].origin,target]]:
+					var transform: Transform3D=globals[chain[0]]
+					transform.basis=Basis(Quaternion((chain[4]-chain[3]).normalized(),(chain[2]-chain[1]).normalized()))*transform.basis
+					transform.origin=chain[1]
+					set_jump_global(chain[0],transform)
+				set_jump_global(foot,globals[foot])
+			else:
+				var upper: int=skeleton.find_bone(side+"UpLeg")
+				var lower: int=skeleton.find_bone(side+"Leg")
+				var foot: int=skeleton.find_bone(side+"Foot")
+				var h: Vector3=skeleton.get_bone_global_pose(upper).origin
+				var length: float=globals[upper].origin.distance_to(globals[lower].origin)+globals[lower].origin.distance_to(globals[foot].origin)
+				var target: Transform3D=skeleton.get_bone_global_pose(foot)
+				target.origin=h+(Vector3.DOWN+Vector3(.08 if side=="Left" else -.08,0,0)).normalized()*length*(.97 if pose[0]>=.80 else .999)
+				target.basis=skeleton.get_bone_global_rest(foot).basis
+				solve_chain(side+"UpLeg",side+"Leg",side+"Foot",target,Vector3.BACK)
+			for part in [["Arm",pose[4]],["ForeArm",pose[4]+pose[5]]]:
 				var bone: int=skeleton.find_bone(side+part[0])
-				var target: Basis=Basis(Vector3.RIGHT,deg_to_rad(part[1]))*globals[bone]
-				var parent: int=skeleton.get_bone_parent(bone)
-				var relative: Basis=skeleton.get_bone_global_pose(parent).basis.inverse()*target
-				skeleton.set_bone_pose_rotation(bone,relative.orthonormalized().get_rotation_quaternion())
-				skeleton.force_update_all_bone_transforms()
+				var transform: Transform3D=skeleton.get_bone_global_pose(bone)
+				transform.basis=Basis(Vector3.BACK,deg_to_rad(pose[6]*(1 if side=="Left" else -1)))*Basis(Vector3.RIGHT,deg_to_rad(part[1]))*globals[bone].basis
+				set_jump_global(bone,transform)
 		for bone in skeleton.get_bone_count():
 			animation.position_track_insert_key(tracks[bone][0],pose[0],skeleton.get_bone_pose_position(bone))
 			animation.rotation_track_insert_key(tracks[bone][1],pose[0],skeleton.get_bone_pose_rotation(bone))
 			animation.scale_track_insert_key(tracks[bone][2],pose[0],skeleton.get_bone_pose_scale(bone))
-	for bone in skeleton.get_bone_count():skeleton.set_bone_pose_rotation(bone,base[bone].rotation)
+	for bone in skeleton.get_bone_count():
+		skeleton.set_bone_pose_position(bone,base[bone].position)
+		skeleton.set_bone_pose_rotation(bone,base[bone].rotation)
 	player.get_animation_library("").add_animation("jump",animation)
+	var landing := Animation.new();landing.length=.23
+	for track in animation.get_track_count():
+		var new_track := landing.add_track(animation.track_get_type(track));landing.track_set_path(new_track,animation.track_get_path(track))
+		for key in animation.track_get_key_count(track):
+			var time := animation.track_get_key_time(track,key)
+			if time>=.84 and time<=1.07:landing.track_insert_key(new_track,time-.84,animation.track_get_key_value(track,key))
+	player.get_animation_library("").add_animation("landing",landing)
+	var flight := Animation.new();flight.length=.64
+	for track in animation.get_track_count():
+		var new_track := flight.add_track(animation.track_get_type(track));flight.track_set_path(new_track,animation.track_get_path(track))
+		for key in animation.track_get_key_count(track):
+			var time := animation.track_get_key_time(track,key)
+			if time>=.20 and time<=.84:flight.track_insert_key(new_track,time-.20,animation.track_get_key_value(track,key))
+	player.get_animation_library("").add_animation("flight",flight)
+
+func set_jump_global(bone: int, transform: Transform3D) -> void:
+	var parent: int=skeleton.get_bone_parent(bone)
+	var relative: Transform3D=transform if parent<0 else skeleton.get_bone_global_pose(parent).affine_inverse()*transform
+	skeleton.set_bone_pose_position(bone,relative.origin)
+	skeleton.set_bone_pose_rotation(bone,relative.basis.orthonormalized().get_rotation_quaternion())
+	skeleton.force_update_all_bone_transforms()

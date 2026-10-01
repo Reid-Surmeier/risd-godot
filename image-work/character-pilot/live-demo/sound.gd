@@ -1,7 +1,7 @@
 extends RefCounted
 ## Verified source dispatch; locally synthesized timbres remain an adaptation.
 const BASES = {"Grass":0x4201,"Path":0x4202,"Stone":0x4203,"Wood":0x4204,"Leaves":0x4205,"Snow":0x4206,"Sand":0x4208,"Water":0x4209,"Bridge":0x420a,"Indoor":0x4204}
-const SHAPES = {"Grass":[150.0,.10,.025,.12],"Path":[195.0,.08,.012,.08],"Stone":[360.0,.075,.008,.035],"Wood":[240.0,.13,.008,.025],"Leaves":[130.0,.14,.045,.32],"Snow":[100.0,.13,.035,.20],"Sand":[115.0,.12,.025,.15],"Water":[420.0,.16,.045,.35],"Bridge":[220.0,.14,.01,.03],"Indoor":[240.0,.13,.008,.025],"Landing":[130.0,.10,.028,.30],"Skid":[600.0,.24,.10,.40],"DoorLatch":[900.0,.075,.012,.12],"DoorCreak":[180.0,.24,.05,.09],"DoorShut":[95.0,.16,.025,.13]}
+const SHAPES = {"Grass":[150.0,.10,.025,.12],"Path":[195.0,.08,.012,.08],"Stone":[360.0,.075,.008,.035],"Wood":[240.0,.13,.008,.025],"Leaves":[130.0,.14,.045,.32],"Snow":[100.0,.13,.035,.20],"Sand":[115.0,.12,.025,.15],"Water":[420.0,.16,.045,.35],"Bridge":[220.0,.14,.01,.03],"Indoor":[240.0,.13,.008,.025],"Jump":[350.0,.085,.018,.06],"Landing":[130.0,.10,.028,.30],"Skid":[600.0,.24,.10,.40],"DoorLatch":[900.0,.075,.012,.12],"DoorCreak":[180.0,.24,.05,.09],"DoorShut":[95.0,.16,.025,.13]}
 var streams := {}
 var rng := RandomNumberGenerator.new()
 var previous_special := false

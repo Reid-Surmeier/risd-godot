@@ -1,0 +1,11 @@
+{
+  "candidate_build": "dbe77dfe4d0f",
+  "quality_gate_sha256": "56f9d55aecd2bc7ab805a7173f8073a20400be6f502646558f7138bfc6766e15",
+  "baseline_build": "c0aec056189b",
+  "baseline_result": "FAIL: Floor snap drove shoes below the surface",
+  "baseline_failure": "SCRIPT ERROR: Assertion failed: Floor snap drove shoes below the surface: -0.00795676372945",
+  "candidate_result": "PASS",
+  "candidate_minimum_root_y": -7.45058059692383e-09,
+  "surface_tolerance_metres": 0.0025,
+  "baseline_failure_log_sha256": "2f8dc5ead3288a22f5554020cef5e3221a116a53e4c5a31412d77cd807267cc8"
+}

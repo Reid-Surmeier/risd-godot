@@ -1,8 +1,43 @@
 {
   "url": "https://windows-wsl.taile06c45.ts.net/character-walk-01a0f3a2/",
-  "stamp": "d0a45b4e85fe",
+  "stamp": "dbe77dfe4d0f",
   "files": {
-    "index.html": "f3c6bd51838bc07a4643b5e6c03c3e5e1280ca0c036421800b4f4e09f834d867",
-    "index.pck": "9ba2eb81e14fdc29e647ebefbe082db51178c54afb0261eadb6585d6712289d5"
-  }
+    "index.html": "eceb8c1b150cd9577c5c88a1dc2f9d6073c3e3d2975553b6132753515a00e51a",
+    "index.pck": "d82ce6a0d273d9e0b0966a5652a23c68c2e8c584ca18e6b47028416f7063caec"
+  },
+  "gallery": "https://windows-wsl.taile06c45.ts.net/character-evidence-01a0f3a2/",
+  "gallery_files": {
+    "appearance-hands-before-after.jpg": "d22b068d29866dce27abd69ee3eed10132ac40400ddc9900505009eae6b49df9",
+    "audio-before-review.wav": "1c0881e8cda06f67ce50c99dfd53e13b2ae4c1175d06f231244a447074d6c2b4",
+    "audio-original-mixed-excerpt.wav": "aaf5dfba290a830ae6702dbcf4ac17a308f8d588d8c36cf2bda024be2d94e10b",
+    "audio-review.wav": "db2985e1931b8aa5a4a777d942ca92e734c7876a6edd781be90c911b35d4eba9",
+    "blink-slow-review.gif": "838f7bf79c567d19a8ca6c6f098bda0a209558b2bbe6938f39f9f44418af81af",
+    "dust-camera-before-after.jpg": "14cfe848c2d1511d5b3ba7ceae8439873f789cb544f73f1994aec16cbad98d79",
+    "effects-poses.jpg": "e37e9617562e839a520bfc4085c47b015752893b831f457c181ce647f459e70d",
+    "effects-review.mp4": "16de8f58c1061a94532b86150f0c82f872f6670df47f2600044de8cf2c208aaf",
+    "hand-rest-front.png": "72ad0b0fe37eb456d17ac9b0afc3e8591df326d3b8c00e32ffd8292c8a3c926d",
+    "hands-seam-closeout.jpg": "f4f9181e29b38967924b6441e7d374d734fe460ed63f51b057f95debc5882574",
+    "idle-clearance-front-before-after.jpg": "f445094c9787007945c09171ef853ea37860a6623d8e887bd855f766db23123f",
+    "idle-rocking-before-after.mp4": "a82780f32971b94f8b9fa691f5870727a1c7b4027a8b97bf764dfd5a35850568",
+    "idle-wrist-before-after.jpg": "af85626fe04c3e7e2dad912e45bc68d9274b1433fef910b28a4de95ef0fa5ebe",
+    "jump-float-before-review.mp4": "0c9e2c1452061735fc707da348f9eba922a7a4628a8fab24f635a79e4639eb34",
+    "jump-game-key-poses.jpg": "c6d31baa97cc3711bd1550604b4b2858ab29969b448dd2ece08ebbb962358b57",
+    "jump-poses.jpg": "a10e320f56d7019327fd0274a7c9b856aa5e84e2aa0b5085acfc918210d9789e",
+    "jump-review.mp4": "9f6c4d5196bd7363b6a39bd7e6f9b316ba508dc0f265cc187856d772e9c15c59",
+    "jump-side-key-poses.jpg": "d7da6400b3af2e1181f8b8c14c680eb286d04af4b5a2ecad658e3eaa132b0b7f",
+    "opus-round1.md": "0c7650935ea445359fa03383aa72178b26f34d9c150aeb1e2db54f8599d5cdd6",
+    "opus-round2.md": "5e0575da5f1fa777fc1b97df89863ef2f253a3bdd19ceffae617678a24609181",
+    "opus-round3.md": "0ce31e65288354e594b9b81262d536e21e993c78b6fa001588ef4ca4203c221c",
+    "opus-round4.md": "9185230d84e581c5f71144639db864f05ba6f039ff71a92e9f576d965cd1f1d3",
+    "opus-round5.md": "c4d285719a457a742b64f312eff344bffbc50aed97c039b545c8edb14b7ea343",
+    "opus-round6.md": "210254db092233f8bb1be75513d169e26ff0f7a2aabd7623356b73afc7cd4289",
+    "pose-before-after-multiview.mp4": "c46cbd9f29e7e6f000ce8f7197f56e3513fe5e7f89138dafb3c9c4145da293e8",
+    "pose-candidate-multiview.mp4": "a899784ac1672519b86d6f879525602b733ae9a53784c7414c533b03eed8db36",
+    "pose-dash-zoom-guides.jpg": "9d189e7524cb7007e7d719877802beea9de2f6cb62391dcd08274480c3915125",
+    "pose-net-zoom-guides.jpg": "2d213ffad67eb679444ae820698f68f563eda093d8832b283f0b1f3069da642b",
+    "pose-steer-zoom-guides.jpg": "fe4462c68cb3161de051317777b3619197e69078f1ba76bddc766ca80676f3eb",
+    "tool-clearance-check.json": "27ba0df21ca8313cec7352bf2469d9021d02f74d2b61dd2fd73b8163b879b8c9",
+    "whole-view.mp4": "dbb935bf901ead766c2c18dfc242f25ae6b5e3a854438e84b48a9a67ba6eca31"
+  },
+  "pending_independent_review": false
 }

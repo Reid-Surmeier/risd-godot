@@ -7,10 +7,12 @@
   "selected_dense_walk_run_dash": "PASS",
   "shared_exported_rig_and_head_correspondence": "PASS",
   "published_content_hashes": "PASS",
-  "secret_scan": "PASS: only two independently verified SHA256 manifest false positives",
+  "secret_scan": "PASS: 16 independently byte-verified artifact SHA256 matches; zero credentials",
   "verified_secret_scan_false_positive_paths": [
-    "iterations/motion-diagnosis/blender-api-evidence.json",
-    "iterations/motion-diagnosis/blender-api.log"
+    "image-work/character-pilot/PROVENANCE.json",
+    "image-work/character-pilot/hashes.json",
+    "image-work/character-pilot/live-demo/evidence/provenance.json",
+    "image-work/character-pilot/live-demo/evidence/published-check.json"
   ],
   "new_secret_findings": 0,
   "baseline_warnings": [
@@ -22,13 +24,21 @@
   "exported_palm_wrist_audio_checks": "PASS",
   "originals_against_previous_commit": "PASS",
   "before_regressions_reproduced": true,
-  "final_build_stamp": "d0a45b4e85fe",
+  "final_build_stamp": "dbe77dfe4d0f",
   "storage_own_regenerable_removed_bytes": 829085130,
   "private_review_images_media_phone": "PASS",
-  "originals_against_starting_commit": "PASS ae160441",
+  "originals_against_starting_commit": "PASS 4ca9358b9ff60cebe3d78c1659d0bd5a89ab05bb",
   "jump_native_and_browser": "PASS grounded, no air retrigger/steps, one landing; Space and touch",
   "dust_source_and_rendered_visibility": "PASS one dry puff, discrete motion/alpha/18 updates; 5 of 7 rendered phases visible",
   "gallery_media_hashes": "PASS 13 linked visual/audio artifacts",
   "repo_baseline_log_sha256": "be9ea6c8aafd4cee67970e33b3c7bcae91ecf56183cc44ff4a9a8768109f32c3",
-  "browser_log_sha256": "a2daedaa65f54c7d99f971cf5d52553fa0682b3651d21fae2a597fa986854491"
+  "browser_log_sha256": "a2daedaa65f54c7d99f971cf5d52553fa0682b3651d21fae2a597fa986854491",
+  "independent_reviewer": "actual claude-opus-5-5, effort max, same Claude Max subscription session",
+  "independent_verdict": "APPROVE_PROTOTYPE",
+  "independent_report_sha256": "210254db092233f8bb1be75513d169e26ff0f7a2aabd7623356b73afc7cd4289",
+  "owner_fidelity_acceptance_open": true,
+  "tool_head_regrip_clearance": "PASS 2552 poses, 48 axe regrip scenarios, zero classified interiors",
+  "quieter_idle": "PASS hip motion 50%, head motion 51.65% of untouched imported idle",
+  "research_credits_consumed": 2,
+  "research_cost_usd": 0.00376
 }

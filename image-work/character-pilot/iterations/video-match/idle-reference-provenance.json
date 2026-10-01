@@ -1,0 +1,105 @@
+{
+  "animation": "wait1",
+  "source_commit": "09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c",
+  "source_animation_symbol": "cKF_ba_r_ply_1_wait1",
+  "source_frames": 33,
+  "source_phase_intervals": 32,
+  "sample_count": 129,
+  "full_endpoint_included": true,
+  "source_inputs": [
+    {
+      "path": "src/data/model/player_anim.c",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/data/model/player_anim.c",
+      "sha256": "96867776dd870deb666f8c46aaead96da9c5b92c6358fb6f8485b1e41aa639c7",
+      "bytes": 772952
+    },
+    {
+      "path": "src/data/model/boy_model.c",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/data/model/boy_model.c",
+      "sha256": "97a790cd5593fe118bfe046d5c6de167ca002b25b2a255663d8010a4036571cd",
+      "bytes": 23592
+    },
+    {
+      "path": "src/c_keyframe.c",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/c_keyframe.c",
+      "sha256": "2b60f36d6a6d6393e17d835f4a2191c37a72cadfa48002a892a79e4ed071ebd5",
+      "bytes": 52958
+    },
+    {
+      "path": "src/system/sys_matrix.c",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/system/sys_matrix.c",
+      "sha256": "7c82fea9f43d6c507dcbb6adae95de55f4b8fdb6f6acfd5fe4d365612a291f54",
+      "bytes": 29222
+    },
+    {
+      "path": "src/game/m_player_main_wait.c_inc",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/game/m_player_main_wait.c_inc",
+      "sha256": "5f4a4cd5241be6472f116e27be5f7fedc8c2bc6aed62c595c676e2b66728294b",
+      "bytes": 4362
+    },
+    {
+      "path": "include/m_lib.h",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/include/m_lib.h",
+      "sha256": "2fff7707b699a6cf42f0891900ecceaf4effe2027b9d5fc8338368bdd9b75d05",
+      "bytes": 4790
+    }
+  ],
+  "extractor_sha256": "05bcf21d8387558ebf034c4cbc18d41f5544a634fded87cc7352b1247df7b8f9",
+  "reference_curve_sha256": "08d4f7c421e6919f6c029d072d8bcfb6588f8ec1f150a16754a5718abe487bc0",
+  "extractor_origin": "Parsing, Hermite, and matrix helpers adapted from independent reviewer tools/ac_fk.py; extended with source binangle truncation and exhaustive existing WALK1 fixture comparison.",
+  "existing_walk_reference_sha256": "dc33661e7c4c1a70973673096ca1ad7fded7c4c6bfbc68ec87181ce6daf3b3b1",
+  "hierarchy_matches_existing_walk": true,
+  "regenerated_walk_sample_count": 129,
+  "maximum_walk_numeric_error": 0.0,
+  "loop_endpoint_global_matrix_maximum_error": 0.0,
+  "metrics": {
+    "root_bob_model_units": {
+      "min": 1000.0,
+      "max": 1050.0,
+      "peak_to_peak": 50.0
+    },
+    "root_sway_forward_model_units": {
+      "min": 0.0,
+      "max": 60.0,
+      "peak_to_peak": 60.0
+    },
+    "base_sway_degrees": {
+      "min": -3.8946533203125,
+      "max": 0.0,
+      "peak_to_peak": 3.8946533203125
+    },
+    "arms": {
+      "Left": {
+        "frontal_abduction_degrees": {
+          "min": 40.749553380227084,
+          "max": 50.08169862600474,
+          "peak_to_peak": 9.332145245777653
+        },
+        "sagittal_drive_degrees": {
+          "min": -12.082679705338187,
+          "max": 16.284965980484454,
+          "peak_to_peak": 28.36764568582264
+        }
+      },
+      "Right": {
+        "frontal_abduction_degrees": {
+          "min": 40.64956468750933,
+          "max": 49.99380617293254,
+          "peak_to_peak": 9.344241485423204
+        },
+        "sagittal_drive_degrees": {
+          "min": -12.082679705338187,
+          "max": 16.270379812007526,
+          "peak_to_peak": 28.353059517345713
+        }
+      }
+    },
+    "root_bob_fraction_initial_hip_height": 0.05
+  },
+  "source_license": "ac-decomp repository CC0; repository README excludes game assets. Public animation tables used as reference; no ROM, artwork, sound or full archive downloaded.",
+  "status": "source reconstruction; not observed or bit-exact original GameCube runtime",
+  "limitations": "source Hermite; s16 key trunc(value+0.5), binary-angle trunc; standard math sin/cos, no platform lookup/morph/rotation_diff/render callbacks; global actor transform omitted",
+  "paid_calls": 0,
+  "cost_usd": 0,
+  "reproduction": "python3 image-work/character-pilot/iterations/video-match/idle-reference-extract.py <directory-containing-pinned-source-files>"
+}

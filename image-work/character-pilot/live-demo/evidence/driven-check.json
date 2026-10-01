@@ -1,27 +1,27 @@
 {
   "Grass": {
     "effect_events": 3,
-    "footsteps": 12
+    "footsteps": 14
   },
   "Indoor": {
     "effect_events": 0,
-    "footsteps": 15
+    "footsteps": 17
   },
   "Leaves": {
     "effect_events": 3,
-    "footsteps": 27
+    "footsteps": 29
   },
   "Sand": {
     "effect_events": 3,
-    "footsteps": 24
+    "footsteps": 26
   },
   "Snow": {
     "effect_events": 3,
-    "footsteps": 18
+    "footsteps": 20
   },
   "Water": {
     "effect_events": 3,
-    "footsteps": 21
+    "footsteps": 23
   },
   "analog": {
     "gait": "Walk",
@@ -29,7 +29,7 @@
     "velocity": 2.19374994188547
   },
   "blink": {
-    "events": 8,
+    "events": 10,
     "shader": true
   },
   "clearance": {
@@ -75,6 +75,8 @@
   "jump": {
     "airborne_steps": 0,
     "authored_adaptation": true,
+    "different_height_landing": true,
+    "elevated_contact": true,
     "grounded_launch": true,
     "landings": 1,
     "midair_retrigger_blocked": true
@@ -95,7 +97,7 @@
   "tools": {
     "axe_bones": 8,
     "net_bones": 4,
-    "world_scale": "(0.999999, 0.999998, 0.999993)"
+    "world_scale": "(0.999999, 0.999999, 0.999991)"
   },
   "wall": {
     "effects_stopped": true,

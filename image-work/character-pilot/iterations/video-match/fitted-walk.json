@@ -14,5 +14,7 @@
   "bake_fps": 240,
   "arm_reach_m": 0.4,
   "arm_outward_m": 0.08,
-  "reference_fit": ".72 source-arm-chain visible fit; compact palms and inherited anatomical wrist alignment; UV/head preserved"
+  "reference_fit": ".72 source-arm-chain visible fit; compact palms and inherited anatomical wrist alignment; UV/head preserved",
+  "idle_arm_outward_m": 0.22,
+  "idle_source_curves": "idle-reference-curves.json"
 }

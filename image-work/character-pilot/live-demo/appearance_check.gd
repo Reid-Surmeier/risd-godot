@@ -51,6 +51,24 @@ func run() -> void:
 				demo.camera.position=Vector3(0,1.6,9) if view=="front" else Vector3(9,1.6,0)
 				demo.camera.look_at(Vector3(0,1,0))
 				await capture("hand-"+clip+"-"+view+"-%02d"%int(phase*100))
+	# Full physical jump: inspect the pose stages, not only a clip sampled out of context.
+	demo.reset();demo.tool="None"
+	for tick in 15:demo._physics_process(1.0/60)
+	demo.jump()
+	for tick in 86:
+		demo._physics_process(1.0/60)
+		if tick in [0,5,9,15,31,43,52,58,67,82]:
+			for view in ["game","front","side"]:
+				if view!="game":
+					var focus := Vector3(demo.body.position.x,1.15,demo.body.position.z)
+					demo.camera.position=focus+Vector3(0,.6,10) if view=="front" else focus+Vector3(10,.6,0)
+					demo.camera.look_at(focus)
+				await capture("jump-"+view+"-%02d"%tick)
+	demo.player.play("idle");demo.player.seek(0,true)
+	for view in ["game","front","side"]:
+		if view=="game":demo.camera.position=Vector3(0,.85,0)+Vector3(0,1,1).normalized()*22;demo.camera.look_at(Vector3(0,.85,0))
+		else:demo.camera.position=Vector3(0,1.6,9) if view=="front" else Vector3(9,1.6,0);demo.camera.look_at(Vector3(0,1,0))
+		await capture("idle-clearance-"+view)
 	# The reported bend is most visible while idle from above and to the side.
 	demo.camera.projection=Camera3D.PROJECTION_ORTHOGONAL;demo.camera.size=.85
 	for clip in ["idle","walk","run","dash","jump"]:

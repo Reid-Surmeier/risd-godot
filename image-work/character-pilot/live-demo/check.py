@@ -66,6 +66,7 @@ assert browser['touch']['moving']['state']=='Dash'
 assert browser['keyboard']['jump']['y']>.4 and browser['keyboard']['jump']['state']=='Jump'
 assert browser['touch']['jump']['y']>.4 and browser['touch']['jump']['state']=='Jump'
 native=read(HERE/'evidence/driven-check.json')
+assert native['jump']['different_height_landing'] and native['jump']['elevated_contact']
 assert native['jump']['midair_retrigger_blocked'] and native['jump']['airborne_steps']==0 and native['jump']['landings']==1
 assert native['dust']['puffs_per_dry_contact']==1 and native['dust']['duration_updates']==18 and native['dust']['invisible_at_update']==16
 assert native['dust']['source_motion_and_alpha'] and native['dust']['authored_masks']
@@ -80,18 +81,43 @@ for folder in [HERE/'evidence',HERE/'evidence/walk-alternative']:
  for name,sha in receipt['artifact_hashes'].items():assert digest(folder/name)==sha
  probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-select_streams','v:0','-show_entries','stream=nb_frames,avg_frame_rate','-of','json',str(folder/'whole-view.mp4')]))['streams'][0]
  assert probe['nb_frames']=='60' and probe['avg_frame_rate']=='30/1'
-stamp=hashlib.sha256((''.join(digest(p) for p in sorted(HERE.glob('*.gd')))+digest(HERE/'build.py')+digest(HERE/'appearance_check.py')+''.join(value['sha256'] for value in provenance['models'].values())).encode()).hexdigest()[:12]
+stamp=hashlib.sha256((''.join(digest(p) for p in sorted(HERE.glob('*.gd')))+digest(HERE/'build.py')+digest(HERE/'appearance_check.py')+digest(HERE/'tool_clearance_check.py')+digest(HERE.parent/'iterations/video-match/hand-atlas-profile/hand-atlas.png')+''.join(value['sha256'] for value in provenance['models'].values())).encode()).hexdigest()[:12]
 assert provenance['stamp']==stamp and provenance['additional_api_cost_usd']==0
 appearance=read(HERE/'evidence/appearance-metrics.json')
 assert appearance['mean_material_color_error_255']<1 and appearance['maximum_blink_level_jump']<.35
 assert max(appearance['dust_visible_pixels'])>50 and sum(n>50 for n in appearance['dust_visible_pixels'])>=3
 assert appearance['outside_face_changed_pixels']==0 and appearance['closed_eye_blue_bleed_pixels']==0
+tool_geometry=read(HERE/'evidence/tool-clearance-check.json')
+assert tool_geometry['head_test_poses']==632 and tool_geometry['regrip_poses']==1920 and tool_geometry['regrip_scenarios']==48 and tool_geometry['maximum_regrip_hand_step']<=.06 and not tool_geometry['regrip_failures'] and tool_geometry['inside_queries']==0 and tool_geometry['minimum_gap']>=.01 and not tool_geometry['failures']
+hand_receipt=read(PILOT/'iterations/video-match/hand-atlas-profile/hand-atlas.json')
+assert hand_receipt['uv_coordinates_unchanged'] and hand_receipt['output_sha256']==digest(PILOT/'iterations/video-match/hand-atlas-profile/hand-atlas.png')
+contact_sweep=read(HERE/'evidence/contact-velocity-check.json')
+assert contact_sweep['candidate_build']==provenance['stamp'] and contact_sweep['case_count']==200 and not contact_sweep['failures']
+assert all(not r['cap_nocontact'] and not r['flight_back'] and not r['air_at_floor'] and r['impact']>.99 and r['last_three_air_pose_step']<=.06 for r in contact_sweep['runs'])
 quality=read(HERE/'evidence/quality-check.json')
+assert all(.40<v['ratio']<.65 for v in quality['quieter_idle'].values())
+assert quality['contact_depth']['minimum_root_y']>=-.0025
+assert all(v['descent_pose_monotonic'] and v['flat_hop_impact']>.8 and v['maximum_descent_land_hand_step']<=.07 for v in quality['mixed_input'].values())
 assert set(quality['wrists'])=={'idle','walk','run','dash','skid','jump'}
-assert quality['jump_transition']['updates']==72 and quality['jump_transition']['relative_wrist_error_degrees']<.1
+assert quality['jump_transition']['updates']==100 and quality['jump_transition']['relative_wrist_error_degrees']<.1
 assert set(quality['transitions'])=={'None','Axe','Net'}
 assert all(p['relative_wrist_error_degrees']<.1 and p['settled_base_arm_error_degrees']<.1 and p['updates']==150 for p in quality['transitions'].values())
 assert all(p['relative_wrist_error_degrees']<.1 and p['samples']==65 for p in quality['wrists'].values())
 assert all(abs(p['reach_m']-.145)<.001 and p['thumb_projection_m']>.035 for p in quality['palms'].values())
+assert quality['arm_clearance']['interior_vertices']==0 and quality['arm_clearance']['minimum_gap']>.005
+assert len(quality['stop_clearance'])==15 and all(p['clearance']['interior_vertices']==0 for p in quality['stop_clearance'])
+assert set(quality['tool_clearance'])=={'Axe','Net'} and all(p['interior_vertices']==0 for p in quality['tool_clearance'].values())
+assert set(quality['mixed_input'])=={'press','apex','contact'}
+assert all(v['maximum_landing_drop']<=.10 and v['maximum_head_hips_step']<=.06 for v in quality['mixed_input'].values())
+assert quality['sprint_jump']['maximum_lean_step_degrees']<=3.001 and quality['sprint_jump']['maximum_head_step']<=.059
+assert set(quality['moving_jump'])=={'None','Axe','Net'}
+assert all(p['updates']==100 and p['maximum_horizontal_speed_change']<=.6 and p['launch_tick']<=2 and p['first_update_palm_displacement']<.10 and p['recovered_gait']=='Run' for p in quality['moving_jump'].values())
+pose=read(HERE/'evidence/jump-pose-check.json')
+assert .02<pose['grounded_compression']<.06 and .04<pose['landing_compression']<.12 and pose['arm_drive']>.20
+assert pose['maximum_bone_step']<=.06 and pose['planted_horizontal_drift']<=.01 and pose['maximum_planted_root_correction']<=.005
+assert [cue['bank'] for cue in pose['jump_audio']]==['Jump','Landing']
+assert [cue['stage'] for cue in pose['jump_audio']]==['Ascend','Land']
+assert pose['stages']==['Anticipate','Ascend','Descend','Land','Ground']
+assert pose['trace'][pose['contact_tick']]['floor'] and pose['trace'][pose['contact_tick']]['phase']=='Land'
 assert quality['idle_silent'] and not quality['exact_original_waveforms']
 print('PASS: six completed MCP clips, shared exported rig/appearance, dense native receipts, browser/whole-view evidence and $1.54 original liability')

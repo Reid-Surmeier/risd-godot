@@ -7,6 +7,7 @@ The live demo now uses one shared body and 24-bone rig, with separate source-inf
 | WASD / arrows / left stick | Move; travel follows actor heading |
 | Shift / controller B or shoulders | Sprint; a sharp reversal skids |
 | Ctrl / Walk–Run button | Partial-input WALK |
+| Space / Jump | Grounded hop with preparation, flight, contact compression and recovery; landing presses buffer briefly |
 | E / Interact | Talk near the neighbour, receive a gift pose, enter/exit the house |
 | Tool | Cycle none, axe and net; selected arm/hand overlays blend while moving |
 | Surface / Rain | Review path, grass, sand, water, snow, leaves, indoor suppression and rain |
@@ -14,7 +15,7 @@ The live demo now uses one shared body and 24-bone rig, with separate source-inf
 | View / R or Reset | Game-angle/profile/lower camera; return outdoors to origin |
 | Touch arrows + Sprint | Simultaneous direction and sprint |
 
-The house and neighbour are simple review geometry. The arena is flat. Blink timing, iris transitions, tool poses and surface dispatch follow the researched source behavior; prop shapes, atlas eyelids, audio and effect sprites are local adaptations. Physics blocks walls; blocked movement stops new effect births. A complete visual-root correction keeps the lower sole above the flat floor during lean/blends. It does **not** lock the stance foot in world space.
+The house and neighbour are simple review geometry. The arena is flat. Blink timing, iris transitions, tool poses and surface dispatch follow the researched source behavior; prop shapes, atlas eyelids, audio and effect sprites are local adaptations. Physics blocks walls; blocked movement stops new effect births. Standing jump preparation and landing keep ankle anchors in world space. A moving jump retains the native gait instead of dragging planted feet. Floor rays select landing and prevent a descending sole from crossing the floor. General locomotion stance lock and arbitrary terrain adaptation remain open.
 
 Build and exercise the isolated project:
 
@@ -60,3 +61,19 @@ The build now runs these failure-capable checks before Web export:
 - `driven_check.gd`: real moving/stopped audio, separate skid and all four entry/exit door cues, alongside the existing gait/tool/collision/interaction checks.
 
 Render proof contains open, intermediate and closed blink frames and front/side hand views at four gait phases. A physical gamepad and exact original-game likeness remain unaccepted. Every selected clip must continue to share the same exported mesh, atlas, skin and rest rig.
+
+## Idle and jump review loop
+
+The first-party WAIT1 idle curves are reconstructed from the pinned public source and validated against the existing WALK1 extractor before retargeting. The six selected assets share one 24-bone rest rig, geometry, UVs and weights. The body/head atlas remains shared; `hand-atlas-profile` adds an isolated hand sampler with a 16-pixel gutter, baked through Blender MCP, to remove neighboring clothing colors at the hand seam without changing UVs.
+
+The jump now changes the trunk, head, arms and leg pose, with a small planted preparation, near-straight airborne legs, impact-scaled contact compression and a 0.23-second recovery. A jump pressed during landing buffers for 0.12 seconds and can launch after 0.10 seconds of recovery. Sprint lean changes by at most 2 degrees per 60 Hz tick. Tool carry keeps the right hand on the prop; the axe off-hand releases along a constrained path and returns to the shaft with its anatomical wrist orientation. The return has its own half-second blend timer and a Cartesian speed cap. Per the owner’s preference, idle position and rotation excursions are halved; the original imported AnimationLibrary is left intact.
+
+`quality_check.gd` includes standing, moving, tool, press/apex/contact steering, sprint lean, repeated landing presses, wrist, knee, footplant and cue checks. `tool_clearance_check.gd` and `.py` check 632 poses against the actual skinned head and torus/shaft/strand/blade surfaces, including a full idle period and receipt. A further 1,920 samples cover 48 standing/running/steering axe regrips at all 16 start phases, with an actual hand-step and arm/body interior gate. Both run at fixed 60 Hz. Native render checks retain material color and blink coverage; browser checks exercise keyboard and simultaneous touch input.
+
+The actual independent reviewer is `claude-opus-5-5`, effort `max`, through the existing Claude Max subscription. Rounds 1, 2, 3 and 4 rejected real defects; the reports are retained in `evidence/opus-round*.md`. Round 5 approved the prototype. Round 6 approved the landing-depth polish in candidate `dbe77dfe4d0f`. The candidate has 64 seconds of normal-speed proof across eight scenarios and four cameras. Inspection views hide tree canopy/trunk meshes only; game views preserve the arena.
+
+These checks establish prototype motion and clearance, not exact Animal Crossing likeness, original sound waveform fidelity, articulated fingers or production readiness. New paid generation calls: zero; aggregate generation liability remains $1.54. Reviewer research used two ScrapeCreators credits (approximately $0.00376) under the owner's bounded research request.
+
+The predicted touchdown uses native floor snap when the capped move does not immediately report floor contact. A 200-case direction/start/timing/gait sweep reports no deferred contacts or backward flight poses and retains flat-hop impact. The pose regression gate fails the previous exact-plane cap and passes this version.
+
+The floor-snap polish clears residual downward velocity and lifts the body to the predicted contact plane only after Godot reports actual floor contact. A known diagonal-walk case now stays within ordinary floor jitter (2.5 mm); the new gate fails the approved-but-unpolished round-5 source and passes the round-6 source. Impact velocity is captured before descent capping, so cues retain their strength.

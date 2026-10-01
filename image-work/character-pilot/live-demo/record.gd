@@ -31,7 +31,7 @@ func run() -> void:
 		await process_frame
 		await RenderingServer.frame_post_draw
 		root.get_texture().get_image().save_png("res://"+prefix+"-%03d.png"%frame)
-		trace.append({"time":frame/30.0,"x":demo.body.position.x,"z":demo.body.position.z,"y":demo.body.position.y,"phase":demo.movement.phase,"state":demo.state,"lean":demo.movement.lean,"footsteps":demo.footprint_count,"effects":demo.emitted,"blink":demo.blink_index,"door":demo.interaction})
+		trace.append({"time":frame/30.0,"x":demo.body.position.x,"z":demo.body.position.z,"y":demo.body.position.y,"jump_stage":demo.jump_stage,"phase":demo.movement.phase,"state":demo.state,"lean":demo.movement.lean,"footsteps":demo.footprint_count,"effects":demo.emitted,"blink":demo.blink_index,"door":demo.interaction})
 	FileAccess.open("res://"+prefix+".json",FileAccess.WRITE).store_string(JSON.stringify({"fps":30,"engine_fixed_fps":60,"frames":trace,"whole_viewport":true,"camera_game_distance":22,"camera_angle":45,"fov":20,"no_frame_registration_warp":true,"reference_gait":"WALK partial input, speed x2.18" if walk_reference else "RUN normal input"},"  "))
 	print("RECORDED whole-viewport run/dash/reversal/tool/iris sequence")
 	quit()
