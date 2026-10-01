@@ -59,7 +59,7 @@ for view,cycles in [('game',4),('profile',2)]:
         assert abs(event['time']-index*7/30)<.00001 and len(event['world_origin'])==3
 for view in ['front','profile']:
     folder=HERE/f'youtube-{view}-v6'
-    stream=read(folder/'comparison.json');assert stream['frames']==24 and not stream['exact_fit']
+    stream=read(folder/'comparison.json');assert stream['frames']==24 and not stream['exact_fit'] and stream['aspect_ratio_preserved']
     movie=json.loads(subprocess.check_output(['ffprobe','-v','error','-select_streams','v:0','-show_entries','stream=nb_frames,avg_frame_rate','-of','json',str(folder/'comparison.mp4')]))['streams'][0]
     assert int(movie['nb_frames'])==24 and movie['avg_frame_rate']=='30/1'
 clips=read(HERE/'youtube/verified-short-clips.json')

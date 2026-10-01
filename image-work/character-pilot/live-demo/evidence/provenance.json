@@ -13,7 +13,7 @@
   "import_fps": 240,
   "animation_optimizer": false,
   "additional_api_cost_usd": 0,
-  "stamp": "870709bbbd60",
+  "stamp": "f15161043b57",
   "standalone_prototype": true,
   "url": "https://windows-wsl.taile06c45.ts.net/character-walk-01a0f3a2/",
   "retention": "3d owner review",
@@ -32,10 +32,18 @@
   "exact_visual_match": false,
   "world_stance_lock_verified": false,
   "aggregate_liability_usd": 1.54,
-  "site_bytes": 41749964,
+  "site_bytes": 41750300,
   "sources": {
-    "demo.gd": "87e4ac897697eab8e590af3a06d60b8a3b97422000d0519440df0b4faff1b2d2",
+    "demo.gd": "af313f9fa3457d0238740ac2c7f4bd5e31e47c5aea077503d4f7e9ec3d8e3b1e",
     "build.py": "c809cf654fa083b5215a42b98ecebdff26d644fc0fc1b65b982a6a22bbdd0db9",
-    "browser_check.cjs": "735c0b7f23e25b764230669e8f4530612ce8144991b08825446a5eda6f82ecd7"
+    "browser_check.cjs": "3d9f7bb06feb2f878d67feab6b40fadd861da84e2dffe65d22e174a2d6d61017"
+  },
+  "owner_speed_adjustment": {
+    "travel_multiplier": 3,
+    "normal_units_per_second": 3.15,
+    "dash_units_per_second": 5.4,
+    "normal_animation_rate": 1.25,
+    "normal_cycle_seconds": 0.64,
+    "source_speed_matched": false
   }
 }

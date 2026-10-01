@@ -1,8 +1,11 @@
 {
   "keyboard": {
     "initial": {
+      "animation_rate": 1,
       "bones": 24,
       "effects": 0,
+      "physics_time": 2.619,
+      "speed_mps": 0,
       "state": "Idle",
       "view": 0,
       "x": 0,
@@ -10,44 +13,59 @@
       "z": 0
     },
     "walk": {
+      "animation_rate": 1.25,
       "bones": 24,
       "effects": 0,
+      "physics_time": 3.194,
+      "speed_mps": 3.15000009536743,
       "state": "Walk",
       "view": 0,
       "x": 0,
-      "yaw": -3.14159202575684,
-      "z": -1.0149998664856
+      "yaw": -3.13250422477722,
+      "z": -1.15500032901764
     },
     "turn": {
+      "animation_rate": 1.25,
       "bones": 24,
       "effects": 0,
+      "physics_time": 3.658,
+      "speed_mps": 3.15000009536743,
       "state": "Walk",
       "view": 0,
-      "x": 0.665000021457672,
-      "yaw": -4.71232414245605,
-      "z": -1.20749962329865
+      "x": 0.787500143051147,
+      "yaw": -4.68319129943848,
+      "z": -1.73250031471252
     },
     "sprint": {
+      "animation_rate": 1,
       "bones": 24,
       "effects": 1,
+      "physics_time": 4.008,
+      "speed_mps": 5.40000009536743,
       "state": "Dash",
       "view": 0,
-      "x": 0.73499995470047,
-      "yaw": -6.27545404434204,
-      "z": -0.607499480247498
+      "x": 0.99750018119812,
+      "yaw": -6.24486827850342,
+      "z": -0.47250047326088
     },
     "stopped": {
+      "animation_rate": 1,
       "bones": 24,
       "effects": 2,
+      "physics_time": 4.707,
+      "speed_mps": 0,
       "state": "Idle",
       "view": 0,
-      "x": 0.73499995470047,
-      "yaw": -6.28304195404053,
-      "z": -0.157499387860298
+      "x": 0.99750018119812,
+      "yaw": -6.28247308731079,
+      "z": 0.877499639987946
     },
     "reset": {
+      "animation_rate": 1,
       "bones": 24,
       "effects": 2,
+      "physics_time": 5.643,
+      "speed_mps": 0,
       "state": "Idle",
       "view": 0,
       "x": 0,
@@ -55,8 +73,11 @@
       "z": 0
     },
     "changed_view": {
+      "animation_rate": 1,
       "bones": 24,
       "effects": 2,
+      "physics_time": 5.975,
+      "speed_mps": 0,
       "state": "Idle",
       "view": 1,
       "x": 0,
@@ -66,22 +87,28 @@
   },
   "touch": {
     "moving": {
+      "animation_rate": 1,
       "bones": 24,
       "effects": 4,
+      "physics_time": 1.875,
+      "speed_mps": 5.40000009536743,
       "state": "Dash",
       "view": 0,
       "x": 0,
       "yaw": -3.14159226417542,
-      "z": -2.03999972343445
+      "z": -6.12000179290771
     },
     "stopped": {
+      "animation_rate": 1,
       "bones": 24,
       "effects": 6,
+      "physics_time": 2.21,
+      "speed_mps": 0,
       "state": "Idle",
       "view": 0,
       "x": 0,
       "yaw": -3.14159226417542,
-      "z": -2.57999897003174
+      "z": -7.65000200271606
     }
   },
   "errors": []

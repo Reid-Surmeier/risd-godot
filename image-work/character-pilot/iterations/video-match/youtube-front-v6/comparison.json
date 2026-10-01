@@ -20,6 +20,8 @@
   "fps": 30,
   "frames": 24,
   "source_tracking": "manual crop anchors, linear interpolation; not anatomical landmark fit",
+  "aspect_ratio_preserved": true,
+  "resize": "uniform nearest-neighbor with letterboxing; no aspect correction of encoded source",
   "exact_fit": false,
   "cost_usd": 0
 }

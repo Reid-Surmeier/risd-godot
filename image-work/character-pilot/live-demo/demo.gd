@@ -1,5 +1,8 @@
 extends Node3D
 ## THROWAWAY #231: walk, turn, sprint and stop with the selected character.
+# Owner-requested 3x travel adjustment; these are playtest choices, not recovered game units.
+const WALK_SPEED := 3.15
+const DASH_SPEED := 5.4
 class FootEvents extends Node:
 	var emit: Callable
 	func footstep(foot: String) -> void:
@@ -209,13 +212,14 @@ func _physics_process(delta: float) -> void:
 	var target_state := "Idle" if input.length()<0.1 else ("Dash" if Input.is_action_pressed("sprint") else "Walk")
 	var yaw: float = [0.0,PI/2,0.0][camera_view]
 	var direction := Vector3(input.x,0,input.y).rotated(Vector3.UP,yaw)
-	var speed := 0.0 if target_state=="Idle" else (1.8 if target_state=="Dash" else 1.05)
+	var speed := 0.0 if target_state=="Idle" else (DASH_SPEED if target_state=="Dash" else WALK_SPEED)
 	body.velocity = Vector3(direction.x*speed,body.velocity.y-9.8*delta,direction.z*speed)
 	body.move_and_slide()
 	if direction.length()>0.1: model.rotation.y = lerp_angle(model.rotation.y,atan2(direction.x,direction.z),minf(1,delta*14))
 	if target_state!=state:
 		state = target_state
-		player.play({"Idle":"idle","Walk":"walk","Dash":"dash"}[state],0.15)
+		# Faster WALK cadence alongside travel; stride fit remains a separate research gate.
+		player.play({"Idle":"idle","Walk":"walk","Dash":"dash"}[state],0.15,1.25 if state=="Walk" else 1.0)
 		transition_time = 0.15
 	player.advance(delta)
 	skeleton.force_update_all_bone_transforms()
@@ -243,4 +247,4 @@ func _physics_process(delta: float) -> void:
 	bridge_time += delta
 	if OS.has_feature("web") and bridge_time>0.1:
 		bridge_time = 0
-		JavaScriptBridge.eval("window.characterPlaytest="+JSON.stringify({"state":state,"x":body.position.x,"z":body.position.z,"yaw":model.rotation.y,"effects":emitted,"view":camera_view,"bones":skeleton.get_bone_count()}))
+		JavaScriptBridge.eval("window.characterPlaytest="+JSON.stringify({"state":state,"x":body.position.x,"z":body.position.z,"yaw":model.rotation.y,"effects":emitted,"view":camera_view,"bones":skeleton.get_bone_count(),"physics_time":Time.get_ticks_msec()/1000.0,"speed_mps":Vector2(body.velocity.x,body.velocity.z).length(),"animation_rate":player.get_playing_speed()}))

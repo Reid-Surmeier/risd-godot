@@ -141,6 +141,26 @@
     "additional_provider_calls": 0,
     "additional_api_cost_usd": 0,
     "runtime_assets_changed": false,
+    "exact_visual_match": false,
+    "stamp": "f15161043b57",
+    "owner_speed_adjustment": {
+      "travel_multiplier": 3,
+      "normal_units_per_second": 3.15,
+      "dash_units_per_second": 5.4,
+      "normal_animation_rate": 1.25,
+      "normal_cycle_seconds": 0.64,
+      "source_speed_matched": false
+    }
+  },
+  "fidelity_audit": {
+    "date": "2026-09-30",
+    "report": "docs/research/character-fidelity-next-pass-2026-09-30.md",
+    "source_audit": "docs/research/character-locomotion-fidelity-audit-2026-09-30.md",
+    "reference_report": "docs/research/character-gameplay-reference-expansion-2026-09-30.md",
+    "additional_provider_calls": 0,
+    "additional_api_cost_usd": 0,
+    "aspect_ratio_bug_fixed": true,
+    "previous_target_horizontal_distortion_factor": 1.1304347826086956,
     "exact_visual_match": false
   }
 }
