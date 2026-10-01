@@ -34,6 +34,7 @@ func _ready() -> void:
 	build_catalogue_objects()
 	build_adjacent_gallery()
 	build_sculpture_rooms()
+	build_grey_gallery()
 	var index:=0
 	for surface in find_children("*","MeshInstance3D",true,false):
 		if not visitor.is_ancestor_of(surface):
@@ -73,6 +74,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			reset(views[0])
 		elif event.keycode == KEY_2:
 			reset(views[1])
+		elif event.keycode == KEY_3:
+			reset(Vector3(11.3,.25,-2))
 
 func look(color: Color, texture_path := "", unlit := false) -> StandardMaterial3D:
 	var m := material(color)
@@ -137,18 +140,24 @@ func build_rooms() -> void:
 		var wall:=look(Color.WHITE,"res://presentation/purple-plaster.png") if area.label.begins_with("purple") else look(Color.WHITE,"res://presentation/wall-plaster.png")
 		if area.label=="dark medieval room":wall=look(Color("53545b"),"res://presentation/wall-plaster.png")
 		if area.label.begins_with("Main Hall"):wall=look(Color("7c8ca3"))
+		if area.label.begins_with("Grand Gallery"):wall=look(Color("7c8ca3"))
+		if area.label=="grey French gallery":wall=look(Color("b6b4ad"),"res://presentation/wall-plaster.png")
 		var height:float=area.get("height",3.5)
-		if area.label=="dark medieval room":
+		if area.label=="dark medieval room" or area.get("floor","")=="herringbone":
 			build_parquet(b,oak)
 		else:
-			for i in int(ceil((b[1]-b[0])/.14)):
-				var xa:float=b[0]+i*.14
-				var xb:float=min(b[1],xa+.14)
-				for j in int(ceil((b[3]-b[2])/1.8))+1:
-					var za:float=max(b[2],b[2]+j*1.8-(i%3)*.6)
-					var zb:float=min(b[3],b[2]+(j+1)*1.8-(i%3)*.6)
+			var across:bool=area.label.begins_with("purple")
+			var fb:Array=[b[2],b[3],b[0],b[1]] if across else b
+			for i in int(ceil((fb[1]-fb[0])/.14)):
+				var xa:float=fb[0]+i*.14
+				var xb:float=min(fb[1],xa+.14)
+				for j in int(ceil((fb[3]-fb[2])/1.8))+1:
+					var za:float=max(fb[2],fb[2]+j*1.8-(i%3)*.6)
+					var zb:float=min(fb[3],fb[2]+(j+1)*1.8-(i%3)*.6)
 					if zb<=za:continue
-					panel(self,[Vector3(xa,.003,za),Vector3(xb,.003,za),Vector3(xb,.003,zb),Vector3(xa,.003,zb)],
+					var corners:Array=[Vector3(xa,.003,za),Vector3(xb,.003,za),Vector3(xb,.003,zb),Vector3(xa,.003,zb)]
+					if across:corners=corners.map(func(p):return Vector3(p.z,p.y,p.x))
+					panel(self,corners,
 						[Vector2.ZERO,Vector2.DOWN,Vector2.ONE,Vector2.RIGHT],oak,Color(1,1,1,fmod((i*7+j*3)*.131,1.0)))
 		for side in ["west","east","north","south"]:
 			var vertical:bool=side in ["west","east"]
@@ -162,6 +171,7 @@ func build_rooms() -> void:
 				var center:=Vector3(fixed,height/2,(span[0]+span[1])/2) if vertical else Vector3((span[0]+span[1])/2,height/2,fixed)
 				var size:=Vector3(.12,height,span[1]-span[0]) if vertical else Vector3(span[1]-span[0],height,.12)
 				var casing:=solid(center,size,wall,true)
+				casing.set_meta("room_wall",area.label+":"+side)
 				var inward:float=1.0 if side in ["west","north"] else -1.0
 				wall_face(casing,span[1]-span[0],height,vertical,inward)
 				var trim:=moulding(span[1]-span[0],.16,"baseboard",false)
@@ -204,11 +214,92 @@ func build_rooms() -> void:
 		var vent:=solid(spec[0],Vector3(1.85,.07,.018),look(Color("746f64")))
 		vent.rotation.y=spec[1]
 		ceiling_details.append(vent)
-	inventory["muse_architecture_assets"]=4
+	inventory["muse_architecture_assets"]=5
+
+func build_grey_gallery() -> void:
+	# Reciprocal source views establish wall relationships; all metric offsets are provisional.
+	var ivory:=look(Color("eeeae2"))
+	# Violet is on the north side looking from Rockefeller; black panels face it.
+	var black:=look(Color("28262b"))
+	black.cull_mode=BaseMaterial3D.CULL_BACK
+	var south:StaticBody3D
+	for wall in casings:
+		if str(wall.get_meta("room_wall","" )).begins_with("purple") and str(wall.get_meta("room_wall","")).ends_with(":south"):
+			assert(south==null,"Purple south wall must have one owner")
+			south=wall
+	assert(south!=null,"Black panel faces must belong to the purple south wall")
+	for x in [4.4,5.4,6.4,7.4]:
+		var face:=MeshInstance3D.new()
+		var quad:=QuadMesh.new()
+		quad.size=Vector2(.97,2.9)
+		face.mesh=quad
+		face.material_override=black
+		face.position=Vector3(x,1.45,-1.27)
+		face.rotation.y=PI
+		add_child(face)
+		face.reparent(south)
+	# Closed elevator pair: a wall feature, not an invented walkable connection.
+	for x in [5.2,5.7]:solid(Vector3(x,1.35,-2.73),Vector3(.49,2.7,.045),ivory)
+	var number:=Label3D.new()
+	number.text="5"
+	number.font_size=100
+	number.pixel_size=.005
+	number.modulate=Color("27252a")
+	number.position=Vector3(5.45,2.05,-2.69)
+	add_child(number)
+	# Wide column opening faces the purple connector, rather than a door at the far end of a tube.
+	for z in [-4.2,.2]:
+		var column:=StaticBody3D.new()
+		column.position=Vector3(15.65,1.4,z)
+		var shape:=CollisionShape3D.new()
+		var cylinder:=CylinderShape3D.new()
+		cylinder.radius=.19
+		cylinder.height=2.8
+		shape.shape=cylinder
+		column.add_child(shape)
+		var visual:=MeshInstance3D.new()
+		var mesh:=CylinderMesh.new()
+		mesh.top_radius=.145
+		mesh.bottom_radius=.18
+		mesh.height=2.8
+		mesh.radial_segments=12
+		mesh.rings=1
+		visual.mesh=mesh
+		visual.material_override=ivory
+		column.add_child(visual)
+		add_child(column)
+		casings.append(column)
+		for y in [.08,2.88]:
+			var band:=solid(Vector3(15.65,y,z),Vector3(.46,.16,.46),ivory)
+			band.reparent(column)
+	# Ionic capitals/entablature still need their own source-reviewed Muse pass.
+	for spec in [["courbet","43.571",Vector3(8.53,1.8,-4.35),PI/2],["corot","24.089",Vector3(14.8,1.8,-5.72),0.0]]:
+		var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/"+spec[0]+"-frame-geometry.json"))
+		var painting:=Painting.new()
+		add_child(painting)
+		painting.build_framed(load("res://assets/"+spec[0]+"-frame.png"),load("res://assets/painting-"+spec[1]+".jpg"),Vector2(data.canvas_m[0],data.canvas_m[1]),data.margins_px)
+		painting.position=spec[2]
+		painting.rotation.y=spec[3]
+	for z in [-5.8,1.8]:
+		for x in [9.11,11.19]:
+			var leaf:=solid(Vector3(x,1.35,z+(.45 if z==-5.8 else -.45)),Vector3(.06,2.7,.95),ivory,true)
+			# Assemble the three Muse panels around native rails/stiles; generated extra jamb excluded.
+			for index in 3:
+				var y:float=[2.05,1.04,.38][index]
+				var height:float=[.95,.7,.42][index]
+				for side in [-1,1]:
+					var face:float=x+side*.035
+					panel(self,[Vector3(face,y-height/2,leaf.position.z-.37),Vector3(face,y-height/2,leaf.position.z+.37),Vector3(face,y+height/2,leaf.position.z+.37),Vector3(face,y+height/2,leaf.position.z-.37)],
+						[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)],look(Color.WHITE,"res://assets/white-panel-door-%d.png"%index))
+	inventory["grey_gallery_verified_paintings"]=2
+	inventory["grey_gallery_objects_complete"]=false
+	inventory["grey_gallery_metric_accepted"]=false
 
 func wall_face(body:Node3D,width:float,height:float,vertical:bool,inward:float) -> void:
 	# Each room owns its inward face; overlapping shared wall boxes caused colour flicker.
 	var visual:MeshInstance3D=body.get_child(1)
+	visual.material_override.cull_mode=BaseMaterial3D.CULL_BACK
+	assert(visual.material_override.cull_mode==BaseMaterial3D.CULL_BACK,"Room faces must not render their exterior backs")
 	var quad:=QuadMesh.new()
 	quad.size=Vector2(width,height)
 	visual.mesh=quad

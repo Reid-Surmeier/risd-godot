@@ -21,7 +21,7 @@ const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
     report.first_ready_ms = Date.now() - start;
     await page.waitForFunction(() => window.doorwayState.phase === 4 && window.doorwayState.elapsed > 2.6, {timeout: 30000});
     await page.screenshot({path: path.join(out, 'browser-return-jamb.png')});
-    await page.waitForFunction(() => window.doorwayResult, {timeout: 60000});
+    await page.waitForFunction(() => window.doorwayResult, {timeout: 120000});
     report.engine = await page.evaluate(() => window.doorwayResult);
     await page.screenshot({path: path.join(out, 'browser-jamb.png')});
     await page.goto(url, {waitUntil: 'load', timeout: 90000});

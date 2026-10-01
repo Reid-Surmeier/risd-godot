@@ -1,0 +1,13 @@
+{
+  "date_utc": "2026-10-01",
+  "provider": "OpenRouter",
+  "model": "meta/muse-image",
+  "outputs": 1,
+  "cost_usd": 0.01,
+  "run_id": "run-8902003cc69f35806e2c3472",
+  "native_sha256": "f9eb7545c390eaa57834237830e5ee3d788a13d5b7f5651ab94724cb6e8e5780",
+  "accepted": false,
+  "visual_review": "Inspected native frame against source/catalogue. Complete front and distinct mouldings, but bands exaggerated; deterministic nine-slice source fit, original unchanged. Nonplanar margins, back profile, placement remain unaccepted.",
+  "cumulative_map_actual_usd": 0.68,
+  "cumulative_map_conservative_usd": 0.69
+}

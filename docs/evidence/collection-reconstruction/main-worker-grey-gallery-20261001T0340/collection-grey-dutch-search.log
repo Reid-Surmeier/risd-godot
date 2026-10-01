@@ -1,0 +1,82 @@
+[2026-09-30 23:38:42] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Ruisdael&items_per_page=25&page=0> (referer: https://www.google.com/)
+1535191 48.453 Mountain Landscape with River Jacob van Ruisdael
+1194246 50.019 The Cottage on the Hill Jacob van Ruisdael
+1324556 50.068 Le Torrent Gustave Greux
+1357491 20.714 The Little Bridge Jacob van Ruisdael
+[2026-09-30 23:38:43] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Wouwerman&items_per_page=25&page=0> (referer: https://www.google.com/)
+1584451 04.153 The Movement of an Army Philips Wouwerman
+1584476 04.152 The Encampment Philips Wouwerman
+1355366 59.010 Almanach Dedie aux Dames Pouo l&#039; An 1815. Antoine Abraham Goujon de Villiers
+[2026-09-30 23:38:43] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Hobbema&items_per_page=25&page=0> (referer: https://www.google.com/)
+1556446 04.158 Landscape Meindert Hobbema
+1584446 04.157 Landscape, Hunting Scene Unknown Maker, Dutch
+1192036 13.1114 The Ford Charles François Daubigny
+1193721 47.719.4 La Jeune Fille et la Mort (Death and the Maiden) Jean-Baptiste-Camille Corot
+1195306 42.075 Landscape with Figures Charles François Daubigny
+1209086 47.719.2 La Petit Cavalier sous Bois (The Small Rider in the Forest) Jean-Baptiste-Camille Corot
+1210161 47.719.28 La Gardeuse de Chèvres (The Keeper of Goats) Charles François Daubigny
+1210306 47.719.36 Tigre en Arrêt (A Still Tiger) Eugène Delacroix
+1226671 47.719.15 Jeune Mère a l&#039;Entrée d&#039;un Bois (A Young Mother at the Entrance to the Woods) Jean-Baptiste-Camille Corot
+1226941 47.719.22 Sentier dans les Blés (Trail in the Wheat) Charles François Daubigny
+1243381 47.719.17 Un Déjeuner dans la Clairière (A Lunch in the Clearing) Jean-Baptiste-Camille Corot
+1260521 47.719.39 Le Cerisier de la Plante a Biau (The Cherry Tree at Plante-a-Biau) Théodore Rousseau
+1261596 84.198.787.8 Searching for an Inn (La Recherche d&#039;une Auberge) Charles François Daubigny
+1275601 47.719.16 Les Arbres dans la Montagne (The Trees on the Mountain) Jean-Baptiste-Camille Corot
+1276051 47.719.19 Souvenir de Bas-Bréau (Souvenir of Bas-Bréau) Jean-Baptiste-Camille Corot
+1277491 47.719.29 La Fenaison (Haymaking) Charles François Daubigny
+1293386 47.719.37 La Précaution Maternelle (Maternal Caution) Jean-François Millet
+1294521 84.198.787.1 Frontispiece Charles François Daubigny
+1294996 84.198.787.10 Voyage de Nuit Charles François Daubigny
+1308831 47.719.34 La Machine Hydraulique (The Hydraulic Machine) Charles François Daubigny
+1326401 47.719.21 Les Cerfs (The Deer) Charles François Daubigny
+1341086 47.719.5 Le Grand Cavalier sous Bois (The Great Rider in the Wood) Jean-Baptiste-Camille Corot
+1342236 21.024 Pommiers à Auvers (Apple Trees at Auvers) Charles François Daubigny
+1343666 31.237 Dray Horses Charles François Daubigny
+1357681 47.719.20 Le Marais aux Canards (The Swamp with Ducks) Charles François Daubigny
+1358536 47.719.13 Souvenir d&#039;Ostie (Souvenir of Ostia) Jean-Baptiste-Camille Corot
+1359306 47.719.18 La Ronde Gauloise (The Gallic Ring) Jean-Baptiste-Camille Corot
+1373941 47.719.38 Femme vidant un Seau (Woman Emptying a Bucket) Jean-François Millet
+1391561 47.719.6 Le Petit Berger (1re planche) (The Little Shepherd (1st plate)) Jean-Baptiste-Camille Corot
+1391696 47.719.7 Le Petit Berger (2re Planche) (The Little Shepherd (2nd Plate)) Jean-Baptiste-Camille Corot
+1391776 47.719.3 Le Songeur (The Dreamy) Jean-Baptiste-Camille Corot
+1406771 47.719.40 La Plaine de la Plante a Biau (The Plaine at la Plante-a-Biau) Théodore Rousseau
+1423586 47.719.24 Le Ruisseau dans la Clairière (The Creek in the Clearing) Charles François Daubigny
+1424176 47.719.32 Le Bouquet d&#039;Aunes (The Bouquet of Aunes) Charles François Daubigny
+1424921 47.719.31 Effet de Nuit (Effect of Night) Charles François Daubigny
+1441566 47.719.23 Le Pont (The Bridge) Charles François Daubigny
+1475641 84.198.787.9 Interior of an Inn (Intérieur d&#039;une Auberge) Charles François Daubigny
+1490491 47.719.27 La Rentrée du Troupeau (The Return of the Flock) Charles François Daubigny
+1490881 47.719.35 Vaches sous Bois (Cows in the Wood) Charles François Daubigny
+1490956 47.719.25 Le Grand Parc a Moutons (Large Pen with Sheep) Charles François Daubigny
+1491636 47.719.26 Le Gué (The Ford) Charles François Daubigny
+1491706 47.719.1 La Petit Soeur (The Little Sister) Jean-Baptiste-Camille Corot
+1508131 47.719.8 Le Jardin de Périclès (The Garden of Pericles) Jean-Baptiste-Camille Corot
+1508201 47.719.30 L&#039;Ane au Pré (Donkey in a Field) Charles François Daubigny
+1538716 73.120 Landscape Charles François Daubigny
+1556841 47.719.33 Cows at a Watering Place (Vaches à l&#039;abreuvoir) Charles François Daubigny
+1193371 47.719.11 Le Grand Bucheron (The Great Woodcutter) Jean-Baptiste-Camille Corot
+1193421 84.198.787.14 Coucher à Bord du Bottin Charles François Daubigny
+1194216 47.719.9 L&#039;Allée des Peintres (The Paths of Painters) Jean-Baptiste-Camille Corot
+1209621 50.346 Le Troupeau de Vaches (The Herd of Cows) Charles François Daubigny
+1209771 84.198.787.11 La Mousse à la Pêche Charles François Daubigny
+1226331 1986.225.8 Le Bac Charles François Daubigny
+1242261 76.029 Le Berger et La Bergère (The Shepherd and the Shepherdess) Charles François Daubigny
+1243246 84.198.787 Voyage en Bateau Charles François Daubigny
+1258336 47.719 Quarante Clichés - Glace de J.B.C. Corot - C. Daubigny - E. Delacroix - J.F. Millet - T.H. Rousseau tirés sur les plaques provenant de la collection de M. Cuvelier Jean-Baptiste-Camille Corot
+1275376 53.131 Le Cochon dans un verger (A Pig in an Orchard) Charles François Daubigny
+1275501 84.198.787.13 Les Bateaux à Vapeur Charles François Daubigny
+1293501 1986.225.9 Le Satyre (The Satyr) Charles François Daubigny
+1324231 84.198.787.5 Le Mousse Tirant le Cordeau Charles François Daubigny
+1340756 84.198.787.7 Le Mot de Cambronne Charles François Daubigny
+1341656 84.198.787.6 Avallant le Déjeuner dans le Bateau Charles François Daubigny
+1342336 84.198.787.4 L&#039;Héritage de la Voiture Charles François Daubigny
+1375576 84.198.787.2 Le Déjeuner du Départ à Asnières Charles François Daubigny
+1390536 84.198.787.15 Réjouissances dês Poissons du Départ du Mousse Charles François Daubigny
+1391406 47.719.10 Griffonnage (A Sketch) Jean-Baptiste-Camille Corot
+1423171 48.158 Portraits of the Painters Diaz, Corot, Rousseau, Millet, Trayon, Fromentin and Daubigny Stephen James Ferris
+1440181 47.719.12 La Tour d&#039;Henri VIII (The Tour of Henry VIII) Jean-Baptiste-Camille Corot
+1440826 84.198.787.16 Le Départ Charles François Daubigny
+1474086 84.198.787.3 L&#039;Emménagement au Bottin Charles François Daubigny
+1505996 46.001 Les Cerfs (The Deer) Charles François Daubigny
+1506251 84.198.787.12 Le Bateau-Atelier Charles François Daubigny
+1507066 84.198.821 Le Verger (The Orchard) Charles François Daubigny

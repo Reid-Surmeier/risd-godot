@@ -85,7 +85,14 @@
     "inventory-references/tracery-arch-selected-0.png",
     "inventory-references/tracery-arch-selected-1.png",
     "inventory-references/purple-plaster-selected-0.png",
-    "inventory-references/purple-plaster-selected-1.png"
+    "inventory-references/purple-plaster-selected-1.png",
+    "inventory-references/courbet-frame-selected-0.png",
+    "inventory-references/courbet-frame-selected-1.png",
+    "inventory-references/courbet-frame-selected-2.png",
+    "inventory-references/corot-frame-selected-0.png",
+    "inventory-references/corot-frame-selected-1.png",
+    "inventory-references/white-panel-door-selected-0.png",
+    "inventory-references/white-panel-door-selected-1.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -1422,6 +1429,83 @@
       "model": "meta/muse-image",
       "parameters": {
         "size": "1024x1024"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-220cc901c4ce1ef23a48",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1440"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        },
+        {
+          "slot": "reference-002",
+          "kind": "image",
+          "payloadDestination": "/input_references/2/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-70da27642b1eec0a970f",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1440"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-fe1b1ceff9ae8de4ee20",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1440x1760"
       },
       "maximumCount": 1,
       "unitCostUsd": "0.01",

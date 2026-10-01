@@ -1,0 +1,94 @@
+[2026-09-30 23:46:24] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Villeneuve&items_per_page=25&page=0> (referer: https://www.google.com/)
+1524096 2011.15 Pre-retroscope VI (Gowanus Canal Journey, NY) Conrad Shawcross
+1538631 1998.35 View of a Roman Aqueduct, near Tivoli Louis-Jules-Frédéric Villeneuve
+[2026-09-30 23:46:26] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Salvator+Rosa&items_per_page=25&page=0> (referer: https://www.google.com/)
+1209991 43.400.60 Ceres and Phytalus Salvator Rosa
+1226911 43.400.53 Alexander in the Studio of Apelles Salvator Rosa
+1273766 04.149 Landscape Salvator Rosa
+1274326 58.139 Allecto Inciting Turnus to War Unknown Maker, Italian
+1293076 83.225.28 Albert, Companion to St. William, Tied to a Tree Salvator Rosa
+1308696 43.400.56 The Genius of Salvator Rosa Salvator Rosa
+1324601 13.1184 Diogenes in Search of an Honest Man William Sharp
+1340851 43.400.54 Diogenes and Alexander Salvator Rosa
+1357371 43.400.57 print Salvator Rosa
+1358916 43.400.59 Albert, Companion to St. William Salvator Rosa
+1390741 69.010 Democritus Salvator Rosa
+1391106 43.400.179 Portrait of Salvator Rosa Heinrich Sachs
+1405591 57.112 Three Soldiers Unknown Maker, German
+1440741 43.400.58 print Salvator Rosa
+1520131 43.400.55 Glaucus and Scylla Salvator Rosa
+1646990 1878.019 Man tied to Tree Salvator Rosa
+1646991 1878.015 Composite Print Salvator Rosa
+1646992 1878.011 Composite Print Salvator Rosa
+1646995 1878.005 A scene in the woods Salvator Rosa
+1646997 1878.006 Composite Print Salvator Rosa
+1646998 1878.001 Composite portraits Salvator Rosa
+1647000 1878.010 Vital Energy Salvator Rosa
+1647002 1878.002 Composite portraits Salvator Rosa
+1647003 1878.003 Composite portraits Salvator Rosa
+1647004 1878.004 Composite portraits Salvator Rosa
+[2026-09-30 23:46:31] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Salvator+Rosa&items_per_page=25&page=1> (referer: https://www.google.com/)
+1647005 1878.007 Composite Print Salvator Rosa
+1647006 1878.008 Composite Print Salvator Rosa
+1647007 1878.009 Composite Print Salvator Rosa
+1647008 1878.012 Composite Print Salvator Rosa
+1647009 1878.013 Composite Print Salvator Rosa
+1647010 1878.014 Composite Print Salvator Rosa
+1647011 1878.016 Composite Print Salvator Rosa
+1647012 1878.017 Composite Print Salvator Rosa
+1647013 1878.018 Composite Print Salvator Rosa
+1243026 58.052 Battle of Tritons Salvator Rosa
+1342711 84.198.1158 Painters&#039; Etchings Illustrated; an English album of original prints assembled in the 19th century Unknown Maker
+1374006 2001.76.8 Oriental in turban, seen from behind, with two women Salvator Rosa
+1391186 43.400.109 Diogenes in Search of an Honest Man William Sharp
+1407071 26.336 St. John Preaching in the Wilderness John Browne
+1440301 43.400.38 Laomedon, King of Troy, Detected by Neptune and Apollo Robert Strange
+1442801 84.198.1158.138 Salvator Rosa John Neagle
+1520546 26.356 The Prodigal Son Simon François Ravenet
+1521731 84.198.1158.139 Jason and the Dragon Salvator Rosa
+1521866 84.198.1158.140 The Prodigal Son Simon François Ravenet
+1579921 2010.114.53 Two blasted trees under which three small banditti sit Joseph Goupy
+1646982 1878.057 Democritus omnium derisor - in omnium fine defigitur Salvator Rosa
+1646983 1878.049 One of four Composite prints Salvator Rosa
+1646984 1878.024 Man fighting a Dragon Salvator Rosa
+1646985 1878.045 One of four composite prints Salvator Rosa
+1646986 1878.058 Diogenes Adolescentem ... Salvator Rosa
+[2026-09-30 23:46:31] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Salvator+Rosa&items_per_page=25&page=2> (referer: https://www.google.com/)
+1646987 1878.020 Composite Print Salvator Rosa
+1646988 1878.037 One of four composite prints Salvator Rosa
+1646989 1878.042 One of three composite prints Salvator Rosa
+1646993 1878.053 One of four Composite prints Salvator Rosa
+1646994 1878.041 Old man and resting solider Salvator Rosa
+1646996 1878.029 One of four composite prints Salvator Rosa
+1646999 1878.025 One of four composite prints Salvator Rosa
+1647001 1878.033 One of four composite prints Salvator Rosa
+1647014 1878.021 Composite Print Salvator Rosa
+1647015 1878.022 Composite Print Salvator Rosa
+1647016 1878.023 Composite Print Salvator Rosa
+1647017 1878.026 One of four composite prints Salvator Rosa
+1647018 1878.027 One of four composite prints Salvator Rosa
+1647019 1878.028 One of four composite prints Salvator Rosa
+1647020 1878.030 One of four composite prints Salvator Rosa
+1647021 1878.031 One of four composite prints Salvator Rosa
+1647022 1878.032 One of four composite prints Salvator Rosa
+1647023 1878.034 One of four composite prints Salvator Rosa
+1647024 1878.035 One of four composite prints Salvator Rosa
+1647025 1878.036 One of four composite prints Salvator Rosa
+1647026 1878.038 One of four composite prints Salvator Rosa
+1647027 1878.039 One of four composite prints Salvator Rosa
+1647028 1878.040 One of four composite prints Salvator Rosa
+1647029 1878.043 One of three composite prints Salvator Rosa
+1647030 1878.044 One of three composite prints Salvator Rosa
+[2026-09-30 23:46:32] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Salvator+Rosa&items_per_page=25&page=3> (referer: https://www.google.com/)
+1647031 1878.046 One of four composite prints Salvator Rosa
+1647032 1878.047 One of four composite prints Salvator Rosa
+1647033 1878.048 One of four composite prints Salvator Rosa
+1647034 1878.050 One of four Composite prints Salvator Rosa
+1647035 1878.051 One of four Composite prints Salvator Rosa
+1647036 1878.052 One of four Composite prints Salvator Rosa
+1647037 1878.054 One of four Composite prints Salvator Rosa
+1647038 1878.055 One of four Composite prints Salvator Rosa
+1647039 1878.056 One of four Composite prints Salvator Rosa
+1584451 04.153 The Movement of an Army Philips Wouwerman
+1584476 04.152 The Encampment Philips Wouwerman
+1355366 59.010 Almanach Dedie aux Dames Pouo l&#039; An 1815. Antoine Abraham Goujon de Villiers

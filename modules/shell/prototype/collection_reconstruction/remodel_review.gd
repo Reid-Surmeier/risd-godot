@@ -10,7 +10,7 @@ func run() -> void:
 	root.add_child(presentation)
 	var scene=presentation.scene
 	await process_frame
-	for view in [["room",Vector3(.45,.25,-4.6)],["gallery",Vector3(-.55,.25,3)]]:
+	for view in [["room",Vector3(.45,.25,-4.6)],["gallery",Vector3(-.55,.25,3)],["grey-walk",Vector3(11.3,.25,-2)]]:
 		scene.reset(view[1])
 		for i in 30:
 			await physics_frame
@@ -50,6 +50,12 @@ func run() -> void:
 		["wide-settee-portrait",Vector3(.8,1.65,-4.9),Vector3(-2.4,1.45,-4.7)],
 		["wide-gold-pedestal",Vector3(.8,1.65,-2.8),Vector3(3.05,1.0,-3.8)],
 		["purple-wall-detail",Vector3(3.9,1.65,-2),Vector3(5.6,1.65,-2.2)],
+		["purple-grey-wide",Vector3(4.1,1.65,-2),Vector3(15.65,1.5,-2)],
+		["grey-purple-reverse",Vector3(14.8,1.65,-2),Vector3(3.1,1.5,-2)],
+		["grey-gallery-wide",Vector3(8.9,1.65,-2),Vector3(15.65,1.5,-2)],
+		["grey-door-corner",Vector3(13.5,1.65,-3),Vector3(8.9,1.5,.5)],
+		["courbet-in-room",Vector3(10.2,1.8,-4.35),Vector3(8.53,1.8,-4.35)],
+		["corot-in-room",Vector3(14.8,1.8,-3.9),Vector3(14.8,1.8,-5.72)],
 		["architecture-asset",Vector3(-.55,2.1,-3.5),Vector3(-.55,1.9,-.4)],
 		["wallpaper-asset",Vector3(1.6,2.1,-5.4),Vector3(3.59,2.1,-5.4)],
 		["gallery-wide",Vector3(-.55,1.65,.7),Vector3(-.3,1.5,12)],

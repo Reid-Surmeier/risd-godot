@@ -221,7 +221,7 @@ for row in json.loads((app/'video-inventory.json').read_text())['volume_instance
 inputs[str(app/'video-inventory.json')]=hashlib.sha256((app/'video-inventory.json').read_bytes()).hexdigest()
 
 # Reuse the accepted frame preparation for both video-matched portraits.
-for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.762,.952], '2009.9')]:
+for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.762,.952], '2009.9'), ('courbet', [.733,.597], '43.571'), ('corot', [.460,.319], '24.089')]:
     frame_path=app/'trial'/f'{kind}-frame-original.webp'
     a=np.array(Image.open(frame_path).convert('RGBA'));hsv=cv2.cvtColor(a[:,:,:3],cv2.COLOR_RGB2HSV)
     chroma=(hsv[:,:,0]>=125)&(hsv[:,:,0]<=175)&(hsv[:,:,1]>70)&(hsv[:,:,2]>35)
@@ -229,15 +229,44 @@ for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.
     y,x=np.where(a[:,:,3]>0);a=a[y.min():y.max()+1,x.min():x.max()+1]
     white=(np.min(a[:,:,:3],axis=2)>245).astype('uint8');count,labels,stats,centers=cv2.connectedComponentsWithStats(white)
     h,w=white.shape;label=int(labels[h//2,w//2]);assert label>0
-    x0,y0,ww,hh=map(int,stats[label,:4]);assert ww>500 and hh>700
+    x0,y0,ww,hh=map(int,stats[label,:4]);assert ww>500 and hh>350
+    fit=None
+    if kind in ['courbet','corot']:
+        fit_path=app/'grey-frames-source-fit.json'
+        fit=json.loads(fit_path.read_text())[kind]
+        inputs[str(fit_path)]=hashlib.sha256(fit_path.read_bytes()).hexdigest()
+        margins=[round(m*hh/canvas[1]) for m in fit['target_margins_m']]
+        left,top,right,bottom=margins
+        resized=Image.new('RGBA',(left+ww+right,top+hh+bottom))
+        old_x=[0,x0,x0+ww,w];old_y=[0,y0,y0+hh,h]
+        new_x=[0,left,left+ww,left+ww+right];new_y=[0,top,top+hh,top+hh+bottom]
+        native=Image.fromarray(a)
+        for j in range(3):
+            for i in range(3):
+                piece=native.crop((old_x[i],old_y[j],old_x[i+1],old_y[j+1]))
+                resized.paste(piece.resize((new_x[i+1]-new_x[i],new_y[j+1]-new_y[j]),Image.Resampling.LANCZOS),(new_x[i],new_y[j]))
+        assert np.array_equal(np.array(resized)[top:top+hh,left:left+ww],a[y0:y0+hh,x0:x0+ww])
+        a=np.array(resized);h,w=a.shape[:2];x0,y0=left,top
     Image.fromarray(a).save(out/'assets'/f'{kind}-frame.png')
-    (out/'assets'/f'{kind}-frame-geometry.json').write_text(json.dumps({'canvas_m':canvas,'margins_px':[x0,y0,w-x0-ww,h-y0-hh],'opening_aspect':ww/hh,'catalogue_aspect':canvas[0]/canvas[1],'profile':'native Muse bands; 9cm inferred depth; aspect corrected by existing nine-slice geometry'},indent=2)+'\n')
-    painting_path=app/'catalogue/painting-58.197.jpg' if kind=='edwards' else app/'inventory-catalogue/romany-0.jpg'
-    copy(painting_path,'assets/painting-'+painting+'.jpg')
+    (out/'assets'/f'{kind}-frame-geometry.json').write_text(json.dumps({'canvas_m':canvas,'margins_px':[x0,y0,w-x0-ww,h-y0-hh],'opening_aspect':ww/hh,'catalogue_aspect':canvas[0]/canvas[1],'profile':'native Muse bands; 9cm inferred depth; aspect corrected by existing nine-slice geometry','source_fit':fit},indent=2)+'\n')
+    if kind in ['courbet','corot']:
+        painting_path=app/'inventory-catalogue'/('courbet-jura-zoom-0.jpg' if kind=='courbet' else 'corot-river-zoom-0.jpg')
+        image=Image.open(painting_path)
+        image.crop((19,18,1305,1059) if kind=='courbet' else (18,18,1306,911)).save(out/'assets'/f'painting-{painting}.jpg',quality=95)
+        inputs[str(painting_path)]=hashlib.sha256(painting_path.read_bytes()).hexdigest()
+    else:
+        painting_path=app/'catalogue/painting-58.197.jpg' if kind=='edwards' else app/'inventory-catalogue/romany-0.jpg'
+        copy(painting_path,'assets/painting-'+painting+'.jpg')
     inputs[str(frame_path)]=hashlib.sha256(frame_path.read_bytes()).hexdigest()
 
 copy(app/'inventory-catalogue/arabesque-wallpaper-zoom-0.jpg','assets/wallpaper-34.912.jpg')
 copy(app/'inventory-catalogue/arabesque-wallpaper.json','assets/wallpaper-34.912.json')
+door=app/'trial/white-panel-door-original.webp'
+image=Image.open(door).convert('RGB')
+assert image.size==(1440,1760),'Door UV regions require review when native pixels change'
+for index,box in enumerate([(523,258,921,632),(523,708,921,1086),(523,1150,921,1526)]):
+    image.crop(box).save(out/'assets'/f'white-panel-door-{index}.png')
+inputs[str(door)]=hashlib.sha256(door.read_bytes()).hexdigest()
 for kind in ['fetti-frame','goltzius-frame','romanesque-portal','tracery-arch']:
     for suffix in ['.png','-geometry.json']:
         copy(app/'trial'/(kind+suffix),'assets/'+kind+suffix)
@@ -251,7 +280,7 @@ canvas.save(out/'assets/painting-36.003.jpg',quality=95)
 inputs[str(fetti)]=hashlib.sha256(fetti.read_bytes()).hexdigest()
 
 geometry = json.loads((ingestion/'room-route-walk-v5/geometry.json').read_text())
-geometry['caption'] = 'Collection · WASD move · Space reset · 1/2 room views\nRoom prototype · placements and unfinished objects are provisional.\n'
+geometry['caption'] = 'Collection · WASD move · Space reset · 1/2/3 room views\nRoom prototype · placements and unfinished objects are provisional.\n'
 geometry['point_cloud_render'] = False
 geometry['doorway_correction'] = {'sources':['IMG_6380/000247.jpg','IMG_6380/000449.jpg','IMG_6384/000209.jpg','IMG_6385/000005.jpg'], 'correction':'wide shots put the long-gallery doorway on the wall perpendicular to the sofa; purple doorway remains opposite the sofa wall. The v15 same-wall sofa/gallery-door arrangement was wrong.', 'confidence':'wall relationships visually corroborated; metric positions remain provisional pending matched wide renders'}
 geometry['rooms']=[
@@ -261,7 +290,12 @@ geometry['rooms']=[
     {'label':'dark medieval room','bounds':[2.5,11.5,18.85,24.95], 'height':4.25, 'openings':{'west':[21.95,23.08], 'north':[3.4355,7.6645], 'east':[19.95,21.65]}, 'stone_sides':['west','north']},
     {'label':'Main Hall portal threshold study limit','bounds':[3.4355,7.6645,17.25,18.85], 'height':4.25, 'openings':{'south':[3.4355,7.6645]}, 'stone_sides':['south']},
     {'label':'stairs landing threshold study limit','bounds':[11.5,12.9,19.95,21.65], 'openings':{'west':[19.95,21.65]}},
-    {'label':'purple corridor study limit','bounds':[3.65,5.6,-2.8,-1.2], 'openings':{'west':[-2.8,-1.2]}}]
+    {'label':'purple elevator-5 connector','bounds':[3.65,8.45,-2.8,-1.2], 'openings':{'west':[-2.8,-1.2],'east':[-2.8,-1.2]}},
+    {'label':'grey French gallery','bounds':[8.45,15.65,-5.8,1.8], 'floor':'herringbone', 'openings':{'west':[-2.8,-1.2],'east':[-5.8,1.8],'north':[9.15,11.15],'south':[9.15,11.15]}},
+    {'label':'Ionic marble-stair threshold study limit','bounds':[15.65,17.25,-5.8,1.8], 'openings':{'west':[-5.8,1.8]}},
+    {'label':'piano-stair threshold study limit','bounds':[9.15,11.15,-7.4,-5.8], 'openings':{'south':[9.15,11.15]}},
+    {'label':'Grand Gallery grey-entry threshold study limit','bounds':[9.15,11.15,1.8,3.4], 'height':6.0, 'openings':{'north':[9.15,11.15]}}]
+geometry['grey_gallery_connections']={'source_frames':'6380:29-36,73-80,196-210,493-501','observed':'Purple connector faces Ionic opening across grey room; piano door on adjoining wall; Grand Gallery door perpendicular beside connector. Earlier opposite-ends claim removed.','metric_acceptance':False,'extent':'Authored grey room plus three threshold limits; full Grand Gallery/stairs and museum-loop metric fit unfinished'}
 geometry['patches']=[{'label':r['label'],'color':'81735c','vertices':[[r['bounds'][0],0,r['bounds'][2]],[r['bounds'][1],0,r['bounds'][2]],[r['bounds'][1],0,r['bounds'][3]],[r['bounds'][0],0,r['bounds'][3]]]} for r in geometry['rooms']]
 geometry['boxes']=[]
 geometry['start']=[-.55,.25,-1.3]
@@ -269,6 +303,9 @@ geometry['trials']=[['gallery_door_out',[-.55,.25,-1.3],[-.55,0,1.6],False],['ga
 geometry['trial_seconds']=3.5
 geometry['trials'] += [['far_gallery_door_out',[-.55,.25,18],[-.55,0,19.7],False],['far_gallery_door_back',[-.55,.25,19.7],[-.55,0,18],False]]
 geometry['trials'] += [['gold_service_base_blocked',[2.05,.25,-3.8],[3.25,0,-3.8],True]]
+geometry['trials'] += [['purple_grey_out',[7.6,.25,-2],[9.3,0,-2],False],['purple_grey_back',[9.3,.25,-2],[7.6,0,-2],False],['grey_grand_out',[10.15,.25,1],[10.15,0,2.65],False],['grey_grand_back',[10.15,.25,2.65],[10.15,0,1],False],['grey_piano_out',[10.15,.25,-5],[10.15,0,-6.6],False],['grey_piano_back',[10.15,.25,-6.6],[10.15,0,-5],False],['grey_ionic_out',[14.85,.25,-2],[16.5,0,-2],False],['grey_ionic_back',[16.5,.25,-2],[14.85,0,-2],False]]
+for a,side,b,opposite in [(6,'east',7,'west'),(7,'east',8,'west'),(7,'north',9,'south'),(7,'south',10,'north')]:
+    assert geometry['rooms'][a]['openings'][side]==geometry['rooms'][b]['openings'][opposite]
 geometry['object_placement_corrections']={'source':'IMG_6380:277-281,319-348,387-408', 'settee':'Aligned beneath Romany at z=-4.7; absolute offsets provisional', 'gold_service_case':'Solid pedestal to floor; pink Worcester retains tray and legs'}
 geometry['trials'] += [['tracery_out',[1.7,.25,22.515],[3.35,0,22.515],False],['tracery_back',[3.35,.25,22.515],[1.7,0,22.515],False],['stone_portal_out',[5.55,.25,19.6],[5.55,0,17.85],False],['stone_portal_back',[5.55,.25,17.85],[5.55,0,19.6],False],['stairs_door_out',[10.7,.25,20.8],[12.25,0,20.8],False],['stairs_door_back',[12.25,.25,20.8],[10.7,0,20.8],False],['renaissance_bench_blocked',[-.8,.25,20.8],[-.8,0,22.4],True]]
 geometry['far_connection']={'sources':['IMG_6383/000127.jpg','IMG_6383/000134.jpg','IMG_6382/000166.jpg'], 'observed':'Long gallery enters light Renaissance room; its perpendicular east doorway leads into dark medieval room. Medieval round portal and stairs door are on different walls.', 'extent':'Two room shells and portal/stairs thresholds; object contents and all room metrics incomplete. Main Hall has not been integrated.'}

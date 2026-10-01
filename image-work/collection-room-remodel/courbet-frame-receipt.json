@@ -1,0 +1,26 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/courbet-frame-selected-0.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/courbet-frame-selected-1.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/courbet-frame-selected-2.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-7e028b981f18c5b78af63cab/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "11c5cf4d300dec8d93f60cd19bb9337d0fcb5e46ac611ceaa74658f3124abc32"
+    }
+  ],
+  "changesRequested": "Generate ONE complete front orthographic low polygon gilded frame matching the real frame around RISD Courbet Jura Landscape43.571 in the reference views. Preserve its broad dense carved acanthus/foliate outer band with projecting corner and centre leaf ornaments, narrow raised rectangular inner gold fillet, aged warm gold and restrained relief shadows in the existing museum game style. All four sides/corners complete. Perfectly blank white rectangular opening with canvas width73.3 height59.7cm. Flat magenta #FF00FF outside silhouette; no painting, labels, walls, people, shadows outside frame, perspective or invented extra ornaments. One frame only.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-7e028b981f18c5b78af63cab",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-7e028b981f18c5b78af63cab"
+}
