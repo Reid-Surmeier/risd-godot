@@ -14,6 +14,7 @@ import argparse
 import hashlib
 import io
 import json
+import os
 from pathlib import Path
 import re
 import shutil
@@ -60,9 +61,12 @@ if (extension / "addition_baked/room.lmbake").exists():
         (rooms / "addition_baked" / metadata.name).write_text(
             metadata.read_text().replace("res://addition_baked/", "res://collection_rooms/addition_baked/"))
     converter = Path(__file__).with_name("relocate_lightmap.gd")
-    subprocess.run(["godot", "--headless", "--path", str(extension), "--script", str(converter),
+    # The headless dummy renderer discards probe SH data when serializing LightmapGIData.
+    converter_env = dict(os.environ, DISPLAY=":99", LIBGL_ALWAYS_SOFTWARE="1", GALLIUM_DRIVER="llvmpipe")
+    subprocess.run(["godot", "--display-driver", "x11", "--rendering-method", "gl_compatibility",
+                    "--path", str(extension), "--script", str(converter),
                     "--", "res://addition_baked/room.lmbake", str(rooms / "addition_baked/room.tres")],
-                   check=True, timeout=90)
+                   check=True, timeout=90, env=converter_env)
     (rooms / "addition_baked/room.lmbake").unlink()
     for path in [rooms / "addition_baked/room.tscn", rooms / "addition_baked/room.tres"]:
         text = path.read_text().replace("room.lmbake", "room.tres")

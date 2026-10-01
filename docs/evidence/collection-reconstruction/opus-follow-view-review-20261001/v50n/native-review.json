@@ -1,0 +1,403 @@
+{
+	"inventory_saint_roch": {
+		"accession": "21.398",
+		"case_metres_accepted": false,
+		"closed_solid_prototype": true,
+		"fine_fidelity_accepted": false,
+		"height_m": 1.054,
+		"muse_sheet_used": false,
+		"placement_accepted": false
+	},
+	"saint_roch_node": {
+		"mesh_children": 11,
+		"parent_has_collision": true,
+		"placement_accepted": false,
+		"rear_fidelity_accepted": false,
+		"survey_metres_accepted": false,
+		"visual_fidelity_accepted": false,
+		"world": [
+			-10.4099998474121,
+			0.680000007152557,
+			3.85000038146973
+		],
+		"yaw_deg": 90.0000025044782
+	},
+	"top_level_flags": {
+		"grey_gallery_metric_accepted": false,
+		"grey_gallery_objects_complete": false,
+		"medieval_case_contents_complete": false,
+		"medieval_objects_complete": false,
+		"museum_metric_accepted": false,
+		"sculpture_room_objects_complete": false
+	},
+	"traces": [
+		{
+			"end": [
+				-8.05000019073486,
+				-24.9799423217773
+			],
+			"frames": 64,
+			"held_at_end": [
+				"down"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400009155273438,
+			"name": "rockefeller-to-west-gallery",
+			"reached": true,
+			"spaces": [
+				"far",
+				"arch"
+			],
+			"start": [
+				-8.05000019073486,
+				-27.5
+			],
+			"step_limit_m": 0.04,
+			"view_yaw_end": 0.0
+		},
+		{
+			"end": [
+				-8.05000019073486,
+				-27.5200576782227
+			],
+			"frames": 64,
+			"held_at_end": [
+				"up"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400009155273438,
+			"name": "west-gallery-to-rockefeller",
+			"reached": true,
+			"spaces": [
+				"arch",
+				"far"
+			],
+			"start": [
+				-8.05000019073486,
+				-25.0
+			],
+			"step_limit_m": 0.04,
+			"view_yaw_end": 0.0
+		},
+		{
+			"end": [
+				0.0,
+				-27.5200576782227
+			],
+			"frames": 64,
+			"held_at_end": [
+				"up"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400009155273438,
+			"name": "hall-to-grey",
+			"reached": true,
+			"spaces": [
+				"gallery",
+				"far"
+			],
+			"start": [
+				0.0,
+				-25.0
+			],
+			"step_limit_m": 0.04,
+			"view_yaw_end": 0.0
+		},
+		{
+			"end": [
+				0.0,
+				-24.9799423217773
+			],
+			"frames": 64,
+			"held_at_end": [
+				"down"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400009155273438,
+			"name": "grey-to-hall",
+			"reached": true,
+			"spaces": [
+				"far",
+				"gallery"
+			],
+			"start": [
+				0.0,
+				-27.5
+			],
+			"step_limit_m": 0.04,
+			"view_yaw_end": 0.0
+		}
+	],
+	"views": [
+		{
+			"addition_field_on": true,
+			"cull_mask": 8191,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"layer8": {
+				"alpha": 1.0,
+				"meshes": 16,
+				"with_original_material": 16
+			},
+			"name": "grey-follow-south-after-facing-north",
+			"position": [
+				0.0,
+				-30.5
+			],
+			"space": "far",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"cull_mask": 8191,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"layer8": {
+				"alpha": 1.0,
+				"meshes": 16,
+				"with_original_material": 16
+			},
+			"name": "grey-follow-south-fresh",
+			"position": [
+				0.0,
+				-30.5
+			],
+			"space": "far",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"cull_mask": 7135,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"layer8": {
+				"alpha": 1.0,
+				"meshes": 16,
+				"with_original_material": 16
+			},
+			"name": "connector-dollhouse-south",
+			"position": [
+				-2.59999990463257,
+				-27.7999992370605
+			],
+			"space": "far",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"cull_mask": 7135,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"layer8": {
+				"alpha": 1.0,
+				"meshes": 16,
+				"with_original_material": 16
+			},
+			"name": "rockefeller-dollhouse-south",
+			"position": [
+				-7.0,
+				-29.2999992370605
+			],
+			"space": "far",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"cull_mask": 8029,
+			"hall_field_on": false,
+			"heading": -1.5707963267949,
+			"layer8": {
+				"alpha": 1.0,
+				"meshes": 16,
+				"with_original_material": 16
+			},
+			"name": "rockefeller-gallery-view-east",
+			"position": [
+				-7.0,
+				-29.2999992370605
+			],
+			"space": "far",
+			"view_mode": 1
+		},
+		{
+			"addition_field_on": true,
+			"cull_mask": 6159,
+			"hall_field_on": false,
+			"heading": 0.0,
+			"layer8": {
+				"alpha": 1.0,
+				"meshes": 16,
+				"with_original_material": 16
+			},
+			"name": "west-gallery-dollhouse-north",
+			"position": [
+				-8.05000019073486,
+				-24.2999992370605
+			],
+			"space": "arch",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"cull_mask": 8191,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"layer8": {
+				"alpha": 1.0,
+				"meshes": 16,
+				"with_original_material": 16
+			},
+			"name": "rockefeller-follow-south-to-west-gallery",
+			"position": [
+				-8.05000019073486,
+				-28.6000003814697
+			],
+			"space": "far",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"cull_mask": 6175,
+			"hall_field_on": false,
+			"heading": 0.0,
+			"layer8": {
+				"alpha": 1.0,
+				"meshes": 16,
+				"with_original_material": 16
+			},
+			"name": "west-gallery-follow-north-to-rockefeller",
+			"position": [
+				-8.05000019073486,
+				-23.6000003814697
+			],
+			"space": "arch",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"cull_mask": 6167,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"layer8": {
+				"alpha": 0.0,
+				"meshes": 16,
+				"with_original_material": 0
+			},
+			"name": "renaissance-dollhouse-south-near-north-wall",
+			"position": [
+				-8.30000019073486,
+				2.5
+			],
+			"space": "arch",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"cull_mask": 6163,
+			"hall_field_on": false,
+			"heading": 1.5707963267949,
+			"layer8": {
+				"alpha": 0.0,
+				"meshes": 16,
+				"with_original_material": 0
+			},
+			"name": "roch-dollhouse-west",
+			"position": [
+				-9.69999980926514,
+				5.0
+			],
+			"space": "arch",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"cull_mask": 6159,
+			"hall_field_on": false,
+			"heading": 0.0,
+			"layer8": {
+				"alpha": 1.0,
+				"meshes": 16,
+				"with_original_material": 16
+			},
+			"name": "roch-dollhouse-north",
+			"position": [
+				-9.69999980926514,
+				5.0
+			],
+			"space": "arch",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"cull_mask": 6167,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"layer8": {
+				"alpha": 0.0,
+				"meshes": 16,
+				"with_original_material": 0
+			},
+			"name": "roch-dollhouse-south",
+			"position": [
+				-9.69999980926514,
+				5.0
+			],
+			"space": "arch",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"cull_mask": 6163,
+			"hall_field_on": false,
+			"heading": 1.5707963267949,
+			"layer8": {
+				"alpha": 0.0,
+				"meshes": 16,
+				"with_original_material": 0
+			},
+			"name": "roch-gallery-view-west",
+			"position": [
+				-9.69999980926514,
+				5.0
+			],
+			"space": "arch",
+			"view_mode": 1
+		},
+		{
+			"addition_field_on": true,
+			"cull_mask": 6175,
+			"hall_field_on": false,
+			"heading": 1.5707963267949,
+			"layer8": {
+				"alpha": 1.0,
+				"meshes": 16,
+				"with_original_material": 16
+			},
+			"name": "roch-follow-west",
+			"position": [
+				-8.19999980926514,
+				3.84999990463257
+			],
+			"space": "arch",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"cull_mask": 6175,
+			"hall_field_on": false,
+			"heading": 0.785398163397448,
+			"layer8": {
+				"alpha": 1.0,
+				"meshes": 16,
+				"with_original_material": 16
+			},
+			"name": "roch-follow-northwest",
+			"position": [
+				-7.40000009536743,
+				5.30000019073486
+			],
+			"space": "arch",
+			"view_mode": 2
+		}
+	]
+}

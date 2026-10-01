@@ -1,0 +1,308 @@
+[
+	{
+		"cull_mask": 2071,
+		"name": "medieval-tallcase",
+		"position": [
+			3.20000004768372,
+			0.0,
+			2.90000009536743
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 2063,
+		"name": "medieval-lowcase",
+		"position": [
+			-0.100000001490116,
+			0.0,
+			4.59999990463257
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 6159,
+		"name": "hall",
+		"position": [
+			1.45000004768372,
+			0.0,
+			-13.0
+		],
+		"space": "gallery",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "gallery"
+		}
+	},
+	{
+		"cull_mask": 2071,
+		"name": "medieval",
+		"position": [
+			0.0,
+			0.0,
+			3.0
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 2071,
+		"name": "modern-layout",
+		"position": [
+			7.30000019073486,
+			0.0,
+			-1.35000002384186
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 2071,
+		"name": "modern-case",
+		"position": [
+			9.80000019073486,
+			0.0,
+			-3.25
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 2071,
+		"name": "landing",
+		"position": [
+			8.60000038146973,
+			0.0,
+			3.59999990463257
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 5087,
+		"name": "grey",
+		"position": [
+			0.0,
+			0.0,
+			-30.1000003814697
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "far"
+		}
+	},
+	{
+		"cull_mask": 5981,
+		"name": "grey-columns-west",
+		"position": [
+			3.0,
+			0.0,
+			-29.2999992370605
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "far"
+		}
+	},
+	{
+		"cull_mask": 5087,
+		"name": "connector-black",
+		"position": [
+			-2.59999990463257,
+			0.0,
+			-27.7999992370605
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "far"
+		}
+	},
+	{
+		"cull_mask": 5851,
+		"name": "grey-courbet",
+		"position": [
+			0.0,
+			0.0,
+			-30.1000003814697
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "far"
+		}
+	},
+	{
+		"cull_mask": 6167,
+		"name": "hall-grey-reciprocal",
+		"position": [
+			0.0,
+			0.0,
+			-24.5
+		],
+		"space": "gallery",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "gallery"
+		}
+	},
+	{
+		"cull_mask": 6159,
+		"name": "hall-lower",
+		"position": [
+			0.0,
+			0.0,
+			-6.5
+		],
+		"space": "gallery",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "gallery"
+		}
+	},
+	{
+		"cull_mask": 5087,
+		"name": "grey-hall-doorway",
+		"position": [
+			-0.5,
+			0.0,
+			-29.0
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "far"
+		}
+	},
+	{
+		"cull_mask": 5583,
+		"name": "grey-north-facing",
+		"position": [
+			0.0,
+			0.0,
+			-30.1000003814697
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "far"
+		}
+	},
+	{
+		"cull_mask": 2067,
+		"name": "saint-roch-room",
+		"position": [
+			-9.35000038146973,
+			0.0,
+			3.84999990463257
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 2067,
+		"name": "saint-roch-overhead",
+		"position": [
+			-9.35000038146973,
+			0.0,
+			3.84999990463257
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 2071,
+		"name": "renaissance-room",
+		"position": [
+			-8.30000019073486,
+			0.0,
+			2.5
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 43,
+			"cutaway_bodies": 125,
+			"rooms": 12,
+			"space": "arch"
+		}
+	}
+]

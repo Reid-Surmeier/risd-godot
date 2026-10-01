@@ -1,0 +1,56 @@
+[
+  {
+    "source": "/tmp/collection-v49l-bake-import.log",
+    "source_sha256": "f15ffd4c558b01611d562c8c257508942bdc2dc542124f423ae2a592a46edfa6",
+    "archive": "raw-logs/collection-v49l-bake-import.log.gz",
+    "archive_sha256": "e43c689a9d9dd83a2f2e309af70df886382da11cacf37db241c16b7b11aa3a53"
+  },
+  {
+    "source": "/tmp/collection-v49l-bake.log",
+    "source_sha256": "2b23229a93a5a4b945da51bcbc2ad83107906235d3278a8849d8bb89202396a1",
+    "archive": "raw-logs/collection-v49l-bake.log.gz",
+    "archive_sha256": "4973baaa7d038ab5804a581e2e158d74be507c4fdb8ee0325f32511e5f9ab305"
+  },
+  {
+    "source": "/tmp/collection-v49l-bake-prime-import.log",
+    "source_sha256": "0e9619b3491283555b643b1bdec015bda2ac1c8f308977064c61eb06e57c665d",
+    "archive": "raw-logs/collection-v49l-bake-prime-import.log.gz",
+    "archive_sha256": "00e87e814f9da9707334c6a5a66ea81a7d377eb6c16f27381585c1f346091401"
+  },
+  {
+    "source": "/tmp/collection-v49l-bake-prepare.log",
+    "source_sha256": "a27383ca0e2f81a670119e18f6631b8b27f2cd5a04ae6972b1f4405bc6c09d86",
+    "archive": "raw-logs/collection-v49l-bake-prepare.log.gz",
+    "archive_sha256": "140765539695dd530d7fbb8c28b316522f78e7244a41625d4faf993c1f2d8b8e"
+  },
+  {
+    "source": "/tmp/collection-v49l-bake-prime.log",
+    "source_sha256": "cf313dab179198220e6a6ca6095e2e4bf7667940672f7a8e2d8226f8dbbd0908",
+    "archive": "raw-logs/collection-v49l-bake-prime.log.gz",
+    "archive_sha256": "7f641f046d25b098cdfb757e9f782ac733a16895394932c31b72fc5a296d0f98"
+  },
+  {
+    "source": "/tmp/collection-v49l-bake-run.log",
+    "source_sha256": "73b06004c9bbe1c235cabef94bb1a953f59dbe80e437b479ba8adbc5768d3c30",
+    "archive": "raw-logs/collection-v49l-bake-run.log.gz",
+    "archive_sha256": "91610ae8345eea26aa3454f8525d2d993ea81d0cba9517cf1e31b8ede8de5865"
+  },
+  {
+    "source": "/tmp/collection-v49l-prepare.log",
+    "source_sha256": "ad7228fa8b67675eaf4494180617a96a7fa2806d40899c618be71816e5411f74",
+    "archive": "raw-logs/collection-v49l-prepare.log.gz",
+    "archive_sha256": "95d5725c85d18814a7bcd3c1ef29c73247d1ea4e9e112496966ca201e73a550e"
+  },
+  {
+    "source": "/tmp/collection-v49l-architecture-check.log",
+    "source_sha256": "b75894f492f2b6b62544b776c6e067392a8d987788eee4bc670be28f7278198b",
+    "archive": "raw-logs/collection-v49l-architecture-check.log.gz",
+    "archive_sha256": "d253a4e0eee1c1905c49074e56641b14914f0f5202888b83431c996b546352a7"
+  },
+  {
+    "source": "/tmp/collection-v49l-initial-import.log",
+    "source_sha256": "55b0a33f48ec2a39559fc5dba7eb4691d5d11ec329a6b20ef65bad521190805c",
+    "archive": "raw-logs/collection-v49l-initial-import.log.gz",
+    "archive_sha256": "ee11c331e24d64245e5d3986803f170c9f03538c2b112541514f70cf53c289e8"
+  }
+]

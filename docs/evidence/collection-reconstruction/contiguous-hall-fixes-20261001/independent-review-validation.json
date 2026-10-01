@@ -1,0 +1,10 @@
+{
+  "utc": "2026-10-01T18:30:00Z",
+  "task": "task_3bb46fa61d0e",
+  "dispatch": "ctx_75f29b8e4d02",
+  "review_sha256": "d1773164b663c15bc3a25b17557396cc9650db3a37e923b611555395fd47b67d",
+  "outputs_verified": 60,
+  "root_frozen_files_verified": 12,
+  "all_build_source_proof_hashes_verified": true,
+  "scoped_verdict": "accept rendering/movement corrections and provisional flat Saint Roch installation; metric/map/fidelity/browser not accepted"
+}

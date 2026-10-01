@@ -125,11 +125,16 @@
           "id": "bronze-knight",
           "wall": "west",
           "title": "Saint Roch",
-          "survey_frames": "6383:34-45",
-          "status": "Matched to official catalogue photographs and native video; asset and case still unbuilt; placement and metric acceptance false.",
+          "survey_frames": "IMG_6383 18.30,20.60,21.30,62.00s (original-master seconds)",
+          "status": "Closed low-polygon flat study installed with colliding white floor plinth and transparent hood before the shuttered west window; official height1.054m, width/depth/case/placement/likeness unaccepted; Muse sheet rejected off-axis. Room incomplete.",
           "accession": "21.398",
           "catalogue_id": "1273471",
-          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md"
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md",
+          "model_evidence": "docs/evidence/collection-reconstruction/opus-saint-roch-asset-20261001/REPORT.md",
+          "installation_source": "Original IMG_6383 18.3s and62.0s; authoring offset before+9.25m shift(-4.86,.68,22.7), source-relative only",
+          "prototype_built": true,
+          "fine_fidelity_accepted": false,
+          "placement_accepted": false
         },
         {
           "id": "bronze-pieta",
@@ -391,6 +396,7 @@
     "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/ledger.json",
     "all_assets_built": false,
     "metric_accepted": false,
-    "followup_source": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/SOURCES.md"
+    "followup_source": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/SOURCES.md",
+    "low_polygon_prototypes": 2
   }
 }

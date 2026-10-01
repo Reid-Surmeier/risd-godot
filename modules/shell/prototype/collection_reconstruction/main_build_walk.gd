@@ -4,8 +4,8 @@
 ## The authored room scene (remodel_room.tscn running retained_hall_room.gd) is added to the
 ## parent's viewport and its own Hall copy, visitor, camera, light rig and input are removed.
 ## Rooms on the portal side share the parent's "arch" space; rooms behind the far door take
-## the parent's "far" space, where the Hall is not drawn, so its vestibule cannot stand inside
-## them and the loop does not have to close in metres. Outside the Hall the visitor is held
+## the parent's "far" space, with the obsolete demo tunnel hidden and the Hall visible through
+## its doorway. The loop does not yet close in metres. Outside the Hall the visitor is held
 ## to geometry.json's rooms and openings; there is no physics body.
 ## Without a room scene in the project this script behaves exactly as walk4.gd.
 extends "res://modules/shell/prototype/gallery_walk4/walk4.gd"
@@ -222,12 +222,52 @@ func _set_lighting(enabled: bool) -> void:
 	var hall: Array = _source_meshes.duplicate()
 	if _baked_room:
 		hall += _baked_room.find_children("*", "MeshInstance3D", true, false)
+	var changed := false
 	for mesh in hall:
 		if not is_instance_valid(mesh) or mesh.mesh == null:
 			continue
 		var box: AABB = mesh.global_transform * mesh.mesh.get_aabb()
 		if box.position.z >= -0.001 and box.end.z > 2.3:
 			mesh.hide()
+		var floor: ShaderMaterial = mesh.material_override as ShaderMaterial
+		if floor != null and floor.get_shader_parameter("floor_z_limits") is Vector2:
+			continue # Native planks are already clipped per pixel; keep whole plank quads.
+		if box.position.z < -L - 0.19 and not mesh.has_meta("far_fixture_clipped"):
+			# 6380 100/107s shows the open grey/Hall connection. Remove only the old
+			# demo's geometry beyond the Hall plane; keep Hall-side trim and native UV2.
+			var clipped := ArrayMesh.new()
+			clipped.lightmap_size_hint = mesh.mesh.lightmap_size_hint
+			var removed := 0
+			for surface in mesh.mesh.get_surface_count():
+				var arrays: Array = mesh.mesh.surface_get_arrays(surface)
+				var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+				var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX] if arrays[Mesh.ARRAY_INDEX] != null else PackedInt32Array(range(vertices.size()))
+				if indices.is_empty():
+					indices = PackedInt32Array(range(vertices.size()))
+				var kept := PackedInt32Array()
+				for i in range(0, indices.size(), 3):
+					var triangle := indices.slice(i, i + 3)
+					var outside := false
+					for vertex in triangle:
+						outside = outside or (mesh.global_transform * vertices[vertex]).z < -L - 0.19
+					if outside:
+						removed += 1
+					else:
+						kept.append_array(triangle)
+				if kept.is_empty():
+					continue
+				arrays[Mesh.ARRAY_INDEX] = kept
+				clipped.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+				clipped.surface_set_material(clipped.get_surface_count() - 1, mesh.mesh.surface_get_material(surface))
+			mesh.mesh = clipped
+			mesh.set_meta("far_fixture_clipped", removed)
+			changed = true
+	if changed and _baked_room:
+		# A changed mesh loses its renderer lightmap binding. Reassign the saved users.
+		var lightmap = _baked_room.get_node("Lightmap")
+		var saved = lightmap.light_data
+		lightmap.light_data = null
+		lightmap.light_data = saved
 
 
 func _enter_space(next: String) -> void:
@@ -239,22 +279,19 @@ func _enter_space(next: String) -> void:
 	# that is the long west gallery, not the Hall.
 	if previous == "arch" and next == "gallery" and absf(_pos.x) > DOORS.arch.size.x / 2.0:
 		return
-	super(next)
-	if previous == "gallery" and next == "far":
-		# walk4 lands in its test room at z = -0.7. The grey gallery's Hall door is the far wall.
-		_pos = Vector3(0, 0, -L - 0.7)
-		_kid.position = _pos
-		if _rigged_visitor:
-			_kid.reset_contacts()
-	elif previous != "gallery" and next != "gallery":
-		# A doorway between the two room groups. walk4's "arch" branch changes space with no cover.
+	if (previous in ["gallery", "far"] and next in ["gallery", "far"]) or (previous in ["arch", "far"] and next in ["arch", "far"]):
+		# Added-room doorways are contiguous, unlike walk4's separate test rooms.
+		# Keep position, camera heading and held input when crossing either way.
+		_space = next
+		get_node("OtherWall").visible = next == "gallery"
 		for node in _vp.get_children():
 			if node is WorldEnvironment:
-				node.environment.background_color = Color(
-					"#ece9e2" if next == "far" else "#20242a"
-				)
-		_portal_flash.modulate.a = 1.0
-		create_tween().tween_property(_portal_flash, "modulate:a", 0.0, 0.22)
+				node.environment.background_color = Color("#20242a")
+				node.environment.ambient_light_energy = 0.6 if next != "far" and not _baked_lighting else 0.0
+		_update_camera(1.0)
+		print("NAV_SPACE ", previous, " -> ", next)
+		return
+	super(next)
 	_update_camera(1.0)
 
 
@@ -374,14 +411,35 @@ func _update_camera(k: float) -> void:
 	super(k)
 	if _rooms == null:
 		return
+	var added := _room_at(_pos) >= 0
+	if _baked_room:
+		_baked_room.get_node("Lightmap").visible = not added
+	var capture := _rooms.get_node_or_null("BakedRoom/Lightmap")
+	if capture:
+		capture.visible = added
+	if _white_capture:
+		_white_capture.visible = false # The attached rooms carry their own native probe field.
 	if view_mode == 2 and _room_at(_pos) >= 0:
 		# walk4's follow camera is boxed into its stand-in rooms; in an added room it just follows.
 		var forward := _fwd()
 		_cam.fov = 58.0
 		_cam.position = _pos - forward * 3.1 + Vector3(0, 2.45, 0)
 		_cam.look_at(_pos + forward * 2.0 + Vector3(0, 1.1, 0))
-	var shown: int = FAR_LAYER if _space == "far" else NEAR_LAYER
+	var shown: int = NEAR_LAYER | FAR_LAYER # Both adjoining room interiors are visible through their doors.
 	_cam.cull_mask |= shown
+	var here := _room_at(_pos)
+	if _space == "gallery":
+		_cam.cull_mask |= FAR_LAYER
+	elif _space == "far" and here >= 0:
+		# The parent's far-space rule leaves the Hall's last wall fade untouched.
+		_cutaway_alpha[8] = 1.0
+		for entry in _cutaway_materials.get(8, []):
+			entry.mesh.material_override = entry.original
+		if _portal_floor_material:
+			_portal_floor_material.set_shader_parameter("cutaway", 0.0)
+		var toward := _fwd() if view_mode == 2 else Vector3(-sin(view_yaw), 0, -cos(view_yaw))
+		var hidden := (4 if toward.x < -0.2 else 2 if toward.x > 0.2 else 0) | (16 if toward.z < -0.2 else 0)
+		_cam.cull_mask |= 63 if view_mode == 2 else 31 & ~hidden
 	# Same intent as the room scene's ray test, without physics: a body that stands between the
 	# camera and the visitor loses its visual, and its trim goes with it.
 	var eye := _cam.global_position

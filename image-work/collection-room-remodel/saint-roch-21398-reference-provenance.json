@@ -1,0 +1,40 @@
+{
+  "accession": "21.398",
+  "source_url": "https://risdmuseum.org/art-design/collection/saint-roch-21398",
+  "height_m": 1.054,
+  "width_depth_measured": false,
+  "inputs": [
+    {
+      "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/saint-roch-21398-zoom-0.jpg",
+      "source_sha256": "abe58d5d9cc7b7515a497b8cc113a6ef385210ac04c785787dbb58cdd5e87ab8",
+      "reference": "inventory-references/saint-roch-21398-official-0.png",
+      "reference_sha256": "7a1f7cb99abbf481089c2413d315bd9e68c06c1bee1fec389375715c885be181",
+      "conversion": "JPEG to RGB PNG, original dimensions; no retouching",
+      "view": "front/three-quarter"
+    },
+    {
+      "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/saint-roch-21398-zoom-1.jpg",
+      "source_sha256": "4d7b25f357de3e5c86af77a68eb1fa6fc84edf8bd249d2689f359c9bf1125bd6",
+      "reference": "inventory-references/saint-roch-21398-official-1.png",
+      "reference_sha256": "8dce04fc2ae62b1a4bfe3a71b8ea24c722f2e840050bf766b04e2f00bd958ac0",
+      "conversion": "JPEG to RGB PNG, original dimensions; no retouching",
+      "view": "front/three-quarter"
+    },
+    {
+      "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/saint-roch-21398-zoom-2.jpg",
+      "source_sha256": "0de2f720aa0f45a0d6fd33cbbd255c015f3f21f80519279620d0960f87577ebb",
+      "reference": "inventory-references/saint-roch-21398-official-2.png",
+      "reference_sha256": "9c410e8ec06681577e6fd5f51b0f527d19fd6793e9dae18acf14ceaa8891bd49",
+      "conversion": "JPEG to RGB PNG, original dimensions; no retouching",
+      "view": "actual rear"
+    },
+    {
+      "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/saint-roch-21398-zoom-3.jpg",
+      "source_sha256": "5abf7bd0f1b36374e63a9926ca3d7a3ba49674fcce240d6970011f30c3481b42",
+      "reference": "inventory-references/saint-roch-21398-official-3.png",
+      "reference_sha256": "cfb1c3482b4a6e8c3b2921e16985f94f62e9a7880f5e2eeb262bd2756949989a",
+      "conversion": "JPEG to RGB PNG, original dimensions; no retouching",
+      "view": "front/three-quarter"
+    }
+  ]
+}

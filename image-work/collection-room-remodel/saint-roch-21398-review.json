@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-01T17:36:10.629389+00:00",
+  "accession": "21.398",
+  "provider": "OpenRouter",
+  "model": "meta/muse-image",
+  "run_id": "run-b13a93b2b883bac8562b552d",
+  "output_sha256": "179cb21bc084a90ff6eb46c27599cbe7c5f9aa25d70f413b4a9e364f531c2273",
+  "actual_cost_usd": "0.010000",
+  "cost_state": "actual",
+  "spend_state": "unknown",
+  "retry": "Never resubmit this run",
+  "full_asset_accepted": false,
+  "source_views": 4,
+  "source_rear_observed": true,
+  "accepted_for_modelling": [
+    "front form and worn wood palette",
+    "observed broad rear cape reference"
+  ],
+  "rejected": [
+    "LEFT SIDE repeats the RIGHT SIDE; never use it as left-side observation"
+  ],
+  "unaccepted": [
+    "polychromy damage detail",
+    "dog fine form",
+    "width and depth",
+    "installation placement"
+  ],
+  "next_action": "Opus builder derives the missing side conservatively from official views and checks a closed low-polygon prototype; no paid retry",
+  "runtime_variant": "flat median colours from official photograph0; no Muse sheet in room",
+  "independent_review": "docs/evidence/collection-reconstruction/opus-contiguous-hall-review-20261001/REPORT.md",
+  "muse_sheet_integration_accepted": false,
+  "closed_flat_prototype_integration_blockers": []
+}

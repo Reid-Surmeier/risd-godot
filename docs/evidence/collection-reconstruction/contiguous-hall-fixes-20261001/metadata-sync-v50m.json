@@ -1,0 +1,12 @@
+{
+  "file": "image-work/collection-room-remodel/sculpture-room-inventory.json",
+  "before_sha256": "0cd3ea223f4637f2d6b5235e36bcd2f004bcfc8152beca0913af283035a97ad5",
+  "after_sha256": "91122a17801b67af302ce8cfaf1ef739dc23a4497fa342f8bc0f9eda42275186",
+  "copies": [
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-extension-v49k/assets/sculpture-room-inventory.json",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50m/collection_rooms/assets/sculpture-room-inventory.json"
+  ],
+  "geometry_changed": false,
+  "bake_changed": false,
+  "reason": "Record verified Saint Roch prototype status and exact original-video seconds before final native review; all acceptance flags remain false"
+}

@@ -1,0 +1,18 @@
+{
+ "hall (v50h native view)": [1.45, 0.9, -13.0],
+ "hall, 0.7 m inside far door": [0.0, 0.9, -25.6],
+ "hall far-door threshold": [0.0, 0.9, -26.3],
+ "grey-hall-doorway (v50h view)": [-0.5, 0.9, -29.0],
+ "grey (v50h native view)": [0.0, 0.9, -30.1],
+ "grey gallery east half": [3.0, 0.9, -29.5],
+ "connector": [-2.75, 0.9, -27.5],
+ "Rockefeller": [-7.0, 0.9, -29.7],
+ "piano threshold": [0.0, 0.9, -33.1],
+ "adjacent gallery": [-8.0, 0.9, -13.0],
+ "Renaissance": [-8.0, 0.9, 3.0],
+ "medieval (v50h native view)": [0.0, 0.9, 3.0],
+ "medieval-tallcase (v50h)": [3.2, 0.9, 2.9],
+ "landing (v50h native view)": [8.6, 0.9, 3.6],
+ "modern-layout (v50h)": [7.3, 0.9, -1.35],
+ "modern-case (v50h)": [9.8, 0.9, -3.25]
+}

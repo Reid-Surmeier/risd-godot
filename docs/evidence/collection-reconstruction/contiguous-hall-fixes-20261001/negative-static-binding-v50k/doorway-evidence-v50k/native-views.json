@@ -1,0 +1,19 @@
+[
+	{
+		"cull_mask": 5071,
+		"name": "grey-hall-doorway",
+		"position": [
+			-0.5,
+			0.0,
+			-29.0
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 42,
+			"cutaway_bodies": 124,
+			"rooms": 12,
+			"space": "far"
+		}
+	}
+]

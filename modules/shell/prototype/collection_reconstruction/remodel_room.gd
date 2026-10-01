@@ -7,9 +7,11 @@ const SeatedWoman := preload("res://seated_woman_asset.gd")
 const VirginChild := preload("res://virgin_child_asset.gd")
 const CaseMetal := preload("res://medieval_metal_assets.gd")
 const CasePair := preload("res://medieval_ceramic_ivory_assets.gd")
+const SaintRoch := preload("res://saint_roch_asset.gd")
 var inventory := {"point_clouds":0,"bookcase":1,"mirrors":2,"settee":1,"armchairs":3}
 var contact_shadow:MeshInstance3D
 var ceiling_details:Array[MeshInstance3D]=[]
+var _renaissance_grille:Node3D
 var views := [Vector3(-1.50, .25, -2.4), Vector3(-2.50, .25, 3)]
 
 func make_visitor() -> Node3D:
@@ -46,6 +48,13 @@ func _ready() -> void:
 	first=get_child_count()
 	build_sculpture_rooms()
 	shift_new(first,Vector3(0,0,9.25))
+	# The grille and its slats go with the north wall when that wall is cut away.
+	var north_header:Node3D
+	for wall in casings:
+		if wall.get_meta("room_wall", "") == "light Renaissance room:north:header":
+			north_header=wall
+	assert(north_header!=null and _renaissance_grille!=null)
+	_renaissance_grille.reparent(north_header)
 	build_grey_gallery()
 	build_connected_hall()
 	build_lion_modern_rooms()
@@ -308,17 +317,19 @@ func build_rooms() -> void:
 			header.set_meta("room_wall",area.label+":"+side+":header")
 			wall_face(header,width,height-clear_height,vertical,1.0 if side in ["west","north"] else -1.0)
 			if stone or side in area.get("column_sides",[]):continue
+			var casing_width:float=.10 if area.label in ["grey French gallery","purple elevator-5 connector","piano-stair threshold study limit"] else .16
+			header.set_meta("source_casing_width",casing_width)
 			for edge in opening:
 				# Deep painted reveals are visible in both reciprocal doorway shots.
 				var jamb:=solid(Vector3(fixed,1.35,edge) if vertical else Vector3(edge,1.35,fixed),Vector3(.38,2.7,.08) if vertical else Vector3(.08,2.7,.38),ivory)
 				jamb.reparent(header)
-				for face in [-1,1]:
-					var surround:=moulding(.10,2.7,"door-architrave",true)
+				for face in [1 if side in ["west","north"] else -1]:
+					var surround:=moulding(casing_width,2.7,"door-architrave",true)
 					surround.position=Vector3(fixed+face*.20,1.35,edge) if vertical else Vector3(edge,1.35,fixed+face*.20)
 					surround.rotation.y=face*PI/2 if vertical else 0.0 if face==1 else PI
 					surround.reparent(header)
-			for face in [-1,1]:
-				var top:=moulding(.10,width+.10,"door-architrave",true)
+			for face in [1 if side in ["west","north"] else -1]:
+				var top:=moulding(casing_width,width+casing_width,"door-architrave",true)
 				top.rotation.z=PI/2
 				top.rotation.y=face*PI/2 if vertical else 0.0 if face==1 else PI
 				top.position=Vector3(fixed+face*.20,2.73,middle) if vertical else Vector3(middle,2.73,fixed+face*.20)
@@ -344,11 +355,16 @@ func build_grey_gallery() -> void:
 	var black:=look(Color("28262b"))
 	black.cull_mode=BaseMaterial3D.CULL_BACK
 	var south:StaticBody3D
+	var north:StaticBody3D
+	var piano_wall:StaticBody3D
 	for wall in casings:
+		if wall.get_meta("room_wall","")=="purple elevator-5 connector:north":north=wall
+		if wall.get_meta("room_wall","")=="piano-stair threshold study limit:south:header":piano_wall=wall
 		if str(wall.get_meta("room_wall","" )).begins_with("purple") and str(wall.get_meta("room_wall","")).ends_with(":south"):
 			assert(south==null,"Purple south wall must have one owner")
 			south=wall
 	assert(south!=null,"Black panel faces must belong to the purple south wall")
+	assert(north!=null and piano_wall!=null,"Lift and piano leaf must have cutaway wall owners")
 	var black_face:=MeshInstance3D.new()
 	var quad:=QuadMesh.new()
 	quad.size=Vector2(2.15,3.5)
@@ -360,7 +376,10 @@ func build_grey_gallery() -> void:
 	add_child(black_face)
 	black_face.reparent(south)
 	# Closed elevator pair: a wall feature, not an invented walkable connection.
-	for x in [2.40,2.90]:solid(Vector3(x,1.35,-.27),Vector3(.49,2.7,.045),ivory)
+	for x in [2.40,2.90]:
+		var lift:=solid(Vector3(x,1.35,-.27),Vector3(.49,2.7,.045),ivory)
+		lift.set_meta("lift_panel",true)
+		lift.reparent(north)
 	var number:=Label3D.new()
 	number.text="5"
 	number.font_size=100
@@ -368,7 +387,9 @@ func build_grey_gallery() -> void:
 	number.modulate=Color("27252a")
 	number.position=Vector3(2.65,2.05,-.23)
 	add_child(number)
+	number.reparent(north)
 	var first:=get_child_count()
+	var piano_leaf:Node3D
 	# Wide column opening faces the purple connector, rather than a door at the far end of a tube.
 	# The north column keeps its authored 1.6m from the moved north wall (-4.2); 6380 247.5/248.5s
 	# has the south one near the connector axis, so it stays. Their spacing is unmeasured.
@@ -436,15 +457,18 @@ func build_grey_gallery() -> void:
 			# ponytail: Hall reveal belongs to the preserved Hall; omit protruding trial leaves.
 			if z>0 or x<10:continue
 			var leaf:=solid(Vector3(x,1.35,z-.45),Vector3(.06,2.7,.95),ivory,true)
+			piano_leaf=leaf
 			# Assemble the three Muse panels around native rails/stiles; generated extra jamb excluded.
 			for index in 3:
 				var y:float=[2.05,1.04,.38][index]
 				var height:float=[.95,.7,.42][index]
 				for side in [-1,1]:
-					var face:float=x+side*.035
-					panel(self,[Vector3(face,y-height/2,leaf.position.z-.37),Vector3(face,y-height/2,leaf.position.z+.37),Vector3(face,y+height/2,leaf.position.z+.37),Vector3(face,y+height/2,leaf.position.z-.37)],
+					var face:float=side*.035
+					panel(leaf,[Vector3(face,y-height/2-1.35,-.37),Vector3(face,y-height/2-1.35,.37),Vector3(face,y+height/2-1.35,.37),Vector3(face,y+height/2-1.35,-.37)],
 						[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)],look(Color.WHITE,"res://assets/white-panel-door-%d.png"%index))
 	shift_new(first,Vector3(-4.6,0,0))
+	assert(piano_leaf!=null)
+	piano_leaf.reparent(piano_wall)
 	inventory["grey_gallery_verified_paintings"]=3
 	inventory["grey_gallery_hall_reveal_leaves_built"]=false
 	inventory["grey_gallery_objects_complete"]=false
@@ -948,6 +972,8 @@ func build_sculpture_rooms() -> void:
 	inventory["renaissance_verified_paintings"]=1
 	# Reciprocal wides show a shallow horizontal ventilation grille above the north door.
 	var grille:=solid(Vector3(-2.5,3.20,18.94),Vector3(1.10,.18,.025),look(Color("474742")))
+	_renaissance_grille=grille
+	grille.set_meta("renaissance_north_grille",true)
 	for y in [-.06,-.03,0,.03,.06]:
 		var slat:=solid(Vector3(-2.5,3.20+y,18.963),Vector3(1.08,.008,.012),look(Color("77766d")))
 		slat.reparent(grille)
@@ -1016,6 +1042,25 @@ func build_sculpture_rooms() -> void:
 	var white:=look(Color("f0eeea"))
 	solid(Vector3(-5.47,2.1,22.7),Vector3(.08,2.0,1.25),white)
 	solid(Vector3(-5.43,1.09,22.7),Vector3(.20,.12,1.45),white)
+	# IMG_6383 18.3/62.0s: polychromed wood on a white floor plinth before this window.
+	# ponytail: plinth/hood metres and window-relative offset are by eye; replace after source fitting.
+	var roch_at:=Vector3(-4.86,0,22.7)
+	var roch_plinth:=solid(roch_at+Vector3(0,.34,0),Vector3(.70,.68,.70),white,true)
+	roch_plinth.set_meta("saint_roch_installation",true)
+	var roch:=SaintRoch.build() # Muse sheet rejected off-axis; keep the closed flat study.
+	add_child(roch)
+	roch.position=roch_at+Vector3(0,.68,0)
+	roch.rotation.y=PI/2
+	roch.reparent(roch_plinth)
+	var roch_glass:=look(Color(.82,.90,.91,.10),"",true)
+	for side in [-1,1]:
+		var pane:=solid(roch_at+Vector3(side*.35,1.29,0),Vector3(.012,1.22,.70),roch_glass)
+		pane.reparent(roch_plinth)
+		pane=solid(roch_at+Vector3(0,1.29,side*.35),Vector3(.70,1.22,.012),roch_glass)
+		pane.reparent(roch_plinth)
+	var roch_lid:=solid(roch_at+Vector3(0,1.90,0),Vector3(.70,.012,.70),roch_glass)
+	roch_lid.reparent(roch_plinth)
+	inventory["saint_roch"]={"accession":"21.398","height_m":1.054,"closed_solid_prototype":true,"muse_sheet_used":false,"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
 	solid(Vector3(-2.5,.27,24.78),Vector3(5.85,.54,.30),white,true)
 	for origin in [Vector3(-2.5,3.43,22),Vector3(5.55,4.18,22)]:
 		var rail:=solid(origin,Vector3(8.6 if origin.y>4 else 4.7,.025,.04),white)

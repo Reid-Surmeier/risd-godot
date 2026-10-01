@@ -540,7 +540,7 @@ geometry['trials'] += [['landing_to_modern',[11.85,.25,29.75],[11.85,0,26.55],Fa
 
 (out/'geometry.json').write_text(json.dumps(geometry,indent=2)+'\n')
 inputs[str(ingestion/'room-route-walk-v5/geometry.json')] = hashlib.sha256((ingestion/'room-route-walk-v5/geometry.json').read_bytes()).hexdigest()
-for name in ['doorway_walk.gd','remodel_room.gd','remodel_review.gd','remodel_presenter.gd','remodel_bake.gd','connected_hall.gd','seated_woman_asset.gd','virgin_child_asset.gd','medieval_metal_assets.gd','medieval_ceramic_ivory_assets.gd']:
+for name in ['doorway_walk.gd','remodel_room.gd','remodel_review.gd','remodel_presenter.gd','remodel_bake.gd','connected_hall.gd','seated_woman_asset.gd','virgin_child_asset.gd','medieval_metal_assets.gd','medieval_ceramic_ivory_assets.gd','saint_roch_asset.gd']:
     copy(source/name,name)
 for name in ['decal-queens-roundel.png','decal-queens-boat.png','queens-decals-source.json','medieval-paper-L1.png','medieval-paper-L2.png']:
     copy(app/'trial'/name,'assets/'+name)

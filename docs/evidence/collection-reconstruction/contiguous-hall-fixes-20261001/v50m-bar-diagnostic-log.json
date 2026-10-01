@@ -1,0 +1,6 @@
+{
+  "source": "/tmp/collection-v50m-offset-capture.log",
+  "source_sha256": "ae21cce60ff01a34c7d6104c01c8c3d63039d89b5d31a47197c1111f1c836c8b",
+  "archive": "raw-logs/collection-v50m-offset-capture.log.gz",
+  "note": "Diagnostic first pass emits missing optional metadata errors; nearest grille hits remain recorded. Corrected has_meta guard in v50n capture; no runtime source error."
+}

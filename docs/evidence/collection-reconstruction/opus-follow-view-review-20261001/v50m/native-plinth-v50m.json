@@ -1,0 +1,3718 @@
+{
+	"blocks_in_renaissance": [
+		[
+			-9.125,
+			-0.00000044703483581543,
+			0.0699996948242188,
+			0.960000038146973
+		],
+		[
+			-7.04500007629395,
+			-0.00000044703483581543,
+			0.0699996948242188,
+			0.960000038146973
+		],
+		[
+			-9.125,
+			3.27499914169312,
+			1.64999961853027,
+			0.550000190734863
+		],
+		[
+			-10.7600002288818,
+			3.50000047683716,
+			0.700000762939453,
+			0.699999809265137
+		],
+		[
+			-10.9750003814697,
+			5.77999830245972,
+			5.85000038146973,
+			0.300000190734863
+		]
+	],
+	"plinth_walks": [
+		{
+			"end": [
+				-9.73333358764648,
+				3.84999990463257
+			],
+			"gap_to_plinth_face_m": 0.326666412353516,
+			"held": "left",
+			"name": "from-east",
+			"start": [
+				-9.72000026702881,
+				3.84999990463257
+			],
+			"start_walkable": true
+		},
+		{
+			"end": [
+				-10.4099998474121,
+				3.19999933242798
+			],
+			"gap_to_plinth_face_m": 0.300000667572021,
+			"held": "down",
+			"name": "from-north",
+			"start": [
+				-10.4099998474121,
+				2.59999990463257
+			],
+			"start_walkable": true
+		},
+		{
+			"end": [
+				-10.4099998474121,
+				4.50000047683716
+			],
+			"gap_to_plinth_face_m": 0.300000476837158,
+			"held": "up",
+			"name": "from-south",
+			"start": [
+				-10.4099998474121,
+				5.09999990463257
+			],
+			"start_walkable": true
+		}
+	],
+	"rockefeller_low_dark_meshes": [
+		{
+			"box": [
+				-10.25,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface016",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-10.25,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface017",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-10.25,
+				0.00300000002607703,
+				-29.5,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface018",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-10.25,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface019",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-10.1100006103516,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface020",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-10.1100006103516,
+				0.00300000002607703,
+				-31.8999996185303,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface021",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-10.1100006103516,
+				0.00300000002607703,
+				-30.1000003814697,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface022",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-10.1100006103516,
+				0.00300000002607703,
+				-28.3000011444092,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface023",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-10.1100006103516,
+				0.00300000002607703,
+				-26.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface024",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.97000026702881,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.599998474121094
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface025",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.97000026702881,
+				0.00300000002607703,
+				-32.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface026",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.97000026702881,
+				0.00300000002607703,
+				-30.7000007629395,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface027",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.97000026702881,
+				0.00300000002607703,
+				-28.8999996185303,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface028",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.97000026702881,
+				0.00300000002607703,
+				-27.1000003814697,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.799999237060547
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface029",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.82999992370605,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface030",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.82999992370605,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface031",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.82999992370605,
+				0.00300000002607703,
+				-29.5,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface032",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.82999992370605,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface033",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.69000053405762,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface034",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.69000053405762,
+				0.00300000002607703,
+				-31.8999996185303,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface035",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.69000053405762,
+				0.00300000002607703,
+				-30.1000003814697,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface036",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.69000053405762,
+				0.00300000002607703,
+				-28.3000011444092,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface037",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.69000053405762,
+				0.00300000002607703,
+				-26.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface038",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.55000019073486,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.599998474121094
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface039",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.55000019073486,
+				0.00300000002607703,
+				-32.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface040",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.55000019073486,
+				0.00300000002607703,
+				-30.7000007629395,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface041",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.55000019073486,
+				0.00300000002607703,
+				-28.8999996185303,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface042",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.55000019073486,
+				0.00300000002607703,
+				-27.1000003814697,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.799999237060547
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface043",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.40999984741211,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface044",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.40999984741211,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface045",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.40999984741211,
+				0.00300000002607703,
+				-29.5,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface046",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.40999984741211,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface047",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.27000045776367,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface048",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.27000045776367,
+				0.00300000002607703,
+				-31.8999996185303,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface049",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.27000045776367,
+				0.00300000002607703,
+				-30.1000003814697,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface050",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.27000045776367,
+				0.00300000002607703,
+				-28.3000011444092,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface051",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.27000045776367,
+				0.00300000002607703,
+				-26.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface052",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.13000011444092,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.599998474121094
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface053",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.13000011444092,
+				0.00300000002607703,
+				-32.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface054",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.13000011444092,
+				0.00300000002607703,
+				-30.7000007629395,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface055",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.13000011444092,
+				0.00300000002607703,
+				-28.8999996185303,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface056",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-9.13000011444092,
+				0.00300000002607703,
+				-27.1000003814697,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.799999237060547
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface057",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.98999977111816,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface058",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.98999977111816,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface059",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.98999977111816,
+				0.00300000002607703,
+				-29.5,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface060",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.98999977111816,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface061",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.85000038146973,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface062",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.85000038146973,
+				0.00300000002607703,
+				-31.8999996185303,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface063",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.85000038146973,
+				0.00300000002607703,
+				-30.1000003814697,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface064",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.85000038146973,
+				0.00300000002607703,
+				-28.3000011444092,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface065",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.85000038146973,
+				0.00300000002607703,
+				-26.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface066",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.71000003814697,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.599998474121094
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface067",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.71000003814697,
+				0.00300000002607703,
+				-32.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface068",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.71000003814697,
+				0.00300000002607703,
+				-30.7000007629395,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface069",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.71000003814697,
+				0.00300000002607703,
+				-28.8999996185303,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface070",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.71000003814697,
+				0.00300000002607703,
+				-27.1000003814697,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.799999237060547
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface071",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.56999969482422,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface072",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.56999969482422,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface073",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.56999969482422,
+				0.00300000002607703,
+				-29.5,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface074",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.56999969482422,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface075",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.43000030517578,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface076",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.43000030517578,
+				0.00300000002607703,
+				-31.8999996185303,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface077",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.43000030517578,
+				0.00300000002607703,
+				-30.1000003814697,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface078",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.43000030517578,
+				0.00300000002607703,
+				-28.3000011444092,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface079",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.43000030517578,
+				0.00300000002607703,
+				-26.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface080",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.28999996185303,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.599998474121094
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface081",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.28999996185303,
+				0.00300000002607703,
+				-32.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface082",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.28999996185303,
+				0.00300000002607703,
+				-30.7000007629395,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface083",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.28999996185303,
+				0.00300000002607703,
+				-28.8999996185303,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface084",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.28999996185303,
+				0.00300000002607703,
+				-27.1000003814697,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.799999237060547
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface085",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.14999961853027,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface086",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.14999961853027,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface087",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.14999961853027,
+				0.00300000002607703,
+				-29.5,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface088",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.14999961853027,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface089",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.01000022888184,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface090",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.01000022888184,
+				0.00300000002607703,
+				-31.8999996185303,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface091",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.01000022888184,
+				0.00300000002607703,
+				-30.1000003814697,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface092",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.01000022888184,
+				0.00300000002607703,
+				-28.3000011444092,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface093",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-8.01000022888184,
+				0.00300000002607703,
+				-26.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface094",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.86999988555908,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999389648438,
+				0.0000100000761449337,
+				0.599998474121094
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface095",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.86999988555908,
+				0.00300000002607703,
+				-32.5,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface096",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.86999988555908,
+				0.00300000002607703,
+				-30.7000007629395,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface097",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.86999988555908,
+				0.00300000002607703,
+				-28.8999996185303,
+				0.139999389648438,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface098",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.86999988555908,
+				0.00300000002607703,
+				-27.1000003814697,
+				0.139999389648438,
+				0.0000100000761449337,
+				0.799999237060547
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface099",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.73000049591064,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface100",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.73000049591064,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface101",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.73000049591064,
+				0.00300000002607703,
+				-29.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface102",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.73000049591064,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface103",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.59000015258789,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface104",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.59000015258789,
+				0.00300000002607703,
+				-31.8999996185303,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface105",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.59000015258789,
+				0.00300000002607703,
+				-30.1000003814697,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface106",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.59000015258789,
+				0.00300000002607703,
+				-28.3000011444092,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface107",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.59000015258789,
+				0.00300000002607703,
+				-26.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface108",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.45000028610229,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.599998474121094
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface109",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.45000028610229,
+				0.00300000002607703,
+				-32.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface110",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.45000028610229,
+				0.00300000002607703,
+				-30.7000007629395,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface111",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.45000028610229,
+				0.00300000002607703,
+				-28.8999996185303,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface112",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.45000028610229,
+				0.00300000002607703,
+				-27.1000003814697,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.799999237060547
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface113",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.3100004196167,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface114",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.3100004196167,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface115",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.3100004196167,
+				0.00300000002607703,
+				-29.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface116",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.3100004196167,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface117",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.17000007629395,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface118",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.17000007629395,
+				0.00300000002607703,
+				-31.8999996185303,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface119",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.17000007629395,
+				0.00300000002607703,
+				-30.1000003814697,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface120",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.17000007629395,
+				0.00300000002607703,
+				-28.3000011444092,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface121",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.17000007629395,
+				0.00300000002607703,
+				-26.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface122",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.03000020980835,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.599998474121094
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface123",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.03000020980835,
+				0.00300000002607703,
+				-32.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface124",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.03000020980835,
+				0.00300000002607703,
+				-30.7000007629395,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface125",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.03000020980835,
+				0.00300000002607703,
+				-28.8999996185303,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface126",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-7.03000020980835,
+				0.00300000002607703,
+				-27.1000003814697,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.799999237060547
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface127",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.89000034332275,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface128",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.89000034332275,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface129",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.89000034332275,
+				0.00300000002607703,
+				-29.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface130",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.89000034332275,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface131",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.75,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface132",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.75,
+				0.00300000002607703,
+				-31.8999996185303,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface133",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.75,
+				0.00300000002607703,
+				-30.1000003814697,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface134",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.75,
+				0.00300000002607703,
+				-28.3000011444092,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface135",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.75,
+				0.00300000002607703,
+				-26.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface136",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.6100001335144,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.599998474121094
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface137",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.6100001335144,
+				0.00300000002607703,
+				-32.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface138",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.6100001335144,
+				0.00300000002607703,
+				-30.7000007629395,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface139",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.6100001335144,
+				0.00300000002607703,
+				-28.8999996185303,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface140",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.6100001335144,
+				0.00300000002607703,
+				-27.1000003814697,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.799999237060547
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface141",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.47000026702881,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface142",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.47000026702881,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface143",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.47000026702881,
+				0.00300000002607703,
+				-29.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface144",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.47000026702881,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface145",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.32999992370605,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface146",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.32999992370605,
+				0.00300000002607703,
+				-31.8999996185303,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface147",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.32999992370605,
+				0.00300000002607703,
+				-30.1000003814697,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface148",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.32999992370605,
+				0.00300000002607703,
+				-28.3000011444092,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface149",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.32999992370605,
+				0.00300000002607703,
+				-26.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface150",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.19000005722046,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.599998474121094
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface151",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.19000005722046,
+				0.00300000002607703,
+				-32.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface152",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.19000005722046,
+				0.00300000002607703,
+				-30.7000007629395,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface153",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.19000005722046,
+				0.00300000002607703,
+				-28.8999996185303,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface154",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.19000005722046,
+				0.00300000002607703,
+				-27.1000003814697,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.799999237060547
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface155",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.05000019073486,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface156",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.05000019073486,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface157",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.05000019073486,
+				0.00300000002607703,
+				-29.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface158",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-6.05000019073486,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface159",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.91000032424927,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface160",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.91000032424927,
+				0.00300000002607703,
+				-31.8999996185303,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface161",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.91000032424927,
+				0.00300000002607703,
+				-30.1000003814697,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface162",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.91000032424927,
+				0.00300000002607703,
+				-28.3000011444092,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface163",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.91000032424927,
+				0.00300000002607703,
+				-26.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface164",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.76999998092651,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.599998474121094
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface165",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.76999998092651,
+				0.00300000002607703,
+				-32.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface166",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.76999998092651,
+				0.00300000002607703,
+				-30.7000007629395,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface167",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.76999998092651,
+				0.00300000002607703,
+				-28.8999996185303,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface168",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.76999998092651,
+				0.00300000002607703,
+				-27.1000003814697,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.799999237060547
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface169",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.63000011444092,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface170",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.63000011444092,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface171",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.63000011444092,
+				0.00300000002607703,
+				-29.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface172",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.63000011444092,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface173",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.49000024795532,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface174",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.49000024795532,
+				0.00300000002607703,
+				-31.8999996185303,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface175",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.49000024795532,
+				0.00300000002607703,
+				-30.1000003814697,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface176",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.49000024795532,
+				0.00300000002607703,
+				-28.3000011444092,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface177",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.49000024795532,
+				0.00300000002607703,
+				-26.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface178",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.35000038146973,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.599998474121094
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface179",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.35000038146973,
+				0.00300000002607703,
+				-32.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface180",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.35000038146973,
+				0.00300000002607703,
+				-30.7000007629395,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface181",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.35000038146973,
+				0.00300000002607703,
+				-28.8999996185303,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface182",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.35000038146973,
+				0.00300000002607703,
+				-27.1000003814697,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.799999237060547
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface183",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.21000003814697,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface184",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.21000003814697,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface185",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.21000003814697,
+				0.00300000002607703,
+				-29.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface186",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.21000003814697,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface187",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.07000017166138,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface188",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.07000017166138,
+				0.00300000002607703,
+				-31.8999996185303,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface189",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.07000017166138,
+				0.00300000002607703,
+				-30.1000003814697,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface190",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.07000017166138,
+				0.00300000002607703,
+				-28.3000011444092,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface191",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-5.07000017166138,
+				0.00300000002607703,
+				-26.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface192",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.93000030517578,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.599998474121094
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface193",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.93000030517578,
+				0.00300000002607703,
+				-32.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface194",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.93000030517578,
+				0.00300000002607703,
+				-30.7000007629395,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface195",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.93000030517578,
+				0.00300000002607703,
+				-28.8999996185303,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface196",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.93000030517578,
+				0.00300000002607703,
+				-27.1000003814697,
+				0.140000343322754,
+				0.0000100000761449337,
+				0.799999237060547
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface197",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.78999996185303,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface198",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.78999996185303,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface199",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.78999996185303,
+				0.00300000002607703,
+				-29.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface200",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.78999996185303,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface201",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.65000009536743,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface202",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.65000009536743,
+				0.00300000002607703,
+				-31.8999996185303,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface203",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.65000009536743,
+				0.00300000002607703,
+				-30.1000003814697,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface204",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.65000009536743,
+				0.00300000002607703,
+				-28.3000011444092,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface205",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.65000009536743,
+				0.00300000002607703,
+				-26.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface206",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.51000022888184,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.599998474121094
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface207",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.51000022888184,
+				0.00300000002607703,
+				-32.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface208",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.51000022888184,
+				0.00300000002607703,
+				-30.7000007629395,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface209",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.51000022888184,
+				0.00300000002607703,
+				-28.8999996185303,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface210",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.51000022888184,
+				0.00300000002607703,
+				-27.1000003814697,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.799999237060547
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface211",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.37000036239624,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface212",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.37000036239624,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface213",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.37000036239624,
+				0.00300000002607703,
+				-29.5,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface214",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.37000036239624,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.140000343322754,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface215",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.23000001907349,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface216",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.23000001907349,
+				0.00300000002607703,
+				-31.8999996185303,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface217",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.23000001907349,
+				0.00300000002607703,
+				-30.1000003814697,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface218",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.23000001907349,
+				0.00300000002607703,
+				-28.3000011444092,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface219",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.23000001907349,
+				0.00300000002607703,
+				-26.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.19999885559082
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface220",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.09000015258789,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.599998474121094
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface221",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.09000015258789,
+				0.00300000002607703,
+				-32.5,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface222",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.09000015258789,
+				0.00300000002607703,
+				-30.7000007629395,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface223",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.09000015258789,
+				0.00300000002607703,
+				-28.8999996185303,
+				0.139999866485596,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface224",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-4.09000015258789,
+				0.00300000002607703,
+				-27.1000003814697,
+				0.139999866485596,
+				0.0000100000761449337,
+				0.799999237060547
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface225",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-3.95000028610229,
+				0.00300000002607703,
+				-33.0999984741211,
+				0.100000143051147,
+				0.0000100000761449337,
+				1.79999732971191
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface226",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-3.95000028610229,
+				0.00300000002607703,
+				-31.3000011444092,
+				0.100000143051147,
+				0.0000100000761449337,
+				1.80000114440918
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface227",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-3.95000028610229,
+				0.00300000002607703,
+				-29.5,
+				0.100000143051147,
+				0.0000100000761449337,
+				1.79999923706055
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface228",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		},
+		{
+			"box": [
+				-3.95000028610229,
+				0.00300000002607703,
+				-27.7000007629395,
+				0.100000143051147,
+				0.0000100000761449337,
+				1.39999961853027
+			],
+			"colour": "<null>",
+			"layers": 0,
+			"name": "AuthoredSurface229",
+			"parent": "CollectionRemodel",
+			"source_path": "",
+			"transparent": false,
+			"visible": true
+		}
+	]
+}

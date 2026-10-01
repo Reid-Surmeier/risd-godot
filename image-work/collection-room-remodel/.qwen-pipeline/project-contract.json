@@ -131,7 +131,11 @@
     "inventory-references/virgin-child-15108-video-rear.png",
     "inventory-references/queens-202055-official-0.png",
     "inventory-references/queens-202055-official-1.png",
-    "inventory-references/queens-202055-official-2.png"
+    "inventory-references/queens-202055-official-2.png",
+    "inventory-references/saint-roch-21398-official-0.png",
+    "inventory-references/saint-roch-21398-official-1.png",
+    "inventory-references/saint-roch-21398-official-2.png",
+    "inventory-references/saint-roch-21398-official-3.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -2067,6 +2071,40 @@
           "slot": "reference-002",
           "kind": "image",
           "payloadDestination": "/input_references/2/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-79d640eb520820b9a07f",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1440"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        },
+        {
+          "slot": "reference-002",
+          "kind": "image",
+          "payloadDestination": "/input_references/2/image_url/url"
+        },
+        {
+          "slot": "reference-003",
+          "kind": "image",
+          "payloadDestination": "/input_references/3/image_url/url"
         }
       ]
     }

@@ -1,0 +1,19 @@
+[
+	{
+		"cull_mask": 6167,
+		"name": "hall-grey-reciprocal",
+		"position": [
+			0.0,
+			0.0,
+			-24.5
+		],
+		"space": "gallery",
+		"state": {
+			"attached": true,
+			"blocks": 42,
+			"cutaway_bodies": 124,
+			"rooms": 12,
+			"space": "gallery"
+		}
+	}
+]

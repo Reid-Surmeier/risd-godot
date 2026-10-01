@@ -1,0 +1,46 @@
+## Review capture on a private copy of root's frozen full app: views root's set does not include.
+extends SceneTree
+
+func _initialize() -> void:
+	call_deferred("capture")
+
+func capture() -> void:
+	var output:String=OS.get_cmdline_user_args()[0]
+	root.size=Vector2i(1440,1000)
+	var app=load("res://modules/shell/demo.tscn").instantiate()
+	root.add_child(app)
+	for i in 150:await process_frame
+	var walk=app.find_child("GalleryWalk",true,false)
+	assert(walk!=null and walk.state().attached)
+	walk.set_process(false)
+	walk._entrance_active=false
+	walk._target=null
+	walk._target_yaw=null
+	walk._path.clear()
+	walk._set_lighting(true)
+	var proof:=[]
+	# name, position, space, view mode, heading, and an optional earlier state to pass through first
+	for row in [
+		["hall-mid-follow-north",Vector3(0,0,-13),"gallery",2,0.0,null],
+		["hall-near-door-gallery-north",Vector3(0,0,-22),"gallery",1,0.0,null],
+		["grey-follow-south-after-walking-north",Vector3(0,0,-30.5),"far",2,PI,[Vector3(0,0,-25.5),"gallery",0,0.0]],
+		["grey-follow-south-fresh",Vector3(0,0,-30.5),"far",2,PI,[Vector3(0,0,-25.5),"gallery",0,PI]],
+		["connector-dollhouse-south",Vector3(-2.6,0,-27.8),"far",0,PI,null],
+		["west-gallery-to-rockefeller",Vector3(-8.05,0,-24.7),"arch",2,0.0,null],
+		["rockefeller-to-west-gallery",Vector3(-8.05,0,-27.7),"far",2,PI,null],
+	]:
+		for step in ([row[5]] if row[5]!=null else [])+[[row[1],row[2],row[3],row[4]]]:
+			walk._space=step[1]
+			walk.view_mode=step[2]
+			walk.view_yaw=step[3]
+			walk._yaw=step[3]
+			walk._pos=step[0]
+			walk._kid.position=step[0]
+			walk._update_camera(1.0)
+			for i in 6:await process_frame
+		await RenderingServer.frame_post_draw
+		assert(walk._vp.get_texture().get_image().save_png(output.path_join("native-"+row[0]+".png"))==OK)
+		proof.append({"name":row[0],"space":walk._space,"view_mode":walk.view_mode,"heading":row[4],"position":[walk._pos.x,walk._pos.y,walk._pos.z],"cull_mask":walk._cam.cull_mask,"cutaway_alpha":walk._cutaway_alpha.duplicate(true),"hall_lightmap_visible":walk._baked_room.get_node("Lightmap").visible,"addition_lightmap_visible":walk._rooms.get_node("BakedRoom/Lightmap").visible})
+	FileAccess.open(output.path_join("native-follow-views.json"),FileAccess.WRITE).store_string(JSON.stringify(proof,"\t")+"\n")
+	print("REVIEW_CAPTURE_OK")
+	quit()

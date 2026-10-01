@@ -1,0 +1,20 @@
+[
+  {
+    "source": "/tmp/collection-v50l-negative-follow-check.log",
+    "source_sha256": "cb08a39ec79ffa702ff6fc34bbd527febd084892d883a0c1b259344ed4c0760b",
+    "archive": "raw-logs/collection-v50l-negative-follow-check.log.gz",
+    "archive_sha256": "44e7903637a9d78c851d6c059d355126e24e0da1ede1b29c853d62589a806b80"
+  },
+  {
+    "source": "/tmp/collection-v49k-architecture-check.log",
+    "source_sha256": "09d6958471c8b71cc634714e58e6f7d94366ad72b40d42e9f2403f3fbd754b56",
+    "archive": "raw-logs/collection-v49k-architecture-check.log.gz",
+    "archive_sha256": "ec58a2cc5776bef3cd9603c8c8a4684c59bb8d591ab74a608f5cf294d746f2d6"
+  },
+  {
+    "source": "/tmp/collection-v49k-repo-check.log",
+    "source_sha256": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e",
+    "archive": "raw-logs/collection-v49k-repo-check.log.gz",
+    "archive_sha256": "93b47651a812d908d931e51dc1785d2ec216e36baea5135edddf01b38d6911f5"
+  }
+]
