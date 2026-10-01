@@ -9,10 +9,10 @@ const pause = ms => new Promise(r => setTimeout(r, ms));
   const [url, out] = process.argv.slice(2);
   fs.mkdirSync(out, { recursive: true });
   const browser = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--use-gl=angle', '--use-angle=gl-egl', '--ignore-gpu-blocklist', '--no-sandbox', '--autoplay-policy=no-user-gesture-required'] });
+  const log = [], errors = [];
   try {
     const p = await browser.newPage();
     await p.setViewport({ width: 1080, height: 1080 });
-    const log = [], errors = [];
     p.on('console', m => { log.push(m.text()); if (m.type() === 'error') errors.push(m.text()); });
     p.on('pageerror', e => errors.push(String(e)));
     // Tee everything the game sends to the speakers into a recorder: proof of real output.
@@ -75,5 +75,5 @@ const pause = ms => new Promise(r => setTimeout(r, ms));
     fs.writeFileSync(path.join(out, 'audio.webm'), Buffer.from(await p.evaluate(() => window.__audio.stop()), 'base64'));
     fs.writeFileSync(path.join(out, 'timeline.json'), JSON.stringify({ url, videoStart, timeline, errors }, null, 1));
     console.log(JSON.stringify({ stages: timeline.length, errors: errors.length }));
-  } finally { await browser.close(); }
+  } catch (e) { console.error(log.slice(-15).join('\n')); throw e; } finally { await browser.close(); }
 })().catch(e => { console.error(e); process.exit(1); });
