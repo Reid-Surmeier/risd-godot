@@ -1,0 +1,33 @@
+{
+  "log": [
+    {
+      "event": "screenshot",
+      "file": "visitor-front-idle.png",
+      "t_ms": 30049
+    },
+    {
+      "event": "screenshot",
+      "file": "visitor-profile.png",
+      "t_ms": 37024
+    },
+    {
+      "event": "screenshot",
+      "file": "visitor-back.png",
+      "t_ms": 45610
+    },
+    {
+      "event": "screenshot",
+      "file": "visitor-walk.png",
+      "t_ms": 49875
+    },
+    {
+      "event": "screenshot",
+      "file": "visitor-stop.png",
+      "t_ms": 52292
+    }
+  ],
+  "viewport": [
+    1080,
+    1080
+  ]
+}
