@@ -922,7 +922,8 @@ func build_sculpture_rooms() -> void:
 		for index in 6:
 			var slat:=solid(spec[0]+Vector3(0,(index/5.0-.5)*spec[1].y,.012),Vector3(spec[1].x,.008,.012),look(Color("75756d")))
 			slat.reparent(north_grille)
-	inventory["medieval_verified_panels"]=3
+	build_gabled_frame()
+	inventory["medieval_verified_panels"]=4
 	inventory["medieval_objects_complete"]=false
 	# IMG_6383 61.25..64.75s: black central bench; dimensions unmeasured.
 	var bench:=solid(Vector3(-2.75,.43,22.4),Vector3(1.65,.16,.55),look(Color("282526")),true)
@@ -968,3 +969,70 @@ func build_sculpture_rooms() -> void:
 		lid.reparent(base)
 	inventory["medieval_display_cases"]=2
 	inventory["medieval_case_contents_complete"]=false
+
+func build_gabled_frame() -> void:
+	var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/magdalene-frame.json"))
+	var points:=PackedVector2Array()
+	for p in data.points_m:points.append(Vector2(p[0],p[1]))
+	var front:Array=[]
+	var front_area:=0.0
+	for polygon in data.polygons:
+		var band:=PackedVector2Array()
+		for i in polygon:band.append(points[int(i)])
+		var indices:=Geometry2D.triangulate_polygon(band)
+		assert(indices.size()==(band.size()-2)*3,"Gabled band triangulation failed")
+		for t in range(0,indices.size(),3):
+			var triangle=[int(polygon[indices[t]]),int(polygon[indices[t+1]]),int(polygon[indices[t+2]])]
+			front.append(triangle)
+			front_area+=abs((points[triangle[1]]-points[triangle[0]]).cross(points[triangle[2]]-points[triangle[0]]))/2
+	var pixel_area:float=data.source_band_area_px2*.225/849*.495/1912
+	assert(abs(front_area-pixel_area)<.000001,"Frame bands overlap or leave gaps")
+	var count:=points.size()
+	var vertices:=PackedVector3Array()
+	for depth in [float(data.depth_m),0.0]:
+		for p in points:vertices.append(Vector3(p.x,p.y,depth))
+	var rest:Array=[]
+	for t in front:rest.append([t[2]+count,t[1]+count,t[0]+count])
+	for loop in data.loops:
+		for i in loop.size():
+			var a:int=int(loop[i])
+			var b:int=int(loop[(i+1)%loop.size()])
+			rest.append([a,b,b+count])
+			rest.append([a,b+count,a+count])
+	var edges:Dictionary={}
+	var signed_volume:=0.0
+	for t in front+rest:
+		signed_volume+=vertices[t[0]].dot(vertices[t[1]].cross(vertices[t[2]]))/6
+		for i in 3:
+			var a:int=t[i]
+			var b:int=t[(i+1)%3]
+			var key:=Vector2i(min(a,b),max(a,b))
+			if not edges.has(key):edges[key]=Vector2i.ZERO
+			edges[key]+=Vector2i(1,1 if a<b else -1)
+	for pair in edges.values():assert(pair==Vector2i(2,0),"Gabled frame is not a closed oriented mesh")
+	assert(signed_volume>0 and abs(signed_volume-front_area*float(data.depth_m))<.000001)
+	var frame:=Painting.new()
+	frame.name="MagdaleneGabledFrame"
+	frame.position=Vector3(1.18,1.55,19.05)
+	add_child(frame)
+	for group in [front,rest]:
+		frame._mesh(func(st:SurfaceTool) -> void:
+			for t in group:
+				st.set_normal((vertices[t[1]]-vertices[t[0]]).cross(vertices[t[2]]-vertices[t[0]]).normalized())
+				for i in t:
+					var p:Array=data.points_px[i%count]
+					st.set_uv(Vector2(p[0]/data.source_size_px[0],p[1]/data.source_size_px[1]))
+					st.add_vertex(vertices[i]),Painting.mat(load("res://assets/magdalene-frame.png")) if group==front else look(Color("7c6038")))
+	var support:=solid(Vector3(1.18,1.55,19.015),Vector3(data.outer_size_m[0]+.10,data.outer_size_m[1]+.10,.025),look(Color("959691")))
+	support.name="MagdaleneGreySupport"
+	var art:=Painting.new()
+	frame.add_child(art)
+	art.position.z=.004
+	art.scale.z=.021/.05
+	art.build_shaped(load("res://assets/painting-21.250.png"),Vector2(.225,.495),data.painting_outline,Color("674d29"))
+	var proof={"vertices":vertices.size(),"triangles":front.size()+rest.size(),"closed_edges":edges.size(),"front_area_m2":front_area,"signed_volume_m3":signed_volume,"depth_m":data.depth_m,"accepted":false,"source_outline_vertices":data.outline_vertices}
+	inventory["magdalene_frame"]=proof
+	if not OS.has_feature("web"):
+		var file:=FileAccess.open("res://evidence/magdalene-frame-native.json",FileAccess.WRITE)
+		file.store_string(JSON.stringify(proof,"  ")+"\n")
+	print("GABLED_FRAME_OK "+JSON.stringify(proof))

@@ -264,6 +264,12 @@ for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.
         copy(painting_path,'assets/painting-'+painting+'.jpg')
     inputs[str(frame_path)]=hashlib.sha256(frame_path.read_bytes()).hexdigest()
 
+copy(app/'trial/magdalene-frame-fitted.png','assets/magdalene-frame.png')
+copy(app/'trial/magdalene-painting-original-crop.png','assets/painting-21.250.png')
+copy(app/'magdalene-frame-source-fit.json','assets/magdalene-frame.json')
+for original in [app/'fit-magdalene-frame.py',app/'magdalene-frame-guide-v2.json',app/'inventory-catalogue/memmi-magdalene-zoom-0.jpg',app/'trial/magdalene-frame-v2b-original.webp']:
+    inputs[str(original)]=hashlib.sha256(original.read_bytes()).hexdigest()
+
 copy(app/'inventory-catalogue/arabesque-wallpaper-zoom-0.jpg','assets/wallpaper-34.912.jpg')
 copy(app/'inventory-catalogue/arabesque-wallpaper.json','assets/wallpaper-34.912.json')
 door=app/'trial/white-panel-door-original.webp'

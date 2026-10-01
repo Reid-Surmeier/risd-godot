@@ -1,0 +1,14 @@
+[
+  {
+    "source": "image-work/collection-room-remodel/inventory-catalogue/medieval-grill.html",
+    "sha256": "1922753a8c0f77071de7de473982fd0073e3a1b377bf5cedee9aba85559680dd",
+    "archive": "medieval-grill.html.gz",
+    "exact_bytes_preserved": true
+  },
+  {
+    "source": "image-work/collection-room-remodel/inventory-catalogue/clock-grille.html",
+    "sha256": "4c803f19aac91a06c1c1b72dc6c6fe781c58a54cc00d85592bdca08ad1461a48",
+    "archive": "clock-grille.html.gz",
+    "exact_bytes_preserved": true
+  }
+]

@@ -103,7 +103,7 @@ func prepare() -> void:
 		room.add_child(light)
 		light.owner=room
 	# Latest Main Hall's offline painting spots, placed below this room's lower ceiling.
-	for spec in [[Vector3(.55,2.43,-7.02),Vector3.BACK],[Vector3(-1.05,2.15,-7),Vector3.BACK],[Vector3(2.25,2.15,-7),Vector3.BACK],[Vector3(-2.67,2,-4.7),Vector3.RIGHT],[Vector3(-3.48,1.75,2.15),Vector3.RIGHT],[Vector3(.70,1.55,30),Vector3.RIGHT,true],[Vector3(.70,1.55,28.78),Vector3.RIGHT,true],[Vector3(2.0,1.55,28.30),Vector3.BACK,true]]:
+	for spec in [[Vector3(.55,2.43,-7.02),Vector3.BACK],[Vector3(-1.05,2.15,-7),Vector3.BACK],[Vector3(2.25,2.15,-7),Vector3.BACK],[Vector3(-2.67,2,-4.7),Vector3.RIGHT],[Vector3(-3.48,1.75,2.15),Vector3.RIGHT],[Vector3(.70,1.55,30),Vector3.RIGHT,true],[Vector3(.70,1.55,28.78),Vector3.RIGHT,true],[Vector3(2.0,1.55,28.30),Vector3.BACK,true],[Vector3(1.18,1.55,28.30),Vector3.BACK,true]]:
 		var spot:=SpotLight3D.new()
 		room.add_child(spot)
 		spot.owner=room

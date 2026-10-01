@@ -1,0 +1,18 @@
+{
+  "date_utc": "2026-10-01",
+  "source": "IMG_6382 native12.25/13.25/14.25/88.75 seconds",
+  "grille": {
+    "placement": "North wall right of stone portal; white low plinth, diagonal rear top brace and large scroll-shaped cast shadow. Separate from east-wall stone fragment and stair door.",
+    "identity": "Unmatched. Official API searches/candidate reviews retained. Rejected27.184: square38.7cm, gilt bronze with figures/floral scrolls differs from tall repeated iron spiral grid. Clock Grille53.08537.2x23.5cm also does not establish this installation.",
+    "accepted": false,
+    "built": false
+  },
+  "ceiling": {
+    "finding": "Actual medieval ceiling is flat off-white, with tracks and spots; current prototype omits opaque room ceilings for its top-down gallery camera, revealing unrelated Hall skylight in eye-level wide views.",
+    "owning_code": "remodel_room.gd build_rooms comment/ceiling_details; build_sculpture_rooms adds only rail",
+    "next_action": "Add source-observed opaque medieval/Renaissance room ceilings, include in bake, show at eye height and hide with existing ceiling_details camera rule. Verify both eye-level reciprocal wide and top-down navigation before accepting.",
+    "metric_height_accepted": false,
+    "fixed": false
+  },
+  "review_images": "540x960 JPEG derivatives; native1080x1920 PNGs retained at manifest paths with exact hashes, decoded via CUDA."
+}
