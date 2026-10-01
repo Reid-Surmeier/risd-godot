@@ -1,0 +1,17 @@
+[2026-10-01 07:14:27] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Dufresne&items_per_page=25> (referer: https://www.google.com/)
+Dufresne [{"id": "1443786", "primaryMaker": "Angela Dufresne", "title": "Man and Kid", "objectNumber": "2015.3", "medium": ["Oil on canvas"], "dimensions": "162.6 x 99.1 cm (64 x 39 inches)", "url": "https://risdmuseum.org/art-design/collection/man-and-kid-20153"}]
+[2026-10-01 07:14:28] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Gleizes&items_per_page=25> (referer: https://www.google.com/)
+Gleizes [{"id": "1539166", "primaryMaker": "Jean Metzinger", "title": "Portrait of Albert Gleizes", "objectNumber": "66.162", "medium": ["Oil on canvas"], "dimensions": "65.1 x 54.3 cm (25 5/8 x 21 3/8 inches)", "url": "https://risdmuseum.org/art-design/collection/portrait-albert-gleizes-66162"}]
+[2026-10-01 07:14:28] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Metzinger&items_per_page=25> (referer: https://www.google.com/)
+Metzinger []
+[2026-10-01 07:14:31] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Picabia&items_per_page=25> (referer: https://www.google.com/)
+Picabia []
+[2026-10-01 07:14:32] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Weber&items_per_page=25> (referer: https://www.google.com/)
+Weber [{"id": "1558241", "primaryMaker": "Alighiero Boetti", "title": "Il Tesoro Nascosto (The Hidden Treasure)", "objectNumber": "2005.87.3", "medium": ["Cotton embroidery on stretched canvas"], "dimensions": "17.8 x 17.5 cm (7 x 6 7/8 inches)", "url": "https://risdmuseum.org/art-design/collection/il-tesoro-nascosto-hidden-treasure-2005873"}]
+[2026-10-01 07:14:32] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Feast&items_per_page=25> (referer: https://www.google.com/)
+Feast []
+[2026-10-01 07:14:33] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Supper&items_per_page=25> (referer: https://www.google.com/)
+Supper [{"id": "1445031", "primaryMaker": "Jan Cossiers", "title": "The Supper at Emmaus", "objectNumber": "23.332", "medium": ["Oil on canvas"], "dimensions": "85.1 x 111.1 cm (33 1/2 x 43 3/4 inches)", "url": "https://risdmuseum.org/art-design/collection/supper-emmaus-23332"}]
+[2026-10-01 07:14:33] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Orloff&items_per_page=25> (referer: https://www.google.com/)
+Orloff []
+[2026-10-01 07:14:34] INFO: Fetched (200) <GET https://risdmuseum.org/art-design/collection/girl-chair-78160> (referer: https://www.google.com/)

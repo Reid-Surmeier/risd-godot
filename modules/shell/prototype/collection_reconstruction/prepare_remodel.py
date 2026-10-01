@@ -238,7 +238,7 @@ for row in json.loads((app/'video-inventory.json').read_text())['volume_instance
 inputs[str(app/'video-inventory.json')]=hashlib.sha256((app/'video-inventory.json').read_bytes()).hexdigest()
 
 # Reuse the accepted frame preparation for both video-matched portraits.
-for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.762,.952], '2009.9'), ('courbet', [.733,.597], '43.571'), ('corot', [.460,.319], '24.089'), ('bertin', [.651,.489], '56.214'), ('perugino', [.391,.575], '16.236')]:
+for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.762,.952], '2009.9'), ('courbet', [.733,.597], '43.571'), ('corot', [.460,.319], '24.089'), ('bertin', [.651,.489], '56.214'), ('perugino', [.391,.575], '16.236'), ('braque', [.721,.464], '48.248'), ('cezanne', [.737,.610], '43.255')]:
     frame_path=app/'trial'/f'{kind}-frame-original.webp'
     a=np.array(Image.open(frame_path).convert('RGBA'));hsv=cv2.cvtColor(a[:,:,:3],cv2.COLOR_RGB2HSV)
     chroma=(hsv[:,:,0]>=125)&(hsv[:,:,0]<=175)&(hsv[:,:,1]>70)&(hsv[:,:,2]>35)
@@ -253,8 +253,8 @@ for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.
     h,w=white.shape;label=int(labels[h//2,w//2]);assert label>0
     x0,y0,ww,hh=map(int,stats[label,:4]);assert ww>500 and hh>350
     fit=None
-    if kind in ['courbet','corot','bertin','perugino']:
-        fit_path=app/('perugino-frame-source-fit.json' if kind=='perugino' else 'grey-frames-source-fit.json')
+    if kind in ['courbet','corot','bertin','perugino','braque','cezanne']:
+        fit_path=app/('modern-frames-source-fit.json' if kind in ['braque','cezanne'] else 'perugino-frame-source-fit.json' if kind=='perugino' else 'grey-frames-source-fit.json')
         fit=json.loads(fit_path.read_text())[kind]
         inputs[str(fit_path)]=hashlib.sha256(fit_path.read_bytes()).hexdigest()
         margins=[round(m*hh/canvas[1]) for m in fit['target_margins_m']]
@@ -276,10 +276,17 @@ for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.
         image=Image.open(painting_path)
         image.crop({'courbet':(19,18,1305,1059),'corot':(18,18,1306,911),'bertin':(5,5,1317,966),'perugino':(29,29,1295,1902)}[kind]).save(out/'assets'/f'painting-{painting}.jpg',quality=95)
         inputs[str(painting_path)]=hashlib.sha256(painting_path.read_bytes()).hexdigest()
+    elif kind in ['braque','cezanne']:
+        copy(app/'inventory-catalogue'/('braque-still-life-zoom-0.jpg' if kind=='braque' else 'cezanne-banks-river-zoom-0.jpg'),'assets/painting-'+painting+'.jpg')
     else:
         painting_path=app/'catalogue/painting-58.197.jpg' if kind=='edwards' else app/'inventory-catalogue/romany-0.jpg'
         copy(painting_path,'assets/painting-'+painting+'.jpg')
     inputs[str(frame_path)]=hashlib.sha256(frame_path.read_bytes()).hexdigest()
+
+copy(app/'inventory-catalogue/matisse-green-pumpkin-zoom-0.jpg','assets/painting-57.037.jpg')
+villon=app/'inventory-catalogue/villon-head-woman-zoom-0.jpg'
+Image.open(villon).crop((50,12,1280,1477)).save(out/'assets/painting-70.058.jpg',quality=95)
+inputs[str(villon)]=hashlib.sha256(villon.read_bytes()).hexdigest()
 
 copy(app/'trial/magdalene-frame-fitted.png','assets/magdalene-frame.png')
 copy(app/'trial/magdalene-painting-original-crop.png','assets/painting-21.250.png')
@@ -335,7 +342,7 @@ for kind, accession, size, box in [('bartolo-madonna','20.207',[.635,.902],(63,2
     inputs[str(original)]=hashlib.sha256(original.read_bytes()).hexdigest()
 
 geometry = json.loads((ingestion/'room-route-walk-v5/geometry.json').read_text())
-geometry['caption'] = 'Collection · WASD move · Space reset · 1/2/3 room views\nRoom prototype · placements and unfinished objects are provisional.\n'
+geometry['caption'] = 'Collection · WASD move · Space reset · 1/2/3/4/5 room views\nRoom prototype · placements and unfinished objects are provisional.\n'
 geometry['point_cloud_render'] = False
 geometry['doorway_correction'] = {'sources':['IMG_6380/000247.jpg','IMG_6380/000449.jpg','IMG_6384/000209.jpg','IMG_6385/000005.jpg'], 'correction':'wide shots put the long-gallery doorway on the wall perpendicular to the sofa; purple doorway remains opposite the sofa wall. The v15 same-wall sofa/gallery-door arrangement was wrong.', 'confidence':'wall relationships visually corroborated; metric positions remain provisional pending matched wide renders'}
 geometry['rooms']=[
@@ -426,6 +433,28 @@ geometry['far_connection']['extent']='Connected complete Main Hall shell and23 r
 geometry['grey_gallery_connections']['extent']='Connected walkable museum loop through the Main Hall, medieval, Renaissance, European, Rockefeller and grey rooms; stairs remain threshold studies.'
 geometry['loop_fit']={'source':'6382:64..89.25;6344:177.5;official floor5 topology', 'correction':'North-wall paintings lie left of projecting display and portal; do not mistake display edge for northwest corner. Extend parallel long galleries, align Hall end doors, preserve relative object placements.', 'metric_accepted':False,'connector_length_accepted':False,'hall_length_m':26.3,'hall_width_m':10.,'medieval_wall_width_m':10.}
 geometry['trials'] += [['iron_grille_blocks_visitor',[8.45,.25,29.75],[8.45,0,28.44],True],['iron_grille_east_aisle_clear',[9.65,.25,29.65],[9.65,0,28.65],False]]
+
+#6387 reciprocal wides: modern door opposite medieval, lion to its right,
+# white sculpture gallery on adjoining wall. Flight geometry/room metres provisional.
+geometry['rooms'][5]={'label':'lion stair landing','bounds':[10.55,16.15,28.1,35.9], 'height':4.1,'floor':'basket-weave','floor_void':[10.55,13.55,32.0,35.9],'openings':{'west':[29.2,30.9],'east':[29.2,30.9],'south':[13.9,15.9]}}
+geometry['rooms'] += [
+    {'label':'modern painting gallery','bounds':[16.15,20.95,23.2,31.1],'height':3.5,'boards_across':True,'openings':{'west':[29.2,30.9],'east':[23.5,25.1]}},
+    {'label':'white sculpture gallery threshold study limit','bounds':[13.9,15.9,35.9,37.4],'openings':{'north':[13.9,15.9]}},
+    {'label':'modern adjoining gallery threshold study limit','bounds':[20.95,22.55,23.5,25.1],'openings':{'west':[23.5,25.1]}}
+]
+for a,side,b,other in [(3,'east',5,'west'),(5,'east',10,'west'),(5,'south',11,'north'),(10,'east',12,'west')]:
+    assert geometry['rooms'][a]['openings'][side]==geometry['rooms'][b]['openings'][other]
+for i,a in enumerate(geometry['rooms']):
+    for b in geometry['rooms'][i+1:]:
+        aa,bb=a['bounds'],b['bounds']
+        assert min(aa[1],bb[1])-max(aa[0],bb[0])<1e-8 or min(aa[3],bb[3])-max(aa[2],bb[2])<1e-8,(a['label'],b['label'])
+geometry['patches']=[p for p in geometry['patches'] if p['label']!='stairs landing threshold study limit']
+for label,b in [('landing north floor',[10.55,16.15,28.1,32.0]),('landing east floor',[13.55,16.15,32.0,35.9])]+[(r['label'],r['bounds']) for r in geometry['rooms'][10:]]:
+    geometry['patches'].append({'label':label,'color':'81735c','vertices':[[b[0],0,b[2]],[b[1],0,b[2]],[b[1],0,b[3]],[b[0],0,b[3]]]})
+for label,x,rise in [('ascending stair study',10.70,3.2),('descending stair study',12.20,-3.2)]:
+    geometry['patches'].append({'label':label,'color':'b9b7b0','vertices':[[x,0,32],[x+1.1,0,32],[x+1.1,rise,35.8],[x,rise,35.8]]})
+geometry['lion_modern_layout']={'source':'IMG_6387 native2.25..84.25s; reciprocal6382 stair view','door_order':'Medieval west; modern east opposite, lion right of modern; white sculpture gallery on adjacent south wall','modern_wall_groups':'Large painting/entry west; three windows/sculpture/deeper opening east; Braque/Villon south beside entry; pumpkin/landscape north','metric_accepted':False,'stair_curve_and_destinations_complete':False,'white_sculpture_room_interior_complete':False,'adjoining_room_interior_complete':False}
+geometry['trials'] += [['landing_to_modern',[14.5,.25,30.05],[17.7,0,30.05],False],['modern_to_landing',[17.7,.25,30.05],[14.5,0,30.05],False],['landing_white_out',[14.9,.25,34.7],[14.9,0,36.75],False],['landing_white_back',[14.9,.25,36.75],[14.9,0,34.7],False],['modern_far_opening_out',[20,.25,24.3],[21.8,0,24.3],False],['modern_far_opening_back',[21.8,.25,24.3],[20,0,24.3],False],['modern_bench_blocked',[18.5,.25,28.45],[18.5,0,26.2],True],['landing_guard_blocked',[13.9,.25,33.7],[12.9,0,33.7],True]]
 
 (out/'geometry.json').write_text(json.dumps(geometry,indent=2)+'\n')
 inputs[str(ingestion/'room-route-walk-v5/geometry.json')] = hashlib.sha256((ingestion/'room-route-walk-v5/geometry.json').read_bytes()).hexdigest()

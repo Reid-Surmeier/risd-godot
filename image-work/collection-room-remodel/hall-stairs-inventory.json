@@ -444,7 +444,24 @@
           "catalogue_match": null
         }
       ],
-      "architecture": "Three distinct doors: dark medieval, modern painting gallery beside lion, and white ancient sculptural gallery on perpendicular wall. Diagonal block parquet floor, upper sign5, ascending grey/white flight, descending flights, black iron rails/wood handrail. Exact relationship to piano stairs unverified."
+      "architecture": "Three distinct doors: dark medieval, modern painting gallery beside lion, and white ancient sculptural gallery on perpendicular wall. Diagonal block parquet floor, upper sign5, ascending grey/white flight, descending flights, black iron rails/wood handrail. Exact relationship to piano stairs unverified.",
+      "layout_v46": {
+        "geometry_installed_prototype": true,
+        "doors": 3,
+        "basket_weave_floor": true,
+        "floor_void": true,
+        "flights": 2,
+        "stair_curve_destinations_complete": false,
+        "metric_accepted": false,
+        "missing_objects": [
+          "striding-lion relief34.652",
+          "chair rack"
+        ],
+        "threshold_only": [
+          "white ancient sculpture room",
+          "modern adjoining light gallery"
+        ]
+      }
     },
     "modern_painting_gallery": {
       "groups": [
@@ -458,9 +475,9 @@
         {
           "id": "pumpkin-still-life",
           "source_frames": "6387:139-150",
-          "observed": "Still Life with Apples, Paul C\u00e9zanne41.012; six apples, not pumpkins",
-          "status": "Source/catalogue visual match; asset generation and room placement unfinished",
-          "catalogue_match": {
+          "observed": "Henri Matisse, The Green Pumpkin57.037; green ribbed pumpkin, white dish, red table and village behind",
+          "status": "Source/API/official-image identity matched; installed prototype, exact frame/placement unaccepted",
+          "retracted_match": {
             "id": "1535181",
             "accession": "41.012",
             "title": "Still Life with Apples",
@@ -468,20 +485,39 @@
             "dimensions": "23.2 x 39.7 cm (9 1/8 x 15 5/8 inches)",
             "evidence": "6387:147-150 matches six green/red apples, ochre tabletop and grey wall; preliminary pumpkin description corrected",
             "record_file": "inventory-catalogue/cezanne-apples.json"
+          },
+          "catalogue_match": {
+            "id": "1539041",
+            "accession": "57.037",
+            "title": "The Green Pumpkin",
+            "maker": "Henri Matisse",
+            "url": "https://risdmuseum.org/art-design/collection/green-pumpkin-57037",
+            "dimensions": "80 x 64.5 cm (31 1/2 x 25 3/8 inches)",
+            "record_file": "inventory-catalogue/matisse-green-pumpkin.json",
+            "evidence": "6387:148-151 matches large single ribbed green pumpkin/red table/white dish/central window mullion/village;41.012 rejected"
           }
         },
         {
           "id": "blue-yellow-village",
           "source_frames": "6387:139-150",
-          "observed": "Blue/yellow rural village on far short wall",
-          "status": "source-inventoried; native asset/metric fit unfinished",
-          "catalogue_match": null
+          "observed": "Paul C\u00e9zanne, On the Banks of a River43.255; blue river, white/yellow houses, red roof at left, grey/ochre foreground",
+          "status": "Source/API/official-image identity matched; installed prototype, exact frame/placement unaccepted",
+          "catalogue_match": {
+            "id": "1538666",
+            "accession": "43.255",
+            "title": "On the Banks of a River (Au Bord d&#039;une Rivi\u00e8re)",
+            "maker": "Paul C\u00e9zanne",
+            "url": "https://risdmuseum.org/art-design/collection/banks-river-au-bord-dune-riviere-43255",
+            "dimensions": "61 x 73.7 cm (24 x 29 inches)",
+            "record_file": "inventory-catalogue/cezanne-banks-river.json",
+            "evidence": "6387:141-146 /native72.25 matches red-roof house at left, white yellow village/blue river/right foreground rail and ochre grey planes"
+          }
         },
         {
           "id": "cubist-still-life",
           "source_frames": "6387:103-120",
           "observed": "Braque Still Life48.248: black bowl, patterned green/orange cloth and diagonal LEJOU newspaper; no guitar identity claim",
-          "status": "Source/catalogue visual match; asset generation and room placement unfinished",
+          "status": "Source/API/official-image identity matched; installed prototype, exact frame/placement unaccepted",
           "catalogue_match": {
             "id": "1552326",
             "accession": "48.248",
@@ -496,7 +532,7 @@
           "id": "oval-cubist-portrait",
           "source_frames": "6387:103-120",
           "observed": "Jacques Villon, Head of a Woman70.058; vertical oval portrait within white square frame",
-          "status": "Source/catalogue visual match; native asset and room placement unfinished",
+          "status": "Source/API/official-image identity matched; installed prototype, exact frame/placement unaccepted",
           "catalogue_match": {
             "id": "1539421",
             "accession": "70.058",
@@ -512,8 +548,18 @@
           "id": "gold-figurine",
           "source_frames": "6387:121-138",
           "observed": "Gold stylized SEATED female figure with crossed/interlocking legs in glass case between windows; source129-133 corrects preliminary standing description",
-          "status": "source-inventoried; native asset/metric fit unfinished",
-          "catalogue_match": null
+          "status": "Source/API/two official photographs identity matched; third image is a line silhouette, no rear photograph; native asset/case/metric fit unfinished",
+          "catalogue_match": {
+            "id": "1552686",
+            "accession": "67.089",
+            "title": "Seated Woman",
+            "maker": "Raymond Duchamp-Villon",
+            "url": "https://risdmuseum.org/art-design/collection/seated-woman-67089",
+            "dimensions": "71.1 x 20.3 x 24.1 cm (28 x 8 x 9 1/2 inches)",
+            "record_file": "inventory-catalogue/seated-woman-duchamp-villon.json",
+            "evidence": "Native6387:64.25/66.25s matches faceless tilted elongated head, diagonal crossed arm, interlocking raised knees, narrow rectangular seat/support and gold-wash rectangular base; official photographs0/1 inspected",
+            "native_complete": false
+          }
         },
         {
           "id": "central-black-bench",
@@ -546,6 +592,30 @@
         "geometry_built": false,
         "metric_accepted": false,
         "next": "Establish landing-side doorway sequence and build source-constrained room/objects; do not invent connector to piano stairs or auditorium."
+      },
+      "wide_review_v46": {
+        "source": "Native6387 46.25..84.25s; frame51.25 supplies the three-window reciprocal",
+        "geometry_built": true,
+        "metric_accepted": false,
+        "handedness_correction": "Entry and large painting west; three windows east; Braque/Villon on south wall beside entry; Matisse/C\u00e9zanne on north far wall. Initial authored reverse orientation corrected after native wide inspection.",
+        "catalogue_accessions_installed": [
+          "48.248",
+          "70.058",
+          "57.037",
+          "43.255"
+        ],
+        "retracted_candidate": "41.012; source148-151 shows one ribbed pumpkin, not six apples",
+        "missing_objects": [
+          "large crowded figurative painting",
+          "gold seated figure"
+        ],
+        "unaccepted": [
+          "exact room dimensions and object offsets",
+          "window construction/outside view",
+          "Villon white frame and Matisse reused frame",
+          "C\u00e9zanne fine frame ornament",
+          "modern painting spotlight pools too bright compared with source; lighting still needs refinement"
+        ]
       }
     },
     "Metcalf_Auditorium": {

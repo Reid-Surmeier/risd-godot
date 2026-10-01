@@ -1,0 +1,22 @@
+{
+  "room_shells": 13,
+  "no_plan_overlaps": true,
+  "openings_agree": true,
+  "landing_doors": 3,
+  "floor_void_not_capped": true,
+  "flight_ramp_heights_m": [
+    3.2,
+    -3.2
+  ],
+  "flight_curve_destinations_accepted": false,
+  "modern_paintings_byte_identical_to_official_images": [
+    "48.248",
+    "57.037",
+    "43.255"
+  ],
+  "villon": "Official photograph crop and 48-sided oval; original unmodified retained",
+  "retracted_false_match": "41.012 replaced by57.037",
+  "prepared_source_hashes_checked": 201,
+  "metric_and_placement_accepted": false,
+  "runnable_check": "collection-v46-proof.py"
+}

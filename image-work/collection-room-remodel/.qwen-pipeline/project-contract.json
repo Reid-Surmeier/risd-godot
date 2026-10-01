@@ -113,7 +113,9 @@
     "inventory-references/magdalene-frame-style-v2.png",
     "inventory-references/medieval-grille-video-12.25.png",
     "inventory-references/apostle-41046-catalogue.png",
-    "inventory-references/apostle-41045-catalogue.png"
+    "inventory-references/apostle-41045-catalogue.png",
+    "inventory-references/braque-frame-video-native.png",
+    "inventory-references/cezanne-frame-video-native.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -1811,6 +1813,44 @@
       "model": "meta/muse-image",
       "parameters": {
         "size": "1440x1760"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-283d250bd1326d65f1cf",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1440"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-84db1c56d9bdf871892c",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1440"
       },
       "maximumCount": 1,
       "unitCostUsd": "0.01",

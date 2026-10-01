@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "braque-frame-001",
+      "prompt": "braque-frame-prompt.txt",
+      "promptSha256": "b397716998d8663ec388c48a359cdd6145c3bc2c67dfd138fbfa764981a98f5a",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/braque-frame-video-native.png",
+          "sha256": "1a1ab61845118eed8c78a462b9bb40d7d7678f080a30aa95b6b10b8387125747"
+        }
+      ]
+    }
+  ]
+}

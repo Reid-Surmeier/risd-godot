@@ -1,0 +1,22 @@
+{
+  "braque": {
+    "target_margins_m": [
+      0.08,
+      0.08,
+      0.08,
+      0.08
+    ],
+    "source": "Native6387:54.25; qualitative band ratios",
+    "metric_accepted": false
+  },
+  "cezanne": {
+    "target_margins_m": [
+      0.105,
+      0.105,
+      0.105,
+      0.105
+    ],
+    "source": "Native6387:72.25 rail ratios; rightmost outer edge not fully in reference crop, symmetric reconstruction inferred",
+    "metric_accepted": false
+  }
+}
