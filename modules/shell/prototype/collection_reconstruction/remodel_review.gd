@@ -48,6 +48,7 @@ func run() -> void:
 		["wide-purple-entry",Vector3(3.2,1.65,-2),Vector3(-2.6,1.35,-4.8)],
 		["wide-gallery-entry",Vector3(-.8,1.65,1.1),Vector3(.15,1.3,-6.2)],
 		["architecture-asset",Vector3(-.55,2.1,-3.5),Vector3(-.55,1.9,-.4)],
+		["wallpaper-asset",Vector3(1.6,2.1,-5.4),Vector3(3.59,2.1,-5.4)],
 		["bust-asset",Vector3(-.9,1.65,-5.87),Vector3(-2.2,1.60,-5.87)]]:
 		scene.camera.position=view[1]
 		scene.camera.look_at(view[2])
@@ -64,5 +65,17 @@ func run() -> void:
 	await process_frame
 	await RenderingServer.frame_post_draw
 	assert(native_view.get_texture().get_image().save_png("res://evidence/wide-source-camera.png")==OK)
-	print("REMODEL_VISUAL_PROOF: two walking, nine detail/oblique, seven native-resolution asset views and one portrait source-camera fit")
+	native_view.size=Vector2i(700,760)
+	scene.camera.projection=Camera3D.PROJECTION_ORTHOGONAL
+	scene.camera.size=.85
+	for view in [["bust-front-uv",Vector3(-.9,1.62,-5.87)],
+		["bust-rear-uv",Vector3(-2.63,1.62,-5.87)],
+		["bust-side-uv",Vector3(-2.2,1.62,-4.8)]]:
+		scene.camera.position=view[1]
+		scene.camera.look_at(Vector3(-2.2,1.62,-5.87))
+		scene.update_baked_visibility()
+		await process_frame
+		await RenderingServer.frame_post_draw
+		assert(native_view.get_texture().get_image().save_png("res://evidence/"+view[0]+".png")==OK)
+	print("REMODEL_VISUAL_PROOF: two walking, nine detail/oblique, eight native-resolution asset views, one source-camera fit and three bust UV views")
 	quit()

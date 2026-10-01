@@ -137,5 +137,11 @@
       "run_id": "run-7b018ec98c334a45ef16e681",
       "state": "submission_unreconciled; max $0.01 possibly spent; never resubmit blindly"
     }
-  ]
+  ],
+  "current_preview": {
+    "path": "lowpoly-room-v19",
+    "wallpaper": "34.912 matched/installed, placement provisional",
+    "bust": "37.201 separate front/rear UVs and connected socle, side profile unverified",
+    "next_frame_trial": "36.003 generated/inspected, crop/pose/bake not integrated"
+  }
 }

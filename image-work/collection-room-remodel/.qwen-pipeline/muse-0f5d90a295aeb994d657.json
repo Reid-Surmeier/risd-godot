@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-0f5d90a295aeb994d657",
+  "summary": "Generate ONE complete FRONT ORTHOGRAPHIC low polygon gilded picture-frame asset matching the frame surrounding RISD Museum Domenico Fetti, Christ Ministered To by the Angels, accession 36.003, in the two video references. The references overlap and together show its real design. Preserve the plain rectangular outline and exact repeating moulding order: broad outer convex fluted/reeded gold band, darker recessed channel, raised repeating egg-and-dart / oval gadroon band, narrow inner floral bead next to the canvas. Rich aged gold, shallow faceted carved relief, restrained baked shadows in the established Main Hall game style. Complete all four sides and four corners. Inner opening is a perfectly blank pure white rectangle with portrait canvas proportions 78.1 wide by 89.5 high. Outside silhouette is perfectly flat magenta #FF00FF. No painting, people, walls, labels, shadows outside the frame, decorative extra scrolls, new ornament, perspective, grid or text. One frame only; no sheet. Native geometry supplies depth and separate authentic painting pixels.\n",
+  "procedureId": "muse-0f5d90a295aeb994d657",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/fetti-frame-selected-0.png",
+      "sha256": "37ccb7c01d70a973f018a810a0b50c65823f3a6352751502003af7d4186cfe23",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/fetti-frame-selected-1.png",
+      "sha256": "b4dd759e7f82310a6edb8cb22bb68be6366f940b3d698b6a69b166fb984880f5",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "fetti-frame-recipe.json",
+      "sha256": "0f5d90a295aeb994d657adedb3800098a7dacd6ed7a089a9cc1db53e1b969349"
+    },
+    {
+      "applicationPath": "fetti-frame-plan.json",
+      "sha256": "6b98e756b4c72e01f00b5a10ef68e0ab292e4965e7f82d0ffa8c60a4c6b157c5"
+    },
+    {
+      "applicationPath": "fetti-frame-prompt.txt",
+      "sha256": "6feddf63c45aeee7e03ed2dbec4f1345f8a54f4b0ee37b6235e92f5731f7d422"
+    }
+  ]
+}

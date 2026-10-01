@@ -310,6 +310,16 @@ func build_displays() -> void:
 	inventory["verified_paintings"]=2
 	inventory["display_cases"]=2
 	inventory["central_pedestals"]=1
+	# Arabesque Wallpaper 34.912: diamond/birds/garlands match IMG_6380 210.25s.
+	# The catalogue paper size is measured; the white conservation mount is provisional.
+	solid(Vector3(3.59,2.10,-5.4),Vector3(.018,1.345,.76),ivory)
+	var paper:=Painting.new()
+	add_child(paper)
+	paper.build_shaped(load("res://assets/wallpaper-34.912.jpg"),Vector2(.56,1.145),[[0,0],[1,0],[1,1],[0,1]],Color("e7dfcd"))
+	paper.position=Vector3(3.575,2.10,-5.4)
+	paper.rotation.y=-PI/2
+	for z in [-5.70,-5.10]:solid(Vector3(3.55,2.75,z),Vector3(.025,.025,.025),look(Color("b4b4ad")))
+	inventory["verified_wallpaper_panels"]=1
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
@@ -441,18 +451,26 @@ func build_catalogue_objects() -> void:
 			continue
 		var st:=SurfaceTool.new()
 		st.begin(Mesh.PRIMITIVE_TRIANGLES)
-		for triangle in asset.triangles:
+		for t in asset.triangles.size():
+			var triangle:Array=asset.triangles[t]
 			var a:=vec(asset.vertices[triangle[0]])
 			var b:=vec(asset.vertices[triangle[1]])
 			var c:=vec(asset.vertices[triangle[2]])
 			st.set_normal((b-a).cross(c-a).normalized())
-			for i in triangle:
-				st.set_uv(Vector2(asset.uv[i][0],asset.uv[i][1]))
+			for corner in 3:
+				var i:int=triangle[corner]
+				var uv:Array=asset.triangle_uv[t][corner] if asset.has("triangle_uv") else asset.uv[i]
+				st.set_uv(Vector2(uv[0],uv[1]))
 				st.add_vertex(vec(asset.vertices[i]))
 		var mesh:=MeshInstance3D.new()
 		mesh.mesh=st.commit()
 		mesh.material_override=Painting.mat(load("res://assets/"+row.asset+"-volume.png"),1.0,true)
 		mesh.position=vec(row.position)
+		if asset.has("socle_height_m"):
+			mesh.position.y+=asset.socle_height_m
+			var marble:=look(Color("ded4bf"))
+			for band in [[.02,.04,.235,.195],[.075,.07,.18,.15],[.12,.02,.215,.175]]:
+				solid(vec(row.position)+Vector3(0,band[0],0),Vector3(band[2],band[1],band[3]),marble)
 		mesh.rotation=Vector3(row.get("pitch",0.0),row.get("yaw",0.0),0)
 		add_child(mesh)
 	inventory["catalogue_volume_objects"]=data.instances.size()

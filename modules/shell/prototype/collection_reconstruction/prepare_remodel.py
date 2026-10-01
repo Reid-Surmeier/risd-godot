@@ -81,11 +81,14 @@ for kind, bounds, real_size, pieces, cloth_rect in [
     assert np.mean(cloth[:,:,3]==0)<.001, 'Upholstery must be sampled inside the cloth, without chroma margins'
     Image.fromarray(cloth[:,:,:3]).save(out/'assets'/f'{kind}-cloth.png')
 
-# ponytail: 20 eight-sided rings give a closed volume with catalogue depth; rear
-# anatomy is inferred. Replace with hand-authored multi-view anatomy before acceptance.
+# ponytail: faceted rings keep catalogue depth; unobserved anatomy still needs review.
 def volume_asset(kind, size):
     original=app/'trial'/f'{kind}-original.webp'
     pixels=np.array(Image.open(original).convert('RGB'))
+    paired = kind == 'recamier'
+    if paired:
+        # Body only: the two Muse views include different amounts of pedestal.
+        pixels=pixels[:1515]
     hsv=cv2.cvtColor(pixels,cv2.COLOR_RGB2HSV)
     mask=((hsv[:,:,0]<125)|(hsv[:,:,0]>175)|(hsv[:,:,1]<=70)|(hsv[:,:,2]<=35)).astype('uint8')
     contours,_=cv2.findContours(mask,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
@@ -95,6 +98,21 @@ def volume_asset(kind, size):
     pixels[mask==0]=[218,209,188]
     texture=Image.fromarray(np.dstack([pixels,mask*255]));texture.thumbnail((512,512),Image.Resampling.LANCZOS)
     texture.save(out/'assets'/f'{kind}-volume.png')
+    if paired:
+        rear_path=app/'trial/recamier-rear-original.webp'
+        rear=np.array(Image.open(rear_path).convert('RGB'))[:1170]
+        rhsv=cv2.cvtColor(rear,cv2.COLOR_RGB2HSV)
+        rmask=((rhsv[:,:,0]<125)|(rhsv[:,:,0]>175)|(rhsv[:,:,1]<=70)|(rhsv[:,:,2]<=35)).astype('uint8')
+        rx,ry,rw,rh=cv2.boundingRect(max(cv2.findContours(rmask,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[0],key=cv2.contourArea))
+        rear=rear[ry:ry+rh,rx:rx+rw];rmask=rmask[ry:ry+rh,rx:rx+rw]
+        rear[rmask==0]=[218,209,188]
+        # Neutral outside-silhouette pixels prevent cut-out holes on a closed volume.
+        atlas=Image.new('RGB',(1024,512))
+        atlas.paste(Image.fromarray(pixels).resize((512,512)),(0,0))
+        atlas.paste(Image.fromarray(rear).resize((512,512)),(512,0))
+        atlas.save(out/'assets'/f'{kind}-volume.png')
+        inputs[str(rear_path)]=hashlib.sha256(rear_path.read_bytes()).hexdigest()
+        full_size=size;size=[size[0],size[1]-.13,size[2]]
     vertices=[];uv=[];triangles=[]
     for row in range(20):
         yy=int(round((h-1)*row/19));where=np.where(mask[yy]>0)[0]
@@ -105,6 +123,13 @@ def volume_asset(kind, size):
             angle=side*np.pi/4;xx=center+radius*np.cos(angle)
             vertices.append([(xx-.5)*size[0],(1-yy/(h-1))*size[1],np.sin(angle)*size[2]/2*min(1,max(.2,radius*3))])
             uv.append([float(xx),yy/(h-1)])
+            if paired:
+                # Front/rear depth follows the official side photograph's neck,
+                # projecting face and swept-back hair; intermediate profiles provisional.
+                t=row/19
+                front=np.interp(t,[0,.12,.32,.46,.55,.63,.70,.80,1],[.08,.72,.72,.9,1,.72,.37,.60,.52])
+                back=np.interp(t,[0,.12,.32,.46,.55,.63,.70,.80,1],[.08,1,.96,.82,.60,.42,.35,.65,.55])
+                vertices[-1][2]=np.sin(angle)*size[2]/2*(front if np.sin(angle)>=0 else back)
     # Rows run top to bottom. Outward faces and both caps are checked below.
     for row in range(19):
         for side in range(8):
@@ -123,7 +148,28 @@ def volume_asset(kind, size):
     assert signed>0,(kind,'inverted volume',signed)
     inputs[str(original)]=hashlib.sha256(original.read_bytes()).hexdigest()
     outline=cv2.approxPolyDP(max(cv2.findContours(mask,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[0],key=cv2.contourArea),2,True)[:,0,:]/[w,h]
-    return {'vertices':vertices,'uv':uv,'triangles':triangles,'outline':outline.tolist(),'size_m':size,'closed_edges_checked':len(edges),'rear':'inferred catalogue-depth volume; frontal UV repeated; multi-view anatomy unverified'}
+    asset={'vertices':vertices,'uv':uv,'triangles':triangles,'outline':outline.tolist(),'size_m':size,'closed_edges_checked':len(edges),'rear':'inferred catalogue-depth volume; frontal UV repeated; multi-view anatomy unverified'}
+    if paired:
+        triangle_uv=[];hemispheres=[]
+        for face in triangles:
+            is_rear=np.mean([vertices[i][2] for i in face])<0
+            coords=[]
+            for i in face:
+                t=uv[i][1];yy=min(int(round(t*((rh if is_rear else h)-1))), (rh if is_rear else h)-1)
+                active=np.where((rmask if is_rear else mask)[yy]>0)[0];assert len(active)>0
+                if i<160:
+                    across=(1+np.cos((i%8)*np.pi/4))/2
+                    if is_rear:across=1-across
+                else:across=.5
+                xx=(active.min()+across*(active.max()-active.min()))/((rw if is_rear else w)-1)
+                coords.append([(.5 if is_rear else 0)+xx*.5,t])
+            triangle_uv.append(coords);hemispheres.append('rear' if is_rear else 'front')
+        assert {'front','rear'}==set(hemispheres)
+        assert all((u>=.5)==(side=='rear') for side,face in zip(hemispheres,triangle_uv) for u,v in face if 0<u<1 and u!=.5)
+        asset.update(triangle_uv=triangle_uv,hemispheres=hemispheres,size_m=full_size,body_height_m=size[1],socle_height_m=.13,
+            rear='saved Muse rear view mapped to rear triangles; side depth from official photograph; intermediate anatomy provisional',
+            raster_crops={'front_bottom_px':1515,'rear_bottom_px':1170,'reason':'exclude generated socles and photographed black display stand'})
+    return asset
 
 # Dishes use the observed top outline on a faceted hollow profile, not a vertical card.
 def dish_asset(kind, size):
@@ -189,6 +235,9 @@ for kind, canvas, painting in [('edwards', [.637,.760], '58.197'), ('romany', [.
     painting_path=app/'catalogue/painting-58.197.jpg' if kind=='edwards' else app/'inventory-catalogue/romany-0.jpg'
     copy(painting_path,'assets/painting-'+painting+'.jpg')
     inputs[str(frame_path)]=hashlib.sha256(frame_path.read_bytes()).hexdigest()
+
+copy(app/'inventory-catalogue/arabesque-wallpaper-zoom-0.jpg','assets/wallpaper-34.912.jpg')
+copy(app/'inventory-catalogue/arabesque-wallpaper.json','assets/wallpaper-34.912.json')
 
 geometry = json.loads((ingestion/'room-route-walk-v5/geometry.json').read_text())
 geometry['caption'] = 'Collection · WASD move · Space reset · 1/2 room views\nRoom prototype · placements and unfinished objects are provisional.\n'

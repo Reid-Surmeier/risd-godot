@@ -591,10 +591,10 @@
     "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
   },
   "inventory_pass_spend": {
-    "successful_count": 49,
-    "actual_usd": "0.490000",
+    "successful_count": 50,
+    "actual_usd": "0.500000",
     "map_prior_usd": ".11",
-    "map_cumulative_actual_usd": "0.600000",
+    "map_cumulative_actual_usd": "0.610000",
     "possibly_spent": [
       {
         "kind": "river-deities",
@@ -603,7 +603,7 @@
         "state": "submission_unreconciled; no resubmission"
       }
     ],
-    "map_conservative_ceiling_usd": "0.610000"
+    "map_conservative_ceiling_usd": "0.620000"
   },
   "architecture_review": {
     "ivory-plaster": "Native Muse faceting inspected; deterministic contrast restraint and mirrored-edge assembly create matching texture borders. Smooth plaster material scale remains provisional.",
@@ -612,5 +612,28 @@
     "source_use": "video used for reference/camera/profile measurement only; never room albedo",
     "layout": "v15 same-wall gallery door and sofa rejected by owner/wide shots; v17 doorway/cases/furniture corrected from wide source camera; not complete map"
   },
-  "remaining": "All ten video rooms/objects still require full identity, Muse, geometry, connectivity and independent visual acceptance; central deities run blocked, no blind retry."
+  "remaining": "All ten video rooms/objects still need full identity, Muse, geometry, connectivity and independent visual acceptance. Fetti frame generated/inspected but not room-integrated. Brown textile/four prints unresolved; central deities run unreconciled, no blind retry.",
+  "runtime_review_v19": {
+    "date_utc": "2026-10-01T01:35:16.194253+00:00",
+    "recamier": "Saved front/rear Muse rasters mapped to separate UV hemispheres; 320 closed outward-wound triangles, 480 edge pairs; front/rear inspected in Godot. Side profile/UV seam still provisional. Authored connected marble socle; catalogue total height retained. No paid call.",
+    "wallpaper": "34.912 Arabesque Wallpaper official photo and dimensions matched to IMG_6380 210.25s. Authentic catalogue image, native white conservation mount, on east wall beside gold service. Placement/mount dimensions provisional.",
+    "native_checks": "18/18 RTX4070 SUPER collision/camera checks, p95 31.9444ms",
+    "browser_checks": "18/18 plus actual S/W door round trip, no JS/runtime errors, p95 32.5667ms, RTX ANGLE",
+    "shell_checks": "First 42/48, isolated rerun 41/48: four known layout/pixel failures and changing pressed/dip timing failures. No Shell or Tab changes attempted.",
+    "performance": "Prototype not at 60fps acceptance; all-ten-video map remains incomplete",
+    "remaining": "Brown textile/four prints unresolved; Fetti painting identified and one frame pass planned; exact spacing, unseen geometry and remaining filmed rooms pending."
+  },
+  "fetti-frame": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "cost_usd": "0.010000",
+    "run_id": "run-ebee8724fca764b64861e626",
+    "native_sha256": "948eaa974aa00b2fc701d5fb6f993bd70da2a19f4282222ef265e06e3a500f35",
+    "catalogue_id": "1534546",
+    "accession": "36.003",
+    "source_video": "IMG_6386 32.25/33.75s",
+    "visual_review": "Fluted outer band and oval inner moulding compared with native source; four meshes and three Godot viewpoints inspected. Trial only; depth, baked lighting and room placement unverified. Uncropped authentic photo contains a narrow gilt edge; review canvas crop before integration.",
+    "runtime_integrated": false
+  }
 }

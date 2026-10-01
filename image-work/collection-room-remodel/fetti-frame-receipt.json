@@ -1,0 +1,25 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/fetti-frame-selected-0.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/fetti-frame-selected-1.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-ebee8724fca764b64861e626/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "948eaa974aa00b2fc701d5fb6f993bd70da2a19f4282222ef265e06e3a500f35"
+    }
+  ],
+  "changesRequested": "Generate ONE complete FRONT ORTHOGRAPHIC low polygon gilded picture-frame asset matching the frame surrounding RISD Museum Domenico Fetti, Christ Ministered To by the Angels, accession 36.003, in the two video references. The references overlap and together show its real design. Preserve the plain rectangular outline and exact repeating moulding order: broad outer convex fluted/reeded gold band, darker recessed channel, raised repeating egg-and-dart / oval gadroon band, narrow inner floral bead next to the canvas. Rich aged gold, shallow faceted carved relief, restrained baked shadows in the established Main Hall game style. Complete all four sides and four corners. Inner opening is a perfectly blank pure white rectangle with portrait canvas proportions 78.1 wide by 89.5 high. Outside silhouette is perfectly flat magenta #FF00FF. No painting, people, walls, labels, shadows outside the frame, decorative extra scrolls, new ornament, perspective, grid or text. One frame only; no sheet. Native geometry supplies depth and separate authentic painting pixels.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-ebee8724fca764b64861e626",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-ebee8724fca764b64861e626"
+}

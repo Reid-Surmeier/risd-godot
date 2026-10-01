@@ -1,0 +1,174 @@
+{
+  "url": "http://127.0.0.1:8177/",
+  "errors": [],
+  "viewport": {
+    "width": 1100,
+    "height": 760
+  },
+  "first_ready_ms": 3990,
+  "engine": {
+    "checks": {
+      "adjacent_gallery": true,
+      "adjacent_gallery_camera": true,
+      "central_display_blocked": true,
+      "central_display_blocked_camera": true,
+      "decorative_room": true,
+      "decorative_room_camera": true,
+      "gallery_door_back": true,
+      "gallery_door_back_camera": true,
+      "gallery_door_out": true,
+      "gallery_door_out_camera": true,
+      "right_door_back": true,
+      "right_door_back_camera": true,
+      "right_door_out": true,
+      "right_door_out_camera": true,
+      "right_wall_blocked": true,
+      "right_wall_blocked_camera": true,
+      "sofa_wall_blocked": true,
+      "sofa_wall_blocked_camera": true
+    },
+    "frame_time_p50_ms": 26.6666666666667,
+    "frame_time_p95_ms": 32.5666666666667,
+    "navigation_accepted": false,
+    "render_frames": 1148,
+    "renderer": "WebKit WebGL",
+    "samples": [
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          -0.550000011920929,
+          0.000837185769341886,
+          1.57500970363617
+        ],
+        "trial": "gallery_door_out"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 2,
+        "on_floor": true,
+        "position": [
+          -0.550000011920929,
+          0.000835061830002815,
+          -1.27497935295105
+        ],
+        "trial": "gallery_door_back"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": true,
+        "hidden_casings": 4,
+        "on_floor": true,
+        "position": [
+          -1.60282957553864,
+          -0.00118300702888519,
+          -2.5
+        ],
+        "trial": "sofa_wall_blocked"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": true,
+        "hidden_casings": 5,
+        "on_floor": true,
+        "position": [
+          3.40467000007629,
+          -0.000619583996012807,
+          -2.67905712127686
+        ],
+        "trial": "right_wall_blocked"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          1.65020489692688,
+          0.000834110309369862,
+          -5.36307191848755
+        ],
+        "trial": "decorative_room"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          -0.550000011920929,
+          -0.000844321446493268,
+          5.97916507720947
+        ],
+        "trial": "adjacent_gallery"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 1,
+        "on_floor": true,
+        "position": [
+          4.77082490921021,
+          0.000827310548629612,
+          -1.99999678134918
+        ],
+        "trial": "right_door_out"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 2,
+        "on_floor": true,
+        "position": [
+          3.02917456626892,
+          0.000813029822893441,
+          -1.99999988079071
+        ],
+        "trial": "right_door_back"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": true,
+        "hidden_casings": 4,
+        "on_floor": true,
+        "position": [
+          0.449999988079071,
+          -0.00179300643503666,
+          -3.29999899864197
+        ],
+        "trial": "central_display_blocked"
+      }
+    ]
+  },
+  "keyboard_forward": {
+    "elapsed": 3.23333333333333,
+    "on_floor": true,
+    "phase": 0,
+    "position": [
+      -0.550000011920929,
+      -0.000425566104240716,
+      0.470844984054565
+    ]
+  },
+  "keyboard_reverse": {
+    "elapsed": 5.14999999999999,
+    "on_floor": true,
+    "phase": 0,
+    "position": [
+      -0.550000011920929,
+      0.000835072307381779,
+      -1.32080960273743
+    ]
+  },
+  "browser": "Chrome/154.0.8037.57",
+  "webgl_renderer": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+  "memory": {
+    "used_js_heap_bytes": 245488201,
+    "total_js_heap_bytes": 256096061,
+    "caveat": "JS heap only; excludes complete process, GPU and WASM allocation accounting"
+  },
+  "pass": true
+}

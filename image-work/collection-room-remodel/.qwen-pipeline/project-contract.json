@@ -76,7 +76,9 @@
     "inventory-references/recamier-rear-selected-1.png",
     "architecture-references/ivory-plaster-source.png",
     "architecture-references/door-architrave-source.png",
-    "architecture-references/baseboard-source.png"
+    "architecture-references/baseboard-source.png",
+    "inventory-references/fetti-frame-selected-0.png",
+    "inventory-references/fetti-frame-selected-1.png"
   ],
   "outputRoot": "generated",
   "maximumCount": 1,
@@ -1311,6 +1313,30 @@
           "slot": "reference-000",
           "kind": "image",
           "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-0f5d90a295aeb994d657",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1440x1760"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
         }
       ]
     }

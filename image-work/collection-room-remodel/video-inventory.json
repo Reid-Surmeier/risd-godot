@@ -454,12 +454,13 @@
       ],
       "yaw": 1.5707963268,
       "source": "IMG_6380/000285.jpg; verified matching hair/neck socle and black-and-white base",
-      "status": "front/source matched; rear anatomical fidelity unverified",
+      "status": "front/rear Muse UVs separated; catalogue total height preserved; side profile provisional",
       "v15_position": [
         -2.2,
         1.3,
         -6.25
-      ]
+      ],
+      "rear_source": "official catalogue photo 3 and saved recamier-rear Muse run; no new spending"
     },
     {
       "asset": "ewe-lamb",
@@ -1082,5 +1083,29 @@
       "bust_z": -5.87,
       "metric_scale": "provisional; inferred focal850px, catalogue canvas plane anchor"
     }
-  }
+  },
+  "verified_wallpaper_panels": [
+    {
+      "accession": "34.912",
+      "id": "1240221",
+      "title": "Arabesque Wallpaper",
+      "maker": "Fran\u00e7ois Louis Prieur",
+      "size_m": [
+        0.56,
+        1.145
+      ],
+      "position": [
+        3.575,
+        2.1,
+        -5.4
+      ],
+      "yaw": -1.5707963268,
+      "source": "IMG_6380 210.25s (survey frame 421)",
+      "match": "matching diamond, blue/red birds, central female figure and flower garlands; official native photo visually inspected",
+      "api_record": "inventory-catalogue/arabesque-wallpaper.json",
+      "image": "inventory-catalogue/arabesque-wallpaper-zoom-0.jpg",
+      "status": "identity and paper dimensions catalogue verified; mount dimensions and metric room placement provisional",
+      "generated_artwork": false
+    }
+  ]
 }
