@@ -11,11 +11,12 @@ try {
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   assert.equal((await page.goto(url)).status(), 200);
+  assert.equal(await page.locator('style, link[rel="stylesheet"], [style]').count(), 0);
   assert.deepEqual(await page.locator('nav a').evaluateAll(links => links.map(link => link.getAttribute('href'))), [
-    'https://ctchomework.reidsurmeier.wtf/', 'https://shader.reidsurmeier.wtf/', '/week-3/'
+    'https://shader.reidsurmeier.wtf/', 'https://ctchomework.reidsurmeier.wtf/', '/week-3/'
   ]);
   await page.keyboard.press('Tab');
-  assert.equal(await page.locator('nav a:first-child').evaluate(link => link === document.activeElement), true);
+  assert.equal(await page.locator('nav a').first().evaluate(link => link === document.activeElement), true);
   for (const [name, width, height] of [['desktop', 1440, 1000], ['mobile', 390, 844]]) {
     await page.setViewportSize({width, height});
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
@@ -29,7 +30,7 @@ try {
       if (link.includes('shader.')) {
         await page.waitForFunction(() => document.querySelector('#code')?.value.includes('void main') && document.querySelector('canvas')?.width > 0);
         await page.waitForTimeout(1500);
-        await page.screenshot({path: `${evidence}/week-2.png`});
+        await page.screenshot({path: `${evidence}/week-1-shader.png`});
       }
     }
   }
