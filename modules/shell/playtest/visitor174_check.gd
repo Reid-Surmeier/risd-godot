@@ -131,8 +131,8 @@ func _run() -> void:
 	await process_frame
 	print(
 		(
-			"PASS #236: accepted character, 24-bone rig, 23 paintings, start/walk/stop/reversal, " +
-			"90/180-degree turns, floor contact and step cadence, gestures disabled"
+			"PASS #236: accepted character, 24-bone rig, 23 paintings, start/walk/stop/reversal, "
+			+ "90/180-degree turns, floor contact and step cadence, gestures disabled"
 		)
 	)
 	quit()
