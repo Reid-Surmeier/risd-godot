@@ -2,6 +2,8 @@
 
 Branch `room/skylight`, base `8fca73d3`. First version, built inside a 45-minute time box. **Provisional throughout.**
 
+State: the draft room project (the steps of `scripts/rebuild_rooms.sh --draft`) generates and `architecture_check.gd` passes with no failures (`leaf: 2`). **Not baked**: my bake was stopped with everyone's when the machine overloaded, and `collection_rooms/` is not rebuilt on this branch. The pictures here are unbaked renders of the draft project, each beside a footage frame; `09` has the stub before.
+
 ## What is built
 
 The 2.0 x 1.6 m stub "piano-stair threshold study limit" is replaced by two rows of `geometry['rooms']`:
@@ -61,7 +63,7 @@ No overlap in the generator. The room lies north of z = -5.76, which is Rockefel
 
 1. `main_build_walk.gd`, `FAR_ROOMS`: replace `"piano-stair threshold study limit"` with `"Skylight Gallery"` and add `"Skylight Gallery reveal threshold"`.
 2. `main_build_check.gd`: the plan now has 15 added rooms (was 14); blocks, cut-away bodies and the probe count (350) may differ.
-3. `remodel_review.gd`: unchanged; its ceiling assertion was already out of date and now sees three more ceilings (this room's, its two laylights and the reveal soffit make it nine in all).
+3. `remodel_review.gd`: unchanged; its ceiling assertion was already out of date (it expects 3, the base has 5). This room adds eight nodes tagged `opaque_ceiling`: the ceiling, two laylights, four cornices and the reveal soffit.
 4. `collection_rooms/objects.json` (if kept): rows for the five accession numbers.
 5. `modules/shell/PROVENANCE.md`: a line for this bake.
 
@@ -88,4 +90,5 @@ The two laylights are emissive panes (energy 2.5) at y = 3.89: centres (3.95, -8
 4. Leaves hinge on the grey-gallery side in the footage; `build_reveal` puts the knobs there instead.
 5. Measured wall positions for the Mangold and Walsh, the east wall, the door's width and the reveal depth.
 6. A sharper frame for the Walsh label; catalogue photographs for the Feldman and Walsh do not exist online.
-7. The walking self-check (`--selfcheck`, about 9 minutes) was not run; three trials were added (`grey_skylight_out`, `grey_skylight_back`, `skylight_piano_blocked`) and the stub's two removed.
+7. The bake (see State) and a look at the baked room: the laylights' emission strength (2.5) is untested.
+8. The walking self-check (`--selfcheck`, about 9 minutes) was not run; three trials were added (`grey_skylight_out`, `grey_skylight_back`, `skylight_piano_blocked`) and the stub's two removed.

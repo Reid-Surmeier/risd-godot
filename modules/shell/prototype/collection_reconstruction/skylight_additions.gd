@@ -69,6 +69,7 @@ func build(room) -> void:
 		var cornice: MeshInstance3D = room.moulding(spec[1], .22, "door-architrave", false)
 		cornice.position = room.wall_point(ROOM, spec[0], spec[1] / 2, height - .11, .065)
 		cornice.rotation.y = spec[2]
+		cornice.set_meta("opaque_ceiling", ROOM)  # two-sided trim: hide it with the ceiling, or it bars the view from above
 		room.ceiling_details.append(cornice)
 	_lift(room, b, white)
 	_piano(room, b)
