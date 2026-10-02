@@ -1,0 +1,70 @@
+[
+  {
+    "slot": "L1",
+    "file": "trial/medieval-paper-L1.png",
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/frames/IMG_6382-097.70.jpg",
+    "source_sha256": "b07753c4124e88c5e326050da68cce794914138b0bd1cefd1396b194aadcdd0b",
+    "seconds": 97.7,
+    "source_quad": [
+      [
+        659,
+        761
+      ],
+      [
+        686,
+        758
+      ],
+      [
+        690,
+        768
+      ],
+      [
+        663,
+        772
+      ]
+    ],
+    "output_size": [
+      28,
+      14
+    ],
+    "sha256": "e4a70ba9b5d0a9b5eeafcf462e94abecfc4149106921c08f3f7b32714b9d2084",
+    "method": "Perspective unwarp of small original filmed image; no generation or invented detail",
+    "identity": "unidentified",
+    "fine_fidelity_accepted": false,
+    "placement_accepted": false
+  },
+  {
+    "slot": "L2",
+    "file": "trial/medieval-paper-L2.png",
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/frames/IMG_6382-097.70.jpg",
+    "source_sha256": "b07753c4124e88c5e326050da68cce794914138b0bd1cefd1396b194aadcdd0b",
+    "seconds": 97.7,
+    "source_quad": [
+      [
+        864,
+        729
+      ],
+      [
+        927,
+        724
+      ],
+      [
+        956,
+        756
+      ],
+      [
+        890,
+        761
+      ]
+    ],
+    "output_size": [
+      66,
+      37
+    ],
+    "sha256": "753f89290492a6668100b6bad0b8498e5d8ce0ff1574aa084df13eb242ddec30",
+    "method": "Perspective unwarp of small original filmed image; no generation or invented detail",
+    "identity": "unidentified",
+    "fine_fidelity_accepted": false,
+    "placement_accepted": false
+  }
+]

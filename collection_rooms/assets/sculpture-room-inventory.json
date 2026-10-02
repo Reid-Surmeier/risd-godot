@@ -1,0 +1,439 @@
+{
+  "date_utc": "2026-10-01",
+  "scope": "All 373 survey frames reviewed; ordered lower-bound inventory, not final object/metric acceptance",
+  "source_counts": {
+    "IMG_6382": 226,
+    "IMG_6383": 147
+  },
+  "total_frames": 373,
+  "method": "17 portrait-rotated contact sheets reviewed in order; reciprocal wide shots establish corners and connections. No point cloud reconstruction.",
+  "orientation": "Local prototype axes only, not museum compass bearings",
+  "connections": [
+    {
+      "from_room": "long European gallery",
+      "to_room": "light Renaissance room",
+      "wall": "Renaissance north",
+      "source": "6383:127-130;6386:194-213"
+    },
+    {
+      "from_room": "light Renaissance room",
+      "to_room": "dark medieval room",
+      "wall": "Renaissance east / medieval west",
+      "source": "6383:130-134;6382:165-168"
+    },
+    {
+      "from_room": "dark medieval room",
+      "to_room": "Main Hall",
+      "wall": "medieval north",
+      "source": "6382:1-24;153-160;175-180"
+    },
+    {
+      "from_room": "dark medieval room",
+      "to_room": "stairs landing study limit",
+      "wall": "medieval east, opposite tracery west",
+      "source": "6382:37-48;155-159"
+    }
+  ],
+  "rooms": {
+    "renaissance": {
+      "wall_groups": [
+        {
+          "id": "triptych",
+          "wall": "north",
+          "title": "Madonna Enthroned, with Saints and Angels",
+          "survey_frames": "6383:55-63",
+          "status": "Three closed gabled source-photo panels with observed rear installed as a prototype in a wall-hung case; wing angle/depth, placement/case metrics and fine frame fidelity unaccepted.",
+          "accession": "2021.131",
+          "catalogue_id": "1345606",
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md",
+          "prototype_panels": 3,
+          "source_rear_observed": true,
+          "placement_accepted": false,
+          "case_metres_accepted": false,
+          "fine_frame_fidelity_accepted": false
+        },
+        {
+          "id": "madonna-architecture",
+          "wall": "north",
+          "title": "Pietro Perugino, Madonna and Child",
+          "survey_frames": "6383:68-79",
+          "status": "Official API/photo/video matched; one Muse architectural frame and authentic panel installed. Source-relative position; band widths/profile and whole room metrics unaccepted.",
+          "catalogue_id": "1546096",
+          "accession": "16.236",
+          "dimensions_m": [
+            0.391,
+            0.575
+          ]
+        },
+        {
+          "id": "books-portraits-case",
+          "wall": "east",
+          "title": "Six observed objects: two portraits, ivory diptych, silver book cover with chains, open printed emblem book, painted ceramic drug jar",
+          "survey_frames": "6383:82-104",
+          "status": "Closed source-guided low polygon asset studies installed in a provisional wall-hung case; positions, depths, frames and fine fidelity unaccepted.",
+          "minimum_objects": 6,
+          "emblem_book": {
+            "accession": "2023.17",
+            "catalogue_id": "1597546",
+            "title": "One Hundred Christian Emblems (Emblematum Christianorum Centuria)",
+            "year": 1584,
+            "closed_page_size_m": [
+              0.147,
+              0.197
+            ],
+            "open_emblem": 15,
+            "identity_status": "confirmed by label/catalogue; opening compared with different Glasgow library copy",
+            "museum_photograph_available": false,
+            "source": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/SOURCES.md",
+            "asset_built": true
+          },
+          "prototype_objects": 6,
+          "placement_accepted": false,
+          "case_metres_accepted": false,
+          "fine_fidelity_accepted": false
+        },
+        {
+          "id": "majolica-medals-case",
+          "wall": "east",
+          "title": "Two Bella Donna plates, Death of the Virgin gilt roundel, stained-glass Apocalypse roundel, probable enamel plaque",
+          "survey_frames": "6383:108-116",
+          "status": "Closed source-guided low polygon asset studies installed in a provisional wall-hung case; positions, depths, frames and fine fidelity unaccepted.",
+          "minimum_objects": 5,
+          "prototype_objects": 5,
+          "placement_accepted": false,
+          "case_metres_accepted": false,
+          "fine_fidelity_accepted": false
+        },
+        {
+          "id": "burgundy-textile",
+          "wall": "south",
+          "title": "Velvet Cover",
+          "survey_frames": "6383:11-17",
+          "status": "Closed catalogue-size source-photo study installed on its source wall in v49v; platform/hood/mount/frame profile/placement and whole-room metres unaccepted.",
+          "accession": "23.307X",
+          "catalogue_id": "1202276",
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md",
+          "prototype_built": true,
+          "placement_accepted": false,
+          "metric_accepted": false,
+          "fine_fidelity_accepted": false,
+          "model_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-wall-assets-20261001/REPORT.md",
+          "source_rear_observed": true
+        },
+        {
+          "id": "hunting-tapestry",
+          "wall": "south",
+          "title": "The Woodcutters",
+          "survey_frames": "6383:18-26",
+          "status": "Closed catalogue-size source-photo study installed on its source wall in v49v; platform/hood/mount/frame profile/placement and whole-room metres unaccepted.",
+          "accession": "29.280",
+          "catalogue_id": "1201986",
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md",
+          "prototype_built": true,
+          "placement_accepted": false,
+          "metric_accepted": false,
+          "fine_fidelity_accepted": false,
+          "model_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-wall-assets-20261001/REPORT.md",
+          "source_rear_observed": false
+        },
+        {
+          "id": "holy-family",
+          "wall": "west",
+          "title": "Madonna and Child with Saint Barbara and Saint Catherine",
+          "survey_frames": "6383:29-33",
+          "status": "Closed catalogue-size source-photo study installed on its source wall in v49v; platform/hood/mount/frame profile/placement and whole-room metres unaccepted.",
+          "accession": "58.196",
+          "catalogue_id": "1591076",
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md",
+          "prototype_built": true,
+          "placement_accepted": false,
+          "metric_accepted": false,
+          "fine_fidelity_accepted": false,
+          "model_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-wall-assets-20261001/REPORT.md",
+          "source_rear_observed": false,
+          "frame_texture": "Original video strips. One Muse trial retained and rejected for broad gold band; no repeat paid generation."
+        },
+        {
+          "id": "bronze-knight",
+          "wall": "west",
+          "title": "Saint Roch",
+          "survey_frames": "IMG_6383 18.30,20.60,21.30,62.00s (original-master seconds)",
+          "status": "Closed low-polygon flat study installed with colliding white floor plinth and transparent hood before the shuttered west window; official height1.054m, width/depth/case/placement/likeness unaccepted; Muse sheet rejected off-axis. Room incomplete.",
+          "accession": "21.398",
+          "catalogue_id": "1273471",
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md",
+          "model_evidence": "docs/evidence/collection-reconstruction/opus-saint-roch-asset-20261001/REPORT.md",
+          "installation_source": "Original IMG_6383 18.3s and62.0s; authoring offset before+9.25m shift(-4.86,.68,22.7), source-relative only",
+          "prototype_built": true,
+          "fine_fidelity_accepted": false,
+          "placement_accepted": false
+        },
+        {
+          "id": "bronze-pieta",
+          "wall": "west",
+          "title": "Piet\u00e0",
+          "survey_frames": "6383:46-52",
+          "status": "Closed flat-palette low-polygon block study and west-wall hung shelf/hood prototype; bounds match catalogue, width conflicts front-photo ratio, sides/rear inferred; likeness, placement and case metres unaccepted.",
+          "accession": "59.128",
+          "catalogue_id": "1312736",
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md",
+          "prototype_closed_parts": 39,
+          "source_rear_observed": false,
+          "placement_accepted": false,
+          "case_metres_accepted": false,
+          "fine_fidelity_accepted": false
+        },
+        {
+          "id": "bench",
+          "wall": "centre",
+          "title": "Black upholstered bench with four legs",
+          "survey_frames": "6383:123-130",
+          "status": "Source-observed black upholstered bench built; dimensions and exact position provisional."
+        }
+      ],
+      "floor": "straight pale oak planks",
+      "walls": "warm light grey",
+      "architecture": "shuttered white window on west; raised plinths south/east; overhead white tracks; north doorway vent"
+    },
+    "medieval": {
+      "wall_groups": [
+        {
+          "id": "portal",
+          "wall": "north",
+          "title": "Romanesque Portal",
+          "survey_frames": "6382:1-24;175-180",
+          "status": "Official photo/video matched; one Muse pass and closed native extrusion installed; profile/rear fidelity and placement incomplete",
+          "catalogue_id": "1588546",
+          "accession": "40.014",
+          "dimensions_m": [
+            4.229,
+            3.861
+          ]
+        },
+        {
+          "id": "iron-grille",
+          "wall": "north",
+          "title": "Tall iron scroll grille on white plinth, right of portal",
+          "survey_frames": "6382:25-28",
+          "status": "Seven-column native open prototype installed in v44; Muse material reused.17rows/scale/placement/pattern unaccepted,identityunmatched."
+        },
+        {
+          "id": "stone-fragment-a",
+          "wall": "east",
+          "title": "Apostle",
+          "survey_frames": "6382:29-36",
+          "status": "Official photo/video/API matched; Muse/native damage fidelity, depth and exact placement unaccepted",
+          "catalogue_id": "1395331",
+          "accession": "41.046",
+          "dimensions_m": [
+            0.826,
+            0.267
+          ],
+          "catalogue_url": "https://risdmuseum.org/art-design/collection/apostle-41046",
+          "identity_evidence": "Official front/side photos match left turned head/halo, diagonal arm and lower fracture; right missing face, crossed hands, folds and feet. Native6382 17.25/26.25s and reciprocal78.75s retain sides of stair door."
+        },
+        {
+          "id": "stone-fragment-b",
+          "wall": "east",
+          "title": "Apostle",
+          "survey_frames": "6382:49-55",
+          "status": "Official photo/video/API matched; Muse/native damage fidelity, depth and exact placement unaccepted",
+          "catalogue_id": "1230381",
+          "accession": "41.045",
+          "dimensions_m": [
+            0.864,
+            0.254
+          ],
+          "catalogue_url": "https://risdmuseum.org/art-design/collection/apostle-41045",
+          "identity_evidence": "Official front/side photos match left turned head/halo, diagonal arm and lower fracture; right missing face, crossed hands, folds and feet. Native6382 17.25/26.25s and reciprocal78.75s retain sides of stair door."
+        },
+        {
+          "id": "christ-head",
+          "wall": "south",
+          "title": "Head of Christ, wide-eyed bearded sculpture",
+          "survey_frames": "6382:58-68",
+          "status": "Existing failed Muse v1/v2; incomplete, no blind retry",
+          "accession": "59.131"
+        },
+        {
+          "id": "madonna-relief",
+          "wall": "south",
+          "title": "Virgin and Child, rectangular stone architectural relief",
+          "survey_frames": "6382:70-75",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "crucified-christ",
+          "wall": "south",
+          "title": "Crucified Christ, outstretched arms, flaking skirt, no cross behind",
+          "survey_frames": "6382:77-88",
+          "status": "unmatched/unplaced",
+          "candidate_accession": "43.195"
+        },
+        {
+          "id": "apostle-bust",
+          "wall": "south",
+          "title": "Bearded male bust, hand near neck, grey pedestal",
+          "survey_frames": "6382:90-105",
+          "status": "unmatched/unplaced"
+        },
+        {
+          "id": "christ-majesty",
+          "wall": "south",
+          "title": "St. Anthony Abbot Enthroned",
+          "survey_frames": "6382:108-117",
+          "status": "Official API/photo and video appearance matched; native asset/frame and placement not yet built",
+          "catalogue_id": "1539001",
+          "accession": "16.243",
+          "identity_evidence": "Source6382/000112.jpg matches grey-bearded seated abbot, staff and book, patterned red/gold throne cloth, two angels, top roundels and black/red kneeling donors. Not Christ in Majesty.",
+          "catalogue_url": "https://risdmuseum.org/art-design/collection/st-anthony-abbot-enthroned-16243"
+        },
+        {
+          "id": "standing-virgin",
+          "wall": "west",
+          "title": "Angel of the Annunciation",
+          "survey_frames": "6382:119-124",
+          "status": "Official API/photo and video appearance matched; native asset/frame and placement not yet built",
+          "catalogue_id": "1550566",
+          "accession": "37.114",
+          "identity_evidence": "Green/blue tunic, red shoulder cape, missing forearms, short brown hair and shaped base match source6382/000122.jpg.",
+          "catalogue_url": "https://risdmuseum.org/art-design/collection/angel-annunciation-37114"
+        },
+        {
+          "id": "tracery",
+          "wall": "west",
+          "title": "Tracery Arch over Renaissance doorway",
+          "survey_frames": "6382:125-130;6383:132-134",
+          "status": "Official photo/video matched; one Muse pass and closed native extrusion installed; profile/rear fidelity and placement incomplete",
+          "catalogue_id": "1428171",
+          "accession": "40.156.1",
+          "dimensions_m": [
+            1.41,
+            1.092,
+            0.273
+          ]
+        },
+        {
+          "id": "madonna-gold",
+          "wall": "west",
+          "title": "Madonna and Child",
+          "survey_frames": "6382:132-138",
+          "status": "Official API/photo/video matched; original painting on native thin wood slab and grey mount installed in v41 trial. Placement, depth except57.301, and overall room geometry remain unaccepted.",
+          "catalogue_id": "1580756",
+          "accession": "20.207",
+          "identity_evidence": "Mother holds child on right, blue mantle, pink legs/yellow ribbon, trefoil gold relief and two floral corner motifs match6382/000136.jpg.",
+          "catalogue_url": "https://risdmuseum.org/art-design/collection/madonna-and-child-20207",
+          "asset": "original photo with integral gilt border; no invented extra frame"
+        },
+        {
+          "id": "annunciation",
+          "wall": "west",
+          "title": "Virgin of the Annunciation",
+          "survey_frames": "6382:139-142",
+          "status": "Official API/photo/video matched; original painting on native thin wood slab and grey mount installed in v41 trial. Placement, depth except57.301, and overall room geometry remain unaccepted.",
+          "catalogue_id": "1549126",
+          "accession": "57.301",
+          "identity_evidence": "Single pink-robed kneeling Mary, joined hands, blue veil and vase/lily at left match6382/000141.jpg. Not a two-person Annunciation.",
+          "catalogue_url": "https://risdmuseum.org/art-design/collection/virgin-annunciation-57301",
+          "asset": "original photo with integral gilt border; no invented extra frame"
+        },
+        {
+          "id": "madonna-gabled",
+          "wall": "north",
+          "title": "Mary Magdalene",
+          "survey_frames": "6382:143-147",
+          "status": "Official API/photo/video matched; corrected Muse gabled frame fitted to source profile and installed as native closed ring with separate original panel in v42 trial. Depth, absolute placement/scale and visual acceptance remain unaccepted.",
+          "wall_evidence": "Native IMG_6382 85.25/86.25/87.25/89.25s: west corner left of both panels; projecting display is not a corner.",
+          "catalogue_id": "1411936",
+          "accession": "21.250",
+          "identity_evidence": "Source6382/000146.jpg matches red mantle/hood, blue inner veil, ointment vessel held in both hands, twisted gold columns and triangular crocketed frame. Not a Madonna or Annunciate Virgin.",
+          "catalogue_url": "https://risdmuseum.org/art-design/collection/mary-magdalene-21250",
+          "asset": "Native source-shaped closed ring, fitted Muse gold, separate authentic cropped panel",
+          "position_evidence": "Local panel-ruler spacing0.805/0.830m relative to Saint Peter; authored centrex1.18/y1.55/z28.30, metrics unaccepted."
+        },
+        {
+          "id": "gold-narrative",
+          "wall": "north",
+          "title": "The Taking of Saint Peter",
+          "survey_frames": "6382:149-153",
+          "status": "Official API/photo/video matched; original painting on native thin wood slab and grey mount installed in v41 trial. Placement, depth except57.301, and overall room geometry remain unaccepted.",
+          "wall_evidence": "Native IMG_6382 85.25/86.25/87.25/89.25s: west corner left of both panels; projecting display is not a corner.",
+          "catalogue_id": "1461611",
+          "accession": "22.047",
+          "identity_evidence": "Source6382/000152.jpg matches white two-storey architecture left, blue/yellow Saint Peter, red central armoured soldier and surrounding green/blue/red figures.",
+          "catalogue_url": "https://risdmuseum.org/art-design/collection/taking-saint-peter-22047",
+          "asset": "original photo with integral gilt border; no invented extra frame",
+          "position_evidence": "6382 native85.75/86.75 anchor-panel inverse homographies; 87.25 held-out spacing only. Corner assumption and metre offsets unaccepted."
+        },
+        {
+          "id": "flat-reliefs-case",
+          "wall": "centre",
+          "title": "Two mounted paper works: probable Penitent Magdalene in Glory and Mary Magdalene",
+          "survey_frames": "6382:193-198",
+          "status": "Two thin mounted-paper proxies installed using tiny original filmed crops; identities, dimensions and image detail unaccepted.",
+          "minimum_objects": 2,
+          "identity_accepted": false,
+          "candidate_objects": [
+            {
+              "slot": "L1",
+              "accession": "82.190.2",
+              "catalogue_id": "1505136",
+              "identity_status": "probable; blurred colour-layout match only"
+            },
+            {
+              "slot": "L2",
+              "accession": "51.020",
+              "catalogue_id": "1214091",
+              "identity_status": "probable; blurred layout/tone match only"
+            }
+          ],
+          "identity_evidence": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/SOURCES.md"
+        },
+        {
+          "id": "tall-mixed-case",
+          "wall": "centre",
+          "title": "Seven objects: Virgin and Child, God Save the Queens, Monstrance, probable Communion Beaker, probable Pyx, probable Christ in Majesty on wedge, Pax on rod",
+          "survey_frames": "6382:201-226",
+          "status": "Seven low-polygon object prototypes installed; four strong catalogue matches, three probable. Case geometry check passes; mount/placement/hidden detail/fidelity unaccepted.",
+          "minimum_objects": 7
+        }
+      ],
+      "floor": "pale oak herringbone",
+      "walls": "dark charcoal grey",
+      "architecture": "white ceiling tracks, stone round portal, pointed tracery above rectangular doorway; long axis between west tracery and east stair door, as reciprocal wide6382:155-168 shows"
+    }
+  },
+  "metric_acceptance": false,
+  "remaining": "Every room extent and object offset still provisional; catalogue matching incomplete, display groups only lower bounds. Never merge light Renaissance and dark medieval rooms into one axial successor.",
+  "contact_sheet_sha256": {
+    "IMG_6382-001-024.jpg": "066896f9692dff3688c72de717a62cfee8d272e81b597a7efb630549c85feb03",
+    "IMG_6382-025-048.jpg": "efcc9e9c51a7bfebb85b7e65950e3668ce7b47194d541c5405b759a38f23df23",
+    "IMG_6382-049-072.jpg": "c4e4021e1d8bbe5a5a7bef6d4a0e15942a4de3337455169ff6d27f75f3bbc4b2",
+    "IMG_6382-073-096.jpg": "4e25163ab924ef90d8ddcfdf7ada16635930f97a0036117ad08ccc004d64a4ae",
+    "IMG_6382-097-120.jpg": "c48ad547fca5f8b9e7c6d0433a15b93c103139949279aac485b9ab80b3b14e06",
+    "IMG_6382-121-144.jpg": "71202522e13b6c61be90b545719411a6a7c476f409f9519c83627951613fe0d8",
+    "IMG_6382-145-168.jpg": "81ad3e5ad4f80bbb9e8477351eb9ade3f9613e556dffea77ee0c803c4b6eec36",
+    "IMG_6382-169-192.jpg": "6ce5be45ffc990da48885096c7228430a8caa25d497a3bed62df3e25160df5e6",
+    "IMG_6382-193-216.jpg": "40317538b3186dae79a4e2ad736d6d41214600f1c6385d49c931b9ea7725928a",
+    "IMG_6382-217-226.jpg": "4fda96b3a508d233abc3f8272207a0153bbb90e32f4f309cd5af9eddc2b176c7",
+    "IMG_6383-001-024.jpg": "a87c11194b36152704fb5b4dd28730b50d927296d7c90dbe039eef2671eabe6e",
+    "IMG_6383-025-048.jpg": "7cb10775fbc572364bbc19280d2d8fb8da6e41889a70d92331640946fb7a7f13",
+    "IMG_6383-049-072.jpg": "fa8cc53e94e2b9f384adab16fc68e16c6da47d68f81179f9df6740207bcd6967",
+    "IMG_6383-073-096.jpg": "0197b716b240aa3464e91bec771ce33dd8b2f786a6bcb26f0e93ed1f59416b36",
+    "IMG_6383-097-120.jpg": "96ebb55374d7a7742c7525def6c76fef05c60ed7f9dead8b5f8c3fb9edc1076b",
+    "IMG_6383-121-144.jpg": "1e90bde428383df6aee1ed6b50c45d713d0c1940cfc52b6dc607808f227f178e",
+    "IMG_6383-145-147.jpg": "4b15fc2f259c1ed7dda2fd2eb46111141021c0d9e08a5bfaed041badcd7671f0"
+  },
+  "renaissance_identification_review": {
+    "objects": 18,
+    "confirmed": 16,
+    "probable": 1,
+    "label_only": 0,
+    "already_built": 1,
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/ledger.json",
+    "all_assets_built": false,
+    "metric_accepted": false,
+    "followup_source": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/SOURCES.md",
+    "low_polygon_prototypes": 2
+  }
+}

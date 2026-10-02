@@ -1,0 +1,11 @@
+{
+  "crop_px": [
+    67,
+    58,
+    1242,
+    1458
+  ],
+  "inside_ellipse_changed_pixels": 0,
+  "outside_ellipse": "White backing; original museum JPEG copied byte-identically",
+  "oval_crop_alignment_accepted": false
+}

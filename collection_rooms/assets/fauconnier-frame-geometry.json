@@ -1,0 +1,25 @@
+{
+  "canvas_m": [
+    3.054,
+    2.396
+  ],
+  "margins_px": [
+    13,
+    13,
+    13,
+    13
+  ],
+  "opening_aspect": 1.1741511500547646,
+  "catalogue_aspect": 1.2746243739565943,
+  "profile": "native Muse bands; 9cm inferred depth; aspect corrected by existing nine-slice geometry",
+  "source_fit": {
+    "target_margins_m": [
+      0.035,
+      0.035,
+      0.035,
+      0.035
+    ],
+    "source": "Native6387 47.25/80.25s; thin dark rail/inner lip, width provisional",
+    "metric_accepted": false
+  }
+}

@@ -1,0 +1,646 @@
+{
+  "scope": "Contents of the two medieval-room glass cases in IMG_6382 only. Positions are source-relative and provisional; this ledger does not complete the room.",
+  "video_sha256": "415467db2d2216363fbccb41801851180f48bbdb3304c95861f90f3f5767020e",
+  "axes": "Local prototype axes from background landmarks (stair door = east, tracery door = west, portal = north, Christ head wall = south). Not museum compass bearings; unaccepted.",
+  "objects": [
+    {
+      "slot": "T1",
+      "case": "tall",
+      "status": "confirmed",
+      "confidence_tier": "A",
+      "accession": "15.108",
+      "catalogue_id": "1388871",
+      "title": "Virgin and Child",
+      "maker": "Unknown Maker, Netherlandish",
+      "dating": "1485-1500",
+      "medium": "Wood with polychrome and gilding",
+      "dimensions": "Height: 39.4 cm (15 1/2 inches)",
+      "place": "Place Made: Brabant",
+      "credit": "Gift of Mrs. Gustav Radeke",
+      "on_view_flag": true,
+      "link": "https://risdmuseum.org/art-design/collection/virgin-and-child-15108",
+      "api_json": "api/id-1388871.json",
+      "api_url": "https://risdmuseum.org/api/v1/collection?id=1388871",
+      "api_json_sha256": "b0d88deb8b47e239944a7defafee267d979b2e63d30deaf838acecab34c7bd6b",
+      "photos": [
+        {
+          "file": "virgin-and-child-15108-zoom-0.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/ISfErNNs/",
+          "asset_copyright": "public",
+          "sha256": "369b4cbafdb8700263017957035b5e34592ba6f77cff62158f13edbff79e3521"
+        },
+        {
+          "file": "virgin-and-child-15108-zoom-1.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/XFWzTSVC/",
+          "asset_copyright": "public",
+          "sha256": "4316f1ad4a906de5a7b6331e952947e4dd1a15523c9649387e218d7089690629"
+        },
+        {
+          "file": "virgin-and-child-15108-zoom-2.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/DHmYcat7/",
+          "asset_copyright": "public",
+          "sha256": "555227555b752908e705300325520281545a0db35105982f7fa9a72552261d1e"
+        },
+        {
+          "file": "virgin-and-child-15108-zoom-3.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/ev1Pebf2/",
+          "asset_copyright": "public",
+          "sha256": "583485d8b2acd828cea3b2830c4805e204cc3a61fb119d8d7815ec464ac10eb0"
+        }
+      ],
+      "video": "IMG_6382.MOV",
+      "seen_seconds": [
+        "102.20",
+        "105.70",
+        "108.90",
+        "110.50",
+        "111.70",
+        "112.90"
+      ],
+      "source_frames": [
+        {
+          "seconds": 102.2,
+          "png_sha256": "13ef283cbb4d2669250fac14109973ea3e1757897b33c421112d207b21e4aadc",
+          "kept_file": "frames/IMG_6382-102.20.jpg"
+        },
+        {
+          "seconds": 105.7,
+          "png_sha256": "494c0370dacc100435e7eb7c739a286d8f2c8a9b08cc8a639ae08e4ac4f2d03d",
+          "kept_file": "frames/IMG_6382-105.70.jpg"
+        },
+        {
+          "seconds": 108.9,
+          "png_sha256": "709b629613879686c89fdd00993c464da8eccfac9c6cab7b6e76c2d654362df9",
+          "kept_file": "frames/IMG_6382-108.90.jpg"
+        },
+        {
+          "seconds": 110.5,
+          "png_sha256": "11406e399986ce26f406ac5e52934cff2080d41d2475b6e74cac260a1e023029",
+          "kept_file": "frames/IMG_6382-110.50.jpg"
+        },
+        {
+          "seconds": 111.7,
+          "png_sha256": "bfb0496184d08e6f6be9780ff0c93d6f1fa4da8fca4f00d90a9b2e9d8a27c786",
+          "kept_file": "frames/IMG_6382-111.70.jpg"
+        },
+        {
+          "seconds": 112.9,
+          "png_sha256": "ea06e273885b316b06e183844347d0e4cb013a5194cd8af26aee2223943a5536",
+          "kept_file": "frames/IMG_6382-112.90.jpg"
+        }
+      ],
+      "visible_slot": "West end of deck on the tall white block riser, facing west (away from the stair door).",
+      "visual_evidence": "Seated Virgin with long hair and circlet, blue bodice under gold-brown mantle; Child on her right knee turned to an open book on her lap; stepped base. Front, both sides and back are filmed.",
+      "comparison_sheet": "sheets/T1-virgin-and-child-15.108.jpg",
+      "limits": "Back is filmed only blurred at 105.70s (dark green, flat); the four saved official photos show front and three-quarter/side views, not the back.",
+      "placement_accepted": false,
+      "unlisted_dimensions_accepted": false
+    },
+    {
+      "slot": "T2",
+      "case": "tall",
+      "status": "confirmed",
+      "confidence_tier": "A",
+      "accession": "2020.55",
+      "catalogue_id": "1557221",
+      "title": "God Save the Queens",
+      "maker": "L\u00e9opold L. Foulem",
+      "dating": "1994-1997",
+      "medium": "Ceramic with decals; glaze; and metal",
+      "dimensions": "33 x 16 x 16 cm (13 x 6 5/16 x 6 5/16 inches)",
+      "place": "",
+      "credit": "Georgianna Sayles Aldrich Fund",
+      "on_view_flag": true,
+      "link": "https://risdmuseum.org/art-design/collection/god-save-queens-202055",
+      "api_json": "api/id-1557221.json",
+      "api_url": "https://risdmuseum.org/api/v1/collection?id=1557221",
+      "api_json_sha256": "1246004c93b2e2ec6e39651b19cf154d8f756b40b89bb076611bf65ece45026f",
+      "photos": [
+        {
+          "file": "god-save-queens-202055-zoom-0.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/KbpEh5DI/",
+          "asset_copyright": "in_copyright",
+          "sha256": "6a2a8f8b9d4ed18f81dc22f1eaa91a253c2981480163a3f0f63831f0526a9dff"
+        },
+        {
+          "file": "god-save-queens-202055-zoom-1.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/UfLZo9m5/",
+          "asset_copyright": "in_copyright",
+          "sha256": "aab52815b724f10b9b12096b079f39477848f132a0564b0fe385ed1a7a0a4a23"
+        },
+        {
+          "file": "god-save-queens-202055-zoom-2.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/TodMxnqb/",
+          "asset_copyright": "in_copyright",
+          "sha256": "1995e58e93603b530dbcfe1950acfb888a2a69c9cb8fb7dc1d7923b3df29ea70"
+        },
+        {
+          "file": "god-save-queens-202055-zoom-3.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/6Gr7alr6/",
+          "asset_copyright": "in_copyright",
+          "sha256": "6cb6e578ccd8fb14b273f2d11991a19e0f2519c70cc6a5a943b9d4c7902392f6"
+        }
+      ],
+      "video": "IMG_6382.MOV",
+      "seen_seconds": [
+        "102.20",
+        "105.70",
+        "108.90",
+        "110.50"
+      ],
+      "source_frames": [
+        {
+          "seconds": 102.2,
+          "png_sha256": "13ef283cbb4d2669250fac14109973ea3e1757897b33c421112d207b21e4aadc",
+          "kept_file": "frames/IMG_6382-102.20.jpg"
+        },
+        {
+          "seconds": 105.7,
+          "png_sha256": "494c0370dacc100435e7eb7c739a286d8f2c8a9b08cc8a639ae08e4ac4f2d03d",
+          "kept_file": "frames/IMG_6382-105.70.jpg"
+        },
+        {
+          "seconds": 108.9,
+          "png_sha256": "709b629613879686c89fdd00993c464da8eccfac9c6cab7b6e76c2d654362df9",
+          "kept_file": "frames/IMG_6382-108.90.jpg"
+        },
+        {
+          "seconds": 110.5,
+          "png_sha256": "11406e399986ce26f406ac5e52934cff2080d41d2475b6e74cac260a1e023029",
+          "kept_file": "frames/IMG_6382-110.50.jpg"
+        }
+      ],
+      "visible_slot": "Centre of deck on a low white plinth; one Christ roundel faces north and one faces south, a sailing-boat panel faces east.",
+      "visual_evidence": "Bright metal domed lid with ring finial, cylindrical body with blue-and-white lattice, roundel of Christ crowned with thorns in a red robe, the words GOD SAVE THE QUEENS legible at 110.50s, blue Delft-style sailing boat panel at 105.70s, skirted base on four scroll feet.",
+      "comparison_sheet": "sheets/T2-god-save-the-queens-2020.55.jpg",
+      "limits": "Official photographs marked in_copyright; metadata retained for this authorized private prototype. The west face is not filmed and remains provisional.",
+      "placement_accepted": false,
+      "unlisted_dimensions_accepted": false
+    },
+    {
+      "slot": "T3",
+      "case": "tall",
+      "status": "confirmed",
+      "confidence_tier": "A",
+      "accession": "40.002",
+      "catalogue_id": "1443596",
+      "title": "Monstrance",
+      "maker": "Unknown Maker, Spanish",
+      "dating": "1500-1550",
+      "medium": "Silver with gilding",
+      "dimensions": "Height: 46.4 cm (18 1/4 inches)",
+      "place": "Place Made: Barcelona, Spain",
+      "credit": "Mary B. Jackson Fund",
+      "on_view_flag": true,
+      "link": "https://risdmuseum.org/art-design/collection/monstrance-40002",
+      "api_json": "api/id-1443596.json",
+      "api_url": "https://risdmuseum.org/api/v1/collection?id=1443596",
+      "api_json_sha256": "c3830e404341e26ff6b70a2ad6e21d1a7b2d1a32c8d5b6d0dc6b4dece705a9ff",
+      "photos": [
+        {
+          "file": "monstrance-40002-zoom-0.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/QOPG2qmQ/",
+          "asset_copyright": "public",
+          "sha256": "f437e1b26415b360775812f17ea60ccd3ba4872d2b5a24d6f40a4844c6b702f3"
+        },
+        {
+          "file": "monstrance-40002-zoom-1.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/pFpfX1Tv/",
+          "asset_copyright": "public",
+          "sha256": "7cd319fedb5ccd067db5879f86421193399fd3fcfc2e000ffc072be782dc28a0"
+        },
+        {
+          "file": "monstrance-40002-zoom-2.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/NAhcECEp/",
+          "asset_copyright": "public",
+          "sha256": "2055f600cfbac7dd34c0bbf10cb6267944df252209cd16d72ff9877e76e02a35"
+        },
+        {
+          "file": "monstrance-40002-zoom-3.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/0I3OHcKn/",
+          "asset_copyright": "public",
+          "sha256": "53e2a62dea4aa408290783d3dc112d923783698610aca5bc0f783b9b3a16555f"
+        }
+      ],
+      "video": "IMG_6382.MOV",
+      "seen_seconds": [
+        "102.20",
+        "105.70",
+        "107.30",
+        "112.90"
+      ],
+      "source_frames": [
+        {
+          "seconds": 102.2,
+          "png_sha256": "13ef283cbb4d2669250fac14109973ea3e1757897b33c421112d207b21e4aadc",
+          "kept_file": "frames/IMG_6382-102.20.jpg"
+        },
+        {
+          "seconds": 105.7,
+          "png_sha256": "494c0370dacc100435e7eb7c739a286d8f2c8a9b08cc8a639ae08e4ac4f2d03d",
+          "kept_file": "frames/IMG_6382-105.70.jpg"
+        },
+        {
+          "seconds": 107.3,
+          "png_sha256": "13dd0afdac0532a3c90004f81f81ce48728dd20cb61223127929650ce20d7f8f",
+          "kept_file": "frames/IMG_6382-107.30.jpg"
+        },
+        {
+          "seconds": 112.9,
+          "png_sha256": "ea06e273885b316b06e183844347d0e4cb013a5194cd8af26aee2223943a5536",
+          "kept_file": "frames/IMG_6382-112.90.jpg"
+        }
+      ],
+      "visible_slot": "South-east quarter of deck, free-standing on the deck surface.",
+      "visual_evidence": "Gilt tower monstrance: crocketed open spire with finial, glazed central chamber with flying buttresses and pinnacles, two knops on the stem, wide lobed star foot.",
+      "comparison_sheet": "sheets/T3-monstrance-40.002.jpg",
+      "limits": "Fine tracery and foot engraving are not resolved in the 1080p source.",
+      "placement_accepted": false,
+      "unlisted_dimensions_accepted": false
+    },
+    {
+      "slot": "T4",
+      "case": "tall",
+      "status": "probable",
+      "confidence_tier": "B",
+      "accession": "1992.051",
+      "catalogue_id": "1550551",
+      "title": "Communion Beaker",
+      "maker": "Unknown Maker, Dutch",
+      "dating": "1635-1680",
+      "medium": "silver",
+      "dimensions": "Height: 14 cm (5 1/2 inches)",
+      "place": "Place Made: Groningen, Netherlands",
+      "credit": "Anonymous gift in honor of Dr. and Mrs. Franklin W. Robinson",
+      "on_view_flag": true,
+      "link": "https://risdmuseum.org/art-design/collection/communion-beaker-1992051",
+      "api_json": "api/id-1550551.json",
+      "api_url": "https://risdmuseum.org/api/v1/collection?id=1550551",
+      "api_json_sha256": "af55e8d1da53ff5bbc39081d86ff1710fae9eb622bfe3751f07d74fb35f5d91a",
+      "photos": [
+        {
+          "file": "communion-beaker-1992051-zoom-0.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/3sx2rYpp/",
+          "asset_copyright": "public",
+          "sha256": "d4b37b1f0121887f5be96eaef95cd609f1130c0a6f0ef4ac4f03a70e502f35f3"
+        },
+        {
+          "file": "communion-beaker-1992051-zoom-1.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/SxHBaEZq/",
+          "asset_copyright": "public",
+          "sha256": "bfb698c0798e2e685c737495fb6a96149a1394067132c5f86c6bf3e31c85019b"
+        },
+        {
+          "file": "communion-beaker-1992051-zoom-2.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/P05HCj0c/",
+          "asset_copyright": "public",
+          "sha256": "9708d590aaf139a7931a61a05cbc013d886d56435571a6e34a7215357d3a89e6"
+        },
+        {
+          "file": "communion-beaker-1992051-zoom-3.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/vpbp4JZj/",
+          "asset_copyright": "public",
+          "sha256": "55e37b1a7128b1defbe4f113d9eb31347d959bd0365c04a2bddc3a8f18638bb3"
+        }
+      ],
+      "video": "IMG_6382.MOV",
+      "seen_seconds": [
+        "102.20",
+        "103.70",
+        "105.70",
+        "107.30",
+        "110.50"
+      ],
+      "source_frames": [
+        {
+          "seconds": 102.2,
+          "png_sha256": "13ef283cbb4d2669250fac14109973ea3e1757897b33c421112d207b21e4aadc",
+          "kept_file": "frames/IMG_6382-102.20.jpg"
+        },
+        {
+          "seconds": 103.7,
+          "png_sha256": "de8ca12ce21459d582dfc5972b11f4078c52d2210a58bc547ed8432286534aae",
+          "kept_file": "frames/IMG_6382-103.70.jpg"
+        },
+        {
+          "seconds": 105.7,
+          "png_sha256": "494c0370dacc100435e7eb7c739a286d8f2c8a9b08cc8a639ae08e4ac4f2d03d",
+          "kept_file": "frames/IMG_6382-105.70.jpg"
+        },
+        {
+          "seconds": 107.3,
+          "png_sha256": "13dd0afdac0532a3c90004f81f81ce48728dd20cb61223127929650ce20d7f8f",
+          "kept_file": "frames/IMG_6382-107.30.jpg"
+        },
+        {
+          "seconds": 110.5,
+          "png_sha256": "11406e399986ce26f406ac5e52934cff2080d41d2475b6e74cac260a1e023029",
+          "kept_file": "frames/IMG_6382-110.50.jpg"
+        }
+      ],
+      "visible_slot": "East end of deck, north-east corner, standing on the deck surface.",
+      "visual_evidence": "Plain flared silver beaker with everted lip, twisted rope collar above a stepped spreading foot; height consistent with 14 cm beside the 8.9 cm pyx. Two other on-view cups were compared and rejected by shape (Kiddush Cup 2016.17 is a stemmed goblet; Beaker 1991.033 is a dark straight tumbler).",
+      "comparison_sheet": "sheets/T4-communion-beaker-1992.051.jpg",
+      "limits": "The engraved scrollwork and figure medallion on the body are not resolved in the source, so the match rests on form, the rope collar and being the only such beaker returned as on view.",
+      "placement_accepted": false,
+      "unlisted_dimensions_accepted": false
+    },
+    {
+      "slot": "T5",
+      "case": "tall",
+      "status": "probable",
+      "confidence_tier": "B",
+      "accession": "30.011",
+      "catalogue_id": "1230716",
+      "title": "Pyx",
+      "maker": "Unknown Maker, French",
+      "dating": "1200-1299",
+      "medium": "Enamel and copper with gilding",
+      "dimensions": "Height: 8.9 cm (3 1/2 inches)",
+      "place": "Place Made",
+      "credit": "Gift of Mrs. Murray S. Danforth",
+      "on_view_flag": true,
+      "link": "https://risdmuseum.org/art-design/collection/pyx-30011",
+      "api_json": "api/id-1230716.json",
+      "api_url": "https://risdmuseum.org/api/v1/collection?id=1230716",
+      "api_json_sha256": "04261762ab4151d6d3c897edff1f91c4314a2d2e3d27e05f8034c179ed40b717",
+      "photos": [
+        {
+          "file": "pyx-30011-zoom-0.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/jr0m77w5/",
+          "asset_copyright": "public",
+          "sha256": "386ac98cf29bdcd7e834b208f1558f771be833cf1a6cc1ef9217bd2f9fcce3cf"
+        },
+        {
+          "file": "pyx-30011-zoom-1.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/CeMt7sBa/",
+          "asset_copyright": "public",
+          "sha256": "353908e75536c3c5173ea78d3b42f1e6cfb6959f3cb3babafb478a93a3c04152"
+        },
+        {
+          "file": "pyx-30011-zoom-2.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/Qv3kPxOn/",
+          "asset_copyright": "public",
+          "sha256": "8b8f8ffc903c77c398ed182778dbd496621775caf195cd6b3519b556b3df4135"
+        }
+      ],
+      "video": "IMG_6382.MOV",
+      "seen_seconds": [
+        "102.20",
+        "103.70",
+        "105.70",
+        "107.30",
+        "110.50"
+      ],
+      "source_frames": [
+        {
+          "seconds": 102.2,
+          "png_sha256": "13ef283cbb4d2669250fac14109973ea3e1757897b33c421112d207b21e4aadc",
+          "kept_file": "frames/IMG_6382-102.20.jpg"
+        },
+        {
+          "seconds": 103.7,
+          "png_sha256": "de8ca12ce21459d582dfc5972b11f4078c52d2210a58bc547ed8432286534aae",
+          "kept_file": "frames/IMG_6382-103.70.jpg"
+        },
+        {
+          "seconds": 105.7,
+          "png_sha256": "494c0370dacc100435e7eb7c739a286d8f2c8a9b08cc8a639ae08e4ac4f2d03d",
+          "kept_file": "frames/IMG_6382-105.70.jpg"
+        },
+        {
+          "seconds": 107.3,
+          "png_sha256": "13dd0afdac0532a3c90004f81f81ce48728dd20cb61223127929650ce20d7f8f",
+          "kept_file": "frames/IMG_6382-107.30.jpg"
+        },
+        {
+          "seconds": 110.5,
+          "png_sha256": "11406e399986ce26f406ac5e52934cff2080d41d2475b6e74cac260a1e023029",
+          "kept_file": "frames/IMG_6382-110.50.jpg"
+        }
+      ],
+      "visible_slot": "East-centre of deck between the monstrance and the beaker, on the deck surface.",
+      "visual_evidence": "Small round box with conical lid, cross finial on a knob, hinge and clasp lugs at the rim; proportions match the 8.9 cm catalogue pyx.",
+      "comparison_sheet": "sheets/T5-pyx-30.011.jpg",
+      "limits": "Enamel quatrefoils and blue ground are washed out to grey in the source; match rests on form, hardware and being the only pyx returned as on view.",
+      "placement_accepted": false,
+      "unlisted_dimensions_accepted": false
+    },
+    {
+      "slot": "T6",
+      "case": "tall",
+      "status": "probable",
+      "confidence_tier": "B",
+      "accession": "2014.110",
+      "catalogue_id": "1197491",
+      "title": "Christ in Majesty",
+      "maker": "Unknown Maker, Spanish",
+      "dating": "1100-1199",
+      "medium": "ivory",
+      "dimensions": "15.9 x 6.4 cm (6 1/4 x 2 1/2 inches)",
+      "place": "Place Made: possibly Province of L\u00e9on",
+      "credit": "Gift of Angela Brown Fischer from the Collection of John Nicholas Brown",
+      "on_view_flag": true,
+      "link": "https://risdmuseum.org/art-design/collection/christ-majesty-2014110",
+      "api_json": "api/id-1197491.json",
+      "api_url": "https://risdmuseum.org/api/v1/collection?id=1197491",
+      "api_json_sha256": "e6ab37ff314b7340061720a6fdf2935f8908490aeb856406bf967331f82ae863",
+      "photos": [
+        {
+          "file": "christ-majesty-2014110-zoom-0.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/D9dXInu9/",
+          "asset_copyright": "public",
+          "sha256": "9fbb9aa6389a4395b30f0803822e28906c0056ac3f7fdb5b00df517337476dc7"
+        }
+      ],
+      "video": "IMG_6382.MOV",
+      "seen_seconds": [
+        "102.20",
+        "103.70",
+        "105.70",
+        "107.30"
+      ],
+      "source_frames": [
+        {
+          "seconds": 102.2,
+          "png_sha256": "13ef283cbb4d2669250fac14109973ea3e1757897b33c421112d207b21e4aadc",
+          "kept_file": "frames/IMG_6382-102.20.jpg"
+        },
+        {
+          "seconds": 103.7,
+          "png_sha256": "de8ca12ce21459d582dfc5972b11f4078c52d2210a58bc547ed8432286534aae",
+          "kept_file": "frames/IMG_6382-103.70.jpg"
+        },
+        {
+          "seconds": 105.7,
+          "png_sha256": "494c0370dacc100435e7eb7c739a286d8f2c8a9b08cc8a639ae08e4ac4f2d03d",
+          "kept_file": "frames/IMG_6382-105.70.jpg"
+        },
+        {
+          "seconds": 107.3,
+          "png_sha256": "13dd0afdac0532a3c90004f81f81ce48728dd20cb61223127929650ce20d7f8f",
+          "kept_file": "frames/IMG_6382-107.30.jpg"
+        }
+      ],
+      "visible_slot": "North edge of deck, east of centre, lying on a low white wedge tilted toward the north viewer; feet toward the north edge, head toward the deck centre.",
+      "visual_evidence": "Narrow ivory relief figure about 2.5 times taller than wide: rounded head with nimbus outline, shoulders, horizontal bands at the chest, book-side projection at mid-height, two feet on a small base. Proportion matches 15.9 x 6.4 cm.",
+      "comparison_sheet": "sheets/T6-christ-in-majesty-2014.110.jpg",
+      "limits": "Face and drapery detail are not resolved; match rests on silhouette, colour, proportion and being the only single-figure medieval ivory returned as on view. Back is unseen (object lies on its mount).",
+      "placement_accepted": false,
+      "unlisted_dimensions_accepted": false
+    },
+    {
+      "slot": "T7",
+      "case": "tall",
+      "status": "confirmed",
+      "confidence_tier": "A",
+      "accession": "52.002",
+      "catalogue_id": "1211626",
+      "title": "Pax",
+      "maker": "Unknown Maker, French",
+      "dating": "1485-1535",
+      "medium": "Shell and silver",
+      "dimensions": "12.1 x 8.9 x 2.2 cm (4 3/4 x 3 1/2 x 7/8 inches) without handle",
+      "place": "",
+      "credit": "Museum Works of Art Fund",
+      "on_view_flag": true,
+      "link": "https://risdmuseum.org/art-design/collection/pax-52002",
+      "api_json": "api/id-1211626.json",
+      "api_url": "https://risdmuseum.org/api/v1/collection?id=1211626",
+      "api_json_sha256": "f166a18939f6c61ae1f6a41917c0c64ba742daa7ad3fc53d560b7cc6062c3420",
+      "photos": [
+        {
+          "file": "pax-52002-zoom-0.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/ktYRHnt9/",
+          "asset_copyright": "public",
+          "sha256": "2d83942deb9056ccac972f60e0454a15e9398945d7282a955d0bc69d2679aae6"
+        },
+        {
+          "file": "pax-52002-zoom-1.jpg",
+          "url": "https://risdmuseum.cdn.picturepark.com/v/csU5QYL4/",
+          "asset_copyright": "public",
+          "sha256": "98fce45d8fa3efdc3c87d5f86a41ba7533df96d294a0649466b8067d7da63d39"
+        }
+      ],
+      "video": "IMG_6382.MOV",
+      "seen_seconds": [
+        "102.20",
+        "103.70",
+        "105.70",
+        "107.30",
+        "111.70"
+      ],
+      "source_frames": [
+        {
+          "seconds": 102.2,
+          "png_sha256": "13ef283cbb4d2669250fac14109973ea3e1757897b33c421112d207b21e4aadc",
+          "kept_file": "frames/IMG_6382-102.20.jpg"
+        },
+        {
+          "seconds": 103.7,
+          "png_sha256": "de8ca12ce21459d582dfc5972b11f4078c52d2210a58bc547ed8432286534aae",
+          "kept_file": "frames/IMG_6382-103.70.jpg"
+        },
+        {
+          "seconds": 105.7,
+          "png_sha256": "494c0370dacc100435e7eb7c739a286d8f2c8a9b08cc8a639ae08e4ac4f2d03d",
+          "kept_file": "frames/IMG_6382-105.70.jpg"
+        },
+        {
+          "seconds": 107.3,
+          "png_sha256": "13dd0afdac0532a3c90004f81f81ce48728dd20cb61223127929650ce20d7f8f",
+          "kept_file": "frames/IMG_6382-107.30.jpg"
+        },
+        {
+          "seconds": 111.7,
+          "png_sha256": "bfb0496184d08e6f6be9780ff0c93d6f1fa4da8fca4f00d90a9b2e9d8a27c786",
+          "kept_file": "frames/IMG_6382-111.70.jpg"
+        }
+      ],
+      "visible_slot": "North-west, raised on a thin rod stand just north of the Virgin riser, relief facing north.",
+      "visual_evidence": "Pointed-arch shell plaque with white relief figures on a blue-grey ground inside a metal rim; the dark silver back with its handle is seen from the south-east at 107.30s.",
+      "comparison_sheet": "sheets/T7-pax-52.002.jpg",
+      "limits": "Relief subject is not resolved in the source beyond white figures on blue under an arch.",
+      "placement_accepted": false,
+      "unlisted_dimensions_accepted": false
+    },
+    {
+      "slot": "L1",
+      "case": "low",
+      "status": "unidentified",
+      "video": "IMG_6382.MOV",
+      "seen_seconds": [
+        "0.00",
+        "95.10",
+        "96.94",
+        "97.70"
+      ],
+      "visible_slot": "East half of the raised white deck (left when read from the north label side), on a small cream mount.",
+      "visual_evidence": "Very small upright work on paper, a few centimetres across: a pale central form on a darker ground with a light border, on a cream mount much larger than the image.",
+      "comparison_sheet": "sheets/L-low-case-prints-unidentified.jpg",
+      "limits": "Subject, technique and label text are unreadable at native resolution. No catalogue candidate could be compared.",
+      "placement_accepted": false,
+      "unlisted_dimensions_accepted": false
+    },
+    {
+      "slot": "L2",
+      "case": "low",
+      "status": "unidentified",
+      "video": "IMG_6382.MOV",
+      "seen_seconds": [
+        "0.00",
+        "95.10",
+        "96.94",
+        "97.70"
+      ],
+      "visible_slot": "West half of the raised white deck (right when read from the north label side), on a larger cream sheet.",
+      "visual_evidence": "Monochrome image slightly wider than tall, roughly three times the width of L1: a dark-toned scene with a seated or half-length figure with bowed head on the right and a second form on the left.",
+      "comparison_sheet": "sheets/L-low-case-prints-unidentified.jpg",
+      "limits": "Subject, technique and label text are unreadable at native resolution. No catalogue candidate could be compared.",
+      "placement_accepted": false,
+      "unlisted_dimensions_accepted": false
+    }
+  ],
+  "not_artworks": [
+    {
+      "case": "tall",
+      "item": "Display furniture: tall white block (T1), low white plinth (T2), white wedge (T6), thin rod stand (T7), raised white deck with sloped apron."
+    },
+    {
+      "case": "tall",
+      "item": "Printed label panels on the sloped apron on at least the north, east and west sides; text illegible."
+    },
+    {
+      "case": "tall",
+      "item": "Small grey block at the foot of the T1 riser (105.70s); probably a case sensor, unverified."
+    },
+    {
+      "case": "low",
+      "item": "Two printed label groups on the north edge of the deck, each a heading with a text block; text illegible."
+    }
+  ],
+  "rejected_candidates": [
+    {
+      "slot": "T4",
+      "accession": "2016.17",
+      "title": "Kiddush Cup",
+      "reason": "Stemmed goblet with bulbous bowl; source is a footed flared beaker."
+    },
+    {
+      "slot": "T4",
+      "accession": "1991.033",
+      "title": "Beaker (Pat Flynn)",
+      "reason": "Dark straight-sided tumbler with no foot or collar."
+    },
+    {
+      "slot": "L1/L2",
+      "accession": "2010.19.1",
+      "title": "Baptism of Christ (Master of Monza), watercolor on vellum, 9.2 x 7.3 cm",
+      "reason": "Text-only lead from the existing cache; catalogue flag onView is false and no visual comparison is possible. Not a match."
+    }
+  ],
+  "review_date_utc": "2026-10-01T14:33:00Z",
+  "root_review": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/ROOT-REVIEW.md",
+  "all_objects_complete": false,
+  "geometry_installed": false
+}

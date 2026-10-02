@@ -1,0 +1,29 @@
+{
+  "size_m": [
+    0.54,
+    0.387
+  ],
+  "outline": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "depth_m": 0.04,
+  "depth_accepted": false,
+  "source_sha256": "71f5fd3e98c3e5f2342a5e19ebb96f76435485a3120bbf92d659a913559cf135",
+  "source": "Official photograph; original painted image with its integral gilt border, not Muse-generated art",
+  "placement_accepted": false
+}

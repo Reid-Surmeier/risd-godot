@@ -62,7 +62,7 @@ func _ready() -> void:
 		page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		# PROTOTYPE (2026-09-26): the Grand Gallery 3D walk fills the frame's white opening
 		# (458,521 2110x1412 in page.png)
-		var walk: Control = load("res://modules/shell/prototype/gallery_walk4/walk4.gd").new()
+		var walk: Control = load("res://modules/shell/prototype/collection_reconstruction/main_build_walk.gd").new()
 		walk.name = "GalleryWalk"
 		page.add_child(walk)
 		var fit := func() -> void:

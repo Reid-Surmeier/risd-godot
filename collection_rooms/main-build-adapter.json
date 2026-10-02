@@ -1,0 +1,117 @@
+{
+  "main_build_tip": "317b8f3b8dac0f9811d396bcb0260c7187f93f11",
+  "hall_files_unchanged": 362,
+  "tracked_files_changed": [
+    "export_presets.cfg",
+    "modules/shell/demo.gd"
+  ],
+  "demo_gd_sha256": {
+    "before": "af3a50acdf5435378994866b1de3bfc50f574fc1ef9ce2c03095cddb1402f277",
+    "after": "30506df1efe075057291b25a5959f4a2aeb615c1d961a79c4243287aa029e7d3"
+  },
+  "adapter_sha256": "ca218f3e2a7f3aa15aa432f09e91c7fa840dc9648999a4e1882216e577dfaa86",
+  "room_scripts": {
+    "connected_hall.gd": {
+      "paths_moved": 0,
+      "source_sha256": "cac147ec1c0ced63c75f03ddeeecc9a52af5adfce6008dbbe86514af4122d8ff",
+      "sha256": "cac147ec1c0ced63c75f03ddeeecc9a52af5adfce6008dbbe86514af4122d8ff"
+    },
+    "doorway_walk.gd": {
+      "paths_moved": 3,
+      "source_sha256": "bab033d2c1cb8c57b256d0386e7bf86dbf8afe832179071c02b20e0e6728dbe2",
+      "sha256": "75707a0abca92bcb568aa4a1ae464d0f6ad849aaccc15adc8929cf963da8dd23"
+    },
+    "medieval_ceramic_ivory_assets.gd": {
+      "paths_moved": 0,
+      "source_sha256": "1dc6dbb2e0c5a9bb85f1fc794e9ff53bf2d94a5f7b269aa197398c98997cb72a",
+      "sha256": "1dc6dbb2e0c5a9bb85f1fc794e9ff53bf2d94a5f7b269aa197398c98997cb72a"
+    },
+    "medieval_metal_assets.gd": {
+      "paths_moved": 0,
+      "source_sha256": "82aa8bcb55fb00d5898fcc6f20a100e761f49773c54da25398f5609502586ba1",
+      "sha256": "82aa8bcb55fb00d5898fcc6f20a100e761f49773c54da25398f5609502586ba1"
+    },
+    "pieta_asset.gd": {
+      "paths_moved": 0,
+      "source_sha256": "39d5a68e06938b86178c0d9d99acaf64efb19ed69e715133358bae8b119be19f",
+      "sha256": "39d5a68e06938b86178c0d9d99acaf64efb19ed69e715133358bae8b119be19f"
+    },
+    "remodel_bake.gd": {
+      "paths_moved": 3,
+      "source_sha256": "3b82cca69a74928e10323eb8f800ae647688a6601854f94330acf15d49522b65",
+      "sha256": "3585f349f814fe7b8e6356d09e07a969eb7f9ca03878f3d65b876e708f7d6ddc"
+    },
+    "remodel_presenter.gd": {
+      "paths_moved": 5,
+      "source_sha256": "82b03a5d6c78f793cf072aad34e1eb2df0f2bb7c4f001afd276bcf3f4d9ab512",
+      "sha256": "b7497bcedb3a24b0f4046b1517bc438a06b4205e56ce56bd686b9af57385f22a"
+    },
+    "remodel_presenter.tscn": {
+      "paths_moved": 1,
+      "source_sha256": "25152ad6287e8a4efd83d0c5ea42e6dd67e088fd854a0f06b9a957c469d28297",
+      "sha256": "3efff0d70e408ca6a5d4f2a30d696a3b6b51772c2c3f574123b79d88aceff590"
+    },
+    "remodel_review.gd": {
+      "paths_moved": 13,
+      "source_sha256": "66cec25dea22e9d8b959ab9d010ed021e2a4028961647906591b0545622b2ff8",
+      "sha256": "798b9b5b5702092d5d5b5501d0d14cb75e0a8eb0e0644dd780215f3626e199e3"
+    },
+    "remodel_room.gd": {
+      "paths_moved": 103,
+      "source_sha256": "206627cec17131f3988fc7bd55aa18b8781a9bbe2e4c62e586c5153966f610e1",
+      "sha256": "d12005684fa6427ae32a7f5d0b8cfc09c79fa9d6f3d0f575e7118a2cad8a5544"
+    },
+    "remodel_room.tscn": {
+      "paths_moved": 1,
+      "source_sha256": "7981f0260c8c85819cf2be3c6ca4fe6e7d1c3c911de6c2bafe63e8a1e2b75a1e",
+      "sha256": "cce548e52d885cd3e9f373f2d9d8766d7fa867fa3d0c3b941748c690dd0c9fe6"
+    },
+    "renaissance_case_a_assets.gd": {
+      "paths_moved": 0,
+      "source_sha256": "daa506ddfe30c944080fe609a2473917206b3e636647a47f859522ef004e3e8d",
+      "sha256": "daa506ddfe30c944080fe609a2473917206b3e636647a47f859522ef004e3e8d"
+    },
+    "renaissance_case_b_assets.gd": {
+      "paths_moved": 1,
+      "source_sha256": "80055482959ae12e556401a996b9084e545516781efb27480e71cc2fa2b918f0",
+      "sha256": "9a911902fbaadb1b34a0ce80e9b6c3cb460d4961993ed17ecf7624a7a5db3088"
+    },
+    "renaissance_wall_assets.gd": {
+      "paths_moved": 1,
+      "source_sha256": "7202f9efbab106055d23af264e76c1ceb29162733f0bddd745251c55e74800d5",
+      "sha256": "47ee77ea74b831aaa8f576f227d2644cc8679210743070e88d56a6a0497061dd"
+    },
+    "retained_hall_room.gd": {
+      "paths_moved": 0,
+      "source_sha256": "aaddae22e31781f35a95a0ab1991a2e15537d8cbd9a4c4afaf219012791e18b8",
+      "sha256": "aaddae22e31781f35a95a0ab1991a2e15537d8cbd9a4c4afaf219012791e18b8"
+    },
+    "saint_roch_asset.gd": {
+      "paths_moved": 0,
+      "source_sha256": "98d607557bd3ddec8e000ad320241cc0bc7337f05619ad605f35dfc8321a61cc",
+      "sha256": "98d607557bd3ddec8e000ad320241cc0bc7337f05619ad605f35dfc8321a61cc"
+    },
+    "seated_woman_asset.gd": {
+      "paths_moved": 0,
+      "source_sha256": "7b17a507fe6c68d7d6dd834a3669d1888f4fe2f587304d1e6f269ec4ce010fa7",
+      "sha256": "7b17a507fe6c68d7d6dd834a3669d1888f4fe2f587304d1e6f269ec4ce010fa7"
+    },
+    "triptych_asset.gd": {
+      "paths_moved": 3,
+      "source_sha256": "c532165bc38b6cf9553fe40c05a368d3df70597655be9e99a8c25e8cf49d68e4",
+      "sha256": "2b31fa115a59b54a7ffd965860cd594b2dfdc204b4cb526ca539a799ccf0df13"
+    },
+    "virgin_child_asset.gd": {
+      "paths_moved": 1,
+      "source_sha256": "62045ef75ba6a238ec565a7f488a26ce7623e2795d5434c05af713fa703a701f",
+      "sha256": "33fd8356794d12f3edc1ca1d6db0d5ef4ffe06fb47bf6122f72a0927ab52c57a"
+    }
+  },
+  "left_out": [
+    "build",
+    "docs",
+    "image-work",
+    "repos"
+  ],
+  "production_collection_factory_integrated": false
+}

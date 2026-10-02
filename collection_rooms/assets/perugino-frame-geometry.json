@@ -1,0 +1,31 @@
+{
+  "canvas_m": [
+    0.391,
+    0.575
+  ],
+  "margins_px": [
+    92,
+    244,
+    92,
+    130
+  ],
+  "opening_aspect": 0.6195899772209568,
+  "catalogue_aspect": 0.68,
+  "profile": "native Muse bands; 9cm inferred depth; aspect corrected by existing nine-slice geometry",
+  "source_fit": {
+    "source": "inventory-references/perugino-frame-selected-0.png",
+    "sha256": "8fa8eb8a514bccbc350c38b253eed37d4ec28af7065f9a3c64b1e05a5ca21b30",
+    "canvas_m": [
+      0.391,
+      0.575
+    ],
+    "target_margins_m": [
+      0.06,
+      0.16,
+      0.06,
+      0.085
+    ],
+    "accepted": false,
+    "note": "Provisional source-relative architectural bands; source panel edges are partly hidden under the frame. Native Muse blue recessed bands are remapped to brown at unchanged value; native output archived unchanged. Frame9cm depth and projecting cornice side profile remain unverified."
+  }
+}
