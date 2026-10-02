@@ -20,7 +20,7 @@ const FAR_ROOMS := [
 	"Rockefeller",
 	"purple elevator-5 connector",
 	"grey French gallery",
-	"Ionic marble-stair threshold study limit",
+	"marble stair hall",
 	"piano-stair threshold study limit",
 	# The thickness of the wall those rooms share with the Hall and the European gallery.
 	"Grand Gallery reveal threshold",
