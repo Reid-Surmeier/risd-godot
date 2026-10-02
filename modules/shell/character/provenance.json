@@ -2,7 +2,6 @@
   "accepted_commit": "9a76b8f997d1b8243c2f5f6275a5c2a92e22d888",
   "issue": 235,
   "prototype_issue": 231,
-  "generated_cost_usd": 1.54,
   "packaging_cost_usd": 0,
   "inputs": {
     "walk.glb": {
@@ -80,8 +79,38 @@
         386.49,
         387.03
       ],
-      "processing": "AAC-decodedmono22050Hz crop; nofiltering, normalization, denoiseorpitchchange",
-      "identification": "Visible house doorclosing duringentry; dominanttransient386.5243, tailto387.0. Outdoor musicfades duringtransition; negligible residualbednot independentlyremoved. Not the4stage doorsequence."
+      "processing": "AAC-decoded mono 22050 Hz crop; no filtering, normalization, denoise or pitch change",
+      "identification": "Visible house door closing during entry; dominant transient at 386.5204 s, tail to 387.0 s. Outdoor music fades during transition; residual background was not independently removed. This is not the four-stage door sequence."
+    },
+    "audio/stone_escort_step_a.wav": {
+      "sha256": "4bb97ffea4d3e2e92d0efb203930583c9c45f614ca323e1c7d3eb4b346ecfb9e",
+      "source_url": "https://www.youtube.com/watch?v=Fd0g57lSedA",
+      "source_range_seconds": [
+        605.015,
+        605.2
+      ],
+      "processing": "AAC decoded mono PCM16 22050Hz; raw crop only, no denoise, filtering, normalization or pitch change",
+      "identification": "captured GameCube original station stone paving escort cue; player/NPC identity and exact bank variation unassigned"
+    },
+    "audio/stone_escort_step_b.wav": {
+      "sha256": "ab7f44cef959067e9bd1bc2228bcadc100451579a3219a36fda9aea51e31828c",
+      "source_url": "https://www.youtube.com/watch?v=Fd0g57lSedA",
+      "source_range_seconds": [
+        605.288,
+        605.473
+      ],
+      "processing": "AAC decoded mono PCM16 22050Hz; raw crop only, no denoise, filtering, normalization or pitch change",
+      "identification": "captured GameCube original station stone paving escort cue; player/NPC identity and exact bank variation unassigned"
+    },
+    "audio/stone_escort_step_c.wav": {
+      "sha256": "6bf5a2fb187e257c5697ad6b43654fdd9f54f791eca457210829e5c8f5e224e3",
+      "source_url": "https://www.youtube.com/watch?v=Fd0g57lSedA",
+      "source_range_seconds": [
+        605.542,
+        605.727
+      ],
+      "processing": "AAC decoded mono PCM16 22050Hz; raw crop only, no denoise, filtering, normalization or pitch change",
+      "identification": "captured GameCube original station stone paving escort cue; player/NPC identity and exact bank variation unassigned"
     }
   },
   "providers": {
@@ -160,8 +189,8 @@
         ],
         "bytes": 23858,
         "sha256": "3deaff721523a6afac064042e0e8fc76405b1ceb7e836200222dc8dc7d45811a",
-        "note": "Visible house doorclosing duringentry; dominanttransient386.5243, tailto387.0. Outdoor musicfades duringtransition; negligible residualbednot independentlyremoved. Not the4stage doorsequence.",
-        "processing": "AAC-decodedmono22050Hz crop; nofiltering, normalization, denoiseorpitchchange",
+        "note": "Visible house door closing during entry; dominant transient at 386.5204 s, tail to 387.0 s. Outdoor music fades during transition; residual background was not independently removed. This is not the four-stage door sequence.",
+        "processing": "AAC-decoded mono 22050 Hz crop; no filtering, normalization, denoise or pitch change",
         "peak": 0.2073974609375
       }
     ],
@@ -173,6 +202,89 @@
       0.016,
       0.015
     ],
-    "capture_gain_note": "playback offsets align measured attack; unity pitch; uniform gain makes full indoor RUN equal to recorded level, gait gain scales relatively; source files unmodified"
+    "capture_gain_note": "Unity pitch; playback offsets preserve the measured attacks and peaks. Indoor RUN uses capture level plus common 6 dB makeup; gait gains scale relatively. Source files unmodified.",
+    "door_start_offset_seconds": 0.024,
+    "import_compression": "lossless PCM",
+    "common_makeup_db": 6
+  },
+  "historical_liability_usd": 1.54,
+  "stone_reference": {
+    "source_url": "https://www.youtube.com/watch?v=Fd0g57lSedA",
+    "source_audio": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/live-demo/audio-reference/emu-601-611.m4a",
+    "source_audio_bytes": 162459,
+    "source_audio_sha256": "14335a4cade66866c85f8614a4fe85a95d956387d302be30a0f8fc3456de7722",
+    "source_audio_section_seconds": [
+      601,
+      611
+    ],
+    "sample_rate": 22050,
+    "candidates": [
+      {
+        "path": "/tmp/ac-sound-research/stone_escort_step_a.wav",
+        "source_range_seconds": [
+          605.015,
+          605.2
+        ],
+        "sha256": "4bb97ffea4d3e2e92d0efb203930583c9c45f614ca323e1c7d3eb4b346ecfb9e",
+        "bytes": 8202,
+        "peak": 0.09039306640625,
+        "onset_offset_seconds": 0.024852607709750566,
+        "last_above_threshold_offset_seconds": 0.11369614512471655,
+        "tail_rms_last30ms": 2.9294493118376378e-05,
+        "source_class": "captured GameCube original station stone paving escort cue; player/NPC identity and exact bank variation unassigned",
+        "processing": "AAC decoded mono PCM16 22050Hz; raw crop only, no denoise, filtering, normalization or pitch change"
+      },
+      {
+        "path": "/tmp/ac-sound-research/stone_escort_step_b.wav",
+        "source_range_seconds": [
+          605.288,
+          605.473
+        ],
+        "sha256": "ab7f44cef959067e9bd1bc2228bcadc100451579a3219a36fda9aea51e31828c",
+        "bytes": 8204,
+        "peak": 0.07293701171875,
+        "onset_offset_seconds": 0.022766439909297054,
+        "last_above_threshold_offset_seconds": 0.11333333333333333,
+        "tail_rms_last30ms": 3.722538392620745e-05,
+        "source_class": "captured GameCube original station stone paving escort cue; player/NPC identity and exact bank variation unassigned",
+        "processing": "AAC decoded mono PCM16 22050Hz; raw crop only, no denoise, filtering, normalization or pitch change"
+      },
+      {
+        "path": "/tmp/ac-sound-research/stone_escort_step_c.wav",
+        "source_range_seconds": [
+          605.542,
+          605.727
+        ],
+        "sha256": "6bf5a2fb187e257c5697ad6b43654fdd9f54f791eca457210829e5c8f5e224e3",
+        "bytes": 8202,
+        "peak": 0.08856201171875,
+        "onset_offset_seconds": 0.027301587301587302,
+        "last_above_threshold_offset_seconds": 0.11632653061224489,
+        "tail_rms_last30ms": 3.786240200647149e-05,
+        "source_class": "captured GameCube original station stone paving escort cue; player/NPC identity and exact bank variation unassigned",
+        "processing": "AAC decoded mono PCM16 22050Hz; raw crop only, no denoise, filtering, normalization or pitch change"
+      }
+    ],
+    "quiet_gap_rms": {
+      "602.2-602.3": 4.058096645335498e-05,
+      "605.2-605.29": 3.7961941786855267e-05,
+      "605.44-605.54": 3.778925704143618e-05,
+      "605.7-605.8": 3.740731063245959e-05,
+      "606-606.08": 3.8207475426475615e-05
+    },
+    "repeat_a_c_corr": 0.9920510862091467,
+    "repeat_a_c_lag_seconds": 0.0005895691609977325,
+    "musical_background": "No sustained music bed evident numerically in quiet gaps before 607.4s; later cue/dialogue section is contaminated and excluded. Worker has not listened.",
+    "cost_usd": 0,
+    "master_gain": 1,
+    "start_offsets_seconds": [
+      0.023,
+      0.021,
+      0.025
+    ],
+    "captured_run_reference_gain": 0.8,
+    "common_makeup_db": 0,
+    "variant_assignment": "Adapted slots modulo three captures; original player/NPC, side and bank variations unassigned",
+    "profile_selection": "Explicit audition profile, applied uniformly to selected test surfaces; not an automatic recovered terrain bank"
   }
 }

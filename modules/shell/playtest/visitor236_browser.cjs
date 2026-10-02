@@ -73,7 +73,9 @@ const pause = ms => new Promise(r => setTimeout(r, ms));
     await pause(1500);
     await stage('hidden-tab', 3, 'KeyD');
     fs.writeFileSync(path.join(out, 'audio.webm'), Buffer.from(await p.evaluate(() => window.__audio.stop()), 'base64'));
-    fs.writeFileSync(path.join(out, 'timeline.json'), JSON.stringify({ url, videoStart, timeline, errors }, null, 1));
+    // With ?qa-sound the game publishes when it asked for each step; seconds on the audio clock.
+    const steps = await p.evaluate(() => (window.visitorSteps || []).map(t => (t - window.__audio.started) / 1000));
+    fs.writeFileSync(path.join(out, 'timeline.json'), JSON.stringify({ url, videoStart, timeline, steps, errors }, null, 1));
     console.log(JSON.stringify({ stages: timeline.length, errors: errors.length }));
   } catch (e) { console.error(log.slice(-15).join('\n')); throw e; } finally { await browser.close(); }
 })().catch(e => { console.error(e); process.exit(1); });

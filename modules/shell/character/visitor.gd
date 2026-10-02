@@ -1,7 +1,7 @@
 extends Node3D
 ## #236 Collection visitor: the accepted #235 character behind the surface walk4.gd drives.
 ## The museum owns position, collision and camera; this node only faces, animates and sounds.
-## Walk, run, dash and jump come from the package; tools, doors and the skid stay in the playtest.
+## Walk, run, dash, skid and jump come from the package; tools and doors stay in the playtest.
 const HOME := "res://modules/shell/character/"
 const Demo := preload("res://modules/shell/character/demo.gd")
 # Skinned rest height of walk.glb in metres, horns included; visitor174_check.gd re-measures it.
@@ -22,8 +22,9 @@ const JUMP_LANDING := 0.23
 const LIFT := 0.035
 const PLANT := 0.01
 # The captured steps peak at -29 to -38 dBFS; the museum's other sounds peak near -3 dBFS and
-# its previous steps played at -8 dB. This puts the captured steps at that same loudness.
-const MUSEUM_GAIN_DB := 20.0
+# its previous steps played at -8 dB. With the package's own +6 dB captured-mix gain (#235)
+# this puts the captured steps at that same loudness.
+const MUSEUM_GAIN_DB := 14.0
 # A render layer no museum camera or surface uses: only the visitor's own light reaches it.
 const FILL_LAYER := 1 << 19
 
@@ -51,6 +52,8 @@ var _landed := -1.0  # seconds since touching down
 var _rise := 0.0
 var _height := 0.0
 var _ground := 0.0  # the model offset that put the soles on the floor before take-off
+var _skid := 0.0  # seconds of skid left after a dash is thrown into reverse
+var _timing := false  # ?qa-sound in the page address: each step's time is published for latency checks
 var _previous := Vector3.ZERO
 var _has_previous := false
 var _clip := ""
@@ -84,7 +87,7 @@ func _ready() -> void:
 					else reference.lerp(value, 0.5)
 				)
 			)
-	for gait in ["run", "dash"]:
+	for gait in ["run", "dash", "skid"]:
 		var source: Node3D = load(HOME + gait + ".glb").instantiate()
 		var clips: AnimationPlayer = source.find_children("*", "AnimationPlayer", true, false)[0]
 		library.add_animation(gait, clips.get_animation("walk").duplicate())
@@ -132,6 +135,9 @@ func _ready() -> void:
 	add_child(_fill)
 	add_child(_speaker)
 	add_child(_effects)
+	_timing = OS.has_feature("web") and bool(
+		JavaScriptBridge.eval("new URLSearchParams(location.search).has('qa-sound')")
+	)
 	pose(0, false, 0, Vector3.FORWARD, 0)
 
 
@@ -149,6 +155,7 @@ func reset() -> void:
 	_has_previous = false
 	_clip = ""
 	_air = -1.0
+	_skid = 0.0
 	rotation.y = 0.0
 	model.rotation.x = 0.0
 	player.stop()
@@ -225,9 +232,27 @@ func pose(
 	)
 	movement.heading = 0.0
 	movement.step(Vector2(0, minf(units, 1.0)), sprint, delta)
+	# A dash thrown more than 100 degrees round skids, as in the playtest.
+	if (
+		_clip == "dash"
+		and sprint
+		and heading.length_squared() > 0.1
+		and absf(wrapf(atan2(heading.x, heading.z) - old_yaw, -PI, PI)) > deg_to_rad(100)
+	):
+		_skid = 0.35
+		_clip = "skid"
+		player.play("skid", 0.08)
+		player.speed_scale = 1.0
+		_cue("Skid", 0.8)
 	var clip := "jump"
 	if _air >= 0.0:
 		_hop(delta)
+	elif _skid > 0.0:
+		_skid -= delta
+		clip = "skid"
+		player.advance(delta)
+		if _skid <= 0.0:
+			_clip = ""
 	else:
 		clip = {"Idle": "idle", "Walk": "walk", "Run": "run", "Dash": "dash"}.get(
 			movement.gait, "idle"
@@ -277,7 +302,7 @@ func pose(
 		foot.low += model.position.y
 		if airborne:
 			foot.planted = false
-		elif clip in ["idle", "jump"]:
+		elif clip in ["idle", "jump", "skid"]:
 			foot.planted = true
 		elif foot.planted and foot.low > LIFT * model.scale.y:
 			foot.planted = false
@@ -336,6 +361,8 @@ func _step(side: String, gait: String) -> void:
 	)
 	_speaker.pitch_scale = cue.pitch
 	_speaker.play(cue.get("start_offset", 0))
+	if _timing:
+		JavaScriptBridge.eval("(window.visitorSteps=window.visitorSteps||[]).push(performance.now())")
 
 
 func _blink(delta: float) -> void:

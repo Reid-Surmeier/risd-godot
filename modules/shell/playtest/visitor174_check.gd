@@ -105,6 +105,15 @@ func _run() -> void:
 		dash_steps += visitor.contacts
 	assert(visitor._clip == "dash", "sprinting did not select the dash clip: %s" % visitor._clip)
 	assert(dash_steps >= 5 and dash_steps <= 9, "dash step cadence is wrong: %s" % dash_steps)
+	# Reversing a dash skids before it turns.
+	visitor.position.z += 3.0 / 60.0
+	visitor.pose(1.0 / 60.0, true, 0.0, Vector3.BACK, 0.0)
+	assert(visitor._clip == "skid", "reversing a dash did not skid: %s" % visitor._clip)
+	for _tick in 150:  # the skid, then the turn round on the spot
+		visitor.pose(1.0 / 60.0, false, 0.0, Vector3.BACK, 0.0)
+	assert(visitor._clip == "idle", "the skid did not settle")
+	visitor.reset()
+	visitor.pose(0.0, false, 0.0, Vector3.FORWARD, 0.0)
 	# A hop: leaves the floor, comes back, makes no footsteps in the air, ends in a gait.
 	visitor.jump()
 	var top := 0.0
