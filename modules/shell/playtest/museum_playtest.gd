@@ -351,7 +351,8 @@ func _views() -> void:
 					"visitor_pixels": changed * 16
 				}
 				report.views.append(entry)
-				if entry.flat_share > 0.45:
+				# A doorway-sized stub cannot be photographed without a wall in the lens.
+				if entry.flat_share > 0.45 and minf(b[1] - b[0], b[3] - b[2]) >= 2.2:
 					_fail("view", "%s %s: one flat surface fills the picture" % [area.label, view], entry)
 				elif entry.visitor_pixels < 400:
 					_fail("view", "%s %s: the visitor cannot be seen" % [area.label, view], entry)

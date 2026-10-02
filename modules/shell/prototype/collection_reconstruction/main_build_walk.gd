@@ -419,9 +419,8 @@ func _painting_at(pt: Vector2) -> Dictionary:
 	for thing in _objects:
 		# The room the visitor stands in, plus the work being read: its viewing spot may lie
 		# just through a doorway. Nothing the camera has cut away answers a click.
-		if thing.room != here and thing.tag != _inspect.get("tag", ""):
-			continue
-		if (_cam.cull_mask & thing.layers) == 0 or not thing.node.is_visible_in_tree():
+		var reading: bool = thing.tag == _inspect.get("tag", "")
+		if not reading and (thing.room != here or (_cam.cull_mask & thing.layers) == 0 or not thing.node.is_visible_in_tree()):
 			continue
 		var points := PackedVector2Array()
 		for corner in thing.corners:
@@ -444,7 +443,7 @@ func _painting_at(pt: Vector2) -> Dictionary:
 			area += a.x * c.y - c.x * a.y
 		area = absf(area) / 2.0
 		if Geometry2D.is_point_in_polygon(pt, hull):
-			if thing.tag == _inspect.get("tag", ""):
+			if reading:
 				return thing  # the work being read answers before a smaller neighbour in its case
 			if area < smallest:
 				smallest = area
@@ -647,7 +646,7 @@ func _inspect_shot(p: Dictionary) -> Transform3D:
 	var depth := rel.dot(normal)
 	var gap := absf(rel.dot(view.along) - shift * depth / back)
 	p["covered"] = depth > 0.0 and depth < back and gap < 0.35 + p.outer.x / 2.0 * (1.0 - depth / back)
-	_inspect_fov = clampf(rad_to_deg(2.0 * atan(height / share / 2.0 / back)), 23.0, 50.0)
+	_inspect_fov = clampf(rad_to_deg(2.0 * atan(height / share / 2.0 / back)), 23.0, 65.0)
 	var eye: Vector3 = foot + normal * back + view.along * shift
 	# The work's centre sits 40% down the picture: a tenth of the lens above its axis.
 	eye.y = p.center.y + back * tan(tilt - deg_to_rad(_inspect_fov * 0.1))
