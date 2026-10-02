@@ -132,3 +132,16 @@ scene reports zero runtime lights. This is visual refinement, not an exact
 Nintendo appearance claim. Before/after evidence is packaged with the final
 refinement report; no generated source pixels were edited and no paid calls
 were made for this pass.
+
+## Light after the New Horizons museum (#238)
+
+`prepare.gd` bakes little fill, one cream-white spot per painting with a cone sized from the
+frame's width, and daylight straight down through the glazing as a pool on the floor. It also
+writes `baked/lamps.json`, the lamp list the floor highlight reads, from the same values.
+`measure_light.gd` reads the five light targets of
+`docs/research/2026-10-01-acnh-museum-polish-spec.md` (section 4, step 3) from the standard
+dollhouse view of each long wall and prints PASS or FAIL per target; it also reads the
+visitor at five places. After a bake run `godot --headless --editor --import --path .` before
+looking: the editor leaves the previous lightmap texture in the import cache, so the game
+shows the old light without any error. Values, numbers and pictures:
+`docs/evidence/museum-238/light-hall/NOTES.md`.
