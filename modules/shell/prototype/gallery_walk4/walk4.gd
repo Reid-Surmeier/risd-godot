@@ -61,6 +61,9 @@ const WALK_MPS := 1.2
 const SPRINT_MPS := 3.0  # Shift held: the accepted character's dash
 const STEP_M := 1.0
 const TURN_HELD_DPS := 40.0
+# A step of the view (Q, E, the buttons, "Other wall") glides for a second, slow-fast-slow, as
+# the New Horizons museum's views do. Mouse drags and the wheel still follow the hand.
+const VIEW_TURN_S := 1.0
 const TURN_TAP_DPS := 75.0
 const HOLD_S := 0.25
 const KID_H := 1.75
@@ -91,6 +94,8 @@ var view_yaw := PI
 
 var _vp: SubViewport
 var _view_turn_remaining := 0.0
+var _turn_span := 0.0  # what was left to turn when the current eased turn began
+var _turn_clock := 1.0  # 0..1 through an eased turn; 1 when none is under way
 var _orbit_from = null
 var _orbit_dragged := false
 var _space := "gallery"  # arch/far identify which gallery doorway the white test room returns to
@@ -2282,6 +2287,11 @@ func _orbit(amount: float) -> void:
 	_target = null
 	_target_yaw = null
 	_view_turn_remaining += amount
+	if absf(amount) >= 0.5 and not _orbit_dragged:
+		_turn_span = _view_turn_remaining
+		_turn_clock = 0.0
+	else:
+		_turn_clock = 1.0  # a drag or the wheel: follow the hand
 
 
 func _set_lighting(enabled: bool) -> void:
@@ -2406,11 +2416,15 @@ func _set_view(mode: int) -> void:
 func _other_wall() -> void:
 	if not _open.is_empty() or _space != "gallery":
 		return
-	# A deliberate gallery shortcut: keep the same bay, cross to the other hang.
+	# A deliberate gallery shortcut: keep the same bay, cross to the other hang. The visitor
+	# walks across and the view glides round with it; nothing jumps.
 	var east := sin(view_yaw) > 0.0
-	_pos = _clamp(Vector3(2.6 if east else -2.6, 0, _pos.z))
-	view_yaw = -PI / 2.0 if east else PI / 2.0
-	_set_view(0)
+	if view_mode != 0:
+		_set_view(0)
+	_walk_to(Vector3(2.6 if east else -2.6, 0, _pos.z))
+	_view_turn_remaining = wrapf((-PI / 2.0 if east else PI / 2.0) - view_yaw, -PI, PI)
+	_turn_span = _view_turn_remaining
+	_turn_clock = 0.0
 	print("OTHER_WALL ", "east" if east else "west")
 
 
@@ -2697,6 +2711,9 @@ func _process(delta: float) -> void:
 	if not _open.is_empty():
 		return
 	var turn := _view_turn_remaining * (1.0 - exp(-delta * 12.0))
+	if _turn_clock < 1.0:
+		_turn_clock = minf(1.0, _turn_clock + delta / VIEW_TURN_S)
+		turn = _view_turn_remaining - _turn_span * (1.0 - smoothstep(0.0, 1.0, _turn_clock))
 	var orbit_settled := (
 		absf(_view_turn_remaining) >= 0.001 and absf(_view_turn_remaining - turn) < 0.001
 	)
