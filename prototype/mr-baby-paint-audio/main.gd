@@ -231,6 +231,8 @@ func _sounds_in(group: String) -> Array[String]:
 	return matches
 
 
+# #237: existing input/asset dispatcher intentionally exits per handled case.
+# gdlint: disable=max-returns
 func _group_for(path: String) -> String:
 	var name := path.get_file().to_lower()
 	if name.begins_with("fill") or name.begins_with("stop_fill") or name.begins_with("pour_sand"):
@@ -262,6 +264,8 @@ func _group_for(path: String) -> String:
 		return "Tools and materials"
 	return "Interface feedback"
 
+
+# gdlint: enable=max-returns
 
 func _display_name(path: String) -> String:
 	var name := path.get_file().trim_suffix(".res").trim_suffix(".wav").replace("_", " ")

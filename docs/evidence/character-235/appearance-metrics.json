@@ -1,0 +1,17 @@
+{
+  "mean_material_color_error_255": 0.024944444444444446,
+  "maximum_blink_level_jump": 0.29600000000000004,
+  "distinct_blink_levels": 6,
+  "outside_face_changed_pixels": 0,
+  "closed_eye_blue_bleed_pixels": 0,
+  "native_render_compared_to_original_material": true,
+  "dust_visible_pixels": [
+    51,
+    850,
+    1838,
+    0,
+    122,
+    943,
+    1862
+  ]
+}
