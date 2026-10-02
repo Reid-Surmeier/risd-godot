@@ -420,7 +420,7 @@ func _painting_at(pt: Vector2) -> Dictionary:
 		# The room the visitor stands in, plus the work being read: its viewing spot may lie
 		# just through a doorway. Nothing the camera has cut away answers a click.
 		var reading: bool = thing.tag == _inspect.get("tag", "")
-		if not reading and (thing.room != here or (_cam.cull_mask & thing.layers) == 0 or not thing.node.is_visible_in_tree()):
+		if not reading and (thing.room != here or (_cam.cull_mask & thing.layers) == 0 or not _drawn(thing.node)):
 			continue
 		var points := PackedVector2Array()
 		for corner in thing.corners:
@@ -449,6 +449,16 @@ func _painting_at(pt: Vector2) -> Dictionary:
 				smallest = area
 				best = thing
 	return best
+
+
+# The cut-away hides a work's meshes, not its root: drawn means some mesh of it still shows.
+func _drawn(node: Node3D) -> bool:
+	if node is GeometryInstance3D:
+		return node.is_visible_in_tree()
+	for mesh in node.find_children("*", "GeometryInstance3D", true, false):
+		if mesh.is_visible_in_tree():
+			return true
+	return false
 
 
 # Where a visitor stands to look at a work, and which way it faces from the wall.
@@ -569,7 +579,6 @@ func _begin_inspect(p: Dictionary) -> void:
 	await get_tree().create_timer(0.13).timeout
 	if _inspect.get("tag", "") != p.tag or _action != mine:
 		return
-	_play("item_select")
 	_show_page(false)
 	await get_tree().create_timer(0.54).timeout
 	if _inspect.get("tag", "") == p.tag and _action == mine:
@@ -589,6 +598,10 @@ func _show_page(with_text: bool) -> void:
 	body.text = page[1] if with_text else ""
 	_inspect_panel.modulate.a = 1.0
 	_inspect_panel.show()
+	_inspect_panel.reset_size()
+	var tall := maxf(size.y * 0.275, _inspect_panel.get_combined_minimum_size().y)
+	_inspect_panel.size = Vector2(size.x * 0.58, tall)
+	_inspect_panel.position.y = size.y * (1.0 - 0.08) - tall
 
 
 func _next_page() -> void:
@@ -1103,6 +1116,7 @@ func _update_camera(k: float) -> void:
 		return
 	var here := _room_at(_pos)
 	var added := here >= 0
+	($OtherWall as Button).visible = _space == "gallery"
 	if _baked_room:
 		_baked_room.get_node("Lightmap").visible = not added
 	var capture := _rooms.get_node_or_null("BakedRoom/Lightmap")
