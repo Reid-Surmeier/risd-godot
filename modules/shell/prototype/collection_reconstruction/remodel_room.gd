@@ -985,14 +985,23 @@ func build_adjacent_gallery() -> void:
 	# Delacroix follows the Rockefeller door it was filmed from (6385), as the secretary does.
 	# Fetti, the piers and Goltzius were read mid-gallery or from the far end (6386); their z is
 	# kept as authored and stays unaccepted until the gallery is fitted.
-	painting.position=Vector3(-3.48,1.75,4.35)
+	# #238: the dress case and the secretary take the corner first (6385 2..21s), then the Piranesi;
+	# the Delacroix follows them. By wall order and catalogue widths, not measured.
+	painting.position=Vector3(-3.485,1.75,6.85)
 	painting.rotation.y=PI/2
+	painting.set_meta("catalogue_accession","35.786")
+	# The secretary (catalogue data, already in the room) clears the dress case in the corner.
+	for node in get_children():
+		if node is Node3D and node.position.distance_to(Vector3(-5.19,.13,3.05))<.02:node.position.z=3.55
 	var fetti:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/fetti-frame-geometry.json"))
 	var angels:=Painting.new()
 	add_child(angels)
 	angels.build_framed(load("res://assets/fetti-frame.png"),load("res://assets/painting-36.003.jpg"),Vector2(.781,.895),fetti.margins_px)
-	angels.position=Vector3(-3.48,1.8,8.8)
+	# #238: 11.1m from the south wall, was 19.3m (camera solve of 6384..6386 scaled by this frame
+	# and the Tironi's; docs/evidence/museum-238/european-west/NOTES.md). Provisional.
+	angels.position=Vector3(-3.485,1.8,16.96)
 	angels.rotation.y=PI/2
+	angels.set_meta("catalogue_accession","36.003")
 	# IMG_6386 44.25/67.75s: opposite-wall piers project into the gallery.
 	# ponytail: wall relationships observed; pier depth and spacing await metric fitting.
 	for z in [3.65,8.4]:
@@ -1036,8 +1045,10 @@ func build_adjacent_gallery() -> void:
 	var goltzius:=Painting.new()
 	add_child(goltzius)
 	goltzius.build_framed(load("res://assets/goltzius-frame.png"),load("res://assets/painting-61.006.jpg"),Vector2(.345,.510),data.margins_px)
-	goltzius.position=Vector3(-3.48,1.75,14.7)
+	# #238: 6.1m from the south wall, was 13.4m (same solve). Provisional.
+	goltzius.position=Vector3(-3.485,1.75,22.01)
 	goltzius.rotation.y=PI/2
+	goltzius.set_meta("catalogue_accession","61.006")
 	inventory["verified_paintings"]=5
 
 func stone_mesh(data:Dictionary,faces:Array,depth:float) -> ArrayMesh:
