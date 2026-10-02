@@ -26,6 +26,8 @@ func run() -> void:
 	var west_sills := 0
 	var hall_leaves := 0
 	var linings := 0
+	var landing_stairs := 0
+	var landing_guards := 0
 	var reveal: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://geometry.json")).hall_reveal
 	for node in scene.find_children("*", "Node3D", true, false):
 		if node.has_meta("renaissance_west_blind") or node.has_meta("renaissance_west_sill"):
@@ -122,6 +124,19 @@ func run() -> void:
 				failures.append("Hall reveal leaf lost its owner, folded pose, six panel faces or knob")
 		if str(node.get_meta("room_wall", "")).begins_with("Rockefeller reveal threshold:"):
 			linings += 1
+		if node.has_meta("landing_guard"):
+			landing_guards += 1
+		if node.has_meta("landing_stair"):
+			# One storey of risers reaches the floor below, and the stair fills its well wall to wall.
+			landing_stairs += 1
+			var spec: Dictionary = node.get_meta("landing_stair")
+			var reach: AABB = node.global_transform * node.mesh.get_aabb()
+			var count := 0
+			for n in spec.risers:
+				count += int(n)
+			var well: Array = scene.room_bounds("lion stair landing")
+			if not is_equal_approx(spec.storey_m, spec.rise_m * count) or absf(reach.position.y + spec.storey_m) > .3 or reach.size.x < well[1] - well[0] - .2 or reach.end.z < well[3] - .1 or spec.metric_accepted:
+				failures.append("Landing stair does not fill its well, reach the floor below, or is prematurely accepted")
 		if node.has_meta("saint_roch_installation"):
 			roch += 1
 			var figure = node.find_child("SaintRoch21398", true, false)
@@ -185,6 +200,8 @@ func run() -> void:
 	for flag in ["depth_measured", "opening_metres_accepted", "leaf_fidelity_accepted", "rockefeller_leaf_built"]:
 		if scene.inventory.hall_reveal.get(flag, true):
 			failures.append("Hall reveal prematurely accepted: " + flag)
+	if landing_stairs != 1 or landing_guards != 1:
+		failures.append("Landing needs one open-well stair and one guard across its edge")
 	if triptych_panels!=3:failures.append("Triptych needs three closed source panels")
 	if pieta_cases!=1:failures.append("Pietà needs one colliding source-ordered wall case")
 	if east_cases!=2:failures.append("Expected two Renaissance east-wall cases")

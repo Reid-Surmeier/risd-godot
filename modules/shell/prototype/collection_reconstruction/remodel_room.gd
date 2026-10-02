@@ -1331,34 +1331,7 @@ func build_lion_modern_rooms() -> void:
 	# painting/window wall groups; authored metres unaccepted.
 	var ivory:=look(Color("eeeae2"),"res://presentation/wall-plaster.png")
 	var metal:=look(Color("535657"))
-	var wood:=look(Color("716b60"),"res://textures/oak-muse.webp")
-	# The two flights occupy a real floor void. Native collision ramps sit below the visual treads.
-	#6387 8.0/44.5/83.0s: door casing, sign5, then rail and first steps. The draft block keeps its
-	# authored1.1m from the stair door's south edge (z33.715); a preserved shape, not a measurement.
-	for spec in [[10.70,3.2],[12.20,-3.2]]:
-		var x:float=spec[0]
-		var rise:float=spec[1]
-		for i in 18:
-			var tread:=solid(Vector3(x+.55,rise*(i+.5)/18-.03,33.715+(i+.5)*3.8/18),Vector3(1.1,.06,3.8/18+.015),wood)
-			var riser:=solid(Vector3(x+.55,rise*i/18,33.715+i*3.8/18),Vector3(1.1,abs(rise)/18,.04),ivory)
-			var z:float=33.715+(i+.5)*3.8/18
-			var y:float=rise*(i+.5)/18
-			var post:=solid(Vector3(x+1.12,y+.48,z),Vector3(.028,.96,.028),metal)
-			for dy in [.17,.47,.78]:
-				var collar:=solid(Vector3(x+1.12,y+dy,z),Vector3(.06,.065,.06),metal)
-				collar.reparent(post)
-		var rail:=solid(Vector3(x+1.12,rise/2+.98,35.615),Vector3(.075,.065,sqrt(3.8*3.8+rise*rise)),wood)
-		rail.rotation.x=-atan(rise/3.8)
-	# Safety collision belongs to observed landing balustrade, not a floor across the stair void.
-	var guard:=solid(Vector3(13.52,.52,35.665),Vector3(.09,1.04,3.9),metal,true)
-	guard.get_child(1).mesh=ArrayMesh.new()
-	for i in 17:
-		var z:float=33.715+i*3.9/16
-		var post:=solid(Vector3(13.52,.47,z),Vector3(.035,.94,.035),metal)
-		for y in [.15,.45,.75]:
-			var collar:=solid(Vector3(13.52,y,z),Vector3(.065,.06,.065),metal)
-			collar.reparent(post)
-	solid(Vector3(13.52,.99,35.665),Vector3(.09,.075,3.9),wood)
+	# The stair, its well, guard, stone floor and ceiling are built in landing_additions.gd (#238).
 	#6387:2.25/42.25s: lion on the modern-door (north) wall, to the right facing that door.
 	# 41.0/3.0s: label and a strip of white wall before the corner, so .35m left of the turned centre.
 	# Original front assembled on the closed low polygon catalogue slab; Muse damage trial unaccepted.
@@ -1382,12 +1355,6 @@ func build_lion_modern_rooms() -> void:
 		var slat:=solid(Vector3(14.6,3.24+i*.026,28.21),Vector3(1.64,.008,.02),look(Color("74756f")))
 		slat.reparent(lion_vent)
 	lion_vent.reparent(lion_wall)
-	# Source landing cornice reuses the saved Muse moulding; no invented stair destinations.
-	for spec in [[Vector3(13.35,3.96,28.16),0.0,5.6],[Vector3(16.09,3.96,32.8575),-PI/2,9.515]]:
-		var cornice:=moulding(spec[2],.22,"door-architrave",false)
-		cornice.position=spec[0]
-		cornice.rotation.y=spec[1]
-		ceiling_details.append(cornice)
 	# Three distinct double-panel doors: medieval already built; modern and white-gallery leaves.
 	# Modern leaves stand open into the modern room (north), white-gallery leaves into that gallery (east).
 	for spec in [[Vector3(11.85,0,28.1),true,.85,-.45],[Vector3(16.15,0,30.5),false,1.0,.45]]:
@@ -1488,7 +1455,7 @@ func build_lion_modern_rooms() -> void:
 		for z in [27.05,25.8,24.6,23.35]:
 			var fixture:=solid(Vector3(x,3.24,z),Vector3(.10,.16,.10),ivory)
 			fixture.reparent(track)
-	inventory["lion_landing"]={"doors":3,"floor_void":true,"flights":2,"metric_accepted":false,"curve_destinations_complete":false,"lion_relief_complete":false,"lion_panel_front_installed":true,"lion_generated_damage_accepted":false}
+	inventory["lion_landing"]={"doors":3,"floor_void":true,"metric_accepted":false,"lion_relief_complete":false,"lion_panel_front_installed":true,"lion_generated_damage_accepted":false}
 	#6387 63.5..65.5s: floor-standing case against the pier between windows, facing into the room.
 	# ponytail: by-eye offset on the pier, nearer the second window; label side toward the first.
 	var seated:StaticBody3D=SeatedWoman.build(look(Color.WHITE,"res://presentation/landing-plaster.png"),ivory,look(Color.WHITE,"res://assets/seated-woman-bronze.webp"))

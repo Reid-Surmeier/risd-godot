@@ -540,7 +540,9 @@ geometry['trials'] += [['iron_grille_blocks_visitor',[8.45,.25,29.75],[8.45,0,28
 # The draft void/flights/guard keep their authored1.1m from the door's south edge, so the block and the
 # landing's south bound move +1.715 with it; a preserved draft shape, not a source measurement.
 geometry['rooms'][3]['openings']['east']=[30.915,32.615]
-geometry['rooms'][5]={'label':'lion stair landing','bounds':[10.55,16.15,28.1,37.615], 'height':4.1,'floor':'basket-weave','floor_void':[10.55,13.55,33.715,37.615],'openings':{'west':[30.915,32.615],'north':[11.0,12.7],'east':[29.5,31.5]}}
+# Stairwell (#238): one open-well stair fills the room's south end wall to wall, so the void is the full
+# width south of the landing edge. landing_additions.gd builds the stair, the stone floor and the ceiling.
+geometry['rooms'][5]={'label':'lion stair landing','bounds':[10.55,16.15,28.1,37.615], 'height':4.1,'floor':'stone-pinwheel','floor_void':[10.55,16.15,33.715,37.615],'openings':{'west':[30.915,32.615],'north':[11.0,12.7],'east':[29.5,31.5]}}
 geometry['rooms'] += [
     {'label':'modern painting gallery','bounds':[10.70,16.70,22.30,28.10],'height':3.5,'boards_across':False,'openings':{'south':[11.0,12.7],'north':[15.10,16.40]}},
     {'label':'white sculpture gallery threshold study limit','bounds':[16.15,17.65,29.5,31.5],'openings':{'west':[29.5,31.5]}},
@@ -554,12 +556,11 @@ for i,a in enumerate(geometry['rooms']):
         aa,bb=a['bounds'],b['bounds']
         assert min(aa[1],bb[1])-max(aa[0],bb[0])<1e-8 or min(aa[3],bb[3])-max(aa[2],bb[2])<1e-8,(a['label'],b['label'])
 geometry['patches']=[p for p in geometry['patches'] if p['label']!='stairs landing threshold study limit']
-for label,b in [('landing north floor',[10.55,16.15,28.1,33.715]),('landing east floor',[13.55,16.15,33.715,37.615])]+[(r['label'],r['bounds']) for r in geometry['rooms'][10:]]:
+# The stair and the well are not walked: the landing's collision floor stops at the landing edge.
+for label,b in [('landing north floor',[10.55,16.15,28.1,33.715])]+[(r['label'],r['bounds']) for r in geometry['rooms'][10:]]:
     geometry['patches'].append({'label':label,'color':'81735c','vertices':[[b[0],0,b[2]],[b[1],0,b[2]],[b[1],0,b[3]],[b[0],0,b[3]]]})
-for label,x,rise in [('ascending stair study',10.70,3.2),('descending stair study',12.20,-3.2)]:
-    geometry['patches'].append({'label':label,'color':'b9b7b0','vertices':[[x,0,33.715],[x+1.1,0,33.715],[x+1.1,rise,37.515],[x,rise,37.515]]})
 geometry['lion_modern_layout']={'source':'IMG_6387 native2.25..84.25s; reciprocal6382 stair view','stair_block':'Draft void, flights and guard translated +1.715 with the stair door; preserved shape, not a source measurement','door_order':'Medieval west on the tracery axis; modern north on the adjoining wall at one inside corner, lion right of modern on that wall; white sculpture gallery on the next east wall (z provisional); stairwell south','modern_wall_groups':'Entry/Braque/Villon south; large painting west off the entry jamb; pumpkin/landscape/second doorway north; two windows and sculpture case east','source_review':'docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001; wall order docs/evidence/collection-reconstruction/opus-landing-refit-20261001','entry_reveal_depth_modelled':False,'metric_accepted':False,'stair_curve_and_destinations_complete':False,'white_sculpture_room_interior_complete':False,'adjoining_room_interior_complete':False}
-geometry['trials'] += [['landing_to_modern',[11.85,.25,29.75],[11.85,0,26.55],False],['modern_to_landing',[11.85,.25,26.55],[11.85,0,29.75],False],['landing_white_out',[14.95,.25,30.5],[17.0,0,30.5],False],['landing_white_back',[17.0,.25,30.5],[14.95,0,30.5],False],['modern_far_opening_out',[15.75,.25,23.25],[15.75,0,21.45],False],['modern_far_opening_back',[15.75,.25,21.45],[15.75,0,23.25],False],['modern_bench_blocked',[15.1,.25,25.35],[12.4,0,25.35],True],['landing_guard_blocked',[13.9,.25,35.415],[12.9,0,35.415],True]]
+geometry['trials'] += [['landing_to_modern',[11.85,.25,29.75],[11.85,0,26.55],False],['modern_to_landing',[11.85,.25,26.55],[11.85,0,29.75],False],['landing_white_out',[14.95,.25,30.5],[17.0,0,30.5],False],['landing_white_back',[17.0,.25,30.5],[14.95,0,30.5],False],['modern_far_opening_out',[15.75,.25,23.25],[15.75,0,21.45],False],['modern_far_opening_back',[15.75,.25,21.45],[15.75,0,23.25],False],['modern_bench_blocked',[15.1,.25,25.35],[12.4,0,25.35],True],['landing_guard_blocked',[13.35,.25,32.7],[13.35,0,34.6],True],['landing_stair_foot_blocked',[11.15,.25,32.9],[11.15,0,34.6],True],['landing_flight_down_blocked',[15.55,.25,32.9],[15.55,0,34.6],True]]
 
 # The wall's thickness is walked as two threshold rooms; remodel_room.gd lines them and hangs the leaves.
 for label,x in [('Grand Gallery reveal threshold',[4.6,6.5]),('Rockefeller reveal threshold',[-3.5,-1.5])]:
