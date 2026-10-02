@@ -25,3 +25,18 @@ demo the owner observed. No runtime synchronization fix or new approval is claim
 
 The accepted motion, rig and sound assets remain unchanged. Additional generation
 spend: $0. New evidence is bounded; no new gameplay videos were downloaded.
+
+## Stale standalone links corrected
+
+After the owner confirmed standalone testing, a live HTTP hash check found that
+`character-walk-01a0f3a2` and `character-validation-01a0f3a2` still served prototype
+PCK `21367f7df48b636a8aa26a5fa597d3bfdaf669cffcae6fdf2469d087dc71750b`.
+Its source `image-work/character-pilot/live-demo/demo.gd` triggers at phases
+0 and 0.5, rather than actual sole planting, and uses the older playback path.
+
+Both existing links now serve port 9863 through the share skill. All three
+standalone links return current PCK
+`7951713bf47a4eb9b71779bb1256020cb06d006c30766c32571b259180562245`, with
+COOP `same-origin` and COEP `require-corp`. This removes an obsolete deployment
+path; it does not establish that the owner used that path or that their device's
+output latency is fixed. The owner's browser/audio-device question remains pending.
