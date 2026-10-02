@@ -243,22 +243,7 @@ func _collect_parts() -> void:
 			continue
 		var box: AABB = node.global_transform * node.get_aabb()
 		var centre := box.get_center()
-		# The room it reaches furthest into: a work on a shared wall belongs to the side it faces.
-		var flat := Rect2(box.position.x, box.position.z, box.size.x, box.size.z).grow(0.05)
-		var room := -1
-		var most := 0.0
-		for i in _plan.size():
-			var share := _room_rect(i).intersection(flat).get_area()
-			if share > most:
-				most = share
-				room = i
-		if room < 0:
-			var best := INF
-			for i in _plan.size():
-				var d := _room_rect(i).get_center().distance_squared_to(Vector2(centre.x, centre.z))
-				if d < best:
-					best = d
-					room = i
+		var room := _room_of(box)
 		var side := ""
 		if box.position.y > 0.25:
 			var b: Array = _plan[room].b
@@ -275,6 +260,27 @@ func _collect_parts() -> void:
 		_parts.append({"node": node, "room": room, "side": side, "shown": node.visible})
 
 
+# The room a thing reaches furthest into: a work on a shared wall belongs to the side it
+# faces. Failing any overlap, the room whose middle is nearest.
+func _room_of(box: AABB) -> int:
+	var flat := Rect2(box.position.x, box.position.z, box.size.x, box.size.z).grow(0.05)
+	var room := -1
+	var most := 0.0
+	for i in _plan.size():
+		var share := _room_rect(i).intersection(flat).get_area()
+		if share > most:
+			most = share
+			room = i
+	if room < 0:
+		var best := INF
+		for i in _plan.size():
+			var d := _room_rect(i).get_center().distance_squared_to(flat.get_center())
+			if d < best:
+				best = d
+				room = i
+	return room
+
+
 func _collect_objects() -> void:
 	# Titles, makers and the picture to show, keyed by accession number or asset name.
 	var captions = JSON.parse_string(
@@ -284,7 +290,11 @@ func _collect_objects() -> void:
 		captions = {}
 	var found: Array = []
 	for node in _rooms.find_children("*", "Node3D", true, false):
-		if not (node.has_meta("catalogue_accession") or node.has_meta("catalogue_asset")):
+		# Catalogued by metadata, or a framed painting, which only shows its accession number
+		# in its canvas file name (assets/painting-<accession>.jpg).
+		var script: Script = node.get_script()
+		var framed := script != null and script.resource_path.ends_with("painting_asset.gd")
+		if not (node.has_meta("catalogue_accession") or node.has_meta("catalogue_asset") or framed):
 			continue
 		var nested := false
 		for other in found:
@@ -295,6 +305,7 @@ func _collect_objects() -> void:
 		var box := AABB()
 		var first := true
 		var image: Texture2D = null
+		var canvas: Texture2D = null
 		var parts: Array = node.find_children("*", "GeometryInstance3D", true, false)
 		if node is GeometryInstance3D:
 			parts.append(node)
@@ -310,17 +321,25 @@ func _collect_objects() -> void:
 					if material is BaseMaterial3D
 					else material.get_shader_parameter("albedo")
 				)
-				if texture is Texture2D and (
-					image == null
-					or texture.get_width() * texture.get_height() > image.get_width() * image.get_height()
-				):
-					image = texture
+				if texture is Texture2D:
+					var file: String = texture.resource_path.get_file()
+					if file.begins_with("painting-") or file.begins_with("wallpaper-"):
+						canvas = texture
+					if (
+						image == null
+						or texture.get_width() * texture.get_height() > image.get_width() * image.get_height()
+					):
+						image = texture
+		if canvas != null:
+			image = canvas  # the picture itself, not its frame
 		if first or image == null:
 			continue
+		if not (node.has_meta("catalogue_accession") or node.has_meta("catalogue_asset")):
+			if canvas == null:
+				continue  # a mirror or a chair face: furniture, not a catalogued work
+			node.set_meta("catalogue_accession", canvas.resource_path.get_file().get_basename().get_slice("-", 1))
 		var centre := box.get_center()
-		var room := _room_at(Vector3(centre.x, 0, centre.z))
-		if room < 0:
-			continue
+		var room := _room_of(box)
 		# A work on or against a wall is viewed from the room side; anything else from where
 		# the visitor already is (normal stays zero until it is clicked).
 		var b: Array = _plan[room].b
@@ -340,7 +359,19 @@ func _collect_objects() -> void:
 			corners.append(box.get_endpoint(i))
 		var accession := str(node.get_meta("catalogue_accession", ""))
 		var key := accession if accession != "" else str(node.get_meta("catalogue_asset", node.name))
-		var rec: Dictionary = {"acc": accession, "title": str(node.get_meta("catalogue_title", key))}
+		var rec: Dictionary = {
+			"acc": accession,
+			"title": str(node.get_meta("catalogue_title", key)),
+			"artist": ", ".join(
+				[str(node.get_meta("catalogue_maker", "")), str(node.get_meta("catalogue_date", ""))].filter(
+					func(text: String) -> bool: return text != ""
+				)
+			),
+			"medium": str(node.get_meta("catalogue_medium", "")),
+			"dimensions": str(node.get_meta("catalogue_dimensions", ""))
+		}
+		if ResourceLoader.exists(str(node.get_meta("catalogue_image", ""))):
+			image = load(node.get_meta("catalogue_image"))
 		if captions.has(key):
 			var row: Dictionary = captions[key]
 			rec = {
@@ -351,7 +382,8 @@ func _collect_objects() -> void:
 						func(text: String) -> bool: return text != ""
 					)
 				),
-				"medium": str(row.get("medium", ""))
+				"medium": str(row.get("medium", "")),
+				"dimensions": str(row.get("dimensions", ""))
 			}
 			if ResourceLoader.exists(str(row.get("image", ""))):
 				image = load(row.image)

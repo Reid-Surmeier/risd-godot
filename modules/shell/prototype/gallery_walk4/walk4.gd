@@ -2533,9 +2533,12 @@ func _build_kid() -> void:
 	gt.fill_to = Vector2(0.5, 0.0)
 	var sm := _mat(gt)
 	sm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	_shadow = _rect(Vector3(0, 0.01, 0), Vector2(0.75, 0.42), Vector3.RIGHT, Vector3.FORWARD, sm)
+	# One soft round shadow half the visitor's height across, as the New Horizons museum draws
+	# it (docs/research/2026-10-01-acnh-museum-polish-spec.md, step 5); the sole patches under
+	# it only darken the contact.
+	_shadow = _rect(Vector3(0, 0.01, 0), Vector2(0.9, 0.9), Vector3.RIGHT, Vector3.FORWARD, sm)
 	if _rigged_visitor:
-		sm.albedo_color.a = 0.25
+		sm.albedo_color.a = 0.56
 		for index in 2:
 			var contact_material: StandardMaterial3D = sm.duplicate()
 			_sole_shadows.append(
@@ -2893,8 +2896,12 @@ func _update_camera(k: float) -> void:
 			contact.rotation.y = _kid.rotation.y
 			var height: float = maxf(0.0, soles[index].y - _pos.y)
 			contact.material_override.albedo_color.a = (
-				0.85 if support[index] else 0.22 * clampf(1.0 - height / 0.25, 0.0, 1.0)
+				0.39 if support[index] else 0.22 * clampf(1.0 - height / 0.25, 0.0, 1.0)
 			)
+		# In a jump the shadow stays on the floor, smaller and fainter the higher the visitor is.
+		var lift: float = clampf(minf(soles[0].y, soles[1].y) - _pos.y, 0.0, 1.0)
+		_shadow.scale = Vector3.ONE * (1.0 - 0.4 * lift)
+		_shadow.material_override.albedo_color.a = 0.56 * (1.0 - 0.6 * lift)
 	if not _rigged_visitor:
 		_kid.billboard = (
 			BaseMaterial3D.BILLBOARD_FIXED_Y if view_mode == 2 else BaseMaterial3D.BILLBOARD_ENABLED
