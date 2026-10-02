@@ -420,7 +420,9 @@ geometry['rooms']=[
     {'label':'purple elevator-5 connector','bounds':[3.65,8.45,-2.8,-1.2], 'openings':{'west':[-2.8,-1.2],'east':[-2.8,-1.2]}},
     {'label':'grey French gallery','bounds':[8.45,15.65,-5.8,1.8], 'floor':'herringbone', 'column_sides':['east'], 'clear_heights':{'east':3.12}, 'openings':{'west':[-2.8,-1.2],'east':[-5.8,1.8],'north':[9.15,11.15],'south':[9.15,11.15]}},
     {'label':'Ionic marble-stair threshold study limit','bounds':[15.65,17.25,-5.8,1.8], 'column_sides':['west'], 'clear_heights':{'west':3.12}, 'openings':{'west':[-5.8,1.8]}},
-    {'label':'piano-stair threshold study limit','bounds':[9.15,11.15,-7.4,-5.8], 'openings':{'south':[9.15,11.15]}},
+    # Skylight Gallery (#238, IMG_6379): 9.5 x 5.0 m from a structure-from-motion fit scaled by the Diao canvas
+    # (69.094, 2.21 m). ponytail: flattened to the door's level; the real floor is a storey lower, see NOTES.md.
+    {'label':'Skylight Gallery','bounds':[4.95,14.45,-7.4,-5.8],'height':3.9,'openings':{'south':[9.15,11.15]}},
     {'label':'Grand Gallery grey-entry threshold study limit','bounds':[9.15,11.15,1.8,3.4], 'height':6.0, 'openings':{'north':[9.15,11.15]}}]
 geometry['grey_gallery_connections']={'source_frames':'6380:29-36,73-80,196-210,493-501','observed':'Purple connector faces Ionic opening across grey room; piano door on adjoining wall; Grand Gallery door perpendicular beside connector. Earlier opposite-ends claim removed.','metric_acceptance':False,'extent':'Authored grey room plus three threshold limits; full Grand Gallery/stairs and museum-loop metric fit unfinished'}
 geometry['patches']=[{'label':r['label'],'color':'81735c','vertices':[[r['bounds'][0],0,r['bounds'][2]],[r['bounds'][1],0,r['bounds'][2]],[r['bounds'][1],0,r['bounds'][3]],[r['bounds'][0],0,r['bounds'][3]]]} for r in geometry['rooms']]
@@ -476,7 +478,7 @@ geometry['rooms'][6]={'label':'purple elevator-5 connector','bounds':[1.7,3.85]+
 for index in [7,8]:geometry['rooms'][index]['bounds'][2:]=[-4.2-reveal,1.8-reveal]
 geometry['rooms'][7]['openings'].update(west=list(door),east=[-4.2-reveal,1.8-reveal])
 geometry['rooms'][8]['openings']['west']=[-4.2-reveal,1.8-reveal]
-geometry['rooms'][9]['bounds'][2:]=[-5.8-reveal,-4.2-reveal]
+geometry['rooms'][9]['bounds'][2:]=[-10.-reveal,-5.-reveal]
 geometry['rooms'][4]={'label':'Grand Gallery','bounds':[.55,10.55,1.8,28.1], 'height':6., 'floor':'herringbone','openings':{'north':[4.55,6.55],'south':[3.4355,7.6645]},'stone_sides':['south']}
 geometry['rooms'].pop(10)
 geometry['start'][0]-=1.95
@@ -572,6 +574,7 @@ for label,b in [('landing north floor',[10.55,16.15,28.1,33.715])]+[(r['label'],
     geometry['patches'].append({'label':label,'color':'81735c','vertices':[[b[0],0,b[2]],[b[1],0,b[2]],[b[1],0,b[3]],[b[0],0,b[3]]]})
 geometry['lion_modern_layout']={'source':'IMG_6387 native2.25..84.25s; reciprocal6382 stair view','stair_block':'Draft void, flights and guard translated +1.715 with the stair door; preserved shape, not a source measurement','door_order':'Medieval west on the tracery axis; modern north on the adjoining wall at one inside corner, lion right of modern on that wall; white sculpture gallery on the next east wall (z provisional); stairwell south','modern_wall_groups':'Entry/Braque/Villon south; large painting west off the entry jamb; pumpkin/landscape/second doorway north; two windows and sculpture case east','source_review':'docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001; wall order docs/evidence/collection-reconstruction/opus-landing-refit-20261001','entry_reveal_depth_modelled':False,'metric_accepted':False,'stair_curve_and_destinations_complete':False,'white_sculpture_room_interior_complete':False,'adjoining_room_interior_complete':False}
 geometry['trials'] += [['landing_to_modern',[11.85,.25,29.75],[11.85,0,26.55],False],['modern_to_landing',[11.85,.25,26.55],[11.85,0,29.75],False],['landing_white_out',[14.95,.25,30.5],[17.0,0,30.5],False],['landing_white_back',[17.0,.25,30.5],[14.95,0,30.5],False],['modern_far_opening_out',[15.75,.25,23.25],[15.75,0,21.45],False],['modern_far_opening_back',[15.75,.25,21.45],[15.75,0,23.25],False],['modern_bench_blocked',[15.1,.25,25.35],[12.4,0,25.35],True],['landing_guard_blocked',[13.35,.25,32.7],[13.35,0,34.6],True],['landing_stair_foot_blocked',[11.15,.25,32.9],[11.15,0,34.6],True],['landing_flight_down_blocked',[15.55,.25,32.9],[15.55,0,34.6],True]]
+geometry['trials']=[t for t in geometry['trials'] if not t[0].startswith('grey_piano')]+[['grey_skylight_out',[5.55,.25,-4.16],[5.55,0,-7.2],False],['grey_skylight_back',[5.55,.25,-7.2],[5.55,0,-4.16],False],['skylight_piano_blocked',[2.6,.25,-8.4],[1.2,0,-9.9],True]]
 
 # The wall's thickness is walked as two threshold rooms; remodel_room.gd lines them and hangs the leaves.
 for label,x in [('Grand Gallery reveal threshold',[4.6,6.5]),('Rockefeller reveal threshold',[-3.5,-1.5])]:
@@ -581,6 +584,12 @@ for label,x in [('Grand Gallery reveal threshold',[4.6,6.5]),('Rockefeller revea
         assert min(x[1],bb[1])-max(x[0],bb[0])<1e-8 or min(1.8,bb[3])-max(1.8-reveal,bb[2])<1e-8,(label,other['label'])
     geometry['rooms'].append(area)
     geometry['patches'].append({'label':label,'color':'81735c','vertices':[[x[0],0,1.8-reveal],[x[1],0,1.8-reveal],[x[1],0,1.8],[x[0],0,1.8]]})
+# IMG_6379 169..182s, IMG_6380 0/14s: the Skylight door is a deep panelled reveal with both leaves folded in it.
+door=list(geometry['rooms'][7]['openings']['north'])
+geometry['rooms'].append({'label':'Skylight Gallery reveal threshold','reveal':True,'bounds':door+[geometry['rooms'][9]['bounds'][3],geometry['rooms'][7]['bounds'][2]],'boards_across':True,'openings':{'north':list(door),'south':list(door)}})
+b=geometry['rooms'][-1]['bounds']
+assert geometry['rooms'][9]['label']=='Skylight Gallery' and geometry['rooms'][9]['openings']['south']==door and b[3]-b[2]>.5
+geometry['patches'].append({'label':'Skylight Gallery reveal threshold','color':'81735c','vertices':[[b[0],0,b[2]],[b[1],0,b[2]],[b[1],0,b[3]],[b[0],0,b[3]]]})
 assert abs(geometry['rooms'][7]['bounds'][3]-geometry['rooms'][7]['bounds'][2]-6.)<1e-8,'The grey register keeps its 6.0m west wall'
 geometry['hall_reveal']={'source':'docs/evidence/collection-reconstruction/opus-hall-reveal-builder-20261001/REPORT.md','wall_m':reveal,'leaf_m':leaf,'leaf_panels_from_top':[[.06,.15],[.23,.63],[.74,.90]],'knob_from_top':.71,'hinge_side':'north','observed':'one cased opening, panelled soffit, both leaves folded flat on the reveal sides, free edge at the Hall; same construction at the Rockefeller door','depth_measured':False,'opening_metres_accepted':False,'leaf_fidelity_accepted':False,'rockefeller_leaf_built':False,'metric_accepted':False}
 

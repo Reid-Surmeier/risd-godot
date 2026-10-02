@@ -403,7 +403,7 @@ func build_rooms() -> void:
 			header.set_meta("room_wall",area.label+":"+side+":header")
 			wall_face(header,width,height-clear_height,vertical,1.0 if side in ["west","north"] else -1.0)
 			if stone or side in area.get("column_sides",[]):continue
-			var casing_width:float=.10 if area.label in ["grey French gallery","purple elevator-5 connector","piano-stair threshold study limit"] else .16
+			var casing_width:float=.10 if area.label in ["grey French gallery","purple elevator-5 connector","Skylight Gallery"] else .16
 			header.set_meta("source_casing_width",casing_width)
 			for edge in opening:
 				# Deep painted reveals are visible in both reciprocal doorway shots.
@@ -443,15 +443,13 @@ func build_grey_gallery() -> void:
 	black.cull_mode=BaseMaterial3D.CULL_BACK
 	var south:StaticBody3D
 	var north:StaticBody3D
-	var piano_wall:StaticBody3D
 	for wall in casings:
 		if wall.get_meta("room_wall","")=="purple elevator-5 connector:north":north=wall
-		if wall.get_meta("room_wall","")=="piano-stair threshold study limit:south:header":piano_wall=wall
 		if str(wall.get_meta("room_wall","" )).begins_with("purple") and str(wall.get_meta("room_wall","")).ends_with(":south"):
 			assert(south==null,"Purple south wall must have one owner")
 			south=wall
 	assert(south!=null,"Black panel faces must belong to the purple south wall")
-	assert(north!=null and piano_wall!=null,"Lift and piano leaf must have cutaway wall owners")
+	assert(north!=null,"Lift must have a cutaway wall owner")
 	var black_face:=MeshInstance3D.new()
 	var quad:=QuadMesh.new()
 	quad.size=Vector2(2.15,3.5)
@@ -476,7 +474,6 @@ func build_grey_gallery() -> void:
 	add_child(number)
 	number.reparent(north)
 	var first:=get_child_count()
-	var piano_leaf:Node3D
 	# Wide column opening faces the purple connector, rather than a door at the far end of a tube.
 	# The north column keeps its authored 1.6m from the moved north wall (-4.2); 6380 247.5/248.5s
 	# has the south one near the connector axis, so it stays. Their spacing is unmeasured.
@@ -542,24 +539,8 @@ func build_grey_gallery() -> void:
 		label.reparent(painting,false)
 		label.position=Vector3(painting.outer.x/2+.25,-.12,.01)
 		label.set_meta("artwork_label_proxy",true)
-	for z in [-4.2,1.8]:
-		for x in [9.11,11.19]:
-			# 6380 14-15/100-107s: leaves fold into the reveals, never onto grey parquet.
-			# The Hall door's own leaves are hung in its reveal by build_reveal.
-			if z>0 or x<10:continue
-			var leaf:=solid(Vector3(x,1.35,z-.45),Vector3(.06,2.7,.95),ivory,true)
-			piano_leaf=leaf
-			# Assemble the three Muse panels around native rails/stiles; generated extra jamb excluded.
-			for index in 3:
-				var y:float=[2.05,1.04,.38][index]
-				var height:float=[.95,.7,.42][index]
-				for side in [-1,1]:
-					var face:float=side*.035
-					panel(leaf,[Vector3(face,y-height/2-1.35,-.37),Vector3(face,y-height/2-1.35,.37),Vector3(face,y+height/2-1.35,.37),Vector3(face,y+height/2-1.35,-.37)],
-						[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)],look(Color.WHITE,"res://assets/white-panel-door-%d.png"%index))
+	# The Skylight door's two leaves are hung in its own reveal by skylight_additions.gd.
 	shift_new(first,Vector3(-4.6,0,-hall_reveal.wall_m))
-	assert(piano_leaf!=null)
-	piano_leaf.reparent(piano_wall)
 	build_reveal("Grand Gallery reveal threshold",true)
 	build_reveal("Rockefeller reveal threshold",false)
 	inventory["grey_gallery_verified_paintings"]=3
