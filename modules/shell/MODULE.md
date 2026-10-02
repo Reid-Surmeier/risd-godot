@@ -91,8 +91,8 @@ The adapter reuses the package's rig, idle and walk clips, face and hand materia
 blink, speed-to-cadence coupling and captured house footsteps, which play when a
 foot actually lands. It adds one light that reaches only the visitor and stays on
 the viewer's side, because the museum's baked light alone renders the character
-much darker than the accepted playtest. Sprint, jump, tools and doors remain
-playtest-only: the museum has no input for them. The accepted clips are not
+much darker than the accepted playtest. Shift sprints and Space jumps in the museum;
+tools and doors remain playtest-only. The accepted clips are not
 IK-locked, so the late-stance foot slide seen in the playtest is unchanged.
 `visitor159/` is no longer loaded. `playtest/visitor174_check.gd` and
 `visitor174_capture.gd` now assert this visitor. No Shell interface, error or

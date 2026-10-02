@@ -23,3 +23,5 @@ All runtime inputs are local to this folder. `provenance.json` binds their hashe
 ## Known limits
 
 Approval is for the prototype's visible result. It does not establish an exact original-game reconstruction. The inherited dash-entry head bounce, faceted mittens, unmipmapped hand sampler and edge/capsule landing behavior remain documented in the original review. General jumping is an added interaction; original code has jump/landing sound IDs, but that does not establish the prototype's jump as an original player ability. Sound, ambience, voices and reverb require their own evidence.
+
+The scoped sound package is approved by Claude Opus 5.5 max in `docs/evidence/character-235/review-round4.md`. Wider checks found rare double taps on short-run stops and silent small first lifts under50mm. The requested10ms Web buffer can lose cue bodies under severe CPU contention. Use the packager as the check entrypoint: it rejects script errors in the native logs; the standalone contact probe's exit status and summary booleans alone do not establish a pass. Museum composition, browser/device coverage and its final mix still need integrated verification.

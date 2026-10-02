@@ -303,6 +303,8 @@ func _top_window_at(pointer: Vector2) -> Control:
 ## panel drags from anywhere, the map frame by its title bar and resizes by its edges; the wheel
 ## over a panel is swallowed so the map beneath does not zoom. A press on the map body is left for
 ## the SubViewportContainer to forward to the map (pan, zoom); the keys always are.
+# #237: existing input/asset dispatcher intentionally exits per handled case.
+# gdlint: disable=max-returns
 func _input(event: InputEvent) -> void:
 	inputs += 1
 	if get_meta("scaling", false):
@@ -386,6 +388,8 @@ func _input(event: InputEvent) -> void:
 		return
 	get_viewport().set_input_as_handled()
 
+
+# gdlint: enable=max-returns
 
 func _patch(source: Rect2, destination: Rect2) -> void:
 	if destination.size.x > 0 and destination.size.y > 0:

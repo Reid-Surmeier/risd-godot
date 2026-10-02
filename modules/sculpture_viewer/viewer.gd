@@ -376,7 +376,7 @@ func _build_transport() -> void:
 	timer_visual.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	timer_visual.texture = load("res://modules/sculpture_viewer/assets/clean-ui/timer-source.png")
 	var timer_material := ShaderMaterial.new()
-	timer_material.shader = load("res://modules/sculpture_viewer/shaders/control_face.gdshader")
+	timer_material.shader = load("res://modules/sculpture_viewer/shaders/control_face.gdshader")  # gdlint: ignore=duplicated-load,max-line-length
 	timer_material.set_shader_parameter("frame_size", Vector2(109, 46))
 	timer_material.set_shader_parameter("display_size", timer_visual.size)
 	timer_material.set_shader_parameter("inset", Vector4(6, 3, 9, 12))
@@ -430,7 +430,7 @@ func _add_control_visual(control_id: String, rect: Rect2) -> TextureRect:
 	texture.pivot_offset = texture.size * 0.5
 	if control_id != "scrubber":
 		var material := ShaderMaterial.new()
-		material.shader = load("res://modules/sculpture_viewer/shaders/control_face.gdshader")
+		material.shader = load("res://modules/sculpture_viewer/shaders/control_face.gdshader")  # gdlint: ignore=duplicated-load,max-line-length
 		material.set_shader_parameter("frame_size", MOTION_SIZES[control_id])
 		material.set_shader_parameter("display_size", rect.size)
 		if control_id in ["previous", "next"]:

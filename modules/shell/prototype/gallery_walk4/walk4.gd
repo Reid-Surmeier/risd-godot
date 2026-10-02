@@ -1,3 +1,5 @@
+# #237: preserve the existing private gallery composition as one file.
+# gdlint: disable=max-file-lines
 ## PROTOTYPE 4, throwaway (2026-09-26, map #116): the RISD Grand Gallery with all
 ## 23 paintings modelled in place.
 ## Order, canvas sizes and heights: docs/research/grand-gallery-hang.md (branch
@@ -3329,6 +3331,8 @@ func _notification(what: int) -> void:
 		_orbit_dragged = false
 
 
+# #237: existing input/asset dispatcher intentionally exits per handled case.
+# gdlint: disable=max-returns
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.echo:
 		return
@@ -3409,3 +3413,5 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			_turn(1.0)
 		"right":
 			_turn(-1.0)
+
+# gdlint: enable=max-returns

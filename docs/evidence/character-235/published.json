@@ -1,0 +1,37 @@
+{
+  "live_url": "https://windows-wsl.taile06c45.ts.net/character-sound-live-01a0f3a2/",
+  "comparison_url": "https://windows-wsl.taile06c45.ts.net/character-sound-compare-01a0f3a2/",
+  "pck_sha256": "7951713bf47a4eb9b71779bb1256020cb06d006c30766c32571b259180562245",
+  "files": {
+    "index.html": {
+      "sha256": "079053d5a7933132ca5fe414b68a27b5e68c8f711ae177da8bc8e08c7d9ea3ea",
+      "bytes": 2307
+    },
+    "original-synchronized.webm": {
+      "sha256": "5020aad09fb08da6abac3d6ec8060cffd5b557478d7ace19aa0236d7cafab1fa",
+      "bytes": 628207
+    },
+    "adapted-synchronized.webm": {
+      "sha256": "92c4389ad1b1e74001c4826ec8628c2e6178340ef7d734f7bc0aa8eada13bbe1",
+      "bytes": 623331
+    },
+    "stone-synchronized.webm": {
+      "sha256": "92ea7694dac6f70d9151ab10ac2591d021ac9dd6b8e0b83c6ae4bae4a2641d47",
+      "bytes": 631011
+    },
+    "original-house-reference.wav": {
+      "sha256": "39699e38407289a0eb4c349596beecd93ea86bf4eb8fd9f137c8c92d20c5b5f8",
+      "bytes": 264644
+    },
+    "original-stone-reference.wav": {
+      "sha256": "19f7ecd9c883b11f5c65c903f4e8a40a6a4e0eea7de8ffc45ac977d78b2a436e",
+      "bytes": 105918
+    }
+  },
+  "additional_generation_cost_usd": 0,
+  "cross_origin_isolated_headers": {
+    "Cross-Origin-Opener-Policy": "same-origin",
+    "Cross-Origin-Embedder-Policy": "require-corp"
+  },
+  "comparison_method": "Stereo AudioWorklet PCM and native WebCodecs video share AudioContext clock; no timing shifts."
+}

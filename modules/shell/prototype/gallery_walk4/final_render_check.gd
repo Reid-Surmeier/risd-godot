@@ -1,4 +1,7 @@
 extends SceneTree
+
+const GamecubeShader := preload("res://modules/shell/prototype/gallery_walk4/gamecube.gdshader")
+const CrtShader := preload("res://modules/shell/crt_luminance.gdshader")
 var failures := 0
 var quantization_mode := 2
 var output_dir := ""
@@ -54,7 +57,7 @@ func run() -> void:
 	rect.size = Vector2(40, 40)
 	rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	var material := ShaderMaterial.new()
-	material.shader = load("res://modules/shell/prototype/gallery_walk4/gamecube.gdshader")
+	material.shader = GamecubeShader
 	rect.material = material
 	vp.add_child(rect)
 	for mode in [0, 1, 2]:
@@ -128,7 +131,7 @@ func check_quiet_stack() -> void:
 	await RenderingServer.frame_post_draw
 	var baseline := vp.get_texture().get_image()
 	var material := ShaderMaterial.new()
-	material.shader = load("res://modules/shell/crt_luminance.gdshader")
+	material.shader = CrtShader
 	material.set_shader_parameter("tex", texture)
 	material.set_shader_parameter("quiet_rect", Vector4(0, 0, 1, 1))
 	rect.material = material
@@ -174,7 +177,7 @@ func check_mapping_refresh() -> void:
 	var screen := TextureRect.new()
 	screen.name = "Screen"
 	screen.material = ShaderMaterial.new()
-	screen.material.shader = load("res://modules/shell/crt_luminance.gdshader")
+	screen.material.shader = CrtShader
 	screen.material.set_shader_parameter("curve", 0.018)
 	screen.material.set_shader_parameter("screen_scale", 0.9)
 	host.add_child(screen)
@@ -292,7 +295,7 @@ func check_3d_chart() -> void:
 	rect.texture = source.get_texture()
 	rect.size = Vector2(source.size)
 	var finish := ShaderMaterial.new()
-	finish.shader = load("res://modules/shell/prototype/gallery_walk4/gamecube.gdshader")
+	finish.shader = GamecubeShader
 	rect.material = finish
 	final.add_child(rect)
 	await process_frame
