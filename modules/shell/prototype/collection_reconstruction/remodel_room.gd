@@ -513,30 +513,34 @@ func build_grey_gallery() -> void:
 		add_child(capital)
 		capital.reparent(column)
 	# 6380 35.0/35.5s: smooth shafts, end pilasters and a cream beam; metres remain provisional.
-	var beam:=solid(Vector3(15.65,3.11,-1.2),Vector3(.48,.78,6.0),ivory)
+	# The beam starts where the capitals end (3.10). It used to start at 2.72 and swallow them, so the
+	# bake left them black and they showed from the stair side, where the camera cuts the beam away.
+	var beam:=solid(Vector3(15.65,3.30,-1.2),Vector3(.48,.40,6.0),ivory)
 	beam.set_meta("column_beam",true)
 	var cornice:=moulding(6.0,.16,"door-architrave",false)
 	cornice.position=Vector3(15.39,3.40,-1.2)
 	cornice.rotation.y=PI/2
 	cornice.reparent(beam)
 	for z in [-4.05,1.65]:
-		var pilaster:=solid(Vector3(15.65,1.4,z),Vector3(.16,2.8,.30),ivory)
+		var pilaster:=solid(Vector3(15.65,1.45,z),Vector3(.16,2.9,.30),ivory)
 		pilaster.set_meta("column_end_pilaster",true)
-		var cap:=solid(Vector3(15.65,2.70,z),Vector3(.30,.20,.46),ivory)
+		var cap:=solid(Vector3(15.65,3.0,z),Vector3(.30,.20,.46),ivory)
 		cap.reparent(pilaster)
 	# Capital side/rear relief, dentils and entablature dimensions are still unaccepted.
 	# Bertin sits on the Hall-door wall between Villeneuve and Pannini; exact offsets remain provisional.
 	# Courbet centre 4.86m from the south-west corner (fit); Corot rides the north wall, offset along it unmeasured.
-	for spec in [["courbet","43.571",Vector3(8.53,1.8,-3.06),PI/2],["corot","24.089",Vector3(14.8,1.8,-4.12),0.0],["bertin","56.214",Vector3(13.3,1.75,1.72),PI]]:
+	# #238: Courbet 1.80 -> 1.69 (IMG_6380 3.1s, level with the Gericault); Bertin .2m east so its gap to the
+	# Pannini is the .58m of IMG_6379 172.3s. Label cards are the polish spec's .30 x .17, clear of the frame.
+	for spec in [["courbet","43.571",Vector3(8.53,1.69,-3.06),PI/2],["corot","24.089",Vector3(14.8,1.8,-4.12),0.0],["bertin","56.214",Vector3(13.5,1.75,1.72),PI]]:
 		var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/"+spec[0]+"-frame-geometry.json"))
 		var painting:=Painting.new()
 		add_child(painting)
 		painting.build_framed(load("res://assets/"+spec[0]+"-frame.png"),load("res://assets/painting-"+spec[1]+".jpg"),Vector2(data.canvas_m[0],data.canvas_m[1]),data.margins_px)
 		painting.position=spec[2]
 		painting.rotation.y=spec[3]
-		var label:=solid(Vector3.ZERO,Vector3(.15,.22,.003),look(Color("f3f2ed")))
+		var label:=solid(Vector3.ZERO,Vector3(.30,.17,.004),look(Color("e9e4d4")))
 		label.reparent(painting,false)
-		label.position=Vector3(.63,-.17,.04)
+		label.position=Vector3(painting.outer.x/2+.25,-.12,.01)
 		label.set_meta("artwork_label_proxy",true)
 	for z in [-4.2,1.8]:
 		for x in [9.11,11.19]:
@@ -764,7 +768,9 @@ func build_displays() -> void:
 	solid(Vector3(.45,.065,-6.73),Vector3(5.8,.13,.95),ivory,true)
 	solid(Vector3(-2.23,.065,-4.075),Vector3(.85,.13,6.25),ivory,true)
 	# Pink Worcester left of the gallery door; gold export service beside the purple door.
-	display_case(Vector3(1.85,0,-.95),Vector3(1.8,0,.88))
+	# #238: the pink case hangs on the wall and is about .6 deep (6380 123..128s, 176..178.5s). At .88 and
+	# clear of the wall it reached within .23m of the east door's axis and stopped a visitor walking in.
+	display_case(Vector3(1.85,0,-.76),Vector3(1.8,0,.6))
 	display_case(Vector3(3.05,0,-3.8),Vector3(1.0,0,1.8),true)
 	# Raised central stand for the gold tureen, visible in the reference video.
 	solid(Vector3(3.32,1.15,-3.8),Vector3(.32,.1,.40),ivory)
