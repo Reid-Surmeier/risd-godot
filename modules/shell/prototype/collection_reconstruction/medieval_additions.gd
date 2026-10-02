@@ -44,7 +44,7 @@ func build(scene) -> void:
 	anthony.position = room.wall_point(ROOM, "south", 1.75, .60 + 2.324 / 2, FACE + .08)
 	anthony.rotation.y = PI
 	anthony.reparent(south)
-	_label(room.wall_point(ROOM, "south", 1.115, 1.35, FACE + .083), PI, south)
+	_label(room.wall_point(ROOM, "south", 2.385, 1.35, FACE + .083), PI, south)
 
 	# Saint Peter, a bust on a rectangular pedestal with a stepped cap (6382 44.5..50.5s).
 	var peter_base := _pedestal(room.wall_point(ROOM, "south", 3.27, 0, .36), Vector3(.58, 1.05, .48), Vector3(.50, .15, .40))

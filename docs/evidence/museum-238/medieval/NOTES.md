@@ -3,6 +3,12 @@
 Branch `room/medieval`, base `8fca73d3`. Time-boxed: the six missing works are in; the
 corrections to existing objects, the walls and the room plan are measured but **not applied**.
 
+**Not baked.** `collection_rooms/` is unchanged on this branch, so the game still shows the old
+room until the rooms are rebuilt. The draft build passed the architecture check (`failures: []`)
+and the bake preparation counted 1399 surfaces (1358 before, 41 new). The bake itself was stopped
+by the coordinator after about 13 minutes at a machine load of 80; one bake is to follow the merge.
+Every picture here is an unbaked draft render.
+
 ## What is built
 
 All in `modules/shell/prototype/collection_reconstruction/medieval_additions.gd`, placed with
@@ -106,10 +112,31 @@ Time box. None of these was started in the sources:
    `additions/medieval/`, source and licence as in SOURCES.md, cost 0.
 3. `export_presets.cfg`: `collection_rooms/assets/additions/medieval/shapes.json` must be in
    the export (check that `collection_rooms/assets/*.json` reaches sub-folders).
-4. `main_build_check.gd` expects exactly 350 probes; see the result below.
+4. `main_build_check.gd` expects exactly 350 probes. Not checked: no bake was completed, and
+   41 new static meshes may change the generated probe count.
 5. `scripts/rebuild_rooms.sh`: the `--import` step crashed twice with a segmentation fault
    while other builds were running (load average 24) and passed on the third run unchanged.
+6. The app picks up the six works from their metadata; `collection_rooms/objects.json` needs
+   no row for them unless a caption should differ from the catalogue record.
 
 ## Pictures
 
-Left: footage. Right: this build after the bake, from a similar position.
+Unbaked draft renders at the footage camera's field of view (94.3 degrees high, 720 x 1280),
+from positions chosen by eye, not from the fitted camera poses.
+
+| File | Left | Middle | Right |
+| --- | --- | --- | --- |
+| `01-south-wall.jpg` | IMG_6382 79.5 s | before | after |
+| `02-head-59131.jpg` | IMG_6382 30.5 s | before | after |
+| `03-christ-in-majesty-69196.jpg` | IMG_6382 36.0 s | before | after |
+| `04-crucified-christ-43195.jpg` | IMG_6382 39.0 s | before | after |
+| `05-saint-peter-20254.jpg` | IMG_6382 50.0 s | before | after |
+| `06-st-anthony-16243.jpg` | IMG_6382 57.2 s | before | after |
+| `07-angel-37114.jpg` | IMG_6382 60.5 s | before | after |
+| `08-archway-not-changed.jpg` | IMG_6382 1.0 s | the build today: pier fronts 1.83 m out | |
+| `09-dollhouse.jpg` | before, from above the Hall end | after | |
+| `10-iron-screen-is-one-panel.jpg` | IMG_6382 12.3 s: one panel and its shadow on the wall | | |
+
+What the pictures show that is still wrong: the works are flat slabs with a pale side band;
+pedestals are darker than the footage's blue-grey; the backing panel is wider and shorter than
+the real one; no spot light falls on any of the six works.
