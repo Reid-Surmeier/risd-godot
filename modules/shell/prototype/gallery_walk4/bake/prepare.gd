@@ -285,8 +285,10 @@ func _prepare() -> void:
 	recess_fill.owner = room
 	lamps.append(_lamp(recess_fill, Vector3(0, 0, -27.65), "fill"))
 	# #167: local diffuse illumination on the museum-side portal, outside the gallery.
+	# It keeps its distance to the stone (1.8 m past the portal's mouth) however deep the portal is.
+	var portal_fill_z: float = walk.PORTAL_MOUTH + 1.8
 	var portal_fill := OmniLight3D.new()
-	portal_fill.position = Vector3(0, 3.1, 4.0)
+	portal_fill.position = Vector3(0, 3.1, portal_fill_z)
 	portal_fill.omni_range = 7.0
 	portal_fill.omni_attenuation = 0.6
 	portal_fill.light_energy = 0.9
@@ -296,7 +298,7 @@ func _prepare() -> void:
 	portal_fill.shadow_enabled = true
 	room.add_child(portal_fill)
 	portal_fill.owner = room
-	lamps.append(_lamp(portal_fill, Vector3(0, 0, 4.0), "fill"))
+	lamps.append(_lamp(portal_fill, Vector3(0, 0, portal_fill_z), "fill"))
 	var arch_fill := OmniLight3D.new()
 	arch_fill.position = Vector3(0, 2.5, -1.8)
 	arch_fill.omni_range = 3.0
