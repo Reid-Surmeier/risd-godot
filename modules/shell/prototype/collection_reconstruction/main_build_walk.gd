@@ -1205,7 +1205,9 @@ func _update_camera(k: float) -> void:
 		if wall.room >= 0:
 			var rule = cut[wall.room]
 			clear = not (rule is bool or rule[wall.side])
-		if clear and wall.layers & shown:
+		# A low case stays: hiding it would bare the unlit floor and the shadow baked under it.
+		var low: bool = wall.room < 0 and (wall.box as AABB).end.y < 1.6
+		if clear and wall.layers & shown and not low:
 			for offset in [-0.45, 0.0, 0.45]:
 				for height in [0.5, 1.5]:
 					var subject: Vector3 = _pos + across * offset + Vector3(0, height, 0)
