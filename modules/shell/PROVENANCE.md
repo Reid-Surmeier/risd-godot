@@ -145,6 +145,27 @@ It is not an accepted game asset.
   measured frame depth, room lighting bake, sculpture generation or finished
   connected-map claim. Existing assets retain their existing adjacent records.
 
+## Collection sculpture appearance trial — issue #183
+
+Source: RISD accession 59.131, *Head of Christ or a Saint*, official front/rear
+photographs and IMG_6382 obliques. See
+[reference research](../../docs/research/collection-sculpture-anchor.md) for exact
+image URLs, rights fields and catalogue dimensions. Credit: Courtesy of the RISD
+Museum, Providence, RI. This is a trial outside runtime dependencies.
+
+OpenRouter `meta/muse-image`, one output, actual recorded cost **$0.010000**;
+run `run-5ac877552e2b1979a8edb87c`, unknown spend state / never-resubmit retained.
+Native output SHA256:
+`0325b88fba070b85c957a6991623c843c1515b83c508b37dc09cc43b8906064f`.
+Prompt, source/output hashes, ordered references and review are in
+`image-work/collection-expansion-sculpture/`. Full run archive is stored with
+reconstruction evidence. No complete mesh, exact ornament preservation,
+pedestal calibration, global placement or lighting-bake acceptance is implied.
+
+Owner approved the shown frame direction on September 29: “yeah these look good
+continue dont ask for permissions.” That feedback is recorded in the frame
+trial review; remaining physical/navigation/bake checks remain separate.
+
 ## Collection doorway validation — September 29, 20:35 UTC heartbeat
 
 Local COLMAP CUDA 4.2.1 / RTX 4070 SUPER, zero paid calls, **$0** this tick.
@@ -837,3 +858,11 @@ Actual Opus install review task_ad82b2cbf489/ctx_cb11600fbded redecoded original
 Actual Claude Opus 5.5 task_ad82b2cbf489 / ctx_cb11600fbded accepted H1–H4 source-relative artwork, platform, label and window proportions against original IMG_6383 footage on unbaked v49x. Root SHA-verified all 22 delivered review outputs; original report, source comparison sheets, raw capture/log archives preserved. No independent baked-lighting acceptance, global metre acceptance or fine-model acceptance. Corner-to-window span and label stand depth remain open. Reviewer private copy logged four unrelated missing imported textures; root's final clean import and native runs do not have those errors.
 
 Fresh v49x bake completed with 1,358 surfaces. Root individually inspected six final baked wall views, plus five final v50x actual Collection/Hall views. Native capture and integration check exit 0; 350 probes and new textile platform collision pass. 362 original Main source files SHA-equal; the current movement adapter is exact reviewed v50u SHA ca218f3e2a7f3aa15aa432f09e91c7fa840dc9648999a4e1882216e577dfaa86. Earlier movement/target results retained; off-centre floor clicks, bench routing, camera and brightness step still open. Scene UID fallback warning uses text paths. Final scripts/check.sh exit 0 with eight ObjectDB exit warnings; Shell playtest remains 42/50, eight UI/timing failures including additional resize failure of unverified cause. Final progress gallery is HTTP 200 and shows baked wall details plus actual app. All 50 pre-existing pending paths verified SHA-equal after stripping only this session's matched provenance append. All this-turn Opus workers released; heartbeat disabled. No new paid call: cumulative reported $0.91 / conservative $0.92; rejected Madonna Muse frame never retried. No 3D Viewer, frozen public interface, acceptance-test, ticket or production-build changes. Next: existing off-centre click routing, then original-video corner/window span and Hall camera/light refinement.
+
+### 2026-10-01T21:39:52.330801+00:00 — Local floor-route candidate, rendered review pending
+
+Collection prototype Issues #178/#182 only. Added a narrow `_walk_to` override for the evidenced Main Hall/grey gallery connection: route through the existing doorway and reuse unchanged Main Hall bench planning for the Hall leg. Preserve current position and camera while planning a Hall destination from its entry. Starts/targets already inside the passage avoid backtracking. No other room planner or native Hall source changed. New `click_route_check.gd` reproduces five of nine initial failures and passes sixteen final cases, including both native floor-ray handlers, passage-edge cases, bench detours and click replacement; no real pointer-event or CRT-coordinate claim. Max step 0.041588068 m, no wall or bench crossing. Headless copies of existing checks omit only image export lines: sixteen held-key and twelve tap/target checks pass; original checks stay byte-unchanged. Repository check and diff check pass. Final rendered check remains pending: the native integration check's probe assertion sees zero under headless mode on both original and patched adapters. Shell playtest could not initialize any display; Xvfb could not create sockets. Orca Opus runtime and tailscaled are unavailable here; no worker substitute, paid call, new preview publication, commit, push, ticket closure or full-museum completion claim. Git metadata is outside writable roots. Evidence and replayable patch: docs/evidence/collection-reconstruction/navigation-loop-20261001. Existing original Main source 362 hashes remain equal; owner pending files preserved. Heartbeat remains disabled. Next: rendered host playtest and independent Opus review of this candidate, then camera/lighting and remaining source-guided architecture/models.
+
+### Collection viewer export and west-wall source fit — 2026-10-01
+
+Original IMG_6383 60.60/61.00/62.00s reviewed; native lossless CPU-decoded frames and intake-matched video SHA recorded in `docs/evidence/collection-reconstruction/west-wall-source-fit-20261001/measurements.json`. Wall spans remain source-relative; global metre and visual placement acceptance false. No paid generation ($0). Optional native proof writes now tolerate read-only packaged resources; topology assertions retained. Web export preserves both baked room scenes and lightmap data byte-for-byte; hashes in `docs/evidence/collection-reconstruction/viewer-export-20261001/`. Browser rendering/publication unverified: HTTP sockets and browser approval blocked; tailscaled unavailable. Main Hall/3D Viewer unchanged.

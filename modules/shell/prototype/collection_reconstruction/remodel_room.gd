@@ -1550,7 +1550,8 @@ func build_iron_grille() -> void:
 		assert(volume>0 and abs(volume-coils*float(data.coil_signed_volume_m3))<.00001)
 		var proof={"vertices":ids.size(),"triangles":faces.size()/3,"closed_edges":edges.size(),"signed_volume_m3":volume,"coils":coils,"columns":data.columns,"rows_provisional":data.rows,"accepted":false}
 		var file:=FileAccess.open("res://evidence/iron-grille-native.json",FileAccess.WRITE)
-		file.store_string(JSON.stringify(proof,"  ")+"\n")
+		if file!=null:
+			file.store_string(JSON.stringify(proof,"  ")+"\n")
 	grille.material_override=metal
 	grille.position=Vector3(8.45,.12,19.19)
 	add_child(grille)
@@ -1641,7 +1642,8 @@ func build_gabled_frame() -> void:
 	inventory["magdalene_frame"]=proof
 	if not OS.has_feature("web"):
 		var file:=FileAccess.open("res://evidence/magdalene-frame-native.json",FileAccess.WRITE)
-		file.store_string(JSON.stringify(proof,"  ")+"\n")
+		if file!=null:
+			file.store_string(JSON.stringify(proof,"  ")+"\n")
 	print("GABLED_FRAME_OK "+JSON.stringify(proof))
 
 #6383 41.2/49.8 and55.6/56.0s: two wall-hung cases on opposite sides of the east tracery door.

@@ -28,6 +28,14 @@ views = {v.name: v for v in model.images.values() if v.has_pose}
 names = [n for n in training+reserved if n in views]
 tracks = {n: {int(p.point3D_id): upright(p.xy) for p in views[n].points2D if p.has_point3D()}
     for n in names}
+# Negative IDs denote source-visible manual floor contacts, frozen in selection.json.
+for name, picks in selection.get('manual_picks', {}).items():
+    assert name in tracks
+    for key, pixel in picks.items():
+        key = int(key)
+        assert key < 0 and key in ids and len(pixel) == 2
+        assert np.isfinite(pixel).all() and 0 <= pixel[0] < 720 and 0 <= pixel[1] < 1280
+        tracks[name][key] = np.array(pixel, dtype=float)
 cameras = {n: model.cameras[views[n].camera_id] for n in names}
 poses = {n: views[n].cam_from_world() for n in names}
 assert all(set(ids) <= set(tracks[n]) for n in training)
@@ -84,7 +92,8 @@ report = dict(selection=selection, selection_sha256=hashlib.sha256(selection_pat
     pick_sensitivity_camera_pixel_radius=2, normal_change_p95_degrees=float(np.percentile(changes, 95)),
     threshold_px=8, navigation_accepted=False, cost_usd=0,
     caveat='Reserved observations excluded from point triangulation, but cameras are globally fitted '
-        'using these tracks. Same-video correlated diagnostic, not independent validation. '
+        'using cached tracks. Negative IDs are frozen manual contacts, not sparse track identities. '
+        'Same-video correlated diagnostic, not independent validation. '
         'Three points define a candidate plane, not physical planarity, metric scale, floor extent or collision approval.')
 (OUT/'result.json').write_text(json.dumps(report, indent=2)+'\n')
 print(json.dumps(report, indent=2))

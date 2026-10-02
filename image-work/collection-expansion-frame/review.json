@@ -26,5 +26,10 @@
     "trial/frame.png": "3e22ccf27b2c7e061b5c48a6fcf537affe64b6a5f448c193d40db6cb222cb7ce",
     "trial/muse-original.webp": "66c667d5786e50dc2a786f01e0435aee65b188f496d5814bf9687a6eb6ebbb76",
     "trial/geometry.json": "0ba9b91fb4cd5ad158430b649a65824c4087136c28db99ba1f026583ad764e47"
+  },
+  "owner_feedback": {
+    "date": "2026-09-29",
+    "quote": "yeah these look good continue dont ask for permissions",
+    "scope": "Shown source/Muse/frame renders and reconstruction preview; approval to continue the visual direction. Does not verify missing navigation, sculpture, physical depth or bake checks."
   }
 }

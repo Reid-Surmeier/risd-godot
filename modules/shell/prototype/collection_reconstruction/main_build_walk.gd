@@ -321,6 +321,47 @@ func _process(delta: float) -> void:
 			_enter_space("far" if _plan[here].far else "arch")
 
 
+# A floor target in the adjoining room uses the real doorway, then the Hall's own bench planner.
+# ponytail: only the evidenced Hall/grey-gallery connection; other rooms still use their existing planner.
+func _walk_to(p: Vector3) -> void:
+	if _rooms == null or _space not in ["gallery", "far"]:
+		super(p)
+		return
+	var from_hall := _space == "gallery" and p.z < -L
+	var to_hall := _space == "far" and p.z > -L and p.z <= 0.0 and absf(p.x) <= W / 2.0
+	var grey := _room_at(p if from_hall else _pos)
+	if (not from_hall and not to_hall) or grey < 0 or _plan[grey].label not in ["grey French gallery", "Grand Gallery reveal threshold"]:
+		super(p)
+		return
+	var hall_entry := Vector3(0, 0, -L + .6)
+	var grey_entry := Vector3(0, 0, -L - 1.25)
+	# A visitor or target already inside the passage need not walk back out of it.
+	var near: Vector3 = _pos if from_hall else p
+	if absf(near.x) <= .4 and near.z < hall_entry.z:
+		hall_entry = Vector3(near.x, 0, near.z)
+	near = p if from_hall else _pos
+	if absf(near.x) <= .4 and near.z > grey_entry.z:
+		grey_entry = Vector3(near.x, 0, near.z)
+	if from_hall:
+		if not _walkable(p):
+			super(p)
+			return
+		super(hall_entry)
+		_path.append(_target)
+		_path.append(grey_entry)
+		_target = Vector3(p.x, 0, p.z)
+	else:
+		# Plan the Hall leg from its doorway without changing the visitor's actual position or camera.
+		var previous := _pos
+		_pos = hall_entry
+		_space = "gallery"
+		super(p)
+		_space = "far"
+		_pos = previous
+		_path.push_front(hall_entry)
+		_path.push_front(grey_entry)
+
+
 # Inside the Hall and its stone passage: the parent's rule, untouched. Outside: the room plan.
 func _clamp(p: Vector3) -> Vector3:
 	if _rooms == null:

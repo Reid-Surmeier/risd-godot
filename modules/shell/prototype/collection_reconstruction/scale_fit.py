@@ -12,6 +12,10 @@ ROOT = pathlib.Path('/home/reidsurmeier/risd-godot-ingestion/collection-expansio
 parser = argparse.ArgumentParser()
 parser.add_argument('--source', default='sfm-galleries-v3')
 parser.add_argument('--output', default='scale-fit-v1')
+parser.add_argument('--anchor', default='anchors/painting-0.jpg')
+parser.add_argument('--width', type=float, default=.651)
+parser.add_argument('--height', type=float, default=.541)
+parser.add_argument('--bounds', type=float, nargs=4, help='Object pixel bounds x0 y0 x1 y1 in catalogue photo')
 args = parser.parse_args()
 source = ROOT/args.source
 out = ROOT/args.output
@@ -21,26 +25,29 @@ if not database.exists():
     shutil.copyfile(source/'database.db', database)
 images = out/'images'
 (images/'anchor').mkdir(parents=True, exist_ok=True)
-anchor = images/'anchor/arabs-traveling.jpg'
+anchor_name='anchor/'+pathlib.Path(args.anchor).name
+anchor = images/anchor_name
 if not anchor.exists():
-    anchor.symlink_to(ROOT/'anchors/painting-0.jpg')
+    anchor.symlink_to(ROOT/args.anchor)
 extract = pycolmap.FeatureExtractionOptions(); extract.gpu_index='0'; extract.num_threads=8
 pycolmap.extract_features(database, images, extraction_options=extract, device=pycolmap.Device.cuda)
 models = {p.name:pycolmap.Reconstruction(p) for p in (source/'sparse').iterdir()
           if p.is_dir() and p.name.isdigit()}
 refs = {im.name for model in models.values() for im in model.images.values() if im.has_pose}
 pairs = out/'pairs.txt'
-pairs.write_text(''.join(f'anchor/arabs-traveling.jpg {name}\n' for name in sorted(refs)))
+pairs.write_text(''.join(f'{anchor_name} {name}\n' for name in sorted(refs)))
 matching=pycolmap.FeatureMatchingOptions();matching.gpu_index='0';matching.num_threads=8
 pycolmap.match_image_pairs(database, matching_options=matching,
                           pairing_options=pycolmap.ImportedPairingOptions(match_list_path=pairs),
                           device=pycolmap.Device.cuda)
 width,height = Image.open(anchor).size
-corners = np.array([[0,0,1],[width-1,0,1],[width-1,height-1,1],[0,height-1,1]],float)
+x0,y0,x1,y1=args.bounds or [0,0,width-1,height-1]
+assert 0<=x0<x1<=width and 0<=y0<y1<=height and args.width>0 and args.height>0
+corners = np.array([[x0,y0,1],[x1,y0,1],[x1,y1,1],[x0,y1,1]],float)
 result=[]
 with pycolmap.Database.open(database) as db:
     by_name = {im.name:im for im in db.read_all_images()}
-    aid=by_name['anchor/arabs-traveling.jpg'].image_id
+    aid=by_name[anchor_name].image_id
     ak=db.read_keypoints(aid)[:,:2].astype(float)
     for mid,model in models.items():
         views=[]
@@ -72,7 +79,7 @@ with pycolmap.Database.open(database) as db:
             quad=origin+rays*depth[:,None]
             w=(np.linalg.norm(quad[1]-quad[0])+np.linalg.norm(quad[2]-quad[3]))/2
             h=(np.linalg.norm(quad[3]-quad[0])+np.linalg.norm(quad[2]-quad[1]))/2
-            sx,sy=.651/w,.541/h
+            sx,sy=args.width/w,args.height/h
             discrepancy=abs(sx-sy)/((sx+sy)/2)
             views.append(dict(image=im.name,homography_inliers=int(hom['num_inliers']),
                               plane_points=len(fit),pixel_corners=pixel.tolist(),
@@ -80,7 +87,7 @@ with pycolmap.Database.open(database) as db:
                               scale_from_width=sx,scale_from_height=sy,
                               axis_disagreement=discrepancy,supported=bool(discrepancy<.05)))
         accepted=[v for v in views if v['supported']]
-        entry=dict(component=mid,views=views,accepted_views=len(accepted))
+        entry=dict(component=mid,anchor=args.anchor,dimensions_m=[args.width,args.height],pixel_bounds=[x0,y0,x1,y1],views=views,accepted_views=len(accepted))
         if accepted:
             scales=np.array([(v['scale_from_width']+v['scale_from_height'])/2 for v in accepted])
             quad=np.median([v['corners_3d'] for v in accepted],axis=0)
@@ -90,7 +97,7 @@ with pycolmap.Database.open(database) as db:
             entry.update(meters_per_unit=float(np.median(scales)),
                          scale_p10_p90=np.percentile(scales,[10,90]).tolist(),
                          origin=quad.mean(axis=0).tolist(),basis_rows=[right.tolist(),up.tolist(),normal.tolist()],
-                         caveat='Assumes canvas is level/plumb and catalogue dimensions match visible canvas; not yet cabinet-validated.')
+                         caveat='Assumes level/plumb object and catalogue dimensions match the marked extent in its fitted plane; relief/depth and perspective can bias this scale. Independent validation pending.')
             best=max(accepted,key=lambda v:v['plane_points'])
             preview=Image.open(source/'images'/best['image']).convert('RGB');draw=ImageDraw.Draw(preview)
             poly=[tuple(p) for p in best['pixel_corners']];draw.line(poly+[poly[0]],fill='lime',width=4)
