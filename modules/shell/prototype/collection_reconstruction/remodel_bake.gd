@@ -172,6 +172,50 @@ func prepare() -> void:
 				probe.position=Vector3(x,y,z)
 				room.add_child(probe)
 				probe.owner=room
+	# #238: the marble stair hall and the Skylight Gallery had no lamps of their own. These are
+	# their builders' lists (docs/evidence/museum-238/<room>/NOTES.md), in room-scene metres.
+	for spec in [[Vector3(16.0,7.4,-1.96),9.0],[Vector3(12.4,3.4,-3.4),6.0],[Vector3(12.4,3.4,-.5),6.0],[Vector3(12.4,7.0,-1.96),5.0],[Vector3(1.9,3.5,-8.26),7.0],[Vector3(3.95,3.5,-8.26),7.0],[Vector3(7.05,3.5,-8.26),7.0],[Vector3(8.9,3.5,-8.26),7.0]]:
+		var light:=OmniLight3D.new()
+		light.position=spec[0]
+		light.omni_range=spec[1]
+		light.omni_attenuation=.65
+		light.light_energy=.8
+		light.light_color=Color("f2f0ea")
+		light.light_size=.12
+		light.light_bake_mode=Light3D.BAKE_STATIC
+		light.shadow_enabled=true
+		room.add_child(light)
+		light.owner=room
+	# From, target, energy, cone, colour: the window's daylight, the fireplace, then the Skylight works.
+	for spec in [[Vector3(20.2,5.9,-1.96),Vector3(15.0,.5,-1.96),4.0,60.0,"eff5ff"],[Vector3(15.9,3.5,-2.6),Vector3(15.9,1.75,-.85),1.2,35.0,"ffd391"],[Vector3(1.95,3.6,-8.26),Vector3(.43,1.64,-8.26),1.2,40.0,"f2f0ea"],[Vector3(2.55,3.6,-9.16),Vector3(2.55,1.75,-10.68),1.2,40.0,"f2f0ea"],[Vector3(5.0,3.6,-9.16),Vector3(5.0,2.0,-10.68),1.2,40.0,"f2f0ea"],[Vector3(7.98,3.6,-9.16),Vector3(7.98,1.75,-10.68),1.2,40.0,"f2f0ea"],[Vector3(8.25,3.6,-8.26),Vector3(9.77,1.9,-8.26),1.2,40.0,"f2f0ea"],[Vector3(2.6,3.6,-8.6),Vector3(1.9,.9,-9.7),.8,40.0,"f2f0ea"]]:
+		var spot:=SpotLight3D.new()
+		room.add_child(spot)
+		spot.owner=room
+		spot.look_at_from_position(spec[0],spec[1],Vector3.UP)
+		spot.spot_range=(spec[1]-spec[0]).length()+3.0
+		spot.spot_angle=spec[3]
+		spot.light_energy=spec[2]
+		spot.light_color=Color(spec[4])
+		spot.light_size=.18
+		spot.light_bake_mode=Light3D.BAKE_STATIC
+		spot.shadow_enabled=true
+	var added_probes:=[Vector3(12.4,0,-4.0),Vector3(12.4,0,.2),Vector3(5.55,0,-5.36)]
+	for x in [12.4,14.5,16.8]:
+		added_probes.append(Vector3(x,0,-2.0))
+	for x in [1.5,3.5,5.55,7.5,9.0]:
+		for z in [-10.0,-8.26,-6.5]:
+			added_probes.append(Vector3(x,0,z))
+	for at in added_probes:
+		for y in [.3,1.1,2.0]:
+			var probe:=LightmapProbe.new()
+			probe.position=at+Vector3.UP*y
+			room.add_child(probe)
+			probe.owner=room
+	for y in [3.4,5.0,6.6]:
+		var high:=LightmapProbe.new()
+		high.position=Vector3(15.5,y,-1.96)
+		room.add_child(high)
+		high.owner=room
 	# Retain the reviewed Hall's5 diffuse sources and23 warm painting spots.
 	for z in [25.1,20.1,15.1,10.1,5.1]:
 		var light:=OmniLight3D.new()

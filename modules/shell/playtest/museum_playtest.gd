@@ -315,7 +315,7 @@ func _views() -> void:
 				lerpf(b[2], b[3], along) if long_z else (b[2] + b[3]) / 2.0
 			)
 			for view in ["n", "e", "s", "w", "follow"]:
-				_place(here)
+				_place(_free_near(here))  # never photographed from inside a case
 				var yaw: float = {"n": 0.0, "e": -PI / 2, "s": PI, "w": PI / 2, "follow": 0.0}[view]
 				walk.view_mode = 2 if view == "follow" else 0
 				walk.view_yaw = yaw
