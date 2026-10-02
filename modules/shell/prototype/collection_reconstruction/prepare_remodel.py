@@ -503,6 +503,17 @@ for trial in geometry['trials']:
             if name.startswith(('tracery','renaissance','far_gallery')):point[2]+=9.25
             # Rockefeller trials move with the room; the gallery aisle trial is already south of its door.
             elif name!='adjacent_gallery':point[2]+=2.2-reveal
+# Marble stair hall (#238, docs/evidence/museum-238/marble-hall/NOTES.md): the Ionic stub becomes the hall
+# filmed in IMG_6381 and IMG_6380 45..82s. Room-scene metres. The columned opening keeps the grey gallery's
+# east interval; the hall is as wide as that opening and 8.4m deep (fireplace 83.152 at 2.108m as the ruler).
+# The void is the service stair under the upper flight, behind the chimneypiece wall.
+# ponytail: one-camera estimates, every metre provisional; contents and the stair are marble_hall_additions.gd.
+marble=next(area for area in geometry['rooms'] if area['label']=='Ionic marble-stair threshold study limit')
+marble.update(label='marble stair hall',height=8.0,floor='marble',bounds=[marble['bounds'][0],marble['bounds'][0]+8.4]+marble['bounds'][2:])
+marble['floor_void']=[marble['bounds'][0]+2.8,marble['bounds'][1],marble['bounds'][3]-1.6,marble['bounds'][3]]
+geometry['trials']=[trial for trial in geometry['trials'] if not trial[0].startswith('grey_ionic')]
+geometry['trials']+=[['grey_marble_out',[10.25,.25,-1.96],[12.6,0,-1.96],False],['grey_marble_back',[12.6,.25,-1.96],[10.25,0,-1.96],False],['marble_stair_blocked',[14.6,.25,-2.4],[14.6,0,-4.3],True]]
+geometry['marble_hall']={'source':'IMG_6381 0..99s; IMG_6380 45.5..82.5s; RISD 83.152 and 2011.60 catalogue photographs taken in this hall','stair':'13 straight steps east along the north wall, 6 winders, half-landing under the east window, 6 winders, 4 steps west to the upper landing; 31 risers of .145m','walkable':'this floor only; flights, half-landing and the service-stair void are blocked','metric_accepted':False,'upper_floor_rooms_built':False}
 # Real loop connections and bench clearance, checked by the capsule in both native and Web.
 for a,b in [(2.2,5.2),(5.2,8.6),(8.6,12),(12,15.4),(15.4,18.8),(18.8,22.2),(22.2,25.6),(25.6,27.2)]:
     geometry['trials'].append([f'hall_aisle_{a:g}',[7,.25,a],[7,0,b],False])
