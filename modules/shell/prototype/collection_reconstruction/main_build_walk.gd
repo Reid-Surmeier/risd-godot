@@ -31,8 +31,8 @@ const FAR_ROOMS := [
 const NEAR_LAYER := 2048
 const FAR_LAYER := 4096
 const VISITOR_LAYER := 1 << 19  # visitor.gd's own layer (its FILL_LAYER)
-const PORTAL_MOUTH := 2.2  # walk4._clamp: where the visitor leaves the stone passage
-const PORTAL_SIDE := 2.4  # the portal's stone sides end at 2.09 (Surface004), plus the visitor
+# PORTAL_MOUTH, where the visitor leaves the stone passage, is walk4's own constant.
+const PORTAL_SIDE := 2.4  # in x: the stone's sides end at 2.09 (Surface004), plus the visitor
 # ponytail: clearances tuned to root's 0.22 m capsule trials, not surveyed. Recheck after a room fit.
 const WALL_CLEAR := 0.35
 const DOOR_CLEAR := 0.25
@@ -760,7 +760,7 @@ func _set_lighting(enabled: bool) -> void:
 		if not is_instance_valid(mesh) or mesh.mesh == null:
 			continue
 		var box: AABB = mesh.global_transform * mesh.mesh.get_aabb()
-		if box.position.z >= -0.001 and box.end.z > 2.3:
+		if box.position.z >= -0.001 and box.end.z > PORTAL_MOUTH + 0.1:
 			mesh.hide()
 		var floor: ShaderMaterial = mesh.material_override as ShaderMaterial
 		if floor != null and floor.get_shader_parameter("floor_z_limits") is Vector2:

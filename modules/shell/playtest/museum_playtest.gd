@@ -94,7 +94,7 @@ func _area_at(p: Vector3) -> String:
 func _doorways() -> Array:
 	var doors := [
 		{"a": HALL, "from": Vector3(0, 0, -walk.L + 0.9), "to": Vector3(0, 0, -walk.L - 1.3)},
-		{"a": HALL, "from": Vector3(0, 0, -0.9), "to": Vector3(0, 0, 3.1)},
+		{"a": HALL, "from": Vector3(0, 0, -0.9), "to": Vector3(0, 0, walk.PORTAL_MOUTH + 0.9)},
 	]
 	for room in walk._plan:
 		var b: Array = room.b

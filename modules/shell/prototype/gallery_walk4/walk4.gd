@@ -82,9 +82,13 @@ const LAYER_UNLIT := 8
 # The arch end, as in the video: one white-cased door in the gallery wall; behind
 # its plaster reveal the Romanesque
 # stone portal of the medieval gallery is the same opening (its round arch shows
-# at the top of the door), a deep
-# stone tunnel, then the medieval room: blue-grey walls, herringbone floor, the crucifix lit warm.
-const PORTAL_DEPTH := 1.2
+# at the top of the door), a shallow
+# stone frontispiece against the wall (IMG_6382, not a tunnel), then the medieval room:
+# blue-grey walls, herringbone floor, the crucifix lit warm.
+const PORTAL_DEPTH := 0.2
+# Where the visitor leaves the stone: the plaster reveal, the masonry, then the jamb columns
+# and imposts that stand 0.55 m in front of it.
+const PORTAL_MOUTH := DOORS.arch.reveal + PORTAL_DEPTH + 0.55
 
 
 static var _ps1_shader: Shader
@@ -1138,13 +1142,14 @@ func _arch_end() -> void:
 	_panel(Vector3(-dw, 0, zr), Vector3(0, 0, -zr), Vector3(0, ds.y, 0), rev, 0.3, 1, deep)
 	_panel(Vector3(dw, 0, 0), Vector3(0, 0, zr), Vector3(0, ds.y, 0), rev, 0.3, 1, deep)
 	_panel(Vector3(-dw, ds.y, 0), Vector3(ds.x, 0, 0), Vector3(0, 0, zr), rev, 0.3, 1, deep)
-	# the stone portal: a round-arched tunnel, its arch rising just past the door head
+	# the stone portal: a shallow round arch, rising just past the door head
 	var z0 := zr
 	var z1 := zr + PORTAL_DEPTH
 	_portal_stone(dw, ds.y, z0, z1)
-	# the medieval gallery beyond: lit warm toward the crucifix
-	var beyond := 5.0
-	var zb := z1 + beyond
+	# the medieval gallery beyond: lit warm toward the crucifix. Its far wall stays where the
+	# deep portal left it (0.45 + 1.2 + 5.0); the room gains the floor the stone gave up.
+	var zb := 6.65
+	var beyond := zb - z1
 	var room := ps(null, Color("#56606b"), Vector2.ONE, true)
 	var lit := func(p: Vector3) -> float:
 		return lerpf(0.55, 1.05, clampf((p.z - z1) / beyond, 0.0, 1.0))
@@ -1254,8 +1259,11 @@ func _portal_relief_sample(data: Array, width: int, height: int, u: float, v: fl
 
 func _portal_stone(radius: float, height: float, rear: float, front: float) -> void:
 	# #167: photo-led orders and supports, not a survey or invented capital carving.
-	# Retain the existing opening and tunnel depth; all additions remain outside it.
+	# Retain the existing opening; all additions remain outside it.
 	var spring := height - radius * 0.75
+	# The backing runs behind the plaster reveal to the Hall wall (reverse face at z = 0.01):
+	# the frontispiece stands against the wall, not in front of a gap.
+	var wall := 0.02
 	var relief: Dictionary = JSON.parse_string(
 		FileAccess.get_file_as_string(DIR + "portal-capital-relief.json")
 	)
@@ -1362,7 +1370,9 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 		var inner := radius + order * 0.27
 		var outer := inner + 0.265
 		var zf := front + order * 0.13
-		var zb := zf - 0.21
+		# The inner order crosses the plaster reveal's head and stops at its end; the outer
+		# two clear it and run back to the wall.
+		var zb := maxf(zf - 0.21, rear) if order == 0 else wall
 		var blocks: int = [13, 15, 17][order]
 		var joint_angle := func(t: float) -> float:
 			return PI * t + 0.008 * sin(5.0 * PI * t + order) * sin(PI * t)
@@ -1430,8 +1440,10 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 		# Backing courses and stepped impost support the three photographed shafts.
 		for row in 6:
 			block.call(
-				Vector3(side * (radius + 0.55), (row + 0.5) * spring / 6, front + 0.02),
-				Vector3(1.08, spring / 6, 0.32)
+				Vector3(
+					side * (radius + 0.55), (row + 0.5) * spring / 6, (wall + front + 0.18) / 2
+				),
+				Vector3(1.08, spring / 6, front + 0.18 - wall)
 			)
 		block.call(Vector3(side * (radius + 0.55), 0.11, front + 0.16), Vector3(1.14, 0.22, 0.64))
 		# Source photos resolve the stepped impost above each shaft. Separate
@@ -2835,14 +2847,16 @@ func _clamp(p: Vector3) -> Vector3:
 	var doorway := absf(p.x) <= 0.4
 	if _space == "arch":
 		# Keep the visitor inside the narrow reveal until fully past its jambs.
-		if (_pos.z - 2.2) * (p.z - 2.2) < 0.0 or (_pos.z == 2.2 and p.z < 2.2):
-			var crossing_x := lerpf(_pos.x, p.x, (2.2 - _pos.z) / (p.z - _pos.z))
+		if (_pos.z - PORTAL_MOUTH) * (p.z - PORTAL_MOUTH) < 0.0 or (
+			_pos.z == PORTAL_MOUTH and p.z < PORTAL_MOUTH
+		):
+			var crossing_x := lerpf(_pos.x, p.x, (PORTAL_MOUTH - _pos.z) / (p.z - _pos.z))
 			if absf(crossing_x) > 0.4:
-				if _pos.z >= 2.2:
-					p.z = 2.2
+				if _pos.z >= PORTAL_MOUTH:
+					p.z = PORTAL_MOUTH
 				else:
 					p.x = clampf(p.x, -0.4, 0.4)
-		var in_passage := p.z < 2.2
+		var in_passage := p.z < PORTAL_MOUTH
 		return Vector3(
 			clampf(p.x, -0.4 if in_passage else -2.45, 0.4 if in_passage else 2.45),
 			0,
@@ -2934,9 +2948,9 @@ func _update_camera(k: float) -> void:
 		var heading := _yaw if view_mode == 2 else view_yaw
 		var forward := Vector3(-sin(heading), 0, -cos(heading))
 		var eye := _pos - forward * 3.1 + Vector3(0, 2.45, 0)
-		if eye.z >= 2.2:
+		if eye.z >= PORTAL_MOUTH:
 			eye.x = clampf(eye.x, -2.7, 2.7)
-		if eye.z > -0.1 and eye.z < 2.2:
+		if eye.z > -0.1 and eye.z < PORTAL_MOUTH:
 			eye.x = clampf(eye.x, -0.7, 0.7)
 		eye.z = minf(eye.z, 6.3)
 		_cam.position = eye

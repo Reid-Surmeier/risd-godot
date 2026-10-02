@@ -38,8 +38,11 @@ func build_connected_hall() -> void:
 		if bounds.end.y<.02 and bounds.position.x>=.549 and bounds.end.x<=10.551 and bounds.position.z>=1.799 and bounds.end.z<=28.101:
 			mesh.mesh=ArrayMesh.new()
 	# Physical guards follow the retained portal's solid sides, rather than its outer box.
+	# Their depth is read from the retained stone, so it follows walk4's PORTAL_DEPTH.
+	var portal:MeshInstance3D=hall.get_node("Surface004")
+	var stone:AABB=portal.transform*portal.get_aabb()
 	for side in [-1,1]:
-		var guard:=solid(Vector3(5.55+side*1.52,1.5,29.425),Vector3(1.14,3.0,1.77),look(Color.WHITE),true)
+		var guard:=solid(Vector3(5.55+side*1.52,1.5,hall.position.z+stone.get_center().z),Vector3(1.14,3.0,stone.size.z),look(Color.WHITE),true)
 		guard.get_child(1).mesh=ArrayMesh.new()
 	for z in [11.1,19.1]:
 		var bench:=solid(Vector3(5.55,.23,z),Vector3(.95,.46,3),look(Color.WHITE),true)

@@ -76,13 +76,14 @@ func run() -> void:
 			" failures=",
 			failures
 		)
+	var mouth: float = walk.PORTAL_MOUTH
 	walk._space = "arch"
-	walk._pos = Vector3(0.4, 0, 2.0)
-	walk._move_to(Vector3(2.0, 0, 2.3))
+	walk._pos = Vector3(0.4, 0, mouth - 0.2)
+	walk._move_to(Vector3(2.0, 0, mouth + 0.1))
 	require(walk._pos.x <= 0.401, "outward diagonal crossed stone jamb")
-	walk._pos = Vector3(2.0, 0, 2.3)
-	walk._move_to(Vector3(0, 0, 2.0))
-	require(walk._pos.z >= 2.199, "inward diagonal crossed stone jamb")
+	walk._pos = Vector3(2.0, 0, mouth + 0.1)
+	walk._move_to(Vector3(0, 0, mouth - 0.2))
+	require(walk._pos.z >= mouth - 0.001, "inward diagonal crossed stone jamb")
 	walk.queue_free()
 	await _frames(2)
 	quit(1 if failures else 0)
