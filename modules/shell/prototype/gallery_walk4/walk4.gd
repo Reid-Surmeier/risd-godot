@@ -58,6 +58,7 @@ const BENCHES := [-9.0, -17.0]
 # the kid's clearance round a bench (half-size x, z): collision and route planning share it
 const BENCH_CLEAR := Vector2(0.78, 1.8)
 const WALK_MPS := 1.2
+const SPRINT_MPS := 3.0  # Shift held: the accepted character's dash
 const STEP_M := 1.0
 const TURN_HELD_DPS := 40.0
 const TURN_TAP_DPS := 75.0
@@ -101,6 +102,7 @@ var _view_panel: PanelContainer
 var _view_bar: HBoxContainer
 var _view_label: Label
 var _velocity := Vector3.ZERO
+var _sprint := false
 var _source_meshes: Array[Node] = []
 var _baked_room: Node3D
 var _portal_floor_material: ShaderMaterial
@@ -2670,6 +2672,10 @@ func _zoom_at(point: Vector2, factor: float) -> void:
 # ---------------------------------------------------------------- walking
 
 
+func _pace() -> float:
+	return SPRINT_MPS if _sprint else WALK_MPS
+
+
 func _fwd() -> Vector3:
 	return Vector3(-sin(_yaw), 0, -cos(_yaw))
 
@@ -2720,7 +2726,7 @@ func _process(delta: float) -> void:
 	if view_mode != 2:
 		var direction := _screen_direction()
 		_velocity = _velocity.move_toward(
-			direction * (WALK_MPS if _rigged_visitor else 2.0),
+			direction * (_pace() if _rigged_visitor else 2.0),
 			(12.0 if direction != Vector3.ZERO else 16.0) * delta
 		)
 		if _velocity.length() > 0.01:
@@ -2735,10 +2741,10 @@ func _process(delta: float) -> void:
 			else:
 				_target = null
 		else:
-			_move_to(_pos + to.normalized() * minf(to.length(), WALK_MPS * delta))
+			_move_to(_pos + to.normalized() * minf(to.length(), _pace() * delta))
 			# stuck against something for half a second: give up on this walk
 			_stall_t = (
-				_stall_t + delta if _pos.distance_to(_last_pos) < WALK_MPS * delta * 0.2 else 0.0
+				_stall_t + delta if _pos.distance_to(_last_pos) < _pace() * delta * 0.2 else 0.0
 			)
 			if _stall_t > 0.5:
 				_path.clear()
@@ -3309,7 +3315,14 @@ func _unhandled_key_input(event: InputEvent) -> void:
 				)
 			):
 				_held.erase(k)
+	if event.keycode == KEY_SHIFT:
+		_sprint = event.pressed and is_visible_in_tree()
+		return
 	if not is_visible_in_tree():
+		return
+	if event.pressed and event.keycode == KEY_SPACE and _open.is_empty():
+		_kid.jump()
+		get_viewport().set_input_as_handled()
 		return
 	if event.pressed and event.keycode == KEY_F6:
 		_view_panel.visible = not _view_panel.visible

@@ -1,13 +1,24 @@
 extends Node3D
 ## #236 Collection visitor: the accepted #235 character behind the surface walk4.gd drives.
 ## The museum owns position, collision and camera; this node only faces, animates and sounds.
-## Sprint, jump, tools and doors stay in the playtest: the museum has no input for them.
+## Walk, run, dash and jump come from the package; tools, doors and the skid stay in the playtest.
 const HOME := "res://modules/shell/character/"
 const Demo := preload("res://modules/shell/character/demo.gd")
 # Skinned rest height of walk.glb in metres, horns included; visitor174_check.gd re-measures it.
 const REST_HEIGHT := 1.877
-# ponytail: thresholds fit this walk clip, whose planted foot rolls up to 2.6 cm mid-stance.
-# Re-measure if the clip changes; visitor174_check.gd fails on a wrong step cadence.
+# Where in each gait clip a foot lands after its high lift, as a share of the clip
+# (Left, Right), measured at 480 samples. Steps sound when playback crosses these, so they
+# stay in time with the visible landing at any frame rate. visitor174_check.gd re-measures.
+# In the run both feet leave the floor; its right foot dips at 0.43 before landing at 0.57.
+const LANDINGS := {"walk": [0.823, 0.304], "run": [0.079, 0.567], "dash": [0.842, 0.323]}
+# The museum's sprint is faster than this many metres a second; its walk is slower.
+const SPRINT_FROM := 2.5
+# The accepted playtest's hop: 0.05 s crouch, 3.6 m/s launch, 0.23 s landing.
+const JUMP_CROUCH := 0.05
+const JUMP_LAUNCH := 3.6
+const JUMP_LANDING := 0.23
+# Sole heights that count as lifted and as planted, for the museum's contact shadows only.
+# The planted foot rolls up to 2.6 cm mid-stance, hence the gap.
 const LIFT := 0.035
 const PLANT := 0.01
 # The captured steps peak at -29 to -38 dBFS; the museum's other sounds peak near -3 dBFS and
@@ -33,6 +44,13 @@ var _kit := Demo.new()
 var _fill := DirectionalLight3D.new()
 var _feet := []
 var _speaker := AudioStreamPlayer.new()
+var _effects := AudioStreamPlayer.new()
+var _air := -1.0  # seconds since the jump began; negative on the ground
+var _launched := false
+var _landed := -1.0  # seconds since touching down
+var _rise := 0.0
+var _height := 0.0
+var _ground := 0.0  # the model offset that put the soles on the floor before take-off
 var _previous := Vector3.ZERO
 var _has_previous := false
 var _clip := ""
@@ -66,11 +84,20 @@ func _ready() -> void:
 					else reference.lerp(value, 0.5)
 				)
 			)
-	for clip in ["idle", "walk"]:
+	for gait in ["run", "dash"]:
+		var source: Node3D = load(HOME + gait + ".glb").instantiate()
+		var clips: AnimationPlayer = source.find_children("*", "AnimationPlayer", true, false)[0]
+		library.add_animation(gait, clips.get_animation("walk").duplicate())
+		source.free()
+	for clip in ["idle", "walk", "run", "dash"]:
 		library.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
 	player.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
+	player.play("idle")
+	player.advance(0)
 	_kit.model = model
 	_kit.skeleton = target
+	_kit.player = player
+	_kit.make_jump_animation()  # adds jump, flight and landing, built from the idle pose
 	_kit.make_face()
 	for mesh in model.find_children("*", "MeshInstance3D", true, false):
 		meshes.append(mesh)
@@ -104,6 +131,7 @@ func _ready() -> void:
 	_fill.light_cull_mask = FILL_LAYER
 	add_child(_fill)
 	add_child(_speaker)
+	add_child(_effects)
 	pose(0, false, 0, Vector3.FORWARD, 0)
 
 
@@ -120,7 +148,9 @@ func reset_contacts() -> void:
 func reset() -> void:
 	_has_previous = false
 	_clip = ""
+	_air = -1.0
 	rotation.y = 0.0
+	model.rotation.x = 0.0
 	player.stop()
 	_kit.movement.reset()
 	_kit.random.seed = 231
@@ -147,6 +177,18 @@ func sole_support() -> Array:
 
 func play_gesture(_name: String) -> bool:
 	return false
+
+
+## A hop on the spot or in stride; ignored while one is already under way.
+func jump() -> void:
+	if _air >= 0.0:
+		return
+	_air = 0.0
+	_launched = false
+	_landed = -1.0
+	_rise = 0.0
+	_height = 0.0
+	player.play("jump", 0.1)
 
 
 func pose(
@@ -176,20 +218,44 @@ func pose(
 	var travel := distance if moving else absf(wrapf(rotation.y - old_yaw, -PI, PI)) * 0.3
 	var speed := travel / delta if delta > 0 else 0.0
 	# The accepted coupling of gait, cadence and speed, fed the museum's own travel.
+	var sprint := speed > SPRINT_FROM
 	var movement = _kit.movement
-	var units: float = speed / (movement.travel_gain * model.scale.y) / 4.875
-	movement.heading = 0.0
-	movement.step(Vector2(0, minf(units, 1.0)), false, delta)
-	var clip := "idle" if movement.gait == "Idle" else "walk"
-	if clip != _clip:
-		_clip = clip
-		player.play(clip, 0.167 if delta > 0 else 0.0)
-	player.speed_scale = (
-		1.0
-		if clip == "idle"
-		else player.get_animation(clip).length * movement.phase_step * 60.0 / 16.0
+	var units: float = (
+		speed / (movement.travel_gain * model.scale.y) / (7.5 if sprint else 4.875)
 	)
-	player.advance(delta)
+	movement.heading = 0.0
+	movement.step(Vector2(0, minf(units, 1.0)), sprint, delta)
+	var clip := "jump"
+	if _air >= 0.0:
+		_hop(delta)
+	else:
+		clip = {"Idle": "idle", "Walk": "walk", "Run": "run", "Dash": "dash"}.get(
+			movement.gait, "idle"
+		)
+		if clip != _clip:
+			_clip = clip
+			player.play(clip, 0.167 if delta > 0 else 0.0)
+		player.speed_scale = (
+			1.0
+			if clip == "idle"
+			else player.get_animation(clip).length * movement.phase_step * 60.0 / 16.0
+		)
+		var before := player.current_animation_position
+		player.advance(delta)
+		if clip != "idle" and speed > 0.08:
+			var length := player.current_animation_length
+			var after := player.current_animation_position
+			if after < before:
+				after += length
+			for index in 2:
+				var at: float = LANDINGS[clip][index] * length
+				if (before < at and after >= at) or (before < at + length and after >= at + length):
+					contacts += 1
+					_step(["Left", "Right"][index], movement.gait)
+	var airborne := _air >= 0.0 and _launched and _landed < 0.0
+	model.rotation.x = move_toward(
+		model.rotation.x, 0.0 if _air >= 0.0 else movement.lean, deg_to_rad(120) * delta
+	)
 	# Keep the lowest sole on the museum floor, then read which foot carries the weight.
 	model.position.y = 0.0
 	target.force_update_all_bone_transforms()
@@ -201,27 +267,68 @@ func pose(
 			low = minf(low, (bone * point).y)
 		foot.low = low - global_position.y
 		floor_y = minf(floor_y, foot.low)
-	model.position.y = -floor_y
+	if airborne:
+		model.position.y = _ground + _height  # the tucked pose rises; nothing pulls it down
+	else:
+		_ground = -floor_y
+		model.position.y = _ground
 	for index in 2:
 		var foot: Dictionary = _feet[index]
-		foot.low -= floor_y
-		if clip == "idle":
+		foot.low += model.position.y
+		if airborne:
+			foot.planted = false
+		elif clip in ["idle", "jump"]:
 			foot.planted = true
 		elif foot.planted and foot.low > LIFT * model.scale.y:
 			foot.planted = false
 		elif not foot.planted and foot.low < PLANT * model.scale.y:
 			foot.planted = true
-			if speed > 0.08:
-				contacts += 1
-				_step(["Left", "Right"][index], movement.gait)
 	_blink(delta)
+
+
+# The playtest's hop without its physics body: crouch, rise and fall under gravity, land.
+func _hop(delta: float) -> void:
+	_air += delta
+	player.speed_scale = 1.0
+	var at := minf(_air / JUMP_CROUCH * 0.11, 0.11)
+	if _landed >= 0.0:
+		_landed += delta
+		at = _landed
+		if _landed >= JUMP_LANDING:
+			_air = -1.0
+			_clip = ""  # the next pose blends back into the gait
+			return
+	elif _air >= JUMP_CROUCH:
+		if not _launched:
+			_launched = true
+			_rise = JUMP_LAUNCH
+			player.play("flight", 0.1)
+			_cue("Jump", 0.7)
+		_rise -= 9.8 * delta
+		_height += _rise * delta
+		at = 0.6 * clampf(1.0 - _rise / JUMP_LAUNCH, 0.0, 2.0) / 2.0
+		if _height <= 0.0 and _rise < 0.0:
+			_height = 0.0
+			_landed = 0.0
+			at = 0.0
+			player.play("landing", 0.08)
+			_cue("Landing", 0.8)
+	player.seek(maxf(0.0, at - delta), false)
+	player.advance(delta)
+
+
+func _cue(bank: String, gain: float) -> void:
+	# The playtest's authored hop sounds (the original game has no jump), at the museum's level.
+	_effects.stream = _kit.sounds.streams[_kit.sounds.key(bank, false, 0)]
+	_effects.volume_db = -14 + linear_to_db(gain) + 6.0
+	_effects.play()
 
 
 func _step(side: String, gait: String) -> void:
 	# Same cue selection and relative gait levels as the accepted playtest's captured-house
 	# profile (#235), raised as a whole to the museum's loudness.
-	# ponytail: one voice. Walk steps last 185 ms and land about 430 ms apart; running or
-	# dashing here would need the playtest's polyphonic player so tails are not cut.
+	# ponytail: one voice. The recordings last 185 ms; the fastest gait here lands a step
+	# every 270 ms. A faster gait would need the playtest's polyphonic player.
 	var cue: Dictionary = _kit.sounds.step("Indoor", gait, side, true)
 	_speaker.stream = cue.stream
 	_speaker.volume_db = (

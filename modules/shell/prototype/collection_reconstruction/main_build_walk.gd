@@ -36,6 +36,7 @@ const WALL_CLEAR := 0.35
 const DOOR_CLEAR := 0.25
 const BODY_CLEAR := 0.3
 const SWAP_DEPTH := 0.3  # how far into the other room group before the space changes
+const GRID := 0.25  # click-route search cell, metres
 const SIDES := {
 	"west": Vector3.LEFT, "east": Vector3.RIGHT, "north": Vector3.FORWARD, "south": Vector3.BACK
 }
@@ -44,6 +45,11 @@ var _rooms: Node3D
 var _plan: Array = []  # {label, b: [x0, x1, z0, z1] Hall-local, openings: {side: [lo, hi]}, far}
 var _blocks: Array[Rect2] = []  # furniture, cases, door leaves and floor voids, in x/z
 var _walls: Array = []  # {body, box, layers}: what the camera may cut away
+var _grid: AStarGrid2D  # click routes; built on the first click that needs one
+# Every catalogued work in the added rooms, in walk4's painting-record shape plus
+# {object: true, node, room, layers, image}; clicked, approached and opened like a Hall painting.
+var _objects: Array = []
+var _caption: Label
 
 
 func _build_test_room() -> void:
@@ -183,6 +189,7 @@ func _attach_rooms(path: String) -> void:
 	for child in _vp.get_children():
 		if child is MeshInstance3D and child.layers >= 64 and child.layers <= 1024:
 			child.hide()
+	_collect_objects()
 	print("MAIN_BUILD_ROOMS ", JSON.stringify(state()))
 
 
@@ -193,8 +200,222 @@ func state() -> Dictionary:
 		"rooms": _plan.size(),
 		"blocks": _blocks.size(),
 		"cutaway_bodies": _walls.size(),
+		"objects": _objects.size(),
 		"space": _space
 	}
+
+
+func _collect_objects() -> void:
+	# Titles, makers and the picture to show, keyed by accession number or asset name.
+	var captions = JSON.parse_string(
+		FileAccess.get_file_as_string(ROOM_SCENES[0].get_base_dir().path_join("objects.json"))
+	)
+	if not captions is Dictionary:
+		captions = {}
+	var found: Array = []
+	for node in _rooms.find_children("*", "Node3D", true, false):
+		if not (node.has_meta("catalogue_accession") or node.has_meta("catalogue_asset")):
+			continue
+		var nested := false
+		for other in found:
+			nested = nested or other.is_ancestor_of(node)
+		if not nested:
+			found.append(node)
+	for node in found:
+		var box := AABB()
+		var first := true
+		var image: Texture2D = null
+		var parts: Array = node.find_children("*", "GeometryInstance3D", true, false)
+		if node is GeometryInstance3D:
+			parts.append(node)
+		for part in parts:
+			var reach: AABB = part.global_transform * part.get_aabb()
+			box = reach if first else box.merge(reach)
+			first = false
+			# Unbaked rooms use the PS1 shader; a loaded bake swaps in standard materials.
+			var material = part.get("material_override")
+			if material != null:
+				var texture = (
+					material.albedo_texture
+					if material is BaseMaterial3D
+					else material.get_shader_parameter("albedo")
+				)
+				if texture is Texture2D and (
+					image == null
+					or texture.get_width() * texture.get_height() > image.get_width() * image.get_height()
+				):
+					image = texture
+		if first or image == null:
+			continue
+		var centre := box.get_center()
+		var room := _room_at(Vector3(centre.x, 0, centre.z))
+		if room < 0:
+			continue
+		# A work on or against a wall is viewed from the room side; anything else from where
+		# the visitor already is (normal stays zero until it is clicked).
+		var b: Array = _plan[room].b
+		var normal := Vector3.ZERO
+		var nearest := 0.45
+		for side in SIDES:
+			var gap: float = (
+				box.position.x - b[0]
+				if side == "west"
+				else b[1] - box.end.x if side == "east" else box.position.z - b[2] if side == "north" else b[3] - box.end.z
+			)
+			if gap < nearest:
+				nearest = gap
+				normal = -SIDES[side]
+		var corners := []
+		for i in 8:
+			corners.append(box.get_endpoint(i))
+		var accession := str(node.get_meta("catalogue_accession", ""))
+		var key := accession if accession != "" else str(node.get_meta("catalogue_asset", node.name))
+		var rec: Dictionary = {"acc": accession, "title": str(node.get_meta("catalogue_title", key))}
+		if captions.has(key):
+			var row: Dictionary = captions[key]
+			rec = {
+				"acc": str(row.get("accession", accession)),
+				"title": str(row.get("title", rec.title)),
+				"artist": ", ".join(
+					[str(row.get("maker", "")), str(row.get("date", ""))].filter(
+						func(text: String) -> bool: return text != ""
+					)
+				),
+				"medium": str(row.get("medium", ""))
+			}
+			if ResourceLoader.exists(str(row.get("image", ""))):
+				image = load(row.image)
+		_objects.append(
+			{
+				"object": true,
+				"tag": "%s#%d" % [key, _objects.size()],
+				"rec": rec,
+				"node": node,
+				"room": room,
+				"layers": FAR_LAYER if _plan[room].far else NEAR_LAYER,
+				"image": image,
+				"center": centre,
+				"normal": normal,
+				"corners": corners,
+				"outer": Vector2(maxf(box.size.x, box.size.z), box.size.y)
+			}
+		)
+
+
+func _painting_at(pt: Vector2) -> Dictionary:
+	var best: Dictionary = super(pt)
+	# Among the works under the pointer the smallest on screen wins: a cup in front of a
+	# cabinet, a plate inside a case.
+	var smallest := INF
+	var here := _room_at(_pos)
+	for thing in _objects:
+		if thing.room != here or (_cam.cull_mask & thing.layers) == 0:
+			continue
+		var points := PackedVector2Array()
+		for corner in thing.corners:
+			if _cam.is_position_behind(corner):
+				points.clear()
+				break
+			points.append(_to_screen(corner))
+		if points.size() < 8:
+			continue
+		var hull := Geometry2D.convex_hull(points)
+		var middle := Vector2.ZERO
+		for q in hull:
+			middle += q / hull.size()
+		for i in hull.size():
+			hull[i] += (hull[i] - middle).normalized() * 5.0
+		var area := 0.0
+		for i in hull.size():
+			var a: Vector2 = hull[i]
+			var c: Vector2 = hull[(i + 1) % hull.size()]
+			area += a.x * c.y - c.x * a.y
+		area = absf(area) / 2.0
+		if area < smallest and Geometry2D.is_point_in_polygon(pt, hull):
+			smallest = area
+			best = thing
+	return best
+
+
+# An added-room work: walk to the nearest free spot in front of it, face it, open it.
+func _approach(p: Dictionary) -> void:
+	if not p.has("object"):
+		super(p)
+		return
+	var normal: Vector3 = p.normal
+	if normal == Vector3.ZERO:
+		normal = Vector3(_pos.x - p.center.x, 0, _pos.z - p.center.z).normalized()
+	var reach: float = p.outer.x / 2.0 + clampf(p.outer.y * 1.1, 1.0, 2.6)
+	var cell := _cell(Vector3(p.center.x, 0, p.center.z) + normal * reach)
+	if not _route_grid().is_in_boundsv(cell):
+		return
+	var stand := Vector3(cell.x * GRID, 0, cell.y * GRID)
+	_route_to(stand)
+	var mine := _action
+	while _target != null or not _path.is_empty():
+		await get_tree().process_frame
+		if _action != mine or not _open.is_empty():
+			return
+	if _pos.distance_to(stand) > 0.6:
+		return
+	var to := Vector3(p.center.x - _pos.x, 0, p.center.z - _pos.z).normalized()
+	_motion_heading = to
+	_target_yaw = atan2(-to.x, -to.z)
+	while absf(wrapf(_kid.rotation.y - atan2(to.x, to.z), -PI, PI)) > 0.015:
+		_kid.pose(get_process_delta_time(), false, 0.0, to, view_yaw if view_mode != 2 else _yaw)
+		await get_tree().process_frame
+		if _action != mine or not _open.is_empty():
+			return
+	_open_detail(p)
+
+
+func _open_detail(p: Dictionary) -> void:
+	super(p)
+	# The work comes forward instead of snapping on.
+	_detail.modulate.a = 0.0
+	_zoom_root.pivot_offset = _zoom_root.size / 2.0
+	_zoom_root.scale = Vector2(0.92, 0.92)
+	var tween := create_tween().set_parallel()
+	tween.tween_property(_detail, "modulate:a", 1.0, 0.18)
+	tween.tween_property(_zoom_root, "scale", Vector2.ONE, 0.22).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.chain().tween_callback(func() -> void: _zoom_root.pivot_offset = Vector2.ZERO)
+
+
+func _fit_detail() -> void:
+	if _open.is_empty() or _zoom_root == null:
+		return
+	if _open.has("object"):
+		var pic: TextureRect = _zoom_root.get_node("Painting")
+		(_zoom_root.get_node("Frame") as NinePatchRect).visible = false
+		var tex: Texture2D = _open.image
+		pic.texture = tex
+		var aspect := float(tex.get_width()) / tex.get_height()
+		var ph := minf(size.y * 0.74, size.x * 0.66 / aspect)
+		pic.size = Vector2(ph * aspect, ph)
+		pic.position = Vector2.ZERO
+		_zoom_root.size = pic.size
+		_zoom = 1.0
+		_zoom_root.scale = Vector2.ONE
+		_zoom_root.position = (size - pic.size) / 2.0
+	else:
+		super()
+	if _caption == null:
+		_caption = Label.new()
+		_caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		_caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_caption.add_theme_color_override("font_color", Color("2a2622"))
+		_detail.add_child(_caption)
+	var rec: Dictionary = _open.rec
+	var lines := PackedStringArray([str(rec.get("title", ""))])
+	for field in ["artist", "medium"]:
+		if str(rec.get(field, "")) != "":
+			lines.append(str(rec[field]))
+	if str(rec.get("acc", "")) != "":
+		lines.append("RISD Museum " + str(rec.acc))
+	_caption.text = "\n".join(lines)
+	_caption.size = Vector2(size.x, 0)
+	# Along the foot of the panel: a framed Hall painting reaches below its own picture.
+	_caption.position = Vector2(0, size.y - 22.0 * lines.size() - 12.0)
 
 
 # A wall belongs to its room; anything else to every room group its footprint reaches.
@@ -324,14 +545,19 @@ func _process(delta: float) -> void:
 # A floor target in the adjoining room uses the real doorway, then the Hall's own bench planner.
 # ponytail: only the evidenced Hall/grey-gallery connection; other rooms still use their existing planner.
 func _walk_to(p: Vector3) -> void:
-	if _rooms == null or _space not in ["gallery", "far"]:
+	if _rooms == null:
 		super(p)
 		return
 	var from_hall := _space == "gallery" and p.z < -L
 	var to_hall := _space == "far" and p.z > -L and p.z <= 0.0 and absf(p.x) <= W / 2.0
 	var grey := _room_at(p if from_hall else _pos)
-	if (not from_hall and not to_hall) or grey < 0 or _plan[grey].label not in ["grey French gallery", "Grand Gallery reveal threshold"]:
-		super(p)
+	if _space not in ["gallery", "far"] or (not from_hall and not to_hall) or grey < 0 or _plan[grey].label not in ["grey French gallery", "Grand Gallery reveal threshold"]:
+		# Inside the Hall the parent's bench planner stands. Anywhere else a click is routed
+		# round cases, benches and walls, and through as many doorways as it takes.
+		if _space == "gallery" and _room_at(p) < 0 and p.z <= 0.0 and p.z >= -L:
+			super(p)
+		else:
+			_route_to(p)
 		return
 	var hall_entry := Vector3(0, 0, -L + .6)
 	var grey_entry := Vector3(0, 0, -L - 1.25)
@@ -344,7 +570,7 @@ func _walk_to(p: Vector3) -> void:
 		grey_entry = Vector3(near.x, 0, near.z)
 	if from_hall:
 		if not _walkable(p):
-			super(p)
+			_route_to(p)
 			return
 		super(hall_entry)
 		_path.append(_target)
@@ -360,6 +586,96 @@ func _walk_to(p: Vector3) -> void:
 		_pos = previous
 		_path.push_front(hall_entry)
 		_path.push_front(grey_entry)
+
+
+# Where a visitor may stand anywhere in the museum: walk4's Hall margins, benches and two
+# doorways, then the added rooms' own rule.
+func _free(p: Vector3) -> bool:
+	if absf(p.x) <= W / 2.0 - 0.55 and p.z <= -0.55 and p.z >= -L + 0.55:
+		for bz in BENCHES:
+			if absf(p.x) < BENCH_CLEAR.x and absf(p.z - bz) < BENCH_CLEAR.y:
+				return false
+		return true
+	if absf(p.x) <= 0.4 and (
+		(p.z > -0.55 and p.z < PORTAL_MOUTH) or (p.z > -L - WALL_CLEAR and p.z < -L + 0.55)
+	):
+		return true
+	return _walkable(p)
+
+
+func _route_grid() -> AStarGrid2D:
+	if _grid != null:
+		return _grid
+	var reach := Rect2(-W / 2.0, -L, W, L + PORTAL_MOUTH)
+	for room in _plan:
+		reach = reach.merge(Rect2(room.b[0], room.b[2], room.b[1] - room.b[0], room.b[3] - room.b[2]))
+	_grid = AStarGrid2D.new()
+	_grid.cell_size = Vector2(GRID, GRID)
+	_grid.region = Rect2i(
+		Vector2i((reach.position / GRID).floor()), Vector2i((reach.size / GRID).ceil()) + Vector2i.ONE
+	)
+	_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
+	_grid.update()
+	for x in range(_grid.region.position.x, _grid.region.end.x):
+		for z in range(_grid.region.position.y, _grid.region.end.y):
+			if not _free(Vector3(x * GRID, 0, z * GRID)):
+				_grid.set_point_solid(Vector2i(x, z))
+	return _grid
+
+
+# The free grid cell nearest p; one outside the grid when there is none within 2 m.
+func _cell(p: Vector3) -> Vector2i:
+	var grid := _route_grid()
+	var home := Vector2i(roundi(p.x / GRID), roundi(p.z / GRID))
+	var best := Vector2i(-9999, -9999)
+	var nearest := INF
+	for dx in range(-8, 9):
+		for dz in range(-8, 9):
+			var id := home + Vector2i(dx, dz)
+			if not grid.is_in_boundsv(id) or grid.is_point_solid(id):
+				continue
+			var d := Vector2(id.x * GRID - p.x, id.y * GRID - p.z).length_squared()
+			if d < nearest:
+				nearest = d
+				best = id
+	return best
+
+
+func _clear_line(a: Vector3, b: Vector3) -> bool:
+	var steps := maxi(1, ceili(a.distance_to(b) / 0.1))
+	for i in steps + 1:
+		if not _free(a.lerp(b, float(i) / steps)):
+			return false
+	return true
+
+
+func _route_to(p: Vector3) -> void:
+	_velocity = Vector3.ZERO
+	_new_action()
+	_target = null
+	var from := _cell(_pos)
+	var to := _cell(p)
+	var grid := _route_grid()
+	if not grid.is_in_boundsv(from) or not grid.is_in_boundsv(to):
+		return  # a click on nothing reachable: stay
+	var points: Array = [Vector3(_pos.x, 0, _pos.z)]
+	for cell in grid.get_point_path(from, to):
+		points.append(Vector3(cell.x, 0, cell.y))
+	if points.size() < 2:
+		return
+	if _free(Vector3(p.x, 0, p.z)):
+		points.append(Vector3(p.x, 0, p.z))
+	# Straighten the grid's staircase: keep only the corners the walls force.
+	var pulled: Array = []
+	var anchor := 0
+	while anchor < points.size() - 1:
+		var next := points.size() - 1
+		while next > anchor + 1 and not _clear_line(points[anchor], points[next]):
+			next -= 1
+		pulled.append(points[next])
+		anchor = next
+	_target = pulled.pop_back()
+	_path = pulled
 
 
 # Inside the Hall and its stone passage: the parent's rule, untouched. Outside: the room plan.

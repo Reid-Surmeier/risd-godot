@@ -45,6 +45,39 @@ func _run() -> void:
 		absf(rest_height / visitor.model.scale.y - visitor.REST_HEIGHT) < 0.01,
 		"REST_HEIGHT no longer matches walk.glb: %s" % (rest_height / visitor.model.scale.y)
 	)
+	# LANDINGS must be where the walk clip really puts each foot down after its high lift.
+	for gait in ["walk", "run", "dash"]:
+		visitor.player.play(gait)
+		var clip_length: float = visitor.player.get_animation(gait).length
+		var lifted := [false, false]
+		var landed := [-1.0, -1.0]
+		for sample in 960:
+			visitor.player.seek(clip_length * (sample % 480) / 480.0, true)
+			visitor.target.force_update_all_bone_transforms()
+			var lows := []
+			for foot in visitor._feet:
+				var bone: Transform3D = (
+					visitor.target.global_transform
+					* visitor.target.get_bone_global_pose(foot.bone)
+				)
+				var low := INF
+				for point in foot.points:
+					low = minf(low, (bone * point).y)
+				lows.append(low)
+			for side in 2:
+				var height: float = (lows[side] - minf(lows[0], lows[1])) / visitor.model.scale.y
+				if height > visitor.LIFT:
+					lifted[side] = true
+				elif lifted[side] and height < visitor.PLANT:
+					lifted[side] = false
+					landed[side] = (sample % 480) / 480.0
+		for side in 2:
+			assert(
+				absf(landed[side] - visitor.LANDINGS[gait][side]) < 0.02,
+				"LANDINGS no longer match the %s clip: %s" % [gait, landed]
+			)
+	visitor.reset()
+	visitor.pose(0.0, false, 0.0, Vector3.FORWARD, 0.0)
 	var idle_steps := 0
 	for _tick in 120:
 		visitor.pose(1.0 / 60.0, false, 0.0, Vector3.FORWARD, 0.0)
@@ -64,6 +97,28 @@ func _run() -> void:
 	for _tick in 30:
 		visitor.pose(1.0 / 60.0, false, 0.0, Vector3.FORWARD, 0.0)
 	assert(visitor._clip == "idle", "stopping did not return to idle")
+	# The museum's sprint: three metres a second selects the dash clip and still lands steps.
+	var dash_steps := 0
+	for _tick in 120:
+		visitor.position.z -= 3.0 / 60.0
+		visitor.pose(1.0 / 60.0, true, 0.0, Vector3.FORWARD, 0.0)
+		dash_steps += visitor.contacts
+	assert(visitor._clip == "dash", "sprinting did not select the dash clip: %s" % visitor._clip)
+	assert(dash_steps >= 5 and dash_steps <= 9, "dash step cadence is wrong: %s" % dash_steps)
+	# A hop: leaves the floor, comes back, makes no footsteps in the air, ends in a gait.
+	visitor.jump()
+	var top := 0.0
+	var air_steps := 0
+	for _tick in 90:
+		visitor.pose(1.0 / 60.0, false, 0.0, Vector3.FORWARD, 0.0)
+		var soles: Array = visitor.sole_positions()
+		top = maxf(top, minf(soles[0].y, soles[1].y))
+		air_steps += visitor.contacts
+	assert(top > 0.4 and top < 0.9, "jump height is not the accepted hop: %s" % top)
+	assert(air_steps == 0, "footsteps sounded during a jump")
+	assert(visitor._air < 0.0 and visitor._clip == "idle", "the jump did not land and settle")
+	for sole in visitor.sole_positions():
+		assert(absf(sole.y) < 0.02, "the visitor did not return to the floor after a jump")
 	visitor.queue_free()
 	await process_frame
 	var gallery = load("res://modules/shell/prototype/gallery_walk4/walk4.gd").new()
