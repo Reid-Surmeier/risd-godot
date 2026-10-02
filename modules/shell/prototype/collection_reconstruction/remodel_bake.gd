@@ -87,12 +87,13 @@ func prepare() -> void:
 	room.add_child(floor_instance)
 	floor_instance.owner=room
 	index+=1
+	# #238 round 2: fills at 40% and stronger work spots, so works and not floors are brightest.
 	for position in [Vector3(.45,3.25,-5.5),Vector3(.45,3.25,-2),Vector3(4.6,3.25,-2),Vector3(-.55,3.25,2),Vector3(-.55,3.25,6),Vector3(-.55,3.25,10),Vector3(-.55,3.25,14),Vector3(-.55,3.25,17),Vector3(-.55,3.25,22),Vector3(7,4.0,21),Vector3(7,4.0,24),Vector3(12.2,3.25,22.515),Vector3(6.5,3.25,-2),Vector3(10.5,3.25,-2),Vector3(13.5,3.25,-2),Vector3(16.5,3.25,-2)]:
 		var light:=OmniLight3D.new()
 		light.position=corrected(position)
 		light.omni_range=8
 		light.omni_attenuation=.65
-		light.light_energy=.55
+		light.light_energy=.22
 		light.light_color=Color("ffe1b2")
 		# Native grey-room wides show neutral track-light fill; keep the warm painting spots.
 		if position.x>=9.0 or position.z>19.0:
@@ -101,7 +102,7 @@ func prepare() -> void:
 		var enclosed:bool=position.z>19.0 and position.x<9.0
 		light.light_size=.12 if enclosed else 2.5
 		if enclosed:
-			light.light_energy=1.1
+			light.light_energy=.44
 			var ceiling_height:float=3.5 if position.x<0 else 4.25
 			assert(light.position.y+light.light_size<ceiling_height,"Room fill emitter must fit below its ceiling")
 		light.light_bake_mode=Light3D.BAKE_STATIC
@@ -132,7 +133,7 @@ func prepare() -> void:
 		light.position=position
 		light.omni_range=7
 		light.omni_attenuation=.65
-		light.light_energy=.8
+		light.light_energy=.32
 		light.light_color=Color("f2f0ea")
 		light.light_size=.12
 		light.light_bake_mode=Light3D.BAKE_STATIC
@@ -148,7 +149,7 @@ func prepare() -> void:
 		spot.look_at_from_position(spot.position,spec[0],Vector3.UP)
 		spot.spot_range=5
 		spot.spot_angle=40
-		spot.light_energy=1.2
+		spot.light_energy=3.0
 		spot.light_color=Color("f2f0ea")
 		spot.light_size=.18
 		spot.light_bake_mode=Light3D.BAKE_STATIC
@@ -160,7 +161,7 @@ func prepare() -> void:
 	lion_spot.look_at_from_position(lion_spot.position,Vector3(14.6,1.7,28.25),Vector3.UP)
 	lion_spot.spot_range=5
 	lion_spot.spot_angle=45
-	lion_spot.light_energy=1.0
+	lion_spot.light_energy=2.5
 	lion_spot.light_color=Color("f2f0ea")
 	lion_spot.light_size=.2
 	lion_spot.light_bake_mode=Light3D.BAKE_STATIC
@@ -179,7 +180,7 @@ func prepare() -> void:
 		light.position=spec[0]
 		light.omni_range=spec[1]
 		light.omni_attenuation=.65
-		light.light_energy=.8
+		light.light_energy=.32
 		light.light_color=Color("f2f0ea")
 		light.light_size=.12
 		light.light_bake_mode=Light3D.BAKE_STATIC
@@ -187,7 +188,7 @@ func prepare() -> void:
 		room.add_child(light)
 		light.owner=room
 	# From, target, energy, cone, colour: the window's daylight, the fireplace, then the Skylight works.
-	for spec in [[Vector3(20.2,5.9,-1.96),Vector3(15.0,.5,-1.96),4.0,60.0,"eff5ff"],[Vector3(15.9,3.5,-2.6),Vector3(15.9,1.75,-.85),1.2,35.0,"ffd391"],[Vector3(1.95,3.6,-8.26),Vector3(.43,1.64,-8.26),1.2,40.0,"f2f0ea"],[Vector3(2.55,3.6,-9.16),Vector3(2.55,1.75,-10.68),1.2,40.0,"f2f0ea"],[Vector3(5.0,3.6,-9.16),Vector3(5.0,2.0,-10.68),1.2,40.0,"f2f0ea"],[Vector3(7.98,3.6,-9.16),Vector3(7.98,1.75,-10.68),1.2,40.0,"f2f0ea"],[Vector3(8.25,3.6,-8.26),Vector3(9.77,1.9,-8.26),1.2,40.0,"f2f0ea"],[Vector3(2.6,3.6,-8.6),Vector3(1.9,.9,-9.7),.8,40.0,"f2f0ea"]]:
+	for spec in [[Vector3(20.2,5.9,-1.96),Vector3(15.0,.5,-1.96),4.0,60.0,"eff5ff"],[Vector3(15.9,3.5,-2.6),Vector3(15.9,1.75,-.85),1.2,35.0,"ffd391"],[Vector3(1.95,3.6,-8.26),Vector3(.43,1.64,-8.26),3.0,40.0,"f2f0ea"],[Vector3(2.55,3.6,-9.16),Vector3(2.55,1.75,-10.68),3.0,40.0,"f2f0ea"],[Vector3(5.0,3.6,-9.16),Vector3(5.0,2.0,-10.68),3.0,40.0,"f2f0ea"],[Vector3(7.98,3.6,-9.16),Vector3(7.98,1.75,-10.68),3.0,40.0,"f2f0ea"],[Vector3(8.25,3.6,-8.26),Vector3(9.77,1.9,-8.26),3.0,40.0,"f2f0ea"],[Vector3(2.6,3.6,-8.6),Vector3(1.9,.9,-9.7),.8,40.0,"f2f0ea"]]:
 		var spot:=SpotLight3D.new()
 		room.add_child(spot)
 		spot.owner=room
@@ -255,7 +256,7 @@ func prepare() -> void:
 	var daylight:=DirectionalLight3D.new()
 	daylight.rotation_degrees=Vector3(-60,-75,0)
 	daylight.light_color=Color("eff5ff")
-	daylight.light_energy=.8 # same strength as the saved Main Hall native bake
+	daylight.light_energy=.35 # #238 round 2: was .8; the floors outshone the works
 	daylight.light_angular_distance=6
 	daylight.light_bake_mode=Light3D.BAKE_STATIC
 	daylight.shadow_enabled=true
