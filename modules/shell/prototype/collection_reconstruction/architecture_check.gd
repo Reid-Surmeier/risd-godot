@@ -160,7 +160,7 @@ func run() -> void:
 			if room == "Grand Gallery":
 				continue # Its trial visuals are emptied when the real Hall is retained.
 			casings += 1
-			var slim := room in ["grey French gallery", "purple elevator-5 connector", "piano-stair threshold study limit"]
+			var slim := room in ["grey French gallery", "purple elevator-5 connector", "Skylight Gallery"]
 			var expected := .10 if slim else .16
 			var faces := 0
 			for child in node.get_children():
@@ -172,15 +172,11 @@ func run() -> void:
 							failures.append("Wrong casing geometry for " + room)
 			if faces != 3 or not is_equal_approx(float(node.get_meta("source_casing_width")), expected):
 				failures.append("Casing width unsupported for " + room)
-		if node is StaticBody3D and node.get_child_count() > 0 and node.get_child(0) is CollisionShape3D:
-			var shape = node.get_child(0).shape
-			if shape is BoxShape3D and shape.size.is_equal_approx(Vector3(.06, 2.7, .95)):
-				leaves += 1
-				if node.get_parent().get_meta("room_wall", "") != "piano-stair threshold study limit:south:header":
-					failures.append("Piano leaf has no threshold cutaway owner")
-				if node.get_child_count() != 8 or not node.global_position.is_equal_approx(Vector3(6.59, 1.35, -4.65 - reveal.wall_m)):
-					failures.append("Piano panels lost their leaf or source placement")
-	if lifts != 3 or leaves != 1 or casings < 10 or roch != 1 or grilles != 1 or hall_leaves != 2 or linings != 2:
+		if node.has_meta("skylight_reveal_leaf"):
+			leaves += 1
+			if not node is StaticBody3D or not str(node.get_meta("room_wall", "")).begins_with("Skylight Gallery reveal threshold:") or node.has_meta("hall_reveal_leaf"):
+				failures.append("Skylight door leaf lost its reveal owner or collision")
+	if lifts != 3 or leaves != 2 or casings < 10 or roch != 1 or grilles != 1 or hall_leaves != 2 or linings != 2:
 		failures.append("Missing lift, leaf, reveal or casing coverage")
 	for flag in ["depth_measured", "opening_metres_accepted", "leaf_fidelity_accepted", "rockefeller_leaf_built"]:
 		if scene.inventory.hall_reveal.get(flag, true):
