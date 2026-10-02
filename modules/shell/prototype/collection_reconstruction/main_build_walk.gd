@@ -64,6 +64,9 @@ var _inspect_tween: Tween
 var _inspect_panel: PanelContainer
 var _inspect_from = null  # the last inspection shot, held while the camera glides back
 var _inspect_fov := 23.0
+var _glide_from := Transform3D()
+var _glide_fov := 23.0
+var _glide_t := 1.0  # 0 the camera before a view change, 1 the new view
 
 
 func _build_test_room() -> void:
@@ -407,12 +410,18 @@ func _collect_objects() -> void:
 
 func _painting_at(pt: Vector2) -> Dictionary:
 	var best: Dictionary = super(pt)
+	if (_cam.cull_mask & 63) == 0:
+		best = {}  # the Hall is cut away: its paintings cannot be clicked through the gap
 	# Among the works under the pointer the smallest on screen wins: a cup in front of a
 	# cabinet, a plate inside a case.
 	var smallest := INF
 	var here := _room_at(_pos)
 	for thing in _objects:
-		if thing.room != here or (_cam.cull_mask & thing.layers) == 0:
+		# The room the visitor stands in, plus the work being read: its viewing spot may lie
+		# just through a doorway. Nothing the camera has cut away answers a click.
+		if thing.room != here and thing.tag != _inspect.get("tag", ""):
+			continue
+		if (_cam.cull_mask & thing.layers) == 0 or not thing.node.is_visible_in_tree():
 			continue
 		var points := PackedVector2Array()
 		for corner in thing.corners:
@@ -488,7 +497,6 @@ func _approach(p: Dictionary) -> void:
 	_motion_heading = to
 	_target_yaw = atan2(-to.x, -to.z)
 	while absf(wrapf(_kid.rotation.y - atan2(to.x, to.z), -PI, PI)) > 0.015:
-		_kid.pose(get_process_delta_time(), false, 0.0, to, view_yaw if view_mode != 2 else _yaw)
 		await get_tree().process_frame
 		if _action != mine or not _open.is_empty():
 			return
@@ -626,10 +634,20 @@ func _inspect_shot(p: Dictionary) -> Transform3D:
 	var bounds: Array = _plan[room].b if room >= 0 else [-W / 2.0, W / 2.0, -L, 0.0]
 	var extent: float = absf(normal.x) * (bounds[1] - bounds[0]) + absf(normal.z) * (bounds[3] - bounds[2])
 	back = minf(back, maxf(1.4, extent - 0.6))
-	_inspect_fov = clampf(rad_to_deg(2.0 * atan(height / share / 2.0 / back)), 23.0, 50.0)
-	var eye := foot + normal * back
-	if view.small:
-		eye -= view.along * view.side * 0.35  # over the shoulder away from the visitor
+	var shift: float = -view.side * 0.35 if view.small else 0.0  # over the shoulder away from the visitor
+	# The visitor never stands between the lens and the work. Where the floor squeezed the
+	# viewing spot in front of it, the lens comes in ahead of the visitor and widens.
+	var widest := 50.0
+	var rel := Vector3(_pos.x, 0, _pos.z) - foot
+	var depth := rel.dot(normal)
+	if depth > 0.0 and depth < back:
+		var gap := absf(rel.dot(view.along) - shift * depth / back)
+		if gap < 0.45 + p.outer.x / 2.0 * (1.0 - depth / back):
+			back = maxf(0.8, depth - 0.5)
+			shift = 0.0
+			widest = 75.0
+	_inspect_fov = clampf(rad_to_deg(2.0 * atan(height / share / 2.0 / back)), 23.0, widest)
+	var eye: Vector3 = foot + normal * back + view.along * shift
 	# The work's centre sits 40% down the picture: a tenth of the lens above its axis.
 	eye.y = p.center.y + back * tan(tilt - deg_to_rad(_inspect_fov * 0.1))
 	var aim := Vector3(p.center.x, eye.y, p.center.z) - eye
@@ -1202,6 +1220,18 @@ func _update_camera(k: float) -> void:
 	if _rooms.has_method("update_baked_visibility"):
 		_rooms.set("camera", _cam)
 		_rooms.update_baked_visibility()
+	if _glide_t < 1.0:
+		_cam.global_transform = _glide_from.interpolate_with(_cam.global_transform, _glide_t)
+		_cam.fov = lerpf(_glide_fov, _cam.fov, _glide_t)
+
+
+# A change of view glides from where the camera was instead of cutting.
+func _set_view(mode: int) -> void:
+	_glide_from = _cam.global_transform
+	_glide_fov = _cam.fov
+	_glide_t = 0.0
+	create_tween().tween_property(self, "_glide_t", 1.0, 0.6).set_trans(Tween.TRANS_SINE)
+	super(mode)
 
 
 func _room_rect(index: int) -> Rect2:

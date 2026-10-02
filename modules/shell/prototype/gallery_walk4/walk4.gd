@@ -107,7 +107,6 @@ var _view_panel: PanelContainer
 var _view_bar: HBoxContainer
 var _view_label: Label
 var _velocity := Vector3.ZERO
-var _sprint := false
 var _source_meshes: Array[Node] = []
 var _baked_room: Node3D
 var _portal_floor_material: ShaderMaterial
@@ -2630,7 +2629,6 @@ func _open_detail(p: Dictionary) -> void:
 	_fit_detail()
 	_detail.get_node("Close").grab_focus()
 	_play("menu_open")
-	get_tree().create_timer(0.18).timeout.connect(func() -> void: _play("pickup"))
 
 
 func _fit_detail() -> void:
@@ -2695,7 +2693,7 @@ func _zoom_at(point: Vector2, factor: float) -> void:
 
 
 func _pace() -> float:
-	return SPRINT_MPS if _sprint else WALK_MPS
+	return SPRINT_MPS if Input.is_key_pressed(KEY_SHIFT) and is_visible_in_tree() else WALK_MPS
 
 
 func _fwd() -> Vector3:
@@ -3180,6 +3178,8 @@ func _click(pt: Vector2) -> void:
 	var d := _cam.project_ray_normal(vp_pt)
 	if d.y < -0.01:
 		_walk_to(o + d * (-o.y / d.y))
+		if _target == null:
+			return
 		var to: Vector3 = _target - _pos
 		if to.length() > 0.2:
 			_target_yaw = atan2(-to.x, -to.z)
@@ -3348,7 +3348,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			):
 				_held.erase(k)
 	if event.keycode == KEY_SHIFT:
-		_sprint = event.pressed and is_visible_in_tree()
 		return
 	if not is_visible_in_tree():
 		return

@@ -128,6 +128,18 @@ func _run() -> void:
 	assert(visitor._air < 0.0 and visitor._clip == "idle", "the jump did not land and settle")
 	for sole in visitor.sole_positions():
 		assert(absf(sole.y) < 0.02, "the visitor did not return to the floor after a jump")
+	# The same hop on a slow and a fast machine: the body rises the same distance.
+	var peaks := []
+	for rate in [15.0, 30.0, 60.0, 120.0]:
+		visitor.reset()
+		visitor.pose(0.0, false, 0.0, Vector3.FORWARD, 0.0)
+		visitor.jump()
+		var peak := 0.0
+		for _tick in int(rate * 1.5):
+			visitor.pose(1.0 / rate, false, 0.0, Vector3.FORWARD, 0.0)
+			peak = maxf(peak, visitor._height)
+		peaks.append(peak)
+	assert(peaks.max() - peaks.min() < 0.03, "jump height depends on the frame rate: %s" % [peaks])
 	visitor.queue_free()
 	await process_frame
 	var gallery = load("res://modules/shell/prototype/gallery_walk4/walk4.gd").new()

@@ -37,6 +37,25 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
 5. **Movement.** Walk, sprint (Shift) and jump (Space) are exercised by
    `modules/shell/playtest/visitor174_check.gd`: clip choice, step cadence, floor contact, jump
    height, no footsteps in the air.
+6. **Inspection shows the work.** When a work opens, the work that opened is the one clicked, all
+   of it is inside the picture, and the visitor's body does not overlap it on screen. A second
+   click on it opens its zoom page from wherever the visitor ended up standing, including just
+   through a doorway. (Objects pass.)
+7. **The same hop at any frame rate.** The jump is run at 15, 30, 60 and 120 frames a second and
+   must rise the same height within 3 cm. (`visitor174_check.gd`.)
+8. **No script errors.** The run's log must contain no `SCRIPT ERROR`; `build/run-playtest.sh`
+   prints any it finds. A click on floor nobody can reach is one way to cause one and must do
+   nothing.
+
+Round 1's reviewer asked for four more that the harness does not have yet; until it does, the
+reviewer checks them by hand and says so:
+
+- Things the camera has cut away must not answer a click (probe hidden works in each room).
+- Each room's displays are compared with `docs/research/2026-10-01-museum-object-manifest.md`,
+  not with the build's own object list, which cannot show what is missing.
+- Shift held through reading, zoom, focus loss and a tab change still sprints or stops correctly.
+- Turns, view changes and doorway crossings are recorded as continuous frames: no cut, no camera
+  inside the visitor's head, no shadow left behind by a hidden painting.
 
 ## What a person or reviewer still has to do
 

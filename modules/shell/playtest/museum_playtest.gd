@@ -369,6 +369,17 @@ func _mouse(at: Vector2, pressed: bool) -> void:
 	walk._gui_input(event)
 
 
+# The screen rectangle a set of world points covers; empty when any is behind the lens.
+func _on_screen(points: Array) -> Rect2:
+	var box := Rect2()
+	for i in points.size():
+		if walk._cam.is_position_behind(points[i]):
+			return Rect2()
+		var at: Vector2 = walk._cam.unproject_position(points[i]) / Vector2(walk._vp.size) * walk.size
+		box = Rect2(at, Vector2.ZERO) if i == 0 else box.expand(at)
+	return box
+
+
 func _objects() -> void:
 	var things: Array = walk._paintings.duplicate()
 	if walk.get("_objects") is Array:
@@ -457,6 +468,18 @@ func _objects() -> void:
 			problems.append("the inspection shot is filled by one flat surface")
 		if walk._kid._clip != "idle":
 			problems.append("the visitor is not standing still")
+		if walk._inspect.get("tag", "") != tag:
+			problems.append("a different work opened: " + str(walk._inspect.get("tag", "")))
+		# The whole work is in the picture and the visitor stands beside it, not over it.
+		var work := _on_screen(thing.corners)
+		var body: Array = []
+		for i in 8:
+			body.append(walk._pos + Vector3(0.4 if i & 1 else -0.4, 1.7 if i & 2 else 0.0, 0.4 if i & 4 else -0.4))
+		entry["work_on_screen"] = [roundi(work.position.x), roundi(work.position.y), roundi(work.size.x), roundi(work.size.y)]
+		if not Rect2(Vector2.ZERO, walk.size).grow(2).encloses(work):
+			problems.append("the work is not wholly in the inspection picture")
+		if work.intersects(_on_screen(body)):
+			problems.append("the visitor covers the work")
 		# A second click on the work: the zoom page, which must close again.
 		var again := Vector2.ZERO
 		for corner in thing.corners:

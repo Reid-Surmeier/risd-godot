@@ -78,7 +78,7 @@
  {
   "tag": "W3",
   "acc": "62.019",
-  "title": "The Resurrection of Christ (c.1640) (the \"night fire scene\")",
+  "title": "The Resurrection of Christ (c.1640)",
   "artist": "Benjamin Gerritsz. Cuyp",
   "canvas_w": 0.7020000000000001,
   "canvas_h": 0.9209999999999999,
@@ -97,7 +97,7 @@
  {
   "tag": "W4",
   "acc": "60.009",
-  "title": "Portrait of a Woman (1655) (black dress, white collar)",
+  "title": "Portrait of a Woman (1655)",
   "artist": "Bartholomeus van der Helst",
   "canvas_w": 0.98,
   "canvas_h": 1.12,
@@ -135,7 +135,7 @@
  {
   "tag": "W6",
   "acc": "32.246",
-  "title": "The Angel of Fame (c.1750), shaped ceiling canvas",
+  "title": "The Angel of Fame (c.1750)",
   "artist": "Giovanni Battista Tiepolo",
   "canvas_w": 1.98,
   "canvas_h": 3.31,
@@ -407,7 +407,7 @@
  {
   "tag": "W7",
   "acc": "44.161",
-  "title": "A Musical Group (c.1730) (woman in yellow with lute)",
+  "title": "A Musical Group (c.1730)",
   "artist": "Pier Leone Ghezzi",
   "canvas_w": 1.705,
   "canvas_h": 1.222,
@@ -426,7 +426,7 @@
  {
   "tag": "W8",
   "acc": "55.152",
-  "title": "Allegorical Portrait of a Lady as Fortune (1676) (woman in pink)",
+  "title": "Allegorical Portrait of a Lady as Fortune (1676)",
   "artist": "Henri Gascar",
   "canvas_w": 1.092,
   "canvas_h": 1.956,
@@ -445,7 +445,7 @@
  {
   "tag": "W9",
   "acc": "62.058",
-  "title": "The Marriage of Peleus and Thetis (c.1610) (the crowded \"battle/allegory\")",
+  "title": "The Marriage of Peleus and Thetis (c.1610)",
   "artist": "Joachim Wtewael",
   "canvas_w": 1.6640000000000001,
   "canvas_h": 1.095,
@@ -464,7 +464,7 @@
  {
   "tag": "W10",
   "acc": "60.107",
-  "title": "Still Life with Figure (c.1660) (fruit with a woman)",
+  "title": "Still Life with Figure (c.1660)",
   "artist": "Michele Pace del Campidoglio",
   "canvas_w": 1.607,
   "canvas_h": 1.222,
@@ -483,7 +483,7 @@
  {
   "tag": "N1",
   "acc": "42.283",
-  "title": "Portrait of a Lady of the Hampden Family (c.1610) (full-length, pink)",
+  "title": "Portrait of a Lady of the Hampden Family (c.1610)",
   "artist": "Unknown, Anglo-Flemish",
   "canvas_w": 1.2,
   "canvas_h": 2.013,
@@ -502,7 +502,7 @@
  {
   "tag": "N2",
   "acc": "60.039",
-  "title": "Portrait of Lady Sarah Ingestre (1827) (full-length, white satin, silver/white carved frame)",
+  "title": "Portrait of Lady Sarah Ingestre (1827)",
   "artist": "Thomas Lawrence",
   "canvas_w": 1.429,
   "canvas_h": 2.351,
@@ -521,7 +521,7 @@
  {
   "tag": "E1",
   "acc": "63.061",
-  "title": "Arsenal in a Ruined Basilica (c.1715) (dark ruins capriccio)",
+  "title": "Arsenal in a Ruined Basilica (c.1715)",
   "artist": "Alessandro Magnasco",
   "canvas_w": 2.146,
   "canvas_h": 1.4669999999999999,
@@ -540,7 +540,7 @@
  {
   "tag": "E2",
   "acc": "18.264",
-  "title": "Portrait of Theodore Atkinson, Jr. (1757) (man in red coat)",
+  "title": "Portrait of Theodore Atkinson, Jr. (1757)",
   "artist": "John Singleton Copley",
   "canvas_w": 1.016,
   "canvas_h": 1.27,
@@ -559,7 +559,7 @@
  {
   "tag": "E3",
   "acc": "51.506",
-  "title": "Landscape with a Mill (c.1655) (classical landscape)",
+  "title": "Landscape with a Mill (c.1655)",
   "artist": "S\u00e9bastien Bourdon",
   "canvas_w": 1.051,
   "canvas_h": 0.86,
@@ -578,7 +578,7 @@
  {
   "tag": "E4",
   "acc": "1987.056",
-  "title": "A View of Paris from the Louvre (1835) (the \"Venice/city river view\"; it shows **Paris**)",
+  "title": "A View of Paris from the Louvre (1835)",
   "artist": "Louise-Jos\u00e9phine Sarazin de Belmont",
   "canvas_w": 1.626,
   "canvas_h": 1.197,
@@ -597,7 +597,7 @@
  {
   "tag": "E5",
   "acc": "2003.105",
-  "title": "Portrait of Antoine-Georges-Fran\u00e7ois de Chabaud-Latour and His Family (c.1806) (family group with bust)",
+  "title": "Portrait of Antoine-Georges-Fran\u00e7ois de Chabaud-Latour and His Family (c.1806)",
   "artist": "Jacques-Luc Barbier-Walbonne",
   "canvas_w": 1.74,
   "canvas_h": 2.21,
@@ -616,7 +616,7 @@
  {
   "tag": "E6",
   "acc": "37.104",
-  "title": "Architectural Fantasy (c.1805) (Roman bridge)",
+  "title": "Architectural Fantasy (c.1805)",
   "artist": "Hubert Robert",
   "canvas_w": 1.4780000000000002,
   "canvas_h": 1.14,
@@ -635,7 +635,7 @@
  {
   "tag": "E7",
   "acc": "33.204",
-  "title": "The Ferry Boat (c.1645) (Dutch river landscape)",
+  "title": "The Ferry Boat (c.1645)",
   "artist": "Salomon van Ruysdael",
   "canvas_w": 1.442,
   "canvas_h": 0.972,
@@ -673,7 +673,7 @@
  {
   "tag": "E9",
   "acc": "18.096",
-  "title": "Hagar and Ishmael (c.1640) (wooded landscape, large dark tree)",
+  "title": "Hagar and Ishmael (c.1640)",
   "artist": "Francisco Collantes",
   "canvas_w": 1.391,
   "canvas_h": 1.092,

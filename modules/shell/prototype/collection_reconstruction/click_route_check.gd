@@ -16,7 +16,7 @@ func run() -> void:
 	assert(walk != null and walk.state().attached)
 	walk.set_process(false)
 	var cases := [
-		["grey-misses-door", "far", Vector3(3, 0, -28.5), Vector3(-2, 0, -24), "gallery"],
+		["grey-misses-door", "far", Vector3(2, 0, -28.5), Vector3(-2, 0, -24), "gallery"],
 		["hall-misses-door", "gallery", Vector3(3, 0, -22), Vector3(1.5, 0, -29), "far"],
 		["hall-two-benches", "gallery", Vector3(0, 0, -3), Vector3(0, 0, -29), "far"],
 		["grey-target-beyond-bench", "far", Vector3(0, 0, -29), Vector3(0, 0, -12), "gallery"],
@@ -28,8 +28,8 @@ func run() -> void:
 		["start-inside-grey-passage", "far", Vector3(.3, 0, -26.7), Vector3(2, 0, -24), "gallery"],
 		["start-inside-hall-passage", "gallery", Vector3(.3, 0, -26.2), Vector3(1.5, 0, -29), "far"],
 		["target-inside-grey-passage", "gallery", Vector3(3, 0, -22), Vector3(.3, 0, -26.7), "far"],
-		["target-inside-hall-passage", "far", Vector3(3, 0, -28.5), Vector3(.3, 0, -26.1), "gallery"],
-		["replace-crossing-click", "far", Vector3(3, 0, -28.5), Vector3(-1, 0, -30), "far"],
+		["target-inside-hall-passage", "far", Vector3(2, 0, -28.5), Vector3(.3, 0, -26.1), "gallery"],
+		["replace-crossing-click", "far", Vector3(2, 0, -28.5), Vector3(-1, 0, -30), "far"],
 		["floor-pick-grey-hall", "far", Vector3(1.5, 0, -28.3), Vector3(-1, 0, -24.5), "gallery"],
 		["floor-pick-hall-grey", "gallery", Vector3(1.5, 0, -24.5), Vector3(1.5, 0, -28.3), "far"]
 	]

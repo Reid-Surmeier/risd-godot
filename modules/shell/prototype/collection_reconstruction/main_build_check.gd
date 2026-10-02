@@ -39,8 +39,8 @@ func run() -> void:
 	if removed == 0:
 		failures.append("No demo fixture removed")
 	var probes: Dictionary = walk._rooms.get_node("BakedRoom/Lightmap").light_data.get("probe_data")
-	# v49v has 1358 users and 350 probes; relocation independently checks the complete probe dictionary.
-	if probes.points.size() != 350:
+	# The integrated bake has 366 probes; relocation independently checks the complete probe dictionary.
+	if probes.points.size() != 366:
 		failures.append("Addition probes lost in full-app conversion")
 	var wall_art:=0
 	var case_art:=0

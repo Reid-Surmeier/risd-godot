@@ -329,8 +329,8 @@ func _hop(delta: float) -> void:
 			_rise = JUMP_LAUNCH
 			player.play("flight", 0.1)
 			_cue("Jump", 0.7)
+		_height += _rise * delta - 4.9 * delta * delta
 		_rise -= 9.8 * delta
-		_height += _rise * delta
 		at = 0.6 * clampf(1.0 - _rise / JUMP_LAUNCH, 0.0, 2.0) / 2.0
 		if _height <= 0.0 and _rise < 0.0:
 			_height = 0.0
