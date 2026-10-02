@@ -400,11 +400,14 @@ func _objects() -> void:
 			facing = facing.normalized() if facing.length() > 0.3 else Vector3.BACK
 		var at := Vector2.ZERO
 		var picked := ""
-		for distance in [3.0, 2.0, 4.5, 6.0, 1.4, 8.0]:
-			var stand: Vector3 = _free_near(Vector3(thing.center.x, 0, thing.center.z) + facing * distance)
+		# Dollhouse view first; a work hung above its frame (a chandelier) from the follow view.
+		for distance in [3.0, 2.0, 4.5, 6.0, 1.4, 8.0, -4.5, -7.0]:
+			var stand: Vector3 = _free_near(Vector3(thing.center.x, 0, thing.center.z) + facing * absf(distance))
 			if not walk._free(stand):
 				continue
 			_place(stand)
+			walk.view_mode = 2 if distance < 0.0 else 0
+			entry["view"] = "follow" if distance < 0.0 else "dollhouse"
 			walk.view_yaw = atan2(facing.x, facing.z)
 			walk._yaw = walk.view_yaw
 			for settle in 8:

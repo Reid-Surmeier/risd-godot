@@ -28,7 +28,7 @@ Check `df -h /` first: stop and report if under 40 GB is free or `~/DISK-LOW.txt
 | --- | --- |
 | Room sources (edit here) | `modules/shell/prototype/collection_reconstruction/` (`SRC`) |
 | Inputs for generation | `image-work/collection-room-remodel/`; your new files under `image-work/collection-room-remodel/additions/<room>/` become `res://assets/additions/<room>/` |
-| Generated rooms the game loads (do not edit) | `collection_rooms/` |
+| Generated rooms the game loads (do not edit) | `modules/shell/collection_rooms/` |
 | Footage | `/home/reidsurmeier/risd-godot-ingestion/collection-expansion/IMG_6378.MOV` … `IMG_6387.MOV`; survey frames two per second in `.../survey-2fps/<clip>/NNNNNN.jpg` (frame number = 2 × seconds + 1); Hall visit frames in `/home/reidsurmeier/risd-godot-ingestion/sfm-6344/images/` |
 | What is missing or wrong | `docs/research/2026-10-01-museum-inventory-audit.md`; when present, `2026-10-01-museum-architecture-audit.md` and `2026-10-01-museum-artwork-size-audit.md` in the same folder of `consolidate-character-236` (read them there; they may land after you start) |
 | Finish standard | `docs/research/2026-10-01-acnh-museum-polish-spec.md` (labels, plinth contact, nothing invented that the footage does not show) |
@@ -42,7 +42,7 @@ ROOMS_TRIAL=/home/reidsurmeier/risd-godot-ingestion/collection-expansion/rebuild
 
 That regenerates the room project in about 30 s and prints its path (`.../extension`) after the
 architecture check. `--draft` stops before the bake. Without it the script bakes (about 4 minutes)
-and installs into your worktree's `collection_rooms/`. Keep one trial directory, at most 2 GB, and
+and installs into your worktree's `modules/shell/collection_rooms/`. Keep one trial directory, at most 2 GB, and
 delete it when you finish.
 
 Look at your room. Write a small capture script in your trial project (the runbook's
@@ -92,7 +92,7 @@ picture under 600 KB (JPEG, 1600 px on the long side).
    `docs/evidence/museum-238/<name>/` as JPEGs under 300 KB each, with a `NOTES.md`: what you built,
    what you measured and from which frame, what is provisional, what you could not do.
 3. Commit everything on your branch in your worktree (`git add` only your scope; `git add -f` new
-   `.import` files under `collection_rooms/`). Do not push, merge or rebase. Do not edit
+   `.import` files under `modules/shell/collection_rooms/`). Do not push, merge or rebase. Do not edit
    `modules/shell/PROVENANCE.md`, `MODULES.md`, `main_build_walk.gd`, `walk4.gd` or any check script:
    list in `NOTES.md` what those need.
 4. Delete your trial directory. Leave the worktree in place.

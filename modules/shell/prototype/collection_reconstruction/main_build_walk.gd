@@ -10,8 +10,8 @@
 ## Without a room scene in the project this script behaves exactly as walk4.gd.
 extends "res://modules/shell/prototype/gallery_walk4/walk4.gd"
 
-# A full-app copy keeps the room project under collection_rooms/; root's own project has it at res://.
-const ROOM_SCENES := ["res://collection_rooms/remodel_room.tscn", "res://remodel_room.tscn"]
+# A full-app copy keeps the room project under modules/shell/collection_rooms/; root's own project has it at res://.
+const ROOM_SCENES := ["res://modules/shell/collection_rooms/remodel_room.tscn", "res://remodel_room.tscn"]
 # The room scene's Hall slot (remodel_room.gd build_connected_hall), as an offset to Hall-local metres.
 const ATTACH := Vector3(-5.55, 0, -28.1)
 const HALL_ROOM := "Grand Gallery"
@@ -443,9 +443,12 @@ func _painting_at(pt: Vector2) -> Dictionary:
 			var c: Vector2 = hull[(i + 1) % hull.size()]
 			area += a.x * c.y - c.x * a.y
 		area = absf(area) / 2.0
-		if area < smallest and Geometry2D.is_point_in_polygon(pt, hull):
-			smallest = area
-			best = thing
+		if Geometry2D.is_point_in_polygon(pt, hull):
+			if thing.tag == _inspect.get("tag", ""):
+				return thing  # the work being read answers before a smaller neighbour in its case
+			if area < smallest:
+				smallest = area
+				best = thing
 	return best
 
 

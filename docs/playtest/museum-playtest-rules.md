@@ -3,7 +3,7 @@
 What "played through" means for the Collection museum. A build has not been playtested until every
 rule below has been run against it and its results looked at. The harness is
 `modules/shell/playtest/museum_playtest.gd`; the room list comes from the build itself
-(`collection_rooms/geometry.json` plus the Main Hall), so a new room is covered the day it is added.
+(`modules/shell/collection_rooms/geometry.json` plus the Main Hall), so a new room is covered the day it is added.
 
 ## Run it
 

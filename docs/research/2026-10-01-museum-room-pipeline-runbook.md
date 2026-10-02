@@ -2,7 +2,7 @@
 
 How the connected-museum rooms of the Collection page are generated, baked, attached to the Main Hall and checked, so that a room can be changed and rebuilt. Written 2026-10-01 against commit `32d3ba8c` on `Reid-Surmeier/consolidate-character-236`, Godot 4.7.2, on the WSL2 host with the RTX 4070 SUPER.
 
-Every command below was run on that date unless it is marked **not run**. The run regenerated the room project from the repository sources, baked it, relocated it, and compared the result with the tracked `collection_rooms/`. The proof and the timings are in [section 10](#10-proof-and-timings).
+Every command below was run on that date unless it is marked **not run**. The run regenerated the room project from the repository sources, baked it, relocated it, and compared the result with the tracked `modules/shell/collection_rooms/`. The proof and the timings are in [section 10](#10-proof-and-timings).
 
 ## What is verified, inferred and unknown
 
@@ -22,9 +22,9 @@ image-work/collection-room-remodel/        modules/shell/prototype/collection_re
    prepare_main_build_extension.py  ->  room project: a standalone Godot project
             |   import, architecture check, walking self-check, review captures
             |   remodel_bake.gd + editor bake plugin -> addition_baked/room.{tscn,lmbake,exr}
-   relocate (res:// paths -> res://collection_rooms/, lightmap to text)
+   relocate (res:// paths -> res://modules/shell/collection_rooms/, lightmap to text)
             v
-   collection_rooms/   <- loaded by main_build_walk.gd, which extends the Hall's walk4.gd
+   modules/shell/collection_rooms/   <- loaded by main_build_walk.gd, which extends the Hall's walk4.gd
 ```
 
 Two metre frames are used. **Room-scene metres** are what `geometry.json` and `remodel_room.gd` use; the Hall occupies x 0.55..10.55, z 1.8..28.1. **Hall-local metres** are what `walk4.gd`, `main_build_walk.gd` and the repo checks use: room-scene plus `(-5.55, 0, -28.1)` (`ATTACH` in `main_build_walk.gd`).
@@ -147,37 +147,37 @@ The bake is deterministic. From unchanged sources `room.exr` (sha256 `73dd17bb..
 
 Then look at it: run the review again (or your own capture) and open the pictures. Numbers do not show a dark wall.
 
-## 5. Step 4: attach to the Main Hall and produce `collection_rooms/`
+## 5. Step 4: attach to the Main Hall and produce `modules/shell/collection_rooms/`
 
 ### What "attach" means
 
-Nothing is merged into the Hall. `main_build_walk.gd` extends `gallery_walk4/walk4.gd`, loads `res://collection_rooms/remodel_room.tscn` into the Hall's viewport, lets it build at the origin, moves it by `ATTACH`, and removes its camera, visitor, body, label, contact shadow, Hall copy and environment. Movement outside the Hall comes from the rooms and openings in `collection_rooms/geometry.json`.
+Nothing is merged into the Hall. `main_build_walk.gd` extends `gallery_walk4/walk4.gd`, loads `res://modules/shell/collection_rooms/remodel_room.tscn` into the Hall's viewport, lets it build at the origin, moves it by `ATTACH`, and removes its camera, visitor, body, label, contact shadow, Hall copy and environment. Movement outside the Hall comes from the rooms and openings in `modules/shell/collection_rooms/geometry.json`.
 
-The one-time wiring is already in the tree (it is the diff of `317b8f3b..HEAD` on these files): `modules/shell/demo.gd` line 65 loads `main_build_walk.gd`; `export_presets.cfg` includes `collection_rooms/geometry.json` and `collection_rooms/assets/*.json` and excludes `collection_rooms/evidence/*`; `project.godot` sets `export/convert_text_resources_to_binary=false`.
+The one-time wiring is already in the tree (it is the diff of `317b8f3b..HEAD` on these files): `modules/shell/demo.gd` line 65 loads `main_build_walk.gd`; `export_presets.cfg` includes `modules/shell/collection_rooms/geometry.json` and `modules/shell/collection_rooms/assets/*.json` and excludes `modules/shell/collection_rooms/evidence/*`; `project.godot` sets `export/convert_text_resources_to_binary=false`.
 
 ### The original script stops on this tree
 
-`make_local_fullapp.py MAIN EXTENSION ADAPTER OUT` made a run copy of the whole app and put the room project under `collection_rooms/` with its paths adapted. Run against this checkout it stops at line 47:
+`make_local_fullapp.py MAIN EXTENSION ADAPTER OUT` made a run copy of the whole app and put the room project under `modules/shell/collection_rooms/` with its paths adapted. Run against this checkout it stops at line 47:
 
 ```text
-FileExistsError: [Errno 17] File exists: '.../fullapp-attempt/collection_rooms'
+FileExistsError: [Errno 17] File exists: '.../fullapp-attempt/modules/shell/collection_rooms'
 ```
 
-`collection_rooms/` is now tracked, so the archive it unpacks already contains it. Past that line it would also fail on `demo.gd` and `export_presets.cfg`, which it expects to patch and which are already patched (inferred from the script). It still works on its original inputs: against the `integrate-square-164` worktree at `317b8f3b` and the `main-build-extension-v49x` project it ran in 4.4 s and reported the same two changed tracked files it always did, `export_presets.cfg` and `modules/shell/demo.gd`.
+`modules/shell/collection_rooms/` is now tracked, so the archive it unpacks already contains it. Past that line it would also fail on `demo.gd` and `export_presets.cfg`, which it expects to patch and which are already patched (inferred from the script). It still works on its original inputs: against the `integrate-square-164` worktree at `317b8f3b` and the `main-build-extension-v49x` project it ran in 4.4 s and reported the same two changed tracked files it always did, `export_presets.cfg` and `modules/shell/demo.gd`.
 
 ### The relocation that does work here
 
-Only the part of that script that builds `collection_rooms/` is still needed. Save this beside `relocate_lightmap.gd` as `$TOOLS/relocate_rooms.py`. It is that part, unchanged in what it does:
+Only the part of that script that builds `modules/shell/collection_rooms/` is still needed. Save this beside `relocate_lightmap.gd` as `$TOOLS/relocate_rooms.py`. It is that part, unchanged in what it does:
 
 ```python
-"""Turn a baked room project into a collection_rooms/ folder with adapted res:// paths.
+"""Turn a baked room project into a modules/shell/collection_rooms/ folder with adapted res:// paths.
 
 Run: python3 relocate_rooms.py EXTENSION OUTPUT
   EXTENSION  baked output of prepare_main_build_extension.py (read only)
-  OUTPUT     new directory that becomes collection_rooms/; must not exist
+  OUTPUT     new directory that becomes modules/shell/collection_rooms/; must not exist
 
 Section 2 of make_local_fullapp.py without the full-app copy, for a tree that already
-tracks collection_rooms/. relocate_lightmap.gd must sit beside this file. Stdlib only.
+tracks modules/shell/collection_rooms/. relocate_lightmap.gd must sit beside this file. Stdlib only.
 """
 import hashlib
 import json
@@ -190,7 +190,7 @@ import sys
 
 extension, rooms = (Path(p).resolve() for p in sys.argv[1:3])
 sha = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
-move = lambda text: re.sub(r"res://(?!modules/)", "res://collection_rooms/", text)
+move = lambda text: re.sub(r"res://(?!modules/)", "res://modules/shell/collection_rooms/", text)
 scripts = sorted(p.name for p in extension.iterdir() if p.suffix in [".gd", ".tscn"])
 assert {"doorway_walk.gd", "remodel_room.gd", "retained_hall_room.gd", "remodel_room.tscn"} <= set(scripts)
 assert (extension / "addition_baked/room.lmbake").exists(), "Bake the room project first"
@@ -202,7 +202,7 @@ for folder in ["assets", "presentation", "textures", "addition_baked"]:
 # EXR atlases must keep their Texture2DArray importer, rather than the default Texture2D.
 for metadata in (extension / "addition_baked").glob("*.exr.import"):
     (rooms / "addition_baked" / metadata.name).write_text(
-        metadata.read_text().replace("res://addition_baked/", "res://collection_rooms/addition_baked/"))
+        metadata.read_text().replace("res://addition_baked/", "res://modules/shell/collection_rooms/addition_baked/"))
 # Godot serializes the binary lightmap as text; the headless dummy renderer would drop the probes.
 env = dict(os.environ, DISPLAY=":99", LIBGL_ALWAYS_SOFTWARE="1", GALLIUM_DRIVER="llvmpipe")
 subprocess.run(["godot", "--display-driver", "x11", "--rendering-method", "gl_compatibility",
@@ -216,11 +216,11 @@ path = rooms / "remodel_room.gd"
 path.write_text(path.read_text().replace("addition_baked/room.lmbake", "addition_baked/room.tres"))
 rewritten = {}
 for name in scripts:
-    moved, count = re.subn(r"res://(?!modules/)", "res://collection_rooms/", (rooms / name).read_text())
+    moved, count = re.subn(r"res://(?!modules/)", "res://modules/shell/collection_rooms/", (rooms / name).read_text())
     (rooms / name).write_text(moved)
     rewritten[name] = {"paths_moved": count, "source_sha256": sha(extension / name), "sha256": sha(rooms / name)}
-assert 'path="res://collection_rooms/retained_hall_room.gd"' in (rooms / "remodel_room.tscn").read_text()
-assert not re.search(r"res://(?!modules/|collection_rooms/)", "".join((rooms / n).read_text() for n in scripts))
+assert 'path="res://modules/shell/collection_rooms/retained_hall_room.gd"' in (rooms / "remodel_room.tscn").read_text()
+assert not re.search(r"res://(?!modules/|modules/shell/collection_rooms/)", "".join((rooms / n).read_text() for n in scripts))
 reference = json.loads((extension / "main-build-source.json").read_text())
 summary = {"main_build_tip": reference["source_tip"], "hall_files_unchanged": len(reference["source_sha256"]),
            "room_scripts": rewritten, "relocated_by": "relocate_rooms.py"}
@@ -229,7 +229,7 @@ print(json.dumps({k: v["paths_moved"] for k, v in rewritten.items()}))
 ```
 
 ```bash
-/usr/bin/python3 $TOOLS/relocate_rooms.py $EXT $T/collection_rooms         # 0.7 s
+/usr/bin/python3 $TOOLS/relocate_rooms.py $EXT $T/modules/shell/collection_rooms         # 0.7 s
 ```
 
 Expect `LIGHTMAP_TEXT_COPY_OK users=1358 probes=350` and a line of path counts (`remodel_room.gd` 103, `remodel_review.gd` 13, `remodel_presenter.gd` 5, and so on). The folder is 170 MB and holds 246 files.
@@ -241,7 +241,7 @@ I checked this script against the original on the same input (`main-build-extens
 **Not run in this checkout** (I was not allowed to edit tracked files). Run on a scratch copy of the tracked folder inside an app-only copy of HEAD, where it behaved as described:
 
 ```bash
-rsync -a --delete --exclude='*.import' --exclude='*.uid' $T/collection_rooms/ $CK/collection_rooms/   # 0.5 s
+rsync -a --delete --exclude='*.import' --exclude='*.uid' $T/modules/shell/collection_rooms/ $CK/modules/shell/collection_rooms/   # 0.5 s
 godot --headless --editor --import --path $CK                                                          # 22 to 41 s on the copy
 git -C $CK status --short collection_rooms
 ```
@@ -250,13 +250,13 @@ The two `--exclude`s keep the 195 tracked `.import` and `.uid` files, so resourc
 
 ### Which tracked files this step changes
 
-| Change you made | Files under `collection_rooms/` that differ afterwards |
+| Change you made | Files under `modules/shell/collection_rooms/` that differ afterwards |
 | --- | --- |
 | None (rebuild from unchanged sources) | `addition_baked/room.tscn` and `addition_baked/room.tres`, in Godot's random ids only (1,598 and 2 lines), and `main-build-adapter.json`. The other 242 files are byte-identical. |
 | The three worked examples together | Those three, plus `addition_baked/room.exr`, `geometry.json` and `remodel_room.gd`. |
-| Any | Nothing outside `collection_rooms/`, apart from the source files you edited yourself in `$SRC` or `image-work/collection-room-remodel/`. `demo.gd`, `export_presets.cfg` and `project.godot` are not touched again. |
+| Any | Nothing outside `modules/shell/collection_rooms/`, apart from the source files you edited yourself in `$SRC` or `image-work/collection-room-remodel/`. `demo.gd`, `export_presets.cfg` and `project.godot` are not touched again. |
 
-Do not create `collection_rooms/evidence/` in the repo. The room script writes two proof files there on every native run if the folder exists.
+Do not create `modules/shell/collection_rooms/evidence/` in the repo. The room script writes two proof files there on every native run if the folder exists.
 
 Add a line for the new bake to `modules/shell/PROVENANCE.md` (source commit, `room.exr` hash, cost 0), as the project rules ask for generated visual files.
 
@@ -286,7 +286,7 @@ $SW godot --path . --display-driver x11 --rendering-driver opengl3 \
 
 Both checks passed three ways: in this checkout as it stood, in an isolated copy of HEAD with the tracked rooms, and in the same copy with the regenerated rooms.
 
-`scripts/check.sh` **fails on this tree** (exit 1, 12 s), independent of any rebuild: its seam check reports the four `collection_rooms/*.gd` files that preload `res://modules/shell/prototype/gallery_walk4/painting_asset.gd`. Its Godot step is clean. That needs its own decision; see the follow-ups.
+`scripts/check.sh` **fails on this tree** (exit 1, 12 s), independent of any rebuild: its seam check reports the four `modules/shell/collection_rooms/*.gd` files that preload `res://modules/shell/prototype/gallery_walk4/painting_asset.gd`. Its Godot step is clean. That needs its own decision; see the follow-ups.
 
 ## 7. Worked examples
 
@@ -379,7 +379,7 @@ Another copy of a catalogue object is a data edit instead (**not run**): add a r
 
 ## 8. Map of `remodel_room.gd`
 
-It extends `doorway_walk.gd` (the visitor, the camera, the floor collision from `geometry.json`, the walking self-check). `retained_hall_room.gd` extends it in turn and replaces two functions. Line numbers are for `$SRC/remodel_room.gd` at `32d3ba8c`; the copy in `collection_rooms/` has the same line numbers.
+It extends `doorway_walk.gd` (the visitor, the camera, the floor collision from `geometry.json`, the walking self-check). `retained_hall_room.gd` extends it in turn and replaces two functions. Line numbers are for `$SRC/remodel_room.gd` at `32d3ba8c`; the copy in `modules/shell/collection_rooms/` has the same line numbers.
 
 ### Main functions
 
@@ -452,7 +452,7 @@ Marked **seen** when it happened in this run, **recorded** when it comes from a 
 ### Tools
 
 1. **Seen.** The pipeline's helper scripts are tracked under `docs/evidence/collection-reconstruction/` but this checkout's sparse checkout hides that folder. Use `git show HEAD:<path>`.
-2. **Seen.** `make_local_fullapp.py` stops with `FileExistsError` on any tree that tracks `collection_rooms/`. Use the relocation in step 4.
+2. **Seen.** `make_local_fullapp.py` stops with `FileExistsError` on any tree that tracks `modules/shell/collection_rooms/`. Use the relocation in step 4.
 3. **Seen.** `remodel_review.gd` fails its ceiling assertion and then never exits. Use `timeout`.
 4. **Seen.** The walking self-check exits 1 because of four out-of-date trials. Its first trial always starts from `start`, not from its own start point, so a shortened trial list fails its first entry.
 5. **Seen.** `prepare_main_build_reference.py` refuses to run while the Hall folder has uncommitted tracked changes (`Main Hall has uncommitted tracked changes`). Another session edited `gallery_walk4/walk4.gd` in this checkout during this run; the snapshot here was taken before that, and the script refused afterwards.
@@ -468,14 +468,14 @@ Marked **seen** when it happened in this run, **recorded** when it comes from a 
 ### Probes and the app
 
 1. **Seen.** With `--headless` the probe count reads 0. `relocate_lightmap.gd` refuses to convert and `main_build_check.gd` fails. Both need a real renderer; software GL is enough.
-2. **Seen.** Every native run prints 157 `invalid UID ... using text path instead` warnings for `collection_rooms/addition_baked/room.tscn`. The ids were issued in the room project; the text paths are right. Harmless.
+2. **Seen.** Every native run prints 157 `invalid UID ... using text path instead` warnings for `modules/shell/collection_rooms/addition_baked/room.tscn`. The ids were issued in the room project; the text paths are right. Harmless.
 3. **Recorded.** On export, converting text resources to binary dropped the baked probes. `project.godot` now sets `export/convert_text_resources_to_binary=false`; keep it.
 4. **Recorded.** In a packed app `res://` is read-only, and two proof-file writes in `remodel_room.gd` crashed the room build. They are now guarded with `if file!=null:` (lines 1553 and 1645). Any new write to `res://` in a room script needs the same guard.
 5. **Recorded.** The room scene must build at the origin and be moved afterwards. Its floor test uses fixed Hall coordinates; positioning it before `_ready` empties the wrong floors.
 
 ### Checks and the machine
 
-1. **Seen.** `scripts/check.sh` fails on the seam check for `collection_rooms/`.
+1. **Seen.** `scripts/check.sh` fails on the seam check for `modules/shell/collection_rooms/`.
 2. **Seen.** `click_route_check.gd` takes its output directory as a plain argument. Passing `--out-dir=...` to a script that expects a plain one creates a folder literally named `--out-dir=` in the checkout; one is there now from an earlier run of another check.
 3. **Inferred.** Native runs of the main project need `--rendering-driver opengl3`, because `project.godot` names no renderer. Every run here passed it.
 4. **Seen.** Disk. One room project plus one app copy is about 1.7 GB. The ingestion directory already holds 111 earlier projects (`lowpoly-room-*`, `main-build-extension-v49*`, `main-build-rooms-v50*`) and was 72 GB in all at the start of this run. Delete your trial when you are done.
@@ -485,7 +485,7 @@ Marked **seen** when it happened in this run, **recorded** when it comes from a 
 
 ### Is the regenerated folder equivalent to the tracked one?
 
-Yes. Compared with `collection_rooms/` at `32d3ba8c`:
+Yes. Compared with `modules/shell/collection_rooms/` at `32d3ba8c`:
 
 | Comparison | Result |
 | --- | --- |
@@ -531,5 +531,5 @@ One rebuild from an edit to a verified folder, without the walking self-check an
 1. Put `relocate_rooms.py` and `relocate_lightmap.gd` next to the other generation scripts, so step 4 does not depend on a code block in this page.
 2. Fix the ceiling assertion in `remodel_review.gd` (the two lines in section 3) and make the script quit when an assertion fails.
 3. Bring the four out-of-date walk trials and the loop route in `prepare_remodel.py` in line with the portal guards and the Renaissance east case.
-4. Decide how `collection_rooms/` should pass the seam check in `scripts/check.sh`, which fails today.
+4. Decide how `modules/shell/collection_rooms/` should pass the seam check in `scripts/check.sh`, which fails today.
 5. Give the fourteen unmarked paintings a `catalogue_accession`, if artworks in the added rooms are going to be found by metadata.
