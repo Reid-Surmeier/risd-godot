@@ -1,0 +1,759 @@
+{
+  "date_utc": "2026-10-01",
+  "scope": "Remaining five full 2fps surveys; lower-bound inventories and filmed connections only. Collection prototype; no Viewer changes.",
+  "reviewed_frames": 1615,
+  "source_surveys": {
+    "IMG_6380": {
+      "video": "IMG_6380.MOV",
+      "frames": 521,
+      "fps": 2,
+      "reviewed": true,
+      "sheets": {
+        "IMG_6380-001-024.jpg": "d6531aae85016e6b740fd0c3326ee5f28a97c869a3c0c39cbc0478ad02595b87",
+        "IMG_6380-025-048.jpg": "c66efe5d506893fcbce2f745b111e26cf953f5534015bd1df8d1a1c18a9ca7c5",
+        "IMG_6380-049-072.jpg": "2711bfefca811045450342f6d8d7e22881bf97d3ba75628a24b075a5720d3bd1",
+        "IMG_6380-073-096.jpg": "c943bfb7fea0cac5e9a46b9ec9f931cad8243cdf87439b2bd3c4ef906224c59f",
+        "IMG_6380-097-120.jpg": "06cbdab5a41e81ec38daee3d074bf37dcce930f24c1210a232daddce1433ed5b",
+        "IMG_6380-121-144.jpg": "49485ec8b1979ff807c1b34ca67770e3274955f19b7b171f7a0bfbd42012e5b4",
+        "IMG_6380-145-168.jpg": "57f914e14c42c278f39b0f13ad629e5de6c883f34d2cf1322973786ba2f86d81",
+        "IMG_6380-169-192.jpg": "b7a627c227c8429350fe39805f941b218813fac8229fd2cbf49ca5b7b27e4533",
+        "IMG_6380-193-216.jpg": "81cf0e93e22a38e10fa1dc848ddcdce8fa866a1dbac0762620dc0c29bb1849bb",
+        "IMG_6380-217-240.jpg": "893bf5b4e366a4d881ec2d1fbebeb5c09dc93079e82abcf9c66b1066424f8fbd",
+        "IMG_6380-241-264.jpg": "3478a9fc6c66995900e5ae51e38daad485a91d75165aad83ed0cecbbc222b135",
+        "IMG_6380-265-288.jpg": "ced825bddfef891e2b3780e5a75b25d093a9658d0778494668f3f3f1dcd5a57d",
+        "IMG_6380-289-312.jpg": "39289ca27f0997747340dbc6dea8ecdf49cf2c066368e28a48a7fbce94d28aca",
+        "IMG_6380-313-336.jpg": "c255dcf9c8c20dee578e3d6671c2ec1b521df022e18b12264180b41060f7488d",
+        "IMG_6380-337-360.jpg": "5b099871c4173e801ffed245684e557b635f3b88de13d1ec054a9390d2286f01",
+        "IMG_6380-361-384.jpg": "6fc203afd9641295eb31e9bb9329c268336f531a89a0eedf95ec0d033e14fe32",
+        "IMG_6380-385-408.jpg": "84c58bac5ade9437eeed752a08b5aebf3918f8d5f8e9b456514a73b4a2eedb6f",
+        "IMG_6380-409-432.jpg": "66e0a2e1138afffe4e7c9b0d97f2fa326bd75845ad8027439c31ec55fa785e15",
+        "IMG_6380-433-456.jpg": "17153527208374175efb60f98a140358907d8025f8955060602cd59360e72159",
+        "IMG_6380-457-480.jpg": "2f5d40fd203087748e9ea9bb3793f6e352969113c0b3620ccab85a7d4ff479c5",
+        "IMG_6380-481-504.jpg": "3f6d371e96d1fe30d49519858f1d73a9ab2c68bff6e504a6b12332ddde548a4d",
+        "IMG_6380-505-521.jpg": "3a6f67b83e7ea41e0d2c872ea52f7e8065ddf07d8026c2730e228ae334005272"
+      },
+      "reviewed_at_utc": "2026-10-01T03:05:00Z",
+      "sampling_note": "Every extracted 2fps frame visually inspected; not every native video frame"
+    },
+    "IMG_6381": {
+      "video": "IMG_6381.MOV",
+      "frames": 198,
+      "fps": 2,
+      "reviewed": true,
+      "sheets": {
+        "IMG_6381-001-024.jpg": "855ff1bcaacba47565bdfbb87699b9ea7a2a7cc62614833b617ab439e3410628",
+        "IMG_6381-025-048.jpg": "d2795c60262beb8245ce1afac6065a5dd1f950d2c0a52ee34d15ea7cd7cb0aa6",
+        "IMG_6381-049-072.jpg": "8cb0f60dda257402951a9bb78da886de2b22bf97069c0d6f9f3ad4b06eb4af7f",
+        "IMG_6381-073-096.jpg": "c2df6b7c8385c73958ea2ba32fd6ff30a32929c67d15a1ce4eda76a9c05ad218",
+        "IMG_6381-097-120.jpg": "cdd225970420cee7827a24e30c14dee6f77d8af6986878608a24e8697e6402c6",
+        "IMG_6381-121-144.jpg": "b3bd04f2cb70a81828349a67c40491892c505c733e6cf8d2f11016239b9e4cb0",
+        "IMG_6381-145-168.jpg": "a567012e3ffe11be33ebfa30723bfa4dc461ca1d758dbf85c0db8bd8cfa9e546",
+        "IMG_6381-169-192.jpg": "01e30fd6e44512f8e65bc0e769b3694e76e50ac7a4a57cda6143647b1b18dc5a",
+        "IMG_6381-193-198.jpg": "cd501cec3c4a985478b62ab9ad1bb3f48d87f30560ef890f4fc5ff2f3c2dd24c"
+      },
+      "reviewed_at_utc": "2026-10-01T03:05:00Z",
+      "sampling_note": "Every extracted 2fps frame visually inspected; not every native video frame"
+    },
+    "IMG_6387": {
+      "video": "IMG_6387.MOV",
+      "frames": 171,
+      "fps": 2,
+      "reviewed": true,
+      "sheets": {
+        "IMG_6387-001-024.jpg": "e9601fbcf3d1e5bcfb9bef76d7d24ff21803dd629c459d848ab0cf13e49668a2",
+        "IMG_6387-025-048.jpg": "70b68d4800f24fec292a090a74fb4d50576018e4231a75480829df6b1c740e95",
+        "IMG_6387-049-072.jpg": "59bcb37b6169e0c30339ab20f8a4a921be01a9c1959a68a1e5fd373deaabac3d",
+        "IMG_6387-073-096.jpg": "62332da5178c1b7cf539d154bbe8b1a65a56322a30836678d9780492aa47b74c",
+        "IMG_6387-097-120.jpg": "2985bba332afa0a1dec89369303cf01bc4744d0c5d8edf48d9124d84dc33beb5",
+        "IMG_6387-121-144.jpg": "070a47934169e6c1b1e09e5d1d47c830bfa923b10960e8320824fcf025add15c",
+        "IMG_6387-145-168.jpg": "27bba91b73b3c3b59fcb9310f32f0f5546f1e25a74da3be354b77ba45c8171c6",
+        "IMG_6387-169-171.jpg": "43bbc431f6e0e80c50866eee64940380b1af3eea33897b4dd0e1cf119051ad81"
+      },
+      "reviewed_at_utc": "2026-10-01T03:05:00Z",
+      "sampling_note": "Every extracted 2fps frame visually inspected; not every native video frame"
+    },
+    "IMG_6379": {
+      "video": "IMG_6379.MOV",
+      "frames": 365,
+      "fps": 2,
+      "reviewed": true,
+      "sheets": {
+        "IMG_6379-001-024.jpg": "b535b469e6f264fed907d70a2c40c9fdca052cc6627ba525c5931ee357ccfe8a",
+        "IMG_6379-025-048.jpg": "0e4324c10cf6d95d5e05cc6040c1917022f00520999e9ad0e46274172fa532fc",
+        "IMG_6379-049-072.jpg": "4a30e4e9c58598b393a058619466874f8e155ff9dc59c29fa70fb54f5e19de03",
+        "IMG_6379-073-096.jpg": "bc71180fa2ccc823d619266e1fac139f3f8f7f70a6dfd4f5b8bb70e44c23366d",
+        "IMG_6379-097-120.jpg": "7b6e227420afe29f414d5091c3e30a4c12fdae764d71c6e383510c03a6eab5ff",
+        "IMG_6379-121-144.jpg": "9229295e336b092ee393908ee6f05ea17fedbdd9b3af634ae35686600461b1f1",
+        "IMG_6379-145-168.jpg": "37ecfdec15e36c83528344d3cc02c9b203dcc1f3cdea0b306894bc088a4b8167",
+        "IMG_6379-169-192.jpg": "119e424e122845b704caf47a21ce94360eb6f7d4aff2d210281e6586924e800d",
+        "IMG_6379-193-216.jpg": "b88e8067e2d0cfa6c32d6770cb72d03830fef21fd0d2f9ec97f30a3fb434cca2",
+        "IMG_6379-217-240.jpg": "7c82f37cccc4edbc1821943adbcc2b4d163277f08e45bbaedc846b046ab77957",
+        "IMG_6379-241-264.jpg": "0f76c7906e5c16136ba43bf156457f946e5c869ba55dce13d582465c7006b51a",
+        "IMG_6379-265-288.jpg": "9853b8d1977788f185b23d594c902737921332809dc10d70b932ffb7d99367e6",
+        "IMG_6379-289-312.jpg": "41c0dd3a0cc2da354ff46fb98baa49d79311bfaa070b63752763fa7e60786fea",
+        "IMG_6379-313-336.jpg": "daa3aa44ed11eca4f6171828df637faf1bc8856bb6c5a9452caa1a32e644c68c",
+        "IMG_6379-337-360.jpg": "83b33e0813906e9a64e9c07b619a0611b68cd1d2c44251b08289623570b531e9",
+        "IMG_6379-361-365.jpg": "15b2fe3035be317ec5404b25daa39dfdf5711d2fcc23367bb1db8cc902c82e7f"
+      },
+      "reviewed_at_utc": "2026-10-01T03:05:00Z",
+      "sampling_note": "Every extracted 2fps frame visually inspected; not every native video frame"
+    },
+    "IMG_6378": {
+      "video": "IMG_6378.MOV",
+      "frames": 360,
+      "fps": 2,
+      "reviewed": true,
+      "sheets": {
+        "IMG_6378-001-024.jpg": "15b9aaa24e4bd1fb659ff4993ec2c1cb6b6584ed6e39dda1120e887aedafde22",
+        "IMG_6378-025-048.jpg": "2cbeac7e1eec35126a476400a8f3a299117ca1215ed312517c8b6163c2d79dd4",
+        "IMG_6378-049-072.jpg": "24138f530e133ba2c43cee3c549e77193b9c8cd3654f4b9b3cfabb9c79d6df83",
+        "IMG_6378-073-096.jpg": "212f64f8fcb0ab3bdf0e19ea2370291809b6450c939425614f069d8305073b31",
+        "IMG_6378-097-120.jpg": "cba16d74ff72a4421404bb7a396ed33cb5bf8e80553c7eff3c075c2bfd40c2c7",
+        "IMG_6378-121-144.jpg": "071e5a5d3e84c5db6bb931f8c09507a96e282a556d55fc860bae96379b33c5b8",
+        "IMG_6378-145-168.jpg": "3f96569010cdce6713f746e895687facca81f6cc87b6c98b2cd076a79dc4dedf",
+        "IMG_6378-169-192.jpg": "4379af40d511b254d4cd726400884ebad1f247a7028af526249656991d0e16ba",
+        "IMG_6378-193-216.jpg": "891056f9fe7cc6e9db54047017422cd9653ead6d259a4f8a91e428a4b59f12a1",
+        "IMG_6378-217-240.jpg": "f6f52ca2c8146e3bc092078b80085dbb50737db206a5738bb7982dbe730f2f8b",
+        "IMG_6378-241-264.jpg": "18d9a58c0ee197e9d2d661b82053e7a4f89c4cb9003ce701e6f3e81abd4cca9b",
+        "IMG_6378-265-288.jpg": "572280d7825e22cc287ed550b87fcba23315ecc8abc630adc915b8fed7f3b7fa",
+        "IMG_6378-289-312.jpg": "592cd9d28184086aea1a61f6dc5b83241764b727c78c1c8973f6da301a2234d3",
+        "IMG_6378-313-336.jpg": "57138604b907d4d6c6d469acb3b9776220b632933556c7ce760e310b9f4f7316",
+        "IMG_6378-337-360.jpg": "c3f642d47837b13415ab87af49fe2b7b20c8b1b359ef073432659d43956174bc"
+      },
+      "reviewed_at_utc": "2026-10-01T03:05:00Z",
+      "sampling_note": "Every extracted 2fps frame visually inspected; not every native video frame"
+    }
+  },
+  "metric_acceptance": false,
+  "connections": [
+    {
+      "from": "grey French gallery",
+      "to": "skylit piano stair hall upper landing",
+      "source": "6380:1-10,25-30;6379:325-365",
+      "observed": "Open double-panel door; piano hall lower level sign4 and ascending black stair visible"
+    },
+    {
+      "from": "grey French gallery",
+      "to": "historic marble stair/fireplace hall",
+      "source": "6380:55-63,88-101,159-168;6381:38-45",
+      "observed": "Two Ionic columns and entablature; curved ascending marble stair plus separate arched descending niche"
+    },
+    {
+      "from": "grey French gallery",
+      "to": "blue Grand Gallery",
+      "source": "6380:196-202",
+      "observed": "Large white double-panel doorway; grey gallery distinct from blue gallery"
+    },
+    {
+      "from": "grey French gallery",
+      "to": "purple elevator-5 connector",
+      "source": "6380:196-210,480-509",
+      "observed": "Perpendicular entry beside Grand Gallery corner; modern black panels opposite purple elevator5 wall"
+    },
+    {
+      "from": "purple connector",
+      "to": "Rockefeller",
+      "source": "6380:237-261,480-501",
+      "observed": "Opposite connector end; pale straight plank floor"
+    },
+    {
+      "from": "dark medieval room",
+      "to": "lion-relief stair landing",
+      "source": "6387:13-30;6382:155-159",
+      "observed": "Stair door opposite Gothic doorway; blue lion relief between medieval and modern-gallery doors"
+    },
+    {
+      "from": "lion-relief stair landing",
+      "to": "modern painting gallery",
+      "source": "6387:92-102,165-171",
+      "observed": "Separate modern-gallery door immediately left of lion; opposite Medieval door. Initial white sculptural-gallery door at6387:3-11,73-80 is a third distinct doorway."
+    },
+    {
+      "from": "modern painting gallery",
+      "to": "adjoining light gallery, threshold only",
+      "source": "6387:121-138",
+      "observed": "Deeper opening in window wall; adjoining room not surveyed"
+    },
+    {
+      "from": "historic marble stair upper landing",
+      "to": "warm case gallery and light case gallery, thresholds only",
+      "source": "6381:73-85,123-132",
+      "observed": "Two doors on perpendicular walls; names and connection to other filmed rooms unresolved"
+    },
+    {
+      "from": "Metcalf Auditorium",
+      "to": "outside exit threshold only",
+      "source": "6378:337-360",
+      "observed": "Rear side ramp exit; outside room not surveyed"
+    },
+    {
+      "from": "lion-relief stair landing",
+      "to": "white ancient sculpture gallery, threshold only",
+      "source": "6387:3-11,73-80",
+      "observed": "Initial double door on wall perpendicular to lion. Round central display with several white busts/fragments, not the modern painting gallery; no interior survey."
+    }
+  ],
+  "unresolved_connections": [
+    "Do not merge historic marble/fireplace stair hall and skylit piano stair hall. Reciprocal wide views6380:29-36,73-80,196-210,493-501 put the Ionic opening ahead of the purple corridor and piano door on the adjoining long wall; the earlier opposite-ends claim was too strong.",
+    "Lion-relief landing may be another level/side of the skylit stair hall, but continuity is not demonstrated by these videos.",
+    "Auditorium-to-museum route not filmed. Do not invent a connecting corridor."
+  ],
+  "rooms": {
+    "grey_French_gallery": {
+      "floor": "light oak herringbone",
+      "walls": "warm grey",
+      "groups": [
+        {
+          "id": "woodland-landscape",
+          "source_frames": "6380:1-10,25-30",
+          "observed": "Wooded landscape, ornate gold frame beside piano-stair door",
+          "status": "Installed with distinct Muse frame in v30; exact metric placement, relief and source fidelity unaccepted",
+          "catalogue_match": {
+            "id": "1539216",
+            "accession": "43.571",
+            "title": "Jura Landscape (Paysage de Jura)",
+            "url": "https://risdmuseum.org/art-design/collection/jura-landscape-paysage-de-jura-43571",
+            "dimensions": "59.7 x 73.3 cm (23 1/2 x 28 7/8 inches)",
+            "evidence": "6380:5 forest has same pale cliff, central slender trunks, pool atleft and dog atlower right",
+            "record_file": "inventory-catalogue/courbet-jura.json"
+          }
+        },
+        {
+          "id": "coach-landscape",
+          "source_frames": "6380:11-18",
+          "observed": "Coach/barn scene; purple connector left of it",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "small-dark-cloud-landscape",
+          "source_frames": "6380:43-46",
+          "observed": "Small dark landscape on long wall",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "overcast-open-landscape",
+          "source_frames": "6380:49-54",
+          "observed": "Larger overcast rural landscape",
+          "status": "Source/catalogue visual match; Muse frame and placement unfinished",
+          "catalogue_match": {
+            "id": "1538716",
+            "accession": "73.120",
+            "title": "Landscape",
+            "url": "https://risdmuseum.org/art-design/collection/landscape-73120",
+            "dimensions": "38.1 x 67.2 cm",
+            "evidence": "Native6380:25.25s artist label Charles Francois Daubigny; same left tree group, stream, yellow foreground flowers, rising right field, cattle and white birds as official image",
+            "record_file": "inventory-catalogue/daubigny-grey-landscape.json"
+          }
+        },
+        {
+          "id": "lake-landscape",
+          "source_frames": "6380:57-61",
+          "observed": "Small lake/shore landscape near Ionic stair opening",
+          "status": "Installed with distinct Muse frame in v30; exact metric placement, relief and source fidelity unaccepted",
+          "catalogue_match": {
+            "id": "1504341",
+            "accession": "24.089",
+            "title": "Banks of a River Dominated in the Distance by Hills",
+            "url": "https://risdmuseum.org/art-design/collection/banks-river-dominated-distance-hills-24089",
+            "dimensions": "31.9 x 46 x 3.8 cm (12 9/16 x 18 1/8 x 1 1/2 inches)",
+            "evidence": "6380:85 matches dark left bank, pale broad river, distant central tower and low grey hill",
+            "record_file": "inventory-catalogue/corot-river.json"
+          }
+        },
+        {
+          "id": "castle-on-hill",
+          "source_frames": "6380:172-177",
+          "observed": "Roman aqueduct ruins on a wooded hill; earlier castle description corrected by native label/official image",
+          "status": "Source/catalogue visual match; Muse frame and placement unfinished",
+          "catalogue_match": {
+            "id": "1538631",
+            "accession": "1998.35",
+            "title": "View of a Roman Aqueduct, near Tivoli",
+            "url": "https://risdmuseum.org/art-design/collection/view-roman-aqueduct-near-tivoli-199835",
+            "dimensions": "50.8 x 61 x 8.3 cm (frame; support not verified)",
+            "evidence": "Native6380:86.25s label Louis-Jules-Frederic Villeneuve; same central broken Roman arches, vegetation, left square tower, dark right hills and low right cattle as official image",
+            "record_file": "inventory-catalogue/villeneuve-aqueduct.json"
+          }
+        },
+        {
+          "id": "waterfall",
+          "source_frames": "6380:180-188",
+          "observed": "Tivoli: three waterfalls, cliff-top town, distant Roman bridge and pair of foreground figures",
+          "status": "Source/API visual match; authentic catalogue canvas and one Muse frame installed in v37. Exact metric placement/profile and frame fidelity unaccepted.",
+          "catalogue_match": {
+            "id": "1296426",
+            "accession": "56.214",
+            "title": "Tivoli",
+            "url": "https://risdmuseum.org/art-design/collection/tivoli-56214",
+            "dimensions": "48.9 x 65.1 cm (19 1/4 x 25 5/8 inches)",
+            "evidence": "Native6380 90.25/91.25s match three stepped left falls, distant narrow bridge, two right-side trees and two lower-right figures; label Jean-Victor Bertin agrees. Official first zoom inspected.",
+            "record_file": "inventory-catalogue/bertin-tivoli.json"
+          }
+        },
+        {
+          "id": "colosseum",
+          "source_frames": "6380:190-195",
+          "observed": "Roman Colosseum/oval ruin",
+          "status": "Source/catalogue visual match; asset generation and room placement unfinished",
+          "catalogue_match": {
+            "id": "1539351",
+            "accession": "56.094",
+            "title": "The Colosseum",
+            "url": "https://risdmuseum.org/art-design/collection/colosseum-56094",
+            "dimensions": "41.3 x 74.6 cm (16 1/4 x 29 3/8 inches)",
+            "evidence": "6380:190-195 same curved amphitheatre and broken right wall, scattered foreground figures/cattle and tree at far right; official first zoom visually inspected",
+            "record_file": "inventory-catalogue/pannini-colosseum.json"
+          }
+        },
+        {
+          "id": "small-corner-landscape",
+          "source_frames": "6380:196-202",
+          "observed": "Small landscape on pier beside Grand Gallery/purple entrances",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "central-white-sculpture",
+          "source_frames": "6380:73-80,480-501",
+          "observed": "Rodin The Hand of God23.005: tall rough marble rock held by giant hand, observed rear/side above separate rectangular plinth; preliminary seated-female description was wrong",
+          "status": "Source/catalogue visual match; asset generation and room placement unfinished",
+          "catalogue_match": {
+            "id": "1558021",
+            "accession": "23.005",
+            "title": "The Hand of God",
+            "url": "https://risdmuseum.org/art-design/collection/hand-god-23005",
+            "dimensions": "100.3 x 82.6 x 68 cm (39 1/2 x 32 1/2 x 26 3/4 inches)",
+            "evidence": "6380:75 viewed from rear/side, massive rough central rock and hand fingers matching official rear photograph",
+            "record_file": "inventory-catalogue/rodin-hand-god.json"
+          }
+        }
+      ],
+      "architecture": "Wide Ionic opening across the grey room from the purple connector, piano-stair door on an adjoining wall, Grand Gallery door on a perpendicular wall beside the purple connector. Warm-grey herringbone room; all extents provisional. Source6380:29-36,73-80,196-210,493-501."
+    },
+    "historic_marble_stairs": {
+      "groups": [
+        {
+          "id": "mirrored-bronze-fireplace",
+          "source_frames": "6380:103-133;6381:1-16",
+          "observed": "Green curved firebox, paired winged bearded supports, crowned foliage and tall mirror",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "curved-marble-stair",
+          "source_frames": "6381:1-37,133-198",
+          "observed": "Straight lower flight and curved winders; ornate iron balusters, wood rail, rounded newel",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "arched-triple-window",
+          "source_frames": "6381:17-37,46-60",
+          "observed": "Tall arched triple window with engaged side columns and radiator grille",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "glass-chandelier",
+          "source_frames": "6381:61-66,86-120",
+          "observed": "Black/blue centre with curved white glass arms, high above landing",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "descending-niche",
+          "source_frames": "6380:145-156",
+          "observed": "Separate arched side niche right of fireplace; dark descending winders and rectangular sash window",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        }
+      ],
+      "architecture": "Upper bridge looks down through Ionic columns into grey gallery; two case-gallery thresholds above"
+    },
+    "skylit_piano_stairs": {
+      "groups": [
+        {
+          "id": "grand-piano-and-stool",
+          "source_frames": "6379:1-12",
+          "observed": "Black grand piano and button-upholstered black bench",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "brown-monochrome",
+          "source_frames": "6379:25-42",
+          "observed": "Large plain brown rectangular work above piano end",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "teal-polygon",
+          "source_frames": "6379:25-42",
+          "observed": "Large pale teal polygon near adjacent corner; precise side count/identity unresolved",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "white-wavy-relief",
+          "source_frames": "6379:25-42",
+          "observed": "Intertwined white outlined square relief above lower EXIT door",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "yellow-teal-abstract",
+          "source_frames": "6379:25-42",
+          "observed": "Yellow lower/teal upper densely marked abstract painting",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "white-grid-relief",
+          "source_frames": "6379:25-42",
+          "observed": "White geometric grid square with green rim near upper stair",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        }
+      ],
+      "architecture": "Two skylights, dentil cornice, black upward bending stairs, iron balconies with wood handrail, elevator4, lower doors/ramp. Five distinct wall works, not previous four."
+    },
+    "lion_stair_landing": {
+      "groups": [
+        {
+          "id": "blue-brick-lion",
+          "source_frames": "6387:1-30,71-91",
+          "observed": "Long blue/gold brick lion relief between modern and medieval doorways",
+          "status": "Original museum front installed; Muse generated front rejected for aspect/damage; inferred side/back and slab depth unaccepted",
+          "catalogue_match": {
+            "id": "1410181",
+            "accession": "34.652",
+            "title": "Panel with Striding Lion",
+            "url": "https://risdmuseum.org/art-design/collection/panel-striding-lion-34652",
+            "dimensions": "104.1 x 228.6 cm (41 x 90 inches)",
+            "evidence": "6387:23 matches left-facing lion, pale repaired rectangular brick patches, blue background and ochre bands",
+            "record_file": "inventory-catalogue/striding-lion.json"
+          }
+        },
+        {
+          "id": "folding-chair-rack",
+          "source_frames": "6387:13-30",
+          "observed": "Black stacked folding chairs on rack; temporary equipment",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        }
+      ],
+      "architecture": "Three distinct doors: dark medieval, modern painting gallery beside lion, and white ancient sculptural gallery on perpendicular wall. Diagonal block parquet floor, upper sign5, ascending grey/white flight, descending flights, black iron rails/wood handrail. Exact relationship to piano stairs unverified.",
+      "layout_v46": {
+        "geometry_installed_prototype": true,
+        "doors": 3,
+        "basket_weave_floor": true,
+        "floor_void": true,
+        "flights": 2,
+        "stair_curve_destinations_complete": false,
+        "metric_accepted": false,
+        "missing_objects": [
+          "striding-lion relief34.652",
+          "chair rack"
+        ],
+        "threshold_only": [
+          "white ancient sculpture room",
+          "modern adjoining light gallery"
+        ]
+      },
+      "layout_v47": {
+        "installed_world_position": [
+          16.07,
+          1.18,
+          33.15
+        ],
+        "lion_front_original": true,
+        "lion_brick_relief_complete": false,
+        "new_muse_plaster": true,
+        "vent_bracket_studies": true,
+        "metric_accepted": false,
+        "missing_objects": [
+          "chair rack"
+        ],
+        "landing_roof_complete": false
+      }
+    },
+    "modern_painting_gallery": {
+      "groups": [
+        {
+          "id": "large-figurative-painting",
+          "source_frames": "6387:92-102,153-164",
+          "observed": "Large crowded figurative composition, left of entry",
+          "status": "Original museum image installed with dedicated Muse frame; exact frame and placement unaccepted",
+          "catalogue_match": {
+            "accession": "1995.043",
+            "title": "Mountaineers Attacked by Bears",
+            "maker": "Henri Victor Gabriel Le Fauconnier",
+            "id": "1557106",
+            "dimensions_cm": [
+              239.6,
+              305.4,
+              4.4
+            ],
+            "record_file": "inventory-catalogue/fauconnier-mountaineers.json",
+            "evidence": "IMG_6387 native80.25s matched official photograph; original installed separately from Muse frame"
+          }
+        },
+        {
+          "id": "pumpkin-still-life",
+          "source_frames": "6387:139-150",
+          "observed": "Henri Matisse, The Green Pumpkin57.037; green ribbed pumpkin, white dish, red table and village behind",
+          "status": "Source/API/official-image identity matched; installed prototype, exact frame/placement unaccepted",
+          "retracted_match": {
+            "id": "1535181",
+            "accession": "41.012",
+            "title": "Still Life with Apples",
+            "url": "https://risdmuseum.org/art-design/collection/still-life-apples-41012",
+            "dimensions": "23.2 x 39.7 cm (9 1/8 x 15 5/8 inches)",
+            "evidence": "6387:147-150 matches six green/red apples, ochre tabletop and grey wall; preliminary pumpkin description corrected",
+            "record_file": "inventory-catalogue/cezanne-apples.json"
+          },
+          "catalogue_match": {
+            "id": "1539041",
+            "accession": "57.037",
+            "title": "The Green Pumpkin",
+            "maker": "Henri Matisse",
+            "url": "https://risdmuseum.org/art-design/collection/green-pumpkin-57037",
+            "dimensions": "80 x 64.5 cm (31 1/2 x 25 3/8 inches)",
+            "record_file": "inventory-catalogue/matisse-green-pumpkin.json",
+            "evidence": "6387:148-151 matches large single ribbed green pumpkin/red table/white dish/central window mullion/village;41.012 rejected"
+          }
+        },
+        {
+          "id": "blue-yellow-village",
+          "source_frames": "6387:139-150",
+          "observed": "Paul C\u00e9zanne, On the Banks of a River43.255; blue river, white/yellow houses, red roof at left, grey/ochre foreground",
+          "status": "Source/API/official-image identity matched; installed prototype, exact frame/placement unaccepted",
+          "catalogue_match": {
+            "id": "1538666",
+            "accession": "43.255",
+            "title": "On the Banks of a River (Au Bord d&#039;une Rivi\u00e8re)",
+            "maker": "Paul C\u00e9zanne",
+            "url": "https://risdmuseum.org/art-design/collection/banks-river-au-bord-dune-riviere-43255",
+            "dimensions": "61 x 73.7 cm (24 x 29 inches)",
+            "record_file": "inventory-catalogue/cezanne-banks-river.json",
+            "evidence": "6387:141-146 /native72.25 matches red-roof house at left, white yellow village/blue river/right foreground rail and ochre grey planes"
+          }
+        },
+        {
+          "id": "cubist-still-life",
+          "source_frames": "6387:103-120",
+          "observed": "Braque Still Life48.248: black bowl, patterned green/orange cloth and diagonal LEJOU newspaper; no guitar identity claim",
+          "status": "Source/API/official-image identity matched; installed prototype, exact frame/placement unaccepted",
+          "catalogue_match": {
+            "id": "1552326",
+            "accession": "48.248",
+            "title": "Still Life",
+            "url": "https://risdmuseum.org/art-design/collection/still-life-48248",
+            "dimensions": "46.4 x 72.1 cm (18 1/4 x 28 3/8 inches)",
+            "evidence": "6387:108-111 green/orange patterned ground, white LEJOU newspaper diagonal and black bowl match48.248",
+            "record_file": "inventory-catalogue/braque-still-life.json"
+          }
+        },
+        {
+          "id": "oval-cubist-portrait",
+          "source_frames": "6387:103-120",
+          "observed": "Jacques Villon, Head of a Woman70.058; vertical oval portrait within white square frame",
+          "status": "Source/API/official-image identity matched; installed prototype, exact frame/placement unaccepted",
+          "catalogue_match": {
+            "id": "1539421",
+            "accession": "70.058",
+            "title": "Head of a Woman",
+            "maker": "Jacques Villon",
+            "url": "https://risdmuseum.org/art-design/collection/head-woman-70058",
+            "dimensions": "54.8 x 46 cm (21 9/16 x 18 1/8 inches)",
+            "evidence": "6387:113 rotated clockwise matches black/red background, yellow-white-green forehead, blue face, salmon diagonal neck planes and vertical oval inside white square frame",
+            "record_file": "inventory-catalogue/villon-head-woman.json"
+          }
+        },
+        {
+          "id": "gold-figurine",
+          "source_frames": "6387:121-138",
+          "observed": "Gold stylized SEATED female figure with crossed/interlocking legs in glass case between windows; source129-133 corrects preliminary standing description",
+          "status": "Low-polygon closed sculpture and floor-standing case installed as trial; official dimensions checked; rear and pose/depth fidelity unaccepted",
+          "catalogue_match": {
+            "id": "1552686",
+            "accession": "67.089",
+            "title": "Seated Woman",
+            "maker": "Raymond Duchamp-Villon",
+            "url": "https://risdmuseum.org/art-design/collection/seated-woman-67089",
+            "dimensions": "71.1 x 20.3 x 24.1 cm (28 x 8 x 9 1/2 inches)",
+            "record_file": "inventory-catalogue/seated-woman-duchamp-villon.json",
+            "evidence": "Native6387:64.25/66.25s matches faceless tilted elongated head, diagonal crossed arm, interlocking raised knees, narrow rectangular seat/support and gold-wash rectangular base; official photographs0/1 inspected",
+            "native_complete": false
+          }
+        },
+        {
+          "id": "central-black-bench",
+          "source_frames": "6387:92-102",
+          "observed": "Central black bench",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        }
+      ],
+      "architecture": "Straight pale oak planks, light walls, three multi-pane windows with white blinds and radiator/vent bases; deeper doorway on window wall. Source97-102 clearly has straight boards, not herringbone.",
+      "wide_review_v45": {
+        "source_frames": [
+          93,
+          97,
+          101,
+          105,
+          109,
+          113,
+          117,
+          121,
+          125,
+          129,
+          133,
+          137,
+          145,
+          153,
+          161
+        ],
+        "observed": "Entry shares long wall with the large crowded figurative painting. Braque/oval portrait are on adjoining short wall; three blinded windows and seated gold sculpture occupy opposite long wall, with a deeper opening on that wall. Straight boards and central bench retained as source constraints.",
+        "geometry_built": false,
+        "metric_accepted": false,
+        "next": "Establish landing-side doorway sequence and build source-constrained room/objects; do not invent connector to piano stairs or auditorium."
+      },
+      "wide_review_v46": {
+        "source": "Native6387 46.25..84.25s; frame51.25 supplies the three-window reciprocal",
+        "geometry_built": true,
+        "metric_accepted": false,
+        "handedness_correction": "Entry and large painting west; three windows east; Braque/Villon on south wall beside entry; Matisse/C\u00e9zanne on north far wall. Initial authored reverse orientation corrected after native wide inspection.",
+        "catalogue_accessions_installed": [
+          "48.248",
+          "70.058",
+          "57.037",
+          "43.255"
+        ],
+        "retracted_candidate": "41.012; source148-151 shows one ribbed pumpkin, not six apples",
+        "missing_objects": [
+          "large crowded figurative painting",
+          "gold seated figure"
+        ],
+        "unaccepted": [
+          "exact room dimensions and object offsets",
+          "window construction/outside view",
+          "Villon white frame and Matisse reused frame",
+          "C\u00e9zanne fine frame ornament",
+          "modern painting spotlight pools too bright compared with source; lighting still needs refinement"
+        ]
+      },
+      "large_painting_v47": {
+        "accession": "1995.043",
+        "title": "Mountaineers Attacked by Bears",
+        "maker": "Henri Victor Gabriel Le Fauconnier",
+        "catalogue_id": "1557106",
+        "source_match_verified": true,
+        "installed": false,
+        "dimensions_cm": [
+          239.6,
+          305.4,
+          4.4
+        ],
+        "record_file": "inventory-catalogue/fauconnier-mountaineers.json"
+      },
+      "lighting_v47": "Four painting spots energy1.2,angle40; pools reduced in inspected bake, exact source intensity unaccepted",
+      "main_build_attachment_v50": {
+        "actual_main_tip": "317b8f3b8dac0f9811d396bcb0260c7187f93f11",
+        "native_fullapp_capture_passed": true,
+        "browser_verified": false,
+        "separate_addition_bake_complete": false,
+        "source_layout_correction_in_progress": true
+      }
+    },
+    "Metcalf_Auditorium": {
+      "official_source": "https://risdmuseum.org/rent-museum",
+      "official_photo": "https://risdmuseum.org/sites/default/files/styles/scaled_1324_w/public/2018-07/page_special%20event_auditorium.jpg?itok=Fve3N1Ji",
+      "identity": "Official photograph visually matches source wood stage, ceiling beams, fixed seat backs and side double doors; official capacity200 is not a counted source seat total",
+      "groups": [
+        {
+          "id": "fixed-seating",
+          "source_frames": "6378:1-24,80-96,123-132,207-240,310-330",
+          "observed": "Black upholstered seats, tan wood backs/armrests in tiered rows; actual count/row fit unfinished",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "lectern",
+          "source_frames": "6378:169-180",
+          "observed": "Wood lectern with side shelf, laptop, microphone, AV shelf and visible cables",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "stage-equipment",
+          "source_frames": "6378:193-204",
+          "observed": "Stacked blue/white chairs, wire chairs and equipment; temporary objects",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "two-blue-chairs",
+          "source_frames": "6378:145-158",
+          "observed": "Two upholstered blue shell chairs at stage-side steps",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "speakers",
+          "source_frames": "6378:64-78,241-253",
+          "observed": "Black angled wall speakers beside stage; upper rear equipment brackets",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "rear-benches",
+          "source_frames": "6378:283-317",
+          "observed": "Black slat benches along rear wall",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "projection-booth",
+          "source_frames": "6378:295-301",
+          "observed": "Wide dark booth window above rear benches; equipment visible",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        },
+        {
+          "id": "ramp-exit",
+          "source_frames": "6378:337-360",
+          "observed": "Rear side ramp/metal handrails, waste bin, sign post and exit doors",
+          "status": "source-inventoried; native asset/metric fit unfinished",
+          "catalogue_match": null
+        }
+      ],
+      "architecture": "Light wood acoustic panels with staggered horizontal seams; grey carpet under seating/ramp, raised wood stage and five visible side steps; white ceiling beams with linear LEDs/circular lamps, black stage track fixtures, two stage-side double doors and rear exits; no gallery connection filmed"
+    }
+  },
+  "Rockefeller_corrections": [
+    {
+      "source": "6380:277-281,387-408",
+      "correction": "Settee centred directly beneath Romany portrait, z=-4.7 instead of -5.2; absolute distances remain provisional"
+    },
+    {
+      "source": "6380:319-348",
+      "correction": "Gold service case solid ivory pedestal to floor; pink Worcester case retains suspended tray/four legs"
+    },
+    {
+      "source": "6380:367-384",
+      "remaining": "Four vertically stacked prints flanking gallery door still missing"
+    },
+    {
+      "source": "6380:264-286,387-408",
+      "remaining": "Brown textile and small stool identity/placement incomplete"
+    }
+  ],
+  "official_maps": {
+    "floor5": "https://risdmuseum.org/visitor-guide/floor-5",
+    "floor43": "https://risdmuseum.org/visitor-guide/floor-43",
+    "caution": "Primary diagrams dated2020, schematic not a measured current floor plan; support gross adjacency/level names only"
+  }
+}

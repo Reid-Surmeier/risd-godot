@@ -1,0 +1,52 @@
+{
+  "base_as_handed_over": {
+    "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "5ed87642bf940f5987d6e3d98479ba9df875d2b7709c9c276d233f7d7ed1a90e",
+    "modules/shell/prototype/collection_reconstruction/remodel_room.gd": "418bb7640268e89848b6ab55c14d087aa6816870a4103e7d0f4cedcc527c09c7",
+    "modules/shell/prototype/collection_reconstruction/remodel_review.gd": "7cb90ecb9bb9cf495e036f3c58f3c0bc8062acafd7d2d60a52dca221ea81073f",
+    "modules/shell/prototype/collection_reconstruction/remodel_bake.gd": "1679565165f1c4488fe7efbc20460cbf90e1d262a5422385b4bb1ac211d19095",
+    "modules/shell/prototype/collection_reconstruction/retained_hall_room.gd": "aaddae22e31781f35a95a0ab1991a2e15537d8cbd9a4c4afaf219012791e18b8",
+    "modules/shell/prototype/collection_reconstruction/seated_woman_asset.gd": "7b17a507fe6c68d7d6dd834a3669d1888f4fe2f587304d1e6f269ec4ce010fa7",
+    "image-work/collection-room-remodel/modern-frames-source-fit.json": "ae9ccb6f7b49689fab575ddc692c47ee9b0a58b5575458dad9f6a9401bf154e9",
+    "image-work/collection-room-remodel/trial/seated-woman-bronze-original.webp": "1de65113068b8523bf9f5b5ccdf231f47c93eaf481b9b0938d8bc14523983c9d"
+  },
+  "result": {
+    "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "6dc2379f71d3ddd43209921b9f5992af053394ab78c261b324216472fa1f0636",
+    "modules/shell/prototype/collection_reconstruction/remodel_room.gd": "7a2bb5c6cfc590892fc494b25f29e6044b817e8e966f73040ab070cc04ac0f1a",
+    "modules/shell/prototype/collection_reconstruction/remodel_review.gd": "da441da67ec019aa1f106f68d790d681b4631d0bbba98c51ebf46245f0693f87",
+    "modules/shell/prototype/collection_reconstruction/remodel_bake.gd": "8e38a4ae0c939746a9dad8e2cf6ff3f79f64b97cd5f6e491aae590d4437295f1"
+  },
+  "unchanged_from_base": {
+    "modules/shell/prototype/collection_reconstruction/retained_hall_room.gd": true,
+    "modules/shell/prototype/collection_reconstruction/seated_woman_asset.gd": true,
+    "image-work/collection-room-remodel/modern-frames-source-fit.json": true,
+    "image-work/collection-room-remodel/trial/seated-woman-bronze-original.webp": true
+  },
+  "root_copies_equal_base_at_check_time": {
+    "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": true,
+    "modules/shell/prototype/collection_reconstruction/remodel_room.gd": true,
+    "modules/shell/prototype/collection_reconstruction/remodel_review.gd": true,
+    "modules/shell/prototype/collection_reconstruction/remodel_bake.gd": true,
+    "modules/shell/prototype/collection_reconstruction/retained_hall_room.gd": true,
+    "modules/shell/prototype/collection_reconstruction/seated_woman_asset.gd": true,
+    "image-work/collection-room-remodel/modern-frames-source-fit.json": true,
+    "image-work/collection-room-remodel/trial/seated-woman-bronze-original.webp": true
+  },
+  "accepted_layout_patch_json": "d400879d43b762ae1505f094865ac10c5386cc689e8f5f3b94e016572121abf9",
+  "evidence": {
+    "REPORT.md": "78576465ed36205152d2747fd84eb9017efb97398addd858bdb9325124adf286",
+    "built-plan.png": "7874da0e9257d9740bdf26e4ae4a33390e67b33e90f10517b9cd29cc419c573d",
+    "built_plan.py": "86599e52adef709bbe470d6fedfae97a2957342bf59f3ebb0349cb95473ad03e",
+    "check.log": "44ad7d23f6beb4b83e50ca5584f9350493852c69d402581842d050d00defd616",
+    "check_modern.gd": "f3ace17810ff062cdf64abb9420d57ed1c55e1523ac937bd84254e4b40d8176e",
+    "checks.json": "f30dc8b7cfe1356f3fd6a8efe9fc79fe4ce72ec266a4b76c9bf1a823719e2772",
+    "emitted-geometry.json": "d59bdada01ef26efea6f9260a922d587520189e1a03fbb6311e2ac47072b78f3",
+    "modern-layout.patch": "7e7f8952b66019116a963f846d5e11d323dbef802cc94cfd2859649433e61970",
+    "negative-control-base-checks.json": "53443b1f2c0566ad092221be09f05f99044617d27220dd1d5e04276e7aff484a",
+    "negative-control-base.log": "24139321afb07d0c9d16c8bbe2a0d07cff900d11e5070e73f4b7dbe30d4669e4",
+    "negative-control-watchdog.log": "7b71c415863a1da79ec539e9e5d83d37a4afc67a8fec42249809ce52dda61048",
+    "parse-check.log": "e6898ff44f5a3f802d9d520903bde1efa6c5799a17704fe4286e1a8e00cec1eb",
+    "prepare-manifest.json": "e660ea1ff4dfd4ff136432f03579bad9879172d7c2afaba9ce920ae22f999ac7",
+    "repo-check.log": "d0be78dc77f7244cda934330b5fd72a54d6637abee301d0c2b2925cd36240c76",
+    "review-assertions-headless.log": "adae49439188dffc939389ce1543e6ef5f3db0da405c58e42d949a86d8440607"
+  }
+}

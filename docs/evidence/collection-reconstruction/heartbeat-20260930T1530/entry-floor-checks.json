@@ -1,0 +1,7 @@
+{
+  "exact_replay": true,
+  "completed_output_rejected": true,
+  "scratch_removed": true,
+  "mask_edge_and_camera_roundtrip_assertions": true,
+  "diagnostic_only": true
+}

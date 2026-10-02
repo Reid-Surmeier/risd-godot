@@ -1,0 +1,15 @@
+{
+  "point_ids": [
+    13116,
+    13515,
+    14326
+  ],
+  "training": [
+    "IMG_6380_exit6fps/000013.jpg",
+    "IMG_6380_exit6fps/000019.jpg"
+  ],
+  "reserved": [
+    "IMG_6380/000245.jpg"
+  ],
+  "reason": "First two threshold features source-reviewed in prior tick. Third14326 is an interior wood-floor feature in training views, away from cabinet/pedestal contact. Selected before reserved track lookup/projection. No floor/collision acceptance. Supplemental exploratory revisit at122s vs exit252s selected after primary missing-track result; no prediction inspected before this run."
+}

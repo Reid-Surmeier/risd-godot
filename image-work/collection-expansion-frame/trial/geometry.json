@@ -1,0 +1,19 @@
+{
+  "canvas_m": [
+    0.651,
+    0.541
+  ],
+  "margins_px": [
+    210,
+    212,
+    250,
+    211
+  ],
+  "texture_size": [
+    1487,
+    1264
+  ],
+  "depth_m": 0.09,
+  "canvas_inset_m": 0.035,
+  "depth_note": "Reused prototype depth; not a measured frame profile."
+}

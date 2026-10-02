@@ -1,0 +1,118 @@
+{
+ "root_helper": {
+  "file": "modules/shell/prototype/collection_reconstruction/seated_woman_asset.gd",
+  "sha256": "7b17a507fe6c68d7d6dd834a3669d1888f4fe2f587304d1e6f269ec4ce010fa7"
+ },
+ "review_folder": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001 (root checkout, read only)",
+ "review_files": {
+  "REPORT.md": "f0defbde431c0ab5a168845a60d93f6b1e80563104be9cfd03482a8f8a05121d",
+  "ROOT-REVIEW.md": "e76a998efed6eff65c15a9bfdcf9e7e91d64b42e5922bfe5e69bfa83568d5d1e",
+  "ledger.json": "0353c8554c8032660f631a4e2716d94124097a6ef6ab38c2c2cc1d8f56606203"
+ },
+ "official_photographs": [
+  {
+   "file": "photos/monstrance-40002-zoom-0.jpg",
+   "sha256": "f437e1b26415b360775812f17ea60ccd3ba4872d2b5a24d6f40a4844c6b702f3",
+   "url": "https://risdmuseum.cdn.picturepark.com/v/QOPG2qmQ/",
+   "asset_copyright": "public",
+   "verified": true
+  },
+  {
+   "file": "photos/monstrance-40002-zoom-1.jpg",
+   "sha256": "7cd319fedb5ccd067db5879f86421193399fd3fcfc2e000ffc072be782dc28a0",
+   "url": "https://risdmuseum.cdn.picturepark.com/v/pFpfX1Tv/",
+   "asset_copyright": "public",
+   "verified": true
+  },
+  {
+   "file": "photos/monstrance-40002-zoom-2.jpg",
+   "sha256": "2055f600cfbac7dd34c0bbf10cb6267944df252209cd16d72ff9877e76e02a35",
+   "url": "https://risdmuseum.cdn.picturepark.com/v/NAhcECEp/",
+   "asset_copyright": "public",
+   "verified": true
+  },
+  {
+   "file": "photos/communion-beaker-1992051-zoom-0.jpg",
+   "sha256": "d4b37b1f0121887f5be96eaef95cd609f1130c0a6f0ef4ac4f03a70e502f35f3",
+   "url": "https://risdmuseum.cdn.picturepark.com/v/3sx2rYpp/",
+   "asset_copyright": "public",
+   "verified": true
+  },
+  {
+   "file": "photos/pyx-30011-zoom-0.jpg",
+   "sha256": "386ac98cf29bdcd7e834b208f1558f771be833cf1a6cc1ef9217bd2f9fcce3cf",
+   "url": "https://risdmuseum.cdn.picturepark.com/v/jr0m77w5/",
+   "asset_copyright": "public",
+   "verified": true
+  },
+  {
+   "file": "photos/pyx-30011-zoom-1.jpg",
+   "sha256": "353908e75536c3c5173ea78d3b42f1e6cfb6959f3cb3babafb478a93a3c04152",
+   "url": "https://risdmuseum.cdn.picturepark.com/v/CeMt7sBa/",
+   "asset_copyright": "public",
+   "verified": true
+  },
+  {
+   "file": "photos/pax-52002-zoom-0.jpg",
+   "sha256": "2d83942deb9056ccac972f60e0454a15e9398945d7282a955d0bc69d2679aae6",
+   "url": "https://risdmuseum.cdn.picturepark.com/v/ktYRHnt9/",
+   "asset_copyright": "public",
+   "verified": true
+  },
+  {
+   "file": "photos/pax-52002-zoom-1.jpg",
+   "sha256": "98fce45d8fa3efdc3c87d5f86a41ba7533df96d294a0649466b8067d7da63d39",
+   "url": "https://risdmuseum.cdn.picturepark.com/v/csU5QYL4/",
+   "asset_copyright": "public",
+   "verified": true
+  }
+ ],
+ "catalogue_records": {
+  "monstrance 40.002": {
+   "file": "api/id-1443596.json",
+   "sha256": "c3830e404341e26ff6b70a2ad6e21d1a7b2d1a32c8d5b6d0dc6b4dece705a9ff"
+  },
+  "beaker 1992.051": {
+   "file": "api/id-1550551.json",
+   "sha256": "af55e8d1da53ff5bbc39081d86ff1710fae9eb622bfe3751f07d74fb35f5d91a"
+  },
+  "pyx 30.011": {
+   "file": "api/id-1230716.json",
+   "sha256": "04261762ab4151d6d3c897edff1f91c4314a2d2e3d27e05f8034c179ed40b717"
+  },
+  "pax 52.002": {
+   "file": "api/id-1211626.json",
+   "sha256": "f166a18939f6c61ae1f6a41917c0c64ba742daa7ad3fc53d560b7cc6062c3420"
+  }
+ },
+ "source_video": {
+  "file": "IMG_6382.MOV",
+  "sha256": "415467db2d2216363fbccb41801851180f48bbdb3304c95861f90f3f5767020e"
+ },
+ "source_frames": [
+  {
+   "file": "frames/IMG_6382-102.20.jpg",
+   "seconds": 102.2,
+   "decoded_png_sha256": "13ef283cbb4d2669250fac14109973ea3e1757897b33c421112d207b21e4aadc",
+   "viewing_copy_sha256": "e94180c9d498ad52cccb91f529d7e9685e1d3a4559c6c0d22420c294cf03dd3f"
+  },
+  {
+   "file": "frames/IMG_6382-103.70.jpg",
+   "seconds": 103.7,
+   "decoded_png_sha256": "de8ca12ce21459d582dfc5972b11f4078c52d2210a58bc547ed8432286534aae",
+   "viewing_copy_sha256": "0886b34f17db5ff36adc6350a38b11c81b458190bd93af28006f53ba400ed379"
+  },
+  {
+   "file": "frames/IMG_6382-105.70.jpg",
+   "seconds": 105.7,
+   "decoded_png_sha256": "494c0370dacc100435e7eb7c739a286d8f2c8a9b08cc8a639ae08e4ac4f2d03d",
+   "viewing_copy_sha256": "deef5226eb015f5d4044c88e6b7e0f7bf01abd397f3e170b424e5dd3e7a6a250"
+  },
+  {
+   "file": "frames/IMG_6382-107.30.jpg",
+   "seconds": 107.3,
+   "decoded_png_sha256": "13dd0afdac0532a3c90004f81f81ce48728dd20cb61223127929650ce20d7f8f",
+   "viewing_copy_sha256": "1f995e02c74b72dd835edb31971caafc853efa0600eb30ce062c1b2858906ef9"
+  }
+ ]
+}

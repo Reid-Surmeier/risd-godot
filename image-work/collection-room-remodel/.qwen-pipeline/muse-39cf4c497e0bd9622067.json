@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-39cf4c497e0bd9622067",
+  "summary": "Create ONE horizontal section of the exact white-painted museum baseboard shown at the bottom of the reference. Front orthographic view isolated on flat pure magenta #FF00FF. Reconstruct the simple straight raised upper lip, broad flat fascia and narrow lower foot of this real low-profile painted wood skirting. Low polygon game asset, warm off-white paint and restrained shallow flat facets. Straight parallel horizontal edges and generous magenta margins, no wall, no floor, no wood grain, no cracks, no elaborate crown carving, no text. One strip only; native geometry supplies its shallow stepped profile.\n",
+  "procedureId": "muse-39cf4c497e0bd9622067",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "architecture-references/baseboard-source.png",
+      "sha256": "ed47da8c0b971f7025da45bd7f5afb5752e0b38772ba8e61ec304e98180f8c11",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "baseboard-recipe.json",
+      "sha256": "39cf4c497e0bd962206719cabfd62cb6373e3354e5248819e08b64a72d99ab83"
+    },
+    {
+      "applicationPath": "baseboard-plan.json",
+      "sha256": "a2e01a25a67de0d00934ed5f0bed8d28c9bd2a9831241cb58f9273a47e7bd5dc"
+    },
+    {
+      "applicationPath": "baseboard-prompt.txt",
+      "sha256": "6d6aa1f799b998b486bf05279656c61e8ee38321d8aa0ab04a95997e79a634c3"
+    }
+  ]
+}

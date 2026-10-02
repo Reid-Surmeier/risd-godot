@@ -1,0 +1,30 @@
+{
+  "apostle-41045": {
+    "vertices": 162,
+    "triangles": 320,
+    "paired_opposite_edges": 480,
+    "positive_volume_m3": 0.026296893784431664,
+    "size_m": [
+      0.254,
+      0.864,
+      0.12
+    ],
+    "source_fidelity_accepted": false,
+    "mesh_source": "Prepared asset bytes consumed by native renderer; independent Python edge/winding/volume check",
+    "side_uv_constant": true
+  },
+  "apostle-41046": {
+    "vertices": 162,
+    "triangles": 320,
+    "paired_opposite_edges": 480,
+    "positive_volume_m3": 0.023174324643955822,
+    "size_m": [
+      0.267,
+      0.826,
+      0.12
+    ],
+    "source_fidelity_accepted": false,
+    "mesh_source": "Prepared asset bytes consumed by native renderer; independent Python edge/winding/volume check",
+    "side_uv_constant": true
+  }
+}

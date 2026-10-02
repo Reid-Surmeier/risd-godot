@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "ewe-lamb-001",
+      "prompt": "ewe-lamb-prompt.txt",
+      "promptSha256": "6b03ed1ecee0fcd89f638fb9d42ba12b7658345dac91f956709c27841cec9c90",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/ewe-lamb-selected-0.png",
+          "sha256": "b6ebdbc32d13aabfe5e986e7c39654c5da124a26d5c36895a3ff2a68634a6d7a"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "files": [
+    "000206-wood-mask.png",
+    "000244-wood-mask.png",
+    "000505-wood-mask.png"
+  ],
+  "stage": "Preliminary source inspection masks, before final selection was frozen. Use entry-floor-selection.json and *-entry-floor-matches.png for actual audited polygons.",
+  "accepted": false
+}

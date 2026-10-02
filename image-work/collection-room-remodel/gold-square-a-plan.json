@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "gold-square-a-001",
+      "prompt": "gold-square-a-prompt.txt",
+      "promptSha256": "3b6006f57e5e6c34219787eea709cd96dafe076a21cba4be7baa68d34af51f21",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/gold-square-a-selected-0.png",
+          "sha256": "eddd0471312a4c34b49a9cdec0ec3a6fef9a68f7b7db7c20e455e3a931e42396"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "attempts": [
+    {
+      "id": "bookcase-001",
+      "prompt": "bookcase-prompt.txt",
+      "promptSha256": "adf8afaea68e4195e56d6eea75ccf142eabc630fd71e3b8bd8f9b64ef2ea3fd5",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "references/bookcase-front.png",
+          "sha256": "03ad70ccdaefc8312dfd058be573e9552e8c49785dc79f21fa5bfa260b2f2009"
+        },
+        {
+          "path": "references/bookcase-oblique.png",
+          "sha256": "d66f5b0a5d887fb05268bc1d6531a18f64ffebb2deae0b6890e056e0ba537711"
+        },
+        {
+          "path": "references/main-hall-style.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe"
+        }
+      ]
+    }
+  ]
+}

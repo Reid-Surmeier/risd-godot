@@ -1,0 +1,4 @@
+Checkpoint commit775e59af succeeded.
+fatal: /home/reidsurmeier/risd-godot/.git/worktrees/homepage-prototype/index: index file smaller than expected
+fatal: failed to run repack
+Unrelated worktree was not modified.

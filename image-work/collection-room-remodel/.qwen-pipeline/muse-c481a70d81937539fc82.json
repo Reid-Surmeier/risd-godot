@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-c481a70d81937539fc82",
+  "summary": "Reference 1 is the official RISD photograph of porcelain Figure of a Shepherd, accession 2017.74.23. It is the sole authority for the design and pose. Generate ONE complete straight-on front view of this same small porcelain figurine isolated on flat pure magenta #FF00FF, full base, hat, hands and feet visible with generous magenta margin. Transform the photographic object into a clean low polygon game sculpture with large planar facets, readable restrained baked shading and softly painted ceramic colours. Preserve the pale green coat, black hat in raised right hand, white shirt, blue waist sash, cream trousers and brown floral base. Keep real pose and proportions; do not redesign the figure or add a staff. No wall, pedestal, floor, label or text. No cast shadow beyond silhouette. Single front view only, for UV mapping onto separately authored low polygon volume geometry.\n",
+  "procedureId": "muse-c481a70d81937539fc82",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/shepherd-catalogue.png",
+      "sha256": "494566a5190318c4fca48239c9d0e34e15db9c9a15c0fe52afb22100929b9a42",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "shepherd-recipe.json",
+      "sha256": "c481a70d81937539fc82ace8834944f851a53de372acf036ad70f34ee58252cb"
+    },
+    {
+      "applicationPath": "shepherd-plan.json",
+      "sha256": "8935700e029463c38b84885188f7eee2562d1e66f08ceb154c60bba227b675b6"
+    },
+    {
+      "applicationPath": "shepherd-prompt.txt",
+      "sha256": "4192b191e6a441f8e4ebc3741fdca260d2e2b3dae317ab5959e6371214e15df6"
+    }
+  ]
+}

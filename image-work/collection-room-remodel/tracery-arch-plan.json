@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "tracery-arch-001",
+      "prompt": "tracery-arch-prompt.txt",
+      "promptSha256": "9c8917cae02042d78c45cac1336abfed4452619cdd592b91968a85c8d3e23411",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/tracery-arch-selected-0.png",
+          "sha256": "f3f8db28143653a102316ad55da9e2cdee6db799a3a07b8f1f15224642546cfb"
+        },
+        {
+          "path": "inventory-references/tracery-arch-selected-1.png",
+          "sha256": "d674bb7f3ce509e9c17eebf41b0df11ab3ee00fbb37d91c3b5c65d4e12aa07c9"
+        }
+      ]
+    }
+  ]
+}

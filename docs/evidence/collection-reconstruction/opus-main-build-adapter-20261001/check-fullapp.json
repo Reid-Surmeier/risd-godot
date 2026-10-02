@@ -1,0 +1,1048 @@
+{
+  "adapter_state": {
+    "attached": true,
+    "blocks": 46,
+    "cutaway_bodies": 128,
+    "rooms": 12,
+    "space": "gallery"
+  },
+  "composition": {
+    "cameras": 1,
+    "environments": 1,
+    "lightmaps": 2
+  },
+  "cutaway": {
+    "bodies": 128,
+    "hidden_looking_north": 1,
+    "hidden_looking_south": 3
+  },
+  "failures": [],
+  "floor_clip": {
+    "added_floor_meshes": 1674,
+    "added_floor_meshes_inside_hall": 0,
+    "added_limits_world_z": [
+      "(-35.6, 9.4)"
+    ],
+    "hall": [
+      [
+        "Surface000",
+        "(-26.3, 0.0)"
+      ],
+      [
+        "Surface010",
+        "(0.0, 6.65)"
+      ]
+    ],
+    "outside": 0,
+    "rooms_without_floor": []
+  },
+  "hall": {
+    "baked_meshes": 139,
+    "hidden_stand_in": [
+      "Surface006",
+      "Surface007",
+      "Surface008",
+      "Surface009",
+      "Surface010"
+    ],
+    "paintings": 23,
+    "source_meshes": [
+      148,
+      148
+    ]
+  },
+  "hall_behaviour": {
+    "clamp_mismatches": 0,
+    "clamp_points": 11425,
+    "walk_drift_m": 0.0
+  },
+  "isolation": {
+    "added_lights": 2,
+    "ambient": 0.0
+  },
+  "loop": {
+    "complete": true,
+    "legs": [
+      {
+        "at": [
+          1.45,
+          -13.04
+        ],
+        "left_m": 0.04,
+        "leg": "hall",
+        "ok": true,
+        "space": "gallery"
+      },
+      {
+        "at": [
+          0.0,
+          -1.42
+        ],
+        "left_m": 0.017,
+        "leg": "hall arch end",
+        "ok": true,
+        "space": "gallery"
+      },
+      {
+        "at": [
+          0.0,
+          1.18
+        ],
+        "left_m": 0.017,
+        "leg": "stone passage",
+        "ok": true,
+        "space": "arch"
+      },
+      {
+        "at": [
+          0.0,
+          2.66
+        ],
+        "left_m": 0.037,
+        "leg": "medieval, portal mouth",
+        "ok": true,
+        "space": "arch"
+      },
+      {
+        "at": [
+          -2.32,
+          2.7
+        ],
+        "left_m": 0.03,
+        "leg": "medieval west",
+        "ok": true,
+        "space": "arch"
+      },
+      {
+        "at": [
+          -3.36,
+          3.63
+        ],
+        "left_m": 0.049,
+        "leg": "medieval at tracery",
+        "ok": true,
+        "space": "arch"
+      },
+      {
+        "at": [
+          -5.72,
+          3.66
+        ],
+        "left_m": 0.027,
+        "leg": "renaissance",
+        "ok": true,
+        "space": "arch"
+      },
+      {
+        "at": [
+          -5.75,
+          1.94
+        ],
+        "left_m": 0.045,
+        "leg": "renaissance south",
+        "ok": true,
+        "space": "arch"
+      },
+      {
+        "at": [
+          -8.03,
+          1.9
+        ],
+        "left_m": 0.021,
+        "leg": "renaissance at gallery door",
+        "ok": true,
+        "space": "arch"
+      },
+      {
+        "at": [
+          -8.05,
+          -1.38
+        ],
+        "left_m": 0.02,
+        "leg": "west gallery south",
+        "ok": true,
+        "space": "arch"
+      },
+      {
+        "at": [
+          -8.05,
+          -13.98
+        ],
+        "left_m": 0.02,
+        "leg": "west gallery middle",
+        "ok": true,
+        "space": "arch"
+      },
+      {
+        "at": [
+          -8.05,
+          -27.46
+        ],
+        "left_m": 0.04,
+        "leg": "west gallery north",
+        "ok": true,
+        "space": "arch"
+      },
+      {
+        "at": [
+          -8.05,
+          -29.26
+        ],
+        "left_m": 0.04,
+        "leg": "rockefeller",
+        "ok": true,
+        "space": "far"
+      },
+      {
+        "at": [
+          -6.77,
+          -30.08
+        ],
+        "left_m": 0.028,
+        "leg": "rockefeller at purple door",
+        "ok": true,
+        "space": "far"
+      },
+      {
+        "at": [
+          -3.01,
+          -30.1
+        ],
+        "left_m": 0.013,
+        "leg": "purple corridor",
+        "ok": true,
+        "space": "far"
+      },
+      {
+        "at": [
+          -0.01,
+          -30.1
+        ],
+        "left_m": 0.013,
+        "leg": "grey gallery",
+        "ok": true,
+        "space": "far"
+      },
+      {
+        "at": [
+          0.0,
+          -27.02
+        ],
+        "left_m": 0.02,
+        "leg": "grey gallery at Hall door",
+        "ok": true,
+        "space": "far"
+      },
+      {
+        "at": [
+          0.0,
+          -25.6
+        ],
+        "left_m": 0.4,
+        "leg": "through Hall door",
+        "ok": true,
+        "space": "gallery"
+      },
+      {
+        "at": [
+          0.0,
+          -23.04
+        ],
+        "left_m": 0.04,
+        "leg": "hall far end",
+        "ok": true,
+        "space": "gallery"
+      }
+    ]
+  },
+  "renderer": "",
+  "root_trials": {
+    "agree": 78,
+    "rows": [
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.02,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "gallery_door_out"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.02,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "gallery_door_back"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": true,
+        "left_m": 1.8,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "sofa_wall_blocked"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": true,
+        "left_m": 1.65,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "right_wall_blocked"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "decorative_room"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "adjacent_gallery"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.046,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "right_door_out"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.046,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "right_door_back"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": true,
+        "left_m": 0.98,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "central_display_blocked"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.02,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "far_gallery_door_out"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.02,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "far_gallery_door_back"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": true,
+        "left_m": 0.61,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "renaissance_left_leaf_blocked"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": true,
+        "left_m": 0.61,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "renaissance_right_leaf_blocked"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": true,
+        "left_m": 1.04,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "gold_service_base_blocked"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.02,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "purple_grey_out"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.02,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "purple_grey_back"
+      },
+      {
+        "agrees": false,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.15,
+        "start_space": "far",
+        "touches_hall": true,
+        "trial": "grey_grand_out"
+      },
+      {
+        "agrees": false,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.1,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "grey_grand_back"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "grey_piano_out"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "grey_piano_back"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.01,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "grey_ionic_out"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.01,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "grey_ionic_back"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.01,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "tracery_out"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.01,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "tracery_back"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.03,
+        "start_space": "arch",
+        "touches_hall": true,
+        "trial": "stone_portal_out"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.03,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "stone_portal_back"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.03,
+        "start_space": "arch",
+        "touches_hall": true,
+        "trial": "stairs_door_out"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.03,
+        "start_space": "arch",
+        "touches_hall": true,
+        "trial": "stairs_door_back"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": true,
+        "left_m": 0.6,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "renaissance_bench_blocked"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": true,
+        "left_m": 1.18,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "medieval_low_case_blocked"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": true,
+        "left_m": 1.11,
+        "start_space": "arch",
+        "touches_hall": true,
+        "trial": "medieval_tall_case_blocked"
+      },
+      {
+        "agrees": false,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 1.06,
+        "start_space": "arch",
+        "touches_hall": true,
+        "trial": "medieval_between_cases_clear"
+      },
+      {
+        "agrees": false,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 9.35,
+        "start_space": "arch",
+        "touches_hall": true,
+        "trial": "medieval_stairs_aisle_clear"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.05,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "hall_aisle_2.2"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "hall_aisle_5.2"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "hall_aisle_8.6"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "hall_aisle_12"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "hall_aisle_15.4"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "hall_aisle_18.8"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "hall_aisle_22.2"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "hall_aisle_25.6"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": true,
+        "left_m": 1.9,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "hall_bench_blocked"
+      },
+      {
+        "agrees": false,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.1,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "hall_back_to_grey"
+      },
+      {
+        "agrees": false,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.4,
+        "start_space": "far",
+        "touches_hall": true,
+        "trial": "hall_grey_return"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "loop_00"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "loop_01"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "loop_02"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "loop_03"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "loop_04"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "loop_05"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "loop_06"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "loop_07"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.02,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "loop_08"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.02,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "loop_09"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "loop_10"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.02,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "loop_11"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.045,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "loop_12"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.01,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "loop_13"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.03,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "loop_14"
+      },
+      {
+        "agrees": false,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 1.445,
+        "start_space": "arch",
+        "touches_hall": true,
+        "trial": "loop_15"
+      },
+      {
+        "agrees": false,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 5.35,
+        "start_space": "arch",
+        "touches_hall": true,
+        "trial": "loop_16"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.02,
+        "start_space": "arch",
+        "touches_hall": true,
+        "trial": "loop_17"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.01,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "loop_18"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "loop_19"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "loop_20"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "loop_21"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "loop_22"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "loop_23"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "loop_24"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "loop_25"
+      },
+      {
+        "agrees": true,
+        "end_space": "gallery",
+        "expects_blocked": false,
+        "left_m": 0.01,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "loop_26"
+      },
+      {
+        "agrees": false,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.1,
+        "start_space": "gallery",
+        "touches_hall": true,
+        "trial": "loop_27"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "loop_28"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.02,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "loop_29"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.03,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "loop_30"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.02,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "loop_31"
+      },
+      {
+        "agrees": true,
+        "end_space": "far",
+        "expects_blocked": false,
+        "left_m": 0.046,
+        "start_space": "far",
+        "touches_hall": false,
+        "trial": "loop_32"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": true,
+        "left_m": 0.55,
+        "start_space": "arch",
+        "touches_hall": true,
+        "trial": "iron_grille_blocks_visitor"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "arch",
+        "touches_hall": true,
+        "trial": "iron_grille_east_aisle_clear"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "landing_to_modern"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "modern_to_landing"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.01,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "landing_white_out"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.01,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "landing_white_back"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "modern_far_opening_out"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": false,
+        "left_m": 0.04,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "modern_far_opening_back"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": true,
+        "left_m": 2.13,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "modern_bench_blocked"
+      },
+      {
+        "agrees": true,
+        "end_space": "arch",
+        "expects_blocked": true,
+        "left_m": 1.0,
+        "start_space": "arch",
+        "touches_hall": false,
+        "trial": "landing_guard_blocked"
+      }
+    ],
+    "total": 87
+  }
+}

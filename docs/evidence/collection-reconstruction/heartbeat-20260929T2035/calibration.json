@@ -1,0 +1,19 @@
+{
+  "camera": 5,
+  "clip": "IMG_6380",
+  "old_params": [
+    588.9773577344112,
+    640.0,
+    360.0,
+    0.08111300537262699
+  ],
+  "new_params": [
+    594.3251305595769,
+    640.0,
+    360.0,
+    0.002137679000087821
+  ],
+  "source": "sfm-connected-v4/sparse/5",
+  "reason": "The main model estimates this video camera from two frames; the decorative model uses 225 frames. Freeze intrinsics for this bounded comparison.",
+  "caveat": "Not external camera calibration; validate geometry and held-out views."
+}

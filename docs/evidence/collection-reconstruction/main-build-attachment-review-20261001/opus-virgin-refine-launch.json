@@ -1,0 +1,85 @@
+{
+  "id": "cf04d785-aa32-4e69-936a-6ef58952f8ff",
+  "ok": true,
+  "result": {
+    "runId": "run_d82552b6d124",
+    "taskId": "task_603e8e6fbd8a",
+    "dispatchId": "ctx_40273cf6c9f2",
+    "state": "ready",
+    "stage": "input_accepted",
+    "turnStart": "observed",
+    "setup": {
+      "requested": "not_applicable",
+      "effective": "not_applicable",
+      "source": "existing_worktree",
+      "hookFound": false,
+      "startupPolicy": "start-immediately",
+      "state": "not_applicable"
+    },
+    "launch": {
+      "requested": {
+        "agent": null,
+        "model": null,
+        "effort": null
+      },
+      "effective": {
+        "agent": null,
+        "model": null,
+        "effort": null
+      }
+    },
+    "mode": {
+      "mode": "terminal",
+      "preferred": "terminal",
+      "reason": "user_default",
+      "detail": "Started a terminal agent worker, the default for new agent tabs in your settings."
+    },
+    "timeoutMs": 60000,
+    "effects": [
+      {
+        "kind": "worktree",
+        "action": "reused",
+        "id": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-seated-woman"
+      },
+      {
+        "kind": "setup",
+        "action": "not_applicable",
+        "state": "not_applicable"
+      },
+      {
+        "kind": "terminal",
+        "role": "agent",
+        "action": "reused",
+        "id": "term_22f34ca8-43a9-4a2c-9732-b2a8f6313d9a"
+      },
+      {
+        "kind": "dispatch_input",
+        "role": "agent",
+        "id": "term_22f34ca8-43a9-4a2c-9732-b2a8f6313d9a",
+        "state": "accepted"
+      }
+    ],
+    "prompt": {
+      "requestId": "9c9c935f-ff8e-4d0b-bb37-fdb6aa80ca68",
+      "stages": [
+        "input_accepted",
+        "turn_started"
+      ],
+      "provider": "claude",
+      "observation": "supported",
+      "processIncarnation": "6a963364-a4b9-49f5-9a5f-83b8972b4ac8",
+      "generation": 19,
+      "baselineWorkingSequence": 1,
+      "baselineExplicitWorkingStartedAt": null,
+      "baselinePermissionSequence": 0
+    },
+    "residualResources": [],
+    "mutation": {
+      "requestId": "9c9c935f-ff8e-4d0b-bb37-fdb6aa80ca68",
+      "replayed": false
+    }
+  },
+  "_meta": {
+    "runtimeId": "dbd51943-5aff-4aac-9ef7-31547ed940cd"
+  }
+}

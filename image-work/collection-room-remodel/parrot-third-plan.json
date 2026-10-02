@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "parrot-third-001",
+      "prompt": "parrot-third-prompt.txt",
+      "promptSha256": "6294562565099f81d2c3d01ebf69b7294c2e77edb62a0aa0176228083709511b",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/parrot-third-catalogue.png",
+          "sha256": "acf15d62e68d2c5902bba23bdd1bd495dfee85b95c780da2a9f559d69e5c9d44"
+        }
+      ]
+    }
+  ]
+}

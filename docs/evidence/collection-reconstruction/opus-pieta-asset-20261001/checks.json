@@ -1,0 +1,92 @@
+{
+  "closed_parts": 39,
+  "edge_pairs": 2433,
+  "failures": [],
+  "negative_control_open_base": false,
+  "part_names": [
+    "base",
+    "mantle back",
+    "mantle wing",
+    "mantle flap",
+    "mantle hem",
+    "mantle sleeve",
+    "skirt",
+    "chest",
+    "wimple",
+    "right sleeve",
+    "hood",
+    "hood cheek right",
+    "hood cheek left",
+    "hood brow",
+    "hood shadow",
+    "veil swag right",
+    "veil swag left",
+    "mary face",
+    "mary nose",
+    "mary hand",
+    "christ torso",
+    "christ neck",
+    "christ head",
+    "christ nose",
+    "hair cap",
+    "crown of thorns",
+    "hair behind",
+    "beard",
+    "hair fall",
+    "christ right arm",
+    "christ right hand",
+    "christ left arm",
+    "christ left hand",
+    "loincloth",
+    "loincloth tail",
+    "christ upper leg",
+    "christ upper foot",
+    "christ lower leg",
+    "christ lower foot"
+  ],
+  "parts_per_group": {
+    "base": 1,
+    "christ": 12,
+    "cloth": 2,
+    "dress": 3,
+    "hair": 5,
+    "mantle": 6,
+    "mary": 3,
+    "veil": 7
+  },
+  "photo_cm_span": [
+    34.8398132324219,
+    45.7000007629395,
+    13.1999998092651
+  ],
+  "photo_cm_to_catalogue_scale": [
+    1.0935765504837,
+    0.999999940395355,
+    1.0
+  ],
+  "placement_accepted": false,
+  "rear_fidelity_accepted": false,
+  "size_m": [
+    0.381000012159348,
+    0.456999987363815,
+    0.131999999284744
+  ],
+  "solid_volume_m3": 0.00880856239367252,
+  "survey_metres_accepted": false,
+  "thinnest_part_m": 0.00927430763840675,
+  "triangles": 1622,
+  "visual_fidelity_accepted": false,
+  "whole_room_complete": false,
+  "x_range_m": [
+    -0.190500006079674,
+    0.190500006079674
+  ],
+  "y_range_m": [
+    0.0,
+    0.456999987363815
+  ],
+  "z_range_m": [
+    -0.0659999996423721,
+    0.0659999996423721
+  ]
+}

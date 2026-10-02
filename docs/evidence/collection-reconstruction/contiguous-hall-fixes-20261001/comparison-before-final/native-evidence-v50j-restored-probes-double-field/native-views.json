@@ -1,0 +1,138 @@
+[
+	{
+		"cull_mask": 2071,
+		"name": "medieval-tallcase",
+		"position": [
+			3.20000004768372,
+			0.0,
+			2.90000009536743
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 42,
+			"cutaway_bodies": 124,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 2063,
+		"name": "medieval-lowcase",
+		"position": [
+			-0.100000001490116,
+			0.0,
+			4.59999990463257
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 42,
+			"cutaway_bodies": 124,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 2063,
+		"name": "hall",
+		"position": [
+			1.45000004768372,
+			0.0,
+			-13.0
+		],
+		"space": "gallery",
+		"state": {
+			"attached": true,
+			"blocks": 42,
+			"cutaway_bodies": 124,
+			"rooms": 12,
+			"space": "gallery"
+		}
+	},
+	{
+		"cull_mask": 2071,
+		"name": "medieval",
+		"position": [
+			0.0,
+			0.0,
+			3.0
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 42,
+			"cutaway_bodies": 124,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 2071,
+		"name": "modern-layout",
+		"position": [
+			7.30000019073486,
+			0.0,
+			-1.35000002384186
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 42,
+			"cutaway_bodies": 124,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 2071,
+		"name": "modern-case",
+		"position": [
+			9.80000019073486,
+			0.0,
+			-3.25
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 42,
+			"cutaway_bodies": 124,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 2071,
+		"name": "landing",
+		"position": [
+			8.60000038146973,
+			0.0,
+			3.59999990463257
+		],
+		"space": "arch",
+		"state": {
+			"attached": true,
+			"blocks": 42,
+			"cutaway_bodies": 124,
+			"rooms": 12,
+			"space": "arch"
+		}
+	},
+	{
+		"cull_mask": 5056,
+		"name": "grey",
+		"position": [
+			0.0,
+			0.0,
+			-30.1000003814697
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 42,
+			"cutaway_bodies": 124,
+			"rooms": 12,
+			"space": "far"
+		}
+	}
+]

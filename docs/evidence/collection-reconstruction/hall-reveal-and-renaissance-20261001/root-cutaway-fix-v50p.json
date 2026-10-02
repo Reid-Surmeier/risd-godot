@@ -1,0 +1,17 @@
+{
+  "source_revision": "frozen-root-sha256-v50p.json",
+  "fresh_fullapp": "main-build-rooms-v50p",
+  "addition_bake": "main-build-extension-v49q",
+  "positive_check_exit": 0,
+  "positive_failures": [],
+  "negative_original_v50o_exit": 1,
+  "negative_failures": [
+    "Hall reveal leaf missing from camera cutaway",
+    "Hall reveal leaf missing from camera cutaway"
+  ],
+  "native_reveal_views": 4,
+  "root_inspected_all_four": true,
+  "source_geometry_changed": false,
+  "lightmap_changed": false,
+  "independent_review": "pending"
+}

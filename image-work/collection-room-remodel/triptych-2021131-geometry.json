@@ -1,0 +1,195 @@
+{
+  "utc": "2026-10-01T18:50:43.310115+00:00",
+  "accession": "2021.131",
+  "catalogue_url": "https://risdmuseum.org/art-design/collection/madonna-enthroned-saints-and-angels-2021131",
+  "catalogue_height_width_m": [
+    0.67,
+    0.725
+  ],
+  "source_photograph_sha256": {
+    "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/madonna-enthroned-saints-and-angels-2021131-zoom-0.jpg": "57fa52dc3b7a79daec3cead7718a07f185c7a8aed4e9358ab0eea40dfe3f5000",
+    "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/madonna-enthroned-saints-and-angels-2021131-zoom-1.jpg": "0c941cf1b77cfcd4506a54779d5d24e6f4508fbf5112819e0c2486d0000241ec"
+  },
+  "source_video": "verified/IMG_6383.MOV",
+  "source_seconds": [
+    30.2,
+    63.9,
+    71.9
+  ],
+  "source_rear_observed": true,
+  "depth_m_provisional": 0.018,
+  "side_angle_radians_provisional": 0.2,
+  "panel_proportions_accepted": false,
+  "placement_accepted": false,
+  "fine_frame_fidelity_accepted": false,
+  "paid_calls": 0,
+  "panels": [
+    {
+      "id": "left",
+      "size_m": [
+        0.16674265450861195,
+        0.6258847736625515
+      ],
+      "centre_x_m": -0.27912867274569403,
+      "base_y_m": 0.002757201646090535,
+      "outline": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.9889867841409692
+        ],
+        [
+          0.9911894273127754,
+          0.33370044052863435
+        ],
+        [
+          0.04405286343612335,
+          0.0
+        ]
+      ],
+      "front": "triptych-2021131-left-front.png",
+      "back": "triptych-2021131-left-back.png",
+      "source_polygon_px": [
+        [
+          168,
+          1030
+        ],
+        [
+          395,
+          1020
+        ],
+        [
+          393,
+          425
+        ],
+        [
+          178,
+          122
+        ]
+      ],
+      "rear_crop_px": [
+        931,
+        140,
+        1118,
+        1030
+      ]
+    },
+    {
+      "id": "centre",
+      "size_m": [
+        0.3768237082066869,
+        0.6603497942386831
+      ],
+      "centre_x_m": -0.0066109422492401215,
+      "base_y_m": 0.009650205761316873,
+      "outline": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.38100208768267224
+        ],
+        [
+          0.49707602339181284,
+          0.0
+        ],
+        [
+          0.0,
+          0.38100208768267224
+        ]
+      ],
+      "front": "triptych-2021131-centre-front.png",
+      "back": "triptych-2021131-centre-back.png",
+      "source_polygon_px": [
+        [
+          396,
+          1020
+        ],
+        [
+          909,
+          1020
+        ],
+        [
+          909,
+          427
+        ],
+        [
+          651,
+          62
+        ],
+        [
+          396,
+          427
+        ]
+      ],
+      "rear_crop_px": [
+        397,
+        45,
+        919,
+        1030
+      ]
+    },
+    {
+      "id": "right",
+      "size_m": [
+        0.17849544072948328,
+        0.6334670781893005
+      ],
+      "centre_x_m": 0.27325227963525833,
+      "base_y_m": 0.0,
+      "outline": [
+        [
+          0.0,
+          0.984766050054407
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.9711934156378601,
+          0.0
+        ],
+        [
+          0.00823045267489712,
+          0.3405875952121872
+        ]
+      ],
+      "front": "triptych-2021131-right-front.png",
+      "back": "triptych-2021131-right-back.png",
+      "source_polygon_px": [
+        [
+          912,
+          1020
+        ],
+        [
+          1155,
+          1034
+        ],
+        [
+          1148,
+          115
+        ],
+        [
+          914,
+          428
+        ]
+      ],
+      "rear_crop_px": [
+        169,
+        143,
+        393,
+        1030
+      ]
+    }
+  ]
+}

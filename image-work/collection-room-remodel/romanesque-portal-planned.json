@@ -1,0 +1,91 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-e2920b93d0497f94c565",
+      "objective": "Generate ONE FRONT ORTHOGRAPHIC low polygon limestone architecture asset matching RISD romanesque-portal, accession 40.014. Reference 1 is official object detail; reference 2 records its current installed context. Show complete paired engaged columns, carved flared capitals, three concentric semicircular stone voussoir bands and a continuous narrow outer carved chevron border; preserve unequal aged stone blocks. Full height from foot blocks to top, low polygon geometry, no invented Gothic point. Flat magenta #FF00FF outside silhouette AND inside every opening, including the large walk-through centre and all carved tracery holes. No walls, ceiling, floor, labels, paintings, people, museum background or modern door. Keep creamy weathered limestone, restrained baked shadows, low polygon Main Hall game style. One complete isolated asset, no sheet, perspective or extra views. Native mesh will supply depth and genuinely open walk-through geometry; asset raster must contain only the stone.\n",
+      "procedureId": "muse-e2920b93d0497f94c565",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "romanesque-portal-recipe.json",
+          "sha256": "e2920b93d0497f94c565098081ca6c4ffdab2492bac047ceaedd1cd645796f20"
+        },
+        {
+          "applicationPath": "romanesque-portal-plan.json",
+          "sha256": "4f9d8fdbad18ec106bbab2b30238e1fb810a3eaeb82273dbb97d4a591243c5c5"
+        },
+        {
+          "applicationPath": "romanesque-portal-prompt.txt",
+          "sha256": "4945e3c48cd2fdc6da52cbbc5122a9e69963f1c62daf38b7963b6f103df2095d"
+        }
+      ],
+      "museParameters": {
+        "size": "1760x1440"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/romanesque-portal-selected-0.png",
+          "sha256": "f509c721fe0d6679b7254f79251a2d6a2e0c15caa686313c06abb5d912264e7e",
+          "byteLength": 3113387,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 1486
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/romanesque-portal-selected-1.png",
+          "sha256": "2b38d97a4b9036d9815ec9ce0dfc0f352e80cc34826ba7305cfec0b0485d0513",
+          "byteLength": 1780858,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1760x1440\"},\"objective\":\"Generate ONE FRONT ORTHOGRAPHIC low polygon limestone architecture asset matching RISD romanesque-portal, accession 40.014. Reference 1 is official object detail; reference 2 records its current installed context. Show complete paired engaged columns, carved flared capitals, three concentric semicircular stone voussoir bands and a continuous narrow outer carved chevron border; preserve unequal aged stone blocks. Full height from foot blocks to top, low polygon geometry, no invented Gothic point. Flat magenta #FF00FF outside silhouette AND inside every opening, including the large walk-through centre and all carved tracery holes. No walls, ceiling, floor, labels, paintings, people, museum background or modern door. Keep creamy weathered limestone, restrained baked shadows, low polygon Main Hall game style. One complete isolated asset, no sheet, perspective or extra views. Native mesh will supply depth and genuinely open walk-through geometry; asset raster must contain only the stone.\\n\",\"objectiveId\":\"muse-e2920b93d0497f94c565\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-e2920b93d0497f94c565\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/romanesque-portal-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":3113387,\"inspectedMedia\":{\"height\":1486,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"f509c721fe0d6679b7254f79251a2d6a2e0c15caa686313c06abb5d912264e7e\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/romanesque-portal-selected-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1780858,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"2b38d97a4b9036d9815ec9ce0dfc0f352e80cc34826ba7305cfec0b0485d0513\",\"slot\":\"reference-001\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"romanesque-portal-recipe.json\",\"sha256\":\"e2920b93d0497f94c565098081ca6c4ffdab2492bac047ceaedd1cd645796f20\"},{\"applicationPath\":\"romanesque-portal-plan.json\",\"sha256\":\"4f9d8fdbad18ec106bbab2b30238e1fb810a3eaeb82273dbb97d4a591243c5c5\"},{\"applicationPath\":\"romanesque-portal-prompt.txt\",\"sha256\":\"4945e3c48cd2fdc6da52cbbc5122a9e69963f1c62daf38b7963b6f103df2095d\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "02d8d914fc368baa9f3889daa70c772bc8ebbae371b14c2ef4e33adda3f8c0aa"
+  },
+  "normalView": {
+    "objective": "Generate ONE FRONT ORTHOGRAPHIC low polygon limestone architecture asset matching RISD romanesque-portal, accession 40.014. Reference 1 is official object detail; reference 2 records its current installed context. Show complete paired engaged columns, carved flared capitals, three concentric semicircular stone voussoir bands and a continuous narrow outer carved chevron border; preserve unequal aged stone blocks. Full height from foot blocks to top, low polygon geometry, no invented Gothic point. Flat magenta #FF00FF outside silhouette AND inside every opening, including the large walk-through centre and all carved tracery holes. No walls, ceiling, floor, labels, paintings, people, museum background or modern door. Keep creamy weathered limestone, restrained baked shadows, low polygon Main Hall game style. One complete isolated asset, no sheet, perspective or extra views. Native mesh will supply depth and genuinely open walk-through geometry; asset raster must contain only the stone.\n",
+    "evidence": "2 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

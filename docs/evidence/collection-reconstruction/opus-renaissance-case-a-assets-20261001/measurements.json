@@ -1,0 +1,363 @@
+{
+ "woman": {
+  "front_box_px": [
+   34,
+   32,
+   1304,
+   1770
+  ],
+  "rear_box_px": [
+   24,
+   21,
+   1300,
+   1767
+  ],
+  "photo_width_over_height": 0.7307249712313003,
+  "catalogue_width_over_height": 0.6850828729281767,
+  "outline_uv_anticlockwise_y_down": [
+   [
+    0.0,
+    0.58
+   ],
+   [
+    0.0008,
+    0.8562
+   ],
+   [
+    0.0055,
+    0.9804
+   ],
+   [
+    0.0575,
+    0.9994
+   ],
+   [
+    0.4299,
+    0.9994
+   ],
+   [
+    0.9654,
+    0.9942
+   ],
+   [
+    0.9929,
+    0.939
+   ],
+   [
+    0.9992,
+    0.5109
+   ],
+   [
+    1.0,
+    0.4281
+   ],
+   [
+    0.9937,
+    0.3314
+   ],
+   [
+    0.9835,
+    0.2762
+   ],
+   [
+    0.9638,
+    0.2348
+   ],
+   [
+    0.9386,
+    0.1933
+   ],
+   [
+    0.9039,
+    0.1519
+   ],
+   [
+    0.8575,
+    0.1105
+   ],
+   [
+    0.7913,
+    0.069
+   ],
+   [
+    0.7307,
+    0.0414
+   ],
+   [
+    0.6394,
+    0.0138
+   ],
+   [
+    0.478,
+    0.0
+   ],
+   [
+    0.3614,
+    0.0138
+   ],
+   [
+    0.3071,
+    0.0276
+   ],
+   [
+    0.2362,
+    0.0552
+   ],
+   [
+    0.1866,
+    0.0829
+   ],
+   [
+    0.1449,
+    0.1105
+   ],
+   [
+    0.1118,
+    0.1381
+   ],
+   [
+    0.0748,
+    0.1795
+   ],
+   [
+    0.0449,
+    0.2209
+   ],
+   [
+    0.0252,
+    0.2624
+   ],
+   [
+    0.0118,
+    0.3038
+   ],
+   [
+    0.0047,
+    0.359
+   ],
+   [
+    0.0016,
+    0.4143
+   ],
+   [
+    0.0,
+    0.5662
+   ]
+  ],
+  "band_px": {
+   "side": 124,
+   "top": 118,
+   "bottom": 170
+  },
+  "band_note": "pixel runs along row 900 and column 667 of official photograph 0, read by eye from the colour change"
+ },
+ "diptych": {
+  "photographed_leaf_box_px": [
+   638,
+   42,
+   1187,
+   1044
+  ],
+  "photo_width_over_height": 0.5479041916167665,
+  "catalogue_width_over_height": 0.5518672199170125,
+  "other_leaf_in_official_photograph_0": "blanked white by the museum; its carved face is taken from the film only"
+ },
+ "albarello": {
+  "rim_row_px": 333,
+  "base_row_px": 1545,
+  "axis_column_px": 664,
+  "rear_axis_column_px": 681,
+  "rear_rows_higher_px": 12,
+  "px_per_cm": 50.29045643153527,
+  "height_cm_radius_cm": [
+   [
+    23.17,
+    4.872
+   ],
+   [
+    22.37,
+    5.896
+   ],
+   [
+    21.57,
+    6.582
+   ],
+   [
+    20.78,
+    6.353
+   ],
+   [
+    19.98,
+    6.114
+   ],
+   [
+    19.19,
+    5.896
+   ],
+   [
+    18.39,
+    5.757
+   ],
+   [
+    17.6,
+    5.578
+   ],
+   [
+    16.8,
+    5.399
+   ],
+   [
+    16.01,
+    5.25
+   ],
+   [
+    15.21,
+    5.11
+   ],
+   [
+    14.42,
+    4.961
+   ],
+   [
+    13.62,
+    4.812
+   ],
+   [
+    12.83,
+    4.752
+   ],
+   [
+    12.03,
+    4.733
+   ],
+   [
+    11.23,
+    4.713
+   ],
+   [
+    10.44,
+    4.772
+   ],
+   [
+    9.64,
+    4.882
+   ],
+   [
+    8.85,
+    5.021
+   ],
+   [
+    8.05,
+    5.2
+   ],
+   [
+    7.26,
+    5.359
+   ],
+   [
+    6.46,
+    5.568
+   ],
+   [
+    5.67,
+    5.816
+   ],
+   [
+    4.87,
+    5.995
+   ]
+  ],
+  "widest_cm": 13.164,
+  "catalogue_widest_cm": 13.0,
+  "note": "rows 380..1340 from the mask width; neck and foot in the helper are from the left edge alone because the mask takes in the cast shadow at the right"
+ },
+ "cleric": {
+  "photo_width_over_height": 0.671740233384069,
+  "catalogue_width_over_height": 0.6576576576576577,
+  "frame_outer_quad_px_49.80": [
+   [
+    342,
+    598
+   ],
+   [
+    758,
+    595
+   ],
+   [
+    730,
+    1098
+   ],
+   [
+    377,
+    1078
+   ]
+  ],
+  "frame_sight_quad_px_49.80": [
+   [
+    435,
+    679
+   ],
+   [
+    672,
+    679
+   ],
+   [
+    659,
+    1007
+   ],
+   [
+    450,
+    1002
+   ]
+  ],
+  "band_cm_near_49.80": {
+   "sides": 4.973469453740077,
+   "top_and_bottom": 5.2048430053266035
+  },
+  "band_cm_far_41.20": {
+   "sides": 3.850792237849386,
+   "top_and_bottom": 4.7634146341463435
+  },
+  "far_41.20_px": {
+   "cleric_outer": [
+    214.5,
+    271
+   ],
+   "cleric_sight": [
+    137,
+    185
+   ],
+   "woman_outer": [
+    255,
+    352
+   ]
+  },
+  "relative_size_conflict": {
+   "film_woman_over_cleric_frame": {
+    "width": 1.1888111888111887,
+    "height": 1.2988929889298892
+   },
+   "model_at_catalogue_sizes": {
+    "width": 1.0598290598290598,
+    "height": 1.124223602484472
+   },
+   "note": "in the film the arched portrait is larger against the grey frame than two catalogue-sized objects can be; unresolved"
+  },
+  "note": "edges read by eye on 2x gridded crops, about +-3 px; sides 3.9..4.9 cm and top and bottom 4.8..5.2 cm between the two frames"
+ },
+ "colours": {
+  "cleric_frame_grey": "645d49",
+  "woman_frame_brown": "684330",
+  "ivory_face": "b19b7d",
+  "ivory_back": "c1904f",
+  "silver": "837b68",
+  "silver_gilt_panel": "51452c",
+  "page": "e6e3da",
+  "gilt_edge": "98845f",
+  "book_board_outside": "bab2a3",
+  "jar_inside": "5b5347",
+  "jar_glaze_blue": "02316d",
+  "jar_rim": "ad8043",
+  "jar_foot": "c89247"
+ }
+}

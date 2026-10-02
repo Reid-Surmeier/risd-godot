@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-bf5a803a69f8f649797e",
+  "summary": "Reference photographs show RISD object 2017.74.39.18a-c, the only authority for its design and proportions. Final reference is the existing Main Hall game style: clean low polygon planar forms, soft painted shading, restrained surface detail, warm palette. Generate one orthographic straight-on FRONT view of this exact tureen, alone, isolated on flat pure magenta #FF00FF, generous margin, full object and every leg / handle / lid intact. Keep the reference ornament, actual silhouette, upholstery floral pattern and wood color or painted porcelain motifs. Make the finish a clean low polygon museum game asset, no photographic noise. Do not invent ornament, letters, floor, walls, other objects, shadow outside the silhouette or perspective tilt. No contact sheet. This supplies UV texture for separately modeled three-dimensional geometry, not a whole-room picture.\n",
+  "procedureId": "muse-bf5a803a69f8f649797e",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "references/tureen-catalogue-0.png",
+      "sha256": "25e6ce893b9818e754c1db6112f391e50eabb25799bba198c06114d3e001f1b2",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/tureen-catalogue-1.png",
+      "sha256": "57a01f5913da02811dc942620591009f8920a9c979a762554ff32b109d1f6c91",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "references/main-hall-style.png",
+      "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "tureen-recipe.json",
+      "sha256": "bf5a803a69f8f649797e99f3dfe1d57d6fe70814a1efd7cd2806e6ac6694cef4"
+    },
+    {
+      "applicationPath": "tureen-plan.json",
+      "sha256": "11a136dac25fb0a91b555de6c855281d60f60df7bcc676fd4c02880dd00fe20f"
+    },
+    {
+      "applicationPath": "tureen-prompt.txt",
+      "sha256": "1bae8492582c0ff3e2ff8af32a6e6d4c971b67f374883abd59b6dda8d5cd675c"
+    }
+  ]
+}

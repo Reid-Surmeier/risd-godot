@@ -1,0 +1,37 @@
+{
+  "reason": "Decoded source samples violate the 0.2s exclusion; nominal fps times are insufficient.",
+  "samples": [
+    {
+      "frame": 12,
+      "sample": {
+        "source_seconds": 102.91333,
+        "output_seconds": 102.83333,
+        "decoded_checksum": "469DD9A1"
+      },
+      "query_sample": {
+        "source_seconds": 102.747,
+        "output_seconds": 102.5,
+        "decoded_checksum": "0F338254"
+      },
+      "source_gap_seconds": 0.1663300000000021,
+      "passes_exclusion": false
+    },
+    {
+      "frame": 14,
+      "sample": {
+        "source_seconds": 103.24667,
+        "output_seconds": 103.16667,
+        "decoded_checksum": "C938C503"
+      },
+      "query_sample": {
+        "source_seconds": 102.747,
+        "output_seconds": 102.5,
+        "decoded_checksum": "0F338254"
+      },
+      "source_gap_seconds": 0.49966999999999473,
+      "passes_exclusion": true
+    }
+  ],
+  "geometry_accepted": false,
+  "navigation_accepted": false
+}

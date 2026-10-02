@@ -1,0 +1,32 @@
+{
+  "command": [
+    "ffmpeg",
+    "-n",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-hwaccel",
+    "cuda",
+    "-hwaccel_output_format",
+    "cuda",
+    "-noautorotate",
+    "-ss",
+    "250",
+    "-i",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6380.MOV",
+    "-t",
+    "4",
+    "-vf",
+    "scale_cuda=1920:1080:format=yuv420p,hwdownload,format=yuv420p,fps=6,select=eq(n\\,12)+eq(n\\,18)+eq(n\\,22)",
+    "-fps_mode",
+    "vfr",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/strict-threshold-native-v1/%02d.png"
+  ],
+  "mapping": {
+    "01.png": 13,
+    "02.png": 19,
+    "03.png": 23
+  },
+  "source_sha256": "eaf7a7853b6cc5610517631b44aa83de1006ac6caa5aa673038f1f067cafd3d4",
+  "note": "GPU native decode; exact same fps selection as historical exit6fps; not new captures."
+}

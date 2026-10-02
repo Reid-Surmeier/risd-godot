@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "st-george-001",
+      "prompt": "st-george-prompt.txt",
+      "promptSha256": "c0a85b8e295b88fa28d4a9be54ae2dbd44f37bb37af9379f9036bf0277530d09",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/st-george-catalogue.png",
+          "sha256": "a8a5ba97db95e7f72e1808b84da086c62e9f7d0f56e0fa9c576221ad34644434"
+        }
+      ]
+    }
+  ]
+}

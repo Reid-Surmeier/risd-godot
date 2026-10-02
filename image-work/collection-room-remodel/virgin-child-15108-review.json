@@ -1,0 +1,27 @@
+{
+  "date_utc": "2026-10-01T14:35:00Z",
+  "accession": "15.108",
+  "run_id": "run-45b7430ae44f28051bb2b9a2",
+  "provider": "OpenRouter",
+  "model": "meta/muse-image",
+  "cost_usd": "0.010000",
+  "provider_receipt_spend_state": "unknown",
+  "durable_state_cost": "0.010000",
+  "outputs": 1,
+  "native_sha256": "a14ab275b107b2b8a2e97455ef9b150b68fc347eba4b06df6b694ea6b57c96fd",
+  "visual_review": "inspected; usable preliminary low-poly front/side modelling guidance; fidelity not accepted",
+  "matches": [
+    "Seated Virgin; child on her right knee (front viewer left); open book",
+    "Blue bodice/skirt, green/orange-brown worn mantle, long hair/circlet",
+    "Stepped base and broad flattened back silhouette"
+  ],
+  "limits": [
+    "Rear hair segmentation and stepped paint areas partly inferred; native rear blurry",
+    "Separate views differ slightly in child/book silhouette",
+    "No meshes generated: sheet only",
+    "Catalogue height .394m; width/depth remain unmeasured"
+  ],
+  "geometry_installed": false,
+  "all_objects_complete": false,
+  "durable_state_cost_state": "actual"
+}

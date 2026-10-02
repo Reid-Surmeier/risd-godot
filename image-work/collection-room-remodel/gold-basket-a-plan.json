@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "gold-basket-a-001",
+      "prompt": "gold-basket-a-prompt.txt",
+      "promptSha256": "5ac581679fb9952a591ded1a3e1cf5275e1c113568cd2256328cfdca03411db6",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/gold-basket-a-selected-0.png",
+          "sha256": "60ffc7429a539f13228a44851260559c1008c1da4ec30fd47e36e898238703c9"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-d7f9bd293961aad63060",
+      "objective": "From the supplied video frame, isolate ONLY the tall dark wrought-iron grille standing on the white plinth to the right of the stone portal. Make one complete frontal orthographic low polygon game-asset reference image of that same grille. Preserve the rectangular tall outer iron frame, dense repeated paired tight spiral scrolls, their source count/spacing and thin horizontal joining bars, dark aged iron with restrained broad facets. Open space between metal scrolls must remain real visible openings. Flat uniform magenta #FF00FF outside the grille AND through all openings, no floor shadow. Show full top and bottom, no cropping. The large dark pattern on the wall is its CAST SHADOW, not a second grille: do not reproduce it. Omit the portal, wall, plinth, label, stone figure and rear display brace. No gilding, bronze figures, flowers, faces, added ornaments, solid backing plate, new motif or extra panels. One source-specific architectural metal grille, thin dark iron, neutral lighting. This is a provisional reconstruction sheet, not a verified catalogue object.\n",
+      "procedureId": "muse-d7f9bd293961aad63060",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "medieval-grille-recipe.json",
+          "sha256": "d7f9bd293961aad63060d1efe634a9f672af0b86d57c9e59f95c5e57fa307e90"
+        },
+        {
+          "applicationPath": "medieval-grille-plan.json",
+          "sha256": "116191f41c4be0e311946ab66f071fc64cee7965b48ff1be050492a67766a6c0"
+        },
+        {
+          "applicationPath": "medieval-grille-prompt.txt",
+          "sha256": "bf6c014fd6d7848aceacd6b4b0e6ecb1aeea5a73eb5bc82c7f7cf6dcbf8444c9"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/medieval-grille-video-12.25.png",
+          "sha256": "9dfbad390a325bb5a293f22b94b350502959e3f012db89a91f37ecd8274ed259",
+          "byteLength": 11417897,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"From the supplied video frame, isolate ONLY the tall dark wrought-iron grille standing on the white plinth to the right of the stone portal. Make one complete frontal orthographic low polygon game-asset reference image of that same grille. Preserve the rectangular tall outer iron frame, dense repeated paired tight spiral scrolls, their source count/spacing and thin horizontal joining bars, dark aged iron with restrained broad facets. Open space between metal scrolls must remain real visible openings. Flat uniform magenta #FF00FF outside the grille AND through all openings, no floor shadow. Show full top and bottom, no cropping. The large dark pattern on the wall is its CAST SHADOW, not a second grille: do not reproduce it. Omit the portal, wall, plinth, label, stone figure and rear display brace. No gilding, bronze figures, flowers, faces, added ornaments, solid backing plate, new motif or extra panels. One source-specific architectural metal grille, thin dark iron, neutral lighting. This is a provisional reconstruction sheet, not a verified catalogue object.\\n\",\"objectiveId\":\"muse-d7f9bd293961aad63060\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-d7f9bd293961aad63060\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/medieval-grille-video-12.25.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":11417897,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"9dfbad390a325bb5a293f22b94b350502959e3f012db89a91f37ecd8274ed259\",\"slot\":\"reference-000\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"medieval-grille-recipe.json\",\"sha256\":\"d7f9bd293961aad63060d1efe634a9f672af0b86d57c9e59f95c5e57fa307e90\"},{\"applicationPath\":\"medieval-grille-plan.json\",\"sha256\":\"116191f41c4be0e311946ab66f071fc64cee7965b48ff1be050492a67766a6c0\"},{\"applicationPath\":\"medieval-grille-prompt.txt\",\"sha256\":\"bf6c014fd6d7848aceacd6b4b0e6ecb1aeea5a73eb5bc82c7f7cf6dcbf8444c9\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "6d9f3b3e3a4b26e3c758f21ced0185d085b224147b926bc5dd819fb5dd730bdf"
+  },
+  "normalView": {
+    "objective": "From the supplied video frame, isolate ONLY the tall dark wrought-iron grille standing on the white plinth to the right of the stone portal. Make one complete frontal orthographic low polygon game-asset reference image of that same grille. Preserve the rectangular tall outer iron frame, dense repeated paired tight spiral scrolls, their source count/spacing and thin horizontal joining bars, dark aged iron with restrained broad facets. Open space between metal scrolls must remain real visible openings. Flat uniform magenta #FF00FF outside the grille AND through all openings, no floor shadow. Show full top and bottom, no cropping. The large dark pattern on the wall is its CAST SHADOW, not a second grille: do not reproduce it. Omit the portal, wall, plinth, label, stone figure and rear display brace. No gilding, bronze figures, flowers, faces, added ornaments, solid backing plate, new motif or extra panels. One source-specific architectural metal grille, thin dark iron, neutral lighting. This is a provisional reconstruction sheet, not a verified catalogue object.\n",
+    "evidence": "1 authoritative reference matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

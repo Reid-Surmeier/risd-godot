@@ -1,0 +1,263 @@
+{
+  "checks": {
+    "adjacent_gallery": true,
+    "adjacent_gallery_camera": true,
+    "central_display_blocked": true,
+    "central_display_blocked_camera": true,
+    "decorative_room": true,
+    "decorative_room_camera": true,
+    "far_gallery_door_back": true,
+    "far_gallery_door_back_camera": true,
+    "far_gallery_door_out": true,
+    "far_gallery_door_out_camera": true,
+    "gallery_door_back": true,
+    "gallery_door_back_camera": true,
+    "gallery_door_out": true,
+    "gallery_door_out_camera": true,
+    "renaissance_bench_blocked": true,
+    "renaissance_bench_blocked_camera": true,
+    "right_door_back": true,
+    "right_door_back_camera": true,
+    "right_door_out": true,
+    "right_door_out_camera": true,
+    "right_wall_blocked": true,
+    "right_wall_blocked_camera": true,
+    "sofa_wall_blocked": true,
+    "sofa_wall_blocked_camera": true,
+    "stairs_door_back": true,
+    "stairs_door_back_camera": true,
+    "stairs_door_out": true,
+    "stairs_door_out_camera": true,
+    "stone_portal_back": true,
+    "stone_portal_back_camera": true,
+    "stone_portal_out": true,
+    "stone_portal_out_camera": true,
+    "tracery_back": true,
+    "tracery_back_camera": true,
+    "tracery_out": true,
+    "tracery_out_camera": true
+  },
+  "frame_time_p50_ms": 20.0,
+  "frame_time_p95_ms": 30.771,
+  "navigation_accepted": false,
+  "render_frames": 2860,
+  "renderer": "D3D12 (NVIDIA GeForce RTX 4070 SUPER)",
+  "samples": [
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -0.550000011920929,
+        0.000837185769341886,
+        1.57500970363617
+      ],
+      "trial": "gallery_door_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        -0.550000011920929,
+        0.000835061830002815,
+        -1.27497935295105
+      ],
+      "trial": "gallery_door_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 4,
+      "on_floor": true,
+      "position": [
+        -1.60282957553864,
+        -0.00120568508282304,
+        -2.5
+      ],
+      "trial": "sofa_wall_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 5,
+      "on_floor": true,
+      "position": [
+        3.40467000007629,
+        -0.000817261578049511,
+        -2.67905712127686
+      ],
+      "trial": "right_wall_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        1.65020489692688,
+        0.000834110309369862,
+        -5.36307191848755
+      ],
+      "trial": "decorative_room"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -0.550000011920929,
+        -0.000844321446493268,
+        5.97916507720947
+      ],
+      "trial": "adjacent_gallery"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        4.77082490921021,
+        0.000827310548629612,
+        -1.99999678134918
+      ],
+      "trial": "right_door_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        3.02917456626892,
+        0.000813029822893441,
+        -1.99999988079071
+      ],
+      "trial": "right_door_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 4,
+      "on_floor": true,
+      "position": [
+        0.449999988079071,
+        -0.00180661212652922,
+        -3.29999899864197
+      ],
+      "trial": "central_display_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -0.550000011920929,
+        0.00083716434892267,
+        19.6666984558105
+      ],
+      "trial": "far_gallery_door_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -0.550000011920929,
+        0.000829727330710739,
+        18.033332824707
+      ],
+      "trial": "far_gallery_door_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        3.32501006126404,
+        0.000835623533930629,
+        22.5149993896484
+      ],
+      "trial": "tracery_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        1.72501015663147,
+        0.000834103499073535,
+        22.5149993896484
+      ],
+      "trial": "tracery_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        5.54999971389771,
+        0.000833437952678651,
+        17.870813369751
+      ],
+      "trial": "stone_portal_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        5.55000019073486,
+        0.000109999207779765,
+        19.579174041748
+      ],
+      "trial": "stone_portal_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        12.2208490371704,
+        0.000857010716572404,
+        20.8000030517578
+      ],
+      "trial": "stairs_door_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        10.7291698455811,
+        0.00078998802928254,
+        20.8000030517578
+      ],
+      "trial": "stairs_door_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        -0.800025343894958,
+        0.000837160681840032,
+        21.9042205810547
+      ],
+      "trial": "renaissance_bench_blocked"
+    }
+  ]
+}

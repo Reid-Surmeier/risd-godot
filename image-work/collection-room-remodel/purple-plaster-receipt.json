@@ -1,0 +1,25 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/purple-plaster-selected-0.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/purple-plaster-selected-1.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-f044332d91c6c643c123a27c/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "b93be3c69cd85bdef675e4aa096196f5c76c8ac3835f82bac27962f526efc08a"
+    }
+  ],
+  "changesRequested": "Generate ONE square seamless low-polygon game albedo material for the violet painted plaster wall in reference 1, matching the restrained baked Main Hall style in reference 2. Only smooth purple plaster fills the whole image, softly desaturated medium lilac/violet, extremely faint broad hand-painted polygon tonal changes. Uniform diffuse lighting without cast shadow or gradient, no seams, cracks, blocks, bricks, marble veins, molding, door, elevator, sign, labels, furniture, floor, people or framed art. Source photo is shape/color reference only; generate clean new material pixels for native room walls. Not a photograph or room image; a flat evenly lit square tiling plaster albedo texture.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-f044332d91c6c643c123a27c",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-f044332d91c6c643c123a27c"
+}

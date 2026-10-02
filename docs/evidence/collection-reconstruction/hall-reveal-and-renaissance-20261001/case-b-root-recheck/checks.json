@@ -1,0 +1,258 @@
+{
+  "asset": "renaissance_case_b_assets.gd",
+  "failures": [],
+  "godot": "4.7.2-stable (official)",
+  "negative_controls": {
+    "inverted": [
+      "inside-out or empty"
+    ],
+    "not_finite": [
+      "vertex not finite or beyond one metre"
+    ],
+    "opened": [
+      "open edge"
+    ]
+  },
+  "objects": {
+    "glass_201729": {
+      "accession": "2017.29",
+      "bounds_m": [
+        0.189999997615814,
+        0.189999997615814,
+        0.00699999975040555
+      ],
+      "catalogue_size_m": [
+        0.189999997615814,
+        0.189999997615814
+      ],
+      "closed_shells": 8,
+      "depth_provisional_m": 0.007,
+      "flags": [
+        [
+          "rear_accepted",
+          false
+        ],
+        [
+          "thickness_accepted",
+          false
+        ],
+        [
+          "mount_accepted",
+          false
+        ],
+        [
+          "placement_accepted",
+          false
+        ],
+        [
+          "fine_fidelity_accepted",
+          false
+        ],
+        [
+          "whole_room_accepted",
+          false
+        ]
+      ],
+      "identity": "matched",
+      "mesh_triangles": {
+        "body": 324,
+        "front": 22,
+        "rear": 22
+      },
+      "source_rear_observed": true,
+      "triangles": 368
+    },
+    "plaque_34024": {
+      "accession": "34.024",
+      "bounds_m": [
+        0.10699999332428,
+        0.129000008106232,
+        0.00479999976232648
+      ],
+      "catalogue_size_m": [
+        0.10700000077486,
+        0.12899999320507
+      ],
+      "closed_shells": 1,
+      "depth_provisional_m": 0.0048,
+      "flags": [
+        [
+          "rear_accepted",
+          false
+        ],
+        [
+          "thickness_accepted",
+          false
+        ],
+        [
+          "mount_accepted",
+          false
+        ],
+        [
+          "placement_accepted",
+          false
+        ],
+        [
+          "fine_fidelity_accepted",
+          false
+        ],
+        [
+          "whole_room_accepted",
+          false
+        ]
+      ],
+      "identity": "probable",
+      "mesh_triangles": {
+        "body": 22,
+        "front": 38
+      },
+      "source_rear_observed": false,
+      "triangles": 60
+    },
+    "plate_46391": {
+      "accession": "46.391",
+      "bounds_m": [
+        0.224999994039536,
+        0.224999994039536,
+        0.0399999991059303
+      ],
+      "catalogue_size_m": [
+        0.224999994039536,
+        0.224999994039536
+      ],
+      "closed_shells": 1,
+      "depth_provisional_m": 0.04,
+      "flags": [
+        [
+          "rear_accepted",
+          false
+        ],
+        [
+          "thickness_accepted",
+          false
+        ],
+        [
+          "mount_accepted",
+          false
+        ],
+        [
+          "placement_accepted",
+          false
+        ],
+        [
+          "fine_fidelity_accepted",
+          false
+        ],
+        [
+          "whole_room_accepted",
+          false
+        ]
+      ],
+      "identity": "matched",
+      "mesh_triangles": {
+        "body": 310,
+        "front": 262
+      },
+      "source_rear_observed": false,
+      "triangles": 572
+    },
+    "plate_57302": {
+      "accession": "57.302",
+      "bounds_m": [
+        0.232000008225441,
+        0.232000008225441,
+        0.034000001847744
+      ],
+      "catalogue_size_m": [
+        0.23199999332428,
+        0.23199999332428
+      ],
+      "closed_shells": 1,
+      "depth_provisional_m": 0.034,
+      "flags": [
+        [
+          "rear_accepted",
+          false
+        ],
+        [
+          "thickness_accepted",
+          false
+        ],
+        [
+          "mount_accepted",
+          false
+        ],
+        [
+          "placement_accepted",
+          false
+        ],
+        [
+          "fine_fidelity_accepted",
+          false
+        ],
+        [
+          "whole_room_accepted",
+          false
+        ]
+      ],
+      "identity": "matched",
+      "mesh_triangles": {
+        "body": 96,
+        "front": 214,
+        "rear": 166
+      },
+      "source_rear_observed": true,
+      "triangles": 476
+    },
+    "roundel_51105": {
+      "accession": "51.105",
+      "bounds_m": [
+        0.111000001430511,
+        0.111000001430511,
+        0.00800000037997961
+      ],
+      "catalogue_size_m": [
+        0.111000001430511,
+        0.111000001430511
+      ],
+      "closed_shells": 1,
+      "depth_provisional_m": 0.008,
+      "flags": [
+        [
+          "rear_accepted",
+          false
+        ],
+        [
+          "thickness_accepted",
+          false
+        ],
+        [
+          "mount_accepted",
+          false
+        ],
+        [
+          "placement_accepted",
+          false
+        ],
+        [
+          "fine_fidelity_accepted",
+          false
+        ],
+        [
+          "whole_room_accepted",
+          false
+        ]
+      ],
+      "identity": "matched",
+      "mesh_triangles": {
+        "body": 48,
+        "front": 310,
+        "rear": 22
+      },
+      "source_rear_observed": true,
+      "triangles": 380
+    }
+  },
+  "passed": true,
+  "renderer": "llvmpipe (LLVM 20.1.2, 256 bits)"
+}

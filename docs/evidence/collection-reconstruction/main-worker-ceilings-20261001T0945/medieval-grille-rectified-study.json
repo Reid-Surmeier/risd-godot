@@ -1,0 +1,25 @@
+{
+  "source": "image-work/collection-room-remodel/inventory-references/medieval-grille-video-12.25.png",
+  "sha256": "9dfbad390a325bb5a293f22b94b350502959e3f012db89a91f37ecd8274ed259",
+  "corners_px": [
+    [
+      431,
+      391
+    ],
+    [
+      684,
+      507
+    ],
+    [
+      663,
+      1252
+    ],
+    [
+      451,
+      1370
+    ]
+  ],
+  "output": "image-work/collection-room-remodel/inventory-references/medieval-grille-rectified-study.png",
+  "sha256_output": "d146c1eb176207d7c5052ebfababaa49b2150635ffc8534955d6362f67c108e5",
+  "purpose": "Planar grille inspection only; manual corners, provisional aspect. Neither catalogue dimensions nor room/metric calibration. Original source retained unchanged."
+}

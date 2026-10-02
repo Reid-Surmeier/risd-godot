@@ -1,0 +1,13 @@
+{
+  "accepted": false,
+  "date_utc": "2026-10-01",
+  "runId": "run-db146fcf707e6f70e45cd014",
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "outputs": 1,
+  "cost_usd": 0.01,
+  "native_sha256": "a05e91afda0907daf0b737a0c767d4a9f6fd9f18e5ade9d8e445d663e8f55481",
+  "visual_review": "Complete front twin scrolls/abacus and short smooth neck; magnified scroll width and generated shallow shading require source-fit. One front only; side/rear not verified. Native closed depth is provisional.",
+  "cumulative_map_actual_usd": 0.69,
+  "cumulative_map_conservative_usd": 0.7
+}

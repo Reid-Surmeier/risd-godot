@@ -1,0 +1,68 @@
+[
+ {
+  "catalogue_id": "1202276",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Velvet+Cover&has_images=1&items_per_page=25&field_on_view=1",
+  "fetched_utc": "2026-10-01T20:26:04Z",
+  "status": 200,
+  "sha256": "0f499b9d5f711e6cfdc4f56da7d5447e884f4a39c265aabbe8e6813fa168f170",
+  "record_found": true,
+  "fields_differing_from_cache": [],
+  "live": {
+   "objectNumber": "23.307X",
+   "title": "Velvet Cover",
+   "dimensions": "127 cm (50 inches) (length)",
+   "medium": [
+    "Silk-velvet ground with silver- and gilt-silver-wrapped silk\nthread embroidery (couching stitch)"
+   ],
+   "onView": true,
+   "datingYearFrom": "1575",
+   "datingYearTo": "1625",
+   "culture": "French",
+   "url": "https://risdmuseum.org/art-design/collection/velvet-cover-23307x"
+  }
+ },
+ {
+  "catalogue_id": "1201986",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Woodcutters&has_images=1&items_per_page=25&field_on_view=1",
+  "fetched_utc": "2026-10-01T20:26:06Z",
+  "status": 200,
+  "sha256": "c25f5504360abb92c852fd8ce0d75d1c1bb49edec6a88e5929c0d8bbca258dad",
+  "record_found": true,
+  "fields_differing_from_cache": [],
+  "live": {
+   "objectNumber": "29.280",
+   "title": "The Woodcutters",
+   "dimensions": "152.4 x 94 cm (60 x 37 inches)",
+   "medium": [
+    "wool tapestry weave"
+   ],
+   "onView": true,
+   "datingYearFrom": "1475",
+   "datingYearTo": "1510",
+   "culture": "French, South Netherlandish",
+   "url": "https://risdmuseum.org/art-design/collection/woodcutters-29280"
+  }
+ },
+ {
+  "catalogue_id": "1591076",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Saint+Barbara+and+Saint+Catherine&has_images=1&items_per_page=25&field_on_view=1",
+  "fetched_utc": "2026-10-01T20:26:07Z",
+  "status": 200,
+  "sha256": "3231d879d672c597f78afd57312a1604acdfaa19ee57f3a2291cecdeaca7b78a",
+  "record_found": true,
+  "fields_differing_from_cache": [],
+  "live": {
+   "objectNumber": "58.196",
+   "title": "Madonna and Child with Saint Barbara and Saint Catherine",
+   "dimensions": "91.4 x 87 cm (36 x 34 1/4 inches)",
+   "medium": [
+    "Oil on panel"
+   ],
+   "onView": true,
+   "datingYearFrom": "1500",
+   "datingYearTo": "1550",
+   "culture": "Possibly, Netherlandish",
+   "url": "https://risdmuseum.org/art-design/collection/madonna-and-child-saint-barbara-and-saint-catherine-58196"
+  }
+ }
+]

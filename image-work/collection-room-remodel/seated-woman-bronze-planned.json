@@ -1,0 +1,91 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-eee9d65045609a306d10",
+      "objective": "Create one square seamless diffuse albedo texture swatch for the gold-washed bronze of Raymond Duchamp-Villon Seated Woman, RISD Museum 67.089, using ONLY the warm ochre-gold bronze surface seen in the two reference photographs. Fill the entire square edge-to-edge with a quiet matte yellow-ochre bronze wash, softly mottled at fine scale, sparse subdued brown patina and tiny subtle worn gold-wash flecks. Match the reference bronze, not polished brass. Texture must be evenly lit and low contrast for a low-polygon museum game with baked lighting, gentle hand-painted GameCube-era material detail. NO sculpture, human figure, silhouette, objects, faces, limbs, shadows, directional highlights, white backdrop, frames, borders, text or labels. This is a flat continuous material sample, not a rendering of the statue. Keep all four edges seamless.\n",
+      "procedureId": "muse-eee9d65045609a306d10",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "seated-woman-bronze-recipe.json",
+          "sha256": "eee9d65045609a306d1037ddb2fe08ed402e230c73f16f2e714ce33cc1eea3c5"
+        },
+        {
+          "applicationPath": "seated-woman-bronze-plan.json",
+          "sha256": "94b42a9bf38be6fb7770ef24dbface3baf56da2128516d9518632f56d9995312"
+        },
+        {
+          "applicationPath": "seated-woman-bronze-prompt.txt",
+          "sha256": "311d283f49b5c11b1591fc3c74ed3be3a3e3f11ff4b00f6374c33f3154ce06db"
+        }
+      ],
+      "museParameters": {
+        "size": "1024x1024"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/seated-woman-bronze-official-0.png",
+          "sha256": "1c8d26657a0b90c6f0d8f76462bd0b41f1cef9ab017b85ad1b97164f8825514c",
+          "byteLength": 3068514,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 1756
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/seated-woman-bronze-official-1.png",
+          "sha256": "e70288ff84378fa2453341528fbc4634aed1c4a3d25662e0b2de9d1564ef05d7",
+          "byteLength": 2970212,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 1707
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1024x1024\"},\"objective\":\"Create one square seamless diffuse albedo texture swatch for the gold-washed bronze of Raymond Duchamp-Villon Seated Woman, RISD Museum 67.089, using ONLY the warm ochre-gold bronze surface seen in the two reference photographs. Fill the entire square edge-to-edge with a quiet matte yellow-ochre bronze wash, softly mottled at fine scale, sparse subdued brown patina and tiny subtle worn gold-wash flecks. Match the reference bronze, not polished brass. Texture must be evenly lit and low contrast for a low-polygon museum game with baked lighting, gentle hand-painted GameCube-era material detail. NO sculpture, human figure, silhouette, objects, faces, limbs, shadows, directional highlights, white backdrop, frames, borders, text or labels. This is a flat continuous material sample, not a rendering of the statue. Keep all four edges seamless.\\n\",\"objectiveId\":\"muse-eee9d65045609a306d10\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-eee9d65045609a306d10\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/seated-woman-bronze-official-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":3068514,\"inspectedMedia\":{\"height\":1756,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"1c8d26657a0b90c6f0d8f76462bd0b41f1cef9ab017b85ad1b97164f8825514c\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/seated-woman-bronze-official-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":2970212,\"inspectedMedia\":{\"height\":1707,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"e70288ff84378fa2453341528fbc4634aed1c4a3d25662e0b2de9d1564ef05d7\",\"slot\":\"reference-001\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"seated-woman-bronze-recipe.json\",\"sha256\":\"eee9d65045609a306d1037ddb2fe08ed402e230c73f16f2e714ce33cc1eea3c5\"},{\"applicationPath\":\"seated-woman-bronze-plan.json\",\"sha256\":\"94b42a9bf38be6fb7770ef24dbface3baf56da2128516d9518632f56d9995312\"},{\"applicationPath\":\"seated-woman-bronze-prompt.txt\",\"sha256\":\"311d283f49b5c11b1591fc3c74ed3be3a3e3f11ff4b00f6374c33f3154ce06db\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "aa2645a69d7e5d2d83b1f3060b0389cbb38637a326f08f164b46b23658894607"
+  },
+  "normalView": {
+    "objective": "Create one square seamless diffuse albedo texture swatch for the gold-washed bronze of Raymond Duchamp-Villon Seated Woman, RISD Museum 67.089, using ONLY the warm ochre-gold bronze surface seen in the two reference photographs. Fill the entire square edge-to-edge with a quiet matte yellow-ochre bronze wash, softly mottled at fine scale, sparse subdued brown patina and tiny subtle worn gold-wash flecks. Match the reference bronze, not polished brass. Texture must be evenly lit and low contrast for a low-polygon museum game with baked lighting, gentle hand-painted GameCube-era material detail. NO sculpture, human figure, silhouette, objects, faces, limbs, shadows, directional highlights, white backdrop, frames, borders, text or labels. This is a flat continuous material sample, not a rendering of the statue. Keep all four edges seamless.\n",
+    "evidence": "2 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

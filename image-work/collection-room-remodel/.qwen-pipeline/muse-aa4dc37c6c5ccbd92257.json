@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-aa4dc37c6c5ccbd92257",
+  "summary": "Reference 1 is the official RISD Museum photograph of Figure of a Bagpiper, accession 2017.74.21. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted ceramic texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep all limbs, feet, tails, hats, spouts and handles visible. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry; hidden profiles are guided by catalogue dimensions and remain provisional.\n",
+  "procedureId": "muse-aa4dc37c6c5ccbd92257",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/bagpiper-catalogue.png",
+      "sha256": "145354148bb05fd2fce36132510598fcb186a86fbcacff0e4e940f4fbcd77364",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "bagpiper-recipe.json",
+      "sha256": "aa4dc37c6c5ccbd9225776a0627265da103b98dc25dad13f1d73860d68c15416"
+    },
+    {
+      "applicationPath": "bagpiper-plan.json",
+      "sha256": "131c1eed3b933f1fd9abb4ceefd2ca5391ef1edc345aef464e44974da14966cd"
+    },
+    {
+      "applicationPath": "bagpiper-prompt.txt",
+      "sha256": "e5fd37588ca484b5f592d550758361bfe86b1b433b9df46442be4db2d6b0d56b"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+Prepared 769 Hall+room surfaces
+Traceback (most recent call last):
+  File "/tmp/collection-v40-bake-only.py", line 13, in <module>
+    cpu=dict(os.environ,LIBGL_ALWAYS_SOFTWARE='1',GALLIUM_DRIVER='llvmpipe',VK_ICD_FILENAMES='/usr/share/vulkan/icd.d/lvp_icd.json',DISPLAY=':99');s=run(['--editor','--rendering-method','mobile'],cpu,'bake');assert int(re.search(r'BAKE_OK users=(\d+)',s)[1])==surfaces
+                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/collection-v40-bake-only.py", line 7, in run
+    s=p.read_text();assert r.returncode==0 and 'SCRIPT ERROR' not in s,(kind,r.returncode);return s
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('bake', 1)

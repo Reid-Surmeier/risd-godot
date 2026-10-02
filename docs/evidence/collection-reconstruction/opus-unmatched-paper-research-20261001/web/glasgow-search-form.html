@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>French Emblems: Advanced Search</title>
+<link rel="stylesheet" href="feag-screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="feag-print.css" type="text/css" media="print" />
+<!--<style type="text/css" media="print">@import "feag-print.css";</style>-->
+<!--<style type="text/css" media="screen">@import "feag-screen.css";</style>-->
+</head>
+<body>
+<div id="banner"><a name="top"></a><img src="images/banner.gif" alt="French Emblems at Glasgow" title="French Emblems at Glasgow" /></div>
+<div id="gelinks"><p class="glinks"><a class="glinks" href="../">Glasgow University Emblem Website</a> | <a class="glinks" href="../#copyright">Copyright</a></p></div>
+<div class="clear"></div>
+<div id="header">
+
+  <ul>
+<li><a href="index.php">Home</a></li><li><a href="books.php">Books</a></li><li><a href="help.php">Help</a></li><li><a href="preferences.php">Preferences</a></li><li id="current"><a href="search.php">Search</a></li></ul><div id="qsearch"><form class="qsearch" action="searchq.php" method="get">
+<p class="qsearch"><b>Quick Search: </b> <input type="text" class="qsearch" name="qsearch" size="15"
+
+maxlength="255" /><input type="submit" class="qsearch" value="Go" /></p>
+</form>
+</div>
+</div>
+<div class="clear"></div>
+<div id="subnav">
+<h2 class="subnav">
+Advanced Search&nbsp;</h2></div>
+<div id="mainpage">
+<div id="pagewrap"><p><a href="searching.php">Information about how to use the search tool can be found here</a>.</p>
+	<div class="forform">
+	<form method="get" action="search.php">
+	<fieldset>
+	<legend>1. Free-text Search</legend>
+	<input type="hidden" name="sub" value="99" />
+	<input type="hidden" name="new" value="y" />
+	<p><label for="lang">Language: </label>
+	<select name="lang" id="lang">
+	<option value="0">All</option>
+	<option value="la">Latin</option>
+	<option value="fr">French</option>
+	<option value="en">English</option>
+	</select></p>
+
+	<p><label for="type">Element Type: </label>
+	<select name="type[]" id="type" multiple="multiple" size="5"><option value="0">All elements</option><option value="T1">Motto / Title</option><option value="T2">Primary Text</option><option value="T3">Secondary Text (authorial)</option><option value="T4">Secondary Text (non-authorial)</option><option value="number">Number</option><option value="dedic">Dedication</option><option value="other">Other</option><option value="translation">Translation</option><option value="notes">Notes</option><option value="front">Prefatory and Back Matter</option></select></p>
+    <p style="padding-left:50px;"><b>Hint:</b> Select multiple types by holding down <b>ctrl</b></p>
+	<p><label for="text">Text: </label><input type="text" name="text" id="text" size="30" maxlength="255" value="" /></p>
+
+</fieldset>
+<br />
+<fieldset>
+<legend>2. Iconclass Keywords</legend>
+<p><i>Iconclass was supplied by a third party and their server is unfortunately not currently available for searching</i></p>
+<p>Alternatively, <a href="iconclass-browse.php">Browse the Iconclass Hierarchy</a>.</p>
+</fieldset>
+<br />
+<fieldset>
+<legend>3. Proper Names</legend>
+<p><label for="names">Name(s): </label><input type="text" name="names" id="names" size="30" maxlength="255" value="" /></p>
+<p>Alternatively, <a href="names-browse.php">Browse a complete list of proper names</a>.</p>
+</fieldset>
+<br />
+<fieldset>
+<legend>4. Limit by Book</legend>
+<p><label for="book">Select one or more books: </label><select name="book[]" multiple="multiple" size="5" id="book"><option value="0">All Books</option><option value="FALa">Alciato, Andrea: Livret des emblemes (1536)</option><option value="FALb">Alciato, Andrea: Emblemes (1549)</option><option value="FALc">Alciato, Andrea: Emblemata / Les emblemes (1584)</option><option value="FALd">Alciato, Andrea: Les emblemes [PART ONE] (1615)</option><option value="FALe">Alciato, Andrea: Les emblemes [PART TWO] (1615)</option><option value="FANa">Aneau, Barth&eacute;lemy: Picta poesis (1552)</option><option value="FANb">Aneau, Barth&eacute;lemy: Imagination po&eacute;tique (1552)</option><option value="FBEa">B&egrave;ze, Th&eacute;odore de: Icones (1580)</option><option value="FBEb">B&egrave;ze, Th&eacute;odore de: Vrais Pourtraits (1581)</option><option value="FBOa">Boissard, Jean Jacques: Emblemes latins... (1588)</option><option value="FBOb">Boissard, Jean Jacques: Emblematum Liber (1593)</option><option value="FBOc">Boissard, Jean Jacques: Emblemes ... mis de Latin en fran&ccedil;ois (1595)</option><option value="FCGa">Corrozet, Gilles: Hecatomgraphie (1540)</option><option value="FCGb">Corrozet, Gilles: Emblemes in Cebes (1543)</option><option value="FCPa">Coustau, Pierre: Le pegme (1560)</option><option value="FCPb">Coustau, Pierre: Pegma (1555)</option><option value="FGUa">Gueroult, Guillaume: Le premier livre des emblemes (1550)</option><option value="FJUa">Junius, Hadrianus: Les emblesmes (1567)</option><option value="FJUb">Junius, Hadrianus: Emblemata (1565)</option><option value="FLPa">La Perri&egrave;re, Guillaume: Le theatre des bons engins (1544)</option><option value="FLPb">La Perri&egrave;re, Guillaume: Morosophie (1553)</option><option value="FMOa">Montenay, Georgette de: Emblemes ou devises chestiennes (1571)</option><option value="FMOb" selected="selected">Montenay, Georgette de: Emblematum Christianorum centuria / Emblemes Chrestiens (1584)</option><option value="FPAa">Paradin, Claude: Devises hero&iuml;ques (1551)</option><option value="FPAb">Paradin, Claude: Devises hero&iuml;ques (1557)</option><option value="FSAa">Sambucus, Joannes: Les emblemes (1567)</option><option value="FSAb">Sambucus, Joannes: Emblemata (1564)</option><option value="FSCa">Sc&egrave;ve, Maurice: D&eacute;lie (1544)</option></select></p>
+<p style="padding-left:50px;"><b>Hint:</b> Select multiple books by holding down <b>ctrl</b></p>
+</fieldset>
+<br />
+<fieldset>
+<legend>5. Limit by Versification</legend>
+<p><label for="v_lang">Language: </label><select name="v_lang" id="v_lang"><option value="0"></option><option value="fr">fr</option><option value="gr">gr</option><option value="la">la</option></select></p>
+<p><label for="v_el">Element: </label><select name="v_el" id="v_el"><option value="0"></option><option value="T2">Primary Text</option><option value="T3">Secondary Text (authorial)</option></select></p>
+<p><label for="metre">Metre: </label><select name="metre" id="metre"><option value="0"></option><option value="10 syllables">10 syllables</option><option value="12 syllables">12 syllables</option><option value="5 syllables">5 syllables</option><option value="6 syllables">6 syllables</option><option value="7 syllables">7 syllables</option><option value="8 syllables">8 syllables</option><option value="elegiac couplet">elegiac couplet</option><option value="hexameters">hexameters</option><option value="iambic dimeters">iambic dimeters</option><option value="mixed">mixed</option><option value="other">other</option></select></p>
+<p><label for="lines">Number of Lines: </label><select name="lines" id="lines"><option value="0"></option><option value="" selected="selected"></option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15+">15+</option><option value="18">18</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></p>
+<p><label for="lines">Lines per Stanza: </label><select name="stanza" id="stanza"><option value="0"></option><option value="" selected="selected"></option><option value="" selected="selected"></option><option value="10">10</option><option value="11 & 10">11 & 10</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="3">3</option><option value="4">4</option><option value="4 & 6">4 & 6</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="8 & 15+">8 & 15+</option><option value="9 & 8">9 & 8</option><option value="sonnet">sonnet</option></select></p>
+</fieldset>
+<br />
+<p><input value ="Search" type ="submit" /></p>
+	</form></div>
+
+	<p>&nbsp;</p>
+<p><a href="#top">Back to top</a></p>
+</div></div>
+<div id="footer">
+<span class="footer-l"><a href="http://www.ahrc.ac.uk"><img src="images/ahrc.gif" alt="Funded by the Arts and
+
+Humanities Research Council" title="Funded by the Arts and Humanities Research Council" /></a></span><span
+
+class="footer-r"><a href="http://www.hatii.arts.gla.ac.uk"><img src="images/hatii.gif" alt="Developed by the Humanities Advanced Technology and Information
+
+Institute" title="Developed by the Humanities Advanced Technology and Information Institute" /></a></span></div>
+<div class="clear"></div>
+<p style="text-align:right"><a href="https://www.gla.ac.uk/colleges/arts/legal/privacynotice/">Privacy notice</a><br><a href="https://www.gla.ac.uk/colleges/arts/legal/termsandconditions">Terms and conditions</a></p>
+</body>
+</html>

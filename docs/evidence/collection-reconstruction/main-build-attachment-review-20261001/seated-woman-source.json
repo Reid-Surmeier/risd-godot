@@ -1,0 +1,34 @@
+{
+  "url": "https://risdmuseum.org/art-design/collection/seated-woman-67089",
+  "checked_utc": "2026-10-01T13:22:00Z",
+  "node": 1552686,
+  "accession": "67.089",
+  "medium": [
+    "bronze",
+    "gold wash"
+  ],
+  "dimensions_cm": [
+    71.1,
+    20.3,
+    24.1
+  ],
+  "original_source_sha256": [
+    {
+      "url": "https://risdmuseum.cdn.picturepark.com/v/oEoan8PK/",
+      "file": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/modern-candidates-v3/seated-woman-zoom-0.jpg",
+      "sha256": "c3392ec2b4e4e80b40fddc4439f57954b2861fc9f362cf7c261639ce50c923d7"
+    },
+    {
+      "url": "https://risdmuseum.cdn.picturepark.com/v/dBAPCM41/",
+      "file": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/modern-candidates-v3/seated-woman-zoom-1.jpg",
+      "sha256": "a55395c00a3ad4fb6aa7821645aebeaf8246194f80d595d288c93d88a56baa9e"
+    },
+    {
+      "url": "https://risdmuseum.cdn.picturepark.com/v/eqEufJBh/",
+      "file": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/modern-candidates-v3/seated-woman-zoom-2.jpg",
+      "sha256": "312012198aa0e9eaee4d92e572e2a24c99153e37dbf45144fdc8c73910ba4718"
+    }
+  ],
+  "geometry_metres_accepted": false,
+  "rear_observed": false
+}

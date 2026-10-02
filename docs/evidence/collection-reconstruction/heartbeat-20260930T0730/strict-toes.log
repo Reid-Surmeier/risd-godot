@@ -1,0 +1,17 @@
+[
+  {
+    "trial": "doorway-aperture-v1",
+    "query_errors": [
+      14.342450559407792,
+      9.42795997761794
+    ],
+    "angles": [
+      9.419942345005552,
+      7.915784360383489
+    ],
+    "diagnostic_pass": false,
+    "omitted": [
+      "IMG_6380_exit6fps/000018.jpg"
+    ]
+  }
+]

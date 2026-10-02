@@ -1,0 +1,91 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-b3f597e1aebac9e62b2f",
+      "objective": "Create one complete orthographic FRONT view of only the original frame surrounding RISD Le Fauconnier Mountaineers Attacked by Bears1995.043 in references1 and2. Reference1 shows its complete oblique placement; reference2 shows its thin lower rail and upper rail closely. Keep a very narrow plain dark brown wood rectangular outer rail and a thin muted gold/cream inner lip, flat linear rails, straight mitred corners and restrained low polygon facets. No carving, beads, fancy corners, crest, decorative ornament or broad gold band. Painting opening must be landscape aspect305.4:239.6. Remove all painting content, walls, doors, floor, lights, labels, perspective and shadows. Aperture pure solid white; surrounding background pure magenta#FF00FF. Show the complete isolated frame with margins. The real artwork is preserved separately and inserted by deterministic native assembly.\n",
+      "procedureId": "muse-b3f597e1aebac9e62b2f",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "fauconnier-frame-recipe.json",
+          "sha256": "b3f597e1aebac9e62b2ffea7080836c620c1995d9305b90d923fb209ef21a1e0"
+        },
+        {
+          "applicationPath": "fauconnier-frame-plan.json",
+          "sha256": "a695d066c33e740e51aa713554bfcef1649b622f556c3e5bc4afe615f27effa7"
+        },
+        {
+          "applicationPath": "fauconnier-frame-prompt.txt",
+          "sha256": "bb025fd5a6be8dcf951c899760f314c59c936fb13186bdc27ef5dffe414a96f1"
+        }
+      ],
+      "museParameters": {
+        "size": "1760x1440"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/fauconnier-frame-video-0.png",
+          "sha256": "ccaef6e136f346a76ba1b0a55d7844c592ad257d444ade59660b5812ab297cca",
+          "byteLength": 1878610,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/fauconnier-frame-video-1.png",
+          "sha256": "836004bb8a39752edbbdfcc81f9c86a300942e4850e8e9828c2228c5c7d6ebde",
+          "byteLength": 2090983,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1760x1440\"},\"objective\":\"Create one complete orthographic FRONT view of only the original frame surrounding RISD Le Fauconnier Mountaineers Attacked by Bears1995.043 in references1 and2. Reference1 shows its complete oblique placement; reference2 shows its thin lower rail and upper rail closely. Keep a very narrow plain dark brown wood rectangular outer rail and a thin muted gold/cream inner lip, flat linear rails, straight mitred corners and restrained low polygon facets. No carving, beads, fancy corners, crest, decorative ornament or broad gold band. Painting opening must be landscape aspect305.4:239.6. Remove all painting content, walls, doors, floor, lights, labels, perspective and shadows. Aperture pure solid white; surrounding background pure magenta#FF00FF. Show the complete isolated frame with margins. The real artwork is preserved separately and inserted by deterministic native assembly.\\n\",\"objectiveId\":\"muse-b3f597e1aebac9e62b2f\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-b3f597e1aebac9e62b2f\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/fauconnier-frame-video-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1878610,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"ccaef6e136f346a76ba1b0a55d7844c592ad257d444ade59660b5812ab297cca\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/fauconnier-frame-video-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":2090983,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"836004bb8a39752edbbdfcc81f9c86a300942e4850e8e9828c2228c5c7d6ebde\",\"slot\":\"reference-001\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"fauconnier-frame-recipe.json\",\"sha256\":\"b3f597e1aebac9e62b2ffea7080836c620c1995d9305b90d923fb209ef21a1e0\"},{\"applicationPath\":\"fauconnier-frame-plan.json\",\"sha256\":\"a695d066c33e740e51aa713554bfcef1649b622f556c3e5bc4afe615f27effa7\"},{\"applicationPath\":\"fauconnier-frame-prompt.txt\",\"sha256\":\"bb025fd5a6be8dcf951c899760f314c59c936fb13186bdc27ef5dffe414a96f1\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "8064d5d53520fe1718913a504acade2d55a569342a910a10055f987cc3f12395"
+  },
+  "normalView": {
+    "objective": "Create one complete orthographic FRONT view of only the original frame surrounding RISD Le Fauconnier Mountaineers Attacked by Bears1995.043 in references1 and2. Reference1 shows its complete oblique placement; reference2 shows its thin lower rail and upper rail closely. Keep a very narrow plain dark brown wood rectangular outer rail and a thin muted gold/cream inner lip, flat linear rails, straight mitred corners and restrained low polygon facets. No carving, beads, fancy corners, crest, decorative ornament or broad gold band. Painting opening must be landscape aspect305.4:239.6. Remove all painting content, walls, doors, floor, lights, labels, perspective and shadows. Aperture pure solid white; surrounding background pure magenta#FF00FF. Show the complete isolated frame with margins. The real artwork is preserved separately and inserted by deterministic native assembly.\n",
+    "evidence": "2 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

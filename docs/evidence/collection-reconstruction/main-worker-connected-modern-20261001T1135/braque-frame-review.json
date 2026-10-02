@@ -1,0 +1,11 @@
+{
+  "run": "run-9aee0790a3bad9ca3dc7bb83",
+  "native_sha256": "3b1f9bcf18c98976d2c0ab2e4aa502cc2afc634f255c2a175818fe682a135753",
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "cost_usd": "0.010000",
+  "review": "Native generated frame inspected alongside6387:54.25; narrow gold outer/inner lips and broad cream middle retained, no added ornament. Broad facet adaptation compatible with Main Hall. Exact profile/depth and metric band widths provisional. No paid retry.",
+  "source_frame_appearance_matches": true,
+  "geometry_accepted": false,
+  "matisse_reuse_accepted": false
+}

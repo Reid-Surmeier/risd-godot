@@ -1,0 +1,1266 @@
+{
+ "scope": "Objects in the light Renaissance room as filmed in IMG_6383 only. Wall order and case contents are observations; nothing is measured. This ledger does not complete the room or the map.",
+ "video_sha256": "8cfd089e769000369419f577f28a1bfc68b09f8cc7cda4cbe93d840194e6eeef",
+ "axes": "Local prototype walls as the root uses them: south = velvet and tapestry, west = shuttered window, north = doorway to the long gallery, east = tracery doorway to the medieval room. Not compass bearings.",
+ "wall_order_clockwise": {
+  "south": [
+   "R01",
+   "R02"
+  ],
+  "west": [
+   "R03",
+   "R04",
+   "R05"
+  ],
+  "north": [
+   "R06",
+   "doorway to the long gallery",
+   "R07"
+  ],
+  "east": [
+   "case A: R08-R13",
+   "tracery doorway",
+   "case B: R14-R18"
+  ]
+ },
+ "cases": [
+  {
+   "id": "R04 plinth",
+   "kind": "white floor plinth with tall acrylic hood",
+   "holds": [
+    "R04"
+   ],
+   "built_in_root": false
+  },
+  {
+   "id": "R05 case",
+   "kind": "wall-hung white shelf with sloped label front and acrylic hood",
+   "holds": [
+    "R05"
+   ],
+   "built_in_root": false
+  },
+  {
+   "id": "R06 case",
+   "kind": "wall-hung white shelf with sloped label front and acrylic hood",
+   "holds": [
+    "R06"
+   ],
+   "built_in_root": false
+  },
+  {
+   "id": "case A",
+   "kind": "wall-hung case with white back panel, deck, sloped label front and acrylic hood",
+   "holds": [
+    "R08",
+    "R09",
+    "R10",
+    "R11",
+    "R12",
+    "R13"
+   ],
+   "built_in_root": false
+  },
+  {
+   "id": "case B",
+   "kind": "wall-hung case with white back panel, deck, sloped label front and acrylic hood",
+   "holds": [
+    "R14",
+    "R15",
+    "R16",
+    "R17",
+    "R18"
+   ],
+   "built_in_root": false
+  }
+ ],
+ "objects": [
+  {
+   "slot": "R01",
+   "group": "south wall",
+   "wall": "south",
+   "status": "confirmed",
+   "basis": "photo",
+   "built_in_root": false,
+   "root_inventory_id": "burgundy-textile",
+   "root_inventory_called": "Burgundy repeated floral textile in white mount",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "6.10",
+    "68.50"
+   ],
+   "source_frames": [
+    {
+     "seconds": 6.1,
+     "png_sha256": "b211435d7de3491e37c144ef0fe131fb351047e3130586562fa6d1da78ae5dff",
+     "kept_file": "frames/IMG_6383-006.10.jpg"
+    },
+    {
+     "seconds": 68.5,
+     "png_sha256": "46d2b38017b45f45e0b2f873b4883e97dbf0798541aee0b56983bc3787d05d4a",
+     "kept_file": "frames/IMG_6383-068.50.jpg"
+    }
+   ],
+   "observed_position": "South wall, east half, in a white box mount above a low white platform with a label stand.",
+   "visual_evidence": "Tall dark red velvet with gold fringe top and bottom, two narrow horizontal bands, and rows of gold stag heads with antlers and curled horns. Every motif position matches the official photograph.",
+   "label_read": null,
+   "limits": "Catalogue gives only the 127 cm length; width is not listed.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "23.307X",
+   "catalogue_id": "1202276",
+   "title": "Velvet Cover",
+   "maker": "Unknown Maker, French",
+   "dating": "1575-1625",
+   "medium": "Silk-velvet ground with silver- and gilt-silver-wrapped silk thread embroidery (couching stitch)",
+   "dimensions": "127 cm (50 inches) (length)",
+   "on_view_flag": true,
+   "public_domain_flag": false,
+   "link": "https://risdmuseum.org/art-design/collection/velvet-cover-23307x",
+   "api_json": "api/cached-records.json",
+   "api_json_sha256": "4c83546697aa1d2fd2749bfbed41384fbc9827004b25a4088874f203477dd6bb",
+   "carousel_photos_on_page": 4,
+   "photos": [
+    {
+     "file": "velvet-cover-23307x-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/Boy93jNs/",
+     "asset_copyright": "public",
+     "sha256": "ca0e329da72008372f1e8a147e497dda330804529c3af983434f8cdfbeb65409"
+    },
+    {
+     "file": "velvet-cover-23307x-zoom-1.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/iePy1awr/",
+     "asset_copyright": "public",
+     "sha256": "bb33ded3a23e6c9a9c4a39cb958a5c17db5b4e4b53d3020d0fc21b8cf0f07ff5"
+    }
+   ],
+   "comparison_sheet": "sheets/R01-velvet-cover-23.307X.jpg"
+  },
+  {
+   "slot": "R02",
+   "group": "south wall",
+   "wall": "south",
+   "status": "confirmed",
+   "basis": "photo",
+   "built_in_root": false,
+   "root_inventory_id": "hunting-tapestry",
+   "root_inventory_called": "Green hunting tapestry: riders and foliage",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "11.50",
+    "60.60",
+    "68.50"
+   ],
+   "source_frames": [
+    {
+     "seconds": 11.5,
+     "png_sha256": "c0a1fb345beabf485596bc13a7fdcbef41ba1b614f5acd68000a25469e6e3608",
+     "kept_file": "frames/IMG_6383-011.50.jpg"
+    },
+    {
+     "seconds": 60.6,
+     "png_sha256": "5228829570c73f6e5e5a1b9bef06cd64151bf2f76d4126c461a053a964335a5a",
+     "kept_file": "frames/IMG_6383-060.60.jpg"
+    },
+    {
+     "seconds": 68.5,
+     "png_sha256": "46d2b38017b45f45e0b2f873b4883e97dbf0798541aee0b56983bc3787d05d4a",
+     "kept_file": "frames/IMG_6383-068.50.jpg"
+    }
+   ],
+   "observed_position": "South wall, west half, hung directly on the wall above the same low platform.",
+   "visual_evidence": "Tapestry of two men, one in a gold jerkin and one in a red cap and blue coat carrying a tool, over fruiting bushes on a dark blue ground with a dark border. Matches the official photograph figure for figure.",
+   "label_read": null,
+   "limits": "None beyond resolution.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "29.280",
+   "catalogue_id": "1201986",
+   "title": "The Woodcutters",
+   "maker": "Unknown Maker, French",
+   "dating": "1475-1510",
+   "medium": "wool tapestry weave",
+   "dimensions": "152.4 x 94 cm (60 x 37 inches)",
+   "on_view_flag": true,
+   "public_domain_flag": false,
+   "link": "https://risdmuseum.org/art-design/collection/woodcutters-29280",
+   "api_json": "api/cached-records.json",
+   "api_json_sha256": "4c83546697aa1d2fd2749bfbed41384fbc9827004b25a4088874f203477dd6bb",
+   "carousel_photos_on_page": 2,
+   "photos": [
+    {
+     "file": "woodcutters-29280-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/XFexgLtH/",
+     "asset_copyright": "public",
+     "sha256": "bca788abc10a42c7d2f285ed99d699962db11655102e0028c2022710daff8645"
+    },
+    {
+     "file": "woodcutters-29280-zoom-1.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/iarRvOAt/",
+     "asset_copyright": "public",
+     "sha256": "3e66b24b5bc83d10019b4026159c0366481cfba7f82c3407948c9f54ef2c1186"
+    }
+   ],
+   "comparison_sheet": "sheets/R02-tapestry-29.280.jpg"
+  },
+  {
+   "slot": "R03",
+   "group": "west wall",
+   "wall": "west",
+   "status": "confirmed",
+   "basis": "photo",
+   "built_in_root": false,
+   "root_inventory_id": "holy-family",
+   "root_inventory_called": "Holy Family with female attendants, outdoor setting",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "15.10",
+    "60.60"
+   ],
+   "source_frames": [
+    {
+     "seconds": 15.1,
+     "png_sha256": "fc6522c9edc25f9d1f50f69aceef5efccf489ad11eeeb1c3a83b10bf7efd30be",
+     "kept_file": "frames/IMG_6383-015.10.jpg"
+    },
+    {
+     "seconds": 60.6,
+     "png_sha256": "5228829570c73f6e5e5a1b9bef06cd64151bf2f76d4126c461a053a964335a5a",
+     "kept_file": "frames/IMG_6383-060.60.jpg"
+    }
+   ],
+   "observed_position": "West wall, south end, framed, with a wall label to its right.",
+   "visual_evidence": "Virgin nursing the Child at left, an angel with a dish of fruit, a saint reading, a saint in green with a sword, tower and landscape behind. Matches the official photograph.",
+   "label_read": null,
+   "limits": "The dark moulded frame is not in the catalogue photograph; frame size is unlisted.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "58.196",
+   "catalogue_id": "1591076",
+   "title": "Madonna and Child with Saint Barbara and Saint Catherine",
+   "maker": "Unknown Maker, Possibly",
+   "dating": "1500-1550",
+   "medium": "Oil on panel",
+   "dimensions": "91.4 x 87 cm (36 x 34 1/4 inches)",
+   "on_view_flag": true,
+   "public_domain_flag": false,
+   "link": "https://risdmuseum.org/art-design/collection/madonna-and-child-saint-barbara-and-saint-catherine-58196",
+   "api_json": "api/cached-records.json",
+   "api_json_sha256": "4c83546697aa1d2fd2749bfbed41384fbc9827004b25a4088874f203477dd6bb",
+   "carousel_photos_on_page": 2,
+   "photos": [
+    {
+     "file": "madonna-and-child-saint-barbara-and-saint-catherine-58196-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/E9uDki01/",
+     "asset_copyright": "public",
+     "sha256": "a2a363197191902130e2a20f1b2a4642ccec5aec60e2e7098aa119ee8cbf373d"
+    },
+    {
+     "file": "madonna-and-child-saint-barbara-and-saint-catherine-58196-zoom-1.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/Q3U072cY/",
+     "asset_copyright": "public",
+     "sha256": "70bc807aea99258a8178d4ac0afc98868950c2cffd591e45d3a9f26b62f8b42d"
+    }
+   ],
+   "comparison_sheet": "sheets/R03-painting-58.196.jpg"
+  },
+  {
+   "slot": "R04",
+   "group": "west wall",
+   "wall": "west",
+   "status": "confirmed",
+   "basis": "photo",
+   "built_in_root": false,
+   "root_inventory_id": "bronze-knight",
+   "root_inventory_called": "Bronze young knight with hat/cape, rock base, large glass case",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "18.30",
+    "20.60",
+    "21.30",
+    "62.00"
+   ],
+   "source_frames": [
+    {
+     "seconds": 18.3,
+     "png_sha256": "c6bd46733b2bc3bd271bf821b7c1c004bd2c9ea5eeca09fab51d72114f3e898e",
+     "kept_file": "frames/IMG_6383-018.30.jpg"
+    },
+    {
+     "seconds": 20.6,
+     "png_sha256": "565ff54d15b72dc9d43a957e45b06623f4f0c4b6ce5a8b31488d8997e7fad313",
+     "kept_file": "frames/IMG_6383-020.60.jpg"
+    },
+    {
+     "seconds": 21.3,
+     "png_sha256": "74f5b3af04ccb546c19b959a852c0e1896a3a52eb699920110603c19c1590768",
+     "kept_file": "frames/IMG_6383-021.30.jpg"
+    },
+    {
+     "seconds": 62.0,
+     "png_sha256": "18998e634b0f594af95d234b55bb66eb20060b25ff7069eea8e4648348a64259",
+     "kept_file": "frames/IMG_6383-062.00.jpg"
+    }
+   ],
+   "observed_position": "In front of the shuttered west window on a white floor plinth under a tall acrylic hood.",
+   "visual_evidence": "Standing pilgrim in a broad hat and short cape, tunic lifted from one thigh, a small dog at his feet on a rocky base. Matches the four official views, including the back.",
+   "label_read": null,
+   "limits": "It is polychromed wood, not bronze. Catalogue gives only the 105.4 cm height. Plinth and hood sizes are unmeasured.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "21.398",
+   "catalogue_id": "1273471",
+   "title": "Saint Roch",
+   "maker": "Unknown Maker, French",
+   "dating": "1475-1525",
+   "medium": "Wood with polychromy (colored paint)",
+   "dimensions": "Height: 105.4 cm (41 1/2 inches)",
+   "on_view_flag": true,
+   "public_domain_flag": false,
+   "link": "https://risdmuseum.org/art-design/collection/saint-roch-21398",
+   "api_json": "api/cached-records.json",
+   "api_json_sha256": "4c83546697aa1d2fd2749bfbed41384fbc9827004b25a4088874f203477dd6bb",
+   "carousel_photos_on_page": 4,
+   "photos": [
+    {
+     "file": "saint-roch-21398-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/oug6mCSh/",
+     "asset_copyright": "public",
+     "sha256": "abe58d5d9cc7b7515a497b8cc113a6ef385210ac04c785787dbb58cdd5e87ab8"
+    },
+    {
+     "file": "saint-roch-21398-zoom-1.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/GkgUcBJS/",
+     "asset_copyright": "public",
+     "sha256": "4d7b25f357de3e5c86af77a68eb1fa6fc84edf8bd249d2689f359c9bf1125bd6"
+    },
+    {
+     "file": "saint-roch-21398-zoom-2.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/qEDhwnED/",
+     "asset_copyright": "public",
+     "sha256": "0de2f720aa0f45a0d6fd33cbbd255c015f3f21f80519279620d0960f87577ebb"
+    },
+    {
+     "file": "saint-roch-21398-zoom-3.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/LziEBwg9/",
+     "asset_copyright": "public",
+     "sha256": "5abf7bd0f1b36374e63a9926ca3d7a3ba49674fcce240d6970011f30c3481b42"
+    }
+   ],
+   "comparison_sheet": "sheets/R04-saint-roch-21.398.jpg"
+  },
+  {
+   "slot": "R05",
+   "group": "west wall",
+   "wall": "west",
+   "status": "confirmed",
+   "basis": "photo and label",
+   "built_in_root": false,
+   "root_inventory_id": "bronze-pieta",
+   "root_inventory_called": "Virgin seated, dead Christ at her side, small wall glass case",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "24.60",
+    "62.00"
+   ],
+   "source_frames": [
+    {
+     "seconds": 24.6,
+     "png_sha256": "d41a6b6dbbe1cfc1dd652481c644d45142fd760d71968e871cccd8105b6774c3",
+     "kept_file": "frames/IMG_6383-024.60.jpg"
+    },
+    {
+     "seconds": 62.0,
+     "png_sha256": "18998e634b0f594af95d234b55bb66eb20060b25ff7069eea8e4648348a64259",
+     "kept_file": "frames/IMG_6383-062.00.jpg"
+    }
+   ],
+   "observed_position": "West wall, north end, in a wall-hung case: white shelf with a sloped label front and an acrylic hood.",
+   "visual_evidence": "Veiled Virgin seated with the dead Christ slumped at her side, his head fallen back, on a leafy mound. Matches the official photograph.",
+   "label_read": "Tilman Riemenschneider / Pieta, ca. 1515-1525 / Linden wood",
+   "limits": "It is linden wood, not bronze. The case label and the 2020 caption date it ca. 1515-1525; the live catalogue record gives 1480-1510.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "59.128",
+   "catalogue_id": "1312736",
+   "title": "Pietà",
+   "maker": "Tilman Riemenschneider",
+   "dating": "1480-1510",
+   "medium": "Linden wood",
+   "dimensions": "45.7 x 38.1 x 13.2 cm (18 x 15 x 5 3/16 inches)",
+   "on_view_flag": true,
+   "public_domain_flag": false,
+   "link": "https://risdmuseum.org/art-design/collection/pieta-59128",
+   "api_json": "api/onview-pieta.json",
+   "api_json_sha256": "9d7aec935f52ded3118e2b84a142e2e599bbf2ce38c9538a11d4a9dc72a3a10c",
+   "carousel_photos_on_page": 4,
+   "photos": [
+    {
+     "file": "pieta-59128-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/uwDa82iU/",
+     "asset_copyright": "public",
+     "sha256": "19772d5ae6903e712077efb8e21d5a2498f015d930584366e24170c264386ee4"
+    },
+    {
+     "file": "pieta-59128-zoom-1.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/vwqGsrte/",
+     "asset_copyright": "public",
+     "sha256": "7c939ecda1a84ee817434d7c4090eeb7e6e9f389cc0eaa5f93e0502bfa491d66"
+    },
+    {
+     "file": "pieta-59128-zoom-2.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/m0bOtolo/",
+     "asset_copyright": "public",
+     "sha256": "3423812575caea5c5cc3771313deb600c1529ff90290d96cfc10653cf4f6947e"
+    },
+    {
+     "file": "pieta-59128-zoom-3.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/crvNJLOd/",
+     "asset_copyright": "public",
+     "sha256": "033667a61f1ea00da37b584cd13b3176715e9877d9808adca0daa976c83b03a1"
+    }
+   ],
+   "comparison_sheet": "sheets/R05-pieta-59.128.jpg"
+  },
+  {
+   "slot": "R06",
+   "group": "north wall",
+   "wall": "north",
+   "status": "confirmed",
+   "basis": "photo and label",
+   "built_in_root": false,
+   "root_inventory_id": "triptych",
+   "root_inventory_called": "Open gold triptych in wall glass case",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "30.00",
+    "30.20",
+    "63.90",
+    "71.90"
+   ],
+   "source_frames": [
+    {
+     "seconds": 30.0,
+     "png_sha256": "efc53110c87ac16e935c45a79964396d5734aee2383b3772a9eda42d1d0e0716",
+     "kept_file": "frames/IMG_6383-030.00.jpg"
+    },
+    {
+     "seconds": 30.2,
+     "png_sha256": "933bcecb4efa4eba7d987248717815ad5399ff15db5f4d6bffb7c3e1bc03ba13",
+     "kept_file": "frames/IMG_6383-030.20.jpg"
+    },
+    {
+     "seconds": 63.9,
+     "png_sha256": "6cc7749e2d551181513cceb70bf023fe8077bcc77369f500aff09a913d987e5d",
+     "kept_file": "frames/IMG_6383-063.90.jpg"
+    },
+    {
+     "seconds": 71.9,
+     "png_sha256": "049929d6b13a34d93f29228d12c09b52980711c916c64694bd04b7bd3423eaa3",
+     "kept_file": "frames/IMG_6383-071.90.jpg"
+    }
+   ],
+   "observed_position": "North wall, west of the doorway to the long gallery, in a wall-hung case, wings open at an angle.",
+   "visual_evidence": "Gabled gold-ground triptych: enthroned Madonna in dark blue with saints at the centre, Saint Michael over the dragon and two saints on the left wing, Crucifixion on the right wing. Matches the official photographs.",
+   "label_read": "... Enthroned, with ... Angels, ca. 1320 / ... on wood panel",
+   "limits": "Catalogue size 67 x 72.5 cm is for the triptych open flat; the wing angle in the case is unmeasured.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "2021.131",
+   "catalogue_id": "1345606",
+   "title": "Madonna Enthroned, with Saints and Angels",
+   "maker": "Lippo di Benivieni",
+   "dating": "1315-1325",
+   "medium": "Tempera with gold ground on wood panel (triptych)",
+   "dimensions": "67 x 72.5 cm (26 3/8 x 28 9/16 inches) (open)",
+   "on_view_flag": true,
+   "public_domain_flag": null,
+   "link": "https://risdmuseum.org/art-design/collection/madonna-enthroned-saints-and-angels-2021131",
+   "api_json": "api/cached-records.json",
+   "api_json_sha256": "4c83546697aa1d2fd2749bfbed41384fbc9827004b25a4088874f203477dd6bb",
+   "carousel_photos_on_page": 8,
+   "photos": [
+    {
+     "file": "madonna-enthroned-saints-and-angels-2021131-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/PJYjnH8u/",
+     "asset_copyright": "public",
+     "sha256": "57fa52dc3b7a79daec3cead7718a07f185c7a8aed4e9358ab0eea40dfe3f5000"
+    },
+    {
+     "file": "madonna-enthroned-saints-and-angels-2021131-zoom-1.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/Dym5UBVU/",
+     "asset_copyright": "public",
+     "sha256": "0c941cf1b77cfcd4506a54779d5d24e6f4508fbf5112819e0c2486d0000241ec"
+    },
+    {
+     "file": "madonna-enthroned-saints-and-angels-2021131-zoom-2.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/BM9d4Ahh/",
+     "asset_copyright": "public",
+     "sha256": "eaac9eafcd1657ca01b5cee1c547c4bf4f92883263ca984cb437676109c3712a"
+    },
+    {
+     "file": "madonna-enthroned-saints-and-angels-2021131-zoom-3.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/6hYgWFnf/",
+     "asset_copyright": "public",
+     "sha256": "9b1dece7d5c3e3493e8496a5037898dfd6c19f49e26920d782b07ba1cee72768"
+    }
+   ],
+   "comparison_sheet": "sheets/R06-triptych-2021.131.jpg"
+  },
+  {
+   "slot": "R07",
+   "group": "north wall",
+   "wall": "north",
+   "status": "already-built",
+   "basis": "root",
+   "built_in_root": true,
+   "root_inventory_id": "madonna-architecture",
+   "root_inventory_called": "Pietro Perugino, Madonna and Child",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "63.90",
+    "64.90"
+   ],
+   "source_frames": [
+    {
+     "seconds": 63.9,
+     "png_sha256": "6cc7749e2d551181513cceb70bf023fe8077bcc77369f500aff09a913d987e5d",
+     "kept_file": "frames/IMG_6383-063.90.jpg"
+    },
+    {
+     "seconds": 64.9,
+     "png_sha256": "16498ba905377aaf820663facfdd24e2c6f1c10ee689eee780dd3bf3ab0996ce",
+     "kept_file": "frames/IMG_6383-064.90.jpg"
+    }
+   ],
+   "observed_position": "North wall, east of the doorway.",
+   "visual_evidence": "Pietro Perugino, Madonna and Child, 16.236. Already matched and installed by the root; listed here only to keep the wall order complete.",
+   "label_read": null,
+   "limits": "Not re-examined.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false
+  },
+  {
+   "slot": "R08",
+   "group": "case A",
+   "wall": "east",
+   "status": "confirmed",
+   "basis": "photo",
+   "built_in_root": false,
+   "root_inventory_id": "books-portraits-case",
+   "root_inventory_called": "portrait (one of two)",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "41.20",
+    "49.80"
+   ],
+   "source_frames": [
+    {
+     "seconds": 41.2,
+     "png_sha256": "9224328e2ba3885a9f99623138b7566ffe76ad602bed5b2b83391744b7e5ccd8",
+     "kept_file": "frames/IMG_6383-041.20.jpg"
+    },
+    {
+     "seconds": 49.8,
+     "png_sha256": "22de0c120b3ccc8f0080510c6a33f973f7860d92f7235d74a2b50dbf605be908",
+     "kept_file": "frames/IMG_6383-049.80.jpg"
+    }
+   ],
+   "observed_position": "Case A (east wall, north of the tracery doorway), back panel, left.",
+   "visual_evidence": "Small portrait of a dark-haired man in three-quarter view with hands joined in prayer, green ground, grey moulded frame. Matches the official photograph.",
+   "label_read": null,
+   "limits": "The frame is not in the catalogue photograph. No legible label was found for it.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "45.042",
+   "catalogue_id": "1544321",
+   "title": "Portrait of a Cleric",
+   "maker": "Bruges Master",
+   "dating": "1465-1515",
+   "medium": "Oil on panel",
+   "dimensions": "22.2 x 14.6 x 5.7 cm (8 3/4 x 5 3/4 x 2 1/4 inches)",
+   "on_view_flag": true,
+   "public_domain_flag": false,
+   "link": "https://risdmuseum.org/art-design/collection/portrait-cleric-45042",
+   "api_json": "api/onview-flemish.json",
+   "api_json_sha256": "1b09a6f7a493400fa5bc7b82315c1bcf3cfc119a42e9baf34211ef232498f4de",
+   "carousel_photos_on_page": 1,
+   "photos": [
+    {
+     "file": "portrait-cleric-45042-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/oAufUR56/",
+     "asset_copyright": "public",
+     "sha256": "0e7b7e4c9b9e5e57b231282d478435d27c4198b32bd1571971f728202ea0d77f"
+    }
+   ],
+   "comparison_sheet": "sheets/R08-portrait-man-45.042.jpg"
+  },
+  {
+   "slot": "R09",
+   "group": "case A",
+   "wall": "east",
+   "status": "confirmed",
+   "basis": "photo",
+   "built_in_root": false,
+   "root_inventory_id": "books-portraits-case",
+   "root_inventory_called": "portrait (one of two)",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "41.20",
+    "46.40"
+   ],
+   "source_frames": [
+    {
+     "seconds": 41.2,
+     "png_sha256": "9224328e2ba3885a9f99623138b7566ffe76ad602bed5b2b83391744b7e5ccd8",
+     "kept_file": "frames/IMG_6383-041.20.jpg"
+    },
+    {
+     "seconds": 46.4,
+     "png_sha256": "9a682a36b90622770de26567bb205966c17684b2519da71464066365fa546463",
+     "kept_file": "frames/IMG_6383-046.40.jpg"
+    }
+   ],
+   "observed_position": "Case A, back panel, right.",
+   "visual_evidence": "Arch-topped portrait of a woman in a white headdress and black dress, hands folded, in a brown arched frame. Matches the official photograph.",
+   "label_read": null,
+   "limits": "The painted coat of arms on the back (official photograph 1) is not visible in the case.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "34.861",
+   "catalogue_id": "1257341",
+   "title": "Portrait of a Woman",
+   "maker": "Jan Joest",
+   "dating": "1515-1525",
+   "medium": "Oil on panel",
+   "dimensions": "36.2 x 24.8 cm (14 1/4 x 9 3/4 inches)",
+   "on_view_flag": true,
+   "public_domain_flag": false,
+   "link": "https://risdmuseum.org/art-design/collection/portrait-woman-34861",
+   "api_json": "api/cached-records.json",
+   "api_json_sha256": "4c83546697aa1d2fd2749bfbed41384fbc9827004b25a4088874f203477dd6bb",
+   "carousel_photos_on_page": 2,
+   "photos": [
+    {
+     "file": "portrait-woman-34861-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/oERfpI6k/",
+     "asset_copyright": "public",
+     "sha256": "7b4066ab077a2a341f3ec20b1641274b9828fce86694ab3f73890dad345e4e9f"
+    },
+    {
+     "file": "portrait-woman-34861-zoom-1.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/hNnB06N1/",
+     "asset_copyright": "public",
+     "sha256": "13ac925a3bd0614eedd8081f73c19b8159211346bb903f90405c79b8ed784d19"
+    }
+   ],
+   "comparison_sheet": "sheets/R09-portrait-woman-34.861.jpg"
+  },
+  {
+   "slot": "R10",
+   "group": "case A",
+   "wall": "east",
+   "status": "confirmed",
+   "basis": "photo and label",
+   "built_in_root": false,
+   "root_inventory_id": "books-portraits-case",
+   "root_inventory_called": "ivory narrative plaque",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "41.10",
+    "41.20",
+    "49.80"
+   ],
+   "source_frames": [
+    {
+     "seconds": 41.1,
+     "png_sha256": "0333b674cbb21c220576a5091cf5e0dad7e3ed9dcf74175c168e192da0133a4c",
+     "kept_file": "frames/IMG_6383-041.10.jpg"
+    },
+    {
+     "seconds": 41.2,
+     "png_sha256": "9224328e2ba3885a9f99623138b7566ffe76ad602bed5b2b83391744b7e5ccd8",
+     "kept_file": "frames/IMG_6383-041.20.jpg"
+    },
+    {
+     "seconds": 49.8,
+     "png_sha256": "22de0c120b3ccc8f0080510c6a33f973f7860d92f7235d74a2b50dbf605be908",
+     "kept_file": "frames/IMG_6383-049.80.jpg"
+    }
+   ],
+   "observed_position": "Case A, deck, left, lying open on a sloped white mount.",
+   "visual_evidence": "Two ivory leaves side by side, each with two tiers of scenes under three Gothic arches. Matches the official photograph of one leaf.",
+   "label_read": "Diptych with Scenes of the Nativity, the Crucifixion, and the Last Judgment, ca. 1275-1325",
+   "limits": "Individual scenes are not resolved in the source.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "22.201",
+   "catalogue_id": "1572876",
+   "title": "Diptych with scenes of the Nativity, the Crucifixion, and the Last Judgement",
+   "maker": "Unknown Maker, French",
+   "dating": "1275-1325",
+   "medium": "Ivory with traces of polychromy (colored paint)",
+   "dimensions": "Panel: 24.1 x 13.3 cm (9 1/2 x 5 1/4 inches) (each)",
+   "on_view_flag": true,
+   "public_domain_flag": false,
+   "link": "https://risdmuseum.org/art-design/collection/diptych-scenes-nativity-crucifixion-and-last-judgement-22201",
+   "api_json": "api/cached-records.json",
+   "api_json_sha256": "4c83546697aa1d2fd2749bfbed41384fbc9827004b25a4088874f203477dd6bb",
+   "carousel_photos_on_page": 2,
+   "photos": [
+    {
+     "file": "diptych-scenes-nativity-crucifixion-and-last-judgement-22201-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/NvaH0LOW/",
+     "asset_copyright": "public",
+     "sha256": "02d0818d5601d89583eb79f24d81dc9ca1c78b2910754d7159d5f8a50d629817"
+    },
+    {
+     "file": "diptych-scenes-nativity-crucifixion-and-last-judgement-22201-zoom-1.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/FxI0EWOS/",
+     "asset_copyright": "public",
+     "sha256": "34070e1bf44648ba414128981ca5b52a7424ea722344bc051d4ea0d96db76325"
+    }
+   ],
+   "comparison_sheet": "sheets/R10-diptych-22.201.jpg"
+  },
+  {
+   "slot": "R11",
+   "group": "case A",
+   "wall": "east",
+   "status": "confirmed",
+   "basis": "photo and label",
+   "built_in_root": false,
+   "root_inventory_id": "books-portraits-case",
+   "root_inventory_called": "bronze bucket",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "41.10",
+    "41.20",
+    "49.80"
+   ],
+   "source_frames": [
+    {
+     "seconds": 41.1,
+     "png_sha256": "0333b674cbb21c220576a5091cf5e0dad7e3ed9dcf74175c168e192da0133a4c",
+     "kept_file": "frames/IMG_6383-041.10.jpg"
+    },
+    {
+     "seconds": 41.2,
+     "png_sha256": "9224328e2ba3885a9f99623138b7566ffe76ad602bed5b2b83391744b7e5ccd8",
+     "kept_file": "frames/IMG_6383-041.20.jpg"
+    },
+    {
+     "seconds": 49.8,
+     "png_sha256": "22de0c120b3ccc8f0080510c6a33f973f7860d92f7235d74a2b50dbf605be908",
+     "kept_file": "frames/IMG_6383-049.80.jpg"
+    }
+   ],
+   "observed_position": "Case A, deck, centre left, standing on its fore-edge with its chains raised to a ring.",
+   "visual_evidence": "Silver book-shaped cover with a banded spine and three chains gathered to a ring. Matches the official photographs.",
+   "label_read": "Book Cover, 1500-1550",
+   "limits": "Filigree and niello are not resolved in the source.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "34.016",
+   "catalogue_id": "1546231",
+   "title": "Book cover",
+   "maker": "Unknown Maker, German",
+   "dating": "1500-1550",
+   "medium": "Silver with niello and gilding",
+   "dimensions": "14 x 8.6 x 5.1 cm (5 1/2 x 3 3/8 x 2 inches)",
+   "on_view_flag": true,
+   "public_domain_flag": false,
+   "link": "https://risdmuseum.org/art-design/collection/book-cover-34016",
+   "api_json": "api/onview-book-cover.json",
+   "api_json_sha256": "8c786476f4148c3e6f74d6a576d4ceaabaf6c9b6d5227d0fe526c412da947e61",
+   "carousel_photos_on_page": 7,
+   "photos": [
+    {
+     "file": "book-cover-34016-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/34mkvosa/",
+     "asset_copyright": "public",
+     "sha256": "c7955feb2ad1f512f54ecacdc9f2a22db569073366c7792bc3aaa8b802945e14"
+    },
+    {
+     "file": "book-cover-34016-zoom-1.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/GbcDwCdp/",
+     "asset_copyright": "public",
+     "sha256": "e856d8c3530569d9f2057372f3176a4068cc070bfb39c78a8894c46b85125479"
+    }
+   ],
+   "comparison_sheet": "sheets/R11-book-cover-34.016.jpg"
+  },
+  {
+   "slot": "R12",
+   "group": "case A",
+   "wall": "east",
+   "status": "unmatched",
+   "basis": "label only",
+   "built_in_root": false,
+   "root_inventory_id": "books-portraits-case",
+   "root_inventory_called": "open printed book",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "41.20",
+    "45.70",
+    "46.40"
+   ],
+   "source_frames": [
+    {
+     "seconds": 41.2,
+     "png_sha256": "9224328e2ba3885a9f99623138b7566ffe76ad602bed5b2b83391744b7e5ccd8",
+     "kept_file": "frames/IMG_6383-041.20.jpg"
+    },
+    {
+     "seconds": 45.7,
+     "png_sha256": "bae73389c4892c9a090775036472b44ac54f289c468cad00877e91f49b211219",
+     "kept_file": "frames/IMG_6383-045.70.jpg"
+    },
+    {
+     "seconds": 46.4,
+     "png_sha256": "9a682a36b90622770de26567bb205966c17684b2519da71464066365fa546463",
+     "kept_file": "frames/IMG_6383-046.40.jpg"
+    }
+   ],
+   "observed_position": "Case A, deck, centre right, open on a clear cradle.",
+   "visual_evidence": "Small printed book open to a left page of verse and a right page with an engraving of an oval emblem above text.",
+   "label_read": "... de Montenay, author / ... Woeiriot, engraver / One Hundred Christian Emblems (Emblematum Christianorum Centuria)",
+   "limits": "Identified by its case label only. Three catalogue searches (Montenay, Emblematum, Woeiriot) returned no record, so there is no accession, size or official photograph. The label year is not legible.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "comparison_sheet": "sheets/R12-emblem-book-label-only.jpg"
+  },
+  {
+   "slot": "R13",
+   "group": "case A",
+   "wall": "east",
+   "status": "confirmed",
+   "basis": "photo and label",
+   "built_in_root": false,
+   "root_inventory_id": "books-portraits-case",
+   "root_inventory_called": "blue/gold drug jar",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "41.20",
+    "45.70",
+    "46.40"
+   ],
+   "source_frames": [
+    {
+     "seconds": 41.2,
+     "png_sha256": "9224328e2ba3885a9f99623138b7566ffe76ad602bed5b2b83391744b7e5ccd8",
+     "kept_file": "frames/IMG_6383-041.20.jpg"
+    },
+    {
+     "seconds": 45.7,
+     "png_sha256": "bae73389c4892c9a090775036472b44ac54f289c468cad00877e91f49b211219",
+     "kept_file": "frames/IMG_6383-045.70.jpg"
+    },
+    {
+     "seconds": 46.4,
+     "png_sha256": "9a682a36b90622770de26567bb205966c17684b2519da71464066365fa546463",
+     "kept_file": "frames/IMG_6383-046.40.jpg"
+    }
+   ],
+   "observed_position": "Case A, deck, right.",
+   "visual_evidence": "Waisted tin-glazed jar with a monk saint in a yellow cartouche, blue ground with orange, green and white flowers. Matches the official photograph.",
+   "label_read": "Italian / Drug Jar (Albarello), ca. 1550 / Earthenware with tin glaze and enamels",
+   "limits": "The reverse (official photograph 1) is not filmed.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "35.713",
+   "catalogue_id": "1461531",
+   "title": "Drug Jar (Albarello)",
+   "maker": "Unknown Maker, Italian",
+   "dating": "1500-1599",
+   "medium": "Earthenware with tin glaze and enamels",
+   "dimensions": "24.1 x 13 cm (9 1/2 x 5 1/8 inches)",
+   "on_view_flag": true,
+   "public_domain_flag": false,
+   "link": "https://risdmuseum.org/art-design/collection/drug-jar-albarello-35713",
+   "api_json": "api/cached-records.json",
+   "api_json_sha256": "4c83546697aa1d2fd2749bfbed41384fbc9827004b25a4088874f203477dd6bb",
+   "carousel_photos_on_page": 2,
+   "photos": [
+    {
+     "file": "drug-jar-albarello-35713-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/IKFPnPof/",
+     "asset_copyright": "public",
+     "sha256": "4830f1451568dfb4ddfcb60ef4c0b11f0375f08e665bc8ba084273641c0e44e1"
+    },
+    {
+     "file": "drug-jar-albarello-35713-zoom-1.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/Cxj48m9M/",
+     "asset_copyright": "public",
+     "sha256": "5aa2923a59b6aadd9a064930f4811a5bba23943b02d819b142129dacb93f61dd"
+    }
+   ],
+   "comparison_sheet": "sheets/R13-albarello-35.713.jpg"
+  },
+  {
+   "slot": "R14",
+   "group": "case B",
+   "wall": "east",
+   "status": "confirmed",
+   "basis": "photo and label",
+   "built_in_root": false,
+   "root_inventory_id": "majolica-medals-case",
+   "root_inventory_called": "plate (one of two)",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "55.60",
+    "56.00"
+   ],
+   "source_frames": [
+    {
+     "seconds": 55.6,
+     "png_sha256": "aae1df7ca3f8cdfff39794ac12950582a2dd4f787d53afe2361b1a2fc08e76b9",
+     "kept_file": "frames/IMG_6383-055.60.jpg"
+    },
+    {
+     "seconds": 56.0,
+     "png_sha256": "9dffe2ed1614afc8c621dabd0f5e4bec4ec522d08e34a2d7480f5cdf7ecbfdfb",
+     "kept_file": "frames/IMG_6383-056.00.jpg"
+    }
+   ],
+   "observed_position": "Case B (east wall, south of the tracery doorway), back panel, left.",
+   "visual_evidence": "Dish with a large bust of a woman in profile to the right, yellow dress, two lettered scrolls on a dark blue ground. Matches the official photograph.",
+   "label_read": "Bella Donna Plate (two labels)",
+   "limits": "Which of the two \"Bella Donna Plate\" labels belongs to which plate is not established.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "46.391",
+   "catalogue_id": "1494506",
+   "title": "Bella Donna Plate",
+   "maker": "Castel Durante",
+   "dating": "1525-1550",
+   "medium": "Earthenware with tin glaze and enamels",
+   "dimensions": "Diameter: 22.5 cm (8 7/8 inches)",
+   "on_view_flag": true,
+   "public_domain_flag": false,
+   "link": "https://risdmuseum.org/art-design/collection/bella-donna-plate-46391",
+   "api_json": "api/cached-records.json",
+   "api_json_sha256": "4c83546697aa1d2fd2749bfbed41384fbc9827004b25a4088874f203477dd6bb",
+   "carousel_photos_on_page": 1,
+   "photos": [
+    {
+     "file": "bella-donna-plate-46391-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/w5YG5o7l/",
+     "asset_copyright": "public",
+     "sha256": "f64275fd9cc55011f506de0462c1bc8e7497f8214b0a9fbec36eef7a7c1f94e6"
+    }
+   ],
+   "comparison_sheet": "sheets/R14-R15-bella-donna-plates.jpg"
+  },
+  {
+   "slot": "R15",
+   "group": "case B",
+   "wall": "east",
+   "status": "confirmed",
+   "basis": "photo and label",
+   "built_in_root": false,
+   "root_inventory_id": "majolica-medals-case",
+   "root_inventory_called": "plate (one of two)",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "56.00"
+   ],
+   "source_frames": [
+    {
+     "seconds": 56.0,
+     "png_sha256": "9dffe2ed1614afc8c621dabd0f5e4bec4ec522d08e34a2d7480f5cdf7ecbfdfb",
+     "kept_file": "frames/IMG_6383-056.00.jpg"
+    }
+   ],
+   "observed_position": "Case B, back panel, right.",
+   "visual_evidence": "Lustred dish with a small profile bust in the well and a rim of large radiating drops. Matches the official photograph.",
+   "label_read": "Bella Donna Plate (two labels)",
+   "limits": "Colours are washed out by reflection in the source.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "57.302",
+   "catalogue_id": "1264011",
+   "title": "Bella Donna Plate",
+   "maker": "Unknown Maker, Italian",
+   "dating": "1500-1550",
+   "medium": "Earthenware with tin glaze and enamels",
+   "dimensions": "Diameter: 23.2 cm (9 1/8 inches)",
+   "on_view_flag": true,
+   "public_domain_flag": false,
+   "link": "https://risdmuseum.org/art-design/collection/bella-donna-plate-57302",
+   "api_json": "api/cached-records.json",
+   "api_json_sha256": "4c83546697aa1d2fd2749bfbed41384fbc9827004b25a4088874f203477dd6bb",
+   "carousel_photos_on_page": 3,
+   "photos": [
+    {
+     "file": "bella-donna-plate-57302-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/2VTIqMAb/",
+     "asset_copyright": "public",
+     "sha256": "cd17b64e9f9002205238db9bf9237e28ff049cf6f5437e272fad65082f2b387e"
+    },
+    {
+     "file": "bella-donna-plate-57302-zoom-1.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/eI58Kl9L/",
+     "asset_copyright": "public",
+     "sha256": "3a63f090e87bfb8b56b86106254d3586c4266ee206cc26beab49aa515793f3ef"
+    }
+   ],
+   "comparison_sheet": "sheets/R14-R15-bella-donna-plates.jpg"
+  },
+  {
+   "slot": "R16",
+   "group": "case B",
+   "wall": "east",
+   "status": "confirmed",
+   "basis": "photo and label",
+   "built_in_root": false,
+   "root_inventory_id": "majolica-medals-case",
+   "root_inventory_called": "round medallion (one of two)",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "56.00",
+    "56.50"
+   ],
+   "source_frames": [
+    {
+     "seconds": 56.0,
+     "png_sha256": "9dffe2ed1614afc8c621dabd0f5e4bec4ec522d08e34a2d7480f5cdf7ecbfdfb",
+     "kept_file": "frames/IMG_6383-056.00.jpg"
+    },
+    {
+     "seconds": 56.5,
+     "png_sha256": "58e61a955d205836cbcbac6ebe1a3af19a2a79912caef17e48dbdf00956886b7",
+     "kept_file": "frames/IMG_6383-056.50.jpg"
+    }
+   ],
+   "observed_position": "Case B, deck, left.",
+   "visual_evidence": "Small gilt roundel with a crowded relief of figures round a bed and a beaded border. Matches the official photograph.",
+   "label_read": "Death of the Virgin, ca. 14..",
+   "limits": "Relief detail is not resolved.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "51.105",
+   "catalogue_id": "1228756",
+   "title": "Death of the Virgin",
+   "maker": "Unknown Maker, German",
+   "dating": "1435-1485",
+   "medium": "silver",
+   "dimensions": "Diameter: 11.1 cm (4 3/8 inches)",
+   "on_view_flag": true,
+   "public_domain_flag": false,
+   "link": "https://risdmuseum.org/art-design/collection/death-virgin-51105",
+   "api_json": "api/cached-records.json",
+   "api_json_sha256": "4c83546697aa1d2fd2749bfbed41384fbc9827004b25a4088874f203477dd6bb",
+   "carousel_photos_on_page": 4,
+   "photos": [
+    {
+     "file": "death-virgin-51105-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/NjBqgH31/",
+     "asset_copyright": "public",
+     "sha256": "30752b62e105cfba2eff4e3cb8e60f1bdb0a30d50442c810e58364b2eefe2e97"
+    },
+    {
+     "file": "death-virgin-51105-zoom-1.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/Oo1SOiSP/",
+     "asset_copyright": "public",
+     "sha256": "60e2329acf37d64c1c063b23772b74511b068721e5290df338c0f5830ad353e3"
+    }
+   ],
+   "comparison_sheet": "sheets/R16-death-of-the-virgin-51.105.jpg"
+  },
+  {
+   "slot": "R17",
+   "group": "case B",
+   "wall": "east",
+   "status": "confirmed",
+   "basis": "photo and label",
+   "built_in_root": false,
+   "root_inventory_id": "majolica-medals-case",
+   "root_inventory_called": "round medallion (one of two)",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "56.00",
+    "56.50",
+    "57.00"
+   ],
+   "source_frames": [
+    {
+     "seconds": 56.0,
+     "png_sha256": "9dffe2ed1614afc8c621dabd0f5e4bec4ec522d08e34a2d7480f5cdf7ecbfdfb",
+     "kept_file": "frames/IMG_6383-056.00.jpg"
+    },
+    {
+     "seconds": 56.5,
+     "png_sha256": "58e61a955d205836cbcbac6ebe1a3af19a2a79912caef17e48dbdf00956886b7",
+     "kept_file": "frames/IMG_6383-056.50.jpg"
+    },
+    {
+     "seconds": 57.0,
+     "png_sha256": "962e1fe7661fcceca4f6c5527aee88287e280a701752b4e78109f80e76c1b8a4",
+     "kept_file": "frames/IMG_6383-057.00.jpg"
+    }
+   ],
+   "observed_position": "Case B, deck, centre, propped upright with its hanging loop at the top.",
+   "visual_evidence": "Leaded glass roundel: a standing figure in a pale centre, a blue ring, and a wide border of leaves and rosettes, with a loop at the top. Matches the official photograph.",
+   "label_read": "The Virgin as the Woman of the Apocalypse",
+   "limits": "The glass is seen against white and reads grey; colours are not confirmed.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "2017.29",
+   "catalogue_id": "1442936",
+   "title": "The Virgin as the Woman of the Apocalypse",
+   "maker": "Unknown Maker, German",
+   "dating": "1475-1500",
+   "medium": "Clear glass with silver stain and enamel; modern blue glass",
+   "dimensions": "Diameter: 190 mm (190 mm)",
+   "on_view_flag": true,
+   "public_domain_flag": false,
+   "link": "https://risdmuseum.org/art-design/collection/virgin-woman-apocalypse-201729",
+   "api_json": "api/cached-records.json",
+   "api_json_sha256": "4c83546697aa1d2fd2749bfbed41384fbc9827004b25a4088874f203477dd6bb",
+   "carousel_photos_on_page": 2,
+   "photos": [
+    {
+     "file": "virgin-woman-apocalypse-201729-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/hQORsuBr/",
+     "asset_copyright": "public",
+     "sha256": "44a4ed86c69f562264dcf89db3ed1bd576becc2258963b77c880a2c1c9adfed7"
+    },
+    {
+     "file": "virgin-woman-apocalypse-201729-zoom-1.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/3s3LNOSQ/",
+     "asset_copyright": "public",
+     "sha256": "42daf7c6ca92303d7598d20ac5c3b53fd3a5367a076cfa6d8fff847a2f1e56b9"
+    }
+   ],
+   "comparison_sheet": "sheets/R17-glass-roundel-2017.29.jpg"
+  },
+  {
+   "slot": "R18",
+   "group": "case B",
+   "wall": "east",
+   "status": "probable",
+   "basis": "form only",
+   "built_in_root": false,
+   "root_inventory_id": "majolica-medals-case",
+   "root_inventory_called": "rectangular relief plaque",
+   "video": "IMG_6383.MOV",
+   "seen_seconds": [
+    "56.00",
+    "57.00"
+   ],
+   "source_frames": [
+    {
+     "seconds": 56.0,
+     "png_sha256": "9dffe2ed1614afc8c621dabd0f5e4bec4ec522d08e34a2d7480f5cdf7ecbfdfb",
+     "kept_file": "frames/IMG_6383-056.00.jpg"
+    },
+    {
+     "seconds": 57.0,
+     "png_sha256": "962e1fe7661fcceca4f6c5527aee88287e280a701752b4e78109f80e76c1b8a4",
+     "kept_file": "frames/IMG_6383-057.00.jpg"
+    }
+   ],
+   "observed_position": "Case B, deck, right, on a small tilted mount.",
+   "visual_evidence": "Small upright rectangular plaque, blue with pale figures. Size and colour are consistent with the official photograph.",
+   "label_read": null,
+   "limits": "The scene is not resolved and its label is not legible, so the match rests on form, colour and being the only such enamel plaque returned as on view.",
+   "placement_accepted": false,
+   "unlisted_dimensions_accepted": false,
+   "accession": "34.024",
+   "catalogue_id": "1246991",
+   "title": "Virgin and Child with Clerics and Donors",
+   "maker": "Pierre Reymond",
+   "dating": "1508-1589",
+   "medium": "Polychrome enamel and gold on copper",
+   "dimensions": "12.9 x 10.7 cm (5 1/16 x 4 3/16 inches)",
+   "on_view_flag": true,
+   "public_domain_flag": false,
+   "link": "https://risdmuseum.org/art-design/collection/virgin-and-child-clerics-and-donors-34024",
+   "api_json": "api/cached-records.json",
+   "api_json_sha256": "4c83546697aa1d2fd2749bfbed41384fbc9827004b25a4088874f203477dd6bb",
+   "carousel_photos_on_page": 2,
+   "photos": [
+    {
+     "file": "virgin-and-child-clerics-and-donors-34024-zoom-0.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/mCSt3L6m/",
+     "asset_copyright": "public",
+     "sha256": "3b6de13d2fa358394e6fb605c3d000488499b4fda2d1fce97413737417c802e6"
+    },
+    {
+     "file": "virgin-and-child-clerics-and-donors-34024-zoom-1.jpg",
+     "url": "https://risdmuseum.cdn.picturepark.com/v/jXpUIdtG/",
+     "asset_copyright": "public",
+     "sha256": "a51e99b99afce893fd6062e55bdd8712da4847d1b1d851abe0c99b4070eb511e"
+    }
+   ],
+   "comparison_sheet": "sheets/R18-enamel-plaque-34.024.jpg"
+  }
+ ],
+ "not_artworks": [
+  {
+   "item": "Black upholstered bench, room centre",
+   "built_in_root": true,
+   "note": "remodel_room.gd line 964-965, dimensions unmeasured"
+  },
+  {
+   "item": "Low white platform along the south wall with one label stand under each textile",
+   "built_in_root": false
+  },
+  {
+   "item": "Wall labels: right of R03, both sides of R07, left of case A; a lettered sign over the north doorway; text illegible",
+   "built_in_root": false
+  },
+  {
+   "item": "White shuttered window behind R04, ceiling light tracks, ventilation grille over the north doorway",
+   "built_in_root": "grille only"
+  }
+ ],
+ "rejected_candidates": [
+  {
+   "slot": "R01",
+   "accession": "52.110",
+   "title": "Textile length, Italian, silk cut-pile velvet",
+   "reason": "Official photograph shows a red, black and yellow pomegranate velvet with no stag heads. Sheet sheets/R01-rejected-textile-length-52.110.jpg."
+  },
+  {
+   "slot": "R08",
+   "accession": "58.001 / 25.063 / 39.025 / 39.026",
+   "title": "four on-view works titled Portrait of a man",
+   "reason": "Egyptian and Roman, granite, marble or tempera, dated before 400; rejected on catalogue text without a photo comparison."
+  },
+  {
+   "slot": "R12",
+   "accession": null,
+   "title": "any catalogue record for the emblem book",
+   "reason": "Searches for Montenay, Emblematum and Woeiriot each returned 0 rows."
+  }
+ ],
+ "root_state_read": {
+  "modules/shell/prototype/collection_reconstruction/remodel_room.gd": "4a716a83e7b80fad8a0eedac9a775404dcc223221026442352a607bf1dcc6f56",
+  "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "9547e6b62062dedbc95ecf15426b8c5fbb7f4f62c570e46d4ae1c8d0b5b02cbe",
+  "image-work/collection-room-remodel/sculpture-room-inventory.json": "865232ca21941cc55c7a546e9170492cf8081ad4e8c061012292266b62c84dfe",
+  "image-work/collection-room-remodel/video-inventory.json": "1c9be5907c73d3704585e4dff1960dae4b492442c36251a2e9eeab783c5cbe10"
+ },
+ "next_asset": {
+  "slot": "R04",
+  "accession": "21.398",
+  "why": "Highest priority in the brief; the only object here with an official back view; catalogue height known; filmed from three sides.",
+  "muse_references": [
+   "photos/saint-roch-21398-zoom-0.jpg",
+   "photos/saint-roch-21398-zoom-1.jpg",
+   "photos/saint-roch-21398-zoom-2.jpg",
+   "photos/saint-roch-21398-zoom-3.jpg"
+  ],
+  "source_frames": [
+   "frames/IMG_6383-018.30.jpg",
+   "frames/IMG_6383-020.60.jpg",
+   "frames/IMG_6383-021.30.jpg"
+  ],
+  "height_m": 1.054
+ },
+ "historical_2020": "historical-2020-captions.json: 13 of the 16 matched accessions have a 2020 caption under 5th floor / European galleries; identity corroboration only, not placement",
+ "all_objects_complete": false,
+ "geometry_installed": false,
+ "metric_calibration": false
+}

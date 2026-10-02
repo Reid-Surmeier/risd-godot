@@ -1,0 +1,68 @@
+{
+  "video": "/home/reidsurmeier/risd-godot-ingestion/walkthrough/IMG_6344.MOV",
+  "video_sha256": "f6d489290f77e4cf50e6696893f396c434eb6d814c01cbda51396c7edfa7ae16",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-hwaccel",
+      "cuda",
+      "-noautorotate",
+      "-i",
+      "/home/reidsurmeier/risd-godot-ingestion/walkthrough/IMG_6344.MOV",
+      "-ss",
+      "22.5",
+      "-frames:v",
+      "1",
+      "-vf",
+      "transpose=clock",
+      "-update",
+      "1",
+      "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/hall-wide-native-v1/hall-22.50.png"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-hwaccel",
+      "cuda",
+      "-noautorotate",
+      "-i",
+      "/home/reidsurmeier/risd-godot-ingestion/walkthrough/IMG_6344.MOV",
+      "-ss",
+      "65.0",
+      "-frames:v",
+      "1",
+      "-vf",
+      "transpose=clock",
+      "-update",
+      "1",
+      "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/hall-wide-native-v1/hall-65.00.png"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-hwaccel",
+      "cuda",
+      "-noautorotate",
+      "-i",
+      "/home/reidsurmeier/risd-godot-ingestion/walkthrough/IMG_6344.MOV",
+      "-ss",
+      "177.5",
+      "-frames:v",
+      "1",
+      "-vf",
+      "transpose=clock",
+      "-update",
+      "1",
+      "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/hall-wide-native-v1/hall-177.50.png"
+    ]
+  ],
+  "sha256": {
+    "hall-22.50.png": "8460e390cd17ab8d3a5a4ede4194a7c10601c38887b49d092a83a42fd211a491",
+    "hall-65.00.png": "5499f373aea7a3870d092e99dabf2acfa5dd8aaa717fcfd25083c3e4346e1fe6",
+    "hall-177.50.png": "78b6c4d42ba316fc5d8cd118eb0a013851e9ed718607ab9e8f3c404e8176a606"
+  }
+}

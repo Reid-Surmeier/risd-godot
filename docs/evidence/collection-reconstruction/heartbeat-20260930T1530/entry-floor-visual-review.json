@@ -1,0 +1,11 @@
+{
+  "point_id": 14320,
+  "query_feature": 314,
+  "reference": "IMG_6380/000244.jpg",
+  "pixel_error_px": 2.1080564693131247,
+  "visual_identity": "Left casing foot/floor contact, not a distinctive interior wood knot",
+  "interpretation": "A source-visible toe contact may be a candidate plane anchor, but toe relief/contact uncertainty remains. This gives no independent floor plane or floor texture support.",
+  "floor_plane_accepted": false,
+  "navigation_accepted": false,
+  "next_action": "Find physically separated wood seam endpoints in native206/244/505 with reserved246/506 before triangulation. Do not choose or retune by reprojection error."
+}

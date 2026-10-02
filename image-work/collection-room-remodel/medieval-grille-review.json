@@ -1,0 +1,17 @@
+{
+  "run_id": "run-6d9f3b3e3a4b26e3c758f21c",
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "count": 1,
+  "cost_usd": "0.010000",
+  "native_sha256": "50dfca1c60c1039936fad34f3d3777f8a5b265af2859460255068ed64520981c",
+  "accepted": false,
+  "installed": false,
+  "visual_verdict": "Dark iron, tall outer frame and open repeated scrolls match the source motif. Source planar inspection shows7 spiral columns; generated sheet has8. Generated18 rows, scroll handedness, one missing curl and spacing also require source verification. Reject direct installation; source-specific structural fidelity unaccepted. No extra paid retry.",
+  "source_columns_observed": 7,
+  "generated_columns_observed": 8,
+  "source_row_count_verified": false,
+  "next_action": "Verify source row count, build source-shaped7-column guide/low polygon openwork using existing Muse material; preserve each real opening and inspect front/oblique/in-room before acceptance. Catalogue identity, dimensions, support brace and exact placement unresolved.",
+  "cumulative_map_actual_usd": "0.75",
+  "cumulative_map_conservative_usd": "0.76"
+}

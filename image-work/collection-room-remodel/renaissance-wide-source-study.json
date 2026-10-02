@@ -1,0 +1,149 @@
+{
+  "scope": "Collection wide-angle geometry evidence; no point-cloud products",
+  "source_sha256": {
+    "renaissance-35.75.png": "8fa8eb8a514bccbc350c38b253eed37d4ec28af7065f9a3c64b1e05a5ca21b30",
+    "renaissance-63.75.png": "c00a2a89902b6cbf8245e57aa363b4f67426f3eb31f22a56ae84a1d37205151a",
+    "renaissance-64.75.png": "3ce55e3fb9bebcd79e5e61e4c90732e781cd2319962a4e7d646e53f92158ff4b",
+    "hall-22.50.png": "8460e390cd17ab8d3a5a4ede4194a7c10601c38887b49d092a83a42fd211a491",
+    "hall-65.00.png": "5499f373aea7a3870d092e99dabf2acfa5dd8aaa717fcfd25083c3e4346e1fe6",
+    "hall-177.50.png": "78b6c4d42ba316fc5d8cd118eb0a013851e9ed718607ab9e8f3c404e8176a606"
+  },
+  "renaissance": {
+    "63.75": {
+      "manual_pixels": {
+        "painting_xy": [
+          [
+            906,
+            718
+          ],
+          [
+            996,
+            708
+          ],
+          [
+            995,
+            841
+          ],
+          [
+            905,
+            842
+          ]
+        ],
+        "door_xy": [
+          [
+            315,
+            577
+          ],
+          [
+            715,
+            563
+          ],
+          [
+            698,
+            1108
+          ],
+          [
+            320,
+            1095
+          ]
+        ]
+      },
+      "whole_panel_assumption_affine_m": [
+        [
+          -2.573471196262521,
+          1.3564818583092797
+        ],
+        [
+          -0.8353408314499386,
+          1.3098159271952268
+        ],
+        [
+          -0.8908194563566267,
+          -1.122424893918132
+        ],
+        [
+          -2.534238792756654,
+          -0.9610421350589027
+        ]
+      ],
+      "accepted": false,
+      "limitation": "Weak-perspective extrapolation from small, partly frame-covered panel; these numbers are sensitivity evidence, not calibrated room measurements.",
+      "right_jamb_height_m": 2.4328734635635536,
+      "door_width_top_m": 1.7387567035701865
+    },
+    "64.75": {
+      "manual_pixels": {
+        "painting_xy": [
+          [
+            494,
+            774
+          ],
+          [
+            563,
+            773
+          ],
+          [
+            568,
+            876
+          ],
+          [
+            497,
+            881
+          ]
+        ],
+        "right_jamb_xy": [
+          [
+            290,
+            649
+          ],
+          [
+            327,
+            1160
+          ]
+        ]
+      },
+      "whole_panel_assumption_affine_m": [
+        [
+          -1.1079641819807862,
+          1.3117504824113184
+        ],
+        [
+          -1.0096666472601634,
+          -1.489762241998002
+        ]
+      ],
+      "accepted": false,
+      "limitation": "Weak-perspective extrapolation from small, partly frame-covered panel; these numbers are sensitivity evidence, not calibrated room measurements.",
+      "right_jamb_height_m": 2.803236691818849
+    }
+  },
+  "decision": "Do not resize the2.0x2.74m opening or shift rooms from this unstable small-panel fit. Perugino source-relative centre1.48/1.55/18.93m installed as a visual reference. Original predicted lower doorway is unproven; paired views disagree.",
+  "covered_support": "Official photo includes worn panel edges partly hidden under the frame; visible opening cannot inherit complete57.5x39.1cm support size as an accepted scale.",
+  "invalid_sift_wides": {
+    "63.75_inliers": 5,
+    "64.75_inliers": 6,
+    "reason": "Degenerate near-point quadrilaterals, below15inlier threshold; rejected. Near35.75 match16inliers alone does not validate extrapolated wide geometry."
+  },
+  "main_hall": {
+    "source": "IMG_6344 177.50s",
+    "floor_wall_corners_xy": [
+      [
+        274,
+        891
+      ],
+      [
+        849,
+        891
+      ]
+    ],
+    "door_centre_xy": [
+      548,
+      891
+    ],
+    "fraction_across_end_wall": 0.4765217391304348,
+    "observation": "Near-centred doorway; offset-end-door workaround contradicted by clear wide source.",
+    "accepted_metres": false,
+    "unresolved": "Current grey and medieval Hall entry lateral4.60m/axial17.05m conflict requires coupled room fitting; no fabricated connector or new side door."
+  },
+  "implemented": "Source-relative Perugino frame/authentic panel, neutral Renaissance walls/fill and shallow vent; global layout remains provisional."
+}

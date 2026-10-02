@@ -1,0 +1,41 @@
+{
+  "command": [
+    "ffmpeg",
+    "-n",
+    "-hide_banner",
+    "-loglevel",
+    "info",
+    "-hwaccel",
+    "cuda",
+    "-hwaccel_output_format",
+    "cuda",
+    "-noautorotate",
+    "-i",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6380.MOV",
+    "-t",
+    "253.5",
+    "-vf",
+    "scale_cuda=1920:1080:format=yuv420p,hwdownload,format=yuv420p,fps=2,select=eq(n\\,243)+eq(n\\,245)+eq(n\\,504)+eq(n\\,505)",
+    "-fps_mode",
+    "vfr",
+    "-q:v",
+    "2",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/entry-floor-native-v1/%06d.jpg"
+  ],
+  "mapping": {
+    "000001.jpg": "IMG_6380/000244.jpg",
+    "000002.jpg": "IMG_6380/000246.jpg",
+    "000003.jpg": "IMG_6380/000505.jpg",
+    "000004.jpg": "IMG_6380/000506.jpg"
+  },
+  "source_sha256": "eaf7a7853b6cc5610517631b44aa83de1006ac6caa5aa673038f1f067cafd3d4",
+  "provider": "local ffmpeg CUDA NVDEC/scale_cuda RTX4070SUPER; CPU JPEG encoding",
+  "cost_usd": 0,
+  "note": "Full stream fps/select preserves established sample index; reserved images excluded from future fitting.",
+  "frames_sha256": {
+    "000002.jpg": "755fa7a65edb8252bef99d608495226c623556ec3d8218ecd6b2c328465981d7",
+    "000003.jpg": "92868f1767f330920d7d084990ef8332f2173189ee14635fe505bc340335d4be",
+    "000001.jpg": "26726cc205f0f7286b35dff415484da4416135700bb0889f7d6b7268833aa6b6",
+    "000004.jpg": "2a096830e065122f8937c3b86cfb5e6bf454020711917931729412c11fe593d4"
+  }
+}

@@ -1,0 +1,103 @@
+[
+  {
+    "image": "IMG_6380/000206.jpg",
+    "pose_fit_features": 95,
+    "patches": [
+      {
+        "patch": "near",
+        "observations": 0,
+        "unique_points": 0,
+        "point_ids": [],
+        "errors_px": []
+      },
+      {
+        "patch": "far",
+        "observations": 0,
+        "unique_points": 0,
+        "point_ids": [],
+        "errors_px": []
+      }
+    ],
+    "pose_supported": true,
+    "pose_inliers": 68,
+    "pose_test_features": 78,
+    "pose_test_below4px": 59,
+    "photometric": [
+      {
+        "patch": "near",
+        "source_mask_pixels": 34461,
+        "common_visible_fraction": 1.0,
+        "controls": [
+          {
+            "offset_fraction_source_camera_depth": 0.0,
+            "pixels": 34461,
+            "grayscale_correlation": 0.7827623582082548,
+            "median_absolute_rgb_difference": 18.13754284958543
+          },
+          {
+            "offset_fraction_source_camera_depth": -0.01,
+            "pixels": 34461,
+            "grayscale_correlation": 0.7800138872025908,
+            "median_absolute_rgb_difference": 19.0
+          },
+          {
+            "offset_fraction_source_camera_depth": 0.01,
+            "pixels": 34461,
+            "grayscale_correlation": 0.7846378833179255,
+            "median_absolute_rgb_difference": 17.44182693508813
+          },
+          {
+            "offset_fraction_source_camera_depth": -0.05,
+            "pixels": 34461,
+            "grayscale_correlation": 0.7654566196114034,
+            "median_absolute_rgb_difference": 21.83682713796634
+          },
+          {
+            "offset_fraction_source_camera_depth": 0.05,
+            "pixels": 34461,
+            "grayscale_correlation": 0.7905454356026659,
+            "median_absolute_rgb_difference": 14.0
+          }
+        ]
+      },
+      {
+        "patch": "far",
+        "source_mask_pixels": 9956,
+        "common_visible_fraction": 1.0,
+        "controls": [
+          {
+            "offset_fraction_source_camera_depth": 0.0,
+            "pixels": 9956,
+            "grayscale_correlation": 0.7640839319075593,
+            "median_absolute_rgb_difference": 4.738973278443268
+          },
+          {
+            "offset_fraction_source_camera_depth": -0.01,
+            "pixels": 9956,
+            "grayscale_correlation": 0.8016984106338618,
+            "median_absolute_rgb_difference": 4.363108775830128
+          },
+          {
+            "offset_fraction_source_camera_depth": 0.01,
+            "pixels": 9956,
+            "grayscale_correlation": 0.7160212626775851,
+            "median_absolute_rgb_difference": 5.0
+          },
+          {
+            "offset_fraction_source_camera_depth": -0.05,
+            "pixels": 9956,
+            "grayscale_correlation": 0.6078154894872069,
+            "median_absolute_rgb_difference": 4.958491206474122
+          },
+          {
+            "offset_fraction_source_camera_depth": 0.05,
+            "pixels": 9956,
+            "grayscale_correlation": 0.5338797518235405,
+            "median_absolute_rgb_difference": 6.883923427827739
+          }
+        ]
+      }
+    ],
+    "status": "diagnostic only; report all floor matches without outlier trimming"
+  }
+]

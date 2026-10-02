@@ -1,0 +1,13 @@
+{
+  "catalogue_id": "1588546",
+  "accession": "40.014",
+  "source_video": "IMG_6382",
+  "source_time_seconds": 3.75,
+  "catalogue_dimensions_m": [
+    4.229,
+    3.861
+  ],
+  "dimensions_note": "Portal whole object; tracery top fragment only, shafts and placement are separately inferred",
+  "source_role": "shape/material reference, not room albedo",
+  "runtime_integrated": false
+}

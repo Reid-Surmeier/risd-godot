@@ -1,0 +1,15 @@
+{
+  "video": "IMG_6386.MOV",
+  "seconds": [
+    102.75,
+    104.75
+  ],
+  "source_sha256": {
+    "/tmp/collection-european-leaf-102.75-native.png": "b81f44cc7e44e961396133a176fbb6140a647018d0a5bcf3ab56ec52ca608cb4",
+    "/tmp/collection-european-leaf-104.75-native.png": "2c0d643e6d44da43e14e2f169a0aff67f1f677c71069513f6737f05664e3d7f2"
+  },
+  "panel_count": 2,
+  "unequal_panels": true,
+  "accepted": false,
+  "placement": "Two mirrored leaves hinged at European south / Renaissance north opening, swinging into Renaissance room; leaf base at free edge is farther than hinge in source102.75s. Extents and exact swing angle provisional."
+}

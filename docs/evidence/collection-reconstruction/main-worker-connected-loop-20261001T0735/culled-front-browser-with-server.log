@@ -1,0 +1,20 @@
+Error: Waiting failed
+    at <instance_members_initializer> (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/common/WaitTask.js:21:21)
+    at new WaitTask (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/common/WaitTask.js:27:16)
+    at IsolatedWorld.waitForFunction (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/api/Realm.js:49:26)
+    at CdpFrame.waitForFunction (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/api/Frame.js:585:43)
+    at CdpFrame.<anonymous> (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/util/decorators.js:101:27)
+    at CdpPage.waitForFunction (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/api/Page.js:1537:37)
+    at /home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/doorway_walk_browser.cjs:24:16 {
+  cause: ProtocolError: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.
+      at <instance_members_initializer> (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/common/CallbackRegistry.js:108:14)
+      at new Callback (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/common/CallbackRegistry.js:112:16)
+      at CallbackRegistry.create (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/common/CallbackRegistry.js:27:26)
+      at Connection._rawSend (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/cdp/Connection.js:125:26)
+      at CdpCDPSession.send (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/cdp/CdpSession.js:72:14)
+      at #evaluate (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/cdp/ExecutionContext.js:374:50)
+      at ExecutionContext.evaluateHandle (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/cdp/ExecutionContext.js:340:36)
+      at IsolatedWorld.evaluateHandle (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/cdp/IsolatedWorld.js:93:30)
+      at CdpJSHandle.evaluateHandle (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/api/JSHandle.js:162:37)
+      at WaitTask.rerun (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/common/WaitTask.js:99:47)
+}

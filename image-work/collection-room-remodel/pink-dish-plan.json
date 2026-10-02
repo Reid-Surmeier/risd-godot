@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "pink-dish-001",
+      "prompt": "pink-dish-prompt.txt",
+      "promptSha256": "33815864b4c6b4273a4386adde79d692eafd4c94b369f67f80928ba54e47db3a",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/pink-dish-selected-0.png",
+          "sha256": "a5f6b1b8376b758e14ae6096d94c1eb8486c1ee4db8af8c58f286b300bd63c6f"
+        }
+      ]
+    }
+  ]
+}

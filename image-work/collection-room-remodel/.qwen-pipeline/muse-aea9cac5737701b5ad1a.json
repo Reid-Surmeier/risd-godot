@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-aea9cac5737701b5ad1a",
+  "summary": "Reference photographs show RISD object 2017.74.5, the only authority for its design and proportions. Final reference is the existing Main Hall game style: clean low polygon planar forms, soft painted shading, restrained surface detail, warm palette. Generate one orthographic straight-on FRONT view of this exact settee, alone, isolated on flat pure magenta #FF00FF, generous margin, full object and every leg / handle / lid intact. Keep the reference ornament, actual silhouette, upholstery floral pattern and wood color or painted porcelain motifs. Make the finish a clean low polygon museum game asset, no photographic noise. Do not invent ornament, letters, floor, walls, other objects, shadow outside the silhouette or perspective tilt. No contact sheet. This supplies UV texture for separately modeled three-dimensional geometry, not a whole-room picture.\n",
+  "procedureId": "muse-aea9cac5737701b5ad1a",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "references/settee-catalogue-0.png",
+      "sha256": "b32329fd02f1620d09751e41bcc440350674a2ad60d6fd80e902cba76dfe5034",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/settee-catalogue-1.png",
+      "sha256": "96443d2bef5a248fe8baba60170baaadaa2a6a8a1e268d0f124b2e199b785b48",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "references/main-hall-style.png",
+      "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "settee-recipe.json",
+      "sha256": "aea9cac5737701b5ad1ab0b0d670239ca4760b873335aa510d1baac58c928ae4"
+    },
+    {
+      "applicationPath": "settee-plan.json",
+      "sha256": "41da7bf2b9beab76effb90bfea2d919260975744d1c59376d7620f83488c77ea"
+    },
+    {
+      "applicationPath": "settee-prompt.txt",
+      "sha256": "aaba11af3a440aa11cc0fab112b12ce552ff67ba9e5c919e3b1eddfde76b09bb"
+    }
+  ]
+}

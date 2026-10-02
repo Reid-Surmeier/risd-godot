@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-7231d3545db3237adf5d",
+  "summary": "Reference image 1 is a straightened phone photo of a real antique picture frame hanging on a gallery wall at the RISD Museum; the painting inside has been blanked out to white. It is the sole authority for this frame: its exact outline and corners, the width of every side, its profile and moldings, every carved ornament and where it sits, its colour and finish.\n\nClean it up into a crisp, straight-on render of this same frame alone: perfectly square to the viewer with no perspective tilt, crisp readable relief rendered as a clean low-poly game model (large flat planar facets, crisp highlight bands, controlled dark creases), removing photo blur, glare, reflections and noise. Keep its real shape exactly: do not round its corners, do not simplify its carving into plain moldings, do not invent ornament it does not have, and keep the width of each side as in the photo.\n\nThe complete inner opening, edge to edge inside the innermost lip, is perfectly clean flat pure white (#FFFFFF). Everything outside the frame's outer edge is perfectly flat pure magenta (#FF00FF), touching the frame directly with no shadow and no wall. No text, no label. Return one complete image with no transparency.\n",
+  "procedureId": "muse-7231d3545db3237adf5d",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/romany-frame-source.png",
+      "sha256": "83c455330f0d8c9debc94d0176abdc24fb4219fcaac641b3224672aaffb70424",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "romany-frame-recipe.json",
+      "sha256": "7231d3545db3237adf5d447e74ffbcf0dff2018447838e7bb7ac9769edb9e482"
+    },
+    {
+      "applicationPath": "romany-frame-plan.json",
+      "sha256": "e781d5edcdac43bad89c26107db242f9eaa9d3b743a5b8b71274cc66018db767"
+    },
+    {
+      "applicationPath": "romany-frame-prompt.txt",
+      "sha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "training": [
+    "IMG_6384/000207.jpg",
+    "IMG_6384/000209.jpg"
+  ],
+  "reserved": [
+    "IMG_6384/000206.jpg"
+  ],
+  "point": "left inner opening jamb bottom / floor contact",
+  "source_pixels_upright": {
+    "IMG_6384/000207.jpg": [
+      176,
+      921
+    ],
+    "IMG_6384/000209.jpg": [
+      330,
+      887
+    ]
+  },
+  "uncertainty_px": 2,
+  "pose_ceiling_upright_y": 450,
+  "scope": "single point, no plane/scale/navigation acceptance; source marks frozen before reserved view",
+  "source_sha256": {
+    "points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "cost_usd": 0
+}

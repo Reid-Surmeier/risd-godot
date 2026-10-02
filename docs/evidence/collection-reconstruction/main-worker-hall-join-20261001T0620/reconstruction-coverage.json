@@ -1,0 +1,215 @@
+{
+  "goal": "All rooms and objects visibly evidenced in the ten supplied videos, within Collection only",
+  "owner_direction": "2026-09-30: run Muse walls/architectural-detail passes; correct placement/layout from wide-angle shots; complete all reconstruction",
+  "videos": [
+    {
+      "video": "IMG_6381.MOV",
+      "sha256": "12df06479e7d2a7121d1647c8b14a5feba6a61362b0449c252fe9ae00fe5468d",
+      "available_2fps_frames": 198,
+      "wide_contact_sheet": "video-wide/IMG_6381.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "Historic marble staircase, mirrored fireplace, curved flights, arched triple window, glass chandelier, upper case-gallery thresholds"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6378.MOV",
+      "sha256": "a79c9a65e82293d43a46d1f54034ba398bce135b839a402dcbadbf33e3ec5e52",
+      "available_2fps_frames": 360,
+      "wide_contact_sheet": "video-wide/IMG_6378.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "Metcalf Auditorium: fixed seating, stage, lectern, acoustic panels, side steps, rear ramp/benches, projection booth, exit threshold"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6379.MOV",
+      "sha256": "abc4922925e560966d5987cc3208b9a819f743b7ac7bbdc8c40741a4eab38e34",
+      "available_2fps_frames": 365,
+      "wide_contact_sheet": "video-wide/IMG_6379.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "skylit piano stair hall, curved iron railing, five distinct modern wall works",
+        "upper landing opens into grey French painting gallery; lower level sign 4"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6380.MOV",
+      "sha256": "eaf7a7853b6cc5610517631b44aa83de1006ac6caa5aa673038f1f067cafd3d4",
+      "available_2fps_frames": 521,
+      "wide_contact_sheet": "video-wide/IMG_6380.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "grey French gallery: two different stair-hall entrances and Grand Gallery door",
+        "historic marble stairs/mirrored fireplace",
+        "purple elevator-5 connector to Rockefeller",
+        "Rockefeller and long European gallery"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6382.MOV",
+      "sha256": "415467db2d2216363fbccb41801851180f48bbdb3304c95861f90f3f5767020e",
+      "available_2fps_frames": 226,
+      "wide_contact_sheet": "video-wide/IMG_6382.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "medieval stone portal, iron grille, Christ head and reliefs",
+        "Madonna sculptures/paintings and centre cases"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6383.MOV",
+      "sha256": "8cfd089e769000369419f577f28a1bfc68b09f8cc7cda4cbe93d840194e6eeef",
+      "available_2fps_frames": 147,
+      "wide_contact_sheet": "video-wide/IMG_6383.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "Renaissance gallery: tapestries, paintings, triptych, ceramics/book cases, bronze sculpture"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6387.MOV",
+      "sha256": "75c4892c1a37e1c83dd7103187d1c284e13fd0ac458710f4e8fd6e14daf1c7af",
+      "available_2fps_frames": 171,
+      "wide_contact_sheet": "video-wide/IMG_6387.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "upper staircase landing, medieval-gallery doorway",
+        "modern painting gallery, window niche"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6385.MOV",
+      "sha256": "a15a2e90b2ae6152727ab1afd3c205d31f0405215e606adf678be3f5c1cf01a2",
+      "available_2fps_frames": 75,
+      "wide_contact_sheet": "video-wide/IMG_6385.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "Rockefeller doorway reverse view",
+        "European gallery dress, secretary, Delacroix painting, silver/porcelain case"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6386.MOV",
+      "sha256": "3112391373f03128f0b1a4deac345e7d30c1ed27c4d9d0d850da37d25c97351f",
+      "available_2fps_frames": 213,
+      "wide_contact_sheet": "video-wide/IMG_6386.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "European gallery: paintings, prints, textiles, four case groups, central furniture and dress"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6384.MOV",
+      "sha256": "0a2255c4fbcbbb44c48202e617b3978abfed4832633c6a21c73b5861570a0530",
+      "available_2fps_frames": 209,
+      "wide_contact_sheet": "video-wide/IMG_6384.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "long European gallery: cabinets, paintings, tapestries, hanging porcelain/cases",
+        "Rockefeller doorway reverse view"
+      ],
+      "complete": false,
+      "survey_complete": true
+    }
+  ],
+  "built_study": "Rockefeller, adjoining long European gallery, separate light Renaissance and dark medieval room shells. Portal/stairs threshold limits; contents, room metric fits and actual Main Hall integration unfinished.",
+  "acceptance_remaining": [
+    "every observed room and connection inventoried",
+    "every visible object source/API matched or explicitly unresolved",
+    "Muse architecture and object assets inspected in source and held-out views",
+    "connected native room geometry, collision and camera tested in both directions",
+    "same Main Hall lighting/frame/shader recipe",
+    "hardware-specific performance and published visual evidence"
+  ],
+  "blocked_runs": [
+    {
+      "kind": "river-deities",
+      "run_id": "run-7b018ec98c334a45ef16e681",
+      "state": "submission_unreconciled; max $0.01 possibly spent; never resubmit blindly"
+    }
+  ],
+  "current_preview": "lowpoly-room-v39",
+  "gallery_inventory": "european-gallery-inventory.json",
+  "sculpture_inventory": "sculpture-room-inventory.json",
+  "survey_summary": {
+    "videos": 10,
+    "reviewed_2fps_frames": 2485,
+    "coverage": "All extracted survey frames visually inspected; review sampling is 2fps, not every native video frame.",
+    "reconstruction_complete": false
+  },
+  "hall_stairs_inventory": "hall-stairs-inventory.json",
+  "ionic_capitals": "Muse front installed in source-positioned pair; constant-depth closed silhouette, side/rear and exact dimensions unaccepted; entablature still plain",
+  "european_renaissance_door_correction": {
+    "source": "IMG_6386:102.75/104.75s",
+    "panels": 2,
+    "unequal": true,
+    "swing_into": "Renaissance",
+    "previous_error": "three equal panels, swung backwards into European gallery",
+    "accepted": false
+  },
+  "medieval_display_cases": {
+    "source": "IMG_6382 78.25/88.75/96.25s",
+    "shells_installed": 2,
+    "relative_arrangement": "Broad low relief case south-west of smaller taller stair-side case",
+    "dimensions_and_positions_accepted": false,
+    "contents_complete": false,
+    "new_generation_cost_usd": 0
+  },
+  "bertin_tivoli": {
+    "accession": "56.214",
+    "source": "IMG_6380 90.25/91.25s",
+    "placement": "Grey Hall-door wall, between Villeneuve and Pannini; metric offsets provisional",
+    "muse_frame": "bertin-frame-review.json",
+    "accepted": false
+  },
+  "perugino_madonna": {
+    "source": "IMG_6383 35.75/63.75/64.75s",
+    "catalogue_id": "1546096",
+    "accession": "16.236",
+    "title": "Madonna and Child",
+    "maker": "Pietro Perugino",
+    "catalogue_size_m": [
+      0.391,
+      0.575
+    ],
+    "identity": "Mother turned left, child right raising hand, red apple, church left and hills right matched to native35.75s; exact catalogue photo retained separately.",
+    "frame_visual_review": "Top cornice, straight pilasters, inner gold edge, dark inset, bottom plinth retained. Generated overly blue inset/pilasters need deterministic source-brown palette derivative; pronounced faceting, cornice depth/rear and band dimensions unaccepted.",
+    "placement": {
+      "room": "Renaissance north wall, right of European doorway",
+      "centre_m": [
+        1.48,
+        1.55,
+        18.93
+      ],
+      "yaw": 0,
+      "accepted": false
+    },
+    "run_id": "run-f55959297094d15b07761914",
+    "model": "meta/muse-image",
+    "provider": "openrouter",
+    "cost_usd": "0.010000",
+    "native_sha256": "c860540d122863589663a2892cde31b59153f0700eafdb4590823fe5e8b73f95",
+    "accepted": false,
+    "metric_limit": "Wide63.75 and64.75 affine estimates disagree; cropped/covered catalogue support and perspective prevent an accepted absolute door scale. No doorway resize or global room shift."
+  },
+  "renaissance_walls": "Neutral warm grey from source63.75/64.75; existing Muse plaster grain, Main Hall presentation and source-relative vent. Exact colour/metrics unaccepted."
+}

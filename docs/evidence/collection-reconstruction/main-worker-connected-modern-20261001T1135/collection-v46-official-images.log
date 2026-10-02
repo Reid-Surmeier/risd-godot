@@ -1,0 +1,17 @@
+[2026-10-01 07:16:47] INFO: Fetched (200) <GET https://risdmuseum.org/art-design/collection/green-pumpkin-57037> (referer: https://www.google.com/)
+[2026-10-01 07:16:48] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Archipenko&items_per_page=25> (referer: https://www.google.com/)
+Archipenko []
+[2026-10-01 07:16:49] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Laurens&items_per_page=25> (referer: https://www.google.com/)
+Laurens []
+[2026-10-01 07:16:50] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Lehmbruck&items_per_page=25> (referer: https://www.google.com/)
+Lehmbruck []
+[2026-10-01 07:16:51] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=festival&items_per_page=25> (referer: https://www.google.com/)
+festival []
+[2026-10-01 07:16:51] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Friesz&items_per_page=25> (referer: https://www.google.com/)
+Friesz []
+[2026-10-01 07:16:52] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Lurcat&items_per_page=25> (referer: https://www.google.com/)
+Lurcat []
+[2026-10-01 07:16:53] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Beckmann&items_per_page=25> (referer: https://www.google.com/)
+Beckmann []
+[2026-10-01 07:16:53] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Cezanne+river&items_per_page=25> (referer: https://www.google.com/)
+Cezanne river [{"id": "1538666", "primaryMaker": "Paul C\u00e9zanne", "title": "On the Banks of a River (Au Bord d&#039;une Rivi\u00e8re)", "objectNumber": "43.255", "medium": ["Oil on canvas"], "dimensions": "61 x 73.7 cm (24 x 29 inches)", "url": "https://risdmuseum.org/art-design/collection/banks-river-au-bord-dune-riviere-43255"}]

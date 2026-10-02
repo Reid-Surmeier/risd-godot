@@ -1,0 +1,226 @@
+[
+ {
+  "file": "onview-monstrance.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=monstrance&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 1,
+  "sha256": "c3830e404341e26ff6b70a2ad6e21d1a7b2d1a32c8d5b6d0dc6b4dece705a9ff",
+  "fetched_utc": "2026-10-01T14:09:55Z"
+ },
+ {
+  "file": "onview-reliquary.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=reliquary&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 0,
+  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "fetched_utc": "2026-10-01T14:09:56Z"
+ },
+ {
+  "file": "onview-beaker.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=beaker&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 4,
+  "sha256": "3f22b598dbcefacb580d56452f3324435337b055f7329259096e1c6f211ae8ef",
+  "fetched_utc": "2026-10-01T14:09:57Z"
+ },
+ {
+  "file": "onview-pyx.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=pyx&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 1,
+  "sha256": "04261762ab4151d6d3c897edff1f91c4314a2d2e3d27e05f8034c179ed40b717",
+  "fetched_utc": "2026-10-01T14:09:59Z"
+ },
+ {
+  "file": "onview-ivory.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=ivory&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 23,
+  "sha256": "ed697cdf5f31d0aa843d95e1bccc366be704cc11e1cd967712821c50da21a0df",
+  "fetched_utc": "2026-10-01T14:10:01Z"
+ },
+ {
+  "file": "onview-engraving.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=engraving&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 25,
+  "sha256": "be8c1c32e9fae0002586906af603a45aee51623c006f1fbcc7e83f191887cbb5",
+  "fetched_utc": "2026-10-01T14:10:14Z"
+ },
+ {
+  "file": "onview-woodcut.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=woodcut&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 3,
+  "sha256": "8f8d1d846eb19284a5564619de5f1b5f56aef21771e5764fc8d61ab220e3a2e9",
+  "fetched_utc": "2026-10-01T14:10:15Z"
+ },
+ {
+  "file": "onview-ciborium.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=ciborium&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 0,
+  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "fetched_utc": "2026-10-01T14:10:17Z"
+ },
+ {
+  "file": "onview-pax.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=pax&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 1,
+  "sha256": "f166a18939f6c61ae1f6a41917c0c64ba742daa7ad3fc53d560b7cc6062c3420",
+  "fetched_utc": "2026-10-01T14:10:18Z"
+ },
+ {
+  "file": "onview-virgin-and-child.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Virgin+and+Child&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 3,
+  "sha256": "09764e5c30dca1f6f3d91cbf6acde26d891e2d1dd1f4b4e605a5d2578b7069fa",
+  "fetched_utc": "2026-10-01T14:10:19Z"
+ },
+ {
+  "file": "onview-christ.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Christ&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 9,
+  "sha256": "2ec695a3abad4d12974523603873174b09074da7d2140500f2da2f64d292b94a",
+  "fetched_utc": "2026-10-01T14:10:21Z"
+ },
+ {
+  "file": "search-god-save-the-queens.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=God+Save+the+Queens&has_images=1&items_per_page=25",
+  "status": 200,
+  "rows": 1,
+  "sha256": "1246004c93b2e2ec6e39651b19cf154d8f756b40b89bb076611bf65ece45026f",
+  "fetched_utc": "2026-10-01T14:10:47Z"
+ },
+ {
+  "file": "onview-queens.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Queens&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 1,
+  "sha256": "1246004c93b2e2ec6e39651b19cf154d8f756b40b89bb076611bf65ece45026f",
+  "fetched_utc": "2026-10-01T14:10:49Z"
+ },
+ {
+  "file": "onview-engraving-on-paper.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Engraving+on+paper&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 4,
+  "sha256": "7d1c5c0edf03ee863d76a503cd36f47b2bdee76d9b1de29e42e31049f56bcb3a",
+  "fetched_utc": "2026-10-01T14:10:50Z"
+ },
+ {
+  "file": "onview-silver-p0.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=silver&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 25,
+  "sha256": "083f75cd7b773b3f88b89a8dfca6bf07dc6baf4294b109156b0ad691e2c44559",
+  "fetched_utc": "2026-10-01T14:10:52Z"
+ },
+ {
+  "file": "onview-schongauer.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Schongauer&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 0,
+  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "fetched_utc": "2026-10-01T14:11:30Z"
+ },
+ {
+  "file": "onview-durer.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=D%C3%BCrer&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 0,
+  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "fetched_utc": "2026-10-01T14:11:31Z"
+ },
+ {
+  "file": "onview-meckenem.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Meckenem&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 0,
+  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "fetched_utc": "2026-10-01T14:11:32Z"
+ },
+ {
+  "file": "onview-niello.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=niello&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 1,
+  "sha256": "2e5ecce2e4f8fb9d1943e15dc84d09d50973f0b545d1e5f4895a057b274a0737",
+  "fetched_utc": "2026-10-01T14:11:33Z"
+ },
+ {
+  "file": "onview-print-on-paper.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=on+paper&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 25,
+  "sha256": "cd307ba23bb78fa39155623880ab4af82463194fb58638f0ad3c4a0f042eb11b",
+  "fetched_utc": "2026-10-01T14:11:35Z"
+ },
+ {
+  "file": "onview-kiddush.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=cup&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 25,
+  "sha256": "ed832829ea4d2409903069a4c9db45452e30710dde8e4f36d02a8677c09bd6ad",
+  "fetched_utc": "2026-10-01T14:11:37Z"
+ },
+ {
+  "file": "id-1388871.json",
+  "url": "https://risdmuseum.org/api/v1/collection?id=1388871",
+  "status": 200,
+  "rows": 1,
+  "sha256": "b0d88deb8b47e239944a7defafee267d979b2e63d30deaf838acecab34c7bd6b",
+  "fetched_utc": "2026-10-01T14:18:50Z"
+ },
+ {
+  "file": "id-1557221.json",
+  "url": "https://risdmuseum.org/api/v1/collection?id=1557221",
+  "status": 200,
+  "rows": 1,
+  "sha256": "1246004c93b2e2ec6e39651b19cf154d8f756b40b89bb076611bf65ece45026f",
+  "fetched_utc": "2026-10-01T14:18:51Z"
+ },
+ {
+  "file": "id-1443596.json",
+  "url": "https://risdmuseum.org/api/v1/collection?id=1443596",
+  "status": 200,
+  "rows": 1,
+  "sha256": "c3830e404341e26ff6b70a2ad6e21d1a7b2d1a32c8d5b6d0dc6b4dece705a9ff",
+  "fetched_utc": "2026-10-01T14:18:52Z"
+ },
+ {
+  "file": "id-1550551.json",
+  "url": "https://risdmuseum.org/api/v1/collection?id=1550551",
+  "status": 200,
+  "rows": 1,
+  "sha256": "af55e8d1da53ff5bbc39081d86ff1710fae9eb622bfe3751f07d74fb35f5d91a",
+  "fetched_utc": "2026-10-01T14:18:53Z"
+ },
+ {
+  "file": "id-1230716.json",
+  "url": "https://risdmuseum.org/api/v1/collection?id=1230716",
+  "status": 200,
+  "rows": 1,
+  "sha256": "04261762ab4151d6d3c897edff1f91c4314a2d2e3d27e05f8034c179ed40b717",
+  "fetched_utc": "2026-10-01T14:18:55Z"
+ },
+ {
+  "file": "id-1197491.json",
+  "url": "https://risdmuseum.org/api/v1/collection?id=1197491",
+  "status": 200,
+  "rows": 1,
+  "sha256": "e6ab37ff314b7340061720a6fdf2935f8908490aeb856406bf967331f82ae863",
+  "fetched_utc": "2026-10-01T14:18:56Z"
+ },
+ {
+  "file": "id-1211626.json",
+  "url": "https://risdmuseum.org/api/v1/collection?id=1211626",
+  "status": 200,
+  "rows": 1,
+  "sha256": "f166a18939f6c61ae1f6a41917c0c64ba742daa7ad3fc53d560b7cc6062c3420",
+  "fetched_utc": "2026-10-01T14:18:57Z"
+ }
+]

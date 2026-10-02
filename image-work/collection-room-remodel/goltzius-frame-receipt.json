@@ -1,0 +1,24 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/goltzius-frame-selected-0.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-d3202a36f847df0bc6a9c777/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "4ec50fbf65f473b9fda5b27d57dd87fa97863c6451c1c9955845f084361f105e"
+    }
+  ],
+  "changesRequested": "Generate ONE complete FRONT ORTHOGRAPHIC low polygon picture-frame asset matching the frame around RISD Hendrick Goltzius, Christ on the Cold Stone with Two Angels, 61.006 in the video reference. Rectangular frame, narrow aged gold outer edge, broad dark ebony raised/recessed stepped moulding, narrow gold inner bead lining the opening. Preserve the understated black/gold design; no added scrolls or ornament. Complete all four sides and corners. Inner opening perfectly blank pure white rectangle, portrait support proportions 34.5 wide by 51 high. Outside silhouette perfectly flat magenta #FF00FF. Restrained baked shadows, low polygon Main Hall game style. No painting, people, walls, labels, text, extra assets, perspective, grid, or shadows outside the frame. One frame only; no sheet. Native geometry supplies depth; authentic museum painting stays separate.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-d3202a36f847df0bc6a9c777",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-d3202a36f847df0bc6a9c777"
+}

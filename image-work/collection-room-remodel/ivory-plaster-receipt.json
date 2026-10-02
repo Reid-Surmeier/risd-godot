@@ -1,0 +1,24 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/architecture-references/ivory-plaster-source.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-10a73452865078589c766e67/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "d3686872b0da15f4bd6ede3dcb7c8991e7687ec90f0589fe5d1559737b46a8c8"
+    }
+  ],
+  "changesRequested": "Create ONE seamless tile of the real smooth warm ivory-grey painted museum plaster visible in the source crop, rendered as a restrained low polygon game material in the established Main Hall style. Flat orthographic albedo only, uniformly lit, subtle large planar tonal patches and tiny plaster grain. Match the observed light warm grey, no stones, no bricks, no cracks, no seams, no objects, no trim, no labels, no gradient, no border. Texture fills every pixel and wraps in both axes. No photograph pixels in the result.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-10a73452865078589c766e67",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-10a73452865078589c766e67"
+}

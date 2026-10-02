@@ -1,0 +1,60 @@
+{
+ "v50h_hall_field_alone": {
+  "file": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50h/native-evidence/hall-collection.png",
+  "face_patch_mean_rgb": [
+   190.8,
+   122.3,
+   82.2
+  ],
+  "hair_patch_mean_rgb": [
+   130.2,
+   77.9,
+   44.3
+  ]
+ },
+ "v50j_two_fields_blended": {
+  "file": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/comparison-before-final/native-evidence-v50j-restored-probes-double-field/hall-collection.png",
+  "face_patch_mean_rgb": [
+   168.5,
+   124.7,
+   106.0
+  ],
+  "hair_patch_mean_rgb": [
+   125.9,
+   80.6,
+   51.2
+  ]
+ },
+ "v50l_one_field": {
+  "file": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence/hall-collection.png",
+  "face_patch_mean_rgb": [
+   190.8,
+   122.3,
+   82.2
+  ],
+  "hair_patch_mean_rgb": [
+   130.2,
+   77.9,
+   44.3
+  ]
+ },
+ "v50h_vs_v50l_hall_view": {
+  "identical_bytes": false,
+  "mean_abs_diff_rgb": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "max_diff": [
+   13,
+   2,
+   2
+  ],
+  "bbox_of_difference": [
+   305,
+   314,
+   387,
+   345
+  ]
+ }
+}

@@ -1,0 +1,107 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-d2371d25c12ab4ec0863",
+      "objective": "Generate ONE complete front orthographic low polygon architectural picture frame matching the real frame around Pietro Perugino Madonna and Child16.236 in the first two native RISD museum video references. Preserve its broad projecting straight top cornice with stepped cap, two straight flat brown aged-gilt vertical pilasters, narrow raised inner gold fillet, dark recessed band around the painting, and projecting stepped bottom plinth. Restrained worn brown gold, subtle carved straight profiles. Match the museum game frame material in the third reference. Perfectly blank white portrait rectangular opening, panel width39.1 height57.5cm. Flat magenta #FF00FF outside the entire frame silhouette. No painting, wall, labels, people, perspective, second frame, leaf or flower decoration, corner scrolls, pediment, or invented figures. Complete frame, top cornice and bottom plinth fully visible. One frame only.\n",
+      "procedureId": "muse-d2371d25c12ab4ec0863",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "perugino-frame-recipe.json",
+          "sha256": "d2371d25c12ab4ec08637fe39e2034ecfa4fcef2070b81c1aa99f3e1b0aaecec"
+        },
+        {
+          "applicationPath": "perugino-frame-plan.json",
+          "sha256": "6090b591c6761a1adb069468a9959db7370969bab19de943bfc82f2a84633ea6"
+        },
+        {
+          "applicationPath": "perugino-frame-prompt.txt",
+          "sha256": "f8c1093865e612fffe86e0281094ead44b59f5f05a132596c388631b05b0e7b7"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/perugino-frame-selected-0.png",
+          "sha256": "8fa8eb8a514bccbc350c38b253eed37d4ec28af7065f9a3c64b1e05a5ca21b30",
+          "byteLength": 10083022,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/perugino-frame-selected-1.png",
+          "sha256": "c00a2a89902b6cbf8245e57aa363b4f67426f3eb31f22a56ae84a1d37205151a",
+          "byteLength": 10475689,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        },
+        {
+          "slot": "reference-002",
+          "applicationPath": "inventory-references/perugino-frame-selected-2.png",
+          "sha256": "517ea4ae2f4109fcef975c7b91612c17dd2bb720317f2398d080e7dbae405964",
+          "byteLength": 302090,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/2/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1600,
+            "height": 1600
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"Generate ONE complete front orthographic low polygon architectural picture frame matching the real frame around Pietro Perugino Madonna and Child16.236 in the first two native RISD museum video references. Preserve its broad projecting straight top cornice with stepped cap, two straight flat brown aged-gilt vertical pilasters, narrow raised inner gold fillet, dark recessed band around the painting, and projecting stepped bottom plinth. Restrained worn brown gold, subtle carved straight profiles. Match the museum game frame material in the third reference. Perfectly blank white portrait rectangular opening, panel width39.1 height57.5cm. Flat magenta #FF00FF outside the entire frame silhouette. No painting, wall, labels, people, perspective, second frame, leaf or flower decoration, corner scrolls, pediment, or invented figures. Complete frame, top cornice and bottom plinth fully visible. One frame only.\\n\",\"objectiveId\":\"muse-d2371d25c12ab4ec0863\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-d2371d25c12ab4ec0863\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/perugino-frame-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":10083022,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"8fa8eb8a514bccbc350c38b253eed37d4ec28af7065f9a3c64b1e05a5ca21b30\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/perugino-frame-selected-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":10475689,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"c00a2a89902b6cbf8245e57aa363b4f67426f3eb31f22a56ae84a1d37205151a\",\"slot\":\"reference-001\"},{\"applicationPath\":\"inventory-references/perugino-frame-selected-2.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":302090,\"inspectedMedia\":{\"height\":1600,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1600},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/2/image_url/url\",\"sha256\":\"517ea4ae2f4109fcef975c7b91612c17dd2bb720317f2398d080e7dbae405964\",\"slot\":\"reference-002\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"perugino-frame-recipe.json\",\"sha256\":\"d2371d25c12ab4ec08637fe39e2034ecfa4fcef2070b81c1aa99f3e1b0aaecec\"},{\"applicationPath\":\"perugino-frame-plan.json\",\"sha256\":\"6090b591c6761a1adb069468a9959db7370969bab19de943bfc82f2a84633ea6\"},{\"applicationPath\":\"perugino-frame-prompt.txt\",\"sha256\":\"f8c1093865e612fffe86e0281094ead44b59f5f05a132596c388631b05b0e7b7\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "f55959297094d15b07761914c717d76c53ea4aeb9363c0f7f2170ef339f94e3d"
+  },
+  "normalView": {
+    "objective": "Generate ONE complete front orthographic low polygon architectural picture frame matching the real frame around Pietro Perugino Madonna and Child16.236 in the first two native RISD museum video references. Preserve its broad projecting straight top cornice with stepped cap, two straight flat brown aged-gilt vertical pilasters, narrow raised inner gold fillet, dark recessed band around the painting, and projecting stepped bottom plinth. Restrained worn brown gold, subtle carved straight profiles. Match the museum game frame material in the third reference. Perfectly blank white portrait rectangular opening, panel width39.1 height57.5cm. Flat magenta #FF00FF outside the entire frame silhouette. No painting, wall, labels, people, perspective, second frame, leaf or flower decoration, corner scrolls, pediment, or invented figures. Complete frame, top cornice and bottom plinth fully visible. One frame only.\n",
+    "evidence": "3 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

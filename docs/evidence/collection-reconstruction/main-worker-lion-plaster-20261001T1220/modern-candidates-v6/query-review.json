@@ -1,0 +1,50 @@
+[
+  {
+    "query": "Battle",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Battle&items_per_page=25",
+    "rows": 25,
+    "candidates": [
+      {
+        "id": "1362486",
+        "primaryMaker": "Domenico Tintoretto",
+        "title": "Sketch for a Battle Scene: Tancred and Clorinda",
+        "objectNumber": "53.122",
+        "medium": [
+          "Oil on canvas"
+        ],
+        "dimensions": "71.1 x 41.9 cm (28 x 16 1/2 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/sketch-battle-scene-tancred-and-clorinda-53122"
+      }
+    ]
+  },
+  {
+    "query": "Tourney",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Tourney&items_per_page=25",
+    "rows": 1,
+    "candidates": []
+  },
+  {
+    "query": "Combat",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Combat&items_per_page=25",
+    "rows": 22,
+    "candidates": []
+  },
+  {
+    "query": "Massacre",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Massacre&items_per_page=25",
+    "rows": 20,
+    "candidates": []
+  },
+  {
+    "query": "Soldiers",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Soldiers&items_per_page=25",
+    "rows": 25,
+    "candidates": []
+  },
+  {
+    "query": "Fresnaye",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Fresnaye&items_per_page=25",
+    "rows": 3,
+    "candidates": []
+  }
+]

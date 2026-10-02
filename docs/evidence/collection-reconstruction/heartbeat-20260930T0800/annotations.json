@@ -1,0 +1,49 @@
+{
+  "labels": [
+    "threshold-splice-rear-left",
+    "left-casing-inner-crease-top"
+  ],
+  "picks": {
+    "IMG_6380_exit6fps/000013.jpg": [
+      [
+        208,
+        1149
+      ],
+      [
+        117,
+        1118
+      ]
+    ],
+    "IMG_6380_exit6fps/000019.jpg": [
+      [
+        318,
+        1280
+      ],
+      [
+        213,
+        1228
+      ]
+    ],
+    "IMG_6380_exit6fps/000023.jpg": [
+      [
+        211,
+        1464
+      ],
+      [
+        59,
+        1395
+      ]
+    ]
+  },
+  "training": [
+    "IMG_6380_exit6fps/000013.jpg",
+    "IMG_6380_exit6fps/000019.jpg"
+  ],
+  "reserved": "IMG_6380_exit6fps/000023.jpg",
+  "photo_sha256": {
+    "IMG_6380_exit6fps/000013.jpg": "ddf5b627f964f4f7fc0773955888943300874c50d49a89b1f32cada205200d46",
+    "IMG_6380_exit6fps/000019.jpg": "8dff52caaa5bcf15ea4922ca06d7bf645bf134addb7f28293b47f39c06409d12",
+    "IMG_6380_exit6fps/000023.jpg": "27488810a467290830767950d7f37f6a26db559f980178fc8fda773f1525a303"
+  },
+  "scope": "New physical endpoints; native manual marks frozen before viewing predictions; casing crease elevated; not aperture toes."
+}

@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "corot-frame-001",
+      "prompt": "corot-frame-prompt.txt",
+      "promptSha256": "11f44478f1b75df85c0cfdfcf03441abccd1a2c0ebb1fa16b5716d06cb3b6492",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/corot-frame-selected-0.png",
+          "sha256": "ed1ee8765af4666a0fd8c9e90f5079302020fad0f1f80e44d74ebd592fee1eee"
+        },
+        {
+          "path": "inventory-references/corot-frame-selected-1.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+from pathlib import Path
+from PIL import Image
+import json,hashlib,subprocess,sys
+app=Path('image-work/collection-room-remodel').resolve();kind=sys.argv[1]
+assert not (app/f'{kind}-receipt.json').exists()
+refs=app/'architecture-references';refs.mkdir(exist_ok=True)
+source=Path('/tmp/collection-door-sconces-native.png')
+specs={
+ 'ivory-plaster':((815,590,1045,1390),'Create ONE seamless tile of the real smooth warm ivory-grey painted museum plaster visible in the source crop, rendered as a restrained low polygon game material in the established Main Hall style. Flat orthographic albedo only, uniformly lit, subtle large planar tonal patches and tiny plaster grain. Match the observed light warm grey, no stones, no bricks, no cracks, no seams, no objects, no trim, no labels, no gradient, no border. Texture fills every pixel and wraps in both axes. No photograph pixels in the result.'),
+ 'door-architrave':((0,180,180,1580),'Create ONE straight upright strip of the exact cream-painted layered doorway architrave from the reference. Isolate a front orthographic view on flat pure magenta #FF00FF. This is architectural painted wood: long simple parallel stepped bands, narrow raised bead, flat recessed band and broader outer bevel. Preserve the reference simple moulding sequence and warm ivory palette. Low polygon game material with readable flat facets and restrained baked relief, no carved ornament, no door, no wall, no shadow outside silhouette, no decorative gold frame, no text. Keep straight parallel vertical edges and generous magenta margins. One strip only; not a complete doorway. Its cross-section is authored separately.'),
+ 'baseboard':((595,1550,1080,1840),'Create ONE horizontal section of the exact white-painted museum baseboard shown at the bottom of the reference. Front orthographic view isolated on flat pure magenta #FF00FF. Reconstruct the simple straight raised upper lip, broad flat fascia and narrow lower foot of this real low-profile painted wood skirting. Low polygon game asset, warm off-white paint and restrained shallow flat facets. Straight parallel horizontal edges and generous magenta margins, no wall, no floor, no wood grain, no cracks, no elaborate crown carving, no text. One strip only; native geometry supplies its shallow stepped profile.')}
+bounds,prompt=specs[kind];im=Image.open(source).convert('RGB');im.crop(bounds).save(refs/f'{kind}-source.png')
+inputs=[{'path':f'architecture-references/{kind}-source.png','sha256':hashlib.sha256((refs/f'{kind}-source.png').read_bytes()).hexdigest()}]
+(app/f'{kind}-source.json').write_text(json.dumps({'video':'IMG_6380.MOV','time_seconds':188.25,'native_extraction':'CUDA decode, output seek after input, transpose=clock','source_png_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'crop_xyxy':bounds,'role':'reference and profile measurement only; never final room texture'},indent=2)+'\n')
+(app/f'{kind}-prompt.txt').write_text(prompt+'\n')
+plan={'attempts':[{'id':kind+'-001','prompt':kind+'-prompt.txt','promptSha256':hashlib.sha256((app/f'{kind}-prompt.txt').read_bytes()).hexdigest(),'size':'1440x1760' if kind=='door-architrave' else '1760x1440','inputs':inputs}]}
+(app/f'{kind}-plan.json').write_text(json.dumps(plan,indent=2)+'\n');(app/f'{kind}-recipe.json').write_text(json.dumps({'procedure':'edit','plan':kind+'-plan.json','attempt':kind+'-001'})+'\n')
+cli=['node','/home/reidsurmeier/Image-generation-pipline/.tool-builds/1790783219515/scripts/image-pipeline.js']
+r=subprocess.run(cli+['prepare','--application',str(app),'--recipe',kind+'-recipe.json','--unit-cost','0.01','--budget','0.01'],capture_output=True,text=True);assert r.returncode==0,r.stdout;(app/f'{kind}-prepared.json').write_text(r.stdout);objective=json.loads(r.stdout)['objective']
+r=subprocess.run(cli+['image','--application',str(app),'--objective',objective],capture_output=True,text=True);assert r.returncode==0,r.stdout;(app/f'{kind}-planned.json').write_text(r.stdout);assert json.loads(r.stdout)['_tag']=='Planned';print(json.dumps({'kind':kind,'objective':objective}))

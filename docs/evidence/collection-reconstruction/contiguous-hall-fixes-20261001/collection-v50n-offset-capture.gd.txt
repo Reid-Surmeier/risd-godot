@@ -1,0 +1,55 @@
+## Review capture on a private copy of root's frozen full app: views root's set does not include.
+extends SceneTree
+
+func _initialize() -> void:
+	call_deferred("capture")
+
+func capture() -> void:
+	var output:String=OS.get_cmdline_user_args()[0]
+	root.size=Vector2i(1440,1000)
+	var app=load("res://modules/shell/demo.tscn").instantiate()
+	root.add_child(app)
+	for i in 150:await process_frame
+	var walk=app.find_child("GalleryWalk",true,false)
+	assert(walk!=null and walk.state().attached)
+	walk.set_process(false)
+	walk._entrance_active=false
+	walk._target=null
+	walk._target_yaw=null
+	walk._path.clear()
+	walk._set_lighting(true)
+	var proof:=[]
+	# name, position, space, view mode, heading, and an optional earlier state to pass through first
+	for row in [
+		["renaissance-bar-diagnostic",Vector3(-8.3,0,2.5),"arch",0,PI,null],
+		["saint-roch-offset",Vector3(-9.35,0,2.75),"arch",1,PI/2,null],
+		["saint-roch-follow",Vector3(-9.1,0,3.0),"arch",2,PI/2,null]
+	]:
+		for step in ([row[5]] if row[5]!=null else [])+[[row[1],row[2],row[3],row[4]]]:
+			walk._space=step[1]
+			walk.view_mode=step[2]
+			walk.view_yaw=step[3]
+			walk._yaw=step[3]
+			walk._pos=step[0]
+			walk._kid.position=step[0]
+			walk._update_camera(1.0)
+			for i in 6:await process_frame
+		if row[0] == "renaissance-bar-diagnostic":
+			var eye:Vector3=walk._cam.project_ray_origin(Vector2(308,330))
+			var direction:Vector3=walk._cam.project_ray_normal(Vector2(308,330))
+			var hits:Array=[]
+			for mesh in walk._vp.find_children("*","MeshInstance3D",true,false):
+				if mesh.mesh==null or not mesh.is_visible_in_tree() or (mesh.layers & walk._cam.cull_mask)==0:continue
+				var local:Transform3D=mesh.global_transform.affine_inverse()
+				var hit=mesh.mesh.get_aabb().intersects_segment(local*eye,local*(eye+direction*100))
+				if hit!=null:
+					var target=mesh.get_meta("live_cutaway") if mesh.has_meta("live_cutaway") else null
+					hits.append({"path":str(mesh.get_path()),"source_path":mesh.get_meta("source_path",""),"live_target":str(target.get_path()) if is_instance_valid(target) else "","distance":eye.distance_to(mesh.global_transform*hit),"position":str(mesh.global_position)})
+			hits.sort_custom(func(a,b):return a.distance<b.distance)
+			FileAccess.open(output.path_join("bar-ray-hits.json"),FileAccess.WRITE).store_string(JSON.stringify(hits,"\t")+"\n")
+		await RenderingServer.frame_post_draw
+		assert(walk._vp.get_texture().get_image().save_png(output.path_join("native-"+row[0]+".png"))==OK)
+		proof.append({"name":row[0],"space":walk._space,"view_mode":walk.view_mode,"heading":row[4],"position":[walk._pos.x,walk._pos.y,walk._pos.z],"cull_mask":walk._cam.cull_mask,"cutaway_alpha":walk._cutaway_alpha.duplicate(true),"hall_lightmap_visible":walk._baked_room.get_node("Lightmap").visible,"addition_lightmap_visible":walk._rooms.get_node("BakedRoom/Lightmap").visible})
+	FileAccess.open(output.path_join("native-follow-views.json"),FileAccess.WRITE).store_string(JSON.stringify(proof,"\t")+"\n")
+	print("REVIEW_CAPTURE_OK")
+	quit()

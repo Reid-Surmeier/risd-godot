@@ -1,0 +1,1 @@
+Root independently reran exact delivered helper/check in isolated llvmpipe project: exit0,53closed outward parts/1240triangles/height.394m, all fidelity/rear/placement flags false. Raw checks/render retained; no API dimensions invented.

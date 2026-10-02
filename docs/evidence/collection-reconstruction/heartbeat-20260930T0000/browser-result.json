@@ -1,0 +1,70 @@
+{
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T0000/walk/",
+  "errors": [],
+  "first_ready_ms": 2493,
+  "engine": {
+    "checks": {
+      "forward": true,
+      "jamb_blocked": true,
+      "reverse": true
+    },
+    "frame_time_p50_ms": 16.6666666666667,
+    "frame_time_p95_ms": 16.6666666666667,
+    "navigation_accepted": false,
+    "render_frames": 528,
+    "renderer": "WebKit WebGL",
+    "samples": [
+      {
+        "on_floor": true,
+        "phase": 0,
+        "position": [
+          0.00636056577786803,
+          0.0516308099031448,
+          -1.27611470222473
+        ]
+      },
+      {
+        "on_floor": true,
+        "phase": 1,
+        "position": [
+          0.540850281715393,
+          -0.00636019790545106,
+          0.714806258678436
+        ]
+      },
+      {
+        "on_floor": true,
+        "phase": 2,
+        "position": [
+          0.930816769599915,
+          -0.00151245051529258,
+          0.246386080980301
+        ]
+      }
+    ]
+  },
+  "keyboard_forward": {
+    "on_floor": true,
+    "position": [
+      0.0526437722146511,
+      0.052301187068224,
+      -1.16822898387909
+    ]
+  },
+  "keyboard_reverse": {
+    "on_floor": true,
+    "position": [
+      0.554729402065277,
+      -0.00537679996341467,
+      0.768645584583282
+    ]
+  },
+  "browser": "Chrome/154.0.8037.57",
+  "webgl_renderer": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+  "memory": {
+    "used_js_heap_bytes": 67599035,
+    "total_js_heap_bytes": 71749607,
+    "caveat": "JS heap only; excludes complete process, GPU and WASM allocation accounting"
+  },
+  "pass": true
+}

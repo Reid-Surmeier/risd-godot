@@ -1,0 +1,15 @@
+{
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260929T2300/",
+  "http_status": {
+    "index.html": 200,
+    "000015.png": 200,
+    "threshold-plan.png": 200,
+    "000013.png": 200,
+    "000018.png": 200,
+    "native-01-floor.png": 200,
+    "native-02-floor.png": 200,
+    "native-03-floor.png": 200
+  },
+  "renderer": "headless Chrome; static diagnostic report only",
+  "gameplay_verified": false
+}

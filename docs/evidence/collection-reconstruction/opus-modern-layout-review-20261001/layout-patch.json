@@ -1,0 +1,81 @@
+{
+  "status": "suggestion for coordinator review; nothing applied; every metre provisional",
+  "source": "IMG_6387 42.0..85.0s decoded on CPU at 2 fps (frames/manifest.json); authored state read from lowpoly-room-v48b-modern-frames/geometry.json and the coordinator's remodel_room.gd",
+  "frame": "world metres as authored: +X east, +Z south; a wall item sits 0.08 m inside its wall line, as the existing paintings do",
+  "kept_fixed": {
+    "landing": "lion stair landing bounds [10.55, 16.15, 28.1, 35.9] and its east opening [29.2, 30.9]",
+    "entry_door": "modern west opening [29.2, 30.9], so the landing pair and both walk trials through it are untouched",
+    "floorboards": "boards_across stays true: boards run along X, which is now parallel to the large-painting wall as in 46.5..49.5s"
+  },
+  "rooms": {
+    "modern painting gallery": {
+      "current": {"bounds": [16.15, 20.95, 23.2, 31.1], "openings": {"west": [29.2, 30.9], "east": [23.5, 25.1]}},
+      "proposed": {"bounds": [16.15, 21.95, 28.9, 34.9], "openings": {"west": [29.2, 30.9], "east": [33.3, 34.6]}},
+      "why": "The entry door is in the Braque/Villon wall with the corner right beside its casing (82.0, 83.5, 84.5s), and the large-painting wall runs away on the left as one walks in (46.0..47.5s). With the door fixed on the west wall the room therefore lies south of the door, behind the lion wall, not north of it. Wall lengths summed from catalogue painting widths and gaps come to about 5.8 x 6.0 m, against 4.8 x 7.9 m authored."
+    },
+    "modern adjoining gallery threshold study limit": {
+      "current": {"bounds": [20.95, 22.55, 23.5, 25.1], "openings": {"west": [23.5, 25.1]}},
+      "proposed": {"bounds": [21.95, 23.55, 33.3, 34.6], "openings": {"west": [33.3, 34.6]}},
+      "why": "The second doorway is in the Cezanne wall at the end next to the window wall (68.0..70.0s); the next room's windows continue the same wall line. Opening narrowed from 1.6 to 1.3 m: it is a single cased opening, clearly narrower than the double entry door."
+    }
+  },
+  "wall_order_from_pan": {
+    "note": "one continuous leftward pan, 52.0..84.5s; each wall listed in world order",
+    "west_north_to_south": ["entry_door", "braque_48.248", "villon_70.058"],
+    "south_west_to_east": ["window_1", "seated_woman_case", "window_2"],
+    "east_north_to_south": ["matisse_57.037", "cezanne_43.255", "adjoining_doorway"],
+    "north_west_to_east": ["fauconnier_1995.043"]
+  },
+  "items": [
+    {"id": "entry_door", "kind": "opening", "wall": "west", "span": [29.2, 30.9],
+      "current": "west wall, z 29.2..30.9", "proposed": "unchanged",
+      "evidence_s": [42.0, 46.0, 82.0, 83.5, 84.5]},
+    {"id": "braque_48.248", "kind": "painting", "wall": "west", "framed_width_m": 0.881,
+      "current": {"position": [17.7, 1.65, 31.02], "rotation_y": "PI"},
+      "proposed": {"position": [16.23, 1.65, 32.4], "rotation_y": "PI/2"},
+      "evidence_s": [52.5, 53.5, 83.5], "basis": "0.9 m from the door casing, by eye against the frame at 83.5s"},
+    {"id": "villon_70.058", "kind": "painting", "wall": "west", "framed_width_m": 0.630,
+      "current": {"position": [19.45, 1.65, 31.02], "rotation_y": "PI"},
+      "proposed": {"position": [16.23, 1.65, 33.75], "rotation_y": "PI/2"},
+      "evidence_s": [52.0, 55.5, 57.5, 58.0], "basis": "0.6 m beyond the Braque; its label and about 0.8 m of wall before the window-wall corner"},
+    {"id": "fauconnier_1995.043", "kind": "painting", "wall": "north", "framed_width_m": 3.122,
+      "current": {"position": [16.23, 1.65, 25.45], "rotation_y": "PI/2"},
+      "proposed": {"position": [19.5, 1.65, 28.98], "rotation_y": "0"},
+      "evidence_s": [46.5, 47.5, 75.5, 81.0, 82.0], "basis": "about 1.8 m of wall with the text panel and floor grille between the door corner and the painting; about 0.9 m with its label before the far corner"},
+    {"id": "matisse_57.037", "kind": "painting", "wall": "east", "framed_width_m": 0.755,
+      "current": {"position": [17.45, 1.65, 23.28], "rotation_y": "0"},
+      "proposed": {"position": [21.87, 1.65, 30.2], "rotation_y": "-PI/2"},
+      "evidence_s": [47.5, 50.5, 73.0, 74.5, 75.0], "basis": "nearest the large-painting corner"},
+    {"id": "cezanne_43.255", "kind": "painting", "wall": "east", "framed_width_m": 0.947,
+      "current": {"position": [19.35, 1.65, 23.28], "rotation_y": "0"},
+      "proposed": {"position": [21.87, 1.65, 31.85], "rotation_y": "-PI/2"},
+      "evidence_s": [50.5, 69.5, 70.5, 73.0], "basis": "between the Matisse and the doorway, label on the doorway side"},
+    {"id": "adjoining_doorway", "kind": "opening", "wall": "east", "span": [33.3, 34.6],
+      "current": "east wall, z 23.5..25.1, beside three windows", "proposed": "east wall, z 33.3..34.6, casing about 0.15 m from the window-wall corner",
+      "evidence_s": [51.0, 67.5, 68.0, 68.5, 69.5]},
+    {"id": "window_1", "kind": "window", "wall": "south", "framed_width_m": 1.34,
+      "current": "east wall, centres z 26.0 / 28.0 / 30.0 (three)", "proposed": {"centre_x": 17.5},
+      "evidence_s": [51.5, 52.0, 58.5, 59.5, 62.5], "basis": "about 0.7 m of wall to the Villon-wall corner"},
+    {"id": "seated_woman_case", "kind": "case", "wall": "south", "framed_width_m": 0.68,
+      "current": "not installed; earlier interim recommendation was Vector3(20.89, 0, 27.0), rotation.y -PI/2",
+      "proposed": {"position": [19.4, 0, 34.84], "rotation_y": "PI"},
+      "evidence_s": [51.0, 51.5, 59.5, 63.0, 65.0, 66.0], "basis": "off-centre on the pier: about 0.4 m from window 2, about 0.9 m and the label toward window 1; the figure's left turns west, the side the 63.5/64.5s views show"},
+    {"id": "window_2", "kind": "window", "wall": "south", "framed_width_m": 1.34,
+      "current": "see window_1", "proposed": {"centre_x": 20.8},
+      "evidence_s": [51.0, 66.5, 67.0, 67.5], "basis": "about 0.5 m of wall to the doorway-wall corner"}
+  ],
+  "trials": {
+    "unchanged": ["landing_to_modern", "modern_to_landing"],
+    "replace": {
+      "modern_far_opening_out": [[21.0, 0.25, 33.95], [22.8, 0, 33.95], false],
+      "modern_far_opening_back": [[22.8, 0.25, 33.95], [21.0, 0, 33.95], false],
+      "modern_bench_blocked": [[18.9, 0.25, 33.3], [18.9, 0, 30.6], true]
+    }
+  },
+  "dependents_not_reviewed_in_detail": [
+    "bench: long axis along X near the room centre, about Vector3(18.9, 0.40, 31.9), size (2.20, 0.13, 0.80) (50.5/51.0s, by eye)",
+    "ceiling track grid, painting spotlights and the east-wall lookup `room_wall == \"modern painting gallery:east\" and position.z > 25.1` in build_lion_modern_rooms: all keyed to the old walls",
+    "floor grille and text panel on the north wall between the door corner and the large painting (46.5, 81.0, 82.0s): not built today",
+    "lion_modern_layout.modern_wall_groups text in prepare_remodel.py"
+  ]
+}

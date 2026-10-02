@@ -1,0 +1,14 @@
+[
+  {
+    "source": "/tmp/collection-saint-roch-root-import.log",
+    "source_sha256": "ba008392df6bb5e1f19c4403bde99d4585f3d329fe6fcf2bd6225f915f8d3d8b",
+    "archive": "raw-logs/collection-saint-roch-root-import.log.gz",
+    "archive_sha256": "d25a603135bc5ea8fc33ac8b39449be6e8ff1098de364ae2b1f407b527cc0223"
+  },
+  {
+    "source": "/tmp/collection-saint-roch-root-native.log",
+    "source_sha256": "4417247f1674c97aba8c5e2d8c418c6eedb10edbaf907f8f51e4c2eb159695d8",
+    "archive": "raw-logs/collection-saint-roch-root-native.log.gz",
+    "archive_sha256": "c757f3637972eb12e7b06c5cc9a97821eb1652ba4887f2198c35685be9139da2"
+  }
+]

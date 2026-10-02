@@ -1,0 +1,17 @@
+
+## Collection entry-floor coverage — September 30, 15:30 UTC heartbeat
+
+Local pycolmap/NumPy/Pillow CPU diagnostics, ffmpeg CUDA NVDEC/scale_cuda,
+Godot 4.7.2 and Chrome on RTX 4070 SUPER; **$0**, no paid calls.
+[Source selections, raw results, decoder logs and hashes](../../docs/evidence/collection-reconstruction/heartbeat-20260930T1530/provenance.json).
+
+Saved wall-only entry 206 pose predicts one cached casing/floor contact at 2.108 px;
+source crops do not identify an interior wood knot. Interior masks yield zero
+matches against 244/505. Native 206 remains blurred; new full-stream native 244/505
+and reserved 246/506 frames are prepared without fitting reserved floor pixels.
+No plane, scale, opening or collision extension accepted. Historical bounded
+native/browser walk passes 24 checks each and real WASD crossing/return. Initial
+native run lost its X connection; separate final run passes. Shell retains four
+known failures. Earlier pending work, original videos, frozen models/holdouts,
+Muse receipts and rejected sculpture meshes preserved. No runtime/Viewer edits,
+production integration, paid generation or ticket closure.

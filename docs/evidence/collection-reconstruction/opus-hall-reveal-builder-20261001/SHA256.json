@@ -1,0 +1,117 @@
+{
+ "task": "task_49a9e91833a3",
+ "dispatch": "ctx_46f8124de215",
+ "written_utc": "2026-10-01",
+ "all_metric_placement_map_fidelity_flags": false,
+ "files": {
+  "REPORT.md": "fa356f890e317252a071d66572b203cf9abc297a475658954fe520438a74fb79",
+  "capture-current.json": "addc01ee29013517a91935506dddf796a52bd2492abfa5dabf3b9a2bf4e28c56",
+  "capture-proposed.json": "1da8a0e9400095d734fa4dfbf097fa9f765b9de69be0a363c1afda510b04062b",
+  "capture_reveal.gd": "bdd7fd33b38428a54d4152dc6ac8275ad8f40007568939f28383826673f912f9",
+  "compare_dumps.py": "6176e52562e80fe710eb2ba92930f217aae70ecb51a307f728f1f32322558fcb",
+  "dump_scene.gd": "05dca6bfb7a827701b1a155134af6b74bd594e5670588c9fb32d7c9412097a49",
+  "geometry-current-v49l.json": "24c9ae3416355f378635c39b0e5852fa6bf2f129eb55ef898fb1fcc8de755731",
+  "geometry-proposed.json": "5d2230abd7d70c8c8fc97af8d44c241af42e6490c9c625141e1f70b0a0030da2",
+  "hall-reveal.patch": "e6bf58c070c1e9f22ea7678ac9c9e901bfe4dcfc3390e3278d56080f32d95bf1",
+  "leaf-panels.jpg": "c3643eece53218430a6e9cd9c548ddb90fce4306ec7c5634bdf83f6f452aebaa",
+  "measure-6343-0.5s.jpg": "aadc6e0748651bfcc5b5743f1fbb11c19dbd0e81f9dc0017e4079f5533bdade0",
+  "measurements.json": "2466e3b1644bd707d2c410d8b38b6abc9bdd2c9e474952d35a93ddae72a9e142",
+  "piano-door-6343.jpg": "aae556b5de673cf7e9d8aaa0d6535ae941ae45c45ea01f62c3fd523bd9d62db7",
+  "plan-before-after.jpg": "71439df35dc450e1922fa2b8d9b355607bf9fe700ff3484ae706b97229d01062",
+  "plan-check.json": "9ff6df17f4ce56eaf1f2c7f12c808b0c1525ee604f8aa970d589766e6359bf2d",
+  "plan_check.py": "7ea49cceae23c44c1c1d0717d8fbe7946156f5588eebba4ccf0e0f87da1f02af",
+  "reciprocal-door.jpg": "0a6ffe4d964bb7032e4ec13a17ad2b6732555c3871e3de76970868f3ac139c84",
+  "render-before-after.jpg": "27eccd5bae10c1cd02569b47ed726254e0feb16b27bc0517dc64595cbed0d45e",
+  "rockefeller-door-6385.jpg": "91180881ba7ca17640bcf7ae8eee284afc708b9757ecb049068a69a3e9bb4dea",
+  "scene-compare.json": "7a0f50ac8abbe34087cea3eb7cbc81852ccee6468b7bb878b915283da9e6b1a8",
+  "source-IMG_6343-0.5s.jpg": "59f435277b27c672af14434a3373b322070cb8d349f29a651d3c51528cab00a2",
+  "source-IMG_6343-31.0s.jpg": "ad4da3283703579e31a7cb4fd1ed495c7699f62b0ab6b2c5d717f8026933c05a",
+  "source-IMG_6343-35.0s.jpg": "03083847152dace92761adfca90811fcaecfc441cee02b4df6e009e7a5759506",
+  "source-IMG_6344-25.0s.jpg": "1bc02cc37a5c382f651fd6f3f4e1150d0717a8198bcac3d52fb8a68db007d02c",
+  "source-IMG_6380-100.0s.jpg": "eba1f6880ddf1bbeeb7898861d05bfea2d886bc67936205dee05f791ac63a17a",
+  "source-IMG_6380-101.0s.jpg": "81d6745982f46fc63afdb66fc9a953146001128a5b1b62cd18e7bcdeae55d504",
+  "source-IMG_6380-106.25s.jpg": "509901bb4ecc6084ff8ed6e1d6de1c0b6a28ca8f0f59cc905ebc4e1c3d80a7cb",
+  "source-IMG_6385-1.0s.jpg": "0eecc0a7a463e00bd3104db16fee1fd955854cbb091e097d844b412b636762cb",
+  "source-beside-proposed.jpg": "677246d18c405c6561d2b2a082c710504f119ce85fc681569a0ffc095bcc60bc"
+ },
+ "video_masters": {
+  "root": "/home/reidsurmeier/risd-godot-ingestion/",
+  "sha256": {
+   "walkthrough/IMG_6343.MOV": "26cf510924e7ecb20b05a04e45420f8ebbf37c67061f2645f8f06923be429135",
+   "walkthrough/IMG_6344.MOV": "f6d489290f77e4cf50e6696893f396c434eb6d814c01cbda51396c7edfa7ae16",
+   "collection-expansion/verified/IMG_6380.MOV": "eaf7a7853b6cc5610517631b44aa83de1006ac6caa5aa673038f1f067cafd3d4",
+   "collection-expansion/verified/IMG_6385.MOV": "a15a2e90b2ae6152727ab1afd3c205d31f0405215e606adf678be3f5c1cf01a2"
+  },
+  "agrees_with_root_reverified": [
+   "collection-expansion/verified/IMG_6380.MOV",
+   "collection-expansion/verified/IMG_6385.MOV"
+  ],
+  "not_used": "collection-expansion/IMG_6380.MOV, a 0-byte placeholder"
+ },
+ "source_frames": {
+  "recipe": "ffmpeg -ss SECONDS -i MASTER -frames:v 1 -q:v 2 OUT.jpg (display rotation applied, 1080x1920, no other processing)",
+  "frames": {
+   "source-IMG_6343-0.5s.jpg": [
+    "walkthrough/IMG_6343.MOV",
+    0.5
+   ],
+   "source-IMG_6343-31.0s.jpg": [
+    "walkthrough/IMG_6343.MOV",
+    31
+   ],
+   "source-IMG_6343-35.0s.jpg": [
+    "walkthrough/IMG_6343.MOV",
+    35
+   ],
+   "source-IMG_6344-25.0s.jpg": [
+    "walkthrough/IMG_6344.MOV",
+    25
+   ],
+   "source-IMG_6380-100.0s.jpg": [
+    "collection-expansion/verified/IMG_6380.MOV",
+    100
+   ],
+   "source-IMG_6380-101.0s.jpg": [
+    "collection-expansion/verified/IMG_6380.MOV",
+    101
+   ],
+   "source-IMG_6380-106.25s.jpg": [
+    "collection-expansion/verified/IMG_6380.MOV",
+    106.25
+   ],
+   "source-IMG_6385-1.0s.jpg": [
+    "collection-expansion/verified/IMG_6385.MOV",
+    1
+   ]
+  }
+ },
+ "patch_base": {
+  "commit": "e03afa90",
+  "files": {
+   "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "31571f57bb0d1111d799d3073320137bbe651d312aad34ee238eec63b4f3bbca",
+   "modules/shell/prototype/collection_reconstruction/remodel_room.gd": "442d4fbe401db87dad69709900f1977ab173e1f5f2cedae163c05e7c322cad8f",
+   "modules/shell/prototype/collection_reconstruction/remodel_bake.gd": "228d60ec285044d0c3254adc51f778f0ac0787e6d2aa19b68c5673a7175746fa",
+   "modules/shell/prototype/collection_reconstruction/remodel_review.gd": "96892186deae035569cb404b945152f4446ecc84e0030be725002c631e5c6365",
+   "modules/shell/prototype/collection_reconstruction/main_build_walk.gd": "186d7e48747b5237dd091b65f328d8d8e99d9fcb8cadb6f028a5153a1a475995",
+   "modules/shell/prototype/collection_reconstruction/architecture_check.gd": "ea616926cc8edfe4f897ce11b1b8cd7eccc4c2eb8ea656e26462833ad00205ff"
+  }
+ },
+ "patch_result": {
+  "files": {
+   "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "a20e69a5ab1cd35bbcd9cc5940e31ee44f53287b87f03a6f5bbdbca26f78f30b",
+   "modules/shell/prototype/collection_reconstruction/remodel_room.gd": "4a791b12a8a28fcbf288fb8310c51c4b0a12916882627610ba62e70b74acfd03",
+   "modules/shell/prototype/collection_reconstruction/remodel_bake.gd": "487276e7ea4f2211bf59eb7ae743ecd69b38f1be2e6f2079d8fd6cc4f26c14a4",
+   "modules/shell/prototype/collection_reconstruction/remodel_review.gd": "66cec25dea22e9d8b959ab9d010ed021e2a4028961647906591b0545622b2ff8",
+   "modules/shell/prototype/collection_reconstruction/main_build_walk.gd": "7fc180b4eb9f2c0debb04fee184bfb65c25c52d5ecad906f86b53ad8086965ef",
+   "modules/shell/prototype/collection_reconstruction/architecture_check.gd": "e83798c5c563997fe642352d98e3a548bc5ec68603116847bb7612d515632bbe"
+  }
+ },
+ "private_runs": {
+  "prepared_project_copied_from": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-extension-v49l (read only; two scratch copies, addition bake removed from the copies)",
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "headless_checks": "CPU, dummy renderer",
+  "captures": "llvmpipe (LLVM 20.1.2), LIBGL_ALWAYS_SOFTWARE=1 under xvfb; no GPU",
+  "paid_calls": 0,
+  "bakes": 0
+ }
+}

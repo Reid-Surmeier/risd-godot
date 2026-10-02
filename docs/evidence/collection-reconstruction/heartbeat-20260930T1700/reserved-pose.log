@@ -1,0 +1,9 @@
+[
+  {
+    "image": "IMG_6384/000206.jpg",
+    "pose_fit_features": 7,
+    "patches": [],
+    "pose_supported": false,
+    "status": "insufficient upper-image pose correspondences"
+  }
+]

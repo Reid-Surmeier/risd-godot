@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-5364f0078039ea1f7236",
+  "summary": "Create one complete orthographic FRONT view of only the exact frame in reference1 around RISD Matisse The Green Pumpkin57.037. Preserve the source rectangular golden frame, narrow worn outer gilded rail with repeated diagonal rope/leaf impressions, dark recessed groove, broad quieter gold middle rail and thin ivory liner closest to the painting. Keep straight mitred corners, no crest or floral inventions. Simplify into restrained low polygon facets consistent with existing Main Hall game frames. Portrait painting aperture aspect64.5:80.0. Remove painting, wall, label, cast shadow and perspective. Interior aperture pure solid white and surrounding background pure magenta#FF00FF. Complete frame with margins; real museum image stays separate.\n",
+  "procedureId": "muse-5364f0078039ea1f7236",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/matisse-frame-video-0.png",
+      "sha256": "44f51a336dc774f4a3506e998a9db8a7058d8422bcaca56cc0da8e15cc4e3401",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "matisse-frame-recipe.json",
+      "sha256": "5364f0078039ea1f723660d05d9d80b7547f4c59014098b8c080fc2501cf821d"
+    },
+    {
+      "applicationPath": "matisse-frame-plan.json",
+      "sha256": "5f15708fef2a90b8cee0d87984d7e67d0a8d4041a434f0c79e879f5662efc2ee"
+    },
+    {
+      "applicationPath": "matisse-frame-prompt.txt",
+      "sha256": "c70fd1b588112392f079389e7a515afee98d9e398dbad1bfcd3bc6907e771b48"
+    }
+  ]
+}

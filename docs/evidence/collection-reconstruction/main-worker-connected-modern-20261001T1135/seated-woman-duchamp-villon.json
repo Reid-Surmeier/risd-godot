@@ -1,0 +1,63 @@
+[
+  {
+    "id": "1552686",
+    "collection": "",
+    "credit": "Mary B. Jackson Fund and Museum Membership Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1915",
+    "datingYearTo": "1915",
+    "description": "<p>Seated Woman</p>\n",
+    "dimensions": "71.1 x 20.3 x 24.1 cm (28 x 8 x 9 1/2 inches)",
+    "edition": "",
+    "inscription": "Signed, right side of base:R. Duchamp-Villon; stamped, back of base:Roman Bronze Works / New York",
+    "makers": [
+      {
+        "name": "Roman Bronze Works",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Raymond Duchamp-Villon",
+        "risdAffiliation": null,
+        "years": "1876-1918",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "bronze",
+      "gold wash"
+    ],
+    "mediumTechnique": "bronze",
+    "objectNumber": "67.089",
+    "onView": true,
+    "place": "",
+    "primaryMaker": "Raymond Duchamp-Villon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1376721"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "bronze",
+      "gold wash"
+    ],
+    "title": "Seated Woman",
+    "type": [
+      "Sculpture"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/seated-woman-67089"
+  }
+]

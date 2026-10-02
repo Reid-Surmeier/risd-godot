@@ -1,0 +1,136 @@
+{
+  "annotations": {
+    "IMG_6380/000292.jpg": [
+      [
+        268,
+        401
+      ],
+      [
+        596,
+        411
+      ],
+      [
+        304,
+        897
+      ],
+      [
+        573,
+        827
+      ]
+    ],
+    "IMG_6380/000297.jpg": [
+      [
+        110,
+        362
+      ],
+      [
+        612,
+        370
+      ],
+      [
+        171,
+        983
+      ],
+      [
+        560,
+        955
+      ]
+    ],
+    "IMG_6380/000296.jpg": [
+      [
+        131,
+        350
+      ],
+      [
+        616,
+        369
+      ],
+      [
+        190,
+        989
+      ],
+      [
+        569,
+        929
+      ]
+    ]
+  },
+  "points_world": [
+    [
+      0.04108581522639669,
+      4.102648595877973,
+      0.3043977963759734
+    ],
+    [
+      -0.023641972512075407,
+      3.999958292919201,
+      0.7044913564559852
+    ],
+    [
+      0.6191135862680663,
+      4.0225345283560445,
+      0.3890655539958357
+    ],
+    [
+      0.5456031221497576,
+      3.930835386910846,
+      0.7790693891143684
+    ]
+  ],
+  "ray_angles_degrees": [
+    28.59703214468882,
+    15.14990323596971,
+    23.6578408439562,
+    16.271932545370174
+  ],
+  "heldout": "IMG_6380/000296.jpg",
+  "heldout_pose_fit_inliers": 622,
+  "heldout_errors_px": [
+    3.082198796428873,
+    3.8543031258229736,
+    1.0179787457957514,
+    0.6756232295331553
+  ],
+  "heldout_threshold_px": 8.0,
+  "heldout_diagnostic_pass": true,
+  "reprojection_errors_px": {
+    "IMG_6380/000292.jpg": [
+      0.6682035327482757,
+      0.4843749690029516,
+      1.076623236916741,
+      0.3726804501708039
+    ],
+    "IMG_6380/000297.jpg": [
+      0.889585837254638,
+      0.7444654743555985,
+      1.385026567318012,
+      0.5504731766515568
+    ],
+    "IMG_6380/000296.jpg": [
+      3.082198796428873,
+      3.8543031258229736,
+      1.0179787457957514,
+      0.6756232295331553
+    ]
+  },
+  "width_model_units": 0.4181026687845691,
+  "height_model_units": 0.5860412084753904,
+  "width_scale_m_per_unit": 2.630932740031813,
+  "height_scale_m_per_unit": 2.585142440650774,
+  "width_height_scale_disagreement": 0.017557377067961306,
+  "previous_scale_m_per_unit": 2.6266704457139363,
+  "source_image_sha256": {
+    "IMG_6380/000292.jpg": "df9ba106d9f1e54845c85dcc7b4456c9a73d880dd2079ad85d1a014a44081c48",
+    "IMG_6380/000297.jpg": "d72f36cd5dee86ee77118b8495d75271e4cfa8e137ff210724c756296d53ae13",
+    "IMG_6380/000296.jpg": "7970b86f3c126183d191a3f629f32f719ec056d828b647e1b9d985c989705b06"
+  },
+  "model_sha256": {
+    "points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "accepted": false,
+  "caveat": "Manual two-view extrema, catalogue dimensions 1.100 x 1.515 m from local decorative-anchor evidence. Top rail may not be maximum width; castors and floor-derived up remain uncertain. Nearby held-out video diagnostic only; not an independent object/measurement. Do not replace metric scale yet."
+}

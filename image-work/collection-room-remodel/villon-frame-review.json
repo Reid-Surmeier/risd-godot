@@ -1,0 +1,13 @@
+{
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "cost_usd": "0.010000",
+  "run_id": "run-ba6714836ba8a52640c99be9",
+  "native_sha256": "bf97aec0c0ab01c74a307966c69fbef7b450bbd694ad862f266ddeb99dece9ae",
+  "inspected": true,
+  "accepted": false,
+  "installed_prototype": true,
+  "observed": "Recessed matte white box and dark oval edge match broad source motifs. Generated oval332x735px is too narrow versus catalogue460:548; native frame/canvas assembly restores catalogue aspect. Exact ellipse profile and backing facets unaccepted.",
+  "original_artwork_retained": true,
+  "paid_retry": false
+}

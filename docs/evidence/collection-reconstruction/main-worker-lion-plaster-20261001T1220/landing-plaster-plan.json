@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "landing-plaster-001",
+      "prompt": "landing-plaster-prompt.txt",
+      "promptSha256": "9b8c94b950e4828630c2fa0c350d1e248859f2f09c1e2364b2962c3d043c5fc8",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/landing-plaster-video-native.png",
+          "sha256": "6ee3b6096b682b06e6a4e0ca20a35fd4155920554d88ab315f06fba46e67c3f5"
+        },
+        {
+          "path": "inventory-references/landing-plaster-style-main-hall.png",
+          "sha256": "517ea4ae2f4109fcef975c7b91612c17dd2bb720317f2398d080e7dbae405964"
+        }
+      ]
+    }
+  ]
+}

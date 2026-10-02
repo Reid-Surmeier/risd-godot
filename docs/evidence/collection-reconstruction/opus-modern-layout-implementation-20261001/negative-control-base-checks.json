@@ -1,0 +1,222 @@
+{
+  "built": {
+    "case": {
+      "position": [
+        20.8899993896484,
+        0.0,
+        27.0
+      ],
+      "yaw": -1.57079637050629
+    },
+    "paintings": {
+      "1995.043": {
+        "outer_m": [
+          3.12223219871521,
+          2.4642322063446
+        ],
+        "position": [
+          16.2299995422363,
+          1.64999997615814,
+          25.4500007629395
+        ],
+        "wall": "north",
+        "yaw": 1.57079637050629
+      },
+      "57.037": {
+        "outer_m": [
+          0.755575895309448,
+          0.910575926303864
+        ],
+        "position": [
+          17.4500007629395,
+          1.64999997615814,
+          23.2800006866455
+        ],
+        "wall": "east",
+        "yaw": 0.0
+      },
+      "70.058": {
+        "outer_m": [
+          0.630013585090637,
+          0.719483017921448
+        ],
+        "position": [
+          19.4500007629395,
+          1.64999997615814,
+          31.0200004577637
+        ],
+        "wall": "west",
+        "yaw": 3.14159274101257
+      }
+    },
+    "windows": []
+  },
+  "failures": [
+    "modern painting gallery differs from the accepted patch",
+    "modern adjoining gallery threshold study limit differs from the accepted patch",
+    "trial modern_far_opening_out differs from the patch",
+    "trial modern_far_opening_back differs from the patch",
+    "trial modern_bench_blocked differs from the patch",
+    "nothing metric may be accepted here",
+    "modern room is stretched",
+    "braque_48.248: expected one painting, found 0",
+    "villon_70.058 is not at its patch transform",
+    "villon_70.058 is not on the west wall line",
+    "villon_70.058 does not face into the room",
+    "fauconnier_1995.043 is not at its patch transform",
+    "fauconnier_1995.043 is not on the north wall line",
+    "fauconnier_1995.043 does not face into the room",
+    "matisse_57.037 is not at its patch transform",
+    "matisse_57.037 is not on the east wall line",
+    "matisse_57.037 does not face into the room",
+    "cezanne_43.255: expected one painting, found 0",
+    "expected two windows on one south wall, found 0",
+    "case is not at its patch transform",
+    "figure must face north into the room with its left to the west",
+    "west wall order [\"entry_door\", \"villon_70.058\"] differs from the pan",
+    "west wall: villon_70.058 overlaps what is before it",
+    "west wall: last item runs past the corner",
+    "east wall order [\"matisse_57.037\", \"adjoining_doorway\"] differs from the pan",
+    "east wall: matisse_57.037 overlaps what is before it",
+    "east wall: adjoining_doorway overlaps what is before it",
+    "north wall: fauconnier_1995.043 overlaps what is before it",
+    "south wall order [\"seated_woman_case\"] differs from the pan",
+    "south wall: last item runs past the corner",
+    "three ceiling tracks with four fixtures each must run along the large-painting wall inside the room",
+    "one bench, long side along X, inside the room",
+    "authored nodes remain in the old modern-room footprint: [\"AuthoredSurface1696 (18.55, 3.52, 27.15)\", \"@StaticBody3D@2083 (20.95, 1.75, 23.35)\", \"AuthoredSurface1919 (20.889, 1.75, 23.35)\", \"AuthoredSurface1920 (20.885, 0.08, 23.35)\", \"@StaticBody3D@2087 (20.95, 1.75, 28.1)\", \"AuthoredSurface1921 (20.889, 1.75, 28.1)\"]",
+    "inventory must say two windows and unaccepted placement"
+  ],
+  "geometry": {
+    "adjoining": {
+      "bounds": [
+        20.95,
+        22.55,
+        23.5,
+        25.1
+      ],
+      "label": "modern adjoining gallery threshold study limit",
+      "openings": {
+        "west": [
+          23.5,
+          25.1
+        ]
+      }
+    },
+    "metric_accepted": false,
+    "modern": {
+      "boards_across": true,
+      "bounds": [
+        16.15,
+        20.95,
+        23.2,
+        31.1
+      ],
+      "height": 3.5,
+      "label": "modern painting gallery",
+      "openings": {
+        "east": [
+          23.5,
+          25.1
+        ],
+        "west": [
+          29.2,
+          30.9
+        ]
+      }
+    }
+  },
+  "godot": "4.7.2-stable (official)",
+  "gpu_used": false,
+  "native_review_and_bake": "not run here: remodel_review.gd and remodel_bake.gd need a renderer; root owns them",
+  "passed": false,
+  "portal_trials": {
+    "landing_to_modern": true,
+    "landing_to_modern_camera": true,
+    "modern_bench_blocked": true,
+    "modern_bench_blocked_camera": true,
+    "modern_far_opening_back": true,
+    "modern_far_opening_back_camera": true,
+    "modern_far_opening_out": true,
+    "modern_far_opening_out_camera": true,
+    "modern_to_landing": true,
+    "modern_to_landing_camera": true
+  },
+  "project": "/tmp/claude-1000/-home-reidsurmeier-orca-workspaces-risd-godot-collection-opus-seated-woman/4e58e702-de07-4ade-b3b5-082d4b1a0f65/scratchpad/base-project/",
+  "renderer": "headless dummy; camera-clear flags from the walk are recorded, not judged",
+  "trial_samples": [
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        17.6666736602783,
+        0.000827755022328347,
+        30.0499992370605
+      ],
+      "started_without_reset": false,
+      "trial": "landing_to_modern"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        14.5208520889282,
+        0.000835629238281399,
+        30.0499992370605
+      ],
+      "started_without_reset": true,
+      "trial": "modern_to_landing"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        21.7708358764648,
+        0.000864688190631568,
+        24.3000011444092
+      ],
+      "started_without_reset": false,
+      "trial": "modern_far_opening_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        20.0208148956299,
+        0.000830615637823939,
+        24.3000030517578
+      ],
+      "started_without_reset": true,
+      "trial": "modern_far_opening_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        18.5,
+        0.000836596242152154,
+        28.2208461761475
+      ],
+      "started_without_reset": false,
+      "trial": "modern_bench_blocked"
+    }
+  ],
+  "wall_spans": {
+    "modern painting gallery:east": 2,
+    "modern painting gallery:east:header": 1,
+    "modern painting gallery:north": 1,
+    "modern painting gallery:south": 1,
+    "modern painting gallery:west": 2,
+    "modern painting gallery:west:header": 1
+  }
+}

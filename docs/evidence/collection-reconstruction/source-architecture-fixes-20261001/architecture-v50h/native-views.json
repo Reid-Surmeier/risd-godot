@@ -1,0 +1,87 @@
+[
+	{
+		"cull_mask": 5952,
+		"name": "grey-columns-west",
+		"position": [
+			3.0,
+			0.0,
+			-29.2999992370605
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 42,
+			"cutaway_bodies": 124,
+			"rooms": 12,
+			"space": "far"
+		}
+	},
+	{
+		"cull_mask": 5056,
+		"name": "connector-black",
+		"position": [
+			-2.59999990463257,
+			0.0,
+			-27.7999992370605
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 42,
+			"cutaway_bodies": 124,
+			"rooms": 12,
+			"space": "far"
+		}
+	},
+	{
+		"cull_mask": 5824,
+		"name": "grey-courbet",
+		"position": [
+			0.0,
+			0.0,
+			-30.1000003814697
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 42,
+			"cutaway_bodies": 124,
+			"rooms": 12,
+			"space": "far"
+		}
+	},
+	{
+		"cull_mask": 4928,
+		"name": "grey-doorway",
+		"position": [
+			-4.0,
+			0.0,
+			-29.0
+		],
+		"space": "far",
+		"state": {
+			"attached": true,
+			"blocks": 42,
+			"cutaway_bodies": 124,
+			"rooms": 12,
+			"space": "far"
+		}
+	},
+	{
+		"cull_mask": 2063,
+		"name": "hall",
+		"position": [
+			0.0,
+			0.0,
+			-6.5
+		],
+		"space": "gallery",
+		"state": {
+			"attached": true,
+			"blocks": 42,
+			"cutaway_bodies": 124,
+			"rooms": 12,
+			"space": "gallery"
+		}
+	}
+]

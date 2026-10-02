@@ -1,0 +1,88 @@
+{
+  "created_utc": "2026-09-29T20:35:23Z",
+  "scope": "Collection map prototype #182; 3D Viewer unchanged",
+  "provider": "Local COLMAP CUDA / RTX 4070 SUPER",
+  "model": "pycolmap-cuda12 4.2.1",
+  "paid_calls": 0,
+  "cost_usd": 0,
+  "files": {
+    "heldout-result.json": {
+      "source": "heldout-calibrated-v1/result.json",
+      "sha256": "247c5a83429e23dff31f0eed70468fa5dbdde5728ffc430a4255df2f2b82c3da"
+    },
+    "audit.json": {
+      "source": "heldout-calibrated-v1/audit.json",
+      "sha256": "3133af036bb76f9f99f8db61b5b7354910d171c0bb4dadbba19ca8ae515e9847"
+    },
+    "joined-plan.png": {
+      "source": "heldout-calibrated-v1/joined-plan.png",
+      "sha256": "a3086e2151f1ff56e6669188479c0c363885e09299ed62cfc4be019f146ff240"
+    },
+    "doorway-506.jpg": {
+      "source": "heldout-calibrated-v1/000506-validation.jpg",
+      "sha256": "e9301c9d71e384489ee302027dee8a366459002613442505847efb8a82d9b59a"
+    },
+    "doorway-516.jpg": {
+      "source": "heldout-calibrated-v1/000516-validation.jpg",
+      "sha256": "ba686d38540c854d4fef8bb791ed2f6cc918e2834bd5b30cec5ef0e663a908d7"
+    },
+    "doorway-contact.jpg": {
+      "source": "heldout-calibrated-v1/doorway-contact.jpg",
+      "sha256": "5ec028a54cb79c36624a61ae3f24979a5d4ac90c1e210130c42021eec6410130"
+    },
+    "annotated-source.png": {
+      "source": "doorway-geometry-v1/annotated-source.png",
+      "sha256": "a70ed20e04053145fe21166a6921d2ca58395f01b911ec98b0dc5d7f71002ac0"
+    },
+    "depth-overview.png": {
+      "source": "doorway-geometry-v1/depth-overview.png",
+      "sha256": "711b97a2339cb67bf268f28319815b317701b71b5d8f91f982ab3aa4facee8ff"
+    },
+    "geometry.json": {
+      "source": "doorway-geometry-v1/geometry.json",
+      "sha256": "a81aac50e8672d1e31680a26d7430a8c04297427d167bb056f6c8aa42f4ae9df"
+    },
+    "doorway-depth-views.txt": {
+      "source": "doorway-depth-views.txt",
+      "sha256": "a25c595c158e13e61798bca8ca3160f1ef0b45b635985a6690081318c00d6fa8"
+    },
+    "canvas-scale.json": {
+      "source": "scale-calibrated-canvas-v1/result.json",
+      "sha256": "817e1720e7cf3727282d4b569ae892bff72fcf8533d4ae381b80ef8ad64d5a55"
+    },
+    "calibration.json": {
+      "source": "sfm-calibrated-doorway-v1/calibration.json",
+      "sha256": "3ba1e555c5a04c0e4c68a0442fa58cbf664f9c0e620664bf8e0ac37be13ab72e"
+    },
+    "repository-check.log": {
+      "source": "check-heartbeat-20260929T2035-final.log",
+      "sha256": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e",
+      "normalization": "Trailing spaces removed; original logs retained in ingestion."
+    },
+    "shell-playtest.log": {
+      "source": "heartbeat-shell-20260929T2035.log",
+      "sha256": "ea9f189f9dafda8396b13639f3059dc7bb0764c4625b8333be13249beb59c46b",
+      "normalization": "Trailing spaces removed; original logs retained in ingestion."
+    },
+    "shell-resized.png": {
+      "source": "heartbeat-shell-20260929T2035/09-resized.png",
+      "sha256": "f5489e0038c4f9e69a276f229dcca753b723d654de5f4d456686525beff09a56"
+    },
+    "heldout.log": {
+      "source": "heldout-calibrated-v1.log",
+      "sha256": "5f4605394b06b4fb40adf4fa33f4dae80cac85a0c5df655ed79f3f8ff30a159b",
+      "normalization": "Trailing spaces removed; original logs retained in ingestion."
+    },
+    "depth-summary.log": {
+      "source": "dense-doorway-calibrated-v2.log (excerpt)",
+      "sha256": "1fc5ae23c1921a69db2ef9027084e8da8904434f5441f785407a686eeb076980",
+      "normalization": "Trailing spaces removed; original logs retained in ingestion."
+    }
+  },
+  "generators_sha256": {
+    "calibrated_audit.py": "961468e50f8465876add0639dac6e55155e0ec8327af5b951b4c299d1ebd745b",
+    "doorway_geometry.py": "e7025a4da82b667afcd291e7bca1a5c16c74ab9f9af4c195f73d4128f6d45353",
+    "dense.py": "a92d64ad1b18cebf8025a3ef1c8826fc051e15de3dceb572f912168cae070923",
+    "holdout.py": "6fc77f12587247f55f2e8d3bf5736d86432e19216409c82c794b1e78a297beee"
+  }
+}

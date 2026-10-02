@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-92439dd8a93b2b2a845a",
+  "summary": "Reference 1 is the official RISD Museum photograph of Hudibras, accession 2017.74.17. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted ceramic texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep all limbs, feet, tails, hats, spouts and handles visible. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry; hidden profiles are guided by catalogue dimensions and remain provisional.\n",
+  "procedureId": "muse-92439dd8a93b2b2a845a",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/hudibras-catalogue.png",
+      "sha256": "a76f9cc131f8dcc130b2fe4cbbfa8b63f00401958b9e1ab52156dea93d4c4879",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "hudibras-recipe.json",
+      "sha256": "92439dd8a93b2b2a845a622da03bfdaabd4bb000fcb56a7b2abbeeaf76fec1fe"
+    },
+    {
+      "applicationPath": "hudibras-plan.json",
+      "sha256": "19277549366bf75ecbb67bdae2dad3dea0bd9238f538eb75b722c25aa47d0acb"
+    },
+    {
+      "applicationPath": "hudibras-prompt.txt",
+      "sha256": "0ab573fa812304d0d86b1cd859c7043e13d4e40a2e710638cee310b7af5e8b2b"
+    }
+  ]
+}

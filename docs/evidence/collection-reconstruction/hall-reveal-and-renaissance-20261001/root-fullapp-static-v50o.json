@@ -1,0 +1,8 @@
+{
+  "hall_source_equal": 362,
+  "room_scripts_only_path_relocation": 16,
+  "lightmap_reference_conversion": "remodel_room.gd: room.lmbake to room.tres",
+  "geometry_equal": true,
+  "frozen_root_equal": 18,
+  "failures": []
+}

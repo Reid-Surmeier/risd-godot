@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "horn-player-001",
+      "prompt": "horn-player-prompt.txt",
+      "promptSha256": "7ab501ce28c6c8bf6b933d9d534a732cf185a460563870113a6dad6a27f36041",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/horn-player-catalogue.png",
+          "sha256": "5e4eb349bcc5b35d54383941be8629ea5b1eb1d15412e7ea98995e56937462fe"
+        }
+      ]
+    }
+  ]
+}

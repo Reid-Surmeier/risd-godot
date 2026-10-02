@@ -1,0 +1,22 @@
+{
+  "failed": [
+    "clicked_tab_shows_pressed_tint_within_100ms",
+    "collection_tab_dips_on_click",
+    "dip_reported_then_released",
+    "flowers_page_is_the_grey_tenant",
+    "launch_page_area_white",
+    "resize_refits_bar_and_tenant",
+    "tenant_fills_page_area"
+  ],
+  "previously_observed": [
+    "clicked_tab_shows_pressed_tint_within_100ms",
+    "collection_tab_dips_on_click",
+    "dip_reported_then_released",
+    "flowers_page_is_the_grey_tenant",
+    "launch_page_area_white",
+    "resize_refits_bar_and_tenant",
+    "tenant_fills_page_area"
+  ],
+  "new": [],
+  "timing_overlap": "GPU depth work overlapping shell run; isolated recheck follows"
+}

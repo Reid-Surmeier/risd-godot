@@ -1,0 +1,98 @@
+[
+ {
+  "url": "https://risdmuseum.org/exhibitions-events/exhibitions/european-galleries",
+  "name": "european-galleries.html.gz",
+  "http_status": 200,
+  "retrieved_utc": "2026-10-01T15:28:58+00:00",
+  "bytes": 61004,
+  "sha256": "689d62534e2eb325070d154ca3861c0f60a6287710f245a65c5abdb67cdcd207"
+ },
+ {
+  "url": "https://risdmuseum.org/rent-museum",
+  "name": "rent-museum.html.gz",
+  "http_status": 200,
+  "retrieved_utc": "2026-10-01T15:28:59+00:00",
+  "bytes": 65771,
+  "sha256": "36deb7e7edc60df2fec1a576b01ab06c2c7479e79d6ed06005aea16fbf027469"
+ },
+ {
+  "url": "https://risdmuseum.org/art-design/projects-publications/articles/object-lessons",
+  "name": "object-lessons.html.gz",
+  "http_status": 200,
+  "retrieved_utc": "2026-10-01T15:28:59+00:00",
+  "bytes": 50225,
+  "sha256": "76f142675a51f24193babe368a4f24a0c687c40bb7ea21b0a61e96662ed06c00"
+ },
+ {
+  "url": "https://vimeo.com/risdmuseum",
+  "name": "vimeo-risdmuseum.html.gz",
+  "http_status": 200,
+  "retrieved_utc": "2026-10-01T15:29:00+00:00",
+  "bytes": 78550,
+  "sha256": "a9f37ffca180ac8fe03894fb63f9d577aa341b3c25a64c382fb3b2820ce423e8"
+ },
+ {
+  "url": "https://www.instagram.com/risdmuseum/",
+  "name": "instagram-risdmuseum.html.gz",
+  "http_status": 200,
+  "retrieved_utc": "2026-10-01T15:29:00+00:00",
+  "bytes": 829317,
+  "sha256": "31f5212ed131ca085c2669958f4b6f09724edd384ea640bdbc8ed53408348d16"
+ },
+ {
+  "url": "https://vimeo.com/api/oembed.json?url=https://vimeo.com/221606953",
+  "name": "vimeo-221606953-oembed.json",
+  "http_status": 200,
+  "retrieved_utc": "2026-10-01T15:29:01+00:00",
+  "bytes": 1455,
+  "sha256": "d3940a0e1ffc9d42396309638093aa79cb7643c90afcde6d0d6a2fe4dcca7a28"
+ },
+ {
+  "url": "https://vimeo.com/api/oembed.json?url=https://vimeo.com/221636728",
+  "name": "vimeo-221636728-oembed.json",
+  "http_status": 200,
+  "retrieved_utc": "2026-10-01T15:29:01+00:00",
+  "bytes": 1388,
+  "sha256": "0eb0a6dbf435a9647def391f2da4afb5ca473cda476fb20b2838f2989d430688"
+ },
+ {
+  "url": "https://vimeo.com/api/oembed.json?url=https://vimeo.com/223645614",
+  "name": "vimeo-223645614-oembed.json",
+  "http_status": 200,
+  "retrieved_utc": "2026-10-01T15:29:01+00:00",
+  "bytes": 1386,
+  "sha256": "b9b47bac855b05cfab56e4ad6ec84e618ee38806a2e47f6693ead6dc6e607a0c"
+ },
+ {
+  "url": "https://vimeo.com/api/oembed.json?url=https://vimeo.com/251342847",
+  "name": "vimeo-251342847-oembed.json",
+  "http_status": 200,
+  "retrieved_utc": "2026-10-01T15:29:02+00:00",
+  "bytes": 1455,
+  "sha256": "e8865f2e5e09e20ec0cf753ecde06f4160daecddbc7a1079c6332192439192ed"
+ },
+ {
+  "url": "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=ut0TNSximc4&format=json",
+  "name": "youtube-ut0TNSximc4-oembed.json",
+  "http_status": 200,
+  "retrieved_utc": "2026-10-01T15:29:02+00:00",
+  "bytes": 940,
+  "sha256": "1449e4da0ec4871ecf495b8cdb66aa50b0e61c713887f71f943dbc5cc14f2cb9"
+ },
+ {
+  "url": "https://www.nintendo.com/us/store/products/animal-crossing-new-horizons-switch/",
+  "name": "nintendo-acnh-store.html.gz",
+  "http_status": 200,
+  "retrieved_utc": "2026-10-01T15:32:30+00:00",
+  "bytes": 650142,
+  "sha256": "c16600d23ee5ce9e9516a575fb23a5aac22dd1bbf3170dfd771f858d3fb157bd"
+ },
+ {
+  "url": "https://risdmuseum.cdn.picturepark.com/v/C0mjdbNd/",
+  "name": "european-galleries-installation-view.jpg",
+  "http_status": 200,
+  "retrieved_utc": "2026-10-01T15:38:58+00:00",
+  "bytes": 1581284,
+  "sha256": "2480ca84fe02b1f02c356fcf978fad905c7fd936043e17dbc0ee3e83c57ada5c"
+ }
+]

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-006282e9590625b4f8f2",
+  "summary": "Reference 1 is the official front photograph of RISD Joseph Chinard Bust of Madame Récamier, accession 37.201. Reference 2 is its official side profile. Produce ONE complete front view of this same ivory marble portrait bust including its small marble neck socle, isolated on pure magenta #FF00FF with generous margin. Remove the large black-and-white display stand beneath the marble bust; no pedestal, wall, floor or text. Preserve the downward gaze, oval face, wrapped headband, high stacked curled hair bun, shoulder outline, smooth bare upper chest, small neck socle and real proportions. Transform into a clean low polygon game sculpture with large flat planar facets, readable simplified curl relief, restrained warm ivory colour and soft baked creases. No photorealistic noise, no new jewellery, costume or head shape. No cast shadow outside silhouette. Single complete front view only, no sheet. Authored depth will be guided by the side photograph and catalogue 60.6 x 33.7 x 23.5 cm; the final mesh rear remains unverified.\n",
+  "procedureId": "muse-006282e9590625b4f8f2",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/recamier-front.png",
+      "sha256": "44bf8c97eb4be1f19fbdd4b92fe1ef223443b8364efd15078eb9c2175426ab4b",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/recamier-side.png",
+      "sha256": "b1600ca5b1e6ac6cf34d8927ca9afba07a053f2fa97cb451162bf7173a8bef88",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "recamier-recipe.json",
+      "sha256": "006282e9590625b4f8f29497fd23048b4f51db7acf4597b5fafc90dcd005acd7"
+    },
+    {
+      "applicationPath": "recamier-plan.json",
+      "sha256": "d93dfed1121e93d078ec67d8b2d5eb325c38a9f06c3f3ea344891c3ed8369e8b"
+    },
+    {
+      "applicationPath": "recamier-prompt.txt",
+      "sha256": "6226649522d4f8fc43d8e357e107183ff359c10df92b2d50a15585325fa5a036"
+    }
+  ]
+}

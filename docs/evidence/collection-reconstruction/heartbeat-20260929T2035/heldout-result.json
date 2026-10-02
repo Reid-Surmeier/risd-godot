@@ -1,0 +1,534 @@
+[
+  {
+    "image": "IMG_6380/000196.jpg",
+    "correspondences": 0,
+    "localized": false,
+    "supported": false
+  },
+  {
+    "image": "IMG_6380/000206.jpg",
+    "correspondences": 252,
+    "localized": true,
+    "inliers": 172,
+    "median_error_px": 0.9937007151227315,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000216.jpg",
+    "correspondences": 0,
+    "localized": false,
+    "supported": false
+  },
+  {
+    "image": "IMG_6380/000236.jpg",
+    "correspondences": 0,
+    "localized": false,
+    "supported": false
+  },
+  {
+    "image": "IMG_6380/000246.jpg",
+    "correspondences": 1069,
+    "localized": true,
+    "inliers": 884,
+    "median_error_px": 0.786304364488395,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000256.jpg",
+    "correspondences": 447,
+    "localized": true,
+    "inliers": 315,
+    "median_error_px": 0.9452403044363862,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000266.jpg",
+    "correspondences": 672,
+    "localized": true,
+    "inliers": 447,
+    "median_error_px": 0.9904095247595479,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000276.jpg",
+    "correspondences": 495,
+    "localized": true,
+    "inliers": 364,
+    "median_error_px": 1.2201889370352297,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000286.jpg",
+    "correspondences": 505,
+    "localized": true,
+    "inliers": 320,
+    "median_error_px": 0.9767638735739087,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000296.jpg",
+    "correspondences": 1515,
+    "localized": true,
+    "inliers": 1237,
+    "median_error_px": 0.7266928684579145,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000306.jpg",
+    "correspondences": 1096,
+    "localized": true,
+    "inliers": 854,
+    "median_error_px": 0.9629103071020038,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000316.jpg",
+    "correspondences": 337,
+    "localized": true,
+    "inliers": 104,
+    "median_error_px": 1.1109810951912258,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000326.jpg",
+    "correspondences": 839,
+    "localized": true,
+    "inliers": 721,
+    "median_error_px": 0.7551793339765893,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000336.jpg",
+    "correspondences": 710,
+    "localized": true,
+    "inliers": 543,
+    "median_error_px": 0.6751330487973306,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000346.jpg",
+    "correspondences": 1059,
+    "localized": true,
+    "inliers": 709,
+    "median_error_px": 0.7082458550557279,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000356.jpg",
+    "correspondences": 641,
+    "localized": true,
+    "inliers": 339,
+    "median_error_px": 0.6461647869958097,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000366.jpg",
+    "correspondences": 1,
+    "localized": false,
+    "supported": false
+  },
+  {
+    "image": "IMG_6380/000376.jpg",
+    "correspondences": 304,
+    "localized": true,
+    "inliers": 197,
+    "median_error_px": 1.2862037683064542,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000386.jpg",
+    "correspondences": 17,
+    "localized": true,
+    "inliers": 10,
+    "median_error_px": 0.9367260910583534,
+    "supported": false
+  },
+  {
+    "image": "IMG_6380/000396.jpg",
+    "correspondences": 960,
+    "localized": true,
+    "inliers": 680,
+    "median_error_px": 0.7554273362329289,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000406.jpg",
+    "correspondences": 928,
+    "localized": true,
+    "inliers": 690,
+    "median_error_px": 1.0269020587460227,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000416.jpg",
+    "correspondences": 901,
+    "localized": true,
+    "inliers": 623,
+    "median_error_px": 0.8777094257170468,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000426.jpg",
+    "correspondences": 98,
+    "localized": true,
+    "inliers": 67,
+    "median_error_px": 1.517563707300774,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000436.jpg",
+    "correspondences": 295,
+    "localized": true,
+    "inliers": 171,
+    "median_error_px": 1.1377183472932584,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000446.jpg",
+    "correspondences": 39,
+    "localized": true,
+    "inliers": 12,
+    "median_error_px": 1.2845761054073976,
+    "supported": false
+  },
+  {
+    "image": "IMG_6380/000456.jpg",
+    "correspondences": 862,
+    "localized": true,
+    "inliers": 626,
+    "median_error_px": 0.8614231469385338,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000466.jpg",
+    "correspondences": 524,
+    "localized": true,
+    "inliers": 347,
+    "median_error_px": 1.1482950982842934,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000476.jpg",
+    "correspondences": 0,
+    "localized": false,
+    "supported": false
+  },
+  {
+    "image": "IMG_6380/000486.jpg",
+    "correspondences": 42,
+    "localized": true,
+    "inliers": 25,
+    "median_error_px": 0.7669564821582343,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000496.jpg",
+    "correspondences": 40,
+    "localized": true,
+    "inliers": 4,
+    "median_error_px": 0.29686801381088646,
+    "supported": false
+  },
+  {
+    "image": "IMG_6380/000506.jpg",
+    "correspondences": 748,
+    "localized": true,
+    "inliers": 631,
+    "median_error_px": 0.7533894490609923,
+    "supported": true
+  },
+  {
+    "image": "IMG_6380/000516.jpg",
+    "correspondences": 218,
+    "localized": true,
+    "inliers": 158,
+    "median_error_px": 1.3785069784482498,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000006.jpg",
+    "correspondences": 161,
+    "localized": true,
+    "inliers": 143,
+    "median_error_px": 0.7657552786774088,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000016.jpg",
+    "correspondences": 126,
+    "localized": true,
+    "inliers": 93,
+    "median_error_px": 1.2121193340970735,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000026.jpg",
+    "correspondences": 120,
+    "localized": true,
+    "inliers": 108,
+    "median_error_px": 0.7747033741646883,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000036.jpg",
+    "correspondences": 183,
+    "localized": true,
+    "inliers": 150,
+    "median_error_px": 0.8869355556969563,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000046.jpg",
+    "correspondences": 0,
+    "localized": false,
+    "supported": false
+  },
+  {
+    "image": "IMG_6384/000066.jpg",
+    "correspondences": 161,
+    "localized": true,
+    "inliers": 61,
+    "median_error_px": 1.2615454031793694,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000076.jpg",
+    "correspondences": 73,
+    "localized": true,
+    "inliers": 45,
+    "median_error_px": 1.8167768701430511,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000086.jpg",
+    "correspondences": 91,
+    "localized": true,
+    "inliers": 53,
+    "median_error_px": 1.7262132237459515,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000096.jpg",
+    "correspondences": 220,
+    "localized": true,
+    "inliers": 189,
+    "median_error_px": 0.9881918888968391,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000106.jpg",
+    "correspondences": 370,
+    "localized": true,
+    "inliers": 273,
+    "median_error_px": 1.4484727635531214,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000116.jpg",
+    "correspondences": 59,
+    "localized": true,
+    "inliers": 10,
+    "median_error_px": 1.2810698533837748,
+    "supported": false
+  },
+  {
+    "image": "IMG_6384/000126.jpg",
+    "correspondences": 1313,
+    "localized": true,
+    "inliers": 1135,
+    "median_error_px": 0.9999044236007643,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000136.jpg",
+    "correspondences": 4466,
+    "localized": true,
+    "inliers": 4281,
+    "median_error_px": 0.4446943536659339,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000146.jpg",
+    "correspondences": 55,
+    "localized": true,
+    "inliers": 4,
+    "median_error_px": 0.034047652104915976,
+    "supported": false
+  },
+  {
+    "image": "IMG_6384/000156.jpg",
+    "correspondences": 1461,
+    "localized": true,
+    "inliers": 1343,
+    "median_error_px": 0.4327438996853079,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000166.jpg",
+    "correspondences": 255,
+    "localized": true,
+    "inliers": 202,
+    "median_error_px": 0.9864108016849309,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000176.jpg",
+    "correspondences": 3,
+    "localized": false,
+    "supported": false
+  },
+  {
+    "image": "IMG_6384/000196.jpg",
+    "correspondences": 0,
+    "localized": false,
+    "supported": false
+  },
+  {
+    "image": "IMG_6384/000206.jpg",
+    "correspondences": 273,
+    "localized": true,
+    "inliers": 161,
+    "median_error_px": 1.133169795908965,
+    "supported": true
+  },
+  {
+    "image": "IMG_6385/000006.jpg",
+    "correspondences": 197,
+    "localized": true,
+    "inliers": 117,
+    "median_error_px": 1.3025419437622083,
+    "supported": true
+  },
+  {
+    "image": "IMG_6385/000056.jpg",
+    "correspondences": 160,
+    "localized": true,
+    "inliers": 6,
+    "median_error_px": 0.6921172779171487,
+    "supported": false
+  },
+  {
+    "image": "IMG_6385/000066.jpg",
+    "correspondences": 78,
+    "localized": true,
+    "inliers": 21,
+    "median_error_px": 1.1717234911306467,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000006.jpg",
+    "correspondences": 171,
+    "localized": true,
+    "inliers": 109,
+    "median_error_px": 0.9618204109664681,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000016.jpg",
+    "correspondences": 90,
+    "localized": true,
+    "inliers": 71,
+    "median_error_px": 0.9257369061038151,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000076.jpg",
+    "correspondences": 29,
+    "localized": true,
+    "inliers": 4,
+    "median_error_px": 7.776223511746303e-12,
+    "supported": false
+  },
+  {
+    "image": "IMG_6386/000086.jpg",
+    "correspondences": 200,
+    "localized": true,
+    "inliers": 111,
+    "median_error_px": 1.213770545569029,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000096.jpg",
+    "correspondences": 0,
+    "localized": false,
+    "supported": false
+  },
+  {
+    "image": "IMG_6386/000106.jpg",
+    "correspondences": 197,
+    "localized": true,
+    "inliers": 6,
+    "median_error_px": 1.3302071730281047e-10,
+    "supported": false
+  },
+  {
+    "image": "IMG_6386/000116.jpg",
+    "correspondences": 4,
+    "localized": false,
+    "supported": false
+  },
+  {
+    "image": "IMG_6386/000136.jpg",
+    "correspondences": 22,
+    "localized": true,
+    "inliers": 4,
+    "median_error_px": 0.007728947871085835,
+    "supported": false
+  },
+  {
+    "image": "IMG_6386/000146.jpg",
+    "correspondences": 560,
+    "localized": true,
+    "inliers": 371,
+    "median_error_px": 0.8603122035369568,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000156.jpg",
+    "correspondences": 884,
+    "localized": true,
+    "inliers": 698,
+    "median_error_px": 0.7659279939216461,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000166.jpg",
+    "correspondences": 496,
+    "localized": true,
+    "inliers": 248,
+    "median_error_px": 1.0664846390073146,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000176.jpg",
+    "correspondences": 11,
+    "localized": true,
+    "inliers": 3,
+    "median_error_px": 1.1368683772161603e-13,
+    "supported": false
+  },
+  {
+    "image": "IMG_6386/000186.jpg",
+    "correspondences": 95,
+    "localized": true,
+    "inliers": 75,
+    "median_error_px": 1.1178971222341985,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000196.jpg",
+    "correspondences": 172,
+    "localized": true,
+    "inliers": 130,
+    "median_error_px": 0.9034395510638544,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000206.jpg",
+    "correspondences": 111,
+    "localized": true,
+    "inliers": 75,
+    "median_error_px": 1.426611887524883,
+    "supported": true
+  }
+]

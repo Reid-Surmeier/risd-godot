@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-01T20:41:57.977393+00:00",
+  "files": {
+    "architecture_check.gd": "e3727f466ebf295c1c3839f2ca61c14e7fa60fe663c58a4c20bc550472ebf505",
+    "base-sha256.json": "77bc9bed089fceb7c34aa972a2a305f9eee289af4c18ee3e3d23fbf11677aecc",
+    "prepare_remodel.py": "3e0285c0840392958ddb0b108969f7b2921d157e895f6bc2487f666d6e8da472",
+    "main_build_walk.gd": "c780fb425a7b8250099896c5cc42afb761357a2cf1662e72b776827ae1f916b5",
+    "private-authoring-adapter.json": "d836699795841b14e49d980c06cb2e3210d2b89c700b27683d4736bea6fd47a3",
+    "sculpture-room-inventory.json": "1900a67cb3a91b8350ff109ad13467510fe5c80e3c9204423a1e1015f61bb931",
+    "remodel_room.gd": "54ecd4e4a0398b1e3d7d5b64c09d3517554f2a09b1597d140b70a5dcc390f61b"
+  },
+  "archive": "east-case-proposal-source.tar.gz",
+  "reason": "Preserve superseded prototype source as evidence, not runnable copies under docs; original bytes verified in archive. Live root implementation already integrated."
+}

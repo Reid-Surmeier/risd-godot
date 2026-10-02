@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "goltzius-frame-001",
+      "prompt": "goltzius-frame-prompt.txt",
+      "promptSha256": "069a7f3fbc11ec2b4c7942e7a5c6876003362162adadbf091c097bf34bf5be04",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/goltzius-frame-selected-0.png",
+          "sha256": "241059969c3b536b92ce01546555630953e94ae7be084feabf7efdde04b2790c"
+        }
+      ]
+    }
+  ]
+}

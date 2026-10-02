@@ -1,0 +1,91 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-44339c825d50e317f54e",
+      "objective": "Generate ONE FRONT ORTHOGRAPHIC low polygon limestone architecture asset matching RISD tracery-arch, accession 40.156.1. Reference 1 is official object detail; reference 2 records its current installed context. Show ONLY the Gothic pointed top architectural fragment and its small carved end capitals, with the exact asymmetric interlocking trefoil and circular tracery loops in the official reference. Do not include the long column shafts, foot blocks or modern door surround: the accession dimensions refer to the top fragment only. Flat magenta #FF00FF outside silhouette AND inside every opening, including the large walk-through centre and all carved tracery holes. No walls, ceiling, floor, labels, paintings, people, museum background or modern door. Keep creamy weathered limestone, restrained baked shadows, low polygon Main Hall game style. One complete isolated asset, no sheet, perspective or extra views. Native mesh will supply depth and genuinely open walk-through geometry; asset raster must contain only the stone.\n",
+      "procedureId": "muse-44339c825d50e317f54e",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "tracery-arch-recipe.json",
+          "sha256": "44339c825d50e317f54eacfae920778ae4a870b75eb0689527899aa6abb23ad3"
+        },
+        {
+          "applicationPath": "tracery-arch-plan.json",
+          "sha256": "0c1d727e5b03bcfaac9a6eb4a50afaa9fb5e0c60607bdd14bb5617935e2b96b3"
+        },
+        {
+          "applicationPath": "tracery-arch-prompt.txt",
+          "sha256": "9c8917cae02042d78c45cac1336abfed4452619cdd592b91968a85c8d3e23411"
+        }
+      ],
+      "museParameters": {
+        "size": "1760x1440"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/tracery-arch-selected-0.png",
+          "sha256": "f3f8db28143653a102316ad55da9e2cdee6db799a3a07b8f1f15224642546cfb",
+          "byteLength": 4128163,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 2239
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/tracery-arch-selected-1.png",
+          "sha256": "d674bb7f3ce509e9c17eebf41b0df11ab3ee00fbb37d91c3b5c65d4e12aa07c9",
+          "byteLength": 1727960,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1760x1440\"},\"objective\":\"Generate ONE FRONT ORTHOGRAPHIC low polygon limestone architecture asset matching RISD tracery-arch, accession 40.156.1. Reference 1 is official object detail; reference 2 records its current installed context. Show ONLY the Gothic pointed top architectural fragment and its small carved end capitals, with the exact asymmetric interlocking trefoil and circular tracery loops in the official reference. Do not include the long column shafts, foot blocks or modern door surround: the accession dimensions refer to the top fragment only. Flat magenta #FF00FF outside silhouette AND inside every opening, including the large walk-through centre and all carved tracery holes. No walls, ceiling, floor, labels, paintings, people, museum background or modern door. Keep creamy weathered limestone, restrained baked shadows, low polygon Main Hall game style. One complete isolated asset, no sheet, perspective or extra views. Native mesh will supply depth and genuinely open walk-through geometry; asset raster must contain only the stone.\\n\",\"objectiveId\":\"muse-44339c825d50e317f54e\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-44339c825d50e317f54e\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/tracery-arch-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":4128163,\"inspectedMedia\":{\"height\":2239,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"f3f8db28143653a102316ad55da9e2cdee6db799a3a07b8f1f15224642546cfb\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/tracery-arch-selected-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1727960,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"d674bb7f3ce509e9c17eebf41b0df11ab3ee00fbb37d91c3b5c65d4e12aa07c9\",\"slot\":\"reference-001\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"tracery-arch-recipe.json\",\"sha256\":\"44339c825d50e317f54eacfae920778ae4a870b75eb0689527899aa6abb23ad3\"},{\"applicationPath\":\"tracery-arch-plan.json\",\"sha256\":\"0c1d727e5b03bcfaac9a6eb4a50afaa9fb5e0c60607bdd14bb5617935e2b96b3\"},{\"applicationPath\":\"tracery-arch-prompt.txt\",\"sha256\":\"9c8917cae02042d78c45cac1336abfed4452619cdd592b91968a85c8d3e23411\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "113954426fe4ae8221b77d16decc847530c86e34f6a858ee3e0b85178fc47b82"
+  },
+  "normalView": {
+    "objective": "Generate ONE FRONT ORTHOGRAPHIC low polygon limestone architecture asset matching RISD tracery-arch, accession 40.156.1. Reference 1 is official object detail; reference 2 records its current installed context. Show ONLY the Gothic pointed top architectural fragment and its small carved end capitals, with the exact asymmetric interlocking trefoil and circular tracery loops in the official reference. Do not include the long column shafts, foot blocks or modern door surround: the accession dimensions refer to the top fragment only. Flat magenta #FF00FF outside silhouette AND inside every opening, including the large walk-through centre and all carved tracery holes. No walls, ceiling, floor, labels, paintings, people, museum background or modern door. Keep creamy weathered limestone, restrained baked shadows, low polygon Main Hall game style. One complete isolated asset, no sheet, perspective or extra views. Native mesh will supply depth and genuinely open walk-through geometry; asset raster must contain only the stone.\n",
+    "evidence": "2 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

@@ -1,0 +1,202 @@
+[
+  {
+    "path": "docs/evidence/collection-reconstruction/bookcase-scale.json",
+    "preserved": true
+  },
+  {
+    "path": "docs/evidence/collection-reconstruction/decorative-front.png",
+    "preserved": true
+  },
+  {
+    "path": "docs/evidence/collection-reconstruction/decorative-geometry.json",
+    "preserved": true
+  },
+  {
+    "path": "docs/evidence/collection-reconstruction/decorative-plan.png",
+    "preserved": true
+  },
+  {
+    "path": "docs/evidence/collection-reconstruction/doorway-alignment.json",
+    "preserved": true
+  },
+  {
+    "path": "docs/evidence/collection-reconstruction/head-surface-front.png",
+    "preserved": true
+  },
+  {
+    "path": "docs/evidence/collection-reconstruction/head-surface-oblique.png",
+    "preserved": true
+  },
+  {
+    "path": "docs/evidence/collection-reconstruction/head-surface-v1-checks.json",
+    "preserved": true
+  },
+  {
+    "path": "docs/evidence/collection-reconstruction/head-surface-v2-front.png",
+    "preserved": true
+  },
+  {
+    "path": "docs/evidence/collection-reconstruction/head-surface-v2-oblique.png",
+    "preserved": true
+  },
+  {
+    "path": "docs/evidence/collection-reconstruction/head-trial-gpu.log",
+    "preserved": true
+  },
+  {
+    "path": "docs/evidence/collection-reconstruction/heartbeat-20260930T0900/shell-playtest.log",
+    "preserved": true
+  },
+  {
+    "path": "docs/evidence/collection-reconstruction/muse-sculpture-run.tar.gz",
+    "preserved": true
+  },
+  {
+    "path": "docs/research/collection-decorative-anchor.md",
+    "preserved": true
+  },
+  {
+    "path": "docs/research/collection-head-geometry-sources.md",
+    "preserved": true
+  },
+  {
+    "path": "docs/research/collection-sculpture-anchor.md",
+    "preserved": true
+  },
+  {
+    "path": "image-work/collection-expansion-sculpture/.qwen-pipeline/muse-3515db4b9c49d47ccf83.json",
+    "preserved": true
+  },
+  {
+    "path": "image-work/collection-expansion-sculpture/.qwen-pipeline/project-contract.json",
+    "preserved": true
+  },
+  {
+    "path": "image-work/collection-expansion-sculpture/.qwen-pipeline/tool-lock.json",
+    "preserved": true
+  },
+  {
+    "path": "image-work/collection-expansion-sculpture/README.md",
+    "preserved": true
+  },
+  {
+    "path": "image-work/collection-expansion-sculpture/generation-preflight.json",
+    "preserved": true
+  },
+  {
+    "path": "image-work/collection-expansion-sculpture/prompt.txt",
+    "preserved": true
+  },
+  {
+    "path": "image-work/collection-expansion-sculpture/recipe.json",
+    "preserved": true
+  },
+  {
+    "path": "image-work/collection-expansion-sculpture/references/front.png",
+    "preserved": true
+  },
+  {
+    "path": "image-work/collection-expansion-sculpture/references/rear.png",
+    "preserved": true
+  },
+  {
+    "path": "image-work/collection-expansion-sculpture/references/video-context.png",
+    "preserved": true
+  },
+  {
+    "path": "image-work/collection-expansion-sculpture/review.json",
+    "preserved": true
+  },
+  {
+    "path": "image-work/collection-expansion-sculpture/trial/muse-original.webp",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/__pycache__/calibrated_audit.cpython-312.pyc",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/__pycache__/corridor_extents.cpython-312.pyc",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/__pycache__/corridor_extents.cpython-314.pyc",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/__pycache__/corridor_floor.cpython-312.pyc",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/__pycache__/grand_return.cpython-312.pyc",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/__pycache__/measurements.cpython-314.pyc",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/__pycache__/sampling_audit.cpython-312.pyc",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/__pycache__/strict_landmarks.cpython-314.pyc",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/__pycache__/strict_rebuild.cpython-314.pyc",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/__pycache__/strict_threshold.cpython-314.pyc",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/__pycache__/threshold_tracks.cpython-314.pyc",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/bridge.py",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/calibrated_join.py",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/doorway_revisit.py",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/head_surface.py",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/head_trial.gd",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/refine_join.py",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/room_geometry.py",
+    "preserved": true
+  },
+  {
+    "path": "image-work/collection-expansion-frame/review.json",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/PROVENANCE.md",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/floor_track_triangle.py",
+    "preserved": true
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/scale_fit.py",
+    "preserved": true
+  }
+]

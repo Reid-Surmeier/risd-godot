@@ -1,0 +1,2532 @@
+{
+  "patches": [
+    {
+      "label": "Rockefeller",
+      "color": "81735c",
+      "vertices": [
+        [
+          -4.7,
+          0,
+          -5.76
+        ],
+        [
+          1.7,
+          0,
+          -5.76
+        ],
+        [
+          1.7,
+          0,
+          1.04
+        ],
+        [
+          -4.7,
+          0,
+          1.04
+        ]
+      ]
+    },
+    {
+      "label": "adjacent gallery",
+      "color": "81735c",
+      "vertices": [
+        [
+          -5.55,
+          0,
+          1.8
+        ],
+        [
+          0.55,
+          0,
+          1.8
+        ],
+        [
+          0.55,
+          0,
+          28.1
+        ],
+        [
+          -5.55,
+          0,
+          28.1
+        ]
+      ]
+    },
+    {
+      "label": "light Renaissance room",
+      "color": "81735c",
+      "vertices": [
+        [
+          -5.55,
+          0,
+          28.1
+        ],
+        [
+          0.55,
+          0,
+          28.1
+        ],
+        [
+          0.55,
+          0,
+          34.2
+        ],
+        [
+          -5.55,
+          0,
+          34.2
+        ]
+      ]
+    },
+    {
+      "label": "dark medieval room",
+      "color": "81735c",
+      "vertices": [
+        [
+          0.55,
+          0,
+          28.1
+        ],
+        [
+          10.55,
+          0,
+          28.1
+        ],
+        [
+          10.55,
+          0,
+          34.2
+        ],
+        [
+          0.55,
+          0,
+          34.2
+        ]
+      ]
+    },
+    {
+      "label": "Grand Gallery",
+      "color": "81735c",
+      "vertices": [
+        [
+          0.55,
+          0,
+          1.8
+        ],
+        [
+          10.55,
+          0,
+          1.8
+        ],
+        [
+          10.55,
+          0,
+          28.1
+        ],
+        [
+          0.55,
+          0,
+          28.1
+        ]
+      ]
+    },
+    {
+      "label": "purple elevator-5 connector",
+      "color": "81735c",
+      "vertices": [
+        [
+          1.7,
+          0,
+          -1.1
+        ],
+        [
+          3.85,
+          0,
+          -1.1
+        ],
+        [
+          3.85,
+          0,
+          0.74
+        ],
+        [
+          1.7,
+          0,
+          0.74
+        ]
+      ]
+    },
+    {
+      "label": "grey French gallery",
+      "color": "81735c",
+      "vertices": [
+        [
+          3.8499999999999996,
+          0,
+          -4.96
+        ],
+        [
+          11.05,
+          0,
+          -4.96
+        ],
+        [
+          11.05,
+          0,
+          1.04
+        ],
+        [
+          3.8499999999999996,
+          0,
+          1.04
+        ]
+      ]
+    },
+    {
+      "label": "Ionic marble-stair threshold study limit",
+      "color": "81735c",
+      "vertices": [
+        [
+          11.05,
+          0,
+          -4.96
+        ],
+        [
+          12.65,
+          0,
+          -4.96
+        ],
+        [
+          12.65,
+          0,
+          1.04
+        ],
+        [
+          11.05,
+          0,
+          1.04
+        ]
+      ]
+    },
+    {
+      "label": "piano-stair threshold study limit",
+      "color": "81735c",
+      "vertices": [
+        [
+          4.550000000000001,
+          0,
+          -6.56
+        ],
+        [
+          6.550000000000001,
+          0,
+          -6.56
+        ],
+        [
+          6.550000000000001,
+          0,
+          -4.96
+        ],
+        [
+          4.550000000000001,
+          0,
+          -4.96
+        ]
+      ]
+    },
+    {
+      "label": "landing north floor",
+      "color": "81735c",
+      "vertices": [
+        [
+          10.55,
+          0,
+          28.1
+        ],
+        [
+          16.15,
+          0,
+          28.1
+        ],
+        [
+          16.15,
+          0,
+          33.715
+        ],
+        [
+          10.55,
+          0,
+          33.715
+        ]
+      ]
+    },
+    {
+      "label": "landing east floor",
+      "color": "81735c",
+      "vertices": [
+        [
+          13.55,
+          0,
+          33.715
+        ],
+        [
+          16.15,
+          0,
+          33.715
+        ],
+        [
+          16.15,
+          0,
+          37.615
+        ],
+        [
+          13.55,
+          0,
+          37.615
+        ]
+      ]
+    },
+    {
+      "label": "modern painting gallery",
+      "color": "81735c",
+      "vertices": [
+        [
+          10.7,
+          0,
+          22.3
+        ],
+        [
+          16.7,
+          0,
+          22.3
+        ],
+        [
+          16.7,
+          0,
+          28.1
+        ],
+        [
+          10.7,
+          0,
+          28.1
+        ]
+      ]
+    },
+    {
+      "label": "white sculpture gallery threshold study limit",
+      "color": "81735c",
+      "vertices": [
+        [
+          16.15,
+          0,
+          29.5
+        ],
+        [
+          17.65,
+          0,
+          29.5
+        ],
+        [
+          17.65,
+          0,
+          31.5
+        ],
+        [
+          16.15,
+          0,
+          31.5
+        ]
+      ]
+    },
+    {
+      "label": "modern adjoining gallery threshold study limit",
+      "color": "81735c",
+      "vertices": [
+        [
+          15.1,
+          0,
+          20.7
+        ],
+        [
+          16.4,
+          0,
+          20.7
+        ],
+        [
+          16.4,
+          0,
+          22.3
+        ],
+        [
+          15.1,
+          0,
+          22.3
+        ]
+      ]
+    },
+    {
+      "label": "ascending stair study",
+      "color": "b9b7b0",
+      "vertices": [
+        [
+          10.7,
+          0,
+          33.715
+        ],
+        [
+          11.799999999999999,
+          0,
+          33.715
+        ],
+        [
+          11.799999999999999,
+          3.2,
+          37.515
+        ],
+        [
+          10.7,
+          3.2,
+          37.515
+        ]
+      ]
+    },
+    {
+      "label": "descending stair study",
+      "color": "b9b7b0",
+      "vertices": [
+        [
+          12.2,
+          0,
+          33.715
+        ],
+        [
+          13.299999999999999,
+          0,
+          33.715
+        ],
+        [
+          13.299999999999999,
+          -3.2,
+          37.515
+        ],
+        [
+          12.2,
+          -3.2,
+          37.515
+        ]
+      ]
+    },
+    {
+      "label": "Grand Gallery reveal threshold",
+      "color": "81735c",
+      "vertices": [
+        [
+          4.6,
+          0,
+          1.04
+        ],
+        [
+          6.5,
+          0,
+          1.04
+        ],
+        [
+          6.5,
+          0,
+          1.8
+        ],
+        [
+          4.6,
+          0,
+          1.8
+        ]
+      ]
+    },
+    {
+      "label": "Rockefeller reveal threshold",
+      "color": "81735c",
+      "vertices": [
+        [
+          -3.5,
+          0,
+          1.04
+        ],
+        [
+          -1.5,
+          0,
+          1.04
+        ],
+        [
+          -1.5,
+          0,
+          1.8
+        ],
+        [
+          -3.5,
+          0,
+          1.8
+        ]
+      ]
+    }
+  ],
+  "boxes": [],
+  "trials": [
+    [
+      "gallery_door_out",
+      [
+        -2.5,
+        0.25,
+        0.14000000000000012
+      ],
+      [
+        -2.5,
+        0,
+        3.04
+      ],
+      false
+    ],
+    [
+      "gallery_door_back",
+      [
+        -2.5,
+        0.25,
+        3.04
+      ],
+      [
+        -2.5,
+        0,
+        0.14000000000000012
+      ],
+      false
+    ],
+    [
+      "sofa_wall_blocked",
+      [
+        -3.25,
+        0.25,
+        -1.0599999999999998
+      ],
+      [
+        -5.25,
+        0,
+        -1.0599999999999998
+      ],
+      true
+    ],
+    [
+      "right_wall_blocked",
+      [
+        1.05,
+        0.25,
+        -1.76
+      ],
+      [
+        2.55,
+        0,
+        -1.76
+      ],
+      true
+    ],
+    [
+      "decorative_room",
+      [
+        -0.30000000000000004,
+        0.25,
+        -0.5599999999999998
+      ],
+      [
+        -0.30000000000000004,
+        0,
+        -3.96
+      ],
+      false
+    ],
+    [
+      "adjacent_gallery",
+      [
+        -2.5,
+        0.25,
+        3
+      ],
+      [
+        -2.5,
+        0,
+        6
+      ],
+      false
+    ],
+    [
+      "right_door_out",
+      [
+        1.4088541666666665,
+        0.25,
+        -0.17999999999999994
+      ],
+      [
+        2.2151041666666664,
+        0,
+        -0.17999999999999994
+      ],
+      false
+    ],
+    [
+      "right_door_back",
+      [
+        2.2151041666666664,
+        0.25,
+        -0.17999999999999994
+      ],
+      [
+        1.4088541666666665,
+        0,
+        -0.17999999999999994
+      ],
+      false
+    ],
+    [
+      "central_display_blocked",
+      [
+        -1.5,
+        0.25,
+        -0.8599999999999997
+      ],
+      [
+        -1.5,
+        0,
+        -2.76
+      ],
+      true
+    ],
+    [
+      "far_gallery_door_out",
+      [
+        -2.5,
+        0.25,
+        27.25
+      ],
+      [
+        -2.5,
+        0,
+        28.95
+      ],
+      false
+    ],
+    [
+      "far_gallery_door_back",
+      [
+        -2.5,
+        0.25,
+        28.95
+      ],
+      [
+        -2.5,
+        0,
+        27.25
+      ],
+      false
+    ],
+    [
+      "renaissance_left_leaf_blocked",
+      [
+        -3.15,
+        0.25,
+        28.58
+      ],
+      [
+        -3.8,
+        0,
+        28.58
+      ],
+      true
+    ],
+    [
+      "renaissance_right_leaf_blocked",
+      [
+        -1.8499999999999999,
+        0.25,
+        28.58
+      ],
+      [
+        -1.2,
+        0,
+        28.58
+      ],
+      true
+    ],
+    [
+      "gold_service_base_blocked",
+      [
+        0.09999999999999987,
+        0.25,
+        -2.3599999999999994
+      ],
+      [
+        1.3,
+        0,
+        -2.3599999999999994
+      ],
+      true
+    ],
+    [
+      "purple_grey_out",
+      [
+        3.0,
+        0.25,
+        -0.17999999999999994
+      ],
+      [
+        4.700000000000001,
+        0,
+        -0.17999999999999994
+      ],
+      false
+    ],
+    [
+      "purple_grey_back",
+      [
+        4.700000000000001,
+        0.25,
+        -0.17999999999999994
+      ],
+      [
+        3.0,
+        0,
+        -0.17999999999999994
+      ],
+      false
+    ],
+    [
+      "grey_grand_out",
+      [
+        5.550000000000001,
+        0.25,
+        0.24
+      ],
+      [
+        5.550000000000001,
+        0,
+        2.65
+      ],
+      false
+    ],
+    [
+      "grey_grand_back",
+      [
+        5.550000000000001,
+        0.25,
+        2.65
+      ],
+      [
+        5.550000000000001,
+        0,
+        0.24
+      ],
+      false
+    ],
+    [
+      "grey_piano_out",
+      [
+        5.550000000000001,
+        0.25,
+        -4.16
+      ],
+      [
+        5.550000000000001,
+        0,
+        -5.76
+      ],
+      false
+    ],
+    [
+      "grey_piano_back",
+      [
+        5.550000000000001,
+        0.25,
+        -5.76
+      ],
+      [
+        5.550000000000001,
+        0,
+        -4.16
+      ],
+      false
+    ],
+    [
+      "grey_ionic_out",
+      [
+        10.25,
+        0.25,
+        -1.96
+      ],
+      [
+        11.9,
+        0,
+        -1.96
+      ],
+      false
+    ],
+    [
+      "grey_ionic_back",
+      [
+        11.9,
+        0.25,
+        -1.96
+      ],
+      [
+        10.25,
+        0,
+        -1.96
+      ],
+      false
+    ],
+    [
+      "tracery_out",
+      [
+        -0.25,
+        0.25,
+        31.765
+      ],
+      [
+        1.4000000000000001,
+        0,
+        31.765
+      ],
+      false
+    ],
+    [
+      "tracery_back",
+      [
+        1.4000000000000001,
+        0.25,
+        31.765
+      ],
+      [
+        -0.25,
+        0,
+        31.765
+      ],
+      false
+    ],
+    [
+      "stone_portal_out",
+      [
+        5.55,
+        0.25,
+        28.85
+      ],
+      [
+        5.55,
+        0,
+        27.1
+      ],
+      false
+    ],
+    [
+      "stone_portal_back",
+      [
+        5.55,
+        0.25,
+        27.1
+      ],
+      [
+        5.55,
+        0,
+        28.85
+      ],
+      false
+    ],
+    [
+      "stairs_door_out",
+      [
+        9.75,
+        0.25,
+        31.765
+      ],
+      [
+        11.3,
+        0,
+        31.765
+      ],
+      false
+    ],
+    [
+      "stairs_door_back",
+      [
+        11.3,
+        0.25,
+        31.765
+      ],
+      [
+        9.75,
+        0,
+        31.765
+      ],
+      false
+    ],
+    [
+      "renaissance_bench_blocked",
+      [
+        -2.75,
+        0.25,
+        30.05
+      ],
+      [
+        -2.75,
+        0,
+        31.65
+      ],
+      true
+    ],
+    [
+      "medieval_low_case_blocked",
+      [
+        5.45,
+        0.25,
+        30.75
+      ],
+      [
+        5.45,
+        0,
+        32.25
+      ],
+      true
+    ],
+    [
+      "medieval_tall_case_blocked",
+      [
+        8.05,
+        0.25,
+        30.565
+      ],
+      [
+        8.05,
+        0,
+        32.114999999999995
+      ],
+      true
+    ],
+    [
+      "medieval_between_cases_clear",
+      [
+        6.85,
+        0.25,
+        32.85
+      ],
+      [
+        6.85,
+        0,
+        29.55
+      ],
+      false
+    ],
+    [
+      "medieval_stairs_aisle_clear",
+      [
+        6.85,
+        0.25,
+        29.45
+      ],
+      [
+        9.55,
+        0,
+        29.45
+      ],
+      false
+    ],
+    [
+      "hall_aisle_2.2",
+      [
+        7,
+        0.25,
+        2.2
+      ],
+      [
+        7,
+        0,
+        5.2
+      ],
+      false
+    ],
+    [
+      "hall_aisle_5.2",
+      [
+        7,
+        0.25,
+        5.2
+      ],
+      [
+        7,
+        0,
+        8.6
+      ],
+      false
+    ],
+    [
+      "hall_aisle_8.6",
+      [
+        7,
+        0.25,
+        8.6
+      ],
+      [
+        7,
+        0,
+        12
+      ],
+      false
+    ],
+    [
+      "hall_aisle_12",
+      [
+        7,
+        0.25,
+        12
+      ],
+      [
+        7,
+        0,
+        15.4
+      ],
+      false
+    ],
+    [
+      "hall_aisle_15.4",
+      [
+        7,
+        0.25,
+        15.4
+      ],
+      [
+        7,
+        0,
+        18.8
+      ],
+      false
+    ],
+    [
+      "hall_aisle_18.8",
+      [
+        7,
+        0.25,
+        18.8
+      ],
+      [
+        7,
+        0,
+        22.2
+      ],
+      false
+    ],
+    [
+      "hall_aisle_22.2",
+      [
+        7,
+        0.25,
+        22.2
+      ],
+      [
+        7,
+        0,
+        25.6
+      ],
+      false
+    ],
+    [
+      "hall_aisle_25.6",
+      [
+        7,
+        0.25,
+        25.6
+      ],
+      [
+        7,
+        0,
+        27.2
+      ],
+      false
+    ],
+    [
+      "hall_bench_blocked",
+      [
+        5.55,
+        0.25,
+        17.1
+      ],
+      [
+        5.55,
+        0,
+        19.2
+      ],
+      true
+    ],
+    [
+      "hall_back_to_grey",
+      [
+        5.55,
+        0.25,
+        2.9
+      ],
+      [
+        5.55,
+        0,
+        0.24
+      ],
+      false
+    ],
+    [
+      "hall_grey_return",
+      [
+        5.55,
+        0.25,
+        0.24
+      ],
+      [
+        5.55,
+        0,
+        2.9
+      ],
+      false
+    ],
+    [
+      "loop_00",
+      [
+        -2.5,
+        0.25,
+        0.24
+      ],
+      [
+        -2.5,
+        0,
+        3.2
+      ],
+      false
+    ],
+    [
+      "loop_01",
+      [
+        -2.5,
+        0.25,
+        3.2
+      ],
+      [
+        -2.5,
+        0,
+        4.4
+      ],
+      false
+    ],
+    [
+      "loop_02",
+      [
+        -2.5,
+        0.25,
+        4.4
+      ],
+      [
+        -2.5,
+        0,
+        7.8
+      ],
+      false
+    ],
+    [
+      "loop_03",
+      [
+        -2.5,
+        0.25,
+        7.8
+      ],
+      [
+        -2.5,
+        0,
+        11.2
+      ],
+      false
+    ],
+    [
+      "loop_04",
+      [
+        -2.5,
+        0.25,
+        11.2
+      ],
+      [
+        -2.5,
+        0,
+        14.6
+      ],
+      false
+    ],
+    [
+      "loop_05",
+      [
+        -2.5,
+        0.25,
+        14.6
+      ],
+      [
+        -2.5,
+        0,
+        18
+      ],
+      false
+    ],
+    [
+      "loop_06",
+      [
+        -2.5,
+        0.25,
+        18
+      ],
+      [
+        -2.5,
+        0,
+        21.4
+      ],
+      false
+    ],
+    [
+      "loop_07",
+      [
+        -2.5,
+        0.25,
+        21.4
+      ],
+      [
+        -2.5,
+        0,
+        24.8
+      ],
+      false
+    ],
+    [
+      "loop_08",
+      [
+        -2.5,
+        0.25,
+        24.8
+      ],
+      [
+        -2.5,
+        0,
+        26.7
+      ],
+      false
+    ],
+    [
+      "loop_09",
+      [
+        -2.5,
+        0.25,
+        26.7
+      ],
+      [
+        -2.5,
+        0,
+        28.6
+      ],
+      false
+    ],
+    [
+      "loop_10",
+      [
+        -2.5,
+        0.25,
+        28.6
+      ],
+      [
+        -2.5,
+        0,
+        30
+      ],
+      false
+    ],
+    [
+      "loop_11",
+      [
+        -2.5,
+        0.25,
+        30
+      ],
+      [
+        -0.2,
+        0,
+        30
+      ],
+      false
+    ],
+    [
+      "loop_12",
+      [
+        -0.2,
+        0.25,
+        30
+      ],
+      [
+        -0.2,
+        0,
+        31.765
+      ],
+      false
+    ],
+    [
+      "loop_13",
+      [
+        -0.2,
+        0.25,
+        31.765
+      ],
+      [
+        1.25,
+        0,
+        31.765
+      ],
+      false
+    ],
+    [
+      "loop_14",
+      [
+        1.25,
+        0.25,
+        31.765
+      ],
+      [
+        3.2,
+        0,
+        31.765
+      ],
+      false
+    ],
+    [
+      "loop_15",
+      [
+        3.2,
+        0.25,
+        31.765
+      ],
+      [
+        3.2,
+        0,
+        29.2
+      ],
+      false
+    ],
+    [
+      "loop_16",
+      [
+        3.2,
+        0.25,
+        29.2
+      ],
+      [
+        5.55,
+        0,
+        29.2
+      ],
+      false
+    ],
+    [
+      "loop_17",
+      [
+        5.55,
+        0.25,
+        29.2
+      ],
+      [
+        5.55,
+        0,
+        26.7
+      ],
+      false
+    ],
+    [
+      "loop_18",
+      [
+        5.55,
+        0.25,
+        26.7
+      ],
+      [
+        7,
+        0,
+        26.7
+      ],
+      false
+    ],
+    [
+      "loop_19",
+      [
+        7,
+        0.25,
+        26.7
+      ],
+      [
+        7,
+        0,
+        23.3
+      ],
+      false
+    ],
+    [
+      "loop_20",
+      [
+        7,
+        0.25,
+        23.3
+      ],
+      [
+        7,
+        0,
+        19.9
+      ],
+      false
+    ],
+    [
+      "loop_21",
+      [
+        7,
+        0.25,
+        19.9
+      ],
+      [
+        7,
+        0,
+        16.5
+      ],
+      false
+    ],
+    [
+      "loop_22",
+      [
+        7,
+        0.25,
+        16.5
+      ],
+      [
+        7,
+        0,
+        13.1
+      ],
+      false
+    ],
+    [
+      "loop_23",
+      [
+        7,
+        0.25,
+        13.1
+      ],
+      [
+        7,
+        0,
+        9.7
+      ],
+      false
+    ],
+    [
+      "loop_24",
+      [
+        7,
+        0.25,
+        9.7
+      ],
+      [
+        7,
+        0,
+        6.3
+      ],
+      false
+    ],
+    [
+      "loop_25",
+      [
+        7,
+        0.25,
+        6.3
+      ],
+      [
+        7,
+        0,
+        2.9
+      ],
+      false
+    ],
+    [
+      "loop_26",
+      [
+        7,
+        0.25,
+        2.9
+      ],
+      [
+        5.55,
+        0,
+        2.9
+      ],
+      false
+    ],
+    [
+      "loop_27",
+      [
+        5.55,
+        0.25,
+        2.9
+      ],
+      [
+        5.55,
+        0,
+        0.24
+      ],
+      false
+    ],
+    [
+      "loop_28",
+      [
+        5.55,
+        0.25,
+        0.24
+      ],
+      [
+        5.55,
+        0,
+        -0.18000000000000005
+      ],
+      false
+    ],
+    [
+      "loop_29",
+      [
+        5.55,
+        0.25,
+        -0.18000000000000005
+      ],
+      [
+        3.05,
+        0,
+        -0.18000000000000005
+      ],
+      false
+    ],
+    [
+      "loop_30",
+      [
+        3.05,
+        0.25,
+        -0.18000000000000005
+      ],
+      [
+        1.1,
+        0,
+        -0.56
+      ],
+      false
+    ],
+    [
+      "loop_31",
+      [
+        1.1,
+        0.25,
+        -0.56
+      ],
+      [
+        -1.2,
+        0,
+        -0.56
+      ],
+      false
+    ],
+    [
+      "loop_32",
+      [
+        -1.2,
+        0.25,
+        -0.56
+      ],
+      [
+        -2.5,
+        0,
+        0.24
+      ],
+      false
+    ],
+    [
+      "iron_grille_blocks_visitor",
+      [
+        8.45,
+        0.25,
+        29.75
+      ],
+      [
+        8.45,
+        0,
+        28.44
+      ],
+      true
+    ],
+    [
+      "iron_grille_east_aisle_clear",
+      [
+        9.65,
+        0.25,
+        29.65
+      ],
+      [
+        9.65,
+        0,
+        28.65
+      ],
+      false
+    ],
+    [
+      "landing_to_modern",
+      [
+        11.85,
+        0.25,
+        29.75
+      ],
+      [
+        11.85,
+        0,
+        26.55
+      ],
+      false
+    ],
+    [
+      "modern_to_landing",
+      [
+        11.85,
+        0.25,
+        26.55
+      ],
+      [
+        11.85,
+        0,
+        29.75
+      ],
+      false
+    ],
+    [
+      "landing_white_out",
+      [
+        14.95,
+        0.25,
+        30.5
+      ],
+      [
+        17.0,
+        0,
+        30.5
+      ],
+      false
+    ],
+    [
+      "landing_white_back",
+      [
+        17.0,
+        0.25,
+        30.5
+      ],
+      [
+        14.95,
+        0,
+        30.5
+      ],
+      false
+    ],
+    [
+      "modern_far_opening_out",
+      [
+        15.75,
+        0.25,
+        23.25
+      ],
+      [
+        15.75,
+        0,
+        21.45
+      ],
+      false
+    ],
+    [
+      "modern_far_opening_back",
+      [
+        15.75,
+        0.25,
+        21.45
+      ],
+      [
+        15.75,
+        0,
+        23.25
+      ],
+      false
+    ],
+    [
+      "modern_bench_blocked",
+      [
+        15.1,
+        0.25,
+        25.35
+      ],
+      [
+        12.4,
+        0,
+        25.35
+      ],
+      true
+    ],
+    [
+      "landing_guard_blocked",
+      [
+        13.9,
+        0.25,
+        35.415
+      ],
+      [
+        12.9,
+        0,
+        35.415
+      ],
+      true
+    ]
+  ],
+  "trial_seconds": 3.5,
+  "start": [
+    -2.5,
+    0.25,
+    0.14000000000000012
+  ],
+  "caption": "Collection \u00b7 WASD move \u00b7 Space reset \u00b7 1/2/3/4/5 room views\nRoom prototype \u00b7 placements and unfinished objects are provisional.\n",
+  "navigation_accepted": false,
+  "scale_accepted": false,
+  "source_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/bookcase-capture-split-v1/result.json": "69424fe97188ed8fd979c0c21c872b69f1af9a500a502907a539a8bd5539f449",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/points3D.bin": "1f7206ea1873df1d126e4bad5b3306112384dd253737f84f52bb6c6b0da15a16",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/frames.bin": "a81ae341d30588dccfa50607e62dbcec1dda0cb37c7e9222759859ad8f015f3a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/images.bin": "dbe038f78f7b6d3f100a913ba6e067b5576d00cb4c2f2df85b0ae022f7b4dbba",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/rigs.bin": "39eec21ded9800b8551c793bbf7a429040d103f926e5415e9ba757d2b56abc7a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/cameras.bin": "d502f26a76dc4da54c5a1cfdfa11ea053f6a896b8d79d89713f4c9d472f18d92",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/capture-validation.json": "7a0e8d6028593487a02a8703308895ce015f94f976a4844496ec8d059962c145",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/fused.ply": "ca8f574724b7d1b92b57dd63bdf147aeb862aa059a1496437198dc0c95624acb",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/sparse/points3D.bin": "24fb21b7c0debcadbff20d561e803c5cc3f7a57dd21b09267e4c24704858497a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/sparse/frames.bin": "a64259d3e48c3383b0d1fc7619bf5eff35a81e788aedf88cc7ebf907fd34c20f",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/sparse/images.bin": "edf1343bef4991b96de5db356d285053b97df06b017d128c3f4fe16b99437c0f",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/sparse/rigs.bin": "da94f6b31be42bb077e1fbf2f64a4c2701992af19cfe7363897c3deaf7af2007",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/sparse/cameras.bin": "b21dea72a1f52258c99c5702da1617c18848c14120044645a2a14b3c6fa5cd5e"
+  },
+  "scale_m_per_unit": 0.6502189837601067,
+  "basis_rows": [
+    [
+      -0.08455287367188853,
+      -0.8460490503394822,
+      0.5263571182889865
+    ],
+    [
+      -0.9679461742624007,
+      -0.05563696371656382,
+      -0.2449178066192499
+    ],
+    [
+      0.23649738959364475,
+      -0.5301938633066798,
+      -0.814225676349825
+    ]
+  ],
+  "floor_origin_world": [
+    1.254434778908501,
+    4.701471281883583,
+    3.715686659825081
+  ],
+  "source_model": "sfm-capture-split-v1",
+  "doorway_candidate": {
+    "source": "IMG_6384/000207.jpg",
+    "pixels": [
+      [
+        176,
+        921
+      ],
+      [
+        461,
+        1073
+      ]
+    ],
+    "floor_ray_intersections_local_m": [
+      [
+        -0.6240844328897522,
+        2.6686244591581577e-17,
+        5.93541485835056
+      ],
+      [
+        1.1789809778903357,
+        -2.833259997627035e-16,
+        6.600148261255415
+      ]
+    ],
+    "pixel_roles": [
+      "open leaf lower free edge, not a stationary jamb",
+      "unverified right opening edge"
+    ],
+    "z_origin_m": 6.267781559802987
+  },
+  "floor": {
+    "candidate_point_ids": [
+      18322,
+      18204,
+      18053,
+      18036,
+      17965,
+      17392,
+      17391,
+      16727,
+      16726,
+      16725,
+      16666,
+      16584,
+      16572,
+      16527,
+      16526,
+      16525,
+      16412,
+      16262,
+      16252,
+      16251,
+      16250,
+      16229,
+      16186,
+      16170,
+      16162,
+      16161,
+      16160,
+      16159,
+      16146,
+      16142,
+      16136,
+      15199,
+      15082,
+      15075,
+      14975,
+      14951,
+      14930,
+      14835,
+      14827,
+      14668,
+      14659,
+      14604,
+      14552,
+      14520,
+      14341,
+      14330,
+      14319,
+      14306,
+      14305,
+      14190,
+      14186,
+      14180,
+      14164,
+      14142,
+      14072,
+      14051,
+      14004,
+      13972,
+      13888,
+      13877,
+      13857,
+      13817,
+      13742,
+      13701,
+      13700,
+      13678,
+      13668,
+      13661,
+      13620,
+      13616,
+      13585,
+      13563,
+      13558,
+      13556,
+      13513,
+      13496,
+      13475,
+      13451,
+      13442,
+      13290,
+      13288,
+      13245,
+      13232,
+      13219,
+      13193,
+      13094,
+      13083,
+      13068,
+      13056,
+      13047,
+      13031,
+      13029,
+      12996,
+      12932,
+      12913,
+      12906,
+      12882,
+      12879,
+      12858,
+      12834,
+      12833,
+      12832,
+      12823,
+      12814,
+      12805,
+      12804,
+      12795,
+      12767,
+      12761,
+      12760,
+      12696,
+      12676,
+      12664,
+      12605,
+      12579,
+      12578,
+      12562,
+      12561,
+      12469,
+      12441,
+      12361,
+      12360,
+      12352,
+      12336,
+      11888,
+      11832,
+      11807,
+      11804,
+      21874,
+      11274,
+      11260,
+      11066,
+      11049,
+      21875,
+      10540,
+      11419,
+      21315,
+      21233,
+      10813,
+      8551,
+      11457
+    ],
+    "fit_odd_points": 62,
+    "fit_support": 52,
+    "unused_even_points": 79,
+    "unused_residual_p50_p90_m": [
+      0.012345155713770026,
+      0.04529784136255509
+    ]
+  },
+  "caveat": "Observed decorative room and painting gallery share this visible opening; corridor opening is distinct. Provisional scale from bookcase front endpoints. Split wood points support floor orientation locally; flat floor extension, threshold levels and ray-derived clearance boxes are hypotheses. Left input is an open leaf edge, not fixed architecture. No full room extents, unseen connectors, physical collision acceptance or production integration.",
+  "visual_cloud_alignment": {
+    "fit_views": 118,
+    "unused_views": 93,
+    "unused_camera_residual_p50_p95_m": [
+      0.003965352037772231,
+      0.015209035313526204
+    ],
+    "similarity_scale": 1.0680566480147904,
+    "rotation": [
+      [
+        0.9991992823154404,
+        0.024902540701384732,
+        0.03131545444228564
+      ],
+      [
+        -0.03191785463970745,
+        0.9680841379949586,
+        0.24858469847872186
+      ],
+      [
+        -0.024125604148072615,
+        -0.2493851744374034,
+        0.9681038115797899
+      ]
+    ],
+    "translation": [
+      0.031691109891893644,
+      -0.4266946711117956,
+      -0.057856584449325205
+    ],
+    "caveat": "Cached older dense reconstruction is visual context only; it includes prior correlated training views and must not enter held-out geometry checks or physical collision acceptance."
+  },
+  "point_cloud_render": false,
+  "doorway_correction": {
+    "sources": [
+      "IMG_6380/000247.jpg",
+      "IMG_6380/000449.jpg",
+      "IMG_6384/000209.jpg",
+      "IMG_6385/000005.jpg"
+    ],
+    "correction": "wide shots put the long-gallery doorway on the wall perpendicular to the sofa; purple doorway remains opposite the sofa wall. The v15 same-wall sofa/gallery-door arrangement was wrong.",
+    "confidence": "wall relationships visually corroborated; metric positions remain provisional pending matched wide renders"
+  },
+  "rooms": [
+    {
+      "label": "Rockefeller",
+      "bounds": [
+        -4.7,
+        1.7,
+        -5.76,
+        1.04
+      ],
+      "openings": {
+        "south": [
+          -3.5,
+          -1.5
+        ],
+        "east": [
+          -1.1,
+          0.74
+        ]
+      }
+    },
+    {
+      "label": "adjacent gallery",
+      "bounds": [
+        -5.55,
+        0.55,
+        1.8,
+        28.1
+      ],
+      "openings": {
+        "north": [
+          -3.5,
+          -1.5
+        ],
+        "south": [
+          -3.5,
+          -1.5
+        ]
+      }
+    },
+    {
+      "label": "light Renaissance room",
+      "bounds": [
+        -5.55,
+        0.55,
+        28.1,
+        34.2
+      ],
+      "openings": {
+        "north": [
+          -3.5,
+          -1.5
+        ],
+        "east": [
+          31.2,
+          32.33
+        ]
+      },
+      "stone_sides": [
+        "east"
+      ]
+    },
+    {
+      "label": "dark medieval room",
+      "bounds": [
+        0.55,
+        10.55,
+        28.1,
+        34.2
+      ],
+      "height": 4.25,
+      "openings": {
+        "west": [
+          31.2,
+          32.33
+        ],
+        "north": [
+          3.4355,
+          7.6645
+        ],
+        "east": [
+          30.915,
+          32.615
+        ]
+      },
+      "stone_sides": [
+        "west",
+        "north"
+      ]
+    },
+    {
+      "label": "Grand Gallery",
+      "bounds": [
+        0.55,
+        10.55,
+        1.8,
+        28.1
+      ],
+      "height": 6.0,
+      "floor": "herringbone",
+      "openings": {
+        "north": [
+          4.55,
+          6.55
+        ],
+        "south": [
+          3.4355,
+          7.6645
+        ]
+      },
+      "stone_sides": [
+        "south"
+      ]
+    },
+    {
+      "label": "lion stair landing",
+      "bounds": [
+        10.55,
+        16.15,
+        28.1,
+        37.615
+      ],
+      "height": 4.1,
+      "floor": "basket-weave",
+      "floor_void": [
+        10.55,
+        13.55,
+        33.715,
+        37.615
+      ],
+      "openings": {
+        "west": [
+          30.915,
+          32.615
+        ],
+        "north": [
+          11.0,
+          12.7
+        ],
+        "east": [
+          29.5,
+          31.5
+        ]
+      }
+    },
+    {
+      "label": "purple elevator-5 connector",
+      "bounds": [
+        1.7,
+        3.85,
+        -1.1,
+        0.74
+      ],
+      "openings": {
+        "west": [
+          -1.1,
+          0.74
+        ],
+        "east": [
+          -1.1,
+          0.74
+        ]
+      }
+    },
+    {
+      "label": "grey French gallery",
+      "bounds": [
+        3.8499999999999996,
+        11.05,
+        -4.96,
+        1.04
+      ],
+      "floor": "herringbone",
+      "column_sides": [
+        "east"
+      ],
+      "clear_heights": {
+        "east": 3.12
+      },
+      "openings": {
+        "west": [
+          -1.1,
+          0.74
+        ],
+        "east": [
+          -4.96,
+          1.04
+        ],
+        "north": [
+          4.550000000000001,
+          6.550000000000001
+        ],
+        "south": [
+          4.550000000000001,
+          6.550000000000001
+        ]
+      }
+    },
+    {
+      "label": "Ionic marble-stair threshold study limit",
+      "bounds": [
+        11.05,
+        12.65,
+        -4.96,
+        1.04
+      ],
+      "column_sides": [
+        "west"
+      ],
+      "clear_heights": {
+        "west": 3.12
+      },
+      "openings": {
+        "west": [
+          -4.96,
+          1.04
+        ]
+      }
+    },
+    {
+      "label": "piano-stair threshold study limit",
+      "bounds": [
+        4.550000000000001,
+        6.550000000000001,
+        -6.56,
+        -4.96
+      ],
+      "openings": {
+        "south": [
+          4.550000000000001,
+          6.550000000000001
+        ]
+      }
+    },
+    {
+      "label": "modern painting gallery",
+      "bounds": [
+        10.7,
+        16.7,
+        22.3,
+        28.1
+      ],
+      "height": 3.5,
+      "boards_across": false,
+      "openings": {
+        "south": [
+          11.0,
+          12.7
+        ],
+        "north": [
+          15.1,
+          16.4
+        ]
+      }
+    },
+    {
+      "label": "white sculpture gallery threshold study limit",
+      "bounds": [
+        16.15,
+        17.65,
+        29.5,
+        31.5
+      ],
+      "openings": {
+        "west": [
+          29.5,
+          31.5
+        ]
+      }
+    },
+    {
+      "label": "modern adjoining gallery threshold study limit",
+      "bounds": [
+        15.1,
+        16.4,
+        20.7,
+        22.3
+      ],
+      "openings": {
+        "south": [
+          15.1,
+          16.4
+        ]
+      }
+    },
+    {
+      "label": "Grand Gallery reveal threshold",
+      "reveal": true,
+      "bounds": [
+        4.6,
+        6.5,
+        1.04,
+        1.8
+      ],
+      "boards_across": true,
+      "openings": {
+        "north": [
+          4.6,
+          6.5
+        ],
+        "south": [
+          4.6,
+          6.5
+        ]
+      }
+    },
+    {
+      "label": "Rockefeller reveal threshold",
+      "reveal": true,
+      "bounds": [
+        -3.5,
+        -1.5,
+        1.04,
+        1.8
+      ],
+      "boards_across": true,
+      "openings": {
+        "north": [
+          -3.5,
+          -1.5
+        ],
+        "south": [
+          -3.5,
+          -1.5
+        ]
+      }
+    }
+  ],
+  "grey_gallery_connections": {
+    "source_frames": "6380:29-36,73-80,196-210,493-501",
+    "observed": "Purple connector faces Ionic opening across grey room; piano door on adjoining wall; Grand Gallery door perpendicular beside connector. Earlier opposite-ends claim removed.",
+    "metric_acceptance": false,
+    "extent": "Connected walkable museum loop through the Main Hall, medieval, Renaissance, European, Rockefeller and grey rooms; stairs remain threshold studies."
+  },
+  "object_placement_corrections": {
+    "source": "IMG_6380:277-281,319-348,387-408",
+    "settee": "Aligned beneath Romany at z=-4.7; absolute offsets provisional",
+    "gold_service_case": "Solid pedestal to floor; pink Worcester retains tray and legs"
+  },
+  "far_connection": {
+    "sources": [
+      "IMG_6383/000127.jpg",
+      "IMG_6383/000134.jpg",
+      "IMG_6382/000166.jpg"
+    ],
+    "observed": "Long gallery enters light Renaissance room; its perpendicular east doorway leads into dark medieval room. Medieval round portal and stairs door are on different walls.",
+    "extent": "Connected complete Main Hall shell and23 reused paintings; room metrics and remaining object coverage unaccepted."
+  },
+  "medieval_case_layout": {
+    "sources": [
+      "IMG_6382 78.25s",
+      "IMG_6382 88.75s"
+    ],
+    "observed": "Broad low relief case west of the smaller tall case; tall case on the stair-door/tracery axis (6387 13.0/44.0s, 6383 66.5s); different glass heights and solid grey bases.",
+    "metric_acceptance": false,
+    "contents_complete": false
+  },
+  "room_geometry": "Wide-shot wall relationships replace v15 layout; authored metric extents and distal gallery limit provisional. No point cloud in renderer.",
+  "continuous_loop_waypoints": [
+    [
+      -2.5,
+      0.24
+    ],
+    [
+      -2.5,
+      3.2
+    ],
+    [
+      -2.5,
+      4.4
+    ],
+    [
+      -2.5,
+      7.8
+    ],
+    [
+      -2.5,
+      11.2
+    ],
+    [
+      -2.5,
+      14.6
+    ],
+    [
+      -2.5,
+      18
+    ],
+    [
+      -2.5,
+      21.4
+    ],
+    [
+      -2.5,
+      24.8
+    ],
+    [
+      -2.5,
+      26.7
+    ],
+    [
+      -2.5,
+      28.6
+    ],
+    [
+      -2.5,
+      30
+    ],
+    [
+      -0.2,
+      30
+    ],
+    [
+      -0.2,
+      31.765
+    ],
+    [
+      1.25,
+      31.765
+    ],
+    [
+      3.2,
+      31.765
+    ],
+    [
+      3.2,
+      29.2
+    ],
+    [
+      5.55,
+      29.2
+    ],
+    [
+      5.55,
+      26.7
+    ],
+    [
+      7,
+      26.7
+    ],
+    [
+      7,
+      23.3
+    ],
+    [
+      7,
+      19.9
+    ],
+    [
+      7,
+      16.5
+    ],
+    [
+      7,
+      13.1
+    ],
+    [
+      7,
+      9.7
+    ],
+    [
+      7,
+      6.3
+    ],
+    [
+      7,
+      2.9
+    ],
+    [
+      5.55,
+      2.9
+    ],
+    [
+      5.55,
+      0.24
+    ],
+    [
+      5.55,
+      -0.18000000000000005
+    ],
+    [
+      3.05,
+      -0.18000000000000005
+    ],
+    [
+      1.1,
+      -0.56
+    ],
+    [
+      -1.2,
+      -0.56
+    ],
+    [
+      -2.5,
+      0.24
+    ]
+  ],
+  "grey_register": {
+    "source": "docs/evidence/collection-reconstruction/opus-grey-register-fit-20261001/REPORT.md and plan.json",
+    "door_clear_z": [
+      -1.1,
+      0.74
+    ],
+    "grey_west_wall_m": 6.0,
+    "grey_west_wall_interval_m": [
+      5.4,
+      6.6
+    ],
+    "rockefeller_shift_z_m": 2.2,
+    "european_gallery_m": 26.3,
+    "moved_with_rockefeller_door": "secretary and Delacroix35.786 (IMG_6385 from that door)",
+    "left_in_place_unaccepted": "Fetti36.003, both piers, Goltzius61.006 and the far door leaves keep their old z; their offsets from either end are unmeasured",
+    "columns": "south column unmoved, north column keeps1.6m from the moved north wall; spacing unmeasured",
+    "barn_painting_built": false,
+    "metric_accepted": false,
+    "calibrated_room_metric": false,
+    "physical_loop_accepted": false,
+    "connector_length_accepted": false
+  },
+  "loop_fit": {
+    "source": "6382:64..89.25;6344:177.5;official floor5 topology",
+    "correction": "North-wall paintings lie left of projecting display and portal; do not mistake display edge for northwest corner. Extend parallel long galleries, align Hall end doors, preserve relative object placements.",
+    "metric_accepted": false,
+    "connector_length_accepted": false,
+    "hall_length_m": 26.3,
+    "hall_width_m": 10.0,
+    "medieval_wall_width_m": 10.0
+  },
+  "lion_modern_layout": {
+    "source": "IMG_6387 native2.25..84.25s; reciprocal6382 stair view",
+    "stair_block": "Draft void, flights and guard translated +1.715 with the stair door; preserved shape, not a source measurement",
+    "door_order": "Medieval west on the tracery axis; modern north on the adjoining wall at one inside corner, lion right of modern on that wall; white sculpture gallery on the next east wall (z provisional); stairwell south",
+    "modern_wall_groups": "Entry/Braque/Villon south; large painting west off the entry jamb; pumpkin/landscape/second doorway north; two windows and sculpture case east",
+    "source_review": "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001; wall order docs/evidence/collection-reconstruction/opus-landing-refit-20261001",
+    "entry_reveal_depth_modelled": false,
+    "metric_accepted": false,
+    "stair_curve_and_destinations_complete": false,
+    "white_sculpture_room_interior_complete": false,
+    "adjoining_room_interior_complete": false
+  },
+  "hall_reveal": {
+    "source": "docs/evidence/collection-reconstruction/opus-hall-reveal-builder-20261001/REPORT.md",
+    "wall_m": 0.76,
+    "leaf_m": 0.95,
+    "leaf_panels_from_top": [
+      [
+        0.06,
+        0.15
+      ],
+      [
+        0.23,
+        0.63
+      ],
+      [
+        0.74,
+        0.9
+      ]
+    ],
+    "knob_from_top": 0.71,
+    "hinge_side": "north",
+    "observed": "one cased opening, panelled soffit, both leaves folded flat on the reveal sides, free edge at the Hall; same construction at the Rockefeller door",
+    "depth_measured": false,
+    "opening_metres_accepted": false,
+    "leaf_fidelity_accepted": false,
+    "rockefeller_leaf_built": false,
+    "metric_accepted": false
+  }
+}

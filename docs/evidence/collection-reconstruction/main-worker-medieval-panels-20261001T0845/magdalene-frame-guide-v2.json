@@ -1,0 +1,28 @@
+{
+  "source": "image-work/collection-room-remodel/inventory-catalogue/memmi-magdalene-zoom-0.jpg",
+  "source_sha256": "18de133e240ed4e66adccdade8b7633579ae0da80da23b849f0f24dde91457a9",
+  "painted_infill_polygon_px": [
+    [
+      671,
+      246
+    ],
+    [
+      1090,
+      1158
+    ],
+    [
+      1090,
+      2158
+    ],
+    [
+      241,
+      2158
+    ],
+    [
+      241,
+      1158
+    ]
+  ],
+  "changes": "Guide only: connected outer black to magenta, exact painted pentagon to white. Original authentic painting unchanged. Style corrected to owner-approved frame instead of failed blue Perugino original.",
+  "prompt_change_reason": "First pass shortened the interior and added a nested chevron/blue wear. This precise blank guide addresses both observed defects; not a repeat of the original request."
+}

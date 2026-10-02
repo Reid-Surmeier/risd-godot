@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-50f112b2b43e79f8ddd8",
+  "summary": "Edit reference1 into ONE restrained low polygon gilded Gothic picture frame. Keep reference1 exact outer silhouette and exact WHITE opening silhouette: the WHITE pentagon starts near the high apex and includes the entire tall rectangle beneath it. White pixels stay white all the way up to that apex. Preserve the slim single steep roof band, the three individual source crockets along each slope, small paired apex finial, straight twisted rope columns and narrow dark brown-gold bottom sill. Keep band widths and inner edge positions from reference1. Material-only simplification into broad worn gold facets, using reference2 solely for muted warm brown-gold palette and low polygon shading. Complete frame, full bases and finial, frontal orthographic, flat magenta #FF00FF outside silhouette. No inner triangle, second chevron, broad filled golden pediment, blue or grey painted wear, figure, halo, painting, label, background wall, perspective, additional ornament or frame. One single frame, preserve the source opening.\n",
+  "procedureId": "muse-50f112b2b43e79f8ddd8",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/magdalene-frame-guide-v2.png",
+      "sha256": "b085de132870cfc2dc52ea4f324da50556886aad61a4fa0d6df2199ce605884c",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/magdalene-frame-style-v2.png",
+      "sha256": "ceede2d8dc9c64870e1b7f9763f16e4e027cc5e9f3a721d2555256c2d734f23d",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "magdalene-frame-v2b-recipe.json",
+      "sha256": "50f112b2b43e79f8ddd8c88cc8961f66a7536a489a0301ac63b3b8c013aa42b2"
+    },
+    {
+      "applicationPath": "magdalene-frame-v2b-plan.json",
+      "sha256": "da895fe4140f0e54667c2ebdf3234f73e8f2e32bc328fb8cced00db1c33ed100"
+    },
+    {
+      "applicationPath": "magdalene-frame-v2b-prompt.txt",
+      "sha256": "8ff4c141a784eebc9d44b062a18cb11671e05fe2dc9459a7aaea4f3a79f32674"
+    }
+  ]
+}

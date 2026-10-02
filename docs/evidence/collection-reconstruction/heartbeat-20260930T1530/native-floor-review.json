@@ -1,0 +1,14 @@
+{
+  "training_views_inspected": [
+    "IMG_6380/000206.jpg",
+    "IMG_6380/000244.jpg",
+    "IMG_6380/000505.jpg"
+  ],
+  "native_frames": "Full-stream fps=2/select, GPU decoded at1920x1080. Native206 reused from grand-native-aligned-v1. Native244/505 newly prepared with reserved246/506.",
+  "inspection": "Entry206 distant threshold and wood seams remain blurred at native resolution. Training244/505 show crossgrain splice and longitudinal seams, but repeated grain and perspective prevent three confidently identical, noncollinear wood features in206.",
+  "reserved_frames": "246/506 prepared and hashed but not used for feature choice or fitting in this tick.",
+  "manual_triangle_fitted": false,
+  "plane_accepted": false,
+  "collision_extension": false,
+  "next_action": "Inspect native training244/505 to freeze three distinct seam-endpoint or wood-knot picks, reserve246/506 before fitting; use a supported separated camera only if identities remain source-visible. If206 stays too blurred, use another already reserved upper-wall-supported query, with original pose gates unchanged."
+}

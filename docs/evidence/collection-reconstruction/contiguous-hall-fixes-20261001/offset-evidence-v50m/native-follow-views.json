@@ -1,0 +1,53 @@
+[
+	{
+		"addition_lightmap_visible": true,
+		"cull_mask": 2071,
+		"cutaway_alpha": {
+			"8": 0.0
+		},
+		"hall_lightmap_visible": false,
+		"heading": 3.14159265358979,
+		"name": "renaissance-bar-diagnostic",
+		"position": [
+			-8.30000019073486,
+			0.0,
+			2.5
+		],
+		"space": "arch",
+		"view_mode": 0
+	},
+	{
+		"addition_lightmap_visible": true,
+		"cull_mask": 2067,
+		"cutaway_alpha": {
+			"8": 0.0
+		},
+		"hall_lightmap_visible": false,
+		"heading": 1.5707963267949,
+		"name": "saint-roch-offset",
+		"position": [
+			-9.35000038146973,
+			0.0,
+			2.75
+		],
+		"space": "arch",
+		"view_mode": 1
+	},
+	{
+		"addition_lightmap_visible": true,
+		"cull_mask": 2079,
+		"cutaway_alpha": {
+			"8": 1.0
+		},
+		"hall_lightmap_visible": false,
+		"heading": 1.5707963267949,
+		"name": "saint-roch-follow",
+		"position": [
+			-9.10000038146973,
+			0.0,
+			3.0
+		],
+		"space": "arch",
+		"view_mode": 2
+	}
+]

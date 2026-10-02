@@ -1,0 +1,75 @@
+{
+ "what": "Scratch only. The prepare run read a copy of root video-inventory.json with video-inventory-d2.patch applied; root file untouched.",
+ "root_inventory_sha256": "bc7db5a9a5a229becfe161fed52f87138a8b3206375c1c421a9c4f74fac9238c",
+ "scratch_inventory_sha256": "1c9be5907c73d3704585e4dff1960dae4b492442c36251a2e9eeab783c5cbe10",
+ "patch": "video-inventory-d2.patch",
+ "changed_values": {
+  "apostle-41046 position z": [
+   28.75,
+   30.465
+  ],
+  "apostle-41045 position z": [
+   31.5,
+   33.215
+  ]
+ },
+ "emitted_catalogue_instances": [
+  {
+   "asset": "apostle-41046",
+   "accession": "41.046",
+   "title": "Apostle",
+   "size_m": [
+    0.267,
+    0.826,
+    0.12
+   ],
+   "dimension_basis": "Catalogue width/height;.12m relief depth provisional",
+   "position": [
+    12.33,
+    1.04,
+    30.465
+   ],
+   "yaw": -1.5707963267948966,
+   "source": "IMG_6382 native17.25/26.25s and RISD official front/side photos",
+   "status": "Official appearance matched; Muse/native geometry/damage fidelity and placement unaccepted",
+   "position_basis": "Author coordinate includes+1.95x compensated by existing catalogue group shift; desired installedx10.38"
+  },
+  {
+   "asset": "apostle-41045",
+   "accession": "41.045",
+   "title": "Apostle",
+   "size_m": [
+    0.254,
+    0.864,
+    0.12
+   ],
+   "dimension_basis": "Catalogue width/height;.12m relief depth provisional",
+   "position": [
+    12.33,
+    1.04,
+    33.215
+   ],
+   "yaw": -1.5707963267948966,
+   "source": "IMG_6382 native17.25/26.25s and RISD official front/side photos",
+   "status": "Official appearance matched; Muse/native geometry/damage fidelity and placement unaccepted",
+   "position_basis": "Author coordinate includes+1.95x compensated by existing catalogue group shift; desired installedx10.38"
+  },
+  {
+   "asset": "lion-panel",
+   "position": [
+    16.55,
+    1.18,
+    28.18
+   ],
+   "position_basis": "Includes+1.95x to compensate existing catalogue group shift; installedx14.6 on the landing north wall",
+   "yaw": 0.0,
+   "size_m": [
+    2.286,
+    1.041,
+    0.08
+   ],
+   "accession": "34.652"
+  }
+ ],
+ "manifest_records_scratch_inventory": true
+}

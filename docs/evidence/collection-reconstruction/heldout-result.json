@@ -1,0 +1,264 @@
+[
+  {
+    "image": "IMG_6384/000006.jpg",
+    "correspondences": 155,
+    "localized": true,
+    "inliers": 143,
+    "median_error_px": 0.7647647047181022,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000016.jpg",
+    "correspondences": 126,
+    "localized": true,
+    "inliers": 96,
+    "median_error_px": 1.2053322566747857,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000026.jpg",
+    "correspondences": 120,
+    "localized": true,
+    "inliers": 108,
+    "median_error_px": 0.7773657996264001,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000036.jpg",
+    "correspondences": 183,
+    "localized": true,
+    "inliers": 151,
+    "median_error_px": 0.8744600689256715,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000046.jpg",
+    "correspondences": 0,
+    "localized": false,
+    "supported": false
+  },
+  {
+    "image": "IMG_6384/000066.jpg",
+    "correspondences": 138,
+    "localized": true,
+    "inliers": 58,
+    "median_error_px": 1.2423592052305972,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000076.jpg",
+    "correspondences": 73,
+    "localized": true,
+    "inliers": 42,
+    "median_error_px": 1.4828047331531171,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000086.jpg",
+    "correspondences": 91,
+    "localized": true,
+    "inliers": 52,
+    "median_error_px": 1.702952575022778,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000096.jpg",
+    "correspondences": 219,
+    "localized": true,
+    "inliers": 191,
+    "median_error_px": 1.0044889977450553,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000106.jpg",
+    "correspondences": 370,
+    "localized": true,
+    "inliers": 271,
+    "median_error_px": 1.4280175755987763,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000116.jpg",
+    "correspondences": 52,
+    "localized": true,
+    "inliers": 11,
+    "median_error_px": 1.3409359430872008,
+    "supported": false
+  },
+  {
+    "image": "IMG_6384/000126.jpg",
+    "correspondences": 1256,
+    "localized": true,
+    "inliers": 1135,
+    "median_error_px": 0.9977082156595997,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000136.jpg",
+    "correspondences": 4382,
+    "localized": true,
+    "inliers": 4292,
+    "median_error_px": 0.44555369160870667,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000146.jpg",
+    "correspondences": 30,
+    "localized": true,
+    "inliers": 4,
+    "median_error_px": 0.15441259035745575,
+    "supported": false
+  },
+  {
+    "image": "IMG_6384/000156.jpg",
+    "correspondences": 1421,
+    "localized": true,
+    "inliers": 1345,
+    "median_error_px": 0.43132795241898075,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000166.jpg",
+    "correspondences": 247,
+    "localized": true,
+    "inliers": 200,
+    "median_error_px": 0.9994389008471594,
+    "supported": true
+  },
+  {
+    "image": "IMG_6384/000176.jpg",
+    "correspondences": 2,
+    "localized": false,
+    "supported": false
+  },
+  {
+    "image": "IMG_6385/000056.jpg",
+    "correspondences": 33,
+    "localized": true,
+    "inliers": 4,
+    "median_error_px": 0.019103994883647064,
+    "supported": false
+  },
+  {
+    "image": "IMG_6385/000066.jpg",
+    "correspondences": 30,
+    "localized": true,
+    "inliers": 20,
+    "median_error_px": 1.4099625736600663,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000006.jpg",
+    "correspondences": 94,
+    "localized": true,
+    "inliers": 72,
+    "median_error_px": 0.9494285079681881,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000016.jpg",
+    "correspondences": 74,
+    "localized": true,
+    "inliers": 58,
+    "median_error_px": 1.0564413263600319,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000076.jpg",
+    "correspondences": 18,
+    "localized": true,
+    "inliers": 4,
+    "median_error_px": 0.3648490407484558,
+    "supported": false
+  },
+  {
+    "image": "IMG_6386/000086.jpg",
+    "correspondences": 176,
+    "localized": true,
+    "inliers": 108,
+    "median_error_px": 1.1192876913890482,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000096.jpg",
+    "correspondences": 0,
+    "localized": false,
+    "supported": false
+  },
+  {
+    "image": "IMG_6386/000106.jpg",
+    "correspondences": 3,
+    "localized": false,
+    "supported": false
+  },
+  {
+    "image": "IMG_6386/000116.jpg",
+    "correspondences": 4,
+    "localized": false,
+    "supported": false
+  },
+  {
+    "image": "IMG_6386/000136.jpg",
+    "correspondences": 21,
+    "localized": true,
+    "inliers": 5,
+    "median_error_px": 1.6646153082873312e-05,
+    "supported": false
+  },
+  {
+    "image": "IMG_6386/000146.jpg",
+    "correspondences": 487,
+    "localized": true,
+    "inliers": 378,
+    "median_error_px": 0.8745219870082723,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000156.jpg",
+    "correspondences": 827,
+    "localized": true,
+    "inliers": 697,
+    "median_error_px": 0.7622274986452463,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000166.jpg",
+    "correspondences": 434,
+    "localized": true,
+    "inliers": 250,
+    "median_error_px": 1.0613038494672165,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000176.jpg",
+    "correspondences": 7,
+    "localized": true,
+    "inliers": 3,
+    "median_error_px": 4.0990372275064023e-13,
+    "supported": false
+  },
+  {
+    "image": "IMG_6386/000186.jpg",
+    "correspondences": 95,
+    "localized": true,
+    "inliers": 71,
+    "median_error_px": 1.0886783509103723,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000196.jpg",
+    "correspondences": 168,
+    "localized": true,
+    "inliers": 130,
+    "median_error_px": 0.887290197374729,
+    "supported": true
+  },
+  {
+    "image": "IMG_6386/000206.jpg",
+    "correspondences": 102,
+    "localized": true,
+    "inliers": 77,
+    "median_error_px": 1.520581712981644,
+    "supported": true
+  }
+]

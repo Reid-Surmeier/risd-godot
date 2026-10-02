@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1374671",
+    "collection": "",
+    "credit": "Museum Works of Art Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1932",
+    "datingYearTo": "1932",
+    "description": "<p>L'Amateur d'Estampes</p>\n",
+    "dimensions": "23.8 x 17.8 cm (9 3/8 x 7 inches) (plate)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Marcel Gromaire",
+        "risdAffiliation": null,
+        "years": "1892-1971",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "etching"
+    ],
+    "mediumTechnique": "etching",
+    "objectNumber": "53.297",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Marcel Gromaire",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Heavy weight cream wove paper"
+    ],
+    "technique": [
+      "etching"
+    ],
+    "title": "L&#039;Amateur d&#039;Estampes",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/lamateur-destampes-53297"
+  }
+]

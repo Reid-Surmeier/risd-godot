@@ -1,0 +1,42 @@
+{
+  "delivered": {
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/REPORT.md": "4f218c7841cdf02b9bb795d79aec0e185e6d0fbf97eb3d942f770efeacf24f9d",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/check-layout.json": "350cde945daac1624b09aa7f4f666bbd9230dc826b01077c404d48fdcbc407ea",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/check_layout.py": "5503f591ef6f302bb207a87504f69de4cc9873dae078f75cdc9dd805cbe3a384",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/entry-42.0-51.0s.jpg": "dae3b1eab35562002586da1ea7cc6987ed5475ac31ed81beaedba5e7360656a4",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-46.5s.jpg": "4b03a7716e06dfb9ff523e63514a660a3647bf00edcf7e3c61c32d1c90c8b2c6",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-47.5s.jpg": "543cae3d8fb0eb36fb86667b244e0d861e6d1fb4473b08666c6a12e8a4bf3ddf",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-51.0s.jpg": "6bec40bdacac4750b4650dc041423eb136260dfd83b8bd89d2b407d834e90830",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-52.0s.jpg": "d86c6bfa7084707c920a1350e09c56fcccb39968688ddff361a57481c4a2c596",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-58.5s.jpg": "405db760240f11d2b99e42b59d764a34cba8df2434224cd327821f1de80e8527",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-63.0s.jpg": "f2ab7f103dedfee3f2019843fc0e6dd3de56aa23b9dd8c7b46884c272e492f7a",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-67.5s.jpg": "d096e4536a6b79136372be377cd63af05e66cea1d94dfac9cf621eb8888af2c0",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-68.5s.jpg": "fe9c92cdd45df8b4f7f360452a0cedef83881b3bbb4da18c88488c99b0aa1d2e",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-69.5s.jpg": "fc3f58c14d3fb4a7d653230a17c57918066ac034fdad021f0bc4e3f435fd4caa",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-75.0s.jpg": "ba57755b627209807b10fa624602d4538ee1388f9fda020bc5379d2aea835e42",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-82.0s.jpg": "866779b6b1f18771740ef6b352dc245cbf1a5d99c65d6361248ab9094d609cc4",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-83.5s.jpg": "7c7719afe631298722c18fb34a396f04281018f61bdd84099d0b80e7d3743ef8",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-pan-2fps-sheet-0.jpg": "4295a4f20e16f87c22f14fa5243617f09ddc61ad1b2833e43ad25f6c132bc421",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-pan-2fps-sheet-1.jpg": "1cec1eef3eda55b62a6f1eee962fffbcba69c91cacc018735f73d8b4ed63a585",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-pan-2fps-sheet-2.jpg": "d5993bee7be89f9119fbdb9a2f298d592313aacc9e83b5572e661d8fae9750d7",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-pan-2fps-sheet-3.jpg": "90dd84f397deb4dafc776e1982d20f8e7bff87f1e5015523e7b8abae4d971997",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/IMG_6387-pan-2fps-sheet-4.jpg": "6a52332a57857e32c6ed2ffc81d962710f679fe761f26d9ee4bc8c57b058d048",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/frames/manifest.json": "3ce1768f4199bd99d43d93e306207b2812b826d69185f44b8b5d803bedb05a1a",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/layout-patch.json": "d400879d43b762ae1505f094865ac10c5386cc689e8f5f3b94e016572121abf9",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/pan-0-51.0-57.5s.jpg": "4b82a433aba75475bfc136ad115331fa76f5022e9a4d2ec5eae2d9315f166739",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/pan-a-58.0-62.5s.jpg": "f3bce5fc3b131992e53ea2399b315922347a72483690085d873f08d3216a4977",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/pan-b-63.0-68.0s.jpg": "48fac52cfee2e56e37820b363db856f0d539fc53ad5a82e2ae73696329c2e40c",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/pan-c-68.5-75.0s.jpg": "acd02cff736831ff9eddf6fdc80ab57a1398d5c43ec69ae91e3cccae26b2d90c",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/pan-d-75.5-84.5s.jpg": "3e8d9dfab33377436c979a01a31e6389caff60739e5c5d294ed617e73b72d9f2",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/plan.png": "b699a2e25aa3a1070e585a27a880d7b4cb0174c392e0ffb6218d720cf6ef3b0c",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/plan.py": "bf6c678553982afe3245235f2161781184b828cfb97d4c761f17b029c831f03b",
+    "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001/repo-check.log": "d0be78dc77f7244cda934330b5fd72a54d6637abee301d0c2b2925cd36240c76"
+  },
+  "read_only_sources": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6387.MOV": "75c4892c1a37e1c83dd7103187d1c284e13fd0ac458710f4e8fd6e14daf1c7af",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/lowpoly-room-v48b-modern-frames/geometry.json": "7e0c504d5bf167f5ef1a99859ac7440b737af78840519e558103aacd6ec40b6b",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/remodel_room.gd": "418bb7640268e89848b6ab55c14d087aa6816870a4103e7d0f4cedcc527c09c7",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "5ed87642bf940f5987d6e3d98479ba9df875d2b7709c9c276d233f7d7ed1a90e"
+  },
+  "note": "remodel_room.gd and prepare_remodel.py are the coordinator's uncommitted working copies as read at review time"
+}

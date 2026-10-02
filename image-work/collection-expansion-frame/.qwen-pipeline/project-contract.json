@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1",
+  "applicationId": "app-07fe8ef27028",
+  "artifactRoot": "artifacts/image-generation",
+  "referenceRoots": [
+    "references/frame-photo.png"
+  ],
+  "outputRoot": "generated",
+  "maximumCount": 1,
+  "maximumBudgetUsd": "0.01",
+  "maximumCorrectionRuns": 0,
+  "procedures": [
+    {
+      "id": "muse-7c9a3efdd14aa71466e4",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1552"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-18b8dc5bd497a903bc3d",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1760x1568"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+PASS screenshots_present ['01-launch.png', '02-map.png', '03-sketchbook.png', '04-fixed-kept.png', '05-stub-blank.png', '06-grey.png', '07-collection.png', '08-untenanted.png', '09-resized.png', '10-restored.png']
+PASS launch_screenshot_is_1920x1080 (1080, 1920, 3)
+PASS seven_fixed_tabs_in_order ['map', 'sketchbook', '3d_viewer', 'video_player', 'collection', 'playground', 'flowers']
+PASS labels_are_the_keys
+PASS bar_sits_at_the_bottom bar {'h': 62.6196937561035, 'w': 1920.0, 'x': 0.0, 'y': 1017.38031005859}
+PASS collection_active_at_launch
+PASS no_close_rect_on_fixed_tabs
+PASS hidden_pages_frozen_at_launch [('map', True), ('sketchbook', True), ('3d_viewer', True), ('video_player', True), ('collection', False), ('playground', True), ('flowers', True)]
+PASS only_the_launch_tenant_is_created [None, None, None, None, 'ok', None, None]
+PASS tenant_state_missing_before_first_show
+PASS tabs_left_to_right_within_window
+FAIL launch_page_area_white
+PASS launch_tab_starts_stub_sized w 84 (stub 84)
+PASS launch_tab_grows_to_its_width [84, 84, 95, 143, 173, 190, 198, 201, 201, 201, 201, 201, 201, 201, 201, 201]
+PASS page_shows_only_after_the_grow_settles first shown at frame 8
+PASS grow_frame_shows_the_bar_in_the_gap_left_of_playground gap (4, 76, 3) std 3.9
+PASS launch_settles_after_press_grow_and_fade 803 ms
+PASS launch_tenant_created_at_settle 542 ms
+PASS click_map_shows_map_page
+FAIL clicked_tab_shows_pressed_tint_within_100ms early frames [(71, [225, 225, 225])]
+PASS selected_tab_blue_after_the_dip late frames [(268, [225, 225, 225]), (332, [225, 225, 225]), (397, [225, 225, 225])]
+PASS selected_blue_endpoint_is_static tints [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+FAIL dip_reported_then_released
+PASS page_switch_settles_in_about_200ms 204 ms
+PASS shown_tenant_process_runs 7 -> 27
+FAIL tenant_fills_page_area [1848.0, 979.999816894531]
+PASS hidden_map_page_frozen_after_fade
+PASS hidden_tenant_process_stops 42 -> 42 over 20 frames
+PASS hidden_tenant_gets_no_input inputs 0 -> 0
+PASS shown_sketchbook_runs_and_hears_the_key ticks 59->80, inputs 0->2
+PASS map_resumes_with_state_intact frozen at 42, resumed 43 -> 120
+PASS fixed_close_refused_by_interface shell.tab_fixed
+PASS fixed_close_click_did_nothing
+PASS stub_opens_blank_page_with_close count 8
+PASS closing_blank_lands_on_flowers
+PASS flowers_callable_tenant_created_on_first_show
+FAIL flowers_page_is_the_grey_tenant mean [165, 165, 165]
+PASS page_cross_fades_through_in_between_greys [245, 249, 255, 255, 255, 255]
+FAIL collection_tab_dips_on_click [(72, [225, 225, 225]), (142, [225, 225, 225]), (207, [225, 225, 225]), (272, [225, 225, 225]), (339, [225, 225, 225]), (405, [225, 225, 225])]
+PASS collection_blue_endpoint_is_static tints [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+PASS grey_to_collection_settles_in_about_200ms 207 ms
+PASS grey_page_frozen_after_the_fade
+PASS untenanted_tab_has_no_tenant
+PASS untenanted_page_is_plain_white
+FAIL resize_refits_bar_and_tenant window [1440.0, 900.0], bar {'h': 46.964771270752, 'w': 1440.0, 'x': 0.0, 'y': 853.035217285156}, tenant [1368.0, 824.999816894531]
+PASS resized_screenshot_is_1440x900 (900, 1440, 3)
+PASS restore_refits_back
+PASS bar_spans_full_width_at_bottom
+PASS active_fixed_tab_draws_no_close_button dark pixels 0
+PASS stub_blank_shot_differs_from_launch
+VERDICT FAIL

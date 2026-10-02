@@ -1,0 +1,13 @@
+{
+  "date_utc": "2026-10-01",
+  "provider": "OpenRouter",
+  "model": "meta/muse-image",
+  "outputs": 1,
+  "cost_usd": 0.01,
+  "run_id": "run-e7b18db5374fdc5e0b548a35",
+  "native_sha256": "bdb409892fa25e41b6ec0942329f32c3a975c3e6e19e54152f378e69434f1546",
+  "accepted": false,
+  "visual_review": "Inspected native leaf: three panels and extra right jamb. Jamb excluded; each Muse panel mapped separately to native rails/stiles and provisional unequal heights. Reverse repeated, exact panel proportions/back/hardware still unaccepted.",
+  "cumulative_map_actual_usd": 0.68,
+  "cumulative_map_conservative_usd": 0.69
+}

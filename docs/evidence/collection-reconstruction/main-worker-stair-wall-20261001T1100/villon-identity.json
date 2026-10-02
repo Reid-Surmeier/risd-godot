@@ -1,0 +1,17 @@
+{
+  "accession": "70.058",
+  "id": "1539421",
+  "maker": "Jacques Villon",
+  "title": "Head of a Woman",
+  "source": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/survey-2fps/IMG_6387/000113.jpg",
+  "source_sha256": "18a08151d8ef8407df7e1f1f99c43ac3158639821d3c6f2cfa827eba5900a858",
+  "derivative": "clockwise90deg video review",
+  "official_image": {
+    "url": "https://risdmuseum.cdn.picturepark.com/v/cRCDzmxu/",
+    "file": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/modern-identities-api-v1/villon-head-zoom.jpg",
+    "sha256": "b272d80d04182e6d67ef36ae8ba6a229cd9f8e7330bab0c9a0e116621fe62509"
+  },
+  "identity_visually_matched": true,
+  "geometry_built": false,
+  "placement_accepted": false
+}

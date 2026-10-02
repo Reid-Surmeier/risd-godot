@@ -1,0 +1,14 @@
+{
+ "file": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50l/collection_rooms/addition_baked/room.tres",
+ "sha256": "1e26526cbce7e881e63fbd88e8f6a3d7b46ba9b24581fefdc7b9957619b55293",
+ "probes": 352,
+ "sh_colours": 3168,
+ "tetrahedra": 1661,
+ "bsp_nodes": 4267,
+ "users": 1217,
+ "source_lmbake": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-extension-v49j/addition_baked/room.lmbake",
+ "points_equal_to_source_within_0.0015": true,
+ "l0_equal_to_source_within_0.0015": true,
+ "v50h_probes": 0,
+ "v50i_probes": 0
+}

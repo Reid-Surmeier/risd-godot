@@ -1,0 +1,12 @@
+[2026-10-01 08:07:26] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Battle&items_per_page=25> (referer: https://www.google.com/)
+Battle [{"id": "1362486", "primaryMaker": "Domenico Tintoretto", "title": "Sketch for a Battle Scene: Tancred and Clorinda", "objectNumber": "53.122", "medium": ["Oil on canvas"], "dimensions": "71.1 x 41.9 cm (28 x 16 1/2 inches)", "url": "https://risdmuseum.org/art-design/collection/sketch-battle-scene-tancred-and-clorinda-53122"}]
+[2026-10-01 08:07:27] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Tourney&items_per_page=25> (referer: https://www.google.com/)
+Tourney []
+[2026-10-01 08:07:27] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Combat&items_per_page=25> (referer: https://www.google.com/)
+Combat []
+[2026-10-01 08:07:28] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Massacre&items_per_page=25> (referer: https://www.google.com/)
+Massacre []
+[2026-10-01 08:07:29] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Soldiers&items_per_page=25> (referer: https://www.google.com/)
+Soldiers []
+[2026-10-01 08:07:29] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Fresnaye&items_per_page=25> (referer: https://www.google.com/)
+Fresnaye []

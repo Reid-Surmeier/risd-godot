@@ -1,0 +1,107 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-dc50bab67fc8e2c41084",
+      "objective": "Generate ONE complete FRONT ORTHOGRAPHIC low polygon cream-painted wooden museum door leaf matching the European/Renaissance doorway in references1 and2. The real leaf has TWO rectangular recessed panels: a very tall upper panel occupying approximately60 percent of the leaf height and a much shorter lower panel occupying approximately23 percent, with broad plain rails/stiles and subtle stepped raised panel mouldings. Preserve the two unequal panels, not three/six panels. Warm off-white paint, simple restrained low polygon shading in reference3 Main Hall game style. Complete rectangular leaf silhouette, straight vertical sides, ratio height2.74m to width0.96m. A small dark round knob at the free left edge near the rail between panels, paired leaf will be mirrored in native geometry. Flat magenta #FF00FF outside silhouette, generous margins. One door leaf only, no jamb, casing, walls, room, people, labels, paintings, perspective or cast shadow outside leaf. Native closed geometry supplies real thickness and inset panel relief.\n",
+      "procedureId": "muse-dc50bab67fc8e2c41084",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "european-two-panel-door-recipe.json",
+          "sha256": "dc50bab67fc8e2c410846e2b70aeacd404392c1c468f8d2e8bd60d78ed3cf11e"
+        },
+        {
+          "applicationPath": "european-two-panel-door-plan.json",
+          "sha256": "283c159a039a704519ec97f150bffda1ac05e91e653442d0b1a82942bdf7d62b"
+        },
+        {
+          "applicationPath": "european-two-panel-door-prompt.txt",
+          "sha256": "9309fdf6a4a261bb7a79ad24d15f96f0e8a152de0ccde18788990955a38d7f9b"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/european-two-panel-door-selected-0.png",
+          "sha256": "b81f44cc7e44e961396133a176fbb6140a647018d0a5bcf3ab56ec52ca608cb4",
+          "byteLength": 11200462,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/european-two-panel-door-selected-1.png",
+          "sha256": "2c0d643e6d44da43e14e2f169a0aff67f1f677c71069513f6737f05664e3d7f2",
+          "byteLength": 11174001,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        },
+        {
+          "slot": "reference-002",
+          "applicationPath": "inventory-references/european-two-panel-door-selected-2.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+          "byteLength": 657879,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/2/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 720,
+            "height": 720
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"Generate ONE complete FRONT ORTHOGRAPHIC low polygon cream-painted wooden museum door leaf matching the European/Renaissance doorway in references1 and2. The real leaf has TWO rectangular recessed panels: a very tall upper panel occupying approximately60 percent of the leaf height and a much shorter lower panel occupying approximately23 percent, with broad plain rails/stiles and subtle stepped raised panel mouldings. Preserve the two unequal panels, not three/six panels. Warm off-white paint, simple restrained low polygon shading in reference3 Main Hall game style. Complete rectangular leaf silhouette, straight vertical sides, ratio height2.74m to width0.96m. A small dark round knob at the free left edge near the rail between panels, paired leaf will be mirrored in native geometry. Flat magenta #FF00FF outside silhouette, generous margins. One door leaf only, no jamb, casing, walls, room, people, labels, paintings, perspective or cast shadow outside leaf. Native closed geometry supplies real thickness and inset panel relief.\\n\",\"objectiveId\":\"muse-dc50bab67fc8e2c41084\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-dc50bab67fc8e2c41084\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/european-two-panel-door-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":11200462,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"b81f44cc7e44e961396133a176fbb6140a647018d0a5bcf3ab56ec52ca608cb4\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/european-two-panel-door-selected-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":11174001,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"2c0d643e6d44da43e14e2f169a0aff67f1f677c71069513f6737f05664e3d7f2\",\"slot\":\"reference-001\"},{\"applicationPath\":\"inventory-references/european-two-panel-door-selected-2.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":657879,\"inspectedMedia\":{\"height\":720,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":720},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/2/image_url/url\",\"sha256\":\"5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe\",\"slot\":\"reference-002\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"european-two-panel-door-recipe.json\",\"sha256\":\"dc50bab67fc8e2c410846e2b70aeacd404392c1c468f8d2e8bd60d78ed3cf11e\"},{\"applicationPath\":\"european-two-panel-door-plan.json\",\"sha256\":\"283c159a039a704519ec97f150bffda1ac05e91e653442d0b1a82942bdf7d62b\"},{\"applicationPath\":\"european-two-panel-door-prompt.txt\",\"sha256\":\"9309fdf6a4a261bb7a79ad24d15f96f0e8a152de0ccde18788990955a38d7f9b\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "d6f87926e37f8ad942651a4e23f72a35b08ced27345f66cf0fe6b5f43cf2f6e4"
+  },
+  "normalView": {
+    "objective": "Generate ONE complete FRONT ORTHOGRAPHIC low polygon cream-painted wooden museum door leaf matching the European/Renaissance doorway in references1 and2. The real leaf has TWO rectangular recessed panels: a very tall upper panel occupying approximately60 percent of the leaf height and a much shorter lower panel occupying approximately23 percent, with broad plain rails/stiles and subtle stepped raised panel mouldings. Preserve the two unequal panels, not three/six panels. Warm off-white paint, simple restrained low polygon shading in reference3 Main Hall game style. Complete rectangular leaf silhouette, straight vertical sides, ratio height2.74m to width0.96m. A small dark round knob at the free left edge near the rail between panels, paired leaf will be mirrored in native geometry. Flat magenta #FF00FF outside silhouette, generous margins. One door leaf only, no jamb, casing, walls, room, people, labels, paintings, perspective or cast shadow outside leaf. Native closed geometry supplies real thickness and inset panel relief.\n",
+    "evidence": "3 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

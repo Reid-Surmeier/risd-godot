@@ -1,0 +1,30 @@
+{
+  "picks": {
+    "IMG_6380/000203.jpg": [
+      [
+        421,
+        857
+      ]
+    ],
+    "IMG_6380/000211.jpg": [
+      [
+        548,
+        1035
+      ]
+    ],
+    "IMG_6380/000210.jpg": [
+      [
+        197,
+        1039
+      ]
+    ]
+  },
+  "training": [
+    "IMG_6380/000203.jpg",
+    "IMG_6380/000211.jpg"
+  ],
+  "reserved": "IMG_6380/000210.jpg",
+  "labels": [
+    "grand-white-exterior-casing-toe"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+ "v50h": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50h/native-evidence/hall-collection.png",
+ "v50n": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/hall-collection.png",
+ "mean_abs_diff_rgb": [
+  0.0,
+  0.0,
+  0.0
+ ],
+ "max_diff": [
+  13,
+  4,
+  5
+ ],
+ "bbox_of_difference": [
+  304,
+  309,
+  390,
+  345
+ ],
+ "face_patch_mean_rgb_v50n": [
+  190.8,
+  122.3,
+  82.2
+ ],
+ "face_patch_mean_rgb_v50h": [
+  190.8,
+  122.3,
+  82.2
+ ]
+}

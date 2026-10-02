@@ -1,0 +1,28 @@
+{
+  "source": "Ten existing verified video contact sheets visually inspected, nominal times only.",
+  "clips": {
+    "IMG_6378": "Auditorium/seating and wood-lined hall; not casing evidence.",
+    "IMG_6379": "Upper stair hall; no same Grand-end face established.",
+    "IMG_6380": "Blue painting room, numbered corridor, decorative gallery; entry/return casing survey inspected.",
+    "IMG_6381": "Stair hall and railings; no same Grand-end face established.",
+    "IMG_6382": "Head/medieval sculpture room and surrounding doorways.",
+    "IMG_6383": "Decorative works and vitrines; supplemental reference.",
+    "IMG_6384": "Decorative gallery paintings/vitrines.",
+    "IMG_6385": "Secretary and painting scale candidates; decorative room.",
+    "IMG_6386": "Decorative gallery return coverage.",
+    "IMG_6387": "Stair hall and painting alcove."
+  },
+  "caveat": "Visual coverage categories, not verified room count or accepted topology. Supplemental clips do not expand scope.",
+  "source_sha256": {
+    "IMG_6385-contact.jpg": "732fb1d9c14c467a1ed8a16b6507e5fd0a2c189a0a5845972e6ecb7ca47566ba",
+    "IMG_6380-contact.jpg": "58324b414423798f908538cedf6d289772ea44e5229acf37bf73f23d7643fe8c",
+    "IMG_6379-contact.jpg": "7f50d372de5290c869b71ba42fa755f5dba201df0c2b1f0d02ec8b9dc2a66273",
+    "IMG_6387-contact.jpg": "058fc9e241b1d6efb6b84018fed17c3657468030bc20bfb43c1ae91f51058bff",
+    "IMG_6383-contact.jpg": "3814b70e6072ff349e57cfdb0ada7abaca46aa8ca00f7e48d7c1d65b6856b80d",
+    "IMG_6381-contact.jpg": "3ecb7c5cce9f18bd7e8c93e7cc556c7dd5ef71fff23f4cb974a3ad16a77d3ae8",
+    "IMG_6382-contact.jpg": "336a16fa13c4ec2ff7b51c86221aeb4e65f07b40b8eddad471526c87bf7ae196",
+    "IMG_6384-contact.jpg": "59d037cc0667ebb38ea155e7b499ddec086e981ae445e868eeafeef28ad3d312",
+    "IMG_6386-contact.jpg": "759160df7fefc1d44c905e0c5d3c4f5bdd0bf5f38ac09c91cd43078a93aeaf0c",
+    "IMG_6378-contact.jpg": "520747afcd8a7ad97cdc1361d6417a9b66d0c26a0d8ad4a17642b7298c23b529"
+  }
+}

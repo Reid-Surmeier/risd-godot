@@ -1,0 +1,7 @@
+{
+  "source": "silhouette-vs-official.txt",
+  "source_sha256": "ec561c6e74dc1a541ac2b545adebbb50fc5127d4f2da313573d43c7c4149909e",
+  "archive": "silhouette-vs-official.txt.gz",
+  "archive_sha256": "e603bc8fe94f906fc53f11a7f2f4701693f5b0209329ba6e421fe9a2a9b78926",
+  "reason": "Preserve exact independent worker output; its terminal text has an EOF blank line rejected by git diff --check."
+}

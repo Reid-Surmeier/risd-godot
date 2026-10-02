@@ -1,0 +1,35 @@
+{
+  "sources": [
+    "IMG_6383 24.6s",
+    "IMG_6383 62.0s"
+  ],
+  "authoring_position_before_room_shift": [
+    -5.25,
+    1.08,
+    20.55
+  ],
+  "room_shift": [
+    0,
+    0,
+    9.25
+  ],
+  "case_shelf_size_m": [
+    0.38,
+    0.11,
+    0.65
+  ],
+  "hood_top_y_m": 1.78,
+  "case_owner": "light Renaissance room:west",
+  "closed_parts": 39,
+  "bounds_m": [
+    0.381,
+    0.457,
+    0.132
+  ],
+  "source_rear_observed": false,
+  "placement_accepted": false,
+  "case_metres_accepted": false,
+  "fine_fidelity_accepted": false,
+  "width_conflict": "Catalogue width38.1cm requires widening photo-derived model9.4%; unresolved",
+  "paid_calls_for_installation": 0
+}

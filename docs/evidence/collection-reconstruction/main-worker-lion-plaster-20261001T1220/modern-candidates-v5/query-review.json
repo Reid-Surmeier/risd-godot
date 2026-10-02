@@ -1,0 +1,108 @@
+[
+  {
+    "query": "Chagall",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Chagall&items_per_page=25",
+    "rows": 12,
+    "candidates": []
+  },
+  {
+    "query": "Zorach",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Zorach&items_per_page=25",
+    "rows": 1,
+    "candidates": []
+  },
+  {
+    "query": "Picasso",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Picasso&items_per_page=25",
+    "rows": 25,
+    "candidates": [
+      {
+        "id": "1538691",
+        "primaryMaker": "Pablo Picasso",
+        "title": "Seated Woman with a Book (Femme assise au livre)",
+        "objectNumber": "51.094",
+        "medium": [
+          "Oil on canvas"
+        ],
+        "dimensions": "41.3 x 24.1 cm (16 1/4 x 9 1/2 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/seated-woman-book-femme-assise-au-livre-51094"
+      }
+    ]
+  },
+  {
+    "query": "Grosz",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Grosz&items_per_page=25",
+    "rows": 15,
+    "candidates": []
+  },
+  {
+    "query": "Berman",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Berman&items_per_page=25",
+    "rows": 10,
+    "candidates": []
+  },
+  {
+    "query": "Derain",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Derain&items_per_page=25",
+    "rows": 5,
+    "candidates": [
+      {
+        "id": "1362291",
+        "primaryMaker": "Andr\u00e9 Derain",
+        "title": "Two Roses in a Glass Vase",
+        "objectNumber": "42.216",
+        "medium": [
+          "Oil on canvas"
+        ],
+        "dimensions": "41.3 x 33 cm (16 1/4 x 13 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/two-roses-glass-vase-42216"
+      }
+    ]
+  },
+  {
+    "query": "Dufy",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Dufy&items_per_page=25",
+    "rows": 11,
+    "candidates": [
+      {
+        "id": "1230311",
+        "primaryMaker": "Raoul Dufy",
+        "title": "Club Room at the Cowes Royal Yacht Club",
+        "objectNumber": "57.229",
+        "medium": [
+          "Oil on canvas"
+        ],
+        "dimensions": "60.2 x 73 cm (23 11/16 x 28 3/4 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/club-room-cowes-royal-yacht-club-57229"
+      },
+      {
+        "id": "1523301",
+        "primaryMaker": "Raoul Dufy",
+        "title": "L&#039;Estaque",
+        "objectNumber": "1992.123",
+        "medium": [
+          "Oil on canvas"
+        ],
+        "dimensions": "46 x 38.4 cm (18 1/8 x 15 1/8 inches)",
+        "url": "https://risdmuseum.org/art-design/collection/lestaque-1992123"
+      },
+      {
+        "id": "1454736",
+        "primaryMaker": "Raoul Dufy",
+        "title": "Regatta at Trouville (Regates \u00e0 Trouville)",
+        "objectNumber": "2007.25",
+        "medium": [
+          "Oil on canvas"
+        ],
+        "dimensions": "33.3 x 81.3 cm (13 1/8 x 32 inches) (frame)",
+        "url": "https://risdmuseum.org/art-design/collection/regatta-trouville-regates-trouville-200725"
+      }
+    ]
+  },
+  {
+    "query": "Kisling",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Kisling&items_per_page=25",
+    "rows": 0,
+    "candidates": []
+  }
+]

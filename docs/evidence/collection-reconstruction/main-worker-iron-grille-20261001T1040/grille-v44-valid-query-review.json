@@ -1,0 +1,27 @@
+[
+  {
+    "query": "wrought",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=wrought&items_per_page=25",
+    "count": 25
+  },
+  {
+    "query": "gate",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=gate&items_per_page=25",
+    "count": 25
+  },
+  {
+    "query": "grating",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=grating&items_per_page=25",
+    "count": 4
+  },
+  {
+    "query": "ironwork",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=ironwork&items_per_page=25",
+    "count": 0
+  },
+  {
+    "query": "railing",
+    "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=railing&items_per_page=25",
+    "count": 25
+  }
+]

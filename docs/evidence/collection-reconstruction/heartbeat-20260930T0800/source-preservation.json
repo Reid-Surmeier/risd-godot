@@ -1,0 +1,17 @@
+{
+  "originals_verified": 10,
+  "preserved_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/heldout-calibrated-v1/result.json": "247c5a83429e23dff31f0eed70468fa5dbdde5728ffc430a4255df2f2b82c3da",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/heldout-calibrated-v1/audit.json": "3133af036bb76f9f99f8db61b5b7354910d171c0bb4dadbba19ca8ae515e9847",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  }
+}

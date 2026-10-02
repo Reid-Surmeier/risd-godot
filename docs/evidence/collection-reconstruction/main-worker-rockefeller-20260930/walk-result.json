@@ -1,0 +1,137 @@
+{
+  "checks": {
+    "decorative_room": true,
+    "decorative_room_camera": true,
+    "forward": true,
+    "forward_camera": true,
+    "left_blocked": true,
+    "left_blocked_camera": true,
+    "painting_gallery": true,
+    "painting_gallery_camera": true,
+    "reverse": true,
+    "reverse_camera": true,
+    "right_blocked": true,
+    "right_blocked_camera": true,
+    "right_door_back": true,
+    "right_door_back_camera": true,
+    "right_door_out": true,
+    "right_door_out_camera": true,
+    "right_wall_blocked": true,
+    "right_wall_blocked_camera": true
+  },
+  "frame_time_p50_ms": 20.1916666666667,
+  "frame_time_p95_ms": 22.2222222222222,
+  "navigation_accepted": false,
+  "render_frames": 1572,
+  "renderer": "D3D12 (NVIDIA GeForce RTX 4070 SUPER)",
+  "samples": [
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        0.259999126195908,
+        -0.000473063846584409,
+        -1.17498898506165
+      ],
+      "trial": "forward"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        0.259999752044678,
+        0.000751559273339808,
+        1.17500650882721
+      ],
+      "trial": "reverse"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -0.899999976158142,
+        -0.00148408347740769,
+        0.347668886184692
+      ],
+      "trial": "left_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        1.41999995708466,
+        -0.00199946318753064,
+        0.347755253314972
+      ],
+      "trial": "right_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        0.259999990463257,
+        0.000798073597252369,
+        -3.97083377838135
+      ],
+      "trial": "decorative_room"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        0.259999990463257,
+        0.00080147769767791,
+        3.97083449363708
+      ],
+      "trial": "painting_gallery"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        4.77082633972168,
+        0.000827294366899878,
+        -1.99999690055847
+      ],
+      "trial": "right_door_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        3.02913284301758,
+        0.000773503968957812,
+        -1.99999988079071
+      ],
+      "trial": "right_door_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 3,
+      "on_floor": true,
+      "position": [
+        3.3679039478302,
+        -0.000722013413906097,
+        -0.649999976158142
+      ],
+      "trial": "right_wall_blocked"
+    }
+  ]
+}

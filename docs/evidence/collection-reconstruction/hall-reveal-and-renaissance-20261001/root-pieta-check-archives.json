@@ -1,0 +1,20 @@
+[
+  {
+    "source": "/tmp/collection-pieta-root-import.log",
+    "sha256": "e9fbb0dae4842b1140b0f88d43bb8001a99285ac8b3cc8b02a86c30de5f58df5",
+    "archive": "collection-pieta-root-import.log.gz",
+    "archive_sha256": "2b36770ce5df7fad83c7a4a3312516adb652b4adff52e3906c9f5c88fbabb0c2"
+  },
+  {
+    "source": "/tmp/collection-pieta-root-check.log",
+    "sha256": "941474f73f55bb1e116588d098b2b81dd0548d51b67e3f02a1831f1018cb1d8f",
+    "archive": "collection-pieta-root-check.log.gz",
+    "archive_sha256": "1555128e56b23aecf53984a392d88fb4ca074efaaf57ae32e855a17cfafb1dd2"
+  },
+  {
+    "source": "/tmp/collection-pieta-root-negative.log",
+    "sha256": "e5a3da2dcdc67db226ba3bb71737a6bbbd868e3cbf06773a97cebbc3c09c00f1",
+    "archive": "collection-pieta-root-negative.log.gz",
+    "archive_sha256": "5e85897b8bb05a5e90bbecf6b99fc170325420bf2bc1afd9d7f24fe42985238e"
+  }
+]

@@ -1,0 +1,91 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-1c1f0258f144c2b97fd1",
+      "objective": "The reference photographs are the sole authority for RISD Museum Rockefeller Service Ecuelle with Cover, accession 2017.74.38.3a-c. Produce ONE complete front view of this exact single object, facing as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional. Remove completely the white paper tag, string and handwritten black 21 beside the right handle. Preserve the real ceramic body, plate, lid and both handles; complete only the narrow ceramic occlusion from the other official photograph. No writing or photograph accessories. This is a deliberate cleanup of the successful previous Muse image, not a retry of a failed submission.\n",
+      "procedureId": "muse-1c1f0258f144c2b97fd1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "gold-ecuelle-clean-recipe.json",
+          "sha256": "1c1f0258f144c2b97fd13204ef90bf16b240427d8df11067573bfe96494c66f1"
+        },
+        {
+          "applicationPath": "gold-ecuelle-clean-plan.json",
+          "sha256": "811afbb30d258ec401b38346ed73c3fc849228a3d1fc2f64a14e86b01dc409f5"
+        },
+        {
+          "applicationPath": "gold-ecuelle-clean-prompt.txt",
+          "sha256": "f0552c30793a2d1cedcc8d0aaab2655983b87b000170064f74821b77ea9c779b"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/gold-ecuelle-clean-selected-0.png",
+          "sha256": "4058ec1d4a69a088016aa991525f794acbfe5e73ce6b7990d4f15ece541ea471",
+          "byteLength": 2042655,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1440,
+            "height": 1760
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/gold-ecuelle-clean-selected-1.png",
+          "sha256": "8bdec6d79c8eeaa81c9c82f26d60d198985930470b4b52d49c9560d5afc3b7c0",
+          "byteLength": 2701957,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 1324
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"The reference photographs are the sole authority for RISD Museum Rockefeller Service Ecuelle with Cover, accession 2017.74.38.3a-c. Produce ONE complete front view of this exact single object, facing as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional. Remove completely the white paper tag, string and handwritten black 21 beside the right handle. Preserve the real ceramic body, plate, lid and both handles; complete only the narrow ceramic occlusion from the other official photograph. No writing or photograph accessories. This is a deliberate cleanup of the successful previous Muse image, not a retry of a failed submission.\\n\",\"objectiveId\":\"muse-1c1f0258f144c2b97fd1\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-1c1f0258f144c2b97fd1\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/gold-ecuelle-clean-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":2042655,\"inspectedMedia\":{\"height\":1760,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1440},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"4058ec1d4a69a088016aa991525f794acbfe5e73ce6b7990d4f15ece541ea471\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/gold-ecuelle-clean-selected-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":2701957,\"inspectedMedia\":{\"height\":1324,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"8bdec6d79c8eeaa81c9c82f26d60d198985930470b4b52d49c9560d5afc3b7c0\",\"slot\":\"reference-001\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"gold-ecuelle-clean-recipe.json\",\"sha256\":\"1c1f0258f144c2b97fd13204ef90bf16b240427d8df11067573bfe96494c66f1\"},{\"applicationPath\":\"gold-ecuelle-clean-plan.json\",\"sha256\":\"811afbb30d258ec401b38346ed73c3fc849228a3d1fc2f64a14e86b01dc409f5\"},{\"applicationPath\":\"gold-ecuelle-clean-prompt.txt\",\"sha256\":\"f0552c30793a2d1cedcc8d0aaab2655983b87b000170064f74821b77ea9c779b\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "ccd76b68787719dbed006cca25bd6f4d99ea64d823360db680c12264684632f3"
+  },
+  "normalView": {
+    "objective": "The reference photographs are the sole authority for RISD Museum Rockefeller Service Ecuelle with Cover, accession 2017.74.38.3a-c. Produce ONE complete front view of this exact single object, facing as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional. Remove completely the white paper tag, string and handwritten black 21 beside the right handle. Preserve the real ceramic body, plate, lid and both handles; complete only the narrow ceramic occlusion from the other official photograph. No writing or photograph accessories. This is a deliberate cleanup of the successful previous Muse image, not a retry of a failed submission.\n",
+    "evidence": "2 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

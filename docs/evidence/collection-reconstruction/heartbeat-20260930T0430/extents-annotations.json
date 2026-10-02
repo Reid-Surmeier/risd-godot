@@ -1,0 +1,43 @@
+{
+  "picks": {
+    "IMG_6380/000238.jpg": [
+      [
+        250,
+        681
+      ],
+      [
+        560,
+        701
+      ]
+    ],
+    "IMG_6380/000244.jpg": [
+      [
+        60,
+        925
+      ],
+      [
+        640,
+        896
+      ]
+    ],
+    "IMG_6380/000239.jpg": [
+      [
+        48,
+        736
+      ],
+      [
+        390,
+        716
+      ]
+    ]
+  },
+  "training": [
+    "IMG_6380/000238.jpg",
+    "IMG_6380/000244.jpg"
+  ],
+  "reserved": "IMG_6380/000239.jpg",
+  "labels": [
+    "decorative-black-outer-toe",
+    "decorative-purple-outer-toe"
+  ]
+}

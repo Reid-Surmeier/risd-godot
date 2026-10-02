@@ -1,0 +1,16 @@
+[2026-09-30 23:14:58] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Lhote&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)
+[2026-09-30 23:14:58] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Villon&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)
+1539421 70.058 Head of a Woman Jacques Villon
+[2026-09-30 23:14:58] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Laurens&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)
+1534941 2007.93.1 Cascade POLLACK &amp; Associates
+1217816 2007.93.1.3 Cascade POLLACK &amp; Associates
+1236486 2007.93.1.5 Cascade POLLACK &amp; Associates
+1334661 2007.93.1.6 Cascade POLLACK &amp; Associates
+1466656 2007.93.1.1 Cascade POLLACK &amp; Associates
+1466711 2007.93.1.4 Cascade POLLACK &amp; Associates
+1500161 2007.93.1.2 Cascade POLLACK &amp; Associates
+[2026-09-30 23:14:59] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Weber&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)
+1558241 2005.87.3 Il Tesoro Nascosto (The Hidden Treasure) Alighiero Boetti
+[2026-09-30 23:14:59] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Metzinger&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)
+[2026-09-30 23:15:01] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Delaunay&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)
+[2026-09-30 23:15:02] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Picasso&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)

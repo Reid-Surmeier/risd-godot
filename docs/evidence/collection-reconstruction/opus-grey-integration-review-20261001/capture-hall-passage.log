@@ -1,0 +1,15 @@
+PASSAGE Surface000 (-0.08, 0.0, 0.19) .. (10.92, 0.0, 29.53)
+PASSAGE Surface118 (5.38, 2.65, -0.77) .. (5.72, 3.43, 1.84)
+PASSAGE Surface119 (0.55, 0.0, -0.82) .. (10.55, 3.22, 1.95)
+PASSAGE Surface120 (0.55, 0.0, -0.8) .. (10.55, 0.05, 1.94)
+PASSAGE Surface121 (4.6, 0.0, -0.85) .. (6.5, 2.8, 1.8)
+PASSAGE Surface122 (4.6, 0.0, -0.85) .. (6.5, 0.0, 1.68)
+PASSAGE Surface123 (4.6, 0.0, -0.66) .. (6.5, 0.0, 1.49)
+CAPTURE {"passage_meshes":7,"views":6}
+VERTS Surface000 north_of_1.79=288 at_or_south=8640 gi_mode=1 cast=0 north x values=[-0.1, 0.2, 0.7, 1.25, 1.5, 2.05, 2.6, 2.85, 3.4, 3.95, 4.2, 4.75, 5.3, 5.55]
+VERTS Surface118 north_of_1.79=4 at_or_south=4 gi_mode=1 cast=2 north x values=[5.4, 5.7]
+VERTS Surface119 north_of_1.79=892 at_or_south=1382 gi_mode=1 cast=2 north x values=[4.6, 4.65, 4.75, 4.8, 4.9, 4.95, 5.0, 5.05, 5.1, 5.3, 5.35, 5.55, 5.75, 5.8]
+VERTS Surface120 north_of_1.79=130 at_or_south=192 gi_mode=1 cast=2 north x values=[4.6, 4.65, 4.75, 4.8, 4.9, 4.95, 6.15, 6.2, 6.3, 6.35, 6.45, 6.5]
+VERTS Surface121 north_of_1.79=149 at_or_south=19 gi_mode=1 cast=2 north x values=[4.6, 5.1, 5.55, 6.05, 6.5]
+VERTS Surface122 north_of_1.79=60 at_or_south=0 gi_mode=1 cast=2 north x values=[4.6, 5.0, 5.35, 5.75, 6.1, 6.5]
+VERTS Surface123 north_of_1.79=96 at_or_south=0 gi_mode=1 cast=2 north x values=[4.6, 5.0, 5.35, 5.75, 6.1, 6.5]

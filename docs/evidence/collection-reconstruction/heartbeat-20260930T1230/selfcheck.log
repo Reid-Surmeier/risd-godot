@@ -1,0 +1,5 @@
+PASS baseline pose/floor replay equals recovered 0900 result
+PASS photometric does not change pose/floor-point diagnostic
+PASS every hashed input unchanged
+PASS bilinear subpixel/integer recovery and plane/camera projection assertions
+PASS Python syntax and unchanged Viewer

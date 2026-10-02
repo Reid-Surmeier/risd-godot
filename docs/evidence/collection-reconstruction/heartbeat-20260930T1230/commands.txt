@@ -1,0 +1,8 @@
+# Completed trials refuse overwrites; preserve existing folders.
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/floor_holdout.py --output strict-floor-photometric-final --photometric
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/floor_holdout.py --output strict-floor-holdout-checkpoint-replay
+env -u LIBGL_ALWAYS_SOFTWARE DISPLAY=:0 GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA godot --path /home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-walk-v7 --display-driver x11 --rendering-method gl_compatibility -- --selfcheck --out=/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-walk-v7/evidence-20260930T1230
+env -u LIBGL_ALWAYS_SOFTWARE GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA node modules/shell/prototype/collection_reconstruction/doorway_walk_browser.cjs https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T0430/walk/ docs/evidence/collection-reconstruction/heartbeat-20260930T1230 1100
+env -u LIBGL_ALWAYS_SOFTWARE DISPLAY=:0 GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA scripts/check.sh
+env -u LIBGL_ALWAYS_SOFTWARE GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA GODOT_DISPLAY=:0 scripts/playtest.sh shell /tmp/risd-collection-shell-20260930T1230
+git diff --check

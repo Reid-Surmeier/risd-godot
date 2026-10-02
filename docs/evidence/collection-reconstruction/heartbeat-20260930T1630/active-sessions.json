@@ -1,0 +1,94 @@
+{
+  "id": "884dc54b-765f-47da-b8eb-86d6ec37118b",
+  "ok": true,
+  "result": {
+    "terminals": [
+      {
+        "handle": "term_60d8bda6-e0cc-4a46-9f0e-0766a38a2e26",
+        "ptyId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction@@fdea95ac",
+        "incarnationId": "1affe155-f341-48b8-abb0-78114e020864",
+        "orphaned": false,
+        "worktreeId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction",
+        "worktreePath": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction",
+        "branch": "refs/heads/Reid-Surmeier/collection-reconstruction",
+        "tabId": "8b2dff6f-0af3-460f-bd93-1ea98d0f9b94",
+        "leafId": "ce0ffad4-3461-43ee-8e44-4582231435ad",
+        "title": "Advance RISD Collection heartbeat | collection-reconstruc...",
+        "connected": true,
+        "writable": true,
+        "lastOutputAt": 1790781714808,
+        "preview": "s;Shellhassevenknownfailures. Next:freeze floor landmarks using the saved poe. Viewer and pending work preserved; $0spent.Automationremainsenabled.https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1500/Reviewtheevidenceanddatedcheckpoint.  Worked for 21m 31s • 11:21",
+        "executionHostId": "local",
+        "agentIdentity": "codex"
+      },
+      {
+        "handle": "term_64db282a-a52b-40c6-b2af-36920316e258",
+        "ptyId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction@@6c8134bb",
+        "incarnationId": "7ce8f31d-1262-4960-94c1-404376f34c65",
+        "orphaned": false,
+        "worktreeId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction",
+        "worktreePath": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction",
+        "branch": "refs/heads/Reid-Surmeier/collection-reconstruction",
+        "tabId": "6db70a02-5cd7-4ac9-9c40-bdb43f772212",
+        "leafId": "0ca64f38-a238-43de-a030-4f18980ca4b1",
+        "title": "Advance RISD Collection heartbeat | collection-reconstruc...",
+        "connected": true,
+        "writable": true,
+        "lastOutputAt": 1790783354267,
+        "preview": "positorycheckspass;Shellretainsfourfailures. Next: reze distinct floor landmarks. Viewer and pending workreerved; $0 spet. Atomtion remainsenabled.https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1530/Inspectedevidenceanddatedcheckpoint.  Worked for 18m 51s • 11:49",
+        "executionHostId": "local",
+        "agentIdentity": "codex"
+      },
+      {
+        "handle": "term_7bb38a1c-3a6c-4007-a610-1850a338267d",
+        "ptyId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction@@2939f592",
+        "incarnationId": "6c75e340-ecf3-476c-95b0-2abf90cdb2e5",
+        "orphaned": false,
+        "worktreeId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction",
+        "worktreePath": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction",
+        "branch": "refs/heads/Reid-Surmeier/collection-reconstruction",
+        "tabId": "00e93f7e-0a05-4cd1-8ae0-f8615b27e0b6",
+        "leafId": "e7dcb37c-fc5e-45ba-99a8-ac1fb3b66634",
+        "title": "Advance Collection map prototype | collection-reconstruc...",
+        "connected": true,
+        "writable": true,
+        "lastOutputAt": 1790784997852,
+        "preview": "positorycheckspass;Shellhasfiveknownfailures. Next: separated a-floorachors. Viewer and ending work preserved; $0 spent. Automation remainsenabled.https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1600/Inspectedevidenceanddatedcheckpoint.  Worked for 16m 14s • 12:16",
+        "executionHostId": "local",
+        "agentIdentity": "codex"
+      },
+      {
+        "handle": "term_49edcf6c-7278-4dcf-a404-e1e8959763da",
+        "ptyId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction@@a7751a00",
+        "incarnationId": "75051c9b-f005-406c-9847-4aa96a108e28",
+        "orphaned": false,
+        "worktreeId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction",
+        "worktreePath": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction",
+        "branch": "refs/heads/Reid-Surmeier/collection-reconstruction",
+        "tabId": "2175b9a2-e171-4370-87a9-20150c1fd006",
+        "leafId": "0e0bb31c-4fc6-4445-ac0d-61f7c7657505",
+        "title": "Advance RISD Collection heartbeat | collection-reconstruc...",
+        "connected": true,
+        "writable": true,
+        "lastOutputAt": 1790785948061,
+        "preview": "                                                    •ExploringRead collection-reconstruction-heartbeat-20260930T0730.md    Readcollection-reconstruction-heartbeat-20260930T0800.md    Readsampling_audit.pyShow details               · 1 background terminal running · /ps to view · /stop to closeed24520",
+        "executionHostId": "local",
+        "agentIdentity": "codex"
+      }
+    ],
+    "hostScope": {
+      "hostIds": [
+        "local"
+      ],
+      "omittedHostIds": []
+    },
+    "topologyRevisions": {
+      "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction": 131
+    },
+    "totalCount": 4,
+    "truncated": false
+  },
+  "_meta": {
+    "runtimeId": "836751f2-da21-4536-bf86-780bd8c3bcdf"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "source": "IMG_6380/000505.jpg",
+  "depth_sha256": "fc12843b87a106a6119961b9ca0998f469b3ec2ed0c4991a36b90a241ad6b2a8",
+  "image_sha256": "403ab1fa27b0ca1aa52a9d0a1226c33fc837682ca49521c45dfdd9a6242610e4",
+  "patches": [
+    {
+      "patch": "near",
+      "polygon": [
+        [
+          70,
+          430
+        ],
+        [
+          280,
+          430
+        ],
+        [
+          335,
+          620
+        ],
+        [
+          20,
+          620
+        ]
+      ],
+      "polygon_pixels": 50326,
+      "valid_depth_samples": 200,
+      "valid_depth_fraction": 0.00397408894011048,
+      "fit_samples": 83,
+      "check_samples": 117,
+      "status": "insufficient depth: require 100 fit and 100 check samples"
+    },
+    {
+      "patch": "far",
+      "polygon": [
+        [
+          85,
+          330
+        ],
+        [
+          155,
+          330
+        ],
+        [
+          170,
+          365
+        ],
+        [
+          80,
+          365
+        ]
+      ],
+      "polygon_pixels": 2916,
+      "valid_depth_samples": 2883,
+      "valid_depth_fraction": 0.9886831275720165,
+      "fit_samples": 1443,
+      "check_samples": 1440,
+      "check_support_25mm": 0.7493055555555556,
+      "check_p50_p90_m": [
+        0.01416471802499195,
+        0.036382852904943655
+      ],
+      "center_world": [
+        0.49661327001611383,
+        2.0012974899647253,
+        1.0541832002296656
+      ],
+      "normal_world": [
+        -0.986397943033532,
+        0.010060458496273086,
+        -0.1640667094631383
+      ]
+    }
+  ],
+  "floor_normal_angle_degrees": null,
+  "floor_relative_to_toes_m": {
+    "far": [
+      0.035398497603560966,
+      0.0814237622520659
+    ]
+  },
+  "far_minus_near_at_toes_m": null,
+  "provisional_m_per_unit": 2.6266704457139363,
+  "navigation_accepted": false,
+  "caveat": "Separate fits to existing near/far masks in one CUDA depth map. Block checks are correlated, not independent capture validation. Plane extension to doorway toes is extrapolation; metric scale remains provisional."
+}

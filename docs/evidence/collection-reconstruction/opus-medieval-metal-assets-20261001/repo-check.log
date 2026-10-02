@@ -1,0 +1,5 @@
+$ PATH=/usr/bin:/bin bash scripts/check.sh   # godot and gdlint off PATH: map and seam checks only, no Godot import
+checks passed
+exit 0
+$ git diff --check
+exit 0

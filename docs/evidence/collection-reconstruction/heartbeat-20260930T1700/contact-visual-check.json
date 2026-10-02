@@ -1,0 +1,16 @@
+{
+  "image": "IMG_6384/000206.jpg",
+  "predicted_pixel": [
+    86.67050667881813,
+    828.6803260822345
+  ],
+  "pose_supported": true,
+  "pose_inliers": 72,
+  "pose_test_below4px": 77,
+  "observed_pixel": [
+    88,
+    834
+  ],
+  "error_px": 5.483291263686595,
+  "observation_caveat": "Approximate same-worker visual mark after prediction was displayed; not blind annotation or independent capture. Blurred floor contact; no retuning."
+}

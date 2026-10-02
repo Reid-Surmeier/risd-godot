@@ -1,0 +1,21 @@
+{
+  "point_ids": [
+    13116,
+    14320,
+    14976
+  ],
+  "training": [
+    "IMG_6380/000244.jpg",
+    "IMG_6380/000505.jpg"
+  ],
+  "reserved": [
+    "IMG_6380/000245.jpg",
+    "IMG_6380/000508.jpg",
+    "IMG_6380/000509.jpg"
+  ],
+  "reason": "Frozen before reserved feature/projection lookup. Source-reviewed threshold wood feature13116, left casing-floor feature14320 and right wood-floor boundary14976 provide a wider near-floor footprint across two visits. Baseboard features14564/14807 and purple toe14979 excluded: contact height uncertain. Sources are repeated passes within one video; not independent captures. IMG6384 features42721/43475/43482/43520 rejected as plinth/baseboard points rather than separated wood-floor observations.",
+  "source_images_sha256": {
+    "IMG_6380/000244.jpg": "81dc3d6cca2ec13687f0d040f5401f5bca78248b4348d98477e31afbff8f9fef",
+    "IMG_6380/000505.jpg": "57a9d4c90cdbbe43455c31945bf74192249aa10e0749b7659afada48e35ed917"
+  }
+}

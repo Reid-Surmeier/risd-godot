@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "baseboard-001",
+      "prompt": "baseboard-prompt.txt",
+      "promptSha256": "6d6aa1f799b998b486bf05279656c61e8ee38321d8aa0ab04a95997e79a634c3",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "architecture-references/baseboard-source.png",
+          "sha256": "ed47da8c0b971f7025da45bd7f5afb5752e0b38772ba8e61ec304e98180f8c11"
+        }
+      ]
+    }
+  ]
+}

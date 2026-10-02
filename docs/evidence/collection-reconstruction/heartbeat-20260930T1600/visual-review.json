@@ -1,0 +1,13 @@
+{
+  "native_candidate_identity": "Tentative interior far-floor seam/grain, too blurred for independent identity certification.",
+  "source_images": [
+    "000244-native-matches.png",
+    "000505-native-matches.png"
+  ],
+  "reserved": "506 green observation close to red projection; no observation in246. One point cannot define plane.",
+  "combined": "506 near-patch transfer visually similar but difference contains shifted seams; -5% offset control scores better. 246 near mask leaves view. No physical floor acceptance.",
+  "walk": "Native and Chrome forward/return show original visitor with doorway cutaway; historical provisional floor retained.",
+  "frame": "Approved direction inspected; physical depth/bake remain unverified.",
+  "sculpture": "v2 oblique inspected: face holes and open rear remain rejected.",
+  "cost_usd": 0
+}

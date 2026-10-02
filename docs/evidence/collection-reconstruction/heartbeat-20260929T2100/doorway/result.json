@@ -1,0 +1,112 @@
+{
+  "floor_residuals_provisional_m": [
+    -0.018157553671067677,
+    -0.0738981684137053
+  ],
+  "source_sha256": {
+    "sparse/0/points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "sparse/0/frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "sparse/0/images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "source_image_sha256": {
+    "IMG_6380/000505.jpg": "57a9d4c90cdbbe43455c31945bf74192249aa10e0749b7659afada48e35ed917",
+    "IMG_6380_exit6fps/000013.jpg": "56c308f8015aab6eea50e3d2ecbd324c0a8c7822b5326b5bcaf50c895ac37c7e",
+    "IMG_6380_exit6fps/000018.jpg": "c8d1d99174a00064a2e7be47876bc3c59e25cbe87032c5848e7f47dd9dd6cf02",
+    "IMG_6380/000506.jpg": "8a0af3a848e6ee0a90f72d99eb5dc35cf2fffea61ad61ae8ef456f5f4f576bfd"
+  },
+  "annotations": {
+    "IMG_6380/000505.jpg": [
+      [
+        110,
+        778
+      ],
+      [
+        469,
+        760
+      ]
+    ],
+    "IMG_6380_exit6fps/000013.jpg": [
+      [
+        84,
+        770
+      ],
+      [
+        431,
+        746
+      ]
+    ],
+    "IMG_6380_exit6fps/000018.jpg": [
+      [
+        166,
+        827
+      ],
+      [
+        586,
+        832
+      ]
+    ],
+    "IMG_6380/000506.jpg": [
+      [
+        168,
+        809
+      ],
+      [
+        568,
+        800
+      ]
+    ]
+  },
+  "training": [
+    "IMG_6380/000505.jpg",
+    "IMG_6380_exit6fps/000013.jpg",
+    "IMG_6380_exit6fps/000018.jpg"
+  ],
+  "heldout": "IMG_6380/000506.jpg",
+  "heldout_pose_fit_inliers": 316,
+  "corners_world": [
+    [
+      0.4547364133059685,
+      1.7129642645198129,
+      1.3704049429098373
+    ],
+    [
+      0.458543755296714,
+      2.4063420888714613,
+      1.4968191680723204
+    ]
+  ],
+  "maximum_ray_angle_degrees": [
+    7.459195937511913,
+    5.736579090025664
+  ],
+  "reprojection_errors_px": {
+    "IMG_6380/000505.jpg": [
+      2.1405799559353165,
+      1.4863289310001213
+    ],
+    "IMG_6380_exit6fps/000013.jpg": [
+      0.31980361957039627,
+      1.3215543553385782
+    ],
+    "IMG_6380_exit6fps/000018.jpg": [
+      2.0903512382022336,
+      0.15150730081881994
+    ],
+    "IMG_6380/000506.jpg": [
+      2.2153159849187767,
+      9.177861748114791
+    ]
+  },
+  "width_provisional_m": 1.8513235785627766,
+  "width_3px_perturbation_p10_p90_m": [
+    1.7600817284760821,
+    1.9549621108698854
+  ],
+  "provisional_m_per_unit": 2.6266704457139363,
+  "heldout_threshold_px": 8.0,
+  "diagnostic_pass": false,
+  "navigation_accepted": false,
+  "caveat": "Manual blurred-video picks; correlated nearby captures; metric scale inherits stepped bookcase bias. No height, room shell, collisions or final #181 tolerance acceptance."
+}

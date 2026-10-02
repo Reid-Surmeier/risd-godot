@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "white-panel-door-001",
+      "prompt": "white-panel-door-prompt.txt",
+      "promptSha256": "d7d61a367d7124fac682007143989502e9aad78fc0e674c0f508c17c83dbb6f0",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/white-panel-door-selected-0.png",
+          "sha256": "54205d621aa3fa17da7f7770721d9d1756a43ecfe65409e30ca4cd82d9c9c070"
+        },
+        {
+          "path": "inventory-references/white-panel-door-selected-1.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe"
+        }
+      ]
+    }
+  ]
+}

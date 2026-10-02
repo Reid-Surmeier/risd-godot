@@ -1,0 +1,13 @@
+# From authorized Collection prototype checkout; existing calibrated holdout already complete.
+# Live sessions: orca-ide terminal list --worktree path:<this checkout> --json
+# Source masks inspected before reserved observations; never overwrite completed trials.
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python docs/evidence/collection-reconstruction/heartbeat-20260930T1630/source_floor.py
+ffmpeg -n -hide_banner -loglevel info -hwaccel cuda -hwaccel_output_format cuda -noautorotate -ss 250 -i /home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6380.MOV -t 5 -vf 'scale_cuda=1920:1080:format=yuv420p,hwdownload,format=yuv420p,fps=6,select=eq(n\,12)+eq(n\,18)+eq(n\,20)+eq(n\,24)' -fps_mode vfr -q:v 2 /home/reidsurmeier/risd-godot-ingestion/collection-expansion/exit-floor-native-v2/%06d.jpg
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/native_floor_tracks.py docs/evidence/collection-reconstruction/heartbeat-20260930T1630/native-selection.json /home/reidsurmeier/risd-godot-ingestion/collection-expansion/native-exit-floor-tracks-v2
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python docs/evidence/collection-reconstruction/heartbeat-20260930T1630/check_native.py
+mkdir -p /tmp/collection-doorway-native-20260930T1630
+env -u LIBGL_ALWAYS_SOFTWARE DISPLAY=:0 GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA godot --path /home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-walk-v7 --display-driver x11 --rendering-method gl_compatibility -- --selfcheck --out=/tmp/collection-doorway-native-20260930T1630
+env -u LIBGL_ALWAYS_SOFTWARE GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA node modules/shell/prototype/collection_reconstruction/doorway_walk_browser.cjs https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T0430/walk/ /tmp/collection-doorway-browser-20260930T1630 1100
+env -u LIBGL_ALWAYS_SOFTWARE DISPLAY=:0 GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA scripts/check.sh
+env -u LIBGL_ALWAYS_SOFTWARE GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA GODOT_DISPLAY=:0 scripts/playtest.sh shell /tmp/collection-shell-20260930T1630
+git diff --check

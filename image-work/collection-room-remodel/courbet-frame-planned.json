@@ -1,0 +1,107 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-220cc901c4ce1ef23a48",
+      "objective": "Generate ONE complete front orthographic low polygon gilded frame matching the real frame around RISD Courbet Jura Landscape43.571 in the reference views. Preserve its broad dense carved acanthus/foliate outer band with projecting corner and centre leaf ornaments, narrow raised rectangular inner gold fillet, aged warm gold and restrained relief shadows in the existing museum game style. All four sides/corners complete. Perfectly blank white rectangular opening with canvas width73.3 height59.7cm. Flat magenta #FF00FF outside silhouette; no painting, labels, walls, people, shadows outside frame, perspective or invented extra ornaments. One frame only.\n",
+      "procedureId": "muse-220cc901c4ce1ef23a48",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "courbet-frame-recipe.json",
+          "sha256": "220cc901c4ce1ef23a4869a54f1f64e497c6afcd94d5cb4f4beb02825fec6e82"
+        },
+        {
+          "applicationPath": "courbet-frame-plan.json",
+          "sha256": "cc677cf900a4e26d65a771e47a7ebcdb94d3a23867699a5afffe8a770b071c82"
+        },
+        {
+          "applicationPath": "courbet-frame-prompt.txt",
+          "sha256": "e9afea54da1b7f502e2086ca2894d18e0b9ce80aa15999116e8e17631c7bd551"
+        }
+      ],
+      "museParameters": {
+        "size": "1760x1440"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/courbet-frame-selected-0.png",
+          "sha256": "04bc31f051f4bc5090c7fb1a56a8fc2851efb50551e55b95517984716817fed6",
+          "byteLength": 1549250,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/courbet-frame-selected-1.png",
+          "sha256": "a0a1f0dc135f200b64cb327072202c0b8097efd5bfe0436f3ab8d2de93f3113a",
+          "byteLength": 463839,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 720,
+            "height": 1280
+          }
+        },
+        {
+          "slot": "reference-002",
+          "applicationPath": "inventory-references/courbet-frame-selected-2.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+          "byteLength": 657879,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/2/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 720,
+            "height": 720
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1760x1440\"},\"objective\":\"Generate ONE complete front orthographic low polygon gilded frame matching the real frame around RISD Courbet Jura Landscape43.571 in the reference views. Preserve its broad dense carved acanthus/foliate outer band with projecting corner and centre leaf ornaments, narrow raised rectangular inner gold fillet, aged warm gold and restrained relief shadows in the existing museum game style. All four sides/corners complete. Perfectly blank white rectangular opening with canvas width73.3 height59.7cm. Flat magenta #FF00FF outside silhouette; no painting, labels, walls, people, shadows outside frame, perspective or invented extra ornaments. One frame only.\\n\",\"objectiveId\":\"muse-220cc901c4ce1ef23a48\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-220cc901c4ce1ef23a48\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/courbet-frame-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1549250,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"04bc31f051f4bc5090c7fb1a56a8fc2851efb50551e55b95517984716817fed6\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/courbet-frame-selected-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":463839,\"inspectedMedia\":{\"height\":1280,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":720},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"a0a1f0dc135f200b64cb327072202c0b8097efd5bfe0436f3ab8d2de93f3113a\",\"slot\":\"reference-001\"},{\"applicationPath\":\"inventory-references/courbet-frame-selected-2.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":657879,\"inspectedMedia\":{\"height\":720,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":720},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/2/image_url/url\",\"sha256\":\"5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe\",\"slot\":\"reference-002\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"courbet-frame-recipe.json\",\"sha256\":\"220cc901c4ce1ef23a4869a54f1f64e497c6afcd94d5cb4f4beb02825fec6e82\"},{\"applicationPath\":\"courbet-frame-plan.json\",\"sha256\":\"cc677cf900a4e26d65a771e47a7ebcdb94d3a23867699a5afffe8a770b071c82\"},{\"applicationPath\":\"courbet-frame-prompt.txt\",\"sha256\":\"e9afea54da1b7f502e2086ca2894d18e0b9ce80aa15999116e8e17631c7bd551\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "7e028b981f18c5b78af63cabcc1ca86f2fea8c95a7adf2e9932a9e17b6d9d8ea"
+  },
+  "normalView": {
+    "objective": "Generate ONE complete front orthographic low polygon gilded frame matching the real frame around RISD Courbet Jura Landscape43.571 in the reference views. Preserve its broad dense carved acanthus/foliate outer band with projecting corner and centre leaf ornaments, narrow raised rectangular inner gold fillet, aged warm gold and restrained relief shadows in the existing museum game style. All four sides/corners complete. Perfectly blank white rectangular opening with canvas width73.3 height59.7cm. Flat magenta #FF00FF outside silhouette; no painting, labels, walls, people, shadows outside frame, perspective or invented extra ornaments. One frame only.\n",
+    "evidence": "3 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

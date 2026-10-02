@@ -1,0 +1,5404 @@
+{
+ "passed": [
+  {
+   "check": "room 'Grand Gallery' equals the plan",
+   "detail": {
+    "got": [
+     [
+      0.55,
+      10.55,
+      1.8,
+      28.1
+     ],
+     {
+      "north": [
+       4.55,
+       6.55
+      ],
+      "south": [
+       3.4355,
+       7.6645
+      ]
+     }
+    ],
+    "want": [
+     [
+      0.55,
+      10.55,
+      1.8,
+      28.1
+     ],
+     {
+      "north": [
+       4.55,
+       6.55
+      ],
+      "south": [
+       3.4355,
+       7.6645
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "check": "the 6 rooms outside the register change are identical to the baseline",
+   "detail": []
+  },
+  {
+   "check": "every opening has exactly one partner on a shared wall line (26 paired openings, 13 pairs)",
+   "detail": []
+  },
+  {
+   "check": "no two rooms overlap in plan",
+   "detail": []
+  },
+  "corner return to clear opening 0.30 m is inside the fit's range 0.15..0.45",
+  "door clear width 1.84 m is inside the fit's range 1.60..2.10",
+  "negative control: the baseline floors fail that same test (48 wrong fronts, 3316 down or missing normals)",
+  {
+   "check": "retained Main Hall: 139 meshes; frame or canvas textures for all 23 works listed in its works.json are on retained meshes; 343 of 343 non-import source files hash-equal; same attachment point",
+   "detail": {
+    "files_listed": 362,
+    "inventory": {
+     "main_hall_native_meshes_retained": 133,
+     "main_hall_rebuilt": false,
+     "main_hall_verified_paintings": 23
+    },
+    "non_import_files": 343,
+    "non_import_files_hash_equal": 343,
+    "position": [
+     5.55000019073486,
+     0.0,
+     28.1000003814697
+    ],
+    "retained_meshes": 139,
+    "retained_work_tags": [
+     "E1",
+     "E2",
+     "E3",
+     "E4",
+     "E5",
+     "E6",
+     "E7",
+     "E8",
+     "E9",
+     "N1",
+     "N2",
+     "S1",
+     "S2",
+     "W1",
+     "W10",
+     "W2",
+     "W3",
+     "W4",
+     "W5",
+     "W6",
+     "W7",
+     "W8",
+     "W9"
+    ],
+    "script": "res://retained_hall_room.gd",
+    "source_tip": "317b8f3b8dac0f9811d396bcb0260c7187f93f11",
+    "works_json_tags": [
+     "E1",
+     "E2",
+     "E3",
+     "E4",
+     "E5",
+     "E6",
+     "E7",
+     "E8",
+     "E9",
+     "N1",
+     "N2",
+     "S1",
+     "S2",
+     "W1",
+     "W10",
+     "W2",
+     "W3",
+     "W4",
+     "W5",
+     "W6",
+     "W7",
+     "W8",
+     "W9"
+    ]
+   }
+  },
+  {
+   "check": "nothing outside the four changed rooms moved (1505 nodes)",
+   "detail": {
+    "wall or floor piece moved +0.00 z": 807,
+    "object moved +0.00 z": 698
+   }
+  },
+  {
+   "check": "authored extras inside the Hall footprint did not move (22 nodes)",
+   "detail": {
+    "wall or floor piece moved +0.00 z": 17,
+    "object moved +0.00 z": 5
+   }
+  },
+  {
+   "check": "Corot 24.089 rides the moved north wall",
+   "detail": [
+    [
+     10.2,
+     1.8,
+     -5.665
+    ]
+   ]
+  },
+  {
+   "check": "Bertin 56.214 stays on the Hall-door wall",
+   "detail": [
+    [
+     8.7,
+     1.75,
+     1.665
+    ]
+   ]
+  },
+  {
+   "check": "four black panels sit on the connector's south wall face",
+   "detail": [
+    [
+     1.98,
+     1.45,
+     -1.27
+    ],
+    [
+     2.5,
+     1.45,
+     -1.27
+    ],
+    [
+     3.02,
+     1.45,
+     -1.27
+    ],
+    [
+     3.54,
+     1.45,
+     -1.27
+    ]
+   ]
+  },
+  {
+   "check": "lift doors and the '5' sit on the connector's north wall face, as in the baseline",
+   "detail": {
+    "lifts": [
+     [
+      2.4,
+      1.35,
+      -2.73
+     ],
+     [
+      2.9,
+      1.35,
+      -2.73
+     ]
+    ],
+    "five": [
+     [
+      2.65,
+      2.05,
+      -2.69
+     ]
+    ]
+   }
+  },
+  {
+   "check": "two free columns stand in the Ionic opening, clear of both ends",
+   "detail": [
+    -4.2,
+    0.2
+   ]
+  },
+  "a visitor walking the connector axis clears the Hall door's open west leaf (0.075 m)",
+  {
+   "check": "European gallery west wall keeps the source order from the Rockefeller door and everything is inside the room",
+   "detail": [
+    [
+     "secretary",
+     0.85
+    ],
+    [
+     "Delacroix 35.786",
+     2.15
+    ],
+    [
+     "Fetti 36.003",
+     8.8
+    ],
+    [
+     "Goltzius 61.006",
+     14.7
+    ]
+   ]
+  },
+  {
+   "check": "walk: no trial that passed on the baseline fails on the delivery (84 of 87 pass; 0 rows re-aimed)",
+   "detail": {
+    "regressions": [],
+    "new_trials_failing": []
+   }
+  },
+  {
+   "check": "walk: connector, Rockefeller east door, piano door, Ionic opening, Hall door and European door pass both ways",
+   "detail": {}
+  },
+  {
+   "check": "walk: every loop leg that passed on the baseline passes (32 of 33 legs pass)",
+   "detail": [
+    "loop_16"
+   ]
+  },
+  {
+   "check": "bake lights: same count of every kind as the baseline, each inside a room and below its ceiling",
+   "detail": {
+    "stray": []
+   }
+  },
+  {
+   "check": "bake lights outside the changed rooms did not move",
+   "detail": []
+  }
+ ],
+ "failed": [
+  {
+   "check": "room 'grey French gallery' equals the plan",
+   "detail": {
+    "got": [
+     [
+      3.85,
+      11.05,
+      -5.8,
+      1.8
+     ],
+     {
+      "east": [
+       -5.8,
+       1.8
+      ],
+      "north": [
+       4.55,
+       6.55
+      ],
+      "south": [
+       4.55,
+       6.55
+      ],
+      "west": [
+       -2.8,
+       -1.2
+      ]
+     }
+    ],
+    "want": [
+     [
+      3.85,
+      11.05,
+      -4.2,
+      1.8
+     ],
+     {
+      "west": [
+       -0.34,
+       1.5
+      ],
+      "east": [
+       -4.2,
+       1.8
+      ],
+      "north": [
+       4.55,
+       6.55
+      ],
+      "south": [
+       4.55,
+       6.55
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "check": "room 'purple elevator-5 connector' equals the plan",
+   "detail": {
+    "got": [
+     [
+      1.7,
+      3.85,
+      -2.8,
+      -1.2
+     ],
+     {
+      "east": [
+       -2.8,
+       -1.2
+      ],
+      "west": [
+       -2.8,
+       -1.2
+      ]
+     }
+    ],
+    "want": [
+     [
+      1.7,
+      3.85,
+      -0.34,
+      1.5
+     ],
+     {
+      "west": [
+       -0.34,
+       1.5
+      ],
+      "east": [
+       -0.34,
+       1.5
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "check": "room 'Rockefeller' equals the plan",
+   "detail": {
+    "got": [
+     [
+      -4.7,
+      1.7,
+      -7.2,
+      -0.4
+     ],
+     {
+      "east": [
+       -2.8,
+       -1.2
+      ],
+      "south": [
+       -3.5,
+       -1.5
+      ]
+     }
+    ],
+    "want": [
+     [
+      -4.7,
+      1.7,
+      -5.0,
+      1.8
+     ],
+     {
+      "south": [
+       -3.5,
+       -1.5
+      ],
+      "east": [
+       -0.34,
+       1.5
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "check": "room 'adjacent gallery' equals the plan",
+   "detail": {
+    "got": [
+     [
+      -5.55,
+      0.55,
+      -0.4,
+      28.1
+     ],
+     {
+      "north": [
+       -3.5,
+       -1.5
+      ],
+      "south": [
+       -3.5,
+       -1.5
+      ]
+     }
+    ],
+    "want": [
+     [
+      -5.55,
+      0.55,
+      1.8,
+      28.1
+     ],
+     {
+      "north": [
+       -3.5,
+       -1.5
+      ],
+      "south": [
+       -3.5,
+       -1.5
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "check": "room 'Ionic marble-stair threshold study limit' equals the plan",
+   "detail": {
+    "got": [
+     [
+      11.05,
+      12.65,
+      -5.8,
+      1.8
+     ],
+     {
+      "west": [
+       -5.8,
+       1.8
+      ]
+     }
+    ],
+    "want": [
+     [
+      11.05,
+      12.65,
+      -4.2,
+      1.8
+     ],
+     {
+      "west": [
+       -4.2,
+       1.8
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "check": "room 'piano-stair threshold study limit' equals the plan",
+   "detail": {
+    "got": [
+     [
+      4.55,
+      6.55,
+      -7.4,
+      -5.8
+     ],
+     {
+      "south": [
+       4.55,
+       6.55
+      ]
+     }
+    ],
+    "want": [
+     [
+      4.55,
+      6.55,
+      -5.800000000000001,
+      -4.2
+     ],
+     {
+      "south": [
+       4.55,
+       6.55
+      ]
+     }
+    ]
+   }
+  },
+  "grey west wall length 7.60 m is inside the fit's range 5.40..6.60",
+  {
+   "check": "grey_register flags: every metric and loop flag is false",
+   "detail": {}
+  },
+  {
+   "check": "every floor triangle (5748 in 1684 meshes) has an upward clockwise front and an upward stored normal",
+   "detail": {
+    "front_faces_down": 48,
+    "meshes": 1684,
+    "no_normals": 0,
+    "stored_normal_down": 3316,
+    "triangles": 5748
+   }
+  },
+  {
+   "check": "every Rockefeller object moved exactly +2.20 m with its room (0 objects); only the vent over the east door moved with the door (+2.58)",
+   "detail": {
+    "counts": {
+     "wall or floor piece moved +0.00 z": 260,
+     "object moved +0.00 z": 227
+    },
+    "odd": [
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -3.65,
+       3.43,
+       -5.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -4.15,
+       3.33,
+       -5.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -3.15,
+       3.33,
+       -5.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -3.65,
+       3.43,
+       -3.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -4.15,
+       3.33,
+       -3.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -3.15,
+       3.33,
+       -3.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -3.65,
+       3.43,
+       -1.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -4.15,
+       3.33,
+       -1.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -3.15,
+       3.33,
+       -1.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -1.55,
+       3.43,
+       -5.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -2.05,
+       3.33,
+       -5.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -1.05,
+       3.33,
+       -5.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -1.55,
+       3.43,
+       -3.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -2.05,
+       3.33,
+       -3.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -1.05,
+       3.33,
+       -3.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -1.55,
+       3.43,
+       -1.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -2.05,
+       3.33,
+       -1.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       -1.05,
+       3.33,
+       -1.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       0.55,
+       3.43,
+       -5.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       0.05,
+       3.33,
+       -5.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       1.05,
+       3.33,
+       -5.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       0.55,
+       3.43,
+       -3.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       0.05,
+       3.33,
+       -3.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       1.05,
+       3.33,
+       -3.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       0.55,
+       3.43,
+       -1.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       0.05,
+       3.33,
+       -1.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "e9e4d8ff",
+      "tag": "",
+      "centre": [
+       1.05,
+       3.33,
+       -1.5
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "746f64ff",
+      "tag": "",
+      "centre": [
+       -2.5,
+       3.04,
+       -0.61
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "746f64ff",
+      "tag": "",
+      "centre": [
+       1.48,
+       3.04,
+       -2.0
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.797,
+       1.516,
+       -7.13
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.797,
+       1.304,
+       -7.13
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.797,
+       1.052,
+       -7.13
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.398,
+       1.516,
+       -7.13
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.398,
+       1.304,
+       -7.13
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.398,
+       1.052,
+       -7.13
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -0.995,
+       1.516,
+       -7.13
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -0.995,
+       1.304,
+       -7.13
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -0.995,
+       1.052,
+       -7.13
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "674024ff",
+      "tag": "",
+      "centre": [
+       -1.4,
+       1.62,
+       -6.97
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.4,
+       1.618,
+       -6.805
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "674024ff",
+      "tag": "",
+      "centre": [
+       -1.4,
+       1.422,
+       -6.97
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.4,
+       1.42,
+       -6.805
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "674024ff",
+      "tag": "",
+      "centre": [
+       -1.4,
+       1.191,
+       -6.97
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.4,
+       1.189,
+       -6.805
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "674024ff",
+      "tag": "",
+      "centre": [
+       -1.4,
+       0.914,
+       -6.97
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.4,
+       0.912,
+       -6.805
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "674024ff",
+      "tag": "",
+      "centre": [
+       -1.936,
+       1.26,
+       -6.97
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.935,
+       1.263,
+       -6.805
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "674024ff",
+      "tag": "",
+      "centre": [
+       -1.661,
+       1.26,
+       -6.97
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.66,
+       1.263,
+       -6.805
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "674024ff",
+      "tag": "",
+      "centre": [
+       -1.135,
+       1.26,
+       -6.97
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.134,
+       1.263,
+       -6.805
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "674024ff",
+      "tag": "",
+      "centre": [
+       -0.867,
+       1.26,
+       -6.97
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -0.865,
+       1.263,
+       -6.805
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "674024ff",
+      "tag": "",
+      "centre": [
+       -1.81,
+       0.635,
+       -6.97
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.809,
+       0.628,
+       -6.8
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "674024ff",
+      "tag": "",
+      "centre": [
+       -1.398,
+       0.635,
+       -6.97
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.398,
+       0.628,
+       -6.765
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "674024ff",
+      "tag": "",
+      "centre": [
+       -0.988,
+       0.635,
+       -6.97
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -0.988,
+       0.628,
+       -6.8
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "674024ff",
+      "tag": "",
+      "centre": [
+       -1.9,
+       0.24,
+       -6.82
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "674024ff",
+      "tag": "",
+      "centre": [
+       -1.655,
+       0.24,
+       -6.82
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "674024ff",
+      "tag": "",
+      "centre": [
+       -1.145,
+       0.24,
+       -6.82
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "674024ff",
+      "tag": "",
+      "centre": [
+       -0.9,
+       0.24,
+       -6.82
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|bookcase.png",
+      "tag": "",
+      "centre": [
+       -1.4,
+       1.631,
+       -6.8
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "",
+      "tag": "",
+      "centre": [
+       -1.4,
+       0.87,
+       -6.97
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "00000000",
+      "tag": "",
+      "centre": [
+       -1.4,
+       0.87,
+       -6.97
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|pair-mirror.png",
+      "tag": "",
+      "centre": [
+       -3.001,
+       2.151,
+       -6.95
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -3.001,
+       2.151,
+       -6.975
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|mirror.png",
+      "tag": "",
+      "centre": [
+       0.299,
+       2.151,
+       -6.95
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       0.299,
+       2.151,
+       -6.975
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "",
+      "tag": "",
+      "centre": [
+       -1.5,
+       0.065,
+       -6.73
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "eeeae2ff",
+      "tag": "",
+      "centre": [
+       -1.5,
+       0.065,
+       -6.73
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "",
+      "tag": "",
+      "centre": [
+       -4.18,
+       0.065,
+       -4.075
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "eeeae2ff",
+      "tag": "",
+      "centre": [
+       -4.18,
+       0.065,
+       -4.075
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "",
+      "tag": "",
+      "centre": [
+       -0.1,
+       1.04,
+       -0.95
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "eeeae2ff",
+      "tag": "",
+      "centre": [
+       -0.1,
+       1.04,
+       -0.95
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "",
+      "tag": "",
+      "centre": [
+       -0.82,
+       0.49,
+       -1.267
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "eeeae2ff",
+      "tag": "",
+      "centre": [
+       -0.82,
+       0.49,
+       -1.267
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "",
+      "tag": "",
+      "centre": [
+       -0.82,
+       0.49,
+       -0.633
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "eeeae2ff",
+      "tag": "",
+      "centre": [
+       -0.82,
+       0.49,
+       -0.633
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "",
+      "tag": "",
+      "centre": [
+       0.62,
+       0.49,
+       -1.267
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "eeeae2ff",
+      "tag": "",
+      "centre": [
+       0.62,
+       0.49,
+       -1.267
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "",
+      "tag": "",
+      "centre": [
+       0.62,
+       0.49,
+       -0.633
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "eeeae2ff",
+      "tag": "",
+      "centre": [
+       0.62,
+       0.49,
+       -0.633
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "c7e0e31f",
+      "tag": "",
+      "centre": [
+       -0.1,
+       1.5,
+       -1.39
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "c7e0e31f",
+      "tag": "",
+      "centre": [
+       -0.1,
+       1.5,
+       -0.51
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "c7e0e31f",
+      "tag": "",
+      "centre": [
+       -1.0,
+       1.5,
+       -0.95
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "c7e0e31f",
+      "tag": "",
+      "centre": [
+       0.8,
+       1.5,
+       -0.95
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "",
+      "tag": "",
+      "centre": [
+       1.1,
+       0.55,
+       -3.8
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "eeeae2ff",
+      "tag": "",
+      "centre": [
+       1.1,
+       0.55,
+       -3.8
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "c7e0e31f",
+      "tag": "",
+      "centre": [
+       1.1,
+       1.5,
+       -4.7
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "c7e0e31f",
+      "tag": "",
+      "centre": [
+       1.1,
+       1.5,
+       -2.9
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "c7e0e31f",
+      "tag": "",
+      "centre": [
+       0.6,
+       1.5,
+       -3.8
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "c7e0e31f",
+      "tag": "",
+      "centre": [
+       1.6,
+       1.5,
+       -3.8
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "eeeae2ff",
+      "tag": "",
+      "centre": [
+       1.37,
+       1.15,
+       -3.8
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "",
+      "tag": "",
+      "centre": [
+       -1.5,
+       0.55,
+       -3.85
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "eeeae2ff",
+      "tag": "",
+      "centre": [
+       -1.5,
+       0.55,
+       -3.85
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "",
+      "tag": "",
+      "centre": [
+       -4.15,
+       0.63,
+       -5.87
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "eeeae2ff",
+      "tag": "",
+      "centre": [
+       -4.15,
+       0.63,
+       -5.87
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "343332ff",
+      "tag": "",
+      "centre": [
+       -4.15,
+       1.15,
+       -5.87
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "eeeae2ff",
+      "tag": "",
+      "centre": [
+       -4.15,
+       1.05,
+       -5.87
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "eeeae2ff",
+      "tag": "",
+      "centre": [
+       -4.15,
+       1.27,
+       -5.87
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|edwards-frame.png",
+      "tag": "",
+      "centre": [
+       -1.381,
+       2.449,
+       -6.93
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|edwards-frame.png",
+      "tag": "",
+      "centre": [
+       -1.381,
+       2.449,
+       -6.975
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|edwards-frame.png",
+      "tag": "",
+      "centre": [
+       -1.4,
+       2.43,
+       -6.947
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|painting-58.197.jpg",
+      "tag": "",
+      "centre": [
+       -1.4,
+       2.43,
+       -6.965
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|romany-frame.png",
+      "tag": "",
+      "centre": [
+       -4.53,
+       2.133,
+       -4.716
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|romany-frame.png",
+      "tag": "",
+      "centre": [
+       -4.575,
+       2.133,
+       -4.716
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|romany-frame.png",
+      "tag": "",
+      "centre": [
+       -4.548,
+       2.12,
+       -4.7
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|painting-2009.9.jpg",
+      "tag": "",
+      "centre": [
+       -4.565,
+       2.12,
+       -4.7
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "eeeae2ff",
+      "tag": "",
+      "centre": [
+       1.64,
+       2.1,
+       -5.4
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|wallpaper-34.912.jpg",
+      "tag": "",
+      "centre": [
+       1.575,
+       2.1,
+       -5.4
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       1.6,
+       2.1,
+       -5.4
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "b4b4adff",
+      "tag": "",
+      "centre": [
+       1.6,
+       2.75,
+       -5.7
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "b4b4adff",
+      "tag": "",
+      "centre": [
+       1.6,
+       2.75,
+       -5.1
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|settee-part-0.png",
+      "tag": "",
+      "centre": [
+       -4.224,
+       0.826,
+       -4.705
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -4.252,
+       0.826,
+       -4.705
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|settee-part-1.png",
+      "tag": "",
+      "centre": [
+       -3.632,
+       0.511,
+       -4.694
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -3.646,
+       0.511,
+       -4.694
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|settee-part-2.png",
+      "tag": "",
+      "centre": [
+       -3.625,
+       0.293,
+       -4.068
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -3.638,
+       0.293,
+       -4.068
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|settee-part-3.png",
+      "tag": "",
+      "centre": [
+       -3.625,
+       0.292,
+       -4.695
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -3.638,
+       0.292,
+       -4.695
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|settee-part-4.png",
+      "tag": "",
+      "centre": [
+       -3.625,
+       0.294,
+       -5.321
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -3.638,
+       0.294,
+       -5.321
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|settee-cloth.png",
+      "tag": "",
+      "centre": [
+       -3.96,
+       0.53,
+       -4.7
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|settee-cloth.png",
+      "tag": "",
+      "centre": [
+       -4.22,
+       0.85,
+       -4.7
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       -4.24,
+       0.31,
+       -4.085
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       -4.24,
+       0.31,
+       -5.315
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|armchair-part-0.png",
+      "tag": "",
+      "centre": [
+       0.85,
+       0.825,
+       -6.691
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       0.85,
+       0.825,
+       -6.7
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|armchair-part-1.png",
+      "tag": "",
+      "centre": [
+       0.595,
+       0.309,
+       -6.205
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       0.595,
+       0.309,
+       -6.218
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|armchair-part-2.png",
+      "tag": "",
+      "centre": [
+       1.098,
+       0.309,
+       -6.205
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       1.098,
+       0.309,
+       -6.218
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|armchair-cloth.png",
+      "tag": "",
+      "centre": [
+       0.85,
+       0.53,
+       -6.45
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       0.57,
+       0.69,
+       -6.45
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       0.57,
+       0.62,
+       -6.22
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       0.57,
+       0.31,
+       -6.73
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       1.13,
+       0.69,
+       -6.45
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       1.13,
+       0.62,
+       -6.22
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       1.13,
+       0.31,
+       -6.73
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|armchair-part-0.png",
+      "tag": "",
+      "centre": [
+       -3.85,
+       0.825,
+       -6.691
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -3.85,
+       0.825,
+       -6.7
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|armchair-part-1.png",
+      "tag": "",
+      "centre": [
+       -4.105,
+       0.309,
+       -6.205
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -4.105,
+       0.309,
+       -6.218
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|armchair-part-2.png",
+      "tag": "",
+      "centre": [
+       -3.602,
+       0.309,
+       -6.205
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -3.602,
+       0.309,
+       -6.218
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|armchair-cloth.png",
+      "tag": "",
+      "centre": [
+       -3.85,
+       0.53,
+       -6.45
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       -4.13,
+       0.69,
+       -6.45
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       -4.13,
+       0.62,
+       -6.22
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       -4.13,
+       0.31,
+       -6.73
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       -3.57,
+       0.69,
+       -6.45
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       -3.57,
+       0.62,
+       -6.22
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       -3.57,
+       0.31,
+       -6.73
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|entrance-chair-part-0.png",
+      "tag": "",
+      "centre": [
+       -4.191,
+       0.835,
+       -1.957
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -4.2,
+       0.835,
+       -1.957
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|entrance-chair-part-1.png",
+      "tag": "",
+      "centre": [
+       -3.625,
+       0.497,
+       -1.95
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -3.638,
+       0.497,
+       -1.95
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|entrance-chair-part-2.png",
+      "tag": "",
+      "centre": [
+       -3.628,
+       0.301,
+       -1.698
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -3.639,
+       0.301,
+       -1.698
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|entrance-chair-part-3.png",
+      "tag": "",
+      "centre": [
+       -3.628,
+       0.302,
+       -2.192
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -3.639,
+       0.302,
+       -2.192
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|entrance-chair-part-4.png",
+      "tag": "",
+      "centre": [
+       -4.028,
+       0.676,
+       -1.688
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -4.039,
+       0.676,
+       -1.688
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|entrance-chair-part-5.png",
+      "tag": "",
+      "centre": [
+       -4.028,
+       0.675,
+       -2.217
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -4.039,
+       0.675,
+       -2.217
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ffffffff|entrance-chair-cloth.png",
+      "tag": "",
+      "centre": [
+       -3.95,
+       0.53,
+       -1.95
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       -3.95,
+       0.69,
+       -1.67
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       -3.72,
+       0.62,
+       -1.67
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       -4.23,
+       0.31,
+       -1.67
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       -3.95,
+       0.69,
+       -2.23
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       -3.72,
+       0.62,
+       -2.23
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "67422bff",
+      "tag": "",
+      "centre": [
+       -4.23,
+       0.31,
+       -2.23
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|st-george-volume.png",
+      "tag": "catalogue_asset=st-george",
+      "centre": [
+       -1.771,
+       1.752,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|flute-player-volume.png",
+      "tag": "catalogue_asset=flute-player",
+      "centre": [
+       -1.399,
+       1.747,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|hudibras-volume.png",
+      "tag": "catalogue_asset=hudibras",
+      "centre": [
+       -0.999,
+       1.764,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|bear-jug-volume.png",
+      "tag": "catalogue_asset=bear-jug",
+      "centre": [
+       -1.81,
+       1.493,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|horn-player-volume.png",
+      "tag": "catalogue_asset=horn-player",
+      "centre": [
+       -1.59,
+       1.504,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|finch-volume.png",
+      "tag": "catalogue_asset=finch",
+      "centre": [
+       -1.51,
+       1.449,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|finch-pair-volume.png",
+      "tag": "catalogue_asset=finch-pair",
+      "centre": [
+       -1.28,
+       1.449,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|bagpiper-volume.png",
+      "tag": "catalogue_asset=bagpiper",
+      "centre": [
+       -1.22,
+       1.498,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|bear-jug-pair-volume.png",
+      "tag": "catalogue_asset=bear-jug-pair",
+      "centre": [
+       -0.98,
+       1.504,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|cream-jug-volume.png",
+      "tag": "catalogue_asset=cream-jug",
+      "centre": [
+       -1.81,
+       1.265,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|parrot-volume.png",
+      "tag": "catalogue_asset=parrot",
+      "centre": [
+       -1.611,
+       1.272,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|fox-volume.png",
+      "tag": "catalogue_asset=fox",
+      "centre": [
+       -1.4,
+       1.256,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|parrot-pair-volume.png",
+      "tag": "catalogue_asset=parrot-pair",
+      "centre": [
+       -1.19,
+       1.272,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|agate-teapot-volume.png",
+      "tag": "catalogue_asset=agate-teapot",
+      "centre": [
+       -0.982,
+       1.256,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|shepherd-volume.png",
+      "tag": "catalogue_asset=shepherd",
+      "centre": [
+       -1.81,
+       1.019,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|candlestick-volume.png",
+      "tag": "catalogue_asset=candlestick",
+      "centre": [
+       -1.6,
+       1.018,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|cow-volume.png",
+      "tag": "catalogue_asset=cow",
+      "centre": [
+       -1.4,
+       0.978,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|candlestick-pair-volume.png",
+      "tag": "catalogue_asset=candlestick-pair",
+      "centre": [
+       -1.17,
+       1.021,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|parrot-third-volume.png",
+      "tag": "catalogue_asset=parrot-third",
+      "centre": [
+       -0.97,
+       0.991,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ded4bfff",
+      "tag": "",
+      "centre": [
+       -4.15,
+       1.32,
+       -5.87
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ded4bfff",
+      "tag": "",
+      "centre": [
+       -4.15,
+       1.375,
+       -5.87
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ded4bfff",
+      "tag": "",
+      "centre": [
+       -4.15,
+       1.42,
+       -5.87
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|recamier-volume.png",
+      "tag": "catalogue_asset=recamier",
+      "centre": [
+       -4.151,
+       1.668,
+       -5.87
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|ewe-lamb-volume.png",
+      "tag": "catalogue_asset=ewe-lamb",
+      "centre": [
+       -1.4,
+       1.47,
+       -6.83
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|sconce-left-volume.png",
+      "tag": "catalogue_asset=sconce-left",
+      "centre": [
+       -0.991,
+       2.518,
+       -0.49
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|sconce-right-volume.png",
+      "tag": "catalogue_asset=sconce-right",
+      "centre": [
+       -4.126,
+       2.518,
+       -0.49
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "583a25ff",
+      "tag": "",
+      "centre": [
+       -4.15,
+       0.825,
+       -3.44
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "583a25ff",
+      "tag": "",
+      "centre": [
+       -4.241,
+       0.465,
+       -3.272
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "583a25ff",
+      "tag": "",
+      "centre": [
+       -4.059,
+       0.465,
+       -3.272
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "583a25ff",
+      "tag": "",
+      "centre": [
+       -4.241,
+       0.465,
+       -3.608
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "583a25ff",
+      "tag": "",
+      "centre": [
+       -4.059,
+       0.465,
+       -3.608
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|writing-table-volume.png",
+      "tag": "",
+      "centre": [
+       -3.97,
+       0.49,
+       -3.439
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader",
+      "tag": "",
+      "centre": [
+       -3.995,
+       0.49,
+       -3.439
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|gold-tureen-volume.png",
+      "tag": "catalogue_asset=gold-tureen",
+      "centre": [
+       1.37,
+       1.34,
+       -3.8
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|gold-ecuelle-clean-volume.png",
+      "tag": "catalogue_asset=gold-ecuelle-clean",
+      "centre": [
+       0.95,
+       1.17,
+       -3.8
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|gold-basket-a-volume.png",
+      "tag": "catalogue_asset=gold-basket-a",
+      "centre": [
+       0.87,
+       1.15,
+       -4.38
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|gold-basket-b-volume.png",
+      "tag": "catalogue_asset=gold-basket-b",
+      "centre": [
+       0.87,
+       1.15,
+       -3.26
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|gold-square-a-volume.png",
+      "tag": "catalogue_asset=gold-square-a",
+      "centre": [
+       1.24,
+       1.119,
+       -4.38
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|gold-square-b-volume.png",
+      "tag": "catalogue_asset=gold-square-b",
+      "centre": [
+       1.24,
+       1.119,
+       -3.26
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|gold-plate-a-volume.png",
+      "tag": "catalogue_asset=gold-plate-a",
+      "centre": [
+       1.461,
+       1.195,
+       -4.35
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|gold-plate-b-volume.png",
+      "tag": "catalogue_asset=gold-plate-b",
+      "centre": [
+       1.462,
+       1.195,
+       -3.29
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|gold-saucer-a-volume.png",
+      "tag": "catalogue_asset=gold-saucer-a",
+      "centre": [
+       0.7,
+       1.118,
+       -4.0
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|gold-saucer-b-volume.png",
+      "tag": "catalogue_asset=gold-saucer-b",
+      "centre": [
+       0.7,
+       1.118,
+       -3.64
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|gold-cup-a-volume.png",
+      "tag": "catalogue_asset=gold-cup-a",
+      "centre": [
+       0.7,
+       1.167,
+       -4.0
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|gold-cup-b-volume.png",
+      "tag": "catalogue_asset=gold-cup-b",
+      "centre": [
+       0.7,
+       1.168,
+       -3.64
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|tureen-volume.png",
+      "tag": "catalogue_asset=tureen",
+      "centre": [
+       -0.7,
+       1.26,
+       -0.95
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|pink-small-tureen-volume.png",
+      "tag": "catalogue_asset=pink-small-tureen",
+      "centre": [
+       0.481,
+       1.26,
+       -0.95
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|pink-compote-volume.png",
+      "tag": "catalogue_asset=pink-compote",
+      "centre": [
+       -0.1,
+       1.149,
+       -0.7
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|pink-bowl-a-volume.png",
+      "tag": "catalogue_asset=pink-bowl-a",
+      "centre": [
+       -0.35,
+       1.122,
+       -1.17
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|pink-bowl-b-volume.png",
+      "tag": "catalogue_asset=pink-bowl-b",
+      "centre": [
+       0.17,
+       1.122,
+       -1.17
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|pink-dish-volume.png",
+      "tag": "catalogue_asset=pink-dish",
+      "centre": [
+       -0.1,
+       1.123,
+       -1.17
+      ],
+      "moved_z": 0.0
+     },
+     {
+      "look": "ps1.gdshader|pink-ladle-volume.png",
+      "tag": "catalogue_asset=pink-ladle",
+      "centre": [
+       0.35,
+       1.15,
+       -1.085
+      ],
+      "moved_z": 0.0
+     }
+    ]
+   }
+  },
+  {
+   "check": "Courbet 43.571 hangs on the west wall with its centre inside the fit's range -3.40..-2.75",
+   "detail": [
+    [
+     3.985,
+     1.8,
+     -4.35
+    ]
+   ]
+  },
+  "Courbet centre is 1.45 m from the north-west corner (fit 1.05..1.25)",
+  {
+   "check": "grey gallery door leaves: two at the piano door on the moved north wall, two at the Hall door",
+   "detail": {
+    "got": [
+     [
+      4.51,
+      -5.35
+     ],
+     [
+      4.51,
+      1.35
+     ],
+     [
+      6.59,
+      -5.35
+     ],
+     [
+      6.59,
+      1.35
+     ]
+    ],
+    "want": [
+     [
+      4.51,
+      -3.75
+     ],
+     [
+      4.51,
+      1.35
+     ],
+     [
+      6.59,
+      -3.75
+     ],
+     [
+      6.59,
+      1.35
+     ]
+    ]
+   }
+  },
+  "the barn painting is not built and is flagged as not built",
+  {
+   "check": "nothing authored is left in the vacated connector slot or north of the moved Rockefeller and grey north walls",
+   "detail": [
+    [
+     "mesh",
+     "81735cff",
+     "",
+     [
+      2.77,
+      0.0,
+      -2.0
+     ]
+    ],
+    [
+     "mesh",
+     "81735cff",
+     "",
+     [
+      5.55,
+      0.0,
+      -6.6
+     ]
+    ],
+    [
+     "mesh",
+     "floor_oak.gdshader",
+     "",
+     [
+      -4.63,
+      0.0,
+      -6.3
+     ]
+    ],
+    [
+     "mesh",
+     "floor_oak.gdshader",
+     "",
+     [
+      -4.49,
+      0.0,
+      -6.6
+     ]
+    ],
+    [
+     "mesh",
+     "floor_oak.gdshader",
+     "",
+     [
+      -4.35,
+      0.0,
+      -6.9
+     ]
+    ],
+    [
+     "mesh",
+     "floor_oak.gdshader",
+     "",
+     [
+      -4.35,
+      0.0,
+      -5.7
+     ]
+    ],
+    [
+     "mesh",
+     "floor_oak.gdshader",
+     "",
+     [
+      -4.21,
+      0.0,
+      -6.3
+     ]
+    ],
+    [
+     "mesh",
+     "floor_oak.gdshader",
+     "",
+     [
+      -4.07,
+      0.0,
+      -6.6
+     ]
+    ]
+   ]
+  },
+  {
+   "check": "review cameras: each of the 0 changed or new views stands inside a room, outside every solid, with a clear first half of its sight line",
+   "detail": []
+  }
+ ],
+ "unverified": [
+  "the '5' on the connector's north side is supported by IMG_6380 103.0 s (a large 5 on a pale surface on the purple side); the lift doors themselves are not seen in any frame reviewed here. The black south wall also carries a screen with a small 5, a black door, a fire pull and an extinguisher (101.6, 104.0, 240.3, 246.0 s), none of them built. Not part of this change.",
+  "column spacing: the delivery puts them at z [-4.2, 0.2] (1.6 m from each end of a 6.0 m opening). The fit did not measure it; nothing here does either.",
+  "Fetti, both piers, Goltzius and the far door leaves keep their old z by the delivery's own choice; their distance from either end of the gallery is unmeasured in every source reviewed.",
+  "walk trials failing on the baseline and on the delivery alike (retained-Hall portal guard and similar): ['loop_16', 'medieval_between_cases_clear', 'medieval_stairs_aisle_clear']",
+  "review cameras were placed by arithmetic here too; nothing was rendered, so framing and what each view shows are not checked"
+ ],
+ "tables": {
+  "floors": {
+   "before": {
+    "front_faces_down": 48,
+    "meshes": 1684,
+    "no_normals": 0,
+    "stored_normal_down": 3316,
+    "triangles": 5748
+   },
+   "after": {
+    "front_faces_down": 48,
+    "meshes": 1684,
+    "no_normals": 0,
+    "stored_normal_down": 3316,
+    "triangles": 5748
+   }
+  },
+  "moves_by_baseline_region": {
+   "Rockefeller": {
+    "wall or floor piece moved +0.00 z": 260,
+    "object moved +0.00 z": 227
+   },
+   "European gallery": {
+    "wall or floor piece moved +0.00 z": 773,
+    "object moved +0.00 z": 42
+   },
+   "elsewhere (medieval, Renaissance, landing, modern)": {
+    "wall or floor piece moved +0.00 z": 807,
+    "object moved +0.00 z": 698
+   },
+   "connector": {
+    "wall or floor piece moved +0.00 z": 61,
+    "object moved +0.00 z": 3
+   },
+   "grey gallery and thresholds": {
+    "wall or floor piece moved +0.00 z": 165,
+    "object moved +0.00 z": 50
+   },
+   "Main Hall footprint (authored extras)": {
+    "wall or floor piece moved +0.00 z": 17,
+    "object moved +0.00 z": 5
+   }
+  },
+  "baseline_objects_not_found": {
+   "Main Hall footprint (authored extras)": []
+  },
+  "delivery_objects_without_a_baseline_match": {},
+  "rockefeller_objects_not_moved_2.20": [
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -3.65,
+     3.43,
+     -5.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -4.15,
+     3.33,
+     -5.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -3.15,
+     3.33,
+     -5.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -3.65,
+     3.43,
+     -3.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -4.15,
+     3.33,
+     -3.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -3.15,
+     3.33,
+     -3.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -3.65,
+     3.43,
+     -1.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -4.15,
+     3.33,
+     -1.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -3.15,
+     3.33,
+     -1.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -1.55,
+     3.43,
+     -5.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -2.05,
+     3.33,
+     -5.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -1.05,
+     3.33,
+     -5.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -1.55,
+     3.43,
+     -3.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -2.05,
+     3.33,
+     -3.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -1.05,
+     3.33,
+     -3.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -1.55,
+     3.43,
+     -1.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -2.05,
+     3.33,
+     -1.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     -1.05,
+     3.33,
+     -1.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     0.55,
+     3.43,
+     -5.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     0.05,
+     3.33,
+     -5.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     1.05,
+     3.33,
+     -5.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     0.55,
+     3.43,
+     -3.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     0.05,
+     3.33,
+     -3.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     1.05,
+     3.33,
+     -3.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     0.55,
+     3.43,
+     -1.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     0.05,
+     3.33,
+     -1.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "e9e4d8ff",
+    "tag": "",
+    "centre": [
+     1.05,
+     3.33,
+     -1.5
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "746f64ff",
+    "tag": "",
+    "centre": [
+     -2.5,
+     3.04,
+     -0.61
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "746f64ff",
+    "tag": "",
+    "centre": [
+     1.48,
+     3.04,
+     -2.0
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.797,
+     1.516,
+     -7.13
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.797,
+     1.304,
+     -7.13
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.797,
+     1.052,
+     -7.13
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.398,
+     1.516,
+     -7.13
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.398,
+     1.304,
+     -7.13
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.398,
+     1.052,
+     -7.13
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -0.995,
+     1.516,
+     -7.13
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -0.995,
+     1.304,
+     -7.13
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -0.995,
+     1.052,
+     -7.13
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "674024ff",
+    "tag": "",
+    "centre": [
+     -1.4,
+     1.62,
+     -6.97
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.4,
+     1.618,
+     -6.805
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "674024ff",
+    "tag": "",
+    "centre": [
+     -1.4,
+     1.422,
+     -6.97
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.4,
+     1.42,
+     -6.805
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "674024ff",
+    "tag": "",
+    "centre": [
+     -1.4,
+     1.191,
+     -6.97
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.4,
+     1.189,
+     -6.805
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "674024ff",
+    "tag": "",
+    "centre": [
+     -1.4,
+     0.914,
+     -6.97
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.4,
+     0.912,
+     -6.805
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "674024ff",
+    "tag": "",
+    "centre": [
+     -1.936,
+     1.26,
+     -6.97
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.935,
+     1.263,
+     -6.805
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "674024ff",
+    "tag": "",
+    "centre": [
+     -1.661,
+     1.26,
+     -6.97
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.66,
+     1.263,
+     -6.805
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "674024ff",
+    "tag": "",
+    "centre": [
+     -1.135,
+     1.26,
+     -6.97
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.134,
+     1.263,
+     -6.805
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "674024ff",
+    "tag": "",
+    "centre": [
+     -0.867,
+     1.26,
+     -6.97
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -0.865,
+     1.263,
+     -6.805
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "674024ff",
+    "tag": "",
+    "centre": [
+     -1.81,
+     0.635,
+     -6.97
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.809,
+     0.628,
+     -6.8
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "674024ff",
+    "tag": "",
+    "centre": [
+     -1.398,
+     0.635,
+     -6.97
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.398,
+     0.628,
+     -6.765
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "674024ff",
+    "tag": "",
+    "centre": [
+     -0.988,
+     0.635,
+     -6.97
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -0.988,
+     0.628,
+     -6.8
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "674024ff",
+    "tag": "",
+    "centre": [
+     -1.9,
+     0.24,
+     -6.82
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "674024ff",
+    "tag": "",
+    "centre": [
+     -1.655,
+     0.24,
+     -6.82
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "674024ff",
+    "tag": "",
+    "centre": [
+     -1.145,
+     0.24,
+     -6.82
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "674024ff",
+    "tag": "",
+    "centre": [
+     -0.9,
+     0.24,
+     -6.82
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|bookcase.png",
+    "tag": "",
+    "centre": [
+     -1.4,
+     1.631,
+     -6.8
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "",
+    "tag": "",
+    "centre": [
+     -1.4,
+     0.87,
+     -6.97
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "00000000",
+    "tag": "",
+    "centre": [
+     -1.4,
+     0.87,
+     -6.97
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|pair-mirror.png",
+    "tag": "",
+    "centre": [
+     -3.001,
+     2.151,
+     -6.95
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -3.001,
+     2.151,
+     -6.975
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|mirror.png",
+    "tag": "",
+    "centre": [
+     0.299,
+     2.151,
+     -6.95
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     0.299,
+     2.151,
+     -6.975
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "",
+    "tag": "",
+    "centre": [
+     -1.5,
+     0.065,
+     -6.73
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "eeeae2ff",
+    "tag": "",
+    "centre": [
+     -1.5,
+     0.065,
+     -6.73
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "",
+    "tag": "",
+    "centre": [
+     -4.18,
+     0.065,
+     -4.075
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "eeeae2ff",
+    "tag": "",
+    "centre": [
+     -4.18,
+     0.065,
+     -4.075
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "",
+    "tag": "",
+    "centre": [
+     -0.1,
+     1.04,
+     -0.95
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "eeeae2ff",
+    "tag": "",
+    "centre": [
+     -0.1,
+     1.04,
+     -0.95
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "",
+    "tag": "",
+    "centre": [
+     -0.82,
+     0.49,
+     -1.267
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "eeeae2ff",
+    "tag": "",
+    "centre": [
+     -0.82,
+     0.49,
+     -1.267
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "",
+    "tag": "",
+    "centre": [
+     -0.82,
+     0.49,
+     -0.633
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "eeeae2ff",
+    "tag": "",
+    "centre": [
+     -0.82,
+     0.49,
+     -0.633
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "",
+    "tag": "",
+    "centre": [
+     0.62,
+     0.49,
+     -1.267
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "eeeae2ff",
+    "tag": "",
+    "centre": [
+     0.62,
+     0.49,
+     -1.267
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "",
+    "tag": "",
+    "centre": [
+     0.62,
+     0.49,
+     -0.633
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "eeeae2ff",
+    "tag": "",
+    "centre": [
+     0.62,
+     0.49,
+     -0.633
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "c7e0e31f",
+    "tag": "",
+    "centre": [
+     -0.1,
+     1.5,
+     -1.39
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "c7e0e31f",
+    "tag": "",
+    "centre": [
+     -0.1,
+     1.5,
+     -0.51
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "c7e0e31f",
+    "tag": "",
+    "centre": [
+     -1.0,
+     1.5,
+     -0.95
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "c7e0e31f",
+    "tag": "",
+    "centre": [
+     0.8,
+     1.5,
+     -0.95
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "",
+    "tag": "",
+    "centre": [
+     1.1,
+     0.55,
+     -3.8
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "eeeae2ff",
+    "tag": "",
+    "centre": [
+     1.1,
+     0.55,
+     -3.8
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "c7e0e31f",
+    "tag": "",
+    "centre": [
+     1.1,
+     1.5,
+     -4.7
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "c7e0e31f",
+    "tag": "",
+    "centre": [
+     1.1,
+     1.5,
+     -2.9
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "c7e0e31f",
+    "tag": "",
+    "centre": [
+     0.6,
+     1.5,
+     -3.8
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "c7e0e31f",
+    "tag": "",
+    "centre": [
+     1.6,
+     1.5,
+     -3.8
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "eeeae2ff",
+    "tag": "",
+    "centre": [
+     1.37,
+     1.15,
+     -3.8
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "",
+    "tag": "",
+    "centre": [
+     -1.5,
+     0.55,
+     -3.85
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "eeeae2ff",
+    "tag": "",
+    "centre": [
+     -1.5,
+     0.55,
+     -3.85
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "",
+    "tag": "",
+    "centre": [
+     -4.15,
+     0.63,
+     -5.87
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "eeeae2ff",
+    "tag": "",
+    "centre": [
+     -4.15,
+     0.63,
+     -5.87
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "343332ff",
+    "tag": "",
+    "centre": [
+     -4.15,
+     1.15,
+     -5.87
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "eeeae2ff",
+    "tag": "",
+    "centre": [
+     -4.15,
+     1.05,
+     -5.87
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "eeeae2ff",
+    "tag": "",
+    "centre": [
+     -4.15,
+     1.27,
+     -5.87
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|edwards-frame.png",
+    "tag": "",
+    "centre": [
+     -1.381,
+     2.449,
+     -6.93
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|edwards-frame.png",
+    "tag": "",
+    "centre": [
+     -1.381,
+     2.449,
+     -6.975
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|edwards-frame.png",
+    "tag": "",
+    "centre": [
+     -1.4,
+     2.43,
+     -6.947
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|painting-58.197.jpg",
+    "tag": "",
+    "centre": [
+     -1.4,
+     2.43,
+     -6.965
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|romany-frame.png",
+    "tag": "",
+    "centre": [
+     -4.53,
+     2.133,
+     -4.716
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|romany-frame.png",
+    "tag": "",
+    "centre": [
+     -4.575,
+     2.133,
+     -4.716
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|romany-frame.png",
+    "tag": "",
+    "centre": [
+     -4.548,
+     2.12,
+     -4.7
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|painting-2009.9.jpg",
+    "tag": "",
+    "centre": [
+     -4.565,
+     2.12,
+     -4.7
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "eeeae2ff",
+    "tag": "",
+    "centre": [
+     1.64,
+     2.1,
+     -5.4
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|wallpaper-34.912.jpg",
+    "tag": "",
+    "centre": [
+     1.575,
+     2.1,
+     -5.4
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     1.6,
+     2.1,
+     -5.4
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "b4b4adff",
+    "tag": "",
+    "centre": [
+     1.6,
+     2.75,
+     -5.7
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "b4b4adff",
+    "tag": "",
+    "centre": [
+     1.6,
+     2.75,
+     -5.1
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|settee-part-0.png",
+    "tag": "",
+    "centre": [
+     -4.224,
+     0.826,
+     -4.705
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -4.252,
+     0.826,
+     -4.705
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|settee-part-1.png",
+    "tag": "",
+    "centre": [
+     -3.632,
+     0.511,
+     -4.694
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -3.646,
+     0.511,
+     -4.694
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|settee-part-2.png",
+    "tag": "",
+    "centre": [
+     -3.625,
+     0.293,
+     -4.068
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -3.638,
+     0.293,
+     -4.068
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|settee-part-3.png",
+    "tag": "",
+    "centre": [
+     -3.625,
+     0.292,
+     -4.695
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -3.638,
+     0.292,
+     -4.695
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|settee-part-4.png",
+    "tag": "",
+    "centre": [
+     -3.625,
+     0.294,
+     -5.321
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -3.638,
+     0.294,
+     -5.321
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|settee-cloth.png",
+    "tag": "",
+    "centre": [
+     -3.96,
+     0.53,
+     -4.7
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|settee-cloth.png",
+    "tag": "",
+    "centre": [
+     -4.22,
+     0.85,
+     -4.7
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     -4.24,
+     0.31,
+     -4.085
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     -4.24,
+     0.31,
+     -5.315
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|armchair-part-0.png",
+    "tag": "",
+    "centre": [
+     0.85,
+     0.825,
+     -6.691
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     0.85,
+     0.825,
+     -6.7
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|armchair-part-1.png",
+    "tag": "",
+    "centre": [
+     0.595,
+     0.309,
+     -6.205
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     0.595,
+     0.309,
+     -6.218
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|armchair-part-2.png",
+    "tag": "",
+    "centre": [
+     1.098,
+     0.309,
+     -6.205
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     1.098,
+     0.309,
+     -6.218
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|armchair-cloth.png",
+    "tag": "",
+    "centre": [
+     0.85,
+     0.53,
+     -6.45
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     0.57,
+     0.69,
+     -6.45
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     0.57,
+     0.62,
+     -6.22
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     0.57,
+     0.31,
+     -6.73
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     1.13,
+     0.69,
+     -6.45
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     1.13,
+     0.62,
+     -6.22
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     1.13,
+     0.31,
+     -6.73
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|armchair-part-0.png",
+    "tag": "",
+    "centre": [
+     -3.85,
+     0.825,
+     -6.691
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -3.85,
+     0.825,
+     -6.7
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|armchair-part-1.png",
+    "tag": "",
+    "centre": [
+     -4.105,
+     0.309,
+     -6.205
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -4.105,
+     0.309,
+     -6.218
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|armchair-part-2.png",
+    "tag": "",
+    "centre": [
+     -3.602,
+     0.309,
+     -6.205
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -3.602,
+     0.309,
+     -6.218
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|armchair-cloth.png",
+    "tag": "",
+    "centre": [
+     -3.85,
+     0.53,
+     -6.45
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     -4.13,
+     0.69,
+     -6.45
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     -4.13,
+     0.62,
+     -6.22
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     -4.13,
+     0.31,
+     -6.73
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     -3.57,
+     0.69,
+     -6.45
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     -3.57,
+     0.62,
+     -6.22
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     -3.57,
+     0.31,
+     -6.73
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|entrance-chair-part-0.png",
+    "tag": "",
+    "centre": [
+     -4.191,
+     0.835,
+     -1.957
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -4.2,
+     0.835,
+     -1.957
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|entrance-chair-part-1.png",
+    "tag": "",
+    "centre": [
+     -3.625,
+     0.497,
+     -1.95
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -3.638,
+     0.497,
+     -1.95
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|entrance-chair-part-2.png",
+    "tag": "",
+    "centre": [
+     -3.628,
+     0.301,
+     -1.698
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -3.639,
+     0.301,
+     -1.698
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|entrance-chair-part-3.png",
+    "tag": "",
+    "centre": [
+     -3.628,
+     0.302,
+     -2.192
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -3.639,
+     0.302,
+     -2.192
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|entrance-chair-part-4.png",
+    "tag": "",
+    "centre": [
+     -4.028,
+     0.676,
+     -1.688
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -4.039,
+     0.676,
+     -1.688
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|entrance-chair-part-5.png",
+    "tag": "",
+    "centre": [
+     -4.028,
+     0.675,
+     -2.217
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -4.039,
+     0.675,
+     -2.217
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ffffffff|entrance-chair-cloth.png",
+    "tag": "",
+    "centre": [
+     -3.95,
+     0.53,
+     -1.95
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     -3.95,
+     0.69,
+     -1.67
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     -3.72,
+     0.62,
+     -1.67
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     -4.23,
+     0.31,
+     -1.67
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     -3.95,
+     0.69,
+     -2.23
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     -3.72,
+     0.62,
+     -2.23
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "67422bff",
+    "tag": "",
+    "centre": [
+     -4.23,
+     0.31,
+     -2.23
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|st-george-volume.png",
+    "tag": "catalogue_asset=st-george",
+    "centre": [
+     -1.771,
+     1.752,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|flute-player-volume.png",
+    "tag": "catalogue_asset=flute-player",
+    "centre": [
+     -1.399,
+     1.747,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|hudibras-volume.png",
+    "tag": "catalogue_asset=hudibras",
+    "centre": [
+     -0.999,
+     1.764,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|bear-jug-volume.png",
+    "tag": "catalogue_asset=bear-jug",
+    "centre": [
+     -1.81,
+     1.493,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|horn-player-volume.png",
+    "tag": "catalogue_asset=horn-player",
+    "centre": [
+     -1.59,
+     1.504,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|finch-volume.png",
+    "tag": "catalogue_asset=finch",
+    "centre": [
+     -1.51,
+     1.449,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|finch-pair-volume.png",
+    "tag": "catalogue_asset=finch-pair",
+    "centre": [
+     -1.28,
+     1.449,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|bagpiper-volume.png",
+    "tag": "catalogue_asset=bagpiper",
+    "centre": [
+     -1.22,
+     1.498,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|bear-jug-pair-volume.png",
+    "tag": "catalogue_asset=bear-jug-pair",
+    "centre": [
+     -0.98,
+     1.504,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|cream-jug-volume.png",
+    "tag": "catalogue_asset=cream-jug",
+    "centre": [
+     -1.81,
+     1.265,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|parrot-volume.png",
+    "tag": "catalogue_asset=parrot",
+    "centre": [
+     -1.611,
+     1.272,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|fox-volume.png",
+    "tag": "catalogue_asset=fox",
+    "centre": [
+     -1.4,
+     1.256,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|parrot-pair-volume.png",
+    "tag": "catalogue_asset=parrot-pair",
+    "centre": [
+     -1.19,
+     1.272,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|agate-teapot-volume.png",
+    "tag": "catalogue_asset=agate-teapot",
+    "centre": [
+     -0.982,
+     1.256,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|shepherd-volume.png",
+    "tag": "catalogue_asset=shepherd",
+    "centre": [
+     -1.81,
+     1.019,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|candlestick-volume.png",
+    "tag": "catalogue_asset=candlestick",
+    "centre": [
+     -1.6,
+     1.018,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|cow-volume.png",
+    "tag": "catalogue_asset=cow",
+    "centre": [
+     -1.4,
+     0.978,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|candlestick-pair-volume.png",
+    "tag": "catalogue_asset=candlestick-pair",
+    "centre": [
+     -1.17,
+     1.021,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|parrot-third-volume.png",
+    "tag": "catalogue_asset=parrot-third",
+    "centre": [
+     -0.97,
+     0.991,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ded4bfff",
+    "tag": "",
+    "centre": [
+     -4.15,
+     1.32,
+     -5.87
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ded4bfff",
+    "tag": "",
+    "centre": [
+     -4.15,
+     1.375,
+     -5.87
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ded4bfff",
+    "tag": "",
+    "centre": [
+     -4.15,
+     1.42,
+     -5.87
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|recamier-volume.png",
+    "tag": "catalogue_asset=recamier",
+    "centre": [
+     -4.151,
+     1.668,
+     -5.87
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|ewe-lamb-volume.png",
+    "tag": "catalogue_asset=ewe-lamb",
+    "centre": [
+     -1.4,
+     1.47,
+     -6.83
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|sconce-left-volume.png",
+    "tag": "catalogue_asset=sconce-left",
+    "centre": [
+     -0.991,
+     2.518,
+     -0.49
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|sconce-right-volume.png",
+    "tag": "catalogue_asset=sconce-right",
+    "centre": [
+     -4.126,
+     2.518,
+     -0.49
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "583a25ff",
+    "tag": "",
+    "centre": [
+     -4.15,
+     0.825,
+     -3.44
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "583a25ff",
+    "tag": "",
+    "centre": [
+     -4.241,
+     0.465,
+     -3.272
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "583a25ff",
+    "tag": "",
+    "centre": [
+     -4.059,
+     0.465,
+     -3.272
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "583a25ff",
+    "tag": "",
+    "centre": [
+     -4.241,
+     0.465,
+     -3.608
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "583a25ff",
+    "tag": "",
+    "centre": [
+     -4.059,
+     0.465,
+     -3.608
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|writing-table-volume.png",
+    "tag": "",
+    "centre": [
+     -3.97,
+     0.49,
+     -3.439
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader",
+    "tag": "",
+    "centre": [
+     -3.995,
+     0.49,
+     -3.439
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|gold-tureen-volume.png",
+    "tag": "catalogue_asset=gold-tureen",
+    "centre": [
+     1.37,
+     1.34,
+     -3.8
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|gold-ecuelle-clean-volume.png",
+    "tag": "catalogue_asset=gold-ecuelle-clean",
+    "centre": [
+     0.95,
+     1.17,
+     -3.8
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|gold-basket-a-volume.png",
+    "tag": "catalogue_asset=gold-basket-a",
+    "centre": [
+     0.87,
+     1.15,
+     -4.38
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|gold-basket-b-volume.png",
+    "tag": "catalogue_asset=gold-basket-b",
+    "centre": [
+     0.87,
+     1.15,
+     -3.26
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|gold-square-a-volume.png",
+    "tag": "catalogue_asset=gold-square-a",
+    "centre": [
+     1.24,
+     1.119,
+     -4.38
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|gold-square-b-volume.png",
+    "tag": "catalogue_asset=gold-square-b",
+    "centre": [
+     1.24,
+     1.119,
+     -3.26
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|gold-plate-a-volume.png",
+    "tag": "catalogue_asset=gold-plate-a",
+    "centre": [
+     1.461,
+     1.195,
+     -4.35
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|gold-plate-b-volume.png",
+    "tag": "catalogue_asset=gold-plate-b",
+    "centre": [
+     1.462,
+     1.195,
+     -3.29
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|gold-saucer-a-volume.png",
+    "tag": "catalogue_asset=gold-saucer-a",
+    "centre": [
+     0.7,
+     1.118,
+     -4.0
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|gold-saucer-b-volume.png",
+    "tag": "catalogue_asset=gold-saucer-b",
+    "centre": [
+     0.7,
+     1.118,
+     -3.64
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|gold-cup-a-volume.png",
+    "tag": "catalogue_asset=gold-cup-a",
+    "centre": [
+     0.7,
+     1.167,
+     -4.0
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|gold-cup-b-volume.png",
+    "tag": "catalogue_asset=gold-cup-b",
+    "centre": [
+     0.7,
+     1.168,
+     -3.64
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|tureen-volume.png",
+    "tag": "catalogue_asset=tureen",
+    "centre": [
+     -0.7,
+     1.26,
+     -0.95
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|pink-small-tureen-volume.png",
+    "tag": "catalogue_asset=pink-small-tureen",
+    "centre": [
+     0.481,
+     1.26,
+     -0.95
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|pink-compote-volume.png",
+    "tag": "catalogue_asset=pink-compote",
+    "centre": [
+     -0.1,
+     1.149,
+     -0.7
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|pink-bowl-a-volume.png",
+    "tag": "catalogue_asset=pink-bowl-a",
+    "centre": [
+     -0.35,
+     1.122,
+     -1.17
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|pink-bowl-b-volume.png",
+    "tag": "catalogue_asset=pink-bowl-b",
+    "centre": [
+     0.17,
+     1.122,
+     -1.17
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|pink-dish-volume.png",
+    "tag": "catalogue_asset=pink-dish",
+    "centre": [
+     -0.1,
+     1.123,
+     -1.17
+    ],
+    "moved_z": 0.0
+   },
+   {
+    "look": "ps1.gdshader|pink-ladle-volume.png",
+    "tag": "catalogue_asset=pink-ladle",
+    "centre": [
+     0.35,
+     1.15,
+     -1.085
+    ],
+    "moved_z": 0.0
+   }
+  ],
+  "hall_door_leaf_vs_connector_axis": {
+   "leaf_z_range": [
+    0.875,
+    1.825
+   ],
+   "door_clear_z": [
+    -0.34,
+    1.5
+   ],
+   "visitor_edge_to_leaf_m": 0.075,
+   "leaf_overlaps_doorway_by_m": 0.625,
+   "leaf_stands_off_west_wall_m": 0.63
+  },
+  "european_west_wall_order_z": [
+   [
+    "secretary",
+    0.85
+   ],
+   [
+    "Delacroix 35.786",
+    2.15
+   ],
+   [
+    "Fetti 36.003",
+    8.8
+   ],
+   [
+    "Goltzius 61.006",
+    14.7
+   ]
+  ],
+  "nodes_straddling_the_new_rockefeller_european_wall": [
+   [
+    "mesh",
+    "583a25ff",
+    "",
+    [
+     -5.34,
+     0.21,
+     1.31
+    ]
+   ],
+   [
+    "mesh",
+    "583a25ff",
+    "",
+    [
+     -5.04,
+     0.21,
+     1.31
+    ]
+   ]
+  ],
+  "sight_lines": [],
+  "sight_lines_blocked": [],
+  "walk": {
+   "trials": 87,
+   "passed": 84,
+   "regressions": [],
+   "newly_passing": [],
+   "failing_before_and_after": [
+    "loop_16",
+    "medieval_between_cases_clear",
+    "medieval_stairs_aisle_clear"
+   ],
+   "new_trials_failing": [],
+   "rows_changed": [],
+   "final_positions_of_failures": {
+    "medieval_between_cases_clear": [
+     6.85,
+     0.0,
+     30.53
+    ],
+    "medieval_stairs_aisle_clear": [
+     6.28,
+     0.0,
+     29.43
+    ],
+    "loop_16": [
+     3.24,
+     -0.0,
+     29.22
+    ]
+   }
+  },
+  "bake_lights": {
+   "counts_before": {
+    "OmniLight3D": 26,
+    "SpotLight3D": 15,
+    "LightmapProbe": 237
+   },
+   "counts_after": {
+    "OmniLight3D": 26,
+    "SpotLight3D": 15,
+    "LightmapProbe": 237
+   },
+   "moves": {
+    "Rockefeller | OmniLight3D | moved +0.00 z": 2,
+    "connector | OmniLight3D | moved +0.00 z": 2,
+    "European gallery | OmniLight3D | moved +0.00 z": 5,
+    "elsewhere (medieval, Renaissance, landing, modern) | OmniLight3D | moved +0.00 z": 9,
+    "grey gallery and thresholds | OmniLight3D | moved +0.00 z": 3,
+    "Rockefeller | SpotLight3D | moved +0.00 z": 4,
+    "European gallery | SpotLight3D | moved +0.00 z": 1,
+    "elsewhere (medieval, Renaissance, landing, modern) | SpotLight3D | moved +0.00 z": 10,
+    "elsewhere (medieval, Renaissance, landing, modern) | LightmapProbe | moved +0.00 z": 34,
+    "Main Hall footprint (authored extras) | OmniLight3D | moved +0.00 z": 5,
+    "Main Hall footprint (authored extras) | LightmapProbe | moved +0.00 z": 106,
+    "Rockefeller | LightmapProbe | moved +0.00 z": 27,
+    "connector | LightmapProbe | moved +0.00 z": 4,
+    "European gallery | LightmapProbe | moved +0.00 z": 63,
+    "grey gallery and thresholds | LightmapProbe | moved +0.00 z": 3
+   },
+   "after_without_baseline_match": [],
+   "outside_every_room_or_above_ceiling": []
+  }
+ },
+ "summary": {
+  "passed": 22,
+  "failed": 16,
+  "unverified": 5
+ }
+}

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/floor_holdout.py", line 153, in <module>
+    assert common.sum() >= 100
+           ^^^^^^^^^^^^^^^^^^^
+AssertionError

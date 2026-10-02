@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-fe1b1ceff9ae8de4ee20",
+  "summary": "Generate ONE complete FRONT ORTHOGRAPHIC museum door leaf matching the open white door visible in reference1. Tall narrow cream-painted wooden leaf with three rectangular inset panels stacked vertically, raised stepped panel mouldings, broad flat rails and stiles, small dark metal knob/lock at mid-lower right edge. Preserve the real simple panel arrangement, not a carved ornate door. Restrained low polygon game albedo and shallow facet relief, warm off-white paint. Complete rectangular outside silhouette, all corners present. Leaf ratio height2.7m width0.95m. Flat magenta #FF00FF outside silhouette, generous margins. No jamb, surrounding architrave, wall, floor, room, glass, painting, label, people, perspective or shadows outside leaf; one door leaf only. Native closed geometry supplies thickness and panel depths.\n",
+  "procedureId": "muse-fe1b1ceff9ae8de4ee20",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/white-panel-door-selected-0.png",
+      "sha256": "54205d621aa3fa17da7f7770721d9d1756a43ecfe65409e30ca4cd82d9c9c070",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/white-panel-door-selected-1.png",
+      "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "white-panel-door-recipe.json",
+      "sha256": "fe1b1ceff9ae8de4ee2036606da4dc706a3c88f31c070955480552ce47fe07bd"
+    },
+    {
+      "applicationPath": "white-panel-door-plan.json",
+      "sha256": "02c13ad4593c5a79096fe1e826fb514be1ea266be593d5affc6fbf65255bf08a"
+    },
+    {
+      "applicationPath": "white-panel-door-prompt.txt",
+      "sha256": "d7d61a367d7124fac682007143989502e9aad78fc0e674c0f508c17c83dbb6f0"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "labels": [
+    "decorative-black-outer-toe",
+    "decorative-purple-outer-toe"
+  ],
+  "annotations": {
+    "IMG_6380/000238.jpg": [
+      [
+        250,
+        681
+      ],
+      [
+        560,
+        701
+      ]
+    ],
+    "IMG_6380/000244.jpg": [
+      [
+        60,
+        925
+      ],
+      [
+        640,
+        896
+      ]
+    ],
+    "IMG_6380/000239.jpg": [
+      [
+        48,
+        736
+      ],
+      [
+        390,
+        716
+      ]
+    ]
+  },
+  "training": [
+    "IMG_6380/000238.jpg",
+    "IMG_6380/000244.jpg"
+  ],
+  "reserved": "IMG_6380/000239.jpg",
+  "points_world": [
+    [
+      0.42157237413999654,
+      1.64924181713653,
+      1.5285457122379476
+    ],
+    [
+      0.41255564094853336,
+      2.3988236769786946,
+      1.6885711197980793
+    ]
+  ],
+  "points_local_m": [
+    [
+      -1.0152198768516854,
+      0.05087612320857739,
+      0.44667887854936644
+    ],
+    [
+      0.9968353356297402,
+      0.015451531547477134,
+      0.5115289426221555
+    ]
+  ],
+  "ray_angles_degrees": [
+    18.037526035048778,
+    25.678327692938772
+  ],
+  "errors_px": {
+    "IMG_6380/000238.jpg": [
+      0.8170839893902274,
+      0.13445037410797395
+    ],
+    "IMG_6380/000244.jpg": [
+      1.8135470969099772,
+      0.22980787837811206
+    ],
+    "IMG_6380/000239.jpg": [
+      1.9953327153088347,
+      2.2428739647685574
+    ]
+  },
+  "source_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/images/IMG_6380/000238.jpg": "21d8404473bf5cfb5250a670299914c9e0cbb1b2f06a6363315ddb41ab18a60f",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/images/IMG_6380/000244.jpg": "81dc3d6cca2ec13687f0d040f5401f5bca78248b4348d98477e31afbff8f9fef",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/images/IMG_6380/000239.jpg": "fbcb0416a571a4a757e4c78c4b457a5d3d675a1958a84135923bfc4302145668",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-aperture-v1/result.json": "54745a22a7a5921b74bf50a4658420d10860d1c073dc479d6bcfeab3ed1eae3f",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/corridor-floor-v2/result.json": "e2c842dbeb77a766062c3028ff1fd141b3897e48eba57e72495a7f8163daf93e"
+  },
+  "provisional_m_per_unit": 2.6266704457139363,
+  "distance_to_frozen_corridor_plane_m": [
+    0.01959957222042338,
+    0.041430890163130396
+  ],
+  "pick_sensitivity_p95_displacement_m": [
+    0.07567120397642238,
+    0.05171170279496077
+  ],
+  "diagnostic_pass": true,
+  "navigation_accepted": false,
+  "caveat": "Two visible outer toes at the decorative-room connection, not a complete room shell. Manual query pixels withheld from triangulation; query pose already in SfM and same video. No gravity/scale acceptance. Plane distances are extrapolation diagnostics, not evidence of steps. Pick sensitivity omits pose and scale errors; do not tune evaluated pixels."
+}

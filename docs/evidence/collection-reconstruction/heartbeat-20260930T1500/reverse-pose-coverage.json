@@ -1,0 +1,3256 @@
+[
+  {
+    "image": "IMG_6380/000486.jpg",
+    "tracks": [
+      {
+        "query_feature": 125,
+        "point_id": 33848,
+        "upright_pixel": [
+          208.6727294921875,
+          938.5382080078125
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 150,
+        "point_id": 31672,
+        "upright_pixel": [
+          60.13287353515625,
+          720.3624877929688
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 155,
+        "point_id": 25673,
+        "upright_pixel": [
+          51.723876953125,
+          687.1534423828125
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 158,
+        "point_id": 31964,
+        "upright_pixel": [
+          49.0238037109375,
+          710.7872924804688
+        ],
+        "votes": 3,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 159,
+        "point_id": 31333,
+        "upright_pixel": [
+          46.86962890625,
+          702.9417724609375
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 162,
+        "point_id": 35283,
+        "upright_pixel": [
+          34.2359619140625,
+          669.7614135742188
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 163,
+        "point_id": 35287,
+        "upright_pixel": [
+          33.376220703125,
+          667.3169555664062
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 198,
+        "point_id": 33181,
+        "upright_pixel": [
+          577.92041015625,
+          634.6646118164062
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 236,
+        "point_id": 48260,
+        "upright_pixel": [
+          427.0099792480469,
+          542.9426879882812
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 265,
+        "point_id": 31570,
+        "upright_pixel": [
+          362.9466247558594,
+          554.3239135742188
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 299,
+        "point_id": 34889,
+        "upright_pixel": [
+          60.24957275390625,
+          742.6973266601562
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 300,
+        "point_id": 34711,
+        "upright_pixel": [
+          55.2379150390625,
+          701.3749389648438
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 329,
+        "point_id": 35274,
+        "upright_pixel": [
+          545.6216430664062,
+          729.1703491210938
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 376,
+        "point_id": 35092,
+        "upright_pixel": [
+          339.4540710449219,
+          518.0175170898438
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 390,
+        "point_id": 31289,
+        "upright_pixel": [
+          68.36517333984375,
+          714.4434204101562
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 392,
+        "point_id": 31817,
+        "upright_pixel": [
+          68.3114013671875,
+          709.787353515625
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 394,
+        "point_id": 31290,
+        "upright_pixel": [
+          59.88671875,
+          728.9437866210938
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 396,
+        "point_id": 31416,
+        "upright_pixel": [
+          48.99163818359375,
+          706.4901733398438
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 410,
+        "point_id": 33738,
+        "upright_pixel": [
+          673.7146606445312,
+          910.7301635742188
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 411,
+        "point_id": 33185,
+        "upright_pixel": [
+          673.7146606445312,
+          910.7301635742188
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 441,
+        "point_id": 9573,
+        "upright_pixel": [
+          563.9017944335938,
+          676.6729736328125
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 502,
+        "point_id": 31506,
+        "upright_pixel": [
+          68.2152099609375,
+          734.804931640625
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 504,
+        "point_id": 31299,
+        "upright_pixel": [
+          48.99639892578125,
+          724.2989501953125
+        ],
+        "votes": 7,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 507,
+        "point_id": 35318,
+        "upright_pixel": [
+          38.40948486328125,
+          771.7898559570312
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 508,
+        "point_id": 33163,
+        "upright_pixel": [
+          37.22552490234375,
+          714.736083984375
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 525,
+        "point_id": 31573,
+        "upright_pixel": [
+          507.24017333984375,
+          566.2792358398438
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 568,
+        "point_id": 31546,
+        "upright_pixel": [
+          60.55615234375,
+          699.4613037109375
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 570,
+        "point_id": 31297,
+        "upright_pixel": [
+          55.3690185546875,
+          725.1449584960938
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 573,
+        "point_id": 31293,
+        "upright_pixel": [
+          42.2176513671875,
+          727.1806030273438
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 616,
+        "point_id": 35308,
+        "upright_pixel": [
+          169.83135986328125,
+          975.8607788085938
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 623,
+        "point_id": 31548,
+        "upright_pixel": [
+          45.35150146484375,
+          714.1058959960938
+        ],
+        "votes": 4,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 669,
+        "point_id": 35322,
+        "upright_pixel": [
+          441.6235656738281,
+          436.5126037597656
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 685,
+        "point_id": 35323,
+        "upright_pixel": [
+          154.38470458984375,
+          963.6013793945312
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 686,
+        "point_id": 33036,
+        "upright_pixel": [
+          152.38006591796875,
+          934.926025390625
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 691,
+        "point_id": 29509,
+        "upright_pixel": [
+          58.0577392578125,
+          710.608154296875
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 697,
+        "point_id": 31802,
+        "upright_pixel": [
+          521.1041870117188,
+          105.93251037597656
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 709,
+        "point_id": 31819,
+        "upright_pixel": [
+          374.4419250488281,
+          574.208984375
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 738,
+        "point_id": 25677,
+        "upright_pixel": [
+          521.08984375,
+          561.0326538085938
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 771,
+        "point_id": 21493,
+        "upright_pixel": [
+          661.2434692382812,
+          809.0632934570312
+        ],
+        "votes": 1,
+        "fit_parity": true
+      }
+    ],
+    "correspondences": 39,
+    "odd_above450": 0,
+    "even_above450": 2
+  },
+  {
+    "image": "IMG_6380/000496.jpg",
+    "tracks": [
+      {
+        "query_feature": 6,
+        "point_id": 11952,
+        "upright_pixel": [
+          609.6060791015625,
+          441.1973571777344
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 12,
+        "point_id": 7149,
+        "upright_pixel": [
+          469.8390808105469,
+          516.1043090820312
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 34,
+        "point_id": 22164,
+        "upright_pixel": [
+          311.94415283203125,
+          394.0870361328125
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 52,
+        "point_id": 7133,
+        "upright_pixel": [
+          244.49664306640625,
+          398.5199890136719
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 88,
+        "point_id": 13536,
+        "upright_pixel": [
+          71.6387939453125,
+          562.8681030273438
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 89,
+        "point_id": 26247,
+        "upright_pixel": [
+          58.93780517578125,
+          926.0464477539062
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 116,
+        "point_id": 6934,
+        "upright_pixel": [
+          512.920166015625,
+          566.4396362304688
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 128,
+        "point_id": 11598,
+        "upright_pixel": [
+          372.0469055175781,
+          496.05914306640625
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 137,
+        "point_id": 6804,
+        "upright_pixel": [
+          310.0970153808594,
+          406.38629150390625
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 173,
+        "point_id": 7385,
+        "upright_pixel": [
+          132.69683837890625,
+          966.322509765625
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 175,
+        "point_id": 15033,
+        "upright_pixel": [
+          115.6241455078125,
+          515.0902099609375
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 181,
+        "point_id": 10245,
+        "upright_pixel": [
+          61.04736328125,
+          915.7158203125
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 187,
+        "point_id": 7090,
+        "upright_pixel": [
+          13.5460205078125,
+          484.7524719238281
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 212,
+        "point_id": 11857,
+        "upright_pixel": [
+          436.13519287109375,
+          510.0734558105469
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 224,
+        "point_id": 14290,
+        "upright_pixel": [
+          341.10205078125,
+          339.1573486328125
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 235,
+        "point_id": 12925,
+        "upright_pixel": [
+          313.1170959472656,
+          585.5333251953125
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 305,
+        "point_id": 27183,
+        "upright_pixel": [
+          338.0559997558594,
+          313.4626159667969
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 362,
+        "point_id": 32707,
+        "upright_pixel": [
+          615.7696533203125,
+          567.5563354492188
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 369,
+        "point_id": 7184,
+        "upright_pixel": [
+          518.48876953125,
+          978.7586669921875
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 391,
+        "point_id": 13062,
+        "upright_pixel": [
+          351.1210021972656,
+          170.9403839111328
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 403,
+        "point_id": 11906,
+        "upright_pixel": [
+          300.7147216796875,
+          584.0360107421875
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 418,
+        "point_id": 12938,
+        "upright_pixel": [
+          147.62725830078125,
+          306.9850158691406
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 431,
+        "point_id": 7567,
+        "upright_pixel": [
+          23.29937744140625,
+          466.3089294433594
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 434,
+        "point_id": 7162,
+        "upright_pixel": [
+          704.0787963867188,
+          830.20458984375
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 454,
+        "point_id": 6924,
+        "upright_pixel": [
+          405.1186828613281,
+          1113.7081298828125
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 465,
+        "point_id": 7552,
+        "upright_pixel": [
+          298.094482421875,
+          395.31195068359375
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 468,
+        "point_id": 8067,
+        "upright_pixel": [
+          268.2023620605469,
+          249.6832733154297
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 479,
+        "point_id": 11559,
+        "upright_pixel": [
+          163.02874755859375,
+          558.6720581054688
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 486,
+        "point_id": 7076,
+        "upright_pixel": [
+          98.50042724609375,
+          297.22698974609375
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 491,
+        "point_id": 13628,
+        "upright_pixel": [
+          48.88092041015625,
+          1162.13134765625
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 514,
+        "point_id": 14207,
+        "upright_pixel": [
+          318.9979553222656,
+          533.2702026367188
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 515,
+        "point_id": 9397,
+        "upright_pixel": [
+          316.53973388671875,
+          386.4100646972656
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 547,
+        "point_id": 11666,
+        "upright_pixel": [
+          46.74163818359375,
+          715.8292236328125
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 553,
+        "point_id": 27959,
+        "upright_pixel": [
+          614.3887939453125,
+          433.983642578125
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 615,
+        "point_id": 7246,
+        "upright_pixel": [
+          23.31781005859375,
+          238.5260772705078
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 620,
+        "point_id": 7643,
+        "upright_pixel": [
+          618.4723510742188,
+          964.7405395507812
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 660,
+        "point_id": 14141,
+        "upright_pixel": [
+          52.29559326171875,
+          148.4103546142578
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 666,
+        "point_id": 33478,
+        "upright_pixel": [
+          611.2811889648438,
+          521.3272094726562
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 703,
+        "point_id": 10251,
+        "upright_pixel": [
+          391.8562316894531,
+          415.363525390625
+        ],
+        "votes": 1,
+        "fit_parity": true
+      }
+    ],
+    "correspondences": 39,
+    "odd_above450": 7,
+    "even_above450": 9
+  },
+  {
+    "image": "IMG_6380/000206.jpg",
+    "tracks": [
+      {
+        "query_feature": 1,
+        "point_id": 10706,
+        "upright_pixel": [
+          579.0662841796875,
+          426.97576904296875
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 2,
+        "point_id": 14230,
+        "upright_pixel": [
+          576.6243286132812,
+          436.47576904296875
+        ],
+        "votes": 15,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 3,
+        "point_id": 11650,
+        "upright_pixel": [
+          551.4312133789062,
+          727.031494140625
+        ],
+        "votes": 5,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 5,
+        "point_id": 28432,
+        "upright_pixel": [
+          536.0411376953125,
+          717.9879760742188
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 7,
+        "point_id": 12094,
+        "upright_pixel": [
+          417.1908874511719,
+          465.0841064453125
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 10,
+        "point_id": 11824,
+        "upright_pixel": [
+          406.9158630371094,
+          513.5176391601562
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 12,
+        "point_id": 11799,
+        "upright_pixel": [
+          393.5232849121094,
+          497.41156005859375
+        ],
+        "votes": 5,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 13,
+        "point_id": 11827,
+        "upright_pixel": [
+          378.5794372558594,
+          346.203857421875
+        ],
+        "votes": 5,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 15,
+        "point_id": 10547,
+        "upright_pixel": [
+          357.5627136230469,
+          496.58880615234375
+        ],
+        "votes": 40,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 18,
+        "point_id": 11395,
+        "upright_pixel": [
+          352.9573059082031,
+          519.544677734375
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 22,
+        "point_id": 10227,
+        "upright_pixel": [
+          304.4833984375,
+          545.458251953125
+        ],
+        "votes": 4,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 23,
+        "point_id": 10701,
+        "upright_pixel": [
+          297.7464904785156,
+          540.220458984375
+        ],
+        "votes": 8,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 24,
+        "point_id": 12787,
+        "upright_pixel": [
+          294.7763977050781,
+          166.2363739013672
+        ],
+        "votes": 5,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 25,
+        "point_id": 13234,
+        "upright_pixel": [
+          294.01092529296875,
+          987.7671508789062
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 27,
+        "point_id": 11771,
+        "upright_pixel": [
+          281.22021484375,
+          499.35919189453125
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 28,
+        "point_id": 13050,
+        "upright_pixel": [
+          280.9678039550781,
+          542.0376586914062
+        ],
+        "votes": 9,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 29,
+        "point_id": 10233,
+        "upright_pixel": [
+          277.9514465332031,
+          508.6383972167969
+        ],
+        "votes": 16,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 30,
+        "point_id": 10232,
+        "upright_pixel": [
+          277.9514465332031,
+          508.6383972167969
+        ],
+        "votes": 37,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 31,
+        "point_id": 12386,
+        "upright_pixel": [
+          273.98565673828125,
+          535.8020629882812
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 34,
+        "point_id": 13127,
+        "upright_pixel": [
+          249.5450439453125,
+          519.0556640625
+        ],
+        "votes": 6,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 37,
+        "point_id": 13035,
+        "upright_pixel": [
+          201.451416015625,
+          376.0344543457031
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 49,
+        "point_id": 14577,
+        "upright_pixel": [
+          413.2591857910156,
+          485.7123718261719
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 51,
+        "point_id": 11816,
+        "upright_pixel": [
+          402.2886962890625,
+          467.20904541015625
+        ],
+        "votes": 10,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 52,
+        "point_id": 13915,
+        "upright_pixel": [
+          396.8951721191406,
+          501.23297119140625
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 53,
+        "point_id": 11559,
+        "upright_pixel": [
+          382.60565185546875,
+          514.6161499023438
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 54,
+        "point_id": 11691,
+        "upright_pixel": [
+          381.0732421875,
+          525.8070068359375
+        ],
+        "votes": 11,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 58,
+        "point_id": 12925,
+        "upright_pixel": [
+          365.12835693359375,
+          545.6939697265625
+        ],
+        "votes": 10,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 59,
+        "point_id": 10605,
+        "upright_pixel": [
+          360.5475769042969,
+          533.1609497070312
+        ],
+        "votes": 31,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 61,
+        "point_id": 27335,
+        "upright_pixel": [
+          322.6676940917969,
+          162.15611267089844
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 62,
+        "point_id": 10642,
+        "upright_pixel": [
+          320.4779968261719,
+          420.07086181640625
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 67,
+        "point_id": 11834,
+        "upright_pixel": [
+          306.7522888183594,
+          543.0369873046875
+        ],
+        "votes": 12,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 68,
+        "point_id": 10244,
+        "upright_pixel": [
+          305.0576171875,
+          523.1515502929688
+        ],
+        "votes": 33,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 69,
+        "point_id": 10250,
+        "upright_pixel": [
+          304.699951171875,
+          530.523681640625
+        ],
+        "votes": 12,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 70,
+        "point_id": 14039,
+        "upright_pixel": [
+          304.22869873046875,
+          517.4500122070312
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 71,
+        "point_id": 10207,
+        "upright_pixel": [
+          301.5850830078125,
+          531.5982666015625
+        ],
+        "votes": 32,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 76,
+        "point_id": 10627,
+        "upright_pixel": [
+          295.2130126953125,
+          542.3796997070312
+        ],
+        "votes": 6,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 77,
+        "point_id": 10358,
+        "upright_pixel": [
+          293.2621765136719,
+          518.1542358398438
+        ],
+        "votes": 24,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 78,
+        "point_id": 14785,
+        "upright_pixel": [
+          292.2608947753906,
+          534.8338623046875
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 79,
+        "point_id": 10585,
+        "upright_pixel": [
+          288.5758972167969,
+          529.2606811523438
+        ],
+        "votes": 11,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 80,
+        "point_id": 10251,
+        "upright_pixel": [
+          285.68072509765625,
+          519.1051635742188
+        ],
+        "votes": 46,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 81,
+        "point_id": 10380,
+        "upright_pixel": [
+          279.9288024902344,
+          512.3665161132812
+        ],
+        "votes": 37,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 82,
+        "point_id": 11161,
+        "upright_pixel": [
+          273.6890869140625,
+          505.6543273925781
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 84,
+        "point_id": 10566,
+        "upright_pixel": [
+          272.86822509765625,
+          527.2099609375
+        ],
+        "votes": 15,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 85,
+        "point_id": 10535,
+        "upright_pixel": [
+          272.4640197753906,
+          497.2734069824219
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 87,
+        "point_id": 10263,
+        "upright_pixel": [
+          267.073974609375,
+          542.2323608398438
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 90,
+        "point_id": 10047,
+        "upright_pixel": [
+          262.7579650878906,
+          544.0656127929688
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 92,
+        "point_id": 11408,
+        "upright_pixel": [
+          243.49017333984375,
+          399.7441101074219
+        ],
+        "votes": 7,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 101,
+        "point_id": 11650,
+        "upright_pixel": [
+          553.3358154296875,
+          727.3726196289062
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 102,
+        "point_id": 11651,
+        "upright_pixel": [
+          547.8858642578125,
+          726.8704223632812
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 103,
+        "point_id": 31163,
+        "upright_pixel": [
+          540.09228515625,
+          712.4305419921875
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 105,
+        "point_id": 28287,
+        "upright_pixel": [
+          456.6208190917969,
+          635.3988647460938
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 106,
+        "point_id": 14210,
+        "upright_pixel": [
+          436.0409851074219,
+          532.7140502929688
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 108,
+        "point_id": 14300,
+        "upright_pixel": [
+          419.05078125,
+          653.2820434570312
+        ],
+        "votes": 9,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 109,
+        "point_id": 10221,
+        "upright_pixel": [
+          418.204345703125,
+          414.11883544921875
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 110,
+        "point_id": 11633,
+        "upright_pixel": [
+          412.6497497558594,
+          450.50262451171875
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 111,
+        "point_id": 14874,
+        "upright_pixel": [
+          410.2323303222656,
+          505.9338684082031
+        ],
+        "votes": 5,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 112,
+        "point_id": 13498,
+        "upright_pixel": [
+          405.27630615234375,
+          510.59796142578125
+        ],
+        "votes": 7,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 113,
+        "point_id": 12775,
+        "upright_pixel": [
+          405.27630615234375,
+          510.59796142578125
+        ],
+        "votes": 4,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 114,
+        "point_id": 14809,
+        "upright_pixel": [
+          402.52301025390625,
+          456.6685791015625
+        ],
+        "votes": 4,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 115,
+        "point_id": 10103,
+        "upright_pixel": [
+          402.51092529296875,
+          461.5458068847656
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 116,
+        "point_id": 12892,
+        "upright_pixel": [
+          402.3124084472656,
+          504.1875915527344
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 117,
+        "point_id": 11694,
+        "upright_pixel": [
+          398.0601806640625,
+          474.05694580078125
+        ],
+        "votes": 3,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 119,
+        "point_id": 28202,
+        "upright_pixel": [
+          377.6659240722656,
+          512.1465454101562
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 120,
+        "point_id": 11829,
+        "upright_pixel": [
+          365.302978515625,
+          520.1256103515625
+        ],
+        "votes": 33,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 121,
+        "point_id": 30505,
+        "upright_pixel": [
+          365.302978515625,
+          520.1256103515625
+        ],
+        "votes": 31,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 123,
+        "point_id": 10576,
+        "upright_pixel": [
+          355.7927551269531,
+          493.4543151855469
+        ],
+        "votes": 44,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 124,
+        "point_id": 10606,
+        "upright_pixel": [
+          353.9604797363281,
+          512.4901123046875
+        ],
+        "votes": 44,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 126,
+        "point_id": 11087,
+        "upright_pixel": [
+          339.74200439453125,
+          444.6759338378906
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 129,
+        "point_id": 10881,
+        "upright_pixel": [
+          335.40679931640625,
+          473.50830078125
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 131,
+        "point_id": 11352,
+        "upright_pixel": [
+          319.4934387207031,
+          458.553466796875
+        ],
+        "votes": 9,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 132,
+        "point_id": 12264,
+        "upright_pixel": [
+          317.54168701171875,
+          246.5386505126953
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 134,
+        "point_id": 14380,
+        "upright_pixel": [
+          311.69122314453125,
+          492.4742431640625
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 135,
+        "point_id": 12383,
+        "upright_pixel": [
+          307.8813171386719,
+          217.19029235839844
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 136,
+        "point_id": 14997,
+        "upright_pixel": [
+          279.9154052734375,
+          521.8572998046875
+        ],
+        "votes": 8,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 138,
+        "point_id": 28270,
+        "upright_pixel": [
+          275.8717346191406,
+          498.127197265625
+        ],
+        "votes": 4,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 140,
+        "point_id": 13314,
+        "upright_pixel": [
+          247.69744873046875,
+          399.44189453125
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 141,
+        "point_id": 10943,
+        "upright_pixel": [
+          242.4249267578125,
+          404.32293701171875
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 142,
+        "point_id": 10068,
+        "upright_pixel": [
+          242.02981567382812,
+          443.5496520996094
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 144,
+        "point_id": 11135,
+        "upright_pixel": [
+          241.06704711914062,
+          434.92266845703125
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 145,
+        "point_id": 30403,
+        "upright_pixel": [
+          238.8394775390625,
+          521.9025268554688
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 146,
+        "point_id": 14989,
+        "upright_pixel": [
+          238.59249877929688,
+          416.7593688964844
+        ],
+        "votes": 11,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 148,
+        "point_id": 10123,
+        "upright_pixel": [
+          238.39825439453125,
+          439.6616516113281
+        ],
+        "votes": 7,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 149,
+        "point_id": 11857,
+        "upright_pixel": [
+          238.27291870117188,
+          599.458984375
+        ],
+        "votes": 4,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 151,
+        "point_id": 12364,
+        "upright_pixel": [
+          228.39697265625,
+          612.4711303710938
+        ],
+        "votes": 9,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 160,
+        "point_id": 30446,
+        "upright_pixel": [
+          59.54132080078125,
+          567.4921264648438
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 164,
+        "point_id": 11667,
+        "upright_pixel": [
+          658.2905883789062,
+          494.3227844238281
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 165,
+        "point_id": 10856,
+        "upright_pixel": [
+          624.3458251953125,
+          938.343994140625
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 170,
+        "point_id": 30463,
+        "upright_pixel": [
+          549.1802978515625,
+          721.4401245117188
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 171,
+        "point_id": 31164,
+        "upright_pixel": [
+          541.0153198242188,
+          461.70977783203125
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 172,
+        "point_id": 31165,
+        "upright_pixel": [
+          540.8526000976562,
+          479.35296630859375
+        ],
+        "votes": 5,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 173,
+        "point_id": 30337,
+        "upright_pixel": [
+          536.245361328125,
+          714.1732788085938
+        ],
+        "votes": 6,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 176,
+        "point_id": 15882,
+        "upright_pixel": [
+          430.8314514160156,
+          633.7324829101562
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 183,
+        "point_id": 28439,
+        "upright_pixel": [
+          413.720703125,
+          481.8731384277344
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 184,
+        "point_id": 15879,
+        "upright_pixel": [
+          412.97650146484375,
+          648.0219116210938
+        ],
+        "votes": 10,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 185,
+        "point_id": 14304,
+        "upright_pixel": [
+          412.2636413574219,
+          498.06353759765625
+        ],
+        "votes": 4,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 186,
+        "point_id": 13045,
+        "upright_pixel": [
+          407.35498046875,
+          446.4801025390625
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 187,
+        "point_id": 12192,
+        "upright_pixel": [
+          401.3266906738281,
+          414.1101379394531
+        ],
+        "votes": 20,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 189,
+        "point_id": 31173,
+        "upright_pixel": [
+          386.41644287109375,
+          504.77020263671875
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 190,
+        "point_id": 31173,
+        "upright_pixel": [
+          383.50634765625,
+          509.89434814453125
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 192,
+        "point_id": 30339,
+        "upright_pixel": [
+          379.7519836425781,
+          350.028564453125
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 194,
+        "point_id": 14247,
+        "upright_pixel": [
+          370.7845153808594,
+          518.906494140625
+        ],
+        "votes": 48,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 195,
+        "point_id": 10787,
+        "upright_pixel": [
+          360.17303466796875,
+          518.8807373046875
+        ],
+        "votes": 46,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 196,
+        "point_id": 10786,
+        "upright_pixel": [
+          360.17303466796875,
+          518.8807373046875
+        ],
+        "votes": 33,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 197,
+        "point_id": 14157,
+        "upright_pixel": [
+          357.20831298828125,
+          541.6383056640625
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 198,
+        "point_id": 10606,
+        "upright_pixel": [
+          353.638916015625,
+          512.4774169921875
+        ],
+        "votes": 8,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 200,
+        "point_id": 11832,
+        "upright_pixel": [
+          343.7530822753906,
+          458.6966552734375
+        ],
+        "votes": 5,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 201,
+        "point_id": 11143,
+        "upright_pixel": [
+          339.2324523925781,
+          461.727783203125
+        ],
+        "votes": 9,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 203,
+        "point_id": 10243,
+        "upright_pixel": [
+          308.6039123535156,
+          526.8114624023438
+        ],
+        "votes": 20,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 204,
+        "point_id": 14757,
+        "upright_pixel": [
+          303.44854736328125,
+          539.5082397460938
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 205,
+        "point_id": 11026,
+        "upright_pixel": [
+          285.0701599121094,
+          512.265380859375
+        ],
+        "votes": 15,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 206,
+        "point_id": 10266,
+        "upright_pixel": [
+          276.73236083984375,
+          543.7503662109375
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 207,
+        "point_id": 29342,
+        "upright_pixel": [
+          268.9519348144531,
+          505.07830810546875
+        ],
+        "votes": 28,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 213,
+        "point_id": 12650,
+        "upright_pixel": [
+          244.94424438476562,
+          393.7127990722656
+        ],
+        "votes": 20,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 214,
+        "point_id": 14545,
+        "upright_pixel": [
+          238.594970703125,
+          407.03131103515625
+        ],
+        "votes": 8,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 218,
+        "point_id": 12861,
+        "upright_pixel": [
+          234.28884887695312,
+          419.5672607421875
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 219,
+        "point_id": 13096,
+        "upright_pixel": [
+          233.55288696289062,
+          390.2720947265625
+        ],
+        "votes": 3,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 220,
+        "point_id": 12362,
+        "upright_pixel": [
+          232.98080444335938,
+          518.1848754882812
+        ],
+        "votes": 5,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 224,
+        "point_id": 12797,
+        "upright_pixel": [
+          212.268310546875,
+          513.0596923828125
+        ],
+        "votes": 6,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 226,
+        "point_id": 14454,
+        "upright_pixel": [
+          186.64312744140625,
+          990.2163696289062
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 228,
+        "point_id": 30447,
+        "upright_pixel": [
+          159.13433837890625,
+          632.5322875976562
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 231,
+        "point_id": 15063,
+        "upright_pixel": [
+          3.0146484375,
+          542.6881103515625
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 235,
+        "point_id": 31375,
+        "upright_pixel": [
+          593.5770263671875,
+          945.9536743164062
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 236,
+        "point_id": 30369,
+        "upright_pixel": [
+          580.6516723632812,
+          421.5193786621094
+        ],
+        "votes": 4,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 237,
+        "point_id": 30409,
+        "upright_pixel": [
+          577.50048828125,
+          441.89190673828125
+        ],
+        "votes": 4,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 238,
+        "point_id": 14958,
+        "upright_pixel": [
+          570.2129516601562,
+          753.6244506835938
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 240,
+        "point_id": 30342,
+        "upright_pixel": [
+          550.8531494140625,
+          471.33367919921875
+        ],
+        "votes": 5,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 241,
+        "point_id": 14889,
+        "upright_pixel": [
+          435.6950988769531,
+          661.6041259765625
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 242,
+        "point_id": 31182,
+        "upright_pixel": [
+          408.62933349609375,
+          586.1016845703125
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 243,
+        "point_id": 12450,
+        "upright_pixel": [
+          408.62933349609375,
+          586.1016845703125
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 244,
+        "point_id": 13126,
+        "upright_pixel": [
+          407.78662109375,
+          469.3996276855469
+        ],
+        "votes": 3,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 245,
+        "point_id": 10302,
+        "upright_pixel": [
+          401.2065124511719,
+          592.1436157226562
+        ],
+        "votes": 4,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 246,
+        "point_id": 10799,
+        "upright_pixel": [
+          366.91558837890625,
+          504.6258544921875
+        ],
+        "votes": 54,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 247,
+        "point_id": 14886,
+        "upright_pixel": [
+          360.7091369628906,
+          548.9389038085938
+        ],
+        "votes": 3,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 248,
+        "point_id": 30437,
+        "upright_pixel": [
+          355.3736877441406,
+          487.0638732910156
+        ],
+        "votes": 23,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 249,
+        "point_id": 10950,
+        "upright_pixel": [
+          343.3114929199219,
+          439.0226745605469
+        ],
+        "votes": 14,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 250,
+        "point_id": 11451,
+        "upright_pixel": [
+          342.423095703125,
+          421.9224548339844
+        ],
+        "votes": 40,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 251,
+        "point_id": 10625,
+        "upright_pixel": [
+          341.86212158203125,
+          472.6366882324219
+        ],
+        "votes": 29,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 252,
+        "point_id": 10624,
+        "upright_pixel": [
+          341.86212158203125,
+          472.6366882324219
+        ],
+        "votes": 6,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 254,
+        "point_id": 13885,
+        "upright_pixel": [
+          320.12274169921875,
+          434.0538330078125
+        ],
+        "votes": 24,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 255,
+        "point_id": 10264,
+        "upright_pixel": [
+          302.6358947753906,
+          526.08935546875
+        ],
+        "votes": 56,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 256,
+        "point_id": 14137,
+        "upright_pixel": [
+          298.81976318359375,
+          516.3123168945312
+        ],
+        "votes": 24,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 257,
+        "point_id": 13246,
+        "upright_pixel": [
+          298.08221435546875,
+          531.35205078125
+        ],
+        "votes": 24,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 258,
+        "point_id": 10260,
+        "upright_pixel": [
+          292.4789123535156,
+          526.3101806640625
+        ],
+        "votes": 28,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 259,
+        "point_id": 10801,
+        "upright_pixel": [
+          289.9486083984375,
+          542.2139282226562
+        ],
+        "votes": 49,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 260,
+        "point_id": 10262,
+        "upright_pixel": [
+          283.6522521972656,
+          495.74505615234375
+        ],
+        "votes": 44,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 261,
+        "point_id": 10265,
+        "upright_pixel": [
+          277.2995300292969,
+          526.5280151367188
+        ],
+        "votes": 41,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 262,
+        "point_id": 28271,
+        "upright_pixel": [
+          272.9692687988281,
+          510.49407958984375
+        ],
+        "votes": 7,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 264,
+        "point_id": 11857,
+        "upright_pixel": [
+          239.28765869140625,
+          600.6697387695312
+        ],
+        "votes": 14,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 265,
+        "point_id": 10135,
+        "upright_pixel": [
+          238.87069702148438,
+          387.1685791015625
+        ],
+        "votes": 38,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 267,
+        "point_id": 30345,
+        "upright_pixel": [
+          226.87960815429688,
+          513.23583984375
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 268,
+        "point_id": 30348,
+        "upright_pixel": [
+          214.46624755859375,
+          525.155029296875
+        ],
+        "votes": 6,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 269,
+        "point_id": 30412,
+        "upright_pixel": [
+          206.02691650390625,
+          520.2002563476562
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 271,
+        "point_id": 17713,
+        "upright_pixel": [
+          201.2586669921875,
+          365.4495849609375
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 272,
+        "point_id": 13554,
+        "upright_pixel": [
+          172.81158447265625,
+          499.6458435058594
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 275,
+        "point_id": 28136,
+        "upright_pixel": [
+          50.59356689453125,
+          572.1973876953125
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 278,
+        "point_id": 43826,
+        "upright_pixel": [
+          633.3546142578125,
+          1038.0250244140625
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 279,
+        "point_id": 11013,
+        "upright_pixel": [
+          611.5068359375,
+          372.2615661621094
+        ],
+        "votes": 9,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 283,
+        "point_id": 11319,
+        "upright_pixel": [
+          591.2825317382812,
+          398.0166320800781
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 285,
+        "point_id": 11710,
+        "upright_pixel": [
+          590.3104248046875,
+          420.56585693359375
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 287,
+        "point_id": 11655,
+        "upright_pixel": [
+          586.072998046875,
+          445.7868957519531
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 292,
+        "point_id": 30302,
+        "upright_pixel": [
+          484.3645935058594,
+          665.4404296875
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 293,
+        "point_id": 28301,
+        "upright_pixel": [
+          455.6929931640625,
+          282.67816162109375
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 294,
+        "point_id": 14002,
+        "upright_pixel": [
+          408.1715393066406,
+          490.8118591308594
+        ],
+        "votes": 4,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 295,
+        "point_id": 14770,
+        "upright_pixel": [
+          408.1715393066406,
+          490.8118591308594
+        ],
+        "votes": 3,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 296,
+        "point_id": 12708,
+        "upright_pixel": [
+          394.5489501953125,
+          503.0906066894531
+        ],
+        "votes": 17,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 298,
+        "point_id": 30344,
+        "upright_pixel": [
+          375.3828430175781,
+          580.2437744140625
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 299,
+        "point_id": 14379,
+        "upright_pixel": [
+          371.9808654785156,
+          511.64642333984375
+        ],
+        "votes": 11,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 300,
+        "point_id": 10800,
+        "upright_pixel": [
+          360.6607666015625,
+          511.1330871582031
+        ],
+        "votes": 52,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 302,
+        "point_id": 10112,
+        "upright_pixel": [
+          353.75335693359375,
+          1174.8660888671875
+        ],
+        "votes": 3,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 303,
+        "point_id": 12138,
+        "upright_pixel": [
+          338.4637145996094,
+          567.3995361328125
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 309,
+        "point_id": 28298,
+        "upright_pixel": [
+          232.1502685546875,
+          375.6737060546875
+        ],
+        "votes": 6,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 312,
+        "point_id": 30381,
+        "upright_pixel": [
+          208.95480346679688,
+          532.8447265625
+        ],
+        "votes": 4,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 314,
+        "point_id": 14320,
+        "upright_pixel": [
+          194.96966552734375,
+          656.1151733398438
+        ],
+        "votes": 8,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 318,
+        "point_id": 15508,
+        "upright_pixel": [
+          8.05230712890625,
+          825.3824462890625
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 323,
+        "point_id": 13523,
+        "upright_pixel": [
+          603.4351196289062,
+          1031.61083984375
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 329,
+        "point_id": 28451,
+        "upright_pixel": [
+          491.17620849609375,
+          704.2359008789062
+        ],
+        "votes": 10,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 331,
+        "point_id": 12054,
+        "upright_pixel": [
+          408.7238464355469,
+          569.5112915039062
+        ],
+        "votes": 3,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 332,
+        "point_id": 13013,
+        "upright_pixel": [
+          387.8551330566406,
+          356.5049743652344
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 333,
+        "point_id": 30344,
+        "upright_pixel": [
+          375.2490234375,
+          580.3681030273438
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 335,
+        "point_id": 14886,
+        "upright_pixel": [
+          360.79931640625,
+          550.5470581054688
+        ],
+        "votes": 9,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 336,
+        "point_id": 12483,
+        "upright_pixel": [
+          324.80438232421875,
+          470.12579345703125
+        ],
+        "votes": 40,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 338,
+        "point_id": 10177,
+        "upright_pixel": [
+          259.5343933105469,
+          537.5073852539062
+        ],
+        "votes": 8,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 340,
+        "point_id": 12234,
+        "upright_pixel": [
+          241.67181396484375,
+          502.4904479980469
+        ],
+        "votes": 6,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 341,
+        "point_id": 11739,
+        "upright_pixel": [
+          230.98516845703125,
+          396.6844482421875
+        ],
+        "votes": 32,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 348,
+        "point_id": 30452,
+        "upright_pixel": [
+          117.3236083984375,
+          696.4481811523438
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 349,
+        "point_id": 30417,
+        "upright_pixel": [
+          115.99267578125,
+          709.0379028320312
+        ],
+        "votes": 5,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 350,
+        "point_id": 31184,
+        "upright_pixel": [
+          62.4771728515625,
+          671.904296875
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 359,
+        "point_id": 30420,
+        "upright_pixel": [
+          595.4737548828125,
+          410.17474365234375
+        ],
+        "votes": 3,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 362,
+        "point_id": 11517,
+        "upright_pixel": [
+          578.7996826171875,
+          980.6561279296875
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 364,
+        "point_id": 11838,
+        "upright_pixel": [
+          546.6002807617188,
+          707.4681396484375
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 366,
+        "point_id": 35381,
+        "upright_pixel": [
+          541.0565795898438,
+          470.7812194824219
+        ],
+        "votes": 5,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 367,
+        "point_id": 30306,
+        "upright_pixel": [
+          541.0565795898438,
+          470.7812194824219
+        ],
+        "votes": 5,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 368,
+        "point_id": 30308,
+        "upright_pixel": [
+          505.23577880859375,
+          722.79248046875
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 369,
+        "point_id": 28301,
+        "upright_pixel": [
+          458.1105041503906,
+          284.3709716796875
+        ],
+        "votes": 5,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 370,
+        "point_id": 30454,
+        "upright_pixel": [
+          415.7649230957031,
+          359.2158508300781
+        ],
+        "votes": 3,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 371,
+        "point_id": 30418,
+        "upright_pixel": [
+          406.0221862792969,
+          624.062255859375
+        ],
+        "votes": 3,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 372,
+        "point_id": 30383,
+        "upright_pixel": [
+          373.71673583984375,
+          550.9629516601562
+        ],
+        "votes": 8,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 373,
+        "point_id": 10637,
+        "upright_pixel": [
+          335.5080871582031,
+          412.1166076660156
+        ],
+        "votes": 27,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 374,
+        "point_id": 11600,
+        "upright_pixel": [
+          332.88031005859375,
+          482.1012268066406
+        ],
+        "votes": 54,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 376,
+        "point_id": 14231,
+        "upright_pixel": [
+          243.03952026367188,
+          462.3724365234375
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 377,
+        "point_id": 10958,
+        "upright_pixel": [
+          237.26531982421875,
+          430.71221923828125
+        ],
+        "votes": 19,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 378,
+        "point_id": 28304,
+        "upright_pixel": [
+          231.03341674804688,
+          370.716552734375
+        ],
+        "votes": 5,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 379,
+        "point_id": 12930,
+        "upright_pixel": [
+          218.24887084960938,
+          521.8370361328125
+        ],
+        "votes": 3,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 381,
+        "point_id": 30460,
+        "upright_pixel": [
+          212.93685913085938,
+          569.5755004882812
+        ],
+        "votes": 5,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 389,
+        "point_id": 30427,
+        "upright_pixel": [
+          597.9868774414062,
+          373.275146484375
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 390,
+        "point_id": 30428,
+        "upright_pixel": [
+          597.6564331054688,
+          391.9378967285156
+        ],
+        "votes": 3,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 392,
+        "point_id": 30384,
+        "upright_pixel": [
+          585.844482421875,
+          432.54559326171875
+        ],
+        "votes": 4,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 394,
+        "point_id": 12241,
+        "upright_pixel": [
+          586.3621826171875,
+          930.27587890625
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 396,
+        "point_id": 30353,
+        "upright_pixel": [
+          481.3094787597656,
+          271.4229736328125
+        ],
+        "votes": 4,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 398,
+        "point_id": 30354,
+        "upright_pixel": [
+          414.1846618652344,
+          664.665771484375
+        ],
+        "votes": 8,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 400,
+        "point_id": 35373,
+        "upright_pixel": [
+          410.2674865722656,
+          458.98541259765625
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 401,
+        "point_id": 30351,
+        "upright_pixel": [
+          406.1575012207031,
+          530.7659912109375
+        ],
+        "votes": 5,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 402,
+        "point_id": 12000,
+        "upright_pixel": [
+          393.9037780761719,
+          512.5404052734375
+        ],
+        "votes": 5,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 403,
+        "point_id": 11448,
+        "upright_pixel": [
+          364.25445556640625,
+          535.2874755859375
+        ],
+        "votes": 22,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 404,
+        "point_id": 12957,
+        "upright_pixel": [
+          348.3699645996094,
+          547.7791137695312
+        ],
+        "votes": 33,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 405,
+        "point_id": 14312,
+        "upright_pixel": [
+          347.1627197265625,
+          518.8163452148438
+        ],
+        "votes": 20,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 406,
+        "point_id": 11601,
+        "upright_pixel": [
+          337.0362548828125,
+          426.9992370605469
+        ],
+        "votes": 14,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 409,
+        "point_id": 35366,
+        "upright_pixel": [
+          214.41421508789062,
+          408.85150146484375
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 410,
+        "point_id": 30455,
+        "upright_pixel": [
+          154.8458251953125,
+          275.5471496582031
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 416,
+        "point_id": 30389,
+        "upright_pixel": [
+          580.4100341796875,
+          299.96697998046875
+        ],
+        "votes": 4,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 418,
+        "point_id": 11176,
+        "upright_pixel": [
+          514.0435180664062,
+          916.924072265625
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 421,
+        "point_id": 28453,
+        "upright_pixel": [
+          449.01580810546875,
+          674.3621215820312
+        ],
+        "votes": 3,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 423,
+        "point_id": 11740,
+        "upright_pixel": [
+          390.7984313964844,
+          445.0073547363281
+        ],
+        "votes": 12,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 424,
+        "point_id": 30433,
+        "upright_pixel": [
+          311.49493408203125,
+          212.64637756347656
+        ],
+        "votes": 5,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 425,
+        "point_id": 30432,
+        "upright_pixel": [
+          311.49493408203125,
+          212.64637756347656
+        ],
+        "votes": 3,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 426,
+        "point_id": 21367,
+        "upright_pixel": [
+          308.10345458984375,
+          163.7184295654297
+        ],
+        "votes": 7,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 428,
+        "point_id": 12617,
+        "upright_pixel": [
+          294.9991455078125,
+          141.21128845214844
+        ],
+        "votes": 4,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 429,
+        "point_id": 12354,
+        "upright_pixel": [
+          294.9991455078125,
+          141.21128845214844
+        ],
+        "votes": 9,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 431,
+        "point_id": 30360,
+        "upright_pixel": [
+          220.31591796875,
+          601.4677124023438
+        ],
+        "votes": 5,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 432,
+        "point_id": 30394,
+        "upright_pixel": [
+          187.9263916015625,
+          336.89031982421875
+        ],
+        "votes": 5,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 433,
+        "point_id": 30393,
+        "upright_pixel": [
+          187.9263916015625,
+          336.89031982421875
+        ],
+        "votes": 4,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 439,
+        "point_id": 31229,
+        "upright_pixel": [
+          649.8048706054688,
+          1041.4044189453125
+        ],
+        "votes": 1,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 442,
+        "point_id": 28307,
+        "upright_pixel": [
+          423.727294921875,
+          344.28973388671875
+        ],
+        "votes": 2,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 445,
+        "point_id": 11251,
+        "upright_pixel": [
+          331.84228515625,
+          457.19140625
+        ],
+        "votes": 34,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 446,
+        "point_id": 14985,
+        "upright_pixel": [
+          294.22186279296875,
+          585.1058959960938
+        ],
+        "votes": 13,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 447,
+        "point_id": 35376,
+        "upright_pixel": [
+          294.22186279296875,
+          585.1058959960938
+        ],
+        "votes": 4,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 458,
+        "point_id": 11886,
+        "upright_pixel": [
+          624.0545654296875,
+          399.3157043457031
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 460,
+        "point_id": 10639,
+        "upright_pixel": [
+          329.32183837890625,
+          544.5695190429688
+        ],
+        "votes": 13,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 461,
+        "point_id": 10415,
+        "upright_pixel": [
+          284.5267333984375,
+          518.2738037109375
+        ],
+        "votes": 24,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 462,
+        "point_id": 12142,
+        "upright_pixel": [
+          155.914306640625,
+          460.1523742675781
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 466,
+        "point_id": 30362,
+        "upright_pixel": [
+          254.88681030273438,
+          385.44921875
+        ],
+        "votes": 2,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 467,
+        "point_id": 35378,
+        "upright_pixel": [
+          254.88681030273438,
+          385.44921875
+        ],
+        "votes": 4,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 469,
+        "point_id": 31193,
+        "upright_pixel": [
+          454.4497985839844,
+          632.4240112304688
+        ],
+        "votes": 5,
+        "fit_parity": true
+      },
+      {
+        "query_feature": 471,
+        "point_id": 35386,
+        "upright_pixel": [
+          155.255615234375,
+          618.7178955078125
+        ],
+        "votes": 1,
+        "fit_parity": false
+      },
+      {
+        "query_feature": 475,
+        "point_id": 33075,
+        "upright_pixel": [
+          141.91571044921875,
+          311.0399169921875
+        ],
+        "votes": 1,
+        "fit_parity": true
+      }
+    ],
+    "correspondences": 245,
+    "odd_above450": 40,
+    "even_above450": 27
+  }
+]

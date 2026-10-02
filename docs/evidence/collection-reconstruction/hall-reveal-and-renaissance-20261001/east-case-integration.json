@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-01T20:14:25.234383+00:00",
+  "base_verified": {
+    "modules/shell/prototype/collection_reconstruction/remodel_room.gd": "b3ae7f99e71ebca7ca64c7608d1c6426465289ae252a7b2d7aa2f756a7efe4a1",
+    "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "bd4f865c3574e3fe97f41bbda244f355d9d7d95b10d1983d9b8d5f70751d962a",
+    "modules/shell/prototype/collection_reconstruction/architecture_check.gd": "fd2ad1acea44833fc85bbc1acee89c818c4944910de0f3c76bdde6248796013a",
+    "image-work/collection-room-remodel/sculpture-room-inventory.json": "87d110168eaa2396b9aee5cc6a10c8f03cb60cbcec4807b543373836bcd1848a"
+  },
+  "installed_cases": 2,
+  "object_studies": 11,
+  "triptych_wall_gap_m": 0.007,
+  "jamb_cutaway": "header child boxes; native review pending",
+  "tap_click_target": "single doorway crossing guard reuses native Hall clamp; verification pending",
+  "all_acceptance_flags": false
+}

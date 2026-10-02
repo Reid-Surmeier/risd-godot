@@ -1,0 +1,49 @@
+{
+ "full_app": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50n",
+ "hall_source_tip": "317b8f3b8dac0f9811d396bcb0260c7187f93f11",
+ "hall_files_listed": 362,
+ "hall_files_hash_equal": 362,
+ "changed_or_missing": [],
+ "geometry_equals_my_build": true,
+ "scripts": {
+  "remodel_room.gd": {
+   "sha256": "67f0b6c1535f9ba483a48049b3da0c5020106bc9ac0b2e705e0f1e866f1364a0",
+   "lines_differing_after_prefix": 0,
+   "sample": []
+  },
+  "remodel_review.gd": {
+   "sha256": "72d0b5c691583e6a0c8be704907a013b0dbb0c6958f9f26cdffc76e09c462787",
+   "lines_differing_after_prefix": 0,
+   "sample": []
+  },
+  "remodel_bake.gd": {
+   "sha256": "2f19bc91c3a5d4f6d0ce7158306b657a6036437ed54f2c6570836c4f73658418",
+   "lines_differing_after_prefix": 0,
+   "sample": []
+  },
+  "retained_hall_room.gd": {
+   "sha256": "aaddae22e31781f35a95a0ab1991a2e15537d8cbd9a4c4afaf219012791e18b8",
+   "lines_differing_after_prefix": 0,
+   "sample": []
+  }
+ },
+ "bake": {
+  "room.exr": {
+   "bytes": 4268855,
+   "sha256": "f1310d467428f2599950d38a43a2bbf6912c388a5fbf5db829c968f16793e69a"
+  },
+  "room.exr.import": {
+   "bytes": 868,
+   "sha256": "76af5d65070311078c52ac2811336ac258c1309d8f9b506d99e2385d99649399"
+  },
+  "room.tres": {
+   "bytes": 533669,
+   "sha256": "6a896f3abf00d89293c46df9c6050aecd55a4d9767e08e3b299dee014fc00b89"
+  },
+  "room.tscn": {
+   "bytes": 8969635,
+   "sha256": "d852fb3d02779b1a355ccbb5d7c1a9cb3f01f0abe51099a1f8a4c22727bfd97b"
+  }
+ },
+ "native_evidence": {}
+}

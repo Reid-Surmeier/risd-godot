@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "ivory-plaster-001",
+      "prompt": "ivory-plaster-prompt.txt",
+      "promptSha256": "58ed061a6546928b8dbc2dad00bd379ae836fbee5407cb2f3933e589e9008dde",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "architecture-references/ivory-plaster-source.png",
+          "sha256": "0e2fba7e961c923009e51591f63d580ba238b76bdea6a1ce4f16cc16c1aede25"
+        }
+      ]
+    }
+  ]
+}

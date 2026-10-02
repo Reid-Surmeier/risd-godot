@@ -1,0 +1,107 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-9d0a20ece5ba1f94400e",
+      "objective": "Generate ONE complete front orthographic low polygon gilded Gothic picture frame for Lippo Memmi Mary Magdalene21.250, matching the first official catalogue photograph and second RISD museum video reference. Preserve the narrow very tall gabled silhouette, a steep triangular roof with small individual crockets on both slopes and a worn paired finial at its apex, two straight twisted rope columns with small ring capitals and bases, and a straight narrow dark brown-gold bottom sill. Restrained worn gold, modest faceted carved relief in the museum game material of reference3. Frame only: replace the entire painted interior including the triangular gold painted field with a perfectly blank white continuous pentagonal opening. The opening has a tall rectangular lower section and a steep triangular top, exactly like the actual source inner edge. No painted person, face, halo, hands, vessel, figures, wall, labels, perspective, extra frame, ornament invented beyond the source. Flat magenta #FF00FF outside the complete frame silhouette. Show the whole frame including the entire finial and bottom bases, no cropping. One frame only.\n",
+      "procedureId": "muse-9d0a20ece5ba1f94400e",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "magdalene-frame-recipe.json",
+          "sha256": "9d0a20ece5ba1f94400e920404093a2129e034e4d61d1103a65ea54c424ac448"
+        },
+        {
+          "applicationPath": "magdalene-frame-plan.json",
+          "sha256": "c63249a83ea612018e1293884bc868bf511fdcc7b4006d56055075f6fce6e4e3"
+        },
+        {
+          "applicationPath": "magdalene-frame-prompt.txt",
+          "sha256": "b999b25a5d57922766aa14e136bf360e54fd70baa850124ca75e715cdefcb650"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/magdalene-frame-selected-0.png",
+          "sha256": "353f0b55d8f3da644583bdd4a56166d6ec411d9106ec7dbb5ef3f5aec900c46d",
+          "byteLength": 3387478,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 2358
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/magdalene-frame-selected-1.png",
+          "sha256": "20a3b9125d28e3431edd52a39572039dd7136304ce1b6ade158e096610686a81",
+          "byteLength": 1532840,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        },
+        {
+          "slot": "reference-002",
+          "applicationPath": "inventory-references/magdalene-frame-selected-2.png",
+          "sha256": "b18e6b9910c83a687c9a90a9cf4b4a71377ff6a74f60156dac53b96e91bb2c61",
+          "byteLength": 1033914,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/2/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1440,
+            "height": 1760
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"Generate ONE complete front orthographic low polygon gilded Gothic picture frame for Lippo Memmi Mary Magdalene21.250, matching the first official catalogue photograph and second RISD museum video reference. Preserve the narrow very tall gabled silhouette, a steep triangular roof with small individual crockets on both slopes and a worn paired finial at its apex, two straight twisted rope columns with small ring capitals and bases, and a straight narrow dark brown-gold bottom sill. Restrained worn gold, modest faceted carved relief in the museum game material of reference3. Frame only: replace the entire painted interior including the triangular gold painted field with a perfectly blank white continuous pentagonal opening. The opening has a tall rectangular lower section and a steep triangular top, exactly like the actual source inner edge. No painted person, face, halo, hands, vessel, figures, wall, labels, perspective, extra frame, ornament invented beyond the source. Flat magenta #FF00FF outside the complete frame silhouette. Show the whole frame including the entire finial and bottom bases, no cropping. One frame only.\\n\",\"objectiveId\":\"muse-9d0a20ece5ba1f94400e\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-9d0a20ece5ba1f94400e\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/magdalene-frame-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":3387478,\"inspectedMedia\":{\"height\":2358,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"353f0b55d8f3da644583bdd4a56166d6ec411d9106ec7dbb5ef3f5aec900c46d\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/magdalene-frame-selected-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1532840,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"20a3b9125d28e3431edd52a39572039dd7136304ce1b6ade158e096610686a81\",\"slot\":\"reference-001\"},{\"applicationPath\":\"inventory-references/magdalene-frame-selected-2.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1033914,\"inspectedMedia\":{\"height\":1760,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1440},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/2/image_url/url\",\"sha256\":\"b18e6b9910c83a687c9a90a9cf4b4a71377ff6a74f60156dac53b96e91bb2c61\",\"slot\":\"reference-002\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"magdalene-frame-recipe.json\",\"sha256\":\"9d0a20ece5ba1f94400e920404093a2129e034e4d61d1103a65ea54c424ac448\"},{\"applicationPath\":\"magdalene-frame-plan.json\",\"sha256\":\"c63249a83ea612018e1293884bc868bf511fdcc7b4006d56055075f6fce6e4e3\"},{\"applicationPath\":\"magdalene-frame-prompt.txt\",\"sha256\":\"b999b25a5d57922766aa14e136bf360e54fd70baa850124ca75e715cdefcb650\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "512ec3442058ba2c246e9eea4e72d06bedba6efaf2ba8f850a89a99e52e78ec8"
+  },
+  "normalView": {
+    "objective": "Generate ONE complete front orthographic low polygon gilded Gothic picture frame for Lippo Memmi Mary Magdalene21.250, matching the first official catalogue photograph and second RISD museum video reference. Preserve the narrow very tall gabled silhouette, a steep triangular roof with small individual crockets on both slopes and a worn paired finial at its apex, two straight twisted rope columns with small ring capitals and bases, and a straight narrow dark brown-gold bottom sill. Restrained worn gold, modest faceted carved relief in the museum game material of reference3. Frame only: replace the entire painted interior including the triangular gold painted field with a perfectly blank white continuous pentagonal opening. The opening has a tall rectangular lower section and a steep triangular top, exactly like the actual source inner edge. No painted person, face, halo, hands, vessel, figures, wall, labels, perspective, extra frame, ornament invented beyond the source. Flat magenta #FF00FF outside the complete frame silhouette. Show the whole frame including the entire finial and bottom bases, no cropping. One frame only.\n",
+    "evidence": "3 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

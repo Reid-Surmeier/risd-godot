@@ -1,0 +1,621 @@
+{
+  "source": "sfm-calibrated-doorway-v1/sparse/0",
+  "source_sha256": {
+    "sparse/0/points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "sparse/0/frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "sparse/0/images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "samples": 69,
+  "original_supported": 49,
+  "split_point_supported": 46,
+  "split_point_results": [
+    {
+      "image": "IMG_6380/000196.jpg",
+      "fit_points": 0,
+      "test_points": 0,
+      "supported": false
+    },
+    {
+      "image": "IMG_6380/000206.jpg",
+      "fit_points": 131,
+      "test_points": 121,
+      "supported": true,
+      "fit_inliers": 88,
+      "test_below4px": 82,
+      "test_fraction": 0.6776859504132231
+    },
+    {
+      "image": "IMG_6380/000216.jpg",
+      "fit_points": 0,
+      "test_points": 0,
+      "supported": false
+    },
+    {
+      "image": "IMG_6380/000236.jpg",
+      "fit_points": 0,
+      "test_points": 0,
+      "supported": false
+    },
+    {
+      "image": "IMG_6380/000246.jpg",
+      "fit_points": 548,
+      "test_points": 521,
+      "supported": true,
+      "fit_inliers": 443,
+      "test_below4px": 441,
+      "test_fraction": 0.8464491362763915
+    },
+    {
+      "image": "IMG_6380/000256.jpg",
+      "fit_points": 230,
+      "test_points": 217,
+      "supported": true,
+      "fit_inliers": 163,
+      "test_below4px": 147,
+      "test_fraction": 0.6774193548387096
+    },
+    {
+      "image": "IMG_6380/000266.jpg",
+      "fit_points": 343,
+      "test_points": 329,
+      "supported": true,
+      "fit_inliers": 232,
+      "test_below4px": 200,
+      "test_fraction": 0.60790273556231
+    },
+    {
+      "image": "IMG_6380/000276.jpg",
+      "fit_points": 256,
+      "test_points": 239,
+      "supported": true,
+      "fit_inliers": 188,
+      "test_below4px": 172,
+      "test_fraction": 0.7196652719665272
+    },
+    {
+      "image": "IMG_6380/000286.jpg",
+      "fit_points": 246,
+      "test_points": 259,
+      "supported": true,
+      "fit_inliers": 155,
+      "test_below4px": 167,
+      "test_fraction": 0.6447876447876448
+    },
+    {
+      "image": "IMG_6380/000296.jpg",
+      "fit_points": 776,
+      "test_points": 739,
+      "supported": true,
+      "fit_inliers": 632,
+      "test_below4px": 588,
+      "test_fraction": 0.7956698240866035
+    },
+    {
+      "image": "IMG_6380/000306.jpg",
+      "fit_points": 570,
+      "test_points": 526,
+      "supported": true,
+      "fit_inliers": 442,
+      "test_below4px": 405,
+      "test_fraction": 0.7699619771863118
+    },
+    {
+      "image": "IMG_6380/000316.jpg",
+      "fit_points": 169,
+      "test_points": 168,
+      "supported": true,
+      "fit_inliers": 52,
+      "test_below4px": 50,
+      "test_fraction": 0.2976190476190476
+    },
+    {
+      "image": "IMG_6380/000326.jpg",
+      "fit_points": 418,
+      "test_points": 421,
+      "supported": true,
+      "fit_inliers": 353,
+      "test_below4px": 366,
+      "test_fraction": 0.8693586698337292
+    },
+    {
+      "image": "IMG_6380/000336.jpg",
+      "fit_points": 372,
+      "test_points": 338,
+      "supported": true,
+      "fit_inliers": 273,
+      "test_below4px": 267,
+      "test_fraction": 0.7899408284023669
+    },
+    {
+      "image": "IMG_6380/000346.jpg",
+      "fit_points": 526,
+      "test_points": 533,
+      "supported": true,
+      "fit_inliers": 362,
+      "test_below4px": 346,
+      "test_fraction": 0.649155722326454
+    },
+    {
+      "image": "IMG_6380/000356.jpg",
+      "fit_points": 325,
+      "test_points": 316,
+      "supported": true,
+      "fit_inliers": 169,
+      "test_below4px": 170,
+      "test_fraction": 0.5379746835443038
+    },
+    {
+      "image": "IMG_6380/000366.jpg",
+      "fit_points": 1,
+      "test_points": 0,
+      "supported": false
+    },
+    {
+      "image": "IMG_6380/000376.jpg",
+      "fit_points": 148,
+      "test_points": 156,
+      "supported": true,
+      "fit_inliers": 88,
+      "test_below4px": 100,
+      "test_fraction": 0.6410256410256411
+    },
+    {
+      "image": "IMG_6380/000386.jpg",
+      "fit_points": 7,
+      "test_points": 10,
+      "supported": false,
+      "fit_inliers": 5,
+      "test_below4px": 3,
+      "test_fraction": 0.3
+    },
+    {
+      "image": "IMG_6380/000396.jpg",
+      "fit_points": 462,
+      "test_points": 498,
+      "supported": true,
+      "fit_inliers": 324,
+      "test_below4px": 342,
+      "test_fraction": 0.6867469879518072
+    },
+    {
+      "image": "IMG_6380/000406.jpg",
+      "fit_points": 471,
+      "test_points": 457,
+      "supported": true,
+      "fit_inliers": 348,
+      "test_below4px": 327,
+      "test_fraction": 0.7155361050328227
+    },
+    {
+      "image": "IMG_6380/000416.jpg",
+      "fit_points": 452,
+      "test_points": 449,
+      "supported": true,
+      "fit_inliers": 313,
+      "test_below4px": 312,
+      "test_fraction": 0.6948775055679287
+    },
+    {
+      "image": "IMG_6380/000426.jpg",
+      "fit_points": 42,
+      "test_points": 56,
+      "supported": true,
+      "fit_inliers": 29,
+      "test_below4px": 38,
+      "test_fraction": 0.6785714285714286
+    },
+    {
+      "image": "IMG_6380/000436.jpg",
+      "fit_points": 132,
+      "test_points": 163,
+      "supported": true,
+      "fit_inliers": 77,
+      "test_below4px": 97,
+      "test_fraction": 0.5950920245398773
+    },
+    {
+      "image": "IMG_6380/000446.jpg",
+      "fit_points": 21,
+      "test_points": 18,
+      "supported": false,
+      "fit_inliers": 9,
+      "test_below4px": 1,
+      "test_fraction": 0.05555555555555555
+    },
+    {
+      "image": "IMG_6380/000456.jpg",
+      "fit_points": 432,
+      "test_points": 430,
+      "supported": true,
+      "fit_inliers": 319,
+      "test_below4px": 305,
+      "test_fraction": 0.7093023255813954
+    },
+    {
+      "image": "IMG_6380/000466.jpg",
+      "fit_points": 257,
+      "test_points": 267,
+      "supported": true,
+      "fit_inliers": 167,
+      "test_below4px": 177,
+      "test_fraction": 0.6629213483146067
+    },
+    {
+      "image": "IMG_6380/000476.jpg",
+      "fit_points": 0,
+      "test_points": 0,
+      "supported": false
+    },
+    {
+      "image": "IMG_6380/000486.jpg",
+      "fit_points": 17,
+      "test_points": 25,
+      "supported": false,
+      "fit_inliers": 10,
+      "test_below4px": 15,
+      "test_fraction": 0.6
+    },
+    {
+      "image": "IMG_6380/000496.jpg",
+      "fit_points": 19,
+      "test_points": 21,
+      "supported": false,
+      "fit_inliers": 4,
+      "test_below4px": 0,
+      "test_fraction": 0.0
+    },
+    {
+      "image": "IMG_6380/000506.jpg",
+      "fit_points": 368,
+      "test_points": 380,
+      "supported": true,
+      "fit_inliers": 316,
+      "test_below4px": 315,
+      "test_fraction": 0.8289473684210527
+    },
+    {
+      "image": "IMG_6380/000516.jpg",
+      "fit_points": 117,
+      "test_points": 101,
+      "supported": true,
+      "fit_inliers": 82,
+      "test_below4px": 75,
+      "test_fraction": 0.7425742574257426
+    },
+    {
+      "image": "IMG_6384/000006.jpg",
+      "fit_points": 82,
+      "test_points": 79,
+      "supported": true,
+      "fit_inliers": 73,
+      "test_below4px": 70,
+      "test_fraction": 0.8860759493670886
+    },
+    {
+      "image": "IMG_6384/000016.jpg",
+      "fit_points": 60,
+      "test_points": 66,
+      "supported": true,
+      "fit_inliers": 49,
+      "test_below4px": 47,
+      "test_fraction": 0.7121212121212122
+    },
+    {
+      "image": "IMG_6384/000026.jpg",
+      "fit_points": 54,
+      "test_points": 66,
+      "supported": true,
+      "fit_inliers": 50,
+      "test_below4px": 57,
+      "test_fraction": 0.8636363636363636
+    },
+    {
+      "image": "IMG_6384/000036.jpg",
+      "fit_points": 88,
+      "test_points": 95,
+      "supported": true,
+      "fit_inliers": 72,
+      "test_below4px": 79,
+      "test_fraction": 0.8315789473684211
+    },
+    {
+      "image": "IMG_6384/000046.jpg",
+      "fit_points": 0,
+      "test_points": 0,
+      "supported": false
+    },
+    {
+      "image": "IMG_6384/000066.jpg",
+      "fit_points": 79,
+      "test_points": 82,
+      "supported": true,
+      "fit_inliers": 29,
+      "test_below4px": 29,
+      "test_fraction": 0.35365853658536583
+    },
+    {
+      "image": "IMG_6384/000076.jpg",
+      "fit_points": 40,
+      "test_points": 33,
+      "supported": false,
+      "fit_inliers": 27,
+      "test_below4px": 18,
+      "test_fraction": 0.5454545454545454
+    },
+    {
+      "image": "IMG_6384/000086.jpg",
+      "fit_points": 42,
+      "test_points": 49,
+      "supported": true,
+      "fit_inliers": 22,
+      "test_below4px": 31,
+      "test_fraction": 0.6326530612244898
+    },
+    {
+      "image": "IMG_6384/000096.jpg",
+      "fit_points": 117,
+      "test_points": 103,
+      "supported": true,
+      "fit_inliers": 100,
+      "test_below4px": 89,
+      "test_fraction": 0.8640776699029126
+    },
+    {
+      "image": "IMG_6384/000106.jpg",
+      "fit_points": 179,
+      "test_points": 191,
+      "supported": true,
+      "fit_inliers": 129,
+      "test_below4px": 136,
+      "test_fraction": 0.7120418848167539
+    },
+    {
+      "image": "IMG_6384/000116.jpg",
+      "fit_points": 29,
+      "test_points": 30,
+      "supported": false,
+      "fit_inliers": 6,
+      "test_below4px": 4,
+      "test_fraction": 0.13333333333333333
+    },
+    {
+      "image": "IMG_6384/000126.jpg",
+      "fit_points": 643,
+      "test_points": 670,
+      "supported": true,
+      "fit_inliers": 552,
+      "test_below4px": 577,
+      "test_fraction": 0.8611940298507462
+    },
+    {
+      "image": "IMG_6384/000136.jpg",
+      "fit_points": 2211,
+      "test_points": 2255,
+      "supported": true,
+      "fit_inliers": 2121,
+      "test_below4px": 2156,
+      "test_fraction": 0.9560975609756097
+    },
+    {
+      "image": "IMG_6384/000146.jpg",
+      "fit_points": 33,
+      "test_points": 22,
+      "supported": false,
+      "fit_inliers": 4,
+      "test_below4px": 0,
+      "test_fraction": 0.0
+    },
+    {
+      "image": "IMG_6384/000156.jpg",
+      "fit_points": 710,
+      "test_points": 751,
+      "supported": true,
+      "fit_inliers": 643,
+      "test_below4px": 695,
+      "test_fraction": 0.9254327563249002
+    },
+    {
+      "image": "IMG_6384/000166.jpg",
+      "fit_points": 127,
+      "test_points": 128,
+      "supported": true,
+      "fit_inliers": 97,
+      "test_below4px": 105,
+      "test_fraction": 0.8203125
+    },
+    {
+      "image": "IMG_6384/000176.jpg",
+      "fit_points": 2,
+      "test_points": 1,
+      "supported": false
+    },
+    {
+      "image": "IMG_6384/000196.jpg",
+      "fit_points": 0,
+      "test_points": 0,
+      "supported": false
+    },
+    {
+      "image": "IMG_6384/000206.jpg",
+      "fit_points": 136,
+      "test_points": 137,
+      "supported": true,
+      "fit_inliers": 71,
+      "test_below4px": 81,
+      "test_fraction": 0.5912408759124088
+    },
+    {
+      "image": "IMG_6385/000006.jpg",
+      "fit_points": 105,
+      "test_points": 92,
+      "supported": true,
+      "fit_inliers": 68,
+      "test_below4px": 52,
+      "test_fraction": 0.5652173913043478
+    },
+    {
+      "image": "IMG_6385/000056.jpg",
+      "fit_points": 76,
+      "test_points": 84,
+      "supported": false,
+      "fit_inliers": 5,
+      "test_below4px": 1,
+      "test_fraction": 0.011904761904761904
+    },
+    {
+      "image": "IMG_6385/000066.jpg",
+      "fit_points": 34,
+      "test_points": 44,
+      "supported": false,
+      "fit_inliers": 11,
+      "test_below4px": 8,
+      "test_fraction": 0.18181818181818182
+    },
+    {
+      "image": "IMG_6386/000006.jpg",
+      "fit_points": 90,
+      "test_points": 81,
+      "supported": true,
+      "fit_inliers": 64,
+      "test_below4px": 46,
+      "test_fraction": 0.5679012345679012
+    },
+    {
+      "image": "IMG_6386/000016.jpg",
+      "fit_points": 47,
+      "test_points": 43,
+      "supported": true,
+      "fit_inliers": 40,
+      "test_below4px": 31,
+      "test_fraction": 0.7209302325581395
+    },
+    {
+      "image": "IMG_6386/000076.jpg",
+      "fit_points": 12,
+      "test_points": 17,
+      "supported": false,
+      "fit_inliers": 4,
+      "test_below4px": 0,
+      "test_fraction": 0.0
+    },
+    {
+      "image": "IMG_6386/000086.jpg",
+      "fit_points": 99,
+      "test_points": 101,
+      "supported": true,
+      "fit_inliers": 52,
+      "test_below4px": 58,
+      "test_fraction": 0.5742574257425742
+    },
+    {
+      "image": "IMG_6386/000096.jpg",
+      "fit_points": 0,
+      "test_points": 0,
+      "supported": false
+    },
+    {
+      "image": "IMG_6386/000106.jpg",
+      "fit_points": 96,
+      "test_points": 101,
+      "supported": false,
+      "fit_inliers": 4,
+      "test_below4px": 0,
+      "test_fraction": 0.0
+    },
+    {
+      "image": "IMG_6386/000116.jpg",
+      "fit_points": 2,
+      "test_points": 2,
+      "supported": false
+    },
+    {
+      "image": "IMG_6386/000136.jpg",
+      "fit_points": 14,
+      "test_points": 8,
+      "supported": false,
+      "fit_inliers": 3,
+      "test_below4px": 1,
+      "test_fraction": 0.125
+    },
+    {
+      "image": "IMG_6386/000146.jpg",
+      "fit_points": 282,
+      "test_points": 278,
+      "supported": true,
+      "fit_inliers": 178,
+      "test_below4px": 193,
+      "test_fraction": 0.6942446043165468
+    },
+    {
+      "image": "IMG_6386/000156.jpg",
+      "fit_points": 426,
+      "test_points": 458,
+      "supported": true,
+      "fit_inliers": 321,
+      "test_below4px": 362,
+      "test_fraction": 0.7903930131004366
+    },
+    {
+      "image": "IMG_6386/000166.jpg",
+      "fit_points": 262,
+      "test_points": 234,
+      "supported": true,
+      "fit_inliers": 129,
+      "test_below4px": 108,
+      "test_fraction": 0.46153846153846156
+    },
+    {
+      "image": "IMG_6386/000176.jpg",
+      "fit_points": 6,
+      "test_points": 5,
+      "supported": false
+    },
+    {
+      "image": "IMG_6386/000186.jpg",
+      "fit_points": 45,
+      "test_points": 50,
+      "supported": true,
+      "fit_inliers": 37,
+      "test_below4px": 35,
+      "test_fraction": 0.7
+    },
+    {
+      "image": "IMG_6386/000196.jpg",
+      "fit_points": 89,
+      "test_points": 83,
+      "supported": true,
+      "fit_inliers": 66,
+      "test_below4px": 64,
+      "test_fraction": 0.7710843373493976
+    },
+    {
+      "image": "IMG_6386/000206.jpg",
+      "fit_points": 51,
+      "test_points": 60,
+      "supported": true,
+      "fit_inliers": 33,
+      "test_below4px": 41,
+      "test_fraction": 0.6833333333333333
+    }
+  ],
+  "component_consistency": [
+    {
+      "component": 0,
+      "shared_points": 19763,
+      "scale": 1.7372974330959299,
+      "test_fraction_below_2pct": 0.9992416582406471,
+      "test_p90_relative_error": 0.0006106417386269999
+    },
+    {
+      "component": 5,
+      "shared_points": 22369,
+      "scale": 3.82269283638827,
+      "test_fraction_below_2pct": 0.9458139018432157,
+      "test_p90_relative_error": 0.005822235965305439
+    }
+  ],
+  "nominal_time_exclusion_passed": true,
+  "caveat": "Nearby held-out video frames, not independent capture sessions. Split image points test pose prediction but share reconstructed geometry. Component checks measure consistency with correlated seed models, not absolute accuracy. No metric/navigation acceptance."
+}

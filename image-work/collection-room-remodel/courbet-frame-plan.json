@@ -1,0 +1,24 @@
+{
+  "attempts": [
+    {
+      "id": "courbet-frame-001",
+      "prompt": "courbet-frame-prompt.txt",
+      "promptSha256": "e9afea54da1b7f502e2086ca2894d18e0b9ce80aa15999116e8e17631c7bd551",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/courbet-frame-selected-0.png",
+          "sha256": "04bc31f051f4bc5090c7fb1a56a8fc2851efb50551e55b95517984716817fed6"
+        },
+        {
+          "path": "inventory-references/courbet-frame-selected-1.png",
+          "sha256": "a0a1f0dc135f200b64cb327072202c0b8097efd5bfe0436f3ab8d2de93f3113a"
+        },
+        {
+          "path": "inventory-references/courbet-frame-selected-2.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe"
+        }
+      ]
+    }
+  ]
+}

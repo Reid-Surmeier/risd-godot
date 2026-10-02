@@ -1,0 +1,25 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/references/pair-mirror-catalogue.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/references/main-hall-style.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-5a2e4e488cb53ec8162ff670/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "c71a211906c85c6d8ba2a6a0f98349bbfbc467ea4931380e36fbdb176c678395"
+    }
+  ],
+  "changesRequested": "Reference 1 is RISD mirror 2017.74.4.2, the left member of the English Rococo pair, whose design and proportions must be preserved. Reference 2 is the existing Main Hall low polygon game style. Generate one exact orthographic FRONT view of this mirror alone, on flat magenta #FF00FF, full crest and bottom point intact with generous margin. Preserve every asymmetric scroll, three lobed mirror sections, pierced wood carving and flower crown; simplify material detail into readable low polygon facets with soft painted gold shading. Keep the middle scroll on the RIGHT, not the other partner design. Mirror glass is a quiet muted cool grey, no room reflections or photographer. No cast shadow outside silhouette, no wall, text, new ornaments, perspective tilt or contact sheet. This supplies a UV face for separately extruded low polygon geometry.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-5a2e4e488cb53ec8162ff670",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-5a2e4e488cb53ec8162ff670"
+}

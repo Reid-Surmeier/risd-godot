@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "gold-ecuelle-clean-001",
+      "prompt": "gold-ecuelle-clean-prompt.txt",
+      "promptSha256": "f0552c30793a2d1cedcc8d0aaab2655983b87b000170064f74821b77ea9c779b",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/gold-ecuelle-clean-selected-0.png",
+          "sha256": "4058ec1d4a69a088016aa991525f794acbfe5e73ce6b7990d4f15ece541ea471"
+        },
+        {
+          "path": "inventory-references/gold-ecuelle-clean-selected-1.png",
+          "sha256": "8bdec6d79c8eeaa81c9c82f26d60d198985930470b4b52d49c9560d5afc3b7c0"
+        }
+      ]
+    }
+  ]
+}

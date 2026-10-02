@@ -1,0 +1,263 @@
+[
+ {
+  "accession": "15.108",
+  "id": "1388871",
+  "page": "https://risdmuseum.org/art-design/collection/virgin-and-child-15108",
+  "page_sha256": "2e879b1ae4852739a8d014e29f540a39393cf97a4a04a1b5c2891da3ba70f875",
+  "photos": [
+   {
+    "file": "virgin-and-child-15108-zoom-0.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/ISfErNNs/",
+    "asset_copyright": "public",
+    "bytes": 2097473,
+    "sha256": "369b4cbafdb8700263017957035b5e34592ba6f77cff62158f13edbff79e3521"
+   },
+   {
+    "file": "virgin-and-child-15108-zoom-1.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/XFWzTSVC/",
+    "asset_copyright": "public",
+    "bytes": 2025455,
+    "sha256": "4316f1ad4a906de5a7b6331e952947e4dd1a15523c9649387e218d7089690629"
+   },
+   {
+    "file": "virgin-and-child-15108-zoom-2.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/DHmYcat7/",
+    "asset_copyright": "public",
+    "bytes": 1858877,
+    "sha256": "555227555b752908e705300325520281545a0db35105982f7fa9a72552261d1e"
+   },
+   {
+    "file": "virgin-and-child-15108-zoom-3.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/ev1Pebf2/",
+    "asset_copyright": "public",
+    "bytes": 1855099,
+    "sha256": "583485d8b2acd828cea3b2830c4805e204cc3a61fb119d8d7815ec464ac10eb0"
+   }
+  ]
+ },
+ {
+  "accession": "2020.55",
+  "id": "1557221",
+  "page": "https://risdmuseum.org/art-design/collection/god-save-queens-202055",
+  "page_sha256": "708bfef827216d3dfacaa5053b27dc906a942466c7d85936484d44ebc07545dc",
+  "photos": [
+   {
+    "file": "god-save-queens-202055-zoom-0.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/KbpEh5DI/",
+    "asset_copyright": "in_copyright",
+    "bytes": 1846588,
+    "sha256": "6a2a8f8b9d4ed18f81dc22f1eaa91a253c2981480163a3f0f63831f0526a9dff"
+   },
+   {
+    "file": "god-save-queens-202055-zoom-1.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/UfLZo9m5/",
+    "asset_copyright": "in_copyright",
+    "bytes": 1894342,
+    "sha256": "aab52815b724f10b9b12096b079f39477848f132a0564b0fe385ed1a7a0a4a23"
+   },
+   {
+    "file": "god-save-queens-202055-zoom-2.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/TodMxnqb/",
+    "asset_copyright": "in_copyright",
+    "bytes": 1854391,
+    "sha256": "1995e58e93603b530dbcfe1950acfb888a2a69c9cb8fb7dc1d7923b3df29ea70"
+   },
+   {
+    "file": "god-save-queens-202055-zoom-3.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/6Gr7alr6/",
+    "asset_copyright": "in_copyright",
+    "bytes": 1895444,
+    "sha256": "6cb6e578ccd8fb14b273f2d11991a19e0f2519c70cc6a5a943b9d4c7902392f6"
+   }
+  ]
+ },
+ {
+  "accession": "40.002",
+  "id": "1443596",
+  "page": "https://risdmuseum.org/art-design/collection/monstrance-40002",
+  "page_sha256": "147f868dcbe1dacd432aa47f8672327db4bb95048781616845c45ce358a99b77",
+  "photos": [
+   {
+    "file": "monstrance-40002-zoom-0.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/QOPG2qmQ/",
+    "asset_copyright": "public",
+    "bytes": 1795978,
+    "sha256": "f437e1b26415b360775812f17ea60ccd3ba4872d2b5a24d6f40a4844c6b702f3"
+   },
+   {
+    "file": "monstrance-40002-zoom-1.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/pFpfX1Tv/",
+    "asset_copyright": "public",
+    "bytes": 1821826,
+    "sha256": "7cd319fedb5ccd067db5879f86421193399fd3fcfc2e000ffc072be782dc28a0"
+   },
+   {
+    "file": "monstrance-40002-zoom-2.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/NAhcECEp/",
+    "asset_copyright": "public",
+    "bytes": 1702389,
+    "sha256": "2055f600cfbac7dd34c0bbf10cb6267944df252209cd16d72ff9877e76e02a35"
+   },
+   {
+    "file": "monstrance-40002-zoom-3.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/0I3OHcKn/",
+    "asset_copyright": "public",
+    "bytes": 3323665,
+    "sha256": "53e2a62dea4aa408290783d3dc112d923783698610aca5bc0f783b9b3a16555f"
+   }
+  ]
+ },
+ {
+  "accession": "30.011",
+  "id": "1230716",
+  "page": "https://risdmuseum.org/art-design/collection/pyx-30011",
+  "page_sha256": "e648048629be1eb7dbac8c40a5ce3e0a5dbef45f4fbf7ebbdec1f4ebf58aa052",
+  "photos": [
+   {
+    "file": "pyx-30011-zoom-0.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/jr0m77w5/",
+    "asset_copyright": "public",
+    "bytes": 1621659,
+    "sha256": "386ac98cf29bdcd7e834b208f1558f771be833cf1a6cc1ef9217bd2f9fcce3cf"
+   },
+   {
+    "file": "pyx-30011-zoom-1.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/CeMt7sBa/",
+    "asset_copyright": "public",
+    "bytes": 1583170,
+    "sha256": "353908e75536c3c5173ea78d3b42f1e6cfb6959f3cb3babafb478a93a3c04152"
+   },
+   {
+    "file": "pyx-30011-zoom-2.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/Qv3kPxOn/",
+    "asset_copyright": "public",
+    "bytes": 1626751,
+    "sha256": "8b8f8ffc903c77c398ed182778dbd496621775caf195cd6b3519b556b3df4135"
+   }
+  ]
+ },
+ {
+  "accession": "2014.110",
+  "id": "1197491",
+  "page": "https://risdmuseum.org/art-design/collection/christ-majesty-2014110",
+  "page_sha256": "d33db0f7092b3231a1dd5b61dd4b6b618ff2f98de18a40ca4a3dbe10c83a77f2",
+  "photos": [
+   {
+    "file": "christ-majesty-2014110-zoom-0.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/D9dXInu9/",
+    "asset_copyright": "public",
+    "bytes": 2703587,
+    "sha256": "9fbb9aa6389a4395b30f0803822e28906c0056ac3f7fdb5b00df517337476dc7"
+   }
+  ]
+ },
+ {
+  "accession": "52.002",
+  "id": "1211626",
+  "page": "https://risdmuseum.org/art-design/collection/pax-52002",
+  "page_sha256": "c8b0d012460627be5d305e042515f18b44666029daa1892d5d58b25f895bc1e8",
+  "photos": [
+   {
+    "file": "pax-52002-zoom-0.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/ktYRHnt9/",
+    "asset_copyright": "public",
+    "bytes": 1946140,
+    "sha256": "2d83942deb9056ccac972f60e0454a15e9398945d7282a955d0bc69d2679aae6"
+   },
+   {
+    "file": "pax-52002-zoom-1.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/csU5QYL4/",
+    "asset_copyright": "public",
+    "bytes": 1816306,
+    "sha256": "98fce45d8fa3efdc3c87d5f86a41ba7533df96d294a0649466b8067d7da63d39"
+   }
+  ]
+ },
+ {
+  "accession": "1992.051",
+  "id": "1550551",
+  "page": "https://risdmuseum.org/art-design/collection/communion-beaker-1992051",
+  "page_sha256": "dd44ee9cae63be382211f4f9ec6351db427e6b7472f276f5cf9951c0621bf9df",
+  "photos": [
+   {
+    "file": "communion-beaker-1992051-zoom-0.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/3sx2rYpp/",
+    "asset_copyright": "public",
+    "bytes": 1318493,
+    "sha256": "d4b37b1f0121887f5be96eaef95cd609f1130c0a6f0ef4ac4f03a70e502f35f3"
+   },
+   {
+    "file": "communion-beaker-1992051-zoom-1.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/SxHBaEZq/",
+    "asset_copyright": "public",
+    "bytes": 2981621,
+    "sha256": "bfb698c0798e2e685c737495fb6a96149a1394067132c5f86c6bf3e31c85019b"
+   },
+   {
+    "file": "communion-beaker-1992051-zoom-2.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/P05HCj0c/",
+    "asset_copyright": "public",
+    "bytes": 1288635,
+    "sha256": "9708d590aaf139a7931a61a05cbc013d886d56435571a6e34a7215357d3a89e6"
+   },
+   {
+    "file": "communion-beaker-1992051-zoom-3.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/vpbp4JZj/",
+    "asset_copyright": "public",
+    "bytes": 1633956,
+    "sha256": "55e37b1a7128b1defbe4f113d9eb31347d959bd0365c04a2bddc3a8f18638bb3"
+   }
+  ]
+ },
+ {
+  "accession": "2016.17",
+  "id": "1426466",
+  "page": "https://risdmuseum.org/art-design/collection/kiddush-cup-201617",
+  "page_sha256": "226bb8adce3bda1747b85183cc7ecdbd62b5acd8fc7e4852fc8369fdd7b07737",
+  "photos": [
+   {
+    "file": "kiddush-cup-201617-zoom-0.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/VR7UCHtV/",
+    "asset_copyright": "public",
+    "bytes": 1490653,
+    "sha256": "859a08c8d521240c6562364c1c09bc0ac6589a4c914a9d5d8b9f9cbc183ea925"
+   },
+   {
+    "file": "kiddush-cup-201617-zoom-1.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/AhKlsG6E/",
+    "asset_copyright": "public",
+    "bytes": 1325420,
+    "sha256": "702b981d728e77e3d78b7ddb0c822efe919c985c572aa32defa04a6fc080a557"
+   },
+   {
+    "file": "kiddush-cup-201617-zoom-2.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/1xMnY8zY/",
+    "asset_copyright": "public",
+    "bytes": 1388336,
+    "sha256": "cd5619a78c763e91a4fdaa13c9684d149a87654590da5c02826f7fa3decc5395"
+   },
+   {
+    "file": "kiddush-cup-201617-zoom-3.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/W2fq6aT3/",
+    "asset_copyright": "public",
+    "bytes": 1569459,
+    "sha256": "16cba41ec8b89c8f29558b51f7890b7c4ca63f51a28e8f6d1a045384a6fbf9fc"
+   }
+  ]
+ },
+ {
+  "accession": "1991.033",
+  "id": "1256571",
+  "page": "https://risdmuseum.org/art-design/collection/beaker-1991033",
+  "page_sha256": "20abf185da5e6f629ce0b761c6fd5a2e708bf0139fca4f783d0b8bbd7a47a428",
+  "photos": [
+   {
+    "file": "beaker-1991033-zoom-0.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/PoVrNQIi/",
+    "asset_copyright": "in_copyright",
+    "bytes": 1292926,
+    "sha256": "2efa9f7673b2439dc3c4ead22aef8efcb8d303065abf8dcb8861e84e8ff06a3f"
+   }
+  ]
+ }
+]

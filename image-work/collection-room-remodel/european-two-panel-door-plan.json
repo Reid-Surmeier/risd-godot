@@ -1,0 +1,24 @@
+{
+  "attempts": [
+    {
+      "id": "european-two-panel-door-001",
+      "prompt": "european-two-panel-door-prompt.txt",
+      "promptSha256": "9309fdf6a4a261bb7a79ad24d15f96f0e8a152de0ccde18788990955a38d7f9b",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/european-two-panel-door-selected-0.png",
+          "sha256": "b81f44cc7e44e961396133a176fbb6140a647018d0a5bcf3ab56ec52ca608cb4"
+        },
+        {
+          "path": "inventory-references/european-two-panel-door-selected-1.png",
+          "sha256": "2c0d643e6d44da43e14e2f169a0aff67f1f677c71069513f6737f05664e3d7f2"
+        },
+        {
+          "path": "inventory-references/european-two-panel-door-selected-2.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-24dc39057f2941ff2289",
+  "summary": "Reference 1 is the official RISD Museum photograph of Agateware Teapot, accession 2017.74.24.ab. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted ceramic texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep all limbs, feet, tails, hats, spouts and handles visible. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry; hidden profiles are guided by catalogue dimensions and remain provisional.\n",
+  "procedureId": "muse-24dc39057f2941ff2289",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/agate-teapot-catalogue.png",
+      "sha256": "fc5e5212ef221142c6b5c3f8a74dce607a72bfbc317dc710b68ac1ce20a79621",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "agate-teapot-recipe.json",
+      "sha256": "24dc39057f2941ff228934320f5cfeca35d0ec860ca9fc47f116bb1621d43568"
+    },
+    {
+      "applicationPath": "agate-teapot-plan.json",
+      "sha256": "d2dc4b5d995a158f22e9253117e4a2467e4140e058dc5f91e4dece2411c333ab"
+    },
+    {
+      "applicationPath": "agate-teapot-prompt.txt",
+      "sha256": "48f2c1169133fb6f520599398146083f79324f3db251a542854054a39e854fb3"
+    }
+  ]
+}

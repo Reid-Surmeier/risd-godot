@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "cezanne-frame-001",
+      "prompt": "cezanne-frame-prompt.txt",
+      "promptSha256": "46007ba9fe331d31de24b29b2a5c36e980502a7fdff510517bcbe76bc32103f4",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/cezanne-frame-video-native.png",
+          "sha256": "36f8bd4cc8487d1b887daba79b0cc900a854845bfc10a028221fd574a35bb3c8"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-9673fc601085283b8a49",
+  "summary": "Reference 1 shows a real small antique upholstered sofa in the RISD decorative arts room. Use only its upholstery as authority: olive brown ground, muted golden and beige floral vines, small blue-gray and reddish flower accents. Reference 2 is the latest modeled Main Hall and supplies its restrained low polygon game finish.\nGenerate one square seamless UV albedo cloth swatch derived from this sofa upholstery, an orthographic flat fabric surface with soft woven texture and readable stylized flowers. Preserve the reference palette and floral character; simplify tiny photograph noise into clean broad color patches without turning the floral fabric into plain modern tufted cloth. No sofa, no furniture, no painting, no room, no shadows, no seams or labels; the entire image is the flat fabric material at even illumination. This will be mapped onto separately authored low polygon sofa cushions and arms.\n",
+  "procedureId": "muse-9673fc601085283b8a49",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "references/sofa-video.png",
+      "sha256": "79577eae2d70488e959b96a766cf82d9dc70842ad2bb90d034c0b3dfc5e49b6b",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/main-hall-style.png",
+      "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "sofa-cloth-recipe.json",
+      "sha256": "9673fc601085283b8a490bc6d34a677c214c2a251feb06bb264657d58945e8e5"
+    },
+    {
+      "applicationPath": "sofa-cloth-plan.json",
+      "sha256": "abde80504138dd977e1c744a82ecc4214c07adc363f17ee02e822c334d9a0743"
+    },
+    {
+      "applicationPath": "sofa-cloth-prompt.txt",
+      "sha256": "f68a7dd349924628f4d62c61102fd11fdd2d8225820de8b504e9efb075578095"
+    }
+  ]
+}

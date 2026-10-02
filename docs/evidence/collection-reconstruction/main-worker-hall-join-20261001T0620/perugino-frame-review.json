@@ -1,0 +1,33 @@
+{
+  "source": "IMG_6383 35.75/63.75/64.75s",
+  "catalogue_id": "1546096",
+  "accession": "16.236",
+  "title": "Madonna and Child",
+  "maker": "Pietro Perugino",
+  "catalogue_size_m": [
+    0.391,
+    0.575
+  ],
+  "identity": "Mother turned left, child right raising hand, red apple, church left and hills right matched to native35.75s; exact catalogue photo retained separately.",
+  "frame_visual_review": "Top cornice, straight pilasters, inner gold edge, dark inset, bottom plinth retained. Generated overly blue inset/pilasters need deterministic source-brown palette derivative; pronounced faceting, cornice depth/rear and band dimensions unaccepted.",
+  "placement": {
+    "room": "Renaissance north wall, right of European doorway",
+    "centre_m": [
+      1.48,
+      1.55,
+      18.93
+    ],
+    "yaw": 0,
+    "accepted": false
+  },
+  "run_id": "run-f55959297094d15b07761914",
+  "model": "meta/muse-image",
+  "provider": "openrouter",
+  "cost_usd": "0.010000",
+  "native_sha256": "c860540d122863589663a2892cde31b59153f0700eafdb4590823fe5e8b73f95",
+  "accepted": false,
+  "metric_limit": "Wide63.75 and64.75 affine estimates disagree; cropped/covered catalogue support and perspective prevent an accepted absolute door scale. No doorway resize or global room shift.",
+  "cumulative_map_actual_usd": "0.72",
+  "cumulative_map_conservative_usd": "0.73",
+  "derived_palette": "HSV hue95..125 with saturation>20 remapped to brown hue17; value and saturation retained. Native original unchanged; blue fragments at low saturation and exact relief remain unaccepted."
+}

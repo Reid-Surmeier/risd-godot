@@ -1,0 +1,25 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/magdalene-frame-guide-v2.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/magdalene-frame-style-v2.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-56e0a4ec22f715cd28886116/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "292f6d3434227b00d7db908fa33105ffac432a811ae23f073855a7fd6b132ebf"
+    }
+  ],
+  "changesRequested": "Edit reference1 into ONE restrained low polygon gilded Gothic picture frame. Keep reference1 exact outer silhouette and exact WHITE opening silhouette: the WHITE pentagon starts near the high apex and includes the entire tall rectangle beneath it. White pixels stay white all the way up to that apex. Preserve the slim single steep roof band, the three individual source crockets along each slope, small paired apex finial, straight twisted rope columns and narrow dark brown-gold bottom sill. Keep band widths and inner edge positions from reference1. Material-only simplification into broad worn gold facets, using reference2 solely for muted warm brown-gold palette and low polygon shading. Complete frame, full bases and finial, frontal orthographic, flat magenta #FF00FF outside silhouette. No inner triangle, second chevron, broad filled golden pediment, blue or grey painted wear, figure, halo, painting, label, background wall, perspective, additional ornament or frame. One single frame, preserve the source opening.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-56e0a4ec22f715cd28886116",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-56e0a4ec22f715cd28886116"
+}

@@ -1,0 +1,16 @@
+{
+  "ids": [
+    13116,
+    13515,
+    13117,
+    13091,
+    11447
+  ],
+  "threshold_features": [
+    13116,
+    13515
+  ],
+  "rejected_plane": true,
+  "navigation_accepted": false,
+  "reason": "Native crops put 13117/13091 near the cabinet bottom and 11447 near pedestal contact/shadow. Floor surface assignment is not robust enough for a plane. Two threshold tracks alone cannot define a floor. No fitting/query21 projection was performed for this candidate selection."
+}

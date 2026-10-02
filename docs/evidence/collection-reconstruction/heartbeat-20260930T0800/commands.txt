@@ -1,0 +1,8 @@
+# Run once: completed measurements refuse overwrite. GPU decoder command is in extraction.json.
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/strict_threshold.py
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/threshold_tracks.py
+GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA DISPLAY=:0 godot --path /home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-walk-v7 -- --selfcheck --out=/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-walk-v7/evidence-20260930T0800
+GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA DISPLAY=:0 node modules/shell/prototype/collection_reconstruction/doorway_walk_browser.cjs https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T0430/walk/ docs/evidence/collection-reconstruction/heartbeat-20260930T0800
+GODOT_DISPLAY=:0 GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA scripts/playtest.sh shell /tmp/collection-shell-20260930T0800
+scripts/check.sh
+git diff --check

@@ -1,0 +1,260 @@
+{
+ "current": {
+  "rooms": 12,
+  "wall_m": 0.0,
+  "hall_to_grey": {
+   "end": [
+    0.0,
+    -28.9
+   ],
+   "end_room": "grey French gallery",
+   "spaces": [
+    "gallery",
+    "far"
+   ],
+   "swaps": [
+    {
+     "to": "far",
+     "x": 0.0,
+     "z": -26.32
+    }
+   ]
+  },
+  "grey_to_hall": {
+   "end": [
+    0.0,
+    -23.1
+   ],
+   "end_room": "Hall",
+   "spaces": [
+    "far",
+    "gallery"
+   ],
+   "swaps": [
+    {
+     "to": "gallery",
+     "x": 0.0,
+     "z": -26.28
+    }
+   ]
+  },
+  "european_to_rockefeller": {
+   "end": [
+    -8.05,
+    -28.9
+   ],
+   "end_room": "Rockefeller",
+   "spaces": [
+    "arch",
+    "far"
+   ],
+   "swaps": [
+    {
+     "to": "far",
+     "x": -8.05,
+     "z": -26.62
+    }
+   ]
+  },
+  "rockefeller_to_european": {
+   "end": [
+    -8.05,
+    -23.1
+   ],
+   "end_room": "adjacent gallery",
+   "spaces": [
+    "far",
+    "arch"
+   ],
+   "swaps": [
+    {
+     "to": "arch",
+     "x": -8.05,
+     "z": -25.98
+    }
+   ]
+  },
+  "off_axis_at_jamb_blocked": {
+   "end": [
+    0.8,
+    -26.66
+   ],
+   "end_room": "grey French gallery",
+   "spaces": [
+    "far"
+   ],
+   "swaps": []
+  },
+  "door_clear_spans_x": [
+   [
+    -8.8,
+    -7.3
+   ],
+   [
+    -0.75,
+    0.75
+   ]
+  ],
+  "wall_line_leaks": [],
+  "wall_line_open_samples": 506,
+  "grey_sw_corner_to_connector_door_m": 0.3,
+  "grey_west_wall_m": 6.0,
+  "rockefeller_south_equals_grey_south": true
+ },
+ "proposed": {
+  "rooms": 14,
+  "wall_m": 0.76,
+  "hall_to_grey": {
+   "end": [
+    0.0,
+    -28.9
+   ],
+   "end_room": "grey French gallery",
+   "spaces": [
+    "gallery",
+    "far"
+   ],
+   "swaps": [
+    {
+     "to": "far",
+     "x": 0.0,
+     "z": -26.32
+    }
+   ]
+  },
+  "grey_to_hall": {
+   "end": [
+    0.0,
+    -23.86
+   ],
+   "end_room": "Hall",
+   "spaces": [
+    "far",
+    "gallery"
+   ],
+   "swaps": [
+    {
+     "to": "gallery",
+     "x": 0.0,
+     "z": -26.28
+    }
+   ]
+  },
+  "european_to_rockefeller": {
+   "end": [
+    -8.05,
+    -28.9
+   ],
+   "end_room": "Rockefeller",
+   "spaces": [
+    "arch",
+    "far"
+   ],
+   "swaps": [
+    {
+     "to": "far",
+     "x": -8.05,
+     "z": -26.62
+    }
+   ]
+  },
+  "rockefeller_to_european": {
+   "end": [
+    -8.05,
+    -23.86
+   ],
+   "end_room": "adjacent gallery",
+   "spaces": [
+    "far",
+    "arch"
+   ],
+   "swaps": [
+    {
+     "to": "arch",
+     "x": -8.05,
+     "z": -25.98
+    }
+   ]
+  },
+  "off_axis_at_jamb_blocked": {
+   "end": [
+    0.8,
+    -27.42
+   ],
+   "end_room": "grey French gallery",
+   "spaces": [
+    "far"
+   ],
+   "swaps": []
+  },
+  "door_clear_spans_x": [
+   [
+    -8.8,
+    -7.3
+   ],
+   [
+    -0.75,
+    0.75
+   ]
+  ],
+  "wall_line_leaks": [],
+  "wall_line_open_samples": 1298,
+  "grey_sw_corner_to_connector_door_m": 0.3,
+  "grey_west_wall_m": 6.0,
+  "rockefeller_south_equals_grey_south": true
+ },
+ "far_group_moved_without_threshold_rooms": {
+  "hall_to_grey": {
+   "end": [
+    0.0,
+    -26.64
+   ],
+   "end_room": "Hall",
+   "spaces": [
+    "gallery",
+    "far"
+   ],
+   "swaps": [
+    {
+     "to": "far",
+     "x": 0.0,
+     "z": -26.32
+    }
+   ]
+  },
+  "grey_to_hall": {
+   "end": [
+    0.0,
+    -27.42
+   ],
+   "end_room": "grey French gallery",
+   "spaces": [
+    "far"
+   ],
+   "swaps": []
+  },
+  "european_to_rockefeller": {
+   "end": [
+    -8.05,
+    -25.94
+   ],
+   "end_room": "adjacent gallery",
+   "spaces": [
+    "arch"
+   ],
+   "swaps": []
+  },
+  "rockefeller_to_european": {
+   "end": [
+    -8.05,
+    -27.42
+   ],
+   "end_room": "Rockefeller",
+   "spaces": [
+    "far"
+   ],
+   "swaps": []
+  }
+ },
+ "all_metric_placement_map_fidelity_flags": false
+}

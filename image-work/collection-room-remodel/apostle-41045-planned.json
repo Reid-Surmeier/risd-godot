@@ -1,0 +1,75 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-c071e0c97f59fd77e5db",
+      "objective": "Reference1 is the official RISD Museum photograph of Apostle accession41.045, the damaged limestone relief RIGHT of the medieval stair door. Generate ONE complete straight-on FRONT view alone, isolated on flat pure magenta#FF00FF with generous margins. Match the source tall narrow broken slab outline, round halo and almost entirely MISSING ERODED FACE, the two crossed raised hands, irregular worn robe folds, low feet and deep square dark break above the feet. DO NOT restore the face: keep its head a worn broken almost featureless rough area with no invented eyes, mouth or nose. DO NOT reconstruct missing stone or smooth the irregular broken robe into a new decorative pattern. Translate the source into a low polygon game asset using broad planar facets and restrained mottled pale warm limestone; keep damaged silhouette and distinct original surviving shapes. No frame, platform, plinth, floor, shadow outside the silhouette, caption or other view. Source-specific damage is more important than attractive symmetry. This is a UV colour study for separately authored closed low polygon relief; catalogue gives width/height, hidden depth remains provisional.\n",
+      "procedureId": "muse-c071e0c97f59fd77e5db",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "apostle-41045-recipe.json",
+          "sha256": "c071e0c97f59fd77e5db0810e48dfcd0fdb873ebcaabc4e8569c38652a6675eb"
+        },
+        {
+          "applicationPath": "apostle-41045-plan.json",
+          "sha256": "cb079d5ec858738e9552ae7c3a0efb759c0441a505285d09de3be90ebe2a4a8f"
+        },
+        {
+          "applicationPath": "apostle-41045-prompt.txt",
+          "sha256": "60025c8e10c0821c1b684ed6fe908aadac58d493b48a8f7461e20b7de4a60966"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/apostle-41045-catalogue.png",
+          "sha256": "25bc9564718bc742154c66788356d8c45bb1f5cd4ca1f266702ed2fb8e37f93a",
+          "byteLength": 6288030,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 2630
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"Reference1 is the official RISD Museum photograph of Apostle accession41.045, the damaged limestone relief RIGHT of the medieval stair door. Generate ONE complete straight-on FRONT view alone, isolated on flat pure magenta#FF00FF with generous margins. Match the source tall narrow broken slab outline, round halo and almost entirely MISSING ERODED FACE, the two crossed raised hands, irregular worn robe folds, low feet and deep square dark break above the feet. DO NOT restore the face: keep its head a worn broken almost featureless rough area with no invented eyes, mouth or nose. DO NOT reconstruct missing stone or smooth the irregular broken robe into a new decorative pattern. Translate the source into a low polygon game asset using broad planar facets and restrained mottled pale warm limestone; keep damaged silhouette and distinct original surviving shapes. No frame, platform, plinth, floor, shadow outside the silhouette, caption or other view. Source-specific damage is more important than attractive symmetry. This is a UV colour study for separately authored closed low polygon relief; catalogue gives width/height, hidden depth remains provisional.\\n\",\"objectiveId\":\"muse-c071e0c97f59fd77e5db\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-c071e0c97f59fd77e5db\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/apostle-41045-catalogue.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":6288030,\"inspectedMedia\":{\"height\":2630,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"25bc9564718bc742154c66788356d8c45bb1f5cd4ca1f266702ed2fb8e37f93a\",\"slot\":\"reference-000\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"apostle-41045-recipe.json\",\"sha256\":\"c071e0c97f59fd77e5db0810e48dfcd0fdb873ebcaabc4e8569c38652a6675eb\"},{\"applicationPath\":\"apostle-41045-plan.json\",\"sha256\":\"cb079d5ec858738e9552ae7c3a0efb759c0441a505285d09de3be90ebe2a4a8f\"},{\"applicationPath\":\"apostle-41045-prompt.txt\",\"sha256\":\"60025c8e10c0821c1b684ed6fe908aadac58d493b48a8f7461e20b7de4a60966\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "54d9c9f23373622b070af56e1672a80bf4d15985f91ef053e6ed94a4d697dc97"
+  },
+  "normalView": {
+    "objective": "Reference1 is the official RISD Museum photograph of Apostle accession41.045, the damaged limestone relief RIGHT of the medieval stair door. Generate ONE complete straight-on FRONT view alone, isolated on flat pure magenta#FF00FF with generous margins. Match the source tall narrow broken slab outline, round halo and almost entirely MISSING ERODED FACE, the two crossed raised hands, irregular worn robe folds, low feet and deep square dark break above the feet. DO NOT restore the face: keep its head a worn broken almost featureless rough area with no invented eyes, mouth or nose. DO NOT reconstruct missing stone or smooth the irregular broken robe into a new decorative pattern. Translate the source into a low polygon game asset using broad planar facets and restrained mottled pale warm limestone; keep damaged silhouette and distinct original surviving shapes. No frame, platform, plinth, floor, shadow outside the silhouette, caption or other view. Source-specific damage is more important than attractive symmetry. This is a UV colour study for separately authored closed low polygon relief; catalogue gives width/height, hidden depth remains provisional.\n",
+    "evidence": "1 authoritative reference matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

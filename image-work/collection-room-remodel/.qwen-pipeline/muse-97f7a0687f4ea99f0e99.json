@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-97f7a0687f4ea99f0e99",
+  "summary": "The reference photographs are the sole authority for RISD Museum Dragons-in Compartments pattern compote, accession 2017.74.39.3. Produce ONE complete front view of this exact single object, facing as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\n",
+  "procedureId": "muse-97f7a0687f4ea99f0e99",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/pink-compote-selected-0.png",
+      "sha256": "f02a65d33ba63f22cd3f2d25998d9400c76e49ca3337f63b13c9bb36f8ad337d",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/pink-compote-selected-1.png",
+      "sha256": "c4e0676a0e034522e8ac26d2005e735d8c66dbf12aaa0dac562aed166e8634ad",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "pink-compote-recipe.json",
+      "sha256": "97f7a0687f4ea99f0e996c04c99964a4825da00cae928b33ba59f08bd4630228"
+    },
+    {
+      "applicationPath": "pink-compote-plan.json",
+      "sha256": "7397baa17fa119279230cc5c2565f645350bb93175c9b0050aa58867576c35e1"
+    },
+    {
+      "applicationPath": "pink-compote-prompt.txt",
+      "sha256": "3863f2fe0df11523e1da81faf77c542e1930d3c7e2a2deef5de0d3b393d893cf"
+    }
+  ]
+}

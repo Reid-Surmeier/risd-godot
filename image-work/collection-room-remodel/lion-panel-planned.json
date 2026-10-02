@@ -1,0 +1,75 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-9470d730d66d149c277d",
+      "objective": "Reconstruct only the complete ancient glazed-brick lion panel from reference1 as a restrained low-polygon museum game asset, orthographic front view. Preserve this exact left-facing lion, open mouth, head position, mane, four legs and curling tail; all pale repaired and eroded patches across the body and background MUST remain in their source positions. Preserve horizontal staggered brick courses, turquoise blue background and narrow worn ochre top/bottom bands. Do not repair cracks, invent intact ornament, reverse the lion, add another lion, add a frame or erase pale missing glaze. Keep the complete rectangular panel, landscape aspect ratio 228.6:104.1. Small broad facets, muted natural colours; no shiny highlights or dramatic light. Pure solid magenta#FF00FF background outside the panel with a clear margin on all sides. Do not include a wall, pedestal, label, shadow or perspective. This is a source-preserving shape/style study, not a new artwork.\n",
+      "procedureId": "muse-9470d730d66d149c277d",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "lion-panel-recipe.json",
+          "sha256": "9470d730d66d149c277d978cfdc477ee52f20055f43cd0a0d4efa71c323b4a26"
+        },
+        {
+          "applicationPath": "lion-panel-plan.json",
+          "sha256": "1d0ce43e269b3d33cb88f80b343f6ab0357c5373e1ae4c25b24c71a4d077869b"
+        },
+        {
+          "applicationPath": "lion-panel-prompt.txt",
+          "sha256": "14e56dc411f8a13f8c81cfb52ad751e5bd4cc0c00cf3359b69ed6a92aae44d36"
+        }
+      ],
+      "museParameters": {
+        "size": "1760x1440"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/lion-panel-official.png",
+          "sha256": "c53008f72ce2cf669615e853c89083bc03d9669e9a26ca539993fa1b0123c6d5",
+          "byteLength": 1789082,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 620
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1760x1440\"},\"objective\":\"Reconstruct only the complete ancient glazed-brick lion panel from reference1 as a restrained low-polygon museum game asset, orthographic front view. Preserve this exact left-facing lion, open mouth, head position, mane, four legs and curling tail; all pale repaired and eroded patches across the body and background MUST remain in their source positions. Preserve horizontal staggered brick courses, turquoise blue background and narrow worn ochre top/bottom bands. Do not repair cracks, invent intact ornament, reverse the lion, add another lion, add a frame or erase pale missing glaze. Keep the complete rectangular panel, landscape aspect ratio 228.6:104.1. Small broad facets, muted natural colours; no shiny highlights or dramatic light. Pure solid magenta#FF00FF background outside the panel with a clear margin on all sides. Do not include a wall, pedestal, label, shadow or perspective. This is a source-preserving shape/style study, not a new artwork.\\n\",\"objectiveId\":\"muse-9470d730d66d149c277d\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-9470d730d66d149c277d\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/lion-panel-official.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1789082,\"inspectedMedia\":{\"height\":620,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"c53008f72ce2cf669615e853c89083bc03d9669e9a26ca539993fa1b0123c6d5\",\"slot\":\"reference-000\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"lion-panel-recipe.json\",\"sha256\":\"9470d730d66d149c277d978cfdc477ee52f20055f43cd0a0d4efa71c323b4a26\"},{\"applicationPath\":\"lion-panel-plan.json\",\"sha256\":\"1d0ce43e269b3d33cb88f80b343f6ab0357c5373e1ae4c25b24c71a4d077869b\"},{\"applicationPath\":\"lion-panel-prompt.txt\",\"sha256\":\"14e56dc411f8a13f8c81cfb52ad751e5bd4cc0c00cf3359b69ed6a92aae44d36\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "49b57942e799e34216bc2687357e33bc12e14eef1ac4643c7976bc6fd48397aa"
+  },
+  "normalView": {
+    "objective": "Reconstruct only the complete ancient glazed-brick lion panel from reference1 as a restrained low-polygon museum game asset, orthographic front view. Preserve this exact left-facing lion, open mouth, head position, mane, four legs and curling tail; all pale repaired and eroded patches across the body and background MUST remain in their source positions. Preserve horizontal staggered brick courses, turquoise blue background and narrow worn ochre top/bottom bands. Do not repair cracks, invent intact ornament, reverse the lion, add another lion, add a frame or erase pale missing glaze. Keep the complete rectangular panel, landscape aspect ratio 228.6:104.1. Small broad facets, muted natural colours; no shiny highlights or dramatic light. Pure solid magenta#FF00FF background outside the panel with a clear margin on all sides. Do not include a wall, pedestal, label, shadow or perspective. This is a source-preserving shape/style study, not a new artwork.\n",
+    "evidence": "1 authoritative reference matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

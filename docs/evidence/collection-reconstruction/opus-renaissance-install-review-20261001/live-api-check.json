@@ -1,0 +1,28 @@
+{
+ "fetched_by": "reviewer, Scrapling bulk_get, free, 2026-10-01",
+ "records": {
+  "1202276": {
+   "objectNumber": "23.307X",
+   "title": "Velvet Cover",
+   "dimensions": "127 cm (50 inches) (length)",
+   "onView": true
+  },
+  "1201986": {
+   "objectNumber": "29.280",
+   "title": "The Woodcutters",
+   "dimensions": "152.4 x 94 cm (60 x 37 inches)",
+   "onView": true
+  },
+  "1591076": {
+   "objectNumber": "58.196",
+   "title": "Madonna and Child with Saint Barbara and Saint Catherine",
+   "dimensions": "91.4 x 87 cm (36 x 34 1/4 inches)",
+   "onView": true
+  }
+ },
+ "urls": [
+  "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Velvet+Cover&has_images=1&items_per_page=25&field_on_view=1",
+  "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Woodcutters&has_images=1&items_per_page=25&field_on_view=1",
+  "https://risdmuseum.org/api/v1/collection?id=1591076"
+ ]
+}

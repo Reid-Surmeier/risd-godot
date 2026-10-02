@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-70da27642b1eec0a970f",
+  "summary": "Generate ONE complete front orthographic low polygon gilded picture frame matching RISD Corot Banks of a River24.089 in the source photo. Simple narrow rectangular frame: dark outer raised edge, flat lightly textured gold band, narrow inner raised gold lip. No broad rococo scrolls. Restrained shallow facets and aged warm gold in the museum game style. Complete all four sides/corners. Perfectly blank white inner opening, canvas46cm wide31.9cm tall. Flat magenta #FF00FF outside silhouette. No painting, other frames, walls, labels, people, perspective or shadow outside silhouette; one frame only.\n",
+  "procedureId": "muse-70da27642b1eec0a970f",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/corot-frame-selected-0.png",
+      "sha256": "ed1ee8765af4666a0fd8c9e90f5079302020fad0f1f80e44d74ebd592fee1eee",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/corot-frame-selected-1.png",
+      "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "corot-frame-recipe.json",
+      "sha256": "70da27642b1eec0a970f1269a28ff98c847d79538f6e80eeda37505e54d19a21"
+    },
+    {
+      "applicationPath": "corot-frame-plan.json",
+      "sha256": "c0a5610e3ababc6ed642e9b4ab14c997cfbd7d9f61ded637202731b009c5f5e8"
+    },
+    {
+      "applicationPath": "corot-frame-prompt.txt",
+      "sha256": "11f44478f1b75df85c0cfdfcf03441abccd1a2c0ebb1fa16b5716d06cb3b6492"
+    }
+  ]
+}

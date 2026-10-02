@@ -1,0 +1,108 @@
+{
+  "training": [
+    "IMG_6380/000244.jpg",
+    "IMG_6380/000505.jpg"
+  ],
+  "reserved": [
+    "IMG_6380/000246.jpg",
+    "IMG_6380/000506.jpg"
+  ],
+  "pose_source": "strict-floor-wall-poses-native-v1/result.json",
+  "images": {
+    "IMG_6380/000244.jpg": "entry-floor-native-v1/000001.jpg",
+    "IMG_6380/000505.jpg": "entry-floor-native-v1/000003.jpg",
+    "IMG_6380/000246.jpg": "entry-floor-native-v1/000002.jpg",
+    "IMG_6380/000506.jpg": "entry-floor-native-v1/000004.jpg"
+  },
+  "floor_polygons_upright": {
+    "IMG_6380/000244.jpg": [
+      [
+        240,
+        670
+      ],
+      [
+        403,
+        670
+      ],
+      [
+        454,
+        755
+      ],
+      [
+        485,
+        836
+      ],
+      [
+        540,
+        927
+      ],
+      [
+        690,
+        1170
+      ],
+      [
+        690,
+        1250
+      ],
+      [
+        30,
+        1250
+      ],
+      [
+        30,
+        1030
+      ],
+      [
+        155,
+        870
+      ],
+      [
+        200,
+        770
+      ]
+    ],
+    "IMG_6380/000505.jpg": [
+      [
+        215,
+        685
+      ],
+      [
+        420,
+        685
+      ],
+      [
+        425,
+        770
+      ],
+      [
+        468,
+        845
+      ],
+      [
+        530,
+        927
+      ],
+      [
+        690,
+        1170
+      ],
+      [
+        690,
+        1250
+      ],
+      [
+        30,
+        1250
+      ],
+      [
+        30,
+        1030
+      ],
+      [
+        156,
+        827
+      ]
+    ]
+  },
+  "purpose": "One bounded native CUDA matching run. Existing interior-wood masks frozen before extraction; every source candidate retained. Reserved pixels excluded from selection/triangulation/camera fit; no plane selection by residual."
+}

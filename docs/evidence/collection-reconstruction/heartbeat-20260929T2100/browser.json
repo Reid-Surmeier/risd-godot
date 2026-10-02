@@ -1,0 +1,27 @@
+{
+  "status": 200,
+  "images": [
+    {
+      "src": "bookcase/000296.png",
+      "loaded": true
+    },
+    {
+      "src": "doorway/IMG_6380-000506.jpg.png",
+      "loaded": true
+    },
+    {
+      "src": "bookcase/000292.png",
+      "loaded": true
+    },
+    {
+      "src": "doorway/IMG_6380-000505.jpg.png",
+      "loaded": true
+    },
+    {
+      "src": "shell-resized.png",
+      "loaded": true
+    }
+  ],
+  "errors": [],
+  "scope": "Static evidence page only; no game navigation or performance test"
+}

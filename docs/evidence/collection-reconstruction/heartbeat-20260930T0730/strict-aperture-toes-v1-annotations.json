@@ -1,0 +1,40 @@
+{
+  "picks": {
+    "IMG_6380_exit6fps/000013.jpg": [
+      [
+        84,
+        770
+      ],
+      [
+        431,
+        746
+      ]
+    ],
+    "IMG_6380_exit6fps/000019.jpg": [
+      [
+        150,
+        851
+      ],
+      [
+        598,
+        859
+      ]
+    ],
+    "IMG_6380_exit6fps/000021.jpg": [
+      [
+        106,
+        899
+      ],
+      [
+        608,
+        924
+      ]
+    ]
+  },
+  "training": [
+    "IMG_6380_exit6fps/000013.jpg",
+    "IMG_6380_exit6fps/000019.jpg"
+  ],
+  "reserved": "IMG_6380_exit6fps/000021.jpg",
+  "scope": "Bottom reveal toes only; all cameras registered; query manual pixels withheld."
+}

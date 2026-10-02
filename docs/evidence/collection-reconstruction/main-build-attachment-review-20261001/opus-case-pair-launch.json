@@ -1,0 +1,85 @@
+{
+  "id": "517fc8df-e267-4782-8e89-b9539c45fc0a",
+  "ok": true,
+  "result": {
+    "runId": "run_d82552b6d124",
+    "taskId": "task_f4d305a70a61",
+    "dispatchId": "ctx_aee8d515a6e2",
+    "state": "ready",
+    "stage": "input_accepted",
+    "turnStart": "observed",
+    "setup": {
+      "requested": "not_applicable",
+      "effective": "not_applicable",
+      "source": "existing_worktree",
+      "hookFound": false,
+      "startupPolicy": "start-immediately",
+      "state": "not_applicable"
+    },
+    "launch": {
+      "requested": {
+        "agent": null,
+        "model": null,
+        "effort": null
+      },
+      "effective": {
+        "agent": null,
+        "model": null,
+        "effort": null
+      }
+    },
+    "mode": {
+      "mode": "terminal",
+      "preferred": "terminal",
+      "reason": "user_default",
+      "detail": "Started a terminal agent worker, the default for new agent tabs in your settings."
+    },
+    "timeoutMs": 60000,
+    "effects": [
+      {
+        "kind": "worktree",
+        "action": "reused",
+        "id": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-villon-frame"
+      },
+      {
+        "kind": "setup",
+        "action": "not_applicable",
+        "state": "not_applicable"
+      },
+      {
+        "kind": "terminal",
+        "role": "agent",
+        "action": "reused",
+        "id": "term_43f77d4d-32d8-4b1b-a0e2-cf80f1e637ff"
+      },
+      {
+        "kind": "dispatch_input",
+        "role": "agent",
+        "id": "term_43f77d4d-32d8-4b1b-a0e2-cf80f1e637ff",
+        "state": "accepted"
+      }
+    ],
+    "prompt": {
+      "requestId": "e4a87199-2031-4bb2-bb8b-0536a3e745f1",
+      "stages": [
+        "input_accepted",
+        "turn_started"
+      ],
+      "provider": "claude",
+      "observation": "supported",
+      "processIncarnation": "bf895fa5-ee99-49a0-973d-b71ca530869c",
+      "generation": 20,
+      "baselineWorkingSequence": 2,
+      "baselineExplicitWorkingStartedAt": null,
+      "baselinePermissionSequence": 0
+    },
+    "residualResources": [],
+    "mutation": {
+      "requestId": "e4a87199-2031-4bb2-bb8b-0536a3e745f1",
+      "replayed": false
+    }
+  },
+  "_meta": {
+    "runtimeId": "dbd51943-5aff-4aac-9ef7-31547ed940cd"
+  }
+}

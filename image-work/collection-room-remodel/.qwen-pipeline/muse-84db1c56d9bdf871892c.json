@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-84db1c56d9bdf871892c",
+  "summary": "Produce one complete orthographic FRONT view of only the exact historical picture frame in reference1 around RISD Cézanne On the Banks of a River43.255. Preserve its bronze-grey muted gilding, deep nested linear mouldings, dense small bead/rope detail along the inner and outer rails, straight mitred corners and thick rectangular band. No crest, floral additions, fancy corners, carvings or redesigned ornament. Remove painting, wall, label, perspective and cast shadow. Interior aperture pure solid white; surrounding background pure magenta#FF00FF. Convert the existing form to broad low polygon facets and quiet baked shading consistent with the Main Hall museum game frame assets. Complete isolated frame with margins; museum painting pixels remain separate and are inserted by native geometry.\n",
+  "procedureId": "muse-84db1c56d9bdf871892c",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/cezanne-frame-video-native.png",
+      "sha256": "36f8bd4cc8487d1b887daba79b0cc900a854845bfc10a028221fd574a35bb3c8",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "cezanne-frame-recipe.json",
+      "sha256": "84db1c56d9bdf871892ca1c8a67634acc1339a12d01c5bde2cb83dbe4bdaf2b7"
+    },
+    {
+      "applicationPath": "cezanne-frame-plan.json",
+      "sha256": "918be941aafc2d148f511d2330fa7c16e19ac6199c202d412b3b9d062e3cf6ed"
+    },
+    {
+      "applicationPath": "cezanne-frame-prompt.txt",
+      "sha256": "46007ba9fe331d31de24b29b2a5c36e980502a7fdff510517bcbe76bc32103f4"
+    }
+  ]
+}

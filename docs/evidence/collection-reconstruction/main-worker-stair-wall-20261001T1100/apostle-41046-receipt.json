@@ -1,0 +1,24 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/apostle-41046-catalogue.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-d3f8116583dea973b1b4a81b/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "596e35d1f8ae020237f7110fa79c52d865a0b0af289284b77490f9abe3053214"
+    }
+  ],
+  "changesRequested": "Reference1 is the official RISD Museum photograph of Apostle accession41.046, the limestone architectural relief beside the medieval stair door. Generate ONE orthographic complete FRONT view of this exact broken relief alone on flat pure magenta#FF00FF with generous margins. Preserve the original irregular chipped outline, angled bearded head and round halo, diagonal bent right forearm, lower left hand and object, draped robe folds, fracture line across lower body and broken bottom. Keep the fragment rectangular and narrow; do not rebuild missing stone, hands, face or limbs. Turn the photograph into a low polygon museum game asset with broad planar facets and restrained mottled pale warm limestone colour, subtle baked shading without an external cast shadow. Do not add a frame, stand, plinth, floor, caption, other object or additional view. Maintain front silhouette and damage. This is UV colour for separately authored closed low polygon relief geometry; dimensions come from the catalogue, hidden depth remains provisional.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-d3f8116583dea973b1b4a81b",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-d3f8116583dea973b1b4a81b"
+}

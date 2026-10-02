@@ -1,0 +1,174 @@
+{
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/rockefeller-remodel/walk/",
+  "errors": [],
+  "viewport": {
+    "width": 1100,
+    "height": 760
+  },
+  "first_ready_ms": 3479,
+  "engine": {
+    "checks": {
+      "decorative_room": true,
+      "decorative_room_camera": true,
+      "forward": true,
+      "forward_camera": true,
+      "left_blocked": true,
+      "left_blocked_camera": true,
+      "painting_gallery": true,
+      "painting_gallery_camera": true,
+      "reverse": true,
+      "reverse_camera": true,
+      "right_blocked": true,
+      "right_blocked_camera": true,
+      "right_door_back": true,
+      "right_door_back_camera": true,
+      "right_door_out": true,
+      "right_door_out_camera": true,
+      "right_wall_blocked": true,
+      "right_wall_blocked_camera": true
+    },
+    "frame_time_p50_ms": 20.8333333333333,
+    "frame_time_p95_ms": 22.2222222222222,
+    "navigation_accepted": false,
+    "render_frames": 1525,
+    "renderer": "WebKit WebGL",
+    "samples": [
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 1,
+        "on_floor": true,
+        "position": [
+          0.259999126195908,
+          -0.000473063846584409,
+          -1.17498898506165
+        ],
+        "trial": "forward"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          0.259999752044678,
+          0.000751559273339808,
+          1.17500650882721
+        ],
+        "trial": "reverse"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": true,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          -0.899999976158142,
+          -0.00148408347740769,
+          0.347668886184692
+        ],
+        "trial": "left_blocked"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": true,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          1.41999995708466,
+          -0.00199946318753064,
+          0.347755253314972
+        ],
+        "trial": "right_blocked"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          0.259999990463257,
+          0.000798073597252369,
+          -3.97083377838135
+        ],
+        "trial": "decorative_room"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 1,
+        "on_floor": true,
+        "position": [
+          0.259999990463257,
+          0.00080147769767791,
+          3.97083449363708
+        ],
+        "trial": "painting_gallery"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 1,
+        "on_floor": true,
+        "position": [
+          4.77082633972168,
+          0.000827294366899878,
+          -1.99999690055847
+        ],
+        "trial": "right_door_out"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 1,
+        "on_floor": true,
+        "position": [
+          3.02913284301758,
+          0.000773503968957812,
+          -1.99999988079071
+        ],
+        "trial": "right_door_back"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": true,
+        "hidden_casings": 3,
+        "on_floor": true,
+        "position": [
+          3.3679039478302,
+          -0.000722013413906097,
+          -0.649999976158142
+        ],
+        "trial": "right_wall_blocked"
+      }
+    ]
+  },
+  "keyboard_forward": {
+    "elapsed": 3.21666666666666,
+    "on_floor": true,
+    "phase": 0,
+    "position": [
+      0.259976178407669,
+      -0.000401393859647214,
+      -1.29998886585236
+    ]
+  },
+  "keyboard_reverse": {
+    "elapsed": 5.64999999999999,
+    "on_floor": true,
+    "phase": 0,
+    "position": [
+      0.25995546579361,
+      -0.000496783410198987,
+      1.22085404396057
+    ]
+  },
+  "browser": "Chrome/154.0.8037.57",
+  "webgl_renderer": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+  "memory": {
+    "used_js_heap_bytes": 186454478,
+    "total_js_heap_bytes": 194714874,
+    "caveat": "JS heap only; excludes complete process, GPU and WASM allocation accounting"
+  },
+  "pass": true
+}

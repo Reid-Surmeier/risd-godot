@@ -1,0 +1,13 @@
+{
+  "time_utc": "2026-10-01T13:38:39.706726+00:00",
+  "pid": 2128497,
+  "args": [
+    "godot",
+    "--headless",
+    "--path",
+    "/tmp/claude-1000/-home-reidsurmeier-orca-workspaces-risd-godot-collection-opus-seated-woman/4e58e702-de07-4ade-b3b5-082d4b1a0f65/scratchpad/base-project",
+    "-s",
+    "/tmp/claude-1000/-home-reidsurmeier-orca-workspaces-risd-godot-collection-opus-seated-woman/4e58e702-de07-4ade-b3b5-082d4b1a0f65/scratchpad/basecheck/opus-modern-layout-implementation-20261001/check_modern.gd"
+  ],
+  "reason": "Diagnostic SceneTree coroutine errored before quit; exact headless negative-control subprocess blocked worker. SIGTERM only diagnostic, no agent stop or file modification."
+}

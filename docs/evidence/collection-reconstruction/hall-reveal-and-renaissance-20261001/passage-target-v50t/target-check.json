@@ -1,0 +1,176 @@
+{
+	"failures": [
+		"tap-hall-grey",
+		"floor-target-hall-grey"
+	],
+	"rows": [
+		{
+			"input": "real root key events",
+			"key_delivered": true,
+			"key_released": true,
+			"max_step_m": 0.0400009155273438,
+			"name": "tap-grey-hall-near",
+			"passed": true,
+			"position": [
+				-0.000000000000000117568358367354,
+				-25.4199771881104
+			],
+			"space": "gallery",
+			"space_changes": 1
+		},
+		{
+			"input": "real root key events",
+			"key_delivered": true,
+			"key_released": true,
+			"max_step_m": 0.0400009155273438,
+			"name": "tap-grey-hall-edge",
+			"passed": true,
+			"position": [
+				0.00000000000000000000000620385459,
+				-24.8199558258057
+			],
+			"space": "gallery",
+			"space_changes": 1
+		},
+		{
+			"input": "real root key events",
+			"key_delivered": true,
+			"key_released": true,
+			"max_step_m": 0.0400009155273438,
+			"name": "tap-grey-hall-deep",
+			"passed": true,
+			"position": [
+				0.000000000000000117568358367354,
+				-25.4199333190918
+			],
+			"space": "gallery",
+			"space_changes": 1
+		},
+		{
+			"input": "real root key events",
+			"key_delivered": true,
+			"key_released": true,
+			"max_step_m": 1.12997055053711,
+			"name": "tap-hall-grey",
+			"passed": false,
+			"position": [
+				0.0,
+				-27.6900062561035
+			],
+			"space": "far",
+			"space_changes": 1
+		},
+		{
+			"input": "real root key events",
+			"key_delivered": true,
+			"key_released": true,
+			"max_step_m": 0.0400009155273438,
+			"name": "tap-rockefeller-west",
+			"passed": true,
+			"position": [
+				-8.05000019073486,
+				-25.4199333190918
+			],
+			"space": "arch",
+			"space_changes": 1
+		},
+		{
+			"input": "real root key events",
+			"key_delivered": true,
+			"key_released": true,
+			"max_step_m": 0.0400009155273438,
+			"name": "tap-west-rockefeller",
+			"passed": true,
+			"position": [
+				-8.05000019073486,
+				-27.8800659179688
+			],
+			"space": "far",
+			"space_changes": 1
+		},
+		{
+			"input": "floor-click target planner",
+			"key_delivered": true,
+			"key_released": true,
+			"max_step_m": 0.0400009155273438,
+			"name": "floor-target-grey-hall-near",
+			"passed": true,
+			"position": [
+				0.0,
+				-24.5399570465088
+			],
+			"space": "gallery",
+			"space_changes": 1
+		},
+		{
+			"input": "floor-click target planner",
+			"key_delivered": true,
+			"key_released": true,
+			"max_step_m": 0.0400009155273438,
+			"name": "floor-target-grey-hall-edge",
+			"passed": true,
+			"position": [
+				0.0,
+				-24.5399494171143
+			],
+			"space": "gallery",
+			"space_changes": 1
+		},
+		{
+			"input": "floor-click target planner",
+			"key_delivered": true,
+			"key_released": true,
+			"max_step_m": 0.0400009155273438,
+			"name": "floor-target-grey-hall-deep",
+			"passed": true,
+			"position": [
+				0.0,
+				-24.5399131774902
+			],
+			"space": "gallery",
+			"space_changes": 1
+		},
+		{
+			"input": "floor-click target planner",
+			"key_delivered": true,
+			"key_released": true,
+			"max_step_m": 1.12997055053711,
+			"name": "floor-target-hall-grey",
+			"passed": false,
+			"position": [
+				0.0,
+				-29.0500373840332
+			],
+			"space": "far",
+			"space_changes": 1
+		},
+		{
+			"input": "floor-click target planner",
+			"key_delivered": true,
+			"key_released": true,
+			"max_step_m": 0.0400009155273438,
+			"name": "floor-target-rockefeller-west",
+			"passed": true,
+			"position": [
+				-8.05000019073486,
+				-24.5399131774902
+			],
+			"space": "arch",
+			"space_changes": 1
+		},
+		{
+			"input": "floor-click target planner",
+			"key_delivered": true,
+			"key_released": true,
+			"max_step_m": 0.0400009155273438,
+			"name": "floor-target-west-rockefeller",
+			"passed": true,
+			"position": [
+				-8.05000019073486,
+				-29.0800933837891
+			],
+			"space": "far",
+			"space_changes": 1
+		}
+	]
+}

@@ -1,0 +1,59 @@
+{
+  "training": [
+    "IMG_6380_exit6fps/000013.jpg",
+    "IMG_6380_exit6fps/000019.jpg"
+  ],
+  "source_sha256": {
+    "points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "polygons_upright": {
+    "IMG_6380_exit6fps/000013.jpg": [
+      [
+        50,
+        820
+      ],
+      [
+        430,
+        745
+      ],
+      [
+        650,
+        1180
+      ],
+      [
+        600,
+        1279
+      ],
+      [
+        20,
+        1279
+      ]
+    ],
+    "IMG_6380_exit6fps/000019.jpg": [
+      [
+        150,
+        920
+      ],
+      [
+        560,
+        890
+      ],
+      [
+        700,
+        1279
+      ],
+      [
+        120,
+        1279
+      ]
+    ]
+  },
+  "candidates": [],
+  "navigation_accepted": false,
+  "cost_usd": 0,
+  "caveat": "Source masks frozen before reserved inspection; global cameras and same-video tracks are correlated. Wood identities need visual verification."
+}

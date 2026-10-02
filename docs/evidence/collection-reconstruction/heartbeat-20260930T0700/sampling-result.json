@@ -1,0 +1,88 @@
+{
+  "source_sha256": {
+    "sparse/0/points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "sparse/0/frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "sparse/0/images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "original_split_point_supported": 46,
+  "supported_after_temporal_exclusion": 44,
+  "temporal_exclusion_passed": false,
+  "exclusion_half_width_seconds": 0.2,
+  "registered_reference_leaks": [
+    {
+      "query": "IMG_6380/000506.jpg",
+      "reference": "IMG_6380_exit6fps/000018.jpg",
+      "source_gap_seconds": 0.1670000000000016,
+      "query_sample": {
+        "source_seconds": 252.733,
+        "output_seconds": 252.5,
+        "decoded_checksum": "44028B2A"
+      },
+      "reference_sample": {
+        "source_seconds": 252.9,
+        "output_seconds": 252.83333,
+        "decoded_checksum": "A9CB0F59"
+      }
+    },
+    {
+      "query": "IMG_6380/000516.jpg",
+      "reference": "IMG_6380_exit6fps/000048.jpg",
+      "source_gap_seconds": 0.16632999999995945,
+      "query_sample": {
+        "source_seconds": 257.737,
+        "output_seconds": 257.5,
+        "decoded_checksum": "54AA2D51"
+      },
+      "reference_sample": {
+        "source_seconds": 257.90333,
+        "output_seconds": 257.83333,
+        "decoded_checksum": "BFA9F36A"
+      }
+    }
+  ],
+  "grand_reference_samples": [
+    {
+      "frame": 12,
+      "sample": {
+        "source_seconds": 102.91333,
+        "output_seconds": 102.83333,
+        "decoded_checksum": "469DD9A1"
+      },
+      "query_sample": {
+        "source_seconds": 102.747,
+        "output_seconds": 102.5,
+        "decoded_checksum": "0F338254"
+      },
+      "source_gap_seconds": 0.1663300000000021,
+      "passes_exclusion": false
+    },
+    {
+      "frame": 14,
+      "sample": {
+        "source_seconds": 103.24667,
+        "output_seconds": 103.16667,
+        "decoded_checksum": "C938C503"
+      },
+      "query_sample": {
+        "source_seconds": 102.747,
+        "output_seconds": 102.5,
+        "decoded_checksum": "0F338254"
+      },
+      "source_gap_seconds": 0.49966999999999473,
+      "passes_exclusion": true
+    }
+  ],
+  "grand_reference_exclusion_passed": false,
+  "log_sha256": {
+    "entry2.log.gz": "0763813bf62b5d3a7d0c8aa079cca32a4950df7654c05d47d1586c463a9bdc22",
+    "full2.log.gz": "1f55d5ec04209d431ed9d57477c32075b74093cfacb7b4dc3fe9c8842fe785d3",
+    "survey2.log.gz": "902996e7aed34ce00064c1f93aa2a5b9d6bb177b0220d46cdd0ad3b89658f0a6",
+    "exit6.log.gz": "e649a545a7a402156c5efefc7d966dad54c6f136fc813d11d38e7bf215d2a2b5",
+    "entry6.log.gz": "11ca957d32692ef6c051b4808a1522729da8d1f63412094a122c024c9c9ab5aa"
+  },
+  "provider": "Local ffmpeg CUDA NVDEC/scale_cuda; CPU checksum audit",
+  "cost_usd": 0,
+  "caveat": "Frozen model unchanged. Corrects only the additional 6fps sampling gate. Same-video neighbours remain correlated; even temporally separated queries are not independent captures. Do not overwrite historical holdout results or accept navigation from this diagnostic."
+}

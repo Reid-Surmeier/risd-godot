@@ -1,0 +1,43 @@
+{
+  "date_utc": "2026-10-01",
+  "sources": [
+    "IMG_6383 2.25/62.25s",
+    "IMG_6382 88.75s"
+  ],
+  "finding": "Both rooms have flat pale plaster ceilings with tracks/spotlights. The omitted opaque model ceilings exposed the Hall skylight at eye level. Native low polygon slabs reuse existing Muse plaster; show below 3.4m, hide above, always included during bake preparation.",
+  "height_m": {
+    "Renaissance": 3.5,
+    "medieval": 4.25
+  },
+  "metric_accepted": false,
+  "presentation_checks": "Native baked eye-level and elevated views inspected. Assertions verify two authored slabs and both baked copies visible at1.65m and hidden at5.3m; browser154/154 plus keyboard round trip.",
+  "unfinished": [
+    "Source-fitted track/spot positions and fixture count",
+    "Grille right of medieval portal",
+    "East wall stone fragment and stairs door",
+    "Room dimensions/placements",
+    "Remaining objects, case contents, lighting, modern gallery, stairs and auditorium",
+    "Tracery arch hole/edge UVs stretch into striped bands at oblique angles; existing artifact, not accepted"
+  ],
+  "paid_calls": 1,
+  "lighting_trial": "Initial closed-ceiling bake too dark compared with source wide shots. Existing2.5m fill emitters overlap new ceilings (likely contributor); reduce enclosed-room size to.12m with positive clearance assertion and tune neutral fill energy1.1. Final source brightness still requires visual review; fixture positions/count remain provisional.",
+  "omitted_ceiling_fixed": true,
+  "muse_grille_trial": {
+    "run_id": "run-6d9f3b3e3a4b26e3c758f21c",
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "cost_usd": "0.010000",
+    "native_sha256": "50dfca1c60c1039936fad34f3d3777f8a5b265af2859460255068ed64520981c",
+    "accepted": false,
+    "installed": false,
+    "visual_verdict": "Dark iron, tall outer frame and open repeated scrolls match the source motif. Source planar inspection shows7 spiral columns; generated sheet has8. Generated18 rows, scroll handedness, one missing curl and spacing also require source verification. Reject direct installation; source-specific structural fidelity unaccepted. No extra paid retry.",
+    "source_columns_observed": 7,
+    "generated_columns_observed": 8,
+    "source_row_count_verified": false,
+    "next_action": "Verify source row count, build source-shaped7-column guide/low polygon openwork using existing Muse material; preserve each real opening and inspect front/oblique/in-room before acceptance. Catalogue identity, dimensions, support brace and exact placement unresolved.",
+    "cumulative_map_actual_usd": "0.75",
+    "cumulative_map_conservative_usd": "0.76"
+  },
+  "lighting_final": "Final native eye-level/actual walking views inspected: brighter neutral room fill after shrinking emitter and tuning energy. Source lighting, fixture placement/count and room heights remain provisional."
+}

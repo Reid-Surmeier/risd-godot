@@ -1,0 +1,24 @@
+{
+  "attempts": [
+    {
+      "id": "armchair-001",
+      "prompt": "armchair-prompt.txt",
+      "promptSha256": "0a84e20b1b904daae14055bf27598ab860c2a456353bab4a3464e36dda58a052",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "references/armchair-catalogue-0.png",
+          "sha256": "0354bdd4b58a9c636a284ad8070b0cd42cd87cca6848f6eedea7672c0e939077"
+        },
+        {
+          "path": "references/armchair-catalogue-1.png",
+          "sha256": "77a4608a015e0ab8a5f6144f430d9670212bbd35c8b4fec8ba48edf208893fd9"
+        },
+        {
+          "path": "references/main-hall-style.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe"
+        }
+      ]
+    }
+  ]
+}

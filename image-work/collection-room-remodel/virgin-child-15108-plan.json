@@ -1,0 +1,28 @@
+{
+  "attempts": [
+    {
+      "id": "virgin-child-15108-001",
+      "prompt": "virgin-child-15108-prompt.txt",
+      "promptSha256": "e82b597dc9ae1c1de5b99988596cba9639a807f31f42f00ec06410f5b859e5f9",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/virgin-child-15108-official-0.png",
+          "sha256": "b8f0195abd4fcf6f4796884de2e3b42c085e1882b043c87ccf3d87cf4af05251"
+        },
+        {
+          "path": "inventory-references/virgin-child-15108-official-2.png",
+          "sha256": "a0441e0be3d8abb937039be765a18327608a6bfd33ff5e78b5e765813eb37878"
+        },
+        {
+          "path": "inventory-references/virgin-child-15108-official-3.png",
+          "sha256": "5b17b28848453a4569e2f2ab26e8ea9cd4e48297133337f27acb7d3afe832edf"
+        },
+        {
+          "path": "inventory-references/virgin-child-15108-video-rear.png",
+          "sha256": "17ec3adbeb706bd01aa43efdc2cdece2d8ffb6ab069eece5da4480ed62ca3f21"
+        }
+      ]
+    }
+  ]
+}

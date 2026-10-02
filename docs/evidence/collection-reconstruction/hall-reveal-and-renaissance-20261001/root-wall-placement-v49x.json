@@ -1,0 +1,39 @@
+{
+  "utc": "2026-10-01T20:54:52.858621+00:00",
+  "project": "main-build-extension-v49x",
+  "architecture_exit": 0,
+  "root_native_views_inspected": 6,
+  "users": 0,
+  "unbaked": true,
+  "corrections": "H1H2H3sourceheight/platform/labels andH4westwindow, Pietawallgap; independentverificationpending",
+  "blind_y_range_m": [
+    0.63,
+    3.0
+  ],
+  "sill_y_range_m": [
+    0.51,
+    0.63
+  ],
+  "metres_accepted": false,
+  "fine_fidelity_accepted": false,
+  "images": {
+    "textiles-south-wide.png.import": "9645d45725b30cfb5c6330d220a976e703fecfdd26ccc152de2a173f0beb1d9d",
+    "renaissance-south-west-wide.png.import": "822ac1a419ce9d3c240d5cc6e4ad41e16e5264c995ac6849825733f0611123bb",
+    "madonna-west-front.png.import": "58fa75504125927f7745581168ef520837abba9c53853f016dfe4ef6dc7c5fdd",
+    "textiles-platform.png.import": "552e79edd27088e513aa36821dbb684b136bfe26aad67ee1d3d100c47576597c",
+    "textiles-south-wide.png": "8a997a146b286880027b1744a57b0763cbb7a65fa52494e80c84e91e6e2979ca",
+    "madonna-west-front.png": "9eda81c21649054c2b8553e66d56ae3dea5b9ef2b787473b6d0594fd88448845",
+    "velvet-front.png.import": "fc0438b6e016b39bcd5dfb9a8dc4f022399c7a670859f1a3a88ac29d7b8ca227",
+    "velvet-front.png": "ee6390b700be149adbaa9db28ddc458964895a981b7dd46a3c9dda353b6adf1e",
+    "renaissance-south-west-wide.png": "1b218a3b4913b2e313c12210ad22a4a5e8925c534d1192cfe913006e0368e95d",
+    "textiles-platform.png": "c18df0e94d9c3d19e440673168bac748d86eb961291c82b7b2b45de4ff628033",
+    "madonna-west-quarter.png": "581d15a6df853021cd4181bf711b72caa48f19fdeb8a579ca05da2a75ba40d51",
+    "madonna-west-quarter.png.import": "2ed75b5fe55f29ebb2f4b58aa636e2eb0b816d026d65e2f9e52559ebe2b76a86"
+  },
+  "independent_reviewer": "ActualClaudeOpus5.5",
+  "independent_task": "task_ad82b2cbf489",
+  "independent_dispatch": "ctx_cb11600fbded",
+  "review_output_hashes_verified": 22,
+  "independent_acceptance": "source-relative ratios only; unbaked, all globalmetres/placement/fidelity flagsfalse",
+  "review_limit": "reviewer private49x copy duringimport had4other-roomtexture errors; root freshimport/architecture/native clean. No independentbaked review."
+}

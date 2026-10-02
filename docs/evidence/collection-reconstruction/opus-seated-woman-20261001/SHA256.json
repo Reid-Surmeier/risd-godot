@@ -1,0 +1,39 @@
+{
+  "delivered": {
+    "modules/shell/prototype/collection_reconstruction/seated_woman_asset.gd": "9c81ebd1b6a9e8223f082be2babb696ff0c9818849f1552878a9a310e9c9d482",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/REPORT.md": "2c3ca0acecf1e0ea63a1e62df03f23fb8dbbc5dbcead27f0ff35430805554ee2",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/case-far.jpg": "9aa8693fe0de9d91205c1d9889667072e5687897abfae03d034cccdf1865fa50",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/case-vs-native.jpg": "d7c69ab4cc9638be0ba5b3d397d5f213d4a856da37cb6523fd3d73cc02aab859",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/check.gd": "8cfabffe1a29519475a9e4f829c5f172e4b61c3318066a57b261fb62a76d98dc",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/check.log": "36f8ba29fc5542e77fa07b662966aac7890563d6faf95dc6f514bb8e2124c8a5",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/checks.json": "5873211b396a05317aa0e96f2ba9a68f60897902f94e568384b446c137cfc093",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/figure-turnaround.jpg": "e53043670def4292316540052326deaf44243e7ba2824baa30b17af5ece86149",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/figure-vs-official.jpg": "3997e6fdd836fb81bc7a0a8b514afa9707fc44417dd07ced24ba6d832540d669",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/integration-smoke.log": "58ae9a9e70a11f180bb9bd307ebe372dc6dd420211981f4a10f33c2213aa317f",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/native-IMG_6387-51.0s.png": "6e594d351b2351602d641145c6476658327eb7936935bfb34786e686ba535f4d",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/native-IMG_6387-59.5s.png": "26429e98b8e5a6ca3eb859c406089bffbb3b8e6012a48b9768dd8a741b5bc103",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/native-IMG_6387-63.5s.png": "b7410a9229c87a794363fd11029fa7c39105a778316c4cabde0b32f884a3c898",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/native-IMG_6387-64.5s.png": "e702dec286a972c1f87aad0e18e26cdedaf49b64c40dc896fdb8ff3a8953b994",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/native-IMG_6387-65.5s.png": "adf4447c18e3736097aa16e409884ea4779dc95406cc32391d4d6c9c625b03c0",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/native-IMG_6387-68.5s.png": "820d9aff046892aed22a5397822fd09986ef900a01341c83062682431790f6ef",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/render.py": "8fe7174e47d04029bf787698511107113b052a4fda87c9332423b1a89bb2a46e",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/repo-check.log": "4fbd0243c2a604099260eabcff24e8dd297acd7d8c42605469c910272645c4c8",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/seated-woman-case.obj": "97df4b07de48b106c08a161b8cd6571c854670ac9f74f4660f9fb726240d1deb",
+    "docs/evidence/collection-reconstruction/opus-seated-woman-20261001/seated-woman.obj": "71880e69978e1d1756011fdf4ce1d7b303c1ad4df8749eec466d7ef7ee83857c"
+  },
+  "read_only_sources": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6387.MOV": "75c4892c1a37e1c83dd7103187d1c284e13fd0ac458710f4e8fd6e14daf1c7af",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/modern-candidates-v3/seated-woman-zoom-0.jpg": "c3392ec2b4e4e80b40fddc4439f57954b2861fc9f362cf7c261639ce50c923d7",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/modern-candidates-v3/seated-woman-zoom-1.jpg": "a55395c00a3ad4fb6aa7821645aebeaf8246194f80d595d288c93d88a56baa9e",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/modern-candidates-v3/seated-woman-zoom-2.jpg": "312012198aa0e9eaee4d92e572e2a24c99153e37dbf45144fdc8c73910ba4718",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/modern-candidates-v3/seated-woman.html": "2e964eb5896d3474638acd85db84cb22d385dd465fe081901dfc0491708cb1c2",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/lion-modern-native-v1/wide-51.25.png": "e209dc29e2dd44ed3cbfe8240c707acd99c07482d60a2159cdb26656a6dee2ea",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/lion-modern-native-v1/wide-64.25.png": "1dc3ed7263811e8ef1021b34cb58709e887a40159ade4b3430f9ce8647f4671c",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/lion-modern-native-v1/wide-66.25.png": "daa4a819dbd24f46e2a5730f65b1a1bfc839fc31e13acedbdd3c196541094336",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-catalogue/seated-woman-duchamp-villon.json": "dc7222801eab0884756e1313a69fb04eda1c77dd4ce7188b1ca4260ffcb67e4f"
+  },
+  "reused_textures_named_by_integration_call": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/lowpoly-room-v48b-modern-frames/presentation/landing-plaster.png": "c863c685eb67d514f008074569df17546035941b86497dcacab14690807fd912",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/lowpoly-room-v48b-modern-frames/presentation/wall-plaster.png": "644d70b2597b3f58340176394d3147768c46bf34fd5479cbe8d508129889c765"
+  }
+}

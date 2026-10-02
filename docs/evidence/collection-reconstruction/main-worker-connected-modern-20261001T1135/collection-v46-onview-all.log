@@ -1,0 +1,6 @@
+[2026-10-01 07:44:55] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?field_on_view=1&items_per_page=100&page=0> (referer: https://www.google.com/)
+{'url': 'https://risdmuseum.org/api/v1/collection?field_on_view=1&items_per_page=100&page=0', 'rows': 0, 'onview_rows': 0, 'types': []}
+[2026-10-01 07:44:55] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?field_on_view=1&items_per_page=100&page=1> (referer: https://www.google.com/)
+{'url': 'https://risdmuseum.org/api/v1/collection?field_on_view=1&items_per_page=100&page=1', 'rows': 0, 'onview_rows': 0, 'types': []}
+[2026-10-01 07:44:57] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?field_on_view=1&items_per_page=100&page=2> (referer: https://www.google.com/)
+{'url': 'https://risdmuseum.org/api/v1/collection?field_on_view=1&items_per_page=100&page=2', 'rows': 0, 'onview_rows': 0, 'types': []}

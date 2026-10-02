@@ -1,0 +1,22 @@
+PASS official museum JPEG is the hashed catalogue source, byte-identical | b272d80d04182e6d67ef36ae8ba6a229cd9f8e7330bab0c9a0e116621fe62509
+PASS artwork texture is the official crop, no resampling | 1175x1400 from crop [67, 58, 1242, 1458]
+PASS every pixel inside the oval equals the official photograph | 0 changed of 1292020
+PASS outside the oval the texture is plain white backing
+PASS the drawn 48-sided oval shows only official pixels | 1288292 texels shown, 99.7115% of the ellipse
+PASS oval artwork is not stretched onto its catalogue canvas | aspect error -0.0155%
+PASS photographed rim and backing stay outside the oval at every probed angle | 568 angles; rim starts 1..25 px outside the oval, median 11
+PASS box texture is opaque edge to edge: no opening is cut
+PASS oval opening has the catalogue aspect and is centred | opening 617x735px, margins [114, 115, 114, 115]
+PASS dark rim is one closed ring: a single dark piece with a single hole | 1 dark pieces, 1 holes
+PASS rim follows the oval at an even, thin width all the way round | width 9..12 px (=6.7..8.9 mm), starts -3..2 px from the oval
+PASS opening under the artwork is clean Muse white | darkest value 248
+PASS no straight dark border line around the opening | longest dark run 16.1% of width, 17.7% of height
+PASS room code no longer builds the Villon as a framed rectangle
+PASS headless Godot built the room and found one 70.058 work
+PASS work is two closed slabs: 2 front faces and 2 side walls | 2 fronts, 2 side sets
+PASS box face is one unbroken rectangle the size of the whole frame: nothing is cut out of it | 2 triangles, 0.45322 m2 of 0.45328 m2
+PASS artwork face is a 48-sided oval of the catalogue size | 46 triangles, 0.19742 m2 of 0.19742 m2
+PASS artwork stands just proud of the backing | 4.0 mm
+PASS every side wall is either the box outer edge or the oval edge: no rectangular inner reveal exists | 8 outer-box triangles, 96 oval triangles, 0 other
+PASS no vertex sits on the old rectangular canvas corners | 0 vertices
+VILLON_FRAME_OK

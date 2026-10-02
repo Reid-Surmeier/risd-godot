@@ -1,0 +1,24 @@
+{
+  "attempts": [
+    {
+      "id": "settee-001",
+      "prompt": "settee-prompt.txt",
+      "promptSha256": "aaba11af3a440aa11cc0fab112b12ce552ff67ba9e5c919e3b1eddfde76b09bb",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "references/settee-catalogue-0.png",
+          "sha256": "b32329fd02f1620d09751e41bcc440350674a2ad60d6fd80e902cba76dfe5034"
+        },
+        {
+          "path": "references/settee-catalogue-1.png",
+          "sha256": "96443d2bef5a248fe8baba60170baaadaa2a6a8a1e268d0f124b2e199b785b48"
+        },
+        {
+          "path": "references/main-hall-style.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe"
+        }
+      ]
+    }
+  ]
+}

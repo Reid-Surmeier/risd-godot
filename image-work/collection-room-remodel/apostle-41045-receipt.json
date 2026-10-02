@@ -1,0 +1,24 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/apostle-41045-catalogue.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-54d9c9f23373622b070af56e/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "76a5d6ff62429978cf4ace96658e89d02f5ed3fa528eb7cc4539528cf0e4abf0"
+    }
+  ],
+  "changesRequested": "Reference1 is the official RISD Museum photograph of Apostle accession41.045, the damaged limestone relief RIGHT of the medieval stair door. Generate ONE complete straight-on FRONT view alone, isolated on flat pure magenta#FF00FF with generous margins. Match the source tall narrow broken slab outline, round halo and almost entirely MISSING ERODED FACE, the two crossed raised hands, irregular worn robe folds, low feet and deep square dark break above the feet. DO NOT restore the face: keep its head a worn broken almost featureless rough area with no invented eyes, mouth or nose. DO NOT reconstruct missing stone or smooth the irregular broken robe into a new decorative pattern. Translate the source into a low polygon game asset using broad planar facets and restrained mottled pale warm limestone; keep damaged silhouette and distinct original surviving shapes. No frame, platform, plinth, floor, shadow outside the silhouette, caption or other view. Source-specific damage is more important than attractive symmetry. This is a UV colour study for separately authored closed low polygon relief; catalogue gives width/height, hidden depth remains provisional.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-54d9c9f23373622b070af56e",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-54d9c9f23373622b070af56e"
+}

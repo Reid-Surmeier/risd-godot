@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-39d55a31db124e55df8b",
+  "summary": "Reference 1 is a real gilt rococo mirror filmed in the RISD decorative arts room. It alone defines the mirror's silhouette, asymmetric scrolls, branching leaves, pierced crest, two joined reflective lobes and gilded ornament. Reference 2 is the latest modeled Main Hall: match that clean low polygon game modeling style, with large readable planar facets, crisp gold highlight bands and soft baked shading.\nGenerate ONE complete mirror alone, perfectly straight-on orthographic, with no perspective tilt. Keep its tall narrow proportions and the complete crest, side branches and bottom flourish, with magenta margin all around. Preserve source ornament and silhouette without inventing new scrolls or reducing it to a generic rectangular frame. Replace photographic glass reflections and exit sign with restrained flat cool dark gray-blue glass, no scene or reflected text. The gold carving is a modeled low polygon relief, crisp and recognizable at walking distance. Everything outside its exact silhouette and every pierced opening must be pure flat magenta #FF00FF touching the gold directly, with no cast shadow. No wall, labels, border, text or contact sheet. This image supplies UV textures for a separately authored low polygon relief mesh, not a billboard room.\n",
+  "procedureId": "muse-39d55a31db124e55df8b",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "references/mirror-video.png",
+      "sha256": "f82685ee1716e24eb4ff65cf66c0b0aca10be0bd639e2a7c1408cba88864dbe7",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/main-hall-style.png",
+      "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "mirror-recipe.json",
+      "sha256": "39d55a31db124e55df8b23fd17dac728788834b32f67507289b73197f4548c33"
+    },
+    {
+      "applicationPath": "mirror-plan.json",
+      "sha256": "250d14ec36afb206848293b4be1ed77a71c8c9c001d131b3469265d3292edc59"
+    },
+    {
+      "applicationPath": "mirror-prompt.txt",
+      "sha256": "58d2fe8fc7167db35625841a1cd70dd4e6720484d150beec5c8046b18f365033"
+    }
+  ]
+}

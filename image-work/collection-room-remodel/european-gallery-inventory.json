@@ -1,0 +1,367 @@
+{
+  "date_utc": "2026-10-01",
+  "scope": "Full 2fps gallery surveys visually inspected; this is an ordered lower-bound inventory, not full reconstruction acceptance.",
+  "source_counts": {
+    "IMG_6384": 209,
+    "IMG_6385": 75,
+    "IMG_6386": 213
+  },
+  "total_frames": 497,
+  "orientation": "Local west/east labels follow the prototype: entering from Rockefeller walks toward +Z. They are not compass north/east claims.",
+  "method": "All 21 contact sheets reviewed in order, including reciprocal long shots; native CUDA frames used for frame/canvas detail. Survey portrait orientation corrected by rotation only.",
+  "doors": {
+    "rockefeller": "6384:206-209;6385:1-6;6386:134-135",
+    "far_room": "6384:25-42;6386:194-213; visibly traversed into sculpture room; successor layout unfinished"
+  },
+  "architecture": {
+    "piers": "East wall projections and continuous raised plinth visible at 6386:89/136-138; native model two provisional piers",
+    "ceiling": "Long recessed centre, transverse lighting tracks and wall vents visible at 6386:139-162; model incomplete",
+    "dimensions": "Wall order verified qualitatively; length, width, pier spacing, object offsets remain unmeasured"
+  },
+  "wall_order": [
+    {
+      "id": "dress-case",
+      "wall": "west",
+      "order_from_rockefeller": 0,
+      "title": "White dress on black mannequin",
+      "survey_frames": "6385:5-13",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "secretary",
+      "wall": "west",
+      "order_from_rockefeller": 1,
+      "title": "Walnut secretary, ormolu scrolls and paired lions",
+      "survey_frames": "6385:20-44",
+      "status": "existing matched asset",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "architectural-print",
+      "wall": "west",
+      "order_from_rockefeller": 2,
+      "title": "Small horizontal black print with broad white mat",
+      "survey_frames": "6385:45-51;6386:126-131",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "delacroix",
+      "wall": "west",
+      "order_from_rockefeller": 3,
+      "title": "Arab horsemen in landscape, 35.786",
+      "survey_frames": "6385:52-58;6386:119-124",
+      "status": "matched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "landscapes-stacked",
+      "wall": "west",
+      "order_from_rockefeller": 4,
+      "title": "Two paintings, vertical city above horizontal dark interior",
+      "survey_frames": "6386:94-106",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "venice-landscape",
+      "wall": "west",
+      "order_from_rockefeller": 5,
+      "title": "Horizontal canal and buildings painting",
+      "survey_frames": "6386:73-79",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "fetti",
+      "wall": "west",
+      "order_from_rockefeller": 6,
+      "title": "Christ Ministered To by the Angels, 36.003",
+      "survey_frames": "6386:61-71",
+      "status": "matched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "floral-textile",
+      "wall": "west",
+      "order_from_rockefeller": 7,
+      "title": "White mounted textile with flowers, birds and central urn",
+      "survey_frames": "6386:49-58",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "two-vertical-prints",
+      "wall": "west",
+      "order_from_rockefeller": 8,
+      "title": "Two small vertical black-and-white prints",
+      "survey_frames": "6386:43-47",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "goltzius",
+      "wall": "west",
+      "order_from_rockefeller": 9,
+      "title": "Christ on the Cold Stone with Two Angels, 61.006",
+      "survey_frames": "6386:34-40;6386:182-185",
+      "status": "official photo visually matched; frame pass planned",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "two-horizontal-prints",
+      "wall": "west",
+      "order_from_rockefeller": 10,
+      "title": "Two horizontal black framed prints beside far case",
+      "survey_frames": "6384:53-60;6386:17-20",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "bronze-relief",
+      "wall": "west",
+      "order_from_rockefeller": 11,
+      "title": "Ornamental bronze round relief in wall glass case",
+      "survey_frames": "6384:45-52;6386:196",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "artist-portrait",
+      "wall": "east",
+      "order_from_rockefeller": 0,
+      "title": "Small vertical man holding brush near entrance",
+      "survey_frames": "6384:196-201",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "commode",
+      "wall": "east",
+      "order_from_rockefeller": 1,
+      "title": "Bombe gilt brown chest with marble top; white plate in glass case above",
+      "survey_frames": "6384:182-194",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "red-rug",
+      "wall": "east",
+      "order_from_rockefeller": 2,
+      "title": "Red rug with central medallion on projecting pier",
+      "survey_frames": "6384:173-181",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "small-history-painting",
+      "wall": "east",
+      "order_from_rockefeller": 3,
+      "title": "Small vertical crowded scene with sculpted bust at right",
+      "survey_frames": "6384:160-172",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "reader-portrait",
+      "wall": "east",
+      "order_from_rockefeller": 4,
+      "title": "Man in brown coat holding open book in gilt crested frame",
+      "survey_frames": "6384:151-159",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "tea-scene",
+      "wall": "east",
+      "order_from_rockefeller": 5,
+      "title": "Horizontal dark painting with seated woman in white at table",
+      "survey_frames": "6384:145-150",
+      "status": "unmatched; not Cossiers Emmaus",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "gold-textile",
+      "wall": "east",
+      "order_from_rockefeller": 6,
+      "title": "Gold floral/vine textile in white mount",
+      "survey_frames": "6384:139-142",
+      "status": "46.256 is a candidate only; compare native photo",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "crucifixion",
+      "wall": "east",
+      "order_from_rockefeller": 7,
+      "title": "Large Crucifixion panel, gold sky and red SPQR banner",
+      "survey_frames": "6384:125-137;6386:169-172",
+      "status": "official API/photo matched: gold ground, SPQR banner, crowd, Mary and central cross",
+      "metric_position": "provisional/unplaced",
+      "accession": "69.197",
+      "catalogue_id": "1545731",
+      "canvas_m": [
+        1.13,
+        1.438
+      ]
+    },
+    {
+      "id": "gothic-madonna",
+      "wall": "east",
+      "order_from_rockefeller": 8,
+      "title": "Small religious panel in openwork gothic gilt frame",
+      "survey_frames": "6384:117-124",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "mythology-crowd",
+      "wall": "east",
+      "order_from_rockefeller": 9,
+      "title": "Large horizontal mythological group with clouds",
+      "survey_frames": "6384:86-105;6386:189-192",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "landscape-print",
+      "wall": "east",
+      "order_from_rockefeller": 10,
+      "title": "Black framed landscape print near far painting",
+      "survey_frames": "6384:20-24;6386:191",
+      "status": "unmatched",
+      "metric_position": "provisional/unplaced"
+    },
+    {
+      "id": "resurrection",
+      "wall": "east",
+      "order_from_rockefeller": 11,
+      "title": "Vertical white Christ against blue clouds, attendants below",
+      "survey_frames": "6384:7-19;6386:191",
+      "status": "unmatched; not Goltzius",
+      "metric_position": "provisional/unplaced"
+    }
+  ],
+  "display_groups": [
+    {
+      "id": "near-silver-case",
+      "location": "Near entrance, off the longitudinal centreline",
+      "frames": "6385:62-73;6386:113-116",
+      "contents": "Silver covered vessel, plates and multiple porcelain figures; catalogue identities pending"
+    },
+    {
+      "id": "floral-textile-case",
+      "location": "West wall below floral textile",
+      "frames": "6386:49-59",
+      "contents": "Stoneware jug, dark metal vessel, clear glass vessels, blue bowl and dark vessel; exact count pending"
+    },
+    {
+      "id": "central-inlaid-cabinet-case",
+      "location": "Central, farther than bench",
+      "frames": "6386:167-170",
+      "contents": "Upright inlaid cabinet with open side and a flat inlaid board; identities pending"
+    },
+    {
+      "id": "majolica-case",
+      "location": "West wall near far end",
+      "frames": "6386:8-29",
+      "contents": "Mortar with pestle, covered ceramic jar, blue/white jar, two upright dishes, rectangular decorated box, flat small dish and small pale objects; at least eight visible objects, exact count pending"
+    },
+    {
+      "id": "seated-figure-case",
+      "location": "Near far-end centre",
+      "frames": "6384:73-84;6386:193-194",
+      "contents": "Muscular seated light-stone male sculpture; identity and rear coverage pending"
+    },
+    {
+      "id": "black-bench",
+      "location": "Middle floor aisle",
+      "frames": "6386:84-88;6386:176-178",
+      "contents": "Unframed black bench; dimensions and collision placement pending"
+    },
+    {
+      "id": "stained-glass-and-small-case",
+      "location": "Rockefeller end wall, east of doorway",
+      "frames": "6384:203-209",
+      "contents": "Round stained glass above shallow clear freestanding case of small objects; identities pending"
+    },
+    {
+      "id": "far-tabernacle",
+      "location": "Far end wall, west of doorway",
+      "frames": "6384:37-42;6386:194-202",
+      "contents": "Carved pale rectangular stone shrine with dark rectangular opening on white pedestal; identity pending",
+      "accession": "06.057",
+      "catalogue_id": "1411831",
+      "status": "Domenico Gagini Tabernacle: angels, paired columns, centre opening and top relief matched",
+      "size_m": [
+        0.737,
+        0.508
+      ],
+      "geometry": "front matched; side/depth/rear pending"
+    },
+    {
+      "id": "far-bronze-christ",
+      "location": "Far end wall, east of doorway",
+      "frames": "6384:1-6",
+      "contents": "Bronze standing figure in wall glass case; identity pending"
+    }
+  ],
+  "rejected_inferences": [
+    "Goltzius 61.006 matches the small west-wall painting, not the large east-wall blue-cloud painting.",
+    "6384:145-150 is a genre tea scene, not Cossiers Supper at Emmaus.",
+    "Reciprocal shots confirm secretary and Delacroix on west wall; no swap justified.",
+    "Cuyp 62.019 is a brown resurrection study and does not match the blue-cloud far-corner painting; not installed."
+  ],
+  "contact_sheet_sha256": {
+    "IMG_6384-001-024.jpg": "8d4ff679fa6ff6edf024f3179e945a1f0cd3c40f5548ba101cfcc6975487dc3f",
+    "IMG_6384-025-048.jpg": "073895161843744a4545ced01c843758d7f7cdec9382a353e494d187e15ba42f",
+    "IMG_6384-049-072.jpg": "43b709ab480ba2e624b97136ee813d1e122094a07153a6a86581e5f67a4bb64e",
+    "IMG_6384-073-096.jpg": "8f75f0c9067706af4ac3dcc49c58cbbdfc1cf61f95e282b25efb6240df2b40c7",
+    "IMG_6384-097-120.jpg": "f9eada7ac4d37d860ae4c695634e7ea8fffd42db142a42f5790e9a19be9c4997",
+    "IMG_6384-121-144.jpg": "4749818ec91f115730ac7105e287b925c9b4efe82d6d82ee26b484aec2473c8d",
+    "IMG_6384-145-168.jpg": "3a29ac87e72b13e621df76ffc782eeebd93c77cd97ed8a9a2ff7a47d1b155cc2",
+    "IMG_6384-169-192.jpg": "08446fc41bc3a103d07c95919f90bf63d553706977138ecfff57d0a865571e33",
+    "IMG_6384-193-209.jpg": "eb5bc0acab97595e073490aa6eca3cfbd138e87068d64c07632e21634d58799f",
+    "IMG_6385-001-024.jpg": "95904ea2a00b374e9e46cb5cc30fa8bce59904a3798007a727dd10efb26b762d",
+    "IMG_6385-025-048.jpg": "6820b184c189ae3cc741baf7c2f7711eb8500087a64a6e66aa71d9ba3b3354d1",
+    "IMG_6385-049-072.jpg": "f4428c4ae43216b1000de4abab436146757820ba92f86cf65b59949d744f4fce",
+    "IMG_6385-073-075.jpg": "e1af6ccd9ab4db37dda028db7e5213802e245e19eea77942b0f2669ed9d41ce5",
+    "IMG_6386-001-024.jpg": "c2db72139ea04e7f2cf4e83d0ae83f997dba2ad9e45422dc0a7a42ede6135600",
+    "IMG_6386-025-048.jpg": "0bf4fe5e101a08cf2db3f995345b229d7b234e14e2b9a85c229e73b4c91e33c8",
+    "IMG_6386-049-072.jpg": "47fb7d266a8dfacace0bedf3a12742bfd995efe86d13412052e4517d385166a6",
+    "IMG_6386-073-096.jpg": "a07818efe70a956bc1555ff9b99c28a41d1b548b790c6eac83e0de80fd147b57",
+    "IMG_6386-097-120.jpg": "00d45a5f9d9cf418d0a2edcccab31142d500252bf6b4f2c82e3084c730fd9de1",
+    "IMG_6386-121-144.jpg": "61292d9056e351d55371e00b34f0cc2cbd92a39f27effed0b2c2df5d7d82ecf9",
+    "IMG_6386-145-168.jpg": "b48f9ad6f0bbf97c466cb310c492746a80e1b9d05307a51148dd02e88159de1f",
+    "IMG_6386-169-192.jpg": "a780232634a3defebace25912530a451986228debd5e9d4e720eae67e6d47928",
+    "IMG_6386-193-213.jpg": "f65b666c9b9db98630d74ea0884100fed6b963b60cc54b082be6dbb3e4bcfe96"
+  },
+  "next_action": "Match gallery group identities against RISD API and wide native frames; generate smallest distinct Muse assets, then place cases/art/bench in observed order. Fit metric placement before accepting layout.",
+  "additional_wall_work": {
+    "id": "previtali",
+    "title": "Andrea Previtali, Risen Christ",
+    "accession": "16.237",
+    "catalogue_id": "1461686",
+    "source": "IMG_6384 native 1.25s",
+    "match": "Standing Christ, tomb, white flag, dark rock matched; architectural pediment frame separate from official unframed photo",
+    "canvas_m": [
+      0.26,
+      0.292
+    ],
+    "location": "Far end wall, east of the bronze figure case and doorway; metric pose pending"
+  },
+  "far_wall_review": {
+    "date_utc": "2026-10-01T14:09:00Z",
+    "source": "IMG_6384 12.0/14.0/16.0/18.0s",
+    "evidence": "docs/evidence/collection-reconstruction/opus-remaining-architecture-review-20261001/evidence-sheet.jpg",
+    "order_facing_south": [
+      "Previtali16.237",
+      "bronze figure case",
+      "doorway",
+      "Tabernacle06.057",
+      "west corner"
+    ],
+    "metric_pose_accepted": false,
+    "objects_installed": false
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/references/sofa-video.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/references/main-hall-style.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-67fccbf9443c506cfaa4bcac/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "aace66201d1fae3ccada9c1ce32abeb5a3093293f57bebcb6cdd289649f4dfde"
+    }
+  ],
+  "changesRequested": "Reference 1 shows a real small antique upholstered sofa in the RISD decorative arts room. Use only its upholstery as authority: olive brown ground, muted golden and beige floral vines, small blue-gray and reddish flower accents. Reference 2 is the latest modeled Main Hall and supplies its restrained low polygon game finish.\nGenerate one square seamless UV albedo cloth swatch derived from this sofa upholstery, an orthographic flat fabric surface with soft woven texture and readable stylized flowers. Preserve the reference palette and floral character; simplify tiny photograph noise into clean broad color patches without turning the floral fabric into plain modern tufted cloth. No sofa, no furniture, no painting, no room, no shadows, no seams or labels; the entire image is the flat fabric material at even illumination. This will be mapped onto separately authored low polygon sofa cushions and arms.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-67fccbf9443c506cfaa4bcac",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-67fccbf9443c506cfaa4bcac"
+}

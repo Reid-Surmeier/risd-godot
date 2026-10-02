@@ -1,0 +1,24 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/braque-frame-video-native.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-9aee0790a3bad9ca3dc7bb83/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "3b1f9bcf18c98976d2c0ab2e4aa502cc2afc634f255c2a175818fe682a135753"
+    }
+  ],
+  "changesRequested": "Generate one complete orthographic front view of only the exact picture frame in reference1, for RISD Braque Still Life48.248. Preserve its very narrow outer gold moulding, broad flat cream-coloured middle band, thin inner gold lip, straight rectangular corners and simple undecorated profile. Remove the painting, wall, shadow, label and perspective; the interior opening must be pure solid white, and the surrounding background pure magenta#FF00FF. Low polygon museum game texture with subtle broad facets and restrained natural gold and ivory colours, consistent with the saved Main Hall frames. Do not add ornamental carvings, beads, acanthus, crests, floral details, extra rails or new decorative patterns. Show the complete frame with margins. The real museum painting is kept separate and inserted deterministically into native geometry.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-9aee0790a3bad9ca3dc7bb83",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-9aee0790a3bad9ca3dc7bb83"
+}

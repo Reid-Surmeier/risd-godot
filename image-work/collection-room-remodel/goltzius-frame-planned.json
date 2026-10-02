@@ -1,0 +1,75 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-ec24643406cbd7e3335c",
+      "objective": "Generate ONE complete FRONT ORTHOGRAPHIC low polygon picture-frame asset matching the frame around RISD Hendrick Goltzius, Christ on the Cold Stone with Two Angels, 61.006 in the video reference. Rectangular frame, narrow aged gold outer edge, broad dark ebony raised/recessed stepped moulding, narrow gold inner bead lining the opening. Preserve the understated black/gold design; no added scrolls or ornament. Complete all four sides and corners. Inner opening perfectly blank pure white rectangle, portrait support proportions 34.5 wide by 51 high. Outside silhouette perfectly flat magenta #FF00FF. Restrained baked shadows, low polygon Main Hall game style. No painting, people, walls, labels, text, extra assets, perspective, grid, or shadows outside the frame. One frame only; no sheet. Native geometry supplies depth; authentic museum painting stays separate.\n",
+      "procedureId": "muse-ec24643406cbd7e3335c",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "goltzius-frame-recipe.json",
+          "sha256": "ec24643406cbd7e3335c4c0d14f09d5e1021b56d2c795fc655aad4dbd595f5be"
+        },
+        {
+          "applicationPath": "goltzius-frame-plan.json",
+          "sha256": "5771327e559f08288227c0537e582205c7a4497f01ce6363fbf8f8e763ecdf50"
+        },
+        {
+          "applicationPath": "goltzius-frame-prompt.txt",
+          "sha256": "069a7f3fbc11ec2b4c7942e7a5c6876003362162adadbf091c097bf34bf5be04"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/goltzius-frame-selected-0.png",
+          "sha256": "241059969c3b536b92ce01546555630953e94ae7be084feabf7efdde04b2790c",
+          "byteLength": 1398628,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"Generate ONE complete FRONT ORTHOGRAPHIC low polygon picture-frame asset matching the frame around RISD Hendrick Goltzius, Christ on the Cold Stone with Two Angels, 61.006 in the video reference. Rectangular frame, narrow aged gold outer edge, broad dark ebony raised/recessed stepped moulding, narrow gold inner bead lining the opening. Preserve the understated black/gold design; no added scrolls or ornament. Complete all four sides and corners. Inner opening perfectly blank pure white rectangle, portrait support proportions 34.5 wide by 51 high. Outside silhouette perfectly flat magenta #FF00FF. Restrained baked shadows, low polygon Main Hall game style. No painting, people, walls, labels, text, extra assets, perspective, grid, or shadows outside the frame. One frame only; no sheet. Native geometry supplies depth; authentic museum painting stays separate.\\n\",\"objectiveId\":\"muse-ec24643406cbd7e3335c\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-ec24643406cbd7e3335c\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/goltzius-frame-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1398628,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"241059969c3b536b92ce01546555630953e94ae7be084feabf7efdde04b2790c\",\"slot\":\"reference-000\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"goltzius-frame-recipe.json\",\"sha256\":\"ec24643406cbd7e3335c4c0d14f09d5e1021b56d2c795fc655aad4dbd595f5be\"},{\"applicationPath\":\"goltzius-frame-plan.json\",\"sha256\":\"5771327e559f08288227c0537e582205c7a4497f01ce6363fbf8f8e763ecdf50\"},{\"applicationPath\":\"goltzius-frame-prompt.txt\",\"sha256\":\"069a7f3fbc11ec2b4c7942e7a5c6876003362162adadbf091c097bf34bf5be04\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "d3202a36f847df0bc6a9c777480c3c12f053ee53262c017fb42f70800580c4ad"
+  },
+  "normalView": {
+    "objective": "Generate ONE complete FRONT ORTHOGRAPHIC low polygon picture-frame asset matching the frame around RISD Hendrick Goltzius, Christ on the Cold Stone with Two Angels, 61.006 in the video reference. Rectangular frame, narrow aged gold outer edge, broad dark ebony raised/recessed stepped moulding, narrow gold inner bead lining the opening. Preserve the understated black/gold design; no added scrolls or ornament. Complete all four sides and corners. Inner opening perfectly blank pure white rectangle, portrait support proportions 34.5 wide by 51 high. Outside silhouette perfectly flat magenta #FF00FF. Restrained baked shadows, low polygon Main Hall game style. No painting, people, walls, labels, text, extra assets, perspective, grid, or shadows outside the frame. One frame only; no sheet. Native geometry supplies depth; authentic museum painting stays separate.\n",
+    "evidence": "1 authoritative reference matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

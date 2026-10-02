@@ -1,0 +1,25 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/romanesque-portal-selected-0.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/romanesque-portal-selected-1.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-02d8d914fc368baa9f3889da/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "a66a3fb3f663b619a165df5e672225c005c4643528e06e0775a2af36f2738ccd"
+    }
+  ],
+  "changesRequested": "Generate ONE FRONT ORTHOGRAPHIC low polygon limestone architecture asset matching RISD romanesque-portal, accession 40.014. Reference 1 is official object detail; reference 2 records its current installed context. Show complete paired engaged columns, carved flared capitals, three concentric semicircular stone voussoir bands and a continuous narrow outer carved chevron border; preserve unequal aged stone blocks. Full height from foot blocks to top, low polygon geometry, no invented Gothic point. Flat magenta #FF00FF outside silhouette AND inside every opening, including the large walk-through centre and all carved tracery holes. No walls, ceiling, floor, labels, paintings, people, museum background or modern door. Keep creamy weathered limestone, restrained baked shadows, low polygon Main Hall game style. One complete isolated asset, no sheet, perspective or extra views. Native mesh will supply depth and genuinely open walk-through geometry; asset raster must contain only the stone.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-02d8d914fc368baa9f3889da",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-02d8d914fc368baa9f3889da"
+}

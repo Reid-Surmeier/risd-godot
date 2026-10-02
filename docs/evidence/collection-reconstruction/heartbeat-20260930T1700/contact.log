@@ -1,0 +1,68 @@
+{
+  "selection": {
+    "training": [
+      "IMG_6384/000207.jpg",
+      "IMG_6384/000209.jpg"
+    ],
+    "reserved": [
+      "IMG_6384/000206.jpg"
+    ],
+    "point": "left inner opening jamb bottom / floor contact",
+    "source_pixels_upright": {
+      "IMG_6384/000207.jpg": [
+        176,
+        921
+      ],
+      "IMG_6384/000209.jpg": [
+        330,
+        887
+      ]
+    },
+    "uncertainty_px": 2,
+    "pose_ceiling_upright_y": 700,
+    "scope": "single point, no plane/scale/navigation acceptance; source marks frozen before reserved view",
+    "source_sha256": {
+      "points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+      "frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+      "images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+      "rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+      "cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+    },
+    "cost_usd": 0,
+    "reason": "Source-visible room floor first appears below y720 in both training images; include upper doorway and wall artwork through y699. Frozen before opening reserved photo; original450 failure retained."
+  },
+  "point_world": [
+    0.6700542785137054,
+    1.7714691946686763,
+    -0.25394840987140416
+  ],
+  "ray_angle_degrees": 4.163003818155991,
+  "training_errors_px": {
+    "IMG_6384/000207.jpg": 1.5742851779695286,
+    "IMG_6384/000209.jpg": 1.5364705711189681
+  },
+  "positive_depth": true,
+  "perturbation_p95_fraction_camera_distance": 0.11292235657090888,
+  "navigation_accepted": false,
+  "cost_usd": 0,
+  "caveat": "Single manually marked source-visible contact, globally fitted source cameras; same-video and inherited-calibration correlation. No metric scale, opening width or floor plane.",
+  "reserved": {
+    "image": "IMG_6384/000206.jpg",
+    "predicted_pixel": [
+      86.67050667881813,
+      828.6803260822345
+    ],
+    "pose_supported": true,
+    "pose_inliers": 72,
+    "pose_test_below4px": 77
+  },
+  "inputs_sha256": {
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/heartbeat-20260930T1700/source-selection-wall700.json": "318e653ed0f078887f5f11cd527255987be09691afe109227a7818ba3cf70982",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/strict-6384-wall-pose-v2/result.json": "6e48cf7d67b157c0cdace67551b97c9b12050168af2b4bd5b2c604ddbde6e5c8",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  }
+}

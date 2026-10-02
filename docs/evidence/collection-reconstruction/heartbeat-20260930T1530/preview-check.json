@@ -1,0 +1,56 @@
+{
+  "status": 200,
+  "images": [
+    {
+      "source": "entry-floor-match-detail.png",
+      "width": 640,
+      "height": 370
+    },
+    {
+      "source": "000206-entry-floor-matches.png",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "source": "000206-entry-floor-matches.png",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "source": "000244-native-floor.png",
+      "width": 1080,
+      "height": 1095
+    },
+    {
+      "source": "000505-native-floor.png",
+      "width": 1080,
+      "height": 1095
+    },
+    {
+      "source": "entry206-native-threshold.png",
+      "width": 410,
+      "height": 290
+    },
+    {
+      "source": "browser-forward.png",
+      "width": 1100,
+      "height": 760
+    },
+    {
+      "source": "browser-reverse.png",
+      "width": 1100,
+      "height": 760
+    },
+    {
+      "source": "native-phase-10.png",
+      "width": 1100,
+      "height": 760
+    },
+    {
+      "source": "shell-resized.png",
+      "width": 1440,
+      "height": 900
+    }
+  ],
+  "errors": []
+}

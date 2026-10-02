@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-f69e07800b2fc10befc9",
+  "summary": "The reference photographs are the sole authority for RISD Museum Rockefeller Service Dinner Plate, accession 2017.74.38.25. Produce ONE complete orthographic top view of this exact single object, decoration oriented exactly as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\n",
+  "procedureId": "muse-f69e07800b2fc10befc9",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/gold-plate-b-selected-0.png",
+      "sha256": "34a2508ac143aa45b99f071643ead19018da64f9c98e80f4b96828045c83e7ca",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "gold-plate-b-recipe.json",
+      "sha256": "f69e07800b2fc10befc90897e4d7a5ca9777fc3550ee31deb4c43d3aa6031f78"
+    },
+    {
+      "applicationPath": "gold-plate-b-plan.json",
+      "sha256": "1ff24fbbb2eebf795137d6fd7956a2ce3107ed34aa02eca36ab20729559f03fc"
+    },
+    {
+      "applicationPath": "gold-plate-b-prompt.txt",
+      "sha256": "09691e0a2c1f7c43f502976f6ad42ecdb0a418c8d375be60a115ab2d4d95ae6c"
+    }
+  ]
+}

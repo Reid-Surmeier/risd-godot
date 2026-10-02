@@ -1,0 +1,25 @@
+[
+  {
+    "query": "IMG_6380/grandreturn-000024.jpg",
+    "keypoints": 187,
+    "references_with_raw_matches": 0,
+    "top_raw_matches": []
+  },
+  {
+    "query": "IMG_6380/grandreturn-000026.jpg",
+    "keypoints": 132,
+    "references_with_raw_matches": 0,
+    "top_raw_matches": []
+  },
+  {
+    "query": "IMG_6380/grandreturn-000028.jpg",
+    "keypoints": 323,
+    "references_with_raw_matches": 1,
+    "top_raw_matches": [
+      {
+        "reference": "IMG_6380/000204.jpg",
+        "raw_matches": 19
+      }
+    ]
+  }
+]

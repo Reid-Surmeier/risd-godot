@@ -1,0 +1,133 @@
+[
+ {
+  "source": "https://player.vimeo.com/video/221606953",
+  "referer": "https://risdmuseum.org/art-design/projects-publications/articles/object-lessons",
+  "http_status": 200,
+  "sprite_status": 200,
+  "duration_s": 276,
+  "frames": 120,
+  "columns": 10,
+  "frame": [
+   426,
+   240
+  ],
+  "sprite_sha256": "9788df6d90e1bf2699ea0374697053ede6a1fad0e92e61f74e5081aad7a58575",
+  "retrieved_utc": "2026-10-01T15:30:45+00:00"
+ },
+ {
+  "source": "https://player.vimeo.com/video/221636728",
+  "referer": "https://risdmuseum.org/art-design/projects-publications/articles/object-lessons",
+  "http_status": 200,
+  "sprite_status": 200,
+  "duration_s": 196,
+  "frames": 120,
+  "columns": 10,
+  "frame": [
+   426,
+   240
+  ],
+  "sprite_sha256": "4b4c83413919b69ab3546bbfa100f85c5b5a61d7ac80cde4eb3c3943336e4441",
+  "retrieved_utc": "2026-10-01T15:30:45+00:00"
+ },
+ {
+  "source": "https://player.vimeo.com/video/223645614",
+  "referer": "https://risdmuseum.org/art-design/projects-publications/articles/object-lessons",
+  "http_status": 200,
+  "sprite_status": 200,
+  "duration_s": 260,
+  "frames": 120,
+  "columns": 10,
+  "frame": [
+   426,
+   240
+  ],
+  "sprite_sha256": "ba8868b941a22701a24d39d2f2f166891f0cd82c2083f034375e740bc3a8180d",
+  "retrieved_utc": "2026-10-01T15:30:46+00:00"
+ },
+ {
+  "source": "https://player.vimeo.com/video/251342847",
+  "referer": "https://risdmuseum.org/art-design/projects-publications/articles/object-lessons",
+  "http_status": 200,
+  "sprite_status": 200,
+  "duration_s": 249,
+  "frames": 120,
+  "columns": 10,
+  "frame": [
+   426,
+   240
+  ],
+  "sprite_sha256": "9c7b3408f136bdc8da210cbf6651c45d44fcce53c1aa034f71fce6ed3d4fc280",
+  "retrieved_utc": "2026-10-01T15:30:47+00:00"
+ },
+ {
+  "source": "https://www.youtube.com/watch?v=ut0TNSximc4",
+  "http_status": 200,
+  "length_s": 663,
+  "published": "2026-08-08T06:00:39-07:00",
+  "channel": "Play Nintendo",
+  "storyboard_level": 3,
+  "frame": [
+   320,
+   180
+  ],
+  "frames": 134,
+  "interval_ms": 5000,
+  "sheets": 15,
+  "grid": [
+   3,
+   3
+  ],
+  "retrieved_utc": "2026-10-01T15:30:52+00:00"
+ },
+ {
+  "source": "https://player.vimeo.com/video/583887035",
+  "title": "RISD Museum for College Students",
+  "upload_date": "2021-08-06 11:31:34",
+  "referer": "https://risdmuseum.org/",
+  "http_status": 200,
+  "sprite_status": 200,
+  "duration_s": 88,
+  "frames": 120,
+  "columns": 10,
+  "frame": [
+   426,
+   240
+  ],
+  "sprite_sha256": "dc828ed4190f9af8d50d436dc1c4ff1f0218813256325a1a657a62776d858f14",
+  "retrieved_utc": "2026-10-01T15:32:00+00:00"
+ },
+ {
+  "source": "https://player.vimeo.com/video/267263973",
+  "title": "Preview for Students + Educators coming on Group Visits",
+  "upload_date": "2018-04-30 12:22:43",
+  "referer": "https://risdmuseum.org/",
+  "http_status": 200,
+  "sprite_status": 200,
+  "duration_s": 115,
+  "frames": 120,
+  "columns": 10,
+  "frame": [
+   426,
+   240
+  ],
+  "sprite_sha256": "71a4e38a8c5f2181bbd29f988f0d2abe2231b633bc8ad0f5d6ac4aada45c050f",
+  "retrieved_utc": "2026-10-01T15:32:01+00:00"
+ },
+ {
+  "source": "https://player.vimeo.com/video/373496070",
+  "title": "Soundwalks / Why is this even here?",
+  "upload_date": "2019-11-15 16:46:31",
+  "referer": "https://risdmuseum.org/",
+  "http_status": 200,
+  "sprite_status": 200,
+  "duration_s": 2265,
+  "frames": 120,
+  "columns": 10,
+  "frame": [
+   426,
+   240
+  ],
+  "sprite_sha256": "79f6e76734824c52288b530249153efe100d0df3cc12867aa96be88c256270fe",
+  "retrieved_utc": "2026-10-01T15:32:02+00:00"
+ }
+]

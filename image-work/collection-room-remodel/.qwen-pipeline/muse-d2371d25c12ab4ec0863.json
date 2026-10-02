@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-d2371d25c12ab4ec0863",
+  "summary": "Generate ONE complete front orthographic low polygon architectural picture frame matching the real frame around Pietro Perugino Madonna and Child16.236 in the first two native RISD museum video references. Preserve its broad projecting straight top cornice with stepped cap, two straight flat brown aged-gilt vertical pilasters, narrow raised inner gold fillet, dark recessed band around the painting, and projecting stepped bottom plinth. Restrained worn brown gold, subtle carved straight profiles. Match the museum game frame material in the third reference. Perfectly blank white portrait rectangular opening, panel width39.1 height57.5cm. Flat magenta #FF00FF outside the entire frame silhouette. No painting, wall, labels, people, perspective, second frame, leaf or flower decoration, corner scrolls, pediment, or invented figures. Complete frame, top cornice and bottom plinth fully visible. One frame only.\n",
+  "procedureId": "muse-d2371d25c12ab4ec0863",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/perugino-frame-selected-0.png",
+      "sha256": "8fa8eb8a514bccbc350c38b253eed37d4ec28af7065f9a3c64b1e05a5ca21b30",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/perugino-frame-selected-1.png",
+      "sha256": "c00a2a89902b6cbf8245e57aa363b4f67426f3eb31f22a56ae84a1d37205151a",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "inventory-references/perugino-frame-selected-2.png",
+      "sha256": "517ea4ae2f4109fcef975c7b91612c17dd2bb720317f2398d080e7dbae405964",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "perugino-frame-recipe.json",
+      "sha256": "d2371d25c12ab4ec08637fe39e2034ecfa4fcef2070b81c1aa99f3e1b0aaecec"
+    },
+    {
+      "applicationPath": "perugino-frame-plan.json",
+      "sha256": "6090b591c6761a1adb069468a9959db7370969bab19de943bfc82f2a84633ea6"
+    },
+    {
+      "applicationPath": "perugino-frame-prompt.txt",
+      "sha256": "f8c1093865e612fffe86e0281094ead44b59f5f05a132596c388631b05b0e7b7"
+    }
+  ]
+}

@@ -1,0 +1,1288 @@
+{
+  "patches": [
+    {
+      "label": "Rockefeller",
+      "color": "81735c",
+      "vertices": [
+        [
+          -2.75,
+          0,
+          -7.2
+        ],
+        [
+          3.65,
+          0,
+          -7.2
+        ],
+        [
+          3.65,
+          0,
+          -0.4
+        ],
+        [
+          -2.75,
+          0,
+          -0.4
+        ]
+      ]
+    },
+    {
+      "label": "adjacent gallery",
+      "color": "81735c",
+      "vertices": [
+        [
+          -3.6,
+          0,
+          -0.4
+        ],
+        [
+          2.5,
+          0,
+          -0.4
+        ],
+        [
+          2.5,
+          0,
+          18.85
+        ],
+        [
+          -3.6,
+          0,
+          18.85
+        ]
+      ]
+    },
+    {
+      "label": "light Renaissance room",
+      "color": "81735c",
+      "vertices": [
+        [
+          -3.6,
+          0,
+          18.85
+        ],
+        [
+          2.5,
+          0,
+          18.85
+        ],
+        [
+          2.5,
+          0,
+          24.95
+        ],
+        [
+          -3.6,
+          0,
+          24.95
+        ]
+      ]
+    },
+    {
+      "label": "dark medieval room",
+      "color": "81735c",
+      "vertices": [
+        [
+          2.5,
+          0,
+          18.85
+        ],
+        [
+          11.5,
+          0,
+          18.85
+        ],
+        [
+          11.5,
+          0,
+          24.95
+        ],
+        [
+          2.5,
+          0,
+          24.95
+        ]
+      ]
+    },
+    {
+      "label": "Main Hall portal threshold study limit",
+      "color": "81735c",
+      "vertices": [
+        [
+          3.4355,
+          0,
+          17.25
+        ],
+        [
+          7.6645,
+          0,
+          17.25
+        ],
+        [
+          7.6645,
+          0,
+          18.85
+        ],
+        [
+          3.4355,
+          0,
+          18.85
+        ]
+      ]
+    },
+    {
+      "label": "stairs landing threshold study limit",
+      "color": "81735c",
+      "vertices": [
+        [
+          11.5,
+          0,
+          19.95
+        ],
+        [
+          12.9,
+          0,
+          19.95
+        ],
+        [
+          12.9,
+          0,
+          21.65
+        ],
+        [
+          11.5,
+          0,
+          21.65
+        ]
+      ]
+    },
+    {
+      "label": "purple elevator-5 connector",
+      "color": "81735c",
+      "vertices": [
+        [
+          3.65,
+          0,
+          -2.8
+        ],
+        [
+          8.45,
+          0,
+          -2.8
+        ],
+        [
+          8.45,
+          0,
+          -1.2
+        ],
+        [
+          3.65,
+          0,
+          -1.2
+        ]
+      ]
+    },
+    {
+      "label": "grey French gallery",
+      "color": "81735c",
+      "vertices": [
+        [
+          8.45,
+          0,
+          -5.8
+        ],
+        [
+          15.65,
+          0,
+          -5.8
+        ],
+        [
+          15.65,
+          0,
+          1.8
+        ],
+        [
+          8.45,
+          0,
+          1.8
+        ]
+      ]
+    },
+    {
+      "label": "Ionic marble-stair threshold study limit",
+      "color": "81735c",
+      "vertices": [
+        [
+          15.65,
+          0,
+          -5.8
+        ],
+        [
+          17.25,
+          0,
+          -5.8
+        ],
+        [
+          17.25,
+          0,
+          1.8
+        ],
+        [
+          15.65,
+          0,
+          1.8
+        ]
+      ]
+    },
+    {
+      "label": "piano-stair threshold study limit",
+      "color": "81735c",
+      "vertices": [
+        [
+          9.15,
+          0,
+          -7.4
+        ],
+        [
+          11.15,
+          0,
+          -7.4
+        ],
+        [
+          11.15,
+          0,
+          -5.8
+        ],
+        [
+          9.15,
+          0,
+          -5.8
+        ]
+      ]
+    },
+    {
+      "label": "Grand Gallery grey-entry threshold study limit",
+      "color": "81735c",
+      "vertices": [
+        [
+          9.15,
+          0,
+          1.8
+        ],
+        [
+          11.15,
+          0,
+          1.8
+        ],
+        [
+          11.15,
+          0,
+          3.4
+        ],
+        [
+          9.15,
+          0,
+          3.4
+        ]
+      ]
+    }
+  ],
+  "boxes": [],
+  "trials": [
+    [
+      "gallery_door_out",
+      [
+        -0.55,
+        0.25,
+        -1.3
+      ],
+      [
+        -0.55,
+        0,
+        1.6
+      ],
+      false
+    ],
+    [
+      "gallery_door_back",
+      [
+        -0.55,
+        0.25,
+        1.6
+      ],
+      [
+        -0.55,
+        0,
+        -1.3
+      ],
+      false
+    ],
+    [
+      "sofa_wall_blocked",
+      [
+        -1.3,
+        0.25,
+        -2.5
+      ],
+      [
+        -3.3,
+        0,
+        -2.5
+      ],
+      true
+    ],
+    [
+      "right_wall_blocked",
+      [
+        3.0,
+        0.25,
+        -3.2
+      ],
+      [
+        4.5,
+        0,
+        -3.2
+      ],
+      true
+    ],
+    [
+      "decorative_room",
+      [
+        1.65,
+        0.25,
+        -2.0
+      ],
+      [
+        1.65,
+        0,
+        -5.4
+      ],
+      false
+    ],
+    [
+      "adjacent_gallery",
+      [
+        -0.55,
+        0.25,
+        3
+      ],
+      [
+        -0.55,
+        0,
+        6
+      ],
+      false
+    ],
+    [
+      "right_door_out",
+      [
+        3.0,
+        0.25,
+        -2.0
+      ],
+      [
+        4.8,
+        0,
+        -2.0
+      ],
+      false
+    ],
+    [
+      "right_door_back",
+      [
+        4.8,
+        0.25,
+        -2.0
+      ],
+      [
+        3.0,
+        0,
+        -2.0
+      ],
+      false
+    ],
+    [
+      "central_display_blocked",
+      [
+        0.45,
+        0.25,
+        -2.3
+      ],
+      [
+        0.45,
+        0,
+        -4.2
+      ],
+      true
+    ],
+    [
+      "far_gallery_door_out",
+      [
+        -0.55,
+        0.25,
+        18
+      ],
+      [
+        -0.55,
+        0,
+        19.7
+      ],
+      false
+    ],
+    [
+      "far_gallery_door_back",
+      [
+        -0.55,
+        0.25,
+        19.7
+      ],
+      [
+        -0.55,
+        0,
+        18
+      ],
+      false
+    ],
+    [
+      "renaissance_left_leaf_blocked",
+      [
+        -1.2,
+        0.25,
+        19.33
+      ],
+      [
+        -1.85,
+        0,
+        19.33
+      ],
+      true
+    ],
+    [
+      "renaissance_right_leaf_blocked",
+      [
+        0.1,
+        0.25,
+        19.33
+      ],
+      [
+        0.75,
+        0,
+        19.33
+      ],
+      true
+    ],
+    [
+      "gold_service_base_blocked",
+      [
+        2.05,
+        0.25,
+        -3.8
+      ],
+      [
+        3.25,
+        0,
+        -3.8
+      ],
+      true
+    ],
+    [
+      "purple_grey_out",
+      [
+        7.6,
+        0.25,
+        -2
+      ],
+      [
+        9.3,
+        0,
+        -2
+      ],
+      false
+    ],
+    [
+      "purple_grey_back",
+      [
+        9.3,
+        0.25,
+        -2
+      ],
+      [
+        7.6,
+        0,
+        -2
+      ],
+      false
+    ],
+    [
+      "grey_grand_out",
+      [
+        10.15,
+        0.25,
+        1
+      ],
+      [
+        10.15,
+        0,
+        2.65
+      ],
+      false
+    ],
+    [
+      "grey_grand_back",
+      [
+        10.15,
+        0.25,
+        2.65
+      ],
+      [
+        10.15,
+        0,
+        1
+      ],
+      false
+    ],
+    [
+      "grey_piano_out",
+      [
+        10.15,
+        0.25,
+        -5
+      ],
+      [
+        10.15,
+        0,
+        -6.6
+      ],
+      false
+    ],
+    [
+      "grey_piano_back",
+      [
+        10.15,
+        0.25,
+        -6.6
+      ],
+      [
+        10.15,
+        0,
+        -5
+      ],
+      false
+    ],
+    [
+      "grey_ionic_out",
+      [
+        14.85,
+        0.25,
+        -2
+      ],
+      [
+        16.5,
+        0,
+        -2
+      ],
+      false
+    ],
+    [
+      "grey_ionic_back",
+      [
+        16.5,
+        0.25,
+        -2
+      ],
+      [
+        14.85,
+        0,
+        -2
+      ],
+      false
+    ],
+    [
+      "tracery_out",
+      [
+        1.7,
+        0.25,
+        22.515
+      ],
+      [
+        3.35,
+        0,
+        22.515
+      ],
+      false
+    ],
+    [
+      "tracery_back",
+      [
+        3.35,
+        0.25,
+        22.515
+      ],
+      [
+        1.7,
+        0,
+        22.515
+      ],
+      false
+    ],
+    [
+      "stone_portal_out",
+      [
+        5.55,
+        0.25,
+        19.6
+      ],
+      [
+        5.55,
+        0,
+        17.85
+      ],
+      false
+    ],
+    [
+      "stone_portal_back",
+      [
+        5.55,
+        0.25,
+        17.85
+      ],
+      [
+        5.55,
+        0,
+        19.6
+      ],
+      false
+    ],
+    [
+      "stairs_door_out",
+      [
+        10.7,
+        0.25,
+        20.8
+      ],
+      [
+        12.25,
+        0,
+        20.8
+      ],
+      false
+    ],
+    [
+      "stairs_door_back",
+      [
+        12.25,
+        0.25,
+        20.8
+      ],
+      [
+        10.7,
+        0,
+        20.8
+      ],
+      false
+    ],
+    [
+      "renaissance_bench_blocked",
+      [
+        -0.8,
+        0.25,
+        20.8
+      ],
+      [
+        -0.8,
+        0,
+        22.4
+      ],
+      true
+    ],
+    [
+      "medieval_low_case_blocked",
+      [
+        6.4,
+        0.25,
+        21.5
+      ],
+      [
+        6.4,
+        0,
+        23.0
+      ],
+      true
+    ],
+    [
+      "medieval_tall_case_blocked",
+      [
+        9,
+        0.25,
+        20.45
+      ],
+      [
+        9,
+        0,
+        22.0
+      ],
+      true
+    ],
+    [
+      "medieval_between_cases_clear",
+      [
+        7.8,
+        0.25,
+        23.6
+      ],
+      [
+        7.8,
+        0,
+        20.3
+      ],
+      false
+    ],
+    [
+      "medieval_stairs_aisle_clear",
+      [
+        7.8,
+        0.25,
+        20.2
+      ],
+      [
+        10.5,
+        0,
+        20.2
+      ],
+      false
+    ]
+  ],
+  "trial_seconds": 3.5,
+  "start": [
+    -0.55,
+    0.25,
+    -1.3
+  ],
+  "caption": "Collection \u00b7 WASD move \u00b7 Space reset \u00b7 1/2/3 room views\nRoom prototype \u00b7 placements and unfinished objects are provisional.\n",
+  "navigation_accepted": false,
+  "scale_accepted": false,
+  "source_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/bookcase-capture-split-v1/result.json": "69424fe97188ed8fd979c0c21c872b69f1af9a500a502907a539a8bd5539f449",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/points3D.bin": "1f7206ea1873df1d126e4bad5b3306112384dd253737f84f52bb6c6b0da15a16",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/frames.bin": "a81ae341d30588dccfa50607e62dbcec1dda0cb37c7e9222759859ad8f015f3a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/images.bin": "dbe038f78f7b6d3f100a913ba6e067b5576d00cb4c2f2df85b0ae022f7b4dbba",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/rigs.bin": "39eec21ded9800b8551c793bbf7a429040d103f926e5415e9ba757d2b56abc7a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/cameras.bin": "d502f26a76dc4da54c5a1cfdfa11ea053f6a896b8d79d89713f4c9d472f18d92",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/capture-validation.json": "7a0e8d6028593487a02a8703308895ce015f94f976a4844496ec8d059962c145",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/fused.ply": "ca8f574724b7d1b92b57dd63bdf147aeb862aa059a1496437198dc0c95624acb",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/sparse/points3D.bin": "24fb21b7c0debcadbff20d561e803c5cc3f7a57dd21b09267e4c24704858497a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/sparse/frames.bin": "a64259d3e48c3383b0d1fc7619bf5eff35a81e788aedf88cc7ebf907fd34c20f",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/sparse/images.bin": "edf1343bef4991b96de5db356d285053b97df06b017d128c3f4fe16b99437c0f",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/sparse/rigs.bin": "da94f6b31be42bb077e1fbf2f64a4c2701992af19cfe7363897c3deaf7af2007",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-expanded-v1/sparse/cameras.bin": "b21dea72a1f52258c99c5702da1617c18848c14120044645a2a14b3c6fa5cd5e"
+  },
+  "scale_m_per_unit": 0.6502189837601067,
+  "basis_rows": [
+    [
+      -0.08455287367188853,
+      -0.8460490503394822,
+      0.5263571182889865
+    ],
+    [
+      -0.9679461742624007,
+      -0.05563696371656382,
+      -0.2449178066192499
+    ],
+    [
+      0.23649738959364475,
+      -0.5301938633066798,
+      -0.814225676349825
+    ]
+  ],
+  "floor_origin_world": [
+    1.254434778908501,
+    4.701471281883583,
+    3.715686659825081
+  ],
+  "source_model": "sfm-capture-split-v1",
+  "doorway_candidate": {
+    "source": "IMG_6384/000207.jpg",
+    "pixels": [
+      [
+        176,
+        921
+      ],
+      [
+        461,
+        1073
+      ]
+    ],
+    "floor_ray_intersections_local_m": [
+      [
+        -0.6240844328897522,
+        2.6686244591581577e-17,
+        5.93541485835056
+      ],
+      [
+        1.1789809778903357,
+        -2.833259997627035e-16,
+        6.600148261255415
+      ]
+    ],
+    "pixel_roles": [
+      "open leaf lower free edge, not a stationary jamb",
+      "unverified right opening edge"
+    ],
+    "z_origin_m": 6.267781559802987
+  },
+  "floor": {
+    "candidate_point_ids": [
+      18322,
+      18204,
+      18053,
+      18036,
+      17965,
+      17392,
+      17391,
+      16727,
+      16726,
+      16725,
+      16666,
+      16584,
+      16572,
+      16527,
+      16526,
+      16525,
+      16412,
+      16262,
+      16252,
+      16251,
+      16250,
+      16229,
+      16186,
+      16170,
+      16162,
+      16161,
+      16160,
+      16159,
+      16146,
+      16142,
+      16136,
+      15199,
+      15082,
+      15075,
+      14975,
+      14951,
+      14930,
+      14835,
+      14827,
+      14668,
+      14659,
+      14604,
+      14552,
+      14520,
+      14341,
+      14330,
+      14319,
+      14306,
+      14305,
+      14190,
+      14186,
+      14180,
+      14164,
+      14142,
+      14072,
+      14051,
+      14004,
+      13972,
+      13888,
+      13877,
+      13857,
+      13817,
+      13742,
+      13701,
+      13700,
+      13678,
+      13668,
+      13661,
+      13620,
+      13616,
+      13585,
+      13563,
+      13558,
+      13556,
+      13513,
+      13496,
+      13475,
+      13451,
+      13442,
+      13290,
+      13288,
+      13245,
+      13232,
+      13219,
+      13193,
+      13094,
+      13083,
+      13068,
+      13056,
+      13047,
+      13031,
+      13029,
+      12996,
+      12932,
+      12913,
+      12906,
+      12882,
+      12879,
+      12858,
+      12834,
+      12833,
+      12832,
+      12823,
+      12814,
+      12805,
+      12804,
+      12795,
+      12767,
+      12761,
+      12760,
+      12696,
+      12676,
+      12664,
+      12605,
+      12579,
+      12578,
+      12562,
+      12561,
+      12469,
+      12441,
+      12361,
+      12360,
+      12352,
+      12336,
+      11888,
+      11832,
+      11807,
+      11804,
+      21874,
+      11274,
+      11260,
+      11066,
+      11049,
+      21875,
+      10540,
+      11419,
+      21315,
+      21233,
+      10813,
+      8551,
+      11457
+    ],
+    "fit_odd_points": 62,
+    "fit_support": 52,
+    "unused_even_points": 79,
+    "unused_residual_p50_p90_m": [
+      0.012345155713770026,
+      0.04529784136255509
+    ]
+  },
+  "caveat": "Observed decorative room and painting gallery share this visible opening; corridor opening is distinct. Provisional scale from bookcase front endpoints. Split wood points support floor orientation locally; flat floor extension, threshold levels and ray-derived clearance boxes are hypotheses. Left input is an open leaf edge, not fixed architecture. No full room extents, unseen connectors, physical collision acceptance or production integration.",
+  "visual_cloud_alignment": {
+    "fit_views": 118,
+    "unused_views": 93,
+    "unused_camera_residual_p50_p95_m": [
+      0.003965352037772231,
+      0.015209035313526204
+    ],
+    "similarity_scale": 1.0680566480147904,
+    "rotation": [
+      [
+        0.9991992823154404,
+        0.024902540701384732,
+        0.03131545444228564
+      ],
+      [
+        -0.03191785463970745,
+        0.9680841379949586,
+        0.24858469847872186
+      ],
+      [
+        -0.024125604148072615,
+        -0.2493851744374034,
+        0.9681038115797899
+      ]
+    ],
+    "translation": [
+      0.031691109891893644,
+      -0.4266946711117956,
+      -0.057856584449325205
+    ],
+    "caveat": "Cached older dense reconstruction is visual context only; it includes prior correlated training views and must not enter held-out geometry checks or physical collision acceptance."
+  },
+  "point_cloud_render": false,
+  "doorway_correction": {
+    "sources": [
+      "IMG_6380/000247.jpg",
+      "IMG_6380/000449.jpg",
+      "IMG_6384/000209.jpg",
+      "IMG_6385/000005.jpg"
+    ],
+    "correction": "wide shots put the long-gallery doorway on the wall perpendicular to the sofa; purple doorway remains opposite the sofa wall. The v15 same-wall sofa/gallery-door arrangement was wrong.",
+    "confidence": "wall relationships visually corroborated; metric positions remain provisional pending matched wide renders"
+  },
+  "rooms": [
+    {
+      "label": "Rockefeller",
+      "bounds": [
+        -2.75,
+        3.65,
+        -7.2,
+        -0.4
+      ],
+      "openings": {
+        "south": [
+          -1.55,
+          0.45
+        ],
+        "east": [
+          -2.8,
+          -1.2
+        ]
+      }
+    },
+    {
+      "label": "adjacent gallery",
+      "bounds": [
+        -3.6,
+        2.5,
+        -0.4,
+        18.85
+      ],
+      "openings": {
+        "north": [
+          -1.55,
+          0.45
+        ],
+        "south": [
+          -1.55,
+          0.45
+        ]
+      }
+    },
+    {
+      "label": "light Renaissance room",
+      "bounds": [
+        -3.6,
+        2.5,
+        18.85,
+        24.95
+      ],
+      "openings": {
+        "north": [
+          -1.55,
+          0.45
+        ],
+        "east": [
+          21.95,
+          23.08
+        ]
+      },
+      "stone_sides": [
+        "east"
+      ]
+    },
+    {
+      "label": "dark medieval room",
+      "bounds": [
+        2.5,
+        11.5,
+        18.85,
+        24.95
+      ],
+      "height": 4.25,
+      "openings": {
+        "west": [
+          21.95,
+          23.08
+        ],
+        "north": [
+          3.4355,
+          7.6645
+        ],
+        "east": [
+          19.95,
+          21.65
+        ]
+      },
+      "stone_sides": [
+        "west",
+        "north"
+      ]
+    },
+    {
+      "label": "Main Hall portal threshold study limit",
+      "bounds": [
+        3.4355,
+        7.6645,
+        17.25,
+        18.85
+      ],
+      "height": 4.25,
+      "openings": {
+        "south": [
+          3.4355,
+          7.6645
+        ]
+      },
+      "stone_sides": [
+        "south"
+      ]
+    },
+    {
+      "label": "stairs landing threshold study limit",
+      "bounds": [
+        11.5,
+        12.9,
+        19.95,
+        21.65
+      ],
+      "openings": {
+        "west": [
+          19.95,
+          21.65
+        ]
+      }
+    },
+    {
+      "label": "purple elevator-5 connector",
+      "bounds": [
+        3.65,
+        8.45,
+        -2.8,
+        -1.2
+      ],
+      "openings": {
+        "west": [
+          -2.8,
+          -1.2
+        ],
+        "east": [
+          -2.8,
+          -1.2
+        ]
+      }
+    },
+    {
+      "label": "grey French gallery",
+      "bounds": [
+        8.45,
+        15.65,
+        -5.8,
+        1.8
+      ],
+      "floor": "herringbone",
+      "column_sides": [
+        "east"
+      ],
+      "clear_heights": {
+        "east": 3.12
+      },
+      "openings": {
+        "west": [
+          -2.8,
+          -1.2
+        ],
+        "east": [
+          -5.8,
+          1.8
+        ],
+        "north": [
+          9.15,
+          11.15
+        ],
+        "south": [
+          9.15,
+          11.15
+        ]
+      }
+    },
+    {
+      "label": "Ionic marble-stair threshold study limit",
+      "bounds": [
+        15.65,
+        17.25,
+        -5.8,
+        1.8
+      ],
+      "column_sides": [
+        "west"
+      ],
+      "clear_heights": {
+        "west": 3.12
+      },
+      "openings": {
+        "west": [
+          -5.8,
+          1.8
+        ]
+      }
+    },
+    {
+      "label": "piano-stair threshold study limit",
+      "bounds": [
+        9.15,
+        11.15,
+        -7.4,
+        -5.8
+      ],
+      "openings": {
+        "south": [
+          9.15,
+          11.15
+        ]
+      }
+    },
+    {
+      "label": "Grand Gallery grey-entry threshold study limit",
+      "bounds": [
+        9.15,
+        11.15,
+        1.8,
+        3.4
+      ],
+      "height": 6.0,
+      "openings": {
+        "north": [
+          9.15,
+          11.15
+        ]
+      }
+    }
+  ],
+  "grey_gallery_connections": {
+    "source_frames": "6380:29-36,73-80,196-210,493-501",
+    "observed": "Purple connector faces Ionic opening across grey room; piano door on adjoining wall; Grand Gallery door perpendicular beside connector. Earlier opposite-ends claim removed.",
+    "metric_acceptance": false,
+    "extent": "Authored grey room plus three threshold limits; full Grand Gallery/stairs and museum-loop metric fit unfinished"
+  },
+  "object_placement_corrections": {
+    "source": "IMG_6380:277-281,319-348,387-408",
+    "settee": "Aligned beneath Romany at z=-4.7; absolute offsets provisional",
+    "gold_service_case": "Solid pedestal to floor; pink Worcester retains tray and legs"
+  },
+  "far_connection": {
+    "sources": [
+      "IMG_6383/000127.jpg",
+      "IMG_6383/000134.jpg",
+      "IMG_6382/000166.jpg"
+    ],
+    "observed": "Long gallery enters light Renaissance room; its perpendicular east doorway leads into dark medieval room. Medieval round portal and stairs door are on different walls.",
+    "extent": "Two room shells and portal/stairs thresholds; object contents and all room metrics incomplete. Main Hall has not been integrated."
+  },
+  "medieval_case_layout": {
+    "sources": [
+      "IMG_6382 78.25s",
+      "IMG_6382 88.75s"
+    ],
+    "observed": "Broad low relief case south-west of the smaller tall case near the stair doorway; different glass heights and solid grey bases.",
+    "metric_acceptance": false,
+    "contents_complete": false
+  },
+  "room_geometry": "Wide-shot wall relationships replace v15 layout; authored metric extents and distal gallery limit provisional. No point cloud in renderer."
+}

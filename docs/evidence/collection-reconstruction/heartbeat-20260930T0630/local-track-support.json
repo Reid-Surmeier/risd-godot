@@ -1,0 +1,68 @@
+{
+  "rows": [
+    {
+      "image": "IMG_6380/000202.jpg",
+      "registered_tracks": 54,
+      "within120px": 2,
+      "within60px": 1,
+      "within30px": 1,
+      "nearest_track_px": 25.91320558640391,
+      "local_fitted_median_error_px": 1.1868944521809819,
+      "local_track_ids": [
+        43521,
+        47770
+      ]
+    },
+    {
+      "image": "IMG_6380/000204.jpg",
+      "registered_tracks": 203,
+      "within120px": 1,
+      "within60px": 1,
+      "within30px": 0,
+      "nearest_track_px": 51.43007908567153,
+      "local_fitted_median_error_px": 1.4719074510448475,
+      "local_track_ids": [
+        43521
+      ]
+    },
+    {
+      "image": "IMG_6380/000203.jpg",
+      "registered_tracks": 116,
+      "within120px": 1,
+      "within60px": 1,
+      "within30px": 1,
+      "nearest_track_px": 22.164312952995296,
+      "local_fitted_median_error_px": 1.3005564151315856,
+      "local_track_ids": [
+        43521
+      ]
+    }
+  ],
+  "common_tracks_all_three": 1,
+  "pairwise_common": [
+    {
+      "images": [
+        "IMG_6380/000202.jpg",
+        "IMG_6380/000204.jpg"
+      ],
+      "count": 1
+    },
+    {
+      "images": [
+        "IMG_6380/000202.jpg",
+        "IMG_6380/000203.jpg"
+      ],
+      "count": 1
+    },
+    {
+      "images": [
+        "IMG_6380/000204.jpg",
+        "IMG_6380/000203.jpg"
+      ],
+      "count": 1
+    }
+  ],
+  "provider": "local pycolmap/NumPy/Pillow; no extraction, matching or optimization",
+  "cost_usd": 0,
+  "caveat": "Registered model residuals are fitted evidence, not held-out. Pixel proximity does not establish physical casing-face membership. White circle radius fixed at 120 source pixels; no camera/model refit or corner repick."
+}

@@ -1,0 +1,11 @@
+{
+  "source_video": "IMG_6380.MOV",
+  "time_seconds": 120.25,
+  "source_role": "wall colour/material reference, not runtime video albedo",
+  "main_hall_style_reference": {
+    "path": "inventory-references/purple-plaster-selected-1.png",
+    "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe"
+  },
+  "native_walls": "Existing connector threshold only; extended connector and elevator remain unbuilt",
+  "accepted": false
+}

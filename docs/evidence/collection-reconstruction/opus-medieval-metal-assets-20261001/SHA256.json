@@ -1,0 +1,23 @@
+{
+ "modules/shell/prototype/collection_reconstruction/medieval_metal_assets.gd": "82aa8bcb55fb00d5898fcc6f20a100e761f49773c54da25398f5609502586ba1",
+ "REPORT.md": "8c565753c8dd87fa681174f8eaec5b20780e7a48ff9841b3bbcdf3cd3b9bda19",
+ "check.gd": "bb282bd1ccc8c80cccfce2688f54a3037f0d99f4debaff9d1cfcf07b17431a06",
+ "check.log": "d478bfc5e226129abbfa6c7c3f6b0edd304851d4a4b3671c55226bd0020611ba",
+ "checks.json": "fe966186775555b42bbce3641c08171b92fdf18f7c2aa0c87cf76bf46b926bbc",
+ "compare-beaker.jpg": "78f752529ae4515b4764172fc55ebf371937e74149d015c7108a10f9eeb66dcb",
+ "compare-monstrance.jpg": "f97627bfe35012194027fa95abf149b0b146e7578dff64d6e2d390dda0ece1bc",
+ "compare-pax-on-stand.jpg": "e59b511375c6b420e2a26fee33d6e31d25fd5b83bbb7061ec3e25a755c1e3c1e",
+ "compare-pax.jpg": "9796a6d037bf88e7b60aad876b95bbb119511c9cecadb3d520a6e9eddd5db9d9",
+ "compare-pyx.jpg": "82e832e4e2872e67adb5a88467db5fcbce5fecf8565a29dd3e3e5b950fa8af1a",
+ "headless-smoke.log": "9afa78846522e92b738c5611b7173327f2ce0e780ddc7b20cc388339774ca01f",
+ "make_compare.py": "97583a0a7a86ef785edeeaa65a27c9c91c3a002370e11e2c2dde48e6aa4f51bd",
+ "negative-control.log": "ac68305d24a2a443d9ac51521fd00547ed4aabf9d868964d8c83b1d6b8153b16",
+ "repo-check.log": "a93d5352f4de84e1ce2934857d88f60e18884b9ea2f2fa07102e8c6b5e1e0347",
+ "run_check.sh": "9a3aa50443171d9e772cd059e05126cea70b65c24bbabb0180564c65bd673ed8",
+ "sources.json": "43b93a6ca5fa499458d5907dec9b5cd99f054bff95d15103457f848944989845",
+ "views-beaker.png": "2ee0c6955a35b465890f7f20ff087e2d6ca753c246a1bdb77e48141f2bd245c5",
+ "views-monstrance.png": "3c396e338b00f44747de76f8d2f247d2f0c6bea253b35fa0ded035b39e53ee2f",
+ "views-pax-on-stand.png": "c0bce20539180e411d182bb87a8c5dcb3c97e94ee0f0342ea4756d365d7afc43",
+ "views-pax.png": "d914f4afaf02668914bf7edd14d5e4f8a08a5be6814ea58c46a3a42f57c0efb1",
+ "views-pyx.png": "d34d735d4c7004b6bf5f5065e6cb788a52d95a422fbc0d97d16fde8c5b0bd6c6"
+}

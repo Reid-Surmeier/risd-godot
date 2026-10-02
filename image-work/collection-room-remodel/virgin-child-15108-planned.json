@@ -1,0 +1,123 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-f06f51d1eeeb2f58f287",
+      "objective": "Create one low-polygon 3D modelling reference sheet of the exact seated Virgin and Child sculpture RISD 15.108 shown in the official front and side photographs. Four separated orthographic views in a horizontal row: FRONT, RIGHT SIDE, LEFT SIDE, REAR. Same object, pose and proportions in every view, equal height, full stepped base visible; plain warm grey background, neutral diffuse light, no cast shadows. Low polygon faceted solid carved masses suitable for a small museum object; aged painted wood with worn blue bodice and skirt, orange-brown worn gilded mantle with green paint patches, long brown wavy hair, narrow circlet, pale worn face. Mary sits, not stands. Child sits on Mary's anatomical RIGHT knee (viewer LEFT), turned inward toward the large open book on her lap; both child hands reach over the pages. Preserve stepped irregular base and damaged paint of the actual sculpture. Child wears faded green and ochre. Mary supports the child with her right hand and holds the book with her left. Preserve wide seated knees and mantle folds, flat broad back, small worn toes, and restrained faces. NO additional crown, halo, throne, staff or objects. Use solid closed silhouette masses, no mesh holes. Simplify small creases rather than inventing ornaments. Catalogue height including base is 39.4cm; width and depth unmeasured. First three images are official front/side views. Last image is the only blurred video rear: use its broad dark green back silhouette conservatively, not invented rear ornament. This is a low-poly reconstruction reference, not a claim that unobserved rear detail is known.\n",
+      "procedureId": "muse-f06f51d1eeeb2f58f287",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "virgin-child-15108-recipe.json",
+          "sha256": "f06f51d1eeeb2f58f287f74ef5e5a0d93bf31a843b0f1a3aad3ee9ebd036adde"
+        },
+        {
+          "applicationPath": "virgin-child-15108-plan.json",
+          "sha256": "cb3b90e116a2673a412538588040daaced115ea416bb4c1c2cf490e94b24e946"
+        },
+        {
+          "applicationPath": "virgin-child-15108-prompt.txt",
+          "sha256": "e82b597dc9ae1c1de5b99988596cba9639a807f31f42f00ec06410f5b859e5f9"
+        }
+      ],
+      "museParameters": {
+        "size": "1760x1440"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/virgin-child-15108-official-0.png",
+          "sha256": "b8f0195abd4fcf6f4796884de2e3b42c085e1882b043c87ccf3d87cf4af05251",
+          "byteLength": 2842048,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 1765
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/virgin-child-15108-official-2.png",
+          "sha256": "a0441e0be3d8abb937039be765a18327608a6bfd33ff5e78b5e765813eb37878",
+          "byteLength": 2658057,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 1765
+          }
+        },
+        {
+          "slot": "reference-002",
+          "applicationPath": "inventory-references/virgin-child-15108-official-3.png",
+          "sha256": "5b17b28848453a4569e2f2ab26e8ea9cd4e48297133337f27acb7d3afe832edf",
+          "byteLength": 2638136,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/2/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 1765
+          }
+        },
+        {
+          "slot": "reference-003",
+          "applicationPath": "inventory-references/virgin-child-15108-video-rear.png",
+          "sha256": "17ec3adbeb706bd01aa43efdc2cdece2d8ffb6ab069eece5da4480ed62ca3f21",
+          "byteLength": 51242,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/3/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 170,
+            "height": 360
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1760x1440\"},\"objective\":\"Create one low-polygon 3D modelling reference sheet of the exact seated Virgin and Child sculpture RISD 15.108 shown in the official front and side photographs. Four separated orthographic views in a horizontal row: FRONT, RIGHT SIDE, LEFT SIDE, REAR. Same object, pose and proportions in every view, equal height, full stepped base visible; plain warm grey background, neutral diffuse light, no cast shadows. Low polygon faceted solid carved masses suitable for a small museum object; aged painted wood with worn blue bodice and skirt, orange-brown worn gilded mantle with green paint patches, long brown wavy hair, narrow circlet, pale worn face. Mary sits, not stands. Child sits on Mary's anatomical RIGHT knee (viewer LEFT), turned inward toward the large open book on her lap; both child hands reach over the pages. Preserve stepped irregular base and damaged paint of the actual sculpture. Child wears faded green and ochre. Mary supports the child with her right hand and holds the book with her left. Preserve wide seated knees and mantle folds, flat broad back, small worn toes, and restrained faces. NO additional crown, halo, throne, staff or objects. Use solid closed silhouette masses, no mesh holes. Simplify small creases rather than inventing ornaments. Catalogue height including base is 39.4cm; width and depth unmeasured. First three images are official front/side views. Last image is the only blurred video rear: use its broad dark green back silhouette conservatively, not invented rear ornament. This is a low-poly reconstruction reference, not a claim that unobserved rear detail is known.\\n\",\"objectiveId\":\"muse-f06f51d1eeeb2f58f287\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-f06f51d1eeeb2f58f287\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/virgin-child-15108-official-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":2842048,\"inspectedMedia\":{\"height\":1765,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"b8f0195abd4fcf6f4796884de2e3b42c085e1882b043c87ccf3d87cf4af05251\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/virgin-child-15108-official-2.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":2658057,\"inspectedMedia\":{\"height\":1765,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"a0441e0be3d8abb937039be765a18327608a6bfd33ff5e78b5e765813eb37878\",\"slot\":\"reference-001\"},{\"applicationPath\":\"inventory-references/virgin-child-15108-official-3.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":2638136,\"inspectedMedia\":{\"height\":1765,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/2/image_url/url\",\"sha256\":\"5b17b28848453a4569e2f2ab26e8ea9cd4e48297133337f27acb7d3afe832edf\",\"slot\":\"reference-002\"},{\"applicationPath\":\"inventory-references/virgin-child-15108-video-rear.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":51242,\"inspectedMedia\":{\"height\":360,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":170},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/3/image_url/url\",\"sha256\":\"17ec3adbeb706bd01aa43efdc2cdece2d8ffb6ab069eece5da4480ed62ca3f21\",\"slot\":\"reference-003\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"virgin-child-15108-recipe.json\",\"sha256\":\"f06f51d1eeeb2f58f287f74ef5e5a0d93bf31a843b0f1a3aad3ee9ebd036adde\"},{\"applicationPath\":\"virgin-child-15108-plan.json\",\"sha256\":\"cb3b90e116a2673a412538588040daaced115ea416bb4c1c2cf490e94b24e946\"},{\"applicationPath\":\"virgin-child-15108-prompt.txt\",\"sha256\":\"e82b597dc9ae1c1de5b99988596cba9639a807f31f42f00ec06410f5b859e5f9\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "45b7430ae44f28051bb2b9a275f03167a4a9ba0485ec8d51aab2064308d04aa2"
+  },
+  "normalView": {
+    "objective": "Create one low-polygon 3D modelling reference sheet of the exact seated Virgin and Child sculpture RISD 15.108 shown in the official front and side photographs. Four separated orthographic views in a horizontal row: FRONT, RIGHT SIDE, LEFT SIDE, REAR. Same object, pose and proportions in every view, equal height, full stepped base visible; plain warm grey background, neutral diffuse light, no cast shadows. Low polygon faceted solid carved masses suitable for a small museum object; aged painted wood with worn blue bodice and skirt, orange-brown worn gilded mantle with green paint patches, long brown wavy hair, narrow circlet, pale worn face. Mary sits, not stands. Child sits on Mary's anatomical RIGHT knee (viewer LEFT), turned inward toward the large open book on her lap; both child hands reach over the pages. Preserve stepped irregular base and damaged paint of the actual sculpture. Child wears faded green and ochre. Mary supports the child with her right hand and holds the book with her left. Preserve wide seated knees and mantle folds, flat broad back, small worn toes, and restrained faces. NO additional crown, halo, throne, staff or objects. Use solid closed silhouette masses, no mesh holes. Simplify small creases rather than inventing ornaments. Catalogue height including base is 39.4cm; width and depth unmeasured. First three images are official front/side views. Last image is the only blurred video rear: use its broad dark green back silhouette conservatively, not invented rear ornament. This is a low-poly reconstruction reference, not a claim that unobserved rear detail is known.\n",
+    "evidence": "4 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

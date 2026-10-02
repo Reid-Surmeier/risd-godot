@@ -1,0 +1,24 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/romany-frame-source.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-5354f1acbb61ae2e8fa99da6/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "d5ebdae7350201911db7f25a78b1db17bc5a9183d44fd73e597c435ef1256b96"
+    }
+  ],
+  "changesRequested": "Reference image 1 is a straightened phone photo of a real antique picture frame hanging on a gallery wall at the RISD Museum; the painting inside has been blanked out to white. It is the sole authority for this frame: its exact outline and corners, the width of every side, its profile and moldings, every carved ornament and where it sits, its colour and finish.\n\nClean it up into a crisp, straight-on render of this same frame alone: perfectly square to the viewer with no perspective tilt, crisp readable relief rendered as a clean low-poly game model (large flat planar facets, crisp highlight bands, controlled dark creases), removing photo blur, glare, reflections and noise. Keep its real shape exactly: do not round its corners, do not simplify its carving into plain moldings, do not invent ornament it does not have, and keep the width of each side as in the photo.\n\nThe complete inner opening, edge to edge inside the innermost lip, is perfectly clean flat pure white (#FFFFFF). Everything outside the frame's outer edge is perfectly flat pure magenta (#FF00FF), touching the frame directly with no shadow and no wall. No text, no label. Return one complete image with no transparency.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-5354f1acbb61ae2e8fa99da6",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-5354f1acbb61ae2e8fa99da6"
+}

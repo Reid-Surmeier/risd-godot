@@ -1,0 +1,37 @@
+[
+ {
+  "page": "velvet-cover-23307x",
+  "carousel_photos": 4,
+  "already_in_inventory": 2,
+  "fetched": [
+   {
+    "file": "carousel-velvet-cover-23307x-zoom-2.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/e6l3lIgP/",
+    "asset_copyright": "public",
+    "bytes": 5855563,
+    "sha256": "eac340d07a06c91cdf1069f11c7e3d5ed9b8a0cfda458be219742dca287572e4",
+    "fetched_utc": "2026-10-01T20:27:25Z"
+   },
+   {
+    "file": "carousel-velvet-cover-23307x-zoom-3.jpg",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/o0eF0J3d/",
+    "asset_copyright": "public",
+    "bytes": 3408754,
+    "sha256": "de7abafa98bc0c6f12209923b7c42f4aa28e32f09761d038bf8cb0781b7f58e1",
+    "fetched_utc": "2026-10-01T20:27:27Z"
+   }
+  ]
+ },
+ {
+  "page": "woodcutters-29280",
+  "carousel_photos": 2,
+  "already_in_inventory": 2,
+  "fetched": []
+ },
+ {
+  "page": "madonna-and-child-saint-barbara-and-saint-catherine-58196",
+  "carousel_photos": 2,
+  "already_in_inventory": 2,
+  "fetched": []
+ }
+]

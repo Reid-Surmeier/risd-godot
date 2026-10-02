@@ -1,0 +1,170 @@
+{
+  "accepted": false,
+  "method": "Two independent canvas-plane rectifications; no focal length, SfM model or point cloud used",
+  "catalogue": {
+    "id": "1361921",
+    "accession": "60.039",
+    "url": "https://risdmuseum.org/art-design/collection/portrait-lady-sarah-ingestre-60039",
+    "dimensions": "235.1 x 142.9 cm (92 9/16 x 56 1/4 inches)",
+    "sha256": "f1f1d71124ea24e95b2da3bb52e850cdd506181be912d10b129af7a0af725e20"
+  },
+  "cases": [
+    {
+      "source": "portal-distant-native.png",
+      "seconds": 2.25,
+      "corners": [
+        [
+          660.5,
+          916.25
+        ],
+        [
+          707.25,
+          917.75
+        ],
+        [
+          705.5,
+          996.75
+        ],
+        [
+          658.5,
+          995.75
+        ]
+      ],
+      "door": [
+        595,
+        1020
+      ],
+      "corner": [
+        750,
+        1020
+      ],
+      "source_sha256": "abe9fbe672d96f844ede23807ca052b18ae80e584aa2ebe7eae4a20b77ce2697",
+      "end_wall_relative_to_canvas_m": [
+        [
+          -2.5942704677581787,
+          -0.7452507019042969
+        ],
+        [
+          2.0978338718414307,
+          -0.663204550743103
+        ]
+      ],
+      "width_m_assuming_centered_door": 9.384208679199219,
+      "corner_annotation_2px_sensitivity_m": [
+        8.88883113861084,
+        9.936704635620117
+      ],
+      "canvas_bottom_estimate_m": 0.7042276263237
+    },
+    {
+      "source": "../main-worker-room-layout-20260930T2230/source-portal-native.png",
+      "seconds": 3.75,
+      "corners": [
+        [
+          305.8,
+          941.2
+        ],
+        [
+          355.4,
+          942.8
+        ],
+        [
+          353,
+          1026.5
+        ],
+        [
+          304.2,
+          1025.3
+        ]
+      ],
+      "door": [
+        215,
+        1048
+      ],
+      "corner": [
+        397,
+        1048
+      ],
+      "source_sha256": "93a98975ff78a24e831e67b30ade0620497785a4a3e6549b9c412e76dcd92eb9",
+      "end_wall_relative_to_canvas_m": [
+        [
+          -3.2929394245147705,
+          -0.7048866152763367
+        ],
+        [
+          2.0366337299346924,
+          -0.587352991104126
+        ]
+      ],
+      "width_m_assuming_centered_door": 10.659146308898926,
+      "corner_annotation_2px_sensitivity_m": [
+        10.122830390930176,
+        11.25719165802002
+      ],
+      "canvas_bottom_estimate_m": 0.6461198329925537
+    }
+  ],
+  "limitations": [
+    "Far canvas spans only47\u201350 native pixels; blur/distortion/manual corners limit accuracy",
+    "Door centre and right floor corner are manually approximated; full width assumes centred doorway",
+    "Two-pixel corner perturbations are sensitivity bounds, not statistical confidence intervals",
+    "Canvas is recessed behind frame; baseboard/floor and exact hanging height are unaccepted",
+    "Parallel end-wall width check does not determine Hall length or adjoining room dimensions",
+    "Saved10m width is compatible; saved26.3m length still requires independent near/far source constraints"
+  ],
+  "rejected_pose_diagnostic": {
+    "assumed_focal_native_px": 891,
+    "unverified_model_values": {
+      "hall_length": 26.3,
+      "n2_center_x": 3.115,
+      "n2_canvas_bottom": 0.6
+    },
+    "reason": "Superseded lower-edge marks generated below-floor cameras; corrected marks still give inconsistent positions, including outside the Hall and in front of portal. Small pixel errors do not verify pose.",
+    "poses": [
+      {
+        "seconds": 2.25,
+        "annotation": "superseded_canvas_bottom",
+        "camera_position": [
+          2.8578361099593117,
+          -5.822217159705624,
+          0.5430719358126984
+        ],
+        "max_residual_px": 0.4350745778012034,
+        "accepted": false
+      },
+      {
+        "seconds": 2.25,
+        "annotation": "corrected_canvas_bottom",
+        "camera_position": [
+          -4.297954149085253,
+          1.3393466526339168,
+          -0.5899053768288928
+        ],
+        "max_residual_px": 0.057013673659882455,
+        "accepted": false
+      },
+      {
+        "seconds": 3.75,
+        "annotation": "superseded_canvas_bottom",
+        "camera_position": [
+          6.196534327347758,
+          4.583623543859321,
+          0.49384436237997026
+        ],
+        "max_residual_px": 0.16030839798637023,
+        "accepted": false
+      },
+      {
+        "seconds": 3.75,
+        "annotation": "corrected_canvas_bottom",
+        "camera_position": [
+          11.811403382420076,
+          2.730000222949578,
+          -2.173067462950532
+        ],
+        "max_residual_px": 0.3511322465276511,
+        "accepted": false
+      }
+    ]
+  }
+}

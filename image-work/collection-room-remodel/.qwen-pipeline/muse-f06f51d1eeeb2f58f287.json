@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-f06f51d1eeeb2f58f287",
+  "summary": "Create one low-polygon 3D modelling reference sheet of the exact seated Virgin and Child sculpture RISD 15.108 shown in the official front and side photographs. Four separated orthographic views in a horizontal row: FRONT, RIGHT SIDE, LEFT SIDE, REAR. Same object, pose and proportions in every view, equal height, full stepped base visible; plain warm grey background, neutral diffuse light, no cast shadows. Low polygon faceted solid carved masses suitable for a small museum object; aged painted wood with worn blue bodice and skirt, orange-brown worn gilded mantle with green paint patches, long brown wavy hair, narrow circlet, pale worn face. Mary sits, not stands. Child sits on Mary's anatomical RIGHT knee (viewer LEFT), turned inward toward the large open book on her lap; both child hands reach over the pages. Preserve stepped irregular base and damaged paint of the actual sculpture. Child wears faded green and ochre. Mary supports the child with her right hand and holds the book with her left. Preserve wide seated knees and mantle folds, flat broad back, small worn toes, and restrained faces. NO additional crown, halo, throne, staff or objects. Use solid closed silhouette masses, no mesh holes. Simplify small creases rather than inventing ornaments. Catalogue height including base is 39.4cm; width and depth unmeasured. First three images are official front/side views. Last image is the only blurred video rear: use its broad dark green back silhouette conservatively, not invented rear ornament. This is a low-poly reconstruction reference, not a claim that unobserved rear detail is known.\n",
+  "procedureId": "muse-f06f51d1eeeb2f58f287",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/virgin-child-15108-official-0.png",
+      "sha256": "b8f0195abd4fcf6f4796884de2e3b42c085e1882b043c87ccf3d87cf4af05251",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/virgin-child-15108-official-2.png",
+      "sha256": "a0441e0be3d8abb937039be765a18327608a6bfd33ff5e78b5e765813eb37878",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "inventory-references/virgin-child-15108-official-3.png",
+      "sha256": "5b17b28848453a4569e2f2ab26e8ea9cd4e48297133337f27acb7d3afe832edf",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    },
+    {
+      "path": "inventory-references/virgin-child-15108-video-rear.png",
+      "sha256": "17ec3adbeb706bd01aa43efdc2cdece2d8ffb6ab069eece5da4480ed62ca3f21",
+      "slot": "reference-003",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/3/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "virgin-child-15108-recipe.json",
+      "sha256": "f06f51d1eeeb2f58f287f74ef5e5a0d93bf31a843b0f1a3aad3ee9ebd036adde"
+    },
+    {
+      "applicationPath": "virgin-child-15108-plan.json",
+      "sha256": "cb3b90e116a2673a412538588040daaced115ea416bb4c1c2cf490e94b24e946"
+    },
+    {
+      "applicationPath": "virgin-child-15108-prompt.txt",
+      "sha256": "e82b597dc9ae1c1de5b99988596cba9639a807f31f42f00ec06410f5b859e5f9"
+    }
+  ]
+}

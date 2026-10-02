@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "pieta-59128-001",
+      "prompt": "pieta-59128-prompt.txt",
+      "promptSha256": "03dfa7416f059a21ddc54001410b0528c479b28d60dc8866ca26268d9aaf4158",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/pieta-59128-front.png",
+          "sha256": "b588f5626558036c53e86badab122359dc581f83aa448395d08ea998a5fc0362"
+        },
+        {
+          "path": "inventory-references/pieta-59128-video-24.6.png",
+          "sha256": "d41a6b6dbbe1cfc1dd652481c644d45142fd760d71968e871cccd8105b6774c3"
+        }
+      ]
+    }
+  ]
+}

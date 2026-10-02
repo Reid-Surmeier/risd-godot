@@ -1,0 +1,140 @@
+{
+  "patches": [
+    {
+      "label": "corridor support plus reserved-pixel casing toe",
+      "color": "76658c",
+      "vertices": [
+        [
+          -1.0169549512625993,
+          0.025059069917693487,
+          0.20577872878447404
+        ],
+        [
+          1.2988252613425362,
+          -0.03642782408015649,
+          0.4511235633878283
+        ],
+        [
+          1.24625291129075,
+          -0.0026635305961622284,
+          1.6925030412730464
+        ],
+        [
+          -1.0152198768516854,
+          0.031261539600132345,
+          0.44667887854936644
+        ]
+      ]
+    },
+    {
+      "label": "threshold interpolation",
+      "color": "cba96c",
+      "vertices": [
+        [
+          -1.0169549512625993,
+          0.025059069917693345,
+          0.205778728784474
+        ],
+        [
+          0.9709517310998794,
+          -0.03030035274064605,
+          0.3170737257721033
+        ],
+        [
+          0.9252421272848798,
+          0.06077912668659649,
+          -2.5022547826796664e-16
+        ],
+        [
+          -0.9252421272848801,
+          0.050252338490738374,
+          -5.403805498409969e-16
+        ]
+      ]
+    },
+    {
+      "label": "near toe fill",
+      "color": "cba96c",
+      "vertices": [
+        [
+          -1.0169549512625993,
+          0.025059069917693345,
+          0.205778728784474
+        ],
+        [
+          1.2988252613425362,
+          -0.03642782408015649,
+          0.4511235633878283
+        ],
+        [
+          0.9709517310998794,
+          -0.03030035274064605,
+          0.3170737257721033
+        ]
+      ]
+    },
+    {
+      "label": "far visible floor interpolation",
+      "color": "608b8c",
+      "vertices": [
+        [
+          -0.9252421272848801,
+          0.050252338490738374,
+          -5.403805498409969e-16
+        ],
+        [
+          0.9252421272848798,
+          0.06077912668659649,
+          -2.5022547826796664e-16
+        ],
+        [
+          0.5160788040240301,
+          0.05150260737547924,
+          -1.8608247186574969
+        ],
+        [
+          -0.6646411783917903,
+          0.04451941628846444,
+          -1.9321812739447508
+        ]
+      ]
+    }
+  ],
+  "aperture": [
+    [
+      -0.9252421272848802,
+      0.027870307371318858,
+      -2.7443130059343794e-16
+    ],
+    [
+      0.9252421272848794,
+      -0.02787030737131877,
+      -2.018954044601706e-16
+    ],
+    [
+      -0.7979448761681835,
+      2.459956812159429,
+      0.08320271612838119
+    ],
+    [
+      1.0344379169116449,
+      2.4826345985849563,
+      -0.11960209163725326
+    ]
+  ],
+  "source_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-aperture-v1/result.json": "54745a22a7a5921b74bf50a4658420d10860d1c073dc479d6bcfeab3ed1eae3f",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/corridor-floor-v2/result.json": "e2c842dbeb77a766062c3028ff1fd141b3897e48eba57e72495a7f8163daf93e",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/floor-patches-v2/result.json": "c07daf8485ec7499e5962f1bc93ac741ddbc037376a919bfb7847d8d81fb2378",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/points3D.bin": "ff15dc3d1bb58558872f154600379602559a3e298acfb495c46baf772c3b1f52",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/frames.bin": "90107a240db7e611bfa77756dd756413c98d0a71d509e7e6d1aa93a2931bcb00",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/images.bin": "993ffee5847b9dbe29bfc308b43b82fc4b6712b4d872b1ef3ce2b4852e3cfe55",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/dense-doorway-calibrated-v2/sparse/cameras.bin": "c22290a859d9aa5e77db9f6e1901174514188945285355ebfa45a16360f69717",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/threshold-landmarks-v1/result.json": "e340ca6397cf5c643c6590aacf5363c85224c1f1bae11241cf91398373ebeaf4",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/corridor-extents-v1/result.json": "24a3f91f54f1bae59bac3c2a87c0564631325f99ee0b25570ea15f4d130677b0"
+  },
+  "provisional_m_per_unit": 2.6266704457139363,
+  "navigation_accepted": false,
+  "caveat": "Bounded doorway traversal only. Gold floor interpolates uncertain levels. Coloured patch edges are study limits, not museum walls. Jamb boxes are conservative proxies. No whole-room extents, independent scale, final lighting or production integration."
+}

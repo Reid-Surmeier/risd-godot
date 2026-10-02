@@ -1,0 +1,722 @@
+{
+  "bookcase": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-b1e1ad0da068a60b9efb2e1c",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "86b8babf21fb3a53fac0f319a08922ae449948a4a42c9c41265592b36ee5512e",
+    "visual_verdict": "usable representative prototype; owner acceptance pending"
+  },
+  "mirror": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-7f48d4e0ebbbd57322027ab4",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "00846e59bf5074910066e579708a7c436ce92e8a1190471105dc419c9cefae93",
+    "visual_verdict": "usable representative prototype; owner acceptance pending"
+  },
+  "sofa-cloth": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-67fccbf9443c506cfaa4bcac",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "aace66201d1fae3ccada9c1ce32abeb5a3093293f57bebcb6cdd289649f4dfde",
+    "visual_verdict": "usable representative prototype; owner acceptance pending"
+  },
+  "review": {
+    "bookcase_pass": [
+      "three shelf columns, three tiers, six drawer fronts and four distinct oval panels retained",
+      "recessed authored shelf solids and cabinet depth visible in detail and oblique renders",
+      "collapsed solids rejected by runtime assertion; magenta edge fringe removed by keyed-alpha workflow",
+      "20 piece-specific Muse trials placed at the four source shelf/top elevations"
+    ],
+    "mirror_pass": [
+      "two-lobe glass and tall asymmetric gilt silhouette retained",
+      "outline extrusion and alpha cut visible at walking/detail views"
+    ],
+    "sofa_cloth_pass": [
+      "olive/beige floral palette and blue/red accents retained",
+      "mapped onto provisional authored sofa, no source room photograph used as a wall/furniture billboard"
+    ],
+    "unverified": [
+      "precise room dimensions and distal long-gallery study limit",
+      "two central Vincennes figures: paired Muse run unreconciled",
+      "wall textiles, four framed prints and remaining adjoining gallery objects",
+      "full rear geometry, handle/limb holes and anatomy; front UV repeats on inferred depth",
+      "full connected museum and production integration"
+    ],
+    "no_blind_retry": true,
+    "map_recorded_total_usd": "0.560000",
+    "new_recorded_spend_usd": "0.450000",
+    "additional_unreconciled_maximum_usd": "0.010000",
+    "quality_findings": [
+      "Gold Ecuelle first trial retained paper tag; deliberate cleanup removes handwriting but a pale loop by handle remains.",
+      "Ewe/Lamb is video-referenced because API lacks photographs; Muse rotates the source pose toward camera.",
+      "Bear/Jug pair attribution uses the shared official pair photo and dimensions; underside not verified.",
+      "Agate Teapot catalogue 45.7cm width conflicts with shelf; provisional .19m source width.",
+      "Pink tureen catalogue heights conflict with photographed arrangement; provisional .32m video-fit."
+    ]
+  },
+  "settee": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-dddfd112059307f1dc912485",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "7983946b822af0d0468147a4c40de8e8099d313754a69783eac37b49ca26fcc9",
+    "visual_verdict": "agent-inspected usable prototype trial; owner acceptance pending",
+    "observations": "Floral upholstery, carved front and cabriole legs retained; hidden back neutral authored wood."
+  },
+  "armchair": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-43f854a1a77099aa31577443",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "31342904bafa642bff6030d1e905a3091bdec2bcb4add8b55a3d080187015822",
+    "visual_verdict": "agent-inspected usable prototype trial; owner acceptance pending",
+    "observations": "Pierced wavy back and floral seat match .7.1; .7.2 partner uses same representative pass, not separately photo-verified."
+  },
+  "tureen": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-9878c7ae9fa7085d29c52eae",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "30939bfd34e57184c3cea0bcd0c0fb3e9f50f70f3f72b2b29bc3d892744cd7ed",
+    "visual_verdict": "agent-inspected usable prototype trial; owner acceptance pending",
+    "observations": "Pink medallions, floral compartments and gilt trim retained; 16-sided elliptical body is an inferred approximation, rear motifs projected."
+  },
+  "edwards-frame": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-8db769b4f091203cc66eaa94",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "026c7637bdd4a30683c80b71c994f80712aab59ef7f82ea8309f48fb22e92f7c",
+    "visual_verdict": "agent-inspected usable prototype trial; owner acceptance pending",
+    "observations": "Source rectification and original accepted frame prompt reused; authentic Constable canvas kept separate. Blurred source corners limit ornament fidelity."
+  },
+  "pair-mirror": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-5a2e4e488cb53ec8162ff670",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "c71a211906c85c6d8ba2a6a0f98349bbfbc467ea4931380e36fbdb176c678395",
+    "visual_verdict": "agent-inspected usable prototype trial; owner acceptance pending",
+    "observations": "Opposite central scroll matches .4.2 official photo; keyed foreground cropped before applying metric dimensions."
+  },
+  "entrance-chair": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "recorded_actual_cost_usd": "0.010000",
+    "run_id": "run-6ba18dda1bf9d2ffc93a79d6",
+    "spend_state": "unknown",
+    "retry_state": "never-resubmit",
+    "native_sha256": "9eb6fc6e12c49c78dbe651e3a826a032f909928bb2e64647409ded9ae1a94707",
+    "visual_verdict": "agent-inspected usable prototype trial; owner acceptance pending",
+    "observations": "Three overlapping back loops, dark wood, blue floral seat and carved front legs match .12. Side holes are front-alpha relief, not complete carved 3D channels."
+  },
+  "agate-teapot": {
+    "run_id": "run-b1eaa3a41a466901041a7fdb",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/agate-teapot-original.webp",
+    "native_sha256": "c5ad727b7f957c631f5cef94e3e571c3abf390faa886ab6b8853435162a4a4d1",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "bagpiper": {
+    "run_id": "run-c330057eda02b98bf5420472",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/bagpiper-original.webp",
+    "native_sha256": "fc69cfdcb22df58358ef84d2f745a8e8bc2f704baa08232100b76ac751195070",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "bear-jug-pair": {
+    "run_id": "run-68ac944f973d84845d2c6391",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/bear-jug-pair-original.webp",
+    "native_sha256": "2b380a50dfa1aaa0cbb2f12efb11822605d6e47c194feb0957d8edbe2059e7d0",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "bear-jug": {
+    "run_id": "run-816ba246ff4f5744f0aa47df",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/bear-jug-original.webp",
+    "native_sha256": "9b2c239fde26f9683aa3660aba4326bca32cf87eb6f41f007b78cf76f9008562",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "candlestick-pair": {
+    "run_id": "run-3743eff05289da7b4fe5bfe2",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/candlestick-pair-original.webp",
+    "native_sha256": "ed872cc910e2638569df3568c76f9f155718232e472cd11f3594b50bd3090023",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "candlestick": {
+    "run_id": "run-d478d29965253346f8840ce0",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/candlestick-original.webp",
+    "native_sha256": "b4cb551344a45e239c78dd8d2a4a56573dbb0a31cd1f422725563afeba328807",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "cow": {
+    "run_id": "run-4c576cbd886835d40a283515",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/cow-original.webp",
+    "native_sha256": "b4db6a7b59cb0b9df4ca36f1d9b369c174257cf662e73393939b17a435aa0e01",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "cream-jug": {
+    "run_id": "run-9b76bde33dada4b33897664a",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/cream-jug-original.webp",
+    "native_sha256": "6170368cb3a03f038b19b6dc708b06d58a39e8f454219e7e2c42b71c0e1c9824",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "ewe-lamb": {
+    "run_id": "run-95b31d36be1db0ad31d2fe57",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/ewe-lamb-original.webp",
+    "native_sha256": "159805847d18afa0baeb4e749028bba915e90896de2a78f414e7db8974285f44",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "finch-pair": {
+    "run_id": "run-68fea853ccc4408ad01e136c",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/finch-pair-original.webp",
+    "native_sha256": "79fa562d74ddcd459ec2a9b9e44b8ab142a635051075fbebbc8b816a4b081063",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "finch": {
+    "run_id": "run-9b8967d58adf3a4963da8073",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/finch-original.webp",
+    "native_sha256": "31970bf1963451a2b26eed581bf1e90cae6fa886a3c3e2936e6b7fc2406f2c0f",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "flute-player": {
+    "run_id": "run-5bebee2047ed901886e223ca",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/flute-player-original.webp",
+    "native_sha256": "49a83de14d1c714c582e6f92f7ac93aa93c8e6d44bb3bdd2a51e633c7e424388",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "fox": {
+    "run_id": "run-32c1097948ad21bbb520e9ae",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/fox-original.webp",
+    "native_sha256": "e57c46b3ca09908f9db4c95289d031ea5a9c89dac8619f88062b50b970de2c38",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-basket-a": {
+    "run_id": "run-156b3f4d893d5243a3abf476",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-basket-a-original.webp",
+    "native_sha256": "d38b679b50bcdd8fe6955bc3d7700d15a7de8898d6aedc13e4533f95336ef6dd",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-basket-b": {
+    "run_id": "run-e0d9e5e5c15b94367a6b5303",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-basket-b-original.webp",
+    "native_sha256": "ba7368b5a11b3df52b280a01bd076acb96fa1a95aa601e193347edf24dabac40",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-cup-a": {
+    "run_id": "run-33d2e9053d2ae813b434eb2f",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-cup-a-original.webp",
+    "native_sha256": "fe1ff10c92a29711452153bb89169a032bcf35b7f8c21f1d0ea19de6a571bf4e",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-cup-b": {
+    "run_id": "run-ed5168299e1d995ba3b39543",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-cup-b-original.webp",
+    "native_sha256": "c7c1b47de2b8e5bd2284c27c4fa4496e334e7134657c657d4df813ec8d13e0d2",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-ecuelle-clean": {
+    "run_id": "run-ccd76b68787719dbed006cca",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-ecuelle-clean-original.webp",
+    "native_sha256": "5b70590db6d48ff9eb3a56994b9891061b948d9c6aee38f1661f47df29cd6071",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-ecuelle": {
+    "run_id": "run-90b15d4d3bae0b4772d0a6ea",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-ecuelle-original.webp",
+    "native_sha256": "a6dfd5ed575591e2ceeaf7ed16cd083d561479a3e3f2b5dab633a69f613853f5",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-plate-a": {
+    "run_id": "run-5d8fe62956cd034221527876",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-plate-a-original.webp",
+    "native_sha256": "c6d764aadbec29fbe6fc7d7fbabb0f1d7425861e65352391bb1a8b7eb0869040",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-plate-b": {
+    "run_id": "run-4948bd9b69954f05ae67ec95",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-plate-b-original.webp",
+    "native_sha256": "b5e5093035640bc4fb5a1c6d5015651910a0195d7d58fe724d3c7f3bfc1c0e4b",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-saucer-a": {
+    "run_id": "run-fab30a3fcb46b7b87da9a2f8",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-saucer-a-original.webp",
+    "native_sha256": "1eee6a80004e35d94d634d19919ab9ee78dbfff35a6c6f2e092730c59da1e137",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-saucer-b": {
+    "run_id": "run-6b756452770367f5ec0ab143",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-saucer-b-original.webp",
+    "native_sha256": "72baf9bb4e6adad716be483aed8812f02c773f68c97558888044c5b3a295fde7",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-square-a": {
+    "run_id": "run-71742f9d5be60c895f7df8ed",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-square-a-original.webp",
+    "native_sha256": "e990ee0ec376de62fb6ab89d66a2ca45aedd57f13886193be80c56918f30ab27",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-square-b": {
+    "run_id": "run-52229036dd9056824aaf9a1d",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-square-b-original.webp",
+    "native_sha256": "bd41aada56aac5ab2fb4500a486b11afaf01ca0f44ef7360ad09a0f6a0462f6a",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "gold-tureen": {
+    "run_id": "run-ea6153eee59b90a4404ce9e9",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/gold-tureen-original.webp",
+    "native_sha256": "181ee7d703106e21367fe58e045ea6271a9c1452c1bb662c597765e12c9afd37",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "horn-player": {
+    "run_id": "run-cd8f4fd8620a60204c20bef1",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/horn-player-original.webp",
+    "native_sha256": "fcfa0cb3408c5aebe27ee7dde4e92dc431496b711753a7265c9e4e98e0a1c3ea",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "hudibras": {
+    "run_id": "run-907e7cb8bd921f228c1f4921",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/hudibras-original.webp",
+    "native_sha256": "8a53aeba54019473a7e8a8059e7fc6b273f289414d9aa10f273e820caa5d0bdf",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "parrot-pair": {
+    "run_id": "run-d78b46fd2420ff0596ac601b",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/parrot-pair-original.webp",
+    "native_sha256": "4c5a6608f2c93231e4c1ae1a98f59bec43572ffe4af00a5c5edac350c65d5b7e",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "parrot": {
+    "run_id": "run-ee423aba5f2a77b7ca526b9d",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/parrot-original.webp",
+    "native_sha256": "0043bd1f1c08cf0e1d5ffa5d9af51b83487abedba0264cc3efbcbe9ef8d845e6",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "parrot-third": {
+    "run_id": "run-228681cda786849a41330c44",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/parrot-third-original.webp",
+    "native_sha256": "80eb3794be0f73f5428816ba0c1f9af04ca266665e5c806dd51b21e8435ae8dd",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "pink-bowl-a": {
+    "run_id": "run-6bc4cdf62c71afe88df3c58d",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/pink-bowl-a-original.webp",
+    "native_sha256": "0aa73f9252371e04d42c90b4783e9ea7daf9dd4509873b5ce85ea0ad6a4ea56d",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "pink-bowl-b": {
+    "run_id": "run-b37048e1157cd21a8469df1d",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/pink-bowl-b-original.webp",
+    "native_sha256": "ba413ca43572c64921d66fa3358784f206312aa210eff462fef98da16e8a028a",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "pink-compote": {
+    "run_id": "run-fd8e8ded220e8503b794f5ca",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/pink-compote-original.webp",
+    "native_sha256": "bec46038fb9c91cac8d58cdf74e5810db5e62513c12e3c888f79070b427e24e7",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "pink-dish": {
+    "run_id": "run-dbba0166ae8d88fec188c57e",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/pink-dish-original.webp",
+    "native_sha256": "9d0d838ca526d34bb40f4bb431e4acc5b02f09c631a7ff514fdd67320404d454",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "pink-ladle": {
+    "run_id": "run-f92d26b009e08c3968a66962",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/pink-ladle-original.webp",
+    "native_sha256": "6166c76adab92f2805b4bce92bedc2d11eef63d9f1f46eb68aeeee092f891204",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "pink-small-tureen": {
+    "run_id": "run-6db90526ad4eb40afeb28055",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/pink-small-tureen-original.webp",
+    "native_sha256": "5de8f30fefb7596a7e64566009208fb361a0f9b585892a1b951808ffc8abd708",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "recamier": {
+    "run_id": "run-38d755fe4ca93ceef974a5b9",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/recamier-original.webp",
+    "native_sha256": "c57863a35e1b729ad23aff3042ff37897f1fd0e690edf450a05c6c5bf337ad35",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "river-deities": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 0,
+    "recorded_actual_cost_usd": "unknown",
+    "run_id": "run-7b018ec98c334a45ef16e681",
+    "spend_state": "possibly_spent",
+    "retry_state": "reconcile-only",
+    "native_sha256": null,
+    "visual_verdict": "blocked: unreconciled, possibly spent; no new submission"
+  },
+  "romany-frame": {
+    "run_id": "run-5354f1acbb61ae2e8fa99da6",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/romany-frame-original.webp",
+    "native_sha256": "d5ebdae7350201911db7f25a78b1db17bc5a9183d44fd73e597c435ef1256b96",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "sconce-left": {
+    "run_id": "run-8665726efb51a5c74df0ece2",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/sconce-left-original.webp",
+    "native_sha256": "f1656b69aa66bf8969ac2e19959ae3d1a39daf1494c7dff1e93802f6201c4f48",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "sconce-right": {
+    "run_id": "run-6585414f18874d74609942a2",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/sconce-right-original.webp",
+    "native_sha256": "4ed503f0504c83a7e211081e269adca9a9f1e8b3454cfb0323eae856761242a0",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "secretary": {
+    "run_id": "run-676050e215912088607a60d5",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/secretary-original.webp",
+    "native_sha256": "fd8e28cf1ced14b9372ae4e9c75941b2aab0978874f14fad921cfa4499112956",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "shepherd": {
+    "run_id": "run-b8cf3951c428e152d5d6cfd1",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/shepherd-original.webp",
+    "native_sha256": "6a95162e15524a6ea25ac55a7f3cd15b2946621036d1e7afb7d2c8501b716410",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "st-george": {
+    "run_id": "run-17b58b6c3670a45886b1867e",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/st-george-original.webp",
+    "native_sha256": "c529c8402bf4782e55361de2761c40e83b801d157159a8badad6bec028f21152",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "writing-table": {
+    "run_id": "run-66057f87b838cd5f74297367",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/writing-table-original.webp",
+    "native_sha256": "0c1b04da9e4bac4ad1dfb8e32c20ce6699ad51118f1cd79bbe6ce7ab4569e471",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "baseboard": {
+    "run_id": "run-021badb0c47774d2ebce0d5a",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/baseboard-original.webp",
+    "native_sha256": "da61e1b18260f22f95e044dd3b053ba35bbc6a065ce3e01dd85a8fdb757d9cad",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "door-architrave": {
+    "run_id": "run-85364264e9b9bda0a9698877",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/door-architrave-original.webp",
+    "native_sha256": "7375be52dffd4dc255dcf0d82d171c79271e57ff539443d3f89bba0e672e846a",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "ivory-plaster": {
+    "run_id": "run-10a73452865078589c766e67",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/ivory-plaster-original.webp",
+    "native_sha256": "d3686872b0da15f4bd6ede3dcb7c8991e7687ec90f0589fe5d1559737b46a8c8",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "recamier-rear": {
+    "run_id": "run-a3be59560920138107654d3c",
+    "actual_cost_usd": "0.010000",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "native_image": "trial/recamier-rear-original.webp",
+    "native_sha256": "f2170c0124e6f44a4c8117bbb3c516d112981f17be5783819f968752be582511",
+    "verdict": "agent-inspected low polygon trial; physical/hidden-view acceptance incomplete"
+  },
+  "inventory_pass_spend": {
+    "successful_count": 53,
+    "actual_usd": "0.530000",
+    "map_prior_usd": ".11",
+    "map_cumulative_actual_usd": "0.640000",
+    "possibly_spent": [
+      {
+        "kind": "river-deities",
+        "run_id": "run-7b018ec98c334a45ef16e681",
+        "maximum_reserved_usd": ".01",
+        "state": "submission_unreconciled; no resubmission"
+      }
+    ],
+    "map_conservative_ceiling_usd": "0.650000"
+  },
+  "architecture_review": {
+    "ivory-plaster": "Native Muse faceting inspected; deterministic contrast restraint and mirrored-edge assembly create matching texture borders. Smooth plaster material scale remains provisional.",
+    "door-architrave": "Parallel stepped bands inspected; native shallow profile/deep reveal authored from video relationship; exact cross-section unmeasured.",
+    "baseboard": "Raised lip and fascia inspected; native continuous shallow profile; corners and complete-gallery coverage unverified.",
+    "source_use": "video used for reference/camera/profile measurement only; never room albedo",
+    "layout": "v15 same-wall gallery door and sofa rejected by owner/wide shots; v17 doorway/cases/furniture corrected from wide source camera; not complete map"
+  },
+  "remaining": "All-ten-video reconstruction incomplete. Full870 frames reviewed across five gallery/sculpture videos;27 sculpture-room display/artwork groups recorded, mostly unresolved/unplaced. Corrected room connectivity and Muse architecture are prototypes; per-object position, geometry profiles, Main Hall integration and performance acceptance pending. Central deities record unreconciled; no retry.",
+  "runtime_review_v19": {
+    "date_utc": "2026-10-01T01:35:16.194253+00:00",
+    "recamier": "Saved front/rear Muse rasters mapped to separate UV hemispheres; 320 closed outward-wound triangles, 480 edge pairs; front/rear inspected in Godot. Side profile/UV seam still provisional. Authored connected marble socle; catalogue total height retained. No paid call.",
+    "wallpaper": "34.912 Arabesque Wallpaper official photo and dimensions matched to IMG_6380 210.25s. Authentic catalogue image, native white conservation mount, on east wall beside gold service. Placement/mount dimensions provisional.",
+    "native_checks": "18/18 RTX4070 SUPER collision/camera checks, p95 31.9444ms",
+    "browser_checks": "18/18 plus actual S/W door round trip, no JS/runtime errors, p95 32.5667ms, RTX ANGLE",
+    "shell_checks": "First 42/48, isolated rerun 41/48: four known layout/pixel failures and changing pressed/dip timing failures. No Shell or Tab changes attempted.",
+    "performance": "Prototype not at 60fps acceptance; all-ten-video map remains incomplete",
+    "remaining": "Brown textile/four prints unresolved; Fetti painting identified and one frame pass planned; exact spacing, unseen geometry and remaining filmed rooms pending."
+  },
+  "fetti-frame": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "cost_usd": "0.010000",
+    "run_id": "run-ebee8724fca764b64861e626",
+    "native_sha256": "948eaa974aa00b2fc701d5fb6f993bd70da2a19f4282222ef265e06e3a500f35",
+    "catalogue_id": "1534546",
+    "accession": "36.003",
+    "source_video": "IMG_6386 32.25/33.75s",
+    "visual_review": "Authentic official image cropped (38,28,1289,1469) to exclude its gilt edge; existing Main Hall native frame assembly placed on gallery west wall after source order review. v20 baked room detail inspected; exact pose and frame depth remain provisional.",
+    "runtime_integrated": true
+  },
+  "goltzius-frame": {
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "cost_usd": "0.010000",
+    "run_id": "run-d3202a36f847df0bc6a9c777",
+    "native_sha256": "4ec50fbf65f473b9fda5b27d57dd87fa97863c6451c1c9955845f084361f105e",
+    "catalogue_id": "1552761",
+    "accession": "61.006",
+    "source_video": "IMG_6386 18.25s",
+    "visual_review": "Saved bands compressed independently using native19.25s planar corners, crosscheck18.25s differs by up to28.35mm in inferred margins. Blank opening pixels unchanged; original Muse hash unchanged; official painting preserved. Native trial proportion improved; exaggerated gold facets/depth and provisional z14.7 placement not final acceptance.",
+    "runtime_integrated": true
+  },
+  "runtime_review_v21": {
+    "date_utc": "2026-10-01T02:05:00Z",
+    "native_checks": "22/22; p95 30.952ms; RTX4070 SUPER",
+    "browser_checks": "22/22 plus real keyboard round trip; p95 30.952ms; no JS/runtime errors; Chrome154 RTX ANGLE",
+    "shell_checks": "46/50; four existing layout/pixel failures; module doc says48 but current verifier emits50",
+    "bake": "333 users, native LightmapGI with CPU software Vulkan; render/native/browser RTX",
+    "performance": "Not 60fps acceptance",
+    "layout": "Two gallery piers, observed far doorway/open panelled leaves and only1.6m threshold. Full sculpture room and precise gallery dimensions unverified. Fetti4th painting installed in observed wall order."
+  },
+  "romanesque-portal": {
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "cost_usd": "0.010000",
+    "run_id": "run-02d8d914fc368baa9f3889da",
+    "native_sha256": "a66a3fb3f663b619a165df5e672225c005c4643528e06e0775a2af36f2738ccd",
+    "catalogue": {
+      "catalogue_id": "1588546",
+      "accession": "40.014",
+      "source_video": "IMG_6382",
+      "source_time_seconds": 3.75,
+      "catalogue_dimensions_m": [
+        4.229,
+        3.861
+      ],
+      "dimensions_note": "Portal whole object; tracery top fragment only, shafts and placement are separately inferred",
+      "source_role": "shape/material reference, not room albedo",
+      "runtime_integrated": false
+    },
+    "triangles": 9280,
+    "closed_edges": 9280,
+    "visual_review": "Native Muse image compared with official photo and source video. Constant-depth closed silhouette extrusion; real holes and collision. Carving depth, column roundness, edge stepping and rear/profile appearance incomplete.",
+    "runtime_integrated": true
+  },
+  "tracery-arch": {
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "cost_usd": "0.010000",
+    "run_id": "run-113954426fe4ae8221b77d16",
+    "native_sha256": "394384a5c0bb3094fa91b58db948f000b274270752f464a94c5b085b50a08805",
+    "catalogue": {
+      "catalogue_id": "1428171",
+      "accession": "40.156.1",
+      "source_video": "IMG_6383",
+      "source_time_seconds": 66.25,
+      "catalogue_dimensions_m": [
+        1.41,
+        1.092,
+        0.273
+      ],
+      "dimensions_note": "Portal whole object; tracery top fragment only, shafts and placement are separately inferred",
+      "source_role": "shape/material reference, not room albedo",
+      "runtime_integrated": false
+    },
+    "triangles": 12356,
+    "closed_edges": 12356,
+    "visual_review": "Native Muse image compared with official photo and source video. Constant-depth closed silhouette extrusion; real holes and collision. Carving depth, column roundness, edge stepping and rear/profile appearance incomplete.",
+    "runtime_integrated": true
+  },
+  "runtime_review_v25": {
+    "date_utc": "2026-10-01T02:35:00Z",
+    "native_checks": "36/36; final p9530.771ms; RTX4070SUPER",
+    "browser_checks": "36/36 plus real S/W keyboard round trip; p9529.630ms; zero JS/runtime errors; Chrome154 RTX ANGLE",
+    "shell_checks": "44/50 twice; four existing layout/pixel failures plus pressed/dip timing failures; Shell/Tab files unchanged",
+    "bake": "417 users; native LightmapGI software-Vulkan CPU,31.93s; known editor quit errors after BAKE_OK; native/runtime checks clean",
+    "layout": "Renaissance north gallery doorway and perpendicular east Gothic doorway; medieval long axis west Gothic to east stairs, north stone portal and south sculpture wall. Authored metric extents and positions still provisional. Main Hall/stairs only short threshold limits.",
+    "visual_review": "Native frontal/oblique/wide views inspected. Portal/Gothic holes genuinely open, closed silhouette extrusions, wall infill. Stepped outlines, constant-depth carving and shafts/rear incomplete; most room contents missing. Goltzius5th authentic painting installed with compressed bands; gold facet/depth/pose acceptance incomplete. Existing high-wall vents now follow ceiling cutaway after browser inspection; native/browser rerun passed.",
+    "performance": "Not60fps acceptance"
+  }
+}

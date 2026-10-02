@@ -1,0 +1,23 @@
+{
+  "current_failures": [
+    "launch_page_area_white",
+    "clicked_tab_shows_pressed_tint_within_100ms",
+    "dip_reported_then_released",
+    "tenant_fills_page_area",
+    "flowers_page_is_the_grey_tenant",
+    "collection_tab_dips_on_click",
+    "resize_refits_bar_and_tenant"
+  ],
+  "previously_observed": [
+    "clicked_tab_shows_pressed_tint_within_100ms",
+    "collection_tab_dips_on_click",
+    "dip_reported_then_released",
+    "flowers_page_is_the_grey_tenant",
+    "launch_page_area_white",
+    "resize_refits_bar_and_tenant",
+    "tenant_fills_page_area"
+  ],
+  "new_names": [],
+  "runtime_changed": false,
+  "frozen_acceptance_changed": false
+}

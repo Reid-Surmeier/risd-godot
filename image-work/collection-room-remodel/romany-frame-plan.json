@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "romany-frame-001",
+      "prompt": "romany-frame-prompt.txt",
+      "promptSha256": "8857d37da73e411814c24d8e9d449a1182fe8e6116af6cf6e7eed67273346949",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/romany-frame-source.png",
+          "sha256": "83c455330f0d8c9debc94d0176abdc24fb4219fcaac641b3224672aaffb70424"
+        }
+      ]
+    }
+  ]
+}

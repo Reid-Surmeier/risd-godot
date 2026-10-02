@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-14283deec9b9642be9f4",
+  "summary": "Reference 1 is the official RISD Museum photograph of Figure of a Parrot, accession 2017.74.26. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted ceramic texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep all limbs, feet, tails, hats, spouts and handles visible. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry; hidden profiles are guided by catalogue dimensions and remain provisional.\n",
+  "procedureId": "muse-14283deec9b9642be9f4",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/parrot-third-catalogue.png",
+      "sha256": "acf15d62e68d2c5902bba23bdd1bd495dfee85b95c780da2a9f559d69e5c9d44",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "parrot-third-recipe.json",
+      "sha256": "14283deec9b9642be9f465bba0395ab56378242ff0aa6ad633e1538b8a93272b"
+    },
+    {
+      "applicationPath": "parrot-third-plan.json",
+      "sha256": "ba393c97ac2191e20e4219ef888e7f0a97b929004ec8f11641482ef87e66c008"
+    },
+    {
+      "applicationPath": "parrot-third-prompt.txt",
+      "sha256": "6294562565099f81d2c3d01ebf69b7294c2e77edb62a0aa0176228083709511b"
+    }
+  ]
+}

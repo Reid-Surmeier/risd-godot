@@ -1,0 +1,11 @@
+# Completed trials refuse overwrite; preserve existing evidence.
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/floor_track_triangle.py
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/floor_track_triangle.py strict-floor-tracks-revisit-v1
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/dense.py --run sfm-strict-doorway-v1 --component 0 --output dense-strict-floor-v1 --size 640 --image-list /home/reidsurmeier/risd-godot-ingestion/collection-expansion/strict-floor-tracks-v2/depth-views.txt
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/strict_depth_floor.py
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/strict_depth_floor.py strict-depth-floor-v1-check
+GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA DISPLAY=:0 godot --path /home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-walk-v7 -- --selfcheck --out=/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-walk-v7/evidence-20260930T0830
+GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA DISPLAY=:0 node modules/shell/prototype/collection_reconstruction/doorway_walk_browser.cjs https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T0430/walk/ docs/evidence/collection-reconstruction/heartbeat-20260930T0830
+GODOT_DISPLAY=:0 GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA scripts/playtest.sh shell /tmp/collection-shell-20260930T0830-isolated
+scripts/check.sh
+git diff --check

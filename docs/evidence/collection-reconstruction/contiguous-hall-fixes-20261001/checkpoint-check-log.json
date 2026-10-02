@@ -1,0 +1,8 @@
+{
+  "source": "/tmp/collection-v50n-checkpoint-check.log",
+  "source_sha256": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e",
+  "archive": "raw-logs/collection-v50n-checkpoint-check.log.gz",
+  "archive_sha256": "93b47651a812d908d931e51dc1785d2ec216e36baea5135edddf01b38d6911f5",
+  "exit_code": 0,
+  "result": "checks passed;8 ObjectDB cleanup warnings retained"
+}

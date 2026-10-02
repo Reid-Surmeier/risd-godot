@@ -1,0 +1,24 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/architecture-references/baseboard-source.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-021badb0c47774d2ebce0d5a/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "da61e1b18260f22f95e044dd3b053ba35bbc6a065ce3e01dd85a8fdb757d9cad"
+    }
+  ],
+  "changesRequested": "Create ONE horizontal section of the exact white-painted museum baseboard shown at the bottom of the reference. Front orthographic view isolated on flat pure magenta #FF00FF. Reconstruct the simple straight raised upper lip, broad flat fascia and narrow lower foot of this real low-profile painted wood skirting. Low polygon game asset, warm off-white paint and restrained shallow flat facets. Straight parallel horizontal edges and generous magenta margins, no wall, no floor, no wood grain, no cracks, no elaborate crown carving, no text. One strip only; native geometry supplies its shallow stepped profile.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-021badb0c47774d2ebce0d5a",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-021badb0c47774d2ebce0d5a"
+}

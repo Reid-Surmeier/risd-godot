@@ -1,0 +1,19 @@
+{
+  "repository_pass": true,
+  "native_check_pass": true,
+  "native_walk_pass": true,
+  "browser_walk_pass": true,
+  "shell_failures": [
+    "FAIL launch_page_area_white",
+    "FAIL tenant_fills_page_area [1848.0, 979.999816894531]",
+    "FAIL flowers_page_is_the_grey_tenant mean [165, 165, 165]",
+    "FAIL collection_tab_dips_on_click [(63, [225, 225, 225]), (127, [225, 225, 225]), (191, [225, 225, 225]), (254, [225, 225, 225]), (318, [225, 225, 225]), (381, [225, 225, 225])]",
+    "FAIL resize_refits_bar_and_tenant window [1440.0, 900.0], bar {'h': 46.964771270752, 'w': 1440.0, 'x': 0.0, 'y': 853.035217285156}, tenant [1368.0, 824.999816894531]"
+  ],
+  "overwrite_guard": true,
+  "default_pose_replay": true,
+  "combined_replay": true,
+  "all_prior_pending_preserved": true,
+  "all_frozen_inputs_preserved": true,
+  "viewer_diff": ""
+}

@@ -1,0 +1,1379 @@
+[
+  {
+    "id": "1326846",
+    "collection": "",
+    "credit": "Museum Collection",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1960",
+    "datingYearTo": "1960",
+    "description": "<p>Massacre<br>from the portfolio \"El Hombre Contra El Hombre\"</p>\n",
+    "dimensions": "Plate: 25.6 x 45.6 cm (10 1/16 x 17 15/16 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Guillermo Silva Santamaria",
+        "risdAffiliation": null,
+        "years": "1921\u20132007, b. in Bogat\u00e1, Colombia",
+        "nationality": [
+          "Colombian"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Color Etching",
+      "aquatint",
+      "and engraving on paper"
+    ],
+    "mediumTechnique": "aquatint",
+    "objectNumber": "77.147.2",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Guillermo Silva Santamaria",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1276176"
+    ],
+    "state": "",
+    "support": [
+      "Heavy weight cream wove paper"
+    ],
+    "technique": [
+      "Color Etching",
+      "aquatint",
+      "and engraving on paper"
+    ],
+    "title": "Massacre",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/massacre-771472"
+  },
+  {
+    "id": "1373881",
+    "collection": "",
+    "credit": "Museum Collection",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1739",
+    "datingYearTo": "1739",
+    "description": "<p>Massacre of the Innocents<br>Titiani Vecelii, Paul Caliarii, Jacobi Robusti et Jacobi de Ponte; Opera Selection a Joanne Baptista Jackson, Angelo, Ligano Coelata et Coloribus Adumbrata</p>\n",
+    "dimensions": "40.8 x 52.9 cm (16 1/16 x 20 13/16 inches) (plate)",
+    "edition": "",
+    "inscription": "In Plate--Inscribed in LC:Illustrissimo, / et Praeclaro Viro Dno. Dno./SMART LETHIEULLER/ Eruditae Antiquitatis Studioso/Investigatori, Tabellam hane/JACOBI ROBUSTI in sui/ obesquium D.D.D. J: B: Jackson\nMarks: Stamped in brown ink on verso:R.I.S.D./MUSEUM/OF ART surrounded by PROVIDENCE/RHODE ISLAND",
+    "makers": [
+      {
+        "name": "Jacopo Tintoretto",
+        "risdAffiliation": null,
+        "years": "1519-1594",
+        "nationality": [
+          "Italian"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "John Baptist Jackson",
+        "risdAffiliation": null,
+        "years": "1701-ca. 1780",
+        "nationality": [
+          "British"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "chiaroscuro woodcut"
+    ],
+    "mediumTechnique": "chiaroscuro woodcut",
+    "objectNumber": "47.396.14",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "John Baptist Jackson",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1406876"
+    ],
+    "state": "",
+    "support": [
+      "Light weight cream laid paper"
+    ],
+    "technique": [
+      "chiaroscuro woodcut"
+    ],
+    "title": "Massacre of the Innocents",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/massacre-innocents-4739614"
+  },
+  {
+    "id": "1211096",
+    "collection": "",
+    "credit": "Gift of C. N. L. Properties",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1970",
+    "datingYearTo": "1970",
+    "description": "<p>The Boston Massacre</p>\n",
+    "dimensions": "48.6 x 71.3 cm (19 1/8 x 28 1/16 inches) (sheet)",
+    "edition": "51/150",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Marlborough Graphics",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Kelpra Press",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Larry Rivers",
+        "risdAffiliation": null,
+        "years": "1923-2002",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "color screen print",
+      "collage"
+    ],
+    "mediumTechnique": "color screen print, collage",
+    "objectNumber": "79.157.5",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Larry Rivers",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1506261"
+    ],
+    "state": "",
+    "support": [
+      "medium weight cream wove paper"
+    ],
+    "technique": [
+      "color screen print",
+      "collage"
+    ],
+    "title": "The Boston Massacre",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/boston-massacre-791575"
+  },
+  {
+    "id": "1243696",
+    "collection": "",
+    "credit": "Gift of C. N. L. Properties",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1970",
+    "datingYearTo": "1970",
+    "description": "<p>The Boston Massacre</p>\n",
+    "dimensions": "48.6 x 71.3 cm (19 1/8 x 28 1/16 inches) (sheet)",
+    "edition": "51/150",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Marlborough Graphics",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Kelpra Press",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Larry Rivers",
+        "risdAffiliation": null,
+        "years": "1923-2002",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "color screen print",
+      "collage"
+    ],
+    "mediumTechnique": "color screen print, collage",
+    "objectNumber": "79.157.12",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Larry Rivers",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1506261"
+    ],
+    "state": "",
+    "support": [
+      "medium weight cream wove paper"
+    ],
+    "technique": [
+      "color screen print",
+      "collage"
+    ],
+    "title": "The Boston Massacre",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/boston-massacre-7915712"
+  },
+  {
+    "id": "1292551",
+    "collection": "",
+    "credit": "Gift of C. N. L. Properties",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1970",
+    "datingYearTo": "1970",
+    "description": "<p>The Boston Massacre</p>\n",
+    "dimensions": "48.6 x 71.3 cm (19 1/8 x 28 1/16 inches) (sheet)",
+    "edition": "51/150",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Marlborough Graphics",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Kelpra Press",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Larry Rivers",
+        "risdAffiliation": null,
+        "years": "1923-2002",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "color screen print",
+      "collage"
+    ],
+    "mediumTechnique": "color screen print, collage",
+    "objectNumber": "79.157.8",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Larry Rivers",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1506261"
+    ],
+    "state": "",
+    "support": [
+      "medium weight cream wove paper"
+    ],
+    "technique": [
+      "color screen print",
+      "collage"
+    ],
+    "title": "The Boston Massacre",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/boston-massacre-791578"
+  },
+  {
+    "id": "1292591",
+    "collection": "",
+    "credit": "Gift of C. N. L. Properties",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1970",
+    "datingYearTo": "1970",
+    "description": "<p>The Boston Massacre</p>\n",
+    "dimensions": "48.6 x 71.3 cm (19 1/8 x 28 1/16 inches) (sheet)",
+    "edition": "51/150",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Marlborough Graphics",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Kelpra Press",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Larry Rivers",
+        "risdAffiliation": null,
+        "years": "1923-2002",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "color screen print",
+      "collage"
+    ],
+    "mediumTechnique": "color screen print, collage",
+    "objectNumber": "79.157.9",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Larry Rivers",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1506261"
+    ],
+    "state": "",
+    "support": [
+      "medium weight cream wove paper"
+    ],
+    "technique": [
+      "color screen print",
+      "collage"
+    ],
+    "title": "The Boston Massacre",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/boston-massacre-791579"
+  },
+  {
+    "id": "1305991",
+    "collection": "",
+    "credit": "Gift of C. N. L. Properties",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1970",
+    "datingYearTo": "1970",
+    "description": "<p>The Boston Massacre</p>\n",
+    "dimensions": "48.6 x 71.3 cm (19 1/8 x 28 1/16 inches) (sheet)",
+    "edition": "51/150",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Marlborough Graphics",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Kelpra Press",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Larry Rivers",
+        "risdAffiliation": null,
+        "years": "1923-2002",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "color screen print",
+      "collage"
+    ],
+    "mediumTechnique": "color screen print, collage",
+    "objectNumber": "79.157.2",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Larry Rivers",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1506261"
+    ],
+    "state": "",
+    "support": [
+      "medium weight cream wove paper"
+    ],
+    "technique": [
+      "color screen print",
+      "collage"
+    ],
+    "title": "The Boston Massacre",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/boston-massacre-791572"
+  },
+  {
+    "id": "1310046",
+    "collection": "",
+    "credit": "Gift of C. N. L. Properties",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1970",
+    "datingYearTo": "1970",
+    "description": "<p>The Boston Massacre</p>\n",
+    "dimensions": "48.6 x 71.3 cm (19 1/8 x 28 1/16 inches) (sheet)",
+    "edition": "51/150",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Marlborough Graphics",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Kelpra Press",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Larry Rivers",
+        "risdAffiliation": null,
+        "years": "1923-2002",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "color screen print",
+      "collage"
+    ],
+    "mediumTechnique": "color screen print, collage",
+    "objectNumber": "79.157.10",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Larry Rivers",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1506261"
+    ],
+    "state": "",
+    "support": [
+      "medium weight cream wove paper"
+    ],
+    "technique": [
+      "color screen print",
+      "collage"
+    ],
+    "title": "The Boston Massacre",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/boston-massacre-7915710"
+  },
+  {
+    "id": "1390261",
+    "collection": "",
+    "credit": "Gift of C. N. L. Properties",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1970",
+    "datingYearTo": "1970",
+    "description": "<p>The Boston Massacre</p>\n",
+    "dimensions": "48.6 x 71.3 cm (19 1/8 x 28 1/16 inches) (sheet)",
+    "edition": "51/150",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Marlborough Graphics",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Kelpra Press",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Larry Rivers",
+        "risdAffiliation": null,
+        "years": "1923-2002",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "color screen print",
+      "collage"
+    ],
+    "mediumTechnique": "color screen print, collage",
+    "objectNumber": "79.157.1",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Larry Rivers",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1506261"
+    ],
+    "state": "",
+    "support": [
+      "medium weight cream wove paper"
+    ],
+    "technique": [
+      "color screen print",
+      "collage"
+    ],
+    "title": "The Boston Massacre",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/boston-massacre-791571"
+  },
+  {
+    "id": "1391116",
+    "collection": "",
+    "credit": "Gift of Theodore Francis Green",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1793",
+    "datingYearTo": "1793",
+    "description": "<p>Portrait of the Princess of Lamballe</p>\n",
+    "dimensions": "62.2 x 44.1 cm (24 1/2 x 17 3/8 inches) (plate)",
+    "edition": "",
+    "inscription": "Original--Recto:inscribed in pencil in LC:Princess Marie Ther\u00e9se de Lamballe, (illegible) of Queen Marie Antoinette/1749 - 1792In Plate--inscribed under image on left:Peint d'apres nature a Paris en 1789 par Anton Hickel Peintre de laCour de Vienne./Mar. Ther. Louisa of Savoy Carignan,/ PRINCESS of LAMBALLE./ Born at Turin in 1749 &amp; massacred at Paris Sep,,r 3, 1792./She fell victem to her attachment to the Queen of France, whom even impending Death could/not induce her to calumniate.;inscribed under image at right: S. Malgo, Sculp. / Mar.Ther.Louise de Savoye Carigan./ PRINCESSE de LAMBALLE/ N\u00e9e \u00e0 turin en 1749 et massacree a Pari le 3.Sep,,1792./Victime de son attachement pour laReine de France, elle aima mieux mourir que/calomnier so maitresse.; inscribed in LC:Quand un Monstre \u00e0 l'honneur presit des attentats,/ On presente sa t\u00eate, et l'on n'obeit pas.-La Harpe. /London, Published as the Act directs March 22, 1793 by S. Malgo, No. 57 Titchfield Street\nMarks: Stamped in brown ink on verso:R.I.S.D./MUSEUM/OF ART surrounded by PROVIDENCE/RHODE ISLAND all inscribed in a circle",
+    "makers": [
+      {
+        "name": "Simon Malcho",
+        "risdAffiliation": null,
+        "years": "fl. 1763-1800",
+        "nationality": [
+          "Danish"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Anton Hickel",
+        "risdAffiliation": null,
+        "years": "1745-1798",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "mezzotint"
+    ],
+    "mediumTechnique": "mezzotint",
+    "objectNumber": "27.142",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Simon Malcho",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Medium weight cream laid paper"
+    ],
+    "technique": [
+      "mezzotint"
+    ],
+    "title": "Portrait of the Princess of Lamballe",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/portrait-princess-lamballe-27142"
+  },
+  {
+    "id": "1406706",
+    "collection": "",
+    "credit": "Gift of C. N. L. Properties",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1970",
+    "datingYearTo": "1970",
+    "description": "<p>The Boston Massacre</p>\n",
+    "dimensions": "48.6 x 71.3 cm (19 1/8 x 28 1/16 inches) (sheet)",
+    "edition": "51/150",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Marlborough Graphics",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Kelpra Press",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Larry Rivers",
+        "risdAffiliation": null,
+        "years": "1923-2002",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "color screen print",
+      "collage"
+    ],
+    "mediumTechnique": "color screen print, collage",
+    "objectNumber": "79.157.13",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Larry Rivers",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1506261"
+    ],
+    "state": "",
+    "support": [
+      "medium weight cream wove paper"
+    ],
+    "technique": [
+      "color screen print",
+      "collage"
+    ],
+    "title": "The Boston Massacre",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/boston-massacre-7915713"
+  },
+  {
+    "id": "1406816",
+    "collection": "",
+    "credit": "Museum Works of Art Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1857",
+    "datingYearTo": "1857",
+    "description": "<p>Massacre des Anglais par les Indous R\u00e9volt\u00e9s (Massacre of the English by Revolting Hindus)</p>\n",
+    "dimensions": "29.7 x 37.5 cm (11 11/16 x 14 3/4 inches) (plate)",
+    "edition": "",
+    "inscription": "Original--Recto:in pencil in UR:226g Verso:in pencil in UR:91/9; in LL (inverted): 92In Plate--In LL:Lith. Vayron, Paris; titled in LC:MASSACRE DES ANGLAIS PAR LES INDOUS R\u00c9VOLT\u00c9S.; in LR:Au Bureau du Mus\u00e9e Fran\u00e7ais Anglais, Rue Berg\u00e9re, 20 Paris; signed in LL:G. Dor\u00e9; numbered in UC:No.4\nMarks: RISD Museum stamp in black ink on versoHeinrich Schwarz collector marks in blue and purple ink on verso:(Lugt 1372)",
+    "makers": [
+      {
+        "name": "Jean Vayron",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Gustave Dor\u00e9",
+        "risdAffiliation": null,
+        "years": "1832-1883",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "58.050",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Gustave Dor\u00e9",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Medium weight cream laid paper"
+    ],
+    "technique": [
+      "lithograph"
+    ],
+    "title": "Massacre des Anglais par les Indous R\u00e9volt\u00e9s (Massacre of the English by Revolting Hindus)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/massacre-des-anglais-par-les-indous-revoltes-massacre-english-revolting"
+  },
+  {
+    "id": "1440821",
+    "collection": "",
+    "credit": "Gift of the Estate of Ruth Kossoff",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1595",
+    "datingYearTo": "1621",
+    "description": "<p>The Massacre of the Innocents</p>\n",
+    "dimensions": "13.2 x 10 cm (5 3/16 x 3 15/16 inches) (plate) oval image",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Jacques Callot",
+        "risdAffiliation": null,
+        "years": "1592-1635",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "etching"
+    ],
+    "mediumTechnique": "",
+    "objectNumber": "2001.72.12",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Jacques Callot",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "etching"
+    ],
+    "title": "The Massacre of the Innocents",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/massacre-innocents-20017212"
+  },
+  {
+    "id": "1441631",
+    "collection": "",
+    "credit": "Gift of C. N. L. Properties",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1970",
+    "datingYearTo": "1970",
+    "description": "<p>The Boston Massacre</p>\n",
+    "dimensions": "48.6 x 71.3 cm (19 1/8 x 28 1/16 inches) (sheet)",
+    "edition": "51/150",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Marlborough Graphics",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Kelpra Press",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Larry Rivers",
+        "risdAffiliation": null,
+        "years": "1923-2002",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "color screen print",
+      "collage"
+    ],
+    "mediumTechnique": "color screen print, collage",
+    "objectNumber": "79.157.3",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Larry Rivers",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1506261"
+    ],
+    "state": "",
+    "support": [
+      "medium weight cream wove paper"
+    ],
+    "technique": [
+      "color screen print",
+      "collage"
+    ],
+    "title": "The Boston Massacre",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/boston-massacre-791573"
+  },
+  {
+    "id": "1456626",
+    "collection": "",
+    "credit": "Gift of C. N. L. Properties",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1970",
+    "datingYearTo": "1970",
+    "description": "<p>The Boston Massacre</p>\n",
+    "dimensions": "48.6 x 71.3 cm (19 1/8 x 28 1/16 inches) (sheet)",
+    "edition": "51/150",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Marlborough Graphics",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Kelpra Press",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Larry Rivers",
+        "risdAffiliation": null,
+        "years": "1923-2002",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "color screen print",
+      "collage"
+    ],
+    "mediumTechnique": "color screen print, collage",
+    "objectNumber": "79.157.11",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Larry Rivers",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1506261"
+    ],
+    "state": "",
+    "support": [
+      "medium weight cream wove paper"
+    ],
+    "technique": [
+      "color screen print",
+      "collage"
+    ],
+    "title": "The Boston Massacre",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/boston-massacre-7915711"
+  },
+  {
+    "id": "1457676",
+    "collection": "",
+    "credit": "Gift of C. N. L. Properties",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1970",
+    "datingYearTo": "1970",
+    "description": "<p>The Boston Massacre</p>\n",
+    "dimensions": "48.6 x 71.3 cm (19 1/8 x 28 1/16 inches) (sheet)",
+    "edition": "51/150",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Marlborough Graphics",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Kelpra Press",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Larry Rivers",
+        "risdAffiliation": null,
+        "years": "1923-2002",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "color screen print",
+      "collage"
+    ],
+    "mediumTechnique": "color screen print, collage",
+    "objectNumber": "79.157.7",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Larry Rivers",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1506261"
+    ],
+    "state": "",
+    "support": [
+      "medium weight cream wove paper"
+    ],
+    "technique": [
+      "color screen print",
+      "collage"
+    ],
+    "title": "The Boston Massacre",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/boston-massacre-791577"
+  },
+  {
+    "id": "1474031",
+    "collection": "",
+    "credit": "Gift of C. N. L. Properties",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1970",
+    "datingYearTo": "1970",
+    "description": "<p>The Boston Massacre</p>\n",
+    "dimensions": "48.6 x 71.3 cm (19 1/8 x 28 1/16 inches) (sheet)",
+    "edition": "51/150",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Marlborough Graphics",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Kelpra Press",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Larry Rivers",
+        "risdAffiliation": null,
+        "years": "1923-2002",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "color screen print",
+      "collage"
+    ],
+    "mediumTechnique": "color screen print, collage",
+    "objectNumber": "79.157.4",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Larry Rivers",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1506261"
+    ],
+    "state": "",
+    "support": [
+      "medium weight cream wove paper"
+    ],
+    "technique": [
+      "color screen print",
+      "collage"
+    ],
+    "title": "The Boston Massacre",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/boston-massacre-791574"
+  },
+  {
+    "id": "1490981",
+    "collection": "",
+    "credit": "Gift of C. N. L. Properties",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1970",
+    "datingYearTo": "1970",
+    "description": "<p>The Boston Massacre</p>\n",
+    "dimensions": "48.6 x 71.3 cm (19 1/8 x 28 1/16 inches) (sheet)",
+    "edition": "51/150",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Marlborough Graphics",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Kelpra Press",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Larry Rivers",
+        "risdAffiliation": null,
+        "years": "1923-2002",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "color screen print",
+      "collage"
+    ],
+    "mediumTechnique": "color screen print, collage",
+    "objectNumber": "79.157.6",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Larry Rivers",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1506261"
+    ],
+    "state": "",
+    "support": [
+      "medium weight cream wove paper"
+    ],
+    "technique": [
+      "color screen print",
+      "collage"
+    ],
+    "title": "The Boston Massacre",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/boston-massacre-791576"
+  },
+  {
+    "id": "1506261",
+    "collection": "",
+    "credit": "Gift of C. N. L. Properties",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1970",
+    "datingYearTo": "1970",
+    "description": "<p>The Boston Massacre</p>\n",
+    "dimensions": "48.6 x 71.3 cm (19 1/8 x 28 1/16 inches) (sheet)",
+    "edition": "51/150",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Marlborough Graphics",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Kelpra Press",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Larry Rivers",
+        "risdAffiliation": null,
+        "years": "1923-2002",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "color screen print",
+      "collage"
+    ],
+    "mediumTechnique": "color screen print, collage",
+    "objectNumber": "79.157",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Larry Rivers",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1305991",
+      "https://risdmuseum.org/api/v1/collection?id=1211096",
+      "https://risdmuseum.org/api/v1/collection?id=1390261",
+      "https://risdmuseum.org/api/v1/collection?id=1243696",
+      "https://risdmuseum.org/api/v1/collection?id=1292551",
+      "https://risdmuseum.org/api/v1/collection?id=1292591",
+      "https://risdmuseum.org/api/v1/collection?id=1310046",
+      "https://risdmuseum.org/api/v1/collection?id=1406706",
+      "https://risdmuseum.org/api/v1/collection?id=1456626",
+      "https://risdmuseum.org/api/v1/collection?id=1457676",
+      "https://risdmuseum.org/api/v1/collection?id=1474031",
+      "https://risdmuseum.org/api/v1/collection?id=1490981",
+      "https://risdmuseum.org/api/v1/collection?id=1441631"
+    ],
+    "state": "",
+    "support": [
+      "medium weight cream wove paper"
+    ],
+    "technique": [
+      "color screen print",
+      "collage"
+    ],
+    "title": "The Boston Massacre",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/boston-massacre-79157"
+  },
+  {
+    "id": "1511051",
+    "collection": "",
+    "credit": "Mary B. Jackson Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1850",
+    "datingYearTo": "1850",
+    "description": "<p>Yes, Madame Chaboulard, There Were Twenty-Four Grocers... (Oui, Madame Chaboulard y a Vingt-Quatre Epiciers...)<br>from the series \"Actualit\u00e9s\"</p>\n",
+    "dimensions": "Plate: 28.9 x 21.6 cm (11 3/8 x 8 1/2 inches)",
+    "edition": "",
+    "inscription": "Signed, on image, LL: h.D.; Printed, on plate, UC: Actualites./ 27.; Printed, on plate, LL: Aubert &amp; Cie Pl de la Bourse 29 Paris; Printed, on plate, LR: Imp de MeVe Aubert r de l'Abbaye 5 Paris; Printed, on plate, LL to LR: Oui, madame Chaboulard y a vingt-quatre \u00e9piciers qui se sont r\u00e9unis et qui ont fait le serment de massacrer le pr\u00e9sident Dupin. - En v'la une horreur!.... mais aussi pourquoi le gouvernement ne fait pas surveiller davantage les \u00e9piciers....... il y a longtemps que je l'ai dit, tous les \u00e9piciers sont des sc\u00e9l\u00e9rats!...... \u00e0 preuve que le mien m'a vendu hier pour deux sous de moutarde et il ne m'en a pas donn\u00e9 pour six liards.... j'vas le d\u00e9noncer, y doit \u00eatre un des vint-quatre!; Written, in graphite, on sheet, LR: D.2040 II/ 1850/ 36.074",
+    "makers": [
+      {
+        "name": "Aubert & Cie",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Michel Aubert",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Honor\u00e9 Daumier",
+        "risdAffiliation": null,
+        "years": "1808-1879",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Lithograph on light weight cream wove paper"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "36.074",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Honor\u00e9 Daumier",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "2nd of 2",
+    "support": [
+      "Light weight cream wove paper mounted on light weight board"
+    ],
+    "technique": [
+      "Lithograph on light weight cream wove paper"
+    ],
+    "title": "Yes, Madame Chaboulard, There Were Twenty-Four Grocers... (Oui, Madame Chaboulard y a Vingt-Quatre Epiciers...)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/yes-madame-chaboulard-there-were-twenty-four-grocers-oui-madame-chaboulard-y"
+  }
+]

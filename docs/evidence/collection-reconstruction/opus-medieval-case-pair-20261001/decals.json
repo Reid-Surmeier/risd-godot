@@ -1,0 +1,37 @@
+{
+ "source": "image-work/collection-room-remodel/artifacts/image-generation/runs/run-2ee4b0d0613d42f31ef80703/materialized/image-01.webp",
+ "source_sha256": "1e3cd72922649181dc3620f6f0160182cc0c04f01628ba97e056e132958ec8ab",
+ "paid_by": "root, one Muse request, 0.01 USD; none by this worker",
+ "crops": {
+  "roundel": {
+   "file": "decal-queens-roundel.png",
+   "view": "FRONT view",
+   "box_ltrb": [
+    58,
+    522,
+    430,
+    994
+   ],
+   "size": [
+    372,
+    472
+   ],
+   "sha256": "1c20cc0c65d10e8c221f261766e7793b9adb2ce9121b1177081ba6485eb753a9"
+  },
+  "boat": {
+   "file": "decal-queens-boat.png",
+   "view": "RIGHT SIDE view",
+   "box_ltrb": [
+    488,
+    519,
+    850,
+    994
+   ],
+   "size": [
+    362,
+    475
+   ],
+   "sha256": "e9381019f3f3b73a720afafcecae8ee5a45c6d8e473890e465129573a429e3c3"
+  }
+ }
+}
