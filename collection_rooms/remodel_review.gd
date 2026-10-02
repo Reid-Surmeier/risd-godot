@@ -131,7 +131,7 @@ func run() -> void:
 		["landing-medieval-reverse",Vector3(15.3,1.65,31.765),Vector3(10.55,1.65,31.765)],
 		["landing-modern-door",Vector3(11.85,1.65,31.9),Vector3(11.85,1.65,28.1)],
 		["landing-white-door",Vector3(12.85,1.65,30.5),Vector3(16.15,1.65,30.5)],
-		["landing-stair-void",Vector3(15.4,1.65,35.515),Vector3(11.4,.6,35.315)],
+		["landing-stair-void",Vector3(14.2,1.65,33.3),Vector3(12.2,-2.4,36.2)],
 		["modern-entry-wide",Vector3(11.85,1.65,27.35),Vector3(12.4,1.55,22.35)],
 		["modern-windows-wide",Vector3(11.8,1.65,27.35),Vector3(16.7,1.65,24.05)],
 		["modern-doorway-corner",Vector3(13.0,1.65,25.65),Vector3(15.8,1.5,22.3)],

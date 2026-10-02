@@ -183,7 +183,7 @@
       ]
     },
     {
-      "label": "Ionic marble-stair threshold study limit",
+      "label": "marble stair hall",
       "color": "81735c",
       "vertices": [
         [
@@ -192,12 +192,12 @@
           -4.96
         ],
         [
-          12.65,
+          19.450000000000003,
           0,
           -4.96
         ],
         [
-          12.65,
+          19.450000000000003,
           0,
           1.04
         ],
@@ -209,28 +209,28 @@
       ]
     },
     {
-      "label": "piano-stair threshold study limit",
+      "label": "Skylight Gallery",
       "color": "81735c",
       "vertices": [
         [
-          4.550000000000001,
+          0.35000000000000053,
           0,
-          -6.56
+          -10.76
         ],
         [
-          6.550000000000001,
+          9.85,
           0,
-          -6.56
+          -10.76
         ],
         [
-          6.550000000000001,
+          9.85,
           0,
-          -4.96
+          -5.76
         ],
         [
-          4.550000000000001,
+          0.35000000000000053,
           0,
-          -4.96
+          -5.76
         ]
       ]
     },
@@ -257,32 +257,6 @@
           10.55,
           0,
           33.715
-        ]
-      ]
-    },
-    {
-      "label": "landing east floor",
-      "color": "81735c",
-      "vertices": [
-        [
-          13.55,
-          0,
-          33.715
-        ],
-        [
-          16.15,
-          0,
-          33.715
-        ],
-        [
-          16.15,
-          0,
-          37.615
-        ],
-        [
-          13.55,
-          0,
-          37.615
         ]
       ]
     },
@@ -365,58 +339,6 @@
       ]
     },
     {
-      "label": "ascending stair study",
-      "color": "b9b7b0",
-      "vertices": [
-        [
-          10.7,
-          0,
-          33.715
-        ],
-        [
-          11.799999999999999,
-          0,
-          33.715
-        ],
-        [
-          11.799999999999999,
-          3.2,
-          37.515
-        ],
-        [
-          10.7,
-          3.2,
-          37.515
-        ]
-      ]
-    },
-    {
-      "label": "descending stair study",
-      "color": "b9b7b0",
-      "vertices": [
-        [
-          12.2,
-          0,
-          33.715
-        ],
-        [
-          13.299999999999999,
-          0,
-          33.715
-        ],
-        [
-          13.299999999999999,
-          -3.2,
-          37.515
-        ],
-        [
-          12.2,
-          -3.2,
-          37.515
-        ]
-      ]
-    },
-    {
       "label": "Grand Gallery reveal threshold",
       "color": "81735c",
       "vertices": [
@@ -465,6 +387,32 @@
           -3.5,
           0,
           1.8
+        ]
+      ]
+    },
+    {
+      "label": "Skylight Gallery reveal threshold",
+      "color": "81735c",
+      "vertices": [
+        [
+          4.550000000000001,
+          0,
+          -5.76
+        ],
+        [
+          6.550000000000001,
+          0,
+          -5.76
+        ],
+        [
+          6.550000000000001,
+          0,
+          -4.96
+        ],
+        [
+          4.550000000000001,
+          0,
+          -4.96
         ]
       ]
     }
@@ -724,62 +672,6 @@
       false
     ],
     [
-      "grey_piano_out",
-      [
-        5.550000000000001,
-        0.25,
-        -4.16
-      ],
-      [
-        5.550000000000001,
-        0,
-        -5.76
-      ],
-      false
-    ],
-    [
-      "grey_piano_back",
-      [
-        5.550000000000001,
-        0.25,
-        -5.76
-      ],
-      [
-        5.550000000000001,
-        0,
-        -4.16
-      ],
-      false
-    ],
-    [
-      "grey_ionic_out",
-      [
-        10.25,
-        0.25,
-        -1.96
-      ],
-      [
-        11.9,
-        0,
-        -1.96
-      ],
-      false
-    ],
-    [
-      "grey_ionic_back",
-      [
-        11.9,
-        0.25,
-        -1.96
-      ],
-      [
-        10.25,
-        0,
-        -1.96
-      ],
-      false
-    ],
-    [
       "tracery_out",
       [
         -0.25,
@@ -932,6 +824,48 @@
         29.45
       ],
       false
+    ],
+    [
+      "grey_marble_out",
+      [
+        10.25,
+        0.25,
+        -1.96
+      ],
+      [
+        12.6,
+        0,
+        -1.96
+      ],
+      false
+    ],
+    [
+      "grey_marble_back",
+      [
+        12.6,
+        0.25,
+        -1.96
+      ],
+      [
+        10.25,
+        0,
+        -1.96
+      ],
+      false
+    ],
+    [
+      "marble_stair_blocked",
+      [
+        14.6,
+        0.25,
+        -2.4
+      ],
+      [
+        14.6,
+        0,
+        -4.3
+      ],
+      true
     ],
     [
       "hall_aisle_2.2",
@@ -1678,14 +1612,84 @@
     [
       "landing_guard_blocked",
       [
-        13.9,
+        13.35,
         0.25,
-        35.415
+        32.7
       ],
       [
-        12.9,
+        13.35,
         0,
-        35.415
+        34.6
+      ],
+      true
+    ],
+    [
+      "landing_stair_foot_blocked",
+      [
+        11.15,
+        0.25,
+        32.9
+      ],
+      [
+        11.15,
+        0,
+        34.6
+      ],
+      true
+    ],
+    [
+      "landing_flight_down_blocked",
+      [
+        15.55,
+        0.25,
+        32.9
+      ],
+      [
+        15.55,
+        0,
+        34.6
+      ],
+      true
+    ],
+    [
+      "grey_skylight_out",
+      [
+        5.55,
+        0.25,
+        -4.16
+      ],
+      [
+        5.55,
+        0,
+        -7.2
+      ],
+      false
+    ],
+    [
+      "grey_skylight_back",
+      [
+        5.55,
+        0.25,
+        -7.2
+      ],
+      [
+        5.55,
+        0,
+        -4.16
+      ],
+      false
+    ],
+    [
+      "skylight_piano_blocked",
+      [
+        2.6,
+        0.25,
+        -8.4
+      ],
+      [
+        1.2,
+        0,
+        -9.9
       ],
       true
     ]
@@ -2086,10 +2090,10 @@
         37.615
       ],
       "height": 4.1,
-      "floor": "basket-weave",
+      "floor": "stone-pinwheel",
       "floor_void": [
         10.55,
-        13.55,
+        16.15,
         33.715,
         37.615
       ],
@@ -2162,10 +2166,10 @@
       }
     },
     {
-      "label": "Ionic marble-stair threshold study limit",
+      "label": "marble stair hall",
       "bounds": [
         11.05,
-        12.65,
+        19.450000000000003,
         -4.96,
         1.04
       ],
@@ -2180,16 +2184,25 @@
           -4.96,
           1.04
         ]
-      }
+      },
+      "height": 8.0,
+      "floor": "marble",
+      "floor_void": [
+        13.850000000000001,
+        19.450000000000003,
+        -0.56,
+        1.04
+      ]
     },
     {
-      "label": "piano-stair threshold study limit",
+      "label": "Skylight Gallery",
       "bounds": [
-        4.550000000000001,
-        6.550000000000001,
-        -6.56,
-        -4.96
+        0.35000000000000053,
+        9.85,
+        -10.76,
+        -5.76
       ],
+      "height": 3.9,
       "openings": {
         "south": [
           4.550000000000001,
@@ -2289,6 +2302,27 @@
           -1.5
         ]
       }
+    },
+    {
+      "label": "Skylight Gallery reveal threshold",
+      "reveal": true,
+      "bounds": [
+        4.550000000000001,
+        6.550000000000001,
+        -5.76,
+        -4.96
+      ],
+      "boards_across": true,
+      "openings": {
+        "north": [
+          4.550000000000001,
+          6.550000000000001
+        ],
+        "south": [
+          4.550000000000001,
+          6.550000000000001
+        ]
+      }
     }
   ],
   "grey_gallery_connections": {
@@ -2321,6 +2355,13 @@
     "contents_complete": false
   },
   "room_geometry": "Wide-shot wall relationships replace v15 layout; authored metric extents and distal gallery limit provisional. No point cloud in renderer.",
+  "marble_hall": {
+    "source": "IMG_6381 0..99s; IMG_6380 45.5..82.5s; RISD 83.152 and 2011.60 catalogue photographs taken in this hall",
+    "stair": "13 straight steps east along the north wall, 6 winders, half-landing under the east window, 6 winders, 4 steps west to the upper landing; 31 risers of .145m",
+    "walkable": "this floor only; flights, half-landing and the service-stair void are blocked",
+    "metric_accepted": false,
+    "upper_floor_rooms_built": false
+  },
   "continuous_loop_waypoints": [
     [
       -2.5,

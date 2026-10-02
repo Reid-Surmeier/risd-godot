@@ -2,6 +2,8 @@
 ## Captured spacing guides placement; every room extent remains provisional.
 extends "doorway_walk.gd"
 
+# Per-room addition scripts, built in this order after the rooms themselves.
+const ADDITIONS:=["medieval_additions.gd","grey_additions.gd","european_east_additions.gd","european_west_additions.gd","rockefeller_additions.gd","landing_additions.gd","skylight_additions.gd","marble_hall_additions.gd","fixtures_additions.gd"]
 const Painting := preload("res://modules/shell/prototype/gallery_walk4/painting_asset.gd")
 const SeatedWoman := preload("res://collection_rooms/seated_woman_asset.gd")
 const VirginChild := preload("res://collection_rooms/virgin_child_asset.gd")
@@ -29,6 +31,41 @@ func make_visitor() -> Node3D:
 	var actor=load("res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gd").new()
 	actor.world_height=1.75
 	return actor
+
+var _plan_rooms:Array=[]
+
+## A room's [x0, x1, z0, z1] in room-scene metres, by its geometry.json label.
+func room_bounds(label:String) -> Array:
+	if _plan_rooms.is_empty():
+		_plan_rooms=JSON.parse_string(FileAccess.get_file_as_string("res://collection_rooms/geometry.json")).rooms
+	for area in _plan_rooms:
+		if area.label==label:
+			return area.bounds
+	assert(false,"No room labelled "+label)
+	return []
+
+## A point on a wall of a room: `along` metres from the wall's west end (north and south
+## walls) or north end (west and east walls), `height` above the floor, `out` into the room.
+func wall_point(label:String,side:String,along:float,height:float,out:=0.0) -> Vector3:
+	var b:=room_bounds(label)
+	match side:
+		"north":return Vector3(b[0]+along,height,b[2]+out)
+		"south":return Vector3(b[0]+along,height,b[3]-out)
+		"west":return Vector3(b[0]+out,height,b[2]+along)
+		_:return Vector3(b[1]-out,height,b[2]+along)
+
+## The wall body nearest `at` on that side of the room: re-parent wall-hung work to it so
+## the work disappears with the wall when the camera cuts it away.
+func wall_body(label:String,side:String,at:Vector3) -> Node3D:
+	var best:Node3D
+	var nearest:=INF
+	for wall in casings:
+		if wall.get_meta("room_wall","")==label+":"+side:
+			var d:float=wall.global_position.distance_squared_to(at)
+			if d<nearest:
+				nearest=d
+				best=wall
+	return best
 
 func _ready() -> void:
 	super._ready()
@@ -96,6 +133,12 @@ func _ready() -> void:
 	build_grey_gallery()
 	build_connected_hall()
 	build_lion_modern_rooms()
+	# Room additions (#238): one script per room, each adding only its own nodes with
+	# positions taken from the room's walls (room_bounds, wall_point), so a later change
+	# to a room's size carries them along.
+	for extra in ADDITIONS:
+		if ResourceLoader.exists("res://collection_rooms/"+extra):
+			load("res://collection_rooms/"+extra).new().build(self)
 	var index:=0
 	for surface in find_children("*","MeshInstance3D",true,false):
 		if not visitor.is_ancestor_of(surface) and not surface.has_meta("retained_main_hall"):
@@ -360,7 +403,7 @@ func build_rooms() -> void:
 			header.set_meta("room_wall",area.label+":"+side+":header")
 			wall_face(header,width,height-clear_height,vertical,1.0 if side in ["west","north"] else -1.0)
 			if stone or side in area.get("column_sides",[]):continue
-			var casing_width:float=.10 if area.label in ["grey French gallery","purple elevator-5 connector","piano-stair threshold study limit"] else .16
+			var casing_width:float=.10 if area.label in ["grey French gallery","purple elevator-5 connector","Skylight Gallery"] else .16
 			header.set_meta("source_casing_width",casing_width)
 			for edge in opening:
 				# Deep painted reveals are visible in both reciprocal doorway shots.
@@ -400,15 +443,13 @@ func build_grey_gallery() -> void:
 	black.cull_mode=BaseMaterial3D.CULL_BACK
 	var south:StaticBody3D
 	var north:StaticBody3D
-	var piano_wall:StaticBody3D
 	for wall in casings:
 		if wall.get_meta("room_wall","")=="purple elevator-5 connector:north":north=wall
-		if wall.get_meta("room_wall","")=="piano-stair threshold study limit:south:header":piano_wall=wall
 		if str(wall.get_meta("room_wall","" )).begins_with("purple") and str(wall.get_meta("room_wall","")).ends_with(":south"):
 			assert(south==null,"Purple south wall must have one owner")
 			south=wall
 	assert(south!=null,"Black panel faces must belong to the purple south wall")
-	assert(north!=null and piano_wall!=null,"Lift and piano leaf must have cutaway wall owners")
+	assert(north!=null,"Lift must have a cutaway wall owner")
 	var black_face:=MeshInstance3D.new()
 	var quad:=QuadMesh.new()
 	quad.size=Vector2(2.15,3.5)
@@ -433,7 +474,6 @@ func build_grey_gallery() -> void:
 	add_child(number)
 	number.reparent(north)
 	var first:=get_child_count()
-	var piano_leaf:Node3D
 	# Wide column opening faces the purple connector, rather than a door at the far end of a tube.
 	# The north column keeps its authored 1.6m from the moved north wall (-4.2); 6380 247.5/248.5s
 	# has the south one near the connector axis, so it stays. Their spacing is unmeasured.
@@ -470,49 +510,37 @@ func build_grey_gallery() -> void:
 		add_child(capital)
 		capital.reparent(column)
 	# 6380 35.0/35.5s: smooth shafts, end pilasters and a cream beam; metres remain provisional.
-	var beam:=solid(Vector3(15.65,3.11,-1.2),Vector3(.48,.78,6.0),ivory)
+	# The beam starts where the capitals end (3.10). It used to start at 2.72 and swallow them, so the
+	# bake left them black and they showed from the stair side, where the camera cuts the beam away.
+	var beam:=solid(Vector3(15.65,3.30,-1.2),Vector3(.48,.40,6.0),ivory)
 	beam.set_meta("column_beam",true)
 	var cornice:=moulding(6.0,.16,"door-architrave",false)
 	cornice.position=Vector3(15.39,3.40,-1.2)
 	cornice.rotation.y=PI/2
 	cornice.reparent(beam)
 	for z in [-4.05,1.65]:
-		var pilaster:=solid(Vector3(15.65,1.4,z),Vector3(.16,2.8,.30),ivory)
+		var pilaster:=solid(Vector3(15.65,1.45,z),Vector3(.16,2.9,.30),ivory)
 		pilaster.set_meta("column_end_pilaster",true)
-		var cap:=solid(Vector3(15.65,2.70,z),Vector3(.30,.20,.46),ivory)
+		var cap:=solid(Vector3(15.65,3.0,z),Vector3(.30,.20,.46),ivory)
 		cap.reparent(pilaster)
 	# Capital side/rear relief, dentils and entablature dimensions are still unaccepted.
 	# Bertin sits on the Hall-door wall between Villeneuve and Pannini; exact offsets remain provisional.
 	# Courbet centre 4.86m from the south-west corner (fit); Corot rides the north wall, offset along it unmeasured.
-	for spec in [["courbet","43.571",Vector3(8.53,1.8,-3.06),PI/2],["corot","24.089",Vector3(14.8,1.8,-4.12),0.0],["bertin","56.214",Vector3(13.3,1.75,1.72),PI]]:
+	# #238: Courbet 1.80 -> 1.69 (IMG_6380 3.1s, level with the Gericault); Bertin .2m east so its gap to the
+	# Pannini is the .58m of IMG_6379 172.3s. Label cards are the polish spec's .30 x .17, clear of the frame.
+	for spec in [["courbet","43.571",Vector3(8.53,1.69,-3.06),PI/2],["corot","24.089",Vector3(14.8,1.8,-4.12),0.0],["bertin","56.214",Vector3(13.5,1.75,1.72),PI]]:
 		var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://collection_rooms/assets/"+spec[0]+"-frame-geometry.json"))
 		var painting:=Painting.new()
 		add_child(painting)
 		painting.build_framed(load("res://collection_rooms/assets/"+spec[0]+"-frame.png"),load("res://collection_rooms/assets/painting-"+spec[1]+".jpg"),Vector2(data.canvas_m[0],data.canvas_m[1]),data.margins_px)
 		painting.position=spec[2]
 		painting.rotation.y=spec[3]
-		var label:=solid(Vector3.ZERO,Vector3(.15,.22,.003),look(Color("f3f2ed")))
+		var label:=solid(Vector3.ZERO,Vector3(.30,.17,.004),look(Color("e9e4d4")))
 		label.reparent(painting,false)
-		label.position=Vector3(.63,-.17,.04)
+		label.position=Vector3(painting.outer.x/2+.25,-.12,.01)
 		label.set_meta("artwork_label_proxy",true)
-	for z in [-4.2,1.8]:
-		for x in [9.11,11.19]:
-			# 6380 14-15/100-107s: leaves fold into the reveals, never onto grey parquet.
-			# The Hall door's own leaves are hung in its reveal by build_reveal.
-			if z>0 or x<10:continue
-			var leaf:=solid(Vector3(x,1.35,z-.45),Vector3(.06,2.7,.95),ivory,true)
-			piano_leaf=leaf
-			# Assemble the three Muse panels around native rails/stiles; generated extra jamb excluded.
-			for index in 3:
-				var y:float=[2.05,1.04,.38][index]
-				var height:float=[.95,.7,.42][index]
-				for side in [-1,1]:
-					var face:float=side*.035
-					panel(leaf,[Vector3(face,y-height/2-1.35,-.37),Vector3(face,y-height/2-1.35,.37),Vector3(face,y+height/2-1.35,.37),Vector3(face,y+height/2-1.35,-.37)],
-						[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)],look(Color.WHITE,"res://collection_rooms/assets/white-panel-door-%d.png"%index))
+	# The Skylight door's two leaves are hung in its own reveal by skylight_additions.gd.
 	shift_new(first,Vector3(-4.6,0,-hall_reveal.wall_m))
-	assert(piano_leaf!=null)
-	piano_leaf.reparent(piano_wall)
 	build_reveal("Grand Gallery reveal threshold",true)
 	build_reveal("Rockefeller reveal threshold",false)
 	inventory["grey_gallery_verified_paintings"]=3
@@ -721,7 +749,9 @@ func build_displays() -> void:
 	solid(Vector3(.45,.065,-6.73),Vector3(5.8,.13,.95),ivory,true)
 	solid(Vector3(-2.23,.065,-4.075),Vector3(.85,.13,6.25),ivory,true)
 	# Pink Worcester left of the gallery door; gold export service beside the purple door.
-	display_case(Vector3(1.85,0,-.95),Vector3(1.8,0,.88))
+	# #238: the pink case hangs on the wall and is about .6 deep (6380 123..128s, 176..178.5s). At .88 and
+	# clear of the wall it reached within .23m of the east door's axis and stopped a visitor walking in.
+	display_case(Vector3(1.85,0,-.76),Vector3(1.8,0,.6))
 	display_case(Vector3(3.05,0,-3.8),Vector3(1.0,0,1.8),true)
 	# Raised central stand for the gold tureen, visible in the reference video.
 	solid(Vector3(3.32,1.15,-3.8),Vector3(.32,.1,.40),ivory)
@@ -942,14 +972,23 @@ func build_adjacent_gallery() -> void:
 	# Delacroix follows the Rockefeller door it was filmed from (6385), as the secretary does.
 	# Fetti, the piers and Goltzius were read mid-gallery or from the far end (6386); their z is
 	# kept as authored and stays unaccepted until the gallery is fitted.
-	painting.position=Vector3(-3.48,1.75,4.35)
+	# #238: the dress case and the secretary take the corner first (6385 2..21s), then the Piranesi;
+	# the Delacroix follows them. By wall order and catalogue widths, not measured.
+	painting.position=Vector3(-3.485,1.75,6.85)
 	painting.rotation.y=PI/2
+	painting.set_meta("catalogue_accession","35.786")
+	# The secretary (catalogue data, already in the room) clears the dress case in the corner.
+	for node in get_children():
+		if node is Node3D and node.position.distance_to(Vector3(-5.19,.13,3.05))<.02:node.position.z=3.55
 	var fetti:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://collection_rooms/assets/fetti-frame-geometry.json"))
 	var angels:=Painting.new()
 	add_child(angels)
 	angels.build_framed(load("res://collection_rooms/assets/fetti-frame.png"),load("res://collection_rooms/assets/painting-36.003.jpg"),Vector2(.781,.895),fetti.margins_px)
-	angels.position=Vector3(-3.48,1.8,8.8)
+	# #238: 11.1m from the south wall, was 19.3m (camera solve of 6384..6386 scaled by this frame
+	# and the Tironi's; docs/evidence/museum-238/european-west/NOTES.md). Provisional.
+	angels.position=Vector3(-3.485,1.8,16.96)
 	angels.rotation.y=PI/2
+	angels.set_meta("catalogue_accession","36.003")
 	# IMG_6386 44.25/67.75s: opposite-wall piers project into the gallery.
 	# ponytail: wall relationships observed; pier depth and spacing await metric fitting.
 	for z in [3.65,8.4]:
@@ -993,8 +1032,10 @@ func build_adjacent_gallery() -> void:
 	var goltzius:=Painting.new()
 	add_child(goltzius)
 	goltzius.build_framed(load("res://collection_rooms/assets/goltzius-frame.png"),load("res://collection_rooms/assets/painting-61.006.jpg"),Vector2(.345,.510),data.margins_px)
-	goltzius.position=Vector3(-3.48,1.75,14.7)
+	# #238: 6.1m from the south wall, was 13.4m (same solve). Provisional.
+	goltzius.position=Vector3(-3.485,1.75,22.01)
 	goltzius.rotation.y=PI/2
+	goltzius.set_meta("catalogue_accession","61.006")
 	inventory["verified_paintings"]=5
 
 func stone_mesh(data:Dictionary,faces:Array,depth:float) -> ArrayMesh:
@@ -1288,34 +1329,7 @@ func build_lion_modern_rooms() -> void:
 	# painting/window wall groups; authored metres unaccepted.
 	var ivory:=look(Color("eeeae2"),"res://collection_rooms/presentation/wall-plaster.png")
 	var metal:=look(Color("535657"))
-	var wood:=look(Color("716b60"),"res://collection_rooms/textures/oak-muse.webp")
-	# The two flights occupy a real floor void. Native collision ramps sit below the visual treads.
-	#6387 8.0/44.5/83.0s: door casing, sign5, then rail and first steps. The draft block keeps its
-	# authored1.1m from the stair door's south edge (z33.715); a preserved shape, not a measurement.
-	for spec in [[10.70,3.2],[12.20,-3.2]]:
-		var x:float=spec[0]
-		var rise:float=spec[1]
-		for i in 18:
-			var tread:=solid(Vector3(x+.55,rise*(i+.5)/18-.03,33.715+(i+.5)*3.8/18),Vector3(1.1,.06,3.8/18+.015),wood)
-			var riser:=solid(Vector3(x+.55,rise*i/18,33.715+i*3.8/18),Vector3(1.1,abs(rise)/18,.04),ivory)
-			var z:float=33.715+(i+.5)*3.8/18
-			var y:float=rise*(i+.5)/18
-			var post:=solid(Vector3(x+1.12,y+.48,z),Vector3(.028,.96,.028),metal)
-			for dy in [.17,.47,.78]:
-				var collar:=solid(Vector3(x+1.12,y+dy,z),Vector3(.06,.065,.06),metal)
-				collar.reparent(post)
-		var rail:=solid(Vector3(x+1.12,rise/2+.98,35.615),Vector3(.075,.065,sqrt(3.8*3.8+rise*rise)),wood)
-		rail.rotation.x=-atan(rise/3.8)
-	# Safety collision belongs to observed landing balustrade, not a floor across the stair void.
-	var guard:=solid(Vector3(13.52,.52,35.665),Vector3(.09,1.04,3.9),metal,true)
-	guard.get_child(1).mesh=ArrayMesh.new()
-	for i in 17:
-		var z:float=33.715+i*3.9/16
-		var post:=solid(Vector3(13.52,.47,z),Vector3(.035,.94,.035),metal)
-		for y in [.15,.45,.75]:
-			var collar:=solid(Vector3(13.52,y,z),Vector3(.065,.06,.065),metal)
-			collar.reparent(post)
-	solid(Vector3(13.52,.99,35.665),Vector3(.09,.075,3.9),wood)
+	# The stair, its well, guard, stone floor and ceiling are built in landing_additions.gd (#238).
 	#6387:2.25/42.25s: lion on the modern-door (north) wall, to the right facing that door.
 	# 41.0/3.0s: label and a strip of white wall before the corner, so .35m left of the turned centre.
 	# Original front assembled on the closed low polygon catalogue slab; Muse damage trial unaccepted.
@@ -1339,12 +1353,6 @@ func build_lion_modern_rooms() -> void:
 		var slat:=solid(Vector3(14.6,3.24+i*.026,28.21),Vector3(1.64,.008,.02),look(Color("74756f")))
 		slat.reparent(lion_vent)
 	lion_vent.reparent(lion_wall)
-	# Source landing cornice reuses the saved Muse moulding; no invented stair destinations.
-	for spec in [[Vector3(13.35,3.96,28.16),0.0,5.6],[Vector3(16.09,3.96,32.8575),-PI/2,9.515]]:
-		var cornice:=moulding(spec[2],.22,"door-architrave",false)
-		cornice.position=spec[0]
-		cornice.rotation.y=spec[1]
-		ceiling_details.append(cornice)
 	# Three distinct double-panel doors: medieval already built; modern and white-gallery leaves.
 	# Modern leaves stand open into the modern room (north), white-gallery leaves into that gallery (east).
 	for spec in [[Vector3(11.85,0,28.1),true,.85,-.45],[Vector3(16.15,0,30.5),false,1.0,.45]]:
@@ -1445,7 +1453,7 @@ func build_lion_modern_rooms() -> void:
 		for z in [27.05,25.8,24.6,23.35]:
 			var fixture:=solid(Vector3(x,3.24,z),Vector3(.10,.16,.10),ivory)
 			fixture.reparent(track)
-	inventory["lion_landing"]={"doors":3,"floor_void":true,"flights":2,"metric_accepted":false,"curve_destinations_complete":false,"lion_relief_complete":false,"lion_panel_front_installed":true,"lion_generated_damage_accepted":false}
+	inventory["lion_landing"]={"doors":3,"floor_void":true,"metric_accepted":false,"lion_relief_complete":false,"lion_panel_front_installed":true,"lion_generated_damage_accepted":false}
 	#6387 63.5..65.5s: floor-standing case against the pier between windows, facing into the room.
 	# ponytail: by-eye offset on the pier, nearer the second window; label side toward the first.
 	var seated:StaticBody3D=SeatedWoman.build(look(Color.WHITE,"res://collection_rooms/presentation/landing-plaster.png"),ivory,look(Color.WHITE,"res://collection_rooms/assets/seated-woman-bronze.webp"))
