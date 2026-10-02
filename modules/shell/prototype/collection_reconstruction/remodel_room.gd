@@ -2,6 +2,8 @@
 ## Captured spacing guides placement; every room extent remains provisional.
 extends "doorway_walk.gd"
 
+# Per-room addition scripts, built in this order after the rooms themselves.
+const ADDITIONS:=["medieval_additions.gd","grey_additions.gd","european_additions.gd","rockefeller_additions.gd","landing_additions.gd","skylight_additions.gd","marble_hall_additions.gd","fixtures_additions.gd"]
 const Painting := preload("res://modules/shell/prototype/gallery_walk4/painting_asset.gd")
 const SeatedWoman := preload("res://seated_woman_asset.gd")
 const VirginChild := preload("res://virgin_child_asset.gd")
@@ -29,6 +31,41 @@ func make_visitor() -> Node3D:
 	var actor=load("res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gd").new()
 	actor.world_height=1.75
 	return actor
+
+var _plan_rooms:Array=[]
+
+## A room's [x0, x1, z0, z1] in room-scene metres, by its geometry.json label.
+func room_bounds(label:String) -> Array:
+	if _plan_rooms.is_empty():
+		_plan_rooms=JSON.parse_string(FileAccess.get_file_as_string("res://geometry.json")).rooms
+	for area in _plan_rooms:
+		if area.label==label:
+			return area.bounds
+	assert(false,"No room labelled "+label)
+	return []
+
+## A point on a wall of a room: `along` metres from the wall's west end (north and south
+## walls) or north end (west and east walls), `height` above the floor, `out` into the room.
+func wall_point(label:String,side:String,along:float,height:float,out:=0.0) -> Vector3:
+	var b:=room_bounds(label)
+	match side:
+		"north":return Vector3(b[0]+along,height,b[2]+out)
+		"south":return Vector3(b[0]+along,height,b[3]-out)
+		"west":return Vector3(b[0]+out,height,b[2]+along)
+		_:return Vector3(b[1]-out,height,b[2]+along)
+
+## The wall body nearest `at` on that side of the room: re-parent wall-hung work to it so
+## the work disappears with the wall when the camera cuts it away.
+func wall_body(label:String,side:String,at:Vector3) -> Node3D:
+	var best:Node3D
+	var nearest:=INF
+	for wall in casings:
+		if wall.get_meta("room_wall","")==label+":"+side:
+			var d:float=wall.global_position.distance_squared_to(at)
+			if d<nearest:
+				nearest=d
+				best=wall
+	return best
 
 func _ready() -> void:
 	super._ready()
@@ -96,6 +133,12 @@ func _ready() -> void:
 	build_grey_gallery()
 	build_connected_hall()
 	build_lion_modern_rooms()
+	# Room additions (#238): one script per room, each adding only its own nodes with
+	# positions taken from the room's walls (room_bounds, wall_point), so a later change
+	# to a room's size carries them along.
+	for extra in ADDITIONS:
+		if ResourceLoader.exists("res://"+extra):
+			load("res://"+extra).new().build(self)
 	var index:=0
 	for surface in find_children("*","MeshInstance3D",true,false):
 		if not visitor.is_ancestor_of(surface):

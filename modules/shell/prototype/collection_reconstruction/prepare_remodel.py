@@ -584,6 +584,13 @@ for name in ['decal-queens-roundel.png','decal-queens-boat.png','queens-decals-s
 copy(app/'medieval-case-inventory.json','assets/medieval-case-inventory.json')
 copy(app/'medieval-paper-source.json','assets/medieval-paper-source.json')
 hall_source=repo/'modules/shell/prototype/gallery_walk4'
+# Room additions (#238): every *_additions.gd beside this file, and its assets from
+# image-work/collection-room-remodel/additions/<room>/ as assets/additions/<room>/.
+for path in sorted(source.glob('*_additions.gd')):
+    copy(path,path.name)
+for path in sorted((app/'additions').rglob('*')):
+    if path.is_file():
+        copy(path,'assets/additions/'+str(path.relative_to(app/'additions')))
 for name in ['walk4.gd','works.json','gaps.json']:
     copy(hall_source/name,'modules/shell/prototype/gallery_walk4/'+name)
 for folder in ['frames','canvas','textures']:

@@ -426,23 +426,65 @@ func _objects() -> void:
 			continue
 		_mouse(at, true)
 		_mouse(at, false)
+		# The visitor walks up and turns, the camera glides in and the text panel fills.
 		var clock := 0.0
-		while walk._open.is_empty() and clock < 20.0:
+		while walk._inspect.is_empty() and clock < 20.0:
 			await process_frame
 			clock += root.get_process_delta_time()
 		entry["seconds_to_open"] = snappedf(clock, 0.1)
-		if walk._open.is_empty():
-			entry["result"] = "no detail opened"
+		if walk._inspect.is_empty():
+			entry["result"] = "nothing opened"
 			report.objects.append(entry)
 			_fail("object", tag + ": clicking it opened nothing", entry)
 			continue
-		for settle in 30:
+		for settle in 60:
 			await process_frame
-		await _shot("object-%s.png" % tag.to_lower().replace("/", "-").replace(" ", "-"))
-		walk._close_detail()
-		for settle in 10:
+		var slug: String = tag.to_lower().replace("/", "-").replace(" ", "-").replace("#", "-")
+		var looked := await _shot("object-%s.png" % slug)
+		var panel: Control = walk._inspect_panel
+		var title: String = panel.get_child(0).get_node("Title").text
+		entry["title_shown"] = title
+		entry["camera_glided"] = walk._inspect_t > 0.99
+		entry["flat_share"] = snappedf(_flat_share(looked), 0.001)
+		var problems := PackedStringArray()
+		if not panel.visible or title.strip_edges() == "":
+			problems.append("no title in the panel")
+		if title.begins_with("Authored Surface") or title.begins_with("@"):
+			problems.append("the title is a scene node name")
+		if not entry.camera_glided:
+			problems.append("the camera did not reach its shot")
+		if entry.flat_share > 0.6:
+			problems.append("the inspection shot is filled by one flat surface")
+		if walk._kid._clip != "idle":
+			problems.append("the visitor is not standing still")
+		# A second click on the work: the zoom page, which must close again.
+		var again := Vector2.ZERO
+		for corner in thing.corners:
+			again += walk._cam.unproject_position(corner) / thing.corners.size()
+		again = again / Vector2(walk._vp.size) * walk.size
+		_mouse(again, true)
+		_mouse(again, false)
+		clock = 0.0
+		while walk._open.is_empty() and clock < 4.0:
 			await process_frame
-		entry["result"] = "opened and closed" if walk._open.is_empty() else "would not close"
+			clock += root.get_process_delta_time()
+		if walk._open.is_empty():
+			problems.append("a second click did not open the zoom page")
+		else:
+			for settle in 20:
+				await process_frame
+			await _shot("zoom-%s.png" % slug)
+			walk._close_detail()
+			for settle in 10:
+				await process_frame
+			if not walk._open.is_empty():
+				problems.append("the zoom page would not close")
+		walk._end_inspect(false)
+		for settle in 50:
+			await process_frame
+		if walk._inspect_t > 0.01:
+			problems.append("the camera did not return")
+		entry["result"] = "inspected, zoomed and closed" if problems.is_empty() else ", ".join(problems)
 		report.objects.append(entry)
-		if not walk._open.is_empty():
-			_fail("object", tag + ": its detail would not close", entry)
+		if not problems.is_empty():
+			_fail("object", tag + ": " + entry.result, entry)

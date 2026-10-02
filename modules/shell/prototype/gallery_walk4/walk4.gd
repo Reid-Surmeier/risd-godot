@@ -2916,8 +2916,11 @@ func _update_camera(k: float) -> void:
 		_cam.look_at(_pos + forward * 2.0 + Vector3(0, 1.1, 0))
 		return
 	if view_mode != 2:
-		var pitch := deg_to_rad(42.0 if view_mode == 0 else 35.0)
-		var distance := 11.0 if view_mode == 0 else 9.3
+		# The New Horizons museum looks down 29-31 degrees through a 22-24 degree lens
+		# (docs/research/2026-10-01-acnh-museum-polish-spec.md). At 30 degrees and 12 m the
+		# visitor keeps the size approved in #133 and 3 m of wall shows instead of 2.4 m.
+		var pitch := deg_to_rad(30.0 if view_mode == 0 else 35.0)
+		var distance := 12.0 if view_mode == 0 else 9.3
 		_cam.fov = 23.0 if view_mode == 0 else 30.0
 		var forward := Vector3(-sin(view_yaw), 0, -cos(view_yaw))
 		var center := _pos + forward * 0.7 + Vector3(0, 1.25 if view_mode == 0 else 1.55, 0)

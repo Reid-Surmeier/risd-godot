@@ -29,6 +29,7 @@ const FAR_ROOMS := [
 # Render layers above the parent's own (1..32 Hall, 64..1024 its far space).
 const NEAR_LAYER := 2048
 const FAR_LAYER := 4096
+const VISITOR_LAYER := 1 << 19  # visitor.gd's own layer (its FILL_LAYER)
 const PORTAL_MOUTH := 2.2  # walk4._clamp: where the visitor leaves the stone passage
 const PORTAL_SIDE := 2.4  # the portal's stone sides end at 2.09 (Surface004), plus the visitor
 # ponytail: clearances tuned to root's 0.22 m capsule trials, not surveyed. Recheck after a room fit.
@@ -44,12 +45,24 @@ const SIDES := {
 var _rooms: Node3D
 var _plan: Array = []  # {label, b: [x0, x1, z0, z1] Hall-local, openings: {side: [lo, hi]}, far}
 var _blocks: Array[Rect2] = []  # furniture, cases, door leaves and floor voids, in x/z
-var _walls: Array = []  # {body, box, layers}: what the camera may cut away
+var _walls: Array = []  # {body, box, boxes, layers, room, side}: what the camera may cut away
+var _parts: Array = []  # {node, room, side, shown}: everything else in the rooms; side set if it hangs on a wall
+var _cut_state := 0
 var _grid: AStarGrid2D  # click routes; built on the first click that needs one
 # Every catalogued work in the added rooms, in walk4's painting-record shape plus
 # {object: true, node, room, layers, image}; clicked, approached and opened like a Hall painting.
 var _objects: Array = []
 var _caption: Label
+# Looking at a work in the room, as the New Horizons museum does: the camera glides to a low
+# shot behind the visitor and a text panel pages through the catalogue entry. A second click
+# on the work opens walk4's zoom page.
+var _inspect := {}
+var _inspect_t := 0.0  # 0 the walking view, 1 the inspection shot
+var _inspect_page := 0
+var _inspect_tween: Tween
+var _inspect_panel: PanelContainer
+var _inspect_from = null  # the last inspection shot, held while the camera glides back
+var _inspect_fov := 23.0
 
 
 func _build_test_room() -> void:
@@ -178,7 +191,15 @@ func _attach_rooms(path: String) -> void:
 			for part in body.get_children():
 				if part is MeshInstance3D and part.mesh!=null:
 					boxes.append(part.global_transform*part.get_aabb())
-		_walls.append({"body": body, "box": box, "boxes":boxes, "layers": _layers_of(visual)})
+		var owner_room := -1
+		var tag := str(body.get_meta("room_wall", ""))
+		for i in _plan.size():
+			if _plan[i].label == tag.get_slice(":", 0):
+				owner_room = i
+		_walls.append({
+			"body": body, "box": box, "boxes": boxes, "layers": _layers_of(visual),
+			"room": owner_room if tag.get_slice(":", 1) in SIDES else -1, "side": tag.get_slice(":", 1)
+		})
 		if (
 			not body.has_meta("room_wall")
 			and (shape is BoxShape3D or shape is CylinderShape3D)
@@ -190,6 +211,7 @@ func _attach_rooms(path: String) -> void:
 		if child is MeshInstance3D and child.layers >= 64 and child.layers <= 1024:
 			child.hide()
 	_collect_objects()
+	_collect_parts()
 	print("MAIN_BUILD_ROOMS ", JSON.stringify(state()))
 
 
@@ -203,6 +225,54 @@ func state() -> Dictionary:
 		"objects": _objects.size(),
 		"space": _space
 	}
+
+
+# Everything in the room scene that is not part of a wall body, with the room it stands in and,
+# if it hangs clear of the floor within 0.45 m of a wall, that wall.
+func _collect_parts() -> void:
+	var baked := _rooms.get_node_or_null("BakedRoom")
+	for node in _rooms.find_children("*", "GeometryInstance3D", true, false):
+		if baked != null and baked.is_ancestor_of(node):
+			continue
+		var in_wall := false
+		var up: Node = node.get_parent()
+		while up != null and up != _rooms:
+			in_wall = in_wall or up.has_meta("room_wall")
+			up = up.get_parent()
+		if in_wall or node.has_meta("room_wall"):
+			continue
+		var box: AABB = node.global_transform * node.get_aabb()
+		var centre := box.get_center()
+		# The room it reaches furthest into: a work on a shared wall belongs to the side it faces.
+		var flat := Rect2(box.position.x, box.position.z, box.size.x, box.size.z).grow(0.05)
+		var room := -1
+		var most := 0.0
+		for i in _plan.size():
+			var share := _room_rect(i).intersection(flat).get_area()
+			if share > most:
+				most = share
+				room = i
+		if room < 0:
+			var best := INF
+			for i in _plan.size():
+				var d := _room_rect(i).get_center().distance_squared_to(Vector2(centre.x, centre.z))
+				if d < best:
+					best = d
+					room = i
+		var side := ""
+		if box.position.y > 0.25:
+			var b: Array = _plan[room].b
+			var nearest := 0.45
+			for name in SIDES:
+				var gap: float = (
+					box.position.x - b[0]
+					if name == "west"
+					else b[1] - box.end.x if name == "east" else box.position.z - b[2] if name == "north" else b[3] - box.end.z
+				)
+				if gap < nearest:
+					nearest = gap
+					side = name
+		_parts.append({"node": node, "room": room, "side": side, "shown": node.visible})
 
 
 func _collect_objects() -> void:
@@ -337,19 +407,42 @@ func _painting_at(pt: Vector2) -> Dictionary:
 	return best
 
 
-# An added-room work: walk to the nearest free spot in front of it, face it, open it.
-func _approach(p: Dictionary) -> void:
-	if not p.has("object"):
-		super(p)
-		return
+# Where a visitor stands to look at a work, and which way it faces from the wall.
+# Beside the work rather than in front of its middle, so the inspection shot sees past the
+# visitor: the side with free floor, the nearer one if both are free.
+func _viewing(p: Dictionary) -> Dictionary:
 	var normal: Vector3 = p.normal
 	if normal == Vector3.ZERO:
 		normal = Vector3(_pos.x - p.center.x, 0, _pos.z - p.center.z).normalized()
-	var reach: float = p.outer.x / 2.0 + clampf(p.outer.y * 1.1, 1.0, 2.6)
-	var cell := _cell(Vector3(p.center.x, 0, p.center.z) + normal * reach)
-	if not _route_grid().is_in_boundsv(cell):
+	var along := normal.cross(Vector3.UP)
+	var foot := Vector3(p.center.x, 0, p.center.z)
+	var small: bool = p.outer.y < 0.6 or p.normal == Vector3.ZERO
+	var out: float = p.outer.x / 2.0 + 1.0 if small else clampf(p.outer.y * 0.9, 1.5, 2.5)
+	var aside: float = 0.4 if small else p.outer.x / 2.0 + 0.45
+	var best := {}
+	var nearest := INF
+	for side in [1.0, -1.0]:
+		var cell := _cell(foot + normal * out + along * side * aside)
+		if not _route_grid().is_in_boundsv(cell):
+			continue
+		var stand := Vector3(cell.x * GRID, 0, cell.y * GRID)
+		var d := stand.distance_to(_pos)
+		if d < nearest:
+			nearest = d
+			best = {"normal": normal, "along": along, "side": side, "stand": stand, "small": small}
+	return best
+
+
+# Any work, Hall painting or added-room object: walk to its viewing spot, face it, open it.
+func _approach(p: Dictionary) -> void:
+	if _rooms == null:
+		super(p)
 		return
-	var stand := Vector3(cell.x * GRID, 0, cell.y * GRID)
+	var view := _viewing(p)
+	if view.is_empty():
+		return
+	p["view"] = view
+	var stand: Vector3 = view.stand
 	_route_to(stand)
 	var mine := _action
 	while _target != null or not _path.is_empty():
@@ -370,15 +463,145 @@ func _approach(p: Dictionary) -> void:
 
 
 func _open_detail(p: Dictionary) -> void:
+	if _inspect.get("tag", "") != p.tag:
+		_begin_inspect(p)
+		return
+	# Already looking at it: the zoom page comes forward over the room.
+	_end_inspect(true)
 	super(p)
-	# The work comes forward instead of snapping on.
 	_detail.modulate.a = 0.0
-	_zoom_root.pivot_offset = _zoom_root.size / 2.0
-	_zoom_root.scale = Vector2(0.92, 0.92)
-	var tween := create_tween().set_parallel()
-	tween.tween_property(_detail, "modulate:a", 1.0, 0.18)
-	tween.tween_property(_zoom_root, "scale", Vector2.ONE, 0.22).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween.chain().tween_callback(func() -> void: _zoom_root.pivot_offset = Vector2.ZERO)
+	create_tween().tween_property(_detail, "modulate:a", 1.0, 0.25)
+
+
+func _pages(p: Dictionary) -> Array:
+	var rec: Dictionary = p.rec
+	var first := PackedStringArray()
+	if str(rec.get("artist", "")) != "":
+		first.append(str(rec.artist))
+	if str(rec.get("acc", "")) != "":
+		first.append("RISD Museum " + str(rec.acc))
+	var pages := [[str(rec.get("title", "")), "\n".join(first)]]
+	var second := PackedStringArray()
+	for field in ["medium", "dimensions"]:
+		if str(rec.get(field, "")) != "":
+			second.append(str(rec[field]))
+	if not second.is_empty():
+		pages.append([str(rec.get("title", "")), "\n".join(second)])
+	return pages
+
+
+func _begin_inspect(p: Dictionary) -> void:
+	_inspect = p
+	_inspect_page = 0
+	_velocity = Vector3.ZERO
+	_held.clear()
+	if _inspect_panel == null:
+		_inspect_panel = PanelContainer.new()
+		var back := StyleBoxFlat.new()
+		back.bg_color = Color(0.05, 0.06, 0.11, 0.62)
+		back.set_corner_radius_all(14)
+		back.set_content_margin_all(18)
+		_inspect_panel.add_theme_stylebox_override("panel", back)
+		_inspect_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		var lines := VBoxContainer.new()
+		lines.alignment = BoxContainer.ALIGNMENT_CENTER
+		_inspect_panel.add_child(lines)
+		for part in ["Title", "Body"]:
+			var label := Label.new()
+			label.name = part
+			label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			label.add_theme_color_override("font_color", Color("f4efe2"))
+			lines.add_child(label)
+		add_child(_inspect_panel)
+	_inspect_panel.hide()
+	if _inspect_tween:
+		_inspect_tween.kill()
+	_inspect_tween = create_tween()
+	_inspect_tween.tween_property(self, "_inspect_t", 1.0, 0.73).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	var mine := _action
+	await get_tree().create_timer(0.13).timeout
+	if _inspect.get("tag", "") != p.tag or _action != mine:
+		return
+	_play("item_select")
+	_show_page(false)
+	await get_tree().create_timer(0.54).timeout
+	if _inspect.get("tag", "") == p.tag and _action == mine:
+		_show_page(true)
+
+
+# The panel: bottom centre, 58% wide and 27.5% high, 8% up from the foot of the picture.
+func _show_page(with_text: bool) -> void:
+	_inspect_panel.size = Vector2(size.x * 0.58, size.y * 0.275)
+	_inspect_panel.position = Vector2(size.x * 0.21, size.y * (1.0 - 0.08 - 0.275))
+	var page: Array = _pages(_inspect)[_inspect_page]
+	var title: Label = _inspect_panel.get_child(0).get_node("Title")
+	var body: Label = _inspect_panel.get_child(0).get_node("Body")
+	title.add_theme_font_size_override("font_size", maxi(12, roundi(size.y * 0.046)))
+	body.add_theme_font_size_override("font_size", maxi(10, roundi(size.y * 0.032)))
+	title.text = page[0] if with_text else ""
+	body.text = page[1] if with_text else ""
+	_inspect_panel.modulate.a = 1.0
+	_inspect_panel.show()
+
+
+func _next_page() -> void:
+	if _inspect_page + 1 < _pages(_inspect).size():
+		_inspect_page += 1
+		_play("cursor")
+		_show_page(true)
+	else:
+		_end_inspect(false)
+
+
+func _end_inspect(to_zoom: bool) -> void:
+	if _inspect.is_empty():
+		return
+	_inspect = {}
+	if not to_zoom:
+		_play("cursor")
+	if _inspect_panel:
+		var fade := create_tween()
+		fade.tween_property(_inspect_panel, "modulate:a", 0.0, 0.2)
+		fade.tween_callback(_inspect_panel.hide)
+	if _inspect_tween:
+		_inspect_tween.kill()
+	_inspect_tween = create_tween()
+	_inspect_tween.tween_property(self, "_inspect_t", 0.0, 0.75).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+
+
+# Where the camera stands to look at a work: square on to it, 6 degrees down, far enough
+# that the work fills its share of the picture, never outside the room it hangs in. When
+# the room is too shallow for a 23-degree lens the lens widens instead.
+func _inspect_shot(p: Dictionary) -> Transform3D:
+	var view: Dictionary = p.get("view", {})
+	if view.is_empty():
+		view = _viewing(p)
+		p["view"] = view
+	var normal: Vector3 = view.normal
+	var height: float = maxf(p.outer.y, 0.05)
+	var share := lerpf(0.43, 0.68, clampf((height - 1.0) / 2.0, 0.0, 1.0))
+	var back := clampf(height / (share * 0.407), 4.5, 13.0)
+	var tilt := deg_to_rad(6.0)
+	if view.small:
+		# A case object or a small panel: near it, almost level, a third of the picture high.
+		share = 0.33
+		back = clampf(height / (share * 0.407), 1.6, 4.5)
+		tilt = deg_to_rad(3.0)
+	var foot := Vector3(p.center.x, 0, p.center.z)
+	var room := _room_at(foot + normal * 0.6)
+	var bounds: Array = _plan[room].b if room >= 0 else [-W / 2.0, W / 2.0, -L, 0.0]
+	var extent: float = absf(normal.x) * (bounds[1] - bounds[0]) + absf(normal.z) * (bounds[3] - bounds[2])
+	back = minf(back, maxf(1.4, extent - 0.6))
+	_inspect_fov = clampf(rad_to_deg(2.0 * atan(height / share / 2.0 / back)), 23.0, 50.0)
+	var eye := foot + normal * back
+	if view.small:
+		eye -= view.along * view.side * 0.35  # over the shoulder away from the visitor
+	# The work's centre sits 40% down the picture: a tenth of the lens above its axis.
+	eye.y = p.center.y + back * tan(tilt - deg_to_rad(_inspect_fov * 0.1))
+	var aim := Vector3(p.center.x, eye.y, p.center.z) - eye
+	var sight := (aim.normalized() * cos(tilt) + Vector3.DOWN * sin(tilt)).normalized()
+	return Transform3D(Basis.looking_at(sight, Vector3.UP), eye)
 
 
 func _fit_detail() -> void:
@@ -416,6 +639,34 @@ func _fit_detail() -> void:
 	_caption.size = Vector2(size.x, 0)
 	# Along the foot of the panel: a framed Hall painting reaches below its own picture.
 	_caption.position = Vector2(0, size.y - 22.0 * lines.size() - 12.0)
+
+
+func _gui_input(event: InputEvent) -> void:
+	if _inspect.is_empty() or not _open.is_empty():
+		super(event)
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if not event.pressed:
+			if _painting_at(event.position).get("tag", "") == _inspect.tag:
+				_open_detail(_inspect)  # a second click on the work: its zoom page
+			else:
+				_next_page()
+		accept_event()
+
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if _inspect.is_empty() or not _open.is_empty() or not event.pressed or event.echo:
+		super(event)
+		return
+	if event.keycode in [KEY_ENTER, KEY_KP_ENTER, KEY_SPACE, KEY_E]:
+		_next_page()
+		get_viewport().set_input_as_handled()
+	elif event.keycode == KEY_ESCAPE:
+		_end_inspect(false)
+		get_viewport().set_input_as_handled()
+	elif event.keycode in [KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_W, KEY_A, KEY_S, KEY_D]:
+		_end_inspect(false)  # walking away closes it
+		super(event)
 
 
 # A wall belongs to its room; anything else to every room group its footprint reaches.
@@ -799,7 +1050,8 @@ func _update_camera(k: float) -> void:
 	super(k)
 	if _rooms == null:
 		return
-	var added := _room_at(_pos) >= 0
+	var here := _room_at(_pos)
+	var added := here >= 0
 	if _baked_room:
 		_baked_room.get_node("Lightmap").visible = not added
 	var capture := _rooms.get_node_or_null("BakedRoom/Lightmap")
@@ -807,18 +1059,46 @@ func _update_camera(k: float) -> void:
 		capture.visible = added
 	if _white_capture:
 		_white_capture.visible = false # The attached rooms carry their own native probe field.
-	if view_mode == 2 and _room_at(_pos) >= 0:
+	if view_mode == 2 and added:
 		# walk4's follow camera is boxed into its stand-in rooms; in an added room it just follows.
 		var forward := _fwd()
 		_cam.fov = 58.0
-		_cam.position = _pos - forward * 3.1 + Vector3(0, 2.45, 0)
+		var head := _pos + Vector3(0, 1.3, 0)
+		var want := _pos - forward * 3.1 + Vector3(0, 2.45, 0)
+		# Like the Hall's own follow camera, it stays in the visitor's room: pulled in along
+		# the line from the head until it is clear of the walls. Doorway-sized rooms are let be.
+		var room := _room_rect(here).grow(-0.25)
+		if room.size.x > 0.9 and room.size.y > 0.9:
+			var reach := 1.0
+			for axis in [[head.x, want.x, room.position.x, room.end.x], [head.z, want.z, room.position.y, room.end.y]]:
+				if axis[1] < axis[2] and axis[0] > axis[2]:
+					reach = minf(reach, (axis[2] - axis[0]) / (axis[1] - axis[0]))
+				elif axis[1] > axis[3] and axis[0] < axis[3]:
+					reach = minf(reach, (axis[3] - axis[0]) / (axis[1] - axis[0]))
+			want = head + (want - head) * maxf(reach, 0.15)
+		_cam.position = want
 		_cam.look_at(_pos + forward * 2.0 + Vector3(0, 1.1, 0))
+	var inspecting := _inspect_t > 0.0 and (not _inspect.is_empty() or _inspect_from != null)
+	if inspecting:
+		var shot: Transform3D = _inspect_from if _inspect.is_empty() else _inspect_shot(_inspect)
+		if not _inspect.is_empty():
+			_inspect_from = shot
+		_cam.global_transform = _cam.global_transform.interpolate_with(shot, _inspect_t)
+		_cam.fov = lerpf(_cam.fov, _inspect_fov, _inspect_t)
+	elif _inspect_t <= 0.0:
+		_inspect_from = null
 	var shown: int = NEAR_LAYER | FAR_LAYER # Both adjoining room interiors are visible through their doors.
-	_cam.cull_mask |= shown
-	var here := _room_at(_pos)
+	# The visitor and its shadows have a layer of their own, so hiding the Hall never hides them.
+	_cam.cull_mask |= shown | VISITOR_LAYER
+	_shadow.layers |= VISITOR_LAYER
+	for patch in _sole_shadows:
+		patch.layers |= VISITOR_LAYER
 	if _space == "gallery":
 		_cam.cull_mask |= FAR_LAYER
-	elif _space == "far" and here >= 0:
+		if inspecting:
+			# Inside the Hall looking at a wall: every wall back, no dollhouse cut-away.
+			_cam.cull_mask = _cutaway_mask(63, minf(0.2, get_process_delta_time() * 2.5)) | shown | VISITOR_LAYER
+	elif _space == "far" and added:
 		# The parent's far-space rule leaves the Hall's last wall fade untouched.
 		_cutaway_alpha[8] = 1.0
 		for entry in _cutaway_materials.get(8, []):
@@ -828,20 +1108,60 @@ func _update_camera(k: float) -> void:
 		var toward := _fwd() if view_mode == 2 else Vector3(-sin(view_yaw), 0, -cos(view_yaw))
 		var hidden := (4 if toward.x < -0.2 else 2 if toward.x > 0.2 else 0) | (16 if toward.z < -0.2 else 0)
 		_cam.cull_mask |= 63 if view_mode == 2 else 31 & ~hidden
-	# Same intent as the room scene's ray test, without physics: a body that stands between the
-	# camera and the visitor loses its visual, and its trim goes with it.
+	# A dollhouse: the room the visitor is in is an open set. Its walls on the camera's side,
+	# what hangs on them, and every room that lies between the camera and it are not drawn.
 	var eye := _cam.global_position
+	var flat_eye := Vector2(eye.x, eye.z)
+	var hall := Rect2(-W / 2.0, -L, W, L)
+	var stage: Rect2 = _room_rect(here) if added else hall
+	var lens := PackedVector2Array([flat_eye])
+	var inner := stage.grow(-0.3)
+	for corner in [inner.position, Vector2(inner.end.x, inner.position.y), inner.end, Vector2(inner.position.x, inner.end.y)]:
+		lens.append(corner)
+	lens = Geometry2D.convex_hull(lens)
+	var cut := {}  # room index -> true (all of it) or a Dictionary of its sides
+	# Only the dollhouse views open the set. The follow view and an inspection stand inside
+	# the room, where every wall belongs in the picture.
+	var open_set := view_mode != 2 and not inspecting
+	for i in _plan.size():
+		var area := _room_rect(i)
+		if open_set and i != here and (area.has_point(flat_eye) or _overlap(lens, area.grow(-0.15))):
+			cut[i] = true
+			continue
+		var b: Array = _plan[i].b
+		cut[i] = {
+			"west": open_set and eye.x < b[0],
+			"east": open_set and eye.x > b[1],
+			"north": open_set and eye.z < b[2],
+			"south": open_set and eye.z > b[3]
+		}
+	if open_set and added and (hall.has_point(flat_eye) or _overlap(lens, hall.grow(-0.15))):
+		_cam.cull_mask &= ~63
+	var state := hash([here, cut, eye.y > 3.4])
+	if state != _cut_state:
+		_cut_state = state
+		for part in _parts:
+			var rule = cut[part.room]
+			part.node.visible = part.shown and not (rule is bool or (part.side != "" and rule[part.side]))
+	# A wall also goes when it stands between the camera and the visitor, and its trim with it.
 	var across := _cam.global_transform.basis.x
 	across.y = 0.0
 	for wall in _walls:
 		var clear := true
-		if wall.layers & shown:
+		if wall.room >= 0:
+			var rule = cut[wall.room]
+			clear = not (rule is bool or rule[wall.side])
+		if clear and wall.layers & shown:
 			for offset in [-0.45, 0.0, 0.45]:
 				for height in [0.5, 1.5]:
 					var subject: Vector3 = _pos + across * offset + Vector3(0, height, 0)
 					for section in wall.boxes:
 						if (section as AABB).intersects_segment(eye, subject) != null:
 							clear = false
+			if not _inspect.is_empty():
+				for section in wall.boxes:
+					if (section as AABB).intersects_segment(eye, _inspect.center + _inspect.normal * 0.15) != null:
+						clear = false
 		var body: Node = wall.body
 		for i in range(1, body.get_child_count()):
 			body.get_child(i).visible = clear
@@ -849,3 +1169,15 @@ func _update_camera(k: float) -> void:
 	if _rooms.has_method("update_baked_visibility"):
 		_rooms.set("camera", _cam)
 		_rooms.update_baked_visibility()
+
+
+func _room_rect(index: int) -> Rect2:
+	var b: Array = _plan[index].b
+	return Rect2(b[0], b[2], b[1] - b[0], b[3] - b[2])
+
+
+func _overlap(shape: PackedVector2Array, area: Rect2) -> bool:
+	var box := PackedVector2Array([
+		area.position, Vector2(area.end.x, area.position.y), area.end, Vector2(area.position.x, area.end.y)
+	])
+	return not Geometry2D.intersect_polygons(shape, box).is_empty()
