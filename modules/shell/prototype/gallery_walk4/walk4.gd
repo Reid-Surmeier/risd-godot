@@ -2023,14 +2023,19 @@ func _place(tag: String, rec: Dictionary, node: Node3D, at: Vector3, rot: float)
 	pool.position = Vector3(0, 0.25, 0.004)
 	node.add_child(pool)
 	node.move_child(pool, 0)
-	# Small neutral caption plates are visible beside the source paintings.
-	# Their photographed text is unresolved; do not invent museum wording.
+	# A white label card (#238, finish spec step 6): its top edge 5 cm below the frame's lower
+	# corner, or beside that corner where the frame hangs too low to leave room above the
+	# skirting. Their photographed text is unresolved; do not invent museum wording.
 	var caption := MeshInstance3D.new()
 	var plate := BoxMesh.new()
-	plate.size = Vector3(0.12, 0.17, 0.006)
+	plate.size = Vector3(0.30, 0.17, 0.006)
 	caption.mesh = plate
-	caption.material_override = ps(null, Color("#a3afb8"))
-	caption.position = Vector3(outer.x / 2.0 + 0.105, 1.45 - at.y, 0.014)
+	caption.material_override = ps(null, Color("#e9e4d4"))
+	caption.position = (
+		Vector3(outer.x / 2.0 - 0.15, -outer.y / 2.0 - 0.135, 0.014)
+		if at.y - outer.y / 2.0 >= 0.52
+		else Vector3(outer.x / 2.0 + 0.2, -outer.y / 2.0 + 0.085, 0.014)
+	)
 	caption.set_meta("caption_plate", true)
 	node.add_child(caption)
 	var layer := (

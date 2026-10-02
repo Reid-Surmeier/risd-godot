@@ -134,9 +134,9 @@ func _prepare() -> void:
 			# Local neutral fill keeps plaster distinct from the warm vault bake.
 			material.emission_enabled = true
 			material.emission = (
-				Color(0.55, 0.55, 0.55)
+				Color(0.06, 0.06, 0.06)
 				if source.get_meta("baseboard", false)
-				else Color(0.35, 0.35, 0.35)
+				else Color(0.04, 0.04, 0.04)
 			)
 		var uv_scale = original.get_shader_parameter("uv_scale")
 		if uv_scale != null:
@@ -202,55 +202,76 @@ func _prepare() -> void:
 		room.add_child(instance)
 		instance.owner = room
 		index += 1
-	for z in [-3.0, -8.0, -13.0, -18.0, -23.0]:
+	# #238: the light follows the New Horizons museum (docs/research/2026-10-01-acnh-museum-
+	# polish-spec.md, step 3): little fill, a cream-white pool on each work, and the skylight
+	# as a soft pool down the middle of the floor. bake/measure_light.gd checks the result.
+	var lamps := []  # written to baked/lamps.json for the floor's highlights
+	var bays := [-3.0, -8.0, -13.0, -18.0, -23.0]
+	for z in bays:
 		var light := OmniLight3D.new()
 		light.position = Vector3(0, 5.7, z)
 		light.omni_range = 13.0
 		light.omni_attenuation = 0.65
-		light.light_energy = 0.55
-		light.light_color = Color("#ffe1b2")
+		light.light_energy = 0.015
+		light.light_color = Color("#fff4dc")
 		light.light_size = 2.5
 		light.light_bake_mode = Light3D.BAKE_STATIC
 		light.shadow_enabled = true
 		room.add_child(light)
 		light.owner = room
-	# Offline spotlights: local warm pools around the paintings, retained in the lightmap.
+		lamps.append(_lamp(light, Vector3(0, 0, z), "fill"))
+	# Offline spotlights: one pool per painting, retained in the lightmap. The cone is sized
+	# from the frame's width so the pool ends just outside the frame, and aimed a quarter of
+	# the frame's height above its centre: the pool shows on the wall over the frame (canvas
+	# and frame are unshaded) and stays off the floor.
 	for painting in walk._paintings:
 		var spot := SpotLight3D.new()
 		room.add_child(spot)
 		spot.owner = room
 		spot.position = painting.center + painting.normal * 2.2 + Vector3.UP * 3.1
-		spot.look_at(painting.center, Vector3.UP)
+		var aim: Vector3 = painting.center + Vector3.UP * painting.outer.y * 0.25
+		spot.look_at(aim, Vector3.UP)
 		spot.spot_range = 7.0
-		spot.spot_angle = 25.0
-		spot.spot_angle_attenuation = 1.5
-		spot.light_color = Color("#ffd391")
-		spot.light_energy = 6.8
-		spot.light_size = 0.35
+		spot.spot_angle = clampf(
+			rad_to_deg(atan(0.62 * painting.outer.x / spot.position.distance_to(painting.center))),
+			12.0,
+			28.0
+		)
+		spot.spot_angle_attenuation = 1.0
+		# Near white: the card's own paint (#e9e4d4) and the oak's bounce add the cream. With
+		# #fff6e8 a card measured red 1.31 x blue; the target is 1.25 at most.
+		spot.light_color = Color("#fffefb")
+		spot.light_energy = 11.0
+		spot.light_size = 0.25
 		spot.light_bake_mode = Light3D.BAKE_STATIC
 		spot.shadow_enabled = true
+		lamps.append(_lamp(spot, aim, "painting"))
 	var daylight := DirectionalLight3D.new()
-	# across the gallery, avoiding a hard far-lunette shadow
-	daylight.rotation_degrees = Vector3(-60, -75, 0)
+	# Straight down through the glazing: a pool on the floor that leaves the walls to the spots.
+	daylight.rotation_degrees = Vector3(-90, 0, 0)
 	daylight.light_color = Color("#eff5ff")
-	daylight.light_energy = 0.35
-	daylight.light_angular_distance = 6.0
+	daylight.light_energy = 0.08
+	daylight.light_angular_distance = 15.0
 	daylight.light_bake_mode = Light3D.BAKE_STATIC
 	daylight.shadow_enabled = true
 	room.add_child(daylight)
 	daylight.owner = room
+	for z in bays:
+		daylight.position = Vector3(0, walk.H + walk.VAULT_RISE, z)
+		lamps.append(_lamp(daylight, Vector3(0, 0, z), "skylight"))
 	# #160 prototype: broad neutral bounce at the far doorway, offline only.
 	var doorway_fill := OmniLight3D.new()
 	doorway_fill.position = Vector3(0, 3.4, -23.0)
 	doorway_fill.omni_range = 7.0
 	doorway_fill.omni_attenuation = 0.6
-	doorway_fill.light_energy = 0.8
+	doorway_fill.light_energy = 0.26
 	doorway_fill.light_color = Color("#eef2ff")
 	doorway_fill.light_size = 2.0
 	doorway_fill.light_bake_mode = Light3D.BAKE_STATIC
 	doorway_fill.shadow_enabled = true
 	room.add_child(doorway_fill)
 	doorway_fill.owner = room
+	lamps.append(_lamp(doorway_fill, Vector3(0, 0, -23.0), "fill"))
 	var recess_fill := OmniLight3D.new()
 	recess_fill.position = Vector3(0, 2.2, -27.65)
 	recess_fill.omni_range = 4.0
@@ -262,6 +283,7 @@ func _prepare() -> void:
 	recess_fill.shadow_enabled = true
 	room.add_child(recess_fill)
 	recess_fill.owner = room
+	lamps.append(_lamp(recess_fill, Vector3(0, 0, -27.65), "fill"))
 	# #167: local diffuse illumination on the museum-side portal, outside the gallery.
 	var portal_fill := OmniLight3D.new()
 	portal_fill.position = Vector3(0, 3.1, 4.0)
@@ -274,17 +296,19 @@ func _prepare() -> void:
 	portal_fill.shadow_enabled = true
 	room.add_child(portal_fill)
 	portal_fill.owner = room
+	lamps.append(_lamp(portal_fill, Vector3(0, 0, 4.0), "fill"))
 	var arch_fill := OmniLight3D.new()
 	arch_fill.position = Vector3(0, 2.5, -1.8)
 	arch_fill.omni_range = 3.0
 	arch_fill.omni_attenuation = 0.6
-	arch_fill.light_energy = 0.65
+	arch_fill.light_energy = 0.21
 	arch_fill.light_color = Color("#f5f5f2")
 	arch_fill.light_size = 1.4
 	arch_fill.light_bake_mode = Light3D.BAKE_STATIC
 	arch_fill.shadow_enabled = true
 	room.add_child(arch_fill)
 	arch_fill.owner = room
+	lamps.append(_lamp(arch_fill, Vector3(0, 0, -1.8), "fill"))
 	var lm := LightmapGI.new()
 	lm.name = "Lightmap"
 	lm.quality = LightmapGI.BAKE_QUALITY_MEDIUM
@@ -302,11 +326,28 @@ func _prepare() -> void:
 				probe.owner = room
 	lm.environment_mode = LightmapGI.ENVIRONMENT_MODE_CUSTOM_COLOR
 	lm.environment_custom_color = Color("#dfd6c7")
-	lm.environment_custom_energy = 0.18
+	lm.environment_custom_energy = 0.03
 	room.add_child(lm)
 	lm.owner = room
+	var file := FileAccess.open(DIR + "baked/lamps.json", FileAccess.WRITE)
+	if file != null:
+		file.store_string(JSON.stringify(lamps, "\t") + "\n")
+		file.close()
 	var scene := PackedScene.new()
 	scene.pack(room)
 	var error := ResourceSaver.save(scene, DIR + "baked/room.tscn")
 	print("BAKE_PREPARE surfaces=", index, " result=", error)
 	quit(0 if error == OK else 1)
+
+
+# One lamp of the bake as the game reads it: where it is, what it lights, colour and strength.
+func _lamp(light: Light3D, target: Vector3, kind: String) -> Dictionary:
+	var metres := func(p: Vector3) -> Array:
+		return [snappedf(p.x, 0.001), snappedf(p.y, 0.001), snappedf(p.z, 0.001)]
+	return {
+		"position": metres.call(light.position),
+		"target": metres.call(target),
+		"color": "#" + light.light_color.to_html(false),
+		"energy": snappedf(light.light_energy, 0.001),
+		"kind": kind
+	}
