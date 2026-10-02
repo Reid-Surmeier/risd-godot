@@ -478,7 +478,8 @@ func _objects() -> void:
 		entry["work_on_screen"] = [roundi(work.position.x), roundi(work.position.y), roundi(work.size.x), roundi(work.size.y)]
 		if not Rect2(Vector2.ZERO, walk.size).grow(2).encloses(work):
 			problems.append("the work is not wholly in the inspection picture")
-		if work.intersects(_on_screen(body)):
+		entry["visitor_stepped_out"] = not walk._kid.visible
+		if walk._kid.visible and work.intersects(_on_screen(body)):
 			problems.append("the visitor covers the work")
 		# A second click on the work: the zoom page, which must close again.
 		var again := Vector2.ZERO

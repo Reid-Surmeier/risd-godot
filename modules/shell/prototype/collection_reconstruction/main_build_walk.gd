@@ -460,15 +460,18 @@ func _viewing(p: Dictionary) -> Dictionary:
 	var foot := Vector3(p.center.x, 0, p.center.z)
 	var small: bool = p.outer.y < 0.6 or p.normal == Vector3.ZERO
 	var out: float = p.outer.x / 2.0 + 1.0 if small else clampf(p.outer.y * 0.9, 1.5, 2.5)
-	var aside: float = 0.4 if small else p.outer.x / 2.0 + 0.45
+	# Clear of the work's edge by more than the visitor's half-width and one route-grid cell.
+	var aside: float = p.outer.x / 2.0 + 0.75
 	var best := {}
 	var nearest := INF
 	for side in [1.0, -1.0]:
-		var cell := _cell(foot + normal * out + along * side * aside)
+		var wanted: Vector3 = foot + normal * out + along * side * aside
+		var cell := _cell(wanted)
 		if not _route_grid().is_in_boundsv(cell):
 			continue
 		var stand := Vector3(cell.x * GRID, 0, cell.y * GRID)
-		var d := stand.distance_to(_pos)
+		# A side where a wall or a case pushes the spot back in front of the work loses.
+		var d := stand.distance_to(_pos) + maxf(0.0, stand.distance_to(wanted) - 0.2) * 10.0
 		if d < nearest:
 			nearest = d
 			best = {"normal": normal, "along": along, "side": side, "stand": stand, "small": small}
@@ -635,18 +638,13 @@ func _inspect_shot(p: Dictionary) -> Transform3D:
 	var extent: float = absf(normal.x) * (bounds[1] - bounds[0]) + absf(normal.z) * (bounds[3] - bounds[2])
 	back = minf(back, maxf(1.4, extent - 0.6))
 	var shift: float = -view.side * 0.35 if view.small else 0.0  # over the shoulder away from the visitor
-	# The visitor never stands between the lens and the work. Where the floor squeezed the
-	# viewing spot in front of it, the lens comes in ahead of the visitor and widens.
-	var widest := 50.0
+	# The visitor never covers the work. Where furniture squeezed the viewing spot in front
+	# of it, the visitor steps out of this one picture rather than the lens losing the work.
 	var rel := Vector3(_pos.x, 0, _pos.z) - foot
 	var depth := rel.dot(normal)
-	if depth > 0.0 and depth < back:
-		var gap := absf(rel.dot(view.along) - shift * depth / back)
-		if gap < 0.45 + p.outer.x / 2.0 * (1.0 - depth / back):
-			back = maxf(0.8, depth - 0.5)
-			shift = 0.0
-			widest = 75.0
-	_inspect_fov = clampf(rad_to_deg(2.0 * atan(height / share / 2.0 / back)), 23.0, widest)
+	var gap := absf(rel.dot(view.along) - shift * depth / back)
+	p["covered"] = depth > 0.0 and depth < back and gap < 0.35 + p.outer.x / 2.0 * (1.0 - depth / back)
+	_inspect_fov = clampf(rad_to_deg(2.0 * atan(height / share / 2.0 / back)), 23.0, 50.0)
 	var eye: Vector3 = foot + normal * back + view.along * shift
 	# The work's centre sits 40% down the picture: a tenth of the lens above its axis.
 	eye.y = p.center.y + back * tan(tilt - deg_to_rad(_inspect_fov * 0.1))
@@ -1135,6 +1133,9 @@ func _update_camera(k: float) -> void:
 		if not _inspect.is_empty():
 			_inspect_from = shot
 		_cam.global_transform = _cam.global_transform.interpolate_with(shot, _inspect_t)
+		var beside: bool = _inspect_t < 0.5 or not _inspect.get("covered", false)
+		for body in [_kid, _shadow] + _sole_shadows:
+			body.visible = beside
 		_cam.fov = lerpf(_cam.fov, _inspect_fov, _inspect_t)
 	elif _inspect_t <= 0.0:
 		_inspect_from = null
