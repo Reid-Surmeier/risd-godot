@@ -1,19 +1,17 @@
-<img src="docs/media/title.png" width="100%" alt="Welcome to RISD Museum. Playground launched October 2026. Come curious, leave inspired.">
+<p align="center">
+  <img src="docs/media/title.png" width="460" alt="Welcome to RISD Museum. Playground launched October 2026. Come curious, leave inspired.">
+</p>
 
 # RISD Museum Playground
 
-A browser game for looking around the RISD Museum collection. It opens as a desktop with seven tabs: Map, Sketchbook, 3D Viewer, Video Player, Collection, Playground and Flowers. The recordings below show three of them running.
+RISD Museum Playground is a browser game for exploring the RISD Museum collection. It contains playable modes, including walking the replica of the RISD Museum's physical location, a draw mode which allows you to draw digitally from paintings and sculptures, and a 3D sculpture viewer tab for viewing a selection of 3D scans.
 
-The game is made in [Godot 4.7](https://godotengine.org) and exported to the web. The museum rooms are rebuilt from walkthrough footage of the real galleries, and the sculptures are 3D scans.
+The game also has more pages that are currently still under development and will be added soon.
+
+The following are some demos of current drafts of each of the tabs.
 
 > [!WARNING]
 > This is a work in progress.
-
-## Collection
-
-You walk the museum as a small visitor. Click a work and the visitor goes over to it and its label comes up. Click again and the piece fills the screen so you can look closely. The clips below are cut from one walk, recorded on the [`room/runtime`](https://github.com/Reid-Surmeier/risd-godot/tree/room/runtime) branch.
-
-Setting off from the first room:
 
 <img src="docs/media/walk-1-first-room.webp" width="100%" alt="The visitor crosses a room of furniture and porcelain and heads for a doorway">
 
@@ -28,10 +26,6 @@ The medieval room:
 The European gallery, and a Spanish Crucifixion on its east wall:
 
 <img src="docs/media/walk-4-european.webp" width="100%" alt="The visitor walks a long light gallery, clicks a Crucifixion panel and sees it full screen">
-
-A Piranesi print at the other end of the same gallery:
-
-<img src="docs/media/walk-5-print.webp" width="100%" alt="The visitor walks to a framed etching, reads its label and opens it full screen">
 
 [Download the whole walk (1:52, MP4)](https://github.com/Reid-Surmeier/risd-godot/raw/main/docs/media/collection.mp4)
 
