@@ -31,8 +31,6 @@ The European gallery, and a Spanish Crucifixion on its east wall:
 
 ## Sketchbook
 
-There is a paint box, a palette for mixing colours, and a book to draw in. A framed painting and a turning 3D scan sit next to the page as reference. Each of these is a window you can drag and resize.
-
 <img src="docs/media/sketchbook.webp" width="100%" alt="Painting in the sketchbook with a brush while a framed painting and a 3D scan sit beside it">
 
 [Download the full recording (1:17, MP4)](https://github.com/Reid-Surmeier/risd-godot/raw/main/docs/media/sketchbook.mp4)
@@ -40,3 +38,9 @@ There is a paint box, a palette for mixing colours, and a book to draw in. A fra
 ## 3D Viewer
 
 <img src="docs/media/3d-viewer.webp" width="100%" alt="A scanned sculpture of a pile of skulls is turned and zoomed, then a painted wooden bust">
+
+## Frames and assets
+
+<img src="docs/media/assets.webp" width="100%" alt="The game's picture frames, turning sculpture scans, paint tools, icons and windows, shown in turn on a white background">
+
+[Download the video (0:30, MP4)](https://github.com/Reid-Surmeier/risd-godot/raw/main/docs/media/assets.mp4)
