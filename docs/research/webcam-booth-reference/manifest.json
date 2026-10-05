@@ -1,0 +1,42 @@
+[
+  {
+    "node": "1:5",
+    "file": "1-5-visual.png",
+    "kind": "get_figjam visual export, not original upload",
+    "sha256": "35d354cc27f11c9cc1b6f6d6a40c45b00eb12168320e5d7873d1603d98e955f9",
+    "bytes": 948167,
+    "source": "https://www.figma.com/board/T3TSj0MQ2a26sdSLDB6l7A/Untitled?node-id=1-5",
+    "provider": "Figma MCP",
+    "cost_usd": 0
+  },
+  {
+    "node": "1:398",
+    "file": "1-398-visual.png",
+    "kind": "get_figjam visual export, not original upload",
+    "sha256": "c7f00e420806f12f679c3cd5e5b2afb8353577b4296c8c321c94b97b1c313af8",
+    "bytes": 1130807,
+    "source": "https://www.figma.com/board/T3TSj0MQ2a26sdSLDB6l7A/Untitled?node-id=1-398",
+    "provider": "Figma MCP",
+    "cost_usd": 0
+  },
+  {
+    "node": "1:399",
+    "file": "1-399-visual.png",
+    "kind": "get_figjam visual export, not original upload",
+    "sha256": "1265c94186f7b11d019060b819ad486d9ae2a8fc909acd0b70226fd5532fc395",
+    "bytes": 245397,
+    "source": "https://www.figma.com/board/T3TSj0MQ2a26sdSLDB6l7A/Untitled?node-id=1-399",
+    "provider": "Figma MCP",
+    "cost_usd": 0
+  },
+  {
+    "node": "1:4",
+    "file": "1-4-visual.png",
+    "kind": "get_figjam visual export, not original upload",
+    "sha256": "41501d6814a33e44be6e07503273a75e1c0a0f6312fa3bf1bd7e34219cc82a06",
+    "bytes": 349864,
+    "source": "https://www.figma.com/board/T3TSj0MQ2a26sdSLDB6l7A/Untitled?node-id=1-4",
+    "provider": "Figma MCP",
+    "cost_usd": 0
+  }
+]

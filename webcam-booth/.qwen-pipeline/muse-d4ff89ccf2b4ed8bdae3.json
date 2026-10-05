@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-d4ff89ccf2b4ed8bdae3",
+  "summary": "Create one low-poly retro game portrait using exactly two ordered image references. Image one is the subject photograph: preserve the adult person's recognizable face, bald head, skin tone, red shirt, neck and shoulders. Image two is a style reference, not the identity to depict: use its flat polygonal facets, soft pastel lighting, limited retro palette and early Nintendo 3D game appearance. Keep the subject facing the camera, with the neck and shoulders continuing to the bottom edge. Show a simple blue gradient backdrop and the playful yellow spiral sun from the style reference. The result is the user's transformed portrait, not Wario; do not add Wario's moustache, goggles, hat, ears or slapping hand. Exclude the photograph's desk, keyboard, cup, watermark and other objects. Exclude all text, UI chrome, painting frames, gloves, bomb and fuse graphics; those are composed separately by the application. Use the requested output framing to leave some blue space around the head and shoulders. Return only the single finished portrait image.\n",
+  "procedureId": "muse-d4ff89ccf2b4ed8bdae3",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "10.00",
+  "references": [
+    {
+      "path": "assets/photo-fixture.png",
+      "sha256": "1265c94186f7b11d019060b819ad486d9ae2a8fc909acd0b70226fd5532fc395",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "assets/portrait-fixture.png",
+      "sha256": "35d354cc27f11c9cc1b6f6d6a40c45b00eb12168320e5d7873d1603d98e955f9",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "image-work/recipe.json",
+      "sha256": "d4ff89ccf2b4ed8bdae3c1116f8dbc85c78abc579534ed684cba45d604e5a5b2"
+    },
+    {
+      "applicationPath": "image-work/generation-preflight.json",
+      "sha256": "988a7733e02a6c3a07597b80be2e39c1a543612ef1737fda82a383019111622f"
+    },
+    {
+      "applicationPath": "image-work/portrait-prompt.txt",
+      "sha256": "4d89404fb2a5b923912ada561054806575d308ed5c13569b057137e0f280a808"
+    }
+  ]
+}

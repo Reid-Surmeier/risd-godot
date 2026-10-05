@@ -1,0 +1,8 @@
+{
+  "provenance": "Owner-delegated booth, Figma node1:5 and inspected Rayque3 Rude Awakening gameplay provide appearance. Muse run-ffd94d1e215418ca04e46b1a supplies opening anchor. Full-portrait explosion and eleven-second clip are an authored adaptation; original source was a short lower-left starburst.",
+  "behavior": "Hold the lower-left lavender-outline Wario-head bomb fixed. Burn horizontal fuse from RIGHT to LEFT with a small orange-yellow spark. After ten full seconds, an opaque faceted comic explosion spreads from lower left across the whole canvas then clears completely to green.",
+  "timing": "Eleven seconds total. 0.0-0.4 hold. 0.4-9.7 consume fuse steadily right to left. 9.7-10.0 final spark reaches bomb. No explosion before10.0. 10.0-10.6 explosion expands to cover whole canvas. 10.6-11.0 clears completely to flat green.",
+  "spatialPermissions": "Static camera and perfectly flat RGB0,255,0 matte. Only fuse/spark/explosion move. No face, character body, hands, frame, gloves, scenery, text or camera movement. Burst may cover entire portrait area.",
+  "cancelRestart": "Runtime cancellation hides overlay and discards portrait. Reset returns camera. Each completed portrait restarts this same reusable clip; late provider results never restart old portrait.",
+  "historicalFidelity": false
+}

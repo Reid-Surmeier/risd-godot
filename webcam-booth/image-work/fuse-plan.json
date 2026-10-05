@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "001",
+      "prompt": "image-work/fuse-prompt.txt",
+      "promptSha256": "04b938ec47a408037ab270dccf66a4d1f719ab1fda5b809957ee76b71a3fcb2b",
+      "size": "1280x720",
+      "inputs": [
+        {
+          "path": "assets/portrait-fixture.png",
+          "sha256": "35d354cc27f11c9cc1b6f6d6a40c45b00eb12168320e5d7873d1603d98e955f9"
+        }
+      ]
+    }
+  ]
+}

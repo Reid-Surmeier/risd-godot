@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "submissions": 1,
+  "run": "run-016a639a0576f9e86c6b9c1d",
+  "source": "Chromium synthetic camera (fixture injection size mismatch prevented update)",
+  "physical_webcam_tested": false,
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "reserved_usd": 0.01,
+  "fixture_likeness_verified": false
+}

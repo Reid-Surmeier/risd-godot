@@ -1,0 +1,45 @@
+{
+  "map": "https://github.com/Reid-Surmeier/risd-godot/issues/195",
+  "worktree": "/home/reidsurmeier/orca/workspaces/risd-godot/webcam-booth-195",
+  "branch": "Reid-Surmeier/webcam-booth-195",
+  "base": "55e7c3b7f048a5a7a27b71fc962c040e7aa5893e",
+  "status": "complete",
+  "lease_until_utc": null,
+  "deadline_utc": "2026-09-30T12:00:00Z",
+  "spend_ceiling_usd": 10,
+  "spent_usd": 2.62195,
+  "completed": [
+    "map195 and research196/197/prototype198",
+    "spec200 and tickets201\u2013205 implemented",
+    "capture and actual source-verified Muse generation",
+    "four-glove frame, accepted ten-second fuse and explosion",
+    "local pinned worker expression deformation",
+    "responsive accessible controls",
+    "budget failure-path fixes and four native checks",
+    "browser11/strictTS/tracking/expression/responsive/root/diff checks",
+    "three independent gpt-6.1-sol/high reviews: ship",
+    "scoped heartbeat disabled; live share kept three days"
+  ],
+  "next": "Owner reviews the live booth; all implementation and final review work is complete.",
+  "limits": [
+    "physical webcam unverified",
+    "bounded2D deformation rather than reconstructed3D"
+  ],
+  "automation_id": "01aae171-57ee-455c-93b8-eef25631f529",
+  "liability_note": "Seven Muse receipts and one Seedance receipt known; actual2.62195; ledger263cents. No pending paid Run. Never repeat paid proof slots.",
+  "pilot_run": "run-c7bee15e9bbcf76387025838",
+  "owner_instruction": "2026-09-30: finish map, create spec and tracer-bullet tickets, complete all tickets overnight without questions",
+  "spec": "https://github.com/Reid-Surmeier/risd-godot/issues/200",
+  "tickets": [
+    201,
+    202,
+    203,
+    204,
+    205
+  ],
+  "preview": "https://windows-wsl.taile06c45.ts.net/webcam-booth-live-01a0f059/",
+  "reserved_or_received_ceiling_usd": 2.63,
+  "unknown_cost_usd": 0,
+  "automation_enabled": false,
+  "reviewed_candidate": "38574b940b0b3933f72330d24118b539fd888af5"
+}

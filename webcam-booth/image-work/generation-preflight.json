@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "001",
+      "prompt": "image-work/portrait-prompt.txt",
+      "promptSha256": "4d89404fb2a5b923912ada561054806575d308ed5c13569b057137e0f280a808",
+      "size": "1024x1024",
+      "inputs": [
+        {
+          "path": "assets/photo-fixture.png",
+          "sha256": "1265c94186f7b11d019060b819ad486d9ae2a8fc909acd0b70226fd5532fc395"
+        },
+        {
+          "path": "assets/portrait-fixture.png",
+          "sha256": "35d354cc27f11c9cc1b6f6d6a40c45b00eb12168320e5d7873d1603d98e955f9"
+        }
+      ]
+    }
+  ]
+}

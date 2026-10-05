@@ -1,0 +1,30 @@
+{
+  "sourceRun": "run-16c6dd84b5c249fa0282d930",
+  "sourceToolVerdict": "failed: VIDEO_MEDIA_INVALID, preserve unchanged",
+  "sourceSha256": "9a75c309fcc2863050fcb1c4e27f447712a803ec5c76db1f1357c0459404b893",
+  "sourceDuration": 11.041667,
+  "detectedBurstSourceSeconds": 9.333333333333334,
+  "timingAssembly": "[0:v]split[a][b];[a]trim=start=0:end=9.333333333333334,setpts=PTS-STARTPTS,setpts=PTS*1.0714285714285714[fuse];[b]trim=start=9.333333333333334:end=11,setpts=PTS-STARTPTS,setpts=PTS*0.6000000000000002[burst];[fuse][burst]concat=n=2:v=1:a=0,fps=24,scale=1024:576,trim=duration=11,setpts=PTS-STARTPTS[out]",
+  "outputSha256": "5b7a3ae46cea341001e02b31ba941835be267fc3ce69cf7e411c48930dc50940",
+  "probe": {
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "theora",
+        "width": 1024,
+        "height": 576,
+        "duration": "11.000000",
+        "nb_read_frames": "258"
+      }
+    ],
+    "format": {
+      "duration": "11.000000"
+    }
+  },
+  "displayFrames": 264,
+  "firstBurstFrame": 240,
+  "visualAcceptance": "Viewed actual Godot export: clean portrait/glove composition, opaque starburst and clear reset. Independently checked264decoded display frames, first upper burst10.000s, full coverage10.5s, keyed-clear finalframe. Source tool failed state unchanged.",
+  "historicalFidelity": false,
+  "actualCostUsd": "2.55195",
+  "reservedLedgerCents": 256
+}

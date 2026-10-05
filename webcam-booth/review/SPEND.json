@@ -1,0 +1,59 @@
+{
+  "provider": "openrouter",
+  "ceiling_usd": "10.00",
+  "actual_known_usd": "2.62195",
+  "reserved_or_received_cents": 263,
+  "unknown_additional_usd": "0",
+  "entries": {
+    "pilot": {
+      "hash": "3001131179a4d8b5270024864ab79ef5aab75b7831f267d728a88423204d11b7",
+      "reservedCents": 1,
+      "state": "received",
+      "run": "run-c7bee15e9bbcf76387025838"
+    },
+    "9935f8e9-a3d2-4915-b1ff-5d0c8b867c45": {
+      "hash": "5bf8f5ee733af76405f1021f6e2e3d408c7b7fd033e97f4c8d7b7fca0809416e",
+      "reservedCents": 1,
+      "state": "received",
+      "run": "run-a1d8f3344390bd9375b41e65"
+    },
+    "frame-v1": {
+      "hash": "068b6c087f4d4abd066750ccc7e62ba5271d5df4c4cdb214518a5f76df2757f9",
+      "reservedCents": 1,
+      "state": "received",
+      "run": "run-5910233e53d2706dc83b67d2"
+    },
+    "fuse-v1": {
+      "hash": "04b938ec47a408037ab270dccf66a4d1f719ab1fda5b809957ee76b71a3fcb2b",
+      "reservedCents": 1,
+      "state": "received",
+      "run": "run-ffd94d1e215418ca04e46b1a"
+    },
+    "motion-v1": {
+      "hash": "16c6dd84b5c249fa0282d9306691e45d5158d9d63519eb7bfe3be9b5495cfeb2",
+      "reservedCents": 256,
+      "state": "received-unverified",
+      "run": "run-16c6dd84b5c249fa0282d930",
+      "actualUsd": "2.55195"
+    },
+    "935a2dbe-0119-4782-817b-bfb500db2529": {
+      "hash": "0608e7a3d1cb8cecfa6e457482a86ca0e0501db0c64b2d3c09d3b6a9de06c5a9",
+      "reservedCents": 1,
+      "state": "received",
+      "run": "run-71837aecf9650b6d5b7d4319"
+    },
+    "ead2707f-4250-46b5-aaee-9a1efaa70faf": {
+      "hash": "0608e7a3d1cb8cecfa6e457482a86ca0e0501db0c64b2d3c09d3b6a9de06c5a9",
+      "reservedCents": 1,
+      "state": "received",
+      "run": "run-016a639a0576f9e86c6b9c1d"
+    },
+    "bff307c2-b646-4a15-af54-7a34d329bf5f": {
+      "hash": "2beac4c5436a2bd154de7879d1a26990b214439cc274d8c520b53ff89a6b35c1",
+      "reservedCents": 1,
+      "state": "received",
+      "run": "run-12716948540ebcf3a56007a4"
+    }
+  },
+  "note": "Native unknown diagnostic is counted once per known Run, not a second charge. Final source-verified loop supersedes earlier fixture injection claim."
+}

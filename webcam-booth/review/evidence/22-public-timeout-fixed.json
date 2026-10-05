@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "submissions": 1,
+  "polls": 53,
+  "id": "af7c25d8-3ea0-4d93-8c74-8ee030e0ec97",
+  "run": "run-ded2660c3e9d6b9d319f33af",
+  "generationMs": 55742,
+  "submittedFixtureVerified": true,
+  "physicalWebcamVerified": false,
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "reservedUsd": 0.01
+}

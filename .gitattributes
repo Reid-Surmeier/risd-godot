@@ -1,0 +1,3 @@
+# Preserve exact publisher bytes; third-party generated payloads contain CRLF/trailing spaces.
+webcam-booth/tracking/** whitespace=-trailing-space,-blank-at-eof
+repos/mediapipe/** whitespace=-trailing-space,-blank-at-eof

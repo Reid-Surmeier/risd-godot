@@ -1,0 +1,13 @@
+# Generation
+
+Standalone TypeScript/Effect adapter for the Booth's same-origin `POST /api/portrait`. Public contract: `interface.ts` (Capture, Portrait, Generation callable Effect type) and `errors.ts`. Composition: `server.ts` owns native HTTP/static serving and provides maintained Muse tooling plus decoded-image validation to `generation.ts`.
+
+Acceptance: `generation.test.ts` checks validation, duplicate reuse, locking, reservation and uncertain failures. Ticket205 explicitly authorizes optional costCents in success/error values and `receipts.test.ts` for actual-charge reconciliation, missing/corrupt-ledger refusal, post-payment I/O failures and failed-save lock retention. No other RISD module imports this adapter. Public types/errors and acceptance remain frozen after those scoped changes.
+
+Provider/key/model/prompt/budget are server-owned. The durable ledger survives exports and must exist in production; losing it refuses paid operation. Request/result image payloads are transient; private native state/request/events plus hashes/costs survive mechanical payload cleanup. One owner session and one pending submission; completed duplicate response retained15seconds, ledger prevents later re-submission. Source reference is repos/effect at exact3.22.2; never import it.
+
+Issue214 extends HTTP composition: POST /api/portrait with Prefer: respond-async returns202; same-origin POST /api/portrait/status with {id} returns pending, the original portrait, or classified error. Legacy synchronous POST remains supported. One submission per capture, shared ledger and serialization; results expire15seconds after first delivery or60seconds after completion. Browser polling never resubmits and reset cancels it. Offline acceptance: deploy/timeout-check.mjs.
+
+Issue218 removes the redundant standalone dry-plan process. The maintained execute command performs planning and all existing validation before its single authorized submission. Added unpaid acceptance: efficiency.test.ts proves one prepare and one execute, explicit budget, same result/cost. Frozen tests/types/errors remain intact.
+
+Issue223 adds advisory progress to pending202 responses: completed milestones out of4. Preparation completion comes from successful maintained prepare; submission/provider evidence comes from the exact capture's native request/state run record; completion comes only with a delivered portrait. No elapsed-time estimate or new provider call. HTTP composition progress never alters generation errors, ledger or resubmission rules. Unpaid deploy/progress-check.mjs covers matching, stage holds, monotonicity and partial records. Frozen Generation acceptance/types/errors stay unchanged.

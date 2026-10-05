@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "provider_calls": 0,
+  "results": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "keyboard": true,
+      "touch_minimum_px": 44,
+      "visible_blue_pixels": 1281,
+      "icon_width": 44,
+      "intercepted_camera_loop": true,
+      "https": true
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "keyboard": true,
+      "touch_minimum_px": 44,
+      "visible_blue_pixels": 1309,
+      "icon_width": 44,
+      "intercepted_camera_loop": true,
+      "https": true
+    },
+    {
+      "viewport": {
+        "width": 1024,
+        "height": 700
+      },
+      "keyboard": true,
+      "touch_minimum_px": 44,
+      "visible_blue_pixels": 1228,
+      "icon_width": 44.0072021484375,
+      "intercepted_camera_loop": true,
+      "https": true
+    }
+  ]
+}

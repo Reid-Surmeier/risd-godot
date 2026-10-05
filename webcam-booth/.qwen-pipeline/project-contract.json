@@ -1,0 +1,201 @@
+{
+  "schemaVersion": "1",
+  "applicationId": "app-91a1aa4f67da",
+  "artifactRoot": "artifacts/image-generation",
+  "referenceRoots": [
+    "assets/photo-fixture.png",
+    "assets/portrait-fixture.png",
+    "build/private/captures/9935f8e9-a3d2-4915-b1ff-5d0c8b867c45/subject.png",
+    "assets/glove-frame-reference.png",
+    "motion-work/references/fuse-first.png",
+    "motion-work/references/fuse-last.png",
+    "build/private/captures/935a2dbe-0119-4782-817b-bfb500db2529/subject.png",
+    "build/private/captures/ead2707f-4250-46b5-aaee-9a1efaa70faf/subject.png",
+    "build/private/captures/bff307c2-b646-4a15-af54-7a34d329bf5f/subject.png"
+  ],
+  "outputRoot": "generated",
+  "maximumCount": 1,
+  "maximumBudgetUsd": "10.00",
+  "maximumCorrectionRuns": 0,
+  "procedures": [
+    {
+      "id": "muse-d4ff89ccf2b4ed8bdae3",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1024"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-e5e627e17404b70f16c7",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1024"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-a5e1b4bd20f18f18590d",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x768"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-c4d73f68d5ed7c974a61",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1280x720"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "booth-fuse-explosion-v1",
+      "version": "1",
+      "mode": "seedance-video",
+      "provider": "openrouter",
+      "model": "bytedance/seedance-2.5",
+      "maximumCount": 1,
+      "unitCostUsd": "2.55",
+      "referenceRequirements": [
+        {
+          "slot": "first-frame",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "last-frame",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-114c9537a2808543ee59",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1024"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-4bf3b443c9d537f63e15",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1024"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    },
+    {
+      "id": "muse-84dfee9340554830563d",
+      "version": "1",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "parameters": {
+        "size": "1024x1024"
+      },
+      "maximumCount": 1,
+      "unitCostUsd": "0.01",
+      "referenceRequirements": [
+        {
+          "slot": "reference-000",
+          "kind": "image",
+          "payloadDestination": "/input_references/0/image_url/url"
+        },
+        {
+          "slot": "reference-001",
+          "kind": "image",
+          "payloadDestination": "/input_references/1/image_url/url"
+        }
+      ]
+    }
+  ]
+}

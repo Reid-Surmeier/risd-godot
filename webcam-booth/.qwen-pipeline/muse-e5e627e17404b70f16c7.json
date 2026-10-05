@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-e5e627e17404b70f16c7",
+  "summary": "Create one recognizable portrait of the person in image one. Image two supplies only early Nintendo 3D low-poly flat facets, pastel blue gradient and yellow spiral sun. Preserve the photographed identity, hairstyle, skin tone, clothing, neck and shoulders reaching the bottom edge. Face the camera. No Wario hat, goggles, moustache, slapping hand, desk, text, watermark, frame, glove, bomb or fuse. Single finished square portrait.\n",
+  "procedureId": "muse-e5e627e17404b70f16c7",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "build/private/captures/9935f8e9-a3d2-4915-b1ff-5d0c8b867c45/subject.png",
+      "sha256": "d22a370ce2829ffbbd9b51ce52019b522443a5843acf9b40a61a27edcc2ff339",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "assets/portrait-fixture.png",
+      "sha256": "35d354cc27f11c9cc1b6f6d6a40c45b00eb12168320e5d7873d1603d98e955f9",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "build/private/captures/9935f8e9-a3d2-4915-b1ff-5d0c8b867c45/recipe.json",
+      "sha256": "e5e627e17404b70f16c788dd098803e3bf77b8a9e1716dcc8b9bc3c2d4465e59"
+    },
+    {
+      "applicationPath": "build/private/captures/9935f8e9-a3d2-4915-b1ff-5d0c8b867c45/plan.json",
+      "sha256": "08fd34409af607d367d457a5eceb438aec7c94a22bb5c981959f8bd29ac62f6f"
+    },
+    {
+      "applicationPath": "build/private/captures/9935f8e9-a3d2-4915-b1ff-5d0c8b867c45/prompt.txt",
+      "sha256": "fd5397ab360d3c08e3550522940b2f190907390bd38f6c00172444245fb28d4d"
+    }
+  ]
+}

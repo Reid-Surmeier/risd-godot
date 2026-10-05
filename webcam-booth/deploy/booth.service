@@ -1,0 +1,24 @@
+[Unit]
+Description=Homework webcam lowpoly booth
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=/srv/sites/homework.reidsurmeier.wtf/current/webcam-booth
+ExecStart=/usr/bin/python3 /srv/sites/homework.reidsurmeier.wtf/current/webcam-booth/deploy/credential-launch.py /srv/sites/homework.reidsurmeier.wtf/current/webcam-booth/server/server.ts
+Environment=BOOTH_PORT=8130
+BindPaths=/srv/sites/homework.reidsurmeier.wtf/state/private:/srv/sites/homework.reidsurmeier.wtf/current/webcam-booth/build/private
+BindPaths=/srv/sites/homework.reidsurmeier.wtf/state/pipeline:/srv/sites/homework.reidsurmeier.wtf/current/webcam-booth/.qwen-pipeline
+BindPaths=/srv/sites/homework.reidsurmeier.wtf/state/artifacts:/srv/sites/homework.reidsurmeier.wtf/current/webcam-booth/artifacts
+Restart=on-failure
+RestartSec=10
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+
+[Install]
+WantedBy=multi-user.target

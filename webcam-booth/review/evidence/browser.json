@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "fixture_generation": true,
+  "physical_webcam_tested": false,
+  "paid_generation_tested": false,
+  "explosion_art_pending": false,
+  "results": [
+    {
+      "check": "complete fixture loop",
+      "iteration": 1,
+      "fuse_ms": 9940.099999999627
+    },
+    {
+      "check": "complete fixture loop",
+      "iteration": 2,
+      "fuse_ms": 10009.199999999255
+    },
+    {
+      "check": "cancel loading does not revive portrait",
+      "passed": true
+    },
+    {
+      "check": "synthetic getUserMedia frame transferred into exported Godot; capture/reset",
+      "passed": true
+    },
+    {
+      "check": "real-generation HTTP failure recovers camera with persistent message",
+      "passed": true
+    },
+    {
+      "check": "cancel delayed real-generation result never revives portrait",
+      "passed": true
+    },
+    {
+      "check": "pagehide during real generation resets loading and discards late result",
+      "passed": true
+    },
+    {
+      "check": "ended camera track disables stale capture and allows retry",
+      "passed": true
+    },
+    {
+      "check": "pagehide releases camera and disables stale capture on return",
+      "passed": true
+    },
+    {
+      "check": "late camera permission result releases stale stream",
+      "passed": true
+    },
+    {
+      "check": "permission denial is recoverable",
+      "status": {
+        "mode": "denied",
+        "error": "NotAllowedError"
+      }
+    }
+  ],
+  "errors": []
+}

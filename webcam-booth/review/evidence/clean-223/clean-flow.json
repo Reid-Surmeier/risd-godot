@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "automatic_camera_requests": 1,
+  "stage_hold_ms": 5200,
+  "actual_stages": [
+    1,
+    2,
+    3
+  ],
+  "full_video_loop": true,
+  "escape_cancellation": true,
+  "provider_calls": 0,
+  "submissions": 2,
+  "polls": 8,
+  "physical_webcam_tested": false
+}

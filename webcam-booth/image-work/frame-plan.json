@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "001",
+      "prompt": "image-work/frame-prompt.txt",
+      "promptSha256": "068b6c087f4d4abd066750ccc7e62ba5271d5df4c4cdb214518a5f76df2757f9",
+      "size": "1024x768",
+      "inputs": [
+        {
+          "path": "assets/glove-frame-reference.png",
+          "sha256": "c7f00e420806f12f679c3cd5e5b2afb8353577b4296c8c321c94b97b1c313af8"
+        }
+      ]
+    }
+  ]
+}

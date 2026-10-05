@@ -1,0 +1,272 @@
+{
+  "issue": 218,
+  "pack": {
+    "beforePckBytes": 3932496,
+    "afterPckBytes": 2574456,
+    "savedBytes": 1358040,
+    "percentSmaller": 34.5
+  },
+  "planning": {
+    "removedPlanMs": 2075,
+    "paidRequests": 0,
+    "objective": ".qwen-pipeline/muse-4b6d4b54448fadccb31f.json",
+    "toolCommandsBefore": 3,
+    "toolCommandsAfter": 2
+  },
+  "browser": {
+    "passed": true,
+    "fixture_generation": true,
+    "physical_webcam_tested": false,
+    "paid_generation_tested": false,
+    "explosion_art_pending": false,
+    "results": [
+      {
+        "check": "complete fixture loop",
+        "iteration": 1,
+        "fuse_ms": 9945.099999999627
+      },
+      {
+        "check": "complete fixture loop",
+        "iteration": 2,
+        "fuse_ms": 10009.299999999814
+      },
+      {
+        "check": "cancel loading does not revive portrait",
+        "passed": true
+      },
+      {
+        "check": "synthetic getUserMedia frame transferred into exported Godot; capture/reset",
+        "passed": true
+      },
+      {
+        "check": "real-generation HTTP failure recovers camera with persistent message",
+        "passed": true
+      },
+      {
+        "check": "cancel delayed real-generation result never revives portrait",
+        "passed": true
+      },
+      {
+        "check": "pagehide during real generation resets loading and discards late result",
+        "passed": true
+      },
+      {
+        "check": "ended camera track disables stale capture and allows retry",
+        "passed": true
+      },
+      {
+        "check": "pagehide releases camera and disables stale capture on return",
+        "passed": true
+      },
+      {
+        "check": "late camera permission result releases stale stream",
+        "passed": true
+      },
+      {
+        "check": "permission denial is recoverable",
+        "status": {
+          "mode": "denied",
+          "error": "NotAllowedError"
+        }
+      }
+    ],
+    "errors": []
+  },
+  "expression": {
+    "passed": true,
+    "provider_calls": 0,
+    "physical_webcam_tested": false,
+    "source": "fixture canvas through real browser video stream",
+    "live_worker_measurement": {
+      "mode": "ready",
+      "face": true,
+      "anchors": {
+        "left": [
+          0.42925840616226196,
+          0.40779444575309753
+        ],
+        "right": [
+          0.5669743120670319,
+          0.4070504903793335
+        ],
+        "mouth": [
+          0.49989181756973267,
+          0.5499030351638794
+        ],
+        "mouthWidth": 0.10271203517913818
+      },
+      "timestamp": 2923.2999999998137,
+      "values": {
+        "blinkL": 0,
+        "blinkR": 0,
+        "smile": 0,
+        "jaw": 0
+      },
+      "pose": {
+        "x": 0,
+        "y": 0,
+        "angle": 0
+      },
+      "landmarks": 478
+    },
+    "simulated_expression_geometry": {
+      "eye_pixels": 1891,
+      "mouth_pixels": 3052
+    },
+    "observed_regions": {
+      "eyes": [
+        450,
+        229,
+        562,
+        272
+      ],
+      "mouth": [
+        459,
+        285,
+        562,
+        349
+      ]
+    },
+    "no_face_neutral": true,
+    "reset_stops_worker": true,
+    "limit": "bounded2D UV deformation; no3D reconstruction or new teeth/eyelids"
+  },
+  "publicBefore": {
+    "url": "https://homework.reidsurmeier.wtf/",
+    "readyMs": 12396,
+    "networkMbps": 10,
+    "wasm": {
+      "name": "https://homework.reidsurmeier.wtf/index.wasm",
+      "entryType": "resource",
+      "startTime": 415.40000000037253,
+      "duration": 11215.299999999814,
+      "navigationId": 3389,
+      "initiatorType": "fetch",
+      "deliveryType": "",
+      "nextHopProtocol": "h3",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "",
+      "contentEncoding": "gzip",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 415.40000000037253,
+      "domainLookupStart": 415.40000000037253,
+      "domainLookupEnd": 415.40000000037253,
+      "connectStart": 415.40000000037253,
+      "secureConnectionStart": 415.40000000037253,
+      "connectEnd": 415.40000000037253,
+      "requestStart": 417.20000000018626,
+      "responseStart": 484.40000000037253,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 484.40000000037253,
+      "responseEnd": 11630.700000000186,
+      "transferSize": 10055058,
+      "encodedBodySize": 10054758,
+      "decodedBodySize": 39514754,
+      "responseStatus": 200,
+      "serverTiming": [
+        {
+          "name": "cfExtPri",
+          "duration": 0,
+          "description": ""
+        }
+      ]
+    },
+    "paidRequests": 0,
+    "sampleLoop": true
+  },
+  "publicAfter": {
+    "url": "https://homework.reidsurmeier.wtf/",
+    "readyMs": 11507,
+    "networkMbps": 10,
+    "wasm": {
+      "name": "https://homework.reidsurmeier.wtf/index.wasm",
+      "entryType": "resource",
+      "startTime": 424.6000000005588,
+      "duration": 10191,
+      "navigationId": 1064,
+      "initiatorType": "fetch",
+      "deliveryType": "",
+      "nextHopProtocol": "h3",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "",
+      "contentEncoding": "gzip",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 424.6000000005588,
+      "domainLookupStart": 424.6000000005588,
+      "domainLookupEnd": 424.6000000005588,
+      "connectStart": 424.6000000005588,
+      "secureConnectionStart": 424.6000000005588,
+      "connectEnd": 424.6000000005588,
+      "requestStart": 426.20000000018626,
+      "responseStart": 471.6000000005588,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 471.6000000005588,
+      "responseEnd": 10615.600000000559,
+      "transferSize": 10055058,
+      "encodedBodySize": 10054758,
+      "decodedBodySize": 39514754,
+      "responseStatus": 200,
+      "serverTiming": [
+        {
+          "name": "cfExtPri",
+          "duration": 0,
+          "description": ""
+        }
+      ]
+    },
+    "paidRequests": 0,
+    "sampleLoop": true
+  },
+  "responsive": {
+    "passed": true,
+    "provider_calls": 0,
+    "results": [
+      {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "keyboard": true,
+        "touch_minimum_px": 44,
+        "fixture_loop": true,
+        "https": true
+      },
+      {
+        "viewport": {
+          "width": 844,
+          "height": 390
+        },
+        "keyboard": true,
+        "touch_minimum_px": 44,
+        "fixture_loop": true,
+        "https": true
+      },
+      {
+        "viewport": {
+          "width": 1024,
+          "height": 700
+        },
+        "keyboard": true,
+        "touch_minimum_px": 44,
+        "fixture_loop": true,
+        "https": true
+      }
+    ]
+  },
+  "hostReconciliation": {
+    "components": 45,
+    "issues": 0
+  }
+}
