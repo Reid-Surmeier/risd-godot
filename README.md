@@ -30,13 +30,13 @@ It is built in [Godot 4.7](https://godotengine.org) and exported to the web. The
 
 ## Demos
 
-Each preview is a short loop. Click it for the full recording.
+Each preview is a short loop of the game running. The full recordings are MP4 files in [`docs/media/`](docs/media).
 
 ### Collection: walk the museum
 
-[![The visitor walks into a dark gallery, clicks a portrait, reads its label and zooms into the paint](docs/media/collection.gif)](docs/media/collection.mp4)
+[![The visitor walks into a dark gallery, clicks a portrait, reads its label and zooms into the paint](docs/media/collection.gif)](https://github.com/Reid-Surmeier/risd-godot/raw/main/docs/media/collection.mp4)
 
-[Full video (1:52)](docs/media/collection.mp4)
+[Download the full recording (1:52, MP4)](https://github.com/Reid-Surmeier/risd-godot/raw/main/docs/media/collection.mp4)
 
 - Connected rooms rebuilt from footage of the RISD Museum, seen from a dollhouse camera that cuts away the near walls
 - Click any work: the visitor walks over, the label opens, and a second click fills the screen with the piece for a close look
@@ -45,9 +45,9 @@ Each preview is a short loop. Click it for the full recording.
 
 ### Sketchbook: draw from the collection
 
-[![Painting in the sketchbook with a brush while a framed painting and a 3D scan sit beside it](docs/media/sketchbook.gif)](docs/media/sketchbook.mp4)
+[![Painting in the sketchbook with a brush while a framed painting and a 3D scan sit beside it](docs/media/sketchbook.gif)](https://github.com/Reid-Surmeier/risd-godot/raw/main/docs/media/sketchbook.mp4)
 
-[Full video (1:17)](docs/media/sketchbook.mp4)
+[Download the full recording (1:17, MP4)](https://github.com/Reid-Surmeier/risd-godot/raw/main/docs/media/sketchbook.mp4)
 
 - A paint box, a mixing palette and a book you draw in
 - A framed painting and a turning 3D scan can sit beside the page as reference
@@ -55,9 +55,9 @@ Each preview is a short loop. Click it for the full recording.
 
 ### 3D Viewer: turn the sculptures around
 
-[![A scanned sculpture of a pile of skulls is turned and zoomed, then a painted wooden bust](docs/media/3d-viewer.gif)](docs/media/3d-viewer.mp4)
+[![A scanned sculpture of a pile of skulls is turned and zoomed, then a painted wooden bust](docs/media/3d-viewer.gif)](https://github.com/Reid-Surmeier/risd-godot/raw/main/docs/media/3d-viewer.mp4)
 
-[Full video (0:43)](docs/media/3d-viewer.mp4)
+[Download the full recording (0:43, MP4)](https://github.com/Reid-Surmeier/risd-godot/raw/main/docs/media/3d-viewer.mp4)
 
 - 3D scans of museum sculptures, lit and turnable from every side
 - Zoom close enough to read tool marks and paint
