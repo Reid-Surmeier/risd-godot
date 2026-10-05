@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "001",
+      "prompt": "edit-prompt.txt",
+      "promptSha256": "814ee4c7f2328dcd15e43447eee06e29694c78c32d3e1a92338b2cb05ff277b3",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "references/catalogue.png",
+          "sha256": "d262dcd9ad0326d2ca33c845d5c35faa5f38d15a7bb1f6749ea689b7bb975fcb"
+        }
+      ]
+    }
+  ]
+}
