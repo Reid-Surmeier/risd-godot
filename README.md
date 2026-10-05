@@ -2,6 +2,8 @@
   <img src="docs/media/title.png" width="460" alt="Welcome to RISD Museum. Playground launched October 2026. Come curious, leave inspired.">
 </p>
 
+<img src="docs/media/works.webp" width="100%" alt="Every framed painting, sculpture and object in the museum walk, shown one at a time on a white background">
+
 # RISD Museum Playground
 
 RISD Museum Playground is a browser game for exploring the RISD Museum collection. It contains playable modes, including walking the replica of the RISD Museum's physical location, a draw mode which allows you to draw digitally from paintings and sculptures, and a 3D sculpture viewer tab for viewing a selection of 3D scans.
@@ -38,9 +40,3 @@ The European gallery, and a Spanish Crucifixion on its east wall:
 ## 3D Viewer
 
 <img src="docs/media/3d-viewer.webp" width="100%" alt="A scanned sculpture of a pile of skulls is turned and zoomed, then a painted wooden bust">
-
-## Frames and assets
-
-<img src="docs/media/assets.webp" width="100%" alt="The game's picture frames, turning sculpture scans, paint tools, icons and windows, shown in turn on a white background">
-
-[Download the video (0:30, MP4)](https://github.com/Reid-Surmeier/risd-godot/raw/main/docs/media/assets.mp4)
