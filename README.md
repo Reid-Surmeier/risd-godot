@@ -2,7 +2,7 @@
   <img src="docs/media/title.png" width="460" alt="Welcome to RISD Museum. Playground launched October 2026. Come curious, leave inspired.">
 </p>
 
-<img src="docs/media/works.webp" width="100%" alt="The framed paintings of the museum walk dissolving one into the next on white, then its low-poly sculptures turning four at a time">
+<img src="docs/media/works.webp" width="100%" alt="Grids of the museum walk's framed paintings, its turning low-poly sculptures and the new low-poly case pieces, each popping in on a white background">
 
 # RISD Museum Playground
 
