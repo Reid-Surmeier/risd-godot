@@ -27,6 +27,6 @@ Run the existing `webcam-booth/deploy/check.mjs` from the `webcam-booth-195` wor
 
 ## Week 4
 
-`week-4/index.html` is a plain page with the comparison image (`week-4/otani-room-comparison.png`) and a download link for `otani-room.blend`. The Blender file is 416 MB and has a purchased texture pack packed inside, so it is copied to the host by hand and is never committed; it comes from the `otani-clay-room` repository (`save_blend` in its scene description).
+`week-4/index.html` is a plain page with a download link for `otani-room.blend`. It first carried a comparison image; the owner had it removed the same day. The Blender file is 416 MB and has a purchased texture pack packed inside, so it is copied to the host by hand and is never committed; it comes from the `otani-clay-room` repository (`save_blend` in its scene description).
 
 Deployed on 2026-10-07 to the CM3588 (`ssh cm3588`), which replaced the droplet named above: release `homepage/releases/bff56ebb420d` (named after the first 12 hex digits of the homepage's SHA-256), holding `index.html`, `week-4/` and `homework.nginx.before` (the live site file as it was). The live site file there listens on `127.0.0.1:8088` behind the Cloudflare tunnel, not on the ports in this folder's `homework.nginx`; only the two `week-4` lines were added to it. Rollback: point `homepage/current` back at `releases/f2bc0a61a04e` and restore `homework.nginx.before`, then `nginx -t` and reload.
