@@ -13,7 +13,7 @@ try {
   assert.equal((await page.goto(url)).status(), 200);
   assert.equal(await page.locator('style, link[rel="stylesheet"], [style]').count(), 0);
   assert.deepEqual(await page.locator('nav a').evaluateAll(links => links.map(link => link.getAttribute('href'))), [
-    'https://shader.reidsurmeier.wtf/', 'https://ctchomework.reidsurmeier.wtf/', '/week-3/'
+    'https://shader.reidsurmeier.wtf/', 'https://ctchomework.reidsurmeier.wtf/', '/week-3/', '/week-4/'
   ]);
   await page.keyboard.press('Tab');
   assert.equal(await page.locator('nav a').first().evaluate(link => link === document.activeElement), true);
