@@ -131,6 +131,12 @@ const JOINED := {
 	"Impressionist passage": "Impressionist gallery A",
 	"Impressionist passage return": "Impressionist gallery A",
 }
+# A doorway onto another stage shows that stage's light through haze, not the void: unshaded
+# gradient geometry beyond the opening, seen only through the opening itself, and a fan of the
+# same light on this stage's floor. No bake, no texture.
+const DOOR_GLOW := Color(1.0, 0.74, 0.46)  # the light at the sill
+const WALL_SHADE := 0.13  # what a wall the bake left unlit still shows of its own colour
+var _doors: Array = []  # {stage, node, at, header, hall_layer}: one per doorway onto another stage
 var _stage := NO_STAGE  # the stage drawn
 var _stage_ids: Array[int] = []  # _plan index -> its stage
 var _stage_pos := Vector3.ZERO  # the visitor at the last camera update; a jump means it was placed
@@ -203,14 +209,22 @@ func _read_plan(path: String) -> bool:
 			continue
 		var b: Array = area.bounds
 		var openings := {}
+		var heads := {}  # how high each doorway is clear, by remodel_room.gd build_rooms' own rule
 		for side in area.openings:
 			var shift: float = ATTACH.z if side in ["west", "east"] else ATTACH.x
 			openings[side] = [area.openings[side][0] + shift, area.openings[side][1] + shift]
+			var stone: bool = side in area.get("stone_sides", [])
+			heads[side] = float(
+				area.get("clear_heights", {}).get(
+					side, ((3.342 if side in ["west", "east"] else 3.861) if stone else 2.74)
+				)
+			)
 		_plan.append(
 			{
 				"label": area.label,
 				"b": [b[0] + ATTACH.x, b[1] + ATTACH.x, b[2] + ATTACH.z, b[3] + ATTACH.z],
 				"openings": openings,
+				"heads": heads,
 				"far": area.label in FAR_ROOMS
 			}
 		)
@@ -446,6 +460,8 @@ func _install_rooms() -> void:
 	_collect_parts()
 	for wall in _walls:
 		wall["at"] = wall.room if wall.room >= 0 else _room_of(wall.box)
+	_link_doors()
+	_shade_walls()
 	_grid = null  # a route planned in the Hall before now knew no furniture (#280)
 	_build_ms += Time.get_ticks_msec() - began
 	_build_longest = maxi(_build_longest, Time.get_ticks_msec() - began)
@@ -1864,6 +1880,7 @@ func _update_camera(k: float) -> void:
 		# Only the Hall exists until the first doorway (#281); its paintings are read all the same.
 		if _rooms_path != "" and _inspect_camera():
 			_hall_walls_back(0)
+		_light_doors()
 		return
 	var here := _room_at(_pos)
 	# Further in one frame than walking covers: the visitor was put there. A long frame (the
@@ -2057,6 +2074,7 @@ func _update_camera(k: float) -> void:
 			_cam.cull_mask |= PORTAL_LAYER
 	if _floor_mask_stage != _stage:
 		_mask_floor()
+	_light_doors()
 	_seen_cam = _cam.global_transform
 	_seen_fov = _cam.fov
 	_seen_mask = _cam.cull_mask
@@ -2170,6 +2188,238 @@ void fragment() {
 	)
 	_wipe_mark.hide()
 	_wipe.add_child(_wipe_mark)
+	_build_doors()
+
+
+func _build_doors() -> void:
+	var beyond := Shader.new()
+	beyond.code = (
+		"shader_type spatial;\nrender_mode unshaded, cull_disabled, fog_disabled;\n"
+		+ VOID_GLSL
+		+ """
+uniform vec3 sill; // the middle of the doorway's sill, on the wall's plane
+uniform vec3 out_dir; // out of the room
+uniform float half_width;
+uniform float head;
+uniform vec3 glow;
+void vertex() {
+	world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+}
+void fragment() {
+	// Only what is seen through the opening, from the room's side: never over a wall, never
+	// from behind.
+	vec3 eye = CAMERA_POSITION_WORLD;
+	vec3 ray = world - eye;
+	float to_plane = dot(sill - eye, out_dir);
+	float along = dot(ray, out_dir);
+	if (to_plane <= 0.0 || along <= 0.0001) {
+		discard;
+	}
+	vec3 through = eye + ray * (to_plane / along);
+	vec3 across = vec3(-out_dir.z, 0.0, out_dir.x);
+	float aside = dot(through - sill, across);
+	float up = through.y - sill.y;
+	if (abs(aside) > half_width || up < 0.0 || up > head) {
+		discard;
+	}
+	// Light lying on the next floor, brightest at the sill, and the haze it hangs in.
+	float depth = max(dot(world - sill, out_dir), 0.0);
+	float lateral = max(abs(dot(world - sill, across)) - half_width, 0.0);
+	float height = max(world.y - sill.y, 0.0);
+	float pool = exp(-depth / 2.4 - lateral / 1.6 - height / 1.4);
+	float haze = exp(-up / (0.42 * head));
+	ALBEDO = ground(world.xz) + glow * (0.42 * pool + 0.17 * haze) + dither(FRAGCOORD.xy);
+}"""
+	)
+	var fan := Shader.new()
+	fan.code = """shader_type spatial;
+render_mode unshaded, blend_add, depth_draw_never, cull_disabled, fog_disabled;
+uniform vec3 sill;
+uniform vec3 out_dir;
+uniform float half_width;
+uniform float reach;
+uniform vec3 glow;
+varying vec3 world;
+void vertex() {
+	world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+}
+void fragment() {
+	vec3 across = vec3(-out_dir.z, 0.0, out_dir.x);
+	float inward = dot(sill - world, out_dir);
+	float aside = abs(dot(world - sill, across));
+	float edge = half_width + inward * 0.55;
+	float spread = 1.0 - smoothstep(edge * 0.45, edge, aside);
+	float fade = exp(-inward / 1.3) * (1.0 - smoothstep(reach * 0.6, reach, inward));
+	ALBEDO = glow * 0.4 * spread * fade * step(0.0, inward);
+}"""
+	# The Hall's own two doorways: its far door and the stone portal.
+	var far_door: Vector2 = DOORS.far.size
+	var arch: Vector2 = DOORS.arch.size
+	_add_door(beyond, fan, -1, Vector3(0, 0, -L), Vector3.FORWARD, far_door.x, far_door.y, far_door.x, 2.6, 16)
+	_add_door(beyond, fan, -1, Vector3(0, 0, 0), Vector3.BACK, arch.x, arch.y, arch.x, 2.6, 8)
+	var hall := Rect2(-W / 2.0, -L, W, L)
+	for i in _plan.size():
+		var area: Dictionary = _plan[i]
+		var b: Array = area.b
+		for side in area.openings:
+			var door: Array = area.openings[side]
+			var mid: float = (door[0] + door[1]) / 2.0
+			var out: Vector3 = SIDES[side]
+			var at := Vector3(
+				b[0] if side == "west" else b[1] if side == "east" else mid,
+				0,
+				b[2] if side == "north" else b[3] if side == "south" else mid
+			)
+			var past := at + out * 0.35
+			var next := _room_at(past)
+			if next < 0 and not hall.has_point(Vector2(past.x, past.z)):
+				continue  # a doorway nobody can go through
+			if next >= 0 and _stage_ids[next] == _stage_ids[i]:
+				continue  # into the same stage: the next area is drawn
+			var floor_y := _skylight_height(at)
+			at.y = maxf(floor_y, 0.0) if floor_y != -INF else 0.0
+			var width: float = door[1] - door[0]
+			var head: float = area.heads[side]
+			# A wall's thickness takes the height of the doorway it lines.
+			for parent in _plan:
+				if parent.label == JOINED.get(area.label, "") and "reveal" in str(area.label):
+					head = parent.heads.get(side, head)
+			# The stone portal stands in the medieval room: its passage is 1.9 m of this opening.
+			var portal: bool = area.label == PORTAL_ROOM and side == "north"
+			_add_door(
+				beyond, fan, _stage_ids[i], at, out, width, head,
+				arch.x if portal else width, PORTAL_MOUTH + 2.6 if portal else 2.6, 0
+			)
+
+
+# One doorway's light: the floor and haze beyond it, and the fan on this side.
+func _add_door(
+	beyond: Shader, fan: Shader, stage: int, at: Vector3, out: Vector3, width: float, head: float,
+	fan_width: float, reach: float, hall_layer: int
+) -> void:
+	var across := Vector3(-out.z, 0, out.x)
+	var glow := Vector3(DOOR_GLOW.r, DOOR_GLOW.g, DOOR_GLOW.b)
+	var node := Node3D.new()
+	_vp.add_child(node)
+	var far_floor := _void_material(beyond)
+	var near_floor := ShaderMaterial.new()
+	near_floor.shader = fan
+	for material in [far_floor, near_floor]:
+		material.set_shader_parameter("sill", at)
+		material.set_shader_parameter("out_dir", out)
+		material.set_shader_parameter("glow", glow)
+	far_floor.set_shader_parameter("half_width", width / 2.0)
+	far_floor.set_shader_parameter("head", head)
+	near_floor.set_shader_parameter("half_width", fan_width / 2.0)
+	near_floor.set_shader_parameter("reach", reach)
+	# Beyond: the next floor for ten metres, and a wall of haze where it ends.
+	var deep := 10.0
+	var wide := width / 2.0 + 9.0
+	var a := at + Vector3.UP * 0.008
+	var tool := SurfaceTool.new()
+	tool.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for quad in [
+		[a - across * wide, a + across * wide, a + across * wide + out * deep, a - across * wide + out * deep],
+		[
+			a - across * wide + out * deep, a + across * wide + out * deep,
+			a + across * wide + out * deep + Vector3.UP * 14.0, a - across * wide + out * deep + Vector3.UP * 14.0
+		]
+	]:
+		for corner in [0, 1, 2, 0, 2, 3]:
+			tool.add_vertex(quad[corner])
+	var light := MeshInstance3D.new()
+	light.mesh = tool.commit()
+	light.material_override = far_floor
+	# On this side: a fan on the floor, added to whatever the floor is.
+	var spread := fan_width / 2.0 + reach * 0.55
+	var f := at + Vector3.UP * 0.011
+	tool = SurfaceTool.new()
+	tool.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var corners := [f - across * spread, f + across * spread, f + across * spread - out * reach, f - across * spread - out * reach]
+	for corner in [0, 1, 2, 0, 2, 3]:
+		tool.add_vertex(corners[corner])
+	var spill := MeshInstance3D.new()
+	spill.mesh = tool.commit()
+	spill.material_override = near_floor
+	for mesh in [light, spill]:
+		mesh.layers = VOID_LAYER
+		mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		node.add_child(mesh)
+	node.hide()
+	_doors.append({"stage": stage, "node": node, "at": at, "header": null, "hall_layer": hall_layer, "ground": far_floor})
+
+
+# Each doorway's light goes with the wall the doorway is in: the header above it, once the rooms
+# are built. A doorway through a wall's thickness takes the header at the near end of it.
+func _link_doors() -> void:
+	for door in _doors:
+		var best := 1.0
+		for wall in _walls:
+			if not str(wall.body.get_meta("room_wall", "")).ends_with(":header"):
+				continue
+			if wall.room < 0 or _stage_ids[wall.room] != door.stage:
+				continue
+			var c: Vector3 = (wall.box as AABB).get_center()
+			var d := Vector2(c.x - door.at.x, c.z - door.at.z).length()
+			if d < best:
+				best = d
+				door.header = wall.body
+
+
+# A wall the lightmap left unlit was drawn black: the upper walls of the dark medieval room, the
+# connector's dark wall. Every wall surface keeps a little of its own colour whatever the bake
+# says, so it reads as that wall in shade.
+func _shade_walls() -> void:
+	var baked := _rooms.get_node_or_null("BakedRoom")
+	if baked == null:
+		return
+	for surface in baked.get_children():
+		if not surface is MeshInstance3D:
+			continue
+		# A baked surface stands for one authored mesh, or for several merged into it.
+		var up: Node = surface.get_meta("live_cutaway", null)
+		var merged: Array = surface.get_meta("source_paths", [])
+		if up == null and not merged.is_empty():
+			up = _rooms.find_child(str(merged[0]), true, false)
+		var wall := false
+		while up != null and up != _rooms:
+			wall = wall or up.has_meta("room_wall")
+			up = up.get_parent()
+		var material := surface.get_active_material(0) as StandardMaterial3D
+		if (
+			not wall
+			or material == null
+			or material.emission_enabled
+			or material.shading_mode == BaseMaterial3D.SHADING_MODE_UNSHADED
+		):
+			continue
+		var c := material.albedo_color
+		var peak := maxf(c.r, maxf(c.g, c.b))
+		if peak <= 0.0:
+			continue
+		material.emission_enabled = true
+		material.emission = Color(c.r / peak, c.g / peak, c.b / peak) * WALL_SHADE
+		# With its plaster where it has one; a bare colour has no texture to multiply by.
+		material.emission_texture = material.albedo_texture
+		material.emission_operator = (
+			BaseMaterial3D.EMISSION_OP_MULTIPLY
+			if material.albedo_texture
+			else BaseMaterial3D.EMISSION_OP_ADD
+		)
+
+
+# A doorway's light is drawn when its stage is, and its wall is. Called once the walls are set.
+func _light_doors() -> void:
+	var stage := -1 if _stage == NO_STAGE else _stage
+	for door in _doors:
+		var seen: bool = door.stage == stage
+		if seen and door.hall_layer == 8:
+			seen = float(_cutaway_alpha.get(8, 1.0)) > 0.5
+		elif seen and door.hall_layer != 0:
+			seen = _cam.cull_mask & door.hall_layer != 0
+		elif seen and is_instance_valid(door.header):
+			seen = door.header.get_child(1).visible
+		door.node.visible = seen
 
 
 func _void_material(shader: Shader) -> ShaderMaterial:
@@ -2226,7 +2476,10 @@ func _mask_floor() -> void:
 
 
 func _void_materials() -> Array:
-	return [_floor_mask.material_override]
+	var materials := [_floor_mask.material_override]
+	for door in _doors:
+		materials.append(door.ground)
+	return materials
 
 
 func _mask_mesh(keep: Array[Rect2]) -> void:
@@ -2413,6 +2666,13 @@ func _wipe_end() -> void:
 func _cutaway_mask(target: int, blend: float) -> int:
 	if _wipe_t >= 0.0 and _wipe_t < WIPE_CLOSE:
 		return _wipe_mask  # the Hall's walls keep their fade while the wipe closes
+	if _stage >= 0 and _plan[_stage].label == PORTAL_ROOM:
+		# The stone portal is the Hall's mesh and followed the Hall's rule, which shows its arch
+		# wall only to a view facing north: seen from the east or west the medieval room's north
+		# wall stood with a 4.2 m hole in it. There the portal goes with that wall instead: it
+		# is cut away only for a dollhouse camera standing north of the room.
+		var north_cut := view_mode != 2 and _inspect_t <= 0.0 and _cam.global_position.z < 0.0
+		target = (target & ~8) | (0 if north_cut else 8)
 	return super(target, blend)
 
 
