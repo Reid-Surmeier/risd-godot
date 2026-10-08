@@ -65,7 +65,9 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
     while the camera glides back from it, so the visitor never walks off under an open caption;
     the button is back once the reading has closed. A wall is not floor: in every room, facing
     each wall in turn, a click on the drawn wall starts no walk, and a click in a doorway of
-    that wall still walks through it.
+    that wall still walks through it. The work under the pointer is the one that opens: where
+    two works' boxes overlap on screen (the carved diptych 22.201 and the book cover 34.016 in
+    one case) a click on either selects that one, from both ends of the case.
 
 Round 1's reviewer asked for four more that the harness does not have yet; until it does, the
 reviewer checks them by hand and says so:

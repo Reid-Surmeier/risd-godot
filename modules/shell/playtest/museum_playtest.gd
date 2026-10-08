@@ -7,7 +7,8 @@
 ##            a detail must open, and it must close again.
 ## 5 interaction: the faults a player found by playing (#280), each replayed with real
 ##            pointer events: "Other wall" pressed while a work is being read; a click on
-##            every room's walls (no walk) and in every doorway (a walk through).
+##            every room's walls (no walk) and in every doorway (a walk through); a click on
+##            a work whose box another work's box overlaps on screen.
 ## source ~/promo-lab/gpu-env.sh   (the RTX through Mesa d3d12; llvmpipe is ten times slower)
 ## godot --fixed-fps 60 --path . --script res://modules/shell/playtest/museum_playtest.gd
 ##   --display-driver x11 --rendering-driver opengl3 -- --out-dir=<dir>
@@ -782,6 +783,7 @@ func _interaction() -> void:
 	if not problems.is_empty():
 		_fail("interaction", entry.name + ": " + entry.result, entry)
 	await _wall_clicks()
+	await _overlapped_works()
 
 
 
@@ -880,6 +882,65 @@ func _wall_clicks() -> void:
 		problems.append(
 			"a click in a doorway did not walk through: " + "; ".join(entry.dead_doorways)
 		)
+	entry["result"] = "ok" if problems.is_empty() else ", ".join(problems)
+	report.interaction.append(entry)
+	if not problems.is_empty():
+		_fail("interaction", entry.name + ": " + entry.result, entry)
+
+
+# The work under the pointer is the one that answers (#280). In the Renaissance room's east
+# case the carved diptych 22.201 lies in front of the book cover 34.016 and their boxes overlap
+# on screen. Seen from either end of the case a click on the diptych selects the diptych, and
+# the book cover still answers a click on itself.
+func _overlapped_works() -> void:
+	var by := {}
+	for thing in walk._objects:
+		by[thing.tag.get_slice("#", 0)] = thing
+	var entry := {"name": "works whose boxes overlap", "picks": []}
+	var problems := PackedStringArray()
+	# [view yaw, where the visitor stands along the case, the works clicked]
+	for pose in [[0.0, 1.0, ["22.201", "34.016"]], [PI, 2.5, ["22.201"]]]:
+		_place(Vector3(-8.05, 0, pose[1]))
+		walk.view_yaw = pose[0]
+		for settle in 8:
+			await process_frame
+		for number in pose[2]:
+			if not by.has(number):
+				problems.append(number + " is not in the museum")
+				continue
+			var at := Vector2.ZERO
+			for corner in by[number].corners:
+				at += walk._to_screen(corner) / by[number].corners.size()
+			var picked: String = walk._painting_at(at).get("tag", "")
+			entry.picks.append(
+				{"clicked": number, "facing": "north" if pose[0] == 0.0 else "south", "picked": picked}
+			)
+			if picked.get_slice("#", 0) != number:
+				problems.append(
+					"a click on the middle of %s selects %s" % [number, picked if picked != "" else "nothing"]
+				)
+	# And with the mouse, from the first pose: the diptych's own caption opens.
+	if by.has("22.201"):
+		_place(Vector3(-8.05, 0, 1.0))
+		for settle in 8:
+			await process_frame
+		var at := Vector2.ZERO
+		for corner in by["22.201"].corners:
+			at += walk._to_screen(corner) / by["22.201"].corners.size()
+		_mouse(at, true)
+		_mouse(at, false)
+		var clock := 0.0
+		while walk._inspect.is_empty() and clock < 20.0:
+			await process_frame
+			clock += root.get_process_delta_time()
+		entry["opened"] = walk._inspect.get("tag", "")
+		if str(entry.opened).get_slice("#", 0) != "22.201":
+			problems.append(
+				"clicking 22.201 opened %s" % (entry.opened if entry.opened != "" else "nothing")
+			)
+		walk._end_inspect(false)
+		for settle in 50:
+			await process_frame
 	entry["result"] = "ok" if problems.is_empty() else ", ".join(problems)
 	report.interaction.append(entry)
 	if not problems.is_empty():

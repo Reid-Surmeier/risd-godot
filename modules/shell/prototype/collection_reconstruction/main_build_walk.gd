@@ -455,9 +455,10 @@ func _painting_at(pt: Vector2) -> Dictionary:
 	var best: Dictionary = super(pt)
 	if (_cam.cull_mask & 63) == 0:
 		best = {}  # the Hall is cut away: its paintings cannot be clicked through the gap
-	# Among the works under the pointer the smallest on screen wins: a cup in front of a
-	# cabinet, a plate inside a case.
+	# A work answers when its box is under the pointer. Under several boxes, the smallest on
+	# screen: a cup in front of a cabinet, a plate inside a case.
 	var smallest := INF
+	var under: Array = []
 	var here := _room_at(_pos)
 	for thing in _objects:
 		# The room the visitor stands in, plus the work being read: its viewing spot may lie
@@ -488,10 +489,45 @@ func _painting_at(pt: Vector2) -> Dictionary:
 		if Geometry2D.is_point_in_polygon(pt, hull):
 			if reading:
 				return thing  # the work being read answers before a smaller neighbour in its case
+			under.append(thing)
 			if area < smallest:
 				smallest = area
 				best = thing
+	# But a box is mostly air, and the box of a work standing behind another covers part of the
+	# one in front (#280). So several boxes are settled by the works themselves: the nearest
+	# one whose own meshes the pointer's ray meets. Only then, as each mesh's first test reads
+	# it back from the renderer. Where the ray meets none (the margin round a small work) the
+	# smallest box stands.
+	if under.size() > 1:
+		var vp_pt := pt / size * Vector2(_vp.size)
+		var from := _cam.project_ray_origin(vp_pt)
+		var toward := _cam.project_ray_normal(vp_pt)
+		var nearest := INF
+		for thing in under:
+			var reach := _ray_reach(thing.node, from, toward)
+			if reach < nearest:
+				nearest = reach
+				best = thing
 	return best
+
+
+# How far along a ray a work's own drawn surface lies; INF where the ray misses the work.
+func _ray_reach(node: Node3D, from: Vector3, toward: Vector3) -> float:
+	var reach := INF
+	var parts: Array = node.find_children("*", "MeshInstance3D", true, false)
+	if node is MeshInstance3D:
+		parts.append(node)
+	for part in parts:
+		if part.mesh == null or not part.is_visible_in_tree():
+			continue
+		var shape: TriangleMesh = part.mesh.generate_triangle_mesh()  # kept by the mesh
+		if shape == null:
+			continue
+		var inward: Transform3D = part.global_transform.affine_inverse()
+		var hit := shape.intersect_ray(inward * from, (inward.basis * toward).normalized())
+		if not hit.is_empty():
+			reach = minf(reach, from.distance_to(part.global_transform * hit.position))
+	return reach
 
 
 # The cut-away hides a work's meshes, not its root: drawn means some mesh of it still shows.
