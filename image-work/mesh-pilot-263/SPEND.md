@@ -49,3 +49,13 @@ Saint Peter 20.254 on the Muse-first route (owner's go for one object):
 | Muse, 5 flat colour views (one retry) | 0.05 | 0.05 |
 
 **Charged so far: 7.12 USD**: 3.12 above, 2.52 stopped-route, 1.48 Saint Peter Muse-first (0.16 Muse, 0.96 Tripo, 0.36 Meshy retexture).
+
+## Batch on the Muse-first route (owner's go, 8 October)
+
+| Object | Muse images | Tripo H3.1 Multi-View (RISD EDU), quote / charged | Result |
+| --- | --- | --- | --- |
+| Angel of the Annunciation 37.114 | 8 (0.08) | 0.48 / 0.48 | accepted, 391 KB |
+| Head of Christ 59.131 | 6 (0.06) | 0.48 / 0.48 | accepted, 467 KB |
+| Bust of Madame Récamier 37.201 | 6 (0.06) | 0.48 / 0.48 | rejected: invented round socle, invented veining and dark hair in the colour |
+
+**Batch so far: 1.64 USD. Whole effort: 8.76 USD charged.**

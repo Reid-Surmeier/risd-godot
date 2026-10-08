@@ -217,9 +217,16 @@
     "id": "run_m171mq2jvy2r4gkzr2qzg9bdvs8fx0jw",
     "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
     "params": "geometry detailed, texture off, face limit 500,000",
-    "quote": 0.48
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "02e7e0d10fe523511e39654103707b2ee1f57e605ede480c5b048abb6b684480"
    },
-   "views": "front from the photograph; left and back inferred (Muse drew the right profile, mirrored)"
+   "views": "front from the photograph; left and back inferred (Muse drew the right profile, mirrored)",
+   "imported": {
+    "mesh": 219401,
+    "colour": 326994,
+    "total": 546395
+   }
   }
  },
  "06.057": {
