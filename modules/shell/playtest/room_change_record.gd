@@ -14,6 +14,7 @@ const RUN_UP := 2.2  # metres walked on each side of the wall
 var walk
 var out := "res://build/room-change"
 var pictures := true
+var behind := false  # --behind: look the way the visitor walks, the camera over the room being left
 
 
 func _initialize() -> void:
@@ -25,6 +26,8 @@ func _run() -> void:
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--out-dir="):
 			out = arg.get_slice("=", 1)
+		if arg == "--behind":
+			behind = true
 		if arg == "--no-pictures":
 			pictures = false
 		if arg.begins_with("--doors="):
@@ -77,9 +80,15 @@ func _leg(name: String, from: Vector3, to: Vector3) -> void:
 	var at: int = walk._room_at(from)
 	if at >= 0:
 		walk._space = "far" if walk._plan[at].far else "arch"
+	var along := to - from
+	var yaw := 0.0
+	if behind:
+		yaw = (0.0 if along.z < 0 else PI) if absf(along.z) > absf(along.x) else (
+			-PI / 2.0 if along.x > 0 else PI / 2.0
+		)
 	walk.view_mode = 0
-	walk.view_yaw = 0.0
-	walk._yaw = 0.0
+	walk.view_yaw = yaw
+	walk._yaw = yaw
 	walk._kid.position = from
 	walk._kid.reset_contacts()
 	walk._update_camera(1.0)
@@ -97,10 +106,12 @@ func _leg(name: String, from: Vector3, to: Vector3) -> void:
 		var left: Vector3 = to - walk._pos
 		var held := {}
 		if left.length() > 0.25 and rest == 0:
-			if absf(left.z) > 0.12:
-				held["up" if left.z < 0 else "down"] = 1.0
-			if absf(left.x) > 0.12:
-				held["right" if left.x > 0 else "left"] = 1.0
+			var ahead := left.dot(Vector3(-sin(yaw), 0, -cos(yaw)))
+			var aside := left.dot(Vector3(cos(yaw), 0, -sin(yaw)))
+			if absf(ahead) > 0.12:
+				held["up" if ahead > 0 else "down"] = 1.0
+			if absf(aside) > 0.12:
+				held["right" if aside > 0 else "left"] = 1.0
 		else:
 			rest += 1
 		walk._held = held
