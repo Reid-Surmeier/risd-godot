@@ -49,6 +49,7 @@ const SIDES := {
 var _rooms: Node3D
 var _plan: Array = []  # {label, b: [x0, x1, z0, z1] Hall-local, openings: {side: [lo, hi]}, far}
 var _blocks: Array[Rect2] = []  # furniture, cases, door leaves and floor voids, in x/z
+var _skylight_surfaces: Array = []  # #275: the same landing / ramps / lower-floor patches as the built room
 var _walls: Array = []  # {body, box, boxes, layers, room, side}: what the camera may cut away
 var _parts: Array = []  # {node, room, side, shown}: everything else in the rooms; side set if it hangs on a wall
 var _cut_state := 0
@@ -154,7 +155,43 @@ func _read_plan(path: String) -> bool:
 		if area.has("floor_void"):
 			var v: Array = area.floor_void
 			_blocks.append(Rect2(v[0] + ATTACH.x, v[2] + ATTACH.z, v[1] - v[0], v[3] - v[2]))
+	# #275 only: floor height follows the built collision patches. Rails keep the
+	# planner on the three runs; there is no straight shortcut off the landing.
+	for patch in plan.get("skylight_walk", {}).get("surfaces", []):
+		var vertices: Array = patch.vertices.map(func(v): return Vector3(v[0], v[1], v[2]) + ATTACH)
+		var a: Vector3 = vertices[0]
+		var normal: Vector3 = (vertices[1] - a).cross(vertices[3] - a)
+		var rect := Rect2(a.x, a.z, 0, 0)
+		for vertex in vertices:
+			rect = rect.expand(Vector2(vertex.x, vertex.z))
+		_skylight_surfaces.append({"b": rect, "at": a, "normal": normal})
+	for guard in plan.get("skylight_walk", {}).get("guards", []):
+		var a: Array = guard.ends[0]
+		var b: Array = guard.ends[1]
+		_blocks.append(Rect2(minf(a[0], b[0]) + ATTACH.x - .025, minf(a[2], b[2]) + ATTACH.z - .025, absf(b[0] - a[0]) + .05, absf(b[2] - a[2]) + .05))
 	return true
+
+
+func _skylight_height(p: Vector3) -> float:
+	var height := -INF
+	for patch in _skylight_surfaces:
+		if patch.b.grow(.001).has_point(Vector2(p.x, p.z)):
+			var n: Vector3 = patch.normal
+			var a: Vector3 = patch.at
+			height = maxf(height, a.y - (n.x * (p.x - a.x) + n.z * (p.z - a.z)) / n.y)
+	return height
+
+
+func _skylight_step(p: Vector3) -> Vector3:
+	var height := _skylight_height(p)
+	if height == -INF:
+		return p
+	# A floor or ramp supports each step. An edge a storey above the next patch
+	# cannot be crossed by keys, a click route or a jump animation.
+	if absf(height - _pos.y) > .30 and Vector2(p.x - _pos.x, p.z - _pos.z).length() < .50:
+		return _pos
+	p.y = height
+	return p
 
 
 func _attach_rooms(path: String) -> void:
@@ -563,6 +600,23 @@ func _drawn(node: Node3D) -> bool:
 # shows. walk4's ray alone runs on through a drawn wall, or over it, to the floor of whatever
 # room lies behind, and the visitor was sent there.
 func _floor_at(pt: Vector2):
+	# #275: ray/patch intersections at both levels, rather than walk4's y=0 plane.
+	if _stage >= 0 and _plan[_stage].label == "Skylight Gallery":
+		var eye := _cam.project_ray_origin(pt)
+		var direction := _cam.project_ray_normal(pt)
+		var nearest := INF
+		var hit = null
+		for patch in _skylight_surfaces:
+			var n: Vector3 = patch.normal
+			var denominator := n.dot(direction)
+			if absf(denominator) < .00001:
+				continue
+			var distance: float = n.dot(patch.at - eye) / denominator
+			var q := eye + direction * distance
+			if distance > 0 and distance < nearest and patch.b.has_point(Vector2(q.x, q.z)):
+				nearest = distance
+				hit = q
+		return hit
 	var spot = super(pt)
 	if spot == null or _plan.is_empty() or _on_stage(spot):
 		return spot
@@ -1209,7 +1263,7 @@ func _clamp(p: Vector3) -> Vector3:
 			var cross_x := lerpf(_pos.x, p.x, (PORTAL_MOUTH - _pos.z) / (p.z - _pos.z))
 			if absf(cross_x) <= 0.4:
 				return super(p)
-	return _slide(p)
+	return _skylight_step(_slide(p))
 
 
 func _slide(p: Vector3) -> Vector3:
@@ -1269,6 +1323,8 @@ func _walkable(p: Vector3) -> bool:
 		return false
 	var index := _room_at(p)
 	if index < 0:
+		return false
+	if _plan[index].label == "Skylight Gallery" and _skylight_height(p) == -INF:
 		return false
 	var b: Array = _plan[index].b
 	for side in SIDES:
@@ -1540,6 +1596,12 @@ func _mask_floor() -> void:
 	_floor_mask.visible = _stage >= 0
 	if _stage < 0:
 		return
+	# #275: the stage's dark exterior meets the oak floor below the entry.
+	# A y=0 mask would obscure the lower room from its dollhouse camera.
+	var mask_y := .004
+	if _plan[_stage].label == "Skylight Gallery":
+		for patch in _skylight_surfaces:
+			mask_y = minf(mask_y, patch.at.y + .004)
 	# The Hall's layers are not drawn from an added room; the visitor's own lamp must still be.
 	var fill = _kid.get("_fill")
 	if fill is Light3D:
@@ -1576,7 +1638,7 @@ func _mask_floor() -> void:
 				tool.add_vertex(
 					Vector3(
 						cell.position.x + cell.size.x * corner[0],
-						0.004,
+						mask_y,
 						cell.position.y + cell.size.y * corner[1]
 					)
 				)

@@ -1,0 +1,96 @@
+{
+  "click_path_cells": 49,
+  "failures": [],
+  "rows": [
+    {
+      "largest_step_m": 0.0200004577636719,
+      "passed": true,
+      "position": "(5.55, 0.0, -6.560057)",
+      "trial": "grey_skylight_out"
+    },
+    {
+      "largest_step_m": 0.0200004577636719,
+      "passed": true,
+      "position": "(5.55, 0.0, -4.179945)",
+      "trial": "grey_skylight_back"
+    },
+    {
+      "largest_step_m": 0.0200000405311584,
+      "passed": true,
+      "position": "(6.889999, 0.0, -6.58)",
+      "trial": "skylight_landing_east"
+    },
+    {
+      "largest_step_m": 0.0215762034058571,
+      "passed": true,
+      "position": "(9.259998, -0.708333, -6.58)",
+      "trial": "skylight_upper_down"
+    },
+    {
+      "largest_step_m": 0.0221771206706762,
+      "passed": true,
+      "position": "(9.27, -1.7, -10.10008)",
+      "trial": "skylight_east_down"
+    },
+    {
+      "largest_step_m": 0.0222343914210796,
+      "passed": true,
+      "position": "(6.310003, -2.55, -10.12)",
+      "trial": "skylight_lower_down"
+    },
+    {
+      "largest_step_m": 0.0200004577636719,
+      "passed": true,
+      "position": "(6.3, -2.55, -7.87995)",
+      "trial": "skylight_lower_aisle"
+    },
+    {
+      "largest_step_m": 0.0200000405311584,
+      "passed": true,
+      "position": "(3.520002, -2.55, -7.859999)",
+      "trial": "skylight_lower_west"
+    },
+    {
+      "largest_step_m": 0.0200004577636719,
+      "passed": true,
+      "position": "(3.5, -2.55, -6.379965)",
+      "trial": "skylight_lower_lift"
+    },
+    {
+      "largest_step_m": 0.0222343914210796,
+      "passed": true,
+      "position": "(9.259997, -1.7, -10.12)",
+      "trial": "skylight_lower_up"
+    },
+    {
+      "largest_step_m": 0.0221771206706762,
+      "passed": true,
+      "position": "(9.27, -0.708333, -6.59992)",
+      "trial": "skylight_east_up"
+    },
+    {
+      "largest_step_m": 0.0215762034058571,
+      "passed": true,
+      "position": "(6.910003, -0.004049, -6.58)",
+      "trial": "skylight_upper_up"
+    },
+    {
+      "largest_step_m": 0.0200000107288361,
+      "passed": true,
+      "position": "(5.560001, 0.0, -6.58)",
+      "trial": "skylight_landing_back"
+    },
+    {
+      "largest_step_m": 0.0200004577636719,
+      "passed": true,
+      "position": "(5.55, 0.0, -7.080011)",
+      "trial": "skylight_front_guard"
+    },
+    {
+      "largest_step_m": 0.0199999809265137,
+      "passed": true,
+      "position": "(4.53, 0.0, -6.58)",
+      "trial": "skylight_west_guard"
+    }
+  ]
+}

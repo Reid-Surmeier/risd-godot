@@ -1,10 +1,6 @@
-## Skylight Gallery (#238), first version: the room behind the grey gallery's north door.
-## IMG_6379 shows a double-height room. The door opens on an upper landing; a black stair runs
-## round the east end down to the floor with the piano, a storey (about 3.3 m) lower.
-## ponytail: the visitor cannot change level, so the whole footprint is built at the door's level
-## and the stair, landing, lift and lower doors are left out. Split the levels when the walk can.
-## Sizes: structure-from-motion fit of IMG_6379 scaled by the Diao canvas (69.094, 2.21 m wide);
-## docs/evidence/museum-238/skylight/NOTES.md has every number, its frame and its confidence.
+## Skylight Gallery (#275): entry landing, three descending runs and the oak floor below.
+## IMG_6379, catalogue-scaled #238 fit and new frame checks; all dimensions provisional.
+## docs/evidence/skylight-275/NOTES.md records the sources, errors and draft comparisons.
 extends RefCounted
 
 const ROOM := "Skylight Gallery"
@@ -23,6 +19,8 @@ const WORKS := [
 	["2025.19", "Spectrum II", "Dan Walsh", "1998", "Acrylic on canvas", "152.4 x 152.4 x 3.8 cm", "walsh-spectrum-ii-202519-footage.jpg", 1.524, 1.524, "east", 2.5, 1.9, RECT, "8fbf6a", "footage IMG_6379 52.5s"],
 ]
 const YAW := {"north": 0.0, "south": PI, "west": PI / 2, "east": -PI / 2}
+const LOWER := -2.55
+const RAIL := .90
 
 
 func build(room) -> void:
@@ -35,10 +33,12 @@ func build(room) -> void:
 	for wall in room.casings:
 		if str(wall.get_meta("room_wall", "")).begins_with(ROOM + ":"):
 			wall.get_child(1).material_override = grey
+	_levels(room, b, grey, white)
 	# The door wall is a deep panelled reveal with both leaves folded in it (IMG_6379 169..182s).
 	# ponytail: the Hall reveal's builder, so the knobs sit at the grey gallery end; the footage hinges
 	# these leaves on that side. Give the leaves their own hang when the door is fitted.
 	room.build_reveal(REVEAL, true)
+	_entry_floor(room)
 	for wall in room.casings:
 		if wall.has_meta("hall_reveal_leaf") and str(wall.get_meta("room_wall", "")).begins_with(REVEAL):
 			wall.remove_meta("hall_reveal_leaf")
@@ -95,14 +95,168 @@ func build(room) -> void:
 		card.position = Vector3(row[7] / 2 + .25, 1.4 - row[11], -.017 / art.scale.z)
 		card.set_meta("artwork_label_proxy", true)
 		art.reparent(room.wall_body(ROOM, row[9], art.global_position))
-	room.inventory["skylight_gallery"] = {"works": WORKS.size(), "piano": true, "levels_built": 1, "levels_in_footage": 2, "metric_accepted": false, "placement_accepted": false}
+	room.inventory["skylight_gallery"] = {"works": WORKS.size(), "piano": true, "levels_built": 2, "levels_in_footage": 2, "lower_floor_m": LOWER, "entry_floor_m": 0.0, "ceiling_m": height, "stair_walkable": true, "metric_accepted": false, "placement_accepted": false}
+
+
+func _levels(room, b: Array, grey: Material, white: Material) -> void:
+	var plan: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://geometry.json")).skylight_walk
+	var landing: Array = plan.landing
+	var iron: Material = room.look(Color("25272a"))
+	var wood: Material = room.look(Color("8c6141"))
+	# Replace only this room's flat visual boards. Collision already comes from
+	# its lower floor / landing / ramp patches; the neighbouring reveal stays level.
+	var oak: ShaderMaterial
+	for child in room.get_children():
+		if child is MeshInstance3D and child.mesh != null and child.material_override is ShaderMaterial:
+			var reach: AABB = child.mesh.get_aabb()
+			if reach.position.y > -.01 and reach.end.y < .02 and reach.position.x >= b[0] - .01 and reach.end.x <= b[1] + .01 and reach.position.z >= b[2] - .01 and reach.end.z <= b[3] + .01:
+				if oak == null:
+					oak = child.material_override.duplicate()
+					oak.set_shader_parameter("ground_tone", Color("dfc89f"))
+				child.free()
+	assert(oak != null, "Skylight must replace its own authored floor")
+	for i in int(ceil((b[1] - b[0]) / .14)):
+		var xa: float = b[0] + i * .14
+		var xb: float = minf(b[1], xa + .14)
+		for j in int(ceil((b[3] - b[2]) / 1.8)) + 1:
+			var za: float = maxf(b[2], b[2] + j * 1.8 - (i % 3) * .6)
+			var zb: float = minf(b[3], b[2] + (j + 1) * 1.8 - (i % 3) * .6)
+			if zb <= za:
+				continue
+			room.panel(room, [Vector3(xa, LOWER + .003, za), Vector3(xb, LOWER + .003, za), Vector3(xb, LOWER + .003, zb), Vector3(xa, LOWER + .003, zb)], [Vector2.ZERO, Vector2.DOWN, Vector2.ONE, Vector2.RIGHT], oak, Color(1, 1, 1, fmod((i * 7 + j * 3) * .131, 1.0)))
+	# Extend the walls downward. The upper opening / casing / deep reveal and
+	# leaves remain the kit's construction at y=0. Existing kit skirting is
+	# positioned on the oak floor, not left floating at the entry's height.
+	var upper_walls: Array = room.casings.duplicate()
+	var exit_width := 1.80
+	var exit_mid: float = b[0] + 4.65
+	for side in ["west", "east", "north", "south"]:
+		var vertical: bool = side in ["west", "east"]
+		var fixed: float = b[0] if side == "west" else b[1] if side == "east" else b[2] if side == "north" else b[3]
+		var lo: float = b[2] if vertical else b[0]
+		var hi: float = b[3] if vertical else b[1]
+		var spans: Array = [[lo, exit_mid - exit_width / 2], [exit_mid + exit_width / 2, hi]] if side == "north" else [[lo, hi]]
+		for span in spans:
+			var center := Vector3(fixed, LOWER / 2, (span[0] + span[1]) / 2) if vertical else Vector3((span[0] + span[1]) / 2, LOWER / 2, fixed)
+			var size := Vector3(.12, -LOWER, span[1] - span[0]) if vertical else Vector3(span[1] - span[0], -LOWER, .12)
+			var wall: StaticBody3D = room.solid(center, size, grey, true)
+			wall.set_meta("room_wall", ROOM + ":" + side)
+			room.wall_face(wall, span[1] - span[0], -LOWER, vertical, 1.0 if side in ["west", "north"] else -1.0)
+			for upper in upper_walls:
+				if upper.get_meta("room_wall", "") != ROOM + ":" + side:
+					continue
+				for child in upper.get_children():
+					if child is MeshInstance3D and child != upper.get_child(1) and not child.has_meta("door_casing"):
+						if side == "north":
+							child.free()  # replace the single kit length with the two door-side lengths
+							continue
+						child.global_position.y += LOWER
+						child.reparent(wall)
+			if side == "north":
+				var trim: MeshInstance3D = room.moulding(span[1] - span[0], .20, "baseboard", false)
+				trim.material_override = room.trim_paint()
+				trim.position = Vector3((span[0] + span[1]) / 2, LOWER + .10, fixed + .065)
+				trim.reparent(wall)
+	_lower_exit(room, b, exit_mid, exit_width, grey, white)
+	# A solid plaster enclosure below the entry deck, as filmed beside the
+	# lift / vestibule. Its two exposed faces keep the lower visitor out of
+	# the deck's footprint; nothing supports a walk on an invisible flat plane.
+	for spec in [
+		[Vector3(landing[0], LOWER / 2, (landing[2] + landing[3]) / 2), Vector3(.12, -LOWER, landing[3] - landing[2])],
+		[Vector3((landing[0] + landing[1]) / 2, LOWER / 2, landing[2]), Vector3(landing[1] - landing[0], -LOWER, .12)],
+	]:
+		var wall: StaticBody3D = room.solid(spec[0], spec[1], grey, true)
+		wall.set_meta("room_wall", ROOM + ":platform")
+	# Visible stair treads / risers above smooth collision ramps. The first
+	# run descends east, the second north, the third west onto the oak floor.
+	var count: int = 0
+	for n in plan.risers:
+		count += int(n)
+	var rise: float = -LOWER / count
+	var flights: Array = [
+		[Vector3(landing[1], 0, landing[3]), Vector3.RIGHT, Vector3.FORWARD, plan.turn_x - landing[1], landing[3] - landing[2], int(plan.risers[0]), 0.0],
+		[Vector3(b[1], -rise * int(plan.risers[0]), landing[2]), Vector3.FORWARD, Vector3.LEFT, landing[2] - plan.turn_z, b[1] - plan.turn_x, int(plan.risers[1]), -rise * int(plan.risers[0])],
+		[Vector3(plan.turn_x, -rise * (int(plan.risers[0]) + int(plan.risers[1])), b[2]), Vector3.LEFT, Vector3.BACK, plan.turn_x - landing[1], plan.turn_z - b[2], int(plan.risers[2]), -rise * (int(plan.risers[0]) + int(plan.risers[1]))],
+	]
+	for patch in plan.surfaces:
+		if not (patch.label.contains("landing") or patch.label.contains("quarter")):
+			continue
+		var a: Array = patch.vertices[0]
+		var c: Array = patch.vertices[2]
+		var slab: MeshInstance3D = room.solid(Vector3((a[0] + c[0]) / 2, a[1] - .09, (a[2] + c[2]) / 2), Vector3(absf(c[0] - a[0]), .18, absf(c[2] - a[2])), iron)
+		slab.set_meta("skylight_landing", patch.label)
+	for flight in flights:
+		var going: float = flight[3] / int(flight[5])
+		for i in int(flight[5]):
+			var p: Vector3 = flight[0] + flight[1] * ((i + .5) * going) + flight[2] * (flight[4] / 2)
+			p.y -= (i + 1) * rise + .09
+			var size := Vector3(going + .015, .18, flight[4]) if flight[1].x != 0 else Vector3(flight[4], .18, going + .015)
+			var step: MeshInstance3D = room.solid(p, size, iron)
+			step.set_meta("skylight_stair_tread", true)
+			# Pale vertical riser / stringer outside the black walking surface.
+			var edge: Vector3 = p + flight[2] * (flight[4] / 2 + .005) - Vector3.UP * .12
+			room.solid(edge, Vector3(going + .018, .24, .045) if flight[1].x != 0 else Vector3(.045, .24, going + .018), white)
+	# Guards collide in the draft. Their named wall tag keeps them out of the
+	# adapter's furniture blocks; geometry.json supplies the same guard lines.
+	for guard in plan.guards:
+		var a := Vector3(guard.ends[0][0], guard.ends[0][1], guard.ends[0][2])
+		var c := Vector3(guard.ends[1][0], guard.ends[1][1], guard.ends[1][2])
+		var length := Vector2(c.x - a.x, c.z - a.z).length()
+		var rail: MeshInstance3D = room.solid((a + c) / 2 + Vector3.UP * RAIL, Vector3(length, .06, .07), wood)
+		rail.rotation.z = atan2(c.y - a.y, length) if absf(c.x - a.x) > .01 else 0.0
+		if absf(c.z - a.z) > .01:
+			rail.rotation = Vector3(atan2(a.y - c.y, length), PI / 2, 0)
+		rail.set_meta("skylight_balustrade", true)
+		for i in int(ceil(length / .14)) + 1:
+			var p: Vector3 = a.lerp(c, float(i) / ceil(length / .14))
+			room.solid(p + Vector3.UP * (RAIL / 2), Vector3(.018, RAIL, .018), iron).set_meta("skylight_baluster", true)
+		var barrier: StaticBody3D = room.solid((a + c) / 2 + Vector3.UP * .45, Vector3(maxf(.05, absf(c.x - a.x)), absf(c.y - a.y) + .9, maxf(.05, absf(c.z - a.z))), iron, true)
+		barrier.get_child(1).mesh = ArrayMesh.new()
+		barrier.set_meta("room_wall", ROOM + ":rail_guard")
+
+
+func _lower_exit(room, b: Array, middle: float, width: float, grey: Material, white: Material) -> void:
+	var header: StaticBody3D = room.solid(Vector3(middle, (-LOWER + 2.20) / 2, b[2]), Vector3(width, -LOWER - 2.20, .12), grey, true)
+	header.set_meta("room_wall", ROOM + ":north:header")
+	# Reuse the kit, then place this door on the lower floor. No kit code changes.
+	room.door_casing(header, "north", b[2], [middle - width / 2, middle + width / 2], 2.20, .10)
+	header.set_meta("source_casing_width", .10)
+	header.position.y += LOWER
+	# Short, closed study of the doorway beyond the surveyed room. It is not
+	# registered as a new walkable room or a route out of this gallery.
+	var back: Node3D = room.solid(Vector3(middle, LOWER + 1.10, b[2] - .60), Vector3(width, 2.20, .04), room.look(Color("262325")))
+	back.reparent(header)
+	for side in [-1, 1]:
+		var leaf: Node3D = room.solid(Vector3(middle + side * (width / 2 - .08), LOWER + 1.08, b[2] - .29), Vector3(.06, 2.16, .56), white)
+		leaf.reparent(header)
+		for level in [.42, 1.30, 1.91]:
+			var panel: Node3D = room.solid(Vector3(middle + side * (width / 2 - .04), LOWER + level, b[2] - .29), Vector3(.024, .30 if level != 1.30 else .63, .39), room.look(Color("d6d6d0")))
+			panel.reparent(header)
+		var push: Node3D = room.solid(Vector3(middle + side * (width / 2 - .02), LOWER + 1.02, b[2] - .29), Vector3(.025, .035, .43), room.look(Color("303032")))
+		push.reparent(header)
+	var sign: Node3D = room.solid(Vector3(middle, LOWER + 2.50, b[2] + .075), Vector3(.42, .20, .018), room.look(Color.WHITE, "res://modules/shell/prototype/gallery_walk4/textures/exit-sign.svg"))
+	sign.reparent(header)
+	header.set_meta("skylight_lower_exit", true)
+
+
+func _entry_floor(room) -> void:
+	# 170s / IMG_6380 0..14s: black landing meets the grey room's oak at the
+	# outer sill, including the floor inside the preserved deep reveal.
+	var b: Array = room.room_bounds(REVEAL)
+	for child in room.get_children():
+		if child is MeshInstance3D and child.mesh != null and child.material_override is ShaderMaterial:
+			var reach: AABB = child.mesh.get_aabb()
+			if reach.position.y > -.01 and reach.end.y < .02 and reach.position.x >= b[0] - .01 and reach.end.x <= b[1] + .01 and reach.position.z >= b[2] - .01 and reach.end.z <= b[3] + .01:
+				child.free()
+	var floor: MeshInstance3D = room.solid(Vector3((b[0] + b[1]) / 2, -.017, (b[2] + b[3]) / 2), Vector3(b[1] - b[0], .04, b[3] - b[2]), room.look(Color("25272a")))
+	floor.set_meta("skylight_landing", REVEAL)
 
 
 # Lift 4: cream doors in a purple reveal under the strip that names the room (IMG_6379 8.0..9.4s).
 # A closed wall feature, as lift 5 is in the connector. ponytail: it stands on the lower floor in
 # the footage, in the south wall west of the landing; here it is at the door's level.
 func _lift(room, b: Array, white: Material) -> void:
-	var at: Vector3 = room.wall_point(ROOM, "south", 1.55, 0, 0)
+	var at: Vector3 = room.wall_point(ROOM, "south", 1.55, LOWER, 0)
 	var wall: Node3D = room.wall_body(ROOM, "south", at)
 	var purple: Material = room.look(Color.WHITE, "res://presentation/purple-plaster.png")
 	for part in [[Vector3(0, 1.15, -.07), Vector3(1.5, 2.3, .02), purple], [Vector3(-.26, 1.07, -.085), Vector3(.5, 2.1, .02), white], [Vector3(.26, 1.07, -.085), Vector3(.5, 2.1, .02), white],
@@ -128,7 +282,7 @@ func _lift(room, b: Array, white: Material) -> void:
 func _piano(room, b: Array) -> void:
 	var black: StandardMaterial3D = room.look(Color("121214"))
 	black.roughness = .35
-	var at := Vector3(b[0] + .85, 0, b[2] + .35)  # keyboard end, spine side
+	var at := Vector3(b[0] + .85, LOWER, b[2] + .35)  # keyboard end, spine side
 	var body: Node3D = room.solid(at + Vector3(.45, .79, .74), Vector3(.9, .38, 1.48), black, true)
 	body.set_meta("skylight_piano", true)
 	var tail: Node3D = room.solid(at + Vector3(1.325, .79, .5), Vector3(.85, .38, 1.0), black, true)

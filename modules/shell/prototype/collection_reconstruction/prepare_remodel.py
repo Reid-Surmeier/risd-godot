@@ -574,7 +574,7 @@ for label,b in [('landing north floor',[10.55,16.15,28.1,33.715])]+[(r['label'],
     geometry['patches'].append({'label':label,'color':'81735c','vertices':[[b[0],0,b[2]],[b[1],0,b[2]],[b[1],0,b[3]],[b[0],0,b[3]]]})
 geometry['lion_modern_layout']={'source':'IMG_6387 native2.25..84.25s; reciprocal6382 stair view','stair_block':'Draft void, flights and guard translated +1.715 with the stair door; preserved shape, not a source measurement','door_order':'Medieval west on the tracery axis; modern north on the adjoining wall at one inside corner, lion right of modern on that wall; white sculpture gallery on the next east wall (z provisional); stairwell south','modern_wall_groups':'Entry/Braque/Villon south; large painting west off the entry jamb; pumpkin/landscape/second doorway north; two windows and sculpture case east','source_review':'docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001; wall order docs/evidence/collection-reconstruction/opus-landing-refit-20261001','entry_reveal_depth_modelled':False,'metric_accepted':False,'stair_curve_and_destinations_complete':False,'white_sculpture_room_interior_complete':False,'adjoining_room_interior_complete':False}
 geometry['trials'] += [['landing_to_modern',[11.85,.25,29.75],[11.85,0,26.55],False],['modern_to_landing',[11.85,.25,26.55],[11.85,0,29.75],False],['landing_white_out',[14.95,.25,30.5],[17.0,0,30.5],False],['landing_white_back',[17.0,.25,30.5],[14.95,0,30.5],False],['modern_far_opening_out',[15.75,.25,23.25],[15.75,0,21.45],False],['modern_far_opening_back',[15.75,.25,21.45],[15.75,0,23.25],False],['modern_bench_blocked',[15.1,.25,25.35],[12.4,0,25.35],True],['landing_guard_blocked',[13.35,.25,32.7],[13.35,0,34.6],True],['landing_stair_foot_blocked',[11.15,.25,32.9],[11.15,0,34.6],True],['landing_flight_down_blocked',[15.55,.25,32.9],[15.55,0,34.6],True]]
-geometry['trials']=[t for t in geometry['trials'] if not t[0].startswith('grey_piano')]+[['grey_skylight_out',[5.55,.25,-4.16],[5.55,0,-7.2],False],['grey_skylight_back',[5.55,.25,-7.2],[5.55,0,-4.16],False],['skylight_piano_blocked',[2.6,.25,-8.4],[1.2,0,-9.9],True]]
+geometry['trials']=[t for t in geometry['trials'] if not t[0].startswith('grey_piano')]
 
 # The wall's thickness is walked as two threshold rooms; remodel_room.gd lines them and hangs the leaves.
 for label,x in [('Grand Gallery reveal threshold',[4.6,6.5]),('Rockefeller reveal threshold',[-3.5,-1.5])]:
@@ -592,6 +592,77 @@ assert geometry['rooms'][9]['label']=='Skylight Gallery' and geometry['rooms'][9
 geometry['patches'].append({'label':'Skylight Gallery reveal threshold','color':'81735c','vertices':[[b[0],0,b[2]],[b[1],0,b[2]],[b[1],0,b[3]],[b[0],0,b[3]]]})
 assert abs(geometry['rooms'][7]['bounds'][3]-geometry['rooms'][7]['bounds'][2]-6.)<1e-8,'The grey register keeps its 6.0m west wall'
 geometry['hall_reveal']={'source':'docs/evidence/collection-reconstruction/opus-hall-reveal-builder-20261001/REPORT.md','wall_m':reveal,'leaf_m':leaf,'leaf_panels_from_top':[[.06,.15],[.23,.63],[.74,.90]],'knob_from_top':.71,'hinge_side':'north','observed':'one cased opening, panelled soffit, both leaves folded flat on the reveal sides, free edge at the Hall; same construction at the Rockefeller door','depth_measured':False,'opening_metres_accepted':False,'leaf_fidelity_accepted':False,'rockefeller_leaf_built':False,'metric_accepted':False}
+
+# #275: the grey door enters the upper landing, not the oak gallery floor.
+# Keep the attached doorway and its deep reveal unchanged. The numerical survey
+# and frame checks are in docs/evidence/skylight-275/NOTES.md. All numbers provisional.
+skylight = next(r for r in geometry['rooms'] if r['label'] == 'Skylight Gallery')
+sx0, sx1, sz0, sz1 = skylight['bounds']
+skylight.update(height=3.9, floor='skylight-two-storey')
+low = -2.55
+lx0, lx1, lz0 = sx0 + 3.85, sx0 + 6.55, sz1 - 1.65
+turn_x, turn_z = sx1 - 1.20, sz0 + 1.28
+risers = [5, 7, 6]
+rise = -low / sum(risers)
+y1, y2 = -risers[0] * rise, -(risers[0] + risers[1]) * rise
+
+def skylight_patch(label, corners):
+    return {'label': 'Skylight ' + label, 'color': '81735c', 'vertices': corners}
+
+def skylight_deck(label, x0, x1, z0, z1, y):
+    return skylight_patch(label, [[x0,y,z0],[x1,y,z0],[x1,y,z1],[x0,y,z1]])
+
+# Each collision patch is also the surface the game's walking adapter reads.
+# Lower circulation excludes the lift / enclosed underside of the entry deck.
+skylight_surfaces = [
+    skylight_deck('lower north floor', sx0, lx1, sz0, lz0, low),
+    skylight_deck('lower west floor', sx0, lx0, lz0, sz1, low),
+    skylight_deck('lower well floor', lx1, turn_x, turn_z, lz0, low),
+    skylight_deck('upper landing', lx0, lx1, lz0, sz1, 0),
+    skylight_patch('upper ramp', [[lx1,0,lz0],[turn_x,y1,lz0],[turn_x,y1,sz1],[lx1,0,sz1]]),
+    skylight_deck('south-east quarter landing', turn_x, sx1, lz0, sz1, y1),
+    skylight_patch('east ramp', [[turn_x,y2,turn_z],[sx1,y2,turn_z],[sx1,y1,lz0],[turn_x,y1,lz0]]),
+    skylight_deck('north-east quarter landing', turn_x, sx1, sz0, turn_z, y2),
+    skylight_patch('lower ramp', [[lx1,low,sz0],[turn_x,y2,sz0],[turn_x,y2,turn_z],[lx1,low,turn_z]]),
+]
+geometry['patches'] = [p for p in geometry['patches'] if p['label'] != 'Skylight Gallery'] + skylight_surfaces
+geometry['skylight_walk'] = {
+    'source': 'IMG_6379 6.5/26/54/127/154.5/159.5s; docs/evidence/skylight-275/NOTES.md',
+    'lower_y': low, 'ceiling_y': 3.9, 'landing': [lx0,lx1,lz0,sz1],
+    'turn_x': turn_x, 'turn_z': turn_z, 'risers': risers,
+    'surfaces': skylight_surfaces,
+    'guards': [
+        {'ends': [[lx0,0,sz1],[lx0,0,lz0]]},
+        {'ends': [[lx0,0,lz0],[lx1,0,lz0]]},
+        {'ends': [[lx1,0,lz0],[turn_x,y1,lz0]]},
+        {'ends': [[turn_x,y1,lz0],[turn_x,y2,turn_z]]},
+        {'ends': [[turn_x,y2,turn_z],[lx1,low,turn_z]]},
+    ],
+    'metric_accepted': False,
+}
+# Level entry, continuous stair legs in both directions, lower circulation and
+# guard / furniture collisions. No other room's trials change.
+up_at, se_at, ne_at, foot_at = [lx1,0,sz1-.82], [sx1-.58,y1,sz1-.82], [sx1-.58,y2,sz0+.64], [lx1-.60,low,sz0+.64]
+def skylight_trial(name, start, target, blocked=False):
+    return [name, [start[0],start[1]+.25,start[2]], list(target), blocked]
+geometry['trials'] += [
+    ['grey_skylight_out',[5.55,.25,-4.16],[5.55,0,sz1-.82],False],
+    ['grey_skylight_back',[5.55,.25,sz1-.82],[5.55,0,-4.16],False],
+    skylight_trial('skylight_landing_east',[5.55,0,sz1-.82],up_at),
+    skylight_trial('skylight_upper_down',up_at,se_at),
+    skylight_trial('skylight_east_down',se_at,ne_at),
+    skylight_trial('skylight_lower_down',ne_at,foot_at),
+    skylight_trial('skylight_lower_aisle',foot_at,[lx1-.60,low,lz0-.45]),
+    skylight_trial('skylight_lower_west',[lx1-.60,low,lz0-.45],[3.50,low,lz0-.45]),
+    skylight_trial('skylight_lower_lift',[3.50,low,lz0-.45],[3.50,low,sz1-.60]),
+    skylight_trial('skylight_lower_up',foot_at,ne_at),
+    skylight_trial('skylight_east_up',ne_at,se_at),
+    skylight_trial('skylight_upper_up',se_at,up_at),
+    skylight_trial('skylight_landing_back',up_at,[5.55,0,sz1-.82]),
+    skylight_trial('skylight_front_guard',[5.55,0,sz1-.82],[5.55,0,lz0-.70],True),
+    skylight_trial('skylight_west_guard',[lx0+.65,0,sz1-.82],[lx0-.65,0,sz1-.82],True),
+    skylight_trial('skylight_piano_blocked',[2.70,low,sz0+2.60],[1.20,low,sz0+1.00],True),
+]
 
 (out/'geometry.json').write_text(json.dumps(geometry,indent=2)+'\n')
 inputs[str(ingestion/'room-route-walk-v5/geometry.json')] = hashlib.sha256((ingestion/'room-route-walk-v5/geometry.json').read_bytes()).hexdigest()

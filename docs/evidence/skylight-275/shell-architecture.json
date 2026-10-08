@@ -1,0 +1,27 @@
+{
+  "case_rails": 8,
+  "casings": 20,
+  "east_cases": 2,
+  "east_objects": {
+    "albarello": 1,
+    "bookcover": 1,
+    "cleric": 1,
+    "diptych": 1,
+    "emblem": 1,
+    "glass_201729": 1,
+    "plaque_34024": 1,
+    "plate_46391": 1,
+    "plate_57302": 1,
+    "roundel_51105": 1,
+    "woman": 1
+  },
+  "failures": [],
+  "grilles": 1,
+  "hall_reveal_leaves": 2,
+  "leaf": 2,
+  "lift_features": 3,
+  "pieta_cases": 1,
+  "rockefeller_linings": 2,
+  "saint_roch": 1,
+  "triptych_panels": 3
+}
