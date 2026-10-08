@@ -28,8 +28,9 @@ const WORKS := [
 	{"side": "south", "along": 3.60, "height": 1.75, "size": [.746, .413], "frame": "courbet", "card": 1,
 		"image": DIR + "pannini-56.094.jpg", "accession": "56.094", "title": "The Colosseum",
 		"maker": "Giovanni Paolo Pannini", "date": "1725-1775", "medium": "Oil on canvas", "dimensions": "41.3 x 74.6 cm"},
-	# The record gives the frame, 50.8 x 61 cm; the canvas is its footage share of that, about 31 x 41 cm.
-	{"side": "south", "along": 6.20, "height": 1.75, "size": [.41, .31], "frame": "courbet", "card": 1,
+	# The record gives the frame, 50.8 x 61 cm; the canvas is its footage share of that, about 31 x 41 cm,
+	# so the moulding is the 10 cm left over on every side.
+	{"side": "south", "along": 6.20, "height": 1.75, "size": [.41, .31], "frame": "courbet", "card": 1, "band": [.10, .099, .10, .099],
 		"image": DIR + "villeneuve-1998.35.jpg", "accession": "1998.35", "title": "View of a Roman Aqueduct, near Tivoli",
 		"maker": "Louis-Jules-Frédéric Villeneuve", "date": "1827", "medium": "Oil on canvas", "dimensions": "50.8 x 61 x 8.3 cm (frame)"},
 	# The pier between the Hall door and the connector door. It is 0.70 m here and about 1.2 m in the
@@ -54,7 +55,7 @@ static func hang(room, label: String, work: Dictionary) -> Node3D:
 	var frame: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/%s-frame-geometry.json" % work.frame))
 	var art := Painting.new()
 	room.add_child(art)
-	art.build_framed(load("res://assets/%s-frame.png" % work.frame), load(work.image), Vector2(work.size[0], work.size[1]), frame.margins_px)
+	art.build_framed(load("res://assets/%s-frame.png" % work.frame), load(work.image), Vector2(work.size[0], work.size[1]), frame.margins_px, work.get("band", []))
 	art.position = room.wall_point(label, work.side, work.along, work.height, .07)
 	art.rotation.y = YAW[work.side]
 	describe(art, work)

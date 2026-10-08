@@ -574,6 +574,27 @@ for label,b in [('landing north floor',[10.55,16.15,28.1,33.715])]+[(r['label'],
     geometry['patches'].append({'label':label,'color':'81735c','vertices':[[b[0],0,b[2]],[b[1],0,b[2]],[b[1],0,b[3]],[b[0],0,b[3]]]})
 geometry['lion_modern_layout']={'source':'IMG_6387 native2.25..84.25s; reciprocal6382 stair view','stair_block':'Draft void, flights and guard translated +1.715 with the stair door; preserved shape, not a source measurement','door_order':'Medieval west on the tracery axis; modern north on the adjoining wall at one inside corner, lion right of modern on that wall; white sculpture gallery on the next east wall (z provisional); stairwell south','modern_wall_groups':'Entry/Braque/Villon south; large painting west off the entry jamb; pumpkin/landscape/second doorway north; two windows and sculpture case east','source_review':'docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001; wall order docs/evidence/collection-reconstruction/opus-landing-refit-20261001','entry_reveal_depth_modelled':False,'metric_accepted':False,'stair_curve_and_destinations_complete':False,'white_sculpture_room_interior_complete':False,'adjoining_room_interior_complete':False}
 geometry['trials'] += [['landing_to_modern',[11.85,.25,29.75],[11.85,0,26.55],False],['modern_to_landing',[11.85,.25,26.55],[11.85,0,29.75],False],['landing_white_out',[14.95,.25,30.5],[17.0,0,30.5],False],['landing_white_back',[17.0,.25,30.5],[14.95,0,30.5],False],['modern_far_opening_out',[15.75,.25,23.25],[15.75,0,21.45],False],['modern_far_opening_back',[15.75,.25,21.45],[15.75,0,23.25],False],['modern_bench_blocked',[15.1,.25,25.35],[12.4,0,25.35],True],['landing_guard_blocked',[13.35,.25,32.7],[13.35,0,34.6],True],['landing_stair_foot_blocked',[11.15,.25,32.9],[11.15,0,34.6],True],['landing_flight_down_blocked',[15.55,.25,32.9],[15.55,0,34.6],True]]
+# #276: shorten the unsurveyed south shaft by 1.5m, putting its edge 4.115m from the lion wall.
+# IMG_6387 15/27s, scaled to the north-wall door; uncertainty +/-0.35m. Doors retain their intervals.
+lion_landing = next(r for r in geometry['rooms'] if r['label'] == 'lion stair landing')
+lion_landing['bounds'][3] = 36.115
+lion_landing['floor_void'] = [10.55, 16.15, 32.215, 36.115]
+for patch in geometry['patches']:
+    if patch['label'] == 'landing north floor':
+        patch['vertices'][2][2] = 32.215
+        patch['vertices'][3][2] = 32.215
+# The central guard is 4.115m from the lion wall; its west ear supports the existing folded leaf.
+lion_west_edge = max(32.215, lion_landing['openings']['west'][1] + .05)
+lion_west_inner = lion_landing['bounds'][0] + .061 + 1.06
+if lion_west_edge > 32.216:
+    geometry['patches'].append({'label': 'lion west landing ear', 'color': '81735c',
+        'vertices': [[10.55, 0, 32.215], [lion_west_inner, 0, 32.215],
+                     [lion_west_inner, 0, lion_west_edge], [10.55, 0, lion_west_edge]]})
+for trial in geometry['trials']:
+    if trial[0] in ['landing_guard_blocked', 'landing_stair_foot_blocked', 'landing_flight_down_blocked']:
+        trial[1][2] = 31.6
+        trial[2][2] = 33.1
+geometry['lion_modern_layout']['stair_block'] = 'Landing edge 4.115m from the lion wall; rounded guard/stringers, two visible storeys below; all metres provisional (#276)'
 geometry['trials']=[t for t in geometry['trials'] if not t[0].startswith('grey_piano')]
 
 # The wall's thickness is walked as two threshold rooms; remodel_room.gd lines them and hangs the leaves.

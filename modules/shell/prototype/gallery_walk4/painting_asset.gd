@@ -50,9 +50,10 @@ func _mesh(build: Callable, m: Material) -> void:
 
 
 ## canvas: canvas size in metres. margins: the frame texture's band widths in
-## pixels (left, top, right, bottom).
+## pixels (left, top, right, bottom). band_m: the moulding's measured widths in metres, same
+## order; empty keeps the texture's own proportion, scaled from the canvas height.
 func build_framed(
-	frame_tex: Texture2D, canvas_tex: Texture2D, canvas: Vector2, margins: Array
+	frame_tex: Texture2D, canvas_tex: Texture2D, canvas: Vector2, margins: Array, band_m: Array = []
 ) -> void:
 	var ts := frame_tex.get_size()
 	var open_px := Vector2(ts.x - margins[0] - margins[2], ts.y - margins[1] - margins[3])
@@ -61,6 +62,11 @@ func build_framed(
 	var t: float = margins[1] * mpp
 	var r: float = margins[2] * mpp
 	var b: float = margins[3] * mpp
+	if band_m.size() == 4:
+		l = band_m[0]
+		t = band_m[1]
+		r = band_m[2]
+		b = band_m[3]
 	var cx := canvas.x / 2.0
 	var cy := canvas.y / 2.0
 	outer = Vector2(canvas.x + l + r, canvas.y + t + b)
