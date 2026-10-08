@@ -44,7 +44,8 @@
   "input": "fireplace/trellis-input.png",
   "submitted": "2026-10-08T03:46Z",
   "charged_usd": 0.024,
-  "triangles": 34625
+  "triangles": 34625,
+  "glb_sha256": "a5a7a142c1902de7153749815968fbc381f991f97b81c5e95f9c8031a7c69e3f"
  },
  "neptune-detail": {
   "run_id": "run_m173ntdbr9fdy66tqx3yjzdsjh8fxd4e",
@@ -58,6 +59,17 @@
   "input": "neptune/trellis-input.png",
   "submitted": "2026-10-08T03:46Z",
   "charged_usd": 0.024,
-  "triangles": 100639
+  "triangles": 100639,
+  "glb_sha256": "eb2d9e66b2a4e5df6e4e424cabd2f273d4e0a1da4d8a6736cea491ec76f3c23f"
+ },
+ "muse": {
+  "fireplace": {
+   "run_id": "run-4704175fd67b53c99cbca470",
+   "model": "meta/muse-image",
+   "provider": "openrouter",
+   "ceiling_usd": 0.01,
+   "outcome": "HTTP 400 provider-error; pipeline state possibly_spent; charge not confirmed",
+   "prompt": "fireplace/edit-prompt.txt"
+  }
  }
 }

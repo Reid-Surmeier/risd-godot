@@ -1,0 +1,63 @@
+{
+ "source": {
+  "sha256": "ceedef0ceb7e070e8d7240b783cb708555bd8a8c2f5ecf3d59a6785d45f2b333",
+  "vertices": 3161,
+  "triangles": 6308
+ },
+ "steps": [
+  {
+   "islands": [
+    6184,
+    102,
+    22
+   ],
+   "dropped_faces": 124
+  },
+  {
+   "boundary_edges": 38,
+   "hole_patches": 1
+  },
+  {
+   "depth_as_made_m": 0.664,
+   "depth_scale": 0.765,
+   "depth_m": 0.508,
+   "pressed_faces_dropped": 45
+  },
+  {
+   "width_scale": 1.002
+  }
+ ],
+ "out": {
+  "sha256": "a8cee9433673e2543453b464ad78c711f0c457b76b7367501d2b12001333ed1e",
+  "bytes": 308740,
+  "triangles": 6175,
+  "vertices": 5581,
+  "size_m_width_height_depth": [
+   2.108,
+   3.498,
+   0.508
+  ],
+  "min": [
+   -1.0540000200271606,
+   0,
+   0
+  ],
+  "max": [
+   1.0540000200271606,
+   3.497999906539917,
+   0.5080000162124634
+  ],
+  "metallicFactor": 0,
+  "texture": {
+   "mime": "image/jpeg",
+   "bytes": 91738,
+   "px": [
+    [
+     1024,
+     1024
+    ]
+   ]
+  },
+  "blender": "4.0.2"
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "source": {
+  "sha256": "2228ee33ed90aec7648c89db0c203abaf928174cdf038aa11276458d3a5755cb",
+  "vertices": 9518,
+  "triangles": 19312
+ },
+ "steps": [
+  {
+   "islands": [
+    19312
+   ],
+   "dropped_faces": 0
+  },
+  {
+   "boundary_edges": 0,
+   "hole_patches": 0
+  }
+ ],
+ "out": {
+  "sha256": "a4228ad57a8b44bf4c993ced1ec880b564f15ac351afbd592c52760fddf6a658",
+  "bytes": 729616,
+  "triangles": 19312,
+  "vertices": 15611,
+  "size_m_width_height_depth": [
+   0.2817,
+   0.298,
+   0.2992
+  ],
+  "min": [
+   -0.14085201919078827,
+   0,
+   -0.1496100127696991
+  ],
+  "max": [
+   0.14085201919078827,
+   0.2980000078678131,
+   0.1496100127696991
+  ],
+  "metallicFactor": 0,
+  "texture": {
+   "mime": "image/jpeg",
+   "bytes": 112801,
+   "px": [
+    [
+     1024,
+     1024
+    ]
+   ]
+  },
+  "blender": "4.0.2"
+ }
+}
