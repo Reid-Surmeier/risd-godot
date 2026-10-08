@@ -1,0 +1,5 @@
+scripts/check.sh: PASS (exit 0; gdlint is unavailable in PATH)
+Godot headless import: no ERROR or SCRIPT ERROR
+git diff --check: PASS
+node --check scripts/gallery-browser-check.cjs: PASS
+node --check usable_collection.cjs: PASS

@@ -25,7 +25,7 @@ const angleDelta=(a,b)=>Math.atan2(Math.sin(a-b),Math.cos(a-b));
   });
   const errors=[]; p.on('pageerror',e=>errors.push(String(e))); p.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
   await p.goto(url,{waitUntil:'load',timeout:120000});
-  await p.waitForFunction(()=>window.loadPerf?.some(mark=>mark.name==='tabs-warm'),{timeout:120000});
+  await p.waitForFunction(()=>window.loadPerf?.some(mark=>mark.name==='game-shown'),{timeout:120000});
   if(!label.startsWith('baseline')) {
    await p.waitForFunction(()=>window.loadPerf?.some(mark=>mark.name==='game-shown'),{timeout:120000});
    await p.screenshot({path:'/tmp/'+label+'-entry.png'});
