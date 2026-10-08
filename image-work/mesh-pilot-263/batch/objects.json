@@ -534,11 +534,11 @@
    },
    "views": "front, back and right, each a Muse clay view of the museum's photograph of that side",
    "imported": {
-    "mesh": 227890,
-    "colour": 55694,
-    "total": 283584
+    "mesh": 227887,
+    "colour": 57652,
+    "total": 285539
    },
-   "build": "CUT=--keep-holes SUF=-cut LIFT=none: the flat views as Muse drew them, no pull to the photograph's overall brightness and no per-channel lift, both of which washed this many-coloured figure out"
+   "build": "CUT=--keep-holes SUF=-cut LIFT=none: the flat views as Muse drew them, no pull to the photograph's overall brightness and no per-channel lift, both of which washed this many-coloured figure out; flat front and back made a third time with the horse a warm chestnut, as the photograph has it"
   }
  }
 }

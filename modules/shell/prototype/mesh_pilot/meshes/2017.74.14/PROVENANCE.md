@@ -18,7 +18,8 @@ Made on the Muse-first route (`image-work/mesh-pilot-263/RECIPE.md`), 8 October 
 | `clay-back` | photograph of this direction |
 | `clay-right` | photograph of this direction |
 | `wrong-colour` | three flat views made with a colour description I wrote before looking at the photograph (a cream-white horse; the real one is brown), and a 'right' view that repeated the front; not used; 0.03 USD |
+| `mauve-horse` | two flat views made with the horse described as purplish brown; the photograph's horse is a warm chestnut; not used; 0.02 USD |
 | `flat-front` | photograph of this direction |
 | `flat-back` | photograph of this direction |
 
-`2017-74-14.glb` (`a56cd6860069d73e…`): 10,000 triangles, one colour texture, no normal map, for drawing unshaded. In the pack: 276 KB (mesh 222, colour 54).
+`2017-74-14.glb` (`3a0d69f77c63307c…`): 10,000 triangles, one colour texture, no normal map, for drawing unshaded. In the pack: 278 KB (mesh 222, colour 56).
