@@ -34,8 +34,13 @@ func run() -> void:
 		["target-inside-grey-passage", "gallery", Vector3(3, 0, -22), Vector3(.3, 0, -26.7), "far"],
 		["target-inside-hall-passage", "far", Vector3(2, 0, -28.5), Vector3(.3, 0, -26.1), "gallery"],
 		["replace-crossing-click", "far", Vector3(2, 0, -28.5), Vector3(-1, 0, -30), "far"],
-		["floor-pick-grey-hall", "far", Vector3(1.5, 0, -28.3), Vector3(-1, 0, -24.5), "gallery"],
-		["floor-pick-hall-grey", "gallery", Vector3(1.5, 0, -24.5), Vector3(1.5, 0, -28.3), "far"]
+		# #280: one stage is drawn, so a doorway shows only the dark. A click in it (here at the
+		# pixel of the fourth entry) sends the visitor a metre and a half through that door,
+		# the fifth-plus-one entry, not to wherever the ray meets the ground beyond.
+		["floor-pick-grey-hall", "far", Vector3(1.5, 0, -28.3), Vector3(-1, 0, -24.5), "gallery", Vector3(-0.66, 0, -24.83)],
+		# The pixel at x 1.5 would be the Hall's north wall: a click on a wall is not a click on
+		# the floor behind it. This one is in the far door's opening.
+		["floor-pick-hall-grey", "gallery", Vector3(1.5, 0, -24.5), Vector3(0.3, 0, -28.3), "far", Vector3(0.48, 0, -27.78)]
 	]
 	var rows := []
 	var failures := []
@@ -87,7 +92,7 @@ func run() -> void:
 			path.append([p.x, p.z])
 			if walk._target == null and walk._path.is_empty():
 				break
-		var remaining: float = walk._pos.distance_to(test[3])
+		var remaining: float = walk._pos.distance_to(test[5] if test.size() > 5 else test[3])
 		var passed: bool = remaining <= .08 and walk._space == test[4] and step <= .08 and not crossed_wall and not entered_bench and pick_valid
 		rows.append({"name": test[0], "passed": passed, "input": "native floor ray and click handler" if floor_pick else "native target planner", "pick_valid": pick_valid, "space": walk._space, "remaining_m": remaining, "max_step_m": step, "crossed_wall": crossed_wall, "entered_bench": entered_bench, "planned": planned, "path": path})
 		if not passed:

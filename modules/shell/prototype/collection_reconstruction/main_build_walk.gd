@@ -70,6 +70,7 @@ var _inspect_fov := 23.0
 var _glide_from := Transform3D()
 var _glide_fov := 23.0
 var _glide_t := 1.0  # 0 the camera before a view change, 1 the new view
+var _hovering := false  # _painting_at is being asked by the hover cursor, not by a click
 # PROTOTYPE (#260): one stage is drawn at a time and a doorway changes it under a round wipe,
 # timed from docs/research/2026-10-08-acnh-room-change-and-landing.md. A stage is one area of
 # geometry.json plus the wall thicknesses and stubs JOINED to it; the Hall is stage -1.
@@ -515,10 +516,13 @@ func _painting_at(pt: Vector2) -> Dictionary:
 				best = thing
 	# But a box is mostly air, and the box of a work standing behind another covers part of the
 	# one in front (#280). So several boxes are settled by the works themselves: the nearest
-	# one whose own meshes the pointer's ray meets. Only then, as each mesh's first test reads
-	# it back from the renderer. Where the ray meets none (the margin round a small work) the
-	# smallest box stands.
-	if under.size() > 1:
+	# one whose own meshes the pointer's ray meets. Where the ray meets none (the margin round
+	# a small work) the smallest box stands.
+	# ponytail: a mesh's first test reads it back from the renderer (27 ms measured natively,
+	# a stall on the Web), because no room builder keeps its arrays. So this runs only for a
+	# click on overlapping boxes, never for the hover cursor. Keep the arrays at build time and
+	# make a TriangleMesh from them if a click's first test is ever felt.
+	if under.size() > 1 and not _hovering:
 		var vp_pt := pt / size * Vector2(_vp.size)
 		var from := _cam.project_ray_origin(vp_pt)
 		var toward := _cam.project_ray_normal(vp_pt)
@@ -529,6 +533,13 @@ func _painting_at(pt: Vector2) -> Dictionary:
 				nearest = reach
 				best = thing
 	return best
+
+
+# The resting pointer only chooses a cursor shape and a sound; it does not pay for the mesh test.
+func _update_hover() -> void:
+	_hovering = true
+	super()
+	_hovering = false
 
 
 # How far along a ray a work's own drawn surface lies; INF where the ray misses the work.
@@ -560,9 +571,10 @@ func _drawn(node: Node3D) -> bool:
 	return false
 
 
-# The floor a click may walk to (#280): the drawn stage's own, or what a doorway in its edge
-# shows. walk4's ray alone runs on through a drawn wall, or over it, to the floor of whatever
-# room lies behind, and the visitor was sent there.
+# Where a click on the ground sends the visitor (#280): to the drawn stage's own floor under
+# the pointer, or, when the pointer is in a doorway of its edge, just through that door.
+# walk4's ray alone runs on through a drawn wall, or over it, or on through the dark of a
+# doorway, to the floor of whatever room lies behind, and the visitor was sent there.
 func _floor_at(pt: Vector2):
 	var spot = super(pt)
 	if spot == null or _plan.is_empty() or _on_stage(spot):
@@ -582,7 +594,13 @@ func _floor_at(pt: Vector2):
 				for box in wall.boxes:
 					if (box as AABB).intersects_segment(q.move_toward(eye, 0.5), spot) != null:
 						return null
-		return spot
+		# A doorway shows only the dark: one and a half metres through it, by the door's own
+		# axis, wherever the ray would have met the ground beyond.
+		var room := _room_at(Vector3(q.x, 0, q.z))
+		var b: Array = _plan[room].b if room >= 0 else [-W / 2.0, W / 2.0, -L, 0.0]
+		var gaps := [q.x - b[0], b[1] - q.x, q.z - b[2], b[3] - q.z]
+		var out: Vector3 = [Vector3.LEFT, Vector3.RIGHT, Vector3.FORWARD, Vector3.BACK][gaps.find(gaps.min())]
+		return Vector3(q.x, 0, q.z) + out * 1.5
 	return null
 
 
@@ -773,6 +791,19 @@ func _end_inspect(to_zoom: bool) -> void:
 	_inspect_tween.tween_property(self, "_inspect_t", 0.0, 0.75).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
 
+# "Other wall" walks the visitor across the Hall and swings the view round. Neither the
+# inspection shot (a work being read, the camera gliding back from it) nor a room change (the
+# wipe holds its own view and walks the visitor itself) follows that, so through both the
+# button is neither shown nor answers (#280).
+func _other_wall_free() -> bool:
+	return _inspect.is_empty() and _inspect_t <= 0.0 and _wipe_t < 0.0
+
+
+func _other_wall() -> void:
+	if _other_wall_free():
+		super()
+
+
 # Where the camera stands to look at a work: square on to it, 6 degrees down, far enough
 # that the work fills its share of the picture, never outside the room it hangs in. When
 # the room is too shallow for a 23-degree lens the lens widens instead.
@@ -864,13 +895,18 @@ func _fit_detail() -> void:
 	var top := (size.y - work.size.y - gap - _caption.size.y) / 2.0
 	_zoom_root.position = Vector2((size.x - _zoom_root.size.x) / 2.0, top - work.position.y)
 	_caption.position = Vector2(size.x * 0.05, top + work.size.y + gap)
+	_caption.show()
 
 
 # Zoomed back out, the page is laid out again: walk4 alone would centre the picture on the caption.
+# Magnified, the picture grows over where the caption was laid, so the caption is put away
+# until the page is fitted again (#280, round 4).
 func _zoom_at(point: Vector2, factor: float) -> void:
 	super(point, factor)
 	if is_equal_approx(_zoom, 1.0):
 		_fit_detail()
+	elif _caption:
+		_caption.hide()
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -1295,15 +1331,11 @@ func _walkable(p: Vector3) -> bool:
 
 func _update_camera(k: float) -> void:
 	super(k)
-	# "Other wall" is not offered while a work is being read or zoomed, nor while the camera
-	# glides back from it (#280): the button walks the visitor across and swings the view
-	# round, and the shot follows neither. Set before anything below can return: a Hall
-	# painting is read at launch, when the rooms are not built yet (#281).
+	# Set before anything below can return: a Hall painting is read at launch, when the rooms
+	# are not built yet (#281).
 	var other_wall := get_node_or_null("OtherWall") as Button
 	if other_wall:
-		other_wall.visible = (
-			_space == "gallery" and _open.is_empty() and _inspect.is_empty() and _inspect_t <= 0.0
-		)
+		other_wall.visible = _space == "gallery" and _open.is_empty() and _other_wall_free()
 	if _rooms == null and _rooms_path != "" and _wipe_t < 0.0 and _room_at(_pos) >= 0:
 		_attach_rooms(_rooms_path)  # put straight into an added room: no wipe to hide behind
 	if _rooms == null:

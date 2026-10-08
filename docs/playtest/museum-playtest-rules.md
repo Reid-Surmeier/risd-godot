@@ -57,15 +57,19 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
    name. Every character of the caption has a glyph in the caption font itself: the Web build has
    no system font to fall back on. In the photograph of the inspection panel and of the zoom page
    each caption line is letters, not solid blocks and not nothing. The zoom page's picture is not
-   a blank rectangle, and its caption lies clear of the picture. A run that fails only on "drew
+   a blank rectangle, and its caption lies clear of the picture, also when the page is magnified
+   (one wheel notch, then fully), where it is put away and comes back at the fitted size. A run that fails only on "drew
    as solid blocks" or "did not draw" is run again before it is believed: one capture on
    7 October drew 19 captions that way and no later run of the same build has.
 10. **What a player found by playing stays fixed.** (Interaction pass, #280.) Each fault is
     replayed with real pointer events. "Other wall" is not offered while a work is being read or
     while the camera glides back from it, so the visitor never walks off under an open caption;
-    the button is back once the reading has closed. A wall is not floor: in every room, facing
+    the button is back once the reading has closed. Nor is it shown, or does it answer, from
+    the moment a room change starts until it has finished. Each case is run as at launch, when
+    only the Hall is built, and again once the rooms are. A wall is not floor: in every room, facing
     each wall in turn, a click on the drawn wall starts no walk, and a click in a doorway of
-    that wall still walks through it. The work under the pointer is the one that opens: where
+    that wall, low or high in its dark, sends the visitor through that door and no further
+    than three metres past it. The work under the pointer is the one that opens: where
     two works' boxes overlap on screen (the carved diptych 22.201 and the book cover 34.016 in
     one case) a click on either selects that one, from both ends of the case.
 

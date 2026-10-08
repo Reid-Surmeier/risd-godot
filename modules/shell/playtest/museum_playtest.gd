@@ -8,7 +8,8 @@
 ## 5 interaction: the faults a player found by playing (#280), each replayed with real
 ##            pointer events: "Other wall" pressed while a work is being read; a click on
 ##            every room's walls (no walk) and in every doorway (a walk through); a click on
-##            a work whose box another work's box overlaps on screen.
+##            a work whose box another work's box overlaps on screen; "Other wall" pressed
+##            while a room change is under way.
 ## source ~/promo-lab/gpu-env.sh   (the RTX through Mesa d3d12; llvmpipe is ten times slower)
 ## godot --fixed-fps 60 --path . --script res://modules/shell/playtest/museum_playtest.gd
 ##   --display-driver x11 --rendering-driver opengl3 -- --out-dir=<dir>
@@ -777,11 +778,38 @@ func _objects() -> void:
 				if fault != "":
 					problems.append("zoom page caption: " + fault)
 			entry["zoom_fit_px"] = [ceilf(pic.size.x), ceilf(pic.size.y)]
-			walk._zoom_at(walk.size / 2.0, 6.0)
+			# Magnified, the caption lies clear of the work or is put away (#280, round 4): one
+			# notch of the wheel over the picture, then as far as the page goes.
+			var wheel := InputEventMouseButton.new()
+			wheel.button_index = MOUSE_BUTTON_WHEEL_UP
+			wheel.pressed = true
+			wheel.position = walk.size / 2.0
+			wheel.global_position = wheel.position
+			walk._gui_input(wheel)
+			for step in 2:
+				if step == 1:
+					walk._zoom_at(walk.size / 2.0, 6.0)
+				await process_frame
+				var grown: Rect2 = picture.get_global_rect()
+				var border: Control = walk._zoom_root.get_node("Frame")
+				if border.visible:
+					grown = grown.merge(border.get_global_rect())
+				if (
+					walk.get("_caption") is Label
+					and walk._caption.is_visible_in_tree()
+					and grown.intersects(walk._caption.get_global_rect())
+				):
+					problems.append(
+						"zoom page caption lies across the picture magnified %.2f times" % walk._zoom
+					)
 			entry["zoom_full_px"] = [ceilf(pic.size.x * walk._zoom), ceilf(pic.size.y * walk._zoom)]
 			for settle in 4:
 				await process_frame
 			await _shot("zoom-full-%s.png" % slug)
+			walk._zoom_at(walk.size / 2.0, 1.0 / 6.0)
+			await process_frame
+			if walk.get("_caption") is Label and not walk._caption.is_visible_in_tree():
+				problems.append("the zoom page caption did not come back at the fitted size")
 			walk._close_detail()
 			for settle in 10:
 				await process_frame
@@ -832,15 +860,29 @@ func _read(thing: Dictionary) -> void:
 		await process_frame
 
 
+# Every case is run as a player meets it at launch, when only the Hall exists (#281 builds the
+# rooms at the first doorway), and again once the rooms are built.
 func _interaction() -> void:
-	# "Other wall" while a Hall painting is being read. The visitor may not walk off under an
-	# open caption: either the button does nothing, or the reading ends before the crossing.
+	var launch: bool = walk.state().get("pending", false)
+	await _other_wall_while_reading(", at launch" if launch else "")
+	if launch:
+		await _wall_clicks([_areas()[0]], ", at launch")
+	await _other_wall_in_wipe()  # out through the first doorway, which builds the rooms, and back
+	await _wall_clicks(_areas(), "")
+	if launch:
+		await _other_wall_while_reading(", rooms built")
+	await _overlapped_works()
+
+
+# "Other wall" while a Hall painting is being read. The visitor may not walk off under an open
+# caption: either the button does nothing, or the reading ends before the crossing.
+func _other_wall_while_reading(when: String) -> void:
 	var w2 := {}
 	for painting in walk._paintings:
 		if painting.tag == "W2":
 			w2 = painting
 	await _read(w2)
-	var entry := {"name": "other wall while reading", "read": walk._inspect.get("tag", "")}
+	var entry := {"name": "other wall while reading" + when, "read": walk._inspect.get("tag", "")}
 	var started: Vector3 = walk._pos
 	var button: Button = walk.get_node("OtherWall")
 	entry["button_shown"] = button.is_visible_in_tree()
@@ -882,8 +924,6 @@ func _interaction() -> void:
 	report.interaction.append(entry)
 	if not problems.is_empty():
 		_fail("interaction", entry.name + ": " + entry.result, entry)
-	await _wall_clicks()
-	await _overlapped_works()
 
 
 
@@ -909,20 +949,16 @@ func _click_goal(at: Vector2):
 
 # A wall is not floor (#280). In every room, facing each of its walls in turn from the middle,
 # a click on the drawn wall starts no walk, and a click in a doorway of that wall still does.
-func _wall_clicks() -> void:
+func _wall_clicks(areas: Array, when: String) -> void:
 	var entry := {
-		"name": "wall and doorway clicks",
+		"name": "wall and doorway clicks" + when,
 		"walls": 0,
 		"doorways": 0,
 		"not_tried": [],
 		"walked": [],
 		"dead_doorways": []
 	}
-	# The Hall first, as at launch, before the rooms are built (#281); and again once they are.
-	var rounds := _areas()
-	if walk.state().get("pending", false):
-		rounds.append(rounds[0])
-	for area in rounds:
+	for area in areas:
 		var b: Array = area.b
 		if b[1] - b[0] < 2.5 or b[3] - b[2] < 2.5:
 			continue  # a doorway's own thickness
@@ -971,14 +1007,32 @@ func _wall_clicks() -> void:
 			# so there the floor in the doorway is clicked.
 			var beyond: int = walk._room_at(sill + out * 0.3)
 			var joined: bool = beyond >= 0 and walk._stage_of(beyond) == walk._stage
+			# High in the opening too where it is dark: the ray's own ground point is then far
+			# off, which is what used to send the visitor rooms away.
 			at = _wall_pixel(sill + Vector3(0, 0.3 if joined else 1.0, 0))
+			var high = null if joined else _wall_pixel(sill + Vector3(0, 2.2, 0))
+			if high != null:
+				entry.doorways += 1
+				var far_goal = _click_goal(high)
+				if far_goal == null or (far_goal as Vector3 - sill).dot(out) <= 0.0:
+					entry.dead_doorways.append(name + ", high in the opening")
+				elif (far_goal as Vector3).distance_to(sill) > 3.0:
+					entry.dead_doorways.append(
+						"%s, high in the opening (sent %.1f m past the door)"
+						% [name, (far_goal as Vector3).distance_to(sill)]
+					)
 			if at == null:
 				entry.not_tried.append(name + " doorway")
 				continue
 			entry.doorways += 1
+			# Through the door and no further: beyond its plane, within three metres of its sill.
 			var goal = _click_goal(at)
 			if goal == null or (goal as Vector3 - sill).dot(out) <= 0.0:
 				entry.dead_doorways.append(name)
+			elif (goal as Vector3).distance_to(sill) > 3.0:
+				entry.dead_doorways.append(
+					"%s (sent %.1f m past the door)" % [name, (goal as Vector3).distance_to(sill)]
+				)
 	var problems := PackedStringArray()
 	if not entry.walked.is_empty():
 		problems.append("a click on a wall started a walk: " + "; ".join(entry.walked))
@@ -1049,3 +1103,54 @@ func _overlapped_works() -> void:
 	report.interaction.append(entry)
 	if not problems.is_empty():
 		_fail("interaction", entry.name + ": " + entry.result, entry)
+
+
+# "Other wall" during a room change (#280, round 4). Walking out of the Hall into the medieval
+# room and back, the button may not show from the moment a wipe starts until it has finished,
+# and a press where it stands may not turn the view.
+func _other_wall_in_wipe() -> void:
+	var button: Button = walk.get_node("OtherWall")
+	# [from, the key that leads through the portal in the north-facing view]
+	for leg in [[Vector3(0, 0, -0.9), "down"], [Vector3(0, 0, walk.PORTAL_MOUTH + 0.9), "up"]]:
+		_place(leg[0])
+		for settle in 30:
+			await process_frame
+		var entry := {
+			"name": "other wall during a room change, from " + _area_at(leg[0]),
+			"shown_frames": 0,
+			"wipe_frames": 0,
+			"rooms_built_in_it": walk.state().get("pending", false)
+		}
+		var yaw: float = walk.view_yaw
+		var turned := false
+		for tick in 1800:
+			# The key is let go once the wipe starts: the change walks the visitor in itself,
+			# and a held key would refuse the button anyway.
+			walk._held = {leg[1]: 1.0} if entry.wipe_frames == 0 else {}
+			await process_frame
+			if walk._wipe_t < 0.0:
+				if entry.wipe_frames > 0:
+					break  # the change has finished
+				continue
+			entry.wipe_frames += 1
+			entry.shown_frames += int(button.is_visible_in_tree())
+			if entry.wipe_frames == 12:
+				await _press(button.get_global_rect().get_center())
+			turned = turned or absf(walk._view_turn_remaining) > 0.001
+		walk._held = {}
+		for settle in 60:
+			await process_frame
+			turned = turned or absf(walk._view_turn_remaining) > 0.001
+		entry["turned_rad"] = snappedf(absf(wrapf(walk.view_yaw - yaw, -PI, PI)), 0.01)
+		entry["ended_in"] = _area_at(walk._pos)
+		var problems := PackedStringArray()
+		if entry.wipe_frames == 0:
+			problems.append("no room change happened")
+		if entry.shown_frames > 0:
+			problems.append("the button showed for %d frames of the wipe" % entry.shown_frames)
+		if turned or entry.turned_rad > 0.01:
+			problems.append("a press during the wipe turned the view")
+		entry["result"] = "ok" if problems.is_empty() else ", ".join(problems)
+		report.interaction.append(entry)
+		if not problems.is_empty():
+			_fail("interaction", entry.name + ": " + entry.result, entry)
