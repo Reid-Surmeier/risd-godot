@@ -19,6 +19,11 @@ func run() -> void:
 	root.add_child(walk)
 	for i in 240:
 		await process_frame
+	# The room scene is built at the first doorway since #281; a check needs the rooms now.
+	if walk._rooms == null and walk._rooms_path != "":
+		walk._attach_rooms(walk._rooms_path)
+		for settle in 6:
+			await process_frame
 	var failures: Array = []
 	var thing := {}
 	for entry in walk._objects:
