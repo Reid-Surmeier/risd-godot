@@ -560,7 +560,7 @@ func _drawn(node: Node3D) -> bool:
 # room lies behind, and the visitor was sent there.
 func _floor_at(pt: Vector2):
 	var spot = super(pt)
-	if spot == null or _rooms == null or _on_stage(spot):
+	if spot == null or _plan.is_empty() or _on_stage(spot):
 		return spot
 	# Back along the sight line to where it leaves the stage: only a doorway lets a click out.
 	var eye := _cam.global_position
@@ -583,10 +583,12 @@ func _floor_at(pt: Vector2):
 
 # Whether a floor point belongs to the stage being drawn: its areas, or the Hall itself.
 func _on_stage(p: Vector3) -> bool:
+	# Until the rooms are built (#281) the visitor is in the Hall and the Hall is what is drawn.
+	var stage := _stage if _rooms != null else -1
 	var room := _room_at(p)
 	if room >= 0:
-		return _stage_ids[room] == _stage
-	return _stage == -1 and absf(p.x) <= W / 2.0 and p.z <= 0.0 and p.z >= -L
+		return _stage_ids[room] == stage
+	return stage == -1 and absf(p.x) <= W / 2.0 and p.z <= 0.0 and p.z >= -L
 
 
 # Whether a sight line leaving the stage at q passes through a doorway: one of the Hall's two
@@ -1288,6 +1290,15 @@ func _walkable(p: Vector3) -> bool:
 
 func _update_camera(k: float) -> void:
 	super(k)
+	# "Other wall" is not offered while a work is being read or zoomed, nor while the camera
+	# glides back from it (#280): the button walks the visitor across and swings the view
+	# round, and the shot follows neither. Set before anything below can return: a Hall
+	# painting is read at launch, when the rooms are not built yet (#281).
+	var other_wall := get_node_or_null("OtherWall") as Button
+	if other_wall:
+		other_wall.visible = (
+			_space == "gallery" and _open.is_empty() and _inspect.is_empty() and _inspect_t <= 0.0
+		)
 	if _rooms == null and _rooms_path != "" and _wipe_t < 0.0 and _room_at(_pos) >= 0:
 		_attach_rooms(_rooms_path)  # put straight into an added room: no wipe to hide behind
 	if _rooms == null:
@@ -1302,9 +1313,6 @@ func _update_camera(k: float) -> void:
 		_wipe_begin()
 	var closing := _wipe_t >= 0.0 and _wipe_t < WIPE_CLOSE
 	var added := _stage >= 0
-	# Not while a work is being read, nor while the camera glides back from it (#280): the
-	# button walks the visitor across and swings the view round, and the shot follows neither.
-	($OtherWall as Button).visible = _space == "gallery" and _inspect.is_empty() and _inspect_t <= 0.0
 	if _baked_room:
 		_baked_room.get_node("Lightmap").visible = not added
 	var capture := _rooms.get_node_or_null("BakedRoom/Lightmap")

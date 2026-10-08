@@ -860,7 +860,11 @@ func _wall_clicks() -> void:
 		"walked": [],
 		"dead_doorways": []
 	}
-	for area in _areas():
+	# The Hall first, as at launch, before the rooms are built (#281); and again once they are.
+	var rounds := _areas()
+	if walk.state().get("pending", false):
+		rounds.append(rounds[0])
+	for area in rounds:
 		var b: Array = area.b
 		if b[1] - b[0] < 2.5 or b[3] - b[2] < 2.5:
 			continue  # a doorway's own thickness
