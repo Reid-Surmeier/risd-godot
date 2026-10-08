@@ -1,6 +1,6 @@
 # Original sources ledger: footage and catalogue images for every room and object
 
-Research for [Research: original images and footage for every room and object](https://github.com/Reid-Surmeier/risd-godot/issues/256), under [the finish-the-museum map](https://github.com/Reid-Surmeier/risd-godot/issues/249). Written 2026-10-07 (evening) against `build/v0.1.0` at `88b7c207`. Read-and-measure only: no runtime file, bake or export was touched. Paid calls: **0; 0 USD**.
+Research for [Research: original images and footage for every room and object](https://github.com/Reid-Surmeier/risd-godot/issues/256), under [the finish-the-museum map](https://github.com/Reid-Surmeier/risd-godot/issues/249). Written 2026-10-07 (evening) against `build/v0.1.0` at `88b7c207`; the object half was measured at `3b460c1c`, to which the branch had moved. Read-and-measure only: no runtime file, bake or export was touched. Paid calls: **0; 0 USD**.
 
 Every claim is marked **V** (verified this session: I opened the frame, measured the file, or read the hash) or **I** (inferred; the basis is given). "1 Oct audit" means `docs/research/2026-10-01-museum-inventory-audit.md` or `-architecture-audit.md`; timestamps taken from them were spot-checked on my own contact sheets, not re-read frame by frame.
 
@@ -9,8 +9,8 @@ Every claim is marked **V** (verified this session: I opened the frame, measured
 1. **One reference clip has never been used: `IMG_6343.MOV`.** The 1 Oct inventory audit says "I did not open the other earlier clip, `IMG_6343.MOV`", and no file in the build cites it past its first half second. It is a 264 s walk through seven spaces, and it is the only footage of two whole galleries. (V)
 2. **The missing room is, most likely, the gallery behind the closed white doors in the marble stair hall** (crit screenshot 09). `IMG_6343` walks through that doorway at 88–91 s into an Impressionist gallery (91–154 s), then a second one (176–223 s), and comes out in the modern painting gallery (224 s). The build has a closed door and a 1.3 × 1.6 m stub where these two rooms are. Confidence that these rooms are filmed and absent: high (V). Confidence that this is the room the owner meant: medium (I). See section 3.
 3. **No original is larger than 1920 × 1080.** All twelve museum clips were recorded at 1080p; Proton's own metadata says so and the local files match Proton byte for byte. The gain available is not resolution, it is (a) taking frames at native size, since the survey frames the build was made from are 1280 × 720, (b) choosing sharp frames, and (c) decoding the ten September clips as HDR. See section 2.
-4. **Objects:** section 5, in progress in this commit.
-5. **Enough views for 3D:** see section 4.
+4. **The Main Hall's paintings are the blurriest thing in the build, and no footage is to blame.** 22 of its 23 canvases are 320 px files, shrunk from 1024 px copies that are already in the repo; the museum's own masters for them run to 10372 × 13472. In all, 29 of 205 objects are flagged (plus 2 candidates), and only 5 objects use a video-frame crop. The museum serves far larger files than the 1324 px image the earlier check found. See section 5.
+5. **Enough views for 3D:** 16 of the 26 sculptures, furniture and carved pieces checked have three or more filmed directions; the catalogue adds photographs for all but the piano (41 for the fireplace surround). See section 4.
 
 ## 1. Rooms
 
@@ -139,44 +139,87 @@ If the owner confirms a different room, sections 1 and 2 already carry its clip 
 
 ## 4. Views enough for 3D
 
-"Enough" means three or more clearly different directions on the object, so an image-to-3D model has something to work from on more than the front. Catalogue photograph counts are in section 5; this table is the footage side. All rows V on one-frame-a-second sheets unless marked.
+"Enough" means three or more clearly different directions on the object, so an image-to-3D model has something to work from on more than the front. The verdict is for the footage alone, V on one-frame-a-second sheets unless marked. The last column is the number of photographs on the object's catalogue page (from the object table); it is a count, not a count of distinct angles, and I did not open those photographs. Where a medieval piece is matched to an accession by its description only, the cell says (I).
 
-| Object (build name) | Room | Footage views | Verdict | Best frames |
-| --- | --- | --- | --- | --- |
-| Art Nouveau chimneypiece (the wood fireplace surround; catalogue *Fireplace Surround*, Hugnet Frères, 83.152, on view: V, live API query) | Marble stair hall | Front and close detail; left oblique; left profile from across the hall; from the stair above, showing top and right side | **Enough** for a relief with real depth. The back is against the wall. | 6380: 48–50 (left oblique), 52–56 (front, figures), 58 and 64 (full height). 6343: 85–87 (profile). 6381: 4–6, 86–88 (from above). |
-| Grand piano | Skylight Gallery | Two close partial views; three far views from the stair and landing, one from above | **Two** usable close views, both cut off. Enough to place and proportion a grand piano; not enough to model this one from the footage alone. | 6379: 3, 13 (close), 66–68 (from the stair), 106 (side, far), 128 (from above). |
-| Rodin marble (`rodin`) | Grey French gallery | Back-left close; front-right close; front; far from the other side; side; back | **Enough**, including the back. | 6343: 26, 52, 54, 56, 76. 6380: 17, 37, 246. |
-| Gold service tureen and its case (`gold-*`) | Rockefeller | The case is walked round about 180° twice | **Enough** for the tureen; the small pieces are a few pixels each, so catalogue photographs carry them. | 6380: 162–173, 213–221. |
-| Dragons-pattern service (`tureen`, `pink-*`) | Rockefeller | Front and one oblique of the wall case | **Two.** Which service is in which case is read from colour (I). | 6380: 123–128, 175–178. |
-| Bookcase with the pottery figures | Rockefeller | Front; strong left oblique showing the side | **Enough** for the case as furniture. The figures on its shelves (`st-george`, `fox`, `parrot`…) are seen from the front only: **one** view each. | 6380: 146–148, 152–153 (front), 203–207 (side). |
-| Settee | Rockefeller | Front-left, front, left three-quarter | **Enough** for the front half. | 6380: 136–141, 197–199. |
-| Black armchair | Rockefeller | Front-left, front, front-right | **Enough** for the front half. | 6380: 131–135, 193–196. |
-| Walnut armchair | Rockefeller | Four passes from different sides | **Enough.** | 6380: 142–144, 149–151, 157–158, 207–209. |
-| Bust on a plinth (`recamier`) | Rockefeller | Front-right, front, left | **Enough** for the front half. | 6380: 138–142, 199–200. |
-| Mirrors, sconces (`sconce-left`, `sconce-right`) | Rockefeller | Front and one oblique | **Two.** Wall-mounted, so that covers what is visible. | 6380: 143–144, 154–156, 182–191. |
-| Stone head on a plinth | Medieval | Front-left, front, front-right, right profile | **Enough** for the front half. No back. | 6382: 29–34. |
-| Crucifix | Medieval | Right oblique from below, front, left oblique, and far side views | **Enough** for the front half. Wall-mounted. | 6382: 38–43, 78–79, 96–97. |
-| Apostles (`apostle-41045`, `apostle-41046`) | Medieval | Front and one oblique each | **Two.** Wall reliefs on a shelf. | 6382: 13–17, 24–27. |
-| Seated relief slab on a plinth | Medieval | Front, one oblique | **Two.** | 6382: 35–37. |
-| Half-figure on a plinth | Medieval | Front, front-right, right side close | **Enough** for the front half. | 6382: 49–52. |
-| Polychrome standing figure on a six-sided pedestal | Medieval | Front-left, front, right three-quarter, far left | **Enough** for the front half. | 6382: 59–61, 81–83. |
-| Seated Virgin statuette and the small objects in the tall case | Medieval | The case is walked round about 270° | **Enough** for the statuette; the small metal pieces are too small on film. | 6382: 100–112. |
-| Stone portal (40.014) | Medieval ↔ Hall | Both faces and both obliques | **Enough.** | 6382: 0–11, 88–90. 6344: 16–20. |
-| Saint Roch (`saint_roch_asset`) | Renaissance | Front-left, front, front-right, through glass | **Enough** for the front half. No back. | 6383: 18, 20, 22. |
-| Secretary | European gallery | Front, front-right, right three-quarter, right side | **Enough.** | 6385: 12, 15, 18, 21. |
-| Commode | European gallery | Front-left, front | **Two.** | 6384: 92, 94. |
-| River God in its case | European gallery | One close view, two far | **One.** | 6384: 40 (close), 34–38. |
-| Dress in a case | European gallery | Two views through glass | **Two.** | 6385: 6, 9. |
-| Seated Woman, gold bronze (`67.089`) | Modern painting gallery | Four frames over about 60°, through a vitrine; one more in 6387 | **Two** distinct directions. | 6343: 241–245. 6387: about 64. |
-| Lion panel (`lion-panel`) | Lion landing | Front, obliques | **Two.** A flat glazed-brick relief; the catalogue photograph carries it. | 6387: 0–12, 40–46. |
+| Object (build name) | Room | Footage views | Verdict | Best frames | Catalogue photographs |
+| --- | --- | --- | --- | --- | --- |
+| Art Nouveau chimneypiece (the wood fireplace surround; catalogue *Fireplace Surround*, Hugnet Frères, 83.152, on view: V, live API query) | Marble stair hall | Front and close detail; left oblique; left profile from across the hall; from the stair above, showing top and right side | **Enough** for a relief with real depth. The back is against the wall. | 6380: 48–50 (left oblique), 52–56 (front, figures), 58 and 64 (full height). 6343: 85–87 (profile). 6381: 4–6, 86–88 (from above). | 41 (83.152) |
+| Grand piano | Skylight Gallery | Two close partial views; three far views from the stair and landing, one from above | **Two** usable close views, both cut off. Enough to place and proportion a grand piano; not enough to model this one from the footage alone. | 6379: 3, 13 (close), 66–68 (from the stair), 106 (side, far), 128 (from above). | none; not a catalogued work |
+| Rodin marble (`rodin`) | Grey French gallery | Back-left close; front-right close; front; far from the other side; side; back | **Enough**, including the back. | 6343: 26, 52, 54, 56, 76. 6380: 17, 37, 246. | 14 (23.005, *The Hand of God*) |
+| Gold service tureen and its case (`gold-*`) | Rockefeller | The case is walked round about 180° twice | **Enough** for the tureen; the small pieces are a few pixels each, so catalogue photographs carry them. | 6380: 162–173, 213–221. | 8 for the tureen (2017.74.38.1a-c); 3–5 for each small piece |
+| Dragons-pattern service (`tureen`, `pink-*`) | Rockefeller | Front and one oblique of the wall case | **Two.** Which service is in which case is read from colour (I). | 6380: 123–128, 175–178. | 19 for the tureen (2017.74.39.18a-c); 4–10 for the others |
+| Bookcase with the pottery figures | Rockefeller | Front; strong left oblique showing the side | **Enough** for the case as furniture. The figures on its shelves (`st-george`, `fox`, `parrot`…) are seen from the front only: **one** view each. | 6380: 146–148, 152–153 (front), 203–207 (side). | 7 for the bookcase (2017.74.9); 5–14 for each figure |
+| Settee | Rockefeller | Front-left, front, left three-quarter | **Enough** for the front half. | 6380: 136–141, 197–199. | 8 (2017.74.5) |
+| Black armchair | Rockefeller | Front-left, front, front-right | **Enough** for the front half. | 6380: 131–135, 193–196. | 5 if it is the entrance chair 2017.74.12 (I) |
+| Walnut armchair | Rockefeller | Four passes from different sides | **Enough.** | 6380: 142–144, 149–151, 157–158, 207–209. | 6 if it is 2017.74.7.1 (I); its twin 2017.74.7.2 not checked |
+| Bust on a plinth (`recamier`) | Rockefeller | Front-right, front, left | **Enough** for the front half. | 6380: 138–142, 199–200. | 6 (37.201) |
+| Mirrors, sconces (`sconce-left`, `sconce-right`) | Rockefeller | Front and one oblique | **Two.** Wall-mounted, so that covers what is visible. | 6380: 143–144, 154–156, 182–191. | 1 for each mirror; 3 for each sconce |
+| Stone head on a plinth | Medieval | Front-left, front, front-right, right profile | **Enough** for the front half. No back. | 6382: 29–34. | 5 if it is 59.131 (I) |
+| Crucifix | Medieval | Right oblique from below, front, left oblique, and far side views | **Enough** for the front half. Wall-mounted. | 6382: 38–43, 78–79, 96–97. | 1 if it is 43.195 (I) |
+| Apostles (`apostle-41045`, `apostle-41046`) | Medieval | Front and one oblique each | **Two.** Wall reliefs on a shelf. | 6382: 13–17, 24–27. | 3 each |
+| Seated relief slab on a plinth | Medieval | Front, one oblique | **Two.** | 6382: 35–37. | 1 if it is 69.196 (I) |
+| Half-figure on a plinth | Medieval | Front, front-right, right side close | **Enough** for the front half. | 6382: 49–52. | 19 if it is Saint Peter 20.254 (I) |
+| Polychrome standing figure on a six-sided pedestal | Medieval | Front-left, front, right three-quarter, far left | **Enough** for the front half. | 6382: 59–61, 81–83. | 38 if it is the Angel of the Annunciation 37.114 (I) |
+| Seated Virgin statuette and the small objects in the tall case | Medieval | The case is walked round about 270° | **Enough** for the statuette; the small metal pieces are too small on film. | 6382: 100–112. | 6 (15.108) |
+| Stone portal (40.014) | Medieval ↔ Hall | Both faces and both obliques | **Enough.** | 6382: 0–11, 88–90. 6344: 16–20. | 3 (40.014) |
+| Saint Roch (`saint_roch_asset`) | Renaissance | Front-left, front, front-right, through glass | **Enough** for the front half. No back. | 6383: 18, 20, 22. | 4 (21.398) |
+| Secretary | European gallery | Front, front-right, right three-quarter, right side | **Enough.** | 6385: 12, 15, 18, 21. | 8 (80.106) |
+| Commode | European gallery | Front-left, front | **Two.** | 6384: 92, 94. | 11 (2017.46) |
+| River God in its case | European gallery | One close view, two far | **One.** | 6384: 40 (close), 34–38. | 28 (44.674) |
+| Dress in a case | European gallery | Two views through glass | **Two.** | 6385: 6, 9. | 1 (2000.103.3) |
+| Seated Woman, gold bronze (`67.089`) | Modern painting gallery | Four frames over about 60°, through a vitrine; one more in 6387 | **Two** distinct directions. | 6343: 241–245. 6387: about 64. | 3 (67.089) |
+| Lion panel (`lion-panel`) | Lion landing | Front, obliques | **Two.** A flat glazed-brick relief; the catalogue photograph carries it. | 6387: 0–12, 40–46. | 22 (34.652) |
 
-Count: 26 rows; **16 enough** (9 of those for the front half only), 9 two views, 1 one view. Not looked at tonight for views: the Renaissance case objects, the Pietà, the Schreibtisch cabinet, the majolica and silver cases, and the white sculpture gallery's marbles.
+Count: 26 rows; **16 enough** on film (9 of those for the front half only), 9 two views, 1 one view. Of the ten that fall short on film, the River God (28 photographs), the lion panel (22), the Dragons tureen (19) and the commode (11) have the most catalogue photographs to make it up; the piano has none. Not looked at tonight for views: the Renaissance case objects, the Pietà, the Schreibtisch cabinet, the majolica and silver cases, and the white sculpture gallery's marbles.
 
 ## 5. Objects
 
-**In progress.** The per-object audit (current texture file and its pixels, origin, catalogue photographs and their sizes, flags) was running when the session stopped on 7 Oct; its table is being checked and lands in the next commit on this branch.
+205 objects are drawn in the walkable rooms. The full table, one row each, is [the object table](2026-10-08-original-sources-ledger-objects.md); its rows as JSON are at `~/risd-godot-ingestion/research-256-objects/objects-ledger.json`. It was built by a background agent; I re-measured every texture size in it and spot-checked its network figures before publishing (that file's opening says exactly what).
 
-<!-- OBJECTS -->
+| | Count |
+| --- | --- |
+| Objects | 205 |
+| In-room texture is a catalogue photograph (possibly resized or cut out) | 128 |
+| … a Muse pass | 58 |
+| … a video-frame crop | 5 |
+| … nothing: flat colour or plain blocks | 14 |
+| **Flagged: a video crop or under 512 px, and a larger catalogue photograph exists** | **29** |
+| Candidates: the same, but the catalogue record is only probable | 2 |
+| Untextured although catalogue photographs exist | 10 |
+| At the 512 px cap exactly (not flagged by the rule) | 48 |
+| Using the 600 px preview where the 1324 px image exists (not flagged) | 26 |
+
+**What the catalogue serves** (V, measured from file headers; no master was downloaded). The earlier check for #180 found a 1324 px image and stopped. Each photograph marked public has four sizes:
+
+| Rendition | Long side | How to get it |
+| --- | --- | --- |
+| Preview | 600 px | `data-preview-url` on the object page |
+| Zoom | 1324 px wide (112 of 115 measured) | `data-zoom-url` |
+| High-resolution JPEG | 3000 px (4 of 4 large masters) | the dialog behind `data-download-url` |
+| High-resolution TIFF, the master | 3449 × 5993 up to 10372 × 13472 in the four read | the same dialog |
+
+772 of the 1,069 photographs on these pages are also in the museum's Micrio viewer, whose `https://iiif.micr.io/<id>/info.json` gives the master's size and serves it in tiles; that is the only large route for the eight objects whose photographs are in copyright. Not every work has a large master: the Küssell prints stop at 512 × 384 in every rendition.
+
+**The 29 flagged, by room** (V for the current sizes; the larger source is in each row of the object table):
+
+| Room | Flagged | What |
+| --- | --- | --- |
+| Main Hall | 22 of 23 paintings | Every canvas is `gallery_walk4/canvas/<tag>.jpg` at 320 px on its long side (for example `S1` 248 × 320), a shrink of `image-work/grand-gallery-v4/canvas/<accession>.jpg` at 1024 px, which is already in the repo and is what the popup uses. The museum's masters for 21 of them run from 1884 × 3200 to 10372 × 13472. The Tiepolo is a 1024 × 1751 Muse cut-out and is not flagged. |
+| European gallery | 3 | Bruegel print 84.198.1032 (443 × 362), cake basket 2016.124 (473 × 443), Schreibtisch 75.023 (493 × 393): crops of the 600 px preview; their 1324 px images measure 1324 × 993, 1324 × 1139 and 1324 × 1091. |
+| Medieval | 1, and 2 candidates | *God Save the Queens* 2020.55: decals cropped from a Muse sheet at 372 × 472, with catalogue photographs in the repo at 1324 × 2040. Candidates: two paper works in the low case, film crops of 28 × 14 and 66 × 37 px, with only a probable catalogue record each. |
+| Skylight Gallery | 2 | *Foreign Sign* 2026.3 and *Spectrum II* 2025.19 are film crops (1000 × 996, 1000 × 1000) because the catalogue had no photograph on 1 October. It has one of each now: 1324 × 1321 and 1324 × 1316, with Micrio sources of 9333 × 9315 and 10315 × 10254 (I re-fetched all four figures). |
+| Renaissance | 1 | Book cover 34.016, 258 × 420, cut from the 1324 px image; only the 3000 px JPEG or the TIFF improves it. |
+
+Of the five video-crop objects, two are flagged (the Skylight pair), two are the candidates, and the fifth, the emblem book 2023.17, has no catalogue photograph to go to. The diptych 22.201 also carries a film crop on its second leaf, a face the catalogue does not show.
+
+**Not flagged, worth a builder's eye:**
+
+1. The 48 at the cap are mostly the Rockefeller pottery and porcelain: Muse passes at 512 px made from catalogue photographs that exist at 1324 px and above.
+2. The 26 on the 600 px preview are nearly all the European gallery's east wall.
+3. The 10 untextured models include the Pietà 59.128, Saint Roch 21.398, the Virgin and Child 15.108 and the medieval metalwork; each has 1 to 11 catalogue photographs.
+4. The fireplace surround 83.152 is drawn from one 1273 × 2269 catalogue photograph; its page has 41, and the TIFF of the one in use is 3449 × 5993.
+
+**No catalogue photograph or no identity:** the ewe and lamb 2017.74.32 and the emblem book 2023.17 (pages have none); the piano, the iron grille, the two paper works and three small European-gallery pieces have no accepted catalogue identity.
 
 ## 6. What was not done
 
@@ -184,4 +227,6 @@ Count: 26 rows; **16 enough** (9 of those for the front half only), 9 two views,
 - The works in the two Impressionist galleries are named by eye; only *Le Repos* (59.027) was looked up, so the others have no accession number.
 - The HDR colour question in section 2 is open.
 - No frame set was extracted for a builder; the commands and seconds are here, the frames are not.
-- Scratch sheets from tonight are in the session scratch folder and are not kept.
+- The object table's catalogue pages were read by the background agent, not by me; I checked its sizes and a sample of its network figures, not its 115 page reads.
+- Which catalogue photograph of an object is the best view, and how many distinct angles a page's photographs give, was not judged.
+- The contact sheets made for this were scratch and are deleted.
