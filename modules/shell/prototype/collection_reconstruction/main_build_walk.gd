@@ -277,6 +277,7 @@ func _attach_rooms(path: String) -> void:
 	_collect_parts()
 	for wall in _walls:
 		wall["at"] = wall.room if wall.room >= 0 else _room_of(wall.box)
+	_grid = null  # a route planned in the Hall before now knew no furniture (#280)
 	print("MAIN_BUILD_ROOMS ", JSON.stringify(state()), " ms=", Time.get_ticks_msec() - began)
 
 
@@ -654,7 +655,7 @@ func _viewing(p: Dictionary) -> Dictionary:
 
 # Any work, Hall painting or added-room object: walk to its viewing spot, face it, open it.
 func _approach(p: Dictionary) -> void:
-	if _rooms == null:
+	if _plan.is_empty():
 		super(p)
 		return
 	var view := _viewing(p)
@@ -1339,6 +1340,9 @@ func _update_camera(k: float) -> void:
 	if _rooms == null and _rooms_path != "" and _wipe_t < 0.0 and _room_at(_pos) >= 0:
 		_attach_rooms(_rooms_path)  # put straight into an added room: no wipe to hide behind
 	if _rooms == null:
+		# Only the Hall exists until the first doorway (#281); its paintings are read all the same.
+		if _rooms_path != "" and _inspect_camera():
+			_hall_walls_back(0)
 		return
 	var here := _room_at(_pos)
 	# Further in one frame than walking covers: the visitor was put there. A long frame (the
@@ -1378,18 +1382,7 @@ func _update_camera(k: float) -> void:
 			want = head + (want - head) * maxf(reach, 0.15)
 		_cam.position = want
 		_cam.look_at(_pos + forward * 2.0 + Vector3(0, 1.1, 0))
-	var inspecting := _inspect_t > 0.0 and (not _inspect.is_empty() or _inspect_from != null)
-	if inspecting:
-		var shot: Transform3D = _inspect_from if _inspect.is_empty() else _inspect_shot(_inspect)
-		if not _inspect.is_empty():
-			_inspect_from = shot
-		_cam.global_transform = _cam.global_transform.interpolate_with(shot, _inspect_t)
-		var beside: bool = _inspect_t < 0.5 or not _inspect.get("covered", false)
-		for body in [_kid, _shadow] + _sole_shadows:
-			body.visible = beside
-		_cam.fov = lerpf(_cam.fov, _inspect_fov, _inspect_t)
-	elif _inspect_t <= 0.0:
-		_inspect_from = null
+	var inspecting := _inspect_camera()
 	var shown: int = NEAR_LAYER | FAR_LAYER # Both adjoining room interiors are visible through their doors.
 	# The visitor and its shadows have a layer of their own, so hiding the Hall never hides them.
 	_cam.cull_mask |= shown | VISITOR_LAYER
@@ -1405,8 +1398,7 @@ func _update_camera(k: float) -> void:
 	if _space == "gallery":
 		_cam.cull_mask |= FAR_LAYER
 		if inspecting:
-			# Inside the Hall looking at a wall: every wall back, no dollhouse cut-away.
-			_cam.cull_mask = _cutaway_mask(63, minf(0.2, get_process_delta_time() * 2.5)) | shown | VISITOR_LAYER
+			_hall_walls_back(shown | VISITOR_LAYER)
 	elif _space == "far" and added:
 		# The parent's far-space rule leaves the Hall's last wall fade untouched.
 		_cutaway_alpha[8] = 1.0
@@ -1708,6 +1700,34 @@ func _cutaway_mask(target: int, blend: float) -> int:
 func _click(pt: Vector2) -> void:
 	if _wipe_t < 0.0:
 		super(pt)
+
+
+# The camera while a work is being read, and while it glides back from one: from the walking
+# view to the inspection shot by _inspect_t. Returns whether it is in that glide or shot.
+func _inspect_camera() -> bool:
+	if _inspect_t <= 0.0 or (_inspect.is_empty() and _inspect_from == null):
+		if _inspect_t <= 0.0:
+			_inspect_from = null
+		return false
+	var shot: Transform3D = _inspect_from if _inspect.is_empty() else _inspect_shot(_inspect)
+	if not _inspect.is_empty():
+		_inspect_from = shot
+	_cam.global_transform = _cam.global_transform.interpolate_with(shot, _inspect_t)
+	var beside: bool = _inspect_t < 0.5 or not _inspect.get("covered", false)
+	for body in [_kid, _shadow] + _sole_shadows:
+		body.visible = beside
+	_cam.fov = lerpf(_cam.fov, _inspect_fov, _inspect_t)
+	return true
+
+
+# Inside the Hall looking at a wall, every wall is back: no dollhouse cut-away. But only once
+# the lens itself is inside (#280): the glide starts and ends at the walking view, outside the
+# wall on the camera's side, and that wall brought back early filled the picture, about 24
+# frames going in and 40 coming back.
+func _hall_walls_back(also: int) -> void:
+	var eye := _cam.global_position
+	if Rect2(-W / 2.0, -L, W, L).grow(-0.3).has_point(Vector2(eye.x, eye.z)):
+		_cam.cull_mask = _cutaway_mask(63, minf(0.2, get_process_delta_time() * 2.5)) | also
 
 
 # A change of view glides from where the camera was instead of cutting.

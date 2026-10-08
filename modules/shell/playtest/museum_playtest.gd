@@ -843,8 +843,25 @@ func _press(at: Vector2) -> void:
 		await process_frame
 
 
-# Click a work from three metres in front of it and wait until it is being read.
-func _read(thing: Dictionary) -> void:
+# Whether a wall of the Hall stands in the lens: the camera is outside the Hall on a side
+# whose wall it is drawing. The dollhouse view cuts that wall away; an inspection may bring
+# it back only once the lens is inside.
+func _hall_wall_in_lens() -> bool:
+	if walk._space != "gallery":
+		return false
+	var eye: Vector3 = walk._cam.global_position
+	var mask: int = walk._cam.cull_mask
+	return (
+		(eye.x > 5.0 and (mask & walk.LAYER_EAST) != 0)
+		or (eye.x < -5.0 and (mask & walk.LAYER_WEST) != 0)
+		or (eye.z > 0.0 and (mask & 8) != 0)
+		or (eye.z < -walk.L and (mask & 16) != 0)
+	)
+
+
+# Click a work from three metres in front of it and wait until it is being read. Returns the
+# frames of the camera's glide in during which a Hall wall stood in the lens.
+func _read(thing: Dictionary) -> int:
 	_place(Vector3(thing.center.x, 0, thing.center.z) + thing.normal * 3.0)
 	walk.view_yaw = atan2(thing.normal.x, thing.normal.z)
 	for settle in 8:
@@ -856,8 +873,11 @@ func _read(thing: Dictionary) -> void:
 	while walk._inspect.is_empty() and clock < 20.0:
 		await process_frame
 		clock += root.get_process_delta_time()
+	var blocked := 0
 	for settle in 60:
 		await process_frame
+		blocked += int(_hall_wall_in_lens())
+	return blocked
 
 
 # Every case is run as a player meets it at launch, when only the Hall exists (#281 builds the
@@ -881,8 +901,13 @@ func _other_wall_while_reading(when: String) -> void:
 	for painting in walk._paintings:
 		if painting.tag == "W2":
 			w2 = painting
-	await _read(w2)
+	var lens_blocked: int = await _read(w2)
 	var entry := {"name": "other wall while reading" + when, "read": walk._inspect.get("tag", "")}
+	# The reading is a camera shot of the work, not a caption over the walking view.
+	var off_shot := INF
+	if not walk._inspect.is_empty():
+		off_shot = walk._cam.global_position.distance_to(walk._inspect_shot(walk._inspect).origin)
+	entry["camera_off_shot_m"] = snappedf(off_shot, 0.01)
 	var started: Vector3 = walk._pos
 	var button: Button = walk.get_node("OtherWall")
 	entry["button_shown"] = button.is_visible_in_tree()
@@ -907,6 +932,8 @@ func _other_wall_while_reading(when: String) -> void:
 	var problems := PackedStringArray()
 	if entry.read != "W2":
 		problems.append("W2 did not open to begin with")
+	elif off_shot > 0.05:
+		problems.append("the camera is %.2f m from the inspection shot" % off_shot)
 	if walked_reading > 0.05:
 		problems.append("the visitor walked %.2f m while the caption stayed open" % walked_reading)
 	if entry.walked_m > 0.05 and entry.camera_on_work > 0.01:
@@ -917,6 +944,11 @@ func _other_wall_while_reading(when: String) -> void:
 	walk._end_inspect(false)
 	for settle in 60:
 		await process_frame
+		lens_blocked += int(_hall_wall_in_lens())
+	# The lens stays clear while the camera glides in and back (rounds 2 to 4).
+	entry["wall_in_lens_frames"] = lens_blocked
+	if lens_blocked > 0:
+		problems.append("a Hall wall stood in the lens for %d frames of the camera's glide" % lens_blocked)
 	entry["button_back"] = button.is_visible_in_tree()
 	if not entry.button_back:
 		problems.append("the button did not come back after the reading closed")
