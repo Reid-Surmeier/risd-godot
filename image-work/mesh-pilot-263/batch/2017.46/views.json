@@ -1,0 +1,44 @@
+{
+ "accession": "2017.46",
+ "page": "https://risdmuseum.org/art-design/collection/commode-201746",
+ "photographs": 6,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.46/front.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    5530,
+    4006
+   ],
+   "alt": "Ornate wooden three drawer chest with intricate, curling gold embellishments, and a smooth red marble top."
+  },
+  "back": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.46/back.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    10731,
+    7874
+   ],
+   "alt": "An image of the back of an antique wooden dresser. The wood is visibly aged with knots and grain patterns."
+  },
+  "side": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.46/side.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    7990,
+    9382
+   ],
+   "alt": "Side view of a wooden chest with symmetrical geometric wood patterns and a gold-toned embellishment along the legs and center."
+  },
+  "threequarter": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.46/threequarter.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    10740,
+    8086
+   ],
+   "alt": "An ornate warm wooden dresser with gold scroll handles and ornament, and a polished red marble top."
+  }
+ }
+}

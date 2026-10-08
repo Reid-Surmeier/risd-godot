@@ -541,5 +541,37 @@
    },
    "build": "CUT=--keep-holes SUF=-cut LIFT=none: the flat views as Muse drew them, no pull to the photograph's overall brightness and no per-channel lift, both of which washed this many-coloured figure out; flat front and back made a third time with the horse a warm chestnut, as the photograph has it"
   }
+ },
+ "2017.46": {
+  "title": "Charles Cressent. *Commode*, ca. 1725–1730. Veneered oak and pine, gilt-bronze mounts, marble top. 86.4 × 144.8 × 64.8 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2017.46/front.jpg",
+  "prepare": "--height 0.864 --width 1.448 --depth 0.648",
+  "muse_first": {
+   "run": {
+    "id": "run_m171htcvg4zpz11fk0rk79csds8fwrqj",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "b4648610706a499e3629406ad0e4f08e9d0f8c4a60facb8f458800bcb52ba28b"
+   },
+   "views": "front, left and back, each a Muse clay view of the museum's photograph of that side",
+   "imported": {
+    "mesh": 216829,
+    "colour": 153382,
+    "total": 370211
+   },
+   "build": "SUF=-cut LIFT=none CUT=--keep-holes, 1024 px colour from flat front, side and back; sized to the catalogue on all three axes"
+  },
+  "cut": "saturation key 60 on the catalogue front photograph; cut.png is not in git"
+ },
+ "2000.103.3": {
+  "title": "*Dress*. Cotton muslin.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2000.103.3/front.jpg",
+  "ended": "8 October: the clay front call failed with HTTP 502 (provider error), charge unknown, not resubmitted; the object stops here unless the lead allows one more call"
+ },
+ "75.023": {
+  "title": "Unknown maker, German. *Writing Desk (Schreibtisch)*, ca. 1590. 45.1 × 60.6 × 33.3 cm.",
+  "ended": "8 October: no call made. It is a rectangular box with flat marquetry faces; a generated mesh would add nothing a box with the museum's photographs on its faces does not have. What the census complains of, a plain brown back, is a matter of which photographs are on which faces in european_east_additions.gd"
  }
 }

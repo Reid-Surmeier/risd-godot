@@ -1,0 +1,20 @@
+{
+ "accession": "2000.103.3",
+ "page": "https://risdmuseum.org/art-design/collection/dress-20001033",
+ "photographs": 1,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2000.103.3/front.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    9709,
+    13623
+   ],
+   "alt": ""
+  },
+  "back": "no photograph: Muse turns it from the front",
+  "side": "no photograph: Muse turns it from the front",
+  "threequarter": "no photograph: Muse turns it from the front"
+ }
+}

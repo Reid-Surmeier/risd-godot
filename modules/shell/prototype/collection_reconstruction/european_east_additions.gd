@@ -142,17 +142,11 @@ func build_platform() -> void:
 	tag(cover, "indian-cover", ["37.009", "Cover", "Unknown Maker, Indian", "ca. 1700-1800", "Painted, mordant-printed and resist-dyed cotton", "Length 133.4 cm"], "textile-37.009.jpg")
 	cover.reparent(panel)
 	room.label_stand(at(15.2, 1.1, .14), -PI / 2).reparent(deck)
-	# Commode: a closed box at catalogue size carrying the record's front photograph; marble slab on top.
+	# Commode: a real mesh (#263) at catalogue size on the deck, its front to the room. It carries its own
+	# marble top, mounts and legs; the box, the slab and the front photograph are no longer built.
 	var size := Vector3(.648, .864, 1.448)
-	var body: Node3D = room.solid(at(18.5, .40, .14 + .40), Vector3(size.x * .9, .70, size.z * .92), room.look(Color("6b3a1f")), true)
+	var body: Node3D = room.place_mesh(DIR + "commode-201746.glb", at(18.5, .40, .14), -PI / 2, Vector3(size.z, size.y, size.x), "2017.46")
 	tag(body, "commode", ["2017.46", "Commode", "Charles Cressent", "ca. 1725-1730", "Fir, oak, amaranth, macacauba and bois satine with gilt bronze mounts and marble top", "86.4 x 144.8 x 64.8 cm"], "commode-2017.46.jpg")
-	var top: Node3D = room.solid(at(18.5, .40, .14 + .864 - .02), Vector3(size.x, .04, size.z), room.look(Color("7a4a43")))
-	top.reparent(body)
-	var front := slab("commode-2017.46.jpg", Vector2(size.z, size.y), SQUARE, Color("6b3a1f"))
-	front.position = at(18.5, .40 + size.x * .45 + .005, .14 + size.y / 2)
-	front.rotation.y = -PI / 2
-	front.scale.z = .2
-	front.reparent(body)
 	# Meissen charger in its acrylic box on the marble.
 	var disc: Array = []
 	for i in 32:

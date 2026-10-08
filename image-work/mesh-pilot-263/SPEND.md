@@ -89,6 +89,10 @@ The Hand of God redone as plain marble (no charge): accepted, 233 KB.
 
 | St. George and the Dragon 2017.74.14 | 10 (0.10): clay front, back, right; three flat views wasted on my own wrong colour description (a white horse) and a repeated view; flat front and back redone, mauve; redone once more, chestnut, as the photograph has it | Multi-View from back, right, front (the frame turned half round), 0.48 / 0.48 | 276 KB; placed in the Rockefeller room source |
 
-**Batch so far: 9.39 USD** (75 Muse images 0.75, fifteen Multi-View meshes 7.20, three single-view meshes 1.44). **Whole effort: 16.51 USD charged.**
+| Commode 2017.46 | 6 (0.06): clay front, side and back, flat front, side and back, each from the museum's photograph of that side | Multi-View from front, left, back, 0.48 / 0.48 | 361 KB at 1024 px colour; placed in the European gallery source |
+| Dress 2000.103.3 | 0: the clay front call failed (HTTP 502), charge unknown and not counted; not resubmitted | none | ended |
+| Writing Desk 75.023 | 0 | none | no call made: a rectangular box with flat marquetry faces, which a generated mesh would not improve |
 
-Not counted, because the charge is unknown: three Muse calls that failed and were not resubmitted (Hand of God flat back HTTP 502, Récamier clay left HTTP 502, River God clay front HTTP 400) and the pilot's fireplace call (HTTP 400). At 0.01 USD each the most they can add is 0.04 USD.
+**Batch so far: 9.93 USD** (81 Muse images 0.81, sixteen Multi-View meshes 7.68, three single-view meshes 1.44). **Whole effort: 17.05 USD charged.**
+
+Not counted, because the charge is unknown: four Muse calls that failed and were not resubmitted (Hand of God flat back HTTP 502, Récamier clay left HTTP 502, River God clay front HTTP 400, Dress clay front HTTP 502) and the pilot's fireplace call (HTTP 400). At 0.01 USD each the most they can add is 0.05 USD.
