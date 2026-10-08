@@ -126,7 +126,7 @@ var _wipe_spin := 0.0  # the mark turns a little between one build step and the 
 # for this signal. Steps run while the visitor stands still in the Hall, and in the black of
 # the wipe if a doorway is reached first.
 signal build_gate
-const ROOMS_AT_LAUNCH := false  # the fallback: the whole museum behind the loading screen
+const ROOMS_AT_LAUNCH := true  # the fallback: the whole museum behind the loading screen
 const BUILD_AFTER := 2.0  # seconds the Hall is on screen before the rooms begin
 const BUILD_SHARE_MS := 60  # short steps share one frame up to this long
 const ARRIVAL_WALL := 6.0  # metres: a wall further off than this shows no works in the picture
