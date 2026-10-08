@@ -15,9 +15,9 @@ dest_files=["res://.godot/imported/tureen.png-1be48497347f24f726c988c5ff3200ec.c
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.8
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

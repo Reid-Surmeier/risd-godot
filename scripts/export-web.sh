@@ -19,6 +19,9 @@ rm -rf "$NEXT" && mkdir -p "$NEXT/media"
 "$GODOT_BIN" --headless --path . --export-release "Web" "$NEXT/$SHA.html" 2>&1 | grep -E 'ERROR' || true
 "$GODOT_BIN" --headless --path . --export-pack "Web Game" "$NEXT/$SHA.game.pck" 2>&1 | grep -E 'ERROR' || true
 sed -i "s|<title>[^<]*</title>|<title>risd-godot shell build $SHA</title>|" "$NEXT/$SHA.html"
+# The pack is the whole download: it went 120 -> 450 MB in five days unseen. Raise the budget on purpose, never by drift.
+MB=$(( $(stat -c%s "$NEXT/$SHA.game.pck") / 1048576 )); echo "game pack: $MB MB (budget ${PACK_BUDGET_MB:=260} MB)"
+[ "$MB" -le "$PACK_BUDGET_MB" ] || { echo "game pack over budget: import big textures lossy, or raise PACK_BUDGET_MB and say why"; exit 1; }
 cat > "$NEXT/index.html" <<HTML
 <!doctype html><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-store"><meta http-equiv="refresh" content="0; url=$SHA.html"><title>risd-godot shell build $SHA</title><a href="$SHA.html">build $SHA</a>
 HTML

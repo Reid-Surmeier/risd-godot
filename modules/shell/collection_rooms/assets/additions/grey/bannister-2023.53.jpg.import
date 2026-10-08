@@ -15,9 +15,9 @@ dest_files=["res://.godot/imported/bannister-2023.53.jpg-87c725c91d9d779a3fb887e
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.8
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

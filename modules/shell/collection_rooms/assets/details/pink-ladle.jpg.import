@@ -15,9 +15,9 @@ dest_files=["res://.godot/imported/pink-ladle.jpg-ac3508a474ba070c66b0f67c34900f
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.8
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
