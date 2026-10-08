@@ -127,6 +127,19 @@ it. Unbaked means the draft's own flat light; the baked look is judged from the 
    built), the iron grille's platform. The unbaked greys read darker than the footage because
    the draft has no light on them.
 
+11. `11-saint-roch-plinth-lowered-footage-and-unbaked.jpg`: Saint Roch's plinth at the filmed
+   height, on the lead's decision. Panels: IMG_6383 61.0 s (cropped); unbaked before; unbaked
+   after; 18.3 s; unbaked after from about there. A WORK MOVED: Saint Roch (21.398) stands
+   0.20 m lower, its base at 0.48 m (was 0.68 m); nothing else about it changed. The cap's top
+   is 0.44 m (was 0.64 m) and the hood's top 1.89 m (was 2.09 m).
+   The measurement, in 61.0 s: the figure's catalogue height (1.054 m) spans 385 px of the
+   enlarged crop, 2.74 mm a pixel at the figure; the plinth's front face, cap edge to floor,
+   spans 170 px, 0.44 m after allowing for its being nearer the camera. Cross-check in the same
+   frame: the window sill (0.63 m by the earlier source fit) stands clearly above the cap's top,
+   as it now does in the build. Uncertainty +-5 cm: the frame is motion-blurred.
+   `architecture_check.gd` changed with it: the figure's pinned height 0.68 -> 0.48 m and the
+   lid's 2.09 -> 1.89 m. Pictures 6 and 9 show the case before this.
+
 The clips are in `~/risd-godot-ingestion/collection-expansion/verified/` (the copies one folder
 up are empty or cut short). `IMG_6382.MOV` plays upside down: add `,hflip,vflip` to the filter.
 
@@ -134,9 +147,14 @@ up are empty or cut short). `IMG_6382.MOV` plays upside down: add `,hflip,vflip`
 
 - Done in the Renaissance room: the bench, the four wall cases, the hooded floor case and its
   proportions, the textile platform with its label stands, the window (pictures 1 to 9).
-- Open, the lead's decision: lowering Saint Roch's plinth from 0.64 to about 0.44 m (see 9).
+- Saint Roch's plinth is lowered to the filmed 0.44 m and the figure with it (picture 11).
+- Allowed by the lead and not done: raising the deck, and the works on it, in the four wall
+  cases so the label rail's face has its filmed height. Measure from 44.0, 24.6 and 30.2 s
+  (scale from the case's own width or a catalogue size in the same plane), move works only
+  vertically and only with their deck, and name each work and distance in the commit.
 - Done in the dark medieval room: the two glass cases and the octagonal pedestals (picture 10).
-- Not done: the European gallery (`european_east_additions.gd`, `european_west_additions.gd`;
+- Not done: the grey French gallery (the plinth under Rodin's Hand of God, benches), and the
+  European gallery (`european_east_additions.gd`, `european_west_additions.gd`;
   footage IMG_6384, 6385, 6386). Its platforms and case bases are the white kind: start from
   `plinth()`, `hood_edges()` and `label_stand()`, after reading the footage for each piece.
 
@@ -189,7 +207,8 @@ east case A `-1.05,.42,.12:0,.40,.30` and low `-1.7,-.55,1.0:0,-.62,0`; Pietà c
 `renaissance_west_blind`: `3.9,-.35,.3:.3,-.35,0:55`, `1.5,-.25,2.1:0,-.75,.2`,
 `.9,-.9,.95:0,-1.2,.62:45`; picture 10, `medieval_crucifix_platform` (the nearest piece
 with a key): `-2.6,1.5,-3.6:1.6,.5,-1.9`, `-3.5,1.3,-2.6:-4.78,.75,-.98`,
-`2.82,1.32,-1.89:3.39,.82,-.12`. A blank or flat picture means the camera is inside a wall: change the
+`2.82,1.32,-1.89:3.39,.82,-.12`; picture 11: `renaissance_west_blind`
+`3.9,-.35,.3:.3,-.35,0:55` and `saint_roch_installation` `1.4,1.3,1.0:0,.85,0`. A blank or flat picture means the camera is inside a wall: change the
 offset's sign. The draft draws every room at once and lights nothing by the bake, so it shows
 shape, not the final light or which room the game would draw. If a shot fails with "Cannot open
 file res://.godot/imported/...", another draft run is rebuilding the same folder: wait and repeat.

@@ -141,7 +141,7 @@ func run() -> void:
 			var figure = node.find_child("SaintRoch21398", true, false)
 			if not node is StaticBody3D or not node.get_child(0) is CollisionShape3D or figure == null:
 				failures.append("Saint Roch lacks its figure or colliding plinth")
-			elif not figure.global_position.is_equal_approx(Vector3(-4.86, .68, 31.95)) or figure.get_meta("height_m") != 1.054:
+			elif not figure.global_position.is_equal_approx(Vector3(-4.86, .48, 31.95)) or figure.get_meta("height_m") != 1.054:
 				failures.append("Saint Roch lost its catalogue height or provisional window placement")
 			if figure != null:
 				for flag in ["visual_fidelity_accepted", "rear_fidelity_accepted", "placement_accepted", "survey_metres_accepted"]:
@@ -163,7 +163,7 @@ func run() -> void:
 					label = true
 				if part is MeshInstance3D and part.material_override is StandardMaterial3D and part.material_override.transparency == BaseMaterial3D.TRANSPARENCY_ALPHA:
 					lid_y = maxf(lid_y, part.global_position.y)
-			if steps != 3 or not label or not is_equal_approx(lid_y, 2.09):
+			if steps != 3 or not label or not is_equal_approx(lid_y, 1.89):
 				failures.append("Saint Roch source-guided hood/plinth steps/label missing")
 		if node.has_meta("lift_panel") or (node is Label3D and node.text == "5"):
 			lifts += 1

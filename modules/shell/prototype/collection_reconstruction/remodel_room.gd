@@ -1738,15 +1738,16 @@ func build_sculpture_rooms() -> void:
 		_renaissance_wall_art.append(part)
 	# IMG_6383 18.3/62.0s: polychromed wood on a white floor plinth before this window.
 	# 61.0s, with the figure's 1.054 m as the ruler: the cap is about 1.0 m wide, the body 0.83.
-	# The same frame puts the cap's top near 0.44 m; it stays 0.64 here because the figure is not moved.
+	# The same frame puts the cap's top at 0.44 m (+-5 cm), under the window sill; the figure stands
+	# on the riser at 0.48 m and the hood's top is 1.89 m (both were 0.20 m higher).
 	var roch_at:=Vector3(-4.86,0,22.7)
-	var roch_plinth:=hooded_floor_case(roch_at,.86,.86,.64,2.09,Vector3(1,0,0))
+	var roch_plinth:=hooded_floor_case(roch_at,.86,.86,.44,1.89,Vector3(1,0,0))
 	roch_plinth.set_meta("saint_roch_installation",true)
 	for part in roch_plinth.get_children():
 		if part.has_meta("floor_case_part"):part.set_meta("saint_roch_plinth_step",part.get_meta("floor_case_part"))
 	var roch:=SaintRoch.build() # Muse sheet rejected off-axis; keep the closed flat study.
 	add_child(roch)
-	roch.position=roch_at+Vector3(0,.68,0)
+	roch.position=roch_at+Vector3(0,.48,0)
 	roch.rotation.y=PI/2
 	roch.reparent(roch_plinth)
 	var roch_glass:=look(Color(.82,.90,.91,.10),"",true)
