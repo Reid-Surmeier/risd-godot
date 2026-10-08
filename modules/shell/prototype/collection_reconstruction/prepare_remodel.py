@@ -609,6 +609,7 @@ hall_source=repo/'modules/shell/prototype/gallery_walk4'
 # image-work/collection-room-remodel/additions/<room>/ as assets/additions/<room>/.
 for path in sorted(source.glob('*_additions.gd')):
     copy(path,path.name)
+copy(source/'acceptance.json','acceptance.json') # read by architecture_check.gd
 for path in sorted((app/'additions').rglob('*')):
     if path.is_file():
         copy(path,'assets/additions/'+str(path.relative_to(app/'additions')))

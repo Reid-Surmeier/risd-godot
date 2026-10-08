@@ -5,10 +5,12 @@
 ##            view; a view the wall fills, or one that hides the visitor, is a failure.
 ## 4 objects: every artwork is clicked with a real mouse event; the visitor must walk up,
 ##            a detail must open, and it must close again.
+## 5 interaction: the faults a player found by playing (#280), each replayed with real
+##            pointer events: "Other wall" pressed while a work is being read.
 ## source ~/promo-lab/gpu-env.sh   (the RTX through Mesa d3d12; llvmpipe is ten times slower)
 ## godot --fixed-fps 60 --path . --script res://modules/shell/playtest/museum_playtest.gd
 ##   --display-driver x11 --rendering-driver opengl3 -- --out-dir=<dir>
-## Options: --only=doors,rooms,views,objects; --room=<label>; --shell=true; --width/height=<px>.
+## Options: --only=doors,rooms,views,objects,interaction; --room=<label>; --shell=true; --width/height=<px>.
 ## --fixed-fps makes every frame one sixtieth of a second of game time, so a run is repeatable.
 extends SceneTree
 
@@ -17,7 +19,9 @@ const HALL := "Grand Gallery"
 
 var walk
 var out := ""
-var report := {"doors": [], "rooms": [], "views": [], "objects": [], "failures": []}
+var report := {
+	"doors": [], "rooms": [], "views": [], "objects": [], "interaction": [], "failures": []
+}
 
 
 func _initialize() -> void:
@@ -38,7 +42,7 @@ func _fail(kind: String, what: String, detail := {}) -> void:
 
 func _run() -> void:
 	out = _arg("out-dir", "res://build/museum-playtest")
-	var only := _arg("only", "doors,rooms,views,objects").split(",")
+	var only := _arg("only", "doors,rooms,views,objects,interaction").split(",")
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(out))
 	root.size = Vector2i(int(_arg("width", str(SIZE.x))), int(_arg("height", str(SIZE.y))))
 	if _arg("shell", "false") == "true":
@@ -67,12 +71,15 @@ func _run() -> void:
 		await _views()
 	if "objects" in only:
 		await _objects()
+	if "interaction" in only:
+		await _interaction()
 	report["state"] = walk.state()
 	report["summary"] = {
 		"doors": report.doors.size(),
 		"rooms": report.rooms.size(),
 		"views": report.views.size(),
 		"objects": report.objects.size(),
+		"interaction": report.interaction.size(),
 		"failures": report.failures.size()
 	}
 	var file := FileAccess.open(out.path_join("report.json"), FileAccess.WRITE)
@@ -595,6 +602,9 @@ func _objects() -> void:
 			problems.append("the visitor is not standing still")
 		if walk._inspect.get("tag", "") != tag:
 			problems.append("a different work opened: " + str(walk._inspect.get("tag", "")))
+		# Its box can be in the picture while the camera's cut-away has hidden the work itself.
+		if thing.has("node") and not walk._drawn(thing.node):
+			problems.append("the work is not drawn in its own inspection")
 		# The whole work is in the picture and the visitor stands beside it, not over it.
 		var work := _on_screen(thing.corners)
 		var body: Array = []
@@ -698,3 +708,87 @@ func _objects() -> void:
 		report.objects.append(entry)
 		if not problems.is_empty():
 			_fail("object", tag + ": " + entry.result, entry)
+
+
+# ---------------------------------------------------------------- interaction (#280)
+
+
+# A press and release through the window itself, for a control that is not the walk.
+func _press(at: Vector2) -> void:
+	for pressed in [true, false]:
+		var event := InputEventMouseButton.new()
+		event.button_index = MOUSE_BUTTON_LEFT
+		event.pressed = pressed
+		event.position = at
+		event.global_position = at
+		Input.parse_input_event(event)
+		await process_frame
+
+
+# Click a work from three metres in front of it and wait until it is being read.
+func _read(thing: Dictionary) -> void:
+	_place(Vector3(thing.center.x, 0, thing.center.z) + thing.normal * 3.0)
+	walk.view_yaw = atan2(thing.normal.x, thing.normal.z)
+	for settle in 8:
+		await process_frame
+	var at := _on_screen(thing.corners).get_center()
+	_mouse(at, true)
+	_mouse(at, false)
+	var clock := 0.0
+	while walk._inspect.is_empty() and clock < 20.0:
+		await process_frame
+		clock += root.get_process_delta_time()
+	for settle in 60:
+		await process_frame
+
+
+func _interaction() -> void:
+	# "Other wall" while a Hall painting is being read. The visitor may not walk off under an
+	# open caption: either the button does nothing, or the reading ends before the crossing.
+	var w2 := {}
+	for painting in walk._paintings:
+		if painting.tag == "W2":
+			w2 = painting
+	await _read(w2)
+	var entry := {"name": "other wall while reading", "read": walk._inspect.get("tag", "")}
+	var started: Vector3 = walk._pos
+	var button: Button = walk.get_node("OtherWall")
+	entry["button_shown"] = button.is_visible_in_tree()
+	if entry.button_shown:
+		await _press(button.get_global_rect().get_center())
+	var walked_reading := 0.0  # metres walked while the caption was still up
+	var before: Vector3 = walk._pos
+	for tick in 480:
+		await process_frame
+		if not walk._inspect.is_empty():
+			walked_reading += before.distance_to(walk._pos)
+		before = walk._pos
+	var chest: Vector3 = walk._pos + Vector3(0, 0.9, 0)
+	entry["walked_m"] = snappedf(started.distance_to(walk._pos), 0.01)
+	entry["walked_while_reading_m"] = snappedf(walked_reading, 0.01)
+	entry["still_reading"] = walk._inspect.get("tag", "")
+	entry["camera_on_work"] = snappedf(walk._inspect_t, 0.01)
+	entry["visitor_in_picture"] = (
+		not walk._cam.is_position_behind(chest)
+		and Rect2(Vector2.ZERO, walk.size).has_point(walk._to_screen(chest))
+	)
+	var problems := PackedStringArray()
+	if entry.read != "W2":
+		problems.append("W2 did not open to begin with")
+	if walked_reading > 0.05:
+		problems.append("the visitor walked %.2f m while the caption stayed open" % walked_reading)
+	if entry.walked_m > 0.05 and entry.camera_on_work > 0.01:
+		problems.append("the visitor crossed but the camera stayed on the old painting")
+	if entry.walked_m > 0.05 and not entry.visitor_in_picture:
+		problems.append("the visitor walked out of the picture")
+	# A button hidden for the reading is back once the reading and its camera glide are over.
+	walk._end_inspect(false)
+	for settle in 60:
+		await process_frame
+	entry["button_back"] = button.is_visible_in_tree()
+	if not entry.button_back:
+		problems.append("the button did not come back after the reading closed")
+	entry["result"] = "ok" if problems.is_empty() else ", ".join(problems)
+	report.interaction.append(entry)
+	if not problems.is_empty():
+		_fail("interaction", entry.name + ": " + entry.result, entry)

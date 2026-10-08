@@ -1,6 +1,6 @@
 {
-  "main_build_tip": "e668fbe0b313d5a93dea78d8591ba8ea59dc4c50",
-  "hall_files_unchanged": 408,
+  "main_build_tip": "c7ea035e783ed1d6d9b70afc80cf2b8079d27f69",
+  "hall_files_unchanged": 457,
   "room_scripts": {
     "connected_hall.gd": {
       "paths_moved": 0,
@@ -79,8 +79,8 @@
     },
     "remodel_room.gd": {
       "paths_moved": 104,
-      "source_sha256": "2e0960de92c666e0482bd6aafb788a5b35a0063ca210d6ca52ca5bc56e8bff0a",
-      "sha256": "ea6c67dcc8f1a5d11eca5ba439d8b98f038c5138feb2a8f4270cd73335056133"
+      "source_sha256": "758175aaab99723df2d908871960c08660b74184ee3fb3259894679ad71952d3",
+      "sha256": "045cedd89f05cd2a7f814c286df76c774575ff5830507b81638156adf227e591"
     },
     "remodel_room.tscn": {
       "paths_moved": 1,

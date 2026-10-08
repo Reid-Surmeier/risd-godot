@@ -139,6 +139,9 @@ func _ready() -> void:
 	for extra in ADDITIONS:
 		if ResourceLoader.exists("res://"+extra):
 			load("res://"+extra).new().build(self)
+	# placed_mesh_check.gd asks for its one fixture; no shipped room has it.
+	if "--placed-mesh-fixture" in OS.get_cmdline_user_args():
+		load("res://modules/shell/prototype/collection_reconstruction/placed_mesh_fixture.gd").new().build(self)
 	var index:=0
 	for surface in find_children("*","MeshInstance3D",true,false):
 		if not visitor.is_ancestor_of(surface):
@@ -287,6 +290,66 @@ func solid(at: Vector3, size: Vector3, m: Material, collide := false) -> Node3D:
 	node.add_child(visual)
 	add_child(node)
 	# Reuse the existing gallery camera cutaway, keeping collision intact.
+	casings.append(node)
+	return node
+
+## A catalogued work as its own mesh: `path` is a .glb (or any scene holding meshes) made by
+## prepare_mesh.py, `at` the point its base centre stands on, `yaw` turns its front (+Z), and
+## `size_m` is the catalogue width, height, depth in metres. The mesh is scaled to the catalogue
+## height. It is drawn as every work in these rooms is, its own texture at full brightness, and
+## its shape casts in the room's bake; a mesh that brings no texture is lit by the lightmap
+## instead. It blocks walking, is cut away with the camera, and its accession number makes it
+## clickable: the caption and detail picture are that number's row in objects.json, or the
+## catalogue_* metadata set on the returned node.
+func place_mesh(path:String,at:Vector3,yaw:float,size_m:Vector3,accession:String) -> StaticBody3D:
+	var scene:Node=load(path).instantiate()
+	var sources:Array=scene.find_children("*","MeshInstance3D",true,false)
+	if scene is MeshInstance3D:sources.append(scene)
+	var parts:Array[MeshInstance3D]=[]
+	var box:=AABB()
+	for source in sources:
+		var pose:=Transform3D.IDENTITY
+		var up:Node=source
+		while up is Node3D:
+			pose=up.transform*pose
+			up=up.get_parent()
+		# One mesh per surface, each with its own material: what remodel_bake.gd unwraps and bakes.
+		for surface in source.mesh.get_surface_count():
+			var st:=SurfaceTool.new()
+			st.append_from(source.mesh,surface,pose)
+			if source.mesh.surface_get_format(surface)&Mesh.ARRAY_FORMAT_NORMAL==0:st.generate_normals()
+			var part:=MeshInstance3D.new()
+			part.mesh=st.commit()
+			# Never the file's own material: a generated mesh arrives fully metallic and bakes black.
+			var original=source.get_active_material(surface)
+			var skin:Texture2D=original.albedo_texture if original is BaseMaterial3D else null
+			var m:=look(Color.WHITE,"",skin!=null)
+			if skin!=null:m.albedo_texture=skin
+			elif original is BaseMaterial3D:m.albedo_color=original.albedo_color
+			part.material_override=m
+			box=part.mesh.get_aabb() if parts.is_empty() else box.merge(part.mesh.get_aabb())
+			parts.append(part)
+	scene.free()
+	assert(not parts.is_empty() and box.size.y>0 and size_m.y>0,"No mesh to place, or no catalogue height: "+path)
+	var k:=size_m.y/box.size.y
+	var node:=StaticBody3D.new()
+	node.name="Mesh"+accession.validate_node_name()
+	node.position=at
+	node.rotation.y=yaw
+	var shape:=CollisionShape3D.new()
+	var collision:=BoxShape3D.new()
+	collision.size=box.size*k
+	shape.shape=collision
+	shape.position.y=size_m.y/2
+	node.add_child(shape)
+	for part in parts:
+		part.scale=Vector3.ONE*k
+		part.position=-Vector3(box.get_center().x,box.position.y,box.get_center().z)*k
+		node.add_child(part)
+	node.set_meta("catalogue_accession",accession)
+	node.set_meta("catalogue_size_m",size_m)
+	node.set_meta("placed_mesh",path)
+	add_child(node)
 	casings.append(node)
 	return node
 

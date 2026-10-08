@@ -31,10 +31,22 @@ fi
 # Catalogue photographs retain their measured sizes and lossy import settings (#278).
 python3 scripts/check-museum-images.py || fail=1
 
+# The museum's recorded lists: the representation floor only shrinks, and every acceptance
+# record names its evidence (docs/playtest/room-builder-guide.md).
+python3 scripts/check_museum_records.py || fail=1
+
 # 4. Godot headless tests, when a project exists.
 if [ -f project.godot ] && command -v godot >/dev/null 2>&1; then
   timeout 180 godot --headless --quit-after 200 --path . 2>&1 | tee /tmp/godot-import.log
   grep -qiE "^ERROR|SCRIPT ERROR" /tmp/godot-import.log && { echo "Godot reported errors on import"; fail=1; } || true
+  # The built museum agrees with what representation.json declares.
+  timeout 300 godot --headless --fixed-fps 60 --path . --script res://modules/shell/prototype/collection_reconstruction/representation_check.gd 2>&1 \
+    | grep "REPRESENTATION_CHECK" | tee /tmp/godot-representation.log
+  grep -q '"failures":\[\]' /tmp/godot-representation.log || { echo "the built museum and representation.json disagree"; fail=1; }
+  # place_mesh() still gives a drawn, solid, clickable work (no shipped room places one yet).
+  timeout 300 godot --headless --fixed-fps 60 --path . --script res://modules/shell/prototype/collection_reconstruction/placed_mesh_check.gd -- --placed-mesh-fixture 2>&1 \
+    | grep "PLACED_MESH_CHECK" | tee /tmp/godot-placed-mesh.log
+  grep -q '"failures":\[\]' /tmp/godot-placed-mesh.log || { echo "a mesh placed with place_mesh() is not drawn, solid or clickable"; fail=1; }
 fi
 
 [ "$fail" -eq 0 ] && echo "checks passed"
