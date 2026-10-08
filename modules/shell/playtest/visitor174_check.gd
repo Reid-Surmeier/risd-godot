@@ -10,6 +10,10 @@ func _initialize() -> void:
 
 
 func _run() -> void:
+	# The museum's two speeds, from the walk itself: every pace below is one of them.
+	var museum = load("res://modules/shell/prototype/gallery_walk4/walk4.gd")
+	var walk_mps: float = museum.WALK_MPS
+	var sprint_mps: float = museum.SPRINT_MPS
 	# #236: the accepted #235 character replaced the Hair36 visitor behind the same surface.
 	var visitor = load("res://modules/shell/character/visitor.gd").new()
 	visitor.world_height = 1.75
@@ -87,30 +91,31 @@ func _run() -> void:
 		visitor.pose(1.0 / 60.0, false, 0.0, Vector3.FORWARD, 0.0)
 		idle_steps += visitor.contacts
 	assert(visitor._clip == "idle" and idle_steps == 0, "idle visitor stepped")
-	# Four seconds at the museum's 1.2 m/s: the accepted coupling gives ~1.16 cycles a second.
+	# Four seconds at the museum's 1.9 m/s: the accepted coupling gives ~1.46 cycles a second.
 	var steps := 0
 	for _tick in 240:
-		visitor.position.z -= 1.2 / 60.0
+		visitor.position.z -= walk_mps / 60.0
 		visitor.pose(1.0 / 60.0, true, 0.0, Vector3.FORWARD, 0.0)
 		steps += visitor.contacts
 		for sole in visitor.sole_positions():
 			assert(sole.y > -0.001, "sole went through the floor")
 		assert(visitor.sole_support().has(true), "both feet left the floor while walking")
 	assert(visitor._clip == "walk", "walking did not select the accepted clip")
-	assert(steps >= 8 and steps <= 10, "step cadence is not two contacts a cycle: %s" % steps)
+	assert(steps >= 11 and steps <= 13, "step cadence is not two contacts a cycle: %s" % steps)
 	for _tick in 30:
 		visitor.pose(1.0 / 60.0, false, 0.0, Vector3.FORWARD, 0.0)
 	assert(visitor._clip == "idle", "stopping did not return to idle")
-	# The museum's sprint: three metres a second selects the dash clip and still lands steps.
+	# The museum's sprint: 4.5 m/s selects the dash clip at ~2.25 cycles a second, its fastest,
+	# and still lands steps.
 	var dash_steps := 0
 	for _tick in 120:
-		visitor.position.z -= 3.0 / 60.0
+		visitor.position.z -= sprint_mps / 60.0
 		visitor.pose(1.0 / 60.0, true, 0.0, Vector3.FORWARD, 0.0)
 		dash_steps += visitor.contacts
 	assert(visitor._clip == "dash", "sprinting did not select the dash clip: %s" % visitor._clip)
-	assert(dash_steps >= 5 and dash_steps <= 9, "dash step cadence is wrong: %s" % dash_steps)
+	assert(dash_steps >= 8 and dash_steps <= 10, "dash step cadence is wrong: %s" % dash_steps)
 	# Reversing a dash skids before it turns.
-	visitor.position.z += 3.0 / 60.0
+	visitor.position.z += sprint_mps / 60.0
 	visitor.pose(1.0 / 60.0, true, 0.0, Vector3.BACK, 0.0)
 	assert(visitor._clip == "skid", "reversing a dash did not skid: %s" % visitor._clip)
 	for _tick in 150:  # the skid, then the turn round on the spot
@@ -149,11 +154,14 @@ func _run() -> void:
 	# each foot sounds in turn: never the same one twice, never two within a fifth of a second.
 	visitor.reset()
 	visitor.pose(0.0, false, 0.0, Vector3.FORWARD, 0.0)
-	for leg in [[1.2, 100], [3.0, 90], [1.2, 90], [3.0, 45], [2.2, 30], [3.0, 45]]:
+	for leg in [
+		[walk_mps, 100], [sprint_mps, 90], [walk_mps, 90], [sprint_mps, 45], [2.2, 30],
+		[sprint_mps, 45]
+	]:
 		_travel(visitor, leg[0], leg[1])
 	# #259: a hop from a stand, a walk and a sprint lands visibly and hands back to the gait
 	# the travel asks for. In stride it may not stand in the landing pose while it slides on.
-	for case in [[0.0, "idle"], [1.2, "walk"], [3.0, "dash"]]:
+	for case in [[0.0, "idle"], [walk_mps, "walk"], [sprint_mps, "dash"]]:
 		visitor.reset()
 		visitor.pose(0.0, false, 0.0, Vector3.FORWARD, 0.0)
 		_last_foot = -1  # a stride from a stand may open on either foot
@@ -175,7 +183,7 @@ func _run() -> void:
 		)
 	visitor.queue_free()
 	await process_frame
-	var gallery = load("res://modules/shell/prototype/gallery_walk4/walk4.gd").new()
+	var gallery = museum.new()
 	root.add_child(gallery)
 	await create_timer(3.0).timeout
 	assert(gallery._paintings.size() == 23, "gallery paintings missing")
@@ -213,6 +221,13 @@ func _run() -> void:
 	_key(gallery, KEY_D, true)
 	_expect(await _skid_seconds(gallery, 1.0) == 0.0, "a sprint from a stand skidded")
 	_expect(gallery._kid._clip == "dash", "Shift did not sprint: %s" % gallery._kid._clip)
+	var sprint_from: Vector3 = gallery._pos
+	await process_frame
+	var sprinted: float = gallery._pos.distance_to(sprint_from) / root.get_process_delta_time()
+	_expect(
+		absf(sprinted / sprint_mps - 1.0) < 0.05,
+		"Shift sprinted at %.2f m/s, not %.2f" % [sprinted, sprint_mps]
+	)
 	var way: Vector3 = gallery._velocity
 	_key(gallery, KEY_D, false)
 	_key(gallery, KEY_A, true)
@@ -233,6 +248,7 @@ func _run() -> void:
 	# dropped, whether the key leads towards the clicked floor (W) or away from it (S).
 	gallery.size = Vector2(960, 640)
 	await process_frame
+	var walked := []
 	for code in [KEY_W, KEY_S]:
 		gallery._new_action()
 		gallery._target = null
@@ -266,11 +282,12 @@ func _run() -> void:
 			slowest = minf(slowest, mps)
 			fastest = maxf(fastest, mps)
 		var held_key := "W" if code == KEY_W else "S"
+		walked.append_array([slowest, fastest])
 		_expect(
-			fastest < gallery.WALK_MPS * 1.05 and slowest > gallery.WALK_MPS * 0.95,
+			fastest < walk_mps * 1.05 and slowest > walk_mps * 0.95,
 			(
 				"%s held through a floor click walked at %.2f to %.2f m/s, not %.2f"
-				% [held_key, slowest, fastest, gallery.WALK_MPS]
+				% [held_key, slowest, fastest, walk_mps]
 			)
 		)
 		_expect(
@@ -321,8 +338,10 @@ func _run() -> void:
 			"PASS #236: accepted character, 24-bone rig, 23 paintings, start/walk/stop/reversal, "
 			+ "90/180-degree turns, floor contact and step cadence, gestures disabled; "
 			+ "#259: one stride through gait changes, landings, sprint reversal skid; "
-			+ "#280: a held key outranks a floor click, one walking speed"
+			+ "#280: a held key outranks a floor click, one walking speed; "
+			+ "measured with real keys: walk %.2f to %.2f m/s, sprint %.2f m/s"
 		)
+		% [walked.min(), walked.max(), sprinted]
 	)
 	quit()
 

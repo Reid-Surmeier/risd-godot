@@ -59,8 +59,11 @@ const DOORS := {
 const BENCHES := [-9.0, -17.0]
 # the kid's clearance round a bench (half-size x, z): collision and route planning share it
 const BENCH_CLEAR := Vector2(0.78, 1.8)
-const WALK_MPS := 1.2
-const SPRINT_MPS := 3.0  # Shift held: the accepted character's dash
+# The visitor's cadence follows its speed by the accepted character's own rule (visitor.gd), and
+# each clip's stride then fits one speed best: the walk about 1.7 m/s, the dash about 4.1 m/s.
+# The dash cycles no faster than it does at 4.52 m/s; past that the feet slide.
+const WALK_MPS := 1.9
+const SPRINT_MPS := 4.5  # Shift held: the accepted character's dash at its full speed
 const STEP_M := 1.0
 const TURN_HELD_DPS := 40.0
 # A step of the view (Q, E, the buttons, "Other wall") glides for a second, slow-fast-slow, as
