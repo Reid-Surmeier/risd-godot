@@ -1948,6 +1948,25 @@ func _update_camera(k: float) -> void:
 	if here >= 0 and _plan[here].label in ["Skylight Gallery","Skylight Gallery reveal threshold"]:
 		subject_heights.append(1.85)  # #275: the casing above the lower visitor must clear its head too
 	var doorway := _in_a_doorway(here)
+	# The points a wall must not stand in front of: the visitor's middle and a margin to either
+	# side. A margin point beyond a room's wall from the visitor is dropped: the visitor cannot
+	# reach through a wall. In the corner beside the stair hall's chimneypiece return one lay
+	# past that return, and the sight line to it took the whole chimneypiece wall away (round 5).
+	var subjects: Array[Vector3] = []
+	for height in subject_heights:
+		var middle: Vector3 = _pos + Vector3(0, height, 0)
+		subjects.append(middle)
+		for offset in [-0.45, 0.45]:
+			var margin: Vector3 = middle + across * offset
+			var reached := true
+			for wall in _walls:
+				if wall.room < 0:
+					continue
+				for section in wall.boxes:
+					if (section as AABB).grow(0.02).intersects_segment(middle, margin) != null:
+						reached = false
+			if reached:
+				subjects.append(margin)
 	for wall in _walls:
 		var clear := true
 		if wall.room >= 0:
@@ -1976,12 +1995,10 @@ func _update_camera(k: float) -> void:
 			wall.room >= 0 and doorway and foot.grow(1.2).has_point(Vector2(_pos.x, _pos.z))
 		)
 		if clear and wall.layers & shown and not low and not holds and not in_its_doorway:
-			for offset in [-0.45, 0.0, 0.45]:
-				for height in subject_heights:
-					var subject: Vector3 = _pos + across * offset + Vector3(0, height, 0)
-					for section in wall.boxes:
-						if (section as AABB).intersects_segment(eye, subject) != null:
-							clear = false
+			for subject in subjects:
+				for section in wall.boxes:
+					if (section as AABB).intersects_segment(eye, subject) != null:
+						clear = false
 			if not _inspect.is_empty():
 				for section in wall.boxes:
 					if (section as AABB).intersects_segment(eye, _inspect.center + _inspect.normal * 0.15) != null:

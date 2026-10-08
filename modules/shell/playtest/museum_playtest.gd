@@ -382,6 +382,38 @@ func _doors_off_centre() -> void:
 					% [way[2], way[3], case[0]],
 					leg
 				)
+	await _doors_chimney_corner()
+
+
+# Round 5, finding 6: in the marble stair hall, seen from the north, the whole chimneypiece
+# wall went in one frame for a visitor pressed into the corner beside its return. Two legs,
+# placed from the return wall itself: down beside it, then a sidestep against it. The second
+# goal is the wall's own face: the keys held against it, as a player holds them.
+func _doors_chimney_corner() -> void:
+	var side_wall = null
+	for wall in walk._walls:
+		if str(wall.body.get_meta("room_wall", "")) == "marble stair hall:south:return":
+			side_wall = wall.box
+	if side_wall == null:
+		_fail("door", "marble stair hall: the chimneypiece wall's return is not there to walk beside", {})
+		return
+	var box: AABB = side_wall
+	var beside := Vector3(box.position.x - 0.7, 0, box.get_center().z)
+	var legs := [
+		["down beside the chimneypiece return", beside + Vector3(0, 0, -2.2), beside],
+		["a sidestep against the chimneypiece return", beside, beside + Vector3(0.7, 0, 0)]
+	]
+	for case in legs:
+		_place(case[1], PI)
+		for settle in 12:
+			await process_frame
+		var leg := await _walk_keys(case[2], 4.0, true)
+		leg["from"] = "marble stair hall"
+		leg["to"] = "marble stair hall"
+		leg["case"] = case[0]
+		report.off_centre.append(leg)
+		if leg.void_jump > DARK_STEP:
+			_fail("door", "marble stair hall, %s: a wall went dark in one step" % case[0], leg)
 
 
 func _rooms() -> void:

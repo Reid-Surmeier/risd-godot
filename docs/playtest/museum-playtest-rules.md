@@ -24,7 +24,11 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
 1. **Every doorway, both ways, on foot.** The visitor is put just inside one side and the keys a
    player would hold carry it through to just inside the other, then back. It must arrive, in the
    room the doorway claims to lead to, without a jump of more than 0.25 m in one frame, playing its
-   walk clip and landing footsteps.
+   walk clip and landing footsteps. Until the wipe has shut, the dark share of the picture must
+   not rise by more than 0.15 between two readings: a room or a wall dropped in one frame. The
+   three deep doorways are walked again off their centre line (60 legs), and in the marble stair
+   hall the visitor is walked into the corner beside the chimneypiece wall's return and pressed
+   against it (2 legs; round 5, finding 6).
 2. **Every room, from every door, by clicking.** A click on the middle of the room must walk the
    visitor there round whatever furniture is in the way.
 3. **Every area, looked at from every side.** One standpoint per seven metres of each room's long
