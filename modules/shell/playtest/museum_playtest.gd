@@ -28,6 +28,8 @@ const READ_SQUARE := 0.6  # the least the lens leans to a work's face: 1 square 
 const READ_VISITOR := 0.1  # the most of the picture the visitor's box may take
 const READ_CLEAR := 0.8  # metres before a work within which a drawn thing is its own mount
 const READ_GLASS := 1.5  # and within which a thin pane is the glass of its own case
+const READ_IN := 1.4  # a clicked doorway carries the visitor at least this far past its sill
+const READ_THROUGH := 3.8  # and no further than this
 const HALL := "Grand Gallery"
 
 var walk
@@ -1525,7 +1527,7 @@ func _wall_clicks(areas: Array, when: String) -> void:
 				var far_goal = _click_goal(high)
 				if far_goal == null or (far_goal as Vector3 - sill).dot(out) <= 0.0:
 					entry.dead_doorways.append(name + ", high in the opening")
-				elif (far_goal as Vector3).distance_to(sill) > 3.0:
+				elif (far_goal as Vector3).distance_to(sill) > READ_THROUGH:
 					entry.dead_doorways.append(
 						"%s, high in the opening (sent %.1f m past the door)"
 						% [name, (far_goal as Vector3).distance_to(sill)]
@@ -1534,11 +1536,20 @@ func _wall_clicks(areas: Array, when: String) -> void:
 				entry.not_tried.append(name + " doorway")
 				continue
 			entry.doorways += 1
-			# Through the door and no further: beyond its plane, within three metres of its sill.
+			# Through the door and no further: beyond its plane, at least READ_IN and at most
+			# READ_THROUGH from its sill.
 			var goal = _click_goal(at)
 			if goal == null or (goal as Vector3 - sill).dot(out) <= 0.0:
 				entry.dead_doorways.append(name)
-			elif (goal as Vector3).distance_to(sill) > 3.0:
+			elif (
+				not joined
+				and (goal as Vector3 - sill).dot(out) < READ_IN
+				and walk._free(sill + out * (READ_IN + 0.4))  # where the floor goes that far
+			):
+				entry.dead_doorways.append(
+					"%s (left %.1f m in, on the threshold)" % [name, (goal as Vector3 - sill).dot(out)]
+				)
+			elif (goal as Vector3).distance_to(sill) > READ_THROUGH:
 				entry.dead_doorways.append(
 					"%s (sent %.1f m past the door)" % [name, (goal as Vector3).distance_to(sill)]
 				)

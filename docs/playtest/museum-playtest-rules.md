@@ -81,8 +81,9 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
     picture, stands at least a quarter of its height, and has none of itself under the
     caption panel (five works: one per wall and the three round 4 named). A wall is not floor: in every room, facing
     each wall in turn, a click on the drawn wall starts no walk, and a click in a doorway of
-    that wall, low or high in its dark, sends the visitor through that door and no further
-    than three metres past it. The work under the pointer is the one that opens: where
+    that wall, low or high in its dark, sends the visitor through that door: at least 1.4 m past
+    its sill where the floor goes that far (past the doorway's own thickness, as the keys carry
+    it), and no further than 3.8 m. The work under the pointer is the one that opens: where
     two works' boxes overlap on screen (the carved diptych 22.201 and the book cover 34.016 in
     one case) a click on either selects that one, from both ends of the case.
 
