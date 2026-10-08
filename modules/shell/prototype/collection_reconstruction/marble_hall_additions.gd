@@ -247,6 +247,50 @@ func block(at: Vector3, size: Vector3) -> void:
 	body.set_meta("collision_only", true)
 
 
+## Deterministic stone, not a photograph. Same finish for tiles, stair and grey base.
+static func marble_material(tone: Color, seed := 0.0) -> ShaderMaterial:
+	var shader := Shader.new()
+	shader.code = """
+shader_type spatial;
+render_mode cull_disabled;
+uniform vec4 stone_tone : source_color;
+uniform float seed = 0.0;
+varying vec3 stone_position;
+varying vec3 stone_normal;
+float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+float noise(vec2 p) {
+	vec2 i = floor(p), f = fract(p);
+	f = f * f * (3.0 - 2.0 * f);
+	return mix(mix(hash(i), hash(i + vec2(1, 0)), f.x), mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), f.x), f.y);
+}
+float stone_noise(vec2 p) {
+	float n = 0.0, weight = 0.5;
+	for (int i = 0; i < 4; i++) { n += noise(p) * weight; p = p * 2.07 + vec2(7.1, 2.4); weight *= 0.5; }
+	return n;
+}
+void vertex() { stone_position = VERTEX; stone_normal = NORMAL; }
+void fragment() {
+	vec3 normal = abs(stone_normal);
+	vec2 p = normal.y > 0.6 ? stone_position.xz : (normal.x > normal.z ? stone_position.zy : stone_position.xy);
+	p += vec2(seed * 5.4, seed * 8.2);
+	float cloud = stone_noise(p * 3.2);
+	float field = p.x * 2.1 - p.y * 1.2 + 3.1 * stone_noise(p * 1.6) + 0.55 * stone_noise(p * 5.0);
+	float aa = max(fwidth(field), 0.008);
+	float vein = 1.0 - smoothstep(0.012, 0.035 + aa, abs(sin(field * 4.0)));
+	float feather = 1.0 - smoothstep(0.035, 0.18 + aa, abs(sin(field * 4.0)));
+	float mineral = stone_noise(p * vec2(15.0, 24.0));
+	ALBEDO = stone_tone.rgb * (0.978 + cloud * 0.035 - vein * 0.060 - feather * 0.025 - mineral * 0.006);
+	ROUGHNESS = 0.13 + cloud * 0.040;
+	SPECULAR = 0.55;
+}
+"""
+	var material := ShaderMaterial.new()
+	material.shader = shader
+	material.set_shader_parameter("stone_tone", tone)
+	material.set_shader_parameter("seed", seed)
+	return material
+
+
 func marble_floor() -> void:
 	# build_rooms lays oak boards in any room it has no floor for: take this room's away.
 	for child in room.get_children():
@@ -275,17 +319,34 @@ func marble_floor() -> void:
 					batch.st.set_uv(piece[index])
 					batch.st.add_vertex(Vector3(piece[index].x, .004, piece[index].y))
 				batch.used = true
-	tones[0].into(room, room.look(Color("e4e1d8")), "MarbleFloorLight")
-	tones[1].into(room, room.look(Color("bdbcb8")), "MarbleFloorGrey")
+	tones[0].into(room, marble_material(Color("e9e7e1")), "MarbleFloorLight")
+	tones[1].into(room, marble_material(Color("d9d9d4"), 1.7), "MarbleFloorGrey")
 	var band := Batch.new()
 	band.prism(rect(x0, x0 + .30, z0, z1), .004, .008)
-	band.into(room, room.look(Color("9d9c98")), "MarbleThresholdBand")
+	band.into(room, marble_material(Color("b6b6b1"), 3.2), "MarbleThresholdBand")
+	# Reuse the kit's existing baseboard geometry with this room's marble finish.
+	for body in room.casings:
+		if not str(body.get_meta("room_wall", "")).begins_with(LABEL + ":"):
+			continue
+		for trim in body.get_children():
+			if trim is MeshInstance3D and trim.get_meta("trim", "") == "baseboard":
+				trim.material_override = marble_material(Color("b6b6b1"), 3.2)
+	var reflection := ReflectionProbe.new()
+	reflection.name = "MarbleHallReflection"
+	reflection.position = Vector3((x0 + x1) / 2, ceiling_height() / 2, (z0 + z1) / 2)
+	reflection.size = Vector3(x1 - x0, ceiling_height(), z1 - z0)
+	reflection.origin_offset = Vector3(0, 2.6 - ceiling_height() / 2, 0)
+	reflection.box_projection = true
+	reflection.interior = true
+	reflection.ambient_mode = ReflectionProbe.AMBIENT_DISABLED
+	reflection.max_distance = 14.0
+	room.add_child(reflection)
 
 
 func inner_walls() -> void:
 	var plaster: Material = room.look(Color("e2dfd6"), "res://presentation/neutral-plaster.png")
 	var grey: Material = room.look(Color("a9a8a3"), "res://presentation/neutral-plaster.png")
-	var skirting: Material = room.look(Color("a39f95"))
+	var skirting: Material = marble_material(Color("b6b6b1"), 3.2)
 	# IMG_6380 47.0/65.0s and the 83.152 photographs: the fireplace wall carries the upper flight's string.
 	var chimney := wall("south:chimney", Vector3((xf + xe) / 2, SOFFIT / 2, zs), Vector3(xe - xf, SOFFIT, .12), plaster)
 	chimney.set_meta("marble_hall_part", "chimneypiece wall")
@@ -344,7 +405,7 @@ func inner_walls() -> void:
 
 
 func stair() -> void:
-	var marble: Material = room.look(Color("d3cfc5"))
+	var marble: Material = marble_material(Color("ddd9d0"), 2.4)
 	var strip: Material = room.look(Color("4f4f52"))
 	var iron: StandardMaterial3D = room.look(Color("2e2b29"))
 	iron.metallic = .55
@@ -449,7 +510,7 @@ func winder_strip(strips: Batch, pivot: Vector2, from: Vector2, to: Vector2, lev
 
 
 func upper_landing() -> void:
-	var marble: Material = room.look(Color("d3cfc5"))
+	var marble: Material = marble_material(Color("ddd9d0"), 2.4)
 	var white: Material = room.look(Color("ecebe6"))
 	var iron: StandardMaterial3D = room.look(Color("2e2b29"))
 	iron.metallic = .55

@@ -138,3 +138,26 @@ refreshed generated rooms. No doorway, plan or route-trial change in part 1.
 
 Only `marble_hall_additions.gd` changed in production. Evidence includes the
 standalone draft review cameras; they are not used by the game camera.
+
+
+## Part 2 checkpoint — census 8.2
+
+**VERIFIED in draft:** the same diagonal 0.76 m squares, close off-white/pale-grey
+palette, low-contrast warped mineral veins and grey marble base. The existing
+kit baseboard meshes get the finish in this room only; their builder and profile
+are untouched. The stair stone and threshold use the same procedural material.
+No source photograph is bound to any of these surfaces.
+
+![IMG_6343 84 s beside the draft floor](02-floor-room.jpg)
+![Floor crop beside a draft material close-up](02-floor-close.jpg)
+
+Vein contrast was reduced after the first comparison. Specular 0.55 and roughness
+0.13–0.17 describe a polished material, with one static local box-projected
+ReflectionProbe. **INFERRED polish/reflection quality:** these unbaked views do
+not yet demonstrate the strong window/spot reflections in the film. Recheck
+after the brighter window checkpoint and the orchestrator's final lighting bake.
+
+Draft rebuild exit 0, ARCHITECTURE_CHECK `failures: []`; GL capture exit 0,
+no script/shader errors. Whitespace check passes. The checkpoint repository
+check still exits 1 on the same inherited medieval mesh records; no green
+baseline claim. No outside production edit, doorway or route-trial change.
