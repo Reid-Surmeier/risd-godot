@@ -1,38 +1,42 @@
-# risd-godot
+<p align="center">
+  <img src="docs/media/title.png" width="460" alt="Welcome to RISD Museum. Playground launched October 2026. Come curious, leave inspired.">
+</p>
 
-A Godot 4 game for browsing the RISD Museum collection: a windowed pixel interface where every object in the database is something you can find, look at, turn around, and keep.
+<img src="docs/media/works.webp" width="100%" alt="Grids of the museum walk's framed paintings, its turning low-poly sculptures and the new low-poly case pieces, each popping in on a white background">
 
-Runtime modules use frozen GDScript seams; `testing/` and `review/` are workflow support modules. `MODULES.md` is the hand-maintained map.
+# RISD Museum Playground
 
-| Where | What |
-| --- | --- |
-| `MODULES.md` | The map of this codebase — read it first |
-| `modules/<name>/` | Runtime module: `MODULE.md`, `interface.gd`, `errors.gd`, tests, and implementation |
-| `testing/` | Support harnesses, fixtures, and deterministic adapters |
-| `review/` | Support contract for SHA-bound release review records |
-| `docs/adr/` | Decisions |
-| `AGENTS.md` | How agents work here |
+RISD Museum Playground is a browser game for exploring the RISD Museum collection. It contains playable modes, including walking the replica of the RISD Museum's physical location, a draw mode which allows you to draw digitally from paintings and sculptures, and a 3D sculpture viewer tab for viewing a selection of 3D scans.
 
-## Current project home
+The game also has more pages that are currently still under development and will be added soon.
 
-The accepted combined game is on **`main`**, merged from `build/v0.1.0` in [PR #38](https://github.com/Reid-Surmeier/risd-godot/pull/38). It includes the latest Sketchbook desktop, painting Cover Flow, and the retained walkable gallery. The gallery character, room finish and retro rendering still need revision; this merge does not approve their visual quality.
+The following are some demos of current drafts of each of the tabs.
 
-On this machine, the canonical checkout is **`/home/reidsurmeier/risd-godot`**, on `main`. It is the sole remaining Git worktree and Orca workspace. Original work remains here; unique originals from removed checkouts are preserved under the locally ignored `asset-authoring/`. Start additions from this checkout using the repository's build-branch workflow.
+> [!WARNING]
+> This is a work in progress.
 
-- [Project home, original assets, backup and recovery](docs/project-home.md)
-- [Issues and Wayfinder maps](docs/work/index.md)
-- [Preservation and consolidation #143](https://github.com/Reid-Surmeier/risd-godot/issues/143)
+<img src="docs/media/walk-1-first-room.webp" width="100%" alt="The visitor crosses a room of furniture and porcelain and heads for a doorway">
 
-## Run and verify
+The Main Hall, with a stop at Thomas Lawrence's portrait of Lady Sarah Ingestre:
 
-Use Godot 4.7.2 with matching Web export templates. Import a fresh checkout before running checks:
+<img src="docs/media/walk-2-main-hall.webp" width="100%" alt="The visitor walks into a dark gallery, clicks a portrait, reads its label and zooms into the paint">
 
-```bash
-godot --headless --editor --import --path .
-scripts/check.sh       # map, seams, GDScript lint, and project import
-git diff --check
-godot --path .         # open the current game
-scripts/export-web.sh  # generated browser build in build/web/
-```
+The medieval room:
 
-Browser builds need the existing Collection server for same-origin collection requests: run `npm ci --ignore-scripts`, then `RISD_SEARCH_PORT=8142 npm run collection:serve -- build/web`. Publish that port with the `share` skill for access from another device. Exported files and `.godot/` are rebuildable; original images, scans, videos, generation records and uncommitted work are not. Follow the recovery guide before removing any worktree.
+<img src="docs/media/walk-3-medieval.webp" width="100%" alt="The visitor enters a dark room of cases, reads the label of a limestone apostle and walks toward a stone arch">
+
+The European gallery, and a Spanish Crucifixion on its east wall:
+
+<img src="docs/media/walk-4-european.webp" width="100%" alt="The visitor walks a long light gallery, clicks a Crucifixion panel and sees it full screen">
+
+[Download the whole walk (1:52, MP4)](https://github.com/Reid-Surmeier/risd-godot/raw/main/docs/media/collection.mp4)
+
+## Sketchbook
+
+<img src="docs/media/sketchbook.webp" width="100%" alt="Painting in the sketchbook with a brush while a framed painting and a 3D scan sit beside it">
+
+[Download the full recording (1:17, MP4)](https://github.com/Reid-Surmeier/risd-godot/raw/main/docs/media/sketchbook.mp4)
+
+## 3D Viewer
+
+<img src="docs/media/3d-viewer.webp" width="100%" alt="A scanned sculpture of a pile of skulls is turned and zoomed, then a painted wooden bust">
