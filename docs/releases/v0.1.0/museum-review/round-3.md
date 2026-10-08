@@ -22,6 +22,12 @@ Evidence: [continuous portal frames](../../../evidence/review-round-3/01-portal-
 
 Evidence: [continuous browser movement](../../../evidence/review-round-3/03-key-click-speed.jpg); scratch `09-mixed-key-click-marble.mp4`, `09-mixed-perf.json`, and `mixed-input/report.json` (control versus clicked run).
 
+### 3. Clicking the carved diptych opens the book cover hanging behind it.
+
+**VERIFIED · POLISH · NEW instance** of the prior rounds' wrong-work picking class; neither census records this mis-selection. Where: Light Renaissance room, north-facing dollhouse view near the north door, glass case on the east wall. Reproduce: (1) Stand near `(-8.05, 1.0)` in Hall-local x/z metres, facing north. (2) Click the middle of the sloping carved diptych 22.201 in the east case. The visitor walks over and the caption reads “Book cover”, RISD Museum 34.016. The native probe delivered a mouse click at `(848.5, 390.9)` in a 960 × 640 museum viewport and recorded requested tag `22.201#30`, selected and inspected tag `34.016#31`. Browser confirmation is pending; runtime source equality is verified, but equivalent browser click coordinates have not yet been exercised.
+
+Evidence: [clicked diptych and wrong caption](../../../evidence/review-round-3/04-diptych-wrong-work.jpg); scratch `picks/report.json`, `inspection-motion/report.json`, and the continuous frames in `inspection-motion/diptych/`.
+
 ## Coverage and measurements
 
 VERIFIED: fresh engine harness `--only=doors` completed 38 doorway legs with zero failures. A separate real-key probe recorded 76 walk/sprint legs at one JPEG per six fixed-60-FPS frames and logged camera/body positions each frame; its endpoint classification needs correction before treating it as a sprint pass. Chrome uses the requested ANGLE GL/EGL GPU flags. Its first two loads reached `game-shown` at 49.54 s and 48.82 s; downloads finished at 2.42 s on the first load. These are shared-host observations, not isolated benchmarks. Continuous recordings, frame timing, browser console output and scratch probes stay under `build/review-round-3/` (ignored). Selected JPEG evidence is committed under `docs/evidence/review-round-3/`.
