@@ -131,44 +131,54 @@ side.
 
 One rule lights every added room (#274). `SRC/remodel_bake.gd` applies it from `geometry.json`
 and from the works themselves, so a room script places no lamps and a new room or work is lit
-the day it is added. The numbers are the constants at the top of that file. What it aims at:
-the floor reads as the Main Hall's does (about 143 of 255, give or take ten), the trim reads
-white, the walls read as their paint, and each work sits in a soft pool.
+the day it is added. The numbers are the constants at the top of that file.
 
-1. **Fill.** One lamp for every 5 m bay of floor (the Hall's spacing), at least one in every
-   area of the plan, stubs and thresholds too, hung at the ceiling and lighting everything
-   below it. It makes up what the room's spots do not already put on the floor: 1.5 for
-   25 m², less 3% of the energy of the room's spots, never under a quarter. No sun and no
-   sky: a room is lit by its own lamps, with or without a ceiling. A lamp hangs under
-   whatever is built over it (a doorway's header, a landing).
-2. **A spot for every work.** Everything a click opens gets a spot, hung the way the Hall's
-   are (0.7 m out from the work for each metre above its middle, at most 3.1 m up), as strong
-   as its distance asks (1.8 a metre, the Hall's 6.8 at 3.8 m), its cone fitted to what it
-   lights plus 35 cm. Works within 2.4 m of each other on one wall, or standing together,
-   share a spot.
-3. **Lamp colour.** Near white (`#ffeee8` fill, `#ffe4c8` spot), not the Hall's `#ffe1b2` and
-   `#ffd391`: the Hall's daylight cools its lamps, so its white skirting reads (195,174,155),
-   and without daylight those two colours turn white trim tan and grey paint olive. The
-   floor's honey is in the oak's own tone (`OAK_TONE` in `SRC/remodel_room.gd`).
-4. **Works are drawn at their own colours, never through the lightmap.** Each vertex of a work
-   is shaded once, at bake time, by the spot aimed at it: full colour on the face it shows the
-   room, down to 45% on faces turned away. Lightmap texels are 14 cm, and a 20 cm object lit
-   by them came out dark and blotchy. A flat work on a wall is left out of the bake, so
-   nothing is left on the wall when the camera hides it; a work standing on the floor still
-   casts.
-5. **Walls, floor and furniture take the lightmap.** Wall paint is one table, `WALL_PAINT` in
-   `SRC/remodel_room.gd`: pale greys with a slight cool cast. Judge a paint by the wall
-   against the skirting in the same picture (the light pass prints both), beside a
-   tone-mapped footage frame, never a survey frame, and never by matching the footage's raw
-   pixels: its white balance is the camera's.
-6. **Daylight** only where the footage has a window: the `DAYLIGHT` list.
-7. **What is measured, not derived.** How much a room's spots light its floor depends on its
-   furniture, so after a bake the light pass's floor number sets that room's entry in
-   `FILL_TRIM`. A new room starts at 1; bake, read its floor, trim, bake again.
+What it aims at is the owner's, 8 Oct, after playing the build: "you don't have spotlights on
+objects warm glow", "the lighting should be warm in the medieval room", and nothing on screen
+that reads as black. So: a warm pool on each work, a quieter room between the pools, no
+surface a player sees at black.
 
-Fills must stay spots. All-round lamps cost about 11 seconds of bake each (107 lamps took
-19 min 33 s, and 159 did not finish in the 28 minutes the rebuild allows); the same number
-as spots bake in one to seven minutes.
+1. **A spot for every work.** Everything a click opens gets a warm spot (`SPOT_COLOR`, about
+   3000 K on screen), hung the way the Hall's are (0.7 m out from the work for each metre above
+   its middle, at most 3.1 m up), as strong as its distance asks (`SPOT_ENERGY_PER_M` a
+   metre), its cone fitted to what it lights plus half a metre. Works within 2.4 m of each
+   other on one wall, or standing together, share a spot.
+2. **Fill.** One lamp for every 5 m bay of floor, at least one in every area of the plan,
+   stubs and thresholds too, hung at the ceiling and lighting everything below it, with a
+   weaker lamp 1.5 m lower washing the ceiling. Faintly warm white, and low, so the pools
+   read. A room dense with works needs less: the fill gives up 3% of the energy of the room's
+   spots, never under a quarter. A lamp hangs under whatever is built over it.
+3. **Works are drawn at their own colours, never through the lightmap, and are not in the
+   baked scene.** The bake preparation works out one brightness for each vertex of a work from
+   the spot aimed at it (full on the face it shows the room, down to 35% on faces turned
+   away) and saves only that, a byte a vertex; `remodel_room.gd`'s `shade_from_bake` puts it
+   on the room's own mesh, with the spot's warmth, one mesh at a time. A standing work casts
+   through a plain box the game never draws; a flat work on a wall casts nothing, so nothing
+   is left on the wall when the camera hides it. Any other mesh over 30,000 triangles is
+   handled the same way and casts nothing. This is what keeps `addition_baked/room.tscn`
+   near 16 MB (it was 35 MB with the placed meshes and one ironwork written into it).
+4. **Walls, floor and furniture take the lightmap.** Wall paint is one table, `WALL_PAINT` in
+   `SRC/remodel_room.gd`. Judge a paint by the wall against the skirting in the same picture
+   (the light pass prints both), beside a tone-mapped footage frame, never a survey frame and
+   never by matching the footage's raw pixels: its white balance is the camera's. The floor's
+   honey is in the oak's own tone (`OAK_TONE`).
+5. **Daylight** only where the footage has a window: the `DAYLIGHT` list.
+6. **What is measured, not derived.** How much a room's spots light its floor depends on its
+   furniture and its walls, so after a bake the light pass's numbers set that room's entry in
+   `FILL_TRIM`. A new room starts at 1; bake, read, trim, bake again.
+
+**The bake runs on the GPU.** `scripts/rebuild_rooms.sh` bakes in the Windows build of Godot
+on the host's NVIDIA driver (about 20 s for 139 lamps); check that it prints "bake on the
+GPU". Vulkan inside WSL is lavapipe, a CPU renderer, and on it the lamps' shadow rays alone
+ran a bake past every limit (139 shadowed lamps did not finish in 7 minutes; the same lamps
+without shadows took 1:37). Two switches exist for a CPU bake only and are empty:
+`LAMPLESS_ROOMS` (a room's surfaces are baked but it gets no lamps of its own) and
+`UNBAKED_ROOMS` (a room is kept out of the lightmap and drawn per vertex).
+
+**A trap.** Never `duplicate()` a ShaderMaterial on anything in the room scene: the copy
+carries every shader default as a set parameter, `floor_z_limits` among them, and
+`main_build_walk.gd` then takes the mesh for a floor and stops installing the rooms. It only
+shows in a rendered run, not in `scripts/check.sh`.
 
 To try one room, `ROOMS_LIGHT_ONLY="<room label>" scripts/rebuild_rooms.sh` bakes that room
 alone; the rest of the museum comes out unlit, so never keep that install. Measure with the

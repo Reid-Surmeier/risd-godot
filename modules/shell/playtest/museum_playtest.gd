@@ -723,13 +723,17 @@ func _lamps() -> Array:
 # is aimed at, and when the wall beside its works is no brighter than its wall away from them.
 func _light() -> void:
 	var lamps := _lamps()
-	var things: Array = walk._paintings.duplicate()
-	if walk.get("_objects") is Array:
-		things += walk._objects
 	for area in _areas():
 		if _arg("room", "") != "" and area.label != _arg("room", ""):
 			continue
 		var b: Array = area.b
+		# The room scene is built the first time the visitor is put in a room (#281): its works
+		# are only known after that.
+		await _face(_stands(area)[0], "n")
+		walk.set_process(true)
+		var things: Array = walk._paintings.duplicate()
+		if walk.get("_objects") is Array:
+			things += walk._objects
 		var mine := things.filter(
 			func(thing: Dictionary) -> bool:
 				return (walk._plan[thing.room].label if thing.has("object") else HALL) == area.label

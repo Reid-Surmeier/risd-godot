@@ -3,8 +3,8 @@ extends SceneTree
 
 ## #274: one light for every added room. The rule, in words, is in
 ## docs/playtest/room-builder-guide.md ("Light"); these are its numbers.
-const FILL_ENERGY:=1.4 # the fill for FILL_M2 of floor in a room with no spots
-const UPLIGHT:=.35 # of each fill, sent up at the ceiling from UPLIGHT_DROP below it
+const FILL_ENERGY:=1.0 # the fill for FILL_M2 of floor in a room with no spots: low, so the pools read
+const UPLIGHT:=.25 # of each fill, sent up at the ceiling from UPLIGHT_DROP below it
 const UPLIGHT_DROP:=1.5
 const FILL_M2:=25.0
 const SPILL:=.03 # of its spots' energy a room's fill gives up: they light the floor too
@@ -14,21 +14,22 @@ const GROUP_M:=2.4 # works within this width of one wall share a spot
 ## Hall's (143 of 255, give or take ten) depends on its furniture and how low its spots aim, so
 ## after a bake the light pass's floor number sets the room's trim here. A room not listed is 1.
 const FILL_TRIM:={"Rockefeller":.75,"grey French gallery":.5,"adjacent gallery":.82,"light Renaissance room":.95,
-	"dark medieval room":1.1,"modern painting gallery":.86,"marble stair hall":.85,
+	"dark medieval room":1.3,"modern painting gallery":.86,"marble stair hall":.85,
 	"purple elevator-5 connector":4.8,"modern adjoining gallery threshold study limit":5.6,
 	"Grand Gallery reveal threshold":2.3,"Rockefeller reveal threshold":1.5,
 	"white sculpture gallery threshold study limit":1.4}
-## The Hall's lamps are #ffe1b2 and #ffd391, but its daylight cools them: its white skirting
-## reads (195,174,155). Alone, those two colours turn white trim tan and grey paint olive, so
-## the rooms' lamps are the colours that make their trim read as the Hall's skirting does, and
-## the oak carries its honey in its own tone (remodel_room.gd, OAK_TONE).
-const FILL_COLOR:="ffeee8"
-const SPOT_COLOR:="ffe4c8"
-const SPOT_ENERGY_PER_M:=1.8 # the Hall's 6.8 at 3.8 m from its painting
+## The owner, 8 Oct, playing the build: "you don't have spotlights on objects warm glow", "the
+## lighting should be warm in the medieval room". So the spot on each work is the picture: warm
+## (about 3000 K on screen) and strong enough that its pool glows on the wall and floor round the
+## work; the fill is a faintly warm white, kept low so the room between works is quieter than
+## the pools. The oak carries its honey in its own tone (remodel_room.gd, OAK_TONE).
+const FILL_COLOR:="fff0e0"
+const SPOT_COLOR:="ffb870"
+const SPOT_ENERGY_PER_M:=3.6 # the Hall's is 1.8 (6.8 at 3.8 m); more here, so the pool is the brightest thing on its wall
 const SPOT_LEAN:=.7 # metres out from the work per metre above it: the Hall's 2.2 for 3.1
 const SPOT_DROP:=3.1 # a spot hangs at most this far above its work's middle
-const SHADE_FLOOR:=.45 # what a work's face turned away from its lamp keeps
-const PLAIN_TINT:="fff6ea" # on a work's parts that carry no picture
+const SHADE_FLOOR:=.35 # what a work's face turned away from its lamp keeps
+const WORK_TINT:="fff0dc" # the warmth of its spot on every work, mild enough to leave a painting its colours
 ## What stays out of the baked scene altogether, because the bake traces every triangle and the
 ## scene is read as text at the first doorway: every work (thirteen placed meshes are 130,000
 ## triangles), and anything modelled finer than DETAIL_TRIANGLES (the Skylight Gallery's
@@ -40,16 +41,14 @@ const DETAIL_TRIANGLES:=30000
 const DETAIL_LEVEL:=.45
 const PROXY:=.6
 const SHADE_TOP:=1.2
-## Two switches for a room the bake cannot yet afford, both by plan label.
+## Two switches for a room a bake on the CPU cannot afford, both by plan label and both empty
+## while scripts/rebuild_rooms.sh bakes on the GPU (18 s). On lavapipe the whole cost of a bake
+## is the lamps' shadow rays: 139 lamps with shadows ran past every limit, without shadows 1:37.
 ## LAMPLESS_ROOMS: the room's surfaces are baked, but the rule gives it no fills, spots, probes
-## or shadow boxes; it is lit by whatever glows in it and by bounce. Today the two-storey
-## Skylight Gallery: without it a full bake took 1:35, with its geometry and none of its lamps
-## 2:08, with its lamps more than 15 minutes; which of them costs that is not yet known. Its
-## laylights are emissive. Its works keep the brightness of the spot they would have had.
+## or shadow boxes; it is lit by whatever glows in it and by bounce.
 ## UNBAKED_ROOMS: the room is kept out of the lightmap altogether, every surface drawn at
-## UNBAKED_LEVEL of its own colour and shaded per vertex from above. Empty today; it is the
-## fallback if a room's geometry alone is what a bake cannot afford.
-const LAMPLESS_ROOMS:=["Skylight Gallery"]
+## UNBAKED_LEVEL of its own colour and shaded per vertex from above.
+const LAMPLESS_ROOMS:=[]
 const UNBAKED_ROOMS:=[]
 const UNBAKED_LEVEL:=.6
 ## Daylight the footage shows; the only lamps not derived from the plan and the works.
@@ -149,7 +148,7 @@ func spots_for(works:Array) -> Array:
 		var width:float=maxf(absf(box.size.dot(across.abs())),box.size.y)
 		for work in group.works:work["lamp"]=at
 		spots.append({"room":group.room.label,"kind":"spot","at":at,"target":target,"energy":SPOT_ENERGY_PER_M*reach,
-			"cone":clampf(rad_to_deg(atan((width/2+.35)/reach)),14.0,32.0),"color":SPOT_COLOR,"works":group.works.map(func(work):return work.key)})
+			"cone":clampf(rad_to_deg(atan((width/2+.5)/reach)),16.0,34.0),"color":SPOT_COLOR,"works":group.works.map(func(work):return work.key)})
 	return spots
 
 ## A work is drawn at its own colours, not through lightmap texels (14 cm texels on a 20 cm
@@ -213,9 +212,9 @@ func prepare() -> void:
 	var room:=Node3D.new()
 	room.name="BakedRoom"
 	var index:=0
-	var floors:=SurfaceTool.new()
-	var floor_names:=[]
-	var floor_material:Material
+	# One merged floor for each floor material: the rooms' shared oak, and any room's own (the
+	# Skylight Gallery's is paler). Merged under one material, every floor took the last one's tone.
+	var floors:={} # material -> [SurfaceTool, the authored meshes' names]
 	for source in walk.find_children("*","MeshInstance3D",true,false):
 		if walk.visitor.is_ancestor_of(source) or source.has_meta("contact_shadow") or not source.is_visible_in_tree() or source.mesh.get_surface_count()==0 or source.has_meta("skylight"):continue
 		if source.material_override is StandardMaterial3D and source.material_override.transparency==BaseMaterial3D.TRANSPARENCY_ALPHA:continue
@@ -230,9 +229,9 @@ func prepare() -> void:
 			if reach.get_center().x>=rb[0] and reach.get_center().x<=rb[1] and reach.get_center().z>=rb[2] and reach.get_center().z<=rb[3]:where=area.label
 		var unbaked:bool=where in UNBAKED_ROOMS
 		if not unbaked and source.material_override is ShaderMaterial and source.material_override.shader.resource_path.ends_with("floor_oak.gdshader"):
-			floors.append_from(source.mesh,0,source.global_transform)
-			floor_names.append(source.name)
-			floor_material=source.material_override
+			var laid:Array=floors.get_or_add(source.material_override,[SurfaceTool.new(),[]])
+			laid[0].append_from(source.mesh,0,source.global_transform)
+			laid[1].append(source.name)
 			continue
 		var work=work_of.get(source)
 		var triangles:int=source.mesh.get_faces().size()/3
@@ -289,29 +288,39 @@ func prepare() -> void:
 		room.add_child(instance)
 		instance.owner=room
 		index+=1
-	# Same continuous world UV2 floor as the Main Hall: joins cannot become bake islands.
-	var merged:=floors.commit()
-	var arrays:=merged.surface_get_arrays(0)
-	var uv2:=PackedVector2Array()
-	var bounds:=merged.get_aabb()
-	for point in arrays[Mesh.ARRAY_VERTEX]:
-		var uv:=Vector2((point.x-bounds.position.x)/bounds.size.x,(point.z-bounds.position.z)/bounds.size.z)
-		assert(uv.x>=0 and uv.x<=1 and uv.y>=0 and uv.y<=1)
-		uv2.append(uv)
-	arrays[Mesh.ARRAY_TEX_UV2]=uv2
-	var floor_mesh:=ArrayMesh.new()
-	floor_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
-	floor_mesh.lightmap_size_hint=Vector2i(512,1024)
-	var floor_instance:=MeshInstance3D.new()
-	floor_instance.name="ContinuousFloor"
-	floor_instance.mesh=floor_mesh
-	floor_instance.material_override=floor_material
-	floor_instance.gi_mode=GeometryInstance3D.GI_MODE_STATIC
-	floor_instance.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	floor_instance.set_meta("source_paths",floor_names)
-	room.add_child(floor_instance)
-	floor_instance.owner=room
-	index+=1
+	# Same continuous world UV2 floor as the Main Hall: joins cannot become bake islands. The
+	# largest floor is laid flat that way; a smaller one (a room on two levels overlaps itself
+	# seen from above) is unwrapped like any other surface.
+	var widest=null
+	for material in floors:
+		if widest==null or floors[material][1].size()>floors[widest][1].size():widest=material
+	for material in floors:
+		var merged:ArrayMesh=floors[material][0].commit()
+		var floor_mesh:=ArrayMesh.new()
+		if material==widest:
+			var arrays:=merged.surface_get_arrays(0)
+			var uv2:=PackedVector2Array()
+			var bounds:=merged.get_aabb()
+			for point in arrays[Mesh.ARRAY_VERTEX]:
+				var uv:=Vector2((point.x-bounds.position.x)/bounds.size.x,(point.z-bounds.position.z)/bounds.size.z)
+				assert(uv.x>=0 and uv.x<=1 and uv.y>=0 and uv.y<=1)
+				uv2.append(uv)
+			arrays[Mesh.ARRAY_TEX_UV2]=uv2
+			floor_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
+			floor_mesh.lightmap_size_hint=Vector2i(512,1024)
+		else:
+			floor_mesh=merged
+			assert(floor_mesh.lightmap_unwrap(Transform3D.IDENTITY,.14)==OK,"Native UV2 unwrap failed")
+		var floor_instance:=MeshInstance3D.new()
+		floor_instance.name="ContinuousFloor" if material==widest else "ContinuousFloor%d"%index
+		floor_instance.mesh=floor_mesh
+		floor_instance.material_override=material
+		floor_instance.gi_mode=GeometryInstance3D.GI_MODE_STATIC
+		floor_instance.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		floor_instance.set_meta("source_paths",floors[material][1])
+		room.add_child(floor_instance)
+		floor_instance.owner=room
+		index+=1
 	# A standing work's shadow, from a box the game never draws (remodel_room.gd hides it).
 	var plain:=StandardMaterial3D.new()
 	plain.albedo_color=Color("8c8c8c")
@@ -419,7 +428,7 @@ func prepare() -> void:
 	lm.owner=room
 	room.set_meta("vertex_shades",shades)
 	room.set_meta("shade_top",SHADE_TOP)
-	room.set_meta("plain_tint",Color(PLAIN_TINT))
+	room.set_meta("plain_tint",Color(WORK_TINT))
 	var packed:=PackedScene.new()
 	assert(packed.pack(room)==OK)
 	assert(ResourceSaver.save(packed,"res://modules/shell/prototype/gallery_walk4/baked/room.tscn")==OK)
