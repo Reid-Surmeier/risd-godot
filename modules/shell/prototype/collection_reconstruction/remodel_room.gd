@@ -373,8 +373,9 @@ const ARCHITRAVE:=[[0,0],[0,.014],[.003,.019],[.009,.022],[.015,.019],[.018,.014
 ## head and down the other with mitred corners, and the lining back to the plane the two rooms
 ## share. Three meshes (left, head, right) under the door head, so the camera's cut-away tests
 ## each and never the empty opening. `fixed` is the wall's plan line, `opening` its two edges
-## along the wall, `head` the clear height, `width` the casing's width.
-func door_casing(header:Node3D,side:String,fixed:float,opening:Array,head:float,width:float) -> void:
+## along the wall, `head` the clear height, `width` the casing's width. A window's casing starts
+## at `base`, on its sill, instead of the floor.
+func door_casing(header:Node3D,side:String,fixed:float,opening:Array,head:float,width:float,base:=0.0) -> void:
 	var vertical:bool=side in ["west","east"]
 	var face:float=1.0 if side in ["west","north"] else -1.0
 	# (along the wall, up, out of the wall face) -> room metres; the wall's face stands .061 in.
@@ -397,8 +398,8 @@ func door_casing(header:Node3D,side:String,fixed:float,opening:Array,head:float,
 		# Which way "across the casing" points for this run, and its two ends for a given offset.
 		var across:Vector3=-along if part=="left" else along if part=="right" else Vector3.UP
 		var ends:=func(d:float,out:float) -> Array:
-			if part=="left":return [at.call(lo-d,0.0,out),at.call(lo-d,head+d,out)]
-			if part=="right":return [at.call(hi+d,head+d,out),at.call(hi+d,0.0,out)]
+			if part=="left":return [at.call(lo-d,base,out),at.call(lo-d,head+d,out)]
+			if part=="right":return [at.call(hi+d,head+d,out),at.call(hi+d,base,out)]
 			return [at.call(lo-d,head+d,out),at.call(hi+d,head+d,out)]
 		for i in section.size()-1:
 			var a:Array=ends.call(section[i].x,section[i].y)
@@ -649,6 +650,56 @@ func bench(at:Vector3,length:float,width:float,height:float,columns:int,rows:int
 			body.add_child(leg)
 			leg.global_position=at+Vector3(x,leg_h/2,z)
 	return body
+
+## The furniture kit's shaded window (IMG_6383 16.5/17.0/61.0s): the trim kit's casing round a
+## shallow reveal, a drawn white shade with its folds, daylight leaking as pale blue strips down
+## both sides and under the head box, and a sill of stool and apron. `side` is the wall it is on,
+## `fixed` that wall's plan line, `opening` the reveal's two edges along the wall, `sill` and
+## `head` its bottom and top. The wall is not cut: the reveal is 3.5 cm of frame standing on the
+## wall's face. Returns [shade, sill]; every other part hangs from the shade, so re-parenting
+## those two to the wall's body hides the window with the wall.
+func shaded_window(side:String,fixed:float,opening:Array,sill:float,head:float) -> Array:
+	var vertical:bool=side in ["west","east"]
+	var face:float=1.0 if side in ["west","north"] else -1.0
+	# [along the wall], [up], [out of the wall's face] -> where that box is and its size.
+	var place:=func(s:Array,y:Array,out:Array) -> Array:
+		var off:float=fixed+face*(.061+(out[0]+out[1])/2)
+		var mid:float=(s[0]+s[1])/2
+		var size:=Vector3(out[1]-out[0],y[1]-y[0],s[1]-s[0])
+		return [Vector3(off,(y[0]+y[1])/2,mid),size] if vertical else [Vector3(mid,(y[0]+y[1])/2,off),Vector3(size.z,size.y,size.x)]
+	# The shade is daylit from behind: it keeps its own brightness, as the works do.
+	var cloth:=look(Color("e6e7e5"),"",true)
+	var lo:float=opening[0]
+	var hi:float=opening[1]
+	var w:=.10
+	var deep:=.035
+	var spot:Array=place.call(opening,[sill,head],[.002,.010])
+	var shade:=solid(spot[0],spot[1],cloth)
+	var glow:=look(Color("a6d2ff"),"",true)
+	var parts:=[[[lo,lo+.06],[sill,head-.10],[.010,.012],glow],[[hi-.06,hi],[sill,head-.10],[.010,.012],glow],
+		[[lo,hi],[head-.115,head-.10],[.010,.012],glow],[[lo,hi],[head-.10,head],[.010,.030],trim_paint()],
+		[[lo-w,lo-.002],[sill,head+w],[0,deep],trim_paint()],[[hi+.002,hi+w],[sill,head+w],[0,deep],trim_paint()],
+		[[lo-w,hi+w],[head+.002,head+w],[0,deep],trim_paint()]]
+	var fold:=sill+.28
+	while fold<head-.15:
+		parts.append([[lo+.06,hi-.06],[fold,fold+.003],[.010,.011],look(Color("d6d7d4"),"",true)])
+		fold+=.28
+	for part in parts:
+		spot=place.call(part[0],part[1],part[2])
+		solid(spot[0],spot[1],part[3]).reparent(shade)
+	door_casing(shade,side,fixed+face*deep,opening,head,w,sill)
+	# The sill, one mesh: a stool the casing stands on, proud of it, and an apron under the stool.
+	var st:=SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for part in [[[lo-w-.03,hi+w+.03],[sill-.035,sill],[0,deep+.076]],[[lo-w,hi+w],[sill-.12,sill-.035],[0,.02]]]:
+		spot=place.call(part[0],part[1],part[2])
+		st.append_from(BoxMesh.new(),0,Transform3D(Basis.from_scale(spot[1]),spot[0]))
+	st.generate_normals()
+	var ledge:=MeshInstance3D.new()
+	ledge.mesh=st.commit()
+	ledge.material_override=trim_paint()
+	add_child(ledge)
+	return [shade,ledge]
 
 ## The furniture kit's plinth: a white box to walk round, standing on a recessed kick 2 cm high
 ## (the thin dark line where the footage's plinths and platform meet the floor, IMG_6383
@@ -1667,9 +1718,11 @@ func build_sculpture_rooms() -> void:
 	# Shuttered west window and raised textile-wall plinth are visible in reciprocal wides.
 	var white:=look(Color("f0eeea"))
 	#6383 60.60s source-plane ratios: blind .63..3.00m, sill under it, ±6cm; no survey acceptance.
-	var blind:=solid(Vector3(-5.47,1.815,22.7),Vector3(.08,2.37,1.25),white)
+	# 16.5/17.0/61.0s: a cased reveal, a drawn shade with daylight down both its sides, a sill.
+	var window:=shaded_window("west",-5.55,[22.075,23.325],.63,3.0)
+	var blind:MeshInstance3D=window[0]
 	blind.set_meta("renaissance_west_blind",true)
-	var sill:=solid(Vector3(-5.43,.57,22.7),Vector3(.20,.12,1.45),white)
+	var sill:MeshInstance3D=window[1]
 	sill.set_meta("renaissance_west_sill",true)
 	for part in [blind,sill]:
 		part.set_meta("wall_side","west")

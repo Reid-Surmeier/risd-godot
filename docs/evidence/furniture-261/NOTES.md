@@ -78,13 +78,33 @@ it. Unbaked means the draft's own flat light; the baked look is judged from the 
    where the tapestry's stand sits along the platform (the velvet's is 12 cm in from the east
    end, read from 7.0 s); the platform's kick (a thin dark line at the floor in 7.0 s).
 
+8. `8-window-footage-and-unbaked.jpg`: the west window. Footage IMG_6383 61.0 s (cropped) and
+   17.0 s, each followed by the unbaked window from about the same place; the last panel is the
+   sill's corner from close. Before: a white slab on the wall over a white block. Now
+   `shaded_window()`: the trim kit's casing (its doorway section, 10 cm wide, standing on the
+   sill), a shallow reveal, a drawn shade with faint folds, daylight as pale blue strips down
+   both sides and under the head box, and a sill of a projecting stool over an apron. The
+   shade's and the sill's heights are the earlier source fit (0.63 to 3.00 m, 0.51 to 0.63 m;
+   the check holds them) and the opening is still 1.25 m wide.
+   Not as filmed: the reveal. The wall is not cut, so the reveal is 3.5 cm of frame standing on
+   the wall's face and the casing stands 7 cm off the wall; in the footage the reveal goes into
+   the wall and the casing lies nearly flat on it.
+   Choices to judge in the bake: the shade and the strips keep their own brightness (unshaded),
+   because in every frame the window is the brightest thing on that wall; if the baked room
+   makes that too strong, `cloth` in `shaded_window()` is the one colour to lower.
+   Guessed: the strips' width (6 cm; the footage's are blurred by glare), the fold spacing
+   (28 cm), the stool's projection (4 cm past the casing). `door_casing()` gained a `base`
+   argument (default 0, doors unchanged) so a casing can start on a sill.
+   Seen while here, not mine to change: the Madonna hangs about 10 cm from the casing; in
+   61.0 s the gap is nearer half the window's width.
+
 The clip is at `~/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV`.
 
 ## State for whoever continues
 
 - Done: the bench, the four wall cases, the hooded floor case, the textile platform with its
-  label stands (pictures 1 to 7).
-- Not done: the window reveal and shade, the pedestals.
+  label stands, the window (pictures 1 to 8).
+- Not done: the pedestals.
 
 ## How the unbaked pictures are taken
 
@@ -131,7 +151,9 @@ east case A `-1.05,.42,.12:0,.40,.30` and low `-1.7,-.55,1.0:0,-.62,0`; Pietà c
 `1.0,.40,.12:0,.25,0` and the corner `2.3,-.1,1.4:.4,-.5,-.7:60`; triptych case
 `.05,.42,1.3:0,.36,0`; picture 6, `saint_roch_installation`: `1.3,1.2,.9:0,.75,0`,
 `1.15,1.25,.15:0,.35,0`, `1.5,.05,.8:0,-.1,0:50`; picture 7, `renaissance_textile_platform`:
-`1.75,1.55,-2.3:1.75,.55,0`, `1.0,1.4,-1.2:-.7,.75,.25`, `2.6,1.3,-1.6:-.6,.2,-.2`. A blank or flat picture means the camera is inside a wall: change the
+`1.75,1.55,-2.3:1.75,.55,0`, `1.0,1.4,-1.2:-.7,.75,.25`, `2.6,1.3,-1.6:-.6,.2,-.2`; picture 8,
+`renaissance_west_blind`: `3.9,-.35,.3:.3,-.35,0:55`, `1.5,-.25,2.1:0,-.75,.2`,
+`.9,-.9,.95:0,-1.2,.62:45`. A blank or flat picture means the camera is inside a wall: change the
 offset's sign. The draft draws every room at once and lights nothing by the bake, so it shows
 shape, not the final light or which room the game would draw. If a shot fails with "Cannot open
 file res://.godot/imported/...", another draft run is rebuilding the same folder: wait and repeat.
