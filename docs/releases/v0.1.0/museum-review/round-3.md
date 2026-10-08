@@ -28,6 +28,18 @@ Evidence: [continuous browser movement](../../../evidence/review-round-3/03-key-
 
 Evidence: [clicked diptych and wrong caption](../../../evidence/review-round-3/04-diptych-wrong-work.jpg); scratch `picks/report.json`, `inspection-motion/report.json`, and the continuous frames in `inspection-motion/diptych/`.
 
+### 4. A click on the visible wall sends the visitor into a different room.
+
+**VERIFIED · POLISH · NEW** for the wall-as-floor interaction; **KNOWN** for the room bleed behind it. Where: Rockefeller, by the east door, camera facing east. Reproduce: (1) Stand inside the east doorway and turn the camera east. (2) Click the blank wall just left of the portrait visible at the picture's right edge (marked in the evidence). (3) Wait about five seconds. The game treats that wall pixel as a floor target, routes the visitor through the connector/grey gallery, and ends in the Main Hall. Two Chrome runs reproduce this; the second moves from `(-5.00, -28.39)`, space `far`, to `(-1.71, -25.48)`, space `gallery`, on one click at browser `(800, 488)` in a 1080-square window. This is an unexpected destination for a visitor trying to interact with the wall beside a visible work.
+
+Evidence: [wall click and resulting room](../../../evidence/review-round-3/05-wall-click-changes-room.jpg); scratch `15-rockefeller-turn-and-case.mp4`, `16-wall-click-repro.mp4`, and `16-wall-click.json`.
+
+### 5. Opening the game means a long wait on an almost blank loader, even after its large download finishes.
+
+**VERIFIED · POLISH · NEW.** Where: first browser load, before Collection appears. Reproduce: (1) Open the supplied build in a fresh Chrome session. (2) Wait for the Collection to appear. Two foreground loads take 49.54 s and 48.82 s to `game-shown`; the first finishes downloading at 2.42 s and loading the scene at 4.06 s, but `launch-settled` does not arrive until 40.26 s. The downloaded game pack is 204,592,387 compressed bytes (195.1 MiB), plus a 10,084,300-byte WASM file. With 2 MiB/s download throughput and 100 ms latency, downloads alone take 109.26 s. The slow run eventually shows the game, but its total time is excluded because a background-tab pause interrupted warmup. INFERRED: the download weight and post-download construction make this a likely first-visit abandonment point. No first-load performance budget is specified, and host contention affects the construction time.
+
+Evidence: [loader and measured timeline](../../../evidence/review-round-3/06-first-load-wait.jpg); scratch `browser-events.jsonl`, `slow-load-perf.json`, and `served-page.html`. This is a measured first-load concern, not a claim that loading failed.
+
 ## Coverage and measurements
 
 VERIFIED: fresh engine harness `--only=doors` completed 38 doorway legs with zero failures. A separate real-key probe recorded 76 walk/sprint legs at one JPEG per six fixed-60-FPS frames and logged camera/body positions each frame; its endpoint classification needs correction before treating it as a sprint pass. Chrome uses the requested ANGLE GL/EGL GPU flags. Its first two loads reached `game-shown` at 49.54 s and 48.82 s; downloads finished at 2.42 s on the first load. These are shared-host observations, not isolated benchmarks. Continuous recordings, frame timing, browser console output and scratch probes stay under `build/review-round-3/` (ignored). Selected JPEG evidence is committed under `docs/evidence/review-round-3/`.
