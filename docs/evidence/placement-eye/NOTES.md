@@ -33,3 +33,17 @@ Not sure, left alone:
 - Distances along the south wall. In 80 s (ultra-wide, oblique) the relief looks nearer the
   crucifix than in the draft; without the camera's place that is not a reading.
 - The labels (grille, apostles, panels) are filmed and not built; not placement.
+
+## Lion stair landing (IMG_6387 0–46 s, frames turned upright) — nothing moved
+
+One work, one sheet (`lion-landing-north.jpg`).
+
+| Wall | Work or piece | Footage | Draft | Agree |
+|---|---|---|---|---|
+| north | the lion relief on its white mount | 2, 41, 42 s: right of the modern gallery's door, its far end close to the north-east corner, the lion walking left (toward the door), eye height, a vent above it | same | yes |
+| north | the lion's label | 42, 43 s: on the wall between the door's casing and the mount | a blank block in the same place | yes |
+| east | door to the white sculpture gallery | 2, 36–40 s: in the grey wall round the corner from the lion | same | yes |
+| west | door to the medieval room | 44, 45 s: in the grey west wall; the medieval tall case stands on its axis | same | yes |
+
+Only in footage: a cart of stacked black chairs by the stair rail (35 s); a label right of the
+medieval door (44 s). Neither is a work.
