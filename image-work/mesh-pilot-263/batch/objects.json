@@ -143,10 +143,11 @@
    },
    "views": "front, left, back, right (all from photographs of those sides)",
    "imported": {
-    "mesh": 191192,
-    "colour": 209244,
-    "total": 400436
-   }
+    "mesh": 190610,
+    "colour": 262326,
+    "total": 452936
+   },
+   "lift": "texture lifted by a gain of 2.0 in linear light on 8 October, judged against footage IMG_6382 60.5 s; no recolouring"
   }
  },
  "69.196": {

@@ -24,3 +24,5 @@ Made on the Muse-first route (`image-work/mesh-pilot-263/RECIPE.md`), 8 October 
 | `flat-right` | photograph of this direction |
 
 `37-114.glb` (`df831e3816f3cf5d…`): 10,000 triangles, one colour texture, no normal map, for drawing unshaded. In the pack: 391 KB (mesh 186, colour 204).
+
+Brightness, 8 October 2026: the colour texture was lifted by one gain of 2.0 in linear light (0.8% of texels clip), with no paid call and no recolouring. The museum's photograph of the Angel is about three times darker than its neighbours', so the mesh matched to it read unlit in the room. The gain was judged against the gallery footage (IMG_6382 60.5 s): the lit parts of the Angel measure 0.46 there and 0.21 in the served build, a ratio of 2.2, capped at 2.0 at the lead's word. In the pack: 442 KB (mesh 186, colour 256).
