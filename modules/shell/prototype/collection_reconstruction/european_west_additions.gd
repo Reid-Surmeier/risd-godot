@@ -43,7 +43,12 @@ func west_wall() -> void:
 	var b: Array = room.room_bounds(GALLERY)
 	var length: float = b[3] - b[2]
 	# South group: metres from the south wall, read off the camera solve (NOTES.md).
-	var knocker := holder("west", length - 3.0, 1.60)
+	# The real room is 21.2 m long and this one 26.3: european_east_additions.gd lays the east wall
+	# and the floor cases in by their fraction of the room, so this wall is laid in the same way.
+	# Laid in unscaled it stood up to 3.4 m off what faces it in the footage (IMG_6386 1, 15,
+	# 45.5, 57 and 86 s, IMG_6385 31 s; docs/evidence/placement-eye/NOTES.md).
+	var k: float = length / 21.2
+	var knocker := holder("west", length - 3.0 * k, 1.60)
 	part(knocker, Vector3(0, 0, .01), Vector3(.45, .56, .02), white)
 	tag(cutout(knocker, "knocker-55.091", .394, Vector3(0, 0, .02), .10), "knocker-55.091")
 	hood(knocker, Vector3(0, 0, .09), Vector3(.47, .58, .17))
@@ -51,26 +56,26 @@ func west_wall() -> void:
 	attach(knocker, "west")
 	# 6384 26.5..30s: two small plates in wide white mounts, one two-entry label after the second.
 	# Which plate hangs first is not legible: order provisional.
-	var first := matted("west", length - 4.10, 1.60, "kussell-2024.17.5", Vector2(.119, .080), Vector2(.62, .47), .025, Color("1c1b1b"))
-	var second := matted("west", length - 4.85, 1.60, "kussell-2024.17.6", Vector2(.122, .081), Vector2(.62, .47), .025, Color("1c1b1b"))
+	var first := matted("west", length - 4.10 * k, 1.60, "kussell-2024.17.5", Vector2(.119, .080), Vector2(.62, .47), .025, Color("1c1b1b"))
+	var second := matted("west", length - 4.85 * k, 1.60, "kussell-2024.17.6", Vector2(.122, .081), Vector2(.62, .47), .025, Color("1c1b1b"))
 	label(second, .46, -.05)
 	attach(first, "west")
 	attach(second, "west")
 	# 6386 20.5..23s: two upright etchings, the fruit seller on the left.
-	var fruit := matted("west", length - 7.61, 1.72, "zompini-67.106.31", Vector2(.178, .259), Vector2(.40, .50), .025, Color("1c1b1b"))
-	var hawker := matted("west", length - 8.15, 1.72, "zompini-67.106.8", Vector2(.183, .259), Vector2(.40, .50), .025, Color("1c1b1b"))
+	var fruit := matted("west", length - 7.61 * k, 1.72, "zompini-67.106.31", Vector2(.178, .259), Vector2(.40, .50), .025, Color("1c1b1b"))
+	var hawker := matted("west", length - 8.15 * k, 1.72, "zompini-67.106.8", Vector2(.183, .259), Vector2(.40, .50), .025, Color("1c1b1b"))
 	label(hawker, .34, -.08)
 	attach(fruit, "west")
 	attach(hawker, "west")
-	textile_and_case(length - 9.47)
+	textile_and_case(length - 9.47 * k)
 	# 6386 36..39.5s: plain gilt cove frame; nearest existing asset is the Hall's W10.
-	var canal = framed("west", length - 12.66, 1.75, "tironi-42.042", Vector2(.838, .518), HALL + "frames/W10.png", hall_margins["W10"])
+	var canal = framed("west", length - 12.66 * k, 1.75, "tironi-42.042", Vector2(.838, .518), HALL + "frames/W10.png", hall_margins["W10"])
 	label(canal, canal.outer.x / 2 + .17, -.10)
 	attach(canal, "west")
 	# 6386 46.5..52.5s: stacked pair, one label with two entries beside the lower painting.
 	# Nearest existing frames: W2 (carved, straight rails) above, W7 (swept, shell centres) below.
-	var ridotto = framed("west", length - 14.08, 1.55, "guardi-24.508", Vector2(.511, .314), HALL + "frames/W7.png", hall_margins["W7"])
-	var scuola = framed("west", length - 14.08, 1.55 + ridotto.outer.y / 2 + .06, "guardi-53.115", Vector2(.324, .387), HALL + "frames/W2.png", hall_margins["W2"])
+	var ridotto = framed("west", length - 14.08 * k, 1.55, "guardi-24.508", Vector2(.511, .314), HALL + "frames/W7.png", hall_margins["W7"])
+	var scuola = framed("west", length - 14.08 * k, 1.55 + ridotto.outer.y / 2 + .06, "guardi-53.115", Vector2(.324, .387), HALL + "frames/W2.png", hall_margins["W2"])
 	scuola.position.y += scuola.outer.y / 2
 	label(ridotto, ridotto.outer.x / 2 + .17, 0)
 	attach(ridotto, "west")
@@ -79,11 +84,11 @@ func west_wall() -> void:
 	# same low platform, the Piranesi, then the Delacroix (moved in build_adjacent_gallery).
 	room.plinth(room.wall_point(GALLERY, "west", 1.325, 0, .525), Vector3(1.05, .13, 2.65))
 	dress_case(room.wall_point(GALLERY, "west", .62, .13, .55))
-	var egypt := matted("west", 3.30, 1.72, "piranesi-63.066.45", Vector2(.325, .238), Vector2(.72, .52), .025, Color("1c1b1b"))
+	var egypt := matted("west", 3.30 * k, 1.72, "piranesi-63.066.45", Vector2(.325, .238), Vector2(.72, .52), .025, Color("1c1b1b"))
 	label(egypt, .52, -.06)
 	attach(egypt, "west")
 	# The existing works keep their builders; they get the label the footage shows on their right.
-	for spec in [[b[2] + 5.05, .70], [b[3] - 11.14, .70], [b[3] - 6.09, .40]]:
+	for spec in [[b[2] + 5.05 * k, .70], [b[3] - 11.14 * k, .70], [b[3] - 6.09 * k, .40]]:
 		var card: Node3D = room.solid(Vector3(b[0] + FACE, 1.62, spec[0] - spec[1]), Vector3(.004, LABEL.y, LABEL.x), room.look(Color("f3f2ed")))
 		card.set_meta("artwork_label_proxy", true)
 		card.reparent(room.wall_body(GALLERY, "west", card.position))
