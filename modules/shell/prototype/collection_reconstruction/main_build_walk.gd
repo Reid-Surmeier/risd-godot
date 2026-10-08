@@ -118,6 +118,10 @@ func _build_test_room() -> void:
 			if _read_plan(path):
 				_rooms_path = path
 				_build_stages()
+				# Headless nothing is drawn and there is no first picture to hurry: the checks
+				# that run there get the whole museum at once, as before.
+				if DisplayServer.get_name() == "headless":
+					_attach_rooms(path)
 			return
 
 
