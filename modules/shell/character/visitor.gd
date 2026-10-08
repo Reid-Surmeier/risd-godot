@@ -17,6 +17,9 @@ const SPRINT_FROM := 2.5
 const JUMP_CROUCH := 0.05
 const JUMP_LAUNCH := 3.6
 const JUMP_LANDING := 0.23
+# Landing in stride shows only the squash (the playtest's landing envelope peaks here); the
+# blend back into the gait carries the recovery, so the visitor never slides on standing.
+const JUMP_SQUASH := 0.067
 # Sole heights that count as lifted and as planted, for the museum's contact shadows only.
 # The planted foot rolls up to 2.6 cm mid-stance, hence the gap.
 const LIFT := 0.035
@@ -57,6 +60,11 @@ var _timing := false  # ?qa-sound in the page address: each step's time is publi
 var _previous := Vector3.ZERO
 var _has_previous := false
 var _clip := ""
+# How far through its cycle the gait is, as a share of the clip. Walk, run and dash are
+# authored on one cycle (their poses are closest at the same share), so each is entered
+# where the last had got to and a change of gait never restarts the stride (#259).
+var _stride := 0.0
+var _asked := 0.0  # the yaw last asked for: a skid answers a change in it, not the body's lag
 
 
 func _ready() -> void:
@@ -212,8 +220,11 @@ func pose(
 	_has_previous = true
 	# Same turning rule as the visitor this replaces; _approach() waits on its 0.015 rad snap.
 	var old_yaw := rotation.y
+	var thrown := 0.0
 	if heading.length_squared() > 0.1:
 		var wanted := atan2(heading.x, heading.z)
+		thrown = absf(wrapf(wanted - _asked, -PI, PI))
+		_asked = wanted
 		rotation.y = (
 			wanted
 			if delta == 0
@@ -233,12 +244,7 @@ func pose(
 	movement.heading = 0.0
 	movement.step(Vector2(0, minf(units, 1.0)), sprint, delta)
 	# A dash thrown more than 100 degrees round skids, as in the playtest.
-	if (
-		_clip == "dash"
-		and sprint
-		and heading.length_squared() > 0.1
-		and absf(wrapf(atan2(heading.x, heading.z) - old_yaw, -PI, PI)) > deg_to_rad(100)
-	):
+	if _clip == "dash" and sprint and thrown > deg_to_rad(100):
 		_skid = 0.35
 		_clip = "skid"
 		player.play("skid", 0.08)
@@ -246,7 +252,7 @@ func pose(
 		_cue("Skid", 0.8)
 	var clip := "jump"
 	if _air >= 0.0:
-		_hop(delta)
+		_hop(delta, moving)
 	elif _skid > 0.0:
 		_skid -= delta
 		clip = "skid"
@@ -260,6 +266,8 @@ func pose(
 		if clip != _clip:
 			_clip = clip
 			player.play(clip, 0.167 if delta > 0 else 0.0)
+			if clip != "idle":
+				player.seek(_stride * player.current_animation_length, false)
 		player.speed_scale = (
 			1.0
 			if clip == "idle"
@@ -267,6 +275,12 @@ func pose(
 		)
 		var before := player.current_animation_position
 		player.advance(delta)
+		# A walk from a stand opens on the clip's first frame, as it always has.
+		_stride = (
+			0.0
+			if clip == "idle"
+			else player.current_animation_position / player.current_animation_length
+		)
 		if clip != "idle" and speed > 0.08:
 			var length := player.current_animation_length
 			var after := player.current_animation_position
@@ -312,16 +326,17 @@ func pose(
 
 
 # The playtest's hop without its physics body: crouch, rise and fall under gravity, land.
-func _hop(delta: float) -> void:
+func _hop(delta: float, moving: bool) -> void:
 	_air += delta
 	player.speed_scale = 1.0
 	var at := minf(_air / JUMP_CROUCH * 0.11, 0.11)
 	if _landed >= 0.0:
 		_landed += delta
 		at = _landed
-		if _landed >= JUMP_LANDING:
+		if _landed >= (JUMP_SQUASH if moving else JUMP_LANDING):
 			_air = -1.0
 			_clip = ""  # the next pose blends back into the gait
+			_stride = 0.0  # stride out as from a stand
 			return
 	elif _air >= JUMP_CROUCH:
 		if not _launched:
