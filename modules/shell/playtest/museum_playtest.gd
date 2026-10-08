@@ -23,6 +23,7 @@ const SIZE := Vector2i(960, 640)
 const READ_HEIGHT := 0.25
 const READ_COVERED := 0.02
 const READ_FACE := 0.6  # the least of a flat work's face that shows
+const READ_SQUARE := 0.6  # the least the lens leans to a work's face: 1 square on, 0 edge on
 const HALL := "Grand Gallery"
 
 var walk
@@ -717,6 +718,21 @@ func _objects() -> void:
 			entry["face_seen"] = snappedf(seen, 0.01)
 			if seen < READ_FACE:
 				problems.append("the work is flat and shows only %.2f of its face" % seen)
+		# The lens is before the work's face, where the museum says it has one (#272): a flat
+		# work's (a card at any angle, a slab lying down) or the front of one in the round.
+		var eye_way: Vector3 = (walk._cam.global_position - thing.center).normalized()
+		var faces: Vector3 = thing.get("front", Vector3.ZERO)
+		var fronted: bool = faces != Vector3.ZERO and thing.normal == Vector3.ZERO
+		if not fronted:
+			faces = thing.get("flat", Vector3.ZERO)
+		if faces != Vector3.ZERO:
+			var level := Vector3(eye_way.x, 0, eye_way.z).normalized()
+			var square: float = eye_way.y if faces.y != 0.0 else level.dot(faces)
+			if not fronted and faces.y == 0.0:
+				square = absf(square)  # a card shows the same on both sides
+			entry["face_on"] = snappedf(square, 0.01)
+			if square < READ_SQUARE:
+				problems.append("the lens is not before the work's face (%.2f)" % square)
 		# No other work stands in front of it (#272). At five points of its rectangle the
 		# lens's ray is tried against this work's own meshes and its room's other works';
 		# a point is hidden when another is met first.
