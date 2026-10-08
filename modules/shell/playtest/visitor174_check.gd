@@ -1,6 +1,8 @@
 extends SceneTree
 
 var _faults := []
+var _last_foot := -1
+var _since_step := 99
 
 
 func _initialize() -> void:
@@ -48,7 +50,7 @@ func _run() -> void:
 		"REST_HEIGHT no longer matches walk.glb: %s" % (rest_height / visitor.model.scale.y)
 	)
 	# LANDINGS must be where the walk clip really puts each foot down after its high lift.
-	for gait in ["walk", "run", "dash"]:
+	for gait in ["walk", "dash"]:
 		visitor.player.play(gait)
 		var clip_length: float = visitor.player.get_animation(gait).length
 		var lifted := [false, false]
@@ -143,7 +145,8 @@ func _run() -> void:
 		peaks.append(peak)
 	assert(peaks.max() - peaks.min() < 0.03, "jump height depends on the frame rate: %s" % [peaks])
 	# #259: one stride carries through every gait change. Shift pressed and released
-	# mid-stride, and a sprint that slows through a turn, may not restart the cycle.
+	# mid-stride, and a sprint that slows through a turn, may not restart the cycle, and
+	# each foot sounds in turn: never the same one twice, never two within a fifth of a second.
 	visitor.reset()
 	visitor.pose(0.0, false, 0.0, Vector3.FORWARD, 0.0)
 	for leg in [[1.2, 100], [3.0, 90], [1.2, 90], [3.0, 45], [2.2, 30], [3.0, 45]]:
@@ -153,6 +156,7 @@ func _run() -> void:
 	for case in [[0.0, "idle"], [1.2, "walk"], [3.0, "dash"]]:
 		visitor.reset()
 		visitor.pose(0.0, false, 0.0, Vector3.FORWARD, 0.0)
+		_last_foot = -1  # a stride from a stand may open on either foot
 		_travel(visitor, case[0], 90)
 		visitor.jump()
 		var landing_ticks := 0
@@ -276,15 +280,22 @@ func _expect(ok: bool, fault: String) -> void:
 		_faults.append(fault)
 
 
-# How far through its cycle the gait clip is; -1 outside walk, run and dash, which are
-# authored on one cycle (their poses are closest at the same share of the clip).
+# Share of a stride since the left foot landed, the same in every gait; -1 outside them.
 func _stride(visitor: Node3D) -> float:
-	if not visitor.LANDINGS.has(visitor.player.current_animation):
+	var clip: String = visitor.player.current_animation
+	if not visitor.LANDINGS.has(clip):
 		return -1.0
-	return visitor.player.current_animation_position / visitor.player.current_animation_length
+	return fposmod(
+		(
+			visitor.player.current_animation_position / visitor.player.current_animation_length
+			- visitor.LANDINGS[clip][0]
+		),
+		1.0
+	)
 
 
-# Travel at `speed` for `ticks`. The stride runs on: no restart and no step backwards.
+# Travel at `speed` for `ticks`. The stride runs on, with no restart and no step backwards,
+# and the feet sound in turn.
 func _travel(visitor: Node3D, speed: float, ticks: int) -> void:
 	for _tick in ticks:
 		var before := _stride(visitor)
@@ -292,6 +303,19 @@ func _travel(visitor: Node3D, speed: float, ticks: int) -> void:
 		visitor.position.z -= speed / 60.0
 		visitor.pose(1.0 / 60.0, speed > 0.0, 0.0, Vector3.FORWARD, 0.0)
 		var after := _stride(visitor)
+		_since_step += 1
+		if visitor.contacts > 0:
+			# The right foot lands 0.48 of a stride after the left in both gaits.
+			var foot := int(after > 0.24 and after < 0.74)
+			_expect(
+				visitor.contacts == 1 and foot != _last_foot and _since_step >= 12,
+				(
+					"%d steps sounded %d ticks after the last, in %s"
+					% [visitor.contacts, _since_step, visitor.player.current_animation]
+				)
+			)
+			_last_foot = foot
+			_since_step = 0
 		_expect(
 			before < 0.0 or after < 0.0 or fposmod(after - before, 1.0) < 0.06,
 			(

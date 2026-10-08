@@ -36,7 +36,7 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
    must close again. The opened detail is photographed.
 5. **Movement.** Walk, sprint (Shift) and jump (Space) are exercised by
    `modules/shell/playtest/visitor174_check.gd`: clip choice, step cadence, floor contact, jump
-   height, no footsteps in the air; one stride carried through every change of gait, a landing
+   height, no footsteps in the air; one stride carried through every change of gait with each foot sounding in turn, a landing
    after every jump that hands back to the gait the keys ask for, and a sprint thrown into
    reverse that skids at once and only once (#259).
 6. **Inspection shows the work.** When a work opens, the work that opened is the one clicked, all
