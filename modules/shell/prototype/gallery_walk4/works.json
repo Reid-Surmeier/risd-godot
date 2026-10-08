@@ -6,7 +6,7 @@
   "artist": "Paolo Veronese",
   "canvas_w": 1.6640000000000001,
   "canvas_h": 2.146,
-  "hang": "frame bottom \u2248 0.75 m",
+  "hang": "centre \u2248 2.06 m",
   "margins_px": [
    75,
    80,
@@ -158,7 +158,7 @@
   "artist": "Jan Cossiers",
   "canvas_w": 1.111,
   "canvas_h": 0.851,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.73 m",
   "margins_px": [
    101,
    102,
@@ -232,9 +232,9 @@
   "acc": "56.177",
   "title": "Christ at the Column (c.1635)",
   "artist": "Matthias Stom",
-  "canvas_w": 1.145,
+  "canvas_w": 1.101,
   "canvas_h": 1.829,
-  "hang": "centre \u2248 1.5 m",
+  "hang": "centre \u2248 1.90 m",
   "margins_px": [
    136,
    151,
@@ -308,9 +308,9 @@
   "acc": "62.019",
   "title": "The Resurrection of Christ (c.1640)",
   "artist": "Benjamin Gerritsz. Cuyp",
-  "canvas_w": 0.7020000000000001,
-  "canvas_h": 0.9209999999999999,
-  "hang": "centre \u2248 1.55 m",
+  "canvas_w": 0.669,
+  "canvas_h": 0.911,
+  "hang": "centre \u2248 1.78 m",
   "margins_px": [
    190,
    195,
@@ -386,7 +386,7 @@
   "artist": "Bartholomeus van der Helst",
   "canvas_w": 0.98,
   "canvas_h": 1.12,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.70 m",
   "margins_px": [
    125,
    128,
@@ -460,9 +460,9 @@
   "acc": "57.157",
   "title": "Charity (c.1550)",
   "artist": "School of Fontainebleau",
-  "canvas_w": 1.334,
-  "canvas_h": 1.581,
-  "hang": "centre \u2248 1.55 m",
+  "canvas_w": 1.3,
+  "canvas_h": 1.623,
+  "hang": "centre \u2248 1.72 m",
   "margins_px": [
    120,
    125,
@@ -536,9 +536,9 @@
   "acc": "32.246",
   "title": "The Angel of Fame (c.1750)",
   "artist": "Giovanni Battista Tiepolo",
-  "canvas_w": 1.98,
-  "canvas_h": 3.31,
-  "hang": "bottom \u2248 1.2 m, top \u2248 4.5 m",
+  "canvas_w": 2.06,
+  "canvas_h": 3.46,
+  "hang": "bottom \u2248 0.82 m",
   "outline": [
    [
     0.7188,
@@ -866,8 +866,8 @@
   "title": "A Musical Group (c.1730)",
   "artist": "Pier Leone Ghezzi",
   "canvas_w": 1.705,
-  "canvas_h": 1.222,
-  "hang": "centre \u2248 1.55 m",
+  "canvas_h": 1.111,
+  "hang": "centre \u2248 1.71 m",
   "margins_px": [
    149,
    142,
@@ -943,7 +943,7 @@
   "artist": "Henri Gascar",
   "canvas_w": 1.092,
   "canvas_h": 1.956,
-  "hang": "frame bottom \u2248 0.5\u20130.6 m",
+  "hang": "centre \u2248 1.92 m",
   "margins_px": [
    81,
    91,
@@ -1019,7 +1019,7 @@
   "artist": "Joachim Wtewael",
   "canvas_w": 1.6640000000000001,
   "canvas_h": 1.095,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.73 m",
   "margins_px": [
    75,
    77,
@@ -1095,7 +1095,7 @@
   "artist": "Michele Pace del Campidoglio",
   "canvas_w": 1.607,
   "canvas_h": 1.222,
-  "hang": "centre \u2248 1.55 m, above a floor vent",
+  "hang": "centre \u2248 1.73 m",
   "margins_px": [
    118,
    108,
@@ -1171,7 +1171,7 @@
   "artist": "Unknown, Anglo-Flemish",
   "canvas_w": 1.2,
   "canvas_h": 2.013,
-  "hang": "frame bottom \u2248 0.5 m",
+  "hang": "centre \u2248 2.07 m",
   "margins_px": [
    124,
    126,
@@ -1247,7 +1247,7 @@
   "artist": "Thomas Lawrence",
   "canvas_w": 1.429,
   "canvas_h": 2.351,
-  "hang": "frame bottom \u2248 0.35\u20130.5 m",
+  "hang": "centre \u2248 2.07 m",
   "margins_px": [
    108,
    215,
@@ -1321,9 +1321,9 @@
   "acc": "63.061",
   "title": "Arsenal in a Ruined Basilica (c.1715)",
   "artist": "Alessandro Magnasco",
-  "canvas_w": 2.146,
-  "canvas_h": 1.4669999999999999,
-  "hang": "centre \u2248 1.55 m, above a floor vent",
+  "canvas_w": 2.069,
+  "canvas_h": 1.467,
+  "hang": "centre \u2248 1.76 m",
   "margins_px": [
    109,
    103,
@@ -1399,7 +1399,7 @@
   "artist": "John Singleton Copley",
   "canvas_w": 1.016,
   "canvas_h": 1.27,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.72 m",
   "margins_px": [
    118,
    125,
@@ -1475,7 +1475,7 @@
   "artist": "S\u00e9bastien Bourdon",
   "canvas_w": 1.051,
   "canvas_h": 0.86,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.74 m",
   "margins_px": [
    106,
    107,
@@ -1551,7 +1551,7 @@
   "artist": "Louise-Jos\u00e9phine Sarazin de Belmont",
   "canvas_w": 1.626,
   "canvas_h": 1.197,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.71 m",
   "margins_px": [
    87,
    84,
@@ -1703,7 +1703,7 @@
   "artist": "Hubert Robert",
   "canvas_w": 1.4780000000000002,
   "canvas_h": 1.14,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.69 m",
   "margins_px": [
    82,
    80,
@@ -1779,7 +1779,7 @@
   "artist": "Salomon van Ruysdael",
   "canvas_w": 1.442,
   "canvas_h": 0.972,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.72 m",
   "margins_px": [
    137,
    126,
@@ -1853,9 +1853,9 @@
   "acc": "62.064",
   "title": "Portrait of a Cavalier with his Hunting Dogs (c.1575)",
   "artist": "Bartolomeo Passarotti",
-  "canvas_w": 1.149,
-  "canvas_h": 1.975,
-  "hang": "frame bottom \u2248 0.5 m",
+  "canvas_w": 1.138,
+  "canvas_h": 2.104,
+  "hang": "centre \u2248 1.88 m",
   "margins_px": [
    109,
    102,
@@ -1931,7 +1931,7 @@
   "artist": "Francisco Collantes",
   "canvas_w": 1.391,
   "canvas_h": 1.092,
-  "hang": "centre \u2248 1.55 m, above a floor vent",
+  "hang": "centre \u2248 1.69 m",
   "margins_px": [
    149,
    146,

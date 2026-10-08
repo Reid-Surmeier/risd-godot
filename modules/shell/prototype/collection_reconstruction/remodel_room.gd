@@ -1720,8 +1720,10 @@ func build_sculpture_rooms() -> void:
 			shaft.material_override=look(Color("b8ad94"))
 			add_child(shaft)
 	# The native close shots show exposed panel outlines on grey mounts, not added frames.
-	# ponytail: offsets follow reciprocal wides; absolute wall metres and mounting heights remain provisional.
-	for spec in [["20.207",Vector3(.70,1.55,20.75),PI/2],["57.301",Vector3(.70,1.55,19.53),PI/2],["22.047",Vector3(2.00,1.55,19.05),0.0]]:
+	# Heights and the west pair's spacing are measured (#266): IMG_6382 65.5, 68.0 and 74.0 s, each wall
+	# rectified from the panel's own catalogue size. Centres 1.40 m (west) and 1.37 m (north), +-0.06;
+	# the west pair 0.87 m centre to centre, 57.301 0.70 m from the north-west corner.
+	for spec in [["20.207",Vector3(.70,1.40,20.40),PI/2],["57.301",Vector3(.70,1.40,19.53),PI/2],["22.047",Vector3(2.00,1.37,19.05),0.0]]:
 		var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/panel-"+spec[0]+".json"))
 		var mount:=Node3D.new()
 		mount.name="MedievalPanel"+str(spec[0]).replace(".","_")
@@ -2220,7 +2222,7 @@ func build_gabled_frame() -> void:
 	assert(signed_volume>0 and abs(signed_volume-front_area*float(data.depth_m))<.000001)
 	var frame:=Painting.new()
 	frame.name="MagdaleneGabledFrame"
-	frame.position=Vector3(1.18,1.55,19.05)
+	frame.position=Vector3(1.18,1.37,19.05)
 	add_child(frame)
 	for group in [front,rest]:
 		frame._mesh(func(st:SurfaceTool) -> void:
@@ -2230,7 +2232,7 @@ func build_gabled_frame() -> void:
 					var p:Array=data.points_px[i%count]
 					st.set_uv(Vector2(p[0]/data.source_size_px[0],p[1]/data.source_size_px[1]))
 					st.add_vertex(vertices[i]),Painting.mat(load("res://assets/magdalene-frame.png")) if group==front else look(Color("7c6038")))
-	var support:=solid(Vector3(1.18,1.55,19.015),Vector3(data.outer_size_m[0]+.10,data.outer_size_m[1]+.10,.025),look(Color("959691")))
+	var support:=solid(Vector3(1.18,1.37,19.015),Vector3(data.outer_size_m[0]+.10,data.outer_size_m[1]+.10,.025),look(Color("959691")))
 	support.name="MagdaleneGreySupport"
 	var art:=Painting.new()
 	frame.add_child(art)
@@ -2304,7 +2306,7 @@ func build_renaissance_wall_art() -> void:
 	glass.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
 	glass.cull_mode=BaseMaterial3D.CULL_DISABLED
 	glass.roughness=.18
-	for row in [["velvet_23307x",Vector3(-1.775,1.31,24.867),PI,"south"],["woodcutters_29280",Vector3(-3.225,1.35,24.887),PI,"south"],["madonna_58196",Vector3(-5.478,1.22,24.10),PI/2,"west"]]:
+	for row in [["velvet_23307x",Vector3(-1.775,1.31,24.867),PI,"south"],["woodcutters_29280",Vector3(-3.225,1.35,24.887),PI,"south"],["madonna_58196",Vector3(-5.478,1.52,24.10),PI/2,"west"]]:
 		var art:=RenaissanceWall.build(row[0])
 		add_child(art)
 		art.position=row[1]
