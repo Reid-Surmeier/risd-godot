@@ -518,11 +518,12 @@ func build_rooms() -> void:
 				casing.set_meta("room_wall",area.label+":"+side)
 				var inward:float=1.0 if side in ["west","north"] else -1.0
 				wall_face(casing,span[1]-span[0],height,vertical,inward)
-				var trim:=moulding(span[1]-span[0],.16,"baseboard",false)
+				# White and about 20 cm tall in every clip (IMG_6383 34.0s, IMG_6385 1.0s).
+				var trim:=moulding(span[1]-span[0],.20,"baseboard",false)
 				if area.label.begins_with("purple"):
 					trim.material_override=look(Color("15151b") if side=="south" else Color.WHITE,"" if side=="south" else "res://presentation/purple-plaster.png")
 					trim.set_meta("connector_baseboard",side)
-				trim.position=Vector3(fixed+inward*.065,.08,(span[0]+span[1])/2) if vertical else Vector3((span[0]+span[1])/2,.08,fixed+inward*.065)
+				trim.position=Vector3(fixed+inward*.065,.10,(span[0]+span[1])/2) if vertical else Vector3((span[0]+span[1])/2,.10,fixed+inward*.065)
 				trim.rotation.y=inward*PI/2 if vertical else 0.0 if inward==1.0 else PI
 				trim.reparent(casing)
 			if opening.is_empty():continue
@@ -675,7 +676,7 @@ func build_reveal(label:String,leaves:bool) -> void:
 	# ponytail: depth, head and leaf metres are the pose in geometry.json, not a survey. The three Muse
 	# panels are re-laid to the observed heights, so their mouldings stretch; redraw only if that reads.
 	var b:Array=reveals[label]
-	var ivory:=look(Color("eeeae2"))
+	var ivory:=trim_paint()
 	var proud:=.19 # every door frame here stands this far out of its wall
 	var north:float=b[2]-proud
 	var south:float=b[3] if leaves else b[3]+proud
@@ -781,7 +782,10 @@ func moulding(width:float,height:float,kind:String,upright:bool) -> MeshInstance
 		Painting.quad(st,corners,[Vector2(a.x,1),Vector2(b.x,1),Vector2(b.x,0),Vector2(a.x,0)] if upright else [Vector2(0,1-a.x),Vector2(1,1-a.x),Vector2(1,1-b.x),Vector2(0,1-b.x)])
 	var mesh:=MeshInstance3D.new()
 	mesh.mesh=st.commit()
-	mesh.material_override=look(Color.WHITE,"res://assets/"+kind+".png")
+	# White in every clip: skirting, casings and cornices share the kit's one paint. `kind` names
+	# what the run is ("baseboard", "door-architrave"), for the builders that look for it.
+	mesh.material_override=trim_paint()
+	mesh.set_meta("trim",kind)
 	add_child(mesh)
 	return mesh
 
