@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # One batch object after its Tripo Multi-View run finished: steps 4 to 11 of RECIPE.md, unshaded batch size.
+# AO=0.5 raises the baked occlusion in the colour from its 0.35 (a pale relief against a pale wall).
 # usage: finish_object.sh ACCESSION GLB_URL CHARGED SETTING(floor|plinth|wall) SIZE_PX "view:turns:weight ..." -- <clay_mesh.py size options>
 # Writes the mesh to modules/shell/prototype/mesh_pilot/meshes/<accession>/ (replacing what is there), a sheet to
 # docs/evidence/mesh-pilot-263/batch/<accession>.jpg, and PROVENANCE.md. Run from the repository root.
@@ -30,7 +31,7 @@ if [ -n "${PLAIN:-}" ]; then  # plain white marble or porcelain: PLAIN="strength
   [ -f "$tmp/front.png" ] && [ ! -f "$tmp/front-projected.png" ] && cp "$tmp/front.png" "$tmp/front-projected.png"
   python3 "$here/plain_colour.py" "$d/cut.png" "$tmp/low.ao.png" "$tmp/final.colour.png" "$size" $PLAIN
 else
-  "$here/colour_mesh2.sh" "$tmp/low.glb" "$d" "$tmp/pre.glb" "$size" -cut-matched 0.35 flat "$specs" | grep -E "^[a-z]+: view|blended|Error" | cut -c1-110
+  "$here/colour_mesh2.sh" "$tmp/low.glb" "$d" "$tmp/pre.glb" "$size" -cut-matched "${AO:-0.35}" flat "$specs" | grep -E "^[a-z]+: view|blended|Error" | cut -c1-110
   place "$tmp/pre.glb"; shot front
   python3 "$here/match_in_scene.py" "$d/cut.png" "$tmp/front.png" "$tmp/pre.colour.png" "$tmp/final.colour.png" | cut -c1-160
 fi
@@ -38,7 +39,7 @@ LD_LIBRARY_PATH=/usr/lib/wsl/lib timeout 600 $B --background --factory-startup -
 place "$tmp/final.glb"; for v in front threequarter side; do shot $v; done
 for y in 0 90 180; do :; done; (cd /tmp && CLAY=1 timeout 900 blender --background --factory-startup --python "$here/preview_mesh.py" -- "$tmp/low.glb" "$tmp/grey" 0,90,180 420 2>&1 | grep -E "Error" || true)
 scn=$(stat -c%s .godot/imported/$name.glb-*.scn); tex=0; for f in .godot/imported/${name}_*.ctex; do tex=$((tex+$(stat -c%s "$f"))); done
-PLAIN="${PLAIN:-}" python3 - "$acc" "$name" "$d" "$tmp" "$dir" "$scn" "$tex" "$charged" "$specs" <<'P'
+PLAIN="${PLAIN:-}" AO="${AO:-0.35}" python3 - "$acc" "$name" "$d" "$tmp" "$dir" "$scn" "$tex" "$charged" "$specs" <<'P'
 import sys, json, io, os, hashlib
 from PIL import Image, ImageDraw, ImageFont
 acc, name, d, tmp, dir_, scn, tex, charged, specs = sys.argv[1:10]; scn, tex = int(scn), int(tex); here = os.path.dirname(d.rstrip('/')).rsplit('/batch', 1)[0]
@@ -56,6 +57,7 @@ b = io.BytesIO(); s.save(b, 'JPEG', quality=86, optimize=True); open(f'docs/evid
 low = json.load(open(f'{tmp}/low.json')); o = json.load(open(f'{here}/batch/objects.json')); mf = o[acc]['muse_first']; run = mf['run']; run['charged'] = float(charged)
 if os.path.exists(f'{tmp}/raw.sha256'): run['sha256'] = open(f'{tmp}/raw.sha256').read().strip()
 mf['imported'] = {'mesh': scn, 'colour': tex, 'total': scn + tex}; json.dump(o, open(f'{here}/batch/objects.json', 'w'), indent=1, ensure_ascii=False)
+rj = mf.get('rejected_run'); rejected = f"| Rejected mesh | {rj['model']}, run `{rj['id']}`; views {rj['views']}. {rj['why']} | quoted {rj['quote']:.2f}, charged {rj['charged']:.2f} USD |\n" if rj else ''
 n_muse = len(made); sha = hashlib.sha256(open(f'{dir_}/{name}.glb', 'rb').read()).hexdigest()
 rows = '\n'.join(f"| `{k}` | {v['from']}{'; ' + v['note'] if v.get('note') else ''} |" for k, v in made.items())
 text = f"""# {acc} {o[acc]['title'].split('*')[1]}
@@ -69,8 +71,8 @@ Made on the Muse-first route (`image-work/mesh-pilot-263/RECIPE.md`), 8 October 
 | References | the museum's catalogue photographs, deep-zoom source at up to 2400 px, in `~/risd-godot-ingestion/catalogue-masters/{acc}/` (outside git); which photograph backs which view: `image-work/mesh-pilot-263/batch/{acc}/views.json` | free |
 | Muse views | {n_muse} images (OpenRouter, `meta/muse-image`): clay and flat colour, prompts in `image-work/mesh-pilot-263/batch/{acc}/` | {n_muse * 0.01:.2f} USD |
 | Mesh | Flora, RISD EDU Workspace, {run['model']}, {run['params']}; views {mf['views']}; run `{run['id']}`; raw GLB `{run.get('sha256', '')[:16]}…` ({low['raw_triangles']:,} triangles, not kept) | quoted {run['quote']:.2f}, charged {float(charged):.2f} USD |
-| Blender 5.2.2 | `clay_mesh.py`: reduced to {low['triangles']:,} triangles, occlusion baked from the high mesh; made {low['as_made_m_at_catalogue_height']['width']} m wide and {low['as_made_m_at_catalogue_height']['depth']} m deep at the catalogue height, set to {low['size_m_width_height_depth']} m (width, height, depth) | free |
-| Colour | {'`plain_colour.py`: one base colour from the lit areas of the catalogue photograph, with the baked occlusion blurred (strength and blur: ' + os.environ['PLAIN'] + '); no projected views, which streaked this white object' if os.environ.get('PLAIN') else '`colour_mesh2.sh`: flat views matched to the photograph, cross-faded, occlusion 0.35; `match_in_scene.py` lift for unshaded drawing'} | free |
+{rejected}| Blender 5.2.2 | `clay_mesh.py`: reduced to {low['triangles']:,} triangles, occlusion baked from the high mesh; made {low['as_made_m_at_catalogue_height']['width']} m wide and {low['as_made_m_at_catalogue_height']['depth']} m deep at the catalogue height, {('after a ' + str(low['lean_removed_deg']) + '° lean was rotated out (`--upright`), ') if 'lean_removed_deg' in low else ''}set to {low['size_m_width_height_depth']} m (width, height, depth){'. ' + mf['size_note'] if mf.get('size_note') else ''} | free |
+| Colour | {'`plain_colour.py`: one base colour from the lit areas of the catalogue photograph, with the baked occlusion blurred (strength and blur: ' + os.environ['PLAIN'] + '); no projected views, which streaked this white object' if os.environ.get('PLAIN') else '`colour_mesh2.sh`: flat views matched to the photograph, cross-faded, occlusion ' + os.environ['AO'] + (' (the sides and back, which the one view never shows, take the median colour of the front)' if len(specs.split()) == 1 else '') + '; `match_in_scene.py` lift for unshaded drawing'} | free |
 
 | View | Came from |
 | --- | --- |

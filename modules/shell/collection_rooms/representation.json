@@ -151,7 +151,7 @@
   "43.195": {"room": "dark medieval room", "form": "volume", "as": "mesh"},
   "57.301": {"room": "dark medieval room", "form": "flat", "as": "flat"},
   "59.131": {"room": "dark medieval room", "form": "volume", "as": "mesh"},
-  "69.196": {"room": "dark medieval room", "form": "relief", "as": "extruded_photo"},
+  "69.196": {"room": "dark medieval room", "form": "relief", "as": "mesh"},
   "41.045": {"room": "dark medieval room", "form": "volume", "as": "mesh"},
   "41.046": {"room": "dark medieval room", "form": "volume", "as": "mesh"},
   "1998.35": {"room": "grey French gallery", "form": "flat", "as": "flat"},
@@ -239,7 +239,6 @@
   "85.075.8",
   "european-east-platter-saldanha",
   "22.201",
-  "69.196",
   "lion-panel",
   "83.152"
  ]

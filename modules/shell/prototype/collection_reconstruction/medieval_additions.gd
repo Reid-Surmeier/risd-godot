@@ -63,9 +63,7 @@ func build(scene) -> void:
 
 	# Christ in Majesty, a limestone relief slab standing on a rectangular pedestal (6382 34.5..36.5s).
 	var relief_base := _pedestal(room.wall_point(ROOM, "south", 7.39, 0, .30), Vector3(.66, 1.05, .40), Vector3(.60, .15, .34))
-	var relief := _work("relief", .978, .12, Color("b7ad97"))
-	relief.position = room.wall_point(ROOM, "south", 7.39, 1.20 + .489, .30 - .06)
-	relief.rotation.y = PI
+	var relief := _mesh("relief", "relief-69196.glb", room.wall_point(ROOM, "south", 7.39, 1.20, .28), PI, Vector3(.559, .978, .20))
 	relief.reparent(relief_base)
 	_label(room.wall_point(ROOM, "south", 7.39, .82, .30 + .203), PI, relief_base)
 	relief_base.reparent(south)

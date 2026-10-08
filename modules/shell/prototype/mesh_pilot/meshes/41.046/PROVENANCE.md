@@ -19,3 +19,5 @@ Made on the Muse-first route (`image-work/mesh-pilot-263/RECIPE.md`), 8 October 
 | `flat-front` | photograph of this direction |
 
 `41-046.glb` (`625b58de47307a1a…`): 10,000 triangles, one colour texture, no normal map, for drawing unshaded. In the pack: 278 KB (mesh 205, colour 72).
+
+Size: the catalogue says 82.6 × 26.7 cm. The mesh keeps the photograph's proportions, so at the catalogue height of 82.6 cm it is 32.8 cm wide. The lead ruled on 8 October 2026 not to narrow it: a figure squeezed by a fifth is worse than a width that disagrees with the record. Why the photograph is wider than the record is not known.

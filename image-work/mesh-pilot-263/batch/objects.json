@@ -162,9 +162,9 @@
    },
    "views": "the clay front alone (the rule for reliefs)",
    "imported": {
-    "mesh": 206854,
-    "colour": 57392,
-    "total": 264246
+    "mesh": 206853,
+    "colour": 70872,
+    "total": 277725
    },
    "rejected_run": {
     "id": "run_m1761kq1n3p2x6cgdke92mthzd8fxbn6",
@@ -173,10 +173,10 @@
     "quote": 0.48,
     "charged": 0.48,
     "sha256": "69745e758ceee299b4fc39dc21ec43667b8e54d30734ffeef0e7220ab4078cb6",
-    "why": "rejected 8 October: the side view Muse inferred gave the figure a second arm and a 0.46 m deep block; not kept",
+    "why": "Rejected 8 October: the side view Muse inferred gave the figure a second arm and a 0.46 m deep block; not kept",
     "views": "front from the photograph; left inferred by Muse (mirrored from the right profile it drew)"
    },
-   "build": "clay_mesh.py --upright (a 9.78 degree lean rotated out) --depth 0.20 (the catalogue gives no depth; 0.20 m is an estimate from the photograph, the generator made 0.31 m)"
+   "size_note": "The catalogue gives no depth: 0.20 m is an estimate from the photograph; the generator made 0.31 m"
   }
  },
  "23.005": {
@@ -272,7 +272,8 @@
     "mesh": 210417,
     "colour": 74648,
     "total": 285065
-   }
+   },
+   "size_note": "The catalogue says 82.6 × 26.7 cm; the photograph's proportions are kept, so at 82.6 cm high the mesh is 32.8 cm wide. The lead ruled on 8 October not to narrow it: a figure squeezed by a fifth is worse than a width that disagrees with the record"
   }
  },
  "44.674": {
@@ -331,6 +332,16 @@
    "id": "run_m1753wyfcpkbrybzvhpynfgd098fw3h0",
    "params": "face limit 10,000, texture on, PBR off",
    "quote": 0.36
+  },
+  "muse_first": {
+   "run": {
+    "id": "run_m174qe034vakcgq5than1qrrnd8fxd8t",
+    "model": "Tripo H3.1 (`i3d-tripo-h3-1-i3d`), single view",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": null
+   },
+   "views": "the clay front alone (the rule for reliefs); the clay front drawn from the front photograph and two detail photographs"
   }
  }
 }
