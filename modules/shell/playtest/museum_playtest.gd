@@ -25,6 +25,7 @@ const READ_HEIGHT := 0.25
 const READ_COVERED := 0.02
 const READ_FACE := 0.6  # the least of a flat work's face that shows
 const READ_SQUARE := 0.6  # the least the lens leans to a work's face: 1 square on, 0 edge on
+const READ_VISITOR := 0.1  # the most of the picture the visitor's box may take
 const HALL := "Grand Gallery"
 
 var walk
@@ -1069,6 +1070,17 @@ func _objects() -> void:
 				break
 		if walk._kid.visible and work.intersects(_on_screen(body)):
 			problems.append("the visitor covers the work")
+		# Nor does the visitor crowd the lens (#272, round 5): its box takes no more than
+		# READ_VISITOR of the picture.
+		var crowd := 0.0
+		if walk._kid.visible:
+			crowd = (
+				_on_screen(body).intersection(Rect2(Vector2.ZERO, walk.size)).get_area()
+				/ (walk.size.x * walk.size.y)
+			)
+		entry["visitor_fills"] = snappedf(crowd, 0.01)
+		if crowd > READ_VISITOR:
+			problems.append("the visitor fills %.2f of the picture" % crowd)
 		# A second click on the work: the zoom page, which must close again.
 		var again := Vector2.ZERO
 		for corner in thing.corners:
@@ -1348,6 +1360,11 @@ func _wall_clicks(areas: Array, when: String) -> void:
 			# From the middle, or four metres short of the wall in a long room.
 			var reach: float = absf(plane - (middle_of.x if along_z else middle_of.z))
 			var stand := _free_near(middle_of + out * maxf(0.0, reach - 4.0))
+			if not walk._free(stand):
+				# No floor there to stand on (the Skylight Gallery's middle is open to its
+				# lower storey): this wall is not tried from here.
+				entry.not_tried.append("%s, %s (no floor at the standpoint)" % [area.label, side])
+				continue
 			var door: Array = openings.get(side, [])
 			var spans := [[b[2], b[3]] if along_z else [b[0], b[1]]]
 			if not door.is_empty():
