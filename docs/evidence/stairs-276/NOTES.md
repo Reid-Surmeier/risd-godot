@@ -259,3 +259,93 @@ Seven final review views: exit 0, no script/shader errors. Whitespace passes.
 The push check still fails on the same three inherited medieval declarations;
 no `checks passed` claim. Only the marble additions changed in production.
 No doorway, room-plan or route-trial change; #277's opening/east plan remains.
+
+
+## Bake attachment review
+
+The bake writes mesh names as `source_path`. The room's existing `_ready()`
+assigns unique `AuthoredSurface%03d` names to every non-visitor mesh before
+`load_bake()`, so no new naming helper is needed. A provisional duplicate-name
+helper was removed before the checkpoint. The review capture now reports
+room geometry budgets and checks those existing final names.
+
+A scratch column preview copied the raw shared builder over the draft's
+adapted version and attempted to load the retained Hall bake as an additions
+bake. That preview is discarded; the final column proof will come from the
+normal draft pipeline with its adapted paths. Production still has parts 1–5.
+
+
+## Lion landing fit correction
+
+The shortened central landing exposed an inherited plan mismatch: the west
+opening ends at z 32.615, beyond the new central edge z 32.215. The first
+revised draft showed its folded south fire leaf intersecting the west treads.
+The landing now has a 0.45 m west extension to z 32.665 (the existing opening
+end plus 0.05 m clearance), x 10.55–11.671. This dimension is **INFERRED** from
+the current plan/leaf pose, not a surveyed floor measurement; IMG_6387 15 s
+shows the leaf on a landing ahead of the flight. The west going becomes
+0.261125 m, east remains 0.317375 m, rise/storey heights remain unchanged.
+Its guard has a matching west return and an invisible connecting collider.
+The new `lion west landing ear` floor patch supports that extension. No
+doorway interval or fire-leaf pose is changed.
+
+The first full lion capture produced its eight views, then the statistics
+helper called an ArrayMesh-only method on a BoxMesh and hung. It was stopped;
+the helper now uses the generic [Mesh.surface_get_arrays() API](https://docs.godotengine.org/en/4.7/classes/class_mesh.html#class-mesh-method-surface-get-arrays).
+A new draft/capture will verify the fit correction and complete cleanly.
+
+
+## Part 5 checkpoint — census 10.1–8
+
+**VERIFIED in final draft pictures:** near-white shaft instead of the dark
+well, the same scroll/leaf mesh and oak/iron finishes as the marble hall,
+curved guard returns, fan treads and white curved stringers, wall rails,
+continuation through two storeys below, warmer two-tone stone slab weave,
+white six-panel fire leaves with closers/hinges and the existing push bars.
+The corrected west landing supports the folded leaf and the white shaft
+finish clears the doorway. Its existing kit skirting calls clip to the floor
+edge on each side; no shared profile/casing/cornice builder was edited.
+
+![IMG_6387 27 s beside the shaft and guard](05-lion-shaft.jpg)
+![IMG_6387 19.5 s beside the two lower storeys](05-lion-down.jpg)
+![IMG_6387 10.5 s beside the lion wall and fittings](05-lion-wall.jpg)
+![IMG_6387 15 s beside the six-panel leaves and clear landing](05-lion-leaves.jpg)
+
+The lion wall is white, the landing's west/east walls remain grey. The
+relief's existing catalogue image/dimensions are retained, with a wider
+flush white surround, left louvred vent, tall grey panel and small label.
+Fire strobe, pull, access panel and a blank directory carrier are built.
+No lettering or source video texture was added. The original laylight and
+lighting nodes were retained. **INFERRED/pending:** final daylit balance,
+unsurveyed stair destinations, and the floor extension inferred from the
+existing folded-leaf pose. Door heads/kit reveals still need #273's correction.
+
+`part5-draft-final.log` and the updated-source
+`part5-architecture-push.log`: exit 0, ARCHITECTURE_CHECK `failures: []`.
+Eight final Compatibility views: exit 0, no script/shader errors. Snapshot
+landing source SHA-256 `58d2c421d3311690b0a193a67696051306a09e583d7a794ff6492c4c880e81e8`.
+Constructed geometry by mesh AABB centre (including existing fixtures and
+ceilings): marble hall 65 meshes / 61,897 triangles; lion landing 89 / 117,124.
+All final authored bake names are unique; template remains 820 triangles.
+Whitespace passes. The push repository check exits 1 on the same inherited
+37.114 / 20.254 / 59.131 declarations; it still does not print `checks passed`.
+
+### Named plan edit / route handoff
+
+Only the separate #276 block in `prepare_remodel.py` changed outside the two
+additions: south room extent 37.615 → 36.115, central floor void begins
+33.715 → 32.215, matching north-floor collision patch, and one new
+`lion west landing ear` floor patch x 10.55–11.671, z 32.215–32.665.
+The west guard/connector follows that floor extension. No doorway moved,
+no room or route trial was added. Existing blocked trials changed as follows:
+
+| Trial | Before: start → target | After: start → target |
+| --- | --- | --- |
+| `landing_guard_blocked` | (13.35, .25, 32.7) → (13.35, 0, 34.6) | (13.35, .25, 31.6) → (13.35, 0, 33.1) |
+| `landing_stair_foot_blocked` | (11.15, .25, 32.9) → (11.15, 0, 34.6) | (11.15, .25, 31.6) → (11.15, 0, 33.1) |
+| `landing_flight_down_blocked` | (15.55, .25, 32.9) → (15.55, 0, 34.6) | (15.55, .25, 31.6) → (15.55, 0, 33.1) |
+
+They retain `blocked = true`. The orchestrator must run the post-bake
+`museum_playtest.gd --only=doors`, including these three trials and the
+existing medieval/lion, modern/lion and sculpture/lion doorway crossings.
+That playtest cannot validate a draft and was not run against it.

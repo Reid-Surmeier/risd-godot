@@ -67,7 +67,9 @@ func capture() -> void:
 			["lion-wall", Vector3(13.45, 1.7, 31.8), Vector3(14.2, 1.8, 28.1)],
 			["lion-rail", Vector3(12.8, 1.45, 32.1), Vector3(13.4, .65, 33.1)],
 			["lion-winders", Vector3(12.5, 4.8, 33.7), Vector3(11.4, 1.6, 35.6)],
-			["lion-up", Vector3(13.5, 1.7, 32.3), Vector3(13.4, 4.7, 35.5)]
+			["lion-up", Vector3(13.5, 1.7, 32.3), Vector3(13.4, 4.7, 35.5)],
+			["lion-leaves", Vector3(13.0, 1.7, 30.3), Vector3(10.6, 1.5, 31.75)],
+			["lion-fire-devices", Vector3(14.2, 1.65, 32.2), Vector3(16.1, 1.65, 31.95)]
 		],
 		"columns": [
 			["columns-grey", Vector3(x0 - 2.8, 1.6, middle), Vector3(x0, 2.1, middle)],
@@ -85,5 +87,27 @@ func capture() -> void:
 			await RenderingServer.frame_post_draw
 			root.get_texture().get_image().save_png(out.path_join(shot[0] + ".png"))
 			print("STAIRS_CAPTURE ", shot[0], " eye=", shot[1], " target=", shot[2])
+	var names := {}
+	var budgets := {"marble stair hall": {"meshes": 0, "triangles": 0}, "lion stair landing": {"meshes": 0, "triangles": 0}}
+	for mesh in scene.find_children("*", "MeshInstance3D", true, false):
+		if scene.visitor.is_ancestor_of(mesh) or mesh.mesh == null or mesh.mesh.get_surface_count() == 0:
+			continue
+		names[mesh.name] = names.get(mesh.name, 0) + 1
+		var centre: Vector3 = (mesh.global_transform * mesh.mesh.get_aabb()).get_center()
+		var triangles := 0
+		for surface in mesh.mesh.get_surface_count():
+			var arrays: Array = mesh.mesh.surface_get_arrays(surface)
+			var indices: int = arrays[Mesh.ARRAY_INDEX].size() if arrays[Mesh.ARRAY_INDEX] != null else 0
+			triangles += (indices if indices > 0 else arrays[Mesh.ARRAY_VERTEX].size()) / 3
+		for label in budgets:
+			var bounds: Array = scene.room_bounds(label)
+			if centre.x >= bounds[0] and centre.x <= bounds[1] and centre.z >= bounds[2] and centre.z <= bounds[3]:
+				budgets[label].meshes += 1
+				budgets[label].triangles += triangles
+	var duplicates := []
+	for title in names:
+		if names[title] > 1:
+			duplicates.append(title)
+	print("STAIRS_ROOM_MESH_BUDGET ", JSON.stringify(budgets), " duplicate_bake_names=", duplicates)
 	print("STAIRS_CAPTURE_DONE triangles_per_scroll_panel=", load("res://marble_hall_additions.gd").scroll_panel_mesh().surface_get_array_len(0) / 3)
 	quit(0)
