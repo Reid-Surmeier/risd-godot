@@ -1,0 +1,1104 @@
+{
+  "baseline_commit": "8348b28a1767ed42737c7bce6bb5a71ccdfbf507",
+  "shell_pixels": [
+    1080,
+    1080
+  ],
+  "before_summary": {
+    "doors": 0,
+    "failures": 0,
+    "objects": 23,
+    "rooms": 0,
+    "views": 20
+  },
+  "after_summary": {
+    "doors": 0,
+    "failures": 0,
+    "objects": 23,
+    "rooms": 0,
+    "views": 20
+  },
+  "after_objects": [
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        212.0,
+        161.0
+      ],
+      "canvas_screen_px": [
+        212.0,
+        161.0
+      ],
+      "flat_share": 0.353,
+      "picked": "W1",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        118
+      ],
+      "seconds_to_open": 2.2,
+      "tag": "W1",
+      "title": "The Supper at Emmaus (c.1650)",
+      "title_shown": "The Supper at Emmaus (c.1650)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        218,
+        83,
+        260,
+        208
+      ],
+      "zoom_fit_px": [
+        682.0,
+        532.0
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3189.0
+      ],
+      "zoom_image_px": [
+        3789,
+        2954
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        140.0,
+        221.0
+      ],
+      "canvas_screen_px": [
+        140.0,
+        221.0
+      ],
+      "flat_share": 0.354,
+      "picked": "W2",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        119
+      ],
+      "seconds_to_open": 2.1,
+      "tag": "W2",
+      "title": "Christ at the Column (c.1635)",
+      "title_shown": "Christ at the Column (c.1635)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        251,
+        47,
+        193,
+        276
+      ],
+      "zoom_fit_px": [
+        414.0,
+        702.0
+      ],
+      "zoom_full_px": [
+        2481.0,
+        4210.0
+      ],
+      "zoom_image_px": [
+        1884,
+        3200
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        122.0,
+        158.0
+      ],
+      "canvas_screen_px": [
+        122.0,
+        158.0
+      ],
+      "flat_share": 0.353,
+      "picked": "W3",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        118
+      ],
+      "seconds_to_open": 2.0,
+      "tag": "W3",
+      "title": "The Resurrection of Christ (c.1640)",
+      "title_shown": "The Resurrection of Christ (c.1640)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        257,
+        78,
+        181,
+        218
+      ],
+      "zoom_fit_px": [
+        524.0,
+        702.0
+      ],
+      "zoom_full_px": [
+        3139.0,
+        4210.0
+      ],
+      "zoom_image_px": [
+        2500,
+        3354
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        158.0,
+        179.0
+      ],
+      "canvas_screen_px": [
+        158.0,
+        179.0
+      ],
+      "flat_share": 0.353,
+      "picked": "W4",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        118
+      ],
+      "seconds_to_open": 2.1,
+      "tag": "W4",
+      "title": "Portrait of a Woman (1655)",
+      "title_shown": "Portrait of a Woman (1655)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        245,
+        73,
+        205,
+        226
+      ],
+      "zoom_fit_px": [
+        607.0,
+        702.0
+      ],
+      "zoom_full_px": [
+        3641.0,
+        4210.0
+      ],
+      "zoom_image_px": [
+        3071,
+        3552
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        182.0,
+        213.0
+      ],
+      "canvas_screen_px": [
+        182.0,
+        213.0
+      ],
+      "flat_share": 0.354,
+      "picked": "W5",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        117
+      ],
+      "seconds_to_open": 2.1,
+      "tag": "W5",
+      "title": "Charity (c.1550)",
+      "title_shown": "Charity (c.1550)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        237,
+        60,
+        220,
+        252
+      ],
+      "zoom_fit_px": [
+        563.0,
+        702.0
+      ],
+      "zoom_full_px": [
+        3373.0,
+        4210.0
+      ],
+      "zoom_image_px": [
+        3373,
+        4210
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        194.0,
+        319.0
+      ],
+      "canvas_screen_px": [
+        194.0,
+        319.0
+      ],
+      "flat_share": 0.353,
+      "picked": "W6",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        287,
+        111
+      ],
+      "seconds_to_open": 2.1,
+      "tag": "W6",
+      "title": "The Angel of Fame (c.1750)",
+      "title_shown": "The Angel of Fame (c.1750)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        250,
+        25,
+        195,
+        319
+      ],
+      "zoom_fit_px": [
+        438.0,
+        702.0
+      ],
+      "zoom_full_px": [
+        2627.0,
+        4210.0
+      ],
+      "zoom_image_px": [
+        2626,
+        4210
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        244.0,
+        174.0
+      ],
+      "canvas_screen_px": [
+        244.0,
+        174.0
+      ],
+      "flat_share": 0.353,
+      "picked": "W7",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        117
+      ],
+      "seconds_to_open": 2.5,
+      "tag": "W7",
+      "title": "A Musical Group (c.1730)",
+      "title_shown": "A Musical Group (c.1730)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        187,
+        64,
+        321,
+        243
+      ],
+      "zoom_fit_px": [
+        682.0,
+        442.0
+      ],
+      "zoom_full_px": [
+        4087.0,
+        2650.0
+      ],
+      "zoom_image_px": [
+        3524,
+        2286
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        135.0,
+        239.0
+      ],
+      "canvas_screen_px": [
+        135.0,
+        239.0
+      ],
+      "flat_share": 0.353,
+      "picked": "W8",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        106
+      ],
+      "seconds_to_open": 1.9,
+      "tag": "W8",
+      "title": "Allegorical Portrait of a Lady as Fortune (1676)",
+      "title_shown": "Allegorical Portrait of a Lady as Fortune (1676)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        264,
+        49,
+        168,
+        274
+      ],
+      "zoom_fit_px": [
+        384.0,
+        702.0
+      ],
+      "zoom_full_px": [
+        2302.0,
+        4210.0
+      ],
+      "zoom_image_px": [
+        2304,
+        4210
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        275.0,
+        179.0
+      ],
+      "canvas_screen_px": [
+        275.0,
+        179.0
+      ],
+      "flat_share": 0.353,
+      "picked": "W9",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        118
+      ],
+      "seconds_to_open": 2.4,
+      "tag": "W9",
+      "title": "The Marriage of Peleus and Thetis (c.1610)",
+      "title_shown": "The Marriage of Peleus and Thetis (c.1610)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        188,
+        75,
+        320,
+        223
+      ],
+      "zoom_fit_px": [
+        682.0,
+        441.0
+      ],
+      "zoom_full_px": [
+        4087.0,
+        2646.0
+      ],
+      "zoom_image_px": [
+        3470,
+        2246
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        240.0,
+        181.0
+      ],
+      "canvas_screen_px": [
+        240.0,
+        181.0
+      ],
+      "flat_share": 0.353,
+      "picked": "W10",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        117
+      ],
+      "seconds_to_open": 2.5,
+      "tag": "W10",
+      "title": "Still Life with Figure (c.1660)",
+      "title_shown": "Still Life with Figure (c.1660)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        197,
+        68,
+        301,
+        237
+      ],
+      "zoom_fit_px": [
+        682.0,
+        507.0
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3038.0
+      ],
+      "zoom_image_px": [
+        3478,
+        2586
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        298.0,
+        202.0
+      ],
+      "canvas_screen_px": [
+        298.0,
+        202.0
+      ],
+      "flat_share": 0.352,
+      "picked": "E1",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        347,
+        117
+      ],
+      "seconds_to_open": 2.6,
+      "tag": "E1",
+      "title": "Arsenal in a Ruined Basilica (c.1715)",
+      "title_shown": "Arsenal in a Ruined Basilica (c.1715)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        173,
+        62,
+        350,
+        249
+      ],
+      "zoom_fit_px": [
+        682.0,
+        481.0
+      ],
+      "zoom_full_px": [
+        4087.0,
+        2883.0
+      ],
+      "zoom_image_px": [
+        3712,
+        2619
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        155.0,
+        191.0
+      ],
+      "canvas_screen_px": [
+        155.0,
+        191.0
+      ],
+      "flat_share": 0.353,
+      "picked": "E2",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        347,
+        118
+      ],
+      "seconds_to_open": 2.1,
+      "tag": "E2",
+      "title": "Portrait of Theodore Atkinson, Jr. (1757)",
+      "title_shown": "Portrait of Theodore Atkinson, Jr. (1757)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        249,
+        69,
+        197,
+        234
+      ],
+      "zoom_fit_px": [
+        556.0,
+        702.0
+      ],
+      "zoom_full_px": [
+        3336.0,
+        4210.0
+      ],
+      "zoom_image_px": [
+        3335,
+        4210
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        200.0,
+        163.0
+      ],
+      "canvas_screen_px": [
+        200.0,
+        163.0
+      ],
+      "flat_share": 0.353,
+      "picked": "E3",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        347,
+        118
+      ],
+      "seconds_to_open": 2.1,
+      "tag": "E3",
+      "title": "Landscape with a Mill (c.1655)",
+      "title_shown": "Landscape with a Mill (c.1655)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        224,
+        83,
+        247,
+        208
+      ],
+      "zoom_fit_px": [
+        682.0,
+        558.0
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3348.0
+      ],
+      "zoom_image_px": [
+        3250,
+        2664
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        255.0,
+        186.0
+      ],
+      "canvas_screen_px": [
+        255.0,
+        186.0
+      ],
+      "flat_share": 0.353,
+      "picked": "E4",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        118
+      ],
+      "seconds_to_open": 2.5,
+      "tag": "E4",
+      "title": "A View of Paris from the Louvre (1835)",
+      "title_shown": "A View of Paris from the Louvre (1835)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        197,
+        71,
+        302,
+        230
+      ],
+      "zoom_fit_px": [
+        682.0,
+        514.0
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3084.0
+      ],
+      "zoom_image_px": [
+        3615,
+        2728
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        186.0,
+        234.0
+      ],
+      "canvas_screen_px": [
+        186.0,
+        234.0
+      ],
+      "flat_share": 0.353,
+      "picked": "E5",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        347,
+        77
+      ],
+      "seconds_to_open": 2.3,
+      "tag": "E5",
+      "title": "Portrait of Antoine-Georges-Fran\u00e7ois de Chabaud-Latour and His Family (c.1806)",
+      "title_shown": "Portrait of Antoine-Georges-Fran\u00e7ois de Chabaud-Latour and His Family (c.1806)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        216,
+        25,
+        262,
+        319
+      ],
+      "zoom_fit_px": [
+        544.0,
+        702.0
+      ],
+      "zoom_full_px": [
+        3261.0,
+        4210.0
+      ],
+      "zoom_image_px": [
+        3260,
+        4210
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        241.0,
+        184.0
+      ],
+      "canvas_screen_px": [
+        241.0,
+        184.0
+      ],
+      "flat_share": 0.353,
+      "picked": "E6",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        347,
+        118
+      ],
+      "seconds_to_open": 2.3,
+      "tag": "E6",
+      "title": "Architectural Fantasy (c.1805)",
+      "title_shown": "Architectural Fantasy (c.1805)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        206,
+        74,
+        284,
+        225
+      ],
+      "zoom_fit_px": [
+        682.0,
+        533.0
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3198.0
+      ],
+      "zoom_image_px": [
+        4087,
+        3197
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        239.0,
+        160.0
+      ],
+      "canvas_screen_px": [
+        239.0,
+        160.0
+      ],
+      "flat_share": 0.353,
+      "picked": "E7",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        118
+      ],
+      "seconds_to_open": 2.4,
+      "tag": "E7",
+      "title": "The Ferry Boat (c.1645)",
+      "title_shown": "The Ferry Boat (c.1645)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        194,
+        75,
+        308,
+        222
+      ],
+      "zoom_fit_px": [
+        682.0,
+        460.0
+      ],
+      "zoom_full_px": [
+        4087.0,
+        2760.0
+      ],
+      "zoom_image_px": [
+        3278,
+        2215
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        140.0,
+        237.0
+      ],
+      "canvas_screen_px": [
+        140.0,
+        237.0
+      ],
+      "flat_share": 0.352,
+      "picked": "E8",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        107
+      ],
+      "seconds_to_open": 2.0,
+      "tag": "E8",
+      "title": "Portrait of a Cavalier with his Hunting Dogs (c.1575)",
+      "title_shown": "Portrait of a Cavalier with his Hunting Dogs (c.1575)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        256,
+        46,
+        183,
+        279
+      ],
+      "zoom_fit_px": [
+        388.0,
+        702.0
+      ],
+      "zoom_full_px": [
+        2326.0,
+        4210.0
+      ],
+      "zoom_image_px": [
+        2327,
+        4210
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        216.0,
+        168.0
+      ],
+      "canvas_screen_px": [
+        216.0,
+        168.0
+      ],
+      "flat_share": 0.353,
+      "picked": "E9",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        118
+      ],
+      "seconds_to_open": 2.4,
+      "tag": "E9",
+      "title": "Hagar and Ishmael (c.1640)",
+      "title_shown": "Hagar and Ishmael (c.1640)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        207,
+        71,
+        282,
+        231
+      ],
+      "zoom_fit_px": [
+        682.0,
+        529.0
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3170.0
+      ],
+      "zoom_image_px": [
+        3242,
+        2513
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        199.0,
+        254.0
+      ],
+      "canvas_screen_px": [
+        199.0,
+        254.0
+      ],
+      "flat_share": 0.353,
+      "picked": "S1",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        85
+      ],
+      "seconds_to_open": 2.0,
+      "tag": "S1",
+      "title": "Wisdom and Strength (c.1572)",
+      "title_shown": "Wisdom and Strength (c.1572)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        234,
+        44,
+        227,
+        282
+      ],
+      "zoom_fit_px": [
+        542.0,
+        702.0
+      ],
+      "zoom_full_px": [
+        3251.0,
+        4210.0
+      ],
+      "zoom_image_px": [
+        3252,
+        4210
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        187.0,
+        268.0
+      ],
+      "canvas_screen_px": [
+        187.0,
+        268.0
+      ],
+      "flat_share": 0.353,
+      "picked": "S2",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        71
+      ],
+      "seconds_to_open": 2.2,
+      "tag": "S2",
+      "title": "The Virgin and Child Appearing to Saint Francis of Assisi (c.1599)",
+      "title_shown": "The Virgin and Child Appearing to Saint Francis of Assisi (c.1599)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        230,
+        26,
+        234,
+        318
+      ],
+      "zoom_fit_px": [
+        486.0,
+        702.0
+      ],
+      "zoom_full_px": [
+        2913.0,
+        4210.0
+      ],
+      "zoom_image_px": [
+        2518,
+        3640
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        142.0,
+        234.0
+      ],
+      "canvas_screen_px": [
+        142.0,
+        234.0
+      ],
+      "flat_share": 0.353,
+      "picked": "N1",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        101
+      ],
+      "seconds_to_open": 2.0,
+      "tag": "N1",
+      "title": "Portrait of a Lady of the Hampden Family (c.1610)",
+      "title_shown": "Portrait of a Lady of the Hampden Family (c.1610)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        251,
+        42,
+        194,
+        286
+      ],
+      "zoom_fit_px": [
+        413.0,
+        702.0
+      ],
+      "zoom_full_px": [
+        2476.0,
+        4210.0
+      ],
+      "zoom_image_px": [
+        2108,
+        3587
+      ]
+    },
+    {
+      "camera_glided": true,
+      "canvas_render_px": [
+        157.0,
+        254.0
+      ],
+      "canvas_screen_px": [
+        157.0,
+        254.0
+      ],
+      "flat_share": 0.353,
+      "picked": "N2",
+      "render_size": [
+        695,
+        465
+      ],
+      "result": "inspected, zoomed and closed",
+      "room": "Grand Gallery",
+      "screen": [
+        348,
+        90
+      ],
+      "seconds_to_open": 2.0,
+      "tag": "N2",
+      "title": "Portrait of Lady Sarah Ingestre (1827)",
+      "title_shown": "Portrait of Lady Sarah Ingestre (1827)",
+      "view": "dollhouse",
+      "visitor_stepped_out": false,
+      "work_on_screen": [
+        248,
+        30,
+        199,
+        310
+      ],
+      "zoom_fit_px": [
+        423.0,
+        702.0
+      ],
+      "zoom_full_px": [
+        2533.0,
+        4210.0
+      ],
+      "zoom_image_px": [
+        2207,
+        3668
+      ]
+    }
+  ]
+}

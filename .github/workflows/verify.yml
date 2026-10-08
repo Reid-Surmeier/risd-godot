@@ -24,5 +24,7 @@ jobs:
           persist-credentials: false
       - name: Install gdtoolkit
         run: pipx install "gdtoolkit==4.*" || pip install "gdtoolkit==4.*"
+      - name: Install image check dependency
+        run: python3 -m pip install Pillow
       - run: scripts/check.sh
       - run: git diff --check
