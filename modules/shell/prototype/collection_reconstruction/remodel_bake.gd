@@ -40,12 +40,17 @@ const DETAIL_TRIANGLES:=30000
 const DETAIL_LEVEL:=.45
 const PROXY:=.6
 const SHADE_TOP:=1.2
-## Rooms kept out of the lightmap altogether, for now: with its lamps in, the two-storey
-## Skylight Gallery alone took a bake from two minutes past fifteen (which of its lamps, probes
-## or shadow boxes costs that is not yet known). Every surface of such a room is drawn at
-## UNBAKED_LEVEL of its own colour, shaded per vertex from above; its works keep the brightness
-## of the spot they would have had. It casts and receives nothing in the bake.
-const UNBAKED_ROOMS:=["Skylight Gallery"]
+## Two switches for a room the bake cannot yet afford, both by plan label.
+## LAMPLESS_ROOMS: the room's surfaces are baked, but the rule gives it no fills, spots, probes
+## or shadow boxes; it is lit by whatever glows in it and by bounce. Today the two-storey
+## Skylight Gallery: without it a full bake took 1:35, with its geometry and none of its lamps
+## 2:08, with its lamps more than 15 minutes; which of them costs that is not yet known. Its
+## laylights are emissive. Its works keep the brightness of the spot they would have had.
+## UNBAKED_ROOMS: the room is kept out of the lightmap altogether, every surface drawn at
+## UNBAKED_LEVEL of its own colour and shaded per vertex from above. Empty today; it is the
+## fallback if a room's geometry alone is what a bake cannot afford.
+const LAMPLESS_ROOMS:=["Skylight Gallery"]
+const UNBAKED_ROOMS:=[]
 const UNBAKED_LEVEL:=.6
 ## Daylight the footage shows; the only lamps not derived from the plan and the works.
 ## Room, from, to (room-scene metres), energy, cone, colour.
@@ -202,7 +207,7 @@ func prepare() -> void:
 	for lamp in lamps:
 		lamp.at.y=maxf(2.0,minf(lamp.at.y,headroom(covers,lamp.at.x,lamp.at.z,lamp.at.y+.2)-.1))
 		lamp.energy=SPOT_ENERGY_PER_M*lamp.at.distance_to(lamp.target)
-	lamps=lamps.filter(func(lamp):return not lamp.room in UNBAKED_ROOMS)
+	lamps=lamps.filter(func(lamp):return not (lamp.room in UNBAKED_ROOMS or lamp.room in LAMPLESS_ROOMS))
 	var asked:={} # room -> what it puts in the bake and what it keeps out
 	var shades:={} # authored mesh name -> [is a work, a PackedByteArray of brightness for each surface]
 	var room:=Node3D.new()
@@ -312,7 +317,7 @@ func prepare() -> void:
 	plain.albedo_color=Color("8c8c8c")
 	var proxies:=0
 	for work in works:
-		if work.flat or work.room.label in UNBAKED_ROOMS:continue
+		if work.flat or work.room.label in UNBAKED_ROOMS or work.room.label in LAMPLESS_ROOMS:continue
 		var cube:=BoxMesh.new()
 		cube.size=Vector3(work.box.size.x*PROXY,work.box.size.y,work.box.size.z*PROXY)
 		var shell:=SurfaceTool.new()
@@ -333,7 +338,7 @@ func prepare() -> void:
 		proxies+=1
 	# Fill: every area of the plan has at least one, so no room is left unlit.
 	for area in plan:
-		if area.label==HALL or area.label in UNBAKED_ROOMS:continue
+		if area.label==HALL or area.label in UNBAKED_ROOMS or area.label in LAMPLESS_ROOMS:continue
 		var b:Array=area.bounds
 		var across:int=maxi(1,roundi((b[1]-b[0])/FILL_BAY))
 		var along:int=maxi(1,roundi((b[3]-b[2])/FILL_BAY))
@@ -368,7 +373,7 @@ func prepare() -> void:
 					room.add_child(probe)
 					probe.owner=room
 	for spec in DAYLIGHT:
-		if not spec[0] in UNBAKED_ROOMS and plan.any(func(area):return area.label==spec[0]):
+		if not (spec[0] in UNBAKED_ROOMS or spec[0] in LAMPLESS_ROOMS) and plan.any(func(area):return area.label==spec[0]):
 			lamps.append({"room":spec[0],"kind":"daylight","at":spec[1],"target":spec[2],"energy":spec[3],"cone":spec[4],"color":spec[5]})
 	for lamp in lamps:
 		var light:=SpotLight3D.new()
