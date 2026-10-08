@@ -293,9 +293,11 @@ func solid(at: Vector3, size: Vector3, m: Material, collide := false) -> Node3D:
 ## A catalogued work as its own mesh: `path` is a .glb (or any scene holding meshes) made by
 ## prepare_mesh.py, `at` the point its base centre stands on, `yaw` turns its front (+Z), and
 ## `size_m` is the catalogue width, height, depth in metres. The mesh is scaled to the catalogue
-## height. It bakes with the room's lightmap like every other surface, blocks walking, is cut away
-## with the camera, and its accession number makes it clickable: the caption and the detail
-## picture are the row of that number in objects.json.
+## height. It is drawn as every work in these rooms is, its own texture at full brightness, and
+## its shape casts in the room's bake; a mesh that brings no texture is lit by the lightmap
+## instead. It blocks walking, is cut away with the camera, and its accession number makes it
+## clickable: the caption and detail picture are that number's row in objects.json, or the
+## catalogue_* metadata set on the returned node.
 func place_mesh(path:String,at:Vector3,yaw:float,size_m:Vector3,accession:String) -> StaticBody3D:
 	var scene:Node=load(path).instantiate()
 	var sources:Array=scene.find_children("*","MeshInstance3D",true,false)
@@ -315,12 +317,12 @@ func place_mesh(path:String,at:Vector3,yaw:float,size_m:Vector3,accession:String
 			if source.mesh.surface_get_format(surface)&Mesh.ARRAY_FORMAT_NORMAL==0:st.generate_normals()
 			var part:=MeshInstance3D.new()
 			part.mesh=st.commit()
-			# Matt, whatever the file says: a generated mesh arrives fully metallic and bakes black.
-			var m:=look(Color.WHITE)
+			# Never the file's own material: a generated mesh arrives fully metallic and bakes black.
 			var original=source.get_active_material(surface)
-			if original is BaseMaterial3D:
-				m.albedo_color=original.albedo_color
-				m.albedo_texture=original.albedo_texture
+			var skin:Texture2D=original.albedo_texture if original is BaseMaterial3D else null
+			var m:=look(Color.WHITE,"",skin!=null)
+			if skin!=null:m.albedo_texture=skin
+			elif original is BaseMaterial3D:m.albedo_color=original.albedo_color
 			part.material_override=m
 			box=part.mesh.get_aabb() if parts.is_empty() else box.merge(part.mesh.get_aabb())
 			parts.append(part)

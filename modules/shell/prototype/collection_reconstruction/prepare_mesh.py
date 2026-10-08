@@ -1,7 +1,7 @@
 """Make a room-ready GLB from a scanned or generated mesh: the Blender step of the mesh route.
 
 Run: blender -b -P prepare_mesh.py -- IN.glb OUT.glb --height METRES
-         [--depth METRES] [--triangles 2500] [--texture 512] [--yaw DEGREES]
+         [--depth METRES] [--triangles 3000] [--texture 512] [--yaw DEGREES]
 
 It joins the meshes, sets every material to metallic 0 (a generated GLB arrives fully metallic and
 bakes black), recalculates normals, decimates to the triangle budget, shrinks textures to the pixel
@@ -9,7 +9,7 @@ budget, turns the front to +Z, scales to the catalogue height, squeezes the dept
 depth when one is given, and puts the base centre at the origin. The room places that origin with
 `place_mesh()`. The last line printed is the row to copy into PROVENANCE.md.
 The default budgets are the builder guide's for a work of 0.5 m or more
-(docs/playtest/room-builder-guide.md); a smaller work takes --triangles 1000 --texture 256.
+(docs/playtest/room-builder-guide.md); a smaller work takes --triangles 1500 --texture 256.
 The mesh keeps the UV layout it came with, so look at the result: a photogrammetry scan's
 patchwork atlas tears when it is decimated hard.
 """
@@ -27,7 +27,7 @@ parser.add_argument("source")
 parser.add_argument("output")
 parser.add_argument("--height", type=float, required=True, help="catalogue height in metres")
 parser.add_argument("--depth", type=float, default=0.0, help="catalogue depth in metres; 0 keeps the mesh's own")
-parser.add_argument("--triangles", type=int, default=2500)
+parser.add_argument("--triangles", type=int, default=3000)
 parser.add_argument("--texture", type=int, default=512, help="longest texture side in pixels")
 parser.add_argument("--yaw", type=float, default=0.0, help="turn about the vertical axis so the front faces +Z")
 args = parser.parse_args(sys.argv[sys.argv.index("--") + 1:])

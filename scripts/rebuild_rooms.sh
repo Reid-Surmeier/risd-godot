@@ -23,11 +23,14 @@ godot --headless --path "$EXT" --script "$SRC/architecture_check.gd" 2>&1 | grep
 if [ "${1:-}" = "--draft" ]; then echo "draft room project: $EXT"; exit 0; fi
 $SW godot --path "$EXT" --display-driver x11 --rendering-method gl_compatibility --script res://remodel_bake.gd 2>&1 | grep "BAKE_PREPARE"
 godot --path "$EXT" --headless --editor --import > /dev/null 2>&1
-$LVP godot --path "$EXT" --editor --rendering-method mobile --quit-after 120 res://addition_baked/room.tscn > "$T/prime.log" 2>&1 || true
+# The windowed editor can abort in its accessibility layer; a prime that died leaves the bake to fail
+# 25 minutes later when it saves its atlas, so the layer is off and a dead prime stops the run here.
+$LVP godot --path "$EXT" --editor --accessibility disabled --rendering-method mobile --quit-after 120 res://addition_baked/room.tscn > "$T/prime.log" 2>&1 || true
+if grep -q "panicked" "$T/prime.log"; then echo "the prime step crashed: $T/prime.log; run again"; exit 1; fi
 godot --path "$EXT" --headless --editor --import > /dev/null 2>&1
 cp "$EXT/project.godot" "$T/project.godot.original"
 printf '\n[editor_plugins]\nenabled=PackedStringArray("res://bake/plugin.cfg")\n' >> "$EXT/project.godot"
-timeout 1700 $LVP godot --path "$EXT" --editor --rendering-method mobile > "$T/bake.log" 2>&1 || true
+timeout 1700 $LVP godot --path "$EXT" --editor --accessibility disabled --rendering-method mobile > "$T/bake.log" 2>&1 || true
 cp "$T/project.godot.original" "$EXT/project.godot"
 grep "BAKE_OK" "$T/bake.log" || { echo "bake failed: $T/bake.log"; exit 1; }
 /usr/bin/python3 "$SRC/relocate_rooms.py" "$EXT" "$T/collection_rooms"

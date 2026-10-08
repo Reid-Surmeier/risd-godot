@@ -8,6 +8,7 @@
 ## source ~/promo-lab/gpu-env.sh   (the RTX through Mesa d3d12; llvmpipe is ten times slower)
 ## godot --fixed-fps 60 --path . --script res://modules/shell/playtest/museum_playtest.gd
 ##   --display-driver x11 --rendering-driver opengl3 -- --out-dir=<dir> [--only=doors,rooms,views,objects]
+##   [--rooms=dark-medieval-room,...]   views and objects of those rooms only, for a builder's own room
 ## --fixed-fps makes every frame one sixtieth of a second of game time, so a run is repeatable.
 extends SceneTree
 
@@ -17,6 +18,7 @@ const HALL := "Grand Gallery"
 var walk
 var out := ""
 var report := {"doors": [], "rooms": [], "views": [], "objects": [], "failures": []}
+var only_rooms := PackedStringArray()  # room labels in lower case with dashes; empty means every room
 
 
 func _initialize() -> void:
@@ -38,6 +40,7 @@ func _fail(kind: String, what: String, detail := {}) -> void:
 func _run() -> void:
 	out = _arg("out-dir", "res://build/museum-playtest")
 	var only := _arg("only", "doors,rooms,views,objects").split(",")
+	only_rooms = _arg("rooms", "").split(",", false)
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(out))
 	root.size = SIZE
 	walk = load("res://modules/shell/prototype/collection_reconstruction/main_build_walk.gd").new()
@@ -303,6 +306,8 @@ func _flat_share(image: Image) -> float:
 func _views() -> void:
 	for area in _areas():
 		var slug: String = area.label.to_lower().replace(" ", "-")
+		if not only_rooms.is_empty() and slug not in only_rooms:
+			continue
 		var b: Array = area.b
 		var long_z: bool = b[3] - b[2] > b[1] - b[0]
 		var span: float = (b[3] - b[2]) if long_z else (b[1] - b[0])
@@ -392,6 +397,8 @@ func _objects() -> void:
 			"title": str(thing.rec.get("title", "")),
 			"room": walk._plan[thing.room].label if thing.has("object") else HALL
 		}
+		if not only_rooms.is_empty() and str(entry.room).to_lower().replace(" ", "-") not in only_rooms:
+			continue
 		# Stand in front of it and face it, as a visitor would before clicking: nearer or
 		# further until it is on screen. A free-standing work is viewed from the room's middle.
 		var facing: Vector3 = thing.normal
