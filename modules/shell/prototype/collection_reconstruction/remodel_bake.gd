@@ -3,7 +3,9 @@ extends SceneTree
 
 ## #274: one light for every added room. The rule, in words, is in
 ## docs/playtest/room-builder-guide.md ("Light"); these are its numbers.
-const FILL_ENERGY:=1.5 # the fill for FILL_M2 of floor in a room with no spots
+const FILL_ENERGY:=1.4 # the fill for FILL_M2 of floor in a room with no spots
+const UPLIGHT:=.35 # of each fill, sent up at the ceiling from UPLIGHT_DROP below it
+const UPLIGHT_DROP:=1.5
 const FILL_M2:=25.0
 const SPILL:=.03 # of its spots' energy a room's fill gives up: they light the floor too
 const FILL_BAY:=5.0 # metres between fills, the Hall's bay
@@ -11,10 +13,11 @@ const GROUP_M:=2.4 # works within this width of one wall share a spot
 ## What the rule leaves over, measured: the fill a room needs for its floor to read as the
 ## Hall's (143 of 255, give or take ten) depends on its furniture and how low its spots aim, so
 ## after a bake the light pass's floor number sets the room's trim here. A room not listed is 1.
-const FILL_TRIM:={"Rockefeller":.55,"grey French gallery":.5,"adjacent gallery":.75,"light Renaissance room":.85,
-	"modern painting gallery":.86,"Skylight Gallery":.25,"marble stair hall":.8,"purple elevator-5 connector":4.0,
-	"modern adjoining gallery threshold study limit":4.5,"Grand Gallery reveal threshold":1.8,
-	"Rockefeller reveal threshold":1.3,"white sculpture gallery threshold study limit":1.2}
+const FILL_TRIM:={"Rockefeller":.75,"grey French gallery":.5,"adjacent gallery":.82,"light Renaissance room":.95,
+	"dark medieval room":1.1,"modern painting gallery":.86,"marble stair hall":.85,
+	"purple elevator-5 connector":4.8,"modern adjoining gallery threshold study limit":5.6,
+	"Grand Gallery reveal threshold":2.3,"Rockefeller reveal threshold":1.5,
+	"white sculpture gallery threshold study limit":1.4}
 ## The Hall's lamps are #ffe1b2 and #ffd391, but its daylight cools them: its white skirting
 ## reads (195,174,155). Alone, those two colours turn white trim tan and grey paint olive, so
 ## the rooms' lamps are the colours that make their trim read as the Hall's skirting does, and
@@ -26,6 +29,24 @@ const SPOT_LEAN:=.7 # metres out from the work per metre above it: the Hall's 2.
 const SPOT_DROP:=3.1 # a spot hangs at most this far above its work's middle
 const SHADE_FLOOR:=.45 # what a work's face turned away from its lamp keeps
 const PLAIN_TINT:="fff6ea" # on a work's parts that carry no picture
+## What stays out of the baked scene altogether, because the bake traces every triangle and the
+## scene is read as text at the first doorway: every work (thirteen placed meshes are 130,000
+## triangles), and anything modelled finer than DETAIL_TRIANGLES (the Skylight Gallery's
+## ironwork is one mesh of 121,080; with both in, a bake ran past 28 minutes and the scene
+## was 35 MB). The game goes on drawing the room's own mesh; all the bake keeps of it is one
+## brightness a vertex (a byte, SHADE_TOP at 255). A standing work casts through a plain box
+## PROXY of its footprint; fine detail casts nothing and is drawn at DETAIL_LEVEL of its colour.
+const DETAIL_TRIANGLES:=30000
+const DETAIL_LEVEL:=.45
+const PROXY:=.6
+const SHADE_TOP:=1.2
+## Rooms kept out of the lightmap altogether, for now: with its lamps in, the two-storey
+## Skylight Gallery alone took a bake from two minutes past fifteen (which of its lamps, probes
+## or shadow boxes costs that is not yet known). Every surface of such a room is drawn at
+## UNBAKED_LEVEL of its own colour, shaded per vertex from above; its works keep the brightness
+## of the spot they would have had. It casts and receives nothing in the bake.
+const UNBAKED_ROOMS:=["Skylight Gallery"]
+const UNBAKED_LEVEL:=.6
 ## Daylight the footage shows; the only lamps not derived from the plan and the works.
 ## Room, from, to (room-scene metres), energy, cone, colour.
 const DAYLIGHT:=[["marble stair hall",Vector3(20.2,5.9,-1.96),Vector3(15.0,.5,-1.96),4.0,60.0,"eff5ff"]]
@@ -128,29 +149,25 @@ func spots_for(works:Array) -> Array:
 
 ## A work is drawn at its own colours, not through lightmap texels (14 cm texels on a 20 cm
 ## object came out dark and blotchy): each vertex is shaded once, here, by the lamp aimed at
-## the work. The face it shows the room keeps its full colour; faces turned away fall to SHADE_FLOOR.
-func shade_work(mesh:ArrayMesh,pose:Transform3D,work:Dictionary,multiply:bool) -> ArrayMesh:
-	var arrays:=mesh.surface_get_arrays(0)
+## the work. The face it shows the room keeps its full colour; faces turned away fall to
+## SHADE_FLOOR. One byte a vertex, in the mesh's own vertex order.
+func shades_of(arrays:Array,pose:Transform3D,work:Dictionary,level:float) -> PackedByteArray:
 	var points:PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
-	var normals:PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
-	var old=arrays[Mesh.ARRAY_COLOR]
-	var colors:=PackedColorArray()
+	var normals=arrays[Mesh.ARRAY_NORMAL]
+	var shades:=PackedByteArray()
+	shades.resize(points.size())
 	var centre:Vector3=work.box.get_center()
 	var facing:Vector3=work.facing
 	for i in points.size():
 		var at:Vector3=pose*points[i]
-		var normal:Vector3=(pose.basis*normals[i]).normalized()
+		var normal:Vector3=(pose.basis*normals[i]).normalized() if normals!=null and normals.size()==points.size() else facing
 		# Cards are drawn from both sides: a normal counts as pointing out of the work.
 		var out:float=(at-centre).dot(normal)
 		if out< -.02 or (absf(out)<=.02 and normal.dot(facing)<0):normal=-normal
 		var toward:Vector3=(work.lamp-at).normalized()
-		var shade:float=clampf(lerpf(SHADE_FLOOR,1.0,(normal.dot(toward)*.5+.5)/(facing.dot(toward)*.5+.5)),SHADE_FLOOR,1.1)
-		var was:Color=old[i] if multiply and old!=null and old.size()==points.size() else Color.WHITE
-		colors.append(Color(was.r*shade,was.g*shade,was.b*shade,was.a))
-	arrays[Mesh.ARRAY_COLOR]=colors
-	var shaded:=ArrayMesh.new()
-	shaded.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
-	return shaded
+		var shade:float=level*clampf(lerpf(SHADE_FLOOR,1.0,(normal.dot(toward)*.5+.5)/(facing.dot(toward)*.5+.5)),SHADE_FLOOR,1.1)
+		shades[i]=clampi(roundi(shade/SHADE_TOP*255.0),0,255)
+	return shades
 
 ## How high a lamp can hang over a point: under whatever is built above it (a doorway's
 ## header, a landing), else `top`.
@@ -185,6 +202,9 @@ func prepare() -> void:
 	for lamp in lamps:
 		lamp.at.y=maxf(2.0,minf(lamp.at.y,headroom(covers,lamp.at.x,lamp.at.z,lamp.at.y+.2)-.1))
 		lamp.energy=SPOT_ENERGY_PER_M*lamp.at.distance_to(lamp.target)
+	lamps=lamps.filter(func(lamp):return not lamp.room in UNBAKED_ROOMS)
+	var asked:={} # room -> what it puts in the bake and what it keeps out
+	var shades:={} # authored mesh name -> [is a work, a PackedByteArray of brightness for each surface]
 	var room:=Node3D.new()
 	room.name="BakedRoom"
 	var index:=0
@@ -198,10 +218,29 @@ func prepare() -> void:
 			var middle:Vector3=(source.global_transform*source.get_aabb()).get_center()
 			var b:Array=plan[0].bounds
 			if middle.x<b[0]-.5 or middle.x>b[1]+.5 or middle.z<b[2]-.5 or middle.z>b[3]+.5:continue
-		if source.material_override is ShaderMaterial and source.material_override.shader.resource_path.ends_with("floor_oak.gdshader"):
+		var reach:AABB=source.global_transform*source.get_aabb()
+		var where:="elsewhere"
+		for area in plan:
+			var rb:Array=area.bounds
+			if reach.get_center().x>=rb[0] and reach.get_center().x<=rb[1] and reach.get_center().z>=rb[2] and reach.get_center().z<=rb[3]:where=area.label
+		var unbaked:bool=where in UNBAKED_ROOMS
+		if not unbaked and source.material_override is ShaderMaterial and source.material_override.shader.resource_path.ends_with("floor_oak.gdshader"):
 			floors.append_from(source.mesh,0,source.global_transform)
 			floor_names.append(source.name)
 			floor_material=source.material_override
+			continue
+		var work=work_of.get(source)
+		var triangles:int=source.mesh.get_faces().size()/3
+		# What each room asks of the bake, printed before it starts.
+		var row:Dictionary=asked.get_or_add(where,{"surfaces":0,"triangles":0,"texels":0,"kept_out":0,"kept_out_triangles":0})
+		if work!=null or unbaked or triangles>DETAIL_TRIANGLES:
+			var lit:Dictionary=work if work!=null else {"box":reach,"facing":Vector3.UP,"lamp":reach.get_center()+Vector3.UP*2.5}
+			var kept:=[work!=null]
+			for surface in source.mesh.get_surface_count():
+				kept.append(shades_of(source.mesh.surface_get_arrays(surface),source.global_transform,lit,1.0 if work!=null else UNBAKED_LEVEL if unbaked else DETAIL_LEVEL))
+			shades[source.name]=kept
+			row.kept_out+=1
+			row.kept_out_triangles+=triangles
 			continue
 		var st:=SurfaceTool.new()
 		for surface in source.mesh.get_surface_count():st.append_from(source.mesh,surface,Transform3D.IDENTITY)
@@ -210,11 +249,11 @@ func prepare() -> void:
 		if normals==null or normals.is_empty():
 			st.generate_normals()
 			mesh=st.commit()
-		var work=work_of.get(source)
-		var own:=source.material_override as BaseMaterial3D
-		if work!=null:mesh=shade_work(mesh,source.global_transform,work,own!=null and own.vertex_color_use_as_albedo)
 		var result:=mesh.lightmap_unwrap(source.global_transform,.14)
 		assert(result==OK,"Native UV2 unwrap failed")
+		row.surfaces+=1
+		row.triangles+=triangles
+		row.texels+=mesh.lightmap_size_hint.x*mesh.lightmap_size_hint.y
 		var instance:=MeshInstance3D.new()
 		instance.name="Surface%03d"%index
 		instance.mesh=mesh
@@ -241,18 +280,6 @@ func prepare() -> void:
 		instance.transform=source.global_transform
 		instance.gi_mode=GeometryInstance3D.GI_MODE_STATIC
 		instance.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
-		if work!=null and (instance.material_override==null or instance.material_override is BaseMaterial3D):
-			var skin:BaseMaterial3D=StandardMaterial3D.new() if instance.material_override==null else instance.material_override.duplicate()
-			skin.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
-			# A mount or a plain-coloured part has no photograph's light in it: it takes the lamps' warmth.
-			if skin.albedo_texture==null:skin.albedo_color*=Color(PLAIN_TINT)
-			skin.vertex_color_use_as_albedo=true
-			instance.material_override=skin
-			# A flat work on a wall can be hidden while its wall stays, so it leaves no shadow behind:
-			# it is kept out of the bake altogether (the shadow flag alone does not stop it occluding).
-			if work.flat:
-				instance.gi_mode=GeometryInstance3D.GI_MODE_DISABLED
-				instance.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		instance.set_meta("source_path",source.name)
 		room.add_child(instance)
 		instance.owner=room
@@ -280,9 +307,33 @@ func prepare() -> void:
 	room.add_child(floor_instance)
 	floor_instance.owner=room
 	index+=1
+	# A standing work's shadow, from a box the game never draws (remodel_room.gd hides it).
+	var plain:=StandardMaterial3D.new()
+	plain.albedo_color=Color("8c8c8c")
+	var proxies:=0
+	for work in works:
+		if work.flat or work.room.label in UNBAKED_ROOMS:continue
+		var cube:=BoxMesh.new()
+		cube.size=Vector3(work.box.size.x*PROXY,work.box.size.y,work.box.size.z*PROXY)
+		var shell:=SurfaceTool.new()
+		shell.append_from(cube,0,Transform3D.IDENTITY)
+		var caster:=shell.commit()
+		var stand:=Transform3D(Basis.IDENTITY,work.box.get_center())
+		assert(caster.lightmap_unwrap(stand,.14)==OK,"Native UV2 unwrap failed")
+		var proxy:=MeshInstance3D.new()
+		proxy.name="Proxy%03d"%proxies
+		proxy.mesh=caster
+		proxy.material_override=plain
+		proxy.transform=stand
+		proxy.gi_mode=GeometryInstance3D.GI_MODE_STATIC
+		proxy.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
+		proxy.set_meta("shadow_proxy",true)
+		room.add_child(proxy)
+		proxy.owner=room
+		proxies+=1
 	# Fill: every area of the plan has at least one, so no room is left unlit.
 	for area in plan:
-		if area.label==HALL:continue
+		if area.label==HALL or area.label in UNBAKED_ROOMS:continue
 		var b:Array=area.bounds
 		var across:int=maxi(1,roundi((b[1]-b[0])/FILL_BAY))
 		var along:int=maxi(1,roundi((b[3]-b[2])/FILL_BAY))
@@ -301,6 +352,13 @@ func prepare() -> void:
 				hung.y=maxf(2.0,headroom(covers,hung.x,hung.z,minf(float(area.get("height",3.5)),5.8))-.3)
 				lamps.append({"room":area.label,"kind":"fill","at":hung,"target":Vector3(hung.x,0,hung.z),"cone":88.0,
 					"energy":each,"color":FILL_COLOR})
+				# The footage's ceilings are white: bounce off an oak floor alone leaves them dim and
+				# tan. A second, weaker lamp looks up from well below the ceiling, far enough that it
+				# washes the whole ceiling instead of glowing on one patch of it.
+				var low:=Vector3(hung.x,maxf(1.9,hung.y+.3-UPLIGHT_DROP),hung.z)
+				if hung.y+.3-low.y>=1.0:
+					lamps.append({"room":area.label,"kind":"up","at":low,"target":Vector3(hung.x,hung.y+.3,hung.z),"cone":85.0,
+						"energy":each*UPLIGHT,"color":FILL_COLOR})
 		# The visitor takes the room's light from probes at body height.
 		for x in range(maxi(1,int((b[1]-b[0])/2.0))):
 			for z in range(maxi(1,int((b[3]-b[2])/2.0))):
@@ -310,7 +368,7 @@ func prepare() -> void:
 					room.add_child(probe)
 					probe.owner=room
 	for spec in DAYLIGHT:
-		if plan.any(func(area):return area.label==spec[0]):
+		if not spec[0] in UNBAKED_ROOMS and plan.any(func(area):return area.label==spec[0]):
 			lamps.append({"room":spec[0],"kind":"daylight","at":spec[1],"target":spec[2],"energy":spec[3],"cone":spec[4],"color":spec[5]})
 	for lamp in lamps:
 		var light:=SpotLight3D.new()
@@ -318,7 +376,7 @@ func prepare() -> void:
 		light.owner=room
 		light.look_at_from_position(lamp.at,lamp.target,Vector3.UP if absf((lamp.target-lamp.at).normalized().y)<.99 else Vector3.RIGHT)
 		light.spot_angle=lamp.cone
-		if lamp.kind=="fill":
+		if lamp.kind in ["fill","up"]:
 			light.spot_range=lamp.at.y+4.0
 			light.spot_attenuation=.65 # the Hall's fills fall off this gently
 			light.spot_angle_attenuation=.35
@@ -354,11 +412,19 @@ func prepare() -> void:
 	lm.environment_mode=LightmapGI.ENVIRONMENT_MODE_DISABLED
 	room.add_child(lm)
 	lm.owner=room
+	room.set_meta("vertex_shades",shades)
+	room.set_meta("shade_top",SHADE_TOP)
+	room.set_meta("plain_tint",Color(PLAIN_TINT))
 	var packed:=PackedScene.new()
 	assert(packed.pack(room)==OK)
 	assert(ResourceSaver.save(packed,"res://modules/shell/prototype/gallery_walk4/baked/room.tscn")==OK)
 	walk.queue_free()
 	room.free()
 	await process_frame
+	var sum:={"surfaces":0,"triangles":0,"texels":0,"kept_out":0,"kept_out_triangles":0}
+	for where in asked:
+		print("BAKE_PREPARE asks ",where," ",JSON.stringify(asked[where])) # the rebuild script shows lines with this prefix
+		for key in sum:sum[key]+=asked[where][key]
+	print("BAKE_PREPARE asks in all ",JSON.stringify(sum)," shadow boxes ",proxies)
 	print("BAKE_PREPARE surfaces=",index," works=",works.size()," lamps=",lamps.size())
 	quit()

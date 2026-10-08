@@ -20,8 +20,8 @@ const RenaissanceWall := preload("res://renaissance_wall_assets.gd")
 ## eye takes the trim for white. These are greys in the trim's hue with a slight cool-green
 ## cast, as the footage has beside its skirting (IMG_6343 78 and 252 s; IMG_6383 62.5 s;
 ## IMG_6386 67.5 s; IMG_6380 223.5 s). A bluer paint reads mauve beside the cream trim.
-const WALL_PAINT:={"":"cfd5cf","light Renaissance room":"b2b8b3","adjacent gallery":"cfd5cf","Rockefeller":"cbd9d4",
-	"modern painting gallery":"d4dbe0","lion stair landing":"b5b8b5","grey French gallery":"dcdcd6","Skylight Gallery":"c2c6c2",
+const WALL_PAINT:={"":"dfe3dd","light Renaissance room":"cdd3c9","adjacent gallery":"dfe3dd","Rockefeller":"d8e7e2",
+	"modern painting gallery":"e0e6e4","lion stair landing":"c8cbc7","grey French gallery":"e2e3da","Skylight Gallery":"d2d6ce",
 	"marble stair hall":"dedcd4","dark medieval room":"4c5160"}
 ## #274: the oak's own tone. The Hall's floor reads (183,137,85) under its warm lamps and cool
 ## daylight; these rooms' lamps are near white so their trim reads white, and the honey is here.
@@ -680,22 +680,24 @@ func shaded_window(side:String,fixed:float,opening:Array,sill:float,head:float) 
 		var mid:float=(s[0]+s[1])/2
 		var size:=Vector3(out[1]-out[0],y[1]-y[0],s[1]-s[0])
 		return [Vector3(off,(y[0]+y[1])/2,mid),size] if vertical else [Vector3(mid,(y[0]+y[1])/2,off),Vector3(size.z,size.y,size.x)]
-	# The shade is daylit from behind: it keeps its own brightness, as the works do.
-	var cloth:=look(Color("e6e7e5"),"",true)
+	# The shade is daylit from behind: it keeps its own brightness, as the works do. #274: a
+	# little above the lit wall and under the case tops; at full white it was the one glowing
+	# rectangle in the room.
+	var cloth:=look(Color("c4c6c2"),"",true)
 	var lo:float=opening[0]
 	var hi:float=opening[1]
 	var w:=.10
 	var deep:=.035
 	var spot:Array=place.call(opening,[sill,head],[.002,.010])
 	var shade:=solid(spot[0],spot[1],cloth)
-	var glow:=look(Color("a6d2ff"),"",true)
+	var glow:=look(Color("a3bbd0"),"",true)
 	var parts:=[[[lo,lo+.06],[sill,head-.10],[.010,.012],glow],[[hi-.06,hi],[sill,head-.10],[.010,.012],glow],
 		[[lo,hi],[head-.115,head-.10],[.010,.012],glow],[[lo,hi],[head-.10,head],[.010,.030],trim_paint()],
 		[[lo-w,lo-.002],[sill,head+w],[0,deep],trim_paint()],[[hi+.002,hi+w],[sill,head+w],[0,deep],trim_paint()],
 		[[lo-w,hi+w],[head+.002,head+w],[0,deep],trim_paint()]]
 	var fold:=sill+.28
 	while fold<head-.15:
-		parts.append([[lo+.06,hi-.06],[fold,fold+.003],[.010,.011],look(Color("d6d7d4"),"",true)])
+		parts.append([[lo+.06,hi-.06],[fold,fold+.003],[.010,.011],look(Color("b6b8b4"),"",true)])
 		fold+=.28
 	for part in parts:
 		spot=place.call(part[0],part[1],part[2])
@@ -1375,6 +1377,42 @@ func update_baked_visibility() -> void:
 				var target=surface.get_meta("live_cutaway")
 				surface.visible=target.get_parent().get_child(1).is_visible_in_tree() if target.get_parent() is StaticBody3D and target.get_parent() in casings else target.is_visible_in_tree()
 
+## Give one of the room's own meshes the brightness the bake preparation kept for it: `kept`
+## is [is a work, then a PackedByteArray for each surface, a byte a vertex, `top` at 255].
+## A mesh whose vertices no longer match what was baked is left as it was built.
+func shade_from_bake(target:MeshInstance3D,kept:Array,top:float,plain_tint:Color) -> void:
+	var lit:=ArrayMesh.new()
+	for surface in target.mesh.get_surface_count():
+		var arrays:Array=target.mesh.surface_get_arrays(surface)
+		var bytes:PackedByteArray=kept[surface+1] if surface+1<kept.size() else PackedByteArray()
+		if bytes.size()!=arrays[Mesh.ARRAY_VERTEX].size():return
+		var colors:=PackedColorArray()
+		colors.resize(bytes.size())
+		for i in bytes.size():
+			var shade:float=bytes[i]/255.0*top
+			colors[i]=Color(shade,shade,shade)
+		arrays[Mesh.ARRAY_COLOR]=colors
+		lit.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
+		lit.surface_set_material(surface,target.mesh.surface_get_material(surface))
+	target.mesh=lit
+	var own=target.material_override
+	if own is ShaderMaterial and own.shader.resource_path.ends_with("/ps1.gdshader"):
+		own=own.duplicate()
+		own.set_shader_parameter("use_vertex_color",true)
+		target.material_override=own
+	elif own is ShaderMaterial and own.shader.resource_path.ends_with("floor_oak.gdshader"):
+		# A floor outside the lightmap (a room the bake leaves out): the oak's tone, plain.
+		var boards:=look(Color(OAK_TONE),"",true)
+		boards.vertex_color_use_as_albedo=true
+		target.material_override=boards
+	elif own==null or own is BaseMaterial3D:
+		var skin:BaseMaterial3D=StandardMaterial3D.new() if own==null else own.duplicate()
+		skin.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
+		skin.vertex_color_use_as_albedo=true
+		# A work's mount or plain-coloured part has no photograph's light in it: it takes the lamps' warmth.
+		if kept[0] and skin.albedo_texture==null:skin.albedo_color*=plain_tint
+		target.material_override=skin
+
 func load_bake() -> void:
 	if has_meta("bake_preparing"):return
 	if not ResourceLoader.exists("res://modules/shell/prototype/gallery_walk4/baked/room.lmbake"):
@@ -1387,6 +1425,10 @@ func load_bake() -> void:
 			by_name[mesh.name]=mesh
 	for source in bake.get_children():
 		if source is MeshInstance3D:
+			# remodel_bake.gd's shadow boxes: they cast in the bake and are never drawn.
+			if source.has_meta("shadow_proxy"):
+				source.hide()
+				continue
 			var keys=source.get_meta("source_paths",[])
 			if not keys.is_empty():
 				for name in keys:
@@ -1402,6 +1444,12 @@ func load_bake() -> void:
 			# takes the original baked node; hiding follows the original cutaway visual.
 			target.layers=2
 			source.set_meta("live_cutaway",target)
+	# Works and the finest detail are not in the baked scene (remodel_bake.gd): the room's own
+	# mesh is drawn, unshaded, at the one brightness a vertex the bake preparation kept for it.
+	# One mesh at a time, so a build that is spread over several frames can call it as each exists.
+	var shades:Dictionary=bake.get_meta("vertex_shades",{})
+	for key in shades:
+		if by_name.has(key):shade_from_bake(by_name[key],shades[key],bake.get_meta("shade_top",1.2),bake.get_meta("plain_tint",Color.WHITE))
 	camera.cull_mask=1
 	add_child(bake)
 	for child in get_children():
