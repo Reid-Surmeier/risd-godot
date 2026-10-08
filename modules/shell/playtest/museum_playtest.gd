@@ -263,15 +263,25 @@ func _place(p: Vector3, yaw := 0.0) -> void:
 	walk._update_camera(1.0)
 
 
-# The share of the picture that is the dark outside the rooms (or the wipe's black).
+# The share of the picture that is the outside of the rooms. The outside is no longer black
+# (fog doorways): it is the walk's own warm umber, VOID far off and VOID_NEAR beside the stage,
+# so a pixel counts when it lies on the line between those two colours, or is black all the same.
+# The margin is what the renderer does to a dark unshaded colour: 0.125, 0.082, 0.052 written
+# is 0.118, 0.067, 0.031 on screen (measured on the playtest renderer).
 func _void_share(image: Image) -> float:
 	var small: Image = image.duplicate()
 	small.resize(96, 64, Image.INTERPOLATE_BILINEAR)
+	var far: Color = walk.get("VOID")
+	var near: Color = walk.get("VOID_NEAR")
+	var a := Vector3(far.r, far.g, far.b)
+	var b := Vector3(near.r, near.g, near.b)
 	var dark := 0
 	for y in 64:
 		for x in 96:
 			var c := small.get_pixel(x, y)
-			dark += int(maxf(c.r, maxf(c.g, c.b)) < 0.07)
+			var p := Vector3(c.r, c.g, c.b)
+			var black := maxf(c.r, maxf(c.g, c.b)) < 0.07
+			dark += int(black or Geometry3D.get_closest_point_to_segment(p, a, b).distance_to(p) < 0.04)
 	return dark / 6144.0
 
 
