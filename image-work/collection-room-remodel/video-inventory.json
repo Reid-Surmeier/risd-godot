@@ -236,6 +236,7 @@
     },
     {
       "asset": "parrot",
+      "mesh": "additions/rockefeller/parrot-20177427-1.glb",
       "accession": "2017.74.27.1",
       "title": "Parrot",
       "size_m": [
@@ -249,6 +250,8 @@
         1.19,
         -6.83
       ],
+      "yaw": 3.141592653589793,
+      "yaw_basis": "IMG_6380/000305.jpg: the pair stand either side of the horse group with their heads towards it, so this one shows its other flank",
       "source": "IMG_6380/000305.jpg; accurate native t152.25s",
       "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
       "v15_position": [
@@ -282,6 +285,7 @@
     },
     {
       "asset": "parrot-pair",
+      "mesh": "additions/rockefeller/parrot-20177427-2.glb",
       "accession": "2017.74.27.2",
       "title": "Parrot",
       "size_m": [
