@@ -1,9 +1,9 @@
-## The project's main scene: loads the game, puts it underneath, and shows every tab once so its
-## first real click is instant (the Shell creates a Tab's Tenant on its first show).
+## The project's main scene: loads the game underneath, then uncovers the settled Collection.
+## Other Tabs retain the Shell's lazy first-show creation.
 ##
 ## On the Web the page draws the loading screen (web/loading_shell.html, in a Web Worker so it keeps
 ## moving while this thread is busy building tabs) and has already downloaded the game pack into
-## /tmp/game.pck; this scene mounts it, loads and warms the game, reports progress to the page
+## /tmp/game.pck; this scene mounts it, loads the launch page, reports progress to the page
 ## (window.loaderSetProgress) and says when it is done (window.loaderDone). The boot pack holds
 ## only this scene.
 ##
@@ -46,7 +46,7 @@ var ring: ImageTexture  # one dot's soft ring, white with the falloff in alpha
 var noise := FastNoiseLite.new()
 var loading_path := ""
 var game: Node  # loaded and under the loading screen; the exit waits for the bar to be full
-var warm := false  # every tab has been shown once
+var warm := false  # the launch page has settled and drawn
 
 
 func _ready() -> void:
@@ -223,9 +223,9 @@ func _poll_load() -> void:
 		push_error("boot_loader: loading %s failed (%d)" % [MAIN_SCENE, status])
 
 
-## Show every tab once under the loading screen, then return to the launch tab: the Shell creates a
-## Tab's Tenant (and the renderer compiles its shaders) on its first show, which froze the first
-## click on Sketchbook for 1.8 s and on the 3D Viewer for 1.1 s (perf_web.py, 2026-09-23).
+## Wait for the launch Collection to settle and draw, then uncover it. Tenant factories
+## and first shader compilation run synchronously: warming another Tab would stall the
+## visible Collection and selecting it would change the Page. Leave those Tabs lazy (#281).
 func _warm_up() -> void:
 	var Shell: Script = load(SHELL_INTERFACE)
 	var shell: Control = game.get_node_or_null("Desktop/Content/Shell")
@@ -242,25 +242,14 @@ func _warm_up() -> void:
 		if s.active >= 0 and not s.switching and not s.opening:
 			launch = s.active
 			break
+	if launch < 0:
+		push_error("boot_loader: launch tab did not settle")
+		return
 	_mark("launch-settled")
-	var order := []
-	for i in 6:
-		if i != launch:
-			order.append(i)
-	order.append(launch)
-	for n in order.size():
-		_mark("tab-%d-start" % order[n])
-		if Shell.select_tab(shell, order[n]).ok:
-			_mark("tab-%d-selected" % order[n])
-			for _i in 120:  # its cross-fade, then two frames drawn with it on screen
-				await get_tree().process_frame
-				if not Shell.state(shell).value.switching:
-					break
-			await get_tree().process_frame
-			await get_tree().process_frame
-		_mark("tab-%d-drawn" % order[n])
-		_set_target(lerpf(0.9, 1.0, float(n + 1) / order.size()))
-	_mark("tabs-warm")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_mark("tabs-deferred")  # no other Tenant was created or drawn under the loader
+	_set_target(1.0)
 	warm = true
 
 
