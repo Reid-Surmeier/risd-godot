@@ -109,3 +109,12 @@ The Hand of God redone as plain marble (no charge): accepted, 233 KB.
 **Batch so far: 14.69 USD** (125 Muse images 1.25, twenty-three Multi-View meshes 11.04, five single-view meshes 2.40). **Whole effort: 21.81 USD charged.** The batch's 15 USD stop is reached for practical purposes: no further mesh run fits under it.
 
 Not counted, because the charge is unknown: four Muse calls that failed and were not resubmitted (Hand of God flat back HTTP 502, Récamier clay left HTTP 502, River God clay front HTTP 400, Dress clay front HTTP 502) and the pilot's fireplace call (HTTP 400). At 0.01 USD each the most they can add is 0.05 USD.
+
+## Nine more Rockefeller figures (second mesh agent, 8 October)
+
+Order: parrot 2017.74.26, fox 2017.74.20, horn player 2017.74.19, the two bear jugs, ewe and lamb 2017.74.32, bagpiper 2017.74.21, the two finches. One Flora run at a time is quoted to the lead before it is made.
+
+| Object | Muse images (OpenRouter, `meta/muse-image`) | Tripo H3.1 Multi-View (RISD EDU), quote / charged | Result |
+| --- | --- | --- | --- |
+| Figure of a Parrot 2017.74.26 | 9 (0.09): clay front and back from the museum's two flank photographs; a head-on view inferred, drawn twice (the second, asked square-on, came the same and is not used); a tail-end view inferred, for colour; flat front, back and tail end; a flat head-on view that repeated the front and is not used | Multi-View from back, right, front (the frame turned half round), 0.48 / 0.48, run `run_m17cwhvbtrz2w43rdpw3t5sfjh8fxgjg` | 306 KB; placed in the Rockefeller room source |
+| Ewe and Lamb 2017.74.32 | 0 | none | stopped: the museum's page has no photograph, so there is no clay pass |
