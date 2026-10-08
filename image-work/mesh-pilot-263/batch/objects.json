@@ -98,7 +98,10 @@
   "run": {
    "id": "run_m176sykavbv0cs1qarz7at4hws8fws8f",
    "params": "face limit 10,000, texture on, PBR off",
-   "quote": 0.36
+   "quote": 0.36,
+   "charged": 0.36,
+   "sha256": "7fbc8ad6fe42b9312e73255050824713ee354de461631508e807e1b3adaf9181",
+   "kept": "downloaded outside git, not built: ~/risd-godot-ingestion/mesh-pilot-263/rejected-route/69-196-tripo.glb"
   }
  },
  "23.005": {
@@ -111,7 +114,10 @@
   "run": {
    "id": "run_m174ayc2vvf2pc5n6441r0hxm18fwz4s",
    "params": "face limit 10,000, texture on, PBR off",
-   "quote": 0.36
+   "quote": 0.36,
+   "charged": 0.36,
+   "sha256": "7543bc58649c3ef768f06d678f302969474fa9976183c04e4921256d11edef47",
+   "kept": "downloaded outside git, not built: ~/risd-godot-ingestion/mesh-pilot-263/rejected-route/23-005-tripo.glb"
   }
  },
  "41.045": {
@@ -124,7 +130,10 @@
   "run": {
    "id": "run_m172ep6ca78694afh5h1r8vey18fwx1v",
    "params": "face limit 10,000, texture on, PBR off",
-   "quote": 0.36
+   "quote": 0.36,
+   "charged": 0.36,
+   "sha256": "0da8b6e0226b338f7ef3cbf646cc72cbb94ad788f8486ffa6e879dea93110a9c",
+   "kept": "downloaded outside git, not built: ~/risd-godot-ingestion/mesh-pilot-263/rejected-route/41-045-tripo.glb"
   }
  },
  "41.046": {
@@ -137,7 +146,10 @@
   "run": {
    "id": "run_m174wv3bwwwv0w0f6ws2pfa8898fw2s7",
    "params": "face limit 10,000, texture on, PBR off",
-   "quote": 0.36
+   "quote": 0.36,
+   "charged": 0.36,
+   "sha256": "e23de6b29cdf6ef86811fabc16d651c8c17c623a19fd8ba5a9c5412f0df2cec7",
+   "kept": "downloaded outside git, not built: ~/risd-godot-ingestion/mesh-pilot-263/rejected-route/41-046-tripo.glb"
   }
  },
  "44.674": {
@@ -150,7 +162,10 @@
   "run": {
    "id": "run_m17abfthe2dpdhrmqrmy38f1dn8fxx0g",
    "params": "face limit 10,000, texture on, PBR off",
-   "quote": 0.36
+   "quote": 0.36,
+   "charged": 0.36,
+   "sha256": "de4f3a96e6d6cc3647cccd96a05291b005505c18780371e5c61e8976decd2c03",
+   "kept": "downloaded outside git, not built: ~/risd-godot-ingestion/mesh-pilot-263/rejected-route/44-674-tripo.glb"
   }
  },
  "37.201": {

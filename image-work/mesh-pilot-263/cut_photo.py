@@ -8,11 +8,13 @@ import sys, json, argparse
 import numpy as np, cv2
 from PIL import Image
 p = argparse.ArgumentParser(); p.add_argument('photo'); p.add_argument('out'); p.add_argument('rect')
-p.add_argument('--outline'); p.add_argument('--key'); p.add_argument('--key-lum', type=int); p.add_argument('--keep-holes', action='store_true'); p.add_argument('--iters', type=int, default=8); p.add_argument('--floor', type=float); p.add_argument('--under', default='255,255,255'); p.add_argument('--open-below'); p.add_argument('--key-sat', type=int)
+p.add_argument('--outline'); p.add_argument('--key'); p.add_argument('--key-lum', type=int); p.add_argument('--key-white', type=int); p.add_argument('--keep-holes', action='store_true'); p.add_argument('--iters', type=int, default=8); p.add_argument('--floor', type=float); p.add_argument('--under', default='255,255,255'); p.add_argument('--open-below'); p.add_argument('--key-sat', type=int)
 a = p.parse_args()
 im = cv2.imread(a.photo); h, w = im.shape[:2]
 mask = np.zeros((h, w), np.uint8); bg = np.zeros((1, 65)); fg = np.zeros((1, 65))
-if a.key_sat:
+if a.key_white:  # a Muse view on seamless white: keep everything that is not near-white
+    m = cv2.morphologyEx((im.min(axis=2) < 255 - a.key_white).astype('uint8'), cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+elif a.key_sat:
     sat = cv2.cvtColor(im, cv2.COLOR_BGR2HSV)[..., 1]
     keep = sat > a.key_sat
     if a.key_lum: keep |= cv2.cvtColor(im, cv2.COLOR_BGR2GRAY) > a.key_lum  # and its pale highlights

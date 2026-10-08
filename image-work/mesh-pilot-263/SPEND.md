@@ -19,3 +19,27 @@ Flora charges are the `charged_cost` each run reported. Updated as runs finish.
 | 8 Oct | RISD EDU | Saint Peter 20.254 | Tripo H3.1, 10k faces | 0.36 | 0.36 |
 
 **Charged so far: 3.12 USD** (personal 0.096, RISD EDU 3.024). Still in Flora's queue when the batch was stopped, 0.36 quoted each: Christ in Majesty 69.196, Hand of God 23.005, Apostles 41.045 and 41.046, River God 44.674, Récamier 37.201, Tabernacle 06.057.
+
+## After the stop (8 October)
+
+Stopped-route runs that were already queued; downloaded outside git (`~/risd-godot-ingestion/mesh-pilot-263/rejected-route/`), not built:
+
+| Object | Model | Quote | Charged |
+| --- | --- | --- | --- |
+| Christ in Majesty 69.196 | Tripo H3.1, 10k faces | 0.36 | 0.36 |
+| Hand of God 23.005 | Tripo H3.1, 10k faces | 0.36 | 0.36 |
+| River God 44.674 | Tripo H3.1, 10k faces | 0.36 | 0.36 |
+| Apostle 41.045 | Tripo H3.1, 10k faces | 0.36 | 0.36 |
+| Apostle 41.046 | Tripo H3.1, 10k faces | 0.36 | 0.36 |
+| Récamier 37.201, Tabernacle 06.057 | Tripo H3.1, 10k faces | 0.36 each | still queued |
+
+Saint Peter 20.254 on the Muse-first route (owner's go for one object):
+
+| Call | Quote | Charged |
+| --- | --- | --- |
+| Muse, 4 clay views (OpenRouter, `meta/muse-image`) | 0.04 | 0.04 (reported cost 0.01 each) |
+| Muse, 4 colour views | 0.04 | 0.04 |
+| Tripo H3.1 Multi-View, geometry detailed, no texture, 20,000 faces (RISD EDU) | 0.48 | queued |
+| Tripo H3.1 Multi-View, geometry detailed, no texture, 500,000 faces (RISD EDU) | 0.48 | queued |
+
+**Charged so far: 5.00 USD** (3.12 above, 1.80 stopped-route, 0.08 Muse).

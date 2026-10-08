@@ -119,5 +119,35 @@
   "charged_usd": 0.6,
   "triangles": 11560,
   "glb_sha256": "db8637572fd512f19bcfbb71b69ee4cca2264263ad4c877bff74c19dba24ebde"
+ },
+ "saint-peter-muse-first": {
+  "workspace": "RISD EDU Workspace",
+  "views": [
+   "clay-front",
+   "clay-left",
+   "clay-back"
+  ],
+  "A": {
+   "run_id": "run_m17c7g9058fcxv12dyrpzh8jds8fxp3d",
+   "model": "i3d-tripo-h3-1-multiview-i3d",
+   "params": {
+    "face_limit": 20000,
+    "texture": false,
+    "pbr": false,
+    "geometry_quality": "detailed"
+   },
+   "quote_usd": 0.48
+  },
+  "B": {
+   "run_id": "run_m171491xxxtkbyyf3nk50wdk3d8fw93x",
+   "model": "i3d-tripo-h3-1-multiview-i3d",
+   "params": {
+    "face_limit": 500000,
+    "texture": false,
+    "pbr": false,
+    "geometry_quality": "detailed"
+   },
+   "quote_usd": 0.48
+  }
  }
 }

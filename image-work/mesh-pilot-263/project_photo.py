@@ -18,7 +18,7 @@ import numpy as np, cv2
 from PIL import Image
 
 p = argparse.ArgumentParser(); p.add_argument("glb"); p.add_argument("cutout"); p.add_argument("out")
-p.add_argument("--size", type=int, default=2048); p.add_argument("--no-flow", action="store_true"); p.add_argument("--debug")
+p.add_argument("--size", type=int, default=2048); p.add_argument("--turns", default="0,90,180,270"); p.add_argument("--atlas"); p.add_argument("--view-only", action="store_true"); p.add_argument("--no-flow", action="store_true"); p.add_argument("--debug")
 a = p.parse_args()
 
 # --- the mesh: positions, UVs, triangles, texture
@@ -32,17 +32,22 @@ def view(i):
         rows = np.frombuffer(blob, np.uint8, stride * acc["count"], start).reshape(acc["count"], stride)
         return np.ascontiguousarray(rows[:, :np.dtype(kind).itemsize * width]).view(kind).reshape(acc["count"], width)
     return np.frombuffer(blob, kind, acc["count"] * width, start).reshape(acc["count"], width)
-P, UV, F = [], [], []; base = 0
+P, UV, F = [], [], []; base = 0; ZERO = lambda n: np.zeros((n, 2))
 for node in g["nodes"]:
     if "mesh" not in node: continue
     assert not any(k in node for k in ("rotation", "scale", "matrix")), "the mesh node is transformed; bake that first"
     for prim in g["meshes"][node["mesh"]]["primitives"]:
         pos = view(prim["attributes"]["POSITION"]).astype(np.float64) + np.array(node.get("translation", [0, 0, 0]))
-        P.append(pos); UV.append(view(prim["attributes"]["TEXCOORD_0"]).astype(np.float64)); F.append(view(prim["indices"]).reshape(-1, 3).astype(np.int64) + base); base += len(pos)
+        P.append(pos); UV.append(view(prim["attributes"]["TEXCOORD_0"]).astype(np.float64) if "TEXCOORD_0" in prim["attributes"] else ZERO(len(pos))); F.append(view(prim["indices"]).reshape(-1, 3).astype(np.int64) + base); base += len(pos)
 P, UV, F = np.vstack(P), np.vstack(UV), np.vstack(F)
-assert len(g.get("images", [])) == 1, f"expected one texture, found {len(g.get('images', []))}"
-bv = g["bufferViews"][g["images"][0]["bufferView"]]
-atlas = np.array(Image.open(io.BytesIO(blob[bv.get("byteOffset", 0):bv.get("byteOffset", 0) + bv["byteLength"]])).convert("RGB"))
+if a.atlas:  # paint over an earlier result: this is how several views are laid on one after another
+    atlas = np.array(Image.open(a.atlas).convert("RGB"))
+elif g.get("images"):
+    mat0 = g["materials"][0]["pbrMetallicRoughness"]; im0 = g["textures"][mat0["baseColorTexture"]["index"]]["source"]
+    bv = g["bufferViews"][g["images"][im0]["bufferView"]]
+    atlas = np.array(Image.open(io.BytesIO(blob[bv.get("byteOffset", 0):bv.get("byteOffset", 0) + bv["byteLength"]])).convert("RGB"))
+else:
+    atlas = np.full((8, 8, 3), 180, np.uint8)
 atlas = cv2.resize(atlas, (a.size, a.size), interpolation=cv2.INTER_CUBIC)
 cut = np.array(Image.open(a.cutout).convert("RGBA")); photo = cut[..., :3]; alpha = cut[..., 3] > 127
 ys, xs = np.where(alpha); box = np.array([xs.min(), ys.min(), xs.max() + 1, ys.max() + 1], float)
@@ -92,16 +97,21 @@ def weights(pts, corners):
 # --- 1. the view. Silhouette alone cannot tell the front of a symmetrical object from its back, so each turn's
 #        best distance is then judged by how like the photograph the mesh's own texture looks from there.
 H, W = alpha.shape; best = None
-for turn in (0, 90, 180, 270):
+if a.view_only:  # an untextured mesh: which turn shows the cut-out's side, by silhouette alone
+    for t in [float(x) for x in a.turns.split(",")]:
+        iou, dist = max((overlap(seen(t, d)[1]), d) for d in (0, 8, 4, 3, 2.4, 2, 1.7)); print(f"  turn {t:g}: silhouette IoU {iou:.3f}")
+        if best is None or iou > best[0]: best = (iou, t)
+    print(f"view: turn {best[1]:g} deg, silhouette IoU {best[0]:.3f}"); raise SystemExit
+for turn in [float(x) for x in a.turns.split(",")]:
     iou, dist = max((overlap(seen(turn, d)[1]), d) for d in (0, 8, 4, 3, 2.4, 2, 1.7))
     if iou < 0.6: continue
     shot = look(turn, dist); both = (shot[2] >= 0) & alpha
     unlike = np.abs(cv2.blur(shot[4], (25, 25)).astype(int) - cv2.blur(photo, (25, 25)).astype(int))[both].mean() / 255
-    print(f"  turn {turn}: eye distance {dist or 'infinite'}, silhouette IoU {iou:.3f}, colour difference {unlike:.3f}")
+    print(f"  turn {turn:g}: eye distance {dist or 'infinite'}, silhouette IoU {iou:.3f}, colour difference {unlike:.3f}")
     if best is None or iou - unlike > best[0]: best = (iou - unlike, turn, dist, iou, shot)
 assert best, "no view of the mesh matches the cut-out's silhouette"
 _, turn, dist, iou, (V, px, ids, depth, own) = best
-print(f"view: turn {turn} deg, eye distance {dist or 'infinite'}, silhouette IoU {iou:.3f}")
+print(f"view: turn {turn:g} deg, eye distance {dist or 'infinite'}, silhouette IoU {iou:.3f}")
 shift = np.zeros((H, W, 2), np.float32)
 if not a.no_flow:
     grey = lambda im: cv2.createCLAHE(2.0, (8, 8)).apply(cv2.cvtColor(im, cv2.COLOR_RGB2GRAY))
