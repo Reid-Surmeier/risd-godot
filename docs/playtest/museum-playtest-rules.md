@@ -52,7 +52,9 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
    the work's rectangle no other work is met before it by the lens's ray. Where the museum
    gives a work a face (a card at any angle, a slab lying down, the front of a cabinet) the
    lens leans at least 0.6 towards it, and the work is drawn in its own inspection. The
-   visitor does not crowd the lens: its box takes no more than a tenth of the picture.
+   visitor does not crowd the lens: its box takes no more than a tenth of the picture. And
+   nothing else that is drawn stands before the work: at those five points no mesh is met more
+   than 0.8 m before it (nearer is the glass of its own case).
 7. **The same hop at any frame rate.** The jump is run at 15, 30, 60 and 120 frames a second and
    must rise the same height within 3 cm. (`visitor174_check.gd`.)
 8. **No script errors.** The run's log must contain no `SCRIPT ERROR`; `build/run-playtest.sh`
