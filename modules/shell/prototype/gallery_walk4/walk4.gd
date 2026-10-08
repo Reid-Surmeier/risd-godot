@@ -3214,21 +3214,28 @@ func _update_hover() -> void:
 
 func _click(pt: Vector2) -> void:
 	var p := _painting_at(pt)
-	print("NAV_PICK ", p.get("tag", "floor"))
+	var spot = null if not p.is_empty() else _floor_at(pt)
+	print("NAV_PICK ", p.get("tag", "floor" if spot != null else "nothing"))
 	if not p.is_empty():
 		_play("select")
 		_approach(p)
 		return
+	if spot == null:
+		return  # not a work and not floor: a click there does nothing
+	_walk_to(spot)
+	if _target == null:
+		return
+	var to: Vector3 = _target - _pos
+	if to.length() > 0.2:
+		_target_yaw = atan2(-to.x, -to.z)
+
+
+# The floor under the pointer, or null where the pointer is not over floor.
+func _floor_at(pt: Vector2):
 	var vp_pt := pt / size * Vector2(_vp.size)
 	var o := _cam.project_ray_origin(vp_pt)
 	var d := _cam.project_ray_normal(vp_pt)
-	if d.y < -0.01:
-		_walk_to(o + d * (-o.y / d.y))
-		if _target == null:
-			return
-		var to: Vector3 = _target - _pos
-		if to.length() > 0.2:
-			_target_yaw = atan2(-to.x, -to.z)
+	return o + d * (-o.y / d.y) if d.y < -0.01 else null
 
 
 func _approach(p: Dictionary) -> void:
