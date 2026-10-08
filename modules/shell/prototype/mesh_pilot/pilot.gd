@@ -1,20 +1,15 @@
-## PROTOTYPE #263: one Flora Trellis mesh in the game's light, camera and display, beside the visitor.
+## PROTOTYPE #263: one generated mesh in the game's light, camera and display, beside the visitor.
 ## Standalone on purpose: the room pipeline is not touched (#264 gives rooms a way to place a mesh).
-##   godot --path . --rendering-driver opengl3 --resolution 960x642 res://modules/shell/prototype/mesh_pilot/pilot.tscn -- <object> <view> <out.png>
-##   object: fireplace | fireplace-detail | neptune | neptune-detail      view: game | front | threequarter | side
+##   godot --path . --rendering-driver opengl3 --resolution 960x642 res://modules/shell/prototype/mesh_pilot/pilot.tscn -- <mesh.glb> <setting> <view> <out.png>
+##   mesh.glb: a res:// path      setting: wall | plinth      view: game | front | threequarter | side
 ## "game" is the game's own camera through its 480 px display; the other three stand closer and are not shrunk.
 extends Control
 
-const HERE := "res://modules/shell/prototype/mesh_pilot/"
 # where it stands; where the visitor stands; what it stands on [centre, size, colour] or []
-const FIREPLACE := {"at": Vector3(0, 0, 0), "visitor": Vector3(1.75, 0, 1.0), "stand": []}
-# rockefeller_additions.gd vincennes(): the central pedestal is 1.1 x 1.1 x .65, the group .24 off its centre
-const NEPTUNE := {"at": Vector3(-.24, 1.1, 1.2), "visitor": Vector3(.85, 0, 1.3), "stand": [Vector3(0, .55, 1.2), Vector3(1.1, 1.1, .65), Color("ecebe6")]}
-const OBJECTS := {
-	"fireplace": ["fireplace-83152.glb", FIREPLACE],
-	"fireplace-detail": ["fireplace-83152-detail.glb", FIREPLACE],
-	"neptune": ["neptune-2017-74-31-1.glb", NEPTUNE],
-	"neptune-detail": ["neptune-2017-74-31-1-detail.glb", NEPTUNE],  # 100k triangles: for the comparison only, not committed
+const SETTINGS := {
+	"wall": {"at": Vector3(0, 0, 0), "visitor": Vector3(1.75, 0, 1.0), "stand": []},
+	# rockefeller_additions.gd vincennes(): the central pedestal is 1.1 x 1.1 x .65, the group .24 off its centre
+	"plinth": {"at": Vector3(-.24, 1.1, 1.2), "visitor": Vector3(.85, 0, 1.3), "stand": [Vector3(0, .55, 1.2), Vector3(1.1, 1.1, .65), Color("ecebe6")]},
 }
 ## Ticket #263 asks for "the 0.9 m visitor"; remodel_room.gd make_visitor() on this branch still says 1.75.
 const VISITOR_HEIGHT := 0.9
@@ -40,9 +35,9 @@ func box(at: Vector3, size: Vector3, color: Color) -> void:
 
 func _ready() -> void:
 	var args := OS.get_cmdline_user_args()
-	var spec: Dictionary = OBJECTS[args[0]][1]
-	var view: String = args[1]
-	out = args[2]
+	var spec: Dictionary = SETTINGS[args[1]]
+	var view: String = args[2]
+	out = args[3]
 	# remodel_presenter.gd: the game is a SubViewport about 480 px wide, enlarged through the GameCube copy filter.
 	var game := SubViewportContainer.new()
 	game.size = size
@@ -76,7 +71,7 @@ func _ready() -> void:
 	box(Vector3(0, 2.25, -.05), Vector3(12, 4.5, .1), Color("e2dfd6"))  # its plaster wall
 	if not spec.stand.is_empty():
 		box(spec.stand[0], spec.stand[1], spec.stand[2])
-	var mesh: Node3D = load(HERE + OBJECTS[args[0]][0]).instantiate()
+	var mesh: Node3D = load(args[0]).instantiate()
 	mesh.position = spec.at
 	world.add_child(mesh)
 	var bounds := AABB()

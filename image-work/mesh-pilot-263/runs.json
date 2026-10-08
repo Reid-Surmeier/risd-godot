@@ -1,9 +1,18 @@
 {
  "flora": {
-  "workspace": "ws_qd7792zta3zwxyvjeqt4d5vf1x8fh63z",
-  "project": "prj_ns7arkva3pe1w3wwcc1ab5by5h8fwyp3",
-  "balance_before_usd": 0.3,
-  "balance_after_usd": 0.204
+  "personal": {
+   "workspace": "ws_qd7792zta3zwxyvjeqt4d5vf1x8fh63z",
+   "name": "Reid Surmeier's workspace",
+   "project": "prj_ns7arkva3pe1w3wwcc1ab5by5h8fwyp3",
+   "balance_before_usd": 0.3,
+   "balance_after_usd": 0.204
+  },
+  "risd_edu": {
+   "workspace": "ws_qd79c614xtmypkpczymr6rp92n8fjazp",
+   "name": "RISD EDU Workspace",
+   "project": "prj_ns7cwx2xvm3bk1864dbtkp8h298fwbyc",
+   "balance_before_usd": 5000.399
+  }
  },
  "fireplace": {
   "run_id": "run_m176nxjs4w5vbbn7w1wx6js3px8fx0je",
@@ -17,7 +26,8 @@
   "submitted": "2026-10-08T03:38Z",
   "charged_usd": 0.024,
   "glb_sha256": "ceedef0ceb7e070e8d7240b783cb708555bd8a8c2f5ecf3d59a6785d45f2b333",
-  "triangles": 6310
+  "triangles": 6310,
+  "workspace": "Reid Surmeier's workspace"
  },
  "neptune": {
   "run_id": "run_m179ny9wszxg2t3z2m1rvyamwx8fx5jh",
@@ -31,7 +41,8 @@
   "submitted": "2026-10-08T03:38Z",
   "charged_usd": 0.024,
   "glb_sha256": "2228ee33ed90aec7648c89db0c203abaf928174cdf038aa11276458d3a5755cb",
-  "triangles": 19312
+  "triangles": 19312,
+  "workspace": "Reid Surmeier's workspace"
  },
  "fireplace-detail": {
   "run_id": "run_m171f7pcpv6672swcakdwha8p18fx36p",
@@ -45,7 +56,8 @@
   "submitted": "2026-10-08T03:46Z",
   "charged_usd": 0.024,
   "triangles": 34625,
-  "glb_sha256": "a5a7a142c1902de7153749815968fbc381f991f97b81c5e95f9c8031a7c69e3f"
+  "glb_sha256": "a5a7a142c1902de7153749815968fbc381f991f97b81c5e95f9c8031a7c69e3f",
+  "workspace": "Reid Surmeier's workspace"
  },
  "neptune-detail": {
   "run_id": "run_m173ntdbr9fdy66tqx3yjzdsjh8fxd4e",
@@ -60,7 +72,8 @@
   "submitted": "2026-10-08T03:46Z",
   "charged_usd": 0.024,
   "triangles": 100639,
-  "glb_sha256": "eb2d9e66b2a4e5df6e4e424cabd2f273d4e0a1da4d8a6736cea491ec76f3c23f"
+  "glb_sha256": "eb2d9e66b2a4e5df6e4e424cabd2f273d4e0a1da4d8a6736cea491ec76f3c23f",
+  "workspace": "Reid Surmeier's workspace"
  },
  "muse": {
   "fireplace": {
@@ -71,5 +84,40 @@
    "outcome": "HTTP 400 provider-error; pipeline state possibly_spent; charge not confirmed",
    "prompt": "fireplace/edit-prompt.txt"
   }
+ },
+ "fireplace-tripo": {
+  "run_id": "run_m17fzd9jh9296yzs5ktnrmqwr18fx0ka",
+  "workspace": "RISD EDU Workspace",
+  "model": "i3d-tripo-h3-1-i3d",
+  "params": {
+   "face_limit": 20000,
+   "texture": true,
+   "pbr": false,
+   "geometry_quality": "detailed",
+   "texture_quality": "detailed"
+  },
+  "quote_usd": 0.72,
+  "input": "fireplace/trellis-input.png",
+  "submitted": "2026-10-08T14:22Z",
+  "charged_usd": 0.72,
+  "triangles": 19166,
+  "glb_sha256": "36fa9958d9b79916156243ca9aac61c5b581197faddf4b165e42bf6a7b7d5b97"
+ },
+ "neptune-tripo": {
+  "run_id": "run_m17dc4xxrscq9s3jff5wr7ejv18fx94d",
+  "workspace": "RISD EDU Workspace",
+  "model": "i3d-tripo-h3-1-i3d",
+  "params": {
+   "face_limit": 12000,
+   "texture": true,
+   "pbr": false,
+   "geometry_quality": "detailed"
+  },
+  "quote_usd": 0.6,
+  "input": "neptune/trellis-input.png",
+  "submitted": "2026-10-08T14:22Z",
+  "charged_usd": 0.6,
+  "triangles": 11560,
+  "glb_sha256": "db8637572fd512f19bcfbb71b69ee4cca2264263ad4c877bff74c19dba24ebde"
  }
 }

@@ -1,7 +1,7 @@
 """Make a Flora Trellis GLB fit for the game. Pattern: 247f8e74 modules/sculpture_viewer/prototype/issue-81/prepare_scan.py.
 
 blender --background --factory-startup --python prepare_mesh.py -- SOURCE.glb OUT.glb --height M
-        [--wall-depth M] [--width M] [--texture PX] [--min-island F] [--no-fill]
+        [--wall-depth M] [--width M] [--turn DEG] [--texture PX] [--texture-image PNG] [--min-island F] [--no-fill]
 
 Trellis ships no normals and no metallicFactor (glTF then means fully metallic, which bakes black). This script:
 joins the mesh, drops loose scraps, fills holes, scales to the catalogue height (and --width), for a piece that
@@ -21,7 +21,7 @@ from mathutils import Vector
 p = argparse.ArgumentParser()
 p.add_argument("source"); p.add_argument("out"); p.add_argument("--height", type=float, required=True)
 p.add_argument("--wall-depth", type=float); p.add_argument("--width", type=float); p.add_argument("--texture", type=int, default=1024)
-p.add_argument("--min-island", type=float, default=0.05); p.add_argument("--no-fill", action="store_true")
+p.add_argument("--min-island", type=float, default=0.05); p.add_argument("--texture-image"); p.add_argument("--turn", type=float, default=0.0); p.add_argument("--no-fill", action="store_true")
 a = p.parse_args(sys.argv[sys.argv.index("--") + 1:])
 sha = lambda path: hashlib.sha256(open(path, "rb").read()).hexdigest()
 log = {"source": {"sha256": sha(a.source)}, "steps": []}
@@ -39,6 +39,9 @@ me = ob.data
 log["source"].update(vertices=len(me.vertices), triangles=sum(len(f.vertices) - 2 for f in me.polygons))
 
 bm = bmesh.new(); bm.from_mesh(me); bm.faces.ensure_lookup_table()
+if a.turn:  # the turn project_photo.py reports: brings the photographed side round to the front (Trellis needs none, Tripo 90)
+    c, s = math.cos(math.radians(a.turn)), math.sin(math.radians(a.turn))
+    for v in bm.verts: v.co = Vector((c * v.co.x + s * v.co.y, -s * v.co.x + c * v.co.y, v.co.z))
 # 1. loose scraps (Trellis turns a leftover of floor or shadow into a floating plate)
 seen, islands = set(), []
 for f in bm.faces:
@@ -105,6 +108,12 @@ for m in bpy.data.materials:
         if n.type == "BSDF_PRINCIPLED": n.inputs["Metallic"].default_value = 0.0; n.inputs["Roughness"].default_value = 0.95
 for f in me.polygons: f.use_smooth = True
 me.use_auto_smooth = True; me.auto_smooth_angle = math.radians(60)  # Blender 4.0; 4.1+ uses shade_smooth_by_angle
+if a.texture_image:  # the generator's texture repainted by project_photo.py; same UVs
+    new = bpy.data.images.load(a.texture_image); new.pack()
+    for m in bpy.data.materials:
+        for n in (m.node_tree.nodes if m.use_nodes else []):
+            if n.type == "TEX_IMAGE": n.image = new
+    log["texture_image"] = {"sha256": sha(a.texture_image)}
 for im in bpy.data.images:
     if im.size[0] > a.texture and im.users: im.scale(a.texture, round(im.size[1] * a.texture / im.size[0])); im.pack()
 bpy.ops.object.select_all(action="DESELECT"); ob.select_set(True); ob.name = "Mesh"

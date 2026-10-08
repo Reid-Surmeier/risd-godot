@@ -31,7 +31,7 @@ Neptune was chosen over the three medieval figures because its photograph is a s
 | 4 | Flora, `i3d-trellis`, texture 2048, simplify 0.90 | the fireplace input again | 0.024 USD | 0.024 USD | `run_m171f7pcpv6672swcakdwha8p18fx36p`, GLB `a5a7a142c1902de7…` |
 | 5 | Flora, `i3d-trellis`, texture 1024, simplify 0.90, 25 structure steps | the Neptune input again | 0.024 USD | 0.024 USD | `run_m173ntdbr9fdy66tqx3yjzdsjh8fxd4e`, GLB `eb2d9e66b2a4e5df…` |
 
-Flora balance (personal workspace): 0.30 USD before, 0.204 USD after. Total charged by Flora: 0.096 USD. Flora project: "risd-godot mesh pilot 263". The raw Trellis GLBs are not in git; Flora keeps them under the run ids.
+Calls 2 to 5 ran in the personal workspace ("Reid Surmeier's workspace"): 0.30 USD before, 0.204 USD after, 0.096 USD charged. Flora project: "risd-godot mesh pilot 263". The raw Trellis GLBs are not in git; Flora keeps them under the run ids.
 
 The Muse call was the only one. Muse refused the fireplace the way it refused the River God twice on 5 October (`image-work/collection-room-remodel/european-case-passes/README.md`); both carry nude figures. So both objects were isolated without it, for nothing: `cut_photo.py` cuts the object out of the photograph and Trellis is given the photograph's own pixels with a transparent ground.
 
@@ -46,3 +46,18 @@ Scripts are in `image-work/mesh-pilot-263/`.
 5. Godot import with the `.import` files here. Each `*_Image_0.jpg` is the texture Godot writes out of its GLB on import. It is kept in git with its `.import`, because Godot does not write it out again when the `.import` is already there, and the import then fails.
 
 Not done, and why: no triangle reduction in Blender. Collapsing a Trellis mesh tears its texture, and the bake that would repair it came out black three times; the count is whatever `mesh_simplify` gives.
+
+## Pass 2 (8 October)
+
+Two more paid calls, both in the **RISD EDU Workspace** (owner's ruling of 8 October; balance 5,000.40 USD before), project "risd-godot mesh pilot 263":
+
+| # | Provider, model | Input | Quote | Charged | Output (sha256) |
+| --- | --- | --- | --- | --- | --- |
+| 6 | Flora, `i3d-tripo-h3-1-i3d`, face limit 20,000, texture on, PBR off, geometry and texture "detailed" | the fireplace input | 0.72 USD | 0.72 USD | `run_m17fzd9jh9296yzs5ktnrmqwr18fx0ka`, GLB `36fa9958d9b79916…` |
+| 7 | Flora, `i3d-tripo-h3-1-i3d`, face limit 12,000, texture on, PBR off, geometry "detailed" | the Neptune input | 0.60 USD | 0.60 USD | `run_m17dc4xxrscq9s3jff5wr7ejv18fx94d`, GLB `db8637572fd512f1…` |
+
+Tripo H3.1 prices quoted that day (texture on, PBR off): 0.36 USD standard, 0.48 with detailed texture, 0.60 with detailed geometry, 0.72 with both.
+
+Pilot total: 1.416 USD charged by Flora, plus the unconfirmed 0.01 USD Muse ceiling.
+
+Free steps added: `project_photo.py` lays the catalogue photograph over the front of a mesh; `build_mesh.sh` and `accept_mesh.sh` chain it with the clean-up and the import. The accepted meshes of both objects are in `modules/shell/collection_rooms/assets/meshes/`; the three GLBs in this folder are the pass-1 Trellis meshes, kept for the comparison.
