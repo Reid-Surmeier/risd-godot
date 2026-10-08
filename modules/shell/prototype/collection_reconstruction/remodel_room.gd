@@ -15,6 +15,19 @@ const Pieta := preload("res://pieta_asset.gd")
 const RenaissanceA := preload("res://renaissance_case_a_assets.gd")
 const RenaissanceB := preload("res://renaissance_case_b_assets.gd")
 const RenaissanceWall := preload("res://renaissance_wall_assets.gd")
+## #274: wall paint by room ("" is every other area). A wall reads grey when it has the hue of
+## the room's white trim and is darker than it: the lamps are warm, so both read warm, and the
+## eye takes the trim for white. These are greys in the trim's hue with a slight cool-green
+## cast, as the footage has beside its skirting (IMG_6343 78 and 252 s; IMG_6383 62.5 s;
+## IMG_6386 67.5 s; IMG_6380 223.5 s). A bluer paint reads mauve beside the cream trim.
+const WALL_PAINT:={"":"cfd5cf","light Renaissance room":"b2b8b3","adjacent gallery":"cfd5cf","Rockefeller":"cbd9d4",
+	"modern painting gallery":"d4dbe0","lion stair landing":"b5b8b5","grey French gallery":"dcdcd6","Skylight Gallery":"c2c6c2",
+	"marble stair hall":"dedcd4","dark medieval room":"4c5160"}
+## #274: the oak's own tone. The Hall's floor reads (183,137,85) under its warm lamps and cool
+## daylight; these rooms' lamps are near white so their trim reads white, and the honey is here.
+const OAK_TONE:="f5bf74"
+func wall_paint(label:String) -> StandardMaterial3D:
+	return look(Color(WALL_PAINT.get(label,WALL_PAINT[""])),"res://presentation/neutral-plaster.png")
 var inventory := {"point_clouds":0,"bookcase":1,"mirrors":2,"settee":1,"armchairs":3}
 var contact_shadow:MeshInstance3D
 var ceiling_details:Array[MeshInstance3D]=[]
@@ -918,6 +931,7 @@ func build_rooms() -> void:
 	var oak := ShaderMaterial.new()
 	oak.shader=load("res://presentation/floor_oak.gdshader")
 	oak.set_shader_parameter("oak",load("res://presentation/oak-board-atlas-168-v3.webp"))
+	oak.set_shader_parameter("ground_tone",Color(OAK_TONE))
 	var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://geometry.json"))
 	hall_reveal=data.hall_reveal
 	var floor_limits:=Vector2(INF,-INF)
@@ -928,13 +942,9 @@ func build_rooms() -> void:
 	oak.set_shader_parameter("floor_z_limits",floor_limits)
 	for area in data.rooms:
 		var b:Array=area.bounds
-		var wall:=look(Color.WHITE,"res://presentation/purple-plaster.png") if area.label.begins_with("purple") else look(Color.WHITE,"res://presentation/wall-plaster.png")
-		if area.label=="dark medieval room":wall=look(Color("53545b"),"res://presentation/neutral-plaster.png")
+		var wall:=look(Color.WHITE,"res://presentation/purple-plaster.png") if area.label.begins_with("purple") else wall_paint(area.label)
 		if area.label.begins_with("Main Hall"):wall=look(Color("7c8ca3"))
 		if area.label.begins_with("Grand Gallery"):wall=look(Color.WHITE,"res://modules/shell/prototype/gallery_walk4/textures/wall-muse.webp")
-		if area.label in ["lion stair landing","modern painting gallery"]:wall=look(Color.WHITE,"res://presentation/landing-plaster.png")
-		if area.label=="grey French gallery":wall=look(Color("b6b4ad"),"res://presentation/neutral-plaster.png")
-		if area.label=="light Renaissance room":wall=look(Color("e3e2de"),"res://presentation/neutral-plaster.png")
 		var height:float=area.get("height",3.5)
 		if area.label in ["light Renaissance room","dark medieval room","modern painting gallery","adjacent gallery","Rockefeller","grey French gallery"]:
 			# IMG_6383 62.25s / IMG_6382 88.75s: flat plaster, not the Hall skylight. The European gallery
@@ -1668,7 +1678,7 @@ func stone_asset(kind:String,at:Vector3,yaw:float) -> void:
 		if q.all(func(p):return int(p[2])==1):front.append(q)
 		elif q.all(func(p):return int(p[2])==0):back.append(q)
 		else:sides.append(q)
-	for spec in [[front,look(Color("53545b"),"res://presentation/neutral-plaster.png") if kind=="romanesque-portal" else look(Color("e3e2de"),"res://presentation/neutral-plaster.png")],[back,look(Color("7c8ca3")) if kind=="romanesque-portal" else look(Color("53545b"),"res://presentation/neutral-plaster.png")],[sides,look(Color("53545b"))]]:
+	for spec in [[front,wall_paint("dark medieval room") if kind=="romanesque-portal" else wall_paint("light Renaissance room")],[back,look(Color("7c8ca3")) if kind=="romanesque-portal" else look(Color("53545b"),"res://presentation/neutral-plaster.png")],[sides,look(Color("53545b"))]]:
 		var fill:=MeshInstance3D.new()
 		fill.mesh=stone_mesh(data,spec[0],.13)
 		fill.material_override=spec[1]
@@ -1728,7 +1738,7 @@ func build_sculpture_rooms() -> void:
 		art.build_shaped(load("res://assets/painting-"+spec[0]+".jpg"),size,data.outline,Color("674d29"))
 		assert(art.get_child_count()==2 and art.outer==size)
 	# North-wall display projection and vents are visible in6382 85.25..87.25s.
-	var projection:=solid(Vector3(3.05,2.125,18.98),Vector3(.77,4.25,.22),look(Color("53545b")))
+	var projection:=solid(Vector3(3.05,2.125,18.98),Vector3(.77,4.25,.22),wall_paint("dark medieval room"))
 	var screen:=solid(Vector3(3.05,2.8,19.104),Vector3(.44,.90,.015),look(Color("0a0a0b")))
 	screen.reparent(projection)
 	for spec in [[Vector3(1.75,3.82,19.06),Vector2(1.35,.16)],[Vector3(1.46,.45,19.06),Vector2(.48,.24)]]:

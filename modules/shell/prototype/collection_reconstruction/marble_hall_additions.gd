@@ -385,7 +385,7 @@ func upper_landing() -> void:
 			header = body
 	assert(header != null, "The hall's wall above the columns must exist")
 	# Seen from the grey gallery the wall above its beam is plain plaster, not the back of this hall.
-	var behind: MeshInstance3D = room.solid(Vector3(x0 - .05, (3.5 + ceiling_height()) / 2, (z0 + z1) / 2), Vector3(.02, ceiling_height() - 3.5, z1 - z0), room.look(Color("b6b4ad"), "res://presentation/neutral-plaster.png"))
+	var behind: MeshInstance3D = room.solid(Vector3(x0 - .05, (3.5 + ceiling_height()) / 2, (z0 + z1) / 2), Vector3(.02, ceiling_height() - 3.5, z1 - z0), room.wall_paint("grey French gallery"))
 	behind.reparent(header)
 
 

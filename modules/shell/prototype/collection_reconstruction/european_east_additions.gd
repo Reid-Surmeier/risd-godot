@@ -133,7 +133,7 @@ func build_platform() -> void:
 	var deck: Node3D = room.plinth(at(16.95, .65), Vector3(1.3, .14, 4.9 * k))
 	deck.set_meta("european_east_platform", true)
 	# Panel: about 2.7 m wide, to 10 cm under the ceiling, 0.31 m deep as in the footage.
-	var panel: Node3D = room.solid(at(16.0, .155, 1.795), Vector3(.31, 3.31, 2.7), room.look(Color.WHITE, "res://presentation/wall-plaster.png"), true)
+	var panel: Node3D = room.solid(at(16.0, .155, 1.795), Vector3(.31, 3.31, 2.7), room.wall_paint("adjacent gallery"), true)
 	panel.set_meta("european_east_display_panel", true)
 	var cover := slab("textile-37.009.jpg", Vector2(.92, 1.334), SQUARE, Color("6d2f2a"))
 	cover.position = at(16.0, .306, 1.56)
