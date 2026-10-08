@@ -140,6 +140,32 @@ it. Unbaked means the draft's own flat light; the baked look is judged from the 
    `architecture_check.gd` changed with it: the figure's pinned height 0.68 -> 0.48 m and the
    lid's 2.09 -> 1.89 m. Pictures 6 and 9 show the case before this.
 
+12. `12-medieval-angel-head-pedestals-labels-footage-and-unbaked.jpg`: the dark medieval room's
+   two octagonal pedestals and its label cards. Pairs, footage then unbaked: IMG_6382 60.5 s
+   (the Angel), 30.0 s (the Head). NO WORK MOVED: both pedestal tops measured at the build's
+   height, within the error.
+   - The Angel's pedestal, 60.5 s, ruler the figure's catalogue height (1.524 m, carved base
+     included). Height: floor, pedestal top and figure top on the pedestal's axis, corrected for
+     the camera's downward tilt (the verticals' vanishing point, about 6500 px down the frame),
+     give 0.68 m; the front edge alone gives 0.61 to 0.67 m. So 0.65 +-0.07 m against the build's
+     0.69 m: kept. Width: 0.50 m across the flats where the build had 0.61 m, so the radius is
+     now 0.27 m (was 0.33 m). That is what made it read squat. Its head band is 12 cm (was 8)
+     and the base band of both octagons 15 cm (was 10), as the frame's pale edge lines divide it.
+   - The Head's pedestal, 30.0 and 31.5 s, ruler the head's catalogue height (0.813 m). The cap
+     is 0.93 of the shaft's width and about 13 cm high: radius 0.28 m (was 0.24 m), height kept
+     at 0.14 m, a 2 cm step. The shaft is 0.57 m across in the frame (build 0.55 to 0.60 m) and
+     the whole pedestal about 1.5 m (31.5 s; its foot is out of frame in 30.0 s): both kept.
+   - Label cards: upright, 0.16 x 0.27 m (they were 0.30 x 0.17 m lying on their side), and the
+     filmed colour. Measured, not judged by eye: in 30.0 s the card's plain field is 0.79, 0.74,
+     0.75 (red, green, blue, linear) of the pedestal face beside it, which is the pedestal's
+     grey a quarter darker and slightly mauve, `605e64`. It looks darker than that in the frame
+     because the white lettering sits on it; a first reading as "dark maroon" was that effect.
+     The two bars are pale, where the lettering is. The Head's card moved up to sit 2 cm under
+     the shaft's top, as filmed. The card lying on the crucifix platform keeps its shape and
+     takes the colour; no frame I opened shows it.
+   Guessed: the camera's lens (the tilt correction assumes straight lines stay straight); the
+   cards on Saint Peter's and the relief's pedestals are placed as before (0.82 m centre).
+
 The clips are in `~/risd-godot-ingestion/collection-expansion/verified/` (the copies one folder
 up are empty or cut short). `IMG_6382.MOV` plays upside down: add `,hflip,vflip` to the filter.
 
@@ -152,7 +178,8 @@ up are empty or cut short). `IMG_6382.MOV` plays upside down: add `,hflip,vflip`
   cases so the label rail's face has its filmed height. Measure from 44.0, 24.6 and 30.2 s
   (scale from the case's own width or a catalogue size in the same plane), move works only
   vertically and only with their deck, and name each work and distance in the commit.
-- Done in the dark medieval room: the two glass cases and the octagonal pedestals (picture 10).
+- Done in the dark medieval room: the two glass cases and the octagonal pedestals (picture 10),
+  their filmed proportions and the label cards (picture 12).
 - Not done: the grey French gallery (the plinth under Rodin's Hand of God, benches), and the
   European gallery (`european_east_additions.gd`, `european_west_additions.gd`;
   footage IMG_6384, 6385, 6386). Its platforms and case bases are the white kind: start from
@@ -208,7 +235,8 @@ east case A `-1.05,.42,.12:0,.40,.30` and low `-1.7,-.55,1.0:0,-.62,0`; Pietà c
 `.9,-.9,.95:0,-1.2,.62:45`; picture 10, `medieval_crucifix_platform` (the nearest piece
 with a key): `-2.6,1.5,-3.6:1.6,.5,-1.9`, `-3.5,1.3,-2.6:-4.78,.75,-.98`,
 `2.82,1.32,-1.89:3.39,.82,-.12`; picture 11: `renaissance_west_blind`
-`3.9,-.35,.3:.3,-.35,0:55` and `saint_roch_installation` `1.4,1.3,1.0:0,.85,0`. A blank or flat picture means the camera is inside a wall: change the
+`3.9,-.35,.3:.3,-.35,0:55` and `saint_roch_installation` `1.4,1.3,1.0:0,.85,0`. picture 12, `medieval_crucifix_platform`: `-3.2,1.6,-1.9:-4.78,.9,-.98` and
+`3.6,1.45,-1.6:3.39,1.25,-.12`. A blank or flat picture means the camera is inside a wall: change the
 offset's sign. The draft draws every room at once and lights nothing by the bake, so it shows
 shape, not the final light or which room the game would draw. If a shot fails with "Cannot open
 file res://.godot/imported/...", another draft run is rebuilding the same folder: wait and repeat.
