@@ -500,8 +500,8 @@
     "accession": "2017.74.32",
     "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
     "identified": true,
-    "image": "res://modules/shell/collection_rooms/assets/details/ewe-lamb.jpg",
-    "source": "Accepted for #271 from the repo's recorded candidate: 19 of the 20 objects on the bookcase are matched by photograph and Ewe and Lamb is the one remaining page that carries the bookcase label copy (docs/research/2026-10-01-museum-object-manifest.md, \"Left unidentified\"), so the match is inferred by elimination. Fields: image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:ewe-lamb.html (saved copy of https://risdmuseum.org/art-design/collection/ewe-and-lamb-20177432); tombstone re-read on the live page, fetched 8 Oct 2026 with the Scrapling MCP make_request. No museum photograph: the page has none. The picture is the owner's film, IMG_6380.MOV at 148.53 s (frame 47 after 147.0 s), HLG tone-mapped, cut to 126 x 92 px at native size from x 536 y 630; not enlarged."
+    "image": "res://modules/shell/collection_rooms/assets/ewe-lamb-volume.png",
+    "source": "Accepted for #271 from the repo's recorded candidate: 19 of the 20 objects on the bookcase are matched by photograph and Ewe and Lamb is the one remaining page that carries the bookcase label copy (docs/research/2026-10-01-museum-object-manifest.md, \"Left unidentified\"), so the match is inferred by elimination. Fields: image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:ewe-lamb.html (saved copy of https://risdmuseum.org/art-design/collection/ewe-and-lamb-20177432); tombstone re-read on the live page, fetched 8 Oct 2026 with the Scrapling MCP make_request. No museum photograph: the page has none. The picture is the generated render matched to the source (ewe-lamb-volume.png), kept: film frames are for measurement and reference, not for showing."
   },
   "sconce-left": {
     "title": "Wall Sconce",
