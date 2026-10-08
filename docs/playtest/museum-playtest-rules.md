@@ -17,6 +17,7 @@ godot --fixed-fps 60 --path . --script res://modules/shell/playtest/museum_playt
 `--fixed-fps 60` makes each frame one sixtieth of a second of game time, so two runs of the same
 commit give the same result. The run writes `report.json`, one picture per view and one per opened
 object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects` runs part of it.
+`--objects=E1,21.482` drives only the named works (by tag, or by the accession before its `#`).
 
 ## The rules
 
@@ -48,6 +49,14 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
 8. **No script errors.** The run's log must contain no `SCRIPT ERROR`; `build/run-playtest.sh`
    prints any it finds. A click on floor nobody can reach is one way to cause one and must do
    nothing.
+9. **Captions read and zoom pages show the work.** (Objects pass, #271.) The record behind every
+   caption has a title, a maker and a museum number, and is a catalogue record, not a working
+   name. Every character of the caption has a glyph in the caption font itself: the Web build has
+   no system font to fall back on. In the photograph of the inspection panel and of the zoom page
+   each caption line is letters, not solid blocks and not nothing. The zoom page's picture is not
+   a blank rectangle, and its caption lies clear of the picture. A run that fails only on "drew
+   as solid blocks" or "did not draw" is run again before it is believed: one capture on
+   7 October drew 19 captions that way and no later run of the same build has.
 
 Round 1's reviewer asked for four more that the harness does not have yet; until it does, the
 reviewer checks them by hand and says so:
