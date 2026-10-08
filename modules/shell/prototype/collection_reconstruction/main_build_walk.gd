@@ -468,7 +468,8 @@ func _collect_objects() -> void:
 				"center": centre,
 				"normal": normal,
 				"corners": corners,
-				"outer": Vector2(maxf(box.size.x, box.size.z), box.size.y)
+				"outer": Vector2(maxf(box.size.x, box.size.z), box.size.y),
+				"flat": _flat_axis(box.size)
 			}
 		)
 
@@ -628,10 +629,20 @@ func _doorway(q: Vector3) -> bool:
 # Beside the work rather than in front of its middle, so the inspection shot sees past the
 # visitor: the side with free floor, the nearer one if both are free.
 func _viewing(p: Dictionary) -> Dictionary:
-	var normal: Vector3 = p.normal
-	if normal == Vector3.ZERO:
-		normal = Vector3(_pos.x - p.center.x, 0, _pos.z - p.center.z).normalized()
-	var along := normal.cross(Vector3.UP)
+	var normals: Array = [p.normal]
+	if p.normal == Vector3.ZERO:
+		normals = [Vector3(_pos.x - p.center.x, 0, _pos.z - p.center.z).normalized()]
+	# A flat work standing up (a photo card, a cut-out) is looked at square on, from whichever
+	# face has floor before it, whatever wall is nearest and wherever the visitor happens to
+	# be (#272): seen along its edge it is a dark bar. One lying down is looked down on.
+	var flat: Vector3 = p.get("flat", Vector3.ZERO)
+	var turned: bool = (
+		flat != Vector3.ZERO
+		and flat.y == 0.0
+		and (p.normal == Vector3.ZERO or absf(p.normal.dot(flat)) < 0.9)
+	)
+	if turned:
+		normals = [flat, -flat]
 	var foot := Vector3(p.center.x, 0, p.center.z)
 	var small: bool = p.outer.y < 0.6 or p.normal == Vector3.ZERO
 	var out: float = p.outer.x / 2.0 + 1.0 if small else clampf(p.outer.y * 0.9, 1.5, 2.5)
@@ -639,18 +650,62 @@ func _viewing(p: Dictionary) -> Dictionary:
 	var aside: float = p.outer.x / 2.0 + 0.75
 	var best := {}
 	var nearest := INF
-	for side in [1.0, -1.0]:
-		var wanted: Vector3 = foot + normal * out + along * side * aside
-		var cell := _cell(wanted)
-		if not _route_grid().is_in_boundsv(cell):
-			continue
-		var stand := Vector3(cell.x * GRID, 0, cell.y * GRID)
-		# A side where a wall or a case pushes the spot back in front of the work loses.
-		var d := stand.distance_to(_pos) + maxf(0.0, stand.distance_to(wanted) - 0.2) * 10.0
-		if d < nearest:
-			nearest = d
-			best = {"normal": normal, "along": along, "side": side, "stand": stand, "small": small}
+	for normal in normals:
+		var along: Vector3 = normal.cross(Vector3.UP)
+		for side in [1.0, -1.0]:
+			var wanted: Vector3 = foot + normal * out + along * side * aside
+			var cell := _cell(wanted)
+			if not _route_grid().is_in_boundsv(cell):
+				continue
+			var stand := Vector3(cell.x * GRID, 0, cell.y * GRID)
+			# A face with a wall behind it has no floor of its own: its spot would be next door.
+			if turned and _stage_of(_room_at(stand)) != _stage_of(p.room):
+				continue
+			# A side where a wall or a case pushes the spot back in front of the work loses.
+			var d := stand.distance_to(_pos) + maxf(0.0, stand.distance_to(wanted) - 0.2) * 10.0
+			# So does a face with another work standing in front of it, by how much it hides.
+			if turned:
+				d += _stood_before(p, normal) * 20.0
+			if d < nearest:
+				nearest = d
+				best = {
+					"normal": normal, "along": along, "side": side, "stand": stand, "small": small,
+					"above": flat.y != 0.0
+				}
 	return best
+
+
+# How much of a work's face, seen from the side its normal points to, another work in its
+# room stands in front of: 0 none, 1 all of it. By their boxes, within a metre of it.
+func _stood_before(p: Dictionary, normal: Vector3) -> float:
+	var along := normal.cross(Vector3.UP)
+	var most := 0.0
+	for other in _objects:
+		if other.tag == p.tag or other.room != p.get("room", -1):
+			continue
+		var off: Vector3 = other.center - p.center
+		var depth := off.dot(normal)
+		if depth <= 0.02 or depth > 1.0:
+			continue
+		var reach: Vector3 = other.corners[7] - other.corners[0]
+		var wide: float = absf(along.x) * reach.x + absf(along.z) * reach.z
+		var across: float = (wide + p.outer.x) / 2.0 - absf(off.dot(along))
+		var up: float = (reach.y + p.outer.y) / 2.0 - absf(off.y)
+		most = maxf(
+			most,
+			clampf(across / maxf(p.outer.x, 0.01), 0.0, 1.0) * clampf(up / maxf(p.outer.y, 0.01), 0.0, 1.0)
+		)
+	return most
+
+
+# The axis a flat work is thin along (its face looks that way), or zero for a work in the round:
+# thinner than 3.5 cm and than a fifth of its other two measures.
+func _flat_axis(measures: Vector3) -> Vector3:
+	var thin := measures.min_axis_index()
+	var least: float = measures[thin]
+	if least > 0.035 or least >= 0.2 * measures[(thin + 1) % 3] or least >= 0.2 * measures[(thin + 2) % 3]:
+		return Vector3.ZERO
+	return [Vector3.RIGHT, Vector3.UP, Vector3.BACK][thin]
 
 
 # Any work, Hall painting or added-room object: walk to its viewing spot, face it, open it.
@@ -850,6 +905,13 @@ func _inspect_shot(p: Dictionary) -> Transform3D:
 		# overflows the widest lens.
 		back = clampf(height / (share * 0.407), 1.6, maxf(4.5, height * 2.2))
 		tilt = deg_to_rad(3.0)
+	if view.get("above", false):
+		# Lying flat: looked down on at 55 degrees so that its face shows. What the face
+		# measures across the lens stands in for its height in the sums below.
+		tilt = deg_to_rad(55.0)
+		height = maxf(p.outer.x, 0.05) * sin(tilt) * cos(tilt)
+		share = 0.33
+		back = clampf(height / (share * 0.407), 0.9, 4.5)
 	var foot := Vector3(p.center.x, 0, p.center.z)
 	var room := _room_at(foot + normal * 0.6)
 	var bounds: Array = _plan[room].b if room >= 0 else [-W / 2.0, W / 2.0, -L, 0.0]

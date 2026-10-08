@@ -22,6 +22,7 @@ const SIZE := Vector2i(960, 640)
 # screen rectangle the caption panel may cover (#272).
 const READ_HEIGHT := 0.25
 const READ_COVERED := 0.02
+const READ_FACE := 0.6  # the least of a flat work's face that shows
 const HALL := "Grand Gallery"
 
 var walk
@@ -691,6 +692,56 @@ func _objects() -> void:
 		]
 		if not Rect2(Vector2.ZERO, walk.size).grow(2).encloses(work):
 			problems.append("the work is not wholly in the inspection picture")
+		# A flat work (a photo card, a cut-out, a slab lying down) shows its face (#272): the
+		# share of that face's area its box takes on screen, against the face seen square on
+		# at the same distance. Along its edge the share is a few hundredths.
+		var reach := AABB(thing.corners[0], Vector3.ZERO)
+		for corner in thing.corners:
+			reach = reach.expand(corner)
+		var measures: Vector3 = reach.size
+		var least: float = measures[measures.min_axis_index()]
+		var mid: float = measures.x + measures.y + measures.z - least - measures[measures.max_axis_index()]
+		if least <= 0.035 and least < 0.2 * mid:
+			var outline := PackedVector2Array()
+			for corner in thing.corners:
+				outline.append(walk._to_screen(corner))
+			outline = Geometry2D.convex_hull(outline)
+			var seen := 0.0
+			for i in outline.size() - 1:
+				seen += outline[i].x * outline[i + 1].y - outline[i + 1].x * outline[i].y
+			var per_metre: float = walk.size.y / (
+				2.0 * walk._cam.global_position.distance_to(reach.get_center())
+				* tan(deg_to_rad(walk._cam.fov) / 2.0)
+			)
+			seen = absf(seen) / 2.0 / (mid * measures[measures.max_axis_index()] * per_metre * per_metre)
+			entry["face_seen"] = snappedf(seen, 0.01)
+			if seen < READ_FACE:
+				problems.append("the work is flat and shows only %.2f of its face" % seen)
+		# No other work stands in front of it (#272). At five points of its rectangle the
+		# lens's ray is tried against this work's own meshes and its room's other works';
+		# a point is hidden when another is met first.
+		if thing.has("object"):
+			var on_it := 0
+			var hidden := 0
+			var before := {}
+			for spot in [Vector2(0.5, 0.5), Vector2(0.3, 0.3), Vector2(0.7, 0.3), Vector2(0.3, 0.7), Vector2(0.7, 0.7)]:
+				var pixel: Vector2 = (work.position + work.size * spot) / walk.size * Vector2(walk._vp.size)
+				var from: Vector3 = walk._cam.project_ray_origin(pixel)
+				var toward: Vector3 = walk._cam.project_ray_normal(pixel)
+				var own: float = walk._ray_reach(thing.node, from, toward)
+				if own == INF:
+					continue
+				on_it += 1
+				for other in walk._objects:
+					if other.tag != tag and other.room == thing.room:
+						if walk._ray_reach(other.node, from, toward) < own - 0.01:
+							before[other.tag.get_slice("#", 0)] = true
+				hidden += int(not before.is_empty())
+			entry["points_hidden"] = [hidden, on_it]
+			if on_it > 0 and hidden * 2 >= on_it:
+				problems.append(
+					"%d of %d points of the work are behind %s" % [hidden, on_it, ", ".join(before.keys())]
+				)
 		# The caption panel stands under the work, not over it (#272).
 		var under := 0.0
 		if panel.is_visible_in_tree() and work.has_area():
