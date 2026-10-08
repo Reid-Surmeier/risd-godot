@@ -1,0 +1,143 @@
+"""Scratch (#266): Hall before/after a frame-band change. Usage: frames_compare.py <before dir> <after dir> <old works.json> <new works.json> [sheet.jpg <footage dir>]
+Views are hall_capture.gd's: four square-on wall views (60.6 px/m long walls, 100 px/m end walls), follow,
+oblique, floor plan, and a close square-on view per work (c-<tag>.png, 200 px/m, centred on the canvas)."""
+import json, sys, os, glob
+import numpy as np
+from PIL import Image, ImageDraw
+B, A, OLD, NEW = sys.argv[1:5]
+L, PXL, PXE, PXC = 26.3, 400 / 6.6, 100.0, 200.0
+rgb = lambda p: np.asarray(Image.open(p).convert("RGB"), float) / 255
+luma = lambda a: a @ [0.2126, 0.7152, 0.0722]
+old = {r["tag"]: r for r in json.load(open(OLD))}; new = {r["tag"]: r for r in json.load(open(NEW))}
+pb = {p["tag"]: p for p in json.load(open(B + "/paintings.json"))}; pa = {p["tag"]: p for p in json.load(open(A + "/paintings.json"))}
+changed = [t for t in new if new[t].get("band_m") != old[t].get("band_m")]
+print("changed frames:", " ".join(changed))
+print("\n## Model: centre and outer size of every work (paintings.json)\n")
+print("largest centre move over all %d works: %.4f m" % (len(pb), max(max(abs(x - y) for x, y in zip(pb[t]["c"], pa[t]["c"])) for t in pb)))
+print("works whose outer size changed:", " ".join(t for t in pb if pb[t]["outer"] != pa[t]["outer"]))
+
+print("\n## Brightness, whole picture (mean display luma, 0 to 1)\n\n| view | before | after | diff |\n|---|---|---|---|")
+views = ["1-west", "2-east", "3-far", "4-arch", "5-follow", "6-oblique", "7-floor"]
+im = {v: (rgb(f"{B}/{v}.png"), rgb(f"{A}/{v}.png")) for v in views}
+for v in views: print("| %s | %.3f | %.3f | %+.3f |" % (v, luma(im[v][0]).mean(), luma(im[v][1]).mean(), luma(im[v][1]).mean() - luma(im[v][0]).mean()))
+
+def wallview(p):  # view, px per metre, u of the centre, image w, h
+    (x, y, z), (nx, nz) = p["c"], p["n"]
+    if nx > 0.5: return "1-west", PXL, 800 - (z + L / 2) * PXL, 1600, 400
+    if nx < -0.5: return "2-east", PXL, 800 + (z + L / 2) * PXL, 1600, 400
+    if nz > 0.5: return "3-far", PXE, 500 + x * PXE, 1000, 660
+    return "4-arch", PXE, 500 - x * PXE, 1000, 660
+
+print("\n## Away from the paintings\n\n| region | mean luma before | after | diff | share of pixels differing > 3 % |\n|---|---|---|---|---|")
+def row(name, b, a, m):
+    if m.sum() == 0: return
+    d = np.abs(a - b).max(axis=-1)
+    print("| %s | %.3f | %.3f | %+.4f | %.1f %% |" % (name, luma(b)[m].mean(), luma(a)[m].mean(), luma(a)[m].mean() - luma(b)[m].mean(), 100 * (d[m] > 0.03).mean()))
+for v, pxm, w, h in [("1-west", PXL, 1600, 400), ("2-east", PXL, 1600, 400), ("3-far", PXE, 1000, 660), ("4-arch", PXE, 1000, 660)]:
+    b, a = im[v]; yy = 3.1 + (h / 2 - (np.arange(h) + 0.5)) / pxm; Y = np.repeat(yy[:, None], w, 1)
+    near = np.zeros(w, bool)
+    for t, p in pb.items():
+        vw, _, u, _, _ = wallview(p)
+        if vw == v: near[max(int(u - (p["outer"][0] / 2 + 0.9) * pxm), 0):int(u + (p["outer"][0] / 2 + 0.9) * pxm) + 1] = True
+    far = np.repeat(~near[None, :], h, 0)
+    row(f"{v}: skirting (0.03-0.20 m)", b, a, (Y > 0.03) & (Y < 0.20))
+    row(f"{v}: wall above 4.6 m, below the cornice", b, a, (Y > 4.6) & (Y < 5.8))
+    row(f"{v}: cornice and above (> 5.8 m)", b, a, Y > 5.8)
+    row(f"{v}: wall columns > 0.9 m from any frame, 0.3-4.6 m", b, a, far & (Y > 0.3) & (Y < 4.6))
+b, a = im["7-floor"]; m = np.ones(b.shape[:2], bool); row("7-floor: whole plan", b, a, m)
+m2 = np.zeros_like(m); m2[:, int(800 - 3 * 1600 / L * 0.6):int(800 + 3 * 1600 / L * 0.6)] = True; row("7-floor: middle of the floor", b, a, m2)
+b, a = im["5-follow"]; m = np.zeros(b.shape[:2], bool); m[b.shape[0] // 2:] = True; row("5-follow: lower half (floor)", b, a, m)
+
+print("\n## Works whose frame did not change: their box on the wall views, before against after\n\n| work | mean abs RGB diff in the frame box | share of pixels differing > 3 % |\n|---|---|---|")
+for t, p in pb.items():
+    if t in changed: continue
+    v, pxm, u, w, h = wallview(p); b, a = im[v]
+    u0, u1 = int(u - p["outer"][0] / 2 * pxm), int(u + p["outer"][0] / 2 * pxm) + 1
+    v0, v1 = int(h / 2 - (p["c"][1] + p["outer"][1] / 2 - 3.1) * pxm), int(h / 2 - (p["c"][1] - p["outer"][1] / 2 - 3.1) * pxm) + 1
+    d = np.abs(a[v0:v1, u0:u1] - b[v0:v1, u0:u1])
+    print("| %s | %.4f | %.1f %% |" % (t, d.mean(), 100 * (d.max(axis=-1) > 0.03).mean()))
+
+def outer_box(img, rec, yc):
+    """the frame's outer edges in a close view: scanning inward from the picture's edge (from 0.26 m above
+    the floor, clear of the skirting), the first place the colour steps by more than THR over 2 px, on the
+    middle third of each side. Half-extents left, top, right, bottom in metres from the canvas centre."""
+    h, w = img.shape[:2]; cx, cy = w / 2, h / 2
+    def first(profile, skip=0):
+        g = np.abs(profile[2:] - profile[:-2]).max(axis=-1); g[:skip] = 0
+        i = np.argmax(g > THR); return i + 1 if g[i] > THR else 0
+    hh = int(rec["canvas_h"] * PXC / 6); ww = int(rec["canvas_w"] * PXC / 6)
+    rows = np.median(img[int(cy) - hh:int(cy) + hh], axis=0); cols = np.median(img[:, int(cx) - ww:int(cx) + ww], axis=1)
+    floor_skip = max(int(h - (cy + (yc - 0.26) * PXC)), 0)
+    l, r, t, b = first(rows), first(rows[::-1]), first(cols), first(cols[::-1], floor_skip)
+    return [(cx - l) / PXC, (cy - t) / PXC, (cx - r) / PXC, (cy - b) / PXC]
+THR = 0.04
+
+print("\n## What the saved bake holds: each work's frame box and canvas box (baked/room.tscn meshes)\n")
+print("| work | band l/t/r/b in works.json (m) | frame box before (m) | frame box after (m) | canvas + bands (m) | after minus that (m) | canvas box centre moved (m) |\n|---|---|---|---|---|---|---|")
+sb, sa = json.load(open(B + "/baked.json")), json.load(open(A + "/baked.json"))
+dims = lambda b: (max(b[3], b[5]), b[4]); mid = lambda b: [b[i] + b[i + 3] / 2 for i in range(3)]
+worst_c = worst_f = 0.0
+for t in new:
+    shaped = t + ":canvas" not in sb
+    cb, ca = (sb[t + ":frame"], sa[t + ":frame"]) if shaped else (sb[t + ":canvas"], sa[t + ":canvas"]); mv = max(abs(x - y) for x, y in zip(mid(cb), mid(ca))); worst_c = max(worst_c, mv)
+    fb, fa = sb.get(t + ":frame"), sa.get(t + ":frame")
+    if shaped: print("| %s | shaped canvas, no frame | %.3f x %.3f | %.3f x %.3f | | | %.4f |" % (t, *dims(cb), *dims(ca), mv)); continue
+    rec = new[t]; bm = rec.get("band_m"); exp = pa[t]["outer"]
+    if bm: exp = [rec["canvas_w"] + bm[0] + bm[2], rec["canvas_h"] + bm[1] + bm[3]]
+    err = (dims(fa)[0] - exp[0], dims(fa)[1] - exp[1]); worst_f = max(worst_f, abs(err[0]), abs(err[1]))
+    print("| %s%s | %s | %.3f x %.3f | %.3f x %.3f | %.3f x %.3f | %+.4f, %+.4f | %.4f |" % (t, " **changed**" if t in changed else "", "/".join("%.3f" % x for x in bm) if bm else "texture's own", *dims(fb), *dims(fa), *exp, *err, mv))
+print("\nworst frame box against canvas + bands: %.4f m; worst canvas box move: %.4f m" % (worst_f, worst_c))
+
+def outer_box(img, rec, yc):
+    """the frame's outer edges in a close view: scanning inward from the picture's edge (from 0.26 m above
+    the floor, clear of the skirting), the first place the colour steps by more than THR over 2 px, on the
+    middle third of each side. Half-extents left, top, right, bottom in metres from the canvas centre."""
+    h, w = img.shape[:2]; cx, cy = w / 2, h / 2
+    def first(profile, skip=0):
+        g = np.abs(profile[2:] - profile[:-2]).max(axis=-1); g[:skip] = 0
+        i = np.argmax(g > THR); return i + 1 if g[i] > THR else 0
+    hh = int(rec["canvas_h"] * PXC / 6); ww = int(rec["canvas_w"] * PXC / 6)
+    rows = np.median(img[int(cy) - hh:int(cy) + hh], axis=0); cols = np.median(img[:, int(cx) - ww:int(cx) + ww], axis=1)
+    floor_skip = max(int(h - (cy + (yc - 0.26) * PXC)), 0)
+    l, r, t, b = first(rows), first(rows[::-1]), first(cols), first(cols[::-1], floor_skip)
+    return [(cx - l) / PXC, (cy - t) / PXC, (cx - r) / PXC, (cy - b) / PXC]
+THR = 0.04
+
+print("\n## Close views (200 px per metre, camera fixed on the canvas centre): slide-and-fit of the canvas, and the frame's outer size read in the picture\n")
+print("The canvas (5 cm in from its edge) of the before picture is slid over the after picture, up to 4 px each way; the best fit is the move.")
+print("The frame's outer size is read where its edge has contrast against the wall (the reading is kept only where the same reading on the before picture gives the known before size to 0.03 m).\n")
+print("| work | canvas move at best fit (px; 1 px = 0.005 m) | mean abs luma diff at best fit | outer expected after (m) | width read after (m) | height read after (m) |\n|---|---|---|---|---|---|")
+moved = 0
+for t in new:
+    b, a = rgb(f"{B}/c-{t}.png"), rgb(f"{A}/c-{t}.png"); rec = new[t]
+    h, w = a.shape[:2]; x0, x1 = int(w / 2 - (rec["canvas_w"] / 2 - 0.05) * PXC), int(w / 2 + (rec["canvas_w"] / 2 - 0.05) * PXC); y0, y1 = int(h / 2 - (rec["canvas_h"] / 2 - 0.05) * PXC), int(h / 2 + (rec["canvas_h"] / 2 - 0.05) * PXC)
+    ca, cb = luma(a[y0:y1, x0:x1]), luma(b[y0:y1, x0:x1])
+    best = min(((np.abs(np.roll(np.roll(ca, dy, 0), dx, 1)[4:-4, 4:-4] - cb[4:-4, 4:-4]).mean(), abs(dx) + abs(dy), dx, dy) for dx in range(-4, 5) for dy in range(-4, 5)))
+    moved += best[2] != 0 or best[3] != 0
+    eb, ea = outer_box(b, rec, pa[t]["c"][1]), outer_box(a, rec, pa[t]["c"][1]); mb = (eb[0] + eb[2], eb[1] + eb[3]); ma = (ea[0] + ea[2], ea[1] + ea[3]); exp = pa[t]["outer"]
+    rd = ["%.3f (%+.3f)" % (ma[k], ma[k] - exp[k]) if abs(mb[k] - pb[t]["outer"][k]) < 0.03 else "edge not readable" for k in (0, 1)]
+    print("| %s%s | %d, %d | %.4f | %.3f x %.3f | %s | %s |" % (t, " **changed**" if t in changed else "", best[2], best[3], best[0], exp[0], exp[1], rd[0], rd[1]))
+print("\nworks whose canvas fits best at a move other than 0, 0: %d" % moved)
+
+if len(sys.argv) > 6:
+    out, FD = sys.argv[5], sys.argv[6]; K = 70 / PXC; cells = []
+    for t in changed:
+        ps = []
+        for lab, path in [("footage", f"{FD}/{t}.png"), ("before", f"{B}/c-{t}.png"), ("after", f"{A}/c-{t}.png")]:
+            wpx, hpx = Image.open(f"{A}/c-{t}.png").size
+            i = Image.open(path).convert("RGB").resize((int(wpx * K), int(hpx * K)), Image.LANCZOS); d = ImageDraw.Draw(i); d.rectangle([0, 0, 118, 12], fill=(0, 0, 0)); d.text((3, 1), f"{t} {new[t]['acc']} {lab}", fill=(255, 255, 255)); ps.append(i)
+        r = Image.new("RGB", (sum(p.width for p in ps) + 6, ps[0].height), (30, 30, 30)); x = 0
+        for p in ps: r.paste(p, (x, 0)); x += p.width + 3
+        cells.append(r)
+    cells.sort(key=lambda c: -c.height); rows_ = [cells[k:k + 2] for k in range(0, len(cells), 2)]
+    W_ = max(sum(c.width for c in r) + 10 for r in rows_); sheet = Image.new("RGB", (W_, sum(max(c.height for c in r) + 6 for r in rows_)), (30, 30, 30)); y = 0
+    for r in rows_:
+        x = 0
+        for c in r: sheet.paste(c, (x, y)); x += c.width + 10
+        y += max(c.height for c in r) + 6
+    q = 88
+    while True:
+        sheet.save(out, quality=q, optimize=True)
+        if os.path.getsize(out) < 295_000 or q < 40: break
+        q -= 4
+    print("\nsheet", out, sheet.size, os.path.getsize(out), "bytes, quality", q)
