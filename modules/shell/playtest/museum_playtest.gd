@@ -386,22 +386,23 @@ func _doors_off_centre() -> void:
 
 
 # Round 5, finding 6: in the marble stair hall, seen from the north, the whole chimneypiece
-# wall went in one frame for a visitor pressed into the corner beside its return. Two legs,
-# placed from the return wall itself: down beside it, then a sidestep against it. The second
-# goal is the wall's own face: the keys held against it, as a player holds them.
+# wall went in one frame for a visitor pressed into the corner south of its west end. Two
+# legs, placed from that wall itself: down past its end into the corner, then a sidestep
+# toward the wall that closes the corner. The second goal is in that wall: the keys held
+# against it, as a player holds them.
 func _doors_chimney_corner() -> void:
-	var side_wall = null
+	var found = null
 	for wall in walk._walls:
-		if str(wall.body.get_meta("room_wall", "")) == "marble stair hall:south:return":
-			side_wall = wall.box
-	if side_wall == null:
-		_fail("door", "marble stair hall: the chimneypiece wall's return is not there to walk beside", {})
+		if str(wall.body.get_meta("room_wall", "")) == "marble stair hall:south:chimney":
+			found = wall.box
+	if found == null:
+		_fail("door", "marble stair hall: the chimneypiece wall is not there to walk beside", {})
 		return
-	var box: AABB = side_wall
-	var beside := Vector3(box.position.x - 0.7, 0, box.get_center().z)
+	var box: AABB = found
+	var corner := Vector3(box.position.x - 0.76, 0, box.end.z + 0.8)
 	var legs := [
-		["down beside the chimneypiece return", beside + Vector3(0, 0, -2.2), beside],
-		["a sidestep against the chimneypiece return", beside, beside + Vector3(0.7, 0, 0)]
+		["down into the corner past the chimneypiece wall", corner + Vector3(0, 0, -2.2), corner],
+		["a sidestep in the corner past the chimneypiece wall", corner, corner + Vector3(0.7, 0, 0)]
 	]
 	for case in legs:
 		_place(case[1], PI)
