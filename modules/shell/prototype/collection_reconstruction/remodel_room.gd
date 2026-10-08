@@ -3,7 +3,7 @@
 extends "doorway_walk.gd"
 
 # Per-room addition scripts, built in this order after the rooms themselves.
-const ADDITIONS:=["medieval_additions.gd","grey_additions.gd","european_east_additions.gd","european_west_additions.gd","rockefeller_additions.gd","landing_additions.gd","skylight_additions.gd","marble_hall_additions.gd","fixtures_additions.gd"]
+const ADDITIONS:=["medieval_additions.gd","grey_additions.gd","european_east_additions.gd","european_west_additions.gd","rockefeller_additions.gd","landing_additions.gd","skylight_additions.gd","marble_hall_additions.gd","fixtures_additions.gd","vessels_turned_additions.gd"]
 const Painting := preload("res://modules/shell/prototype/gallery_walk4/painting_asset.gd")
 const SeatedWoman := preload("res://seated_woman_asset.gd")
 const VirginChild := preload("res://virgin_child_asset.gd")

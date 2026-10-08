@@ -1,0 +1,49 @@
+{
+  "provider": "local Godot 4.7.2 / Python / ffmpeg",
+  "model": null,
+  "new_generation_requests": 0,
+  "cost_usd": 0,
+  "source_colour": "Existing saved Muse isolate; existing receipt is tureen-receipt.json",
+  "files": {
+    "image-work/collection-room-remodel/references/tureen-catalogue-0.png": {
+      "sha256": "25e6ce893b9818e754c1db6112f391e50eabb25799bba198c06114d3e001f1b2",
+      "bytes": 1322525
+    },
+    "image-work/collection-room-remodel/references/tureen-catalogue-1.png": {
+      "sha256": "57a01f5913da02811dc942620591009f8920a9c979a762554ff32b109d1f6c91",
+      "bytes": 209220
+    },
+    "image-work/collection-room-remodel/trial/tureen-original.webp": {
+      "sha256": "30939bfd34e57184c3cea0bcd0c0fb3e9f50f70f3f72b2b29bc3d892744cd7ed",
+      "bytes": 293926
+    },
+    "image-work/collection-room-remodel/additions/vessels-turned/profiles.json": {
+      "sha256": "2c38c97d10148d534ea79653770a39eddf4bb4a0d26ae380eeecc21a68a108c5",
+      "bytes": 6146
+    },
+    "modules/shell/prototype/collection_reconstruction/vessels_turned_additions.gd": {
+      "sha256": "7a4d8c6291b0ce1dd95de2463183291c38ac59a877ec55ca8233825fece42413",
+      "bytes": 5977
+    },
+    "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": {
+      "sha256": "90006fd0e86f001f76a7ce6cc293fb21603e0a0ee9aca0c3a4e952fa411ee2fe",
+      "bytes": 65848
+    },
+    "docs/evidence/vessels-turned/exemplar-measurement.jpg": {
+      "sha256": "d96eb3e8ab3e34de8232fd680f5a38cbca52b04016bfc87f115cdc5afd32cd8f",
+      "bytes": 116291
+    },
+    "docs/evidence/vessels-turned/exemplar-front-three-quarter.jpg": {
+      "sha256": "31c30f57c827656ed422124a29f752bcf6511e14a17a4cb1ae055a1cbb9a2ff5",
+      "bytes": 130524
+    },
+    "docs/evidence/vessels-turned/exemplar-footage-scale.jpg": {
+      "sha256": "5b4d8a8349fe6ab1ff24cbb329086a616d2dbea0018f8d58c89c26787acb7986",
+      "bytes": 81294
+    },
+    "docs/evidence/vessels-turned/exemplar-measurements.json": {
+      "sha256": "ee472231bf55e7a440cf81f3ee799337b1c2d2ad64eb28d464e2cbec3d602549",
+      "bytes": 337
+    }
+  }
+}

@@ -240,6 +240,26 @@ for row in json.loads((app/'video-inventory.json').read_text())['volume_instance
     if kind not in catalogue_objects['meshes']:
         catalogue_objects['meshes'][kind]=(dish_asset if row.get('shape')=='dish' else volume_asset)(kind,row['size_m'])
     catalogue_objects['instances'].append(row)
+# Turned vessels: retain the very same saved front RGB, including pink flowers.
+# The older hue-only key also removed magenta-coloured porcelain decoration;
+# this narrow background-distance key removes only the isolation backdrop.
+vessel_profiles = app/'additions/vessels-turned/profiles.json'
+for work in json.loads(vessel_profiles.read_text())['works']:
+    original = app/'trial'/f"{work['asset']}-original.webp"
+    pixels = np.array(Image.open(original).convert('RGB'))
+    x, y, w, h = work['crop_px']
+    pixels = pixels[y:y+h, x:x+w].copy()
+    rgb = pixels.astype(float)
+    backdrop = (rgb[:,:,1] < 60) & (rgb[:,:,0] > rgb[:,:,1]*2.5) & (rgb[:,:,2] > rgb[:,:,1]*2.5) & (np.abs(rgb[:,:,0]-rgb[:,:,2]) < 50)
+    pixels[backdrop] = [218,209,188]
+    texture = Image.fromarray(pixels)
+    texture.thumbnail((512,512), Image.Resampling.LANCZOS)
+    target = out/'assets/vessels-turned'/f"{work['asset']}.png"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    texture.save(target)
+    inputs[str(original)] = hashlib.sha256(original.read_bytes()).hexdigest()
+inputs[str(vessel_profiles)] = hashlib.sha256(vessel_profiles.read_bytes()).hexdigest()
+
 # Source-protected wall panel: Muse study failed proportions/damage; original front retained.
 # ponytail: closed constant-depth slab; brick relief/profile needs surveyed side geometry.
 from collections import Counter

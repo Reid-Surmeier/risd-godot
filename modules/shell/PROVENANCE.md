@@ -1096,3 +1096,21 @@ pictures and verification limits are in
 [`docs/evidence/skylight-275/NOTES.md`](../../docs/evidence/skylight-275/NOTES.md).
 Metric, placement and fine-fidelity acceptance remain false; baked lighting,
 Web / doorway integration and the final shared trim profile are not signed off.
+
+## Turned vessel exemplar (8 October 2026, neighbour of #263)
+
+`prototype/collection_reconstruction/vessels_turned_additions.gd` reuses the
+existing hollow ring-profile / turned-tureen sweep with measured photograph
+profiles and small swept handles. The exemplar is 2017.74.39.18a-c, at the
+original placement and catalogue 55.9 × 45.7 × 35.6 cm whole bounds. Source:
+`image-work/collection-room-remodel/references/tureen-catalogue-{0,1}.png`;
+colour: the already saved `trial/tureen-original.webp` (its existing Muse
+receipt is unchanged). The vessel-only preparation removes the magenta
+isolation backdrop while retaining pink porcelain decoration. Provider for
+this work: local Godot 4.7.2, Python/Pillow and ffmpeg; new image-generation
+requests: 0; model: none; new API cost: USD 0. No bake or install. Front RGB is
+repeated on unobserved rear surfaces; side texture projection and small curls
+remain approximate. Source/control/evidence hashes and sizes are in
+[`docs/evidence/vessels-turned/SHA256.json`](../../docs/evidence/vessels-turned/SHA256.json),
+with inspected draft pictures, dimensions, faults and inherited check failures
+in [`NOTES.md`](../../docs/evidence/vessels-turned/NOTES.md).
