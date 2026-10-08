@@ -439,8 +439,11 @@ func _collect_objects() -> void:
 			"dimensions": str(node.get_meta("catalogue_dimensions", "")),
 			"identified": bool(node.get_meta("catalogue_identified", true))
 		}
+		# The catalogue photograph is only for the zoom page, so it is loaded when that opens
+		# (#281): 88 of them, 298 MB uncompressed, were being loaded with the rooms.
+		var picture := ""
 		if ResourceLoader.exists(str(node.get_meta("catalogue_image", ""))):
-			image = load(node.get_meta("catalogue_image"))
+			picture = node.get_meta("catalogue_image")
 		if captions.has(key):
 			var row: Dictionary = captions[key]
 			rec = {
@@ -456,7 +459,7 @@ func _collect_objects() -> void:
 				"identified": bool(row.get("identified", true))
 			}
 			if ResourceLoader.exists(str(row.get("image", ""))):
-				image = load(row.image)
+				picture = row.image
 		_objects.append(
 			{
 				"object": true,
@@ -466,6 +469,7 @@ func _collect_objects() -> void:
 				"room": room,
 				"layers": FAR_LAYER if _plan[room].far else NEAR_LAYER,
 				"image": image,
+				"picture": picture,
 				"center": centre,
 				"normal": normal,
 				"corners": corners,
@@ -688,6 +692,8 @@ func _open_detail(p: Dictionary) -> void:
 		return
 	# Already looking at it: the zoom page comes forward over the room.
 	_end_inspect(true)
+	if str(p.get("picture", "")) != "":
+		p.image = load(p.picture)
 	super(p)
 	_detail.modulate.a = 0.0
 	create_tween().tween_property(_detail, "modulate:a", 1.0, 0.25)
