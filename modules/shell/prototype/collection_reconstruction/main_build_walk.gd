@@ -1528,6 +1528,11 @@ func _process(delta: float) -> void:
 		var kept := _held
 		if _wipe_t < WIPE_CLOSE + WIPE_HOLD + WIPE_BACK:
 			_held = {}
+		if _rooms == null:
+			# Until the rooms exist the Hall's own limit stops the visitor 0.2 m into the
+			# doorway, and walk4 gives a route up after half a second against anything. A
+			# clicked route waits there instead and goes on once the rooms are in place (#281).
+			_stall_t = 0.0
 		super(delta)
 		_held = kept
 		_wipe_step(delta)
