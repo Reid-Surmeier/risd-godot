@@ -350,9 +350,14 @@ func _walk_keys(goal: Vector3, limit_s: float, watch_void := false) -> Dictionar
 		await process_frame
 		if settle % 2 == 1:
 			_watch_void(dark, clock + (settle + 1) / 60.0)
-	var left: float = Vector3(goal.x - walk._pos.x, 0, goal.z - walk._pos.z).length()
+	var miss := Vector3(walk._pos.x - goal.x, 0, walk._pos.z - goal.z)
+	var left: float = miss.length()
+	# A room change walks the visitor on after the keys are let go, further the faster the walk
+	# (0.9 m at 1.9 m/s): straight on past the goal is arrived, short of it or beside it is not.
+	var way := Vector3(goal.x - started.x, 0, goal.z - started.z).normalized()
+	var past: float = miss.dot(way)
 	return {
-		"arrived": left < 0.3,
+		"arrived": left < 0.3 or (past > 0.0 and past < 1.0 and (miss - way * past).length() < 0.3),
 		"left_m": snappedf(left, 0.01),
 		"seconds": snappedf(clock, 0.1),
 		"walked_m": snappedf(started.distance_to(walk._pos), 0.01),

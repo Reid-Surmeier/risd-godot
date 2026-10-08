@@ -499,7 +499,7 @@ func hang_catalogue_works() -> void:
 			frame_path = "res://modules/shell/assets/impressionist/frame-W7-" + ("rose" if spec[0] == "1999.3" else "pale") + ".png"
 		painting.build_framed(
 			load(frame_path),
-			load("res://" + str(record.image_resolution.images.wall.path)), spec[4], margins, spec[6])
+			load("res://modules/" + str(record.image_resolution.images.wall.path).trim_prefix("modules/")), spec[4], margins, spec[6])
 		# Only the three frame surfaces are tinted. The museum canvas stays unchanged.
 		for i in 3:
 			var material: ShaderMaterial = painting.get_child(i).material_override
