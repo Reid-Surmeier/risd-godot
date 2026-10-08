@@ -7,6 +7,7 @@ const SIZE := Vector2i(1100, 760)
 const ATTACH := Vector3(-5.55, 0, -28.1)
 const VIEWS := [
 	["stair-door", Vector3(16.7, 0, -1.96), -PI / 2, Vector3(16.7, 1.65, -1.96), Vector3(20.45, 1.45, -1.96)],
+	["stair-surround", Vector3(16.35, 0, -1.96), -PI / 2, Vector3(15.30, 1.60, -1.96), Vector3(17.85, 1.65, -1.96)],
 	["passage", Vector3(15.75, 0, 2.20), PI, Vector3(15.75, 1.65, 2.15), Vector3(13.25, 1.5, 11.9)],
 	["A-entry", Vector3(15.75, 0, 4.20), PI, Vector3(15.45, 1.65, 3.70), Vector3(13.5, 1.55, 12.70)],
 	["A-windows", Vector3(13.0, 0, 7.50), -PI / 2, Vector3(11.85, 1.65, 6.3), Vector3(16.7, 1.6, 8.6)],
@@ -16,6 +17,7 @@ const VIEWS := [
 	["B-modern", Vector3(15.75, 0, 20.80), PI, Vector3(15.75, 1.65, 20.65), Vector3(15.75, 1.50, 25.6)],
 	["modern-B", Vector3(15.75, 0, 23.25), 0.0, Vector3(15.75, 1.65, 24.05), Vector3(15.75, 1.5, 20.2)],
 	["passage-panels", Vector3(16.30, 0, 2.04), PI, Vector3(16.30, 1.65, 1.18), Vector3(15.85, 1.25, 3.04)],
+	["service-leaf", Vector3(17.50, 0, 2.04), PI, Vector3(15.00, 1.65, 1.18), Vector3(17.15, 1.55, 3.04)],
 	["A-case", Vector3(14.85, 0, 9.20), PI, Vector3(15.45, 1.65, 9.10), Vector3(14.10, 1.05, 10.55)],
 	["B-bench", Vector3(13.25, 0, 16.20), PI, Vector3(13.65, 1.40, 15.45), Vector3(12.0, .25, 17.70)],
 	["A-Monet", Vector3(12.40, 0, 11.09), PI / 2, Vector3(12.50, 1.65, 11.09), Vector3(10.55, 1.65, 11.09)],
@@ -37,6 +39,11 @@ func arg(name: String) -> String:
 
 
 func run() -> void:
+	for dependency in ["res://modules/shell/character/visitor.gd", "res://modules/tab_strip/assets/icon_close.png", "res://modules/tab_strip/assets/icon_close_pressed.png", "res://modules/shell/collection_rooms/objects.json", "res://modules/shell/collection_rooms/representation.json"]:
+		if not FileAccess.file_exists(dependency):
+			push_error("Draft capture needs its unchanged dependency copy: " + dependency)
+			quit(1)
+			return
 	root.size = SIZE
 	var walk = load(arg("walk")).new()
 	walk.size = Vector2(SIZE)
@@ -64,6 +71,8 @@ func run() -> void:
 			failures.append(row[0])
 	print("IMPRESSIONIST_DRAFT_ROUTE ", JSON.stringify({"trials": trials, "failures": failures}))
 	for view in VIEWS:
+		if not arg("views").is_empty() and view[0] not in arg("views").split(","):
+			continue
 		for node in walk._vp.get_children():
 			if node is WorldEnvironment:
 				node.environment.ambient_light_energy = 0.0
@@ -89,7 +98,7 @@ func run() -> void:
 		walk.set_process(false)
 		walk._kid.hide()
 		walk._shadow.hide()
-		walk._cam.fov = 55.0
+		walk._cam.fov = 60.0 if view[0] == "service-leaf" else 55.0
 		walk._cam.global_transform = Transform3D(Basis(), view[3] + ATTACH).looking_at(view[4] + ATTACH, Vector3.UP)
 		# Close geometry review shows the neighbours too; the game's stage view is above.
 		walk._floor_mask.hide()

@@ -1,9 +1,9 @@
 {
-  "checkpoint": "four existing artworks",
+  "checkpoint": "final room geometry and four existing artworks",
   "baked": false,
   "arch": {
     "case_rails": 8,
-    "casings": 28,
+    "casings": 29,
     "east_cases": 2,
     "east_objects": {
       "albarello": 1,
@@ -216,12 +216,13 @@
     ]
   },
   "source_sha256": {
-    "modules/shell/prototype/collection_reconstruction/impressionist_additions.gd": "797097891b70d098c75165b250bf9339a8b8b8bc0edcc7e7e97c39f8e1ff5c74",
-    "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "89c010bca93e48b4423b43b3bfbccc9e3bbe55b3ec806dc8ae0daf193a1d8b7b",
+    "modules/shell/prototype/collection_reconstruction/impressionist_additions.gd": "958d308c2b9099c03d5a637e5ed7d083a43e7860118ea1331d559cca63dfd3dd",
+    "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "b786dab100a34da960df678d65aed3a6d8625060c9ef2a11903dc5a83370cac4",
     "modules/shell/prototype/collection_reconstruction/main_build_walk.gd": "316f3be37858ddd7c571edda2a8a5e952c62742ee5447695ce177bbb421a83ad",
-    "modules/shell/prototype/collection_reconstruction/marble_hall_additions.gd": "5f509acf0651087b1001a6726d3ce2cd4799f942da7c1f1ec013e09086aec296",
+    "modules/shell/prototype/collection_reconstruction/marble_hall_additions.gd": "55dd9d6bb554e31f4e632246a3060c1213543d6c62d399988409b6adbc25c3d0",
     "modules/shell/collection_rooms/objects.json": "ec73cc870e3ee7c4ebf9c1a0f2b1998536dbec5ef1ff9f970b7b6faf633a8ac4",
-    "modules/shell/collection_rooms/representation.json": "12c9f914c36d98a59f8e98fe54e94044e18ee7bff9620b9870c4246d77483f21"
+    "modules/shell/collection_rooms/representation.json": "12c9f914c36d98a59f8e98fe54e94044e18ee7bff9620b9870c4246d77483f21",
+    "modules/shell/prototype/collection_reconstruction/remodel_room.gd": "1d38d2b93118a304789def30fdebf4e8b09491c92594c51bdb2cba8fb576108a"
   },
   "root_checks": "FAIL: three baseline medieval mesh declarations and four newly registered works absent in old generated scene; orchestrator bake/install required",
   "native_capture_errors": [],
@@ -229,6 +230,81 @@
     "bake_run": false,
     "duplicate_owned_names": [],
     "failures": [],
-    "surfaces": 409
+    "surfaces": 400
+  },
+  "installed_scene_representation": {
+    "built": 177,
+    "declared": 181,
+    "failures": [
+      "37.114 is declared as mesh but no place_mesh() put it there",
+      "20.254 is declared as mesh but no place_mesh() put it there",
+      "59.131 is declared as mesh but no place_mesh() put it there",
+      "1998.107 is declared and not in the build",
+      "41.012 is declared and not in the build",
+      "42.219 is declared and not in the build",
+      "44.541 is declared and not in the build"
+    ],
+    "unregistered": [
+      "15.108",
+      "1992.051",
+      "2014.110",
+      "21.398",
+      "30.011",
+      "40.002",
+      "52.002",
+      "59.128",
+      "european-east-figure-turkish-man",
+      "european-east-figure-turkish-woman",
+      "european-east-pineapple-teapot",
+      "european-east-small-dish",
+      "european-east-small-metal-0",
+      "european-east-small-metal-1",
+      "european-east-small-metal-2"
+    ]
+  },
+  "official_four_work_draft": {
+    "exit_code": 0,
+    "source_tip": "a4132e1e2b74d1e283153172a6893a5bec59fc46",
+    "architecture_failures": [],
+    "cased_door_sides": 28,
+    "plan_areas": 19,
+    "new_route_trials": 38,
+    "additions_and_four_photographs_match_source_bytes": true,
+    "bake_run": false
+  },
+  "official_shade_draft": {
+    "exit_code": 0,
+    "source_tip": "a8e6091a5ba548aa73469f050d89d6580b91dba6",
+    "architecture_failures": [],
+    "cased_door_sides": 28,
+    "plan_areas": 19,
+    "new_route_trials": 38,
+    "additions_and_four_photographs_match_source_bytes": true,
+    "bake_run": false
+  },
+  "capture_setup_failure_corrected": "One service capture started after a draft overwrite without its unchanged character/icons/record copies. Stopped with143, restored44 tracked files, added preflight; subsequent native capture clean.",
+  "final_draft_lock_wait_timeout": {
+    "exit_code": 124,
+    "preparation_started": false,
+    "draft_changed": false,
+    "architecture_failure": false,
+    "source_tip": "9b1e6e9f"
+  },
+  "official_final_draft": {
+    "exit_code": 0,
+    "source_tip": "9b1e6e9fa38ae136ce4f98b60f77c96a1b27e877",
+    "architecture_failures": [],
+    "cased_door_sides": 29,
+    "plan_areas": 19,
+    "new_route_trials": 38,
+    "additions_and_four_photographs_match_source_bytes": true,
+    "shared_shell_has_only_expected_draft_substitutions": true,
+    "bake_run": false,
+    "import_exit_code": 0,
+    "native_capture_exit_code": 0,
+    "representation_exit_code": 0,
+    "root_check_exit_code": 1,
+    "completion_utc": "2026-10-08 20:21 UTC",
+    "uv2_preparation_exit_code": 0
   }
 }
