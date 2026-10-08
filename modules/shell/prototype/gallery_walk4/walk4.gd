@@ -3238,12 +3238,13 @@ func _click(pt: Vector2) -> void:
 		_target_yaw = atan2(-to.x, -to.z)
 
 
-# The floor under the pointer, or null where the pointer is not over floor.
+# The floor under the pointer, or null where the pointer is not over floor: the floor at the
+# visitor's own height, which is 0 everywhere but on a lower storey.
 func _floor_at(pt: Vector2):
 	var vp_pt := pt / size * Vector2(_vp.size)
 	var o := _cam.project_ray_origin(vp_pt)
 	var d := _cam.project_ray_normal(vp_pt)
-	return o + d * (-o.y / d.y) if d.y < -0.01 else null
+	return o + d * ((_pos.y - o.y) / d.y) if d.y < -0.01 else null
 
 
 func _approach(p: Dictionary) -> void:

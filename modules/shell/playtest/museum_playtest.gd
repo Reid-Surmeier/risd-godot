@@ -188,7 +188,58 @@ func _free_near(p: Vector3) -> Vector3:
 	return p
 
 
+# The height of the floor at a point: 0, except in a room with storeys (the Skylight Gallery).
+func _floor_y(p: Vector3) -> float:
+	if walk.has_method("_skylight_height"):
+		var y: float = walk._skylight_height(p)
+		if y != -INF:
+			return y
+	return 0.0
+
+
+# Where to stand to test a room: free floor nearest its middle, on each level the room has.
+# The room is sampled every 0.4 m; its levels are the highest and the lowest floor found, one
+# and the same in an ordinary room (ramps and quarter landings between them are passed over).
+# Empty when the room has no free floor at all.
+var _level_stands := {}
+
+
+func _levels(area: Dictionary) -> Array:
+	if _level_stands.has(area.label):
+		return _level_stands[area.label]
+	var b: Array = area.b
+	var middle := Vector3((b[0] + b[1]) / 2.0, 0, (b[2] + b[3]) / 2.0)
+	var free := []
+	var top := -INF
+	var foot := INF
+	var x: float = b[0] + 0.4
+	while x < b[1]:
+		var z: float = b[2] + 0.4
+		while z < b[3]:
+			var q := Vector3(x, 0, z)
+			if walk._free(q):
+				q.y = _floor_y(q)
+				free.append(q)
+				top = maxf(top, q.y)
+				foot = minf(foot, q.y)
+			z += 0.4
+		x += 0.4
+	var stands := []
+	for level in ([] if free.is_empty() else [top] if top - foot < 1.0 else [top, foot]):
+		var best := Vector3.ZERO
+		var nearest := INF
+		for q in free:
+			var d: float = Vector2(q.x - middle.x, q.z - middle.z).length()
+			if absf(q.y - level) < 0.15 and d < nearest:
+				nearest = d
+				best = q
+		stands.append(best)
+	_level_stands[area.label] = stands
+	return stands
+
+
 func _place(p: Vector3, yaw := 0.0) -> void:
+	p.y = _floor_y(p)
 	var label := _area_at(p)
 	walk._new_action()
 	walk._target = null
@@ -419,47 +470,61 @@ func _doors_chimney_corner() -> void:
 func _rooms() -> void:
 	var doors := _doorways()
 	for area in _areas():
-		var b: Array = area.b
-		var middle := _free_near(Vector3((b[0] + b[1]) / 2.0, 0, (b[2] + b[3]) / 2.0))
+		# The free floor nearest the room's middle, on each level it has (the Skylight Gallery
+		# has a landing and a lower floor joined by a stair: there, down and back up).
+		var goals := _levels(area)
+		if goals.is_empty():
+			var none := {"room": area.label, "arrived": false, "left_m": -1.0}
+			report.rooms.append(none)
+			_fail("room", area.label + ": it has no free floor to walk to", none)
+			continue
 		for door in doors:
 			var start = (
 				door.from if door.a == area.label else (door.to if door.b == area.label else null)
 			)
 			if start == null:
 				continue
-			_place(start)
-			for settle in 6:
-				await process_frame
-			walk._walk_to(middle)
-			var clock := 0.0
-			var longest := 0.0
-			var steps := 0
-			var before: Vector3 = walk._pos
-			while (walk._target != null or not walk._path.is_empty()) and clock < 90.0:
-				await process_frame
-				clock += root.get_process_delta_time()
-				longest = maxf(longest, before.distance_to(walk._pos))
-				before = walk._pos
-				steps += walk._kid.contacts
-			var left: float = Vector3(middle.x - walk._pos.x, 0, middle.z - walk._pos.z).length()
-			var leg := {
-				"room": area.label,
-				"arrived": left < 0.35,
-				"left_m": snappedf(left, 0.01),
-				"seconds": snappedf(clock, 0.1),
-				"longest_step_m": snappedf(longest, 0.001),
-				"footsteps": steps,
-				"ended_at": [snappedf(walk._pos.x, 0.01), snappedf(walk._pos.z, 0.01)]
-			}
-			report.rooms.append(leg)
-			if not leg.arrived:
-				_fail(
-					"room",
-					area.label + ": a click on its middle did not bring the visitor there",
-					leg
-				)
-			elif leg.longest_step_m > 0.25:
-				_fail("room", area.label + ": the visitor jumped on the way to its middle", leg)
+			for goal in goals:
+				for back in ([false, true] if goals.size() > 1 else [false]):
+					var from: Vector3 = goal if back else start
+					var to: Vector3 = start if back else goal
+					to.y = _floor_y(to)
+					_place(from)
+					for settle in 6:
+						await process_frame
+					walk._walk_to(to)
+					var clock := 0.0
+					var longest := 0.0
+					var steps := 0
+					var before: Vector3 = walk._pos
+					while (walk._target != null or not walk._path.is_empty()) and clock < 90.0:
+						await process_frame
+						clock += root.get_process_delta_time()
+						longest = maxf(longest, before.distance_to(walk._pos))
+						before = walk._pos
+						steps += walk._kid.contacts
+					var left: float = Vector3(to.x - walk._pos.x, 0, to.z - walk._pos.z).length()
+					var leg := {
+						"room": area.label,
+						"level_y": snappedf(goal.y, 0.01),
+						"way": "back to the door" if back else "from the door",
+						"arrived": left < 0.35 and absf(walk._pos.y - to.y) < 0.3,
+						"left_m": snappedf(left, 0.01),
+						"seconds": snappedf(clock, 0.1),
+						"longest_step_m": snappedf(longest, 0.001),
+						"footsteps": steps,
+						"ended_at": [
+							snappedf(walk._pos.x, 0.01), snappedf(walk._pos.y, 0.01), snappedf(walk._pos.z, 0.01)
+						]
+					}
+					report.rooms.append(leg)
+					var where: String = area.label
+					if goals.size() > 1:
+						where += " (floor at %.2f m, %s)" % [goal.y, leg.way]
+					if not leg.arrived:
+						_fail("room", where + ": a click on its middle did not bring the visitor there", leg)
+					elif leg.longest_step_m > 0.25:
+						_fail("room", where + ": the visitor jumped on the way to its middle", leg)
 
 
 # ---------------------------------------------------------------- looking
@@ -491,6 +556,9 @@ func _flat_share(image: Image) -> float:
 
 # Where an area is photographed from: one standpoint per seven metres of its long axis.
 func _stands(area: Dictionary) -> Array:
+	# A room with storeys is photographed from each of them.
+	if _levels(area).size() > 1:
+		return _levels(area)
 	var b: Array = area.b
 	var long_z: bool = b[3] - b[2] > b[1] - b[0]
 	var span: float = (b[3] - b[2]) if long_z else (b[1] - b[0])
@@ -945,15 +1013,22 @@ func _objects() -> void:
 		var at := Vector2.ZERO
 		var picked := ""
 		# Dollhouse view first; a work hung above its frame (a chandelier) from the follow view.
+		var spots := []  # [where to stand, follow view?]
 		for distance in [3.0, 2.0, 4.5, 6.0, 1.4, 8.0, -4.5, -7.0]:
-			var stand: Vector3 = _free_near(
+			var before_it: Vector3 = _free_near(
 				Vector3(thing.center.x, 0, thing.center.z) + facing * absf(distance)
 			)
-			if not walk._free(stand):
-				continue
-			_place(stand)
-			walk.view_mode = 2 if distance < 0.0 else 0
-			entry["view"] = "follow" if distance < 0.0 else "dollhouse"
+			if walk._free(before_it):
+				spots.append([before_it, distance < 0.0])
+		# Then from the room's own standpoints: a work hung over a lower storey has no floor
+		# before it, and is clicked from the landing or from below.
+		if thing.has("object"):
+			for stand in _levels(walk._plan[thing.room]):
+				spots.append([stand, false])
+		for spot in spots:
+			_place(spot[0])
+			walk.view_mode = 2 if spot[1] else 0
+			entry["view"] = "follow" if spot[1] else "dollhouse"
 			walk.view_yaw = atan2(facing.x, facing.z)
 			walk._yaw = walk.view_yaw
 			for settle in 8:
@@ -1496,7 +1571,14 @@ func _wall_clicks(areas: Array, when: String) -> void:
 		"walked": [],
 		"dead_doorways": []
 	}
+	# A room with storeys is clicked from each of them.
+	var rounds := []
 	for area in areas:
+		for storey in maxi(1, _levels(area).size()):
+			rounds.append([area, storey])
+	for round in rounds:
+		var area: Dictionary = round[0]
+		var storey: int = round[1]
 		var b: Array = area.b
 		if b[1] - b[0] < 2.5 or b[3] - b[2] < 2.5:
 			continue  # a doorway's own thickness
@@ -1509,12 +1591,13 @@ func _wall_clicks(areas: Array, when: String) -> void:
 			var out: Vector3 = walk.SIDES[side]
 			var along_z: bool = side in ["west", "east"]
 			var plane: float = b[["west", "east", "north", "south"].find(side)]
-			# From the middle, or four metres short of the wall in a long room.
+			# From the middle, or four metres short of the wall in a long room. A room with
+			# storeys is tried from the first of them that shows the wall.
 			var reach: float = absf(plane - (middle_of.x if along_z else middle_of.z))
 			var stand := _free_near(middle_of + out * maxf(0.0, reach - 4.0))
+			if _levels(area).size() > 1:
+				stand = _levels(area)[storey % _levels(area).size()]
 			if not walk._free(stand):
-				# No floor there to stand on (the Skylight Gallery's middle is open to its
-				# lower storey): this wall is not tried from here.
 				entry.not_tried.append("%s, %s (no floor at the standpoint)" % [area.label, side])
 				continue
 			var door: Array = openings.get(side, [])
@@ -1526,23 +1609,25 @@ func _wall_clicks(areas: Array, when: String) -> void:
 			for settle in 8:
 				await process_frame
 			var name := "%s, %s" % [area.label, side]
+			var floor_at: float = _floor_y(stand)
+			if _levels(area).size() > 1:
+				name += " from the floor at %.2f m" % floor_at
 			# The wall: the middle of each solid stretch, at three heights, until one shows.
 			var at = null
 			for span in spans:
 				for height in [1.5, 0.5, 2.5]:
 					var middle: float = (span[0] + span[1]) / 2.0
+					var up: float = floor_at + height
 					if at == null and span[1] - span[0] > 0.6:
-						at = _wall_pixel(
-							Vector3(plane, height, middle) if along_z else Vector3(middle, height, plane)
-						)
+						at = _wall_pixel(Vector3(plane, up, middle) if along_z else Vector3(middle, up, plane))
 			if at == null:
 				entry.not_tried.append(name + " wall")
 			else:
 				entry.walls += 1
 				if _click_goal(at) != null:
 					entry.walked.append(name)
-			if door.is_empty():
-				continue
+			if door.is_empty() or storey > 0:
+				continue  # a room's doors are on its first level
 			var centre: float = (door[0] + door[1]) / 2.0
 			var sill := Vector3(plane, 0, centre) if along_z else Vector3(centre, 0, plane)
 			# A metre up, a doorway shows the dark beyond the stage. Where the area behind it is

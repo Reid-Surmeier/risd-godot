@@ -30,7 +30,10 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
    hall the visitor is walked into the corner beside the chimneypiece wall's return and pressed
    against it (2 legs; round 5, finding 6).
 2. **Every room, from every door, by clicking.** A click on the middle of the room must walk the
-   visitor there round whatever furniture is in the way.
+   visitor there round whatever furniture is in the way. The middle is the free floor nearest it,
+   on each level the room has: in the Skylight Gallery the visitor is walked to the landing and
+   down the stair to the lower floor, and back to the door from each. Walls and doorways are
+   clicked, views photographed and works clicked from those same standpoints.
 3. **Every area, looked at from every side.** One standpoint per seven metres of each room's long
    axis; at each, the dollhouse view facing north, east, south and west and the follow view are
    photographed. A view fails when one flat surface fills more than 45% of the picture (a wall in

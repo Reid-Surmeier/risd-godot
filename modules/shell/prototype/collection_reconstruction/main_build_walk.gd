@@ -1082,7 +1082,9 @@ func _approach(p: Dictionary) -> void:
 		await get_tree().process_frame
 		if _action != mine or not _open.is_empty():
 			return
-	if _pos.distance_to(stand) > 0.6:
+	# On the plan: the spot is recorded at height 0 and the Skylight Gallery's lower floor is
+	# 2.55 m under that, where a visitor on its spot never counted as arrived (#272).
+	if Vector2(_pos.x - stand.x, _pos.z - stand.z).length() > 0.6:
 		return
 	var to := Vector3(p.center.x - _pos.x, 0, p.center.z - _pos.z).normalized()
 	_motion_heading = to
