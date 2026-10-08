@@ -1,0 +1,20 @@
+{
+ "photo-front": {
+  "from": "photograph of this direction, cut out and given to the mesh generator and used for the colour as it is (no Muse view: Muse refused this object three times)",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/44.674/p12-front.jpg"
+  ]
+ },
+ "photo-left": {
+  "from": "photograph of this direction, cut out and given to the mesh generator and used for the colour as it is (no Muse view: Muse refused this object three times)",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/44.674/p17.jpg"
+  ]
+ },
+ "photo-back": {
+  "from": "photograph of this direction, cut out and given to the mesh generator and used for the colour as it is (no Muse view: Muse refused this object three times)",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/44.674/p04-back.jpg"
+  ]
+ }
+}

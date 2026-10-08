@@ -41,7 +41,7 @@ LD_LIBRARY_PATH=/usr/lib/wsl/lib timeout 600 $B --background --factory-startup -
 place "$tmp/final.glb"; for v in front threequarter side; do shot $v; done
 for y in 0 90 180; do :; done; (cd /tmp && CLAY=1 timeout 900 blender --background --factory-startup --python "$here/preview_mesh.py" -- "$tmp/low.glb" "$tmp/grey" 0,90,180 420 2>&1 | grep -E "Error" || true)
 scn=$(stat -c%s .godot/imported/$name.glb-*.scn); tex=0; for f in .godot/imported/${name}_*.ctex; do tex=$((tex+$(stat -c%s "$f"))); done
-PLAIN="${PLAIN:-}" AO="${AO:-0.35}" CLAY_VIEWS="${CLAY_VIEWS:-}" python3 - "$acc" "$name" "$d" "$tmp" "$dir" "$scn" "$tex" "$charged" "$specs" <<'P'
+PLAIN="${PLAIN:-}" AO="${AO:-0.35}" CLAY_VIEWS="${CLAY_VIEWS:-}" PHOTO_VIEWS="${PHOTO_VIEWS:-}" python3 - "$acc" "$name" "$d" "$tmp" "$dir" "$scn" "$tex" "$charged" "$specs" <<'P'
 import sys, json, io, os, hashlib
 from PIL import Image, ImageDraw, ImageFont
 acc, name, d, tmp, dir_, scn, tex, charged, specs = sys.argv[1:10]; scn, tex = int(scn), int(tex); here = os.path.dirname(d.rstrip('/')).rsplit('/batch', 1)[0]
@@ -50,7 +50,8 @@ sz = json.load(open(f'{tmp}/low.json'))['size_m_width_height_depth']; wide = sz[
 CC, GC, SC = ((40, 400, 1400, 1360), (0, 60, 420, 360), (150, 150, 810, 600)) if wide else ((250, 100, 1190, 1660), (80, 10, 340, 410), (270, 30, 690, 610))
 views = json.load(open(f'{d}/views.json'))['views']; made = json.load(open(f'{d}/made.json')); order = os.environ.get('CLAY_VIEWS', '').split() or [s.split(':')[0] for s in specs.split()][::-1]  # CLAY_VIEWS: clay views to show when the mesh used more than the colour did
 cells = [('Catalogue photograph', fit(Image.open(os.path.expanduser(views['front']['file'])).convert('RGB')))]
-cells += [(f'Clay: {v}' + ('' if 'photograph' in made[f'clay-{v}']['from'] else ' (inferred)'), fit(Image.open(f'{d}/clay-{v}.png').convert('RGB').crop(CC))) for v in order]
+cells += [(f'Clay: {v}' + ('' if 'photograph' in made[f'clay-{v}']['from'] else ' (inferred)'), fit(Image.open(f'{d}/clay-{v}.png').convert('RGB').crop(CC))) for v in order if os.path.exists(f'{d}/clay-{v}.png')]
+cells += [(f'Real photograph, no Muse view: {v}', fit(Image.open(f'{d}/flat-{v}.png').convert('RGB'))) for v in os.environ.get('PHOTO_VIEWS', '').split()]  # PHOTO_VIEWS: an object Muse refused
 cells += [(f'Grey mesh: {n}', fit(Image.open(f'{tmp}/grey-{y}.png').convert('RGB').crop(GC))) for y, n in (('000', 'front'), ('090', 'side'), ('180', 'back'))]
 if os.path.exists(f'{tmp}/front-projected.png') and os.environ.get('PLAIN'): cells += [('Projected colour (rejected)', fit(Image.open(f'{tmp}/front-projected.png').convert('RGB').crop(SC)))]
 cells += [(f'Coloured, unshaded: {n}', fit(Image.open(f'{tmp}/{v}.png').convert('RGB').crop(SC))) for v, n in (('front', 'front'), ('threequarter', '3/4'))]
@@ -64,7 +65,7 @@ low = json.load(open(f'{tmp}/low.json')); o = json.load(open(f'{here}/batch/obje
 if os.path.exists(f'{tmp}/raw.sha256'): run['sha256'] = open(f'{tmp}/raw.sha256').read().strip()
 mf['imported'] = {'mesh': scn, 'colour': tex, 'total': scn + tex}; json.dump(o, open(f'{here}/batch/objects.json', 'w'), indent=1, ensure_ascii=False)
 rj = mf.get('rejected_run'); rejected = f"| Rejected mesh | {rj['model']}, run `{rj['id']}`; views {rj['views']}. {rj['why']} | quoted {rj['quote']:.2f}, charged {rj['charged']:.2f} USD |\n" if rj else ''
-n_muse = len(made); sha = hashlib.sha256(open(f'{dir_}/{name}.glb', 'rb').read()).hexdigest()
+n_muse = len([k for k in made if k.startswith(('clay-', 'flat-'))]); sha = hashlib.sha256(open(f'{dir_}/{name}.glb', 'rb').read()).hexdigest()
 rows = '\n'.join(f"| `{k}` | {v['from']}{'; ' + v['note'] if v.get('note') else ''} |" for k, v in made.items())
 text = f"""# {acc} {o[acc]['title'].split('*')[1]}
 
@@ -75,7 +76,7 @@ Made on the Muse-first route (`image-work/mesh-pilot-263/RECIPE.md`), 8 October 
 | Step | What | Cost |
 | --- | --- | --- |
 | References | the museum's catalogue photographs, deep-zoom source at up to 2400 px, in `~/risd-godot-ingestion/catalogue-masters/{acc}/` (outside git); which photograph backs which view: `image-work/mesh-pilot-263/batch/{acc}/views.json` | free |
-| Muse views | {n_muse} images (OpenRouter, `meta/muse-image`): clay and flat colour, prompts in `image-work/mesh-pilot-263/batch/{acc}/` | {n_muse * 0.01:.2f} USD |
+| Muse views | {str(n_muse) + ' images (OpenRouter, `meta/muse-image`): clay and flat colour, prompts in `image-work/mesh-pilot-263/batch/' + acc + '/`' if n_muse else 'none: ' + o[acc].get('muse_refusals', 'Muse refused this object') + '. The museum photographs themselves went to the mesh generator and give the colour, so the colour carries the photographs own light and shadow'} | {n_muse * 0.01:.2f} USD |
 | Mesh | Flora, RISD EDU Workspace, {run['model']}, {run['params']}; views {mf['views']}; run `{run['id']}`; raw GLB `{run.get('sha256', '')[:16]}…` ({low['raw_triangles']:,} triangles, not kept) | quoted {run['quote']:.2f}, charged {float(charged):.2f} USD |
 {rejected}| Blender 5.2.2 | `clay_mesh.py`: reduced to {low['triangles']:,} triangles, occlusion baked from the high mesh; made {low['as_made_m_at_catalogue_height']['width']} m wide and {low['as_made_m_at_catalogue_height']['depth']} m deep at the catalogue height, {('after a ' + str(low['lean_removed_deg']) + '° lean was rotated out (`--upright`), ') if 'lean_removed_deg' in low else ''}set to {low['size_m_width_height_depth']} m (width, height, depth){'. ' + mf['size_note'] if mf.get('size_note') else ''} | free |
 | Colour | {'`plain_colour.py`: one base colour from the lit areas of the catalogue photograph, with the baked occlusion blurred (strength and blur: ' + os.environ['PLAIN'] + '); no projected views, which streaked this white object' if os.environ.get('PLAIN') else '`colour_mesh2.sh`: flat views matched to the photograph, cross-faded, occlusion ' + os.environ['AO'] + (' (the sides and back, which the one view never shows, take the median colour of the front)' if len(specs.split()) == 1 else '') + '; `match_in_scene.py` lift for unshaded drawing'} | free |

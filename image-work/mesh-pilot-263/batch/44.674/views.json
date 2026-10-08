@@ -5,24 +5,16 @@
  "nude": "Nude male figure. Muse refused it twice. Tripo accepted the photograph (8 Oct, mesh kept outside git). Fallback: that Tripo mesh with the catalogue photographs projected as colour (28 exist).",
  "views": {
   "front": {
-   "file": "~/risd-godot-ingestion/catalogue-masters/44.674/front.jpg",
-   "px_wide": 2400,
-   "source_px": [
-    8462,
-    11798
-   ],
-   "alt": "Terracotta sculpture of a seated, nude, male figure leaning forward and grasping a vase. Dramatic lighting emphasizes his muscular limbs and an animal face at the mouth of the vessel."
+   "file": "~/risd-godot-ingestion/catalogue-masters/44.674/p12-front.jpg",
+   "note": "photograph 12 of 22, level, from the front"
+  },
+  "left": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/44.674/p17.jpg",
+   "note": "photograph 17, his own left side in profile"
   },
   "back": {
-   "file": "~/risd-godot-ingestion/catalogue-masters/44.674/back.jpg",
-   "px_wide": 2400,
-   "source_px": [
-    5831,
-    6853
-   ],
-   "alt": "Rear view of a terracotta, seated, nude male figure. His muscular back tenses, a single arm gripping a rough support behind him."
-  },
-  "side": "no photograph: Muse turns it from the front",
-  "threequarter": "no photograph: Muse turns it from the front"
+   "file": "~/risd-godot-ingestion/catalogue-masters/44.674/p04-back.jpg",
+   "note": "photograph 4, from behind"
+  }
  }
 }

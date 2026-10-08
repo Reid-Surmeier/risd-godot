@@ -291,7 +291,24 @@
    "sha256": "de4f3a96e6d6cc3647cccd96a05291b005505c18780371e5c61e8976decd2c03",
    "kept": "downloaded outside git, not built: ~/risd-godot-ingestion/mesh-pilot-263/rejected-route/44-674-tripo.glb"
   },
-  "muse_refusals": "5 October twice, and 8 October once more with a description of it as a terracotta sketch model of a river god (HTTP 400); not resubmitted"
+  "muse_refusals": "5 October twice, and 8 October once more with a description of it as a terracotta sketch model of a river god (HTTP 400); not resubmitted",
+  "muse_first": {
+   "run": {
+    "id": "run_m172k7aa7pk8cyaa1h5rq1z8298fxpzt",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000; input the museum's photographs themselves, cut out, because Muse refused this object",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "880e1295b47d5e45cb825fa70a87ec4ebbfd16d28b1c2679182a16a7fabe40ed"
+   },
+   "views": "front, left and back, each the museum's own photograph of that side (no Muse view)",
+   "imported": {
+    "mesh": 198774,
+    "colour": 31434,
+    "total": 230208
+   },
+   "build": "AO=0.1 (the photographs carry their own light), CUT=--keep-holes; height only: the catalogue's 43.5 and 31.8 cm run the other way round to this front (the mesh is 35.5 wide and 43.2 deep at the catalogue height)"
+  }
  },
  "37.201": {
   "title": "Joseph Chinard. *Bust of Madame Récamier*. Marble. 60.6 × 33.7 × 23.5 cm with its socle.",
