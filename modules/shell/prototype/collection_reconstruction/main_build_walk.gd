@@ -70,6 +70,7 @@ var _inspect_fov := 23.0
 var _glide_from := Transform3D()
 var _glide_fov := 23.0
 var _glide_t := 1.0  # 0 the camera before a view change, 1 the new view
+var _hovering := false  # _painting_at is being asked by the hover cursor, not by a click
 # PROTOTYPE (#260): one stage is drawn at a time and a doorway changes it under a round wipe,
 # timed from docs/research/2026-10-08-acnh-room-change-and-landing.md. A stage is one area of
 # geometry.json plus the wall thicknesses and stubs JOINED to it; the Hall is stage -1.
@@ -510,10 +511,13 @@ func _painting_at(pt: Vector2) -> Dictionary:
 				best = thing
 	# But a box is mostly air, and the box of a work standing behind another covers part of the
 	# one in front (#280). So several boxes are settled by the works themselves: the nearest
-	# one whose own meshes the pointer's ray meets. Only then, as each mesh's first test reads
-	# it back from the renderer. Where the ray meets none (the margin round a small work) the
-	# smallest box stands.
-	if under.size() > 1:
+	# one whose own meshes the pointer's ray meets. Where the ray meets none (the margin round
+	# a small work) the smallest box stands.
+	# ponytail: a mesh's first test reads it back from the renderer (27 ms measured natively,
+	# a stall on the Web), because no room builder keeps its arrays. So this runs only for a
+	# click on overlapping boxes, never for the hover cursor. Keep the arrays at build time and
+	# make a TriangleMesh from them if a click's first test is ever felt.
+	if under.size() > 1 and not _hovering:
 		var vp_pt := pt / size * Vector2(_vp.size)
 		var from := _cam.project_ray_origin(vp_pt)
 		var toward := _cam.project_ray_normal(vp_pt)
@@ -524,6 +528,13 @@ func _painting_at(pt: Vector2) -> Dictionary:
 				nearest = reach
 				best = thing
 	return best
+
+
+# The resting pointer only chooses a cursor shape and a sound; it does not pay for the mesh test.
+func _update_hover() -> void:
+	_hovering = true
+	super()
+	_hovering = false
 
 
 # How far along a ray a work's own drawn surface lies; INF where the ray misses the work.
