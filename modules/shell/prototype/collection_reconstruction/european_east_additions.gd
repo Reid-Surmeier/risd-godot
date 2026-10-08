@@ -233,19 +233,25 @@ func build_floor() -> void:
 			leg.reparent(seat)
 		var rail: Node3D = room.solid(at(10.3, 2.6, .02) + Vector3(0, 0, z), Vector3(.39, .04, .05), room.look(Color("1c1b1b")))
 		rail.reparent(seat)
-	# 3. Cabinet case (IMG_6386 41.2 s, 83.5-84.5 s): the Schreibtisch as a closed box with its front photograph.
+	# 3. Cabinet case (IMG_6386 41.2 s, 83.5-84.5 s): the Schreibtisch stands open, its long faces across the
+	# gallery. At 41.2 s the camera looks south to the exit sign and sees its back; at 84.0 s the fall front lies
+	# lowered before it. The front and the flap carry the museum's two square-on photographs; no photograph of
+	# the back, the ends or the top exists, so those stay plain wood. Which way it faces is read from those two frames.
 	c = at(8.3, 3.0)
 	var cabinet_case := display_case(8.3, 3.0, Vector2(.85, 1.05), .80, .70)
 	cabinet_case.set_meta("european_east_case", "cabinet")
-	var box: Node3D = room.solid(c + Vector3(0, .84 + .2255, 0), Vector3(.333, .451, .606), room.look(Color("7a3a16")))
+	var box: Node3D = room.solid(c + Vector3(0, .84 + .2255, -.20), Vector3(.606, .451, .333), room.look(Color("7a3a16")))
 	tag(box, "schreibtisch", ["75.023", "Writing Desk (Schreibtisch)", "Unknown Maker, German", "ca. 1590", "Walnut, burled walnut, ebonized walnut", "45.1 x 60.6 x 33.3 cm"], "cabinet-75.023.jpg")
 	box.reparent(cabinet_case)
-	for side in [-1, 1]:
-		var face := slab("cabinet-75.023.jpg", Vector2(.606, .451), SQUARE, Color("7a3a16"))
-		face.position = c + Vector3(side * .17, .84 + .2255, 0)
-		face.rotation.y = side * PI / 2
-		face.scale.z = .1
-		face.reparent(box)
+	var face := slab("cabinet-75.023-open.jpg", Vector2(.606, .451), SQUARE, Color("7a3a16"))
+	face.position = c + Vector3(0, .84 + .2255, -.20 + .1665)
+	face.scale.z = .1
+	face.reparent(box)
+	var flap := slab("cabinet-75.023-flap.jpg", Vector2(.606, .445), SQUARE, Color("7a3a16"))
+	flap.position = c + Vector3(0, .84 + .012, -.20 + .1665 + .2225)
+	flap.rotation.x = -PI / 2
+	flap.scale.z = .3
+	flap.reparent(box)
 	# 4. Majolica case by the west wall, south end (IMG_6386 0.5-14.5 s, IMG_6384 30.5-32.5 s).
 	c = at(4.9, 4.5)
 	var majolica := display_case(4.9, 4.5, Vector2(1.0, 2.2), .85, .60)
