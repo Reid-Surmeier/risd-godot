@@ -375,8 +375,9 @@ func _cue(bank: String, gain: float) -> void:
 func _step(side: String, gait: String) -> void:
 	# Same cue selection and relative gait levels as the accepted playtest's captured-house
 	# profile (#235), raised as a whole to the museum's loudness.
-	# ponytail: one voice. The recordings last 185 ms; the fastest gait here lands a step
-	# every 270 ms. A faster gait would need the playtest's polyphonic player.
+	# ponytail: one voice. The recordings last 185 ms; the museum's sprint, the dash at its
+	# fastest, lands a step every 220 ms. A faster gait would need the playtest's polyphonic
+	# player.
 	var cue: Dictionary = _kit.sounds.step("Indoor", gait, side, true)
 	_speaker.stream = cue.stream
 	_speaker.volume_db = (
