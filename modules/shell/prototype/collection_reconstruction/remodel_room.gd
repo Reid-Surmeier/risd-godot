@@ -22,7 +22,7 @@ const RenaissanceWall := preload("res://renaissance_wall_assets.gd")
 ## IMG_6386 67.5 s; IMG_6380 223.5 s). A bluer paint reads mauve beside the cream trim.
 const WALL_PAINT:={"":"dfe3dd","light Renaissance room":"cdd3c9","adjacent gallery":"dfe3dd","Rockefeller":"d8e7e2",
 	"modern painting gallery":"e0e6e4","lion stair landing":"c8cbc7","grey French gallery":"e2e3da","Skylight Gallery":"d2d6ce",
-	"marble stair hall":"dedcd4","dark medieval room":"4c5160"}
+	"marble stair hall":"dedcd4","dark medieval room":"5a5d6a"}
 ## #274: the oak's own tone. The Hall's floor reads (183,137,85) under its warm lamps and cool
 ## daylight; these rooms' lamps are near white so their trim reads white, and the honey is here.
 const OAK_TONE:="f5bf74"
