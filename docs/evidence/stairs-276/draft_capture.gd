@@ -48,9 +48,13 @@ func capture() -> void:
 		],
 		"floor": [
 			["floor-room", Vector3(x0 + .5, 1.65, middle), Vector3(x1 - 2.0, .65, middle)],
+			["floor-polish", Vector3(x0 + .3, 1.7, middle), Vector3(x0 + 2.25, 0, middle)],
 			["floor-close", Vector3(x0 + 3.4, 1.55, middle + 1.0), Vector3(x0 + 3.4, 0, middle)]
 		],
-		"niche": [["niche", Vector3(x0 + .85, 1.6, z1 - 1.0), Vector3(x0 + 2.95, 1.0, z1 - .8)]],
+		"niche": [
+			["niche", Vector3(x0 + .25, 1.65, z1 - .55), Vector3(x0 + 2.85, 1.3, z1 - .75)],
+			["niche-down", Vector3(x0 + 2.3, 1.3, z1 - .8), Vector3(x0 + 4.0, -.3, z1 - .75)]
+		],
 		"window": [
 			["window", Vector3(x1 - 3.8, 4.2, middle - 1.35), Vector3(x1 - .1, 5.1, middle)],
 			["hall-wide", Vector3(x0 + .55, 2.8, middle), Vector3(x1 - .2, 4.0, middle)],
@@ -58,9 +62,10 @@ func capture() -> void:
 		],
 		"lion": [
 			["lion-shaft", Vector3(13.35, 1.7, 29.3), Vector3(13.35, .7, 35.9)],
-			["lion-down", Vector3(13.35, 1.7, 32.4), Vector3(13.35, -3.0, 36.0)],
+			["lion-down", Vector3(13.35, 1.7, 32.0), Vector3(13.35, -3.0, 36.0)],
 			["lion-wall", Vector3(13.45, 1.7, 31.8), Vector3(14.2, 1.8, 28.1)],
 			["lion-rail", Vector3(12.8, 1.45, 32.1), Vector3(13.4, .65, 33.1)],
+			["lion-winders", Vector3(12.5, 4.8, 33.7), Vector3(11.4, 1.6, 35.6)],
 			["lion-up", Vector3(13.5, 1.7, 32.3), Vector3(13.4, 4.7, 35.5)]
 		],
 		"columns": [

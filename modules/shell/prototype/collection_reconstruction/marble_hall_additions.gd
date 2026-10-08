@@ -230,7 +230,7 @@ func build(scene) -> void:
 	shell()
 	fireplace()
 	chandelier()
-	room.inventory["marble_hall"] = {"risers": 31, "upper_floor_m": upper, "accessions": ["83.152", "2011.60"], "metric_accepted": false, "service_stair_built": false, "upper_rooms_built": false}
+	room.inventory["marble_hall"] = {"risers": 31, "upper_floor_m": upper, "accessions": ["83.152", "2011.60"], "metric_accepted": false, "service_stair_built": true, "upper_rooms_built": false}
 
 
 ## A wall or slab the game's camera may cut away: collision box, visible box, room_wall tag.
@@ -313,12 +313,13 @@ func marble_floor() -> void:
 			for corner in [Vector2(i, j), Vector2(i + 1, j), Vector2(i + 1, j + 1), Vector2(i, j + 1)]:
 				tile.append(turn * (corner * size))
 			for piece in Geometry2D.intersect_polygons(tile, edge):
-				var batch: Batch = tones[posmod(i + j, 2)]
-				batch.st.set_normal(Vector3.UP)
-				for index in Geometry2D.triangulate_polygon(piece):
-					batch.st.set_uv(piece[index])
-					batch.st.add_vertex(Vector3(piece[index].x, .004, piece[index].y))
-				batch.used = true
+				for visible in Geometry2D.clip_polygons(piece, rect(xf + .065, xf + 2.25, (zs + z1) / 2 + .05 - .50, (zs + z1) / 2 + .05 + .50)):
+					var batch: Batch = tones[posmod(i + j, 2)]
+					batch.st.set_normal(Vector3.UP)
+					for index in Geometry2D.triangulate_polygon(visible):
+						batch.st.set_uv(visible[index])
+						batch.st.add_vertex(Vector3(visible[index].x, .004, visible[index].y))
+					batch.used = true
 	tones[0].into(room, marble_material(Color("e9e7e1")), "MarbleFloorLight")
 	tones[1].into(room, marble_material(Color("d9d9d4"), 1.7), "MarbleFloorGrey")
 	var band := Batch.new()
@@ -352,14 +353,7 @@ func inner_walls() -> void:
 	chimney.set_meta("marble_hall_part", "chimneypiece wall")
 	var base: MeshInstance3D = room.solid(Vector3((xf + xe) / 2, .09, zs - .07), Vector3(xe - xf, .18, .02), skirting)
 	base.reparent(chimney)
-	# IMG_6380 70.0..77.5s: the wall's west end turns back to the outer wall; a round arch in it leads
-	# to a black stair going down under the upper flight. Drawn as a dark recess: the stair is not built.
-	var back := wall("south:return", Vector3(xf, SOFFIT / 2, (zs + z1) / 2), Vector3(.12, SOFFIT, z1 - zs), grey)
-	var dark: Material = room.look(Color("2b2c2e"))
-	var arch := Batch.new()
-	arch.box(Vector3(xf - .065, 1.05, (zs + z1) / 2 + .05), Vector3(.012, 2.1, 1.0))
-	arch.tube(Vector3(xf - .065, 2.1, (zs + z1) / 2 + .05), .5, .012, Basis(Vector3.BACK, PI / 2), 16)
-	arch.into(back, dark, "ServiceStairArch").set_meta("marble_hall_provisional", "blind recess in place of the filmed stair down")
+	service_niche(grey)
 	# IMG_6381 1.25..3.0s, 71.0s: the wall under the half-landing's edge, exit doorway in its middle.
 	var exit := wall("east:landing", Vector3(xe, (half - .25) / 2, (zn + zs) / 2), Vector3(.12, half - .25, zs - zn), plaster)
 	var white: Material = room.look(Color("eeeae2"))
@@ -402,6 +396,57 @@ func inner_walls() -> void:
 	# The flights and the room behind the exit wall are not floor.
 	block(Vector3((xe - STRAIGHT * TREAD - .3 + xe) / 2, 1.0, (z0 + zn) / 2), Vector3(STRAIGHT * TREAD + .3, 2.0, FLIGHT))
 	block(Vector3((xe + x1) / 2, 1.0, (z0 + z1) / 2), Vector3(FLIGHT, 2.0, z1 - z0))
+
+
+## IMG_6343 87 s / IMG_6380 35.5, 70.5 s: an actual hollow arch, olive walls and stairs down.
+func service_niche(plaster: Material) -> void:
+	var middle := (zs + z1) / 2 + .05
+	var radius := .50
+	var spring := 2.10
+	var crown := spring + radius + .02
+	for span in [[zs, middle - radius], [middle + radius, z1]]:
+		wall("west:niche", Vector3(xf, SOFFIT / 2, (span[0] + span[1]) / 2), Vector3(.12, SOFFIT, span[1] - span[0]), plaster)
+	var header := wall("west:niche:header", Vector3(xf, (crown + SOFFIT) / 2, (zs + z1) / 2), Vector3(.12, SOFFIT - crown, z1 - zs), plaster)
+	var profile := PackedVector2Array([Vector2(middle - radius, crown), Vector2(middle + radius, crown)])
+	for i in 25:
+		var angle := float(i) * PI / 24
+		profile.append(Vector2(middle + cos(angle) * radius, spring + sin(angle) * radius))
+	# Rotate an extruded profile from the Batch's x/z plane into the return wall's z/y plane.
+	var shaped := Batch.new()
+	shaped.prism(profile, xf - .06, xf + .06, true)
+	var face := Batch.new()
+	face.st.append_from(shaped.st.commit(), 0, Transform3D(Basis(Vector3.BACK, Vector3.RIGHT, Vector3.UP), Vector3.ZERO))
+	face.used = true
+	face.into(header, plaster, "NicheArchSpandrel")
+	var olive: Material = room.look(Color("5e6347"))
+	var lining := Batch.new()
+	var depth := 2.16
+	lining.box(Vector3(xf + depth / 2, .35, middle - radius - .03), Vector3(depth, 3.50, .06))
+	lining.box(Vector3(xf + depth / 2, .35, middle + radius + .03), Vector3(depth, 3.50, .06))
+	lining.box(Vector3(xf + depth, .60, middle), Vector3(.06, 4.10, 1.06))
+	for i in 24:
+		var a := float(i) * PI / 24
+		var b := float(i + 1) * PI / 24
+		var corners := [Vector3(xf + .06, spring + sin(a) * radius, middle + cos(a) * radius), Vector3(xf + depth, spring + sin(a) * radius, middle + cos(a) * radius), Vector3(xf + depth, spring + sin(b) * radius, middle + cos(b) * radius), Vector3(xf + .06, spring + sin(b) * radius, middle + cos(b) * radius)]
+		lining.st.set_normal(Vector3(0, -sin((a + b) / 2), -cos((a + b) / 2)))
+		for index in [0, 2, 1, 0, 3, 2]:
+			lining.st.add_vertex(corners[index])
+	lining.used = true
+	lining.into(header, olive, "ServiceStairOliveVault")
+	var steps := Batch.new()
+	var edges := Batch.new()
+	for i in 8:
+		steps.box(Vector3(xf + .12 + (i + .5) * .25, -(i + 1) * RISER - .10, middle), Vector3(.25, .20, .94))
+		var nose := xf + .12 + (i + 1) * .25 - .008
+		edges.sweep(PackedVector3Array([Vector3(nose, -(i + 1) * RISER, middle - .47), Vector3(nose, -(i + 1) * RISER, middle + .47)]), .015, .010, 6)
+	steps.into(header, room.look(Color("505149")), "ServiceStairDescendingTreads")
+	edges.into(header, room.look(Color("62645a")), "ServiceStairRoundedNosings")
+	var hand := Batch.new()
+	hand.sweep(PackedVector3Array([Vector3(xf + .15, .91, middle + .44), Vector3(xf + 2.1, -.20, middle + .44)]), .035, .032)
+	for i in 3:
+		hand.bar(Vector3(xf + .3 + i * .75, .82 - i * .43, middle + .44), Vector3(xf + .3 + i * .75, .82 - i * .43, middle + .50), .014)
+	hand.into(header, room.look(Color("37372e")), "ServiceStairHandrail")
+	header.set_meta("service_stair_niche", {"treads": 8, "width_m": 1.0, "descending": true, "walkable": false})
 
 
 func stair() -> void:

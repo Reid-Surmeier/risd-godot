@@ -161,3 +161,67 @@ Draft rebuild exit 0, ARCHITECTURE_CHECK `failures: []`; GL capture exit 0,
 no script/shader errors. Whitespace check passes. The checkpoint repository
 check still exits 1 on the same inherited medieval mesh records; no green
 baseline claim. No outside production edit, doorway or route-trial change.
+
+
+## Mid-build visual review
+
+The niche source was refreshed in the preceding draft while the full rebuild
+waited behind the host lock. Its whole arch and a downward view show the olive
+vault and handrail; small rounded stone nosings were added so the descending
+treads remain legible before the final shadow bake. Proposed descent: 8 treads,
+250 ±50 mm going, 145 ±30 mm rise, about 2.16 ±0.35 m visible depth, inferred
+from IMG_6343 87 s / IMG_6380 70.5 s against the adjacent door; the destination
+below is not surveyed.
+
+Scratch-only lion/window previews used the same one draft directory, then
+restored the pending niche source and original landing/plan. Our queued draft
+was held briefly during the source refresh and resumed immediately afterwards.
+Production still contains only parts 1–3 at this point. The window preview
+exposed the upper-floor helper retaining ground-floor height after the service
+void refactor; fixed in the pending part 4 before it reaches production. The
+arm over the chimneypiece will receive the same marble finish as the broad
+upper floor. Four fan treads now replace adjoining straight risers at each lion
+turn; all 29 height intervals per storey are retained, with rounded stringers.
+
+
+## Window and column rulers (INFERRED)
+
+| Feature | Authored size | Frame / scale / uncertainty |
+| --- | --- | --- |
+| Central window light | 1.34 m wide, 2.90 m straight plus 0.67 m round head | IMG_6381 28.5 s, relative to existing 1.60 m flight width and transferred 2.2 m door ruler; ±0.15 m width / ±0.30 m height |
+| Side lights | 0.60 × 2.80 m | Same frame and plane; ±0.10 / ±0.25 m |
+| Engaged columns | 0.19 m inner / 0.12 m outer diameter | Same frame, centre-light width ruler; ±0.04 / ±0.03 m |
+| Window sill | 0.95 m above the 2.90 m half-landing | IMG_6381 28.5 s, guard-height comparison; ±0.15 m |
+| Gallery plain columns | 0.22 m shaft, 0.38 m round base, 0.36 m capital; head 3.10 m | IMG_6380 35.5 / 44.5 s, IMG_6343 84 s; transferred adjacent-door ruler; ±0.04 / ±0.06 / ±0.06 / ±0.25 m |
+| Beam dentils | 0.10 m pitch, 0.055 m high | IMG_6380 44.5 s, shaft-width comparison; ±0.025 / ±0.015 m |
+
+Those are model dimensions, not a survey. The marble hall's 8.0 m room height,
+2.90 m half-landing, 4.495 m upper floor and 13 straight lower treads retain
+the inherited plan. The lion stair retains 29 × 0.155 m = 4.495 m per storey;
+its four fan treads at each turn redistribute the same rise.
+
+Bake source inspection: `remodel_bake.gd` preserves custom ShaderMaterial
+overrides except its named oak-floor/PS1 conversions. `load_bake()` retains
+the live authored ReflectionProbe and installs the baked materials/meshes.
+That supports compatibility, but does not verify final baked reflections.
+
+
+## Part 3 checkpoint — census 8.3
+
+**VERIFIED in the freshly rebuilt draft:** a shaped round arch, olive barrel
+vault and returns, eight descending stone treads with rounded nosings, and a
+sloping rail with three wall brackets. The floor mesh is clipped at the
+service stair so the descent is visible; the existing room-plan/service floor
+void is unchanged. Its depth, riser count and destination remain **INFERRED**.
+This service stair is a visible reconstruction, not a new traversable room.
+
+![IMG_6343 87 s beside the draft niche](03-niche.jpg)
+
+`part3-draft.log`: exit 0, ARCHITECTURE_CHECK `failures: []`. Both whole-arch
+and downward review captures exit 0 without script/shader errors. Retained
+Hall resources emit inherited UID warnings and load by text path. Whitespace
+passes. `part3-check-final.log` still exits 1 on the same three inherited
+medieval declarations; it does not print `checks passed`.
+
+Production change remains solely `marble_hall_additions.gd`. No doorway or
+route trial added/moved, no east-plan change, no under-stair exit-leaf edit.
