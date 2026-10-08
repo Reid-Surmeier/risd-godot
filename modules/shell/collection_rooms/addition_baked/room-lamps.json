@@ -21,6 +21,67 @@
 	},
 	{
 		"at": [
+			15.318,
+			3.39,
+			8.24
+		],
+		"color": "ffe4c8",
+		"cone": 20.178,
+		"energy": 3.845,
+		"kind": "spot",
+		"room": "Impressionist gallery A",
+		"target": [
+			16.543,
+			1.64,
+			8.24
+		],
+		"works": [
+			"23.072"
+		]
+	},
+	{
+		"at": [
+			12.8,
+			3.39,
+			11.283
+		],
+		"color": "ffe4c8",
+		"cone": 29.931,
+		"energy": 3.955,
+		"kind": "spot",
+		"room": "Impressionist gallery A",
+		"target": [
+			12.8,
+			1.59,
+			12.543
+		],
+		"works": [
+			"59.027"
+		]
+	},
+	{
+		"at": [
+			13.94,
+			3.39,
+			4.415
+		],
+		"color": "ffe4c8",
+		"cone": 31.075,
+		"energy": 3.823,
+		"kind": "spot",
+		"room": "Impressionist gallery A",
+		"target": [
+			13.94,
+			1.65,
+			3.197
+		],
+		"works": [
+			"2007.68",
+			"42.190"
+		]
+	},
+	{
+		"at": [
 			11.923,
 			3.39,
 			11.096
@@ -37,6 +98,26 @@
 		],
 		"works": [
 			"1998.107"
+		]
+	},
+	{
+		"at": [
+			11.925,
+			3.39,
+			8.44
+		],
+		"color": "ffe4c8",
+		"cone": 21.695,
+		"energy": 3.823,
+		"kind": "spot",
+		"room": "Impressionist gallery A",
+		"target": [
+			10.707,
+			1.65,
+			8.44
+		],
+		"works": [
+			"57.236"
 		]
 	},
 	{
@@ -61,6 +142,67 @@
 	},
 	{
 		"at": [
+			15.458,
+			3.2,
+			14.43
+		],
+		"color": "ffe4c8",
+		"cone": 32.0,
+		"energy": 3.406,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			16.543,
+			1.65,
+			14.43
+		],
+		"works": [
+			"2021.101",
+			"2010.57"
+		]
+	},
+	{
+		"at": [
+			15.458,
+			3.2,
+			16.36
+		],
+		"color": "ffe4c8",
+		"cone": 19.769,
+		"energy": 3.406,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			16.543,
+			1.65,
+			16.36
+		],
+		"works": [
+			"35.770"
+		]
+	},
+	{
+		"at": [
+			15.458,
+			3.2,
+			19.5
+		],
+		"color": "ffe4c8",
+		"cone": 22.404,
+		"energy": 3.406,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			16.543,
+			1.65,
+			19.5
+		],
+		"works": [
+			"60.095"
+		]
+	},
+	{
+		"at": [
 			13.704,
 			3.2,
 			21.06
@@ -77,6 +219,66 @@
 		],
 		"works": [
 			"44.541"
+		]
+	},
+	{
+		"at": [
+			11.7,
+			3.2,
+			21.058
+		],
+		"color": "ffe4c8",
+		"cone": 23.813,
+		"energy": 3.406,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			11.7,
+			1.65,
+			22.143
+		],
+		"works": [
+			"33.053"
+		]
+	},
+	{
+		"at": [
+			11.799,
+			3.2,
+			20.65
+		],
+		"color": "ffe4c8",
+		"cone": 22.146,
+		"energy": 3.428,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			10.707,
+			1.64,
+			20.65
+		],
+		"works": [
+			"1999.3"
+		]
+	},
+	{
+		"at": [
+			11.799,
+			3.2,
+			17.85
+		],
+		"color": "ffe4c8",
+		"cone": 23.298,
+		"energy": 3.428,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			10.707,
+			1.64,
+			17.85
+		],
+		"works": [
+			"72.096"
 		]
 	},
 	{
@@ -101,8 +303,8 @@
 			"gold-basket-a",
 			"gold-square-a",
 			"gold-plate-a",
-			"gold-cup-a",
-			"gold-saucer-a"
+			"gold-saucer-a",
+			"gold-cup-a"
 		]
 	},
 	{
@@ -142,8 +344,8 @@
 			-2.126
 		],
 		"works": [
-			"gold-ecuelle-clean",
 			"gold-tureen",
+			"gold-ecuelle-clean",
 			"gold-cup-b",
 			"gold-saucer-b",
 			"gold-plate-b",
@@ -838,8 +1040,8 @@
 			"43.351",
 			"@Node3D@4771",
 			"2024.17.6",
-			"51.272",
 			"@Node3D@4796",
+			"51.272",
 			"61.006"
 		]
 	},
@@ -990,8 +1192,8 @@
 			9.279
 		],
 		"works": [
-			"2016.124",
 			"@Node3D@4656",
+			"2016.124",
 			"2016.102.2",
 			"09.351"
 		]
@@ -2305,7 +2507,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 88.0,
-		"energy": 1.602,
+		"energy": 1.295,
 		"kind": "fill",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -2322,7 +2524,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 85.0,
-		"energy": 0.561,
+		"energy": 0.453,
 		"kind": "up",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -2339,7 +2541,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 88.0,
-		"energy": 1.602,
+		"energy": 1.295,
 		"kind": "fill",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -2356,7 +2558,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 85.0,
-		"energy": 0.561,
+		"energy": 0.453,
 		"kind": "up",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -2407,7 +2609,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 88.0,
-		"energy": 1.491,
+		"energy": 1.259,
 		"kind": "fill",
 		"room": "Impressionist gallery A",
 		"target": [
@@ -2424,7 +2626,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 85.0,
-		"energy": 0.522,
+		"energy": 0.441,
 		"kind": "up",
 		"room": "Impressionist gallery A",
 		"target": [
@@ -2441,7 +2643,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 88.0,
-		"energy": 1.491,
+		"energy": 1.259,
 		"kind": "fill",
 		"room": "Impressionist gallery A",
 		"target": [
@@ -2458,7 +2660,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 85.0,
-		"energy": 0.522,
+		"energy": 0.441,
 		"kind": "up",
 		"room": "Impressionist gallery A",
 		"target": [

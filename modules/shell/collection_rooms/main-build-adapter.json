@@ -1,5 +1,5 @@
 {
-  "main_build_tip": "c965b6067cf6ae68ab678ee6766961b975697b3f",
+  "main_build_tip": "45c37365514cbde785868e5d307d5d1f9e35894b",
   "hall_files_unchanged": 482,
   "room_scripts": {
     "connected_hall.gd": {
@@ -28,9 +28,9 @@
       "sha256": "705df5fa2724b1c94712764d4928992390b12a4df9e187743215aab43553f2fc"
     },
     "impressionist_additions.gd": {
-      "paths_moved": 2,
-      "source_sha256": "958d308c2b9099c03d5a637e5ed7d083a43e7860118ea1331d559cca63dfd3dd",
-      "sha256": "b977aab575a4df73ae54473315dcb5b88de6fc1d34d68504683f52818f7ac7ca"
+      "paths_moved": 4,
+      "source_sha256": "d7f2b0bff092d4d3862c63d39934915286dd3c8fa004672937c2e7f8111e37ef",
+      "sha256": "2e91ea95678cf30dec0153a4750247bbc4e6a188fb6a94e29f431dc3e328b542"
     },
     "landing_additions.gd": {
       "paths_moved": 1,

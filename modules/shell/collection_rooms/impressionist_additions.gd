@@ -1,5 +1,5 @@
 ## #277: IMG_6343 84–228s. Source measurements and the fixed-door fit are in
-## docs/evidence/impressionist-277/NOTES.md; missing works keep their walls bare.
+## docs/evidence/impressionist-277/NOTES.md; catalogue photographs fill the painting walls.
 extends RefCounted
 
 const PASSAGE := "Impressionist passage"
@@ -27,8 +27,9 @@ func build(target) -> void:
 	dancer_case()
 	bench()
 	hang_existing_works()
+	hang_catalogue_works()
 	room.inventory["impressionist"] = {
-		"rooms": [PASSAGE, RETURN, A, B], "filmed_works": 17, "hung_works": 4,
+		"rooms": [PASSAGE, RETURN, A, B], "filmed_works": 17, "hung_works": 16,
 		"windows": 4, "benches": 1, "empty_dancer_cases": 1,
 		"metric_accepted": false, "lighting_complete": false,
 		"physical_museum_plan_accepted": false
@@ -460,3 +461,64 @@ func hang_existing_works() -> void:
 		var card: Node3D = room.solid(room.wall_point(spec[11], spec[5], spec[6] + right * (painting.outer.x / 2 + .15), 1.40, .068), Vector3(.12, .14, .004) if spec[5] == "south" else Vector3(.004, .14, .12), room.look(Color("e9e7df")))
 		card.set_meta("artwork_label_proxy", true)
 		card.reparent(room.wall_body(spec[11], spec[5], card.position))
+
+
+# #277 image follow-up: catalogue canvases and film-estimated outer frame sizes.
+# The two small wall-fit corrections are explained in the image evidence notes.
+func hang_catalogue_works() -> void:
+	var records: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://modules/shell/collection_rooms/assets/additions/impressionist/catalogue.json"))
+	var works: Array = JSON.parse_string(FileAccess.get_file_as_string("res://modules/shell/prototype/gallery_walk4/works.json"))
+	# accession, wall, along, centre height, canvas, frame, moulding metres L/T/R/B,
+	# room, frame-only colour multiplier, card side (+1 is to the viewer's right).
+	for spec in [
+		["42.190", "north", 4.00, 1.62, Vector2(.460, .378), "E9", [.090, .086, .090, .086], A, Color(.95, .89, .78), -1],
+		["2007.68", "north", 2.80, 1.65, Vector2(.454, .635), "E7", [.113, .1175, .113, .1175], A, Color(1, 1, 1), 1],
+		["57.236", "west", 5.40, 1.65, Vector2(.737, .481), "W7", [.1265, .1245, .1265, .1245], A, Color(1, .98, .95), 1],
+		["59.027", "south", 2.25, 1.59, Vector2(1.140, 1.502), "E3", [.165, .164, .165, .164], A, Color(.89, .87, .81), 1],
+		["23.072", "east", 5.20, 1.64, Vector2(.464, .629), "E7", [.118, .1205, .118, .1205], A, Color(.97, .99, 1.02), 1],
+		["72.096", "west", 5.15, 1.64, Vector2(.656, .543), "W7", [.142, .1385, .142, .1385], B, Color(1.10, 1.06, .98), 1],
+		["1999.3", "west", 7.95, 1.64, Vector2(.546, .648), "W7", [.097, .101, .097, .101], B, Color(1.06, .83, .76), 1],
+		["33.053", "south", 1.15, 1.65, Vector2(.810, .654), "W3", [.080, .078, .080, .078], B, Color(.83, .83, .81), 1],
+		["2021.101", "east", .93, 1.64, Vector2(.235, .330), "E7", [.0675, .070, .0675, .070], B, Color(1, 1, 1), 1],
+		["2010.57", "east", 2.36, 1.65, Vector2(.499, .600), "E7", [.1055, .105, .1055, .105], B, Color(1, 1, 1), 1],
+		["35.770", "east", 3.66, 1.65, Vector2(.421, .340), "W7", [.1195, .120, .1195, .120], B, Color(1.12, 1.12, 1.15), -1],
+		["60.095", "east", 6.80, 1.65, Vector2(.521, .610), "E7", [.1245, .125, .1245, .125], B, Color(.90, .95, 1.05), 1]
+	]:
+		var record: Dictionary = records[spec[0]]
+		var margins: Array = []
+		for work in works:
+			if work.tag == spec[5]:
+				margins = work.margins_px
+		assert(not margins.is_empty())
+		var painting = room.Painting.new()
+		room.add_child(painting)
+		painting.name = "Impressionist_" + str(spec[0]).replace(".", "_")
+		var frame_path: String = "res://modules/shell/prototype/gallery_walk4/frames/" + spec[5] + ".png"
+		# Palette copies preserve the kit carving/alpha and use the stock bake material.
+		if spec[0] in ["72.096", "35.770", "1999.3"]:
+			frame_path = "res://modules/shell/assets/impressionist/frame-W7-" + ("rose" if spec[0] == "1999.3" else "pale") + ".png"
+		painting.build_framed(
+			load(frame_path),
+			load("res://modules/shell/collection_rooms/" + str(record.image_resolution.images.wall.path)), spec[4], margins, spec[6])
+		# Only the three frame surfaces are tinted. The museum canvas stays unchanged.
+		for i in 3:
+			var material: ShaderMaterial = painting.get_child(i).material_override
+			var shade: Color = material.get_shader_parameter("tint")
+			material.set_shader_parameter("tint", shade * spec[8])
+		painting.position = room.wall_point(spec[7], spec[1], spec[2], spec[3], .067)
+		painting.rotation.y = YAW[spec[1]]
+		painting.set_meta("catalogue_accession", spec[0])
+		painting.set_meta("catalogue_asset", "impressionist-" + str(spec[0]))
+		for field in ["title", "maker", "date", "medium", "dimensions"]:
+			painting.set_meta("catalogue_" + field, record[field])
+		painting.set_meta("catalogue_image", record.image)
+		painting.set_meta("catalogue_identified", true)
+		painting.set_meta("placement_accepted", false)
+		painting.set_meta("frame_ornament_accepted", false)
+		painting.reparent(room.wall_body(spec[7], spec[1], painting.position))
+		var right: float = (-1 if spec[1] in ["west", "south"] else 1) * spec[9]
+		var card_at: Vector3 = room.wall_point(spec[7], spec[1], spec[2] + right * (painting.outer.x / 2 + .15), 1.40, .068)
+		var card_size := Vector3(.12, .14, .004) if spec[1] in ["north", "south"] else Vector3(.004, .14, .12)
+		var card: Node3D = room.solid(card_at, card_size, room.look(Color("e9e7df")))
+		card.set_meta("artwork_label_proxy", true)
+		card.reparent(room.wall_body(spec[7], spec[1], card.position))
