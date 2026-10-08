@@ -366,7 +366,7 @@ func _panel(
 				st.set_uv(Vector2(f.x * u.length(), (1.0 - f.y) * v.length()))
 				st.add_vertex(p)
 	var mi := MeshInstance3D.new()
-	mi.mesh = st.commit()
+	mi.mesh = load(DIR + "cpu_geometry.gd").commit(st)
 	mi.material_override = m
 	mi.layers = layer
 	_vp.add_child(mi)
@@ -587,12 +587,12 @@ func _build_room() -> void:
 			Vector3.DOWN
 		)
 	var vmi := MeshInstance3D.new()
-	vmi.mesh = st.commit()
+	vmi.mesh = load(DIR + "cpu_geometry.gd").commit(st)
 	vmi.set_meta("vault", true)
 	vmi.material_override = ps(null, Color.WHITE, Vector2.ONE, true)
 	_vp.add_child(vmi)
 	var gmi := MeshInstance3D.new()
-	gmi.mesh = gl.commit()
+	gmi.mesh = load(DIR + "cpu_geometry.gd").commit(gl)
 	gmi.material_override = ps(load(DIR + "textures/skylight-grid-168.svg"), Color.WHITE)
 	_vp.add_child(gmi)
 	# track lamps along both edges of the glazing, aimed at the walls
@@ -772,7 +772,7 @@ func _bench_cushion(z: float) -> void:
 				)
 				st.add_vertex(quad[index] + Vector3(0, 0, z))
 	var seat := MeshInstance3D.new()
-	seat.mesh = st.commit()
+	seat.mesh = load(DIR + "cpu_geometry.gd").commit(st)
 	seat.material_override = ps(
 		load(DIR + "textures/bench-cloth-muse.webp"), Color(1.1, 1.1, 1.1), Vector2.ONE, true
 	)
@@ -906,7 +906,7 @@ func _build_floor() -> void:
 	mat.set_shader_parameter("jitter", 0.0)
 	mat.set_shader_parameter("plank", PLANK)
 	var mi := MeshInstance3D.new()
-	mi.mesh = _conform_floor_edges(st.commit())
+	mi.mesh = _conform_floor_edges(st.commit_to_arrays())
 	mi.material_override = mat
 	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_vp.add_child(mi)
@@ -914,8 +914,7 @@ func _build_floor() -> void:
 
 ## Split each plank at its neighbors' corners: Web rasterization exposes T-junctions.
 ## Preserve interpolated texture, color and lighting UVs, including in saved bakes.
-static func _conform_floor_edges(mesh: ArrayMesh) -> ArrayMesh:
-	var arrays := mesh.surface_get_arrays(0)
+static func _conform_floor_edges(arrays: Array) -> ArrayMesh:
 	var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
 	assert(vertices.size() % 6 == 0)
 	var st := SurfaceTool.new()
@@ -963,14 +962,13 @@ static func _conform_floor_edges(mesh: ArrayMesh) -> ArrayMesh:
 					* (inverse * Vector2(position.x, position.z)).snapped(Vector2.ONE * 0.0001)
 				)
 				st.add_vertex(Vector3(planar.x, position.y, planar.y))
-	return st.commit()
+	return load(DIR + "cpu_geometry.gd").commit(st)
 
 
 ## #177: clipped passage planks need shared endpoints, including partial triangles.
 ## Keep UV/color/lightmap interpolation; no material or bake changes.
 ## ponytail: passage-only quadratic edge scan; spatial buckets if geometry grows.
-static func _conform_portal_edges(mesh: ArrayMesh) -> ArrayMesh:
-	var arrays := mesh.surface_get_arrays(0)
+static func _conform_portal_edges(arrays: Array) -> ArrayMesh:
 	var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
 	var points := {}
 	for index in vertices.size():
@@ -1035,7 +1033,7 @@ static func _conform_portal_edges(mesh: ArrayMesh) -> ArrayMesh:
 				st.set_uv2(uv2)
 				st.set_color(color)
 				st.add_vertex(sample[0])
-	return st.commit()
+	return load(DIR + "cpu_geometry.gd").commit(st)
 
 
 func _arch_end() -> void:
@@ -1240,7 +1238,7 @@ func _portal_floor(end: float) -> void:
 						st.set_color(Color(tone, tone * 0.99, tone * 0.97))
 						st.add_vertex(Vector3(p.x, -0.002, p.y))
 	var mesh := MeshInstance3D.new()
-	mesh.mesh = _conform_portal_edges(st.commit())
+	mesh.mesh = _conform_portal_edges(st.commit_to_arrays())
 	mesh.material_override = ps(
 		load(DIR + "textures/oak-muse.webp"), Color.WHITE, Vector2.ONE, true
 	)
@@ -1655,7 +1653,7 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 			builder.current = st
 			# Capital now meets the aligned impost directly; no extra shelf slab.
 	var instance := MeshInstance3D.new()
-	instance.mesh = st.commit()
+	instance.mesh = load(DIR + "cpu_geometry.gd").commit(st)
 	instance.material_override = ps(
 		load(DIR + "textures/stone.png"), Color.WHITE, Vector2.ONE, true
 	)
@@ -1664,7 +1662,7 @@ func _portal_stone(radius: float, height: float, rear: float, front: float) -> v
 	# Average actual neighboring relief triangles instead of switching between
 	# finite-difference normals and individual faces at steep carved shoulders.
 	capital_st.generate_normals()
-	capitals.mesh = capital_st.commit()
+	capitals.mesh = load(DIR + "cpu_geometry.gd").commit(capital_st)
 	capitals.material_override = instance.material_override
 	capitals.set_meta("portal_capital", true)
 	capitals.set_meta("portal_relief_winding_failures", winding.failures)
@@ -1702,7 +1700,7 @@ func _trim_profile(
 			st.set_uv(p)
 			st.add_vertex(origin + along * end + across * p.x + depth_axis * p.y)
 		var cap := MeshInstance3D.new()
-		cap.mesh = st.commit()
+		cap.mesh = load(DIR + "cpu_geometry.gd").commit(st)
 		cap.material_override = material
 		_vp.add_child(cap)
 
@@ -1736,7 +1734,7 @@ func _door_panel(center: Vector3, material: Material) -> void:
 				st.set_uv(Vector2(face[index].x, face[index].y))
 				st.add_vertex(face[index])
 	var panel := MeshInstance3D.new()
-	panel.mesh = st.commit()
+	panel.mesh = load(DIR + "cpu_geometry.gd").commit(st)
 	panel.material_override = material
 	_vp.add_child(panel)
 
@@ -1915,8 +1913,9 @@ func _far_end() -> void:
 		if not instance is MeshInstance3D:
 			continue
 		var aligned := ArrayMesh.new()
+		var sources := []
 		for surface in instance.mesh.get_surface_count():
-			var arrays: Array = instance.mesh.surface_get_arrays(surface)
+			var arrays: Array = load(DIR + "cpu_geometry.gd").source(instance.mesh, surface).duplicate()
 			var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
 			var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
 			var indices: PackedInt32Array = (
@@ -1935,6 +1934,8 @@ func _far_end() -> void:
 					indices[index + 2] = b
 			arrays[Mesh.ARRAY_INDEX] = indices
 			aligned.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+			sources.append(arrays)
+		aligned.set_meta("cpu_arrays", sources)
 		instance.mesh = aligned
 
 
@@ -2525,7 +2526,7 @@ func _merge_static() -> void:
 		key += "|baseboard:%s" % mi.get_meta("baseboard", false)
 		key += (
 			"|layer:%s|indexed:%s"
-			% [mi.layers, mi.mesh.surface_get_arrays(0)[Mesh.ARRAY_INDEX] != null]
+			% [mi.layers, load(DIR + "cpu_geometry.gd").source(mi.mesh)[Mesh.ARRAY_INDEX] != null]
 		)
 		if not groups.has(key):
 			groups[key] = []
@@ -2534,13 +2535,26 @@ func _merge_static() -> void:
 		var list: Array = groups[key]
 		if list.size() < 2:
 			continue
+		var cpu: Script = load(DIR + "cpu_geometry.gd")
+		var channels := {}
+		for mi in list:
+			for surf in mi.mesh.get_surface_count():
+				var arrays: Array = cpu.source(mi.mesh, surf)
+				for channel in [
+					Mesh.ARRAY_NORMAL, Mesh.ARRAY_TANGENT, Mesh.ARRAY_COLOR,
+					Mesh.ARRAY_TEX_UV, Mesh.ARRAY_TEX_UV2
+				]:
+					if arrays[channel] != null:
+						channels[channel] = true
 		var st := SurfaceTool.new()
+		st.begin(Mesh.PRIMITIVE_TRIANGLES)
+		var offset := 0
 		for mi in list:
 			var xf: Transform3D = (mi as MeshInstance3D).global_transform
 			for surf in mi.mesh.get_surface_count():
-				st.append_from(mi.mesh, surf, xf)
+				offset = cpu.append(st, cpu.source(mi.mesh, surf), xf, offset, channels)
 		var merged := MeshInstance3D.new()
-		merged.mesh = st.commit()
+		merged.mesh = load(DIR + "cpu_geometry.gd").commit(st)
 		merged.set_meta("baseboard", list[0].get_meta("baseboard", false))
 		merged.layers = list[0].layers
 		merged.material_override = list[0].material_override

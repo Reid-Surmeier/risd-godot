@@ -108,7 +108,7 @@ func _ready() -> void:
 	_kit.skeleton = target
 	_kit.player = player
 	_kit.make_jump_animation()  # adds jump, flight and landing, built from the idle pose
-	_kit.make_face()
+	_apply_cpu_geometry()
 	for mesh in model.find_children("*", "MeshInstance3D", true, false):
 		meshes.append(mesh)
 		mesh.gi_mode = GeometryInstance3D.GI_MODE_DYNAMIC
@@ -116,23 +116,10 @@ func _ready() -> void:
 		mesh.layers = layers | FILL_LAYER
 	for side in ["LeftFoot", "RightFoot"]:
 		_feet.append({"bone": target.find_bone(side), "points": [], "low": 0.0, "planted": true})
-	# Rigid sole vertices, as in the accepted playtest: the floor and contact reference.
-	for mesh in meshes:
-		for surface in mesh.mesh.get_surface_count():
-			var arrays: Array = mesh.mesh.surface_get_arrays(surface)
-			for vertex in arrays[Mesh.ARRAY_VERTEX].size():
-				for influence in 4:
-					if arrays[Mesh.ARRAY_WEIGHTS][vertex * 4 + influence] < 0.9999:
-						continue
-					var bind: int = arrays[Mesh.ARRAY_BONES][vertex * 4 + influence]
-					var bone: int = mesh.skin.get_bind_bone(bind)
-					if bone < 0:
-						bone = target.find_bone(mesh.skin.get_bind_name(bind))
-					for foot in _feet:
-						if foot.bone == bone:
-							foot.points.append(
-								mesh.skin.get_bind_pose(bind) * arrays[Mesh.ARRAY_VERTEX][vertex]
-							)
+	# Exact rigid sole points extracted with the accepted skin calculation offline.
+	var geometry: Resource = load(HOME + "launch_geometry.res")
+	for foot in _feet:
+		foot.points = geometry.get_meta("feet")[target.get_bone_name(foot.bone)]
 	# The museum is lit only by its baked lightmap, and probes alone leave the character far
 	# darker than the accepted playtest. This is that playtest's sun, reaching only this body
 	# and kept on the viewer's side as the museum camera orbits (see pose).
@@ -146,6 +133,20 @@ func _ready() -> void:
 		JavaScriptBridge.eval("new URLSearchParams(location.search).has('qa-sound')")
 	)
 	pose(0, false, 0, Vector3.FORWARD, 0)
+
+
+## The reviewed face/hand mesh and skin gates are prepared once, without a GPU read at launch.
+func _apply_cpu_geometry() -> void:
+	var geometry: Resource = load(HOME + "launch_geometry.res")
+	for record in geometry.get_meta("meshes"):
+		var mesh: MeshInstance3D = model.get_node(record.path)
+		mesh.mesh = record.mesh
+		for surface in record.materials.size():
+			var material: Material = record.materials[surface]
+			if material != null:
+				material = material.duplicate()
+				mesh.set_surface_override_material(surface, material)
+				_kit.face_material = material
 
 
 func _notification(what: int) -> void:

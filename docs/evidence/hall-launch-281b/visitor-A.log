@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ENTRY_COMPLETE (0.0, 0.0, -2.551503)
+VIEW original yaw -180.0
+PASS #236: accepted character, 24-bone rig, 23 paintings, start/walk/stop/reversal, 90/180-degree turns, floor contact and step cadence, gestures disabled; #259: one stride through gait changes, landings, sprint reversal skid
