@@ -18,6 +18,10 @@
 extends SceneTree
 
 const SIZE := Vector2i(960, 640)
+# A work being read: the least share of the picture's height it stands, and the most of its
+# screen rectangle the caption panel may cover (#272).
+const READ_HEIGHT := 0.25
+const READ_COVERED := 0.02
 const HALL := "Grand Gallery"
 
 var walk
@@ -687,6 +691,13 @@ func _objects() -> void:
 		]
 		if not Rect2(Vector2.ZERO, walk.size).grow(2).encloses(work):
 			problems.append("the work is not wholly in the inspection picture")
+		# The caption panel stands under the work, not over it (#272).
+		var under := 0.0
+		if panel.is_visible_in_tree() and work.has_area():
+			under = work.intersection(panel.get_global_rect()).get_area() / work.get_area()
+		entry["under_caption"] = snappedf(under, 0.01)
+		if under > READ_COVERED:
+			problems.append("the caption panel covers %.2f of the work" % under)
 		entry["render_size"] = [walk._vp.size.x, walk._vp.size.y]
 		if thing.rec.has("canvas_w"):
 			var canvas_points: Array = []
@@ -884,12 +895,14 @@ func _read(thing: Dictionary) -> int:
 # rooms at the first doorway), and again once the rooms are built.
 func _interaction() -> void:
 	var launch: bool = walk.state().get("pending", false)
+	await _hall_readings(", at launch" if launch else "")
 	await _other_wall_while_reading(", at launch" if launch else "")
 	if launch:
 		await _wall_clicks([_areas()[0]], ", at launch")
 	await _other_wall_in_wipe()  # out through the first doorway, which builds the rooms, and back
 	await _wall_clicks(_areas(), "")
 	if launch:
+		await _hall_readings(", rooms built")
 		await _other_wall_while_reading(", rooms built")
 	await _overlapped_works()
 
@@ -1186,3 +1199,58 @@ func _other_wall_in_wipe() -> void:
 		report.interaction.append(entry)
 		if not problems.is_empty():
 			_fail("interaction", entry.name + ": " + entry.result, entry)
+
+
+# Reading a Hall work frames the work (round 4, #272's rule begun). One painting on each wall
+# and the three the playtest named are clicked from in front; a second later the camera is on
+# its inspection shot, the work's rectangle on screen lies inside the picture and stands at
+# least READ_HEIGHT of its height, the caption panel covers no more than READ_COVERED of the
+# work, and the caption has its title.
+func _hall_readings(when: String) -> void:
+	var entry := {"name": "reading a Hall work frames it" + when, "works": []}
+	var problems := PackedStringArray()
+	for tag in ["S2", "E8", "E5", "W2", "N1"]:
+		var thing := {}
+		for painting in walk._paintings:
+			if painting.tag == tag:
+				thing = painting
+		if thing.is_empty():
+			problems.append(tag + " is not in the Hall")
+			continue
+		await _read(thing)
+		var row := {"work": tag, "read": walk._inspect.get("tag", "")}
+		var faults := PackedStringArray()
+		if row.read != tag:
+			faults.append("opened %s" % (row.read if row.read != "" else "nothing"))
+		else:
+			var shot: Transform3D = walk._inspect_shot(walk._inspect)
+			row["camera_off_shot_m"] = snappedf(walk._cam.global_position.distance_to(shot.origin), 0.01)
+			var work := _on_screen(thing.corners)
+			var panel: Control = walk._inspect_panel
+			var covered := 0.0
+			if panel != null and panel.is_visible_in_tree() and work.has_area():
+				covered = work.intersection(panel.get_global_rect()).get_area() / work.get_area()
+			row["inside_picture"] = work.has_area() and Rect2(Vector2.ZERO, walk.size).grow(2).encloses(work)
+			row["height_share"] = snappedf(work.size.y / walk.size.y, 0.01)
+			row["under_caption"] = snappedf(covered, 0.01)
+			row["title"] = str(panel.get_child(0).get_node("Title").text) if panel != null else ""
+			if row.camera_off_shot_m > 0.05:
+				faults.append("the camera is %.2f m from its inspection shot" % row.camera_off_shot_m)
+			if not row.inside_picture:
+				faults.append("the work is not wholly inside the picture")
+			if row.height_share < READ_HEIGHT:
+				faults.append("the work stands only %.2f of the picture's height" % row.height_share)
+			if covered > READ_COVERED:
+				faults.append("the caption panel covers %.2f of the work" % covered)
+			if row.title.strip_edges() == "":
+				faults.append("the caption has no title a second after it opened")
+		entry.works.append(row)
+		if not faults.is_empty():
+			problems.append("%s: %s" % [tag, ", ".join(faults)])
+		walk._end_inspect(false)
+		for settle in 60:
+			await process_frame
+	entry["result"] = "ok" if problems.is_empty() else "; ".join(problems)
+	report.interaction.append(entry)
+	if not problems.is_empty():
+		_fail("interaction", entry.name + ": " + entry.result, entry)
