@@ -41,7 +41,16 @@ func _run() -> void:
 			var mid: float = (door[0] + door[1]) / 2.0
 			var on_wall := Vector3(b[0] if side == "west" else mid, 0, b[2] if side == "north" else mid)
 			var outward: Vector3 = walk.SIDES[side]
-			doors.append([on_wall - outward * RUN_UP, on_wall + outward * RUN_UP])
+			# As far back on each side as the visitor can stand, straight through the door.
+			var ends := []
+			for way in [-1.0, 1.0]:
+				var end: Vector3 = on_wall + outward * way * 0.9
+				for depth in [RUN_UP, 1.8, 1.4, 1.1, 0.9]:
+					if walk._free(on_wall + outward * way * depth):
+						end = on_wall + outward * way * depth
+						break
+				ends.append(end)
+			doors.append(ends)
 	for index in doors.size():
 		if not only.is_empty() and str(index) not in only:
 			continue

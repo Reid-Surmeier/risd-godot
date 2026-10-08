@@ -82,6 +82,7 @@ const NO_STAGE := -2
 const JOINED := {
 	"Grand Gallery reveal threshold": "grey French gallery",
 	"purple elevator-5 connector": "grey French gallery",
+	"marble stair hall": "grey French gallery",  # open to it along its whole side
 	"Rockefeller reveal threshold": "Rockefeller",
 	"Skylight Gallery reveal threshold": "Skylight Gallery",
 	"white sculpture gallery threshold study limit": "lion stair landing",
@@ -1282,6 +1283,8 @@ func _update_camera(k: float) -> void:
 		if wall.room >= 0:
 			var rule = cut[wall.room]
 			clear = not (rule is bool or rule[wall.side])
+			if added and _stage_ids[wall.room] != _stage:
+				clear = _edge_wall(wall.box, eye, open_set)
 		elif added and _stage_ids[wall.at] != _stage:
 			clear = false
 		# A low case stays: hiding it would bare the unlit floor and the shadow baked under it.
@@ -1323,6 +1326,27 @@ func _update_camera(k: float) -> void:
 
 func _stage_of(room: int) -> int:
 	return -1 if room < 0 else _stage_ids[room]
+
+
+# A wall two rooms share belongs to one of them. Standing on this stage's edge it is this
+# stage's wall as well, and goes only when it is on the camera's side.
+func _edge_wall(box: AABB, eye: Vector3, open_set: bool) -> bool:
+	var c := Vector2(box.get_center().x, box.get_center().z)
+	for i in _plan.size():
+		if _stage_ids[i] != _stage:
+			continue
+		var b: Array = _plan[i].b
+		if c.y > b[2] - 0.1 and c.y < b[3] + 0.1:
+			if absf(c.x - b[0]) < 0.35:
+				return not (open_set and eye.x < b[0])
+			if absf(c.x - b[1]) < 0.35:
+				return not (open_set and eye.x > b[1])
+		if c.x > b[0] - 0.1 and c.x < b[1] + 0.1:
+			if absf(c.y - b[2]) < 0.35:
+				return not (open_set and eye.z < b[2])
+			if absf(c.y - b[3]) < 0.35:
+				return not (open_set and eye.z > b[3])
+	return false
 
 
 func _build_stages() -> void:
@@ -1421,11 +1445,11 @@ func _wipe_begin() -> void:
 	_wipe_fov = _seen_fov
 	_wipe_mask = _seen_mask
 	_velocity = Vector3.ZERO
-	_wipe_dir = (
-		Vector3(signf(_motion_heading.x), 0, 0)
-		if absf(_motion_heading.x) > absf(_motion_heading.z)
-		else Vector3(0, 0, signf(_motion_heading.z))
-	)
+	# Straight in from the wall just crossed: the nearest edge of the area now stood in.
+	var here := _room_at(_pos)
+	var b: Array = _plan[here].b if here >= 0 else [-W / 2.0, W / 2.0, -L, 0.0]
+	var gaps := [_pos.x - b[0], b[1] - _pos.x, _pos.z - b[2], b[3] - _pos.z]
+	_wipe_dir = [Vector3.RIGHT, Vector3.LEFT, Vector3.BACK, Vector3.FORWARD][gaps.find(gaps.min())]
 	# A clicked route carries on through the door; held keys become a short walk straight in.
 	if _path.is_empty() and _target == null:
 		_target = _clamp(_pos + _wipe_dir * 1.0)
