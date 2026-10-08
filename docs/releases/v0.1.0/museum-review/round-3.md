@@ -16,6 +16,12 @@ VERIFIED means reproduced and inspected by this reviewer. INFERRED identifies a 
 
 Evidence: [continuous portal frames](../../../evidence/review-round-3/01-portal-crossing.jpg); scratch `01-hall-medieval-walk.mp4`, `02-hall-medieval-repeat.mp4`, their `*-frames.json`, and `02-path.json`. The missing timestamps are disclosed in the sheet, not filled with duplicated frames.
 
+### 2. Clicking the floor while holding a movement key suddenly makes the visitor walk at almost twice the speed.
+
+**VERIFIED · BLOCKS · NEW.** Where: marble stair hall and Main Hall; mixed WASD plus click-to-walk. Reproduce: (1) In the marble hall, face north with clear floor behind the visitor. (2) Hold S, then click the floor near the bottom centre while continuing to hold S. (3) Release S after the click route has started. Chrome position/delta samples rise from the normal 1.20 m/s to 2.39 m/s while the key and click route both run, then fall back to 1.20 when the short route ends; no Shift was pressed. An independent fixed-60 engine reproduction in the Hall measures 1.200 m/s for W alone and 2.400 m/s for W plus a forward floor click. The visitor keeps its walking presentation while accelerating. This affects ordinary mixed mouse/keyboard play, not only a diagnostic input combination.
+
+Evidence: [continuous browser movement](../../../evidence/review-round-3/03-key-click-speed.jpg); scratch `09-mixed-key-click-marble.mp4`, `09-mixed-perf.json`, and `mixed-input/report.json` (control versus clicked run).
+
 ## Coverage and measurements
 
 VERIFIED: fresh engine harness `--only=doors` completed 38 doorway legs with zero failures. A separate real-key probe recorded 76 walk/sprint legs at one JPEG per six fixed-60-FPS frames and logged camera/body positions each frame; its endpoint classification needs correction before treating it as a sprint pass. Chrome uses the requested ANGLE GL/EGL GPU flags. Its first two loads reached `game-shown` at 49.54 s and 48.82 s; downloads finished at 2.42 s on the first load. These are shared-host observations, not isolated benchmarks. Continuous recordings, frame timing, browser console output and scratch probes stay under `build/review-round-3/` (ignored). Selected JPEG evidence is committed under `docs/evidence/review-round-3/`.
