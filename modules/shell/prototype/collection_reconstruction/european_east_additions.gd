@@ -142,17 +142,11 @@ func build_platform() -> void:
 	tag(cover, "indian-cover", ["37.009", "Cover", "Unknown Maker, Indian", "ca. 1700-1800", "Painted, mordant-printed and resist-dyed cotton", "Length 133.4 cm"], "textile-37.009.jpg")
 	cover.reparent(panel)
 	room.label_stand(at(15.2, 1.1, .14), -PI / 2).reparent(deck)
-	# Commode: a closed box at catalogue size carrying the record's front photograph; marble slab on top.
+	# Commode: a real mesh (#263) at catalogue size on the deck, its front to the room. It carries its own
+	# marble top, mounts and legs; the box, the slab and the front photograph are no longer built.
 	var size := Vector3(.648, .864, 1.448)
-	var body: Node3D = room.solid(at(18.5, .40, .14 + .40), Vector3(size.x * .9, .70, size.z * .92), room.look(Color("6b3a1f")), true)
+	var body: Node3D = room.place_mesh(DIR + "commode-201746.glb", at(18.5, .40, .14), -PI / 2, Vector3(size.z, size.y, size.x), "2017.46")
 	tag(body, "commode", ["2017.46", "Commode", "Charles Cressent", "ca. 1725-1730", "Fir, oak, amaranth, macacauba and bois satine with gilt bronze mounts and marble top", "86.4 x 144.8 x 64.8 cm"], "commode-2017.46.jpg")
-	var top: Node3D = room.solid(at(18.5, .40, .14 + .864 - .02), Vector3(size.x, .04, size.z), room.look(Color("7a4a43")))
-	top.reparent(body)
-	var front := slab("commode-2017.46.jpg", Vector2(size.z, size.y), SQUARE, Color("6b3a1f"))
-	front.position = at(18.5, .40 + size.x * .45 + .005, .14 + size.y / 2)
-	front.rotation.y = -PI / 2
-	front.scale.z = .2
-	front.reparent(body)
 	# Meissen charger in its acrylic box on the marble.
 	var disc: Array = []
 	for i in 32:
@@ -248,19 +242,25 @@ func build_floor() -> void:
 			leg.reparent(seat)
 		var rail: Node3D = room.solid(at(10.3, 2.6, .02) + Vector3(0, 0, z), Vector3(.39, .04, .05), room.look(Color("1c1b1b")))
 		rail.reparent(seat)
-	# 3. Cabinet case (IMG_6386 41.2 s, 83.5-84.5 s): the Schreibtisch as a closed box with its front photograph.
+	# 3. Cabinet case (IMG_6386 41.2 s, 83.5-84.5 s): the Schreibtisch stands open, its long faces across the
+	# gallery. At 41.2 s the camera looks south to the exit sign and sees its back; at 84.0 s the fall front lies
+	# lowered before it. The front and the flap carry the museum's two square-on photographs; no photograph of
+	# the back, the ends or the top exists, so those stay plain wood. Which way it faces is read from those two frames.
 	c = at(8.3, 3.0)
 	var cabinet_case := display_case(8.3, 3.0, Vector2(.85, 1.05), .80, .70)
 	cabinet_case.set_meta("european_east_case", "cabinet")
-	var box: Node3D = room.solid(c + Vector3(0, .84 + .2255, 0), Vector3(.333, .451, .606), room.look(Color("7a3a16")))
+	var box: Node3D = room.solid(c + Vector3(0, .84 + .2255, -.20), Vector3(.606, .451, .333), room.look(Color("7a3a16")))
 	tag(box, "schreibtisch", ["75.023", "Writing Desk (Schreibtisch)", "Unknown Maker, German", "ca. 1590", "Walnut, burled walnut, ebonized walnut", "45.1 x 60.6 x 33.3 cm"], "cabinet-75.023.jpg")
 	box.reparent(cabinet_case)
-	for side in [-1, 1]:
-		var face := slab("cabinet-75.023.jpg", Vector2(.606, .451), SQUARE, Color("7a3a16"))
-		face.position = c + Vector3(side * .17, .84 + .2255, 0)
-		face.rotation.y = side * PI / 2
-		face.scale.z = .1
-		face.reparent(box)
+	var face := slab("cabinet-75.023-open.jpg", Vector2(.606, .451), SQUARE, Color("7a3a16"))
+	face.position = c + Vector3(0, .84 + .2255, -.20 + .1665)
+	face.scale.z = .1
+	face.reparent(box)
+	var flap := slab("cabinet-75.023-flap.jpg", Vector2(.606, .445), SQUARE, Color("7a3a16"))
+	flap.position = c + Vector3(0, .84 + .012, -.20 + .1665 + .2225)
+	flap.rotation.x = -PI / 2
+	flap.scale.z = .3
+	flap.reparent(box)
 	# 4. Majolica case by the west wall, south end (IMG_6386 0.5-14.5 s, IMG_6384 30.5-32.5 s).
 	c = at(4.9, 4.5)
 	var majolica := display_case(4.9, 4.5, Vector2(1.0, 2.2), .85, .60)

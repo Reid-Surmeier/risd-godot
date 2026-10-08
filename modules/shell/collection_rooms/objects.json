@@ -326,7 +326,7 @@
     "image": "res://modules/shell/collection_rooms/assets/painting-43.255.jpg",
     "source": "https://risdmuseum.org/art-design/collection/banks-river-au-bord-dune-riviere-43255 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/cezanne-banks-river.json)"
   },
-  "st-george": {
+  "2017.74.14": {
     "title": "St. George and the Dragon",
     "maker": "Ralph Wood the younger",
     "date": "ca. 1770",
@@ -338,7 +338,7 @@
     "image": "res://modules/shell/collection_rooms/assets/details/st-george.jpg",
     "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:st-george.html (saved copy of https://risdmuseum.org/art-design/collection/st-george-and-dragon-20177414)"
   },
-  "flute-player": {
+  "2017.74.16": {
     "title": "The Flute Player",
     "maker": "Ralph Wood the younger",
     "date": "ca. 1770",
@@ -350,7 +350,7 @@
     "image": "res://modules/shell/collection_rooms/assets/details/flute-player.jpg",
     "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:flute-player.html (saved copy of https://risdmuseum.org/art-design/collection/flute-player-20177416)"
   },
-  "hudibras": {
+  "2017.74.17": {
     "title": "Hudibras",
     "maker": "Ralph Wood the younger, maker; John Voyez, modeler",
     "date": "ca. 1770",
