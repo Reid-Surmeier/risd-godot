@@ -188938,6 +188938,7 @@
     },
     {
       "asset": "parrot",
+      "mesh": "additions/rockefeller/parrot-20177427-1.glb",
       "accession": "2017.74.27.1",
       "title": "Parrot",
       "size_m": [
@@ -188951,6 +188952,8 @@
         1.19,
         -6.83
       ],
+      "yaw": 3.141592653589793,
+      "yaw_basis": "IMG_6380/000305.jpg: the pair stand either side of the horse group with their heads towards it, so this one shows its other flank",
       "source": "IMG_6380/000305.jpg; accurate native t152.25s",
       "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
       "v15_position": [
@@ -188984,6 +188987,7 @@
     },
     {
       "asset": "parrot-pair",
+      "mesh": "additions/rockefeller/parrot-20177427-2.glb",
       "accession": "2017.74.27.2",
       "title": "Parrot",
       "size_m": [
@@ -189030,6 +189034,7 @@
     },
     {
       "asset": "shepherd",
+      "mesh": "additions/rockefeller/shepherd-20177423.glb",
       "accession": "2017.74.23",
       "title": "Figure of a Shepherd",
       "size_m": [
@@ -189053,6 +189058,7 @@
     },
     {
       "asset": "candlestick",
+      "mesh": "additions/rockefeller/candlestick-20177428-1.glb",
       "accession": "2017.74.28.1",
       "title": "Figural Candlestick",
       "size_m": [
@@ -189076,6 +189082,7 @@
     },
     {
       "asset": "cow",
+      "mesh": "additions/rockefeller/cow-20177429.glb",
       "accession": "2017.74.29",
       "title": "Model of a Cow",
       "size_m": [
@@ -189099,6 +189106,7 @@
     },
     {
       "asset": "candlestick-pair",
+      "mesh": "additions/rockefeller/candlestick-20177428-2.glb",
       "accession": "2017.74.28.2",
       "title": "Figural Candlestick",
       "size_m": [
@@ -189192,6 +189200,7 @@
     },
     {
       "asset": "sconce-left",
+      "mesh": "additions/rockefeller/sconce-2017746-3.glb",
       "accession": "2017.74.6.3",
       "title": "Wall light with deer",
       "size_m": [
@@ -189202,7 +189211,7 @@
       "position": [
         0.95,
         2.08,
-        -0.49
+        -0.571
       ],
       "yaw": 3.141592653589793,
       "source": "IMG_6380 native t188.25s; matching official ornament",
@@ -189211,10 +189220,12 @@
         -2.63,
         2.08,
         -0.55
-      ]
+      ],
+      "mesh_position_basis": "z moved out from -0.49 so the mesh's flat back sits on the wall face (#263); the blob it replaces was centred there"
     },
     {
       "asset": "sconce-right",
+      "mesh": "additions/rockefeller/sconce-2017746-4.glb",
       "accession": "2017.74.6.4",
       "title": "Wall light with bird",
       "size_m": [
@@ -189225,7 +189236,7 @@
       "position": [
         -2.18,
         2.08,
-        -0.49
+        -0.588
       ],
       "yaw": 3.141592653589793,
       "source": "IMG_6380 native t188.25s; matching official ornament",
@@ -189234,7 +189245,8 @@
         -2.63,
         2.08,
         -3.55
-      ]
+      ],
+      "mesh_position_basis": "z moved out from -0.49 so the mesh's flat back sits on the wall face (#263); the blob it replaces was centred there"
     },
     {
       "asset": "writing-table",

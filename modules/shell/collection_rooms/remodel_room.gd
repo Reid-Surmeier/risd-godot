@@ -22,8 +22,8 @@ const RenaissanceWall := preload("res://modules/shell/collection_rooms/renaissan
 ## IMG_6386 67.5 s; IMG_6380 223.5 s). A bluer paint reads mauve beside the cream trim.
 const WALL_PAINT:={"":"dfe3dd","light Renaissance room":"cdd3c9","adjacent gallery":"dfe3dd","Rockefeller":"d8e7e2",
 	"modern painting gallery":"e0e6e4","lion stair landing":"c8cbc7","grey French gallery":"e2e3da","Skylight Gallery":"d2d6ce",
-	"marble stair hall":"dedcd4","dark medieval room":"4c5160"}
-const MEDIEVAL_MOUNT:="4f5564" # the panels' mount boards: the dark medieval room's wall paint, a tenth lighter
+	"marble stair hall":"dedcd4","dark medieval room":"5a5d6a"}
+const MEDIEVAL_MOUNT:="636675" # the panels' mount boards: the dark medieval room's wall paint, a tenth lighter
 ## #274: the oak's own tone. The Hall's floor reads (183,137,85) under its warm lamps and cool
 ## daylight; these rooms' lamps are near white so their trim reads white, and the honey is here.
 const OAK_TONE:="f5bf74"
@@ -1401,7 +1401,8 @@ func update_baked_visibility() -> void:
 				surface.visible=target.get_parent().get_child(1).is_visible_in_tree() if target.get_parent() is StaticBody3D and target.get_parent() in casings else target.is_visible_in_tree()
 
 ## Give one of the room's own meshes the brightness the bake preparation kept for it: `kept`
-## is [is a work, then a PackedByteArray for each surface, a byte a vertex, `top` at 255].
+## is [is a work, then a PackedByteArray for each surface, a byte a vertex, `top` at 255];
+## `plain_tint` is the warmth a work takes from its spot.
 ## A mesh whose vertices no longer match what was baked is left as it was built.
 func shade_from_bake(target:MeshInstance3D,kept:Array,top:float,plain_tint:Color) -> void:
 	var lit:=ArrayMesh.new()
@@ -1411,18 +1412,21 @@ func shade_from_bake(target:MeshInstance3D,kept:Array,top:float,plain_tint:Color
 		if bytes.size()!=arrays[Mesh.ARRAY_VERTEX].size():return
 		var colors:=PackedColorArray()
 		colors.resize(bytes.size())
+		# A work also takes the warmth of its spot (kept[0]: it is a work).
+		var warm:Color=plain_tint if kept[0] else Color.WHITE
 		for i in bytes.size():
 			var shade:float=bytes[i]/255.0*top
-			colors[i]=Color(shade,shade,shade)
+			colors[i]=Color(shade*warm.r,shade*warm.g,shade*warm.b)
 		arrays[Mesh.ARRAY_COLOR]=colors
 		lit.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
 		lit.surface_set_material(surface,target.mesh.surface_get_material(surface))
 	target.mesh=lit
 	var own=target.material_override
 	if own is ShaderMaterial and own.shader.resource_path.ends_with("/ps1.gdshader"):
-		own=own.duplicate()
+		# Set on the material as it is, never on a duplicate: duplicating a ShaderMaterial writes
+		# every shader default into the copy, floor_z_limits among them, and main_build_walk.gd
+		# then takes the work for a floor and stops installing the rooms.
 		own.set_shader_parameter("use_vertex_color",true)
-		target.material_override=own
 	elif own is ShaderMaterial and own.shader.resource_path.ends_with("floor_oak.gdshader"):
 		# A floor outside the lightmap (a room the bake leaves out): the oak's tone, plain.
 		var boards:=look(Color(OAK_TONE),"",true)
@@ -1432,8 +1436,6 @@ func shade_from_bake(target:MeshInstance3D,kept:Array,top:float,plain_tint:Color
 		var skin:BaseMaterial3D=StandardMaterial3D.new() if own==null else own.duplicate()
 		skin.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
 		skin.vertex_color_use_as_albedo=true
-		# A work's mount or plain-coloured part has no photograph's light in it: it takes the lamps' warmth.
-		if kept[0] and skin.albedo_texture==null:skin.albedo_color*=plain_tint
 		target.material_override=skin
 
 func load_bake() -> void:

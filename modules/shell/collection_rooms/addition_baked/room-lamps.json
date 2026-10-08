@@ -5,9 +5,9 @@
 			3.39,
 			4.389
 		],
-		"color": "ffe4c8",
-		"cone": 16.438,
-		"energy": 3.892,
+		"color": "ffb870",
+		"cone": 20.022,
+		"energy": 7.783,
 		"kind": "spot",
 		"room": "Impressionist gallery A",
 		"target": [
@@ -25,9 +25,9 @@
 			3.39,
 			8.24
 		],
-		"color": "ffe4c8",
-		"cone": 20.178,
-		"energy": 3.845,
+		"color": "ffb870",
+		"cone": 23.639,
+		"energy": 7.69,
 		"kind": "spot",
 		"room": "Impressionist gallery A",
 		"target": [
@@ -45,9 +45,9 @@
 			3.39,
 			11.283
 		],
-		"color": "ffe4c8",
-		"cone": 29.931,
-		"energy": 3.955,
+		"color": "ffb870",
+		"cone": 32.782,
+		"energy": 7.91,
 		"kind": "spot",
 		"room": "Impressionist gallery A",
 		"target": [
@@ -65,9 +65,9 @@
 			3.39,
 			4.415
 		],
-		"color": "ffe4c8",
-		"cone": 31.075,
-		"energy": 3.823,
+		"color": "ffb870",
+		"cone": 33.951,
+		"energy": 7.646,
 		"kind": "spot",
 		"room": "Impressionist gallery A",
 		"target": [
@@ -86,9 +86,9 @@
 			3.39,
 			11.096
 		],
-		"color": "ffe4c8",
-		"cone": 20.81,
-		"energy": 3.816,
+		"color": "ffb870",
+		"cone": 24.266,
+		"energy": 7.633,
 		"kind": "spot",
 		"room": "Impressionist gallery A",
 		"target": [
@@ -106,9 +106,9 @@
 			3.39,
 			8.44
 		],
-		"color": "ffe4c8",
-		"cone": 21.695,
-		"energy": 3.823,
+		"color": "ffb870",
+		"cone": 25.102,
+		"energy": 7.646,
 		"kind": "spot",
 		"room": "Impressionist gallery A",
 		"target": [
@@ -126,9 +126,9 @@
 			3.39,
 			5.496
 		],
-		"color": "ffe4c8",
-		"cone": 22.033,
-		"energy": 3.816,
+		"color": "ffb870",
+		"cone": 25.429,
+		"energy": 7.632,
 		"kind": "spot",
 		"room": "Impressionist gallery A",
 		"target": [
@@ -146,9 +146,9 @@
 			3.2,
 			14.43
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 3.406,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 6.811,
 		"kind": "spot",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -167,9 +167,9 @@
 			3.2,
 			16.36
 		],
-		"color": "ffe4c8",
-		"cone": 19.769,
-		"energy": 3.406,
+		"color": "ffb870",
+		"cone": 23.686,
+		"energy": 6.811,
 		"kind": "spot",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -187,9 +187,9 @@
 			3.2,
 			19.5
 		],
-		"color": "ffe4c8",
-		"cone": 22.404,
-		"energy": 3.406,
+		"color": "ffb870",
+		"cone": 26.176,
+		"energy": 6.811,
 		"kind": "spot",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -207,9 +207,9 @@
 			3.2,
 			21.06
 		],
-		"color": "ffe4c8",
-		"cone": 25.909,
-		"energy": 3.4,
+		"color": "ffb870",
+		"cone": 29.474,
+		"energy": 6.801,
 		"kind": "spot",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -227,9 +227,9 @@
 			3.2,
 			21.058
 		],
-		"color": "ffe4c8",
-		"cone": 23.813,
-		"energy": 3.406,
+		"color": "ffb870",
+		"cone": 27.502,
+		"energy": 6.811,
 		"kind": "spot",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -247,9 +247,9 @@
 			3.2,
 			20.65
 		],
-		"color": "ffe4c8",
-		"cone": 22.146,
-		"energy": 3.428,
+		"color": "ffb870",
+		"cone": 25.909,
+		"energy": 6.855,
 		"kind": "spot",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -267,9 +267,9 @@
 			3.2,
 			17.85
 		],
-		"color": "ffe4c8",
-		"cone": 23.298,
-		"energy": 3.428,
+		"color": "ffb870",
+		"cone": 26.994,
+		"energy": 6.855,
 		"kind": "spot",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -287,9 +287,9 @@
 			3.2,
 			-3.639
 		],
-		"color": "ffe4c8",
-		"cone": 30.556,
-		"energy": 4.576,
+		"color": "ffb870",
+		"cone": 32.998,
+		"energy": 9.152,
 		"kind": "spot",
 		"room": "Rockefeller",
 		"target": [
@@ -313,9 +313,9 @@
 			3.2,
 			-2.41
 		],
-		"color": "ffe4c8",
-		"cone": 14.0,
-		"energy": 4.287,
+		"color": "ffb870",
+		"cone": 16.0,
+		"energy": 8.573,
 		"kind": "spot",
 		"room": "Rockefeller",
 		"target": [
@@ -333,9 +333,9 @@
 			3.2,
 			-2.126
 		],
-		"color": "ffe4c8",
-		"cone": 17.92,
-		"energy": 4.223,
+		"color": "ffb870",
+		"cone": 21.172,
+		"energy": 8.445,
 		"kind": "spot",
 		"room": "Rockefeller",
 		"target": [
@@ -355,17 +355,17 @@
 	},
 	{
 		"at": [
-			-0.23,
+			-0.256,
 			3.2,
 			-0.421
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 2.575,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 5.15,
 		"kind": "spot",
 		"room": "Rockefeller",
 		"target": [
-			-0.23,
+			-0.256,
 			2.028,
 			0.399
 		],
@@ -377,29 +377,29 @@
 			"pink-dish",
 			"pink-bowl-a",
 			"tureen",
-			"sconce-left"
+			"2017.74.6.3"
 		]
 	},
 	{
 		"at": [
-			-3.97,
+			-3.98,
 			3.2,
-			-0.013
+			-0.111
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 2.63,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 5.26,
 		"kind": "spot",
 		"room": "Rockefeller",
 		"target": [
-			-3.97,
+			-3.98,
 			2.003,
-			0.825
+			0.727
 		],
 		"works": [
 			"2016.80.89",
 			"2016.80.91",
-			"sconce-right"
+			"2017.74.6.4"
 		]
 	},
 	{
@@ -408,9 +408,9 @@
 			3.2,
 			-3.732
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 3.244,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 6.487,
 		"kind": "spot",
 		"room": "Rockefeller",
 		"target": [
@@ -424,7 +424,7 @@
 			"@Node3D@3498",
 			"bear-jug",
 			"cream-jug",
-			"shepherd",
+			"2017.74.23",
 			"2017.74.14"
 		]
 	},
@@ -434,9 +434,9 @@
 			3.2,
 			-4.429
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 2.822,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 5.645,
 		"kind": "spot",
 		"room": "Rockefeller",
 		"target": [
@@ -445,19 +445,19 @@
 			-5.328
 		],
 		"works": [
-			"parrot",
-			"candlestick",
+			"2017.74.27.1",
+			"2017.74.28.1",
 			"horn-player",
 			"finch",
 			"ewe-lamb",
 			"2017.74.16",
-			"cow",
+			"2017.74.29",
 			"fox",
 			"58.197",
 			"finch-pair",
 			"bagpiper",
-			"parrot-pair",
-			"candlestick-pair",
+			"2017.74.27.2",
+			"2017.74.28.2",
 			"2017.74.17",
 			"bear-jug-pair",
 			"agate-teapot",
@@ -470,9 +470,9 @@
 			3.2,
 			-3.732
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 3.244,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 6.487,
 		"kind": "spot",
 		"room": "Rockefeller",
 		"target": [
@@ -492,9 +492,9 @@
 			3.2,
 			-1.19
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 3.707,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 7.414,
 		"kind": "spot",
 		"room": "Rockefeller",
 		"target": [
@@ -510,7 +510,7 @@
 			"@Node3D@3647",
 			"@Node3D@3653",
 			"44.226",
-			"@Node3D@3696"
+			"@Node3D@3704"
 		]
 	},
 	{
@@ -519,9 +519,9 @@
 			3.2,
 			-2.41
 		],
-		"color": "ffe4c8",
-		"cone": 14.0,
-		"energy": 4.287,
+		"color": "ffb870",
+		"cone": 16.0,
+		"energy": 8.573,
 		"kind": "spot",
 		"room": "Rockefeller",
 		"target": [
@@ -539,9 +539,9 @@
 			3.2,
 			-3.678
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 3.861,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 7.722,
 		"kind": "spot",
 		"room": "Rockefeller",
 		"target": [
@@ -562,13 +562,113 @@
 	},
 	{
 		"at": [
+			8.369,
+			3.6,
+			-8.264
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 8.554,
+		"kind": "spot",
+		"room": "Skylight Gallery",
+		"target": [
+			9.732,
+			1.653,
+			-8.264
+		],
+		"works": [
+			"2025.19"
+		]
+	},
+	{
+		"at": [
+			2.101,
+			3.6,
+			-8.529
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 13.265,
+		"kind": "spot",
+		"room": "Skylight Gallery",
+		"target": [
+			2.101,
+			0.581,
+			-10.642
+		],
+		"works": [
+			"73.018"
+		]
+	},
+	{
+		"at": [
+			5.0,
+			3.6,
+			-9.307
+		],
+		"color": "ffb870",
+		"cone": 33.64,
+		"energy": 8.378,
+		"kind": "spot",
+		"room": "Skylight Gallery",
+		"target": [
+			5.0,
+			1.694,
+			-10.642
+		],
+		"works": [
+			"2026.3"
+		]
+	},
+	{
+		"at": [
+			8.023,
+			3.6,
+			-8.927
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 10.766,
+		"kind": "spot",
+		"room": "Skylight Gallery",
+		"target": [
+			8.023,
+			1.15,
+			-10.642
+		],
+		"works": [
+			"2000.17"
+		]
+	},
+	{
+		"at": [
+			2.538,
+			3.6,
+			-8.26
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 12.993,
+		"kind": "spot",
+		"room": "Skylight Gallery",
+		"target": [
+			0.468,
+			0.643,
+			-8.26
+		],
+		"works": [
+			"69.094"
+		]
+	},
+	{
+		"at": [
 			-0.713,
 			3.2,
 			2.73
 		],
-		"color": "ffe4c8",
-		"cone": 20.538,
-		"energy": 3.603,
+		"color": "ffb870",
+		"cone": 24.208,
+		"energy": 7.207,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -586,9 +686,9 @@
 			3.2,
 			5.15
 		],
-		"color": "ffe4c8",
-		"cone": 20.62,
-		"energy": 5.137,
+		"color": "ffb870",
+		"cone": 23.211,
+		"energy": 10.274,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -606,9 +706,9 @@
 			3.2,
 			8.251
 		],
-		"color": "ffe4c8",
-		"cone": 26.932,
-		"energy": 3.603,
+		"color": "ffb870",
+		"cone": 30.24,
+		"energy": 7.207,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -626,9 +726,9 @@
 			3.2,
 			11.365
 		],
-		"color": "ffe4c8",
-		"cone": 21.367,
-		"energy": 3.603,
+		"color": "ffb870",
+		"cone": 24.993,
+		"energy": 7.207,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -646,9 +746,9 @@
 			3.2,
 			13.039
 		],
-		"color": "ffe4c8",
-		"cone": 25.863,
-		"energy": 3.572,
+		"color": "ffb870",
+		"cone": 29.265,
+		"energy": 7.145,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -666,9 +766,9 @@
 			3.2,
 			14.811
 		],
-		"color": "ffe4c8",
-		"cone": 20.726,
-		"energy": 3.585,
+		"color": "ffb870",
+		"cone": 24.404,
+		"energy": 7.169,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -686,9 +786,9 @@
 			3.2,
 			16.662
 		],
-		"color": "ffe4c8",
-		"cone": 26.57,
-		"energy": 3.59,
+		"color": "ffb870",
+		"cone": 29.913,
+		"energy": 7.18,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -706,9 +806,9 @@
 			3.2,
 			18.808
 		],
-		"color": "ffe4c8",
-		"cone": 30.469,
-		"energy": 3.575,
+		"color": "ffb870",
+		"cone": 33.578,
+		"energy": 7.15,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -726,9 +826,9 @@
 			3.2,
 			20.843
 		],
-		"color": "ffe4c8",
-		"cone": 20.948,
-		"energy": 3.526,
+		"color": "ffb870",
+		"cone": 24.673,
+		"energy": 7.053,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -746,9 +846,9 @@
 			3.2,
 			23.423
 		],
-		"color": "ffe4c8",
-		"cone": 25.453,
-		"energy": 3.556,
+		"color": "ffb870",
+		"cone": 28.894,
+		"energy": 7.112,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -766,9 +866,9 @@
 			3.2,
 			26.055
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 3.571,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 7.142,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -787,9 +887,9 @@
 			3.2,
 			26.712
 		],
-		"color": "ffe4c8",
-		"cone": 25.801,
-		"energy": 3.683,
+		"color": "ffb870",
+		"cone": 29.107,
+		"energy": 7.366,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -808,9 +908,9 @@
 			3.2,
 			23.108
 		],
-		"color": "ffe4c8",
-		"cone": 16.339,
-		"energy": 4.157,
+		"color": "ffb870",
+		"cone": 19.703,
+		"energy": 8.314,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -819,7 +919,7 @@
 			24.433
 		],
 		"works": [
-			"@Node3D@4832",
+			"@Node3D@4840",
 			"44.674"
 		]
 	},
@@ -829,9 +929,9 @@
 			3.2,
 			15.943
 		],
-		"color": "ffe4c8",
-		"cone": 14.07,
-		"energy": 4.69,
+		"color": "ffb870",
+		"cone": 17.129,
+		"energy": 9.38,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -849,9 +949,9 @@
 			3.2,
 			19.85
 		],
-		"color": "ffe4c8",
-		"cone": 14.0,
-		"energy": 4.866,
+		"color": "ffb870",
+		"cone": 16.0,
+		"energy": 9.732,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -861,7 +961,7 @@
 		],
 		"works": [
 			"51.502",
-			"@Node3D@4785",
+			"@Node3D@4793",
 			"1989.085"
 		]
 	},
@@ -871,9 +971,9 @@
 			3.2,
 			20.78
 		],
-		"color": "ffe4c8",
-		"cone": 14.0,
-		"energy": 4.769,
+		"color": "ffb870",
+		"cone": 16.0,
+		"energy": 9.538,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -882,9 +982,9 @@
 			22.3
 		],
 		"works": [
-			"@Node3D@4778",
+			"@Node3D@4786",
 			"35.703",
-			"@Node3D@4757",
+			"@Node3D@4765",
 			"54.147.9"
 		]
 	},
@@ -894,9 +994,9 @@
 			3.2,
 			26.431
 		],
-		"color": "ffe4c8",
-		"cone": 16.993,
-		"energy": 4.232,
+		"color": "ffb870",
+		"cone": 20.274,
+		"energy": 8.464,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -914,9 +1014,9 @@
 			3.2,
 			4.239
 		],
-		"color": "ffe4c8",
-		"cone": 23.155,
-		"energy": 4.735,
+		"color": "ffb870",
+		"cone": 25.859,
+		"energy": 9.47,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -935,9 +1035,9 @@
 			3.2,
 			5.767
 		],
-		"color": "ffe4c8",
-		"cone": 20.388,
-		"energy": 5.168,
+		"color": "ffb870",
+		"cone": 22.972,
+		"energy": 10.336,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -946,7 +1046,7 @@
 			4.121
 		],
 		"works": [
-			"@Node3D@3724"
+			"@Node3D@3732"
 		]
 	},
 	{
@@ -955,9 +1055,9 @@
 			3.2,
 			11.018
 		],
-		"color": "ffe4c8",
-		"cone": 14.0,
-		"energy": 4.599,
+		"color": "ffb870",
+		"cone": 16.777,
+		"energy": 9.198,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -966,13 +1066,13 @@
 			9.552
 		],
 		"works": [
-			"@Node3D@4674",
+			"@Node3D@4682",
 			"2016.62",
 			"european-east-figure-turkish-man",
-			"@Node3D@4685",
+			"@Node3D@4693",
 			"european-east-platter-saldanha",
 			"european-east-figure-turkish-woman",
-			"@Node3D@4663",
+			"@Node3D@4671",
 			"2014.33",
 			"european-east-pineapple-teapot"
 		]
@@ -983,9 +1083,9 @@
 			3.2,
 			2.885
 		],
-		"color": "ffe4c8",
-		"cone": 21.056,
-		"energy": 3.032,
+		"color": "ffb870",
+		"cone": 25.362,
+		"energy": 6.064,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -1003,9 +1103,9 @@
 			3.2,
 			23.39
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 4.013,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 8.026,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -1016,7 +1116,7 @@
 		"works": [
 			"55.091",
 			"2024.17.5",
-			"@Node3D@4764",
+			"@Node3D@4772",
 			"85.075.8"
 		]
 	},
@@ -1026,9 +1126,9 @@
 			3.2,
 			21.343
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 3.94,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 7.881,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -1038,9 +1138,9 @@
 		],
 		"works": [
 			"43.351",
-			"@Node3D@4771",
+			"@Node3D@4779",
 			"2024.17.6",
-			"@Node3D@4796",
+			"@Node3D@4804",
 			"51.272",
 			"61.006"
 		]
@@ -1051,9 +1151,9 @@
 			3.2,
 			21.101
 		],
-		"color": "ffe4c8",
-		"cone": 14.0,
-		"energy": 4.966,
+		"color": "ffb870",
+		"cone": 16.0,
+		"energy": 9.931,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -1074,9 +1174,9 @@
 			3.2,
 			17.666
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 3.768,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 7.535,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -1097,9 +1197,9 @@
 			3.2,
 			16.335
 		],
-		"color": "ffe4c8",
-		"cone": 26.813,
-		"energy": 3.465,
+		"color": "ffb870",
+		"cone": 30.257,
+		"energy": 6.929,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -1120,9 +1220,9 @@
 			3.2,
 			14.28
 		],
-		"color": "ffe4c8",
-		"cone": 23.88,
-		"energy": 3.669,
+		"color": "ffb870",
+		"cone": 27.308,
+		"energy": 7.339,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -1140,9 +1240,9 @@
 			3.2,
 			12.267
 		],
-		"color": "ffe4c8",
-		"cone": 28.998,
-		"energy": 3.188,
+		"color": "ffb870",
+		"cone": 32.576,
+		"energy": 6.377,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -1160,9 +1260,9 @@
 			3.2,
 			10.505
 		],
-		"color": "ffe4c8",
-		"cone": 26.531,
-		"energy": 3.027,
+		"color": "ffb870",
+		"cone": 30.475,
+		"energy": 6.054,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -1181,9 +1281,9 @@
 			3.2,
 			9.279
 		],
-		"color": "ffe4c8",
-		"cone": 18.281,
-		"energy": 4.751,
+		"color": "ffb870",
+		"cone": 21.165,
+		"energy": 9.503,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -1192,7 +1292,7 @@
 			9.279
 		],
 		"works": [
-			"@Node3D@4656",
+			"@Node3D@4664",
 			"2016.124",
 			"2016.102.2",
 			"09.351"
@@ -1204,9 +1304,9 @@
 			3.2,
 			8.057
 		],
-		"color": "ffe4c8",
-		"cone": 22.866,
-		"energy": 3.515,
+		"color": "ffb870",
+		"cone": 26.498,
+		"energy": 7.03,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -1224,9 +1324,9 @@
 			3.2,
 			5.771
 		],
-		"color": "ffe4c8",
-		"cone": 24.741,
-		"energy": 3.252,
+		"color": "ffb870",
+		"cone": 28.539,
+		"energy": 6.504,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
@@ -1244,9 +1344,9 @@
 			3.95,
 			30.465
 		],
-		"color": "ffe4c8",
-		"cone": 14.054,
-		"energy": 5.486,
+		"color": "ffb870",
+		"cone": 16.675,
+		"energy": 10.973,
 		"kind": "spot",
 		"room": "dark medieval room",
 		"target": [
@@ -1264,9 +1364,9 @@
 			3.95,
 			31.737
 		],
-		"color": "ffe4c8",
-		"cone": 14.0,
-		"energy": 5.994,
+		"color": "ffb870",
+		"cone": 16.0,
+		"energy": 11.988,
 		"kind": "spot",
 		"room": "dark medieval room",
 		"target": [
@@ -1290,9 +1390,9 @@
 			3.95,
 			33.215
 		],
-		"color": "ffe4c8",
-		"cone": 14.495,
-		"energy": 5.445,
+		"color": "ffb870",
+		"cone": 17.125,
+		"energy": 10.889,
 		"kind": "spot",
 		"room": "dark medieval room",
 		"target": [
@@ -1310,9 +1410,9 @@
 			2.0,
 			31.981
 		],
-		"color": "ffe4c8",
-		"cone": 24.703,
-		"energy": 2.798,
+		"color": "ffb870",
+		"cone": 27.295,
+		"energy": 5.597,
 		"kind": "spot",
 		"room": "dark medieval room",
 		"target": [
@@ -1331,9 +1431,9 @@
 			3.95,
 			32.358
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 4.11,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 8.22,
 		"kind": "spot",
 		"room": "dark medieval room",
 		"target": [
@@ -1351,9 +1451,9 @@
 			3.95,
 			32.162
 		],
-		"color": "ffe4c8",
-		"cone": 29.513,
-		"energy": 4.806,
+		"color": "ffb870",
+		"cone": 31.892,
+		"energy": 9.613,
 		"kind": "spot",
 		"room": "dark medieval room",
 		"target": [
@@ -1372,9 +1472,9 @@
 			3.95,
 			30.157
 		],
-		"color": "ffe4c8",
-		"cone": 17.097,
-		"energy": 5.664,
+		"color": "ffb870",
+		"cone": 19.557,
+		"energy": 11.328,
 		"kind": "spot",
 		"room": "dark medieval room",
 		"target": [
@@ -1393,9 +1493,9 @@
 			3.95,
 			32.91
 		],
-		"color": "ffe4c8",
-		"cone": 20.036,
-		"energy": 5.489,
+		"color": "ffb870",
+		"cone": 22.484,
+		"energy": 10.977,
 		"kind": "spot",
 		"room": "dark medieval room",
 		"target": [
@@ -1413,9 +1513,9 @@
 			3.95,
 			29.27
 		],
-		"color": "ffe4c8",
-		"cone": 18.604,
-		"energy": 5.603,
+		"color": "ffb870",
+		"cone": 21.047,
+		"energy": 11.206,
 		"kind": "spot",
 		"room": "dark medieval room",
 		"target": [
@@ -1434,9 +1534,9 @@
 			3.2,
 			-0.14
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 3.169,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 6.339,
 		"kind": "spot",
 		"room": "grey French gallery",
 		"target": [
@@ -1455,9 +1555,9 @@
 			3.2,
 			-2.133
 		],
-		"color": "ffe4c8",
-		"cone": 17.604,
-		"energy": 4.83,
+		"color": "ffb870",
+		"cone": 20.465,
+		"energy": 9.661,
 		"kind": "spot",
 		"room": "grey French gallery",
 		"target": [
@@ -1475,9 +1575,9 @@
 			3.2,
 			-0.14
 		],
-		"color": "ffe4c8",
-		"cone": 29.618,
-		"energy": 3.202,
+		"color": "ffb870",
+		"cone": 33.137,
+		"energy": 6.405,
 		"kind": "spot",
 		"room": "grey French gallery",
 		"target": [
@@ -1495,9 +1595,9 @@
 			3.2,
 			-0.131
 		],
-		"color": "ffe4c8",
-		"cone": 19.121,
-		"energy": 3.175,
+		"color": "ffb870",
+		"cone": 23.352,
+		"energy": 6.349,
 		"kind": "spot",
 		"room": "grey French gallery",
 		"target": [
@@ -1515,9 +1615,9 @@
 			3.2,
 			-3.824
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 3.063,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 6.126,
 		"kind": "spot",
 		"room": "grey French gallery",
 		"target": [
@@ -1536,9 +1636,9 @@
 			3.2,
 			-3.801
 		],
-		"color": "ffe4c8",
-		"cone": 26.156,
-		"energy": 3.104,
+		"color": "ffb870",
+		"cone": 30.032,
+		"energy": 6.207,
 		"kind": "spot",
 		"room": "grey French gallery",
 		"target": [
@@ -1556,9 +1656,9 @@
 			3.2,
 			-2.406
 		],
-		"color": "ffe4c8",
-		"cone": 29.35,
-		"energy": 3.341,
+		"color": "ffb870",
+		"cone": 32.746,
+		"energy": 6.683,
 		"kind": "spot",
 		"room": "grey French gallery",
 		"target": [
@@ -1576,9 +1676,9 @@
 			3.2,
 			-4.02
 		],
-		"color": "ffe4c8",
-		"cone": 30.114,
-		"energy": 3.341,
+		"color": "ffb870",
+		"cone": 33.458,
+		"energy": 6.682,
 		"kind": "spot",
 		"room": "grey French gallery",
 		"target": [
@@ -1596,9 +1696,9 @@
 			3.2,
 			29.641
 		],
-		"color": "ffe4c8",
-		"cone": 22.495,
-		"energy": 3.8,
+		"color": "ffb870",
+		"cone": 25.881,
+		"energy": 7.6,
 		"kind": "spot",
 		"room": "light Renaissance room",
 		"target": [
@@ -1621,9 +1721,9 @@
 			3.2,
 			33.274
 		],
-		"color": "ffe4c8",
-		"cone": 20.229,
-		"energy": 3.881,
+		"color": "ffb870",
+		"cone": 23.658,
+		"energy": 7.762,
 		"kind": "spot",
 		"room": "light Renaissance room",
 		"target": [
@@ -1645,9 +1745,9 @@
 			3.2,
 			32.671
 		],
-		"color": "ffe4c8",
-		"cone": 25.651,
-		"energy": 4.322,
+		"color": "ffb870",
+		"cone": 28.488,
+		"energy": 8.644,
 		"kind": "spot",
 		"room": "light Renaissance room",
 		"target": [
@@ -1665,9 +1765,9 @@
 			3.2,
 			32.837
 		],
-		"color": "ffe4c8",
-		"cone": 26.217,
-		"energy": 4.065,
+		"color": "ffb870",
+		"cone": 29.199,
+		"energy": 8.13,
 		"kind": "spot",
 		"room": "light Renaissance room",
 		"target": [
@@ -1685,9 +1785,9 @@
 			3.2,
 			29.453
 		],
-		"color": "ffe4c8",
-		"cone": 19.064,
-		"energy": 3.702,
+		"color": "ffb870",
+		"cone": 22.71,
+		"energy": 7.404,
 		"kind": "spot",
 		"room": "light Renaissance room",
 		"target": [
@@ -1705,9 +1805,9 @@
 			3.2,
 			29.411
 		],
-		"color": "ffe4c8",
-		"cone": 21.344,
-		"energy": 3.581,
+		"color": "ffb870",
+		"cone": 24.993,
+		"energy": 7.163,
 		"kind": "spot",
 		"room": "light Renaissance room",
 		"target": [
@@ -1725,9 +1825,9 @@
 			3.2,
 			32.756
 		],
-		"color": "ffe4c8",
-		"cone": 31.488,
-		"energy": 4.252,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 8.503,
 		"kind": "spot",
 		"room": "light Renaissance room",
 		"target": [
@@ -1746,9 +1846,9 @@
 			3.2,
 			29.8
 		],
-		"color": "ffe4c8",
-		"cone": 14.818,
-		"energy": 3.936,
+		"color": "ffb870",
+		"cone": 18.425,
+		"energy": 7.872,
 		"kind": "spot",
 		"room": "light Renaissance room",
 		"target": [
@@ -1766,9 +1866,9 @@
 			3.8,
 			29.73
 		],
-		"color": "ffe4c8",
-		"cone": 30.224,
-		"energy": 4.613,
+		"color": "ffb870",
+		"cone": 32.664,
+		"energy": 9.226,
 		"kind": "spot",
 		"room": "lion stair landing",
 		"target": [
@@ -1786,9 +1886,9 @@
 			4.395,
 			-1.972
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 4.826,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 9.653,
 		"kind": "spot",
 		"room": "marble stair hall",
 		"target": [
@@ -1806,9 +1906,9 @@
 			4.849,
 			-3.299
 		],
-		"color": "ffe4c8",
-		"cone": 29.017,
-		"energy": 6.811,
+		"color": "ffb870",
+		"cone": 30.725,
+		"energy": 13.623,
 		"kind": "spot",
 		"room": "marble stair hall",
 		"target": [
@@ -1826,9 +1926,9 @@
 			3.2,
 			24.85
 		],
-		"color": "ffe4c8",
-		"cone": 16.716,
-		"energy": 4.228,
+		"color": "ffb870",
+		"cone": 20.01,
+		"energy": 8.457,
 		"kind": "spot",
 		"room": "modern painting gallery",
 		"target": [
@@ -1846,9 +1946,9 @@
 			3.2,
 			26.845
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 3.406,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 6.811,
 		"kind": "spot",
 		"room": "modern painting gallery",
 		"target": [
@@ -1867,9 +1967,9 @@
 			3.2,
 			23.632
 		],
-		"color": "ffe4c8",
-		"cone": 23.594,
-		"energy": 3.647,
+		"color": "ffb870",
+		"cone": 27.057,
+		"energy": 7.295,
 		"kind": "spot",
 		"room": "modern painting gallery",
 		"target": [
@@ -1887,9 +1987,9 @@
 			3.2,
 			23.555
 		],
-		"color": "ffe4c8",
-		"cone": 24.406,
-		"energy": 3.406,
+		"color": "ffb870",
+		"cone": 28.059,
+		"energy": 6.811,
 		"kind": "spot",
 		"room": "modern painting gallery",
 		"target": [
@@ -1907,9 +2007,9 @@
 			3.2,
 			24.75
 		],
-		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 3.406,
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 6.811,
 		"kind": "spot",
 		"room": "modern painting gallery",
 		"target": [
@@ -1927,9 +2027,9 @@
 			3.2,
 			-2.36
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 0.94,
+		"energy": 0.326,
 		"kind": "fill",
 		"room": "Rockefeller",
 		"target": [
@@ -1944,9 +2044,9 @@
 			2.0,
 			-2.36
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.329,
+		"energy": 0.082,
 		"kind": "up",
 		"room": "Rockefeller",
 		"target": [
@@ -1961,9 +2061,9 @@
 			3.2,
 			4.43
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 0.851,
+		"energy": 0.263,
 		"kind": "fill",
 		"room": "adjacent gallery",
 		"target": [
@@ -1978,9 +2078,9 @@
 			2.0,
 			4.43
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.298,
+		"energy": 0.066,
 		"kind": "up",
 		"room": "adjacent gallery",
 		"target": [
@@ -1995,9 +2095,9 @@
 			3.2,
 			9.69
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 0.851,
+		"energy": 0.263,
 		"kind": "fill",
 		"room": "adjacent gallery",
 		"target": [
@@ -2012,9 +2112,9 @@
 			2.0,
 			9.69
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.298,
+		"energy": 0.066,
 		"kind": "up",
 		"room": "adjacent gallery",
 		"target": [
@@ -2029,9 +2129,9 @@
 			3.2,
 			14.95
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 0.851,
+		"energy": 0.263,
 		"kind": "fill",
 		"room": "adjacent gallery",
 		"target": [
@@ -2046,9 +2146,9 @@
 			2.0,
 			14.95
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.298,
+		"energy": 0.066,
 		"kind": "up",
 		"room": "adjacent gallery",
 		"target": [
@@ -2063,9 +2163,9 @@
 			3.2,
 			20.21
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 0.851,
+		"energy": 0.263,
 		"kind": "fill",
 		"room": "adjacent gallery",
 		"target": [
@@ -2080,9 +2180,9 @@
 			2.0,
 			20.21
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.298,
+		"energy": 0.066,
 		"kind": "up",
 		"room": "adjacent gallery",
 		"target": [
@@ -2097,9 +2197,9 @@
 			3.2,
 			25.47
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 0.851,
+		"energy": 0.263,
 		"kind": "fill",
 		"room": "adjacent gallery",
 		"target": [
@@ -2114,9 +2214,9 @@
 			2.0,
 			25.47
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.298,
+		"energy": 0.066,
 		"kind": "up",
 		"room": "adjacent gallery",
 		"target": [
@@ -2131,9 +2231,9 @@
 			3.2,
 			31.15
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 1.081,
+		"energy": 0.353,
 		"kind": "fill",
 		"room": "light Renaissance room",
 		"target": [
@@ -2148,9 +2248,9 @@
 			2.0,
 			31.15
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.378,
+		"energy": 0.088,
 		"kind": "up",
 		"room": "light Renaissance room",
 		"target": [
@@ -2165,9 +2265,9 @@
 			3.95,
 			31.15
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 1.13,
+		"energy": 0.397,
 		"kind": "fill",
 		"room": "dark medieval room",
 		"target": [
@@ -2182,9 +2282,9 @@
 			2.75,
 			31.15
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.395,
+		"energy": 0.099,
 		"kind": "up",
 		"room": "dark medieval room",
 		"target": [
@@ -2199,9 +2299,9 @@
 			3.95,
 			31.15
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 1.13,
+		"energy": 0.397,
 		"kind": "fill",
 		"room": "dark medieval room",
 		"target": [
@@ -2216,9 +2316,9 @@
 			2.75,
 			31.15
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.395,
+		"energy": 0.099,
 		"kind": "up",
 		"room": "dark medieval room",
 		"target": [
@@ -2233,9 +2333,9 @@
 			3.8,
 			30.104
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 1.188,
+		"energy": 0.759,
 		"kind": "fill",
 		"room": "lion stair landing",
 		"target": [
@@ -2250,9 +2350,9 @@
 			2.6,
 			30.104
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.416,
+		"energy": 0.19,
 		"kind": "up",
 		"room": "lion stair landing",
 		"target": [
@@ -2267,9 +2367,9 @@
 			2.9,
 			34.111
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 1.188,
+		"energy": 0.759,
 		"kind": "fill",
 		"room": "lion stair landing",
 		"target": [
@@ -2284,9 +2384,9 @@
 			1.9,
 			34.111
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.416,
+		"energy": 0.19,
 		"kind": "up",
 		"room": "lion stair landing",
 		"target": [
@@ -2301,9 +2401,9 @@
 			3.2,
 			-0.18
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 1.063,
+		"energy": 0.76,
 		"kind": "fill",
 		"room": "purple elevator-5 connector",
 		"target": [
@@ -2318,9 +2418,9 @@
 			2.0,
 			-0.18
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.372,
+		"energy": 0.19,
 		"kind": "up",
 		"room": "purple elevator-5 connector",
 		"target": [
@@ -2335,9 +2435,9 @@
 			3.2,
 			-1.96
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 0.801,
+		"energy": 0.216,
 		"kind": "fill",
 		"room": "grey French gallery",
 		"target": [
@@ -2352,9 +2452,9 @@
 			2.0,
 			-1.96
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.28,
+		"energy": 0.054,
 		"kind": "up",
 		"room": "grey French gallery",
 		"target": [
@@ -2369,9 +2469,9 @@
 			3.445,
 			-1.96
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 1.051,
+		"energy": 0.56,
 		"kind": "fill",
 		"room": "marble stair hall",
 		"target": [
@@ -2386,9 +2486,9 @@
 			2.245,
 			-1.96
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.368,
+		"energy": 0.14,
 		"kind": "up",
 		"room": "marble stair hall",
 		"target": [
@@ -2403,9 +2503,9 @@
 			5.5,
 			-1.96
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 1.051,
+		"energy": 0.56,
 		"kind": "fill",
 		"room": "marble stair hall",
 		"target": [
@@ -2420,9 +2520,9 @@
 			4.3,
 			-1.96
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.368,
+		"energy": 0.14,
 		"kind": "up",
 		"room": "marble stair hall",
 		"target": [
@@ -2433,13 +2533,81 @@
 	},
 	{
 		"at": [
+			2.725,
+			3.578,
+			-8.26
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.237,
+		"kind": "fill",
+		"room": "Skylight Gallery",
+		"target": [
+			2.725,
+			0.0,
+			-8.26
+		]
+	},
+	{
+		"at": [
+			2.725,
+			2.378,
+			-8.26
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.059,
+		"kind": "up",
+		"room": "Skylight Gallery",
+		"target": [
+			2.725,
+			3.878,
+			-8.26
+		]
+	},
+	{
+		"at": [
+			7.475,
+			3.578,
+			-8.26
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.237,
+		"kind": "fill",
+		"room": "Skylight Gallery",
+		"target": [
+			7.475,
+			0.0,
+			-8.26
+		]
+	},
+	{
+		"at": [
+			7.475,
+			2.378,
+			-8.26
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.059,
+		"kind": "up",
+		"room": "Skylight Gallery",
+		"target": [
+			7.475,
+			3.878,
+			-8.26
+		]
+	},
+	{
+		"at": [
 			13.7,
 			3.027,
 			25.2
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 1.209,
+		"energy": 0.299,
 		"kind": "fill",
 		"room": "modern painting gallery",
 		"target": [
@@ -2454,9 +2622,9 @@
 			1.9,
 			25.2
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.423,
+		"energy": 0.075,
 		"kind": "up",
 		"room": "modern painting gallery",
 		"target": [
@@ -2471,9 +2639,9 @@
 			3.2,
 			30.5
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 0.294,
+		"energy": 0.21,
 		"kind": "fill",
 		"room": "white sculpture gallery threshold study limit",
 		"target": [
@@ -2488,9 +2656,9 @@
 			2.0,
 			30.5
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.103,
+		"energy": 0.053,
 		"kind": "up",
 		"room": "white sculpture gallery threshold study limit",
 		"target": [
@@ -2505,9 +2673,9 @@
 			3.2,
 			15.1
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 1.295,
+		"energy": 0.464,
 		"kind": "fill",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -2522,9 +2690,9 @@
 			2.0,
 			15.1
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.453,
+		"energy": 0.116,
 		"kind": "up",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -2539,9 +2707,9 @@
 			3.2,
 			19.9
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 1.295,
+		"energy": 0.464,
 		"kind": "fill",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -2556,9 +2724,9 @@
 			2.0,
 			19.9
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.453,
+		"energy": 0.116,
 		"kind": "up",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -2573,9 +2741,9 @@
 			2.9,
 			-0.91
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 0.437,
+		"energy": 0.312,
 		"kind": "fill",
 		"room": "Impressionist passage",
 		"target": [
@@ -2590,9 +2758,9 @@
 			1.9,
 			-0.91
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.153,
+		"energy": 0.078,
 		"kind": "up",
 		"room": "Impressionist passage",
 		"target": [
@@ -2607,9 +2775,9 @@
 			3.39,
 			5.455
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 1.259,
+		"energy": 0.379,
 		"kind": "fill",
 		"room": "Impressionist gallery A",
 		"target": [
@@ -2624,9 +2792,9 @@
 			2.19,
 			5.455
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.441,
+		"energy": 0.095,
 		"kind": "up",
 		"room": "Impressionist gallery A",
 		"target": [
@@ -2641,9 +2809,9 @@
 			3.39,
 			10.285
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 1.259,
+		"energy": 0.379,
 		"kind": "fill",
 		"room": "Impressionist gallery A",
 		"target": [
@@ -2658,9 +2826,9 @@
 			2.19,
 			10.285
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.441,
+		"energy": 0.095,
 		"kind": "up",
 		"room": "Impressionist gallery A",
 		"target": [
@@ -2675,9 +2843,9 @@
 			2.9,
 			2.04
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 0.75,
+		"energy": 0.536,
 		"kind": "fill",
 		"room": "Impressionist passage return",
 		"target": [
@@ -2692,9 +2860,9 @@
 			1.9,
 			2.04
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 85.0,
-		"energy": 0.263,
+		"energy": 0.134,
 		"kind": "up",
 		"room": "Impressionist passage return",
 		"target": [
@@ -2709,9 +2877,9 @@
 			2.35,
 			1.42
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 0.483,
+		"energy": 0.345,
 		"kind": "fill",
 		"room": "Grand Gallery reveal threshold",
 		"target": [
@@ -2726,9 +2894,9 @@
 			2.44,
 			1.42
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 0.315,
+		"energy": 0.225,
 		"kind": "fill",
 		"room": "Rockefeller reveal threshold",
 		"target": [
@@ -2743,9 +2911,9 @@
 			2.44,
 			-5.36
 		],
-		"color": "ffeee8",
+		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 0.21,
+		"energy": 0.15,
 		"kind": "fill",
 		"room": "Skylight Gallery reveal threshold",
 		"target": [

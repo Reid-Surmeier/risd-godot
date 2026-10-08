@@ -1,5 +1,5 @@
 {
-  "main_build_tip": "45c37365514cbde785868e5d307d5d1f9e35894b",
+  "main_build_tip": "31f81dbaafe66551a5e64f2730097c963aee7740",
   "hall_files_unchanged": 482,
   "room_scripts": {
     "connected_hall.gd": {
@@ -28,9 +28,9 @@
       "sha256": "705df5fa2724b1c94712764d4928992390b12a4df9e187743215aab43553f2fc"
     },
     "impressionist_additions.gd": {
-      "paths_moved": 4,
-      "source_sha256": "d7f2b0bff092d4d3862c63d39934915286dd3c8fa004672937c2e7f8111e37ef",
-      "sha256": "2e91ea95678cf30dec0153a4750247bbc4e6a188fb6a94e29f431dc3e328b542"
+      "paths_moved": 3,
+      "source_sha256": "4e2bf23aecfd3d8e57db81b0db15cb6b03886baa70a9ccc77f33289a50970aa8",
+      "sha256": "a3b02f07c5f194b6b979bdff3ece796c4a7d461753d05f5a39f1e43d2e9b2595"
     },
     "landing_additions.gd": {
       "paths_moved": 1,
@@ -64,8 +64,8 @@
     },
     "remodel_bake.gd": {
       "paths_moved": 4,
-      "source_sha256": "313fdf4854448e1ed3b8883b346060c31cf973a1dfb7e7078f5949ee39b14df8",
-      "sha256": "6ce97a529b8c8f77ec109dfb1e1f8c8f277828192867cd09494829040648cbcb"
+      "source_sha256": "d738cb610500eb6c128085161beb258569860a1dc7a38ee19fabd9a09e4eac66",
+      "sha256": "ea79901303b1a3d0635741b51c57d067f864068f742cc9f57078d6d07aeaf618"
     },
     "remodel_presenter.gd": {
       "paths_moved": 5,
@@ -84,8 +84,8 @@
     },
     "remodel_room.gd": {
       "paths_moved": 96,
-      "source_sha256": "0b5334174560560dd13db3ed9b6c688126e8d9cdce22cde7da31d9494bdb7283",
-      "sha256": "13491a821af119acf01ef6478440e7c5912b1442882258c923fca2aabfdf5015"
+      "source_sha256": "c83e490d2656d20043b7c2cf2e951aced84fef47a9a5d2705a7d685e8b04573c",
+      "sha256": "a2d2205435766ab3f2e60df5673974b61ba11f5a1e24960ca392aeaf401d22c2"
     },
     "remodel_room.tscn": {
       "paths_moved": 1,
