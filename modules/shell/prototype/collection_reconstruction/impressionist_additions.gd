@@ -90,7 +90,7 @@ func window(label: String, along: float, wall: Node3D) -> void:
 	var white: Material = room.trim_paint()
 	var lining: Material = room.look(Color("e1dfd8"))
 	var glass: Material = room.look(Color("b3c5c7"))
-	var shade: Material = room.look(Color("d1cbbd"))
+	var shade: Material = room.look(Color("d1cbbde6"))
 	var node := Node3D.new()
 	node.set_meta("impressionist_window", label)
 	room.add_child(node)
@@ -102,13 +102,20 @@ func window(label: String, along: float, wall: Node3D) -> void:
 		local_box(node, Vector3(side * .765, 1.825, -.095), Vector3(.07, 2.55, .19), lining)
 	local_box(node, Vector3(0, 3.065, -.095), Vector3(1.60, .07, .19), lining)
 	local_box(node, Vector3(0, .555, .025), Vector3(1.80, .07, .29), white)
-	# The two lower panes and meeting rail remain visible below the roller shade.
-	for x in [-.71, 0.0, .71]:
+	# 149/151/218: the solar shade's hem is at the sill. The broad lower field
+	# is daylight through the fabric, not four exposed, divided glass panes.
+	for x in [-.71, .71]:
 		local_box(node, Vector3(x, 1.28, -.125), Vector3(.04, 1.36, .05), white)
-	for y in [.61, 1.30, 1.95]:
+	for y in [.61, 1.95]:
 		local_box(node, Vector3(0, y, -.125), Vector3(1.46, .055, .05), white)
-	local_box(node, Vector3(0, 2.415, -.075), Vector3(1.46, 1.30, .014), shade)
-	local_box(node, Vector3(0, 1.763, -.065), Vector3(1.49, .025, .024), white)
+	var fabric := MeshInstance3D.new()
+	var sheet := QuadMesh.new()
+	sheet.size = Vector2(1.46, 2.43)
+	fabric.mesh = sheet
+	fabric.material_override = shade
+	fabric.position = Vector3(0, 1.825, -.075)
+	node.add_child(fabric)
+	local_box(node, Vector3(0, .61, -.065), Vector3(1.49, .025, .024), lining)
 	var roller := MeshInstance3D.new()
 	var tube := CylinderMesh.new()
 	tube.top_radius = .026
