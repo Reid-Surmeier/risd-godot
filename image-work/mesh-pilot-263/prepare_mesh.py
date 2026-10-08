@@ -1,7 +1,7 @@
 """Make a Flora Trellis GLB fit for the game. Pattern: 247f8e74 modules/sculpture_viewer/prototype/issue-81/prepare_scan.py.
 
 blender --background --factory-startup --python prepare_mesh.py -- SOURCE.glb OUT.glb --height M
-        [--wall-depth M] [--width M] [--turn DEG] [--texture PX] [--texture-image PNG] [--min-island F] [--no-fill]
+        [--wall-depth M | --wall-origin] [--width M] [--turn DEG] [--texture PX] [--texture-image PNG] [--min-island F] [--no-fill]
 
 Trellis ships no normals and no metallicFactor (glTF then means fully metallic, which bakes black). This script:
 joins the mesh, drops loose scraps, fills holes, scales to the catalogue height (and --width), for a piece that
@@ -21,7 +21,7 @@ from mathutils import Vector
 p = argparse.ArgumentParser()
 p.add_argument("source"); p.add_argument("out"); p.add_argument("--height", type=float, required=True)
 p.add_argument("--wall-depth", type=float); p.add_argument("--width", type=float); p.add_argument("--texture", type=int, default=1024)
-p.add_argument("--min-island", type=float, default=0.05); p.add_argument("--texture-image"); p.add_argument("--turn", type=float, default=0.0); p.add_argument("--no-fill", action="store_true")
+p.add_argument("--min-island", type=float, default=0.05); p.add_argument("--texture-image"); p.add_argument("--turn", type=float, default=0.0); p.add_argument("--wall-origin", action="store_true"); p.add_argument("--no-fill", action="store_true")
 a = p.parse_args(sys.argv[sys.argv.index("--") + 1:])
 sha = lambda path: hashlib.sha256(open(path, "rb").read()).hexdigest()
 log = {"source": {"sha256": sha(a.source)}, "steps": []}
@@ -93,8 +93,8 @@ if a.wall_depth:
     ys = [v.co.y for v in bm.verts]; front, wall = min(ys), max(ys); k = a.wall_depth / (wall - front)
     for v in bm.verts: v.co.y = (v.co.y - wall) * k
     log["steps"].append({"depth_as_made_m": round(wall - front, 3), "depth_scale": round(k, 3), "depth_m": a.wall_depth, "pressed_faces_dropped": len(backs)})
-else:
-    cy = (max(ys) + min(ys)) / 2
+else:  # --wall-origin: a piece hung on a wall with no catalogue depth; its back touches the wall plane, nothing is pressed
+    cy = max(ys) if a.wall_origin else (max(ys) + min(ys)) / 2
     for v in bm.verts: v.co.y -= cy
 if a.width:  # the catalogue width, when the photograph looks straight at the front
     xs = [v.co.x for v in bm.verts]; kx = a.width / (max(xs) - min(xs))

@@ -1,6 +1,6 @@
 """Free isolate: cut the object out of its catalogue photograph (OpenCV GrabCut), no generation.
 usage: cut_photo.py PHOTO OUT.png x,y,w,h [--key-sat N --outline OUTLINE.json] [--under R,G,B] [--open-below FRACTION[:KERNEL]]
---key-sat: a coloured object against a pale wall and floor (keeps saturation > N inside the measured outline).
+--key-sat: a coloured object against a pale wall and floor (keeps saturation > N inside the measured outline).\n--outline FILE [--key NAME] alone: the outline is the cut (medieval/shapes.json with the matching <name>-cut.jpg).
 --open-below: drop thin slivers of cast shadow in the bottom strip of the picture.
 Writes an RGBA PNG (the photograph's own pixels, alpha = the cut) padded to a square, and OUT-preview.jpg on magenta.
 The colour under the transparent pixels is a hedge: if a service drops alpha, the object still stands on a contrasting ground."""
@@ -8,7 +8,7 @@ import sys, json, argparse
 import numpy as np, cv2
 from PIL import Image
 p = argparse.ArgumentParser(); p.add_argument('photo'); p.add_argument('out'); p.add_argument('rect')
-p.add_argument('--outline'); p.add_argument('--under', default='255,255,255'); p.add_argument('--open-below'); p.add_argument('--key-sat', type=int)
+p.add_argument('--outline'); p.add_argument('--key'); p.add_argument('--key-lum', type=int); p.add_argument('--iters', type=int, default=8); p.add_argument('--floor', type=float); p.add_argument('--under', default='255,255,255'); p.add_argument('--open-below'); p.add_argument('--key-sat', type=int)
 a = p.parse_args()
 im = cv2.imread(a.photo); h, w = im.shape[:2]
 mask = np.zeros((h, w), np.uint8); bg = np.zeros((1, 65)); fg = np.zeros((1, 65))
@@ -18,9 +18,15 @@ if a.key_sat:
     if a.outline:  # the outline already measured on this photograph bounds the key
         pts = (np.array(json.load(open(a.outline))['outline']) * [w, h]).astype(np.int32)
         poly = np.zeros((h, w), np.uint8); cv2.fillPoly(poly, [pts], 1); m &= cv2.dilate(poly, np.ones((31, 31), np.uint8))
+elif a.key_lum:  # a pale object against a dark studio ground: keep what is brighter than N
+    m = cv2.morphologyEx((cv2.cvtColor(im, cv2.COLOR_BGR2GRAY) > a.key_lum).astype('uint8'), cv2.MORPH_CLOSE, np.ones((9, 9), np.uint8))
+elif a.outline:  # an outline already cut and checked by eye for this picture: use it as it is
+    o = json.load(open(a.outline)); o = o[a.key] if a.key else o
+    m = np.zeros((h, w), np.uint8); cv2.fillPoly(m, [(np.array(o['outline']) * [w, h]).astype(np.int32)], 1)
 else:
-    cv2.grabCut(im, mask, tuple(int(v) for v in a.rect.split(',')), bg, fg, 8, cv2.GC_INIT_WITH_RECT)
+    cv2.grabCut(im, mask, tuple(int(v) for v in a.rect.split(',')), bg, fg, a.iters, cv2.GC_INIT_WITH_RECT)
     m = ((mask == 1) | (mask == 3)).astype('uint8')
+if a.floor: m[int(h * a.floor):] = 0  # the stand the object is photographed on
 if a.open_below:  # FRACTION[:KERNEL] - below that height, keep only what lies within KERNEL px of a part at least KERNEL px thick
     frac, _, kk = a.open_below.partition(':'); y0 = int(h * float(frac)); k = np.ones((int(kk or 13),) * 2, np.uint8)
     m[y0:] &= cv2.dilate(cv2.morphologyEx(m[y0:], cv2.MORPH_OPEN, k), k)

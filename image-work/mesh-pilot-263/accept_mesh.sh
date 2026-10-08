@@ -12,6 +12,7 @@ rm -f "$dir"/*.import "$dir"/*.jpg  # a rebuild: let Godot write the texture out
 for f in .godot/imported/$name.glb-*; do rm -f "$f"; done
 timeout 900 "$godot" --headless --path . --import >/dev/null 2>&1 || true
 "$here/import_settings.sh" "$dir"
+for f in .godot/imported/$name.glb-* .godot/imported/${name}_*.jpg-*; do rm -f "$f"; done  # Godot does not always notice the changed settings
 timeout 900 "$godot" --headless --path . --import 2>&1 | grep -E "^ERROR|SCRIPT ERROR" | head -3 || true
 scn=$(stat -c%s .godot/imported/$name.glb-*.scn); tex=$(stat -c%s .godot/imported/${name}_*.jpg-*.ctex)
 python3 - "$dir/$name.json" "$scn" "$tex" <<'P'

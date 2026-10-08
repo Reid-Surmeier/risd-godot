@@ -1,0 +1,60 @@
+{
+ "source": {
+  "sha256": "40485bb61cedc267a8d925e1342c79b15a122a02a360d149b02bce0e7d2d6108",
+  "vertices": 10748,
+  "triangles": 21783
+ },
+ "steps": [
+  {
+   "islands": [
+    21783
+   ],
+   "dropped_faces": 0
+  },
+  {
+   "boundary_edges": 3,
+   "hole_patches": 0
+  }
+ ],
+ "texture_image": {
+  "sha256": "3a86b896f745109e4991b4eeef77a60df977d62e37530e6c72d4dca32fe5796f"
+ },
+ "out": {
+  "sha256": "cec9af91fbf0a2330ba8d90480cffac5835d6d44ae0b74fd27829f4e70cc59b7",
+  "bytes": 823820,
+  "triangles": 21783,
+  "vertices": 17395,
+  "size_m_width_height_depth": [
+   0.2758,
+   0.298,
+   0.2481
+  ],
+  "min": [
+   -0.13791126012802124,
+   0,
+   -0.12402845174074173
+  ],
+  "max": [
+   0.13791126012802124,
+   0.2980000078678131,
+   0.12402845174074173
+  ],
+  "metallicFactor": 0,
+  "texture": {
+   "mime": "image/jpeg",
+   "bytes": 135073,
+   "px": [
+    [
+     1024,
+     1024
+    ]
+   ]
+  },
+  "blender": "4.0.2"
+ },
+ "imported": {
+  "mesh_bytes": 365727,
+  "texture_bytes": 165668,
+  "total_bytes": 531395
+ }
+}

@@ -123,9 +123,10 @@ facing = normal[:, 2]
 if np.median(facing[np.unique(ids[ids >= 0])]) < 0: facing = -facing  # winding the other way round
 sx, sy = np.clip(spot[:, 0], 0, W - 1.001), np.clip(spot[:, 1], 0, H - 1.001); ix, iy = sx.astype(int), sy.astype(int)
 visible = deep >= depth[iy, ix] - 0.012
-inside = cv2.erode(alpha.astype(np.uint8), np.ones((5, 5), np.uint8))[iy, ix] > 0  # not the cut-out's fringe
-weight = np.clip((facing[tf] - 0.15) / 0.35, 0, 1) * visible * inside
 sx2, sy2 = sx + shift[iy, ix, 0], sy + shift[iy, ix, 1]
+core = cv2.erode(alpha.astype(np.uint8), np.ones((7, 7), np.uint8)) > 0  # not the cut-out's fringe, before or after the nudge
+inside = core[iy, ix] & core[np.clip(sy2, 0, H - 1).astype(int), np.clip(sx2, 0, W - 1).astype(int)]
+weight = np.clip((facing[tf] - 0.15) / 0.35, 0, 1) * visible * inside
 sx2, sy2 = np.clip(sx2, 0, W - 1.001), np.clip(sy2, 0, H - 1.001); jx, jy = sx2.astype(int), sy2.astype(int); fx, fy = (sx2 - jx)[:, None], (sy2 - jy)[:, None]
 colour = (photo[jy, jx] * (1 - fx) + photo[jy, jx + 1] * fx) * (1 - fy) + (photo[jy + 1, jx] * (1 - fx) + photo[jy + 1, jx + 1] * fx) * fy
 wmap = np.zeros((S, S), np.float32); wmap[ty, tx] = weight; wmap = cv2.GaussianBlur(wmap, (0, 0), 1.5)  # soften the edge of what was seen

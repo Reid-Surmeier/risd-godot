@@ -1,0 +1,111 @@
+{
+ "2017.74.31.2": {
+  "title": "Vincennes Porcelain Manufactory. *Amphitrite as River Deity*, 1745–1750. Soft-paste porcelain with glaze. 29.8 × 28 × 19 cm.",
+  "source": "modules/shell/collection_rooms/assets/additions/rockefeller/amphitrite-2017.74.31.2.jpg",
+  "cut": "GrabCut",
+  "photo": true,
+  "size": 1024,
+  "prepare": "--height 0.298",
+  "run": {
+   "id": "run_m1773d5prm2kdgzvwjh4r64t9s8fx9xw",
+   "model": "Trellis (`i3d-trellis`)",
+   "params": "texture 1024, mesh_simplify 0.98",
+   "quote": 0.024,
+   "charged": 0.024,
+   "sha256": "40485bb61cedc267a8d925e1342c79b15a122a02a360d149b02bce0e7d2d6108",
+   "view": "turn 0 deg, eye distance 1.7, silhouette IoU 0.904"
+  },
+  "refused": {
+   "id": "run_m178kqx5f1at6m9sd3xyxcw2h18fwme3",
+   "model": "Tripo H3.1",
+   "params": "face limit 8,000, texture on, PBR off",
+   "quote": 0.36,
+   "error": "GENERATION_PROMPT_MODERATED: blocked by the provider's content policy",
+   "charged": 0.0
+  }
+ },
+ "43.195": {
+  "title": "Unknown maker, Spanish. *The Crucified Christ*, ca. 1150–1200. Oak with traces of polychrome. 215.9 × 215.9 cm.",
+  "source": "modules/shell/collection_rooms/assets/additions/medieval/cross-cut.jpg",
+  "cut": "the eye-checked outline in medieval/shapes.json",
+  "photo": true,
+  "size": 1024,
+  "prepare": "--height 2.159 --wall-origin",
+  "run": {
+   "id": "run_m1720gm2g64dt522z724yxzb0x8fxmcy",
+   "params": "face limit 12,000, texture on, PBR off, geometry \"detailed\"",
+   "quote": 0.6,
+   "charged": 0.6,
+   "sha256": "35df9abe6bc268027b6dfbe93e992b2cda7bd315953b0291009d6a2722e1772c",
+   "view": "turn 90 deg, eye distance 1.7, silhouette IoU 0.843"
+  }
+ },
+ "59.131": {
+  "title": "Unknown maker, Spanish. *Head of Christ or a Saint*, ca. 1220–1240. Walnut with polychromy. 81.3 × 50.8 × 50.8 cm.",
+  "source": "modules/shell/collection_rooms/assets/additions/medieval/head-cut.jpg",
+  "cut": "the eye-checked outline in medieval/shapes.json",
+  "photo": true,
+  "size": 1024,
+  "prepare": "--height 0.813",
+  "run": {
+   "id": "run_m178mr28x2a0jak7xv7sda7mes8fxtdh",
+   "params": "face limit 10,000, texture on, PBR off",
+   "quote": 0.36,
+   "charged": 0.36,
+   "sha256": "949f7b1e39237420d9a4103610ca52472f2b4a44c2d7d837fd2484a262ba9cca",
+   "view": "turn 90 deg, eye distance 8, silhouette IoU 0.976"
+  }
+ },
+ "20.254": {
+  "title": "Unknown maker, French. *Saint Peter*, ca. 1106–1112. Limestone with traces of gesso and polychromy. 76.2 × 43.2 × 29.2 cm.",
+  "source": "modules/shell/collection_rooms/assets/additions/medieval/peter-cut.jpg",
+  "cut": "the eye-checked outline in medieval/shapes.json",
+  "photo": true,
+  "size": 1024,
+  "prepare": "--height 0.762",
+  "run": {
+   "id": "run_m17awqvb1fc7j3rgec2ecdhwqd8fxed6",
+   "params": "face limit 10,000, texture on, PBR off",
+   "quote": 0.36
+  }
+ },
+ "37.114": {
+  "title": "Unknown maker, Italian (Sienese). *Angel of the Annunciation*, ca. 1350. Wood with polychromy. Height 152.4 cm.",
+  "source": "modules/shell/collection_rooms/assets/additions/medieval/angel-cut.jpg",
+  "cut": "the eye-checked outline in medieval/shapes.json",
+  "photo": true,
+  "size": 1024,
+  "prepare": "--height 1.524",
+  "run": {
+   "id": "run_m172gex01fwk3ge0rfwttpw1f58fxcwc",
+   "params": "face limit 10,000, texture on, PBR off",
+   "quote": 0.36
+  }
+ },
+ "69.196": {
+  "title": "Unknown maker, Spanish. *Christ in Majesty*, ca. 1090–1100. Limestone. 97.8 × 55.9 cm.",
+  "source": "modules/shell/collection_rooms/assets/additions/medieval/relief-cut.jpg",
+  "cut": "the eye-checked outline in medieval/shapes.json",
+  "photo": true,
+  "size": 1024,
+  "prepare": "--height 0.978 --width 0.559",
+  "run": {
+   "id": "run_m176sykavbv0cs1qarz7at4hws8fws8f",
+   "params": "face limit 10,000, texture on, PBR off",
+   "quote": 0.36
+  }
+ },
+ "23.005": {
+  "title": "Auguste Rodin. *The Hand of God*. Marble. 100.3 × 82.6 × 68 cm.",
+  "source": "modules/shell/collection_rooms/assets/additions/grey/rodin-23.005-cut.png",
+  "cut": "the repository's existing cut-out, padded, not `cut_photo.py`",
+  "photo": false,
+  "size": 1024,
+  "prepare": "--height 1.003",
+  "run": {
+   "id": "run_m174ayc2vvf2pc5n6441r0hxm18fwz4s",
+   "params": "face limit 10,000, texture on, PBR off",
+   "quote": 0.36
+  }
+ }
+}
