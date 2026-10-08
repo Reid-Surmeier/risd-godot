@@ -20,6 +20,7 @@
   "references": [
    "image-work/mesh-pilot-263/batch/83.152/clay-front.png",
    "~/risd-godot-ingestion/catalogue-masters/83.152/frontal.jpg"
-  ]
+  ],
+  "note": "the fire screen's colour was changed after Muse, without a paid run (screen_colour.py): Muse drew it pink as the prompt said; the catalogue photograph's firebox is dark copper, sRGB about (130, 80, 78). The flat view's sheet was set to (146, 96, 69), the value that renders at (132, 80, 77) after the pipeline's colour match and in-scene lift (found from three renders). The Muse original is flat-front-as-made.png, outside git"
  }
 }

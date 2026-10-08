@@ -18,4 +18,4 @@ Made on the Muse-first route (`image-work/mesh-pilot-263/RECIPE.md`), 8 October 
 | `clay-left` | inferred by Muse from the clay front and the museum's oblique photograph of that flank; no square-on photograph of a side exists; Muse drew the flank's figure as a full-length draped figure |
 | `flat-front` | photograph of this direction |
 
-`83-152.glb` (`01ed7c8d77423886…`): 9,998 triangles, one colour texture, no normal map, for drawing unshaded. In the pack: 358 KB (mesh 229, colour 128).
+`83-152.glb` (`42b0bffd6c6be2b7…`): 9,998 triangles, one colour texture, no normal map, for drawing unshaded. In the pack: 353 KB (mesh 229, colour 123).

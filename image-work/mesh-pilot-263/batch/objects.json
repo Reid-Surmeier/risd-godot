@@ -461,11 +461,11 @@
    },
    "views": "front from the museum's frontal photographs; left inferred by Muse with the museum's oblique photograph of that flank",
    "imported": {
-    "mesh": 235501,
-    "colour": 131174,
-    "total": 366675
+    "mesh": 235503,
+    "colour": 126444,
+    "total": 361947
    },
-   "build": "TURN=90 --upright (0.0 degrees: the back came square), 1024 px colour from the flat front alone"
+   "build": "TURN=90 --upright (0.0 degrees: the back came square), 1024 px colour from the flat front alone; fire screen pulled to the photograph's copper with screen_colour.py 146,96,69"
   },
   "cut": "the pilot's frontal cut-out: batch/83.152/cut.png is a copy of image-work/mesh-pilot-263/fireplace/trellis-input.png (not added to git a second time)"
  },
