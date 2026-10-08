@@ -1,0 +1,41 @@
+extends "res://modules/shell/prototype/collection_reconstruction/main_build_walk.gd"
+
+func _build_room() -> void:
+	var started := Time.get_ticks_usec()
+	super()
+	print("HALL_LAUNCH_281B _build_room ", (Time.get_ticks_usec() - started) / 1000.0)
+
+func _build_floor() -> void:
+	var started := Time.get_ticks_usec()
+	super()
+	print("HALL_LAUNCH_281B _build_floor ", (Time.get_ticks_usec() - started) / 1000.0)
+
+func _far_end() -> void:
+	var started := Time.get_ticks_usec()
+	super()
+	print("HALL_LAUNCH_281B _far_end ", (Time.get_ticks_usec() - started) / 1000.0)
+
+func _merge_static() -> void:
+	var started := Time.get_ticks_usec()
+	super()
+	print("HALL_LAUNCH_281B _merge_static ", (Time.get_ticks_usec() - started) / 1000.0)
+
+func _build_kid() -> void:
+	var started := Time.get_ticks_usec()
+	super()
+	print("HALL_LAUNCH_281B _build_kid ", (Time.get_ticks_usec() - started) / 1000.0)
+
+func _set_lighting(enabled: bool) -> void:
+	var started := Time.get_ticks_usec()
+	super(enabled)
+	print("HALL_LAUNCH_281B _set_lighting ", (Time.get_ticks_usec() - started) / 1000.0)
+
+func _build_paintings() -> void:
+	var started := Time.get_ticks_usec()
+	super()
+	print("HALL_LAUNCH_281B _build_paintings ", (Time.get_ticks_usec() - started) / 1000.0)
+
+func _build_test_room() -> void:
+	var started := Time.get_ticks_usec()
+	super()
+	print("HALL_LAUNCH_281B _build_test_room ", (Time.get_ticks_usec() - started) / 1000.0)

@@ -1,0 +1,93 @@
+{
+  "state": {
+    "active": 4,
+    "switching": false,
+    "status": false,
+    "position": [
+      0,
+      -0.349999994039536
+    ],
+    "marks": [
+      {
+        "name": "downloads-done",
+        "t": 3077
+      },
+      {
+        "name": "godot-ready",
+        "t": 4383.899999976158
+      },
+      {
+        "name": "pack-mounted",
+        "t": 4399.200000047684
+      },
+      {
+        "name": "game-loaded",
+        "t": 4901.600000023842
+      },
+      {
+        "name": "game-instanced",
+        "t": 5093.5
+      },
+      {
+        "name": "warmup-start",
+        "t": 5093.600000023842
+      },
+      {
+        "name": "engine-started",
+        "t": 5752.399999976158
+      },
+      {
+        "name": "launch-settled",
+        "t": 34288.800000071526
+      },
+      {
+        "name": "tabs-deferred",
+        "t": 34317.200000047684
+      },
+      {
+        "name": "game-shown",
+        "t": 36159.200000047684
+      }
+    ]
+  },
+  "moving": {
+    "delta_ms": 16.6666666666667,
+    "held": [
+      "down"
+    ],
+    "position": [
+      -8.29722902534873e-17,
+      -1.19851970672607
+    ],
+    "space": "gallery",
+    "us": 33574600,
+    "velocity": [
+      -1.4695762231022e-16,
+      -1.20000004768372
+    ],
+    "wall_ms": 17.3
+  },
+  "stopped": {
+    "delta_ms": 16.6666666666667,
+    "held": [],
+    "position": [
+      -1.03889557127695e-16,
+      -1.36932218074799
+    ],
+    "space": "gallery",
+    "us": 33826500,
+    "velocity": [
+      0,
+      0
+    ],
+    "wall_ms": 19
+  },
+  "displacement": 0.848519712686534,
+  "idle": {
+    "frames": 117,
+    "max_gap_ms": 33.400000000001455,
+    "over_50_ms": 0
+  },
+  "first_key_after_shown_ms": 135.10000002381275,
+  "errors": []
+}

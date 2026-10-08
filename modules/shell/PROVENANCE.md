@@ -1071,3 +1071,7 @@ The proof pictures in `docs/evidence/mesh-placing-264/` were taken at commit `24
 6,000-triangle copy of the owner's scan of Portrait of Hadrian (59.050) standing in for the Head of
 Christ (59.131). That copy is not in the build. The check's fixture is the visitor's own model,
 `character/walk.glb`, placed only when the check asks.
+
+## Launch geometry prepared locally (#281)
+
+`native_cpu_arrays.res` is a deterministic extraction of Hall native primitives built by walk4.gd and painting_asset.gd with Godot 4.7.2, prepared by `modules/shell/prototype/gallery_walk4/prepare_cpu_geometry.gd`. Provider: local Godot; model: none; count: one extraction; cost: $0; no paid generation. Source revision: `abf8858504a8f79fc124613bd60e8350231fd88c`. SHA-256: `d91c30dfb4d8ae71d3630103a1327fb9e49905ef30d555cb2ca1ea12e9827a9f`; size: 13962 bytes. Regenerate after changing the source geometry or face/hand skin gates. No artwork, shader appearance or animation is redesigned.

@@ -39,6 +39,9 @@ const DOOR_CLEAR := 0.25
 const BODY_CLEAR := 0.3
 const SWAP_DEPTH := 0.3  # how far into the other room group before the space changes
 const GRID := 0.25  # click-route search cell, metres
+# The lowest wall top in geometry.json's rooms: a sight line above it at a stage's edge has gone
+# over a wall, not through a door (no door head is higher except the portal's, which is walk4's).
+const DOOR_TOP := 3.5
 const SIDES := {
 	"west": Vector3.LEFT, "east": Vector3.RIGHT, "north": Vector3.FORWARD, "south": Vector3.BACK
 }
@@ -468,9 +471,10 @@ func _painting_at(pt: Vector2) -> Dictionary:
 	var best: Dictionary = super(pt)
 	if (_cam.cull_mask & 63) == 0:
 		best = {}  # the Hall is cut away: its paintings cannot be clicked through the gap
-	# Among the works under the pointer the smallest on screen wins: a cup in front of a
-	# cabinet, a plate inside a case.
+	# A work answers when its box is under the pointer. Under several boxes, the smallest on
+	# screen: a cup in front of a cabinet, a plate inside a case.
 	var smallest := INF
+	var under: Array = []
 	var here := _room_at(_pos)
 	for thing in _objects:
 		# The room the visitor stands in, plus the work being read: its viewing spot may lie
@@ -501,10 +505,45 @@ func _painting_at(pt: Vector2) -> Dictionary:
 		if Geometry2D.is_point_in_polygon(pt, hull):
 			if reading:
 				return thing  # the work being read answers before a smaller neighbour in its case
+			under.append(thing)
 			if area < smallest:
 				smallest = area
 				best = thing
+	# But a box is mostly air, and the box of a work standing behind another covers part of the
+	# one in front (#280). So several boxes are settled by the works themselves: the nearest
+	# one whose own meshes the pointer's ray meets. Only then, as each mesh's first test reads
+	# it back from the renderer. Where the ray meets none (the margin round a small work) the
+	# smallest box stands.
+	if under.size() > 1:
+		var vp_pt := pt / size * Vector2(_vp.size)
+		var from := _cam.project_ray_origin(vp_pt)
+		var toward := _cam.project_ray_normal(vp_pt)
+		var nearest := INF
+		for thing in under:
+			var reach := _ray_reach(thing.node, from, toward)
+			if reach < nearest:
+				nearest = reach
+				best = thing
 	return best
+
+
+# How far along a ray a work's own drawn surface lies; INF where the ray misses the work.
+func _ray_reach(node: Node3D, from: Vector3, toward: Vector3) -> float:
+	var reach := INF
+	var parts: Array = node.find_children("*", "MeshInstance3D", true, false)
+	if node is MeshInstance3D:
+		parts.append(node)
+	for part in parts:
+		if part.mesh == null or not part.is_visible_in_tree():
+			continue
+		var shape: TriangleMesh = part.mesh.generate_triangle_mesh()  # kept by the mesh
+		if shape == null:
+			continue
+		var inward: Transform3D = part.global_transform.affine_inverse()
+		var hit := shape.intersect_ray(inward * from, (inward.basis * toward).normalized())
+		if not hit.is_empty():
+			reach = minf(reach, from.distance_to(part.global_transform * hit.position))
+	return reach
 
 
 # The cut-away hides a work's meshes, not its root: drawn means some mesh of it still shows.
@@ -515,6 +554,51 @@ func _drawn(node: Node3D) -> bool:
 		if mesh.is_visible_in_tree():
 			return true
 	return false
+
+
+# The floor a click may walk to (#280): the drawn stage's own, or what a doorway in its edge
+# shows. walk4's ray alone runs on through a drawn wall, or over it, to the floor of whatever
+# room lies behind, and the visitor was sent there.
+func _floor_at(pt: Vector2):
+	var spot = super(pt)
+	if spot == null or _plan.is_empty() or _on_stage(spot):
+		return spot
+	# Back along the sight line to where it leaves the stage: only a doorway lets a click out.
+	var eye := _cam.global_position
+	var far: Vector3 = eye + (spot - eye).limit_length(80.0)
+	for step in range(1, ceili(eye.distance_to(far) / 0.1)):
+		var q := far.move_toward(eye, step * 0.1)
+		if not _on_stage(Vector3(q.x, 0, q.z)):
+			continue
+		if not _doorway(q):
+			return null
+		# The wall over a door, and the door's casing, are wall: its header stops the click.
+		for wall in _walls:
+			if str(wall.body.get_meta("room_wall", "")).ends_with(":header"):
+				for box in wall.boxes:
+					if (box as AABB).intersects_segment(q.move_toward(eye, 0.5), spot) != null:
+						return null
+		return spot
+	return null
+
+
+# Whether a floor point belongs to the stage being drawn: its areas, or the Hall itself.
+func _on_stage(p: Vector3) -> bool:
+	# Until the rooms are built (#281) the visitor is in the Hall and the Hall is what is drawn.
+	var stage := _stage if _rooms != null else -1
+	var room := _room_at(p)
+	if room >= 0:
+		return _stage_ids[room] == stage
+	return stage == -1 and absf(p.x) <= W / 2.0 and p.z <= 0.0 and p.z >= -L
+
+
+# Whether a sight line leaving the stage at q passes through a doorway: one of the Hall's two
+# doors as walk4 builds them, or a gap in an added room's wall where a visitor may stand.
+func _doorway(q: Vector3) -> bool:
+	for door in DOORS.values():
+		if absf(q.x) <= door.size.x / 2.0 and absf(q.z - door.z) < 0.6:
+			return q.y <= door.size.y
+	return q.y < DOOR_TOP and _free(Vector3(q.x, 0, q.z))
 
 
 # Where a visitor stands to look at a work, and which way it faces from the wall.
@@ -1207,6 +1291,15 @@ func _walkable(p: Vector3) -> bool:
 
 func _update_camera(k: float) -> void:
 	super(k)
+	# "Other wall" is not offered while a work is being read or zoomed, nor while the camera
+	# glides back from it (#280): the button walks the visitor across and swings the view
+	# round, and the shot follows neither. Set before anything below can return: a Hall
+	# painting is read at launch, when the rooms are not built yet (#281).
+	var other_wall := get_node_or_null("OtherWall") as Button
+	if other_wall:
+		other_wall.visible = (
+			_space == "gallery" and _open.is_empty() and _inspect.is_empty() and _inspect_t <= 0.0
+		)
 	if _rooms == null and _rooms_path != "" and _wipe_t < 0.0 and _room_at(_pos) >= 0:
 		_attach_rooms(_rooms_path)  # put straight into an added room: no wipe to hide behind
 	if _rooms == null:
@@ -1223,9 +1316,6 @@ func _update_camera(k: float) -> void:
 		_wipe_begin()
 	var closing := _wipe_t >= 0.0 and _wipe_t < WIPE_CLOSE
 	var added := _stage >= 0
-	# Not while a work is being read, nor while the camera glides back from it (#280): the
-	# button walks the visitor across and swings the view round, and the shot follows neither.
-	($OtherWall as Button).visible = _space == "gallery" and _inspect.is_empty() and _inspect_t <= 0.0
 	if _baked_room:
 		_baked_room.get_node("Lightmap").visible = not added
 	var capture := _rooms.get_node_or_null("BakedRoom/Lightmap")
