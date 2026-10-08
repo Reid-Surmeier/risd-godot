@@ -107,6 +107,7 @@ var _wipe_fade: Tween
 var _rooms_path := ""  # the room scene still to be built; empty once it is, or when there is none
 var _wipe_space := ""  # the space the first doorway leads to, entered once the rooms exist
 var _wipe_wait := 0
+var _wipe_routed := false  # the change began on a clicked route, which keeps its own destination
 
 
 # The launch reads only the plan (#281). The room scene itself, half the launch's work, is
@@ -1504,8 +1505,10 @@ func _wipe_begin() -> void:
 	var b: Array = _plan[here].b if here >= 0 else [-W / 2.0, W / 2.0, -L, 0.0]
 	var gaps := [_pos.x - b[0], b[1] - _pos.x, _pos.z - b[2], b[3] - _pos.z]
 	_wipe_dir = [Vector3.RIGHT, Vector3.LEFT, Vector3.BACK, Vector3.FORWARD][gaps.find(gaps.min())]
-	# A clicked route carries on through the door; held keys become a short walk straight in.
-	if _path.is_empty() and _target == null:
+	# A clicked route carries on through the door and ends where it was clicked; held keys
+	# become a short walk straight in, and a second one as the room opens.
+	_wipe_routed = not (_path.is_empty() and _target == null)
+	if not _wipe_routed:
 		_target = _clamp(_pos + _wipe_dir * 1.0)
 	var fill = _kid.get("_fill")
 	if fill is Light3D:
@@ -1540,7 +1543,7 @@ func _wipe_step(delta: float) -> void:
 		_stage = _stage_of(_room_at(_pos))
 		_cut_state = 0
 		_update_camera(1.0)
-	if before < open_at and _wipe_t >= open_at and _path.is_empty() and _target == null:
+	if before < open_at and _wipe_t >= open_at and not _wipe_routed and _target == null:
 		_target = _clamp(_pos + _wipe_dir * 0.6)
 	var radius := 0.0
 	if _wipe_t < WIPE_CLOSE:
