@@ -1,6 +1,7 @@
 ## place_mesh() end to end in the built museum, on a fixture no shipped room has: the mesh is
 ## there at its catalogue height, drawn the way the rooms' other works are, solid to walk into,
-## cut away with the camera, registered as a work, and still drawn when a visitor opens it.
+## cut away with the camera, registered as a work, still drawn when a visitor opens it, and gone
+## when the visitor stands on another room's stage.
 ## godot --headless --fixed-fps 60 --path . --script res://modules/shell/prototype/collection_reconstruction/placed_mesh_check.gd -- --placed-mesh-fixture
 extends SceneTree
 
@@ -75,5 +76,20 @@ func run() -> void:
 		if not walk._drawn(node):
 			failures.append("the mesh is not drawn in its own inspection")
 		walk._end_inspect(false)
+	# Only the visitor's own stage is drawn: from another room's stage the mesh is gone.
+	for other in walk._plan.size():
+		if walk._stage_ids[other] == walk._stage_ids[thing.room]:
+			continue
+		var b: Array = walk._plan[other].b
+		walk._new_action()
+		walk._pos = Vector3((b[0] + b[1]) / 2.0, 0, (b[2] + b[3]) / 2.0)
+		walk._last_pos = walk._pos
+		walk._space = "far" if walk._plan[other].far else "arch"
+		walk._kid.position = walk._pos
+		for settle in 90:
+			await process_frame
+		if walk._stage == walk._stage_ids[thing.room] or walk._drawn(node):
+			failures.append("the mesh is still drawn from %s, another stage" % walk._plan[other].label)
+		break
 	print("PLACED_MESH_CHECK ", JSON.stringify({"triangles": triangles, "height_m": snappedf(box.size.y, 0.001), "room": walk._plan[thing.room].label, "frames_to_open": frames, "failures": failures}))
 	quit(0 if failures.is_empty() else 1)
