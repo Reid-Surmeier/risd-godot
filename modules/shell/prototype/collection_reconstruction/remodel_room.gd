@@ -444,8 +444,16 @@ func exit_sign(at:Vector3,yaw:float) -> Node3D:
 const LEAF_FIVE:=[[.03,.19],[.22,.32],[.35,.60],[.63,.72],[.75,.96]]
 const LEAF_TWO:=[[.066,.672],[.734,.953]]
 ## Doorways with the footage's deep panelled reveal: "<room>:<side>" -> [depth in metres, the
-## leaf folded against each cheek]. One doorway is two entries, one for each room it joins.
-const DEEP_REVEALS:={"light Renaissance room:north":[.8,LEAF_TWO],"adjacent gallery:south":[.8,LEAF_TWO]}
+## panels on each cheek, what the cheek is]. "knob": a gallery door's leaf folded flat, with its
+## knob. "fire": a stair door's fire door seen from the room it opens away from, with its push
+## bar and closer (IMG_6382 20.0s, IMG_6387 5.0/10.5s). "plain": the panelled lining seen from
+## the room those fire doors open into, where they stand as leaves. One doorway is two entries,
+## one for each room it joins.
+const DEEP_REVEALS:={
+	"light Renaissance room:north":[.8,LEAF_TWO,"knob"],"adjacent gallery:south":[.8,LEAF_TWO,"knob"],
+	"dark medieval room:east":[.9,LEAF_TWO,"fire"],"lion stair landing:west":[.5,LEAF_TWO,"plain"],
+	"lion stair landing:north":[.9,LEAF_TWO,"fire"],"modern painting gallery:south":[.5,LEAF_TWO,"plain"],
+	"lion stair landing:east":[.9,LEAF_TWO,"fire"],"white sculpture gallery threshold study limit:west":[.5,LEAF_TWO,"plain"]}
 
 ## The reveal of a cased doorway as a stage flat: two panelled cheeks, a panelled soffit and a
 ## threshold, standing `depth` metres beyond the wall plane where the next room would be, and
@@ -455,7 +463,7 @@ const DEEP_REVEALS:={"light Renaissance room:north":[.8,LEAF_TWO],"adjacent gall
 ## shared-wall rule from drawing it in the room it reaches into. Its faces show from inside the
 ## opening only. It carries its own tones and stays out of the bake, so it throws no shadow on
 ## the neighbour's floor.
-func deep_reveal(label:String,side:String,fixed:float,opening:Array,head:float,depth:float,leaf:Array) -> void:
+func deep_reveal(label:String,side:String,fixed:float,opening:Array,head:float,depth:float,leaf:Array,kind:String) -> void:
 	var vertical:bool=side in ["west","east"]
 	var face:float=1.0 if side in ["west","north"] else -1.0
 	# (along the wall, up, metres beyond the wall plane) -> room metres.
@@ -532,19 +540,28 @@ func deep_reveal(label:String,side:String,fixed:float,opening:Array,head:float,d
 		mesh.visible=not has_meta("bake_preparing")
 		body.add_child(mesh)
 		mesh.global_transform=Transform3D.IDENTITY
-	# Each folded leaf's knob, at its free edge deep in the reveal.
-	for s in [lo+.03,hi-.03]:
-		var knob:=MeshInstance3D.new()
-		var ball:=SphereMesh.new()
-		ball.radius=.025
-		ball.height=.05
-		ball.radial_segments=8
-		ball.rings=4
-		knob.mesh=ball
-		knob.material_override=look(Color("3a3323"),"",true)
-		knob.visible=not has_meta("bake_preparing")
-		body.add_child(knob)
-		knob.global_position=at.call(s,.95,depth-.08)
+	# What each cheek carries: a folded leaf's knob at its free edge deep in the reveal, a fire
+	# door's push bar with its two fittings and the closer by the hinge, or nothing. [height, metres in, size along the
+	# reveal / up / out of the cheek].
+	var dark:=look(Color("2a2a2b"),"",true)
+	var hardware:Array=[[.98,depth/2,Vector3(.66,.045,.04)],[.98,depth/2-.33,Vector3(.06,.075,.065)],[.98,depth/2+.33,Vector3(.06,.075,.065)],[2.51,.20,Vector3(.23,.09,.05)]] if kind=="fire" else [[.95,depth-.08,Vector3(.05,.05,.05)]] if kind=="knob" else []
+	for s in [lo+.02,hi-.02]:
+		for piece in hardware:
+			var fitting:=MeshInstance3D.new()
+			var box:=BoxMesh.new()
+			box.size=Vector3(piece[2].x,piece[2].y,piece[2].z) if vertical else Vector3(piece[2].z,piece[2].y,piece[2].x)
+			fitting.mesh=box
+			if kind=="knob":
+				var ball:=SphereMesh.new()
+				ball.radius=.025
+				ball.height=.05
+				ball.radial_segments=8
+				ball.rings=4
+				fitting.mesh=ball
+			fitting.material_override=dark if kind=="fire" else look(Color("3a3323"),"",true)
+			fitting.visible=not has_meta("bake_preparing")
+			body.add_child(fitting)
+			fitting.global_position=at.call(s,piece[0],piece[1])
 
 func panel(parent: Node3D, corners: Array, uvs: Array, m: Material, tone := Color.WHITE) -> void:
 	var st := SurfaceTool.new()
@@ -667,7 +684,7 @@ func build_rooms() -> void:
 			door_casing(header,side,fixed,opening,minf(clear_height,2.74),casing_width)
 			if DEEP_REVEALS.has(area.label+":"+side):
 				var reveal:Array=DEEP_REVEALS[area.label+":"+side]
-				deep_reveal(area.label,side,fixed,opening,minf(clear_height,2.74),reveal[0],reveal[1])
+				deep_reveal(area.label,side,fixed,opening,minf(clear_height,2.74),reveal[0],reveal[1],reveal[2])
 	# Ceiling rails and vents follow the wide views, and Rockefeller north by the Hall reveal.
 	var north:=Vector3(0,0,-hall_reveal.wall_m)
 	for x in [-3.65,-1.55,.55]:

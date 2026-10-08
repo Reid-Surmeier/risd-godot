@@ -52,3 +52,11 @@ leaf is this door's own, two unequal panels (IMG_6386 102.75 s), folded flat on 
 its knob (IMG_6383 62.5 s); the two leaves that stood open in the Renaissance room are gone.
 In this draft view the other room's reveal also shows at the foot of the jambs, because the
 draft draws every room; the game draws one.
+
+`reveal-unbaked-stair-doors.jpg` (later): the three stair doorways. Top: from the landing, its
+north door (to the modern gallery) and east door (to the sculpture gallery): the reveal's cheek
+is the fire door seen from the room it opens away from, with push bar and closer. Bottom: from
+the landing looking at the medieval door, and from the modern gallery: the fire doors stand
+open in the room as the leaves they already were, and the reveal beyond them is a plain
+panelled lining. The medieval room's own side was not photographed (the camera landed inside a
+pier); it is the same code as the landing's north door.
