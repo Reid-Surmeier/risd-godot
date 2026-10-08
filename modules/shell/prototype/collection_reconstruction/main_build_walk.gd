@@ -152,8 +152,10 @@ func _read_plan(path: String) -> bool:
 			}
 		)
 		if area.has("floor_void"):
-			var v: Array = area.floor_void
-			_blocks.append(Rect2(v[0] + ATTACH.x, v[2] + ATTACH.z, v[1] - v[0], v[3] - v[2]))
+			# #276: the lion stair's west landing ear leaves two rectangular voids.
+			var holes: Array = area.get("floor_voids", [area.floor_void])
+			for v: Array in holes:
+				_blocks.append(Rect2(v[0] + ATTACH.x, v[2] + ATTACH.z, v[1] - v[0], v[3] - v[2]))
 	return true
 
 

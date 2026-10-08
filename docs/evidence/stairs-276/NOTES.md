@@ -349,3 +349,155 @@ They retain `blocked = true`. The orchestrator must run the post-bake
 `museum_playtest.gd --only=doors`, including these three trials and the
 existing medieval/lion, modern/lion and sculpture/lion doorway crossings.
 That playtest cannot validate a draft and was not run against it.
+
+
+## Part 6 source record — census 7.3 / 7.8 / 8.8
+
+The old builder was `remodel_room.gd::build_grey_gallery()`, the loop over
+z `[-2.6, .2]` at x 15.65, then `column_beam` and `column_end_pilaster`.
+Its final `shift_new(first, Vector3(-4.6, 0, -.76))` put the two columns at
+x 11.05, z -3.36 and -0.56. Those centres are retained. The named shared edit
+removes that row of shafts, square bases, loaded Ionic capitals, beam and
+end pilasters, and leaves an ownership comment. Painting placement, reveals,
+lamps, casing/skirting/cornice kit builders and `ADDITIONS` are untouched.
+The complete replacement is `marble_hall_additions.gd::columned_opening()`.
+
+**INFERRED dimensions:** IMG_6380 35.5 / 44.5 s and IMG_6343 84 s, scaled
+through the adjacent-door ruler in the table above: shaft diameter 0.22
+±0.04 m, round base 0.38 ±0.06 m, small capital 0.36 ±0.06 m, head 3.10
+±0.25 m. Beam depth 0.34 ±0.10 m, height 0.40 ±0.10 m and outer profile
+0.46 ±0.12 m transfer from the shaft in 44.5 s; end pilaster section
+0.13 × 0.20 m, ±0.05 / 0.08 m, from 35.5 s. Dentil pitch 0.10 ±0.025 m,
+height 0.055 ±0.015 m. Column spacing 2.80 m is the inherited plan, not a
+new measurement. The grey stone threshold is 0.46 ±0.10 m wide, matching
+the round base plus a margin (IMG_6380 35.5 s / IMG_6343 84 s). Its finish
+uses the same procedural grey marble. No doorway or route-trial changes.
+
+**VERIFIED in the final Compatibility draft:** both plain white shafts stand
+on round bases on the grey marble threshold. The small capitals meet the
+continuous white beam; dentils and both end pilasters are visible. There are
+no remaining scroll capitals or black cuboids on this row. Two extra review
+views inspect the marble upper rail joints; these are evidence cameras only,
+with no change to the game's camera.
+
+![IMG_6343 84 s beside the complete replacement opening](06-columns-opening.jpg)
+![IMG_6380 44.5 s beside the small capital and dentilled beam](06-columns-capital.jpg)
+![IMG_6380 35.5 s beside the round base and grey threshold](06-columns-base.jpg)
+
+
+## Final source review and finishing details
+
+The source review found that the single rectangular `floor_void` also blocks
+walking onto the new west landing ear. The correction keeps that
+rectangle for the stair builder and declares two `floor_voids` for the walking
+adapter: west x 10.55–11.671, z 32.665–36.115; centre/east x 11.671–16.15,
+z 32.215–36.115. `_read_plan()` uses the optional list, with the existing
+single-rectangle default for every other room. This needs a named edit to
+`main_build_walk.gd` only at its floor-void reader; camera, stage names,
+doorways, movement clearances and route search remain unchanged.
+
+A scratch probe ran the actual production `_read_plan()` and `_walkable()`
+methods without attaching a scene. `ear-probe-current.log`: exit 0, failures
+empty. At room metres
+(11.1, 0, 32.30), the old reader returns blocked and the revised reader allows
+the floor ear. (11.1, 0, 33.1), (13.35, 0, 33.1) and (15.55, 0, 33.1) stay
+blocked; (13.35, 0, 31.6) stays walkable. **This is plan-only proof, not a
+post-bake doorway/leaf/collision test.** This correction is batched with the
+final column checkpoint after a 30-minute wait on the shared rebuild lock.
+
+The close rail review corrected swept end sections, upper-stair bar heights
+and duplicate bars at the curves. `cap-probe-current.log`, running the actual
+production Batch against a retained before copy, exits 0. The solid-section
+control gives 16
+open edges before / 0 after, 0 winding mismatches in both, 32 / 44 triangles
+for a two-segment eight-sided rail. The reusable panel becomes 844 triangles
+with solid curl ends (820 before). No per-bar scene nodes are introduced.
+The closed cage hoop gives 8 open edges before / 0 after, 0 winding mismatches,
+96 triangles in both. Its first and last rings now use the same tangent.
+Small fanlight semicircle/spokes are visible in IMG_6381 28.5 s. Built
+inner radius 0.25 ±0.06 m, bar 0.024 ±0.008 m, transferred from the 0.67 m
+outer arch and column width in that same frame; these are **INFERRED**.
+**VERIFIED in the final draft:** the straight upper-flight bars meet the oak
+rail, the slope meets the deck rail, and the fanlight semicircle and three
+spokes read in the window. The rail comparison below uses the lower flight
+at 3.5 s as the ornament/section reference; its right image inspects the upper
+flight, not that same viewpoint. Window glazing stays a plain built material;
+the exterior visible through the source window was not reproduced.
+
+![IMG_6381 28.5 s beside the completed fanlight](06-fanlight.jpg)
+![IMG_6381 3.5 s ironwork reference beside the upper-flight joint](06-rail-joints.jpg)
+
+The skipped `placed_mesh_check.gd --placed-mesh-fixture` was run separately:
+exit 0, `PLACED_MESH_CHECK` failures empty. It does not clear the inherited
+representation mismatch that stops `scripts/check.sh`.
+
+### Final draft and check record
+
+The final full `scripts/rebuild_rooms.sh --draft` reached preparation but its
+editor import crashed (SIGSEGV, exit 139) while importing EXRs. The crash is
+preserved in `part6-import-crash.log`; no bake or generated installation ran.
+The **same one draft folder** was recovered under the shared host lock with
+`timeout 300 godot --headless --editor --import --accessibility disabled`.
+For that draft import only, `editor/import/use_multiple_threads=false` was
+appended to the draft project's settings, then the original settings restored.
+No repository project setting or rebuild script changed. Serial import exited
+0 (`part6-import-recovered.log`); the architecture check then exited 0 and
+printed `ARCHITECTURE_CHECK` with `failures: []`
+(`part6-architecture-recovered.log`). Parallel import causing the original
+crash is **INFERRED**, not diagnosed. The setting is documented in the official
+[Godot 4.7 ProjectSettings reference](https://docs.godotengine.org/en/4.7/classes/class_projectsettings.html#class-projectsettings-property-editor-import-use-multiple-threads).
+
+The final capture exited 0: **28 GL Compatibility views**, no script/shader
+errors. The capture helper's new capital view first failed on an undefined
+`zs`; that review-only typo was corrected before all final pictures were
+taken. Production marble source and the draft copy are byte-identical:
+SHA-256 `1b3ede2688ca9d54ad5386e1954d2339bc1885c91b10ca08e320d5fa265930a0`.
+Landing source remains
+`58d2c421d3311690b0a193a67696051306a09e583d7a794ff6492c4c880e81e8`.
+Constructed geometry by mesh AABB centre, including fixtures/ceilings:
+marble hall **67 meshes / 63,647 triangles**, lion landing **89 / 120,628**.
+No duplicate bake names. The repeated iron template is **844 triangles**.
+The floor/window reflection, both finished upper decks, cage/volute, olive
+descending niche and two lower lion storeys were re-inspected in these views.
+All 17 committed comparison JPEGs are under 150 KB and were visually inspected.
+
+`git diff --check` passes. The final `scripts/check.sh` run exits 1 at the same
+three inherited medieval declarations (37.114, 20.254, 59.131); it does **not**
+print `checks passed`. The baseline failure has not been hidden, and the
+installed/generated rooms have not been changed. A final integrated bake,
+green repository check, doorway playtest and Web performance check remain
+with the orchestrator. No source-only or draft result proves those outcomes.
+
+### Review against ecfda16e and complete outside-file list
+
+Solo source/spec review: no frozen interface, error type or acceptance-test
+change; no runtime module dependency added. The existing marble and landing
+builders share the batched iron template within Shell. The review found and
+corrected the west-ear footprint, open swept ends/hoop seam and upper-flight
+bar heights, with negative controls recorded above. This is a source/draft
+review, **not a release ship verdict**.
+
+Outside `marble_hall_additions.gd` and `landing_additions.gd`, every edit is:
+
+1. `prepare_remodel.py`: the separate #276 lion-room plan block, south extent,
+   floor/void patches, optional two-rectangle footprint and the three existing
+   blocked-trial translations listed above. No other room's entry changed.
+2. `remodel_room.gd::build_grey_gallery()`: remove only the old column/beam/end
+   pilaster row, including its old beam trim instance, and name the replacement
+   owner. No lamp, ceiling, casing, DEEP_REVEALS, skirting or cornice kit builder
+   changed; no `ADDITIONS` entry changed.
+3. `main_build_walk.gd::_read_plan()`: read optional `floor_voids`, defaulting
+   to the previous single rectangle for all other rooms. No game-camera edit.
+4. `modules/shell/PROVENANCE.md`: local source/provider/cost/hash record for
+   the procedural construction and review pictures. No new runtime asset.
+5. `docs/evidence/stairs-276/`: these notes, 17 small reference/draft JPEGs and
+   the standalone draft capture helper. No `playtest/` file changed.
+
+No doorway moved or was added. No room or route trial was added. The existing
+three lion blocked trials alone moved (exact coordinates above). The stair
+destinations and dimensions remain **INFERRED**; niche/lion stairs are visual
+architecture, not new walkable routes. The #277 under-stair exit opening,
+leaves and east plan end, chandelier, chimneypiece and game camera remain
+outside this work. #273 still owns door heads/casings/reveals; #274 owns the
+final daylight/ceiling lamp balance. Existing lion leaves get white six-panel
+faces/hardware but retain their inherited poses and heads.

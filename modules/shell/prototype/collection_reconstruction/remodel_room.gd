@@ -705,56 +705,8 @@ func build_grey_gallery() -> void:
 	add_child(number)
 	number.reparent(north)
 	var first:=get_child_count()
-	# Wide column opening faces the purple connector, rather than a door at the far end of a tube.
-	# The north column keeps its authored 1.6m from the moved north wall (-4.2); 6380 247.5/248.5s
-	# has the south one near the connector axis, so it stays. Their spacing is unmeasured.
-	for z in [-2.6,.2]:
-		var column:=StaticBody3D.new()
-		column.position=Vector3(15.65,1.4,z)
-		var shape:=CollisionShape3D.new()
-		var cylinder:=CylinderShape3D.new()
-		cylinder.radius=.19
-		cylinder.height=2.8
-		shape.shape=cylinder
-		column.add_child(shape)
-		var visual:=MeshInstance3D.new()
-		var mesh:=CylinderMesh.new()
-		mesh.top_radius=.145
-		mesh.bottom_radius=.18
-		mesh.height=2.8
-		mesh.radial_segments=12
-		mesh.rings=1
-		visual.mesh=mesh
-		visual.material_override=ivory
-		column.add_child(visual)
-		add_child(column)
-		casings.append(column)
-		var base:=solid(Vector3(15.65,.08,z),Vector3(.46,.16,.46),ivory)
-		base.reparent(column)
-		var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/ionic-capital-geometry.json"))
-		assert(data.edge_pair_counts.size()==1 and int(data.edge_pair_counts[0])==2,"Capital must be a closed low polygon solid")
-		var capital:=MeshInstance3D.new()
-		capital.mesh=stone_mesh(data,data.faces,data.size_m[2])
-		capital.material_override=look(Color.WHITE,"res://assets/ionic-capital.png")
-		capital.position=Vector3(15.65,2.7,z)
-		capital.rotation.y=-PI/2
-		add_child(capital)
-		capital.reparent(column)
-	# 6380 35.0/35.5s: smooth shafts, end pilasters and a cream beam; metres remain provisional.
-	# The beam starts where the capitals end (3.10). It used to start at 2.72 and swallow them, so the
-	# bake left them black and they showed from the stair side, where the camera cuts the beam away.
-	var beam:=solid(Vector3(15.65,3.30,-1.2),Vector3(.48,.40,6.0),ivory)
-	beam.set_meta("column_beam",true)
-	var cornice:=moulding(6.0,.16,"door-architrave",false)
-	cornice.position=Vector3(15.39,3.40,-1.2)
-	cornice.rotation.y=PI/2
-	cornice.reparent(beam)
-	for z in [-4.05,1.65]:
-		var pilaster:=solid(Vector3(15.65,1.45,z),Vector3(.16,2.9,.30),ivory)
-		pilaster.set_meta("column_end_pilaster",true)
-		var cap:=solid(Vector3(15.65,3.0,z),Vector3(.30,.20,.46),ivory)
-		cap.reparent(pilaster)
-	# Capital side/rear relief, dentils and entablature dimensions are still unaccepted.
+	# #276: the two plain white columns, their dentilled beam and end pilasters are
+	# owned by marble_hall_additions.gd, built in room-scene metres after this builder.
 	# Bertin sits on the Hall-door wall between Villeneuve and Pannini; exact offsets remain provisional.
 	# Courbet centre 4.86m from the south-west corner (fit); Corot rides the north wall, offset along it unmeasured.
 	# #238: Courbet 1.80 -> 1.69 (IMG_6380 3.1s, level with the Gericault); Bertin .2m east so its gap to the

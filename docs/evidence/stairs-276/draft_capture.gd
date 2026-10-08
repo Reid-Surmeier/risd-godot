@@ -36,6 +36,7 @@ func capture() -> void:
 	var z1: float = b[3]
 	var xe := x1 - 1.6
 	var zn := z0 + 1.6
+	var zs := z1 - 1.6
 	var first := xe - 13 * .35
 	var middle := (z0 + z1) / 2
 	var shots := {
@@ -72,8 +73,14 @@ func capture() -> void:
 			["lion-fire-devices", Vector3(14.2, 1.65, 32.2), Vector3(16.1, 1.65, 31.95)]
 		],
 		"columns": [
-			["columns-grey", Vector3(x0 - 2.8, 1.6, middle), Vector3(x0, 2.1, middle)],
-			["columns-hall", Vector3(x0 + 3.3, 1.6, middle), Vector3(x0, 2.1, middle)]
+			["columns-grey", Vector3(x0 - 5.6, 1.65, middle), Vector3(x0, 1.75, middle)],
+			["columns-hall", Vector3(x0 + 5.6, 1.65, middle), Vector3(x0, 1.75, middle)],
+			["columns-capital", Vector3(x0 - 1.35, 2.9, zs), Vector3(x0, 3.08, zs)],
+			["columns-base", Vector3(x0 - 1.05, .65, zn + .8), Vector3(x0, .22, zn)]
+		],
+		"joins": [
+			["marble-upper-run", Vector3(xe - 1.4, 4.9, middle - .5), Vector3(xe - .8, 4.9, z1 - 1.54)],
+			["marble-turns", Vector3(xe - .9, 3.6, middle), Vector3(xe, 3.8, z1 - 1.60)]
 		]
 	}
 	var out := arg("out", "")

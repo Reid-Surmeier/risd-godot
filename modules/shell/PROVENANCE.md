@@ -1075,3 +1075,35 @@ Christ (59.131). That copy is not in the build. The check's fixture is the visit
 ## Launch geometry prepared locally (#281)
 
 `native_cpu_arrays.res` is a deterministic extraction of Hall native primitives built by walk4.gd and painting_asset.gd with Godot 4.7.2, prepared by `modules/shell/prototype/gallery_walk4/prepare_cpu_geometry.gd`. Provider: local Godot; model: none; count: one extraction; cost: $0; no paid generation. Source revision: `abf8858504a8f79fc124613bd60e8350231fd88c`. SHA-256: `d91c30dfb4d8ae71d3630103a1327fb9e49905ef30d555cb2ca1ea12e9827a9f`; size: 13962 bytes. Regenerate after changing the source geometry or face/hand skin gates. No artwork, shader appearance or animation is redesigned.
+
+## Procedural stair architecture and draft evidence (#276)
+
+2026-10-08. Provider: local Godot 4.7.2 GL Compatibility and Pillow; model: none; paid calls: 0; cost: USD 0. Geometry and marble shaders are authored procedural construction. No generated runtime image or baked lightmap was installed by this ticket. Existing artwork images are retained. The orchestrator owns the final bake and installation.
+
+Review count: 17 small JPEG comparisons, each below 150 KB. The left image is the owner's footage, the right an unbaked local Godot draft. Reference-only decoding uses the specified HLG/Hable filter for IMG_6380/6381/6387 and ordinary SDR for IMG_6343. No footage pixels become a game texture. Frame times, dimension uncertainties, draft recovery, checks and outside-file edits are recorded in [the ticket notes](../../docs/evidence/stairs-276/NOTES.md).
+
+| Source or review file (repository relative) | SHA-256 |
+| --- | --- |
+| `modules/shell/prototype/collection_reconstruction/marble_hall_additions.gd` | `1b3ede2688ca9d54ad5386e1954d2339bc1885c91b10ca08e320d5fa265930a0` |
+| `modules/shell/prototype/collection_reconstruction/landing_additions.gd` | `58d2c421d3311690b0a193a67696051306a09e583d7a794ff6492c4c880e81e8` |
+| `modules/shell/prototype/collection_reconstruction/prepare_remodel.py` | `6adf33191d74863455e75a5dd7367d1586809d0ac2906c29c58e585f80713ee3` |
+| `modules/shell/prototype/collection_reconstruction/remodel_room.gd` | `a64ebdcb114cfcaf2d0d9b8d45bef9ea9889b0151ae3f55743beb63247dd52f5` |
+| `modules/shell/prototype/collection_reconstruction/main_build_walk.gd` | `10b2ac9e3c2bd85b4f73453cccbe051e4229aca506a8e22b2e96aca65bc4d741` |
+| `docs/evidence/stairs-276/draft_capture.gd` | `e4a97477ec4a87913b1928783bf7e862eab696c6b75effeed981efa24cd0add7` |
+| `docs/evidence/stairs-276/01-newel.jpg` | `6d8950fc320943afd25fb639a1c14139aa3dd9685a9d35cd987a634c0ad8354f` |
+| `docs/evidence/stairs-276/01-spindle.jpg` | `c5ac6e5978658d5e68cd2be92586e0d47d5d96bfcb033b3fa9bf6e0f01cd2c40` |
+| `docs/evidence/stairs-276/02-floor-close.jpg` | `a03f02157e9bec1184267e86907adba837c84306dadf387a1a73f002840dac63` |
+| `docs/evidence/stairs-276/02-floor-room.jpg` | `48d5fa60c0075d21ed5a1721eae707b205fc121e24faca1f4465a7dcb272d531` |
+| `docs/evidence/stairs-276/03-niche.jpg` | `7c20b7840560bcc9f9bcadabfd193d9791bb41b058359af89c4f4d2d1e243b03` |
+| `docs/evidence/stairs-276/04-floor-reflection.jpg` | `64449604ae703e0206b1300759f54ee66483e1e6928b889be4bd7a9ce1803d87` |
+| `docs/evidence/stairs-276/04-upper-finish.jpg` | `03d73e3cb8c40c4866130603af0d6df471b9ca1228f6df0ffcfa7d1312136b0a` |
+| `docs/evidence/stairs-276/04-window.jpg` | `dccc782dd5fd77c44c4df718a61b12eb7f0bb277ff8425c7fd32ab32b54908bb` |
+| `docs/evidence/stairs-276/05-lion-down.jpg` | `cbf670f25b96e12f34f2307b16707acc46bde7e4cbc25f788549f5c2bc928d9c` |
+| `docs/evidence/stairs-276/05-lion-leaves.jpg` | `b8321959bb7821b1646d058c773aa8a3a9b8f11ffd3a041fc6ea494cc4e63f29` |
+| `docs/evidence/stairs-276/05-lion-shaft.jpg` | `7cf1f6b45cb4f9e2e0663ece8c7d2984ba9714cde22d3e91d45b40f1ff5ebe7b` |
+| `docs/evidence/stairs-276/05-lion-wall.jpg` | `e82c156ed7cf000d743e24af4e46d011b447c5fae42d9e48acc2cea36569add4` |
+| `docs/evidence/stairs-276/06-columns-base.jpg` | `f9a93b889e80f3604775d1b680cdae5ad1290bf8b5183dab216e5b15851e5d0f` |
+| `docs/evidence/stairs-276/06-columns-capital.jpg` | `1c44eaa0eb8d441c1c4386f78d942f6b1e90e3867eb2833dfd0fa3b025ee87c6` |
+| `docs/evidence/stairs-276/06-columns-opening.jpg` | `d39fdff97a1c07b1e636d9cb337730e2508fb28a5aafdc65df024487977e3b93` |
+| `docs/evidence/stairs-276/06-fanlight.jpg` | `7d8153ecc9f7546c42e07acfe04c73d4297822655686bb00b0d4d50a7b597ecd` |
+| `docs/evidence/stairs-276/06-rail-joints.jpg` | `cb01d52cc21dd74d47a2fe3f167909124a6068d54c6a2dbba85c049eadbdc588` |
