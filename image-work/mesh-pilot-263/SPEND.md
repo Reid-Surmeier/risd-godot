@@ -101,11 +101,6 @@ The Hand of God redone as plain marble (no charge): accepted, 233 KB.
 | Figural Candlestick 2017.74.28.1 | 5 (0.05): clay front, side and back, flat front and back, each from the museum's photograph of that side | Multi-View from front, left, back, 0.48 / 0.48 | 266 KB; placed in the Rockefeller room source |
 | Figural Candlestick 2017.74.28.2 | 2 (0.02): flat front and back from its own photographs | none: the pair are casts of one model, so it takes its pair's mesh | 263 KB; placed in the Rockefeller room source |
 
-| Figure of a Shepherd 2017.74.23 | 5 (0.05): clay front, a side-and-back view and a right view from the museum's three photographs, flat front and back | Multi-View from back, right, front (the frame turned half round), 0.48 / 0.48 | 262 KB; placed in the Rockefeller room source |
-| Model of a Cow 2017.74.29 | 5 (0.05): clay front and back from the museum's photographs of its two flanks, an inferred head-on view, flat front and back | Multi-View from front, left, back, 0.48 / 0.48 | 219 KB; placed in the Rockefeller room source |
-| Parrot 2017.74.27.1 | 8 (0.08): clay front, back (drawn twice: the first drawing was a different bird and is rejected), head-on view and tail-end view, each from the museum's photograph of that side; flat front, back and tail-end | Multi-View from back, right, front (the frame turned half round), 0.48 / 0.48 | 286 KB; placed in the Rockefeller room source, turned half round as in the footage |
-| Parrot 2017.74.27.2 | 3 (0.03): flat front, back and tail-end from its own photographs, on its pair's clay views | none: the pair are casts of one model and share the mesh | 287 KB; placed in the Rockefeller room source |
-
-**Batch so far: 14.69 USD** (125 Muse images 1.25, twenty-three Multi-View meshes 11.04, five single-view meshes 2.40). **Whole effort: 21.81 USD charged.** The batch's 15 USD stop is reached for practical purposes: no further mesh run fits under it.
+**Batch so far: 13.04 USD** (104 Muse images 1.04, twenty Multi-View meshes 9.60, five single-view meshes 2.40). **Whole effort: 20.16 USD charged.**
 
 Not counted, because the charge is unknown: four Muse calls that failed and were not resubmitted (Hand of God flat back HTTP 502, Récamier clay left HTTP 502, River God clay front HTTP 400, Dress clay front HTTP 502) and the pilot's fireplace call (HTTP 400). At 0.01 USD each the most they can add is 0.05 USD.
