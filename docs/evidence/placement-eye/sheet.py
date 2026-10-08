@@ -12,6 +12,7 @@ FONT = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
 
 def frame(clip, sec, flip=False):
     out = f'{S}/f/c{clip}_{sec}.jpg'
+    os.makedirs(f'{S}/f', exist_ok=True)
     if not os.path.exists(out):
         vf = TM + (',hflip,vflip' if flip else '') + ',scale=540:-2'
         subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', str(sec), '-i', f'{V}/IMG_{clip}.MOV', '-vf', vf, '-frames:v', '1', '-q:v', '3', out], check=True)

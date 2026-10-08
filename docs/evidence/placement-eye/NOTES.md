@@ -128,13 +128,42 @@ Not sure, left alone:
   another riser is the lead's call.
 - Piranesi to the platform's end: 0.7 m in 6386 63.5 s, 1.4 m now (0.65 m before), the stretch.
 
+## Rockefeller (IMG_6380 118–240 s) — nothing moved
+
+Sheets: `rockefeller-north-west.jpg`, `rockefeller-south-east.jpg`, `rockefeller-east.jpg`,
+`rockefeller-cases.jpg`. The clip enters from the purple connector and pans every wall twice.
+
+| Wall | Work or piece | Footage | Draft | Agree |
+|---|---|---|---|---|
+| south | pink service in its wall case, sconce, door, sconce over the two Smirke watercolours | 125, 182–191, 236 s: east to west in that order; the case and the watercolours each a hand from the door's casing | same | yes |
+| west | armchair under the silk length 44.226, writing table, settee under the portrait, Récamier bust on its pedestal, armchair in the corner | 131–143, 197, 200 s: south to north in that order, all on the platform; the bust turned to the room | same | yes |
+| north | mirror, cabinet under the portrait, mirror, armchair | 146–158 s | same | yes |
+| east | wallpaper 34.912, a label, the gold service case before the wall, the door to the connector | 160, 208–212 s | same order | see below |
+| floor | central pedestal with the Vincennes pair | 122, 225, 228.5 s: mid-room, on the line from the connector door to the settee | same | yes |
+| cabinet | three groups on top, three shelves | 152.25 s: riders and a standing figure on top; the two large birds on the middle shelf; figure, cow, figure below | same | yes |
+| gold case | tureen between two plates at the wall side, square dishes, écuelle in the middle, baskets and the two cups at the room side | 164–173, 215–221 s | same; the two halves alike about the tureen, as filmed | yes |
+| pink case | a tureen at each end, the raised dish behind the middle, shell dishes in front | 176.25, 179 s | same | yes |
+
+Not sure, left alone:
+
+- **The north-east corner.** 208 s has the wallpaper's mount about 0.3–0.6 m from the corner and the
+  platform running to the corner under the armchair. The draft's mount is 1.4 m from the corner and
+  its platform stops a metre short of the east wall. The wallpaper and the gold case stand right
+  to each other (160, 210.25 s: mount, label, case), so moving the wallpaper alone would break
+  that; moving both means moving a case. The room's shell is larger here than filmed.
+- Which of the Vincennes pair stands on which side of the pedestal: too small in every frame.
+- The two tureens of the pink service read larger against their case than in 176.25 s; a size.
+
 ## For whoever continues
 
-Rooms left, in order: the European gallery (`adjacent gallery`, IMG_6384, 6385, 6386),
-Rockefeller (6380 120–240 s), the grey French gallery (6380 0–50 and 80–118 s, 6343 0–82 s),
+Rooms left, in order: the grey French gallery (6380 0–50 and 80–118 s, 6343 0–82 s),
 the Light Renaissance room (6383). The draft at
 `~/risd-godot-ingestion/collection-expansion/rebuild-placement-eye/extension` matches this
-branch's sources. Per room: `list:<x0,x1,z0,z1>` with the room's bounds from
+branch's sources (rebuilt after the European change). `sheet.py` (this folder, beside a copy of
+`eye_shot.gd`) makes a sheet in one call: footage seconds on top, draft shots or `plan` cuts below;
+an overview strip's seconds run a second or two early, `-ss` before `-i` is exact. Rockefeller's
+works come from `video-inventory.json` (room point = row position + (-1.95, 0, 1.44)); `list:`
+prints only the nine tagged by an additions file. Per room: `list:<x0,x1,z0,z1>` with the room's bounds from
 `modules/shell/collection_rooms/geometry.json` names every work and its place; shots are
 `<out.png>:<camera>:<aim>:<fov>:<w>x<h>`. Do not un-hide what the build hides: the Hall's spare
 surfaces stand across the medieval room. A camera inside a case photographs grey.
