@@ -35,12 +35,12 @@ func run() -> void:
 		["target-inside-hall-passage", "far", Vector3(2, 0, -28.5), Vector3(.3, 0, -26.1), "gallery"],
 		["replace-crossing-click", "far", Vector3(2, 0, -28.5), Vector3(-1, 0, -30), "far"],
 		# #280: one stage is drawn, so a doorway shows only the dark. A click in it (here at the
-		# pixel of the fourth entry) sends the visitor a metre and a half through that door,
+		# pixel of the fourth entry) sends the visitor a metre and a half past that doorway's thickness,
 		# the fifth-plus-one entry, not to wherever the ray meets the ground beyond.
-		["floor-pick-grey-hall", "far", Vector3(1.5, 0, -28.3), Vector3(-1, 0, -24.5), "gallery", Vector3(-0.66, 0, -24.83)],
+		["floor-pick-grey-hall", "far", Vector3(1.5, 0, -28.3), Vector3(-1, 0, -24.5), "gallery", Vector3(-0.66, 0, -24.23)],
 		# The pixel at x 1.5 would be the Hall's north wall: a click on a wall is not a click on
 		# the floor behind it. This one is in the far door's opening.
-		["floor-pick-hall-grey", "gallery", Vector3(1.5, 0, -24.5), Vector3(0.3, 0, -28.3), "far", Vector3(0.48, 0, -27.78)]
+		["floor-pick-hall-grey", "gallery", Vector3(1.5, 0, -24.5), Vector3(0.3, 0, -28.3), "far", Vector3(0.48, 0, -28.58)]
 	]
 	var rows := []
 	var failures := []
