@@ -228,6 +228,18 @@ it. Unbaked means the draft's own flat light; the baked look is judged from the 
    label is a folded stand (no frame I opened shows it), the bench's legs (the filmed ones are
    thinner bars than the build's 5 cm).
 
+16. `16-grey-gallery-rodin-plinth-footage-and-unbaked.jpg`: the plinth under Rodin's Hand of God
+   in the grey French gallery. Panels: IMG_6380 16.5 s (cropped; the only frame I found that
+   shows the plinth, at the picture's edge and motion-blurred), then the unbaked plinth from
+   two places. The filmed plinth is a white block on a projecting base, the base about a third
+   of its height. The build's was a plain block; it now has that base band (16 cm high, 3 cm
+   proud). NO WORK MOVED: the plinth's top stays at 0.50 m and its footprint at 1.0 m square.
+   Its blank label card moved up 15 cm to clear the band.
+   Not measured: the plinth's height and width. The frame cuts the marble off, so there is no
+   ruler in it; IMG_6381 31.5 and 90.5 s show the plinth whole but a few pixels tall. The room
+   has no bench or case in its source, and none in the frames I opened (16.5, 37.5 s).
+   IMG_6381 plays upside down, like IMG_6382.
+
 The clips are in `~/risd-godot-ingestion/collection-expansion/verified/` (the copies one folder
 up are empty or cut short). `IMG_6382.MOV` plays upside down: add `,hflip,vflip` to the filter.
 
@@ -241,8 +253,8 @@ up are empty or cut short). `IMG_6382.MOV` plays upside down: add `,hflip,vflip`
   their filmed proportions and the label cards (picture 12).
 - Done in the European gallery: the four floor cases and the west pedestal case (picture 14),
   both platforms, the label stand and the bench (picture 15).
-- Not done: the grey French gallery (the plinth under Rodin's Hand of God, benches) and
-  Rockefeller.
+- Done in the grey French gallery: the base band of Rodin's plinth (picture 16).
+- Not done: Rockefeller.
 
 ## How the unbaked pictures are taken
 
@@ -294,7 +306,7 @@ east case A `-1.05,.42,.12:0,.40,.30` and low `-1.7,-.55,1.0:0,-.62,0`; Pietà c
 `.9,-.9,.95:0,-1.2,.62:45`; picture 10, `medieval_crucifix_platform` (the nearest piece
 with a key): `-2.6,1.5,-3.6:1.6,.5,-1.9`, `-3.5,1.3,-2.6:-4.78,.75,-.98`,
 `2.82,1.32,-1.89:3.39,.82,-.12`; picture 11: `renaissance_west_blind`
-`3.9,-.35,.3:.3,-.35,0:55` and `saint_roch_installation` `1.4,1.3,1.0:0,.85,0`. pictures 14 and 15: `european_east_case=silver` `-1.4,.9,-1.4:0,.42,0` and (the north-west
+`3.9,-.35,.3:.3,-.35,0:55` and `saint_roch_installation` `1.4,1.3,1.0:0,.85,0`. picture 16, `grey_rodin_plinth`: `-1.5,1.3,.7:.2,.25,0` and `-1.6,.5,1.5:0,.1,0:55`; pictures 14 and 15: `european_east_case=silver` `-1.4,.9,-1.4:0,.42,0` and (the north-west
 platform) `.9,1.25,-3.4:-1.4,.2,-6.2`, `european_east_case=majolica` `-1.0,.9,1.7:0,.42,.3`,
 `european_east_case=river-god` `-1.3,1.1,1.3:0,.5,0`, `european_east_platform`
 `-3.6,1.5,3.4:0,.6,-.4`, `european_east_bench` `.9,1.1,2.5:0,-.25,0`; picture 13: `renaissance_wall_case=A` `-1.05,.65,.12:0,.25,.30`, `pieta_wall_case`
