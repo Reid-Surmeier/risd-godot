@@ -13,7 +13,10 @@ func run() -> void:
 	for i in 150:
 		await process_frame
 	var walk = app.find_child("GalleryWalk", true, false)
-	assert(walk != null and walk.state().attached)
+	assert(walk != null)
+	if walk.state().get("pending", false):
+		walk._attach_rooms(walk._rooms_path)  # built at the first doorway since #281
+	assert(walk.state().attached)
 	walk.set_process(false)
 	var cases := [
 		["grey-misses-door", "far", Vector3(2, 0, -28.5), Vector3(-2, 0, -24), "gallery"],
