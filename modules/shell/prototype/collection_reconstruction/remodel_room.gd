@@ -1092,7 +1092,9 @@ func build_grey_gallery() -> void:
 		var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/"+spec[0]+"-frame-geometry.json"))
 		var painting:=Painting.new()
 		add_child(painting)
-		painting.build_framed(load("res://assets/"+spec[0]+"-frame.png"),load("res://assets/painting-"+spec[1]+".jpg"),Vector2(data.canvas_m[0],data.canvas_m[1]),data.margins_px)
+		painting.build_framed(load("res://assets/"+spec[0]+"-frame.png"),load("res://assets/painting-"+spec[1]+".jpg"),Vector2(data.canvas_m[0],data.canvas_m[1]),data.margins_px,
+			# Courbet's side rails are 0.16 m in footage (IMG_6380 3.5 s; the audit read 0.16-0.17), built 0.132 and 0.117 (#266); top and bottom as built.
+			[.16,.147,.16,.168] if spec[0]=="courbet" else [])
 		painting.position=spec[2]
 		painting.rotation.y=spec[3]
 		var label:=solid(Vector3.ZERO,Vector3(.30,.17,.004),look(Color("e9e4d4")))
