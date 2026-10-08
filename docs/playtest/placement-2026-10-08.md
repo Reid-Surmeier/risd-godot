@@ -76,59 +76,107 @@ What the next agent needs to know about the Hall:
   `godot --path . --script res://modules/shell/prototype/gallery_walk4/prepare_cpu_geometry.gd`
   (needs a display). That script also rewrites `modules/shell/character/launch_geometry.res`;
   I restored that file and the checks pass with the old one.
+- **Re-baked** in `15aa089a` with the same lamps; pictures and numbers in
+  `docs/evidence/hall-hang-266/NOTES.md`.
 - **Frame widths are not touched.** `painting_asset.gd` sets every band as
   `margins_px x canvas height / opening pixels`, so a frame cannot take a measured width by an
   argument. The audit's targets (S2 0.085 / 0.10 / 0.085 / 0.08 m, built about 0.24 m; S1 0.06 m
   all round) need its proposed optional `band_m` on the record. Not done.
 
-## Hang heights the 1 October audit measured that are still not in the build
+## Hang heights the 1 October audit measured: read again and applied
 
-Not re-measured here. "Built" is today's canvas centre from the installed scene.
+Each was read again on a frame redrawn square to its wall, without the grid
+(`plain-<key>.png`), as the row where the skirting meets the floor under or beside the work.
+The new height is the mean of the two readings. "Built" is the canvas centre before this change.
 
-| Work | Room | Audit: filmed centre | Built today | Off by | Audit confidence |
+| Work | Room | Audit | Read here, frame | Built | Now | Moved |
+|---|---|---|---|---|---|---|
+| Arabesque Wallpaper 34.912 | Rockefeller | 1.55 m | 1.50 m, IMG_6380 159.5 s, 317 matches | 2.10 m | 1.52 m | 0.58 m down, with its mount and clips |
+| Fetti 36.003 | European gallery | 1.51 m | 1.55 m, IMG_6386 30.5 s, 286 matches | 1.80 m | 1.53 m | 0.27 m down |
+| Delacroix 35.786 | European gallery | 1.57 m | 1.62 m, IMG_6386 60.5 s, 236 matches | 1.75 m | 1.60 m | 0.15 m down |
+| Goltzius 61.006 | European gallery | 1.62 m | 1.67 m, IMG_6386 0.0 s, 132 matches | 1.75 m | 1.64 m | 0.11 m down |
+| Matisse 57.037 | modern gallery | 1.54 m | 1.54 m, IMG_6387 74.0 s, 49 matches | 1.65 m | 1.54 m | 0.11 m down |
+
+Each reading is good to about 0.05 m. In the European gallery the skirting reads 0.24 m tall and
+its foot is in shadow, so the floor line there is the skirting's top less 0.24 m, checked against
+the colour change to wood where that shows. Courbet 43.571 (0.07 m, inside the line) and the
+Cézanne's height were left. `remodel_review.gd` asserts the Matisse's exact position, so it
+changed with it.
+
+The Renaissance room's other two wall works share the first fit that had the Madonna 0.3 m low.
+The method cannot read them: the velvet 23.307X matches 34 points (40 are needed) and the
+Woodcutters 29.280 none, and a white platform hides the floor line under both. By the weak
+drawing and by eye in IMG_6383 at 6 s and 68.5 s the velvet's centre is 1.35–1.43 m (built 1.31)
+and the tapestry's about 1.30 m (built 1.35), each ±0.10 m. Neither is 0.3 m off; both stay.
+
+## Frame moulding widths
+
+`painting_asset.gd` `build_framed()` takes an optional fifth argument, the moulding's widths in
+metres (left, top, right, bottom); without it a frame is built as before. Read on the same
+drawings from the catalogue canvas's edge to the frame's outer edge:
+
+| Work | Built | Audit | Read here | Now | Framed size now |
 |---|---|---|---|---|---|
-| Arabesque Wallpaper 34.912 | Rockefeller | 1.55 m | 2.10 m | 0.55 m high | high, three frames |
-| Fetti 36.003 | European gallery | 1.51 m | 1.80 m | 0.29 m high | high, two frames |
-| Delacroix 35.786 | European gallery | 1.57 m | 1.75 m | 0.18 m high | high, two videos |
-| Goltzius 61.006 | European gallery | 1.62 m | 1.75 m | 0.13 m high | medium, one frame |
-| Matisse 57.037 | modern gallery | 1.54 m | 1.65 m | 0.11 m high | medium |
-| Courbet 43.571 | grey gallery | 1.62 m | 1.69 m | 0.07 m, inside the line | medium-low |
+| Cézanne 43.255 | 0.105 m | 0.12–0.135 m | 0.14 top, 0.155 right (bottom 0.165 with its shadow; left out of frame), IMG_6387 71.5 s | 0.14 m | 1.017 x 0.890 m |
+| Matisse 57.037 | 0.055 m | 0.12–0.147 m | 0.14 / 0.125 / 0.135 / 0.14, IMG_6387 74.0 s | 0.135 m | 0.915 x 1.070 m |
+| Fetti 36.003 | 0.165 m | 0.094–0.11 m | 0.115 left, IMG_6386 30.5 s | 0.105 m | 0.991 x 1.105 m |
+| Villeneuve 1998.35 | 0.065 / 0.08 m | not measured | none: the catalogue gives the framed size, 50.8 x 61 cm | 0.10 / 0.099 m | 0.610 x 0.508 m |
 
-Each is one `y` in `remodel_room.gd` (`grep -n 34.912` and so on). Braque, Cézanne and
-Le Fauconnier agree with the build by the audit.
+The frame texture's band is stretched to the new width. Not done: the audit's other targets
+(Perugino top 0.20 and bottom 0.15 m; in the Hall S2, S1, E1 and W10, which would need the Hall
+baked again).
+
+## Photograph cards in the European gallery's east cases
+
+Each card is now scaled so the object in the photograph, not the photograph, is at catalogue
+size. `card(...)` records the object's share of the photograph (`fill`, width x height) and the
+share of its height below the object's foot (`foot`); an upright card is sunk by `foot` so the
+object stands on the deck, and `sizes_check.gd` holds such a card by its object. Fills were
+measured again here by flooding the backdrop from the photograph's edge and agree with the table
+that stood here to 0.03.
+
+| Work | Card before (m) | Fill | Card now (m) | Object now (m) | Catalogue |
+|---|---|---|---|---|---|
+| 2014.33 Coffeepot | 0.191 x 0.235 | 0.77 x 0.84 | 0.227 x 0.280 | 0.175 x 0.235 | 23.5 x 19.1 cm |
+| 09.351 Plate | 0.300 x 0.229 | 0.64 x 0.86 | 0.358 x 0.273 | 0.229 across | diameter 22.9 cm |
+| 2016.62 Plate | 0.250 x 0.229 | 0.72 x 0.82 | 0.318 x 0.291 | 0.229 across | none: sized as 09.351, its neighbour of the same service |
+| 2016.102.2 Plate | 0.310 x 0.230 | 0.59 x 0.81 | 0.388 x 0.288 | 0.229 across | none: sized as 09.351 |
+| 55.023.6H Platter | 0.295 x 0.222 | 0.70 x 0.73 | 0.421 x 0.317 | 0.295 long | length 29.5 cm |
+| 54.147.9 Mortar | 0.240 x 0.228 | 0.64 x 0.61 (the mortar without its pestle) | 0.304 x 0.289 | 0.176 high | height 17.6 cm |
+| 85.075.8 Casket | 0.320 x 0.240 | 0.48 x 0.90 | 0.477 x 0.358 | 0.229 x 0.322 | base 31.8 x 22.9 cm |
+| 43.351 Jar | 0.254 x 0.254 | 0.75 x 0.76 | 0.324 x 0.324 | 0.243 x 0.246 | 23.5 x 25.4 x 20.3 cm |
+| 35.703 Plate | 0.285 x 0.273 | 0.74 x 0.80 | 0.365 x 0.349 | 0.270 across | diameter 27 cm |
+| 1989.085 Plate | 0.196 x 0.196 | 0.81 x 0.84 | 0.227 x 0.227 | 0.184 across | diameter 18.4 cm |
+| 51.272 Casket | 0.220 x 0.200 | 0.86 x 0.72 | 0.238 x 0.217 | 0.205 x 0.156 | 15.2 x 21 x 14 cm |
+| 44.674 River God | 0.390 x 0.483 | 0.77 x 0.74 | 0.528 x 0.654 | 0.407 x 0.484 | 48.3 x 43.5 x 31.8 cm |
+
+Read with care:
+
+- The jar and the 51.272 casket are scaled between their height and width (each within 1.2 cm).
+- The 85.075.8 casket has only a base size. The photograph shows it end on, so the width seen is
+  taken as the base's short side, 22.9 cm; that makes it 0.32 m tall. In IMG_6386 at 10–13 s it
+  stands about 1.6 times the mortar's body, 0.28–0.30 m. Inferred, not catalogued.
+- The River God is held by its height. Its width in the photograph (0.407 m) lies between the
+  catalogue's width and depth because it was photographed at an angle; `sizes_check.gd` will
+  still flag the width.
+- The basket 2016.124 and the roundel 51.502 were right and are untouched.
+
+In the cases: the mortar moved 4.5 cm and the 85.075.8 casket 4 cm along the majolica case's
+deck, the least that keeps the mortar's card on the deck and the casket's card clear of the
+mortar's and the jar's (0.5 cm and 1 cm). Nothing else touches a neighbour, the hood or the
+riser, by the cards' rectangles and in a draft
+(`docs/evidence/placement-266/east-cases-before-left-after-right.jpg`). Seen and left: the label
+note of the elephant plate lies under the basket card's edge, and the platter's note is inside
+the white riser block; both were so before.
+
+Apollo 73.079: `cutout` height 0.21 → 0.187 m (catalogue 18.7 cm), its foot kept on the case floor.
 
 ## Not started
 
-- **The 14 photograph cards in the European gallery's east cases** (`european_east_additions.gd`,
-  `card(...)`). The whole photograph, background included, is the catalogue size, so the object
-  inside reads small. Measured fill of each photograph (object width x height as a share of the
-  card, ±0.03, by background difference) and the object's size today:
-
-  | Work | Card today (m) | Fill | Object today (m) | Catalogue |
-  |---|---|---|---|---|
-  | 2014.33 Coffeepot | 0.191 x 0.235 | 0.74 x 0.82 | 0.141 x 0.194 | 23.5 x 19.1 cm |
-  | 09.351 Plate | 0.300 x 0.229 | 0.64 x 0.86 | 0.192 x 0.196 | diameter 22.9 cm |
-  | 2016.62 Plate | 0.250 x 0.229 | 0.71 x 0.82 | 0.179 x 0.187 | none |
-  | 2016.102.2 Plate | 0.310 x 0.230 | 0.59 x 0.81 | 0.182 x 0.186 | none |
-  | 55.023.6H Platter | 0.295 x 0.222 | 0.69 x 0.73 | 0.205 x 0.161 | length 29.5 cm |
-  | 54.147.9 Mortar | 0.240 x 0.228 | 0.76 x 0.91 (with the pestle) | 0.182 x 0.207 | height 17.6 cm |
-  | 43.351 Jar | 0.254 x 0.254 | 0.73 x 0.76 | 0.185 x 0.193 | 23.5 x 25.4 x 20.3 cm |
-  | 35.703 Plate | 0.285 x 0.273 | 0.74 x 0.80 | 0.210 x 0.218 | diameter 27 cm |
-  | 1989.085 Plate | 0.196 x 0.196 | 0.81 x 0.84 | 0.158 x 0.164 | diameter 18.4 cm |
-  | 51.272 Casket | 0.220 x 0.200 | 0.84 x 0.72 | 0.185 x 0.144 | 15.2 x 21 x 14 cm |
-  | 44.674 River God | 0.390 x 0.483 | 0.76 x 0.77 | 0.297 x 0.373 | 48.3 x 43.5 x 31.8 cm |
-  | 2016.124 Basket | 0.315 x 0.295 | 0.96 x 0.99 (with the handle) | 0.301 x 0.293 | 10.5 x 31.5 x 27.5 cm: right |
-  | 51.502 Dish | 0.151 x 0.151 | 0.99 x 0.99 | 0.149 x 0.150 | diameter 15.1 cm: right |
-  | 85.075.8 Casket | 0.320 x 0.240 | not read reliably | | base 31.8 x 22.9 cm |
-
-  The fix is one `Vector2` per card: multiply by catalogue ÷ object. The object's foot also sits
-  0.05–0.14 of the card's height above the card's bottom edge, so it floats that far above the
-  deck. Each case then needs a look for overlap.
-- Apollo 73.079 (`cutout` height 0.21 → 0.187 m) and Villeneuve 1998.35's frame.
-- Frame moulding widths in the added rooms (the Cézanne 43.255: 0.105 m built, 0.12–0.135 m seen
-  by the audit).
 - Positions along the walls in the European gallery, Rockefeller, grey and modern galleries, the
   rest of the Renaissance room, and every standing work's base height.
+- In the footage the east cases' objects are laid out differently from the build (IMG_6385
+  31–36 s, IMG_6386 2–13 s): a card's place in its case was not measured.
 
 ## Running the method again
 
