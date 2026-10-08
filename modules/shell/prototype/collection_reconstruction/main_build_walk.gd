@@ -1211,7 +1211,9 @@ func _update_camera(k: float) -> void:
 	if _rooms == null:
 		return
 	var here := _room_at(_pos)
-	var placed := _pos.distance_to(_stage_pos) > 0.6
+	# Further in one frame than walking covers: the visitor was put there. A long frame (the
+	# first draw of a room) lets a walking visitor cover more, so the frame's length counts.
+	var placed := _pos.distance_to(_stage_pos) > 0.6 + SPRINT_MPS * 2.0 * get_process_delta_time()
 	_stage_pos = _pos
 	if _stage == NO_STAGE or placed or _entrance_active or not _open.is_empty():
 		_wipe_end()
@@ -1308,7 +1310,9 @@ func _update_camera(k: float) -> void:
 		if added and _stage_ids[i] != _stage:
 			cut[i] = true  # another stage
 			continue
-		if open_set and i != here and (area.has_point(flat_eye) or _overlap(lens, area.grow(-0.15))):
+		# From the Hall a room between the camera and the visitor goes whole. Inside a stage no
+		# area does: standing in a doorway's depth must not drop the room it belongs to.
+		if open_set and not added and (area.has_point(flat_eye) or _overlap(lens, area.grow(-0.15))):
 			cut[i] = true
 			continue
 		var b: Array = _plan[i].b
@@ -1508,6 +1512,8 @@ func _wipe_begin() -> void:
 		_wipe_fill = fill.light_energy
 		_wipe_fade = create_tween()
 		_wipe_fade.tween_property(fill, "light_energy", 0.0, 0.35)
+	# Fully open before it is shown: a wipe that was cut short left its last radius behind.
+	(_wipe.material as ShaderMaterial).set_shader_parameter("radius", WIPE_RADIUS)
 	_wipe.show()
 	print("ROOM_CHANGE ", _stage, " -> ", _stage_of(_room_at(_pos)))
 
