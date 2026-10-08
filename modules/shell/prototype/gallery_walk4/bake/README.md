@@ -145,3 +145,19 @@ visitor at five places. After a bake run `godot --headless --editor --import --p
 looking: the editor leaves the previous lightmap texture in the import cache, so the game
 shows the old light without any error. Values, numbers and pictures:
 `docs/evidence/museum-238/light-hall/NOTES.md`.
+
+## The approved light restored (#258)
+
+The owner played the #238 light on 7 Oct and asked for the Hall's original light back. The
+lamp values in `prepare.gd` are again those of the bake he approved on 26-30 Sep (`dbfe2393`,
+unchanged until `b40d0091`): fill 0.55 `#ffe1b2`, spots 6.8 at 25 degrees `#ffd391` aimed at
+each painting's centre, daylight 0.35 across the Hall, environment 0.18, skirting and cornice
+glow 0.55 and 0.35. The white label cards and the shallow portal stay, so the Hall was baked
+again rather than given its old lightmap back. `measure_light.gd` still reads the #238
+targets; this light fails them on purpose and the script is not an acceptance check.
+`baked/lamps.json` is still written and still has no reader.
+
+Trap, seen: the bake editor turns the frames' and two textures' `.import` files back to VRAM
+compression with mipmaps (20 files), undoing the lossy import the Web pack budget relies on.
+After a bake, `git checkout` those `.import` files, then run the headless import.
+Pictures and the cause of the wall patches: `docs/evidence/hall-lighting-258/NOTES.md`.

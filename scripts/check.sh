@@ -28,13 +28,16 @@ if command -v gdlint >/dev/null 2>&1 && [ -n "$(find . -name '*.gd' -not -path '
   gdlint $(find . -name '*.gd' -not -path "./.git/*" -not -path "./build/*" -not -path "./.godot/*" -not -path "./image-work/*" -not -path "./modules/sketchbook/mixbox/mixbox.gd")
 fi
 
-# 4. The museum's recorded lists: the representation floor only shrinks, and every acceptance
-#    record names its evidence (docs/playtest/room-builder-guide.md).
+# Catalogue photographs retain their measured sizes and lossy import settings (#278).
+python3 scripts/check-museum-images.py || fail=1
+
+# The museum's recorded lists: the representation floor only shrinks, and every acceptance
+# record names its evidence (docs/playtest/room-builder-guide.md).
 python3 scripts/check_museum_records.py || fail=1
 
-# 5. Godot headless tests, when a project exists.
+# 4. Godot headless tests, when a project exists.
 if [ -f project.godot ] && command -v godot >/dev/null 2>&1; then
-  godot --headless --quit-after 200 --path . 2>&1 | tee /tmp/godot-import.log
+  timeout 180 godot --headless --quit-after 200 --path . 2>&1 | tee /tmp/godot-import.log
   grep -qiE "^ERROR|SCRIPT ERROR" /tmp/godot-import.log && { echo "Godot reported errors on import"; fail=1; } || true
   # The built museum agrees with what representation.json declares.
   timeout 300 godot --headless --fixed-fps 60 --path . --script res://modules/shell/prototype/collection_reconstruction/representation_check.gd 2>&1 \

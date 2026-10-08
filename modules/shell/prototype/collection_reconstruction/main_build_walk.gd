@@ -372,7 +372,8 @@ func _collect_objects() -> void:
 				)
 			),
 			"medium": str(node.get_meta("catalogue_medium", "")),
-			"dimensions": str(node.get_meta("catalogue_dimensions", ""))
+			"dimensions": str(node.get_meta("catalogue_dimensions", "")),
+			"identified": bool(node.get_meta("catalogue_identified", true))
 		}
 		if ResourceLoader.exists(str(node.get_meta("catalogue_image", ""))):
 			image = load(node.get_meta("catalogue_image"))
@@ -387,7 +388,8 @@ func _collect_objects() -> void:
 					)
 				),
 				"medium": str(row.get("medium", "")),
-				"dimensions": str(row.get("dimensions", ""))
+				"dimensions": str(row.get("dimensions", "")),
+				"identified": bool(row.get("identified", true))
 			}
 			if ResourceLoader.exists(str(row.get("image", ""))):
 				image = load(row.image)
@@ -689,6 +691,7 @@ func _fit_detail() -> void:
 	if _caption == null:
 		_caption = Label.new()
 		_caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		_caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		_caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		_caption.add_theme_color_override("font_color", Color("2a2622"))
 		_detail.add_child(_caption)
@@ -700,9 +703,32 @@ func _fit_detail() -> void:
 	if str(rec.get("acc", "")) != "":
 		lines.append("RISD Museum " + str(rec.acc))
 	_caption.text = "\n".join(lines)
-	_caption.size = Vector2(size.x, 0)
-	# Along the foot of the panel: a framed Hall painting reaches below its own picture.
-	_caption.position = Vector2(0, size.y - 22.0 * lines.size() - 12.0)
+	_caption.size = Vector2(size.x * 0.9, 0)
+	_caption.size.y = _caption.get_minimum_size().y
+	# The caption reads under the work, never across it (#271): the work, frame and all, is
+	# made as much smaller as it takes for the two to share the page.
+	var pic: TextureRect = _zoom_root.get_node("Painting")
+	var frame: NinePatchRect = _zoom_root.get_node("Frame")
+	var work := Rect2(Vector2.ZERO, pic.size)
+	if frame.visible:
+		work = work.merge(Rect2(frame.position, frame.size * frame.scale))
+	var gap := 14.0
+	var k := minf(1.0, (size.y - _caption.size.y - gap * 3.0) / work.size.y)
+	pic.size *= k
+	frame.scale *= k
+	frame.position *= k
+	_zoom_root.size *= k
+	work = Rect2(work.position * k, work.size * k)
+	var top := (size.y - work.size.y - gap - _caption.size.y) / 2.0
+	_zoom_root.position = Vector2((size.x - _zoom_root.size.x) / 2.0, top - work.position.y)
+	_caption.position = Vector2(size.x * 0.05, top + work.size.y + gap)
+
+
+# Zoomed back out, the page is laid out again: walk4 alone would centre the picture on the caption.
+func _zoom_at(point: Vector2, factor: float) -> void:
+	super(point, factor)
+	if is_equal_approx(_zoom, 1.0):
+		_fit_detail()
 
 
 func _gui_input(event: InputEvent) -> void:
