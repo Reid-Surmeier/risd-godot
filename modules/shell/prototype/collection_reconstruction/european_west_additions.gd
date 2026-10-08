@@ -149,11 +149,9 @@ func south_wall() -> void:
 	attach(risen, "south")
 	var at: Vector3 = room.wall_point(GALLERY, "south", 1.20, 0, .061 + .17)
 	var pedestal: Node3D = room.solid(at + Vector3(0, .51, 0), Vector3(.80, 1.02, .32), room.look(Color("dcdad4")), true)
-	var relief := Node3D.new()
-	room.add_child(relief)
-	relief.position = at + Vector3(0, 1.02, .06)
-	relief.rotation.y = PI
-	tag(cutout(relief, "tabernacle-06.057", .508, Vector3(0, .254, 0), .15), "tabernacle-06.057")
+	# A real mesh (#263) on the pedestal's top, catalogue width and height; the photograph slab is no longer built.
+	var relief: Node3D = room.place_mesh(DIR + "tabernacle-06057.glb", at + Vector3(0, 1.02, 0), PI, Vector3(.737, .508, .18), "06.057")
+	tag(relief, "tabernacle-06.057")
 	relief.reparent(pedestal)
 	var card: Node3D = room.solid(room.wall_point(GALLERY, "south", 1.72, 1.20, FACE), Vector3(.12, .20, .004), room.look(Color("f3f2ed")))
 	card.set_meta("artwork_label_proxy", true)

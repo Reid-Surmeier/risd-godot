@@ -765,6 +765,10 @@ func hood_edges(body:Node3D,at:Vector3,width:float,depth:float,deck:float,top:fl
 ## floor inside a floor case's hood, a flat top sloped down to the hood's foot all round. `at` is
 ## the floor point under its middle, `low` its foot's half width and depth, `deck` the hood's
 ## foot; it hangs from `body`.
+## How far a work stands above its case's deck: the riser's height. Used by the two case builders and by
+## whatever places a work in one, so the two cannot drift apart.
+const FLOOR_CASE_RISE:=.04
+const WALL_CASE_RISE:=.10
 func case_riser(body:Node3D,at:Vector3,low:Vector2,deck:float,run:float,rise:float) -> MeshInstance3D:
 	var high:=low-Vector2(run,run)
 	var st:=SurfaceTool.new()
@@ -811,7 +815,7 @@ func hooded_floor_case(at:Vector3,width:float,depth:float,deck:float,top:float,f
 	add.call(Vector3(0,top,0),Vector3(width,.012,depth),glass)
 	hood_edges(body,at,width,depth,deck,top)
 	var run:=.10
-	var rise:=.04
+	var rise:=FLOOR_CASE_RISE
 	var low:=Vector2(width/2-.03,depth/2-.03)
 	case_riser(body,at,low,deck,run,rise).set_meta("floor_case_part","riser")
 	# The label lies on the riser's front slope. A blank block: the game carries no typed text.
@@ -863,7 +867,7 @@ func wall_case_fittings(display:Node3D,length:float,depth:float,under:float,deck
 	var st:=SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var run:=.09
-	var rise:=.10
+	var rise:=WALL_CASE_RISE
 	var front:=depth-.02
 	var back:=front-run
 	var half:=length/2-.03
@@ -1764,14 +1768,18 @@ func build_sculpture_rooms() -> void:
 	# The same frame puts the cap's top at 0.44 m (+-5 cm), under the window sill; the figure stands
 	# on the riser at 0.48 m and the hood's top is 1.89 m (both were 0.20 m higher).
 	var roch_at:=Vector3(-4.86,0,22.7)
-	var roch_plinth:=hooded_floor_case(roch_at,.86,.86,.44,1.89,Vector3(1,0,0))
+	var roch_deck:=.44
+	var roch_plinth:=hooded_floor_case(roch_at,.86,.86,roch_deck,1.89,Vector3(1,0,0))
 	roch_plinth.set_meta("saint_roch_installation",true)
 	for part in roch_plinth.get_children():
 		if part.has_meta("floor_case_part"):part.set_meta("saint_roch_plinth_step",part.get_meta("floor_case_part"))
-	var roch:=SaintRoch.build() # Muse sheet rejected off-axis; keep the closed flat study.
-	add_child(roch)
-	roch.position=roch_at+Vector3(0,.48,0)
-	roch.rotation.y=PI/2
+	# A real mesh (#263) at the same point, turn and catalogue height; saint_roch_asset.gd's blocks are no longer built.
+	var roch:=place_mesh("res://assets/additions/renaissance/roch-21398.glb",roch_at+Vector3(0,roch_deck+FLOOR_CASE_RISE,0),PI/2,Vector3(0,SaintRoch.HEIGHT,0),"21.398")
+	roch.name="SaintRoch21398"
+	roch.set_meta("catalogue_medium","wood with polychromy")
+	roch.set_meta("height_m",SaintRoch.HEIGHT)
+	roch.set_meta("left_side_source","none: front and back from official photographs; the left profile is inferred")
+	for flag in ["survey_metres_accepted","placement_accepted","rear_fidelity_accepted","visual_fidelity_accepted"]:roch.set_meta(flag,false)
 	roch.reparent(roch_plinth)
 	var roch_glass:=look(Color(.82,.90,.91,.10),"",true)
 	inventory["saint_roch"]={"accession":"21.398","height_m":1.054,"closed_solid_prototype":true,"muse_sheet_used":false,"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
@@ -1801,10 +1809,14 @@ func build_sculpture_rooms() -> void:
 	var pieta_case:=solid(pieta_at+Vector3(0,1.025,0),Vector3(.38,.11,.65),white,true)
 	pieta_case.set_meta("pieta_wall_case",true)
 	_renaissance_pieta_case=pieta_case
-	var pieta:=Pieta.build()
-	add_child(pieta)
-	pieta.position=pieta_at+Vector3(0,1.18,0)
-	pieta.rotation.y=PI/2
+	var pieta_deck:=1.08
+	# A real mesh (#263) at the same point, turn and catalogue size; pieta_asset.gd's blocks are no longer built.
+	var pieta:=place_mesh("res://assets/additions/renaissance/pieta-59128.glb",pieta_at+Vector3(0,pieta_deck+WALL_CASE_RISE,0),PI/2,Pieta.SIZE,"59.128")
+	pieta.name="Pieta59128"
+	pieta.set_meta("catalogue_medium","linden wood")
+	pieta.set_meta("dating","unresolved: API 1480-1510, case label and page ca. 1515-1525")
+	pieta.set_meta("rear_source","none: no photograph of the back or a side exists; the flat back is inferred")
+	for flag in ["survey_metres_accepted","placement_accepted","rear_fidelity_accepted","visual_fidelity_accepted","whole_room_complete"]:pieta.set_meta(flag,false)
 	pieta.reparent(pieta_case)
 	for spec in [[Vector3(-.19,1.525,0),Vector3(.012,.89,.65)],[Vector3(.19,1.525,0),Vector3(.012,.89,.65)],[Vector3(0,1.525,-.325),Vector3(.38,.89,.012)],[Vector3(0,1.525,.325),Vector3(.38,.89,.012)],[Vector3(0,1.97,0),Vector3(.38,.012,.65)]]:
 		var pane:=solid(pieta_at+spec[0],spec[1],roch_glass)
@@ -1816,7 +1828,7 @@ func build_sculpture_rooms() -> void:
 	pieta_frame.position=pieta_at+Vector3(-.19,0,0)
 	pieta_frame.rotation.y=PI/2
 	pieta_frame.reparent(pieta_case)
-	wall_case_fittings(pieta_frame,.65,.38,.97,1.08,1.97,[[0.0,.27]])
+	wall_case_fittings(pieta_frame,.65,.38,.97,pieta_deck,1.97,[[0.0,.27]])
 	inventory["renaissance_pieta"]={"accession":"59.128","closed_parts":39,"source_rear_observed":false,"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
 	build_renaissance_east_cases()
 	#6383 60.60/68.50s: the south platform is below bench height; placement and metres remain provisional.
