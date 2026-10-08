@@ -1151,3 +1151,44 @@ Reused textures (existing provider/generation record retained; zero new spend):
 Room geometry is locally authored GDScript in `impressionist_additions.gd`: six-sided plinth/clear hood, rounded upholstered bench, panelled leaves, sash windows/roller shades/aprons, grilles and detector. Plain/procedural materials and the existing white trim/wood kit are reused; no new raster generation. Borrowed gilt frame textures are fitted to approximate filmed outer dimensions; fine ornament fidelity is unaccepted. Lamps and the bake remain #274/orchestrator work.
 
 Review-only fitted-plan diagram: source `docs/evidence/impressionist-277/fitted_plan.py` (SHA-256 `a4b1d724e61effb39b521aa0a9ca86a73ee27011d59395417da34feb581f71e4`), input the prepared `geometry.json`, output `docs/evidence/impressionist-277/fitted-plan.jpg` (SHA-256 `844fee359b3274309aa94687b5211bd1e28b64d2ec7f5d3eb7c42065e12e7bad`). Provider: local Python/Pillow; model: none; cost: USD0; no paid request. It is excluded from runtime exports and makes no calibrated-plan claim.
+
+## Turned vessel exemplar (8 October 2026, neighbour of #263)
+
+`prototype/collection_reconstruction/vessels_turned_additions.gd` reuses the
+existing hollow ring-profile / turned-tureen sweep with measured photograph
+profiles and small swept handles. The exemplar is 2017.74.39.18a-c, at the
+original placement and catalogue 55.9 × 45.7 × 35.6 cm whole bounds. Source:
+`image-work/collection-room-remodel/references/tureen-catalogue-{0,1}.png`;
+colour: the already saved `trial/tureen-original.webp` (its existing Muse
+receipt is unchanged). The vessel-only preparation removes the magenta
+isolation backdrop while retaining pink porcelain decoration. Provider for
+this work: local Godot 4.7.2, Python/Pillow and ffmpeg; new image-generation
+requests: 0; model: none; new API cost: USD 0. No bake or install. Front RGB is
+repeated on unobserved rear surfaces; side texture projection and small curls
+remain approximate. Source/control/evidence hashes and sizes are in
+[`docs/evidence/vessels-turned/SHA256.json`](../../docs/evidence/vessels-turned/SHA256.json),
+with inspected draft pictures, dimensions, faults and inherited check failures
+in [`NOTES.md`](../../docs/evidence/vessels-turned/NOTES.md).
+
+## Remaining Rockefeller turned vessels (8 October 2026)
+
+The same private ring-profile builder now also replaces `pink-small-tureen`,
+`gold-tureen`, `gold-ecuelle-clean`, `pink-compote`, `agate-teapot`, `cream-jug`,
+`gold-cup-a`, `gold-cup-b` and `pink-ladle`. Each has its own photographed
+outline/control rows at the catalogue whole dimensions, plus its required
+small handle/spout/foot/lid pieces. The ladle's bowl is turned; its handle is a
+thin extrusion of its measured front silhouette. The same already saved Muse
+RGB isolates supply colour, with the original generation receipts preserved.
+New provider: local Godot 4.7.2 and Python/Pillow/OpenCV; model: none; requests:
+0; new API cost: USD 0. No production bake/install, no generated room asset
+commit, no changed instance placement. Catalogue conflicts for the teapot's
+45.7 cm width and the tall pink tureens are visible and explicitly unresolved.
+The ten existing-photo hashes, receipts, measured controls, derived RGB hashes,
+source files and small JPEG evidence are in
+[`SHA256.json`](../../docs/evidence/vessels-turned/SHA256.json), which preserves
+the exemplar's original source hashes at its standalone commit. Full dimensions,
+old drawn width corrections, exact source edits, draft checks and remaining
+fidelity limits are in
+[`NOTES.md`](../../docs/evidence/vessels-turned/NOTES.md). The 22 figural blobs
+are unchanged and named in
+[`LIST.md`](../../docs/evidence/vessels-turned/LIST.md).

@@ -1,0 +1,430 @@
+{
+  "provider": "local Godot 4.7.2 / Python / ffmpeg",
+  "model": null,
+  "new_generation_requests": 0,
+  "cost_usd": 0,
+  "source_colour": "Same existing saved Muse isolates and their original receipts; no regeneration",
+  "exemplar_commit": "5c6365b683f626ee858ca1bb300d881b9d9439da",
+  "exemplar_source_files_at_commit": {
+    "image-work/collection-room-remodel/references/tureen-catalogue-0.png": {
+      "sha256": "25e6ce893b9818e754c1db6112f391e50eabb25799bba198c06114d3e001f1b2",
+      "bytes": 1322525
+    },
+    "image-work/collection-room-remodel/references/tureen-catalogue-1.png": {
+      "sha256": "57a01f5913da02811dc942620591009f8920a9c979a762554ff32b109d1f6c91",
+      "bytes": 209220
+    },
+    "image-work/collection-room-remodel/trial/tureen-original.webp": {
+      "sha256": "30939bfd34e57184c3cea0bcd0c0fb3e9f50f70f3f72b2b29bc3d892744cd7ed",
+      "bytes": 293926
+    },
+    "image-work/collection-room-remodel/additions/vessels-turned/profiles.json": {
+      "sha256": "2c38c97d10148d534ea79653770a39eddf4bb4a0d26ae380eeecc21a68a108c5",
+      "bytes": 6146
+    },
+    "modules/shell/prototype/collection_reconstruction/vessels_turned_additions.gd": {
+      "sha256": "7a4d8c6291b0ce1dd95de2463183291c38ac59a877ec55ca8233825fece42413",
+      "bytes": 5977
+    },
+    "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": {
+      "sha256": "90006fd0e86f001f76a7ce6cc293fb21603e0a0ee9aca0c3a4e952fa411ee2fe",
+      "bytes": 65848
+    }
+  },
+  "per_work": {
+    "tureen": {
+      "accession": "2017.74.39.18a-c",
+      "catalogue_size_m": [
+        0.559,
+        0.457,
+        0.356
+      ],
+      "museum_outline_source": "image-work/collection-room-remodel/references/tureen-catalogue-0.png",
+      "existing_rgb_source": "image-work/collection-room-remodel/trial/tureen-original.webp",
+      "existing_receipt": "image-work/collection-room-remodel/tureen-receipt.json",
+      "measured_control_sha256": "a9083f5f2fefea5f30b3409e940922bdfa10b5a598e0b1a79e8bd922094f5fc9",
+      "derived_rgb": {
+        "sha256": "25a59b661ed34fe913695ed5fd3391ed45d3240800ab4f1d4392996caf25a07f",
+        "bytes": 252195
+      }
+    },
+    "pink-small-tureen": {
+      "accession": "2017.74.39.19a-c",
+      "catalogue_size_m": [
+        0.559,
+        0.483,
+        0.305
+      ],
+      "museum_outline_source": "modules/shell/collection_rooms/assets/details/pink-small-tureen.jpg",
+      "existing_rgb_source": "image-work/collection-room-remodel/trial/pink-small-tureen-original.webp",
+      "existing_receipt": "image-work/collection-room-remodel/pink-small-tureen-receipt.json",
+      "measured_control_sha256": "8ee229f61e207ae288becdf8ea2e0b19f3c1143928d9bc984eac2ce9b1f7600a",
+      "derived_rgb": {
+        "sha256": "bb7038a17dc6ef267188bfc7deaba539f38e8b219ac34bc55fb588becf12859d",
+        "bytes": 259193
+      }
+    },
+    "gold-tureen": {
+      "accession": "2017.74.38.1a-c",
+      "catalogue_size_m": [
+        0.35,
+        0.28,
+        0.267
+      ],
+      "museum_outline_source": "modules/shell/collection_rooms/assets/details/gold-tureen.jpg",
+      "existing_rgb_source": "image-work/collection-room-remodel/trial/gold-tureen-original.webp",
+      "existing_receipt": "image-work/collection-room-remodel/gold-tureen-receipt.json",
+      "measured_control_sha256": "d4305296162e1f4ac91a3e24c0b486fa40faafb75ca5091a73d2244cbbf33d5c",
+      "derived_rgb": {
+        "sha256": "07685aaf58dbc84500f3149b3fe1636ebff30d16642cfe15fde6085920d7ae70",
+        "bytes": 242115
+      }
+    },
+    "gold-ecuelle-clean": {
+      "accession": "2017.74.38.3a-c",
+      "catalogue_size_m": [
+        0.195,
+        0.14,
+        0.195
+      ],
+      "museum_outline_source": "modules/shell/collection_rooms/assets/details/gold-ecuelle-clean.jpg",
+      "existing_rgb_source": "image-work/collection-room-remodel/trial/gold-ecuelle-clean-original.webp",
+      "existing_receipt": "image-work/collection-room-remodel/gold-ecuelle-clean-receipt.json",
+      "measured_control_sha256": "80109093895ba1ef0497601ef444c1a8a1694f7a973c20aa15d420fd447d3790",
+      "derived_rgb": {
+        "sha256": "d0eedbe4d22e8d904da983a55aea78ebb10e13782b6a8e65a5641b7ca117d91c",
+        "bytes": 376904
+      }
+    },
+    "pink-compote": {
+      "accession": "2017.74.39.3",
+      "catalogue_size_m": [
+        0.306,
+        0.097,
+        0.222
+      ],
+      "museum_outline_source": "modules/shell/collection_rooms/assets/details/pink-compote.jpg",
+      "existing_rgb_source": "image-work/collection-room-remodel/trial/pink-compote-original.webp",
+      "existing_receipt": "image-work/collection-room-remodel/pink-compote-receipt.json",
+      "measured_control_sha256": "821164c14b1a563d3ba35bd371933308612825fe8a16661338ef6e49391447d0",
+      "derived_rgb": {
+        "sha256": "fbf0d5ab41b507941b0900976886f7fea404571b5451a3d4446700f51ffe2cee",
+        "bytes": 149312
+      }
+    },
+    "agate-teapot": {
+      "accession": "2017.74.24.ab",
+      "catalogue_size_m": [
+        0.457,
+        0.133,
+        0.115
+      ],
+      "museum_outline_source": "modules/shell/collection_rooms/assets/details/agate-teapot.jpg",
+      "existing_rgb_source": "image-work/collection-room-remodel/trial/agate-teapot-original.webp",
+      "existing_receipt": "image-work/collection-room-remodel/agate-teapot-receipt.json",
+      "measured_control_sha256": "ee66c39036c7a0dcbf8239cced493091075e69f82c3f92ee32e9eef95a33aac3",
+      "derived_rgb": {
+        "sha256": "fa8f52d85b27c89749cb70ef716f91b394a42efde8d180d02888e61b521da194",
+        "bytes": 220698
+      }
+    },
+    "cream-jug": {
+      "accession": "2017.74.25",
+      "catalogue_size_m": [
+        0.117,
+        0.15,
+        0.095
+      ],
+      "museum_outline_source": "modules/shell/collection_rooms/assets/details/cream-jug.jpg",
+      "existing_rgb_source": "image-work/collection-room-remodel/trial/cream-jug-original.webp",
+      "existing_receipt": "image-work/collection-room-remodel/cream-jug-receipt.json",
+      "measured_control_sha256": "68b03a058ebee4efa4c7aecddcd75443cb6ed6e4eb1eed713603751e681c24ae",
+      "derived_rgb": {
+        "sha256": "986b529b0c7c927d4b4cbf0dee6cdfb0057b9991fc193a5b074f8c37dcff4e24",
+        "bytes": 247740
+      }
+    },
+    "gold-cup-a": {
+      "accession": "2017.74.38.7",
+      "catalogue_size_m": [
+        0.088,
+        0.067,
+        0.068
+      ],
+      "museum_outline_source": "modules/shell/collection_rooms/assets/details/gold-cup-a.jpg",
+      "existing_rgb_source": "image-work/collection-room-remodel/trial/gold-cup-a-original.webp",
+      "existing_receipt": "image-work/collection-room-remodel/gold-cup-a-receipt.json",
+      "measured_control_sha256": "e7cb3fc9e0ce9e84fae06e1824314e772268c485c970475d118e5fb6e348200b",
+      "derived_rgb": {
+        "sha256": "6b9032c020d353d0c0761604e40e8a866dbd9261faa6cbdb42f359d08f0b1b92",
+        "bytes": 338839
+      }
+    },
+    "gold-cup-b": {
+      "accession": "2017.74.38.8",
+      "catalogue_size_m": [
+        0.087,
+        0.069,
+        0.068
+      ],
+      "museum_outline_source": "modules/shell/collection_rooms/assets/details/gold-cup-b.jpg",
+      "existing_rgb_source": "image-work/collection-room-remodel/trial/gold-cup-b-original.webp",
+      "existing_receipt": "image-work/collection-room-remodel/gold-cup-b-receipt.json",
+      "measured_control_sha256": "56ea2ecfb087cdf0f3a4e127aeec45414f70bd5a5b4fa072348e8022fe891aae",
+      "derived_rgb": {
+        "sha256": "032215b185cd9d864e77a0a7c04e5bc123152cef24657c1050a09f56be90224e",
+        "bytes": 244834
+      }
+    },
+    "pink-ladle": {
+      "accession": "2017.74.39.20",
+      "catalogue_size_m": [
+        0.15,
+        0.17,
+        0.066
+      ],
+      "museum_outline_source": "modules/shell/collection_rooms/assets/details/pink-ladle.jpg",
+      "existing_rgb_source": "image-work/collection-room-remodel/trial/pink-ladle-original.webp",
+      "existing_receipt": "image-work/collection-room-remodel/pink-ladle-receipt.json",
+      "measured_control_sha256": "7f3f3dbc0c6cdce4c7341b387ead1a5e8254c44c95eced4a35890fae20e72055",
+      "derived_rgb": {
+        "sha256": "a8940217214eee5ef0f12cbc28cbfd803d3c08ed430c652e4b777cb6ec04c2ee",
+        "bytes": 105740
+      }
+    }
+  },
+  "files": {
+    "docs/evidence/vessels-turned/agate-teapot-comparison.jpg": {
+      "sha256": "4d093165b94cc596d118c5cdb3d83ecaeac8d6e90009181cc1a663d64415c6f2",
+      "bytes": 141754
+    },
+    "docs/evidence/vessels-turned/capture.gd": {
+      "sha256": "0f2bb6c082666ee1100a0b25f4ed048aa93c5803e1c834432c82008e6d49a110",
+      "bytes": 6778
+    },
+    "docs/evidence/vessels-turned/cream-jug-comparison.jpg": {
+      "sha256": "4a25337dd57b41f93615194fdb7f562a1f949c9a5e8a02606f45d732029c060c",
+      "bytes": 128720
+    },
+    "docs/evidence/vessels-turned/exemplar-footage-scale.jpg": {
+      "sha256": "5b4d8a8349fe6ab1ff24cbb329086a616d2dbea0018f8d58c89c26787acb7986",
+      "bytes": 81294
+    },
+    "docs/evidence/vessels-turned/exemplar-front-three-quarter.jpg": {
+      "sha256": "31c30f57c827656ed422124a29f752bcf6511e14a17a4cb1ae055a1cbb9a2ff5",
+      "bytes": 130524
+    },
+    "docs/evidence/vessels-turned/exemplar-measurement.jpg": {
+      "sha256": "d96eb3e8ab3e34de8232fd680f5a38cbca52b04016bfc87f115cdc5afd32cd8f",
+      "bytes": 116291
+    },
+    "docs/evidence/vessels-turned/exemplar-measurements.json": {
+      "sha256": "ee472231bf55e7a440cf81f3ee799337b1c2d2ad64eb28d464e2cbec3d602549",
+      "bytes": 337
+    },
+    "docs/evidence/vessels-turned/gold-cup-a-comparison.jpg": {
+      "sha256": "3fadc98a4b469f2338f249f215cf57b5e281fb4762a5670142c5c056813cc54a",
+      "bytes": 138091
+    },
+    "docs/evidence/vessels-turned/gold-cup-b-comparison.jpg": {
+      "sha256": "27c89eef6a62df2a21aa5b5c7d980a5b168569b29a3f7b5cd392b20a8e4c4ab1",
+      "bytes": 149503
+    },
+    "docs/evidence/vessels-turned/gold-ecuelle-clean-comparison.jpg": {
+      "sha256": "2747160936aa026ae0bcb830002f9ce603c697fa5f88c58e0a79a2eafe583f2a",
+      "bytes": 132049
+    },
+    "docs/evidence/vessels-turned/gold-tureen-comparison.jpg": {
+      "sha256": "f95d4a0b1fd2abeee458386645d9a054c7ad3fc056047e511504d432cc7d0f47",
+      "bytes": 137337
+    },
+    "docs/evidence/vessels-turned/pink-compote-comparison.jpg": {
+      "sha256": "c53ccbbe554fff29ce21e946312a7e915f434a6d379773f589b1224e14e1af8f",
+      "bytes": 91157
+    },
+    "docs/evidence/vessels-turned/pink-ladle-comparison.jpg": {
+      "sha256": "6d87d71b913bddb2a590a4760685ab5c2dee3a8ecb4cc592f6702c9c695be5a8",
+      "bytes": 139711
+    },
+    "docs/evidence/vessels-turned/pink-small-tureen-comparison.jpg": {
+      "sha256": "01b46b307d9cc75140b0c14946fccdc20efe1e587508b5e9ed9445b0a11e50dd",
+      "bytes": 126560
+    },
+    "docs/evidence/vessels-turned/rockefeller-before-after.jpg": {
+      "sha256": "fd088f149945c3028524b202ce5c9dbe849537e5d79db67cd4bed9c016a98eee",
+      "bytes": 146698
+    },
+    "docs/evidence/vessels-turned/room-measurements.json": {
+      "sha256": "8d68abae46ed016474fa070aa7e56858bf347289b5d9ccdf02f83fc28ec1b516",
+      "bytes": 5388
+    },
+    "image-work/collection-room-remodel/additions/vessels-turned/profiles.json": {
+      "sha256": "0696c1f9ae643b24a4fdf454be6799a575a63740322e0551a230d89e84170aeb",
+      "bytes": 44893
+    },
+    "image-work/collection-room-remodel/agate-teapot-receipt.json": {
+      "sha256": "32bd71a66951255d3b8b804f26ee795953f40ef98a16b14a940056ea37b34108",
+      "bytes": 2165
+    },
+    "image-work/collection-room-remodel/cream-jug-receipt.json": {
+      "sha256": "e933ecdcf75659ed1e417dd2581b7d88e53ac4ce686c26f36ca83f1aab1f2b2b",
+      "bytes": 2152
+    },
+    "image-work/collection-room-remodel/gold-cup-a-receipt.json": {
+      "sha256": "c245400133b9a37bff39b5b6ecb6300ee172b61efa99120231b7e7d1edfdfaa2",
+      "bytes": 2121
+    },
+    "image-work/collection-room-remodel/gold-cup-b-receipt.json": {
+      "sha256": "d5f5966025a42c10eadcb7c80a406d019896107e8562f2e4556284e8ba8bfd4a",
+      "bytes": 2121
+    },
+    "image-work/collection-room-remodel/gold-ecuelle-clean-receipt.json": {
+      "sha256": "cdc619d111a00c15621f21ff4d8bde69aac61b96947391c1800f70008a1a25d4",
+      "bytes": 2694
+    },
+    "image-work/collection-room-remodel/gold-tureen-receipt.json": {
+      "sha256": "ec9b0027302a2a14d1ce28cf01367a07b98b22926ced4dc8c5e8c1a848f8396a",
+      "bytes": 2315
+    },
+    "image-work/collection-room-remodel/pink-compote-receipt.json": {
+      "sha256": "c1f44a8b10decdcb02241461c3d0c7642e213ce81e29ba77facd5a3058d242df",
+      "bytes": 2302
+    },
+    "image-work/collection-room-remodel/pink-ladle-receipt.json": {
+      "sha256": "1aa768911db10241e239108c886f358c9ee8335eb4885b9a1893aa807b493aed",
+      "bytes": 2136
+    },
+    "image-work/collection-room-remodel/pink-small-tureen-receipt.json": {
+      "sha256": "f73e998930ed481c2b02d9efc9fb794121bce8bd4b956a9db25acfb13b2dbda7",
+      "bytes": 2171
+    },
+    "image-work/collection-room-remodel/references/tureen-catalogue-0.png": {
+      "sha256": "25e6ce893b9818e754c1db6112f391e50eabb25799bba198c06114d3e001f1b2",
+      "bytes": 1322525
+    },
+    "image-work/collection-room-remodel/references/tureen-catalogue-1.png": {
+      "sha256": "57a01f5913da02811dc942620591009f8920a9c979a762554ff32b109d1f6c91",
+      "bytes": 209220
+    },
+    "image-work/collection-room-remodel/trial/agate-teapot-original.webp": {
+      "sha256": "c5ad727b7f957c631f5cef94e3e571c3abf390faa886ab6b8853435162a4a4d1",
+      "bytes": 240006
+    },
+    "image-work/collection-room-remodel/trial/cream-jug-original.webp": {
+      "sha256": "6170368cb3a03f038b19b6dc708b06d58a39e8f454219e7e2c42b71c0e1c9824",
+      "bytes": 331734
+    },
+    "image-work/collection-room-remodel/trial/gold-cup-a-original.webp": {
+      "sha256": "fe1ff10c92a29711452153bb89169a032bcf35b7f8c21f1d0ea19de6a571bf4e",
+      "bytes": 288516
+    },
+    "image-work/collection-room-remodel/trial/gold-cup-b-original.webp": {
+      "sha256": "c7c1b47de2b8e5bd2284c27c4fa4496e334e7134657c657d4df813ec8d13e0d2",
+      "bytes": 196246
+    },
+    "image-work/collection-room-remodel/trial/gold-ecuelle-clean-original.webp": {
+      "sha256": "5b70590db6d48ff9eb3a56994b9891061b948d9c6aee38f1661f47df29cd6071",
+      "bytes": 388084
+    },
+    "image-work/collection-room-remodel/trial/gold-tureen-original.webp": {
+      "sha256": "181ee7d703106e21367fe58e045ea6271a9c1452c1bb662c597765e12c9afd37",
+      "bytes": 228866
+    },
+    "image-work/collection-room-remodel/trial/pink-compote-original.webp": {
+      "sha256": "bec46038fb9c91cac8d58cdf74e5810db5e62513c12e3c888f79070b427e24e7",
+      "bytes": 365484
+    },
+    "image-work/collection-room-remodel/trial/pink-ladle-original.webp": {
+      "sha256": "6166c76adab92f2805b4bce92bedc2d11eef63d9f1f46eb68aeeee092f891204",
+      "bytes": 169888
+    },
+    "image-work/collection-room-remodel/trial/pink-small-tureen-original.webp": {
+      "sha256": "5de8f30fefb7596a7e64566009208fb361a0f9b585892a1b951808ffc8abd708",
+      "bytes": 279326
+    },
+    "image-work/collection-room-remodel/trial/tureen-original.webp": {
+      "sha256": "30939bfd34e57184c3cea0bcd0c0fb3e9f50f70f3f72b2b29bc3d892744cd7ed",
+      "bytes": 293926
+    },
+    "image-work/collection-room-remodel/tureen-receipt.json": {
+      "sha256": "335dbfdaaebfffca55c0dda41253ee59cb8d36bf0ec10fb42c95a79ba5b03f5a",
+      "bytes": 2336
+    },
+    "image-work/collection-room-remodel/video-inventory.json": {
+      "sha256": "8e96ab91db300defa4454d4b56c0b381c0f5d92420de71d14785fdd5c1b2e3fd",
+      "bytes": 30175
+    },
+    "modules/shell/collection_rooms/assets/details/agate-teapot.jpg": {
+      "sha256": "4b1f369b1b0ecc1ec3f2bb4a639b6c48d5164081d35f79700c9f55c6065497d8",
+      "bytes": 98114
+    },
+    "modules/shell/collection_rooms/assets/details/cream-jug.jpg": {
+      "sha256": "8e9e873daf13d8bc9b6e71ec0bb2da944509a5b777dd5aaf99639af793b49dab",
+      "bytes": 112623
+    },
+    "modules/shell/collection_rooms/assets/details/gold-cup-a.jpg": {
+      "sha256": "c85d9f16572fbd59ec49bf48972bd66e7af2d7ac4cc41a18f07b5c83423a0b2a",
+      "bytes": 102735
+    },
+    "modules/shell/collection_rooms/assets/details/gold-cup-b.jpg": {
+      "sha256": "3aca282f3377d074a607a6cb25c1bb61025d0cfe9468647295f355242035d978",
+      "bytes": 97359
+    },
+    "modules/shell/collection_rooms/assets/details/gold-ecuelle-clean.jpg": {
+      "sha256": "b2ad0fadfb0aef31ebd717487e098f7e8f0cdb26572eba9006721302fc6f573c",
+      "bytes": 117364
+    },
+    "modules/shell/collection_rooms/assets/details/gold-tureen.jpg": {
+      "sha256": "4ecb7ba0489e0efabd8401d9f400985f9f0cd429875ca8297f4fa9af4a1b5f17",
+      "bytes": 107777
+    },
+    "modules/shell/collection_rooms/assets/details/pink-compote.jpg": {
+      "sha256": "eaf9ed924ea9d3305638d9df9526b2a2b3d1c6dc59bed06ee20633be257628f2",
+      "bytes": 58319
+    },
+    "modules/shell/collection_rooms/assets/details/pink-ladle.jpg": {
+      "sha256": "2a31dc37363af2a6b72abfb7d2d7ed7fe48cc396667f9c8073e0c4d04aa41818",
+      "bytes": 52591
+    },
+    "modules/shell/collection_rooms/assets/details/pink-small-tureen.jpg": {
+      "sha256": "0507e7620697056f506b0f0cd7ed1c47b47bb2b87079dab1cf6801129ae2cd69",
+      "bytes": 93909
+    },
+    "modules/shell/collection_rooms/objects.json": {
+      "sha256": "de2580c8b9d4dc7ceedaa95ac21f19de4af47b3ed83915f0db9a678dcb90c73e",
+      "bytes": 99700
+    },
+    "modules/shell/collection_rooms/representation.json": {
+      "sha256": "0d63929d80ba42d0f451d0d97ab5285e89b7b5bcfdf75d36b39f5409d55fcd19",
+      "bytes": 14753
+    },
+    "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": {
+      "sha256": "90006fd0e86f001f76a7ce6cc293fb21603e0a0ee9aca0c3a4e952fa411ee2fe",
+      "bytes": 65848
+    },
+    "modules/shell/prototype/collection_reconstruction/remodel_room.gd": {
+      "sha256": "8f3514f33259c95854b101cc4792673e5d280c88e1d2813de07bc6ee40c61c63",
+      "bytes": 124894
+    },
+    "modules/shell/prototype/collection_reconstruction/vessels_turned_additions.gd": {
+      "sha256": "5346cb3ad3dec51a45c638bdf98697a1ccca43c7c774c711c1b6247ced512435",
+      "bytes": 8123
+    },
+    "modules/shell/PROVENANCE.md": {
+      "sha256": "d08352df31d943a5878b79f58d0d05b24adee4e09c356b3da91be4e35f0ba663",
+      "bytes": 171601
+    },
+    "docs/evidence/vessels-turned/NOTES.md": {
+      "sha256": "9bd290a90f12fd27c694bd1f17b81b884d908abdb6dd80fcfca866e17de2bdcb",
+      "bytes": 23195
+    },
+    "docs/evidence/vessels-turned/LIST.md": {
+      "sha256": "b898c1cfaebc019e96b10b25a6bfd1b15e1ea90f06b27b6b62e18586bbbf1bf8",
+      "bytes": 4635
+    },
+    "docs/evidence/vessels-turned/index.html": {
+      "sha256": "0259800a44661346cd3bc1d2216ea3f42c6fd48982619fae1c7e61a2a9afcc21",
+      "bytes": 1920
+    }
+  }
+}
