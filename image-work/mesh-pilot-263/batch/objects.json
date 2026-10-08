@@ -66,7 +66,10 @@
   "run": {
    "id": "run_m17awqvb1fc7j3rgec2ecdhwqd8fxed6",
    "params": "face limit 10,000, texture on, PBR off",
-   "quote": 0.36
+   "quote": 0.36,
+   "charged": 0.36,
+   "sha256": "652c07a2d2a69b2f4890f454355a085d1dbe5c8090e43604e345f2f16e97f482",
+   "view": "turn 90 deg, eye distance 8, silhouette IoU 0.965"
   }
  },
  "37.114": {
@@ -79,7 +82,10 @@
   "run": {
    "id": "run_m172gex01fwk3ge0rfwttpw1f58fxcwc",
    "params": "face limit 10,000, texture on, PBR off",
-   "quote": 0.36
+   "quote": 0.36,
+   "charged": 0.36,
+   "sha256": "ea68001ee00258e877d0512938158a3d1aba7b6fd294bd022bfbe23c7142486f",
+   "view": "turn 90 deg, eye distance 2.4, silhouette IoU 0.951"
   }
  },
  "69.196": {
@@ -104,6 +110,71 @@
   "prepare": "--height 1.003",
   "run": {
    "id": "run_m174ayc2vvf2pc5n6441r0hxm18fwz4s",
+   "params": "face limit 10,000, texture on, PBR off",
+   "quote": 0.36
+  }
+ },
+ "41.045": {
+  "title": "Unknown maker. *Apostle*. Limestone. Height 86 cm.",
+  "source": "modules/shell/collection_rooms/assets/details/apostle-41045.jpg",
+  "cut": "GrabCut",
+  "photo": true,
+  "size": 1024,
+  "prepare": "--height 0.86 --wall-origin",
+  "run": {
+   "id": "run_m172ep6ca78694afh5h1r8vey18fwx1v",
+   "params": "face limit 10,000, texture on, PBR off",
+   "quote": 0.36
+  }
+ },
+ "41.046": {
+  "title": "Unknown maker. *Apostle*. Limestone. Height 86 cm.",
+  "source": "modules/shell/collection_rooms/assets/details/apostle-41046.jpg",
+  "cut": "saturation key",
+  "photo": true,
+  "size": 1024,
+  "prepare": "--height 0.86 --wall-origin",
+  "run": {
+   "id": "run_m174wv3bwwwv0w0f6ws2pfa8898fw2s7",
+   "params": "face limit 10,000, texture on, PBR off",
+   "quote": 0.36
+  }
+ },
+ "44.674": {
+  "title": "Giambologna. *River God (The Virile Age; The Euphrates)*, ca. 1575. Terracotta. 48.3 × 43.5 × 31.8 cm.",
+  "source": "modules/shell/collection_rooms/assets/additions/european-east/rivergod-44.674.jpg",
+  "cut": "saturation key",
+  "photo": true,
+  "size": 1024,
+  "prepare": "--height 0.483",
+  "run": {
+   "id": "run_m17abfthe2dpdhrmqrmy38f1dn8fxx0g",
+   "params": "face limit 10,000, texture on, PBR off",
+   "quote": 0.36
+  }
+ },
+ "37.201": {
+  "title": "*Bust of Madame Récamier*. Marble. Height 61 cm with its socle.",
+  "source": "modules/shell/collection_rooms/assets/details/recamier.jpg",
+  "cut": "saturation and brightness key, museum plinth cut off below",
+  "photo": false,
+  "size": 1024,
+  "prepare": "--height 0.606",
+  "run": {
+   "id": "run_m17f3gpazfvwttb8zs87250hxd8fw64s",
+   "params": "face limit 10,000, texture on, PBR off",
+   "quote": 0.36
+  }
+ },
+ "06.057": {
+  "title": "Domenico Gagini. *Tabernacle*. Marble. 50.8 × 73.7 cm.",
+  "source": "modules/shell/collection_rooms/assets/additions/european-west/tabernacle-06.057.jpg",
+  "cut": "saturation key, the opening kept open",
+  "photo": true,
+  "size": 1024,
+  "prepare": "--height 0.508 --width 0.737",
+  "run": {
+   "id": "run_m1753wyfcpkbrybzvhpynfgd098fw3h0",
    "params": "face limit 10,000, texture on, PBR off",
    "quote": 0.36
   }

@@ -8,13 +8,15 @@ import sys, json, argparse
 import numpy as np, cv2
 from PIL import Image
 p = argparse.ArgumentParser(); p.add_argument('photo'); p.add_argument('out'); p.add_argument('rect')
-p.add_argument('--outline'); p.add_argument('--key'); p.add_argument('--key-lum', type=int); p.add_argument('--iters', type=int, default=8); p.add_argument('--floor', type=float); p.add_argument('--under', default='255,255,255'); p.add_argument('--open-below'); p.add_argument('--key-sat', type=int)
+p.add_argument('--outline'); p.add_argument('--key'); p.add_argument('--key-lum', type=int); p.add_argument('--keep-holes', action='store_true'); p.add_argument('--iters', type=int, default=8); p.add_argument('--floor', type=float); p.add_argument('--under', default='255,255,255'); p.add_argument('--open-below'); p.add_argument('--key-sat', type=int)
 a = p.parse_args()
 im = cv2.imread(a.photo); h, w = im.shape[:2]
 mask = np.zeros((h, w), np.uint8); bg = np.zeros((1, 65)); fg = np.zeros((1, 65))
 if a.key_sat:
     sat = cv2.cvtColor(im, cv2.COLOR_BGR2HSV)[..., 1]
-    m = cv2.morphologyEx((sat > a.key_sat).astype('uint8'), cv2.MORPH_CLOSE, np.ones((15, 15), np.uint8))
+    keep = sat > a.key_sat
+    if a.key_lum: keep |= cv2.cvtColor(im, cv2.COLOR_BGR2GRAY) > a.key_lum  # and its pale highlights
+    m = cv2.morphologyEx(keep.astype('uint8'), cv2.MORPH_CLOSE, np.ones((15, 15), np.uint8))
     if a.outline:  # the outline already measured on this photograph bounds the key
         pts = (np.array(json.load(open(a.outline))['outline']) * [w, h]).astype(np.int32)
         poly = np.zeros((h, w), np.uint8); cv2.fillPoly(poly, [pts], 1); m &= cv2.dilate(poly, np.ones((31, 31), np.uint8))
@@ -33,7 +35,7 @@ if a.open_below:  # FRACTION[:KERNEL] - below that height, keep only what lies w
 n, lab, stats, _ = cv2.connectedComponentsWithStats(m)
 m = (lab == 1 + np.argmax(stats[1:, cv2.CC_STAT_AREA])).astype('uint8')
 m = cv2.morphologyEx(m, cv2.MORPH_CLOSE, np.ones((5, 5), np.uint8))
-ff = np.pad(m, 1); cv2.floodFill(ff, np.zeros((h + 4, w + 4), np.uint8), (0, 0), 2); m[ff[1:-1, 1:-1] == 0] = 1  # fill enclosed holes; the pad lets the fill run round an object that touches the picture's edge
+ff = np.ones((h + 2, w + 2), np.uint8) * 2 if a.keep_holes else np.pad(m, 1); cv2.floodFill(ff, np.zeros((h + 4, w + 4), np.uint8), (0, 0), 2); m[ff[1:-1, 1:-1] == 0] = 1  # fill enclosed holes; the pad lets the fill run round an object that touches the picture's edge
 alpha = cv2.GaussianBlur(m * 255, (3, 3), 0)
 ys, xs = np.where(m > 0); x0, x1, y0, y1 = xs.min(), xs.max() + 1, ys.min(), ys.max() + 1
 rgb = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
