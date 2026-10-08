@@ -18,7 +18,7 @@ import numpy as np, cv2
 from PIL import Image
 
 p = argparse.ArgumentParser(); p.add_argument("glb"); p.add_argument("cutout"); p.add_argument("out")
-p.add_argument("--size", type=int, default=2048); p.add_argument("--turns", default="0,90,180,270"); p.add_argument("--atlas"); p.add_argument("--view-only", action="store_true"); p.add_argument("--layer"); p.add_argument("--ramp", default="0.15,0.35"); p.add_argument("--no-flow", action="store_true"); p.add_argument("--debug")
+p.add_argument("--size", type=int, default=2048); p.add_argument("--turns", default="0,90,180,270"); p.add_argument("--atlas"); p.add_argument("--view-only", action="store_true"); p.add_argument("--layer"); p.add_argument("--ramp", default="0.15,0.35"); p.add_argument("--no-flow", action="store_true"); p.add_argument("--debug"); p.add_argument("--pose")
 a = p.parse_args()
 
 # --- the mesh: positions, UVs, triangles, texture
@@ -40,6 +40,10 @@ for node in g["nodes"]:
         pos = view(prim["attributes"]["POSITION"]).astype(np.float64) + np.array(node.get("translation", [0, 0, 0]))
         P.append(pos); UV.append(view(prim["attributes"]["TEXCOORD_0"]).astype(np.float64) if "TEXCOORD_0" in prim["attributes"] else ZERO(len(pos))); F.append(view(prim["indices"]).reshape(-1, 3).astype(np.int64) + base); base += len(pos)
 P, UV, F = np.vstack(P), np.vstack(UV), np.vstack(F)
+if a.pose:  # WIDTH,DEPTH,LEAN from clay_mesh.py's record: undo its sizing and its --upright, so the mesh stands as the
+    # generator made it from this very view. A deep relief drawn looking 15 degrees down does not register otherwise.
+    wx, dz, lean = [float(x) for x in a.pose.split(",")]; P = P - (P.max(0) + P.min(0)) / 2; P[:, 0] /= wx; P[:, 2] /= dz
+    c, s = np.cos(np.radians(-lean)), np.sin(np.radians(-lean)); P = np.stack([P[:, 0], c * P[:, 1] - s * P[:, 2], s * P[:, 1] + c * P[:, 2]], 1)
 if a.atlas:  # paint over an earlier result: this is how several views are laid on one after another
     atlas = np.array(Image.open(a.atlas).convert("RGB"))
 elif g.get("images"):

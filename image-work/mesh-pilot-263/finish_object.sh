@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # One batch object after its Tripo Multi-View run finished: steps 4 to 11 of RECIPE.md, unshaded batch size.
+# CUT="--keep-holes" keeps an opening that goes through the object open in the flat views' cut-outs.
 # AO=0.5 raises the baked occlusion in the colour from its 0.35 (a pale relief against a pale wall).
 # usage: finish_object.sh ACCESSION GLB_URL CHARGED SETTING(floor|plinth|wall) SIZE_PX "view:turns:weight ..." -- <clay_mesh.py size options>
 # Writes the mesh to modules/shell/prototype/mesh_pilot/meshes/<accession>/ (replacing what is there), a sheet to
@@ -9,7 +10,7 @@ here=$(cd "$(dirname "$0")" && pwd); acc=$1; url=$2; charged=$3; setting=$4; siz
 d=$here/batch/$acc; tmp=/tmp/mp263/batch/$name; mkdir -p "$tmp" docs/evidence/mesh-pilot-263/batch; dir=modules/shell/prototype/mesh_pilot/meshes/$acc
 B=~/apps/blender-5.2.2/blender-5.2.2-linux-x64/blender; source ~/promo-lab/gpu-env.sh; export DISPLAY=:99; godot=$HOME/.local/opt/godot-4.7.2/Godot_v4.7.2-stable_linux.x86_64
 [ -f "$tmp/low.glb" ] || { curl -sS -m 600 -o "$tmp/raw.glb" "$url"; rawsha=$(sha256sum "$tmp/raw.glb" | cut -c1-64); echo "$rawsha" > "$tmp/raw.sha256"; }
-[ -z "${PLAIN:-}" ] && for spec in $specs; do v=${spec%%:*}; python3 "$here/cut_photo.py" "$d/flat-$v.png" "$d/flat-$v-cut.png" 0,0,0,0 --key-white 14 >/dev/null; done
+[ -z "${PLAIN:-}" ] && for spec in $specs; do v=${spec%%:*}; python3 "$here/cut_photo.py" "$d/flat-$v.png" "$d/flat-$v-cut.png" 0,0,0,0 --key-white 14 ${CUT:-} >/dev/null; done
 [ -z "${PLAIN:-}" ] && python3 "$here/match_colour.py" "$d/cut.png" "$d/flat-front-cut.png" -matched $(for spec in $specs; do echo "$d/flat-${spec%%:*}-cut.png"; done) | cut -c1-120
 if [ ! -f "$tmp/low.glb" ]; then
   turn=$(python3 "$here/project_photo.py" "$tmp/raw.glb" "$d/flat-front-cut.png" x.png --view-only --turns "$(seq -s, 0 15 345)" | tee "$tmp/view.txt" | sed -n 's/^view: turn \([0-9.]*\) deg.*/\1/p'); tail -1 "$tmp/view.txt"
@@ -31,6 +32,7 @@ if [ -n "${PLAIN:-}" ]; then  # plain white marble or porcelain: PLAIN="strength
   [ -f "$tmp/front.png" ] && [ ! -f "$tmp/front-projected.png" ] && cp "$tmp/front.png" "$tmp/front-projected.png"
   python3 "$here/plain_colour.py" "$d/cut.png" "$tmp/low.ao.png" "$tmp/final.colour.png" "$size" $PLAIN
 else
+  POSE=$(python3 -c "import json,sys; l=json.load(open(sys.argv[1])); s=l['scale']; print(f\"{s['width_against_height']},{s['depth_against_height']},{l['lean_removed_deg']}\" if 'lean_removed_deg' in l else '')" "$tmp/low.json"); export POSE
   "$here/colour_mesh2.sh" "$tmp/low.glb" "$d" "$tmp/pre.glb" "$size" -cut-matched "${AO:-0.35}" flat "$specs" | grep -E "^[a-z]+: view|blended|Error" | cut -c1-110
   place "$tmp/pre.glb"; shot front
   python3 "$here/match_in_scene.py" "$d/cut.png" "$tmp/front.png" "$tmp/pre.colour.png" "$tmp/final.colour.png" | cut -c1-160
@@ -44,15 +46,19 @@ import sys, json, io, os, hashlib
 from PIL import Image, ImageDraw, ImageFont
 acc, name, d, tmp, dir_, scn, tex, charged, specs = sys.argv[1:10]; scn, tex = int(scn), int(tex); here = os.path.dirname(d.rstrip('/')).rsplit('/batch', 1)[0]
 font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 13); h = 300; fit = lambda im: im.resize((max(1, im.width * h // im.height), h), Image.LANCZOS)
+sz = json.load(open(f'{tmp}/low.json'))['size_m_width_height_depth']; wide = sz[0] > sz[1]  # a wide object needs wide crops
+CC, GC, SC = ((40, 400, 1400, 1360), (0, 60, 420, 360), (150, 150, 810, 600)) if wide else ((250, 100, 1190, 1660), (80, 10, 340, 410), (270, 30, 690, 610))
 views = json.load(open(f'{d}/views.json'))['views']; made = json.load(open(f'{d}/made.json')); order = [s.split(':')[0] for s in specs.split()][::-1]
 cells = [('Catalogue photograph', fit(Image.open(os.path.expanduser(views['front']['file'])).convert('RGB')))]
-cells += [(f'Clay: {v}' + ('' if 'photograph' in made[f'clay-{v}']['from'] else ' (inferred)'), fit(Image.open(f'{d}/clay-{v}.png').convert('RGB').crop((250, 100, 1190, 1660)))) for v in order]
-cells += [(f'Grey mesh: {n}', fit(Image.open(f'{tmp}/grey-{y}.png').convert('RGB').crop((80, 10, 340, 410)))) for y, n in (('000', 'front'), ('090', 'side'), ('180', 'back'))]
-if os.path.exists(f'{tmp}/front-projected.png') and os.environ.get('PLAIN'): cells += [('Projected colour (rejected)', fit(Image.open(f'{tmp}/front-projected.png').convert('RGB').crop((270, 30, 690, 610))))]
-cells += [(f'Coloured, unshaded: {n}', fit(Image.open(f'{tmp}/{v}.png').convert('RGB').crop((270, 30, 690, 610)))) for v, n in (('front', 'front'), ('threequarter', '3/4'))]
-W = sum(c.width for _, c in cells) + 6 * len(cells); s = Image.new('RGB', (W, h + 22), 'white'); dr = ImageDraw.Draw(s); x = 0
-for label, im in cells: dr.text((x + 2, 4), label, fill='black', font=font); s.paste(im, (x, 22)); x += im.width + 6
-if W > 1800: s = s.resize((1800, (h + 22) * 1800 // W), Image.LANCZOS)
+cells += [(f'Clay: {v}' + ('' if 'photograph' in made[f'clay-{v}']['from'] else ' (inferred)'), fit(Image.open(f'{d}/clay-{v}.png').convert('RGB').crop(CC))) for v in order]
+cells += [(f'Grey mesh: {n}', fit(Image.open(f'{tmp}/grey-{y}.png').convert('RGB').crop(GC))) for y, n in (('000', 'front'), ('090', 'side'), ('180', 'back'))]
+if os.path.exists(f'{tmp}/front-projected.png') and os.environ.get('PLAIN'): cells += [('Projected colour (rejected)', fit(Image.open(f'{tmp}/front-projected.png').convert('RGB').crop(SC)))]
+cells += [(f'Coloured, unshaded: {n}', fit(Image.open(f'{tmp}/{v}.png').convert('RGB').crop(SC))) for v, n in (('front', 'front'), ('threequarter', '3/4'))]
+rows = [cells[:4], cells[4:]] if wide else [cells]; W = max(sum(c.width + 6 for _, c in r) for r in rows); s = Image.new('RGB', (W, (h + 22) * len(rows)), 'white'); dr = ImageDraw.Draw(s)
+for j, r in enumerate(rows):
+    x = 0
+    for label, im in r: dr.text((x + 2, 4 + j * (h + 22)), label, fill='black', font=font); s.paste(im, (x, 22 + j * (h + 22))); x += im.width + 6
+if W > 1800: s = s.resize((1800, s.height * 1800 // W), Image.LANCZOS)
 b = io.BytesIO(); s.save(b, 'JPEG', quality=86, optimize=True); open(f'docs/evidence/mesh-pilot-263/batch/{acc}.jpg', 'wb').write(b.getvalue())
 low = json.load(open(f'{tmp}/low.json')); o = json.load(open(f'{here}/batch/objects.json')); mf = o[acc]['muse_first']; run = mf['run']; run['charged'] = float(charged)
 if os.path.exists(f'{tmp}/raw.sha256'): run['sha256'] = open(f'{tmp}/raw.sha256').read().strip()

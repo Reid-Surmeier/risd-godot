@@ -71,6 +71,8 @@ The Hand of God redone as plain marble (no charge): accepted, 233 KB.
 | Apostle 41.045 | 3 (0.03) | Multi-View 0.48 / 0.48 | accepted as a relief, 256 KB |
 | Apostle 41.046 | 3 (0.03) | Multi-View 0.48 / 0.48 | accepted as a relief, 278 KB |
 | Christ in Majesty 69.196 | 3 (0.03) | Multi-View 0.48 / 0.48, rejected: the invented side view gave a second arm and a 0.46 m block | not kept |
-| Christ in Majesty 69.196, redo | none | single view from the clay front alone, 0.48 / 0.48 | 258 KB; waiting for the lead's look before placing |
+| Christ in Majesty 69.196, redo | none | single view from the clay front alone, 0.48 / 0.48 | accepted, 271 KB with the occlusion at 0.5; placed in the room source |
 
-**Batch so far: 4.76 USD** (44 Muse images 0.44, eight Multi-View meshes 3.84, one single-view mesh 0.48). **Whole effort: 11.88 USD charged.**
+| Tabernacle 06.057 | 2 (0.02) | single view from the clay front alone, 0.48 / 0.48 | 260 KB, plain-marble colour; waiting for the lead's look, not placed |
+
+**Batch so far: 5.26 USD** (46 Muse images 0.46, eight Multi-View meshes 3.84, two single-view meshes 0.96). **Whole effort: 12.38 USD charged.**

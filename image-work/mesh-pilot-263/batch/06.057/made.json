@@ -1,0 +1,17 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/06.057/front.jpg",
+   "~/risd-godot-ingestion/catalogue-masters/06.057/other-02.jpg (detail: the right-hand angels)",
+   "~/risd-godot-ingestion/catalogue-masters/06.057/other-03.jpg (detail: the opening and the floor)"
+  ]
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/06.057/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/06.057/front.jpg"
+  ]
+ }
+}

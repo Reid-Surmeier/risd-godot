@@ -21,6 +21,8 @@ OBJECTS = {  # accession: page, what it is (named parts come from the museum's a
  "41.045": ("apostle-41045", "a tall narrow limestone relief of a standing apostle with crossed hands", "weathered grey-buff limestone", None),
  "41.046": ("apostle-41046", "a tall narrow limestone relief of a standing apostle", "weathered grey-buff limestone", None),
  "06.057": ("tabernacle-06057", "a marble tabernacle relief with two kneeling angels either side of a rectangular opening that goes right through", "ivory-white marble with warm staining", None),
+ "59.128": ("pieta-59128", "a small carved linden-wood group: the Virgin Mary seated on a low mound, tall at the left with her right hand raised to her veil, holding the dead Christ across her lap, his head fallen to the right and his legs running down to the left", "bare linden wood, warm mid-brown, no paint", None),
+ "21.398": ("saint-roch-21398", "a standing carved wood figure of Saint Roch as a pilgrim in a short tunic and boots, on its own wooden base, a small dog at his left foot, his left arm raised and broken off, a bag at his right hip", "wood with worn old paint: browns, dull red and traces of flesh colour", None),
  "37.201": ("bust-madame-recamier-37201", "a marble bust of a young woman with curled hair bound in a cloth, on a round socle", "white marble, slightly warm", None),
  "23.005": ("hand-god-23005", "a marble of one great right hand rising upright from a rough-hewn block of stone, its fingers curled around a lump of rough stone from which two small entwined figures are only half carved; the block below is pitted and coarse, the hand smooth", "plain white marble, the hand polished and the block rough and pitted, with no veining and no cracks",
             "The two small figures are nude. Tripo accepted the catalogue photograph of this piece on 8 Oct; Muse is untested. Try one clay view; if refused, use the fallback."),
@@ -43,7 +45,7 @@ FLAT = ("Reference 1 is a grey clay maquette of a sculpture. Reference 2 is the 
         "Matte. Plain seamless white background, no cast shadow, no plinth, no text.")
 HOW = {"right": "exactly from its own right side in true profile, camera level and at ninety degrees to the front", "side": "exactly from its own left side in true profile, camera level and at ninety degrees to the front", "back": "from directly behind", "threequarter": "three-quarter from the front, turned about forty-five degrees"}
 PICK = {"back": r"\b(rear|back view|from behind|back of|reverse)\b", "side": r"\b(profile|side view|from the side|seen from the (left|right))\b", "threequarter": r"\b(angled|three-quarter|oblique|at an angle|turned)\b"}
-BY_EYE = {"59.131": {"back": 3}, "23.005": {"side": 10, "back": 2, "right": 7}, "37.201": {"threequarter": 2}, "37.114": {"side": 17, "back": 4, "right": 16, "threequarter": 7}}  # photographs with no alt text, assigned by looking: accession -> view -> photograph number
+BY_EYE = {"21.398": {"back": 2}, "59.131": {"back": 3}, "23.005": {"side": 10, "back": 2, "right": 7}, "37.201": {"threequarter": 2}, "37.114": {"side": 17, "back": 4, "right": 16, "threequarter": 7}}  # photographs with no alt text, assigned by looking: accession -> view -> photograph number
 CLOSE = r"\b(close-up|detail|close up|closeup)\b"
 
 def get(url, binary=False):

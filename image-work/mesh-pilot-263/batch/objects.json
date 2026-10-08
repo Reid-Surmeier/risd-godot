@@ -339,9 +339,16 @@
     "model": "Tripo H3.1 (`i3d-tripo-h3-1-i3d`), single view",
     "params": "geometry detailed, texture off, face limit 500,000",
     "quote": 0.48,
-    "charged": null
+    "charged": 0.48,
+    "sha256": "71be5244776f722f4be4b7948aabcf13535a1e8e742ccdaca0d03c43a1160e0f"
    },
-   "views": "the clay front alone (the rule for reliefs); the clay front drawn from the front photograph and two detail photographs"
+   "views": "the clay front alone (the rule for reliefs); the clay front drawn from the front photograph and two detail photographs",
+   "imported": {
+    "mesh": 219439,
+    "colour": 47086,
+    "total": 266525
+   },
+   "size_note": "The catalogue gives no depth: 0.18 m is an estimate from the museum's detail photograph of the right-hand angels; the generator made 0.27 m"
   }
  }
 }
