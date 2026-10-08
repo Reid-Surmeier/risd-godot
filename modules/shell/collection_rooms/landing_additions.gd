@@ -269,15 +269,14 @@ func paint_walls() -> void:
 		for old in wall.get_children().slice(2):
 			if not old is MeshInstance3D:
 				continue
-			var m = old.material_override
-			if m is StandardMaterial3D and m.albedo_texture != null and m.albedo_texture.resource_path.ends_with("/baseboard.png"):
+			if old.get_meta("trim", "") == "baseboard":
 				old.free()
 		if side == "south":
 			continue
 		var start: float = wall.position.z - reach.z / 2
 		var inward := 1.0 if side == "west" else -1.0
-		var trim: MeshInstance3D = room.moulding(edge - start, .16, "baseboard", false)
-		trim.position = Vector3(wall.position.x + inward * .065, .08, (start + edge) / 2)
+		var trim: MeshInstance3D = room.moulding(edge - start, .20, "baseboard", false)
+		trim.position = Vector3(wall.position.x + inward * .065, .10, (start + edge) / 2)
 		trim.rotation.y = inward * PI / 2
 		trim.reparent(wall)
 		# The stairwell's part of this wall is white from the landing edge south.

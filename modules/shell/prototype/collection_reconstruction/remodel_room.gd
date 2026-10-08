@@ -353,6 +353,183 @@ func place_mesh(path:String,at:Vector3,yaw:float,size_m:Vector3,accession:String
 	casings.append(node)
 	return node
 
+## The trim kit's paint: one white for every casing, skirting and cornice (the footage's trim is
+## white in every clip). Seen from both sides, because a door head is drawn from either room.
+var _trim_paint:StandardMaterial3D
+func trim_paint() -> StandardMaterial3D:
+	if _trim_paint==null:
+		_trim_paint=look(Color("f3f1ea"))
+		_trim_paint.cull_mode=BaseMaterial3D.CULL_DISABLED
+	return _trim_paint
+
+## The cased doorway's architrave in section, for a casing 0.16 m wide: [metres across from the
+## opening's edge, metres proud of the wall]. A bead at the opening, a flat fascia, an ogee, and a
+## raised back band with an eased edge (IMG_6385 1.0s, IMG_6383 62.5s). A narrower casing keeps the
+## projections and squeezes the widths.
+const ARCHITRAVE:=[[0,0],[0,.014],[.003,.019],[.009,.022],[.015,.019],[.018,.014],[.018,.010],[.084,.010],
+	[.088,.011],[.094,.016],[.100,.023],[.108,.028],[.116,.030],[.118,.030],[.118,.036],[.150,.036],[.156,.033],[.160,.026],[.160,0]]
+
+## One cased doorway on one room's side of a wall: the architrave swept up one jamb, across the
+## head and down the other with mitred corners, and the lining back to the plane the two rooms
+## share. Three meshes (left, head, right) under the door head, so the camera's cut-away tests
+## each and never the empty opening. `fixed` is the wall's plan line, `opening` its two edges
+## along the wall, `head` the clear height, `width` the casing's width.
+func door_casing(header:Node3D,side:String,fixed:float,opening:Array,head:float,width:float) -> void:
+	var vertical:bool=side in ["west","east"]
+	var face:float=1.0 if side in ["west","north"] else -1.0
+	# (along the wall, up, out of the wall face) -> room metres; the wall's face stands .061 in.
+	var at:=func(s:float,y:float,out:float) -> Vector3:
+		return Vector3(fixed+face*(.061+out),y,s) if vertical else Vector3(s,y,fixed+face*(.061+out))
+	var along:=Vector3(0,0,1) if vertical else Vector3(1,0,0)
+	var outward:=Vector3(face,0,0) if vertical else Vector3(0,0,face)
+	var lo:float=opening[0]
+	var hi:float=opening[1]
+	var section:Array=[]
+	for point in ARCHITRAVE:section.append(Vector2(point[0]*width/.16,point[1]))
+	# The facet normals of the section, eased together where the section curves.
+	var facets:Array=[]
+	for i in section.size()-1:
+		var run:Vector2=section[i+1]-section[i]
+		facets.append(Vector2(-run.y,run.x).normalized())
+	for part in ["left","head","right"]:
+		var st:=SurfaceTool.new()
+		st.begin(Mesh.PRIMITIVE_TRIANGLES)
+		# Which way "across the casing" points for this run, and its two ends for a given offset.
+		var across:Vector3=-along if part=="left" else along if part=="right" else Vector3.UP
+		var ends:=func(d:float,out:float) -> Array:
+			if part=="left":return [at.call(lo-d,0.0,out),at.call(lo-d,head+d,out)]
+			if part=="right":return [at.call(hi+d,head+d,out),at.call(hi+d,0.0,out)]
+			return [at.call(lo-d,head+d,out),at.call(hi+d,head+d,out)]
+		for i in section.size()-1:
+			var a:Array=ends.call(section[i].x,section[i].y)
+			var b:Array=ends.call(section[i+1].x,section[i+1].y)
+			var normals:Array=[]
+			for corner in [i,i+1]:
+				var n:Vector2=facets[i]
+				var other:int=i-1 if corner==i else i+1
+				if other>=0 and other<facets.size() and facets[other].dot(n)>.7:n=(n+facets[other]).normalized()
+				normals.append((across*n.x+outward*n.y).normalized())
+			for corner in [[a[0],normals[0]],[b[0],normals[1]],[b[1],normals[1]],[a[0],normals[0]],[b[1],normals[1]],[a[1],normals[0]]]:
+				st.set_normal(corner[1])
+				st.add_vertex(corner[0])
+		# The lining: from the wall's face back to the shared plane, facing into the opening.
+		var lining:Array=ends.call(0.0,0.0)+ends.call(0.0,-.061)
+		for corner in [0,2,3,0,3,1]:
+			st.set_normal(-across)
+			st.add_vertex(lining[corner])
+		var mesh:=MeshInstance3D.new()
+		mesh.mesh=st.commit()
+		mesh.material_override=trim_paint()
+		mesh.set_meta("door_casing",width)
+		add_child(mesh)
+		mesh.reparent(header)
+
+## The lit green sign over a door, lettered with the game's own font: `at` is its centre, `yaw`
+## turns its face (+Z) into the room. Hang it on the wall it belongs to with reparent().
+func exit_sign(at:Vector3,yaw:float) -> Node3D:
+	var sign:=solid(at,Vector3(.42,.20,.05),look(Color("2c5a3c")))
+	sign.rotation.y=yaw
+	var lettering:=Label3D.new()
+	lettering.text="EXIT"
+	lettering.font_size=48
+	lettering.pixel_size=.0026
+	lettering.modulate=Color("8dfab4")
+	lettering.position=Vector3(0,0,.027)
+	sign.add_child(lettering)
+	sign.set_meta("exit_sign",true)
+	return sign
+
+## Doorways with the footage's deep panelled reveal: "<room>:<side>" -> depth in metres.
+const DEEP_REVEALS:={"light Renaissance room:north":.8}
+## A folded leaf's panels on a reveal cheek, as fractions of its height from the top (IMG_6385 1.0s).
+const LEAF_PANELS:=[[.03,.19],[.22,.32],[.35,.60],[.63,.72],[.75,.96]]
+
+## The reveal of a cased doorway as a stage flat: two panelled cheeks, a panelled soffit and a
+## threshold, standing `depth` metres beyond the wall plane where the next room would be, and
+## fading to the dark the doorway opens on. The plan gives walls no thickness and only the
+## visitor's room is drawn, so the reveal belongs to its own room alone: its body is tagged
+## "<room>:<side>:reveal" and sits more than 0.35 m past the plane, which keeps main_build_walk's
+## shared-wall rule from drawing it in the room it reaches into. Its faces show from inside the
+## opening only. It carries its own tones and stays out of the bake, so it throws no shadow on
+## the neighbour's floor.
+func deep_reveal(label:String,side:String,fixed:float,opening:Array,head:float,depth:float) -> void:
+	var vertical:bool=side in ["west","east"]
+	var face:float=1.0 if side in ["west","north"] else -1.0
+	# (along the wall, up, metres beyond the wall plane) -> room metres.
+	var at:=func(s:float,y:float,d:float) -> Vector3:
+		return Vector3(fixed-face*d,y,s) if vertical else Vector3(s,y,fixed-face*d)
+	var lo:float=opening[0]+.005
+	var hi:float=opening[1]-.005
+	var paint:=look(Color.WHITE,"",true)
+	paint.vertex_color_use_as_albedo=true
+	var body:=StaticBody3D.new()
+	body.position=at.call((lo+hi)/2,head+.04,depth/2)
+	var shape:=CollisionShape3D.new()
+	var slab:=BoxShape3D.new()
+	slab.size=Vector3(depth,.08,hi-lo) if vertical else Vector3(hi-lo,.08,depth)
+	shape.shape=slab
+	body.add_child(shape)
+	body.set_meta("room_wall",label+":"+side+":reveal")
+	add_child(body)
+	casings.append(body)
+	# Each surface: its corner, its two edges, the way it faces, its size, and its panels.
+	var into:=Vector3(0,0,1) if vertical else Vector3(1,0,0) # along the wall
+	var beyond:Vector3=at.call(0.0,0.0,1.0)-at.call(0.0,0.0,0.0)
+	var cheek:Array=[]
+	for span in LEAF_PANELS:cheek.append(Rect2(.09,head*(1.0-span[1]),depth-.18,head*(span[1]-span[0])))
+	for spec in [
+		[at.call(lo,head,0.0),into,beyond,Vector3.DOWN,hi-lo,depth,[Rect2(.10,.10,hi-lo-.20,depth-.20)],Color("efe9da")],
+		[at.call(lo,0.0,0.0),beyond,Vector3.UP,into,depth,head,cheek,Color("efe9da")],
+		[at.call(hi,0.0,0.0),beyond,Vector3.UP,-into,depth,head,cheek,Color("efe9da")],
+		[at.call(lo,.004,0.0),into,beyond,Vector3.UP,hi-lo,depth,[],Color("9c9486")]]:
+		var st:=SurfaceTool.new()
+		st.begin(Mesh.PRIMITIVE_TRIANGLES)
+		var origin:Vector3=spec[0]
+		var u:Vector3=spec[1]
+		var v:Vector3=spec[2]
+		var n:Vector3=spec[3]
+		# One flat piece from (a) to (b) in the surface's own metres, `sunk` behind it at each end.
+		var piece:=func(a:Vector2,b:Vector2,sunk:Array,tone:Color) -> void:
+			var corners:Array=[]
+			for corner in [[a.x,a.y,sunk[0]],[b.x,a.y,sunk[1]],[b.x,b.y,sunk[2]],[a.x,b.y,sunk[3]]]:
+				corners.append(origin+u*corner[0]+v*corner[1]-n*corner[2])
+			var flip:bool=(corners[1]-corners[0]).cross(corners[2]-corners[0]).dot(n)>0
+			for i in ([0,2,1,0,3,2] if flip else [0,1,2,0,2,3]):
+				var gone:float=(corners[i]-origin).dot(beyond)/depth
+				st.set_color(tone.darkened(clampf(gone,0,1)*.55))
+				st.set_normal(n)
+				st.add_vertex(corners[i])
+		var w:float=spec[4]
+		var h:float=spec[5]
+		var tone:Color=spec[7]
+		var rows:Array=spec[6]
+		if rows.is_empty():
+			piece.call(Vector2.ZERO,Vector2(w,h),[0,0,0,0],tone)
+		# Rails across the full width between panels; stiles beside each; the panel sunk with a bevel.
+		var edge:=0.0
+		var sorted:Array=rows.duplicate()
+		sorted.sort_custom(func(a,b):return a.position.y<b.position.y)
+		for r in sorted:
+			piece.call(Vector2(0,edge),Vector2(w,r.position.y),[0,0,0,0],tone)
+			piece.call(Vector2(0,r.position.y),Vector2(r.position.x,r.end.y),[0,0,0,0],tone)
+			piece.call(Vector2(r.end.x,r.position.y),Vector2(w,r.end.y),[0,0,0,0],tone)
+			var inner:Rect2=r.grow(-.02)
+			piece.call(inner.position,inner.end,[.012,.012,.012,.012],tone.darkened(.06))
+			piece.call(r.position,Vector2(r.end.x,inner.position.y),[0,0,.012,.012],tone.darkened(.18))
+			piece.call(Vector2(r.position.x,inner.end.y),r.end,[.012,.012,0,0],tone.lightened(.25))
+			piece.call(r.position,Vector2(inner.position.x,r.end.y),[0,.012,.012,0],tone.darkened(.12))
+			piece.call(Vector2(inner.end.x,r.position.y),r.end,[.012,0,0,.012],tone.darkened(.12))
+			edge=r.end.y
+		if not rows.is_empty():piece.call(Vector2(0,edge),Vector2(w,h),[0,0,0,0],tone)
+		var mesh:=MeshInstance3D.new()
+		mesh.mesh=st.commit()
+		mesh.material_override=paint
+		mesh.set_meta("deep_reveal",label+":"+side)
+		# Its tones are its own: kept out of the lightmap, where it would shade the next room's floor.
+		mesh.visible=not has_meta("bake_preparing")
+		body.add_child(mesh)
+		mesh.global_transform=Transform3D.IDENTITY
+
 func panel(parent: Node3D, corners: Array, uvs: Array, m: Material, tone := Color.WHITE) -> void:
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
@@ -394,8 +571,10 @@ func build_rooms() -> void:
 		if area.label=="grey French gallery":wall=look(Color("b6b4ad"),"res://presentation/neutral-plaster.png")
 		if area.label=="light Renaissance room":wall=look(Color("e3e2de"),"res://presentation/neutral-plaster.png")
 		var height:float=area.get("height",3.5)
-		if area.label in ["light Renaissance room","dark medieval room","modern painting gallery"]:
-			# IMG_6383 62.25s / IMG_6382 88.75s: flat plaster, not the Hall skylight.
+		if area.label in ["light Renaissance room","dark medieval room","modern painting gallery","adjacent gallery","Rockefeller","grey French gallery"]:
+			# IMG_6383 62.25s / IMG_6382 88.75s: flat plaster, not the Hall skylight. The European gallery
+			# (IMG_6386 74.5s), Rockefeller (IMG_6380 223.5s) and the grey gallery (IMG_6380 16.5s) have the
+			# same flat white ceiling over their tracks; it hides with the camera as the others do.
 			var ceiling:=solid(Vector3((b[0]+b[1])/2,height+.02,(b[2]+b[3])/2),Vector3(b[1]-b[0],.04,b[3]-b[2]),look(Color("ebe9e3"),"res://presentation/neutral-plaster.png"))
 			ceiling.set_meta("opaque_ceiling",area.label)
 			ceiling_details.append(ceiling)
@@ -447,11 +626,12 @@ func build_rooms() -> void:
 				casing.set_meta("room_wall",area.label+":"+side)
 				var inward:float=1.0 if side in ["west","north"] else -1.0
 				wall_face(casing,span[1]-span[0],height,vertical,inward)
-				var trim:=moulding(span[1]-span[0],.16,"baseboard",false)
+				# White and about 20 cm tall in every clip (IMG_6383 34.0s, IMG_6385 1.0s).
+				var trim:=moulding(span[1]-span[0],.20,"baseboard",false)
 				if area.label.begins_with("purple"):
 					trim.material_override=look(Color("15151b") if side=="south" else Color.WHITE,"" if side=="south" else "res://presentation/purple-plaster.png")
 					trim.set_meta("connector_baseboard",side)
-				trim.position=Vector3(fixed+inward*.065,.08,(span[0]+span[1])/2) if vertical else Vector3((span[0]+span[1])/2,.08,fixed+inward*.065)
+				trim.position=Vector3(fixed+inward*.065,.10,(span[0]+span[1])/2) if vertical else Vector3((span[0]+span[1])/2,.10,fixed+inward*.065)
 				trim.rotation.y=inward*PI/2 if vertical else 0.0 if inward==1.0 else PI
 				trim.reparent(casing)
 			if opening.is_empty():continue
@@ -468,21 +648,9 @@ func build_rooms() -> void:
 			if stone or side in area.get("column_sides",[]):continue
 			var casing_width:float=.10 if area.label in ["grey French gallery","purple elevator-5 connector","Skylight Gallery"] else .16
 			header.set_meta("source_casing_width",casing_width)
-			for edge in opening:
-				# Deep painted reveals are visible in both reciprocal doorway shots.
-				var jamb:=solid(Vector3(fixed,1.35,edge) if vertical else Vector3(edge,1.35,fixed),Vector3(.38,2.7,.08) if vertical else Vector3(.08,2.7,.38),ivory)
-				jamb.reparent(header)
-				for face in [1 if side in ["west","north"] else -1]:
-					var surround:=moulding(casing_width,2.7,"door-architrave",true)
-					surround.position=Vector3(fixed+face*.20,1.35,edge) if vertical else Vector3(edge,1.35,fixed+face*.20)
-					surround.rotation.y=face*PI/2 if vertical else 0.0 if face==1 else PI
-					surround.reparent(header)
-			for face in [1 if side in ["west","north"] else -1]:
-				var top:=moulding(casing_width,width+casing_width,"door-architrave",true)
-				top.rotation.z=PI/2
-				top.rotation.y=face*PI/2 if vertical else 0.0 if face==1 else PI
-				top.position=Vector3(fixed+face*.20,2.73,middle) if vertical else Vector3(middle,2.73,fixed+face*.20)
-				top.reparent(header)
+			door_casing(header,side,fixed,opening,minf(clear_height,2.74),casing_width)
+			if DEEP_REVEALS.has(area.label+":"+side):
+				deep_reveal(area.label,side,fixed,opening,minf(clear_height,2.74),DEEP_REVEALS[area.label+":"+side])
 	# Ceiling rails and vents follow the wide views, and Rockefeller north by the Hall reveal.
 	var north:=Vector3(0,0,-hall_reveal.wall_m)
 	for x in [-3.65,-1.55,.55]:
@@ -618,7 +786,7 @@ func build_reveal(label:String,leaves:bool) -> void:
 	# ponytail: depth, head and leaf metres are the pose in geometry.json, not a survey. The three Muse
 	# panels are re-laid to the observed heights, so their mouldings stretch; redraw only if that reads.
 	var b:Array=reveals[label]
-	var ivory:=look(Color("eeeae2"))
+	var ivory:=trim_paint()
 	var proud:=.19 # every door frame here stands this far out of its wall
 	var north:float=b[2]-proud
 	var south:float=b[3] if leaves else b[3]+proud
@@ -724,7 +892,10 @@ func moulding(width:float,height:float,kind:String,upright:bool) -> MeshInstance
 		Painting.quad(st,corners,[Vector2(a.x,1),Vector2(b.x,1),Vector2(b.x,0),Vector2(a.x,0)] if upright else [Vector2(0,1-a.x),Vector2(1,1-a.x),Vector2(1,1-b.x),Vector2(0,1-b.x)])
 	var mesh:=MeshInstance3D.new()
 	mesh.mesh=st.commit()
-	mesh.material_override=look(Color.WHITE,"res://assets/"+kind+".png")
+	# White in every clip: skirting, casings and cornices share the kit's one paint. `kind` names
+	# what the run is ("baseboard", "door-architrave"), for the builders that look for it.
+	mesh.material_override=trim_paint()
+	mesh.set_meta("trim",kind)
 	add_child(mesh)
 	return mesh
 
@@ -1052,16 +1223,10 @@ func build_adjacent_gallery() -> void:
 	angels.position=Vector3(-3.485,1.8,16.96)
 	angels.rotation.y=PI/2
 	angels.set_meta("catalogue_accession","36.003")
-	# IMG_6386 44.25/67.75s: opposite-wall piers project into the gallery.
-	# ponytail: wall relationships observed; pier depth and spacing await metric fitting.
-	# #258: this wall (x 2.50 here) is the Main Hall's own west wall, a sheet with no thickness.
-	# The piers stop 2 cm short of it: a face on that plane flickers through the Hall wall, and
-	# the foot used to reach 2.5 cm into the Hall. Their fronts are where they were.
-	for z in [3.65,8.4]:
-		var pier:=solid(Vector3(2.27,1.75,z),Vector3(.42,3.5,.9),look(Color.WHITE,"res://presentation/wall-plaster.png"),true)
-		var foot:=solid(Vector3(2.2275,.065,z),Vector3(.505,.13,1.06),look(Color("f1ede2")))
-		foot.reparent(pier)
-	inventory["gallery_piers"]=2
+	# IMG_6386 44.5/67.5s: nothing stands out of this wall but the one white display panel on the
+	# platform, which european_east_additions.gd builds. The two full-height piers once built here
+	# were a misreading of that panel and are gone.
+	inventory["gallery_piers"]=0
 	# IMG_6386 102.75/104.75s: two unequal panels, leaves swing into Renaissance.
 	# ponytail: right-angle swing and leaf dimensions remain provisional; wall relationship is observed.
 	for x in [-1.59,.49]:

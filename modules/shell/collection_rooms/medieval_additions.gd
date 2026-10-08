@@ -48,9 +48,7 @@ func build(scene) -> void:
 
 	# Saint Peter, a bust on a rectangular pedestal with a stepped cap (6382 44.5..50.5s).
 	var peter_base := _pedestal(room.wall_point(ROOM, "south", 3.27, 0, .36), Vector3(.58, 1.05, .48), Vector3(.50, .15, .40))
-	var peter := _work("peter", .762, .29, Color("8e8571"))
-	peter.position = room.wall_point(ROOM, "south", 3.27, 1.20 + .381, .36 - .145)
-	peter.rotation.y = PI
+	var peter := _mesh("peter", "peter-20254.glb", room.wall_point(ROOM, "south", 3.27, 1.20, .36), PI, Vector3(.432, .762, .292))
 	peter.reparent(peter_base)
 	_label(room.wall_point(ROOM, "south", 3.27, .82, .36 + .243), PI, peter_base)
 	peter_base.reparent(south)
@@ -76,9 +74,7 @@ func build(scene) -> void:
 
 	# Head of Christ or a Saint on an octagonal pedestal near the south-east corner (6382 28.5..32.5s).
 	var head_base := _octagon(room.wall_point(ROOM, "south", 8.62, 0, .43), .30, 1.36, .24, .14)
-	var head := _work("head", .813, .35, Color("6e5235"))
-	head.position = room.wall_point(ROOM, "south", 8.62, 1.50 + .4065, .43 - .175)
-	head.rotation.y = PI
+	var head := _mesh("head", "head-59131.glb", room.wall_point(ROOM, "south", 8.62, 1.50, .43), PI, Vector3(.508, .813, .508))
 	head.reparent(head_base)
 	_label(room.wall_point(ROOM, "south", 8.62, 1.0, .43 + .28), PI, head_base)
 	head_base.reparent(south)
@@ -86,13 +82,22 @@ func build(scene) -> void:
 	# Angel of the Annunciation on a low octagonal pedestal against the west wall, south of the
 	# tracery door (6382 59.5..61.5s); 1.29 m from the south wall.
 	var angel_base := _octagon(room.wall_point(ROOM, "west", 4.81, 0, .45), .33, .69, 0, 0)
-	var angel := _work("angel", 1.524, .28, Color("4f4a3a"))
-	angel.position = room.wall_point(ROOM, "west", 4.81, .69 + .762, .45 - .14)
-	angel.rotation.y = PI / 2
+	var angel := _mesh("angel", "angel-37114.glb", room.wall_point(ROOM, "west", 4.81, .69, .45), PI / 2, Vector3(0, 1.524, 0))
 	angel.reparent(angel_base)
 	angel_base.reparent(west)
 	_label(room.wall_point(ROOM, "west", 4.40, 1.35, FACE + .003), PI / 2, west)
 	room.inventory["medieval_additions"] = {"works": WORKS.keys(), "pedestals": 4, "platform": 1, "backing_panel": 1, "label_cards": 6, "placement_accepted": false, "volumes_modelled": false}
+
+## One catalogued work as a mesh (#263): the file in DIR, the point its base stands on, its turn, its catalogue size.
+func _mesh(key: String, file: String, at: Vector3, yaw: float, size_m: Vector3) -> Node3D:
+	var row: Array = WORKS[key]
+	var art: Node3D = room.place_mesh(DIR + file, at, yaw, size_m, row[0])
+	art.name = "Medieval" + key.capitalize()
+	for i in 5:
+		art.set_meta(["catalogue_title", "catalogue_maker", "catalogue_date", "catalogue_medium", "catalogue_dimensions"][i], row[i + 1])
+	art.set_meta("catalogue_image", DIR + row[0] + "-front.jpg")
+	art.set_meta("placement_accepted", false)
+	return art
 
 ## One catalogued work: its photograph on a slab cut to its outline, local +z out of the wall.
 func _work(key: String, height: float, depth: float, edge: Color) -> Node3D:

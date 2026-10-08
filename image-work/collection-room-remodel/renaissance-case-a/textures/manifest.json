@@ -206,33 +206,37 @@
   },
   "bookcover-board": {
    "file": "textures/bookcover-board.png",
-   "sha256": "01a3cf3f4b70ba41b87a58620ea5f0fe2c13a0a0a6b111f99ef5f05bb1c9ca00",
-   "source": "book-cover-34016-zoom-0.jpg",
-   "source_sha256": "c7955feb2ad1f512f54ecacdc9f2a22db569073366c7792bc3aaa8b802945e14",
+   "sha256": "5bebcc82a2ec4842e69f6ee55727f86a225ab0de15717e027c8a08ea22e3c90d",
+   "source": "https://iiif.micr.io/twNLL/full/!4064,4064/0/default.jpg",
+   "source_sha256": "6f46132e90e6de6a872c5c60806fadb78c442bfb157abf33f6faca30a9cf0b35",
    "quad_px": [
     [
-     420,
-     455
+     1289.1839599609375,
+     1395.93994140625
     ],
     [
-     628,
-     203
+     1927.637939453125,
+     622.8040161132812
     ],
     [
-     1203,
-     492
+     3692.592041015625,
+     1509.4560546875
     ],
     [
-     1015,
-     775
+     3115.528076171875,
+     2377.699951171875
     ]
    ],
    "size": [
-    258,
-    420
+    157,
+    256
    ],
    "corners": "picked by eye",
-   "pixels": "source pixels resampled once, bicubic; no generation"
+   "pixels": "catalogue photograph rectified once at the measured wall resolution; no generation or upscaling",
+   "source_pixels": [
+    4064,
+    3068
+   ]
   },
   "cleric-frame-film": {
    "file": "textures/cleric-frame-film.png",

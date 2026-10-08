@@ -1,6 +1,6 @@
 {
-  "main_build_tip": "c7ea035e783ed1d6d9b70afc80cf2b8079d27f69",
-  "hall_files_unchanged": 457,
+  "main_build_tip": "ecfda16e13b5c15a5fc534b75cc6e0b0c9dd7c68",
+  "hall_files_unchanged": 482,
   "room_scripts": {
     "connected_hall.gd": {
       "paths_moved": 0,
@@ -14,8 +14,8 @@
     },
     "european_east_additions.gd": {
       "paths_moved": 4,
-      "source_sha256": "b5097800931ddefe83061a3473186d33b451418447f7c25d6e3c63b56ac9293c",
-      "sha256": "97a99e88ee96c9434e973544ab7783db028ed351a441a97f8db3acd0efb2b971"
+      "source_sha256": "1656417eb6043e81e0b9507f50791675cfe3b8f1e43d38965aa4c092ad305081",
+      "sha256": "40c66fe02ae4ad4d4e16e173b02defa8e8672eabb07754427117e2c3221ae686"
     },
     "european_west_additions.gd": {
       "paths_moved": 3,
@@ -24,13 +24,13 @@
     },
     "grey_additions.gd": {
       "paths_moved": 3,
-      "source_sha256": "2425e61afbf402c8e69d6ffd656f5faa6e8e251b383ca035180a7b142694d4df",
-      "sha256": "30a1710ff7fa70db9e1471a6c8650b70749768006859a18d50a8a37570700e97"
+      "source_sha256": "35d385fd59222166fc9a8ae3793e0935a03e77c2a484c968f47669747549d742",
+      "sha256": "6bb3af1fba673574cd6882b54c4c2f91c743d1fdfbdd069d8572de7728f2c212"
     },
     "landing_additions.gd": {
       "paths_moved": 3,
-      "source_sha256": "6b528191a6d703bcf79bac03486d2931b7d7466fb7c8385831c91c586c76ca3b",
-      "sha256": "ba3a538057d3b72c94496191d743357b1a592b0958f99d889e1aa21d4115a766"
+      "source_sha256": "7da12cc078d9b1fd963a5f7f7f9a29ad0575b140eb668b208257b883353793e8",
+      "sha256": "de5dbde407144fd3ed5ba16ac57c14707226f40f3e20ed355cc7f74d14b70d63"
     },
     "marble_hall_additions.gd": {
       "paths_moved": 5,
@@ -39,8 +39,8 @@
     },
     "medieval_additions.gd": {
       "paths_moved": 1,
-      "source_sha256": "f2ee537db3e13aa28d9ad6576a2274f4274c8d32867c87c71cad5f4eb0519506",
-      "sha256": "88b074ac9a09ebf545090c51a1a302cb45e2a04ca7d8d34f1c7f8970cff63dde"
+      "source_sha256": "f746f2788ace2fd5798323dae9916873bd5c691715ab3f304dc86441f139df62",
+      "sha256": "5dc0da475116ae7c37f760c4e6f8028d6aeff0c49d2a1c1800a219d6a31b800f"
     },
     "medieval_ceramic_ivory_assets.gd": {
       "paths_moved": 0,
@@ -78,9 +78,9 @@
       "sha256": "2710dada068af769da2ca9e9274fee8877ef2a77624e2d351a1246af793fe55a"
     },
     "remodel_room.gd": {
-      "paths_moved": 104,
-      "source_sha256": "758175aaab99723df2d908871960c08660b74184ee3fb3259894679ad71952d3",
-      "sha256": "045cedd89f05cd2a7f814c286df76c774575ff5830507b81638156adf227e591"
+      "paths_moved": 102,
+      "source_sha256": "54b60c66f3c48f81fc459b3a01988d0ca3cdf52ca3cbca5f2b5db76dc5ba874a",
+      "sha256": "c2bd610daf6e2cf6e23a945c361ee0ea38fbb5fc89166624f744bee25c3f0ebf"
     },
     "remodel_room.tscn": {
       "paths_moved": 1,
@@ -109,8 +109,8 @@
     },
     "rockefeller_additions.gd": {
       "paths_moved": 2,
-      "source_sha256": "919f6e571400f6d8e7ddc23f430e9a5571906ca5acd207f06a9960798abfab49",
-      "sha256": "27f7481dd3bfa4027d3760e9a004243e8a2d29a1954814fe92887ae6856e8864"
+      "source_sha256": "7418963e019c475631c683943e061f46d854712f5dbbb2b4eec93f23556cbbfa",
+      "sha256": "ebe2d12a6be83b87a80e67018c161a6954c856b39bbaa0cb9395e6370f474026"
     },
     "saint_roch_asset.gd": {
       "paths_moved": 0,

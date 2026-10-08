@@ -168,7 +168,7 @@ func _free_near(p: Vector3) -> Vector3:
 	return p
 
 
-func _place(p: Vector3) -> void:
+func _place(p: Vector3, yaw := 0.0) -> void:
 	var label := _area_at(p)
 	walk._new_action()
 	walk._target = null
@@ -181,15 +181,49 @@ func _place(p: Vector3) -> void:
 		if area.label == label:
 			walk._space = area.space
 	walk.view_mode = 0
-	walk.view_yaw = 0.0
-	walk._yaw = 0.0
+	walk.view_yaw = yaw
+	walk._yaw = yaw
 	walk._kid.position = p
 	walk._kid.reset_contacts()
+	# A room change still under way from the last leg ends here, and the stage is the one stood in.
+	if walk.has_method("_wipe_end"):
+		walk._wipe_end()
+		walk.set("_stage", walk.get("NO_STAGE"))
 	walk._update_camera(1.0)
 
 
-# Hold the keys a player would hold to reach `goal` in the north-facing dollhouse view.
-func _walk_keys(goal: Vector3, limit_s: float) -> Dictionary:
+# The share of the picture that is the dark outside the rooms (or the wipe's black).
+func _void_share(image: Image) -> float:
+	var small: Image = image.duplicate()
+	small.resize(96, 64, Image.INTERPOLATE_BILINEAR)
+	var dark := 0
+	for y in 64:
+		for x in 96:
+			var c := small.get_pixel(x, y)
+			dark += int(maxf(c.r, maxf(c.g, c.b)) < 0.07)
+	return dark / 6144.0
+
+
+# One reading of the picture for the dark-share rule; stops for good once the wipe has shut,
+# because what is put up in the black is not on screen.
+func _watch_void(dark: Dictionary, clock: float) -> void:
+	if not dark.on:
+		return
+	if float(walk.get("_wipe_t")) >= float(walk.get("WIPE_CLOSE")):
+		dark.on = false
+		return
+	var share := _void_share(root.get_texture().get_image())
+	if dark.before >= 0.0 and share - dark.before > dark.jump:
+		dark.jump = share - dark.before
+		dark.at = clock
+		dark.from = dark.before
+	dark.before = share
+
+
+# Hold the keys a player would hold to reach `goal` in the dollhouse view as it is turned.
+# With `watch_void` the picture is read every other frame until the room-change wipe has shut:
+# the dark outside must grow smoothly, never in one step (a room dropped before the wipe hid it).
+func _walk_keys(goal: Vector3, limit_s: float, watch_void := false) -> Dictionary:
 	var started := walk._pos as Vector3
 	var clock := 0.0
 	var stuck := 0.0
@@ -197,18 +231,26 @@ func _walk_keys(goal: Vector3, limit_s: float) -> Dictionary:
 	var steps := 0
 	var walked_clip := false
 	var before := walk._pos as Vector3
+	var yaw: float = walk.view_yaw
+	var dark := {"on": watch_void, "before": -1.0, "jump": 0.0, "at": 0.0, "from": 0.0}
+	var frame := 0
 	while clock < limit_s:
 		var to: Vector3 = goal - walk._pos
 		to.y = 0
 		if to.length() < 0.25:
 			break
+		var ahead := to.dot(Vector3(-sin(yaw), 0, -cos(yaw)))
+		var aside := to.dot(Vector3(cos(yaw), 0, -sin(yaw)))
 		var held := {}
-		if absf(to.z) > 0.12:
-			held["up" if to.z < 0 else "down"] = 1.0
-		if absf(to.x) > 0.12:
-			held["right" if to.x > 0 else "left"] = 1.0
+		if absf(ahead) > 0.12:
+			held["up" if ahead > 0 else "down"] = 1.0
+		if absf(aside) > 0.12:
+			held["right" if aside > 0 else "left"] = 1.0
 		walk._held = held
 		await process_frame
+		frame += 1
+		if frame % 2 == 0:
+			_watch_void(dark, clock)
 		var delta: float = root.get_process_delta_time()
 		clock += delta
 		var moved: float = (walk._pos as Vector3).distance_to(before)
@@ -220,8 +262,13 @@ func _walk_keys(goal: Vector3, limit_s: float) -> Dictionary:
 		if stuck > 2.5:
 			break
 	walk._held = {}
-	for settle in 20:
+	# Arrived, perhaps while the wipe is still closing: it is watched until it has shut.
+	for settle in 110:
+		if settle >= 20 and (not dark.on or float(walk.get("_wipe_t")) < 0.0):
+			break
 		await process_frame
+		if settle % 2 == 1:
+			_watch_void(dark, clock + (settle + 1) / 60.0)
 	var left: float = Vector3(goal.x - walk._pos.x, 0, goal.z - walk._pos.z).length()
 	return {
 		"arrived": left < 0.3,
@@ -231,6 +278,9 @@ func _walk_keys(goal: Vector3, limit_s: float) -> Dictionary:
 		"longest_step_m": snappedf(longest_step, 0.001),
 		"footsteps": steps,
 		"walk_clip": walked_clip,
+		"void_jump": snappedf(dark.jump, 0.01),
+		"void_jump_at_s": snappedf(dark.at, 0.01),
+		"void_before_jump": snappedf(dark.from, 0.01),
 		"idle_after": walk._kid._clip == "idle",
 		"ended_in": _area_at(walk._pos),
 		"ended_at": [snappedf(walk._pos.x, 0.01), snappedf(walk._pos.z, 0.01)]
@@ -240,10 +290,16 @@ func _walk_keys(goal: Vector3, limit_s: float) -> Dictionary:
 func _doors() -> void:
 	for door in _doorways():
 		for way in [[door.from, door.to, door.a, door.b], [door.to, door.from, door.b, door.a]]:
-			_place(way[0])
+			# Looking the way the visitor walks, so the camera stands over the room being left:
+			# the view in which a room dropped too early shows.
+			var along: Vector3 = way[1] - way[0]
+			var yaw := (0.0 if along.z < 0 else PI) if absf(along.z) > absf(along.x) else (
+				-PI / 2.0 if along.x > 0 else PI / 2.0
+			)
+			_place(way[0], yaw)
 			for settle in 6:
 				await process_frame
-			var leg := await _walk_keys(way[1], 12.0)
+			var leg := await _walk_keys(way[1], 12.0, true)
 			leg["from"] = way[2]
 			leg["to"] = way[3]
 			report.doors.append(leg)
@@ -256,6 +312,8 @@ func _doors() -> void:
 				_fail("door", name + ": the visitor jumped", leg)
 			elif not leg.walk_clip or leg.footsteps == 0:
 				_fail("door", name + ": walked without its walk animation or footsteps", leg)
+			elif leg.void_jump > 0.25:
+				_fail("door", name + ": the room went dark in one step before the wipe had shut", leg)
 
 
 func _rooms() -> void:

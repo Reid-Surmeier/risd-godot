@@ -14,8 +14,9 @@ func run() -> void:
 		await process_frame
 	var walk = app.find_child("GalleryWalk", true, false)
 	assert(walk != null)
+	# The rooms are built at the first doorway (#281); this check wants them now.
 	if walk.state().get("pending", false):
-		walk._attach_rooms(walk._rooms_path)  # built at the first doorway since #281
+		walk._attach_rooms(walk._rooms_path)
 	assert(walk.state().attached)
 	walk.set_process(false)
 	var cases := [
