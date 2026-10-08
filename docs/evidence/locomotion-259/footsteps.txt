@@ -1,0 +1,4 @@
+before   gait-to-gait clip changes=31 cues=62 in_air=0 same_foot_twice_in_a_stretch=7 shortest_gap=4f cue_within_1f_of_sole_down=48/62 cue_with_no_sole_down_in_0.2s=9 sole_downs=56 silent_sole_downs=8
+         2:f142Lrx2 2:f143Rrsilent 3:f148Lwsilent 6:f268Lrx2 6:f180Ldsilent 6:f247Lwsilent 6:f267Rrsilent 7:f13Rwsilent 9:f52Lrx2 9:f64Lrx2 9:f102Lrx2 9:f114Lrx2 9:f152Lrx2 9:f102Rrsilent 9:f152Rrsilent
+after    gait-to-gait clip changes=14 cues=53 in_air=0 same_foot_twice_in_a_stretch=0 shortest_gap=15f cue_within_1f_of_sole_down=52/53 cue_with_no_sole_down_in_0.2s=1 sole_downs=55 silent_sole_downs=3
+         7:f13Rwsilent 9:f106Rwsilent 9:f157Lwsilent
